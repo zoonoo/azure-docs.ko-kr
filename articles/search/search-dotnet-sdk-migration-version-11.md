@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 83208ec792f40661861dd558ac2c1a1521c1d7fb
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 6880706300597e925267dae1230a87d17cd5c028
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660972"
+ms.locfileid: "88688354"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Azure Cognitive Search .NET SDK 버전 11로 업그레이드
 
@@ -28,6 +28,9 @@ ms.locfileid: "88660972"
 + 새 패키지 이름입니다 ( `Azure.Search.Documents` 대신) `Microsoft.Azure.Search` .
 + 2 대신 세 개의 클라이언트: `SearchClient` , `SearchIndexClient` , `SearchIndexerClient`
 + 일부 작업을 단순화 하는 다양 한 Api 및 작은 구조적 차이로 인 한 명명의 차이점
+
+> [!NOTE]
+> .NET SDK 버전 11의 변경 내용에 대 한 자세한 내용은 [**변경 로그**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) 를 검토 하세요.
 
 ## <a name="package-and-library-consolidation"></a>패키지 및 라이브러리 통합
 
@@ -114,19 +117,23 @@ Azure Cognitive Search 클라이언트 라이브러리의 각 버전은 해당 �
 
 버전 11은 [2020-06-30 검색 서비스](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/search/data-plane/Azure.Search/preview/2020-06-30/searchservice.json)를 대상으로 합니다. 버전 11은 처음부터 새로 빌드된 클라이언트 라이브러리 이기도 하기 때문에 대부분의 개발 작업에는 버전 10과 동등 하 게 중점을 두고 있지만 일부 REST API 기능 지원이 보류 중입니다.
 
-버전 11은 다음 개체 및 작업을 완벽 하 게 지원 합니다.
+버전 11.0는 다음 개체 및 작업을 완벽 하 게 지원 합니다.
 
 + 인덱스 생성 및 관리
 + 동의어 맵 만들기 및 관리
 + 모든 쿼리 유형 및 구문 (지리적 공간 필터 제외)
 + 데이터 원본 및 기술력과를 포함 하 여 Azure 데이터 원본을 인덱싱하는 인덱서 개체 및 작업
 
+버전 11.1에는 다음이 추가 되었습니다.
+
++ [Fieldbuilder](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.fieldbuilder) (11.1에 추가 됨)
++ 사용자 지정 serialization을 지원 하기 위해 [Serializer 속성](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclientoptions.serializer) (11.1에 추가 됨)
+
 ### <a name="pending-features"></a>보류 중인 기능
 
-다음 버전 10 기능은 버전 11에서 아직 사용할 수 없습니다. 이러한 기능을 사용 하는 경우 지원 될 때까지 마이그레이션을 보류 합니다.
+다음 버전 10 기능은 버전 11에서 아직 사용할 수 없습니다. 이러한 기능이 필요한 경우 지원 될 때까지 마이그레이션을 보류 합니다.
 
 + 지리 공간적 형식
-+ [Fieldbuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) ( [이 해결 방법을](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/tests/Samples/FieldBuilder/FieldBuilder.cs)사용할 수 있음).
 + [지식 저장소](knowledge-store-concept-intro.md)
 
 <a name="UpgradeSteps"></a>
@@ -176,7 +183,7 @@ Azure Cognitive Search 클라이언트 라이브러리의 각 버전은 해당 �
 
 라이브러리 및 Api에 대 한 변경 사항이 있는 경우 버전 11로 업그레이드 하는 것은 간단 하지 않으며 코드는 더 이상 이전 버전 10과 호환 되지 않는다는 점에서 주요 변경 사항을 구성 합니다. 차이점을 철저 하 게 검토 하려면의 [변경 로그](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) 를 참조 하세요 `Azure.Search.Documents` .
 
-서비스 버전을 기준으로 10에서 11로 이동 하면 다음과 같은 동작이 변경 됩니다. 
+버전 11의 코드 변경이 기존 기능과 관련이 있고 (Api의 리팩터링이 아니라) 서비스 버전 업데이트를 사용 하는 경우 다음과 같은 동작이 변경 될 수 있습니다.
 
 + [BM25 순위 알고리즘](index-ranking-similarity.md) 은 이전 순위 알고리즘을 최신 기술로 대체 합니다. 새 서비스는이 알고리즘을 자동으로 사용 합니다. 기존 서비스의 경우 새 알고리즘을 사용 하도록 매개 변수를 설정 해야 합니다.
 

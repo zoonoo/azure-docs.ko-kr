@@ -5,12 +5,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 Azure 디스크로 영구적
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 3d01b2c2098dcbe896ecaa7f854d91477eba2cab
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 06aad076836c0f6fdc59c4ed5d0116231080d15c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648771"
+ms.locfileid: "88683609"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
@@ -40,7 +40,7 @@ Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 �
     
 기본 저장소 클래스 중 하나를 사용 하는 경우 저장소 클래스를 만든 후에는 볼륨 크기를 업데이트할 수 없습니다. 저장소 클래스를 만든 후 볼륨 크기를 업데이트 하려면 `allowVolumeExpansion: true` 기본 저장소 클래스 중 하나에 줄을 추가 하거나 사용자 지정 저장소 클래스를 직접 만들 수 있습니다. 데이터 손실을 방지 하기 위해 PVC의 크기를 줄이는 것은 지원 되지 않습니다. 명령을 사용 하 여 기존 저장소 클래스를 편집할 수 있습니다 `kubectl edit sc` . 
 
-예를 들어 크기가 4 TiB 디스크를 사용 하려는 경우 디스크 `cachingmode: None` [캐싱이 4 TiB 이상 디스크에 대해 지원 되지](../virtual-machines/windows/premium-storage-performance.md#disk-caching)않기 때문에을 정의 하는 저장소 클래스를 만들어야 합니다.
+예를 들어 크기가 4 TiB 디스크를 사용 하려는 경우 디스크 `cachingmode: None` [캐싱이 4 TiB 이상 디스크에 대해 지원 되지](../virtual-machines/premium-storage-performance.md#disk-caching)않기 때문에을 정의 하는 저장소 클래스를 만들어야 합니다.
 
 저장소 클래스 및 사용자 고유의 저장소 클래스 만들기에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 저장소 옵션][storage-class-concepts]을 참조 하세요.
 

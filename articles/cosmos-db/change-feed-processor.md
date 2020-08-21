@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8353b7290f0e0073faf93b4ea23bcc0ba50bb89e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: faf46a90a04e35eb041deb31913980575b1e0d28
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236474"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688048"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서
 
@@ -100,8 +100,8 @@ Cosmos 컨테이너 내부 및 외부의 데이터 이동은 항상 RU를 사용
 변경 피드 프로세서는 장기 실행 프로세스나 작업을 지 원하는 모든 플랫폼에서 호스팅될 수 있습니다.
 
 * 연속 실행 중인 [Azure WebJob](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/).
-* [Azure 가상 컴퓨터](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-virtual-machines)의 프로세스입니다.
-* [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-kubernetes-service)의 백그라운드 작업입니다.
+* [Azure 가상 컴퓨터](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines)의 프로세스입니다.
+* [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service)의 백그라운드 작업입니다.
 * [ASP.NET 호스 티 드 서비스](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services)입니다.
 
 변경 피드 프로세서는 수명이 짧은 환경에서 실행 될 수 있지만, 임대 컨테이너는 상태를 유지 하기 때문에 이러한 환경의 시작 및 중지 주기는 환경을 시작할 때마다 프로세서를 시작 하는 오버 헤드로 인해 알림을 수신 하는 지연을 추가 합니다.

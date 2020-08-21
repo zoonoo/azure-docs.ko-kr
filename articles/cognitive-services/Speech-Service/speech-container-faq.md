@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 10a75d19b7fb134b8e7498c422742e00f6475da5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289032"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690207"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>음성 서비스 컨테이너 FAQ (질문과 대답)
 
@@ -305,7 +305,7 @@ Websocket이 올바르게 설정 되어 있음을 알 수 있습니다.
 - 해당 어설션이 릴리스 빌드에서 발생 하는 것을 말합니다.
 
 해결 방법은 코드에서 연속 인식 사용으로 전환 하거나, (더 빠른) 컨테이너의 대화형 또는 연속 끝점에 연결 하는 것입니다.
-코드에 대해 끝점을 <host: port>/speech/recognition/interactive/cognitiveservices/v1로 설정 합니다.
+코드에 대해 끝점을/speech/recognition/interactive/cognitiveservices/v1로 설정 합니다. `host:port`
 
 다양 한 모드에 대 한 자세한 내용은 음성 모드-아래를 참조 하십시오.
 
@@ -394,7 +394,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 **답변:** 실시간으로는 최근 8 개를 사용 하 여 `en-US` 6 개 이상의 동시 요청 보다 많은 docker 컨테이너를 사용 하는 것이 좋습니다. 16 개 코어를 초과 하는 crazier을 가져오고, NUMA (non-uniform memory access) 노드가 중요 한 것으로 인식 됩니다. 다음 표에서는 각 음성 컨테이너에 대 한 최소 및 권장 리소스 할당을 설명 합니다.
 
-# <a name="speech-to-text"></a>[음성 텍스트](#tab/stt)
+# <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
 | 컨테이너      | 최소             | 권장         |
 |----------------|---------------------|---------------------|
@@ -559,8 +559,8 @@ Python [샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/b
 
 받아쓰기를 사용 하도록 설정 하려면 c #에서 함수를 호출 `SpeechConfig.EnableDictation()` 합니다.
 
-### <a name="fromendpoint-apis"></a>`FromEndpoint`Api
-| Language | API 세부 정보 |
+### <a name="fromendpoint-apis"></a>`FromEndpoint` Api
+| 언어 | API 세부 정보 |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromendpoint?view=azure-dotnet" target="_blank">`SpeechConfig.FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -579,9 +579,9 @@ Python [샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/b
 
 **답변:** 새 API가 있습니다 `FromHost` . 기존 Api를 바꾸거나 수정 하지는 않습니다. 사용자 지정 호스트를 사용 하 여 음성 구성을 만드는 다른 방법을 추가 하기만 하면 됩니다.
 
-### <a name="fromhost-apis"></a>`FromHost`Api
+### <a name="fromhost-apis"></a>`FromHost` Api
 
-| Language | API 세부 정보 |
+| 언어 | API 세부 정보 |
 |--|:-|
 | C# | <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet" target="_blank">`SpeechConfig.FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromhost" target="_blank">`SpeechConfig::FromHost` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -597,8 +597,8 @@ Python [샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/b
 - 컨테이너가 원격 서버에서 실행 되는 경우 해당 서버의 호스트 이름 또는 IPv4 주소를 사용 합니다.
 
 음성 텍스트에 대 한 호스트 매개 변수 예:
-- `ws://localhost:5000`-포트 5000을 사용 하 여 로컬 컨테이너에 대 한 비보안 연결
-- `ws://some.host.com:5000`-원격 서버에서 실행 되는 컨테이너에 대 한 비보안 연결
+- `ws://localhost:5000` -포트 5000을 사용 하 여 로컬 컨테이너에 대 한 비보안 연결
+- `ws://some.host.com:5000` -원격 서버에서 실행 되는 컨테이너에 대 한 비보안 연결
 
 위의 Python 샘플 이지만 `host` 대신 매개 변수를 사용 합니다 `endpoint` .
 

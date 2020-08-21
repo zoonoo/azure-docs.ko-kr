@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: alexeyo
-ms.openlocfilehash: 86182130daf5cbb61df7a751aaeff392dd608a67
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 554dd0967979bc2457c3a9c8371152e09535381f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88662592"
+ms.locfileid: "88690139"
 ---
 # <a name="speech-services-quotas-and-limits"></a>음성 서비스 할당량 및 한도
 
@@ -132,7 +132,7 @@ ms.locfileid: "88662592"
   - 기존 제한을 확인 하려면 "할당량 또는 사용 유효성 검사"
 - *다음: 솔루션* 을 클릭 합니다.
 - 요청 만들기를 계속 진행 합니다.
-- *세부 정보* 필드의 *설명* 필드에 다음을 입력 합니다.
+- *자세히* 탭의 *설명* 필드에를 입력 합니다.
   - 이 요청은 **음성-텍스트** 할당량에 대 한 것입니다.
   - **기본** 또는 **사용자 지정** 모델
   - [이전에 수집한](#have-the-required-information-ready) Azure 리소스 정보 
@@ -184,7 +184,7 @@ ms.locfileid: "88662592"
   - 기존 제한을 확인 하려면 "할당량 또는 사용 유효성 검사"
 - *다음: 솔루션* 을 클릭 합니다.
 - 요청 만들기를 계속 진행 합니다.
-- *세부 정보* 필드의 *설명* 필드에 다음을 입력 합니다.
+- *자세히* 탭의 *설명* 필드에를 입력 합니다.
   - **텍스트 음성 변환** 에 대 한 요청에 대 한 참고 사항
   - [이전에 수집한](#prepare-the-required-information) Azure 리소스 정보 
   - 필요한 정보 입력을 완료 하 고 *검토 + 만들기* 탭에서 *만들기* 단추를 클릭 합니다.

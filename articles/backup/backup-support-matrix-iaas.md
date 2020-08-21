@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cfa8a6c7cb2da35929151dfce09c0bc31ee69bb2
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 66c712eca86b01c5815638c9ea58042580791ea6
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611537"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685479"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -165,7 +165,7 @@ Write Accelerator가 설정된 디스크 | 지원되지 않습니다.<br/><br/> 
 보호된 VM에 디스크 추가 | 지원됩니다.
 보호된 VM에서 디스크 크기 조정 | 지원됩니다.
 공유 스토리지| CSV (클러스터 공유 볼륨) 또는 스케일 아웃 파일 서버를 사용 하 여 Vm을 백업 하는 것은 지원 되지 않습니다. CSV 기록기는 백업 중에 실패할 수 있습니다. 복원 시 CSV 볼륨을 포함하는 디스크가 나타나지 않을 수 있습니다.
-[공유 디스크](../virtual-machines/windows/disks-shared-enable.md) | 지원되지 않습니다.
+[공유 디스크](../virtual-machines/disks-shared-enable.md) | 지원되지 않습니다.
 
 ## <a name="vm-network-support"></a>VM 네트워크 지원
 

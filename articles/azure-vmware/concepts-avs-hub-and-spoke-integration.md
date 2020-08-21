@@ -2,13 +2,13 @@
 title: 개념-허브 및 스포크 아키텍처에서 Azure VMware 솔루션 배포 통합
 description: Azure에서 기존 또는 새 허브 및 스포크 아키텍처에 Azure VMware 솔루션 배포를 통합 하기 위한 권장 사항에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: a1ba75369a1d6f19ca7ae1f36107170f219f72d0
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 08/20/2020
+ms.openlocfilehash: deb2756f7e83250ff58836098dc4954ec482fbda
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649587"
+ms.locfileid: "88684520"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처에서 Azure VMware 솔루션 통합
 
@@ -28,10 +28,7 @@ ms.locfileid: "88649587"
 
 이 다이어그램에서는 Azure에서 Express 경로를 통해 온-프레미스 및 Azure VMware 솔루션에 연결 된 허브 및 스포크 배포의 예를 보여 줍니다.
 
-:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Azure VMware 솔루션 허브 및 스포크 통합 배포":::
-
-
-
+:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Azure VMware 솔루션 허브 및 스포크 통합 배포" border="false":::
 
 아키텍처에는 다음과 같은 주요 구성 요소가 있습니다.
 
@@ -64,12 +61,12 @@ Express 경로 연결을 사용 하면 온-프레미스, Azure VMware 솔루션 
 
 * **온-프레미스와 Azure VMware 솔루션 트래픽 흐름**
 
-  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="온-프레미스와 Azure VMware 솔루션 트래픽 흐름":::
+  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="온-프레미스와 Azure VMware 솔루션 트래픽 흐름" border="false":::
 
 
 * **허브 VNET 트래픽 흐름에 대 한 Azure VMware 솔루션**
 
-  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="허브 가상 네트워크 트래픽 흐름에 대 한 Azure VMware 솔루션":::
+  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="허브 가상 네트워크 트래픽 흐름에 대 한 Azure VMware 솔루션" border="false":::
 
 
 Azure vmware 솔루션 네트워킹 및 상호 연결과 개념에 대 한 자세한 내용은 [Azure Vmware 솔루션 제품 설명서](./concepts-networking.md)에서 확인할 수 있습니다.
@@ -97,7 +94,7 @@ Azure vmware 솔루션 네트워킹 및 상호 연결과 개념에 대 한 자�
 
 Azure 애플리케이션 Gateway V1 및 V2는 백 엔드 풀로 Azure VMware 솔루션 Vm에서 실행 되는 웹 앱을 사용 하 여 테스트 되었습니다. Application Gateway는 현재 Azure VMware 솔루션 Vm에서 실행 되는 웹 앱을 인터넷에 노출 하는 유일한 지원 방법입니다. 또한 앱을 내부 사용자에 게 안전 하 게 노출할 수 있습니다.
 
-:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="네트워크 보안 그룹을 사용 하는 두 번째 트래픽 조각화 수준":::
+:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="네트워크 보안 그룹을 사용 하는 두 번째 트래픽 조각화 수준" border="false":::
 
 
 ### <a name="jumpbox-and-azure-bastion"></a>Jumpbox 및 Azure 방호
@@ -110,7 +107,7 @@ Azure 애플리케이션 Gateway V1 및 V2는 백 엔드 풀로 Azure VMware 솔
 > 공용 IP 주소를 Jumpbox VM에 제공 하거나 3389/TCP 포트를 공용 인터넷에 노출 하지 마십시오. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure 방호 허브 가상 네트워크":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure 방호 허브 가상 네트워크" border="false":::
 
 
 ## <a name="azure-dns-resolution-considerations"></a>Azure DNS 확인 고려 사항

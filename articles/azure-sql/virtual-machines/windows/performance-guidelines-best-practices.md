@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 56bf60eb3d80352a98025627cd448ef304f9a153
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a2ba89a9adec5443ed8ae2a10e0230874b571f46
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654177"
+ms.locfileid: "88690241"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 성능 지침
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -52,7 +52,7 @@ ms.locfileid: "88654177"
 
 ## <a name="vm-size-guidance"></a>VM 크기 지침
 
-먼저 사용량이 가장 많은 시간의 워크로드 cpu, 메모리 및 스토리지 처리량 요구 사항을 수집합니다. \LogicalDisk\Disk Reads/Sec 및 \LogicalDisk\Disk Writes/Sec 성능 카운터를 사용하여 읽기 및 쓰기 IOPS 요구 사항을 수집하고 \LogicalDisk\Disk Bytes/Sec 카운터를 사용하여 데이터, 로그 및 임시 DB 파일에 대한 [스토리지 처리량 요구 사항](../../../virtual-machines/windows/premium-storage-performance.md#disk-caching)을 수집할 수 있습니다. 사용량이 가장 많은 시간의 IOPS 및 처리량 요구 사항이 정의되면 VM 크기 평가에서 해당 용량을 제공합니다. 예를 들어 사용량이 가장 많은 시간에 20K 읽기 IOPS 및 10K 쓰기 IOPS가 워크로드에 필요한 경우 2개의 P30 디스크와 함께 E16s_v3(최대 32K의 캐시된 IOPS 및 25600의 캐시되지 않은 IOPS) 또는 M16_s(최대 20K의 캐시된 IOPS 및 10K의 캐시되지 않은 IOPS)를 선택할 수 있습니다. VM마다 IOPS 및 처리량에 대한 스케일링 제한이 다르므로 워크로드의 처리량 및 IOPS 요구 사항을 모두 이해해야 합니다.<br/><br/>[DSv_3](../../../virtual-machines/dv3-dsv3-series.md) 및 [Es_v3 시리즈](../../../virtual-machines/ev3-esv3-series.md)는 Intel Haswell 또는 Broadwell 프로세서를 사용하는 범용 하드웨어에서 호스팅됩니다. [M 시리즈](../../../virtual-machines/m-series.md)는 가장 큰 SQL Server 워크로드에 가장 많은 vCPU 수와 메모리를 제공하며 Skylake 프로세서 제품군의 메모리 최적화 하드웨어에서 호스팅됩니다. 이러한 VM 시리즈는 호스트 수준 읽기 캐시로 최고의 성능을 위해 권장되는 Premium Storage를 지원합니다. Es_v3 및 M 시리즈는 모두 [제한 된 코어 크기](../../../virtual-machines/windows/constrained-vcpu.md)에서 사용할 수 있으며,이를 통해 계산 및 고용량 저장소 용량 요구가 낮은 워크 로드에 대 한 비용을 절감할 수 있습니다. 
+먼저 사용량이 가장 많은 시간의 워크로드 cpu, 메모리 및 스토리지 처리량 요구 사항을 수집합니다. \LogicalDisk\Disk Reads/Sec 및 \LogicalDisk\Disk Writes/Sec 성능 카운터를 사용하여 읽기 및 쓰기 IOPS 요구 사항을 수집하고 \LogicalDisk\Disk Bytes/Sec 카운터를 사용하여 데이터, 로그 및 임시 DB 파일에 대한 [스토리지 처리량 요구 사항](../../../virtual-machines/premium-storage-performance.md#disk-caching)을 수집할 수 있습니다. 사용량이 가장 많은 시간의 IOPS 및 처리량 요구 사항이 정의되면 VM 크기 평가에서 해당 용량을 제공합니다. 예를 들어 사용량이 가장 많은 시간에 20K 읽기 IOPS 및 10K 쓰기 IOPS가 워크로드에 필요한 경우 2개의 P30 디스크와 함께 E16s_v3(최대 32K의 캐시된 IOPS 및 25600의 캐시되지 않은 IOPS) 또는 M16_s(최대 20K의 캐시된 IOPS 및 10K의 캐시되지 않은 IOPS)를 선택할 수 있습니다. VM마다 IOPS 및 처리량에 대한 스케일링 제한이 다르므로 워크로드의 처리량 및 IOPS 요구 사항을 모두 이해해야 합니다.<br/><br/>[DSv_3](../../../virtual-machines/dv3-dsv3-series.md) 및 [Es_v3 시리즈](../../../virtual-machines/ev3-esv3-series.md)는 Intel Haswell 또는 Broadwell 프로세서를 사용하는 범용 하드웨어에서 호스팅됩니다. [M 시리즈](../../../virtual-machines/m-series.md)는 가장 큰 SQL Server 워크로드에 가장 많은 vCPU 수와 메모리를 제공하며 Skylake 프로세서 제품군의 메모리 최적화 하드웨어에서 호스팅됩니다. 이러한 VM 시리즈는 호스트 수준 읽기 캐시로 최고의 성능을 위해 권장되는 Premium Storage를 지원합니다. Es_v3 및 M 시리즈는 모두 [제한 된 코어 크기](../../../virtual-machines/constrained-vcpu.md)에서 사용할 수 있으며,이를 통해 계산 및 고용량 저장소 용량 요구가 낮은 워크 로드에 대 한 비용을 절감할 수 있습니다. 
 
 ## <a name="storage-guidance"></a>스토리지 지침
 
@@ -85,7 +85,7 @@ Azure virtual machines에는 세 가지 주요 디스크 유형이 있습니다.
 
 **D** 드라이브로 레이블이 지정 된 임시 저장소 드라이브는 Azure Blob storage에 유지 되지 않습니다. 사용자 데이터베이스 파일 또는 사용자 트랜잭션 로그 파일은 **D**: 드라이브에 저장하지 않도록 합니다.
 
-TempDB는 중요 업무를 위한 SQL Server 워크로드용 로컬 SSD `D:\` 드라이브에 넣습니다(올바른 VM 크기를 선택한 후). Azure Portal 또는 Azure 빠른 시작 템플릿에서 VM을 만들고 [임시 DB를 로컬 디스크에 저장](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583)하는 경우에는 추가 작업이 필요 하지 않습니다. 다른 모든 경우에는를 다시 시작한 후 오류를 방지 하기 위해  [ssd를 사용 하 여 TempDB를 저장](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) 하기 위한 블로그의 단계를 따르세요. 로컬 드라이브의 용량이 임시 DB 크기에 충분하지 않은 경우 [읽기 전용 캐싱](../../../virtual-machines/windows/premium-storage-performance.md#disk-caching)을 사용하여 프리미엄 SSD 디스크에 [스트라이프된](../../../virtual-machines/windows/premium-storage-performance.md) 스토리지 풀에 임시 DB를 넣습니다.
+TempDB는 중요 업무를 위한 SQL Server 워크로드용 로컬 SSD `D:\` 드라이브에 넣습니다(올바른 VM 크기를 선택한 후). Azure Portal 또는 Azure 빠른 시작 템플릿에서 VM을 만들고 [임시 DB를 로컬 디스크에 저장](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583)하는 경우에는 추가 작업이 필요 하지 않습니다. 다른 모든 경우에는를 다시 시작한 후 오류를 방지 하기 위해  [ssd를 사용 하 여 TempDB를 저장](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) 하기 위한 블로그의 단계를 따르세요. 로컬 드라이브의 용량이 임시 DB 크기에 충분하지 않은 경우 [읽기 전용 캐싱](../../../virtual-machines/premium-storage-performance.md#disk-caching)을 사용하여 프리미엄 SSD 디스크에 [스트라이프된](../../../virtual-machines/premium-storage-performance.md) 스토리지 풀에 임시 DB를 넣습니다.
 
 프리미엄 SSD를 지원하는 VM의 경우 읽기 캐싱을 사용하도록 설정된 프리미엄 SSD를 지원하는 디스크에도 TempDB를 저장할 수 있습니다.
 

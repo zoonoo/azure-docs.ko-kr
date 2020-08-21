@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 24e7a1660da4dd021ef7ceb2594b4db2340cf104
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: e9b9e0b27e46c95ca4c2bc3a5c547259bada5fda
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263030"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685411"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
 
@@ -36,10 +36,10 @@ Microsoft Visual Studio 구독이 필요 합니다. | 컴퓨터에서 Visual Stu
 필요한 저장소 성능에 대 한 VM을 찾을 수 없습니다. | 컴퓨터에 필요한 저장소 성능 (초당 입/출력 작업 수 [IOPS] 및 처리량)이 Azure VM 지원을 초과 합니다. 마이그레이션을 시작하기 전에 컴퓨터의 스토리지 요구 사항을 낮춰봅니다.
 필요한 네트워크 성능에 대 한 VM을 찾을 수 없습니다. | 컴퓨터에 필요한 네트워크 성능(입력/출력)이 Azure VM 지원을 초과합니다. 컴퓨터의 네트워킹 요구 사항을 낮춰봅니다.
 지정 된 위치에서 VM을 찾을 수 없습니다. | 다른 대상 위치를 사용하여 마이그레이션을 실행해 봅니다.
-하나 이상의 적합 하지 않은 디스크 | VM에 연결 된 하나 이상의 디스크가 Azure 요구 사항을 충족 하지 않습니다. 은<br/><br/> Azure Migrate: 서버 평가는 현재 울트라 SSD 디스크를 지원 하지 않으며 프리미엄 관리 디스크에 대 한 디스크 제한 (32 TB)에 따라 디스크를 평가 합니다.<br/><br/> VM에 연결 된 각 디스크에 대해 디스크 크기가 64 TB < (울트라 SSD 디스크에서 지원 됨) 확인 합니다.<br/><br/> 그렇지 않은 경우 Azure로 마이그레이션하기 전에 디스크 크기를 줄이거나, Azure에서 여러 디스크를 사용 하 고 여러 디스크를 [함께 스트라이프](../virtual-machines/windows/premium-storage-performance.md#disk-striping) 하 여 저장소 제한을 더 늘려야 합니다. 각 디스크에 필요한 성능 (IOPS 및 처리량)이 Azure [관리 가상 머신 디스크](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)에서 지원 되는지 확인 합니다.
+하나 이상의 적합 하지 않은 디스크 | VM에 연결 된 하나 이상의 디스크가 Azure 요구 사항을 충족 하지 않습니다. 은<br/><br/> Azure Migrate: 서버 평가는 현재 울트라 SSD 디스크를 지원 하지 않으며 프리미엄 관리 디스크에 대 한 디스크 제한 (32 TB)에 따라 디스크를 평가 합니다.<br/><br/> VM에 연결 된 각 디스크에 대해 디스크 크기가 64 TB < (울트라 SSD 디스크에서 지원 됨) 확인 합니다.<br/><br/> 그렇지 않은 경우 Azure로 마이그레이션하기 전에 디스크 크기를 줄이거나, Azure에서 여러 디스크를 사용 하 고 여러 디스크를 [함께 스트라이프](../virtual-machines/premium-storage-performance.md#disk-striping) 하 여 저장소 제한을 더 늘려야 합니다. 각 디스크에 필요한 성능 (IOPS 및 처리량)이 Azure [관리 가상 머신 디스크](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)에서 지원 되는지 확인 합니다.
 부적합한 네트워크 어댑터가 하나 이상 있습니다. | 마이그레이션을 시작하기 전에 컴퓨터에서 사용하지 않는 네트워크 어댑터를 제거합니다.
 디스크 수 한도 초과 | 마이그레이션을 시작하기 전에 컴퓨터에서 사용하지 않는 디스크를 제거합니다.
-디스크 크기 한도 초과 | Azure Migrate: 서버 평가는 현재 울트라 SSD 디스크를 지원 하지 않으며 프리미엄 디스크 제한 (32 TB)에 따라 디스크를 평가 합니다.<br/><br/> 그러나 Azure는 최대 64-TB 크기의 디스크를 지원 합니다 (울트라 SSD 디스크에서 지원 됨). 마이그레이션을 수행 하기 전에 디스크를 64 TB 미만으로 축소 하거나 Azure에서 여러 디스크를 사용 하 고 [함께 스트라이프](../virtual-machines/windows/premium-storage-performance.md#disk-striping) 하 여 더 높은 저장소 제한을 얻습니다.
+디스크 크기 한도 초과 | Azure Migrate: 서버 평가는 현재 울트라 SSD 디스크를 지원 하지 않으며 프리미엄 디스크 제한 (32 TB)에 따라 디스크를 평가 합니다.<br/><br/> 그러나 Azure는 최대 64-TB 크기의 디스크를 지원 합니다 (울트라 SSD 디스크에서 지원 됨). 마이그레이션을 수행 하기 전에 디스크를 64 TB 미만으로 축소 하거나 Azure에서 여러 디스크를 사용 하 고 [함께 스트라이프](../virtual-machines/premium-storage-performance.md#disk-striping) 하 여 더 높은 저장소 제한을 얻습니다.
 지정된 위치의 디스크를 사용할 수 없음 | 마이그레이션하기 전에 디스크가 대상 위치에 있는지 확인합니다.
 지정된 이중화에 디스크를 사용할 수 없음 | 디스크가 평가 설정에 정의된 중복 스토리지 형식(기본적으로 LRS)을 사용해야 합니다.
 내부 오류로 인해 디스크 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.

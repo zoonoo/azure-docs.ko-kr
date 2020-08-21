@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 08/20/2020
 ms.author: wolfma
-ms.openlocfilehash: 519a9cdac678e8852bef9bd66e3fbb98278cbb3b
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: b30a314977755b94bdcfdf7526d1b9ae61fcf100
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660877"
+ms.locfileid: "88689748"
 ---
 # <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
 
@@ -174,7 +174,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
 
 ### <a name="storage"></a>스토리지
 
-일괄 처리 기록은 인터넷 URI에서 오디오를 읽을 수 있으며 [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)를 사용 하 여 오디오를 읽거나 비디오를 작성할 수 있습니다.
+일괄 처리는 공개 된 인터넷 URI에서 오디오를 읽을 수 있으며, [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)에서 SAS URI를 사용 하 여 오디오를 읽거나 비디오를 작성할 수 있습니다.
 
 ## <a name="batch-transcription-result"></a>일괄 처리 기록 결과
 
@@ -243,7 +243,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
 }
 ```
 
-결과에는 다음과 같은 형식이 포함 됩니다.
+결과에는 다음 필드가 포함 됩니다.
 
 :::row:::
    :::column span="1":::
@@ -309,7 +309,8 @@ Diarization를 요청 하려면 `diarizationEnabled` `true` 아래에 HTTP 요�
 
 ## <a name="best-practices"></a>모범 사례
 
-일괄 처리 기록 서비스는 많은 수의 제출 된 작업을 처리할 수 있습니다. Get the Get을 통해의 상태를 쿼리할 수 있습니다 `GET` . [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions) 결과를 검색 한 후 서비스에서 정기적으로 [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) 호출 합니다. 또는 `timeToLive` 속성을 적절 한 값으로 설정 하 여 결과의 최종 삭제를 확인 합니다.
+일괄 처리 기록 서비스는 많은 수의 제출 된 작업을 처리할 수 있습니다. [Get-help](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions)의 상태를 쿼리할 수 있습니다.
+결과를 검색 한 후 서비스에서 정기적으로 [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) 호출 합니다. 또는 `timeToLive` 결과가 최종 삭제 되도록 속성을 설정 합니다.
 
 ## <a name="sample-code"></a>예제 코드
 
