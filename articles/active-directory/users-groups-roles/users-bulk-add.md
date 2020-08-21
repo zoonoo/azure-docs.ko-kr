@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4cb24a89d19abb753e2be704dbad7fd5b2ddcad
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 64fc4e1192a1ec33b1d13c38d66e9aab5cbe256b
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236559"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705625"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Azure Active Directory에서 사용자 대량 만들기
 
@@ -35,7 +35,7 @@ Azure AD(Azure Active Directory)는 사용자 대량 만들기 및 삭제 작업
 ![업로드용 스프레드시트 및 각 행과 열에 대한 용도 및 값에 대한 설명](./media/users-bulk-add/create-template-example.png)
 
 > [!WARNING]
-> CSV 템플릿에서 항목을 하나만 추가 하려는 경우 행 3을 유지 하 고 행 4에 새 항목을 추가 해야 합니다. 
+> CSV 템플릿을 사용 하 여 하나의 항목만 추가 하는 경우 행 3을 유지 하 고 행 4에 새 항목을 추가 해야 합니다.
 
 ### <a name="csv-template-structure"></a>CSV 템플릿 구조
 

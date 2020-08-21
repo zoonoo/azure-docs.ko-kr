@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: ea73a4164a2f23a51ce1702cd85d29d7fb4c6790
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 738b54d9fcd86313c2581c5d0f055a7cca8230b8
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650403"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88706067"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -136,7 +136,7 @@ NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단할 
 - 프런트 엔드 IP 주소당 사용 가능한 사용 후 삭제 포트의 최대 수는 64,000개입니다.
 - 구성 가능한 아웃바운드 유휴 시간 제한 범위는 4-120분(240-7200초)입니다.
 - Load Balancer는 아웃바운드 NAT에 대해 ICMP를 지원하지 않습니다.
-- 아웃 바운드 규칙은 NIC의 기본 IP 구성에만 적용할 수 있습니다.  여러 Nic가 지원 됩니다.
+- 아웃 바운드 규칙은 NIC의 기본 IP 구성에만 적용할 수 있습니다.  VM 또는 NVA의 보조 IP에 대 한 아웃 바운드 규칙을 만들 수 없습니다. 여러 Nic가 지원 됩니다.
 - VNet 및 기타 Microsoft 플랫폼 서비스가 없는 웹 작업자 역할은 사전 VNet 서비스 및 다른 플랫폼 서비스 작동 방식의 부작용으로 인해 내부 표준 Load Balancer만 사용할 때 액세스할 수 있습니다. 각 서비스 자체 또는 기본 플랫폼은 사전 통보 없이 변경될 수 있으므로 이 부작용을 사용하지 마세요. 내부 표준 Load Balancer만 사용하는 경우 원하면 명시적으로 아웃 바운드 연결을 만들어야 한다고 항상 가정해야 합니다. 이 문서에서 설명 하는 시나리오 3은 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계

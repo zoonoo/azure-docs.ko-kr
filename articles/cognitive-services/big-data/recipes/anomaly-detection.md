@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 823d61d94913122fc279e81698933b7e648dd114
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244349"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691465"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 Cognitive Services 피가
 
@@ -33,7 +33,7 @@ ms.locfileid: "88244349"
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Spark 풀](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool) 로 구성 된 [Azure Synapse 작업 영역](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace)
 
-## <a name="setup"></a>설치
+## <a name="setup"></a>설치 프로그램
 
 ### <a name="create-an-anomaly-detector-resource"></a>Anomaly Detector 리소스 만들기
 
@@ -100,9 +100,9 @@ df_anomaly.select("timestamp","value","deviceId","anomalies.isAnomaly").show(3)
 
 | timestamp           |   값 | deviceId   | isAnomaly   |
 |:--------------------|--------:|:-----------|:------------|
-| 2020-05-01 18:33:51 |    3174 | 개발-7      | 아니요       |
-| 2020-05-01 18:33:52 |    2976 | 개발-7      | 아니요       |
-| 2020-05-01 18:33:53 |    2714 | 개발-7      | 아니요       |
+| 2020-05-01 18:33:51 |    3174 | 개발-7      | 거짓       |
+| 2020-05-01 18:33:52 |    2976 | 개발-7      | 거짓       |
+| 2020-05-01 18:33:53 |    2714 | 개발-7      | 거짓       |
 
 
  ## <a name="visualize-anomalies-for-one-of-the-devices"></a>장치 중 하나에 대 한 변칙 시각화
@@ -151,4 +151,4 @@ plt.show()
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Cognitive Services, Azure Synapse Analytics 및 Azure CosmosDB를 사용 하 여 대규모 예측 유지 관리를 수행 하는 방법에 대해 알아봅니다. 자세한 내용은 [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples/tree/master/IoT)에서 전체 샘플을 참조 하세요.
+Azure Cognitive Services, Azure Synapse Analytics 및 Azure CosmosDB를 사용 하 여 대규모 예측 유지 관리를 수행 하는 방법에 대해 알아봅니다. 자세한 내용은 [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples)에서 전체 샘플을 참조 하세요.

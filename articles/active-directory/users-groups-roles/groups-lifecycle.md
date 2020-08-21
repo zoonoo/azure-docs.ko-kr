@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afc9a32c4f0fa5b4b6a2f6c0ec56bbc35b6dde68
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: e9fb3113b02d20355e3ac9ede593bf8fc4136461
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244498"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705965"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Microsoft 365 그룹에 대 한 만료 정책 구성
 
@@ -176,7 +176,6 @@ PowerShell cmdlet을 사용 하 여 Azure AD 조직에서 Microsoft 365 그룹�
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy
-- Get-AzureADMSGroupLifecyclePolicy
 - Set-AzureADMSGroupLifecyclePolicy
 - Remove-AzureADMSGroupLifecyclePolicy
 - Add-AzureADMSLifecyclePolicyGroup

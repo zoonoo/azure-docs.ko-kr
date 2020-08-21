@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/30/2020
-ms.openlocfilehash: 1b0846c68f6860b5c7dac9e93808088dac4f6a05
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4a27ace4e45d00a2fbb35b9e0e3e9b7c03383681
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607436"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705880"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 
@@ -47,9 +47,9 @@ ms.locfileid: "88607436"
 
 &#42;&#42; Microsoft 365 제품은 무료로 설치할 수 있으며 라이선스 서비스로 SaaS 제품을 통해 수익화할 수 있습니다. 자세한 내용은 [Microsoft 상업용 Marketplace를 통해 Office 365 추가 기능으로 수익 창출](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조하세요.
 
-## <a name="choose-a-call-to-action"></a>동작에 대 한 호출 선택
+## <a name="choose-a-listing-option"></a>목록 옵션 선택
 
-사용 가능한 게시 옵션은 차별화된 고객 참여를 제공하면서 잠재 고객 공유 및 [상업용 Marketplace 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)에 대한 액세스 권한을 부여합니다. 게시 옵션에 해당하는 CTA(calls-to-action)를 참고합니다.
+사용 가능한 목록 옵션은 잠재 고객 참여를 제공 하는 동시에 잠재 고객의 공유 및 [상업적 marketplace 혜택](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits)에 대 한 액세스를 제공 합니다. 게시 옵션에 해당 하는 나열 옵션을 확인 합니다.
 
 | **게시 옵션**    | **설명**  |
 | :------------------- | :-------------------|
@@ -80,10 +80,10 @@ SaaS 제품은 Azure Marketplace 또는 AppSource에 게시할 수 있습니다.
 
 | 요금제 청구 | 공개 계획 | 비공개 계획 | 사용 가능한 위치: |
 |---|---|---|---|
-| 예             | 예         | 예           | Azure Marketplace 및 Azure Portal |
+| 예             | 예         | 아니요           | Azure Marketplace 및 Azure Portal |
 | 예             | 예         | 예          | Azure Marketplace 및 Azure Portal * |
-| 예             | 예          | 예          | Azure Portal만 |
-| 예              | 예          | 예          | Azure Portal만 |
+| 예             | 아니요          | 예          | Azure Portal만 |
+| 아니요              | 아니요          | 예          | Azure Portal만 |
 
 &#42; 제품의 비공개 요금제를 통해서만 사용할 수 있습니다 Azure Portal
 

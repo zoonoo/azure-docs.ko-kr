@@ -1,6 +1,6 @@
 ---
 title: Azure AD의 관리자 액세스 보안 사례 | Microsoft Docs
-description: 조직의 관리 액세스 및 관리자 계정이 안전한지 확인합니다. Azure AD, Azure 및 Microsoft Online Services를 구성하는 시스템 설계자 및 IT 전문가를 대상으로 합니다.
+description: 조직의 관리 액세스 및 관리자 계정이 안전한 지 확인 합니다. Azure AD, Azure 및 Microsoft Online Services를 구성하는 시스템 설계자 및 IT 전문가를 대상으로 합니다.
 services: active-directory
 keywords: ''
 author: curtand
@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b18b05dc9fee06b0a9866f59b4bf52ad54e0ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d303f8a04a9159eeb4dc5e78ef09b57f5a966c72
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807862"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691363"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -40,7 +40,7 @@ ms.locfileid: "85807862"
 권한 있는 액세스를 관심 있는 Microsoft 서비스에서 관리되고 보고되는 방식으로 보호합니다. 온-프레미스 관리자 계정이 있는 경우 [권한 있는 액세스 보안](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access)에서 Active Directory의 온-프레미스 및 하이브리드 권한 액세스에 대한 지침을 참조하세요.
 
 > [!NOTE]
-> 이 문서의 지침은 주로 Azure Active Directory Premium 계획 P1 및 P2에 포함된 Azure Active Directory의 기능을 인용합니다. Azure Active Directory Premium P2는 EMS E5 제품군 및 Microsoft 365 E5 제품군에 포함되어 있습니다. 이 지침에서는 사용자를 위해 구입한 Azure AD Premium P2 라이선스가 조직에 이미 있다고 가정합니다. 이러한 라이선스가 없으면 일부 지침이 조직에 적용되지 않을 수 있습니다. 또한 이 문서 전체에서 전역 관리자는 "회사 관리자" 또는 "테넌트 관리자"와 동일한 의미입니다.
+> 이 문서의 지침은 주로 Azure Active Directory Premium 계획 P1 및 P2에 포함된 Azure Active Directory의 기능을 인용합니다. Azure Active Directory Premium P2는 EMS E5 제품군 및 Microsoft 365 E5 제품군에 포함되어 있습니다. 이 지침에서는 사용자를 위해 구입한 Azure AD Premium P2 라이선스가 조직에 이미 있다고 가정합니다. 이러한 라이선스가 없으면 일부 지침이 조직에 적용되지 않을 수 있습니다. 또한이 문서 전체에서 전역 관리자 (또는 전역 관리자) 라는 용어는 "회사 관리자" 또는 "테 넌 트 관리자"와 동일한 의미를 의미 합니다.
 
 ## <a name="develop-a-roadmap"></a>로드맵 개발
 
@@ -68,7 +68,7 @@ ms.locfileid: "85807862"
 
 #### <a name="turn-on-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 설정
 
-Azure AD 프로덕션 환경에서 Azure AD PIM(Privileged Identity Management)을 설정하는 것이 좋습니다. PIM이 설정되면 권한 있는 액세스 역할 변경에 대한 알림 이메일 메시지를 받게 됩니다. 추가 사용자가 권한이 높은 역할에 추가되면 알림에서 조기에 경고합니다.
+Azure AD 프로덕션 환경에서 Azure AD PIM(Privileged Identity Management)을 설정하는 것이 좋습니다. PIM을 켜면 권한 있는 액세스 역할 변경에 대 한 알림 전자 메일 메시지를 받게 됩니다. 추가 사용자가 권한이 높은 역할에 추가되면 알림에서 조기에 경고합니다.
 
 Azure AD Privileged Identity Management는 Azure AD Premium P2 또는 EMS E5에 포함되어 있습니다. 온-프레미스와 클라우드에서 애플리케이션 및 리소스에 대한 액세스를 보호하려면 [Microsoft Enterprise Mobility + Security 90일 평가판](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial)에 가입합니다. Azure AD Privileged Identity Management 및 Azure AD ID 보호는 Azure AD 보고, 감사 및 경고를 사용하여 보안 활동을 모니터링합니다.
 
@@ -137,7 +137,7 @@ Azure AD 관리자 역할 (전역 관리자, 권한 있는 역할 관리자, Exc
   * 작업 이메일 주소를 연결해야 합니다.
   * Azure Multi-Factor Authentication에 등록하거나 온-프레미스에서 MFA를 사용합니다.
 * 사용자에게 관리 액세스 권한에 대한 비즈니스상의 사유를 요청합니다.
-* 필요하지 않은 개인 및 서비스에 대한 관리자 액세스 권한을 제거합니다.
+* 필요 하지 않은 개인 및 서비스에 대 한 관리자 액세스 권한을 제거 합니다.
 
 #### <a name="identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts"></a>직장 또는 학교 계정으로 전환해야 하는 관리 역할의 Microsoft 계정 식별
 
@@ -173,11 +173,11 @@ Azure AD에서 모든 사용자에 대해 MFA(다단계 인증)를 요구하는 
 
 #### <a name="configure-identity-protection"></a>Identity Protection 구성
 
-Azure AD ID 보호는 조직의 ID에 영향을 주는 잠재적 취약성을 탐지하는 알고리즘 기반 모니터링 및 보고 도구입니다. 검색된 의심스러운 활동에 대해 자동화된 대응을 구성하고 이를 해결하기 위한 적절한 조치를 수행할 수 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요.
+Azure AD ID 보호은 조직의 id에 영향을 주는 잠재적 취약성을 검색 하는 알고리즘 기반 모니터링 및 보고 도구입니다. 검색된 의심스러운 활동에 대해 자동화된 대응을 구성하고 이를 해결하기 위한 적절한 조치를 수행할 수 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)을 참조하세요.
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Office 365 보안 점수 가져오기(Office 365를 사용하는 경우)
 
-보안 점수는 사용하고 있는 Office 365 서비스에 대한 설정 및 활동을 살펴보고 이를 Microsoft에서 설정한 기준과 비교합니다. 보안 사례와 일치하는 정도에 따라 점수를 얻을 수 있습니다. Office 365 Business Premium 또는 Enterprise 구독에 대한 관리자 권한이 있는 사용자는 [https://securescore.office.com](https://securescore.office.com/)에서 보안 점수에 액세스할 수 있습니다.
+보안 점수는 사용 중인 Office 365 서비스의 설정 및 활동을 살펴보고 Microsoft에서 설정한 기준과 비교 합니다. 보안 방법에 따라 정렬 된 방법에 따라 점수를 얻을 수 있습니다. Office 365 Business Premium 또는 Enterprise 구독에 대한 관리자 권한이 있는 사용자는 [https://securescore.office.com](https://securescore.office.com/)에서 보안 점수에 액세스할 수 있습니다.
 
 #### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Office 365 보안 및 규정 준수 지침 검토(Office 365를 사용하는 경우)
 
@@ -259,7 +259,7 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>인시던트 처리에 대한 NIST 권장 사항 검토
 
-NIST(미국 표준 기술 연구소)에서는 인시던트 처리 지침, 특히 인시던트 관련 데이터를 분석하고 각 인시던트에 대한 적절한 대응을 결정하기 위한 지침을 제공합니다. 자세한 내용은 [NIST 컴퓨터 보안 인시던트 처리 지침(SP 800-61, 수정 버전 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)을 참조하세요.
+NIST (표준 협회)는 사고 처리를 위한 지침을 제공 하며, 특히 인시던트 관련 데이터를 분석 하 고 각 인시던트에 대 한 적절 한 대응을 결정 합니다. 자세한 내용은 [NIST 컴퓨터 보안 인시던트 처리 지침(SP 800-61, 수정 버전 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)을 참조하세요.
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>추가 관리 역할에 JIT에 대한 PIM(Privileged Identity Management) 구현
 
@@ -275,7 +275,7 @@ Azure Active Directory의 경우 [Azure AD Privileged Identity Management](../pr
   * 감사 보고서 보기
   * 관리자 권한을 활성화할 수 있는 모든 사용자를 식별하기 위한 액세스 검토 만들기
 
-Azure AD Privileged Identity Management를 이미 사용하고 있는 경우 필요에 따라 시간 제한 권한에 대한 시간 범위(예: 유지 관리 기간)를 조정합니다.
+이미 Azure AD Privileged Identity Management를 사용 하 고 있는 경우 필요에 따라 시간 제한 권한의 기간을 조정 합니다 (예: 유지 관리 기간).
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>암호 기반 로그인 프로토콜에 대한 노출 확인(Exchange Online을 사용하는 경우)
 
@@ -310,7 +310,7 @@ Azure Active Directory 테넌트가 온-프레미스 Active Directory에 연결�
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>호스팅된 Virtual Machines 내에서 권한 있는 계정 인벤토리 구성
 
-일반적으로 사용자에게 모든 Azure 구독 또는 리소스에 대한 무제한 권한을 부여할 필요가 없습니다. Azure AD 관리자 역할을 사용하여 작업을 수행해야 하는 사용자에게만 액세스 권한을 부여합니다. Azure AD 관리자 역할을 사용하여 한 관리자가 구독의 VM만 관리하도록 하고, 다른 관리자는 동일한 구독 내에서 SQL 데이터베이스를 관리할 수 있습니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../../role-based-access-control/overview.md)을 참조하세요.
+일반적으로 모든 Azure 구독 또는 리소스에 대 한 무제한 사용 권한을 사용자에 게 제공할 필요는 없습니다. Azure AD 관리자 역할을 사용하여 작업을 수행해야 하는 사용자에게만 액세스 권한을 부여합니다. Azure AD 관리자 역할을 사용하여 한 관리자가 구독의 VM만 관리하도록 하고, 다른 관리자는 동일한 구독 내에서 SQL 데이터베이스를 관리할 수 있습니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../../role-based-access-control/overview.md)을 참조하세요.
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Azure AD 관리자 역할에 대한 PIM 구현
 
@@ -318,7 +318,7 @@ Azure AD 관리자 역할이 있는 Privileged Identity Management를 사용하�
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Azure 로그 통합을 사용하여 SIEM 시스템에 관련 Azure 로그 보내기
 
-Azure 로그 통합을 사용하면 Azure 리소스의 원시 로그를 조직의 기존 SIEM(보안 정보 및 이벤트 관리) 시스템에 통합할 수 있습니다. [Azure Log Integration](../../security/fundamentals/azure-log-integration-overview.md)은 Windows 이벤트 뷰어 로그에서 Windows 이벤트를 수집하고, 다음과 같은 로그에서 Azure 리소스를 수집합니다.
+Azure 로그 통합을 사용 하면 Azure 리소스의 원시 로그를 조직의 기존 SIEM (보안 정보 및 이벤트 관리) 시스템에 통합할 수 있습니다. [Azure Log Integration](../../security/fundamentals/azure-log-integration-overview.md)은 Windows 이벤트 뷰어 로그에서 Windows 이벤트를 수집하고, 다음과 같은 로그에서 Azure 리소스를 수집합니다.
 
 * Azure 활동 로그
 * Azure Security Center 경고
@@ -373,7 +373,7 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 * 필요한 경우에만 권한 있는 액세스 권한을 부여하고, 나중에 제거합니다(Just-In-Time).
 * 권한 있는 계정과 관련된 감사 활동 로그를 유지합니다.
 
-완벽한 보안 로드맵 작성에 대한 자세한 내용은 [Microsoft 클라우드 IT 아키텍처 리소스](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources)를 참조하세요. 로드맵의 일부를 구현하는 데 도움이 되는 Microsoft 서비스와 관계를 맺으려면 Microsoft 담당자에게 문의하거나 [회사를 보호하기 위한 중요한 사이버 방어 구축](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)을 참조하세요.
+완벽한 보안 로드맵 작성에 대한 자세한 내용은 [Microsoft 클라우드 IT 아키텍처 리소스](https://almbok.com/office365/microsoft_cloud_it_architecture_resources)를 참조하세요. 로드맵의 일부를 구현하는 데 도움이 되는 Microsoft 서비스와 관계를 맺으려면 Microsoft 담당자에게 문의하거나 [회사를 보호하기 위한 중요한 사이버 방어 구축](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)을 참조하세요.
 
 권한 있는 보안 액세스 로드맵의 마지막 단계에 포함되는 구성 요소는 다음과 같습니다.
 
@@ -418,7 +418,7 @@ Office 365를 사용하지 않는 경우 이 단계를 건너뜁니다.
 
 5. [Azure AD 로그인 보고서](../reports-monitoring/overview-reports.md)를 확인합니다. 이벤트가 발생하는 시점과 보고서에 포함되는 시점 사이에 약간의 시간이 있을 수 있습니다.
 
-6. 하이브리드 환경의 경우 페더레이션된 온-프레미스 인프라와 AD FS 서버를 사용할 수 없으면 페더레이션 인증에서 암호 해시 동기화를 사용하도록 일시적으로 전환할 수 있습니다. 이 전환은 AD FS 서버를 사용할 수 있을 때까지 도메인 페더레이션을 관리형 인증으로 되돌립니다.
+6. 하이브리드 환경의 경우 온-프레미스 인프라와 페더레이션 된 AD FS 서버를 사용할 수 없는 경우에는 페더레이션 인증에서 암호 해시 동기화를 사용 하도록 일시적으로 전환할 수 있습니다. 이 스위치는 AD FS 서버를 사용할 수 있게 될 때까지 도메인 페더레이션을 다시 관리 인증으로 되돌립니다.
 
 7. 권한 있는 계정에 대한 이메일을 모니터링합니다.
 
@@ -428,25 +428,25 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 ## <a name="faq-answers-for-securing-privileged-access"></a>FAQ: 권한 있는 액세스 보안에 대한 대답  
 
-**Q:** 보안 액세스 구성 요소를 아직 구현하지 않은 경우 어떻게 해야 할까요?
+**Q:** 보안 액세스 구성 요소가 아직 구현 되지 않은 경우 어떻게 해야 하나요?
 
 **답변:** 둘 이상의 비상 계정을 정의하고, 권한 있는 관리자 계정에 MFA를 할당하고, 사용자 계정과 전역 관리자 계정을 분리합니다.
 
 **Q:** 위반이 발생되면 가장 먼저 해결해야 하는 문제는 무엇인가요?
 
-**답변:** 많이 노출되는 개인에게 가장 강력한 인증을 요구해야 합니다.
+**답변:** 매우 노출 되는 개인에 대해 가장 강력한 인증을 요구 해야 합니다.
 
 **Q:** 권한 있는 관리자가 비활성화되면 어떻게 되나요?
 
 **답변:** 항상 최신 상태로 유지되는 전역 관리자 계정을 만듭니다.
 
-**Q:** 하나의 전역 관리자만 남아 있고 연결할 수 없으면 어떻게 되나요?
+**Q:** 전역 관리자가 한 명 뿐 이며 연결할 수 없는 경우 어떻게 되나요?
 
 **답변:** 비상 계정 중 하나를 사용하여 즉각적인 권한 있는 액세스를 얻습니다.
 
 **Q:** 조직 내에서 관리자를 보호하려면 어떻게 해야 할까요?
 
-**답변:** 관리자는 항상 "권한이 없는" 표준 사용자로 일상적인 업무를 수행해야 합니다.
+**답변:** 관리자가 항상 표준 "권한 없음" 사용자로 일상적인 업무를 수행 하도록 합니다.
 
 **Q:** Azure AD 내에서 관리자 계정을 만드는 가장 좋은 방법은 무엇인가요?
 
@@ -468,7 +468,7 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 * [Microsoft 보안 센터 - 제품 보안](https://www.microsoft.com/trustcenter/security) – Microsoft 클라우드 제품 및 서비스의 보안 기능
 
-* [Microsoft 보안 센터 - 준수](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – 클라우드 서비스를 위한 포괄적인 Microsoft 규정 준수 제품 집합
+* [Microsoft 보안 센터-규정 준수](https://www.microsoft.com/trustcenter/compliance/complianceofferings) -클라우드 서비스에 대 한 microsoft의 포괄적인 규정 준수 제품 집합
 
 * [위험 평가를 수행하는 방법에 대한 지침](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - Microsoft 클라우드 서비스에 대한 보안 및 규정 준수 요구 사항 관리
 

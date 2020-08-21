@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: e9fe02903d2dc76c931e58682a0d632d5e492963
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0a98bf7d6a035dbf293bda5d8afe5d0e1130f58f
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607379"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705557"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
@@ -26,7 +26,7 @@ Marketplace Rewards는 첫 번째 고객을 확보하는 데 도움이 되는 �
 
 이 프로그램은 긍정적인 피드백 순환 고리를 만듭니다. 각 성장 단계의 혜택이 다음 단계로 나아가도록 설계되어 상업용 Marketplace를 플랫폼으로 활용하여 Microsoft의 분야 및 Microsoft의 채널을 통해 비즈니스를 Microsoft 고객으로 성장시킬 수 있습니다.
 
-혜택은 제품이 [목록, 평가판 또는 거래](determine-your-listing-type.md#choose-a-call-to-action)인지에 따라 구별됩니다.
+혜택은 제품이 [목록, 평가판 또는 거래](determine-your-listing-type.md#choose-a-listing-option)인지에 따라 구별됩니다.
 
 자격 조건에 따라 제품이 게시되면 Rewards 팀의 구성원이 연락을 드릴 것입니다.
 
