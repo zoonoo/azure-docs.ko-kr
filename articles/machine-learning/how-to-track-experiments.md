@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f49a66fc6e233658b228b7ad9bacdaa23917afef
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 18c7e5b3a1401540d7a94186fda647d413d562c0
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648737"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723846"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Azure ML 학습 실행에서 로깅 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -86,7 +86,9 @@ logging.basicConfig(level=logging.DEBUG)
 Azure Machine Learning designer (미리 보기)의 로깅 메트릭에 대 한 자세한 내용은 [디자이너에서 메트릭을 기록 하는 방법 (미리 보기)](how-to-track-designer-experiments.md) 을 참조 하세요.
 
 ## <a name="example-notebooks"></a>노트북 예제
-다음 노트북은이 문서의 개념을 보여 줍니다.
+
+이 문서의 개념을 보여 주는 노트북은 다음과 같습니다.
+* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: 7bec65867373293ff06a2295f08a05db6ffaa480
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c7df035aec199953bdf9a6bd56262af70a5a77e7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653837"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723965"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -43,7 +43,7 @@ Azure 보안은 현재 개발 중이며 지속적으로 향상된 기능을 수�
 
 ### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>자산 인벤토리-자산의 보안 상태에 대 한 강력한 새 뷰입니다.
 
-Security Center의 자산 인벤토리는 Security Center 연결 된 리소스의 보안 상태를 확인 하는 방법을 제공 합니다.
+Security Center의 자산 인벤토리 (현재 미리 보기 상태)는 Security Center에 연결한 리소스의 보안 상태를 확인 하는 방법을 제공 합니다.
 
 Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음 이러한 취약성을 해결 하는 방법에 대 한 권장 사항을 제공 합니다. 리소스에 해결 되지 않은 권장 사항이 있는 경우 인벤토리에 표시 됩니다.
 

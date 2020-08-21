@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: cabc3d2a0f8eb3a75938d1768bb0085aab528391
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e0df3de5eadfd2cc5c00c52da5c4942b42a68b2b
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584606"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722571"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Azure Cognitive Services 컨테이너 이미지 태그
 
@@ -35,13 +35,29 @@ Azure Cognitive Services는 많은 컨테이너 이미지를 제공 합니다. �
 
 ## <a name="computer-vision"></a>Computer Vision
 
-컨테이너 레지스트리에서 [Computer Vision][cv-containers] 컨테이너 이미지를 찾을 수 있습니다 `containerpreview.azurecr.io` . 리포지토리 내에 상주 `microsoft` 하 고 이름이로 지정 됩니다 `cognitive-services-read` . 정규화 된 컨테이너 이미지 이름은, `containerpreview.azurecr.io/microsoft/cognitive-services-read` 입니다.
+[Computer Vision][cv-containers] 읽기 OCR 컨테이너 이미지는 컨테이너 레지스트리에서 찾을 수 있습니다 `containerpreview.azurecr.io` . 리포지토리 내에 상주 `microsoft` 하 고 이름이로 지정 됩니다 `cognitive-services-read` . 정규화 된 컨테이너 이미지 이름은, `containerpreview.azurecr.io/microsoft/cognitive-services-read` 입니다.
 
 이 컨테이너 이미지에 사용할 수 있는 태그는 다음과 같습니다.
 
 | 이미지 태그                    | 참고 |
 |-------------------------------|:------|
-| `latest`                      |       |
+| `latest ( (2.0.013250001-amd64-preview)` | • 컨테이너의 메모리 사용량을 더 줄입니다. |
+|                                          | • 다중 pod 설치에는 외부 캐시가 필요 합니다. 예를 들어 캐싱에 Redis을 설정 합니다. |
+|                                          | • Redis cache가 설정 되 고 ResultExpirationPeriod = 0 인 경우 결과 누락 문제가 해결 됩니다.  |
+|                                          | • 요청 본문 크기 제한 제거 26MB 이제 컨테이너는 26MB 파일 >수용할 수 있습니다.  |
+|                                          | • 타임 스탬프 및 빌드 버전을 콘솔 로깅에 추가 합니다.  |
+| `1.1.013050001-amd64-preview`            | * ReadEngineConfig: ResultExpirationPeriod container 초기화 구성을 추가 하 여 시스템이 인식 결과를 정리 해야 하는 시기를 지정 합니다. |
+|                                          | 설정은 시간 단위 이며 기본값은 48hr입니다.   |
+|                                          |   이 설정은 특히 컨테이너 메모리 내 저장소를 사용 하는 경우 결과를 저장 하는 메모리 사용량을 줄일 수 있습니다.  |
+|                                          |    * 예 1. ReadEngineConfig: ResultExpirationPeriod = 1 인 경우 시스템은 프로세스 후에 인식 결과 1 시간을 지웁니다.   |
+|                                          |    * 예 2. ReadEngineConfig: ResultExpirationPeriod = 0 인 경우 시스템은 결과 검색 후 인식 결과를 지웁니다.  |
+|                                          | 잘못 된 이미지 형식이 시스템에 전달 되는 경우 500 내부 서버 오류가 수정 되었습니다. 이제 400 오류가 반환 됩니다.   |
+|                                          | `{`  |
+|                                          | `"error": {`  |
+|                                          |      `"code": "InvalidImageSize",`  |
+|                                          |      `"message": "Image must be between 1024 and 209715200 bytes."`  |
+|                                          |          `}`  |
+|                                          | `}`  |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |

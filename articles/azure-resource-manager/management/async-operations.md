@@ -2,14 +2,14 @@
 title: 비동기 작업의 상태
 description: Azure에서 비동기 작업을 추적하는 방법에 대해 설명합니다. 장기 실행 작업의 상태를 가져오는 데 사용하는 값을 보여줍니다.
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68a00e50c7d3e0da757ee7a3a09274c5f1dbecad
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: e2c5ba137d5277466cf1b382d2b0b1bc02259f00
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718427"
+ms.locfileid: "88723455"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Azure 비동기 작업 추적
 
@@ -31,7 +31,7 @@ ms.locfileid: "88718427"
 
 201 또는 202 응답 코드를 가져온 후에는 작업의 상태를 모니터링할 준비가 된 것입니다.
 
-## <a name="use-url-to-monitor-status"></a>URL을 사용 하 여 상태 모니터링
+## <a name="url-to-monitor-status"></a>상태를 모니터링 하는 URL
 
 비동기 작업의 상태를 모니터링 하는 방법에는 두 가지가 있습니다. 원래 요청에서 반환 된 헤더 값을 검사 하 여 올바른 방법을 결정 합니다. 먼저 다음을 찾습니다.
 
@@ -45,7 +45,9 @@ ms.locfileid: "88718427"
 
 ## <a name="azure-asyncoperation-request-and-response"></a>Azure-AsyncOperation 요청 및 응답
 
-헤더 값의 URL이 있는 경우 `Azure-AsyncOperation` 해당 url에 GET 요청을 보냅니다. 의 값을 사용 `Retry-After` 하 여 상태를 확인 하는 빈도를 예약 합니다. 응답 속성은 다를 수 있지만 항상 비동기 작업의 상태를 포함 합니다.
+헤더 값의 URL이 있는 경우 `Azure-AsyncOperation` 해당 url에 GET 요청을 보냅니다. 의 값을 사용 `Retry-After` 하 여 상태를 확인 하는 빈도를 예약 합니다. 작업 상태를 나타내는 응답 개체를 가져옵니다. URL을 사용 하 여 작업의 상태를 확인할 때 다른 응답이 반환 됩니다 `Location` . 위치 URL의 응답에 대 한 자세한 내용은 [저장소 계정 만들기 (202 With location And Retry-After)](#create-storage-account-202-with-location-and-retry-after)를 참조 하세요.
+
+응답 속성은 다를 수 있지만 항상 비동기 작업의 상태를 포함 합니다.
 
 ```json
 {

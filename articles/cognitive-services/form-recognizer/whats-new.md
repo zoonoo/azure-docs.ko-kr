@@ -9,29 +9,53 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 22eab216714d45e4b8a91fd58325424d4baef95e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3a48511c896a3e4c677c35ca3069ff236761c444
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272949"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724135"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
 양식 인식기 서비스는 지속적으로 업데이트 됩니다. 이 문서를 사용 하면 향상 된 기능, 수정 사항 및 설명서 업데이트를 최신 상태로 유지할 수 있습니다.
 
-> [!NOTE]
-> 폼 인식기에 대 한 빠른 시작 및 가이드는 지정 되지 않은 경우 항상 최신 버전의 API를 사용 합니다.
+## <a name="august-2020"></a>2020년 8월
+
+### <a name="new-features"></a>새로운 기능
+
+**이제 폼 인식기 v 2.1 공개 미리 보기를 사용할 수 있습니다.** V 2.1-preview. 1은 다음과 같은 기능을 포함 하 여 릴리스 되었습니다. 
+
+
+- **REST API 참조를 사용할 수** 있습니다 [. v 2.1-preview. 1 참조를 확인 하세요.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
+- **영어 외에도 지원 되는 새 언어**이제 지원 되는 언어는 다음과 같습니다. `Layout` `Train Custom Model` 영어 (EN), 중국어 (간체) (zh-cn-zh-cn), 네덜란드어 (NL), 프랑스어 (FR), 독일어 (DE), 이탈리아어 (IT), 포르투갈어 (PT) 및 스페인어 (ES).
+- 확인란 **/선택 표시 검색** – 양식 인식기는 확인란 및 라디오 단추와 같은 선택 표시의 검색 및 추출을 지원 합니다. 선택 표시는에서 추출 되며 `Layout` `Train Custom Model`  -  _레이블을 사용 하 여 학습을 통해_ 선택 표시에 대 한 키 값 쌍을 추출할 수도 있습니다. 
+- **모델 작성** 을 사용 하면 단일 모델 Id를 사용 하 여 여러 모델을 구성 하 고 호출할 수 있습니다. 구성 된 모델 Id를 사용 하 여 분석 하기 위해 문서를 제출 하면 먼저 분류 단계를 수행 하 여 올바른 사용자 지정 모델로 라우팅합니다. 모델 작성은 `Train Custom Model`  -  _레이블로 학습_에 사용할 수 있습니다.
+- **모델 이름** 더 쉽게 관리 하 고 추적할 수 있도록 사용자 지정 모델에 친숙 한 이름을 추가 합니다.
+- 영어, 언어 비즈니스 카드로 일반 필드를 추출 하는 데 사용할 **미리 빌드된 새로운 비즈니스 카드 모델** 입니다.
+- En-us 외에도 **미리 작성 된 수신 확인에 대 한 새 로캘이** 이제 EN-US, en-us, en-us, en-us에서 지원 됩니다.
+- 의 **품질 향상** `Layout` , `Train Custom Model`  -  _레이블 없이 학습_ 및 _레이블로 학습_
+
+
+**v 2.0** 에는 다음 업데이트가 포함 됩니다.
+-   NET, Python, Java 및 JavaScript 용 [클라이언트 라이브러리](quickstarts/client-library.md) 는 일반 공급으로 전환 되었습니다. 
+
+
+**새 샘플** 은 GitHub에서 사용할 수 있습니다. 
+- [지식 추출 조리법-Forms 플레이 북](https://github.com/microsoft/knowledge-extraction-recipes-forms) 는 실제 양식 인식기 고객 계약의 모범 사례를 수집 하 고, 이러한 프로젝트를 개발 하는 데 사용 되는 코드 샘플, 검사 목록 및 샘플 파이프라인을 제공 합니다. 
+- [Intelligent 키오스크](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) 양식 인식기 샘플은 `Analyze Receipt` `Train Custom Model`  -  _레이블 없이_통합 및 학습 하는 방법을 보여 줍니다.
+
+
 
 ## <a name="july-2020"></a>2020년 7월
 
 ### <a name="new-features"></a>새로운 기능
 * v2.0 **참조 사용 가능** [.Net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [JAVA](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)및 [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)용 v2.0 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) 및 업데이트 된 sdk를 봅니다.
-* 향상 된 **테이블 향상** 기능 및 향상 된 기능으로는 향상 된 기능 및 테이블 추출 향상 된 기능, 특히 레이블 없이 사용자 지정 학습에서 테이블 헤더와 구조를 학습 하는 기능이 있습니다. 
+* 향상 된 **테이블 향상** 기능 및 향상 된 기능으로는 향상 된 기능 및 테이블 추출 향상 된 기능, 특히 _레이블 없이 사용자 지정 학습_에서 테이블 헤더와 구조를 학습 하는 기능이 있습니다. 
 * **통화 지원** 전역 통화 기호의 검색 및 추출
 * **Azure .gov** 이제 Azure .Gov 에서도 폼 인식기를 사용할 수 있습니다.
 * **향상 된 보안 기능**: 
-   * 사용자 **고유의 키 가져오기**  양식 인식기는 클라우드로 지속 될 때 데이터를 자동으로 암호화 하 여 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움을 줍니다. 기본적으로 구독은 Microsoft에서 관리 하는 암호화 키를 사용 합니다. 이제 사용자 고유의 암호화 키를 사용 하 여 구독을 관리할 수도 있습니다. [BYOK (사용자 고유 키 사용) 라고도 하는 CMK (고객 관리 키)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)는 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있는 유연성을 제공 합니다. 데이터를 보호 하는 데 사용 되는 암호화 키를 감사할 수도 있습니다.  
+   * 사용자 **고유의 키 가져오기**  양식 인식기는 클라우드로 지속 될 때 데이터를 자동으로 암호화 하 여 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움을 줍니다. 기본적으로 구독은 Microsoft에서 관리하는 암호화 키를 사용합니다. 이제 사용자 고유의 암호화 키를 사용 하 여 구독을 관리할 수도 있습니다. [BYOK (사용자 고유 키 사용) 라고도 하는 CMK (고객 관리 키)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)는 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있는 유연성을 제공 합니다. 데이터를 보호하는 데 사용되는 암호화 키를 감사할 수도 있습니다.  
    * **개인 끝점** – 가상 네트워크 (VNet)에서 [개인 링크를 통해 안전](https://docs.microsoft.com/azure/private-link/private-link-overview) 하 게 데이터에 액세스할 수 있습니다.
 
 
@@ -39,7 +63,7 @@ ms.locfileid: "87272949"
 
 ### <a name="new-features"></a>새로운 기능
 * **클라이언트 sdk에 추가 된 Copymodel API** 이제 클라이언트 Sdk를 사용 하 여 한 구독에서 다른 구독으로 모델을 복사할 수 있습니다. 이 기능에 대 한 일반 정보는 [모델 백업 및 복구](./disaster-recovery.md) 를 참조 하세요.
-* **Azure Active Directory 통합** 이제 AAD 자격 증명을 사용 하 여 Sdk에서 양식 인식기 클라이언트 개체를 인증할 수 있습니다.
+* **Azure Active Directory 통합** 이제 Azure AD 자격 증명을 사용 하 여 Sdk에서 양식 인식기 클라이언트 개체를 인증할 수 있습니다.
 * **SDK 관련 변경 내용** 여기에는 보조 기능 추가 및 주요 변경 내용이 모두 포함 됩니다. 자세한 내용은 SDK changelogs를 참조 하십시오.
   * [C # SDK Preview 3 변경 로그](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
   * [Python SDK Preview 3 변경 로그](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)

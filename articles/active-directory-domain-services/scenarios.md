@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: iainfou
-ms.openlocfilehash: 4cd6a37ad2d5081cdc587290c361fbc992c69bfb
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: a27d97e7e030da216b2296f11b6876ccf28c8ad0
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245165"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722758"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 일반적인 사용 사례 및 시나리오
 
@@ -162,7 +162,7 @@ Apache 레인저를 사용 하도록 설정한 상태에서 관리 되는 도메
 시작 하려면 [관리 되는 Azure Active Directory Domain Services 도메인을 만들고 구성][tutorial-create-instance]합니다.
 
 <!-- INTERNAL LINKS -->
-[hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure.md
+[hdinsight]: ../hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds.md
 [tutorial-create-instance]: tutorial-create-instance.md
 [custom-ou]: create-ou.md
 [create-gpo]: manage-group-policy.md
