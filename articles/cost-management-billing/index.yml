@@ -5,17 +5,18 @@ metadata:
   title: Azure Cost Management + 청구
   description: Azure Cost Management + 청구는 Azure 청구를 이해하고, 계정 및 구독을 관리하고, Azure 지출을 모니터링 및 제어하고, 리소스 사용을 최적화하는 데 도움이 됩니다. 비용을 분석하고, 예산을 작성 및 관리하고, 데이터를 내보내고, 권장 사항을 검토하고 필요한 조치를 취하는 방법을 알아보세요.
   ms.service: cost-management-billing
+  ms.subservice: common
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 06/01/2020
-  ms.openlocfilehash: c999417f091d82adf09df5d6962de146ef58b285
-  ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+  ms.date: 08/20/2020
+  ms.openlocfilehash: 1d3fafd26b5ad7f92d9280701a386a09f1ad3d22
+  ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/16/2020
-  ms.locfileid: "88257382"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88683133"
 landingContent:
 - title: 비용 분석
   linkLists:

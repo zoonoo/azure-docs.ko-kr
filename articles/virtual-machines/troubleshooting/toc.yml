@@ -193,7 +193,7 @@
 - name: 가상 디스크 관리 문제
   items:
     - name: 개요
-      href: ../windows/managed-disks-overview.md
+      href: ../managed-disks-overview.md
     - name: FAQ
       href: ../windows/faq-for-disks.md
     - name: 스토리지 리소스 삭제 시 오류

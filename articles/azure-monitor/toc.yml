@@ -482,16 +482,12 @@
           href: platform/autoscale-resource-log-schema.md
     - name: 경고
       items:
-        - name: 애플리케이션 경고 규칙
-          items:
-            - name: 가용성
-              href: app/monitor-web-app-availability.md
-            - name: 메트릭 경고
-              href: ./platform/alerts-log.md
         - name: 메트릭 경고 규칙
           items:
             - name: 메트릭 경고 관리
               href: platform/alerts-metric.md
+            - name: 가용성
+              href: app/monitor-web-app-availability.md
             - name: 동적 임계값 사용
               href: platform/alerts-dynamic-thresholds.md
             - name: 여러 시계열에 대한 단일 경고
@@ -1166,7 +1162,7 @@
               href: platform/view-designer-conversion-tasks.md
             - name: 타일 변환
               href: platform/view-designer-conversion-tiles.md
-            - name: 예제
+            - name: 예
               href: platform/view-designer-conversion-examples.md
     - name: 기타 시각화
       items:

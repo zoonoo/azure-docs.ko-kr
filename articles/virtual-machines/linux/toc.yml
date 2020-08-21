@@ -239,7 +239,7 @@
             - name: Mv2 시리즈
               href: ../mv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: 제한된 vCPU
-              href: constrained-vcpu.md
+              href: ../constrained-vcpu.md
         - name: Storage에 최적화
           items:
             - name: 개요
@@ -294,7 +294,7 @@
             - name: Azure 예약이란?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/linux/toc.json
             - name: VM 인스턴스 크기 유연성
-              href: reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md
         - name: 스폿 VM
           displayName: 'pre-empt, preempt'
           href: spot-vms.md
@@ -317,7 +317,7 @@
             - name: Azure 예약이란?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: VM 인스턴스 크기 유연성
-              href: reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md
         - name: 벤치마크 점수
           href: compute-benchmark-scores.md
     - name: 보증 배포
@@ -329,21 +329,21 @@
     - name: 디스크 스토리지
       items:
         - name: 관리 디스크 소개
-          href: managed-disks-overview.md
+          href: ../managed-disks-overview.md
         - name: IaaS VM의 디스크 유형 선택
-          href: disks-types.md
+          href: ../disks-types.md
         - name: 암호화
           href: disk-encryption.md
         - name: 디스크 스토리지 예약
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: 고성능을 위한 디자인
-          href: premium-storage-performance.md
+          href: ../premium-storage-performance.md
         - name: 디스크 버스팅
           href: disk-bursting.md
         - name: 디스크에 대한 확장성 목표
           href: disk-scalability-targets.md
         - name: 디스크의 복구 및 재해 복구
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+          href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: 공유 디스크
           href: disks-shared.md
         - name: 사용 후 삭제 OS 디스크
@@ -357,7 +357,7 @@
     - name: 보안
       items:
         - name: 보안 및 정책
-          href: security-policy.md
+          href: ../security-policy.md
         - name: Azure 디스크 암호화
           href: disk-encryption-overview.md
         - name: Azure Policy의 보안 컨트롤
@@ -958,7 +958,7 @@
           displayName: 'Azure Resource Manager, ARM'
           href: ../using-managed-disks-template-deployments.md
         - name: 공유 디스크 사용
-          href: disks-shared-enable.md
+          href: ../disks-shared-enable.md
         - name: 디스크에 VHD 업로드 - CLI
           href: disks-upload-vhd-to-managed-disk-cli.md
         - name: 디스크를 안전하게 가져오기/내보내기 - CLI
@@ -968,11 +968,11 @@
         - name: 디스크 크기 조정
           href: expand-disks.md
         - name: Storage Explorer를 사용하여 디스크 관리
-          href: disks-use-storage-explorer-managed-disks.md
+          href: ../disks-use-storage-explorer-managed-disks.md
         - name: 디스크 스냅샷
           href: snapshot-copy-managed-disk.md
         - name: 디스크 스토리지 예약
-          href: disks-reserved-capacity.md
+          href: ../disks-reserved-capacity.md
         - name: 증분 스냅샷 만들기 - CLI
           href: disks-incremental-snapshots.md
         - name: 증분 스냅샷 만들기 - 포털
@@ -1008,7 +1008,7 @@
             - name: 쓰기 가속기 사용
               href: ../how-to-enable-write-accelerator.md
             - name: 울트라 디스크 사용
-              href: disks-enable-ultra-ssd.md
+              href: ../disks-enable-ultra-ssd.md
             - name: 디스크 벤치마크
               href: disks-benchmarks.md
             - name: 성능 최적화
