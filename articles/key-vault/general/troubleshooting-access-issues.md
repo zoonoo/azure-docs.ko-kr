@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: f31782fb4e91b72f51d6f0550fe9010cba7ca3d6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 270e5ba1879b229fbe9f5e6c8692bd8b4e9eebc7
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585460"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688643"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Azure 키 자격 증명 모음 액세스 정책 문제 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "88585460"
 서비스의 크기를 조정하기 시작하면 키 자격 증명 모음으로 전송되는 요청 수가 증가합니다. 이로 인해 요청 대기 시간이 길어질 수 있으며 극단적인 경우에는 서비스의 성능에 영향을 줄 수 있는 요청이 정체됩니다. 키 자격 증명 모음 성능 메트릭을 모니터링하고 특정 임계값에 대한 경고를 받을 수 있습니다. 모니터링을 구성하는 단계별 가이드는 [자세히 알아보세요](https://docs.microsoft.com/azure/key-vault/general/alert).
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>키 자격 증명 모음 개체별로 액세스 제어를 할당하려면 어떻게 해야 하나요? 
-비밀/키/인증서 액세스 제어 기능별 가용성은 여기, [자세히 알아보기](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/.32213176-per-secret-key-certificate-access-control)에서 확인할 수 있습니다.
+비밀/키/인증서 액세스 제어 기능별 가용성은 여기, [자세히 알아보기](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/32213176-per-secret-key-certificate-access-control)에서 확인할 수 있습니다.
 
 ### <a name="how-can-i-provide-key-vault-authenticate-using-access-control-policy"></a>액세스 제어 정책을 사용하여 키 자격 증명 모음 인증을 제공하려면 어떻게 해야 하나요?
 클라우드 기반 애플리케이션을 Key Vault에 인증하는 가장 간단한 방법은 관리 ID를 사용하는 것입니다. 자세한 내용은 [App Service 관리 ID를 사용하여 Azure Key Vault에 액세스]( https://docs.microsoft.com/azure/key-vault/general/managed-identity)를 참조하세요.

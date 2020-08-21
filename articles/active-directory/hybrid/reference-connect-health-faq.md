@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427a09f3855d44af0206ebf1fd6183099da75f19
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b4c4b1f7aed6a188c491e6f4961442fa85744b6b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446979"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718546"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
@@ -37,9 +37,11 @@ ms.locfileid: "87446979"
 
 |역할| 운영 체제/버전|
 |--|--|
-|AD FS(Active Directory Federation Services)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|AD FS(Active Directory Federation Services)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 |Azure AD Connect | 버전 1.0.9125 이상|
-|AD DS(Active Directory Domain Services)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
+|AD DS(Active Directory Domain Services)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+
+Windows Server Core 설치는 지원 되지 않습니다.
 
 서비스에서 제공하는 기능은 역할 및 운영 체제에 따라 다를 수 있습니다. 즉, 운영 체제 버전에 따라 일부 기능이 제공되지 않을 수도 있습니다. 자세한 내용은 기능 설명을 참조하세요.
 
@@ -52,7 +54,7 @@ ms.locfileid: "87446979"
 
 라이선스 정보는 [Azure AD 가격 책정 페이지](https://aka.ms/aadpricing)에서 찾을 수 있습니다.
 
-예제:
+예:
 
 | 등록된 에이전트 | 필요한 라이선스 | 모니터링 구성 예제 |
 | ------ | --------------- | --- |
@@ -68,10 +70,10 @@ ms.locfileid: "87446979"
 
 | 역할 | 기능 | 독일 클라우드에서 지원됨 |
 | ------ | --------------- | --- |
-| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
+| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
 |  | 동기화 오류 보고서 | 예 |
-| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
-| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
+| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
+| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
 
 동기화용 Connect Health의 에이전트 연결을 보장하려면 그에 따라 [설치 요구 사항](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)을 구성하세요.
 

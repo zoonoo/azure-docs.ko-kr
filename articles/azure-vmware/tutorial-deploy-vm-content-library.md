@@ -3,12 +3,12 @@ title: '자습서: AVS(Azure VMware Solution)에서 VM을 배포하는 콘텐츠
 description: 이 AVS(Azure VMware Solution) 자습서에서는 AVS 프라이빗 클라우드에서 VM을 배포하는 콘텐츠 라이브러리를 만듭니다.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: d5f0f26293af9eb146cfb4b2f3adf47fe8cce94f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d86f9cb92dcb8a852b9b178a5e160da0d1a3a692
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079386"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612795"
 ---
 # <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>자습서: AVS(Azure VMware Solution)에서 VM을 배포하는 콘텐츠 라이브러리 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "87079386"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서를 완료하려면 NSX 논리 스위치 세그먼트 및 관리형 DHCP 서비스가 필요합니다.  자세한 내용은 [AVS(Azure VMWare Solution) 미리 보기에서 DHCP를 관리하는 방법](manage-dhcp.md)을 참조하세요.
+이 자습서를 완료하려면 NSX 논리 스위치 세그먼트 및 관리형 DHCP 서비스가 필요합니다.  자세한 내용은 [AVS(Azure VMware Solution) 미리 보기에서 DHCP를 관리하는 방법](manage-dhcp.md)을 참조하세요.
 
 ## <a name="create-a-content-library"></a>콘텐츠 라이브러리 만들기
 

@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 65b0b276dcda58810f44494c14f06dd412d633f6
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
-ms.translationtype: MT
+ms.openlocfilehash: 7b362ba30baf13211dc41a6043dcedd05bd506ea
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719294"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585420"
 ---
 # <a name="create-an-asset"></a>자산 만들기
 
@@ -36,30 +36,16 @@ ms.locfileid: "88719294"
 
 [!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
 
+## <a name="cli-shell"></a>[CLI 셸](#tab/clishell/)
+
+[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
+
 ## <a name="example-script"></a>예제 스크립트
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/create-asset/Create-Asset.sh "Create an asset")]
-
-## <a name="rest"></a>[REST (영문)](#tab/rest/)
-
-### <a name="using-rest"></a>REST 사용
-
-[!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-rest.md)]
-
-### <a name="using-curl"></a>cURL 사용
-
-[!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-curl.md)]
-
-## <a name="using-postman"></a>Postman 사용
-
-[!INCLUDE[Create an asset with Postman](./includes/task-create-asset-postman.md)]
-
-## <a name="net"></a>[.NET](#tab/net/)
-
-[!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-dotnet.md)]
 
 ---
 
 ## <a name="next-steps"></a>다음 단계
 
-[Media Services 개요](media-services-overview.md)
+[자산 관리](manage-asset-concept.md)

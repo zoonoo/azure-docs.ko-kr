@@ -3,12 +3,12 @@ title: Azure Private Link 서비스와 Azure Event Hubs 통합
 description: Azure Private Link Service와 Azure Event Hubs를 통합하는 방법을 알아봅니다.
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 8d6d5c13e1a5eab55998d3b98596ce845de104eb
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185471"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716794"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>개인 끝점을 통해 Azure Event Hubs 네임 스페이스에 대 한 액세스 허용 
 Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗 엔드포인트**를 통해 Azure 서비스(예: Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
@@ -222,7 +222,7 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 2. 승인하려는 **프라이빗 엔드포인트**를 선택합니다.
 3. **승인** 단추를 선택합니다.
 
-    ![이미지](./media/private-link-service/approve-private-endpoint.png)
+    ![프라이빗 엔드포인트 승인](./media/private-link-service/approve-private-endpoint.png)
 4. **연결 승인** 페이지에서 설명(선택 사항)을 추가하고 **예**를 선택합니다. **아니요**를 선택하면 아무 작업도 수행되지 않습니다. 
 5. 목록에서 프라이빗 엔드포인트 연결의 상태가 **승인됨**으로 변경되어 있어야 합니다. 
 
@@ -230,7 +230,7 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 
 1. 보류 중인 요청 또는 기존 연결인지 여부에 관계없이 거부하려는 프라이빗 엔드포인트 연결이 있으면 연결을 선택하고 **거부** 단추를 클릭합니다.
 
-    ![이미지](./media/private-link-service/private-endpoint-reject-button.png)
+    ![전용 끝점 거부](./media/private-link-service/private-endpoint-reject-button.png)
 2. **연결 거부** 페이지에서 설명(선택 사항)을 입력하고 **예**를 선택합니다. **아니요**를 선택하면 아무 작업도 수행되지 않습니다. 
 3. 목록에서 프라이빗 엔드포인트 연결 상태가 **거부됨**으로 변경되어 있어야 합니다. 
 
@@ -242,7 +242,7 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 
 ## <a name="validate-that-the-private-link-connection-works"></a>프라이빗 링크 연결이 작동하는지 확인
 
-프라이빗 엔드포인트 리소스의 동일한 서브넷 내에 있는 리소스가 개인 IP 주소를 통해 Event Hubs 네임스페이스에 연결되고 프라이빗 DNS 영역이 올바르게 통합되었는지 확인해야 합니다.
+개인 끝점의 가상 네트워크 내에 있는 리소스가 개인 IP 주소를 통해 Event Hubs 네임 스페이스에 연결 되어 있고 올바른 개인 DNS 영역 통합이 있는지 확인 해야 합니다.
 
 먼저 [Azure Portal에서 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md)의 단계에 따라 가상 머신을 만듭니다.
 

@@ -168,6 +168,8 @@
       href: troubleshoot-appliance-discovery.md
     - name: 평가/종속성 시각화 문제 해결
       href: troubleshoot-assessment.md
+    - name: 에이전트 없는 VMware 마이그레이션에서 복제 문제 해결
+      href: troubleshoot-changed-block-tracking-replication.md
 - name: 리소스
   items:
     - name: CAF(클라우드 채택 프레임워크)에 마이그레이션

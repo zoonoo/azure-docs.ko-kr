@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: dedf1174e00f5bb75822fb720a592af86121ec2d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: baed9ef099ed818fa0967c7a3e7ab61fb4921f75
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691431"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719311"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Azure Blob Storage에서 변경 피드 처리 (미리 보기)
 
@@ -22,15 +22,16 @@ ms.locfileid: "88691431"
 변경 피드에 대 한 자세한 내용은 [Azure Blob Storage에서 피드 변경 (미리 보기)](storage-blob-change-feed.md)을 참조 하세요.
 
 > [!NOTE]
-> 변경 피드는 공개 미리 보기 상태 이며 **westcentralus** 및 **westus2** 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께이 기능에 대 한 자세한 내용은 [Azure Blob Storage에서 변경 피드 지원](storage-blob-change-feed.md)을 참조 하세요. 변경 피드 프로세서 라이브러리는 현재까지 변경 될 수 있으며,이 라이브러리가 일반 공급 될 때 변경 될 수 있습니다.
+> 변경 피드는 공개 미리 보기 상태 이며 제한 된 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께이 기능에 대 한 자세한 내용은 [Azure Blob Storage에서 변경 피드 지원](storage-blob-change-feed.md)을 참조 하세요. 변경 피드 프로세서 라이브러리는 현재까지 변경 될 수 있으며,이 라이브러리가 일반 공급 될 때 변경 될 수 있습니다.
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Blob 변경 피드 프로세서 라이브러리 가져오기
 
 1. 명령 창을 엽니다 (예: Windows PowerShell).
-2. 프로젝트 디렉터리에서 **Azure.. Changefeed** NuGet 패키지를 설치 합니다.
+2. 프로젝트 디렉터리에서 [ **Azure.. changefeed** NuGet 패키지](https://www.nuget.org/packages/Azure.Storage.Blobs.ChangeFeed/)를 설치 합니다.
 
 ```console
-dotnet add package Azure.Storage.Blobs.ChangeFeed --source https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json --version 12.0.0-dev.20200604.2
+dotnet add package Azure.Storage.Blobs --version 12.5.1
+dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
 ## <a name="read-records"></a>레코드 읽기
 
@@ -117,7 +118,7 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
 ## <a name="stream-processing-of-records"></a>레코드의 스트림 처리
 
-도착할 때 변경 피드 레코드를 처리 하도록 선택할 수 있습니다. [사양](storage-blob-change-feed.md#specifications)을 참조 하세요. 1 시간 마다 변경 내용을 폴링하는 것이 좋습니다.
+변경 피드에 커밋될 때 변경 피드 레코드를 처리 하도록 선택할 수 있습니다. [사양](storage-blob-change-feed.md#specifications)을 참조 하세요. 변경 이벤트는 평균 60 초 동안 변경 피드에 게시 됩니다. 폴링 간격을 지정할 때이 기간을 사용 하 여 새로운 변경을 폴링하는 것이 좋습니다.
 
 이 예에서는 정기적으로 변경을 폴링합니다.  변경 레코드가 있는 경우이 코드는 해당 레코드를 처리 하 고 변경 피드 커서를 저장 합니다. 이렇게 하면 프로세스가 중지 되었다가 다시 시작 되는 경우 응용 프로그램은 커서를 사용 하 여 마지막으로 중지 된 레코드의 처리를 다시 시작할 수 있습니다. 이 예제에서는 커서를 로컬 응용 프로그램 구성 파일에 저장 하지만 응용 프로그램은 시나리오에 가장 적합 한 형식으로 저장할 수 있습니다. 
 
@@ -181,7 +182,7 @@ public void SaveCursor(string cursor)
 
 ## <a name="reading-records-within-a-time-range"></a>시간 범위 내에서 레코드 읽기
 
-특정 시간 범위 내에 속하는 레코드를 읽을 수 있습니다. 이 예에서는 변경 피드의 모든 레코드를 반복 하 여 2 2017 년 3 월 2:00 일 7 2019 오전 3:00에 해당 하는 변경 피드의 모든 레코드를 반복 하 여 목록에 추가한 다음 해당 목록을 호출자에 게 반환 합니다.
+특정 시간 범위 내에 속하는 레코드를 읽을 수 있습니다. 이 예에서는 변경 피드의 모든 레코드를 반복 하 여 2 2020 년 3 월 일 오전 3:00에 해당 하는 변경 피드의 모든 레코드를 반복 하 고, 2:00 7 2020 AM을 목록에 추가한 다음, 해당 목록을 호출자에 게 반환 합니다.
 
 ### <a name="selecting-segments-for-a-time-range"></a>시간 범위에 대 한 세그먼트 선택
 
@@ -198,8 +199,8 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
     // Create the start and end time.  The change feed client will round start time down to
     // the nearest hour, and round endTime up to the next hour if you provide DateTimeOffsets
     // with minutes and seconds.
-    DateTimeOffset startTime = new DateTimeOffset(2017, 3, 2, 15, 0, 0, TimeSpan.Zero);
-    DateTimeOffset endTime = new DateTimeOffset(2020, 10, 7, 2, 0, 0, TimeSpan.Zero);
+    DateTimeOffset startTime = new DateTimeOffset(2020, 3, 2, 15, 0, 0, TimeSpan.Zero);
+    DateTimeOffset endTime = new DateTimeOffset(2020, 8, 7, 2, 0, 0, TimeSpan.Zero);
 
     // You can also provide just a start or end time.
     await foreach (BlobChangeFeedEvent changeFeedEvent in changeFeedClient.GetChangesAsync(

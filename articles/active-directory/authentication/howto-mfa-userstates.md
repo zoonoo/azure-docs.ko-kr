@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d949f4b10bc6b7b592556d78edfcf02a05ec7144
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 433cfa3789aa37f4145982da97719526c0abfc47
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565777"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719498"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>사용자별 Azure Multi-Factor Authentication을 사용하여 로그인 이벤트 보호
 
@@ -42,7 +42,7 @@ Azure AD 라이선스에 조건부 액세스가 포함 되지 않고 보안 기�
 
 | 시스템 상태 | Description | 영향을 받는 레거시 인증 | 영향 받는 브라우저 앱 | 영향 받는 최신 인증 |
 |:---:| --- |:---:|:--:|:--:|
-| 사용 안 함 | 사용자 단위 Azure Multi-Factor Authentication에 등록 되지 않은 사용자의 기본 상태입니다. | 예 | 예 | 예 |
+| 사용 안 함 | 사용자 단위 Azure Multi-Factor Authentication에 등록 되지 않은 사용자의 기본 상태입니다. | 아니요 | 아니요 | 예 |
 | 사용 | 사용자가 사용자 단위 Azure Multi-Factor Authentication에 등록 되어 있지만 레거시 인증에 암호를 계속 사용할 수 있습니다. 사용자가 MFA 인증 방법을 아직 등록 하지 않은 경우 다음에 최신 인증을 사용 하 여 로그인 할 때 등록 하 라는 메시지가 표시 됩니다 (예: 웹 브라우저를 통해). | 아니요. 레거시 인증은 등록 프로세스가 완료 될 때까지 계속 작동 합니다. | 예. 세션이 만료되면 Azure Multi-Factor Authentication 등록이 필요합니다.| 예. 액세스 토큰이 만료되면 Azure Multi-Factor Authentication 등록이 필요합니다. |
 | 적용 | 사용자가 Azure Multi-Factor Authentication에 등록 되어 있습니다. 사용자가 인증 방법을 아직 등록 하지 않은 경우 다음에 최신 인증을 사용 하 여 로그인 할 때 등록 하 라는 메시지가 표시 됩니다 (예: 웹 브라우저를 통해). *활성화* 된 상태에서 등록을 완료 하는 사용자는 자동으로 *적용* 됨 상태로 전환 됩니다. | 예. 앱에 앱 암호가 필요합니다. | 예. 로그인 할 때 Azure Multi-Factor Authentication 필요 합니다. | 예. 로그인 할 때 Azure Multi-Factor Authentication 필요 합니다. |
 
@@ -76,7 +76,7 @@ Azure AD 라이선스에 조건부 액세스가 포함 되지 않고 보안 기�
 
 1. 열리는 팝업 창에서 선택한 내용을 확인합니다.
 
-사용자를 사용으로 설정한 후 전자 메일을 통해 알립니다. 사용자에게 다음에 로그인할 때 등록하도록 요청하라는 메시지가 표시됨을 알려 줍니다. 또한 조직에서 최신 인증을 지원하지 않는 비브라우저 앱을 사용하는 경우 앱 암호를 만들어야 합니다. 자세한 내용은 [Azure Multi-Factor Authentication 최종 사용자 가이드](../user-help/multi-factor-authentication-end-user.md)를 참조하여 시작하는 데 도움을 받으세요.
+사용자를 사용으로 설정한 후 전자 메일을 통해 알립니다. 사용자에게 다음에 로그인할 때 등록하도록 요청하라는 메시지가 표시됨을 알려 줍니다. 또한 조직에서 최신 인증을 지원하지 않는 비브라우저 앱을 사용하는 경우 앱 암호를 만들어야 합니다. 자세한 내용은 [Azure Multi-Factor Authentication 최종 사용자 가이드](../user-help/multi-factor-authentication-end-user-first-time.md)를 참조하여 시작하는 데 도움을 받으세요.
 
 ## <a name="change-state-using-powershell"></a>PowerShell을 사용하여 상태 변경
 

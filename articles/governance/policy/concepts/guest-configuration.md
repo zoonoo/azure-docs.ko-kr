@@ -3,12 +3,12 @@ title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
 description: Azure Policy가 게스트 구성 에이전트를 사용하여 가상 머신 내에서 설정을 감사하는 방법에 대해 알아봅니다.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 21034aaae42aa4abfa6848ce22db5fa4c21a11ce
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: af913a6bb1fb7c871a7f6740a0fb2d66efa3f712
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685768"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717579"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -70,7 +70,7 @@ Azure의 컴퓨터 및 연결 된 컴퓨터를 포함 하 여 사용자 환경 �
 |Microsoft|Windows 클라이언트|윈도우 10|
 |OpenLogic|CentOS|7.3 이상|
 |Red Hat|Red Hat Enterprise Linux|7.4-7.8|
-|Suse|SLES|12 SP3 이상|
+|Suse|SLES|12 SP3-SP5|
 
 사용자 지정 가상 머신 이미지는 위의 표에 나오는 운영 체제 중 하나의 이미지인 경우 게스트 구성 정책에서 지원됩니다.
 
@@ -95,6 +95,11 @@ Azure platform 리소스를 사용 하 여 안전 하 고 인증 된 채널을 �
 Azure에 연결 된 azure 외부에 있는 노드에는 게스트 구성 서비스에 대 한 연결이 필요 합니다. [Azure Arc 설명서](../../../azure-arc/servers/overview.md)에서 제공 되는 네트워크 및 프록시 요구 사항에 대해 자세히 설명 합니다.
 
 Azure에서 게스트 구성 리소스 공급자와 통신하려면 머신의 **443** 포트에서 아웃바운드로 Azure 데이터 센터에 액세스할 수 있어야 합니다. Azure의 네트워크에서 아웃바운드 트래픽을 허용하지 않는 경우 [네트워크 보안 그룹](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) 규칙을 사용하여 예외를 구성합니다. [서비스 태그](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement"를 게스트 구성 서비스를 참조하는 데 사용할 수 있습니다.
+
+개인 데이터 센터의 Arc 연결 된 서버에 대해 다음 패턴을 사용 하 여 트래픽을 허용 합니다.
+
+- 포트: 아웃바운드 인터넷 액세스에는 TCP 443만 필요
+- 전역 URL: `*.guestconfiguration.azure.com`
 
 ## <a name="managed-identity-requirements"></a>관리 ID 요구 사항
 
@@ -139,9 +144,12 @@ Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 정책을 할
 
 #### <a name="applying-configurations-using-guest-configuration"></a>게스트 구성을 사용하여 구성 적용
 
-Azure Policy의 최신 기능은 머신 내에서 설정을 구성합니다. 정의 _Windows 머신에서 표준 시간대 구성_은 표준 시간대를 구성하여 머신을 변경합니다.
+_Windows 컴퓨터의 표준 시간대를 구성_ 하는 정의만 표준 시간대를 구성 하 여 컴퓨터를 변경 합니다. 컴퓨터 내에서 설정을 구성 하기 위한 사용자 지정 정책 정의는 지원 되지 않습니다.
 
 _구성_으로 시작하는 정의를 할당하는 경우 _필수 조건을 배포하여 Windows VM에서 게스트 구성 정책을 사용하도록 설정_ 정의도 할당해야 합니다. 선택하는 경우 이러한 정의를 하나의 이니셔티브에 결합할 수 있습니다.
+
+> [!NOTE]
+> 기본 제공 표준 시간대 정책은 컴퓨터 내부에서 설정을 구성 하는 것을 지 원하는 유일한 정의 이며, 컴퓨터 내에서 설정을 구성 하는 사용자 지정 정책은 지원 되지 않습니다.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Azure 외부의 머신에 정책 할당
 

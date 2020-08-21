@@ -3,12 +3,12 @@ title: Windows용 게스트 구성 정책을 만드는 방법
 description: Windows용 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 4ee0c9d1912338235e53eb287bfc86a14b75cc97
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 36e71f00a4613e1723645f48d9e57aed9e1e9a8a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547667"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719396"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Windows용 게스트 구성 정책을 만드는 방법
 
@@ -26,15 +26,14 @@ Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/
 > 게스트 구성이 포함된 사용자 지정 정책은 미리 보기 기능입니다.
 >
 > 게스트 구성 확장은 Azure Virtual Machines에서 감사를 수행하는 데 필요합니다.
-> 모든 Windows 컴퓨터에서 확장을 대규모로 배포하려면 다음 정책 정의를 할당합니다.
->   - [Windows VM에서 게스트 구성 정책을 사용하도록 설정하기 위한 필수 조건 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> 모든 Windows 컴퓨터에서 확장을 대규모로 배포 하려면 다음 정책 정의를 할당 합니다. `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
 
 ## <a name="install-the-powershell-module"></a>PowerShell 모듈 설치
 
 게스트 구성 모듈은 다음과 같은 사용자 지정 콘텐츠를 만드는 프로세스를 자동화합니다.
 
 - 게스트 구성 콘텐츠 아티팩트 만들기(.zip)
-- 아티팩트의 자동화된 테스트
+- 자동화된 아티팩트 테스트
 - 정책 정의 만들기
 - 정책 게시
 
@@ -45,7 +44,7 @@ Windows를 감사할 때 게스트 구성은 DSC([Desired State Configuration](/
 
 ### <a name="base-requirements"></a>기본 요구 사항
 
-모듈을 설치할 수 있는 운영 체제:
+모듈을 설치할 수 있는 운영 체제는 다음과 같습니다.
 
 - Linux
 - macOS

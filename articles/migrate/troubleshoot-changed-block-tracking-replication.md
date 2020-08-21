@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 5748f758d8ac2f1723a20858920a4f261c07f938
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: a1ef0e9fe3805f1c6d4d1000a9ea70accc64f4d2
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608921"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718699"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>에이전트 없는 VMware VM 마이그레이션의 복제 문제 해결
 
@@ -59,7 +59,7 @@ Azure에 데이터를 복제 하려는 구성 요소가 다운 되었거나 응�
 
    2.  Microsoft 서비스 MMC 스냅인 (> services.msc 실행)을 열고 "Microsoft Azure Gateway Service"가 실행 중인지 확인 합니다. 서비스가 중지 되었거나 실행 되 고 있지 않으면 서비스를 시작 합니다. 또는 명령 프롬프트 또는 PowerShell을 열고 "Net Start asrgwy"를 수행할 수 있습니다.
 
-3. Azure Migrate 어플라이언스와 캐시 저장소 계정 간의 연결 문제를 확인 합니다. 
+3. Azure Migrate 어플라이언스와 어플라이언스 저장소 계정 간의 연결 문제를 확인 합니다. 
 
     Azure Migrate 어플라이언스에서 azcopy를 다운로드 한 후 다음 명령을 실행 합니다.
     
@@ -149,7 +149,7 @@ Azure에 데이터를 복제 하려는 구성 요소가 다운 되었거나 응�
     
       1. [다운로드](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
         
-      2. 리소스 그룹에서 어플라이언스 저장소 계정을 찾습니다. 저장소 계정의 이름은 migrategwsa와 유사 \* \* \* \* \* \* \* \* \* \* 합니다. 위의 명령에서 [account] 매개 변수의 값입니다.
+      2. 리소스 그룹에서 어플라이언스 저장소 계정을 찾습니다. 저장소 계정의 이름은 migratelsa와 유사 \* \* \* \* \* \* \* \* \* \* 합니다. 위의 명령에서 [account] 매개 변수의 값입니다.
         
       3. Azure Portal에서 저장소 계정을 검색 합니다. 검색 하는 데 사용 하는 구독이 저장소 계정이 만들어진 것과 동일한 구독 (대상 구독) 인지 확인 합니다. Blob Service 섹션의 컨테이너로 이동 합니다. + 컨테이너를 클릭 하 고 컨테이너를 만듭니다. 공용 액세스 수준을 기본 선택 값으로 그대로 둡니다.
         
@@ -226,7 +226,7 @@ _오류 메시지: 내부 오류가 발생 했습니다. [오류 메시지]_
 
 다음 섹션에는 일반적으로 표시 되는 몇 가지 VMware 오류와 이러한 오류를 완화 하는 방법이 나열 되어 있습니다.
 
-## <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>오류 메시지: 내부 오류가 발생 했습니다. [서버 연결 거부]
+### <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>오류 메시지: 내부 오류가 발생 했습니다. [서버 연결 거부]
 
 문제는 알려진 VMware 문제 이며 VDDK 6.7에서 발생 합니다. Azure Migrate 어플라이언스에서 실행 되는 게이트웨이 서비스를 중지 하 고 [VMWARE KB에서 업데이트를 다운로드](https://go.microsoft.com/fwlink/?linkid=2138889)한 후 게이트웨이 서비스를 다시 시작 해야 합니다.
 
@@ -240,33 +240,33 @@ _오류 메시지: 내부 오류가 발생 했습니다. [오류 메시지]_
 1. Windows + R을 누르고 services.msc를 엽니다. "Microsoft Azure Gateway Service"를 마우스 오른쪽 단추로 클릭 하 고 시작 합니다.
 2. 또는 명령 프롬프트 또는 PowerShell을 열고 Net Start asrgwy를 수행할 수 있습니다.
 
-## <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>오류 메시지: 내부 오류가 발생 했습니다. [' 잘못 된 스냅숏 구성이 검색 되었습니다. ']
+### <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>오류 메시지: 내부 오류가 발생 했습니다. [' 잘못 된 스냅숏 구성이 검색 되었습니다. ']
 
 여러 디스크를 포함 하는 가상 컴퓨터가 있는 경우 가상 컴퓨터에서 디스크를 제거 하면이 오류가 발생할 수 있습니다. 이 문제를 해결 하려면 [이 VMware 문서의](https://go.microsoft.com/fwlink/?linkid=2138890)단계를 참조 하세요.
 
-## <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>오류 메시지: 내부 오류가 발생 했습니다. [스냅숏 생성 중지 됨]
+### <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>오류 메시지: 내부 오류가 발생 했습니다. [스냅숏 생성 중지 됨]
 
 이 문제는 스냅숏 생성이 중지 될 때 발생 합니다. 이 문제가 발생 하면 95% 또는 99%에서 스냅숏 만들기 작업 중지를 확인할 수 있습니다. 이 문제를 해결 하려면이 [VMWARE KB](https://go.microsoft.com/fwlink/?linkid=2138969) 를 참조 하십시오.
 
-## <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>오류 메시지: 내부 오류가 발생 했습니다. [VM에서 디스크를 통합 하지 못했습니다. _[이유]_]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>오류 메시지: 내부 오류가 발생 했습니다. [VM에서 디스크를 통합 하지 못했습니다. _[이유]_]
 
 복제 주기 끝에 디스크를 통합 하면 작업이 실패 합니다. 적절 한 _이유_ 를 선택 하 여 문제를 해결 하는 [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) 의 지침을 따르세요.
 
 VMware 스냅숏 관련 작업 (create, delete 또는 create disk)이 실패 하면 다음과 같은 오류가 발생 합니다. 다음 섹션의 지침에 따라 오류를 수정 합니다.
 
-## <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>오류 메시지: 내부 오류가 발생 했습니다. [다른 태스크가 이미 진행 중입니다.]
+### <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>오류 메시지: 내부 오류가 발생 했습니다. [다른 태스크가 이미 진행 중입니다.]
 
 백그라운드에서 실행 중인 충돌 하는 가상 컴퓨터 작업이 있거나 vCenter Server 내의 태스크가 시간 초과 되는 경우이 문제가 발생 합니다. 다음 [VMWARE KB](https://go.microsoft.com/fwlink/?linkid=2138891)에 제공 된 해상도를 따릅니다.
 
-## <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>오류 메시지: 내부 오류가 발생 했습니다. [현재 상태에서 작업이 허용 되지 않음]
+### <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>오류 메시지: 내부 오류가 발생 했습니다. [현재 상태에서 작업이 허용 되지 않음]
 
 VCenter Server management agent의 작동이 중지 되는 경우이 문제가 발생 합니다. 이 문제를 해결 하려면 다음 [VMWARE KB](https://go.microsoft.com/fwlink/?linkid=2138971)의 해상도를 참조 하십시오.
 
-## <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>오류 메시지: 내부 오류가 발생 했습니다. [스냅숏 디스크 크기가 잘못 되었습니다.]
+### <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>오류 메시지: 내부 오류가 발생 했습니다. [스냅숏 디스크 크기가 잘못 되었습니다.]
 
 이는 스냅숏에서 나타내는 디스크 크기가 0이 되는 알려진 VMware 문제입니다. [VMWARE KB](https://go.microsoft.com/fwlink/?linkid=2138972)에 제공 된 해상도를 따릅니다.
 
-## <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>오류 메시지: 내부 오류가 발생 했습니다. [메모리 할당에 실패 했습니다. 메모리가 부족 합니다.]
+### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>오류 메시지: 내부 오류가 발생 했습니다. [메모리 할당에 실패 했습니다. 메모리가 부족 합니다.]
 
 이는 NFC 호스트 버퍼의 메모리가 부족 한 경우에 발생 합니다. 이 문제를 해결 하려면 VM (compute vMotion)을 사용 가능한 리소스가 있는 다른 호스트로 이동 해야 합니다.
 

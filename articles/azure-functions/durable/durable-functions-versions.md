@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 4c8a536086e426a2d83d26538f9d0efe1ea63eb4
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: d6662259494bba5747e01c4574186e9030112247
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705795"
+ms.locfileid: "88719413"
 ---
 # <a name="durable-functions-versions-overview"></a>Durable Functions 버전 개요
 
@@ -46,7 +46,7 @@ Durable Functions 2.x에는 다음을 수행할 수 있는 새로운 [내구성�
 
 프로젝트에 Durable Functions 바인딩 확장의 최신 2.x 버전을 설치 합니다.
 
-#### <a name="javascript-and-python"></a>JavaScript 및 Python
+#### <a name="javascript-python-and-powershell"></a>JavaScript, Python 및 PowerShell
 
 Durable Functions 2.x는 [Azure Functions 확장 번들](../functions-bindings-register.md#extension-bundles)의 버전 2.x에서 사용할 수 있습니다.
 

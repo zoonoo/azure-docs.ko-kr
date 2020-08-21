@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 440815d7d24cde9708c214bf407a2dd9206a1706
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: c510d6f1cc2aa4a7e71f64e0c296e14a9896614e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642047"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717985"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Azure App Service에 대 한 PHP 앱 구성
 
@@ -119,7 +119,7 @@ fi
 
 Grunt, Bower 또는 Gulp와 같이 배포 시 인기 있는 자동화 도구를 실행 하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 제공 해야 합니다. App Service App Service는 Git를 사용 하 여 배포 하거나 빌드 자동화를 사용 하는 [Zip 배포](deploy-zip.md) 를 사용 하는 경우이 스크립트를 실행 합니다. 
 
-이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 * 합니다.* 다음은 그 예입니다. 
+이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 * 합니다.* 예를 들면 다음과 같습니다.
 
 ```json
 "dependencies": {
@@ -408,15 +408,15 @@ echo "expose_php = Off" >> ini/setting.ini
 
 추가 확장을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
-`bin` 디렉터리를 앱의 루트 디렉터리에 추가하고 `.so` 확장 파일(예: *mongodb.so*)을 넣습니다. 확장이 Azure의 PHP 버전과 호환되고 VC9 및 nts(non-thread-safe)와 호환되는지 확인하세요.
+응용 프로그램 `bin` 의 루트 디렉터리에 디렉터리를 추가 하 고 `.dll` 여기에 확장 파일을 저장 합니다 (예: *mongodb.dll*). 확장이 Azure의 PHP 버전과 호환되고 VC9 및 nts(non-thread-safe)와 호환되는지 확인하세요.
 
 변경 내용을 배포합니다.
 
 [PHP_INI_SYSTEM 지시문 사용자 지정](#customize-php_ini_system-directives)의 단계에 따라 [extension](https://www.php.net/manual/ini.core.php#ini.extension) 또는 [zend_extension](https://www.php.net/manual/ini.core.php#ini.zend-extension) 지시문으로 사용자 지정 *.ini* 파일에 확장을 추가합니다.
 
 ```
-extension=d:\home\site\wwwroot\bin\mongodb.so
-zend_extension=d:\home\site\wwwroot\bin\xdebug.so
+extension=d:\home\site\wwwroot\bin\mongodb.dll
+zend_extension=d:\home\site\wwwroot\bin\xdebug.dll
 ```
 
 변경 사항을 적용하려면 앱을 다시 시작해야 합니다.

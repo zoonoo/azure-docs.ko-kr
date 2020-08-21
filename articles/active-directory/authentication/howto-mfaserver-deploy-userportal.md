@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8b7d3945adaf75949ef36b50a5e56a02fde1548
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c88a54661e8fee2dd7c3b4dc34336d44a6803090
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680923"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719464"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털
 
@@ -45,7 +45,7 @@ ms.locfileid: "83680923"
 3. 어떤 이유로든 변경해야 하는 경우가 아니면 기본값을 사용하여 설치를 완료합니다.
 4. IIS에서 사이트에 TLS/SSL 인증서를 바인딩합니다.
 
-IIS 서버에 TLS/SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
+IIS 서버에 TLS/SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
 
 웹 서비스 SDK는 TLS/SSL 인증서로 보호되어야 합니다. 이 작업을 위해 자체 서명된 인증서를 사용해도 됩니다. TLS 연결을 시작할 때 해당 인증서를 신뢰할 수 있도록 사용자 포털 웹 서버에 있는 로컬 컴퓨터 계정의 "신뢰할 수 있는 루트 인증 기관" 저장소로 인증서를 가져옵니다.
 
@@ -73,7 +73,7 @@ Azure Multi-Factor Authentication 서버와 **동일한 서버**에 사용자 �
 
 ![MFA 서버 사용자 포털 설치](./media/howto-mfaserver-deploy-userportal/install.png)
 
-IIS 서버에 TLS/SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
+IIS 서버에 TLS/SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>별도 서버에 사용자 포털 배포
 
@@ -110,7 +110,7 @@ Azure Multi-Factor Authentication 서버 이외의 서버에 사용자 포털을
 
 6. 원하는 컴퓨터에서 웹 브라우저를 열고 사용자 포털이 설치된 URL(예: `https://mfa.contoso.com/MultiFactorAuth`)로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
 
-IIS 서버에 TLS/SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
+IIS 서버에 TLS/SSL 인증서를 구성하는 방법에 대한 질문이 있다면 [IIS에서 SSL을 설정하는 방법](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis) 문서를 참조하세요.
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버에서 사용자 포털 설정 구성
 

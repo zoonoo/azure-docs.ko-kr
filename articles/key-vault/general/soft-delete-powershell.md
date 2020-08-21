@@ -1,20 +1,20 @@
 ---
 title: Azure Key Vault - PowerShell로 일시 삭제를 사용하는 방법
-description: PowerShell 코드 캡처를 통한 일시 삭제의 사용 사례 예제
+description: Azure PowerShell을 사용하여 키 자격 증명 모음 및 키 자격 증명 모음 개체를 복구할 수 있는 Azure Key Vault의 일시 삭제 기능을 사용하는 방법을 알아봅니다.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 55e4bd20b6cc17a5cbad620d3a404d6ada41b81a
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6ec784048d2c30d215fe046ccda39ef6f8a3daa5
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136476"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585545"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>PowerShell로 Key Vault 일시 삭제를 사용하는 방법
 
