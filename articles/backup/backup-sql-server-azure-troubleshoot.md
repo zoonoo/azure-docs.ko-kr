@@ -3,12 +3,12 @@ title: SQL Server 데이터베이스 백업 문제 해결
 description: Azure Backup을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업하는 경우의 문제 해결 정보입니다.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 1d692d0bacbcb26090d17bf905b959f870eed3f8
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 98240254a71695fa72acaf5c7f930c11d9f99cae
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660144"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756914"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -24,7 +24,7 @@ ms.locfileid: "88660144"
 
 Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베이스를 검색 하 고 백업을 구성 하는 과정은 두 단계로 구성 됩니다.<br>
 
-![sql](./media/backup-azure-sql-database/sql.png)
+![백업 목표-Azure VM의 SQL Server](./media/backup-azure-sql-database/sql.png)
 
 백업 구성 중에 SQL VM 및 해당 인스턴스가 **vm의 검색 db** 에 표시 되지 않고 백업 (위의 이미지 참조)을 **구성** 하는 경우 다음을 확인 합니다.
 
