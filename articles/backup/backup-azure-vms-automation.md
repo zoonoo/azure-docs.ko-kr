@@ -3,12 +3,12 @@ title: PowerShell을 사용 하 여 Azure Vm 백업 및 복구
 description: PowerShell과 함께 Azure Backup를 사용 하 여 Azure Vm을 백업 및 복구 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 23ae2b5b04823bc809712190a3e1617fec65e73a
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f5d2e10213970ce6f9d1f9c77ff8f7f4c36c3547
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763374"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826449"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm 백업 및 복원
 
@@ -96,7 +96,7 @@ Azure 라이브러리에서 **Az. RecoveryServices** [cmdlet 참조](/powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. 사용할 저장소 중복성 유형을 지정 합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md) 또는 [GRS (지역 중복 저장소](../storage/common/storage-redundancy.md))를 사용할 수 있습니다. 다음 예제는 testvault에 대한 -BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
+3. 사용할 스토리지 중복 유형을 지정합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md) 또는 [GRS (지역 중복 저장소](../storage/common/storage-redundancy.md))를 사용할 수 있습니다. 다음 예제는 testvault에 대한 -BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 보호 정책을 정의한 후에는 항목에 대한 정책을 계속 사용해야 합니다. [AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) 를 사용 하 여 보호를 사용 하도록 설정 합니다. 보호를 사용하도록 설정하는 데에는 항목 및 정책이라는 두 가지 개체가 필요합니다. 정책이 자격 증명 모음과 연결되고 나면, 백업 워크플로가 정책 일정에 정의된 시간에 트리거됩니다.
 
 > [!IMPORTANT]
-> PS를 사용 하 여 한 번에 여러 Vm에 대 한 백업을 사용 하도록 설정 하는 동안 단일 정책에 연결 된 Vm이 100 이상 인지 확인 합니다. 이는 [권장 모범 사례](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy)입니다. VM이 100개를 넘는 경우 지금은 PS 클라이언트가 명시적으로 차단하고 있진 않지만 향후 확인 절차를 추가하고자 합니다.
+> PowerShell을 사용 하 여 한 번에 여러 Vm에 대 한 백업을 사용 하도록 설정 하는 동안 단일 정책에 연결 된 Vm이 100 이상 인지 확인 합니다. 이는 [권장 모범 사례](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy)입니다. 현재 PowerShell 클라이언트는 100 개가 넘는 Vm이 있는 경우 명시적으로 차단 하지 않지만, 나중에 확인이 추가 될 예정입니다.
 
 다음 예제에서는 NewPolicy 정책을 사용하여 V2VM 항목에 대해 보호를 활성화합니다. 예제는 VM이 암호화되었는지 여부와 암호화 유형에 따라 다릅니다.
 
@@ -315,7 +315,7 @@ Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $Ret
 #### <a name="configuring-instant-restore-snapshot-retention"></a>즉시 복원 스냅숏 보존 구성
 
 > [!NOTE]
-> Az PS version 1.6.0 부터는 PowerShell을 사용 하 여 정책에서 즉시 복원 스냅숏 보존 기간을 업데이트할 수 있습니다.
+> Azure PowerShell 버전 1.6.0부터 PowerShell을 사용 하 여 정책에서 즉시 복원 스냅숏 보존 기간을 업데이트할 수 있습니다.
 
 ````powershell
 $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
@@ -323,12 +323,12 @@ $bkpPol.SnapshotRetentionInDays=7
 Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
 ````
 
-기본값은 2이 고, 사용자는 최소값 1 및 최대값 5를 사용 하 여 값을 설정할 수 있습니다. 주간 백업 정책의 경우 기간은 5로 설정 되며 변경할 수 없습니다.
+기본값은 2이 고, 사용자는 최소값 1과 최대값 5를 사용 하 여 값을 설정할 수 있습니다. 주간 백업 정책의 경우 기간은 5로 설정 되며 변경할 수 없습니다.
 
 #### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>스냅숏 보존 중 Azure Backup 리소스 그룹을 만드는 중
 
 > [!NOTE]
-> Azure PS 버전 3.7.0 부터는 즉석 스냅숏을 저장 하기 위해 만든 리소스 그룹을 만들고 편집할 수 있습니다.
+> Azure PowerShell 버전 3.7.0 부터는 인스턴트 스냅숏을 저장 하기 위해 만든 리소스 그룹을 만들고 편집할 수 있습니다.
 
 리소스 그룹 만들기 규칙 및 기타 관련 세부 정보에 대 한 자세한 내용은 [Virtual Machines에 대 한 Azure Backup 리소스 그룹](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines) 설명서를 참조 하세요.
 
@@ -385,7 +385,7 @@ TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM 
 
 #### <a name="retain-data"></a>데이터 보존
 
-사용자가 보호를 중지 하려는 경우 [AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS cmdlet을 사용할 수 있습니다. 이렇게 하면 예약 된 백업이 중지 되지만 지금까지 백업 된 데이터는 영구적으로 유지 됩니다.
+보호를 중지 하려는 경우 [AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PowerShell cmdlet을 사용할 수 있습니다. 이렇게 하면 예약 된 백업이 중지 되지만 지금까지 백업 된 데이터는 영구적으로 유지 됩니다.
 
 ````powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
@@ -481,7 +481,7 @@ $restorejob
 추가 매개 변수를 **TargetResourceGroupName**을 제공하여 Managed Disks를 복원할 RG를 지정합니다.
 
 > [!IMPORTANT]
-> 관리 디스크를 복원할 때는 **TargetResourceGroupName** 매개 변수를 사용하는 것이 좋습니다. 그러면 성능이 크게 개선되기 때문입니다. 이 매개 변수를 지정 하지 않으면 고객은 즉시 복원 기능을 사용할 수 없으며 복원 작업은 비교 시 더 느려집니다. 관리 디스크를 관리 되지 않는 디스크로 복원 하려면이 매개 변수를 제공 하지 말고-RestoreAsUnmanagedDisks 매개 변수를 제공 하 여 의도를 명확 하 게 설정 합니다. -RestoreAsUnmanagedDisks 매개 변수는 Az PS 3.7.0 from에서 사용할 수 있습니다. 이후 버전에서는 적절 한 복원 환경에 이러한 매개 변수 중 하나를 제공 해야 합니다.
+> 관리 디스크를 복원할 때는 **TargetResourceGroupName** 매개 변수를 사용하는 것이 좋습니다. 그러면 성능이 크게 개선되기 때문입니다. 이 매개 변수를 지정 하지 않으면 즉시 복원 기능을 사용할 수 없고 복원 작업의 속도가 더 느려집니다. 관리 디스크를 관리 되지 않는 디스크로 복원 해야 하는 경우에는이 매개 변수를 제공 하지 말고 매개 변수를 제공 하 여 의도를 명확 하 게 `-RestoreAsUnmanagedDisks` 합니다. `-RestoreAsUnmanagedDisks`매개 변수는 Azure PowerShell 3.7.0 이상에서 사용할 수 있습니다. 이후 버전에서는 올바른 복원 환경에 이러한 매개 변수 중 하나를 제공 해야 합니다.
 >
 >
 
@@ -529,8 +529,8 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $tar
 > [!NOTE]
 >
 > 1. AzureAz module 3.0.0 이상이 필요 합니다. <br>
-> 2. 복원된 디스크에서 암호화된 VM을 만들려면 Azure 역할에 **Microsoft.KeyVault/vaults/deploy/action** 작업을 수행할 권한이 있어야 합니다. 사용자의 역할에 이 사용 권한이 없는 경우 이 작업이 포함된 사용자 지정 역할을 만드세요. 자세한 내용은 [Azure RBAC에서 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요. <br>
-> 3. 디스크를 복원하면 이제 새 VM을 만드는 데 직접 사용할 수 있는 배포 템플릿을 가져올 수 있습니다. 암호화/암호화되지 않은 관리/비관리 VM을 만들기 위한 더 이상의 다른 PS cmdlet은 없습니다.<br>
+> 2. 복원된 디스크에서 암호화된 VM을 만들려면 Azure 역할에 **Microsoft.KeyVault/vaults/deploy/action** 작업을 수행할 권한이 있어야 합니다. 역할에이 권한이 없는 경우이 작업을 사용 하 여 사용자 지정 역할을 만듭니다. 자세한 내용은 [Azure RBAC에서 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요. <br>
+> 3. 디스크를 복원하면 이제 새 VM을 만드는 데 직접 사용할 수 있는 배포 템플릿을 가져올 수 있습니다. 암호화/암호화 되지 않은 관리/관리 되지 않는 Vm을 만드는 데 다른 PowerShell cmdlet이 필요 하지 않습니다.<br>
 > <br>
 
 ### <a name="create-a-vm-using-the-deployment-template"></a>배포 템플릿을 사용 하 여 VM 만들기

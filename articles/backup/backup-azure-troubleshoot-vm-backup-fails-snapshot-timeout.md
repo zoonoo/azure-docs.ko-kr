@@ -4,12 +4,12 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 26050dfb9fdde5988fe3ae922dae5486d17f4317
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 99e175f20247058a57bb64a47465cce1ce7fbd75
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755371"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826056"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -119,7 +119,7 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 권장 작업:<br>
 이 문제를 해결하려면 VM의 리소스 그룹에 대한 잠금을 제거하고 정리를 트리거하는 작업을 다시 시도합니다.
 > [!NOTE]
-> 백업 서비스는 VM의 리소스 그룹과 별개의 리소스 그룹을 만들어 복원 지점 컬렉션을 저장합니다. 고객은 백업 서비스에서 사용하기 위해 생성된 리소스 그룹을 잠그지 않는 것이 좋습니다. 백업 서비스에서 생성되는 리소스 그룹의 명명 형식은 AzureBackupRG_`<Geo>`_`<number>`(예: AzureBackupRG_northeurope_1)입니다.
+> 백업 서비스는 VM의 리소스 그룹과 별개의 리소스 그룹을 만들어 복원 지점 컬렉션을 저장합니다. 백업 서비스에서 사용 하기 위해 만든 리소스 그룹을 잠그지 않는 것이 좋습니다. 백업 서비스에서 만든 리소스 그룹의 명명 형식은 AzureBackupRG_ `<Geo>` _ `<number>` 입니다. 예: *AzureBackupRG_northeurope_1*
 
 **1단계: [복원 지점 리소스 그룹에서 잠금 제거](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **2단계: [복원 지점 컬렉션 정리](#clean_up_restore_point_collection)**<br>
@@ -220,14 +220,14 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 
 1. [Linux VM 에이전트 업데이트](../virtual-machines/extensions/update-linux-agent.md)의 지침을 따르세요.
 
    > [!NOTE]
-   > 배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 *강력히 권장*합니다. GitHub에서 에이전트 코드를 직접 다운로드한 후 업데이트하는 것은 바람직하지 않습니다. 최신 에이전트를 배포할 수 없는 경우 배포 지원에 문의하여 설치 방법에 대한 지침을 얻으세요. 최신 에이전트를 확인하려면 GitHub 리포지토리의 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 페이지로 이동하세요.
+   > 배포 리포지토리를 사용할 때만 에이전트를 업데이트할 것을 *강력히 권장*합니다. GitHub에서 직접 에이전트 코드를 다운로드 하 여 업데이트 하지 않는 것이 좋습니다. 최신 에이전트를 배포할 수 없는 경우 배포 지원에 문의하여 설치 방법에 대한 지침을 얻으세요. 최신 에이전트를 확인하려면 GitHub 리포지토리의 [Microsoft Azure Linux 에이전트](https://github.com/Azure/WALinuxAgent/releases) 페이지로 이동하세요.
 
 2. `ps -e` 명령을 실행하여 VM에 Azure 에이전트가 실행 중인지 확인합니다.
 
@@ -270,7 +270,7 @@ VM 백업은 기본 스토리지 계정에 대한 스냅샷 명령 실행을 사
 
 다음 조건으로 인해 스냅샷 작업이 실패할 수 있습니다.
 
-| 원인 | 솔루션 |
+| 원인 | 해결 방법 |
 | --- | --- |
 | VM이 RDP(원격 데스크톱 프로토콜)에서 종료되므로 VM 상태가 잘못 보고됩니다. | RDP에서 VM을 종료하는 경우 VM 상태가 올바른지 여부를 확인하려면 포털을 확인합니다. 올바르지 않은 경우 VM 대시보드의 **종료** 옵션을 사용 하 여 포털에서 vm을 종료 합니다. |
 | VM이 DHCP에서 호스트 또는 패브릭 주소를 가져올 수 없습니다. | IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. VM이 DHCP 응답 245에서 호스트 또는 패브릭 주소를 가져올 수 없는 경우에는 어떠한 확장도 다운로드하거나 실행할 수 없습니다. 정적 개인 IP가 필요한 경우 **Azure Portal** 또는 **PowerShell** 을 통해 구성 하 고 VM 내의 DHCP 옵션이 사용 하도록 설정 되어 있는지 확인 해야 합니다. PowerShell을 사용 하 여 고정 IP 주소를 설정 하는 방법에 [대해 자세히 알아보세요](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) .
@@ -297,7 +297,7 @@ VM의 리소스 그룹 또는 VM 자체를 삭제 하는 경우 관리 디스크
 
 #### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a><a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>주문형 백업을 실행 하 여 복원 지점 수집 정리
 
-잠금을 제거한 후 주문형 백업을 트리거합니다. 이 작업을 수행 하면 복원 지점이 자동으로 정리 됩니다. 이 요청 시 작업이 처음으로 실패 하는 것으로 간주 합니다. 그러나 복원 지점의 수동 삭제 대신 자동 정리가 보장 됩니다. 정리 후 예약 된 다음 백업이 성공 해야 합니다.
+잠금을 제거한 후 주문형 백업을 트리거합니다. 이 작업을 수행 하면 복원 지점이 자동으로 정리 됩니다. 이 요청 시 작업이 처음 실패 하는 것으로 간주 합니다. 그러나 복원 지점의 수동 삭제 대신 자동 정리가 보장 됩니다. 정리 후 예약 된 다음 백업이 성공 해야 합니다.
 
 > [!NOTE]
 > 자동 정리는 주문형 백업을 트리거한 몇 시간 후에 발생 합니다. 예약된 백업이 여전히 실패하는 경우 [여기](#clean-up-restore-point-collection-from-azure-portal)에 나열된 단계를 따라 복원 지점 컬렉션을 수동으로 삭제해 보세요.
@@ -320,4 +320,4 @@ VM의 리소스 그룹 또는 VM 자체를 삭제 하는 경우 관리 디스크
 6. 백업 작업을 다시 시도합니다.
 
 > [!NOTE]
- >리소스 (RP 컬렉션)에 많은 수의 복원 지점이 있는 경우 포털에서이를 삭제 하면 시간 초과 되 고 실패할 수 있습니다. 이것은 일부 복원 지점이 규정된 시간에 삭제되지 않아 작업 시간이 초과되는 알려진 CRP 문제입니다. 그러나 삭제 작업은 일반적으로 2~3회 재시도 후 성공합니다.
+ >리소스 (RP 컬렉션)에 많은 수의 복원 지점이 있는 경우 포털에서이를 삭제 하면 시간 초과 되 고 실패할 수 있습니다. 규정 된 시간에 모든 복원 지점이 삭제 되지 않고 작업 시간이 초과 되는 알려진 CRP 문제입니다. 그러나 삭제 작업은 일반적으로 두 번 이상 다시 시도한 후에 성공 합니다.

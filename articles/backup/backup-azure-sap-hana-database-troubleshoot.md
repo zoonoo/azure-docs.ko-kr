@@ -3,12 +3,12 @@ title: SAP HANA 데이터베이스 백업 오류 문제 해결
 description: Azure Backup를 사용하여 SAP HANA 데이터베이스를 백업하는 경우 발생할 수 있는 일반적인 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 88d8f5e500c39f51e5bc1afbc2ec7804b9bc79db
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6216c39231ad17a55f0d428fe5e1f85e64cef403
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503611"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826993"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure의 SAP HANA 데이터베이스 백업 문제 해결
 
@@ -96,7 +96,7 @@ SDC HANA 인스턴스 "H21"이 백업되었다고 가정합니다. 백업 항목
 다음 사항에 유의하세요.
 
 - 기본적으로 복원된 db 이름에는 백업 항목 이름이 채워집니다. 이 경우 h21(sdc)입니다.
-- 대상을 H11로 선택해도 복원된 db 이름이 자동으로 변경되지는 않습니다. **h11(sdc)로 편집해야 합니다**. SDC와 관련하여 복원된 db 이름은 괄호로 묶은 소문자 'sdc'를 앞에 붙인 대상 인스턴스 ID입니다.
+- H11로 대상을 선택 하면 복원 된 db 이름이 자동으로 변경 되지 않습니다. **h11(sdc)로 편집해야 합니다**. SDC와 관련하여 복원된 db 이름은 괄호로 묶은 소문자 'sdc'를 앞에 붙인 대상 인스턴스 ID입니다.
 - SDC에는 단일 데이터베이스만 있을 수 있으므로 이 확인란을 클릭하여 기존 데이터베이스 데이터를 복구 지점 데이터로 재정의하도록 허용해야 합니다.
 - Linux는 대/소문자를 구분합니다. 따라서 대/소문자를 유지해야 합니다.
 

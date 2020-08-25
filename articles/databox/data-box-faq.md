@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d300252893a72ef6296e941f5a573a67807779f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c6b524fb76c623273c60d39f4102500664c487cb
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652579"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823984"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -57,7 +57,7 @@ A.  Data Box를 사용할 수 있는 국가/지역에 대한 내용은 [지역 �
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>17. Data Box에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
 A. Data Box는 미국, 서유럽, 북유럽, 프랑스, 영국, 일본, 오스트레일리아 및 캐나다 내의 모든 지역에서 지원됩니다. 자세한 내용은 [지역 가용성](data-box-overview.md#region-availability)을 참조하세요.
 
-### <a name="q-how-can-i-import-my-on-premises-source-data-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>17. 온-프레미스 원본 데이터를 다른 국가/지역에 있는 Azure 지역으로 가져오거나 한 국가의 Azure 지역에서 다른 국가/지역으로 데이터를 내보낼 수 있나요?
+### <a name="q-how-can-i-import-source-data-at-my-location-in-a-particular-country-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>17. 특정 국가의 위치에 있는 원본 데이터를 다른 국가/지역의 Azure 지역으로 가져오거나 한 국가의 Azure 지역에서 다른 국가/지역으로 데이터를 내보낼 수 있나요?
 
 Data Box는 해당 대상과 동일한 국가/지역 내 에서만 데이터 수집 또는 송신을 지원 하 고 국가별 테두리를 교차 하지 않습니다. 유일한 예외는 eu (유럽 연합)의 주문에 대 한 것입니다 .이 경우 데이터 상자는 EU 국가/지역에 제공 될 수 있습니다.
 

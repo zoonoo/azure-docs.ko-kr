@@ -3,12 +3,12 @@ title: Azure VM에서 백업된 SAP HANA 데이터베이스 관리
 description: 이 문서에서는 Azure 가상 머신에서 실행되는 SAP HANA 데이터베이스를 관리하고 모니터링하기 위한 일반적인 작업에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 98dd67668d1b88a25dfa3b91174cd96730c435e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e23ffc2fe39389725519f7b94a0fe6ffaecf69c
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049467"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826704"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>백업한 SAP HANA 데이터베이스 관리 및 모니터링
 
@@ -129,7 +129,7 @@ SAP HANA 백업 항목에 대한 기본 정책을 변경할 수 있습니다.
 >[!NOTE]
 > 보존 기간의 변경 내용은 새 복구 지점이 아닌 모든 이전 복구 지점에 소급 적용됩니다.
 >
-> SAP HANA 데이터베이스에는 증분 백업 정책을 사용할 수 없습니다. 증분 백업은 이러한 데이터베이스에 대해 현재 지원되지 않습니다.
+> SAP HANA 데이터베이스에는 증분 백업 정책을 사용할 수 없습니다. 증분 백업은 현재 이러한 데이터베이스에 대해 지원 되지 않습니다.
 
 ### <a name="modify-policy"></a>정책 수정
 
@@ -171,7 +171,7 @@ SAP HANA 백업 항목에 대한 기본 정책을 변경할 수 있습니다.
 
 복구 지점을 그대로 두기로 선택하는 경우 다음 세부 정보를 염두에 두어야 합니다.
 
-* 모든 복구 지점은 영구적으로 유지되고, 모든 정리는 데이터 보관을 통해 보호 중지에서 중지됩니다.
+* 모든 복구 지점은 영구적으로 그대로 유지 되 고 모든 정리는 데이터 보존을 사용 하 여 보호 중지에서 중지 됩니다.
 * 보호된 인스턴스와 사용한 스토리지 요금이 청구됩니다. 자세한 내용은 [Microsoft Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)을 참조하세요.
 * 백업을 중지하지 않고 데이터 원본을 삭제하면 새 백업이 실패합니다.
 

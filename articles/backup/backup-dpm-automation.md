@@ -3,12 +3,12 @@ title: PowerShell을 사용하여 DPM 워크로드 백업
 description: PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure Backup을 배포 및 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 8a60d1c412a36c5c2a7ca264eda524b5d5649f1a
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 1f77337c9b5b1dce73f39cff7090bb5d892c29cd
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762745"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825973"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
 
@@ -69,7 +69,7 @@ PowerShell로 다음과 같은 설정 및 등록 작업을 자동화할 수 있�
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
 
-4. 사용할 저장소 중복성 유형을 지정 합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md) 또는 [GRS (지역 중복 저장소](../storage/common/storage-redundancy.md))를 사용할 수 있습니다. 다음 예제는 testVault에 대한 BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
+4. 사용할 스토리지 중복 유형을 지정합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md) 또는 [GRS (지역 중복 저장소](../storage/common/storage-redundancy.md))를 사용할 수 있습니다. 다음 예제는 testVault에 대한 BackupStorageRedundancy 옵션이 GeoRedundant로 설정된 것을 보여 줍니다.
 
    > [!TIP]
    > 많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
@@ -111,7 +111,7 @@ Azure Backup 에이전트를 설치하기 전에 Windows Server에 설치 관리
 MARSAgentInstaller.exe /q
 ```
 
-그러면 에이전트가 모두 기본 옵션으로 설치됩니다. 설치는 백그라운드에서 몇 분 정도 소요됩니다. */nu* 옵션을 지정하지 않으면 설치 마지막에 **Windows 업데이트** 창이 열리고 업데이트가 있는지 확인합니다.
+그러면 에이전트가 모두 기본 옵션으로 설치됩니다. 설치는 백그라운드에서 몇 분 정도 소요됩니다. */Nu* 옵션을 지정 하지 않으면 설치 종료 시 **Windows 업데이트** 창이 열리며 업데이트를 확인 합니다.
 
 설치된 프로그램 목록에 에이전트가 표시됩니다. 설치된 프로그램 목록을 보려면 **제어판** > **프로그램** > **프로그램 및 기능**으로 이동합니다.
 
@@ -177,7 +177,7 @@ DPM 서버를 Recovery Services 자격 증명 모음에 등록하면 기본 구�
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-[Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) cmdlet을 사용하여 이 로컬 PowerShell 개체 ```$setting```에 대한 모든 수정을 수행한 다음 전체 개체를 DPM 및 Azure Backup에 커밋하여 저장합니다. ```–Commit``` 플래그를 사용하여 해당 변경 내용이 유지되도록 해야 합니다. 커밋하지 않으면 설정이 적용되지 않으며 Azure Backup에서 사용할 수 없습니다.
+[Set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) cmdlet을 사용하여 이 로컬 PowerShell 개체 ```$setting```에 대한 모든 수정을 수행한 다음 전체 개체를 DPM 및 Azure Backup에 커밋하여 저장합니다. ```–Commit``` 플래그를 사용하여 해당 변경 내용이 유지되도록 해야 합니다. 설정이 적용 되지 않고 Azure Backup에서 사용 되지 않습니다.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -191,7 +191,7 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoProxy
 ```
 
-대역폭 사용 역시 주의 정해진 요일에 대해 ```-WorkHourBandwidth``` 및 ```-NonWorkHourBandwidth``` 옵션으로 제어할 수 있습니다. 이 예제에서는 제한을 설정하지 않습니다.
+대역폭 사용 역시 주의 정해진 요일에 대해 ```-WorkHourBandwidth``` 및 ```-NonWorkHourBandwidth``` 옵션으로 제어할 수 있습니다. 이 예에서는 제한을 설정 하지 않습니다.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -NoThrottle
@@ -262,7 +262,7 @@ $MPG = Get-ModifiableProtectionGroup $PG
 3. 서버의 모든 데이터 원본 목록을 가져옵니다.
 4. 하나 이상의 데이터 원본을 선택하고 보호 그룹에 추가
 
-DPM 에이전트가 설치되어 있고 DPM 서버에 의해 관리되고 있는 서버 목록은 [Get-DPMProductionServer](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) cmdlet을 사용하여 얻을 수 있습니다. 이 예제에서는 백업에 대해 이름이 *productionserver01* 인 PS만 필터링하여 구성합니다.
+DPM 에이전트가 설치되어 있고 DPM 서버에 의해 관리되고 있는 서버 목록은 [Get-DPMProductionServer](/powershell/module/dataprotectionmanager/get-dpmproductionserver?view=systemcenter-ps-2019) cmdlet을 사용하여 얻을 수 있습니다. 이 예제에서는 *productionserver01* 이름으로 PowerShell을 필터링 하 고 구성 합니다.
 
 ```powershell
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}

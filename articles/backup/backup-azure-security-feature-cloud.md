@@ -3,12 +3,12 @@ title: Azure Backup에 대 한 일시 삭제
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: b3ccd944ce1f6a30b4441c205a83e71374e7aff2
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: d791b76698330cd14c56f01cf5da62c8a64bec29
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763442"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826976"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Azure Backup에 대 한 일시 삭제
 
@@ -44,9 +44,9 @@ ms.locfileid: "88763442"
 ### <a name="disabling-soft-delete-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 일시 삭제 사용 안 함
 
 > [!IMPORTANT]
-> Azure PS를 사용 하 여 일시 삭제를 사용 하는 데 필요한 Az Service 버전은 min 2.2.0입니다. ```Install-Module -Name Az.RecoveryServices -Force```를 사용 하 여 최신 버전을 가져옵니다.
+> Azure PowerShell를 사용 하 여 일시 삭제를 사용 하는 데 필요한 Az Services 버전은 최소 2.2.0입니다. ```Install-Module -Name Az.RecoveryServices -Force```를 사용 하 여 최신 버전을 가져옵니다.
 
-사용 하지 않도록 설정 하려면 [AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PS cmdlet을 사용 합니다.
+사용 하지 않도록 설정 하려면 [AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PowerShell cmdlet을 사용 합니다.
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
@@ -140,7 +140,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 2. 그런 다음 [여기](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)에 설명 된 단계를 사용 하 여 REST API를 사용 하는 일시 삭제 기능을 비활성화 합니다.
 3. 그런 다음 [여기](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)에 설명 된 대로 REST API를 사용 하 여 백업을 삭제 합니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>모든 자격 증명 모음에서 일시 삭제 기능을 사용 하도록 설정 해야 하나요?
 

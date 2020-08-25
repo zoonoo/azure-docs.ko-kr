@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 9f92e703dd45e893a3dfdd8a4c1d6aa3e9b8e96e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0a7a5f21ee868da2b9c3a6c7dc8bb5968531d0d0
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506501"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824205"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -366,6 +366,12 @@ Azure Machine Learning compute를 사용 하 여 [강제 터널링](/azure/vpn-g
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
+
+        > [!TIP]
+        > 미국 버지니아, 미국-애리조나 지역 또는 중국 동부-2 지역을 사용 하는 경우 이러한 명령은 IP 주소를 반환 하지 않습니다. 대신, 다음 링크 중 하나를 사용 하 여 IP 주소 목록을 다운로드 합니다.
+        >
+        > * [Azure Government에 대 한 Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=57063)
+        > * [Azure 중국의 azure IP 범위 및 서비스 태그](https://www.microsoft.com//download/details.aspx?id=57062)
     
     UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 __다음 홉 유형__을 __인터넷__으로 설정합니다. 다음 이미지는 Azure Portal에서 UDR의 예를 보여 줍니다.
 

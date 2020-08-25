@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2030620446f414f985f86218b96c6db78ab090a1
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: e6aec34bea32d33e7a202cb9afb1aae6e1047f18
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763680"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825463"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Azure 파일 공유를 백업 하는 동안 발생 하는 문제 해결
 
@@ -251,7 +251,7 @@ Azure Files 포털에서 요청 시 백업(Azure 파일 공유 스냅샷)을 삭
 - 복구에 사용 하려고 하는 복구 지점에 해당 하는 파일 공유 스냅숏이 여전히 존재 하는지 확인 합니다.
 
   >[!NOTE]
-  >Azure Backup 여 만든 파일 공유 스냅숏을 삭제 하면 해당 복구 지점은 사용할 수 없게 됩니다. 복구를 보장 하기 위해 스냅숏을 삭제 하지 않는 것이 좋습니다.
+  >Azure Backup 여 만든 파일 공유 스냅숏을 삭제 하면 해당 복구 지점은 사용할 수 없게 됩니다. 복구를 보장 하려면 스냅숏을 삭제 하지 않는 것이 좋습니다.
 
 - 다른 복원 지점을 선택 하 여 데이터를 복구 해 보세요.
 

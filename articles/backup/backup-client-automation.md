@@ -3,12 +3,12 @@ title: PowerShell을 사용하여 Azure에 Windows Server 백업
 description: 이 문서에서는 PowerShell을 사용 하 여 Windows Server 또는 Windows 클라이언트에서 Azure Backup를 설정 하 고 백업 및 복구를 관리 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: d0ae5165fc13193737ec75cf06060123ca4a13d4
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 8e9b2f0adc2cdd4e0d17f618b516486d8ca9f8a8
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756999"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826330"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
@@ -42,7 +42,7 @@ ms.locfileid: "88756999"
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. 사용할 저장소 중복성 유형을 지정 합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md) 또는 [GRS (지역 중복 저장소](../storage/common/storage-redundancy.md))를 사용할 수 있습니다. 다음 예에서는 *Testvault* 에 대 한 **-BackupStorageRedundancy** 옵션을 **GeoRedundant**로 설정 하는 방법을 보여 줍니다.
+4. 사용할 스토리지 중복 유형을 지정합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md) 또는 [GRS (지역 중복 저장소](../storage/common/storage-redundancy.md))를 사용할 수 있습니다. 다음 예에서는 *Testvault* 에 대 한 **-BackupStorageRedundancy** 옵션을 **GeoRedundant**로 설정 하는 방법을 보여 줍니다.
 
    > [!TIP]
    > 많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
@@ -177,7 +177,7 @@ Machine registration succeeded.
 ```
 
 > [!IMPORTANT]
-> 저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마세요. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
+> 자격 증명 모음 자격 증명 파일을 지정 하려면 상대 경로를 사용 하지 마세요. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
 >
 >
 

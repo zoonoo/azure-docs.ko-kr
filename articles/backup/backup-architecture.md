@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6da6cedc7841e31876bef8788458531b1ec375a8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652783"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824035"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -52,7 +52,7 @@ Recovery Services 자격 증명 모음에는 다음과 같은 기능이 있습�
 
 Azure Backup는 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업 에이전트를 제공 합니다.
 
-**에이전트** | **설명**
+**에이전트** | **세부 정보**
 --- | ---
 **MARS 에이전트** | <ul><li>는 개별 온-프레미스 Windows Server 컴퓨터에서 실행 되어 파일, 폴더 및 시스템 상태를 백업 합니다.</li> <li>Azure Vm에서를 실행 하 여 파일, 폴더 및 시스템 상태를 백업 합니다.</li> <li>Dpm/mabs 서버를 실행 하 여 DPM/MABS 로컬 저장소 디스크를 Azure에 백업 합니다.</li></ul>
 **Azure VM 확장** | 자격 증명 모음에 백업하기 위해 Azure VM에서 실행됩니다.
@@ -134,7 +134,7 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
 
 1. Azure VM에 대 한 백업을 사용 하도록 설정 하면 지정한 일정에 따라 백업이 실행 됩니다.
 1. 첫 번째 백업 중에 VM이 실행 되는 경우 백업 확장이 VM에 설치 됩니다.
-    - Windows Vm의 경우 VMSnapshot 확장을 설치 합니다.
+    - Windows VM의 경우 VMSnapshot 확장이 설치됩니다.
     - Linux Vm의 경우 VMSnapshot Linux 확장이 설치 됩니다.
 1. 확장은 저장소 수준 스냅숏을 사용 합니다.
     - 을 실행 하는 Windows Vm의 경우 VSS (Windows 볼륨 섀도 복사본 서비스)를 사용 하 여 VM의 앱 일치 스냅숏을 사용 합니다. 기본적으로 백업은 전체 VSS 백업을 수행 합니다. Backup에서 앱 일관성이 있는 스냅샷을 만들 수 없는 경우에는 일관성 있는 파일 스냅샷을 만듭니다.
@@ -143,7 +143,7 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
 1. 스냅샷을 만든 후에는 데이터가 자격 증명 모음으로 전송됩니다.
     - 마지막 백업 이후에 변경 된 데이터 블록만 복사 됩니다.
     - 데이터가 암호화되지 않습니다. Azure Backup Azure Disk Encryption를 사용 하 여 암호화 된 Azure Vm을 백업할 수 있습니다.
-    - 스냅샷 데이터가 자격 증명 모음에 즉시 복사되지 않을 수 있습니다. 사용량이 많은 시간에 백업은 약간의 시간이 걸릴 수 있습니다. 일별 백업 정책에서 VM의 총 백업 시간은 24 시간 미만입니다.
+    - 스냅샷 데이터가 자격 증명 모음에 즉시 복사되지 않을 수도 있습니다. 사용량이 많은 시간에 백업은 약간의 시간이 걸릴 수 있습니다. 일별 백업 정책에서 VM의 총 백업 시간은 24시간 미만입니다.
 1. 자격 증명 모음에 데이터가 전송 된 후에는 복구 지점이 생성 됩니다. 기본적으로 스냅숏은 삭제 되기 2 일 동안 보존 됩니다. 이 기능을 통해 이러한 스냅숏에서 복원 작업을 수행할 수 있으므로 복원 시간이 줄어듭니다. 자격 증명 모음에서 데이터를 다시 변환 하 고 복사 하는 데 필요한 시간을 줄일 수 있습니다. [Azure Backup 인스턴트 복원 기능](./backup-instant-restore-capability.md)을 참조 하세요.
 
 Azure Vm을 백업 하기 위해 인터넷 연결을 명시적으로 허용 하지 않아도 됩니다.

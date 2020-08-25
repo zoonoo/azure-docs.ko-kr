@@ -4,12 +4,12 @@ description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) v3의 알�
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 1f4900bb129ee67cd75d2b793f4179e3135569a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 26d30a56b3117642678f98ba3e7927c27bfd6a69
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032564"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826619"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server 릴리스 정보
 
@@ -78,7 +78,7 @@ ms.locfileid: "87032564"
 **해결 방법**: RDL 파일을 바꾸려면 다음 단계를 수행 합니다.
 
 1. MABS 컴퓨터에서 SQL Reporting Services 웹 포털 URL을 엽니다.
-1. 웹 포털 URL에서 DPMReports 폴더는 다음 형식으로 표시 됩니다.**`DPMReports_<GUID>`**
+1. 웹 포털 URL에서 DPMReports 폴더는 다음 형식으로 표시 됩니다. **`DPMReports_<GUID>`**
 
     >[!NOTE]
     >이 명명 규칙을 사용 하는 폴더는 항상 한 개만 있습니다. MABS를 이전 버전에서 업그레이드 하는 경우 다른 이전 폴더도 있을 수 있지만 열 수는 없습니다.
@@ -95,13 +95,13 @@ ms.locfileid: "87032564"
 
 1. 새로 만들기 페이지에서 **바꾸기** 옵션을 선택 하 여 파일을 최신 보고서 파일로 바꿉니다.
 
-    최신 보고서 파일은 경로에서 찾을 수 있습니다.`<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+    최신 보고서 파일은 경로에서 찾을 수 있습니다. `<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
-    예를 들면 다음과 같습니다. `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+    `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
     ![최신 보고서 파일로 파일 바꾸기](./media/backup-mabs-release-notes-v3/replace-files.png)
 
-    파일이 대체 된 후에는 **이름** 및 **설명이** 그대로 유지 되 고 비어 있지 않은지 확인 합니다.
+    파일이 바뀌면 **이름** 및 **설명**이 그대로 유지되고 비어 있지 않은지 확인합니다.
 
 1. 파일이 대체 된 후 MABS 서비스를 다시 시작 하 고 보고서 파일을 사용 합니다.
 

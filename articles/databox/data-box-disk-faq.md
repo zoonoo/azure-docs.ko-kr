@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 3d4b51445e0859fe90a81eecb95625d41009b6eb
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f2231b74034ba6cea672a7bbf68f506fce423d45
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649417"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826143"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: 질문과 대답
 
@@ -56,13 +56,13 @@ A.  Data Box Disk가 현재 사용 가능한 곳을 보려면 [지역 가용성]
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>17. Data Box Disk에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
 A. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽, 북유럽, 한국 및 일본 내의 모든 지역에서 지원됩니다. Azure 퍼블릭 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
 
-### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>17. 배송 중에 내 Data Box Disk가 국가/지역 경계를 넘을 수 있나요?
-A. 모든 Data Box Disk는 목적지와 동일한 국가/지역 내에서 배송되며 국경을 넘지 않습니다. 유일한 예외는 디스크가 모든 EU 국가/지역 간에 발송될 수 있는 EU(유럽 연합) 내에서의 주문입니다.
+### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>17. Data Box Disk에 데이터를 저장할 수 있는 지역은 어떻게 되나요?
+A. Data Box Disk는 미국, 캐나다, 오스트레일리아, 서유럽, 북유럽, 한국 및 일본 내의 모든 지역에서 지원됩니다. Azure 퍼블릭 클라우드 지역만 지원됩니다. Azure Government 또는 다른 소버린 클라우드는 지원되지 않습니다.
 
-### <a name="q-how-can-i-import-my-on-premises-source-data-in-one-countryregion-to-an-azure-region-in-a-different-countryregion"></a>17. 한 국가/지역에 있는 온-프레미스 원본 데이터를 다른 국가/지역에 있는 Azure 지역으로 가져오려면 어떻게 하나요?
-A. Data Box Disk는 동일한 지역 (상거래 경계) 내 에서만 데이터 수집을 지원 합니다. 다른 모든 경우에는 추가 작업을 수행 해야 할 수 있습니다. 
+### <a name="q-how-can-i-import-source-data-present-at-my-location-in-one-countryregion-to-an-azure-region-in-a-different-country"></a>17. 한 국가/지역에 있는 원본 데이터를 다른 국가의 Azure 지역으로 가져오려면 어떻게 하나요?
+A. Data Box Disk는 해당 대상과 동일한 국가/지역 내 에서만 데이터 수집을 지원 하며 국가별 테두리를 교차 하지 않습니다. 유일한 예외는 EU (유럽 연합)의 주문에 대 한 것입니다. 여기에서 Data Box 디스크는 EU 국가/지역에 제공 될 수 있습니다.
 
-예를 들어 Azure WestUS 저장소 계정으로 이동 하고자 하는 캐나다의 온-프레미스 데이터가 있는 경우 다음과 같은 방법으로이를 달성할 수 있습니다.
+예를 들어 캐나다의 위치에 있는 데이터를 Azure WestUS 저장소 계정으로 이동 하려는 경우 다음과 같은 방법으로 달성할 수 있습니다.
 
 ### <a name="option-1"></a>옵션 1: 
 

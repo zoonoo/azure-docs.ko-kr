@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용하여 Azure Backup에 대한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: bcb9e75cea06be6ce69c6baccb5ac252c1666d4d
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4e5e9258540e5cdab14e438cde96cd89aad7498d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755265"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826857"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -82,14 +82,14 @@ Log Analytics로 데이터를 보내도록 자격 증명 모음을 구성한 후
 
    ![Backup 항목 탭](./media/backup-azure-configure-backup-reports/backup-items.png)
 
-##### <a name="usage"></a>사용
+##### <a name="usage"></a>사용량
 
 이 탭을 사용 하 여 백업에 대 한 주요 청구 매개 변수를 볼 수 있습니다. 이 탭에 표시되는 정보는 청구 엔터티(보호된 컨테이너) 수준에 있습니다. 예를 들어 DPM 서버를 Azure에 백업 하는 경우 DPM 서버에 사용 되는 보호 된 인스턴스 및 클라우드 저장소의 추세를 볼 수 있습니다. 마찬가지로 Azure Backup에서 SQL을 사용하거나 Azure Backup에서 SAP HANA를 사용하는 경우 이 탭은 이러한 데이터베이스가 들어 있는 가상 머신 수준에서 사용 관련 정보를 제공합니다.
 
    ![사용량 탭](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> DPM 워크 로드의 경우 사용자는 Recovery Services 자격 증명 모음 **개요** 탭에 표시 된 것과 같이 집계 사용량 값과 비교 하 여 보고서에 표시 되는 사용량 값 사이에 약간의 차이가 있습니다 (dpm 서버당 20mb). 이러한 차이는 백업에 등록 되는 모든 DPM 서버에 보고를 위한 아티팩트로 표시 되지 않는 연결 된 ' metadata ' 데이터 원본이 있다는 사실에 대해 고려 됩니다.
+> DPM 워크 로드의 경우 사용자는 Recovery Services 자격 증명 모음 **개요** 탭에 표시 된 것과 같이 집계 사용량 값과 비교 하 여 보고서에 표시 되는 사용량 값 사이에 약간의 차이가 있습니다 (dpm 서버당 20mb). 이러한 차이는 백업에 대해 등록 되는 모든 DPM 서버에 보고에 대 한 아티팩트로 표시 되지 않는 연결 된 ' metadata ' 데이터 원본이 있다는 사실에 의해 고려 됩니다.
 
 ##### <a name="jobs"></a>작업
 

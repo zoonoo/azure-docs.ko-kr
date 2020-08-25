@@ -3,12 +3,12 @@ title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: bbb59439677f6c7297aabbecbafeb04327f482b5
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 5c2c994b48fb2b950afb67f5c8b6d3c4f7d01e39
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762915"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826653"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
@@ -60,7 +60,7 @@ Azure Resource Manager 클라이언트를 사용 하 여 자격 증명 모음을
 1. 자격 증명 모음의 관리 되는 id 인 **개체 ID** 가 생성 됩니다.
 
     >[!NOTE]
-    >일단 사용 하도록 설정 하면 관리 되는 Id를 일시적으로 사용 하지 않도록 설정 해야 합니다. 관리 id를 사용 하지 않도록 설정 하면 일관 되지 않은 동작이 발생할 수 있습니다.
+    >일단 사용 하도록 설정 하면 관리 되는 Id를 일시적으로 **사용 하지 않도록 설정 해야 합니다** . 관리 id를 사용 하지 않도록 설정 하면 일관 되지 않은 동작이 발생할 수 있습니다.
 
 ## <a name="dns-changes"></a>DNS 변경
 

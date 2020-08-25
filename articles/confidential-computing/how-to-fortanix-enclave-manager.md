@@ -9,19 +9,19 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: d46354b18d5c3317cc1ed67d839feb26b7b6b5d0
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b5b0f9acc45dba81bb7653c844bb8c78a8bd29ba
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815847"
+ms.locfileid: "88826296"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>방법: Fortanix Enclave Manager를 사용 하 여 응용 프로그램 실행 
 
 [Fortanix](https://www.fortanix.com/)에서 [Fortanix Enclave Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) 및 [Fortanix Node Agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) 를 사용 하 여 Azure 기밀 컴퓨팅에서 응용 프로그램 실행을 시작 합니다.
 
 
-Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 포함 하는 타사 소프트웨어 공급 업체입니다. [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) 및 [Scone](https://sconedocs.github.io)와 같이 Azure에서 유사한 기밀 컴퓨팅 서비스를 제공 하는 다른 타사 공급자가 있습니다.  
+Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 포함 하는 타사 소프트웨어 공급 업체입니다. Azure에서 유사한 기밀 컴퓨팅 서비스를 제공 하는 다른 타사 공급자가 있습니다.
 
 > [!Note] 
  > 이 문서에서 참조 하는 제품은 MICROSOFT에서 제어 하 고 있지 않습니다. MICROSOFT는 편의를 위해서만이 정보를 제공 하 고, 이러한 타사 제품에 대 한 참조는 MICROSOFT의 보증을 암시 하지 않습니다.
@@ -33,7 +33,7 @@ Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 �
  Fortanix에 대 한 지원은 [Fortanix 여유 커뮤니티](https://fortanix.com/community/) 에 가입 하 고 채널 #enclavemanager를 사용 합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 1. Fortanix Enclave Manager 계정이 없는 경우 시작 하기 전에 [등록](https://em.fortanix.com/auth/sign-up) 합니다.
 1. 변환 된 응용 프로그램 이미지를 푸시하는 개인 [Docker](https://docs.docker.com/) 레지스트리
@@ -162,7 +162,7 @@ Fortanix 노드 에이전트를 만들면 가상 컴퓨터, 네트워크 인터�
 
 더 이상 필요 하지 않은 경우 리소스 그룹, 가상 머신 및 관련 리소스를 삭제할 수 있습니다. 리소스 그룹을 삭제 하면 변환 된 이미지와 연결 된 노드의 등록을 취소 합니다. 
 
-가상머신에 대한 리소스 그룹을 선택한 다음 **삭제**를 선택합니다. 리소스 삭제를 완료 하려면 리소스 그룹의 이름을 확인 하십시오.
+가상머신에 대한 리소스 그룹을 선택한 다음 **삭제**를 선택합니다. 리소스 그룹의 이름을 확인하고 리소스 삭제를 마칩니다.
 
 만든 Fortanix Enclave Manager 계정을 삭제 하려면 Enclave Manager의 [계정 페이지로](https://em.fortanix.com/accounts) 이동 합니다. 삭제 하려는 계정 위로 마우스를 가져갑니다. 오른쪽 위 모서리에서 세로 검은색 점을 선택 하 고 **계정 삭제**를 선택 합니다.
 
@@ -174,3 +174,4 @@ Fortanix 노드 에이전트를 만들면 가상 컴퓨터, 네트워크 인터�
 
 Azure의 기밀 컴퓨팅 제품에 대해 자세히 알아보려면 [azure 기밀 컴퓨팅 개요](overview.md) 를 참조 하세요.
 
+ [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) 및 [scone](https://sconedocs.github.io)와 같이 Azure에서 다른 타사 제품을 사용 하 여 유사한 작업을 완료 하는 방법을 알아봅니다.  

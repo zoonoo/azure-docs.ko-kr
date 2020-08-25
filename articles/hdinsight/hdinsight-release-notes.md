@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.openlocfilehash: ba3c7304b0ce52cb720a9e2ac7ae6cf1b5ffeeea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 08/25/2020
+ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751463"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826823"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -75,4 +75,4 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 ## <a name="known-issues"></a>알려진 문제
 
-Azure Portal에서 Azure HDInsight 클러스터를 만들고 SSH 인증 유형 공개 키를 사용 하는 경우 사용자가 **검토 + 만들기**를 클릭 하면 오류가 발생 합니다. 포털의 오류는 "SSH 사용자 이름에서 3 개의 연속 문자를 포함 하지 않아야 합니다."입니다. 이 문제를 해결 하 고 있습니다. 그러나이 오류가 발생 하는 경우 해결 방법은 ARM 템플릿을 사용 하 여 클러스터를 만드는 것입니다. 
+Azure Portal에서 사용자가 공개 키의 SSH 인증 유형을 사용 하 여 Azure HDInsight 클러스터를 만들 때 오류가 발생 하는 문제가 해결 되었습니다. 사용자가 **검토 + 만들기**를 클릭 하면 "SSH 사용자 이름에서 3 개의 연속 문자를 포함 하지 않아야 합니다." 오류가 표시 됩니다. 이 문제는 해결 되었지만 수정 된 보기를 로드 하려면 CTRL + f 5를 눌러 브라우저 캐시를 새로 고쳐야 할 수도 있습니다. 이 문제에 대 한 해결 방법은 ARM 템플릿을 사용 하 여 클러스터를 만드는 것 이었습니다. 

@@ -3,12 +3,12 @@ title: SQL Server 데이터베이스 백업 문제 해결
 description: Azure Backup을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업하는 경우의 문제 해결 정보입니다.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 98240254a71695fa72acaf5c7f930c11d9f99cae
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 53b701e5bfae9313732f4b76a4e13b63afb3864a
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756914"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826721"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -62,7 +62,7 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 | 심각도 | 설명 | 가능한 원인 | 권장 조치 |
 |---|---|---|---|
-| Warning | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업 및 트랜잭션 로그 백업은 가능 하지 않습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
+| 경고 | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업 및 트랜잭션 로그 백업은 가능 하지 않습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 데이터베이스 설정 sp 정책에 있는 모든 백업 유형이 지원 됩니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 

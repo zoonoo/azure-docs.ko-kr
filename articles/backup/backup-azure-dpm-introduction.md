@@ -3,12 +3,12 @@ title: 작업을 백업 하도록 DPM 서버 준비
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure에 대 한 System Center Data Protection Manager (DPM) 백업을 준비 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 86becc2b989c55ac080b9bdcbfcca182987e9fb2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612659"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827310"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
 
@@ -127,7 +127,7 @@ Azure Backup으로 백업되는 모든 머신에는 MARS(Microsoft Azure Recover
 7. Azure Backup 에이전트가 .NET Framework 4.5 및 Windows PowerShell(설치되지 않은 경우)을 설치하여 설치를 완료합니다.
 8. 에이전트가 설치되면 창을 **닫습니다**.
 
-    ![닫습니다](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
+    ![닫기](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>자격 증명 모음에 VMM 서버 등록
 
@@ -160,8 +160,8 @@ Azure Backup으로 백업되는 모든 머신에는 MARS(Microsoft Azure Recover
     ![암호화](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
-    > 사용자는 암호화 암호를 소유하며 Microsoft는 이 암호를 전혀 볼 수 없습니다.
-    > 암호를 분실하거나 잊어버린 경우 Microsoft는 백업 데이터 복구를 도와드릴 수 없습니다.
+    > 암호화 암호를 소유 하 고 있으며 Microsoft는 이러한 암호를 볼 수 없습니다.
+    > 암호를 분실 하거나 잊어버린 경우 Microsoft에서 백업 데이터를 복구 하는 데 도움을 줍니다.
 
 7. **등록** 을 선택 하 여 DPM 서버를 자격 증명 모음에 등록 합니다.
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Backup 작
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 9a4558367d3af6858310ce4455cbf1df2a596312
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 2fae7cfdb8b316341e01d15b43811d3f0e7638ef
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763476"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827191"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드 모니터링
 
@@ -30,7 +30,7 @@ Azure Backup은 Azure Backup으로 보호 되는 워크 로드에 대 한 기본
 - Azure 워크 로드 백업 (예: SQL 및 SAP HANA)
 - MARS(Microsoft Azure Recovery Services) 에이전트
 
-System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (MABS)의 작업은 표시 되지 않습니다.
+System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (MABS)의 작업이 표시 되지 않습니다.
 
 > [!NOTE]
 > Azure Vm 내에서 SQL 및 SAP HANA 백업 같은 azure 워크 로드에는 상당한 수의 백업 작업이 있습니다. 예를 들어 로그 백업은 15 분 마다 실행할 수 있습니다. 따라서 이러한 DB 워크 로드의 경우 사용자가 트리거한 작업만 표시 됩니다. 예약 된 백업 작업은 표시 되지 않습니다.
@@ -55,7 +55,7 @@ System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (M
 - MARS(Microsoft Azure Recovery Services) 에이전트
 
 > [!NOTE]
-> System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (MABS)의 경고는 여기에 표시 되지 않습니다.
+> System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (MABS)의 경고가 여기에 표시 되지 않습니다.
 
 ### <a name="consolidated-alerts"></a>통합 된 경고
 

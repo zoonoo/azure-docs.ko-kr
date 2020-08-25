@@ -3,12 +3,12 @@ title: Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
 description: Azure Policy를 사용 하 여 지정 된 범위에서 만든 모든 Vm에 대 한 백업을 자동으로 활성화 하는 방법을 설명 하는 문서입니다.
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: fd54c25899bc1e58a753821d2c7c2df8ff213865
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: de4923000bc842203535e03727fd532c67a8f517
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763595"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826075"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
 

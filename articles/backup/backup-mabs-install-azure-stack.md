@@ -3,12 +3,12 @@ title: Azure Stack에 Azure Backup Server 설치
 description: 이 문서에서는 Azure Backup Server를 사용하여 Azure Stack에서 워크로드를 보호하거나 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 5b6ae97f30bf704e5bc495cc8020e8bcb0e30ce3
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 644aeeb8670c4b8d551ba1d3f6b1b16aa199f4ef
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263064"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827010"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -94,7 +94,7 @@ Azure Backup Server에 사용할 서버를 선택할 때 Windows Server 2012 R2 
 Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [MABS용 보호 매트릭스](./backup-mabs-protection-matrix.md)는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
 > [!NOTE]
-> Azure Backup Server는 단일 용도의 전용 가상 머신에서 실행되도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
+> Azure Backup Server는 단일 용도의 전용 가상 머신에서 실행되도록 설계되었습니다. 에 Azure Backup Server을 설치할 수 없습니다.
 >
 > - 도메인 컨트롤러로 실행하는 컴퓨터
 > - 애플리케이션 서버 역할이 설치된 컴퓨터
@@ -217,7 +217,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Dat
 
     ![Azure Backup Server-필수 구성 요소 확인](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    환경에 필요한 필수 구성 요소가 있는 경우 컴퓨터가 요구 사항을 충족 한다는 메시지가 표시 됩니다. **다음**을 선택합니다.  
+    환경에 필요한 필수 구성 요소가 있는 경우 컴퓨터가 요구 사항을 충족 한다는 메시지가 표시 됩니다. **새로 만들기**를 선택합니다.  
 
     ![Azure Backup Server - 필수 조건 확인 통과](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
@@ -228,7 +228,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Dat
 4. Microsoft Azure Backup Server에는 SQL Server가 필요합니다. Azure Backup Server 설치 패키지는 적절한 SQL Server 이진 파일이 번들로 함께 제공됩니다. 원한다면 사용자 고유의 SQL 설치를 사용해도 됩니다. 그러나 설치 관리자가 새 SQL Server 인스턴스를 추가하게 하는 것이 좋습니다. 선택 항목이 사용자 환경에서 작동 하도록 하려면 **확인 후 설치**를 선택 합니다.
 
    > [!NOTE]
-   > Azure Backup 서버는 원격 SQL Server 인스턴스에서 작동하지 않습니다. Azure Backup Server에서 사용하는 인스턴스는 로컬이어야 합니다.
+   > Azure Backup Server은 원격 SQL Server 인스턴스에서 작동 하지 않습니다. Azure Backup Server에서 사용하는 인스턴스는 로컬이어야 합니다.
    >
 
     ![Azure Backup Server-SQL 설정](./media/backup-mabs-install-azure-stack/mabs-install-wizard-sql-install-9.png)

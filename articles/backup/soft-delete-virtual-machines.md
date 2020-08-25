@@ -4,12 +4,12 @@ description: 가상 컴퓨터에 대 한 일시 삭제로 백업을 더 안전 �
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: 19de26024a6a31a213130ec419132fd7dd8134a0
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 90d55e8ed6c831adf4efaf0663d191697177ea63
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763697"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826483"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>가상 머신의 일시 삭제
 
@@ -62,13 +62,13 @@ Vm에 대 한 일시 삭제는 의도 하지 않은 삭제 로부터 Vm의 백�
 ## <a name="soft-delete-for-vms-using-azure-powershell"></a>Azure PowerShell를 사용 하는 Vm에 대 한 일시 삭제
 
 > [!IMPORTANT]
-> Azure PS를 사용 하 여 일시 삭제를 사용 하는 데 필요한 Az Service 버전은 min 2.2.0입니다. ```Install-Module -Name Az.RecoveryServices -Force```를 사용 하 여 최신 버전을 가져옵니다.
+> Azure PowerShell를 사용 하 여 일시 삭제를 사용 하는 데 필요한 Az Services 버전은 최소 2.2.0입니다. ```Install-Module -Name Az.RecoveryServices -Force```를 사용 하 여 최신 버전을 가져옵니다.
 
 Azure Portal에 대해 위에서 설명한 것 처럼 Azure PowerShell를 사용 하는 동안 단계 순서가 동일 합니다.
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 백업 항목 삭제
 
-[AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS cmdlet을 사용 하 여 백업 항목을 삭제 합니다.
+[AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PowerShell cmdlet을 사용 하 여 백업 항목을 삭제 합니다.
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -95,7 +95,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-그런 다음 실행 취소- [AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS cmdlet을 사용 하 여 실행 취소 작업을 수행 합니다.
+그런 다음 실행 취소- [AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PowerShell cmdlet을 사용 하 여 실행 취소 작업을 수행 합니다.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force

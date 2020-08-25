@@ -3,12 +3,12 @@ title: MABS (Azure Backup Server) V3 UR1 protection 매트릭스
 description: 이 문서에서는 Azure Backup Server에서 보호하는 모든 워크로드, 데이터 형식 및 설치 프로그램을 나열하는 지원 매트릭스를 제공합니다.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 541f7b18059dd049670b5c42d20ae409b3aee38a
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 70d8b8cd26a40b0c7ec8b538bcb702d281f829e6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660046"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826840"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>MABS (Azure Backup Server) V3 UR1 protection 매트릭스
 
@@ -37,7 +37,7 @@ MABS v3 UR1에 대해 다음 행렬을 사용 합니다.
 
 ## <a name="applications-backup"></a>애플리케이션 백업
 
-| **작업**               | **버전**                                                  | **Azure Backup Server 설치**                       | **지원 되는 Azure Backup Server** | **보호 및 복구**                                  |
+| **작업**               | **Version**                                                  | **Azure Backup Server 설치**                       | **지원 되는 Azure Backup Server** | **보호 및 복구**                                  |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | --------------------------------- | ------------------------------------------------------------ |
 | 클라이언트 컴퓨터 (64 비트) | Windows 10                                                  | 물리적 서버  <br><br>    Hyper-V 가상 머신   <br><br>   VMware 가상 머신 | V3 UR1                            | 볼륨, 공유, 폴더, 파일, 중복 제거 된 볼륨   <br><br>   보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.  <br><br>    볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다. |
 | Servers (64 비트)          | Windows Server 2019, 2016, 2012 R2, 2012                    | Azure 가상 머신 (워크 로드가 Azure 가상 머신으로 실행 되는 경우)  <br><br>    물리적 서버  <br><br>    Hyper-V 가상 머신 <br><br>     VMware 가상 머신  <br><br>    Azure Stack | V3 UR1                            | 볼륨, 공유, 폴더, 파일 <br><br>    중복 제거 된 볼륨 (NTFS 전용)  <br><br>   시스템 상태 및 운영 체제 미 설치 (워크 로드가 Azure 가상 머신으로 실행 되는 경우 지원 되지 않음) |
@@ -48,14 +48,14 @@ MABS v3 UR1에 대해 다음 행렬을 사용 합니다.
 
 ## <a name="vm-backup"></a>VM 백업
 
-| **작업**                                                 | **버전**                                             | **Azure Backup Server 설치**                      | **지원 되는 Azure Backup Server** | **보호 및 복구**                                 |
+| **작업**                                                 | **Version**                                             | **Azure Backup Server 설치**                      | **지원 되는 Azure Backup Server** | **보호 및 복구**                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
 | Hyper-v 호스트-MABS 보호 에이전트 (hyper-v 호스트 서버, 클러스터 또는 VM) | Windows Server 2019, 2016, 2012 R2, 2012               | 물리적 서버  <br><br>    Hyper-V 가상 머신 <br><br>    VMware 가상 컴퓨터 | V3 UR1                             | 보호: Hyper-v 컴퓨터, Csv (클러스터 공유 볼륨)  <br><br>    복구: 가상 머신, Windows, 볼륨, 가상 하드 드라이브에 대해서만 사용할 수 있는 파일 및 폴더의 항목 수준 복구 |
 | VMware Vm                                                  | VMware server 5.5, 6.0 또는 6.5, 6.7 (사용이 허가 된 버전) | Hyper-v 가상 컴퓨터  <br><br>   VMware 가상 컴퓨터         | V3 UR1                             | 보호: Csv (클러스터 공유 볼륨), NFS 및 SAN 저장소의 VMware Vm   <br><br>     복구: 가상 머신, Windows, 볼륨, 가상 하드 드라이브에 대해서만 사용할 수 있는 파일 및 폴더의 항목 수준 복구 <br><br>    VMware vApps는 지원 되지 않습니다. |
 
 ## <a name="linux"></a>Linux
 
-| **작업** | **버전**                               | **Azure Backup Server 설치**                      | **지원 되는 Azure Backup Server** | **보호 및 복구**                                 |
+| **작업** | **Version**                               | **Azure Backup Server 설치**                      | **지원 되는 Azure Backup Server** | **보호 및 복구**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
 | Linux        | Hyper-v 또는 VMware 게스트로 실행 되는 Linux | 실제 서버, 온-프레미스 Hyper-v VM, VMWare의 Windows VM | V3 UR1                             | Hyper-v는 Windows Server 2012 R2, Windows Server 2016 또는 Windows Server 2019에서 실행 되어야 합니다. 보호: 전체 가상 머신   <br><br>   복구: 전체 가상 머신   <br><br>    파일에 일관적인 스냅샷만 지원됩니다.    <br><br>   지원 되는 Linux 배포 및 버전의 전체 목록은 [Azure에서 보증 배포의 Linux](../virtual-machines/linux/endorsed-distros.md)문서를 참조 하세요. |
 

@@ -4,12 +4,12 @@ description: Azure Backup의 보안 기능을 사용하여 백업을 좀 더 안
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 170ecf364e01ba4b098da289f9d213716e74e0ee
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a793b67b88f11988a584e3f57a296c69606cdd5f
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757033"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826908"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Backup을 사용하여 하이브리드 백업을 보호하기 위한 보안 기능
 
@@ -20,14 +20,14 @@ ms.locfileid: "88757033"
 - **복구**. 삭제된 백업 데이터는 삭제일로부터 추가 14일 동안 보존됩니다. 이를 통해 지정된 기간 내에는 데이터를 복구할 수 있게 되므로 공격이 발생하더라도 데이터가 손실되지 않습니다. 또한 데이터 손상으로부터 보호하기 위해 더 많은 수의 최소 복구 지점이 유지됩니다.
 
 > [!NOTE]
-> IaaS(Infrastructure as a Service) VM 백업으로 인프라를 사용하는 경우 보안 기능은 사용하지 말아야 합니다. 이러한 기능은 아직 IaaS VM 백업에 사용할 수 없으므로 사용하도록 설정해도 영향을 미치지 않습니다. 다음을 사용하는 경우에만 보안 기능을 사용하도록 설정해야 합니다. <br/>
+> IaaS (infrastructure as a service) VM 백업을 사용 하는 경우 보안 기능을 사용 하도록 설정 해서는 안 됩니다. 이러한 기능은 아직 IaaS VM 백업에 사용할 수 없으므로 사용 하도록 설정 해도 아무런 영향을 주지 않습니다. 다음을 사용하는 경우에만 보안 기능을 사용하도록 설정해야 합니다. <br/>
 >
 > - **에이전트를 Azure Backup**합니다. 최소 에이전트 버전 2.0.9052. 이러한 기능을 사용하도록 설정하면 중요한 작업을 수행하기 위해 이 에이전트 버전으로 업그레이드해야 합니다. <br/>
 > - **Azure Backup Server**. Azure Backup Server 업데이트 1을 포함한 최소 Azure Backup 에이전트 버전 2.0.9052. <br/>
 > - **System Center Data Protection Manager**. Data Protection Manager 2012 R2 UR12 또는 Data Protection Manager 2016 UR2를 포함한 최소 Azure Backup 에이전트 버전 2.0.9052. <br/>
 
 > [!NOTE]
-> 이러한 기능은 Recovery Services 자격 증명 모음에만 사용할 수 있습니다. 새로 만든 모든 Recovery Services 자격 증명 모음은 기본적으로 이러한 기능을 사용합니다. 기존 Recovery Services 자격 증명 모음의 경우 사용자가 다음 섹션에 설명한 단계를 사용하여 이러한 기능을 사용하도록 설정해야 합니다. 기능을 사용하도록 설정하면 자격 증명 모음에 등록되어 있는 Recovery Services 에이전트 컴퓨터, Azure Backup Server 인스턴스 및 Data Protection Manager 서버에 모두 적용됩니다. 이 기능의 설정은 일회성 작업이며 사용하도록 설정한 후에는 사용하지 않도록 설정할 수 없습니다.
+> 이러한 기능은 Recovery Services 자격 증명 모음에만 사용할 수 있습니다. 새로 만든 모든 Recovery Services 자격 증명 모음은 기본적으로 이러한 기능을 사용합니다. 기존 Recovery Services 자격 증명 모음의 경우 사용자가 다음 섹션에 설명한 단계를 사용하여 이러한 기능을 사용하도록 설정해야 합니다. 기능을 사용하도록 설정하면 자격 증명 모음에 등록되어 있는 Recovery Services 에이전트 컴퓨터, Azure Backup Server 인스턴스 및 Data Protection Manager 서버에 모두 적용됩니다. 이 설정을 사용 하도록 설정 하는 작업은 일회성 작업이 며 사용 하도록 설정한 후에는이 기능을 사용 하지 않도록 설정할 수 없습니다.
 >
 
 ## <a name="enable-security-features"></a>보안 기능 사용
@@ -84,7 +84,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 모든 보안 기능�
 
 > [!NOTE]
 >
-> 현재 DPM 및 MABS에서 **데이터 삭제로 보호 중지**에 보안 핀이 지원되지 않습니다.
+> 현재는 보안 pin이 DPM 및 MABS의 **데이터 삭제로 보호 중지** 에 대해 지원 되지 않습니다.
 
 이 PIN을 받으려면 다음을 수행합니다.
 
