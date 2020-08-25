@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용하여 워크로드 백업
 description: 이 문서에서는 MABS(Microsoft Azure Backup Server)를 사용하여 워크로드를 보호 및 백업하기 위한 환경을 준비하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 9ae8fd824144c70edeb1e084155e8cdff95cd8b9
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 802b7919abcd510db68396b2d9576f8cacc06a6e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612336"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756013"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -101,7 +101,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
    * 리소스 목록에서 **Recovery Services**를 입력합니다.
    * 입력을 시작하면 목록이 입력에 따라 필터링됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
 
-     ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+     ![Recovery Services 자격 증명 모음 만들기 1 단계](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
      Recovery Services 자격 증명 모음의 목록이 표시됩니다.
    * Recovery Services 자격 증명 모음의 목록에서 자격 증명 모음을 선택합니다.
@@ -135,7 +135,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     ![시작 마법사 변경](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-6. 이 열리는 **인프라 준비** 창에서 설치 Azure Backup Server 및 자격 증명 모음 자격 증명 다운로드에 대 한 **다운로드** 링크를 선택 합니다. 복구 서비스 자격 증명 모음에 Azure Backup 서버를 등록하는 동안 자격 증명 모음 자격 증명을 사용합니다. 소프트웨어 패키지를 다운로드할 수 있는 다운로드 센터로 연결됩니다.
+6. 이 열리는 **인프라 준비** 창에서 설치 Azure Backup Server 및 자격 증명 모음 자격 증명 다운로드에 대 한 **다운로드** 링크를 선택 합니다. Azure Backup Server를 Recovery Services 자격 증명 모음에 등록 하는 동안 자격 증명 모음 자격 증명을 사용 합니다. 소프트웨어 패키지를 다운로드할 수 있는 다운로드 센터로 연결됩니다.
 
     ![Azure Backup 서버에 대한 인프라 준비](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
@@ -143,7 +143,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     ![다운로드 센터 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    모든 파일의 다운로드 크기가 >3G이기 때문에 10Mbps 다운로드 링크에서 다운로드를 완료하는 데 최대 60분이 걸릴 수 있습니다.
+    모든 파일의 다운로드 크기는 3gb > 이므로, 10mbps 다운로드 링크에서 다운로드를 완료 하는 데 최대 60 분이 걸릴 수 있습니다.
 
 ### <a name="extracting-the-software-package"></a>소프트웨어 패키지 추출
 
@@ -216,7 +216,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
     ![설정 요약](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. 설치는 단계적으로 발생합니다. 첫 번째 단계에서 Microsoft Azure Recovery Services 에이전트가 서버에 설치됩니다. 또한 마법사가 인터넷 연결을 확인합니다. 인터넷 연결을 사용할 수 있는 경우 설치를 계속할 수 있습니다. 그렇지 않으면 인터넷에 연결 하는 데 프록시 세부 정보를 제공 해야 합니다.
 
-    다음 단계는 Microsoft Azure Recovery Services 에이전트를 구성하는 것입니다. 구성의 일환으로 recovery services 자격 증명 모음에 컴퓨터를 등록 하려면 자격 증명 모음 자격 증명을 제공 해야 합니다. 또한 Azure와 온-프레미스 간에 전송 된 데이터를 암호화/암호 해독 하는 암호를 제공 합니다. 자동으로 암호를 생성하거나 최소 16자인 고유의 암호를 제공할 수 있습니다. 에이전트가 구성될 때까지 마법사를 계속 진행합니다.
+    다음 단계는 Microsoft Azure Recovery Services 에이전트를 구성하는 것입니다. 구성의 일부로, Recovery Services 자격 증명 모음에 컴퓨터를 등록 하기 위해 자격 증명 모음 자격 증명을 제공 해야 합니다. 또한 Azure와 온-프레미스 간에 전송 된 데이터를 암호화/암호 해독 하는 암호를 제공 합니다. 자동으로 암호를 생성하거나 최소 16자인 고유의 암호를 제공할 수 있습니다. 에이전트가 구성될 때까지 마법사를 계속 진행합니다.
 
     ![서버 등록 마법사](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Microsoft Azure Backup 서버 등록이 완료되면 전체 설치 마법사는 SQL Server 및 Azure Backup 서버 구성 요소의 설치 및 구성으로 진행됩니다. SQL Server 구성 요소 설치가 완료되면 Azure Backup 서버 구성 요소가 설치됩니다.

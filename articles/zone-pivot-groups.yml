@@ -488,22 +488,16 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
-- id: app-service-platform-windows-linux
-  title: App Service 플랫폼
-  prompt: 호스팅 플랫폼 선택
+- id: programming-languages-spark-all-minus-sql
+  title: 프로그래밍 언어
+  prompt: 언어 선택
   pivots:
-  - id: platform-linux
-    title: Linux
-  - id: platform-windows
-    title: Windows
-- id: app-service-containers-windows-linux
-  title: 사용자 지정 컨테이너가 있는 App Service
-  prompt: 사용자 지정 컨테이너 플랫폼 선택
-  pivots:
-  - id: container-linux
-    title: Linux 컨테이너
-  - id: container-windows
-    title: Windows 컨테이너
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-scala
+    title: Scala
+  - id: programming-language-python
+    title: Python
 - id: aml-control-methods
   title: Azure Machine Learning 컨트롤 플레인
   prompt: Azure Machine Learning 컨트롤 플레인 인터페이스 선택
@@ -540,10 +534,34 @@ groups:
     title: Java
   - id: programming-language-more
     title: 언어 자세히 보기...
+- id: ams-lva-edge-programming-languages
+  title: IoT Edge 프로그래밍 언어에 대한 Live Video Analytics
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+- id: app-service-platform-windows-linux
+  title: App Service 플랫폼
+  prompt: 호스팅 플랫폼 선택
+  pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+- id: app-service-containers-windows-linux
+  title: 사용자 지정 컨테이너가 있는 App Service
+  prompt: 사용자 지정 컨테이너 플랫폼 선택
+  pivots:
+  - id: container-linux
+    title: Linux 컨테이너
+  - id: container-windows
+    title: Windows 컨테이너
 metadata:
-  ms.openlocfilehash: a51aa5fcc88269e718375ed08f0238867da7079b
-  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+  ms.openlocfilehash: e9997400e1ed6708889f5f9f70078f5d3ec4c282
+  ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88225634"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88691210"

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 35cac2c05a8603313bb2bbe1bde3817dc88c6ed2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 08/21/2020
+ms.openlocfilehash: 99b64ca8e807fcf6a142f10878d90e77e3639698
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682639"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749474"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 제한
 
@@ -83,8 +83,8 @@ ms.locfileid: "83682639"
 | 최대 기술 집합 <sup>4</sup> |3 |5 또는 15 |50 |200 |200 |해당 없음 |10 |10 |
 | 호출당 최대 인덱싱 로드 |10,000개 문서 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |최대 문서에 의해서만 제한됨 |해당 없음 |제한 없음 |제한 없음 |
 | 최소 일정 | 5분 |5분 |5분 |5분 |5분 |5분 |5분 | 5분 |
-| 최대 실행 시간 <sup>5</sup> | 1-3분 |24시간 |24시간 |24시간 |24시간 |해당 없음  |24시간 |24시간 |
-| 인식 검색 기능이나 이미지 분석을 통한 Blob 인덱싱의 최대 실행 시간 <sup>5</sup> | 3~10분 |2시간 |2시간 |2시간 |2시간 |해당 없음  |2시간 |2시간 |
+| 최대 실행 시간| 1-3분 |24시간 |24시간 |24시간 |24시간 |해당 없음  |24시간 |24시간 |
+| 기술 <sup>5</sup> 를 사용 하는 인덱서의 최대 실행 시간 | 3~10분 |2시간 |2시간 |2시간 |2시간 |해당 없음  |2시간 |2시간 |
 | Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |해당 없음  |256 |256 |
 | Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |4&nbsp;백만 |8&nbsp;백만 |16&nbsp;백만 |해당 없음 |4&nbsp;백만 |4&nbsp;백만 |
 

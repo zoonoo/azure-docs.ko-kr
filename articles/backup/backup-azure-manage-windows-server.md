@@ -3,18 +3,18 @@ title: Azure Recovery Services 자격 증명 모음 및 서버 관리
 description: 이 문서에서는 Recovery Services 자격 증명 모음 개요 대시보드를 사용 하 여 Recovery Services 자격 증명 모음을 모니터링 하 고 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: ee96acf624f1c313c85b21840c142e1e2d6f40d8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a34ac44e3fe8d3a0b7789b37b0b0308d42d4e3da
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654211"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756064"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
 이 문서에서는 Recovery Services 자격 증명 모음 **개요** 대시보드를 사용하여 Recovery Services 자격 증명 모음을 모니터링하고 관리하는 방법에 대해 설명합니다. 목록에서 Recovery Services 자격 증명 모음을 열면 선택한 자격 증명 모음에 대한 **개요** 대시보드가 열립니다. 대시보드는 자격 증명 모음에 대한 다양한 세부 정보를 제공합니다. 위험 및 경고 알림 상태, 진행 중인 백업 및 실패 한 백업 작업, 사용 된 LRS (로컬 중복 저장소) 및 GRS (지역 중복 저장소)의 양에 표시 되는 *타일이* 있습니다. Azure VM을 자격 증명 모음에 백업하면 [**백업 사전 검사 상태** 타일에 위험 또는 경고 항목](#backup-pre-check-status)이 표시됩니다. 다음 이미지는 **Contoso-vault**에 대한 **개요** 대시보드입니다. **백업 항목** 타일에는 자격 증명 모음에 등록된 9개의 항목이 표시되어 있습니다.
 
-![복구 서비스 자격 증명 모음 대시보드](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+![Recovery Services 자격 증명 모음 대시보드](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
 이 문서의 필수 구성 요소는 Azure 구독, Recovery Services 자격 증명 모음이며, 자격 증명 모음에는 구성된 백업 항목이 하나 이상 있어야 합니다.
 
@@ -32,11 +32,11 @@ ms.locfileid: "88654211"
 
 3. **모든 서비스** 대화 상자에서 **Recovery Services**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Recovery Services 자격 증명 모음** 옵션이 표시 되 면 선택 하 여 구독의 Recovery Services 자격 증명 모음 목록을 엽니다.
 
-    ![Recovery Services 자격 증명 모음 만들기 1단계](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
+    ![Recovery Services 자격 증명 모음 만들기 1 단계](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
 4. 자격 증명 모음 목록에서 자격 증명 모음을 선택 하 여 해당 **개요** 대시보드를 엽니다.
 
-    ![복구 서비스 자격 증명 모음 대시보드](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![Recovery Services 자격 증명 모음 대시보드](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
     [개요] 대시보드는 타일을 사용하여 알림 및 백업 작업 데이터를 제공합니다.
 
@@ -226,7 +226,7 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 * Azure Storage
 * Azure 워크로드
 
-#### <a name="operation"></a>작업
+#### <a name="operation"></a>작업(Operation)
 
 하나 또는 모든 작업을 볼 수 있습니다. 둘 또는 세 개의 작업은 선택할 수 없습니다. 사용 가능한 작업은 다음과 같습니다.
 

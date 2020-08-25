@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cccab009ddd5624fcc98ad6f871fe40d9540823
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: bb74fae150d4c8e5dda6978c272d358bdec6ca25
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604060"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783606"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
 
@@ -180,7 +180,7 @@ ms.locfileid: "88604060"
 
 * [Single sign-on을 위해 AZURE AD와 통합 된 응용 프로그램](../manage-apps/what-is-application-management.md) (예: SaaS, lob (기간 업무)).
 
-* 그룹 [멤버 자격](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) (azure ad에 동기화 되었거나 Microsoft 팀을 포함 하 여 azure Ad 또는 Office 365에서 만들어짐).
+* 그룹 [멤버 자격](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (azure ad에 동기화 되었거나 Microsoft 팀을 포함 하 여 azure Ad 또는 Office 365에서 만들어짐).
 
 * 리소스 (그룹, 앱 및 사이트)를 단일 패키지로 그룹화 하 여 액세스를 관리 하는 [패키지에 액세스](/entitlement-management-overview.md) 합니다.
 
@@ -389,7 +389,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Azure AD 및 Azure 리소스 역할의 계획 검토
 
-[PIM (Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 은 기업이 Azure AD의 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다. 이렇게 하면 [AZURE AD](../users-groups-roles/directory-assign-admin-roles.md) 와 [azure 리소스](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 모두에서 권한 있는 역할의 목록을 훨씬 더 작게 유지 하 고 디렉터리의 전반적인 보안을 향상 시킵니다.
+[PIM (Privileged Identity Management)](../privileged-identity-management/pim-configure.md) 은 기업이 Azure AD의 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다. 이렇게 하면 [AZURE AD](../users-groups-roles/directory-assign-admin-roles.md) 와 [azure 리소스](../../role-based-access-control/built-in-roles.md) 모두에서 권한 있는 역할의 목록을 훨씬 더 작게 유지 하 고 디렉터리의 전반적인 보안을 향상 시킵니다.
 
 액세스 검토를 통해 검토자는 사용자가 여전히 역할에 있어야 하는지 여부를 증명할 수 있습니다. 액세스 패키지에 대 한 액세스 검토와 마찬가지로 Azure AD 역할 및 Azure 리소스에 대 한 검토가 PIM admin 사용자 환경에 통합 되어 있습니다. 정기적으로 다음 역할 할당을 검토 하는 것이 좋습니다.
 
@@ -452,9 +452,9 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 | 방법 문서 | 설명 |
 | - | - |
- [액세스 검토 만들기](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review?toc=/azure/active-directory/governance/toc.json)| PIM의 권한 있는 Azure AD 역할에 대 한 액세스 검토 만들기 |
-| [액세스 권한 자체 검토](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review?toc=/azure/active-directory/governance/toc.json)| 관리 역할에 할당 된 경우 역할에 대 한 액세스를 승인 하거나 거부 합니다. |
-| [액세스 검토 완료](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-complete-review?toc=/azure/active-directory/governance/toc.json)| 액세스 검토 보기 및 결과 적용 |
+ [액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM의 권한 있는 Azure AD 역할에 대 한 액세스 검토 만들기 |
+| [액세스 권한 자체 검토](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당 된 경우 역할에 대 한 액세스를 승인 하거나 거부 합니다. |
+| [액세스 검토 완료](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 액세스 검토 보기 및 결과 적용 |
 
 
 ### <a name="review-azure-resource-roles"></a>Azure 리소스 역할 검토
@@ -467,14 +467,14 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 | 방법 문서| 설명 |
 | - | -|
-| [액세스 검토 만들기](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review?toc=/azure/active-directory/governance/toc.json)| PIM의 권한 있는 Azure 리소스 역할에 대 한 액세스 검토 만들기 |
-| [액세스 권한 자체 검토](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review?toc=/azure/active-directory/governance/toc.json)| 관리 역할에 할당 된 경우 역할에 대 한 액세스를 승인 하거나 거부 합니다. |
-| [액세스 검토 완료](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review?toc=/azure/active-directory/governance/toc.json)| 액세스 검토 보기 및 결과 적용 |
+| [액세스 검토 만들기](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM의 권한 있는 Azure 리소스 역할에 대 한 액세스 검토 만들기 |
+| [액세스 권한 자체 검토](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당 된 경우 역할에 대 한 액세스를 승인 하거나 거부 합니다. |
+| [액세스 검토 완료](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 액세스 검토 보기 및 결과 적용 |
 
 
 ## <a name="use-the-access-reviews-api"></a>액세스 검토 API 사용
 
-다시 볼 수 있는 리소스와 상호 작용 하 고이를 관리 하려면 [GRAPH API 메서드](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) 및 [역할 및 응용 프로그램 권한 권한 부여 검사](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) 를 참조 하세요. Microsoft Graph API의 액세스 검토 방법은 응용 프로그램 및 사용자 컨텍스트에 모두 사용할 수 있습니다. 응용 프로그램 컨텍스트에서 스크립트를 실행 하는 경우 API를 실행 하는 데 사용 되는 계정 (서비스 사용자)에 게 액세스 검토 정보를 쿼리 하는 "AccessReview. 전체" 사용 권한을 부여 해야 합니다.
+다시 볼 수 있는 리소스와 상호 작용 하 고이를 관리 하려면 [GRAPH API 메서드](/graph/api/resources/accessreviews-root?view=graph-rest-beta) 및 [역할 및 응용 프로그램 권한 권한 부여 검사](/graph/api/resources/accessreviews-root?view=graph-rest-beta) 를 참조 하세요. Microsoft Graph API의 액세스 검토 방법은 응용 프로그램 및 사용자 컨텍스트에 모두 사용할 수 있습니다. 응용 프로그램 컨텍스트에서 스크립트를 실행 하는 경우 API를 실행 하는 데 사용 되는 계정 (서비스 사용자)에 게 액세스 검토 정보를 쿼리 하는 "AccessReview. 전체" 사용 권한을 부여 해야 합니다.
 
 액세스 검토를 위해 Graph API를 사용 하 여 자동화 하는 인기 있는 액세스 검토 작업은 다음과 같습니다.
 
@@ -519,4 +519,3 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 * [Azure AD Privileged Identity Management란?](../privileged-identity-management/pim-configure.md)
 
- 

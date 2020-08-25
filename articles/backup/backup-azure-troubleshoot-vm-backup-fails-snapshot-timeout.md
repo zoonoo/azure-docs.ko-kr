@@ -4,12 +4,12 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 26050dfb9fdde5988fe3ae922dae5486d17f4317
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611860"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755371"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -175,8 +175,8 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 기존 백업 작업이 진행 중 이므로 최근 백업 작업에 실패 했습니다. 현재 작업이 완료될 때까지 새 백업 작업을 시작할 수 없습니다. 현재 진행 중인 백업 작업이 완료된 후 다른 백업 작업을 트리거 또는 예약해야 합니다. 백업 작업 상태를 확인 하려면 다음 단계를 수행 합니다.
 
-1. Azure Portal에 로그인 하 고 **모든 서비스**를 선택 합니다. Recovery Services를 입력 하 고 **Recovery Services 자격 증명 모음**을 선택 합니다. 복구 서비스 자격 증명 모음의 목록이 표시됩니다.
-2. 복구 서비스 자격 증명 모음 목록에서 백업이 구성된 자격 증명 모음을 선택합니다.
+1. Azure Portal에 로그인 하 고 **모든 서비스**를 선택 합니다. Recovery Services를 입력 하 고 **Recovery Services 자격 증명 모음**을 선택 합니다. Recovery Services 자격 증명 모음의 목록이 표시됩니다.
+2. Recovery Services 자격 증명 모음 목록에서 백업이 구성 된 자격 증명 모음을 선택 합니다.
 3. 자격 증명 모음 대시보드 메뉴에서 **백업 작업** 을 선택 하 여 모든 백업 작업을 표시 합니다.
    - 백업 작업이 진행 중이면 백업 작업이 완료될 때까지 기다리거나 취소합니다.
      - 백업 작업을 취소 하려면 백업 작업을 마우스 오른쪽 단추로 클릭 하 고 **취소** 또는 [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)사용을 선택 합니다.
