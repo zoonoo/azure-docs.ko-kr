@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 6cb2f3d099c328f00fab335e1cbe9ea146c0fc55
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c648387547e9543c9e509344aa86285504dced7a
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653650"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761375"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -267,7 +267,7 @@ Standard Storage | 8KB    | 2MB/초 | 디스크당 168GB
 ## <a name="replicated-machines---networking"></a>복제된 컴퓨터 - 네트워킹
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
-NIC | 특정 Azure VM 크기에 대해 지원되는 최대 수 | 장애 조치(failover) 동안 VM이 만들어지면 NIC가 만들어집니다.<br/><br/> 장애 조치(failover) VM의 NIC 수는 복제를 사용하도록 설정한 당시에 원본 VM의 NIC 수에 따라 다릅니다. 복제를 사용하도록 설정한 후에 NIC를 추가하거나 제거하는 경우 장애 조치(failover) 후 복제된 VM의 NIC 수에는 영향을 주지 않습니다. <br/><br/> 장애 조치 (failover) 후의 Nic 순서는 원래 순서와 동일 하지 않을 수 있습니다. <br/><br/> 조직의 명명 규칙에 따라 대상 지역에서 Nic의 이름을 바꿀 수 있습니다.
+NIC | 특정 Azure VM 크기에 대해 지원되는 최대 수 | 장애 조치(failover) 동안 VM이 만들어지면 NIC가 만들어집니다.<br/><br/> 장애 조치(failover) VM의 NIC 수는 복제를 사용하도록 설정한 당시에 원본 VM의 NIC 수에 따라 다릅니다. 복제를 사용하도록 설정한 후에 NIC를 추가하거나 제거하는 경우 장애 조치(failover) 후 복제된 VM의 NIC 수에는 영향을 주지 않습니다. <br/><br/> 장애 조치 (failover) 후의 Nic 순서는 원래 순서와 동일 하지 않을 수 있습니다. <br/><br/> 조직의 명명 규칙에 따라 대상 지역에서 Nic의 이름을 바꿀 수 있습니다. NIC 이름 바꾸기는 PowerShell을 사용 하 여 지원 됩니다.
 인터넷 부하 분산 장치 | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 미리 구성된 부하 분산 장치를 연결합니다.
 내부 부하 분산 장치 | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 미리 구성된 부하 분산 장치를 연결합니다.
 공용 IP 주소 | 지원됨 | 기존 공용 IP 주소를 NIC에 연결합니다. 또는 공용 IP 주소를 만들고 복구 계획에서 Azure Automation 스크립트를 사용하여 NIC에 연결합니다.

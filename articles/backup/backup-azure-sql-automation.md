@@ -4,12 +4,12 @@ description: Azure Backup 및 PowerShell을 사용 하 여 Azure Vm에서 SQL �
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: a5b62b05c36afac078ccc7aeb7ed0e7259072fc1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6bd119b743ad83bcab9f92d386a5091593f6a5c0
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513798"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761324"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm에서 SQL 데이터베이스 백업 및 복원
 
@@ -193,7 +193,7 @@ NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 01:30:00 
 
 ### <a name="registering-the-sql-vm"></a>SQL VM 등록
 
-Azure VM 백업 및 Azure 파일 공유의 경우 Backup 서비스는 이러한 Azure Resource Manager 리소스에 연결 하 여 관련 세부 정보를 가져올 수 있습니다. SQL은 Azure VM 내의 응용 프로그램 이므로 Backup 서비스에는 응용 프로그램에 액세스 하 고 필요한 세부 정보를 가져올 수 있는 권한이 필요 합니다. 이를 위해 Recovery services 자격 증명 모음을 사용 하 여 SQL 응용 프로그램이 포함 된 Azure VM을 *' 등록 '* 해야 합니다. 자격 증명 모음을 사용 하 여 SQL VM을 등록 한 후에는 SQL Db를 해당 자격 증명 모음 으로만 보호할 수 있습니다. [AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) PS cmdlet을 사용 하 여 VM을 등록 합니다.
+Azure VM 백업 및 Azure 파일 공유의 경우 Backup 서비스는 이러한 Azure Resource Manager 리소스에 연결 하 여 관련 세부 정보를 가져올 수 있습니다. SQL은 Azure VM 내의 응용 프로그램 이므로 Backup 서비스에는 응용 프로그램에 액세스 하 고 필요한 세부 정보를 가져올 수 있는 권한이 필요 합니다. 이를 위해 Recovery Services 자격 증명 모음을 사용 하 여 SQL 응용 프로그램이 포함 된 Azure VM을 *' 등록 '* 해야 합니다. 자격 증명 모음을 사용 하 여 SQL VM을 등록 한 후에는 SQL Db를 해당 자격 증명 모음 으로만 보호할 수 있습니다. [AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) PS cmdlet을 사용 하 여 VM을 등록 합니다.
 
 ```powershell
  $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
@@ -522,6 +522,7 @@ master           ConfigureBackup      Completed            3/18/2019 8:00:21 PM 
 ```powershell
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -SchedulePolicy $SchPol -RetentionPolicy $RetPol
 ```
+
 모든 오류를 추적 하기 위해 시간이 지난 후 백업 작업을 확인 합니다. 문제가 있는 경우 문제를 해결 해야 합니다. 그런 다음 **FixForInconsistentItems** 매개 변수를 사용 하 여 정책 편집 명령을 다시 실행 하 여 작업이 이전에 실패 한 모든 백업 항목에 대 한 정책 편집을 다시 시도 합니다.
 
 ```powershell

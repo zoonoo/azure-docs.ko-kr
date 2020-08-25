@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 모니터링 경고 및 Azure Back
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28645311328a2e2054851af6bacf07927eaa88aa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76989572"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761120"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup 모니터링 경고-FAQ
 
@@ -47,22 +47,6 @@ LA 작업 영역을 만든 후에는 데이터를 최대 2 년 동안 보존 하
 ### <a name="can-i-view-reports-across-tenants"></a>테 넌 트 간에 보고서를 볼 수 있나요?
 
 고객의 구독 또는 LA 작업 영역에 대 한 위임 된 액세스 권한이 있는 [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) 사용자 인 경우 백업 보고서를 사용 하 여 모든 테 넌 트의 데이터를 볼 수 있습니다.
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Azure 백업 에이전트 작업 상태가 포털에 반영되려면 얼마나 오래 걸리나요?
-
-Azure Portal에서 Azure 백업 에이전트 작업 상태를 반영하는 데 최대 15분이 걸릴 수 있습니다.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>백업 작업이 실패하는 경우 알림이 발생하는 데 얼마나 오래 걸리나요?
-
-알림은 Azure 백업 실패 후 20분 이내에 발생합니다.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>알림이 구성된 경우 이메일이 전송되지 않는 경우가 있나요?
-
-예. 알림이 전송되지 않는 경우는 다음과 같습니다.
-
-* 알림이 매시간으로 구성되고 알림이 발생하고 한 시간 이내에 해결되는 경우
-* 작업이 취소되는 경우
-* 진행 중인 원래 백업 작업으로 인해 두 번째 백업 작업이 실패하는 경우
 
 ## <a name="recovery-services-vault"></a>Recovery Services 자격 증명 모음
 

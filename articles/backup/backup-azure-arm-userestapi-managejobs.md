@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure Backup 백업 
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: c8dbd6fd7add58f8458c21fc65381a52ff3306d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b9f69b8815cc8d508d5a10dda82803581216a4eb
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079318"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761630"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>REST API를 사용하여 백업 및 복원 작업 추적
 
@@ -17,7 +17,7 @@ Azure Backup service는 백업 트리거, 복원 작업, 백업 사용 안 함�
 
 ## <a name="fetch-job-information-from-operations"></a>작업(operation)에서 작업(job) 정보 가져오기
 
-백업 트리거와 같은 작업은 항상 jobID를 반환합니다. 예: [트리거 백업 REST API 작업](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) 의 마지막 응답은 다음과 같습니다.
+백업 트리거와 같은 작업은 항상 jobID를 반환합니다. 예: [트리거 백업 REST API 작업](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup) 의 마지막 응답은 다음과 같습니다.
 
 ```http
 {
@@ -45,7 +45,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="response"></a>응답
 
-|Name  |유형  |Description  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     | [JobResource](/rest/api/backup/jobdetails/get#jobresource)        | 정상        |
 

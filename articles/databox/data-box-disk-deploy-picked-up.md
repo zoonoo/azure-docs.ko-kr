@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 692ddbf1e17e316bdcee6c34062ffa51ef278bc7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923784"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257438"
 ---
 ::: zone target="docs"
 
@@ -224,7 +224,7 @@ ms.locfileid: "87923784"
 
 ### <a name="self-managed"></a>[자체 관리](#tab/in-selfmanaged)
 
-일본, 싱가포르, 대한민국, 서유럽 또는 인도에서 Data Box Disk를 사용 중이고 주문 생성 중에 자체 관리 배송 옵션을 선택한 경우 다음 지침을 따르세요.
+미국 정부, 일본, 싱가포르, 대한민국, 서유럽, 남아프리카 또는 인도에서 Data Box Disk를 사용 중이고 주문 생성 중에 자체 관리형 배송 옵션을 선택한 경우 다음 지침을 따르세요.
 
 1. Azure Portal에서 주문한 제품의 **개요 블레이드**로 이동합니다. **일정 픽업**을 선택하면 표시되는 지침을 따릅니다. 주문을 취소할 때 사용되는 인증 코드가 표시되어야 합니다.
 

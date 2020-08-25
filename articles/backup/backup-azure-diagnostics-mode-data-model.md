@@ -3,12 +3,12 @@ title: Azure Monitor 로그 데이터 모델
 description: 이 문서에서는 Azure Backup 데이터에 대한 Azure Monitor Log Analytics 데이터 모델 세부 정보에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 73247dac1ca829a7893192101da0981c3edcf8d8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 897431feae6cd3166b594d4d6848204df76fe3fa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539077"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761409"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
 
@@ -461,35 +461,37 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
     ````
 
 ## <a name="v1-schema-vs-v2-schema"></a>V1 스키마 및 V2 스키마
-이전에는 Azure Backup 에이전트 및 Azure VM 백업용 진단 데이터가 ***V1 스키마***라는 스키마의 Azure Diagnostics 테이블로 전송되었습니다. 이후에는 새 열이 추가되어 다른 시나리오 및 워크로드를 지원하고, 진단 데이터를 ***V2 스키마***라는 새 스키마에 푸시했습니다. 
 
-이전 버전과의 호환성을 위해 Azure Backup 에이전트 및 Azure VM 백업에 대한 진단 데이터는 현재 V1 및 V2 스키마 모두의 Azure Diagnostics 테이블로 전송됩니다(현재는 사용 중단 경로의 V1 스키마 사용). 로그 쿼리에서 SchemaVersion_s=="V1"에 대한 레코드를 필터링하여 Log Analytics에서 V1 스키마의 레코드를 식별할 수 있습니다. 
+이전에는 Azure Backup 에이전트 및 Azure VM 백업용 진단 데이터가 ***V1 스키마***라는 스키마의 Azure Diagnostics 테이블로 전송되었습니다. 이후에는 새 열이 추가되어 다른 시나리오 및 워크로드를 지원하고, 진단 데이터를 ***V2 스키마***라는 새 스키마에 푸시했습니다.  
+
+이전 버전과의 호환성을 위해 Azure Backup 에이전트 및 Azure VM 백업에 대한 진단 데이터는 현재 V1 및 V2 스키마 모두의 Azure Diagnostics 테이블로 전송됩니다(현재는 사용 중단 경로의 V1 스키마 사용). 로그 쿼리에서 SchemaVersion_s=="V1"에 대한 레코드를 필터링하여 Log Analytics에서 V1 스키마의 레코드를 식별할 수 있습니다.
 
 위에 설명된 [데이터 모델](#using-azure-backup-data-model)의 세 번째 열 '설명'을 참조하여 V1 스키마에만 속하는 열을 식별합니다.
 
 ### <a name="modifying-your-queries-to-use-the-v2-schema"></a>V2 스키마를 사용 하도록 쿼리 수정
+
 V1 스키마는 사용 중단 경로에 있으므로 Azure Backup 진단 데이터의 모든 사용자 지정 쿼리에서 V2 스키마만 사용 하는 것이 좋습니다. 다음은 V1 스키마에 대 한 종속성을 제거 하도록 쿼리를 업데이트 하는 방법의 예입니다.
 
 1. 쿼리가 V1 스키마에만 적용 되는 필드를 사용 하 고 있는지 확인 합니다. 다음과 같이 모든 백업 항목과 연결 된 보호 된 서버를 나열 하는 쿼리가 있다고 가정 합니다.
 
-````Kusto
-AzureDiagnostics
-| where Category=="AzureBackupReport"
-| where OperationName=="BackupItemAssociation"
-| distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
-````
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+    ````
 
-위의 쿼리는 V1 스키마에만 적용 되는 필드 ProtectedServerUniqueId_s를 사용 합니다. 이 필드에 해당 하는 V2 스키마가 ProtectedContainerUniqueId_s 됩니다 (위의 표 참조). BackupItemUniqueId_s 필드는 V2 스키마에도 적용 될 수 있으며이 쿼리에서는 동일한 필드를 사용할 수 있습니다.
+    위의 쿼리는 V1 스키마에만 적용 되는 필드 ProtectedServerUniqueId_s를 사용 합니다. 이 필드에 해당 하는 V2 스키마가 ProtectedContainerUniqueId_s 됩니다 (위의 표 참조). BackupItemUniqueId_s 필드는 V2 스키마에도 적용 될 수 있으며이 쿼리에서는 동일한 필드를 사용할 수 있습니다.
 
 2. V2 스키마 필드 이름을 사용 하도록 쿼리를 업데이트 합니다. 모든 쿼리에서 ' where SchemaVersion_s = = "V2" ' 필터를 사용 하는 것이 좋습니다. 따라서 V2 스키마에 해당 하는 레코드만 쿼리로 구문 분석 됩니다.
 
-````Kusto
-AzureDiagnostics
-| where Category=="AzureBackupReport"
-| where OperationName=="BackupItemAssociation"
-| where SchemaVersion_s=="V2"
-| distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s 
-````
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | where SchemaVersion_s=="V2"
+    | distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s
+    ````
 
 ## <a name="next-steps"></a>다음 단계
 

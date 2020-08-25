@@ -4,12 +4,12 @@ description: VM 백업 스택, Resource Manager 배포 모델에 대한 Azure �
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: bb9a7a32306fc76ea8852787601f3b3b3828daf8
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: df5af780730f4f5b972107f50387dc0c58b80eaa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611809"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761749"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
@@ -78,7 +78,7 @@ Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 
 각 정책에 대 한 기본 스냅숏 보존 기간은 2 일로 설정 됩니다. 사용자는 값을 최소 1 ~ 5 일로 변경할 수 있습니다. 주간 정책의 경우 스냅숏 보존 기간은 5 일로 고정 됩니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>인스턴트 복원은 비용에 어떤 영향을 주나요?
 
@@ -115,4 +115,3 @@ VM 변동에 따라 다릅니다. 안정된 상태에서는 비용 증가를 스
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>즉시 복원 기능이 필요 하지 않습니다. 사용 하지 않도록 설정할 수 있나요?
 
 인스턴트 복원 기능은 모든 사용자에 대해 사용 하도록 설정 되어 있으므로 사용 하지 않도록 설정할 수 없습니다. 스냅숏 보존 기간을 최소 1 일로 줄일 수 있습니다.
-

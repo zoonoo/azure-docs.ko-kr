@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 03e2f004fa54ee235eabc49afd6abd7532a6ee44
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: b29f1a11f6600f013fdf1d5aa71883ab44dfe635
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262775"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761511"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -195,8 +195,8 @@ VM을 새 리소스 그룹으로 이동한 후 동일한 자격 증명 모음이
 
 ### <a name="how-can-i-view-the-retention-settings-for-my-backups"></a>내 백업에 대 한 보존 설정은 어떻게 볼 수 있나요?
 
-현재 VM에 할당 된 백업 정책에 따라 VM (백업 항목) 수준에서 보존 설정을 볼 수 있습니다. 
+현재 VM에 할당 된 백업 정책에 따라 VM (백업 항목) 수준에서 보존 설정을 볼 수 있습니다.
 
 백업에 대 한 보존 설정을 확인 하는 한 가지 방법은 Azure Portal에서 VM에 대 한 백업 항목 [대시보드로](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) 이동 하는 것입니다. 해당 백업 정책에 대 한 링크를 클릭 하면 VM에 연결 된 매일, 매주, 매월 및 매년 보존 지점의 보존 기간을 볼 수 있습니다.
 
-또한 [Backup 탐색기](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) 를 사용 하 여 단일 창에 있는 모든 vm의 보존 설정을 볼 수 있습니다. 모든 Recovery Services 자격 증명 모음에서 Backup 탐색기로 이동 하 고, **백업 항목** 탭으로 이동 하 고, 고급 보기를 선택 하 여 각 VM에 대 한 자세한 보존 정보를 확인 합니다.  
+또한 [Backup 탐색기](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) 를 사용 하 여 단일 창에 있는 모든 vm의 보존 설정을 볼 수 있습니다. 모든 Recovery Services 자격 증명 모음에서 Backup 탐색기로 이동 하 고, **백업 항목** 탭으로 이동 하 고, 고급 보기를 선택 하 여 각 VM에 대 한 자세한 보존 정보를 확인 합니다.

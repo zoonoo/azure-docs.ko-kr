@@ -204,6 +204,8 @@
               href: ./spark/apache-spark-concepts.md
             - name: Delta Lake란?
               href: ./spark/apache-spark-what-is-delta-lake.md
+            - name: Delta Lake 기능 개요
+              href: ./spark/apache-spark-delta-lake-overview.md
             - name: Apache Spark 성능
               href: ./spark/apache-spark-performance.md
             - name: Apache Spark 자동 크기 조정 동작
@@ -454,6 +456,8 @@
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: Azure Synapse Analytics용 Apache Spark와 함께 Azure Cosmos DB 분석 저장소 쿼리
               href: ./synapse-link/how-to-query-analytical-store-spark.md
+            - name: Apache Spark를 사용하여 Synapse Link에서 SQL 풀로 데이터 복사
+              href: ./synapse-link/how-to-copy-to-sql-pool.md
         - name: Synapse SQL
           items:
             - name: 스토리지의 데이터 쿼리

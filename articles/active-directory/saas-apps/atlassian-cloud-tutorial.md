@@ -2,25 +2,21 @@
 title: '자습서: Atlassian Cloud와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 Atlassian Cloud 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: CelesteDG
 ms.reviewer: celested
-ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb3522898a40dc79e8465af813633015568f1c8
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: ca75aea393e4850eb302cb03914296d7c1eaa951
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033871"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517654"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>자습서: Azure Active Directory와 Atlassian Cloud 통합
 
@@ -77,6 +73,16 @@ Atlassian Cloud에서 Azure AD SSO를 구성하고 테스트하려면 다음 구
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
+
+1. Atlassian Cloud 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+1. 브라우저에 확장을 추가한 후 **Atlassian Cloud 설정**을 클릭하면 Atlassian Cloud 애플리케이션으로 이동됩니다. 여기에서 관리자 자격 증명을 입력하여 Atlassian Cloud에 로그인합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성합니다.
+
+    ![설정 구성](common/setup-sso.png)
+
+1. Atlassian Cloud를 수동으로 설정하려면 Atlassian Cloud 회사 사이트에 관리자로 로그인하고 다음 단계를 수행합니다.
 
 1. 시작 하기 전에 Atlassian 제품 인스턴스로 이동하여 인스턴스 URL을 복사/저장합니다.
    > [!NOTE]

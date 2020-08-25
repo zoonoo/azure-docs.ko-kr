@@ -136,6 +136,8 @@
           href: load-balancer-common-deployment-errors.md
         - name: 일반적인 아웃바운드 연결 문제 해결
           href: troubleshoot-outbound-connection.md
+        - name: 리소스 상태 및 인바운드 가용성 문제 해결
+          href: troubleshoot-rhc.md
 - name: 참조
   items:
     - name: 코드 샘플

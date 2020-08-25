@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: c1406b5e7297b1d48b23d9dfa684e0d76b68139f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d35b7309a161d790131b0040b9ebf113a3c061fc
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102856"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186305"
 ---
 <a name="HOLTop"></a>
 
@@ -221,7 +221,7 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 
 **Program** 클래스에서 텍스트를 추출하려는 이미지의 URL에 대한 참조를 저장합니다. 이 코드 조각에는 인쇄된 텍스트 및 필기 텍스트 모두에 대한 샘플 이미지가 포함되어 있습니다.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttext_url)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_readtext_url)]
 
 > [!NOTE]
 > 로컬 이미지에서 텍스트를 추출할 수도 있습니다. 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)의 샘플 코드를 참조하세요.
@@ -230,19 +230,19 @@ Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트�
 
 텍스트를 읽기 위한 새 메서드를 정의합니다. 지정된 이미지에 대해 **ReadAsync** 메서드를 호출하는 아래 코드를 추가합니다. 그러면 작업 ID가 반환되고 이미지의 콘텐츠를 읽는 비동기 프로세스가 시작됩니다.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_call)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_url)]
 
 ### <a name="get-read-results"></a>읽기 결과 가져오기
 
-그런 다음, **ReadAsync** 호출에서 반환된 작업 ID를 가져와서 서비스의 작업 결과를 쿼리합니다. 다음 코드는 결과가 반환될 때까지 1초 간격으로 작업을 검사합니다. 그런 다음, 추출된 텍스트 데이터를 콘솔에 출력합니다.
+그런 다음, **ReadAsync** 호출에서 반환된 작업 ID를 가져와서 서비스의 작업 결과를 쿼리합니다. 다음 코드는 결과가 반환될 때까지 작업을 검사합니다. 그런 다음, 추출된 텍스트 데이터를 콘솔에 출력합니다.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_response)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_response)]
 
 ### <a name="display-read-results"></a>읽기 결과 표시
 
 검색된 텍스트 데이터를 구문 분석하고, 표시하고, 메서드 정의를 완료하는 다음 코드를 추가합니다.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extract_display)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_display)]
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 

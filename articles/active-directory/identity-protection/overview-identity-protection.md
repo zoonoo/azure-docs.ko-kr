@@ -5,20 +5,21 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 03/17/2020
+ms.date: 08/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
+ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80873b2e2655e7cedbafb526d0fe757eaa282312
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 39c9522362ca6710fae5dee5d831e63cc36a3950
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019614"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509113"
 ---
-# <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection이란?
+# <a name="what-is-identity-protection"></a>Identity Protection이란?
 
 Identity Protection은 조직에서 다음과 같은 세 가지 주요 작업을 수행할 수 있는 도구입니다.
 
@@ -68,6 +69,12 @@ Identity Protection은 다음과 같은 분류로 위험을 식별합니다.
 - 위험 탐지
 
 자세한 내용은 [방법: 위험 조사](howto-identity-protection-investigate-risk.md) 문서를 참조하세요.
+
+### <a name="risk-levels"></a>위험 수준
+
+ID 보호는 위험을 낮음, 중간 및 높음의 세 가지 계층으로 분류합니다. 
+
+Microsoft는 위험을 계산하는 방법에 대한 구체적인 정보를 제공하지 않지만 각 수준에는 사용자 또는 로그인이 손상되었다는 확신을 더 많이 제공합니다. 예를 들어 사용자에 대한 익숙하지 않은 로그인 속성의 한 인스턴스와 같은 것은 다른 사용자의 자격 증명 유출만큼 위협적이지 않을 수 있습니다.
 
 ## <a name="exporting-risk-data"></a>위험 데이터 내보내기
 

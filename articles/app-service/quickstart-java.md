@@ -10,16 +10,19 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 8289b21da5009459d2eb7ddc8d26b549f0920317
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 274228ea5aa9ac9de9725176c8b6221ee9e9542e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084109"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182700"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>빠른 시작: Azure App Service에서 Java 앱 만들기
 
 [Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)과 함께 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 Java 웹 보관(WAR) 파일을 배포하는 방법을 보여줍니다.
+
+> [!NOTE]
+> 이 문서에서는 WAR 파일에 패키지된 Java 앱만 사용합니다. 플러그 인에서 JAR 웹 애플리케이션도 지원됩니다. [Linux 기반 App Service에 Java SE JAR 파일 배포](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)를 방문하여 직접 확인해 보세요.
 
 > [!NOTE]
 > IntelliJ 및 Eclipse와 같은 인기 있는 IDE를 사용하여 동일한 작업을 수행할 수도 있습니다. [Azure Toolkit for IntelliJ 빠른 시작](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) 또는 [Azure Toolkit for Eclipse 빠른 시작](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)에서 유사한 문서를 확인하세요.
@@ -53,12 +56,12 @@ Azure App Service에 대한 배포 프로세스는 Azure CLI에서 Azure 자격 
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
 
-::: zone pivot="platform-windows"  
+::: zone pivot="platform-windows" 
 다음 중 선택하라는 메시지가 표시됩니다. 
 * **OS(기본값: `linux`)**
 * **Java 버전(기본값: `1.8`)**
 * **웹 컨테이너(기본값: `tomcat 8.5`)** 
-
+ 
 첫 번째 단계에서 **`2`** 를 입력하여 **Windows** OS를 선택해야 합니다. 나머지 다른 구성은 **ENTER** 키를 눌러 기본값으로 두면 됩니다. 마지막으로 **확인(Y/N)** 프롬프트에서 **`Y`** 를 눌러 구성을 완료합니다.
 
 샘플 프로세스는 다음과 같습니다.
@@ -137,6 +140,13 @@ Confirm (Y/N)? :
 ```
 ::: zone-end
 ::: zone pivot="platform-linux"  
+
+다음 중 선택하라는 메시지가 표시됩니다. 
+* **OS(기본값: `linux`)**
+* **Java 버전(기본값: `Java 8`)**
+* **웹 컨테이너(기본값: `Tomcat 8.5`)** 
+
+**ENTER**를 눌러 모든 구성을 기본값으로 둘 수 있습니다. 마지막으로 **확인(Y/N)** 프롬프트에서 **`Y`** 를 눌러 구성을 완료합니다.
 샘플 프로세스는 다음과 같습니다.
 
 ```cmd
@@ -174,18 +184,9 @@ Confirm (Y/N)? : Y
 ```
 ::: zone-end
 
-> [!NOTE]
-> 이 문서에서는 WAR 파일에 패키지된 Java 앱만 사용합니다. 플러그 인에서 JAR 웹 애플리케이션도 지원됩니다. [Linux 기반 App Service에 Java SE JAR 파일 배포](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)를 방문하여 직접 확인해 보세요.
+필요한 경우 `pom.xml`에서 직접 App Service에 대한 구성을 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
 
-`pom.xml`을 열어 업데이트된 구성을 확인합니다.
-
-```bash
-code pom.xml
-```
-
-필요한 경우 App Service에 대한 구성을 pom 파일에서 직접 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
-
- 속성 | 필수 | 설명 | 버전
+ 속성 | 필수 | Description | 버전
 ---|---|---|---
 `<schemaVersion>` | false | 구성 스키마의 버전을 지정합니다. 지원되는 값은 `v1`, `v2`입니다. | 1.5.2
 `<resourceGroup>` | true | 웹앱에 대한 Azure 리소스 그룹입니다. | 0.1.0+
@@ -195,11 +196,8 @@ code pom.xml
 `<runtime>` | true | 런타임 환경 구성이며, [여기](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
 `<deployment>` | true | 배포 구성이며, [여기](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
 
-::: zone pivot="platform-windows"
 `<appName>` 및 `<resourceGroup>`값을 잘 보어야 합니다(이 데모에서는 `helloworld-1590394316693` 및 `helloworld-1590394316693-rg`). 나중에 사용됩니다.
-::: zone-end
-::: zone pivot="platform-linux"
-::: zone-end
+
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
 
@@ -216,21 +214,11 @@ az login
 mvn package azure-webapp:deploy
 ```
 
-::: zone pivot="platform-windows"
 배포가 완료되면 애플리케이션이 `http://<appName>.azurewebsites.net/`(이 데모에서는 `http://helloworld-1590394316693.azurewebsites.net`)에 준비됩니다. 로컬 웹 브라우저에서 url을 열면 다음이 표시됩니다.
 
-![Azure App Service에서 실행 중인 샘플 앱](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
+![Azure App Service에서 실행 중인 샘플 앱](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
-**축하합니다.** Windows의 App Service에 첫 번째 Java 앱이 배포되었습니다.
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-::: zone-end
-::: zone pivot="platform-linux"
-배포가 완료되면 웹 브라우저에서 다음 URL을 사용하여 배포된 애플리케이션으로 이동합니다(예: `http://<webapp>.azurewebsites.net`). 
-
-![Azure App Service에서 실행 중인 샘플 앱](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
-**축하합니다.** Linux의 App Service에 첫 번째 Java 앱을 배포했습니다.
+**축하합니다.** App Service에 첫 번째 Java 앱을 배포했습니다.
 
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
@@ -244,19 +232,6 @@ az group delete --name <your resource group name; for example: helloworld-155840
 ```
 
 이 명령을 실행하는 데 1분 정도 걸릴 수 있습니다.
-::: zone-end
-
-배포가 완료되면 애플리케이션이 `http://<appName>.azurewebsites.net/`(이 데모에서는 `http://helloworld-1590394316693.azurewebsites.net`)에 준비됩니다. 로컬 웹 브라우저에서 url을 열면 다음이 표시됩니다.
-
-![Azure App Service에서 실행 중인 샘플 앱](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
-**축하합니다.** App Service에 첫 번째 Java 앱을 배포했습니다.
-
-> [!div class="nextstepaction"]
-> [문제가 발생했습니다.](https://www.research.net/r/javae2e?quickstart-java&step=deploy)
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

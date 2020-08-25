@@ -39,6 +39,8 @@
       href: security-center-enable-data-collection.md
     - name: 이메일 알림 설정
       href: security-center-provide-security-contact-details.md
+    - name: ARM 템플릿을 사용하여 경고에 대한 자동 응답 만들기
+      href: quickstart-automation-alert.md
 - name: 자습서
   items:
     - name: 계획 및 운영 가이드

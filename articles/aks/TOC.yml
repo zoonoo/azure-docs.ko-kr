@@ -141,7 +141,7 @@
           href: uptime-sla.md
         - name: 근접 배치 그룹 사용(미리 보기)
           href: reduce-latency-ppg.md
-        - name: 노드 이미지 업그레이드(미리 보기)
+        - name: 노드 이미지 업그레이드
           href: node-image-upgrade.md
         - name: 프로세스 노드 OS 업데이트
           href: node-updates-kured.md

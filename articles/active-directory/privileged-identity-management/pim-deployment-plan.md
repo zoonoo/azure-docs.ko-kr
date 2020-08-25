@@ -14,12 +14,12 @@ ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e8250661fdbd6c67faade31caaed61ee8a399fe
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 14df46a921b482b182e0f17754293af37146d1e7
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008096"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783215"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
 
@@ -186,7 +186,7 @@ Privileged Identity Management로 보호할 역할을 선택 하는 것은 어�
 1. Intune 관리자
 1. 보안 판독기
 1. 서비스 관리자
-1. 청구 관리자
+1. 대금 청구 관리자
 1. 비즈니스용 Skype 관리자
 
 > [!TIP]
@@ -244,20 +244,20 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 | 역할 | MFA 요구 | 알림 | 인시던트 티켓 | 승인 필요 | 승인자 | 활성화 기간 | 영구 관리자 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 전역 관리자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 기타 글로벌 관리자 | 1시간 | 응급 액세스 계정 |
-| Exchange 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | 없음 | 2시간 | 없음 |
-| 기술 지원팀 관리자 | :x: | :x: | :heavy_check_mark: | :x: | 없음 | 8시간 | 없음 |
+| Exchange 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | None | 2시간 | None |
+| 기술 지원팀 관리자 | :x: | :x: | :heavy_check_mark: | :x: | None | 8시간 | None |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Azure 리소스 역할에 대 한 Privileged Identity Management 설정
 
 | 역할 | MFA 요구 | 알림 | 승인 필요 | 승인자 | 활성화 기간 | 활성 관리자 | 활성화 만료 | 자격 만료 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 중요한 구독 소유자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 구독의 기타 소유자 | 1시간 | 없음 | 해당 없음 | 3개월 |
-| 덜 중요한 구독의 사용자 액세스 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | 없음 | 1시간 | 없음 | 해당 없음 | 3개월 |
-| 가상 머신 참가자 | :x: | :heavy_check_mark: | :x: | 없음 | 3시간 | 없음 | 해당 없음 | 6개월 |
+| 중요한 구독 소유자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 구독의 기타 소유자 | 1시간 | None | 해당 없음 | 3개월 |
+| 덜 중요한 구독의 사용자 액세스 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | None | 1시간 | None | 해당 없음 | 3개월 |
+| 가상 머신 참가자 | :x: | :heavy_check_mark: | :x: | None | 3시간 | None | 해당 없음 | 6개월 |
 
 다음 테이블에서 각 설정을 설명합니다.
 
-| Setting | 설명 |
+| 설정 | 설명 |
 | --- | --- |
 | 역할 | 설정을 정의하는 역할의 이름입니다. |
 | MFA 요구 | 자격이 있는 사용자가 역할을 활성화하기 전에 MFA를 수행해야 하는지 여부입니다.<br/><br/> : heavy_check_mark: 특히 역할에 게스트 사용자가 있는 경우 모든 관리자 역할에 대해 MFA를 적용 하는 것 **이 좋습니다** . |
@@ -291,7 +291,7 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 
 ### <a name="test-implementation"></a>테스트 구현
 
-이제 테스트 사용자를 식별 했으므로이 단계를 사용 하 여 테스트 사용자에 대 한 Privileged Identity Management를 구성 합니다. 조직에서 Azure Portal에서 Privileged Identity Management를 사용 하는 대신 사용자 고유의 내부 응용 프로그램에 Privileged Identity Management 워크플로를 통합 하려는 경우 Privileged Identity Management의 모든 작업도 [GRAPH API](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-root)를 통해 지원 됩니다.
+이제 테스트 사용자를 식별 했으므로이 단계를 사용 하 여 테스트 사용자에 대 한 Privileged Identity Management를 구성 합니다. 조직에서 Azure Portal에서 Privileged Identity Management를 사용 하는 대신 사용자 고유의 내부 응용 프로그램에 Privileged Identity Management 워크플로를 통합 하려는 경우 Privileged Identity Management의 모든 작업도 [GRAPH API](/graph/api/resources/privilegedidentitymanagement-root)를 통해 지원 됩니다.
 
 #### <a name="configure-privileged-identity-management-for-azure-ad-roles"></a>Azure AD 역할에 대 한 Privileged Identity Management 구성
 
