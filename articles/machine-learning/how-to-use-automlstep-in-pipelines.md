@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c2fc0b0bc1b59bcb3fa4a84235135d9b8ff1fc27
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 7eac92a3d438c6a9ee67ae5d5b06829f3ef77528
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510252"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88754926"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Python의 Azure Machine Learning 파이프라인에서 자동화 된 ML 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,12 @@ Azure Machine Learning의 자동화 된 ML 기능을 사용 하면 가능한 모
 
 에는 여러 개의 하위 클래스가 있습니다 `PipelineStep` . 외에도 `AutoMLStep` 이 문서에서는 `PythonScriptStep` 데이터 준비 및 모델 등록을 위한을 보여 줍니다.
 
-처음에 데이터를 ML 파이프라인 _으로_ 이동 하는 기본 방법은 개체를 사용 하는 것입니다 `Dataset` . 단계 _간에_ 데이터를 이동 하려면 개체를 사용 하는 것이 좋습니다 `PipelineData` . 에서 사용 하려면 `AutoMLStep` `PipelineData` 개체를 개체로 변환 해야 합니다 `PipelineOutputTabularDataset` . 자세한 내용은 [ML 파이프라인의 입력 및 출력 데이터](how-to-move-data-in-out-of-pipelines.md)를 참조 하세요.
+처음에 데이터를 ML 파이프라인 _으로_ 이동 하는 기본 방법은 개체를 사용 하는 것입니다 `Dataset` . 단계 _간에_ 데이터를 이동 하 고 실행에서 데이터 출력을 저장할 수 있도록 하려면 개체를 사용 하는 것이 좋습니다 `OutputFileDatasetConfig` . 자세한 내용은 [ML 파이프라인의 입력 및 출력 데이터](how-to-move-data-in-out-of-pipelines.md)를 참조 하세요.
+
+> [!NOTE]
+>`OutputFileDatasetConfig`및 `OutputTabularDatasetConfig` 클래스는 실험적 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다.
+>
+>자세한 내용은 https://aka.ms/azuremlexperimental를 참조하세요.
 
 는 `AutoMLStep` 개체를 통해 구성 됩니다 `AutoMLConfig` . `AutoMLConfig` 는 [Python에서 자동화 된 ML 실험 구성](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings)에 설명 된 대로 유연한 클래스입니다. 
 
@@ -45,7 +50,7 @@ Azure Machine Learning의 자동화 된 ML 기능을 사용 하면 가능한 모
 
 구체적으로 설명 하기 위해이 문서에서는 분류 태스크에 대 한 간단한 파이프라인을 만듭니다. 이 태스크는 Titanic을 예측 하 고 있지만, 전달 하는 것을 제외 하 고 데이터 또는 태스크에 대해서는 다루지 않습니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 ### <a name="retrieve-initial-dataset"></a>초기 데이터 집합 검색
 
@@ -145,7 +150,7 @@ else:
 - 범주 데이터를 정수로 변환
 - 사용 하지 않으려는 열 삭제
 - 학습 및 테스트 집합으로 데이터 분할
-- 출력 경로에 변환 된 데이터를 씁니다. `PipelineData`
+- 출력 경로에 변환 된 데이터를 씁니다. `OutputFileDatasetConfig`
 
 ```python
 %%writefile dataprep.py
@@ -215,7 +220,7 @@ print(f"Wrote test to {args.output_path} and train to {args.output_path}")
 
 `prepare_`위의 코드 조각에 있는 다양 한 함수는 입력 데이터 집합에서 관련 열을 수정 합니다. 이러한 함수는 Pandas 개체로 변경 된 데이터에 대해 작동 `DataFrame` 합니다. 각각의 경우 누락 된 데이터는 대표적인 임의의 데이터 또는 "알 수 없음"을 나타내는 범주 데이터로 채워집니다. 텍스트 기반 범주 데이터는 정수에 매핑됩니다. 더 이상 필요 하지 않은 열을 덮어쓰거나 삭제 합니다. 
 
-코드에서 데이터 준비 함수를 정의한 후에는 데이터를 쓰려는 경로인 입력 인수를 구문 분석 합니다. 이러한 값은 `PipelineData` 다음 단계에서 설명 하는 개체에 따라 결정 됩니다. 이 코드는 등록 된를 검색 `'titanic_cs'` `Dataset` 하 고, Pandas로 변환 하 `DataFrame` 고, 다양 한 데이터 준비 함수를 호출 합니다. 
+코드에서 데이터 준비 함수를 정의한 후에는 데이터를 쓰려는 경로인 입력 인수를 구문 분석 합니다. 이러한 값은 `OutputFileDatasetConfig` 다음 단계에서 설명 하는 개체에 따라 결정 됩니다. 이 코드는 등록 된를 검색 `'titanic_cs'` `Dataset` 하 고, Pandas로 변환 하 `DataFrame` 고, 다양 한 데이터 준비 함수를 호출 합니다. 
 
 는 정규화 `output_path` 되어 있으므로 `os.makedirs()` 디렉터리 구조를 준비 하는 데 함수를 사용 합니다. 이 시점에서를 사용 하 여 `DataFrame.to_csv()` 출력 데이터를 작성할 수 있지만 Parquet 파일이 더 효율적입니다. 이러한 효율성은 이러한 작은 데이터 집합의 경우와 관련이 없을 수도 있지만 **PyArrow** 패키지의 및 함수를 사용 하는 `from_pandas()` `write_table()` 것은 보다 약간의 키 입력 `to_csv()` 입니다.
 
@@ -223,28 +228,25 @@ Parquet 파일은 아래에 설명 된 자동화 된 ML 단계에서 기본적�
 
 ### <a name="write-the-data-preparation-pipeline-step-pythonscriptstep"></a>데이터 준비 파이프라인 단계 () 작성 `PythonScriptStep`
 
-위에서 설명한 데이터 준비 코드는 `PythonScripStep` 파이프라인과 함께 사용할 개체에 연결 되어 있어야 합니다. Parquet 데이터 준비 출력이 쓰여지는 경로는 개체에 의해 생성 됩니다 `PipelineData` . , 및와 같이 앞에서 준비한 리소스는 `ComputeTarget` `RunConfig` `'titanic_ds' Dataset` 사양을 완료 하는 데 사용 됩니다.
+위에서 설명한 데이터 준비 코드는 `PythonScripStep` 파이프라인과 함께 사용할 개체에 연결 되어 있어야 합니다. Parquet 데이터 준비 출력이 쓰여지는 경로는 개체에 의해 생성 됩니다 `OutputFileDatasetConfig` . , 및와 같이 앞에서 준비한 리소스는 `ComputeTarget` `RunConfig` `'titanic_ds' Dataset` 사양을 완료 하는 데 사용 됩니다.
 
 ```python
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 from azureml.pipeline.steps import PythonScriptStep
 
-prepped_data_path = PipelineData("titanic_train", datastore).as_dataset()
-prepped_data_path = PipelineData("titanic_train", datastore).as_dataset()
+prepped_data_path = OutputFileDatasetConfig(name="titanic_train", (destination=(datastore, 'outputdataset')))
 
 dataprep_step = PythonScriptStep(
     name="dataprep", 
     script_name="dataprep.py", 
     compute_target=compute_target, 
     runconfig=aml_run_config,
-    arguments=["--output_path", prepped_data_path],
-    inputs=[titanic_ds.as_named_input("titanic_ds")],
-    outputs=[prepped_data_path],
+    arguments=[titanic_ds.as_named_input('titanic_ds').as_mount(), prepped_data_path],
     allow_reuse=True
 )
 ```
 
-`prepped_data_path`개체는 형식입니다 `PipelineOutputFileDataset` . 및 인수 모두에 지정 되어 있는지 확인 `arguments` `outputs` 합니다. 이전 단계를 검토 하는 경우 데이터 준비 코드 내에서 인수의 값은 `'--output_path'` Parquet 파일을 쓴 파일 경로를 확인할 수 있습니다. 
+`prepped_data_path`개체는 `OutputFileDatasetConfig` 디렉터리를 가리키는 형식입니다.  매개 변수에 지정 되어 있는지 확인 `arguments` 합니다. 
 
 ## <a name="train-with-automlstep"></a>AutoMLStep로 학습
 
@@ -252,50 +254,33 @@ dataprep_step = PythonScriptStep(
 
 ### <a name="send-data-to-automlstep"></a>데이터 보내기 `AutoMLStep`
 
-ML 파이프라인에서 입력 데이터는 개체 여야 합니다 `Dataset` . 가장 높은 방법은 입력 데이터를 개체 형식으로 제공 하는 것입니다 `PipelineOutputTabularDataset` . 개체 등의 또는을 사용 하 여 해당 형식의 개체를 만듭니다 `parse_parquet_files()` `parse_delimited_files()` `PipelineOutputFileDataset` `prepped_data_path` .
+ML 파이프라인에서 입력 데이터는 개체 여야 합니다 `Dataset` . 가장 높은 방법은 입력 데이터를 개체 형식으로 제공 하는 것입니다 `OutputTabularDatasetConfig` . `read_delimited_files()`개체와 같이에 대해를 사용 하 여 해당 형식의 개체를 만듭니다 `OutputFileDatasetConfig` `prepped_data_path` .
 
 ```python
-# type(prepped_data_path) == PipelineOutputFileDataset
-# type(prepped_data) == PipelineOutputTabularDataset
-prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
+# type(prepped_data_path) == OutputFileDatasetConfig
+# type(prepped_data) == OutputTabularDatasetConfig
+prepped_data = prepped_data_path.read_delimited_files()
 ```
 
-위의 코드 조각은 `PipelineOutputTabularDataset` `PipelineOutputFileDataset` 데이터 준비 단계의 출력에서 높은 성능을 생성 합니다.
-
-또 다른 옵션은 `Dataset` 작업 영역에 등록 된 개체를 사용 하는 것입니다.
-
-```python
-prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
-```
-
-두 가지 방법을 비교 합니다.
-
-| 방법 | 이점 및 단점 | 
-|-|-|
-|`PipelineOutputTabularDataset`| 성능 향상 | 
-|| 일반 경로 `PipelineData` | 
-|| 파이프라인 실행 후 데이터가 지속 되지 않습니다. |
-|| [기술을 보여 주는 노트북 `PipelineOutputTabularDataset`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
-| 등록 `Dataset` | 낮은 성능 |
-| | 여러 가지 방법으로 생성할 수 있습니다. | 
-| | 데이터는 지속 되 고 작업 영역 전체에 표시 됩니다. |
-| | [등록 된 기술을 보여 주는 노트북 `Dataset`](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb)
+위의 코드 조각은 `OutputTabularDatasetConfig` `OutputFileDatasetConfig` 데이터 준비 단계의 출력에서 높은 성능을 생성 합니다.
 
 ### <a name="specify-automated-ml-outputs"></a>자동화 된 ML 출력 지정
 
-의 출력은 `AutoMLStep` 성능이 높고 모델 자체의 최종 메트릭 점수입니다. 추가 파이프라인 단계에서 이러한 출력을 사용 하려면 `PipelineData` 개체를 받도록 준비 합니다.
+의 출력은 `AutoMLStep` 성능이 높고 모델 자체의 최종 메트릭 점수입니다. 추가 파이프라인 단계에서 이러한 출력을 사용 하려면 `OutputFileDatasetConfig` 개체를 받도록 준비 합니다.
 
 ```python
+
 from azureml.pipeline.core import TrainingOutput
 
 metrics_data = PipelineData(name='metrics_data',
-                           datastore=datastore,
-                           pipeline_output_name='metrics_output',
-                           training_output=TrainingOutput(type='Metrics'))
+                            datastore=datastore,
+                            pipeline_output_name='metrics_output',
+                            training_output=TrainingOutput(type='Metrics'))
+
 model_data = PipelineData(name='best_model_data',
-                           datastore=datastore,
-                           pipeline_output_name='model_output',
-                           training_output=TrainingOutput(type='Model'))
+                          datastore=datastore,
+                          pipeline_output_name='model_output',
+                          training_output=TrainingOutput(type='Model'))
 ```
 
 위의 코드 조각은 `PipelineData` 메트릭 및 모델 출력에 대 한 두 개체를 만듭니다. 각에는 이름이로 지정 되 고, 앞에서 검색 된 기본 데이터 저장소에 할당 되며,에서 특정의와 연결 됩니다 `type` `TrainingOutput` `AutoMLStep` . 이러한 개체를 할당 하기 때문에 `pipeline_output_name` `PipelineData` 해당 값은 개별 파이프라인 단계 뿐만 아니라 파이프라인 전체에서 사용할 수 있습니다 .이에 대해서는 아래 "파이프라인 결과 검사" 섹션에서 설명 합니다. 
@@ -341,7 +326,7 @@ train_step = AutoMLStep(name='AutoML_Classification',
 - `path` 및는 `debug_log` 프로젝트 경로와 디버그 정보가 기록 될 로컬 파일을 설명 합니다. 
 - `compute_target` 는 `compute_target` 이 예제에서 저렴 한 CPU 기반 컴퓨터를 정의 하는 이전에 정의 된입니다. AutoML의 심층 학습 기능을 사용 하는 경우 계산 대상을 GPU 기반으로 변경 해야 합니다.
 - `featurization`이 `auto`로 설정됩니다. 자세한 내용은 자동화 된 ML 구성 문서의 [Data 기능화](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) 섹션에서 찾을 수 있습니다. 
-- `training_data` 는 `PipelineOutputTabularDataset` 데이터 준비 단계의 출력에서 만든 개체로 설정 됩니다. 
+- `training_data` 는 `OutputTabularDatasetConfig` 데이터 준비 단계의 출력에서 만든 개체로 설정 됩니다. 
 - `label_column_name` 예측 하려는 열을 나타냅니다. 
 
 자체는를 `AutoMLStep` 사용 하 `AutoMLConfig` 고, `PipelineData` 메트릭과 모델 데이터를 저장 하기 위해 만든 개체를 출력으로 사용 합니다. 

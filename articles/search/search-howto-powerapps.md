@@ -8,13 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 04/25/2020
-ms.openlocfilehash: 66289c512a746a30ed8dbd3e5c2df92bea27d907
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 08/21/2020
+ms.openlocfilehash: 04434753949f0e00eaf99610199cc4997ef53caf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565836"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751052"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>자습서: Power Apps에서 Cognitive Search 인덱스 쿼리
 
@@ -92,7 +92,7 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
 
 1. *select*: `HotelName,Description,Address/City`를 **기본값**으로, **필수**를 *False*로, **표시 유형**을 *none*으로 설정합니다.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="version 매개 변수 메타데이터" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="매개 변수 메타데이터 선택" border="true":::
 
 1. *api-version*: `2020-06-30`을 **기본값**으로, **필수**를 *True*로, **표시 유형**을 *internal*로 설정합니다.  
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/15/2020
-ms.openlocfilehash: 168d343ea4582d8c19a577cedadf6f1bc3c39971
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f7a4997117c8730b767f245050caa3f3157fb6fd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607363"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750253"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -76,6 +76,5 @@ IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위
 ## <a name="next-steps"></a>다음 단계
 
 - 상업적 marketplace에 [대해 알아보세요](https://azuremarketplace.microsoft.com/sell) .
-- [파트너 센터]에서 [IoT Edge 모듈 제안 만들기]
 - 제품을 만들거나 완성할 수 있도록 [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다.
-- IoT Edge 모듈 제품을 게시하는 방법에 대한 정보는 [IoT Edge 모듈 제품 만들기](./partner-center-portal/azure-iot-edge-module-creation.md)를 참조하세요.
+- 파트너 센터에서 [IoT Edge 모듈 제품을 만듭니다](./partner-center-portal/azure-iot-edge-module-creation.md) .

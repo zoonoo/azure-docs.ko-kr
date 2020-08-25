@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Backup 작
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: ec0453725186ddef359f85f8c3e5554ff240d3e3
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 9a4558367d3af6858310ce4455cbf1df2a596312
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755724"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763476"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드 모니터링
 
@@ -70,7 +70,7 @@ SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 �
 - 백업 된 Azure VM이 더 이상 존재 하지 않으므로 VM 백업 작업이 실패 합니다.
 - [통합 된 경고](#consolidated-alerts)
 
-위의 예외는 이러한 작업 (주로 사용자 트리거됨)의 결과가 portal/PS/CLI 클라이언트에 즉시 표시 되는 것을 이해 하는 데 사용 됩니다. 따라서 사용자는 즉시 인식 되며 알림이 필요 하지 않습니다.
+위의 예외는 이러한 작업 (주로 사용자 트리거됨)의 결과가 portal/PS/CLI 클라이언트에 즉시 표시 된다는 것을 이해 하는 데 사용 됩니다. 따라서 사용자는 즉시 인식 되며 알림이 필요 하지 않습니다.
 
 ### <a name="alert-types"></a>경고 유형
 

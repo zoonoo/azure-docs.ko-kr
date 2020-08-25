@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0aa9a9728c3a59b6f47ef1427cbcd368d4f1e77c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0c81f88821d841002ef2489c727071e9629da9e1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586174"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750764"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>관리 id를 사용 하 여 Key Vault 인증 제공
 
@@ -114,6 +114,6 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 
 - [Azure Key Vault 보안: ID 및 액세스 관리](overview-security.md#identity-and-access-management)
 - [액세스 제어 정책을 사용하여 Key Vault 인증 제공](group-permissions-for-apps.md)
-- [키 자격 증명 모음 보안](secure-your-key-vault.md)).
+- [키 자격 증명 모음을 보호](secure-your-key-vault.md)합니다.
 - [Azure Key Vault 개발자 가이드](developers-guide.md)
 - [Azure Key Vault 모범 사례](best-practices.md) 검토

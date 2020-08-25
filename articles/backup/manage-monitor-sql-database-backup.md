@@ -3,12 +3,12 @@ title: Azure VM에서 SQL Server Db 관리 및 모니터링
 description: 이 문서에서는 Azure VM에서 실행 되는 SQL Server 데이터베이스를 관리 하 고 모니터링 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ada367e94b75c30a98bedf5848b248cadfe9acc2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: c9d8b9b56820182f7bf7866d38d40df8f5488a7a
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659588"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756319"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -16,15 +16,11 @@ ms.locfileid: "88659588"
 
 SQL Server 데이터베이스에 대 한 백업을 아직 구성 하지 않은 경우 [Azure vm에서 SQL Server 데이터베이스 백업](backup-azure-sql-database.md) 을 참조 하세요.
 
-## <a name="monitor-manual-backup-jobs-in-the-portal"></a>포털에서 수동 백업 작업 모니터링
+## <a name="monitor-backup-jobs-in-the-portal"></a>포털에서 백업 작업 모니터링
 
-Azure Backup는 **백업 작업** 포털에서 수동으로 트리거된 모든 작업을 표시 합니다. 이 포털에는 데이터베이스 검색 및 등록 작업과 백업 및 복원 작업이 표시됩니다.
+Azure Backup는 포털의 **백업 작업** 에서 예약 된 작업 및 주문형 작업을 모두 표시 합니다. 단, 예약 된 로그 백업은 매우 자주 수행 될 수 있기 때문입니다. 이 포털에 표시 되는 작업에는 데이터베이스 검색 및 등록, 백업 구성, 백업 및 복원 작업이 포함 됩니다.
 
 ![백업 작업 포털](./media/backup-azure-sql-database/jobs-list.png)
-
-> [!NOTE]
-> **백업 작업** 포털에는 예약 된 백업 작업이 표시 되지 않습니다. SQL Server Management Studio를 사용하면 다음 섹션에서 설명하는 대로 예약된 백업 작업을 모니터링할 수 있습니다.
->
 
 모니터링 시나리오에 대 한 자세한 내용은 [Azure Portal의 모니터링](backup-azure-monitoring-built-in-monitor.md) 및 Azure Monitor를 [사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 참조 하세요.  
 
@@ -162,7 +158,7 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>SQL Server VM 확장을 다시 등록 합니다.
 
-경우에 따라 VM에 대 한 워크 로드 확장이 특정 원인 또는 다른 이유로 영향을 받을 수 있습니다. 이러한 경우 VM에서 트리거되는 모든 작업이 실패하기 시작합니다. 그런 다음, VM에서 확장을 다시 등록해야 할 수 있습니다. **다시 등록** 작업은 작업을 계속 진행 하기 위해 VM에서 워크 로드 백업 확장을 다시 설치 합니다. 복구 서비스 자격 증명 모음의 **Backup 인프라** 에서이 옵션을 찾을 수 있습니다.
+경우에 따라 VM에 대 한 워크 로드 확장이 영향을 받을 수 있습니다. 이러한 경우 VM에서 트리거되는 모든 작업이 실패하기 시작합니다. 그런 다음, VM에서 확장을 다시 등록해야 할 수 있습니다. **다시 등록** 작업은 작업을 계속 진행 하기 위해 VM에서 워크 로드 백업 확장을 다시 설치 합니다. Recovery Services 자격 증명 모음의 **Backup 인프라** 에서이 옵션을 찾을 수 있습니다.
 
 ![백업 인프라의 보호 된 서버](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
 

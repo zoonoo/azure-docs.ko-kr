@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
-ms.openlocfilehash: b21b2a9f2d2bd483ed48a4c30b504908bb54a101
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 61ba06054e86d544ae4ab1edbdef8d86667ef3b2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661440"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796581"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>2단계 인증 및 회사 또는 학교 계정에 대한 일반적인 문제
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) 조직은 2 단계 인증 (2FV)을 켤 수 있
 2 fv는 사용자가 알고 있는 것과 사용자가 _알고_ _있는_것을 필요로 하기 때문에 암호 보다 안전 합니다. 실제 전화가 있는 해커는 없습니다.
 
 >[!Important]
->관리자의 경우, [Azure AD 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 확인할 수 있습니다.
+>관리자의 경우, [Azure AD 문서](../index.yml)에서 Azure AD 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 확인할 수 있습니다.
 
 이 콘텐츠는 조직에서 사용자에 게 제공 하는 계정인 회사 또는 학교 계정을 지원 하기 위한 것입니다 (예: dritan@contoso.com ). 개인 Microsoft 계정 (예:)에 대 한 2 단계 확인에 문제가 있는 경우 danielle@outlook.com [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
 

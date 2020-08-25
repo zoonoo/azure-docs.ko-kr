@@ -3,12 +3,12 @@ title: Azure Backup에 대 한 일시 삭제
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3ccd944ce1f6a30b4441c205a83e71374e7aff2
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538839"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763442"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Azure Backup에 대 한 일시 삭제
 
@@ -69,7 +69,7 @@ REST API를 사용 하 여 일시 삭제 기능을 사용 하지 않도록 설�
 
 ### <a name="using-azure-portal"></a>Azure Portal 사용
 
-다음 단계를 수행하세요.
+다음 단계를 수행합니다.
 
 1. [일시 삭제를 사용 하지 않도록 설정](#enabling-and-disabling-soft-delete)하는 단계를 수행 합니다.
 
@@ -136,7 +136,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 일시 삭제를 사용 하지 않도록 설정 하기 전에 항목이 삭제 된 경우 일시 삭제 된 상태가 됩니다. 삭제 작업을 즉시 삭제 하려면 삭제 작업을 취소 한 후 다시 수행 해야 합니다.
 
-1. 먼저 [여기](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data)에 설명 된 단계를 사용 하 여 삭제 작업을 실행 취소 합니다.
+1. 먼저 [여기](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion)에 설명 된 단계를 사용 하 여 삭제 작업을 실행 취소 합니다.
 2. 그런 다음 [여기](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)에 설명 된 단계를 사용 하 여 REST API를 사용 하는 일시 삭제 기능을 비활성화 합니다.
 3. 그런 다음 [여기](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)에 설명 된 대로 REST API를 사용 하 여 백업을 삭제 합니다.
 
@@ -144,7 +144,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 ### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>모든 자격 증명 모음에서 일시 삭제 기능을 사용 하도록 설정 해야 하나요?
 
-아니요. 기본적으로 모든 recovery services 자격 증명 모음에 대해 기본 제공 되 고 사용 하도록 설정 됩니다.
+아니요. 기본적으로 모든 Recovery Services 자격 증명 모음에 대해 기본적으로 사용 하도록 설정 되 고 사용 하도록 설정 됩니다.
 
 ### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-the-delete-operation-is-complete"></a>삭제 작업이 완료 된 후 내 데이터가 일시 삭제 된 상태로 유지 되는 일 수를 구성할 수 있나요?
 
