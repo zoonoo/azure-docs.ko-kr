@@ -3,13 +3,15 @@ title: AKS(Azure Kubernetes Service)에서 GPU 사용
 description: AKS(Azure Kubernetes Service)에서 고성능 컴퓨팅 또는 그래픽 집약적 워크로드에 GPU를 사용하는 방법 알아보기
 services: container-service
 ms.topic: article
-ms.date: 03/27/2020
-ms.openlocfilehash: ed655a6809f2932bbe8e85fb1cd9fd7996cf7647
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 08/21/2020
+ms.author: jpalma
+author: palma21
+ms.openlocfilehash: d19bfac318ab2ed20d021e10b43b691b525ba897
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213180"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749146"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 계산 집약적 워크로드에 GPU 사용
 
@@ -117,6 +119,65 @@ $ kubectl apply -f nvidia-device-plugin-ds.yaml
 
 daemonset "nvidia-device-plugin" created
 ```
+
+## <a name="use-the-aks-specialized-gpu-image-preview"></a>AKS 특수 GPU 이미지 (미리 보기) 사용
+
+이러한 단계를 수행 하는 대신, AKS는 [Kubernetes에 대 한 NVIDIA 장치 플러그 인][nvidia-github]을 이미 포함 하 고 있는 완전히 구성 된 AKS 이미지를 제공 합니다.
+
+> [!WARNING]
+> 새 AKS 특수 GPU 이미지를 사용 하 여 클러스터에 대 한 NVIDIA 장치 플러그 인 데몬 집합을 수동으로 설치 해서는 안 됩니다.
+
+
+`GPUDedicatedVHDPreview` 기능을 등록합니다.
+
+```azurecli
+az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
+```
+
+상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
+```
+
+상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+Aks-preview CLI 확장을 설치 하려면 다음 Azure CLI 명령을 사용 합니다.
+
+```azurecli
+az extension add --name aks-preview
+```
+
+Aks-preview CLI 확장을 업데이트 하려면 다음 Azure CLI 명령을 사용 합니다.
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>새 클러스터에서 AKS 특수 GPU 이미지 사용 (미리 보기)
+
+클러스터를 만들 때 AKS 특수 GPU 이미지를 사용 하도록 클러스터를 구성 합니다. `--aks-custom-headers`새 클러스터의 gpu 에이전트 노드에 대 한 플래그를 사용 하 여 AKS 특수 gpu 이미지를 사용 합니다.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+```
+
+일반 AKS 이미지를 사용 하 여 클러스터를 만들려는 경우 사용자 지정 태그를 생략 하 여 수행할 수 있습니다 `--aks-custom-headers` . 아래와 같이 특수화 된 GPU 노드 풀을 추가 하도록 선택할 수도 있습니다.
+
+
+### <a name="use-the-aks-specialized-gpu-image-on-existing-clusters-preview"></a>기존 클러스터에서 AKS 특수 GPU 이미지 사용 (미리 보기)
+
+AKS 특수 GPU 이미지를 사용 하도록 새 노드 풀을 구성 합니다. `--aks-custom-headers`새 노드 풀의 gpu 에이전트 노드에 대 한 플래그 플래그를 사용 하 여 AKS 특수 gpu 이미지를 사용 합니다.
+
+```azure-cli
+az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+```
+
+일반 AKS 이미지를 사용 하 여 노드 풀을 만들려면 사용자 지정 태그를 생략 하 여이 작업을 수행할 수 있습니다 `--aks-custom-headers` . 
 
 ## <a name="confirm-that-gpus-are-schedulable"></a>GPU의 예약 가능 여부 확인
 

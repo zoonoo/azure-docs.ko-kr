@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 대 한 진단 설정 사용
 description: 이 문서에서는 Azure Backup에 대해 이전 및 새 진단 이벤트를 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 2b562ee7fc4afbc28119aa36cfa071291dd61f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 908420a3447869d3e417da51e6b2501fbf2fa5a0
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612625"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763527"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Recovery Services 자격 증명 모음에 대 한 진단 설정 사용
 
@@ -29,7 +29,7 @@ Azure Backup는 다음과 같은 진단 이벤트를 제공 합니다. 각 이�
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-[레거시 이벤트](#legacy-event) azurebackupreport를 사용 하는 경우 가장 이른에서 위의 이벤트를 사용 하도록 전환 하는 것이 좋습니다.
+[레거시 이벤트](#legacy-event) azurebackupreport를 계속 사용 하는 경우 위의 이벤트를 사용 하도록 전환 하는 것이 좋습니다.
 
 자세한 내용은 [Azure Backup 진단 이벤트에 대 한 데이터 모델](./backup-azure-reports-data-model.md)을 참조 하세요.
 

@@ -6,13 +6,13 @@ manager: barbkess
 ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
-ms.custom: security-recommendations
-ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: security-recommendations,fasttrack-edit
+ms.openlocfilehash: 39073169fbc4558492a47f78f0840a0e314b3ee8
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447912"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763561"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Azure App Service의 간헐적인 아웃 바운드 연결 오류 문제 해결
 
@@ -120,11 +120,11 @@ PHP는 연결 풀링을 지원 하지 않지만 백 엔드 서버에 대 한 영
 * [부하 테스트](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test) 는 안정적인 공급 속도로 실제 데이터를 시뮬레이션 해야 합니다. 실제 스트레스 상태에서 앱 및 함수를 테스트 하면 SNAT 포트 소모 문제를 미리 파악 하 고 해결할 수 있습니다.
 * 백 엔드 서비스에서 응답을 신속 하 게 반환할 수 있는지 확인 합니다. Azure SQL Database의 성능 문제 해결에 대 한 자세한 내용은 [Intelligent Insights의 성능 문제 해결 Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance#recommended-troubleshooting-flow)을 참조 하십시오.
 * App Service 계획을 더 많은 인스턴스로 확장 합니다. 크기 조정에 대한 자세한 내용은 [Azure App Service에서 앱 크기 조정](https://docs.microsoft.com/azure/app-service/manage-scale-up)을 참조하세요. App service 계획의 각 작업자 인스턴스에는 여러 SNAT 포트가 할당 됩니다. 더 많은 인스턴스를 사용 하 여 사용량을 분산 하는 경우 고유한 원격 끝점 당 100 아웃 바운드 연결의 권장 한도 보다 낮은 인스턴스당 SNAT 포트 사용을 얻을 수 있습니다.
-* 단일 아웃 바운드 IP 주소를 할당 하는 [App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase)로 이동 하는 것이 좋습니다 .이 경우 연결 및 SNAT 포트의 한도가 훨씬 더 높습니다.
+* 단일 아웃 바운드 IP 주소를 할당 하는 [App Service Environment (ASE)](https://docs.microsoft.com/azure/app-service/environment/using-an-ase)로 이동 하는 것이 좋습니다 .이 경우 연결 및 SNAT 포트의 한도가 훨씬 더 높습니다. ASE에서 인스턴스당 SNAT 포트 수는 [Azure 부하 분산 장치 미리 할당 테이블](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#snatporttable) 을 기반으로 합니다. 예를 들어, 1-50 작업자 인스턴스를 포함 하는 ase에는 인스턴스당 1024 미리 할당 된 포트가 있고, 51-100 작업자 인스턴스가 있는 ase에는 인스턴스당 512 미리 할당 된 포트가 있습니다.
 
 아웃 바운드 TCP 제한을 방지 하는 것은 작업자의 크기에 따라 제한이 설정 되므로 더 쉽게 해결할 수 있습니다. [샌드박스에서 VM 간 숫자 제한-TCP 연결](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits) 의 제한을 확인할 수 있습니다.
 
-|제한 이름|Description|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
+|제한 이름|설명|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
 |---|---|---|---|---|---|
 |Connections|전체 VM의 연결 수|1920|3968|8064|16,000|
 
@@ -156,7 +156,7 @@ TCP 연결 및 SNAT 포트는 직접 관련 되지 않습니다. TCP 연결 사�
 * TCP 연결 제한은 작업자 인스턴스 수준에서 발생 합니다. Azure 네트워크 아웃 바운드 부하 분산에서는 SNAT 포트 제한에 TCP 연결 메트릭을 사용 하지 않습니다.
 * TCP 연결 제한은 [샌드박스 교차 VM 숫자 제한-Tcp 연결](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits) 에 설명 되어 있습니다.
 
-|제한 이름|Description|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
+|제한 이름|설명|작음 (A1)|보통 (A2)|큼 (A3)|Isolated 계층 (ASE)|
 |---|---|---|---|---|---|
 |Connections|전체 VM의 연결 수|1920|3968|8064|16,000|
 

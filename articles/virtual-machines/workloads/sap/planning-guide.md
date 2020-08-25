@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a7c3dca733590c9e5249e12dcb3a3bcb520e5dd
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 84ebb878510fd3667da70f045c55faa70e6601d9
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688694"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752666"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -1870,7 +1870,6 @@ Azure 배율 단위 내에서 Azure 가용성 집합이 사용할 수 있는 장
 
 ![Azure에 있는 SAP 애플리케이션 서버의 HA][planning-guide-figure-3000]
 
-자세한 내용은 <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability> 설명서를 참조하세요.
 
 #### <a name="high-availability-for-sap-central-services-on-azure"></a>Azure에서 SAP Central Services에 대한 고가용성
 

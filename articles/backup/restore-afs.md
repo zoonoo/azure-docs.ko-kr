@@ -3,12 +3,12 @@ title: Azure 파일 공유 복원
 description: Azure Portal를 사용 하 여 Azure Backup 만든 복원 지점에서 전체 파일 공유 또는 특정 파일을 복원 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: 92cc40d1a6b332ab524049322eb2d1afcb76082e
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: bb846c4615377259a1c17653cc26e96f37dc32ec
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761851"
+ms.locfileid: "88762827"
 ---
 # <a name="restore-azure-file-shares"></a>Azure 파일 공유 복원
 
@@ -59,7 +59,7 @@ ms.locfileid: "88761851"
     ![복원 지점 선택](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >기본적으로 **복원 지점 선택** 창에는 지난 30 일 동안의 복원 지점이 나열 됩니다. 특정 기간 동안 만들어진 복원 지점에 대해 확인 하려면 적절 한 **시작 시간과** **종료 시간** 을 선택 하 고 **새로 고침** 단추를 클릭 하 여 범위를 지정 하십시오.
+    >기본적으로 **복원 지점 선택** 창에는 지난 30 일 동안의 복원 지점이 나열 됩니다. 특정 기간 동안 만들어진 복원 지점에 대해 확인 하려면 적절 한 **시작 시간과** **종료 시간** 을 선택 하 여 범위를 지정 하 고 **새로 고침** 단추를 클릭 합니다.
 
 1. 다음 단계는 **복원 위치**를 선택 하는 것입니다. **복구 대상** 섹션에서 데이터를 복원할 위치를 지정 합니다. 설정/해제 단추를 사용 하 여 다음 두 옵션 중 하나를 선택 합니다.
 
