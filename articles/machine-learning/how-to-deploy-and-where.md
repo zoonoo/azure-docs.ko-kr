@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 67a66ae94508a8d7f54d6112de95fa65a8fd5f09
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d7502414f6476cafcc85bbefd28a4ec463f62099
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185420"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751690"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,7 +76,7 @@ SDK를 사용 하 여 작업 영역에 연결 하는 방법에 대 한 자세한
 ---
 
 
-## <a name="register-your-model"></a><a id="registermodel"></a>모델 등록
+## <a name="register-your-model"></a><a id="registermodel"></a> 모델 등록
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
@@ -218,12 +218,12 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 name: project_environment
 dependencies:
-    - python=3.6.2
-    - scikit-learn=0.20.0
-    - pip:
-        # You must list azureml-defaults as a pip dependency
-    - azureml-defaults>=1.0.45
-    - inference-schema[numpy-support]
+- python=3.6.2
+- scikit-learn=0.22.1
+- pip:
+ # You must list azureml-defaults as a pip dependency
+ - azureml-defaults>=1.0.45
+ - inference-schema[numpy-support]
 ```
 
 > [!IMPORTANT]
@@ -348,7 +348,7 @@ print(service.state)
 
 다음 표에서는 다양 한 서비스 상태에 대해 설명 합니다.
 
-| 웹 서비스 상태 | 설명 | 최종 상태?
+| 웹 서비스 상태 | Description | 최종 상태?
 | ----- | ----- | ----- |
 | 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
 | Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
@@ -357,12 +357,12 @@ print(service.state)
 | 정상 | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
 
 
-### <a name="batch-inference"></a><a id="azuremlcompute"></a>일괄 처리 유추
+### <a name="batch-inference"></a><a id="azuremlcompute"></a> 일괄 처리 유추
 Azure Machine Learning Azure Machine Learning 계산 대상이 만들어지고 관리 됩니다. Azure Machine Learning 파이프라인에서 일괄 처리 예측에 사용할 수 있습니다.
 
 Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일괄 처리를 실행 하는 방법](tutorial-pipeline-batch-scoring-classification.md)을 참조 하세요.
 
-### <a name="iot-edge-inference"></a><a id="iotedge"></a>IoT Edge 유추
+### <a name="iot-edge-inference"></a><a id="iotedge"></a> IoT Edge 유추
 에 지에 배포 하는 기능은 미리 보기 상태입니다. 자세한 내용은 [Azure Machine Learning를 IoT Edge 모듈로 배포](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning)를 참조 하세요.
 
 ## <a name="delete-resources"></a>리소스 삭제
@@ -371,7 +371,7 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 
 배포 된 웹 서비스를 삭제 하려면를 사용 `az ml service <name of webservice>` 합니다.
 
-작업 영역에서 등록 된 모델을 삭제 하려면 다음을 사용 합니다.`az ml model delete <model id>`
+작업 영역에서 등록 된 모델을 삭제 하려면 다음을 사용 합니다. `az ml model delete <model id>`
 
 [웹 서비스를 삭제](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) 하 고 [모델을 삭제](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete)하는 방법에 대해 자세히 알아보세요.
 

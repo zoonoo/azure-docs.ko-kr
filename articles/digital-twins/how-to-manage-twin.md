@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9f140594ef18df7f9a6a3b919998962c966cde76
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 995d621ffbabd6743d248812c88ebe7e65da24ca
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587602"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796955"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -104,8 +104,10 @@ object result = await client.GetDigitalTwin(id);
 
 이 호출은 쌍 데이터를 JSON 문자열로 반환 합니다. 
 
-> [!TIP]
-> 를 사용 하 여 쌍을 검색할 때 한 번 이상 설정 된 속성만 반환 됩니다 `GetDigitalTwin` .
+를 사용 하 여 쌍을 검색할 때 한 번 이상 설정 된 속성만 반환 됩니다 `GetDigitalTwin` .
+
+>[!TIP]
+>쌍 `displayName` 에 대 한는 해당 모델 메타 데이터의 일부 이므로 쌍 인스턴스에 대 한 데이터를 가져올 때 표시 되지 않습니다. 이 값을 확인 하려면 [모델에서 검색할](how-to-manage-model.md#retrieve-models)수 있습니다.
 
 단일 API 호출을 사용 하 여 여러 쌍을 검색 하려면 [*방법: 쌍 그래프 쿼리*](how-to-query-graph.md)의 쿼리 API 예를 참조 하세요.
 
@@ -273,7 +275,7 @@ await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
 
 이 작업은 패치로 수정 되는 디지털 쌍이 새 모델을 준수 하는 경우에만 성공 합니다. 
 
-다음과 같은 예제를 참조하세요.
+다음 예제를 살펴보겠습니다.
 1. *Foo_old*모델을 사용 하는 디지털 쌍을 생각해 보세요. *foo_old* 은 필요한 속성 *질량*을 정의 합니다.
 2. 새 모델 *foo_new* 는 속성 질량을 정의 하 고 새 필수 속성 *온도*를 추가 합니다.
 3. 패치 후에 디지털 쌍에는 질량 속성과 온도 속성이 모두 있어야 합니다. 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d831d40733f9fa1d0db4c53d72de22898e493639
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037102"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795867"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Microsoft Azure Cosmos DB 분석 저장소(미리 보기)란?
 
@@ -134,7 +134,7 @@ Microsoft Azure Cosmos DB의 모든 작동 데이터가 분석을 위해 잘 정
 * 분석 읽기 작업 : Synapse Analytics Spark 및 SQL 서버리스 런타임에서 분석 저장소에 대해 수행되는 읽기 작업
 
 > [!NOTE]
-> Microsoft Azure Cosmos DB 분석 저장소는 2020년 8월 30일까지 공개 미리 보기로 무료 제공됩니다.
+> Azure Cosmos DB 분석 저장소는 현재 무료로 공개 미리 보기로 제공 됩니다.
 
 분석 저장소 가격은 트랜잭션 저장소 가격 책정 모델과는 별개입니다. 분석 저장소에는 프로비저닝된 RU의 개념이 없습니다. 분석 저장소의 가격 책정 모델에 대한 자세한 내용은 [Microsoft Azure Cosmos DB 가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
 
@@ -144,7 +144,7 @@ Microsoft Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록
 
 분석 TTL은 컨테이너에 대해 분석 저장소에 데이터를 보존해야 하는 기간을 나타냅니다. 
 
-작동 데이터의 삽입, 업데이트, 삭제는 트랜잭션 TTL 구성과 관계없이 트랜잭션 저장소에서 분석 저장소로 자동 동기화됩니다. 분석 저장소에서 이 작동 데이터의 보존은 아래에 지정된 대로 컨테이너 수준에서 분석 TTL 값으로 제어할 수 있습니다.
+분석 저장소를 사용 하는 경우 트랜잭션 TTL 구성과 관계 없이 작업 데이터에 대 한 삽입, 업데이트, 삭제가 트랜잭션 저장소에서 분석 저장소로 자동 동기화 됩니다. 분석 저장소에서 이 작동 데이터의 보존은 아래에 지정된 대로 컨테이너 수준에서 분석 TTL 값으로 제어할 수 있습니다.
 
 컨테이너의 분석 TTL은 `AnalyticalStoreTimeToLiveInSeconds` 속성을 사용하여 설정됩니다.
 
@@ -152,7 +152,7 @@ Microsoft Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록
 
 * 존재하고 값이 "-1"로 설정되면 트랜잭션 저장소의 데이터 보존과 관계없이 분석 저장소에 모든 기록 데이터가 보존됩니다. 이 설정은 분석 저장소에 작동 데이터가 무기한으로 보존됨을 나타냅니다.
 
-* 존재하고 값이 양수 "n"으로 설정되면 항목이 트랜잭션 저장소에서 마지막으로 수정되고 "n"초 후에 분석 저장소에서 만료됩니다. 트랜잭션 저장소의 데이터 보존과 관계없이 제한된 기간 동안 분석 저장소에 작동 데이터를 보존하려는 경우에 이 설정을 활용할 수 있습니다.
+* 존재하고 값이 양수 "n"으로 설정되면 항목이 트랜잭션 저장소에서 마지막으로 수정되고 "n"초 후에 분석 저장소에서 만료됩니다. 이 설정은 트랜잭션 저장소의 데이터를 보존 하는 것과 관계 없이 분석 저장소에서 제한 된 기간 동안 운영 데이터를 보존 하려는 경우에 활용할 수 있습니다.
 
 몇 가지 고려할 점은 다음과 같습니다.
 *   분석 TTL 값으로 분석 저장소를 사용하도록 설정한 후 나중에 다른 유효한 값으로 분석 저장소를 업데이트할 수 있습니다. 

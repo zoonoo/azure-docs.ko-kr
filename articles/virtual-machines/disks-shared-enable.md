@@ -4,16 +4,16 @@ description: 여러 Vm에서 공유할 수 있도록 공유 디스크를 사용 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 08/21/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f6b34cd93dcfabee2974bea5cf57258527df94d7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ad70aa1d044649a0ca61060fff9880d4ef1e34c1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701654"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752022"
 ---
 # <a name="enable-shared-disk"></a>공유 디스크 사용
 
@@ -21,21 +21,21 @@ ms.locfileid: "88701654"
 
 공유 디스크가 사용 하도록 설정 된 관리 디스크에 대 한 개념 정보를 찾고 있는 경우 다음을 참조 하세요.
 
-* Linux: [Azure 공유 디스크](./linux/disks-shared.md)
+* Linux: [Azure 공유 디스크](linux/disks-shared.md)
 
-* Windows: [Azure 공유 디스크](./windows/disks-shared.md)
+* Windows: [Azure 공유 디스크](windows/disks-shared.md)
 
 ## <a name="limitations"></a>제한 사항
 
-[!INCLUDE [virtual-machines-disks-shared-limitations](~/includes/virtual-machines-disks-shared-limitations.md)]
+[!INCLUDE [virtual-machines-disks-shared-limitations](../../includes/virtual-machines-disks-shared-limitations.md)]
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-공유 디스크는 여러 운영 체제를 지원 합니다. 지원 되는 운영 체제에 대 한 개념 문서의 [Windows](~/articles/virtual-machines/windows/disks-shared.md#windows) 및 [Linux](~/articles/virtual-machines/linux/disks-shared.md#linux) 섹션을 참조 하세요.
+공유 디스크는 여러 운영 체제를 지원 합니다. 지원 되는 운영 체제에 대 한 개념 문서의 [Windows](windows/disks-shared.md#windows) 및 [Linux](linux/disks-shared.md#linux) 섹션을 참조 하세요.
 
 ## <a name="disk-sizes"></a>디스크 크기
 
-[!INCLUDE [virtual-machines-disks-shared-sizes](~/includes/virtual-machines-disks-shared-sizes.md)]
+[!INCLUDE [virtual-machines-disks-shared-sizes](../../includes/virtual-machines-disks-shared-sizes.md)]
 
 ## <a name="deploy-shared-disks"></a>공유 디스크 배포
 
@@ -147,7 +147,7 @@ New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $
 를 사용 하 여 공유 디스크를 배포한 후에 `maxShares>1` 는 하나 이상의 vm에 디스크를 탑재할 수 있습니다.
 
 > [!NOTE]
-> 울트라 디스크를 배포 하는 경우 필요한 요구 사항과 일치 하는지 확인 합니다. 자세한 내용은 ultra disk 문서의 [PowerShell](~/articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) 또는 [CLI](~/articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) 섹션을 참조 하세요.
+> 울트라 디스크를 배포 하는 경우 필요한 요구 사항과 일치 하는지 확인 합니다. 자세한 내용은 ultra disk 문서의 [PowerShell](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) 또는 [CLI](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) 섹션을 참조 하세요.
 
 ```azurepowershell-interactive
 

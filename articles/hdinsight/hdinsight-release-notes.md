@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2020
-ms.openlocfilehash: 82a66d88b3c7c3492e7cb90116ff8ff8e61ca1b0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 08/21/2020
+ms.openlocfilehash: ba3c7304b0ce52cb720a9e2ac7ae6cf1b5ffeeea
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036592"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751463"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -27,7 +27,7 @@ Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객들 �
 
 이 릴리스는 HDInsight 4.0에만 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
-## <a name="new-features"></a>새 기능
+## <a name="new-features"></a>새로운 기능
 ### <a name="support-for-sparkcruise"></a>SparkCruise 지원
 SparkCruise는 Spark의 자동 계산 재사용 시스템입니다. 이전 쿼리 워크 로드를 기준으로 구체화 하는 공통 부분식을 선택 합니다. SparkCruise는 이러한 하위 식을 쿼리 처리의 일부로 구체화 하 고 계산 재사용은 백그라운드에서 자동으로 적용 됩니다. Spark 코드를 수정 하지 않고 SparkCruise의 이점을 누릴 수 있습니다.
  
@@ -72,3 +72,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 
 ## <a name="component-version-change"></a>구성 요소 버전 변경
 이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
+
+## <a name="known-issues"></a>알려진 문제
+
+Azure Portal에서 Azure HDInsight 클러스터를 만들고 SSH 인증 유형 공개 키를 사용 하는 경우 사용자가 **검토 + 만들기**를 클릭 하면 오류가 발생 합니다. 포털의 오류는 "SSH 사용자 이름에서 3 개의 연속 문자를 포함 하지 않아야 합니다."입니다. 이 문제를 해결 하 고 있습니다. 그러나이 오류가 발생 하는 경우 해결 방법은 ARM 템플릿을 사용 하 여 클러스터를 만드는 것입니다. 
