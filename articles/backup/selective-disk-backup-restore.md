@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 컴퓨터 백업 솔루션을 사�
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: dd4691f6248099bdc4fa713c84d396adac6011fa
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 44454977a977a85b8735657a439a265467f1bcf5
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757441"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824749"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대 한 선택적 디스크 백업 및 복원
 
@@ -190,7 +190,7 @@ az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-
 
 ## <a name="using-powershell"></a>PowerShell 사용
 
-Azure PS 버전 3.7.0 이상을 사용 하 고 있는지 확인 합니다.
+Azure PowerShell 버전 3.7.0 이상을 사용 하 고 있는지 확인 합니다.
 
 ### <a name="enable-backup-with-powershell"></a>PowerShell을 사용 하 여 백업 사용
 
@@ -261,7 +261,7 @@ Azure Portal를 사용 하 여 VM 백업 세부 정보 창 및 백업 작업 세
 Azure Portal를 통해 VM에 대 한 선택적 디스크 백업 환경을 구성 하는 것은 **OS 디스크만 백업** 옵션으로 제한 됩니다. 이미 백업 된 VM에 대 한 선택적 디스크 백업을 사용 하거나 VM의 특정 데이터 디스크에 대 한 고급 포함 또는 제외를 사용 하려면 PowerShell 또는 Azure CLI을 사용 합니다.
 
 >[!NOTE]
->데이터가 여러 디스크에 걸쳐 있는 경우 모든 종속 디스크가 백업에 포함 되어 있는지 확인 합니다. 볼륨의 모든 종속 디스크를 백업 하지 않는 경우 복원 중에 일부 백업 되지 않은 디스크로 구성 된 볼륨은 만들어지지 않습니다.
+>데이터가 여러 디스크에 걸쳐 있는 경우 모든 종속 디스크가 백업에 포함 되어 있는지 확인 합니다. 볼륨의 모든 종속 디스크를 백업 하지 않는 경우 복원 중에 일부 백업 되지 않은 디스크로 구성 된 볼륨은 생성 되지 않습니다.
 
 ### <a name="backup-os-disk-only-in-the-azure-portal"></a>Azure Portal에서 OS 디스크만 백업
 
@@ -277,7 +277,7 @@ Azure Portal를 사용 하 여 백업을 사용 하도록 설정 하는 경우 *
 - 선택적 디스크 복원은 디스크 제외 기능을 사용 하도록 설정한 후 생성 된 복구 지점만 지원 됩니다.
 - 디스크 **제외 설정을 사용** 하는 백업은 **디스크 복원** 옵션만 지원 합니다. 이 경우 **VM 복원** 또는 기존 복원 옵션 **바꾸기** 는 지원 되지 않습니다.
 
-![복원 작업 중에 VM을 복원 하는 옵션과 기존 기존을 바꿀 수 없습니다.](./media/selective-disk-backup-restore/options-not-available.png)
+![복원 작업을 수행 하는 동안 VM을 복원 하는 옵션과 기존을 바꿀 수 없음](./media/selective-disk-backup-restore/options-not-available.png)
 
 ## <a name="limitations"></a>제한 사항
 
@@ -293,5 +293,5 @@ Azure 가상 머신 백업은 [여기](https://azure.microsoft.com/pricing/detai
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure VM Backup의 지원 매트릭스](backup-support-matrix-iaas.md)
+- [Azure VM 백업의 지원 매트릭스](backup-support-matrix-iaas.md)
 - [질문과 대답-Azure Vm 백업](backup-azure-vm-backup-faq.md)

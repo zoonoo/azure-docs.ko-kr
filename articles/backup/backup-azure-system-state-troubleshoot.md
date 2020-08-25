@@ -4,12 +4,12 @@ description: 이 문서에서는 온-프레미스 Windows server에 대 한 시�
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: add54955def7df31f8e1688f56382067343616fe
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 56593176e705176b87cf955eb116909c1912e723
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763391"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824273"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
 
@@ -37,10 +37,10 @@ ms.locfileid: "88763391"
 
 ### <a name="limitation"></a>제한 사항
 
-- Microsoft에서는 시스템 상태 복구를 사용하여 다른 하드웨어로 복구하는 방법을 권장하지 않습니다.
+- Microsoft에서 시스템 상태 복구를 사용 하 여 다른 하드웨어로 복구 하지 않는 것이 좋습니다.
 - 시스템 상태 백업은 현재 "온-프레미스" Windows 서버를 지원 합니다. Azure Vm에는이 기능을 사용할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
 Azure Backup를 사용 하 여 시스템 상태 백업 문제를 해결 하기 전에 다음 필수 구성 요소 검사를 수행 합니다.  
 
@@ -86,7 +86,7 @@ PowerShell을 사용 하 여 Windows Server 백업을 설치 하려면 다음 �
 
 ### <a name="system-volume-information-permission"></a>시스템 볼륨 정보 사용 권한
 
-로컬 시스템에 Windows가 설치 된 볼륨에 있는 **시스템 볼륨 정보** 폴더에 대 한 모든 권한이 있는지 확인 합니다. 일반적으로이는 **C:\system 볼륨 정보**입니다. 위의 권한이 올바르게 설정 되지 않은 경우 Windows Server 백업이 실패할 수 있습니다.
+로컬 시스템에 Windows가 설치 된 볼륨에 있는 **시스템 볼륨 정보** 폴더에 대 한 모든 권한이 있는지 확인 합니다. 일반적으로이는 **C:\system 볼륨 정보**입니다. 위의 권한이 올바르게 설정 되지 않은 경우 Windows Server 백업은 실패할 수 있습니다.
 
 ### <a name="dependent-services"></a>종속 서비스
 

@@ -4,12 +4,12 @@ description: System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: c9d54bb8e9875bcd622c5ce5343dc6f8baa3f2be
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 139741c4f721f0fd86cc585b4cfb2ed97c45b25c
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763578"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827412"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버 백업
 
@@ -24,7 +24,7 @@ Azure Backup을 사용하여 DPM 서버를 성공적으로 등록하려면 Syste
 >
 >
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 준비 사항
 
 계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 를 모두 충족하는지 확인합니다. 이러한 필수 구성 요소는 다음과 같습니다.
 
@@ -76,17 +76,17 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 9. **복사 Backup**에 대한 데이터베이스를 선택하고 **다음**을 클릭합니다.
 
    > [!NOTE]
-   > 데이터베이스의 DAG 복사본 하나 이상에 대해 "전체 백업"을 선택 하지 않으면 로그는 잘리지 않습니다.
+   > 데이터베이스의 DAG 복사본 하나 이상에 대해 "전체 백업"을 선택 하지 않은 경우 로그는 잘리지 않습니다.
    >
    >
 10. **단기 백업**에 대한 목표를 구성하고 **다음**을 클릭합니다.
 11. 사용 가능한 디스크 공간을 검토하고 **다음**을 클릭합니다.
 12. DPM 서버가 초기 복제 만들 시기를 선택하고 **다음**을 클릭합니다.
 13. 일관성 확인 옵션을 선택하고 **다음**을 클릭합니다.
-14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예를 들면 다음과 같습니다.
+14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예를 들어:
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예를 들면 다음과 같습니다.
+15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예를 들어:
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

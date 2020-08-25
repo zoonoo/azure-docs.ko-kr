@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1fdc6b79bf86272afac038d8f91e4663514830fe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e7be96fcab0807ac8c6500c3b360f9380b4d2b28
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905598"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824953"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -187,7 +187,7 @@ catch (RequestFailedException e)
 
 미리 보기 중에는를 사용 하는 경우 추가 제한 사항이 있습니다 `JOIN` .
 * 문 내에서 하위 쿼리를 지원 하지 않습니다 `FROM` .
-* `OUTER JOIN`의미 체계가 지원 되지 않습니다. 즉, 관계의 순위가 0 이면 전체 "row"가 출력 결과 집합에서 제거 됩니다.
+* `OUTER JOIN` 의미 체계가 지원 되지 않습니다. 즉, 관계의 순위가 0 이면 전체 "row"가 출력 결과 집합에서 제거 됩니다.
 * 미리 보기 중에는 그래프 트래버스 깊이가 쿼리당 5 개 수준으로 제한 됩니다 `JOIN` .
 * 작업의 소스가 `JOIN` 제한 되어 있습니다. 쿼리는 쿼리가 시작 되는 위치를 선언 해야 합니다.
 
@@ -222,7 +222,6 @@ Azure Digital Twins를 사용 하 여 쿼리 하는 몇 가지 팁은 다음과 
         AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
         ```
 * 속성 이름과 값은 대/소문자를 구분 하므로 모델에 정의 된 정확한 이름을 사용 해야 합니다. 속성 이름의 철자가 틀렸거나 잘못 된 경우에는 오류가 반환 되지 않고 결과 집합이 비어 있습니다.
-
 
 ## <a name="next-steps"></a>다음 단계
 

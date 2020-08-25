@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 41bc06e2c63b1b35bb789636bcd269439078be70
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612523"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825191"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -135,7 +135,7 @@ Azure Backup은 전송 중 및 정지 상태의 데이터에 대한 암호화를
 
 **설정** | **제한**
 --- | ---
-**보호된 인스턴스(머신 또는 워크로드)당 최대 복구 지점 수** | 9,999
+**보호 된 인스턴스당 최대 복구 위치 (컴퓨터 또는 작업)** | 9,999
 **복구 지점에 대한 최대 만료 시간** | 제한 없음
 **DPM/MABS에 대한 최대 백업 빈도** | SQL Server에 대해 15분마다<br/><br/> 다른 워크로드의 경우 한 시간에 한 번
 **자격 증명 모음에 대한 최대 백업 빈도** | **MARS를 실행하는 온-프레미스 Windows 머신 또는 Azure VM:** 하루 세 번<br/><br/> **DPM/MABS:** 하루에 두 번<br/><br/> **Azure VM 백업:** 하루에 한 번

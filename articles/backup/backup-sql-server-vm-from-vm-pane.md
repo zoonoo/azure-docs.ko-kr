@@ -3,12 +3,12 @@ title: VM 창에서 SQL Server VM 백업
 description: 이 문서에서는 VM 창에서 Azure virtual machines의 SQL Server 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: d7cdf0a04acc57341200b363da4d012f04fe3454
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3d44c856d264c784d07b8301fa5605affddd7c02
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755248"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827480"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>VM 창에서 SQL Server 백업
 
@@ -67,7 +67,7 @@ VM의 **백업** 창에서 SQL Server VM에 대 한 백업을 사용 하도록 �
     ![백업 항목의 백업 데이터베이스를 참조 하세요.](./media/backup-sql-server-vm-from-vm-pane/backup-items.png)
 
 >[!NOTE]
->백업은 보호 된 VM에 나중에 추가 될 수 있는 새로운 SQL Server 인스턴스에 자동으로 구성 되지 않습니다. 새로 추가 된 인스턴스에 백업을 구성 하려면 VM이 등록 된 자격 증명 모음으로 이동 하 여 [여기](backup-sql-server-database-azure-vms.md)에 나열 된 단계를 수행 해야 합니다.
+>백업은 보호 된 VM에 나중에 추가 될 수 있는 새 SQL Server 인스턴스에 자동으로 구성 되지 않습니다. 새로 추가 된 인스턴스에 백업을 구성 하려면 VM이 등록 된 자격 증명 모음으로 이동 하 여 [여기](backup-sql-server-database-azure-vms.md)에 나열 된 단계를 수행 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

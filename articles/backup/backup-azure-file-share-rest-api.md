@@ -3,12 +3,12 @@ title: REST API를 사용 하 여 Azure 파일 공유 백업
 description: REST API를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: b3d83104b699740c43b0c6506c00694c2b2ac063
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757135"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824868"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Rest API를 통해 Azure Backup를 사용 하 여 Azure 파일 공유 백업
 
@@ -175,7 +175,7 @@ URI에 대 한 변수를 다음과 같이 설정 합니다.
    이 예제에서는 *StorageContainer입니다. 저장할 AzureFiles; testvault2*
 
 >[!NOTE]
-> 항상 응답의 name 특성을 사용 하 여이 요청에 입력 합니다. 하드 코드 하거나 컨테이너 이름 형식을 만들지 마십시오. 이를 만들거나 하드 코딩 하는 경우 나중에 컨테이너 이름 형식이 변경 되 면 API 호출이 실패 합니다.
+> 항상 응답의 name 특성을 사용 하 여이 요청에 입력 합니다. 하드 코드 하거나 컨테이너 이름 형식을 만들지 마세요. 이를 만들거나 하드 코딩 하는 경우 나중에 컨테이너 이름 형식이 변경 되 면 API 호출이 실패 합니다.
 
 <br>
 
@@ -467,7 +467,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-| Name       | Type                       | 설명                       |
+| Name       | 유형                       | 설명                       |
 | ---------- | -------------------------- | --------------------------------- |
 | 속성 | AzurefilesharebackupReques | BackupRequestResource 속성 |
 

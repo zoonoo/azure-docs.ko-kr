@@ -3,19 +3,19 @@ title: Azure Stack Vm의 파일 백업
 description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파일과 애플리케이션을 백업하고 복구합니다.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: b45e3a0916f46f247503ea336105646f5538246c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: caac247b5a972c515b4350f1b0c79792bbf75537
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263132"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825803"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Azure Stack의 파일 및 애플리케이션 백업
 
 Azure Backup을 사용하여 Azure Stack의 파일 및 애플리케이션을 보호(또는 백업)합니다. 파일 및 애플리케이션을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 파일을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 스토리지를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
 
 > [!NOTE]
-> Azure Backup Server 및 System Center DPM(Data Protection Manager)은 유사하지만 DPM은 Azure Stack에서 사용하도록 지원되지 않습니다.
+> Azure Backup Server와 System Center Data Protection Manager (DPM)이 유사 하지만 DPM은 Azure Stack에서 사용할 수 없습니다.
 >
 
 이 문서에서는 Azure Stack 환경에서 Azure Backup Server을 설치 하는 방법을 다루지 않습니다. Azure Stack에 Azure Backup Server를 설치하려면 [Azure Backup Server 설치](backup-mabs-install-azure-stack.md) 문서를 참조하세요.
@@ -46,13 +46,13 @@ Azure Stack 가상 머신에서 파일을 보호하도록 Azure Backup Server를
 
     보호 정책을 공유할 모든 데이터를 한 보호 그룹에 배치하는 것이 좋습니다. 보호 그룹 계획 및 배포에 대한 자세한 내용은 System Center DPM 문서 [배포 보호 그룹](/system-center/dpm/create-dpm-protection-groups)을 참조하세요.
 
-4. **데이터 보호 방법 선택** 화면에서 보호 그룹에 사용할 이름을 입력합니다. **다음 방법을 사용하여 단기 보호:** 및 **온라인 보호를 사용하려고 합니다**의 확인란을 선택합니다. **다음**을 선택합니다.
+4. **데이터 보호 방법 선택** 화면에서 보호 그룹에 사용할 이름을 입력합니다. **다음 방법을 사용하여 단기 보호:** 및 **온라인 보호를 사용하려고 합니다**의 확인란을 선택합니다. **새로 만들기**를 선택합니다.
 
     ![데이터 보호 방법 선택](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
     **온라인 보호를 사용하려고 합니다**를 선택하려면 먼저 **다음 방법을 사용하여 단기 보호:** 디스크를 선택해야 합니다. Azure Backup Server 테이프를 보호 하지 않으므로 단기 보호를 위해 디스크가 유일한 선택입니다.
 
-5. **단기 목표 지정** 화면에서, 디스크에 저장된 복구 지점을 얼마나 오래 유지할 것인지, 언제 증분 백업을 저장할 것인지 지정합니다. **다음**을 선택합니다.
+5. **단기 목표 지정** 화면에서, 디스크에 저장된 복구 지점을 얼마나 오래 유지할 것인지, 언제 증분 백업을 저장할 것인지 지정합니다. **새로 만들기**를 선택합니다.
 
     > [!IMPORTANT]
     > 5일 넘게 Azure Backup Server에 연결된 디스크에서 작업 복구(백업) 데이터를 유지**하지** 않아야 합니다.

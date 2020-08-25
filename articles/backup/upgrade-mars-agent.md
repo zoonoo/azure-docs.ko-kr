@@ -3,12 +3,12 @@ title: MARS (Microsoft Azure Recovery Services) 에이전트 업그레이드
 description: MARS (Microsoft Azure Recovery Services) 에이전트를 업그레이드 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 782975583547bb5b51c3816d815ae1129c979509
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 1f4fd5074b0c6195742935e0cf0e742a00a3549e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757339"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827327"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 업그레이드
 
@@ -50,7 +50,7 @@ Azure Backup 에이전트 업데이트가 필요한 서버를 확인 한 후에�
     ![원격 데스크톱 연결을 통해 서버에 연결](./media/upgrade-mars-agent/connect-to-server.png)
 
     >[!NOTE]
-    > 나열 된 서버가 없거나 서비스 해제 된 경우 아래 나머지 단계를 무시 하 고 다음 서버를 건너뛸 수 있습니다.
+    > 나열 된 서버가 없거나 서비스 해제 된 경우 아래 나머지 단계를 무시 하 고 다음 서버로 건너뛸 수 있습니다.
 
 1. 관리자 로그인 세부 정보를 입력 하 고 로그인 합니다.
 

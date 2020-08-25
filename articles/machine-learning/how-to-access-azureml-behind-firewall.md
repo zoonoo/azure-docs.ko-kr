@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 990a2d5279c796f354055328e6968ea705ea10b2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 7d270ac9a6597645c5a98b6af77d19021ef00329
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873639"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827429"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
 
@@ -57,6 +57,7 @@ ms.locfileid: "87873639"
 | **mcr.microsoft.com** | 기본 docker 이미지용 Microsoft Container Registry |
 | **your-acr-server-name.azurecr.io** | Azure Container Registry 가상 네트워크 뒤에 있는 경우에만 필요 합니다. 이 구성에서는 Microsoft 환경에서 구독의 ACR 인스턴스로 개인 링크를 만듭니다. Azure Machine Learning 작업 영역에 ACR 서버 이름을 사용 합니다. |
 | **\*. notebooks.azure.net** | Azure Machine Learning studio에서 노트북에 필요 합니다. |
+| **graph.windows.net** | 노트북에 필요 |
 
 ## <a name="python-hosts"></a>Python 호스트
 
@@ -78,6 +79,15 @@ ms.locfileid: "87873639"
 | **호스트 이름** | **용도** |
 | ---- | ---- |
 | **cloud.r-project.org** | CRAN 패키지를 설치할 때 사용 됩니다. |
+
+## <a name="azure-government-region"></a>Azure Government 지역
+
+Azure Government 영역에 대 한 필수 Url입니다.
+
+| **호스트 이름** | **용도** |
+| ---- | ---- |
+| **usgovarizona.api.ml.azure.us** | 미국 애리조나 지역 |
+| **usgovvirginia.api.ml.azure.us** | 미국 버지니아 지역 |
 
 ## <a name="next-steps"></a>다음 단계
 

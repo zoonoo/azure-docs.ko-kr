@@ -3,12 +3,12 @@ title: Azure에 Windows 시스템 상태 백업
 description: Windows Server 컴퓨터의 시스템 상태를 Azure에 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: a56e500cc0330a6406b4465ab5baeafa39b544aa
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 8ce30b93ebaecec1e69c6c6a6f1064c6cdd3d0f6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263047"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824465"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Azure에 Windows 시스템 상태 백업
 
@@ -98,7 +98,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 스토리지 중복�
 ## <a name="install-and-register-the-agent"></a>에이전트 설치 및 등록
 
 > [!NOTE]
-> Azure Portal을 통한 백업 활성화는 아직 사용할 수 없습니다. Microsoft Azure Recovery Services 에이전트를 사용하여 Windows Server 시스템 상태를 백업합니다.
+> Azure Portal를 통한 백업을 사용 하도록 설정할 수 없습니다. Microsoft Azure Recovery Services 에이전트를 사용하여 Windows Server 시스템 상태를 백업합니다.
 >
 
 1. 다운로드 폴더(또는 기타 저장 위치)에서 **MARSagentinstaller.exe**를 찾아서 두 번 클릭합니다.
@@ -116,7 +116,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 스토리지 중복�
    * 암호화 암호를 안전한 위치에 저장합니다.
 
      > [!NOTE]
-     > 암호를 분실하거나 잊어버린 경우 Microsoft에서 백업 데이터의 복구를 도와드릴 수 없습니다. 파일을 안전한 위치에 저장하세요. 백업을 복원할 때 필요합니다.
+     > 암호를 분실 하거나 잊은 경우 Microsoft는 백업 데이터를 복구 하는 데 도움을 줍니다. 파일을 안전한 위치에 저장하세요. 백업을 복원 해야 합니다.
      >
      >
 
@@ -132,7 +132,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 스토리지 중복�
 최초 백업을 완료하려면 Microsoft Azure Recovery Services 에이전트를 사용합니다.
 
 > [!NOTE]
-> Windows Server 2008 R2~Windows Server 2016에서 시스템 상태를 백업할 수 있습니다. 클라이언트 SKU에서는 시스템 상태 백업이 지원되지 않습니다. 시스템 상태는 Windows 클라이언트 또는 Windows Server 2008 SP2 컴퓨터에 대한 옵션으로 표시되지 않습니다.
+> Windows Server 2008 R2~Windows Server 2016에서 시스템 상태를 백업할 수 있습니다. 시스템 상태 백업은 클라이언트 Sku에서 지원 되지 않습니다. 시스템 상태는 Windows 클라이언트 또는 Windows Server 2008 SP2 컴퓨터에 대 한 옵션으로 표시 되지 않습니다.
 >
 >
 
@@ -152,13 +152,13 @@ Recovery Services 자격 증명 모음을 만드는 경우 스토리지 중복�
 
 5. **시스템 상태** 를 선택 하 고 **확인**을 선택 합니다.
 
-6. **다음**을 선택합니다.
+6. **새로 만들기**를 선택합니다.
 
 7. 이후 페이지에서 시스템 상태 백업에 대해 필요한 백업 빈도와 보존 정책을 선택합니다.
 
 8. 확인 페이지에서 정보를 검토 한 다음 **마침**을 선택 합니다.
 
-9. 마법사가 백업 일정 만들기를 완료 한 후 **닫기**를 선택 합니다.
+9. 마법사가 백업 일정 생성을 완료하면 **닫기**를 선택합니다.
 
 ### <a name="to-back-up-windows-server-system-state-for-the-first-time"></a>처음으로 Windows Server 시스템 상태를 백업하려면
 
@@ -170,9 +170,9 @@ Recovery Services 자격 증명 모음을 만드는 경우 스토리지 중복�
 
 3. 표시 되는 **백업 항목 선택** 화면에서 **시스템 상태** 를 선택 하 고 **다음**을 선택 합니다.
 
-4. 확인 페이지에서 컴퓨터를 백업하는 데 지금 백업 마법사가 사용할 설정을 검토합니다. 그런 다음 **백업**을 선택 합니다.
+4. 확인 페이지에서 컴퓨터를 백업하는 데 지금 백업 마법사가 사용할 설정을 검토합니다. 그런 다음, **백업**을 선택합니다.
 
-5. **닫기** 를 선택 하 여 마법사를 닫습니다. 백업 프로세스가 완료되기 전에 마법사를 닫으면 마법사가 백그라운드에서 계속 실행됩니다.
+5. **닫기**를 선택하여 마법사를 닫습니다. 백업 프로세스가 완료되기 전에 마법사를 닫으면 마법사가 백그라운드에서 계속 실행됩니다.
     > [!NOTE]
     > MARS 에이전트는 `SFC /verifyonly` 모든 시스템 상태 백업 전에 사전 검사의 일부로 트리거됩니다. 이는 시스템 상태의 일부로 백업 된 파일에 Windows 버전에 해당 하는 올바른 버전이 있는지 확인 하는 것입니다. [이 문서의](/windows-server/administration/windows-commands/sfc)SFC (시스템 파일 검사기)에 대해 자세히 알아보세요.
     >
