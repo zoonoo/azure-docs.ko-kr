@@ -3,12 +3,12 @@ title: IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석-Azure
 description: 이 항목에서는 IoT Edge 릴리스, 개선 사항, 버그 수정 및 알려진 문제에 대 한 라이브 비디오 분석의 릴리스 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c18977807d8cdca264a27d7fcff37aec7a61eb55
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: bad21297c5174c107a8eb03da0e2ed57ee7355d3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690654"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750209"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석
 
@@ -37,11 +37,12 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 * 이제 gRPC 프레임 워크를 사용 하 여 IoT Edge에서 라이브 비디오 분석과 사용자 지정 확장 간에 높은 데이터 콘텐츠 전송 성능을 얻을 수 있습니다. 시작 하려면 [이](analyze-live-video-use-your-grpc-model-quickstart.md) 항목을 참조 하세요.
 * 라이브 비디오 분석의 광범위 한 지역 배포와 클라우드 서비스만 업데이트 되었습니다.  
 * Live Video Analytics는 이제 전 세계 25 개의 추가 지역에서 사용할 수 있습니다. 다음은 사용 가능한 모든 지역 [목록](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) 입니다.  
-* 빠른 시작에 대 한 [설정](https://aka.ms/lva-edge/setup-resources-for-samples) 도 업데이트 되었습니다. 
+* 빠른 시작에 대 한 [설정](https://aka.ms/lva-edge/setup-resources-for-samples) 도 새 지역 지원과 함께 업데이트 되었습니다.
+    * 이미 리소스를 설정 하는 사용자에 대 한 작업 호출은 없습니다.
 
 ## <a name="bug-fixes"></a>버그 수정 
 
-None 
+* 설정 스크립트에서 사용 되지 않는 azure 확장의 사용을 제거 합니다.
 
 ## <a name="july-13-2020"></a>2020 년 7 월 13 일
 
