@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 307b1a6838c3a78c04ba6a36ffd52bd6b98aae04
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722826"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749615"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -104,7 +104,7 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 
 ## <a name="network-security-groups-and-required-ports"></a>네트워크 보안 그룹 및 필수 포트
 
-[NSG (네트워크 보안 그룹)](../virtual-network/virtual-network-vnet-plan-design-arm.md) 에는 Azure virtual network의 트래픽에 대 한 네트워크 트래픽을 허용 하거나 거부 하는 규칙의 목록이 포함 되어 있습니다. 네트워크 보안 그룹은 서비스에서 인증 및 관리 기능을 제공할 수 있도록 하는 일련의 규칙을 포함 하는 관리 되는 도메인을 배포할 때 만들어집니다. 이 기본 네트워크 보안 그룹은 관리 되는 도메인이 배포 된 가상 네트워크 서브넷과 연결 됩니다.
+[NSG (네트워크 보안 그룹)](../virtual-network/security-overview.md) 에는 Azure virtual network의 트래픽에 대 한 네트워크 트래픽을 허용 하거나 거부 하는 규칙의 목록이 포함 되어 있습니다. 네트워크 보안 그룹은 서비스에서 인증 및 관리 기능을 제공할 수 있도록 하는 일련의 규칙을 포함 하는 관리 되는 도메인을 배포할 때 만들어집니다. 이 기본 네트워크 보안 그룹은 관리 되는 도메인이 배포 된 가상 네트워크 서브넷과 연결 됩니다.
 
 다음 네트워크 보안 그룹 규칙은 관리 되는 도메인에서 인증 및 관리 서비스를 제공 하는 데 필요 합니다. 관리 되는 도메인이 배포 된 가상 네트워크 서브넷에 대해 이러한 네트워크 보안 그룹 규칙을 편집 하거나 삭제 하지 마세요.
 

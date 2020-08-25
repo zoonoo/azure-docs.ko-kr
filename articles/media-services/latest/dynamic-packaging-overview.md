@@ -2,7 +2,7 @@
 title: Azure Media Services v3의 동적 패키징
 titleSuffix: Azure Media Services
 description: 이 문서에서는 Azure Media Services의 동적 패키징에 대해 간략하게 설명합니다.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/31/2020
-ms.author: juliako
-ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/18/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8a5d52f2705a04c290f1122335430c12db8d294c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489778"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604582"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
 
@@ -80,8 +80,10 @@ Media Services 동적 암호화를 사용하여 콘텐츠를 보호하려는 경
 
 다음 단계에서는 Azure Media Services의 표준 인코더와 함께 동적 패키징이 사용되는 일반적인 Media Services 스트리밍 워크플로를 보여 줍니다.
 
-1. QuickTime/MOV 또는 MXF 파일과 같은 입력 파일을 업로드합니다. 이 파일을 mezzanine 또는 원본 파일이라고도 합니다. 지원되는 형식의 목록은 [표준 인코더에서 지원하는 형식](media-encoder-standard-formats.md)을 참조하세요.
+1. MP4, QuickTime/MOV 또는 기타 지원되는 파일 형식과 같은 [입력 파일을 업로드](job-input-from-http-how-to.md)합니다. 이 파일을 mezzanine 또는 원본 파일이라고도 합니다. 지원되는 형식의 목록은 [표준 인코더에서 지원하는 형식](media-encoder-standard-formats.md)을 참조하세요.
 1. Mezzanine 파일을 H.264/AAC MP4 적응 비트 전송률 세트로 [인코딩](#encode-to-adaptive-bitrate-mp4s)합니다.
+
+    인코딩된 파일이 이미 있고, 파일을 복사하고, 스트리밍하는 경우 다음을 사용합니다. [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) 및 [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) API. 결과적으로 스트리밍 매니페스트(.ism 파일)가 포함된 새 MP4 파일이 생성됩니다.
 1. 적응 비트 전송률 MP4 세트가 포함된 출력 자산을 게시합니다. [스트리밍 로케이터](streaming-locators-concept.md)를 만들어 게시합니다.
 1. 다양한 형식(HLS, MPEG-DASH 및 부드러운 스트리밍)을 대상으로 하는 URL을 작성합니다. *스트리밍 엔드포인트*는 다양한 형식에 대한 정확한 매니페스트 및 요청의 서비스를 담당합니다.
     
@@ -174,7 +176,7 @@ Media Services *동적 패키징*에서 HLS, MPEG-DASH 및 부드러운 스트�
 
 매니페스트 파일에는 트랙 유형(오디오, 비디오 또는 텍스트), 트랙 이름, 시작 및 종료 시간, 비트 전송률(품질), 트랙 언어, 프레젠테이션 창(고정 기간의 슬라이딩 창), 비디오 코덱(FourCC) 등의 스트리밍 메타 데이터가 포함됩니다. 또한 다음으로 재생할 수 있는 비디오 조각 및 위치에 대한 정보를 제공하여 다음 조각을 검색하도록 플레이어에 지시합니다. 조각(또는 세그먼트)은 비디오 콘텐츠의 실제 “청크”입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="hls"></a>HLS
 

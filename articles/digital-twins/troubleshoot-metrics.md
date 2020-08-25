@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 5e061e4d6f9e67cc7d92548f54add94097ede7d1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905207"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749027"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Azure Digital Twins 문제 해결: 메트릭
 
@@ -53,7 +53,7 @@ Azure Digital Twins는 인스턴스 상태와 연결 된 리소스의 상태에 
 
 API 요청으로 수행 해야 하는 메트릭:
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | API 요청 (미리 보기) | 개수 | 합계 | 디지털 쌍 읽기, 쓰기, 삭제 및 쿼리 작업에 대해 생성 된 API 요청의 수입니다. |  인증은 <br>연산의 <br>프로토콜만 <br>상태 코드, <br>상태 코드 클래스, <br>상태 텍스트 |
 | ApiRequestsFailureRate | API 요청 실패율 (미리 보기) | 백분율 | 평균 | 디지털 쌍 읽기, 쓰기, 삭제 및 쿼리 작업에 대 한 내부 오류 (500) 응답 코드를 제공 하는 서비스에서 인스턴스에 대해 수신 하는 API 요청의 백분율입니다. | 인증은 <br>연산의 <br>프로토콜만 <br>상태 코드, <br>상태 코드 클래스, <br>상태 텍스트
@@ -66,7 +66,7 @@ API 요청으로 수행 해야 하는 메트릭:
 >[!NOTE]
 > 미리 보기가 제공 **되는 동안 청구 비용은 0**입니다. 이러한 메트릭은 선택 가능한 목록에 계속 표시 되지만 미리 보기 중에는 적용 되지 않으며 서비스가 미리 보기 이상으로 이동할 때까지 0으로 유지 됩니다.
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | 청구 API 작업 (미리 보기) | 개수 | 합계 | Azure Digital Twins 서비스에 대해 수행 된 모든 API 요청 수에 대 한 청구 메트릭입니다. | 측정기 Id |
 | BillingMessagesProcessed | 청구 메시지 처리 됨 (미리 보기) | 개수 | 합계 | Azure Digital Twins에서 외부 끝점으로 전송 된 메시지 수에 대 한 청구 메트릭입니다. | 측정기 Id |
@@ -76,7 +76,7 @@ API 요청으로 수행 해야 하는 메트릭:
 
 데이터 수신으로 수행 해야 하는 메트릭:
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | IngressEvents | 수신 이벤트 (미리 보기) | 개수 | 합계 | Azure Digital Twins로 들어오는 원격 분석 이벤트의 수입니다. | 결과 |
 | IngressEventsFailureRate | 수신 이벤트 실패율 (미리 보기) | 백분율 | 평균 | 서비스에서 내부 오류 (500) 응답 코드를 반환 하는 들어오는 원격 분석 이벤트의 백분율입니다. | 결과 |
@@ -86,11 +86,11 @@ API 요청으로 수행 해야 하는 메트릭:
 
 라우팅을 사용 하 여 수행 해야 하는 메트릭:
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| 설명 | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | 메시지 라우팅 (미리 보기) | 개수 | 합계 | Event Hub, Service Bus, Event Grid 등의 끝점 Azure 서비스로 라우팅되는 메시지 수입니다. | 연산의 <br>결과 |
-| RoutingFailureRate | 라우팅 실패율 (미리 보기) | 백분율 | 평균 | Azure Digital Twins에서 Event Hub, Service Bus, Event Grid 등의 끝점 Azure 서비스로 라우팅되는 오류를 발생 시키는 이벤트의 백분율입니다. | 연산의 <br>결과 |
-| RoutingLatency | 라우팅 대기 시간 (미리 보기) | 밀리초 | 평균 | Azure Digital Twins에서 라우팅하는 이벤트 사이에 경과 된 시간은 이벤트 허브, Service Bus 또는 Event Grid와 같은 끝점 Azure 서비스에 게시 될 때까지 적용 됩니다. | 연산의 <br>결과 |
+| MessagesRouted | 메시지 라우팅 (미리 보기) | 개수 | 합계 | Event Hub, Service Bus, Event Grid 등의 끝점 Azure 서비스로 라우팅되는 메시지 수입니다. | 끝점 형식, <br>결과 |
+| RoutingFailureRate | 라우팅 실패율 (미리 보기) | 백분율 | 평균 | Azure Digital Twins에서 Event Hub, Service Bus, Event Grid 등의 끝점 Azure 서비스로 라우팅되는 오류를 발생 시키는 이벤트의 백분율입니다. | 끝점 형식, <br>결과 |
+| RoutingLatency | 라우팅 대기 시간 (미리 보기) | 밀리초 | 평균 | Azure Digital Twins에서 라우팅하는 이벤트 사이에 경과 된 시간은 이벤트 허브, Service Bus 또는 Event Grid와 같은 끝점 Azure 서비스에 게시 될 때까지 적용 됩니다. | 끝점 형식, <br>결과 |
 
 ## <a name="dimensions"></a>차원
 
@@ -100,7 +100,7 @@ API 요청으로 수행 해야 하는 메트릭:
 | --- | --- |
 | 인증 | OAuth |
 | 작업 (API 요청) | DigitalTwins/DigitalTwins/delete, <br>DigitalTwins/DigitalTwins/write, <br>DigitalTwins/DigitalTwins/read, <br>DigitalTwins/eventroutes/읽기, <br>DigitalTwins/eventroutes/write, <br>DigitalTwins/eventroutes/삭제, <br>DigitalTwins/모델/읽기, <br>DigitalTwins/모델/쓰기, <br>DigitalTwins/모델/삭제, <br>DigitalTwins/쿼리/동작 |
-| 작업 (라우팅) | Event Grid <br>이벤트 허브, <br>Service Bus |
+| 엔드포인트 유형 | Event Grid <br>이벤트 허브, <br>Service Bus |
 | 프로토콜 | HTTPS |
 | 결과 | 성공할 <br>실패 |
 | 상태 코드 | 200, 404, 500 등이 있습니다. |

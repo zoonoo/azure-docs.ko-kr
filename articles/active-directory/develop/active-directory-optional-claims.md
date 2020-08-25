@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/30/2020
+ms.date: 08/24/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e82f5fb868dd728d439c68943c8809c5373ae133
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ff3e2c9f989a6688e200a1c34e85ef3a22860840
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115733"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794677"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -59,8 +59,8 @@ ms.locfileid: "88115733"
 | `verified_secondary_email` | 사용자의 SecondaryAuthoritativeEmail에서 소싱됩니다.   | JWT        |           |        |
 | `vnet`                     | VNET 지정자 정보입니다. | JWT        |           |      |
 | `fwd`                      | IP 주소입니다.| JWT    |   | 요청 클라이언트의 원래 IPv4 주소를 추가합니다(VNET 내에 있는 경우). |
-| `ctry`                     | 사용자의 국가/지역 | JWT |  | Azure AD는 표시되고 클레임의 값이 FR, JP, SZ 등과 같은 표준 두 글자 국가/지역 번호인 경우 `ctry` 선택적 클레임을 반환합니다. |
-| `tenant_ctry`              | 리소스 테넌트의 국가/지역 | JWT | | |
+| `ctry`                     | 사용자의 국가/지역 | JWT |  | Azure AD는 `ctry` 선택적 클레임 (있는 경우)을 반환 하 고 필드의 값은 fr-fr, JP, SZ 등의 표준 2 자로 된 국가/지역 코드입니다. |
+| `tenant_ctry`              | 리소스 테 넌 트의 국가 | JWT | | `ctry`관리자가 테 넌 트 수준에서 설정 하는 것과 동일 합니다.  또한은 표준 두 문자로 된 값 이어야 합니다. |
 | `xms_pdl`             | 기본 설정 데이터 위치   | JWT | | 다중 지역 테넌트의 경우 기본 데이터 위치는 사용자가 거주하는 지리적 지역을 나타내는 세 문자로 된 코드입니다. 자세한 내용은 [기본 설정 데이터 위치에 대한 Azure AD Connect 설명서](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md)를 참조합니다.<br/>예를 들어 아시아 태평양의 경우 `APC`입니다. |
 | `xms_pl`                   | 사용자 기본 설정 언어  | JWT ||설정되는 경우 사용자의 기본 설정 언어입니다. 게스트 액세스 시나리오에서 해당 홈 테넌트의 원본 위치입니다. 형식이 지정된 LL-CC("en-us")입니다. |
 | `xms_tpl`                  | 테넌트 기본 설정 언어| JWT | | 설정된 경우 리소스 테넌트의 기본 설정 언어입니다. 형식이 지정된 LL("en")입니다. |
@@ -77,7 +77,7 @@ ms.locfileid: "88115733"
 
 **표 3: v2.0 전용 선택적 클레임**
 
-| JWT 클레임     | Name                            | Description                                | 메모 |
+| JWT 클레임     | Name                            | 설명                                | 메모 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 주소                      | 클라이언트가 로그인한 IP 주소입니다.   |       |
 | `onprem_sid`  | 온-프레미스 보안 식별자 |                                             |       |

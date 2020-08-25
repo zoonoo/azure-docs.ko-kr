@@ -89,6 +89,8 @@
       href: ../../data-lake-analytics/security-baseline.md
     - name: DDOS Protection 보안 기준
       href: ../fundamentals/ddos-protection-security-baseline.md
+    - name: Event Grid 보안 기준
+      href: ../../event-grid/security-baseline.md
     - name: Event Hubs 보안 기준
       href: ../../event-hubs/security-baseline.md
     - name: ExpressRoute 보안 기준
