@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d37fae18cd2f3e3bfad647cc176253dc6bb101ab
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585777"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782722"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>다른 구독으로 Azure Key Vault 이동
 
@@ -59,7 +59,9 @@ Azure Portal에서 Azure Policy 페이지로 이동하고 현재 구독에 대�
 
 ## <a name="procedure"></a>절차
 
-### <a name="initial-steps-moving-key-vault"></a>초기 단계(Key Vault 이동키 자격 증명 모음)
+다음과 같은 경우입니다. 
+
+### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>동일한 테 넌 트 내의 새 구독으로 Key Vault 이동
 
 1. Azure Portal에 로그인
 2. 키 자격 증명 모음으로 이동
@@ -70,9 +72,9 @@ Azure Portal에서 Azure Policy 페이지로 이동하고 현재 구독에 대�
 7. 리소스 이동과 관련된 경고 승인
 8. "확인" 선택
 
-### <a name="additional-steps-post-move"></a>추가 단계(이후 이동)
+### <a name="additional-steps-if-you-moved-key-vault-to-a-subscription-in-a-new-tenant"></a>주요 자격 증명 모음을 새 테 넌 트의 구독으로 이동한 경우 추가 단계
 
-키 자격 증명 모음을 새 구독으로 이동했으므로 테넌트 ID를 업데이트하고 이전 액세스 정책을 제거해야 합니다. PowerShell 및 Azure CLI의 이러한 단계에 대한 자습서는 다음과 같습니다.
+키 자격 증명 모음을 새 테 넌 트의 구독으로 이동한 경우 수동으로 테 넌 트 ID를 업데이트 하 고 이전 액세스 정책을 제거 해야 합니다. PowerShell 및 Azure CLI의 이러한 단계에 대한 자습서는 다음과 같습니다. PowerShell을 사용 하는 경우 아래에 설명 된 AzContext 명령을 실행 하 여 현재 선택 된 범위 외부의 리소스를 볼 수 있도록 해야 합니다. 
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <your-subscriptionId>                # Select your Azure Subscription

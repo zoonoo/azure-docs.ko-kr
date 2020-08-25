@@ -11,13 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db0956b1a2dec7626a24de2939941c2384d6a8a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e44de0058af0210ecb42eaa4be8b55d543d66103
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080765"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212802"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -32,7 +31,7 @@ Azure AD(Azure Active Directory)에는 사용자가 해당 Azure AD 계정으로
 > * Azure AD 테넌트에 온-프레미스 애플리케이션 추가
 > * 테스트 사용자가 Azure AD 계정을 사용하여 애플리케이션에 로그온할 수 있는지 확인
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필요합니다.
 
@@ -235,6 +234,10 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 
 문제 해결은 [애플리케이션 프록시 문제 및 오류 메시지 문제 해결](application-proxy-troubleshoot.md)을 참조하세요.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요하지 않은 경우 이 자습서에서 만든 리소스를 삭제합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 온-프레미스 환경에서 애플리케이션 프록시를 사용한 다음, 애플리케이션 프록시 커넥터를 설치하고 등록하도록 준비합니다. 다음으로 Azure AD 테넌트에 애플리케이션을 추가했습니다. 사용자가 Azure AD 계정을 사용하여 애플리케이션에 로그온할 수 있는지 확인했습니다.
@@ -250,4 +253,4 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 애플리케이션에 Single Sign-On을 구성할 준비가 완료되었습니다. 다음 링크를 사용하여 Single Sign-On 메서드를 선택하고 Single Sign-On 자습서를 찾습니다.
 
 > [!div class="nextstepaction"]
-> [Single Sign-on 구성](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+> [Single Sign-on 구성](sso-options.md#choosing-a-single-sign-on-method)

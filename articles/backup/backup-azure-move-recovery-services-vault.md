@@ -1,15 +1,15 @@
 ---
 title: 자격 증명 모음 Azure Backup Recovery Services 이동 하는 방법
-description: Azure 구독 및 리소스 그룹에서 recovery services 자격 증명 모음을 이동 하는 방법에 대 한 지침입니다.
+description: Azure 구독 및 리소스 그룹에서 Recovery Services 자격 증명 모음을 이동 하는 방법에 대 한 지침입니다.
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4751a6068904ef03a4d30d322a285e4074476b70
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: b4de4c58e6a6551fa7c27db9755bb02a11700721
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650916"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755741"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹 간에 Recovery Services 자격 증명 모음 이동
 
@@ -50,12 +50,12 @@ Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트�
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Azure Portal를 사용 하 여 Recovery Services 자격 증명 모음을 다른 리소스 그룹으로 이동
 
-복구 서비스 자격 증명 모음 및 연결된 해당 리소스를 다른 리소스 그룹으로 이동하려면
+Recovery Services 자격 증명 모음 및 연결 된 리소스를 다른 리소스 그룹으로 이동 하려면 다음을 수행 합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **Recovery Services 자격 증명 모음**의 목록을 열고 이동하려는 자격 증명 모음을 선택합니다. 자격 증명 모음 대시보드가 열리면 다음 이미지에 표시된 것처럼 나타납니다.
 
-   ![복구 서비스 자격 증명 모음 열기](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![Recovery Services 자격 증명 모음 열기](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
    자격 증명 모음에 대 한 **필수** 정보가 표시 되지 않으면 드롭다운 아이콘을 선택 합니다. 이제 자격 증명 모음에 대한 Essentials 정보가 표시됩니다.
 
@@ -84,7 +84,7 @@ Recovery Services 자격 증명 모음 및 연결된 해당 리소스를 다른 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Recovery Services 자격 증명 모음의 목록을 열고 이동하려는 자격 증명 모음을 선택합니다. 자격 증명 모음 대시보드가 열리면 다음 이미지에 표시된 것처럼 나타납니다.
 
-    ![복구 서비스 자격 증명 모음 열기](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+    ![Recovery Services 자격 증명 모음 열기](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
     자격 증명 모음에 대 한 **필수** 정보가 표시 되지 않으면 드롭다운 아이콘을 선택 합니다. 이제 자격 증명 모음에 대한 Essentials 정보가 표시됩니다.
 

@@ -1,18 +1,18 @@
 ---
-title: ARM 템플릿을 사용하여 Azure DB for MySQL 만들기
-description: 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 가상 네트워크 통합을 통해 Azure Database for MySQL 서버를 만드는 방법을 알아봅니다.
+title: '빠른 시작: Azure DB for MySQL 만들기 - ARM 템플릿'
+description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 가상 네트워크 통합을 통해 Azure Database for MySQL 서버를 만드는 방법을 알아봅니다.
 author: mgblythe
 ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: 72ace8a94d16b79f756c83393db2b39a1c0df714
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: ed908c4711812302fffac2e1ce59d2196426b74c
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134848"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185862"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MySQL 서버 만들기
 

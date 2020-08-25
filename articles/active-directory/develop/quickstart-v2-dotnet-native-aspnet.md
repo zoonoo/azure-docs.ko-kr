@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 22bf7e85a48e0d138bfdbca82cf032287d982899
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
+ms.openlocfilehash: 0fc31fd397f8206f7c6f0509dd03495631dde609
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339587"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165637"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼으로 보호되는 ASP.NET 웹 API 호출
 
@@ -82,13 +82,14 @@ ms.locfileid: "85339587"
 
 ### <a name="add-the-new-scope-to-the-todolistclients-appconfig"></a>*TodoListClient*의 app.config에 새 범위를 추가합니다.
 
-1. **TodoListClient** 프로젝트의 루트 폴더에 있는 **app.config** 파일을 연 다음, 방금 `TodoListServiceScope` 매개 변수 아래의 *TodoListService*에 대해 등록한 애플리케이션의 **애플리케이션 ID**를 붙여넣고 `{Enter the Application ID of your TodoListService from the app registration portal}` 문자열을 바꿉니다.
+* **TodoListClient** 프로젝트의 루트 폴더에 있는 **app.config** 파일을 연 다음, 방금 `TodoListServiceScope` 매개 변수 아래의 *TodoListService*에 대해 등록한 애플리케이션의 **애플리케이션 ID**를 붙여넣고 `{Enter the Application ID of your TodoListService from the app registration portal}` 문자열을 바꿉니다.
 
-   > 참고: 다음 형식을 사용하는지 확인합니다.
-   >
-   > `api://{TodoListService-Application-ID}/access_as_user`
-   >
-   >(여기서 {TodoListService-Application-ID}는 TodoListService의 애플리케이션 ID를 나타내는 GUID입니다.)
+  > [!NOTE]
+  > 다음 형식을 사용하는지 확인합니다.
+  >
+  > `api://{TodoListService-Application-ID}/access_as_user`
+  >
+  >(여기서 {TodoListService-Application-ID}는 TodoListService의 애플리케이션 ID를 나타내는 GUID입니다.)
 
 ## <a name="register-the-client-app-todolistclient"></a>클라이언트 앱 등록(TodoListClient)
 
@@ -102,15 +103,28 @@ ms.locfileid: "85339587"
    - **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름(예: `NativeClient-DotNet-TodoListClient`)을 입력합니다.
    - **지원되는 계정 유형**을 **조직 디렉터리의 계정**으로 변경합니다.
    - **등록**을 선택하여 애플리케이션을 만듭니다.
+   
+   > [!NOTE]
+   > *TodoListClient* 프로젝트의 **app.config**에서 `ida:Tenant`의 기본값은 `common`으로 설정됩니다.
+   >
+   > `common`은 회사 또는 학교 계정이나 Microsoft 개인 계정을 사용하여 로그인할 수 있음을 의미합니다(**조직 디렉터리의 계정**을 선택했기 때문).
+   >
+   > `organizations`는 회사 또는 학교 계정을 사용하여 로그인할 수 있음을 의미합니다.
+   >
+   > `consumers`는 Microsoft 개인 계정을 통해서만 로그인할 수 있음을 의미합니다.
+   >
+   
 1. 앱의 [개요] 페이지에서 **인증** 섹션을 선택합니다.
-   - **리디렉션 URI** | **퍼블릭 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션에서 **https://login.microsoftonline.com/common/oauth2/nativeclient** 를 확인합니다.
-   - **저장**을 선택합니다.
+   1. **플랫폼 구성**에서 **플랫폼 추가** 단추를 선택합니다.
+   1. **모바일 및 데스크톱 애플리케이션**의 경우 **모바일 및 데스크톱 애플리케이션**을 선택합니다.
+   1. **리디렉션 URI**의 경우 **https://login.microsoftonline.com/common/oauth2/nativeclient** 확인란을 선택합니다.
+   1. **구성**을 선택합니다.   
 1. **API 사용 권한** 섹션을 선택합니다.
-   - **권한 추가** 단추를 클릭한 다음,
-   - **내 API** 탭을 선택합니다.
-   - API 목록에서 `AppModelv2-NativeClient-DotNet-TodoListService API`를 선택하거나, 웹 API에 대해 입력한 이름을 선택합니다.
-   - **access_as_user** 권한을 아직 선택하지 않은 경우 지금 선택합니다. 필요한 경우 검색 상자를 사용합니다.
-   - **권한 추가** 단추를 선택합니다.
+   1. **권한 추가**를 선택합니다.
+   1. **내 API** 탭을 선택합니다.
+   1. API 목록에서 `AppModelv2-NativeClient-DotNet-TodoListService API`를 선택하거나, 웹 API에 대해 입력한 이름을 선택합니다.
+   1. **access_as_user** 권한을 아직 선택하지 않은 경우 지금 선택합니다. 필요한 경우 검색 상자를 사용합니다.
+   1. **사용 권한 추가** 단추를 선택합니다.
 
 ### <a name="configure-your-todolistclient-project"></a>*TodoListClient* 프로젝트 구성
 
