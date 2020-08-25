@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: a1ef0e9fe3805f1c6d4d1000a9ea70accc64f4d2
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 55e79877fb186a5ba2aece316c61f542adeda60c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718699"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796938"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>에이전트 없는 VMware VM 마이그레이션의 복제 문제 해결
 
@@ -246,7 +246,7 @@ _오류 메시지: 내부 오류가 발생 했습니다. [오류 메시지]_
 
 ### <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>오류 메시지: 내부 오류가 발생 했습니다. [스냅숏 생성 중지 됨]
 
-이 문제는 스냅숏 생성이 중지 될 때 발생 합니다. 이 문제가 발생 하면 95% 또는 99%에서 스냅숏 만들기 작업 중지를 확인할 수 있습니다. 이 문제를 해결 하려면이 [VMWARE KB](https://go.microsoft.com/fwlink/?linkid=2138969) 를 참조 하십시오.
+이 문제는 스냅숏 생성이 응답 하지 않을 때 발생 합니다. 이 문제가 발생 하면 95% 또는 99%에서 스냅숏 만들기 작업 중지를 확인할 수 있습니다. 이 문제를 해결 하려면이 [VMWARE KB](https://go.microsoft.com/fwlink/?linkid=2138969) 를 참조 하십시오.
 
 ### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>오류 메시지: 내부 오류가 발생 했습니다. [VM에서 디스크를 통합 하지 못했습니다. _[이유]_]
 

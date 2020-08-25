@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: f6085554f64c71c66587587ee03a58ee73c6639a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 104fb177a1379d5a09dc54cf6f78c401744d697f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761766"
+ms.locfileid: "88763306"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -44,7 +44,7 @@ ms.locfileid: "88761766"
 오류 코드: VMRestorePointInternalError
 
 백업 시 **이벤트 뷰어 응용 프로그램 로그** 에 **오류 메시지 응용 프로그램 이름 IaaSBcdrExtension.exe** 표시 되는 경우 VM에 구성 된 바이러스 백신이 백업 확장의 실행을 제한 하 고 있음을 확인 합니다.
-이 문제를 해결 하려면 바이러스 백신 구성에서 아래 디렉터리를 제외 하 고 백업 작업을 다시 시도 하세요.
+이 문제를 해결 하려면 바이러스 백신 구성에서 아래 디렉터리를 제외 하 고 백업 작업을 다시 시도 하십시오.
 
 * `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 * `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
@@ -90,11 +90,11 @@ Windows 서비스 **COM+ System** 애플리케이션 문제로 인해 Backup 작
 
 * **COM+ 시스템 애플리케이션** Windows 서비스를 시작/다시 시작합니다(관리자 권한 명령 프롬프트에서 **- net start COMSysApp**).
 * **DTC(Distributed Transaction Coordinator)** 서비스가 **네트워크 서비스** 계정으로 실행 중인지 확인합니다. 그렇지 않으면 **네트워크 서비스** 계정으로 실행하도록 변경하고 **COM+ 시스템 애플리케이션**을 다시 시작합니다.
-* 서비스를 다시 시작할 수 없는 경우 아래 단계에 따라 **DTC(Distributed Transaction Coordinator)** 서비스를 다시 설치합니다.
+* 에서 서비스를 다시 시작할 수 없는 경우 다음 단계를 수행 하 여 **DTC(Distributed Transaction Coordinator)** 서비스를 다시 설치 합니다.
   * MSDTC 서비스를 중지합니다.
   * 명령 프롬프트(cmd)를 엽니다.
-  * "msdtc -uninstall" 명령 실행
-  * "msdtc -install" 명령 실행
+  * `msdtc -uninstall` 명령 실행
+  * `msdtc -install` 명령 실행
   * MSDTC 서비스를 시작합니다.
 * **COM+ 시스템 애플리케이션** Windows 서비스를 시작합니다. **COM+ 시스템 애플리케이션**이 시작되면 Azure Portal에서 백업 작업을 트리거합니다.</ol>
 
@@ -165,7 +165,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 오류 코드: ExtensionFailedSnapshotLimitReachedError  <br/>
 오류 메시지: 연결된 일부 디스크의 스냅샷 제한을 초과하여 스냅샷 작업이 실패했습니다.
 
-연결된 일부 디스크의 스냅샷 제한을 초과하여 스냅샷 작업이 실패했습니다. 아래 문제 해결 단계를 완료한 다음, 작업을 다시 시도합니다.
+연결된 일부 디스크의 스냅샷 제한을 초과하여 스냅샷 작업이 실패했습니다. 다음 문제 해결 단계를 완료 한 후 작업을 다시 시도 하세요.
 
 * 필요하지 않은 디스크 Blob-스냅샷을 삭제합니다. 디스크 Blob을 삭제하지 않도록 주의해야 합니다. 스냅샷 Blob만 삭제해야 합니다.
 * 일시 삭제를 VM 디스크 스토리지-계정에서 사용하도록 설정한 경우에는 기존 스냅샷이 언제든지 허용되는 최대 크기보다 작은 것으로 일시 삭제 보존을 구성합니다.
@@ -183,7 +183,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 **1단계**: 호스트를 통해 스냅샷 만들기
 
-상위(관리자) 명령 프롬프트에서 아래 명령을 실행합니다.
+관리자 권한 (관리자) 명령 프롬프트에서 다음 명령을 실행 합니다.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f

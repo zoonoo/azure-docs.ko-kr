@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: d041bfe1187c48e5544e8933763eaf45a507a424
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701642"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752069"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Azure 디스크 예약을 사용 하 여 비용 절감
 
@@ -31,7 +31,7 @@ ms.locfileid: "88701642"
 예를 들어 2 TiB 프로 비전 된 저장소 용량을 가진 하나의 P40 디스크를 예약 한다고 가정 합니다. 또한 두 개의 P30 디스크만 할당 한다고 가정 합니다. 이 경우 P40 예약은 P30 소비를 고려 하지 않으며 P30 디스크에서 종 량 제 요금을 지불 합니다.
 <br/>
 <br/>
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 ## <a name="purchase-considerations"></a>구매 시 고려 사항
 
@@ -55,7 +55,7 @@ ms.locfileid: "88701642"
 
 ## <a name="buy-a-disk-reservation"></a>디스크 예약 구입
 
-[Azure Portal](https://portal.azure.com/)를 통해 Azure 디스크 저장소 예약을 구매할 수 있습니다. 예약에 대 한 요금을 지불할 수 있습니다. 월별 지불로 구매 하는 방법에 대 한 자세한 내용은 [월별 지불로 예약 구매](~/articles/cost-management-billing/reservations/monthly-payments-reservations.md)를 참조 하세요.
+[Azure Portal](https://portal.azure.com/)를 통해 Azure 디스크 저장소 예약을 구매할 수 있습니다. 예약에 대 한 요금을 지불할 수 있습니다. 월별 지불로 구매 하는 방법에 대 한 자세한 내용은 [월별 지불로 예약 구매](../cost-management-billing/reservations/prepare-buy-reservation.md#buy-reservations-with-monthly-payments)를 참조 하세요.
 
 예약 된 용량을 구매 하려면 다음 단계를 수행 합니다.
 
@@ -103,5 +103,5 @@ ms.locfileid: "88701642"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 예약이란?](~/articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Azure Disk Storage에 예약 할인이 적용되는 방식 이해](~/articles/cost-management-billing/reservations/understand-disk-reservations.md)
+- [Azure 예약이란?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Azure Disk Storage에 예약 할인이 적용되는 방식 이해](../cost-management-billing/reservations/understand-disk-reservations.md)

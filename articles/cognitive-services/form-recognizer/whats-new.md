@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 3a48511c896a3e4c677c35ca3069ff236761c444
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: b3485ebbdf9cf428b09364b73197220e02e9ffa8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724135"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751083"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
@@ -30,7 +30,7 @@ ms.locfileid: "88724135"
 - **REST API 참조를 사용할 수** 있습니다 [. v 2.1-preview. 1 참조를 확인 하세요.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
 - **영어 외에도 지원 되는 새 언어**이제 지원 되는 언어는 다음과 같습니다. `Layout` `Train Custom Model` 영어 (EN), 중국어 (간체) (zh-cn-zh-cn), 네덜란드어 (NL), 프랑스어 (FR), 독일어 (DE), 이탈리아어 (IT), 포르투갈어 (PT) 및 스페인어 (ES).
 - 확인란 **/선택 표시 검색** – 양식 인식기는 확인란 및 라디오 단추와 같은 선택 표시의 검색 및 추출을 지원 합니다. 선택 표시는에서 추출 되며 `Layout` `Train Custom Model`  -  _레이블을 사용 하 여 학습을 통해_ 선택 표시에 대 한 키 값 쌍을 추출할 수도 있습니다. 
-- **모델 작성** 을 사용 하면 단일 모델 Id를 사용 하 여 여러 모델을 구성 하 고 호출할 수 있습니다. 구성 된 모델 Id를 사용 하 여 분석 하기 위해 문서를 제출 하면 먼저 분류 단계를 수행 하 여 올바른 사용자 지정 모델로 라우팅합니다. 모델 작성은 `Train Custom Model`  -  _레이블로 학습_에 사용할 수 있습니다.
+- **모델 작성** 을 사용 하면 단일 모델 ID를 사용 하 여 여러 모델을 구성 하 고 호출할 수 있습니다. 구성 된 모델 ID를 사용 하 여 분석 하기 위해 문서를 제출 하면 먼저 분류 단계를 수행 하 여 올바른 사용자 지정 모델로 라우팅합니다. 모델 작성은 `Train Custom Model`  -  _레이블로 학습_에 사용할 수 있습니다.
 - **모델 이름** 더 쉽게 관리 하 고 추적할 수 있도록 사용자 지정 모델에 친숙 한 이름을 추가 합니다.
 - 영어, 언어 비즈니스 카드로 일반 필드를 추출 하는 데 사용할 **미리 빌드된 새로운 비즈니스 카드 모델** 입니다.
 - En-us 외에도 **미리 작성 된 수신 확인에 대 한 새 로캘이** 이제 EN-US, en-us, en-us, en-us에서 지원 됩니다.
@@ -50,8 +50,10 @@ ms.locfileid: "88724135"
 ## <a name="july-2020"></a>2020년 7월
 
 ### <a name="new-features"></a>새로운 기능
+
 * v2.0 **참조 사용 가능** [.Net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [JAVA](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)및 [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)용 v2.0 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) 및 업데이트 된 sdk를 봅니다.
 * 향상 된 **테이블 향상** 기능 및 향상 된 기능으로는 향상 된 기능 및 테이블 추출 향상 된 기능, 특히 _레이블 없이 사용자 지정 학습_에서 테이블 헤더와 구조를 학습 하는 기능이 있습니다. 
+
 * **통화 지원** 전역 통화 기호의 검색 및 추출
 * **Azure .gov** 이제 Azure .Gov 에서도 폼 인식기를 사용할 수 있습니다.
 * **향상 된 보안 기능**: 
@@ -76,8 +78,8 @@ ms.locfileid: "88724135"
 * **양식 인식기 API v 2.0 공개 미리 보기에 대 한 SDK 지원** 이번 달에는 폼 인식기 v2.0 (미리 보기) 릴리스에 대 한 미리 보기 SDK를 포함 하도록 서비스 지원을 확장 했습니다. 아래 링크를 사용 하 여 원하는 언어로 시작 하세요. 
    * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet)
    * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
-   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+   * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-python-preview)
+   * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre?view=azure-node-preview)
 
   새 SDK는 폼 인식기에 대 한 v2.0 REST API의 모든 기능을 지원 합니다. 예를 들어 레이블을 사용 하거나 사용 하지 않고 모델을 학습 하 고, 폼에서 텍스트, 키 값 쌍 및 테이블을 추출 하 고, 미리 작성 된 수신 서비스를 사용 하 여 수신 확인에서 데이터를 추출 하 고, 문서의 레이아웃 서비스를 사용 하 여 텍스트와 테이블을 추출할 수 있습니다. [Sdk 피드백 양식](https://aka.ms/FR_SDK_v1_feedback)을 통해 sdk에서 사용자 의견을 공유할 수 있습니다.
  

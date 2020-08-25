@@ -3,12 +3,12 @@ title: V3 RTM이 백업할 수 있는 Azure Backup Server
 description: 이 문서에서는 V3 RTM에서 보호 하는 Azure Backup 모든 워크 로드, 데이터 형식 및 설치를 나열 하는 보호 매트릭스를 제공 합니다.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 30da2efd161d789cd73829c270b64f3610945413
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 21c5fbcdf8aa3454a9af968509cb4cbf76b31f9e
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661285"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763612"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Azure Backup Server V3 RTM 보호 매트릭스
 
@@ -16,7 +16,7 @@ ms.locfileid: "88661285"
 
 ## <a name="protection-support-matrix"></a>보호 지원 매트릭스
 
-|워크로드|Version|Azure Backup 서버</br> installation|지원 되는 Azure Backup Server|보호 및 복구|
+|워크로드|버전|Azure Backup 서버</br> installation|지원 되는 Azure Backup Server|보호 및 복구|
 |------------|-----------|---------------|--------------|--------------|
 |클라이언트 컴퓨터(64비트 및 32비트)|Windows 10|물리적 서버<br /><br />Hyper-V 가상 머신<br /><br />VMware 가상 머신|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
 |클라이언트 컴퓨터(64비트 및 32비트)|Windows 8.1|물리적 서버<br /><br />Hyper-V 가상 머신|V3, V2|Files<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
@@ -92,7 +92,7 @@ ms.locfileid: "88661285"
 * `.microsoftonline.com`
 * `.windows.net`
 
-Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 하세요.
+Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 합니다.
 
 * Azure Active Directory(12076:5060)
 * Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)
