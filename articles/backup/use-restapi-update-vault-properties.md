@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 자격 증명 모음
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c3f964032d10988bf7ae615eb64d3b56b99a7747
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513118"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757305"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음 구성 업데이트
 
@@ -43,9 +43,9 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 ' GET ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|이름  |Type  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
-|200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
+|200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 확인        |
 
 ##### <a name="example-response"></a>예제 응답
 
@@ -65,7 +65,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 ### <a name="update-soft-delete-state-using-rest-api"></a>REST API를 사용 하 여 일시 삭제 상태 업데이트
 
-REST API를 사용 하 여 recovery services 자격 증명 모음의 일시 삭제 상태를 업데이트 하려면 다음 *패치* 작업을 사용 합니다.
+REST API를 사용 하 여 Recovery Services 자격 증명 모음의 일시 삭제 상태를 업데이트 하려면 다음 *패치* 작업을 사용 합니다.
 
 ```http
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
@@ -83,7 +83,7 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 자세한 내용은 [REST API 설명서](/rest/api/backup/backupresourcevaultconfigs/update#request-body) 를 참조 하세요.
 
-|이름  |필수  |형식  |설명  |
+|Name  |필수  |Type  |설명  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  선택적 eTag       |
 |위치     |  true       |String         |   리소스 위치      |
@@ -103,15 +103,15 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 }
 ```
 
-#### <a name="responses"></a>응답
+#### <a name="responses-for-the-patch-operation"></a>패치 작업에 대 한 응답
 
 ' PATCH ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|이름  |Type  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
-|200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
+|200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 확인        |
 
-##### <a name="example-response"></a>예제 응답
+##### <a name="example-response-for-the-patch-operation"></a>패치 작업에 대 한 예제 응답
 
 ' PATCH ' 요청이 제출 되 면 200 (성공) 응답이 반환 됩니다.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 71457be4e572a0e04dfffd0689bfbd458f7c2622
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 02c733c7849c89f9d48ddbe75ffbb2235e1be58e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190510"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757288"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -61,7 +61,7 @@ ms.locfileid: "88190510"
      
 * **Azureml-자동 ml-클라이언트를 설치 하는 경우 설명 패키지가 설치 되어 있지 않을 수 있습니다.** 
    
-   모델 설명이 설정 된 원격 AutoML run을 실행 하는 경우 "모델 설명을 위한 azureml (azureml) 모델 패키지를 설치 하세요." 라는 오류 메시지가 표시 됩니다. 이것은 알려진 문제이며 해결 방법으로 다음 단계 중 하나를 수행 합니다.
+   모델 설명이 설정 된 원격 AutoML run을 실행 하는 경우 "모델 설명을 위한 azureml (azureml) 모델 패키지를 설치 하세요." 라는 오류 메시지가 표시 됩니다. 이것은 알려진 문제입니다. 해결 방법으로 다음 단계 중 하나를 수행 합니다.
   
   1. Azureml를 로컬로 설치 합니다.
    ```
@@ -121,6 +121,18 @@ ms.locfileid: "88190510"
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
+* **Azure Machine Learning SDK를 설치 하지 못했습니다. 예외: ModuleNotFoundError: ' ImportError ' 또는 ': a 모듈이 없습니다. yamel. yaml ' 라는 모듈이 없습니다.**
+   
+   이 문제는 Python 용 Azure Machine Learning SDK의 모든 릴리스 버전에 대 한 conda 기본 환경의 최신 pip (>20.1.1)에 Python 용 Azure Machine Learning SDK를 설치 하는 경우에 발생 합니다. 다음 해결 방법을 참조 하세요.
+
+    * Conda 기본 환경에 Python SDK를 설치 하지 말고 conda 환경을 만들고 새로 만든 사용자 환경에 SDK를 설치 합니다. 최신 pip는 새 conda 환경에서 작동 해야 합니다.
+
+    * Docker에서 이미지를 만드는 경우 conda 기본 환경에서 다른 곳으로 전환할 수 없습니다. docker 파일에서 pip<= 20.1.1을 고정 하세요.
+
+    ```Python
+    conda install -c r -y conda python=3.6.2 pip=20.1.1
+    ```
+    
 * **패키지를 설치할 때 Databricks 오류 발생**
 
     추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예:

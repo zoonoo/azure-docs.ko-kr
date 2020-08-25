@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 8519daffd8ee0ad6c12be2f40fd8030caaaf34c8
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 1c9e40738d70b6fbb9fed267a6a047d8330023b7
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724998"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749268"
 ---
 # <a name="business-card-concepts"></a>비즈니스 카드 개념
 
@@ -69,6 +69,8 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 | |  | 성공: 분석 작업이 성공 했습니다. |
 
 **상태** 필드에 **성공** 값이 있는 경우 JSON 응답에는 비즈니스 카드 이해 및 텍스트 인식 결과가 포함 됩니다. 명함 이해 결과는 명명 된 필드 값의 사전으로 구성 됩니다. 여기서 각 값에는 추출 된 텍스트, 정규화 된 값, 경계 상자, 신뢰도 및 해당 단어 요소가 포함 됩니다. 텍스트 인식 결과는 텍스트, 경계 상자 및 신뢰도 정보를 사용 하 여 선과 단어의 계층 구조로 구성 됩니다.
+
+![Contoso smample 한 결과](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>샘플 JSON 출력
 
@@ -374,7 +376,7 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 }
 ```
 
-Extract the [business card data](./QuickStarts/python-business-cards.md) 빠른 시작을 수행 하 여 Python 및 REST API를 사용 하 여 비즈니스 카드 데이터 추출을 구현 합니다.
+[비즈니스 카드 추출 데이터](./QuickStarts/python-business-cards.md) 빠른 시작을 따라 Python 및 REST API를 사용 하 여 비즈니스 카드 데이터 추출을 구현 합니다.
 
 ## <a name="customer-scenarios"></a>고객 시나리오  
 

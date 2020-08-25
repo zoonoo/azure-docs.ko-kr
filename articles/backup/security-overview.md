@@ -3,12 +3,12 @@ title: 보안 기능 개요
 description: 백업 데이터를 보호하고 비즈니스의 보안 요구를 충족하는 데 도움이 되는 Azure Backup의 보안 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 8a63585635f578f55b274c3257807fc731eacc47
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: aa35f93e23a369381341aade32d877477e40e8a8
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589387"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757407"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Azure Backup의 보안 기능 개요
 
@@ -16,7 +16,7 @@ ms.locfileid: "88589387"
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>ID 및 사용자 액세스 관리 및 제어
 
-복구 서비스 자격 증명 모음에 사용되는 스토리지 계정은 격리되며 악의적인 목적을 위해 사용자가 액세스할 수 없습니다. 액세스는 복원과 같은 Azure Backup 관리 작업을 통해서만 허용됩니다. Azure Backup를 사용 하면 azure [RBAC (역할 기반 액세스 제어)](./backup-rbac-rs-vault.md)를 사용 하 여 세분화 된 액세스를 통해 관리 되는 작업을 제어할 수 있습니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
+Recovery Services 자격 증명 모음에 사용 되는 저장소 계정은 격리 되며 악의적인 목적을 위해 사용자가 액세스할 수 없습니다. 액세스는 복원과 같은 Azure Backup 관리 작업을 통해서만 허용됩니다. Azure Backup를 사용 하면 azure [RBAC (역할 기반 액세스 제어)](./backup-rbac-rs-vault.md)를 사용 하 여 세분화 된 액세스를 통해 관리 되는 작업을 제어할 수 있습니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.
 
 Azure Backup은 백업 관리 작업을 제어할 수 있는 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 3개 제공합니다.
 

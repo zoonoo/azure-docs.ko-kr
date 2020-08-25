@@ -126,6 +126,6 @@
   expanded: true
   items:
     - name: 액세스 검토 - Graph API
-      href: 'https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta'
+      href: /graph/api/resources/accessreviews-root?view=graph-rest-beta
     - name: 권한 관리 - Graph API
-      href: 'https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta'
+      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

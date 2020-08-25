@@ -150,41 +150,45 @@
       href: concept-ml-pipelines.md
     - name: 엔터프라이즈 준비 및 보안
       items:
+        - name: 엔터프라이즈 보안 개요
+          displayName: authorization authentication encryption aad azure active directory
+          href: concept-enterprise-security.md
         - name: 보안 기준
           href: security-baseline.md
-        - name: 엔터프라이즈 보안 및 거버넌스
+        - name: ID 및 액세스 관리
           items:
-            - name: 엔터프라이즈 보안 개요
-              displayName: authorization authentication encryption aad azure active directory
-              href: concept-enterprise-security.md
+            - name: 인증 설정
+              displayName: 'authentication, auth, oauth'
+              href: how-to-setup-authentication.md
             - name: 사용자 및 역할 관리
               href: how-to-assign-roles.md
+            - name: AKS 배포에서 Azure AD ID 사용
+              href: how-to-use-azure-ad-identity.md
+        - name: 네트워크 보안
+          items:
             - name: 가상 네트워크 사용
               displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
             - name: Private Link 사용
               displayName: private endpoint
               href: how-to-configure-private-link.md
-            - name: TLS로 웹 서비스 보호
-              displayName: ssl
+            - name: 보안 웹 서비스 구성
+              displayName: 'ssl, tls'
               href: how-to-secure-web-service.md
+            - name: 방화벽 구성
+              href: how-to-access-azureml-behind-firewall.md
+        - name: 데이터 보호
+          items:
             - name: 복원력 향상
               displayName: 'high availability, disaster recovery'
               href: how-to-high-availability-machine-learning.md
-            - name: AKS 배포에서 Azure AD ID 사용
-              href: how-to-use-azure-ad-identity.md
             - name: 스토리지 액세스 키 다시 생성
               href: how-to-change-storage-access-key.md
-            - name: Azure Firewall 사용
-              href: how-to-access-azureml-behind-firewall.md
-            - name: 보안 코딩
-              href: concept-secure-code-best-practice.md
-              displayName: security threat
-        - name: 인증 설정
-          displayName: 'authentication, auth, oauth'
-          href: how-to-setup-authentication.md
         - name: Azure Machine Learning 모니터링
           href: monitor-azure-machine-learning.md
+        - name: 보안 코딩
+          href: concept-secure-code-best-practice.md
+          displayName: security threat
     - name: Responsible ML
       items:
         - name: Responsible ML 개요
