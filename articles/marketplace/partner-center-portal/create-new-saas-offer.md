@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6344cb5f1a4bd52395378f97ba2848eeec336572
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604743"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817020"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 SaaS 제품 만들기
 
@@ -134,7 +134,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. 설명
+9. Description
 10. 스크린샷/비디오
 11. 문서
 
@@ -145,7 +145,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. 설명
+2. Description
 3. 유용한 링크
 4. 스크린샷
 
@@ -282,18 +282,19 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 #### <a name="files-and-images"></a>파일 및 이미지
 
 - **Documents** (필수) – 제품에 대 한 관련 마케팅 문서를 하나 이상의 문서에 대 한 하나 이상의 문서 (PDF 형식)로 추가 합니다.
-- **이미지**  – PNG 형식의 로고 이미지를 업로드 합니다.
+- **이미지** (필수)-제품 로고 이미지가 marketplace 전체에 표시 될 수 있는 여러 위치가 있습니다. **큰** 크기의 로고에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작고** **중간** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로 바꿀 수 있습니다.
 
-  - **작음** (48 x 48 픽셀, 필수)
-  - **중간** (90 x 90 픽셀, 필수)
-  - **큼** (216 x 216 픽셀, 필수)
-  - **와이드** (255 x 115 픽셀) (선택 사항)
+  - **큼** (216 x 216에서 350 x 350 px, required)
+  - **중간** (90 x 90 px, 선택 사항)
+  - **작음** (48 x 48 px, 선택 사항)
+  
+  이러한 로고는 목록의 다른 위치에서 사용 됩니다.
 
-   이 세 가지 로고 크기는 온라인 상점에서 다른 위치에 사용 됩니다.
+   - Azure Marketplace 및 Microsoft AppSource의 제품 목록 페이지에 많은 로고가 표시 됩니다.
+   - Microsoft Azure에서 새 리소스를 만들 때 medium 로고가 표시 됩니다.
+   - 작은 로고는 Azure Marketplace 검색 결과 및 Microsoft AppSource 기본 페이지 및 검색 결과 페이지에 표시 됩니다.
 
-   -   작은 로고 (48 x 48 픽셀)가 Azure Marketplace 검색 결과 및 Microsoft AppSource 기본 페이지 및 검색 결과 페이지에 표시 됩니다. 
-   -   Microsoft Azure에서 새 리소스를 만들 때 중간 로고 (90 x 90 픽셀)가 나타납니다.
-   -   Azure Marketplace 및 Microsoft AppSource의 제품 목록 페이지에 긴 로고 (216 x 216 및 350 x 350 픽셀)가 표시 됩니다.
+   [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 - **스크린샷** (필수)-1280 x 720 픽셀로 크기를 지정 하 여 제품을 보여 주는 최대 5 개의 스크린샷을 추가 합니다. 모든 이미지는 .PNG 형식이어야 합니다.
 - **동영상**(선택 사항) – 제품을 보여 주는 동영상에 대한 링크를 추가합니다. 고객에게 제품과 함께 표시되는 YouTube 및/또는 Vimeo 동영상의 링크를 사용할 수 있습니다. 또한 동영상 미리 보기 이미지를 입력해야 합니다. 이 이미지는 PNG 형식의 1280 x 720 픽셀로 크기가 지정됩니다. 제품당 최대 4개의 동영상을 표시할 수 있습니다.

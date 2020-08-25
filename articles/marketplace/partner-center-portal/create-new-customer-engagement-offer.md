@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 159cdef6b2c831e8c20d7249334bebac4f2061c5
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 93e7a720e9d39eca6d808c8c49b3b340226997ff
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606120"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817037"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Dynamics 365 for Customer Engagement 및 PowerApps 제품 만들기
 
@@ -137,7 +137,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 4. 지원 주소 (링크)
 5. 사용 약관 주소 (링크)
 6. Offer name
-7. 설명
+7. Description
 8. 스크린샷/비디오
 
 ### <a name="name"></a>속성
@@ -195,14 +195,18 @@ PDF 형식의 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관
 >[!NOTE]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스를 차단하지 않는지 확인하세요.
 
-#### <a name="store-logos"></a>Store 로고
+#### <a name="store-logos"></a>스토어 로고
 
-3개 픽셀 크기의 제품 로고를 제공합니다.
-- **소형**(필수, 48 x 48)
-- **대형**(필수, 216 x 216)
-- **와이드**(선택 사항, 255 x 115)
+**큰** 크기의 로고에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로이를 바꿀 수 있습니다.
+
+- **큼** (216 x 216에서 350 x 350 px, required)
+- **작음** (48 x 48 px, 선택 사항)
+
+이러한 로고는 목록의 다른 위치에서 사용 됩니다.
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>스크린샷
 

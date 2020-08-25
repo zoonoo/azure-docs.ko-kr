@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2030620446f414f985f86218b96c6db78ab090a1
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524491"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763680"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Azure 파일 공유를 백업 하는 동안 발생 하는 문제 해결
 
@@ -22,10 +22,10 @@ ms.locfileid: "86524491"
 - 저장소 계정의 파일 공유가 이미 다른 Recovery Services 자격 증명 모음으로 보호 되 고 있는지 확인 합니다.
 
   >[!NOTE]
-  >스토리지 계정의 모든 파일 공유를 Recovery Services 자격 증명 모음 하나로 보호할 수 있습니다. [이 스크립트](scripts/backup-powershell-script-find-recovery-services-vault.md) 를 사용 하 여 저장소 계정이 등록 된 recovery services 자격 증명 모음을 찾을 수 있습니다.
+  >스토리지 계정의 모든 파일 공유를 Recovery Services 자격 증명 모음 하나로 보호할 수 있습니다. [이 스크립트](scripts/backup-powershell-script-find-recovery-services-vault.md) 를 사용 하 여 저장소 계정이 등록 된 Recovery Services 자격 증명 모음을 찾을 수 있습니다.
 
 - 지원 되지 않는 저장소 계정에 파일 공유가 없는지 확인 하세요. [Azure 파일 공유 백업에 대 한 지원 매트릭스](azure-file-share-support-matrix.md) 를 참조 하 여 지원 되는 저장소 계정을 찾을 수 있습니다.
-- 저장소 계정 이름 및 리소스 그룹 이름의 전체 길이가 새 저장소 계정 및 77 문자 (클래식 저장소 계정)의 경우 84 자를 초과 하지 않는지 확인 하세요. 
+- 저장소 계정 이름 및 리소스 그룹 이름의 결합 된 길이가 새 저장소 계정 및 77 문자 (클래식 저장소 계정)의 경우 84 자를 초과 하지 않는지 확인 합니다.
 - 저장소 계정의 방화벽 설정을 확인 하 여 신뢰할 수 있는 Microsoft 서비스에서 저장소 계정에 액세스 하도록 허용 하는 옵션이 설정 되어 있는지 확인 합니다.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>스토리지 계정의 포털 상태 검색이 실패했다는 오류가 발생합니다.
@@ -54,7 +54,7 @@ ms.locfileid: "86524491"
 Azure Portal에서 **자격 증명 모음**  >  **백업 인프라**  >  **저장소 계정을** 열고 **등록 취소** 를 클릭 하 여 Recovery Services 자격 증명 모음에서 저장소 계정을 제거 합니다.
 
 >[!NOTE]
->Recovery services 자격 증명 모음은 자격 증명 모음에 등록 된 모든 저장소 계정의 등록을 취소 한 후에만 삭제할 수 있습니다.
+>자격 증명 모음에 등록 된 모든 저장소 계정의 등록을 취소 한 후에만 Recovery Services 자격 증명 모음을 삭제할 수 있습니다.
 
 ## <a name="common-backup-or-restore-errors"></a>일반적인 백업 또는 복원 오류
 

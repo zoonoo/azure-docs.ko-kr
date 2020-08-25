@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 0d2b840b401dc90b332f91c93a9eda03d6643432
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245556"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816493"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
 
@@ -23,13 +23,13 @@ ms.locfileid: "88245556"
 
 고객 관리형 키를 사용한 서버 쪽 암호화는 Azure Key Vault를 사용합니다. [사용자의 RSA 키](../key-vault/keys/hsm-protected-keys.md)를 Key Vault로 가져오거나 Azure Key Vault에서 새 RSA 키를 생성할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 이미지에 사용할 디스크 암호화가 이미 설정 되어 있어야 합니다.
 
-- 고객 관리 키만 사용 하려면 [Azure Portal](./windows/disks-enable-customer-managed-keys-portal.md) 또는 [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset)을 사용 하 여 **서버 쪽 암호화에서 고객이 관리 하는 키 사용** 을 참조 하세요.
+- 고객 관리 키만 사용 하려면 [Azure Portal](./disks-enable-customer-managed-keys-portal.md) 또는 [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset)을 사용 하 여 **서버 쪽 암호화에서 고객이 관리 하는 키 사용** 을 참조 하세요.
 
-- 플랫폼 관리 및 고객 관리 키를 모두 사용 하려면 (이중 암호화의 경우) [Azure Portal](./windows/disks-enable-double-encryption-at-rest-portal.md) 또는 [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md)을 사용 하 여 **미사용 이중 암호화** 사용을 참조 하세요.
+- 플랫폼 관리 및 고객 관리 키를 모두 사용 하려면 (이중 암호화의 경우) [Azure Portal](./disks-enable-double-encryption-at-rest-portal.md) 또는 [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md)을 사용 하 여 **미사용 이중 암호화** 사용을 참조 하세요.
     > [!IMPORTANT]
     > Azure Portal에 액세스 하려면이 링크를 사용 해야 합니다 [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) . 휴지 상태의 이중 암호화는 현재 링크를 사용 하지 않고 공용 Azure Portal에 표시 되지 않습니다.
 

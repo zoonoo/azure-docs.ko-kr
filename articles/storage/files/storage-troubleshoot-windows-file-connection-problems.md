@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 322a3b4e8d362d1b751b2c016e6f7cf904f11d7e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e9384dd3865b106488dc8ec303b060736f23ded7
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752341"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797788"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -369,7 +369,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 
 ### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>오류: "디렉터리 서비스에서 상대 식별자를 할당할 수 없습니다."
 
-RID 마스터 FSMO 역할을 보유 하는 도메인 컨트롤러를 사용할 수 없거나 도메인에서 제거 되 고 백업에서 복원 된 경우이 오류 발생할 수 있습니다.  모든 도메인 컨트롤러가 실행 중이 고 사용 가능한 지 확인 합니다.
+RID 마스터 FSMO 역할을 보유 하는 도메인 컨트롤러를 사용할 수 없거나 도메인에서 제거 되 고 백업에서 복원 된 경우이 오류가 발생할 수 있습니다.  모든 도메인 컨트롤러가 실행 중이 고 사용 가능한 지 확인 합니다.
 
 ### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>오류: "이름이 지정되지 않았으므로 위치 매개 변수를 바인딩할 수 없습니다."
 
