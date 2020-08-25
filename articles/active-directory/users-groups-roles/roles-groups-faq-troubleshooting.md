@@ -13,14 +13,14 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84bf041f64a2f85f3aa3eada1dc1955c93dc034a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a3f2a23da5baa3a5d1955b10d18411fcedc3acd1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208199"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798298"
 ---
-# <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>클라우드 그룹에 할당 된 역할 문제 해결
+# <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>클라우드 그룹에 할당된 역할 문제 해결
 
 다음은 Azure Active Directory (Azure AD)에서 그룹에 역할을 할당 하기 위한 몇 가지 일반적인 질문과 문제 해결 팁입니다.
 
@@ -40,8 +40,8 @@ ms.locfileid: "88208199"
 
 **A:** 사용자는 역할 할당 가능 그룹의 소유자 일 수 있습니다. 권한 상승을 방지 하기 위해 역할 할당 그룹의 소유자를 보호 합니다. 예를 들어 그룹 Contoso_Security_Admins 보안 관리자 역할에 할당 된 경우 (Bob은 그룹 소유자이 고 Alice는 조직의 암호 관리자 인 경우)가 될 수 있습니다. 이 보호가 없는 경우 Alice는 Bob의 자격 증명을 다시 설정 하 고 id를 사용할 수 있습니다. 그런 다음 Alice는 그룹 Contoso_Security_Admins 그룹에 자신 또는 사람을 추가 하 여 조직의 보안 관리자가 될 수 있습니다. 사용자가 그룹 소유자 인지 확인 하려면 해당 사용자의 소유 개체 목록을 가져오고 isAssignableToRole가 true로 설정 된 그룹이 있는지 확인 합니다. 그렇다면 해당 사용자는 보호 되 고 동작은 의도 된 것입니다. 소유 개체를 가져오려면 다음 설명서를 참조 하세요.
 
-- [Get-AzureADUserOwnedObject](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
-- [OwnedObjects 나열](https://docs.microsoft.com/graph/api/user-list-ownedobjects?view=graph-rest-1.0&tabs=http)
+- [Get-AzureADUserOwnedObject](/powershell/module/azuread/get-azureaduserownedobject?view=azureadps-2.0)  
+- [OwnedObjects 나열](/graph/api/user-list-ownedobjects?tabs=http&view=graph-rest-1.0)
 
 **Q:** Azure AD 역할에 할당 될 수 있는 그룹에 대 한 액세스 검토를 만들 수 있습니다 (특히 isAssignableToRole 속성이 true로 설정 된 그룹).  
 

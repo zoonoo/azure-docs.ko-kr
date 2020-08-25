@@ -3,12 +3,12 @@ title: Azure Backup을 사용하여 Azure에 SAP HANA 데이터베이스 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 가상 머신에 SAP HANA 데이터베이스를 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 0efd26272bbfc4c8f63f7f02a605d48e53577390
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: b4917129b7b6dd3799f5e79dab881a1bcaa130d5
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809139"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761664"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -25,7 +25,7 @@ SAP HANA 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보존
 > * 주문형 백업 작업 실행
 
 >[!NOTE]
->2020 년 8 월 1 일부 터 RHEL (7.4, 7.6, 7.7 & 8.1)의 SAP HANA 백업이 일반적으로 제공 됩니다.
+>2020년 8월 1일부터 RHEL(7.4, 7.6, 7.7 및 8.1)에 대한 SAP HANA 백업이 일반 공급됩니다.
 
 >[!NOTE]
 >**Azure VM의 SQL Server 일시 삭제 및 Azure VM 워크로드의 SAP HANA 일시 삭제**는 이제 미리 보기로 제공됩니다.<br>
@@ -67,7 +67,7 @@ NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 �
 
 1. **추가**를 클릭하여 새로 만든 아웃바운드 보안 규칙을 저장합니다.
 
-마찬가지로, Azure Storage 및 Azure AD에 대한 NSG 아웃바운드 보안 규칙을 만들 수 있습니다. 서비스 태그에 대 한 자세한 내용은 [이 문서](../virtual-network/service-tags-overview.md)를 참조 하세요.
+마찬가지로, Azure Storage 및 Azure AD에 대한 NSG 아웃바운드 보안 규칙을 만들 수 있습니다. 서비스 태그에 대한 자세한 내용은 이 [문서](../virtual-network/service-tags-overview.md)를 참조하세요.
 
 #### <a name="azure-firewall-tags"></a>Azure Firewall 태그
 
@@ -191,7 +191,7 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 
 1. 자격 증명 모음 메뉴에서 **백업 항목**을 클릭합니다.
 2. **백업 항목**에서 SAP HANA 데이터베이스를 실행하는 VM을 선택하고 **지금 백업**을 클릭합니다.
-3. **지금 백업**에서 수행할 백업 유형을 선택 합니다. 그런 다음, **확인**을 클릭합니다. 이 백업은이 백업 항목과 연결 된 정책에 따라 보존 됩니다.
+3. **지금 백업**에서 수행할 백업 유형을 선택 합니다. 그런 다음 **확인**을 클릭합니다. 이 백업은이 백업 항목과 연결 된 정책에 따라 보존 됩니다.
 4. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중**에서 작업 진행률을 모니터링할 수 있습니다. 데이터베이스의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Azure Backup이 설정된 데이터베이스에서 SAP HANA Studio 백업 실행

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8cba89abd65844d238120726572481457f27cb
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706158"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798434"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Azure Active Directory에서 게스트 액세스 권한 (미리 보기) 제한
 
@@ -54,7 +54,7 @@ Azure ad (Azure Active Directory)를 사용 하면 외부 게스트 사용자가
 
 ## <a name="update-with-the-microsoft-graph-api"></a>Microsoft Graph API를 사용 하 여 업데이트
 
-Azure AD 조직에서 게스트 권한을 구성 하는 새로운 Microsoft Graph API를 추가 했습니다. 다음 API 호출을 사용 하 여 모든 권한 수준을 할당할 수 있습니다. 여기에 사용 되는 guestUserRoleId 값은 가장 제한 된 게스트 사용자 설정을 보여 주기 위한 것입니다. Microsoft Graph 사용 하 여 게스트 권한을 설정 하는 방법에 대 한 자세한 내용은 [Authorizationpolicy 리소스 종류](https://docs.microsoft.com/graph/api/resources/authorizationpolicy)를 참조 하세요.
+Azure AD 조직에서 게스트 권한을 구성 하는 새로운 Microsoft Graph API를 추가 했습니다. 다음 API 호출을 사용 하 여 모든 권한 수준을 할당할 수 있습니다. 여기에 사용 되는 guestUserRoleId 값은 가장 제한 된 게스트 사용자 설정을 보여 주기 위한 것입니다. Microsoft Graph 사용 하 여 게스트 권한을 설정 하는 방법에 대 한 자세한 내용은 [Authorizationpolicy 리소스 종류](/graph/api/resources/authorizationpolicy)를 참조 하세요.
 
 ### <a name="configuring-for-the-first-time"></a>처음으로 구성
 
@@ -108,7 +108,7 @@ GET https://graph.microsoft.com/beta/policies/authorizationPolicy/authorizationP
 
 ### <a name="get-command-get-azureadmsauthorizationpolicy"></a>Get 명령: AzureADMSAuthorizationPolicy
 
-예:
+예제:
 
 ````PowerShell
 PS C:\WINDOWS\system32> Get-AzureADMSAuthorizationPolicy
@@ -124,7 +124,7 @@ PermissionGrantPolicyIdsAssignedToDefaultUserRole : {user-default-legacy}
 
 ### <a name="set-command-set-azureadmsauthorizationpolicy"></a>Set 명령: AzureADMSAuthorizationPolicy
 
-예:
+예제:
 
 ````PowerShell
 PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84b1e-32c8-42b7-82bc-daa82404023b'
@@ -168,5 +168,5 @@ Planner 및 Yammer에서 알려진 호환성 문제는 무엇 인가요? | <li>�
 ## <a name="next-steps"></a>다음 단계
 
 - Azure AD의 기존 게스트 사용 권한에 대 한 자세한 내용은 [Azure Active Directory?의 기본 사용자 권한](../fundamentals/users-default-permissions.md)을 참조 하세요.
-- 게스트 액세스를 제한 하는 Microsoft Graph API 메서드를 보려면 [Authorizationpolicy 리소스 유형](https://docs.microsoft.com/graph/api/resources/authorizationpolicy)을 참조 하세요.
+- 게스트 액세스를 제한 하는 Microsoft Graph API 메서드를 보려면 [Authorizationpolicy 리소스 유형](/graph/api/resources/authorizationpolicy)을 참조 하세요.
 - 사용자에 대 한 모든 액세스를 취소 하려면 [AZURE AD에서 사용자 액세스 취소](users-revoke-access.md)를 참조 하세요.

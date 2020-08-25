@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 03a7a1929e591216255c10f35d31c1a282a7e06a
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 72f68b35d171503bb07fc5e6f58a858ceea4c6cf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723285"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749683"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure Managed Disks 소개
 
@@ -30,37 +30,37 @@ Azure 관리 디스크는 Azure에서 관리하고 Azure Virtual Machines와 함
 
 ### <a name="simple-and-scalable-vm-deployment"></a>간단하고 확장성 있는 VM 배포
 
-관리 디스크를 사용하면 지역당 구독에 특정 유형의 VM **디스크**를 50,000개까지 만들 수 있고 따라서 단일 구독에 수천 개의 **VM**을 만들 수 있습니다. 이 기능을 사용하면 Marketplace 이미지를 사용하여 가상 머신 확장 집합에 VM을 1,000개까지 만들 수 있기 때문에 [가상 머신 확장 집합](~/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)의 확장성을 훨씬 더 높일 수도 있습니다.
+관리 디스크를 사용하면 지역당 구독에 특정 유형의 VM **디스크**를 50,000개까지 만들 수 있고 따라서 단일 구독에 수천 개의 **VM**을 만들 수 있습니다. 이 기능을 사용하면 Marketplace 이미지를 사용하여 가상 머신 확장 집합에 VM을 1,000개까지 만들 수 있기 때문에 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)의 확장성을 훨씬 더 높일 수도 있습니다.
 
 ### <a name="integration-with-availability-sets"></a>가용성 집합과 통합
 
-관리 디스크는 가용성 집합과 통합되어 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](~/articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 디스크가 서로 충분히 격리되도록 해줍니다. 디스크는 다른 스토리지 배율 단위(스탬프)에 자동으로 배치됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 애플리케이션을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 애플리케이션 인스턴스가 계속해서 실행됩니다.
+관리 디스크는 가용성 집합과 통합되어 단일 실패 지점을 피할 만큼 [가용성 집합의 VM](windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 디스크가 서로 충분히 격리되도록 해줍니다. 디스크는 다른 스토리지 배율 단위(스탬프)에 자동으로 배치됩니다. 스탬프가 하드웨어 또는 소프트웨어 오류로 인해 실패하는 경우 해당 스탬프의 디스크가 있는 VM 인스턴스만 실패합니다. 예를 들어 애플리케이션을 5개의 VM에서 실행 중이고 VM이 가용성 집합 내에 있다고 가정해 보겠습니다. 이러한 VM의 디스크는 동일한 스탬프에 저장되지 않습니다. 따라서 스탬프 하나가 작동이 중단되면 다른 애플리케이션 인스턴스가 계속해서 실행됩니다.
 
 ### <a name="integration-with-availability-zones"></a>가용성 영역과 통합
 
-관리 디스크는 [가용성 영역](~/articles/availability-zones/az-overview.md)을 지원합니다. 이는 데이터 센터 오류로부터 애플리케이션을 보호하는 고가용성 기능입니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA를 제공합니다.
+관리 디스크는 [가용성 영역](../availability-zones/az-overview.md)을 지원합니다. 이는 데이터 센터 오류로부터 애플리케이션을 보호하는 고가용성 기능입니다. 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA를 제공합니다.
 
 ### <a name="azure-backup-support"></a>Azure Backup 지원
 
-지역적 재해로부터 보호하기 위해 시간 기반 백업 및 백업 보존 정책에 따라 백업 작업을 만드는 데 [Azure Backup](~/articles/backup/backup-overview.md)을 사용할 수 있습니다. 이를 통해 VM 또는 관리 디스크 복원을 원하는 대로 수행할 수 있습니다. 현재 Azure Backup은 최대 32TiB(테비바이트)의 디스크 크기를 지원합니다. Azure VM 백업 지원에 대해 [자세히 알아보세요](~/articles/backup/backup-support-matrix-iaas.md).
+지역적 재해로부터 보호하기 위해 시간 기반 백업 및 백업 보존 정책에 따라 백업 작업을 만드는 데 [Azure Backup](../backup/backup-overview.md)을 사용할 수 있습니다. 이를 통해 VM 또는 관리 디스크 복원을 원하는 대로 수행할 수 있습니다. 현재 Azure Backup은 최대 32TiB(테비바이트)의 디스크 크기를 지원합니다. Azure VM 백업 지원에 대해 [자세히 알아보세요](../backup/backup-support-matrix-iaas.md).
 
 ### <a name="granular-access-control"></a>세부적인 액세스 제어
 
-[Azure RBAC(Azure 역할 기반 액세스 제어)](~/articles/role-based-access-control/overview.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. 관리 디스크는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](~/articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 공개합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 스토리지 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
+[Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 사용하여 관리 디스크에 대한 특정 권한을 한 명 이상의 사용자에게 할당할 수 있습니다. 관리 디스크는 읽기, 쓰기(만들기/업데이트), 삭제, [SAS(공유 액세스 서명) URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 검색 등 디스크에 대한 다양한 작업을 공개합니다. 업무를 수행하는 데 필요한 작업에만 액세스 권한을 부여할 수 있습니다. 예를 들어 관리 디스크를 스토리지 계정에 복사하지 말아야 하는 경우에는 해당 관리 디스크에 대한 내보내기 작업에 액세스를 부여하지 않도록 선택할 수 있습니다. SAS URI를 사용하여 관리 디스크를 복사할 수 없도록 하기 위해 관리 디스크에 해당 권한을 부여하지 않도록 선택할 수 있습니다.
 
 ### <a name="upload-your-vhd"></a>vhd 업로드
 
 직접 업로드를 사용하면 vhd를 Azure 관리 디스크로 쉽게 전송할 수 있습니다. 이전에는 스토리지 계정에 데이터 준비를 포함하는 더 많은 관련 프로세스를 수행해야 했습니다. 이제 단계가 줄어듭니다. Azure에 온-프레미스 VM을 업로드하거나 대규모 관리 디스크에 업로드하는 과정에서 번거로움이 줄어듭니다. 백업 및 복원 프로세스도 간단해집니다. 또한 데이터를 VM에 연결하지 않고도 관리 디스크에 직접 업로드할 수 있으므로 비용이 절감됩니다. 직접 업로드를 사용하여 최대 32TiB 크기의 vhd를 업로드할 수 있습니다.
 
-vhd를 Azure로 전송하는 방법을 알아보려면 [CLI](~/articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) 또는 [PowerShell](~/articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) 문서를 참조하세요.
+vhd를 Azure로 전송하는 방법을 알아보려면 [CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) 또는 [PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md) 문서를 참조하세요.
 
 ## <a name="security"></a>보안
 
 ### <a name="private-links"></a>Private Link
 
-관리 디스크에 대한 Private Link 지원은 현재 미리 보기로 제공되며, 관리 디스크를 네트워크 내부로 가져오거나 내보내는 데 사용할 수 있습니다. Private Link를 사용하면 지역 확장, 재해 복구 및 포렌식 분석을 위해 데이터를 다른 지역으로 내보낼 수 있도록 연결되지 않은 관리 디스크 및 스냅샷에 대한 시간 제한 SAS(공유 액세스 서명) URI를 생성할 수 있습니다. 또한 SAS URI를 사용하여 VHD를 온-프레미스에서 빈 디스크로 직접 업로드할 수 있습니다. 이제 [Private Link](~/articles/private-link/private-link-overview.md)를 활용하여 Azure 가상 네트워크 내에서만 수행할 수 있도록 관리 디스크의 내보내기 및 가져오기를 제한할 수 있습니다. Private Link를 사용하면 데이터가 안전한 Microsoft 백본 네트워크 내에서만 이동하도록 할 수 있습니다.
+관리 디스크에 대한 Private Link 지원은 현재 미리 보기로 제공되며, 관리 디스크를 네트워크 내부로 가져오거나 내보내는 데 사용할 수 있습니다. Private Link를 사용하면 지역 확장, 재해 복구 및 포렌식 분석을 위해 데이터를 다른 지역으로 내보낼 수 있도록 연결되지 않은 관리 디스크 및 스냅샷에 대한 시간 제한 SAS(공유 액세스 서명) URI를 생성할 수 있습니다. 또한 SAS URI를 사용하여 VHD를 온-프레미스에서 빈 디스크로 직접 업로드할 수 있습니다. 이제 [Private Link](../private-link/private-link-overview.md)를 활용하여 Azure 가상 네트워크 내에서만 수행할 수 있도록 관리 디스크의 내보내기 및 가져오기를 제한할 수 있습니다. Private Link를 사용하면 데이터가 안전한 Microsoft 백본 네트워크 내에서만 이동하도록 할 수 있습니다.
 
-관리 디스크를 가져오거나 내보내는 데 Private Link를 사용하도록 설정하는 방법에 대한 자세한 내용은 [CLI](~/articles/virtual-machines/linux/disks-export-import-private-links-cli.md) 또는 [포털](~/articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md) 문서를 참조하세요.
+관리 디스크를 가져오거나 내보내는 데 Private Link를 사용하도록 설정하는 방법에 대한 자세한 내용은 [CLI](linux/disks-export-import-private-links-cli.md) 또는 [포털](disks-enable-private-links-for-import-export-portal.md) 문서를 참조하세요.
 
 ### <a name="encryption"></a>암호화
 
@@ -70,12 +70,12 @@ vhd를 Azure로 전송하는 방법을 알아보려면 [CLI](~/articles/virtual-
 
 서버 쪽 암호화는 저장 데이터 암호화를 제공하고, 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호합니다. 서버 쪽 암호화는 관리 디스크를 사용할 수 있는 모든 지역의 모든 관리 디스크, 스냅샷 및 이미지에서 기본적으로 사용하도록 설정됩니다. (반면 호스트에서 암호화를 사용하도록 설정하지 않으면 임시 디스크가 서버 쪽 암호화를 통해 암호화되지 않습니다. [디스크 역할: 임시 디스크](#temporary-disk) 참조).
 
-Azure에서 키를 관리하도록 허용하거나 플랫폼 관리 키, 직접 키를 관리할 수 있습니다. 이러한 키는 고객 관리 키입니다. 자세한 내용은 [Azure Disk Storage의 서버 쪽 암호화](~/articles/virtual-machines/windows/disk-encryption.md) 문서를 참조하세요.
+Azure에서 키를 관리하도록 허용하거나 플랫폼 관리 키, 직접 키를 관리할 수 있습니다. 이러한 키는 고객 관리 키입니다. 자세한 내용은 [Azure Disk Storage의 서버 쪽 암호화](windows/disk-encryption.md) 문서를 참조하세요.
 
 
 #### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
 
-Azure Disk Encryption을 사용하면 IaaS Virtual Machines에서 사용되는 OS 및 데이터 디스크를 암호화할 수 있습니다. 이 암호화에는 관리되는 디스크가 포함됩니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 암호화 프로세스는 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. 자세한 내용은 [Linux VM용 Azure Disk Encryption](~/articles/virtual-machines/linux/disk-encryption-overview.md) 또는 [Windows VM용 Azure Disk Encryption](~/articles/virtual-machines/windows/disk-encryption-overview.md)을 참조하세요.
+Azure Disk Encryption을 사용하면 IaaS Virtual Machines에서 사용되는 OS 및 데이터 디스크를 암호화할 수 있습니다. 이 암호화에는 관리되는 디스크가 포함됩니다. Windows의 경우 업계 표준의 BitLocker 암호화 기술을 사용하여 드라이브가 암호화됩니다. Linux의 경우 DM-Crypt 기술을 사용하여 디스크가 암호화됩니다. 이 암호화 프로세스는 Azure Key Vault와 통합되어 디스크 암호화 키를 제어 및 관리할 수 있도록 합니다. 자세한 내용은 [Linux VM용 Azure Disk Encryption](linux/disk-encryption-overview.md) 또는 [Windows VM용 Azure Disk Encryption](windows/disk-encryption-overview.md)을 참조하세요.
 
 ## <a name="disk-roles"></a>디스크 역할
 
@@ -95,7 +95,7 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 ### <a name="temporary-disk"></a>임시 디스크
 
-대부분의 Vm에는 관리 디스크가 아닌 임시 디스크가 포함 되어 있습니다. 임시 디스크는 응용 프로그램 및 프로세스를 위한 단기 저장소를 제공 하며 페이지 또는 스왑 파일과 같은 데이터를 저장 하기 위한 것입니다. 임시 디스크의 데이터는 [유지 관리 이벤트](~/articles/virtual-machines/windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](~/articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅이 완료 되 면 임시 디스크의 데이터가 유지 됩니다. 임시 디스크가 없는 Vm에 대 한 자세한 내용은 [로컬 임시 디스크가 없는 AZURE vm 크기](~/articles/virtual-machines/azure-vms-no-temp-disk.md)를 참조 하세요.
+대부분의 Vm에는 관리 디스크가 아닌 임시 디스크가 포함 되어 있습니다. 임시 디스크는 응용 프로그램 및 프로세스를 위한 단기 저장소를 제공 하며 페이지 또는 스왑 파일과 같은 데이터를 저장 하기 위한 것입니다. 임시 디스크의 데이터는 [유지 관리 이벤트](windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅이 완료 되 면 임시 디스크의 데이터가 유지 됩니다. 임시 디스크가 없는 Vm에 대 한 자세한 내용은 [로컬 임시 디스크가 없는 AZURE vm 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
 
 Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM의 임시 디스크는 기본적으로 D:입니다. 호스트에서 암호화를 사용하도록 설정하지 않으면 임시 디스크가 서버 쪽 암호화를 통해 암호화되지 않습니다.
 
@@ -107,8 +107,8 @@ Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM
 
 관리 디스크를 사용하여 스냅샷을 만드는 방법에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
 
-* [Windows에서 Managed Disk의 스냅샷 만들기](~/articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Linux에서 Managed Disk의 스냅샷 만들기](~/articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Windows에서 Managed Disk의 스냅샷 만들기](windows/snapshot-copy-managed-disk.md)
+- [Linux에서 Managed Disk의 스냅샷 만들기](linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>이미지
 
@@ -116,8 +116,8 @@ Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM
 
 이미지 만들기에 대한 내용은 다음 문서를 참조하세요.
 
-* [Azure에서 일반화된 VM의 관리 이미지를 캡처하는 방법](~/articles/virtual-machines/windows/capture-image-resource.md)
-* [Azure CLI를 사용하여 Linux 가상 머신을 일반화하고 캡처하는 방법](~/articles/virtual-machines/linux/capture-image.md)
+- [Azure에서 일반화된 VM의 관리 이미지를 캡처하는 방법](windows/capture-image-resource.md)
+- [Azure CLI를 사용하여 Linux 가상 머신을 일반화하고 캡처하는 방법](linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>이미지 및 스냅샷
 
@@ -141,7 +141,7 @@ Azure Linux VM의 임시 디스크는 일반적으로 /dev/sdb이고, Windows VM
 
 Azure는 디스크 트래픽에 우선 순위가 지정된 네트워크 채널을 사용하므로 우선 순위가 다른 낮은 네트워크 트래픽보다 우선합니다. 이렇게 하면 네트워크 경합이 발생하는 경우 디스크에서 예상 성능을 유지할 수 있습니다. 마찬가지로 Azure Storage는 백그라운드에서 자동 부하 분산을 통해 리소스 경합 및 기타 문제를 처리합니다. Azure Storage는 디스크를 만들 때 필요한 리소스를 할당하고, 트래픽 수준을 처리하기 위해 리소스의 사전 예방 및 사후 대응 분산을 적용합니다. 이를 통해 디스크에서 예상 IOPS 및 처리량 목표를 유지할 수 있습니다. VM 수준 및 디스크 수준 메트릭을 사용하여 성능을 추적하고 필요에 따라 경고를 설정할 수 있습니다.
 
-원하는 성능을 달성할 수 있도록 VM + 디스크 구성을 최적화하는 모범 사례를 알아보려면 [고성능을 위한 디자인](~/articles/virtual-machines/windows/premium-storage-performance.md) 문서를 참조하세요.
+원하는 성능을 달성할 수 있도록 VM + 디스크 구성을 최적화하는 모범 사례를 알아보려면 [고성능을 위한 디자인](premium-storage-performance.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

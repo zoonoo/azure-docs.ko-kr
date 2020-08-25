@@ -3,12 +3,12 @@ title: Azure Lab Services에서 VM의 자동 종료 구성
 description: 이 문서에서는 랩 계정에서 VM의 자동 종료를 구성하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 8dbc54ad14530006b56bf336d9d78e7d59843485
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 8647aed0e66993b8a7b8e5c0a42c8ceabbb1fb9e
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88603876"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798451"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>랩 계정에 대 한 Vm의 자동 종료 구성
 
@@ -18,7 +18,7 @@ ms.locfileid: "88603876"
 - 사용자가 연결을 끊을 때 자동으로 가상 컴퓨터 종료 (Windows & Linux)
 - 시작 되었지만 사용자가 연결 하지 않는 가상 컴퓨터를 자동으로 종료 합니다.
 
-[자동 종료 설정을 사용 하 여 비용 제어 최대화](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) 섹션에서 자동 종료 기능에 대 한 자세한 내용을 검토 합니다.
+[자동 종료 설정을 사용 하 여 비용 제어 최대화](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) 섹션에서 자동 종료 기능에 대 한 자세한 내용을 검토 합니다.
 
 ## <a name="enable-automatic-shutdown"></a>자동 종료 사용
 

@@ -262,6 +262,8 @@
           href: howto-read-replicas-powershell.md
     - name: 문제 해결
       items:
+        - name: 일반적인 오류 문제 해결
+          href: howto-troubleshoot-common-errors.md
         - name: 연결 오류 문제 해결
           href: howto-troubleshoot-common-connection-issues.md
         - name: 쿼리 성능 문제 해결

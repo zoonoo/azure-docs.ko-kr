@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10e306d26ebfd5ffafe65d7aa52753e993b085bf
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 951c1fd89f9e943b72c32492ff40dae3bd07bb61
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509164"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794483"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Windows VM에 대한 Azure Disk Encryption 시나리오
 
@@ -264,9 +264,8 @@ Azure Disk Encryption 다음 시나리오, 기능 및 기술에는 적용 되지
 - 암호화 된 VM의 이미지나 스냅숏을 만들어 추가 Vm을 배포 하는 데 사용
 - Gen2 Vm ( [Azure의 2 세대 vm에 대 한 지원](generation-2.md#generation-1-vs-generation-2-capabilities))을 참조 하세요.
 - 쓰기 가속기 디스크가 있는 M 시리즈 Vm
-- 고객이 관리 하는 키를 사용 하 여 *ever* [서버 쪽 암호화](disk-encryption.md) 로 암호화 된 디스크가 있는 VM에 ADE 적용 (SSE + cmk). ADE로 암호화 된 VM의 데이터 디스크에 SSE + CMK를 적용 하는 것도 지원 되지 않는 시나리오입니다.
-- ADE로 암호화 된 VM을 고객이 관리 하는 키를 사용 하는 [서버 쪽 암호화](disk-encryption.md)로 마이그레이션
-
+- [고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화](disk-encryption.md) 로 암호화 된 디스크를 포함 하는 VM에 ADE 적용 (SSE + cmk). ADE로 암호화 된 VM의 데이터 디스크에 SSE + CMK를 적용 하는 것도 지원 되지 않는 시나리오입니다.
+- ADE로 암호화 되었거나 ADE로 **암호화 된 VM** 을 [고객 관리 키를 사용 하는 서버 쪽 암호화](disk-encryption.md)로 마이그레이션합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

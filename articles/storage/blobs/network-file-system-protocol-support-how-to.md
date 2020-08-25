@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: cb3cb41b46c2def4f99af7f1811e4ff96dff7070
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 985fbc70f15c0806c45ae43d62995590e10b1bb2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167031"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798927"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>NFS (네트워크 파일 시스템) 3.0 프로토콜 (미리 보기)을 사용 하 여 Blob storage 탑재
 
@@ -153,6 +153,15 @@ Windows 또는 Linux 시스템에서 디렉터리를 만든 다음 컨테이너�
    - `<storage-account-name>`이 명령에 표시 되는 자리 표시자를 사용자의 저장소 계정 이름으로 바꿉니다.  
 
    - `<container-name>`자리 표시자를 컨테이너의 이름으로 바꿉니다.
+
+3. 쓰기 권한이 필요한 경우 Windows에서 공유에 연결 하는 데 사용 하는 기본 UID 및 GID를 변경 해야 할 수 있습니다. 이렇게 하려면 관리자 권한으로 다음 PowerShell 명령을 실행 합니다.
+
+   ```
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
+   ```
+   
+   - NFS 클라이언트 서비스를 다시 시작 하거나이 변경 작업을 수행한 후 서버를 다시 부팅 하십시오.
 
 ---
 
