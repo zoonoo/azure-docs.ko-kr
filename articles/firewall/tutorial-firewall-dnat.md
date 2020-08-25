@@ -9,10 +9,10 @@ ms.date: 03/02/2020
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78251497"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>자습서: Azure Portal에서 Azure Firewall DNAT를 사용하여 인바운드 인터넷 트래픽 필터링
@@ -144,10 +144,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    |설정  |값  |
    |---------|---------|
    |속성     |FW-DNAT-test|
-   |Subscription     |\<구독\>|
-   |Resource group     |**기존 리소스 사용**: RG-DNAT-Test |
+   |Subscription     |\<your subscription\>|
+   |Resource group     |**기존 항목 사용**: RG-DNAT-Test |
    |위치     |전에 사용한 동일한 위치 선택|
-   |가상 네트워크 선택     |**기존 리소스 사용**: VN-Hub|
+   |가상 네트워크 선택     |**기존 항목 사용**: VN-Hub|
    |공용 IP 주소     |**새로 만듭니다**. 공용 IP 주소는 표준 SKU 형식이어야 합니다.|
 
 5. **검토 + 만들기**를 선택합니다.

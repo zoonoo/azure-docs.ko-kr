@@ -6,12 +6,12 @@ ms.author: rkarlin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: 9a13ede1c9dcd23b829d08ed9e3c6fc10248e191
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 1942576037c7367612580a04d4187ccf4655aade
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510048"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685887"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>자습서: Kubernetes에서 비밀 저장소 CSI 드라이버에 대한 Azure Key Vault 공급자 구성 및 실행
 
@@ -107,7 +107,7 @@ Azure Cloud Shell은 사용할 필요가 없습니다. Azure CLI가 설치된 �
 
 ## <a name="create-your-own-secretproviderclass-object"></a>사용자 고유의 SecretProviderClass 개체 만들기
 
-비밀 저장소 CSI 드라이버에 대한 공급자별 매개 변수를 사용하여 사용자 고유의 사용자 지정 SecretProviderClass 개체를 만들려면 [이 템플릿을 사용](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass.yaml)합니다. 이 개체는 키 자격 증명 모음에 대한 ID 액세스를 제공합니다.
+비밀 저장소 CSI 드라이버에 대한 공급자별 매개 변수를 사용하여 사용자 고유의 사용자 지정 SecretProviderClass 개체를 만들려면 [이 템플릿을 사용](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/test/bats/tests/azure_v1alpha1_secretproviderclass.yaml)합니다. 이 개체는 키 자격 증명 모음에 대한 ID 액세스를 제공합니다.
 
 SecretProviderClass YAML 파일 샘플에서 누락된 매개 변수를 입력합니다. 필수 매개 변수는 다음과 같습니다.
 
@@ -141,12 +141,12 @@ spec:
     keyvaultName: "contosoKeyVault5"          # [REQUIRED] the name of the key vault
                                               #     az keyvault show --name contosoKeyVault5
                                               #     the preceding command will display the key vault metadata, which includes the subscription ID, resource group name, key vault 
-    cloudName: ""                             # [OPTIONAL for Azure] if not provided, Azure environment will default to AzurePublicCloud
+    cloudName: ""                                # [OPTIONAL for Azure] if not provided, Azure environment will default to AzurePublicCloud
     objects:  |
       array:
         - |
           objectName: secret1                 # [REQUIRED] object name
-                                              #     az keyvault secret list --vault-name “contosoKeyVault5”
+                                              #     az keyvault secret list --vault-name "contosoKeyVault5"
                                               #     the above command will display a list of secret names from your key vault
           objectType: secret                  # [REQUIRED] object types: secret, key, or cert
           objectVersion: ""                   # [OPTIONAL] object versions, default to latest if empty

@@ -163,6 +163,10 @@
               href: howto-manage-preferences.md
             - name: 라이브 채팅 토글
               href: howto-show-hide-chat.md
+    - name: 문제 해결
+      items: null
+      '-name': Device connections
+      href: troubleshoot-connection.md
 - name: 참조
   items:
     - name: Azure CLI

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: f498111afaaeff935e1ea7d1d3400cfe05efda12
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: aa66f7150e5c3ac4560d7f97cb73b1effb8eec89
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88722962"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749631"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>SharePoint Server에 대 한 사용자 프로필 동기화를 지원 하도록 Azure Active Directory Domain Services 구성
 
@@ -71,7 +71,7 @@ Azure AD DS management VM에서 다음 단계를 완료 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [SharePoint 서버에서 프로필 동기화에 대 한 Active Directory Domain Services 권한 부여](/SharePoint/administration/user-profile-service-administration) 를 참조 하세요.
+자세한 내용은 [SharePoint Server에서 사용자 프로필 동기화 관리](/SharePoint/administration/manage-profile-synchronization)를 참조 하세요.
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

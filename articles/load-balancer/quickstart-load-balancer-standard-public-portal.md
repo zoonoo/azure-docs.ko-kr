@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 44c43505bb779c3e00af19bed3a3fd3844c16bfe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 262c12b1fb1d5c768b178d6e56c2964527f34495
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923835"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607211"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -36,14 +36,12 @@ Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장�
 
 ---
 
-# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[옵션 1(기본값): 공용 부하 분산 장치 만들기(표준 SKU)](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**표준 SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 
-
-공용 부하 분산 장치 또는 내부 부하 분산 장치를 만들 수 있습니다. 
 
 공용 부하 분산 장치를 만드는 경우 부하 분산 장치의 프런트 엔드(기본적으로 이름이 **LoadBalancerFrontend**임)로 구성된 새 공용 IP 주소를 만듭니다.
 
@@ -80,7 +78,7 @@ Azure Portal에서 Azure Load Balancer를 시작하여 공용 부하 분산 장�
 
 ### <a name="create-a-backend-pool"></a>백 엔드 풀 만들기
 
-백 엔드 풀 주소에는 부하 분산 장치에 연결된 가상(NIC)의 IP 주소가 포함됩니다. 
+백 엔드 주소 풀에는 부하 분산 장치에 연결된 가상(NIC)의 IP 주소가 포함됩니다. 
 
 인터넷 트래픽의 부하를 분산하기 위한 가상 머신을 포함할 백 엔드 주소 풀 **myBackendPool**을 만듭니다.
 
@@ -317,14 +315,12 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
 
 8. **저장**을 선택합니다.
 
-# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[옵션 2: 공용 부하 분산 장치 만들기(기본 SKU)](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**기본 SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
 
 이 섹션에서는 가상 머신의 부하를 분산하는 부하 분산 장치를 만듭니다. 
-
-공용 부하 분산 장치 또는 내부 부하 분산 장치를 만들 수 있습니다. 
 
 공용 부하 분산 장치를 만드는 경우 부하 분산 장치의 프런트 엔드(기본적으로 이름이 **LoadBalancerFrontend**임)로 구성된 새 공용 IP 주소를 만듭니다.
 
