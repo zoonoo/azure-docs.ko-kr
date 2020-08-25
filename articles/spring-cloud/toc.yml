@@ -40,6 +40,8 @@
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
     - name: 관리 ID를 사용하여 Key Vault를 Azure Spring Cloud 앱에 연결
       href: spring-cloud-tutorial-managed-identities-key-vault.md
+    - name: 가상 네트워크에 Azure Spring Cloud 배포
+      href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
 - name: 샘플
   items:
     - name: Azure Policy 기본 제공 기능

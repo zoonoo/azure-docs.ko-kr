@@ -1,21 +1,21 @@
 ---
 title: Azure CLI를 사용 하 여 Linux VM에 데이터 디스크 추가
 description: Azure CLI를 사용하여 Linux VM에 영구 데이터 디스크를 추가하는 방법 알아보기
-author: roygara
-manager: twooley
+author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 06/13/2018
-ms.author: rogarana
+ms.date: 08/20/2020
+ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 1791d33627f04f69d10916c8ff0a154f7d8b967b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9d04e28c4af462719644deca4c4aa0e3aa94fa16
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502829"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757730"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
+
 이 문서에서는 유지 관리 또는 크기 조정으로 인해 VM이 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여 줍니다.
 
 
@@ -42,131 +42,74 @@ diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 ```
 
-## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Linux VM에 연결하여 새 디스크 탑재
+## <a name="format-and-mount-the-disk"></a>디스크 포맷 및 탑재
 
-Linux VM에서 사용할 수 있도록 새 디스크를 분할, 포맷 및 탑재하려면 VM에 SSH합니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음 예제에서는 사용자 이름 *azureuser*를 사용하여 공용 DNS 항목이 *mypublicdns.westus.cloudapp.azure.com*인 VM에 연결합니다.
+Linux VM에서 사용할 수 있도록 새 디스크를 분할, 포맷 및 탑재하려면 VM에 SSH합니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음 예제에서는 사용자 이름 *azureuser*를 사용 하 여 *10.123.123.25* 의 공용 IP 주소를 사용 하 여 VM에 연결 합니다.
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@10.123.123.25
 ```
 
-VM에 연결하고 나면 디스크를 연결할 준비가 되었습니다. 먼저 `dmesg`를 사용하여 디스크를 찾습니다(새 디스크를 찾는 데 사용하는 방법은 다를 수 있습니다). 다음 예제에서는 dmesg를 사용하여 *SCSI* 디스크를 필터링합니다.
+### <a name="find-the-disk"></a>디스크 찾기
+
+VM에 연결 되 면 디스크를 찾아야 합니다. 이 예제에서는를 사용 하 여 `lsblk` 디스크를 나열 합니다. 
 
 ```bash
-dmesg | grep SCSI
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 ```
 
 다음 예제와 유사하게 출력됩니다.
 
 ```bash
-[    0.294784] SCSI subsystem initialized
-[    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
-[    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
-[    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
-[ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0      50G
 ```
+
+여기서 `sdc` 는 50G 이기 때문에 원하는 디스크입니다. 크기를 기준으로 하는 디스크가 무엇 인지 확실 하지 않은 경우 포털에서 VM 페이지로 이동 하 여 **디스크**를 선택 하 고 **데이터 디스크**에서 디스크의 LUN 번호를 확인할 수 있습니다. 
+
+
+### <a name="format-the-disk"></a>디스크 포맷
+
+디스크를로 포맷 하는 `parted` 경우 디스크 크기가 2 tebibytes (TiB) 이상이 면 GPT 분할을 사용 해야 합니다. 2TiB 아래에 있는 경우 MBR 또는 gpt 분할을 사용할 수 있습니다. 
 
 > [!NOTE]
-> 배포판에 사용할 수 있는 최신 버전의 fdisk 또는 parted를 사용하는 것이 좋습니다.
+> 배포판에 사용할 수 있는 최신 버전을 사용 하는 것이 좋습니다 `parted` .
+> 디스크 크기가 2 tebibytes (TiB) 이상인 경우에는 GPT 분할을 사용 해야 합니다. 디스크 크기가 2 TiB 이면 MBR 또는 GPT 분할 중 하나를 사용할 수 있습니다.  
 
-여기서 *sdc*는 원하는 디스크입니다. `parted`를 사용하여 디스크를 분할합니다. 디스크 크기가 2테비바이트(TiB) 이상이면 GPT 분할을 사용해야 하고, 2TiB 미만이면 MBR 또는 GPT 분할을 사용하면 됩니다. MBR 분할을 사용하는 경우 `fdisk`를 사용할 수 있습니다. 파티션 1에 기본 디스크를 만들고, 나머지는 기본값을 적용합니다. 다음 예제에서는 */dev/sdc*에서 `fdisk` 프로세스를 시작합니다.
 
-```bash
-sudo fdisk /dev/sdc
-```
-
-새 파티션을 추가하려면 `n` 명령을 사용합니다. 이 예제에서는 주 파티션에 대해 `p`를 선택하고 기본 값의 나머지를 적용합니다. 다음 예제와 유사하게 출력됩니다.
+다음 예제에서는 `parted` `/dev/sdc` 첫 번째 데이터 디스크가 대부분의 vm에서 일반적으로 사용 되는를 사용 합니다. 를 `sdc` 디스크에 대 한 올바른 옵션으로 바꿉니다. [Xfs](https://xfs.wiki.kernel.org/) 파일 시스템을 사용 하 여 형식을 지정 하기도 합니다.
 
 ```bash
-Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
-Building a new DOS disklabel with disk identifier 0x2a59b123.
-Changes will remain in memory only, until you decide to write them.
-After that, of course, the previous content won't be recoverable.
-
-Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)
-
-Command (m for help): n
-Partition type:
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-10485759, default 2048):
-Using default value 2048
-Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
-Using default value 10485759
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
 
-`p`를 입력하여 파티션 테이블을 인쇄한 다음, `w`를 사용하여 디스크에 테이블을 쓰고 종료합니다. 출력은 다음 예제와 비슷해야 합니다.
+유틸리티를 사용 [`partprobe`](https://linux.die.net/man/8/partprobe) 하 여 커널이 새 파티션 및 파일 시스템을 인식 하는지 확인 합니다. 을 사용 하지 않으면 `partprobe` blkid 또는 lslbk 명령이 새 파일 시스템에 대해 UUID를 즉시 반환 하지 않을 수 있습니다.
 
-```bash
-Command (m for help): p
 
-Disk /dev/sdc: 5368 MB, 5368709120 bytes
-255 heads, 63 sectors/track, 652 cylinders, total 10485760 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk identifier: 0x2a59b123
+### <a name="mount-the-disk"></a>디스크 탑재
 
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdc1            2048    10485759     5241856   83  Linux
-
-Command (m for help): w
-The partition table has been altered!
-
-Calling ioctl() to re-read partition table.
-Syncing disks.
-```
-다음 명령을 사용 하 여 커널을 업데이트 합니다.
-```
-partprobe 
-```
-
-이제 `mkfs` 명령을 사용하여 파티션에 파일 시스템을 씁니다. 파일 시스템 형식 및 디바이스 이름을 지정합니다. 다음 예제에서는 이전 단계에서 만든 */dev/sdc1* 파티션에 *ext4* 파일 시스템을 만듭니다.
-
-```bash
-sudo mkfs -t ext4 /dev/sdc1
-```
-
-다음 예제와 유사하게 출력됩니다.
-
-```bash
-mke2fs 1.42.9 (4-Feb-2014)
-Discarding device blocks: done
-Filesystem label=
-OS type: Linux
-Block size=4096 (log=2)
-Fragment size=4096 (log=2)
-Stride=0 blocks, Stripe width=0 blocks
-327680 inodes, 1310464 blocks
-65523 blocks (5.00%) reserved for the super user
-First data block=0
-Maximum filesystem blocks=1342177280
-40 block groups
-32768 blocks per group, 32768 fragments per group
-8192 inodes per group
-Superblock backups stored on blocks:
-    32768, 98304, 163840, 229376, 294912, 819200, 884736
-Allocating group tables: done
-Writing inode tables: done
-Creating journal (32768 blocks): done
-Writing superblocks and filesystem accounting information: done
-```
-
-이제 `mkdir`을 사용하여 파일 시스템을 탑재할 디렉터리를 만듭니다. 다음 예제에서는 */datadrive*에 디렉터리를 만듭니다.
+이제 `mkdir`을 사용하여 파일 시스템을 탑재할 디렉터리를 만듭니다. 다음 예제에서는 디렉터리를 만듭니다 `/datadrive` .
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-`mount`를 사용하여 파일 시스템을 탑재합니다. 다음 예제에서는 */dev/sdc1* 파티션을 */datadrive* 탑재 지점에 탑재합니다.
+`mount`를 사용하여 파일 시스템을 탑재합니다. 다음 예에서는 `/dev/sdc1` 파티션을 탑재 지점에 탑재 합니다 `/datadrive` .
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 */etc/fstab* 파일에 추가해야 합니다. 또한 */etc/fstab*에 UUID(Universally Unique IDentifier)를 사용하여 디바이스 이름(예: */dev/sdc1*) 대신 드라이브를 가리키는 것이 좋습니다. 부팅하는 동안 OS에서 디스크 오류를 검색하는 경우 UUID를 사용하여 지정된 위치에 탑재되어 있는 잘못된 디스크를 회피합니다. 그런 다음, 남아 있는 데이터 디스크를 동일한 디바이스 ID에 할당합니다. 새 드라이브의 UUID를 찾으려면 `blkid` 유틸리티를 사용합니다.
+### <a name="persist-the-mount"></a>탑재 유지
+
+다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 */etc/fstab* 파일에 추가해야 합니다. 또한 */etc/fstab* 에서 UUID (범용 고유 식별자)를 사용 하 여 장치 이름 (예: */dv/sdc1*)이 아닌 드라이브를 참조 하는 것이 좋습니다. 부팅하는 동안 OS에서 디스크 오류를 검색하는 경우 UUID를 사용하여 지정된 위치에 탑재되어 있는 잘못된 디스크를 회피합니다. 그런 다음, 남아 있는 데이터 디스크를 동일한 디바이스 ID에 할당합니다. 새 드라이브의 UUID를 찾으려면 `blkid` 유틸리티를 사용합니다.
 
 ```bash
 sudo blkid
@@ -186,14 +129,16 @@ sudo blkid
 텍스트 편집기에서 다음과 같이 */etc/fstab* 파일을 엽니다.
 
 ```bash
-sudo vi /etc/fstab
+sudo nano /etc/fstab
 ```
 
-이 예제에서는 이전 단계에서 만든 */dev/sdc1* 디바이스의 UUID 값과 탑재 지점 */datadrive*를 사용합니다. */etc/fstab* 파일의 끝에 다음 줄을 추가합니다.
+이 예제에서는 이전 단계에서 만든 장치에 대해 UUID 값을 사용 하 `/dev/sdc1` 고의 탑재를 사용 합니다 `/datadrive` . 파일의 끝에 다음 줄을 추가 합니다 `/etc/fstab` .
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
+
+이 예제에서는 nano 편집기를 사용 하므로 파일 편집을 완료 하면를 사용 하 여 파일을 작성 하 `Ctrl+O` 고 `Ctrl+X` 편집기를 종료 합니다.
 
 > [!NOTE]
 > 나중에 fstab을 편집하지 않고 데이터 디스크를 제거하면 VM이 부팅되지 않을 수 있습니다. 대부분의 배포는 *nofail* 및/또는 *nobootwait* fstab 옵션을 제공합니다. 이러한 옵션을 사용하면 디스크가 부팅 시 탑재되지 않더라도 시스템을 부팅할 수 있습니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하세요.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: d19bfac318ab2ed20d021e10b43b691b525ba897
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 27c284ff7e806c9f194005ed26c05e99c4697083
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749146"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757645"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 계산 집약적 워크로드에 GPU 사용
 
@@ -158,12 +158,12 @@ Aks-preview CLI 확장을 업데이트 하려면 다음 Azure CLI 명령을 사�
 az extension update --name aks-preview
 ```
 
-### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>새 클러스터에서 AKS 특수 GPU 이미지 사용 (미리 보기)
+### <a name="use-the-aks-specialized-gpu-image-on-new-clusters-preview"></a>새 클러스터에서 AKS 특수 GPU 이미지 사용 (미리 보기)    
 
 클러스터를 만들 때 AKS 특수 GPU 이미지를 사용 하도록 클러스터를 구성 합니다. `--aks-custom-headers`새 클러스터의 gpu 에이전트 노드에 대 한 플래그를 사용 하 여 AKS 특수 gpu 이미지를 사용 합니다.
 
 ```azure-cli
-az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
+az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
 일반 AKS 이미지를 사용 하 여 클러스터를 만들려는 경우 사용자 지정 태그를 생략 하 여 수행할 수 있습니다 `--aks-custom-headers` . 아래와 같이 특수화 된 GPU 노드 풀을 추가 하도록 선택할 수도 있습니다.
@@ -178,6 +178,12 @@ az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myRe
 ```
 
 일반 AKS 이미지를 사용 하 여 노드 풀을 만들려면 사용자 지정 태그를 생략 하 여이 작업을 수행할 수 있습니다 `--aks-custom-headers` . 
+
+> [!NOTE]
+> GPU sku가 2 세대 가상 컴퓨터를 필요로 하는 경우 다음을 만들 수 있습니다.
+> ```azure-cli
+> az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
+> ```
 
 ## <a name="confirm-that-gpus-are-schedulable"></a>GPU의 예약 가능 여부 확인
 

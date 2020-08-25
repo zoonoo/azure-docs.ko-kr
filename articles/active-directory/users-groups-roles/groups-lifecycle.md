@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fb3113b02d20355e3ac9ede593bf8fc4136461
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 0ed286cf2b11429d5f0f56b3a85f173c2a39bc81
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705965"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799301"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Microsoft 365 그룹에 대 한 만료 정책 구성
 
@@ -110,7 +110,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 
 ## <a name="how-to-retrieve-microsoft-365-group-expiration-date"></a>Microsoft 365 그룹 만료 날짜를 검색 하는 방법
 
-사용자가 만료 날짜 및 마지막으로 갱신 된 날짜를 비롯 한 그룹 정보를 볼 수 있는 액세스 패널 외에도 Microsoft 365 그룹의 만료 날짜는 Microsoft Graph REST API Beta에서 검색할 수 있습니다. Microsoft Graph Beta에서는 그룹 속성으로 expirationDateTime를 사용할 수 있습니다. GET 요청을 사용 하 여 검색할 수 있습니다. 자세한 내용은 [이 예제](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example)를 참조 하세요.
+사용자가 만료 날짜 및 마지막으로 갱신 된 날짜를 비롯 한 그룹 정보를 볼 수 있는 액세스 패널 외에도 Microsoft 365 그룹의 만료 날짜는 Microsoft Graph REST API Beta에서 검색할 수 있습니다. Microsoft Graph Beta에서는 그룹 속성으로 expirationDateTime를 사용할 수 있습니다. GET 요청을 사용 하 여 검색할 수 있습니다. 자세한 내용은 [이 예제](/graph/api/group-get?view=graph-rest-beta#example)를 참조 하세요.
 
 > [!NOTE]
 > 액세스 패널에서 그룹 멤버 자격을 관리 하려면 Azure Active Directory 그룹 일반 설정에서 "액세스 패널의 그룹에 대 한 액세스 제한"을 "아니요"로 설정 해야 합니다.
@@ -172,7 +172,7 @@ PowerShell cmdlet을 사용 하 여 Azure AD 조직에서 Microsoft 365 그룹�
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
    ```
   
-다음 cmdlet은 정책을 보다 자세히 구성하는 데 사용할 수 있습니다. 자세한 내용은 [PowerShell 설명서](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups)를 참조 하세요.
+다음 cmdlet은 정책을 보다 자세히 구성하는 데 사용할 수 있습니다. 자세한 내용은 [PowerShell 설명서](/powershell/module/azuread/?branch=master&view=azureadps-2.0-preview#groups)를 참조 하세요.
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy

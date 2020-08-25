@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1c9e40738d70b6fbb9fed267a6a047d8330023b7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 2fc87f08b30d648ec38d2b93e96a32d125b856be
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749268"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757917"
 ---
 # <a name="business-card-concepts"></a>비즈니스 카드 개념
 
@@ -391,9 +391,8 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 시작 하려면 빠른 시작을 따르세요. 
-- [비즈니스 카드 API Python 빠른 시작](./quickstarts/python-business-cards.md)
-- [양식 인식기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api) 에 대해 알아보세요 REST API
+- 빠른 시작을 수행 하 여 [비즈니스 카드 API Python 빠른](./quickstarts/python-business-cards.md) 시작을 시작 하세요.
+- [양식 인식기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 에 대해 알아보세요 REST API
 - [양식 인식기](overview.md) 에 대 한 자세한 정보
 
 

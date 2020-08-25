@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f055a6b8f4a8876c024bdd131a6001e21004e5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 937c5dbf3417e5914a0b4285c3bb114d7499e0fb
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209467"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799063"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제
 
@@ -211,7 +211,7 @@ PowerShell 또는 Graph API를 통해 그룹을 삭제하려고 할 때 비슷�
 
 - 대규모 그룹(예: 100,000명의 사용자)에 대해 라이선스를 할당하거나 수정하면 성능에 영향을 줄 수 있습니다. 특히 Azure AD 자동화에서 생성된 변경 볼륨은 Azure AD와 온-프레미스 시스템 간의 디렉터리 동기화 성능에 부정적인 영향을 줄 수 있습니다.
 
-- 동적 그룹을 사용하여 사용자의 멤버 자격을 관리하는 경우 사용자가 그룹의 일부인지를 확인합니다. 이 작업은 라이선스 할당에 필요합니다. 그렇지 않으면, 동적 그룹의 [멤버 자격 규칙에 대한 처리 상태를 확인](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)합니다.
+- 동적 그룹을 사용하여 사용자의 멤버 자격을 관리하는 경우 사용자가 그룹의 일부인지를 확인합니다. 이 작업은 라이선스 할당에 필요합니다. 그렇지 않으면, 동적 그룹의 [멤버 자격 규칙에 대한 처리 상태를 확인](./groups-create-rule.md)합니다.
 
 - 부하가 높은 특정 상황에서는 그룹에 대한 라이선스 변경 내용 또는 기존 라이선스가 있는 그룹에 대한 멤버 자격 변경 내용을 처리하는 데 시간이 오래 걸릴 수 있습니다. 변경 내용이 60K 사용자 이하의 그룹 크기를 처리하는 데 24시간 이상이 걸리는 경우 Microsoft에서 조사할 수 있도록 [지원 티켓을 열어주세요](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest). 
 

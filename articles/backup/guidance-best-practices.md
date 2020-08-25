@@ -3,12 +3,12 @@ title: 지침 및 모범 사례
 description: 클라우드 및 온-프레미스 워크 로드를 클라우드로 백업 하기 위한 모범 사례 및 지침을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 1e2680c5fbcdb685e13b6ad990aaf98b013c98bb
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 21d3d6b8983d8ce3d0b563785423bc1e503649f3
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650879"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757594"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크 로드를 클라우드로 백업
 
@@ -48,7 +48,7 @@ Azure Backup를 사용 하면 다양 한 워크 로드 (온-프레미스 및 클
 
 ### <a name="management-plane"></a>관리 평면
 
-* **액세스 제어** -Recovery services 자격 증명 모음은 관리 기능을 제공 하며 AZURE PORTAL, SDK, CLI 및 심지어 REST api를 통해 액세스할 수 있습니다. 또한 승인 된 백업 관리자 에게만 백업에 대 한 액세스를 제한 하는 옵션을 제공 하는 RBAC 경계입니다.
+* **액세스 제어** – Recovery Services 자격 증명 모음은 관리 기능을 제공 하 고 AZURE PORTAL, SDK, CLI 및 심지어 REST api를 통해 액세스할 수 있습니다. 또한 승인 된 백업 관리자 에게만 백업에 대 한 액세스를 제한 하는 옵션을 제공 하는 RBAC 경계입니다.
 
 * **정책 관리** – 각 자격 증명 모음 내의 Azure Backup 정책은 백업이 트리거되는 시기 및 유지 해야 하는 기간을 정의 합니다. 또한 이러한 정책을 관리 하 고 여러 항목에서 적용할 수 있습니다.
 
@@ -72,7 +72,7 @@ Azure Backup은 Recovery Services 자격 증명 모음을 사용하여 백업을
 
 * 워크 로드가 여러 구독에 걸쳐 분산 된 경우 구독 당 하나 이상의 자격 증명 모음을 만들 수 있습니다.
   * 모든 자격 증명 모음, 구독 및 테 넌 트에서 작업 활동의 모니터링을 간소화 하기 위해 Backup 탐색기 및 보고서를 사용할 수 있습니다. 집계 보기를 보려면 [여기에서 자세히 알아보세요](monitor-azure-backup-with-backup-explorer.md) .
-  * 자격 증명 모음에서 일관 된 정책을 필요로 하는 경우 Azure policy를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파할 수 있습니다. [' Deployifnotexists '](../governance/policy/concepts/effects.md#deployifnotexists) 효과를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파 하는 사용자 지정 [Azure Policy 정의](../governance/policy/concepts/definition-structure.md) 를 작성할 수 있습니다. 할당 하면이 Azure Policy 정의를 특정 범위 (subscription 또는 RG)에 [할당할](../governance/policy/assign-policy-portal.md) 수 있으므로 Azure Policy 할당 범위에서 모든 Recovery services 자격 증명 모음에 ' 백업 정책 ' 리소스를 배포할 수 있습니다. 백업 빈도, 보존 등의 백업 정책 설정은 사용자가 Azure Policy 할당에서 매개 변수로 지정 해야 합니다.
+  * 자격 증명 모음에서 일관 된 정책을 필요로 하는 경우 Azure policy를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파할 수 있습니다. [' Deployifnotexists '](../governance/policy/concepts/effects.md#deployifnotexists) 효과를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파 하는 사용자 지정 [Azure Policy 정의](../governance/policy/concepts/definition-structure.md) 를 작성할 수 있습니다. 할당 하면이 Azure Policy 정의를 특정 범위 (구독 또는 RG)에 [할당할](../governance/policy/assign-policy-portal.md) 수 있으므로 Azure Policy 할당 범위에서 모든 Recovery Services 자격 증명 모음에 ' 백업 정책 ' 리소스를 배포할 수 있습니다. 백업 빈도, 보존 등의 백업 정책 설정은 사용자가 Azure Policy 할당에서 매개 변수로 지정 해야 합니다.
 
 * 조직의 공간이 증가 함에 따라 백업 정책에 따라 정렬, 자격 증명 모음 통합, 저렴 한 중복성에 대 한 절충 (GRS에서 LRS로 이동) 등의 이유로 작업을 구독 간에 이동 하는 것이 좋습니다.  Azure Backup는 Azure 구독에서 또는 동일한 구독 내의 다른 리소스 그룹으로 Recovery Services 자격 증명 모음 이동을 지원 합니다. [자세한 내용은 여기를 참조](backup-azure-move-recovery-services-vault.md)하세요.
 
@@ -143,7 +143,7 @@ Azure Backup 정책에는 *일정* (백업 수행 시기) 및 *보존* (백업 �
 
 * Azure Backup에는 보안 취약성을 예방, 감지 및 대응 하기 위해 서비스에 기본 제공 되는 몇 가지 보안 컨트롤이 있습니다 (자세한 정보).
 
-* 복구 서비스 자격 증명 모음에 사용되는 스토리지 계정은 격리되며 악의적인 목적을 위해 사용자가 액세스할 수 없습니다. 액세스는 복원과 같은 Azure Backup 관리 작업을 통해서만 허용됩니다.
+* Recovery Services 자격 증명 모음에 사용 되는 저장소 계정은 격리 되며 악의적인 목적을 위해 사용자가 액세스할 수 없습니다. 액세스는 복원과 같은 Azure Backup 관리 작업을 통해서만 허용됩니다.
 
 ### <a name="encryption-of-data-in-transit-and-at-rest"></a>전송 중 및 미사용 데이터 암호화
 
@@ -247,7 +247,7 @@ Azure Backup 서비스의 기능은 비용을 효과적으로 관리 하 고 BCD
 
 * Azure Backup는 오류, 경고 및 중요 한 작업을 위해 전자 메일을 통해 **빌드된 경고** 알림 메커니즘을 제공 합니다. 경고가 생성 될 때 알림을 받을 개별 메일 주소 또는 메일 그룹을 지정할 수 있습니다. 각 경고에 대 한 알림을 받을지 또는 매시간 다이제스트로 그룹화 한 다음 알림을 받을 지를 선택할 수도 있습니다.
   * 이러한 경고는 서비스에 의해 정의 되며 제한 된 시나리오에 대 한 지원을 제공 합니다. 백업/복원 실패, 데이터 보관/데이터 삭제로 보호 중지 등의 제한 된 시나리오에 대 한 지원을 제공 합니다. [자세한 내용은 여기를 참조](backup-azure-monitoring-built-in-monitor.md#alert-scenarios)하세요.
-  * 데이터 삭제로 보호 중지와 같은 파괴적인 작업을 수행 하면 경고가 발생 하 고 복구 서비스 자격 증명 모음에 대해 알림이 구성 되지 않은 경우에도 전자 메일이 구독 소유자, 관리자 및 공동 관리자에 게 전송 됩니다.
+  * 데이터 삭제로 보호 중지와 같은 파괴적인 작업을 수행 하면 경고가 발생 하 고 Recovery Services 자격 증명 모음에 대해 알림이 구성 되지 않은 경우에도 전자 메일이 구독 소유자, 관리자 및 공동 관리자에 게 전송 됩니다.
   * 특정 워크 로드는 오류 (예: 15 분 마다 SQL Server)의 높은 빈도를 생성할 수 있습니다. 각 실패 발생에 대해 발생 하는 경고를 지나치게 많이 방지 하기 위해 경고가 통합 됩니다. [자세한 내용은 여기를 참조](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts)하세요.
   * 작성 된 경고는 사용자 지정할 수 없으며 Azure Portal에 정의 된 전자 메일로 제한 됩니다.
 

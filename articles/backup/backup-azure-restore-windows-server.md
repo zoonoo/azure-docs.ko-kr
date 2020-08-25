@@ -3,12 +3,12 @@ title: MARS 에이전트를 사용하여 Windows Server로 파일 복원
 description: 이 문서에서는 Microsoft MARS(Azure Recovery Services) 에이전트를 사용하여 Azure에 저장된 데이터를 Windows 서버 또는 Windows 컴퓨터로 복원하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: d96c6c54431d0160bd58be0c3491ef2b22753e53
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d9bc22204156f7562290f53db77272b9cabe6c69
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263404"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757084"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>MARS 에이전트를 사용하여 Windows Server로 파일 복원
 
@@ -72,7 +72,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
 9. 작업이 완료 되 면 **파일 찾아보기 및 복구** 페이지에서 **분리**를 선택 합니다. 그런 다음, **예**를 선택하여 볼륨을 분리하려고 함을 확인합니다.
 
-    ![데이터 복구 마법사 파일 찾아보기 및 복구 페이지 스크린샷 (동일한 컴퓨터로 복원)](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![복원 데이터 마법사의 스크린샷 파일 찾아보기 및 복구 페이지 (동일한 컴퓨터로 복원)-복구 볼륨 분리 확인](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
     > **분리**를 선택하지 않으면 복구 볼륨이 탑재된 후에 6시간 동안 탑재된 상태로 유지됩니다. 그러나 탑재 시간은 진행 중인 파일 복사의 경우 최대 24시간까지 확장됩니다. 볼륨이 마운트되는 동안 백업 작업은 실행되지 않습니다. 볼륨이 탑재된 시간 동안 실행되도록 예약된 모든 백업 작업은 복구 볼륨이 분리된 후에 실행됩니다.

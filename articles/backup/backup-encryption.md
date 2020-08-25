@@ -4,12 +4,12 @@ description: Azure Backup의 암호화 기능을 통해 백업 데이터를 보�
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1350be3fb869e7b81eaba14f91aff7f0e9e3c992
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 71183e99522707737812096567d877df740c4bae
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586650"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763646"
 ---
 # <a name="encryption-in-azure-backup"></a>Azure Backup에서 암호화
 
@@ -27,7 +27,7 @@ ms.locfileid: "88586650"
   - **Azure 가상 컴퓨터 백업**: Azure Backup는 사용자가 소유 하 고 관리 하는 [고객 관리 키](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) 뿐만 아니라 [플랫폼 관리 키](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys)를 사용 하 여 암호화 된 디스크가 있는 vm의 백업을 지원 합니다. 또한 [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade)를 사용 하 여 암호화 된 OS 또는 데이터 디스크를 포함 하는 Azure 가상 컴퓨터를 백업할 수 있습니다. ADE는 Windows Vm에 BitLocker를 사용 하 고 Linux Vm의 경우 DM을 사용 하 여 게스트 간 암호화를 수행 합니다.
 
 >[!NOTE]
->인프라 암호화는 현재 제한 된 미리 보기로 제공 되며 미국 동부, 미국 West2, 미국 남부 중부, US Gov 애리조나 및 US .GOV 버지니아 지역 에서만 사용할 수 있습니다. 이러한 지역에서이 기능을 사용 하려면 [이 양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) 작성 하 고에 전자 메일을 보내 주세요 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>인프라 암호화는 현재 제한 된 미리 보기로 제공 되며 미국 동부, 미국 West2, 미국 남부 중부, US Gov 애리조나 및 US .GOV 버지니아 지역 에서만 사용할 수 있습니다. 이러한 지역에서이 기능을 사용 하려는 경우 [이 양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) 작성 하 고에 전자 메일을 보내 주세요 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="next-steps"></a>다음 단계
 

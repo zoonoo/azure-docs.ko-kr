@@ -4,12 +4,12 @@ description: Azure Backup의 보안 기능을 사용하여 백업을 좀 더 안
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 03bbcef2ce408a1b1f5e2c2d909728d3ed8e7e19
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 170ecf364e01ba4b098da289f9d213716e74e0ee
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611248"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757033"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Backup을 사용하여 하이브리드 백업을 보호하기 위한 보안 기능
 
@@ -39,7 +39,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 모든 보안 기능�
 
     ![Azure Portal의 찾아보기 옵션의 스크린샷](./media/backup-azure-security-feature/browse-to-rs-vaults.png) <br/>
 
-    복구 서비스 자격 증명 모음의 목록이 표시됩니다. 이 목록에서 자격 증명 모음을 선택합니다. 선택한 자격 증명 모음 대시보드가 열립니다.
+    Recovery Services 자격 증명 모음의 목록이 표시됩니다. 이 목록에서 자격 증명 모음을 선택합니다. 선택한 자격 증명 모음 대시보드가 열립니다.
 3. 자격 증명 모음 아래에 표시 되는 항목 목록에서 **설정**아래에 있는 **속성**을 선택 합니다.
 
     ![Recovery Services 자격 증명 모음 옵션의 스크린샷](./media/backup-azure-security-feature/vault-list-properties.png)

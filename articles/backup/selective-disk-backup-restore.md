@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 컴퓨터 백업 솔루션을 사�
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6a5e574795dfded98260da20711dab7d16cabd5b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: dd4691f6248099bdc4fa713c84d396adac6011fa
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566236"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757441"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대 한 선택적 디스크 백업 및 복원
 
@@ -38,7 +38,7 @@ Az CLI version 2.0.80 이상을 사용 하 고 있는지 확인 합니다. 다�
 az --version
 ```
 
-Recovery services 자격 증명 모음 및 VM이 있는 구독 ID에 로그인 합니다.
+Recovery Services 자격 증명 모음 및 VM이 있는 구독 ID에 로그인 합니다.
 
 ```azurecli
 az account set -s {subscriptionID}

@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: d99deea8271a3f9e630a7d2e8cd9f73bd41645a2
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608872"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757900"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>서버를 사용 하지 않는 Azure Cosmos DB (미리 보기)
 
@@ -93,5 +93,5 @@ Azure Cosmos DB 서버를 사용 하지 않는 최상의 시나리오는 다음�
 다음 문서를 사용 하 여 서버를 사용 하지 않는 상태로 시작 하세요.
 
 - [Azure Cosmos DB의 요청 단위](request-units.md)
-- [프로 비전 된 처리량과 서버 리스 서버 중에서 선택](throughput-serverless.md)
+- [프로비저닝된 처리량과 서버리스 중에서 선택](throughput-serverless.md)
 - [Azure Cosmos DB의 가격 책정 모델](how-pricing-works.md)

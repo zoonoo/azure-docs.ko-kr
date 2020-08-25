@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 4ed8ada306720b7a8b44ddd59cefe399238c906a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b60a86d09e5d6f7d1108595253349bbd0784e4d3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80128063"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799352"
 ---
 # <a name="stream-content-with-cdn-integration"></a>CDN 통합을 사용 하 여 콘텐츠 스트리밍
 
@@ -47,7 +47,7 @@ Media Services [스트리밍 끝점](streaming-endpoint-concept.md)에서 CDN을
 
 CDN을 사용 하 여 스트리밍 끝점을 프로 비전 한 후에는 스트리밍 끝점을 CDN 끝점에 매핑하기 위해 DNS 업데이트를 수행 하기 전에 Media Services에 정의 된 대기 시간이 있습니다.
 
-나중에 CDN을 사용/사용 안 함으로 설정하려면 스트리밍 엔드포인트가 **중지됨** 상태여야 합니다. Azure CDN 통합이 사용하도록 설정되고 변경 내용이 모든 CDN POP에서 활성화되려면 최대 2시간이 걸릴 수 있습니다. 그러나 스트리밍 끝점을 시작 하 고 스트리밍 끝점에서 중단 없이 스트리밍할 수 있습니다. 통합이 완료 되 면 CDN에서 스트림이 배달 됩니다. 프로 비전 기간 동안에는 스트리밍 끝점이 **시작** 상태가 되 고 성능이 저하 될 수 있습니다.
+나중에 CDN을 사용/사용 안 함으로 설정하려면 스트리밍 엔드포인트가 **중지됨** 상태여야 합니다. 스트리밍 끝점이 시작 되 면 Azure CDN 통합을 사용 하도록 설정 하 고 변경 내용이 모든 CDN Pop에서 활성화 되는 데 최대 2 시간이 걸릴 수 있습니다. 그러나 스트리밍 끝점을 시작 하 고 스트리밍 끝점에서 중단 없이 스트리밍할 수 있습니다. 통합이 완료 되 면 CDN에서 스트림이 배달 됩니다. 프로 비전 기간 동안에는 스트리밍 끝점이 **시작** 상태가 되 고 성능이 저하 될 수 있습니다.
 
 표준 스트리밍 끝점을 만들 때 기본적으로 표준 Verizon을 사용 하 여 구성 됩니다. REST Api를 사용 하 여 Premium Verizon 또는 표준 Akamai 공급자를 구성할 수 있습니다.
 
@@ -71,7 +71,7 @@ CDN 캐싱은 사후 프로세스입니다. CDN에서 다음 개체를 요청 �
 - CDN에서 프리페치 할 다음 개체를 CDN에 알리기 위해 Media Services 원본에는 "인텔리전스" (원본 지원)가 있어야 합니다.
 - CDN은 프리페치 및 캐싱 (CDN 프리페치 파트)을 수행 합니다. CDN에는 프리페치 또는 일반 인출 인지 여부, 404 응답 처리, 무한 프리페치 루프를 방지 하는 방법 등을 원본에 알리기 위한 "인텔리전스"도 있어야 합니다.
 
-### <a name="benefits"></a>장점
+### <a name="benefits"></a>이점
 
 *원본 지원 CDN 프리페치* 기능의 이점에는 다음이 포함 됩니다.
 

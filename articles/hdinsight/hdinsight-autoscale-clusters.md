@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/29/2020
-ms.openlocfilehash: 730df91d922c4bd6187748654f8184cfb7dc6ea0
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.custom: contperfq1
+ms.date: 08/21/2020
+ms.openlocfilehash: 4c4b9c60eb967b5791af724e5c15bba887263d44
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612710"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757866"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 자동 크기 조정
 
@@ -72,12 +72,12 @@ Azure HDInsight의 무료 자동 크기 조정 기능은 이전에 설정한 조
 
 다음 표에서는 자동 크기 조정 기능과 호환 되는 클러스터 유형 및 버전을 설명 합니다.
 
-| Version | Spark | Hive | LLAP | HBase는 | Kafka | Storm | ML |
+| 버전 | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 (ESP 제외) | 예 | 예 | 예 | 예* | 예 | 예 | 예 |
-| HDInsight 4.0 (ESP 제외) | 예 | 예 | 예 | 예* | 예 | 예 | 예 |
-| HDInsight 3.6 및 ESP | 예 | 예 | 예 | 예* | 예 | 예 | 예 |
-| HDInsight 4.0 및 ESP | 예 | 예 | 예 | 예* | 예 | 예 | 예 |
+| HDInsight 3.6 (ESP 제외) | 예 | 예 | 예 | 예* | 아니요 | 아니요 | 아니요 |
+| HDInsight 4.0 (ESP 제외) | 예 | 예 | 예 | 예* | 아니요 | 아니요 | 아니요 |
+| HDInsight 3.6 및 ESP | 예 | 예 | 예 | 예* | 아니요 | 아니요 | 아니요 |
+| HDInsight 4.0 및 ESP | 예 | 예 | 예 | 예* | 아니요 | 아니요 | 아니요 |
 
 \* HBase 클러스터는 부하를 기반으로 하지 않는 일정 기반 크기 조정에 대해서만 구성할 수 있습니다.
 
@@ -225,13 +225,13 @@ Azure Portal에 나열 된 클러스터 상태를 통해 자동 크기 조정 �
 
 표시 될 수 있는 모든 클러스터 상태 메시지는 아래 목록에 설명 되어 있습니다.
 
-| 클러스터 상태 | Description |
+| 클러스터 상태 | 설명 |
 |---|---|
 | 실행 중 | 클러스터가 정상적으로 작동 하 고 있습니다. 모든 이전 자동 크기 조정 작업이 성공적으로 완료 되었습니다. |
 | 업데이트  | 클러스터 자동 크기 조정 구성을 업데이트 하 고 있습니다.  |
 | HDInsight 구성  | 클러스터 확장 또는 축소 작업이 진행 중입니다.  |
 | 업데이트 오류  | HDInsight에서 자동 크기 조정 구성 업데이트 중에 문제가 발생 했습니다. 고객은 업데이트를 다시 시도 하거나 자동 크기 조정을 사용 하지 않도록 선택할 수 있습니다.  |
-| Error  | 클러스터에 문제가 있어 사용할 수 없습니다. 이 클러스터를 삭제 하 고 새 클러스터를 만듭니다.  |
+| 오류  | 클러스터에 문제가 있어 사용할 수 없습니다. 이 클러스터를 삭제 하 고 새 클러스터를 만듭니다.  |
 
 클러스터의 현재 노드 수를 보려면 클러스터의 **개요** 페이지에서 **클러스터 크기** 차트로 이동 합니다. 또는 [ **설정**] 아래에서 **클러스터 크기** 를 선택 합니다.
 

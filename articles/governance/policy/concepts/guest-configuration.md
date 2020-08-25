@@ -3,12 +3,12 @@ title: 가상 머신의 콘텐츠를 감사하는 방법 알아보기
 description: Azure Policy가 게스트 구성 에이전트를 사용하여 가상 머신 내에서 설정을 감사하는 방법에 대해 알아봅니다.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: af913a6bb1fb7c871a7f6740a0fb2d66efa3f712
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717579"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756693"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -111,25 +111,16 @@ Azure에서 게스트 구성 리소스 공급자와 통신하려면 머신의 **
 
 ## <a name="guest-configuration-definition-requirements"></a>게스트 구성 정의 요구 사항
 
-게스트 구성에서 실행하는 각 감사에는 두 가지 정책 정의(**DeployIfNotExists** 정의 및 **AuditIfNotExists** 정의)가 필요합니다. **Deployifnotexists** 정책 정의는 각 컴퓨터에서 감사를 수행 하기 위한 종속성을 관리 합니다.
+게스트 구성 정책은 **AuditIfNotExists** 효과를 사용 합니다. 정의가 할당 되 면 백 엔드 서비스는 Azure 리소스 공급자의 모든 요구 사항에 대 한 수명 주기를 자동으로 처리 `Microsoft.GuestConfiguration` 합니다.
 
-**DeployIfNotExists** 정책 정의는 다음 항목의 유효성을 검사하고 수정합니다.
+**AuditIfNotExists** 정책에 따라 컴퓨터에서 모든 요구 사항이 충족 될 때까지 준수 결과가 반환 되지 않습니다. 요구 사항에 [대 한 자세한 내용은 Azure 가상 컴퓨터에 대 한 요구 사항 배포](#deploy-requirements-for-azure-virtual-machines) 섹션을 참조 하십시오.
 
-- 머신에 평가할 구성이 할당되었는지 확인합니다. 현재 할당된 구성이 없으면 다음 작업을 수행하여 할당을 가져오고 머신을 준비합니다.
-  - [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 머신에 인증 받기
-  - **Microsoft.GuestConfiguration** 확장의 최신 버전 설치
-  - [유효성 검사 도구](#validation-tools) 및 종속성(필요한 경우) 설치
+> [!IMPORTANT]
+> 게스트 구성의 이전 릴리스에서는 **Deployifnoteexists** 및 **AuditIfNotExists** 정의를 결합 하기 위한 이니셔티브를 수행 해야 했습니다. **Deployifnotexists** 정의가 더 이상 필요 하지 않습니다. 정의와 intiaitives에는 레이블이 지정 되어 `[Deprecated]` 있지만 기존 할당은 계속 작동 합니다.
+>
+> 수동 단계가 필요 합니다. 이전에 category에서 정책 이니셔티브를 할당 한 경우 `Guest Configuration` 정책 할당을 삭제 하 고 새 정의를 할당 합니다. 게스트 구성 정책에는 다음과 같은 이름 패턴이 있습니다. `Audit <Windows/Linux> machines that <non-compliant condition>`
 
-**DeployIfNotExists** 할당이 비규격인 경우 [수정 작업](../how-to/remediate-resources.md#create-a-remediation-task)을 사용할 수 있습니다.
-
-**DeployIfNotExists** 할당이 규격인 경우 **AuditIfNotExists** 정책 할당은 게스트 할당이 규격인지 아니면 비규격인지 결정합니다. 유효성 검사 도구는 게스트 구성 클라이언트에 결과를 제공합니다. 클라이언트는 게스트 확장에 결과를 전달하므로 게스트 구성 리소스 공급자를 통해 사용할 수 있습니다.
-
-Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성을 사용하여 **규정 준수** 노드에서 규정 준수를 보고합니다. 자세한 내용은 [규정 준수 데이터 가져오기](../how-to/get-compliance-data.md)를 참조하세요.
-
-> [!NOTE]
-> **DeployIfNotExists** 정책은 **AuditIfNotExists** 정책에서 결과를 반환하는 데 필요합니다. **DeployIfNotExists**가 없으면 **AuditIfNotExists** 정책은 "0/0" 리소스를 상태로 표시합니다.
-
-할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. 이름이 _\[미리 보기\]인 기본 제공 이니셔티브: Linux 및 Windows 머신 내부의 암호 보안 감사에는_ 정책 18개가 포함되어 있습니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. [정책 정의](definition-structure.md#policy-rule) 논리는 대상 운영 체제만 평가되는지 검사합니다.
+Azure Policy 게스트 구성 리소스 공급자 **complianceStatus** 속성을 사용 하 여 **준수 노드의 준수를 보고 합니다.** 자세한 내용은 [규정 준수 데이터 가져오기](../how-to/get-compliance-data.md)를 참조하세요.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>업계 기준에 따라 운영 체제 설정 감사
 

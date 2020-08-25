@@ -4,12 +4,12 @@ description: 이 문서에서는 백업과 복구 지점이 저장 되는 Recove
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 7084fb9b599e127fac2b8c75748448d37d3f5365
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 309d87da11c6a015a9e4db8429587e498d55882c
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586191"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757747"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기 및 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "88586191"
 Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리 합니다. 저장소를 복제 하는 방법을 지정 해야 합니다.
 
 > [!NOTE]
-> Recovery services 자격 증명 모음에 대 한 **저장소 복제 유형** (로컬 중복/지역 중복) 변경은 자격 증명 모음에서 백업을 구성 하기 전에 수행 해야 합니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없습니다.
+> 자격 증명 모음에서 백업을 구성 하기 전에 Recovery Services 자격 증명 모음에 대 한 **저장소 복제 유형** (로컬 중복/지역 중복)을 변경 해야 합니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없습니다.
 >
 >- 백업을 아직 구성 하지 않은 경우 다음 단계를 [수행](#set-storage-redundancy) 하 여 설정을 검토 하 고 수정 합니다.
 >- 백업을 이미 구성 했 고 GRS에서 LRS로 이동 해야 하는 경우 [이러한 해결 방법을 검토](#how-to-change-from-grs-to-lrs-after-configuring-backup)합니다.

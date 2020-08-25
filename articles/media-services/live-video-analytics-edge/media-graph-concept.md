@@ -3,12 +3,12 @@ title: 미디어 그래프 개념-Azure
 description: 미디어 그래프를 사용 하 여 미디어를 캡처할 위치, 처리 방법 및 결과를 전달 해야 하는 위치를 정의할 수 있습니다. 이 문서에서는 미디어 그래프 개념에 대 한 자세한 설명을 제공 합니다.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 9889c7135a23a8817f4922d3e537eb51f26cdae0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690683"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798842"
 ---
 # <a name="media-graph"></a>미디어 그래프
 
@@ -79,11 +79,11 @@ RTSP 원본 노드를 사용 하면 [RTSP] (서버에서 미디어를 수집할 
 
 #### <a name="http-extension-processor"></a>HTTP 확장 프로세서
 
-HTTP 확장 프로세서 노드를 사용 하면 고유한 IoT Edge 모듈을 미디어 그래프에 연결할 수 있습니다. 이 노드는 디코딩된 비디오 프레임을 입력으로 사용 하 고 이러한 프레임을 모듈에서 노출 하는 HTTP REST 끝점에 릴레이 합니다. 이 노드에는 필요한 경우 REST 끝점을 사용 하 여 인증 하는 기능이 있습니다. 또한 노드에는 REST 끝점에 릴레이 되기 전에 비디오 프레임의 크기를 조정 하 고 인코딩하기 위한 기본 제공 이미지 포맷터가 있습니다. Scaler에는 이미지 가로 세로 비율을 유지 하거나, 패딩 하거나, 늘일 수 있는 옵션이 있습니다. 이미지 인코더는 jpeg, png 또는 bmp 형식을 지원 합니다.
+HTTP 확장 프로세서 노드를 사용 하면 고유한 IoT Edge 모듈을 미디어 그래프에 연결할 수 있습니다. 이 노드는 디코딩된 비디오 프레임을 입력으로 사용 하 고 이러한 프레임을 모듈에서 노출 하는 HTTP REST 끝점에 릴레이 합니다. 이 노드에는 필요한 경우 REST 끝점을 사용 하 여 인증 하는 기능이 있습니다. 또한 노드에는 REST 끝점에 릴레이 되기 전에 비디오 프레임의 크기를 조정 하 고 인코딩하기 위한 기본 제공 이미지 포맷터가 있습니다. Scaler에는 이미지 가로 세로 비율을 유지 하거나, 패딩 하거나, 늘일 수 있는 옵션이 있습니다. 이미지 인코더는 JPEG, PNG 또는 BMP 형식을 지원 합니다.
 
 #### <a name="grpc-extension-processor"></a>gRPC 확장 프로세서
 
-GRPC 확장 프로세서 노드는 디코딩된 비디오 프레임을 입력으로 사용 하 고 이러한 프레임을 모듈에서 제공 하는 gRPC 끝점에 릴레이 합니다. 또한 노드에는 gRPC 끝점으로 릴레이 되기 전에 비디오 프레임의 크기를 조정 하 고 인코딩하기 위한 기본 제공 이미지 포맷터가 있습니다. Scaler에는 이미지 가로 세로 비율을 유지 하거나, 패딩 하거나, 늘일 수 있는 옵션이 있습니다. 이미지 인코더는 jpeg, png 또는 bmp 형식을 지원 합니다.
+GRPC 확장 프로세서 노드는 디코딩된 비디오 프레임을 입력으로 사용 하 고 이러한 프레임을 모듈에서 제공 하는 [Grpc](terminology.md#grpc) 끝점에 릴레이 합니다. 또한 노드에는 gRPC 끝점으로 릴레이 되기 전에 비디오 프레임의 크기를 조정 하 고 인코딩하기 위한 기본 제공 이미지 포맷터가 있습니다. Scaler에는 이미지 가로 세로 비율을 유지 하거나, 패딩 하거나, 늘일 수 있는 옵션이 있습니다. 이미지 인코더는 jpeg, png 또는 bmp 형식을 지원 합니다.
 
 #### <a name="signal-gate-processor"></a>신호 게이트 프로세서  
 
@@ -105,7 +105,7 @@ IoT Hub 메시지 싱크 노드를 사용 하 여 IoT Edge 허브에 이벤트�
 
 ## <a name="rules-on-the-use-of-nodes"></a>노드 사용에 대 한 규칙
 
-미디어 그래프 내에서 다양 한 노드를 사용할 수 있는 방법에 대 한 추가 규칙은 [할당량](quotas-limitations.md#limitations-on-graph-topologies-at-preview) 을 참조 하세요.
+미디어 그래프 내에서 다양 한 노드를 사용할 수 있는 방법에 대 한 추가 규칙은 [그래프 토폴로지의 제한 사항](quotas-limitations.md#limitations-on-graph-topologies-at-preview) 을 참조 하세요.
 
 ## <a name="scenarios"></a>시나리오
 

@@ -3,10 +3,8 @@
 - name: 개요
   expanded: true
   items:
-    - name: Speech Service란?
+    - name: Speech Service 개요
       href: overview.md
-    - name: Speech Service 체험해 보기
-      href: get-started.md
     - name: 언어 및 음성 지원
       displayName: 'languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice'
       href: language-support.md

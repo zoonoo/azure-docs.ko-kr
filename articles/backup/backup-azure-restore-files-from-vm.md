@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ab0722bfee0f8165971b5e3351640f0d3c00bea3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: e913fa1e609eff687b5757a566583539b32b1b8e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654160"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757152"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
-Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Azure VM(가상 머신) 및 디스크](./backup-azure-arm-restore-vms.md)를 복원하는 기능을 제공합니다. 이 문서에서는 Azure VM Backup에서 파일 및 폴더를 어떻게 복구할 수 있는지 설명합니다. 파일 및 폴더 복원은 Resource Manager 모델을 사용하여 배포된 Azure VM에서만 사용 가능하며 Recovery Services 자격 증명 모음에 대해 보호됩니다.
+Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Azure VM(가상 머신) 및 디스크](./backup-azure-arm-restore-vms.md)를 복원하는 기능을 제공합니다. 이 문서에서는 Azure VM Backup에서 파일 및 폴더를 어떻게 복구할 수 있는지 설명합니다. 파일 및 폴더 복원은 리소스 관리자 모델을 사용 하 여 배포 되 고 Recovery Services 자격 증명 모음으로 보호 되는 Azure Vm에만 사용할 수 있습니다.
 
 > [!NOTE]
 > 이 기능은 Resource Manager 모델을 사용하여 배포된 Azure VM에서 사용 가능하며 Recovery Services 자격 증명 모음에 대해 보호됩니다.
@@ -68,7 +68,7 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
 
 실행 파일을 실행하면 운영 체제는 새 볼륨을 탑재하고 드라이브 문자를 할당합니다. Windows 탐색기 또는 파일 탐색기를 사용하여 해당 드라이브를 탐색할 수 있습니다. 볼륨에 할당된 드라이브 문자가 원래 가상 머신과 다를 수 있습니다. 하지만 볼륨 이름은 그대로 유지됩니다. 예를 들어 원래 가상 머신의 볼륨이 "Data Disk(E:`\`)"인 경우 해당 볼륨을 로컬 컴퓨터에서 "Data Disk('아무 문자':`\`)로 연결할 수 있습니다. 해당하는 파일 또는 폴더를 찾을 때까지 스크립트 출력에 나와 있는 모든 볼륨을 탐색합니다.  
 
-   ![파일 복구 메뉴](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
+   ![연결 된 복구 볼륨](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
 #### <a name="for-linux"></a>Linux의 경우
 
@@ -302,7 +302,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 제한 된 액세스 권한이 있는 컴퓨터에서 스크립트를 실행 하는 경우 다음에 대 한 액세스 권한이 있는지 확인 합니다.
 
 - `download.microsoft.com`
-- Recovery Service URL(복구 서비스 자격 증명 모음이 있는 지역을 참조하는 지역 이름)
+- 복구 서비스 Url (지역 이름은 Recovery Services 자격 증명 모음이 있는 지역을 나타냄)
   - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Azure 공용 지역의 경우)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn`(Azure 중국 21Vianet의 경우)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us`(Azure 미국 정부의 경우)
@@ -332,7 +332,7 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
     - OS가 WS 2012 이상인지 확인합니다.
     - 레지스트리 키가 아래의 복원 서버에서 제안하는 대로 설정되었는지 확인하고 서버를 다시 부팅합니다. GUID 옆에 있는 숫자의 범위는 0001-0005입니다. 다음 예제에서는 0004입니다. 매개 변수 섹션이 나올 때까지 레지스트리 키 경로를 탐색합니다.
 
-    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+    ![레지스트리 키 변경](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
 - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
@@ -343,7 +343,7 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
 
 - 복원 서버가 Linux VM인 경우:
   - /etc/iscsi/iscsid.conf 파일에서 설정을 다음과 같이 변경합니다.
-    - node.conn[0].timeo.noop_out_timeout = 5에서 node.conn[0].timeo.noop_out_timeout = 30으로 변경
+    - `node.conn[0].timeo.noop_out_timeout = 5`  받는 사람 `node.conn[0].timeo.noop_out_timeout = 30`
 - 위와 같이 변경한 후 스크립트를 다시 실행합니다. 이렇게 변경하면 파일 복구가 성공할 가능성이 높습니다.
 - 사용자가 스크립트를 다운로드할 때마다 Azure Backup은 다운로드의 복구 지점을 준비하는 프로세스를 시작합니다. 대용량 디스크인 경우 이 프로세스에 상당한 시간이 소요됩니다. 요청이 연속으로 발생하면 대상 준비가 다운로드 스파이럴 상태에 빠집니다. 따라서 포털/PowerShell/CLI에서 스크립트를 다운로드하고 20-30분 정도 기다렸다가(경험적 추론) 실행하는 것이 좋습니다. 이 시점에 대상은 스크립트에서 연결할 준비가 되어 있어야 합니다.
 - 파일 복구 후 포털로 돌아가서 볼륨을 탑재할 수 없는 복구 지점에 대해 **디스크 분리** 를 선택 합니다. 기본적으로 이 단계는 기존 프로세스/세션을 모두 정리하고 복구 가능성을 높입니다.

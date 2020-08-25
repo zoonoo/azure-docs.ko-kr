@@ -3,12 +3,12 @@ title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 789aab1174f599a2ae484c7b0d91ddba15bd4fd6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: bbb59439677f6c7297aabbecbafeb04327f482b5
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654704"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762915"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
@@ -192,7 +192,7 @@ Azure Resource Manager 클라이언트를 사용 하 여 개인 끝점을 승인
 ## <a name="adding-dns-records"></a>DNS 레코드 추가
 
 >[!NOTE]
-> 통합 DNS 영역을 사용 하는 경우에는이 단계가 필요 하지 않습니다. 그러나 사용자 고유의 Azure 사설 DNS 영역을 만들었거나 사용자 지정 개인 DNS 영역을 사용 하는 경우이 섹션에 설명 된 대로 항목이 생성 되었는지 확인 하세요.
+> 통합 DNS 영역을 사용 하는 경우에는이 단계가 필요 하지 않습니다. 그러나 사용자 고유의 Azure 사설 DNS 영역을 만들었거나 사용자 지정 개인 DNS 영역을 사용 하는 경우이 섹션에 설명 된 대로 항목이 생성 되었는지 확인 합니다.
 
 선택적 개인 DNS 영역 및 자격 증명 모음에 대 한 개인 끝점을 만들었으면 dns 레코드를 DNS 영역에 추가 해야 합니다. 수동으로 또는 PowerShell 스크립트를 사용 하 여이 작업을 수행할 수 있습니다. 이 작업은 백업 DNS 영역에 대해서만 수행 해야 하며 Blob 및 큐에 대 한 작업은 자동으로 업데이트 됩니다.
 
@@ -239,7 +239,7 @@ Azure Resource Manager 클라이언트를 사용 하 여 개인 끝점을 승인
 VNet에서 자격 증명 모음에 대해 만들어진 개인 끝점이 승인 되 면이를 사용 하 여 백업 및 복원을 수행할 수 있습니다.
 
 >[!IMPORTANT]
->계속 하기 전에 문서에서 위에서 언급 한 모든 단계를 완료 했는지 확인 하세요. 이를 요약 하려면 다음 검사 목록의 단계를 완료 해야 합니다.
+>계속 하기 전에 문서에서 위에서 언급 한 모든 단계를 완료 했는지 확인 합니다. 이를 요약 하려면 다음 검사 목록의 단계를 완료 해야 합니다.
 >
 >1. (새) Recovery Services 자격 증명 모음을 만듦
 >1. 시스템 할당 관리 Id를 사용 하도록 자격 증명 모음 설정

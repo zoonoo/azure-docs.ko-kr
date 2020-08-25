@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services 자격 증명 모음 삭제
 description: 이 문서에서는 종속성을 제거 하 고 Azure Backup Recovery Services 자격 증명 모음을 삭제 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: ffe8005ed6c2583763a10ba515ff19f0ef62ae0d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7e922069f567a0b907c2f2cd28fe09de040cdee
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652833"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757220"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Azure Backup Recovery Services 자격 증명 모음 삭제
 
@@ -294,7 +294,7 @@ Recovery Services 자격 증명 모음 삭제하려면
       [<CommonParameters>]
    ```
 
-Recovery services 자격 증명 모음 삭제에 [대해 자세히 알아보세요](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) .
+Recovery Services 자격 증명 모음을 삭제 하는 방법에 [대해 자세히 알아보세요](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) .
 
 ## <a name="delete-the-recovery-services-vault-by-using-cli"></a>CLI를 사용 하 여 Recovery Services 자격 증명 모음 삭제
 
@@ -303,7 +303,7 @@ Recovery services 자격 증명 모음 삭제에 [대해 자세히 알아보세�
 > [!NOTE]
 > 현재 Azure Backup CLI는 Azure VM 백업만 관리 하도록 지원 하므로 자격 증명 모음을 삭제 하는 다음 명령은 자격 증명 모음에 Azure VM 백업이 포함 된 경우에만 작동 합니다. 자격 증명 모음에 Azure Vm 이외의 형식의 백업 항목이 포함 된 경우 Azure Backup CLI를 사용 하 여 자격 증명 모음을 삭제할 수 없습니다.
 
-기존 Recovery services 자격 증명 모음을 삭제 하려면 다음을 수행 합니다.
+기존 Recovery Services 자격 증명 모음을 삭제 하려면 다음 단계를 수행 합니다.
 
 - 보호를 중지 하 고 백업 데이터를 삭제 하려면
 
@@ -320,7 +320,7 @@ Recovery services 자격 증명 모음 삭제에 [대해 자세히 알아보세�
 
     자세한 내용은이 [문서](/cli/azure/backup/protection#az-backup-protection-disable)를 참조 하세요.
 
-- 기존 Recovery services 자격 증명 모음을 삭제 합니다.
+- 기존 Recovery Services 자격 증명 모음을 삭제 합니다.
 
     ```azurecli
     az backup vault delete [--force]
@@ -357,13 +357,13 @@ ARMClient 명령에 대 한 자세한 내용은 [ARMCLIENT 추가](https://githu
 1. 구독 ID, 리소스 그룹 이름 및 자격 증명 모음 이름을 사용 하 여 다음 명령을 실행 합니다. 종속성이 없는 경우 다음 명령을 실행 하면 자격 증명 모음이 삭제 됩니다.
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>?api-version=2015-03-15
    ```
 
 2. 자격 증명 모음이 비어 있지 않으면 다음 오류 메시지가 표시 됩니다. 자격 증명 모음 *에 기존 리소스가 있으므로 자격 증명 모음을 삭제할 수 없습니다* . 자격 증명 모음 내에서 보호 된 항목 또는 컨테이너를 제거 하려면 다음 명령을 실행 합니다.
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
 3. Azure Portal에서 자격 증명 모음이 삭제 되었는지 확인 합니다.

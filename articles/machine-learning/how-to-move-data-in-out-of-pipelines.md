@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 07/20/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 740ca2d991f9447e8a3a04c7795c8a6f3011fd39
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1b6b5af2e6533c13165ae8253813a52b2c7ad261
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843031"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756965"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>ML 파이프라인 단계로/단계 간에 데이터 이동(Python)
 
@@ -28,9 +28,14 @@ ms.locfileid: "87843031"
 - `Dataset`기존 데이터에 대 한 개체 사용
 - 사용자의 단계 내에서 데이터에 액세스
 - `Dataset`데이터를 하위 집합 (예: 학습 및 유효성 검사 하위 집합)으로 분할
-- `PipelineData`다음 파이프라인 단계로 데이터를 전송 하는 개체 만들기
-- `PipelineData`파이프라인 단계에 대 한 입력으로 개체 사용
-- 유지 하려는 새 `Dataset` 개체 `PipelineData` 만들기
+- `OutputFileDatasetConfig`다음 파이프라인 단계로 데이터를 전송 하는 개체 만들기
+- `OutputFileDatasetConfig`파이프라인 단계에 대 한 입력으로 개체 사용
+- 유지 하려는 새 `Dataset` 개체 `OutputFileDatasetConfig` 만들기
+
+> [!NOTE]
+>`OutputFileDatasetConfig`및 `OutputTabularDatasetConfig` 클래스는 실험적 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다.
+>
+>자세한 내용은 https://aka.ms/azuremlexperimental를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -57,7 +62,7 @@ ms.locfileid: "87843031"
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>`Dataset`기존 데이터에 대 한 개체 사용 
 
-파이프라인으로 데이터를 수집 하는 기본 방법은 [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) 개체를 사용 하는 것입니다. `Dataset`개체는 작업 영역 전체에서 사용할 수 있는 영구적 데이터를 나타냅니다.
+파이프라인으로 데이터를 수집 하는 기본 방법은 [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) 개체를 사용 하는 것입니다. `Dataset` 개체는 작업 영역 전체에서 사용할 수 있는 영구적 데이터를 나타냅니다.
 
 개체를 만들고 등록 하는 방법에는 여러 가지가 있습니다 `Dataset` . 테이블 형식 데이터 집합은 하나 이상의 파일에서 사용할 수 있는 구분 된 데이터에 대 한 것입니다. 파일 데이터 집합은 이진 데이터 (예: 이미지) 또는 구문 분석 하는 데이터에 대 한 것입니다. 개체를 만드는 가장 간단한 프로그래밍 방법은 `Dataset` 작업 영역 저장소 또는 공용 url에서 기존 blob을 사용 하는 것입니다.
 
@@ -146,33 +151,36 @@ ws = run.experiment.workspace
 ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 ```
 
-## <a name="use-pipelinedata-for-intermediate-data"></a>`PipelineData`중간 데이터에 사용
+## <a name="use-outputfiledatasetconfig-for-intermediate-data"></a>`OutputFileDatasetConfig`중간 데이터에 사용
 
-`Dataset`개체가 영구 데이터를 나타내지만 파이프라인 단계에서 출력 되는 임시 데이터에 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 개체가 사용 됩니다. 개체의 수명은 `PipelineData` 단일 파이프라인 단계 보다 길기 때문에 파이프라인 정의 스크립트에서 정의 합니다. 개체를 만들 때 `PipelineData` 데이터를 저장할 이름 및 데이터 저장소를 제공 해야 합니다. `PipelineData` `PythonScriptStep` 및 인수를 _모두_ 사용 하 여 개체를에 전달 합니다 `arguments` `outputs` .
+`Dataset`개체는 영구적 데이터만 나타내므로 [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) 파이프라인 단계 **및** 영구 출력 데이터의 임시 데이터 출력에는 개체를 사용할 수 있습니다. 
+
+ `OutputFileDatasetConfig` 개체의 기본 동작은 작업 영역의 기본 데이터 저장소에 쓰는 것입니다. `OutputFileDatasetConfig`매개 변수를 사용 하 여 개체를에 전달 `PythonScriptStep` `arguments` 합니다.
 
 ```python
-default_datastore = workspace.get_default_datastore()
-dataprep_output = PipelineData("clean_data", datastore=default_datastore)
+from azureml.data import OutputFileDatasetConfig
+dataprep_output = OutputFileDatasetConfig()
+input_dataset = Dataset.get_by_name(workspace, 'raw_data')
 
 dataprep_step = PythonScriptStep(
     name="prep_data",
     script_name="dataprep.py",
     compute_target=cluster,
-    arguments=["--output-path", dataprep_output]
-    inputs=[Dataset.get_by_name(workspace, 'raw_data')],
-    outputs=[dataprep_output]
-)
+    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
+    )
 ```
 
-`PipelineData`즉시 업로드를 제공 하는 액세스 모드를 사용 하 여 개체를 만들도록 선택할 수 있습니다. 이 경우를 만들 때 `PipelineData` `upload_mode` 를로 설정 하 `"upload"` 고 인수를 사용 하 여 `output_path_on_compute` 데이터를 쓸 경로를 지정 합니다.
+실행이 끝날 때 개체의 내용을 업로드 하도록 선택할 수 있습니다 `OutputFileDatasetConfig` . 이 경우에는 `as_upload()` 개체와 함께 함수를 사용 하 `OutputFileDatasetConfig` 고 대상에서 기존 파일을 덮어쓸지 여부를 지정 합니다. 
 
 ```python
-PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
+#get blob datastore already registered with the workspace
+blob_store= ws.datastores['my_blob_store']
+OutputFileDatasetConfig(name="clean_data", destination=blob_store).as_upload(overwrite=False)
 ```
 
-### <a name="use-pipelinedata-as-outputs-of-a-training-step"></a>`PipelineData`학습 단계의 출력으로 사용
+### <a name="use-outputfiledatasetconfig-as-outputs-of-a-training-step"></a>`OutputFileDatasetConfig`학습 단계의 출력으로 사용
 
-파이프라인의에서 `PythonScriptStep` 프로그램의 인수를 사용 하 여 사용 가능한 출력 경로를 검색할 수 있습니다. 이 단계가 첫 번째이 고 출력 데이터를 초기화 하는 경우 지정 된 경로에 디렉터리를 만들어야 합니다. 그런 다음에 포함 하려는 모든 파일을 작성할 수 있습니다 `PipelineData` .
+파이프라인의에서 `PythonScriptStep` 프로그램의 인수를 사용 하 여 사용 가능한 출력 경로를 검색할 수 있습니다. 이 단계가 첫 번째이 고 출력 데이터를 초기화 하는 경우 지정 된 경로에 디렉터리를 만들어야 합니다. 그런 다음에 포함 하려는 모든 파일을 작성할 수 있습니다 `OutputFileDatasetConfig` .
 
 ```python
 parser = argparse.ArgumentParser()
@@ -185,22 +193,26 @@ with open(args.output_path, 'w') as f:
     f.write("Step 1's output")
 ```
 
-인수를로 설정 하 여를 만든 경우 `PipelineData` `is_directory` 호출을 수행 하기만 하면 되므로 `True` `os.makedirs()` 경로에 원하는 모든 파일을 자유롭게 작성할 수 있습니다. 자세한 내용은 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 참조 설명서를 참조 하세요.
+### <a name="read-outputfiledatasetconfig-as-inputs-to-non-initial-steps"></a>`OutputFileDatasetConfig`초기 단계가 아닌 단계에 대 한 입력으로 읽기
 
-### <a name="read-pipelinedata-as-inputs-to-non-initial-steps"></a>`PipelineData`초기 단계가 아닌 단계에 대 한 입력으로 읽기
+초기 파이프라인 단계에서 일부 데이터를 경로에 기록 하 `OutputFileDatasetConfig` 고 해당 초기 단계의 출력이 되 면 이후 단계에 대 한 입력으로 사용할 수 있습니다. 
 
-초기 파이프라인 단계에서 일부 데이터를 경로에 기록 하 `PipelineData` 고 해당 초기 단계의 출력이 되 면 이후 단계에 대 한 입력으로 사용할 수 있습니다.
+다음 코드에서 
+
+* `step1_output_data` PythonScriptStep의 출력이 `step1` ADLS Gen 2 데이터 저장소에 기록 되 고, `my_adlsgen2` 업로드 액세스 모드로 기록 됨을 나타냅니다. ADLS Gen 2 데이터 저장소에 데이터를 다시 쓰기 위해 [역할 권한을 설정](how-to-access-data.md#azure-data-lake-storage-generation-2) 하는 방법에 대해 자세히 알아보세요. 
+
+* `step1`가 완료 되 고 출력이에 지정 된 대상에 기록 되 면 `step1_output_data` 2 단계가 입력으로 사용 될 준비가 된 것입니다 `step1_output_data` . 
 
 ```python
-step1_output_data = PipelineData("processed_data", datastore=def_blob_store, output_mode="upload")
+# get adls gen 2 datastore already registered with the workspace
+datastore = workspace.datastores['my_adlsgen2']
+step1_output_data = OutputFileDatasetConfig(name="processed_data", destination=datastore).as_upload()
 
 step1 = PythonScriptStep(
     name="generate_data",
     script_name="step1.py",
     runconfig = aml_run_config,
-    arguments = ["--output_path", step1_output_data],
-    inputs=[],
-    outputs=[step1_output_data]
+    arguments = ["--output_path", step1_output_data]
 )
 
 step2 = PythonScriptStep(
@@ -208,31 +220,20 @@ step2 = PythonScriptStep(
     script_name="step2.py",
     compute_target=compute,
     runconfig = aml_run_config,
-    arguments = ["--pd", step1_output_data],
-    inputs=[step1_output_data]
+    arguments = ["--pd", step1_output_data.as_input]
+
 )
 
 pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 ```
 
-입력 값은 `PipelineData` 이전 출력의 경로입니다. 이전에 표시 된 것 처럼, 첫 번째 단계는 단일 파일을 작성 하 고 사용 하는 것 처럼 보일 수 있습니다. 
+## <a name="register-outputfiledatasetconfig-objects-for-reuse"></a>`OutputFileDatasetConfig`재사용할 개체 등록
+
+`OutputFileDatasetConfig`실험 기간 보다 오랫동안 사용할 수 있게 하려는 경우 실험에서 공유 하 고 다시 사용할 수 있도록 작업 영역에 등록 하세요.
 
 ```python
-parser = argparse.ArgumentParser()
-parser.add_argument('--pd', dest='pd', required=True)
-args = parser.parse_args()
-
-with open(args.pd) as f:
-    print(f.read())
-```
-
-## <a name="convert-pipelinedata-objects-to-datasets"></a>`PipelineData`개체를로 `Dataset` 변환
-
-`PipelineData`실행 기간 보다 오랫동안 사용할 수 있도록 하려면 해당 함수를 사용 하 여로 `as_dataset()` 변환 `Dataset` 합니다. 그런 다음를 등록 하 여 `Dataset` 작업 영역에서 최고 수준의 시민으로 만들 수 있습니다. 개체는 `PipelineData` 파이프라인이 실행 될 때마다 다른 경로를 갖게 되므로 `create_new_version` `True` `Dataset` 개체에서 만든를 등록할 때를로 설정 하는 것이 좋습니다 `PipelineData` .
-
-```python
-step1_output_ds = step1_output_data.as_dataset()
-step1_output_ds.register(name="processed_data", create_new_version=True)
+step1_output_ds = step1_output_data.register_on_complete(name='processed_data', 
+                                                         description = 'files from step1`)
 ```
 
 ## <a name="next-steps"></a>다음 단계

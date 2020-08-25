@@ -3,12 +3,12 @@ title: VM 창에서 SQL Server VM 백업
 description: 이 문서에서는 VM 창에서 Azure virtual machines의 SQL Server 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: dd30ca1fb138d3e3bd44633b9d5e71beae6d96be
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d7cdf0a04acc57341200b363da4d012f04fe3454
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227251"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755248"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>VM 창에서 SQL Server 백업
 
@@ -62,7 +62,7 @@ VM의 **백업** 창에서 SQL Server VM에 대 한 백업을 사용 하도록 �
 
     ![백업 준비가 완료 되지 않았습니다.](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
 
-8. 백업 된 SQL Server VM에서 수행 해야 하는 추가 작업 또는 모니터링을 위해 해당 하는 복구 서비스 자격 증명 모음으로 이동 합니다. **백업 항목** 으로 이동 하 여이 자격 증명 모음에서 백업 된 모든 데이터베이스를 확인 하 고 요청 시 백업 및 복원과 같은 작업을 트리거합니다. 마찬가지로, **백업 작업** 으로 이동 하 여 보호, 백업, 복원 등의 작업에 해당 하는 작업을 [모니터링할](manage-monitor-sql-database-backup.md) 수 있습니다.
+8. 백업 된 SQL Server VM에서 수행 해야 하는 추가 작업 또는 모니터링을 위해 해당 Recovery Services 자격 증명 모음으로 이동 합니다. **백업 항목** 으로 이동 하 여이 자격 증명 모음에서 백업 된 모든 데이터베이스를 확인 하 고 요청 시 백업 및 복원과 같은 작업을 트리거합니다. 마찬가지로, **백업 작업** 으로 이동 하 여 보호, 백업, 복원 등의 작업에 해당 하는 작업을 [모니터링할](manage-monitor-sql-database-backup.md) 수 있습니다.
 
     ![백업 항목의 백업 데이터베이스를 참조 하세요.](./media/backup-sql-server-vm-from-vm-pane/backup-items.png)
 

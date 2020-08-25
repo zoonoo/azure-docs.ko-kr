@@ -4,12 +4,12 @@ description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 2781646e548f4f530b26ca41466f158597e817d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5fdbb78f6d700d14c2458a8d87a4b0f9a971207
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090980"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762847"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -32,7 +32,7 @@ ms.locfileid: "87090980"
 
 기본적으로 모든 사용자에 게 기능이 설정 되어 있으므로 자동 치료 그러나 옵트아웃 (opt out)을 선택 하는 경우에는 다음을 수행 합니다.
 
-- SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 파일 **의ExtensionSettingsOverrides.js** 를 만들거나 편집 합니다.
+- SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 파일 ** 의ExtensionSettingsOverrides.js** 를 만들거나 편집 합니다.
 - **ExtensionSettingsOverrides.js**에서 *{"EnableAutoHealer": false}* 를 설정 합니다.
 - 변경 내용을 저장하고 파일을 닫습니다.
 - SQL Server 인스턴스에서 **작업 관리** 를 열고 **AzureWLBackupCoordinatorSvc** 서비스를 다시 시작 합니다.
@@ -41,8 +41,8 @@ ms.locfileid: "87090980"
 
 예. SQL Server 인스턴스에 대한 영향을 최소화하기 위해 백업 정책이 실행되는 속도를 제한할 수 있습니다. 설정을 변경하려면:
 
-1. SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 파일 *에ExtensionSettingsOverrides.js* 를 만듭니다.
-2. 파일 *의ExtensionSettingsOverrides.js* 에서 **Defaultbackuptasksthreshold** 설정을 더 낮은 값 (예: 5)으로 변경 합니다. <br>
+1. SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 파일 * 에ExtensionSettingsOverrides.js* 를 만듭니다.
+2. 파일 * 의ExtensionSettingsOverrides.js* 에서 **Defaultbackuptasksthreshold** 설정을 더 낮은 값 (예: 5)으로 변경 합니다. <br>
   `{"DefaultBackupTasksThreshold": 5}`
 <br>
 Defaultbackup업무 임계값의 기본값은 **20**입니다.
@@ -52,7 +52,7 @@ Defaultbackup업무 임계값의 기본값은 **20**입니다.
  이 방법을 사용 하면 백업 응용 프로그램이 많은 양의 리소스를 사용 하는 경우에는 SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) 는 들어오는 응용 프로그램 요청이 사용할 수 있는 CPU, 물리적 IO 및 메모리 양에 대 한 제한을 지정 하는 보다 일반적인 방법입니다.
 
 > [!NOTE]
-> UX에서 계속 진행 하 여 지정 된 시간에 많은 백업을 예약할 수 있지만 위의 예제에 따라 5 라는 슬라이딩 윈도우에서 처리 됩니다.
+> UX에서 계속 진행 하 여 언제 든 지 많은 백업을 예약할 수 있습니다. 그러나 위의 예제에 따라 5 라는 슬라이딩 윈도우에서 처리 됩니다.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>보조 복제본에서 전체 백업을 실행할 수 있나요?
 

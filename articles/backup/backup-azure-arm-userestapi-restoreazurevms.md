@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure 가상 머신 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: add4bdeaa202c244ce2e0e83f999f29afdca5c28
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: eef30808dddfb20d01fcb6e25a88b9a64e4445d8
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761477"
+ms.locfileid: "88763544"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API를 사용하여 Azure Virtual Machines 복원
 
@@ -115,11 +115,16 @@ X-Powered-By: ASP.NET
 
 위 응답의 `{name}` 필드로 복구 지점을 식별합니다.
 
-## <a name="restore-disks"></a>디스크 복원
+## <a name="restore-operations"></a>복원 작업
 
-백업 데이터에서 VM 생성을 사용자 지정 해야 하는 경우 디스크를 선택한 저장소 계정으로 복원 하 고 요구 사항에 따라 해당 디스크에서 VM을 만들 수 있습니다. 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 하며 영역 중복 되어서는 안 됩니다. 백업 된 VM ("vmconfig.json")의 구성과 함께 디스크는 지정 된 저장소 계정에 저장 됩니다.
+[관련 복원 지점을](#select-recovery-point)선택한 후 복원 작업을 트리거합니다.
 
-디스크 복원을 트리거하면 *POST*를 요청합니다. 디스크 복원 작업에 대한 자세한 내용은 [REST API "복원 트리거"](/rest/api/backup/restores/trigger)를 참조하세요.
+***백업 항목에 대 한 모든 복원 작업은 동일한 *POST* API를 사용 하 여 수행 됩니다. 복원 시나리오에서는 요청 본문만 변경 됩니다.***
+
+> [!IMPORTANT]
+> 다양 한 복원 옵션 및 해당 종속성에 대 한 모든 세부 정보는 [여기](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options)에 설명 되어 있습니다. 이러한 작업을 계속 하기 전에를 검토 하십시오.
+
+복원 작업 트리거는 *POST* 요청입니다. API에 대 한 자세한 내용은 ["복원 트리거" REST API](/rest/api/backup/restores/trigger)를 참조 하세요.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
@@ -127,41 +132,15 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 `{containerName}` 및 `{protectedItemName}`은 [여기](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation)에서 생성됩니다. `{fabricName}`은 "Azure"이며 `{recoveryPointId}`는 [위](#example-response)에 언급된 복구 지점의 `{name}` 필드입니다.
 
-### <a name="create-request-body"></a>요청 본문 만들기
+복구 지점을 구한 후에는 관련 복원 시나리오에 대 한 요청 본문을 구성 해야 합니다. 다음 섹션에서는 각 시나리오에 대 한 요청 본문을 간략하게 설명 합니다.
 
-Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
+- [디스크 복원](#restore-disks)
+- [디스크 바꾸기](#replace-disks-in-a-backed-up-virtual-machine)
+- [새 가상 머신으로 복원](#restore-as-another-virtual-machine)
 
-|Name  |Type  |설명  |
-|---------|---------|---------|
-|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+### <a name="restore-response"></a>복원 응답
 
-요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [REST API 문서 복원 트리거](/rest/api/backup/restores/trigger#request-body)를 참조하세요.
-
-#### <a name="example-request"></a>요청 예
-
-다음 요청 본문은 디스크 복원을 트리거하는 데 필요한 속성을 정의합니다.
-
-```json
-{
-  "properties": {
-    "objectType": "IaasVMRestoreRequest",
-    "recoveryPointId": "20982486783671",
-    "recoveryType": "RestoreDisks",
-    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
-    "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
-    "region": "westus",
-    "createNewCloudService": false,
-    "originalStorageAccountOption": false,
-    "encryptionDetails": {
-      "encryptionEnabled": false
-    }
-  }
-}
-```
-
-### <a name="response"></a>응답
-
-복원 디스크의 트리거는 [비동기 작업](../azure-resource-manager/management/async-operations.md)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
+복원 작업을 트리거하는 작업은 [비동기 작업](../azure-resource-manager/management/async-operations.md)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
@@ -227,15 +206,90 @@ X-Powered-By: ASP.NET
 }
 ```
 
-백업 작업은 장기 실행 작업이므로 [REST API를 사용한 모니터링 작업 문서](backup-azure-arm-userestapi-managejobs.md#tracking-the-job)에 설명된 대로 추적해야 합니다.
+복원 작업은 장기 실행 작업 이므로 [REST API를 사용 하 여 작업 모니터링 문서](backup-azure-arm-userestapi-managejobs.md#tracking-the-job)에 설명 된 대로 추적 해야 합니다.
 
-이 장기 실행 작업이 완료되면 디스크 및 백업된 가상 머신("VMConfig.json")의 구성은 지정된 스토리지 계정에 표시됩니다.
+### <a name="restore-disks"></a>디스크 복원
 
-## <a name="restore-as-another-virtual-machine"></a>다른 가상 머신으로 복원
+백업 데이터에서 VM 생성을 사용자 지정 해야 하는 경우 디스크를 선택한 저장소 계정으로 복원 하 고 요구 사항에 따라 해당 디스크에서 VM을 만들 수 있습니다. 저장소 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 하며 영역 중복 되어서는 안 됩니다. 백업 된 VM ("vmconfig.json")의 구성과 함께 디스크는 지정 된 저장소 계정에 저장 됩니다. [위에서](#restore-operations)설명한 것 처럼 복원 디스크에 대 한 관련 요청 본문은 아래에 나와 있습니다.
 
-복원 지점에서 데이터를 사용하여 Azure 가상 머신을 만들려면 아래 지정된 대로 [복구 지점을 선택](#select-recovery-point)하고 요청 본문을 만듭니다.
+#### <a name="create-request-body"></a>요청 본문 만들기
 
-다음 요청 본문은 가상 머신 복원을 트리거하는 데 필요한 속성을 정의합니다.
+Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
+
+|Name  |Type  |설명  |
+|---------|---------|---------|
+|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+
+요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [REST API 문서 복원 트리거](/rest/api/backup/restores/trigger#request-body)를 참조하세요.
+
+##### <a name="example-request"></a>요청 예
+
+다음 요청 본문은 디스크 복원을 트리거하는 데 필요한 속성을 정의합니다.
+
+```json
+{
+  "properties": {
+    "objectType": "IaasVMRestoreRequest",
+    "recoveryPointId": "20982486783671",
+    "recoveryType": "RestoreDisks",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
+    "region": "westus",
+    "createNewCloudService": false,
+    "originalStorageAccountOption": false,
+    "encryptionDetails": {
+      "encryptionEnabled": false
+    }
+  }
+}
+```
+
+[위에서](#responses)설명한 대로 응답을 추적 하 고 장기 실행 작업이 완료 되 면 백업 된 가상 컴퓨터의 디스크와 구성 ("VMConfig.json")이 지정 된 저장소 계정에 표시 됩니다.
+
+### <a name="replace-disks-in-a-backed-up-virtual-machine"></a>백업 된 가상 컴퓨터의 디스크를 바꿉니다.
+
+복원 디스크가 복구 지점에서 디스크를 만들 때 디스크 교체는 백업 된 VM의 현재 디스크를 복구 지점의 디스크로 바꿉니다. [위에서](#restore-operations)설명한 것 처럼 디스크 교체에 대 한 관련 요청 본문은 아래에 나와 있습니다.
+
+#### <a name="create-request-body"></a>요청 본문 만들기
+
+Azure VM 백업에서 디스크 교체를 트리거하기 위해 요청 본문의 구성 요소는 다음과 같습니다.
+
+|Name  |Type  |설명  |
+|---------|---------|---------|
+|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+
+요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [REST API 문서 복원 트리거](/rest/api/backup/restores/trigger#request-body)를 참조하세요.
+
+#### <a name="example-request"></a>요청 예
+
+다음 요청 본문은 디스크 복원을 트리거하는 데 필요한 속성을 정의합니다.
+
+```json
+{
+    "properties": {
+        "objectType": "IaasVMRestoreRequest",
+        "recoveryPointId": "20982486783671",
+        "recoveryType": "OriginalLocation",
+        "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+        "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",  
+        "region": "westus",
+        "createNewCloudService": false,
+        "originalStorageAccountOption": false,
+        "affinityGroup": "",
+        "diskEncryptionSetId": null,
+        "subnetId": null,
+        "targetDomainNameId": null,
+        "targetResourceGroupId": null,
+        "targetVirtualMachineId": null,
+        "virtualNetworkId": null
+     }
+}
+
+```
+
+### <a name="restore-as-another-virtual-machine"></a>다른 가상 머신으로 복원
+
+[위에서](#restore-operations)설명한 대로 다음 요청 본문은 가상 컴퓨터 복원을 트리거하는 데 필요한 속성을 정의 합니다.
 
 ```json
 {
@@ -271,7 +325,7 @@ X-Powered-By: ASP.NET
 }
 ```
 
-이 응답은 [디스크를 복원하기 위해 위에 설명된](#response) 것과 동일한 방식으로 처리해야 합니다.
+이 응답은 [디스크를 복원하기 위해 위에 설명된](#responses) 것과 동일한 방식으로 처리해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

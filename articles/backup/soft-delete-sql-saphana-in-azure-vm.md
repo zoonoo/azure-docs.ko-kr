@@ -3,12 +3,12 @@ title: Azure vm의 SQL server에 대 한 일시 삭제 및 Azure VM 워크 로�
 description: Azure VM의 SQL server에 대 한 일시 삭제 및 Azure VM 워크 로드의 SAP HANA에 대 한 자세한 내용은 백업을 더욱 안전 하 게 만듭니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c0eaedea2d5428376befaade42f87348cf84e7bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bf9cc2551d85c1bc663db2f9e61e2ea6895f1d23
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538193"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757475"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Azure vm의 SQL server에 대 한 일시 삭제 및 Azure VM 워크 로드의 SAP HANA
 
@@ -62,7 +62,7 @@ ms.locfileid: "86538193"
 >[!NOTE]
 >이러한 지침은 Azure VM의 SAP HANA에도 적용 됩니다.
 
-1. SQL server에서 데이터베이스의 백업 데이터를 삭제 하려면 백업을 중지 해야 합니다. Azure Portal에서 recovery services 자격 증명 모음으로 이동 하 여 백업 항목으로 이동한 후 **백업 중지**를 선택 합니다.
+1. SQL server에서 데이터베이스의 백업 데이터를 삭제 하려면 백업을 중지 해야 합니다. Azure Portal에서 Recovery Services 자격 증명 모음으로 이동한 후 백업 항목으로 이동 하 고 **백업 중지**를 선택 합니다.
 
    ![백업 중지](./media/soft-delete-sql-saphana-in-azure-vm/stop-backup.png)
 

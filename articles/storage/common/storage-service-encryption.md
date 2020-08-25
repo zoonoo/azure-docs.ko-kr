@@ -4,21 +4,21 @@ description: Azure Storage은 데이터를 클라우드로 유지 하기 전에 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 07/16/2020
+ms.date: 08/21/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 002eeaedf4ae479408cd1ba0c7a373d8a2661cdc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5e7060b31a936bd54dc0a1f084f823beb076044
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089399"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756812"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 암호화
 
-Azure Storage은 데이터를 클라우드에 보관할 때 자동으로 암호화 합니다. Azure Storage 암호화를 통해 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족할 수 있습니다.
+Azure Storage는 데이터가 클라우드에 유지 될 때 자동으로 암호화 합니다. Azure Storage 암호화를 통해 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족할 수 있습니다.
 
 ## <a name="about-azure-storage-encryption"></a>Azure Storage 암호화 정보
 
