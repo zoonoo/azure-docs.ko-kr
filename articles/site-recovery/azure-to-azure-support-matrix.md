@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용한 보조 지역으로 Azure VM 재�
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: c648387547e9543c9e509344aa86285504dced7a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 3006522f75ed732c08e453a266e660cf4c577917
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761375"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815371"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구에 대한 지원 매트릭스
 
@@ -195,6 +195,7 @@ RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 
 -- | ---
 복제된 VM에서 디스크 크기 조정 | 장애 조치(failover) 전에 원본 VM에서 지원됩니다. 복제를 해제/다시 설정할 필요가 없습니다.<br/><br/> 장애 조치(failover) 후 원본 VM을 변경하면 변경 내용이 캡처되지 않습니다.<br/><br/> 장애 조치(failover) 후 Azure VM에서 디스크 크기를 변경하는 경우 Site Recovery에서 변경 내용이 캡처되지 않으며 원래 VM 크기로 장애 복구(failback)가 발생합니다.
 복제된 VM에 디스크 추가 | 지원됨
+보호 된 디스크에 대 한 오프 라인 변경 | 디스크 연결을 끊고 오프 라인으로 수정 하려면 전체 다시 동기화를 수행 해야 합니다.
 
 ## <a name="replicated-machines---storage"></a>복제된 컴퓨터 - 스토리지
 
@@ -254,6 +255,7 @@ Azure 공유 디스크 | 지원되지 않음
 - 이러한 제한은 테스트를 기반으로 하지만 모든 가능한 애플리케이션 I/O 조합을 다룰 수는 없습니다.
 - 실제 결과는 애플리케이션 I/O 조합에 따라 달라질 수 있습니다.
 - 디스크 데이터 변동별 및 가상 머신 데이터 변동별로 두 가지 제한을 고려해야 합니다.
+- 가상 머신 데이터 변동 별 현재 제한은 크기에 관계 없이 54 m b/초입니다.
 
 **스토리지 대상** | **평균 원본 디스크 I/O** |**평균 원본 디스크 데이터 변동** | **일일 총 원본 디스크 데이터 변동**
 ---|---|---|---

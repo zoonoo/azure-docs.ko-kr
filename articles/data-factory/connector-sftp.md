@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 8ec950ddabd3844618c878471d2e1391979e2056
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 08/25/2020
+ms.openlocfilehash: a03a141a4140ca4ac000a8e2afb8dd8f45d40662
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521375"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816621"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SFTP 서버에서 데이터 복사
 
@@ -64,13 +64,13 @@ SFTP 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니�
 | skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다.<br/>허용 되는 값은 *true* 및 *false* (기본값)입니다.  | 예 |
 | hostKeyFingerprint | 호스트 키의 지문을 지정 합니다. | 예 ("skipHostKeyValidation"이 false로 설정 된 경우)  |
 | authenticationType | 인증 유형을 지정합니다.<br/>허용 되는 값은 *Basic* 및 *SshPublicKey*입니다. 자세한 속성은 [기본 인증 사용](#use-basic-authentication) 섹션을 참조 하세요. JSON 예제는 [SSH 공개 키 인증 사용](#use-ssh-public-key-authentication) 섹션을 참조 하세요. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 자세히 알아보려면 [필수 조건](#prerequisites) 섹션을 참조 하세요. 통합 런타임이 지정 되지 않은 경우 서비스는 기본 Azure Integration Runtime를 사용 합니다. |예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 자세히 알아보려면 [필수 조건](#prerequisites) 섹션을 참조 하세요. 통합 런타임이 지정 되지 않은 경우 서비스는 기본 Azure Integration Runtime를 사용 합니다. |아니요 |
 
 ### <a name="use-basic-authentication"></a>기본 인증 사용
 
 기본 인증을 사용 하려면 *authenticationType* 속성을 *기본*으로 설정 하 고 이전 섹션에서 소개한 SFTP 커넥터 일반 속성 외에 다음 속성을 지정 합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | userName | SFTP 서버에 대 한 액세스 권한이 있는 사용자입니다. |예 |
 | password | 사용자 (사용자 이름)의 암호입니다. 이 필드를 SecureString으로 표시 하 여 데이터 팩터리에 안전 하 게 저장 하거나 [Azure key vault에 저장 된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
@@ -107,12 +107,12 @@ SFTP 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니�
 
 SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **SshPublicKey**로 설정하고, 마지막 섹션에서 소개한 SFTP 커넥터 일반 속성 외에 다음 속성을 지정합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | userName | SFTP 서버에 대 한 액세스 권한이 있는 사용자입니다. |예 |
 | privateKeyPath | 통합 런타임에서 액세스할 수 있는 개인 키 파일의 절대 경로를 지정 합니다. 이는 자체 호스팅 형식의 integration runtime이 "connectVia"에 지정 된 경우에만 적용 됩니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다.  |
 | privateKeyContent | Base64 인코딩된 SSH 프라이빗 키 콘텐츠입니다. SSH 프라이빗 키가 OpenSSH 형식이어야 합니다. 이 필드를 SecureString으로 표시 하 여 데이터 팩터리에 안전 하 게 저장 하거나 [Azure key vault에 저장 된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. |
-| passPhrase | 키 파일이 pass 구에 의해 보호 되는 경우 개인 키의 암호를 해독 하는 데 암호문 또는 암호를 지정 합니다. 이 필드를 SecureString으로 표시 하 여 데이터 팩터리에 안전 하 게 저장 하거나 [Azure key vault에 저장 된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 (개인 키 파일이 암호문에 의해 보호 되는 경우) |
+| passPhrase | 키 파일이 나 키 내용이 암호문에 의해 보호 되는 경우 개인 키의 암호를 해독 하기 위한 암호문 또는 암호를 지정 합니다. 이 필드를 SecureString으로 표시 하 여 데이터 팩터리에 안전 하 게 저장 하거나 [Azure key vault에 저장 된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 (개인 키 파일 또는 키 콘텐츠가 전달 구에 의해 보호 되는 경우) |
 
 > [!NOTE]
 > SFTP 커넥터는 RSA/DSA OpenSSH 키를 지원 합니다. 키 파일 콘텐츠가 "-----BEGIN [RSA/DSA] 개인 키-----"로 시작 하는지 확인 합니다. 개인 키 파일이 PPK 서식 파일인 경우 PuTTY 도구를 사용 하 여 PPK에서 OpenSSH 형식으로 변환 합니다. 
@@ -184,7 +184,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 형식 기반 데이터 집합의 설정에서 SFTP에 대해 지원 되는 속성은 다음과 `location` 같습니다.
 
-| 속성   | 설명                                                  | 필수 |
+| 속성   | Description                                                  | 필수 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 데이터 집합의 아래에 있는 *type* 속성은 `location` *SftpLocation*로 설정 해야 합니다. | 예      |
 | folderPath | 폴더에 대 한 경로입니다. 와일드 카드를 사용 하 여 폴더를 필터링 하려면이 설정을 건너뛰고 활동 원본 설정에서 경로를 지정 합니다. | 예       |
@@ -226,14 +226,14 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 다음은 `storeSettings` 형식 기반 복사 원본의 설정에서 SFTP에 대해 지원 되는 속성입니다.
 
-| 속성                 | 설명                                                  | 필수                                      |
+| 속성                 | Description                                                  | 필수                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | type                     | 아래의 *type* 속성은 `storeSettings` *Sftpreadsettings*로 설정 되어야 합니다. | 예                                           |
 | ***복사할 파일 찾기*** |  |  |
 | 옵션 1: 정적 경로<br> | 데이터 집합에 지정 된 폴더/파일 경로에서 복사 합니다. 폴더의 모든 파일을 복사하려면 `wildcardFileName`을 `*`로 지정합니다. |  |
 | 옵션 2: 와일드카드<br>- wildcardFolderPath | 원본 폴더를 필터링할 와일드카드 문자가 포함된 폴더 경로입니다. <br>허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 (0 개 이상의 문자 `?` 일치)입니다. `^` 실제 폴더 이름에 와일드 카드 또는 내부 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다. <br>더 많은 예제는 [폴더 및 파일 필터 예](#folder-and-file-filter-examples)를 참조 하세요. | 예                                            |
 | 옵션 2: 와일드카드<br>- wildcardFileName | 소스 파일을 필터링 하기 위해 지정 된 folderPath/wildcardFolderPath 아래의 와일드 카드 문자가 포함 된 파일 이름입니다. <br>허용 되는 와일드 카드는 `*` (0 개 이상의 문자를 포함) 및 (0 개 이상의 문자 `?` 일치)입니다. `^` 실제 폴더 이름에 와일드 카드나이 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다.  더 많은 예제는 [폴더 및 파일 필터 예](#folder-and-file-filter-examples)를 참조 하세요. | 예 |
-| 옵션 3: 파일 목록<br>- fileListPath | 지정 된 파일 집합을 복사 함을 나타냅니다. 복사할 파일 목록이 포함 된 텍스트 파일을 가리킵니다 (데이터 집합에 구성 된 경로에 대 한 상대 경로를 사용 하 여 한 줄에 하나씩 파일).<br/>이 옵션을 사용 하는 경우 데이터 집합에서 파일 이름을 지정 하지 마세요. 더 많은 예제는 [파일 목록 예](#file-list-examples)를 참조 하세요. |예 |
+| 옵션 3: 파일 목록<br>- fileListPath | 지정 된 파일 집합을 복사 함을 나타냅니다. 복사할 파일 목록이 포함 된 텍스트 파일을 가리킵니다 (데이터 집합에 구성 된 경로에 대 한 상대 경로를 사용 하 여 한 줄에 하나씩 파일).<br/>이 옵션을 사용 하는 경우 데이터 집합에서 파일 이름을 지정 하지 마세요. 더 많은 예제는 [파일 목록 예](#file-list-examples)를 참조 하세요. |아니요 |
 | ***추가 설정*** |  | |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. <br>허용되는 값은 *true*(기본값) 및 *false*입니다.<br>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. |예 |
 | deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 소스 저장소에서 이진 파일을 삭제할지 여부를 나타냅니다. 파일 삭제는 파일 단위 이므로 복사 작업에 실패 하면 일부 파일이 이미 대상에 복사 되 고 원본에서 삭제 된 것을 확인할 수 있습니다. 반면 다른 파일은 원본 저장소에 남아 있습니다. <br/>이 속성은 이진 복사 시나리오 에서만 유효 합니다. 여기에서 데이터 원본 저장소는 Blob, ADLS Gen1, ADLS Gen2, S3, Google 클라우드 저장소, 파일, Azure 파일, SFTP 또는 FTP입니다. 기본값은 false입니다. |예 |
@@ -288,7 +288,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 
 형식 기반 복사 싱크의 설정에서 SFTP에 대해 지원 되는 속성은 다음과 `storeSettings` 같습니다.
 
-| 속성                 | 설명                                                  | 필수 |
+| 속성                 | Description                                                  | 필수 |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | 아래의 *type* 속성 `storeSettings` 을 *sftpwritesettings*로 설정 해야 합니다. | 예      |
 | copyBehavior             | 원본이 파일 기반 데이터 저장소의 파일인 경우 복사 동작을 정의합니다.<br/><br/>허용된 값은<br/><b>- PreserveHierarchy(기본값)</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><b>- FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 있습니다. 대상 파일은 자동 생성된 이름을 갖습니다. <br/><b>- MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일 이름이 지정된 경우 병합되는 파일 이름은 지정된 이름입니다. 그렇지 않으면 자동 생성되는 파일 이름이 적용됩니다. | 예       |
@@ -372,7 +372,7 @@ Delete 작업 속성에 대 한 자세한 내용은 [Azure Data Factory에서 �
 
 ### <a name="legacy-dataset-model"></a>레거시 데이터 세트 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 집합의 *type* 속성은 파일 *공유*로 설정 해야 합니다. |예 |
 | folderPath | 폴더에 대 한 경로입니다. 와일드 카드 필터를 사용할 수 있습니다. 허용 되는 와일드 카드는 `*` (0 개 이상의 문자와 일치) 및 (0 개 이상의 문자 `?` 일치)입니다. `^` 실제 파일 이름에 와일드 카드 또는 내부 이스케이프 문자가 있으면를 사용 하 여를 이스케이프 합니다. <br/><br/>예: rootfolder/subfolder/(더 많은 예제는 [폴더 및 파일 필터 예제](#folder-and-file-filter-examples) 참조) |예 |
@@ -421,7 +421,7 @@ Delete 작업 속성에 대 한 자세한 내용은 [Azure Data Factory에서 �
 
 ### <a name="legacy-copy-activity-source-model"></a>레거시 복사 활동 원본 모델
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 *type* 속성은 *FileSystemSource* 로 설정 해야 합니다. |예 |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. Recursive가 *true* 로 설정 되 고 싱크가 파일 기반 저장소 인 경우 빈 폴더와 하위 폴더는 싱크에 복사 되거나 생성 되지 않습니다.<br/>허용 되는 값은 *true* (기본값) 및 *false* 입니다. | 예 |

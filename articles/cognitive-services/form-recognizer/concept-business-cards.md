@@ -10,14 +10,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 2fc87f08b30d648ec38d2b93e96a32d125b856be
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757917"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799284"
 ---
-# <a name="business-card-concepts"></a>비즈니스 카드 개념
+# <a name="business-card-concepts"></a>명함 개념
 
 Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 비즈니스 카드에서 키 값 쌍을 분석 하 고 추출할 수 있습니다. 비즈니스 카드 API는 강력한 OCR (광학 문자 인식) 기능을 비즈니스 카드 이해 모델과 결합 하 여 영어로 된 비즈니스 카드에서 핵심 정보를 추출 합니다. 개인 연락처 정보, 회사 이름, 직위 등을 추출 합니다. 미리 작성 된 비즈니스 카드 API는 인식기 v 2.1 preview에서 공개적으로 사용할 수 있습니다. 
 
@@ -61,7 +61,7 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 
 두 번째 단계는 [Get The Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult) 작업을 호출 하는 것입니다. 이 작업은 비즈니스 카드 분석 작업에서 만든 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
-|필드| Type | 가능한 값 |
+|필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다. |
 | |  | 실행 중: 분석 작업이 진행 중입니다. |
@@ -70,7 +70,7 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 
 **상태** 필드에 **성공** 값이 있는 경우 JSON 응답에는 비즈니스 카드 이해 및 텍스트 인식 결과가 포함 됩니다. 명함 이해 결과는 명명 된 필드 값의 사전으로 구성 됩니다. 여기서 각 값에는 추출 된 텍스트, 정규화 된 값, 경계 상자, 신뢰도 및 해당 단어 요소가 포함 됩니다. 텍스트 인식 결과는 텍스트, 경계 상자 및 신뢰도 정보를 사용 하 여 선과 단어의 계층 구조로 구성 됩니다.
 
-![Contoso smample 한 결과](./media/business-card-results.png)
+![샘플 비즈니스 카드 출력](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>샘플 JSON 출력
 
@@ -90,8 +90,8 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-    "lines": 
-         {
+                "lines": 
+                          {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,

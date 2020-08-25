@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 66c712eca86b01c5815638c9ea58042580791ea6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f0783d937178c88265c33c8b7339f71520506fc5
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685479"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816119"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -149,7 +149,7 @@ Azure로 마이그레이션된 VM 백업| 지원됩니다.<br/><br/> VM을 백�
 영역 고정 VM 복원 | 지원됨(2019년 1월 이후 및 [가용성 영역](https://azure.microsoft.com/global-infrastructure/availability-zones/)을 사용할 수 있는 곳에 백업된 VM의 경우)<br/><br/>현재 VM에 고정된 동일한 영역으로 복원을 지원합니다. 그러나 영역을 사용할 수 없는 경우 복원이 실패합니다.
 Gen2 VM | 지원됨 <br> Azure Backup은 [Gen2 VM](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)의 백업 및 복원을 지원합니다. 이러한 Vm은 복구 지점에서 복원 되는 경우 [Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)으로 복원 됩니다.
 잠금을 사용 하 여 Azure Vm 백업 | 관리 되지 않는 Vm의 경우 지원 되지 않습니다. <br><br> 관리 Vm에 대해 지원 됩니다.
-[스폿 VM](../virtual-machines/windows/spot-vms.md) | 지원 안 됨 Azure Backup은 일반 Azure Vm으로 지점 Vm을 복원 합니다.
+[스폿 VM](../virtual-machines/spot-vms.md) | 지원 안 됨 Azure Backup은 일반 Azure Vm으로 지점 Vm을 복원 합니다.
 
 ## <a name="vm-storage-support"></a>VM 스토리지 지원
 

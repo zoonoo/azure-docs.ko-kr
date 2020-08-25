@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 5b9752107aac1f90a67fb7c87a14492a74a124aa
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ebc3ad6957890423314bb2d8623c7b4708aed10b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604650"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815416"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
 
@@ -143,7 +143,7 @@ ms.locfileid: "88604650"
 7. 개인 정보 보호 정책
 8. Offer name
 9. 요약
-10. 설명
+10. Description
 11. 스크린샷/비디오
 
 ### <a name="name"></a>속성
@@ -209,13 +209,16 @@ PDF 형식의 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관
 
 #### <a name="store-logos"></a>스토어 로고
 
-제품 로고의 PNG 파일을 두 픽셀 크기로 제공 합니다.
-- **소형**(48 x 48)
-- **대형**(216 x 216)
+**큰** 크기의 로고에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로이를 바꿀 수 있습니다.
 
-두 가지 로고가 모두 필요하며 마켓플레이스 목록의 여러 위치에서 사용됩니다.
+- **큼** (216 x 216에서 350 x 350 px, required)
+- **작음** (48 x 48 px, 선택 사항)
+
+이러한 로고는 목록의 다른 위치에서 사용 됩니다.
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>스크린샷
 

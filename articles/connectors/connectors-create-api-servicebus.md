@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: 768186d4b1cf9ac62d4ffdb0af8fdb3df04e9b19
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: d02467fddcce77340b9845fe084bf5a2fb8b01f3
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461623"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815733"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Azure Logic Apps 및 Azure Service Bus를 사용 하 여 클라우드의 메시지 교환
 
@@ -77,6 +77,9 @@ ms.locfileid: "87461623"
    모든 Service Bus 트리거는 *긴 폴링* 트리거입니다. 이 설명에서는 트리거가 발생 하면 트리거가 모든 메시지를 처리 한 다음, 큐 또는 토픽 구독에 더 많은 메시지가 표시 될 때까지 30 초 동안 기다립니다. 30초 동안 표시되는 메시지가 없으면 트리거 실행을 건너뜁니다. 그렇지 않으면 큐 또는 토픽 구독이 빈 상태가 될 때까지 트리거는 메시지를 계속 읽습니다. 다음 트리거 폴링은 트리거의 속성에 지정된 되풀이 간격을 기준으로 합니다.
 
    **큐에 하나 이상의 메시지가 도착 하는 경우 (자동 완성)** 트리거와 같은 일부 트리거는 하나 이상의 메시지를 반환할 수 있습니다. 이러한 트리거는 발생 하면 1과 트리거의 **최대 메시지 수** 속성에 지정 된 메시지 수를 반환 합니다.
+
+    > [!NOTE]
+    > 자동 완성 트리거는 메시지를 자동으로 완성 하지만 완료는 다음 트리거 실행 시에만 수행 됩니다. 이 동작은 논리 앱의 디자인에 영향을 줄 수 있습니다. 예를 들어 1 분 마다 메시지를 확인 하도록 자동 완성 트리거를 설정 하지만 잠금 기간이 Service Bus 쪽에서 30 초로 설정 된 경우 메시지를 완료할 때 발생 하는 "잠금 만료" 오류가 발생 합니다. 잠금 기간을 폴링 간격 보다 긴 값으로 설정 해야 합니다.
 
 1. 트리거가 Service Bus 네임 스페이스에 처음으로 연결 하는 경우 논리 앱 디자이너에서 연결 정보를 묻는 메시지가 표시 되 면 다음 단계를 수행 합니다.
 

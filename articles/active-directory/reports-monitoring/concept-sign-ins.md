@@ -17,18 +17,18 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388121"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816085"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
 Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 
-- **활동** 
+- **작업** 
     - **로그인** – 관리되는 애플리케이션 및 사용자 로그인 활동의 사용량에 대한 정보입니다.
     - **감사 로그**  -  [감사 로그](concept-audit-logs.md) 는 사용자 및 그룹 관리, 관리 되는 응용 프로그램 및 디렉터리 작업에 대 한 시스템 작업 정보를 제공 합니다.
 - **보안** 
@@ -37,7 +37,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 이 문서에서는 로그인 보고서의 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 
@@ -47,11 +47,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>로그인 작업에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?
 
-- 로그인 활동 보고서는 [모든 버전의 AZURE AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data)에서 사용할 수 있습니다.
-
-- API를 사용 하 여 로그인 데이터에 액세스 하려면 테 넌 트에 연결 된 [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) 라이선스가 있어야 합니다.
-
-
+로그인 활동 보고서는 [모든 버전의 AZURE AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) 에서 사용할 수 있으며 Microsoft Graph API를 통해 액세스할 수도 있습니다.
 
 ## <a name="sign-ins-report"></a>로그인 보고서
 
@@ -128,7 +124,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 **위치** -연결이 시작 된 위치입니다.
 
-- 도시
+- City
 
 - 시/도
 
@@ -146,7 +142,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 ![클라이언트 앱 필터](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Name|최신 인증|설명|
+|Name|최신 인증|Description|
 |---|:-:|---|
 |인증 된 SMTP| |POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용 됩니다.|
 |자동 검색| |Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결 하는 데 사용 됩니다.|
@@ -233,12 +229,12 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 - 사용자 ID
 - 사용자
 - 사용자 이름
-- 애플리케이션 ID
+- 애플리케이션 UI
 - 애플리케이션
 - 클라이언트
 - 위치
 - IP 주소
-- Date
+- 날짜
 - 필요한 MFA
 - 로그인 상태
 

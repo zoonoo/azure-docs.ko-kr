@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: afcca913b8a9c8fb31fa6e18d0570aebd68b8ef3
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607457"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814725"
 ---
 # <a name="consulting-service-offers"></a>컨설팅 서비스 제품
 
@@ -72,40 +72,40 @@ AppSource의 경우 적격 역량은 다음 표와 같습니다.
 
 시스템 통합자 파트너는 다음 20 개 국가/지역에 대 한 컨설팅 서비스 제품을 제출할 수 있습니다.
 
-| 국가  | (계속 ...)   | (계속 ...)  | (계속 ...)  |
+| 국가 | (계속) |  (계속) |  (계속) |
 |---------|----------|----------|----------|
 | 오스트레일리아 | 벨기에 | Canada | 덴마크 |
 | 핀란드  | 프랑스 | 독일  | 인도   |
 | 이탈리아    | 일본  |  멕시코  |  네덜란드  |
 |  뉴질랜드  |  노르웨이  |  폴란드  | 남아프리카 |
 |  스웨덴  | 스위스  |  미국  | United Kingdom  |
-||
+|
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>상업용 Marketplace에서 컨설팅 서비스 등록
 
-먼저 Marketplace에서 회사 정보를 [등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다. 등록 요구 사항의 전체 검사 목록은 [마켓플레이스에서 게시자 되기](become-publisher.md)를 참조하세요. 
+먼저 Marketplace에서 회사 정보를 [등록](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다. 등록 요구 사항의 전체 검사 목록은 [마켓플레이스에서 게시자 되기](become-publisher.md)를 참조하세요.
 
 ## <a name="prepare-your-publishing-artifacts"></a>게시 아티팩트 준비
 등록하기 전에 목록을 통해 서비스 및 솔루션의 가치를 대상 고객에게 설명하는 데 도움이 될 만한 콘텐츠를 수집하고 준비할 수 있습니다. 
 
 |새 게시자에 대한 설정  |
-|---------|
-|MPN ID     |
-|회사 로고(48 x 48픽셀, 216 x 216픽셀)     |
-|잠재 대상 고객     |
-||
+| - |
+| MPN ID |
+| 회사 로고(48 x 48픽셀, 216 x 216픽셀) |
+| 잠재 대상 고객 |
+|
 
 |새 제품에 대한 설정  |
-|---------|
-|제품 이름(200자) 및 설명(2,000자)    |
-|역량     |
-|국가/지역 가용성     |
-|참여 기간     |
-|해당 업종, 범주 및 검색 키워드     |
-|제품 개요 비디오    |
-|스크린샷(최대 5개, 1280 x 720픽셀)     |
-|마케팅 문서(최대 3개)     |
-||
+| - |
+| 제품 이름(200자) 및 설명(2,000자) |
+| 역량  |
+| 국가/지역 가용성 |
+| 참여 기간  |
+| 해당 업종, 범주 및 검색 키워드 |
+| 제품 개요 비디오 |
+| 스크린샷(최대 5개, 1280 x 720픽셀) |
+| 마케팅 문서(최대 3개) |
+|
 
 ## <a name="the-publishing-process"></a>게시 프로세스
 

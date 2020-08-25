@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 37cbddbb54493c54a29a790d617bbdb44bf17da9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4c5f812bf1a5a60a6d1344d6a39fbd95898f55fc
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653140"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815575"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용(미리 보기)
 
@@ -19,7 +19,7 @@ Azure Cosmos DB용 Synapse Link는 클라우드 네이티브 HTAP(하이브리�
 
 
 > [!IMPORTANT]
-> Azure Synapse Link를 사용하려면 위의 지원되는 지역 중 하나에서 Azure Cosmos 계정 및 Azure Synapse Analytics 작업 영역을 프로비저닝해야 합니다. 지원되는 지역 목록은 [Azure 서비스 업데이트](https://azure.microsoft.com/updates/)를 참조하세요. 
+> Azure Synapse 링크를 사용 하려면 지원 되는 지역 중 하나에서 azure Cosmos 계정 & Azure Synapse Analytics 작업 영역을 프로 비전 해야 합니다. Azure Synapse 링크는 현재 미국 서 부, 미국 동부, 서 부 미국, 유럽 서 부, 유럽 서부, 남부 중부, 동남 아시아, 오스트레일리아 동부, 동부 U2, 영국 남부의 Azure 지역에서 사용할 수 있습니다.
 
 Azure Cosmos DB용 Synapse Link를 사용하여 분석 쿼리를 실행하려면 다음 단계를 수행합니다.
 

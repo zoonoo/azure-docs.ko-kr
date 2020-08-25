@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 98d7566d5e9339ea2ac5d81d91f1d9f8ace5b0f4
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 4c95c5eccb5ff804adeae94074136c6242678127
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719667"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816068"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>장치의 데이터가 Azure에 표시 되지 않는 이유를 해결 IoT Central
 
@@ -57,7 +57,7 @@ az set account --subscription <your-subscription-id>
 장치에서 보내는 원격 분석을 모니터링 하려면 다음 명령을 사용 합니다.
 
 ```cmd/bash
-az iot central app monitor-events -n <app-id> -d <device-name>
+az iot central app monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 장치가 IoT Central 성공적으로 연결 되 면 다음과 유사한 출력이 표시 됩니다.
@@ -82,7 +82,7 @@ Filtering on device: device-001
 장치가 IoT Central와 교환 하는 속성 업데이트를 모니터링 하려면 다음 미리 보기 명령을 사용 합니다.
 
 ```cmd/bash
-az iot central app monitor-properties -n <app-id> -d <device-name>
+az iot central app monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 장치에서 속성 업데이트를 성공적으로 보내면 다음과 유사한 출력이 표시 됩니다.
@@ -108,7 +108,7 @@ rocessorArchitecture': 'ARM', 'swVersion': '1.0.0'}
 데이터가 모니터에 표시 되지 않으면 다음 명령을 실행 하 여 장치의 프로 비전 상태를 확인 합니다.
 
 ```cmd/bash
-az iot central app device registration-info -n <app-id> -d <device-id>
+az iot central app device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
 다음 출력은 연결에서 차단 된 장치의 예를 보여 줍니다.
@@ -178,13 +178,13 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 - 원격 분석의 유효성을 검사 하려면 미리 보기 명령을 사용 합니다.
 
     ```cmd/bash
-    az iot central app validate-messages -n <app-id> -d <device-name>
+    az iot central app validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - 속성 업데이트의 유효성을 검사 하려면 미리 보기 명령을 사용 합니다.
 
     ```cmd/bash
-    az iot central app validate-properties -n <app-id> -d <device-name>
+    az iot central app validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
 - GUI를 사용 하려면 IoT Central **원시 데이터** 뷰를 사용 하 여 모델을 모델링 하 고 있지 않은지 확인 합니다. **원시 데이터** 뷰는 장치에서 형식이 잘못 된 JSON을 보내는 경우를 검색 하지 않습니다.

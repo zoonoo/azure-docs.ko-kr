@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336925"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815813"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -113,7 +113,7 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
     h. **배포 모드**에 대해 **증분**을 선택합니다.
 
     > [!WARNING]
-    > **배포 모드**에 대해 **전체**를 선택하면 Resource Manager 템플릿에 정의되지 않은 대상 리소스 그룹의 모든 리소스를 포함하여 기존 리소스가 삭제될 수 있습니다.
+    > 전체 배포 모드에서는 리소스 그룹에 있지만 새 리소스 관리자 템플릿에 지정 되지 않은 리소스는 **삭제**됩니다. 자세한 내용은 [Azure Resource Manager 배포 모드](../azure-resource-manager/templates/deployment-modes.md) 를 참조 하세요.
 
     ![Data Factory Prod 배포](media/continuous-integration-deployment/continuous-integration-image9.png)
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 8996673cf8f01334e3dcd35aab8544643bd37360
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d46354b18d5c3317cc1ed67d839feb26b7b6b5d0
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88802231"
+ms.locfileid: "88815847"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>방법: Fortanix Enclave Manager를 사용 하 여 응용 프로그램 실행 
 
@@ -46,7 +46,6 @@ Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 �
 1. [FORTANIX EM](https://fortanix.com) 에 로그인 합니다.
 1. **계정 페이지로 이동** 하 고 **계정 추가** 를 선택 하 여 새 계정을 만듭니다. 
     
-[!div class="mx-imgBorder"]
 ![계정 만들기](media/how-to-fortanix-enclave-manager/create-account.png)
 
 1. 계정을 만든 후 **선택** 하 여 새로 만든 계정을 선택 합니다. 이제 계산 노드 등록 및 응용 프로그램 만들기를 시작할 수 있습니다. 

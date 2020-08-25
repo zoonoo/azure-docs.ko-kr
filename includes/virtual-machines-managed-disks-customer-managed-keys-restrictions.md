@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f45ecf9985f17008ce7f751b21a04deefc285461
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8833639b6efacc664596ecb2aa6f9da41ad23b81
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88809820"
+ms.locfileid: "88814141"
 ---
 - 2048 비트, 3072 비트 및 4096 비트 크기의 [소프트웨어 및 HSM RSA 키](../articles/key-vault/keys/about-keys.md) 만 지원 되며 다른 키 또는 크기는 지원 되지 않습니다.
     - [HSM](../articles/key-vault/keys/hsm-protected-keys.md) 키에는 Azure 주요 자격 증명 모음의 **프리미엄** 계층이 필요 합니다.

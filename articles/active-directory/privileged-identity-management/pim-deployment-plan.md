@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/06/2020
+ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14df46a921b482b182e0f17754293af37146d1e7
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 7c6537ace2caeb2f5dc25848a04aa2e0e65b31d6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783215"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815983"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
 
@@ -30,7 +30,7 @@ ms.locfileid: "88783215"
 >
 > : heavy_check_mark: **Microsoft 권장**
 >
-> 이러한 항목은 일반 권장 사항이며, 특정 기업 요구에 적용되는 경우에만 구현하는 것이 좋습니다.
+> 이러한 권장 사항은 일반적인 권장 사항 이며 특정 엔터프라이즈 요구에 적용 되는 경우에만 구현 해야 합니다.
 
 ## <a name="learn-about-privileged-identity-management"></a>Privileged Identity Management에 대해 알아보기
 
@@ -117,9 +117,9 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 | 이름 및 이메일 | **IT 지원 관리자 / 고객 지원팀**<br/>고객 지원팀 관점에서 이 변경의 지원 가능성에 대한 입력을 제공할 수 있는 IT 지원 조직 출신 담당자입니다. | R/I |
 | 파일럿 사용자에 대한 이름 및 이메일 | **Azure 역할 사용자**<br/>권한 있는 ID 관리를 구현하는 사용자 그룹입니다. Privileged Identity Management 구현 될 때 역할을 활성화 하는 방법을 알고 있어야 합니다. | I |
 
-### <a name="enable-privileged-identity-management"></a>Privileged Identity Management 사용
+### <a name="start-using-privileged-identity-management"></a>Privileged Identity Management 사용 시작
 
-계획 프로세스의 일부로 먼저 [Privileged Identity Management 사용 시작](pim-getting-started.md) 문서에 따라 Privileged Identity Management에 동의 하 고이를 사용 하도록 설정 해야 합니다. Privileged Identity Management를 사용 하면 배포에 도움이 되도록 특별히 설계 된 일부 기능에 액세스할 수 있습니다.
+계획 프로세스의 일부로 [Privileged Identity Management 사용 시작](pim-getting-started.md) 문서에 따라 Privileged Identity Management 준비 해야 합니다. Privileged Identity Management를 사용 하면 배포에 도움이 되도록 특별히 설계 된 일부 기능에 액세스할 수 있습니다.
 
 Azure 리소스에 대 한 Privileged Identity Management를 배포 하는 것이 목표 인 경우 [Privileged Identity Management에서 관리할 azure 리소스 검색](pim-resource-roles-discover-resources.md) 문서를 따라야 합니다. 구독 및 관리 그룹 소유자만 이러한 리소스를 검색 하 고 Privileged Identity Management로 등록할 수 있습니다. 등록 후에는 관리 그룹, 구독, 리소스 그룹 및 리소스를 비롯 한 모든 수준의 소유자에 게 PIM 기능을 사용할 수 있습니다. 전역 관리자가 Azure 리소스에 대 한 Privileged Identity Management를 배포 하려는 경우 [모든 azure 구독을 관리 하기 위해 액세스 권한을 상승](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) 시켜 검색을 위해 디렉터리의 모든 azure 리소스에 대 한 액세스 권한을 부여할 수 있습니다. 그러나 Privileged Identity Management를 사용 하 여 리소스를 관리 하기 전에 각 구독 소유자 로부터 승인을 받을 것을 권장 합니다.
 
@@ -244,20 +244,20 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 | 역할 | MFA 요구 | 알림 | 인시던트 티켓 | 승인 필요 | 승인자 | 활성화 기간 | 영구 관리자 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 전역 관리자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 기타 글로벌 관리자 | 1시간 | 응급 액세스 계정 |
-| Exchange 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | None | 2시간 | None |
-| 기술 지원팀 관리자 | :x: | :x: | :heavy_check_mark: | :x: | None | 8시간 | None |
+| Exchange 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | 없음 | 2시간 | 없음 |
+| 기술 지원팀 관리자 | :x: | :x: | :heavy_check_mark: | :x: | 없음 | 8시간 | 없음 |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Azure 리소스 역할에 대 한 Privileged Identity Management 설정
 
 | 역할 | MFA 요구 | 알림 | 승인 필요 | 승인자 | 활성화 기간 | 활성 관리자 | 활성화 만료 | 자격 만료 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 중요한 구독 소유자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 구독의 기타 소유자 | 1시간 | None | 해당 없음 | 3개월 |
-| 덜 중요한 구독의 사용자 액세스 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | None | 1시간 | None | 해당 없음 | 3개월 |
-| 가상 머신 참가자 | :x: | :heavy_check_mark: | :x: | None | 3시간 | None | 해당 없음 | 6개월 |
+| 중요한 구독 소유자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 구독의 기타 소유자 | 1시간 | 없음 | 해당 없음 | 3개월 |
+| 덜 중요한 구독의 사용자 액세스 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | 없음 | 1시간 | 없음 | 해당 없음 | 3개월 |
+| 가상 머신 참가자 | :x: | :heavy_check_mark: | :x: | 없음 | 3시간 | 없음 | 해당 없음 | 6개월 |
 
 다음 테이블에서 각 설정을 설명합니다.
 
-| 설정 | 설명 |
+| Setting | Description |
 | --- | --- |
 | 역할 | 설정을 정의하는 역할의 이름입니다. |
 | MFA 요구 | 자격이 있는 사용자가 역할을 활성화하기 전에 MFA를 수행해야 하는지 여부입니다.<br/><br/> : heavy_check_mark: 특히 역할에 게스트 사용자가 있는 경우 모든 관리자 역할에 대해 MFA를 적용 하는 것 **이 좋습니다** . |

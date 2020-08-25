@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: db66137ac4b233a7e5d3040cf38dc69a089b0c9a
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185216"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816186"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>모바일 서비스 푸시 설치 문제 해결
 
@@ -41,8 +41,8 @@ Windows의 경우 (**오류 95107**) 사용자 계정에 로컬 계정이 나 �
 * 원격 사용자 액세스 제어를 사용 하지 않도록 설정 하는 레지스트리 키를 수동으로 추가 하려면:
 
   * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
-  * 새를 추가 합니다 `DWORD` .`LocalAccountTokenFilterPolicy`
-  * 값을로 설정 합니다.`1`
+  * 새를 추가 합니다 `DWORD` . `LocalAccountTokenFilterPolicy`
+  * 값을로 설정 합니다. `1`
 
 * 레지스트리 키를 추가 하려면 명령 프롬프트에서 다음 명령을 실행 합니다.
 
@@ -129,6 +129,28 @@ Linux (**오류 95108**)의 경우 모바일 서비스 에이전트를 성공적
 ## <a name="connectivity-failure-errorid-95523"></a>연결 실패 (ErrorID: 95523)
 
 이 오류는 원본 컴퓨터에 있는 네트워크를 찾을 수 없거나 삭제 되었거나 더 이상 사용할 수 없는 경우에 발생 합니다. 오류를 해결 하는 유일한 방법은 네트워크가 존재 하는지 확인 하는 것입니다.
+
+## <a name="check-access-for-network-shared-folders-on-source-machine-errorid-9510595523"></a>원본 컴퓨터의 네트워크 공유 폴더에 대 한 액세스 확인 (ErrorID: 95105, 95523)
+
+가상 컴퓨터의 네트워크 공유 폴더에 지정 된 자격 증명을 사용 하 여 프로세스 서버 (PS)에서 원격으로 액세스할 수 있는지 확인 합니다. 액세스를 확인 하려면: 
+
+1. 프로세스 서버 컴퓨터에 로그인 합니다.
+2. 파일 탐색기를 엽니다. 주소 표시줄에를 입력 `\\<SOURCE-MACHINE-IP>\C$` 하 고 Enter 키를 누릅니다.
+
+    ![PS에서 폴더 열기](./media/vmware-azure-troubleshoot-push-install/open-folder-process-server.PNG)
+
+3. 파일 탐색기에서 자격 증명을 요청합니다. 사용자 이름 및 암호를 입력 하 고 확인을 클릭 합니다. <br><br/>
+
+    ![자격 증명 제공](./media/vmware-azure-troubleshoot-push-install/provide-credentials.PNG)
+
+    >[!NOTE]
+    > 원본 컴퓨터가 도메인에 가입 되어 있는 경우 사용자 이름과 함께 도메인 이름을 지정 `<domainName>\<username>` 합니다. 원본 컴퓨터가 작업 그룹에 있는 경우 사용자 이름만 제공 합니다.
+
+4. 연결에 성공 하면 원본 컴퓨터의 폴더가 프로세스 서버에서 원격으로 표시 됩니다.
+
+    ![원본 컴퓨터의 표시 폴더](./media/vmware-azure-troubleshoot-push-install/visible-folders-from-source.png)
+
+연결에 실패한 경우 모든 필수 조건을 충족하는지 확인하세요.
 
 ## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>파일 및 프린터 공유 서비스 확인(ErrorID: 95105 및 95106)
 
@@ -260,7 +282,7 @@ Site Recovery 모바일 서비스에는 많은 구성 요소가 있으며, 이�
 
 ## <a name="low-system-resources"></a>시스템 리소스 부족
 
-이 문제는 시스템에 사용 가능한 메모리가 부족 하 여 모바일 서비스 설치에 메모리를 할당할 수 없는 경우에 발생 합니다. 설치를 계속 하 고 성공적으로 완료 하기 위해 충분 한 메모리를 확보 해야 합니다.
+이 문제에 대해 볼 수 있는 오류 Id는 95572 및 95573입니다. 이 문제는 시스템에 사용 가능한 메모리가 부족 하 여 모바일 서비스 설치에 메모리를 할당할 수 없는 경우에 발생 합니다. 설치를 계속 하 고 성공적으로 완료 하기 위해 충분 한 메모리를 확보 해야 합니다.
 
 ## <a name="vss-installation-failures"></a>VSS 설치 오류
 

@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: f62483880d2572b6487c87bbd73e0dd7033238d3
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 071d3fc972e99d61a226492350b7eee146584df6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606180"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815671"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -188,7 +188,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 5. 개인 정보 취급 방침 주소 (링크)
 6. Offer name
 7. 요약
-8. 설명
+8. Description
 9. 스크린샷/비디오
 
 <br>다음은 Azure Portal에서 제공 정보를 표시 하는 방법의 예입니다.
@@ -198,7 +198,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. 설명
+2. Description
 3. 유용한 링크
 4. 스크린샷
 
@@ -249,16 +249,17 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 #### <a name="store-logos"></a>스토어 로고
 
-제품 로고의 PNG 파일을 다음 세 가지 픽셀 크기로 제공합니다.
+**큰** 크기의 로고에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작고** **중간** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로 바꿀 수 있습니다.
 
-- **소형**(48 x 48)
-- **중형**(90 x 90)
-- **대형**(216 x 216)
-- **와이드**(255 x 115)
+- **큼** (216 x 216에서 350 x 350 px, required)
+- **중간** (90 x 90 px, 선택 사항)
+- **작음** (48 x 48 px, 선택 사항)
 
-세 가지 로고가 모두 필요하며 목록의 여러 위치에서 사용됩니다.
+이러한 로고는 목록의 다른 위치에서 사용 됩니다.
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>스크린샷
 

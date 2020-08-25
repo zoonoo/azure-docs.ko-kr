@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 3e8822462cd7989f6bc1f051b3868d6241f591b1
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166708"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816527"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 Azure 가상 머신 제품 만들기
 
@@ -249,16 +249,17 @@ Azure Marketplace 검색 결과에 표시할 제품에 대한 자세한 설명�
 
 #### <a name="azure-marketplace-logos"></a>Azure Marketplace 로고
 
-제품 로고의 PNG 파일에 다음과 같은 4가지 이미지 치수를 제공합니다.
+**큰** 크기의 로고에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작고** **중간** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로 바꿀 수 있습니다.
 
-- **작음** (48&times;48 픽셀)
-- **보통** (90&times;90 픽셀)
-- **큼** (216&times;216 픽셀)
-- **넓음** (255&times;115 픽셀)
+- **큼** (216 x 216에서 350 x 350 px, required)
+- **중간** (90 x 90 px, 선택 사항)
+- **작음** (48 x 48 px, 선택 사항)
 
-4개의 로고가 모두 필요하며, 다양한 Azure Marketplace 목록에 표시됩니다.
+이러한 로고는 목록의 다른 위치에서 사용 됩니다.
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>스크린샷
 
@@ -571,7 +572,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
-1. 속성
+1. Name
 2. Description
 3. 유용한 링크
 4. 스크린샷/비디오

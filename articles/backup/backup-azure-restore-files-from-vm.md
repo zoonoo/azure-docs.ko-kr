@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e913fa1e609eff687b5757a566583539b32b1b8e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: ca523370a887ed1178312c48a577695f5ba6da8f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757152"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763459"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -200,13 +200,13 @@ vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
 
 ###### <a name="active-volume-groups"></a>활성 볼륨 그룹
 
-스크립트의 볼륨에 해당 하는 볼륨 그룹이 활성화 되어 있는지 확인 합니다. 아래 명령은 활성 볼륨 그룹을 표시 하는 데 사용 됩니다. 스크립트의 관련 볼륨 그룹이이 목록에 있는지 확인 합니다.
+스크립트의 볼륨에 해당 하는 볼륨 그룹이 활성화 되어 있는지 확인 합니다. 다음 명령은 활성 볼륨 그룹을 표시 하는 데 사용 됩니다. 스크립트의 관련 볼륨 그룹이이 목록에 있는지 확인 합니다.
 
 ```bash
 vgdisplay -a
 ```  
 
-그렇지 않은 경우 아래 명령을 사용 하 여 볼륨 그룹을 활성화 합니다.
+그렇지 않으면 다음 명령을 사용 하 여 볼륨 그룹을 활성화 합니다.
 
 ```bash
 #!/bin/bash
@@ -215,7 +215,7 @@ vgchange –a y  <volume-group-name>
 
 ##### <a name="listing-logical-volumes-within-volume-groups"></a>볼륨 그룹 내의 논리적 볼륨 나열
 
-스크립트와 관련 된 VGs의 고유한 활성 목록을 가져오면 아래 명령을 사용 하 여 해당 볼륨 그룹에 있는 논리 볼륨을 나열할 수 있습니다.
+스크립트와 관련 된 다양 한 VGs의 활성 목록을 가져온 후에는 다음 명령을 사용 하 여 해당 볼륨 그룹에 있는 논리 볼륨을 나열할 수 있습니다.
 
 ```bash
 #!/bin/bash
