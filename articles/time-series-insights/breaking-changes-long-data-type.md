@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: dpalled
-ms.openlocfilehash: ab7a30cf6ca71e9260a9cb6e9136f2579e51812c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 8d9b166d4ac9290a0389eac23f9d6882f667e1a0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168000"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856096"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 long 데이터 형식에 대 한 지원 추가
 
@@ -33,7 +33,7 @@ Long 데이터 형식에 대 한 지원 추가는 Azure Time Series Insights Gen
 
 모든 사례가 적용 되는 경우 모델을 변경 합니다. 변수 정의에서 TSX (시계열 식)를 권장 변경 내용으로 업데이트 합니다. 모두 업데이트:
 
-- Gen2 탐색기 Azure Time Series Insights
+- Azure Time Series Insights TSI 탐색기
 - Api를 사용 하는 모든 사용자 지정 클라이언트
 
 IoT 솔루션 및 제약 조건에 따라 Azure Time Series Insights Gen2 환경으로 전송 되는 데이터를 볼 수 없습니다. 데이터가 정수 계열 전용 이거나 정수 계열 및 비정 수 모두 인지 확실 하지 않은 경우 다음과 같은 몇 가지 옵션을 사용할 수 있습니다.

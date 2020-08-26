@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 6f633a585e4fa6ebd12e8d12408847b5ee758855
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: da75e1d6208db5adf5f0f63d2a5525fc651513b0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513141"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855912"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로의 플랫폼 지원 마이그레이션에 대한 기술 정보
 
@@ -33,7 +33,7 @@ Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마�
 
 데이터 평면은 클래식 배포 모델 및 리소스 관리자 스택 간에 동일합니다. 차이점은 마이그레이션 프로세스 중에 Microsoft에서 클래식 배포 모델의 리소스 표현을 리소스 관리자 스택의 표현으로 변환한다는 것입니다. 결과적으로 새 도구, API 및 SDK를 사용하여 리소스 관리자 스택에서 리소스를 관리해야 합니다.
 
-![관리/제어 평면과 데이터 평면 간의 차이를 보여 주는 스크린샷](~/articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+![관리/제어 평면과 데이터 평면 간의 차이를 보여 주는 스크린샷](media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
 
 
 > [!NOTE]
@@ -52,7 +52,7 @@ Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마�
 
 마이그레이션 워크플로는 다음과 같습니다.
 
-![마이그레이션 워크플로를 보여 주는 스크린샷](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-workflow.png)
+![마이그레이션 워크플로를 보여 주는 스크린샷](windows/media/migration-classic-resource-manager/migration-workflow.png)
 
 > [!NOTE]
 > 다음 섹션에서 설명하는 작업은 모두 멱등원(idempotent) 작업입니다. 지원되지 않는 기능 또는 구성 오류 이외의 문제가 있는 경우 준비, 중단 또는 커밋 작업을 다시 시도합니다. Azure에서 작업을 다시 시도해 보세요.
@@ -94,17 +94,17 @@ Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마�
 준비 작업이 완료되면 클래식 배포 모델과 리소스 관리자 모두에서 리소스를 시각화하는 옵션이 제공됩니다. 클래식 배포 모델의 모든 클라우드 서비스에 대해 Azure Platform에서 `cloud-service-name>-Migrated`패턴의 리소스 그룹 이름을 만듭니다.
 
 > [!NOTE]
-> 마이그레이션된 리소스에 대해 만든 리소스 그룹의 이름 (즉 "-Migrated")은 선택할 수 없습니다. 그러나 마이그레이션이 완료되면 Azure 리소스 관리자의 이동 기능을 사용하여 원하는 리소스 그룹으로 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](~/articles/resource-group-move-resources.md)을 참조하세요.
+> 마이그레이션된 리소스에 대해 만든 리소스 그룹의 이름 (즉 "-Migrated")은 선택할 수 없습니다. 그러나 마이그레이션이 완료되면 Azure 리소스 관리자의 이동 기능을 사용하여 원하는 리소스 그룹으로 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
 다음 두 스크린샷에서는 성공적인 준비 작업 후의 결과를 보여 줍니다. 첫 번째는 원본 클라우드 서비스가 포함된 리소스 그룹을 보여 주며, 두 번째는 동일한 Azure Resource Manager 리소스가 포함된 새로운 "-Migrated" 리소스 그룹을 보여 줍니다.
 
-![원본 클라우드 서비스를 보여 주는 스크린샷](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-classic.png)
+![원본 클라우드 서비스를 보여 주는 스크린샷](windows/media/migration-classic-resource-manager/portal-classic.png)
 
-![준비 작업에서 Azure Resource Manager 리소스를 보여 주는 스크린샷](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
+![준비 작업에서 Azure Resource Manager 리소스를 보여 주는 스크린샷](windows/media/migration-classic-resource-manager/portal-arm.png)
 
 준비 단계가 완료된 후 화면 뒤에 숨어 있는 리소스의 모양은 다음과 같습니다. 데이터 평면의 리소스는 동일합니다. 관리 평면(클래식 배포 모델) 및 제어 평면(리소스 관리자)에서 모두 표시됩니다.
 
-![준비 단계 다이어그램](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+![준비 단계 다이어그램](windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
 
 > [!NOTE]
 > 클래식 배포 모델의 가상 네트워크에 없는 VM은 이 마이그레이션 단계에서 중지 또는 할당 취소됩니다.
@@ -124,7 +124,7 @@ Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마�
 ### <a name="abort"></a>중단
 변경 내용을 클래식 배포 모델로 되돌리고 마이그레이션을 중지하려는 경우의 옵션 단계입니다. 이 작업에서는 준비 단계에서 해당 리소스에 대해 만든 리소스 관리자 메타데이터를 삭제합니다. 
 
-![중단 단계 다이어그램](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+![중단 단계 다이어그램](windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
 
 
 > [!NOTE]
@@ -139,13 +139,13 @@ Azure 클래식 배포 모델에서 Azure Resource Manager 배포 모델로 마�
 >
 >
 
-![커밋 단계 다이어그램](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+![커밋 단계 다이어그램](windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
 
 ## <a name="migration-flowchart"></a>마이그레이션 순서도
 
 다음은 마이그레이션을 진행하는 방법을 보여 주는 순서도입니다.
 
-![Screenshot that shows the migration steps](~/articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>클래식 배포 모델을 리소스 관리자 리소스로 변환
 다음 표에서 클래식 배포 모델 및 리소스 관리자에서 리소스를 표현하는 방식을 확인할 수 있습니다. 다른 기능 및 리소스는 현재 지원되지 않습니다.

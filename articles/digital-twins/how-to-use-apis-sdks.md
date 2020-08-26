@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 885394b2dd50b9f8a94ece409c47609c8f7f18fd
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 39c33efb4896893c8baa18d06f62defc26c64949
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587566"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855887"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Azure Digital Twins API 및 SDK 사용
 
@@ -143,7 +143,7 @@ await foreach (string twin in result)
 
 #### <a name="serialization-helpers"></a>Serialization 도우미
 
-앞에서 설명한 대로 핵심 SDK 메서드는 쌍으로 된 데이터를 JSON으로 반환 합니다. 그러나 SDK에는 serialization에 대 한 도우미 클래스도 포함 되어 있습니다. 이러한 도우미 함수를 사용 하면 기본 정보에 액세스 하기 위해 쌍 데이터를 신속 하 게 만들거나 deserialize 할 수 있습니다.
+Serialization 도우미는 기본 정보에 대 한 액세스를 위해 쌍 데이터를 신속 하 게 만들거나 deserialize 하기 위해 SDK 내에서 사용할 수 있는 도우미 함수입니다. 핵심 SDK 메서드는 기본적으로 쌍으로 된 데이터를 JSON으로 반환 하므로 이러한 도우미 클래스를 사용 하 여 쌍 데이터를 더 아래로 분할 하는 것이 유용할 수 있습니다.
 
 사용 가능한 도우미 클래스는 다음과 같습니다.
 * `BasicDigitalTwin`: 디지털 쌍의 핵심 데이터를 나타냅니다.
@@ -230,7 +230,7 @@ foreach (string prop in rel.CustomProperties.Keys)
 
 ##### <a name="create-a-relationship"></a>관계 만들기
 
-클래스를 사용 하 여 쌍으로 `BasicDigitalTwin` 된 쌍 인스턴스에서 관계를 만들기 위해 데이터를 준비할 수도 있습니다.
+클래스를 사용 하 여 쌍으로 `BasicRelationship` 된 쌍 인스턴스에서 관계를 만들기 위해 데이터를 준비할 수도 있습니다.
 
 ```csharp
 BasicRelationship rel = new BasicRelationship();

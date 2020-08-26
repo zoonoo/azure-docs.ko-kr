@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 08/25/2020
 ms.author: allensu
-ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 3180fa34b85c3ec5f7cb1d2d9da8c2e1b528bd69
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135813"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855801"
 ---
 # <a name="what-is-virtual-network-nat"></a>Virtual Network NAT란?
 
@@ -123,31 +123,17 @@ Azure Monitor에 공개되는 다차원 메트릭을 통해 NAT 작업을 모니
 
 일반 공급에서 NAT 데이터 경로의 가용성은 99.9% 이상입니다.
 
-
 ## <a name="pricing"></a>가격 책정
 
-NAT 게이트웨이는 다음과 같은 별도의 두 가지 미터를 통해 청구됩니다.
-
-| 미터 | 비용 |
-| --- | --- |
-| 리소스 시간 | $0.045/시간 |
-| 처리된 데이터 | $0.045/GB |
-
-리소스 시간은 NAT 게이트웨이 리소스의 존재 기간을 나타냅니다.
-처리된 데이터는 NAT 게이트웨이 리소스에서 처리하는 모든 트래픽을 나타냅니다.
+가격 책정에 대 한 자세한 내용은 [Virtual Network 가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)을 참조 하세요.
 
 ## <a name="availability"></a>가용성
 
-Virtual Network NAT와 NAT 게이트웨이 리소스는 모든 Azure 퍼블릭 클라우드 [지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 사용할 수 있습니다.
-
-## <a name="support"></a>지원
-
-NAT는 일반적인 지원 채널을 통해 지원됩니다.
+Virtual Network NAT와 NAT 게이트웨이 리소스는 모든 Azure 클라우드 [지역의](https://azure.microsoft.com/global-infrastructure/regions/)모든 지역에서 사용할 수 있습니다.
 
 ## <a name="suggestions"></a>제안
 
 서비스를 향상시킬 수 있는 방법을 찾고 있습니다. [UserVoice for NAT](https://aka.ms/natuservoice)에서 다음에 빌드해야 하는 항목을 제안하고 이에 대해 투표할 수 있습니다.
-
 
 ## <a name="limitations"></a>제한 사항
 

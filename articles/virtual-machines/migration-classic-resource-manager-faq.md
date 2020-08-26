@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 3d8c5d408ef2b958ca7d3454f23ce2c52fb1d1be
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0f9a8a1c4631fc667d0dd31ae62f7d57aefccc90
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513149"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855848"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
 
@@ -22,7 +22,7 @@ ms.locfileid: "88513149"
 
 ## <a name="what-is-azure-service-manager-and-what-does-it-mean-by-classic"></a>Azure Service Manager 란 무엇 이며 클래식에서 의미 하는 것은 무엇 인가요?
 
-IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manager)에서 관리 하는 Vm을 나타냅니다. ASM (azure Service Manager)은 Vm 만들기, 관리, 삭제 및 기타 제어 평면 작업 수행을 담당 하는 azure의 이전 제어 평면입니다. 
+IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manager)에서 관리 하는 Vm을 나타냅니다. ASM (azure Service Manager)은 Vm 만들기, 관리, 삭제 및 기타 제어 평면 작업 수행을 담당 하는 Azure의 이전 제어 평면입니다. 
 
 ## <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
@@ -70,7 +70,7 @@ IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manage
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Resource Manager에서 IaaS를 활용해야 할 경우 다른 Express 경로 회로를 구매해야 하나요? 
 
-아니요. 최근에 [클래식에서 Resource Manager 배포 모델로의 ExpressRoute 회로 이동](~/articles/expressroute/expressroute-move.md)을 사용하도록 설정했습니다. 이미 ExpressRoute 회로가 있는 경우 새로 구입하지 않아도 됩니다.
+아니요. 최근에 [클래식에서 Resource Manager 배포 모델로의 ExpressRoute 회로 이동](../expressroute/expressroute-move.md)을 사용하도록 설정했습니다. 이미 ExpressRoute 회로가 있는 경우 새로 구입하지 않아도 됩니다.
 
 ## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>클래식 IaaS 리소스에 대해 역할 기반 Access Control 정책을 구성한 경우 어떻게 되나요? 
 
@@ -93,7 +93,7 @@ IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manage
 1. VM에서 백업/스냅샷 확장을 삭제합니다.
 2. 클래식 모드에서 Resource Manager 모드로 가상 머신을 마이그레이션합니다. 가상 머신에 해당하는 스토리지 및 네트워크 정보가 Resource Manager 모드로 마이그레이션되도록 합니다.
 
-또한 마이그레이션된 VM을 백업하려는 경우 가상 머신 관리 블레이드로 이동하여 [백업을 사용하도록 설정](~/articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm)합니다.
+또한 마이그레이션된 VM을 백업하려는 경우 가상 머신 관리 블레이드로 이동하여 [백업을 사용하도록 설정](../backup/quick-backup-vm-portal.md#enable-backup-on-a-vm)합니다.
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>내 구독 또는 리소스에서 마이그레이션이 가능한지 확인할 수 있나요? 
 
@@ -113,7 +113,7 @@ IaaS VM (클래식)의 "클래식" 이라는 단어는 ASM (Azure Service Manage
 
 ## <a name="can-i-migrate-expressroute-circuits-used-across-subscriptions-with-authorization-links"></a>권한 부여 링크를 통해 구독에서 사용되는 ExpressRoute 회로를 마이그레이션할 수 있습니까? 
 
-구독 간 권한 부여 링크를 사용하는 ExpressRoute 회로는 가동 중지 시간 없이 자동으로 마이그레이션할 수 없습니다. 여기에서는 수동 단계를 사용하여 마이그레이션하는 방법을 소개합니다. 해당 단계와 자세한 내용은 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 및 연결된 가상 네트워크 마이그레이션](~/articles/expressroute/expressroute-migration-classic-resource-manager.md)을 참조하세요.
+구독 간 권한 부여 링크를 사용하는 ExpressRoute 회로는 가동 중지 시간 없이 자동으로 마이그레이션할 수 없습니다. 여기에서는 수동 단계를 사용하여 마이그레이션하는 방법을 소개합니다. 해당 단계와 자세한 내용은 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 및 연결된 가상 네트워크 마이그레이션](../expressroute/expressroute-migration-classic-resource-manager.md)을 참조하세요.
 
 ## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>*"VM은 전반적인 에이전트 상태를 준비되지 않음으로 보고합니다. 따라서 VM은 마이그레이션할 수 없습니다. VM 에이전트가 전반적인 에이전트 상태를 준비된 상태"* 로 보고하고 있는지 또는 *"VM에서 보고되지 않은 상태의 확장이 VM에 포함되어 있는지 확인합니다. 따라서 이 VM은 마이그레이션할 수 없습니다."* 라는 메시지를 받았습니다.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6344cb5f1a4bd52395378f97ba2848eeec336572
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c1550b941c6d0f58feba7d505c7206993e14226b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817020"
+ms.locfileid: "88856062"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 SaaS 제품 만들기
 
@@ -134,7 +134,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. Description
+9. 설명
 10. 스크린샷/비디오
 11. 문서
 
@@ -145,7 +145,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 제목
-2. Description
+2. 설명
 3. 유용한 링크
 4. 스크린샷
 
@@ -234,7 +234,7 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 
 #### <a name="terms-and-conditions"></a>사용 약관
 
-사용자 지정 사용 약관을 제공하려는 경우 사용 약관 필드에 입력할 수 있습니다. 이 필드에는 최대 1만 자의 텍스트를 입력할 수 있습니다. 사용 약관에 더 긴 설명이 필요한 경우 이 필드에 사용 약관을 찾을 수 있는 단일 URL 링크를 입력합니다. 이는 고객에게 활성 링크로 표시됩니다.
+사용자 지정 사용 약관을 제공하려는 경우 사용 약관 필드에 입력할 수 있습니다. 이 필드에는 최대 1만 자의 텍스트를 입력할 수 있습니다. 사용 약관에 더 긴 설명이 필요한 경우 이 필드에 사용 약관을 찾을 수 있는 단일 URL 링크를 입력합니다.
 
 고객은 이러한 사용 약관에 동의해야 제품을 사용할 수 있습니다.
 
