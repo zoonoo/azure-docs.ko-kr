@@ -3,12 +3,12 @@ title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: b7f7c6461701b6f4e438cbead60456b327c7c207
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4f41eee7a84308eb9f4da56f087b2c36e09148f0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871550"
+ms.locfileid: "88890895"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
@@ -99,7 +99,7 @@ Azure Resource Manager 클라이언트를 사용 하 여 자격 증명 모음을
 
 ### <a name="optional-dns-zone"></a>선택적 DNS 영역
 
-고객은 서비스 통신을 위해 개인 끝점을 개인 DNS Azure Backup 영역과 통합 하도록 선택할 수 있습니다 (개인 끝점 만들기에 대 한 섹션에서 설명). 를 개인 DNS 영역과 통합 하지 않으려는 경우 자체 DNS 서버를 사용 하거나 개별적으로 개인 DNS 영역을 만들 수 있습니다. 이는 이전 섹션에서 설명한 두 가지 필수 개인 DNS 영역에 추가 된 것입니다.
+서비스 통신을 위해 개인 끝점을 전용 DNS Azure Backup 영역과 통합 하도록 선택할 수 있습니다 ( [백업에 대 한 개인 끝점 만들기 및 사용](#creating-and-using-private-endpoints-for-backup)섹션에서 설명). 를 개인 DNS 영역과 통합 하지 않으려는 경우 자체 DNS 서버를 사용 하거나 개별적으로 개인 DNS 영역을 만들 수 있습니다. 이는 이전 섹션에서 설명한 두 가지 필수 개인 DNS 영역에 추가 된 것입니다.
 
 Azure에서 별도의 개인 DNS 영역을 만들려는 경우에는 필수 DNS 영역을 만드는 데 사용 된 것과 동일한 단계를 사용 하 여 동일한 작업을 수행할 수 있습니다. 이름 지정 및 구독 세부 정보는 아래와 같습니다.
 

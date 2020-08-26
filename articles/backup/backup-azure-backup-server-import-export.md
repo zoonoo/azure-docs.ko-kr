@@ -3,12 +3,12 @@ title: DPM 및 Azure Backup Server를 위한 오프라인 백업
 description: Azure Backup를 사용 하면 Azure Import/Export 서비스를 사용 하 여 네트워크에서 데이터를 보낼 수 있습니다. 이 문서에서는 DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로를 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 30c8526271a636b8890dde0079e27374df9c38af
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 221424871aa4f022e199c98e95024ec20e55d803
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757271"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890079"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로 (MABS)
 

@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e6aec34bea32d33e7a202cb9afb1aae6e1047f18
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b6f4c74f6e2e8c463d1bcbd78d6ff79d3fb6ee56
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825463"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889811"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Azure 파일 공유를 백업 하는 동안 발생 하는 문제 해결
 
@@ -300,7 +300,7 @@ Azure Files 포털에서 요청 시 백업(Azure 파일 공유 스냅샷)을 삭
 백업 된 파일 공유가 삭제 되었는지 확인 합니다. 일시 삭제 된 상태 였던 경우 일시 삭제 보존 기간이 초과 되었고 복구 되지 않았는지 확인 합니다. 이러한 경우 모든 스냅숏이 영구적으로 손실 되며 데이터를 복구할 수 없습니다.
 
 >[!NOTE]
-> 백업 된 파일 공유를 삭제 하지 않거나, 일시 삭제 된 상태 이면 일시 삭제 보존 기간이 끝나기 전에 삭제 취소를 수행 하 여 모든 복원 지점이 손실 되지 않도록 하는 것이 좋습니다.
+> 백업 된 파일 공유를 삭제 하지 않거나 일시 삭제 된 상태에 있는 경우에는 모든 복원 지점이 손실 되지 않도록 일시 삭제 보존 기간이 끝나기 전에 삭제 취소를 수행 하는 것이 좋습니다.
 
 ### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>Azure 파일 공유가 일시 삭제 된 상태 이므로 Usererrorbackupafsin소프트 Deletestate-백업 실패
 

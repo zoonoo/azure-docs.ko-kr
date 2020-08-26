@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7d270ac9a6597645c5a98b6af77d19021ef00329
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 581feff516e0f0cd820c94290d4aaa729cc4d3a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827429"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889943"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
 
@@ -24,9 +24,9 @@ ms.locfileid: "88827429"
 
 이 문서의 정보는 [Azure 방화벽](../firewall/tutorial-firewall-deploy-portal.md)사용을 기반으로 하지만 다른 방화벽 제품과 함께 사용할 수 있습니다. 방화벽을 통한 통신을 허용 하는 방법에 대 한 질문이 있는 경우 사용 중인 방화벽에 대 한 설명서를 참조 하세요.
 
-## <a name="network-rules"></a>네트워크 규칙
+## <a name="application-rules"></a>애플리케이션 규칙
 
-방화벽에서이 문서의 주소로 들어오고 나가는 트래픽을 허용 하는 네트워크 규칙을 만듭니다.
+방화벽에서이 문서의 주소로 들어오고 나가는 트래픽을 허용 하는 _응용 프로그램 규칙_ 을 만듭니다.
 
 > [!TIP]
 > 네트워크 규칙을 추가 하는 경우 __프로토콜__ 을 any로 설정 하 고 포트를로 설정 `*` 합니다.

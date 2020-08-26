@@ -3,12 +3,12 @@ title: 작업을 백업 하도록 DPM 서버 준비
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure에 대 한 System Center Data Protection Manager (DPM) 백업을 준비 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 86becc2b989c55ac080b9bdcbfcca182987e9fb2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 96eadb4d600b6aa842cdbded2a906d70f27cf55e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827310"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890810"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
 
@@ -90,7 +90,7 @@ Vault에서 DPM 서버를 등록하는 경우 자격 증명 모음의 자격 증
 - 자격 증명 모음의 자격 증명은 등록 워크플로 중에만 사용됩니다.
 - 자격 증명 모음의 자격 증명 파일이 안전하고 손상되지 않도록 하는 것은 사용자의 책임입니다.
   - 자격 증명을 제어할 수 없으면 보관 자격 증명을 사용하여 다른 머신을 자격 증명 모음에 등록할 수 있습니다.
-  - 그러나 백업 데이터는 고객이 소유한 암호를 사용하여 암호화되므로 기존 백업 데이터는 손상되지 않습니다.
+  - 그러나 백업 데이터는 사용자에 게 속한 암호를 사용 하 여 암호화 되므로 기존 백업 데이터를 손상 시킬 수 없습니다.
 - 파일이 DPM 서버에서 액세스할 수 있는 위치에 저장 되어 있는지 확인 합니다. 파일 공유/s s s에 저장 된 경우 액세스 권한이 있는지 확인 합니다.
 - 자격 증명 모음 자격 증명은 48시간이 지나면 만료됩니다. 필요에 따라 새로운 자격 증명 모음의 자격 증명을 여러 번 다운로드할 수 있습니다. 그러나 등록 워크플로 중에 최신 보관 자격 증명 파일만 사용할 수 있습니다.
 - Azure Backup 서비스는 인증서의 프라이빗 키를 인식하지 않으며 프라이빗 키는 포털 또는 서비스에서 사용할 수 없습니다.

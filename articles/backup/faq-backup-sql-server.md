@@ -4,12 +4,12 @@ description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 577f6637ebe96dcabcb1357ca09da75bd9552c30
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d69a2aff900dc3185aafbcb2d655a29d2fff06e3
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827242"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890558"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -68,7 +68,7 @@ Azure Backup Recovery Services 자격 증명 모음은 자격 증명 모음과 �
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>성공한 백업 작업에 경고가 만들어지나요?
 
-아니요. 성공한 백업 작업에서는 경고가 생성되지 않습니다. 경고는 실패한 백업 작업에 대해서만 전송됩니다. 포털 경고의 상세한 동작은 [여기](backup-azure-monitoring-built-in-monitor.md)에서 확인하세요. 그러나 성공한 작업에 대해서도 경고가 표시 되는 경우 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 사용할 수 있습니다.
+아니요. 성공한 백업 작업에서는 경고가 생성되지 않습니다. 경고는 실패한 백업 작업에 대해서만 전송됩니다. 포털 경고의 상세한 동작은 [여기](backup-azure-monitoring-built-in-monitor.md)에서 확인하세요. 그러나 성공한 작업에 대 한 경고를 포함 하는 경우에는 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 사용할 수 있습니다.
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>백업 작업 메뉴에서 예약된 백업 작업을 볼 수 있나요?
 
@@ -94,7 +94,7 @@ Autoprotected 인스턴스에서 데이터베이스를 삭제 하면 데이터�
 
 이름이 변경된 데이터베이스는 새 데이터베이스로 처리됩니다. 따라서 서비스는 데이터베이스를 찾을 수 없고가 백업에 실패 한 것 처럼이 상황을 처리 합니다.
 
-이제 데이터베이스를 선택 하 여 해당 데이터베이스에 대 한 보호를 구성할 수 있습니다. 인스턴스에서 자동 보호를 사용 하도록 설정 하는 경우 이름이 바뀐 데이터베이스가 자동으로 검색 되 고 보호 됩니다.
+이제 데이터베이스를 선택 하 여 해당 데이터베이스에 대 한 보호를 구성할 수 있습니다. 인스턴스에서 자동 보호를 사용 하도록 설정 하면 이름이 바뀐 데이터베이스가 자동으로 검색 되 고 보호 됩니다.
 
 ## <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Autoprotected 인스턴스에 대해 추가 된 데이터베이스가 표시 되지 않는 이유는 무엇 인가요?
 

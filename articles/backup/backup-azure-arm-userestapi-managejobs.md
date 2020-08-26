@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure Backup 백업 
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: b9f69b8815cc8d508d5a10dda82803581216a4eb
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: ced0e0020fe955734bf6cc767480fbadd6eaffc1
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761630"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890283"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>REST API를 사용하여 백업 및 복원 작업 추적
 
@@ -41,11 +41,11 @@ Azure VM 백업 작업은 “jobId” 필드로 식별되며 [여기](/rest/api/
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-`{jobName}`은 위에 언급된 “jobId”입니다. 응답은 항상 작업의 현재 상태를 나타내는 “상태” 필드가 포함된 200 OK입니다. “Completed” 또는 “CompletedWithWarnings”인 경우 ‘extendedInfo’ 섹션에 해당 작업에 관한 자세한 내용이 표시됩니다.
+`{jobName}`은 위에 언급된 “jobId”입니다. 응답은 항상 작업의 현재 상태를 나타내는 “상태” 필드가 포함된 200 OK입니다. "Completed" 또는 "CompletedWithWarnings" 이면 ' extendedInfo ' 섹션에서 작업에 대 한 자세한 정보를 표시 합니다.
 
 ### <a name="response"></a>응답
 
-|Name  |Type  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |200 정상     | [JobResource](/rest/api/backup/jobdetails/get#jobresource)        | 정상        |
 

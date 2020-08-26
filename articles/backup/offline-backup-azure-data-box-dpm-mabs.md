@@ -3,12 +3,12 @@ title: DPM 및 MABS에 대 한 Azure Data Box를 사용 하 여 오프 라인 �
 description: Azure Data Box를 사용 하 여 DPM 및 MABS에서 초기 백업 데이터를 오프 라인으로 초기값으로 지정할 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 974be6d337c3376d10e09ba6211f7804c2c8cada
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 33515cdd943f3816328bfd77d831288c5ee0a608
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824562"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890028"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>DPM 및 MABS (미리 보기)에 대 한 Azure Data Box를 사용 하 여 오프 라인 시드
 
@@ -149,7 +149,7 @@ DPM/MABS 서버는 시스템 컨텍스트에서 작동 하므로 Azure Data Box 
           - Azure.Storage       *4.6.1*<br>
      >  - Azure AD 애플리케이션은 *AzureOfflineBackup_\<object GUID of the user>* 으로 등록됩니다.
 
-13. Data Box 디스크의 포장을 풀고 디스크를 연결 및 잠금 해제한 올바른 Data Box 주문을 선택합니다. **새로 만들기**를 선택합니다.
+13. Data Box 디스크의 포장을 풀고 디스크를 연결 및 잠금 해제한 올바른 Data Box 주문을 선택합니다. **다음**을 선택합니다.
 
     ![DataBox 선택](./media/offline-backup-azure-data-box-dpm-mabs/select-databox.png)
 
@@ -165,7 +165,7 @@ DPM/MABS 서버는 시스템 컨텍스트에서 작동 하므로 Azure Data Box 
     > 예를 들어 디스크 경로가이 `\\mydomain\myserver\disk1\` 고 *Disk1* 에 *pageblob*이라는 디렉터리가 포함 되어 있으면 DPM/mabs 서버 마법사에서 제공 하는 경로는 `\\mydomain\myserver\disk1\` 입니다.
     > [Azure Data Box 100TB 디바이스를 설정](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box#setup-azure-data-box)하는 경우 `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` 디바이스에 대한 네트워크 경로로 다음을 입력합니다.
 
-15. **새로 만들기**를 선택합니다. **요약** 페이지에서 설정을 검토 하 고 **그룹 만들기**를 선택 합니다.
+15. **다음**을 선택합니다. **요약** 페이지에서 설정을 검토 하 고 **그룹 만들기**를 선택 합니다.
 
     ![DataBox 검색](./media/offline-backup-azure-data-box-dpm-mabs/detect-databox.png)
 

@@ -3,12 +3,12 @@ title: MARS (Microsoft Azure Recovery Services) 에이전트 업그레이드
 description: MARS (Microsoft Azure Recovery Services) 에이전트를 업그레이드 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 1f4fd5074b0c6195742935e0cf0e742a00a3549e
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 79abc877f102d83cdb3c72a571f2203984eb54e4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827327"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890222"
 ---
 # <a name="upgrade-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 업그레이드
 
@@ -31,7 +31,7 @@ Azure Backup 에이전트 및 Azure Backup server를 설치 하려면 다음을 
 
     ![MARS 에이전트가 설치 된 서버 목록](./media/upgrade-mars-agent/protected-servers.png)
 
-1. MARS 에이전트 설치에 대 한 **에이전트 버전** 열을 클릭 하거나 Azure Backup server 설치의 **Azure Backup 에이전트 버전** 열을 클릭 하 여 Azure Backup 에이전트 버전 열을 정렬 합니다.
+1. MARS 에이전트 설치에 대 한 **에이전트 버전** 열을 선택 하거나 Azure Backup server 설치의 **Azure Backup 에이전트 버전** 열을 선택 하 여 Azure Backup 에이전트 버전 열을 정렬 합니다.
 
 1. 이전 단계에서는 2.0.9083.0이 아닌 버전의 Azure Backup 에이전트가 있는 서버 목록과 공백으로 나열 된 에이전트 버전을 제공 합니다. Azure Backup 에이전트를 업데이트 해야 하는 서버입니다.
 
@@ -39,13 +39,13 @@ Azure Backup 에이전트 및 Azure Backup server를 설치 하려면 다음을 
 
 Azure Backup 에이전트 업데이트가 필요한 서버를 확인 한 후에는 식별 된 각 서버 (Azure Backup server 또는 MARS 에이전트 사용)에 대해 다음 단계를 수행 합니다. 다음 단계를 수행 하기 전에 [최신 버전의 Azure backup 에이전트를 다운로드](https://aka.ms/azurebackup_agent) 합니다.
 
-1. Azure Backup 에이전트가 2.0.9083.0 보다 낮거나 비어 있는 행을 클릭 합니다. 그러면 서버 세부 정보 화면이 열립니다.
+1. Azure Backup 에이전트가 2.0.9083.0 보다 낮거나 비어 있는 행을 선택 하십시오. 그러면 서버 세부 정보 화면이 열립니다.
 
     ![최신 에이전트 버전이 포함 된 보호 된 서버](./media/upgrade-mars-agent/old-agent-version.png)
 
     ![최신 에이전트 버전이 포함 된 Azure backup 서버](./media/upgrade-mars-agent/backup-management-servers-old-versions.png)
 
-1. **연결** 을 클릭 하 여 서버에 연결 하거나 서버에서 원격 데스크톱 연결을 통해 서버에 직접 연결 하는 원격 데스크톱 연결 파일을 수신 합니다.
+1. **연결** 을 선택 하 여 서버에 연결 하거나 서버에서 원격 데스크톱 연결을 통해 서버에 직접 연결 하는 원격 데스크톱 연결 파일을 수신 합니다.
 
     ![원격 데스크톱 연결을 통해 서버에 연결](./media/upgrade-mars-agent/connect-to-server.png)
 
@@ -57,7 +57,7 @@ Azure Backup 에이전트 업데이트가 필요한 서버를 확인 한 후에�
 1. 서버 또는 서버 프록시의 인터넷 액세스가 제한 된 경우 서버/프록시의 방화벽 설정이 사용 중인 Azure 클라우드에 해당 하는 URL을 허용 하도록 구성 되어 있는지 확인 합니다.
 
     Azure 클라우드 | URL
-    -- | ---
+    --- | ---
     Azure 클라우드 (공용) |   `https://login.windows.net`
     Azure 중국 21Vianet 클라우드   | `https://login.chinacloudapi.cn`
     Azure US Government 클라우드 |   `https://login.microsoftonline.us`
@@ -71,9 +71,9 @@ Azure Backup 에이전트 업데이트가 필요한 서버를 확인 한 후에�
 
     ![Microsoft Azure Recovery Services 에이전트 업그레이드 마법사](./media/upgrade-mars-agent/agent-upgrade-wizard.png)
 
-1. **다음**을 클릭합니다.
+1. **다음**을 선택합니다.
 
-1. **업그레이드**를 클릭합니다.
+1. **업그레이드**를 선택 합니다.
 
     ![Microsoft Azure Recovery Services 에이전트 설치](./media/upgrade-mars-agent/upgrade-installation.png)
 
@@ -85,7 +85,7 @@ SC DPM (System Center Data Protection Manager) 서버에 Azure backup 에이전�
 
 1. SC DPM 서버에 관리자로 로그인 합니다.
 2. DPM 콘솔을 엽니다.
-3. 콘솔의 왼쪽 아래 탐색에서 **관리** 를 클릭 합니다.
+3. 콘솔의 왼쪽 아래 탐색에서 **관리** 를 선택 합니다.
 4. 왼쪽 탐색에 표시 되는 정보에서 Azure Backup 에이전트 버전 정보를 확인 합니다.
 5. 버전이 2.0.9083.0 보다 낮은 경우 최신 Azure backup 에이전트 설치 관리자를 다운로드 하 고 DPM 서버에서 설치 관리자를 실행 하 여 Azure Backup 에이전트를 업데이트 합니다.
 
