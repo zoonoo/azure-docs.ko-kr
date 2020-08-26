@@ -14,8 +14,10 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: 퍼블릭 부하 분산 장치 만들기 - ARM 템플릿
       href: quickstart-load-balancer-standard-public-template.md
-    - name: 퍼블릭 부하 분산 장치 만들기 - 포털
+    - name: 내부 부하 분산 장치 만들기 - 포털
       href: quickstart-load-balancer-standard-internal-portal.md
+    - name: 내부 부하 분산 장치 만들기 - Azure CLI
+      href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
 - name: 자습서
   items:

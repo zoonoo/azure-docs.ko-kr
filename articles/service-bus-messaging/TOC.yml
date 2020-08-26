@@ -117,6 +117,8 @@
           href: network-security.md
 - name: 방법 가이드
   items:
+    - name: 지역 간 이동
+      href: move-across-regions.md
     - name: Azure Service Manager(클래식) API에서 Resource Manager API로 마이그레이션
       href: deprecate-service-bus-management.md
     - name: 네임스페이스 만들기

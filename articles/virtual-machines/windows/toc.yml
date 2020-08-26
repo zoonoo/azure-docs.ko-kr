@@ -148,7 +148,7 @@
   items:
     - name: 이미지
       href: shared-image-galleries.md
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
         - name: 리소스 관리자 템플릿
@@ -282,7 +282,7 @@
               href: ../reserved-vm-instance-size-flexibility.md
         - name: 스폿 VM
           displayName: 'pre-empt, preempt'
-          href: spot-vms.md
+          href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 임시 디스크가 없는 Azure VM
           href: ../azure-vms-no-temp-disk.md
         - name: Azure VM 크기 명명 규칙
@@ -879,15 +879,15 @@
             - name: 호스트에서 암호화 사용 - PowerShell
               href: disks-enable-host-based-encryption-powershell.md
             - name: 호스트에서 암호화 사용 - 포털
-              href: disks-enable-host-based-encryption-portal.md
+              href: ../disks-enable-host-based-encryption-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: 고객 관리형 키 사용 - PowerShell
               href: disks-enable-customer-managed-keys-powershell.md
             - name: 고객 관리형 키 사용 - 포털
-              href: disks-enable-customer-managed-keys-portal.md
+              href: ../disks-enable-customer-managed-keys-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: 미사용 이중 암호화 사용
               href: disks-enable-double-encryption-at-rest-powershell.md
             - name: 미사용 이중 암호화 사용 - 포털
-              href: disks-enable-double-encryption-at-rest-portal.md
+              href: ../disks-enable-double-encryption-at-rest-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 마이그레이션 및 변환
           items:
             - name: 디스크를 표준 또는 프리미엄으로 변환
@@ -911,7 +911,7 @@
         - name: 연결되지 않은 디스크 찾기 - 포털
           href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: 디스크 FAQ
-          href: faq-for-disks.md
+          href: ../faq-for-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 네트워킹 관리
       href: ps-common-network-ref.md
       items:

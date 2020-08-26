@@ -195,7 +195,7 @@
     - name: 개요
       href: ../managed-disks-overview.md
     - name: FAQ
-      href: ../windows/faq-for-disks.md
+      href: ../faq-for-disks.md
     - name: 스토리지 리소스 삭제 시 오류
       href: storage-resource-deletion-errors.md
     - name: 클래식 스토리지 리소스 삭제 시 오류

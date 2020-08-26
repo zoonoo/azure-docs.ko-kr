@@ -510,6 +510,8 @@
           href: unique-keys.md
         - name: 트랜잭션 및 낙관적 동시성 제어
           href: database-transactions-optimistic-concurrency.md
+        - name: Attachments
+          href: attachments.md
     - name: 변경 피드
       items:
         - name: 변경 피드 개요
