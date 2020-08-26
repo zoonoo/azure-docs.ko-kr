@@ -155,7 +155,7 @@
           href: search-howto-large-index.md
         - name: 동시 업데이트 처리
           href: search-howto-concurrency.md
-    - name: Azure 데이터 수집
+    - name: Azure 전용 데이터 수집
       items:
         - name: 인덱서 구성
           href: search-indexer-overview.md
@@ -203,7 +203,7 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
-    - name: AI를 사용하여 수집
+    - name: 기술(AI) 사용
       items:
         - name: Cognitive Services 리소스 연결
           href: cognitive-search-attach-cognitive-services.md
@@ -215,7 +215,7 @@
               href: cognitive-search-concept-annotations-syntax.md
             - name: 인덱스 필드에 매핑
               href: cognitive-search-output-field-mapping.md
-            - name: 이미지에서 정보 추출
+            - name: 이미지 파일 처리
               href: cognitive-search-concept-image-scenarios.md
             - name: 캐시(증분) 보강
               href: search-howto-incremental-index.md

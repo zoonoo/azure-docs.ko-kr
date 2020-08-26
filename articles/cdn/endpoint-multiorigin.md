@@ -8,12 +8,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 8/20/2020
 ms.author: allensu
-ms.openlocfilehash: ed6c60b4f66361e87f67f3c64bb60846b2df757b
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c7e6733079dbd867255e604f6f8d4459f647cc93
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817581"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870465"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Azure CDN 끝점 다중 원본
 
@@ -42,7 +42,7 @@ Azure CDN 끝점 내에서 여러 원본을 선택 하 여 제공 되는 중복�
 
 5. **원본 추가 그룹** 구성에서 다음 정보를 입력 하거나 선택 합니다.
 
-   | Setting           | 값                                                                 |
+   | 설정           | 값                                                                 |
    |-------------------|-----------------------------------------------------------------------|
    | 원본 그룹 이름 | 원본 그룹의 이름을 입력 합니다.                                   |
    | 프로브 상태      | **사용**을 선택합니다. </br> Azure CDN은 전 세계 여러 점에서 상태 프로브를 실행 하 여 원본 상태를 확인 합니다. 추가 비용을 방지 하기 위해 현재 원본 그룹이 활성 상태가 아닌 경우에는 사용 하지 마세요.
@@ -64,8 +64,9 @@ Azure CDN 끝점 내에서 여러 원본을 선택 하 여 제공 되는 중복�
 
 2. **원본 추가** 구성에서 다음 정보를 입력 하거나 선택 합니다.
 
-   | Setting           | 값                                                                 |
+   | 설정           | 값                                                                 |
    |-------------------|-----------------------------------------------------------------------|
+   | 이름        | 원본 이름을 입력 합니다.        |
    | 원본 형식 | **저장소**, **클라우드 서비스**, **웹 앱**또는 **사용자 지정 원본을**선택 합니다.                                   |
    | 원본 호스트 이름        | 원본 호스트 이름을 선택 하거나 입력 합니다.  드롭다운은 이전 설정에서 지정한 형식의 사용 가능한 모든 원본을 나열 합니다. 원본 유형으로 **사용자 지정 원본** 을 선택한 경우 고객 원본 서버의 도메인을 입력 합니다. |
    | 원본 호스트 헤더    | 각 요청과 함께 보내려는 Azure CDN 호스트 헤더를 입력 하거나 기본값을 그대로 사용 합니다.                        |
@@ -114,6 +115,34 @@ Azure CDN 끝점 내에서 여러 원본을 선택 하 여 제공 되는 중복�
 2. 원본 그룹에서 원본을 제거 하려면 원본 옆에 있는 휴지통 아이콘을 선택 하 고 **저장**을 선택 합니다.
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="원본 그룹 업데이트 원본 삭제" border="true":::
+
+## <a name="override-origin-group-with-rules-engine"></a>규칙 엔진을 사용 하 여 원본 그룹 재정의
+
+표준 규칙 엔진을 사용 하 여 트래픽이 다른 원본 그룹에 배포 되는 방식을 사용자 지정 합니다.
+
+요청 URL을 기준으로 다른 그룹에 트래픽을 분산 합니다.
+
+1. CDN 끝점의 **설정**에서 **규칙 엔진** 을 선택 합니다.
+
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-12.png" alt-text="규칙 엔진" border="true":::
+
+2. **+ 규칙 추가**를 선택 합니다.
+
+3. **이름**에 규칙의 이름을 입력 합니다.
+
+4. **+ 조건**을 선택 하 고 **URL 경로**를 선택 합니다.
+
+5. **연산자** 풀에서 **포함**을 선택 합니다.
+
+6. **값**에 **/images**를 입력 합니다.
+
+7. **+ 작업 추가**를 선택 하 고 **원본 그룹 재정의**를 선택 합니다.
+
+8. **원본 그룹**의 풀 다운 상자에서 원본 그룹을 선택 합니다.
+
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="규칙 엔진 조건" border="true":::
+
+URL 경로에 **/이미지가**포함 된 경우 들어오는 모든 요청에 대해 요청은 작업 섹션의 원본 그룹에 할당 됩니다 **(myorigingroup)**. 
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 끝점 다중 원본 Azure CDN를 사용 하도록 설정 했습니다.

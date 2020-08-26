@@ -172,6 +172,8 @@
           href: stream-analytics-real-time-fraud-detection.md
         - name: IoT Edge에서 작업 실행
           href: stream-analytics-edge.md
+        - name: Azure Stack에서 작업 실행
+          href: on-azure-stack.md
         - name: 요금 창구 센서 데이터 분석
           href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
         - name: 자주 발생하는 거래

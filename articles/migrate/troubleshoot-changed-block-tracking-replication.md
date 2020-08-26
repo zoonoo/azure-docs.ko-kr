@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 55e79877fb186a5ba2aece316c61f542adeda60c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796938"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871186"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>에이전트 없는 VMware VM 마이그레이션의 복제 문제 해결
 
@@ -30,13 +30,36 @@ VM에 대 한 복제 주기가 실패할 수 있습니다. 이러한 오류는 �
 
   1. Azure Portal Azure Migrate의 서버 페이지로 이동 합니다.
   2. 서버 마이그레이션 타일에서 "서버 복제"를 클릭 하 여 "컴퓨터 복제" 페이지로 이동 합니다.
-  3. 상태, 상태, 마지막 동기화 시간 등의 추가 정보와 함께 복제 서버 목록이 표시 됩니다. 상태 열은 VM의 현재 복제 상태를 나타냅니다. 상태 열에서 ' Critical'or ' 경고 ' 값은 일반적으로 VM에 대 한 이전 복제 주기가 실패 했음을 나타냅니다. 자세한 내용을 보려면 VM을 마우스 오른쪽 단추로 클릭 하 고 "오류 정보"를 선택 합니다. 오류 정보 페이지에는 오류에 대 한 정보 및 문제 해결 방법에 대 한 추가 정보가 포함 되어 있습니다. 또한 VM에 대 한 이벤트 페이지로 이동 하는 데 사용할 수 있는 "최근 이벤트" 링크도 표시 됩니다.
+  3. 상태, 상태, 마지막 동기화 시간 등의 추가 정보와 함께 복제 서버 목록이 표시 됩니다. 상태 열은 VM의 현재 복제 상태를 나타냅니다. 상태 열의 ' 위험 ' 또는 ' 경고 ' 값은 일반적으로 VM에 대 한 이전 복제 주기가 실패 했음을 나타냅니다. 자세한 내용을 보려면 VM을 마우스 오른쪽 단추로 클릭 하 고 "오류 정보"를 선택 합니다. 오류 정보 페이지에는 오류에 대 한 정보 및 문제 해결 방법에 대 한 추가 정보가 포함 되어 있습니다. 또한 VM에 대 한 이벤트 페이지로 이동 하는 데 사용할 수 있는 "최근 이벤트" 링크도 표시 됩니다.
   4. "최근 이벤트"를 클릭 하 여 VM에 대 한 이전 복제 주기 실패를 확인 합니다. 이벤트 페이지에서 VM에 대 한 "복제 주기 실패" 또는 "디스크의 복제 주기 실패" 유형의 최신 이벤트를 찾습니다.
   5. 이벤트를 클릭 하 여 오류의 가능한 원인과 권장 수정 단계를 이해 합니다. 제공 된 정보를 사용 하 여 오류를 해결 하 고 해결 합니다.
     
 ## <a name="common-replication-errors"></a>일반적인 복제 오류
 
 이 섹션에서는 몇 가지 일반적인 오류와 이러한 오류를 해결 하는 방법을 설명 합니다.
+
+## <a name="key-vault-operation-failed-error-when-trying-to-replicate-vms"></a>Vm을 복제 하는 동안 Key Vault 작업 실패 오류
+
+**오류:** "Key Vault 작업이 실패 했습니다. 작업: 관리 되는 저장소 계정 구성, Key Vault: 키 자격 증명 모음 이름, 저장소 계정: 저장소 계정 이름 실패 (오류: ")
+
+**오류:** "Key Vault 작업이 실패 했습니다. 작업: 공유 액세스 서명 정의를 생성 Key Vault: 키 자격 증명 모음 이름, 저장소 계정: 저장소 계정 이름이 실패 했습니다. 오류: "
+
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+
+이 오류는 일반적으로 Key Vault에 대 한 사용자 액세스 정책에서 저장소 계정을 Key Vault 관리 하도록 구성 하는 데 필요한 권한을 현재 로그인 한 사용자에 게 제공 하지 않기 때문에 발생 합니다. 키 자격 증명 모음에 대 한 사용자 액세스 정책을 확인 하려면 키 자격 증명 모음에 대 한 포털의 키 자격 증명 모음 페이지로 이동 하 여 액세스 정책을 선택 합니다. 
+
+포털에서 키 자격 증명 모음을 만드는 경우에는 현재 로그인 한 사용자에 게 관리 권한을 부여 하는 사용자 액세스 정책도 추가 하 여 Key Vault 관리 되도록 저장소 계정을 구성할 수 있습니다. 이는 두 가지 이유로 실패할 수 있습니다.
+
+- 로그인 한 사용자는 고객 Azure 테 넌 트의 원격 사용자 (CSP 구독 및 로그인 한 사용자가 파트너 관리자)입니다. 이 경우의 해결 방법은 주요 자격 증명 모음을 삭제 하 고, 포털에서 로그 아웃 한 다음, 고객 테 넌 트 (원격 주 서버가 아님)에서 사용자 계정으로 로그인 하 여 작업을 다시 시도 하는 것입니다. CSP 파트너는 일반적으로 고객 Azure Active Directory 테 넌 트에 사용할 수 있는 사용자 계정을 가집니다. 그렇지 않은 경우 고객 Azure Active Directory 테 넌 트에 새 사용자 계정을 만들 수 없으며 포털에 새 사용자로 로그인 한 후 복제 작업을 다시 시도 합니다. 사용 되는 계정에는 리소스 그룹의 계정에 부여 된 소유자 또는 참가자 + 사용자 액세스 관리자 권한이 있어야 합니다 (프로젝트 리소스 그룹 마이그레이션).
+
+- 이 문제가 발생할 수 있는 다른 경우는 한 사용자 (user1)가 처음에 복제를 설정 하 고 오류가 발생 했지만 key vault가 이미 생성 된 경우 (그리고 사용자 액세스 정책이이 사용자에 게 적절 하 게 할당 된 경우)입니다. 이제 나중에 다른 사용자 (사용자 2)가 복제를 설정 하려고 하지만, 키 자격 증명 모음에 사용자 지정에 해당 하는 사용자 액세스 정책이 없으므로 관리 저장소 계정 구성 또는 SAS 정의 생성 작업이 실패 합니다.
+
+**해결**방법:이 문제를 해결 하려면 관리 되는 저장소 계정을 구성 하 고 SAS 정의를 생성 하는 keyvault에서 사용자 2에 대 한 사용자 액세스 정책을 만듭니다. 다음 cmdlet을 사용 하 여 Azure PowerShell에서이 작업을 수행할 수 있습니다.
+
+$userPrincipalId = $ (Get-azurermaduser-UserPrincipalName "user2_email_address"). A-id
+
+Set-azurermkeyvaultaccesspolicy-VaultName "keyvaultname"-ObjectId $userPrincipalId-Stostorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, 복구, 백업, 복원, 제거
+
 
 ## <a name="disposeartefactstimedout"></a>DisposeArtefactsTimedOut
 

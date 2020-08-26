@@ -227,6 +227,8 @@
               href: high-availability-guide-rhel-netapp-files.md
         - name: SAP 다중 SID
           items:
+            - name: (A)SCS 인스턴스에 Azure Shared Disk를 사용하는 Windows
+              href: sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
             - name: (A)SCS 인스턴스에 공유 디스크를 사용하는 Windows
               href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
             - name: (A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows
