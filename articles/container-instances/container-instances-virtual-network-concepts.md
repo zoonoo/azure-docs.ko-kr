@@ -4,12 +4,12 @@ description: Azure 가상 네트워크에 컨테이너 그룹을 배포 하는 �
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: danlep
-ms.openlocfilehash: d904f1333ddf4b22bfca2546bd064b1ae8f299dd
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0474a5f85829080a89a74195483484c464de5840
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797866"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870768"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>가상 네트워크 시나리오 및 리소스
 
@@ -80,6 +80,7 @@ Resource Manager 템플릿, YAML 파일 또는 프로그래밍 방식을 사용�
 * Azure CLI에 대 한 배포 예제는 [Azure virtual network에 컨테이너 인스턴스 배포](container-instances-vnet.md)를 참조 하세요.
 * Resource Manager 템플릿을 사용하여 새 가상 네트워크, 서브넷, 네트워크 프로필 및 컨테이너 그룹을 배포하려면 [VNet을 사용하여 Azure 컨테이너 그룹 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 )를 참조하세요.
+* [Azure Portal](container-instances-quickstart-portal.md) 사용 하 여 컨테이너 인스턴스를 만들 때 **네트워킹** 탭에서 새 가상 네트워크 또는 exsting 가상 네트워크에 대 한 설정을 제공할 수도 있습니다.
 
 
 <!-- IMAGES -->

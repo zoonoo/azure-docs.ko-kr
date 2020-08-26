@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
-ms.date: 01/30/2019
-ms.openlocfilehash: f0bda1f4b9894b1ea5a68f44a728f715676d500e
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 08/25/2020
+ms.openlocfilehash: 85459f357032a7f9944d50e3e4f3929015c6dcfd
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661149"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869120"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에서 Azure 유지 관리 이벤트 계획
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,15 +29,15 @@ Azure SQL Database 및 Azure SQL Managed Instance에서 데이터베이스에 �
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>계획된 유지 관리 이벤트 기간 동안 예상되는 상황
 
-재구성/장애 조치 (failover)는 일반적으로 30 초 이내에 완료 됩니다. 평균은 8 초입니다. 이미 연결되어있는 경우, 애플리케이션은 데이터베이스의 새로운 주 복제본을 정상적으로 복제해야 합니다. 새 주 복제본이 온라인 상태가 되기 전에 데이터베이스를 다시 구성 하는 동안 새 연결을 시도 하면 오류 40613 (데이터베이스를 사용할 수 없음): "{servername} ' 서버에서" 데이터베이스 ' {databasename} '을 (를) 현재 사용할 수 없습니다. 나중에 다시 연결해 보십시오.”를 식별하고 해결하는 방법을 설명합니다. 데이터베이스에 장기 실행 쿼리가 있는 경우이 쿼리는 재구성 중에 중단 되므로 다시 시작 해야 합니다.
+유지 관리 이벤트는 유지 관리 이벤트가 시작 될 때 주 복제본과 보조 복제본의 constellation에 따라 단일 또는 여러 장애 조치 (failover)를 생성할 수 있습니다. 평균적으로 1.7 장애 조치는 계획 된 유지 관리 이벤트에 따라 발생 합니다. 재구성/장애 조치 (failover)는 일반적으로 30 초 이내에 완료 됩니다. 평균은 8 초입니다. 이미 연결 되어 있는 경우 응용 프로그램은 데이터베이스의 새 주 복제본에 다시 연결 해야 합니다. 새 주 복제본이 온라인 상태가 되기 전에 데이터베이스를 다시 구성 하는 동안 새 연결을 시도 하면 오류 40613 (데이터베이스를 사용할 수 없음): *"{servername} ' 서버에서" 데이터베이스 ' {databasename} '을 (를) 현재 사용할 수 없습니다. 나중에 연결을 다시 시도 하십시오. "* 데이터베이스에 장기 실행 쿼리가 있는 경우이 쿼리는 재구성 중에 중단 되므로 다시 시작 해야 합니다.
+
+## <a name="how-to-simulate-a-planned-maintenance-event"></a>계획 된 유지 관리 이벤트를 시뮬레이트하는 방법
+
+프로덕션에 배포 하기 전에 클라이언트 응용 프로그램을 유지 관리 이벤트에 탄력적으로 적용 하면 응용 프로그램 오류에 대 한 위험을 완화 하 고 최종 사용자에 게 응용 프로그램 가용성을 제공할 수 있습니다. PowerShell, CLI 또는 REST API를 통해 [수동 장애 조치 (failover)를 시작](https://aka.ms/mifailover-techblog) 하 여 계획 된 유지 관리 이벤트 중에 클라이언트 응용 프로그램의 동작을 테스트할 수 있습니다. 주 복제본을 오프 라인 상태로 전환 하는 유지 관리 이벤트와 동일한 동작을 생성 합니다.
 
 ## <a name="retry-logic"></a>재시도 논리
 
-클라우드 데이터베이스 서비스에 연결하는 모든 클라이언트 프로덕션 애플리케이션은 강력한 연결 [재시도 논리](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)를 구현해야 합니다. 그러면 이러한 상황을 완화하는 데 도움이 되며 일반적으로 최종 사용자에게 오류를 투명하게 만들 수 있습니다.
-
-## <a name="frequency"></a>빈도
-
-평균적으로 계획된 유지 관리 이벤트는 매달 1.7개가 발생합니다.
+클라우드 데이터베이스 서비스에 연결하는 모든 클라이언트 프로덕션 애플리케이션은 강력한 연결 [재시도 논리](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)를 구현해야 합니다. 이렇게 하면 장애 조치를 최종 사용자에 게 투명 하 게 하거나 최소한의 부정적 효과를 최소화 하는 데 도움이 됩니다.
 
 ## <a name="resource-health"></a>리소스 상태
 

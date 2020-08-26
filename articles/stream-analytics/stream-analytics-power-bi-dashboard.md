@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 8/6/2020
-ms.openlocfilehash: 5b5840c1b668e9a509f58d7edf65175f621d9e4c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 4c6d1d3877629150493ee2a57a04573760d2772a
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794294"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870020"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics 및 Power BI: 스트리밍 데이터에 대한 실시간 분석 대시보드
 

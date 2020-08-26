@@ -8,14 +8,16 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 11fa99acda5f1c8edac3026961c426257bb74d92
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 5b8b127391401b956088ddb099d1853700e6f120
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853666"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871312"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>.NET을 사용하여 Azure Queue Storage 시작
+
+[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 ## <a name="overview"></a>개요
 
@@ -27,7 +29,7 @@ Azure Queue Storage는 애플리케이션 구성 요소 간에 클라우드 메�
 
 **예상 완료 시간:** 45분
 
-### <a name="prerequisites"></a>사전 준비 사항
+### <a name="prerequisites"></a>전제 조건
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 - [.NET 용 Azure Storage 공용 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
@@ -154,8 +156,6 @@ Azurite 저장소 에뮬레이터를 대상으로 하려면 잘 알려진 계정
 ```
 
 ### <a name="add-using-directives"></a>지시문을 사용하여 추가
-
-[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 다음 `using` 지시문을 `Program.cs` 파일 맨 위에 추가합니다.
 

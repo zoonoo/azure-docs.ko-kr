@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/21/2020
+ms.date: 08/25/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b1705fbfae297c7f92de6b4080569deaad3de98
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 704d4c1b4e4e4229f35526748494aaac2e351f99
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749674"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871380"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용하여 SAP 워크로드 시나리오 호스트 및 실행
 
@@ -88,6 +88,9 @@ SAP 구성 요소에 Azure 서비스를 통합하는 방법에 대한 자세한 
 
 ## <a name="change-log"></a>변경 로그
 
+- 08/25/2020: [wsfc 및 공유 디스크를 사용 하 여 SAP ASCS/scs에 대 한 HA 가이드](./sap-high-availability-guide-wsfc-shared-disk.md)에서 변경 하 고, wsfc 및 공유 디스크를 사용 하 여 SAP [ASCS/scs](./sap-high-availability-infrastructure-wsfc-shared-disk.md) 에 대 한 azure 인프라를 준비 하 고, [wsfc 및 공유 디스크를 사용 하 여 sap NW HA를 설치](./sap-high-availability-guide-wsfc-shared-disk.md) 하 여 AZURE 공유 디스크 및 문서 sap ERS2 아키텍처
+- 08/25/2020: [WSFC 및 Azure 공유 디스크를 사용 하는 SAP ASCS/SCS에 대 한 다중 SID HA 가이드](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) 릴리스
+- 08/25/2020: [WSFC 및 SMB (Azure NetApp Files)를 사용 하 여 SAP ASCS/SCS에 대 한 HA 가이드](./high-availability-guide-windows-netapp-files-smb.md)변경 wsfc 및 [파일 공유를 사용 하 여 sap ASCS/scs 용 Azure 인프라 준비](./sap-high-availability-infrastructure-wsfc-file-share.md), wsfc 및 공유 디스크를 사용 하는 sap ascs/scs에 대 한 [다중 sid ha](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) 가이드 및 wsfc 및 공유 디스크를 사용 하는 sap ASCS/scs에 대 한 HA 가이드에서 콘텐츠 업데이트 및 재구성의 결과로 [sap ascs](./sap-ascs-ha-multi-sid-wsfc-file-share.md) /scs에 대 한 다중 sid ha 가이드 
 - 08/21/2020: [HANA Large Instances에 대해 호환 되는 운영 체제](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) 에 새 OS 릴리스를 추가 합니다.
 - 08/18/2020: RHEL의 [ANF를 사용 하 여 SAP HANA 확장을 위한 HA](./sap-hana-high-availability-netapp-files-red-hat.md) 릴리스
 - 08/17/2020: SAP NetWeaver 시스템을 온-프레미스에서 Azure로 이동 Azure Site Recovery 하는 데 사용 하는 방법에 대 한 정보는 [Sap NetWeaver에 대 한 azure Virtual Machines 계획 및 구현](./planning-guide.md) 문서를 참조 하세요

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 6880706300597e925267dae1230a87d17cd5c028
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5dd061309447dd6037d2dd664e7c5db2c7df38cc
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688354"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870207"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Azure Cognitive Search .NET SDK 버전 11로 업그레이드
 
@@ -153,6 +153,8 @@ Azure Cognitive Search 클라이언트 라이브러리의 각 버전은 해당 �
    using Azure.Search.Documents.Indexes.Models;
    using Azure.Search.Documents.Models;
    ```
+
+1. JSON serialization이 필요한 클래스의 경우을 `using Newtonsoft.Json` 로 바꿉니다 `using System.Text.Json.Serialization` .
 
 1. 클라이언트 인증 코드를 수정 합니다. 이전 버전에서는 클라이언트 개체의 속성을 사용 하 여 API 키 (예: [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) 속성)를 설정 합니다. 현재 버전에서는 [Azurekeycredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential) 클래스를 사용 하 여 키를 자격 증명으로 전달 합니다. 따라서 필요한 경우 새 클라이언트 개체를 만들지 않고도 API 키를 업데이트할 수 있습니다.
 

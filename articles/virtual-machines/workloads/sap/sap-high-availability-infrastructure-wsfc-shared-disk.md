@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/13/2020
+ms.date: 08/25/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6eaabac35676e9c836d07ffe6942ef9fc8c20cd8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8f389581d8fbeb912507b303c46109dd08fcab8d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855407"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871519"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Windows 장애 조치(Failover) 클러스터 및 공유 디스크를 사용하여 SAP ASCS/SCS를 위한 SAP HA용 Azure 인프라 준비
 
@@ -174,7 +174,7 @@ ms.locfileid: "88855407"
 > Azure 공유 디스크를 사용 하기 위한 필수 구성 요소는 azure 근접 배치 그룹입니다.
  
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>전제 조건
 
 설치를 시작하기 전에 먼저 다음 문서를 검토하세요.
 
@@ -540,7 +540,7 @@ SIOS 소프트웨어를 설치하기 전에 DataKeeperSvc 도메인 사용자를
 
    ![그림 43: 예를 선택하여 복제된 볼륨을 클러스터 볼륨으로 설정][sap-ha-guide-figure-3043]
 
-   _ 복제 된 볼륨을 클러스터로 설정 하려면 **예** 를 선택 volume_
+   _복제 된 볼륨을 클러스터 볼륨으로 설정 하려면 **예** 를 선택 합니다._
 
    볼륨을 만든 후 DataKeeper 관리 및 구성 도구에서 복제 작업 활성화되어 있음을 보여 줍니다.
 

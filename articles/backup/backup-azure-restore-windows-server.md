@@ -3,12 +3,12 @@ title: MARS 에이전트를 사용하여 Windows Server로 파일 복원
 description: 이 문서에서는 Microsoft MARS(Azure Recovery Services) 에이전트를 사용하여 Azure에 저장된 데이터를 Windows 서버 또는 Windows 컴퓨터로 복원하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e5158681971c5c10e813187fedb61bc0022ee9e1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 78663edadfdef581dbdd259882a6dd4afe5a4b0b
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827072"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871261"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>MARS 에이전트를 사용하여 Windows Server로 파일 복원
 
@@ -50,7 +50,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
    > 개별 파일 및 폴더를 복원하는 옵션에는 .NET Framework 4.5.2 이상이 필요합니다. **개별 파일 및 폴더** 옵션이 표시 되지 않는 경우 .NET Framework 버전 4.5.2 이상으로 업그레이드 한 후 다시 시도 하세요.
 
    > [!TIP]
-   > **개별 파일 및 폴더** 옵션을 사용하면 복구 지점 데이터에 빠르게 액세스할 수 있습니다. 이 파일은 개별 파일을 복구 하는 데 적합 하며, 80 GB 미만의 총 크기를 제공 하 고, 복구 중 전송 또는 복사 속도를 최대 6Mbps로 제공 합니다. **볼륨** 옵션은 지정된 볼륨의 모든 백업 데이터를 복구합니다. 이 옵션은 대용량 데이터 또는 전체 볼륨을 복구 하는 데 이상적인 전송 속도 (최대 40 MBps)를 제공 합니다.
+   > **개별 파일 및 폴더** 옵션을 사용하면 복구 지점 데이터에 빠르게 액세스할 수 있습니다. 개별 파일을 복구 하는 데 적합 하며, 80 GB 미만의 전체 크기를 권장 합니다. 복구 중에 최대 6Mbps의 전송 또는 복사 속도를 제공 합니다. **볼륨** 옵션은 지정된 볼륨의 모든 백업 데이터를 복구합니다. 이 옵션은 더 빠른 전송 속도 (최대 40 MBps)를 제공 하며, 큰 규모의 데이터 또는 전체 볼륨을 복구 하는 데 권장 됩니다.
 
 5. **볼륨 및 날짜 선택** 페이지에서 복원할 파일 및 폴더가 들어있는 볼륨을 선택합니다.
 

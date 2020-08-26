@@ -3,12 +3,12 @@ title: 프라이빗 엔드포인트
 description: Azure Backup에 대 한 개인 끝점을 만드는 프로세스와 전용 끝점을 사용 하 여 리소스의 보안을 유지 하는 시나리오를 이해 합니다.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 5c2c994b48fb2b950afb67f5c8b6d3c4f7d01e39
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b7f7c6461701b6f4e438cbead60456b327c7c207
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826653"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871550"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
@@ -21,7 +21,7 @@ Azure Backup를 사용 하면 [개인 끝점](../private-link/private-endpoint-o
 - 개인 끝점은 자격 증명 모음에 등록 된 항목이 없는 새 Recovery Services 자격 증명 모음에 대해서만 만들 수 있습니다. 따라서 자격 증명 모음에 대 한 항목을 보호 하려고 하기 전에 개인 끝점을 만들어야 합니다.
 - 하나의 가상 네트워크는 여러 Recovery Services 자격 증명 모음에 대 한 개인 끝점을 포함할 수 있습니다. 또한 하나의 Recovery Services 자격 증명 모음에 대해 여러 가상 네트워크에서 개인 끝점을 포함할 수 있습니다. 그러나 자격 증명 모음에 대해 만들 수 있는 최대 개인 끝점 수는 12입니다.
 - 자격 증명 모음에 대 한 개인 끝점을 만들면 자격 증명 모음이 잠깁니다. 자격 증명 모음에 대 한 개인 끝점을 포함 하는 네트워크에서 네트워크를 통해 액세스할 수 없습니다 (백업 및 복원의 경우). 자격 증명 모음에 대 한 모든 개인 끝점을 제거 하는 경우 모든 네트워크에서 자격 증명 모음에 액세스할 수 있습니다.
-- 백업에 대 한 개인 끝점 연결은 서브넷에 총 11 개의 개인 Ip를 사용 합니다. 이 숫자는 특정 Azure 지역에 대해 더 높을 수 있습니다 (최대 25 개). 따라서 백업용 개인 끝점을 만들려고 할 때 사용할 수 있는 개인 Ip가 충분 하다는 것이 좋습니다.
+- 백업용 개인 끝점 연결에는 저장소에 대 한 Azure Backup에서 사용 하는 것을 포함 하 여 서브넷에 총 11 개의 개인 Ip가 사용 됩니다. 이 숫자는 특정 Azure 지역에 대해 더 높을 수 있습니다 (최대 25 개). 따라서 백업용 개인 끝점을 만들려고 할 때 사용할 수 있는 개인 Ip가 충분 하다는 것이 좋습니다.
 - Recovery Services 자격 증명 모음은 (둘 다) Azure Backup 및 Azure Site Recovery에서 사용 되지만이 문서에서는 Azure Backup 전용 전용 끝점을 사용 하는 방법을 설명 합니다.
 - Azure Active Directory는 현재 개인 끝점을 지원 하지 않습니다. 따라서 지역에서 작업을 수행 하는 데 Azure Active Directory 필요한 Ip 및 Fqdn은 Azure Vm에서 데이터베이스의 백업을 수행 하 고 MARS 에이전트를 사용 하 여 백업할 때 보안 네트워크에서의 아웃 바운드 액세스를 허용 해야 합니다. 해당 하는 경우 Azure AD에 대 한 액세스를 허용 하기 위해 NSG 태그 및 Azure 방화벽 태그를 사용할 수도 있습니다.
 - 네트워크 정책을 사용 하는 가상 네트워크는 전용 끝점에 대해 지원 되지 않습니다. 계속 하기 전에 네트워크 정책을 사용 하지 않도록 설정 해야 합니다.
