@@ -3,15 +3,16 @@ title: Azure Reserved VM Instances 할인 이해
 description: 실행 중인 VM에 Azure Reserved Virtual Machine Instances 할인이 적용되는 방식을 알아봅니다.
 author: yashesvi
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ddf232dbe6c6ff61f685e2910286188fb92e1f17
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: dd21faa07426c80bb3a95dbd1b6d4ee93f783881
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192209"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686448"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Azure 예약 할인이 가상 머신에 적용되는 방식
 
@@ -93,7 +94,7 @@ VM 예약은 VM 배포뿐만 아니라 여러 서비스에서 내보낸 VM 사�
 
 사용량이 예약 할인에 적합한지 확인하려면 사용량 데이터의 *ConsumedService* 값을 확인합니다.
 
-인스턴스 크기 유연성에 대한 자세한 내용은 [예약 VM 인스턴스에서 가상 머신 크기 유연성](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md)을 참조하세요.
+인스턴스 크기 유연성에 대한 자세한 내용은 [예약 VM 인스턴스에서 가상 머신 크기 유연성](../../virtual-machines/reserved-vm-instance-size-flexibility.md)을 참조하세요.
 
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처

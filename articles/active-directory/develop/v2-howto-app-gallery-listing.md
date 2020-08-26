@@ -12,12 +12,12 @@ ms.date: 08/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3d810d14dd6b49bc054e3844a60ec33c62dc084c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1ce8f376d3264a06618cb7321c75142dcf92d9ea
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271246"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891864"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에 앱 게시
 
@@ -33,7 +33,7 @@ Azure AD 갤러리에 앱을 추가할 때의 이점은 다음과 같습니다.
 
 또한 고객이 앱에 대 한 id 공급자로 Azure AD를 사용 하는 경우 많은 이점이 있습니다. 그 중 일부는 다음과 같습니다.
 
-- 사용자에 Single Sign-On을 제공 합니다. SSO를 사용 하면 고객에 게 더 쉽게 Single Sign-On 수 있도록 하 여 지원 비용을 절감할 수 있습니다. 한 번 클릭 SSO가 사용 하도록 설정 된 경우 고객의 IT 관리자는 조직에서 사용 하기 위해 응용 프로그램을 구성 하는 방법을 배울 필요가 없습니다. Single Sign-On에 대 한 자세한 내용은 [Single Sign-On 무엇입니까?](../manage-apps/what-is-single-sign-on.md)를 참조 하세요.
+- 사용자에 Single Sign-On을 제공 합니다. SSO를 사용 하면 고객에 게 더 쉽게 Single Sign-On 수 있도록 하 여 지원 비용을 절감할 수 있습니다. 한 번 클릭 SSO가 사용 하도록 설정 된 경우 고객의 IT 관리자는 조직에서 사용 하기 위해 응용 프로그램을 구성 하는 방법을 배울 필요가 없습니다. Single Sign-On에 대한 자세한 내용은 [Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 - 앱은 Microsoft 365 앱 갤러리, Microsoft 365 앱 시작 관리자 및 Office.com의 Microsoft Search 내에서 검색할 수 있습니다. 
 - 통합 앱 관리. Azure AD의 앱 관리에 대해 자세히 알아보려면 [응용 프로그램 관리용 이란?](../manage-apps/what-is-application-management.md)을 참조 하세요.
 - 앱은 [Graph API](https://docs.microsoft.com/graph/) 를 사용 하 여 Microsoft 에코 시스템에서 사용자 생산성을 유도 하는 데이터에 액세스할 수 있습니다.
@@ -61,7 +61,7 @@ Azure AD 앱 갤러리에 앱을 게시 하는 단계는 다음과 같습니다.
 6. Microsoft 파트너 네트워크에 가입 합니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 두 명 이상의 사용자를 등록 하 여 테스트 하려면 영구 계정이 필요 합니다.
 
@@ -98,7 +98,7 @@ OAuth 2.0은 권한 부여를 위한 [업계 표준](https://oauth.net/2/) 프�
 
 ### <a name="saml-20-or-ws-fed"></a>SAML 2.0 또는 WS-급지됨
 
-SAML은 웹 응용 프로그램을 위해 널리 채택 되 고 널리 채택 되는 Single Sign-On 표준입니다. Azure에서 SAML를 사용 하는 방법에 대 한 자세한 내용은 [azure에서 saml 프로토콜을 사용 하는 방법](active-directory-saml-protocol-reference.md)을 참조 하세요. 
+SAML은 웹 응용 프로그램을 위해 널리 채택 되 고 널리 채택 되는 [Single Sign-On 표준](https://www.oasis-open.org/standards#samlv2.0) 입니다. Azure에서 SAML를 사용 하는 방법에 대 한 자세한 내용은 [azure에서 saml 프로토콜을 사용 하는 방법](active-directory-saml-protocol-reference.md)을 참조 하세요. 
 
 Web Services Federation (WS 급지됨)는 .NET 플랫폼을 사용 하 여 개발 된 웹 응용 프로그램에 일반적으로 사용 되는 [업계 표준](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) 입니다.
 

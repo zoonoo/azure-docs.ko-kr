@@ -3,12 +3,12 @@ title: Azure VM을 만들 때 백업 사용
 description: Azure Backup를 사용 하 여 Azure VM을 만들 때 백업을 사용 하도록 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 8612061ca21b4609600f5b9822ca4f6fe3b673f1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: bbc00239a34fc0eb88991fcabd91c5a0eb7dbea7
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825956"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892306"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Azure VM을 만들 때 백업 사용
 
