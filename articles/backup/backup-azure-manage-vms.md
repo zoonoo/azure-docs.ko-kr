@@ -3,12 +3,12 @@ title: Azure VM 백업 관리 및 모니터링
 description: Azure Backup 서비스를 사용 하 여 Azure VM 백업을 관리 하 고 모니터링 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: cbe0ccef9df27af032cf849b302f6a6211383fe8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: a3349d30d5913781fb3348e7f5622366b3abc1d0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532050"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892170"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 Azure VM 백업 관리
 
@@ -188,7 +188,7 @@ VM의 백업 데이터를 삭제 하는 방법에는 다음 두 가지가 있습
 
 * Azure backup에 대해 구성 된 Azure Vm이 보호를 중지 하지 않고 삭제 되거나 이동 되 면 예약 된 백업 작업과 주문형 (임시) 백업 작업이 모두 실패 하 고 UserErrorVmNotFoundV2 오류가 발생 합니다. 백업 사전 검사는 실패 한 요청 시 백업 작업에 대해서만 중요 한 것으로 표시 됩니다 (실패 한 예약 된 작업이 표시 되지 않음).
 * 이러한 백업 항목은 사용자가 설정한 백업 및 보존 정책을 준수 하는 시스템에서 활성 상태로 유지 됩니다. 이러한 Azure Vm에 대 한 백업 된 데이터는 보존 정책에 따라 보존 됩니다. 만료 된 복구 지점 (마지막 복구 지점 제외)은 백업 정책에 설정 된 보존 범위에 따라 정리 됩니다.
-* 사용자는 추가 비용을 방지 하기 위해 주 데이터 원본이 더 이상 존재 하지 않는 백업 항목을 삭제 하는 것이 좋습니다 .이 경우에는 마지막 복구 지점이 영구적으로 유지 되 고 해당 사용자에 게 적용 되는 백업 가격에 따라 요금이 청구 되기 때문에 삭제 리소스의 백업 항목/데이터가 더 이상 필요 하지 않은 경우
+* 추가 비용을 방지 하기 위해 주 데이터 원본이 더 이상 존재 하지 않는 백업 항목을 삭제 하는 것이 좋습니다. 즉, 마지막 복구 지점이 영구적으로 유지 되 고 해당 사용자에 게 해당 하는 백업 가격에 따라 요금이 부과 되는 경우 삭제 리소스에 대 한 백업 항목/데이터가 더 이상 필요 하지 않은 경우에는 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

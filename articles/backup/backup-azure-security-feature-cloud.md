@@ -3,18 +3,18 @@ title: Azure Backup에 대 한 일시 삭제
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d791b76698330cd14c56f01cf5da62c8a64bec29
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 921d04c530695ee8909fb17b216029849c4fc4a2
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826976"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892476"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Azure Backup에 대 한 일시 삭제
 
 맬웨어, 랜섬웨어 및 침입과 같은 보안 문제에 대한 우려는 증가하고 있습니다. 이러한 보안 문제는 돈과 데이터 측면 모두에서 비용이 많이 들 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다.
 
-이러한 기능 중 하나는 일시 삭제입니다. 일시 삭제를 사용 하는 경우 악의적인 행위자가 백업을 삭제 하는 경우 (또는 백업 데이터가 실수로 삭제 된 경우에도), 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 추가 14 일 보존은 고객에 게 비용을 부과 하지 않습니다.
+이러한 기능 중 하나는 일시 삭제입니다. 일시 삭제를 사용 하는 경우 악의적인 행위자가 백업을 삭제 하는 경우 (또는 백업 데이터가 실수로 삭제 된 경우에도), 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존 기간은 사용자에 게 아무런 비용이 들지 않습니다.
 
 다음 서비스에 대해 일시 삭제 보호를 사용할 수 있습니다.
 
@@ -140,7 +140,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 2. 그런 다음 [여기](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)에 설명 된 단계를 사용 하 여 REST API를 사용 하는 일시 삭제 기능을 비활성화 합니다.
 3. 그런 다음 [여기](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data)에 설명 된 대로 REST API를 사용 하 여 백업을 삭제 합니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="do-i-need-to-enable-the-soft-delete-feature-on-every-vault"></a>모든 자격 증명 모음에서 일시 삭제 기능을 사용 하도록 설정 해야 하나요?
 

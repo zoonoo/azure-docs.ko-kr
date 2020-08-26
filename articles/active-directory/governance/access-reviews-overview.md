@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: 956e61894113b4728760de519ad49be71ed184cc
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c69a5e153377eee86eaf0c43d6c982dee2938ddf
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605011"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783674"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Azure AD 액세스 검토란?
 
@@ -81,7 +81,7 @@ Azure AD를 사용하면 조직 내의 사용자 및 외부 사용자와 협업�
 
 Azure AD Premium P2 라이선스는 액세스 검토를 설정하거나, 설정을 구성하거나, 검토에서 나온 결정 사항을 적용하는 전역 관리자 또는 사용자 관리자 역할을 가진 사용자에게는 필요하지 **않습니다**.
 
-자체 조직의 사용자 중 한 명에게 할당하는 각 유료 Azure AD Premium P2 라이선스에 대해 Azure AD B2B(business-to-business)를 사용하여 외부 사용자 허용에 따라 최대 5명의 게스트 사용자를 초대할 수 있습니다. 이러한 게스트 사용자는 Azure AD Premium P2 기능도 사용할 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 라이선스 지침](../b2b/licensing-guidance.md)을 참조하세요.
+자체 조직의 사용자 중 한 명에게 할당하는 각 유료 Azure AD Premium P2 라이선스에 대해 Azure AD B2B(business-to-business)를 사용하여 외부 사용자 허용에 따라 최대 5명의 게스트 사용자를 초대할 수 있습니다. 이러한 게스트 사용자는 Azure AD Premium P2 기능도 사용할 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 라이선스 지침](../external-identities/licensing-guidance.md)을 참조하세요.
 
 라이선스에 대한 자세한 내용은 [Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조하세요.
 

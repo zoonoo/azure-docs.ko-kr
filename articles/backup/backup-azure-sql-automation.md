@@ -4,12 +4,12 @@ description: Azure Backup 및 PowerShell을 사용 하 여 Azure Vm에서 SQL �
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 46583a0a26c86a0f77b115178fb53592977aef09
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 1fe3af3b2a12cf6fdfc0e71d36d36046858c50af
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826891"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892425"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm에서 SQL 데이터베이스 백업 및 복원
 
@@ -44,7 +44,7 @@ Azure 라이브러리에서 **Az. RecoveryServices** [cmdlet 참조](/powershell
 
 PowerShell을 다음과 같이 설정 합니다.
 
-1. [최신 버전의 Az PowerShell](/powershell/azure/install-az-PowerShell)을 다운로드합니다. 필요한 최소 버전은 1.5.0입니다.
+1. [최신 버전의 Az PowerShell](/powershell/azure/install-az-ps)을 다운로드합니다. 필요한 최소 버전은 1.5.0입니다.
 
 2. 다음 명령을 사용 하 여 Azure Backup PowerShell cmdlet을 찾습니다.
 
@@ -203,7 +203,7 @@ Register-AzRecoveryServicesBackupContainer -ResourceId $myVM.ID -BackupManagemen
 이 명령은이 리소스의 ' 백업 컨테이너 '를 반환 하 고 상태는 ' 등록 됨 '으로 나타납니다.
 
 > [!NOTE]
-> Force 매개 변수를 지정 하지 않으면 '이 컨테이너에 대 한 보호를 사용 하지 않도록 설정 하 시겠습니까 ' 텍스트를 확인 하는 메시지가 표시 됩니다. 이 텍스트는 무시 하 고 확인 하려면 "Y"를 입력 하세요. 이것은 알려진 문제 이며 force 매개 변수에 대 한 텍스트 및 요구 사항을 제거 하기 위해 작업 중입니다.
+> Force 매개 변수를 지정 하지 않으면 '이 컨테이너에 대 한 보호를 사용 하지 않도록 설정 하 시겠습니까 ' 텍스트를 확인 하는 메시지가 표시 됩니다. 이 텍스트는 무시 하 고 확인 하려면 "Y"를 입력 하세요. 이것은 알려진 문제 이며, force 매개 변수에 대 한 텍스트 및 요구 사항을 제거 하기 위해 작업 하 고 있습니다.
 
 ### <a name="fetching-sql-dbs"></a>SQL Db 페치
 
@@ -237,7 +237,7 @@ master           ConfigureBackup      Completed            3/18/2019 6:00:21 PM 
 
 ### <a name="fetching-new-sql-dbs"></a>새 SQL Db를 가져오는 중
 
-컴퓨터가 등록 되 면 Backup 서비스는 사용할 수 있는 Db의 세부 정보를 가져옵니다. 사용자가 나중에 등록 된 컴퓨터에 SQL Db/SQL 인스턴스를 추가 하는 경우 새 ' 조회 '를 수행 하 여 새로 추가 된 모든 Db (새로 추가 된 Db 포함)를 가져오기 위해 백업 서비스를 수동으로 트리거해야 합니다. SQL VM에서 [AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/initialize-azrecoveryservicesbackupprotectableitem) PowerShell cmdlet을 사용 하 여 새 조회를 수행 합니다. 명령은 작업이 완료 될 때까지 대기 합니다. 나중에 [AzRecoveryServicesBackupProtectableItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectableitem) PowerShell cmdlet을 사용 하 여 보호 되지 않는 최신 SQL 구성 요소 목록을 가져옵니다.
+컴퓨터가 등록 되 면 Backup 서비스는 사용할 수 있는 Db의 세부 정보를 가져옵니다. 나중에 SQL Db 또는 SQL 인스턴스를 등록 된 컴퓨터에 추가 하는 경우 새 ' 조회 '를 수행 하 여 보호 되지 않는 **모든** db (새로 추가 된 db 포함)를 가져오도록 백업 서비스를 수동으로 트리거해야 합니다. SQL VM에서 [AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/initialize-azrecoveryservicesbackupprotectableitem) PowerShell cmdlet을 사용 하 여 새 조회를 수행 합니다. 명령은 작업이 완료 될 때까지 대기 합니다. 나중에 [AzRecoveryServicesBackupProtectableItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectableitem) PowerShell cmdlet을 사용 하 여 보호 되지 않는 최신 SQL 구성 요소 목록을 가져옵니다.
 
 ```powershell
 $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
@@ -278,7 +278,7 @@ $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload 
 
 ### <a name="fetch-the-relevant-restore-time"></a>관련 복원 시간 페치
 
-위에서 설명한 것 처럼 사용자는 백업 된 SQL DB를 전체/차등 복사 **또는** 로그인 시점으로 복원할 수 있습니다.
+위에서 설명한 대로 백업 된 SQL DB를 전체/차등 복사 **또는** 로그 지정 시간으로 복원할 수 있습니다.
 
 #### <a name="fetch-distinct-recovery-points"></a>고유 복구 지점의 페치
 
@@ -307,7 +307,7 @@ $FullRP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $tar
 
 #### <a name="fetch-point-in-time-recovery-point"></a>특정 시점 복구 지점 가져오기
 
-사용자가 DB를 특정 시점으로 복원 하려는 경우 [AzRecoveryServicesBackupRecoveryLogChain](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverylogchain) PowerShell cmdlet을 사용 합니다. Cmdlet은 해당 SQL 백업 항목에 대해 끊어지지 않은 연속 로그 체인의 시작 및 종료 시간을 나타내는 날짜 목록을 반환 합니다. 원하는 지정 시간은이 범위 내에 있어야 합니다.
+DB를 특정 시점으로 복원 하려면 [AzRecoveryServicesBackupRecoveryLogChain](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverylogchain) PowerShell cmdlet을 사용 합니다. Cmdlet은 해당 SQL 백업 항목에 대해 끊어지지 않은 연속 로그 체인의 시작 및 종료 시간을 나타내는 날짜 목록을 반환 합니다. 원하는 지정 시간은이 범위 내에 있어야 합니다.
 
 ```powershell
 Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -Item -VaultId $targetVault.ID
@@ -321,7 +321,7 @@ ItemName                       StartTime                      EndTime
 SQLDataBase;MSSQLSERVER;azu... 3/18/2019 8:09:35 PM           3/19/2019 12:08:32 PM
 ```
 
-위의 출력은 사용자가 표시 된 시작 시간과 종료 시간 사이의 특정 시점으로 복원할 수 있음을 의미 합니다. 시간은 UTC 단위입니다. PowerShell에서 위에 표시 된 범위 내에 있는 특정 시점을 구성 합니다.
+위의 출력은 표시 된 시작 시간과 종료 시간 사이의 특정 시점으로 복원할 수 있음을 의미 합니다. 시간은 UTC 단위입니다. PowerShell에서 위에 표시 된 범위 내에 있는 특정 시점을 구성 합니다.
 
 > [!NOTE]
 > 복원에 대 한 로그 지정 시간을 선택한 경우 DB가 복원 되는 전체 백업 또는 시작 지점을 지정할 필요가 없습니다. Azure Backup 서비스는 전체 복구 계획, 즉 선택할 전체 백업, 적용할 로그 백업 등을 처리 합니다.
@@ -479,7 +479,7 @@ MSSQLSERVER/m... Restore              InProgress           3/17/2019 10:02:45 AM
 
 ### <a name="on-demand-backup"></a>주문형 백업
 
-DB에 대해 백업을 사용 하도록 설정 하면 사용자는 [AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) PowerShell cmdlet을 사용 하 여 db에 대 한 요청 시 백업을 트리거할 수도 있습니다. 다음 예에서는 압축을 사용 하 여 SQL DB에서 전체 백업을 트리거하고 전체 백업은 60 일 동안 보존 되어야 합니다.
+DB에 대해 백업을 사용 하도록 설정한 후에는 [AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) PowerShell cmdlet을 사용 하 여 db에 대 한 요청 시 백업을 트리거할 수도 있습니다. 다음 예에서는 압축을 사용 하 여 SQL DB에서 전체 백업을 트리거하고 전체 백업은 60 일 동안 보존 되어야 합니다.
 
 ```powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $targetVault.ID
@@ -499,7 +499,7 @@ MSSQLSERVER/m... Backup               InProgress           3/18/2019 8:41:27 PM 
 
 ### <a name="change-policy-for-backup-items"></a>백업 항목에 대 한 정책 변경
 
-사용자는 백업 된 항목의 정책을 Policy1에서 Policy2로 변경할 수 있습니다. 백업 항목에 대 한 정책을 전환 하려면 관련 정책을 페치하고 항목을 백업 하 고 백업 항목과 함께 [AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) 명령을 매개 변수로 사용 합니다.
+백업 된 항목의 정책을 *Policy1* 에서 *Policy2*로 변경할 수 있습니다. 백업 항목에 대 한 정책을 전환 하려면 관련 정책을 페치하고 항목을 백업 하 고 백업 항목과 함께 [AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) 명령을 매개 변수로 사용 합니다.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -545,7 +545,7 @@ Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManag
 
 #### <a name="retain-data"></a>데이터 보존
 
-사용자가 보호를 중지 하려는 경우 [AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PowerShell cmdlet을 사용할 수 있습니다. 이렇게 하면 예약 된 백업이 중지 되지만 지금까지 백업 된 데이터는 영구적으로 유지 됩니다.
+보호를 중지 하려는 경우 [AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PowerShell cmdlet을 사용할 수 있습니다. 이렇게 하면 예약 된 백업이 중지 되지만 지금까지 백업 된 데이터는 영구적으로 유지 됩니다.
 
 ```powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $targetVault.ID
@@ -562,7 +562,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $bkpItem -VaultId $targetVault.
 
 #### <a name="disable-auto-protection"></a>자동 보호 사용 안 함
 
-Start-autoprotection이 SQLInstance에 구성 된 경우 사용자는 [AzRecoveryServicesBackupAutoProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) PowerShell cmdlet을 사용 하 여 사용 하지 않도록 설정할 수 있습니다.
+Start-autoprotection이 SQLInstance에 구성 된 경우 [AzRecoveryServicesBackupAutoProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) PowerShell cmdlet을 사용 하 여 사용 하지 않도록 설정할 수 있습니다.
 
 ```powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $targetVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"
@@ -571,7 +571,7 @@ Disable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupMa
 
 #### <a name="unregister-sql-vm"></a>SQL VM 등록 취소
 
-모든 SQL server Db가 [더 이상 보호 되지 않고 백업 데이터가 없는](#delete-backup-data)경우 사용자는이 자격 증명 모음에서 sql VM의 등록을 취소할 수 있습니다. 그 다음에만 사용자가 Db를 다른 자격 증명 모음으로 보호할 수 있습니다. [AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) PowerShell cmdlet을 사용 하 여 SQL VM의 등록을 취소 합니다.
+SQL server의 모든 Db [가 더 이상 보호 되지 않고 백업 데이터가 없으면](#delete-backup-data)이 자격 증명 모음에서 sql VM의 등록을 취소할 수 있습니다. 그 다음에만 Db를 다른 자격 증명 모음으로 보호할 수 있습니다. [AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) PowerShell cmdlet을 사용 하 여 SQL VM의 등록을 취소 합니다.
 
 ```powershell
 $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName <VM name> -VaultId $targetvault.ID
@@ -600,7 +600,7 @@ Get-AzRecoveryServicesBackupJob -Status InProgress -BackupManagementType AzureWo
 
 SQL Always On 가용성 그룹의 경우 AG (가용성 그룹)의 [모든 노드를 등록](#registering-the-sql-vm) 해야 합니다. 모든 노드에 대 한 등록이 완료 되 면 보호 가능한 항목 아래에 SQL 가용성 그룹 개체가 논리적으로 만들어집니다. SQL AG 아래의 데이터베이스가 ' Backup-sqldatabase '로 나열 됩니다. 노드는 독립 실행형 인스턴스로 표시 되 고 기본 SQL 데이터베이스는 SQL database로도 나열 됩니다.
 
-예를 들어 SQL AG에 ' s q l-서버-0 ' 및 ' s q l-서버-1 '과 1 개의 노드가 있다고 가정해 보겠습니다. 이러한 두 노드가 모두 등록 되 면 사용자가 [보호 가능한 항목을 나열](#fetching-sql-dbs)하는 경우 다음 구성 요소를 나열 합니다.
+예를 들어 sql AG에는 두 개의 노드가 있습니다. 즉, sql *server-0* 과 *sql server-1* 및 1 sql ag DB가 있다고 가정해 보겠습니다. 두 노드를 모두 등록 한 후에는 [보호 가능한 항목](#fetching-sql-dbs)을 나열 하는 경우 다음 구성 요소를 나열 합니다.
 
 * SQL AG 개체-보호 가능한 항목 유형 (SQLAvailabilityGroup)
 * SQL AG DB 보호 가능한 항목 유형 (Backup-sqldatabase)

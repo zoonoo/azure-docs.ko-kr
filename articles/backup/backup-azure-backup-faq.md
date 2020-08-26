@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 332b86d58e4c3f64dfbc528b4fe30399ef69d2a3
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827395"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892765"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -26,7 +26,7 @@ ms.locfileid: "88827395"
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>자격 증명 모음에서 보호할 수 있는 데이터 원본/항목은 몇 개인가요?
 
-자격 증명 모음의 모든 워크로드(IaaS VM, SQL, AFS 등)에서 최대 2000개의 데이터 원본/항목을 보호할 수 있습니다.
+자격 증명 모음에서 모든 작업 (예: IaaS VM, SQL, AFS) 간에 최대 2000 개의 데이터 원본/항목을 보호할 수 있습니다.
 예를 들어 자격 증명 모음에서 500 Vm 및 400 Azure Files 공유를 이미 보호 한 경우에는 SQL database를 최대 1100 개만 보호할 수 있습니다.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>자격 증명 모음당 몇 개의 정책을 만들 수 있나요?

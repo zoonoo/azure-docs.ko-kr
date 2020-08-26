@@ -3,12 +3,12 @@ title: PowerShell을 사용 하 여 Azure Vm 백업 및 복구
 description: PowerShell과 함께 Azure Backup를 사용 하 여 Azure Vm을 백업 및 복구 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f5d2e10213970ce6f9d1f9c77ff8f7f4c36c3547
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f34dc0b5ce4b230b3bc2408bd011180cb855cf17
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826449"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892408"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm 백업 및 복원
 
@@ -104,7 +104,7 @@ Azure 라이브러리에서 **Az. RecoveryServices** [cmdlet 참조](/powershell
     ```
 
    > [!TIP]
-   > 많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
+   > 많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이러한 이유로 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장 하는 것이 편리 합니다.
    >
    >
 
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 보호 정책을 정의한 후에는 항목에 대한 정책을 계속 사용해야 합니다. [AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) 를 사용 하 여 보호를 사용 하도록 설정 합니다. 보호를 사용하도록 설정하는 데에는 항목 및 정책이라는 두 가지 개체가 필요합니다. 정책이 자격 증명 모음과 연결되고 나면, 백업 워크플로가 정책 일정에 정의된 시간에 트리거됩니다.
 
 > [!IMPORTANT]
-> PowerShell을 사용 하 여 한 번에 여러 Vm에 대 한 백업을 사용 하도록 설정 하는 동안 단일 정책에 연결 된 Vm이 100 이상 인지 확인 합니다. 이는 [권장 모범 사례](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy)입니다. 현재 PowerShell 클라이언트는 100 개가 넘는 Vm이 있는 경우 명시적으로 차단 하지 않지만, 나중에 확인이 추가 될 예정입니다.
+> PowerShell을 사용 하 여 한 번에 여러 Vm에 대 한 백업을 사용 하도록 설정 하는 동안 단일 정책에 연결 된 Vm이 100 이상 인지 확인 합니다. 이는 [권장 모범 사례](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy)입니다. 현재 PowerShell 클라이언트는 100 개가 넘는 Vm이 있는 경우 명시적으로 차단 하지 않지만 나중에 확인을 추가할 예정입니다.
 
 다음 예제에서는 NewPolicy 정책을 사용하여 V2VM 항목에 대해 보호를 활성화합니다. 예제는 VM이 암호화되었는지 여부와 암호화 유형에 따라 다릅니다.
 
@@ -256,7 +256,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 ```
 
 > [!NOTE]
-> Azure Government 클라우드를 사용 하는 경우 [AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) Cmdlet의 ServicePrincipalName 매개 변수에 ff281ffe-705c-4f53-9f37-a40e6f2c68f3 값을 사용 합니다.
+> Azure Government 클라우드를 사용 하는 경우 `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` [AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet의 **ServicePrincipalName** 매개 변수 값을 사용 합니다.
 >
 
 ## <a name="monitoring-a-backup-job"></a>백업 작업 모니터링
@@ -294,7 +294,7 @@ Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200 -VaultId $targe
 
 ````powershell
 $SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
-$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that you want to start the backup)
 $UtcTime = $UtcTime.ToUniversalTime()
 $SchPol.ScheduleRunTimes[0] = $UtcTime
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
@@ -323,7 +323,7 @@ $bkpPol.SnapshotRetentionInDays=7
 Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
 ````
 
-기본값은 2이 고, 사용자는 최소값 1과 최대값 5를 사용 하 여 값을 설정할 수 있습니다. 주간 백업 정책의 경우 기간은 5로 설정 되며 변경할 수 없습니다.
+기본값은 2입니다. 최소값은 1이 고 최대값은 5로 설정할 수 있습니다. 주간 백업 정책의 경우 기간은 5로 설정 되며 변경할 수 없습니다.
 
 #### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>스냅숏 보존 중 Azure Backup 리소스 그룹을 만드는 중
 
@@ -365,7 +365,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>백업 항목에 대 한 정책 변경
 
-사용자는 기존 정책을 수정 하거나 백업 된 항목의 정책을 Policy1에서 Policy2로 변경할 수 있습니다. 백업 항목에 대 한 정책을 전환 하려면 관련 정책을 페치하고 항목을 백업 하 고 백업 항목과 함께 [AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) 명령을 매개 변수로 사용 합니다.
+기존 정책을 수정 하거나 백업 된 항목의 정책을 Policy1에서 Policy2로 변경할 수 있습니다. 백업 항목에 대 한 정책을 전환 하려면 관련 정책을 페치하고 항목을 백업 하 고 백업 항목과 함께 [AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) 명령을 매개 변수로 사용 합니다.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName> -VaultId $targetVault.ID
@@ -481,7 +481,7 @@ $restorejob
 추가 매개 변수를 **TargetResourceGroupName**을 제공하여 Managed Disks를 복원할 RG를 지정합니다.
 
 > [!IMPORTANT]
-> 관리 디스크를 복원할 때는 **TargetResourceGroupName** 매개 변수를 사용하는 것이 좋습니다. 그러면 성능이 크게 개선되기 때문입니다. 이 매개 변수를 지정 하지 않으면 즉시 복원 기능을 사용할 수 없고 복원 작업의 속도가 더 느려집니다. 관리 디스크를 관리 되지 않는 디스크로 복원 해야 하는 경우에는이 매개 변수를 제공 하지 말고 매개 변수를 제공 하 여 의도를 명확 하 게 `-RestoreAsUnmanagedDisks` 합니다. `-RestoreAsUnmanagedDisks`매개 변수는 Azure PowerShell 3.7.0 이상에서 사용할 수 있습니다. 이후 버전에서는 올바른 복원 환경에 이러한 매개 변수 중 하나를 제공 해야 합니다.
+> 관리 디스크를 복원 하는 데 **TargetResourceGroupName** 매개 변수를 사용 하는 것이 좋습니다. 이렇게 하면 성능이 크게 향상 됩니다. 이 매개 변수를 지정 하지 않으면 즉시 복원 기능을 사용할 수 없고 복원 작업의 속도가 더 느려집니다. 관리 디스크를 관리 되지 않는 디스크로 복원 해야 하는 경우에는이 매개 변수를 제공 하지 말고 매개 변수를 제공 하 여 의도를 명확 하 게 `-RestoreAsUnmanagedDisks` 합니다. `-RestoreAsUnmanagedDisks`매개 변수는 Azure PowerShell 3.7.0 이상에서 사용할 수 있습니다. 이후 버전에서는 올바른 복원 환경에 이러한 매개 변수 중 하나를 제공 해야 합니다.
 >
 >
 
@@ -544,7 +544,7 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $tar
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-템플릿은 고객의 저장소 계정 및 지정 된 컨테이너에 있으므로 직접 액세스할 수 없습니다. 이 템플릿에 액세스하려면 (임시 SAS 토큰과 함께) 전체 URL이 필요합니다.
+템플릿은 고객의 스토리지 계정과 지정된 컨테이너에 있기 때문에 직접 액세스할 수 없습니다. 이 템플릿에 액세스하려면 (임시 SAS 토큰과 함께) 전체 URL이 필요합니다.
 
 1. 먼저 템플릿 Bloburi에서 템플릿 이름을 추출 합니다. 형식은 아래에 설명 되어 있습니다. PowerShell에서 split 작업을 사용 하 여이 URL에서 최종 템플릿 이름을 추출할 수 있습니다.
 
@@ -570,7 +570,7 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob -VaultId $tar
 다음 섹션에서는 "VMConfig" 파일을 사용하여 VM을 만드는 데 필요한 단계를 나열합니다.
 
 > [!NOTE]
-> 위에 설명된 배포 템플릿을 사용하여 VM을 만드는 것이 좋습니다. 이 섹션(포인트 1-6)은 곧 삭제될 예정입니다.
+> 위에 설명 된 배포 템플릿을 사용 하 여 VM을 만드는 것이 좋습니다. 이 섹션(포인트 1-6)은 곧 삭제될 예정입니다.
 
 1. 복원된 디스크 속성에서 작업 세부 정보를 쿼리합니다.
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Lighthouse란?
 description: Azure Lighthouse에서 서비스 공급자는 더 높은 자동화 및 효율성으로 고객을 위한 관리형 서비스를 제공할 수 있습니다.
-ms.date: 08/12/2020
+ms.date: 08/19/2020
 ms.topic: overview
-ms.openlocfilehash: f65411c03725058e8aa6491245ffd94987efa6c9
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d21d11d1316b177f38b6bce197dec4f2c3d3fac8
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163223"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660736"
 ---
 # <a name="what-is-azure-lighthouse"></a>Azure Lighthouse란?
 
-Azure Lighthouse는 고도의 자동화, 확장성 및 향상된 거버넌스로 여러 테넌트에 걸쳐 Azure 리소스를 보고 관리할 수 있는 단일 컨트롤 플레인을 제공합니다. Azure Lighthouse를 통해 서비스 공급자는 Azure 플랫폼에 기본 제공되는 포괄적이고 강력한 관리 도구를 사용하여 관리형 서비스를 제공할 수 있습니다. 이 제품은 여러 테넌트 간에 리소스를 관리하는 엔터프라이즈 IT 조직에도 유용할 수 있습니다.
+Azure Lighthouse는 교차 및 다중 테넌트 관리를 지원하여 리소스 및 테넌트 간에 더 높은 자동화, 확장성 및 향상된 거버넌스를 허용합니다. Azure Lighthouse를 통해 서비스 공급자는 Azure 플랫폼에 기본 제공되는 포괄적이고 강력한 관리 도구를 사용하여 관리형 서비스를 제공할 수 있습니다. 이 제품은 여러 테넌트 간에 리소스를 관리하는 엔터프라이즈 IT 조직에도 유용할 수 있습니다.
 
 ![Azure Lighthouse의 개요 다이어그램](media/azure-lighthouse-overview.jpg)
 

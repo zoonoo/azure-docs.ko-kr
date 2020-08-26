@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dda8c742a0aafe7ec3f46a0a9dbf0abd4a516b4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f36e5d8974caea0eecff7e0b399b6aab5d200664
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213788"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797108"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>확장 속성 및 사용자 지정 확장 속성
 
-확장 특성 및 사용자 지정 확장 속성은 동적 멤버 자격 규칙에서 문자열 속성으로 지원됩니다. [확장 특성](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0)은 온-프레미스 Windows Server AD에서 동기화되고 "ExtensionAttributeX" 형식을 사용하며 여기서 X는 1 - 15입니다. 확장 특성을 속성으로 사용하는 규칙의 예제는 다음과 같습니다.
+확장 특성 및 사용자 지정 확장 속성은 동적 멤버 자격 규칙에서 문자열 속성으로 지원됩니다. [확장 특성](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0)은 온-프레미스 Windows Server AD에서 동기화되고 "ExtensionAttributeX" 형식을 사용하며 여기서 X는 1 - 15입니다. 확장 특성을 속성으로 사용하는 규칙의 예제는 다음과 같습니다.
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[사용자 지정 확장 속성](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions)은 온-프레미스 Windows Server AD 또는 연결된 SaaS 애플리케이션에서 동기화되며 `user.extension_[GUID]_[Attribute]` 형식입니다. 여기서
+[사용자 지정 확장 속성](../hybrid/how-to-connect-sync-feature-directory-extensions.md)은 온-프레미스 Windows Server AD 또는 연결된 SaaS 애플리케이션에서 동기화되며 `user.extension_[GUID]_[Attribute]` 형식입니다. 여기서
 
 * [GUID]는 Azure AD에서 속성을 만든 애플리케이션에 대한 Azure AD의 고유 식별자입니다.
 * [Attribute]는 Azure AD에서 만든 속성의 이름입니다.
@@ -393,7 +393,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
  systemLabels | 최신 작업 공간 디바이스의 태그를 지정하는 Intune 디바이스 속성과 일치하는 문자열 | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
-> 디바이스용 동적 그룹을 만들 때 deviceOwnership의 경우 값을 “Company”로 설정해야 합니다. Intune에서 디바이스 소유권이 Corporate로 대신 표시됩니다. 자세한 내용은 [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes)를 참조하세요. 
+> 디바이스용 동적 그룹을 만들 때 deviceOwnership의 경우 값을 “Company”로 설정해야 합니다. Intune에서 디바이스 소유권이 Corporate로 대신 표시됩니다. 자세한 내용은 [OwnerTypes](/intune/reports-ref-devices#ownertypes)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 41bc06e2c63b1b35bb789636bcd269439078be70
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825191"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892187"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -145,7 +145,7 @@ Azure Backup은 전송 중 및 정지 상태의 데이터에 대한 암호화를
 
 ## <a name="cross-region-restore"></a>지역 간 복원
 
-Azure Backup은 데이터 가용성 및 복원력 기능을 강화하도록 지역 간 복원 기능을 추가하여 고객에게 보조 지역으로 데이터를 복원할 수 있는 모든 권한을 제공합니다. 이 기능을 구성하려면 [지역 간 복원 설정 문서](backup-create-rs-vault.md#set-cross-region-restore)를 확인하세요. 이 기능은 다음과 같은 관리 형식에 대해 지원됩니다.
+Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하기 위해 지역 간 복원 기능을 추가 하 여 데이터를 보조 지역으로 복원할 수 있는 모든 권한을 제공 합니다. 이 기능을 구성하려면 [지역 간 복원 설정 문서](backup-create-rs-vault.md#set-cross-region-restore)를 확인하세요. 이 기능은 다음과 같은 관리 형식에 대해 지원됩니다.
 
 | 백업 관리 유형 | 지원됨                                                    | 지원되는 지역 |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |

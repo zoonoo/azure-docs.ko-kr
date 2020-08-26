@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 1a7511ed0e7bb1d9032331efa87f0d61a99cf5dc
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: e8d11c2122a21b67620987ad9ef74efc99eeb98b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065236"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654500"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -36,7 +36,7 @@ Azure Portal에서 Azure Load Balancer를 시작하여 내부 부하 분산 장�
 
 ---
 
-# <a name="option-1-default-create-a-internal-load-balancer-standard-sku"></a>[옵션 1(기본값): 내부 부하 분산 장치 만들기(표준 SKU)](#tab/option-1-create-internal-load-balancer-standard)
+# <a name="standard-sku"></a>[**표준 SKU**](#tab/option-1-create-internal-load-balancer-standard)
 
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.
@@ -280,7 +280,7 @@ VM 상태를 모니터링할 **myHealthProbe**라는 상태 프로브를 만듭�
     | 네트워크 보안 그룹 | 기존 **myNSG**를 선택합니다.|
 
 
-# <a name="option-2-create-a-internal-load-balancer-basic-sku"></a>[옵션 2: 내부 부하 분산 장치 만들기(기본 SKU)](#tab/option-1-create-internal-load-balancer-basic)
+# <a name="basic-sku"></a>[**기본 SKU**](#tab/option-1-create-internal-load-balancer-basic)
 
 >[!NOTE]
 >표준 SKU 부하 분산 장치는 프로덕션 워크로드에 추천됩니다.  SKU에 대한 자세한 내용은 **[Azure Load Balancer SKU](skus.md)** 를 참조하세요.

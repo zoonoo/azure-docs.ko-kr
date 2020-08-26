@@ -3,12 +3,12 @@ title: 대규모로 자격 증명 모음 진단 설정 구성
 description: Azure Policy를 사용 하 여 지정 된 범위의 모든 자격 증명 모음에 대 한 Log Analytics 진단 설정 구성
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: dabf9798ba80600d638318304c8ef3c7e40d7ecf
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824052"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892238"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>대규모로 자격 증명 모음 진단 설정 구성
 
@@ -20,9 +20,9 @@ Azure Backup에서 제공 하는 보고 솔루션은 LA (Log Analytics)를 활�
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
-* 정책은 특정 구독의 모든 Recovery Services 자격 증명 모음 (또는 구독 내의 리소스 그룹)에 한 번에 적용할 수 있습니다. 정책을 할당 하는 사용자에 게 정책이 할당 된 구독에 대 한 ' 소유자 ' 액세스 권한이 있어야 합니다.
+* 정책은 특정 구독의 모든 Recovery Services 자격 증명 모음 (또는 구독 내의 리소스 그룹)에 한 번에 적용할 수 있습니다. 정책을 할당 하는 사용자에 게 정책이 할당 된 구독에 대 한 **소유자** 액세스 권한이 있어야 합니다.
 
-* 사용자가 지정 하는 LA 작업 영역 (진단 데이터가 전송 되는)은 정책이 할당 된 자격 증명 모음과 다른 구독에 있을 수 있습니다. 사용자에 게 지정 된 LA 작업 영역이 존재 하는 구독에 대 한 ' 읽기 권한자 ', ' 참가자 ' 또는 ' 소유자 ' 액세스 권한이 있어야 합니다.
+* 사용자가 지정 하는 LA 작업 영역 (진단 데이터가 전송 되는)은 정책이 할당 된 자격 증명 모음과 다른 구독에 있을 수 있습니다. 사용자는 지정 된 LA 작업 영역이 존재 하는 구독에 대 한 **독자**, **참가자** 또는 **소유자** 의 액세스 권한이 있어야 합니다.
 
 * 관리 그룹 범위는 현재 지원 되지 않습니다.
 

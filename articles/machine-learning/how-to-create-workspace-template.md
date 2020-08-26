@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 05a45a2a8aeabae2b160701020e5deb89fb3aa81
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1d405aff5233f38aee2031220fd119693da64abb
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751706"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892867"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning에 대한 작업 영역을 만듭니다.
 
@@ -120,7 +120,7 @@ New-AzResourceGroupDeployment `
 기본적으로 템플릿의 일부로 생성 된 모든 리소스는 새로운 리소스입니다. 그러나 기존 리소스를 사용 하는 옵션도 있습니다. 템플릿에 추가 매개 변수를 제공 하 여 기존 리소스를 사용할 수 있습니다. 예를 들어 기존 저장소 계정을 사용 하려는 경우 **Storageaccountoption** 값을 **기존** 값으로 설정 하 고 **storageaccountname** 매개 변수에 저장소 계정의 이름을 제공 합니다.
 
 > [!IMPORTANT]
-> 기존 Azure Storage 계정을 사용 하려는 경우 premium 계정 (Premium_LRS 및 Premium_GRS)이 될 수 없습니다. 또한 계층적 네임 스페이스 (Azure Data Lake Storage Gen2에서 사용)를 가질 수 없습니다. Premium storage 또는 계층적 네임 스페이스는 작업 영역의 기본 저장소 계정에서 지원 되지 않습니다.
+> 기존 Azure Storage 계정을 사용 하려는 경우 premium 계정 (Premium_LRS 및 Premium_GRS)이 될 수 없습니다. 또한 계층적 네임 스페이스 (Azure Data Lake Storage Gen2에서 사용)를 가질 수 없습니다. Premium storage 또는 계층적 네임 스페이스는 작업 영역의 기본 저장소 계정에서 지원 되지 않습니다. Premium storage 또는 계층적 네임 스페이스는 작업 영역의 _기본_ 저장소 계정에서 지원 되지 않습니다. _기본이 아닌_ 저장소 계정이 포함 된 premium storage 또는 계층적 네임 스페이스를 사용할 수 있습니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 

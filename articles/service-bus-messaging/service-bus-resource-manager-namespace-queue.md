@@ -8,12 +8,12 @@ ms.custom: subject-armqs
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 0b611babebd12c8c1c0a9ea5a357e8a7d6064fe3
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 69cffb6000df9d8b058d92231c130ea8a601e6d2
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064454"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660634"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Service Bus 네임스페이스 및 큐 만들기
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/201-servicebus-create-queue/azuredeploy.json" range="1-75" highlight="31-63":::
+:::code language="json" source="~/quickstart-templates/201-servicebus-create-queue/azuredeploy.json":::
 
 템플릿에 정의된 리소스는 다음과 같습니다.
 

@@ -4,12 +4,12 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 99e175f20247058a57bb64a47465cce1ce7fbd75
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a3fe61bf5d116d257ed7aeb32226a437d0193c54
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826056"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892391"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -58,7 +58,7 @@ Azure Backup VM 스냅숏 확장을 사용 하 여 Azure 가상 컴퓨터의 응
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
 - **네트워크 액세스가 필요한 지 확인**합니다. Azure Storage 확장 리포지토리에서 확장 패키지를 다운로드 하 고 확장 상태 업로드가 Azure Storage에 게시 됩니다. [자세히 알아보기](../virtual-machines/extensions/features-windows.md#network-access).
-  - 지원되지 않는 버전의 에이전트가 설치된 경우 VM의 해당 지역에서 Azure Storage에 대한 아웃바운드 액세스 권한을 허용해야 합니다.
+  - 지원 되지 않는 버전의 에이전트를 사용 하는 경우 VM에서 해당 지역에 있는 Azure storage에 대 한 아웃 바운드 액세스를 허용 해야 합니다.
   - 게스트 방화벽이 나 프록시를 사용 하 여에 대 한 액세스를 차단 하는 경우에 `168.63.129.16` 는 위의 방법에 관계 없이 확장이 실패 합니다. 포트 80, 443 및 32526이 필요 합니다. [자세한 정보](../virtual-machines/extensions/features-windows.md#network-access).
 
 - **Dhcp를 게스트 vm 내에서 사용 하도록 설정**: IaaS vm 백업이 작동 하려면 dhcp에서 호스트 또는 패브릭 주소를 가져오는 데 필요 합니다. 정적 개인 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성 하 고 VM 내에서 DHCP 옵션을 사용 하도록 설정 하 여 [자세한 정보](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)를 확인 해야 합니다.
@@ -220,7 +220,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 
@@ -270,7 +270,7 @@ VM 백업은 기본 스토리지 계정에 대한 스냅샷 명령 실행을 사
 
 다음 조건으로 인해 스냅샷 작업이 실패할 수 있습니다.
 
-| 원인 | 해결 방법 |
+| 원인 | 솔루션 |
 | --- | --- |
 | VM이 RDP(원격 데스크톱 프로토콜)에서 종료되므로 VM 상태가 잘못 보고됩니다. | RDP에서 VM을 종료하는 경우 VM 상태가 올바른지 여부를 확인하려면 포털을 확인합니다. 올바르지 않은 경우 VM 대시보드의 **종료** 옵션을 사용 하 여 포털에서 vm을 종료 합니다. |
 | VM이 DHCP에서 호스트 또는 패브릭 주소를 가져올 수 없습니다. | IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. VM이 DHCP 응답 245에서 호스트 또는 패브릭 주소를 가져올 수 없는 경우에는 어떠한 확장도 다운로드하거나 실행할 수 없습니다. 정적 개인 IP가 필요한 경우 **Azure Portal** 또는 **PowerShell** 을 통해 구성 하 고 VM 내의 DHCP 옵션이 사용 하도록 설정 되어 있는지 확인 해야 합니다. PowerShell을 사용 하 여 고정 IP 주소를 설정 하는 방법에 [대해 자세히 알아보세요](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) .

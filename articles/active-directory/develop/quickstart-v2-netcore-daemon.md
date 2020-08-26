@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: cc2f6d6a4a65cc2ada44c0b415b51735043096f7
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e33b912ab65a3565e42c294388949a5c55b4ee8a
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165603"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683762"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>빠른 시작: 콘솔 앱의 ID를 사용하여 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -202,7 +202,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > |---------|---------|
 > | `config.ClientSecret` | Azure Portal에서 애플리케이션에 대한 클라이언트 비밀이 생성됩니다. |
 > | `config.ClientId` | Azure Portal에 등록된 애플리케이션의 **애플리케이션(클라이언트) ID**입니다. 이 값은 Azure Portal에서 앱의 **개요** 페이지에 있습니다. |
-> | `config.Authority`    | (선택 사항) 사용자가 인증하는 STS 엔드포인트 일반적으로 퍼블릭 클라우드에 대한 <https://login.microsoftonline.com/{tenant}>입니다. 여기서 {tenant}는 테넌트의 이름 또는 테넌트 ID입니다.|
+> | `config.Authority`    | (선택 사항) 사용자가 인증하는 STS 엔드포인트 일반적으로 퍼블릭 클라우드에 대한 `https://login.microsoftonline.com/{tenant}`입니다. 여기서 {tenant}는 테넌트의 이름 또는 테넌트 ID입니다.|
 
 자세한 내용은 [`ConfidentialClientApplication`에 대한 참조 설명서](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)를 참조하세요.
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: bd6891ff4d15dc326c846efbaa37aea997ef2e17
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b09fb7cb5e631d3405adf39d5c92a72288249aff
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320683"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893142"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 pod 보안 모범 사례
 
@@ -85,7 +85,7 @@ spec:
 
 Azure 리소스에 대해 관리 ID를 사용하면 Pod는 이를 지원하는 Azure 서비스(예: 스토리지 또는 SQL)에 대해 자체 인증할 수 있습니다. pod에는 Azure Active Directory에서 인증을 받고 디지털 토큰을 받을 수 있도록 하는 Azure ID가 할당됩니다. 이 디지털 토큰은 pod가 서비스에 액세스하고 필요한 작업을 수행할 수 있는 권한이 있는지를 확인하는 다른 Azure 서비스에 제공될 수 있습니다. 이 방식은 예를 들어 데이터베이스 연결 문자열에 필요한 비밀이 없음을 의미합니다. pod 관리 ID의 간소화된 워크플로가 다음 다이어그램에 나와 있습니다.
 
-![Azure의 pod 관리 ID에 대한 간소화된 워크플로](media/developer-best-practices-pod-security/basic-pod-identity.png)
+:::image type="content" source="media/developer-best-practices-pod-security/basic-pod-identity.svg" alt-text="Azure의 pod 관리 ID에 대한 간소화된 워크플로":::
 
 관리 ID를 사용할 경우 애플리케이션 코드는 Azure Storage와 같은 서비스에 액세스하기 위해 자격 증명을 포함할 필요가 없습니다. 각 pod는 고유한 ID를 사용하여 인증을 받으므로 사용자는 액세스 권한을 감사 및 검토할 수 있습니다. 애플리케이션이 다른 Azure 서비스에 연결되면 관리 ID를 사용하여 자격 증명 재사용 및 노출 위험을 제한합니다.
 
@@ -97,7 +97,7 @@ Pod ID 프로젝트를 사용하면 Azure 서비스 지원에 대한 인증이 �
 
 애플리케이션에 자격 증명이 필요한 경우 디지털 자격 증명 모음과 통신하고 최신 비밀 콘텐츠를 검색한 다음, 필요한 서비스에 연결합니다. Azure Key Vault는 이러한 디지털 자격 증명 모음일 수 있습니다. pod 관리 ID를 사용하여 Azure Key Vault에서 자격 증명을 검색하기 위한 간소화된 워크플로가 다음 다이어그램에 나와 있습니다.
 
-![pod 관리 ID를 사용하여 Key Vault에서 자격 증명을 검색 하기 위한 간소화된 워크플로](media/developer-best-practices-pod-security/basic-key-vault.png)
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="pod 관리 ID를 사용하여 Key Vault에서 자격 증명을 검색 하기 위한 간소화된 워크플로":::
 
 Key Vault를 사용하여 자격 증명, 스토리지 계정 키 또는 인증서와 같은 암호를 저장하고 정기적으로 순환합니다. [비밀 저장소 CSI 드라이버용 Azure Key Vault 공급자](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)를 사용하여 Azure Key Vault를 AKS 클러스터와 통합할 수 있습니다. 비밀 저장소 CSI 드라이버를 사용하면 AKS 클러스터가 기본적으로 Key Vault에서 비밀 콘텐츠를 검색하여 요청 Pod에만 안전하게 제공할 수 있습니다. 클러스터 운영자와 협력하여 비밀 저장소 CSI 드라이버를 AKS 작업자 노드에 배포합니다. Pod 관리 ID를 사용하여 Key Vault에 대한 액세스를 요청하고 비밀 저장소 CSI 드라이버를 통해 필요한 비밀 콘텐츠를 검색할 수 있습니다.
 

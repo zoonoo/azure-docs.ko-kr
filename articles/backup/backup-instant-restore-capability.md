@@ -4,17 +4,17 @@ description: VM 백업 스택, Resource Manager 배포 모델에 대한 Azure �
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: e8037af9433cc642f57c1ab6ca2709a3d92c2f81
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825854"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892629"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
 > [!NOTE]
-> 사용자의 피드백에 따라 Azure Stack 기능과의 혼동을 줄이기 위해 **VM 백업 스택 V2**의 이름을 **즉시 복원**으로 바꾸었습니다.
+> 사용자의 의견에 따라 Azure Stack 기능으로 인 한 혼동을 줄이기 위해 **VM backup Stack V2** 의 이름을 **인스턴트 복원** 으로 변경 했습니다.
 > 이제 모든 Azure backup 사용자가 **즉시 복원**으로 업그레이드 되었습니다.
 
 인스턴트 복원의 새 모델은 다음과 같은 기능 개선 사항을 제공합니다.
@@ -76,9 +76,9 @@ $bkpPol.SnapshotRetentionInDays=5
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
-각 정책에 대 한 기본 스냅숏 보존 기간은 2 일로 설정 됩니다. 사용자는 값을 최소 1 ~ 5 일로 변경할 수 있습니다. 주간 정책의 경우 스냅숏 보존 기간은 5 일로 고정 됩니다.
+각 정책에 대 한 기본 스냅숏 보존 기간은 2 일로 설정 됩니다. 값은 최소 1에서 최대 5 일로 변경할 수 있습니다. 주간 정책의 경우 스냅숏 보존 기간은 5 일로 고정 됩니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>인스턴트 복원은 비용에 어떤 영향을 주나요?
 

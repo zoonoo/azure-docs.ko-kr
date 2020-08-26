@@ -3,12 +3,12 @@ title: Azure에 SQL Server 데이터베이스 백업
 description: 이 문서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다. SQL Server 복구에 대해서도 설명합니다.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 88ac95a3e21269ccb5ca2c0fed1c1444af2f4d11
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d8cdafe215d9271151d8dacee114d40108e907bd
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826925"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892442"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
@@ -51,9 +51,9 @@ ms.locfileid: "88826925"
 * 가상 머신에서 에서 데이터베이스를 검색하기 위해 NT SERVICE\AzureWLBackupPluginSvc 계정을 만듭니다. 이 계정은 백업 및 복원에 사용되며 SQL sysadmin 권한이 필요합니다.
 * VM에서 실행 중인 데이터베이스를 검색하고 Azure Backup은 NT AUTHORITY\SYSTEM 계정을 사용합니다. 이 계정은 SQL에서 공용 로그인이어야 합니다.
 
-Azure Marketplace에서 SQL Server VM를 만들지 않았거나 SQL 2008 및 2008 r 2를 사용할 경우 **Usererrorsqlnosysadminmembership** error를 받을 수 있습니다.
+Azure Marketplace에서 SQL Server VM를 만들지 않았거나 SQL 2008 또는 2008 r 2에 있는 경우 **Usererrorsqlnosysadminmembership** error를 받을 수 있습니다.
 
-Windows 2008 R2에서 실행되는 **SQL 2008** 및 **2008 R2**의 경우 권한을 부여하려면 [여기](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2)를 참조하세요.
+Windows 2008 r 2에서 실행 되는 **SQL 2008** 및 **2008** r 2의 경우 사용 권한을 부여 하려면 [여기](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2)를 참조 하세요.
 
 다른 모든 버전의 경우 다음 단계에 따라 권한을 수정합니다.
 

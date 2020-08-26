@@ -9,12 +9,12 @@ ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: 9b609d4571d6240f428a0210aa5108ff19dc753b
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 7b7dd00d3495c24733ecdc213e0e25f8bc9640eb
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235182"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661472"
 ---
 # <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template-arm-template"></a>빠른 시작: App Configuration 및 Resource Manager 템플릿을 사용하여 자동화된 VM 배포(ARM 템플릿)
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-templates"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 나온 것입니다. [첫 번째 템플릿](https://azure.microsoft.comresources/templates/101-app-configuration-store/)은 App Configuration 저장소를 만듭니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 나온 것입니다. [첫 번째 템플릿](https://azure.microsoft.com/resources/templates/101-app-configuration-store/)은 App Configuration 저장소를 만듭니다.
 
 :::code language="json" source="~/quickstart-templates/101-app-configuration-store/azuredeploy.json" range="1-37" highlight="27-35":::
 
