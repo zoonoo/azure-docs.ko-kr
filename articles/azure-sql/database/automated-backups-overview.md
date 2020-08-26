@@ -5,18 +5,18 @@ description: Azure SQL Database 및 Azure SQL Managed Instance 몇 분 마다 �
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: sqldbrb=2
+ms.custom: references_regions
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 5fd835418a8429fa07325c22b106ee675ba3e2e1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 485a137f552ca06fba366d261eb38268d821ccaf
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756727"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853210"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화 된 백업-SQL Managed Instance & Azure SQL Database
 
@@ -46,7 +46,14 @@ SQL Managed Instance는 저장소 중복성을 LRS (로컬 중복) 또는 ZRS (�
 > [!IMPORTANT]
 > SQL Managed Instance에서 구성 된 백업 중복성은 PITR (지정 시간 복원)에 사용 되는 단기 백업 보존 설정과 장기 백업 (LTR)에 사용 되는 장기 보존 백업 모두에 적용 됩니다.
 
+
+> [!NOTE]
+> 구성 가능한 백업 저장소 중복성은 현재 동남 아시아 Azure 지역의 특정 고객에 대해 제한 된 비공개 미리 보기로 제공 됩니다. Azure SQL Database 이 비공개 미리 보기에서 등록을 고려 하려면에 문의 하세요 [sqlbackuppreview@microsoft.com](mailto:sqlbackuppreview@microsoft.com) . 
+
+데이터 보호 규칙에서 오랜 시간 동안 백업을 사용할 수 있어야 하는 경우 (최대 10 년), 단일 데이터베이스 및 풀링된 데이터베이스에 대 한 [장기 보존](long-term-retention-overview.md) 을 구성할 수 있습니다.
+
 ### <a name="backup-usage"></a>백업 사용
+
 
 백업을 사용하여 다음을 수행할 수 있습니다.
 
