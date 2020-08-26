@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용하여 워크로드 백업
 description: 이 문서에서는 MABS(Microsoft Azure Backup Server)를 사용하여 워크로드를 보호 및 백업하기 위한 환경을 준비하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 802b7919abcd510db68396b2d9576f8cacc06a6e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 74d4d01d535f7148d3c3878a431dac2f951ae134
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756013"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827378"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -62,7 +62,7 @@ Azure에서 기본 서버를 실행 하지 않으려는 경우 Hyper-v VM, VMwar
 Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거할 수 있습니다. [DPM 및 중복 제거](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) 가 Hyper-V VM에 배포될 때 함께 작동하는 방법에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> Azure Backup Server는 단일 용도의 전용 서버에서 실행하도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
+> Azure Backup Server는 단일 용도의 전용 서버에서 실행하도록 설계되었습니다. 에 Azure Backup Server을 설치할 수 없습니다.
 >
 > * 도메인 컨트롤러로 실행하는 컴퓨터
 > * 애플리케이션 서버 역할이 설치된 컴퓨터
@@ -70,7 +70,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 > * Exchange Server를 실행하는 컴퓨터
 > * 클러스터의 한 노드인 컴퓨터
 >
-> Windows Server Core 또는 Microsoft Hyper-V Server에서는 Azure Backup Server 설치가 지원되지 않습니다.
+> Azure Backup Server 설치는 Windows Server Core 또는 Microsoft Hyper-V Server에서 지원 되지 않습니다.
 
 항상 Azure Backup Server를 도메인에 가입시킵니다. 서버를 다른 도메인으로 옮기려는 경우 Azure Backup Server를 먼저 설치한 다음, 서버를 새 도메인에 가입합니다. 배포 후 기존 Azure Backup 서버 컴퓨터를 새 도메인으로 이동하는 것은 *지원되지 않습니다*.
 
@@ -170,7 +170,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     >[!NOTE]
     >고유한 SQL Server를 사용하려는 경우 지원되는 SQL Server 버전은 SQL Server 2014 SP1 이상, 2016 및 2017입니다.  모든 SQL Server 버전은 Standard 또는 Enterprise 64비트여야 합니다.
-    >Azure Backup 서버는 원격 SQL Server 인스턴스에서 작동하지 않습니다. Azure Backup 서버에서 사용되는 인스턴스는 로컬이어야 합니다. MABS에 기존 SQL Server를 사용하는 경우 MABS 설정은 SQL Server의 ‘명명된 인스턴스’ 사용만을 지원합니다.
+    >Azure Backup Server은 원격 SQL Server 인스턴스에서 작동 하지 않습니다. Azure Backup 서버에서 사용되는 인스턴스는 로컬이어야 합니다. MABS에 기존 SQL server를 사용 하는 경우 MABS 설치 프로그램은 SQL server의 명명 된 *인스턴스* 사용만을 지원 합니다.
 
     ![Azure Backup 서버 - SQL 확인](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
@@ -333,7 +333,7 @@ Azure Backup 서버 컴퓨터에 Azure에 대한 연결이 복원되면 수행�
 
 > [!NOTE]
 >
-> MABS V2는 MABS V3 설치를 위한 필수 구성 요소는 아닙니다. 그러나 MABS V2에서만 MABS V3으로 업그레이드할 수 있습니다.
+> MABS v 2는 MABS V3을 설치 하기 위한 필수 구성 요소가 아닙니다. 그러나 MABS V2에서만 MABS V3으로 업그레이드할 수 있습니다.
 
 다음 단계를 사용하여 MABS를 업그레이드합니다.
 

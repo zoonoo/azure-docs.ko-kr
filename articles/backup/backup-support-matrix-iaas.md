@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: f0783d937178c88265c33c8b7339f71520506fc5
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6cb9f53bceb6caaac77dddd6828c46842e53d257
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816119"
+ms.locfileid: "88825259"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -49,7 +49,7 @@ VM의 백업 정책 수정 | 지원됩니다.<br/><br/> VM은 새 정책의 일�
 월별/연도별 백업| Azure VM 확장을 사용하여 백업하는 경우에는 지원되지 않습니다. 일별 및 주별만 지원됩니다.<br/><br/> 월별/연도별 보존 기간에 대해 일별/주별 백업을 유지하도록 정책을 설정할 수 있습니다.
 자동 클록 조정 | 지원되지 않습니다.<br/><br/> Azure Backup은 VM을 백업할 때 일광 절약 시간제 변경에 따라 자동으로 조정하지 않습니다.<br/><br/>  필요에 따라 정책을 수동으로 수정합니다.
 [하이브리드 백업에 대한 보안 기능](./backup-azure-security-feature.md) |보안 기능을 사용하지 않도록 설정할 수 없습니다.
-머신 시간이 변경된 VM 백업 | 지원되지 않습니다.<br/><br/> 해당 VM에 대 한 백업을 사용 하도록 설정한 후 컴퓨터 시간이 이후 날짜-시간으로 변경 되는 경우 그러나 시간 변경이 되돌아간 경우에도 성공적인 백업이 보장 되지 않습니다.
+머신 시간이 변경된 VM 백업 | 지원되지 않습니다.<br/><br/> 해당 VM에 대 한 백업을 사용 하도록 설정한 후 컴퓨터 시간이 이후 날짜-시간으로 변경 된 경우에도 시간 변경이 되돌아간 경우에도 성공적인 백업이 보장 되지 않습니다.
 [Virtual machine scale sets](../virtual-machine-scale-sets/overview.md) 의 Azure vm | 백업 및 복원은 [오케스트레이션 모드가](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) 3으로 설정 된 vm에 대해 지원 됩니다. <br><br>가용성 집합은 지원 되지 않습니다.
 
 ## <a name="operating-system-support-windows"></a>운영 체제 지원(Windows)

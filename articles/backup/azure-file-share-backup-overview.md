@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 정보
 description: Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c57537519888138698e9add1a687e0018d330cfa
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 1c44d406519c8c0d9fb71b5e94bcb6bcaa1a7253
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757883"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823883"
 ---
 # <a name="about-azure-file-share-backup"></a>Azure 파일 공유 백업 정보
 
@@ -23,7 +23,7 @@ Azure 파일 공유 백업은 클라우드에서 데이터를 보호 하 고 온
 * **경고 및 보고**: 백업 및 복원 오류에 대 한 경고를 구성 하 고, Azure Backup에서 제공 하는 보고 솔루션을 사용 하 여 파일 공유에서 백업에 대 한 정보를 얻을 수 있습니다.
 * **파일 공유의 실수로 인 한 삭제 방지**: Azure Backup 보존 기간이 14 일인 저장소 계정 수준에서 [일시 삭제 기능](../storage/files/storage-files-prevent-file-share-deletion.md) 을 사용 하도록 설정 합니다. 악의적인 행위자가 파일 공유를 삭제 하는 경우에도 파일 공유의 내용과 복구 지점이 구성 가능한 보존 기간 동안 유지 되므로 데이터 손실 없이 원본 콘텐츠 및 스냅숏의 복구가 성공 하 고 완전 하 게 완료 됩니다.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>아키텍처
 
 ![Azure 파일 공유 백업 아키텍처](./media/azure-file-share-backup-overview/azure-file-shares-backup-architecture.png)
 
@@ -40,7 +40,7 @@ Azure 파일 공유 백업은 클라우드에서 데이터를 보호 하 고 온
 5. 지정 된 정책에 따라 Azure Backup 스케줄러는 예약 된 시간에 백업을 트리거합니다. 이 작업의 일부로 파일 공유 스냅숏은 파일 공유 API를 사용 하 여 생성 됩니다. 스냅숏 URL만 메타 데이터 저장소에 저장 됩니다.
 
     >[!NOTE]
-    >백업 서비스는 저장소 계정에 포함 되는 스냅숏을 생성 하 고 관리 하며, 백업이 자격 증명 모음에 전송 되지 않으므로 파일 공유 데이터는 백업 서비스로 전송 되지 않습니다.
+    >백업 서비스는 저장소 계정에 포함 되는 스냅숏을 만들고 관리 하므로 백업이 자격 증명 모음에 전송 되지 않으므로 파일 공유 데이터는 백업 서비스로 전송 되지 않습니다.
 
 6. 원본 파일 공유에서 사용할 수 있는 스냅숏에서 Azure 파일 공유 콘텐츠 (개별 파일 또는 전체 공유)를 복원할 수 있습니다. 작업이 트리거되면 스냅숏 URL은 메타 데이터 저장소에서 검색 되 고 데이터는 원본 스냅숏에서 선택한 대상 파일 공유로 나열 되 고 전송 됩니다.
 
