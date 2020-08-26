@@ -8,12 +8,12 @@ ms.date: 05/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4f49d4e78cd58d16627a0b6fda1957baa9f1f085
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4c005bc49780edcb7f322455e37163e78d87619f
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752075"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852682"
 ---
 # <a name="using-azure-ultra-disks"></a>Azure ultra disks 사용
 
@@ -128,7 +128,7 @@ VM을 프로비전한 후 데이터 디스크를 분할 및 포맷하고 워크�
 
 ## <a name="deploy-an-ultra-disk-using-the-azure-portal"></a>Azure Portal를 사용 하 여 ultra disk 배포
 
-이 섹션에서는 데이터 디스크로 ultra 디스크를 사용 하는 가상 컴퓨터를 배포 하는 방법을 설명 합니다. 가상 컴퓨터를 배포 하는 방법을 잘 알고 있다고 가정 합니다. 그렇지 않은 경우 빠른 시작 [: Azure Portal에서 Windows 가상 컴퓨터 만들기](~/articles/virtual-machines/windows/quick-create-portal.md)를 참조 하세요.
+이 섹션에서는 데이터 디스크로 ultra 디스크를 사용 하는 가상 컴퓨터를 배포 하는 방법을 설명 합니다. 가상 컴퓨터를 배포 하는 방법을 잘 알고 있다고 가정 합니다. 그렇지 않은 경우 빠른 시작 [: Azure Portal에서 Windows 가상 컴퓨터 만들기](./windows/quick-create-portal.md)를 참조 하세요.
 
 - [Azure Portal](https://portal.azure.com/) 에 로그인 하 고 가상 머신 (VM) 배포로 이동 합니다.
 - [지원 되는 VM 크기 및 지역을](#ga-scope-and-limitations)선택 해야 합니다.

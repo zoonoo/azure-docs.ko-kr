@@ -10,12 +10,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 15c3f2de30509a7dc6836f5d39fac4c0ea8b7f25
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 708df0a8ed1085c6e7d435c6f3c3b811ef2ed64e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513277"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854325"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 Managed Disks 사용
 
@@ -263,7 +263,7 @@ REST API 사양에 대한 전체 정보를 찾으려면 [관리 디스크 REST A
 * 관리 디스크를 사용하는 전체 템플릿은 다음 Azure 빠른 시작 리포지토리 링크를 방문하세요.
     * [관리 디스크가 있는 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [관리 디스크가 있는 Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-* 관리 디스크에 대해 자세히 알아보려면 [Azure Managed Disks 개요](~/articles/virtual-machines/windows/managed-disks-overview.md) 문서를 참조하세요.
+* 관리 디스크에 대해 자세히 알아보려면 [Azure Managed Disks 개요](managed-disks-overview.md) 문서를 참조하세요.
 * [Microsoft.Compute/virtualMachines 템플릿 참조](/azure/templates/microsoft.compute/virtualmachines) 문서를 방문하여 가상 컴퓨터 리소스에 대한 템플릿 참조 설명서를 검토하세요.
 * [Microsoft.Compute/disks 템플릿 참조](/azure/templates/microsoft.compute/disks) 문서를 방문하여 디스크 리소스에 대한 템플릿 참조 설명서를 검토하세요.
 * Azure Virtual Machine Scale Sets에서 관리 디스크를 사용하는 방법에 대한 내용은 [확장 집합으로 데이터 디스크 사용](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) 문서를 참조하세요.

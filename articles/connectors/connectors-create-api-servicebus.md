@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: d02467fddcce77340b9845fe084bf5a2fb8b01f3
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815733"
+ms.locfileid: "88853299"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Azure Logic Apps 및 Azure Service Bus를 사용 하 여 클라우드의 메시지 교환
 
@@ -85,23 +85,23 @@ ms.locfileid: "88815733"
 
    1. 연결에 사용할 이름을 입력하고 Service Bus 네임스페이스를 선택합니다.
 
-      ![Service Bus 연결 만들기, 1부](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
+      ![연결 이름을 제공 하 고 Service Bus 네임 스페이스를 선택 하는 것을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
       연결 문자열을 수동으로 입력 하려면 **연결 정보를 수동으로 입력**을 선택 합니다. 연결 문자열이 없는 경우 [연결 문자열을 찾는 방법](#permissions-connection-string)에 대해 알아봅니다.
 
    1. Service Bus 정책을 선택 하 고 **만들기**를 선택 합니다.
 
-      ![Service Bus 연결 만들기, 2부](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
+      ![Service Bus 정책 선택을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
    1. 큐 또는 항목과 같이 원하는 메시징 엔터티를 선택 합니다. 이 예에서는 Service Bus 큐를 선택 합니다.
    
-      ![Service Bus 큐 선택](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
+      ![Service Bus 큐 선택을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
 
 1. 선택한 트리거에 필요한 정보를 제공 합니다. 작업에 사용할 수 있는 다른 속성을 추가 하려면 **새 매개 변수 추가** 목록을 열고 원하는 속성을 선택 합니다.
 
    이 예제의 트리거에서는 큐를 확인 하는 폴링 간격 및 빈도를 선택 합니다.
 
-   ![폴링 간격 설정](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
+   ![Service Bus 트리거의 폴링 간격 설정을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
    사용 가능한 트리거 및 속성에 대 한 자세한 내용은 커넥터의 [참조 페이지](/connectors/servicebus/)를 참조 하세요.
 
@@ -123,29 +123,29 @@ ms.locfileid: "88815733"
 
    이 예에서는 **메시지 보내기** 작업을 선택 합니다.
 
-   ![Service Bus 동작 선택](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+   ![Service Bus 동작 선택을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
 1. 작업에서 Service Bus 네임 스페이스에 처음으로 연결 하는 경우 논리 앱 디자이너에서 연결 정보를 묻는 메시지가 표시 되 면 다음 단계를 수행 합니다.
 
    1. 연결에 사용할 이름을 입력하고 Service Bus 네임스페이스를 선택합니다.
 
-      ![Service Bus 연결 만들기, 1부](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
+      ![연결 이름을 제공 하 고 Service Bus 네임 스페이스를 선택 하는 것을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
       연결 문자열을 수동으로 입력 하려면 **연결 정보를 수동으로 입력**을 선택 합니다. 연결 문자열이 없는 경우 [연결 문자열을 찾는 방법](#permissions-connection-string)에 대해 알아봅니다.
 
    1. Service Bus 정책을 선택 하 고 **만들기**를 선택 합니다.
 
-      ![Service Bus 연결 만들기, 2부](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
+      ![Service Bus 정책을 선택 하 고 만들기 단추를 선택 하는 스크린샷](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
    1. 큐 또는 항목과 같이 원하는 메시징 엔터티를 선택 합니다. 이 예에서는 Service Bus 큐를 선택 합니다.
 
-      ![Service Bus 큐 선택](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
+      ![Service Bus 큐를 선택 하는 것을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
 
 1. 선택한 작업에 필요한 정보를 입력합니다. 작업에 사용할 수 있는 다른 속성을 추가 하려면 **새 매개 변수 추가** 목록을 열고 원하는 속성을 선택 합니다.
 
    예를 들어 **콘텐츠** 및 **콘텐츠 형식** 속성을 선택 하 여 작업에 추가할 수 있습니다. 그런 다음 보내려는 메시지의 콘텐츠를 지정 합니다.
 
-   ![메시지 콘텐츠 및 세부 정보를 입력합니다.](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
+   ![메시지 내용 유형 및 세부 정보 제공을 보여 주는 스크린샷](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
    사용 가능한 작업 및 해당 속성에 대 한 자세한 내용은 커넥터의 [참조 페이지](/connectors/servicebus/)를 참조 하세요.
 

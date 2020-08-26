@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4fce5b191e0af6a69fe218c4ed7272f352c3bdd2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 8c51095c9e33cd9e5f6da7e972e0cc596eec6478
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827497"
+ms.locfileid: "88855598"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Azure Logic Apps에 대한 Azure Resource Manager 템플릿 배포
 
@@ -119,7 +119,9 @@ Azure Pipelines 사용에 대 한 일반적인 개략적인 단계는 다음과 
 
 ## <a name="authorize-oauth-connections"></a>OAuth 연결 권한 부여
 
-배포 후에 논리 앱은 유효한 매개 변수를 사용 하 여 종단 간에 작동 합니다. 그러나 [자격 증명을 인증](../active-directory/develop/authentication-vs-authorization.md)하는 데 유효한 액세스 토큰을 생성 하려면 여전히 미리 인증 된 OAuth 연결을 인증 하거나 사용 해야 합니다. 몇 가지 제안 사항은 다음과 같습니다.
+배포 후에는 논리 앱이 유효한 매개 변수를 사용 하 여 종단 간에 작동 하지만 [자격 증명을 인증](../active-directory/develop/authentication-vs-authorization.md)하는 데 유효한 액세스 토큰을 생성 하려면 여전히 미리 인증 된 OAuth 연결에 권한을 부여 하거나 사용 해야 합니다. 그러나 API 연결 리소스를 한 번만 배포 및 인증 하면 됩니다. 즉, 연결 정보를 업데이트 해야 하는 경우가 아니면 후속 배포에 이러한 연결 리소스를 포함할 필요가 없습니다. 연속 통합 및 연속 배포 파이프라인을 사용 하는 경우 업데이트 된 Logic Apps 리소스만 배포 하 고 매번 연결을 다시 인증 필요가 없습니다.
+
+다음은 권한 부여 연결을 처리 하기 위한 몇 가지 제안 사항입니다.
 
 * 동일한 지역에 있는 논리 앱에서 API 연결 리소스를 사전에 부여 하 고 공유 합니다. API 연결은 논리 앱과는 별도로 Azure 리소스로 존재 합니다. 논리 앱은 API 연결 리소스에 종속 되어 있지만 API 연결 리소스는 논리 앱에 대 한 종속성이 없으며 종속 논리 앱을 삭제 한 후에도 유지 됩니다. 또한 논리 앱은 다른 리소스 그룹에 존재 하는 API 연결을 사용할 수 있습니다. 그러나 논리 앱 디자이너는 논리 앱과 동일한 리소스 그룹에만 API 연결을 만들 수 있도록 지원 합니다.
 

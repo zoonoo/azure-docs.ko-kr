@@ -8,18 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 61c969bc0c0ac9731ae35e445b82db633c3c5191
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cbf1c678307d76361e6083f4e2231fb9e48a112f
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163172"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855149"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2에서 데이터 쿼리
 
-Azure Time Series Insights Gen2를 사용 하면 공용 surface Api를 통해 환경에 저장 된 메타 데이터 및 이벤트에 대 한 데이터를 쿼리할 수 있습니다. 이러한 Api는 [Azure Time Series Insights Gen2 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer)에서도 사용 됩니다.
+Azure Time Series Insights Gen2를 사용 하면 공용 surface Api를 통해 환경에 저장 된 메타 데이터 및 이벤트에 대 한 데이터를 쿼리할 수 있습니다. 이러한 Api는 [Azure Time Series Insights TSI 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer)에서도 사용 됩니다.
 
 Azure Time Series Insights Gen2에서 세 가지 기본 API 범주를 사용할 수 있습니다.
 
@@ -73,4 +73,4 @@ Azure Time Series Insights Gen2는 시계열 [변수](./concepts-variables.md)�
 ## <a name="next-steps"></a>다음 단계
 
 * [시계열 모델](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm)에서 정의할 수 있는 다양 한 변수에 대해 자세히 알아보세요.
-* [Azure Time Series Insights Gen2 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer)에서 데이터를 쿼리 하는 방법에 대해 자세히 알아보세요.
+* [Azure Time Series Insights TSI 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer)에서 데이터를 쿼리 하는 방법에 대해 자세히 알아보세요.

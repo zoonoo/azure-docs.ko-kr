@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 6148cedbf004e3e63200ac50b91a40866c5b18db
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719722"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855259"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>리소스 상태, 프런트 엔드 및 백 엔드 가용성 문제 해결 
 
@@ -30,6 +30,9 @@ ms.locfileid: "88719722"
 
 ## <a name="health-probe-status"></a>상태 프로브 상태
 상태 프로브 상태 메트릭은 상태 프로브에 정의 된 프로토콜의 ping을 통해 생성 됩니다. 이 ping은 백 엔드 풀의 각 인스턴스와 상태 프로브에 정의 된 포트에 전송 됩니다. HTTP 및 HTTPS 프로브의 경우 성공적인 ping에는 HTTP 200 OK 응답이 필요 하지만 TCP 프로브를 사용 하면 모든 응답이 성공으로 간주 됩니다. 각 프로브에 대 한 연속 성공 또는 실패는 백 엔드 인스턴스가 정상이 고 백 엔드 풀이 할당 된 부하 분산 규칙에 대 한 트래픽을 수신할 수 있는지 여부를 확인 합니다. 데이터 경로 가용성과 유사 하 게 평균 집계를 사용 하 여 샘플링 간격 중 평균 성공/총 ping을 알려 줍니다. 이 상태 프로브 상태 값은 프런트 엔드를 통해 트래픽을 전송 하지 않고 백 엔드 인스턴스를 검색 하 여 부하 분산 장치에서 분리 된 백 엔드 상태를 나타냅니다.
+
+>[!IMPORTANT]
+>상태 프로브 상태는 1 분 마다 샘플링 됩니다. 이렇게 하면 다른 경우에는 값이 조금씩 변동 될 수 있습니다. 예를 들어 두 개의 백 엔드 인스턴스가 있는 경우 하나는 하나를 검색 하 고, 다른 하나는 검색 한 경우 상태 프로브 서비스는 정상 인스턴스에 대해 7 개의 샘플과 비정상 인스턴스에 대해 6 개의 샘플을 캡처할 수 있습니다. 이 경우 1 분 간격으로 46.15으로 표시 되는 이전에 안정 된 값 50이 발생 합니다. 
 
 ## <a name="diagnose-degraded-and-unavailable-load-balancers"></a>저하 되 고 사용할 수 없는 부하 분산 장치 진단
 [리소스 상태 문서](load-balancer-standard-diagnostics.md#resource-health-status)에 설명 된 대로 성능 저하 된 부하 분산 장치는 25%와 90%의 데이터 경로 가용성을 표시 하 고, 사용할 수 없는 부하 분산 장치는 2 분 동안 데이터 경로 가용성을 25% 미만으로 표시 한 것입니다. 구성 된 상태 프로브 상태 또는 데이터 경로 가용성 경고에 표시 되는 오류를 조사 하기 위해 이와 동일한 단계를 수행할 수 있습니다. 리소스 상태를 확인 하 고 부하 분산 장치를 0%의 데이터 경로 가용성으로 사용할 수 없게 되는 경우 서비스를 사용할 수 있습니다.

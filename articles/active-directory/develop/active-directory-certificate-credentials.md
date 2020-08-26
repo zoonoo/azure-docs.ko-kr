@@ -13,16 +13,16 @@ ms.date: 08/12/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 06f15257148342879a164005a8f4fb302c539e67
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 6330621aac78d5e9df52f2cd3ad9c3968bb0120d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163665"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853375"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Microsoft ID 플랫폼 애플리케이션 인증 인증서 자격 증명
 
-Microsoft id 플랫폼을 사용 하면 응용 프로그램에서 인증에 자체 자격 증명을 사용할 수 있습니다. 예를 들어 OAuth 2.0 [클라이언트 자격 증명 부여](v2-oauth2-client-creds-grant-flow.md) 흐름 및 obo ( [on of](v2-oauth2-on-behalf-of-flow.md) ) 흐름에서 사용할 수 있습니다.
+Microsoft id 플랫폼을 사용 하면 응용 프로그램에서 인증에 자체 자격 증명을 사용할 수 있습니다. 예를 들어 OAuth 2.0  [클라이언트 자격 증명 부여](v2-oauth2-client-creds-grant-flow.md) 흐름 및 obo ( [on of](v2-oauth2-on-behalf-of-flow.md) ) 흐름에서 사용할 수 있습니다.
 
 응용 프로그램이 인증에 사용할 수 있는 자격 증명의 한 가지 형태는 응용 프로그램이 소유 하는 인증서로 서명 된 JWT ( [JSON Web Token](./security-tokens.md#json-web-tokens-jwts-and-claims) ) 어설션입니다.
 
@@ -36,13 +36,13 @@ Microsoft id 플랫폼을 사용 하면 응용 프로그램에서 인증에 자�
 | --- | --- |
 | `alg` | **RS256**이어야 함 |
 | `typ` | **JWT**여야 함 |
-| `x5t` | Base64 문자열 값으로 인코드된 x.509 인증서 해시 (인증서의 SHA-1 *지문*라고도 함)입니다. 예를 들어의 x.509 인증서 해시가 지정 된 경우 `84E05C1D98BCE3A5421D225B140B36E86A3D5534` `x5t` 클레임은가 됩니다 `hOBcHZi846VCHSJbFAs26Go9VTQ` . |
+| `x5t` | Base64 문자열 값으로 인코드된 x.509 인증서 해시의 (인증서의 SHA-1 *지문이*라고도 함) 16 진수 표현입니다. 예를 들어 x.509 인증서 해시 `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (16 진수)가 지정 된 경우 클레임은 `x5t` `hOBcHZi846VCHSJbFAs26Go9VTQ=` (Base64)가 됩니다. |
 
 ### <a name="claims-payload"></a>클레임(페이로드)
 
 | 매개 변수 |  설명 |
 | --- | --- |
-| `aud` | 대상:`https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
+| `aud` | 대상: `https://login.microsoftonline.com/<your-tenant-id>/oauth2/token` |
 | `exp` | 만료 날짜: 토큰이 만료 되는 날짜입니다. 시간은 1970년 1월 1일(1970-01-01T0:0:0Z) UTC부터 토큰의 유효 기간이 만료될 때까지의 시간(초)으로 표시됩니다. 짧은 만료 시간 (10 분 ~ 1 시간)을 사용 하는 것이 좋습니다.|
 | `iss` | 발급자: 클라이언트 서비스의 client_id (*응용 프로그램 (클라이언트) id* ) 여야 합니다. |
 | `jti` | GUID: JWT ID |
@@ -103,8 +103,8 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 인증서가 있을 때 다음을 컴퓨팅해야 합니다.
 
-- `$base64Thumbprint`-B a s e 64로 인코딩된 인증서 해시 값
-- `$base64Value`-B a s e 64로 인코딩된 인증서 원시 데이터 값
+- `$base64Thumbprint` -B a s e 64로 인코딩된 인증서 해시 값
+- `$base64Value` -B a s e 64로 인코딩된 인증서 원시 데이터 값
 
 애플리케이션 매니페스트에서 키를 식별하는 GUID도 제공해야 합니다(`$keyId`).
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: manshuk
-ms.openlocfilehash: 05119a6f9af935a0f4a2887eae53f3d5bdb1a482
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 381023a0650b078a74c01ff7b698aebacb256147
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658187"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855499"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Reserved VM Instances에서 가상 머신 크기 유연성
 
-예약 VM 인스턴스를 구입할 때 인스턴스 크기의 유연성 또는 용량 우선 순위를 최적화 하도록 선택할 수 있습니다. 예약 VM 인스턴스에 대 한 최적화 설정을 설정 하거나 변경 하는 방법에 대 한 자세한 내용은 [예약 된 vm 인스턴스에 대 한 최적화 설정 변경](~/articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances)을 참조 하세요.
+예약 VM 인스턴스를 구입할 때 인스턴스 크기의 유연성 또는 용량 우선 순위를 최적화 하도록 선택할 수 있습니다. 예약 VM 인스턴스에 대 한 최적화 설정을 설정 하거나 변경 하는 방법에 대 한 자세한 내용은 [예약 된 vm 인스턴스에 대 한 최적화 설정 변경](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances)을 참조 하세요.
 
 인스턴스 크기 유연성을 위해 최적화 된 예약 된 가상 머신 인스턴스를 사용 하 여 구입한 예약은 동일한 instance size 유연성 그룹의 Vm (가상 머신) 크기에 적용 될 수 있습니다. 예를 들어 Standard_DS5_v2 같이 DSv2 시리즈에 나열 된 VM 크기에 대 한 예약을 구매 하는 경우 예약 할인은 동일한 인스턴스 크기의 유연성 그룹에 나열 된 다른 4 개 크기에 적용 될 수 있습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "88658187"
 
 인스턴스 크기 유연성 그룹 내에서 예약 할인이 적용 되는 Vm의 수는 예약을 구매할 때 선택한 VM 크기에 따라 달라 집니다. 또한 실행하는 VM의 크기에 따라서도 달라집니다. 요율 열은 해당 인스턴스 크기 유연성 그룹의 각 VM 크기에 대 한 상대적 공간을 비교 합니다. 예약 할인을 실행하고 있는 VM에 적용하는 방법을 계산하기 위해 비율 값을 사용합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 다음 예제에서는 DSv2 시리즈 테이블의 크기 및 비율을 사용합니다.
 
@@ -52,4 +52,4 @@ ms.locfileid: "88658187"
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Azure Reservations 항목](~/articles/cost-management-billing/reservations/save-compute-costs-reservations.md)을 참조 하세요.
+자세한 내용은 [Azure Reservations 항목](../cost-management-billing/reservations/save-compute-costs-reservations.md)을 참조 하세요.

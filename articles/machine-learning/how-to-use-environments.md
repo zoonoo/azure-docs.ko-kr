@@ -3,20 +3,20 @@ title: 소프트웨어 환경 사용
 titleSuffix: Azure Machine Learning
 description: 모델 학습 및 배포를 위한 환경을 만들고 관리 합니다. 환경에 대 한 Python 패키지 및 기타 설정을 관리 합니다.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: saachigopal
+ms.author: sagopal
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a08575ac118f38361d82198ccc86a09f7b2558d6
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 1994407de579e8fd7bc6dfc2ecc9f021d1bf0ec5
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783742"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853254"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Azure Machine Learning에서 소프트웨어 환경을 만들고 & 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ ms.locfileid: "88783742"
 
 Azure Machine Learning에서 환경의 작동 방식에 대 한 개략적인 개요는 [ML 환경 이란?](concept-environments.md) 을 참조 하세요. 개발 환경을 구성 하는 방법에 대 한 자세한 내용은 [여기](how-to-configure-environment.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>사전 준비 사항
 
 * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -153,7 +153,7 @@ Conda, pip 또는 private wheel 파일을 사용하여 환경에 패키지를 �
 
 Conda 패키지 리포지토리에서 패키지를 사용할 수 있는 경우 pip 설치 대신 Conda 설치를 사용 하는 것이 좋습니다. Conda 패키지에는 일반적으로 더 안정적으로 설치 하는 미리 빌드된 이진 파일이 제공 됩니다.
 
-다음은 환경에 추가하는 예제입니다. 이 예제에서는 `numpy` 1.17.0 버전을 추가합니다. 패키지도 추가 `pillow` `myenv` 합니다. 이 예제에서는 각각 [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) 메서드 및 [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) 메서드를 사용합니다.
+다음 예에서는 환경에를 추가 합니다 `myenv` . 이 예제에서는 `numpy` 1.17.0 버전을 추가합니다. 또한 패키지를 추가 `pillow` 합니다. 이 예제에서는 각각 [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) 메서드 및 [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) 메서드를 사용합니다.
 
 ```python
 from azureml.core.environment import Environment
@@ -245,7 +245,7 @@ build.wait_for_completion(show_output=True)
 먼저 메서드를 사용 하 여 이미지를 로컬로 빌드하는 것이 유용 [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) 합니다. 선택적 매개 변수를 설정 하면 `pushImageToWorkspaceAcr = True` 결과 이미지가 AZURE ML 작업 영역 컨테이너 레지스트리로 푸시됩니다. 
 
 > [!WARNING]
->  환경에서 종속성 또는 채널의 순서를 변경 하면 새 환경이 생성 되 고 새 이미지 빌드가 필요 합니다.
+>  환경에서 종속성 또는 채널의 순서를 변경 하면 새 환경이 생성 되 고 새 이미지 빌드가 필요 합니다. 또한 `build()` 새 버전이 있는 경우 기존 이미지에 대해 메서드를 호출 하면 해당 종속성이 업데이트 됩니다. 
 
 ## <a name="enable-docker"></a>Docker 사용
 
@@ -323,7 +323,7 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 등록 된 환경의 경우 다음 코드를 사용 하 여 이미지 세부 정보를 검색할 수 있습니다 `details` . 여기서는 [Dockerimagedetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (AzureML Python SDK >= 1.11)의 인스턴스이고 dockerfile, registry 및 image 이름과 같은 환경 이미지에 대 한 모든 정보를 제공 합니다.
 
 ```python
-details = environment.get_image_details()
+details = environment.get_image_details(workspace=ws)
 ```
 
 ## <a name="use-environments-for-training"></a>교육용 환경 사용

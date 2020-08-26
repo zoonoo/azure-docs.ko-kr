@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb74fae150d4c8e5dda6978c272d358bdec6ca25
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783606"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853017"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
 
@@ -283,7 +283,7 @@ ms.locfileid: "88783606"
 
 * Azure AD 또는 Azure 구독에 권한 있는 역할이 할당 됨
 
-[샘플 스크립트](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse.)를 참조 하세요. 이 스크립트는 테 넌 트에 초대 된 외부 id가 사용 되는 위치를 보여 줍니다. Azure AD에서 외부 사용자의 그룹 멤버 자격, 역할 할당 및 응용 프로그램 할당을 확인할 수 있습니다. 스크립트는 그룹을 사용 하지 않고 Sharepoint 리소스에 대 한 직접 권한 할당 등 Azure AD 외부의 할당을 표시 하지 않습니다.
+[샘플 스크립트](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse)를 참조 하세요. 이 스크립트는 테 넌 트에 초대 된 외부 id가 사용 되는 위치를 보여 줍니다. Azure AD에서 외부 사용자의 그룹 멤버 자격, 역할 할당 및 응용 프로그램 할당을 확인할 수 있습니다. 스크립트는 그룹을 사용 하지 않고 Sharepoint 리소스에 대 한 직접 권한 할당 등 Azure AD 외부의 할당을 표시 하지 않습니다.
 
 그룹이 나 응용 프로그램에 대 한 액세스 검토를 만들 때 검토자가 액세스 권한이 있는 모든 사용자 또는 게스트 사용자에 게 집중 하도록 선택할 수 있습니다. 게스트 사용자만을 선택 하 여 검토자에 게 리소스에 대 한 액세스 권한이 있는 Azure AD B2B의 외부 id에 대 한 포커스가 있는 목록이 제공 됩니다.
 

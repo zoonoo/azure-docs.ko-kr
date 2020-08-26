@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 56328500c1c220a04b3e2219c145ad5db0e07ff7
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c066931cece60d14767b86254020ea5ba4bad1be
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817608"
+ms.locfileid: "88854509"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 4의 지원 주기
 
@@ -97,9 +97,9 @@ Azure Red Hat OpenShift SRE 팀은 새로운/기존 버전을 추가 하거나 �
 
 |OCP 버전|업스트림 릴리스|Azure Red Hat OpenShift 일반 가용성|수명 종료|
 |-|-|-|-|
-|4.3|2020년 1월 23일|2020년 4월 28일|2020 년 8 월 2 일|
-|4.4.|5 월 5 일, 2020|2020 년 7 월 29 일|4.6 GA|
-|4.5|2020 년 7 월 13 일|2020 년 9 월 28 일|4.7 GA
+|4.3|2020년 2월|2020년 5월|2020년 8월|
+|4.4.|2020년 5월|2020년 8월|4.6 GA|
+|4.5|2020년 7월|10 월 2020|4.7 GA
 |4.6|* 초기 Q4, 2020|* 늦은 Q4, 2020|4.8 GA|
 
 \*_보류 중인 업스트림 릴리스 날짜 확인입니다._
