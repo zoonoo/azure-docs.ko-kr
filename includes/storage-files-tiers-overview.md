@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 62c2193a0045cc2ee35930e87b360446e94ba861
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: cace61739e13514bb4aba1169c51ea670a167c9d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88864723"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944372"
 ---
 Azure Files는 프리미엄, 트랜잭션 최적화, 핫, 쿨 등의 4가지 스토리지 계층을 제공하여 시나리오의 성능 및 가격 요구 사항에 맞게 공유를 조정할 수 있도록 지원합니다.
 
@@ -30,6 +30,8 @@ Azure Files는 프리미엄, 트랜잭션 최적화, 핫, 쿨 등의 4가지 스
 - 오스트레일리아 중부 2
 - 오스트레일리아 동부
 - 오스트레일리아 남동부
+- 캐나다 동부
+- 캐나다 중부
 - 프랑스 중부
 - 프랑스 남부
 - 독일 북부(퍼블릭)
@@ -45,6 +47,8 @@ Azure Files는 프리미엄, 트랜잭션 최적화, 핫, 쿨 등의 4가지 스
 - 노르웨이 서부
 - 남아프리카 북부
 - 남아프리카 공화국 서부
+- 스위스 북부
+- 스위스 서부
 - 아랍에미리트 중부
 - 아랍에미리트 북부
 - 영국 남부

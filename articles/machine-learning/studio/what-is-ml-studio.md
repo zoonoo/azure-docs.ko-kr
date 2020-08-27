@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 03/24/2020
-ms.openlocfilehash: 0dff28d5bfb2623a7362dc9b8aeb0840ac4e1e49
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 22f0b7af7434288bea45e6edcf4868dcffe526db
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430091"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690718"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)란?
 
@@ -29,7 +29,7 @@ Machine Learning Studio(클래식)는 데이터 과학, 예측 분석, 클라우
 
 ## <a name="the-machine-learning-studio-classic--interactive-workspace"></a>Machine Learning Studio(클래식) 대화형 작업 영역
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 예측 분석 모델을 개발하려면 일반적으로 하나 이상의 소스에서 얻은 데이터를 사용하고, 다양한 데이터 조작과 통계 함수를 통해 해당 데이터를 변환 및 분석하고, 결과 세트를 생성합니다. 이와 같은 모델을 개발하는 과정은 반복 프로세스이며, 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다.
 
