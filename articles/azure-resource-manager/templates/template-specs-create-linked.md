@@ -2,13 +2,13 @@
 title: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기
 description: 연결 된 템플릿으로 템플릿 사양을 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 49a26bf61c3c66f41761afe293471575e76c4eb9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/27/2020
+ms.openlocfilehash: a70d4be2810b8d5a19fa9d806444cac1674e1a05
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936370"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959224"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>자습서: 연결 된 템플릿을 사용 하 여 템플릿 사양 만들기 (미리 보기)
 
@@ -245,7 +245,7 @@ az deployment group create \
 ```
 
 > [!NOTE]
-> 템플릿 사양 id를 가져온 다음 Windows PowerShell에서 변수에 할당 하는 것과 관련 된 알려진 문제가 있습니다.
+> 템플릿 사양 ID를 가져오고 Windows PowerShell에서 변수에 할당 하는 것과 관련 된 알려진 문제가 있습니다.
 
 ---
 

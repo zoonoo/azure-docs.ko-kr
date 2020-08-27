@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2020
-ms.openlocfilehash: d507db415a2438c97444ca008f0c9b182306242b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e1fa2fe11873d08fae5add1ee3206f6f887975eb
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121530"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88960920"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 Azure Log Analytics 에이전트는 모든 클라우드의 가상 머신, 온-프레미스 머신 및 [System Center Operations Manager](/system-center/scom/)에서 모니터링하는 가상 머신의 포괄적인 관리를 위해 개발되었습니다. Windows 에이전트와 Linux 에이전트는 모니터링 솔루션에 정의된 고유한 로그 또는 메트릭뿐만 아니라 다른 소스에서 수집한 데이터를 Azure Monitor의 Log Analytics 작업 영역으로 보냅니다. Log Analytics 에이전트는 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml), [Azure Automation](../../automation/automation-intro.md) 등의 Azure Monitor 내 기타 서비스와 인사이트도 지원합니다.
@@ -118,8 +118,8 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 ### <a name="python-2-requirement"></a>Python 2 요구 사항
  Log Analytics 에이전트에는 Python 2가 필요 합니다. 가상 컴퓨터가 기본적으로 Python 2를 포함 하지 않는 배포판를 사용 하는 경우 설치 해야 합니다. 다음 샘플 명령은 다른 배포판에 Python 2를 설치 합니다.
 
- - Red Hat, CentOS, Oracle:`yum install -y python2`
- - Ubuntu, Debian:`apt-get install -y python2`
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
 Python2 실행 파일은 다음 절차를 사용 하 여 *python* 으로 별칭을 지정 해야 합니다.
@@ -213,9 +213,6 @@ Windows 및 Linux 에이전트는 HTTPS 프로토콜을 사용하여 프록시 �
 Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.md#update-proxy-settings) proxy.conf 구성 파일을 수정하여 프록시 서버를 지정할 수 있습니다.  Linux 에이전트 프록시 구성 값은 다음 구문을 포함합니다.
 
 `[protocol://][user:password@]proxyhost[:port]`
-
-> [!NOTE]
-> 프록시 서버에 인증할 필요가 없는 경우에도 Linux 에이전트는 의사 사용자/암호를 제공해야 합니다. 이는 사용자 이름 또는 암호일 수 있습니다.
 
 |속성| Description |
 |--------|-------------|

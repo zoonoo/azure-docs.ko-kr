@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3b339b359ddbaf105b95bdf5d94ee0f66f339a82
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f30221de81b6bef199c0a25e770558c4db8c4006
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611452"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958515"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
@@ -57,7 +57,7 @@ App Service에서 앱을 만드는 경우 App Service 계획에 배치합니다.
 
 이러한 방식으로 App Service 계획은 App Service 앱의 배율 단위입니다. 계획이 5개의 VM 인스턴스를 실행하도록 구성되면 계획의 모든 앱은 5개의 모든 인스턴스에서 실행됩니다. 계획이 자동 크기 조정을 위해 구성되면 계획의 모든 앱은 자동 크기 조정 설정에 따라 함께 확장됩니다.
 
-앱의 규모 확장에 대한 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../monitoring-and-diagnostics/insights-how-to-scale.md)을 참조하세요.
+앱의 규모 확장에 대한 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 조정](../azure-monitor/platform/autoscale-get-started.md)을 참조하세요.
 
 <a name="cost"></a>
 

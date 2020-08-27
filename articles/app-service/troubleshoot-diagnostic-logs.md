@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1a6c109907c20e06796744d42feae20dc53f2b52
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207530"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962182"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -46,12 +46,12 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 **응용 프로그램 로깅 (파일 시스템)** 또는 **응용 프로그램 로깅 (Blob)** 중 하나 또는 둘 모두에 대해 **켜기** 를 선택 합니다. 
 
-**Filesystem** 옵션은 임시 디버깅 용도로 사용 되며 12 시간 이내에 해제 됩니다. **Blob** 옵션은 장기 로깅을 위한 것 이며, 로그를 쓸 blob 저장소 컨테이너가 필요 합니다.  또한 **Blob** 옵션에는 로그 메시지의 원본 VM 인스턴스 ID ( `InstanceId` ), 스레드 id () `Tid` 및 보다 세분화 된 타임 스탬프 ()와 같은 추가 정보가 로그 메시지에 포함 됩니다 [`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) .
+**Filesystem** 옵션은 임시 디버깅 용도로 사용 되며 12 시간 이내에 해제 됩니다. **Blob** 옵션은 장기 로깅을 위한 것 이며, 로그를 쓸 blob 저장소 컨테이너가 필요 합니다.  또한 **Blob** 옵션에는 로그 메시지의 원본 VM 인스턴스 ID ( `InstanceId` ), 스레드 id () `Tid` 및 보다 세분화 된 타임 스탬프 ()와 같은 추가 정보가 로그 메시지에 포함 됩니다 [`EventTickCount`](/dotnet/api/system.datetime.ticks) .
 
 > [!NOTE]
 > 현재 .NET 애플리케이션 로그만 Blob Storage에 쓸 수 있습니다. Java, PHP, Node.js, Python 응용 프로그램 로그는 App Service 파일 시스템에만 저장할 수 있습니다. 단, 외부 저장소에 로그를 기록 하기 위해 코드를 수정 하지 않아도 됩니다.
 >
-> 또한 [저장소 계정의 액세스 키를 다시 생성](../storage/common/storage-create-storage-account.md)하는 경우 업데이트 된 액세스 키를 사용 하도록 각 로깅 구성을 다시 설정 해야 합니다. 이렇게 하려면 다음을 수행합니다.
+> 또한 [저장소 계정의 액세스 키를 다시 생성](../storage/common/storage-account-create.md)하는 경우 업데이트 된 액세스 키를 사용 하도록 각 로깅 구성을 다시 설정 해야 합니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
 >
 > 1. **구성** 탭에서 해당 로깅 기능을 **끄기**로 설정합니다. 설정을 저장합니다.
 > 2. 스토리지 계정 Blob에 로깅을 다시 사용합니다. 설정을 저장합니다.
@@ -62,7 +62,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 | Level | 포함 된 범주 |
 |-|-|
-|**사용 안 함** | None |
+|**사용 안 함** | 없음 |
 |**오류** | 오류, 위험 |
 |**경고** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
@@ -89,7 +89,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 **보존 기간 (일)** 에서 로그를 보존할 일 수를 설정 합니다.
 
 > [!NOTE]
-> [스토리지 계정의 선택키를 다시 생성](../storage/common/storage-create-storage-account.md)하는 경우 해당 로깅 구성을 다시 설정하여 업데이트한 키를 사용해야 합니다. 이렇게 하려면 다음을 수행합니다.
+> [스토리지 계정의 선택키를 다시 생성](../storage/common/storage-account-create.md)하는 경우 해당 로깅 구성을 다시 설정하여 업데이트한 키를 사용해야 합니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
 >
 > 1. **구성** 탭에서 해당 로깅 기능을 **끄기**로 설정합니다. 설정을 저장합니다.
 > 2. 스토리지 계정 Blob에 로깅을 다시 사용합니다. 설정을 저장합니다.
@@ -116,7 +116,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- 기본적으로 ASP.NET Core는 [Microsoft. 확장명](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) 을 사용 하 여 로깅 공급자를 사용 합니다. 자세한 내용은 [Azure의 ASP.NET Core 로깅](https://docs.microsoft.com/aspnet/core/fundamentals/logging/)을 참조하세요.
+- 기본적으로 ASP.NET Core는 [Microsoft. 확장명](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) 을 사용 하 여 로깅 공급자를 사용 합니다. 자세한 내용은 [Azure의 ASP.NET Core 로깅](/aspnet/core/fundamentals/logging/)을 참조하세요.
 
 ## <a name="stream-logs"></a>로그 스트리밍
 
@@ -151,7 +151,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 ### <a name="in-local-terminal"></a>로컬 터미널
 
-로컬 콘솔에서 로그를 스트리밍하려면 Azure CLI를 [설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 하 고 [계정에 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)합니다. 로그인 한 후 [에는 Cloud Shell에 대 한 지침](#in-cloud-shell) 을 따릅니다.
+로컬 콘솔에서 로그를 스트리밍하려면 Azure CLI를 [설치](/cli/azure/install-azure-cli) 하 고 [계정에 로그인](/cli/azure/authenticate-azure-cli)합니다. 로그인 한 후 [에는 Cloud Shell에 대 한 지침](#in-cloud-shell) 을 따릅니다.
 
 ## <a name="access-log-files"></a>로그 파일 액세스
 
