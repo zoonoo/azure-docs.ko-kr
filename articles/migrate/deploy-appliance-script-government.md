@@ -3,12 +3,12 @@ title: Azure Government에서 Azure Migrate 어플라이언스 설정
 description: 에서 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다 Azure Government
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 993c25d7b2c580df47b61c836b885ed6379e8640
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: ffea966c58909ecaab0da13a4204295ecb193895
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612268"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936795"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Azure Government에서 어플라이언스 설정 
 
@@ -19,7 +19,7 @@ ms.locfileid: "88612268"
 > 템플릿을 사용 하 여 어플라이언스를 배포 하는 옵션 (VMware Vm 및 Hyper-v Vm의 경우)은 Azure Government 지원 되지 않습니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 스크립트는 기존 물리적 컴퓨터 또는 VM에 Azure Migrate 어플라이언스를 설정 합니다.
 
@@ -51,7 +51,7 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 
     **알고리즘** | **다운로드** | **SHA256**
     --- | --- | ---
-    VMware(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+    VMware (85 MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140337) | 31b1bfdd4fc29b3eb923c7c6e7a898af79b7cac0404426bea18809def2284188
 
 
 ### <a name="run-the-script"></a>스크립트 실행
@@ -71,8 +71,10 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 1. 어플라이언스를 호스트 하는 컴퓨터의 폴더에 압축 파일 압축을 풉니다. 기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
 2. 관리자 권한 (관리자 권한)을 사용 하 여 컴퓨터에서 PowerShell을 시작 합니다.
 3. PowerShell 디렉터리를 다운로드 한 압축 파일에서 추출한 콘텐츠를 포함 하는 폴더로 변경 합니다.
-4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1**를 실행 합니다. ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
-5. 스크립트가 성공적으로 실행 되 면 어플라이언스를 설정할 수 있도록 어플라이언스 웹 응용 프로그램을 시작 합니다. 문제가 발생 하는 경우 C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그를 검토 합니다.
+4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1**를 실행 합니다. 
+    
+    ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>.\AzureMigrateInstaller.ps1 ```
+1. 스크립트가 성공적으로 실행 되 면 어플라이언스를 설정할 수 있도록 어플라이언스 웹 응용 프로그램을 시작 합니다. 문제가 발생 하는 경우 C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그를 검토 합니다.
 
 ### <a name="verify-access"></a>액세스 권한 확인
 
@@ -103,7 +105,7 @@ Hyper-v에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 압
 
     **시나리오** | **다운로드** | **SHA256**
     --- | --- | ---
-    Hyper-V(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+    Hyper-v (85) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140424) |  db5311de3d1d4a1167183a94e8347456db9c5749c7332ff2eb4b777798765e48
 
           
 
@@ -124,8 +126,10 @@ Hyper-v에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 압
 1. 어플라이언스를 호스트 하는 컴퓨터의 폴더에 압축 파일 압축을 풉니다. 기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
 2. 관리자 권한 (관리자 권한)을 사용 하 여 컴퓨터에서 PowerShell을 시작 합니다.
 3. PowerShell 디렉터리를 다운로드 한 압축 파일에서 추출한 콘텐츠를 포함 하는 폴더로 변경 합니다.
-4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1**를 실행 합니다. ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
-5. 스크립트가 성공적으로 실행 되 면 어플라이언스를 설정할 수 있도록 어플라이언스 웹 응용 프로그램을 시작 합니다. 문제가 발생 하는 경우 C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그를 검토 합니다.
+4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1**를 실행 합니다. 
+
+    ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>.\AzureMigrateInstaller.ps1 ``` 
+1. 스크립트가 성공적으로 실행 되 면 어플라이언스를 설정할 수 있도록 어플라이언스 웹 응용 프로그램을 시작 합니다. 문제가 발생 하는 경우 C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그를 검토 합니다.
 
 ### <a name="verify-access"></a>액세스 권한 확인
 
@@ -156,7 +160,7 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 
     **시나리오** | **다운로드*** | **해시 값**
     --- | --- | ---
-    Physical(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
+    물리적 (85 MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140338) | 1545f9ce8874cedef6347c1a1332f8b5eabd6811a017440a2382525fb0430309
           
 
 ### <a name="run-the-script"></a>스크립트 실행
@@ -176,8 +180,10 @@ VMware에 대 한 어플라이언스를 설정 하려면 Azure Portal에서 zip 
 1. 어플라이언스를 호스트 하는 컴퓨터의 폴더에 압축 파일 압축을 풉니다. 기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
 2. 관리자 권한 (관리자 권한)을 사용 하 여 컴퓨터에서 PowerShell을 시작 합니다.
 3. PowerShell 디렉터리를 다운로드 한 압축 파일에서 추출한 콘텐츠를 포함 하는 폴더로 변경 합니다.
-4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1**를 실행 합니다. ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
-5. 스크립트가 성공적으로 실행 되 면 어플라이언스를 설정할 수 있도록 어플라이언스 웹 응용 프로그램을 시작 합니다. 문제가 발생 하는 경우 C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그를 검토 합니다.
+4. 다음과 같이 스크립트 **AzureMigrateInstaller.ps1**를 실행 합니다. 
+
+    ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+1. 스크립트가 성공적으로 실행 되 면 어플라이언스를 설정할 수 있도록 어플라이언스 웹 응용 프로그램을 시작 합니다. 문제가 발생 하는 경우 C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>Timestamp</em>.log에서 스크립트 로그를 검토 합니다.
 
 ### <a name="verify-access"></a>액세스 권한 확인
 

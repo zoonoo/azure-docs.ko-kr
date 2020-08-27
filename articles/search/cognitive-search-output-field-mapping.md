@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ef840dc84c04875333958fa59ce399f2d16d07b5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 58bb87d5af785d3cffd96f3bd02477f97ed967a9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214024"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935367"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>AI-보강 필드를 검색 가능한 인덱스에 매핑하는 방법
 
@@ -32,7 +32,7 @@ ms.locfileid: "88214024"
 * 기술 있지만 Cosmos DB 데이터베이스에서 복합 형식을 인덱싱하는 경우 해당 복합 형식의 노드로 이동 하 여 인덱스의 필드에 매핑해야 합니다.
 
 > [!NOTE]
-> 최근 출력 필드 매핑에서 매핑 함수 기능을 사용 하도록 설정 했습니다. 매핑 함수에 대 한 자세한 내용은 [필드 매핑 함수](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions) 를 참조 하세요.
+> 최근 출력 필드 매핑에서 매핑 함수 기능을 사용 하도록 설정 했습니다. 매핑 함수에 대 한 자세한 내용은 [필드 매핑 함수](./search-indexer-field-mappings.md#field-mapping-functions) 를 참조 하세요.
 
 ## <a name="use-outputfieldmappings"></a>OutputFieldMappings 사용
 

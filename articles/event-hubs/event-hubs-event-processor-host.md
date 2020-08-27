@@ -3,12 +3,12 @@ title: 이벤트 프로세서 호스트를 사용하여 이벤트 수신 - Azure
 description: 이 문서에서는 검사점, 임대 및 병렬 읽기 이벤트의 관리를 간소화하는 Azure Event Hubs의 이벤트 프로세서 호스트에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: dd11e3ef77ff665a0207a2cf7e63b1b9f2df0e08
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41778425a0ec6ba1732c8e604dead2deb7c97f12
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002525"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936183"
 ---
 # <a name="event-processor-host"></a>이벤트 프로세서 호스트
 > [!NOTE]
@@ -89,7 +89,7 @@ public class SimpleEventProcessor : IEventProcessor
 마지막으로, 소비자는 Event Hubs 서비스를 사용하여 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 등록합니다. EventProcessorHost 인스턴스에 이벤트 프로세서 클래스를 등록하면 이벤트 처리가 시작됩니다. 등록하면 Event Hubs 서비스에 지시하여 소비자 앱에서 해당 파티션 중 일부의 이벤트를 사용하도록 예상하고 사용할 이벤트를 푸시할 때마다 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현 코드를 호출합니다. 
 
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 예를 들어 사용하는 이벤트에 대한 5대의 전용 VM(가상 머신)이 있고 각 VM에 간단한 콘솔 애플리케이션이 있다고 가정합니다. 여기에서 실제 사용 작업을 수행합니다. 그런 다음, 각 콘솔 애플리케이션은 하나의 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 만들고 Event Hubs 서비스에 등록합니다.
 
@@ -192,10 +192,10 @@ Epoch를 사용 하 여 수신기를 만든 다음 동일한 소비자 그룹에
 이제 이벤트 프로세서 호스트에 익숙해졌으므로 다음 아티클을 참조하여 Event Hubs에 대해 자세히 알아봅니다.
 
 - Event Hubs 시작
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-node-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Event Hubs 프로그래밍 가이드](event-hubs-programming-guide.md)
 * [Event Hubs의 가용성 및 일관성](event-hubs-availability-and-consistency.md)
 * [Event Hubs FAQ](event-hubs-faq.md)

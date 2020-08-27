@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 39a7c92ca6c83684658cf767722698806ed994ec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214067"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935452"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure Cognitive Search에서 AI 보강 파이프라인에 기술를 만드는 방법 
 
@@ -49,14 +49,14 @@ ms.locfileid: "88214067"
 ![가상 보강 파이프라인](media/cognitive-search-defining-skillset/sample-skillset.png "가상 보강 파이프라인")
 
 
-파이프라인에서 원하는 것에 대해 잘 알고 있으면 이러한 단계를 제공하는 기술 집합을 표현할 수 있습니다. 기능적으로 기술는 인덱서 정의를 Azure Cognitive Search에 업로드할 때 표현 됩니다. 인덱서를 업로드하는 방법에 대해 자세히 알려면 [인덱서 설명서](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 참조합니다.
+파이프라인에서 원하는 것에 대해 잘 알고 있으면 이러한 단계를 제공하는 기술 집합을 표현할 수 있습니다. 기능적으로 기술는 인덱서 정의를 Azure Cognitive Search에 업로드할 때 표현 됩니다. 인덱서를 업로드하는 방법에 대해 자세히 알려면 [인덱서 설명서](/rest/api/searchservice/create-indexer)를 참조합니다.
 
 
 다이어그램에서 *문서 해독* 단계는 자동으로 발생합니다. 기본적으로 Azure Cognitive Search는 잘 알려진 파일을 열고 각 문서에서 추출 된 텍스트를 포함 하는 *콘텐츠* 필드를 만드는 방법을 알고 있습니다. 흰색 상자는 기본 제공된 보강자이며, 점으로 구분된 "Bing Entity Search" 상자는 만들고 있는 사용자 지정 보강자를 나타냅니다. 설명처럼 기술 집합은 세 가지 기술이 포함되어 있습니다.
 
 ## <a name="skillset-definition-in-rest"></a>REST의 기술 집합 정의
 
-기술 집합은 기술의 배열로서 정의됩니다. 각 기술은 해당 입력의 원본 및 생성된 출력의 이름을 정의합니다. [기술 집합 REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-skillset)를 사용하여 이전 다이어그램에 해당하는 기술 집합을 정의할 수 있습니다. 
+기술 집합은 기술의 배열로서 정의됩니다. 각 기술은 해당 입력의 원본 및 생성된 출력의 이름을 정의합니다. [기술 집합 REST API 만들기](/rest/api/searchservice/create-skillset)를 사용하여 이전 다이어그램에 해당하는 기술 집합을 정의할 수 있습니다. 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
@@ -175,7 +175,7 @@ Content-Type: application/json
 
 * 기술에는 ```"organizations"```이라는 하나의 출력이 있습니다. 출력은 처리 동안만 존재합니다. 이 출력을 다운스트림 기술의 입력에 연결하려면 출력을 ```"/document/organizations"```로 참조합니다.
 
-* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예를 들어:
+* 특정 문서의 경우 ```"/document/organizations"```의 값은 텍스트에서 추출된 조직의 배열입니다. 예를 들면
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -239,7 +239,7 @@ Content-Type: application/json
 
 ## <a name="add-structure"></a>구조 추가
 
-기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음과 같은 예제를 참조하세요.
+기술 집합은 구조화되지 않은 데이터에서 구조화된 정보를 생성합니다. 다음 예제를 살펴보겠습니다.
 
 *"네 번째 분기에서 Microsoft는 작년의 수익에서 $11억을 기록 하 고 작년에 구매한 소셜 네트워킹 회사를 구매 했습니다. 이를 통해 Microsoft는 LinkedIn 기능과 해당 CRM 및 Office 기능을 결합할 수 있습니다. 주주는 지금까지 진행 되 고 있습니다. "*
 
@@ -281,4 +281,4 @@ Blob storage에서 보강 문서를 계층 관계가 유지 된 테이블로 저
 
 ## <a name="next-steps"></a>다음 단계
 
-보강 파이프라인 및 기술 집합에 익숙하므로 [기술 집합에서 주석을 참조하는 방법](cognitive-search-concept-annotations-syntax.md) 또는 [ 인덱스에서 필드에 출력을 매핑하는 방법](cognitive-search-output-field-mapping.md)을 계속 사용합니다. 
+보강 파이프라인 및 기술 집합에 익숙하므로 [기술 집합에서 주석을 참조하는 방법](cognitive-search-concept-annotations-syntax.md) 또는 [ 인덱스에서 필드에 출력을 매핑하는 방법](cognitive-search-output-field-mapping.md)을 계속 사용합니다.
