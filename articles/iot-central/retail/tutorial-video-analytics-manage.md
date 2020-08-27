@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 30e123b24a5d2c9e45df6ee6dc6debfb88b920f3
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038028"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719073"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>자습서: 비디오 분석 - 개체 및 동작 감지 애플리케이션 모니터링 및 관리
 
@@ -155,22 +155,22 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 |amsResourceGroup| ResourceGroup |
 |amsAccountName| AccountName|
 
-애플리케이션에서 **모니터** 대시보드로 이동합니다. 그런 다음, **유추 이벤트 비디오** 타일에서 캡처된 개체 감지 하이퍼링크 중 하나를 클릭합니다. 로컬 비디오 플레이어가 표시하는 페이지에 비디오가 나타납니다.
+**camera-003** 디바이스로 이동하여 **대시보드** 탭을 선택합니다. 그런 다음, **유추 이벤트 비디오** 타일에서 캡처된 개체 감지 하이퍼링크 중 하나를 클릭합니다. 로컬 비디오 플레이어가 표시하는 페이지에 비디오가 나타납니다.
 
 :::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="비디오 코드 조각":::
 
-## <a name="change-the-simulated-devices-in-application-dashboard"></a>애플리케이션 대시보드에서 시뮬레이션된 디바이스 변경
+## <a name="change-the-simulated-devices-in-application-dashboards"></a>애플리케이션 대시보드에서 시뮬레이션된 디바이스 변경
 
 애플리케이션 대시보드는 원래 IoT Central 시뮬레이션된 디바이스에서 생성된 원격 분석 및 속성으로 채워집니다. 실제 카메라 또는 Live555 시뮬레이터에서 원격 분석에 대한 타일을 구성하려면 다음 단계를 수행합니다.
 
-1. **실제 카메라 모니터링** 대시보드로 이동합니다.
+1. **(샘플) 실제 카메라 모니터** 애플리케이션 대시보드로 이동합니다.
 1. **편집**을 선택합니다.
+1. **메모** 타일을 선택하고 삭제합니다.
+1. 대시보드 제목을 *실제 카메라 모니터*로 변경합니다.
 1. **유추 횟수** 타일에서 구성 아이콘을 선택합니다.
 1. **차트 구성** 섹션의 **LVA Edge 개체 감지기** 디바이스 그룹에서 실제 카메라를 하나 이상 선택합니다.
 1. `AI Inference Interface/Inference Count` 원격 분석 필드를 선택합니다.
 1. **업데이트**를 선택합니다.
-
-   
 
 1. 다음 타일에 대한 단계를 반복합니다.
     1. **감지** 원형 차트는 `AI Inference Interface/Inference/entity/tag/value` 원격 분석 유형을 사용합니다.

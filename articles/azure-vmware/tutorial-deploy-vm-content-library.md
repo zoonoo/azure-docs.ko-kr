@@ -1,16 +1,16 @@
 ---
-title: '자습서: AVS(Azure VMware Solution)에서 VM을 배포하는 콘텐츠 라이브러리 만들기'
-description: 이 AVS(Azure VMware Solution) 자습서에서는 AVS 프라이빗 클라우드에서 VM을 배포하는 콘텐츠 라이브러리를 만듭니다.
+title: '자습서: Azure VMware Solution에서 VM을 배포하는 콘텐츠 라이브러리 만들기'
+description: 이 Azure VMware Solution 자습서에서는 Azure VMware Solution 프라이빗 클라우드에서 VM을 배포하는 콘텐츠 라이브러리를 만듭니다.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: d86f9cb92dcb8a852b9b178a5e160da0d1a3a692
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 3abaafac0dbd6f3537d2ca30a093627230780eb5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612795"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750545"
 ---
-# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>자습서: AVS(Azure VMware Solution)에서 VM을 배포하는 콘텐츠 라이브러리 만들기
+# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>자습서: Azure VMware Solution에서 VM을 배포하는 콘텐츠 라이브러리 만들기
 
 콘텐츠 라이브러리는 라이브러리 항목 형식으로 콘텐츠를 저장하고 관리합니다. 단일 라이브러리 항목은 VM(가상 머신)을 배포하는 데 사용되는 하나 이상의 파일로 구성됩니다. 
  
@@ -22,7 +22,7 @@ ms.locfileid: "88612795"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 자습서를 완료하려면 NSX 논리 스위치 세그먼트 및 관리형 DHCP 서비스가 필요합니다.  자세한 내용은 [AVS(Azure VMware Solution) 미리 보기에서 DHCP를 관리하는 방법](manage-dhcp.md)을 참조하세요.
+이 자습서를 완료하려면 NSX 논리 스위치 세그먼트 및 관리형 DHCP 서비스가 필요합니다.  자세한 내용은 [Azure VMware Solution 미리 보기에서 DHCP를 관리하는 방법](manage-dhcp.md)을 참조하세요.
 
 ## <a name="create-a-content-library"></a>콘텐츠 라이브러리 만들기
 

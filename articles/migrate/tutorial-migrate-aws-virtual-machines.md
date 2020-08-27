@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Migrate를 사용하여 AWS VM을 Azure�
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 9e26268010e4287d1f98e99389ffeddf3e4747ce
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 0ef9adfe7ee88141b67bb9e8c9586c5cc6e5df6f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611435"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762422"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services) VM 검색, 평가 및 Azure로 마이그레이션
 
@@ -379,7 +379,7 @@ Mobility Service 에이전트가 마이그레이션할 원본 AWS VM에 설치�
 **답변:** 현재 이 워크플로에 대한 평가 가져오기를 지원하지 않습니다. 이 문제를 해결하려면 평가를 내보낸 다음, [복제 사용] 단계에서 VM 추천 사항을 수동으로 선택할 수 있습니다.
   
 **질문:** AWS VM을 검색하는 동안 "BIOS GUID를 가져오지 못했습니다."라는 오류가 발생합니다.   
-**답변:** AWS VM에 지원되는 운영 체제를 검토합니다.  
+**답변:** 인증에는 항상 루트 로그인을 사용하고 의사 사용자는 사용하지 않습니다. 또한 AWS VM에 지원되는 운영 체제를 검토합니다.  
 
 **질문:** 내 복제 상태가 진행되고 있지 않습니다.    
 **답변:** 복제 어플라이언스에서 요구 사항을 충족하는지 확인합니다. 데이터 전송을 위해 복제 어플라이언스 9443 TCP 포트 및 443 HTTPS 포트에서 필요한 포트를 사용하도록 설정했는지 확인합니다. 동일한 프로젝트에 연결되는 복제 어플라이언스의 버전이 오래되고 중복되지 않는지 확인합니다.   

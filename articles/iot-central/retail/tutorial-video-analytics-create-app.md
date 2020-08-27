@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: 897262dcdb8cbacd512f19823da375e2c603b97e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037945"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762780"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>자습서: Azure IoT Central에서 비디오 분석 - 개체 및 동작 감지 애플리케이션 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "88037945"
 
 ## <a name="initial-setup"></a>초기 설정
 
-이 자습서에서는 여러 구성 파일을 업데이트하고 사용합니다. 이러한 파일의 초기 버전은 [LVA-게이트웨이](https://github.com/Azure/live-video-analytics) GitHub 리포지토리에서 얻을 수 있습니다. 이 리포지토리에는 배포하는 서비스의 구성 값을 기록하는 데 사용할 수 있는 scratchpad 텍스트 파일도 포함되어 있으며, 이 파일을 다운로드해야 합니다.
+이 자습서에서는 여러 구성 파일을 업데이트하고 사용합니다. 이러한 파일의 초기 버전은 [LVA-게이트웨이](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) GitHub 리포지토리에서 얻을 수 있습니다. 이 리포지토리에는 배포하는 서비스의 구성 값을 기록하는 데 사용할 수 있는 scratchpad 텍스트 파일도 포함되어 있으며, 이 파일을 다운로드해야 합니다.
 
 로컬 머신에 *lva-configuration*이라는 폴더를 만들고 이러한 파일의 복사본을 저장합니다. 그리고 다음 링크를 각각 마우스 오른쪽 단추로 클릭하고 **다른 이름으로 저장**을 선택하여 파일을 *lva-configuration* 폴더에 저장합니다.
 
@@ -98,7 +98,7 @@ Media Services 계정을 만들 때 다음과 같이 해야 합니다.
 
 새 비디오 분석 애플리케이션을 만드는 방법은 다음과 같습니다.
 
-1. **비디오 분석 - 개체 및 동작 감지** 애플리케이션 템플릿을 선택합니다. 이 템플릿에는 이 자습서에서 사용되는 디바이스용 디바이스 템플릿이 포함되어 있습니다. 또한 이 템플릿은 비디오 모니터링을 위한 운영자 대시보드를 제공합니다.
+1. **비디오 분석 - 개체 및 동작 감지** 애플리케이션 템플릿을 선택합니다. 이 템플릿에는 이 자습서에서 사용되는 디바이스용 디바이스 템플릿이 포함되어 있습니다. 템플릿에는 운영자가 카메라 모니터링 및 관리와 같은 작업을 수행하는 데 사용할 수 있는 샘플 대시보드가 포함되어 있습니다.
 
 1. 필요에 따라 친숙한 **애플리케이션 이름**을 선택합니다. 이 애플리케이션은 Northwind Traders라는 가상의 소매점을 기반으로 합니다. 이 자습서에서는 *Northwind Traders 비디오 분석*이라는 **애플리케이션 이름**을 사용합니다.
 
