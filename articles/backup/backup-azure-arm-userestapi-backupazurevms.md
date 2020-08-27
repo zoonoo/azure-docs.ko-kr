@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업에 �
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: a0ad08e9fd750166f8df82a1b3a36cecd8f12f27
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: db5e6cc460d320971a4005889dc2c9aa9925a18d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826415"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890334"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
@@ -23,7 +23,7 @@ ms.locfileid: "88826415"
 
 ### <a name="discover-unprotected-azure-vms"></a>보호되지 않는 Azure VM 검색
 
-먼저 자격 증명 모음은 Azure VM을 식별할 수 있어야 합니다. [새로 고침 작업](/rest/api/backup/protectioncontainers/refresh)을 사용하여 이 자격 증명 모음을 트리거합니다. 이 작업은 비동기 *POST* 작업으로서 자격 증명 모음이 현재 구독의 모든 보호되지 않는 VM의 최신 목록을 가져오고 해당 VM을 ‘캐시’해야 합니다. VM이 '캐시되면' Recovery Services는 해당 VM에 액세스하고 보호할 수 있습니다.
+먼저 자격 증명 모음은 Azure VM을 식별할 수 있어야 합니다. [새로 고침 작업](/rest/api/backup/protectioncontainers/refresh)을 사용하여 이 자격 증명 모음을 트리거합니다. 자격 증명 모음이 현재 구독에서 보호 되지 않는 모든 VM의 최신 목록을 가져오고 ' 캐시 ' 하는지 확인할 수 있도록 하는 비동기 *POST*  작업입니다. VM이 '캐시되면' Recovery Services는 해당 VM에 액세스하고 보호할 수 있습니다.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
@@ -41,7 +41,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |유형  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
 |202 수락됨     |         |     수락됨    |
@@ -104,7 +104,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 #### <a name="responses-to-get-operation"></a>가져오기 작업에 대 한 응답
 
-|Name  |유형  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |200 정상     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       정상 |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |유형  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
@@ -208,7 +208,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |유형  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |200 정상     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  정상       |
 |202 수락됨     |         |     수락됨    |
@@ -294,7 +294,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |유형  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
@@ -319,7 +319,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|Name  |유형  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
@@ -439,7 +439,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 204(NoContent)의 두 응답을 반환합니다.
 
-|Name  |유형  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 수락됨     |         |     수락됨    |

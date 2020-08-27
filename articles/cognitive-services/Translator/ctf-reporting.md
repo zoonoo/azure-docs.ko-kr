@@ -10,12 +10,13 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: cc06f73aba216f37db570bb33b9f897fabb16cbf
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 68b0de40940fa75dd4eb4e1572405f31ce1c22b8
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244128"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934381"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>CTF(Collaborative Translation Framework) 보고 사용 방법
 
@@ -96,9 +97,9 @@ CTF 보고 API의 끝점은 https://api.microsofttranslator.com/v2/beta/ctfrepor
 | 필드 | Description |
 |:---|:---|
 | 개수| 검색된 결과 수입니다.|
-| 보낸 사람 | 원본 언어입니다.|
+| From | 원본 언어입니다.|
 | 등급| AddTranslation() 메서드 호출에서 제출자가 적용한 등급입니다.|
-| 대상| 대상 언어입니다.|
+| 작업| 대상 언어입니다.|
 | URI| AddTranslation() 메서드 호출에서 적용된 URI입니다.|
 | 사용자| 사용자 이름입니다.|
 
@@ -167,10 +168,10 @@ CTF 보고 API의 끝점은 https://api.microsofttranslator.com/v2/beta/ctfrepor
 | 필드 | Description |
 |:---|:---|
 | CreatedDateUtc| AddTranslation()을 사용하여 항목을 만든 날짜입니다.|
-| 보낸 사람| 원본 언어입니다.|
+| From| 원본 언어입니다.|
 | OriginalText| 요청을 제출할 때 사용되는 원본 언어 텍스트입니다.|
 |등급 |AddTranslation() 메서드 호출에서 제출자가 적용한 등급입니다.|
-|대상|    대상 언어입니다.|
+|작업|    대상 언어입니다.|
 |TranslatedText|    AddTranslation() 메서드 호출에서 제출된 번역입니다.|
 |URI|   AddTranslation() 메서드 호출에서 적용된 URI입니다.|
 |사용자   |사용자 이름입니다.|

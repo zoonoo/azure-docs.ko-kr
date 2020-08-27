@@ -3,12 +3,12 @@ title: VM 창에서 SQL Server VM 백업
 description: 이 문서에서는 VM 창에서 Azure virtual machines의 SQL Server 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: 3d44c856d264c784d07b8301fa5605affddd7c02
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 4f4ea202ee96e93a621c8dd0025c9ebc8b8d445d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827480"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891660"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>VM 창에서 SQL Server 백업
 

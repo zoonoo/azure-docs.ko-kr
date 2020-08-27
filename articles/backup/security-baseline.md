@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2951d0ee8719ec3b0f195a9abcd1af6f65f2c141
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 7b48ac1621c5c8788a4ecdb9ceb3af78f8e82a37
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761817"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890504"
 ---
 # <a name="azure-security-baseline-for-backup"></a>백업용 Azure 보안 기준
 
@@ -580,7 +580,7 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 서비스 �
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Azure 자산 검색 사용
 
-**지침**: Azure Resource Graph를 사용하여 구독 내의 모든 리소스(예: 컴퓨팅, 스토리지, 네트워크, 포트 및 프로토콜 등)를 쿼리/검색합니다.  테넌트에서 적절한 권한(읽기)을 확인하고, 모든 Azure 구독 및 구독 내의 리소스를 열거합니다.
+**지침**: Azure 리소스 그래프를 사용 하 여 구독 내의 모든 리소스 (예: 계산, 저장소, 네트워크, 포트 및 프로토콜)를 쿼리/검색 합니다.  테넌트에서 적절한 권한(읽기)을 확인하고, 모든 Azure 구독 및 구독 내의 리소스를 열거합니다.
 
 클래식 Azure 리소스는 Resource Graph를 통해 검색할 수 있지만 앞으로 Azure Resource Manager 리소스를 만들어 사용하는 것이 좋습니다.
 
@@ -860,7 +860,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: Microsoft 맬웨어 방지 프로그램은 Azure 서비스 (예: Azure Backup)를 지 원하는 기본 호스트에서 사용 하도록 설정 되어 있지만 콘텐츠에서 실행 되지 않습니다.
 
-App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스에 업로드 되는 파일을 미리 검색 합니다.
+App Service, Data Lake Storage 및 Blob Storage와 같은 비 계산 Azure 리소스에 업로드 되는 파일을 미리 검색 합니다.
 
 데이터 서비스에 대 한 Azure Security Center의 위협 검색을 사용 하 여 저장소 계정에 업로드 된 맬웨어를 검색 합니다.
 
