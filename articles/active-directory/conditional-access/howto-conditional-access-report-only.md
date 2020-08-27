@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a00d55c58992be1009da1de5441ebe4e589a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ea039526b9434501b60ed6ccf762f45625b26
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83994972"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948150"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>보고서 전용 모드에서 조건부 액세스 정책 구성
 
@@ -51,8 +51,8 @@ Azure AD 로그인 로그에서 보고서 전용 결과를 봅니다.
 
 새 조건부 액세스 Insights 통합 문서를 사용 하 여 조건부 액세스 정책의 집계 영향을 확인 하려면 Azure Monitor를 Azure AD와 통합 하 고 로그인 로그를 내보내야 합니다. 이 통합을 설정 하는 두 가지 단계가 있습니다. 
 
-1. [Azure Monitor 구독에 등록 하 고 작업 영역을 만듭니다](/azure/azure-monitor/learn/quick-create-workspace).
-1. [AZURE AD에서 Azure Monitor 로그인 로그를 내보냅니다](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Azure Monitor 구독에 등록 하 고 작업 영역을 만듭니다](../../azure-monitor/learn/quick-create-workspace.md).
+1. [AZURE AD에서 Azure Monitor 로그인 로그를 내보냅니다](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 가격 책정에 대 한 자세한 내용은 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)에서 찾을 수 Azure Monitor. 비용을 예측 하 고, 일일 한도를 설정 하거나, 데이터 보존 기간을 사용자 지정 하는 리소스는 [Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment)문서에서 찾을 수 있습니다.
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Site Recovery에 대한 일반적인 주�
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 8b5730fba1a0267ab72497bc65b51de75654f970
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263386"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950496"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Azure Site Recovery에 대한 일반적인 질문
 
@@ -224,7 +224,7 @@ LRS 또는 GRS 스토리지가 필요합니다. 지역 정전이 발생하거나
 4. 루트 사용자에 대 한 execute 권한이 있는 "customscript.sh" 라는 bash 셸 스크립트를 만듭니다.<br>
     a. 스크립트는 "--pre" 및 "--post"를 지원 해야 합니다 (이중 대시 참고) 명령줄 옵션<br>
     b. 사전 옵션을 사용 하 여 스크립트를 호출 하는 경우 응용 프로그램 입/출력을 고정 하 고 사후 옵션을 사용 하 여 호출 하면 응용 프로그램 입/출력을 재개 해야 합니다.<br>
-    다. 샘플 템플릿-<br>
+    c. 샘플 템플릿-<br>
 
     `# cat customscript.sh`<br>
 
@@ -256,8 +256,6 @@ LRS 또는 GRS 스토리지가 필요합니다. 지역 정전이 발생하거나
 
 - 복구 지점의 보존 기록의 경우 24시간으로 설정합니다.
 - 앱 일치 스냅숏의 빈도는 4 시간입니다.
-
-[복제 설정에 대해 자세히 알아보세요](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>크래시 일치 복구 지점은 무엇인가요?
 

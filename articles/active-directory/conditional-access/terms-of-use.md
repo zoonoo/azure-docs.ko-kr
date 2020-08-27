@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f3f771987ce2ff11aab88a4d35df01b6c85941
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184349"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948919"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -50,9 +50,9 @@ Azure AD 사용 약관에는 다음과 같은 기능이 있습니다.
 - 사용 약관에 동의 하지 않은 사용자를 나열 합니다.
 - 개인 정보 보호 규정을 준수하도록 지원
 - 준수 및 감사에 대 한 사용 약관 작업 로그를 표시 합니다.
-- [Microsoft Graph api](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (현재 미리 보기 상태)를 사용 하 여 사용 약관을 만들고 관리 합니다.
+- [Microsoft Graph api](/graph/api/resources/agreement?view=graph-rest-beta) (현재 미리 보기 상태)를 사용 하 여 사용 약관을 만들고 관리 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure AD 사용 약관을 사용 하 고 구성 하려면 다음이 있어야 합니다.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 916ff4a5e6afd68106d70f386436723c24574df1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c890c8e9af7310338e8470c4d56b46d1e259c168
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605579"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948066"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>조건부 액세스: 사용자 위험 기반 조건부 액세스
 
@@ -29,7 +29,7 @@ Microsoft는 연구원, 법률 집행, Microsoft의 다양 한 보안 팀 및 �
 1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
-1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다. 자세한 내용은 [정책에 대 한 명명 표준을 설정](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#set-naming-standards-for-your-policies)합니다.
+1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다. 자세한 내용은 [정책에 대 한 명명 표준을 설정](./plan-conditional-access.md#set-naming-standards-for-your-policies)합니다.
 1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자**를 선택합니다.
    1. **제외**에서 **사용자 및 그룹**을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
@@ -66,4 +66,4 @@ Microsoft는 연구원, 법률 집행, Microsoft의 다양 한 보안 팀 및 �
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 
-[Azure Active Directory Identity Protection이란?](../identity-protection/overview.md)
+[Azure Active Directory Identity Protection이란?](../identity-protection/overview-identity-protection.md)

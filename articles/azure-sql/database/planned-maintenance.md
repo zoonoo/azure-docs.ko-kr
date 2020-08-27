@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 08/25/2020
-ms.openlocfilehash: 85459f357032a7f9944d50e3e4f3929015c6dcfd
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c7b78f14602632068a19d520aeeb940b543be61
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869120"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948218"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에서 Azure 유지 관리 이벤트 계획
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,6 +24,8 @@ ms.locfileid: "88869120"
 Azure SQL Database 및 Azure SQL Managed Instance에서 데이터베이스에 대 한 계획 된 유지 관리 이벤트를 준비 하는 방법을 알아봅니다.
 
 ## <a name="what-is-a-planned-maintenance-event"></a>계획된 유지 관리 이벤트란?
+
+Azure SQL Database 및 Azure SQL Managed Instance 서비스를 안전 하 고 규정을 준수 하 고 안정적으로 유지 하기 위해 서비스 구성 요소를 통해 거의 지속적으로 업데이트를 수행 합니다. 최신의 강력한 서비스 아키텍처와 [핫 패치와](https://aka.ms/azuresqlhotpatching)같은 혁신적인 기술을 사용 하 여 대부분의 업데이트는 완전히 투명 하 고 서비스 가용성 측면에서 매우 완전 하지 않습니다. 그러나 소수의 업데이트는 짧은 서비스 인터럽트를 야기 하 고 특별 한 처리가 필요 합니다. 
 
 각 데이터베이스 Azure SQL Database 및 Azure SQL Managed Instance는 한 복제본이 주 복제본 인 데이터베이스 복제본의 쿼럼을 유지 합니다. 항상 주 복제본이 온라인 서비스 여야 하 고 하나 이상의 보조 복제본이 정상 상태 여야 합니다. 계획된 유지 관리 기간 동안 데이터베이스 쿼럼 멤버는 한 번에 하나씩 오프라인 상태가 되는데, 그 이유는 응답하는 주 복제본이 하나 있고 보조 복제본이 하나 이상 있어서 클라이언트 가동 중단 시간이 없도록 보장하기 위해서 입니다. 주 복제본을 오프라인으로 전환해야 하는 경우, 재구성/장애 조치(failover) 프로세스가 발생하고 하나의 보조 복제본이 새로운 주 복제본이 됩니다.  
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4bf8f5d7bb8fd262fefc7cbf2f8ca906136509d5
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: c9f0f496bfdb31e0c7cb45a07c87ea238d031e34
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225277"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928771"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Azure Cognitive Search의 보안-개요
 
@@ -94,7 +94,7 @@ Azure Cognitive Search에서 이중 암호화는 CMK의 확장입니다. 이는 
 
 포털을 사용 하 여 [인바운드 액세스를 구성할](service-configure-firewall.md)수 있습니다.
 
-또는 관리 REST Api를 사용할 수 있습니다. [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) 매개 변수를 사용 하는 API 버전 2020-03-13은 검색 서비스에 대 한 액세스 권한을 부여 하려는 IP 주소를 개별적으로 식별 하 여 서비스에 대 한 액세스를 제한할 수 있습니다.
+또는 관리 REST Api를 사용할 수 있습니다. [IpRule](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) 매개 변수를 사용 하는 API 버전 2020-03-13은 검색 서비스에 대 한 액세스 권한을 부여 하려는 IP 주소를 개별적으로 식별 하 여 서비스에 대 한 액세스를 제한할 수 있습니다.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>개인 끝점 (인터넷 트래픽 없음)
 
@@ -120,14 +120,14 @@ Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 
 
 검색 결과에 대 한 사용자 단위 제어를 세부적으로 요구 하는 경우 쿼리에 보안 필터를 빌드하여 지정 된 보안 id와 연결 된 문서를 반환할 수 있습니다. 미리 정의된 역할 및 역할 할당 대신 ID 기반 액세스 제어는 ID에 따라 문서 및 콘텐츠의 검색 결과를 잘라내는 *필터*로 구현됩니다. 다음 표에서는 권한이 없는 콘텐츠의 검색 결과를 잘라내는 방법에 대한 두 가지 방법을 설명합니다.
 
-| 접근 방식 | 설명 |
+| 접근 방식 | Description |
 |----------|-------------|
 |[ID 필터에 따라 보안 조정](search-security-trimming-for-azure-search.md)  | 사용자 ID 액세스 제어를 구현하기 위한 기본 워크플로를 문서화합니다. 인덱스에 보안 식별자를 추가하는 방법을 다루고 금지된 콘텐츠의 결과를 잘라내는 해당 필드에 대한 필터링을 설명합니다. |
 |[Azure Active Directory ID에 따라 보안 조정](search-security-trimming-for-azure-search-with-aad.md)  | 이 문서는 이전 문서에서 확장되어 Azure 클라우드 플랫폼에서 제공하는 [체험 서비스](https://azure.microsoft.com/free/) 중 하나인 AAD(Azure Active Directory)에서 ID를 검색하는 단계를 제공합니다. |
 
 ## <a name="administrative-rights"></a>관리 권한
 
-Azure [RBAC (역할 기반 access control)](../role-based-access-control/overview.md) 는 azure 리소스의 프로 비전을 위해 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 기반으로 구축 된 권한 부여 시스템입니다. Azure Cognitive Search에서 리소스 관리자를 사용 하 여 서비스를 만들거나 삭제 하 고, API 키를 관리 하 고, 서비스를 확장 합니다. 따라서 Azure 역할 할당은 [포털](search-manage.md), [POWERSHELL](search-manage-powershell.md)또는 [관리 REST api](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api)를 사용 하는지에 관계 없이 이러한 작업을 수행할 수 있는 사람을 결정 합니다.
+Azure [RBAC (역할 기반 access control)](../role-based-access-control/overview.md) 는 azure 리소스의 프로 비전을 위해 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 기반으로 구축 된 권한 부여 시스템입니다. Azure Cognitive Search에서 리소스 관리자를 사용 하 여 서비스를 만들거나 삭제 하 고, API 키를 관리 하 고, 서비스를 확장 합니다. 따라서 Azure 역할 할당은 [포털](search-manage.md), [POWERSHELL](search-manage-powershell.md)또는 [관리 REST api](/rest/api/searchmanagement/search-howto-management-rest-api)를 사용 하는지에 관계 없이 이러한 작업을 수행할 수 있는 사람을 결정 합니다.
 
 반면, 인덱스를 만들거나 삭제 하는 기능과 같은 서비스에서 호스트 되는 콘텐츠에 대 한 관리자 권한은 [이전 섹션](#index-access)에서 설명한 대로 API 키를 통해 부여 되 됩니다.
 
@@ -144,7 +144,7 @@ Azure Policy는 azure에 기본 제공 되는 기능으로, Azure 보안 벤치 
 
 Azure Cognitive Search의 경우 현재 기본 제공 정의가 하나 있습니다. 진단 로깅에 대 한 것입니다. 이 기본 제공 기능을 사용 하면 진단 로깅이 누락 된 검색 서비스를 식별 하는 정책을 할당 한 후이를 켤 수 있습니다. 자세한 내용은 [Azure Cognitive Search에 대 한 규정 준수 제어 Azure Policy](security-controls-policy.md)를 참조 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [Azure 보안 기본 사항](../security/fundamentals/index.yml)
 + [Azure 보안](https://azure.microsoft.com/overview/security)

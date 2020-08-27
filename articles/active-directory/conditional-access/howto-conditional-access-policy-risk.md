@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce687ae1f47b20bb5fff3827e7bcbd5d7edf2d83
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2564e3f246d23028d6c73832a25f37110e7670c8
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024363"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948099"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>조건부 액세스: 로그인 위험 기반 조건부 액세스
 
@@ -35,11 +35,11 @@ ms.locfileid: "86024363"
 1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자**를 선택합니다.
    1. **제외**에서 **사용자 및 그룹**을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
-   1. **완료** 를 선택합니다.
+   1. **완료**를 선택합니다.
 1. **클라우드 앱 또는 작업**  >  **포함**아래에서 **모든 클라우드 앱**을 선택 합니다.
 1. **조건**  >  **사용자 위험**에서 **구성** 을 **예**로 설정 합니다. **이 정책이 적용 될 로그인 위험 수준 선택에서 다음을 적용** 합니다. 
    1. **높음** 및 **보통**을 선택 합니다.
-   1. **완료** 를 선택합니다.
+   1. **완료**를 선택합니다.
 1. **액세스 제어** > **권한 부여**에서 **액세스 권한 부여**, **다단계 인증 요구**, **선택**을 차례로 선택합니다.
 1. 설정을 확인하고 **정책 사용**을 **켜기**로 설정합니다.
 1. **만들기**를 선택하여 정책을 만들어 사용하도록 설정합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "86024363"
 1. **할당**에서 **사용자**를 선택 합니다.
    1. **포함**에서 **모든 사용자**를 선택합니다.
    1. **제외**아래에서 **제외 된 사용자 선택**을 선택 하 고 조직의 응급 액세스 또는 손상 없는 계정을 선택한 다음 **선택**을 선택 합니다.
-   1. **완료** 를 선택합니다.
+   1. **완료**를 선택합니다.
 1. **조건**에서 **로그인 위험**을 선택한 다음 **보통 이상**을 선택 합니다.
    1. **선택**, **완료**를 차례로 선택 합니다.
 1. 액세스 **제어**에서  >  **Access** **액세스 허용**을 선택한 다음 **다단계 인증 필요**를 선택 합니다.
@@ -70,4 +70,4 @@ ms.locfileid: "86024363"
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 
-[Azure Active Directory Identity Protection이란?](../identity-protection/overview.md)
+[Azure Active Directory Identity Protection이란?](../identity-protection/overview-identity-protection.md)

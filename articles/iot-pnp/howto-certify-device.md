@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: eaae6d90799c11d2475105a30f830db8dfae7fcf
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: bdb6bf166e84bb9134bbd14454899bcefbf0a887
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88861211"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949901"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>IoT 플러그 앤 플레이 장치를 인증 하는 방법
 
@@ -43,7 +43,7 @@ IoT 플러그 앤 플레이에서 실행 되는 응용 프로그램 코드는 �
 - [Dtdl v2](https://aka.ms/dtdl) 모델과의 장치 상호 작용에 대해 설명 합니다.
 - [Azure IoT 공용 모델 리포지토리에](https://devicemodels.azureiotsolutions.com/) 모델 및 모든 필수 인터페이스를 게시 합니다.
 - Dps 프로 비전 페이로드의 [dps 등록](concepts-developer-guide.md#dps-payload) 중에 모델 ID를 보냅니다.
-- [Mqtt 연결](/concepts-developer-guide.md#model-id-announcement)중에 모델 ID를 알립니다.
+- [Mqtt 연결](concepts-developer-guide.md#model-id-announcement)중에 모델 ID를 알립니다.
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Azure IoT 확장 CLI를 사용 하 여 테스트
 

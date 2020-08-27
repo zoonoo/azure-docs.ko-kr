@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9e6d13fedbfa495448164c1354868e12992dd71c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f1860f9645a50789803d509a6a1ea98bc0ea1a9e
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88856029"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950139"
 ---
 # <a name="iot-plug-and-play-preview-developer-guide"></a>IoT 플러그 앤 플레이 Preview 개발자 가이드
 
@@ -47,7 +47,7 @@ DeviceClient.CreateFromConnectionString(
 
 모델 ID 알림이 Sdk의 다음 버전에 추가 되었습니다.
 
-|SDK|Version|
+|SDK|버전|
 |---|-------|
 |C-SDK|1.3.9|
 |.NET|1.27.0|
@@ -57,7 +57,7 @@ DeviceClient.CreateFromConnectionString(
 
 ## <a name="dps-payload"></a>DPS 페이로드
 
-[DPS (장치 프로 비전 서비스)](/iot-dps/) 를 사용 하는 장치에는 `modelId` 다음 JSON 페이로드를 사용 하 여 프로 비전 프로세스 중에 사용할가 포함 될 수 있습니다.
+[DPS (장치 프로 비전 서비스)](../iot-dps/about-iot-dps.md) 를 사용 하는 장치에는 `modelId` 다음 JSON 페이로드를 사용 하 여 프로 비전 프로세스 중에 사용할가 포함 될 수 있습니다.
 
 ```json
 {

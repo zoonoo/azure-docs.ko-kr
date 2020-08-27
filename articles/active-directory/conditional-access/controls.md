@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 147c6016c56d45fadca4f4b8e583bce54006ef07
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6eb4efd26502c20a33cb61ab1c9d58f2757bbd70
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922112"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948303"
 ---
 # <a name="custom-controls-preview"></a>사용자 지정 컨트롤(미리 보기)
 
@@ -53,7 +53,7 @@ JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 
-사용자 지정 컨트롤은 Azure Multi-Factor Authentication, Azure AD 셀프 서비스 암호 다시 설정 (SSPR), multi-factor Authentication 클레임 요구 사항을 만족 하거나, PIM (권한 있는 Identity Manager)의 역할을 승격 하거나, Intune 장치 등록의 일부로 사용 해야 하는 Id 보호의 자동화에 사용할 수 없습니다.
+사용자 지정 컨트롤은 Azure Multi-Factor Authentication, azure AD 셀프 서비스 암호 다시 설정 (SSPR), multi-factor Authentication 클레임 요구 사항 충족, Intune 장치 등록의 일부로 또는 장치를 Azure AD에 조인할 때 azure AD에 대 한 권한 있는 Id 관리자의 역할을 승격 하는 Id 보호의 자동화에 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
