@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 57039149afd22546bbd584db47e7a015b8b5f85c
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4990862bacbf2afe2d4b5f39c2b9d31a7c48b78e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213579"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962896"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
@@ -44,7 +44,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설
 앱 설정은 저장될 때 항상 암호화됩니다(미사용 암호화).
 
 > [!NOTE]
-> [Key Vault 참조](app-service-key-vault-references.md)를 사용 하 여 [Key Vault](/azure/key-vault/) 에서 앱 설정을 확인할 수도 있습니다.
+> [Key Vault 참조](app-service-key-vault-references.md)를 사용 하 여 [Key Vault](../key-vault/index.yml) 에서 앱 설정을 확인할 수도 있습니다.
 
 ### <a name="show-hidden-values"></a>숨겨진 값 표시
 
@@ -115,7 +115,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열�
 연결 문자열은 저장될 때 항상 암호화됩니다(미사용 암호화).
 
 > [!NOTE]
-> [Key Vault 참조](app-service-key-vault-references.md)를 사용 하 여 [Key Vault](/azure/key-vault/) 에서 연결 문자열을 확인할 수도 있습니다.
+> [Key Vault 참조](app-service-key-vault-references.md)를 사용 하 여 [Key Vault](../key-vault/index.yml) 에서 연결 문자열을 확인할 수도 있습니다.
 
 ### <a name="show-hidden-values"></a>숨겨진 값 표시
 

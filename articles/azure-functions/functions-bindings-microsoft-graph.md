@@ -6,14 +6,17 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 9dd4067d066362f5842b504971afbc59fd0717a3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d10b36047959299f5b66da5fb16beef8a591a983
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212201"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962845"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions에 대한 Microsoft Graph 바인딩
+
+> [!IMPORTANT]
+> Microsoft Graph 미리 보기 바인딩은 이제 사용 되지 않습니다. Azure Functions에서 Microsoft Graph를 사용 하는 방법에 대 한 자세한 내용은 Microsoft Graph를 사용 하 여 [빌드 Azure Functions](https://docs.microsoft.com/graph/tutorials/azure-functions) 자습서를 참조 하세요.
 
 이 문서에서는 Azure Functions에서 Microsoft Graph 트리거 및 바인딩을 구성하고 사용하는 방법에 대해 설명합니다. 이러한 방법을 배우고 나면 Azure Functions를 사용하여 [Microsoft Graph](https://developer.microsoft.com/graph)에서 데이터, 자세한 정보 및 이벤트를 작업할 수 있습니다.
 
@@ -38,6 +41,9 @@ Microsoft Graph 확장에는 다음과 같은 바인딩이 제공됩니다.
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="setting-up-the-extensions"></a>확장 설정
+
+> [!IMPORTANT]
+> Microsoft Graph 미리 보기 바인딩은 이제 사용 되지 않습니다. Azure Functions에서 Microsoft Graph를 사용 하는 방법에 대 한 자세한 내용은 Microsoft Graph를 사용 하 여 [빌드 Azure Functions](https://docs.microsoft.com/graph/tutorials/azure-functions) 자습서를 참조 하세요.
 
 Microsoft Graph 바인딩은 _바인딩 확장_을 통해 제공됩니다. 바인딩 확장은 Azure Functions 런타임의 선택적 구성 요소입니다. 이 섹션에서는 Microsoft Graph 및 인증 토큰 확장을 설정하는 방법을 설명합니다.
 
@@ -71,6 +77,9 @@ Azure Portal을 사용하는 경우 확장을 설치할지 묻는 메시지 아�
 
 <a name="token-input"></a>
 ## <a name="auth-token"></a>인증 토큰
+
+> [!IMPORTANT]
+> Microsoft Graph 미리 보기 바인딩은 이제 사용 되지 않습니다. Azure Functions에서 Microsoft Graph를 사용 하는 방법에 대 한 자세한 내용은 Microsoft Graph를 사용 하 여 [빌드 Azure Functions](https://docs.microsoft.com/graph/tutorials/azure-functions) 자습서를 참조 하세요.
 
 인증 토큰 입력 바인딩은 지정된 리소스에 대한 Azure AD 토큰을 획득하여 코드에 문자열로 제공합니다. 애플리케이션이 권한을 갖고 있는 모든 것을 리소스로 사용할 수 있습니다. 
 
@@ -229,6 +238,9 @@ module.exports = function (context, req) {
 
 <a name="excel-input"></a>
 ## <a name="excel-input"></a>Excel 입력
+
+> [!IMPORTANT]
+> Microsoft Graph 미리 보기 바인딩은 이제 사용 되지 않습니다. Azure Functions에서 Microsoft Graph를 사용 하는 방법에 대 한 자세한 내용은 Microsoft Graph를 사용 하 여 [빌드 Azure Functions](https://docs.microsoft.com/graph/tutorials/azure-functions) 자습서를 참조 하세요.
 
 Excek 테이블 입력 바인딩은 OneDrive에 저장된 Excel 테이블의 콘텐츠를 읽습니다.
 
@@ -538,6 +550,9 @@ module.exports = function (context, req) {
 <a name="onedrive-input"></a>
 ## <a name="file-input"></a>파일 입력
 
+> [!IMPORTANT]
+> Microsoft Graph 미리 보기 바인딩은 이제 사용 되지 않습니다. Azure Functions에서 Microsoft Graph를 사용 하는 방법에 대 한 자세한 내용은 Microsoft Graph를 사용 하 여 [빌드 Azure Functions](https://docs.microsoft.com/graph/tutorials/azure-functions) 자습서를 참조 하세요.
+
 OneDrive 파일 입력 바인딩은 OneDrive에 저장된 파일의 콘텐츠를 읽습니다.
 
 이 섹션은 다음 하위 섹션을 포함합니다.
@@ -671,7 +686,7 @@ module.exports = function (context, req) {
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - byte[]
 - 스트림
-- string
+- 문자열
 - Microsoft.Graph.DriveItem
 
 
@@ -681,6 +696,9 @@ module.exports = function (context, req) {
 
 <a name="onedrive-output"></a>
 ## <a name="file-output"></a>파일 출력
+
+> [!IMPORTANT]
+> Microsoft Graph 미리 보기 바인딩은 이제 사용 되지 않습니다. Azure Functions에서 Microsoft Graph를 사용 하는 방법에 대 한 자세한 내용은 Microsoft Graph를 사용 하 여 [빌드 Azure Functions](https://docs.microsoft.com/graph/tutorials/azure-functions) 자습서를 참조 하세요.
 
 OneDrive 파일 출력 바인딩은 OneDrive에 저장된 파일의 콘텐츠를 수정합니다.
 
@@ -819,7 +837,7 @@ module.exports = function (context, req) {
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - byte[]
 - 스트림
-- string
+- 문자열
 - Microsoft.Graph.DriveItem
 
 
@@ -828,6 +846,9 @@ module.exports = function (context, req) {
 
 <a name="outlook-output"></a>
 ## <a name="outlook-output"></a>Outlook 출력
+
+> [!IMPORTANT]
+> Microsoft Graph 미리 보기 바인딩은 이제 사용 되지 않습니다. Azure Functions에서 Microsoft Graph를 사용 하는 방법에 대 한 자세한 내용은 Microsoft Graph를 사용 하 여 [빌드 Azure Functions](https://docs.microsoft.com/graph/tutorials/azure-functions) 자습서를 참조 하세요.
 
 Outlook 메시지 출력 바인딩은 Outlook을 통해 메일 메시지를 보냅니다.
 
@@ -969,7 +990,7 @@ module.exports = function (context, req) {
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- string
+- 문자열
 - 사용자 지정 개체 형식(구조 모델 바인딩 사용)
 
 
@@ -978,6 +999,9 @@ module.exports = function (context, req) {
 
 
 ## <a name="webhooks"></a>Webhook
+
+> [!IMPORTANT]
+> Microsoft Graph 미리 보기 바인딩은 이제 사용 되지 않습니다. Azure Functions에서 Microsoft Graph를 사용 하는 방법에 대 한 자세한 내용은 Microsoft Graph를 사용 하 여 [빌드 Azure Functions](https://docs.microsoft.com/graph/tutorials/azure-functions) 자습서를 참조 하세요.
 
 웹후크를 사용하여 Microsoft Graph의 이벤트에 대응할 수 있습니다. 웹후크를 지원하려면 함수를 만들고, 새로 고치고, _웹후크 구독_에 반응해야 합니다. 완전한 웹후크 솔루션을 구성하려면 다음과 같은 바인딩 조합이 필요합니다.
 - 들어오는 웹후크에 대응할 수 있는 [Microsoft Graph 웹후크 트리거](#webhook-trigger).
@@ -993,6 +1017,9 @@ module.exports = function (context, req) {
 
 
 ## <a name="webhook-trigger"></a>웹후크 트리거
+
+> [!IMPORTANT]
+> Microsoft Graph 미리 보기 바인딩은 이제 사용 되지 않습니다. Azure Functions에서 Microsoft Graph를 사용 하는 방법에 대 한 자세한 내용은 Microsoft Graph를 사용 하 여 [빌드 Azure Functions](https://docs.microsoft.com/graph/tutorials/azure-functions) 자습서를 참조 하세요.
 
 Microsoft Graph 웹후크 트리거를 사용하면 함수가 Microsoft Graph에서 들어오는 웹후크에 대응할 수 있습니다. 이 트리거의 각 인스턴스는 한 가지 Microsoft Graph 리소스 종류에 대응할 수 있습니다.
 
@@ -1112,6 +1139,9 @@ module.exports = function (context) {
 
 <a name="webhook-input"></a>
 ## <a name="webhook-input"></a>웹후크 입력
+
+> [!IMPORTANT]
+> Microsoft Graph 미리 보기 바인딩은 이제 사용 되지 않습니다. Azure Functions에서 Microsoft Graph를 사용 하는 방법에 대 한 자세한 내용은 Microsoft Graph를 사용 하 여 [빌드 Azure Functions](https://docs.microsoft.com/graph/tutorials/azure-functions) 자습서를 참조 하세요.
 
 Microsoft Graph 웹후크 입력 바인딩을 사용하면 이 함수 앱이 관리하는 구독 목록을 검색할 수 있습니다. 이 바인딩은 함수 앱 스토리지에서 정보를 읽으므로, 앱 외부에서 작성된 다른 구독은 반영하지 않습니다.
 
@@ -1248,7 +1278,7 @@ module.exports = function (context, req) {
 |**name**| 해당 없음 |필수 - 메일 메시지의 함수 코드에 사용되는 변수 이름입니다. [코드에서 Outlook 메시지 출력 바인딩 사용](#outlook-output-code)을 참조하세요.|
 |**type**| 해당 없음 |필수 - `graphWebhookSubscription`으로 설정해야 합니다.|
 |**direction**| 해당 없음 |필수 - `in`으로 설정해야 합니다.|
-|**필터가**|**Filter**| `userFromRequest`로 설정하면 바인딩이 호출하는 사용자 소유의 구독만 검색합니다([HTTP 트리거]에만 유효).| 
+|**filter**|**Filter**| `userFromRequest`로 설정하면 바인딩이 호출하는 사용자 소유의 구독만 검색합니다([HTTP 트리거]에만 유효).| 
 
 ### <a name="webhook-input---usage"></a>웹후크 입력 - 사용
 
@@ -1263,6 +1293,9 @@ module.exports = function (context, req) {
 
 
 ## <a name="webhook-output"></a>웹후크 출력
+
+> [!IMPORTANT]
+> Microsoft Graph 미리 보기 바인딩은 이제 사용 되지 않습니다. Azure Functions에서 Microsoft Graph를 사용 하는 방법에 대 한 자세한 내용은 Microsoft Graph를 사용 하 여 [빌드 Azure Functions](https://docs.microsoft.com/graph/tutorials/azure-functions) 자습서를 참조 하세요.
 
 웹후크 구독 출력 바인딩을 사용하면 Microsoft Graph에서 웹후크 구독을 만들고, 삭제하고, 새로 고칠 수 있습니다.
 
@@ -1392,14 +1425,14 @@ module.exports = function (context, req) {
 |**identity**|**ID**|필수 - 작업 수행에 사용되는 ID입니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>userFromRequest</code> - [HTTP 트리거]에만 유효합니다. 호출하는 사용자의 ID를 사용합니다.</li><li><code>userFromId</code> - 지정된 ID를 사용하여 이전에 로그인한 사용자의 ID를 사용합니다. <code>userId</code> 속성을 참조하세요.</li><li><code>userFromToken</code> - 지정된 토큰으로 표시된 ID를 사용합니다. <code>userToken</code> 속성을 참조하세요.</li><li><code>clientCredentials</code> - 함수 앱의 ID를 사용합니다.</li></ul>|
 |**Id**|**Id**  |_identity_ 가 `userFromId`으로 설정된 경우에만 필요합니다. 이전에 로그인한 사용자와 연결된 사용자 계정 ID입니다.|
 |**userToken**|**UserToken**|_identity_ 가 `userFromToken`으로 설정된 경우에만 필요합니다. 함수 앱에 유효한 토큰입니다. |
-|**action**|**동작**|필수 - 바인딩이 수행해야 하는 작업을 지정합니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>create</code> - 새 구독을 등록합니다.</li><li><code>delete</code> - 지정된 구독을 삭제합니다.</li><li><code>refresh</code> - 구독이 만료되지 않도록 지정된 구독을 새로 고칩니다.</li></ul>|
+|**action**|**작업**|필수 - 바인딩이 수행해야 하는 작업을 지정합니다. 다음 값 중 하나일 수 있습니다.<ul><li><code>create</code> - 새 구독을 등록합니다.</li><li><code>delete</code> - 지정된 구독을 삭제합니다.</li><li><code>refresh</code> - 구독이 만료되지 않도록 지정된 구독을 새로 고칩니다.</li></ul>|
 |**subscriptionResource**|**SubscriptionResource**|_action_ 이 `create`로 설정된 경우에만 필요합니다. 변경 내용이 모니터링될 Microsoft Graph 리소스를 지정합니다. [Microsoft Graph에서 웹후크 작업]을 참조하세요. |
 |**changeType**|**ChangeType**|_action_ 이 `create`로 설정된 경우에만 필요합니다. 구독하는 리소스에서 알림을 발생시키는 변경 형식을 나타냅니다. 지원되는 값은 `created`, `updated`, `deleted`입니다. 쉼표로 구분된 목록을 사용하여 여러 값을 조합할 수 있습니다.|
 
 ### <a name="webhook-output---usage"></a>웹후크 출력 - 사용
 
 이 바인딩은 .NET 함수에 다음 형식을 노출합니다.
-- string
+- 문자열
 - Microsoft.Graph.Subscription
 
 
@@ -1407,6 +1440,9 @@ module.exports = function (context, req) {
 
 <a name="webhook-examples"></a>
 ## <a name="webhook-subscription-refresh"></a>웹후크 구독 새로 고침
+
+> [!IMPORTANT]
+> Microsoft Graph 미리 보기 바인딩은 이제 사용 되지 않습니다. Azure Functions에서 Microsoft Graph를 사용 하는 방법에 대 한 자세한 내용은 Microsoft Graph를 사용 하 여 [빌드 Azure Functions](https://docs.microsoft.com/graph/tutorials/azure-functions) 자습서를 참조 하세요.
 
 구독을 새로 고치는 두 가지 방법이 있습니다.
 

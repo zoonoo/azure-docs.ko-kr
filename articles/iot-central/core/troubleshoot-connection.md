@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 4c95c5eccb5ff804adeae94074136c6242678127
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6a1506de0bf21e44d84925fabeeea860f5807e2c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816068"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958102"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>장치의 데이터가 Azure에 표시 되지 않는 이유를 해결 IoT Central
 
@@ -95,8 +95,6 @@ version : 32
 rocessorArchitecture': 'ARM', 'swVersion': '1.0.0'}
 ```
 
-### <a name="interpreting-terminal-output"></a>터미널 출력 해석
-
 데이터가 터미널에 표시 되는 경우 데이터를 IoT Central 응용 프로그램의 데이터와 동일 하 게 만듭니다.
 
 몇 분 후에 표시 되는 데이터가 표시 되지 않는 경우 `Enter` 출력이 중단 되는 `return` 경우 키보드에서 또는 키를 누릅니다.
@@ -131,9 +129,9 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 }
 ```
 
-| 장치 프로 비전 상태 | Description | 가능한 완화 방법 |
+| 장치 프로 비전 상태 | 설명 | 가능한 완화 방법 |
 | - | - | - |
-| 프로비전됨 | 바로 인식할 때 문제가 없습니다. | 해당 없음 |
+| 프로비전됨 | 바로 인식할 때 문제가 없습니다. | N/A |
 | 등록됨 | 장치가 IoT Central에 아직 연결 되지 않았습니다. | 연결 문제에 대 한 장치 로그를 확인 합니다. |
 | 차단 | 장치가 IoT Central에 연결 되지 못하도록 차단 되었습니다. | 장치가 IoT Central 응용 프로그램에 대 한 연결을 차단 합니다. IoT Central에서 장치 차단을 해제 하 고 다시 시도 하세요. 자세히 알아보려면 [장치 차단](concepts-get-connected.md#device-status-values)을 참조 하세요. |
 | 안 | 장치가 승인 되지 않았습니다. | 장치가 IoT Central 응용 프로그램에 연결 하도록 승인 되지 않았습니다. IoT Central에서 장치를 승인한 후 다시 시도 하세요. 자세히 알아보려면 [장치 승인](concepts-get-connected.md#connect-without-registering-devices) 을 참조 하세요. |
@@ -187,8 +185,6 @@ https://aka.ms/iotcentral-docs-dps-SAS",
     az iot central app validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
-- GUI를 사용 하려면 IoT Central **원시 데이터** 뷰를 사용 하 여 모델을 모델링 하 고 있지 않은지 확인 합니다. **원시 데이터** 뷰는 장치에서 형식이 잘못 된 JSON을 보내는 경우를 검색 하지 않습니다.
-
 명령을 처음 실행할 때 라이브러리를 설치할지 묻는 메시지가 표시 될 수 있습니다 `uamqp` `validate` .
 
 다음 출력은 validate 명령의 예 오류 및 경고 메시지를 보여 줍니다.
@@ -205,9 +201,9 @@ Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happen
 tatype 'double'. Data '56'. All dates/times/datetimes/durations must be ISO 8601 compliant.
 ```
 
-:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="원시 데이터 뷰의 스크린샷":::
+GUI를 사용 하려면 IoT Central **원시 데이터** 뷰를 사용 하 여 모델을 모델링 하 고 있지 않은지 확인 합니다. **원시 데이터** 뷰는 장치에서 형식이 잘못 된 JSON을 보내는 경우를 검색 하지 않습니다.
 
-### <a name="interpreting-terminal-output"></a>터미널 출력 해석
+:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="원시 데이터 뷰의 스크린샷":::
 
 문제를 발견 하면 장치 펌웨어를 업데이트 하거나 이전에 모델링 되지 않은 데이터를 모델링 하는 새 장치 템플릿을 만들어야 할 수 있습니다.
 
@@ -215,9 +211,6 @@ tatype 'double'. Data '56'. All dates/times/datetimes/durations must be ISO 8601
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드를 사용 하 여 문제를 해결 하 고 문제를 해결할 수 없는 경우 지원 티켓을 엽니다. Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
-
-- [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-- [미국 정부의 Azure Portal](https://portal.azure.us/)
+도움이 더 필요한 경우 [MSDN azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에 게 문의할 수 있습니다. 또는 [Azure 지원 티켓](https://portal.azure.com/#create/Microsoft.Support)을 파일에 추가할 수 있습니다.
 
 자세한 내용은 [Azure IoT 지원 및 도움말 옵션](../../iot-fundamentals/iot-support-help.md)을 참조 하세요.

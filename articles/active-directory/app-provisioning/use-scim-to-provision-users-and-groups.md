@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: be33841206fa30a5b4975a604af1b5d9e38551a8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a8fa409a8ee66cd69016b7978f0d5f0194b338c4
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690258"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959156"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성
 
@@ -153,7 +153,7 @@ SCIM 2.0 사용자 관리 API를 지원하는 애플리케이션을 빌드하는
 * SCIM 프로토콜의 섹션 3.4.2에 따라 ID 및 관리자에 의한 사용자 쿼리를 지원합니다.  
 * SCIM 프로토콜의 섹션 3.4.2에 따라 ID 및 멤버에 의한 그룹 쿼리를 지원합니다.  
 * 애플리케이션에 대한 Azure AD의 인증 및 권한 부여를 위해 단일 전달자 토큰을 허용합니다.
-* 사용자를 일시 삭제 하 고 사용자를 복원 하는 기능을 지원 `active=false` `active=true` 합니다.
+* 사용자를 일시 삭제 하 고 사용자를 복원 하는 기능을 지원 합니다. 사용자가 `active=false` `active=true` 활성 상태 인지 여부에 관계 없이 사용자 개체가 요청에서 반환 되어야 합니다. 응용 프로그램에서 하드 삭제 된 경우에만 사용자가 반환 되는 것은 아닙니다. 
 
 Azure AD와의 호환성을 보장하기 위해 SCIM 엔드포인트를 구현할 때 다음 일반 지침을 따릅니다.
 
