@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: 10a75d19b7fb134b8e7498c422742e00f6475da5
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690207"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918471"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>음성 서비스 컨테이너 FAQ (질문과 대답)
 
@@ -97,7 +98,7 @@ Microsoft에 부과 되는 유지 관리 비용은 서비스 수준 및 서비�
 
 **답변:** 는 `speech_recognition_language=<YOUR_LANGUAGE>` 요청에서 참조 클라이언트를 사용 하는 경우 명시적으로 구성 해야 합니다.
 
-예를 들면 다음과 같습니다.
+예를 들면
 
 ```python
 if not recognize_once(
@@ -289,7 +290,7 @@ Websocket이 올바르게 설정 되어 있음을 알 수 있습니다.
 
 테스트할 함수와 SDK 및 REST Api를 테스트 하는 방법을 비롯 하 여 다음과 같은 테스트 메트릭을 채울 수 있습니다. 특히 기존 doc/샘플에서 볼 수 없었던 "대화형" 및 "대화"의 차이점입니다.
 
-| 엔드포인트                                                | 기능 테스트                                                   | SDK) | REST API |
+| 엔드포인트                                                | 기능 테스트                                                   | SDK | REST API |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
 | `/speech/synthesize/cognitiveservices/v1`               | 텍스트 합성 (텍스트 음성 변환)                                  |     | 예      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services 온-프레미스 dictation v1 websocket 끝점        | 예 | 아니요       |
@@ -366,7 +367,7 @@ https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d
 
 문서는 다른 포트를 표시 하 고 있지만 LUIS 컨테이너는 여전히 포트 5000에서 수신 대기 하 고 있습니까?
 
-**답변:** 사용해 보세요 `-p <outside_unique_port>:5000` . 예들 들어 `-p 5001:5000`입니다.
+**답변:** 사용해 보세요 `-p <outside_unique_port>:5000` . 예: `-p 5001:5000`
 
 
 <br>

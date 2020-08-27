@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525652"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930675"
 ---
 # <a name="create-an-azure-file-share"></a>Azure 파일 공유 만들기
 Azure 파일 공유를 만들려면이를 사용 하는 방법에 대 한 세 가지 질문에 답변해 야 합니다.
@@ -32,7 +32,7 @@ Azure 파일 공유를 만들려면이를 사용 하는 방법에 대 한 세 �
 
 이러한 세 가지 옵션에 대 한 자세한 내용은 [Azure Files 배포 계획](storage-files-planning.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 - 이 문서에서는 독자들이 이미 Azure 구독을 만들었다고 가정합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - Azure PowerShell을 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)하세요.
 - Azure CLI를 사용하려면 [최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하세요.
@@ -267,6 +267,9 @@ Update-AzRmStorageShare `
     -AccessTier Cool
 ```
 
+> [!Note]  
+> PowerShell을 통해 계층을 설정 하 고 변경 하는 기능은 미리 보기 Az. Storage PowerShell 모듈에서 제공 됩니다. 이러한 cmdlet 또는 해당 출력은 일반적으로 사용 가능한 Az. Storage PowerShell 모듈에서 해제 되기 전에 변경 될 수 있으므로이를 염두에 두면 스크립트를 만듭니다.
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 파일 공유를 만들거나 특정 계층으로 이동 하는 기능은 최신 Azure CLI 업데이트에서 사용할 수 있습니다. Azure CLI 업데이트는를 사용 하는 운영 체제/Linux 배포에만 적용 됩니다. 시스템에서 Azure CLI를 업데이트 하는 방법에 대 한 지침은 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
 
@@ -282,6 +285,10 @@ az storage share-rm create \
     --name $shareName \
     --access-tier "Hot"
 ```
+
+> [!Note]  
+> 매개 변수를 사용 하 여 계층을 설정 하는 기능에는 `--access-tier` 최신 Azure CLI 패키지의 미리 보기가 제공 됩니다. 이 명령 또는 해당 출력은 일반 공급으로 표시 되기 전에 변경 될 수 있으므로이를 염두에 두면 스크립트를 만듭니다.
+
 ---
 
 ## <a name="next-steps"></a>다음 단계

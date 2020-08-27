@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 04434753949f0e00eaf99610199cc4997ef53caf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 887017f60deb832bd5c53f28bde4b57a3d82bde5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751052"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918046"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>자습서: Power Apps에서 Cognitive Search 인덱스 쿼리
 
@@ -261,5 +261,4 @@ Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는
 Power Apps를 사용하면 사용자 지정 앱의 빠른 애플리케이션 개발이 가능합니다. 이제 검색 인덱스에 연결하는 방법을 알고 있으므로 사용자 지정 Power App에서 풍부한 시각화 환경을 만드는 방법에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Power Apps 학습 카탈로그](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
-
+> [Power Apps 학습 카탈로그](/powerapps/learning-catalog/get-started)

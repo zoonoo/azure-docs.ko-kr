@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: 5be50453dff9acaf4a9876eec1d95b56abebf745
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bf3e4262f4342788f343ab287fd3db53d12736c7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029844"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918114"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Azure Cognitive Search의 API 버전
 
@@ -38,8 +38,8 @@ Azure Cognitive Search 서비스 인스턴스는 최신 버전을 포함 하 여
 
 | 버전&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | 상태 | 이전 버전과의 호환성 문제 |
 |-------------------------|--------|------------------------------|
-| [검색 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/index)| Stable | 최신 버전의 검색 REST Api를 제공 하며, 관련 점수 매기기 및 일반적으로 기술 자료 저장소에 대 한 가용성을 제공 합니다.|
-| [검색 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/index-preview)| 미리 보기 | 안정적인 버전과 연결 된 미리 보기 버전입니다. 에는 여러 [미리 보기 기능이](search-api-preview.md)포함 되어 있습니다. |
+| [검색 2020-06-30](/rest/api/searchservice/index)| Stable | 최신 버전의 검색 REST Api를 제공 하며, 관련 점수 매기기 및 일반적으로 기술 자료 저장소에 대 한 가용성을 제공 합니다.|
+| [검색 2020-06-30-Preview](/rest/api/searchservice/index-preview)| 미리 보기 | 안정적인 버전과 연결 된 미리 보기 버전입니다. 에는 여러 [미리 보기 기능이](search-api-preview.md)포함 되어 있습니다. |
 | 검색 2019-05-06 | Stable | [복합 형식을](search-howto-complex-data-types.md)추가 합니다. |
 | 검색 2019-05-06-미리 보기 | 미리 보기 | 안정적인 버전과 연결 된 미리 보기 버전입니다. |
 | 검색 2017-11-11 | Stable  | 기술력과 및 [AI 보강](cognitive-search-concept-intro.md)를 추가 합니다. |
@@ -57,8 +57,8 @@ Azure Cognitive Search 서비스 인스턴스는 최신 버전을 포함 하 여
 
 | 버전&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | 상태 | 이전 버전과의 호환성 문제 |
 |-------------------------|--------|------------------------------|
-| [관리 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/) | Stable | Endpoint protection의 고급 기능을 통해 안정적인 최신 릴리스의 관리 REST Api 개인 링크를 통해 [개인 끝점](service-create-private-endpoint.md) 을 추가 하 고 새 서비스에 대 한 [네트워크 IP 규칙](service-configure-firewall.md) 을 추가 합니다. |
-| [관리 2019-10-01-미리 보기](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) | 미리 보기  | 버전 번호에도 불구 하 고 여전히 관리 REST Api의 현재 미리 보기 버전입니다. 지금은 미리 보기 기능이 없습니다. 모든 미리 보기 기능은 최근에 일반 공급으로 전환 되었습니다. |
+| [관리 2020-03-13](/rest/api/searchmanagement/) | Stable | Endpoint protection의 고급 기능을 통해 안정적인 최신 릴리스의 관리 REST Api 개인 링크를 통해 [개인 끝점](service-create-private-endpoint.md) 을 추가 하 고 새 서비스에 대 한 [네트워크 IP 규칙](service-configure-firewall.md) 을 추가 합니다. |
+| [관리 2019-10-01-미리 보기](/rest/api/searchmanagement/index-2019-10-01-preview) | 미리 보기  | 버전 번호에도 불구 하 고 여전히 관리 REST Api의 현재 미리 보기 버전입니다. 지금은 미리 보기 기능이 없습니다. 모든 미리 보기 기능은 최근에 일반 공급으로 전환 되었습니다. |
 | 관리 2015-08-19  | Stable | 관리 REST Api의 첫 번째 일반적으로 사용할 수 있는 버전입니다. 서비스 프로 비전, 확장 및 api 키 관리를 제공 합니다. |
 | 관리 2015-08-19-미리 보기 | 미리 보기 | 관리 REST Api의 첫 번째 미리 보기 버전입니다. |
 
@@ -69,17 +69,17 @@ NuGet.org에서 패키지 버전 기록을 사용할 수 있습니다. 이 표�
 
 | SDK 버전 | 상태 | Description |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11.0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | 7 월 2020에 출시 된 Azure .NET SDK의 새 클라이언트 라이브러리입니다. 검색 REST api-version = 2020-06-30 REST API를 대상으로 하지만 아직 지원 하지는 [않습니다.](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet) |
+| [Azure.Search.Documents 11.0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | 7 월 2020에 출시 된 Azure .NET SDK의 새 클라이언트 라이브러리입니다. 검색 REST api-version = 2020-06-30 REST API를 대상으로 하지만 아직 지원 하지는 [않습니다.](/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet) |
 | [10.0 검색](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | 출시 5 월 2019. 검색 REST api-version = 2019-05-06을 대상으로 합니다.|
 | [8.0-미리 보기](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | 미리 보기 | 4 월 2019에 출시 되었습니다. 검색 REST api-version = 2019-05 -06-Preview를 대상으로 합니다.|
-| [3.0.0를 검색 합니다.](https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | 관리 REST api-version = 2015-08-19를 대상으로 합니다.  |
+| [3.0.0를 검색 합니다.](/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | 관리 REST api-version = 2015-08-19를 대상으로 합니다.  |
 
 ## <a name="azure-sdk-for-java"></a>Java용 Azure SDK
 
 | SDK 버전 | 상태 | Description  |
 |-------------|--------|------------------------------|
 | [Java azure-검색-문서 11](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-search-documents/11.0.0/index.html) | Stable | 7 월 2020에 출시 된 Azure .NET SDK의 새 클라이언트 라이브러리입니다. 검색 REST api-version = 2019-05-06을 대상으로 합니다. |
-| [Java Management Client 1.35.0](https://docs.microsoft.com/java/api/overview/azure/search/management?view=azure-java-stable) | Stable | 관리 REST api-version = 2015-08-19를 대상으로 합니다. |
+| [Java Management Client 1.35.0](/java/api/overview/azure/search/management?view=azure-java-stable) | Stable | 관리 REST api-version = 2015-08-19를 대상으로 합니다. |
 
 ## <a name="azure-sdk-for-javascript"></a>JavaScript용 Azure SDK
 
@@ -93,4 +93,4 @@ NuGet.org에서 패키지 버전 기록을 사용할 수 있습니다. 이 표�
 | SDK 버전 | 상태 | Description  |
 |-------------|--------|------------------------------|
 | [Python azure-검색-문서 11.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/11.0.0/index.html) | Stable | 7 월 2020에 출시 된 Azure .NET SDK의 새 클라이언트 라이브러리입니다. 검색 REST api-version = 2019-05-06을 대상으로 합니다. |
-| [Python azure-관리-검색 1.0](https://docs.microsoft.com/python/api/overview/azure/search?view=azure-python) | Stable | 관리 REST api-version = 2015-08-19를 대상으로 합니다. |
+| [Python azure-관리-검색 1.0](/python/api/overview/azure/search?view=azure-python) | Stable | 관리 REST api-version = 2015-08-19를 대상으로 합니다. |
