@@ -3,12 +3,12 @@ title: MABS를 사용 하 여 Hyper-v 가상 머신 백업
 description: 이 문서에는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 가상 컴퓨터를 백업 및 복구 하는 절차가 포함 되어 있습니다.
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 364426956d665d54885182e7b63af93df3d30e1f
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: dc135e74564d4104c61ffef6f1403eddc08586be
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823967"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892816"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Azure Backup Server를 사용 하 여 Hyper-v 가상 컴퓨터 백업
 
@@ -149,7 +149,7 @@ MABS가 Windows Server 2012 R2 이상에서 실행 되는 경우 복제본 가�
     - 네트워크를 구성한 경우 **하드웨어 스냅샷을 사용한 SAN 기반 복구 사용**을 선택합니다.
     - 복구 프로세스가 완료되면 메일 알림을 받으려는 경우 **이 복구가 완료되면 전자 메일 보내기**를 선택한 다음 메일 주소를 입력합니다.
 
-6. 요약 화면에서 모든 세부 정보가 올바른지 확인합니다. 세부 정보가 잘못되었거나 변경하려는 경우 **뒤로**를 클릭합니다. 설정이 만족스러우면 **복구**를 클릭하여 복구 프로세스를 시작합니다.
+6. 요약 화면에서 모든 세부 정보가 올바른지 확인합니다. 세부 정보가 잘못되었거나 변경하려는 경우 **뒤로**를 클릭합니다. 설정에 만족 하는 **경우 복구를 클릭 하** 여 복구 프로세스를 시작 합니다.
 
 7. **복구 상태** 화면에서 복구 작업에 대한 정보를 제공합니다.
 

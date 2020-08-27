@@ -113,6 +113,8 @@
   items:
     - name: Azure CLI 플러그 인
       href: 'https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.springcloud'
     - name: 리소스
       href: spring-cloud-resources.md
     - name: 질문과 대답

@@ -3,13 +3,13 @@ title: 많은 수의 작업 제출
 description: 단일 Azure Batch 작업에서 매우 많은 수의 작업을 효율적으로 제출하는 방법
 ms.topic: how-to
 ms.date: 08/24/2018
-ms.custom: devx-track-python
-ms.openlocfilehash: 317cd3514bfa5641c163e82fb8ac17465cb02079
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: 0442be6f0c56aecc401ac4322c565a9ef999df63
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848760"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936897"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Batch 작업으로 많은 수의 작업 제출
 

@@ -3,14 +3,14 @@ title: Azure Kubernetes Service에서 Azure AD 사용
 description: AKS(Azure Kubernetes Service)에서 Azure AD를 사용하는 방법 알아보기
 services: container-service
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: fd13fbc3b1ada0a9e974742d36bd231e3caf6ef6
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 32273bbb14e6cee73f03bd83b84be77299186370
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661064"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936999"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS 관리 Azure Active Directory 통합
 
@@ -37,17 +37,19 @@ AKS 관리 Azure Active Directory 통합은 [AKS가 지원](https://azure.micros
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure CLI 버전 2.9.0 이상
-* Kubectl [1.18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180) 이상 버전
+* Azure CLI 버전 2.11.0 이상
+* Kubectl [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) 또는 [kubelogin](https://github.com/Azure/kubelogin) 의 최소 버전
+* [투구](https://github.com/helm/helm)를 사용 하는 경우 최소 버전의 투구 3.3입니다.
 
 > [!Important]
-> 최소 1.18 버전의 Kubectl을 사용해야 합니다.
+> 최소 버전의 1.18.1 또는 kubelogin와 함께 Kubectl를 사용 해야 합니다. 올바른 버전을 사용 하지 않는 경우 인증 문제를 확인할 수 있습니다.
 
-Kubectl을 설치 하려면 다음 명령을 사용 합니다.
+Kubectl 및 kubelogin을 설치 하려면 다음 명령을 사용 합니다.
 
 ```azurecli-interactive
 sudo az aks install-cli
 kubectl version --client
+kubelogin --version
 ```
 
 다른 운영 체제에 대한 [지침](https://kubernetes.io/docs/tasks/tools/install-kubectl/)을 사용합니다.

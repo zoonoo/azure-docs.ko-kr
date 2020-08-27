@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ac121195ba46389798acc7f099829fde96da72e1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7b9d97e518282cf150a8f54225c11d9edcbf8892
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827140"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892578"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -169,7 +169,7 @@ PV         VG        Fmt  Attr PSize   PFree    VG UUID
 
 ###### <a name="duplicate-volume-groups"></a>중복 볼륨 그룹
 
-스크립트를 실행 한 후 볼륨 그룹 이름에 2 개의 Uuid가 있을 수 있는 시나리오가 있습니다. 즉, 스크립트가 실행 되는 컴퓨터의 볼륨 그룹 이름과 백업 된 VM에서 동일 합니다. 그런 다음 백업 된 Vm 볼륨 그룹의 이름을 변경 해야 합니다. 아래 예제를 살펴보세요.
+스크립트를 실행 한 후 볼륨 그룹 이름에 2 개의 Uuid가 있을 수 있는 시나리오가 있습니다. 이는 스크립트가 실행 되는 컴퓨터의 볼륨 그룹 이름과 백업 된 VM에서 동일 함을 의미 합니다. 그런 다음 백업 된 Vm 볼륨 그룹의 이름을 변경 해야 합니다. 아래 예제를 살펴보세요.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -285,7 +285,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 | openSUSE | 42.2 이상 |
 
 > [!NOTE]
-> SLES 12 SP4 OS를 사용하는 머신에서 파일 복구 스크립트를 실행하는 동안 몇 가지 문제가 발견되었으며 SLES 팀이 문제를 조사 중입니다.
+> SLES 12 SP4 OS를 사용 하는 컴퓨터에서 파일 복구 스크립트를 실행 하는 동안 몇 가지 문제가 발견 되었으며 SLES 팀과 함께 조사 하 고 있습니다.
 > 현재 SLES 12 SP2 및 SP3 OS 버전을 사용하는 머신에서 파일 복구 스크립트를 실행할 수 있습니다.
 >
 

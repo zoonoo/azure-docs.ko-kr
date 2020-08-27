@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 모니터링 경고 및 Azure Back
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 2112a439585e6b111614e728dbc4a1a5eb4ee3d2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 670314d8703889016431838a9f5b0a6dc56b84b8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827174"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892561"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup 모니터링 경고-FAQ
 
@@ -38,7 +38,7 @@ LA 작업 영역을 만든 후에는 데이터를 최대 2 년 동안 보존 하
 
 ### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>LA 작업 영역을 구성한 후 보고서의 모든 데이터를 볼 수 있나요?
 
- 진단 설정을 구성한 후 생성 된 모든 데이터는 LA 작업 영역으로 푸시되 고 보고서에서 사용할 수 있습니다. 진행 중인 작업은 보고를 위해 푸시되지 않으며, 작업이 완료 되거나 실패 하면 보고서로 전송 됩니다.
+ 진단 설정을 구성한 후 생성 된 모든 데이터는 LA 작업 영역으로 푸시되 고 보고서에서 사용할 수 있습니다. 진행 중인 작업은 보고를 위해 푸시되지 않으며, 완료되거나 실패하면 보고서로 전송됩니다.
 
 ### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>여러 자격 증명 모음 및 구독의 보고서를 볼 수 있나요?
 

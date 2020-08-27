@@ -5,14 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 1a9f80166e47b17644b37d4bc9b93e1abefe3432
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aff636adff48a8882c152eab398a96a8d28f84e0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022763"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892748"
 ---
-# <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided":::렌더링
+# <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided"::: 렌더링
 
 대부분 렌더러는 [뒷면 선별](https://en.wikipedia.org/wiki/Back-face_culling)을 사용하여 성능을 개선합니다. 그러나 [평면 잘라내기](cut-planes.md)를 통해 메시가 잘려 있으면 종종 사용자에게 삼각형의 뒷면이 보입니다. 해당 삼각형이 선별되지 않으면 결과가 설득력 있는 것으로 보이지 않습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "84022763"
 
 :::no-loc text="single-sided":::렌더링 설정은 옵션을로 설정 하 여 [변환](../../how-tos/conversion/configure-model-conversion.md) 된 메시에만 적용 `opaqueMaterialDefaultSidedness` `SingleSided` 됩니다. 기본적으로 이 옵션은 `DoubleSided`로 설정됩니다.
 
-## <a name="no-loc-textsingle-sided-rendering-setting"></a>:::no-loc text="Single-sided":::렌더링 설정
+## <a name="no-loc-textsingle-sided-rendering-setting"></a>:::no-loc text="Single-sided"::: 렌더링 설정
 
 다음과 같은 세 가지 모드가 있습니다.
 
@@ -55,13 +55,13 @@ void ChangeSingleSidedRendering(AzureSession session)
 ```cpp
 void ChangeSingleSidedRendering(ApiHandle<AzureSession> session)
 {
-    ApiHandle<SingleSidedSettings> settings = *session->Actions()->SingleSidedSettings();
+    ApiHandle<SingleSidedSettings> settings = session->Actions()->GetSingleSidedSettings();
 
     // Single-sided geometry is rendered as is
-    settings->Mode(SingleSidedMode::Normal);
+    settings->SetMode(SingleSidedMode::Normal);
 
     // Single-sided geometry is always rendered double-sided
-    settings->Mode(SingleSidedMode::AlwaysDoubleSided);
+    settings->SetMode(SingleSidedMode::AlwaysDoubleSided);
 }
 ```
 

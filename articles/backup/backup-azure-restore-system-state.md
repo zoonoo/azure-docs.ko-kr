@@ -3,12 +3,12 @@ title: Windows Server에 시스템 상태 복원
 description: Azure의 백업에서 Windows Server 시스템 상태를 복원 하는 방법에 대 한 단계별 설명입니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1adf20b08a5c7f93108b3af5077afae9555f2219
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 9237d3d087da7f9e72813baa0056cd6b70f2c914
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827106"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892544"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -154,7 +154,7 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
     ![복원된 시스템 상태 파일 시작](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 
     >[!NOTE]
-    >DSRM 모드로 복원 작업을 수행 하는 경우 **서버 자동 다시 부팅** 옵션을 선택 하지 마세요.
+    >DSRM 모드에서 복원을 수행 하는 경우 **서버 자동 다시 부팅** 옵션을 선택 하지 마세요.
 
 1. 복원을 성공적으로 완료 한 후 표준 모드에서 서버를 다시 시작 해야 합니다. 명령 프롬프트를 열고 다음을 입력 합니다. `bcdedit /deletevalue safeboot`
 1. 서버를 다시 부팅합니다.
