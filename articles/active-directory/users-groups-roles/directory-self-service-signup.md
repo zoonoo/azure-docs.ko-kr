@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d52384f04fd8a2a2bc3c42af713378ad15d01c42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 3ec578370d32664e36ffcc4bd075c3f6a3ed68ab
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192717"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795352"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Azure Active Directory의 셀프 서비스 등록이란?
 
@@ -64,7 +64,7 @@ AllowEmailVerifiedUsers 및 AllowAdHocSubscriptions는 관리 또는 관리되�
 Flow 및 PowerApps 평가판 등록에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [내 기존 사용자가 Power BI를 사용하기 시작하지 않도록 방지하는 방법](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-* [조직의 Flow Q&A](https://docs.microsoft.com/flow/organization-q-and-a)
+* [조직의 Flow Q&A](/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>컨트롤이 어떻게 작동하나요?
 이 두 매개 변수를 함께 사용하여 정의하면 셀프 서비스 등록을 더욱 세밀하게 제어할 수 있습니다. 예를 들어 Azure AD에 이미 계정이 있는 사용자만 다음 명령을 사용하여 셀프 서비스 등록을 수행할 수 있습니다. 즉, 이메일로 확인된 계정을 먼저 만들어야 하는 사용자는 셀프 서비스 등록을 수행할 수 없습니다.

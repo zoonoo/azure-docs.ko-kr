@@ -4,15 +4,16 @@ description: 파트너와 관련된 포털 관리 항목 설명
 author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ef6405ffa72028cfde0445ad40bfd628eaa24573
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: b9e96415c07ba317091be61dcac319aacafcdfe8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245804"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689952"
 ---
 # <a name="azure-ea-portal-administration-for-partners"></a>파트너 대신 Azure EA Portal 관리
 

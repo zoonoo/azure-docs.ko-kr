@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: fafdf18a3593f7ec444e9970d99807cbfe0cb13d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: bbb0f530d95c78b8b5da178ee1544830ac3f7132
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080629"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660599"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>빠른 시작: Node.js와 azure/service-bus 패키지에서 Service Bus 토픽 및 구독을 사용하는 방법
 이 자습서에서는 새 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 토픽으로 메시지를 보내고 Service Bus 구독에서 메시지를 받는 Node.js 프로그램을 작성하는 방법에 대해 알아봅니다. 이 패키지는 더 빠른 [AMQP 1.0 프로토콜](service-bus-amqp-overview.md)을 사용하는 반면, 이전 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지는 [Service Bus REST 런타임 API](/rest/api/servicebus/service-bus-runtime-rest)를 사용했습니다. 샘플은 JavaScript로 작성되었습니다.
@@ -86,7 +86,7 @@ Service Bus 토픽은 [표준 계층](service-bus-premium-messaging.md)에서 25
 Service Bus 구독과의 상호 작용은 [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) 클래스를 인스턴스화하여 [SubscriptionClient](/javascript/api/@azure/service-bus/subscriptionclient) 클래스를 인스턴스화하는 데 사용하는 것부터 시작합니다. 구독 클라이언트가 생겼으면 수신기를 만들고, 이 수신기에서 [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) 또는 [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) 메서드를 사용하여 메시지를 받을 수 있습니다.
 
 1. 선호하는 편집기(예: [Visual Studio Code](https://code.visualstudio.com/))를 엽니다.
-2. `recieve.js`라는 파일을 만들고 아래 코드를 이 파일에 붙여넣습니다. 이 코드는 구독에서 10개 메시지를 수신하려고 시도합니다. 수신하는 실제 메시지 수는 구독의 메시지 수와 네트워크 대기 시간에 따라 달라집니다.
+2. `receive.js`라는 파일을 만들고 아래 코드를 이 파일에 붙여넣습니다. 이 코드는 구독에서 10개 메시지를 수신하려고 시도합니다. 수신하는 실제 메시지 수는 구독의 메시지 수와 네트워크 대기 시간에 따라 달라집니다.
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -117,7 +117,7 @@ Service Bus 구독과의 상호 작용은 [ServiceBusClient](/javascript/api/@az
     });
     ```
 3. 위의 코드에 있는 연결 문자열과 토픽 및 구독의 이름을 입력합니다.
-4. 그런 다음, 명령 프롬프트에서 `node receiveMessages.js` 명령을 실행하여 이 파일을 실행합니다.
+4. 그런 다음, 명령 프롬프트에서 `node receive.js` 명령을 실행하여 이 파일을 실행합니다.
 
 축하합니다! 방금 Service Bus 구독에서 메시지를 받았습니다.
 

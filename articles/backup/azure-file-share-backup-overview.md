@@ -3,16 +3,16 @@ title: Azure 파일 공유 백업 정보
 description: Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 1c44d406519c8c0d9fb71b5e94bcb6bcaa1a7253
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7960040df4208ad021bca3406f6472d8c3206d81
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823883"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892255"
 ---
 # <a name="about-azure-file-share-backup"></a>Azure 파일 공유 백업 정보
 
-Azure 파일 공유 백업은 클라우드에서 데이터를 보호 하 고 온-프레미스 백업 솔루션과 관련 된 추가 유지 관리 오버 헤드를 제거 하는 클라우드 기반 기본 백업 솔루션입니다. Azure Backup 서비스는 Azure File Sync와 원활 하 게 통합 되며 백업 뿐만 아니라 파일 공유 데이터를 중앙 집중화할 수 있습니다. 이 간단 하 고 안정적 이며 안전한 솔루션을 사용 하면 재해 시나리오의 경우 데이터를 복구할 수 있는 몇 가지 간단한 단계를 통해 엔터프라이즈 파일 공유에 대 한 보호를 구성할 수 있습니다.
+Azure 파일 공유 백업은 클라우드에서 데이터를 보호 하 고 온-프레미스 백업 솔루션과 관련 된 추가 유지 관리 오버 헤드를 제거 하는 클라우드 기반 기본 백업 솔루션입니다. Azure Backup 서비스는 Azure File Sync와 원활 하 게 통합 되며 백업 뿐만 아니라 파일 공유 데이터를 중앙 집중화할 수 있습니다. 이 간단 하 고 안정적 이며 안전한 솔루션을 사용 하면 모든 재해 시나리오에서 데이터를 복구할 수 있는 몇 가지 간단한 단계를 통해 엔터프라이즈 파일 공유에 대 한 보호를 구성할 수 있습니다.
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Azure 파일 공유 백업의 주요 이점
 
@@ -23,7 +23,7 @@ Azure 파일 공유 백업은 클라우드에서 데이터를 보호 하 고 온
 * **경고 및 보고**: 백업 및 복원 오류에 대 한 경고를 구성 하 고, Azure Backup에서 제공 하는 보고 솔루션을 사용 하 여 파일 공유에서 백업에 대 한 정보를 얻을 수 있습니다.
 * **파일 공유의 실수로 인 한 삭제 방지**: Azure Backup 보존 기간이 14 일인 저장소 계정 수준에서 [일시 삭제 기능](../storage/files/storage-files-prevent-file-share-deletion.md) 을 사용 하도록 설정 합니다. 악의적인 행위자가 파일 공유를 삭제 하는 경우에도 파일 공유의 내용과 복구 지점이 구성 가능한 보존 기간 동안 유지 되므로 데이터 손실 없이 원본 콘텐츠 및 스냅숏의 복구가 성공 하 고 완전 하 게 완료 됩니다.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 ![Azure 파일 공유 백업 아키텍처](./media/azure-file-share-backup-overview/azure-file-shares-backup-architecture.png)
 
