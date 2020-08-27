@@ -3,13 +3,13 @@ title: 개발자 리소스-Language Understanding
 description: Sdk, REST Api, CLI는 프로그래밍 언어로 LUIS (Language Understanding) 앱을 개발 하는 데 도움이 됩니다. Azure 리소스를 관리 하 고 예측을 LUIS.
 ms.topic: reference
 ms.date: 05/19/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 01cbaf5a7e8eb733680381da21a7b1f9aa5c2cea
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 759111ee7e77ce00fec3762b1a20494c2771ef8f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235998"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931202"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Language Understanding에 대 한 SDK, REST 및 CLI 개발자 리소스 (LUIS)
 
@@ -45,7 +45,7 @@ Language Understanding 서비스는 만들어야 하는 Azure 리소스에서 �
 
 작성 및 예측 끝점 API는 REST Api에서 사용할 수 있습니다.
 
-|형식|버전|
+|Type|버전|
 |--|--|
 |작성|[[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |예측|[[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
@@ -67,7 +67,7 @@ LUIS에는 현재 두 가지 유형의 끝점이 있습니다.
 
 다음 표에서는 앞의 표에서 중괄호 `{}`로 표시된 매개 변수에 대해 설명합니다.
 
-|매개 변수|용도|
+|매개 변수|목적|
 |--|--|
 |`your-resource-name`|Azure 리소스 이름|
 |`q` 또는 `query`|채팅 봇과 같은 클라이언트 애플리케이션에서 보낸 발언 텍스트|

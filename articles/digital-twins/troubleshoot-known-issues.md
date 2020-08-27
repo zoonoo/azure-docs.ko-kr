@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 0c008061d2d4fafa96eda934d5026c92839a0bdb
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 01d962db45a58781ca5f2ba494de16ad420b0807
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661489"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921072"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure Digital Twins의 알려진 문제
 
@@ -51,7 +51,9 @@ ms.locfileid: "88661489"
 
 ## <a name="issue-with-interactive-browser-authentication"></a>대화형 브라우저 인증과 관련 된 문제
 
-Azure ** [id](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) 라이브러리**의 최신 버전 (버전 **1.2.0**)을 사용 하 여 azure Digital twins 응용 프로그램에서 인증 코드를 작성할 때 [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) 메서드와 관련 된 문제가 발생할 수 있습니다.
+Azure **1.2.0** ** [Azure.Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) 라이브러리**의 버전을 사용 하 여 azure Digital twins 응용 프로그램에서 인증 코드를 작성할 때 [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) 메서드와 관련 된 문제가 발생할 수 있습니다.
+
+이는 라이브러리의 최신 버전이 아닙니다. 최신 버전은 **1.2.2**입니다.
 
 영향을 받는 메서드는 다음 문서에서 사용 됩니다. 
 * [*자습서: 클라이언트 앱 코딩*](tutorial-code.md)
@@ -62,10 +64,7 @@ Azure ** [id](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-do
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계
 
-이 문제를 해결 하려면 응용 프로그램에서 Azure. Identity 버전 **1.1.1**을 명시적으로 사용 하도록 합니다. 이 라이브러리 버전을 사용 하는 경우 브라우저에서 예상 대로 로드 하 고 인증 해야 합니다.
-
->[!NOTE]
-> 버전을 지정 하지 않고 라이브러리를 추가 하는 것 만으로는 충분 하지 않습니다 .이는 기본적으로 최신 **1.2.0**합니다. 버전 **1.1.1** 을 명시적으로 지정 해야 합니다.
+이 문제를 해결 하려면 Azure. Identity 버전 **1.2.2**를 사용 하도록 응용 프로그램을 업데이트 합니다. 이 라이브러리 버전을 사용 하는 경우 브라우저에서 예상 대로 로드 하 고 인증 해야 합니다.
 
 ### <a name="possible-causes"></a>가능한 원인
 

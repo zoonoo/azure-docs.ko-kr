@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ce2ea7bed7da5226868afcf4d284ba893f2208a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 915098130c7a8462bc0e009be04a61b5b0a7985d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828662"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795595"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Azure Active Directory의 사용자 지정 관리자 역할
 
@@ -46,7 +46,7 @@ Azure AD 기본 제공 및 사용자 지정 역할은 [Azure RBAC(Azure 역할 �
 
 1. 환경에 따라 Azure AD에서 다음 작업 중 하나를 수행합니다.
 
-    - 사용자의 액세스 토큰에서 [wids 클레임](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)을 기반으로 사용자의 역할 멤버 자격을 평가합니다.
+    - 사용자의 액세스 토큰에서 [wids 클레임](../develop/access-tokens.md)을 기반으로 사용자의 역할 멤버 자격을 평가합니다.
     - 직접 또는 그룹 멤버 자격을 통해 작업을 수행할 리소스에 적용되는 사용자의 모든 역할 할당을 검색합니다.
 
 1. Azure AD는 사용자가 이 리소스에 대해 갖는 역할에 API 호출의 작업이 포함되는지 여부를 결정합니다.
