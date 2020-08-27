@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: bf2a811098138663f1b7f2acd174d6bca4aa6150
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a5784aeb615c6d84048835bd6169f0819fad2f56
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826243"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892340"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -192,7 +192,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 이렇게 하면 Guest가 아닌 호스트를 통해 스냅샷이 만들어집니다. 백업 작업을 다시 시도합니다.
 
-**2단계**: VM의 부하가 낮은 시간(낮은 CPU/IOps 등)으로 백업 일정을 변경해 봅니다.
+**2 단계**: VM이 부하가 적을 때의 시간 (예: CPU 또는 IOps 감소)으로 백업 일정을 변경해 봅니다.
 
 **3 단계**: [VM의 크기를 늘리고](https://azure.microsoft.com/blog/resize-virtual-machines/) 작업을 다시 시도 합니다.
 
@@ -246,7 +246,7 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 오류 코드: ExtensionVCRedistInstallationFailure <br/> 오류 메시지: Visual Studio 2012용 Visual C++ 재배포 가능 패키지의 설치 실패로 인해 스냅샷 작업이 실패했습니다.
 
 * `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion`으로 이동하여 vcredist2013_x64를 설치합니다.<br/>서비스 설치를 허용하는 레지스트리 키 값이 올바른 값으로 설정되어 있는지 확인합니다. 즉, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver**의 **Start** 값이 **4**가 아닌 **3**으로 설정합니다. <br><br>설치하는 데 여전히 문제가 발생할 경우 관리자 권한 명령 프롬프트에서 **MSIEXEC /UNREGISTER**를 실행한 후 **MSIEXEC /REGISTER**를 실행하여 설치 서비스를 다시 시작합니다.
-* 이벤트 로그를 확인하여 액세스 관련 문제가 있는지 확인합니다. 다음은 그 예입니다.  *제품: Microsoft Visual C++ 2013 x64 최소 런타임 - 12.0.21005 -- 오류 1401.키를 만들 수 없습니다. Software\Classes.  시스템 오류 5  해당 키에 대한 액세스 권한이 충분한지 확인하거나 고객 지원 담당자에게 문의하십시오.* <br><br> 관리자 또는 사용자 계정에 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**를 업데이트하는 데 충분한 권한이 있는지 확인합니다. 충분한 권한을 제공하고 Windows Azure 게스트 에이전트를 다시 시작합니다.<br><br> <li> 바이러스 백신 제품이 설치되어 있는 경우 설치를 허용하는 올바른 제외 규칙이 있는지 확인합니다.
+* 이벤트 로그를 확인 하 여 액세스 관련 문제가 있는지 확인 하십시오. 다음은 그 예입니다.  *제품: Microsoft Visual C++ 2013 x64 최소 런타임 - 12.0.21005 -- 오류 1401.키를 만들 수 없습니다. Software\Classes.  시스템 오류 5  해당 키에 대한 액세스 권한이 충분한지 확인하거나 고객 지원 담당자에게 문의하십시오.* <br><br> 관리자 또는 사용자 계정에 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**를 업데이트하는 데 충분한 권한이 있는지 확인합니다. 충분한 권한을 제공하고 Windows Azure 게스트 에이전트를 다시 시작합니다.<br><br> <li> 바이러스 백신 제품이 설치되어 있는 경우 설치를 허용하는 올바른 제외 규칙이 있는지 확인합니다.
 
 ### <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy - VM에 스냅샷 작업을 방해하는 잘못된 정책이 구성되어 있습니다.
 

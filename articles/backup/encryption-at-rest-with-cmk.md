@@ -3,12 +3,12 @@ title: 고객 관리 키를 사용 하 여 백업 데이터 암호화
 description: Azure Backup를 사용 하 여 고객 관리 키 (CMK)를 사용 하 여 백업 데이터를 암호화 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 9e299095709e07d3c73c8e8c847042cc51f549dd
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 55b994d287e4e2d3971b43359936815822bc18a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827344"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892646"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 백업 데이터 암호화
 
@@ -232,7 +232,7 @@ Recovery Services 자격 증명 모음에 저장 된 데이터는 [여기](./bac
 
 Azure VM에서 실행 되는 백업 된 SAP HANA/SQL database에서 복원 하는 경우 복원 된 데이터는 대상 저장소 위치에서 사용 되는 암호화 키를 사용 하 여 암호화 됩니다. VM 디스크를 암호화 하는 데 사용 되는 고객 관리 키 또는 플랫폼 관리 키 일 수 있습니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="can-i-encrypt-an-existing-backup-vault-with-customer-managed-keys"></a>고객 관리 키를 사용 하 여 기존 백업 자격 증명 모음을 암호화할 수 있나요?
 

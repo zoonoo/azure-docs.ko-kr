@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2032a7c9d9cd9b17da956dc829234462f8b9e726
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509606"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922568"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Windows 가상 데스크톱에서 Microsoft 팀 사용
 
 >[!IMPORTANT]
->팀에 대 한 미디어 최적화는 Microsoft 365 정부 환경에서 지원 되지 않습니다.
+>팀에 대 한 미디어 최적화는 GCC (Microsoft 365 정부) 환경에서 지원 됩니다. 팀에 대 한 미디어 최적화는 GCC High 또는 DoD에 대해 지원 되지 않습니다.
 
 >[!NOTE]
 >Microsoft 팀의 미디어 최적화는 windows 10 컴퓨터의 Windows 데스크톱 클라이언트에만 사용할 수 있습니다. 미디어 최적화를 위해서는 Windows 데스크톱 클라이언트 버전 1.2.1026.0 이상이 필요 합니다.
@@ -25,14 +25,14 @@ Windows 가상 데스크톱의 Microsoft 팀은 채팅 및 공동 작업을 지�
 
 Microsoft 팀을 위한 미디어 최적화를 사용 하는 Windows 데스크톱 클라이언트는 팀 호출 및 모임에 대해 로컬로 오디오 및 비디오를 처리 합니다. Windows 가상 데스크톱의 Microsoft 팀을 다른 클라이언트와 함께 사용할 수 있습니다. 팀 채팅 및 공동 작업 기능은 모든 플랫폼에서 지원 됩니다. 원격 세션에서 로컬 장치를 리디렉션하려면 [호스트 풀의 사용자 지정 원격 데스크톱 프로토콜 속성](#customize-remote-desktop-protocol-properties-for-a-host-pool)을 선택 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Windows 가상 데스크톱에서 Microsoft 팀을 사용 하려면 먼저 다음 작업을 수행 해야 합니다.
 
 - Microsoft 팀을 위해 [네트워크를 준비](/microsoftteams/prepare-network/) 합니다.
 - Windows [PC의 팀에 대 한 Microsoft 팀 하드웨어 요구 사항을](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)충족 하는 windows 10 또는 Windows 10 IoT Enterprise 장치에 [windows 데스크톱 클라이언트](connect-windows-7-10.md) 를 설치 합니다.
 - Windows 10 다중 세션 또는 Windows 10 Enterprise VM (가상 머신)에 연결 합니다.
-- 컴퓨터 단위 설치를 사용 하 여 호스트에 팀 데스크톱 앱을 설치 합니다. Microsoft 팀을 위한 미디어 최적화를 사용 하려면 팀 데스크톱 앱 버전 1.3.00.4461 이상이 필요 합니다.
+- 컴퓨터 단위 설치를 사용 하 여 호스트에 팀 데스크톱 앱을 [다운로드](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) 하 고 설치 합니다. Microsoft 팀을 위한 미디어 최적화를 사용 하려면 팀 데스크톱 앱 버전 1.3.00.4461 이상이 필요 합니다.
 
 ## <a name="install-the-teams-desktop-app"></a>팀 데스크톱 앱 설치
 
@@ -45,7 +45,7 @@ Windows 가상 데스크톱에서 Microsoft 팀을 사용 하려면 먼저 다�
 1. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다. **HKEY_LOCAL_MACHINE \software\microsoft\teams**로 이동 합니다.
 2. 팀 키에 대해 다음 값을 만듭니다.
 
-| Name             | Type   | 데이터/값  |
+| 속성             | Type   | 데이터/값  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 
@@ -94,8 +94,8 @@ VM 이미지에 최신 [WebSocket 서비스](https://query.prod.cms.rt.microsoft
 
         그러면 팀이 64 비트 운영 체제의 Program Files (x86) 폴더와 32 비트 운영 체제의 Program Files 폴더에 설치 됩니다. 이제 골든 이미지 설정이 완료 되었습니다. 비 영구적인 설치에는 컴퓨터별 팀을 설치 해야 합니다.
 
-        팀을 설치할 때 설정할 수 있는 두 가지 플래그는 **Alluser = 1** 및 **ALLUSERS = 1**입니다. 이러한 매개 변수 간의 차이점을 이해 하는 것이 중요 합니다. **Alluser = 1** 매개 변수는 컴퓨터 단위 설치를 지정 하기 위해 VDI 환경 에서만 사용 됩니다. 비 VDI 및 VDI 환경에서 **ALLUSERS = 1** 매개 변수를 사용할 수 있습니다. 이 매개 변수를 설정 하면 팀 시스템 전체 설치 관리자가 제어판의 프로그램 및 기능 및 Windows 설정의 앱 & 기능에 나타납니다. 컴퓨터에서 관리자 자격 증명을 사용 하는 모든 사용자는 팀을 제거할 수 있습니다. 
-       
+        팀을 설치할 때 설정할 수 있는 두 가지 플래그는 **Alluser = 1** 및 **ALLUSERS = 1**입니다. 이러한 매개 변수 간의 차이점을 이해 하는 것이 중요 합니다. **Alluser = 1** 매개 변수는 컴퓨터 단위 설치를 지정 하기 위해 VDI 환경 에서만 사용 됩니다. 비 VDI 및 VDI 환경에서 **ALLUSERS = 1** 매개 변수를 사용할 수 있습니다. 이 매개 변수를 설정 하면 팀 시스템 전체 설치 관리자가 제어판의 프로그램 및 기능 및 Windows 설정의 앱 & 기능에 나타납니다. 컴퓨터에서 관리자 자격 증명을 사용 하는 모든 사용자는 팀을 제거할 수 있습니다.
+
         > [!NOTE]
         > 사용자 및 관리자는 현재 로그인 하는 동안 팀에 대해 자동 실행을 사용 하지 않도록 설정할 수 없습니다.
 
