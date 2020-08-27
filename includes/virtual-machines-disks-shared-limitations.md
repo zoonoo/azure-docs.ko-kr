@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/21/2020
+ms.date: 08/26/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cdee82ddae7f6edf43765063bb610b743dbf0121
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: edb5836ace6f7a1a0cff703b9921f6e6999de578
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88809822"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944499"
 ---
 공유 디스크를 사용 하도록 설정 하는 것은 디스크 형식의 하위 집합에만 사용할 수 있습니다. 현재는 ultra disks 및 premium Ssd만 공유 디스크를 사용 하도록 설정할 수 있습니다. 공유 디스크를 사용할 수 있는 관리 되는 각 디스크에는 디스크 유형별로 구성 된 다음과 같은 제한 사항이 적용 됩니다.
 
@@ -50,10 +50,15 @@ Ultra disks에는 공유 디스크와 상관 없이 별도의 제한 사항 목�
 - 미국 서부 2
 - 미국 중서부
 - 미국 중남부
+- 미국 중북부
 - 미국 중부
+- 서유럽
+- 북유럽
 - 한국 중부
 - 캐나다 중부
 - 캐나다 동부
+- 일본 동부
+- 일본 서부
 - US Gov 버지니아
 - US Gov 애리조나
 
