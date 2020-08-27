@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 852d8f8f85536dc62dd792e5727dd7ec0571ba29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb5771a6e615535a9a158e6378cd36b6e0df58bc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084214"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923129"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Azure Cognitive Search에서 패싯 필터를 작성 하는 방법 
 
@@ -38,12 +38,12 @@ ms.locfileid: "87084214"
 
 패싯은 특성을로 설정 하 여 인덱스를 만들 때 필드 별로 사용 하도록 설정 됩니다 `facetable` `true` . 또한 `filterable` `true` 최종 사용자가 선택 하는 패싯을 기반으로 검색 응용 프로그램에서 이러한 필드를 필터링 할 수 있도록 이러한 필드에 대해 특성을로 설정 해야 합니다. 
 
-REST API를 사용 하 여 인덱스를 만들 때 패싯 탐색에 사용할 수 있는 모든 [필드 형식이](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 기본적으로로 표시 됩니다 `facetable` .
+REST API를 사용 하 여 인덱스를 만들 때 패싯 탐색에 사용할 수 있는 모든 [필드 형식이](/rest/api/searchservice/supported-data-types) 기본적으로로 표시 됩니다 `facetable` .
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
 + `Edm.Boolean`
-+ 숫자 필드 형식: `Edm.Int32` , `Edm.Int64` ,`Edm.Double`
++ 숫자 필드 형식: `Edm.Int32` , `Edm.Int64` , `Edm.Double`
 + 위의 형식 (예: `Collection(Edm.String)` 또는)의 컬렉션 `Collection(Edm.Double)`
 
 `Edm.GeographyPoint`패싯 탐색에서 또는 필드를 사용할 수 없습니다 `Collection(Edm.GeographyPoint)` . 패싯은 카디널리티가 낮은 필드에 가장 잘 작동 합니다. 지리적 좌표를 확인 하기 때문에 지정 된 데이터 집합에서 두 개의 좌표 집합은 동일 하지 않습니다. 따라서 지리적 좌표에는 패싯이 지원되지 않습니다. 위치별로 패싯을 만들려면 도시 또는 지역 필드가 필요합니다.
@@ -77,11 +77,11 @@ REST API를 사용 하 여 인덱스를 만들 때 패싯 탐색에 사용할 �
 ```
 
 > [!Note]
-> 이 인덱스 정의는 REST API를 [사용 하 여 Azure Cognitive Search 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-rest-api)에서 복사 됩니다. 필드 정의의 피상적인 차이점을 제외하고는 동일합니다. `filterable`및 `facetable` 특성은,, `category` `tags` `parkingIncluded` , `smokingAllowed` 및 `rating` 필드에 명시적으로 추가 됩니다. 실제로 `filterable` 및 `facetable` 는 REST API를 사용 하는 경우 이러한 필드에 대해 기본적으로 사용 하도록 설정 됩니다. .NET SDK를 사용 하는 경우 이러한 특성을 명시적으로 사용 하도록 설정 해야 합니다.
+> 이 인덱스 정의는 REST API를 [사용 하 여 Azure Cognitive Search 인덱스 만들기](./search-get-started-powershell.md)에서 복사 됩니다. 필드 정의의 피상적인 차이점을 제외하고는 동일합니다. `filterable`및 `facetable` 특성은,, `category` `tags` `parkingIncluded` , `smokingAllowed` 및 `rating` 필드에 명시적으로 추가 됩니다. 실제로 `filterable` 및 `facetable` 는 REST API를 사용 하는 경우 이러한 필드에 대해 기본적으로 사용 하도록 설정 됩니다. .NET SDK를 사용 하는 경우 이러한 특성을 명시적으로 사용 하도록 설정 해야 합니다.
 
 ## <a name="build-and-load-an-index"></a>인덱스 빌드 및 로드
 
-중간(아마도 명백한) 단계에서 쿼리를 작성하기 전에 [인덱스를 빌드하고 채워야 합니다](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index). 이 단계는 완전성을 위해 언급하는 것입니다. 인덱스 사용 가능 여부를 확인하는 한 가지는 [포털](https://portal.azure.com)에서 인덱스 목록을 확인하는 것입니다.
+중간(아마도 명백한) 단계에서 쿼리를 작성하기 전에 [인덱스를 빌드하고 채워야 합니다](./search-get-started-dotnet.md#1---create-an-index). 이 단계는 완전성을 위해 언급하는 것입니다. 인덱스 사용 가능 여부를 확인하는 한 가지는 [포털](https://portal.azure.com)에서 인덱스 목록을 확인하는 것입니다.
 
 ## <a name="add-facet-filters-to-a-query"></a>쿼리에 패싯 필터 추가
 
@@ -107,7 +107,7 @@ if (!String.IsNullOrEmpty(categoryFacet))
     filter = $"category eq '{categoryFacet}'";
 ```
 
-사용자가 예를 들어 "pool" 값과 같은 컬렉션 필드의 패싯 값을 클릭 하면 `tags` 응용 프로그램에서 다음 필터 구문을 사용 해야 합니다.`$filter=tags/any(t: t eq 'pool')`
+사용자가 예를 들어 "pool" 값과 같은 컬렉션 필드의 패싯 값을 클릭 하면 `tags` 응용 프로그램에서 다음 필터 구문을 사용 해야 합니다. `$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>팁 및 해결 방법
 
@@ -121,8 +121,8 @@ Azure Cognitive Search에서 패싯 탐색을 사용 하는 문제 중 하나는
 
 이것이 일반적인 사용 사례이지만, 현재 패싯 탐색 구조에는 기본적으로 제공되지 않습니다. 정적 패싯을 원하는 개발자는 일반적으로 두 개의 필터링된 쿼리를 실행하여 제한 사항을 해결합니다. 하나는 결과에 적용되고 다른 하나는 탐색 용도로 패싯의 정적 목록을 만드는 데 사용됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
 + [Azure Cognitive Search의 필터](search-filters.md)
-+ [인덱스 REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [인덱스 REST API 만들기](/rest/api/searchservice/create-index)
++ [문서 검색 REST API](/rest/api/searchservice/search-documents)
