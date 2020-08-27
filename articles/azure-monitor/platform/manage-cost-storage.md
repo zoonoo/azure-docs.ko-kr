@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f6420683d22488abc66b387fd44cb74cc8f8b7bd
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 84a5b1cd7b2229defd4e38a227f75cfbf9ebdd95
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184655"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933667"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -135,7 +135,7 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 작업 영역에 대한 기본 보존 기간을 설정하려면 
  
 1. Azure Portal의 작업 영역에서 왼쪽 창에 있는 **사용량 및 예상 비용**을 선택합니다.
-2. **사용량 및 예상 비용** 페이지에서 페이지 위쪽의 **데이터 보존** 을 클릭 합니다.
+2. **사용량 및 예상 비용** 페이지의 상단에서 **데이터 보존**을 클릭합니다.
 3. 창에서 슬라이더를 이동하여 일 수를 늘리거나 줄인 다음, **확인**을 클릭합니다.  *무료* 계층에서 작업 중인 경우 데이터 보존 기간을 수정할 수 없으며 이 설정을 제어하기 위해 유료 계층으로 업그레이드해야 합니다.
 
     ![작업 영역 데이터 보존 기간 설정 변경](media/manage-cost-storage/manage-cost-change-retention-01.png)
@@ -199,7 +199,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## <a name="manage-your-maximum-daily-data-volume"></a>일일 최대 데이터 볼륨 관리
 
-작업 영역에 대한 일일 한도를 구성하고 일일 수집량을 제한할 수 있지만 목표치가 일일 한도에 도달하지 않도록 주의하십시오.  그렇지 않으면 남은 기간 동안의 데이터가 손실됩니다. 이는 해당 기능이 작업 영역에서 사용할 수 있는 최신 데이터에 의존할 수도 있는 다른 Azure 서비스 및 솔루션에 영향을 줄 수 있습니다.  결과적으로 리소스의 상태 조건이 IT 서비스를 지원할 때 경고를 관찰하고 수신하는 기능이 영향을 받습니다.  일일 한도는 관리 되는 리소스에서 **예기치 않은** 데이터 볼륨 증가를 관리 하 고 한도 내로 유지 하거나 작업 영역에 대 한 계획 되지 않은 요금을 제한 하려는 경우에 사용 됩니다. 작업 영역에서 매일 충족 되도록 일일 한도를 설정 하는 것은 적절 하지 않습니다.
+작업 영역에 대한 일일 한도를 구성하고 일일 수집량을 제한할 수 있지만 목표치가 일일 한도에 도달하지 않도록 주의하십시오.  그렇지 않으면 남은 기간 동안의 데이터가 손실됩니다. 이는 해당 기능이 작업 영역에서 사용할 수 있는 최신 데이터에 의존할 수도 있는 다른 Azure 서비스 및 솔루션에 영향을 줄 수 있습니다.  결과적으로 리소스의 상태 조건이 IT 서비스를 지원할 때 경고를 관찰하고 수신하는 기능이 영향을 받습니다.  일일 한도는 관리 되는 리소스에서 **예기치 않은** 데이터 볼륨 증가를 관리 하 고 한도 내로 유지 하거나 작업 영역에 대 한 계획 되지 않은 요금을 제한 하려는 경우에 사용 됩니다. 작업 영역에서 일일 상한에 매일 도달하도록 설정하는 것은 적절하지 않습니다.
 
 각 작업 영역에는 하루 중 다른 시간에 적용 된 일일 상한이 있습니다. Reset 시간은 **일일 단면** 페이지 (아래 참조)에 표시 됩니다. 이 다시 설정 시간을 구성할 수 없습니다. 
 
@@ -604,7 +604,7 @@ Operation | where OperationCategory == 'Data Collection Status'
 |수집 중지 이유| 해결 방법| 
 |-----------------------|---------|
 |작업 영역의 일일 상한에 도달함|수집이 자동으로 다시 시작될 때까지 대기하거나, 최대 일일 데이터 볼륨 관리의 설명처럼 일일 데이터 볼륨 한도를 늘립니다. 일일 상한 다시 설정 시간은 **일일 상한** 페이지에 표시 됩니다. |
-| 작업 영역에서 데이터 수집 [볼륨 요금](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) 에 도달 했습니다. | 기본 수집 볼륨 비율 임계값 500 MB (압축)는 작업 영역에 적용 됩니다. 약 **6gb/최소** 압축 해제-실제 크기는 로그 길이와 압축 비율에 따라 데이터 형식에 따라 달라질 수 있습니다. 이 임계값은 [진단 설정](diagnostic-settings.md), [데이터 수집기 API](data-collector-api.md) 또는 에이전트를 사용 하 여 Azure 리소스에서 전송 되었는지 여부에 관계 없이 모든 수집 데이터에 적용 됩니다. 작업 영역에 구성 된 임계값의 80% 보다 높은 볼륨 속도로 작업 영역에 데이터를 전송 하는 경우 임계값을 계속 초과 하는 동안 6 시간 마다 이벤트가 작업 영역에서 *작업* 테이블로 전송 됩니다. 수집 볼륨 속도가 임계값 보다 높으면 일부 데이터가 삭제 되 고, 임계값을 계속 초과 하는 동안 6 시간 마다 이벤트가 작업 영역에서 *작업* 테이블로 전송 됩니다. 수집 볼륨 요금이 계속 해 서 임계값을 초과 하거나 곧 도착할 것으로 예상 되는 경우 지원 요청을 열어 작업 영역에서 증가 하도록 요청할 수 있습니다. 작업 영역에서 이러한 이벤트에 대 한 알림을 받으려면 0 보다 많은 결과를 클 경고 논리 기반, 5 분의 평가 기간 및 5 분의 빈도를 사용 하 여 [로그 경고 규칙](alerts-log.md) 을 만듭니다. 수집 볼륨 비율이 임계값의 80%에 도달 `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` 했습니다. 수집 볼륨 비율이 임계값에 도달 `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` 했습니다. |
+| 작업 영역에서 데이터 수집 [볼륨 요금](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) 에 도달 했습니다. | 작업 영역에 적용되는 기본 수집 볼륨 속도 임계값은 압축된 경우 500MB이고, 압축되지 않은 경우에는 약 **6GB/분**입니다. 실제 크기는 로그 길이와 압축률에 따라 데이터 형식별로 다를 수 있습니다. 이 임계값은 [진단 설정](diagnostic-settings.md) [데이터 수집기 API](data-collector-api.md) 또는 에이전트를 사용하여 Azure 리소스에서 전송되었는지 여부에 관계없이 모든 수집 데이터에 적용됩니다. 작업 영역에 전송되는 데이터의 볼륨 속도가 작업 영역에 구성된 임계값의 80%를 초과할 경우 임계값을 계속 초과하는 동안 6시간마다 작업 영역의 *Operation* 테이블에 이벤트가 계속 전송됩니다. 수집 볼륨 속도가 임계값을 초과할 경우 일부 데이터가 삭제되고, 임계값을 계속 초과하는 동안 6시간마다 작업 영역의 *Operation* 테이블로 이벤트가 전송됩니다. 수집 볼륨 속도가 임계값을 계속 초과하거나 곧 도달할 것으로 예상되는 경우 지원 요청을 열어 작업 영역에 대한 임계값 상향 조정을 요청할 수 있습니다. 작업 영역에서 이러한 이벤트에 대해 알리려면 0 보다 큰 결과 수, 5 분의 평가 기간 및 5 분의 빈도를 기준으로 경고 논리를 사용 하 여 [로그 경고 규칙](alerts-log.md) 을 만듭니다. 수집 볼륨 비율이 임계값의 80%에 도달 `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` 했습니다. 수집 볼륨 비율이 임계값에 도달 `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` 했습니다. |
 |레거시 무료 가격 책정 계층의 일일 한도에 도달함 |수집이 다음 날에 자동으로 다시 시작될 때까지 대기 또는 유료 가격 책정 계층으로 변경합니다.|
 |Azure 구독이 다음으로 인해 일시 중단된 상태:<br> 평가판 종료<br> Azure 암호 만료<br> 월별 지출 한도 도달(예: MSDN 또는 Visual Studio 구독에서)|유료 구독으로 전환<br> 한도 제거 또는 한도가 재설정될 때까지 대기|
 

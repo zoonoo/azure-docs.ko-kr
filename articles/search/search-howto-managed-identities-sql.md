@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 321c13e88cb09c7078a169c3e1666cf781ec7787
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8dabf69af8628bb0b168bfea94af5333df341423
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553141"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924132"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>관리 id (미리 보기)를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결 설정
 
@@ -44,7 +44,7 @@ ms.locfileid: "88553141"
 
 다음 단계에서 데이터베이스에 연결하는 경우 데이터베이스에 대한 액세스 권한을 검색 서비스에 부여하기 위해 데이터베이스에 대한 관리자 액세스 권한이 있는 Azure AD(Active Directory) 계정에 연결해야 합니다.
 
-[여기](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) 지침에 따라 Azure AD 계정 관리자에게 데이터베이스에 대한 액세스 권한을 부여합니다.
+[여기](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) 지침에 따라 Azure AD 계정 관리자에게 데이터베이스에 대한 액세스 권한을 부여합니다.
 
 ### <a name="3---assign-the-search-service-permissions"></a>3 - 검색 서비스 사용 권한 할당
 
@@ -97,9 +97,9 @@ ms.locfileid: "88553141"
 
 ### <a name="5---create-the-data-source"></a>5 - 데이터 원본 만들기
 
-[REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 Azure SQL Database에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법에 대 한 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 Azure SQL Database에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법에 대 한 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
 
-[REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)를 사용 하 여 데이터 원본을 만들 때 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
+[REST API](/rest/api/searchservice/create-data-source)를 사용 하 여 데이터 원본을 만들 때 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
 
 * **name**은 검색 서비스 내 데이터 원본의 고유 이름입니다.
 * **type**은 `azuresql`입니다.
@@ -109,7 +109,7 @@ ms.locfileid: "88553141"
         * *Initial Catalog|Database=**database name**;ResourceId=/subscriptions/**구독 ID**/resourceGroups/**리소스 그룹 이름**/providers/Microsoft.Sql/servers/**SQL Server 이름**/;Connection Timeout=**connection timeout length**;*
 * **container**에는 인덱싱할 테이블 또는 뷰의 이름을 지정합니다.
 
-다음은 [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)를 사용하여 Azure SQL 데이터 원본 개체를 만드는 방법의 예입니다.
+다음은 [REST API](/rest/api/searchservice/create-data-source)를 사용하여 Azure SQL 데이터 원본 개체를 만드는 방법의 예입니다.
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -144,7 +144,7 @@ api-key: [admin key]
 }
 ```
 
-인덱스 만들기에 자세한 내용은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
+인덱스 만들기에 자세한 내용은 [인덱스 만들기](/rest/api/searchservice/create-index)를 참조하세요.
 
 ### <a name="7---create-the-indexer"></a>7 - 인덱서 만들기
 
@@ -169,13 +169,13 @@ api-key: [admin key]
 
 이 인덱서는 2시간 간격으로 실행됩니다(일정 간격이 "PT2H"로 설정됨). 인덱서를 30분 간격으로 실행하려면 간격을 "PT30M"으로 설정합니다. 지원되는 가장 짧은 간격은 5분입니다. 일정은 선택 사항입니다. 생략하는 경우 인덱서는 만들어질 때 한 번만 실행됩니다. 그러나 언제든지 필요할 때 인덱서를 실행할 수 있습니다.   
 
-인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)를 확인하세요.
+인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](/rest/api/searchservice/create-indexer)를 확인하세요.
 
 인덱서 일정을 정의하는 방법에 대한 자세한 내용은 [Azure Cognitive Search에 대한 인덱서를 예약하는 방법](search-howto-schedule-indexers.md)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
-인덱서가 클라이언트에서 서버에 액세스할 수 없다고 표시하는 데이터 원본에 연결하려고 할 때 오류가 발생하는 경우 [일반적인 인덱서 오류](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting)를 살펴봅니다.
+인덱서가 클라이언트에서 서버에 액세스할 수 없다고 표시하는 데이터 원본에 연결하려고 할 때 오류가 발생하는 경우 [일반적인 인덱서 오류](./search-indexer-troubleshooting.md)를 살펴봅니다.
 
 ## <a name="see-also"></a>참고 항목
 

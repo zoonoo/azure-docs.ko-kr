@@ -19,19 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 088f3c78e0840ca435d70d6844b0eb932a07ccb7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 6ea8bc2551df4f85e4b856dc9cf1c06a9bd571fd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891098"
+ms.locfileid: "88923452"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 Lucene 쿼리 구문
 
 특수 쿼리 형식에 대 한 리치 [Lucene 쿼리 파서](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) 구문을 기반으로 Azure Cognitive Search에 대 한 쿼리를 작성할 수 있습니다. 와일드 카드, 유사 항목 검색, 근접 검색, 정규식은 몇 가지 예입니다. 모든 Lucene 쿼리 파서 구문은 azure [Cognitive Search에서 그대로 구현](search-lucene-query-architecture.md)되며, 식을 통해 azure Cognitive Search에 생성 되는 *범위 검색* 을 제외 합니다 `$filter` . 
 
 > [!NOTE]
-> Full Lucene 구문은 [검색 문서](https://docs.microsoft.com/rest/api/searchservice/search-documents) api의 **검색** 매개 변수에 전달 된 쿼리 식에 사용 되며, 해당 api의 [$filter](search-filters.md) 매개 변수에 사용 되는 [OData 구문과](query-odata-filter-orderby-syntax.md) 혼동 되지 않습니다. 이러한 다른 구문에는 쿼리를 생성 하 고 문자열을 이스케이프 처리 하는 데 사용할 수 있는 고유 규칙이 있습니다.
+> Full Lucene 구문은 [검색 문서](/rest/api/searchservice/search-documents) api의 **검색** 매개 변수에 전달 된 쿼리 식에 사용 되며, 해당 api의 [$filter](search-filters.md) 매개 변수에 사용 되는 [OData 구문과](query-odata-filter-orderby-syntax.md) 혼동 되지 않습니다. 이러한 다른 구문에는 쿼리를 생성 하 고 문자열을 이스케이프 처리 하는 데 사용할 수 있는 고유 규칙이 있습니다.
 
 ## <a name="invoke-full-parsing"></a>전체 구문 분석 호출
 
@@ -60,7 +60,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 }
 ```
 
-추가 예제는 [Azure Cognitive Search에서 쿼리를 작성 하기 위한 Lucene 쿼리 구문 예제](search-query-lucene-examples.md)를 참조 하세요. 쿼리 매개 변수를 완전히 지정 하는 방법에 대 한 자세한 내용은 [Azure Cognitive Search REST API&#41;&#40;문서 검색 ](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)을 참조 하세요.
+추가 예제는 [Azure Cognitive Search에서 쿼리를 작성 하기 위한 Lucene 쿼리 구문 예제](search-query-lucene-examples.md)를 참조 하세요. 쿼리 매개 변수를 완전히 지정 하는 방법에 대 한 자세한 내용은 [Azure Cognitive Search REST API&#41;&#40;문서 검색 ](/rest/api/searchservice/Search-Documents)을 참조 하세요.
 
 > [!NOTE]  
 >  Azure Cognitive Search는 간단한 키워드 검색에 사용할 수 있는 단순 하 고 강력한 쿼리 언어인 [간단한 쿼리 구문도](query-simple-syntax.md)지원 합니다.  
@@ -139,7 +139,7 @@ NOT 연산자는 빼기 기호입니다. 예를 들어는 `wifi –luxury` 및/�
 
 두 문자열이 단일 엔터티로 평가되길 원하는 경우(이 경우에 `artists` 필드에서 두 개의 다른 예술가 검색) 여러 문자열을 인용 부호로 묶어야 합니다.  
 
-`fieldName:searchExpression`에 지정한 필드는 `searchable` 필드여야 합니다.  필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.  
+`fieldName:searchExpression`에 지정한 필드는 `searchable` 필드여야 합니다.  필드 정의에서 인덱스 특성이 사용되는 방법에 대한 자세한 내용은 [인덱스 만들기](/rest/api/searchservice/create-index)를 참조하세요.  
 
 > [!NOTE]
 > 필드 지정 검색 식을 사용할 때 `searchFields` 각 필드 지정 검색 식에 명시적으로 지정 된 필드 이름이 있으므로 매개 변수를 사용할 필요가 없습니다. 그러나 `searchFields` 일부 부분의 범위가 특정 필드로 지정 되 고 나머지는 여러 필드에 적용 될 수 있는 쿼리를 실행 하려는 경우에도 매개 변수를 사용할 수 있습니다. 예를 들어 쿼리는 필드와 일치 하지만 `search=genre:jazz NOT history&searchFields=description` `jazz` 필드와 일치 하지 않습니다 `genre` `NOT history` `description` . 에서 제공 하는 필드 이름이 `fieldName:searchExpression` 항상 `searchFields` 매개 변수 보다 우선적으로 적용 됩니다. 따라서이 예제에서는 `genre` 매개 변수에를 포함할 필요가 없습니다 `searchFields` .
@@ -202,6 +202,6 @@ Azure Cognitive Search는 텍스트 쿼리에 대해 빈도 기반 점수 매기
 
 + [단순 검색을 위한 쿼리 예제](search-query-simple-examples.md)
 + [전체 Lucene 검색에 대 한 쿼리 예제](search-query-lucene-examples.md)
-+ [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [문서 검색](/rest/api/searchservice/Search-Documents)
 + [필터 및 정렬을 위한 OData 식 구문](query-odata-filter-orderby-syntax.md)   
-+ [Azure Cognitive Search의 단순 쿼리 구문](query-simple-syntax.md)   
++ [Azure Cognitive Search의 단순 쿼리 구문](query-simple-syntax.md)
