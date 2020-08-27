@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 206f941360b5c7912db548c6d2cfdc9d3d6a41dc
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 8af1e52477cf047bbbec46884717166ec014fc6c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816408"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933523"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 개발자 가이드
 
@@ -74,7 +74,7 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| 속성   | Description                                     | 형식     |
+| 속성   | Description                                     | Type     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | UTC에서 함수가 트리거된 경우        | DateTime |
 | MethodName | 트리거된 함수의 이름     | 문자열   |
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은를 호출 하기 위한 유효한 매개 변수입니다 `Push-OutputBinding` .
 
-| Name | 유형 | 위치 | Description |
+| 속성 | Type | 위치 | Description |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
 | **`-Value`** | Object | 2 | 파이프라인 ByValue에서 허용 되는 설정 하려는 출력 바인딩의 값입니다. |
@@ -295,7 +295,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 스크립트에 전달 되는 request 개체의 형식은 `HttpRequestContext` 다음과 같습니다.
 
-| 속성  | Description                                                    | 형식                      |
+| 속성  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body` 는 데이터에 따라 가장 적합 한 형식으로 직렬화 됩니다. 예를 들어 데이터가 JSON 인 경우 hashtable로 전달 됩니다. 데이터가 문자열 인 경우 문자열로 전달 됩니다. | 개체 |
 | **`Headers`** | 요청 헤더를 포함 하는 사전입니다.                | 사전<문자열, 문자열><sup>*</sup> |
@@ -310,7 +310,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 다시 전송 해야 하는 응답 개체는 다음과 같은 속성을 포함 하는 형식입니다 `HttpResponseContext` .
 
-| 속성      | Description                                                 | 형식                      |
+| 속성      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | 개체                    |
 | **`ContentType`** | 응답의 콘텐츠 형식을 설정 하는 데 사용할 짧은 손입니다. | 문자열                    |
@@ -384,14 +384,60 @@ Visual Studio Code 및 Azure Functions Core Tools와 같은 도구를 사용 하
 
 ## <a name="powershell-versions"></a>PowerShell 버전
 
-다음 표에서는 함수 런타임의 각 주 버전에서 지 원하는 PowerShell 버전 및 필요한 .NET 버전을 보여 줍니다.
+다음 표에서는 함수 런타임의 각 주 버전에서 사용할 수 있는 PowerShell 버전 및 필요한 .NET 버전을 보여 줍니다.
 
 | Functions 버전 | PowerShell 버전                               | .NET 버전  | 
 |-------------------|--------------------------------------------------|---------------|
-| 3(sp3) (권장) | PowerShell 7 (권장)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 3.1 |
+| 3(sp3) (권장) | PowerShell 7 (권장)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 2.1 |
 | 2.x               | PowerShell Core 6                                | .NET Core 2.2 |
 
 모든 함수에서 인쇄 하 여 현재 버전을 확인할 수 있습니다 `$PSVersionTable` .
+
+### <a name="running-local-on-a-specific-version"></a>특정 버전에서 로컬 실행
+
+로컬로 실행 하는 경우 Azure Functions 런타임 기본값은 PowerShell Core 6을 사용 합니다. 로컬에서 실행할 때 PowerShell 7을 사용 하려면 `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"` `Values` 프로젝트 루트의 local.setting.js파일에 있는 배열에 설정을 추가 해야 합니다. PowerShell 7에서 로컬로 실행 하는 경우 파일에 대 한 local.settings.js은 다음 예제와 같습니다. 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "powershell",
+    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"
+  }
+}
+```
+
+### <a name="changing-the-powershell-version"></a>PowerShell 버전 변경
+
+PowerShell Core 6에서 PowerShell 7로 업그레이드 하려면 함수 앱이 버전 3(sp3)에서 실행 되어야 합니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [현재 런타임 버전 보기 및 업데이트](set-runtime-version.md#view-and-update-the-current-runtime-version)를 참조 하세요.
+
+함수 앱에서 사용 하는 PowerShell 버전을 변경 하려면 다음 단계를 사용 합니다. Azure Portal에서 또는 PowerShell을 사용 하 여이 작업을 수행할 수 있습니다.
+
+# <a name="portal"></a>[포털](#tab/portal)
+
+1. [Azure Portal](https://portal.azure.com)에서 함수 앱으로 이동합니다.
+
+1. **설정**아래에서 **구성**을 선택 합니다. **일반 설정** 탭에서 **PowerShell 버전**을 찾습니다. 
+
+    :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="함수 앱에서 사용 하는 PowerShell 버전 선택"::: 
+
+1. 원하는 **PowerShell Core 버전** 을 선택 하 고 **저장**을 선택 합니다. 보류 중인 다시 시작에 대 한 경고가 표시 되 면 **계속**을 선택 합니다. 선택한 PowerShell 버전에서 함수 앱이 다시 시작 됩니다. 
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+다음 스크립트를 실행 하 여 PowerShell 버전을 변경 합니다. 
+
+```powershell
+Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<FUNCTION_APP>/config/web" -Properties @{  powerShellVersion  = '<VERSION>' } -Force -UsePatchSemantics
+
+```
+
+`<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>` 및를 `<FUNCTION_APP>` Azure 구독의 ID, 리소스 그룹 및 함수 앱의 이름으로 바꿉니다.  또한를 `<VERSION>` 또는로 바꿉니다 `~6` `~7` . `powerShellVersion`반환 된 해시 테이블에서 설정의 업데이트 된 값을 확인할 수 있습니다 `Properties` . 
+
+---
+
+구성이 변경 된 후 함수 앱이 다시 시작 됩니다.
 
 ## <a name="dependency-management"></a>종속성 관리
 

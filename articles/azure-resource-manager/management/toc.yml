@@ -139,9 +139,9 @@
     - name: EA 구독
       items:
         - name: 생성
-          href: programmatically-create-subscription.md
+          href: ../../cost-management-billing/manage/programmatically-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: 생성 액세스 권한 부여
-          href: grant-access-to-create-subscription.md
+          href: ../../cost-management-billing/manage/grant-access-to-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: 리소스 공급자 및 형식
       href: resource-providers-and-types.md
     - name: 리소스 그룹 및 리소스 삭제

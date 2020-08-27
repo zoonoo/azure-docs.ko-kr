@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4834cccff11a70249140f49b498b8f7891787c72
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 13bbea166d699acead932b1ad6779720f82090e6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169343"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919678"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>재인증 프롬프트를 최적화 하 고 Azure Multi-Factor Authentication의 세션 수명 이해
 
@@ -45,6 +45,8 @@ Microsoft research는 이러한 설정이 대부분의 테 넌 트에 적합 하
 ### <a name="evaluate-session-lifetime-policies"></a>세션 수명 정책 평가
 
 세션 수명 설정이 없으면 브라우저 세션에 영구적인 쿠키가 없습니다. 사용자가 브라우저를 닫고 열 때마다 재인증에 대 한 프롬프트가 표시 됩니다. Office 클라이언트에서 기본 기간은 90 일의 롤링 기간입니다. 이 기본 Office 구성을 사용 하는 경우 사용자가 암호를 재설정 하거나 90 일 넘게 비활성 상태인 경우 사용자는 모든 필수 요소 (첫 번째 및 두 번째 요소)로 다시 인증 해야 합니다.
+
+사용자에 게 Azure AD에서 id가 없는 장치에 여러 개의 MFA 프롬프트가 표시 될 수 있습니다. 각 응용 프로그램에 다른 클라이언트 앱과 공유 되지 않는 자체 OAuth 새로 고침 토큰이 있는 경우 여러 프롬프트가 표시 됩니다. 이 시나리오에서 mfa는 각 응용 프로그램이 MFA를 사용 하 여 유효성을 검사할 OAuth 새로 고침 토큰을 요청 하므로 여러 번 표시 됩니다.
 
 Azure AD에서 세션 수명에 대해 가장 제한적인 정책은 사용자가 다시 인증 해야 하는 시기를 결정 합니다. 다음 시나리오를 고려하세요.
 
