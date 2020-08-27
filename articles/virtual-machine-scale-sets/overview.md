@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 0fcad26bb78e0e9a03d51818ac66a98af1ef0b18
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f381afa69d1a445d2bdb14dd663341e4a18f8cd9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590390"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648669"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>가상 머신 확장 집합이란?
 Azure 가상 머신 확장 집합을 사용하면 부하 분산된 VM의 그룹을 만들고 관리할 수 있습니다. VM 인스턴스의 수는 요구 또는 정의된 일정에 따라 자동으로 늘리거나 줄일 수 있습니다. 확장 집합은 애플리케이션에 고가용성을 제공하고 많은 수의 VM을 중앙에서 관리, 구성 및 업데이트할 수 있게 합니다. 가상 머신 확장 집합을 사용하면 컴퓨팅, 빅 데이터 및 컨테이너 작업과 같은 영역에 대한 대규모 서비스를 구축할 수 있습니다.
@@ -40,7 +40,7 @@ Azure 가상 머신 확장 집합은 많은 VM에서 실행되는 애플리케�
 
 - **대규모 작업**
     - 확장 집합은 최대 1,000개의 VM 인스턴스를 지원합니다. 사용자 고유의 사용자 지정 VM 이미지를 만들고 업로드하는 경우 600개의 VM 인스턴스로 제한됩니다.
-    - 프로덕션 워크로드에서 최상의 성능을 얻으려면 [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)를 사용합니다.
+    - 프로덕션 워크로드에서 최상의 성능을 얻으려면 [Azure Managed Disks](../virtual-machines/managed-disks-overview.md)를 사용합니다.
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>가상 머신과 확장 집합 간의 차이점

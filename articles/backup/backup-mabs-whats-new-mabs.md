@@ -3,12 +3,12 @@ title: Microsoft Azure Backup Server의 새로운 기능
 description: Microsoft Azure Backup Server에서는 VM, 파일 및 폴더, 워크로드 등을 보호하기 위한 향상된 백업 기능을 제공합니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: a88b2926141092a9a1aeca988646aa3b69330f90
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fb47d2f14ca686e04cd2d9e3dec27d3ca4a30f5c
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648754"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893190"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>MABS (Microsoft Azure Backup Server)의 새로운 기능
 
@@ -37,7 +37,7 @@ MABS V3 UR1를 사용 하 여 refs 볼륨에 배포 된 ReFS 볼륨 및 워크 �
 >[!NOTE]
 > ReFS 볼륨에 저장 된 Hyper-v Vm의 백업은 MABS V3에서 지원 됩니다.
 
->중요 한 중복 제거 된 ReFS 볼륨의 백업에 대 한 몇 가지 문제를 확인 했습니다. 이와 같은 문제를 해결하기 위해 노력하고 있으며 해결책이 마련되는 대로 이 섹션을 업데이트할 예정입니다. 그때 까지는 MABSv3 UR1에서 중복 제거 된 ReFS 볼륨의 백업에 대 한 지원을 제거 합니다.
+>중요 한 중복 제거 된 ReFS 볼륨의 백업에 대 한 몇 가지 문제를 확인 했습니다. 이러한 문제를 해결 하기 위해 노력 하 고 있으며 수정이 제공 되는 즉시이 섹션을 업데이트 합니다. 그때 까지는 MABSv3 UR1에서 중복 제거 된 ReFS 볼륨의 백업에 대 한 지원을 제거 하 고 있습니다.
 
 ### <a name="azure-vmware-solution-protection-support"></a>Azure VMware 솔루션 보호 지원
 

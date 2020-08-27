@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: wolfma
-ms.openlocfilehash: b30a314977755b94bdcfdf7526d1b9ae61fcf100
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5be3b4ce5d89a15009f2b9b31183400890dbefb5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689748"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918947"
 ---
 # <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
 
@@ -23,7 +24,7 @@ ms.locfileid: "88689748"
 
 일괄 처리 기록 REST Api를 사용 하 여 다음 메서드를 호출할 수 있습니다.
 
-|    일괄 처리 기록 작업                                             |    방법    |    REST API 호출                                   |
+|    일괄 처리 기록 작업                                             |    메서드    |    REST API 호출                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
 |    새 기록을 만듭니다.                                              |    POST      |    speechtotext/v 3.0/            |
 |    인증 된 구독의 기록 목록을 검색 합니다.    |    GET       |    speechtotext/v 3.0/            |
@@ -62,7 +63,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
 스테레오 오디오 스트림의 경우 기록 중 왼쪽 채널과 오른쪽 채널이 분할 됩니다. 각 채널에 대해 JSON 결과 파일이 생성 되 고 있습니다.
 정렬 된 최종 성적 증명서를 만들려면 utterance 생성 된 타임 스탬프를 사용 합니다.
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 구성 매개 변수는 JSON (하나 이상의 개별 파일)으로 제공 됩니다.
 
@@ -172,7 +173,7 @@ Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-start
       Azure의 쓰기 가능한 컨테이너에 [서비스 SAS](../../storage/common/storage-sas-overview.md) 를 사용 하는 선택적 URL입니다. 결과는이 컨테이너에 저장 됩니다. 지정 하지 않으면 microsoft에서 관리 하는 저장소 컨테이너에 결과를 저장 합니다. [삭제 기록을](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)호출 하 여 기록을 삭제 하면 결과 데이터도 삭제 됩니다.
 :::row-end:::
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 일괄 처리는 공개 된 인터넷 URI에서 오디오를 읽을 수 있으며, [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)에서 SAS URI를 사용 하 여 오디오를 읽거나 비디오를 작성할 수 있습니다.
 

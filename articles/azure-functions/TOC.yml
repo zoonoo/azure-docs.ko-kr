@@ -175,6 +175,7 @@
               href: functions-develop-vs.md
             - name: 핵심 도구 개발
               href: functions-run-local.md
+              displayName: 'local, runtime'
         - name: 함수 만들기
           items:
             - name: HTTP 트리거
