@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 02c733c7849c89f9d48ddbe75ffbb2235e1be58e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: cd9b015c292d262430d3fd845e06e38866bc6239
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757288"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018725"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -184,6 +184,8 @@ ms.locfileid: "88757288"
 ## <a name="set-up-your-environment"></a>환경 설정
 
 * **AmlCompute 생성 문제**: GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 만든 일부 사용자가 해당 작업 영역에서 AmlCompute를 만들지 못할 수 있습니다. 서비스에 대 한 지원 요청을 발생 시키거나 포털 또는 SDK를 통해 새 작업 영역을 만들어 즉시 차단을 해제할 수 있습니다.
+
+* **Azure Container Registry은 현재 리소스 그룹 이름에서 유니코드 문자를 지원 하지 않습니다**. 리소스 그룹 이름에 유니코드 문자가 포함 되어 있어 ACR 요청이 실패할 수 있습니다. 이 문제를 완화 하려면 다른 이름의 리소스 그룹에 ACR을 만드는 것이 좋습니다.
 
 ## <a name="work-with-data"></a>데이터 작업
 

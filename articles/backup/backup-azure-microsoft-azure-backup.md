@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용하여 워크로드 백업
 description: 이 문서에서는 MABS(Microsoft Azure Backup Server)를 사용하여 워크로드를 보호 및 백업하기 위한 환경을 준비하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 553073cf70e6806077a4df98e237bbbe0d2bb21a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 18225fab8b4f1ebe9fd34095108492a0902ca1d1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892289"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001164"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -24,7 +24,7 @@ ms.locfileid: "88892289"
 이 문서는 MABS(Microsoft Azure Backup Server)를 사용하여 워크로드를 백업하기 위한 환경을 준비하는 방법을 설명합니다. Azure Backup Server로 Hyper-V VM, Microsoft SQL Server, SharePoint Server, 단일 콘솔의 Microsoft Exchange 및 Windows 클라이언트와 같은 애플리케이션 워크로드를 보호할 수 있습니다.
 
 > [!NOTE]
-> Azure Backup Server는 이제 VMware VM을 보호하고 개선된 보안 기능을 제공할 수 있습니다. 아래 섹션에 설명된 대로 제품 및 최신 Azure Backup 에이전트를 설치합니다. Azure Backup Server를 사용하여 VMware 서버를 백업하는 방법에 대한 자세한 내용은 [Azure Backup Server를 사용하여 VMware 서버 백업](backup-azure-backup-server-vmware.md) 문서를 참조하세요. 보안 기능에 대해 알아보려면 [Azure Backup 보안 기능 설명서](backup-azure-security-feature.md)를 참조하세요.
+> Azure Backup Server는 이제 VMware VM을 보호하고 개선된 보안 기능을 제공할 수 있습니다. 아래 섹션에 설명된 대로 제품 및 최신 Azure Backup 에이전트를 설치합니다. Azure Backup Server를 사용하여 VMware 서버를 백업하는 방법에 대한 자세한 내용은 [Azure Backup Server를 사용하여 VMware 서버 백업](backup-azure-backup-server-vmware.md) 문서를 참조하세요. 보안 기능에 대한 자세한 내용은 [Azure Backup 보안 기능 설명서](backup-azure-security-feature.md)를 참조하세요.
 >
 >
 
@@ -68,7 +68,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 > * 애플리케이션 서버 역할이 설치된 컴퓨터
 > * System Center Operations Manager 관리 서버인 컴퓨터
 > * Exchange Server를 실행하는 컴퓨터
-> * 클러스터의 한 노드인 컴퓨터
+> * 클러스터의 노드인 컴퓨터
 >
 > Azure Backup Server 설치는 Windows Server Core 또는 Microsoft Hyper-V Server에서 지원 되지 않습니다.
 
@@ -261,25 +261,25 @@ MABS에서는 System Center Data Protection Manager 보호 에이전트를 사�
 
   > [!IMPORTANT]
   >
-  > * 새 서버 이름은 원래 Azure Backup Server 인스턴스와 같은 이름이어야 합니다. 이전 스토리지 풀 및 MABS 데이터베이스(DPMDB)를 사용하여 복구 지점을 유지하려는 경우 새 Azure Backup Server 인스턴스의 이름을 변경할 수 없습니다.
-  > * MABS 데이터베이스(DPMDB)의 백업이 있어야 합니다. 데이터베이스를 복원해야 합니다.
+  > * 새 서버 이름은 원래 Azure Backup Server 인스턴스와 같은 이름 이어야 합니다. 이전 스토리지 풀 및 MABS 데이터베이스(DPMDB)를 사용하여 복구 지점을 유지하려는 경우 새 Azure Backup Server 인스턴스의 이름을 변경할 수 없습니다.
+  > * MABS 데이터베이스(DPMDB)의 백업이 있어야 합니다. 데이터베이스를 복원 하는 데 필요 합니다.
 
 1. 표시 창에서 보호 에이전트를 업데이트할 클라이언트 컴퓨터를 선택합니다.
-2. 원래 Azure Backup Server를 종료하거나 전원을 끕니다.
-3. 활성 디렉터리에서 컴퓨터 계정을 다시 설정합니다.
-4. 새 컴퓨터에 Server 2016을 설치하고 원래 Azure Backup Server와 동일한 컴퓨터 이름으로 지정합니다.
-5. 도메인 조인
-6. Azure Backup 서버 V3 이상 설치(MABS 스토리지 풀 디스크를 이전 서버에서 이동 및 가져오기)
+2. 원본 Azure Backup 서버를 종료 하거나 오프 라인으로 전환 합니다.
+3. Active Directory에서 머신 계정을 다시 설정합니다.
+4. 새 컴퓨터에 서버 2016을 설치 하 고 원래 Azure Backup 서버와 동일한 컴퓨터 이름을 지정 합니다.
+5. 도메인에 조인합니다.
+6. Azure Backup Server V3 이상을 설치 합니다 (이전 서버에서 MABS 저장소 풀 디스크를 이동 하 고 가져오기).
 7. 1단계에서 가져온 DPMDB를 복원합니다.
 8. 스토리지를 원래 백업 서버에서 새 서버로 연결합니다.
-9. SQL에서 DPMDB 복원
-10. 새 서버의 관리 명령줄에서 Microsoft Azure Backup 설치 위치 및 bin 폴더로 cd
+9. SQL에서 DPMDB를 복원 합니다.
+10. 새 서버에서 관리자 권한으로 CMD를 실행 합니다. Microsoft Azure Backup 설치 위치 및 bin 폴더로 이동 합니다.
 
     경로 예: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
-11. Azure Backup에 대해 DPMSYNC -SYNC 실행
+11. Azure Backup에 연결 하려면를 실행 합니다. `DPMSYNC -SYNC`
 
-    이전 항목을 이동하는 대신 DPM 스토리지 풀에 새 디스크를 추가했다면 DPMSYNC -Reallocatereplica 실행
+    이전 저장소를 이동 하는 대신 DPM 저장소 풀에 **새** 디스크를 추가한 경우 다음을 실행 합니다. `DPMSYNC -Reallocatereplica`
 
 ## <a name="network-connectivity"></a>네트워크 연결
 
@@ -300,7 +300,7 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구
 
-Azure에 대한 액세스를 차단하고 있는 방화벽 또는 프록시가 있는 경우 방화벽/프록시 프로필에서 다음 도메인 주소를 허용해야 합니다.
+Azure에 대 한 액세스를 차단 하는 방화벽이 나 프록시가 있는 경우 방화벽/프록시 프로필에서 다음과 같은 도메인 주소를 허용 해야 합니다.
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com

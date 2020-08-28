@@ -3,7 +3,7 @@ title: 관리 id VM 확장 사용 중지-Azure AD
 description: VM 확장 사용을 중지 하 고 인증에 IMDS (Azure Instance Metadata Service) 사용을 시작 하는 단계별 지침을 설명 합니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: markvi
-ms.openlocfilehash: afcbf5187a3b5ef3f44aebda22d376e9b796bf59
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.author: barclayn
+ms.openlocfilehash: 67e7f8890923dec2dca369b6a57399232c0198cc
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848389"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018379"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>가상 컴퓨터 관리 id 확장 사용을 중지 하 고 Azure Instance Metadata Service 사용을 시작 하는 방법
 
@@ -166,9 +166,9 @@ Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdle
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-조건: 
-- Windows 용 확장 이름 및 형식:`ManagedIdentityExtensionForWindows`
-- Linux에 대 한 확장 이름 및 형식:`ManagedIdentityExtensionForLinux`
+여기서 다음이 적용됩니다. 
+- Windows 용 확장 이름 및 형식: `ManagedIdentityExtensionForWindows`
+- Linux에 대 한 확장 이름 및 형식: `ManagedIdentityExtensionForLinux`
 
 #### <a name="automation-script-fails-when-attempting-schema-export-for-managed-identities-for-azure-resources-extension"></a>Azure 리소스에 대한 관리 ID 확장에 대해 스키마 내보내기를 시도할 때 "자동화 스크립트"가 실패함
 

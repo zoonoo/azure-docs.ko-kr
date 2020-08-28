@@ -3,12 +3,12 @@ title: Azure Arc 사용 서버를 사용 하 여 VM 확장 관리 (미리 보기
 description: Azure Arc 사용 서버 (미리 보기)는 Azure Vm이 아닌 Vm을 사용 하 여 배포 후 구성 및 자동화 작업을 제공 하는 가상 머신 확장의 배포를 관리할 수 있습니다.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b27172a14896041cb4217b12af41d6a04118721
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 259a55c0e5cb4074871fd70a61e6c61d5cf3c50a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213113"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018164"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Azure Arc 사용 서버를 사용 하 여 가상 머신 확장 관리 (미리 보기)
 
@@ -89,14 +89,14 @@ Azure Portal를 통해 서버 (미리 보기) 관리 컴퓨터에 대 한 Arc를
 
     ![Log Analytics VM 확장 설치](./media/manage-vm-extensions/mma-extension-config.png)
 
-    설치를 완료 하려면 작업 영역 ID 및 기본 키를 제공 해야 합니다. 이 정보를 찾는 방법에 익숙하지 않은 경우 [작업 영역 ID 및 키 가져오기](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)를 참조 하세요.
+    설치를 완료 하려면 작업 영역 ID 및 기본 키를 제공 해야 합니다. 이 정보를 찾는 방법에 익숙하지 않은 경우 [작업 영역 ID 및 키 가져오기](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)를 참조 하세요.
 
 4. 제공 된 필수 정보를 확인 한 후 **만들기**를 선택 합니다. 배포에 대 한 요약이 표시 되 고 배포 상태를 검토할 수 있습니다.
 
 >[!NOTE]
 >여러 확장을 함께 일괄 처리 하 고 처리할 수 있지만 직렬로 설치 됩니다. 첫 번째 확장 설치가 완료 되 면 다음 확장을 설치 하려고 시도 합니다.
 
-## <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
+## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 
 Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포를 통해 실행할 수 있습니다. Arc 사용 서버 (미리 보기)에서 지 원하는 VM 확장을 사용 하면 Azure PowerShell를 사용 하 여 Linux 또는 Windows 컴퓨터에서 지원 되는 VM 확장을 배포할 수 있습니다. 아래 각 샘플에는 템플릿에 제공할 샘플 값이 포함 된 템플릿 파일 및 매개 변수 파일이 포함 되어 있습니다.
 

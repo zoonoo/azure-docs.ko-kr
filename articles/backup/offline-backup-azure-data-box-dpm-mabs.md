@@ -3,12 +3,12 @@ title: DPM 및 MABS에 대 한 Azure Data Box를 사용 하 여 오프 라인 �
 description: Azure Data Box를 사용 하 여 DPM 및 MABS에서 초기 백업 데이터를 오프 라인으로 초기값으로 지정할 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 33515cdd943f3816328bfd77d831288c5ee0a608
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 5a8fbf3869794b6a5ef78e78177f130e4e009795
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890028"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017603"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>DPM 및 MABS (미리 보기)에 대 한 Azure Data Box를 사용 하 여 오프 라인 시드
 
@@ -26,7 +26,7 @@ Azure Data Box 기반의 오프라인 백업은 [Azure Import/Export 서비스 �
 
 - Azure Backup(MARS 에이전트)에서 Azure Data Box의 지원되는 SKU에 백업 데이터를 직접 쓸 수 있습니다. 이 기능을 사용하면 초기 백업 데이터에 사용할 스테이징 위치를 프로비저닝하지 않아도 됩니다. 디스크를 포맷하고 해당 데이터를 디스크에 복사하는 유틸리티도 필요하지 않습니다.
 
-## <a name="supported-platforms"></a>지원 플랫폼
+## <a name="supported-platforms"></a>지원되는 플랫폼
 
 지원되는 플랫폼은 다음과 같습니다.
 
@@ -203,7 +203,7 @@ Azure Data Box Disk로 데이터 백업이 완료되면 다음 단계를 수행�
 
 ## <a name="troubleshooting"></a>문제 해결
 
-DPM 서버의 MAB(Microsoft Azure Backup) 에이전트는 사용자 테넌트에 Azure AD 애플리케이션을 자동으로 만듭니다. 이 애플리케이션에는 오프라인 시드 정책을 구성할 때 생성 및 업로드된 인증용 인증서가 필요합니다.
+DPM 서버의 MAB(Microsoft Azure Backup) 에이전트는 사용자 테넌트에 Azure AD 애플리케이션을 자동으로 만듭니다. 이 응용 프로그램에는 오프 라인 시드 정책을 구성할 때 생성 및 업로드 된 인증용 인증서가 필요 합니다.
 
 인증서를 만들고 Azure AD 애플리케이션에 업로드할 때는 Azure PowerShell을 사용합니다.
 

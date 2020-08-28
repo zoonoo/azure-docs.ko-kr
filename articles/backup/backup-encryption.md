@@ -4,12 +4,12 @@ description: Azure Backup의 암호화 기능을 통해 백업 데이터를 보�
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: 71183e99522707737812096567d877df740c4bae
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f55deba58cd7b725bd030409296794e5de911c09
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763646"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017909"
 ---
 # <a name="encryption-in-azure-backup"></a>Azure Backup에서 암호화
 

@@ -3,12 +3,12 @@ title: Azure Stack에 Azure Backup Server 설치
 description: 이 문서에서는 Azure Backup Server를 사용하여 Azure Stack에서 워크로드를 보호하거나 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 644aeeb8670c4b8d551ba1d3f6b1b16aa199f4ef
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a95ee42c3229e642bd48b812eb6bc01636af3ba2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827010"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018130"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -99,7 +99,7 @@ Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘�
 > - 도메인 컨트롤러로 실행하는 컴퓨터
 > - 애플리케이션 서버 역할이 설치된 컴퓨터
 > - Exchange Server를 실행하는 컴퓨터
-> - 클러스터의 한 노드인 컴퓨터
+> - 클러스터의 노드인 컴퓨터
 
 항상 Azure Backup Server를 도메인에 가입시킵니다. Azure Backup Server를 다른 도메인으로 이동해야 하는 경우 먼저 Azure Backup Server를 설치한 다음, 새 도메인에 조인합니다. Azure Backup Server를 배포한 후에는 새 도메인으로 이동할 수 없습니다.
 
@@ -107,7 +107,7 @@ Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘�
 
 ### <a name="set-storage-replication"></a>스토리지 복제 설정
 
-Recovery Services 자격 증명 모음 스토리지 복제를 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [지역 중복](../storage/common/storage-redundancy.md) 및 [로컬 중복](../storage/common/storage-redundancy.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+Recovery Services 자격 증명 모음 스토리지 복제를 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 내구성이 낮은 더 저렴 한 옵션을 원하는 경우 로컬 중복 저장소를 선택 합니다. [지역 중복](../storage/common/storage-redundancy.md) 및 [로컬 중복](../storage/common/storage-redundancy.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
 스토리지 복제 설정을 편집하려면
 
@@ -217,7 +217,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Dat
 
     ![Azure Backup Server-필수 구성 요소 확인](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    환경에 필요한 필수 구성 요소가 있는 경우 컴퓨터가 요구 사항을 충족 한다는 메시지가 표시 됩니다. **새로 만들기**를 선택합니다.  
+    환경에 필요한 필수 구성 요소가 있는 경우 컴퓨터가 요구 사항을 충족 한다는 메시지가 표시 됩니다. **다음**을 선택합니다.  
 
     ![Azure Backup Server - 필수 조건 확인 통과](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 

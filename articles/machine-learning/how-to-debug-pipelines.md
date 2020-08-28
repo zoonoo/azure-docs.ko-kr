@@ -10,12 +10,12 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: a036cb4212b0237bea1c8509532dc78d469acb17
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 0f051e5b5711cec9fd8e72ec2b84c18f80430a0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950156"
+ms.locfileid: "89018062"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>기계 학습 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -129,6 +129,8 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 > [!TIP]
 > 게시 된 *파이프라인* 에 대 한 실행은 작업 영역의 **끝점** 탭에서 찾을 수 있습니다. *게시 되지 않은 파이프라인* 에 대 한 실행은 **실험** 또는 **파이프라인**에서 찾을 수 있습니다.
+
+에서 로깅 및 추적 하는 방법에 대 한 자세한 내용은 `ParallelRunStep` [ParallelRunStep 디버그 및 문제 해결](how-to-debug-parallel-run-step.md)을 참조 하세요.
 
 ## <a name="logging-in-azure-machine-learning-designer-preview"></a>Azure Machine Learning designer에서 로깅 (미리 보기)
 

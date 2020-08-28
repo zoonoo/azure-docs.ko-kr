@@ -4,22 +4,22 @@ description: VM 백업 스택, Resource Manager 배포 모델에 대한 Azure �
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892629"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000382"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
 > [!NOTE]
 > 사용자의 의견에 따라 Azure Stack 기능으로 인 한 혼동을 줄이기 위해 **VM backup Stack V2** 의 이름을 **인스턴트 복원** 으로 변경 했습니다.
-> 이제 모든 Azure backup 사용자가 **즉시 복원**으로 업그레이드 되었습니다.
+> 모든 Azure Backup 사용자는 이제 **즉시 복원**으로 업그레이드 되었습니다.
 
 인스턴트 복원의 새 모델은 다음과 같은 기능 개선 사항을 제공합니다.
 
-* 자격 증명 모음으로의 데이터 전송이 완료될 때까지 기다리지 않고 백업 작업의 일부로 만든 스냅샷을 복구에 사용할 수 있습니다. 이에 따라, 복원을 트리거하기 전에 스냅샷이 저장소에 복사되는 대기 시간이 줄었습니다.
+* 자격 증명 모음에 대 한 데이터 전송이 완료 될 때까지 기다리지 않고 복구에 사용할 수 있는 백업 작업의 일부로 수행 되는 스냅숏을 사용 하는 기능입니다. 이에 따라, 복원을 트리거하기 전에 스냅샷이 저장소에 복사되는 대기 시간이 줄었습니다.
 * 기본적으로 스냅샷을 로컬에 2일 동안 보존하여 백업 및 복원 시간을 단축합니다. 이 기본 스냅숏 보존 값은 1 일에서 5 일 사이의 값으로 구성할 수 있습니다.
 * 는 최대 32 TB의 디스크 크기를 지원 합니다. Azure Backup에서 디스크 크기를 조정 하지 않는 것이 좋습니다.
 * 는 표준 HDD 디스크 및 프리미엄 SSD 디스크와 함께 표준 SSD 디스크를 지원 합니다.
@@ -108,9 +108,9 @@ VM 변동에 따라 다릅니다. 안정된 상태에서는 비용 증가를 스
 
 스냅숏 (Tier1)을 삭제 하지 않는 한 새 모델에서는 복원 지점 (Tier2)을 삭제할 수 없습니다. 복원 지점(계층 2) 보존 기간을 스냅샷 보존 기간 이상으로 예약하는 것이 좋습니다.
 
-### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>백업 정책에 설정된 보존 기간 이후에도 스냅샷이 있는 이유는 무엇인가요?
+### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>백업 정책에서 보존 기간이 설정 된 후에도 내 스냅숏이 여전히 존재 하는 이유는 무엇 인가요?
 
-복구 지점에 스냅숏이 있고 사용 가능한 최신 RP 인 경우 다음 백업이 성공할 때까지 유지 됩니다. 이는 현재 VM의 문제로 인해 모든 백업이 실패 하는 경우에는 항상 하나 이상의 최신 RP가 항상 표시 되도록 설계 된 "가비지 수집" (GC) 정책을 기반으로 합니다. 정상적인 시나리오에서는 만료 후 최대 24시간 이내에 RP가 정리됩니다.
+복구 지점에 스냅숏이 있고 최신 복구 지점을 사용할 수 있는 경우 다음 백업이 성공할 때까지 유지 됩니다. 이는 지정 된 "GC (가비지 수집)" 정책에 따라 수행 됩니다. 모든 후속 백업이 VM의 문제로 인해 실패 하는 경우에는 항상 하나 이상의 최신 복구 지점이 항상 있어야 합니다. 일반적인 시나리오에서 복구 지점은 만료 된 후 최대 24 시간 이내에 정리 됩니다.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>즉시 복원 기능이 필요 하지 않습니다. 사용 하지 않도록 설정할 수 있나요?
 

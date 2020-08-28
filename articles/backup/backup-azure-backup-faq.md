@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892765"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017739"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -56,7 +56,7 @@ ms.locfileid: "88892765"
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 백업된 VM에 대해 ILR(항목 수준 복원)을 수행할 수 있나요?
 
 - ILR은 Azure VM 백업을 통해 백업한 Azure VM에 대해 지원됩니다. 자세한 내용은 [문서](backup-azure-restore-files-from-vm.md)를 참조하세요.
-- ILR는 Azure backup Server 또는 System Center DPM에서 백업 된 온-프레미스 Vm의 온라인 복구 지점이 지원 되지 않습니다.
+- ILR (MABS) 또는 System Center DPM에서 Azure Backup Server 백업 된 온-프레미스 Vm의 온라인 복구 지점은 지원 되지 않습니다.
 
 ## <a name="azure-backup-agent"></a>Azure Backup 에이전트
 
@@ -184,7 +184,7 @@ Azure Backup 스토리지 아키텍처는 데이터를 빠르게 복원할 수 �
 
 ### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Azure에 백업된 데이터를 몇 번이나 복구할 수 있나요?
 
-Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니다.
+Azure Backup 복구 수에는 제한이 없습니다.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>데이터를 복원할 때 Azure의 송신 트래픽에 대해 요금을 납부하나요?
 
