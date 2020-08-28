@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 46568bf3969d050fd964c85278debd9d599db266
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: bdf328222fef1f763776bd26c47f5cd4d65e487e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796564"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000008"
 ---
 # <a name="features"></a>기능
 
@@ -27,33 +27,33 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 
 ## <a name="rest-api"></a>REST API
 
-| API                            | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석                                             |
+| API                            | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
 | 읽기                           | 예       | 예       | 예       |                                                     |
 | vread                          | 예       | 예       | 예       |                                                     |
 | update                         | 예       | 예       | 예       |                                                     |
 | 낙관적 잠금으로 업데이트 | 예       | 예       | 예       |                                                     |
 | update (조건부)           | 예       | 예       | 예       |                                                     |
-| 패치나                          | 예        | 예        | 예        |                                                     |
+| 패치나                          | 아니요        | 아니요        | 아니요        |                                                     |
 | delete                         | 예       | 예       | 예       |                                                     |
-| delete (조건부)           | 예        | 예        | 예        |                                                     |
+| delete (조건부)           | 아니요        | 아니요        | 예        |                                                     |
 | create                         | 예       | 예       | 예       | POST/PUT 모두 지원                               |
 | create (조건부)           | 예       | 예       | 예       |                                                     |
 | 검색                         | Partial   | Partial   | Partial   | 아래 참조                                           |
-| 연결 된 검색                 | 예        | 예       | 예        |                                           |
-| 역방향 연결 된 검색         | 예        | 예        | 예        |                                            |
+| 연결 된 검색                 | 아니요        | 예       | 아니요        |                                           |
+| 역방향 연결 된 검색         | 아니요        | 아니요        | 아니요        |                                            |
 | capabilities                   | 예       | 예       | 예       |                                                     |
 | 일괄 처리                          | 예       | 예       | 예       |                                                     |
-| 트랜잭션                    | 예        | 예       | 예        |                                                     |
+| 트랜잭션                    | 아니요        | 예       | 아니요        |                                                     |
 | history                        | 예       | 예       | 예       |                                                     |
 | 페이징                         | Partial   | Partial   | Partial   | `self` 및 `next` 가 지원 됩니다.                     |
-| 매개자                 | 예        | 예        | 예        |                                                     |
+| 매개자                 | 아니요        | 아니요        | 예        |                                                     |
 
 ## <a name="search"></a>검색
 
 모든 검색 매개 변수 유형이 지원 됩니다. 
 
-| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
+| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
 |-----------------------|-----------|-----------|-----------|---------|
 | Number                | 예       | 예       | 예       |         |
 | Date/DateTime         | 예       | 예       | 예       |         |
@@ -63,7 +63,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | 복합             | 예       | 예       | 예       |         |
 | 수량              | 예       | 예       | 예       |         |
 | URI                   | 예       | 예       | 예       |         |
-| 특수               | 예        | 예        | 예        |         |
+| 특수               | 아니요        | 아니요        | 아니요        |         |
 
 
 | 한정자             | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
@@ -72,14 +72,14 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 |`:exact`               | 예       | 예       | 예       |         |
 |`:contains`            | 예       | 예       | 예       |         |
 |`:text`                | 예       | 예       | 예       |         |
-|`:in` 토큰          | 예        | 예        | 예        |         |
-|`:below` 토큰       | 예        | 예        | 예        |         |
-|`:above` 토큰       | 예        | 예        | 예        |         |
-|`:not-in` 토큰      | 예        | 예        | 예        |         |
-|`:[type]` 참조일  | 예        | 예        | 예        |         |
+|`:in` 토큰          | 아니요        | 아니요        | 아니요        |         |
+|`:below` 토큰       | 아니요        | 아니요        | 아니요        |         |
+|`:above` 토큰       | 아니요        | 아니요        | 아니요        |         |
+|`:not-in` 토큰      | 아니요        | 아니요        | 아니요        |         |
+|`:[type]` 참조일  | 아니요        | 아니요        | 아니요        |         |
 |`:below` uri         | 예       | 예       | 예       |         |
-|`:not`                 | 예        | 예        | 예        |         |
-|`:above` uri         | 예        | 예        | 예        | 문제 [#158](https://github.com/Microsoft/fhir-server/issues/158) |
+|`:not`                 | 아니요        | 아니요        | 아니요        |         |
+|`:above` uri         | 아니요        | 아니요        | 아니요        | 문제 [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | 공통 검색 매개 변수 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
 |-------------------------| ----------| ----------| ----------|---------|
@@ -88,24 +88,24 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | `_tag`                  | 예       | 예       | 예       |         |
 | `_profile`              | 예       | 예       | 예       |         |
 | `_security`             | 예       | 예       | 예       |         |
-| `_text`                 | 예        | 예        | 예        |         |
-| `_content`              | 예        | 예        | 예        |         |
+| `_text`                 | 아니요        | 아니요        | 아니요        |         |
+| `_content`              | 아니요        | 아니요        | 아니요        |         |
 | `_list`                 | 예       | 예       | 예       |         |
-| `_has`                  | 예        | 예        | 예        |         |
+| `_has`                  | 아니요        | 아니요        | 아니요        |         |
 | `_type`                 | 예       | 예       | 예       |         |
-| `_query`                | 예        | 예        | 예        |         |
+| `_query`                | 아니요        | 아니요        | 아니요        |         |
 
-| 검색 작업       | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 주석 |
+| 검색 작업       | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_filter`               | 예        | 예        | 예        |         |
-| `_sort`                 | 예        | 예        | 예        |         |
-| `_score`                | 예        | 예        | 예        |         |
+| `_filter`               | 아니요        | 아니요        | 아니요        |         |
+| `_sort`                 | 아니요        | Partial   | Partial        |   `_sort=_lastUpdated`가 지원됨       |
+| `_score`                | 아니요        | 아니요        | 아니요        |         |
 | `_count`                | 예       | 예       | 예       |         |
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count`가 지원됨 |
-| `_include`              | 예        | 예       | 예        |         |
-| `_revinclude`           | 예        | 예       | 예        | 포함 된 항목은 100 개로 제한 됩니다. |
-| `_contained`            | 예        | 예        | 예        |         |
-| `_elements`             | 예        | 예        | 예        |         |
+| `_include`              | 아니요        | 예       | 아니요        |         |
+| `_revinclude`           | 아니요        | 예       | 아니요        | 포함 된 항목은 100 개로 제한 됩니다. |
+| `_contained`            | 아니요        | 아니요        | 아니요        |         |
+| `_elements`             | 아니요        | 아니요        | 아니요        |         |
 
 ## <a name="persistence"></a>지속성
 

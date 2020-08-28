@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Backup 작
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 2fae7cfdb8b316341e01d15b43811d3f0e7638ef
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 0e1e50f27c6d0563ab51a74bbfa22d2a7f54ecd3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827191"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000739"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드 모니터링
 
@@ -63,7 +63,7 @@ SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 �
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>경고가 발생 하지 않는 경우의 예외
 
-오류가 발생 해도 경고가 발생 하지 않는 경우는 몇 가지 예외가 있습니다. 관련 토폴로지는 다음과 같습니다.
+오류가 발생 해도 경고가 발생 하지 않는 경우는 몇 가지 예외가 있습니다. 해당 항목은 다음과 같습니다.
 
 - 사용자가 실행 중인 작업을 명시적으로 취소 함
 - 다른 백업 작업이 진행 중 이므로 작업이 실패 합니다 (이전 작업이 완료 될 때까지 기다려야 함).
@@ -106,4 +106,4 @@ SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Monitor를 사용 하 여 Azure backup 워크 로드 모니터링](backup-azure-monitoring-use-azuremonitor.md)
+[Azure Monitor를 사용 하 여 Azure Backup 작업 모니터링](backup-azure-monitoring-use-azuremonitor.md)

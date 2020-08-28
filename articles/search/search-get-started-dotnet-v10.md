@@ -9,12 +9,13 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: d0391f3724533410a66f8d01bf77f5a3c5c8d9da
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5a9cc1ebbe8cfea2548f61ee1d88180ed39a75eb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936727"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002439"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>빠른 시작: v10 클라이언트 라이브러리를 사용 하 여 검색 인덱스 만들기
 

@@ -7,12 +7,13 @@ ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 4e7b1fdbcbf85aa4c64a38deeeb03ede9a0e4b87
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 0c760a3a2f6300108c1739f18ef9fa97a40dd833
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871142"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021938"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>.NET SDK 요청 시간 제한 예외 Azure Cosmos DB 진단 및 문제 해결
 408 시간 제한이 발생 하기 전에 SDK에서 요청을 완료할 수 없는 경우 HTTP 오류가 발생 합니다.

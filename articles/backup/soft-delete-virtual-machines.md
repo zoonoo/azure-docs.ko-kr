@@ -4,12 +4,12 @@ description: 가상 컴퓨터에 대 한 일시 삭제로 백업을 더 안전 �
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: a79f2bf77bcc184db8ac61b51107c1bb4a2a989d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a8b70d4c8240d096c19e5a8d7449921557b8896c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889829"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022244"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>가상 머신의 일시 삭제
 
@@ -19,7 +19,7 @@ Vm에 대 한 일시 삭제는 의도 하지 않은 삭제 로부터 Vm의 백�
 > 일시 삭제는 삭제 된 백업 데이터만 보호 합니다. 백업을 사용 하지 않고 VM을 삭제 하면 일시 삭제 기능은 데이터를 보존 하지 않습니다. 모든 리소스는 전체 복원 력을 보장 하기 위해 Azure Backup로 보호 되어야 합니다.
 >
 
-## <a name="supported-regions"></a>지원되는 Azure 지역
+## <a name="supported-regions"></a>지원되는 지역
 
 일시 삭제는 현재 미국 서 부에서 지원 됩니다. 동아시아, 캐나다 중부, 캐나다 동부, 프랑스 중부, 프랑스 남부, 대한민국 중부, 대한민국 남부, 영국 남부, 영국 서부, 오스트레일리아 동부, 오스트레일리아 남부 동부, 미국 서 부, 미국 미국, 미국 서 부, 미국 중 북부, 미국 중 동아시아 북부, 미국 동부, 일본 서 부, 인도 남부, 인도 중부, 인도 서 부, 미국 동부 2 , 스위스 북부, 스위스 서부, 노르웨이 서 부, 노르웨이 동부 및 모든 국가 지역입니다.
 
@@ -82,7 +82,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 ### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 삭제 작업 취소
 
-먼저 일시 삭제 상태 (즉, 삭제 됨)에 있는 관련 백업 항목을 가져옵니다.
+먼저 일시 삭제 상태 (즉, 삭제 하려고 함)에 있는 관련 백업 항목을 가져옵니다.
 
 ```powershell
 

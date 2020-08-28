@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 96eeafd7e434e2c3a42311999fcd4979531df2aa
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 00718e15b069e9be25abdaf0e4460eae20c6afd0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88584882"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998077"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Azure Open 데이터 집합에서 Azure Machine Learning 데이터 집합 만들기
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "88584882"
 
 데이터 집합이 Azure Machine Learning의 전체 데이터 액세스 워크플로에 적합 한 위치를 이해 하려면 [안전 하 게 데이터 액세스](../machine-learning/concept-data.md#data-workflow) 문서를 참조 하세요.
 
-Azure Open 데이터 집합은 예측 솔루션을 보강 하 고 정확성을 향상 시키기 위해 시나리오 관련 기능을 추가 하는 데 사용할 수 있는 공용 데이터 집합 큐 레이트. 기계 학습 모델을 학습 하는 데 도움이 되는 공용 [데이터 집합 카탈로그](https://azure.microsoft.com/services/op[en-datasets/catalog/) 는 다음과 같은 방법으로 확인할 수 있습니다.
+Azure Open 데이터 집합은 예측 솔루션을 보강 하 고 정확성을 향상 시키기 위해 시나리오 관련 기능을 추가 하는 데 사용할 수 있는 공용 데이터 집합 큐 레이트. 기계 학습 모델을 학습 하는 데 도움이 되는 공용 [데이터 집합 카탈로그](https://azure.microsoft.com/en-in/services/open-datasets/catalog/) 는 다음과 같은 방법으로 확인할 수 있습니다.
 
 * [예보](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 * [인구 조사](https://azure.microsoft.com/services/open-datasets/catalog/us-decennial-census-zip/)

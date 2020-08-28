@@ -3,12 +3,12 @@ title: Azure 가상 머신 복원 프로세스 정보
 description: Azure Backup 서비스에서 Azure virtual machines를 복원 하는 방법 알아보기
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: fb3f6bf729047dc6fe1c13c5ead1191188e30e5c
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 5458d02e241860a98d1ab5f64df141132813f8dd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761392"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011959"
 ---
 # <a name="about-azure-vm-restore"></a>Azure VM 복원 정보
 
