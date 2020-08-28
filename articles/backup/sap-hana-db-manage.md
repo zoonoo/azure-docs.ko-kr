@@ -3,12 +3,12 @@ title: Azure VM에서 백업된 SAP HANA 데이터베이스 관리
 description: 이 문서에서는 Azure 가상 머신에서 실행되는 SAP HANA 데이터베이스를 관리하고 모니터링하기 위한 일반적인 작업에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 7e23ffc2fe39389725519f7b94a0fe6ffaecf69c
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 6de1144237366806bb06c28a0777f62d69004e8b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826704"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006568"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>백업한 SAP HANA 데이터베이스 관리 및 모니터링
 
@@ -84,7 +84,7 @@ HANA 네이티브 클라이언트에서 **Backint**로 트리거되는 주문형
 
 동일한 머신으로 복원을 위해 **Backint**를 사용하여 HANA 네이티브 클라이언트에서 트리거된 복원을 **백업 작업** 페이지에서[모니터링](#monitor-manual-backup-jobs-in-the-portal)할 수 있습니다.
 
-### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Azure 백업이 설정된 데이터베이스에서 SAP HANA 네이티브 클라이언트 백업 실행
+### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Azure Backup 사용 하도록 설정 된 데이터베이스에서 SAP HANA native client 백업 실행
 
 Microsoft Azure Backup으로 백업 중인 데이터베이스의 로컬 백업(HANA Studio/Cockpit 사용)을 수행하려면 다음 단계를 따르세요.
 

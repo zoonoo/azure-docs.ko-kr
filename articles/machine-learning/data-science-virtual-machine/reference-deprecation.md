@@ -8,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: laobri
 ms.date: 07/17/2020
 ms.topic: reference
-ms.openlocfilehash: ac56e2e69cf62c8afae73e0a7616e7e7f80c0493
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d5f541dec14eebc944e4eac11dbe569b38cb277e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816323"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001623"
 ---
 # <a name="reference-retirements-of-dsvm-images"></a>참조: DSVM 이미지의 Retirements
 
@@ -50,18 +50,3 @@ _발표_ 날짜에서 다음과 같이 marketplace에서 이미지를 숨깁니�
 >
 > 새 DSVM 이미지 세부 정보를 사용 하 여 업데이트 되지 않은 ARM 템플릿은 사용 중지 날짜 이후에 배포 되지 않습니다.
 
-## <a name="mitigating-upcoming-retirements"></a>예정 된 retirements 완화
-
-이 섹션에서는 예정 된 retirements에 대 한 완화에 대해 설명 합니다.
-
-### <a name="upgrade-windows-2016-dsvm"></a>Windows 2016 DSVM 업그레이드
-
-기존 Windows 2016 DSVM에서 Windows 2019 DSVM으로 데이터 디스크를 마이그레이션하려면 다음 단계를 수행 합니다.
-
-1. [여기](./provision-vm.md#create-your-dsvm)에 표시 된 지침에 따라 새 Windows 2019 dsvm을 만듭니다.
-1. [이러한 지침](../../virtual-machines/windows/detach-disk.md)을 사용 하 여 Windows 2016 이미지에서 기존 데이터 디스크를 분리 합니다.
-1. [이러한 지침](../../virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm)을 사용 하 여 이전 단계의 디스크를 Windows 2019 이미지에 연결 합니다.
-
-### <a name="upgrade-ubuntu-1604-dsvm"></a>Ubuntu 16.04 DSVM 업그레이드
-
-기존 Ubuntu 16.04 DSVMs을 [ubuntu 18.04 dsvms 버전](./dsvm-ubuntu-intro.md)으로 업그레이드 하는 것이 좋습니다.
