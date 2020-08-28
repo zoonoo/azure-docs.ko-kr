@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 53ff86f7dc5dfd6b7b60f99848c48f4e44f5a8a1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4bed663b66e6c1a8c537ac9bac17ccdd8a8b152c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948847"
+ms.locfileid: "89004156"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에 대 한 Acl (액세스 제어 목록)을 재귀적으로 설정
 
@@ -24,7 +25,7 @@ ms.locfileid: "88948847"
 
 [라이브러리](#libraries)  |  [샘플](#code-samples)  |  모범 [사례](#best-practice-guidelines)  |  [사용자 의견 제공](#provide-feedback)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -454,9 +455,9 @@ def update_permission_recursively():
 
 ```powershell
 $filesystemName = "my-container"
-$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
-$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" 
 
 Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Acl $acl
 ```
@@ -641,7 +642,7 @@ def resume_set_acl_recursive(continuation_token):
 
 [PowerShell](https://github.com/Azure/azure-powershell/issues/new?assignees=&labels=triage&template=az-module-bug-report.md&title=), [.net](https://github.com/Azure/azure-sdk-for-net/issues/new?assignees=&labels=&template=bug_report.md&title=), [Python](https://github.com/Azure/azure-sdk-for-python/issues/new?assignees=&labels=&template=bug_report.md&title=) 등의 페이지를 사용 하 여 사용자 의견을 제공 하거나 문제를 보고할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Azure Data Lake Storage Gen2의 액세스 제어](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
 - [알려진 문제](data-lake-storage-known-issues.md)

@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: a89d0182f6a659cee65ebc1de7d97d40418b4b20
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 35780f915247e88a5de093594b653ddcebdfb06b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654891"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008882"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Azure Key Vault 및 관리 Id를 사용 하 여 Azure Batch 계정에 대 한 고객 관리 키 구성
 
@@ -149,6 +149,6 @@ az batch account set \
   * **내 키를 회전 하려면 어떻게 해야 하나요?** 고객 관리 키는 자동으로 회전 되지 않습니다. 키를 회전 하려면 계정이 연결 된 키 식별자를 업데이트 합니다.
   * **액세스를 복원한 후 Batch 계정이 다시 작동 하는 데 걸리는 시간** 액세스가 복원 되 면 계정에 다시 액세스 하는 데 최대 10 분이 걸릴 수 있습니다.
   * **Batch 계정을 사용할 수 없지만 내 리소스는 어떻게 되나요?** 고객 관리 키에 대 한 Batch 액세스 권한이 손실 될 때 실행 되는 모든 풀은 계속 실행 됩니다. 그러나 노드는 사용할 수 없는 상태로 전환 되 고 작업은 중단 되 고 다시 큐에 대기 됩니다. 액세스가 복원 되 면 노드를 다시 사용할 수 있게 되 고 태스크가 다시 시작 됩니다.
-  * **이 암호화 메커니즘은 Batch 풀의 VM 디스크에 적용 되나요?** 아니요. 클라우드 서비스 구성 풀의 경우 OS 및 임시 디스크에 대 한 암호화가 적용 되지 않습니다. 가상 컴퓨터 구성 풀의 경우 OS 및 지정 된 모든 데이터 디스크는 기본적으로 Microsoft 플랫폼 관리 키를 사용 하 여 암호화 됩니다. 현재는 이러한 디스크에 대 한 고유한 키를 지정할 수 없습니다. Microsoft platform 관리 키를 사용 하 여 Batch 풀에 대 한 Vm의 임시 디스크를 암호화 하려면 [가상 머신 구성](/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀에서 [diskencryptionconfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) 속성을 사용 하도록 설정 해야 합니다. 매우 중요 한 환경에서는 임시 디스크 암호화를 사용 하도록 설정 하 고 OS 및 데이터 디스크에 중요 한 데이터를 저장 하지 않는 것이 좋습니다.
+  * **이 암호화 메커니즘은 Batch 풀의 VM 디스크에 적용 되나요?** 아니요. 클라우드 서비스 구성 풀의 경우 OS 및 임시 디스크에 대 한 암호화가 적용 되지 않습니다. 가상 컴퓨터 구성 풀의 경우 OS 및 지정 된 모든 데이터 디스크는 기본적으로 Microsoft 플랫폼 관리 키를 사용 하 여 암호화 됩니다. 현재는 이러한 디스크에 대 한 고유한 키를 지정할 수 없습니다. Microsoft platform 관리 키를 사용 하 여 Batch 풀에 대 한 Vm의 임시 디스크를 암호화 하려면 [가상 머신 구성](/rest/api/batchservice/pool/add#virtualmachineconfiguration) 풀에서 [diskencryptionconfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) 속성을 사용 하도록 설정 해야 합니다. 매우 중요 한 환경에서는 임시 디스크 암호화를 사용 하도록 설정 하 고 OS 및 데이터 디스크에 중요 한 데이터를 저장 하지 않는 것이 좋습니다. 자세한 내용은 [디스크 암호화를 사용 하 여 풀 만들기](./disk-encryption.md) 를 참조 하세요.
   * **시스템 할당 관리 id가 계산 노드에서 사용할 수 있는 Batch 계정 입니까?** 아니요. 이 관리 되는 id는 현재 고객 관리 키에 대 한 Azure Key Vault에 액세스 하는 데만 사용 됩니다.
   

@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: eb5771a6e615535a9a158e6378cd36b6e0df58bc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a9d508afac64e448ca220a36b2be983da85d96b0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923129"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002626"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Azure Cognitive Search에서 패싯 필터를 작성 하는 방법 
 
@@ -121,7 +122,7 @@ Azure Cognitive Search에서 패싯 탐색을 사용 하는 문제 중 하나는
 
 이것이 일반적인 사용 사례이지만, 현재 패싯 탐색 구조에는 기본적으로 제공되지 않습니다. 정적 패싯을 원하는 개발자는 일반적으로 두 개의 필터링된 쿼리를 실행하여 제한 사항을 해결합니다. 하나는 결과에 적용되고 다른 하나는 탐색 용도로 패싯의 정적 목록을 만드는 데 사용됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Cognitive Search의 필터](search-filters.md)
 + [인덱스 REST API 만들기](/rest/api/searchservice/create-index)

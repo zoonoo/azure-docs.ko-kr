@@ -11,13 +11,13 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
-ms.custom: ''
-ms.openlocfilehash: 3669919a8ddf4ffcbcf0d3e7e060c62f4c8df1c6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c29909d70b0fd55e4b680c79928cdc5d05b494fa
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039145"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003731"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>콘텐츠 인식 인코딩 미리 설정을 사용 하 여 지정 된 해상도에 대 한 최적의 비트 전송률 값을 찾습니다.
 

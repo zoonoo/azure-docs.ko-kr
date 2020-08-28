@@ -3,12 +3,13 @@ title: 대규모 데이터 세트로 작업
 description: Azure Resource Graph를 사용하는 동안 큰 데이터 세트의 레코드를 가져오고, 서식을 지정하고, 페이징하고, 건너뛰는 방법을 파악합니다.
 ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2de62af5f7a59837876ed3348bc14de232fdee38
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5f3073986e424c641d884e1c2427d3d519658d37
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206356"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005941"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 

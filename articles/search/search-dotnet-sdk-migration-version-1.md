@@ -9,12 +9,13 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3c8e44a3d57ee519ff792de97ed2b3d183bf666b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4860918fc4f995ad267fc35b142d3fcb460ce177
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923367"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002830"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-11"></a>Azure Search .NET SDK 버전 1.1로 업그레이드
 
@@ -57,7 +58,7 @@ Program.cs(163,13,163,42): error CS0246: The type or namespace name 'DocumentSea
 
 `IndexAction` 은 더 이상 public 생성자를 포함하지 않으며 해당 속성은 변경할 수 없습니다. `Delete`, `Merge`, `MergeOrUpload` 및 `Upload`와 같은 다양한 용도의 작업을 만들기 위해서는 새로운 정적 메서드를 사용해야 합니다. `IndexAction.Create` 는 제거되었습니다. 한 개의 문서만 받는 오버로드를 사용한 경우 대신 `Upload` 를 사용해야 합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
 ```csharp
@@ -82,7 +83,7 @@ indexClient.Documents.Index(batch);
 ### <a name="indexbatchexception-changes"></a>IndexBatchException 변경
 `IndexBatchException.IndexResponse` 속성이 `IndexingResults`로 이름이 변경되었고 형식은 이제 `IList<IndexingResult>`입니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
 ```csharp
@@ -174,7 +175,7 @@ public static IndexGetStatisticsResult GetStatistics(
 ### <a name="scoringparameters-changes"></a>ScoringParameters 변경
 최신 SDK에 새 클래스인 `ScoringParameter` 가 추가되어 검색 쿼리에 있는 점수 매기기 프로필에 매개 변수를 더 쉽게 제공할 수 있습니다. `SearchParameters` 클래스의 `ScoringProfiles` 속성은 이전에는 `IList<string>`으로 입력되었지만 이제는 `IList<ScoringParameter>`로 입력됩니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
 ```csharp
@@ -197,7 +198,7 @@ sp.ScoringParameters =
 ```
 
 ### <a name="model-class-changes"></a>모델 클래스 변경
-[작업 메서드 변경](#OperationMethodChanges)에 설명된 서명 변경으로 인해 `Microsoft.Azure.Search.Models` 네임스페이스의 많은 클래스가 이름이 변경되거나 제거되었습니다. 예를 들면
+[작업 메서드 변경](#OperationMethodChanges)에 설명된 서명 변경으로 인해 `Microsoft.Azure.Search.Models` 네임스페이스의 많은 클래스가 이름이 변경되거나 제거되었습니다. 예를 들어:
 
 * `IndexDefinitionResponse`는 `AzureOperationResponse<Index>`로 대체되었습니다.
 * `DocumentSearchResponse`는 `DocumentSearchResult`로 이름이 변경되었습니다.
@@ -208,7 +209,7 @@ sp.ScoringParameters =
 
 요약하자면 모델 개체를 래핑하기 위해서만 존재했던 `OperationResponse`파생 클래스가 제거되었습니다. 나머지 클래스는 접미사가 `Response`에서 `Result`로 변경되었습니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 코드는 다음과 같습니다.
 
 ```csharp
@@ -339,7 +340,7 @@ var client =
 > 
 > 
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음과 같은 코드가 있는 경우
 
 ```csharp

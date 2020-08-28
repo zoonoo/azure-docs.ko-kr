@@ -13,12 +13,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: juliako
-ms.openlocfilehash: 0d8a60d6c4b3fb66b46742fbd99e3a73a63fff45
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 96fd2fbc087fda422271aef0dfac34f066f09b11
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136085"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009664"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Media Services .NET SDK로 필터 만들기
 
@@ -31,7 +32,7 @@ ms.locfileid: "88136085"
 > [!NOTE]
 > [PresentationTimeRange](filters-concept.md#presentationtimerange)를 검토 해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
 - [필터 및 동적 매니페스트](filters-dynamic-manifest-overview.md)를 검토합니다.
 - [Media Services 계정 만들기](./create-account-howto.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 

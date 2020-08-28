@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milangada
-ms.openlocfilehash: 49ba9b7a7f7cba883246bbfed055e22a4ea50b04
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c9e99bcc1ca8681b9052bb9a25f18ea7e6f070c8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052894"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008661"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>.NET SDK를 사용하여 인코딩 크기를 조정하는 방법
 > [!div class="op_single_selector"]

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: 1b85cffe497ad0b374edb18a1089412da839cdf8
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a0e342e5509aaba05228c7d1032023a6f4710f1f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231848"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999515"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기  
 
@@ -67,7 +68,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 
 다음 표에서는 **maxMotionThumbnailInSecs** 가 사용되지 않은 경우의 기본 지속 시간을 설명합니다.
 
-|  | Small | 많은 |
+|  | 작음 | 많은 |
 | --- | --- | --- |
 | **비디오 지속 시간** |d < 3분 |3분 < d < 15분 |
 | **미리 보기 지속 시간** |15초(장면 2~3개) |30초(장면 3~5개) |

@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: d5d6c7738516337b3db90bbc5d1a94515e96b3ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bec7b37cf45851216f7b392ae1be52d4b1b2d990
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060604"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998495"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Media Services v3를 사용 하는 Windows 10 용 오프 라인 PlayReady 스트리밍
 
@@ -60,13 +61,13 @@ H264/AAC를 사용하는 부드러운 스트리밍([PIFF](/iis/media/smooth-stre
 
 자산 #1:
 
-* 프로그레시브 다운로드 URL:[https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* 프로그레시브 다운로드 URL: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL(AMS): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
 자산 #2:
 
-* 프로그레시브 다운로드 URL:[https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
-* PlayReady LA_URL (온-프레미스):`https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
+* 프로그레시브 다운로드 URL: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* PlayReady LA_URL (온-프레미스): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
 
 재생 테스트 시 Windows 10에서 Universal Windows Application을 사용했습니다. [Windows 10 유니버설 샘플](https://github.com/Microsoft/Windows-universal-samples)에는 [적응 스트리밍 샘플](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming)을 호출하는 기본 플레이어 샘플이 있습니다. 우리가 해야 할 일은 코드를 추가하여 다운로드한 비디오를 선택하여 적응 스트리밍 원본 대신에 해당 비디오를 원본으로 사용하는 것입니다. 변경 사항은 단추 클릭 이벤트 처리기에 있습니다.
 

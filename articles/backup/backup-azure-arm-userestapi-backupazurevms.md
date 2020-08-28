@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업에 �
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: db5e6cc460d320971a4005889dc2c9aa9925a18d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890334"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006298"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
@@ -29,7 +29,7 @@ ms.locfileid: "88890334"
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-POST URI에는 `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` 매개 변수가 있습니다. `{fabricName}`은 "Azure"입니다. 예제에 따르면는 `{vaultName}` "testVault"이 고 `{vaultresourceGroupName}` 는 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에서 지정되므로 별도 요청 본문이 필요 없습니다.
+POST URI에는 `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` 매개 변수가 있습니다. `{fabricName}`은 "Azure"입니다. 예제에 따르면는 `{vaultName}` "testVault"이 고 `{vaultresourceGroupName}` 는 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에 제공 되므로 별도의 요청 본문이 필요 하지 않습니다.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
@@ -41,7 +41,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
 |202 수락됨     |         |     수락됨    |
@@ -104,7 +104,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 #### <a name="responses-to-get-operation"></a>가져오기 작업에 대 한 응답
 
-|이름  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       정상 |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
@@ -208,7 +208,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  정상       |
 |202 수락됨     |         |     수락됨    |
@@ -294,7 +294,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
@@ -319,7 +319,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
@@ -439,7 +439,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 204(NoContent)의 두 응답을 반환합니다.
 
-|이름  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 수락됨     |         |     수락됨    |

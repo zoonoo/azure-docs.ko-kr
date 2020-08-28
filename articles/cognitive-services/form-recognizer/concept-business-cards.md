@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799284"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004904"
 ---
 # <a name="business-card-concepts"></a>명함 개념
 
-Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 비즈니스 카드에서 키 값 쌍을 분석 하 고 추출할 수 있습니다. 비즈니스 카드 API는 강력한 OCR (광학 문자 인식) 기능을 비즈니스 카드 이해 모델과 결합 하 여 영어로 된 비즈니스 카드에서 핵심 정보를 추출 합니다. 개인 연락처 정보, 회사 이름, 직위 등을 추출 합니다. 미리 작성 된 비즈니스 카드 API는 인식기 v 2.1 preview에서 공개적으로 사용할 수 있습니다. 
+Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 비즈니스 카드에서 연락처 정보를 분석 하 고 추출할 수 있습니다. 비즈니스 카드 API는 강력한 OCR (광학 문자 인식) 기능을 비즈니스 카드 이해 모델과 결합 하 여 영어로 된 비즈니스 카드에서 핵심 정보를 추출 합니다. 개인 연락처 정보, 회사 이름, 직위 등을 추출 합니다. 미리 작성 된 비즈니스 카드 API는 인식기 v 2.1 preview에서 공개적으로 사용할 수 있습니다. 
 
 ## <a name="what-does-the-business-card-api-do"></a>비즈니스 카드 API는 무엇을 하나요?
 
@@ -27,10 +27,11 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 
 ![FOTT + JSON 출력의 Contoso 항목별로 이미지](./media/business-card-english.jpg)
 
-### <a name="fields-extracted"></a>추출 된 필드: 
+### <a name="fields-extracted"></a>추출 된 필드:
+
 * 연락처 이름 
-* 이름 
-* 성 
+  * 이름
+  * 성
 * 회사 이름 
 * Departments 
 * 직위 
@@ -43,7 +44,7 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
   * 직장 전화 
   * 기타 전화 
 
-비즈니스 카드 API는 또한 명함에서 인식 된 모든 텍스트를 반환 합니다. 이 OCR 출력은 JSON 응답에 포함 됩니다.  
+비즈니스 카드 API는 비즈니스 카드에서 인식 된 모든 텍스트를 반환할 수도 있습니다. 이 OCR 출력은 JSON 응답에 포함 됩니다.  
 
 ### <a name="input-requirements"></a>입력 요구 사항 
 
@@ -51,7 +52,7 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 
 ## <a name="the-analyze-business-card-operation"></a>비즈니스 카드 분석 작업
 
-[분석 회사 카드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 는 회사 카드의 이미지나 PDF를 입력으로 사용 하 고 관심 및 텍스트의 값을 추출 합니다. 호출은 라는 응답 헤더 필드를 반환 합니다 `Operation-Location` . `Operation-Location`값은 다음 단계에서 사용할 결과 ID를 포함 하는 URL입니다.
+[분석 회사 카드](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 는 회사 카드의 이미지나 PDF를 입력으로 사용 하 고 원하는 값을 추출 합니다. 호출은 라는 응답 헤더 필드를 반환 합니다 `Operation-Location` . `Operation-Location`값은 다음 단계에서 사용할 결과 ID를 포함 하는 URL입니다.
 
 |응답 헤더| 결과 URL |
 |:-----|:----|
@@ -61,20 +62,17 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 
 두 번째 단계는 [Get The Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult) 작업을 호출 하는 것입니다. 이 작업은 비즈니스 카드 분석 작업에서 만든 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
 
-|필드| 형식 | 가능한 값 |
+|필드| Type | 가능한 값 |
 |:-----|:----:|:----|
-|상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다. |
-| |  | 실행 중: 분석 작업이 진행 중입니다. |
-| |  | 실패: 분석 작업이 실패 했습니다. |
-| |  | 성공: 분석 작업이 성공 했습니다. |
+|상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다.<br /><br />실행 중: 분석 작업이 진행 중입니다.<br /><br />실패: 분석 작업이 실패 했습니다.<br /><br />성공: 분석 작업이 성공 했습니다.|
 
-**상태** 필드에 **성공** 값이 있는 경우 JSON 응답에는 비즈니스 카드 이해 및 텍스트 인식 결과가 포함 됩니다. 명함 이해 결과는 명명 된 필드 값의 사전으로 구성 됩니다. 여기서 각 값에는 추출 된 텍스트, 정규화 된 값, 경계 상자, 신뢰도 및 해당 단어 요소가 포함 됩니다. 텍스트 인식 결과는 텍스트, 경계 상자 및 신뢰도 정보를 사용 하 여 선과 단어의 계층 구조로 구성 됩니다.
+**상태** 필드에 **성공** 값이 있는 경우 JSON 응답에는 비즈니스 카드의 이해 및 선택적 텍스트 인식 결과가 포함 됩니다 (요청한 경우). 명함 이해 결과는 명명 된 필드 값의 사전으로 구성 됩니다. 여기서 각 값에는 추출 된 텍스트, 정규화 된 값, 경계 상자, 신뢰도 및 해당 단어 요소가 포함 됩니다. 텍스트 인식 결과는 텍스트, 경계 상자 및 신뢰도 정보를 사용 하 여 선과 단어의 계층 구조로 구성 됩니다.
 
 ![샘플 비즈니스 카드 출력](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>샘플 JSON 출력
 
-성공적인 JSON 응답의 다음 예를 참조 하세요. "readResults" 노드에는 인식 된 모든 텍스트가 포함 됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. "DocumentResults" 노드에는 모델에서 검색 한 명함의 특정 값이 포함 되어 있습니다. 여기에서 이름, 성, 회사 이름 등의 유용한 키/값 쌍을 찾을 수 있습니다.
+성공적인 JSON 응답의 다음 예를 참조 하세요. "readResults" 노드에는 인식 된 모든 텍스트가 포함 됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. "DocumentResults" 노드에는 모델에서 검색 한 명함의 특정 값이 포함 되어 있습니다. 여기에서 이름, 성, 회사 이름 등의 유용한 연락처 정보를 찾을 수 있습니다.
 
 ```json
 {
@@ -394,5 +392,4 @@ Azure 양식 인식기는 미리 빌드된 모델 중 하나를 사용 하 여 �
 - 빠른 시작을 수행 하 여 [비즈니스 카드 API Python 빠른](./quickstarts/python-business-cards.md) 시작을 시작 하세요.
 - [양식 인식기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 에 대해 알아보세요 REST API
 - [양식 인식기](overview.md) 에 대 한 자세한 정보
-
 

@@ -8,12 +8,13 @@ ms.date: 08/12/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 29fae4ffb08aba6a45a3879ffe28bf6b90f28a0e
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b1501b61e930b7554063356335b967583c0a3ff5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182394"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008440"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>.NET을 사용 하 여 blob 속성 및 메타 데이터 관리
 
@@ -207,7 +208,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [Blob 속성 설정 작업](/rest/api/storageservices/set-blob-properties)
 - [Blob 속성 가져오기 작업](/rest/api/storageservices/get-blob-properties)

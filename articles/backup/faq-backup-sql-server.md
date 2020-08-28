@@ -4,18 +4,18 @@ description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: d69a2aff900dc3185aafbcb2d655a29d2fff06e3
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 991a00aca3b32ee743be3cdc2bc6a35de064cb25
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890558"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006145"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
 이 문서에서는 Azure Vm (가상 머신)에서 실행 되 고 [Azure Backup](backup-overview.md) 서비스를 사용 하는 SQL Server 데이터베이스 백업에 대 한 일반적인 질문에 답변 합니다.
 
-## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>IaaS VM에 대해 Azure backup을 사용할 수 있을 뿐만 아니라 동일한 컴퓨터에서 SQL Server 수 있나요?
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>동일한 컴퓨터에 SQL Server 뿐만 아니라 IaaS VM에 대 한 Azure Backup를 사용할 수 있나요?
 
 예, 동일한 VM에서 VM 백업과 SQL 백업을 모두 사용할 수 있습니다. 이 경우 내부적으로 VM에서 복사 전용 전체 백업을 트리거하여 로그를 자르지 않습니다.
 
