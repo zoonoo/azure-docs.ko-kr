@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509283"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014594"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -34,6 +34,14 @@ ms.locfileid: "88509283"
 GPU가 하드웨어 비디오 디코딩을 지원하는지 확인합니다. [개발 PC](../overview/system-requirements.md#development-pc)를 참조하세요.
 
 GPU가 2개인 랩톱에서 작업하는 경우 실행 중인 GPU가 기본적으로 하드웨어 비디오 디코딩 기능을 제공하지 않는 것일 수 있습니다. 이 경우에 해당한다면 앱이 다른 GPU를 사용하도록 강제해 보세요. 이 작업은 GPU 드라이버 설정에서 수행할 수 있는 경우가 많습니다.
+
+## <a name="retrieve-sessionconversion-status-fails"></a>세션 검색/변환 상태 실패
+
+REST API 명령을 너무 자주 전송 하면 서버에서 오류를 제한 하 고 반환 합니다. 조정 사례의 http 상태 코드는 429 ("요청이 너무 많음")입니다. 이에 대 한 규칙에 따라 **이후 호출 사이에 5-10 초의**지연이 발생 합니다.
+
+참고이 제한은 직접 호출 될 때 REST API 호출에 영향을 줄 뿐만 아니라,, 등의 c #/C + +와 같은 항목에도 영향을 줄 수 `Session.GetPropertiesAsync` `Session.RenewAsync` `Frontend.GetAssetConversionStatusAsync` 있습니다.
+
+서버 쪽 제한이 발생 하는 경우 호출을 덜 자주 수행 하도록 코드를 변경 합니다. 서버는 1 분 마다 제한 상태를 다시 설정 하므로 1 분 후에 코드를 다시 실행 하는 것이 안전 합니다.
 
 ## <a name="h265-codec-not-available"></a>H265 코덱을 사용할 수 없음
 

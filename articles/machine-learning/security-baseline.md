@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9d288c8d3f521467c8d15e027e2530ff879b37af
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 203ca95368d313055d7c715a3a3becbc1061582c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642910"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015087"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Azure 보안 기준
 
@@ -270,9 +270,9 @@ Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 �
 
 Azure Machine Learning은 다양 한 계산 리소스 및 사용자 고유의 계산 리소스에 대해 다양 한 지원을 제공 합니다. 조직에서 소유 하는 계산 리소스의 경우 Azure Cloud Services 및 Virtual Machines 용 Microsoft 맬웨어 방지 프로그램 이벤트 수집을 사용 하도록 설정 합니다.
 
-- [가상 컴퓨터에 대 한 Microsoft 맬웨어 방지를 구성 하는 방법](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
+- [가상 컴퓨터에 대 한 Microsoft 맬웨어 방지를 구성 하는 방법](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension)
 
-- [Cloud services에 대 한 Microsoft 맬웨어 방지 확장을 구성 하는 방법](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
+- [Cloud services에 대 한 Microsoft 맬웨어 방지 확장을 구성 하는 방법](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
 - [Microsoft 맬웨어 방지 프로그램 이해](../security/fundamentals/antimalware.md)
 
