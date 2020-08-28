@@ -82,7 +82,7 @@
             - name: 관리 디스크 복사
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: 스냅샷을 VHD로 스토리지 계정에 내보내기
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: 관리 디스크의 VHD를 스토리지 계정에 내보내기
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
             - name: VHD에서 스냅샷 만들기
@@ -124,7 +124,7 @@
             - name: 관리 디스크 복사
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: 스냅샷을 VHD로 스토리지 계정에 내보내기
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: 관리 디스크의 VHD를 스토리지 계정에 내보내기
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
             - name: 스냅샷 복사

@@ -5,7 +5,7 @@
   items:
     - name: Machine Learning Studio(클래식)
       displayName: overview
-      href: what-is-ml-studio.md
+      href: studio-classic-overview.md
     - name: ML 제품 비교
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
 - name: 빠른 시작
