@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 54bbd5d45e14c1d345570eea9dc5469f77694154
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f8ec215458e8ebfafb87209516f167d628e98389
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853926"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047631"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB에서 자동 온라인 백업 및 주문형 데이터 복원
 
@@ -57,7 +57,7 @@ Azure Cosmos DB는 4 시간 마다 데이터의 백업을 자동으로 수행 �
 
    * **백업 보존** -각 백업이 유지 되는 기간을 나타냅니다. 몇 시간 또는 며칠 내에 구성할 수 있습니다. 최소 보존 기간은 백업 간격 (시간)의 두 배 미만일 수 없으며 720 시간 보다 클 수 없습니다.
 
-   * **보존 된 데이터 복사본** -기본적으로 데이터의 백업 복사본 두 개는 무료로 제공 됩니다. 추가 복사본이 필요한 경우 Azure Portal를 통해 지원 요청을 만들어야 합니다. 그러면 추가 복사본이 청구 됩니다. 추가 사본에 대 한 정확한 요금을 알아보려면 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 에서 사용 된 저장소 섹션을 참조 하세요.
+   * **보존 된 데이터 복사본** -기본적으로 데이터의 백업 복사본 두 개는 무료로 제공 됩니다. 복사본이 두 개 이상 필요한 경우에는 추가 요금이 부과 됩니다. 추가 사본에 대 한 정확한 요금을 알아보려면 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 에서 사용 된 저장소 섹션을 참조 하세요.
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="기존 Azure Cosmos 계정에 대 한 백업 간격 및 보존 구성" border="true":::
 

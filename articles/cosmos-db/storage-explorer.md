@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: b892e4c5078b50bb865a715ddf12aebc1eb05f57
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d1948ae186662c7f60f4d49c19a4d48b424a38f7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799114"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047482"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Azure Storage Explorer 를 사용하여 데이터 작업
 
@@ -95,7 +95,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
 * Azure Cosmos DB 계정 또는 데이터베이스를 마우스 오른쪽 단추로 클릭하여 **포털에서 열기**를 선택하면 Azure Portal을 통해 브라우저에서 리소스를 관리할 수 있습니다.
 
-     :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="포털에서 열기":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="포털에서 열기":::
 
 * Azure Cosmos DB 계정, 데이터베이스, 컬렉션 등을 **빠른 액세스**에 추가할 수도 있습니다.
 * **여기에서 검색**을 선택하면 선택한 경로에서 키워드 검색이 가능합니다.
@@ -106,25 +106,25 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
 #### <a name="create-a-database"></a>데이터베이스 만들기
 
--   Azure Cosmos DB 계정을 마우스 오른쪽 단추로 클릭하고 **데이터베이스 만들기**를 선택하고 데이터베이스 이름을 입력한 후 **Enter** 키를 눌러 완료합니다.
+- Azure Cosmos DB 계정을 마우스 오른쪽 단추로 클릭하고 **데이터베이스 만들기**를 선택하고 데이터베이스 이름을 입력한 후 **Enter** 키를 눌러 완료합니다.
 
-    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Azure Cosmos 계정에서 데이터베이스 만들기":::
+  :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Azure Cosmos 계정에서 데이터베이스 만들기":::
 
 #### <a name="delete-a-database"></a>데이터베이스 삭제
 
 - 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **데이터베이스 삭제**를 선택한 다음 팝업 창에서 **예** 를 선택 합니다. 데이터베이스 노드가 삭제되고, Azure Cosmos DB 계정이 자동으로 새로 고쳐집니다.
 
-    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="첫 번째 데이터베이스 삭제":::
+  :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="첫 번째 데이터베이스 삭제":::
 
-    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="두 번째 데이터베이스 삭제":::
+  :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="두 번째 데이터베이스 삭제":::
 
 #### <a name="create-a-collection"></a>컬렉션 만들기
 
 1. 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **컬렉션 만들기**를 선택한 후 **컬렉션 ID**, **저장소 용량**등과 같은 정보를 제공 합니다. **확인** 을 클릭 하 여 완료 합니다.
 
-    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="데이터베이스에서 첫 번째 컬렉션 만들기":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="데이터베이스에서 첫 번째 컬렉션 만들기":::
 
-    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="데이터베이스에서 두 번째 컬렉션 만들기":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="데이터베이스에서 두 번째 컬렉션 만들기":::
 
 2. 파티션 키를 지정할 수 있도록 **제한 없음** 을 선택 하 고 **확인** 을 선택 하 여 완료 합니다.
 
@@ -146,7 +146,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
 - 새 문서를 만들려면 왼쪽 창에서 **문서** 를 열고 **새 문서**를 선택한 다음 오른쪽 창에서 콘텐츠를 편집 하 고 **저장**을 선택 합니다. 기존 문서를 업데이트 한 후 **저장**을 선택할 수도 있습니다. **취소**를 클릭하여 변경 내용을 취소할 수 있습니다.
 
-    :::image type="content" source="./media/storage-explorer/document.png" alt-text="새 문서 만들기":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="새 문서 만들기":::
 
 #### <a name="delete-a-document"></a>문서 삭제
 
@@ -156,7 +156,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
 - [SQL 쿼리](how-to-sql-query.md) 를 입력 하 여 문서 필터를 편집한 다음 **적용**을 선택 합니다.
 
-    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="특정 문서에 대 한 쿼리":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="특정 문서에 대 한 쿼리":::
 
 ### <a name="graph-management"></a>그래프 관리
 
@@ -165,7 +165,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 1. 새 꼭 짓 점을 만들려면 왼쪽 창에서 **그래프** 를 열고, **새 꼭 짓 점**을 선택 하 고, 내용을 편집한 다음, **확인**을 선택 합니다.
 2. 기존 꼭 짓 점을 수정 하려면 오른쪽 창에서 펜 아이콘을 선택 합니다.
 
-    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="그래프의 꼭 짓 점 수정":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="그래프의 꼭 짓 점 수정":::
 
 #### <a name="delete-a-graph"></a>그래프 삭제
 
@@ -175,7 +175,7 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 
 - [Gremlin 쿼리](gremlin-support.md) 를 입력 한 다음 **필터 적용**을 선택 하 여 그래프 필터를 편집 합니다.
 
-    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Graph 쿼리 실행":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Graph 쿼리 실행":::
 
 ### <a name="table-management"></a>테이블 관리
 
@@ -184,33 +184,34 @@ Azure Cosmos DB에 연결하는 또 다른 방법은 연결 문자열을 사용�
 1. 새 테이블을 만들려면 왼쪽 창에서 **엔터티** 를 열고 **추가**를 선택 하 고, **엔터티 추가** 대화 상자에서 콘텐츠를 편집 하 고, **속성 추가**단추를 클릭 하 여 속성을 추가 하 고, **삽입**을 선택 합니다.
 2. 테이블을 수정 하려면 **편집**을 선택 하 고 콘텐츠를 수정한 다음 **업데이트**를 선택 합니다.
 
-    :::image type="content" source="./media/storage-explorer/table.png" alt-text="테이블 만들기 및 수정":::
+   :::image type="content" source="./media/storage-explorer/table.png" alt-text="테이블 만들기 및 수정":::
 
 #### <a name="import-and-export-table"></a>테이블 가져오기 및 내보내기
 
 1. 가져오려면 **가져오기** 단추를 선택 하 고 기존 테이블을 선택 합니다.
 2. 내보내려면 **내보내기** 단추를 선택 하 고 대상을 선택 합니다.
 
-    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="테이블 가져오기 또는 내보내기":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="테이블 가져오기 또는 내보내기":::
 
 #### <a name="delete-entities"></a>엔터티 삭제
 
 - 엔터티를 선택 하 고 **삭제**단추를 선택 합니다.
 
-    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="테이블 삭제":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="테이블 삭제":::
 
 #### <a name="query-table"></a>쿼리 테이블
 
 - 쿼리 **단추를 클릭 하** 고 쿼리 조건을 입력 한 다음 **쿼리 실행** 단추를 선택 합니다. **쿼리 닫기** 단추를 클릭하여 쿼리 창을 닫습니다.
 
-    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="테이블에서 데이터 쿼리":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="테이블에서 데이터 쿼리":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>저장 프로시저, 트리거 및 UDF 관리
 
 * 저장 프로시저를 만들려면 왼쪽 트리에서 **저장 프로시저**를 마우스 오른쪽 단추로 클릭 하 고, **저장 프로시저 만들기**를 선택 하 고, 왼쪽에 이름을 입력 하 고, 오른쪽 창에 저장 프로시저 스크립트를 입력 한 다음, **만들기**를 선택 합니다.
 * 또한 업데이트를 두 번 클릭 하 고 업데이트를 클릭 한 다음 **업데이트** 를 클릭 하 여 저장 **하거나 취소를 선택 하** 여 변경 내용을 취소 하 여 기존 저장 프로시저를 편집할 수도 있습니다.
 
-    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="저장 프로시저 만들기 및 관리":::
+  :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="저장 프로시저 만들기 및 관리":::
+
 * **트리거** 및 **UDF**에 대한 작업은 **저장 프로시저**에 대한 작업과 비슷합니다.
 
 ## <a name="troubleshooting"></a>문제 해결

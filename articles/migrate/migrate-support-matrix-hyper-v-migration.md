@@ -3,12 +3,12 @@ title: Azure Migrate의 Hyper-v 마이그레이션 지원
 description: Azure Migrate를 사용 하 여 Hyper-v 마이그레이션 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 5af2c296147bb972d121183a7d552157b4b824c7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4f3609560fa59c08c4d92f4faa36c7fbbffb95d7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871499"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051154"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Hyper-v 마이그레이션을 위한 지원 매트릭스
 
@@ -26,7 +26,10 @@ ms.locfileid: "88871499"
 | **배포**       | Hyper-v 호스트는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. <br/>Hyper-v 호스트에 Azure Migrate 복제 소프트웨어 (Hyper-v 복제 공급자)가 설치 되어 있습니다.|
 | **권한**           | Hyper-v 호스트에 대 한 관리자 권한이 필요 합니다. |
 | **호스트 운영 체제** | Windows Server 2019, Windows Server 2016 또는 최신 업데이트가 포함 된 Windows Server 2012 R2 이러한 운영 체제의 Server core 설치도 지원 됩니다. |
+| **기타 소프트웨어 요구 사항** | .NET Framework 4.7 이상 |
 | **포트 액세스** |  VM 복제 데이터를 보내기 위한 HTTPS 포트 443의 아웃 바운드 연결
+| **사용 가능한 디스크 공간 (캐시)** |  600GB |
+| **사용 가능한 디스크 공간(보존 디스크)** |  600GB |
 
 
 ## <a name="hyper-v-vms"></a>Hyper-V VM
@@ -39,6 +42,7 @@ ms.locfileid: "88871499"
 | **Azure에 대 한 필수 변경 내용** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다. 마이그레이션하기 전에 수동으로 조정 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다. |
 | **Linux 부팅**                 | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다. |
 | **UEFI 부팅**                  | 지원됨. Azure 2 세대 VM에서 지 원하는 VM 크기를 선택 해야 합니다.  |
+| **UEFI-보안 부팅**         | 마이그레이션에 지원 되지 않습니다.|
 | **디스크 크기**                  | OS 디스크의 경우 2tb, 데이터 디스크의 경우 4tb|
 | **디스크 번호** | VM 당 최대 16 개의 디스크|
 | **암호화 된 디스크/볼륨**    | 마이그레이션에 지원 되지 않습니다.|

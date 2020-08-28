@@ -3,12 +3,12 @@ title: 이니셔티브 정의 구조의 세부 정보
 description: 정책 이니셔티브 정의를 사용 하 여 조직의 Azure 리소스에 배포 하기 위한 정책 정의를 그룹화 하는 방법을 설명 합니다.
 ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: b151ef4d58998b810e116321de68cbdb2e8d3eff
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544641"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048502"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Azure Policy 이니셔티브 정의 구조
 
@@ -284,7 +284,7 @@ Microsoft에서 만든 규정 준수 기본 기능에는 각 컨트롤에 대 �
 
 - 규정 준수 이니셔티브에 대 한 **컨트롤** 개요의 Azure Portal에 표시 됩니다.
 - REST API를 통해 사용할 수 있습니다. `Microsoft.PolicyInsights`리소스 공급자 및 [policymetadata 작업 그룹](/rest/api/policy-insights/policymetadata/getresource)을 참조 하세요.
-- Azure CLI를 통해 사용할 수 있습니다. [Az policy metadata](/cli/azure/policy/metadata?view=azure-cli-latest) 명령을 참조 하세요.
+- Azure CLI를 통해 사용할 수 있습니다. [Az policy metadata](/cli/azure/policy/metadata) 명령을 참조 하세요.
 
 > [!IMPORTANT]
 > 규정 준수에 대 한 메타 데이터 개체는 _읽기 전용_ 이며 고객은 만들 수 없습니다.

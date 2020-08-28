@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 08/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ecb25e9bb9625a5ada70be2df61898a462c86af
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 629173612f091319f6dec57b1cdfcfea41033bfc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815055"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047108"
 ---
 # <a name="what-is-risk"></a>위험 이란?
 
@@ -39,7 +39,6 @@ Id 보호를 사용 하면 조직에서 강력한 리소스에 액세스 하 여
 | 위험 검색 | Description |
 | --- | --- |
 | 유출된 자격 증명 | 이 위험 검색 유형은 사용자의 유효한 자격 증명이 누수 되었음을 나타냅니다. 사이버 범죄자가 합법적인 사용자의 유효한 암호를 손상시키는 경우 범죄자는 종종 이러한 자격 증명을 공유합니다. 이 공유는 일반적으로 진한 웹에 공개적으로 게시 하거나, 사이트를 붙여넣거나, 블랙 market에서 자격 증명을 거래 및 판매 하 여 수행 됩니다. Microsoft 유출 자격 증명 서비스가 진한 웹에서 사용자 자격 증명을 획득 하거나, 사이트를 붙여넣거나, 다른 원본에서 사용자 자격 증명을 획득 하는 경우 Azure AD 사용자의 현재 유효한 자격 증명을 확인 하 여 유효한 일치 항목을 찾습니다. 누출 자격 증명에 대 한 자세한 내용은 [일반적인 질문](#common-questions)을 참조 하세요. |
-| 암호 스프레이 | 암호 스프레이 공격은 인증 되지 않은 액세스를 얻기 위해 일반적인 암호를 사용 하 여 통합 된 무차별 암호를 사용 하 여 여러 사용자 이름을 공격 하는 경우입니다. 이 위험 검색은 암호 스프레이 공격이 수행 될 때 트리거됩니다. |
 | Azure AD 위협 인텔리전스 | 이 위험 검색 유형은 지정 된 사용자에 게 비정상적인 사용자 활동을 나타내며 Microsoft의 내부 및 외부 위협 인텔리전스 소스를 기반으로 하는 알려진 공격 패턴과 일치 합니다. |
 
 ### <a name="sign-in-risk"></a>로그인 위험
@@ -57,6 +56,7 @@ Id 보호를 사용 하면 조직에서 강력한 리소스에 액세스 하 여
 | 관리자가 사용자의 손상 확인 | 오프라인 | 이 검색은 관리자가 위험한 사용자 UI 또는 riskyUsers API를 사용 하 여 ' 사용자가 손상 확인 '을 선택 했음을 나타냅니다. 이 사용자가 확인 한 관리자를 확인 하려면 UI 또는 API를 통해 사용자의 위험 기록을 확인 합니다. |
 | 악성 IP 주소 | 오프라인 | 이 검색은 악성 IP 주소에서의 로그인을 나타냅니다. Ip 주소 또는 다른 IP 평판에서 받은 잘못 된 자격 증명으로 인해 높은 실패율에 기반 하 여 IP 주소를 악의적으로 간주 합니다. |
 | 의심 스러운 수신함 조작 규칙 | 오프라인 | 이 검색은 [MCAS (Microsoft Cloud App Security)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules)에 의해 검색 됩니다. 이 검색 기능은 사용자 환경을 프로파일링하여 메시지나 폴더를 삭제하거나 이동하는 의심스러운 규칙이 사용자의 받은 편지함에 설정된 경우 경고를 트리거합니다. 이 검색은 사용자 계정이 손상 되 고, 메시지가 의도적으로 숨겨져 있으며, 조직에서 스팸 또는 맬웨어를 배포 하는 데 사서함이 사용 되 고 있음을 나타낼 수 있습니다. |
+| 암호 스프레이 | 오프라인 | 암호 스프레이 공격은 인증 되지 않은 액세스를 얻기 위해 일반적인 암호를 사용 하 여 통합 된 무차별 암호를 사용 하 여 여러 사용자 이름을 공격 하는 경우입니다. 이 위험 검색은 암호 스프레이 공격이 수행 될 때 트리거됩니다. |
 | 이동 불가능 | 오프라인 | 이 검색은 [MCAS (Microsoft Cloud App Security)](/cloud-app-security/anomaly-detection-policy#impossible-travel)에 의해 검색 됩니다. 이 검색은 사용자가 첫 번째 위치에서 두 번째 위치로 이동하는 데 걸리는 시간보다 짧은 기간 내에 지리적으로 먼 위치에서 시작되는 두 개의 사용자 활동(단일 또는 복수 세션)을 식별합니다. 이는 다른 사용자가 동일한 자격 증명을 사용하고 있음을 나타냅니다. |
 
 ### <a name="other-risk-detections"></a>기타 위험 감지

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a4693dabc62ec03897ccc46398bdff77118fe4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0eaa2f2bc0ee26a4f543ea0938db6c226a9a6575
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032087"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049250"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>조건부 액세스: 레거시 인증 차단
 
@@ -24,7 +24,7 @@ ms.locfileid: "88032087"
 
 ## <a name="create-a-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
-다음 단계는 레거시 인증 요청을 차단하는 조건부 액세스 정책을 만드는 데 도움이 됩니다. 이 정책은 관리자가 기존 사용자에게 미칠 영향을 확인할 수 있도록 시작할 때 [읽기 전용 모드](howto-conditional-access-report-only.md)로 설정됩니다. 관리자는 정책이 의도한 대로 적용되는 것이 편한 경우 **켜짐**으로 전환하거나, 특정 그룹을 추가하고 다른 그룹을 제외하여 배포를 스테이징할 수 있습니다.
+다음 단계는 레거시 인증 요청을 차단하는 조건부 액세스 정책을 만드는 데 도움이 됩니다. 이 정책은 관리자가 기존 사용자에게 미칠 영향을 확인할 수 있도록 시작할 때 [읽기 전용 모드](howto-conditional-access-insights-reporting.md)로 설정됩니다. 관리자는 정책이 의도한 대로 적용되는 것이 편한 경우 **켜짐**으로 전환하거나, 특정 그룹을 추가하고 다른 그룹을 제외하여 배포를 스테이징할 수 있습니다.
 
 1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
@@ -48,7 +48,7 @@ ms.locfileid: "88032087"
 
 [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-report-only.md)
+[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 

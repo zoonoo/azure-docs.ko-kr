@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: juliako
-ms.openlocfilehash: ddd1a5b9217962b595408973874a59219af298cf
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604782"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050865"
 ---
 # <a name="examine-the-video-indexer-output"></a>Video Indexer 출력 검사
 
@@ -27,7 +27,7 @@ ms.locfileid: "88604782"
 
 ![자세한 정보](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-이 문서에서는 Video Indexer 출력 (JSON 콘텐츠)을 검사 합니다. 사용할 수 있는 기능 및 정보에 대 한 자세한 내용은 [Video Indexer insights](video-indexer-overview.md#video-insights)를 참조 하세요.
+이 문서에서는 Video Indexer 출력 (JSON 콘텐츠)을 검사 합니다. <br/>사용할 수 있는 기능 및 정보에 대 한 자세한 내용은 [Video Indexer insights](video-indexer-overview.md#video-insights)를 참조 하세요.
 
 > [!NOTE]
 > Video Indexer에서 모든 액세스 토큰의 만료 시간은 1시간입니다.
@@ -53,7 +53,7 @@ ms.locfileid: "88604782"
 
 ## <a name="root-elements-of-the-insights"></a>정보에 대 한 루트 요소
 
-|Name|설명|
+|Name|Description|
 |---|---|
 |accountId|재생 목록의 VI 계정 ID입니다.|
 |id|재생 목록의 ID입니다.|
@@ -113,7 +113,7 @@ ms.locfileid: "88604782"
 
 ## <a name="videos"></a>videos
 
-|Name|설명|
+|Name|Description|
 |---|---|
 |accountId|비디오의 VI 계정 ID입니다.|
 |id|비디오의 ID입니다.|
@@ -169,7 +169,7 @@ ms.locfileid: "88604782"
 
 한 면에 ID, 이름, 미리 보기, 기타 메타 데이터 및 임시 인스턴스 목록 (예: 00:00:05 – 00:00:10, 00:01:00-00:02:30 및 00:41:21 – 00:41:49)이 있을 수 있습니다. 각 임시 인스턴스에는 추가 메타 데이터가 있을 수 있습니다. 예를 들어 얼굴의 사각형을 조정합니다(20,230,60,60).
 
-|Version|코드 버전|
+|버전|코드 버전|
 |---|---|
 |sourceLanguage|비디오의 소스 언어입니다(하나의 마스터 언어를 가정함). [BCP-47](https://tools.ietf.org/html/bcp47) 문자열 형식입니다.|
 |language|인사이트 언어입니다(소스 언어에서 변환됨). [BCP-47](https://tools.ietf.org/html/bcp47) 문자열 형식입니다.|
@@ -572,7 +572,7 @@ id|블록의 ID입니다.|
 
 #### <a name="statistics"></a>통계
 
-|Name|설명|
+|Name|Description|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |SpeakerWordCount|화자별 단어 수입니다.|
@@ -585,7 +585,7 @@ id|블록의 ID입니다.|
 |Name|Description|
 |---|---|
 |id|오디오 효과 ID입니다.|
-|type|오디오 효과 유형(예: 박수, 음성, 음소거)입니다.|
+|형식|오디오 효과 유형(예: 박수, 음성, 음소거)입니다.|
 |인스턴스|이 오디오 효과가 나타나는 시간 범위 목록입니다.|
 
 ```json
@@ -699,7 +699,7 @@ Video Indexer는 음성 및 오디오 신호를 기반으로 감정을를 식별
 |Name|Description|
 |---|---|
 |id|감정 ID입니다.|
-|type|음성 및 오디오 신호를 기반으로 식별 된 emotion 순간입니다. Emotion, sadness, 또는 그에 대 한 것입니다.|
+|형식|음성 및 오디오 신호를 기반으로 식별 된 emotion 순간입니다. Emotion, sadness, 또는 그에 대 한 것입니다.|
 |인스턴스|이 감정이 나타난 시간 범위의 목록입니다.|
 
 ```json

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0cb99fd7f2ce842f76cbe1df2f598f2188ca41
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948898"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049930"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>조건부 액세스 배포 계획
 
@@ -242,7 +242,7 @@ CA 정책 조건에서 액세스 제어를 트리거하지 않으면 액세스 �
 
 [보고서 전용 모드](concept-conditional-access-report-only.md)를 사용하면 관리자가 환경에서 CA 정책을 사용하도록 설정하기 전에 해당 정책의 영향을 평가할 수 있습니다.
 
-[CA 정책에서 보고서 전용 모드를 구성](howto-conditional-access-report-only.md)하는 방법에 대해 알아보세요.
+[CA 정책에서 보고서 전용 모드를 구성](howto-conditional-access-insights-reporting.md)하는 방법에 대해 알아보세요.
 
 ### <a name="plan-for-disruption"></a>중단 계획
 
