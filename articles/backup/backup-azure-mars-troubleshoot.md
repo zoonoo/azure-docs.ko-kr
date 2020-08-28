@@ -3,12 +3,12 @@ title: Azure Backup 에이전트 문제 해결
 description: 이 문서에서는 Azure Backup 에이전트의 설치 및 등록 문제를 해결 하는 방법에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 64996737a18add8ca1bee25e32929f1d602f9018
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 86f9dfd8554e2560ea16a85c3551dba3f7dc01f1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763510"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019626"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -83,7 +83,7 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 
 ## <a name="backup-jobs-completed-with-warning"></a>백업 작업이 완료 되었지만 경고가 발생 했습니다.
 
-- 파일 및 폴더를 백업 하는 동안 MARS 에이전트가 반복 되 면 백업이 완료 된 것으로 표시 될 수 있는 다양 한 조건이 발생할 수 있습니다. 이러한 상황에서 작업은 경고와 함께 완료로 표시 됩니다. 이는 문제가 없지만 파일 하나 이상을 백업할 수 없음을 의미 합니다. 따라서 작업은 해당 파일을 건너 뛰 었으 나 데이터 원본에서 문제의 다른 모든 파일을 백업 했습니다.
+- 파일 및 폴더를 백업 하는 동안 MARS 에이전트가 반복 되 면 백업이 완료 된 것으로 표시 될 수 있는 다양 한 조건이 발생할 수 있습니다. 이러한 상황에서 작업은 경고와 함께 완료로 표시 됩니다. 이는 문제가 없지만 하나 이상의 파일을 백업할 수 없음을 의미 합니다. 따라서 작업은 해당 파일을 건너 뛰 었으 나 데이터 원본에서 문제의 다른 모든 파일을 백업 했습니다.
 
   ![백업 작업이 완료 되었지만 경고가 발생 했습니다.](./media/backup-azure-mars-troubleshoot/backup-completed-with-warning.png)
 

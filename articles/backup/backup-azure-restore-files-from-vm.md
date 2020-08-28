@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 7b9d97e518282cf150a8f54225c11d9edcbf8892
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 7ff746b85142714c129c04e7f8a3d20ac4b6cb53
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892578"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020170"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -386,11 +386,11 @@ Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' �
 
 오직 관리자만이 스크립트를 실행할 수 있으며 관리자 모드에서 실행해야 합니다. 스크립트는 미리 생성된 단계 세트만 실행하고 외부 소스의 입력을 허용하지 않습니다.
 
-스크립트를 실행하려면 Azure Portal 또는 PowerShell/CLI에서 스크립트를 생성할 때 권한 있는 사용자에게만 표시되는 암호가 필요합니다. 이는 스크립트를 다운로드 하는 권한 있는 사용자도 스크립트 실행을 담당 하는 것입니다.
+스크립트를 실행 하려면 Azure Portal 또는 PowerShell/CLI에서 스크립트를 생성할 때 권한이 부여 된 사용자 에게만 표시 되는 암호가 필요 합니다. 이는 스크립트를 다운로드 하는 권한 있는 사용자도 스크립트 실행을 담당 하는 것입니다.
 
 #### <a name="browse-files-and-folders"></a>파일 및 폴더 찾기
 
-스크립트는 파일과 폴더를 찾기 위해 머신의 iSCSI 초기자를 사용하여 iSCSI 대상으로 구성된 복구 지점에 연결합니다. 여기서는 누군가가 어느 한/모든 구성 요소를 모방/스푸핑하려는 시나리오를 생각해 볼 수 있습니다.
+이 스크립트는 파일 및 폴더를 찾아보기 위해 컴퓨터의 iSCSI 초기자를 사용 하 고 iSCSI 대상으로 구성 된 복구 지점에 연결 합니다. 여기서는 누군가가 어느 한/모든 구성 요소를 모방/스푸핑하려는 시나리오를 생각해 볼 수 있습니다.
 
 각 구성 요소가 서로를 인증하도록 상호 CHAP 인증 메커니즘을 사용하겠습니다. 즉, 가짜 초기자가 iSCSI 대상에 연결하고 가짜 대상이 스크립트가 실행되는 머신에 연결하기가 매우 어렵습니다.
 

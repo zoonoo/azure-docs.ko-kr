@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: b8f100d253dc5ecb321934eb49a1aba60595a5e8
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9a3bd50d23f2543c6efeb6297b4dbcba8293269c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232579"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019881"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 및 감정 검색
 
@@ -81,7 +82,7 @@ ms.locfileid: "86232579"
 ```
 
 #### <a name="attribute-descriptions"></a>특성 설명
-| 특성 이름 | Description |
+| 특성 이름 | 설명 |
 | --- | --- |
 | Mode |빠르게: 처리 속도는 빠르지만 정확도가 떨어집니다(기본값).|
 
@@ -156,7 +157,7 @@ ms.locfileid: "86232579"
 
 
 #### <a name="attribute-descriptions"></a>특성 설명
-| 특성 이름 | Description |
+| 특성 이름 | 설명 |
 | --- | --- |
 | Mode |얼굴: 얼굴만 감지합니다.<br/>PerFaceEmotion: 각 얼굴 감지에 대해 독립적으로 감정을 반환합니다.<br/>AggregateEmotion: 프레임의 모든 얼굴에 대한 평균 감정 값을 반환합니다. |
 | AggregateEmotionWindowMs |AggregateEmotion 모드가 선택된 경우에 사용합니다. 각 집계 결과를 생성하는 데 사용되는 동영상의 길이를 밀리초 단위로 지정합니다. |

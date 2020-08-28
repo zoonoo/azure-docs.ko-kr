@@ -3,12 +3,12 @@ title: DPM 및 Azure Backup Server를 위한 오프라인 백업
 description: Azure Backup를 사용 하면 Azure Import/Export 서비스를 사용 하 여 네트워크에서 데이터를 보낼 수 있습니다. 이 문서에서는 DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로를 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 221424871aa4f022e199c98e95024ec20e55d803
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 909c7cc85590005afd3b6bd32a94020937f96c32
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890079"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002014"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로 (MABS)
 
@@ -192,7 +192,7 @@ Azure 가져오기 작업을 처리 하는 데 걸리는 시간은 다양 합니
 
 ### <a name="complete-the-workflow"></a>워크플로 완료
 
-가져오기 작업이 완료되면 스토리지 계정에서 초기 백업 데이터를 사용할 수 있습니다. 다음 예약 백업 시 Azure backup은 데이터의 내용을 스토리지 계정에서 Recovery Services 자격 증명 모음으로 복사합니다.
+가져오기 작업이 완료되면 스토리지 계정에서 초기 백업 데이터를 사용할 수 있습니다. 다음 예약 된 백업 시 Azure Backup는 저장소 계정에서 Recovery Services 자격 증명 모음으로 데이터의 내용을 복사 합니다.
 
 다음 예약 온라인 복제본 만들기 작업 시 Data Protection Manager는 초기 백업 복사본에 대해 증분 백업을 수행합니다.
 

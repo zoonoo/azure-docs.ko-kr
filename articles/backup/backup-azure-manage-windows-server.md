@@ -3,12 +3,12 @@ title: Azure Recovery Services 자격 증명 모음 및 서버 관리
 description: 이 문서에서는 Recovery Services 자격 증명 모음 개요 대시보드를 사용 하 여 Recovery Services 자격 증명 모음을 모니터링 하 고 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: a34ac44e3fe8d3a0b7789b37b0b0308d42d4e3da
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 74351d781287d863db8be0fc7d20517e0479106c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756064"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002133"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
@@ -16,7 +16,7 @@ ms.locfileid: "88756064"
 
 ![Recovery Services 자격 증명 모음 대시보드](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
-이 문서의 필수 구성 요소는 Azure 구독, Recovery Services 자격 증명 모음이며, 자격 증명 모음에는 구성된 백업 항목이 하나 이상 있어야 합니다.
+이 문서의 필수 구성 요소는 Azure 구독, Recovery Services 자격 증명 모음 및 자격 증명 모음에 대해 구성 된 백업 항목이 하나 이상 있다는 것입니다.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -96,7 +96,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 | 경고 수준 | 알림을 생성하는 이벤트 |
 | ----------- | ----------- |
 | 중요 | 다음과 같은 경우에 중요한 알림을 받습니다. 백업 작업이 실패하고 복구 작업이 실패하고 서버의 보호를 중지했지만 데이터를 보존할 때.|
-| Warning | 백업 작업이 완료 되었지만 경고가 발생 하면 경고 알림이 표시 됩니다. 예를 들어 손상 문제로 인해 파일이 100 개 미만으로 백업 되지 않거나 100만 파일 보다 큰 경우에는 백업 되지 않습니다. |
+| 경고 | 백업 작업이 완료 되었지만 경고가 발생 하면 경고 알림이 표시 됩니다. 예를 들어 손상 문제로 인해 파일이 100 개 미만으로 백업 되지 않거나 100만 파일 보다 큰 경우에는 백업 되지 않습니다. |
 | 정보 제공 | 현재는 사용되는 정보 알림이 없습니다. |
 
 ### <a name="viewing-alert-details"></a>알림 세부 정보 보기

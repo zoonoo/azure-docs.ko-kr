@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 ms.author: victorh
-ms.openlocfilehash: be2bf0f9590a23f9def44a1800338c80f69a782c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25c2096de4c3643a4e6a3ba7bdad1e69ae93a179
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610526"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019082"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Azure 방화벽 SNAT 개인 IP 주소 범위
 
@@ -23,6 +23,9 @@ Azure 방화벽은 공용 IP 주소에 대 한 모든 아웃 바운드 트래픽
 조직에서 개인 네트워크에 대해 공용 IP 주소 범위를 사용하면 Azure Firewall은 AzureFirewallSubnet의 방화벽 개인 IP 주소 중 하나에 트래픽을 SNAT합니다. 그러나 공용 IP 주소 범위를 SNAT **하지 않도록** Azure 방화벽을 구성할 수 있습니다.
 
 대상 IP 주소에 관계 없이 Azure 방화벽을 SNAT 하지 않도록 구성 하려면 개인 IP 주소 범위로 **0.0.0.0/0** 을 사용 합니다. 이 구성을 사용 하는 경우 Azure 방화벽은 트래픽을 인터넷으로 직접 라우팅할 수 없습니다. 대상 주소에 관계 없이 항상 SNAT를 사용 하도록 방화벽을 구성 하려면 전용 IP 주소 범위로 **255.255.255.255/32** 를 사용 합니다.
+
+> [!IMPORTANT]
+> 사용자 고유의 개인 IP 주소 범위를 지정 하 고 기본 IANA RFC 1918 주소 범위를 유지 하려면 사용자 지정 목록에 IANA RFC 1918 범위가 계속 포함 되어 있는지 확인 합니다. 
 
 ## <a name="configure-snat-private-ip-address-ranges---azure-powershell"></a>SNAT 개인 IP 주소 범위 구성-Azure PowerShell
 

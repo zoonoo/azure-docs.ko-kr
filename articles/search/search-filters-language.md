@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 49a12203c833fc817b1898e6179d7f812d0a994e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 120c30803d1423dc8b1255c65703e84d5938f235
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923112"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002524"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Azure Cognitive Search에서 언어를 기준으로 필터링 하는 방법 
 
@@ -60,7 +61,7 @@ parameters =
 > [!Note]
 > 쿼리에는 $filter 인수가 없지만이 사용 사례는 필터 개념과 강력 하 게 관련 되어 있으므로 필터링 시나리오로 제공 됩니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Cognitive Search의 필터](search-filters.md)
 + [언어 분석기](/rest/api/searchservice/language-support)

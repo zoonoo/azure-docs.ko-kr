@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 51b8fd25e209316e828e234b4c64c8b2a2152de6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 87337cf22bdb388c5873a2811bb9913c3e7f4d4e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928584"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019779"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Active Directory id를 사용 하 여 Azure Cognitive Search 결과를 자르는 보안 필터
 
@@ -186,7 +187,7 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 이 연습에서는 AAD 로그인을 사용 하 여 Azure Cognitive Search 결과에서 문서를 필터링 하 고 요청에 제공 된 필터와 일치 하지 않는 문서의 결과를 잘라내는 방법을 배웠습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Cognitive Search 필터를 사용 하 여 id 기반 액세스 제어](search-security-trimming-for-azure-search.md)
 + [Azure Cognitive Search의 필터](search-filters.md)

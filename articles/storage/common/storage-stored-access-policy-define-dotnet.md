@@ -10,12 +10,13 @@ ms.date: 06/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c9c267097f681a78ba940283096b2c18d692e9cc
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6cd6147fbe38710bcefd580e71be1d6f5d446a21
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185369"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010752"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>.NET을 사용 하 여 저장 된 액세스 정책 만들기
 
@@ -125,7 +126,7 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 
 ---
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](storage-sas-overview.md)
 - [저장된 액세스 정책 정의](/rest/api/storageservices/define-stored-access-policy)

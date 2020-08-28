@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: e9b9e0b27e46c95ca4c2bc3a5c547259bada5fda
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a6a185c61c32636dd0189bc5835f850348b196cd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685411"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020357"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
 
@@ -164,7 +164,7 @@ Linux Vm의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
-- **MMS 에이전트**: 지원 되는 [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)및 [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) 운영 체제를 검토 합니다.
+- **MMS 에이전트**: 지원 되는 [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)및 [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) 운영 체제를 검토 합니다.
 - **종속성 에이전트**: 지원 되는 [Windows 및 Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) 운영 체제입니다.
 
 ## <a name="visualize-dependencies-for--hour"></a>> 시간에 대 한 종속성 시각화
