@@ -3,12 +3,12 @@ title: 미디어 그래프 개념-Azure
 description: 미디어 그래프를 사용 하 여 미디어를 캡처할 위치, 처리 방법 및 결과를 전달 해야 하는 위치를 정의할 수 있습니다. 이 문서에서는 미디어 그래프 개념에 대 한 자세한 설명을 제공 합니다.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798842"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048428"
 ---
 # <a name="media-graph"></a>미디어 그래프
 
@@ -37,19 +37,28 @@ IoT Edge의 Live Video Analytics를 사용 하면 "graph 토폴로지" 및 "grap
 
 ## <a name="media-graph-states"></a>미디어 그래프 상태  
 
-미디어 그래프는 다음 상태 중 하나일 수 있습니다.
+그래프 토폴로지 및 그래프 인스턴스의 수명 주기는 다음 상태 다이어그램에 표시 됩니다.
 
-* 비활성 – 미디어 그래프가 구성 되었지만 활성 상태가 아닌 상태를 나타냅니다.
-* 활성화 – 미디어 그래프가 인스턴스화될 때의 상태입니다. 즉, 비활성 상태와 활성 상태 간의 전환 상태입니다.
-* 활성 – 미디어 그래프가 활성화 된 상태입니다. 
+![그래프 토폴로지 및 그래프 인스턴스 수명 주기](./media/media-graph/graph-topology-lifecycle.svg)
 
-    > [!NOTE]
-    >  미디어 그래프가 데이터 흐름을 통과 하지 않고도 활성 상태일 수 있습니다. 예를 들어 입력 비디오 원본이 오프 라인 상태가 됩니다.
-* 비활성화-미디어 그래프가 활성에서 비활성으로 전환 될 때의 상태입니다.
+[그래프 토폴로지를 만드는](direct-methods.md#graphtopologyset)것으로 시작 합니다. 그런 다음이 토폴로지에서 처리 하려는 각 라이브 비디오 피드에 대해 [그래프 인스턴스를 만듭니다](direct-methods.md#graphinstanceset). 
 
-아래 다이어그램은 미디어 그래프 상태 시스템을 보여 줍니다.
+그래프 인스턴스는 `Inactive` (유휴 상태) 상태가 됩니다.
 
-![미디어 그래프 상태 시스템](./media/media-graph/media-graph-state-machine.png)
+라이브 비디오 피드를 graph 인스턴스로 보낼 준비가 되 면 [활성화](direct-methods.md#graphinstanceactivate) 합니다. Graph 인스턴스는 transitionary 상태를 잠깐 이동 하 `Activating` 고 성공 하면 `Active` 상태로 전환 합니다. 상태에서 `Active` 미디어는 처리 됩니다 (graph 인스턴스가 입력 데이터를 수신 하는 경우).
+
+> [!NOTE]
+>  그래프 인스턴스는 데이터를 이동 하지 않고 활성 상태일 수 있습니다. 예를 들어 카메라가 오프 라인 상태가 됩니다.
+> Graph 인스턴스가 활성 상태일 때 Azure 구독에 대 한 요금이 청구 됩니다.
+
+다른 라이브 비디오 피드가 처리 될 경우 동일한 토폴로지에 대해 다른 그래프 인스턴스를 만들고 활성화 하는 프로세스를 반복할 수 있습니다.
+
+라이브 비디오 피드의 처리가 완료 되 면 그래프 인스턴스를 [비활성화할](direct-methods.md#graphinstancedeactivate) 수 있습니다. Graph 인스턴스는 transitionary 상태를 잠깐 이동 `Deactivating` 하 여 포함 된 모든 데이터를 플러시한 다음 `Inactive` 상태로 돌아갑니다.
+
+그래프 인스턴스는 상태에 있는 경우에만 [삭제할](direct-methods.md#graphinstancedelete) 수 있습니다 `Inactive` .
+
+특정 그래프 토폴로지를 참조 하는 모든 그래프 인스턴스가 삭제 된 후에는 [그래프 토폴로지를 삭제할](direct-methods.md#graphtopologydelete)수 있습니다.
+
 
 ## <a name="sources-processors-and-sinks"></a>원본, 프로세서 및 싱크  
 

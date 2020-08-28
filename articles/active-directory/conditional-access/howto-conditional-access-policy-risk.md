@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2564e3f246d23028d6c73832a25f37110e7670c8
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 0c6e3316afc09992d16e17d9d2e2afe6b92dcd22
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948099"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049046"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>조건부 액세스: 로그인 위험 기반 조건부 액세스
 
@@ -66,7 +66,7 @@ ms.locfileid: "88948099"
 
 [사용자 위험 기반 조건부 액세스](howto-conditional-access-policy-risk-user.md)
 
-[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-report-only.md)
+[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 

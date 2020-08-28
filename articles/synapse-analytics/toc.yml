@@ -34,8 +34,10 @@
       href: release-notes.md
 - name: 빠른 시작
   items:
-    - name: Synapse 작업 영역 만들기
+    - name: Azure Portal을 사용하여 Synapse 작업 영역 만들기
       href: quickstart-create-workspace.md
+    - name: Azure CLI를 사용하여 Synapse 작업 영역 만들기
+      href: quickstart-create-workspace-cli.md
     - name: Synapse Studio 사용
       href: quickstart-synapse-studio.md
     - name: Power BI 작업 영역 연결

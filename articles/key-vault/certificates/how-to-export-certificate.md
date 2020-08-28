@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: ee05d331e953aa39855033d0987cb85cbfddb744
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 408b507ff23a2a20c5ed6d2fc32fd5dbf5dbab5d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827514"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930896"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Azure Key Vault의 인증서 내보내기
 
@@ -36,10 +36,7 @@ Key Vault 인증서가 만들어지면 프라이빗 키를 사용하여 주소 �
 - **내보내기 가능**: 인증서를 만드는 데 사용된 정책은 키를 내보낼 수 있다고 표시합니다.
 - **내보내기 불가능**: 인증서를 만드는 데 사용된 정책은 키를 내보낼 수 없다고 표시합니다. 이 경우 프라이빗 키는 비밀로 검색될 때 값의 일부가 아닙니다.
 
-Key Vault는 다음과 같은 두 가지 유형을 지원합니다.
-
-- **RSA**: 내보내기 가능
-- **HSM RSA**: 내보내기 불가능
+지원되는 키 유형: RSA, RSA-HSM, EC, EC-HSM, oct([여기](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)에 나열됨) Exportable은 RSA, EC에서만 사용할 수 있습니다. HSM 키는 내보낼 수 없습니다.
 
 자세한 내용은 [Azure Key Vault 인증서 정보](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#exportable-or-non-exportable-key)를 참조하세요.
 

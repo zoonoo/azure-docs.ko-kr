@@ -6,6 +6,10 @@
       href: overview.md
     - name: 이전 릴리스와의 차이점
       href: overview-differences.md
+- name: 빠른 시작
+  items:
+    - name: 샘플 시나리오 살펴보기
+      href: quickstart-adt-explorer.md
 - name: 자습서
   items:
     - name: 클라이언트 앱 코딩
@@ -76,6 +80,8 @@
       items:
         - name: IoT Hub에서 원격 분석 수집
           href: how-to-ingest-iot-hub-data.md
+        - name: Logic Apps와 통합
+          href: how-to-integrate-logic-apps.md
     - name: 연결 출력
       items:
         - name: 엔드포인트 및 경로 관리
@@ -88,8 +94,6 @@
           href: how-to-integrate-maps.md
         - name: Azure Time Series Insights와 통합
           href: how-to-integrate-time-series-insights.md
-        - name: Logic Apps와 통합
-          href: how-to-integrate-logic-apps.md
     - name: 문제 해결
       items:
         - name: Azure Monitor의 메트릭 보기

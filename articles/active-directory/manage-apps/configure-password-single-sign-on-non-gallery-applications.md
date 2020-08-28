@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: be6a8a58f1d66df9d0fe557584c4731e42ae9c59
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: e04a3aab128bb8f0bdee01361bc0d09aad6ed2fb
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640551"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049063"
 ---
 # <a name="configure-password-based-single-sign-on"></a>암호 기반 Single Sign-On 구성
 
@@ -52,6 +52,9 @@ IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 설정 
 ## <a name="basic-configuration"></a>기본 구성
 
 [퀵 스타트 시리즈](view-applications-portal.md)에서는 Azure AD가 앱에 대 한 IdP (id 공급자)로 사용 되 고 있음을 알 수 있도록 테 넌 트에 앱을 추가 하는 방법을 알아보았습니다. 일부 앱은 이미 미리 구성 되어 있으며 Azure AD 갤러리에 표시 됩니다. 다른 앱은 갤러리에 없으며, 일반 앱을 만들어 수동으로 구성 해야 합니다. 앱에 따라 암호 기반 SSO 옵션을 사용 하지 못할 수도 있습니다. 앱에 대 한 Single Sign-On 페이지에 암호 기반 옵션 목록이 표시 되지 않는 경우 사용할 수 없습니다.
+
+> [!IMPORTANT]
+> 암호 기반 SSO에는 My Apps 브라우저 확장이 필요 합니다. 자세히 알아보려면 [내 앱 배포 계획](access-panel-deployment-plan.md)을 참조 하세요.
 
 암호 기반 SSO에 대 한 구성 페이지는 단순 합니다. 앱에서 사용 하는 로그온 페이지의 URL만 포함 합니다. 이 문자열은 사용자 이름 입력 필드를 포함 하는 페이지 여야 합니다.
 

@@ -10,14 +10,21 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: Spring Cloud 앱 시작 - 포털
-      href: spring-cloud-quickstart-launch-app-portal.md
-    - name: Spring Cloud 앱 시작 - Azure CLI
-      href: spring-cloud-quickstart-launch-app-cli.md
-    - name: Spring Cloud 앱 시작 - 원본
-      href: spring-cloud-launch-from-source.md
-    - name: Spring Cloud 앱 시작 - Maven
-      href: spring-cloud-quickstart-launch-app-maven.md
+    - name: 첫 번째 앱 시작
+      href: spring-cloud-quickstart.md
+    - name: 마이크로서비스 빌드 및 실행
+      expanded: true
+      items:
+        - name: 샘플 앱 소개
+          href: spring-cloud-quickstart-sample-app-introduction.md
+        - name: Azure Spring Cloud 서비스 프로비저닝
+          href: spring-cloud-quickstart-provision-service-instance.md
+        - name: 구성 서버 설정
+          href: spring-cloud-quickstart-setup-config-server.md
+        - name: 앱 빌드 및 배포
+          href: spring-cloud-quickstart-deploy-apps.md
+        - name: '로그, 메트릭 및 추적 사용'
+          href: spring-cloud-quickstart-logs-metrics-tracing.md
 - name: 자습서
   items:
     - name: 수동으로 앱 스케일링

@@ -329,6 +329,28 @@
       items:
         - name: 데이터 수집 규칙
           href: platform/data-collection-rule-overview.md
+        - name: 에이전트 데이터 원본
+          items:
+            - name: 개요
+              href: platform/agent-data-sources.md
+            - name: Windows 이벤트
+              href: platform/data-sources-windows-events.md
+            - name: 사용자 지정 JSON 데이터
+              href: platform/data-sources-json.md
+            - name: 수집된 성능 데이터
+              href: platform/data-sources-collectd.md
+            - name: syslog
+              href: platform/data-sources-syslog.md
+            - name: 성능 카운터
+              href: platform/data-sources-performance-counters.md
+            - name: Linux 애플리케이션 성능
+              href: platform/data-sources-linux-applications.md
+            - name: IIS 로그
+              href: platform/data-sources-iis-logs.md
+            - name: 사용자 지정 로그
+              href: platform/data-sources-custom-logs.md
+            - name: 사용자 지정 필드
+              href: platform/custom-fields.md
         - name: 사용자 지정 메트릭
           items:
             - name: 사용자 지정 메트릭
@@ -361,6 +383,24 @@
             - name: 데이터 수집
               displayname: 'data collection rule,Azure Monitor agent'
               href: platform/data-collection-rule-azure-monitor-agent.md
+        - name: Log Analytics 에이전트
+          items:
+            - name: 개요
+              href: platform/log-analytics-agent.md
+            - name: Windows 에이전트
+              href: platform/agent-windows.md
+            - name: Linux 에이전트
+              href: platform/agent-linux.md
+            - name: Windows용 VM 확장
+              href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
+            - name: Linux용 VM 확장
+              href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
+            - name: Log Analytics 게이트웨이
+              href: platform/gateway.md
+            - name: 에이전트 관리
+              href: platform/agent-manage.md
+            - name: 에이전트 상태
+              href: insights/solution-agenthealth.md
         - name: Azure Diagnostics 확장
           items:
             - name: 개요
@@ -403,46 +443,6 @@
                   href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
                 - name: Telegraf를 사용하여 메트릭 수집
                   href: platform/collect-custom-metrics-linux-telegraf.md
-        - name: Log Analytics 에이전트
-          items:
-            - name: 개요
-              href: platform/log-analytics-agent.md
-            - name: Windows 에이전트
-              href: platform/agent-windows.md
-            - name: Linux 에이전트
-              href: platform/agent-linux.md
-            - name: Windows용 VM 확장
-              href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
-            - name: Linux용 VM 확장
-              href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-            - name: Log Analytics 게이트웨이
-              href: platform/gateway.md
-            - name: 에이전트 관리
-              href: platform/agent-manage.md
-            - name: 에이전트 상태
-              href: insights/solution-agenthealth.md
-            - name: 데이터 원본
-              items:
-                - name: 개요
-                  href: platform/agent-data-sources.md
-                - name: Windows 이벤트
-                  href: platform/data-sources-windows-events.md
-                - name: 사용자 지정 JSON 데이터
-                  href: platform/data-sources-json.md
-                - name: 수집된 성능 데이터
-                  href: platform/data-sources-collectd.md
-                - name: syslog
-                  href: platform/data-sources-syslog.md
-                - name: 성능 카운터
-                  href: platform/data-sources-performance-counters.md
-                - name: Linux 애플리케이션 성능
-                  href: platform/data-sources-linux-applications.md
-                - name: IIS 로그
-                  href: platform/data-sources-iis-logs.md
-                - name: 사용자 지정 로그
-                  href: platform/data-sources-custom-logs.md
-                - name: 사용자 지정 필드
-                  href: platform/custom-fields.md
         - name: 문제 해결
           items:
             - name: Log Analytics VM 확장

@@ -1,0 +1,10 @@
+- name: Azure Arc 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Arc 정보
+      href: arc-overview.md
+- name: Arc 지원 서버 >
+  href: ./servers/overview.md
+- name: Arc 지원 Kubernetes >
+  href: ./kubernetes/overview.md

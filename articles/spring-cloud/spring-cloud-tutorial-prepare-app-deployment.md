@@ -7,16 +7,18 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b2ae94da3d9b2dee62bc031c4a32d17b43be00a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1261e36c782068844712908e62a72b77d34ba5af
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021276"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046734"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비
 
 이 항목에서는 Azure Spring Cloud에 배포하기 위해 기존 Java Spring 애플리케이션을 준비하는 방법을 보여줍니다. 제대로 구성된 경우, Azure Spring Cloud는 Java Spring Cloud 애플리케이션을 모니터링하고, 크기를 조정하고, 업데이트할 수 있는 강력한 서비스를 제공합니다.
+
+이 예를 실행 하기 전에 [기본 빠른](spring-cloud-quickstart.md)시작을 사용해 볼 수 있습니다.
 
 다른 예제에서는 POM 파일이 구성된 경우 Azure Spring Cloud에 애플리케이션을 배포하는 방법을 설명합니다. 
 * [Azure Portal을 사용하여 앱 시작](spring-cloud-quickstart-launch-app-portal.md)

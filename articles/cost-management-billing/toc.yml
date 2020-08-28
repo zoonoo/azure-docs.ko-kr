@@ -172,6 +172,10 @@
               href: manage/pay-by-invoice.md
             - name: 추가 구독 만들기
               href: manage/create-subscription.md
+            - name: 프로그래밍 방식으로 구독 만들기
+              href: manage/programmatically-create-subscription.md
+            - name: EA 구독을 만드는 액세스 권한 부여
+              href: manage/grant-access-to-create-subscription.md
             - name: 구독 정보 내보내기
               href: manage/export-subscriptions.md
             - name: 신용 카드 변경

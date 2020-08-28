@@ -520,17 +520,11 @@
           href: speech-container-faq.md
 - name: Speech SDK
   items:
-    - name: 개요
-      items:
-        - name: Speech SDK 정보
-          href: speech-sdk.md
-        - name: 시나리오 가용성
-          href: scenario-availability.md
-    - name: 빠른 시작
-      items:
-        - name: Speech SDK 설치
-          displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
-          href: quickstarts/setup-platform.md
+    - name: Speech SDK 개요
+      href: speech-sdk.md
+    - name: Speech SDK 설치
+      displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
+      href: quickstarts/setup-platform.md
     - name: 방법 가이드
       items:
         - name: 로깅 사용

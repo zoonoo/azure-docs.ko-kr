@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c6b524fb76c623273c60d39f4102500664c487cb
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7fbc69100a2cc5c23150fcc0c19e6c38ba6d438d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823984"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051171"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: 질문과 대답
 
@@ -61,7 +61,7 @@ A. Data Box는 미국, 서유럽, 북유럽, 프랑스, 영국, 일본, 오스�
 
 Data Box는 해당 대상과 동일한 국가/지역 내 에서만 데이터 수집 또는 송신을 지원 하 고 국가별 테두리를 교차 하지 않습니다. 유일한 예외는 eu (유럽 연합)의 주문에 대 한 것입니다 .이 경우 데이터 상자는 EU 국가/지역에 제공 될 수 있습니다.
 
-예를 들어 가져오기 시나리오에서 Azure WestUS 저장소 계정으로 이동 하려는 캐나다의 온-프레미스 데이터가 있는 경우 다음과 같은 방법으로이를 달성할 수 있습니다.
+예를 들어 가져오기 시나리오에서 Azure WestUS 저장소 계정으로 이동 하고자 하는 캐나다의 원본 데이터가 있는 경우 다음과 같은 방법으로이를 달성할 수 있습니다.
 
 1. Cananda에서 저장소 계정을 선택 하 여 캐나다의 Data Box 주문 합니다. 이 장치는 캐나다의 Azure 데이터 센터에서 주문 생성 중에 제공 된 배송 주소 (캐나다)로 배송 됩니다.
 

@@ -246,7 +246,7 @@
               href: application-types.md
             - name: 할당된 예기치 않은 사용자
               href: ways-users-get-assigned-to-applications.md
-        - name: 액세스 패널 문제 해결
+        - name: 내 앱 문제 해결
           items:
             - name: 브라우저 확장 관리
               href: manage-access-panel-browser-extension.md
@@ -256,8 +256,6 @@
               href: access-panel-troubleshoot-unexpected-application.md
             - name: 로그인할 수 없음
               href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: 브라우저 확장을 설치하는 오류
-              href: access-panel-extension-problem-installing.md
             - name: 셀프 서비스 앱 액세스를 사용하는 오류
               href: access-panel-troubleshoot-self-service-access.md
         - name: 온-프레미스 앱 문제 해결

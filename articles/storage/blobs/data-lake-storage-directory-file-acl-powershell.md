@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 01706b3f6850d49240b9c84997cbbec528045200
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e80db84789ab5c8b0f07bc6a76ae99f8db3c8b80
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923877"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051035"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>PowerShell을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "88923877"
 
 [참조](https://docs.microsoft.com/powershell/module/Az.Storage/?view=azps-4.5.0)  |  [Gen1 To Gen2 mapping](#gen1-gen2-map)  |  [사용자 의견 제공](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -125,6 +125,8 @@ $dir.Owner
 $dir.Properties
 $dir.Properties.Metadata
 ```
+> [!NOTE]
+> 컨테이너의 루트 디렉터리를 가져오려면 `-Path` 매개 변수를 생략 합니다.
 
 ## <a name="rename-or-move-a-directory"></a>디렉터리 이름 바꾸기 또는 이동
 
@@ -202,7 +204,8 @@ $properties.Group
 $properties.Owner
 ```
 
-컨테이너의 내용을 나열 하려면 `-Path` 명령에서 매개 변수를 생략 합니다.
+> [!NOTE]
+> 컨테이너의 루트 디렉터리 내용을 나열 하려면 매개 변수를 생략 합니다 `-Path` .
 
 ## <a name="upload-a-file-to-a-directory"></a>디렉터리에 파일 업로드
 
@@ -227,6 +230,9 @@ $file1.Properties
 $file1.Properties.Metadata
 
 ```
+
+> [!NOTE]
+> 컨테이너의 루트 디렉터리에 파일을 업로드 하려면 `-Path` 매개 변수를 생략 합니다.
 
 ## <a name="show-file-properties"></a>파일 속성 표시
 
@@ -404,7 +410,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 |AzDataLakeStoreItemOwner<br>AzDataLakeStoreItemPermission<br>AzDataLakeStoreItemAcl|업데이트-AzDataLakeGen2Item|AzDataLakeGen2Item cmdlet은 단일 항목만 업데이트 하 고 재귀적으로 업데이트 하지 않습니다. 재귀적으로 업데이트 하려는 경우 AzDataLakeStoreChildItem cmdlet을 사용 하 여 항목을 나열 하 고 파이프라인을 AzDataLakeGen2Item cmdlet으로 파이프라인 합니다.|
 |AzDataLakeStoreItem|AzDataLakeGen2Item|항목이 존재 하지 않는 경우 AzDataLakeGen2Item cmdlet에서 오류를 보고 합니다.|
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [스토리지 PowerShell cmdlet](/powershell/module/az.storage)

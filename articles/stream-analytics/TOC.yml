@@ -73,12 +73,34 @@
         - name: 출력 개요
           href: stream-analytics-define-outputs.md
           displayName: 'adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions'
-        - name: Cosmos DB 출력
-          href: stream-analytics-documentdb-output.md
-        - name: Azure SQL DB 출력
+        - name: Azure Data Lake Storage Gen 1
+          href: azure-data-lake-storage-gen1-output.md
+        - name: Azure SQL Database
+          href: sql-database-output.md
+        - name: SQL 데이터베이스 성능
           href: stream-analytics-sql-output-perf.md
+        - name: Azure Synapse Analytics
+          href: azure-synapse-analytics-output.md
+        - name: Blob Storage 및 Azure Data Lake Gen 2
+          href: blob-storage-azure-data-lake-gen2-output.md
         - name: Blob 사용자 지정 경로 패턴
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+        - name: Event Hubs
+          href: event-hubs-output.md
+        - name: Power BI
+          href: power-bi-output.md
+        - name: Table Storage
+          href: table-storage-output.md
+        - name: Service Bus 큐
+          href: service-bus-queues-output.md
+        - name: Service Bus 토픽
+          href: service-bus-topics-output.md
+        - name: Azure Cosmos DB
+          href: azure-cosmos-db-output.md
+        - name: Cosmos DB 최적화
+          href: stream-analytics-documentdb-output.md
+        - name: Azure Functions
+          href: azure-functions-output.md
     - name: 함수를 사용한 쿼리 확장
       items:
         - name: 함수 개요

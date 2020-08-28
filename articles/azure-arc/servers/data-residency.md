@@ -4,12 +4,12 @@ description: 데이터 상주 및 Azure Arc 사용 서버 (미리 보기)에 대
 ms.topic: reference
 ms.date: 08/25/2020
 ms.custom: references_regions
-ms.openlocfilehash: 028398c27dde9760192d366b9e8a91dca8e429cf
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8f207f5889c1764eebcc6081960ff70c0d5bca3a
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860973"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048859"
 ---
 # <a name="azure-arc-enabled-servers-preview-data-residency"></a>Azure Arc 사용 서버 (미리 보기): 데이터 상주
 
@@ -34,4 +34,4 @@ Arc 사용 서버 (미리 보기)를 사용 하면 데이터가 저장 될 지�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure 복원 력](/architecture/reliability/architect)설계에 대해 자세히 알아보세요.
+[Azure 복원 력](/azure/architecture/reliability/architect)설계에 대해 자세히 알아보세요.
