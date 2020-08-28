@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 자격 증명 모음
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 3ee2d57b5589daa756020ebb787a5400ed244506
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 8890cb541e38f8bc8b680fbcfeb821f29723e8c0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890045"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007114"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음 구성 업데이트
 
@@ -33,7 +33,7 @@ ms.locfileid: "88890045"
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-GET URI에는 `{subscriptionId}` , `{vaultName}` `{vaultresourceGroupName}` 매개 변수가 있습니다. 이 예제에서는 `{vaultName}` "testVault"이 고 `{vaultresourceGroupName}` 는 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에서 지정되므로 별도 요청 본문이 필요 없습니다.
+GET URI에는 `{subscriptionId}` , `{vaultName}` `{vaultresourceGroupName}` 매개 변수가 있습니다. 이 예제에서는 `{vaultName}` "testVault"이 고 `{vaultresourceGroupName}` 는 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에 제공 되므로 별도의 요청 본문이 필요 하지 않습니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 ' GET ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|이름  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
 
@@ -83,10 +83,10 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 자세한 내용은 [REST API 설명서](/rest/api/backup/backupresourcevaultconfigs/update#request-body) 를 참조 하세요.
 
-|이름  |필수  |Type  |설명  |
+|Name  |필수  |Type  |설명  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  선택적 eTag       |
-|위치     |  true       |String         |   리소스 위치      |
+|eTag     |         |   문자열      |  선택적 eTag       |
+|위치     |  true       |문자열         |   리소스 위치      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  자격 증명 모음의 속성       |
 |tags     |         | Object        |     리소스 태그    |
 
@@ -107,7 +107,7 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 ' PATCH ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|이름  |유형  |설명  |
+|Name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
 
