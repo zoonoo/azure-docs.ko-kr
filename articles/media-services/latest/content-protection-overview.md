@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2020
 ms.author: juliako
-ms.custom: seodec18
-ms.openlocfilehash: 0be481d90562ca611b021e2f05d9109eb51958c8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: e21aba7b06e6c692337344477bfb52e7f7acb27c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023265"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012198"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Media Services 동적 암호화를 사용 하 여 콘텐츠 보호
 
@@ -242,7 +242,7 @@ Media Services 고객은 *토큰 재생 방지* 기능을 통해 동일한 토�
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
 ```
 
-`ContentKeyId`에는 요청 된 키의 값이 있습니다. `AlternativeMediaId`사용자 측의 엔터티에 요청을 매핑하려는 경우를 사용할 수 있습니다. 예를 들어를 `AlternativeMediaId` 사용 하 여 사용 권한을 조회할 수 있습니다.
+`ContentKeyId` 에는 요청 된 키의 값이 있습니다. `AlternativeMediaId`사용자 측의 엔터티에 요청을 매핑하려는 경우를 사용할 수 있습니다. 예를 들어를 `AlternativeMediaId` 사용 하 여 사용 권한을 조회할 수 있습니다.
 
 사용자 지정 라이선스/키 취득 Url을 사용 하는 REST 예제는 [스트리밍 정책-만들기](/rest/api/media/streamingpolicies/create)를 참조 하세요.
 
@@ -265,5 +265,5 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 * [DRM으로 보호](protect-with-drm.md)
 * [액세스 제어를 사용 하 여 다중 DRM 콘텐츠 보호 시스템 디자인](design-multi-drm-system-with-access-control.md)
 * [스토리지 쪽 암호화](storage-account-concept.md#storage-side-encryption)
-* [질문과 대답](frequently-asked-questions.md)
+* [자주 묻는 질문](frequently-asked-questions.md)
 * [JSON 웹 토큰 처리기](/dotnet/framework/security/json-web-token-handler)

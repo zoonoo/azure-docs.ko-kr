@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: fd0d425f00e001071f5c9021068ca2f038371a36
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: e0d1f9ad99e1b64560321312a22f61f5a2ef3dea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212820"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016039"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Apache Hadoop 애플리케이션 설치
 
@@ -29,7 +29,7 @@ HDInsight 애플리케이션은 HDInsight 클러스터에 사용자가 설치할
 |[HDInsight용 CDAP](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP는 Hadoop에 가치를 창출하는 시간을 가속화하고 IT에서 셀프 서비스 데이터를 제공할 수 있도록 하는 첫 번째 빅 데이터용 통합 플랫폼입니다. 확장성 있는 오픈 소스 CDAP는 혁신의 장벽을 제거합니다. 요구 사항: 4개 지역 노드, 최소 D3 v2. |
 |[Datameer](https://azuremarketplace.microsoft.com/marketplace/apps/datameer.datameer) |Hadoop은 |Datameer는 분석할 데이터를 준비, 탐색, 관리하는 셀프 서비스 확장형 플랫폼으로, 복잡한 다중 소스 데이터를 비즈니스에 바로 사용 가능한 소중한 정보로 전환하여 더 빠르고 스마트한 인사이트를 기업 전체에 제공합니다. |
 |[HDInsight의 Dataiku DSS](https://azuremarketplace.microsoft.com/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |데이터 과학자와 데이터 분석가가 협업을 통해 원시 데이터를 매우 효과적인 예측으로 전환하여 새 데이터 제품 및 서비스를 보다 효율적으로 디자인하고 실행할 수 있도록 하는 엔터프라이즈 데이터 과학 플랫폼의 Dataiku DSS. |
-|[WANdisco Fusion HDI 앱](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark, HBase, Storm, Kafka |분산 환경에서 데이터를 일관되게 유지하는 것은 엄청난 데이터 작업 과제입니다. 엔터프라이즈급 소프트웨어 플랫폼인 WANdisco Fusion은 모든 환경에서 비정형 데이터 일관성을 사용하여 이 문제를 해결합니다. |
+|[WANdisco Fusion HDI 앱](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.wandisco-liveanalytics) |Hadoop, Spark, HBase, Storm, Kafka |분산 환경에서 데이터를 일관되게 유지하는 것은 엄청난 데이터 작업 과제입니다. 엔터프라이즈급 소프트웨어 플랫폼인 WANdisco Fusion은 모든 환경에서 비정형 데이터 일관성을 사용하여 이 문제를 해결합니다. |
 |[HDInsight용 H2O SparklingWater](https://azuremarketplace.microsoft.com/marketplace/apps/h2o-ai.h2o-sparklingwater) |Spark |H2O Sparkling Water는 다음 분산 알고리즘을 지원합니다. GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, 심층 신경망, 딥 러닝, K-평균, PCA, Generalized Low Rank 모델, 변칙 검색, Autoencoder. |
 |[HDInsight에 대한 실시간 데이터 통합을 위한 Striim](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop, HBase, Storm, Spark, Kafka |Striim(“스트림”으로 발음)은 엔드투엔드 데이터 통합 + 인텔리전스 플랫폼으로, 서로 다른 데이터 스트림을 연속으로 수집, 처리, 분석할 수 있습니다. |
 |[Jumbune 엔터프라이즈 - 빅 데이터 분석 가속화](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |높은 수준에서 Jumbune은 엔터프라이즈를 지원합니다. 1. Tez, MapReduce 및 Spark 엔진 기반 Hive, Java, Scala 워크로드 성능 가속화. 2. 자동 관리 Hadoop 클러스터 모니터링. 3. 분산 파일 시스템에 데이터 품질 관리 설정. |

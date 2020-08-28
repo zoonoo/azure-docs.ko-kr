@@ -1,15 +1,15 @@
 ---
 title: SAP HANA Backup 지원 매트릭스
-description: 이 문서에서는 Azure Backup을 사용하여 Azure VM에 SAP HANA 데이터베이스를 백업할 때 지원되는 시나리오 및 제한 사항에 대해 알아봅니다.
+description: 이 문서에서는 Azure Backup를 사용 하 여 Azure Vm에서 SAP HANA 데이터베이스를 백업 하는 경우 지원 되는 시나리오 및 제한 사항에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5b0d1b603e8a9c06e210083863e0ca6bfbee2399
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e3bfc5ab9a91ae3aee73d7ed24161acae60211ce
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826466"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022329"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Azure VM의 SAP HANA 데이터베이스 백업에 대한 지원 매트릭스
 

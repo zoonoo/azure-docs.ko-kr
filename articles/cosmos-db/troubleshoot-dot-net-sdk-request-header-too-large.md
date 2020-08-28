@@ -7,12 +7,13 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: a4d8a919d1881f61e490f135cc8fb1659c64cbd3
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: d5d66ca05390af5f6fef91ca959f1db3d547d3fb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871125"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014050"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>"요청 헤더 너무 큼" 메시지 Azure Cosmos DB 진단 및 문제 해결
 HTTP 오류 코드 400를 사용 하 여 "요청 헤더가 너무 큼" 메시지가 throw 됩니다. 이 오류는 요청 헤더의 크기가 최대 허용 크기를 초과 하 여 증가 하는 경우에 발생 합니다. 최신 버전의 SDK를 사용 하는 것이 좋습니다. 이러한 버전은 예외 메시지에 헤더 크기 추적을 추가 하기 때문에 버전 3(sp3) 또는 2.x 이상을 사용 합니다.

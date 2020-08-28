@@ -3,12 +3,12 @@ title: 보안 기능 개요
 description: 백업 데이터를 보호하고 비즈니스의 보안 요구를 충족하는 데 도움이 되는 Azure Backup의 보안 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890470"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012554"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Azure Backup의 보안 기능 개요
 
@@ -36,7 +36,7 @@ Azure Backup에는 보안 취약성을 예방, 감지 및 대응하기 위해 �
 
 Azure VM을 백업하려면 가상 머신의 디스크에서 Recovery Services 자격 증명 모음으로 데이터를 이동해야 합니다. 그러나 모든 필수 통신 및 데이터 전송은 가상 네트워크에 액세스할 필요 없이 Azure 백본 네트워크에서만 수행됩니다. 따라서 보안 네트워크 내에 배치된 Azure VM을 백업하려면 모든 IP 또는 FQDN에 대한 액세스를 허용하지 않아도 됩니다.
 
-## <a name="private-endpoints-for-azure-backup"></a>Azure 백업에 대한 프라이빗 엔드포인트
+## <a name="private-endpoints-for-azure-backup"></a>Azure Backup에 대 한 개인 끝점
 
 이제 [프라이빗 엔드포인트](../private-link/private-endpoint-overview.md)를 사용하여 데이터를 가상 네트워크 내의 서버에서 Recovery Services 자격 증명 모음으로 안전하게 백업할 수 있습니다. 개인 끝점은 자격 증명 모음에 대 한 VNET 주소 공간의 IP를 사용 하므로 공용 Ip에 가상 네트워크를 노출할 필요가 없습니다. 프라이빗 엔드포인트는 Azure VM 내에서 실행되는 SQL 및 SAP HANA 데이터베이스를 백업하고 복원하는 데 사용할 수 있습니다. 또한 MARS 에이전트를 사용하는 온-프레미스 서버에도 사용할 수 있습니다.
 
@@ -70,7 +70,7 @@ Azure Backup 서비스는 MARS(Microsoft Azure Recovery Services) 에이전트�
 
 * 삭제된 백업 데이터는 삭제일로부터 추가 14일 동안 보존됩니다. 이를 통해 지정된 기간 내에는 데이터를 복구할 수 있게 되므로 공격이 발생하더라도 데이터가 손실되지 않습니다. 또한 데이터 손상으로부터 보호하기 위해 더 많은 수의 최소 복구 지점이 유지됩니다. [삭제된 백업 데이터 복구에 대해 자세히 알아보세요](./backup-azure-security-feature.md#recover-deleted-backup-data).
 
-* MARS(Microsoft Azure Recovery Services) 에이전트를 사용하여 백업된 데이터의 경우 Azure Backup에서 다운로드한 후에만 Azure Backup에 업로드하고 해독하기 전에 데이터를 암호화하는 데 암호가 사용됩니다. 암호는 암호를 만든 사용자와 해당 암호를 사용하여 구성된 에이전트에 대해서만 사용할 수 있습니다. 서비스와 함께 전송되거나 공유되지 않습니다. 이를 통해 실수로 노출되는 데이터(예: 네트워크에 대한 중간자(man-in-the-middle) 공격)를 암호 없이 사용할 수 없고 암호가 네트워크에서 전송되지 않으므로 데이터를 완벽하게 보안할 수 있습니다.
+* MARS(Microsoft Azure Recovery Services) 에이전트를 사용하여 백업된 데이터의 경우 Azure Backup에서 다운로드한 후에만 Azure Backup에 업로드하고 해독하기 전에 데이터를 암호화하는 데 암호가 사용됩니다. 암호 정보는 암호를 만든 사용자와 해당 암호를 사용 하 여 구성 된 에이전트에 대해서만 사용할 수 있습니다. 서비스와 함께 전송되거나 공유되지 않습니다. 이를 통해 실수로 노출 되는 데이터 (예: 네트워크에 대 한 메시지 가로채기 (man-in-the-middle) 공격)를 암호 없이 사용할 수 없으며, 암호는 네트워크를 통해 전송 되지 않으므로 데이터를 완벽 하 게 보안 할 수 있습니다.
 
 ## <a name="compliance-with-standardized-security-requirements"></a>표준화된 보안 요구 사항 준수
 

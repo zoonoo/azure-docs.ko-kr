@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: f8fe1b13db6473e80f0d7cdc638b775a0c8062c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 353024513885651cbc791548d8b91def3de65d90
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513504"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013472"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Azure Media Encoder에서 Media Encoder Standard로 마이그레이션
 
@@ -64,7 +65,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>고급 시나리오 
 
-해당 스키마를 사용 하 여 사용자 고유의 인코딩 사전 설정을 만든 경우 [Media Encoder Standard에 대해 동일한 스키마](media-services-mes-schema.md)가 있습니다. 이전 설정을 새 인코더에 매핑하는 방법에 대 한 질문이 있는 경우 다음을 통해 문의 하세요.mailto:amshelp@microsoft.com  
+해당 스키마를 사용 하 여 사용자 고유의 인코딩 사전 설정을 만든 경우 [Media Encoder Standard에 대해 동일한 스키마](media-services-mes-schema.md)가 있습니다. 이전 설정을 새 인코더에 매핑하는 방법에 대 한 질문이 있는 경우 다음을 통해 문의 하세요. mailto:amshelp@microsoft.com  
 ## <a name="known-differences"></a>알려진 차이점 
 
 Media Encoder Standard 더 강력 하 고 안정적 이며, 더 나은 성능을 가지 며, 레거시 AME 인코더 보다 품질이 우수한 출력을 생성 합니다. 이 밖에도 다음 지침을 따릅니다. 

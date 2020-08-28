@@ -3,12 +3,12 @@ title: 암호화 된 Azure Vm 백업 및 복원
 description: Azure Backup 서비스를 사용 하 여 암호화 된 Azure Vm을 백업 하 고 복원 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 74658f695387a776fe12cef97887075ae0bc161d
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 6ce0068203c91d9d2031ce2f8735cccf94172dd8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611299"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014917"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>암호화 된 Azure 가상 컴퓨터 백업 및 복원
 

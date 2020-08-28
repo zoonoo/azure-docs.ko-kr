@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: a5784aeb615c6d84048835bd6169f0819fad2f56
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 65662af2bad5475b024366a2ff550ff30e6c0e88
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892340"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014661"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -28,10 +28,10 @@ ms.locfileid: "88892340"
 * VM이 인터넷에 연결되어 있는지 확인합니다.
   * 다른 백업 서비스가 실행 되 고 있지 않은지 확인 합니다.
 * `Services.msc`에서 **Windows Azure 게스트 에이전트** 서비스가 **실행 중**인지 확인합니다. **Windows Azure 게스트 에이전트** 서비스가 없는 경우 [Recovery Services 자격 증명 모음에 Azure VM 백업](./backup-azure-arm-vms-prepare.md#install-the-vm-agent)에서 설치합니다.
-* **이벤트 로그** 에는 다른 백업 제품의 백업 오류 (예: Windows Server 백업)가 표시 될 수 있으며, Azure 백업으로 인 한 것은 아닙니다. 다음 단계를 사용하여 문제가 Azure Backup에 있는지 여부를 확인합니다.
-  * 이벤트 원본 또는 메시지에 항목 **Backup**에 대한 오류가 있는 경우 Azure IaaS VM Backup 백업이 성공했는지 확인하고, 원하는 스냅샷 유형으로 복원 지점을 만들었는지 여부를 확인합니다.
+* **이벤트 로그** 에는 다른 백업 제품의 백업 오류 (예: Windows Server 백업)가 표시 될 수 있으며,이는 Azure Backup으로 인 한 것이 아닙니다. 다음 단계를 사용하여 문제가 Azure Backup에 있는지 여부를 확인합니다.
+  * 이벤트 원본 또는 메시지에 항목을 **백업** 하는 동안 오류가 발생 하는 경우 AZURE IaaS VM 백업 백업이 성공 했는지 여부와 복원 지점이 원하는 스냅숏 형식으로 만들어졌는지 여부를 확인 합니다.
   * Azure Backup이 작동하는 경우 다른 백업 솔루션에 문제가 있을 수 있습니다.
-  * 다음은 Azure 백업이 정상적으로 작동하지만 "Windows Server Backup"이 실패한 이벤트 뷰어 오류 517의 예제입니다.<br>
+  * 다음은 Azure Backup 정상적으로 작동 했지만 "Windows Server 백업"이 실패 한 이벤트 뷰어 오류 517의 예입니다.<br>
     ![Windows Server Backup 실패](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * Azure Backup에 실패하면 이 문서의 일반적인 VM 백업 오류 섹션에서 해당 오류 코드를 찾습니다.
 

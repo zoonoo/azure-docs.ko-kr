@@ -4,12 +4,12 @@ description: 이 문서에서는 온-프레미스 Windows server에 대 한 시�
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 56593176e705176b87cf955eb116909c1912e723
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7eb596853bfe17ec5bf14c8830c1b95bde5b7c98
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824273"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022363"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
 
@@ -40,7 +40,7 @@ ms.locfileid: "88824273"
 - Microsoft에서 시스템 상태 복구를 사용 하 여 다른 하드웨어로 복구 하지 않는 것이 좋습니다.
 - 시스템 상태 백업은 현재 "온-프레미스" Windows 서버를 지원 합니다. Azure Vm에는이 기능을 사용할 수 없습니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Backup를 사용 하 여 시스템 상태 백업 문제를 해결 하기 전에 다음 필수 구성 요소 검사를 수행 합니다.  
 
