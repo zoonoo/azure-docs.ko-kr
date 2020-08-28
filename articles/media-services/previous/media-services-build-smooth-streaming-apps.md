@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 44f10bd49a768004fc63a3287799e6b79dd5bae1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2a1a506e7e4c4a90ed39f4371b48e47b632918c8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071908"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021506"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>부드러운 스트리밍 Windows 스토어 애플리케이션을 빌드하는 방법  
 
@@ -32,7 +33,7 @@ Smooth Streaming Client SDK for Windows 8을 사용하면 개발자가 주문형
 3. 부드러운 스트리밍 스트림 선택
 4. 부드러운 스트리밍 트랙 선택
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 > [!NOTE]
 > Windows 스토어 프로젝트 버전 8.1 및 이전 버전은 Visual Studio 2017에서 지원되지 않습니다.  자세한 내용은 [Visual Studio 2017 플랫폼 대상 지정 및 호환성](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)을 참조하세요.
 
@@ -516,7 +517,7 @@ lesson1을 완성했습니다.  이 단원에서는 MediaElement 컨트롤을 �
    ```
 
    > [!NOTE]
-   > CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에 병목 현상이 발생 하는 경우 개발자는 업데이트 하려는 UI 요소에서 제공 하는 디스패처를 사용 하도록 선택할 수 있습니다.  예를 들면 다음과 같습니다.
+   > CoreDispatcher는 비UI 스레드에서 UI 스레드를 변경하는 데 사용됩니다. 디스패처 스레드에 병목 현상이 발생 하는 경우 개발자는 업데이트 하려는 UI 요소에서 제공 하는 디스패처를 사용 하도록 선택할 수 있습니다.  예를 들어:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 

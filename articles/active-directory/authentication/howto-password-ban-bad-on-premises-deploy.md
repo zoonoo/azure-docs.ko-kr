@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718954"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003544"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>온-프레미스 Azure Active Directory 암호 보호 계획 및 배포
 
@@ -49,6 +49,8 @@ ms.locfileid: "88718954"
 * [취약 한 로컬 관리자 암호로 인해 도메인 컨트롤러 강등을 실패 합니다.](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 적절 한 기간 동안 기능이 감사 모드에서 실행 된 후에 *감사* 에서 *적용* 으로 구성을 전환 하 여 더 안전한 암호를 요구 하도록 전환할 수 있습니다. 이 시간 동안 추가 모니터링을 수행 하는 것이 좋습니다.
+
+Azure AD 암호 보호는 암호 변경 또는 설정 작업 중에만 암호의 유효성을 검사할 수 있다는 점에 유의 해야 합니다. Azure AD 암호 보호를 배포 하기 전에 Active Directory에 허용 되 고 저장 된 암호는 유효성을 검사 하지 않으며 그대로 계속 작동 합니다. 시간이 지남에 따라 모든 사용자 및 계정은 궁극적으로 기존 암호가 만료 되 면 Azure AD 암호 보호의 유효성을 검사 하는 암호를 사용 하기 시작 합니다. "암호 사용 기간 제한 없음"으로 구성 된 계정은이에서 제외 됩니다.
 
 ### <a name="multiple-forest-considerations"></a>여러 포리스트 고려 사항
 

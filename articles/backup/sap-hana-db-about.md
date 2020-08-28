@@ -3,12 +3,12 @@ title: Azure Vm에서 SAP HANA 데이터베이스 백업 정보
 description: 이 문서에서는 Azure virtual machines에서 실행 되는 SAP HANA 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e30507e433ff9a828266c88ca79e576c508edc31
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: e30510817401fd8db23dc9f1d62fab495fac7ab2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757543"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022312"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Azure Vm에서 SAP HANA 데이터베이스 백업 정보
 
@@ -69,7 +69,7 @@ SAP HANA를 실행 하는 VM을 복원 하려면 다음 단계를 수행 합니�
 
 * 최신 복구 지점에서 [AZURE vm 백업에서 새 vm을 복원](backup-azure-arm-restore-vms.md) 합니다. 또는 빈 VM을 새로 만들고 최신 복구 지점에서 디스크를 연결 합니다.
 * WA 디스크는 백업 되지 않으므로 복원 되지 않습니다. 빈 WA 디스크 및 로그 영역을 만듭니다.
-* 다른 모든 구성 (예: IP, 시스템 이름 등)이 설정 되 면 VM이 Azure backup에서 DB 데이터를 받도록 설정 됩니다.
+* 다른 모든 구성 (예: IP, 시스템 이름 등)이 설정 되 면 VM이 Azure Backup에서 DB 데이터를 받도록 설정 됩니다.
 * 이제 [Azure SAP HANA db 백업](sap-hana-db-restore.md#restore-to-a-point-in-time-or-to-a-recovery-point) 에서 원하는 지정 시간으로 DB를 VM에 복원 합니다.
 
 ## <a name="next-steps"></a>다음 단계

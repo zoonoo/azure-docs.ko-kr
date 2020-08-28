@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853017"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011347"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
 
@@ -182,7 +182,7 @@ ms.locfileid: "88853017"
 
 * 그룹 [멤버 자격](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (azure ad에 동기화 되었거나 Microsoft 팀을 포함 하 여 azure Ad 또는 Office 365에서 만들어짐).
 
-* 리소스 (그룹, 앱 및 사이트)를 단일 패키지로 그룹화 하 여 액세스를 관리 하는 [패키지에 액세스](/entitlement-management-overview.md) 합니다.
+* 리소스 (그룹, 앱 및 사이트)를 단일 패키지로 그룹화 하 여 액세스를 관리 하는 [패키지에 액세스](/azure/active-directory/governance/entitlement-management-overview) 합니다.
 
 * [AZURE AD 역할 및 Azure 리소스 역할](../privileged-identity-management/pim-resource-roles-assign-roles.md) 은 Privileged Identity Management에 정의 되어 있습니다.
 
@@ -422,7 +422,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 | 방법 문서| 설명 |
 | - | - |
 | [액세스 검토 만들기](entitlement-management-access-reviews-create.md)| 액세스 패키지의 검토를 사용 하도록 설정 합니다. |
-| [액세스 검토 수행](/entitlement-management-access-reviews-review-access.md)| 액세스 패키지에 할당 된 다른 사용자에 대 한 액세스 검토를 수행 합니다. |
+| [액세스 검토 수행](entitlement-management-access-reviews-review-access.md)| 액세스 패키지에 할당 된 다른 사용자에 대 한 액세스 검토를 수행 합니다. |
 | [자동으로 할당 된 액세스 패키지를 검토 합니다.](entitlement-management-access-reviews-self-review.md)| 할당 된 액세스 패키지 자체 검토 |
 
 
@@ -496,7 +496,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 액세스 검토 작업은 [AZURE AD의 감사 로그](../reports-monitoring/concept-audit-logs.md)에서 기록 되 고 사용할 수 있습니다. 범주, 활동 유형 및 날짜 범위에서 감사 데이터를 필터링 할 수 있습니다. 예제 쿼리는 다음과 같습니다.
 
-| 범주| 정책 |
+| 범주| Policy |
 | - | - |
 | 활동 유형| 액세스 검토 만들기 |
 | | 액세스 검토 업데이트 |

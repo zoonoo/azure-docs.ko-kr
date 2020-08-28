@@ -10,18 +10,19 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: 29bec00916f4cc3683dae5b6d3065e02a3cbe10f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f569fdac19c4f765828d24f4d6615fdd7bafef8a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724169"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010905"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>공유 키 인증을 사용 하 여 REST API 작업 호출
 
 이 문서에서는 인증 헤더를 구성 하는 방법을 비롯 하 여 Azure Storage REST Api를 호출 하는 방법을 보여 줍니다. REST에 대해 알지 못하는 개발자의 관점에서 작성 되었으며 REST 호출을 수행 하는 방법을 알 수 없습니다. REST 작업을 호출 하는 방법을 파악 한 후에는이 정보를 활용 하 여 다른 Azure Storage REST 작업을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 샘플 응용 프로그램은 저장소 계정에 대 한 blob 컨테이너를 나열 합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다.
 

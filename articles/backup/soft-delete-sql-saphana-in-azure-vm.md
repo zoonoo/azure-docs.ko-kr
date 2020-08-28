@@ -3,12 +3,12 @@ title: Azure vm의 SQL server에 대 한 일시 삭제 및 Azure VM 워크 로�
 description: Azure VM의 SQL server에 대 한 일시 삭제 및 Azure VM 워크 로드의 SAP HANA에 대 한 자세한 내용은 백업을 더욱 안전 하 게 만듭니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 4e001ee460d9b7106d928da32b1620fb117c6b5a
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825174"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022295"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Azure vm의 SQL server에 대 한 일시 삭제 및 Azure VM 워크 로드의 SAP HANA
 
@@ -109,7 +109,7 @@ Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoint
 
 ### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 삭제 작업 취소
 
-먼저 일시 삭제 상태 (즉, 삭제 됨)에 있는 관련 백업 항목을 가져옵니다.
+먼저 일시 삭제 상태 (즉, 삭제 하려고 함)에 있는 관련 백업 항목을 가져옵니다.
 
 ```powershell
 Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}

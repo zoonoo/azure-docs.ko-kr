@@ -3,12 +3,12 @@ title: 작업을 백업 하도록 DPM 서버 준비
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure에 대 한 System Center Data Protection Manager (DPM) 백업을 준비 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 96eadb4d600b6aa842cdbded2a906d70f27cf55e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4534b75018fb91cedda00b8c1167012858c5e562
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890810"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021037"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
 

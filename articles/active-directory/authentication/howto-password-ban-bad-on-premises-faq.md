@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a39871fd6e2aef2e5120030d17192bb32ba2613b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717781"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003476"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 질문과 대답
 
@@ -38,7 +38,7 @@ Azure AD 포털에서는 공용이 아닌 클라우드에서 온-프레미스 �
 
 **Q: 온-프레미스 사용자의 하위 집합에 Azure AD 암호 보호 혜택을 적용 하려면 어떻게 해야 하나요?**
 
-지원되지 않습니다. Azure AD 암호 보호가 배포되고 사용하도록 설정되면 모든 사용자가 차별 없이 동등한 보안 혜택을 받습니다.
+지원 안 됨 Azure AD 암호 보호가 배포되고 사용하도록 설정되면 모든 사용자가 차별 없이 동등한 보안 혜택을 받습니다.
 
 **Q: 암호 변경 및 암호 설정 (또는 다시 설정)의 차이점은 무엇 인가요?**
 
@@ -47,6 +47,14 @@ Azure AD 포털에서는 공용이 아닌 클라우드에서 온-프레미스 �
 암호 집합 (암호 재설정이 라고도 함)은 관리자가 Active Directory 사용자 및 컴퓨터 관리 도구를 사용 하는 등의 방법으로 계정의 암호를 새 암호로 바꿀 때입니다. 이 작업을 수행 하려면 높은 수준의 권한 (일반적으로 도메인 관리자)이 필요 하며, 작업을 수행 하는 사용자는 일반적으로 이전 암호를 알지 못합니다. 지원 센터 시나리오에서는 암호를 잊어버린 사용자를 지원할 때 처럼 종종 암호 집합을 수행 합니다. 또한 암호를 사용 하 여 처음으로 새 사용자 계정을 만들 때 암호 설정 이벤트가 표시 됩니다.
 
 암호 유효성 검사 정책은 암호 변경 또는 설정의 수행 여부에 관계 없이 동일 하 게 동작 합니다. Azure AD 암호 보호 DC 에이전트 서비스는 다른 이벤트를 기록 하 여 암호 변경 또는 설정 작업이 수행 되었는지 여부를 알려 줍니다.  [AZURE AD 암호 보호 모니터링 및 로깅을](./howto-password-ban-bad-on-premises-monitor.md)참조 하세요.
+
+**Q: Azure AD 암호 보호는 설치 된 후 기존 암호의 유효성을 검사 하나요?**
+
+아니요-Azure AD 암호 보호는 암호 변경 또는 설정 작업 중에 일반 텍스트 암호에 대해서만 암호 정책을 적용할 수 있습니다. Active Directory에서 암호를 수락 하면 해당 암호의 인증 프로토콜 관련 해시만 유지 됩니다. 일반 텍스트 암호는 유지 되지 않으므로 Azure AD 암호 보호는 기존 암호의 유효성을 검사할 수 없습니다.
+
+Azure AD 암호 보호의 초기 배포 후에는 모든 사용자와 계정이 기존 암호가 일반적으로 시간에 따라 만료 되므로 Azure AD 암호 보호의 유효성을 검사 하는 암호를 사용 하기 시작 합니다. 원하는 경우 사용자 계정 암호의 일회성 수동 만료로이 프로세스의 가속화를 설정할 수 있습니다.
+
+"암호 사용 기간 제한 없음"으로 구성 된 계정은 수동 만료가 완료 되지 않는 한 강제로 암호를 변경 하지 않습니다.
 
 **Q: Active Directory 사용자 및 컴퓨터 관리 스냅인을 사용 하 여 약한 암호를 설정 하려고 할 때 중복 된 암호 거부 이벤트가 기록 되는 이유는 무엇 인가요?**
 
@@ -62,11 +70,11 @@ Active Directory는 [NetValidatePasswordPolicy](/windows/win32/api/lmaccess/nf-l
 
 **Q: Azure를 사용 하지 않고 내 Active Directory 환경에서 Azure AD 암호 보호를 배포 하 고 구성 하려면 어떻게 해야 하나요?**
 
-지원되지 않습니다. Azure AD 암호 보호는 온-프레미스 Active Directory 환경으로 지원이 확장되는 Azure 기능입니다.
+지원 안 됨 Azure AD 암호 보호는 온-프레미스 Active Directory 환경으로 지원이 확장되는 Azure 기능입니다.
 
 **Q: Active Directory 수준에서 정책의 내용을 수정 하려면 어떻게 해야 하나요?**
 
-지원되지 않습니다. 정책은 Azure AD 포털을 사용 해야만 관리할 수 있습니다. 이전 질문도 참조하세요.
+지원 안 됨 정책은 Azure AD 포털을 사용 해야만 관리할 수 있습니다. 이전 질문도 참조하세요.
 
 **Q: sysvol 복제에 DFSR이 필요한가요?**
 

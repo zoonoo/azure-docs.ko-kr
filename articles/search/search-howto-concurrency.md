@@ -8,12 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5171db64f931d59d4f5b66143072cfc8153e8775
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 85f14329359eaf051b992f657ac0e4e634d504cf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935197"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020833"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Azure Cognitive Search에서 동시성을 관리 하는 방법
 
@@ -215,7 +216,7 @@ ms.locfileid: "88935197"
 + [GitHub의 REST API 샘플](https://github.com/Azure-Samples/search-rest-api-getting-started)
 + [GitHub의 .NET SDK 샘플](https://github.com/Azure-Samples/search-dotnet-getting-started). 이 솔루션에는 이 문서에 나와 있는 코드를 포함하는 "DotNetEtagsExplainer" 프로젝트가 들어 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [일반 HTTP 요청 및 응답 헤더](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) 
  [HTTP 상태 코드](/rest/api/searchservice/http-status-codes) 

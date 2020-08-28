@@ -3,12 +3,12 @@ title: Azure Monitor 로그 데이터 모델
 description: 이 문서에서는 Azure Backup 데이터에 대한 Azure Monitor Log Analytics 데이터 모델 세부 정보에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 7822f88c9ea3e0cd83b7e600d63984a8a51becb1
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890266"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020952"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
 
@@ -159,8 +159,8 @@ Log Analytics 데이터 모델을 사용하여 Log Analytics에서 사용자 지
 | DataTransferredInMB_s | Number |이 작업에 대해 전송되는 데이터 크기(MB 단위)|
 | JobUniqueId_g |텍스트 |작업을 식별하는 고유 ID |
 | RecoveryJobDestination_s |텍스트 | 데이터를 복구하는 복구 작업의 대상 |
-| RecoveryJobRPDateTime_s |DateTime | 복구 중인 복구 지점이 생성된 날짜, 시간 |
-| RecoveryJobRPLocation_s |텍스트 | 복구 중인 복구 지점이 저장된 위치|
+| RecoveryJobRPDateTime_s |DateTime | 복구 지점이 생성 된 날짜, 시간 |
+| RecoveryJobRPLocation_s |텍스트 | 복구 중인 복구 지점이 저장 된 위치입니다.|
 | SourceSystem |텍스트 |현재 데이터의 원본 시스템(Azure) |
 | ResourceId |텍스트 |수집되는 데이터에 대한 리소스 식별자(예: Recovery Services 자격 증명 모음 리소스 ID)|
 | SubscriptionId |텍스트 |데이터가 수집되는 리소스의 구독 식별자(예: Recovery Services 자격 증명 모음) |

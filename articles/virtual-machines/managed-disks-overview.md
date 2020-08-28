@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 72f68b35d171503bb07fc5e6f58a858ceea4c6cf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c7bef7fac23ab054810d7d27f99b773f6910f344
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749683"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021445"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure Managed Disks 소개
 
@@ -91,7 +91,7 @@ Azure에는 데이터 디스크, OS 디스크 및 임시 디스크라는 3가지
 
 모든 가상 머신은 하나의 연결된 운영 체제 디스크를 갖습니다. OS 디스크에는 VM이 만들어질 때 선택된 OS가 사전 설치되어 있습니다. 이 디스크에는 부팅 볼륨이 포함되어 있습니다.
 
-이 디스크의 최대 용량은 2,048GiB입니다.
+이 디스크의 최대 용량은 4095 GiB입니다.
 
 ### <a name="temporary-disk"></a>임시 디스크
 

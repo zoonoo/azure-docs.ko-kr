@@ -4,12 +4,12 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: a3fe61bf5d116d257ed7aeb32226a437d0193c54
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 1bfd83534bda6397983b0595acc089e901c473d6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892391"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021486"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
