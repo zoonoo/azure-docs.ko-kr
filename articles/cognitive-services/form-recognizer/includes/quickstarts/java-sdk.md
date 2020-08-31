@@ -10,13 +10,17 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 8e96a666ece7fea64df59c9ed51944534c96bd6b
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 7ddf72fdf49bf8fede369b67b639d13b6230e9f4
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246044"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864651"
 ---
+> [!IMPORTANT]
+> * Form Recognizer SDK는 현재 Form Recognizer 서비스의 v2.0을 대상으로 합니다.
+> * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 아래의 참조 설명서를 참조하세요. 
+
 [참조 설명서](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [샘플](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -89,7 +93,7 @@ public static void main(String[] args)
 
 ```kotlin
 dependencies {
-    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '1.0.0-beta.3'
+    implementation group: 'com.azure', name: 'azure-ai-formrecognizer', version: '3.0.0'
 }
 ```
 

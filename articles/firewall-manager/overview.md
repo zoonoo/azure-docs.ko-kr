@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/18/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: b4ef35f2892925919ca9c8eda37a9b0e0d11835e
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: ae220a1b70be7178c4c2fea01103991c8729ae79
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590407"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855042"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Azure Firewall Manager란?
 
@@ -76,7 +76,7 @@ Azure Firewall 정책은 여러 지역에 걸쳐 사용할 수 있습니다. 예
 
 Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 
-|문제  |Description  |완화 방법  |
+|문제  |설명  |완화 방법  |
 |---------|---------|---------|
 |트래픽 분할|Office 365 및 Azure Public PaaS 트래픽 분할은 현재 지원되지 않습니다. 따라서 V2I 또는 B2I에 대해 타사 공급자를 선택하면 모든 Azure 퍼블릭 PaaS 및 Office 365 트래픽도 파트너 서비스를 통해 전송됩니다.|허브에서 트래픽 분할을 조사 중입니다.
 |지역당 하나의 보안 가상 허브|지역당 둘 이상의 보안 가상 허브를 가질 수 없습니다.|한 지역에 여러 가상 WAN을 만듭니다.|
@@ -86,7 +86,7 @@ Azure Firewall Manager에는 다음과 같이 알려진 문제가 있습니다.
 |프라이빗 트래픽 필터링이 활성화된 분기 간 트래픽|프라이빗 트래픽 필터링이 활성화된 경우 분기 간 트래픽이 지원되지 않습니다. |조사 중입니다.<br><br>분기 간 연결이 중요한 경우 프라이빗 트래픽을 보호하지 마세요.|
 |동일한 가상 WAN을 공유하는 모든 보안 Virtual Hubs는 동일한 리소스 그룹에 있어야 합니다.|이 동작은 현재 Virtual WAN Hubs에 맞춰 조정됩니다.|여러 Virtual WAN을 만들어 다른 리소스 그룹에서 보안 Virtual Hubs를 만들 수 있도록 합니다.|
 |대량 IP 주소 추가 실패|여러 공용 IP 주소를 추가하면 보안 허브 방화벽이 실패한 상태가 됩니다.|더 작은 공용 IP 주소 증분을 추가합니다. 예를 들어 한 번에 10개를 추가합니다.|
-|사용자 지정 DNS(미리 보기)가 구성된 보안 허브에서 애플리케이션 규칙이 실패합니다.|DNS 프록시/사용자 지정 DNS(미리 보기)는 방화벽 관리 NIC가 구성된 시나리오에서 작동하지 않습니다. 여기에는 보안 허브 배포 및 강제 터널링이 활성화된 사례가 포함됩니다.|조사 중에 수정합니다.|
+|사용자 지정 DNS(미리 보기)가 구성된 보안 허브에서 애플리케이션 규칙이 실패합니다.|사용자 지정 DNS(미리 보기)는 강제 터널링이 설정된 보안 허브 배포 및 Hub 가상 네트워크 배포에서 작동하지 않습니다.|조사 중에 수정합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

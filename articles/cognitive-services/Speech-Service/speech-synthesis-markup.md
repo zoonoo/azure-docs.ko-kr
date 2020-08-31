@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 069e0f2d14dafe0de208ac69d2d652361a11ee34
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d924c019d5ee231f3c9d66a56c4d98857bc89abc
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012435"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055552"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML (음성 합성 마크업) 언어를 사용 하 여 합성 향상
 
@@ -56,7 +56,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `version` | 문서 태그를 해석 하는 데 사용 되는 SSML 사양의 버전을 나타냅니다. 현재 버전은 1.0입니다. | 필수 |
 | `xml:lang` | 루트 문서의 언어를 지정 합니다. 값에는 소문자, 2 자 언어 코드 (예: `en` ) 또는 언어 코드와 대문자/지역 (예:)이 포함 될 수 있습니다 `en-US` . | 필수 |
@@ -76,7 +76,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용 되는 음성을 식별 합니다. 지원 되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조 하세요. | 필수 |
 
@@ -99,7 +99,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용 되는 음성을 식별 합니다. 지원 되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조 하세요. | 필수 |
 
@@ -112,7 +112,7 @@ Speech SDK 언어에 따라 `"SpeechServiceResponse_Synthesis_WordBoundaryEnable
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```csharp
 speechConfig.SetProperty(
@@ -121,7 +121,7 @@ speechConfig.SetProperty(
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```cpp
 speechConfig->SetProperty(
@@ -130,7 +130,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```java
 speechConfig.setProperty(
@@ -139,7 +139,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```python
 speech_config.set_property_by_name(
@@ -148,7 +148,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```javascript
 speechConfig.setProperty(
@@ -157,7 +157,7 @@ speechConfig.setProperty(
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -165,7 +165,7 @@ speechConfig.setProperty(
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-자세한 내용은을 참조 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>하십시오.
+자세한 내용은 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 참조하세요.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -213,7 +213,7 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `style` | 말하기 스타일을 지정 합니다. 현재 말하는 스타일은 음성 전용입니다. | 신경망의 말하기 스타일을 조정 하는 경우에 필요 합니다. 을 사용 하 `mstts:express-as` 는 경우 스타일을 제공 해야 합니다. 잘못 된 값을 제공 하는 경우이 요소는 무시 됩니다. |
 | `styledegree` | 말하기 스타일의 강도를 지정 합니다. **허용**되는 값: 0.01-2 포함 기본값은 미리 정의 된 스타일 강도를 의미 하는 1입니다. 최소 단위는 0.01 이며이로 인해 대상 스타일에 대해 약간의 경향이 있습니다. 값이 2 이면 기본 스타일 농도가 두 배가 됩니다.  | 선택 사항 (현재는 `styledegree` XiaoxiaoNeural만 지원 합니다.)|
@@ -238,7 +238,8 @@ speechConfig!.setPropertyTo(
 |                         | `style="angry"`           | 고가, 더 높은 강도 및 vocal 에너지를 사용 하 여 화난 및 표정이 톤을 나타냅니다. 스피커가 irate, 실망 및 offended 상태입니다.       |
 |                         | `style="fearful"`         | 더 높은 피치, vocal 에너지 및 빠른 속도를 사용 하 여 무서 불안해 톤을 나타냅니다. 스피커가 tenseness 및 uneasiness 상태입니다.                          |
 |                         | `style="disgruntled"`     | Disdainful 및 불만이 톤을 나타냅니다. 이 emotion 음성에는 displeasure 및 경 멸가 표시 됩니다.              |
-|                         | `style="serious"`         | 엄격한 및 명령 톤을 나타냅니다. 스피커는 stiffer 하 고 회사의 흐름을 통해 훨씬 낮은 수준으로 완화 되는 경우가 많습니다.          | |                         | `style="affectionate"`    | 고가와 vocal 에너지를 사용 하 여 웜 및 affectionate 톤을 나타냅니다. 스피커가 수신기의 주의 끌어들이고 데 상태입니다. 스피커의 "개성"은 종종 본질적으로 endearing.          |     
+|                         | `style="serious"`         | 엄격한 및 명령 톤을 나타냅니다. 스피커는 stiffer 하 고 회사의 흐름을 통해 훨씬 낮은 수준으로 완화 되는 경우가 많습니다.          |
+|                         | `style="affectionate"`    | 고가와 vocal 에너지를 사용 하 여 웜 및 affectionate 톤을 나타냅니다. 스피커가 수신기의 주의 끌어들이고 데 상태입니다. 스피커의 "개성"은 종종 본질적으로 endearing.          |     
 |                         | `style="gentle"`          | 낮은 피치와 vocal 에너지를 사용 하 여 가벼운, 처리 완료 후 및 좋은 톤을 나타냅니다.         |   
 |                         | `style="lyrical"`         | Melodic 및 sentimental 방식으로 감정을를 표현 합니다.         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | 고객 지원에 대 한 친숙 하 고 유용한 톤을 나타냅니다.  | 
@@ -286,12 +287,12 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `strength` | 다음 값 중 하나를 사용 하 여 일시 중지의 상대 기간을 지정 합니다.<ul><li>없음</li><li>x-약함</li><li>약</li><li>보통 (기본값)</li><li>강력</li><li>x-강력한</li></ul> | 옵션 |
-| `time` | 일시 중지의 절대 기간 (초 또는 밀리초)을 지정 합니다. 유효한 값의 예는 `2s` 및입니다. `500` | 옵션 |
+| `strength` | 다음 값 중 하나를 사용 하 여 일시 중지의 상대 기간을 지정 합니다.<ul><li>없음</li><li>x-약함</li><li>약</li><li>보통 (기본값)</li><li>강력</li><li>x-강력한</li></ul> | 선택 사항 |
+| `time` | 일시 중지의 절대 기간 (초 또는 밀리초)을 지정 합니다. 유효한 값의 예는 `2s` 및입니다. `500` | 선택 사항 |
 
-| 강도가                      | 설명 |
+| 강도가                      | Description |
 |-------------------------------|-------------|
 | 없음 또는 제공 된 값이 없는 경우 | 0 밀리초        |
 | x-약함                        | 250ms      |
@@ -356,9 +357,9 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `alphabet` | 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다 `ph` . 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 발음 영문자 <span class="docon docon-navigate-external x-hidden-focus"></span> </a></li><li>`sapi`&ndash; [음성 서비스 발음 영문자](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">범용 전화 번호 설정</a></li></ul><br>알파벳은 요소의에만 적용 됩니다. `phoneme` | 옵션 |
+| `alphabet` | 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다 `ph` . 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">국제 발음 영문자 <span class="docon docon-navigate-external x-hidden-focus"></span> </a></li><li>`sapi`&ndash; [음성 서비스 발음 영문자](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">범용 전화 번호 설정</a></li></ul><br>알파벳은 요소의에만 적용 됩니다. `phoneme` | 선택 사항 |
 | `ph` | 요소에 있는 단어의 발음을 지정 하는 전화를 포함 하는 문자열 `phoneme` 입니다. 지정 된 문자열이 인식할 수 없는 휴대폰을 포함 하는 경우 TTS (텍스트 음성 변환) 서비스는 전체 SSML 문서를 거부 하 고 문서에 지정 된 음성 출력을 생성 하지 않습니다. | 음소를 사용 하는 경우 필수입니다. |
 
 **예**
@@ -402,7 +403,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| attribute | 설명                               | 필수/선택 |
+| attribute | Description                               | 필수/선택 |
 |-----------|-------------------------------------------|---------------------|
 | `uri`     | 외부 j 문서의 주소입니다. | 필수 요소.           |
 
@@ -431,7 +432,7 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 요소에는 `lexicon` 요소가 하나 이상 포함 되어 있습니다 `lexeme` . 각 `lexeme` 요소는 하나 이상의 `grapheme` 요소와 하나 이상의 `grapheme` , `alias` 및 요소를 포함 `phoneme` 합니다. `grapheme`요소는 <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span> </a>를 설명 하는 텍스트를 포함 합니다. `alias`요소는 머리글자어 또는 축약 된 단어의 발음을 나타내는 데 사용 됩니다. `phoneme`요소는가 어떻게 발음 되는지 설명 하는 텍스트를 제공 `lexeme` 합니다.
 
-사용자 지정 어휘를 사용 하 여 단어의 발음을 직접 설정할 수 없다는 점에 유의 해야 합니다. 머리글자어 또는 축약 된 용어에 대 한 발음을 설정 해야 하는 경우 먼저를 제공 하 고를 `alias` 해당에 연결 합니다 `phoneme` `alias` . 예를 들어:
+사용자 지정 어휘를 사용 하 여 단어의 발음을 직접 설정할 수 없다는 점에 유의 해야 합니다. 머리글자어 또는 축약 된 용어에 대 한 발음을 설정 해야 하는 경우 먼저를 제공 하 고를 `alias` 해당에 연결 합니다 `phoneme` `alias` . 예를 들면 다음과 같습니다.
 
 ```xml
   <lexeme>
@@ -517,14 +518,14 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `pitch` | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. 예: 600 Hz.</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예: + 80 Hz 또는-2st. "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-높음</li><li>default</li></ul></li></ul>. | 옵션 |
-| `contour` |이제 컨투어는 신경망 및 표준 음성을 모두 지원 합니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 예를 들어: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 합니다 (참조 `pitch` ). | 옵션 |
-| `range` | 텍스트의 피치 범위를 나타내는 값입니다. `range`설명 하는 데 사용 되는 것과 동일한 절대값, 상대 값 또는 열거형 값을 사용 하 여 나타낼 수 있습니다 `pitch` . | 옵션 |
-| `rate` | 텍스트의 읽어주기 율을 나타냅니다. 다음과 같이 나타낼 수 있습니다 `rate` .<ul><li>기본값의 승수 역할을 하는 숫자로 표시 되는 상대 값입니다. 예를 들어 값이 *1* 이면 비율이 변경 되지 않습니다. 값이 *0.5* 이면 나누어이 발생 합니다. 값이 *3* 이면 tripling이 발생 합니다.</li><li>상수 값:<ul><li>x-느림</li><li>slow</li><li>중간</li><li>빠르지</li><li>x-빠름</li><li>default</li></ul></li></ul> | 옵션 |
-| `duration` | TTS (음성 합성) 서비스가 텍스트를 읽는 동안 경과 해야 하는 기간 (초 또는 밀리초)입니다. 예를 들면 *2 s* 또는 *18ms*입니다. | 옵션 |
-| `volume` | 말하는 음성의 볼륨 수준을 나타냅니다. 볼륨을 다음과 같이 나타낼 수 있습니다.<ul><li>*Quietest* 에서 *loudest*까지 0.0 ~ 100.0 범위의 숫자로 표현 된 절대값입니다. 예를 들면 75입니다. 기본값은 100.0입니다.</li><li>볼륨을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예를 들면 + 10 또는-5.5입니다.</li><li>상수 값:<ul><li>무음</li><li>x-소프트</li><li>유동적</li><li>중간</li><li>큰 성문</li><li>x-소리내어</li><li>default</li></ul></li></ul> | 옵션 |
+| `pitch` | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. 예: 600 Hz.</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예: + 80 Hz 또는-2st. "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-높음</li><li>default</li></ul></li></ul>. | 선택 사항 |
+| `contour` |이제 컨투어는 신경망 및 표준 음성을 모두 지원 합니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 예를 들면 다음과 같습니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치에 대 한 열거형 값 또는 상대 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 합니다 (참조 `pitch` ). | 선택 사항 |
+| `range` | 텍스트의 피치 범위를 나타내는 값입니다. `range`설명 하는 데 사용 되는 것과 동일한 절대값, 상대 값 또는 열거형 값을 사용 하 여 나타낼 수 있습니다 `pitch` . | 선택 사항 |
+| `rate` | 텍스트의 읽어주기 율을 나타냅니다. 다음과 같이 나타낼 수 있습니다 `rate` .<ul><li>기본값의 승수 역할을 하는 숫자로 표시 되는 상대 값입니다. 예를 들어 값이 *1* 이면 비율이 변경 되지 않습니다. 값이 *0.5* 이면 나누어이 발생 합니다. 값이 *3* 이면 tripling이 발생 합니다.</li><li>상수 값:<ul><li>x-느림</li><li>slow</li><li>중간</li><li>빠르지</li><li>x-빠름</li><li>default</li></ul></li></ul> | 선택 사항 |
+| `duration` | TTS (음성 합성) 서비스가 텍스트를 읽는 동안 경과 해야 하는 기간 (초 또는 밀리초)입니다. 예를 들면 *2 s* 또는 *18ms*입니다. | 선택 사항 |
+| `volume` | 말하는 음성의 볼륨 수준을 나타냅니다. 볼륨을 다음과 같이 나타낼 수 있습니다.<ul><li>*Quietest* 에서 *loudest*까지 0.0 ~ 100.0 범위의 숫자로 표현 된 절대값입니다. 예를 들면 75입니다. 기본값은 100.0입니다.</li><li>볼륨을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예를 들면 + 10 또는-5.5입니다.</li><li>상수 값:<ul><li>무음</li><li>x-소프트</li><li>유동적</li><li>중간</li><li>큰 성문</li><li>x-소리내어</li><li>default</li></ul></li></ul> | 선택 사항 |
 
 ### <a name="change-speaking-rate"></a>말하기 속도 변경
 
@@ -600,11 +601,11 @@ IPA를 기억할 수 없는 경우 음성 서비스는 7 개 언어 ( `en-US` , 
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `interpret-as` | 요소 텍스트의 콘텐츠 형식을 나타냅니다. 형식 목록은 아래 표를 참조 하세요. | 필수 |
-| `format` | 모호한 형식이 있을 수 있는 콘텐츠 형식에 대 한 요소 텍스트의 정확한 서식 지정에 대 한 추가 정보를 제공 합니다. SSML은이를 사용 하는 내용 유형에 대 한 형식을 정의 합니다 (아래 표 참조). | 옵션 |
-| `detail` | 읽을 세부 정보 수준을 나타냅니다. 예를 들어이 특성은 음성 합성 엔진이 문장 부호를 발음 하도록 요청할 수 있습니다. 에 대해 정의 된 표준 값이 `detail` 없는 경우 | 옵션 |
+| `format` | 모호한 형식이 있을 수 있는 콘텐츠 형식에 대 한 요소 텍스트의 정확한 서식 지정에 대 한 추가 정보를 제공 합니다. SSML은이를 사용 하는 내용 유형에 대 한 형식을 정의 합니다 (아래 표 참조). | 선택 사항 |
+| `detail` | 읽을 세부 정보 수준을 나타냅니다. 예를 들어이 특성은 음성 합성 엔진이 문장 부호를 발음 하도록 요청할 수 있습니다. 에 대해 정의 된 표준 값이 `detail` 없는 경우 | 선택 사항 |
 
 <!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
 
@@ -662,7 +663,7 @@ SSML 문서에 포함 된 오디오는 다음 요구 사항을 충족 해야 합
 
 **특성**
 
-| attribute | 설명                                   | 필수/선택                                        |
+| attribute | Description                                   | 필수/선택                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 | `src`     | 오디오 파일의 위치/URL을 지정 합니다. | SSML 문서에서 audio 요소를 사용 하는 경우 필요 합니다. |
 
@@ -698,12 +699,12 @@ SSML 문서 당 배경 오디오 파일은 하나만 허용 됩니다. 그러나
 
 **특성**
 
-| attribute | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `src` | 배경 오디오 파일의 위치/URL을 지정 합니다. | SSML 문서에서 배경 오디오를 사용 하는 경우 필요 합니다. |
-| `volume` | 배경 오디오 파일의 볼륨을 지정 합니다. **허용**되는 값: `0` `100` 포함 기본값은 `1`입니다. | 옵션 |
-| `fadein` | 백그라운드 오디오를 "페이드 인" 하는 시간을 밀리초로 지정 합니다. 기본값은 페이드 인 `0` 되지 않는 것과 동일한입니다. **허용**되는 값: `0` `10000` 포함  | 옵션 |
-| `fadeout` | 배경 오디오 페이드 아웃 기간 (밀리초)을 지정 합니다. 기본값은 이며,이 값은 `0` 페이드 아웃 하지 않는 것과 같습니다. **허용**되는 값: `0` `10000` 포함  | 옵션 |
+| `volume` | 배경 오디오 파일의 볼륨을 지정 합니다. **허용**되는 값: `0` `100` 포함 기본값은 `1`입니다. | 선택 사항 |
+| `fadein` | 백그라운드 오디오를 "페이드 인" 하는 시간을 밀리초로 지정 합니다. 기본값은 페이드 인 `0` 되지 않는 것과 동일한입니다. **허용**되는 값: `0` `10000` 포함  | 선택 사항 |
+| `fadeout` | 배경 오디오 페이드 아웃 기간 (밀리초)을 지정 합니다. 기본값은 이며,이 값은 `0` 페이드 아웃 하지 않는 것과 같습니다. **허용**되는 값: `0` `10000` 포함  | 선택 사항 |
 
 **예제**
 

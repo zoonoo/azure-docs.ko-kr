@@ -6,12 +6,12 @@ ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 154558a2aa679dddad395225088ea891ecea8ebc
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 744e62f8a2207cff400a96069fc6ea82866f6e2d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654279"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055688"
 ---
 # <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>AKS (Azure Kubernetes Service) 노드 이미지 업그레이드
 
@@ -20,6 +20,10 @@ AKS는 노드의 이미지를 업그레이드할 수 있도록 지원 하므로 
 AKS에서 제공 하는 최신 이미지에 대해 알아보려면 [AKS 릴리스 정보](https://github.com/Azure/AKS/releases) 를 참조 하세요.
 
 클러스터에 대 한 Kubernetes 버전을 업그레이드 하는 방법에 대 한 자세한 내용은 [AKS 클러스터 업그레이드][upgrade-cluster]를 참조 하세요.
+
+## <a name="limitations"></a>제한 사항
+
+* AKS 클러스터는 노드에 대 한 가상 머신 확장 집합을 사용 해야 합니다.
 
 ## <a name="install-the-aks-cli-extension"></a>AKS CLI 확장을 설치 합니다.
 

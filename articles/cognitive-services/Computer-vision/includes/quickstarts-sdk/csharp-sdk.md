@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: d35b7309a161d790131b0040b9ebf113a3c061fc
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ebeea9cd6e928a9d9d77a8475cee774f3d33b28e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186305"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752991"
 ---
 <a name="HOLTop"></a>
 
@@ -211,7 +211,7 @@ Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분�
 
 ## <a name="read-printed-and-handwritten-text"></a>인쇄 텍스트 및 필기 텍스트 읽기
 
-Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 텍스트 인식에 대한 자세한 내용은 [OCR(광학 문자 인식)](../../concept-recognizing-text.md#read-api) 개념 문서를 참조하세요. 이 섹션의 코드는 클라이언트 개체를 사용하여 이미지의 텍스트를 감지하고 추출하는 `BatchReadFileUrl` 메서드를 정의합니다.
+Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 텍스트 인식에 대한 자세한 내용은 [OCR(광학 문자 인식)](../../concept-recognizing-text.md#read-api) 개념 문서를 참조하세요. 이 섹션의 코드는 최신 [Read 3.0용 Computer Vision SDK 릴리스](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1)를 사용하고, 클라이언트 개체를 사용하여 이미지의 텍스트를 감지하고 추출하는 `BatchReadFileUrl` 메서드를 정의합니다.
 
 `Main` 메서드에서 메서드 호출을 추가합니다.
 

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/09/2020
-ms.openlocfilehash: 5a7f13982de000478b14eb75d7341ed2e99c1274
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.date: 08/28/2020
+ms.openlocfilehash: 68fa972d45ab0db6e5274142f550c2bd829e7917
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245573"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055586"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -257,7 +257,7 @@ OLTP 작업을 수행할 때 `<fog-name>.zone_id.database.windows.net`을 서버
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a>읽기 전용 수신기를 사용 하 여 보조 인스턴스에 연결
 
-특정 데이터가 부실해도 정상적으로 수행 가능한 논리적으로 격리된 읽기 전용 작업이 있는 경우에는 애플리케이션에서 보조 데이터베이스를 사용할 수 있습니다. 지역 복제된 보조 데이터베이스에 직접 연결하려는 경우 `server.secondary.zone_id.database.windows.net`을 서버 URL로 사용하면 지역 복제된 보조 데이터베이스에 직접 연결됩니다.
+특정 데이터가 부실해도 정상적으로 수행 가능한 논리적으로 격리된 읽기 전용 작업이 있는 경우에는 애플리케이션에서 보조 데이터베이스를 사용할 수 있습니다. 지역 복제된 보조 데이터베이스에 직접 연결하려는 경우 `<fog-name>.zone_id.secondary.database.windows.net`을 서버 URL로 사용하면 지역 복제된 보조 데이터베이스에 직접 연결됩니다.
 
 > [!NOTE]
 > 특정 서비스 계층에서 SQL Database 읽기 [전용 복제본의](read-scale-out.md) 사용을 지원 하 여 읽기 전용 복제본의 용량을 사용 하 고 `ApplicationIntent=ReadOnly` 연결 문자열에 매개 변수를 사용 하 여 읽기 전용 쿼리 작업 부하를 분산할 수 있습니다. 지역 복제된 보조 데이터베이스를 구성한 경우 이 기능을 사용하여 주 위치 또는 지역 복제된 위치에 있는 읽기 전용 복제본에 연결할 수 있습니다.

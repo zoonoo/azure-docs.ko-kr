@@ -4,12 +4,12 @@ description: Azure CLI를 사용하여 Batch 작업을 실행하는 방법을 �
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: c59e8891678d9fc1af7c4fe78e4ee2d267ec99b4
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 606862b31ba4921e39e693735507fca39282091c
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511391"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642404"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Batch 계정 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "88511391"
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
+:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json":::
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "88511391"
    - **배치 계정 이름**: 기본값을 그대로 둡니다.
    - **Storage Accountsku**: 스토리지 계정 유형을 선택합니다. 예를 들어 **Standard_LRS**입니다.
    - **위치**: 리소스가 리소스 그룹과 동일한 위치에 있도록 기본값을 그대로 둡니다.
-   - 위에 명시된 사용 약관에 동의함: **선택**
+   - 위에 명시된 사용 약관에 동의합니다. **선택**
 
 1. **구매**를 선택합니다.
 

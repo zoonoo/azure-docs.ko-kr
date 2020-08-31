@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 2f5a1d190c6e63056c2377641446f617edaa1bd3
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590220"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854892"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Speech CLI의 기본 사항 알아보기
 
@@ -31,10 +31,18 @@ ms.locfileid: "88590220"
 spx
 ```
 
-명령 매개 변수 오른쪽에 나열된 도움말 항목도 **참조**하세요. 키워드를 기준으로 항목을 검색할 수도 있습니다. 예를 들어 다음 명령을 입력하여 Speech CLI 예제에 대한 도움말 항목의 목록을 확인합니다.
+명령 매개 변수 오른쪽에 나열된 도움말 항목을 **참조**하세요. 이러한 명령을 입력하여 하위 명령에 대한 자세한 도움말을 가져올 수 있습니다.
+
+키워드를 기준으로 도움말 항목을 검색할 수 있습니다. 예를 들어 다음 명령을 입력하여 Speech CLI 사용 예제 목록을 확인합니다.
 
 ```shell
 spx help find --topics "examples"
+```
+
+다음 명령을 입력하여 recognize 명령에 대한 옵션을 표시합니다.
+
+```shell
+spx help recognize
 ```
 
 이제 Speech Service를 통해 다음 명령을 실행하여 기본 마이크를 사용하는 일부 음성 인식을 수행합니다.

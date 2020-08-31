@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: e1c931b37cbe155d62aaffe47e36d84afa547638
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853371"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068646"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -302,7 +302,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 | 사용자 | streetaddress | 주소 |
 | 사용자 | postalcode | 우편 번호 |
 | 사용자 | preferredlanguange | 기본 설정 언어 |
-| 사용자 | onpremisesuserprincipalname | 온-프레미스 UPN |
+| 사용자 | onpremisesuserprincipalname | 온-프레미스 UPN |*
 | 사용자 | mailNickname | 메일 애칭 |
 | 사용자 | extensionattribute1 | 확장 특성 1 |
 | 사용자 | extensionattribute2 | 확장 특성 2 |
@@ -340,6 +340,8 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 
 - JwtClaimType에는 JWT로 내보낼 클레임 이름이 포함되어야 합니다.
 - SamlClaimType에는 SAML 토큰으로 내보낼 클레임 URI가 포함되어야 합니다.
+
+* **onPremisesUserPrincipalName 특성:** 대체 ID를 사용 하는 경우 온-프레미스 특성 userPrincipalName는 Azure AD 특성 onPremisesUserPrincipalName와 동기화 됩니다. 이 특성은 대체 ID가 구성 된 경우에만 사용할 수 있지만 MS Graph Beta를 통해 사용할 수도 있습니다 https://graph.microsoft.com/beta/me/ .
 
 > [!NOTE]
 > 제한된 클레임 집합에 있는 클레임의 이름 및 URI는 클레임 형식 요소에 사용할 수 없습니다. 자세한 내용은 이 문서의 뒷부분에 나오는 "예외 및 제한 사항" 섹션을 참조하세요.

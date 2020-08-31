@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0a504285b2d79ba1386bcd13dd72fc3faec202ff
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029980"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055654"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Azure 구독을 다른 Azure AD 디렉터리 (미리 보기)에 전송
 
@@ -28,12 +28,15 @@ ms.locfileid: "87029980"
 
 이 문서에서는 다른 Azure AD 디렉터리로 구독을 전송 하 고 전송 후 일부 리소스를 다시 만들기 위해 수행할 수 있는 기본 단계를 설명 합니다.
 
+> [!NOTE]
+> Azure CSP 구독의 경우 구독에 대 한 Azure AD 디렉터리를 변경 하는 것은 지원 되지 않습니다.
+
 ## <a name="overview"></a>개요
 
 다른 Azure AD 디렉터리에 Azure 구독을 전송 하는 것은 신중 하 게 계획 하 고 실행 해야 하는 복잡 한 프로세스입니다. 대부분의 Azure 서비스에는 보안 주체 (id)가 정상적으로 작동 하거나 다른 Azure 리소스도 관리 해야 합니다. 이 문서에서는 보안 주체에 크게 의존 하지만 포괄적이 지 않는 대부분의 Azure 서비스를 처리 하려고 합니다.
 
 > [!IMPORTANT]
-> 구독을 전송 하려면 프로세스가 완료 될 때까지 가동 중지 시간이 필요 합니다.
+> 일부 시나리오에서는 구독을 전송 하는 동안 가동 중지 시간이 필요할 수 있습니다. 마이그레이션에 가동 중지 시간을 요구 하는지 여부를 평가 하려면 신중한 계획이 필요 합니다.
 
 다음 다이어그램은 구독을 다른 디렉터리로 전송할 때 수행 해야 하는 기본 단계를 보여 줍니다.
 
@@ -71,9 +74,9 @@ ms.locfileid: "87029980"
 | 시스템 할당 관리 id | 예 | 예 | [관리 id 나열](#list-role-assignments-for-managed-identities) | 관리 되는 id를 사용 하지 않도록 설정 했다가 다시 사용 하도록 설정 해야 합니다. 역할 할당을 다시 만들어야 합니다. |
 | 사용자 할당 관리 id | 예 | 예 | [관리 id 나열](#list-role-assignments-for-managed-identities) | 관리 되는 id를 삭제 하 고 다시 만든 다음 적절 한 리소스에 연결 해야 합니다. 역할 할당을 다시 만들어야 합니다. |
 | Azure Key Vault | 예 | 예 | [Key Vault 액세스 정책 나열](#list-other-known-resources) | 키 자격 증명 모음과 연결 된 테 넌 트 ID를 업데이트 해야 합니다. 새 액세스 정책을 제거 하 고 추가 해야 합니다. |
-| Azure AD 인증을 사용 하는 azure SQL database | 예 | 아니요 | [Azure AD 인증을 사용 하 여 Azure SQL 데이터베이스 확인](#list-other-known-resources) |  |  |
+| Azure AD 인증 통합이 사용 되는 azure SQL database | 예 | 아니요 | [Azure AD 인증을 사용 하 여 Azure SQL 데이터베이스 확인](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Azure Storage 및 Azure Data Lake Storage Gen2 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
-| Azure Data Lake Storage Gen1 | 예 |  |  | Acl을 다시 만들어야 합니다. |
+| Azure Data Lake Storage Gen1 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure 파일 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure 파일 동기화 | 예 | 예 |  |  |
 | Azure Managed Disks | 예 | 해당 없음 |  |  |
@@ -81,9 +84,10 @@ ms.locfileid: "87029980"
 | Azure Active Directory Domain Services | 예 | 아니요 |  |  |
 | 앱 등록 | 예 | 예 |  |  |
 
-전송 중인 동일한 구독에 없는 key vault에 대 한 종속성이 있는 리소스 (예: 저장소 계정 또는 SQL 데이터베이스)에 미사용 암호화를 사용 하는 경우 복구할 수 없는 시나리오가 발생할 수 있습니다. 이러한 상황이 발생 하는 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여이 복구할 수 없는 시나리오를 방지 해야 합니다.
+> [!IMPORTANT]
+> 저장소 계정 또는 SQL 데이터베이스와 같은 리소스에 미사용 암호화를 사용 하는 경우 전송 중인 구독에 *없는* 주요 자격 증명 모음에 대 한 종속성이 있는 경우 복구할 수 없는 오류가 발생할 수 있습니다. 이 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여 복구할 수 없는 오류를 방지 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이러한 단계를 완료 하려면 다음이 필요 합니다.
 
@@ -199,9 +203,9 @@ ms.locfileid: "87029980"
 
     | 조건 | 관리 ID 유형 |
     | --- | --- |
-    | `alternativeNames`속성 포함`isExplicit=False` | 시스템 할당 |
-    | `alternativeNames`속성에 포함 되지 않는 내용`isExplicit` | 시스템 할당 |
-    | `alternativeNames`속성 포함`isExplicit=True` | 사용자 할당 |
+    | `alternativeNames` 속성 포함 `isExplicit=False` | 시스템 할당 |
+    | `alternativeNames` 속성에 포함 되지 않는 내용 `isExplicit` | 시스템 할당 |
+    | `alternativeNames` 속성 포함 `isExplicit=True` | 사용자 할당 |
 
     [Az identity list](https://docs.microsoft.com/cli/azure/identity#az-identity-list) 를 사용 하 여 사용자 할당 관리 id만 나열할 수도 있습니다. 자세한 내용은 [Azure CLI를 사용 하 여 사용자 할당 관리 Id 만들기, 나열 또는 삭제](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)를 참조 하세요.
 
@@ -217,8 +221,8 @@ ms.locfileid: "87029980"
 
 키 자격 증명 모음을 만들 때 생성된 해당 구독에 대한 기본 Azure Active Directory 테넌트 ID에 자동으로 연결됩니다. 모든 액세스 정책 항목은 이 테넌트 ID에 연결됩니다. 자세한 내용은 [다른 구독으로 Azure Key Vault 이동](../key-vault/general/move-subscription.md)을 참조 하세요.
 
-> [!WARNING]
-> 전송 중인 동일한 구독에 없는 주요 자격 증명 모음에 대 한 종속성이 있는 리소스 (예: 저장소 계정 또는 SQL 데이터베이스)에 미사용 암호화를 사용 하는 경우 복구할 수 없는 시나리오가 발생할 수 있습니다. 이러한 상황이 발생 하는 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여이 복구할 수 없는 시나리오를 방지 해야 합니다.
+> [!IMPORTANT]
+> 저장소 계정 또는 SQL 데이터베이스와 같은 리소스에 미사용 암호화를 사용 하는 경우 전송 중인 구독에 *없는* 주요 자격 증명 모음에 대 한 종속성이 있는 경우 복구할 수 없는 오류가 발생할 수 있습니다. 이 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여 복구할 수 없는 오류를 방지 합니다.
 
 - 키 자격 증명 모음을 사용 하는 경우 [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) 를 사용 하 여 액세스 정책을 나열 합니다. 자세한 내용은 [액세스 제어 정책을 사용 하 여 Key Vault 인증 제공](../key-vault/key-vault-group-permissions-for-apps.md)을 참조 하세요.
 
@@ -228,7 +232,7 @@ ms.locfileid: "87029980"
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Azure AD 인증을 사용 하 여 Azure SQL 데이터베이스 나열
 
-- Azure AD 인증으로 Azure SQL database를 사용 하 고 있는지 확인 하려면 [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) 및 [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) 확장을 사용 합니다. 자세한 내용은 [SQL을 사용 하 여 Azure Active Directory 인증 구성 및 관리](../sql-database/sql-database-aad-authentication-configure.md)를 참조 하세요.
+- Azure AD 인증으로 Azure SQL database를 사용 하 고 있는지 확인 하려면 [az sql server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) 및 [az graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) 확장을 사용 합니다. 자세한 내용은 [SQL을 사용 하 여 Azure Active Directory 인증 구성 및 관리](../azure-sql/database/authentication-aad-configure.md)를 참조 하세요.
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -309,7 +313,7 @@ ms.locfileid: "87029980"
 
 1. 시스템 할당 관리 id를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 합니다.
 
-    | Azure 서비스 | 추가 정보 | 
+    | Azure 서비스 | 자세한 정보 | 
     | --- | --- |
     | 가상 머신 | [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#system-assigned-managed-identity) |
     | 가상 머신 크기 집합 | [Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
@@ -325,7 +329,7 @@ ms.locfileid: "87029980"
 
 1. 사용자 할당 관리 id를 삭제 하 고, 다시 만들고, 연결 합니다.
 
-    | Azure 서비스 | 추가 정보 | 
+    | Azure 서비스 | 자세한 정보 | 
     | --- | --- |
     | 가상 머신 | [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | 가상 머신 크기 집합 | [Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |

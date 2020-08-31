@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5334a1196ac8044c56e615cf8894b44646b48fb4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88615114"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067708"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Azure Digital Twins의 쿼리 단위 
 
@@ -20,7 +20,9 @@ Azure Digital Twins **쿼리 단위 (QU)** 는 [쿼리 API](https://docs.microso
 
 Azure Digital Twins에서 지 원하는 쿼리 작업을 수행 하는 데 필요한 CPU, IOPS 및 메모리와 같은 시스템 리소스를 추상화 하 여 쿼리 단위 사용을 추적할 수 있습니다.
 
-쿼리의 복잡성은 해당 쿼리를 실행 하는 데 사용 되는 QUs의 수에 영향을 줍니다. 
+쿼리를 실행 하는 데 사용 되는 쿼리 단위의 크기는 다음의 영향을 받습니다.
+* 쿼리의 복잡성 
+* 결과 집합의 크기 (결과 10 개를 반환 하는 쿼리는 하나의 결과만 반환 하는 비슷한 복잡성의 쿼리 보다 더 많은 QUs를 사용 함)
 
 이 문서에서는 쿼리 단위를 이해 하 고 쿼리 단위 소비를 추적 하는 방법을 설명 합니다.
 

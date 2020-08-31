@@ -2,13 +2,13 @@
 title: IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석-Azure
 description: 이 항목에서는 IoT Edge 릴리스, 개선 사항, 버그 수정 및 알려진 문제에 대 한 라이브 비디오 분석의 릴리스 정보를 제공 합니다.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: bad21297c5174c107a8eb03da0e2ed57ee7355d3
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 08/19/2020
+ms.openlocfilehash: 23c2362d46a0b9bfe2fc2fbe31e00d0a42f80cfa
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750209"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055450"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석
 
@@ -32,7 +32,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 > [!NOTE]
 > 빠른 시작 및 자습서에서 배포 매니페스트는 1 (라이브-비디오-분석: 1) 태그를 사용 합니다. 따라서 이러한 매니페스트를 다시 배포 하면 edge > 장치에서 모듈을 업데이트 해야 합니다.
 
-## <a name="new-features"></a>새로운 기능 
+## <a name="new-features"></a>새 기능 
 
 * 이제 gRPC 프레임 워크를 사용 하 여 IoT Edge에서 라이브 비디오 분석과 사용자 지정 확장 간에 높은 데이터 콘텐츠 전송 성능을 얻을 수 있습니다. 시작 하려면 [이](analyze-live-video-use-your-grpc-model-quickstart.md) 항목을 참조 하세요.
 * 라이브 비디오 분석의 광범위 한 지역 배포와 클라우드 서비스만 업데이트 되었습니다.  
@@ -55,7 +55,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.2
 > [!NOTE]
 > 빠른 시작 및 자습서에서 배포 매니페스트는 1 (라이브-비디오-분석: 1) 태그를 사용 합니다. 따라서 이러한 매니페스트를 다시 배포 하면 edge > 장치에서 모듈을 업데이트 해야 합니다.
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 * 이제 자산 싱크 노드가 있는 그래프 토폴로지와 신호 게이트 프로세서 노드의 다운스트림 파일 싱크 노드를 만들 수 있습니다. 예제는 [이](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) 항목을 참조 하세요.
 
 ### <a name="bug-fixes"></a>버그 수정

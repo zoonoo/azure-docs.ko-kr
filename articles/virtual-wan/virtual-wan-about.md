@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/18/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: b58a729397118b01d2ff346c0d1f09f70435efae
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 2d8ac3775021c574d3c03e44b06d6b5e689070e7
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604701"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852675"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Virtual WAN이란?
 
@@ -124,15 +124,15 @@ Azure Virtual WAN은 ExpressRoute 트래픽을 암호화하는 기능을 제공�
 
 이제 경로 테이블은 연결 및 전파 기능을 제공합니다. 기존 경로 테이블은 이러한 기능이 없는 경로 테이블입니다. 허브 라우팅에 기존 경로를 사용 중이고 새 기능을 사용하려는 경우 다음 사항을 고려하세요.
 
-* **가상 허브에서 기존 경로를 사용 중인 표준 Virtual WAN 고객**: 새 경로 테이블 기능을 사용하려면 Azure에서 롤아웃이 완료되는 8월 17일까지 기다려주세요. Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 새 경로 테이블을 만들어야 합니다(Azure Portal의 허브에 대한 경로 테이블 섹션에서 사용 가능).
+* **가상 허브에서 기존 경로를 사용 중인 표준 Virtual WAN 고객**: Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 새 경로 테이블을 만들어야 합니다(Azure Portal의 허브에 대한 경로 테이블 섹션에서 사용 가능).
 
-* **가상 허브에서 기존 경로를 사용 중인 기본 Virtual WAN 고객**: 새 경로 테이블 기능을 사용하려면 Azure에서 롤아웃이 완료되는 8월 17일까지 기다려주세요. Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 기본 Virtual WAN을 표준 Virtual WAN으로 **업그레이드**합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조하세요.
+* **가상 허브에서 기존 경로를 사용 중인 기본 Virtual WAN 고객**: Azure Portal의 허브에 대한 라우팅 섹션에 기존 경로가 있는 경우 먼저 해당 경로를 삭제한 다음, 기본 Virtual WAN을 표준 Virtual WAN으로 **업그레이드**합니다. [가상 WAN을 기본에서 표준으로 업그레이드](upgrade-virtual-wan.md)를 참조하세요.
 
 ## <a name="faq"></a><a name="faq"></a>FAQ
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
-## <a name="view-the-latest-feature-updates"></a><a name="new"></a>최신 기능 업데이트 보기
+## <a name="whats-new"></a><a name="new"></a>새로운 기능
 
 RSS 피드를 구독하고 [Azure 업데이트](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN) 페이지에서 최신 Virtual WAN 기능 업데이트를 확인합니다.
 

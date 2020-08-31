@@ -1,6 +1,6 @@
 ---
 title: Azure용 Linux 이미지 만들기 개요
-description: Linux VM 이미지를 가져오거나 Azure에서 사용할 새 이미지를 만드는 방법에 대한 개요입니다.
+description: Linux VM 이미지를 가져오거나 Azure에서 사용할 새 이미지를 만드는 방법입니다.
 author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502183"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815303"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Azure에서 Linux 이미지 가져오기 및 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "86502183"
 ## <a name="difference-between-managed-disks-and-images"></a>관리 디스크와 이미지의 차이점
 
 
-Azure를 통해 VHD를 플랫폼으로 가져오거나, [Managed Disk](../windows/faq-for-disks.md#managed-disks)로 사용하거나, 이미지의 원본으로 사용할 수 있습니다. 
+Azure를 통해 VHD를 플랫폼으로 가져오거나, [Managed Disk](../faq-for-disks.md#managed-disks)로 사용하거나, 이미지의 원본으로 사용할 수 있습니다. 
 
 Azure 관리 디스크는 단일 VHD입니다. 기존 VHD를 가져와서 관리 디스크를 만들거나 처음부터 빈 관리 디스크를 만들 수 있습니다. 디스크를 VM에 연결하여 관리 디스크에서 VM을 만들 수 있지만 VHD는 하나의 VM에서만 사용할 수 있습니다. OS 속성은 수정할 수 없습니다. Azure는 VM을 켜고 해당 디스크를 사용하여 시작하려고 합니다. 
 

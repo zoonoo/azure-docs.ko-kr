@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: c944ae3a5d647cc457edd20a5d3dd0489e19e286
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 6d104e41a0cae906c346e81a26617a9d29795fb3
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192285"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853282"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
 
@@ -78,8 +78,8 @@ Azure SignalR Service 리소스의 개요 블레이드에서 적절한 집계 �
 ## <a name="what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose"></a>서비스 모드 `Default`/`Serverless`/`Classic`의 의미는 무엇인가요? 어떻게 선택할 수 있나요?
 
 모드:
-* `Default` 모드에는 허브 서버가 **필요합니다**. 허브에 사용할 수 있는 서버 연결이 없는 경우 클라이언트가 이 허브에 연결하려고 시도하면 실패합니다.
-* `Serverless` 모드는 서버 연결을 허용하지 **않습니다**. 즉, 모든 서버 연결을 거부하고 모든 클라이언트는 서버리스 모드로 전환해야 합니다.
+* `Default` 모드에는 허브 서버가 *필요합니다*. 이 모드에서 Azure SignalR은 클라이언트 트래픽을 연결된 허브 서버 연결로 라우팅합니다. Azure SignalR은 연결된 허브 서버를 확인합니다. 연결된 허브 서버가 없는 경우 Azure SignalR은 들어오는 클라이언트 연결을 거부합니다. 이 모드에서 **Management API**를 사용하여 Azure SignalR을 통해 연결된 클라이언트를 직접 관리할 수도 있습니다.
+* `Serverless` 모드는 서버 연결을 허용하지 *않습니다*. 즉, 모든 서버 연결을 거부합니다. 모든 클라이언트는 서버리스 모드여야 합니다. 클라이언트는 Azure SignalR에 연결되며, 사용자는 일반적으로 **Azure 함수**와 같은 서버리스 기술을 사용하여 허브 논리를 처리합니다. Azure SignalR의 서버리스 모드를 사용하는 [간단한 예제](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu)를 참조하세요.
 * `Classic` 모드는 혼합 상태입니다. 허브에서 서버 연결을 사용하는 경우 새 클라이언트는 허브 서버로 라우팅됩니다. 그렇지 않으면 클라이언트가 서버리스 모드로 전환됩니다.
 
   이로 인해 일부 문제가 발생할 수 있습니다. 예를 들어 모든 서버 연결은 잠시 동안 손실되며, 일부 클라이언트는 허브 서버에 대한 경로가 아닌 서버리스 모드로 전환됩니다.

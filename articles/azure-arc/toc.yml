@@ -3,7 +3,7 @@
 - name: 개요
   items:
     - name: Azure Arc 정보
-      href: arc-overview.md
+      href: overview.md
 - name: Arc 지원 서버 >
   href: ./servers/overview.md
 - name: Arc 지원 Kubernetes >

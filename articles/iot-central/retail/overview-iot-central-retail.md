@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: c060b87b24d7467097d06adecb9f34acb4993779
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3cae2902385eb82f65243c631745df5ca48825f3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032295"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719229"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Azure IoT Central을 사용하여 소매업 솔루션 빌드
 
@@ -160,20 +160,20 @@ IoT Central 마이크로 주문 처리 센터 애플리케이션 템플릿을 �
 
 애플리케이션 템플릿에는 네 가지 애플리케이션 대시보드가 포함되어 있습니다.
 
-* **설정**은 애플리케이션 디자인에 대한 정보를 제공하며 카메라를 추가하고 삭제할 수 있습니다.
-* **관리**를 통해 카메라를 관리할 수 있습니다. 예를 들어 카메라를 구성하고, 상태 정보를 보고, 실행 중인 카메라를 시작할 수 있습니다.
-* **실제 카메라**를 통해 감지 횟수 및 카메라 이벤트와 같은 실제 카메라의 정보를 볼 수 있습니다.
-* **모니터**를 사용하면 모든 카메라에서 자세한 정보를 볼 수 있습니다.
+* **시작**에서는 애플리케이션 템플릿 사용을 시작하는 데 도움이 되는 리소스에 대한 링크를 제공합니다.
+* **데모 대시보드**는 연결된 카메라에서 표시할 수 있는 정보 유형에 대한 설명을 제공합니다.
+* **(샘플) 실제 카메라 관리**는 시뮬레이션된 카메라를 사용하여 애플리케이션에서 카메라를 관리하는 방법을 보여줍니다.
+* **(샘플) 실제 카메라 모니터**는 시뮬레이션된 카메라를 사용하여 애플리케이션에서 카메라를 모니터링하는 방법을 보여줍니다.
 
 :::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="비디오 분석 - 개체 및 동작 감지":::
 
 솔루션의 아키텍처에 대해 자세히 알아보려면 [비디오 분석 애플리케이션 아키텍처](architecture-video-analytics.md)를 참조하세요.
 
-솔루션을 배포하는 방법에 대한 자세한 내용은 [Azure IoT Central에서 비디오 분석 애플리케이션 만들기](tutorial-video-analytics-create-app.md) 자습서를 참조하세요.
+솔루션을 배포하는 방법에 대한 자세한 내용은 [Azure IoT Central에서 비디오 분석 애플리케이션 만들기](tutorial-video-analytics-deploy.md) 자습서를 참조하세요.
 
 ### <a name="live-video-analytics"></a>라이브 비디오 분석
 
-라이브 비디오 분석은 에지 및 클라우드를 포괄하는 인텔리전트 비디오 애플리케이션을 빌드하기 위한 플랫폼을 제공합니다. 이 플랫폼은 라이브 비디오를 캡처, 녹화 및 분석하는 기능과 비디오 또는 비디오 분석일 수 있는 결과를 Azure 서비스에 게시하는 기능을 제공합니다. Azure 서비스는 클라우드 또는 에지에서 실행할 수 있습니다. 이 플랫폼을 사용하여 비디오 분석을 통해 IoT 솔루션을 개선할 수 있습니다.
+[라이브 비디오 분석](https://github.com/Azure/live-video-analytics)은 에지 및 클라우드를 포괄하는 인텔리전트 비디오 애플리케이션을 빌드하기 위한 플랫폼을 제공합니다. 이 플랫폼은 라이브 비디오를 캡처, 녹화 및 분석하는 기능과 비디오 또는 비디오 분석일 수 있는 결과를 Azure 서비스에 게시하는 기능을 제공합니다. Azure 서비스는 클라우드 또는 에지에서 실행할 수 있습니다. 이 플랫폼을 사용하여 비디오 분석을 통해 IoT 솔루션을 개선할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -184,4 +184,5 @@ IoT Central 마이크로 주문 처리 센터 애플리케이션 템플릿을 �
 * [디지털 배포 센터 애플리케이션 템플릿 배포 및 살펴보기](./tutorial-iot-central-digital-distribution-center.md)
 * [스마트 재고 관리 애플리케이션 템플릿 배포 및 살펴보기](./tutorial-iot-central-smart-inventory-management.md)
 * [마이크로 주문 처리 센터 애플리케이션 템플릿 배포 및 연습](./tutorial-micro-fulfillment-center.md)
+* [비디오 분석 애플리케이션 템플릿을 배포하고 살펴봅니다](./tutorial-video-analytics-deploy.md).
 * [IoT Central 개요](../preview/overview-iot-central.md)에서 IoT Central에 대해 자세히 알아봅니다.

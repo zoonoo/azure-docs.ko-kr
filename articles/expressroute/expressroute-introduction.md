@@ -5,14 +5,14 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: overview
-ms.date: 09/18/2019
+ms.date: 08/25/2020
 ms.author: mialdrid
-ms.openlocfilehash: 2fda31b97314347f52b0cd1bbe9e1b54d01af807
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6621a9778025d67046722b7cd60e32a62b574ee5
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607107"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852937"
 ---
 # <a name="what-is-azure-expressroute"></a>Azure ExpressRoute란?
 ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure 및 Office 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
@@ -111,6 +111,10 @@ ExpressRoute Direct가 제공하는 주요 기능은 다음을 포함하지만 �
 
 ## <a name="faq"></a>FAQ
 ExpressRoute에 대해 자주 묻는 질문은 [ExpressRoute FAQ](expressroute-faqs.md)를 참조하세요.
+
+## <a name="whats-new"></a><a name="new"></a>새로운 기능
+
+RSS 피드를 구독하고 [Azure 업데이트](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute) 페이지에서 최신 ExpressRoute 기능 업데이트를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [ExpressRoute 연결 모델](expressroute-connectivity-models.md)에 대해 알아봅니다.

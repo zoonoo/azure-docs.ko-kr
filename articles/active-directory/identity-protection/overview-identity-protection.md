@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39c9522362ca6710fae5dee5d831e63cc36a3950
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509113"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815184"
 ---
 # <a name="what-is-identity-protection"></a>Identity Protection이란?
 
@@ -52,8 +52,9 @@ Identity Protection은 다음과 같은 분류로 위험을 식별합니다.
 | 비정상적 이동 | 사용자의 최근 로그인을 기준으로 비정상적인 위치에서 로그인합니다. |
 | 익명 IP 주소 | 익명 IP 주소에서 로그인(예: Tor 브라우저, 익명성 도구 VPN) |
 | 일반적이지 않은 로그인 속성 | 지정된 사용자에게 최근 확인되지 않은 속성으로 로그인합니다. |
-| 맬웨어 연결 IP 주소 | 맬웨어 연결 IP 주소에서 로그인 |
-| 유출된 자격 증명 | 이 위험 탐지는 사용자의 유효한 자격 증명이 유출되었음을 나타냅니다. |
+| 맬웨어 연결 IP 주소 | 맬웨어 연결 IP 주소에서 로그인합니다. |
+| 유출된 자격 증명 | 이 위험 감지는 사용자의 유효한 자격 증명이 유출되었음을 나타냅니다. |
+| 암호 스프레이 | 여러 사용자 이름이 통합된 무차별 암호 대입 공격 방식으로 공통 암호를 사용하여 공격 받고 있음을 나타냅니다. |
 | Azure AD 위협 인텔리전스 | Microsoft의 내부 및 외부 위협 인텔리전스 소스가 알려진 공격 패턴을 식별했습니다. |
 
 이러한 위험에 대한 더 자세한 내용 및 계산되는 방법/시기는 [위험이란?](concept-identity-protection-risks.md) 문서에서 확인할 수 있습니다.
@@ -103,15 +104,15 @@ Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보
 
 | 기능 | 세부 정보 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free / Office 365 앱 |
 | --- | --- | --- | --- | --- |
-| 위험 정책 | 사용자 위험 정책(ID 보호를 통해) | 예 | 예 | 예 |
-| 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해) | 예 | 예 | 예 |
-| 보안 보고서 | 개요 | 예 | 예 | 예 |
+| 위험 정책 | 사용자 위험 정책(ID 보호를 통해) | 예 | 아니요 | 예 |
+| 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해) | 예 | 아니요 | 예 |
+| 보안 보고서 | 개요 | 예 | 아니요 | 예 |
 | 보안 보고서 | 위험한 사용자 | 모든 권한 | 제한적 정보 제공 | 제한적 정보 제공 |
 | 보안 보고서 | 위험한 로그인 | 모든 권한 | 제한적 정보 제공 | 제한적 정보 제공 |
 | 보안 보고서 | 위험 탐지 | 모든 권한 | 제한적 정보 제공 | 예 |
-| 공지 | 위험에 처한 사용자가 알림을 감지함 | 예 | 예 | 예 |
-| 공지 | 주 단위 요약 | 예 | 예 | 예 |
-| | MFA 등록 정책 | 예 | 예 | 예 |
+| 공지 | 위험에 처한 사용자가 알림을 감지함 | 예 | 아니요 | 예 |
+| 공지 | 주 단위 요약 | 예 | 아니요 | 예 |
+| | MFA 등록 정책 | 예 | 아니요 | 아니요 |
 
 ## <a name="next-steps"></a>다음 단계
 

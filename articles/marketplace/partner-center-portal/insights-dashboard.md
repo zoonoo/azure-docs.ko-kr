@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 1a645a333db9b24005639f4adbb2913a2b887b66
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607150"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055671"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>파트너 센터의 Marketplace 인사이트 대시보드
 
@@ -66,7 +66,10 @@ Azure Marketplace 또는 AppSource에서 제품을 방문한 사용자와 파트
 
 ## <a name="marketplace-insights-summary"></a>Marketplace 인사이트 요약
 
-Marketplace 인사이트 요약 섹션에는 선택한 날짜 범위에 대한 **페이지 방문 횟수**, **작업에 대한 호출** 및 **고유한 방문자 수**가 표시됩니다.
+Marketplace Insights 요약 섹션에는 선택한 날짜 범위에 대 한 **페이지 방문**횟수, **작업 호출**및 **고유 방문자** 수가 표시 됩니다.
+
+>[!NOTE]
+>Marketplace Insights 대시보드는 클릭 스트림 데이터를 제공 하며,이는 리드 대상 끝점에서 생성 된 잠재 고객과 상관 되어서는 안 됩니다.
 
 ### <a name="page-visits"></a>페이지 방문 횟수
 

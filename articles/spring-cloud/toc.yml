@@ -5,8 +5,6 @@
   items:
     - name: Azure Spring Cloud란?
       href: spring-cloud-overview.md
-    - name: 스프링 마이크로서비스 앱용 Java 및 기본 OS
-      href: spring-cloud-principles-microservice-apps.md
 - name: 빠른 시작
   expanded: true
   items:
