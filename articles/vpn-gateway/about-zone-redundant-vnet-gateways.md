@@ -1,6 +1,6 @@
 ---
 title: Azure 가용성 영역의 영역 중복 가상 네트워크 게이트웨이 정보
-description: 가용성 영역의 VPN Gateway 및 ExpressRoute 게이트웨이에 대해 알아봅니다.
+description: Azure 가용성 영역에서 VPN 및 Express 경로 게이트웨이를 배포 하 여 가상 네트워크 게이트웨이에 복원 력, 확장성 및 고가용성을 제공 합니다.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -9,12 +9,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: f1bbaab99b6422de4053839e2099869d2d08db95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3aed75c26880ae2c3e31b412496655e5225b2edc
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864301"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035453"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Azure 가용성 영역의 영역 중복 가상 네트워크 게이트웨이 정보
 

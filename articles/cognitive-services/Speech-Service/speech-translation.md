@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: f51288da6af3580ba7592950cde4f17d7adad529
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 670d7f160285283bd44371b893c63904b2685926
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80052613"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934500"
 ---
 # <a name="what-is-speech-translation"></a>음성 번역이란?
 
@@ -33,9 +34,9 @@ Microsoft의 변환 엔진은 SMT (통계적 기계 번역) 및 NMT (신경망 �
 
 | 사용 사례 | SDK) | REST (영문) |
 |----------|-----|------|
-| 인식 결과를 사용 하 여 음성 텍스트 변환 | 예 | 예 |
-| 음성-음성 변환. | 예 | 예 |
-| 중간 인식 및 번역 결과. | 예 | 예 |
+| 인식 결과를 사용 하 여 음성 텍스트 변환 | 예 | 아니요 |
+| 음성-음성 변환. | 예 | 아니요 |
+| 중간 인식 및 번역 결과. | 예 | 아니요 |
 
 ## <a name="get-started-with-speech-translation"></a>음성 번역 시작
 
@@ -46,7 +47,7 @@ Microsoft의 변환 엔진은 SMT (통계적 기계 번역) 및 NMT (신경망 �
 | [C #, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
 | [C #, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
 | [C #, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [찾아보기](https://aka.ms/csspeech/csharpref) |
-| [C](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [찾아보기](https://aka.ms/csspeech/cppref)|
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [찾아보기](https://aka.ms/csspeech/cppref)|
 | [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [찾아보기](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>예제 코드

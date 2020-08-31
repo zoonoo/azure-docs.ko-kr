@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 6db83d17a9e6f3df6d691d6de616ead5407e3f5f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 89da86d753f746774737c248ee318c7a377dd7a0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133047"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007100"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets에 대 한 Azure 보안 기준
 
@@ -170,7 +170,7 @@ Azure Security Center의 Just-in-time 네트워크 액세스를 사용 하 여 �
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: 자동화된 도구를 사용하여 네트워크 리소스 구성 모니터링 및 변경 내용 검색
 
@@ -520,7 +520,7 @@ Linux 가상 머신의 경우 노드 단위로 콘솔 로깅을 수동으로 구
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: 중요한 정보를 저장하거나 처리하는 시스템 격리
 
@@ -576,11 +576,11 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **책임**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: RBAC (역할 기반 액세스 제어)를 사용 하 여 팀 내에서 업무를 분리 하 고 가상 머신 (VM)의 사용자에 게 해당 작업을 수행 하는 데 필요한 만큼의 권한만 부여할 수 있습니다. VM에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. Azure CLI 또는 Azure PowerShell를 사용 하 여 Azure Portal에서 VM에 대 한 액세스 제어를 구성할 수 있습니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 팀 내에서 업무를 분리 하 고 작업을 수행 하는 데 필요한 가상 머신 (VM)의 사용자에 게 액세스 권한만 부여할 수 있습니다. VM에서 모든 사람에게 무제한 권한을 제공하는 대신 특정 작업만 허용할 수 있습니다. Azure CLI 또는 Azure PowerShell를 사용 하 여 Azure Portal에서 VM에 대 한 액세스 제어를 구성할 수 있습니다.
 
-* [Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [Azure 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)
 
@@ -696,7 +696,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: 권한 없는 Azure 리소스 삭제
 
@@ -878,7 +878,7 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: 보안 운영 체제 구성 유지 관리
 
@@ -916,11 +916,11 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: 사용자 지정 운영 체제 이미지를 안전하게 저장
 
-**지침**: 사용자 지정 이미지 (예: 가상 하드 디스크)를 사용 하는 경우 Azure 역할 기반 액세스 제어를 사용 하 여 권한 있는 사용자만 이미지에 액세스할 수 있도록 합니다.
+**지침**: 사용자 지정 이미지 (예: 가상 하드 디스크)를 사용 하는 경우 azure 역할 기반 액세스 제어 (azure RBAC)를 사용 하 여 권한 있는 사용자만 이미지에 액세스할 수 있도록 합니다.
 
-* [Azure의 RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Azure RBAC 이해](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-* [Azure에서 RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Azure RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -1166,7 +1166,7 @@ Azure disk encryption을 사용 하는 경우 디스크 암호화 키를 사용 
 
 **Azure Security Center 모니터링**: 예
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: 보안 경고에 대한 대응 자동화
 

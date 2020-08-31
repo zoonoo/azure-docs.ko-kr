@@ -1,6 +1,6 @@
 ---
 title: Gen1에서 Gen2로 Azure Data Lake Storage 마이그레이션
-description: Gen1에서 Gen2로 Azure Data Lake Storage을 마이그레이션합니다.
+description: Azure Blob Storage를 기반으로 하는 Gen1에서 Gen2로 Azure Data Lake Storage을 마이그레이션하고 빅 데이터 분석 전용 기능 집합을 제공 합니다.
 author: normesta
 ms.topic: how-to
 ms.author: normesta
@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 2cfe5f763b3dedd68c5180f5a0a3c7a3f4ea3e93
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 25879178930c80f1265470645808d9ee81acafa8
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496426"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035130"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Gen1에서 Gen2로 Azure Data Lake Storage 마이그레이션
 
@@ -93,7 +93,7 @@ Gen2로 마이그레이션하려면 다음 방법을 사용 하는 것이 좋습
 
 이 표에서는 Gen1의 기능을 Gen2와 비교 합니다.
 
-|영역 |1세대   |2세대 |
+|Area |1세대   |2세대 |
 |---|---|---|
 |데이터 구성|[계층 구조 네임스페이스](data-lake-storage-namespace.md)<br>파일 및 폴더 지원|[계층 구조 네임스페이스](data-lake-storage-namespace.md)<br>컨테이너, 파일 및 폴더 지원 |
 |지리적 중복| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |

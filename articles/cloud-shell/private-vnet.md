@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 5abc10d149cdb2c054f4122cd805ec22b2e37e2f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1cb5716e2f02a99e4d39a4041a2e54e87cf43568
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098136"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114662"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Cloud Shell 배포
 > [!NOTE]
@@ -103,7 +103,7 @@ Azure Portal 또는 Azure CLI, Azure PowerShell 등을 사용 하 여 새 리소
 > [!NOTE]
 > 각 관리자가 Cloud Shell를 사용할 수 있도록이 단계를 완료 해야 합니다.
 
-위의 단계를 완료 한 후에는 Azure Portal 또는에서 Cloud Shell로 이동 https://shell.azure.com 합니다.
+위의 단계를 완료 한 후에는 Azure Portal 또는에서 Cloud Shell로 이동 https://shell.azure.com 합니다. 격리 된 Cloud Shell 환경에 연결할 때마다 이러한 환경 중 하나를 사용 해야 합니다.
 
 > [!NOTE]
 > 이전에 Cloud Shell를 사용한 경우 기존 clouddrive를 분리 해야 합니다. 활성 Cloud Shell 세션에서이 작업을 실행 하려면 `clouddrive unmount` 페이지를 새로 고칩니다.

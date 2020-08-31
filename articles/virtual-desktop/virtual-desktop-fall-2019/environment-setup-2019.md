@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 (클래식) 환경-Azure
 description: Windows 가상 데스크톱 (클래식) 환경의 기본 요소
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2c019dd187c0ccd7a63f71c0373a0388135afda9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4fa281f6435013e9feb6808aab04ffa69c5f96c4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285019"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008613"
 ---
 # <a name="windows-virtual-desktop-classic-environment"></a>Windows 가상 데스크톱 (클래식) 환경
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../environment-setup.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../environment-setup.md)를 참조하세요.
 
 Windows 가상 데스크톱은 사용자에 게 가상화 된 데스크톱 및 Remoteapp에 대 한 액세스를 쉽고 안전 하 게 제공 하는 서비스입니다. 이 항목에서는 Windows 가상 데스크톱 환경의 일반적인 구조에 대해 자세히 설명 합니다.
 

@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 08386e2c54a45fe4a6e35ce6d7ebb51145827a6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84268441"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119643"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Microsoft id 플랫폼 UserInfo 끝점
 
@@ -34,7 +34,7 @@ Openid connect Connect 사양의 일부로 사용자 정보 끝점은 사용자�
 
 앱에서 받을 수 있는 ID 토큰에서 사용할 수 있는 정보는 UserInfo 끝점에서 얻을 수 있는 정보의 상위 집합입니다.  사용자가 사용자 정보 끝점을 호출 하는 토큰을 가져오는 동시에 ID 토큰을 가져올 수 있으므로 사용자 정보 끝점을 호출 하는 대신 해당 ID 토큰을 사용 하 여 사용자에 대 한 정보를 가져오는 것이 좋습니다.  ID 토큰을 사용 하면 응용 프로그램 시작에서 1 ~ 2 개의 네트워크 요청을 제거 하 여 응용 프로그램의 대기 시간을 줄일 수 있습니다.
 
-사용자에 대 한 자세한 정보를 요구 하는 경우에는 [Microsoft Graph `/user` API](https://docs.microsoft.com/graph/api/user-get) 를 호출 하 여 사무실 번호 또는 직위와 같은 정보를 얻어야 합니다.   [선택적 클레임](active-directory-optional-claims.md) 을 사용 하 여 ID 및 액세스 토큰에 추가 사용자 정보를 포함할 수도 있습니다.
+사용자에 대 한 자세한 정보를 요구 하는 경우에는 [Microsoft Graph `/user` API](/graph/api/user-get) 를 호출 하 여 사무실 번호 또는 직위와 같은 정보를 얻어야 합니다.   [선택적 클레임](active-directory-optional-claims.md) 을 사용 하 여 ID 및 액세스 토큰에 추가 사용자 정보를 포함할 수도 있습니다.
 
 ## <a name="calling-the-userinfo-endpoint"></a>UserInfo 끝점 호출
 
@@ -48,7 +48,7 @@ UserInfo는 Microsoft Graph에 대 한 토큰을 가져올 때 받은 액세스 
 |:--------------------|:---------------------------------------------------------|
 |위임 됨 (회사 또는 학교 계정) | openid connect (필수), 프로필, 전자 메일 |
 |위임 됨 (개인 Microsoft 계정) | openid connect (필수), 프로필, 전자 메일 |
-|애플리케이션 | 적용할 수 없음 |
+|애플리케이션 | 해당 없음 |
 
 > [!TIP]
 > 브라우저에서이 URL을 복사 하 여 [ID 토큰](id-tokens.md) 뿐만 아니라 UserInfo 끝점에 대 한 토큰을 가져온 다음 클라이언트 id 및 리디렉션 URI를 고유한 이름으로 바꿉니다. Openid connect 또는 Graph 범위에 대 한 범위만 요청 하 고 다른 것은 요청 하지 않습니다.  동일한 토큰 요청에서 서로 다른 두 리소스에 대 한 사용 권한을 요청할 수 없기 때문에이는 필수입니다.

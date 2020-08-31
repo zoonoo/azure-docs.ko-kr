@@ -3,12 +3,12 @@ title: Azure Service Bus 진단 로그 | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus에 사용할 수 있는 모든 운영 및 진단 로그에 대 한 개요를 제공 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337534"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064437"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Service Bus에 대 한 진단 로그 사용
 
@@ -25,7 +25,7 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
 
 작업 로그 JSON 문자열에는 다음 표에 나열 된 요소가 포함 됩니다.
 
-| 이름 | Description |
+| Name | Description |
 | ------- | ------- |
 | ActivityId | 지정 된 작업을 식별 하는 데 사용 되는 내부 ID |
 | EventName | 작업 이름 |
@@ -62,7 +62,7 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
 
 다음 관리 작업은 작업 로그에 캡처됩니다. 
 
-| Scope | 연산|
+| 범위 | 연산|
 |-------| -------- |
 | 네임스페이스 | <ul> <li> 네임스페이스 만들기</li> <li> 네임 스페이스 업데이트 </li> <li> 네임스페이스 삭제 </li> <li> 네임 스페이스 SharedAccess 정책 업데이트 </li> </ul> | 
 | 큐 | <ul> <li> 큐 만들기</li> <li> 큐 업데이트</li> <li> 큐 삭제 </li> <li> 삭제 큐 자동 삭제 </li> </ul> | 
@@ -101,7 +101,7 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
 
 새 설정은 약 10분 후에 적용됩니다. 구성된 보관 대상의 **진단 로그** 창에 로그가 표시됩니다.
 
-진단 구성 설정에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/diagnostic-logs-overview.md)를 참조하세요.
+진단 구성 설정에 대한 자세한 내용은 [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
 title: 래스터 맵에서 사용자 지정 데이터 렌더링 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps 정적 이미지 서비스를 사용 하 여 래스터 맵에 사용자 지정 데이터를 렌더링 하는 방법을 알아봅니다.
+description: 래스터 맵에 압정, 레이블 및 기 하 도형을 추가 하는 방법에 대해 알아봅니다. 이 목적을 위해 Azure Maps에서 정적 이미지 서비스를 사용 하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/23/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6eae060b2ed2b0f7d6de5ac54d92677c95fc8a89
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d5dcc2701a0b77509868471ec97c45917b2ccf42
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126876"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037374"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>래스터 맵에서 사용자 지정 데이터 렌더링
 

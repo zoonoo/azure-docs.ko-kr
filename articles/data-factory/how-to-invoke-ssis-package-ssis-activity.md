@@ -14,12 +14,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/20/2020
-ms.openlocfilehash: 2f8706fa8b272075ec64e2d36475509732914acf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0b6aba2b857a16631871d13f4a0fc14b682393e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003220"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926708"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
 
@@ -27,7 +27,7 @@ ms.locfileid: "87003220"
 
 이 문서에서는 SSIS 패키지 실행 작업을 사용 하 여 Azure Data Factory 파이프라인에서 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -97,7 +97,7 @@ SSIS 패키지 실행 작업의 **설정** 탭에서 다음 단계를 완료 합
 
 **Ssisdb** 는 Azure-SSIS IR Azure SQL Database server/Managed Instance에서 호스트 하는 SSISDB (SSIS 카탈로그)를 사용 하 여 프로 비전 된 경우 자동으로 선택 되며, 직접 선택할 수도 있습니다. 선택 된 경우 다음 단계를 완료 합니다.
 
-   1. Azure-SSIS IR 실행 중이 고 **수동 항목** 확인란의 선택을 취소 한 경우 SSISDB에서 기존 폴더, 프로젝트, 패키지 및 환경을 찾아 선택 합니다. 새로 추가 된 폴더, 프로젝트, 패키지 또는 환경을 검색 하 고 선택할 수 있도록 SSISDB에서 새로 추가 **를 선택 합니다** . 패키지 실행을 위한 환경을 탐색 하 고 선택 하려면 해당 환경을 SSISDB 아래의 동일한 폴더에서 참조로 추가 하도록 프로젝트를 미리 구성 해야 합니다. 자세한 내용은 [SSIS 환경 만들기 및 매핑](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014)을 참조 하세요.
+   1. Azure-SSIS IR 실행 중이 고 **수동 항목** 확인란의 선택을 취소 한 경우 SSISDB에서 기존 폴더, 프로젝트, 패키지 및 환경을 찾아 선택 합니다. 새로 추가 된 폴더, 프로젝트, 패키지 또는 환경을 검색 하 고 선택할 수 있도록 SSISDB에서 새로 추가 **를 선택 합니다** . 패키지 실행을 위한 환경을 탐색 하 고 선택 하려면 해당 환경을 SSISDB 아래의 동일한 폴더에서 참조로 추가 하도록 프로젝트를 미리 구성 해야 합니다. 자세한 내용은 [SSIS 환경 만들기 및 매핑](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages)을 참조 하세요.
 
    1. **로깅 수준**에서 패키지 실행에 대해 사전 정의된 로깅 범위를 선택합니다. 사용자 지정 된 로깅 이름을 대신 입력 하려면 **사용자 지정** 확인란을 선택 합니다. 
 
@@ -269,7 +269,7 @@ SSIS 패키지 실행 작업의 **속성 재정의** 탭에서 다음 단계를 
 
    1. 선택한 패키지의 기존 속성 경로를 하나씩 입력 하 여 수동으로 값을 할당 합니다. 패키지 실행이 성공적으로 실행 되 고 올바르게 입력 되었는지 확인 합니다. 예를 들어 사용자 변수의 값을 재정의 하려면 다음 형식으로 해당 경로를 입력 `\Package.Variables[User::<variable name>].Value` 합니다. 
 
-      SSDT에 해당 패키지를 포함 하는 패키지를 열어 패키지 속성에 대 한 올바른 **속성 경로** 를 가져올 수 있습니다. 패키지를 연 후 SSDT의 **속성** 창에서 해당 제어 흐름 및 **구성** 속성을 선택 합니다. 그런 다음 **구성** 속성 옆에 있는 줄임표 (**...**) 단추를 선택 하 여 패키지 [배포 모델에서 패키지 구성을 만드는](https://docs.microsoft.com/sql/integration-services/create-package-configurations?view=sql-server-2014)데 일반적으로 사용 되는 **패키지 구성 도우미** 를 엽니다. 
+      SSDT에 해당 패키지를 포함 하는 패키지를 열어 패키지 속성에 대 한 올바른 **속성 경로** 를 가져올 수 있습니다. 패키지를 연 후 SSDT의 **속성** 창에서 해당 제어 흐름 및 **구성** 속성을 선택 합니다. 그런 다음 **구성** 속성 옆에 있는 줄임표 (**...**) 단추를 선택 하 여 패키지 [배포 모델에서 패키지 구성을 만드는](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations)데 일반적으로 사용 되는 **패키지 구성 도우미** 를 엽니다. 
 
       ![SSDT 속성에서 패키지 속성 가져오기](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
 

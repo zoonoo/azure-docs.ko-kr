@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
-ms.openlocfilehash: 292f7b65528c13d23d4f2b72467538c43c6ad75e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d8c61c90456607d73fc0e8abc24709d901328ecf
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172041"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829529"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>자습서: Firebase SDK 버전 1.0.0-preview1을 사용하여 Android 디바이스에 푸시 알림 보내기
 
@@ -278,7 +278,7 @@ ms.locfileid: "84172041"
 
 알림 보내기에 대한 다른 자습서 목록은 다음과 같습니다.
 
-- Azure Mobile Apps: Notification Hubs와 통합된 Mobile Apps 백 엔드에서 알림을 보내는 방법에 대한 예제는 [iOS 앱에 푸시 알림 추가](/azure/app-service-mobile/app-service-mobile-ios-get-started-push)를 참조하세요.
+- Azure Mobile Apps: Notification Hubs와 통합된 Mobile Apps 백 엔드에서 알림을 보내는 방법에 대한 예제는 [iOS 앱에 푸시 알림 추가](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push)를 참조하세요.
 
 - ASP.NET: [Notification Hubs를 사용하여 사용자에게 푸시 알림 보내기](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)를 참조하세요.
 

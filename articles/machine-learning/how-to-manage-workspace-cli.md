@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 06/25/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 4910dc03cc4ef24b8515271a9197650c4b041f01
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: how-to
+ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489608"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167643"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -141,6 +141,47 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
   "workspaceid": "<GUID>"
 }
 ```
+
+### <a name="virtual-network-and-private-endpoint"></a>가상 네트워크 및 개인 끝점
+
+> [!IMPORTANT]
+> Azure Machine Learning 작업 영역에서 Azure 개인 링크를 사용 하는 것은 현재 공개 미리 보기 상태입니다. 이 기능은 **미국 동부** 및 **미국 서 부 2** 지역 에서만 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+작업 영역에 대 한 액세스를 가상 네트워크로 제한 하려는 경우 다음 매개 변수를 사용할 수 있습니다.
+
+* `--pe-name`: 만든 개인 끝점의 이름입니다.
+* `--pe-auto-approval`: 작업 영역에 대 한 개인 끝점 연결을 자동으로 승인 해야 하는지 여부입니다.
+* `--pe-resource-group`: 개인 끝점을 만들 리소스 그룹입니다. 는 가상 네트워크를 포함 하는 그룹과 같아야 합니다.
+* `--pe-vnet-name`: 개인 끝점을 만들 기존 가상 네트워크입니다.
+* `--pe-subnet-name`: 개인 끝점을 만들 서브넷의 이름입니다. 기본값은 `default`입니다.
+
+작업 영역에서 개인 끝점 및 가상 네트워크를 사용 하는 방법에 대 한 자세한 내용은 [네트워크 격리 및 개인 정보](how-to-enable-virtual-network.md)를 참조 하세요.
+
+### <a name="customer-managed-key-and-high-business-impact-workspace"></a>고객 관리 키 및 높은 비즈니스 영향 작업 영역
+
+기본적으로 작업 영역에 대 한 메트릭 및 메타 데이터는 Microsoft에서 유지 관리 하는 Azure Cosmos DB 인스턴스에 저장 됩니다. 이 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 암호화 됩니다. 
+
+Azure Machine Learning의 __엔터프라이즈__ 버전을 만드는 경우 사용자 고유의 키 제공을 사용할 수 있습니다. 이렇게 하면 Azure 구독에 메트릭 및 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다. `--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 URL을 지정 합니다.
+
+> [!IMPORTANT]
+> `--cmk-keyvault`및 `--resource-cmk-uri` 매개 변수를 사용 하기 전에 먼저 다음 작업을 수행 해야 합니다.
+>
+> 1. 구독에 대 한 참가자 권한으로 Id 및 액세스 관리에서 __Machine Learning 앱__ 에 권한을 부여 합니다.
+> 1. [고객 관리 키 구성](/azure/cosmos-db/how-to-setup-cmk) 의 단계에 따라 다음을 수행 합니다.
+>     * Azure Cosmos DB 공급자 등록
+>     * Azure Key Vault 만들기 및 구성
+>     * 키 생성
+>
+>     Azure Cosmos DB 인스턴스를 수동으로 만들 필요는 없으며 작업 영역을 만드는 동안 생성 됩니다. 이 Azure Cosmos DB 인스턴스는이 패턴을 기반으로 하는 이름을 사용 하 여 별도의 리소스 그룹에 만들어집니다 `<your-resource-group-name>_<GUID>` .
+>
+> 작업 영역을 만든 후에는이 설정을 변경할 수 없습니다. 작업 영역에서 사용 하는 Azure Cosmos DB를 삭제 하는 경우 해당 작업 영역을 사용 하는 작업 영역도 삭제 해야 합니다.
+
+Microsoft에서 작업 영역에 대해 수집 하는 데이터를 제한 하려면 `--hbi-workspace` 매개 변수를 사용 합니다. 
+
+> [!IMPORTANT]
+> 높은 비즈니스 영향을 선택 하는 작업은 작업 영역을 만들 때만 수행할 수 있습니다. 작업 영역을 만든 후에는이 설정을 변경할 수 없습니다.
+
+고객 관리 키 및 높은 비즈니스 영향 작업 영역에 대 한 자세한 내용은 [Azure Machine Learning Enterprise security](concept-enterprise-security.md#encryption-at-rest)을 참조 하십시오.
 
 ### <a name="use-existing-resources"></a>기존 리소스 사용
 

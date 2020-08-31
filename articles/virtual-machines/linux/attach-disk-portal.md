@@ -4,15 +4,15 @@ description: 포털을 사용하여 새 또는 기존 데이터 디스크를 Lin
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 07/12/2018
+ms.date: 08/20/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 8bafde086febce78ca2715ab77c8a071467b986b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 82b4bd4444ae73b6a4631bae7efb8110de00f439
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825466"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757707"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>포털을 사용하여 데이터 디스크를 Linux VM에 연결 
 이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 머신에 연결하는 방법을 보여줍니다. 또한 [Azure Portal에서 Windows VM에 데이터 디스크를 연결](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다. 
@@ -27,177 +27,115 @@ VM에 디스크를 연결하기 전에 다음 팁을 검토합니다.
 ## <a name="find-the-virtual-machine"></a>가상 머신 찾기
 1. [Azure Portal](https://portal.azure.com/)로 이동하여 VM을 찾습니다. **가상 머신**을 검색하여 선택합니다.
 2. 목록에서 VM을 선택합니다.
-3. **가상 머신** 페이지 사이드바의 **설정**에서 **디스크**를 선택합니다.
-   
-    ![디스크 설정 열기](./media/attach-disk-portal/find-disk-settings.png)
+3. **가상 컴퓨터** 페이지의 **설정**에서 **디스크**를 선택 합니다.
 
 
 ## <a name="attach-a-new-disk"></a>새 디스크 연결
 
-1. **디스크** 창에서 **+ 데이터 디스크 추가**를 클릭합니다.
-2. **이름**에 대한 드롭다운 메뉴를 클릭하고 **디스크 만들기**를 선택합니다.
+1. **디스크** 창에서 **데이터 디스크**아래에 있는 **새 디스크 만들기 및 연결**을 선택 합니다.
 
-    ![Azure Managed Disks 만들기](./media/attach-disk-portal/create-new-md.png)
-
-3. 관리되는 디스크에 대한 이름을 입력합니다. 기본 설정을 검토하고 필요에 따라 업데이트한 다음 **만들기**를 클릭합니다.
+1. 관리되는 디스크에 대한 이름을 입력합니다. 기본 설정을 검토 하 고 필요에 따라 **저장소 유형**, **크기 (GiB)**, **암호화** 및 **호스트 캐싱을** 업데이트 합니다.
    
-   ![디스크 설정 검토](./media/attach-disk-portal/create-new-md-settings.png)
+   :::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="디스크 설정을 검토 합니다.":::
 
-4. **저장**을 클릭하여 관리되는 디스크를 만들고 VM 구성을 업데이트합니다.
 
-   ![새 Azure Managed Disk 저장](./media/attach-disk-portal/confirm-create-new-md.png)
+1. 완료 되 면 페이지 맨 위에 있는 **저장** 을 선택 하 여 관리 디스크를 만들고 VM 구성을 업데이트 합니다.
 
-5. Azure가 디스크를 만들고 가상 머신에 연결하면 가상 머신의 디스크 설정의 **데이터 디스크**아래에 새 디스크가 나열됩니다. 관리되는 디스크는 최상위 수준 리소스이므로 디스크는 리소스 그룹의 루트에 나타납니다.
-
-   ![리소스 그룹의 Azure Managed Disk](./media/attach-disk-portal/view-md-resource-group.png)
 
 ## <a name="attach-an-existing-disk"></a>기존 디스크 연결
-1. **디스크** 창에서 **+ 데이터 디스크 추가**를 클릭합니다.
-2. **이름**에 대한 드롭다운 메뉴를 클릭하여 Azure 구독에 액세스할 수 있는 기존 관리되는 디스크의 목록을 봅니다. 연결할 관리되는 디스크를 선택합니다.
+1. **디스크** 창의 **데이터 디스크**에서 **기존 디스크 연결**을 선택 합니다.
+1. **디스크 이름** 드롭다운 메뉴를 클릭 하 고 사용 가능한 관리 디스크 목록에서 디스크를 선택 합니다. 
 
-   ![기존 Azure Managed Disk 연결](./media/attach-disk-portal/select-existing-md.png)
-
-3. **저장**을 클릭하여 기존 관리되는 디스크를 연결하고 VM 구성을 업데이트합니다.
+1. **저장**을 클릭하여 기존 관리되는 디스크를 연결하고 VM 구성을 업데이트합니다.
    
-   ![Azure Managed Disk 업데이트 저장](./media/attach-disk-portal/confirm-attach-existing-md.png)
-
-4. Azure가 디스크를 가상 머신에 연결한 후 가상 머신의 디스크 설정의 **데이터 디스크**아래에 해당 디스크가 나열됩니다.
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Linux VM에 연결하여 새 디스크 탑재
-Linux VM에서 사용할 수 있도록 새 디스크를 분할, 포맷 및 탑재하려면 VM에 SSH합니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음 예제에서는 사용자 이름 *azureuser*를 사용하여 공용 DNS 항목이 *mypublicdns.westus.cloudapp.azure.com*인 VM에 연결합니다. 
+Linux VM에서 사용할 수 있도록 새 디스크를 분할, 포맷 및 탑재하려면 VM에 SSH합니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음 예제에서는 사용자 이름 *azureuser*를 사용 하 여 *10.123.123.25* 의 공용 IP 주소를 사용 하 여 VM에 연결 합니다. 
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@10.123.123.25
 ```
 
-VM에 연결하고 나면 디스크를 연결할 준비가 되었습니다. 먼저 `dmesg`를 사용하여 디스크를 찾습니다(새 디스크를 찾는 데 사용하는 방법은 다를 수 있습니다). 다음 예제에서는 dmesg를 사용하여 *SCSI* 디스크를 필터링합니다.
+## <a name="find-the-disk"></a>디스크 찾기
+
+VM에 연결 되 면 디스크를 찾아야 합니다. 이 예제에서는를 사용 하 여 `lsblk` 디스크를 나열 합니다. 
 
 ```bash
-dmesg | grep SCSI
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 ```
 
 다음 예제와 유사하게 출력됩니다.
 
 ```bash
-[    0.294784] SCSI subsystem initialized
-[    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
-[    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
-[    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
-[ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0       4G
 ```
 
-여기서 *sdc*는 원하는 디스크입니다. 
+이 예제에서 추가한 디스크는 `sdc` 입니다. 이는 LUN 0 이며 4GB입니다.
+
+더 복잡 한 예는 포털에서 다음과 같은 여러 데이터 디스크가 표시 됩니다.
+
+:::image type="content" source="./media/attach-disk-portal/create-new-md.png" alt-text="디스크 설정을 검토 합니다.":::
+
+이미지에서 3 개의 데이터 디스크 (LUN 0에 4gb, lun 1에 16GB, LUN 2에 32G)가 있는지 확인할 수 있습니다.
+
+다음은를 사용 하는 것 처럼 보일 수 있는 것입니다 `lsblk` .
+
+```bash
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0       4G
+sdd     3:0:0:1      16G
+sde     3:0:0:2      32G
+```
+
+의 출력에서 `lsblk` lun 0의 4gb 디스크가이 고 `sdc` , lun 1의 16gb 디스크가이 `sdd` 고, Lun 2의 32g 디스크가 인 것을 확인할 수 있습니다 `sde` .
 
 ### <a name="partition-a-new-disk"></a>새 디스크 분할
+
 데이터가 포함된 기존 디스크를 사용 중이라면 디스크 탑재 단계로 건너뜁니다. 새 디스크를 연결하는 경우에는 디스크를 분할해야 합니다.
 
+유틸리티를 사용 하 여 `parted` 데이터 디스크를 분할 하 고 형식을 지정할 수 있습니다.
+
 > [!NOTE]
-> 배포판에 사용할 수 있는 최신 버전의 fdisk 또는 parted를 사용하는 것이 좋습니다.
+> 배포판에 사용할 수 있는 최신 버전을 사용 하는 것이 좋습니다 `parted` .
+> 디스크 크기가 2 tebibytes (TiB) 이상인 경우에는 GPT 분할을 사용 해야 합니다. 디스크 크기가 2 TiB 이면 MBR 또는 GPT 분할 중 하나를 사용할 수 있습니다.  
 
-`fdisk`를 사용하여 디스크를 분할합니다. 디스크 크기가 2테비바이트(TiB) 이상이어서 GPT 분할을 사용해야 하는 경우 `parted`를 사용하여 GPT 분할을 수행할 수 있습니다. 디스크 크기가 2TiB 미만이라면 MBR 또는 GPT 분할을 사용하면 됩니다. 파티션 1에 기본 디스크를 만들고, 나머지는 기본값을 적용합니다. 다음 예제에서는 */dev/sdc*에서 `fdisk` 프로세스를 시작합니다.
 
-```bash
-sudo fdisk /dev/sdc
-```
+다음 예제에서는 `parted` `/dev/sdc` 첫 번째 데이터 디스크가 대부분의 vm에서 일반적으로 사용 되는를 사용 합니다. 를 `sdc` 디스크에 대 한 올바른 옵션으로 바꿉니다. [Xfs](https://xfs.wiki.kernel.org/) 파일 시스템을 사용 하 여 형식을 지정 하기도 합니다.
 
-새 파티션을 추가하려면 `n` 명령을 사용합니다. 이 예제에서는 주 파티션에 대해 `p`를 선택하고 기본 값의 나머지를 적용합니다. 다음 예제와 유사하게 출력됩니다.
-
-```bash
-Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
-Building a new DOS disklabel with disk identifier 0x2a59b123.
-Changes will remain in memory only, until you decide to write them.
-After that, of course, the previous content won't be recoverable.
-
-Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)
-
-Command (m for help): n
-Partition type:
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-10485759, default 2048):
-Using default value 2048
-Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
-Using default value 10485759
-```
-
-`p`를 입력하여 파티션 테이블을 인쇄한 다음, `w`를 사용하여 디스크에 테이블을 쓰고 종료합니다. 출력은 다음 예제와 비슷해야 합니다.
-
-```bash
-Command (m for help): p
-
-Disk /dev/sdc: 5368 MB, 5368709120 bytes
-255 heads, 63 sectors/track, 652 cylinders, total 10485760 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk identifier: 0x2a59b123
-
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdc1            2048    10485759     5241856   83  Linux
-
-Command (m for help): w
-The partition table has been altered!
-
-Calling ioctl() to re-read partition table.
-Syncing disks.
-```
-
-이제 `mkfs` 명령을 사용하여 파티션에 파일 시스템을 씁니다. 파일 시스템 형식 및 디바이스 이름을 지정합니다. 다음 예제에서는 이전 단계에서 만든 */dev/sdc1* 파티션에 *ext4* 파일 시스템을 만듭니다.
-
-```bash
-sudo mkfs -t ext4 /dev/sdc1
-```
-
-다음 예제와 유사하게 출력됩니다.
-
-```bash
-mke2fs 1.42.9 (4-Feb-2014)
-Discarding device blocks: done
-Filesystem label=
-OS type: Linux
-Block size=4096 (log=2)
-Fragment size=4096 (log=2)
-Stride=0 blocks, Stripe width=0 blocks
-327680 inodes, 1310464 blocks
-65523 blocks (5.00%) reserved for the super user
-First data block=0
-Maximum filesystem blocks=1342177280
-40 block groups
-32768 blocks per group, 32768 fragments per group
-8192 inodes per group
-Superblock backups stored on blocks:
-    32768, 98304, 163840, 229376, 294912, 819200, 884736
-Allocating group tables: done
-Writing inode tables: done
-Creating journal (32768 blocks): done
-Writing superblocks and filesystem accounting information: done
-```
-
-#### <a name="alternate-method-using-parted"></a>parted를 사용하는 대체 방법
-fdisk 유틸리티는 대화형 입력이 필요하므로 자동화 스크립트에 사용하기에 적합하지 않습니다. 그러나 [parted](https://www.gnu.org/software/parted/) 유틸리티는 스크립팅할 수 있으므로 자동화 시나리오에서 더 효율적입니다. parted 유틸리티를 사용하여 데이터 디스크를 분할하고 포맷할 수 있습니다. 아래 연습에서는 새 데이터 디스크 /dev/sdc를 사용하고 [XFS](https://xfs.wiki.kernel.org/) 파일 시스템을 사용하여 포맷합니다.
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 sudo mkfs.xfs /dev/sdc1
-partprobe /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
-위에서 설명한 것처럼 [partprobe](https://linux.die.net/man/8/partprobe) 유틸리티를 사용하여 커널이 새 파티션 및 파일 시스템을 즉시 인식하는지 확인합니다. partprobe를 사용하지 않으면 blkid 또는 lslbk 명령이 새 파일 시스템의 UUID를 즉시 반환하지 않을 수 있습니다.
+
+유틸리티를 사용 [`partprobe`](https://linux.die.net/man/8/partprobe) 하 여 커널이 새 파티션 및 파일 시스템을 인식 하는지 확인 합니다. 을 사용 하지 않으면 `partprobe` blkid 또는 lslbk 명령이 새 파일 시스템에 대해 UUID를 즉시 반환 하지 않을 수 있습니다.
 
 ### <a name="mount-the-disk"></a>디스크 탑재
-`mkdir`을 사용하여 파일 시스템을 탑재할 디렉터리를 만듭니다. 다음 예제에서는 */datadrive*에 디렉터리를 만듭니다.
+
+`mkdir`을 사용하여 파일 시스템을 탑재할 디렉터리를 만듭니다. 다음 예제에서는 디렉터리를 만듭니다 `/datadrive` .
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-`mount`를 사용하여 파일 시스템을 탑재합니다. 다음 예제에서는 */dev/sdc1* 파티션을 */datadrive* 탑재 지점에 탑재합니다.
+`mount`를 사용하여 파일 시스템을 탑재합니다. 다음 예제에서는 */dev/sc1* 파티션을 탑재 지점에 탑재 합니다 `/datadrive` .
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 */etc/fstab* 파일에 추가해야 합니다. 또한 */etc/fstab*에 UUID(Universally Unique IDentifier)를 사용하여 디바이스 이름(예: */dev/sdc1*) 대신 드라이브를 가리키는 것이 좋습니다. 부팅하는 동안 OS에서 디스크 오류를 검색하는 경우 UUID를 사용하여 지정된 위치에 탑재되어 있는 잘못된 디스크를 회피합니다. 그런 다음, 남아 있는 데이터 디스크를 동일한 디바이스 ID에 할당합니다. 새 드라이브의 UUID를 찾으려면 `blkid` 유틸리티를 사용합니다.
+다시 부팅 후 드라이브가 자동으로 다시 탑재되도록 하려면 */etc/fstab* 파일에 추가해야 합니다. 또한 */etc/fstab* 에서 UUID (범용 고유 식별자)를 사용 하 여 장치 이름 (예: */dv/sdc1*)이 아닌 드라이브를 참조 하는 것이 좋습니다. 부팅하는 동안 OS에서 디스크 오류를 검색하는 경우 UUID를 사용하여 지정된 위치에 탑재되어 있는 잘못된 디스크를 회피합니다. 그런 다음, 남아 있는 데이터 디스크를 동일한 디바이스 ID에 할당합니다. 새 드라이브의 UUID를 찾으려면 `blkid` 유틸리티를 사용합니다.
 
 ```bash
 sudo -i blkid
@@ -217,21 +155,48 @@ sudo -i blkid
 텍스트 편집기에서 다음과 같이 */etc/fstab* 파일을 엽니다.
 
 ```bash
-sudo vi /etc/fstab
+sudo nano /etc/fstab
 ```
 
-이 예제에서는 이전 단계에서 만든 */dev/sdc1* 디바이스의 UUID 값과 탑재 지점 */datadrive*를 사용합니다. */etc/fstab* 파일의 끝에 다음 줄을 추가합니다.
+이 예제에서는 이전 단계에서 만든 장치에 대해 UUID 값을 사용 하 `/dev/sdc1` 고의 탑재를 사용 합니다 `/datadrive` . 파일의 끝에 다음 줄을 추가 합니다 `/etc/fstab` .
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
-완료되면 */etc/fstab* 파일을 저장하고 시스템을 다시 부팅합니다.
+
+Nano 편집기를 사용 했으므로 파일 편집이 완료 되 면를 사용 `Ctrl+O` 하 여 파일을 작성 하 고 편집기를 `Ctrl+X` 종료 합니다.
+
 > [!NOTE]
 > 나중에 fstab을 편집하지 않고 데이터 디스크를 제거하면 VM이 부팅되지 않을 수 있습니다. 대부분의 배포는 *nofail* 및/또는 *nobootwait* fstab 옵션을 제공합니다. 이러한 옵션을 사용하면 디스크가 부팅 시 탑재되지 않더라도 시스템을 부팅할 수 있습니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하세요.
 > 
 > *nofail* 옵션은 파일 시스템이 손상되었거나 디스크가 부팅 시 존재하지 않더라도 VM이 시작되도록 합니다. 이 옵션이 없으면 [FSTAB 오류로 인해 Linux에 SSH를 사용할 수 없음](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)(영문)에 설명되어 있는 동작이 발생할 수 있습니다.
 
+
+## <a name="verify-the-disk"></a>디스크 확인
+
+이제를 다시 사용 `lsblk` 하 여 디스크 및 탑재 지점을 확인할 수 있습니다.
+
+```bash
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
+```
+
+출력은 다음과 비슷할 것입니다.
+
+```bash
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0       4G
+└─sdc1                4G /datadrive
+```
+
+`sdc`이제가에 탑재 된 것을 볼 수 있습니다 `/datadrive` .
+
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure에서 Linux에 대한 TRIM/UNMAP 지원
+
 일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이 기능은 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 Azure에 알리기 위해 표준 스토리지에서 주로 유용하며, 큰 파일을 만들고 삭제하는 경우 비용을 절약할 수 있습니다.
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.

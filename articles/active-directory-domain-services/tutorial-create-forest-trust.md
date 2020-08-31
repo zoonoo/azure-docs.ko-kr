@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 40dd7f1b177fd1319b145036c8263ba2c6e30137
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 24928ec4117b321cfec7177fdad40f2a3ab7a1f4
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024675"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722724"
 ---
-# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>자습서: Azure Active Directory Domain Services에서 온-프레미스 도메인에 대한 아웃바운드 포리스트 트러스트 만들기(미리 보기)
+# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>자습서: Azure Active Directory Domain Services에서 온-프레미스 도메인에 대한 아웃바운드 포리스트 트러스트 만들기
 
-암호 해시를 동기화할 수 없거나 스마트 카드를 사용하여 독점적으로 로그인하는 사용자가 자신의 암호를 모르는 환경에서는 Azure AD DS(Active Directory Domain Services)에서 리소스 포리스트를 사용할 수 있습니다. 리소스 포리스트는 Azure AD DS에서 하나 이상의 온-프레미스 AD DS 환경으로의 단방향 아웃바운드 트러스트를 사용합니다. 이 트러스트 관계를 통해 사용자, 애플리케이션 및 컴퓨터에서 Azure AD DS 관리형 도메인의 온-프레미스 도메인에 대해 인증할 수 있습니다. Azure AD DS 리소스 포리스트는 현재 미리 보기로 제공됩니다.
+암호 해시를 동기화할 수 없거나 스마트 카드를 사용하여 독점적으로 로그인하는 사용자가 자신의 암호를 모르는 환경에서는 Azure AD DS(Active Directory Domain Services)에서 리소스 포리스트를 사용할 수 있습니다. 리소스 포리스트는 Azure AD DS에서 하나 이상의 온-프레미스 AD DS 환경으로의 단방향 아웃바운드 트러스트를 사용합니다. 이 트러스트 관계를 통해 사용자, 애플리케이션 및 컴퓨터에서 Azure AD DS 관리형 도메인의 온-프레미스 도메인에 대해 인증할 수 있습니다. 리소스 포리스트에서 온-프레미스 암호 해시는 절대 동기화되지 않습니다.
 
 ![Azure AD DS에서 온-프레미스 AD DS로의 포리스트 트러스트에 대한 다이어그램](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -128,7 +128,7 @@ Azure Portal에서 관리되는 도메인에 대한 아웃바운드 트러스트
 
 Windows Server 가상 머신이 관리되는 도메인에 가입되어 있어야 합니다. 이 가상 머신을 사용하여 온-프레미스 사용자가 가상 머신에서 인증할 수 있는지 테스트합니다. 필요한 경우 [Windows VM을 만들어서 관리되는 도메인에 가입][join-windows-vm]합니다.
 
-1. [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) 및 Azure AD DS 관리자 자격 증명을 사용하여 Azure AD DS 리소스 포리스트에 조인된 Windows Server VM에 연결합니다.
+1. [Azure Bastion](../bastion/bastion-overview.md) 및 Azure AD DS 관리자 자격 증명을 사용하여 Azure AD DS 리소스 포리스트에 조인된 Windows Server VM에 연결합니다.
 1. 명령 프롬프트를 열고, `whoami` 명령을 사용하여 현재 인증된 사용자의 고유 이름을 표시합니다.
 
     ```console
@@ -150,7 +150,7 @@ Azure AD DS 리소스 포리스트에 조인된 Windows Server VM을 사용하�
 
 #### <a name="enable-file-and-printer-sharing"></a>파일 및 프린터 공유 사용
 
-1. [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview) 및 Azure AD DS 관리자 자격 증명을 사용하여 Azure AD DS 리소스 포리스트에 조인된 Windows Server VM에 연결합니다.
+1. [Azure Bastion](../bastion/bastion-overview.md) 및 Azure AD DS 관리자 자격 증명을 사용하여 Azure AD DS 리소스 포리스트에 조인된 Windows Server VM에 연결합니다.
 
 1. **Windows 설정**을 연 다음, **네트워크 및 공유 센터**를 검색하여 선택합니다.
 1. **고급 공유 설정 변경** 옵션을 선택합니다.

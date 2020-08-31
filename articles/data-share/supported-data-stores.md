@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 07/30/2020
-ms.openlocfilehash: 967b2dceab1f1702120cd3121ccd64b4e7286bc6
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/14/2020
+ms.openlocfilehash: 0e81d04edff667b0526f1d286701b2e8701528dc
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511907"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258605"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Azure 데이터 공유에서 지원 되는 데이터 저장소
 
@@ -30,7 +30,7 @@ Azure 데이터 공유는 다양 한 데이터 저장소에서 공유 하는 기
 | Azure Data Lake Storage Gen2 |✓ ||
 | Azure SQL Database |공개 미리 보기 | |
 | Azure Synapse Analytics (이전의 Azure SQL DW) |공개 미리 보기 | |
-| Azure Data Explorer | |공개 미리 보기 |
+| Azure Data Explorer | |✓ |
 
 ## <a name="data-store-support-matrix"></a>데이터 저장소 지원 매트릭스
 
@@ -62,9 +62,7 @@ SQL 기반 원본에서 공유 하는 경우 방화벽 규칙 및 사용 권한�
 ## <a name="share-from-azure-data-explorer"></a>Azure Data Explorer에서 공유
 Azure 데이터 공유는 Azure 데이터 탐색기 클러스터에서 전체 데이터베이스를 공유 하는 기능을 지원 합니다. 데이터 공급자는 데이터베이스 또는 클러스터 수준에서 공유할 수 있습니다. 데이터베이스 수준에서 공유 하는 경우 데이터 소비자는 데이터 공급자가 공유 하는 특정 데이터베이스에만 액세스할 수 있습니다. 클러스터 수준에서 공유 하는 경우 데이터 소비자는 데이터 공급자가 만든 미래의 모든 데이터베이스를 포함 하 여 공급자의 클러스터에서 모든 데이터베이스에 액세스할 수 있습니다.
 
-공유 데이터베이스에 액세스 하려면 데이터 소비자에 게 자체 Azure 데이터 탐색기 클러스터가 있어야 합니다. 데이터 소비자의 Azure 데이터 탐색기 클러스터는 데이터 공급자의 Azure 데이터 탐색기 클러스터와 동일한 Azure 데이터 센터에서 찾아야 합니다. 공유 관계가 설정 되 면 Azure 데이터 공유는 공급자와 소비자의 Azure 데이터 탐색기 클러스터 사이에 기호화 된 링크를 만듭니다.
-
-Azure 데이터 탐색기는 일괄 처리 및 스트리밍의 두 가지 데이터 수집 모드를 지원 합니다. 공유 데이터베이스의 일괄 처리에서 받은 데이터는 데이터 소비자 측에서 몇 분에서 몇 분 사이에 표시 됩니다. 스트리밍에서 받은 데이터는 데이터 소비자 쪽에 표시 되는 데 최대 24 시간이 걸릴 수 있습니다. 
+공유 데이터베이스에 액세스 하려면 데이터 소비자에 게 자체 Azure 데이터 탐색기 클러스터가 있어야 합니다. 데이터 소비자의 Azure 데이터 탐색기 클러스터는 데이터 공급자의 Azure 데이터 탐색기 클러스터와 동일한 Azure 데이터 센터에서 찾아야 합니다. 공유 관계가 설정 되 면 Azure 데이터 공유는 공급자와 소비자의 Azure 데이터 탐색기 클러스터 사이에 기호화 된 링크를 만듭니다. 원본 Azure 데이터 탐색기 클러스터에 batch 모드를 사용 하는 데이터 수집 몇 분 내에 대상 클러스터에 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

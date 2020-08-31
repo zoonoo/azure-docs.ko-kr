@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 6138dc06e8ed70ba85f4ccfc3370c044f34bd1f1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: bd1362db2e70d4f9f46d80b00805856e08aedac4
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963957"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987344"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>자습서: Azure SQL Database 및 SQL Server에서 데이터베이스 간 SQL 데이터 동기화 설정
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ SQL 데이터 동기화를 구성 하는 방법에 대 한 PowerShell 예제는 
    | ------------------------------ | ------------------------------------------------- |
    | **동기화 그룹 이름** | 새 동기화 그룹의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과 구분됩니다. |
    | **메타데이터 데이터베이스 동기화** | 데이터베이스를 만들지(권장) 아니면 기존 데이터베이스를 사용할지를 선택합니다.<br/><br/>**새 데이터베이스**를 선택하는 경우 **새 데이터베이스 만들기**를 선택합니다. **SQL 데이터베이스** 페이지에서 새 데이터베이스의 이름을 지정하고 데이터베이스를 구성한 다음 **확인**을 선택합니다.<br/><br/>**기존 데이터베이스 사용**을 선택하는 경우 목록에서 데이터베이스를 선택합니다. |
-   | **자동 동기화** | **설정** 또는 **해제**를 선택합니다.<br/><br/>**설정**을 선택하는 경우 **동기화 빈도** 섹션에서 숫자를 입력하고 **초**, **분**, **시간** 또는 **일**을 선택합니다. |
+   | **자동 동기화** | **설정** 또는 **해제**를 선택합니다.<br/><br/>**설정**을 선택하는 경우 **동기화 빈도** 섹션에서 숫자를 입력하고 **초**, **분**, **시간** 또는 **일**을 선택합니다.<br/> 첫 번째 동기화는 구성이 저장 된 시간부터 선택한 간격 기간이 경과한 후에 시작 됩니다.|
    | **충돌 해결** | **허브 획득** 또는 **구성원 획득**을 선택합니다.<br/><br/>**허브 획득**을 선택하면 충돌이 발생할 경우 허브 데이터베이스의 데이터가 멤버 데이터베이스에서 충돌하는 데이터를 덮어씁니다.<br/><br/>**구성원 획득 획득**을 선택하면 충돌이 발생할 경우 구성원 데이터베이스의 데이터가 허브 데이터베이스에서 충돌하는 데이터를 덮어씁니다. |
 
    > [!NOTE]

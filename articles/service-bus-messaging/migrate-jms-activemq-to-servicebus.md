@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: 35e2e86f68e1f53febabc75fcc537dbdd4481882
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369036"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067157"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Apache ActiveMQ에서 Azure Service Bus로 기존 JMS (Java Message Service) 2.0 응용 프로그램 마이그레이션
 
@@ -89,7 +89,7 @@ Service Bus를 통해 다양 한 엔터프라이즈 보안 및 고가용성 기�
   * [가상 네트워크 서비스 엔드포인트](service-bus-service-endpoints.md)
   * [방화벽](service-bus-ip-filtering.md)
   * [BYOK (고객 관리 키)를 사용 하는 서비스 쪽 암호화](configure-customer-managed-key.md)
-  * [전용 끝점](private-link-service.md)
+  * [프라이빗 엔드포인트](private-link-service.md)
   * [인증 및 권한 부여](service-bus-authentication-and-authorization.md)
 
 ### <a name="monitoring-alerts-and-tracing"></a>모니터링, 경고 및 추적
@@ -134,7 +134,7 @@ Service Bus와 상호 작용 하도록 기존 JMS 2.0 응용 프로그램을 마
 > [!NOTE]
 > JMS 응용 프로그램의 경우 런타임 작업으로 큐, 토픽 및 구독을 만듭니다. 대부분의 JMS 공급자 (메시지 브로커)는 런타임에 이러한 공급자를 만드는 기능을 제공 합니다. 이러한 이유 때문에이 내보내기 단계가 선택 사항으로 간주 됩니다. 응용 프로그램에 런타임에 토폴로지를 만들 수 있는 권한이 있는지 확인 하려면 SAS 권한으로 연결 문자열을 사용 `Manage` 합니다.
 
-가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
+이렇게 하려면 다음을 수행합니다.
 
 1. [Activemq 명령줄 도구](https://activemq.apache.org/activemq-command-line-tools-reference) 를 사용 하 여 토폴로지를 내보냅니다.
 1. [Azure Resource Manager 템플릿을](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)사용 하 여 동일한 토폴로지를 다시 만듭니다.
@@ -272,7 +272,7 @@ connection.start();
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Bus와의 원활한 통합을 위해 [AZURE SERVICE BUS JMS 용 스프링 부팅 스타터](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) 를 사용 합니다.
+Service Bus와의 원활한 통합을 위해 [AZURE SERVICE BUS JMS 용 스프링 부팅 스타터](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) 를 사용 합니다.
 
 Service Bus 메시징과 JMS에 대해 자세히 알아보려면 다음을 참조 하세요.
 

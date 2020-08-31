@@ -3,18 +3,18 @@ title: SaaS 제품, Azure Marketplace 및 Microsoft AppSource를 만듭니다.
 description: Microsoft 파트너 센터의 Microsoft 상업적 Marketplace 프로그램을 사용 하 여 Microsoft AppSource, Azure Marketplace 또는 CSP (클라우드 솔루션 공급자) 프로그램을 통해 나열 하거나 판매 하기 위한 SaaS (Software as a Service) 제품을 만드는 방법입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 07/22/2020
+ms.topic: how-to
+ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: c1550b941c6d0f58feba7d505c7206993e14226b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800339"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856062"
 ---
-# <a name="create-a-saas-offer"></a>SaaS 제품 만들기
+# <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 SaaS 제품 만들기
 
 상업용 Marketplace에서 SaaS(Software as a Service) 제품을 만들기 시작하려면 먼저 [파트너 센터 계정을 만든](./create-account.md) 다음 **개요** 탭이 선택된 상태에서 [상업용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)를 열어야 합니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "87800339"
    ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-saas.png)
 
 > [!NOTE]
-> 제품이 게시된 후 파트너 센터에서 해당 제품에 대해 편집한 내용이 스토어에 표시되려면 제품을 다시 게시해야 합니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
+> 제품을 게시 한 후에는 제품을 다시 게시 한 후에만 파트너 센터에서 해당 제품에 대 한 편집 내용이 온라인 매장에 표시 됩니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
 
 ## <a name="new-offer"></a>새 제안
 
@@ -83,7 +83,7 @@ SaaS 솔루션을 게시자의 Azure 구독에서 실행하는 경우 고객이 
 
 SaaS는 요금 청구 서비스를 사용하여 정액 요금, 사용자당 요금 또는 사용량 요금을 기준으로 월별 또는 연간 청구를 지원합니다. Microsoft의 상업용 Marketplace는 에이전시 모델을 기반으로 작동합니다. 즉, 게시자가 가격을 설정하고, Microsoft가 고객에게 요금을 청구하고, Microsoft가 에이전시 수수료를 공제 후 게시자에게 수익을 지급합니다.
 
-다음은 에이전시 모델을 설명 하는 비용 및 지급의 샘플 분석입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하기 위한 것이 아닙니다.
+다음은 에이전시 모델을 설명 하는 비용 및 지급의 샘플 분석입니다. 나열 된 가격은 실제 비용을 반영 하기 위한 것이 아니라 목적 으로만 사용 됩니다.
 
 |**라이선스 비용**|**매월 $100**|
 |:---|:---|
@@ -185,7 +185,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 - 기본 및 보조 범주 (선택 사항)를 포함 하 여 적어도 하나 이상의 범주입니다.
 - 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 제안에 적용 되는 하위 범주가 없으면 **해당 없음**을 선택 합니다.
 
-[제안 목록 모범 사례](../gtm-offer-listing-best-practices.md)에서 각 Storefront에 적용 되는 범주 및 하위 범주에 대 한 전체 목록을 확인 하세요.
+[제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)의 각 온라인 스토어에 적용 되는 범주 및 하위 범주에 대 한 전체 목록을 확인 하세요.
 
 ### <a name="industries"></a>산업
 
@@ -234,7 +234,7 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 
 #### <a name="terms-and-conditions"></a>사용 약관
 
-사용자 지정 사용 약관을 제공하려는 경우 사용 약관 필드에 입력할 수 있습니다. 이 필드에는 최대 1만 자의 텍스트를 입력할 수 있습니다. 사용 약관에 더 긴 설명이 필요한 경우 이 필드에 사용 약관을 찾을 수 있는 단일 URL 링크를 입력합니다. 이는 고객에게 활성 링크로 표시됩니다.
+사용자 지정 사용 약관을 제공하려는 경우 사용 약관 필드에 입력할 수 있습니다. 이 필드에는 최대 1만 자의 텍스트를 입력할 수 있습니다. 사용 약관에 더 긴 설명이 필요한 경우 이 필드에 사용 약관을 찾을 수 있는 단일 URL 링크를 입력합니다.
 
 고객은 이러한 사용 약관에 동의해야 제품을 사용할 수 있습니다.
 
@@ -282,16 +282,19 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 #### <a name="files-and-images"></a>파일 및 이미지
 
 - **Documents** (필수) – 제품에 대 한 관련 마케팅 문서를 하나 이상의 문서에 대 한 하나 이상의 문서 (PDF 형식)로 추가 합니다.
-- **이미지** (필수)-제품 로고 이미지가 marketplace 전체에 표시 될 수 있는 여러 위치가 있습니다. **큰** 크기의 로고 (216 x 216 및 350 x 350 픽셀)에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** (48 x 48 픽셀) 및 **보통** (90 x 90 픽셀) 크기 로고를 만듭니다. 필요에 따라이를 다른 이미지로 바꿀 수 있습니다. **넓은** 로고 추가는 선택 사항입니다.
+- **이미지** (필수)-제품 로고 이미지가 marketplace 전체에 표시 될 수 있는 여러 위치가 있습니다. **큰** 크기의 로고에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작고** **중간** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로 바꿀 수 있습니다.
 
-    목록의 다른 위치에서 사용 하려면 3 개의 로고 크기가 필요 합니다. 하나는 선택 사항입니다.
+  - **큼** (216 x 216에서 350 x 350 px, required)
+  - **중간** (90 x 90 px, 선택 사항)
+  - **작음** (48 x 48 px, 선택 사항)
+  
+  이러한 로고는 목록의 다른 위치에서 사용 됩니다.
 
-    - **소형**(48 x 48)
-    - **중형**(90 x 90)
-    - **큼** (216 x 216 및 350 x 350)
-    - **와이드** (255 x 115), *선택 사항*
+   - Azure Marketplace 및 Microsoft AppSource의 제품 목록 페이지에 많은 로고가 표시 됩니다.
+   - Microsoft Azure에서 새 리소스를 만들 때 medium 로고가 표시 됩니다.
+   - 작은 로고는 Azure Marketplace 검색 결과 및 Microsoft AppSource 기본 페이지 및 검색 결과 페이지에 표시 됩니다.
 
-    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+   [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 - **스크린샷** (필수)-1280 x 720 픽셀로 크기를 지정 하 여 제품을 보여 주는 최대 5 개의 스크린샷을 추가 합니다. 모든 이미지는 .PNG 형식이어야 합니다.
 - **동영상**(선택 사항) – 제품을 보여 주는 동영상에 대한 링크를 추가합니다. 고객에게 제품과 함께 표시되는 YouTube 및/또는 Vimeo 동영상의 링크를 사용할 수 있습니다. 또한 동영상 미리 보기 이미지를 입력해야 합니다. 이 이미지는 PNG 형식의 1280 x 720 픽셀로 크기가 지정됩니다. 제품당 최대 4개의 동영상을 표시할 수 있습니다.
@@ -349,6 +352,8 @@ Microsoft에서는 표준 계약 템플릿을 제공합니다.
 ## <a name="plan-overview"></a>플랜 개요
 
 이 페이지를 통해 동일한 제품 내에서 다양한 플랜 옵션을 제공할 수 있습니다. 이러한 플랜(SKU라고도 함)은 버전, 수익화 또는 서비스 계층 측면에서 다를 수 있습니다. 마켓플레이스에서 제품을 판매하려면 플랜을 하나 이상 설정해야 합니다.
+
+각 제품에 대해 최대 100 요금제를 만들 수 있습니다. 최대 45 개는 개인 일 수 있습니다. [Microsoft 상업적 marketplace에서 비공개 제품](../private-offers.md)의 비공개 요금제에 대해 자세히 알아보세요.
 
 플랜이 만들어지면 플랜 이름, ID, 가격 책정 모델, 가용성(공개 또는 비공개), 현재 게시 상태 및 사용 가능한 작업이 표시됩니다.
 

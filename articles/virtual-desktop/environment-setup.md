@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 환경-Azure
 description: 호스트 풀 및 앱 그룹과 같은 Windows 가상 데스크톱 환경의 기본 요소에 대해 알아봅니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e382c1d52130d44479e94378da895c6add7ba3ee
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 99a07dd1791b539ea44fcbab250aa9c227ee1705
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283421"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002610"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Windows Virtual Desktop 환경
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/environment-setup-2019.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/environment-setup-2019.md)를 참조하세요.
 
 Windows 가상 데스크톱은 사용자에 게 가상화 된 데스크톱 및 Remoteapp에 대 한 액세스를 쉽고 안전 하 게 제공 하는 서비스입니다. 이 항목에서는 Windows 가상 데스크톱 환경의 일반적인 구조에 대해 자세히 설명 합니다.
 
@@ -49,7 +47,7 @@ Windows 가상 데스크톱은 사용자에 게 가상화 된 데스크톱 및 R
 
 ## <a name="workspaces"></a>작업 영역
 
-작업 영역은 Windows 가상 데스크톱에서 응용 프로그램 그룹을 논리적으로 그룹화 한 것입니다. 각 Windows 가상 데스크톱 응용 프로그램 그룹은 사용자가 게시 된 원격 앱 및 데스크톱을 볼 수 있도록 작업 영역에 연결 되어야 합니다.  
+작업 영역은 Windows 가상 데스크톱에서 응용 프로그램 그룹을 논리적으로 그룹화 한 것입니다. 각 Windows 가상 데스크톱 응용 프로그램 그룹은 사용자가 게시 된 원격 앱 및 데스크톱을 볼 수 있도록 작업 영역에 연결 되어야 합니다.
 
 ## <a name="end-users"></a>최종 사용자
 

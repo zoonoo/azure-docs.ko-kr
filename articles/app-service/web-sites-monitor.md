@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d83aae778c940958d545a9402b09d24a55b1c5a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482686"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959794"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service에서 앱 모니터링
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 은 [Azure Portal](https://portal.azure.com)에서 웹 앱, 모바일 및 API 앱에 대 한 기본 제공 모니터링 기능을 제공 합니다.
@@ -37,7 +37,7 @@ App Service를 호스트로 사용하는 앱에는 사용 가능한 리소스에
 | **CPU(일)** | 하루에 이 앱에 허용되는 총 CPU 양입니다. 이 할당량은 자정 UTC에 24시간마다 재설정됩니다. |
 | **메모리** | 이 앱에 허용되는 총 메모리 양입니다. |
 | **대역폭** | 하루에 이 앱에 허용되는 나가는 총 대역폭 양입니다. 이 할당량은 자정 UTC에 24시간마다 재설정됩니다. |
-| **파일 시스템** | 허용되는 총 스토리지 양입니다. |
+| **있어** | 허용되는 총 스토리지 양입니다. |
 
 *Basic*, *Standard*및 *Premium* 에서 호스트 되는 앱에 적용 가능한 유일한 할당량은 파일 시스템입니다.
 
@@ -64,6 +64,10 @@ App Service 계획을 업그레이드하여 앱에서 할당량을 늘리거나 
 > [!IMPORTANT]
 > 메트릭 집계와의 혼동을 피하기 위해 **평균 응답 시간은** 사용 되지 않습니다. **응답 시간** 을 대체 항목으로 사용 합니다.
 
+> [!NOTE]
+> 앱에 대 한 메트릭에는 앱의 SCM 사이트에 대 한 요청 (Kudu)이 포함 됩니다.  여기에는 Kudu을 사용 하 여 사이트의 logstream을 볼 수 있는 요청이 포함 됩니다.  Logstream 요청은 몇 분에 걸쳐 있을 수 있으며이는 요청 시간 메트릭에 영향을 줍니다.  자동 크기 조정 논리에서 이러한 메트릭을 사용 하는 경우 사용자는이 관계를 알고 있어야 합니다.
+> 
+
 메트릭은 앱 또는 App Service 계획의 동작에 대한 정보를 제공합니다.
 
 앱에 사용 가능한 메트릭은 다음과 같습니다.
@@ -76,7 +80,7 @@ App Service 계획을 업그레이드하여 앱에서 할당량을 늘리거나 
 | **연결** | 샌드박스(w3wp.exe 및 해당 자식 프로세스)에 있는 바인딩된 소켓의 수입니다.  바인딩된 소켓은 bind()/connect() API를 호출하여 만들어지며, 해당 소켓이 CloseHandle()/closesocket()으로 닫힐 때까지 유지됩니다. |
 | **CPU 시간** | 앱에서 사용한 CPU의 양(초)입니다. 이 메트릭에 대 한 자세한 내용은 [cpu 시간 및 cpu 비율](#cpu-time-vs-cpu-percentage)을 참조 하세요. |
 | **현재 어셈블리** | 이 애플리케이션의 모든 AppDomains에 로드된 어셈블리의 현재 개수입니다. |
-| **데이터 입력** | 앱에서 사용한 들어오는 대역폭 양(MiB)입니다. |
+| **데이터의** | 앱에서 사용한 들어오는 대역폭 양(MiB)입니다. |
 | **데이터 출력** | 앱에서 사용한 나가는 대역폭 양(MiB)입니다. |
 | **파일 시스템 사용량** | 앱에서 사용 하는 파일 시스템 할당량의 백분율입니다. |
 | **Gen 0 가비지 수집** | 앱 프로세스가 시작된 이후 0세대 개체가 가비지 수집된 횟수입니다. 상위 세대 GC에는 모든 하위 세대 GC가 포함됩니다.|
@@ -116,7 +120,7 @@ App Service 계획에 대해 사용 가능한 메트릭은 다음과 같습니�
 | --- | --- |
 | **CPU 비율** | 계획의 모든 인스턴스 간에 사용된 평균 CPU입니다. |
 | **메모리 비율** | 계획의 모든 인스턴스 간에 사용된 평균 메모리입니다. |
-| **데이터 입력** | 계획의 모든 인스턴스 간에 사용된 평균 들어오는 대역폭입니다. |
+| **데이터의** | 계획의 모든 인스턴스 간에 사용된 평균 들어오는 대역폭입니다. |
 | **데이터 출력** | 계획의 모든 인스턴스 간에 사용된 평균 나가는 대역폭입니다. |
 | **디스크 큐 길이** | 스토리지에 대기 중인 평균 읽기 및 쓰기 요청 수입니다. 디스크 큐 길이가 높으면 과도 한 디스크 i/o로 인해 속도가 저하 될 수 있는 앱을 나타냅니다. |
 | **Http 큐 길이** | 처리하기 전에 큐에 배치해야 하는 평균 HTTP 요청 수입니다. HTTP 큐 길이 값이 높거나 증가하면 계획이 과부하 상태에 있음을 나타냅니다. |
@@ -148,14 +152,14 @@ CPU 사용량을 반영하는 두 가지 메트릭이 있습니다.
 
 이러한 차트 중 하나를 클릭 하면 사용자 지정 차트를 만들고 다양 한 메트릭을 쿼리할 수 있는 메트릭 뷰로 이동 합니다. 
 
-메트릭에 대한 자세한 내용은 [서비스 메트릭 모니터링](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)을 참조하세요.
+메트릭에 대한 자세한 내용은 [서비스 메트릭 모니터링](../azure-monitor/platform/data-platform.md)을 참조하세요.
 
 ## <a name="alerts-and-autoscale"></a>경고 및 자동 크기 조정
-앱 또는 App Service 계획의 메트릭은 경고에 연결할 수 있습니다. 자세한 내용은 [경고 알림 받기](../monitoring-and-diagnostics/insights-alerts-portal.md)를 참조 하세요.
+앱 또는 App Service 계획의 메트릭은 경고에 연결할 수 있습니다. 자세한 내용은 [경고 알림 받기](../azure-monitor/platform/alerts-classic-portal.md)를 참조 하세요.
 
 기본 이상 App Service 계획에서 호스트 되는 App Service 앱은 자동 크기 조정을 지원 합니다. 자동 크기 조정을 사용하여 App Service 계획 메트릭을 모니터링하는 규칙을 구성할 수 있습니다. 규칙은 필요에 따라 추가 리소스를 제공할 수 있도록 인스턴스 수를 눌리거나 줄일 수 있습니다. 규칙을 사용하면 앱이 과도하게 프로비전될 때 비용을 절감할 수도 있습니다.
 
-자동 크기 조정에 대한 자세한 내용은 [크기 조정 방법](../monitoring-and-diagnostics/insights-how-to-scale.md) 및 [Azure Monitor 자동 크기 조정에 대한 모범 사례](../azure-monitor/platform/autoscale-best-practices.md)를 참조하세요.
+자동 크기 조정에 대한 자세한 내용은 [크기 조정 방법](../azure-monitor/platform/autoscale-get-started.md) 및 [Azure Monitor 자동 크기 조정에 대한 모범 사례](../azure-monitor/platform/autoscale-best-practices.md)를 참조하세요.
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

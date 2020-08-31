@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 249b2406f048709fd7e4f76f8272b3158708e5bb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322305"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056434"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Azure 전면 도어에서 메트릭 및 로그 모니터링
 
@@ -29,7 +29,7 @@ Azure Front 도어를 사용 하 여 다음과 같은 방법으로 리소스를 
 
 메트릭은 포털에서 성능 카운터를 볼 수 있는 특정 Azure 리소스에 대 한 기능입니다. 다음은 사용 가능한 전방 도어 메트릭입니다.
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 차원 | 설명 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 차원 | Description |
 | --- | --- | --- | --- | --- |
 | RequestCount | 요청 수 | 개수 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Front Door에서 제공하는 클라이언트 요청 수  |
 | RequestSize | 요청 크기 | 바이트 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 클라이언트에서 Front Door로, 요청으로 전송된 바이트 수 |
@@ -50,7 +50,7 @@ Azure Front 도어를 사용 하 여 다음과 같은 방법으로 리소스를 
 Azure Monitor에서 Azure 리소스의 앞 문이나 모든 로그에 활동 로그에 액세스 합니다. 활동 로그를 보려면
 
 1. 프런트 도어 인스턴스를 선택 합니다.
-2. **활동 로그**를 선택 합니다.
+2. **활동 로그**를 선택합니다.
 
     ![활동 로그](./media/front-door-diagnostics/activity-log.png)
 
@@ -91,7 +91,7 @@ Azure Monitor에서 Azure 리소스의 앞 문이나 모든 로그에 활동 로
 | RulesEngineMatchNames | 요청에서 일치 하는 규칙의 이름입니다. |
 | SecurityProtocol | 요청에 사용되는 TLS/SSL 프로토콜 버전이거나, 암호화가 없는 경우 null입니다. |
 | SentToOriginShield | 첫 번째 환경에 캐시 누락이 있고 요청이 지역 캐시로 전송 되었는지 여부를 나타내는 부울 필드입니다. 라우팅 규칙이 리디렉션 이거나 캐싱이 설정 되지 않은 경우이 필드를 무시 합니다. |
-| TimeTaken | 작업에 걸린 시간(밀리초)입니다. |
+| TimeTaken | 요청의 첫 번째 바이트부터 마지막 응답 바이트 까지의 시간 (초)입니다. |
 | TrackingReference | Front Door에서 제공하는 요청을 식별하는 고유한 참조 문자열로, 클라이언트에 X-Azure-Ref 헤더로 전송됩니다. 특정 요청의 액세스 로그에서 세부 정보를 검색하는 데 필요합니다. |
 | UserAgent | 클라이언트에서 사용한 브라우저 유형입니다. |
 
@@ -99,8 +99,8 @@ Azure Monitor에서 Azure 리소스의 앞 문이나 모든 로그에 활동 로
 
 | 시나리오 | 로그 항목 수 | POP | BackendHostname | SentToOriginShield | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| 캐싱을 사용 하지 않는 라우팅 규칙 | 1 | Edge POP 코드 | 요청이 전달 된 백 엔드 | False | CONFIG_NOCACHE |
-| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | Empty | False | 리 |
+| 캐싱을 사용 하지 않는 라우팅 규칙 | 1 | Edge POP 코드 | 요청이 전달 된 백 엔드 | 거짓 | CONFIG_NOCACHE |
+| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | Empty | 거짓 | 리 |
 | 캐싱이 설정 된 라우팅 규칙입니다. Edge POP에서 캐시 누락이 있지만 부모 캐시 POP에서 캐시 적중 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 비어 있음 | 1. True</br>2. False | 1. 누락</br>2. PARTIAL_HIT |
 | 캐싱이 설정 된 라우팅 규칙입니다. Edge 및 부모 캐시 POP에서 캐시 누락 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 캐시를 채우는 데 도움이 되는 백 엔드 | 1. True</br>2. False | 1. 누락</br>2. 누락 |
 

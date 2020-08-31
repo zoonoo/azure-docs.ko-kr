@@ -3,16 +3,17 @@ title: Azure EA 계약 및 수정안
 description: 이 문서에서는 Azure EA 계약 및 수정안이 Azure EA 포털 사용에 미치는 영향을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4d40ffb04882e9809fc818ab492a4c97260d1ff4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 08cc6b7c6edb31d0a983943694ebb1dc55989bca
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537802"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689884"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA 계약 및 수정안
 
@@ -20,7 +21,7 @@ ms.locfileid: "86537802"
 
 ## <a name="enrollment-provisioning-status"></a>등록 프로비저닝 상태
 
-새로운 Azure 선불 시작 날짜는 지역 운영 센터에서 처리한 날짜를 기준으로 정해집니다. Azure EA Portal을 통한 Azure 선불 주문은 UTC 표준 시간대로 처리되기 때문에, Azure 선불 구매 주문이 다른 영역에서 처리되는 경우 약간의 지연이 발생할 수 있습니다. https://www.explore.ms 의 구매 주문 적용 시작 날짜는 Azure 선불의 시작을 표시합니다. 적용 시작 날짜는 Azure 선불이 Azure EA 포털에 나타나는 날짜입니다.
+새로운 Azure 선불 시작 날짜는 지역 운영 센터에서 처리한 날짜를 기준으로 정해집니다. Azure EA Portal을 통한 Azure 선불 주문은 UTC 표준 시간대로 처리되기 때문에, Azure 선불 구매 주문이 다른 영역에서 처리되는 경우 약간의 지연이 발생할 수 있습니다. 구매 주문 적용 시작 날짜는 Azure 선불의 시작을 표시합니다. 적용 시작 날짜는 Azure 선불이 Azure EA 포털에 나타나는 날짜입니다.
 
 ## <a name="support-for-enterprise-customers"></a>기업 고객 지원
 
@@ -43,7 +44,7 @@ ms.locfileid: "86537802"
 
 **만료됨** - EA 등록이 기업계약 종료 날짜에 도달하면 등록이 만료됩니다. EA 고객이 기간 연장을 옵트아웃했으며 모든 서비스가 비활성화됩니다.
 
-2019년 8월 1일부터는 Azure 상업용 고객에 대한 새 옵트아웃 양식이 승인되지 않습니다. 대신 모든 등록이 무기한으로 이동됩니다. Azure 서비스 사용을 중지하려면 [Azure Portal](https://portal.azure.com)에서 구독을 종료하세요. 또는 파트너가 https://www.explore.ms 에서 종료 요청을 제출할 수 있습니다. 정부 계약 유형을 사용하는 고객은 변경 사항이 없습니다.
+2019년 8월 1일부터는 Azure 상업용 고객에 대한 새 옵트아웃 양식이 승인되지 않습니다. 대신 모든 등록이 무기한으로 이동됩니다. Azure 서비스 사용을 중지하려면 [Azure Portal](https://portal.azure.com)에서 구독을 종료하세요. 또는 파트너가 종료 요청을 제출할 수 있습니다. 정부 계약 유형을 사용하는 고객은 변경 사항이 없습니다.
 
 **이전** - 이전 상태는 연결된 계정 및 서비스가 새 등록으로 이전된 등록에 적용됩니다. 갱신하는 동안 새 등록 번호가 생성되면 등록이 자동으로 전송되지 않습니다. 이전의 등록 번호는 자동 전송에 대한 고객의 갱신 요청에 포함되어야 합니다.
 

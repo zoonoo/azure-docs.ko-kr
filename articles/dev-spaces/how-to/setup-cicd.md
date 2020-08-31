@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Azure Dev Spaces에서 Azure DevOps를 사용 하 여 연속 통합/연속 배포를 설정 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
-ms.openlocfilehash: 3a5f232111bd01f707080cc1638970f8dc51e6fa
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229332"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080269"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Azure Dev Spaces로 CI/CD 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "86229332"
 이 문서에서는 Azure DevOps를 기준으로 설명하지만 Jenkins, TeamCity 등의 CI/CD 시스템에도 동일한 개념이 적용됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-* [Azure Dev Spaces가 설정된 AKS(Azure Kubernetes Service) 클러스터](../get-started-netcore.md)
+* Azure Dev Spaces가 설정된 AKS(Azure Kubernetes Service) 클러스터
 * [Azure Dev Spaces CLI 설치](upgrade-tools.md)
 * [프로젝트가 있는 Azure DevOps 조직](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [ACR(Azure Container Registry)](../../container-registry/container-registry-get-started-azure-cli.md)
@@ -41,7 +41,7 @@ ms.locfileid: "86229332"
 azds space select -n dev
 ```
 
-부모 dev 공간을 선택 하 라는 메시지가 표시 되 면를 선택 _\<none\>_ 합니다.
+부모 개발 공간을 선택하라는 메시지가 표시되면 _\<none\>_ 를 선택합니다.
 
 개발 공간을 만든 후에는 호스트 접미사를 확인 해야 합니다. 명령을 사용 `azds show-context` 하 여 Azure Dev Spaces 수신 컨트롤러의 호스트 접미사를 표시 합니다.
 
@@ -185,5 +185,7 @@ Dev Spaces 계측은 애플리케이션의 정상 작동 중에는 개입하지 
 
 ## <a name="next-steps"></a>다음 단계
 
+Azure Dev Spaces 작동 방법에 대해 자세히 알아보세요.
+
 > [!div class="nextstepaction"]
-> [Azure Dev Spaces을 사용하는 팀 개발에 대해 알아보기](../team-development-netcore.md)
+> [Azure Dev Spaces의 작동 원리](../how-dev-spaces-works.md)

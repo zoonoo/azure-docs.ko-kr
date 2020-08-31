@@ -1,6 +1,6 @@
 ---
 title: Azure Maps를 사용하여 액세스 가능한 맵 애플리케이션 만들기 | Microsoft Azure Maps
-description: 이 문서에서는 Microsoft Azure Maps를 사용하여 내게 필요한 옵션 기능이 있는 애플리케이션을 빌드하는 방법을 알아봅니다.
+description: Azure Maps의 접근성 고려 사항에 대해 알아봅니다. 지도 응용 프로그램을 액세스할 수 있도록 하는 데 사용할 수 있는 기능을 확인 하 고 접근성 팁을 봅니다.
 services: azure-maps
 author: rbrundritt
 ms.author: richbrun
@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: febfdf5405038e5b60a3133a554eba7a756f617d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ec88437a0fad3a6bd94a67a5ef5c75b3e506f9e8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242375"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006216"
 ---
 # <a name="building-an-accessible-application"></a>액세스 가능한 애플리케이션 작성
 

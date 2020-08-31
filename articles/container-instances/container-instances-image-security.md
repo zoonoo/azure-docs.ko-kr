@@ -4,12 +4,12 @@ description: Azure Container Instances에 대 한 이미지 및 암호를 보호
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: d339683c8864b85f7ccb1ac3c982f03aa7abf103
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f49f115e10326887cf4d23406437467256b7df2e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907026"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922237"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Azure Container Instances에 대 한 보안 고려 사항
 
@@ -40,7 +40,7 @@ ms.locfileid: "84907026"
 
 ### <a name="protect-credentials"></a>자격 증명 보호
 
-컨테이너는 여러 클러스터 및 Azure 지역에 걸쳐 분산 될 수 있습니다. 따라서 암호나 토큰 등의 로그인 또는 API 액세스에 필요한 자격 증명을 보호 해야 합니다. 권한 있는 사용자만 전송 중 및 휴지 상태의 컨테이너에 액세스할 수 있도록 합니다. 모든 자격 증명 암호를 인벤토리에 추가한 다음 개발자가 컨테이너 플랫폼용으로 설계 된 새로운 비밀 관리 도구를 사용 하도록 요구 합니다.  솔루션에 암호화 된 데이터베이스, 전송 중인 암호 데이터에 대 한 TLS 암호화 및 최소 권한 [역할 기반 액세스 제어](../role-based-access-control/overview.md)가 포함 되어 있는지 확인 합니다. [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) 는 컨테이너 화 된 응용 프로그램에 대 한 암호화 키와 비밀 (예: 인증서, 연결 문자열 및 암호)을 보호 하는 클라우드 서비스입니다. 이 데이터는 중요 하 고 업무상 중요 하기 때문에 인증 된 응용 프로그램 및 사용자만 액세스할 수 있도록 키 자격 증명 모음에 대 한 액세스를 보호 합니다.
+컨테이너는 여러 클러스터 및 Azure 지역에 걸쳐 분산 될 수 있습니다. 따라서 암호나 토큰 등의 로그인 또는 API 액세스에 필요한 자격 증명을 보호 해야 합니다. 권한 있는 사용자만 전송 중 및 휴지 상태의 컨테이너에 액세스할 수 있도록 합니다. 모든 자격 증명 암호를 인벤토리에 추가한 다음 개발자가 컨테이너 플랫폼용으로 설계 된 새로운 비밀 관리 도구를 사용 하도록 요구 합니다.  솔루션에 암호화 된 데이터베이스, 전송 중인 암호 데이터에 대 한 TLS 암호화 및 최소 권한 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../role-based-access-control/overview.md)가 포함 되어 있는지 확인 합니다. [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) 는 컨테이너 화 된 응용 프로그램에 대 한 암호화 키와 비밀 (예: 인증서, 연결 문자열 및 암호)을 보호 하는 클라우드 서비스입니다. 이 데이터는 중요 하 고 업무상 중요 하기 때문에 인증 된 응용 프로그램 및 사용자만 액세스할 수 있도록 키 자격 증명 모음에 대 한 액세스를 보호 합니다.
 
 ## <a name="considerations-for-the-container-ecosystem"></a>컨테이너 에코 시스템에 대 한 고려 사항
 
@@ -117,7 +117,7 @@ Safelist 공격 노출 영역을 줄일 수 있을 뿐만 아니라 변칙에 �
 
 * [컨테이너 Azure Monitor](../azure-monitor/insights/container-insights-overview.md) 는 AKS (Azure Kubernetes Service)에서 호스트 되는 Kubernetes 환경에 배포 된 워크 로드의 성능을 모니터링 합니다. 컨테이너용 Azure Monitor는 Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메모리 및 프로세서 메트릭을 수집하여 성능을 시각적으로 표시합니다. 
 
-* [Azure 컨테이너 모니터링 솔루션](../azure-monitor/insights/containers.md) 을 사용 하면 단일 위치에서 다른 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다. 예를 들어:
+* [Azure 컨테이너 모니터링 솔루션](../azure-monitor/insights/containers.md) 을 사용 하면 단일 위치에서 다른 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다. 예:
 
   * 컨테이너에 사용 되는 명령을 보여 주는 자세한 감사 정보를 표시 합니다. 
   * Docker 또는 Windows 호스트를 원격으로 보지 않고도 중앙화 된 로그를 보고 검색 하 여 컨테이너 문제를 해결 합니다.  

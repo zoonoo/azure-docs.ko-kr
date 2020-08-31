@@ -49,6 +49,8 @@
       items:
         - name: Azure AD 아키텍처
           href: active-directory-architecture.md
+        - name: 모든 앱을 Azure AD와 통합
+          href: five-steps-to-full-application-integration-with-azure-ad.md
     - name: 배포 가이드
       items:
         - name: '배포 30, 90 이상'

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8b09293f80b5aee2dd76abba3f165a50a5eeee5
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4fd7ce0229d5e26bc4bf3b05f7b97d20d2a23dff
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799143"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927201"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능 보관
 
@@ -1106,7 +1106,7 @@ Microsoft Graph용 새 riskDetections API를 공개 미리 보기로 사용할 �
 
 사용자 프로비저닝 프로세스가 얼마나 진행되었는지 보여주는 새 진행률 표시줄을 포함하도록 Azure AD 프로비저닝 환경이 업데이트되었습니다. 이 업데이트된 환경에서는 현재 주기 동안 프로비저닝된 사용자 수와 현재까지 프로비저닝된 사용자 수에 대한 정보도 제공합니다.
 
-자세한 내용은 [사용자 프로비저닝 상태 확인](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 참조하세요.
+자세한 내용은 [사용자 프로비저닝 상태 확인](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 참조하세요.
 
 ---
 

@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460612"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053226"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션(미리 보기)
 
@@ -84,7 +84,7 @@ ms.locfileid: "87460612"
 
 - 단계적 롤아웃에 대한 보안 그룹을 처음 추가하면 UX 시간 제한을 방지하기 위해 사용자 수가 200명으로 제한됩니다. 그룹을 추가한 후에는 필요한 만큼 사용자를 그룹에 추가할 수 있습니다.
 
-- 사용자가 단계적으로 롤아웃 되는 동안 암호 만료 정책은 사용자 지정 하는 옵션 없이 90 일로 설정 됩니다. 
+- 사용자가 준비 된 롤아웃 상태에서 EnforceCloudPasswordPolicyForPasswordSyncedUsers을 사용 하는 경우 암호 만료 정책은 사용자 지정 옵션 없이 90 일로 설정 됩니다. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>단계적 롤아웃 시작

@@ -3,18 +3,18 @@ title: Azure Monitor에서 Azure Service Bus 메트릭 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor를 사용하여 Service Bus 엔터티(큐, 토픽 및 구독)를 모니터링하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: c4bf33fc7aa21be150a1ee0d6c65df84a391565e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3081b46bebdba8e83e5584178b37aab2dffee599
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089688"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065015"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Monitor에서 Azure Service Bus 메트릭
 
 Service Bus 메트릭은 Azure 구독에서 리소스의 상태를 제공합니다. 풍부한 메트릭 데이터 집합을 사용하여 네임스페이스 수준에서뿐만 아니라 엔터티 수준에서 Service Bus 리소스의 전반적인 상태를 평가할 수 있습니다. 이러한 통계는 Service Bus의 상태를 모니터링하는 데 도움을 주므로 중요할 수 있습니다. Azure 지원에 문의할 필요 없이 메트릭을 통해 근본 원인 문제를 해결할 수도 있습니다.
 
-Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합된 사용자 인터페이스를 제공합니다. 자세한 내용은 GitHub의 [Microsoft Azure에서 모니터링](../monitoring-and-diagnostics/monitoring-overview.md) 및 [.NET을 사용하여 Azure Monitor 메트릭 검색](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) 샘플을 참조하세요.
+Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합된 사용자 인터페이스를 제공합니다. 자세한 내용은 GitHub의 [Microsoft Azure에서 모니터링](../azure-monitor/overview.md) 및 [.NET을 사용하여 Azure Monitor 메트릭 검색](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) 샘플을 참조하세요.
 
 > [!IMPORTANT]
 > 2시간 동안 엔터티와 상호 작용이 없으면 엔터티가 더 이상 유휴 상태가 되지 않을 때까지 메트릭은 값으로 "0" 표시를 시작합니다.
@@ -80,7 +80,7 @@ Azure Monitor에 대한 메트릭 및 경고는 경고 단위로 요금이 부�
 | 활성 메시지| 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 차원: 엔터티 이름 |
 | 배달 못한 메시지| 큐/토픽에서 배달 못한 메시지 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/>차원: 엔터티 이름 |
 | 예약된 메시지| 큐/토픽에서 예약된 메시지 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균  <br/> 차원: 엔터티 이름 |
-| Size | 엔터티 (큐 또는 토픽)의 크기 (바이트)입니다. <br/><br/>단위: 개수 <br/>집계 유형: 평균 <br/>차원: 엔터티 이름 | 
+| 크기 | 엔터티 (큐 또는 토픽)의 크기 (바이트)입니다. <br/><br/>단위: 개수 <br/>집계 유형: 평균 <br/>차원: 엔터티 이름 | 
 
 > [!NOTE]
 > 다음 메트릭의 값은 지정 시간 값입니다. 해당 지점 시간 직후에 사용된 들어오는 메시지는 이러한 메트릭에 반영되지 않을 수 있습니다. 
@@ -128,7 +128,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
     1. **리소스 종류별로 필터링** 필드에서 **Service Bus 네임스페이스**를 선택합니다. 
     2. **구독별로 필터링** 필드에서 구독을 선택합니다.
     3. 목록에서 **Service Bus 네임스페이스**를 선택합니다. 
-    4. **완료**를 선택합니다. 
+    4. **완료** 를 선택합니다. 
     
         ![네임스페이스 선택](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. **조건 추가**를 선택하고, **신호 논리 구성** 페이지에서 다음 작업을 수행합니다.
@@ -169,9 +169,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Monitor 개요](../monitoring-and-diagnostics/monitoring-overview.md)를 참조하세요.
+[Azure Monitor 개요](../azure-monitor/overview.md)를 참조하세요.
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png
-
-

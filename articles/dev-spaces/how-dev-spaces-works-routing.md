@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Power Azure Dev Spaces 프로세스와 라우팅의 작동 방식에 대해 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 8677284d61a0a08a3262c26d6307399922dab4be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: abdd8a573b7e120c5494b8878c2eb19813fc9507
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512472"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213399"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>라우팅이 Azure Dev Spaces와 작동 하는 방식
 
@@ -49,13 +49,13 @@ HTTP가 아닌 다른 모든 TCP 트래픽은 수신 컨트롤러 및 devspaces 
 
 ## <a name="sharing-a-dev-space"></a>개발 공간 공유
 
-팀으로 작업할 때 [전체 팀에서 개발 공간을 공유](how-to/share-dev-spaces.md) 하 고 파생 된 개발 공간을 만들 수 있습니다. 개발 공간의 리소스 그룹에 대 한 참가자 액세스 권한이 있는 사용자는 dev 공간을 사용할 수 있습니다.
+팀으로 작업할 때 전체 팀에서 개발 공간을 공유 하 고 파생 된 개발 공간을 만들 수 있습니다. 개발 공간의 리소스 그룹에 대 한 참가자 액세스 권한이 있는 사용자는 dev 공간을 사용할 수 있습니다.
 
 다른 개발 공간에서 파생 된 새 개발 공간을 만들 수도 있습니다. 파생 된 dev 공간을 만들 때 *azds.io/parent-space=PARENT-SPACE-NAME* 레이블이 파생 된 dev 공간의 네임 스페이스에 추가 됩니다. 또한 부모 개발 공간의 모든 응용 프로그램은 파생 된 개발 공간과 공유 됩니다. 파생 된 개발 공간에 업데이트 된 버전의 응용 프로그램을 배포 하는 경우 파생 된 dev 공간에만 존재 하며 부모 개발 공간은 영향을 받지 않습니다. 최대 세 수준의 파생 된 개발 공간 또는 *최상위* 공간을 사용할 수 있습니다.
 
 또한 파생 된 개발 공간은 자체 응용 프로그램과 부모에서 공유 되는 응용 프로그램 간에 요청을 지능적으로 라우팅합니다. 라우팅은 파생 된 개발 공간의 응용 프로그램에 요청을 라우팅하고 부모 개발 공간에서 공유 응용 프로그램으로 대체 하는 방식으로 작동 합니다. 응용 프로그램이 부모 공간에 있지 않은 경우 라우팅은 최상위 공간의 공유 응용 프로그램으로 대체 됩니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 * 개발 공간 *기본값* 에는 응용 프로그램 *Servicea* 및 *servicea*가 있습니다.
 * Dev space *azureuser* 는 *기본값*에서 파생 됩니다.
 * *Servicea* 의 업데이트 된 버전이 *azureuser*에 배포 됩니다.
@@ -66,11 +66,9 @@ HTTP가 아닌 다른 모든 TCP 트래픽은 수신 컨트롤러 및 devspaces 
 
 Azure Dev Spaces 라우팅을 사용 하 여 신속 하 게 반복 하 고 개발 하는 방법에 대 한 몇 가지 예를 보려면 [로컬 프로세스 (Kubernetes 사용][how-it-works-local-process-kubernetes]), [Azure Dev Spaces 작동 하는 원격 디버깅 방법][how-it-works-remote-debugging]및 [GitHub 작업 & Azure Kubernetes Service][pr-flow]를 참조 하세요.
 
-팀 개발을 위해 Azure Dev Spaces를 사용 하 여 라우팅을 시작 하려면 Azure Dev Spaces 빠른 시작 [에서 팀 개발][quickstart-team] 을 참조 하세요.
 
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
 [how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [pr-flow]: how-to/github-actions.md
-[quickstart-team]: quickstart-team-development.md
 [troubleshooting]: troubleshooting.md

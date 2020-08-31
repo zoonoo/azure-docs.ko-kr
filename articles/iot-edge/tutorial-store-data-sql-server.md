@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/28/2019
+ms.date: 08/04/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c239c16103dc0c1f847c5d4354aed89a143a28c6
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2cee92ad03bb96ee7553876912a14af33af72271
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745504"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808748"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -71,13 +71,15 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
    | 솔루션 이름 제공 | **SqlSolution**과 같은 솔루션에 대한 설명이 포함된 이름을 입력하거나 기본값을 적용합니다. |
    | 모듈 템플릿 선택 | **Azure Functions - C#** 을 선택합니다. |
    | 모듈 이름 제공 | 모듈의 이름을 **sqlFunction**으로 지정합니다. |
-   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br>마지막 문자열은 \<레지스트리 이름\>.azurecr.io/sqlfunction과 같습니다. |
+   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 **로그인 서버** 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br>최종 문자열은 \<registry name\>.azurecr.io/sqlfunction 형식입니다. |
 
    VS Code 창에서 IoT Edge 솔루션 작업 영역을 로드합니다.
 
 ### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
 환경 파일은 컨테이너 레지스트리의 자격 증명을 저장하고 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 프라이빗 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다.
+
+IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌어온 후 환경 파일에 채우려고 합니다. 사용자 자격 증명이 이미 포함되어 있는지 확인합니다. 그렇지 않은 경우 다음과 같이 지금 추가합니다.
 
 1. VS Code 탐색기에서 .env 파일을 엽니다.
 2. 필드를 Azure 컨테이너 레지스트리에서 복사한 **사용자 이름** 및 **암호** 값으로 업데이트합니다.
@@ -93,9 +95,19 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
 
 ### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
 
-1. VS Code 탐색기에서 **모듈** > **sqlFunction** > **sqlFunction.cs**를 엽니다.
+1. VS Code 탐색기에서 **모듈** > **sqlFunction** > **sqlFunction.csproj**를 엽니다.
 
-2. 파일의 전체 내용을 다음 코드로 바꿉니다.
+2. 패키지 참조 그룹을 찾고, 새 항목을 추가하여 SqlClient를 포함시킵니다.
+
+   ```csproj
+   <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
+   ```
+
+3. **sqlFunction.csproj** 파일을 저장합니다.
+
+4. **sqlFunction.cs** 파일을 엽니다.
+
+5. 파일의 전체 내용을 다음 코드로 바꿉니다.
 
    ```csharp
    using System;
@@ -184,23 +196,13 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
    }
    ```
 
-3. 줄 35에서 문자열 **\<sql 연결 문자열\>** 을 다음 문자열로 바꿉니다. **데이터 원본** 속성은 아직 존재하지 않는 SQL Server 컨테이너를 참조합니다. 다음 섹션에서 **SQL** 이름으로 만듭니다.
+6. 줄 35에서 **\<sql connection string\>** 문자열을 다음 문자열로 바꿉니다. **데이터 원본** 속성은 아직 존재하지 않는 SQL Server 컨테이너를 참조합니다. 다음 섹션에서 **SQL** 이름으로 만듭니다.
 
    ```csharp
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
    ```
 
-4. **sqlFunction.cs** 파일을 저장합니다.
-
-5. **sqlFunction.csproj** 파일을 엽니다.
-
-6. 패키지 참조 그룹을 찾고, 새 항목을 추가하여 SqlClient를 포함시킵니다.
-
-   ```csproj
-   <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
-   ```
-
-7. **sqlFunction.csproj** 파일을 저장합니다.
+7. **sqlFunction.cs** 파일을 저장합니다.
 
 ## <a name="add-the-sql-server-container"></a>SQL Server 컨테이너 추가
 
@@ -212,7 +214,7 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
 
    | 필드 | 값 |
    | ----- | ----- |
-   | 배포 템플릿 파일 선택 | 명령 팔레트에 현재 솔루션 폴더에 있는 deployment.template.json 파일이 강조 표시됩니다. 이 파일을 선택합니다.  |
+   | 배포 템플릿 파일 선택 | 명령 팔레트에 현재 솔루션 폴더에 있는 **deployment.template.json** 파일이 강조 표시됩니다. 이 파일을 선택합니다.  |
    | 모듈 템플릿 선택 | **Azure Marketplace의 모듈**을 선택합니다. |
 
 3. Azure IoT Edge 모듈 마켓플레이스에서 **SQL Server 모듈**을 검색하여 선택합니다.
@@ -246,29 +248,31 @@ Azure IoT Edge 및 SQL Server를 사용하여 에지에 데이터를 저장하�
 
 1. VS Code 탐색기에서 **deployment.template.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다.
 
-솔루션을 빌드하도록 Visual Studio Code에 지시하면 먼저 배포 템플릿의 정보를 가져와서 **config**라는 새 폴더에 deployment.json 파일을 생성합니다. 그런 다음, 통합 터미널에서 `docker build` 및 `docker push`, 두 개의 명령을 실행합니다. 빌드 명령은 코드를 빌드하고 모듈을 컨테이너화합니다. 그런 다음, push 명령은 솔루션을 초기화할 때 지정한 컨테이너 레지스트리로 코드를 푸시합니다.
+   빌드 및 푸시 명령은 세 가지 작업을 시작합니다. 먼저, 배포 템플릿 및 기타 솔루션 파일의 정보로 작성된 전체 배포 매니페스트를 포함하는 **config**라는 솔루션에 새 폴더를 만듭니다. 둘째, `docker build`를 실행하여 대상 아키텍처의 적절한 dockerfile을 기준으로 컨테이너 이미지를 빌드합니다. 그런 다음, `docker push`를 실행하여 컨테이너 레지스트리에 이미지 리포지토리를 푸시합니다.
 
-sqlFunction 모듈이 컨테이너 레지스트리에 성공적으로 푸시된 것을 확인할 수 있습니다. Azure Portal에서 컨테이너 레지스트리로 이동합니다. **리포지토리**를 선택하고 **sqlFunction**을 검색합니다. 다른 두 가지 모듈인 SimulatedTemperatureSensor와 sql은 해당 리포지토리가 이미 Microsoft 레지스트리에 있으므로 컨테이너 레지스트리로 푸시되지 않습니다.
+   이 프로세스는 처음에는 몇 분 정도 걸릴 수 있지만 다음번에 명령을 실행할 때는 더 빨라집니다.
+
+   sqlFunction 모듈이 컨테이너 레지스트리에 성공적으로 푸시된 것을 확인할 수 있습니다. Azure Portal에서 컨테이너 레지스트리로 이동합니다. **리포지토리**를 선택하고 **sqlFunction**을 검색합니다. 다른 두 가지 모듈인 SimulatedTemperatureSensor와 sql은 해당 리포지토리가 이미 Microsoft 레지스트리에 있으므로 컨테이너 레지스트리로 푸시되지 않습니다.
 
 ## <a name="deploy-the-solution-to-a-device"></a>디바이스에 솔루션 배포
 
 IoT Hub를 통해 디바이스에서 모듈을 설정할 수 있지만 Visual Studio Code를 통해 IoT Hub 및 디바이스에 액세스할 수도 있습니다. 이 섹션에서는 IoT Hub에 대한 액세스 권한을 설정한 다음, VS Code를 사용하여 IoT Edge 디바이스에 솔루션을 배포합니다.
 
-1. VS Code 탐색기에서 **Azure IoT Hub 디바이스** 섹션을 펼칩니다.
+1.  Visual Studio Code 탐색기의 **Azure IoT Hub** 섹션에서 **디바이스**를 확장하여 IoT 디바이스 목록을 표시합니다.
 
 2. 배포에서 대상으로 지정하려는 디바이스를 마우스 오른쪽 단추로 클릭하고, **단일 디바이스 배포 만들기**를 선택합니다.
 
-3. 파일 탐색기에서는 솔루션 내의 **config** 폴더로 이동하고, **deployment.amd64**를 선택합니다. **에지 배포 매니페스트 선택**을 클릭합니다.
+3. **config** 폴더에서 **deployment.amd64.json** 파일을 선택한 다음, **에지 배포 매니페스트 선택**을 클릭합니다. deployment.template.json 파일을 사용하지 마세요.
 
-   deployment.template.json 파일을 배포 매니페스트로 사용하지 마십시오.
+4. 배포되어 실행 중인 모듈의 목록을 보려면 디바이스 아래에서 **모듈**을 확장합니다. 새로고침 단추를 클릭합니다. **SimulatedTemperatureSensor** 모듈 그리고 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **sql** 및 **sqlFunction** 모듈이 표시됩니다.
 
-배포가 성공하는 경우 VS Code 출력에 확인 메시지가 출력됩니다.
-
-VS Code의 Azure IoT Hub Devices 섹션에서 디바이스의 상태를 새로 고칩니다. 새 모듈이 나열되고, 컨테이너가 설치되고 시작됨에 따라 다음 몇 분 동안 '실행 중'이라고 보고되기 시작합니다. 모든 모듈이 디바이스에서 실행되는지를 확인할 수도 있습니다. IoT Edge 디바이스에서 다음 명령을 실행하여 모듈의 상태를 확인합니다.
+    모든 모듈이 디바이스에서 실행되는지를 확인할 수도 있습니다. IoT Edge 디바이스에서 다음 명령을 실행하여 모듈의 상태를 확인합니다.
 
    ```cmd/sh
    iotedge list
    ```
+
+    두 모듈이 모두 시작하는 데 몇 분 정도 걸릴 수 있습니다. IoT Edge 런타임은 새 배포 매니페스트를 받고, 컨테이너 런타임에서 모듈 이미지를 끌어온 후 각 새 모듈을 시작해야 합니다.
 
 ## <a name="create-the-sql-database"></a>SQL 데이터베이스 만들기
 

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/20/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ae99ba6540250d18c0bb5f6365e2ed3b9939ac9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 662bda03fc2d389ed316bd2c7141d5e6a30cef1a
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383872"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814639"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
@@ -45,7 +45,7 @@ ms.locfileid: "85383872"
 
 **개발자 용 Azure AD를 가져오는 방법**
 
-모든 프리미엄 Azure AD 기능을 제공 하는 무료 테스트 계정 (90 일 무료)을 얻을 수 있으며,이를 통해 개발 작업을 수행 하는 동안 확장할 수 있습니다.https://docs.microsoft.com/office/developer-program/office-365-developer-program
+모든 프리미엄 Azure AD 기능을 제공 하는 무료 테스트 계정 (90 일 무료)을 얻을 수 있으며,이를 통해 개발 작업을 수행 하는 동안 확장할 수 있습니다. https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="submit-the-request-in-the-portal"></a>포털에서 요청 제출
 
@@ -99,7 +99,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD�
     * Openid connect Connect를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려는 경우 다음과 같이 **Openid connect Connect & OAuth 2.0** 을 선택 합니다.
     * 액세스에 문제가 있는 경우 [AZURE AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의 하세요.
 
-- **Saml 2.0** 또는 **WS-급지되지**않음: 앱이 saml 2.0을 지 원하는 경우 지침에 따라 [사용자 지정 응용 프로그램을 추가](../active-directory-saas-custom-apps.md)하 여 Azure AD 테 넌 트와 직접 통합할 수 있습니다.
+- **Saml 2.0** 또는 **WS-급지되지**않음: 앱이 saml 2.0을 지 원하는 경우 지침에 따라 [사용자 지정 응용 프로그램을 추가](../manage-apps/view-applications-portal.md)하 여 Azure AD 테 넌 트와 직접 통합할 수 있습니다.
 
   ![갤러리에 SAML 2.0 또는 WS-급지됨 응용 프로그램 나열](./media/howto-app-gallery-listing/saml.png)
 
@@ -113,7 +113,7 @@ HTML 로그인 페이지가 있는 웹 애플리케이션을 만들어서 [암�
 
 ![갤러리에 암호 SSO 응용 프로그램 나열](./media/howto-app-gallery-listing/passwordsso.png)
 
-* 암호 SSO를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려면 다음과 같이 **암호 sso** 를 선택 합니다.
+* 암호 SSO를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려면 다음과 같이 **암호 sso (사용자 이름 & 암호)** 를 선택 합니다.
 * 액세스에 문제가 있는 경우 [AZURE AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의 하세요.
 
 ## <a name="request-for-user-provisioning"></a>사용자 프로 비전 요청

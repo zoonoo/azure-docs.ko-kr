@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c88a1f36d4e3405b44f36864262b2ab97517933
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: d8b5f79d9c9050eeb7957ddcf28021e3c8b3dd94
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500558"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010650"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Media Services v3을 사용 하 여 스트리밍 끝점 관리
 
@@ -57,7 +57,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
  
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. Azure Media Services 계정으로 이동 합니다.
-1. 왼쪽 창에서 **스트리밍 끝점**을 선택 합니다.
+1. 왼쪽 창에서  **스트리밍 끝점**을 선택 합니다.
 1. 시작 하려는 스트리밍 끝점을 선택 하 고 **시작**을 선택 합니다.
 
 ## <a name="use-the-azure-cli"></a>Azure CLI 사용

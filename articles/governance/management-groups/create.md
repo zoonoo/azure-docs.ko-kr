@@ -1,14 +1,14 @@
 ---
 title: 리소스를 구성 하는 관리 그룹 만들기-Azure 관리
 description: Azure 관리 그룹을 만들어 포털, Azure PowerShell 및 Azure CLI를 통해 여러 리소스를 관리하는 방법을 알아봅니다.
-ms.date: 04/15/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6fe7f2ea74c697701084321e068042b36acbdb11
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 9504679062c9facad60023759b474be1675cb6a8
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971139"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048553"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
 
@@ -70,7 +70,7 @@ New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
 
 ### <a name="create-in-azure-cli"></a>Azure CLI에서 만들기
 
-Azure CLI의 경우 [az account management-group create](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) 명령을 사용 하 여 새 관리 그룹을 만듭니다.
+Azure CLI의 경우 [az account management-group create](/cli/azure/account/management-group#az-account-management-group-create) 명령을 사용 하 여 새 관리 그룹을 만듭니다.
 
 ```azurecli-interactive
 az account management-group create --name Contoso

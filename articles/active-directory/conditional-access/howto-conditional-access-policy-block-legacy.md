@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0eaa2f2bc0ee26a4f543ea0938db6c226a9a6575
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283013"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049250"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>조건부 액세스: 레거시 인증 차단
 
@@ -24,7 +24,7 @@ ms.locfileid: "87283013"
 
 ## <a name="create-a-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
-다음 단계는 레거시 인증 요청을 차단하는 조건부 액세스 정책을 만드는 데 도움이 됩니다. 이 정책은 관리자가 기존 사용자에게 미칠 영향을 확인할 수 있도록 시작할 때 [읽기 전용 모드](howto-conditional-access-report-only.md)로 설정됩니다. 관리자는 정책이 의도한 대로 적용되는 것이 편한 경우 **켜짐**으로 전환하거나, 특정 그룹을 추가하고 다른 그룹을 제외하여 배포를 스테이징할 수 있습니다.
+다음 단계는 레거시 인증 요청을 차단하는 조건부 액세스 정책을 만드는 데 도움이 됩니다. 이 정책은 관리자가 기존 사용자에게 미칠 영향을 확인할 수 있도록 시작할 때 [읽기 전용 모드](howto-conditional-access-insights-reporting.md)로 설정됩니다. 관리자는 정책이 의도한 대로 적용되는 것이 편한 경우 **켜짐**으로 전환하거나, 특정 그룹을 추가하고 다른 그룹을 제외하여 배포를 스테이징할 수 있습니다.
 
 1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
@@ -36,8 +36,8 @@ ms.locfileid: "87283013"
    1. **완료**를 선택합니다.
 1. **클라우드 앱 또는 작업**에서 **모든 클라우드 앱**을 선택합니다.
    1. **완료**를 선택합니다.
-1. **조건**  >  **클라이언트 앱 (미리 보기)** 의 아래에서 **이 정책이 적용 되는 클라이언트 앱을 선택 합니다**.
-   1. **모바일 앱 및 데스크톱 클라이언트** > **기타 클라이언트** 확인란만 선택합니다.
+1. **조건**  >  **클라이언트 앱**에서 **구성** 을 **예**로 설정 합니다.
+   1. **Exchange ActiveSync 클라이언트** 및 **다른 클라이언트만**확인란을 선택 합니다.
    1. **완료**를 선택합니다.
 1. **액세스 제어** > **권한 부여**에서 **액세스 차단**을 선택합니다.
    1. **선택**을 선택합니다.
@@ -48,7 +48,7 @@ ms.locfileid: "87283013"
 
 [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-report-only.md)
+[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 

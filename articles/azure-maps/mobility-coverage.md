@@ -1,6 +1,6 @@
 ---
 title: 모바일 (전송) 검사
-description: 이 문서에서는 Microsoft Azure 지도 모바일 서비스에서 공개 전송 검사에 대해 알아봅니다.
+description: Azure Maps 모바일 서비스에서 라우팅 및 서비스 알림과 같은 공용 전송 기능을 제공 하는 영역을 제공 하는 검사 수준에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/23/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3cd2cc2068f1855c46bc139100006d75492632d8
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: d61cc94ee1b3c5d23135c033b1068aa7411761d1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169381"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033260"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps 모바일 범위
 

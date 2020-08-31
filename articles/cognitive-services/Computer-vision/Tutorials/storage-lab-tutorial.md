@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 43172cb08bb1e31c8cff891628ca6ef85cb8c864
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f350aae32909de2b9be4384d921f7507a158f6ff
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404422"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243856"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>자습서: Computer Vision을 사용하여 Azure Storage에서 이미지 메타데이터 생성
 
@@ -31,7 +31,7 @@ ms.locfileid: "81404422"
 > * Azure Storage 이미지에 메타데이터 연결
 > * Azure Storage Explorer를 사용하여 이미지 메타데이터 확인
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services)을 만듭니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

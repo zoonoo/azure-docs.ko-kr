@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529112"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005028"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -174,7 +174,7 @@ Azure AD 사용 Windows Server 2019 Datacenter Vm에 대 한 역할 할당을 �
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Azure Cloud Shell 환경 사용
 
-다음 예제에서는 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용하여 현재 Azure 사용자의 VM에 대한 가상 머신 관리자 로그인 역할을 할당합니다. 활성 Azure 계정의 사용자 이름은 [az account show](/cli/azure/account#az-account-show)를 사용하여 가져옵니다. 또한 범위는 [az vm show](/cli/azure/vm#az-vm-show)를 사용하여 이전 단계에서 만든 VM으로 설정됩니다. 또한 리소스 그룹이나 구독 수준에서 범위를 할당할 수 있고 정상 RBAC 상속 사용 권한이 적용됩니다. 자세한 내용은 [역할 기반 액세스 제어](../../virtual-machines/linux/login-using-aad.md)를 참조 하세요.
+다음 예제에서는 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용하여 현재 Azure 사용자의 VM에 대한 가상 머신 관리자 로그인 역할을 할당합니다. 활성 Azure 계정의 사용자 이름은 [az account show](/cli/azure/account#az-account-show)를 사용하여 가져옵니다. 또한 범위는 [az vm show](/cli/azure/vm#az-vm-show)를 사용하여 이전 단계에서 만든 VM으로 설정됩니다. 범위는 리소스 그룹 또는 구독 수준에서 할당 될 수도 있으며, 일반 Azure RBAC 상속 권한이 적용 됩니다. 자세한 내용은 [Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인](../../virtual-machines/linux/login-using-aad.md)을 참조 하세요.
 
 ```   AzureCLI
 username=$(az account show --query user.name --output tsv)
@@ -189,11 +189,11 @@ az role assignment create \
 > [!NOTE]
 > AAD 도메인 및 로그온 사용자 이름 도메인이 일치 하지 않는 경우의 사용자 이름 뿐만 아니라 사용자 계정에 대 한 개체 ID를 지정 해야 합니다 `--assignee-object-id` `--assignee` . [az ad user list](/cli/azure/ad/user#az-ad-user-list)를 사용하여 사용자 계정의 개체 ID를 가져올 수 있습니다.
 
-RBAC를 사용 하 여 Azure 구독 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+Azure RBAC를 사용 하 여 Azure 구독 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- [RBAC 및 Azure CLI를 사용하여 Azure 리소스에 대한 액세스 관리](/azure/role-based-access-control/role-assignments-cli)
-- [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](/azure/role-based-access-control/role-assignments-portal)
-- [RBAC 및 Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 액세스를 관리](/azure/role-based-access-control/role-assignments-powershell)합니다.
+- [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](/azure/role-based-access-control/role-assignments-cli)
+- [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](/azure/role-based-access-control/role-assignments-portal)
+- [Azure PowerShell를 사용 하 여 Azure 역할 할당을 추가 하거나 제거](/azure/role-based-access-control/role-assignments-powershell)합니다.
 
 ## <a name="using-conditional-access"></a>조건부 액세스 사용
 

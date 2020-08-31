@@ -1,6 +1,6 @@
 ---
 title: 세부 사용량 및 요금 이해 | Microsoft Docs
-description: 세부 사용량과 요금을 읽고 이해하는 방법 알아보기
+description: 세부 사용량 및 요금 파일을 읽고 이해하는 방법을 알아봅니다. 파일에 사용된 사용 약관 및 설명을 살펴봅니다.
 author: bandersmsft
 ms.reviewer: micflan
 tags: billing
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: 3b4a5601f18a07ba1ecd6fdd93628d671a0acad2
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 1b53869c9ef90dd0edf3ab9a3120e65db8f16e8a
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065635"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460289"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure 사용량 및 요금 파일의 사용 약관 이해
 
@@ -23,9 +23,9 @@ ms.locfileid: "80065635"
 
 계정 유형 | Azure 사용량 | Marketplace 사용량 | 구매 | 환불
 --- | --- | --- | --- | ---
-EA(기업 계약) | 예 | 예 | 예 | 예
+EA(기업 계약) | 예 | 예 | 예 | 아니요
 MCA(Microsoft 고객 계약) | 예 | 예 | 예 | 예
-PAYG(종량제) | 예 | 예 | 예 | 예
+PAYG(종량제) | 예 | 예 | 예 | 아니요
 
 Marketplace 주문(외부 서비스라고도 함)에 대해 자세히 알아보려면 [Azure 외부 서비스 요금 이해](understand-azure-marketplace-charges.md)를 참조하세요.
 
@@ -37,7 +37,7 @@ Microsoft Excel 또는 다른 스프레드시트 애플리케이션에서 사용
 다음 표에서는 최신 버전의 Azure 사용량 및 요금 파일에 사용되는 중요한 용어에 대해 설명합니다.
 이 목록에는 PAYG(종량제), EA(기업계약) 및 Microsoft MCA(고객 계약) 계정이 포함되어 있습니다.
 
-용어 | 계정 유형 | Description
+용어 | 계정 유형 | 설명
 --- | --- | ---
 AccountName | EA, PAYG | EA 등록계약 계정 또는 PAYG 청구 계정의 표시 이름입니다.
 AccountOwnerId<sup>1</sup> | EA, PAYG | EA 등록계약 계정 또는 PAYG 청구 계정의 고유 식별자입니다.
@@ -102,7 +102,7 @@ ServicePeriodStartDate | MCA | 소비하거나 구매한 서비스의 가격 책
 SubscriptionId<sup>1</sup> | 모두 | Azure 구독의 고유 식별자입니다.
 SubscriptionName | 모두 | Azure 구독의 이름입니다.
 Tags<sup>1</sup> | 모두 | 리소스에 할당된 태그입니다. 리소스 그룹 태그를 포함하지 않습니다. 내부 지불 거절 비용을 그룹화하거나 균등 맞춤하는 데 사용할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)을 참조하세요.
-용어 | 모두 | 제품의 유효 기간을 표시합니다. 다음은 그 예입니다.  예약된 인스턴스의 경우 12개월을 기간으로 표시합니다. 일회성 구매 또는 되풀이 구매의 기간은 1개월(SaaS, Marketplace 지원)입니다. Azure 소비에는 적용되지 않습니다.
+용어 | 모두 | 제품의 유효 기간을 표시합니다. 예를 들면 다음과 같습니다. 예약된 인스턴스의 경우 12개월을 기간으로 표시합니다. 일회성 구매 또는 되풀이 구매의 기간은 1개월(SaaS, Marketplace 지원)입니다. Azure 소비에는 적용되지 않습니다.
 UnitOfMeasure | 모두 | 서비스 청구를 위한 측정 단위. 예를 들어 컴퓨팅 서비스는 시간당 청구됩니다.
 UnitPrice | EA, PAYG | 요금 단위당 가격입니다.
 

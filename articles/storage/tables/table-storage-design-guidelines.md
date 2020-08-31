@@ -1,19 +1,19 @@
 ---
 title: Azure Storage 테이블 디자인의 지침 | Microsoft Docs
-description: 읽기 작업을 효율적으로 지원하도록 Azure Table service를 디자인합니다.
+description: 읽기 및 쓰기 작업을 효율적으로 지원 하기 위해 Azure storage table service를 디자인 하기 위한 지침을 이해 합니다.
 services: storage
-author: SnehaGunda
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: d056d29469ad9a60fceeee307aca3c0e1319283c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f84707e454a8b1f5d5947478fe65108a142a9757
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61269850"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236321"
 ---
 # <a name="guidelines-for-table-design"></a>테이블 디자인 지침
 

@@ -3,14 +3,14 @@ title: Visual Studio Code를 사용하여 Azure Storage에 Azure Functions 연�
 description: Visual Studio Code 프로젝트에 출력 바인딩을 추가하여 Azure Functions를 Azure Storage 큐에 연결하는 방법을 알아봅니다.
 ms.date: 02/07/2020
 ms.topic: quickstart
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 49f0f9f89ad22694f762b58ae5a0e44dc158cfcd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ee10adea181c187bd630b5d334e4768545f4f6c8
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291825"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845377"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Storage에 Azure Functions 연결
 

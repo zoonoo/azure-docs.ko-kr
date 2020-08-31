@@ -5,13 +5,13 @@ keywords: azure app service, 웹 앱, 앱 설정, 환경 변수
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: seodec18
-ms.openlocfilehash: e4ebb33333dc59432fd269c4847abdeab91d935c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 4990862bacbf2afe2d4b5f39c2b9d31a7c48b78e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389781"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962896"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
@@ -33,18 +33,18 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설
 
 마찬가지로 다른 언어 스택은 런타임에 환경 변수로 앱 설정을 가져옵니다. 언어 스택 관련 단계는 다음을 참조 하세요.
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.JS](containers/configure-language-nodejs.md#access-environment-variables)
-- [PHP](containers/configure-language-php.md#access-environment-variables)
-- [Python](containers/how-to-configure-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [사용자 지정 컨테이너](containers/configure-custom-container.md#configure-environment-variables)
+- [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
+- [Node.JS](configure-language-nodejs.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [Java](configure-language-java.md#data-sources)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
+- [사용자 지정 컨테이너](configure-custom-container.md#configure-environment-variables)
 
 앱 설정은 저장될 때 항상 암호화됩니다(미사용 암호화).
 
 > [!NOTE]
-> [Key Vault 참조](app-service-key-vault-references.md)를 사용 하 여 [Key Vault](/azure/key-vault/) 에서 앱 설정을 확인할 수도 있습니다.
+> [Key Vault 참조](app-service-key-vault-references.md)를 사용 하 여 [Key Vault](../key-vault/index.yml) 에서 앱 설정을 확인할 수도 있습니다.
 
 ### <a name="show-hidden-values"></a>숨겨진 값 표시
 
@@ -96,26 +96,26 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열�
 
 런타임에 연결 문자열은 환경 변수로 사용할 수 있으며, 다음 연결 형식이 접두사로 사용 됩니다.
 
-* SQLServer`SQLCONNSTR_`  
+* SQLServer `SQLCONNSTR_`  
 * MySQL: `MYSQLCONNSTR_` 
-* SQLAzure`SQLAZURECONNSTR_` 
+* SQLAzure `SQLAZURECONNSTR_` 
 * 사용자 지정: `CUSTOMCONNSTR_`
-* PostgreSQL`POSTGRESQLCONNSTR_`  
+* PostgreSQL `POSTGRESQLCONNSTR_`  
 
 예를 들어 *connectionstring1* 라는 MySql 연결 문자열을 환경 변수로 액세스할 수 있습니다 `MYSQLCONNSTR_connectionString1` . 언어 스택 관련 단계는 다음을 참조 하세요.
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.JS](containers/configure-language-nodejs.md#access-environment-variables)
-- [PHP](containers/configure-language-php.md#access-environment-variables)
-- [Python](containers/how-to-configure-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [사용자 지정 컨테이너](containers/configure-custom-container.md#configure-environment-variables)
+- [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
+- [Node.JS](configure-language-nodejs.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [Java](configure-language-java.md#data-sources)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
+- [사용자 지정 컨테이너](configure-custom-container.md#configure-environment-variables)
 
 연결 문자열은 저장될 때 항상 암호화됩니다(미사용 암호화).
 
 > [!NOTE]
-> [Key Vault 참조](app-service-key-vault-references.md)를 사용 하 여 [Key Vault](/azure/key-vault/) 에서 연결 문자열을 확인할 수도 있습니다.
+> [Key Vault 참조](app-service-key-vault-references.md)를 사용 하 여 [Key Vault](../key-vault/index.yml) 에서 연결 문자열을 확인할 수도 있습니다.
 
 ### <a name="show-hidden-values"></a>숨겨진 값 표시
 
@@ -176,7 +176,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열�
     > [!NOTE]
     > 대부분의 최신 브라우저는 TLS를 통해서만 HTTP/2 프로토콜을 지원하는 반면에 암호화되지 않은 트래픽은 HTTP/1.1을 계속 사용합니다. 클라이언트 브라우저가 HTTP/2를 사용 하 여 앱에 연결 하도록 하려면 사용자 지정 DNS 이름을 보호 합니다. 자세한 내용은 [Azure App Service에서 TLS/SSL 바인딩을 사용 하 여 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조 하세요.
     - **ARR 선호도**: 다중 인스턴스 배포에서 클라이언트가 세션 수명 동안 동일한 인스턴스로 라우팅되도록 합니다. 상태 비저장 응용 프로그램의 경우이 옵션을 **Off** 로 설정할 수 있습니다.
-- **디버깅**: [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)또는 [Node.js](containers/configure-language-nodejs.md#debug-remotely) 앱에 대해 원격 디버깅을 사용 하도록 설정 합니다. 이 옵션은 48 시간 후에 자동으로 꺼집니다.
+- **디버깅**: [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)또는 [Node.js](configure-language-nodejs.md#debug-remotely) 앱에 대해 원격 디버깅을 사용 하도록 설정 합니다. 이 옵션은 48 시간 후에 자동으로 꺼집니다.
 - **들어오는 클라이언트 인증서**: [상호 인증](app-service-web-configure-tls-mutual-auth.md)에 클라이언트 인증서가 필요 합니다.
 
 ## <a name="configure-default-documents"></a>기본 문서 구성
@@ -215,7 +215,7 @@ Windows 앱의 경우 IIS 처리기 매핑과 가상 응용 프로그램 및 디
 
 ### <a name="containerized-apps"></a>컨테이너 화 된 앱
 
-[컨테이너 화 된 앱에 대 한 사용자 지정 저장소를 추가할](containers/how-to-serve-content-from-azure-storage.md)수 있습니다. 컨테이너 화 된 apps에는 모든 Linux 앱 및 App Service에서 실행 되는 Windows 및 Linux 사용자 지정 컨테이너도 포함 됩니다. **새로 만들기 Azure Storage** 클릭 하 여 다음과 같이 사용자 지정 저장소를 탑재 하 고 구성 합니다.
+[컨테이너 화 된 앱에 대 한 사용자 지정 저장소를 추가할](configure-connect-to-azure-storage.md)수 있습니다. 컨테이너 화 된 apps에는 모든 Linux 앱 및 App Service에서 실행 되는 Windows 및 Linux 사용자 지정 컨테이너도 포함 됩니다. **새로 만들기 Azure Storage** 클릭 하 여 다음과 같이 사용자 지정 저장소를 탑재 하 고 구성 합니다.
 
 - **이름**: 표시 이름입니다.
 - **구성 옵션**: **Basic** 또는 **Advanced**
@@ -228,22 +228,22 @@ Windows 앱의 경우 IIS 처리기 매핑과 가상 응용 프로그램 및 디
 - **액세스 키**: 고급 구성의 경우 액세스 키입니다.
 - **탑재 경로**: 사용자 지정 저장소를 탑재할 컨테이너의 절대 경로입니다.
 
-자세한 내용은 [App Service on Linux에 있는 Azure Storage의 콘텐츠 제공](containers/how-to-serve-content-from-azure-storage.md)을 참조하세요.
+자세한 내용은 [App Service의 컨테이너에서 네트워크 공유로 Azure Storage 액세스](configure-connect-to-azure-storage.md)를 참조 하세요.
 
 ## <a name="configure-language-stack-settings"></a>언어 스택 설정 구성
 
 Linux 앱의 경우 다음을 참조 하세요.
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md)
-- [Node.JS](containers/configure-language-nodejs.md)
-- [PHP](containers/configure-language-php.md)
-- [Python](containers/how-to-configure-python.md)
-- [Java](containers/configure-language-java.md)
-- [Ruby](containers/configure-language-ruby.md)
+- [ASP.NET Core](configure-language-dotnetcore.md)
+- [Node.JS](configure-language-nodejs.md)
+- [PHP](configure-language-php.md)
+- [Python](configure-language-python.md)
+- [Java](configure-language-java.md)
+- [Ruby](configure-language-ruby.md)
 
 ## <a name="configure-custom-containers"></a>사용자 지정 컨테이너 구성
 
-[Azure App Service에 대 한 사용자 지정 Linux 컨테이너 구성을](containers/configure-custom-container.md) 참조 하세요.
+[Azure App Service에 대 한 사용자 지정 Linux 컨테이너 구성을](configure-custom-container.md) 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

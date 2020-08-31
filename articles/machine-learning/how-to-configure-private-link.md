@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/28/2020
-ms.openlocfilehash: dcf99b2a2a762114db45a9371a489b952b57d430
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: bdb7ba30d9fa2d0bd1eff9368d6e30e516b53895
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542181"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192721"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Azure Machine Learning 작업 영역에 대 한 Azure 개인 링크 구성 (미리 보기)
 
@@ -39,7 +39,7 @@ Azure 개인 링크를 사용 하면 개인 끝점을 사용 하 여 작업 영�
 > [!IMPORTANT]
 > 현재는 새로운 Azure Machine Learning 작업 영역을 만들 때 전용 끝점을 사용 하도록 설정 하는 것만 지원 합니다.
 
-는 [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) 개인 끝점을 사용 하 여 작업 영역을 만드는 데 사용할 수 있습니다.
+의 템플릿은 개인 끝점을 사용 하 [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) 여 작업 영역을 만드는 데 사용할 수 있습니다.
 
 개인 끝점을 포함 하 여이 템플릿을 사용 하는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning에 대 한 작업 영역 만들기](how-to-create-workspace-template.md)를 참조 하세요.
 

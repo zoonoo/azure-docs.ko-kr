@@ -6,13 +6,13 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 49bbc2199c7dc3040a24071b8eb5a91929d88e08
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 45f704afce28967237b2905ef068678ba05ae085
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849245"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206648"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -113,7 +113,7 @@ module.exports = function (context, myTimer) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제에서는 파일 *의function.js* 에 설명 된 구성의 타이머 트리거 바인딩을 사용 합니다. 바인딩을 사용 하는 실제 [Python 함수](functions-reference-python.md) 는 * __init__py* 파일에 설명 되어 있습니다. 함수에 전달 되는 개체는 [azure. 함수인 request 개체](/python/api/azure-functions/azure.functions.timerrequest)유형입니다. 함수 논리는 현재 호출이 누락 된 일정 발생으로 인 한 것인지 여부를 나타내는 로그에 기록 합니다. 
+다음 예제에서는 파일 * 의function.js* 에 설명 된 구성의 타이머 트리거 바인딩을 사용 합니다. 바인딩을 사용 하는 실제 [Python 함수](functions-reference-python.md) 는 * __init__py* 파일에 설명 되어 있습니다. 함수에 전달 되는 개체는 [azure. 함수인 request 개체](/python/api/azure-functions/azure.functions.timerrequest)유형입니다. 함수 논리는 현재 호출이 누락 된 일정 발생으로 인 한 것인지 여부를 나타내는 로그에 기록 합니다. 
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -168,7 +168,7 @@ public void keepAlive(
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs) 특성을 사용합니다.
 
-특성의 생성자는 CRON 식 또는 `TimeSpan`을 사용합니다. `TimeSpan`함수 앱이 App Service 계획에서 실행 되는 경우에만를 사용할 수 있습니다. `TimeSpan`는 소비 또는 탄력적 프리미엄 함수에서 지원 되지 않습니다.
+특성의 생성자는 CRON 식 또는 `TimeSpan`을 사용합니다. `TimeSpan`함수 앱이 App Service 계획에서 실행 되는 경우에만를 사용할 수 있습니다. `TimeSpan` 는 소비 또는 탄력적 프리미엄 함수에서 지원 되지 않습니다.
 
 다음 예제는 CRON 식을 보여줍니다.
 
@@ -231,7 +231,7 @@ public void keepAlive(
 > [!CAUTION]
 > 프로덕션 환경에서는 **runOnStartup**을 `true`로 설정하지 않는 것이 좋습니다. 이 설정을 사용하면 매우 예측할 수 없는 시간에 코드가 실행됩니다. 특정 프로덕션 환경에서 이러한 추가 실행으로 인해 소비 계획에서 호스팅되는 앱의 비용이 상당히 높아질 수 있습니다. 예를 들어 **Runonstartup** 을 사용 하도록 설정 하면 함수 앱이 확장 될 때마다 트리거가 호출 됩니다. 프로덕션 환경에서 **runOnStartup**을 사용하도록 설정하기 전에 함수의 프로덕션 동작을 완전히 이해했는지 확인하세요.   
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용량
 
 타이머 트리거 함수를 호출 하면 timer 개체가 함수에 전달 됩니다. 다음 JSON은 타이머 개체의 예제 표현입니다.
 
@@ -312,10 +312,10 @@ CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격�
 
 App service에 배포 되지 않은 함수 앱에서 저장소 계정을 공유 하는 경우 각 앱에 호스트 ID를 명시적으로 할당 해야 할 수 있습니다.
 
-| Functions 버전 | Setting                                              |
+| Functions 버전 | 설정                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2.x 이상  | `AzureFunctionsWebHost__hostid`환경 변수 |
-| 1.x               | `id`의 *host.js*                                  |
+| 1.x               | `id` 의 *host.js*                                  |
 
 식별 값을 생략 하거나 각 함수 앱의 식별 구성을 다른 값으로 수동으로 설정할 수 있습니다.
 

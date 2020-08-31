@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: c811240beea896683f891d9513a657b0689b8824
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87488655"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749615"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -94,7 +94,7 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 | Azure 리소스                          | Description |
 |:----------------------------------------|:---|
 | 네트워크 인터페이스 카드                  | Azure AD DS는 Windows Server에서 실행 되는 두 개의 Dc (도메인 컨트롤러)에서 관리 되는 도메인을 Azure Vm으로 호스팅합니다. 각 VM에는 가상 네트워크 서브넷에 연결 하는 가상 네트워크 인터페이스가 있습니다. |
-| 동적 표준 공용 IP 주소      | Azure AD DS는 표준 SKU 공용 IP 주소를 사용 하 여 동기화 및 관리 서비스와 통신 합니다. 공용 IP 주소에 대 한 자세한 내용은 [Azure의 ip 주소 유형 및 할당 방법](../virtual-network/virtual-network-ip-addresses-overview-arm.md)을 참조 하세요. |
+| 동적 표준 공용 IP 주소      | Azure AD DS는 표준 SKU 공용 IP 주소를 사용 하 여 동기화 및 관리 서비스와 통신 합니다. 공용 IP 주소에 대 한 자세한 내용은 [Azure의 ip 주소 유형 및 할당 방법](../virtual-network/public-ip-addresses.md)을 참조 하세요. |
 | Azure 표준 부하 분산 장치            | Azure AD DS는 NAT (네트워크 주소 변환) 및 부하 분산을 위해 표준 SKU 부하 분산 장치를 사용 합니다 (보안 LDAP와 함께 사용 하는 경우). Azure 부하 분산 장치에 대 한 자세한 내용은 [Azure Load Balancer?](../load-balancer/load-balancer-overview.md) 을 참조 하세요. |
 | NAT (Network address translation) 규칙 | Azure AD DS는 부하 분산 장치에 대 한 세 가지 NAT 규칙을 만들고 사용 합니다 .이 규칙은 보안 HTTP 트래픽에 대 한 규칙 하나, 보안 PowerShell 원격을 위한 두 가지 규칙입니다. |
 | 부하 분산 장치 규칙                     | 관리 되는 도메인이 TCP 포트 636에서 보안 LDAP를 사용 하도록 구성 된 경우 부하 분산 장치에서 트래픽을 분산 하는 세 가지 규칙이 만들어지고 사용 됩니다. |
@@ -104,15 +104,15 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 
 ## <a name="network-security-groups-and-required-ports"></a>네트워크 보안 그룹 및 필수 포트
 
-[NSG (네트워크 보안 그룹)](../virtual-network/virtual-networks-nsg.md) 에는 Azure virtual network의 트래픽에 대 한 네트워크 트래픽을 허용 하거나 거부 하는 규칙의 목록이 포함 되어 있습니다. 네트워크 보안 그룹은 서비스에서 인증 및 관리 기능을 제공할 수 있도록 하는 일련의 규칙을 포함 하는 관리 되는 도메인을 배포할 때 만들어집니다. 이 기본 네트워크 보안 그룹은 관리 되는 도메인이 배포 된 가상 네트워크 서브넷과 연결 됩니다.
+[NSG (네트워크 보안 그룹)](../virtual-network/security-overview.md) 에는 Azure virtual network의 트래픽에 대 한 네트워크 트래픽을 허용 하거나 거부 하는 규칙의 목록이 포함 되어 있습니다. 네트워크 보안 그룹은 서비스에서 인증 및 관리 기능을 제공할 수 있도록 하는 일련의 규칙을 포함 하는 관리 되는 도메인을 배포할 때 만들어집니다. 이 기본 네트워크 보안 그룹은 관리 되는 도메인이 배포 된 가상 네트워크 서브넷과 연결 됩니다.
 
 다음 네트워크 보안 그룹 규칙은 관리 되는 도메인에서 인증 및 관리 서비스를 제공 하는 데 필요 합니다. 관리 되는 도메인이 배포 된 가상 네트워크 서브넷에 대해 이러한 네트워크 보안 그룹 규칙을 편집 하거나 삭제 하지 마세요.
 
 | 포트 번호 | 프로토콜 | 원본                             | 대상 | 작업 | 필수 | 용도 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | 모두         | 허용  | 예      | Azure AD 테 넌 트와 동기화. |
-| 3389        | TCP      | CorpNetSaw                         | 모두         | 허용  | 예      | 도메인 관리. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | 허용  | 예      | 도메인 관리. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | 예      | Azure AD 테 넌 트와 동기화. |
+| 3389        | TCP      | CorpNetSaw                         | 모두         | Allow  | 예      | 도메인 관리. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | 예      | 도메인 관리. |
 
 이러한 규칙을 적용하는 Azure 표준 부하 분산 장치가 생성됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호하며, 관리되는 도메인이 제대로 작동하는 데 꼭 필요합니다. 이 네트워크 보안 그룹을 삭제 하지 마세요. 부하 분산 장치가 없으면 제대로 작동 하지 않습니다.
 
@@ -142,6 +142,10 @@ Azure AD DS에 대 한 가상 네트워크를 설계할 때 다음과 같은 고
 
 > [!NOTE]
 > 이 네트워크 보안 그룹 규칙을 편집 하려고 하면 포털에서 *CorpNetSaw* service 태그를 수동으로 선택할 수 없습니다. *CorpNetSaw* service 태그를 사용 하는 규칙을 수동으로 구성 하려면 Azure PowerShell 또는 Azure CLI를 사용 해야 합니다.
+>
+> 예를 들어 다음 스크립트를 사용 하 여 RDP를 허용 하는 규칙을 만들 수 있습니다. 
+>
+> `Get-AzureRmNetworkSecurityGroup -Name "nsg-name" -ResourceGroupName "resource-group-name" | Add-AzureRmNetworkSecurityRuleConfig -Name "new-rule-name" -Access "Allow" -Protocol "TCP" -Direction "Inbound" -Priority "priority-number" -SourceAddressPrefix "CorpNetSaw" -SourcePortRange "" -DestinationPortRange "3389" -DestinationAddressPrefix "" | Set-AzureRmNetworkSecurityGroup`
 
 ### <a name="port-5986---management-using-powershell-remoting"></a>포트 5986-PowerShell 원격을 사용 하 여 관리
 

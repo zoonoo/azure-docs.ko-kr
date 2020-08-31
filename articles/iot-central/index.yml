@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 4b77c2d724a8540c0e43c45690877367a4b72416
-  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+  ms.openlocfilehash: fee76e6782fb01c6d18fd19c8c97d9f2c310c7ab
+  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87337027"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88080680"
 highlightedContent:
   items:
   - title: IoT Central이란?
@@ -68,9 +68,9 @@ conceptualContent:
     - url: ./core/tutorial-create-telemetry-rules.md
       itemType: how-to-guide
       text: 원격 분석 규칙 만들기
-    - url: ./core/howto-export-data.md
+    - url: ./core/howto-use-data-export.md
       itemType: how-to-guide
-      text: Azure에서 대상으로 데이터 내보내기
+      text: 클라우드 대상으로 데이터 내보내기 - 미리 보기
     footerLink:
       url: ./core/index.yml
       text: 자세히 보기
@@ -91,6 +91,8 @@ productDirectory:
       url: ./retail/tutorial-iot-central-connected-logistics.md
     - text: 디지털 배포 센터 애플리케이션 만들기
       url: ./retail/tutorial-iot-central-digital-distribution-center.md
+    - text: 비디오 분석 애플리케이션 만들기
+      url: ./retail/tutorial-video-analytics-create-app.md
   - title: 의료 산업용 빌드
     imageSrc: ./healthcare/media/index/iot-central-healthcare.svg
     links:

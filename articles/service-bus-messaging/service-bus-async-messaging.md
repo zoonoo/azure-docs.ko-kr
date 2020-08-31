@@ -3,12 +3,12 @@ title: Service Bus 비동기 메시징 | Microsoft Docs
 description: 큐, 토픽 및 구독과 함께 저장소 및 전달 메커니즘을 통해 비동기를 지 원하는 Azure Service Bus 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b628dd72efe0280e688b602f873a3f01d15ef587
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ea2a2f51d29f1a65926509581df49b453bde59f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337790"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067548"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>비동기 메시징 패턴 및 고가용성
 
@@ -57,7 +57,7 @@ Azure 내의 다른 구성 요소에는 서비스 문제가 있는 경우도 있
 이제 Service Bus에서 비동기 메시징의 기본 사항을 알아보았으므로 [중단 및 재해 처리][handling outages and disasters]에 대한 자세한 내용을 읽습니다.
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
-[System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx
+[System.TimeoutException]: /dotnet/api/system.timeoutexception?view=netcore-3.1
 [MessagingException]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
 [Microsoft.ServiceBus.Messaging.MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
@@ -70,8 +70,8 @@ Azure 내의 다른 구성 요소에는 서비스 문제가 있는 경우도 있
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
 [EnableSyphon]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
-[System.TimeSpan.Zero]: https://msdn.microsoft.com/library/system.timespan.zero.aspx
+[System.TimeSpan.Zero]: /dotnet/api/system.timespan.zero?view=netcore-3.1
 [IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
-[UnauthorizedAccessException]: https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx
+[UnauthorizedAccessException]: /dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1
 [BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN
 [handling outages and disasters]: service-bus-outages-disasters.md

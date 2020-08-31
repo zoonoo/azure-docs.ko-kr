@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ba03acabb3325045a71d55f583343a26b4d121ca
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3c7e4887610f30113b81421396500416d04c5e5e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832355"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078515"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Azure Digital Twins 인스턴스 및 인증 (CLI) 설정
 
@@ -24,8 +24,8 @@ ms.locfileid: "87832355"
 * Azure Portal를 사용 하 여 이러한 단계를 수동으로 진행 하려면이 문서의 포털 버전 [*(방법: 인스턴스 및 인증 설정 (포털))*](how-to-set-up-instance-portal.md)을 참조 하세요.
 * 배포 스크립트 샘플을 사용 하 여 자동화 된 설치를 실행 하려면이 문서의 스크립팅된 버전 [*(방법: 인스턴스 및 인증 설정 (스크립팅된))*](how-to-set-up-instance-scripted.md)을 참조 하세요.
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-cloud-shell-session"></a>Cloud Shell 세션 설정
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
@@ -63,10 +63,10 @@ az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-res
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-다음 명령을 사용 하 여 역할을 할당 합니다 (Azure 구독의 소유자가 실행 해야 함).
+다음 명령을 사용 하 여 역할을 할당 합니다 (Azure 구독에 [충분 한 권한이](#prerequisites-permission-requirements) 있는 사용자가 실행 해야 함). 명령을 사용 하려면 역할을 할당 해야 하는 사용자에 대 한 Azure AD 계정의 *사용자 계정 이름을* 전달 해야 합니다. 대부분의 경우이는 Azure AD 계정의 사용자 전자 메일과 일치 합니다.
 
 ```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
 이 명령의 결과는 생성 된 역할 할당에 대 한 출력 된 정보입니다.
@@ -74,13 +74,13 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 > [!NOTE]
 > 이 명령을 실행할 때 CLI **가 graph 데이터베이스에서 사용자 또는 서비스 주체를 찾을 수**없다는 오류를 반환 하는 경우:
 >
-> 전자 메일 대신 사용자의 *개체 ID* 를 사용 합니다. 이는 [MSAs (개인 Microsoft 계정)](https://account.microsoft.com/account)의 사용자에 게 발생할 수 있습니다. 
+> 대신 사용자의 *개체 ID* 를 사용 하 여 역할을 할당 합니다. 이는 [MSAs (개인 Microsoft 계정)](https://account.microsoft.com/account)의 사용자에 게 발생할 수 있습니다. 
 >
 > 사용자 [Azure Active Directory의 Azure Portal 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) 를 사용 하 여 사용자 계정을 선택 하 고 세부 정보를 엽니다. 사용자의 *ObjectID*를 복사 합니다.
 >
 > :::image type="content" source="media/includes/user-id.png" alt-text="' 개체 ID ' 필드에서 GUID를 강조 표시 하 Azure Portal의 사용자 페이지 보기" lightbox="media/includes/user-id.png":::
 >
-> 그런 다음 메일 대신 사용자의 *개체 ID* 를 사용 하 여 역할 할당 목록 명령을 반복 합니다.
+> 그런 다음 위의 매개 변수에 대 한 사용자의 *개체 ID* 를 사용 하 여 역할 할당 목록 명령을 반복 합니다 `assignee` .
 
 ### <a name="verify-success"></a>성공 확인
 

@@ -5,13 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 04/11/2017
-ms.openlocfilehash: 36268910003c4235d7ae60d2fd68bc30d7b8b858
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e780ef0b82240ac6771059f8bd239b90395135d9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830012"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213340"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Azure Cache for Redis 크기를 조정하는 방법
 Azure Cache for Redis에는 캐시 크기와 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 캐시를 만든 후 애플리케이션 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
@@ -26,7 +27,7 @@ Azure Cache for Redis의 [모니터링](cache-how-to-monitor.md) 기능을 사�
 * 네트워크 대역폭
 * CPU 사용량
 
-캐시가 더 이상 애플리케이션 요구 사항을 충족시키지 못한다고 판단되면 애플리케이션에 적합하도록 더 크거나 더 작은 캐시 가격 책정 계층으로 규모를 변경할 수 있습니다. 사용할 캐시 가격 책정 계층을 결정하는 방법에 대한 자세한 내용은 [사용해야 하는 Azure Cache for Redis 제안 및 크기는 어떻게 되나요?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)를 참조하세요.
+캐시가 더 이상 애플리케이션 요구 사항을 충족시키지 못한다고 판단되면 애플리케이션에 적합하도록 더 크거나 더 작은 캐시 가격 책정 계층으로 규모를 변경할 수 있습니다. 사용할 캐시 가격 책정 계층을 결정 하는 방법에 대 한 자세한 내용은 [올바른 계층 선택](cache-overview.md#choosing-the-right-tier)을 참조 하세요.
 
 ## <a name="scale-a-cache"></a>캐시 크기 조정
 캐시 크기를 조정하려면 [Azure Portal](cache-configure.md#configure-azure-cache-for-redis-settings)에서 [캐시를 찾은](https://portal.azure.com) 다음 **리소스 메뉴**에서 **크기 조정**을 클릭합니다.
@@ -70,7 +71,7 @@ Azure Portal에서 캐시 인스턴스의 크기를 조정할 뿐만 아니라 P
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 ```
 
-PowerShell을 사용하여 크기를 조정하는 방법에 대한 자세한 내용은 [Powershell을 사용하여 Azure Cache for Redis 크기 조정](cache-how-to-manage-redis-cache-powershell.md#scale)을 참조하세요.
+PowerShell로 크기를 조정 하는 방법에 대 한 자세한 내용은 [powershell을 사용 하 여 Azure Cache For Redis 크기 조정을](cache-how-to-manage-redis-cache-powershell.md#scale)참조 하세요.
 
 ### <a name="scale-using-azure-cli"></a>Azure CLI를 사용한 크기 조정
 Azure CLI를 사용하여 Azure Cache for Redis 인스턴스의 크기를 조정하려면 `azure rediscache set` 명령을 호출하고 원하는 크기 조정 작업에 따라 새 크기, SKU, 또는 클러스터 크기가 포함된 원하는 구성 변경 내용을 전달합니다.

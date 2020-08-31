@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f73d20c19e8fc26c553490772f5374e8a88a77b2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 432c92bcfa8a2e0df26adf1516f5bdc9ee73d267
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289294"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502378"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Azure 지역 간에 Azure VM 장애 복구(failback)
 
@@ -42,7 +42,7 @@ VM이 다시 보호되면 필요에 따라 주 지역으로 장애 복구(failba
 
 1. 자격 증명 모음에서 **복제된 항목**을 선택하고 다시 보호된 VM을 선택합니다.
 
-    ![주 지역으로 장애 복구(failback)](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
+    ![Azure Portal에서 주 지역으로 장애 복구(failback)하는 것을 보여주는 스크린샷](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
 
 2. **복제된 항목**에서 VM을 선택하고 **장애 조치(failover)** 를 선택합니다.
 3. **장애 조치(Failover)** 에서 장애 조치(failover)할 복구 지점을 선택합니다.
@@ -55,7 +55,7 @@ VM이 다시 보호되면 필요에 따라 주 지역으로 장애 복구(failba
 7. 장애 조치(failover)를 확인한 후에는 **장애 조치(failover) 커밋**을 선택합니다. 커밋하면 사용 가능한 복구 지점이 모두 삭제됩니다. 복구 지점 변경 옵션은 더 이상 사용할 수 없습니다.
 8. VM이 장애 조치(failover) 및 장애 복구(failback)된 것으로 표시됩니다.
 
-    ![주 지역 및 보조 지역의 VM](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+    ![주 지역 및 보조 지역의 VM을 보여주는 스크린샷](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
 > 관리 디스크를 사용하고 Site Recovery 확장 버전 9.28.x.x 이상을 실행하는 머신의 경우 [업데이트 롤업 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery는 장애 복구가 완료되고 VM이 다시 보호된 후 보조 재해 복구 지역에서 머신을 정리합니다. 보조 지역에서 VM 및 NIC를 수동으로 삭제할 필요가 없습니다. 관리되지 않는 디스크가 있는 VM은 정리되지 않습니다. 장애 복구(failback) 후 복제를 완전히 사용하지 않도록 설정하는 경우 Site Recovery는 VM 및 NIC 외에 재해 복구 지역의 디스크를 정리합니다.

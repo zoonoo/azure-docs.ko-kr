@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: cd21ef8d697570afb2109bb56d552284c03fd9a2
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552784"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115614"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>클레임에서 디렉터리 스키마 확장 특성 사용
 
@@ -34,7 +34,7 @@ ms.locfileid: "87552784"
 ## <a name="registering-and-using-directory-schema-extensions"></a>디렉터리 스키마 확장 등록 및 사용
 다음 두 가지 방법 중 하나로 디렉터리 스키마 확장 특성을 등록 하 고 채울 수 있습니다.
 
-- AD Connect를 구성 하 여 해당 항목을 만들고 온-프레미스 AD에서 데이터를 동기화 합니다. [Azure AD Connect 디렉터리 확장 동기화](/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions)를 참조 하세요.
+- AD Connect를 구성 하 여 해당 항목을 만들고 온-프레미스 AD에서 데이터를 동기화 합니다. [Azure AD Connect 디렉터리 확장 동기화](../hybrid/how-to-connect-sync-feature-directory-extensions.md)를 참조 하세요.
 - Microsoft Graph를 사용 하 여 등록 하 고, 값을 설정 하 고, 디렉터리 스키마 확장 특성 [디렉터리 스키마 확장에서 읽기 ](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) [AzureAD powershell cmdlet을 사용 하 여](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0)개념 및/또는 powershell + 확장 특성 관리를 Graph API 합니다.
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>AD Connect를 사용 하 여 만든 디렉터리 스키마 확장 특성의 데이터를 사용 하 여 클레임 내보내기

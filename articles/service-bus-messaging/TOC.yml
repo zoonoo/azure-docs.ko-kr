@@ -7,13 +7,15 @@
     - name: 메시징 서비스 비교
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
+    - name: JMS(Java Message Service) 2.0과 함께 Service Bus 사용(미리 보기)
+      href: how-to-use-java-message-service-20.md
 - name: 빠른 시작
   items:
     - name: Service Bus 큐
       items:
         - name: Service Bus 큐 만들기
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -42,6 +44,8 @@
           items:
             - name: Azure portal
               href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: Azure CLI
+              href: service-bus-tutorial-topics-subscriptions-cli.md
             - name: ARM 템플릿
               href: service-bus-resource-manager-namespace-topic.md
         - name: 메시지 게시 및 구독
@@ -60,12 +64,8 @@
               href: service-bus-ruby-how-to-use-topics-subscriptions.md
 - name: 자습서
   items:
-    - name: 인벤토리 업데이트 - PowerShell
-      href: service-bus-tutorial-topics-subscriptions-powershell.md
-    - name: 인벤토리 업데이트 - 포털
+    - name: 인벤토리 업데이트
       href: service-bus-tutorial-topics-subscriptions-portal.md
-    - name: 인벤토리 업데이트 - CLI
-      href: service-bus-tutorial-topics-subscriptions-cli.md
     - name: Event Grid를 통해 이벤트에 응답
       href: service-bus-to-event-grid-integration-example.md
 - name: 샘플
@@ -117,6 +117,8 @@
           href: network-security.md
 - name: 방법 가이드
   items:
+    - name: 지역 간 이동
+      href: move-across-regions.md
     - name: Azure Service Manager(클래식) API에서 Resource Manager API로 마이그레이션
       href: deprecate-service-bus-management.md
     - name: 네임스페이스 만들기
@@ -127,6 +129,8 @@
           items:
             - name: '큐, 토픽 및 구독'
               href: service-bus-queues-topics-subscriptions.md
+            - name: JMS(Java Message Service) 2.0 엔터티(미리 보기)
+              href: java-message-service-20-entities.md
             - name: '메시지, 페이로드 및 serialization'
               href: service-bus-messages-payloads.md
             - name: '메시지 전송, 잠금 및 확인'
@@ -277,9 +281,9 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
     - name: 블로그
-      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+      href: /archive/blogs/servicebus/
     - name: Microsoft Q&A 질문 페이지
-      href: 'https://docs.microsoft.com/answers/topics/azure-service-bus.html'
+      href: /answers/topics/azure-service-bus.html
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: 요금 계산기

@@ -2,25 +2,21 @@
 title: '자습서: Getabstract와 Azure Active Directory 통합 | Microsoft Docs'
 description: Azure Active Directory와 Getabstract 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 2b63d048-b529-4fad-9e90-f244323409dd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: ad338ce3758c9c8387cc74cc55f9a905b1e5cd73
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e95dadd81cd021d0d54d77e70251495b1bd5b6a5
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73155272"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>자습서: Getabstract와 Azure Active Directory 통합
 
@@ -40,6 +36,9 @@ Getabstract와 Azure AD를 통합하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 Azure AD 환경이 없으면 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 구할 수 있습니다.
 * Getabstract Single Sign-On이 설정된 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -108,7 +107,7 @@ Getabstract에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![Getabstract 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
 
-    a. **식별자** 텍스트 상자에 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에 URL을 입력합니다. 
 
     스테이징 단계/프로덕션 전 단계: `https://int.getabstract.com`
 
@@ -124,7 +123,7 @@ Getabstract에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
     ![Getabstract 도메인 및 URL Single Sign-On 정보](common/metadata-upload-additional-signon.png)
     
-    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다.
+    **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. 
 
     스테이징 단계/프로덕션 전 단계: `https://int.getabstract.com/portal/<org_username>`
     

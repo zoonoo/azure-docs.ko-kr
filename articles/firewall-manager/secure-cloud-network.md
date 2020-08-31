@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 7634effd5d1ac46955addd723ee7c992eb820a57
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084707"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420824"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>자습서: Azure Firewall Manager를 사용하여 가상 허브 보호
 
@@ -108,7 +108,7 @@ Firewall Manager를 사용하여 보안 가상 허브를 만듭니다.
 
 ### <a name="configure-the-hub-and-spoke-routing"></a>허브 및 스포크 라우팅 구성
 
-Azure Portal에서 Cloud Shell을 열고 다음 Azure PowerShell을 실행하여 필요한 허브 및 스포크 라우팅을 구성합니다.
+Azure Portal에서 Cloud Shell을 열고 다음 Azure PowerShell을 실행하여 필요한 허브 및 스포크 라우팅을 구성합니다. 피어링된 스포크/분기 연결에서 전파를 **없음**으로 설정해야 합니다. 이렇게 설정하면 스포크 간의 Any-to-Any 통신을 차단하고, 그 대신 기본 경로를 사용하여 트래픽을 방화벽으로 라우팅합니다.
 
 ```azurepowershell
 $noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `

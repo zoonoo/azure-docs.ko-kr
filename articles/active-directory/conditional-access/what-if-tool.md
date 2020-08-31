@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db76ec2bc2fc8640214f962a809fee559b4c4af3
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253140"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948201"
 ---
-# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>조건부 액세스에서 What If 도구를 사용 하 여 문제 해결
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>조건부 액세스에서 What If 도구를 사용하여 문제 해결
 
-[조건부 액세스](../active-directory-conditional-access-azure-portal.md) 는 권한 있는 사용자가 클라우드 앱에 액세스 하는 방법을 제어할 수 있는 Azure AD (Azure Active Directory)의 기능입니다. 사용자 환경에서 조건부 액세스 정책에서 발생할 수 있는 작업을 어떻게 알 수 있나요? 이 질문에 대답 하기 위해 **조건부 액세스 What If 도구**를 사용할 수 있습니다.
+[조건부 액세스](./overview.md) 는 권한 있는 사용자가 클라우드 앱에 액세스 하는 방법을 제어할 수 있는 Azure AD (Azure Active Directory)의 기능입니다. 사용자 환경에서 조건부 액세스 정책에서 발생할 수 있는 작업을 어떻게 알 수 있나요? 이 질문에 대답 하기 위해 **조건부 액세스 What If 도구**를 사용할 수 있습니다.
 
 이 문서에서는이 도구를 사용 하 여 조건부 액세스 정책을 테스트 하는 방법을 설명 합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "85253140"
 
 ## <a name="how-it-works"></a>작동 방법
 
-**조건부 액세스 What If 도구**에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 이러한 설정은 다음과 같습니다.
+**조건부 액세스 What If 도구**에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 설정에는 다음이 포함됩니다.
 
 - 테스트하려는 사용자 
 - 사용자가 액세스하려고 하는 클라우드 앱
@@ -76,7 +76,7 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 
 ### <a name="client-apps"></a>클라이언트 앱
 
-이 설정은 [클라이언트 앱 조건](concept-conditional-access-conditions.md#client-apps-preview)을 모방합니다.
+이 설정은 [클라이언트 앱 조건](concept-conditional-access-conditions.md#client-apps)을 모방합니다.
 기본적으로 이 설정을 사용하면 **브라우저** 또는 **모바일 앱 및 데스크톱 클라이언트**가 따로 또는 둘 다 선택되어 있는 모든 정책이 평가됩니다. 또한 **EAS(Exchange ActiveSync)** 를 적용하는 정책도 감지됩니다. 다음을 선택하여 이 설정의 범위를 좁힐 수 있습니다.
 
 - **브라우저**: 하나 이상의 **브라우저**가 선택된 모든 정책을 평가합니다. 
@@ -105,4 +105,4 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 ## <a name="next-steps"></a>다음 단계
 
 - 조건부 액세스 정책 응용 프로그램에 대 한 자세한 내용은 [조건부 액세스 정보 및 보고](howto-conditional-access-insights-reporting.md)를 사용 하는 정책 보고서 전용 모드를 사용 하 여 찾을 수 있습니다.
-- 사용자 환경에 대 한 조건부 액세스 정책을 구성할 준비가 된 경우 [조건부 액세스 공용 정책](concept-conditional-access-policy-common.md)을 참조 하세요. 
+- 사용자 환경에 대 한 조건부 액세스 정책을 구성할 준비가 된 경우 [조건부 액세스 공용 정책](concept-conditional-access-policy-common.md)을 참조 하세요.

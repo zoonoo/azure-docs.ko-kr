@@ -3,17 +3,18 @@ title: 파트너용 Azure Cost Management 시작
 description: 이 문서에서는 파트너가 Azure Cost Management 기능을 사용하는 방법과 파트너가 자사의 고객을 위해 Cost Management 액세스를 사용하도록 설정하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/28/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6dfced457f6840294700fb998c93cf2ab993024c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372147"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683541"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
@@ -140,7 +141,7 @@ Azure Portal에서 파트너 테넌트에 로그인하고 **Cost Management + �
 
 비용 정책이 **예**로 설정되면, 고객 테넌트에 연결된 구독 사용자가 종량제 요금으로 사용량 요금을 볼 수 있습니다.
 
-비용 표시 여부 정책을 사용하도록 설정하면, 구독 사용량이 있는 모든 서비스는 종량제 요금으로 비용을 표시합니다. 예약 사용은 실제 및 분할상환 비용에 대한 요금이 0으로 표시됩니다. 구매 및 자격은 특정 구독에 연결되지 않습니다. 따라서 구매는 구독 범위에 표시되지 않습니다.
+비용 표시 여부 정책을 사용하도록 설정하면, 구독 사용량이 있는 모든 서비스는 종량제 요금으로 비용을 표시합니다. 예약 사용은 실제 및 분할상환 비용에 대한 요금이 0으로 표시됩니다. 구매 및 자격은 특정 구독에 연결되지 않습니다. 따라서 구매는 구독 범위에 표시되지 않습니다. 또한 직접 파트너 또는 간접 공급자의 글로벌 관리자/관리 에이전트는 [고객 업데이트 API](/rest/api/billing/2019-10-01-preview/policies/updatecustomer)를 사용하여 각 고객의 비용 표시 정책을 대규모로 설정할 수 있습니다.
 
 ### <a name="view-subscription-costs-in-the-customer-tenant"></a>고객 테넌트의 구독 비용 보기
 

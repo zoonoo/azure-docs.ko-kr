@@ -11,13 +11,13 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.author: aahi
-ms.custom: tracking-python, devx-track-javascript
-ms.openlocfilehash: 985ece8c2bb71853b92f26655332b54f713addb1
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-python, devx-track-javascript
+ms.openlocfilehash: d7ea875b9fed623c2a064aa9648314392a8c0c3f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406006"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849763"
 ---
 # <a name="quickstart-use-the-anomaly-detector-client-library"></a>빠른 시작: Anomaly Detector 클라이언트 라이브러리 사용
 

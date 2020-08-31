@@ -2,13 +2,13 @@
 title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
-ms.date: 07/31/2020
-ms.openlocfilehash: 6d30bc1faa6a896233d09f9247fe8c56f82371fa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/06/2020
+ms.openlocfilehash: 7a56756855319ee72bd5b3dc60ad1ae440afd7fe
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87485629"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927150"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -193,7 +193,7 @@ AKS는 관리형 서비스이며 IaaS 리소스 조작은 지원되지 않습니
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS는 고객 데이터를 클러스터 영역 외부에 저장 하나요?
 
-아니요. AKS 클러스터에서 생성 된 모든 데이터는 클러스터의 지역 내에서 유지 관리 됩니다.
+단일 지역에 고객 데이터를 저장할 수 있도록 하는 기능은 현재 아시아 태평양 지역의 동남 아시아 지역 (싱가포르) 에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 지역에 저장 됩니다.
 
 <!-- LINKS - internal -->
 

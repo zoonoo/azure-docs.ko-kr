@@ -4,12 +4,12 @@ description: 사용자 고유의 키 (BYOK)를 가져와서 AKS OS 및 데이터
 services: container-service
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: f0b96b3f78adf4a7efb1d43626a5aaf82a5b5d43
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5725bc9a4d16b93ba36ac800d25e3c30f090c2df
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499622"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796887"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Azure 디스크를 사용 하 여 사용자 고유의 키 (BYOK) 가져오기
 
@@ -23,11 +23,7 @@ Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화�
 
 * Azure CLI 버전 2.0.79 이상 및 aks-preview 0.4.26 확장이 필요 합니다.
 
-> [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 옵트인입니다. 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 최상의 노력에 대 한 고객 지원에서 부분적으로 다룹니다. 따라서 이러한 기능은 프로덕션 용도로 사용할 수 없습니다. 추가 정보 다음 지원 문서를 참조 하세요.
->
-> * [AKS 지원 정책](support-policies.md)
-> * [Azure 지원 FAQ](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="install-latest-aks-cli-preview-extension"></a>최신 AKS CLI 미리 보기 확장 설치
 
@@ -96,7 +92,7 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
-diskEncryptionSetId=$(az resource show -n mydiskEncryptionSetName -g myResourceGroup --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
+diskEncryptionSetId=$(az disk-encryption-set show -n mydiskEncryptionSetName -g myResourceGroup --query [id] -o tsv)
 
 # Create a resource group for the AKS cluster
 az group create -n myResourceGroup -l myAzureRegionName

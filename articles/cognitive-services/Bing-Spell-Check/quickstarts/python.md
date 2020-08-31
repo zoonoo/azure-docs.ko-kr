@@ -10,13 +10,13 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.custom: tracking-python
-ms.openlocfilehash: 65994313549c1744da58c5d63a70e803777f7f53
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-python
+ms.openlocfilehash: e121aaf6725c179189b25dff6534b019c5de730c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84611089"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852738"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>빠른 시작: Bing Spell Check REST API 및 Python으로 맞춤법 검사
 
@@ -24,7 +24,7 @@ ms.locfileid: "84611089"
 
 이 애플리케이션은 Python으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 애플리케이션의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py)에 제공됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Python [3.x](https://www.python.org)
 

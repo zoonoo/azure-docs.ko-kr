@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b8a53ae598130086a9009dbec891052e863cdf0f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 85056710c8072c55e2661021795d9aedb407b629
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281364"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013007"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -67,11 +67,9 @@ Azure 디지털 쌍에 대 한 모델은 DTDL로 작성 되 고 *.* i n i 파일
 
 ### <a name="validate-syntax"></a>구문 유효성 검사
 
-DTDL의 구문 분석 및 유효성 검사에 사용할 수 있는 클라이언트 쪽 라이브러리가 있습니다. UI 요소 생성과 같은 모델 기반 개발 시나리오에서 사용할 수 있는 DTDL 콘텐츠의 c # 개체 모델을 생성 합니다. 이 라이브러리를 사용 하 여 모델을 업로드 하기 전에 모델에 구문 오류가 없는지 확인할 수도 있습니다. 
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-이 라이브러리에 대 한 자세한 내용 및 DTDL 유효성 검사기 용으로 빌드된 샘플에 대 한 액세스 [*는 방법: 모델 구문 분석 및 유효성 검사*](how-to-use-parser.md)를 참조 하세요.
-
-## <a name="manage-models-with-apis"></a>Api를 사용 하 여 모델을 관리 합니다.
+## <a name="manage-models-with-apis"></a>Api를 사용 하 여 모델 관리
 
 다음 섹션에서는 [Azure Digital Twins api 및 sdk](how-to-use-apis-sdks.md)를 사용 하 여 다양 한 모델 관리 작업을 완료 하는 방법을 보여 줍니다.
 
@@ -86,7 +84,7 @@ DTDL의 구문 분석 및 유효성 검사에 사용할 수 있는 클라이언�
 모델을 만든 후에는 Azure Digital Twins 인스턴스에 업로드할 수 있습니다.
 
 > [!TIP]
-> Azure Digital Twins 인스턴스에 업로드 하기 전에 오프 라인으로 모델의 유효성을 검사 하는 것이 좋습니다. 방법: 모델을 서비스에 업로드 하기 전에 모델을 검사 하기 위해 [*모델을 구문 분석 및 유효성 검사*](how-to-use-parser.md) 에 설명 된 [dtdl 클라이언트 쪽 파서 라이브러리](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) 및 [dtdl 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) 을 사용할 수 있습니다.
+> Azure Digital Twins 인스턴스에 업로드 하기 전에 오프 라인으로 모델의 유효성을 검사 하는 것이 좋습니다. 방법: 모델을 서비스에 업로드 하기 전에 모델을 검사 하기 위해 [*모델을 구문 분석 및 유효성 검사*](how-to-parse-models.md) 에 설명 된 [dtdl 클라이언트 쪽 파서 라이브러리](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) 및 [dtdl 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) 을 사용할 수 있습니다.
 
 모델을 업로드할 준비가 되 면 다음 코드 조각을 사용할 수 있습니다.
 
@@ -115,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들면 다음과 같습니다.
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들어:
 
 ```json
 [
@@ -162,11 +160,35 @@ Pageable<ModelData> pmd3 = client.GetModels(null, true);
 Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
 ```
 
-API를 호출 하 여 모든 반환 개체를 검색 합니다 `ModelData` . `ModelData`이름, DTMI 및 모델 생성 날짜와 같이 Azure Digital Twins 인스턴스에 저장 된 모델에 대 한 메타 데이터를 포함 합니다. `ModelData`또한 개체는 모델 자체를 선택적으로 포함 합니다. 매개 변수에 따라 검색 호출을 사용 하 여 메타 데이터만 검색할 수 있습니다 (예를 들어 사용 가능한 도구의 UI 목록을 표시 하려는 시나리오 또는 전체 모델).
+API를 호출 하 여 모든 반환 개체를 검색 합니다 `ModelData` . `ModelData` 이름, DTMI 및 모델 생성 날짜와 같이 Azure Digital Twins 인스턴스에 저장 된 모델에 대 한 메타 데이터를 포함 합니다. `ModelData`또한 개체는 모델 자체를 선택적으로 포함 합니다. 매개 변수에 따라 검색 호출을 사용 하 여 메타 데이터만 검색할 수 있습니다 (예를 들어 사용 가능한 도구의 UI 목록을 표시 하려는 시나리오 또는 전체 모델).
 
 이 호출은 요청 된 모델 뿐만 아니라 `RetrieveModelWithDependencies` 요청 된 모델이 종속 된 모든 모델을 반환 합니다.
 
 모델은 업로드 된 문서 양식으로 정확히 반환 될 필요는 없습니다. Azure Digital Twins는 반환 폼이 의미상 동일 함을 보장 합니다. 
+
+### <a name="update-models"></a>모델 업데이트
+
+모델을 인스턴스에 업로드 하 고 나면 모델 인터페이스 전체를 변경할 수 없습니다. 이는 기존의 모델 "편집"이 없음을 의미 합니다.
+
+대신 Azure Digital Twins에서 또는 변경과 같은 모델을 변경 하려는 경우 `DisplayName` `Description` 동일한 모델의 **최신 버전** 을 업로드 하는 방법이 있습니다. 이렇게 하면 원래 모델이 재정의 됩니다.
+
+이렇게 하려면 원래 모델의 DTDL로 시작 합니다. 변경할 필드를 업데이트 합니다.
+
+그런 다음 모델의 필드를 업데이트 하 여이를 최신 버전의 모델로 표시 `id` 합니다. 모델 ID의 마지막 섹션인은 `;` 모델 번호를 나타냅니다. 이제이 모델의 더 업데이트 된 버전 임을 나타내려면 값의 끝에 있는 숫자를 `id` 현재 버전 번호 보다 큰 숫자로 늘립니다.
+
+예를 들어 이전 모델 ID가 다음과 같이 나타납니다.
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;1",
+```
+
+이 모델의 버전 2는 다음과 같습니다.
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;2",
+```
+
+그런 다음 새 버전의 모델을 인스턴스에 업로드 합니다. 이전 버전의 대신이 모델을 사용 하 여 만든 새 쌍는 업데이트 된 버전을 사용 합니다.
 
 ### <a name="remove-models"></a>모델 제거
 
@@ -176,7 +198,7 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `ModelData` . `Mo
 
 이러한 기능은 개별 기능이 며 서로에 게 영향을 주지 않지만 모델을 점진적으로 제거 하는 데 함께 사용할 수 있습니다. 
 
-### <a name="decommissioning"></a>서비스 해제
+#### <a name="decommissioning"></a>서비스 해제
 
 모델을 서비스 해제 하는 코드는 다음과 같습니다.
 

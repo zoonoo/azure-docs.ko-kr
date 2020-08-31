@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: d464897c031522b2227c682f9581f0d34c8db64b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 09a97897ca7e3984c7003c1dbbca65cddaec1ee6
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518744"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055428"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob 스토리지의 변경 피드 지원(미리 보기)
 
 변경 피드의 목적은 저장소 계정의 blob 및 blob 메타 데이터에 발생 하는 모든 변경 내용에 대 한 트랜잭션 로그를 제공 하는 것입니다. 변경 피드는 이러한 변경 내용에 대 한 **순서**, **보장**, **내구성**, 변경 **불가능**, **읽기 전용** 로그를 제공 합니다. 클라이언트 응용 프로그램은 스트리밍 또는 일괄 처리 모드에서 언제 든 지 이러한 로그를 읽을 수 있습니다. 변경 피드를 사용 하면 Blob Storage 계정에서 발생 하는 변경 이벤트를 저렴 한 비용으로 처리 하는 효율적이 고 확장 가능한 솔루션을 빌드할 수 있습니다.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 변경 피드는 저장소 계정의 특수 컨테이너에 [blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 으로 표준 [blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 비용으로 저장 됩니다. 요구 사항에 따라 이러한 파일의 보존 기간을 제어할 수 있습니다 (현재 릴리스의 [조건](#conditions) 참조). 변경 이벤트는 [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) 형식 사양의 레코드로 변경 피드에 추가 됩니다. 인라인 스키마를 사용 하 여 풍부한 데이터 구조를 제공 하는 간단 하 고 빠른 이진 형식입니다. 이 형식은 Hadoop 에코시스템, Stream Analytics 및 Azure Data Factory에서 널리 사용됩니다.
 
@@ -71,7 +71,7 @@ Azure Portal를 사용 하 여 저장소 계정에서 변경 피드를 사용 �
 
 4. **저장** 단추를 선택 하 여 **데이터 보호** 설정을 확인 합니다.
 
-    ![데이터 보호 설정을 보여 주는 스크린샷](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+    ![데이터 보호 설정을 보여 주는 스크린샷](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

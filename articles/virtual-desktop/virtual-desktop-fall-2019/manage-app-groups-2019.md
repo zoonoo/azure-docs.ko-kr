@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop(클래식)에 대한 앱 그룹 관리 - Azure
 description: Azure Active Directory에서 Windows Virtual Desktop(클래식) 테넌트를 설정하는 방법을 설명합니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fcf946c4bde89f3c14e78744305bc274ea67962f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ad8afc3d842a134ba09281005e35cf8cb04818a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284985"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009072"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에 대한 앱 그룹 관리
 
@@ -53,7 +51,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
    ```powershell
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
-   
+
 4. 다음 cmdlet을 실행하여 `AppAlias`를 기반으로 애플리케이션을 설치합니다. 3단계의 출력을 실행하면 `AppAlias`를 볼 수 있습니다.
 
    ```powershell

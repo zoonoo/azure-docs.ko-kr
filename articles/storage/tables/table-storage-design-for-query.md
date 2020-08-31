@@ -2,18 +2,18 @@
 title: 쿼리를 위한 Azure Table storage 디자인 | Microsoft Docs
 description: Azure 테이블 저장소의 쿼리에 대 한 테이블을 디자인 합니다. 적절 한 파티션 키를 선택 하 고, 쿼리를 최적화 하 고, Table service에 대 한 데이터를 정렬 합니다.
 services: storage
-author: MarkMcGeeAtAquent
+author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 1d157e7d2880761fb6559723bdc1d6c34baffb09
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a15415ab7f5e01619a4a022d7254ef3995a825b0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903207"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236338"
 ---
 # <a name="design-for-querying"></a>쿼리를 위한 디자인
 Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나, 이 두 가지가 혼합되어 있을 수 있습니다. 이 아티클에서는 읽기 작업을 효율적으로 지원하기 위해 Table service를 디자인할 때 기억해야 할 사항에 중점을 둡니다. 일반적으로 읽기 작업을 효율적으로 지원하는 디자인은 쓰기 작업에도 효율적입니다. 그러나 쓰기 작업을 지원하기 위해 디자인 시 기억해야 할 추가 고려 사항이 [데이터 수정을 위한 디자인](table-storage-design-for-modification.md) 아티클에서 설명됩니다.
@@ -37,12 +37,12 @@ Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나,
 
 | *열 이름* | *데이터 형식* |
 | --- | --- |
-| **PartitionKey** (부서 이름) |String |
-| **RowKey** (직원 Id) |String |
-| **FirstName** |String |
-| **LastName** |String |
+| **PartitionKey** (부서 이름) |문자열 |
+| **Rowkey** (직원 ID) |문자열 |
+| **FirstName** |문자열 |
+| **LastName** |문자열 |
 | **연령** |정수 |
-| **EmailAddress** |String |
+| **EmailAddress** |문자열 |
 
 [Azure Table Storage 개요](table-storage-overview.md) 아티클에서는 쿼리를 디자인하는 데 직접적인 영향을 주는 Azure Table service의 주요 기능 중 일부에 대해 설명합니다. 이 섹션의 내용은 Table service 쿼리 디자인에 대한 다음과 같은 일반적인 지침으로 요약됩니다. 아래 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](https://docs.microsoft.com/rest/api/storageservices/Query-Entities)참조).  
 
@@ -81,14 +81,14 @@ Storage 클라이언트 라이브러리를 사용하여 효율적인 쿼리를 �
 ## <a name="optimizing-queries-for-the-table-service"></a>Table service에 대한 쿼리 최적화
 Table service는 단일 클러스터형 인덱스의 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티를 자동으로 인덱싱하기 때문에 지점 쿼리가 가장 효율적입니다. 그러나 **PartitionKey** 및 **RowKey**에는 클러스터형 인덱스에 있는 인덱스만 있습니다.
 
-대부분의 디자인은 여러 조건을 기반으로 엔터티를 조회할 수 있어야 한다는 요구 사항을 준수해야 합니다. 예를 들어 전자 메일, 직원 ID 또는 성을 기반으로 직원 엔터티를 찾을 수 있어야 합니다. [테이블 디자인 패턴](table-storage-design-patterns.md)에 설명된 패턴은 이러한 형식의 요구 사항을 해결하고, Table service가 보조 인덱스를 제공하지 않는다는 사실을 해결하는 방법을 설명합니다.  
+대부분의 디자인은 여러 조건을 기반으로 엔터티를 조회할 수 있어야 한다는 요구 사항을 준수해야 합니다. 예를 들어, 메일, 직원 ID 또는 성을 기반으로 직원 엔터티를 찾을 수 있어야 합니다. [테이블 디자인 패턴](table-storage-design-patterns.md)에 설명된 패턴은 이러한 형식의 요구 사항을 해결하고, Table service가 보조 인덱스를 제공하지 않는다는 사실을 해결하는 방법을 설명합니다.  
 
 * [파티션 간 보조 인덱스 패턴](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - 서로 다른 **RowKey** 값을 사용하여 각 엔터티의 여러 복사본을 동일한 파티션에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 **RowKey** 값을 사용하여 대체 정렬 순서를 허용합니다.  
 * [파티션 간 보조 인덱스 패턴](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - 서로 다른 **RowKey** 값을 사용하여 각 엔터티의 여러 복사본을 별도의 파티션과 별도의 테이블에 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 **RowKey** 값을 사용하여 대체 정렬 순서를 허용합니다.  
 * [인덱스 엔터티 패턴](table-storage-design-patterns.md#index-entities-pattern) - 인덱스 엔터티를 유지 관리하여 엔터티 목록을 반환하는 효율적인 검색을 지원합니다.  
 
 ## <a name="sorting-data-in-the-table-service"></a>Table service에서 데이터 정렬
-Table service는 **PartitionKey**를 기준으로 한 다음 **RowKey**를 기준으로 하여 오름차순으로 정렬된 엔터티를 반환합니다. 이러한 키는 문자열 값이며, 숫자 값이 올바르게 정렬되도록 하려면 이를 고정 길이로 변환하고 0으로 채워야 합니다. 예를 들어 **RowKey**로 사용하는 직원 ID 값이 정수 값인 경우 직원 ID를 **123**에서 **00000123**으로 변환해야 합니다.  
+Table service는 **PartitionKey**를 기준으로 한 다음 **RowKey**를 기준으로 하여 오름차순으로 정렬된 엔터티를 반환합니다. 이러한 키는 문자열 값이며, 숫자 값이 올바르게 정렬되도록 하려면 이를 고정 길이로 변환하고 0으로 채워야 합니다. 예를 들어 **Rowkey** 로 사용 하는 직원 id 값이 정수 값 이면 직원 id **123** 을 **00000123**로 변환 해야 합니다.  
 
 많은 애플리케이션에서 서로 다른 순서로 정렬(예: 이름 또는 입사 날짜별로 직원 정렬)된 데이터를 사용할 수 있도록 요구하고 있습니다. 다음과 같은 패턴으로 엔터티에 대한 정렬 순서를 대체하는 방법을 해결합니다.  
 

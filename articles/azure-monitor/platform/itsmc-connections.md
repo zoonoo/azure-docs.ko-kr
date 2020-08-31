@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 2df7d8273b2b25cd0171b38e5cc0ada557ea9a2d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bf1721b45ff63c225c378e50bff9040948820c8b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325358"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035028"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](./itsmc-overview.md)를 참조하세요.
@@ -179,13 +179,14 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 ### <a name="prerequisites"></a>사전 요구 사항
 다음 필수 조건이 충족되는지 확인합니다.
 - ITSMC가 설치되어 있습니다. 추가 정보: [IT 서비스 관리 커넥터 솔루션 추가](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow는 지원되는 버전: New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+- ServiceNow 지원 버전: 올랜도, 뉴욕, 마드리드, 런던, Kingston, 자카르타, 이스탄불, 헬싱키, Geneva.
 > [!NOTE]
 > ITSMC는 Service Now의 공식 SaaS 제품만 지원합니다. Service Now의 비공개 배포는 지원되지 않습니다. 
 
 **ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합니다.**
 - ServiceNow 제품에 대한 클라이언트 ID 및 클라이언트 암호를 생성합니다. 클라이언트 ID와 비밀을 생성하는 방법에 대한 자세한 내용은 필요에 따라 다음을 참조하세요.
 
+    - [올랜도에 대 한 OAuth 설정](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [New York에 대해 OAuth 설정](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Madrid에 대해 OAuth 설정](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [London에 대해 OAuth 설정](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)

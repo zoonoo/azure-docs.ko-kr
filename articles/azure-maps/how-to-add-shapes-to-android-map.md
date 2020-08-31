@@ -1,6 +1,6 @@
 ---
 title: Android maps에 셰이프 추가 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps Android SDK를 사용 하 여 지도에서 다른 모양을 렌더링 하는 방법에 대해 설명 합니다.
+description: 지도에 셰이프를 추가 하는 방법을 알아봅니다. 지도에 선 및 다각형을 추가 하려면 Azure Maps Android SDK를 사용 하는 코드 샘플을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 855a05bd228a3bf903b79522549ed519b4745e17
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9dd8718a6a96627781a578edb514d797e40f01fb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127097"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037425"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 셰이프 추가
 

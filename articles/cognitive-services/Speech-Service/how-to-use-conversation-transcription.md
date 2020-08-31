@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: fc22dea201ccd19c4e7bee92a1092b4ff50117db
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a425c75dfd57f0d5f9c98b73d8b351972b70703a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134949"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918658"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>실시간 대화 기록 (미리 보기)
 
@@ -37,7 +38,7 @@ Speech SDK의 **ConversationTranscriber** API를 사용 하면 또는를 사용 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-음성 서비스 구독입니다. 아직 없는 경우 [음성 평가판 구독을 얻을](https://azure.microsoft.com/try/cognitive-services/) 수 있습니다.
+음성 서비스 구독입니다. [무료 Azure 계정](https://azure.microsoft.com/free/cognitive-services/) (없는 경우)을 만들 수 있습니다.
 
 ## <a name="create-voice-signatures"></a>음성 서명 만들기
 
@@ -108,7 +109,7 @@ class Program
 
 샘플 코드 하이라이트는 다음과 같습니다.
 
-- 을 `Conversation` `SpeechConfig` 사용 하 여 생성 된 회의 식별자를 사용 하 여 개체에서 개체 만들기`Guid.NewGuid()`
+- 을 `Conversation` `SpeechConfig` 사용 하 여 생성 된 회의 식별자를 사용 하 여 개체에서 개체 만들기 `Guid.NewGuid()`
 - 개체를 만들고 `ConversationTranscriber` 와 대화를 조인 `JoinConversationAsync()` 하 여 기록을 시작 합니다.
 - 관심 있는 이벤트 등록
 - 대화 개체를 사용 하 여 대화에 참가자 추가 또는 제거

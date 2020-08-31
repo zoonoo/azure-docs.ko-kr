@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9d085ba494ea6bb6e9e80490d85e50f100fc0908
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03b1d43eeaffe4449d85d384e669ba0950442ab9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485556"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003383"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Stream Analytics에 대 한 Azure 보안 기준
 
@@ -174,7 +174,7 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: 로그 모니터링 및 검토
 
@@ -366,7 +366,7 @@ Stream Analytics에 대 한 Azure 보안 기준에는 배포의 보안 상태를
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: 지원 시나리오에서 관련 고객 데이터에 대한 액세스 권한을 Microsoft에 제공
 
@@ -442,11 +442,11 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **책임**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자가 서비스와 상호 작용 하는 방식을 제어 합니다.
+**지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자가 서비스와 상호 작용 하는 방식을 제어 합니다.
 
-* [Azure에서 RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Azure RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -454,7 +454,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: 호스트 기반 데이터 손실 방지를 사용하여 액세스 제어 적용
 
-**지침**: 해당 없음. 이 권장 사항은 컴퓨팅 리소스를 위한 것입니다.
+**지침**: 해당 없음. 이 추천 사항은 컴퓨팅 리소스를 위한 것입니다.
 
 **Azure Security Center 모니터링**: 해당 없음
 
@@ -558,7 +558,7 @@ Microsoft는 Azure Stream Analytics을 지 원하는 기본 시스템에서 취�
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: 권한 없는 Azure 리소스 삭제
 
@@ -628,7 +628,7 @@ Microsoft는 Azure Stream Analytics을 지 원하는 기본 시스템에서 취�
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: 승인된 Azure 서비스만 사용
 
-**지침**: Azure Policy에서 다음 기본 제공 정책 정의를 사용한 고객 구독에 만들 수 있는 리소스 종류에 대한 제한을 설정할 수 있습니다.
+**지침**: Azure Policy에서 다음 기본 제공 정책 정의를 사용하여 고객 구독에서 만들 수 있는 리소스 종류를 제한합니다.
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
@@ -730,7 +730,7 @@ Microsoft는 Azure Stream Analytics을 지 원하는 기본 시스템에서 취�
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: 사용자 지정 운영 체제 이미지를 안전하게 저장
 
@@ -922,7 +922,7 @@ Azure CLI 또는 PowerShell을 사용 하 여 Azure Key Vault 내에서 고객 �
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: 인시던트 점수 매기기 및 우선 순위 지정 절차 만들기
 
@@ -968,7 +968,7 @@ Azure CLI 또는 PowerShell을 사용 하 여 Azure Key Vault 내에서 고객 �
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: 보안 경고에 대한 대응 자동화
 

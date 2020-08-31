@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 13e4c7a981124aba22dcb324d60e075d1d552bf8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1bf080ad4c4dc665e61d1075cf22c84d4cd66648
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526803"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121394"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
 
@@ -99,6 +99,7 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
   - /var/log/boot.log
   - /var/log/yum.log
   - /var/log/dpkg.log
+  - /var/log/sysstat 또는/var/log/sa [ `**` ]
   - /var/log/cloud-init.log
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
@@ -113,6 +114,8 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
 
 >[!Note]
 >[ `*` ] PCI 정보는 Debian 및 SLES 배포판에서 아직 수집 되지 않습니다.
+> 
+>[ `**` ]/var/log/sysstat 또는/var/log/sa에는 sysstat 패키지에 의해 수집 된 시스템 활동 보고서 (특별 행정구) 파일이 포함 되어 있습니다. Sysstat 패키지가 VM에 설치 되어 있지 않은 경우 PerfInsights 도구를 통해 설치 하는 것이 좋습니다.
 
 ## <a name="run-the-perfinsights-linux-on-your-vm"></a>VM에서 PerfInsights Linux를 실행 합니다.
 
@@ -121,7 +124,7 @@ Linux 가상 머신, 운영 체제, 블록 장치, 높은 리소스 소비자, �
 #### <a name="tool-requirements"></a>도구 요구 사항
 
 - 이 도구는 성능 문제가 있는 VM에서 실행해야 합니다.
-- Python 2.7이 VM에 설치 되어 있어야 합니다.
+- Python 3.x 또는 Python 2.7이 VM에 설치 되어 있어야 합니다.
 
 - 현재 지원 되는 배포는 다음과 같습니다.
 

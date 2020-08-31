@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 (클래식) 관리 도구-Azure
 description: Windows 가상 데스크톱 (클래식) 관리 도구와 관련 된 문제를 해결 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 442cdce2ebb6c1a3e38932411dfa2b081a44ef9f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6f03284103b4a2aa6900bf1ba5c50a4688c50b0e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283370"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005485"
 ---
 # <a name="troubleshoot-the-windows-virtual-desktop-classic-management-tool"></a>Windows 가상 데스크톱 (클래식) 관리 도구 문제 해결
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
 
 이 문서에서는 Windows 가상 데스크톱 관리 도구를 배포 하는 동안 발생할 수 있는 문제와 이러한 문제를 해결 하는 방법을 설명 합니다.
 

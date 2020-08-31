@@ -2,25 +2,21 @@
 title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 StarLeaf 구성 Microsoft Docs'
 description: 사용자 계정을 StarLeaf로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: 520373fc6a05bcaada973273e3553f9da623c669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68484d2047e09dc82d44e15e86b13c4c54c49b03
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77064294"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88533796"
 ---
 # <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 StarLeaf 구성
 
@@ -36,7 +32,7 @@ ms.locfileid: "77064294"
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
 * Azure AD 테넌트.
-* [StarLeaf 테 넌 트](https://www.starleaf.com/solutions/)입니다.
+* [StarLeaf 테 넌 트](https://starleaf.com/)입니다.
 * 관리자 권한이 있는 StarLeaf의 사용자 계정
 
 ## <a name="assign-users-to-starleaf"></a>StarLeaf에 사용자 할당

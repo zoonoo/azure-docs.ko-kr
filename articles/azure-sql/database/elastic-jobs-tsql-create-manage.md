@@ -1,5 +1,5 @@
 ---
-title: Transact-sql을 사용 하 여 Elastic Database 작업 만들기 및 관리 (T-sql)
+title: Transact-sql (T-sql)을 사용 하 여 Elastic Database 작업 만들기 및 관리 (미리 보기)
 description: T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 에이전트가 있는 여러 데이터베이스에서 스크립트를 실행합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: c91f96afefe924856b7416844d37c4d7a13c794b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 339b66310d75e228bc6107635ac39b8d27d774c1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031104"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119116"
 ---
-# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
+# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Transact-sql (T-sql)을 사용 하 여 Elastic Database 작업 만들기 및 관리 (미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 이 문서에서는 T-SQL을 사용하여 탄력적 작업을 시작할 수 있는 다양한 예제 시나리오를 제공합니다.
@@ -389,7 +389,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 [작업 데이터베이스](job-automation-overview.md#job-database)에 있는 저장 프로시저는 다음과 같습니다.
 
-|저장 프로시저  |설명  |
+|저장 프로시저  |Description  |
 |---------|---------|
 |[sp_add_job](#sp_add_job)     |     새 작업을 추가합니다.    |
 |[sp_update_job](#sp_update_job)    |      기존 작업을 업데이트합니다.   |
@@ -1029,7 +1029,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스, 분할된 맵의 모든 데이터베이스 또는 개별 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. target_type은 nvarchar(128) 형식이며, 기본값은 없습니다. target_type에 대해 유효한 값은 'SqlServer', 'SqlElasticPool', 'SqlDatabase' 또는 'SqlShardMap'입니다.
 
 [ ** \@ refresh_credential_name =** ] ' refresh_credential_name '  
-서버 이름 refresh_credential_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
+서버의 이름입니다. refresh_credential_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
 [ ** \@ server_name =** ] ' server_name '  
 지정 된 대상 그룹에 추가 해야 하는 서버의 이름입니다. target_type이 'SqlServer'이면 server_name을 지정해야 합니다. server_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
@@ -1059,7 +1059,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 이러한 역할의 권한에 대한 자세한 내용은 이 문서의 [권한] 섹션을 참조하세요. sysadmin의 멤버만 이 저장 프로시저를 사용하여 다른 사용자가 소유한 작업의 특성을 편집할 수 있습니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 다음 예제에서는 London 및 NewYork 서버에 있는 모든 데이터베이스를 Servers Maintaining Customer Information(고객 정보 유지 관리 서버) 그룹에 추가합니다. 작업 에이전트를 만들 때 지정한 작업 데이터베이스(여기서는 ElasticJobs)에 연결해야 합니다.
 
@@ -1128,7 +1128,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 이러한 역할의 권한에 대한 자세한 내용은 이 문서의 [권한] 섹션을 참조하세요. sysadmin의 멤버만 이 저장 프로시저를 사용하여 다른 사용자가 소유한 작업의 특성을 편집할 수 있습니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 다음 예제에서는 Servers Maintaining Customer Information 그룹에서 London 서버를 제거합니다. 작업 에이전트를 만들 때 지정한 작업 데이터베이스(여기서는 ElasticJobs)에 연결해야 합니다.
 
@@ -1187,7 +1187,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 이러한 역할의 권한에 대한 자세한 내용은 이 문서의 [권한] 섹션을 참조하세요. sysadmin의 멤버만 이 저장 프로시저를 사용하여 다른 사용자가 소유한 작업의 특성을 편집할 수 있습니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 다음 예제에서는 London 및 NewYork 서버에 있는 모든 데이터베이스를 Servers Maintaining Customer Information(고객 정보 유지 관리 서버) 그룹에 추가합니다. 작업 에이전트를 만들 때 지정한 작업 데이터베이스(여기서는 ElasticJobs)에 연결해야 합니다.
 
@@ -1204,7 +1204,7 @@ GO
 
 [작업 데이터베이스](job-automation-overview.md#job-database)에서 사용할 수 있는 보기는 다음과 같습니다.
 
-|View  |설명  |
+|보기  |Description  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  작업 실행 기록을 표시합니다.      |
 |[직업](#jobs-view)     |   모든 작업을 표시합니다.      |
@@ -1252,7 +1252,7 @@ GO
 |**job_name** | nvarchar(128) | 작업의 이름입니다.|
 |**job_id**| uniqueidentifier |작업의 고유 ID입니다.|
 |**job_version** |int |작업의 버전입니다. 작업이 수정될 때마다 자동으로 업데이트됩니다.|
-|**한** |nvarchar(512)| 작업 설명입니다. Enabled bit: 작업을 사용할지 여부를 나타냅니다. 1은 사용되는 작업을 나타내고, 0은 사용되지 않는 작업을 나타냅니다.|
+|**description** |nvarchar(512)| 작업 설명입니다. Enabled bit: 작업을 사용할지 여부를 나타냅니다. 1은 사용되는 작업을 나타내고, 0은 사용되지 않는 작업을 나타냅니다.|
 |**schedule_interval_type**|nvarchar(50) |작업을 실행할 시기를 나타내는 값: 'Once', 'Minutes', 'Hours', 'Days', 'Weeks', 'Months'
 |**schedule_interval_count**|int|각 작업 실행 간에 발생할 schedule_interval_type 기간의 수입니다.|
 |**schedule_start_time**|datetime2(7)|작업 실행을 마지막으로 시작한 날짜 및 시간입니다.|

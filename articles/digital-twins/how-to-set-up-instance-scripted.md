@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 076bde9e2760a862822d80d63197e2c15a678d35
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 86597521f762237b5c4bc9a7a5268d7dae1303b4
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407490"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587988"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 (스크립팅된) 설정
 
@@ -24,8 +24,9 @@ ms.locfileid: "87407490"
 * 백그라운드에서 스크립트를 실행 하는 수동 CLI 단계를 보려면이 문서의 CLI 버전 [*(방법: 인스턴스 및 인증 (CLI) 설정)*](how-to-set-up-instance-cli.md)을 참조 하세요.
 * Azure Portal에 따라 수동 단계를 보려면이 문서의 포털 버전 [*(방법: 인스턴스 및 인증 설정) (포털)*](how-to-set-up-instance-portal.md)을 참조 하세요.
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="run-the-deployment-script"></a>배포 스크립트 실행
 
@@ -109,6 +110,8 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 
 > [!NOTE]
 > 스크립트는 현재이 필수 역할을 Cloud Shell 스크립트를 실행 하는 사용자와 동일한 사용자에 게 할당 합니다. 인스턴스를 관리 하는 다른 사람에 게이 역할을 할당 해야 하는 경우 Azure Portal ([지침](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) 또는 CLI ([지침](how-to-set-up-instance-cli.md#set-up-user-access-permissions))를 통해이 역할을 수행할 수 있습니다.
+>
+> 스크립팅된 설정에 문제가 있는 경우 포털 또는 CLI를 사용 하 여 사용자 고유의 역할 할당을 다시 실행할 수도 있습니다.
 
 ### <a name="verify-app-registration"></a>앱 등록 확인
 

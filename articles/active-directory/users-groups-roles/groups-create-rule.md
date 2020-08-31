@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 01/07/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4855db7678a8cdea9bdad19ac0a8ec33503ff983
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5c44f72021fa46352ae6ded8fe671ea4f1a4d60
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728419"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797176"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 만들기 또는 업데이트
 
 Azure Active Directory (Azure AD)에서 규칙을 사용 하 여 사용자 또는 장치 속성에 따라 그룹 멤버 자격을 확인할 수 있습니다. 이 문서에서는 Azure Portal에서 동적 그룹에 대 한 규칙을 설정 하는 방법을 설명 합니다.
-동적 멤버 자격은 보안 그룹 또는 Office 365 그룹에 대해 지원 됩니다. 그룹 멤버 자격 규칙을 적용 하는 경우 사용자 및 장치 특성은 멤버 자격과 일치 하는지 평가 됩니다. 사용자 또는 장치에 대 한 특성이 변경 되 면 조직의 모든 동적 그룹 규칙이 멤버 자격 변경에 대해 처리 됩니다. 사용자 및 장치는 그룹에 대 한 조건을 충족 하는 경우 추가 되거나 제거 됩니다. 보안 그룹은 장치 또는 사용자에 대해 사용할 수 있지만 Office 365 그룹은 사용자 그룹 일 수만 있습니다.
+동적 멤버 자격은 보안 그룹 또는 Microsoft 365 그룹에 대해 지원 됩니다. 그룹 멤버 자격 규칙을 적용 하는 경우 사용자 및 장치 특성은 멤버 자격과 일치 하는지 평가 됩니다. 사용자 또는 장치에 대 한 특성이 변경 되 면 조직의 모든 동적 그룹 규칙이 멤버 자격 변경에 대해 처리 됩니다. 사용자 및 장치는 그룹에 대 한 조건을 충족 하는 경우 추가 되거나 제거 됩니다. 보안 그룹은 장치 또는 사용자에 대해 사용할 수 있지만 Microsoft 365 그룹은 사용자 그룹만 될 수 있습니다.
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Azure Portal의 규칙 작성기
 
@@ -80,7 +80,7 @@ Azure AD는 중요한 규칙을 더 신속하게 만들고 업데이트하는 �
 
 ## <a name="turn-on-or-off-welcome-email"></a>환영 이메일 켜기 또는 끄기
 
-새 Office 365 그룹이 만들어지면 해당 그룹에 추가 된 사용자에 게 환영 전자 메일 알림이 전송 됩니다. 나중에 사용자 또는 장치의 특성이 변경 되 면 조직의 모든 동적 그룹 규칙이 멤버 자격 변경에 대해 처리 됩니다. 그런 다음, 추가된 사용자도 환영 알림을 받습니다. 이 동작은 [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps)에서 해제할 수 있습니다.
+새 Microsoft 365 그룹이 만들어지면 해당 그룹에 추가 된 사용자에 게 환영 전자 메일 알림이 전송 됩니다. 나중에 사용자 또는 장치의 특성이 변경 되 면 조직의 모든 동적 그룹 규칙이 멤버 자격 변경에 대해 처리 됩니다. 그런 다음, 추가된 사용자도 환영 알림을 받습니다. 이 동작은 [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps)에서 해제할 수 있습니다.
 
 ## <a name="check-processing-status-for-a-rule"></a>규칙에 대 한 처리 상태 확인
 

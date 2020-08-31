@@ -5,17 +5,17 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: 230304677b78f00b2d1288c846f8bf704cd8a497
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c2668bdda5002ebd2a34b8a2ffa5885263aec0c9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407472"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009663"
 ---
-조직에서 구독 소유자의 추가 작업을 수행 하 여 앱 등록을 성공적으로 설정 하 고, 따라서 사용 가능한 Azure 디지털 쌍 인스턴스 설정을 완료할 수 있습니다. 필요한 단계는 조직의 특정 설정에 따라 달라질 수 있습니다.
+조직에서 구독 소유자/관리자의 추가 작업을 수행 하 여 앱 등록을 성공적으로 설정 하 고, 따라서 사용 가능한 Azure 디지털 Twins 인스턴스 설정을 완료할 수 있습니다. 필요한 단계는 조직의 특정 설정에 따라 달라질 수 있습니다.
 
-소유자가 수행 해야 하는 몇 가지 일반적인 잠재적인 작업은 다음과 같습니다. 이러한 작업 및 기타 작업은 Azure Portal의 [*Azure AD 앱 등록*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 페이지에서 수행할 수 있습니다.
-* 앱 등록에 대 한 관리자 동의를 부여 합니다. 조직에서 구독 내의 모든 앱 등록에 대해 Azure AD에서 전역으로 설정 해야 하는 *관리자 동의가* 있을 수 있습니다. 그렇다면 소유자는 앱 등록의 *API 권한* 페이지에서 회사에 대 한이 단추를 선택 하 여 앱 등록을 유효 하 게 설정 해야 합니다.
+소유자/관리자가 수행 해야 하는 몇 가지 일반적인 잠재적인 작업은 다음과 같습니다. 이러한 작업 및 기타 작업은 Azure Portal의 [*Azure AD 앱 등록*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 페이지에서 수행할 수 있습니다.
+* 앱 등록에 대 한 관리자 동의를 부여 합니다. 조직에서 구독 내의 모든 앱 등록에 대해 Azure AD에서 전역으로 설정 해야 하는 *관리자 동의가* 있을 수 있습니다. 그렇다면 소유자/관리자가 앱 등록의 *API 사용 권한* 페이지에서 회사에 대 한이 단추를 선택 하 여 앱 등록을 유효 하 게 설정 해야 합니다.
 
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="API 권한 아래의 ' 관리자 동의 허용 ' 단추의 포털 보기":::
   - 동의가 성공적으로 부여 된 경우 Azure Digital Twins의 항목에는 _ **(회사)** 에 대해 부여_ 된 *상태* 값이 표시 되어야 합니다.

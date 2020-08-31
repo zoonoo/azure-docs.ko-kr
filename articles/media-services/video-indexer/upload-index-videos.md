@@ -10,12 +10,13 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: b6f8181568e5996bfb3c99ae25fb801fa62f3af1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 153540ce0bf49740d0b3387715d83c8efd7af2cf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904261"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011874"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -100,7 +101,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 인덱싱 상태 변경 
     - 속성:    
     
-        |이름|Description|
+        |Name|Description|
         |---|---|
         |id|비디오 ID|
         |state|비디오 상태|  
@@ -108,7 +109,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 비디오에서 식별된 사용자
   - 속성
     
-      |이름|Description|
+      |속성|Description|
       |---|---|
       |id| 비디오 ID|
       |faceId|비디오 인덱스에 표시되는 얼굴 ID|
@@ -117,7 +118,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
         
     - 예: https: \/ /test.com/notifyme?projectName=MyProject&id = 1234abcd&faceid = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
 
-##### <a name="notes"></a>참고
+##### <a name="notes"></a>메모
 
 - Video Indexer는 원래 URL에 제공된 기존 매개 변수를 반환합니다.
 - 제공된 URL은 인코딩해야 합니다.
@@ -127,7 +128,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 원시 또는 외부 녹음에 백그라운드 노이즈가 있는 경우 이 매개변수를 사용합니다. 이 매개 변수는 인덱싱 프로세스를 구성하는 데 사용됩니다. 다음 값을 지정할 수 있습니다.
 
 - `AudioOnly` – 오디오만(비디오 무시) 사용하여 인사이트를 인덱싱하고 추출합니다.
-- `VideoOnly`-비디오만 사용 하 여 정보 인덱싱 및 추출 (오디오 무시)
+- `VideoOnly` -비디오만 사용 하 여 정보 인덱싱 및 추출 (오디오 무시)
 - `Default` – 오디오와 비디오를 모두 사용하여 인사이트를 인덱싱하고 추출합니다.
 - `DefaultWithNoiseReduction` – 오디오 스트림에 노이즈 감소 알고리즘을 적용하는 한편, 오디오와 비디오 모두에서 인사이트를 인덱싱하고 추출합니다.
 

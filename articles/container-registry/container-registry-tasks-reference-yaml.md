@@ -3,12 +3,12 @@ title: YAML 참조-ACR 작업
 description: 작업 속성, 단계 유형, 단계 속성 및 기본 제공 변수를 포함하여 YAML로 ACR 작업에 대한 작업을 정의하기 위한 참조입니다.
 ms.topic: article
 ms.date: 07/08/2020
-ms.openlocfilehash: 4710afe0d10a81f2a84437a335d3a012f3bac326
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 042310d29f5561c2cd77b0b9cccfc587ca4aa767
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87479781"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067586"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 작업 참조: YAML
 
@@ -75,11 +75,11 @@ az configure --defaults acr=myregistry
 
 태스크 속성은 일반적으로 파일의 맨 위에 나타나며 `acr-task.yaml` , 작업 단계 전체 실행 전체에 적용 되는 전역 속성입니다. 이러한 전역 속성 중 일부는 개별 단계에서 재정의할 수 있습니다.
 
-| 속성 | 형식 | 옵션 | Description | 재정의 지원 여부 | 기본값 |
+| 속성 | Type | 옵션 | Description | 재정의 지원 여부 | 기본값 |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | string | 예 | ACR 작업 서비스에서 구문 분석한 `acr-task.yaml` 파일의 버전입니다. ACR 작업은 이전 버전과의 호환성을 유지하려고 하지만, 이 값을 사용하면 ACR 작업이 정의된 버전 내에서 호환성을 유지할 수 있습니다. 지정 하지 않으면 기본값은 최신 버전입니다. | 예 | None |
+| `version` | 문자열 | 예 | ACR 작업 서비스에서 구문 분석한 `acr-task.yaml` 파일의 버전입니다. ACR 작업은 이전 버전과의 호환성을 유지하려고 하지만, 이 값을 사용하면 ACR 작업이 정의된 버전 내에서 호환성을 유지할 수 있습니다. 지정 하지 않으면 기본값은 최신 버전입니다. | 예 | None |
 | `stepTimeout` | int(초) | 예 | 단계를 실행할 수 있는 최대 시간(초)입니다. 속성이 태스크에 지정 된 경우 모든 단계의 default 속성을 설정 합니다 `timeout` . `timeout`단계에서 속성을 지정 하는 경우이 속성은 태스크에서 제공 하는 속성을 재정의 합니다. | 예 | 600(10분) |
-| `workingDirectory` | string | 예 | 런타임 중에 컨테이너의 작업 디렉터리입니다. 속성이 태스크에 지정 된 경우 모든 단계의 default 속성을 설정 합니다 `workingDirectory` . 단계에서 지정 하는 경우 태스크에서 제공 하는 속성을 재정의 합니다. | 예 | `/workspace` |
+| `workingDirectory` | 문자열 | 예 | 런타임 중에 컨테이너의 작업 디렉터리입니다. 속성이 태스크에 지정 된 경우 모든 단계의 default 속성을 설정 합니다 `workingDirectory` . 단계에서 지정 하는 경우 태스크에서 제공 하는 속성을 재정의 합니다. | 예 | `c:\workspace`Windows 또는 `/workspace` Linux |
 | `env` | [string, string, ...] | 예 |  `key=value`태스크에 대 한 환경 변수를 정의 하는 형식의 문자열 배열입니다. 속성이 태스크에 지정 된 경우 모든 단계의 default 속성을 설정 합니다 `env` . 단계에 지정 된 경우 태스크에서 상속 된 모든 환경 변수를 재정의 합니다. | 예 | 없음 |
 | `secrets` | [비밀, 비밀, ...] | 예 | [비밀](#secret) 개체의 배열입니다. | 예 | None |
 | `networks` | [네트워크, 네트워크, ...] | 예 | [네트워크](#network) 개체의 배열입니다. | 예 | None |
@@ -89,20 +89,20 @@ az configure --defaults acr=myregistry
 
 Secret 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 형식 | 옵션 | Description | 기본값 |
+| 속성 | Type | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | 문자열 | No | 비밀의 식별자입니다. | 없음 |
-| `keyvault` | string | 예 | Azure Key Vault 비밀 URL입니다. | 없음 |
-| `clientID` | string | 예 | Azure 리소스에 대 한 [사용자 할당 관리 id](container-registry-tasks-authentication-managed-identity.md) 의 클라이언트 ID입니다. | 없음 |
+| `keyvault` | 문자열 | 예 | Azure Key Vault 비밀 URL입니다. | 없음 |
+| `clientID` | 문자열 | 예 | Azure 리소스에 대 한 [사용자 할당 관리 id](container-registry-tasks-authentication-managed-identity.md) 의 클라이언트 ID입니다. | 없음 |
 
 ### <a name="network"></a>network
 
 네트워크 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 형식 | 옵션 | Description | 기본값 |
+| 속성 | Type | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | string | No | 네트워크의 이름입니다. | 없음 |
-| `driver` | string | 예 | 네트워크를 관리 하는 드라이버입니다. | 없음 |
+| `name` | 문자열 | No | 네트워크의 이름입니다. | 없음 |
+| `driver` | 문자열 | 예 | 네트워크를 관리 하는 드라이버입니다. | 없음 |
 | `ipv6` | bool | 예 | IPv6 네트워킹 사용 여부를 지정 합니다. | `false` |
 | `skipCreation` | bool | 예 | 네트워크 만들기를 건너뛸지 여부입니다. | `false` |
 | `isDefault` | bool | 예 | 네트워크를 Azure Container Registry 제공 된 기본 네트워크 인지 여부를 지정 합니다. | `false` |
@@ -111,9 +111,9 @@ Secret 개체에는 다음과 같은 속성이 있습니다.
 
 볼륨 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 형식 | 옵션 | Description | 기본값 |
+| 속성 | Type | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | string | No | 탑재할 볼륨의 이름입니다. 영숫자 문자, '-' 및 ' _ '만 포함할 수 있습니다. | 없음 |
+| `name` | 문자열 | No | 탑재할 볼륨의 이름입니다. 영숫자 문자, '-' 및 ' _ '만 포함할 수 있습니다. | 없음 |
 | `secret` | map [string] 문자열 | 아니요 | 맵의 각 키는 볼륨에서 만들어지고 채워진 파일의 이름입니다. 각 값은 암호의 문자열 버전입니다. 비밀 값은 b a s e 64로 인코딩해야 합니다. | 없음 |
 
 ## <a name="task-step-types"></a>작업 단계 유형
@@ -151,16 +151,16 @@ steps:
 
 `build` 단계 유형은 다음 속성을 지원합니다. 이 문서의 [작업 단계 속성](#task-step-properties) 섹션에서 이러한 속성의 세부 정보를 확인 합니다.
 
-| 속성 | 형식 | 필수 |
+| 속성 | Type | 필수 |
 | -------- | ---- | -------- |
 | `detach` | bool | 선택 사항 |
 | `disableWorkingDirectoryOverride` | bool | 선택 사항 |
 | `entryPoint` | 문자열 | 옵션 |
 | `env` | [string, string, ...] | 선택 사항 |
 | `expose` | [string, string, ...] | 선택 사항 |
-| `id` | 문자열 | 선택 사항 |
+| `id` | 문자열 | 옵션 |
 | `ignoreErrors` | bool | 선택 사항 |
-| `isolation` | 문자열 | 선택 사항 |
+| `isolation` | 문자열 | 옵션 |
 | `keep` | bool | 선택 사항 |
 | `network` | object | 옵션 |
 | `ports` | [string, string, ...] | 선택 사항 |
@@ -173,7 +173,7 @@ steps:
 | `timeout` | int(초) | 선택 사항 |
 | `volumeMount` | object | 옵션 |
 | `when` | [string, string, ...] | 선택 사항 |
-| `workingDirectory` | 문자열 | 선택 사항 |
+| `workingDirectory` | 문자열 | 옵션 |
 
 ### <a name="examples-build"></a>예: build
 
@@ -224,10 +224,10 @@ steps:
 
 `push` 단계 유형은 다음 속성을 지원합니다. 이 문서의 [작업 단계 속성](#task-step-properties) 섹션에서 이러한 속성의 세부 정보를 확인 합니다.
 
-| 속성 | 형식 | 필수 |
+| 속성 | Type | 필수 |
 | -------- | ---- | -------- |
 | `env` | [string, string, ...] | 선택 사항 |
-| `id` | 문자열 | 선택 사항 |
+| `id` | 문자열 | 옵션 |
 | `ignoreErrors` | bool | 선택 사항 |
 | `startDelay` | int(초) | 선택 사항 |
 | `timeout` | int(초) | 선택 사항 |
@@ -269,16 +269,16 @@ steps:
 
 `cmd` 단계 유형은 다음 속성을 지원합니다.
 
-| 속성 | 형식 | 필수 |
+| 속성 | Type | 필수 |
 | -------- | ---- | -------- |
 | `detach` | bool | 선택 사항 |
 | `disableWorkingDirectoryOverride` | bool | 선택 사항 |
-| `entryPoint` | 문자열 | 선택 사항 |
+| `entryPoint` | 문자열 | 옵션 |
 | `env` | [string, string, ...] | 선택 사항 |
 | `expose` | [string, string, ...] | 선택 사항 |
-| `id` | 문자열 | 선택 사항 |
+| `id` | 문자열 | 옵션 |
 | `ignoreErrors` | bool | 선택 사항 |
-| `isolation` | 문자열 | 선택 사항 |
+| `isolation` | 문자열 | 옵션 |
 | `keep` | bool | 선택 사항 |
 | `network` | object | 옵션 |
 | `ports` | [string, string, ...] | 선택 사항 |
@@ -291,7 +291,7 @@ steps:
 | `timeout` | int(초) | 선택 사항 |
 | `volumeMount` | object | 옵션 |
 | `when` | [string, string, ...] | 선택 사항 |
-| `workingDirectory` | 문자열 | 선택 사항 |
+| `workingDirectory` | 문자열 | 옵션 |
 
 이 문서의 [작업 단계 속성](#task-step-properties) 섹션에서 이러한 속성의 세부 정보를 확인할 수 있습니다.
 
@@ -375,41 +375,22 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 ```
 
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
-<!-- [!code-yml[task](~/acr-tasks/mounts-secrets.yaml)] -->
-
-```yml
-# This template demonstrates mounting a custom volume into a container at a CMD step
-secrets:
-  - id: sampleSecret
-    keyvault: https://myacbvault2.vault.azure.net/secrets/SampleSecret
-
-volumes:
-  - name: mysecrets
-    secret:
-      mysecret1: {{.Secrets.sampleSecret | b64enc}}
-      mysecret2: {{.Values.mysecret | b64enc}}
-
-steps:
-  - cmd: bash cat /run/test/mysecret1 /run/test/mysecret2
-    volumeMounts:
-      - name: mysecrets
-        mountPath: /run/test
-```
+[!code-yml[task](~/acr-tasks/mounts-secrets.yaml)]
 
 ## <a name="task-step-properties"></a>작업 단계 속성
 
 각 단계 유형은 해당 유형에 적합한 몇 가지 속성을 지원합니다. 다음 표에서는 사용 가능한 모든 단계 속성을 정의합니다. 모든 단계 유형이 모든 속성을 지원하는 것은 아닙니다. 각 단계 유형에 사용 가능한 속성을 보려면 [cmd](#cmd), [build](#build) 및 [push](#push) 단계 유형 참조 섹션을 참조하세요.
 
-| 속성 | 형식 | 옵션 | Description | 기본값 |
+| 속성 | Type | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- |
 | `detach` | bool | 예 | 실행할 때 컨테이너를 분리해야 하는지 여부입니다. | `false` |
 | `disableWorkingDirectoryOverride` | bool | 예 | 재정의 기능을 사용 하지 않을 지 여부 `workingDirectory` 입니다. 이를와 함께 사용 `workingDirectory` 하 여 컨테이너의 작업 디렉터리를 완전히 제어할 수 있습니다. | `false` |
-| `entryPoint` | string | 예 | 단계 컨테이너의 `[ENTRYPOINT]`을 재정의합니다. | 없음 |
+| `entryPoint` | 문자열 | 예 | 단계 컨테이너의 `[ENTRYPOINT]`을 재정의합니다. | 없음 |
 | `env` | [string, string, ...] | 예 | 단계의 환경 변수를 정의하는 `key=value` 형식의 문자열 배열입니다. | 없음 |
 | `expose` | [string, string, ...] | 예 | 컨테이너에서 노출 되는 포트의 배열입니다. |  없음 |
-| [`id`](#example-id) | string | 예 | 작업 내의 단계를 고유하게 식별합니다. 작업의 다른 단계에서 `when`을 사용한 종속성 검사 등을 위해 단계 `id`를 참조할 수 있습니다.<br /><br />`id`는 실행 중인 컨테이너의 이름이기도 합니다. 작업의 다른 컨테이너에서 실행 중인 프로세스가 `id`를 해당 DNS 호스트 이름으로 참조하거나 docker 로그 [id] 등으로 액세스하기 위해 참조할 수 있습니다. | `acb_step_%d`. 여기서 `%d` 는 yaml 파일에서 하향식 단계의 0부터 실행 하는 인덱스입니다. |
+| [`id`](#example-id) | 문자열 | 예 | 작업 내의 단계를 고유하게 식별합니다. 작업의 다른 단계에서 `when`을 사용한 종속성 검사 등을 위해 단계 `id`를 참조할 수 있습니다.<br /><br />`id`는 실행 중인 컨테이너의 이름이기도 합니다. 작업의 다른 컨테이너에서 실행 중인 프로세스가 `id`를 해당 DNS 호스트 이름으로 참조하거나 docker 로그 [id] 등으로 액세스하기 위해 참조할 수 있습니다. | `acb_step_%d`. 여기서 `%d` 는 yaml 파일에서 하향식 단계의 0부터 실행 하는 인덱스입니다. |
 | `ignoreErrors` | bool | 예 | 컨테이너를 실행 하는 동안 오류가 발생 했는지 여부에 관계 없이 단계를 성공으로 표시할지 여부입니다. | `false` |
-| `isolation` | string | 예 | 컨테이너의 격리 수준입니다. | `default` |
+| `isolation` | 문자열 | 예 | 컨테이너의 격리 수준입니다. | `default` |
 | `keep` | bool | 예 | 실행 후 단계 컨테이너를 유지할지 여부입니다. | `false` |
 | `network` | 개체 | 예 | 컨테이너가 실행 되는 네트워크를 식별 합니다. | 없음 |
 | `ports` | [string, string, ...] | 예 | 컨테이너에서 호스트로 게시 되는 포트의 배열입니다. |  없음 |
@@ -422,18 +403,17 @@ steps:
 | `startDelay` | int(초) | 예 | 컨테이너 실행을 지연 하는 시간 (초)입니다. | 0 |
 | `timeout` | int(초) | 예 | 종료되기 전에 단계를 실행할 수 있는 최대 시간(초)입니다. | 600 |
 | [`when`](#example-when) | [string, string, ...] | 예 | 작업 내의 다른 하나 이상 단계에 대한 단계의 종속성을 구성합니다. | 없음 |
-| `user` | string | 예 | 컨테이너의 사용자 이름 또는 UID | 없음 |
-| `volumeMounts` | 개체 | 아니요 | [VolumeMount](#volumemount) 개체의 배열입니다. | 없음 |
-| `workingDirectory` | string | 예 | 단계의 작업 디렉터리를 설정합니다. 기본적으로, ACR 작업은 루트 디렉터리를 작업 디렉터리로 만듭니다. 그러나 빌드에 여러 단계가 있는 경우 동일한 작업 디렉터리를 지정하여 이전 단계가 이후 단계와 아티팩트를 공유할 수 있습니다. | `/workspace` |
+| `user` | 문자열 | 예 | 컨테이너의 사용자 이름 또는 UID | 없음 |
+| `workingDirectory` | 문자열 | 예 | 단계의 작업 디렉터리를 설정합니다. 기본적으로, ACR 작업은 루트 디렉터리를 작업 디렉터리로 만듭니다. 그러나 빌드에 여러 단계가 있는 경우 동일한 작업 디렉터리를 지정하여 이전 단계가 이후 단계와 아티팩트를 공유할 수 있습니다. | `c:\workspace`Windows 또는 `/workspace` Linux |
 
 ### <a name="volumemount"></a>volumeMount
 
 VolumeMount 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성 | 형식 | 옵션 | Description | 기본값 |
+| 속성 | Type | 옵션 | Description | 기본값 |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | 문자열 | No | 탑재할 볼륨의 이름입니다. 속성의 이름과 정확히 일치 해야 합니다 `volumes` . | 없음 |
-| `mountPath`   | string | 아니요 | 컨테이너에 파일을 탑재 하는 절대 경로입니다.  | 없음 |
+| `mountPath`   | 문자열 | no | 컨테이너에 파일을 탑재 하는 절대 경로입니다.  | 없음 |
 
 ### <a name="examples-task-step-properties"></a>예: 작업 단계 속성
 
@@ -521,6 +501,10 @@ version: v1.1.0
 steps:
     - build: -t $Registry/hello-world:$ID .
 ```
+
+### <a name="runsharedvolume"></a>실행. SharedVolume
+
+모든 작업 단계에서 액세스할 수 있는 공유 볼륨의 고유 식별자입니다. 볼륨은 `c:\workspace` Windows 또는 Linux에서에 탑재 됩니다 `/workspace` . 
 
 ### <a name="runregistry"></a>Run.Registry
 

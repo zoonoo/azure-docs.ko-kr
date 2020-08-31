@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 33006463ed826d1efe32f8beee361eb211e9d709
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 489025d9cfdd6f1bdbc950e2bd1e7e4d835a4fff
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386557"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079212"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Node.js 애플리케이션 빌드 및 배포
 
@@ -32,7 +32,7 @@ Cloud Services에 대한 자세한 내용 및 Azure Websites와 Virtual Machines
 
 ![Hello World 웹 페이지를 표시하는 웹 브라우저][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 > [!NOTE]
 > 이 자습서는 Azure PowerShell을 사용하며,
 
@@ -178,7 +178,7 @@ Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Laun
 <!-- URL List -->
 
 [Azure Websites, Cloud Services 및 Virtual Machines 비교]: /azure/architecture/guide/technology-choices/compute-decision-tree
-[간단한 웹앱 사용]: ../app-service/app-service-web-get-started-nodejs.md
+[간단한 웹앱 사용]: ../app-service/quickstart-nodejs.md
 [Azure PowerShell]: /powershell/azure/
 [Azure SDK for .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [PowerShell을 연결]: /powershell/azure/

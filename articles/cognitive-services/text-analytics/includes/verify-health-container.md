@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 5c598807f36000a18211e32eba53220bfbeea2f7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1a8ce0bc94c61a0cfe6cdad11375763ba954957d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108716"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88122531"
 ---
 ### <a name="verify-that-a-container-is-running"></a>컨테이너가 실행 중인지 확인 합니다.
 
@@ -37,4 +37,4 @@ ms.locfileid: "86108716"
 |`http://localhost:5000/swagger`|이 URL을 통해 컨테이너는 끝점 및 기능에 대 한 전체 설명서 집합을 제공 합니다 `Try it now` . 이 기능을 사용하면 웹 기반 HTML 양식으로 설정을 입력할 수 있고 코드 작성 없이 쿼리를 만들 수 있습니다. 쿼리가 반환되면 필요한 HTTP 헤더 및 본문 형식을 보여주기 위해 예제 CURL 명령이 제공됩니다. |
 |`http://localhost:5000/demo`| 브라우저를 통해 요청 된이 기능은 입력 텍스트 샘플 또는 사용자가 제공한 쿼리의 결과에 대 한 대화형 시각화를 제공 합니다.  |
 
-이 요청 URL을 사용 `http://localhost:5000/text/analytics/v3.0-preview.1/domains/health` 하 여 쿼리를 컨테이너에 제출 합니다.
+이 요청 URL을 사용 `http://localhost:5000/text/analytics/v3.2-preview.1/entities/health` 하 여 쿼리를 컨테이너에 제출 합니다.

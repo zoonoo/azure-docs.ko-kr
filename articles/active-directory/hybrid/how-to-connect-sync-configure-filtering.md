@@ -16,17 +16,17 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 753e00ef5f015c554e49d7326120d29f5c5da4a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357769"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88061509"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화 구성 필터링
 필터링을 사용하여 온-프레미스 디렉터리에서 Azure Active Directory(Azure AD)에 표시할 개체를 제어할 수 있습니다. 기본 구성은 모든 도메인에 구성된 포리스트의 모든 개체를 사용합니다. 일반적으로 권장되는 구성입니다. Exchange Online 및 비즈니스용 Skype 등의 Office 365 워크로드를 사용하면 완전한 전체 주소 목록이 도움이 되므로 모든 사람에게 메일을 보내거나 호출할 수 있습니다. 기본 구성을 사용하여 Exchange 또는 Lync의 온-프레미스 구현과 같은 환경을 가져올 수 있습니다.
 
-경우에 따라 기본 구성에 일부 변경을 수행해야 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
+경우에 따라 기본 구성에 일부 변경을 수행해야 합니다. 다음은 몇 가지 예입니다.
 
 * [여러 Azure AD 디렉터리 토폴로지](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant)를 사용할 계획입니다. 그러면 필터를 적용하여 특정 Azure AD 디렉터리에 동기화할 개체를 제어해야 합니다.
 * Azure AD의 사용자 하위 집합만 이용하여 Azure 또는 Office 365에 대한 파일럿을 실행합니다. 작은 파일럿에서는 해당 기능을 보여 주기 위해 완전한 전체 주소 목록이 필요하지 않습니다.
@@ -47,7 +47,7 @@ Azure AD Connect 동기화에서 언제든지 필터링을 사용할 수 있습�
 
 실수로 많은 개체를 삭제 하는 것을 방지 하기 위해 "[실수로 인 한 삭제 방지](how-to-connect-sync-feature-prevent-accidental-deletes.md)" 기능은 기본적으로 설정 되어 있습니다. 필터링으로 인해 많은 개체를 삭제하는 경우(기본적으로 500개) 이 문서의 단계를 따라 삭제 작업을 Azure AD에 진행해야 합니다.
 
-2015년 11월([1.0.9125](reference-connect-version-history.md#1091250)) 전 빌드를 사용하고, 필터 구성을 변경하고, 암호 해시 동기화를 사용하려면 구성을 완료한 다음, 모든 암호를 전체 동기화 트리거해야 합니다. 암호 전체 동기화를 트리거하는 방법에 대 한 단계는 [모든 암호의 전체 동기화 트리거](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords)를 참조 하세요. 빌드 1.0.9125 이상일 경우 정기적인 **전체 동기화** 작업이 암호가 동기화되어야 하는지, 이 추가 단계가 더 이상 필요하지 않은지도 계산합니다.
+2015년 11월([1.0.9125](reference-connect-version-history.md)) 전 빌드를 사용하고, 필터 구성을 변경하고, 암호 해시 동기화를 사용하려면 구성을 완료한 다음, 모든 암호를 전체 동기화 트리거해야 합니다. 암호 전체 동기화를 트리거하는 방법에 대 한 단계는 [모든 암호의 전체 동기화 트리거](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords)를 참조 하세요. 빌드 1.0.9125 이상일 경우 정기적인 **전체 동기화** 작업이 암호가 동기화되어야 하는지, 이 추가 단계가 더 이상 필요하지 않은지도 계산합니다.
 
 필터링 오류로 인해 **사용자** 개체가 Azure AD에서 의도치 않게 삭제된 경우에 필터링 구성을 제거하고 Azure AD에 사용자 개체를 다시 만들 수 있습니다. 그런 다음 디렉터리를 다시 동기화할 수 있습니다. 이 작업을 통해 사용자가 Azure AD의 휴지통에서 복원됩니다. 그러나 다른 개체 형식을 삭제 취소할 수 없습니다. 예를 들어 보안 그룹을 실수로 삭제하고 ACL에 리소스로 사용한 경우 그룹 및 해당 ACL은 복구할 수 없습니다.
 
@@ -144,7 +144,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 3. 각 프로필에 대해 **추가된** 도메인과 **제거된** 도메인을 조정합니다.
     1. 각각의 5개 프로필에 대해 **추가된** 각 도메인에 다음 단계를 수행합니다.
         1. 실행 프로필을 선택하고 **새 단계**를 클릭합니다.
-        2. **구성 단계** 페이지의 **형식** 드롭다운 메뉴에서 구성할 프로필과 같은 이름의 단계 유형을 선택합니다. **다음**을 클릭합니다.  
+        2. **구성 단계** 페이지의 **형식** 드롭다운 메뉴에서 구성할 프로필과 같은 이름의 단계 유형을 선택합니다. 그런 후 **Next** 를 클릭합니다.  
         ![커넥터 실행 프로필 2](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep1.png)  
         3. **커넥터 구성** 페이지의 **파티션** 드롭다운 메뉴에서 도메인 필터에 추가한 파티션의 이름을 선택합니다.  
         ![커넥터 실행 프로필 3](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep2.png)  
@@ -202,7 +202,7 @@ Azure AD Connect 설치 마법사는 항상 이 구성을 만듭니다.
 이 구성을 사용하여 ManagedObjects에서 만든 새 OU가 동기화되지 않습니다.
 
 ## <a name="attribute-based-filtering"></a>특성 기반 필터링
-다음 단계 작업을 위해 2015년 11월 ([1.0.9125](reference-connect-version-history.md#1091250)) 이상 빌드를 사용하고 있는지 확인합니다.
+다음 단계 작업을 위해 2015년 11월 ([1.0.9125](reference-connect-version-history.md)) 이상 빌드를 사용하고 있는지 확인합니다.
 
 > [!IMPORTANT]
 >**Azure AD Connect**에서 만든 기본 규칙을 수정하지 않는 것이 좋습니다. 규칙을 수정하려면 규칙을 복제한 다음, 원래 규칙을 사용하지 않도록 설정합니다. 복제된 규칙을 변경합니다. 이렇게 하면(원래 규칙을 사용하지 않도록 설정) 해당 규칙을 통해 제공되는 버그 수정 또는 기능을 놓칠 수 있습니다.

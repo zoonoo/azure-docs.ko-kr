@@ -7,26 +7,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 54fe33750b08b5da85b30d876a32daf33d8b4bc2
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141894"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88517917"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
 이 빠른 시작에서는 샘플 레이블 지정 도구에서 Form Recognizer REST API를 사용하여 수동으로 레이블이 지정된 데이터로 사용자 지정 모델을 학습시킵니다. 이 기능에 대한 자세한 내용은 개요의 [레이블로 학습](../overview.md#train-with-labels) 섹션을 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
-- 동일한 형식의 양식 6개 이상으로 구성된 세트. 이 데이터를 사용하여 모델을 학습시키고 양식을 테스트합니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다.
+- 동일한 형식의 양식 6개 이상으로 구성된 세트. 이 데이터를 사용하여 모델을 학습시키고 양식을 테스트합니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. 표준 성능 계층 Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다.
 
 ## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
 
@@ -133,7 +133,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
    1. **+** 를 클릭하여 새 태그를 만듭니다.
    1. 태그 이름을 입력합니다.
    1. Enter 키를 눌러 태그를 저장합니다.
-1. 주 편집기에서 클릭하고 끌어서 강조 표시된 텍스트 요소에서 하나 이상의 단어를 선택합니다.
+1. 주 편집기에서 강조 표시된 텍스트 요소에서 단어를 선택하려면 클릭합니다.
 1. 적용하려는 태그를 클릭하거나 해당 키보드 키를 누릅니다. 숫자 키는 처음 10개 태그에 대한 바로 가기 키로 할당됩니다. 태그 편집기 창에서 위쪽 및 아래쪽 화살표 아이콘을 사용하여 태그를 다시 정렬할 수 있습니다.
     > [!Tip]
     > 양식에 레이블을 지정할 때 다음 팁을 참조하세요.
@@ -192,7 +192,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 왼쪽 창에서 학습 아이콘을 클릭하여 학습 페이지를 엽니다. 그런 다음, **학습** 단추를 클릭하여 모델 학습을 시작합니다. 학습 프로세스가 완료되면 다음 정보가 표시됩니다.
 
-* **모델 ID** - 만들어지고 학습된 모델의 ID입니다. 각 학습 호출은 고유한 ID를 사용하여 새 모델을 만듭니다. REST API를 통해 예측 호출을 수행하려면 이 문자열이 필요하므로 안전한 위치에 복사합니다.
+* **모델 ID** - 만들어지고 학습된 모델의 ID입니다. 각 학습 호출은 고유한 ID를 사용하여 새 모델을 만듭니다. [REST API](./curl-train-extract.md) 또는 [클라이언트 라이브러리](./client-library.md)를 통해 예측 호출을 수행하려면 이 문자열이 필요하므로 안전한 위치에 복사합니다.
 * **평균 정확도** - 모델의 평균 정확도입니다. 추가 양식에 레이블을 지정하고 다시 학습하여 새 모델을 만들면 모델 정확도를 향상시킬 수 있습니다. 먼저 5개의 양식에 레이블을 지정하고, 필요에 따라 더 많은 양식을 추가하는 것이 좋습니다.
 * 태그 목록 및 태그당 예상 정확도
 

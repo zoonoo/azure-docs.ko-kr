@@ -1,18 +1,18 @@
 ---
 title: 캐나다 연방 PBMM 청사진 샘플 컨트롤
 description: 캐나다 연방 PBMM 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
-ms.date: 05/08/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: e9153972938a572f8d37610e5721f7b0a578157c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3c70a58ef86d277341a6b4439fac3d160bea6e3f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085636"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925858"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>캐나다 연방 PBMM 청사진 샘플의 컨트롤 매핑
 
-다음 문서에서는 Azure Blueprints 캐나다 연방 보호 B, 중간 무결성, 중간 가용성(PBMM) 청사진 샘플을 캐나다 연방 PBMM 컨트롤에 매핑하는 방법에 대해 자세히 설명합니다. 컨트롤에 대한 자세한 내용은 [캐나다 연방 PBMM](https://www.canada.ca/en/government/system/digital-government/modern-emerging-technologies/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html#toc4)을 참조하세요.
+다음 문서에서는 Azure Blueprints 캐나다 연방 보호 B, 중간 무결성, 중간 가용성(PBMM) 청사진 샘플을 캐나다 연방 PBMM 컨트롤에 매핑하는 방법에 대해 자세히 설명합니다. 컨트롤에 대한 자세한 내용은 [캐나다 연방 PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html)을 참조하세요.
 
 다음 매핑은 **캐나다 연방 PBMM** 컨트롤에 대한 것입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책**을 열고 **정의** 페이지를 선택합니다. 그런 다음, **\[미리 보기\]: 캐나다 연방 PBMM 컨트롤 감사** 기본 제공 정책 이니셔티브를 찾아 선택합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "86085636"
 
 ## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) 계정 관리 | 역할 기반 체계
 
-Azure는 Azure의 리소스에 대한 액세스 권한이 있는 사용자를 관리할 수 있도록 [RBAC(역할 기반 액세스 제어)](../../../../role-based-access-control/overview.md)를 구현합니다. Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있는 사용자 및 해당 사용자의 권한을 검토할 수 있습니다. 또한 이 청사진은 SQL Server 및 Service Fabric에 대한 Azure Active Directory 인증의 사용을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 또한 이 청사진은 사용자 지정 RBAC 규칙의 사용을 감사하는 Azure Policy 정의를 할당합니다. 사용자 지정 RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다.
+Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는 데 도움이 되는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../../../role-based-access-control/overview.md)를 구현합니다. Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있는 사용자 및 해당 사용자의 권한을 검토할 수 있습니다. 또한 이 청사진은 SQL Server 및 Service Fabric에 대한 Azure Active Directory 인증의 사용을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 권한을 간편하게 관리하고 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 또한 이 청사진은 사용자 지정 RBAC 규칙의 사용을 감사하는 Azure Policy 정의를 할당합니다. 사용자 지정 RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다.
 
 - SQL Server에 대해 Azure Active Directory 관리자를 프로비저닝해야 합니다.
 - Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.
@@ -64,7 +64,7 @@ Azure 구독 소유자가 한 명만 있으면 관리 중복이 허용되지 않
 
 ## <a name="ac-6-least-privilege"></a>AC-6 최소 권한
 
-Azure는 Azure의 리소스에 대한 액세스 권한이 있는 사용자를 관리할 수 있도록 [RBAC(역할 기반 액세스 제어)](../../../../role-based-access-control/overview.md)를 구현합니다. Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있는 사용자 및 해당 사용자의 권한을 검토할 수 있습니다. 이 청사진은 검토를 위해 우선 순위를 지정해야 하는 감사 계정에 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 이러한 계정 지표는 최소 권한 컨트롤이 구현되었는지 확인하는 데 도움이 될 수 있습니다.
+Azure는 Azure의 리소스에 액세스할 수 있는 사용자를 관리하는 데 도움이 되는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../../../role-based-access-control/overview.md)를 구현합니다. Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있는 사용자 및 해당 사용자의 권한을 검토할 수 있습니다. 이 청사진은 검토를 위해 우선 순위를 지정해야 하는 감사 계정에 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 이러한 계정 지표는 최소 권한 컨트롤이 구현되었는지 확인하는 데 도움이 될 수 있습니다.
 
 - 구독에 최대 3명의 소유자를 지정해야 합니다.
 - 구독에 둘 이상의 소유자를 할당해야 합니다.
@@ -116,8 +116,8 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 영역에 저장되므로 중앙 집중식 보고 및 분석이 가능합니다. 이 청사진을 사용하면 Azure 가상 머신에서 Log Analytics 에이전트의 배포를 감사하고 적용하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 이벤트가 기록되도록 할 수 있습니다.
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
+- VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
 
@@ -126,8 +126,9 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 이 청사진을 사용하면 Azure 리소스에 대한 로그 설정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 시스템 이벤트가 기록되도록 할 수 있습니다. 이러한 정책 정의는 Azure 가상 머신에 대한 Log Analytics 에이전트의 배포와 다른 Azure 리소스 종류의 감사 설정 구성을 감사하고 적용합니다. 또한 이러한 정책은 진단 로그 구성을 감사하여 Azure 리소스 내에서 수행되는 작업에 대한 인사이트를 제공합니다. 뿐만 아니라 SQL 서버에 감사 및 Advanced Data Security가 구성됩니다.
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
+- VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- VM에 대한 Log Analytics 작업 영역 감사 - 보고서 
+
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포
 - 진단 설정 감사
@@ -167,25 +168,25 @@ Azure Site Recovery는 가상 머신에서 실행되는 워크로드를 기본 �
 
 이 청사진은 암호 없이 계정으로부터의 원격 연결을 허용하거나 passwd 파일에 대한 권한이 잘못 설정된 Linux 가상 머신을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 또한 이 청사진은 Windows 가상 머신에 대한 암호 암호화 유형 구성을 감사하는 정책 정의를 할당합니다. 이러한 지표를 모니터링하면 시스템 인증자가 조직의 식별 및 인증 정책을 준수하는 데 도움이 됩니다.
 
-- \[미리 보기\]: passwd 파일 권한이 0644로 설정되지 않은 Linux VM의 감사 결과 표시
-- \[미리 보기\]: 암호 없는 계정이 있는 Linux VM의 감사 결과 표시
-- \[미리 보기\]: passwd 파일 권한이 0644로 설정되지 않은 Linux VM을 감사하기 위한 요구 사항 배포
-- \[미리 보기\]: 암호 없는 계정이 있는 Linux VM을 감사하기 위한 요구 사항 배포
+- passwd 파일 권한이 0644로 설정되지 않은 Linux VM의 감사 결과 표시
+- 암호 없는 계정이 있는 Linux VM의 감사 결과 표시
+- passwd 파일 권한이 0644로 설정되지 않은 Linux VM을 감사하기 위한 요구 사항 배포
+- 암호 없는 계정이 있는 Linux VM을 감사하기 위한 요구 사항 배포
 
 ## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) 인증자 관리 | 암호 기반 인증
 
 이 청사진을 사용하면 최소 암호 보안 수준 및 기타 암호 요구 사항을 적용하지 않는 Windows 가상 머신을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 강력한 암호를 적용할 수 있습니다. 암호 강도 정책을 위반하는 가상 머신을 파악할 수 있으면 모든 가상 머신 사용자 계정의 암호가 조직의 암호 정책을 준수하도록 정정 작업을 수행하는 데 도움이 됩니다.
 
-- \[미리 보기\]: 이전 24개 암호의 재사용을 허용하는 Windows VM의 감사 결과 표시
-- \[미리 보기\]: 암호 최대 사용 기간이 70일로 설정되지 않은 Windows VM의 감사 결과 표시
-- \[미리 보기\]: 암호 최소 사용 기간이 1일로 설정되지 않은 Windows VM의 감사 결과 표시
-- \[미리 보기\]: 암호 복잡성 설정이 사용되지 않는 Windows VM의 감사 결과 표시
-- \[미리 보기\]: 암호 최소 길이가 14자로 제한되지 않는 Windows VM의 감사 결과 표시
-- \[미리 보기\]: 이전 24개 암호의 재사용을 허용하는 Windows VM을 감사하기 위한 요구 사항 배포
-- \[미리 보기\]: 암호 사용 최대 기간이 70일로 설정되지 않은 Windows VM을 감사하기 위한 요구 사항 배포
-- \[미리 보기\]: 암호 사용 최소 기간이 1일로 설정되지 않은 Windows VM을 감사하기 위한 요구 사항 배포
-- \[미리 보기\]: 암호 복잡성 설정이 사용되지 않는 Windows VM을 감사하기 위한 요구 사항 배포
-- \[미리 보기\]: 암호 최소 길이가 14자로 제한되지 않는 Windows VM을 감사하기 위한 요구 사항 배포
+- 이전 24개 암호의 재사용을 허용하는 Windows VM의 감사 결과 표시
+- 암호 최대 사용 기간이 70일로 설정되지 않은 Windows VM의 감사 결과 표시
+- 암호 최소 사용 기간이 1일로 설정되지 않은 Windows VM의 감사 결과 표시
+- 암호 복잡성 설정이 사용되지 않는 Windows VM의 감사 결과 표시
+- 암호 최소 길이가 14자로 제한되지 않는 Windows VM의 감사 결과 표시
+- 이전 24개 암호의 재사용을 허용하는 Windows VM을 감사하기 위한 요구 사항 배포
+- 암호 사용 최대 기간이 70일로 설정되지 않은 Windows VM을 감사하기 위한 요구 사항 배포
+- 암호 사용 최소 기간이 1일로 설정되지 않은 Windows VM을 감사하기 위한 요구 사항 배포
+- 암호 복잡성 설정이 사용되지 않는 Windows VM을 감사하기 위한 요구 사항 배포
+- 암호 최소 길이가 14자로 제한되지 않는 Windows VM을 감사하기 위한 요구 사항 배포
 
 ## <a name="ia-8-100-identification-and-authentication-non-organizational-users--identity-and-credential-assurance-levels"></a>IA-8 (100) 식별 및 인증(비 조직 사용자) | ID 자격 증명 보증 수준
 
@@ -289,7 +290,7 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 이 청사진은 Azure 리소스에 로깅 및 데이터 보안을 적용하고 감사하여 시스템 모니터링을 도와줍니다. 특히, 이 정책은 Log Analytics 에이전트 배포를 감사 및 적용하고 SQL 데이터베이스, 스토리지 계정 및 네트워크 리소스의 보안 설정을 강화합니다. 이러한 기능은 비정상적인 동작과 공격 징후를 감지하여 적절한 조치를 취하도록 도와줍니다.
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
 - \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
 - \[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포
 - \[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포

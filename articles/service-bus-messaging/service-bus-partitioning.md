@@ -3,12 +3,13 @@ title: 분할된 Azure Service Bus 큐 및 토픽 만들기 | Microsoft Docs
 description: 여러 메시지 broker를 사용하여 Service Bus 큐 및 항목을 분할하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6ea0bee255f489355056f91d82195382153786bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 11cc76b0dd0125c7b54438d3f991069b7c44db59
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339638"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007964"
 ---
 # <a name="partitioned-queues-and-topics"></a>분할 큐 및 항목
 
@@ -149,4 +150,4 @@ Service Bus는 분할된 엔터티 간에 자동 메시지 전달을 지원합�
 [QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
 [TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md

@@ -1,18 +1,19 @@
 ---
 title: Microsoft 고객 계약 청구 계정 시작 - Azure
-description: Microsoft 고객 계약 청구 계정 이해
+description: 청구 프로필 및 청구서 결제 방법을 포함하여 Microsoft 고객 계약 청구 계정에 대해 알아봅니다.
 author: bandersmsft
 ms.reviewer: amberbhargava
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: df54109010c694934dda005d6e8f1c219ec49efc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 632fac953a54e661164152cda79082aed2c0bc06
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80370999"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690479"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Microsoft 고객 계약 청구 계정 시작
 

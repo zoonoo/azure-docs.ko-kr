@@ -4,12 +4,12 @@ description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: d75e7053bfff14fbcb6deeae48c48f09e3e9ac0d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531883"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892187"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup Server의 지원 매트릭스
 
@@ -32,8 +32,8 @@ Azure Backup은 Recovery Services 자격 증명 모음을 사용하여 백업을
 **기능** | **세부 정보**
 --- | ---
 **구독의 자격 증명 모음 수** | 단일 구독에서 최대 500개의 Recovery Services 자격 증명 모음입니다.
-**자격 증명 모음의 머신 수** | 단일 자격 증명 모음에서 최대 1,000개의 Azure VM입니다.<br/><br/> 최대 50대의 MABS 서버를 단일 자격 증명 모음에 등록할 수 있습니다.
-**데이터 원본** | 개별 [데이터 원본](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined)의 최대 크기는 54,400GB입니다. Azure VM 백업에는 이 제한이 적용되지 않습니다. 자격 증명 모음에 백업할 수 있는 총 데이터양에는 제한이 적용되지 않습니다.
+**자격 증명 모음의 머신 수** | 모든 워크 로드에서 최대 2000 개의 데이터 원본 (예: Azure Vm, SQL Server VM, MABS 서버 등)은 단일 자격 증명 모음에서 보호 될 수 있습니다.<br><br>단일 자격 증명 모음에서 최대 1,000개의 Azure VM입니다.<br/><br/> 최대 50대의 MABS 서버를 단일 자격 증명 모음에 등록할 수 있습니다.
+**데이터 원본** | 개별 [데이터 원본](./backup-azure-backup-faq.md#how-is-the-data-source-size-determined)의 최대 크기는 54,400GB입니다. Azure VM 백업에는이 제한이 적용 되지 않습니다. 자격 증명 모음에 백업할 수 있는 총 데이터양에는 제한이 적용되지 않습니다.
 **자격 증명 모음에 대한 백업 횟수** | **Azure VM:** 하루 한 번.<br/><br/>**DPM/MABS로 보호된 머신:** 하루에 두 번.<br/><br/> **MARS 에이전트를 사용하여 직접 백업하는 머신:** 하루에 세 번.
 **자격 증명 모음 간 백업** | 백업은 한 지역 내에서 수행됩니다.<br/><br/> 백업할 VM이 포함된 각 Azure 지역에 자격 증명 모음이 있어야 합니다. 다른 지역으로 백업할 수 없습니다.
 **자격 증명 모음 이동** | 구독 간에 또는 동일한 구독의 리소스 그룹 간에 [자격 증명 모음을 이동](./backup-azure-move-recovery-services-vault.md)할 수 있습니다. 그러나 자격 증명 모음을 지역 간에 이동하는 것은 지원되지 않습니다.
@@ -79,13 +79,13 @@ Linux 머신을 백업하려는 경우 지원되는 사항은 다음과 같습�
 --- | ---
 **Linux를 실행하는 온-프레미스 머신 직접 백업** | 지원되지 않습니다. MARS 에이전트는 Windows 머신에만 설치할 수 있습니다.
 **에이전트 확장을 사용하여 Linux를 실행하는 Azure VM 백업** | [사용자 지정 스크립트](backup-azure-linux-app-consistent.md)를 사용하는 앱 일치 백업입니다.<br/><br/> 파일 수준 복구입니다.<br/><br/> 복구 지점 또는 디스크에서 VM을 만들어 복원합니다.
-**DPM을 사용하여 Linux를 실행하는 온-프레미스 머신 백업** | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업입니다.<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원입니다.
-**MABS를 사용하여 Linux를 실행하는 온-프레미스 머신 백업** | Hyper-V 및 VMWare에서 일관성 있는 Linux 게스트 VM 파일 백업입니다.<br/><br/> Hyper-V 및 VMWare Linux 게스트 VM의 VM 복원입니다.
+**DPM을 사용하여 Linux를 실행하는 온-프레미스 머신 백업** | Hyper-v 및 VMware에서 Linux 게스트 Vm의 파일 일치 백업<br/><br/> Hyper-v 및 VMware Linux 게스트 Vm의 VM 복원
+**MABS를 사용하여 Linux를 실행하는 온-프레미스 머신 백업** | Hyper-v 및 VMware에서 Linux 게스트 Vm의 파일 일치 백업<br/><br/> Hyper-v 및 VMware Linux 게스트 Vm의 VM 복원
 **MABS 또는 DPM을 사용하여 Linux Azure Vm 백업** | 지원되지 않습니다.
 
 ## <a name="daylight-saving-time-support"></a>일광 절약 시간 지원
 
-Azure Backup은 Azure VM 백업을 위한 일광 절약 시간에 대한 자동 시계 조정을 지원하지 않습니다. 또한 백업 시간을 앞이나 뒤로 이동하지 않습니다. 원하는 시간에 백업이 실행되도록 하려면 필요에 따라 백업 정책을 수동으로 수정합니다.
+Azure Backup은 Azure VM 백업을 위한 일광 절약 시간에 대한 자동 시계 조정을 지원하지 않습니다. 백업 시간을 앞 또는 뒤로 이동 하지 않습니다. 원하는 시간에 백업이 실행되도록 하려면 필요에 따라 백업 정책을 수동으로 수정합니다.
 
 ## <a name="disk-deduplication-support"></a>디스크 중복 제거 지원
 
@@ -113,10 +113,10 @@ Azure Backup은 전송 중 및 정지 상태의 데이터에 대한 암호화를
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-**온-프레미스 Windows 머신(DPM/MABS 사용 안 함)** | ![yes][green] | ![yes][green]
-**Azure VM** | ![yes][green] | ![예][green]
-**DPM을 사용하는 온-프레미스 Windows 머신 또는 Azure VM** | ![yes][green] | ![예][green]
-**MABS를 사용하는 온-프레미스 Windows 머신 또는 Azure VM** | ![yes][green] | ![예][green]
+**온-프레미스 Windows 머신(DPM/MABS 사용 안 함)** | ![예][green] | ![예][green]
+**Azure VM** | ![예][green] | ![예][green]
+**DPM을 사용하는 온-프레미스 Windows 머신 또는 Azure VM** | ![예][green] | ![예][green]
+**MABS를 사용하는 온-프레미스 Windows 머신 또는 Azure VM** | ![예][green] | ![예][green]
 
 ## <a name="compression-support"></a>압축 지원
 
@@ -135,7 +135,7 @@ Azure Backup은 전송 중 및 정지 상태의 데이터에 대한 암호화를
 
 **설정** | **제한**
 --- | ---
-**보호된 인스턴스(머신 또는 워크로드)당 최대 복구 지점 수** | 9,999
+**보호 된 인스턴스당 최대 복구 위치 (컴퓨터 또는 작업)** | 9,999
 **복구 지점에 대한 최대 만료 시간** | 제한 없음
 **DPM/MABS에 대한 최대 백업 빈도** | SQL Server에 대해 15분마다<br/><br/> 다른 워크로드의 경우 한 시간에 한 번
 **자격 증명 모음에 대한 최대 백업 빈도** | **MARS를 실행하는 온-프레미스 Windows 머신 또는 Azure VM:** 하루 세 번<br/><br/> **DPM/MABS:** 하루에 두 번<br/><br/> **Azure VM 백업:** 하루에 한 번
@@ -145,7 +145,7 @@ Azure Backup은 전송 중 및 정지 상태의 데이터에 대한 암호화를
 
 ## <a name="cross-region-restore"></a>지역 간 복원
 
-Azure Backup은 데이터 가용성 및 복원력 기능을 강화하도록 지역 간 복원 기능을 추가하여 고객에게 보조 지역으로 데이터를 복원할 수 있는 모든 권한을 제공합니다. 이 기능을 구성하려면 [지역 간 복원 설정 문서](backup-create-rs-vault.md#set-cross-region-restore)를 확인하세요. 이 기능은 다음과 같은 관리 형식에 대해 지원됩니다.
+Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하기 위해 지역 간 복원 기능을 추가 하 여 데이터를 보조 지역으로 복원할 수 있는 모든 권한을 제공 합니다. 이 기능을 구성하려면 [지역 간 복원 설정 문서](backup-create-rs-vault.md#set-cross-region-restore)를 확인하세요. 이 기능은 다음과 같은 관리 형식에 대해 지원됩니다.
 
 | 백업 관리 유형 | 지원됨                                                    | 지원되는 지역 |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |

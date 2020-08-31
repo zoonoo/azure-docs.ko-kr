@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 호스트 풀 부하 분산-Azure
 description: Windows 가상 데스크톱 환경에 대 한 호스트 풀 부하 분산 방법에 대해 알아봅니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 00870de007d590de33881809c57107997b531d8c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ee8cb5f2297851d2c2b2f34be3d90573fdcf2530
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285138"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007440"
 ---
 # <a name="host-pool-load-balancing-methods"></a>호스트 풀 부하 분산 메서드
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/host-pool-load-balancing-2019.md)를 참조하세요.
 
 Windows 가상 데스크톱은 두 가지 부하 분산 방법을 지원 합니다. 각 메서드는 호스트 풀의 리소스에 연결할 때 사용자 세션을 호스트할 세션 호스트를 결정 합니다.
 

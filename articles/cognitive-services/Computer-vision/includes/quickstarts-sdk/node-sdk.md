@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
-ms.openlocfilehash: dc01600d052752d4558e22fe5c5ca48fb84a8121
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 861e6528b52af39a56cc6b936eae0d68df2eecf5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405497"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87841889"
 ---
 <a name="HOLTop"></a>
 
@@ -140,7 +140,7 @@ Computer Vision Node.js SDK의 주요 기능 중 일부를 처리하는 클래�
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objects)]
 
-도우미 함수 `formatRectObjects`을 정의합니다.
+도우미 함수 `formatRectObjects`를 정의하여 너비 및 높이와 함께 위쪽, 왼쪽, 아래쪽 및 오른쪽 좌표를 반환합니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objectformat)]
 

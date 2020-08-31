@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 PowerShell-Azure
 description: Windows 가상 데스크톱 환경을 설정할 때 PowerShell을 사용 하 여 문제를 해결 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cd34fa2bc4c1083d4bd4dda7d118e0348a1a7fd0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288717"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002278"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md)를 참조하세요.
 
 Windows 가상 데스크톱과 함께 PowerShell을 사용 하는 경우 오류 및 문제를 해결 하려면이 문서를 사용 합니다. 원격 데스크톱 서비스 PowerShell에 대 한 자세한 내용은 [Windows 가상 데스크톱 PowerShell](/powershell/module/windowsvirtualdesktop/)을 참조 하세요.
 
@@ -33,10 +31,10 @@ Windows 가상 데스크톱과 함께 PowerShell을 사용 하는 경우 오류 
 ### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>오류: AzRoleAssignment: 제공 된 정보가 AD 개체 ID에 매핑되지 않습니다.
 
 ```powershell
-New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-**원인:** Windows 가상 데스크톱 환경에 연결 된 Azure Active Directory에서 *-SignInName* 매개 변수로 지정 된 사용자를 찾을 수 없습니다. 
+**원인:** Windows 가상 데스크톱 환경에 연결 된 Azure Active Directory에서 *-SignInName* 매개 변수로 지정 된 사용자를 찾을 수 없습니다.
 
 **해결 방법:** 다음 사항을 확인 합니다.
 
@@ -46,7 +44,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 ### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>오류: AzRoleAssignment: "개체 id의 클라이언트에 범위에 대 한 작업을 수행할 수 있는 권한이 없습니다 (코드: AuthorizationFailed)."
 
-**원인 1:** 사용 중인 계정에 구독에 대 한 소유자 권한이 없습니다. 
+**원인 1:** 사용 중인 계정에 구독에 대 한 소유자 권한이 없습니다.
 
 **수정 1:** 소유자 권한이 있는 사용자는 역할 할당을 실행 해야 합니다. 또는 사용자를 응용 프로그램 그룹에 할당 하려면 사용자 액세스 관리자 역할에 사용자를 할당 해야 합니다.
 
@@ -57,7 +55,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 ### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>오류: AzWvdHostPool--리소스 종류에 대 한 위치를 사용할 수 없습니다.
 
 ```powershell
-New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.
 ```
 
 원인: Windows 가상 데스크톱은 특정 위치에 서비스 메타 데이터를 저장할 호스트 풀, 응용 프로그램 그룹 및 작업 영역의 위치 선택을 지원 합니다. 옵션은이 기능을 사용할 수 있는 위치로 제한 됩니다. 이 오류는 선택한 위치에서 기능을 사용할 수 없음을 의미 합니다.

@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 01ea22af472877abe34236ec82a7750eccfcdfb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d89f0d08fec0b0f341094d422b1091de5a61055e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80884276"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115767"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
@@ -74,7 +74,7 @@ Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.
   * Office 365를 구독하거나 평가판을 시작하면 Office 365와 관련된 모든 기능을 전달하는 데 사용되는 다양한 서비스를 나타내는 디렉터리에 하나 이상의 서비스 주체가 만들어집니다.
   * SharePoint와 같은 일부 Office 365 서비스는 워크플로 등 구성 요소 간의 보안 통신을 허용하도록 지속적으로 서비스 주체를 만듭니다.
 * 관리자가 앱 갤러리에서 애플리케이션을 추가하는 경우(이때 기본 앱 개체도 만듦)
-* 애플리케이션을 추가하여 [Azure AD 애플리케이션 프록시](/azure/active-directory/manage-apps/application-proxy) 사용
+* 애플리케이션을 추가하여 [Azure AD 애플리케이션 프록시](../manage-apps/application-proxy.md) 사용
 * SAML 또는 암호 SSO(Single Sign-On)를 사용하여 Single-Sign-On용 애플리케이션 연결
 * Microsoft Graph API 또는 PowerShell을 통해 프로그래밍 방식으로
 
@@ -104,8 +104,8 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
   * 클레임 변환 규칙
   * 특성 매핑(사용자 프로비전)
 * 서비스 주체 및 응용 프로그램 개체에 대 한 자세한 내용은 Microsoft Graph API 참조 설명서를 참조 하세요.
-  * [애플리케이션](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
-  * [서비스 사용자](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [애플리케이션](/graph/api/resources/application?view=graph-rest-1.0)
+  * Service Principal
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>애플리케이션이 Azure AD와 통합되는 이유는 무엇일까요?
 

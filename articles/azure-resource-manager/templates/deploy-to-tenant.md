@@ -2,17 +2,17 @@
 title: 테넌트에 리소스 배포
 description: Azure Resource Manager 템플릿의 테넌트 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: a6523ff70dc7307713bb6aecf90e2ea9f8e2bfdd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/06/2020
+ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321754"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002762"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>테넌트 수준에서 리소스 만들기
 
-조직이 성숙되면 Azure AD 테넌트 전체에서 [정책](../../governance/policy/overview.md) 또는 [역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 정의하거나 할당해야 할 수 있습니다. 테넌트 수준 템플릿을 사용하면 선언적으로 정책을 적용하고 전역 수준에서 역할을 할당할 수 있습니다.
+조직이 완성 되 면 Azure AD 테 넌 트에서 [정책](../../governance/policy/overview.md) 또는 [azure RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 를 정의 하 고 할당 해야 할 수 있습니다. 테넌트 수준 템플릿을 사용하면 선언적으로 정책을 적용하고 전역 수준에서 역할을 할당할 수 있습니다.
 
 ## <a name="supported-resources"></a>지원되는 리소스
 
@@ -27,7 +27,6 @@ Azure 정책의 경우 다음을 사용 합니다.
 역할 기반 액세스 제어를 사용 하려면 다음을 사용 합니다.
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
 관리 그룹, 구독 또는 리소스 그룹에 배포 하는 중첩 된 템플릿의 경우 다음을 사용 합니다.
 
@@ -252,5 +251,5 @@ REST API의 경우 [배포 - 테넌트 범위에서 만들기 또는 업데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 역할 할당에 관해 알아보려면 [RBAC 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-template.md)를 참조하세요.
+* 역할 할당에 대해 알아보려면 [Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당 추가](../../role-based-access-control/role-assignments-template.md)를 참조 하세요.
 * [구독 수준](deploy-to-subscription.md) 또는 [관리 그룹 수준](deploy-to-management-group.md)에서 템플릿을 배포할 수도 있습니다.

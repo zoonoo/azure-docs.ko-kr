@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1adff446e6d41e30db109d0871811dc651f1f4f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b16ee98b44e52482423229a0940c8927a94d4c83
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026260"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118674"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>사용자가 로그인 하는 웹 앱: 앱 등록
 
@@ -41,7 +41,7 @@ ms.locfileid: "87026260"
 > 사용할 포털은 응용 프로그램이 Microsoft Azure 공용 클라우드 또는 국가 또는 소 버린 클라우드에서 실행 되는지에 따라 달라 집니다. 자세한 내용은 [국가별 클라우드](./authentication-national-cloud.md#app-registration-endpoints)를 참조 하세요.
 
 
-1. [Azure Portal](https://portal.azure.com)에 회사나 학교 계정 또는 개인 Microsoft 계정으로 로그인합니다. 또는 국가별 클라우드의 [선택 Azure Portal](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#app-registration-endpoints) 에 로그인 합니다.
+1. [Azure Portal](https://portal.azure.com)에 회사나 학교 계정 또는 개인 Microsoft 계정으로 로그인합니다. 또는 국가별 클라우드의 [선택 Azure Portal](./authentication-national-cloud.md#app-registration-endpoints) 에 로그인 합니다.
 2. 계정이 둘 이상의 테 넌 트에 대 한 액세스를 제공 하는 경우 오른쪽 위 모서리에서 계정을 선택 합니다. 그런 다음 포털 세션을 원하는 Azure Active Directory (Azure AD) 테 넌 트로 설정 합니다.
 3. 왼쪽 창에서 **Azure Active Directory** 서비스를 선택 하 고 **앱 등록**  >  **새 등록**을 선택 합니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "87026260"
 > - MyOrg (이 조직 디렉터리의 계정에만 해당)
 > - AnyOrg (모든 조직 디렉터리의 계정)
 >
-> 개인 Microsoft 계정 (예: Skype, Xbox 또는 Outlook.com)을 사용 하 여 사용자를 로그인 하는 응용 프로그램을 만들 수 있습니다. 먼저 다중 테 넌 트 응용 프로그램을 만듭니다. 지원 되는 계정 유형은 모든 조직 디렉터리의 계정입니다. 그런 다음 Azure Portal의 [`accessTokenAcceptedVersion`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#accesstokenacceptedversion-attribute) **2** [`signInAudience`](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#signinaudience-attribute) `AzureADandPersonalMicrosoftAccount` [응용 프로그램 매니페스트에서](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) 속성을 2로 변경 하 고 속성을로 변경 합니다. 자세한 내용은 ASP.NET Core 자습서에서 [1.3 단계](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) 를 참조 하세요. 모든 언어로 된 웹 앱에이 단계를 일반화할 수 있습니다.
+> 개인 Microsoft 계정 (예: Skype, Xbox 또는 Outlook.com)을 사용 하 여 사용자를 로그인 하는 응용 프로그램을 만들 수 있습니다. 먼저 다중 테 넌 트 응용 프로그램을 만듭니다. 지원 되는 계정 유형은 모든 조직 디렉터리의 계정입니다. 그런 다음 Azure Portal의 [`accessTokenAcceptedVersion`](./reference-app-manifest.md#accesstokenacceptedversion-attribute) **2** [`signInAudience`](./reference-app-manifest.md#signinaudience-attribute) `AzureADandPersonalMicrosoftAccount` [응용 프로그램 매니페스트에서](./reference-app-manifest.md) 속성을 2로 변경 하 고 속성을로 변경 합니다. 자세한 내용은 ASP.NET Core 자습서에서 [1.3 단계](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) 를 참조 하세요. 모든 언어로 된 웹 앱에이 단계를 일반화할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

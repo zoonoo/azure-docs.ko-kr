@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a2acb08971bc0878c943047c42c9dc2a9525794
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058629"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141434"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에 앱 역할 추가 및 토큰으로 수신
 
@@ -30,7 +30,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 
 ## <a name="declare-roles-for-an-application"></a>애플리케이션에 대한 역할 선언
 
-이러한 애플리케이션 역할은 애플리케이션의 등록 매니페스트의 [Azure Portal](https://portal.azure.com)에서 정의됩니다.  사용자가 애플리케이션에 로그인하면 Azure AD는 사용자가 사용자에게 개별적으로 부여한 역할 및 자신의 그룹 멤버 자격에서 부여한 각각의 역할에 대해 `roles` 클레임을 발행합니다.  역할에 사용자 및 그룹을 할당하는 작업은 포털의 UI를 통해 수행하거나 [Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview)를 사용하여 프로그래밍 방식으로 수행할 수 있습니다.
+이러한 애플리케이션 역할은 애플리케이션의 등록 매니페스트의 [Azure Portal](https://portal.azure.com)에서 정의됩니다.  사용자가 애플리케이션에 로그인하면 Azure AD는 사용자가 사용자에게 개별적으로 부여한 역할 및 자신의 그룹 멤버 자격에서 부여한 각각의 역할에 대해 `roles` 클레임을 발행합니다.  역할에 사용자 및 그룹을 할당하는 작업은 포털의 UI를 통해 수행하거나 [Microsoft Graph](/graph/azuread-identity-access-management-concept-overview)를 사용하여 프로그래밍 방식으로 수행할 수 있습니다.
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Azure Portal을 사용하여 앱 역할 선언
 
@@ -74,7 +74,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 ```
 
 > [!NOTE]
->`displayName`에는 공백을 포함할 수 없습니다.
+>에는 `displayName` 공백이 포함 될 수 있습니다.
 
 앱 역할은 `users`, `applications` 또는 둘 다를 대상으로 정의할 수 있습니다. 에서 사용할 수 있는 경우 `applications` 앱 역할은 api 권한 > **관리** 섹션에서 응용 프로그램 권한으로 표시 **> Api > 사용 권한 추가 > api > 응용 프로그램 사용 권한을 선택**합니다. 다음 예제는 `Application`을 대상으로 하는 앱 역할을 보여줍니다.
 
@@ -95,7 +95,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 "availableToOtherTenants": false,
 ```
 
-정의된 역할 수는 애플리케이션 매니페스트에 포함된 제한에 영향을 줍니다. 이 내용은 [매니페스트 제한](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) 페이지에서 자세히 설명합니다.
+정의된 역할 수는 애플리케이션 매니페스트에 포함된 제한에 영향을 줍니다. 이 내용은 [매니페스트 제한](./reference-app-manifest.md#manifest-limits) 페이지에서 자세히 설명합니다.
 
 ### <a name="assign-users-and-groups-to-roles"></a>역할에 사용자 및 그룹 할당
 
@@ -128,6 +128,6 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 - [ASP.NET Core 웹앱에 앱 역할 및 역할 클레임을 사용하는 권한 부여 추가](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Microsoft id 플랫폼을 사용 하 여 응용 프로그램에서 권한 부여 구현 (비디오)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory에 그룹 클레임 및 애플리케이션 역할 포함](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Azure Active Directory 앱 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Azure Active Directory 앱 매니페스트](./reference-app-manifest.md)
 - [AAD 액세스 토큰](access-tokens.md)
 - [AAD `id_tokens`](id-tokens.md)

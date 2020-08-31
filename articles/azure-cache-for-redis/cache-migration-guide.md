@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 554724c334cb6c51b8744de0eedd4d6815d707b5
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 2a95aa9e9fccdb7047c2c0901f4349fecfbab672
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172610"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009582"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Azure Cache for Redis로 마이그레이션
 이 문서에서는 온-프레미스 또는 다른 클라우드 서비스에서 실행 되는 기존 Redis cache를 Redis 용 Azure Cache로 마이그레이션하는 다양 한 방법을 설명 합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "87172610"
 
 ### <a name="export-data-to-an-rdb-file-and-import-it-into-azure-cache-for-redis"></a>데이터를 RDB 파일로 내보내고 Redis 용 Azure Cache로 가져오기
 
-오픈 소스 Redis는 캐시의 메모리 내 데이터 집합에 대 한 스냅숏을 만들고이를 파일에 저장 하는 표준 메커니즘을 정의 합니다. RDB 라는이 파일은 다른 Redis cache에서 읽을 수 있습니다. [Redis premium 계층 용 Azure cache](cache-premium-tier-intro.md) 는 RDB 파일을 통해 캐시 인스턴스로 데이터를 가져오는 것을 지원 합니다. RDB 파일을 사용 하 여 기존 캐시에서 Redis 용 Azure 캐시로 데이터를 전송할 수 있습니다.
+오픈 소스 Redis는 캐시의 메모리 내 데이터 집합에 대 한 스냅숏을 만들고이를 파일에 저장 하는 표준 메커니즘을 정의 합니다. RDB 라는이 파일은 다른 Redis cache에서 읽을 수 있습니다. [Redis premium 계층 용 Azure cache](cache-overview.md#service-tiers) 는 RDB 파일을 통해 캐시 인스턴스로 데이터를 가져오는 것을 지원 합니다. RDB 파일을 사용 하 여 기존 캐시에서 Redis 용 Azure 캐시로 데이터를 전송할 수 있습니다.
 
 > [!IMPORTANT]
 > RDB 파일 형식은 Redis 버전 간에 변경 될 수 있으며 이전 버전과의 호환성을 유지 하지 않을 수 있습니다. 내보내는 캐시의 Redis 버전은 Redis 용 Azure Cache에서 제공 되는 버전과 같거나 작아야 합니다.
@@ -114,5 +114,5 @@ ms.locfileid: "87172610"
 ## <a name="next-steps"></a>다음 단계
 Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
-* [Azure Cache for Redis 프리미엄 계층 소개](cache-premium-tier-intro.md)
+* [Redis 서비스 계층에 대 한 Azure 캐시](cache-overview.md#service-tiers)
 * [데이터 가져오기](cache-how-to-import-export-data.md#import)

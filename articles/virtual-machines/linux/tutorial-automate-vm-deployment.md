@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: d2a6568b0d62c880a688160cf981fb33083ae02e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: f1d439569f15d7680d54b35e7ec1c52ca7843af7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81461483"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828968"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>자습서 - cloud-init를 사용하여 첫 번째 부팅 시 Azure에서 Linux 가상 머신을 사용자 지정하는 방법
 
@@ -57,7 +57,7 @@ cloud-init의 실제 동작을 확인하려면 NGINX를 설치하고 간단한 '
 
 bash 프롬프트 또는 Cloud Shell에서 *cloud-init.txt*라는 파일을 만들고 다음 구성을 붙여넣습니다. 예를 들어 `sensible-editor cloud-init.txt`를 입력하여 파일을 만들고 사용 가능한 편집기의 목록을 봅니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.
 
-```bash
+```yaml
 #cloud-config
 package_upgrade: true
 packages:
@@ -129,7 +129,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAuto
 ```
 
 ## <a name="test-web-app"></a>Web App 테스트
-이제 웹 브라우저를 열고 주소 표시줄에 *http:\/\/\<publicIpAddress>* 를 입력합니다. VM 만들기 프로세스에서 사용자 고유의 공용 IP 주소를 제공합니다. Node.js 앱은 다음 예제와 같이 표시됩니다.
+이제 웹 브라우저를 열고 주소 표시줄에 *http:\/\/\<publicIpAddress>* 을 입력할 수 있습니다. VM 만들기 프로세스에서 사용자 고유의 공용 IP 주소를 제공합니다. Node.js 앱은 다음 예제와 같이 표시됩니다.
 
 ![실행 중인 NGINX 사이트 보기](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -260,7 +260,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>보안 Web App 테스트
-이제 웹 브라우저를 열고 주소 표시줄에 *https:\/\/\<publicIpAddress>* 를 입력합니다. 이전의 VM 생성 프로세스 출력에 표시된 대로 공용 IP 주소를 제공합니다. 자체 서명된 인증서를 사용하는 경우 보안 경고를 허용합니다.
+이제 웹 브라우저를 열고 주소 표시줄에 *https:\/\/\<publicIpAddress>* 를 입력할 수 있습니다. 이전의 VM 생성 프로세스 출력에 표시된 대로 공용 IP 주소를 제공합니다. 자체 서명된 인증서를 사용하는 경우 보안 경고를 허용합니다.
 
 ![웹 브라우저 보안 경고 허용](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

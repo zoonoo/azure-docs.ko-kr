@@ -13,12 +13,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: df0caf3ae029353742b4b1060ca5241ac9cbb5bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477807"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116974"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Chrome 브라우저에서 SameSite 쿠키 변경 내용 처리
 
@@ -51,7 +51,7 @@ ms.locfileid: "85477807"
 
 아래 표에서는 ASP.NET 및 ASP.NET Core 샘플에서 SameSite 변경 사항을 해결 한 끌어오기 요청을 보여 줍니다.
 
-| 예제 | 끌어오기 요청 |
+| 샘플 | 끌어오기 요청 |
 | ------ | ------------ |
 |  [ASP.NET Core 웹 앱 증분 자습서](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)  |  [동일한 사이트 쿠키 수정 #261](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/pull/261)  |
 |  [ASP.NET MVC 웹 앱 샘플](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)  |  [동일한 사이트 쿠키 수정 #35](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/pull/35)  |
@@ -59,20 +59,20 @@ ms.locfileid: "85477807"
 
 ASP.NET 및 ASP.NET Core에서 SameSite 쿠키를 처리 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [ASP.NET Core에서 SameSite 쿠키를 사용](https://docs.microsoft.com/aspnet/core/security/samesite) 합니다.
+- [ASP.NET Core에서 SameSite 쿠키를 사용](/aspnet/core/security/samesite) 합니다.
 - [SameSite 문제에 대 한 ASP.NET 블로그](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 
 # <a name="python"></a>[Python](#tab/python)
 
-| 예제 |
+| 샘플 |
 | ------ |
 |  [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp)  |
 
 # <a name="java"></a>[Java](#tab/java)
 
-| 예제 | 끌어오기 요청 |
+| 샘플 | 끌어오기 요청 |
 | ------ | ------------ |
-|  [webapp--id](https://github.com/Azure-Samples/ms-identity-java-webapp)  | [동일한 사이트 쿠키 수정 #24](https://github.com/Azure-Samples/ms-identity-java-webapp/pull/24)
+|  [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp)  | [동일한 사이트 쿠키 수정 #24](https://github.com/Azure-Samples/ms-identity-java-webapp/pull/24)
 |  [webapi--id](https://github.com/Azure-Samples/ms-identity-java-webapi)  | [동일한 사이트 쿠키 수정 #4](https://github.com/Azure-Samples/ms-identity-java-webapi/pull/4)
 
 ---

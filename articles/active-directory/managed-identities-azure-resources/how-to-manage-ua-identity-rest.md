@@ -3,7 +3,7 @@ title: REST를 사용 하 여 사용자 할당 관리 id 관리-Azure AD
 description: 사용자 할당 관리 id를 만들고, 나열 하 고, 삭제 하 여 REST API 호출 하는 방법에 대 한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c342359b015085804b127ef8c58aca8a4b13dcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8da142b9ee97d45b5f798e1b7db31228613cd37f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608469"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014290"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>REST API 호출을 사용 하 여 사용자 할당 관리 id 만들기, 나열 또는 삭제
 
@@ -30,7 +30,7 @@ Azure 리소스에 대 한 관리 되는 id는 코드에서 자격 증명을 필
 
 이 문서에서는 CURL을 통해 REST API를 호출하여 사용자 할당 관리 ID 만들고 나열하고 삭제하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
@@ -60,14 +60,14 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **요청 헤더**
 
-|요청 헤더  |설명  |
+|요청 헤더  |Description  |
 |---------|---------|
 |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-|*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
+|*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
 
 **요청 본문**
 
-|이름  |설명  |
+|Name  |설명  |
 |---------|---------|
 |위치     | 필수 요소. 리소스 위치.        |
 
@@ -83,10 +83,10 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
 ```
 
-|요청 헤더  |설명  |
+|요청 헤더  |Description  |
 |---------|---------|
 |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-|*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
+|*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 삭제
 
@@ -103,10 +103,10 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ```HTTP
 DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
 ```
-|요청 헤더  |설명  |
+|요청 헤더  |Description  |
 |---------|---------|
 |*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
-|*권한 부여*     | 필수 요소. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
+|*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
 
 ## <a name="next-steps"></a>다음 단계
 

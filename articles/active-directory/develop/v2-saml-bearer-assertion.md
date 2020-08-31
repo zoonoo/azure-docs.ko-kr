@@ -2,7 +2,7 @@
 title: Microsoft ID 플랫폼 및 SAML 전달자 어설션 흐름 | Azure
 description: SAML 전달자 어설션 흐름을 사용하여 사용자에게 자격 증명을 묻는 메시지를 표시하지 않고 Microsoft Graph에서 데이터를 페치하는 방법을 알아봅니다.
 services: active-directory
-author: umeshbarapatre
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.custom: aaddev
-ms.openlocfilehash: 2d745ddcf7b1d5bd7976a0ca8461c13d8ae3c849
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 46f3ef775f3b17e0ebc93fc4145a5b8037b901e5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282384"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949357"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 SAML 전달자 어설션 흐름
 OAuth 2.0 SAML 전달자 어설션 흐름을 사용하면 클라이언트에서 기존 트러스트 관계를 사용해야 할 때 SAML 어설션을 사용하여 OAuth 액세스 토큰을 요청할 수 있습니다. SAML 어설션에 적용되는 서명은 권한 있는 앱의 인증을 제공합니다. SAML 어설션은 ID 공급자가 발급하고 서비스 공급자가 사용하는 XML 보안 토큰입니다. 서비스 공급자는 해당 콘텐츠를 사용하여 보안 관련 목적의 어설션 주체를 식별합니다.
@@ -37,7 +36,7 @@ Azure Active Directory에 페더레이션된 ADFS(Active Directory Federation Se
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-권한 부여 서버/환경(Microsoft 365)과 ID 공급자 또는 SAML 2.0 전달자 어설션의 발급자(ADFS) 간에 트러스트 관계를 설정합니다. Single Sign-On 및 ID 공급자에 대한 ADFS를 구성하려면 [이 문서](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/)를 참조할 수 있습니다.
+권한 부여 서버/환경(Microsoft 365)과 ID 공급자 또는 SAML 2.0 전달자 어설션의 발급자(ADFS) 간에 트러스트 관계를 설정합니다. Single Sign-On 및 ID 공급자에 대한 ADFS를 구성하려면 [이 문서](/archive/blogs/canitpro/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365)를 참조할 수 있습니다.
 
 [포털](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)에 애플리케이션을 등록합니다.
 1. [포털의 앱 등록 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)에 로그인합니다. Graph API용 v2.0 엔드포인트를 사용하고 있으므로 이 포털에서 애플리케이션을 등록해야 합니다. 그렇지 않은 경우 Azure Active Directory에서 등록을 사용할 수 있습니다. 

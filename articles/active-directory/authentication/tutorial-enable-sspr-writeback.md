@@ -11,12 +11,12 @@ author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 70a73cb1f855840831f2e1107baa94dfd54868a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f4687a98bfb58db8ed5e8a853fa0db2207f435e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518490"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419651"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>자습서: 온-프레미스 환경에 Azure Active Directory 셀프 서비스 암호 재설정 쓰기 저장 사용
 
@@ -40,7 +40,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
-* Azure AD Premium P1 평가판 이상의 라이선스를 사용하도록 설정되어 작동하는 Azure AD 테넌트.
+* Azure AD Premium P1 또는 평가판 이상의 라이선스를 사용하도록 설정되어 작동하는 Azure AD 테넌트.
     * 필요한 경우, [체험 계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * 자세한 내용은 [Azure AD SSPR에 대한 라이선스 요구 사항](concept-sspr-licensing.md)을 참조하세요.
 * *글로벌 관리자* 권한이 있는 계정
@@ -81,7 +81,7 @@ SSPR 쓰기 저장을 제대로 사용하려면 Azure AD Connect에 지정된 �
     * **lockoutTime 쓰기**
     * **pwdLastSet 쓰기**
 
-    [![](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png "Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect")](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
+    [ ![Active Directory 사용자 및 컴퓨터를 통해 Azure AD Connect에서 사용하는 계정에 대한 적절한 권한 설정](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png) ](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
 
 1. 준비가 되면 **적용/확인**을 선택하여 변경 내용을 적용하고, 열려 있는 대화 상자를 모두 종료합니다.
 

@@ -13,16 +13,17 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: d25c2e2603f36ff090d01f235a4c8e4a1ae12605
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: e50b4aa300c74ed5fff9a345f83d41fdda5a1054
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552852"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115869"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Microsoft id 플랫폼 (미리 보기)의 구성 가능한 토큰 수명
 
-Microsoft id 플랫폼에서 발급 한 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 애플리케이션 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다.
+Microsoft id 플랫폼에서 발급 한 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 애플리케이션 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다. 
+> 현재 관리 되는 Id 서비스 사용자에 대 한 토큰 수명 구성은 지원 하지 않습니다.
 
 > [!IMPORTANT]
 > 미리 보기 중에 고객의 의견을 확인 한 후 Azure AD 조건부 액세스에서 [인증 세션 관리 기능](https://go.microsoft.com/fwlink/?linkid=2083106) 을 구현 했습니다. 이 새로운 기능을 사용 하 여 로그인 빈도를 설정 하 여 새로 고침 토큰 수명을 구성할 수 있습니다. 5 월 30 2020 일 이후에는 새 테 넌 트가 구성 가능한 토큰 수명 정책을 사용 하 여 세션 및 새로 고침 토큰을 구성할 수 없습니다. 이후 몇 개월 이내에 사용 중단이 발생 합니다. 즉, 기존 세션을 중단 하 고 토큰 정책을 새로 고치는 것이 중지 됩니다. 사용 중단 후에도 액세스 토큰 수명을 구성할 수 있습니다.
@@ -208,7 +209,7 @@ Microsoft id 플랫폼은 영구 및 비영구의 두 가지 SSO 세션 토큰�
 * web API를 호출하는 네이티브 앱에 대한 정책 만들기
 * 고급 정책 관리
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 다음 예제에서는 앱, 서비스 주체 및 조직 전체에 대한 정책을 만들고, 업데이트하고, 연결하고, 삭제해 보겠습니다. Azure AD를 처음 사용 하는 경우 이러한 예제를 진행 하기 전에 [AZURE ad 테 넌 트를 가져오는 방법](quickstart-create-new-tenant.md) 에 대해 알아보는 것이 좋습니다.  
 
 시작하려면 다음 단계를 수행합니다.
@@ -550,4 +551,4 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 
 이 기능을 사용하려면 Azure AD Premium P1 라이선스가 필요합니다. 요구 사항에 맞는 적절 한 라이선스를 찾으려면 [무료 및 프리미엄 버전의 일반 공급 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요.
 
-[Microsoft 365 Business 라이선스](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)가 있는 고객은 조건부 액세스 기능에도 액세스할 수 있습니다.
+[Microsoft 365 Business 라이선스](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)가 있는 고객은 조건부 액세스 기능에도 액세스할 수 있습니다.

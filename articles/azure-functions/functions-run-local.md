@@ -4,13 +4,13 @@ description: Azure Functions에서 실행하기 전에 로컬 머신의 명령 �
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp, 80e4ff38-5174-43
+ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449132"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929495"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -37,9 +37,9 @@ Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 되�
 
 + **버전**1.x: Azure Functions 런타임의 버전 1.X를 지원 합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://www.npmjs.com/package/azure-functions-core-tools)에서 설치됩니다.
 
-별도로 언급 하지 않는 한이 문서의 예는 버전 2.x에 대 한 것입니다.
+지정 된 컴퓨터에는 하나의 핵심 도구 버전만 설치할 수 있습니다. 별도로 언급 하지 않는 한이 문서의 예는 버전 2.x에 대 한 것입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Functions Core Tools 현재 Azure 계정으로 인증 하는 Azure CLI에 따라 달라 집니다. 즉, Azure Functions Core Tools에서 [Azure에 게시할](#publish) 수 있도록 [Azure CLI를 로컬로 설치](/cli/azure/install-azure-cli) 해야 합니다. 
 
@@ -165,6 +165,9 @@ Azure Functions Core Tools 현재 Azure 계정으로 인증 하는 Azure CLI에 
 func init MyFunctionProj
 ```
 
+>[!IMPORTANT]
+> Java는 Maven 원형를 사용 하 여 첫 번째 HTTP 트리거된 함수와 함께 로컬 함수 프로젝트를 만듭니다. 다음 명령을 사용 하 여 Java 프로젝트를 만듭니다 `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Maven 원형를 사용 하는 예제는 [명령줄 빠른](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java)시작을 참조 하세요.  
+
 프로젝트 이름을 제공하면 해당 이름을 사용한 새 폴더가 생성되고 초기화됩니다. 그렇지 않으면 현재 폴더는 초기화됩니다.  
 버전 3(sp3)/2.x에서 명령을 실행할 때 프로젝트에 대 한 런타임을 선택 해야 합니다. 
 
@@ -189,7 +192,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 </pre>
 
-`func init`는 다음과 같은 옵션을 지원 합니다 .이 옵션은 다른 설명이 없는 경우 버전 3(sp3)/x-only입니다.
+`func init` 는 다음과 같은 옵션을 지원 합니다 .이 옵션은 다른 설명이 없는 경우 버전 3(sp3)/x-only입니다.
 
 | 옵션     | Description                            |
 | ------------ | -------------------------------------- |
@@ -205,7 +208,23 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > 기본적으로 버전 2.x 이상 버전의 핵심 도구는 .NET 런타임에 대 한 함수 앱 프로젝트를 [c # 클래스 프로젝트](functions-dotnet-class-library.md) (.csproj)로 만듭니다. 이러한 C# 프로젝트는 Visual Studio 또는 Visual Studio Code에서 사용할 수 있으며, 테스트 중에/Azure에 게시할 때 컴파일됩니다. 버전 1.x 및 포털에서 생성되는 것과 동일한 C# 스크립트(.csx) 파일을 만들고 작업하려는 경우, 함수를 만들고 배포할 때 `--csx` 매개 변수를 포함해야 합니다.
 
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+## <a name="register-extensions"></a>확장 등록
+
+HTTP 및 타이머 트리거를 제외 하 고 런타임 버전 2.x 이상에서 함수 바인딩은 확장 패키지로 구현 됩니다. HTTP 바인딩 및 타이머 트리거에는 확장이 필요 하지 않습니다. 
+
+다양 한 확장 패키지 간의 비 호환성을 줄이기 위해 함수를 사용 하 여 프로젝트 파일의 host.js확장 번들을 참조할 수 있습니다. 확장 번들을 사용 하지 않도록 선택 하는 경우 .NET Core 2.x SDK를 로컬에 설치 하 고 함수 프로젝트를 사용 하 여 확장명 .csproj를 유지 해야 합니다.  
+
+버전 2.x 및 Azure Functions 런타임 이외에 함수에 사용 되는 바인딩 형식에 대 한 확장을 명시적으로 등록 해야 합니다. 바인딩 확장을 개별적으로 설치 하도록 선택 하거나 프로젝트 파일의 host.js에 확장 번들 참조를 추가할 수 있습니다. 확장 번들은 여러 바인딩 유형을 사용 하는 경우 패키지 호환성 문제가 발생할 가능성을 제거 합니다. 바인딩 확장을 등록 하는 데 권장 되는 방법입니다. 또한 확장 번들은 .NET Core 2.x SDK를 설치 하는 요구 사항을 제거 합니다. 
+
+### <a name="use-extension-bundles"></a>확장 번들 사용
+
+[!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
+
+자세히 알아보려면 [Azure Functions 바인딩 확장 등록](functions-bindings-register.md#extension-bundles)을 참조 하세요. 파일의 function.js에 바인딩을 추가 하기 전에 host.js에 확장 번들을 추가 해야 합니다.
+
+### <a name="explicitly-install-extensions"></a>명시적으로 확장 설치
+
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -238,20 +257,21 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
   ![Storage Explorer에서 연결 문자열 복사](./media/functions-run-local/storage-explorer.png)
 
-+ 다음 중 한 명령을 사용하여 Azure에서 연결 문자열을 다운로드하려면 핵심 도구를 사용합니다.
++ 프로젝트 루트의 핵심 도구를 사용 하 여 다음 명령 중 하나를 사용 하 여 Azure에서 연결 문자열을 다운로드 합니다.
 
   + 기존 함수 앱에서 모든 설정을 다운로드합니다.
 
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+
   + 특정 스토리지 계정에 대한 연결 문자열을 가져옵니다.
 
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    Azure에 아직 로그인 하지 않은 경우 로그인 하 라는 메시지가 표시 됩니다.
+    Azure에 아직 로그인 하지 않은 경우 로그인 하 라는 메시지가 표시 됩니다. 이러한 명령은 파일의 local.settings.js에 있는 모든 기존 설정을 덮어씁니다. 
 
 ## <a name="create-a-function"></a><a name="create-func"></a>함수 만들기
 
@@ -318,6 +338,14 @@ Functions 프로젝트를 실행하려면 Functions 호스트를 실행합니다
 ```
 func start --build
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
+```
+mvn clean package 
+mvn azure-functions:run
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/node)
 
 ```
@@ -489,6 +517,9 @@ Azure의 함수 앱에 로컬 코드를 게시하려면 `publish` 명령을 사�
 func azure functionapp publish <FunctionAppName>
 ```
 
+>[!IMPORTANT]
+> Java에서는 Maven를 사용 하 여 로컬 프로젝트를 Azure에 게시 합니다. 다음 명령을 사용 하 여 Azure에 게시 `mvn azure-functions:deploy` 합니다. Azure 리소스는 초기 배포 중에 생성 됩니다.
+
 이 명령은 Azure에서 기존 함수 앱에 게시합니다. 구독에 존재 하지 않는에 게시 하려고 하면 오류가 발생 `<FunctionAppName>` 합니다. Azure CLI를 사용하여 명령 프롬프트 또는 터미널 창에서 함수 앱을 만드는 방법을 알아보려면 [서버를 사용하지 않고 실행하기 위한 Function App 만들기](./scripts/functions-cli-create-serverless.md)를 참조하세요. 기본적으로이 명령은 [원격 빌드](functions-deployment-technologies.md#remote-build) 를 사용 하 고 [배포 패키지에서 실행](run-functions-from-deployment-package.md)되도록 앱을 배포 합니다. 권장 배포 모드를 사용 하지 않도록 설정 하려면 `--nozip` 옵션을 사용 합니다.
 
 >[!IMPORTANT]
@@ -512,7 +543,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--nozip`** | 기본 `Run-From-Package` 모드를 끕니다. |
 | **`--build-native-deps`** | Python 함수 앱을 게시할 때 생성 되는 원반 폴더를 건너뜁니다. |
 | **`--build`**, **`-b`** | Linux 함수 앱에 배포할 때 빌드 작업을 수행 합니다. 수락: `remote` 및 `local` . |
-| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예를 들면 `python3-dev libevent-dev`과 다음과 같습니다. |
+| **`--additional-packages`** | 네이티브 종속성을 빌드할 때 설치할 패키지 목록입니다. 예: `python3-dev libevent-dev` |
 | **`--force`** | 특정 시나리오에서 게시 전 확인을 무시합니다. |
 | **`--csx`** | C# 스크립트(.csx) 프로젝트를 게시합니다. |
 | **`--no-build`** | 게시 하는 동안 프로젝트가 빌드되지 않습니다. Python의 경우가 `pip install` 수행 되지 않습니다. |
@@ -569,5 +600,5 @@ Azure에서 함수 앱을 만들 때 Application Insights 통합을 사용 하�
 [Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
 [확장 번들]: functions-bindings-register.md#extension-bundles

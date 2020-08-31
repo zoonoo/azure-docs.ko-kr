@@ -11,13 +11,13 @@ ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: bc94c7be4e3979cf9aa7624a9aeadf156cc48035
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77185821"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166079"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Microsoft Authenticator를 사용 하는 iOS 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션
 
@@ -38,7 +38,7 @@ Azure Active Directory Authentication Library for .NET (ADAL.NET) 및 iOS broker
 
 - Single Sign-On
 - 장치 식별-일부 [조건부 액세스 정책](../conditional-access/overview.md)에 필요 합니다. 자세한 내용은 [장치 관리](../conditional-access/concept-conditional-access-conditions.md#device-platforms)를 참조 하세요.
-- 응용 프로그램 id 확인-일부 엔터프라이즈 시나리오에도 필요 합니다. 자세한 내용은 [INTUNE MAM (모바일 응용 프로그램 관리)](https://docs.microsoft.com/intune/mam-faq)을 참조 하세요.
+- 응용 프로그램 id 확인-일부 엔터프라이즈 시나리오에도 필요 합니다. 자세한 내용은 [INTUNE MAM (모바일 응용 프로그램 관리)](/intune/mam-faq)을 참조 하세요.
 
 ## <a name="migrate-from-adal-to-msal"></a>ADAL에서 MSAL으로 마이그레이션
 
@@ -224,14 +224,14 @@ ADAL.NET 및 MSAL.NET 모두 broker를 대상으로 하는 경우 리디렉션 U
 
 `"<app-scheme>://<your.bundle.id>"`
 
-예: 
+예제: 
 
 `mytestiosapp://com.mycompany.myapp`
 </td><td>
 
 `$"msauth.{BundleId}://auth"`
 
-예:
+예제:
 
 `public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; `
 
@@ -241,4 +241,4 @@ ADAL.NET 및 MSAL.NET 모두 broker를 대상으로 하는 경우 리디렉션 U
 
 ## <a name="next-steps"></a>다음 단계
 
-[MSAL.NET를 사용 하 여 Xamarin iOS 관련 고려 사항](msal-net-xamarin-ios-considerations.md)에 대해 알아봅니다. 
+[MSAL.NET를 사용 하 여 Xamarin iOS 관련 고려 사항](msal-net-xamarin-ios-considerations.md)에 대해 알아봅니다.

@@ -4,15 +4,15 @@ description: Azure 파일 공유의 알려진 성능 문제를 해결 합니다.
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 04/25/2019
+ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 1c0d7e5c7c021f8cdad8980bd7659d819b85f899
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905017"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782373"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files 성능 문제 해결
 
@@ -20,9 +20,9 @@ ms.locfileid: "87905017"
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>대기 시간이 짧고 처리량이 높고 일반 성능 문제가 발생 합니다.
 
-### <a name="cause-1-share-experiencing-throttling"></a>원인 1: 제한 발생 공유
+### <a name="cause-1-share-was-throttled"></a>원인 1: 공유가 제한 됨
 
-프리미엄 공유의 기본 할당량은 100 GiB, 100 기준선 IOPS를 제공 합니다 (한 시간 동안 300까지 증가 시킬 수 있음). 프로 비전 및 IOPS와의 관계에 대 한 자세한 내용은 계획 가이드의 [프로 비전 된 공유](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) 섹션을 참조 하십시오.
+파일 공유에 대 한 IOPS, 수신 또는 송신 제한에 도달 하면 요청이 제한 됩니다. 표준 및 프리미엄 파일 공유에 대 한 한도를 이해 하려면 [파일 공유 및 파일 배율 목표](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets)를 참조 하세요.
 
 공유를 제한 하 고 있는지 확인 하려면 포털에서 Azure 메트릭을 활용할 수 있습니다.
 
@@ -45,9 +45,10 @@ ms.locfileid: "87905017"
 > [!NOTE]
 > 파일 공유를 제한 하는 경우 경고를 수신 하려면 [파일 공유를 제한 하는 경우 경고를 만드는 방법](#how-to-create-an-alert-if-a-file-share-is-throttled)을 참조 하세요.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
-- 공유에서 더 높은 할당량을 지정 하 여 공유 프로 비전 된 용량을 늘립니다.
+- 표준 파일 공유를 사용 하는 경우 저장소 계정에서 [대량 파일 공유](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) 를 사용 하도록 설정 합니다. 대량 파일 공유는 공유 당 최대 1만 IOPS를 지원 합니다.
+- 프리미엄 파일 공유를 사용 하는 경우 프로 비전 된 파일 공유 크기를 늘려 IOPS 제한을 늘립니다. 자세한 내용은 Azure Files 계획 가이드의 [premium 파일 공유에 대 한 프로 비전 이해](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares) 섹션을 참조 하십시오.
 
 ### <a name="cause-2-metadatanamespace-heavy-workload"></a>원인 2: 메타 데이터/네임 스페이스 작업량이 많은 작업
 
@@ -66,7 +67,7 @@ ms.locfileid: "87905017"
 
 고객이 사용 하는 응용 프로그램이 단일 스레드 인 경우 프로 비전 된 공유 크기에 따라 허용 되는 최대 크기 보다 훨씬 낮은 IOPS/처리량이 발생할 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 - 스레드 수를 늘려 응용 프로그램 병렬 처리를 늘립니다.
 - 병렬 처리를 사용할 수 있는 응용 프로그램으로 전환 합니다. 예를 들어 복사 작업의 경우 고객은 Windows 클라이언트의 AzCopy 또는 RoboCopy를 사용 하거나 Linux 클라이언트에서 **parallel** 명령을 사용할 수 있습니다.
@@ -77,7 +78,7 @@ ms.locfileid: "87905017"
 
 클라이언트 VM은 파일 공유와 다른 지역에 있을 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 - 파일 공유와 동일한 지역에 있는 VM에서 응용 프로그램을 실행 합니다.
 
@@ -174,35 +175,35 @@ IO를 많이 사용 하는 작업에 대 한 Azure Files 액세스 하는 데 �
 
 ## <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>파일 공유를 제한 하는 경우 경고를 만드는 방법
 
-1. [Azure Portal](https://portal.azure.com)에서 **모니터**를 클릭 합니다. 
-
-2. **경고** 를 클릭 한 다음 **+ 새 경고 규칙**을 클릭 합니다.
-
-3. **선택** 을 클릭 하 여 경고 하려는 파일 공유가 포함 된 **저장소 계정/파일** 리소스를 선택한 다음 **완료**를 클릭 합니다. 예를 들어 저장소 계정 이름이 contoso 인 경우 contoso/file 리소스를 선택 합니다.
-
-4. **추가** 를 클릭 하 여 조건을 추가 합니다.
-
+1. **Azure Portal**의 **저장소 계정** 으로 이동 합니다.
+2. 모니터링 섹션에서 **경고** 를 클릭 한 다음 **+ 새 경고 규칙**을 클릭 합니다.
+3. **리소스 편집**을 클릭 하 고 저장소 계정에 대 한 **파일 리소스 유형을** 선택한 다음 **완료**를 클릭 합니다. 예를 들어 저장소 계정 이름이 contoso 인 경우 contoso/file 리소스를 선택 합니다.
+4. 조건 **선택** 을 클릭 하 여 조건을 추가 합니다.
 5. 저장소 계정에 대해 지원 되는 신호 목록이 표시 되 면 **트랜잭션** 메트릭을 선택 합니다.
-
-6. **신호 논리 구성** 블레이드에서 **응답 유형** 차원으로 이동 하 여 **차원 값** 드롭다운을 클릭 하 고 **SUCCESSWITHTHROTTLING** (SMB) 또는 **ClientThrottlingError** (REST)를 선택 합니다. 
-
-  > [!NOTE]
-  > SuccessWithThrottling 또는 ClientThrottlingError 차원 값이 나열 되지 않은 경우 리소스가 제한 되지 않았음을 의미 합니다.  차원 값을 추가 하려면 **+** **차원 값** 드롭다운 옆에 있는를 클릭 하 고 **SuccessWithThrottling** 또는 **ClientThrottlingError**를 입력 한 다음 **확인** 을 클릭 하 고 #6 단계를 반복 합니다.
-
-7. **파일 공유** 차원으로 이동 하 여 **차원 값** 드롭다운을 클릭 하 고 경고를 표시 하려는 파일 공유를 선택 합니다. 
+6. **신호 논리 구성** 블레이드에서 **차원 이름** 드롭다운을 클릭 하 고 **응답 유형**을 선택 합니다.
+7. **차원 값** 드롭다운을 클릭 하 고 **SuccessWithThrottling** (SMB의 경우) 또는 **ClientThrottlingError** (REST의 경우)를 선택 합니다.
 
   > [!NOTE]
-  > 파일 공유가 표준 파일 공유 인 경우 표준 파일 공유에 대 한 공유 메트릭을 사용할 수 없으므로 차원 값 드롭다운이 비어 있습니다. 저장소 계정 내에서 파일 공유를 제한 하 고 경고에서 제한 된 파일 공유를 식별 하지 않으면 표준 파일 공유에 대 한 제한 경고가 트리거됩니다. 표준 파일 공유에는 공유 별 메트릭을 사용할 수 없으므로 저장소 계정 마다 하나의 파일 공유를 사용 하는 것이 좋습니다. 
+  > SuccessWithThrottling 또는 ClientThrottlingError 차원 값이 나열 되지 않은 경우 리소스가 제한 되지 않았음을 의미 합니다. 차원 값을 추가 하려면 **차원** 값 드롭다운 옆에 있는 **사용자 지정 값 추가** 를 클릭 하 고 **SuccessWithThrottling** 또는 **ClientThrottlingError**를 입력 한 다음 **확인** 을 클릭 하 고 #7 단계를 반복 합니다.
 
-8. 메트릭 경고 규칙을 평가 하는 데 사용 되는 **경고 매개 변수** (임계값, 연산자, 집계 세분성 및 빈도)를 정의 하 고 **완료**를 클릭 합니다.
+8. **차원 이름** 드롭다운을 클릭 하 고 **파일 공유**를 선택 합니다.
+9. **차원 값** 드롭다운을 클릭 하 고 경고를 표시 하려는 파일 공유를 선택 합니다.
+
+  > [!NOTE]
+  > 파일 공유가 표준 파일 공유 인 경우 **모든 현재 및 미래 값**을 선택 합니다. 표준 파일 공유에는 공유 별 메트릭을 사용할 수 없으므로 차원 값 드롭다운에는 파일 공유가 나열 되지 않습니다. 저장소 계정 내에서 파일 공유를 제한 하 고 경고에서 제한 된 파일 공유를 식별 하지 않으면 표준 파일 공유에 대 한 제한 경고가 트리거됩니다. 표준 파일 공유에는 공유 별 메트릭을 사용할 수 없으므로 저장소 계정 마다 하나의 파일 공유를 사용 하는 것이 좋습니다.
+
+10. **경고 매개 변수** (임계값, 연산자, 집계 세분성 및 평가 빈도)를 정의 하 고 **완료**를 클릭 합니다.
 
   > [!TIP]
   > 정적 임계값을 사용 하는 경우 메트릭 차트는 파일 공유가 현재 제한 되는 경우 적절 한 임계값을 결정 하는 데 도움이 될 수 있습니다. 동적 임계값을 사용 하는 경우 메트릭 차트에는 최근 데이터를 기반으로 계산 된 임계값이 표시 됩니다.
 
-9. 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 **작업 그룹** (메일, SMS 등)을 추가 합니다.
-
-10. 경고 **규칙 이름**, **설명** 및 **심각도**와 같은 **경고 정보** 를 입력 합니다.
-
-11. 경고 **규칙 만들기** 를 클릭 하 여 경고를 만듭니다.
+11. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 **작업 그룹** (전자 메일, SMS 등)을 추가 합니다.
+12. 경고 **규칙 이름**, **설명** 및 **심각도**와 같은 **경고 정보** 를 입력 합니다.
+13. 경고 **규칙 만들기** 를 클릭 하 여 경고를 만듭니다.
 
 Azure Monitor에서 경고를 구성 하는 방법에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)를 참조 하세요.
+
+## <a name="see-also"></a>참고 항목
+* [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)
+* [Linux에서 Azure Files 문제 해결](storage-troubleshoot-linux-file-connection-problems.md)
+* [Azure Files에 대한 FAQ(질문과 대답)](storage-files-faq.md)

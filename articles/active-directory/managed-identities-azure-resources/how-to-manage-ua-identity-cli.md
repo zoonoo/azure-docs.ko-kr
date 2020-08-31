@@ -3,7 +3,7 @@ title: 사용자 할당 관리 id 관리-Azure CLI-Azure AD
 description: Azure CLI를 사용 하 여 사용자 할당 관리 id를 만들고, 나열 하 고, 삭제 하는 방법에 대 한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/17/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 68674217b26981acb67fdb080e3aeb57ae8f5be9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 79ced126cb209759502e2960bf401349f811ca32
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495933"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014339"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Azure CLI를 사용하여 사용자 할당 관리 ID 생성, 나열 또는 삭제
 
@@ -30,7 +30,7 @@ Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id�
 
 이 문서에서는 Azure CLI를 사용 하 여 사용자 할당 관리 id를 만들고, 나열 하 고, 삭제 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.

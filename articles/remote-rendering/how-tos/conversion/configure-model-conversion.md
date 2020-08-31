@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432014"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067174"
 ---
 # <a name="configure-the-model-conversion"></a>모델 변환 구성
 
@@ -49,6 +49,12 @@ ms.locfileid: "87432014"
             },
             "minItems": 3,
             "maxItems": 3
+        },
+        "metadataKeys": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     },
     "additionalProperties" : false
@@ -130,6 +136,12 @@ ms.locfileid: "87432014"
 ### <a name="coordinate-system-overriding"></a>좌표계 재정의
 
 * `axis` - 좌표계 단위 벡터를 재정의합니다. 기본값은 `["+x", "+y", "+z"]`입니다. 이론적으로 FBX 형식에는 해당 벡터가 정의된 헤더가 있으며 변환에서는 해당 정보를 사용하여 장면을 변환합니다. 또한 glTF 형식은 고정 좌표계도 정의합니다. 실제로 일부 자산은 헤더에 잘못된 정보가 있거나 다른 좌표계 규칙을 사용하여 저장되었습니다. 이 옵션을 사용하면 좌표계를 재정의하여 보정할 수 있습니다. 예를 들어 `"axis" : ["+x", "+z", "-y"]`는 Z축과 Y축을 바꾸고 Y축 방향을 반전시켜 좌표계의 선호 손방향을 그대로 유지합니다.
+
+### <a name="node-meta-data"></a>노드 메타 데이터
+
+* `metadataKeys`-변환 결과에 유지 하려는 노드 메타 데이터 속성의 키를 지정할 수 있습니다. 정확한 키 또는 와일드 카드 키를 지정할 수 있습니다. 와일드 카드 키는 "ABC *" 형식이 며 "ABC"로 시작 하는 모든 키와 일치 합니다. 지원 되는 메타 데이터 값 형식은 `bool` ,, `int` `float` 및 `string` 입니다.
+
+    글 글 TF 파일의 경우이 데이터는 [노드의 스페셜 개체](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras)에서 제공 됩니다. FBX 파일의 경우이 데이터는 `Properties70` 의 데이터에서 제공 `Model nodes` 됩니다. 자세한 내용은 3D 자산 도구의 설명서를 참조 하세요.
 
 ### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::형식과
 

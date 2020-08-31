@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 09d039801107a44df4f3bf3745a1e074e6d708b8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2da31944a58fb3e5834938b7de32348f30ed7e25
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76760967"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439809"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C IoT Edge 모듈 개발
 
@@ -89,7 +89,7 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
    | ----- | ----- |
    | 템플릿 선택 | **C 모듈**을 선택합니다. |
    | 모듈 프로젝트 이름 | 모듈 이름을 **CModule**로 지정합니다. |
-   | Docker 이미지 리포지토리 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/cmodule과 같습니다. |
+   | Docker 이미지 리포지토리 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 **로그인 서버** 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<registry name\>.azurecr.io/cmodule과 같습니다. |
 
    ![대상 디바이스, 모듈 유형 및 컨테이너 레지스트리에 대해 프로젝트 구성](./media/tutorial-c-module-windows/add-application-and-module.png)
 
@@ -316,7 +316,13 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
 
 이전 섹션에서는 IoT Edge 솔루션을 만들고, **CModule**에 코드를 추가하여 보고된 머신 온도가 허용 가능한 임계값 미만인 메시지를 필터링했습니다. 이제 솔루션을 컨테이너 이미지로 빌드하고 컨테이너 레지스트리로 푸시해야 합니다.
 
-1. 다음 명령을 사용하여 개발 머신에서 Docker에 로그인합니다. Azure Container Registry의 사용자 이름, 암호 및 로그인 서버로 로그인합니다. Azure Portal에서 레지스트리의 **액세스 키** 섹션에서 이러한 값을 검색할 수 있습니다.
+### <a name="sign-in-to-docker"></a>Docker에 로그인
+
+레지스트리에 저장될 컨테이너 이미지를 푸시할 수 있도록 개발 머신의 Docker에 컨테이너 레지스트리 자격 증명을 제공합니다.
+
+1. PowerShell 또는 Windows 명령 프롬프트를 엽니다.
+
+2. 레지스트리를 만든 후 저장한 Azure Container Registry 자격 증명을 사용하여 Docker에 로그인합니다.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -324,15 +330,21 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
 
    `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
 
-2. Visual Studio 솔루션 탐색기에서 빌드하려는 프로젝트 이름을 마우스 오른쪽 단추로 클릭합니다. 기본 이름은 **AzureIotEdgeApp1**이며, Windows 모듈을 빌드해야 하므로 확장은 **Windows.Amd64**가 됩니다.
+### <a name="build-and-push"></a>빌드 및 푸시
 
-3. **IoT Edge 모듈 빌드 및 푸시**를 선택합니다.
+이제 개발 머신에서 컨테이너 레지스트리에 액세스할 수 있으며 IoT Edge 디바이스도 마찬가지입니다. 다음에는 프로젝트 코드를 컨테이너 이미지로 변환할 차례입니다.
+
+1. Visual Studio 솔루션 탐색기에서 빌드하려는 프로젝트 이름을 마우스 오른쪽 단추로 클릭합니다. 기본 이름은 **AzureIotEdgeApp1**입니다. 이 자습서에서는 **CTutorialApp**이라는 이름을 선택했습니다. Windows 모듈을 빌드 중이므로 확장은 **Windows.Amd64**여야 합니다.
+
+2. **IoT Edge 모듈 빌드 및 푸시**를 선택합니다.
 
    빌드 및 푸시 명령은 세 가지 작업을 시작합니다. 먼저, 배포 템플릿 및 기타 솔루션 파일의 정보로 빌드된 전체 배포 매니페스트를 포함하는 **config**라는 새 폴더를 솔루션에 만듭니다. 둘째, `docker build`를 실행하여 대상 아키텍처의 적절한 dockerfile을 기준으로 컨테이너 이미지를 빌드합니다. 그런 다음, `docker push`를 실행하여 컨테이너 레지스트리에 이미지 리포지토리를 푸시합니다.
 
+   이 프로세스는 처음에는 몇 분 정도 걸릴 수 있지만 다음번에 명령을 실행할 때는 더 빨라집니다.
+
 ## <a name="deploy-modules-to-device"></a>디바이스에 모듈 배포
 
-Visual Studio 클라우드 탐색기 및 Azure IoT Edge Tools 확장을 사용하여 IoT Edge 디바이스에 모듈 프로젝트를 배포합니다. 사용자의 시나리오를 위한 배포 매니페스트인 **deployment.json** 파일이 config 폴더에 이미 준비되어 있습니다. 이제 배포를 받을 디바이스를 선택하기만 하면 됩니다.
+Visual Studio 클라우드 탐색기 및 Azure IoT Edge Tools 확장을 사용하여 IoT Edge 디바이스에 모듈 프로젝트를 배포합니다. 사용자의 시나리오를 위한 배포 매니페스트인 **deployment.windows-amd64.json** 파일이 config 폴더에 이미 준비되어 있습니다. 이제 배포를 받을 디바이스를 선택하기만 하면 됩니다.
 
 IoT Edge 디바이스가 작동되고 실행 중인지 확인합니다.
 

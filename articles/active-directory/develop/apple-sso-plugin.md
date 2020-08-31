@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: a6af1a78582ebf62aed82bad8fa06cac37f511ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f98be2ef6a82c099425655fd7e5d25a4358844bf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80982585"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115444"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인 (미리 보기)
 
@@ -70,7 +70,7 @@ Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인을 사용 하도�
   - `https://login.usgovcloudapi.net`
   - `https://login-us.microsoftonline.com`
 
-Microsoft Intune를 MDM 서비스로 사용 하 여 Microsoft Enterprise SSO 플러그 인을 쉽게 구성할 수 있습니다. 자세한 내용은 [Intune 구성 설명서](https://docs.microsoft.com/intune/configuration/ios-device-features-settings)를 참조 하세요.
+Microsoft Intune를 MDM 서비스로 사용 하 여 Microsoft Enterprise SSO 플러그 인을 쉽게 구성할 수 있습니다. 자세한 내용은 [Intune 구성 설명서](/intune/configuration/ios-device-features-settings)를 참조 하세요.
 
 ## <a name="using-the-sso-extension-in-your-application"></a>응용 프로그램에서 SSO 확장 사용
 

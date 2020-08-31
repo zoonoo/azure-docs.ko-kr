@@ -5,15 +5,16 @@ author: bandersmsft
 ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 07/28/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 984f2d82e21344dd7e3bb8b7267e289832343e1b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 3b21353c7e5338c78b9d56e79ac5da3fa7e9af84
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385785"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88687589"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 예산 만들기
 
@@ -33,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 예산은 다음과 같은 유형의 Azure 계정 유형 및 범위에 대해 지원됩니다.
 
-- Azure 역할 기반 액세스 제어 범위
+- Azure RBAC(Azure 역할 기반 액세스 제어) 범위
     - 관리 그룹
     - Subscription
 - 기업계약 범위

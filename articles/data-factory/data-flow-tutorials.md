@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/25/2020
-ms.openlocfilehash: 87bfd505edcb394bafd70a975b5b3d6bde341cb9
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 08/11/2020
+ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848900"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067854"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -36,6 +36,8 @@ ms.locfileid: "83848900"
 [매핑 데이터 흐름 성능 모니터링 및 관리](https://www.youtube.com/watch?v=fktIWdJiqTk)
 
 [타이밍 벤치마크](http://youtu.be/6CSbWm4lRhw?hd=1)
+
+[데이터 흐름에 대한 워크플로 디버깅](https://youtu.be/y3suL7UsWVw)
 
 ## <a name="transformation-overviews"></a>변환 개요
 
@@ -118,6 +120,8 @@ ms.locfileid: "83848900"
 [런타임 시 데이터 흐름 클러스터 크기를 동적으로 최적화](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 [데이터 흐름 시작 시간 최적화](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
+[데이터 흐름에 대한 Azure Integration Runtimes](https://mssqldude.wordpress.com/)
 
 ## <a name="mapping-data-flow-scenarios"></a>매핑 데이터 흐름 시나리오
 

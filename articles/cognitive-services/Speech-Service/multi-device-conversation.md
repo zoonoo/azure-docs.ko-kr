@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 7c30ee2ef4a6ab0cd4241cac921a59eeadf5ce17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81401056"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921421"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>다중 장치 대화 (미리 보기) 란?
 
@@ -34,7 +34,7 @@ ms.locfileid: "81401056"
 >[!IMPORTANT]
 > 다중 장치 대화에서는 클라이언트 간에 오디오 파일 전송을 지원 **하지** 않습니다. 기록 및/또는 번역이 있습니다.
 
-## <a name="key-features"></a>주요 기능
+## <a name="key-features"></a>주요 특징
 
 - **실시간 기록** -모든 사용자가 대화에 대 한 기록을 받게 되므로 실시간으로 텍스트를 따라 팔 로우 하거나 나중에 저장할 수 있습니다.
 - **실시간 변환** – 텍스트 번역에 대해 [지원 되는 언어](language-support.md#text-languages) 를 60 개 이상 사용 하 여 사용자는 대화를 기본 설정 언어로 변환할 수 있습니다.
@@ -60,9 +60,9 @@ ms.locfileid: "81401056"
 화면과 대상 그룹 구성원의 장치에서 프레젠테이션 및 강의의 캡션을 제공할 수도 있습니다. 사용자가 대화 코드와 조인한 후에는 자신의 장치에서 선호 하는 언어로 기록을 볼 수 있습니다.
 
 > [!NOTE]
-> 예를 보려면 다중 장치 대화 서비스를 사용 하는 PowerPoint 추가 서비스인 [프레젠테이션 변환기](https://www.microsoft.com/translator/apps/presentation-translator/)를 확인 하세요. [여기](https://www.microsoft.com/download/details.aspx?id=55024)서 다운로드할 수 있습니다.
+> 예를 보려면 다중 장치 대화 서비스를 사용 하는 PowerPoint 추가 서비스인 [프레젠테이션 변환기](https://www.microsoft.com/translator/apps/presentation-translator/)를 확인 하세요. [여기](https://download.cnet.com/s/powerpoint-add-in/)서 다운로드할 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 모든 클라이언트는 음성 SDK를 사용 하 여 대화를 만들거나 조인 합니다. Speech SDK는 참가자 목록, 각 클라이언트의 선택 된 언어 및 전송 된 메시지를 포함 하 여 대화의 수명을 관리 하는 다중 장치 대화 서비스와 상호 작용 합니다.  
 

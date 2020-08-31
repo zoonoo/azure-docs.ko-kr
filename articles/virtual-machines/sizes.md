@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 65b4bf5e8a681bea36ab381771a2843ac1d1fbe4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 234156186d045e21cc01cc4b407408f98268c790
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827625"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065474"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Azure에서 가상 머신에 대한 크기
 
 이 문서에서는 앱 및 워크 로드를 실행 하는 데 사용할 수 있는 Azure 가상 머신에 대 한 사용 가능한 크기 및 옵션을 설명 합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 
 
-| 형식 | 크기 | 설명 |
+| Type | 크기 | 설명 |
 |------|-------|-------------|
 | [범용](sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC, DCv2, Dv4, Dsv4, Ddv4, Ddsv4  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
 | [컴퓨팅 최적화](sizes-compute.md) | F, Fs, Fsv2 | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 애플리케이션 서버에 적합합니다. |
 | [메모리에 최적화](sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Ev4, Esv4, Edv4, Edsv4, Mv2, M, DSv2, Dv2 | 메모리 대 CPU 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
 | [Storage에 최적화](sizes-storage.md) | Lsv2 | 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징, 대형 트랜잭션 데이터베이스에 이상적인 높은 디스크 처리량과 IO.  |
-| [GPU](sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2(미리 보기), NV, NVv3, NVv4 | 고급 그래픽 렌더링 및 비디오 편집뿐만 아니라 딥 러닝을 통한 모델 학습 및 추론(ND)도 목표로 하는 특수화된 가상 머신입니다. 한 개 이상의 GPU를 사용할 수 있습니다. |
+| [GPU](sizes-gpu.md) | NC, NCv2, NCv3, NCasT4_v3 (미리 보기), ND, NDv2 (미리 보기), NV, NVv3, NVv4 | 고급 그래픽 렌더링 및 비디오 편집뿐만 아니라 딥 러닝을 통한 모델 학습 및 추론(ND)도 목표로 하는 특수화된 가상 머신입니다. 한 개 이상의 GPU를 사용할 수 있습니다. |
 | [고성능 컴퓨팅](sizes-hpc.md) | HB, HBv2, HC, H | Microsoft의 가장 빠르고 강력한 CPU 가상 머신으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. |
 
 - 다양 한 크기의 가격 책정에 대 한 자세한 내용은 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) 또는 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)에 대 한 가격 책정 페이지를 참조 하세요.

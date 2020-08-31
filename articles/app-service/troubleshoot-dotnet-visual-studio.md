@@ -5,19 +5,19 @@ ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.custom: seodec18
-ms.openlocfilehash: 26746a477da301eb352f002e105e883f992aaf0a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: de39789a45856211421e3ec5638a2df94d49976c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857200"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958714"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
 ## <a name="overview"></a>개요
-이 자습서에서는 원격으로 [디버그 모드](https://docs.microsoft.com/visualstudio/debugger/)를 실행하거나 애플리케이션 로그 및 웹 서버 로그를 확인하여 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
+이 자습서에서는 원격으로 [디버그 모드](/visualstudio/debugger/)를 실행하거나 애플리케이션 로그 및 웹 서버 로그를 확인하여 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
 
-다음에 대해 알아봅니다.
+다음 내용을 배웁니다.
 
 * Visual Studio에서 사용할 수 있는 앱 관리 기능
 * Visual Studio 원격 뷰를 사용하여 원격 앱에서 빠르게 변경하는 방법
@@ -29,7 +29,7 @@ ms.locfileid: "85857200"
 Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](/visualstudio/debugger/intellitrace) 를 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
 
 ## <a name="prerequisites"></a><a name="prerequisites"></a>필수 조건
-이 자습서에서는 [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 설정한 개발 환경, 웹 프로젝트 및 App Service 앱을 사용합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 애플리케이션이 필요합니다.
+이 자습서에서는 [Azure App Service에서 ASP.NET 앱 만들기](quickstart-dotnet-framework.md)에서 설정한 개발 환경, 웹 프로젝트 및 App Service 앱을 사용합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 애플리케이션이 필요합니다.
 
 이 사용설명서에 제시된 코드 샘플은 C# MVC 웹 애플리케이션용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 애플리케이션에도 동일하게 적용됩니다.
 
@@ -51,7 +51,7 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
 
     Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)를 참조하세요.
 2. **서버 탐색기**에서 **Azure**를 확장한 후 **App Service**를 확장합니다.
-3. [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 만든 앱을 포함하는 리소스 그룹을 확장한 후 앱 노드를 마우스 오른쪽 단추로 클릭하고 **설정 보기**를 클릭합니다.
+3. [Azure App Service에서 ASP.NET 앱 만들기](quickstart-dotnet-framework.md)에서 만든 앱을 포함하는 리소스 그룹을 확장한 후 앱 노드를 마우스 오른쪽 단추로 클릭하고 **설정 보기**를 클릭합니다.
 
     ![서버 탐색기에서 설정 보기](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -72,7 +72,7 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
 
 ![도움이 되지 않는 오류 메시지](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror.png)
 
-**오류가 발생했습니다.**
+**오류가 발생 했습니다.**
 
 ![도움이 되지 않는 오류 메시지](./media/web-sites-dotnet-troubleshoot-visual-studio/genericerror1.png)
 
@@ -108,9 +108,9 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 원격 디버깅은 Visual Studio의 Express Edition에서 작동하지 않습니다.
 
-이 섹션에서는 [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 만든 프로젝트를 사용하여 원격으로 디버그하는 방법을 보여 줍니다.
+이 섹션에서는 [Azure App Service에서 ASP.NET 앱 만들기](quickstart-dotnet-framework.md)에서 만든 프로젝트를 사용하여 원격으로 디버그하는 방법을 보여 줍니다.
 
-1. [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 만든 웹 프로젝트를 엽니다.
+1. [Azure App Service에서 ASP.NET 앱 만들기](quickstart-dotnet-framework.md)에서 만든 웹 프로젝트를 엽니다.
 
 1. *Controllers\HomeController.cs*를 엽니다.
 
@@ -129,7 +129,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 클릭 합니다.
 
-1. **프로필** 드롭다운 목록에서 [Azure App Service에서 ASP.NET 앱 만들기](app-service-web-get-started-dotnet-framework.md)에서 사용한 것과 동일한 프로필을 선택합니다. 그런 후 설정을 클릭합니다.
+1. **프로필** 드롭다운 목록에서 [Azure App Service에서 ASP.NET 앱 만들기](quickstart-dotnet-framework.md)에서 사용한 것과 동일한 프로필을 선택합니다. 그런 후 설정을 클릭합니다.
 
 1. **게시** 대화 상자에서 **설정** 탭을 클릭한 다음, **구성**을 **디버그**로 변경하고 **저장**을 클릭합니다.
 
@@ -264,7 +264,7 @@ App Service 앱에서 실행하는 ASP.NET 애플리케이션은 다음과 같�
 ## <a name="create-and-view-application-trace-logs"></a><a name="apptracelogs"></a>애플리케이션 추적 로그 만들기 및 보기
 이 섹션에서는 다음 작업을 수행합니다.
 
-* [Azure 및 ASP.NET 시작](app-service-web-get-started-dotnet-framework.md)에서 만든 웹 프로젝트에 추적 문을 추가합니다.
+* [Azure 및 ASP.NET 시작](quickstart-dotnet-framework.md)에서 만든 웹 프로젝트에 추적 문을 추가합니다.
 * 프로젝트를 로컬로 실행하는 경우 로그 보기
 * Azure에서 실행하는 애플리케이션에서 생성된 로그 보기
 
@@ -680,11 +680,11 @@ App Service 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다
   웹 서버 로그(*.log* 파일)의 데이터를 보는 데 사용하는 도구입니다.
 * [LogParser를 사용 하 여 IIS 성능 문제 또는 응용 프로그램 오류 문제 해결](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    웹 서버 로그를 분석하는 데 사용할 수 있는 로그 파서 도구를 소개합니다.
-* [Robert McMurray의 LogParser 사용 관련 블로그 게시물](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
+* [Robert McMurray의 LogParser 사용 관련 블로그 게시물](/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [IIS 7.0, IIS 7.5 및 IIS 8.0의 HTTP 상태 코드](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>실패한 요청 로그 분석
 Microsoft TechNet 웹 사이트에는 이러한 로그를 사용 하는 방법을 이해 하는 데 도움이 될 수 있는 [실패 한 요청 추적 사용](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) 섹션이 포함 되어 있습니다. 하지만 이 설명서에서는 IIS에서 실패한 요청 추적을 구성하는 방법을 중점적으로 다루며, 이는 Azure App Service에서 수행할 수 없습니다.
 
-[GetStarted]: app-service-web-get-started-dotnet.md
+[GetStarted]: quickstart-dotnetcore.md?pivots=platform-windows
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

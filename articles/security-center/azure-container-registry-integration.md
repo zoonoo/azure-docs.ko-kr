@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2020
 ms.author: memildin
-ms.openlocfilehash: b66969b26a801e6bd9aacf999c1c1ef9179ef1bd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 718f9a29b70dab34269c959ccd62452e56a32d72
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534671"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056604"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Security Center Azure Container Registry 이미지 검색
 
@@ -27,17 +27,16 @@ Azure Security Center의 표준 계층에 있는 경우 컨테이너 레지스�
 
 ## <a name="availability"></a>가용성
 
-- 릴리스 상태: **일반** 공급
-- 필요한 역할: **보안 읽기 권한자** 및 [Azure Container Registry 읽기 권한자 역할](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
-- 지원 되는 레지스트리 및 이미지:
-    - 공용 인터넷에서 액세스할 수 있는 Linux 호스트 ACR 레지스트리를 ✔ 하 고 셸 액세스를 제공 합니다.
-    - Windows에서 호스트 되는 ACR 레지스트리를 ✘.
-    - ✘ ' Private ' 레지스트리 Security Center를 사용 하려면 공용 인터넷에서 레지스트리를 액세스할 수 있어야 합니다. Security Center는 현재 방화벽, 서비스 끝점 또는 Azure 개인 링크와 같은 개인 끝점으로 제한 된 액세스 권한이 있는 레지스트리 또는 검색에 연결할 수 없습니다.
-    - ✘ Super 전적 이미지 (예: [Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지) 또는 패키지 관리자, 셸 또는 OS 없이 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "Distroless" 이미지
-- 클라우드: 
-    - ✔ 상용 클라우드
-    - 미국 ✘ 정부 클라우드
-    - ✘ 중국 정부 클라우드, 기타 정부 클라우드
+|양상|세부 정보|
+|----|:----|
+|릴리스 상태:|일반 공급|
+|결정|표준 계층|
+|지원 되는 레지스트리 및 이미지:|![예 ](./media/icons/yes-icon.png) Linux에서 호스트 되는 ACR 레지스트리는 공용 인터넷에서 액세스할 수 있고 셸 액세스를 제공 합니다.<br>![](./media/icons/no-icon.png)Windows에서 호스트 되는 ACR 레지스트리 없음.<br>![](./media/icons/no-icon.png)' Private ' 레지스트리를 Security Center 하지 않으면 공용 인터넷에서 레지스트리를 액세스할 수 있어야 합니다. Security Center는 현재 방화벽, 서비스 끝점 또는 Azure 개인 링크와 같은 개인 끝점으로 제한 된 액세스 권한이 있는 레지스트리 또는 검색에 연결할 수 없습니다.<br>![](./media/icons/no-icon.png) [Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지와 같은 슈퍼 전적 이미지 또는 패키지 관리자, 셸 또는 OS 없이 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "distroless" 이미지를 포함 하지 않습니다.|
+|필요한 역할 및 사용 권한:|**보안 읽기 권한자** 및 [Azure Container Registry 읽기 권한자 역할](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|||
+
+
 
 
 ## <a name="when-are-images-scanned"></a>언제 이미지를 검색 하나요?

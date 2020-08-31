@@ -1,14 +1,14 @@
 ---
 title: 관리 그룹을 사용하는 방법 - Azure 거버넌스
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
-ms.date: 04/15/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43837dcaed9b9628573ee92244ede542107155f9
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535011"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055142"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -65,9 +65,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 관리 그룹을 삭제하려면 다음 요구 사항이 충족되어야 합니다.
 
-1. 관리 그룹 아래에 자식 관리 그룹 또는 구독이 없습니다.
-
-   - 구독 또는 관리 그룹을 다른 관리 그룹으로 이동하려면 [계층 구조에서 관리 그룹 및 구독 이동](#moving-management-groups-and-subscriptions)을 참조하세요.
+1. 관리 그룹 아래에 자식 관리 그룹 또는 구독이 없습니다. 구독 또는 관리 그룹을 다른 관리 그룹으로 이동 하려면 [계층에서 관리 그룹 및 구독 이동](#moving-management-groups-and-subscriptions)을 참조 하세요.
 
 1. 관리 그룹(“소유자”, “참가자” 또는 “관리 그룹 참가자”)에 대한 쓰기 권한이 필요합니다. 보유하고 있는 사용 권한을 보려면 관리 그룹을 선택하고 **IAM**을 선택합니다. Azure 역할에 대 한 자세한 내용은 다음을 참조 하세요.  
    [RBAC를 사용하여 액세스 및 권한 관리](../../role-based-access-control/overview.md).
@@ -200,7 +198,7 @@ az account management-group show --name 'Contoso' -e -r
 
 관리 그룹을 만드는 한 가지 이유는 구독을 번들로 묶는 것입니다. 관리 그룹 및 구독만 다른 관리 그룹의 자식으로 만들 수 있습니다. 관리 그룹으로 이동되는 구독은 부모 관리 그룹에서 모든 사용자 액세스 및 정책을 상속합니다.
 
-다른 관리 그룹의 자식이 되도록 관리 그룹 또는 구독을 이동하는 경우 세 가지 규칙이 true로 평가되어야 합니다.
+관리 그룹 또는 구독을 다른 관리 그룹의 자식으로 이동할 때 세 가지 규칙을 true로 평가 해야 합니다.
 
 이동 작업을 수행하는 경우 다음이 필요합니다. 
 

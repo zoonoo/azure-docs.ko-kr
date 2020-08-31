@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: 4ac65e85e05f408b8d2f37a1d6845dc9e28e2bab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6880391fb54791fe5f597de2305d24f8c0e47ec6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373076"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88122376"
 ---
 ## <a name="health-entity-categories"></a>상태 엔터티 범주:
 
@@ -21,48 +21,57 @@ ms.locfileid: "87373076"
 
 ### <a name="named-entity-recognition"></a>명명된 엔터티 인식
 
-|범주  |설명   |
+|범주  |Description   |
 |----------|--------------|
-| 발전할 | 에이징을. |
-| BODY_STRUCTURE | Organs 및 기타 구조를 포함 한 인간 본문의 일부입니다. | 
-| CONDITION_QUALIFIER | *가벼운*, *확장*또는 *확산*등의 조건 수준 | 
-| 진단할 | 의료 조건. 예: *hypertension* . | 
-| 방향도 | *Left* 또는 *anterior*와 같은 방향입니다. | 
-| DOSAGE | 조제의 크기 또는 수량입니다.  | 
-| EXAMINATION_NAME | 검사의 방법이 나 프로시저입니다. | 
-| EXAMINATION_RELATION | 측정 단위와 검사 간의 연결입니다.  | 
-| EXAMINATION_UNIT | 검사를 위한 측정 단위입니다. | 
-| EXAMINATION_VALUE | 검사 단위 값입니다. | 
-| FAMILY_RELATION | *대체*와 같은 familial 관계입니다.  | 
+| 연령 | 에이징을. 예를 들면 *30 년*입니다. |
+| AdministrativeEvent | 관리 이벤트입니다. |
+| BodyStructure | Organs 및 기타 구조를 포함 한 인간 본문의 일부입니다. 예를 들면 *arm*또는 *손자*입니다. | 
+| CareEnvironment | 주의가 나 처리가 관리 되는 환경입니다. 예: *비상 방에* | 
+| ConditionQualifier | 조건 수준. 예: *가벼운*, *확장*또는 *확산*. | 
+| 진단 | 의료 조건. 예: *hypertension*. | 
+| Direction | 운전. 예를 들면 *left* 또는 *anterior*입니다. | 
+| Dosage | 조제의 크기 또는 수량입니다. 예: *25mg*  | 
+| ExaminationName | 검사의 방법이 나 프로시저입니다. 예를 들면 *X 광선*입니다. | 
+| RelationalOperator | 두 엔터티 간의 관계를 정의 하는 연산자입니다. 예를 들어, 또는 *보다 작은* `>=` 경우  | 
+| MeasurementUnit | 측정 단위 (예: 백분율)입니다. | 
+| MeasurementValue | 측정 단위의 숫자 값입니다. | 
+| FamilyRelation | Familial 관계입니다. 예: *대체*.  | 
 | 빈도 | 삼분기.   | 
-| 구분 | 성별. | 
-| GENE | *TP53*와 같은 gene 엔터티입니다.   | 
-| MEDICATION_CLASS | 조제 클래스. 예: *항생제*.  | 
-| MEDICATION_NAME  | Medications 라는 일반 및 브랜드.| 
-| ROUTE_OR_MODE  | 조제를 관리 하는 방법입니다. | 
-| SYMPTOM_OR_SIGN  | Illness 증상. | 
-| TIME  | 곱한. 예: "8 년" 또는 "2: 오전 30 시 30 분" |
-| TREATMENT_NAME  | 처리 이름. | 
-| VARIANT  | Gene 엔터티의 유전자 variant | 
+| 성별 | 성별. | 
+| Gene | *TP53*와 같은 gene 엔터티입니다.   | 
+| HealthcareProfession | 조제를 관리 하는 방법입니다. 예: *구두 administration*. | 
+| MedicationClass | 조제 클래스. 예: *항생제*.  | 
+| MedicationForm | 조제 형식입니다. 예: *캡슐*. | 
+| MedicationName  | Medications 라는 일반 및 브랜드. 예: *ibuprofen*. | 
+| MedicationRoute | 조제를 관리 하는 방법입니다. 예: *구두 administration*. | 
+| SymptomOrSign  | Illness 증상. 예를 들면 *꼽은 throat*입니다. | 
+| Time | 곱한. 예: *8 년* 또는 *2* 일 오전 1 시 30 분 |
+| TreatmentName  | 처리 이름. 예를 들면 *therapy*입니다. | 
+| 변형 | Gene 엔터티의 유전자 variant입니다. | 
 
 ### <a name="relation-extraction"></a>관계 추출
 
 관계 추출은 텍스트에 언급 된 개념 간의 의미 있는 연결을 식별 합니다. 예를 들어 "조건 시간" 관계는 조건 이름을 시간에 연결 하 여 찾을 수 있습니다. 상태 Text Analytics는 다음과 같은 관계를 식별할 수 있습니다.
 
-* DIRECTION_OF_BODY_STRUCTURE  
-* TIME_OF_CONDITION
-* QUALIFIER_OF_CONDITION  
-* DOSAGE_OF_MEDICATION 
-* FORM_OF_MEDICATION  
-* ROUTE_OR_MODE_OF_MEDICATION   
-* STRENGTH_OF_MEDICATION 
-* ADMINISTRATION_RATE_OF_MEDICATION   
-* FREQUENCY_OF_MEDICATION 
-* TIME_OF_MEDICATION 
-* TIME_OF_TREATMENT 
-* FREQUENCY_OF_TREATMENT  
-* VALUE_OF_EXAMINATION
-* UNIT_OF_EXAMINATION 
-* RELATION_OF_EXAMINATION 
-* TIME_OF_EXAMINATION  
-* 약어 
+|범주  |Description   |
+|----------|--------------|
+| DirectionOfBodyStructure | 본문 구조의 방향입니다. |
+| DirectionOfCondition | 조건의 방향입니다. |
+| DirectionOfExamination | 검사 방향입니다. |
+| DirectionOfTreatment | 처리 방향입니다. |
+| TimeOfCondition | 조건의 하기 시작 하면 관련 된 시간입니다. |
+| QualifierOfCondition | 조건에 대 한 연결 된 한정자입니다. |
+| DosageOfMedication | 조제의 dosage입니다. |
+| FormOfMedication | 조제 형식입니다. |
+| RouteOfMedication | 의약품를 사용 하는 경로 또는 모드입니다. 예: *구두*. |
+| FrequencyOfMedication | 조제 사용 되는 빈도입니다. | 
+| ValueOfCondition | 조건과 연결 된 숫자 값입니다. |
+| 모든 단위 조건 | 조건에 연결 된 단위 (예: 시간)입니다. |
+| TimeOfMedication | 조제 사용 된 시간입니다. |
+| TimeOfTreatment | 처리가 관리 된 시간입니다. | 
+| FrequencyOfTreatment | 처리가 관리 되는 빈도입니다. |
+| ValueOfExamination | 검사에 연결 된 숫자 값입니다. | 
+| 검사 단위 | 검사와 관련 된 단위 (예: 백분율)입니다. |
+| RelationOfExamination | 엔터티와 검사 간의 관계입니다. | 
+| TimeOfExamination | 검사와 관련 된 시간입니다. |
+| 약어 | 약어입니다.  | 

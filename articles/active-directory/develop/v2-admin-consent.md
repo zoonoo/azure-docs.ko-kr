@@ -12,12 +12,12 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 537d609c1281929203d1891f37614b7627e1683a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb629b80958ed2897f76eb099f738c33b48c3696
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868677"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119609"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Microsoft id 플랫폼에 대 한 관리자 동의
 
@@ -45,13 +45,13 @@ https://graph.microsoft.com/mail.send
 ```
 
 
-| 매개 변수     | 조건     | 설명                                                                               |
+| 매개 변수     | 조건     | Description                                                                               |
 |--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
-| `tenant` | 필요한 공간 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 `organizations`으로 일반 참조될 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
+| `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 `organizations`으로 일반 참조될 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID**입니다. |
 | `redirect_uri` | 필수 |리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. 앱 등록 포털에 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태를 사용하여 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |
-|`scope`        | 필요한 공간      | 응용 프로그램에서 요청 하는 사용 권한 집합을 정의 합니다. 정적 (기본값 사용) 또는 동적 범위 중 하나일 수 있습니다.  여기에는 OIDC 범위 ( `openid` , `profile` ,)가 포함 될 수 있습니다 `email` . |
+|`scope`        | 필수      | 응용 프로그램에서 요청 하는 사용 권한 집합을 정의 합니다. 정적 (기본값 사용) 또는 동적 범위 중 하나일 수 있습니다.  여기에는 OIDC 범위 ( `openid` , `profile` ,)가 포함 될 수 있습니다 `email` . |
 
 
 이 시점에서 Azure AD는 테넌트 관리자에게 요청을 완료하기 위해 로그인하도록 요구합니다. 관리자는 매개 변수에서 요청한 모든 사용 권한을 승인 하 라는 메시지를 표시 `scope` 합니다.  Static () 값을 사용 하는 경우 `/.default` ,이 값은 해당 앱에 대 한 필수 사용 권한에 있는 모든 범위에 대 한 요청 동의 및 v1.0 관리자 동의 끝점 처럼 작동 합니다.
@@ -88,5 +88,5 @@ http://localhost/myapp/permissions?admin_consent=True&tenant=fa00d692-e9c7-4460-
 ## <a name="next-steps"></a>다음 단계
 - [앱을 다중 테넌트로 변환하는 방법](howto-convert-app-to-be-multi-tenant.md) 참조
 - [인증 코드 부여 흐름 중에 OAuth 2.0 프로토콜 계층에서 동의가 어떻게 지원 되는지](v2-oauth2-auth-code-flow.md#request-an-authorization-code)알아보세요.
-- [다중 테 넌 트 응용 프로그램에서 승인 프레임 워크를 사용](active-directory-devhowto-multi-tenant-overview.md) 하 여 "사용자" 및 "관리자" 동의를 구현 함으로써 고급 다중 계층 응용 프로그램 패턴을 지 원하는 방법에 대해 알아봅니다.
+- [다중 테 넌 트 응용 프로그램에서 승인 프레임 워크를 사용](./howto-convert-app-to-be-multi-tenant.md) 하 여 "사용자" 및 "관리자" 동의를 구현 함으로써 고급 다중 계층 응용 프로그램 패턴을 지 원하는 방법에 대해 알아봅니다.
 - [AZURE AD 응용 프로그램 동의 환경](application-consent-experience.md) 이해

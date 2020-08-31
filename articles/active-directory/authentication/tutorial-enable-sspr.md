@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ac13dc669ed20df58f05c672926b7bee55dbc90
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a4cdeff5e08813140c45d0a30877c3789d1bc21b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035029"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718852"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>자습서: 사용자가 Azure Active Directory 셀프 서비스 암호 재설정을 사용하여 계정의 잠금을 해제하거나 암호를 다시 설정할 수 있도록 설정
 
@@ -37,7 +37,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
-* 적어도 평가판 라이선스가 설정된 작동 중인 Azure AD 테넌트
+* Azure AD Premium P1 또는 평가판 이상의 라이선스를 사용하도록 설정되어 작동하는 Azure AD 테넌트.
     * 필요한 경우, [체험 계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * *글로벌 관리자* 권한이 있는 계정
 * 알고 있는 암호가 있는 관리자가 아닌 사용자(예: *testuser*). 이 자습서에서는 이 계정을 사용하여 최종 사용자 SSPR 환경을 테스트합니다.
@@ -60,7 +60,7 @@ Azure AD를 사용하면 SSPR을 *없음*, *선택된* 사용자 또는 *모든*
 1. **속성** 페이지의 *셀프 서비스 암호 재설정이 사용하도록 설정됨* 옵션 아래에서 **그룹 선택**을 선택합니다.
 1. Azure AD 그룹(예: *SSPR-Test-Group*)을 찾아서 선택한 다음, *선택*을 선택합니다.
 
-    [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
+    [ ![Azure Portal에서 셀프 서비스 암호 재설정을 사용하도록 설정할 그룹 선택](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png) ](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
 
 1. 선택한 사용자에 대해 SSPR을 사용하도록 설정하려면 **저장**을 선택합니다.
 
@@ -148,4 +148,4 @@ SSPR을 사용하도록 설정 및 구성되면 이전 섹션에서 선택한 �
 > * 사용자 권한으로 SSPR 프로세스 테스트
 
 > [!div class="nextstepaction"]
-> [Azure Multi-Factor Authentication 사용](tutorial-mfa-applications.md)
+> [Azure Multi-Factor Authentication 사용](./tutorial-enable-azure-mfa.md)

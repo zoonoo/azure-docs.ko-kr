@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bfc6b6fa6a2af8750c868aaacb289d39306ce06e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 24d50635efb4d7fe18db9836311cf0a85dfcc734
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770979"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118623"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft ID 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
@@ -33,7 +33,7 @@ Microsoft ID 플랫폼은 [OAuth 2.0 리소스 소유자 암호 자격 증명(RO
 > * Azure AD 테넌트에 초대된 개인 계정은 ROPC를 사용할 수 없습니다.
 > * 암호가 없는 계정은 ROPC를 통해 로그인할 수 없습니다. 이 경우 앱에 다른 흐름을 사용하는 것이 좋습니다.
 > * 사용자가 [MFA(Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)를 사용하여 애플리케이션에 로그인해야 하는 경우, 사용자가 차단됩니다.
-> * ROPC는 [하이브리드 ID 페더레이션](/azure/active-directory/hybrid/whatis-fed) 시나리오에서 지원되지 않습니다(예: 온-프레미스 계정을 인증하는 데 사용되는 Azure AD 및 ADFS). 사용자가 전체 페이지에서 온-프레미스 ID 공급자로 리디렉션될 경우, Azure AD는 해당 ID 공급자에 대해 사용자 이름 및 암호를 테스트할 수 없습니다. 그러나 [통과 인증](/azure/active-directory/hybrid/how-to-connect-pta)은 ROPC에서 지원됩니다.
+> * ROPC는 [하이브리드 ID 페더레이션](../hybrid/whatis-fed.md) 시나리오에서 지원되지 않습니다(예: 온-프레미스 계정을 인증하는 데 사용되는 Azure AD 및 ADFS). 사용자가 전체 페이지에서 온-프레미스 ID 공급자로 리디렉션될 경우, Azure AD는 해당 ID 공급자에 대해 사용자 이름 및 암호를 테스트할 수 없습니다. 그러나 [통과 인증](../hybrid/how-to-connect-pta.md)은 ROPC에서 지원됩니다.
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
 
@@ -113,4 +113,4 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ## <a name="learn-more"></a>자세한 정보
 
 * [샘플 콘솔 애플리케이션](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)을 사용하여 직접 ROPC를 사용해 보세요.
-* v2.0 엔드포인트를 사용해야 하는지 확인하려면 [Microsoft ID 플랫폼 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
+* v2.0 엔드포인트를 사용해야 하는지 확인하려면 [Microsoft ID 플랫폼 제한 사항](../azuread-dev/azure-ad-endpoint-comparison.md)을 참조하세요.

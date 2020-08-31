@@ -2,24 +2,21 @@
 title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 Atlassian 클라우드 구성 Microsoft Docs'
 description: 사용자 계정을 Atlassian 클라우드로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: zhchia
 writer: zhchia
-manager: beatrizd-msft
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 95455d389669b89075ca0ea8583cc7858bb532f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14418d4d280f4da629aecd5a95b5a49e6856e2c1
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317623"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549391"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전에 대해 Atlassian Cloud 구성
 
@@ -59,7 +56,7 @@ ms.locfileid: "85317623"
     ![Atlassian 클라우드 프로 비전 Atlassian 클라우드 프로 비전 ](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![ ](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png) ![ Atlassian 클라우드 프로 비전](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
 
-## <a name="step-3-add-atlassian-cloud-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Atlassian Cloud 추가
+## <a name="step-3-add-atlassian-cloud-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Atlassian Cloud 추가
 
 Azure AD 응용 프로그램 갤러리에서 Atlassian Cloud를 추가 하 여 Atlassian 클라우드로의 프로 비전 관리를 시작 합니다. 이전에 Atlassian Cloud for SSO를 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -146,7 +143,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
 1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
-2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.  
 
 ## <a name="connector-limitations"></a>커넥터 제한 사항

@@ -1,6 +1,6 @@
 ---
 title: Storage Explorer로 Azure Blob Storage 리소스 관리 | Microsoft Docs
-description: Storage Explorer로 Azure Blob 컨테이너 및 Blob 관리
+description: Storage 탐색기를 사용 하 여 Azure Blob Storage 리소스를 관리 합니다. Blob 컨테이너 만들기, blob 컨테이너 내용 보기, blob 컨테이너 삭제 또는 복사 등
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2019
 ms.author: cawa
-ms.openlocfilehash: 56c20c995a95058b5039b7268c7b7b1426e900fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07652f2ac88475664f30e8189204b5649f966d16
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298126"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033617"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>Storage Explorer를 사용하여 Azure Blob Storage 리소스 관리
 
@@ -28,7 +28,7 @@ ms.locfileid: "85298126"
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) 는 HTTP 또는 HTTPS를 통해 전 세계 어디에서 든 액세스할 수 있는 대량의 구조화 되지 않은 데이터 (예: 텍스트 또는 이진 데이터)를 저장 하기 위한 서비스입니다.
 Blob Storage를 사용하여 세상에 공개적으로 표시하거나 애플리케이션 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage Explorer를 사용하여 Blob 컨테이너 및 Blob으로 작업하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하려면 다음과 같이 하는 것이 필요합니다.
 

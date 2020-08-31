@@ -3,12 +3,12 @@ title: PowerShell을 사용한 Azure Service Bus 리소스 관리 | Microsoft Do
 description: 이 문서에서는 Azure PowerShell 모듈을 사용 하 여 Service Bus 엔터티 (네임 스페이스, 큐, 토픽, 구독)를 만들고 관리 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7ff79d8cf2aac09a0b8d2f04ade0b3d1d9b2e74e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341742"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065746"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>PowerShell을 사용하여 Service Bus 리소스 관리
 
@@ -18,7 +18,7 @@ Azure Resource Manager 템플릿을 사용하여 Service Bus 엔터티를 관리
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 시작하려면 다음과 같은 필수 조건을 갖추어야 합니다.
 
@@ -26,7 +26,7 @@ Azure Resource Manager 템플릿을 사용하여 Service Bus 엔터티를 관리
 * Azure PowerShell이 설치된 컴퓨터 관련 지침은 [Azure PowerShell Cmdlet 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 * PowerShell 스크립트, NuGet 패키지 및 .NET Framework 전반에 대한 지식
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 첫 번째 단계는 PowerShell을 사용하여 Azure 계정 및 Azure 구독에 로그인하는 것입니다. [Azure PowerShell cmdlet 시작](/powershell/azure/get-started-azureps)의 지침에 따라 Azure 계정에 로그인하고, Azure 구독에서 리소스를 검색하고 액세스합니다.
 
@@ -159,8 +159,8 @@ Set-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -Queu
 
 다음 블로그 게시물에 설명된 것처럼 Service Bus 엔터티를 관리하는 몇 가지 다른 방법이 있습니다.
 
-* [PowerShell 스크립트를 사용하여 Service Bus 큐, 토픽 및 구독을 만드는 방법](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
-* [PowerShell 스크립트를 사용하여 Service Bus 네임스페이스 및 Event Hub를 만드는 방법](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
+* [PowerShell 스크립트를 사용하여 Service Bus 큐, 토픽 및 구독을 만드는 방법](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+* [PowerShell 스크립트를 사용하여 Service Bus 네임스페이스 및 Event Hub를 만드는 방법](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 * [Service Bus PowerShell 스크립트](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6e20b2f8c0e12fdb23668d16e2cbd7936cc4e48c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: a9b0090fa13a6d2f7a837a4f5ffee37d70893318
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445468"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116906"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>방법: azure ad 테 넌 트에서 사용자 집합으로 Azure AD 앱 제한
 
@@ -39,7 +39,7 @@ ms.locfileid: "87445468"
 - 애플리케이션은 사용자 또는 관리자가 해당 애플리케이션에 동의한 후에 OAuth 2.0/OpenID Connect 인증을 사용하는 Azure AD 애플리케이션 플랫폼에서 직접 빌드됩니다.
 
      > [!NOTE]
-     > 이 기능은 웹앱/웹 API 및 엔터프라이즈 애플리케이션에만 사용할 수 있습니다. [네이티브](quickstart-v1-integrate-apps-with-azure-ad.md)로 등록된 앱은 테넌트의 사용자 집합 또는 보안 그룹으로 제한할 수 없습니다.
+     > 이 기능은 웹앱/웹 API 및 엔터프라이즈 애플리케이션에만 사용할 수 있습니다. [네이티브](./quickstart-register-app.md)로 등록된 앱은 테넌트의 사용자 집합 또는 보안 그룹으로 제한할 수 없습니다.
 
 ## <a name="update-the-app-to-enable-user-assignment"></a>사용자 할당을 사용하도록 앱 업데이트
 
@@ -95,8 +95,8 @@ ms.locfileid: "87445468"
 
 ## <a name="more-information"></a>자세한 정보
 
-- [방법: 응용 프로그램에 앱 역할 추가](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+- [방법: 응용 프로그램에 앱 역할 추가](./howto-add-app-roles-in-azure-ad-apps.md)
 - [ASP.NET Core 웹앱에 앱 역할 및 역할 클레임을 사용하는 권한 부여 추가](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [앱에서 보안 그룹 및 애플리케이션 역할 사용(비디오)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory에 그룹 클레임 및 애플리케이션 역할 포함](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Azure Active Directory 앱 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Azure Active Directory 앱 매니페스트](./reference-app-manifest.md)

@@ -9,13 +9,13 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.custom: tracking-python
-ms.openlocfilehash: 3e21cc7a66f09b5e759b3d3a53ab95dd9710900d
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: devx-track-python
+ms.openlocfilehash: 1bf9c80e754ca4d728e35767f0a1a768734d587d
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171971"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236814"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Python을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 
@@ -209,7 +209,7 @@ for task in tasks:
 다음 코드의 쿼리는 테이블에 있는 엔터티의 설명만 반환합니다.
 
 > [!NOTE]
-> 다음 코드 조각은 Azure Storage에 대해서만 작동하며 스토리지 에뮬레이터에서 지원되지 않습니다.
+> 다음 코드 조각은 Azure Storage에 대해서만 작동하며 Storage Emulator에서 지원되지 않습니다.
 
 ```python
 tasks = table_service.query_entities(

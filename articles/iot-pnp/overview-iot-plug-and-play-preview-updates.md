@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
-ms.openlocfilehash: c2dcba05e3b1fc5cfc32d6f1b38c22b811b73626
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c415ffdaa2eb3ad6a76cd48c3a895b6618dd3986
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352724"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208054"
 ---
 # <a name="iot-plug-and-play-preview-refresh"></a>IoT 플러그 앤 플레이 미리 보기 새로 고침
 
@@ -80,13 +80,13 @@ URL [https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:Devi
 
 ### <a name="service-sdks"></a>서비스 SDK
 
-서비스 SDK는 [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) 및 [Python](https://github.com/Azure/azure-iot-sdk-python/blob/digitaltwins-preview/azure-iot-hub/README.md)에서 사용할 수 있습니다.
+서비스 SDK는 [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) 및 [Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/README.md)에서 사용할 수 있습니다.
 
 ## <a name="vs-code-extension"></a>VS Code 확장
 
 [Azure IoT Device Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) 확장은 DTDL v1에 대한 작성 지원, 이전 버전 모델 리포지토리와의 통합 및 코드 생성 기능을 제공합니다.
 
-VS Code에서 DTDL v2 작성 지원이 필요한 경우 VS Code에 새 [DTDL 확장](https://github.com/azure/vscode-dtdl)을 설치합니다. 이 확장은 모델 리포지토리와의 통합 또는 코드 생성 기능을 제공하지 않습니다. 이제 [웹 UI](https://aka.ms/iotmodelrepo)를 사용하여 리포지토리의 모델을 관리할 수 있습니다.
+VS Code에서 DTDL v2 작성 지원이 필요한 경우 VS Code에 새 [DTDL 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl)을 설치합니다. 이 확장은 모델 리포지토리와의 통합 또는 코드 생성 기능을 제공하지 않습니다. 이제 [웹 UI](https://aka.ms/iotmodelrepo) 또는 [CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest)를 사용하여 리포지토리의 모델을 관리할 수 있습니다.
 
 ## <a name="digital-twin-service-side-rest-apis"></a>디지털 쌍 서비스 측 REST API
 
@@ -103,8 +103,6 @@ VS Code에서 DTDL v2 작성 지원이 필요한 경우 VS Code에 새 [DTDL 확
 이제 게시된 퍼블릭 모델과 RBAC로 보호된 프라이빗 회사 모델을 모두 포함하는 단일 모델 리포지토리가 있습니다. 모든 모델에는 고유 식별자가 있으며 만든 후에는 변경할 수 없습니다.
 
 이전 릴리스의 기존 회사 모델 리포지토리는 이 릴리스에서 지원되지 않습니다. [IoT용 Azure Certified](https://preview.catalog.azureiotsolutions.com/products) 웹 사이트를 계속 사용하여 이전 DTDL v1 모델을 관리할 수 있습니다. 그러나 더 이상 이 웹 사이트를 사용하여 디바이스를 등록, 테스트 및 인증할 수 없습니다.
-
-Azure CLI용 Azure IoT 확장은 새 모델 리포지토리를 지원하지 않습니다. `az iot pnp` 명령은 이전 릴리스의 모델 리포지토리만 작동합니다.
 
 ## <a name="azure-iot-central"></a>Azure IoT Central
 

@@ -90,6 +90,8 @@
           href: managed-identity.md
         - name: 액세스 제어 정책 사용
           href: group-permissions-for-apps.md
+        - name: 액세스 문제 해결
+          href: troubleshooting-access-issues.md
     - name: 개발
       items:
         - name: Azure Key Vault 개발자 가이드
@@ -136,6 +138,8 @@
           href: move-region.md
 - name: 참조
   items:
+    - name: 클라이언트 라이브러리
+      href: client-libraries.md
     - name: REST API 오류 코드 - Azure Key Vault
       href: rest-error-codes.md
     - name: 공통 매개 변수 및 헤더
@@ -154,7 +158,7 @@
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
     - name: Python
       href: /python/api/overview/azure/keyvault/management?view=azure-python
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions

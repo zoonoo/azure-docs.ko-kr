@@ -11,12 +11,13 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 4e6e0d18665ac5fc28da2935c20b467f9d7662d8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c9eae2b0d8b5bebc027dd46afd17a37b8a19b422
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023248"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012163"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>스트리밍 로케이터 생성 및 URL 빌드
 

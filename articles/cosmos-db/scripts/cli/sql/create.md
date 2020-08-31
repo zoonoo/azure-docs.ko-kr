@@ -6,19 +6,19 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 06/03/2020
-ms.openlocfilehash: 416da39df9bfb49d6323ee789d5e67b1743a1cd7
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.date: 07/29/2020
+ms.openlocfilehash: ff441595dd1a1a782a553f28a779f2f73715448f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509392"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432781"
 ---
 # <a name="create-an-azure-cosmos-core-sql-api-account-database-and-container-using-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos Core(SQL) API 계정, 데이터베이스 및 컨테이너 만들기
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0.73 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.9.1 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="sample-script"></a>샘플 스크립트
 

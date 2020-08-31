@@ -5,18 +5,18 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/23/2019
+ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom:
 - mvc
 - amqp
-ms.openlocfilehash: b71db71ac61e0dcd65a2546b2164610e618dab18
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ba438971f3499b0d4f34affee8b4e4d0051ff828
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81733504"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809921"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C# IoT Edge 모듈 개발
 
@@ -83,7 +83,7 @@ Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge �
    | ----- | ----- |
    | 템플릿 선택 | **C# 모듈**을 선택합니다. |
    | 모듈 프로젝트 이름 | 모듈의 이름을 **CSharpModule**로 지정합니다. |
-   | Docker 이미지 리포지토리 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/csharpmodule과 같습니다. |
+   | Docker 이미지 리포지토리 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 **로그인 서버** 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 최종 이미지 리포지토리는 \<registry name\>.azurecr.io/csharpmodule 형식입니다. |
 
    ![대상 디바이스, 모듈 유형 및 컨테이너 레지스트리에 대해 프로젝트 구성](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
@@ -309,9 +309,11 @@ Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge �
 
    빌드 및 푸시 명령은 세 가지 작업을 시작합니다. 먼저, 배포 템플릿 및 기타 솔루션 파일의 정보로 작성된 전체 배포 매니페스트를 포함하는 **config**라는 새 폴더를 솔루션에 만듭니다. 둘째, `docker build`를 실행하여 대상 아키텍처의 적절한 dockerfile을 기준으로 컨테이너 이미지를 빌드합니다. 그런 다음, `docker push`를 실행하여 컨테이너 레지스트리에 이미지 리포지토리를 푸시합니다.
 
+   이 프로세스는 처음에는 몇 분 정도 걸릴 수 있지만 다음번에 명령을 실행할 때는 더 빨라집니다.
+
 ## <a name="deploy-modules-to-device"></a>디바이스에 모듈 배포
 
-Visual Studio 클라우드 탐색기 및 Azure IoT Edge Tools 확장을 사용하여 IoT Edge 디바이스에 모듈 프로젝트를 배포합니다. 사용자의 시나리오를 위한 배포 매니페스트인 **deployment.json** 파일이 config 폴더에 이미 준비되어 있습니다. 이제 배포를 받을 디바이스를 선택하기만 하면 됩니다.
+Visual Studio 클라우드 탐색기 및 Azure IoT Edge Tools 확장을 사용하여 IoT Edge 디바이스에 모듈 프로젝트를 배포합니다. 사용자의 시나리오를 위한 배포 매니페스트인 **deployment.windows-amd64.json** 파일이 config 폴더에 이미 준비되어 있습니다. 이제 배포를 받을 디바이스를 선택하기만 하면 됩니다.
 
 IoT Edge 디바이스가 작동되고 실행 중인지 확인합니다.
 
@@ -321,7 +323,7 @@ IoT Edge 디바이스가 작동되고 실행 중인지 확인합니다.
 
 3. **배포 만들기**를 선택합니다.
 
-4. 파일 탐색기에서 솔루션의 config 폴더에 있는 **deployment.windows-amd64** 파일을 선택합니다.
+4. 파일 탐색기에서 솔루션의 config 폴더에 있는 **deployment.windows-amd64.json** 파일을 선택합니다.
 
 5. 디바이스 아래에 나열된 배포된 모듈을 보려면 클라우드 탐색기를 새로 고칩니다.
 

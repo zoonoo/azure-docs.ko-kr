@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 (클래식)에서 기본 제공 앱 게시-Azure
 description: Windows 가상 데스크톱 (클래식)에서 기본 제공 앱을 게시 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5f204bc6d2595e7f18e59bae15ff35d49e1801e0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 80cd1a4c92441fb17ce0a66814ff0a39a92fb287
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284934"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005570"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱에서 기본 제공 앱 게시 (클래식)
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../publish-apps.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../publish-apps.md)를 참조하세요.
 
 이 문서에서는 Windows 가상 데스크톱 환경에서 앱을 게시 하는 방법을 설명 합니다.
 

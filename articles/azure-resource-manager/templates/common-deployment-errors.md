@@ -3,21 +3,19 @@ title: 일반 배포 오류 문제 해결
 description: Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생하는 일반적인 오류를 해결하는 방법을 설명합니다.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: dad80cf4230c3c6b4d7d97b21d155f6e755c2ab9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/07/2020
+ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446597"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008171"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
 이 문서에서는 일반적인 Azure 배포 오류 중 일부에 대해 설명하고 오류를 해결하기 위한 정보를 제공합니다. 배포 오류에 대한 오류 코드를 찾을 수 없는 경우 [오류 코드 찾기](#find-error-code)를 참조하세요.
 
 오류 코드에 대한 정보를 찾고 있는데 이 문서에서 해당 정보를 제공하지 않는다면 알려주세요. 이 페이지의 하단에서 사용자 의견을 남길 수 있습니다. 사용자 의견은 GitHub 문제를 통해 추적됩니다.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="error-codes"></a>오류 코드
 
@@ -76,6 +74,7 @@ ms.locfileid: "87446597"
 | StorageAccountAlreadyTaken | 스토리지 계정에 고유한 이름을 제공합니다. | [스토리지 계정 이름 오류 해결](error-storage-account-name.md) |
 | StorageAccountNotFound | 사용 하려는 저장소 계정의 구독, 리소스 그룹 및 이름을 확인 합니다. | |
 | SubnetsNotInSameVnet | 가상 머신에는 하나의 가상 네트워크만 있을 수 있습니다. 여러 NIC를 배포할 때는 모두 동일한 가상 네트워크에 속해야 합니다. | [여러 NIC](../../virtual-machines/windows/multiple-nics.md) |
+| SubscriptionNotFound | 배포에 대해 지정 된 구독에 액세스할 수 없습니다. 구독 ID가 잘못 되었거나, 템플릿을 배포 하는 사용자에 게 구독에 배포할 수 있는 적절 한 권한이 없거나, 구독 ID의 형식이 잘못 된 것일 수 있습니다. 중첩 배포를 사용 하 여 [범위에 배포](cross-scope-deployment.md)하는 경우 구독에 대 한 GUID를 제공 합니다. | |
 | SubscriptionNotRegistered 됨 | 네트워크 리소스를 배포할 때 Microsoft. 네트워크 리소스 공급자가 구독에 자동으로 등록 됩니다. 자동 등록이 시간 내에 완료 되지 않는 경우가 있습니다. 이 일시적인 오류를 방지 하려면 배포 전에 Microsoft 네트워크 리소스 공급자를 등록 합니다. | [등록 오류 해결](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | 불필요한 종속성을 제거합니다. | [순환 종속성 해결](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | 단일 배포에 대한 리소스 그룹의 수를 줄입니다. | [범위 간 배포](cross-scope-deployment.md) |

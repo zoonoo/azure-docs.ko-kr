@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35e75037b4bf759fe90d608be0682004d3d3f23c
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: fc306dbca3191f04a85f2c5cc88d41336c13e09c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85480442"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496392"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 SQL 주문형(미리 보기) 
 
@@ -31,7 +31,7 @@ SQL 주문형은 서버리스이므로 설정할 인프라 또는 유지 관리�
 
 데이터 파이프라인에서 데이터 준비, 정리 또는 보강을 위해 Apache Spark for Azure Synapse를 사용하는 경우 프로세스에서 만든 [외부 Spark 테이블](develop-storage-files-spark-tables.md)을 SQL 주문형에서 직접 쿼리할 수 있습니다. [Private Link](../security/how-to-connect-to-workspace-with-private-links.md)를 사용하여 SQL 주문형 엔드포인트를 [관리형 작업 영역 VNet](../security/synapse-workspace-managed-vnet.md)으로 가져옵니다.  
 
-## <a name="who-is-sql-on-demand-for"></a>SQL 주문형의 대상이 되는 사용자
+## <a name="sql-on-demand-benefits"></a>SQL 주문형의 이점
 
 데이터 레이크의 데이터를 검색하거나 데이터 레이크에서 인사이트를 얻거나 기존 데이터 변환 파이프라인을 최적화해야 하는 경우 SQL 주문형을 사용하여 이점을 얻을 수 있습니다. 다음 시나리오에 적합합니다.
 
@@ -46,7 +46,7 @@ SQL 주문형에서는 다음과 같은 다양한 전문가 역할을 활용할 
 - 데이터 분석가는 친숙한 T-SQL 언어 또는 즐겨찾는 도구를 사용하여 데이터 과학자 또는 데이터 엔지니어가 만든 [데이터 및 Spark 외부 테이블을 검색](develop-storage-files-spark-tables.md)할 수 있으며, 이를 SQL 주문형에 연결할 수 있습니다.
 - BI 전문가는 [레이크 및 Spark 테이블의 데이터를 기반으로 하여 Power BI 보고서를 빠르게 만들](tutorial-connect-power-bi-desktop.md) 수 있습니다.
 
-## <a name="what-do-i-need-to-do-to-start-using-it"></a>사용을 시작하려면 어떻게 해야 하나요?
+## <a name="how-to-start-using-sql-on-demand"></a>SQL 주문형을 사용하여 시작하는 방법
 
 SQL 주문형 엔드포인트는 모든 Azure Synapse 작업 영역 내에 제공됩니다. 친숙한 도구를 사용하여 작업 영역을 만들고 데이터 쿼리를 즉시 시작할 수 있습니다.
 
@@ -54,7 +54,7 @@ SQL 주문형 엔드포인트는 모든 Azure Synapse 작업 영역 내에 제�
 
 SQL 주문형을 통해 기존 SQL 임시 쿼리 및 비즈니스 인텔리전스 도구를 사용하여 데이터 레이크를 활용할 수 있습니다. 친숙한 T-SQL 구문을 제공하므로 TDS 연결 SQL 제품을 설정할 수 있는 도구에서 [Synapse SQL 주문형에 연결하여 쿼리](connect-overview.md)할 수 있습니다. Azure Data Studio에 연결하여 임시 쿼리를 실행하거나, Power BI에 연결하여 몇 분 내에 인사이트를 얻을 수 있습니다.
 
-## <a name="is-full-t-sql-supported"></a>전체 T-SQL이 지원되나요?
+## <a name="t-sql-support"></a>T-SQL 지원
 
 SQL 주문형은 T-SQL 쿼리 노출 영역을 제공하며, 반정형 및 비정형 데이터 쿼리와 관련된 환경을 수용하기 위해 일부 측면에서 약간 향상되고 확장되었습니다. 또한 SQL 주문형에 대한 설계로 인해 T-SQL 언어의 일부 측면이 지원되지 않습니다. 예를 들어 DML 기능은 현재 지원되지 않습니다.
 

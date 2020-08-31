@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e8aa5515bf8ae8e842a98656167f4198ac652981
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387781"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642387"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single Sign-On 배포 계획
 
@@ -235,11 +235,11 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 
 | Persona| 역할 | Azure AD 역할 (필요한 경우) |
 |--------|-------|-----------------------------|
-| 지원 센터 관리자 | 계층 1 지원 | 없음 |
-| Id 관리 | 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그 | 전역 관리자 |
-| 응용 프로그램 관리자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
-| 인프라 관리자 | 인증서 롤오버 소유자 | 전역 관리자 |
-| 비즈니스 소유자/관련자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | 없음 |
+| 지원 센터 관리자 | 계층 1 지원 | None |
+| Id 관리 | 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그 | 글로벌 관리자 |
+| 응용 프로그램 관리자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | None |
+| 인프라 관리자 | 인증서 롤오버 소유자 | 글로벌 관리자 |
+| 비즈니스 소유자/관련자 | 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성 | None |
 
 디렉터리 사용 권한을 가진 사용자에 대 한 추가 감사, 제어 및 액세스 검토를 제공 하기 위해 PIM ( [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) )을 사용 하 여 역할을 관리 하는 것이 좋습니다.
 
@@ -285,7 +285,7 @@ SaaS 앱 보안의 다양 한 측면을 검토 하 고 필요한 수정 작업�
 
 - [사용자 지정 포털에서 로그인 하는 문제](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [액세스 패널에서 로그인하는 문제](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [내 앱에서 로그인 할 때 발생 하는 문제](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [애플리케이션 로그인 페이지의 오류](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 
@@ -324,3 +324,5 @@ SaaS 앱 보안의 다양 한 측면을 검토 하 고 필요한 수정 작업�
 [SSO 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 [응용 프로그램 SSO 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+
+[백서 다운로드-Single sign-on 배포 계획](https://aka.ms/SSODeploymentPlan)

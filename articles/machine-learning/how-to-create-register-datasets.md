@@ -6,38 +6,36 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, contperfq1
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 18eecdfeca58bc04c77dd0e39658a51fe56d0e68
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: ae8dcc02618220750e2d15d815da4b36ea64da2d
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513097"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782195"
 ---
-# <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합 만들기
+# <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 로컬 또는 원격 실험을 위해 데이터에 액세스 하는 Azure Machine Learning 데이터 집합을 만드는 방법에 대해 알아봅니다. 데이터 집합이 Azure Machine Learning의 전체 데이터 액세스 워크플로에 적합 한 위치를 이해 하려면 [안전 하 게 데이터 액세스](concept-data.md#data-workflow) 문서를 참조 하세요.
 
-데이터 세트를 만들면 데이터 원본 위치에 대한 참조와 해당 메타데이터의 복사본을 만듭니다. 데이터는 기존 위치에 남아 있으므로 추가 저장소 비용이 발생 하지 않으며 데이터 원본의 무결성을 위험 하지 않습니다. 또한 데이터 집합은 지연 계산 되며 워크플로 성능 속도를 지원 합니다.
+데이터 세트를 만들면 데이터 원본 위치에 대한 참조와 해당 메타데이터의 복사본을 만듭니다. 데이터는 기존 위치에 남아 있으므로 추가 저장소 비용이 발생 하지 않으며 데이터 원본의 무결성을 위험 하지 않습니다. 또한 데이터 집합은 지연 계산 되며 워크플로 성능 속도를 지원 합니다. 데이터 저장소, 공용 Url 및 [Azure Open 데이터 집합](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md)에서 데이터 집합을 만들 수 있습니다.
 
 Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 수 있습니다.
 
 * 데이터 집합에서 참조 하는 데이터의 단일 복사본을 저장소에 보관 합니다.
 
-* 연결 문자열 또는 데이터 경로를 걱정 하지 않고 모델 학습 중에 데이터에 원활 하 게 액세스 합니다.
+* 연결 문자열 또는 데이터 경로를 걱정 하지 않고 모델 학습 중에 데이터에 원활 하 게 액세스 합니다. [데이터 집합을 사용 하 여 학습 하는 방법에 대해 자세히 알아보세요](how-to-train-with-datasets.md).
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
-[데이터 세트를 사용하여 학습시키는 방법을 알아보세요](how-to-train-with-datasets.md).
-
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -46,6 +44,12 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
 
 * Azureml 데이터 집합 패키지가 포함 된 [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)있습니다.
+
+    * 통합 된 노트북 및 SDK가 이미 설치 되어 있는 완전히 구성 되 고 관리 되는 개발 환경인 [Azure Machine Learning 계산 인스턴스](concept-compute-instance.md#managing-a-compute-instance)를 만듭니다.
+
+    **OR**
+
+    * 자신의 Jupyter 노트북에서 작업 하 고 [이러한 지침](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)을 사용 하 여 SDK를 직접 설치 합니다.
 
 > [!NOTE]
 > 일부 데이터 집합 클래스에는 64 비트 Python과만 호환 되는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux (7, 8), Ubuntu (14.04, 16.04, 18.04), Fedora (27, 28), Debian (8, 9) 및 CentOS (7) 배포판 에서만 지원 됩니다.
@@ -159,11 +163,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|인덱싱할|PassengerId|Survived|Pclass|이름|성|연령|SibSp|Parch|티켓|요금|Cabin|Embarked
+|인덱싱할|PassengerId|Survived|Pclass|Name|성|연령|SibSp|Parch|티켓|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
-1|2|참|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
+2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 ### <a name="create-a-dataset-from-pandas-dataframe"></a>Pandas 데이터 프레임에서 데이터 집합 만들기
 
@@ -224,50 +228,15 @@ Studio에서 데이터 집합을 만들려면 다음을 수행 합니다.
 1. **다음** 을 선택 하 여 **확인 세부 정보** 양식을 검토 합니다. 선택 항목을 확인 하 고 데이터 집합에 대 한 선택적 데이터 프로필을 만듭니다. [데이터 프로파일링](how-to-use-automated-ml-for-ml-models.md#profile)에 대한 자세한 정보 
 1. **만들기** 를 선택 하 여 데이터 집합 만들기를 완료 합니다.
 
+## <a name="create-datasets-with-azure-open-datasets"></a>Azure Open 데이터 집합을 사용 하 여 데이터 집합 만들기
+
+[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/)는 기계 학습 솔루션에 시나리오별 기능을 추가하여 보다 정확한 모델을 만들 수 있는 큐레이팅된 공개 데이터 세트입니다. 데이터 세트에는 기계 학습 모델을 학습시키고 예측 솔루션을 보강할 수 있는 날씨, 인구, 휴일, 공공 안전 및 위치에 대한 공개 도메인 데이터가 포함되어 있습니다. 개방형 데이터 집합은 Microsoft Azure의 클라우드에 있으며 SDK 및 studio에 모두 포함 되어 있습니다.
+
+[Azure Open 데이터 집합에서 Azure Machine Learning 데이터 집합](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md)을 만드는 방법에 대해 알아봅니다. 
+
 ## <a name="train-with-datasets"></a>데이터 세트로 학습
 
 기계 학습 실험에서 ML 모델 학습을 위해 데이터 집합을 사용 합니다. [데이터 집합을 사용 하 여 학습 하는 방법에 대 한 자세한 정보](how-to-train-with-datasets.md)
-
-## <a name="create-datasets-with-azure-open-datasets"></a>Azure Open 데이터 집합을 사용 하 여 데이터 집합 만들기
-
-[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/)는 기계 학습 솔루션에 시나리오별 기능을 추가하여 보다 정확한 모델을 만들 수 있는 큐레이팅된 공개 데이터 세트입니다. 데이터 세트에는 기계 학습 모델을 학습시키고 예측 솔루션을 보강할 수 있는 날씨, 인구, 휴일, 공공 안전 및 위치에 대한 공개 도메인 데이터가 포함되어 있습니다. 개방형 데이터 집합은 Microsoft Azure의 클라우드에 있으며 SDK 및 작업 영역 UI에 모두 포함 되어 있습니다.
-
-### <a name="use-the-sdk"></a>SDK 사용
-
-SDK에서 Azure Open 데이터 집합을 사용 하 여 데이터 집합을 만들려면를 사용 하 여 패키지를 설치 했는지 확인 `pip install azureml-opendatasets` 합니다. 각 불연속 데이터 집합은 SDK에서 고유한 클래스로 표시 되며 특정 클래스는 `TabularDataset` , 또는 둘 다로 사용할 수 있습니다 `FileDataset` . 클래스의 전체 목록은 [참조 설명서](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) 를 참조 하세요.
-
-특정 클래스를 또는로 검색 하 여 `TabularDataset` `FileDataset` 파일을 직접 조작 및/또는 다운로드할 수 있습니다. 다른 클래스는 또는 함수 중 하나를 사용 하는 경우에 **만** 데이터 집합을 가져올 수 있습니다 `get_tabular_dataset()` `get_file_dataset()` . 다음 코드 샘플에서는 이러한 형식의 클래스에 대 한 몇 가지 예를 보여 줍니다.
-
-```python
-from azureml.opendatasets import MNIST
-
-# MNIST class can return either TabularDataset or FileDataset
-tabular_dataset = MNIST.get_tabular_dataset()
-file_dataset = MNIST.get_file_dataset()
-
-from azureml.opendatasets import Diabetes
-
-# Diabetes class can return ONLY TabularDataset and must be called from the static function
-diabetes_tabular = Diabetes.get_tabular_dataset()
-```
-
-개방형 데이터 집합에서 만든 데이터 집합을 등록 하면 데이터는 즉시 다운로드 되지 않지만 중앙 저장소 위치에서 요청 하는 경우 (예: 학습 중)에는 나중에 데이터에 액세스할 수 있습니다.
-
-### <a name="use-the-ui"></a>UI 사용
-
-UI를 통해 개방형 데이터 집합 클래스에서 데이터 집합을 만들 수도 있습니다. 작업 영역의 **자산**아래에서 **데이터 집합** 탭을 선택 합니다. **데이터 집합 만들기** 드롭다운 메뉴에서 **개방형 데이터 집합에서**를 선택 합니다.
-
-![UI를 사용 하 여 데이터 집합 열기](./media/how-to-create-register-datasets/open-datasets-1.png)
-
-해당 타일을 선택 하 여 데이터 집합을 선택 합니다. 검색 창을 사용 하 여 필터링 할 수 있는 옵션이 있습니다. **다음**을 선택 합니다.
-
-![데이터 집합 선택](./media/how-to-create-register-datasets/open-datasets-2.png)
-
-데이터 집합을 등록할 이름을 선택 하 고 필요에 따라 사용 가능한 필터를 사용 하 여 데이터를 필터링 합니다. 이 경우 공용 휴일 데이터 집합에 대해 기간을 1 년으로, 국가 코드를 미국 으로만 필터링 합니다. **만들기**를 선택합니다.
-
-![데이터 집합 매개 변수 설정 및 데이터 집합 만들기](./media/how-to-create-register-datasets/open-datasets-3.png)
-
-이제 **데이터 집합의**작업 영역에서 데이터 집합을 사용할 수 있습니다. 만든 다른 데이터 집합과 동일한 방법으로 사용할 수 있습니다.
 
 ## <a name="version-datasets"></a>버전 데이터 집합
 
@@ -288,5 +257,5 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 ## <a name="next-steps"></a>다음 단계
 
 * [데이터 집합을 사용 하 여 학습 하는 방법을](how-to-train-with-datasets.md)알아봅니다.
-* 자동화 된 machine learning을 사용 하 여 [TabularDatasets으로 학습](https://aka.ms/automl-dataset)합니다.
-* 더 많은 데이터 집합 학습 예제는 [샘플 노트북](https://aka.ms/dataset-tutorial)을 참조 하세요.
+* 자동화 된 machine learning을 사용 하 여 [TabularDatasets으로 학습](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)합니다.
+* 더 많은 데이터 집합 학습 예제는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)을 참조 하세요.

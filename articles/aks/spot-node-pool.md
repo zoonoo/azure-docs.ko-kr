@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbb003c287a18810c2c14c4f2ea401fa55cca427
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374613"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987293"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>미리 보기-Azure Kubernetes 서비스 (AKS) 클러스터에 별색 노드 풀 추가
 
@@ -32,11 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 클러스터를 만들어 별색 노드 풀을 사용할 경우 해당 클러스터는 노드 풀 및 *표준* SKU 부하 분산 장치에 대 한 Virtual Machine Scale Sets도 사용 해야 합니다. 또한 클러스터를 만든 후에는 별색 노드 풀을 사용 하기 위해 추가 노드 풀을 추가 해야 합니다. 추가 노드 풀 추가는 이후 단계에서 설명 하지만 먼저 미리 보기 기능을 사용 하도록 설정 해야 합니다.
 
-> [!IMPORTANT]
-> AKS preview 기능은 셀프 서비스 옵트인 (opt in)입니다. 커뮤니티에서 피드백 및 버그를 수집 하기 위해 제공 됩니다. 미리 보기에서 이러한 기능은 프로덕션 용도로 사용 되지 않습니다. 공개 미리 보기의 기능은 ' 최고 노력 ' 지원에 속합니다. AKS 기술 지원 팀의 지원은 업무 시간 (태평양 표준 시간대) 에서만 사용할 수 있습니다. 자세한 내용은 다음 지원 문서를 참조 하세요.
->
-> * [AKS 지원 정책][aks-support-policies]
-> * [Azure 지원 FAQ][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="register-spotpoolpreview-preview-feature"></a>Spotpoolpreview 미리 보기 기능 등록
 

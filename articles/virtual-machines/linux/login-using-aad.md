@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534739"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002321"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인 합니다.
 
@@ -35,7 +35,7 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
   - Azure 가상 머신에 대한 로그인의 보안을 강화하려면 다단계 인증을 구성하면 됩니다.
   - Azure Active Directory를 사용하여 Linux VM에 로그인하는 기능은 [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md)를 사용하는 고객에게도 적용됩니다.
 
-- **원활한 협업:** RBAC(역할 기반 액세스 제어)를 사용하여 지정된 VM에 로그인하는 사용자를 일반 사용자로 또는 관리자 권한으로 지정할 수 있습니다. 사용자가 팀에 조인하거나 나가는 경우 적절한 액세스 권한을 부여하도록 VM에 대한 RBAC 정책을 업데이트할 수 있습니다. 이 환경은 불필요한 SSH 공개 키를 제거하기 위해 VM을 삭제하는 것보다 훨씬 더 간단합니다. 직원이 조직을 나가고 해당 사용자 계정을 비활성화하거나 Azure AD에서 제거한 경우 더 이상 리소스에 액세스할 수 없습니다.
+- **원활한 공동 작업:** Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 일반 사용자 또는 관리자 권한으로 지정 된 VM에 로그인 할 수 있는 사용자를 지정할 수 있습니다. 사용자가 팀에 참여 하거나 탈퇴할 때 적절 하 게 액세스 권한을 부여 하도록 VM에 대 한 Azure RBAC 정책을 업데이트할 수 있습니다. 이 환경은 불필요한 SSH 공개 키를 제거하기 위해 VM을 삭제하는 것보다 훨씬 더 간단합니다. 직원이 조직을 나가고 해당 사용자 계정을 비활성화하거나 Azure AD에서 제거한 경우 더 이상 리소스에 액세스할 수 없습니다.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>지원되는 Azure 지역 및 Linux 배포
 
@@ -121,7 +121,7 @@ Azure RBAC (역할 기반 액세스 제어) 정책은 VM에 로그인 할 수 �
 > [!NOTE]
 > 사용자가 SSH를 통해 VM에 로그인하려면 *가상 머신 관리자 로그인* 또는 *가상 머신 사용자 로그인* 역할 중 하나를 할당해야 합니다. VM에 대해 *소유자* 또는 *기여자* 역할이 할당된 Azure 사용자는 SSH를 통해 VM에 로그인하는 권한을 자동으로 갖지 않습니다.
 
-다음 예제에서는 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용하여 현재 Azure 사용자의 VM에 대한 *가상 머신 관리자 로그인* 역할을 할당합니다. 활성 Azure 계정의 사용자 이름은 [az account show](/cli/azure/account#az-account-show)를 사용하여 가져옵니다. 또한 *범위*는 [az vm show](/cli/azure/vm#az-vm-show)를 사용하여 이전 단계에서 만든 VM으로 설정됩니다. 또한 리소스 그룹이나 구독 수준에서 범위를 할당할 수 있고 정상 RBAC 상속 사용 권한이 적용됩니다. 자세한 내용은 [역할 기반 액세스 제어](../../role-based-access-control/overview.md)를 참조하세요.
+다음 예제에서는 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용하여 현재 Azure 사용자의 VM에 대한 *가상 머신 관리자 로그인* 역할을 할당합니다. 활성 Azure 계정의 사용자 이름은 [az account show](/cli/azure/account#az-account-show)를 사용하여 가져옵니다. 또한 *범위*는 [az vm show](/cli/azure/vm#az-vm-show)를 사용하여 이전 단계에서 만든 VM으로 설정됩니다. 범위는 리소스 그룹 또는 구독 수준에서 할당 될 수도 있으며, 일반 Azure RBAC 상속 권한이 적용 됩니다. 자세한 내용은 [AZURE RBAC](../../role-based-access-control/overview.md) 를 참조 하세요.
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -136,7 +136,7 @@ az role assignment create \
 > [!NOTE]
 > AAD 도메인과 로그온 사용자 이름 도메인이 일치하지 않으면 *--assignee*의 사용자 이름 외에도 *--assignee-object-id*가 있는 사용자 계정의 개체 ID를 지정해야 합니다. [az ad user list](/cli/azure/ad/user#az-ad-user-list)를 사용하여 사용자 계정의 개체 ID를 가져올 수 있습니다.
 
-RBAC를 사용하여 Azure 구독 리소스에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md) 또는 [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md) 사용을 참조하세요.
+Azure RBAC를 사용 하 여 Azure 구독 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md)또는 [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)사용을 참조 하세요.
 
 Linux 가상 머신에 로그인하는 특정 사용자에 대해 다단계 인증을 요구하도록 Azure AD를 구성할 수도 있습니다. 자세한 내용은 [클라우드에서 Azure Multi-Factor Authentication 시작](../../active-directory/authentication/howto-mfa-getstarted.md)을 참조하세요.
 
@@ -185,7 +185,7 @@ Azure AD 자격 증명을 사용 하 여 SSH를 시도할 때 발생 하는 몇 
 
 ### <a name="access-denied-azure-role-not-assigned"></a>액세스 거부 됨: Azure 역할이 할당 되지 않았습니다.
 
-SSH 프롬프트에서 다음 오류를 표시하는 경우 사용자에게 *가상 머신 관리자 로그인* 또는 *가상 머신 사용자 로그인* 역할을 부여한 VM에서 RBAC 정책을 구성했는지 확인합니다.
+SSH 프롬프트에 다음과 같은 오류가 표시 되는 경우 사용자에 게 *가상 머신 관리자 로그인* 또는 *가상 머신 사용자 로그인* 역할을 부여 하는 VM에 대 한 Azure RBAC 정책을 구성 했는지 확인 합니다.
 
 ```output
 login as: azureuser@contoso.onmicrosoft.com

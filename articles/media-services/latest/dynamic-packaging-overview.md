@@ -2,7 +2,7 @@
 title: Azure Media Services v3의 동적 패키징
 titleSuffix: Azure Media Services
 description: 이 문서에서는 Azure Media Services의 동적 패키징에 대해 간략하게 설명합니다.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/11/2020
-ms.author: juliako
-ms.openlocfilehash: f019ebd59b2d0b9d6bae8a5dc4904f1bcae0e6c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/18/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8a5d52f2705a04c290f1122335430c12db8d294c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090113"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604582"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
 
@@ -33,6 +33,8 @@ Media Services에서 [스트리밍 엔드포인트](streaming-endpoint-concept.m
 ## <a name="to-prepare-your-source-files-for-delivery"></a>전송할 원본 파일 준비
 
 동적 패키징을 활용하려면 mezzanine(원본) 파일을 여러 개의 비트 전송률 MP4(ISO 기본 미디어 14496-12) 파일 세트로 [인코딩](encoding-concept.md)해야 합니다. Media Services 동적 패키징에 필요한 인코딩된 MP4 및 스트리밍 구성 파일이 포함된 [자산](assets-concept.md)이 있어야 합니다. 이 MP4 파일 세트에서 동적 패키징을 사용하여 아래에 설명된 스트리밍 미디어 프로토콜을 통해 비디오를 전송할 수 있습니다.
+
+Azure Media Services 동적 패키징은 MP4 컨테이너 형식의 비디오 및 오디오 파일만 지원합니다. Dolby 같은 대체 코덱을 사용할 때도 오디오 파일을 MP4 컨테이너로 인코딩해야 합니다.  
 
 > [!TIP]
 > MP4 및 스트리밍 구성 파일을 가져오는 한 가지 방법은 [Media Services를 사용하여 mezzanine 파일을 인코딩](#encode-to-adaptive-bitrate-mp4s)하는 것입니다. 
@@ -78,8 +80,10 @@ Media Services 동적 암호화를 사용하여 콘텐츠를 보호하려는 경
 
 다음 단계에서는 Azure Media Services의 표준 인코더와 함께 동적 패키징이 사용되는 일반적인 Media Services 스트리밍 워크플로를 보여 줍니다.
 
-1. QuickTime/MOV 또는 MXF 파일과 같은 입력 파일을 업로드합니다. 이 파일을 mezzanine 또는 원본 파일이라고도 합니다. 지원되는 형식의 목록은 [표준 인코더에서 지원하는 형식](media-encoder-standard-formats.md)을 참조하세요.
+1. MP4, QuickTime/MOV 또는 기타 지원되는 파일 형식과 같은 [입력 파일을 업로드](job-input-from-http-how-to.md)합니다. 이 파일을 mezzanine 또는 원본 파일이라고도 합니다. 지원되는 형식의 목록은 [표준 인코더에서 지원하는 형식](media-encoder-standard-formats.md)을 참조하세요.
 1. Mezzanine 파일을 H.264/AAC MP4 적응 비트 전송률 세트로 [인코딩](#encode-to-adaptive-bitrate-mp4s)합니다.
+
+    인코딩된 파일이 이미 있고, 파일을 복사하고, 스트리밍하는 경우 다음을 사용합니다. [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) 및 [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) API. 결과적으로 스트리밍 매니페스트(.ism 파일)가 포함된 새 MP4 파일이 생성됩니다.
 1. 적응 비트 전송률 MP4 세트가 포함된 출력 자산을 게시합니다. [스트리밍 로케이터](streaming-locators-concept.md)를 만들어 게시합니다.
 1. 다양한 형식(HLS, MPEG-DASH 및 부드러운 스트리밍)을 대상으로 하는 URL을 작성합니다. *스트리밍 엔드포인트*는 다양한 형식에 대한 정확한 매니페스트 및 요청의 서비스를 담당합니다.
     
@@ -87,7 +91,7 @@ Media Services 동적 암호화를 사용하여 콘텐츠를 보호하려는 경
 
 ![패키징을 사용한 주문형 스트리밍의 워크플로 다이어그램](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-다운로드 경로는 위의 그림에 나와 있는 것처럼 *스트리밍 엔드포인트*(원본)를 통해 MP4 파일을 직접 다운로드할 수 있음을 보여 줍니다. 스트리밍 로케이터에서 다운로드할 수 있는 [스트리밍 정책](streaming-policy-concept.md)을 지정합니다.<br/>동적 패키지 작성 도구에서 파일을 변경하지 않습니다. 
+다운로드 경로는 위의 그림에 나와 있는 것처럼 *스트리밍 엔드포인트*(원본)를 통해 MP4 파일을 직접 다운로드할 수 있음을 보여 줍니다. 스트리밍 로케이터에서 다운로드할 수 있는 [스트리밍 정책](streaming-policy-concept.md)을 지정합니다.<br/>동적 패키지 작성 도구에서 파일을 변경하지 않습니다. *스트리밍 엔드포인트*(원본) 기능을 무시하려는 경우 원한다면 Azure BLOB 스토리지 API를 사용해 MP4에 직접 액세스하여 점진적으로 다운로드할 수 있습니다. 
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>적응 비트 전송률 MP4를 인코딩합니다.
 
@@ -123,17 +127,17 @@ Media Services v3의 라이브 스트리밍에 대 한 정보는 [라이브 스�
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>동적 패키징으로 지원되는 비디오 코덱
 
-동적 패키징은 [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC)(MPEG-4 AVC 또는 AVC1) 또는 [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding)(HEVC, hev1 또는 hvc1)로 인코딩된 동영상을 포함하는 MP4 파일을 지원합니다.
+동적 패키징은 MP4 컨테이너 파일 형식이며 [H. 264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC)(MPEG-4 AVC 또는 AVC1) 또는 [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding)(HEVC, hev1 또는 hvc1)로 인코딩된 비디오를 포함하고 있는 비디오 파일을 지원합니다.
 
 > [!NOTE]
 > 최대 4K의 해상도와 최대 60 프레임/초의 프레임 속도는 *동적 패키징*을 통해 테스트되었습니다. [프리미엄 인코더](../previous/media-services-encode-asset.md#media-encoder-premium-workflow)는 레거시 v2 API를 통해 H.265로의 인코딩을 지원합니다.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>동적 패키징으로 지원되는 오디오 코덱
 
-동적 패키징은 다음 프로토콜로 인코딩된 오디오를 지원합니다.
+동적 패키징은 MP4 파일 컨테이너 형식으로 저장되고 다음 코덱 중 하나로 인코딩된 오디오 스트림을 포함하고 있는 오디오 파일도 지원합니다.
 
-* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)(AAC-LC, HE-AAC v1 또는 HE-AAC v2)
-* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(향상된 AC-3 또는 E-AC3)
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding)(AAC-LC, HE-AAC v1 또는 HE-AAC v2) 
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(향상된 AC-3 또는 E-AC3)  동적 패키징을 사용하려면 인코딩된 오디오를 MP4 컨테이너 형식으로 저장해야 합니다.
 * Dolby Atmos
 
    Dolby Atmos 콘텐츠 스트리밍은 CSF(Common Streaming Format) 또는 CMAF(Common Media Application Format) 조각화된 MP4 및 CMAF와의 HLS(HTTP Live Streaming)를 통해 MPEG-DASH 프로토콜과 같은 표준에서 지원됩니다.
@@ -146,6 +150,10 @@ Media Services v3의 라이브 스트리밍에 대 한 정보는 [라이브 스�
     * DTS-HD 무손실(코어 없음) (dtsl)
 
 동적 패키징은 여러 개의 코덱과 언어가 있는 여러 오디오 트랙을 포함하는 스트리밍 자산에 대해 DASH 또는 HLS(버전 4 이상)에서 여러 오디오 트랙을 지원합니다.
+
+위의 모든 오디오 코덱과 관련하여, 동적 패키징을 사용하려면 인코딩된 오디오를 MP4 컨테이너 형식으로 저장해야 합니다. 이 서비스는 BLOB 스토리지에서 원시 기본 스트림 파일 형식을 지원하지 않습니다. 예를 들어 .dts, .ac3 등은 지원되지 않습니다. 
+
+.mp4a 확장명이 .mp4인 파일만 오디오 패키징을 지원합니다. 
 
 ### <a name="limitations"></a>제한 사항
 

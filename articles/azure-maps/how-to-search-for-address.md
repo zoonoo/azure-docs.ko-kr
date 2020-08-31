@@ -1,6 +1,6 @@
 ---
 title: Azure Maps Search services를 사용 하 여 위치 검색
-description: 이 문서에서는 지 오 코딩, reverse 지 오 코딩, 유사 항목 검색 및 역방향 교차 주소 검색에 대 한 Microsoft Azure 맵 검색 Api를 사용 하 여 위치를 검색 하는 방법을 알아봅니다.
+description: Azure Maps Search 서비스에 대해 알아봅니다. 지 오 코딩, 역방향 지 오 코딩, 유사 항목 검색 및 역방향 교차 번 검색에 대해이 Api 집합을 사용 하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/21/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 51ee2bb66adedc310f65b2d3b430023ae7767df6
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 48dd0168f878a16e2eabe47151d0b09993d9f5f9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126647"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037782"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Azure Maps Search services를 사용 하 여 위치 검색
 
@@ -103,7 +103,7 @@ Azure Maps [유사 항목 검색 API](https://docs.microsoft.com/rest/api/maps/s
 
     **Params** 섹션에서 다음 키/값 쌍을 추가 합니다.
 
-     | 키 | 값 |
+     | Key | 값 |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -136,9 +136,9 @@ Azure Maps [Get Search Address 역방향 API]( https://docs.microsoft.com/rest/a
   
 4. 이제 **Params** 섹션에 다음 키/값 쌍을 추가 합니다.
 
-    | 키 | 값 | 반환
+    | Key | 값 | 반환
     |-----|------------|------|
-    | number | 1 |응답에는 번 지 (왼쪽/오른쪽) 및 숫자에 대 한 오프셋 위치가 포함 될 수 있습니다.|
+    | 숫자 | 1 |응답에는 번 지 (왼쪽/오른쪽) 및 숫자에 대 한 오프셋 위치가 포함 될 수 있습니다.|
     | returnSpeedLimit | true | 주소의 속도 제한을 반환 합니다.|
     | returnRoadUse | true | 주소에서도로 사용 유형을 반환 합니다. 모든 가능한 이동 형식에 대해 [이동 유형 사용](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters)을 참조 하세요.|
     | returnMatchType | true| 일치 항목의 유형을 반환 합니다. 가능한 모든 값은 [역방향 주소 검색 결과](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult) 를 참조 하세요.

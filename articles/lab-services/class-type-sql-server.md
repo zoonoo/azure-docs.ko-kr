@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: a3601010eae614049b4af5aa2ddbcdc6acda21cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fc0a965869207ba8d1b4eb6f45e878ae4b93c3a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444882"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079025"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>SQL Server를 사용 하 여 관리 및 개발 하기 위한 랩 설정
 
@@ -86,7 +86,7 @@ SQL Database 배포가 성공적으로 완료 되 면 랩을 만들고 랩 템�
 
 Visual Studio에는 SQL Server Data Tools (SSDT)를 포함 하는 **데이터 저장 및 처리** 도구 집합이 포함 되어 있습니다.  SSDT 기능에 대 한 자세한 내용은 [SQL Server Data Tools 개요](https://docs.microsoft.com/sql/ssdt/sql-server-data-tools?view=sql-server-ver15)를 참조 하세요.  클래스에 대 한 공유 SQL Server에 대 한 연결이 성공적인 지 확인 하려면 [데이터베이스에 연결 및 기존 개체 찾아보기](https://docs.microsoft.com/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects?view=sql-server-ver15)를 참조 하세요. 메시지가 표시 되 면 SQL Server 인스턴스에 연결할 수 있는 [허용 된 컴퓨터 목록](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure) 에 템플릿 컴퓨터 IP를 추가 합니다.
 
-Visual Studio는 **웹 & 클라우드** 및 **데스크톱 & 모바일** 워크 로드를 비롯 한 여러 작업을 지원 합니다.  이러한 작업은 모두 데이터 원본으로 SQL Server을 지원 합니다. SQL Server ASP.NET Core를 사용 하는 방법에 대 한 자세한 내용은 [Azure App Service 자습서에서 ASP.NET Core 및 SQL Database 앱 빌드](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb) 를 참조 하세요.  [System.object](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 라이브러리를 사용 하 여 [Xamarin](https://docs.microsoft.com/xamarin) 앱에서 SQL Database에 연결 합니다.
+Visual Studio는 **웹 & 클라우드** 및 **데스크톱 & 모바일** 워크 로드를 비롯 한 여러 작업을 지원 합니다.  이러한 작업은 모두 데이터 원본으로 SQL Server을 지원 합니다. SQL Server ASP.NET Core를 사용 하는 방법에 대 한 자세한 내용은 [Azure App Service 자습서에서 ASP.NET Core 및 SQL Database 앱 빌드](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app) 를 참조 하세요.  [System.object](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 라이브러리를 사용 하 여 [Xamarin](https://docs.microsoft.com/xamarin) 앱에서 SQL Database에 연결 합니다.
 
 ## <a name="install-azure-data-studio"></a>Azure Data Studio 설치
 

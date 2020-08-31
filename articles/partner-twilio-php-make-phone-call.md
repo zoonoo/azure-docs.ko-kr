@@ -12,12 +12,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
-ms.openlocfilehash: fb1623c4a409f1c6cba94bad56d773e166d2b182
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e75b5a265ba85813581e39a548d897ea57a33da6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69637320"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080561"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Azure의 PHP 애플리케이션에서 Twilio를 사용하여 전화를 거는 방법
 다음 예제는 Azure에 호스트된 PHP 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 보여 줍니다. 결과 응용 프로그램은 다음 스크린샷에 표시 된 것 처럼 사용자에 게 전화 통화 값을 입력 하 라는 메시지를 표시 합니다.
@@ -105,10 +105,10 @@ echo "URI resource: " . $call->uri . "<br />";
 ![Twilio 및 PHP를 사용하는 Azure 통화 응답][twilio_php_response]
 
 ## <a name="run-the-application"></a>애플리케이션 실행
-다음 단계에서는 [Git로 Azure Web Apps에 애플리케이션을 배포합니다](app-service/app-service-web-get-started-php.md)(일부 정보는 관련이 없을 수 있음). 
+다음 단계에서는 [Git로 Azure Web Apps에 애플리케이션을 배포합니다](app-service/quickstart-php.md)(일부 정보는 관련이 없을 수 있음). 
 
 ## <a name="next-steps"></a>다음 단계
-이 코드는 Azure의 PHP에서 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예:
+이 코드는 Azure의 PHP에서 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 웹 양식을 사용하는 대신, Azure Storage Blob 또는 SQL Database를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. PHP에서 Azure Storage Blob 사용에 대한 내용은 [PHP 애플리케이션에서 Azure Storage 사용][howto_blob_storage_php]을 참조하세요. PHP에서 SQL Database 사용에 대한 내용은 [PHP 애플리케이션에서 SQL Database 사용][howto_sql_azure_php]을 참조하세요.
 * **makecall.php** 코드는 Twilio 제공 URL([https://twimlets.com/message][twimlet_message_url])을 사용하여 Twilio에 통화를 진행하는 방법을 알리는 TwiML(Twilio Markup Language) 응답을 제공합니다. 예를 들어 반환되는 TwiML에는 통화 수신자에게 말하는 텍스트에 나타나는 `<Say>` 동사가 포함될 수 있습니다. Twilio 제공 URL을 사용하는 대신, 고유한 서비스를 빌드하여 Twilio의 요청에 응답할 수 있습니다. 자세한 내용은 [PHP에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법][howto_twilio_voice_sms_php]을 참조하세요. TwiML에 대 한 자세한 내용은에서 확인할 수 있습니다 [https://www.twilio.com/docs/api/twiml][twiml] `<Say>` . 및 기타 Twilio 동사에 대 한 자세한 내용은을 참조 [https://www.twilio.com/docs/api/twiml/say][twilio_say] 하십시오.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: dca320168805e9f7c8f6336b39c4f9394255f9b8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ec5717135ec7bbf2236b5f5672dbf0b5d1413b44
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416318"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565726"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 최적화
 Azure Monitor 로그는 [ADX (Azure 데이터 탐색기)](/azure/data-explorer/) 를 사용 하 여 로그 데이터를 저장 하 고 쿼리를 실행 하 여 해당 데이터를 분석 합니다. ADX 클러스터를 만들고, 관리 하 고, 유지 관리 하며, 로그 분석 워크 로드에 맞게 최적화 합니다. 쿼리를 실행 하면 최적화 되 고 작업 영역 데이터를 저장 하는 적절 한 ADX 클러스터로 라우팅됩니다. Azure Monitor 로그와 Azure 데이터 탐색기 모두 자동 쿼리 최적화 메커니즘을 많이 사용 합니다. 자동 최적화는 상당한 향상을 제공 하지만 쿼리 성능을 크게 향상 시킬 수 있는 경우도 있습니다. 이 문서에서는 성능 고려 사항 및 해결을 위한 몇 가지 기법을 설명 합니다.
@@ -73,8 +73,8 @@ SecurityEvent
 | extend Details = parse_xml(EventData)
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
 | extend FileHash = tostring(Details.UserData.RuleAndFileData.FileHash)
-| summarize count() by FileHash, FilePath
 | where FileHash != "" and FilePath !startswith "%SYSTEM32"  // Problem: irrelevant results are filtered after all processing and parsing is done
+| summarize count() by FileHash, FilePath
 ```
 ```Kusto
 //more efficient
@@ -84,6 +84,7 @@ SecurityEvent
 | extend Details = parse_xml(EventData)
 | extend FilePath = tostring(Details.UserData.RuleAndFileData.FilePath)
 | extend FileHash = tostring(Details.UserData.RuleAndFileData.FileHash)
+| where FileHash != "" and FilePath !startswith "%SYSTEM32"  // exact removal of results. Early filter is not accurate enough
 | summarize count() by FileHash, FilePath
 | where FileHash != "" // No need to filter out %SYSTEM32 here as it was removed before
 ```

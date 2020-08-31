@@ -23,6 +23,8 @@
       href: tutorial-access-api-with-certificates.md
     - name: 이벤트 허브로 로그 스트리밍
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: 로그 분석 마법사
+      href: tutorial-log-analytics-wizard.md
 - name: 개념
   items:
     - name: 보고 및 모니터링 배포 계획

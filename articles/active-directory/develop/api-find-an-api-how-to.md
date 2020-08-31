@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
-ms.openlocfilehash: cd3b21050c6a442284647212fdf7c5707943ffc1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c3d79211ce594ec4c175aa6f6b5f8df3a7c4ba8
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885619"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115546"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 대해 필요한 특정 API를 찾는 방법
 
@@ -31,4 +31,4 @@ API에 액세스하려면 액세스 범위 및 역할을 구성해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory 애플리케이션 매니페스트 이해](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
+- [Azure Active Directory 애플리케이션 매니페스트 이해](./reference-app-manifest.md)

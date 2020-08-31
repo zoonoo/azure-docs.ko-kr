@@ -4,14 +4,15 @@ description: 프리미엄 계층 Azure Cache for Redis 인스턴스에 대한 Vi
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: f07e18498138d29497fa6ba85c5930a5a5f7ec4e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 82003ef84571c8e07982826124b33763c0e53194
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184772"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205558"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. VNet은 클라우드의 프라이빗 네트워크입니다. Azure Cache for Redis 인스턴스가 VNet으로 구성되면 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신과 애플리케이션에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에 대한 가상 네트워크 지원을 구성하는 방법에 대해 설명합니다.
@@ -20,8 +21,6 @@ Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지�
 > Azure Cache for Redis는 클래식 VNet 및 Resource Manager VNet을 둘 다 지원합니다.
 > 
 > 
-
-다른 프리미엄 캐시 기능에 대한 자세한 내용은 [Azure Cache for Redis 프리미엄 계층 소개](cache-premium-tier-intro.md)를 참조하세요.
 
 ## <a name="why-vnet"></a>VNet을 사용하는 이유
 [VNet (azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) ) 배포는 서브넷, 액세스 제어 정책 및 액세스를 추가로 제한 하는 기타 기능 뿐만 아니라 Redis 용 azure 캐시에 대 한 향상 된 보안 및 격리를 제공 합니다.
@@ -101,7 +100,7 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 
 아웃 바운드 포트 요구 사항은 9 가지가 있습니다. 이러한 범위의 아웃 바운드 요청은 캐시가 작동 하는 데 필요한 다른 서비스 또는 노드 간 통신용 Redis 서브넷 내부에 대 한 아웃 바운드입니다. 지리적 복제의 경우 기본 및 복제본 캐시의 서브넷 간 통신을 위한 추가 아웃 바운드 요구 사항이 있습니다.
 
-| 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
+| 포트 | 방향 | 전송 프로토콜 | 용도 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |아웃바운드 |TCP |Azure Storage/PKI(인터넷)에 대한 Redis 종속성 | (Redis 서브넷) |* |
 | 443 | 아웃바운드 | TCP | Azure Key Vault에 대 한 Redis 종속성 | (Redis 서브넷) | AzureKeyVault <sup>1</sup> |
@@ -127,7 +126,7 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 
 8개의 인바운드 포트 범위 요구 사항이 있습니다. 이러한 범위의 인바운드 요청은 동일한 VNET에서 호스트되는 다른 서비스로부터 인바운드로 진행되거나 Redis 서브넷 통신 내부로 진행됩니다.
 
-| 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
+| 포트 | 방향 | 전송 프로토콜 | 용도 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), Virtual Network, Azure Load Balancer <sup>1</sup> |
 | 8443 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
@@ -160,7 +159,7 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 
 - 모든 캐시 노드를 [다시 부팅](cache-administration.md#reboot)합니다. [인바운드 포트 요구 사항](cache-how-to-premium-vnet.md#inbound-port-requirements) 및 [아웃바운드 포트 요구 사항](cache-how-to-premium-vnet.md#outbound-port-requirements)에 설명된 대로 모든 필요한 캐시 종속성에 연결할 수 없는 경우 캐시가 다시 시작되지 않을 수 있습니다.
 - Azure Portal의 캐시 상태에 보고된 대로 캐시 노드가 다시 시작되었으면 다음 테스트를 수행할 수 있습니다.
-  - 캐시와 동일한 VNET 내에 있는 컴퓨터에서 [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시 엔드포인트(포트 6380 사용)를 ping합니다. 예를 들어 다음과 같습니다.
+  - 캐시와 동일한 VNET 내에 있는 컴퓨터에서 [tcping](https://www.elifulkerson.com/projects/tcping.php)을 사용하여 캐시 엔드포인트(포트 6380 사용)를 ping합니다. 예를 들어:
     
     `tcping.exe contosocache.redis.cache.windows.net 6380`
     
@@ -183,7 +182,7 @@ IP 주소를 통해 호스트에 연결하는 것이 원인일 수 있습니다.
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False`
 
-DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에 StackExchange.Redis 클라이언트에서 제공하는 `sslHost`와 같은 구성 옵션이 포함됩니다. 이 옵션을 사용하면 인증서 유효성 검사에 사용되는 호스트 이름을 재정의할 수 있습니다. 예를 들어 다음과 같습니다.
+DNS 이름을 확인할 수 없는 경우 일부 클라이언트 라이브러리에 StackExchange.Redis 클라이언트에서 제공하는 `sslHost`와 같은 구성 옵션이 포함됩니다. 이 옵션을 사용하면 인증서 유효성 검사에 사용되는 호스트 이름을 재정의할 수 있습니다. 예를 들어:
 
 `10.128.2.84:6380,password=xxxxxxxxxxxxxxxxxxxx,ssl=True,abortConnect=False;sslHost=[mycachename].redis.windows.net`
 
@@ -237,9 +236,9 @@ ExpressRoute를 사용하여 온-프레미스 애플리케이션에서 Azure Cac
 ExpressRoute에 대한 자세한 내용은 [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.
+Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
-* [Azure Cache for Redis 프리미엄 계층 소개](cache-premium-tier-intro.md)
+* [Redis Premium 서비스 계층에 대 한 Azure 캐시](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

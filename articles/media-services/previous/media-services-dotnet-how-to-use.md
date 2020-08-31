@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3e4d56698ed14ec260838f3ecbec91d58945e4ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 706e4762fa81ad4f290ded89387fc3ea9ab5bb1c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042938"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020578"
 ---
 # <a name="media-services-development-with-net"></a>.NET을 사용한 Media Services 개발 
 
@@ -30,7 +31,7 @@ ms.locfileid: "87042938"
 
 **Azure Media Services .NET SDK** 라이브러리를 사용하면 .NET을 사용하여 Media Services를 프로그래밍 할 수 있습니다. .NET을 사용한 개발을 더욱 쉽게 도와주는 **Azure Media Services .NET SDK 확장** 라이브러리가 제공 됩니다. 이 라이브러리는 .NET 코드를 단순화하는 일련의 확장 방법 및 도우미 함수를 포함합니다. 두 라이브러리 모두 **NuGet** 및 **GitHub**를 통해 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * 신규 또는 기존 Azure 구독의 Media Services 계정. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md) 문서를 참조하세요.
 * 운영 체제: Windows 10, Windows 7, Windows 2008 R2 또는 Windows 8.
 * .NET Framework 4.5 이상

@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop(클래식) 호스트 풀 서비스 업데이트 - Azure
 description: 프로덕션에 업데이트를 출시하기 전에 서비스 업데이트를 모니터링하는 유효성 검사 호스트 풀을 만드는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 448f02990798869e3dd5a804d1b0e0038b810a24
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f5a8d925a9875187358dc96b1770916974d1c6bd
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288677"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007134"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates-in-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에서 서비스 업데이트의 유효성을 검사하는 호스트 풀 만들기
 
@@ -60,12 +58,12 @@ Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
 cmdlet의 결과는 다음 출력과 비슷해야 합니다.
 
 ```
-    TenantName          : contoso 
+    TenantName          : contoso
     TenantGroupName     : Default Tenant Group
     HostPoolName        : contosoHostPool
     FriendlyName        :
     Description         :
-    Persistent          : False 
+    Persistent          : False
     CustomRdpProperty    : use multimon:i:0;
     MaxSessionLimit     : 10
     LoadBalancerType    : BreadthFirst
@@ -79,7 +77,7 @@ cmdlet의 결과는 다음 출력과 비슷해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 유효성 검사 호스트 풀을 만들었으므로 Azure Service Health를 사용하여 Windows Virtual Desktop 배포를 모니터링하는 방법을 배울 수 있습니다. 
+이제 유효성 검사 호스트 풀을 만들었으므로 Azure Service Health를 사용하여 Windows Virtual Desktop 배포를 모니터링하는 방법을 배울 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [서비스 경고 설정](set-up-service-alerts-2019.md)

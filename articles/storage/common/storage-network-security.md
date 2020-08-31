@@ -1,6 +1,6 @@
 ---
 title: Azure Storage 방화벽 및 가상 네트워크 구성 | Microsoft Docs
-description: 스토리지 계정에 대한 계층화된 네트워크 보안을 구성합니다.
+description: Azure Storage 방화벽과 Azure Virtual Network를 사용 하 여 저장소 계정에 대 한 계층화 된 네트워크 보안을 구성 합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: a6f59fff351ecdae82ef7175d54e3b2ab1b7d30b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3ec4e6ee49052657210fffa8976b661c1a9e5948
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534110"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827463"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -384,7 +384,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 | Azure 네트워킹         | Microsoft.Network          | Network Watcher 및 트래픽 분석 서비스를 비롯 하 여 네트워크 트래픽 로그를 저장 하 고 분석 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | 방화벽 지원 캐시, 원본 또는 대상 스토리지 계정을 사용하는 경우 Azure IaaS 가상 머신의 재해 복구를 위해 복제를 사용하도록 설정합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-신뢰할 수 있는 **Microsoft 서비스 허용** ... 설정을 사용 하면 [Azure 역할](storage-auth-aad.md#assign-azure-roles-for-access-rights) 을 해당 리소스 인스턴스에 대 한 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 명시적으로 할당 하는 경우 아래 서비스의 특정 인스턴스에서 저장소 계정에 액세스할 수도 있습니다. 이 경우 인스턴스에 대 한 액세스 범위는 관리 id에 할당 된 Azure 역할에 해당 합니다.
+신뢰할 수 있는 **Microsoft 서비스 허용** ... 설정을 사용 하면 [Azure 역할](storage-auth-aad.md#assign-azure-roles-for-access-rights) 을 해당 리소스 인스턴스에 대 한 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 명시적으로 할당 하는 경우 아래 서비스의 특정 인스턴스에서 저장소 계정에 액세스할 수도 있습니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 Azure 역할에 해당합니다.
 
 | 서비스                        | 리소스 공급자 이름                 | 목적            |
 | :----------------------------- | :------------------------------------- | :----------------- |
@@ -396,7 +396,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | IoT Hub의 데이터를 Blob 스토리지에 쓸 수 있습니다. [자세히 알아보기](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | 논리 앱을 사용하여 스토리지 계정에 액세스할 수 있습니다. [자세히 알아보기](/azure/logic-apps/create-managed-service-identity#authenticate-access-with-managed-identity). |
 | Azure Machine Learning 서비스 | Microsoft.MachineLearningServices      | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 스토리지에 쓰고 데이터를 읽습니다. [자세히 알아보기](/azure/machine-learning/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
-| Azure SQL Data Warehouse       | Microsoft.Sql                          | PolyBase를 사용하여 특정 SQL Database 인스턴스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아보기](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Azure Synapse Analytics(이전의 SQL Data Warehouse)       | Microsoft.Sql                          | COPY 문이나 PolyBase를 사용 하 여 특정 SQL 데이터베이스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아보기](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | Azure SQL Database       | Microsoft.Sql                          | 저장소 계정에서 데이터를 [가져오고](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage) 감사 데이터를 방화벽 뒤의 저장소 계정에 [쓸](https://docs.microsoft.com/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall) 수 있습니다. |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | 스트리밍 작업의 데이터를 Blob 스토리지에 쓸 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. [자세히 알아보기](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Synapse Analytics에서 Azure Storage의 데이터에 액세스할 수 있습니다. |

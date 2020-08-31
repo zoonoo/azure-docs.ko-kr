@@ -3,16 +3,16 @@ title: 관리 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿의 관리 그룹 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: a17387aef4d35c042d1fe0b02f1c6fd447e4a918
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 992882859ed1c67cf66c31f69f21e151081cf087
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321805"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002908"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>관리 그룹 수준에서 리소스 만들기
 
-조직이 완성 되 면 Azure Resource Manager 템플릿 (ARM 템플릿)을 배포 하 여 관리 그룹 수준에서 리소스를 만들 수 있습니다. 예를 들어 관리 그룹에 대 한 [정책](../../governance/policy/overview.md) 또는 [역할 기반 액세스 제어](../../role-based-access-control/overview.md) 를 정의 하 고 할당 해야 할 수 있습니다. 관리 그룹 수준 템플릿을 사용 하면 정책을 선언적으로 적용 하 고 관리 그룹 수준에서 역할을 할당할 수 있습니다.
+조직이 완성 되 면 Azure Resource Manager 템플릿 (ARM 템플릿)을 배포 하 여 관리 그룹 수준에서 리소스를 만들 수 있습니다. 예를 들어 관리 그룹에 대 한 [정책을](../../governance/policy/overview.md) 정의 하 고 할당 하거나 azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 를 할당 해야 할 수 있습니다. 관리 그룹 수준 템플릿을 사용 하면 정책을 선언적으로 적용 하 고 관리 그룹 수준에서 역할을 할당할 수 있습니다.
 
 ## <a name="supported-resources"></a>지원되는 리소스
 
@@ -357,6 +357,6 @@ REST API의 경우, [관리 그룹 범위에서 배포-만들기](/rest/api/reso
 
 ## <a name="next-steps"></a>다음 단계
 
-* 역할 할당에 관해 알아보려면 [RBAC 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-template.md)를 참조하세요.
+* 역할 할당에 대해 알아보려면 [Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당 추가](../../role-based-access-control/role-assignments-template.md)를 참조 하세요.
 * Azure Security Center에 대한 작업 영역 설정을 배포하는 예제는 [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)을 참조하세요.
 * [구독 수준](deploy-to-subscription.md) 및 [테 넌 트 수준](deploy-to-tenant.md)에서 템플릿을 배포할 수도 있습니다.

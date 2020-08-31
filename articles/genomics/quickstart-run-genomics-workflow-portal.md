@@ -8,13 +8,13 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.custom: tracking-python
-ms.openlocfilehash: 167bcf4364b88529256b79574c6b8c03098fed02
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-python
+ms.openlocfilehash: 0e106f3ea8a5de80f4961a1d591d31abdbe2ca86
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607128"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876294"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>빠른 시작: Microsoft Genomics 서비스를 통해 워크플로 실행
 
@@ -48,18 +48,18 @@ Microsoft Genomics에 대한 자세한 내용은 [Microsoft Genomics란?](overvi
 
 ## <a name="set-up-install-the-microsoft-genomics-python-client"></a>설정: Microsoft Genomics Python 클라이언트 설치
 
-로컬 환경에 Python과 Microsoft Genomics Python 클라이언트를 모두 설치해야 합니다. 
+로컬 환경에 Python과 Microsoft Genomics Python 클라이언트 `msgen`을 모두 설치해야 합니다. 
 
 ### <a name="install-python"></a>Python 설치
 
 Microsoft Genomics Python 클라이언트는 Python 2.7.12 이상 2.7.xx 버전과 호환됩니다. 제안되는 버전은 2.7.14입니다. [여기](https://www.python.org/downloads/release/python-2714/)에서 다운로드를 찾을 수 있습니다. 
 
 > [!IMPORTANT]
-> Python 3.x는 Python 2.7.xx와 호환되지 않습니다.  MSGen은 Python 2.7 애플리케이션입니다. MSGen를 실행하는 경우 활성 Python 환경에서 Python 2.7.xx 버전을 사용하는지 확인합니다. Python 3.x 버전에서 MSGen 사용하려고 할 때 오류가 발생할 수 있습니다.
+> Python 3.x는 Python 2.7.xx와 호환되지 않습니다.  `msgen`은 Python 2.7 애플리케이션입니다. `msgen`를 실행하는 경우 활성 Python 환경에서 Python 2.7.xx 버전을 사용해야 합니다. Python 3.x 버전에서 `msgen`을 사용하려고 하면 오류가 발생할 수 있습니다.
 
-### <a name="install-the-microsoft-genomics-client"></a>Microsoft Genomics 클라이언트 설치
+### <a name="install-the-microsoft-genomics-python-client-msgen"></a>Microsoft Genomics Python 클라이언트 `msgen` 설치
 
-Python `pip`를 사용하여 Microsoft Genomics 클라이언트 `msgen`을 설치합니다. 다음 지침은 Python이 시스템 경로에 이미 있다고 가정합니다. `pip` 설치가 인식되지 않는 문제가 발생하면, Python 및 스크립트 하위 폴더를 시스템 경로에 추가해야 합니다.
+Python `pip`를 사용하여 Microsoft Genomics 클라이언트 `msgen`을 설치합니다. 다음 지침은 이미 시스템 경로에 Python2.x가 있다고 가정합니다. 설치된 `pip`가 인식되지 않는 문제가 발생하면 Python 및 스크립트 하위 폴더를 시스템 경로에 추가해야 합니다.
 
 ```
 pip install --upgrade --no-deps msgen
@@ -67,14 +67,9 @@ pip install msgen
 ```
 
 `msgen`을 시스템 수준 바이너리로서 설치하지 않고 시스템 수준 Python 패키지를 수정하지 않으려면 `pip`에 `–-user` 플래그를 사용합니다.
-패키지 기반 설치 또는 setup.py를 사용하면 필수 패키지가 모두 설치됩니다. 그렇지 않으면 `msgen`의 기본 필수 패키지는 다음과 같습니다. 
+패키지 기반 설치 또는 setup.py를 사용하면 필수 패키지가 모두 설치됩니다.
 
- * [Azure-storage](https://pypi.python.org/pypi/azure-storage). 
- * [Requests](https://pypi.python.org/pypi/requests). 
-
-`pip`, `easy_install`을 사용하거나 표준 `setup.py` 절차를 통해 이들 패키지를 설치할 수 있습니다. 
-
-### <a name="test-the-microsoft-genomics-client"></a>Microsoft Genomics 클라이언트 테스트
+### <a name="test-msgen-python-client"></a>`msgen` Python 클라이언트 테스트
 Microsoft Genomics 클라이언트를 테스트하려면 Genomics 계정에서 구성 파일을 다운로드합니다. Azure Portal의 왼쪽 상단에서 **모든 서비스**를 선택하여, Genomics 계정으로 이동한 다음, Genomics 계정을 검색하여 선택합니다.
 
 ![Azure Portal에서 Microsoft Genomics 찾기](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Azure Portal에서 Microsoft Genomics 찾기")
@@ -103,7 +98,7 @@ Azure Storage 계정에 이미 데이터가 있다면 Genomics 계정과 동일�
  |Resource group       | MyResourceGroup       |  Genomics 계정과 동일한 리소스 그룹을 선택할 수 있습니다. 유효한 리소스 그룹 이름은 [명명 규칙](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
  |스토리지 계정 이름         | MyStorageAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [명명 규칙](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
  |위치                  | 미국 서부 2                  | Genomics 계정과 동일한 위치를 사용하여 송신 비용을 낮추고 대기 시간을 줄입니다.  | 
- |성능                  | Standard                   | 기본값은 표준입니다. 표준 및 프리미엄 스토리지 계정에 대한 자세한 내용은 [Microsoft Azure Storage 소개](https://docs.microsoft.com/azure/storage/common/storage-introduction)를 참조하세요.    |
+ |성능                  | 표준                   | 기본값은 표준입니다. 표준 및 프리미엄 스토리지 계정에 대한 자세한 내용은 [Microsoft Azure Storage 소개](https://docs.microsoft.com/azure/storage/common/storage-introduction)를 참조하세요.    |
  |계정 종류       | BlobStorage       |  Blob Storage는 다운로드 및 업로드 시 범용보다 2-5배 빨라질 수 있습니다. |
  |복제                  | 로컬 중복 스토리지                  | 로컬 중복 스토리지는 스토리지 계정을 만든 지역의 데이터 센터 내에서 데이터를 복제합니다. 자세한 내용은 [ Azure Storage 복제 ](https://docs.microsoft.com/azure/storage/common/storage-redundancy)를 참조하세요.    |
  |액세스 계층                  | 핫                   | 핫 액세스는 스토리지 계정의 개체가 더 자주 액세스됨을 나타냅니다.    |
@@ -119,18 +114,20 @@ Microsoft Genomics 서비스는 페어드 엔드 리드(fastq 또는 bam 파일)
 
 스토리지 계정 내에서 입력 데이터 용으로 하나의 Blob 컨테이너를 만들고 출력 데이터용으로 두 번째 Blob 컨테이너를 만들어야 합니다.  입력 데이터를 입력 Blob 컨테이너에 업로드합니다. [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), [BlobPorter](https://github.com/Azure/blobporter) 또는 [ AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 비롯한 다양한 도구를 사용하여 이 작업을 수행할 수 있습니다. 
 
-## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-python-client"></a>Python 클라이언트를 사용하여 Microsoft Genomics 서비스를 통해 워크플로 실행 
+## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-msgen-python-client"></a>`msgen` Python 클라이언트를 사용하여 Microsoft Genomics 서비스를 통해 워크플로 실행
 
 Microsoft Genomics 서비스를 통해 워크플로를 실행하려면 *config.txt* 파일을 편집하여 데이터에 대한 입력 및 출력 스토리지 컨테이너를 지정합니다.
 Genomics 계정에서 다운로드한 *config.txt* 파일을 엽니다. 지정해야 하는 섹션은 구독 키와 아래에 있는 여섯 개의 항목, 스토리지 계정 이름, 입력 및 출력에 대한 키 및 컨테이너 이름입니다. Azure Portal에서 스토리지 계정의 **액세스 키**로 이동하거나 Azure Storage Explorer에서 직접 이 정보를 찾을 수 있습니다.  
 
-![Genomics 구성](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics 구성")
+![Genomics 구성](./media/quickstart-run-genomics-workflow-portal/genomics-config.PNG "Genomics 구성")
 
 GATK4를 실행하려는 경우 `process_name` 매개 변수를 `gatk4`로 설정합니다.
 
 기본적으로 Genomics 서비스는 VCF 파일을 출력합니다. VCF 출력 대신 gVCF 출력을 원하는 경우(GATK 3.x에서 `-emitRefConfidence` 및 GATK 4.x에서 `emit-ref-confidence`와 같음) 위의 그림과 같이 `emit_ref_confidence` 매개 변수를 *config.txt*에 추가하고 `gvcf`로 설정합니다.  다시 VCF 출력으로 변경하려면 *config.txt* 파일에서 제거하거나 `emit_ref_confidence` 매개 변수를 `none`으로 설정합니다. 
 
-### <a name="submit-your-workflow-to-the-microsoft-genomics-service-the-microsoft-genomics-client"></a>워크플로를 Microsoft Genomics 서비스 Microsoft Genomics 클라이언트에 제출합니다.
+`bgzip`은 vcf 또는 gvcf 파일을 압축하는 도구이고, `tabix`는 압축된 파일의 인덱스를 만듭니다. 기본적으로 Genomics 서비스는 ".g.vcf" 출력에 대해 `bgzip`을 실행한 후 `tabix`를 실행하지만, ".vcf" 출력에 대해서는 두 도구를 기본적으로 실행하지 않습니다. 서비스를 실행하면 ".gz"(bgzip 출력) 및 ".tbi"(tabix 출력) 파일이 생성됩니다. 인수는 부울이며, ".vcf" 출력에 대해서는 기본적으로 false로 설정되고 ".g.vcf" 출력에 대해서는 기본적으로 true로 설정됩니다. 명령줄에서 사용하려면 `-bz` 또는 `--bgzip-output`을 `true`(bgzip 및 tabix 실행) 또는 `false`로 지정합니다. 이 인수를 *config.txt* 파일에 사용하려면 `bgzip_output: true` 또는 `bgzip_output: false`을 파일에 추가합니다.
+
+### <a name="submit-your-workflow-to-the-microsoft-genomics-service-using-the-msgen-python-client"></a>`msgen` Python 클라이언트를 사용하여 Microsoft Genomics 서비스에 워크플로 제출
 
 Microsoft Genomics Python 클라이언트를 사용하여 다음 명령으로 워크플로를 제출합니다.
 
@@ -146,4 +143,5 @@ msgen list -f c:\temp\config.txt
 워크플로가 완료되면 직접 구성한 출력 컨테이너에서 Azure 스토리지 계정의 출력 파일을 볼 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 샘플 입력 데이터를 Azure 스토리지에 업로드했고 `msgen` Python 클라이언트를 통해 워크플로를 Microsoft Genomics 서비스에 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 기타 입력 파일 형식에 대한 자세한 내용은 다음 페이지를 참조하세요. [쌍으로 연결된 FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [여러 개의 FASTQ 또는 BAM](quickstart-input-multiple.md) [Azure 노트북 자습서](https://aka.ms/genomicsnotebook)를 사용하여 이 자습서를 탐색할 수도 있습니다.
+
+이 문서에서는 샘플 입력 데이터를 Azure 스토리지에 업로드했고 `msgen` Python 클라이언트를 통해 워크플로를 Microsoft Genomics 서비스에 제출했습니다. Microsoft Genomics 서비스에서 사용할 수 있는 기타 입력 파일 형식에 대한 자세한 내용은 다음 페이지를 참조하세요. [쌍으로 연결된 FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [여러 개의 FASTQ 또는 BAM](quickstart-input-multiple.md) "Genomics Tutorial.ipynb" 파일을 다운로드하고 [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) 같은 노트북 판독기에서 이 파일을 열고 실행하면 [Azure Notebook 예제](https://aka.ms/genomicsnotebook)를 사용하여 이 자습서를 살펴볼 수 있습니다.

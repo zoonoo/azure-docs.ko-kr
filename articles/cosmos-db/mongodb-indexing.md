@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e47b8727eccd1b185f381ae3f8474fe13a406501
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: fb90390814af39b240c9a157f490ee9390afeb8f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843813"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030506"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB의 API에서 인덱싱 관리
 
@@ -40,7 +40,7 @@ MongoDB server 버전 3.6에 대 한 Azure Cosmos DB API `_id` 는 필드를 자
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>복합 인덱스 (MongoDB server 버전 3.6)
 
-Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 유선 프로토콜을 사용 하는 계정에 대 한 복합 인덱스를 지원 합니다. 복합 인덱스에 최대 8 개의 필드를 포함할 수 있습니다. MongoDB와 달리 쿼리가 한 번에 여러 필드에서 효율적으로 정렬 되어야 하는 경우에만 복합 인덱스를 만들어야 합니다. 정렬할 필요가 없는 여러 필터가 포함 된 쿼리의 경우 단일 복합 인덱스 대신 단일 필드 인덱스를 여러 개 만듭니다.
+Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 유선 프로토콜을 사용 하는 계정에 대 한 복합 인덱스를 지원 합니다. 복합 인덱스에 최대 8 개의 필드를 포함할 수 있습니다. **MongoDB와 달리 쿼리가 한 번에 여러 필드에서 효율적으로 정렬 되어야 하는 경우에만 복합 인덱스를 만들어야 합니다.** 정렬할 필요가 없는 여러 필터가 포함 된 쿼리의 경우 단일 복합 인덱스 대신 단일 필드 인덱스를 여러 개 만듭니다.
 
 다음 명령은 및 필드에 복합 인덱스를 만듭니다 `name` `age` .
 
@@ -57,6 +57,9 @@ Azure Cosmos DB의 MongoDB 용 API는 버전 3.6 유선 프로토콜을 사용 �
 그러나 복합 인덱스의 경로 시퀀스는 쿼리와 정확히 일치 해야 합니다. 다음은 추가 복합 인덱스가 필요한 쿼리의 예입니다.
 
 `db.coll.find().sort({age:1,name:1})`
+
+> [!NOTE]
+> 중첩 된 속성 또는 배열에는 복합 인덱스를 만들 수 없습니다.
 
 ### <a name="multikey-indexes"></a>Multikey 인덱스
 
@@ -219,7 +222,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {
 
 특정 컬렉션에서 문서 만료를 사용 하도록 설정 하려면 [TTL (time-to-live) 인덱스](../cosmos-db/time-to-live.md)를 만들어야 합니다. TTL 인덱스는 값이 있는 필드의 인덱스입니다 `_ts` `expireAfterSeconds` .
 
-예:
+예제:
 
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})

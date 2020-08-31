@@ -7,16 +7,18 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d0bca2ad14216873836c751dc002ea915baa3a66
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: ca500401a6bff8a00dd9c51eecb29aa93fdbc82b
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800486"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042652"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Azure Digital Twins를 다른 서비스와 통합
 
-Azure Digital Twins는 일반적으로 다른 서비스와 함께 사용 됩니다. Azure Digital Twins는 [**이벤트 경로**](concepts-route-events.md)를 사용 하 여 원격 분석 및 알림을 전달 하는 데 사용 되는 [IoT Hub](../iot-hub/about-iot-hub.md)등의 업스트림 서비스에서 데이터를 수신 합니다. Azure Digital Twins는 저장소, 워크플로 통합, 분석 및 기타 사용을 위해 데이터를 다운스트림 서비스로 라우팅할 수도 있습니다. 
+Azure Digital Twins는 일반적으로 다른 서비스와 함께 사용 됩니다. Azure Digital Twins는 [**이벤트 경로**](concepts-route-events.md)를 사용 하 여 원격 분석 및 알림을 전달 하는 데 사용 되는 [IoT Hub](../iot-hub/about-iot-hub.md)등의 업스트림 서비스에서 데이터를 수신 합니다. 
+
+Azure Digital Twins는 Azure Maps ([*방법: Azure Digital Twins를 사용 하 여 Azure Maps 실내 맵 업데이트*](how-to-integrate-maps.md)) 및 Time Series Insights ([*방법: Time Series Insights와 통합*](how-to-integrate-time-series-insights.md)), 저장소, 워크플로 통합, 분석 등의 다운스트림 서비스로 데이터를 라우팅할 수도 있습니다. 
 
 ## <a name="data-ingress"></a>데이터 수신
 

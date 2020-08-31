@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd2bd404d59b57eae111ba969fb7dcf20a98de35
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249706"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036371"
 ---
 # <a name="monitor-copy-activity"></a>복사 작업 모니터
 
@@ -56,6 +56,8 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 | DataWritten | 싱크에 기록/커밋된 데이터의 실제 탑재입니다. 크기는 `dataRead` 각 데이터 저장소에서 데이터를 저장 하는 방법과 관련 되므로 크기와 다를 수 있습니다. | Int64 값 (바이트) |
 | filesRead | 파일 기반 소스에서 읽은 파일 수입니다. | Int64 값(단위 없음) |
 | filesWritten | 파일 기반 싱크에 대해 작성/커밋된 파일 수입니다. | Int64 값(단위 없음) |
+| filesSkipped | 파일 기반 소스에서 건너뛴 파일 수입니다. | Int64 값(단위 없음) |
+| dataConsistencyVerification | 원본 및 대상 저장소 간에 복사 된 데이터가 일관 되 게 확인 되었는지 확인할 수 있는 데이터 일관성 확인에 대 한 세부 정보입니다. [이 문서](copy-activity-data-consistency.md#monitoring)에서 자세히 알아보세요. | Array |
 | sourcePeakConnections | 복사 작업을 실행 하는 동안 원본 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int64 값(단위 없음) |
 | sinkPeakConnections | 복사 작업을 실행 하는 동안 싱크 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int64 값(단위 없음) |
 | rowsRead | 원본에서 읽은 행 수입니다. 원본 및 싱크 데이터 집합이 이진 형식 형식 이거나 설정이 동일한 다른 형식 형식인 경우를 제외 하 고 파일을 있는 그대로 복사 하는 경우에는이 메트릭이 적용 되지 않습니다. | Int64 값(단위 없음) |
@@ -71,9 +73,11 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 | effectiveIntegrationRuntime | 작업을 실행 하는 데 사용 되는 IR (통합 런타임) 또는 런타임 형식 `<IR name> (<region if it's Azure IR>)` 입니다. | 텍스트(문자열) |
 | usedDataIntegrationUnits | 복사 중 효율적인 데이터 통합 단위입니다. | Int32 값 |
 | usedParallelCopies | 복사 동안 유효한 parallelCopies입니다. | Int32 값 |
-| redirectRowPath | 속성에서 구성 하는 blob 저장소에서 건너뛴 호환 되지 않는 행의 로그 경로입니다 `redirectIncompatibleRowSettings` . [내결함성](copy-activity-overview.md#fault-tolerance)을 참조 하세요. | 텍스트(문자열) |
-| executionDetails | 복사 작업을 수행 하는 단계 및 해당 단계, 기간, 구성 등에 대해 자세히 설명 합니다. 이 섹션은 변경 될 수 있으므로이 섹션을 구문 분석 하지 않는 것이 좋습니다. 복사 성능을 이해 하 고 문제를 해결 하는 데 도움이 되는 방법을 더 잘 이해 하려면 [시각적 개체 모니터링](#monitor-visually) 섹션을 참조 하세요. | 배열 |
-| perfRecommendation 사항 | 성능 튜닝 팁을 복사 합니다. 자세한 내용은 [성능 튜닝 팁](copy-activity-performance-troubleshooting.md#performance-tuning-tips) 을 참조 하세요. | 배열 |
+| logPath | Blob 저장소에서 건너뛴 데이터의 세션 로그 경로입니다. [내결함성](copy-activity-overview.md#fault-tolerance)을 참조 하세요. | 텍스트(문자열) |
+| executionDetails | 복사 작업을 수행 하는 단계 및 해당 단계, 기간, 구성 등에 대해 자세히 설명 합니다. 이 섹션은 변경 될 수 있으므로이 섹션을 구문 분석 하지 않는 것이 좋습니다. 복사 성능을 이해 하 고 문제를 해결 하는 데 도움이 되는 방법을 더 잘 이해 하려면 [시각적 개체 모니터링](#monitor-visually) 섹션을 참조 하세요. | Array |
+| perfRecommendation 사항 | 성능 튜닝 팁을 복사 합니다. 자세한 내용은 [성능 튜닝 팁](copy-activity-performance-troubleshooting.md#performance-tuning-tips) 을 참조 하세요. | Array |
+| billingReference | 지정 된 실행에 대 한 청구 사용량입니다. [활동 실행 수준에서 모니터 사용에](plan-manage-costs.md#monitor-consumption-at-activity-run-level)대해 자세히 알아보세요. | Object |
+| durationInQueue | 복사 작업 실행을 시작 하기 전의 대기 시간 (초)입니다. | Object |
 
 **예:**
 
@@ -83,6 +87,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
     "dataWritten": 1180089300500,
     "filesRead": 110,
     "filesWritten": 110,
+    "filesSkipped": 0,
     "sourcePeakConnections": 640,
     "sinkPeakConnections": 1024,
     "copyDuration": 388,
@@ -92,6 +97,11 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
     "usedDataIntegrationUnits": 128,
     "billingReference": "{\"activityType\":\"DataMovement\",\"billableDuration\":[{\"Managed\":11.733333333333336}]}",
     "usedParallelCopies": 64,
+    "dataConsistencyVerification": 
+    { 
+        "VerificationResult": "Verified", 
+        "InconsistentData": "None" 
+    },
     "executionDetails": [
         {
             "source": {

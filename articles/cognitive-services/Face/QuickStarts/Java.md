@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: c0ce166c571d54980e0703fd2891c173838a4674
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8aaf0b25a20f24739bb556583cd020d8f11eaf2c
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325511"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88549527"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>빠른 시작: REST API 및 Java를 사용하여 이미지에서 얼굴 감지
 
 이 빠른 시작에서는 이미지에서 사람 얼굴을 감지하기 위해 Java와 함께 Azure Face REST API를 사용합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

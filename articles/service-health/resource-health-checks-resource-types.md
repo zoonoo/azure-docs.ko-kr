@@ -3,12 +3,12 @@ title: Azure Resource Health를 통해 지원되는 리소스 유형 | Microsoft
 description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f4d622ac6d37059731b51a679e13f824670b9dc8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071293"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611945"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -42,6 +42,11 @@ ms.locfileid: "87071293"
 |실행된 검사|
 |---|
 |<ul><li>호스트 서버가 작동 중인가?</li><li>호스트 OS 부팅이 완료되었는가?</li><li>가상 컴퓨터 컨테이너가 프로비전되고 전원이 공급되는가?</li><li>호스트와 스토리지 계정 간에 네트워크 연결이 되어 있는가?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li><li>호스트 하드웨어의 성능이 저하되고 곧 오류가 발생하나요?</li></ul>|
+
+## <a name="microsoftclassiccomputedomainnames"></a>Microsoft.classiccompute/domainnames
+|실행된 검사|
+|---|
+|<ul><li>프로덕션 슬롯 배포가 모든 역할 인스턴스에 걸쳐 정상 상태 인가요?</li><li>모든 VM 인스턴스에서 역할이 정상 상태 인가요?</li><li>클라우드 서비스 역할 내에서 각 VM의 상태는 어떻습니까?</li><li>플랫폼 또는 고객이 시작한 작업으로 인해 VM 상태가 변경 되었습니까?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li><li>호스트 하드웨어의 성능이 저하되고 곧 오류가 발생하나요?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |실행된 검사|

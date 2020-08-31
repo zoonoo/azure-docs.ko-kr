@@ -1,19 +1,20 @@
 ---
 title: Azure 사용량 및 요금 보기 및 다운로드
-description: Azure 일일 사용량 및 요금을 다운로드하거나 보는 방법을 설명합니다.
+description: Azure 일일 사용량과 요금을 다운로드하거나 살펴보는 방법을 알아보고, 사용 가능한 추가 리소스를 살펴봅니다.
 keywords: 청구 사용량, 사용 요금, 사용량 다운로드, 사용량 보기, azure 청구서, azure 사용량
 author: bandersmsft
 ms.author: banders
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: bf9a98d6484e7f78a80a4e3018afdec00df51337
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/20/2020
+ms.openlocfilehash: 3b16e5b460f5fdfd0668db2b2e2fac78775cd893
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322036"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688915"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Azure 사용량 및 요금 보기 및 다운로드
 

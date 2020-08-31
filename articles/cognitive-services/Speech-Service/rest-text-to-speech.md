@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 0f43d1f780f838fdc49eb055536204026edcc729
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6fafb668ecc2ae36dbe5a6bbc3d1e1d501545b50
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079231"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056808"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -241,6 +241,6 @@ HTTP 상태가 `200 OK`인 경우 응답 본문은 요청된 형식으로 오디
 
 ## <a name="next-steps"></a>다음 단계
 
-- [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services)
+- [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
 - [긴 형식의 오디오에 대 한 비동기 합성](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Custom Voice 시작](how-to-custom-voice.md)

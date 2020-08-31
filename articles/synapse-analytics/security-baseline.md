@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2cd42d8d4ba1ecabc1b87942536e2ef9a9017b22
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7f05e4fb0443107370f9182706bd35b45771e0f2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501953"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210901"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Synapse Analytics에 대 한 Azure 보안 기준
 
@@ -160,7 +160,7 @@ Azure PowerShell 또는 Azure CLI를 사용하여 태그를 기준으로 리소�
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: 자동화된 도구를 사용하여 네트워크 리소스 구성 모니터링 및 변경 내용 검색
 
@@ -620,7 +620,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **Azure Security Center 모니터링**: 예
 
-**책임:** 공유됨
+**책임**: 공유됨
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: 중요한 Azure 리소스에 대한 변경 내용 기록 및 경고
 
@@ -712,7 +712,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: 자산 메타데이터 유지 관리
 
@@ -876,7 +876,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: 보안 운영 체제 구성 유지 관리
 
@@ -972,7 +972,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ## <a name="malware-defense"></a>맬웨어 방어
 
@@ -996,7 +996,7 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: 맬웨어 방지 소프트웨어 및 서명이 업데이트되었는지 확인
 
@@ -1040,13 +1040,13 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 * [Azure Key Vault 키를 복원 하는 방법](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-* [Azure Synapse SQL 풀에서 백업 및 복원](https://docs.microsoft.coms/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Azure Synapse SQL 풀에서 백업 및 복원](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
 
 * [기존 SQL 풀을 복원 하는 방법](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw)
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: 백업 및 고객이 관리 하는 키를 보호 해야 합니다.
 
@@ -1076,7 +1076,7 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: 인시던트 점수 매기기 및 우선 순위 지정 절차 만들기
 
@@ -1118,7 +1118,7 @@ App Service, Data Lake Storage, Blob Storage, Azure SQL Server 등의 비 계산
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: 보안 경고에 대한 대응 자동화
 

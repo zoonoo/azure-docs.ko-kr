@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: 7d5ab5c125a8a395d1bc0139421ec804e1221e12
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506437"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008970"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Azure Cache for Redis 클라이언트 쪽 문제 해결
 
@@ -53,7 +53,7 @@ ms.locfileid: "86506437"
 - `IOCP` 섹션과 `WORKER` 섹션에 `Min` 값보다 큰 `Busy` 값이 있습니다. 이러한 차이는 `ThreadPool` 설정을 조정 해야 함을 의미 합니다.
 - 또한 `in: 64221`도 볼 수 있습니다: 이 값은 64211 바이트를 클라이언트의 커널 소켓 계층에서 받았지만 응용 프로그램에서 읽지 않았음을 나타냅니다. 이러한 차이는 일반적으로 응용 프로그램 (예: Redis)이 서버에서 데이터를 전송 하는 것 처럼 네트워크에서 데이터를 읽지 않는다는 것을 의미 합니다.
 
-버스트 시나리오에서 스레드 풀이 신속 하 게 확장 되도록 [ `ThreadPool` 설정을 구성할](cache-faq.md#important-details-about-threadpool-growth) 수 있습니다.
+버스트 시나리오에서 스레드 풀이 신속 하 게 확장 되도록 [ `ThreadPool` 설정을 구성할](cache-management-faq.md#important-details-about-threadpool-growth) 수 있습니다.
 
 ## <a name="high-client-cpu-usage"></a>클라이언트의 높은 CPU 사용량
 
@@ -109,4 +109,4 @@ Azure Portal 또는 컴퓨터의 성능 카운터를 통해 사용 가능한 메
 ## <a name="additional-information"></a>추가 정보
 
 - [Azure Cache for Redis 서버 쪽 문제 해결](cache-troubleshoot-server.md)
-- [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)

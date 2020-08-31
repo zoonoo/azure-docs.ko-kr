@@ -2,13 +2,13 @@
 title: PowerShell을 사용 하 여 앱 업그레이드 Service Fabric
 description: 이 문서는 PowerShell을 사용하여 서비스 패브릭 애플리케이션의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: d277df6959ea3e7985514f81faed520f163c6012
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/5/2020
+ms.openlocfilehash: 2bd74d071d5dfb3385d4203704eacd5ba685917e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195887"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064590"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell을 사용하여 서비스 패브릭 애플리케이션 업그레이드
 > [!div class="op_single_selector"]
@@ -24,6 +24,21 @@ ms.locfileid: "82195887"
 모니터링되는 애플리케이션 업그레이드는 관리 또는 네이티브 API, PowerShell, Azure CLI, Java 또는 REST를 사용하여 수행할 수 있습니다. Visual Studio를 사용하여 업그레이드를 수행하는 지침은 [Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
 
 서비스 패브릭 모니터링되는 롤링 업그레이드는 애플리케이션 관리자가 서비스 패브릭이 사용하여 애플리케이션이 정상인지 결정하는 상태 평가 정책을 구성할 수 있게 합니다. 또한 관리자는 상태 평가가 실패할 경우 수행할 작업을 구성할 수 있습니다 (예: 자동 롤백 수행). 이 섹션에서는 PowerShell을 사용 하는 SDK 샘플 중 하나에 대해 모니터링 되는 업그레이드를 안내 합니다. 
+
+> [!NOTE]
+> [Applicationparameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s는 응용 프로그램 업그레이드에서 유지 되지 않습니다. 현재 응용 프로그램 매개 변수를 유지 하기 위해 사용자는 매개 변수를 먼저 가져온 후 아래와 같은 업그레이드 API 호출로 전달 해야 합니다.
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>1단계: 시각적 개체 샘플 빌드 및 배포
 애플리케이션 프로젝트, **VisualObjectsApplication**을 마우스 오른쪽 단추로 클릭하고 **게시** 명령을 선택하여 애플리케이션을 빌드 및 게시합니다.  자세한 내용은 [서비스 패브릭 애플리케이션 업그레이드 자습서](service-fabric-application-upgrade-tutorial.md)를 참조하세요.  또는 PowerShell을 사용하여 애플리케이션을 배포할 수 있습니다.

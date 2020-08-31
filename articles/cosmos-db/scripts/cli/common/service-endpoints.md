@@ -6,26 +6,26 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 9/25/2019
-ms.openlocfilehash: ff700739e2f8c6330ea151dbe489332acea3238c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/29/2020
+ms.openlocfilehash: 4d1a56c80cab58e98121ae35c98a086d16dfe02b
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "71274910"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432240"
 ---
 # <a name="create-an-azure-cosmos-account-with-virtual-network-service-endpoints-using-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트와 함께 Azure Cosmos 계정 만들기
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0.73 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 명령을 사용하려면 Azure CLI 버전 2.9.1 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="sample-script"></a>샘플 스크립트
 
 이 샘플에서는 프런트 및 백 엔드 서브넷이 있는 새 가상 네트워크를 만들고 `Microsoft.AzureCosmosDB`에 대한 서비스 엔드포인트를 사용하도록 설정합니다. 그런 다음, 이 서브넷에 대한 리소스 ID를 검색하여 Azure Cosmos 계정에 적용하고 해당 계정에 대해 서비스 엔드포인트를 사용하도록 설정합니다.
 
 > [!NOTE]
-> 이 샘플에서는 SQL(Core) API 계정을 사용하는 방법을 보여 줍니다. 이 샘플을 다른 API에 사용하려면 아래 스크립트의 `enable-virtual-network` 및 `virtual-network-rules` 매개 변수를 API 특정 스크립트에 적용합니다.
+> 이 샘플에서는 Core(SQL) API 계정을 사용하는 방법을 보여줍니다. 이 샘플을 다른 API에 사용하려면 아래 스크립트의 `enable-virtual-network` 및 `virtual-network-rules` 매개 변수를 API 특정 스크립트에 적용합니다.
 
 [!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/service-endpoints.sh "Create an Azure Cosmos account with service endpoints.")]
 

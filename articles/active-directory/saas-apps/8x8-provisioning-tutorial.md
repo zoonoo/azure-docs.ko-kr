@@ -2,25 +2,21 @@
 title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 8x8 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 8x8로 자동으로 프로비전 및 프로비전 해제하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: 81b4cde7-4938-4a1a-8495-003c06239b27
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: b200aabff1231cdf383d30ad2e671c4b46ca91bb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 7aaa87691f1ebfa79cd58dae56bf9bd1b979131b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196201"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88538589"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 8x8 구성
 
@@ -156,7 +152,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
 1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 여부를 확인합니다.
-2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

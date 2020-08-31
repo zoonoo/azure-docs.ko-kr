@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 27c9a7c2e526a33875402827e2eee2c63943e058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdc5f56d4500581b36f366663dc3db915070ee2e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659732"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649848"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장
 
@@ -56,7 +56,7 @@ ms.locfileid: "84659732"
     ```
 
     > [!NOTE]
-    > 관리 디스크를 확장하면 업데이트된 크기가 가장 가까운 관리 디스크의 크기로 반올림됩니다. 사용 가능한 Managed Disk 크기 및 계층의 테이블은 [Azure Managed Disks 개요 - 가격 책정 및 청구](../windows/managed-disks-overview.md)를 참조하세요.
+    > 관리 디스크를 확장하면 업데이트된 크기가 가장 가까운 관리 디스크의 크기로 반올림됩니다. 사용 가능한 Managed Disk 크기 및 계층의 테이블은 [Azure Managed Disks 개요 - 가격 책정 및 청구](../managed-disks-overview.md)를 참조하세요.
 
 1. [az vm start](/cli/azure/vm#az-vm-start)를 사용하여 VM을 시작합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM을 시작합니다.
 

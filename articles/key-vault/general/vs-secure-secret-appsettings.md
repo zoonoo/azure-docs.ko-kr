@@ -7,15 +7,16 @@ manager: paulyuk
 editor: ''
 ms.service: key-vault
 ms.subservice: general
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: bcacd5d2ed9e325383ec7ae75002ae0a6213111c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 79fa01e53b53f3066e55736c105d6489ccbd96e7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81429760"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019847"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 애플리케이션의 비밀 애플리케이션 설정을 안전하게 저장
 
@@ -101,35 +102,22 @@ ms.locfileid: "81429760"
 ### <a name="save-secret-settings-in-a-secret-file-that-is-outside-of-source-control-folder"></a>소스 제어 폴더 외부에 있는 비밀 파일에 비밀 설정 저장
 빠른 프로토타입을 작성하면서 Azure 리소스를 프로비전하지 않으려면 이 옵션을 사용하세요.
 
-1. 다음 NuGet 패키지를 프로젝트에 설치합니다.
-    ```
-    Microsoft.Configuration.ConfigurationBuilders.Base
-    ```
+1. 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **사용자 암호 관리**를 선택 합니다. 이렇게 하면 urationBuilders에서 NuGet **Microsoft.Configuration.Config** 패키지를 설치 하 고, web.config 파일 외부에 비밀 설정을 저장 하기 위한 파일을 만들고, web.config 파일에 **configbuilders** 섹션을 추가 합니다.
 
-2. 다음과 같은 파일을 만듭니다. 프로젝트 폴더 외부의 위치에 저장합니다.
+2. 비밀 설정을 root 요소 아래에 배치 합니다. 예는 다음과 같습니다.
 
     ```xml
+    <?xml version="1.0" encoding="utf-8"?>
     <root>
-        <secrets ver="1.0">
-            <secret name="secret1" value="foo_one" />
-            <secret name="secret2" value="foo_two" />
-        </secrets>
+      <secrets ver="1.0">
+        <secret name="secret" value="foo"/>
+        <secret name="secret1" value="foo_one" />
+        <secret name="secret2" value="foo_two" />
+      </secrets>
     </root>
     ```
 
-3. 비밀 파일을 Web.config 파일에 구성 빌더로 정의합니다. 이 섹션을 *appSettings* 섹션 앞에 배치합니다.
-
-    ```xml
-    <configBuilders>
-        <builders>
-            <add name="Secrets"
-                 secretsFile="C:\Users\AppData\MyWebApplication1\secret.xml" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder,
-                    Microsoft.Configuration.ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
-        </builders>
-    </configBuilders>
-    ```
-
-4. appSettings 섹션에서 비밀 구성 빌더를 사용하는 것으로 지정합니다. 비밀 설정에 더미 값이 있는 항목이 있는지 확인 합니다.
+3. appSettings 섹션에서 비밀 구성 빌더를 사용하는 것으로 지정합니다. 비밀 설정에 더미 값이 있는 항목이 있는지 확인 합니다.
 
     ```xml
         <appSettings configBuilders="Secrets">
@@ -148,20 +136,18 @@ ASP.NET Core 섹션의 지침에 따라 프로젝트의 Key Vault를 구성합�
 
 1. 다음 NuGet 패키지를 프로젝트에 설치합니다.
    ```
-   Microsoft.Configuration.ConfigurationBuilders.UserSecrets
+   Microsoft.Configuration.ConfigurationBuilders.Azure
    ```
 
-2. Web.config에서 Key Vault 구성 빌더를 정의 합니다. 이 섹션을 *appSettings* 섹션 앞에 배치 합니다. Key Vault가 공용 Azure에 있는 경우 *vaultName*이 Key Vault 이름이 되도록 바꾸거나 독립적 클라우드를 사용하는 경우 전체 URI를 대체합니다.
+2. Web.config에서 Key Vault 구성 빌더를 정의 합니다. 이 섹션을 *appSettings* 섹션 앞에 배치 합니다. Key Vault 글로벌 Azure에 있는 경우 *vaultName* 를 Key Vault 이름으로 바꾸고, 소 버린 cloud를 사용 하는 경우 전체 URI로 바꿉니다.
 
     ```xml
-    <configSections>
-        <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
-    </configSections>
-    <configBuilders>
+     <configBuilders>
         <builders>
-            <add name="AzureKeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
+            <add name="Secrets" userSecretsId="695823c3-6921-4458-b60b-2b82bbd39b8d" type="Microsoft.Configuration.ConfigurationBuilders.UserSecretsConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.UserSecrets, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+            <add name="AzureKeyVault" vaultName="[VaultName]" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
         </builders>
-    </configBuilders>
+      </configBuilders>
     ```
 3. appSettings 섹션에서 Key Vault 구성 빌더를 사용하는 것으로 지정합니다. 더미 값을 사용하여 비밀 설정에 대한 항목이 있도록 합니다.
 

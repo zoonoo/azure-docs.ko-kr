@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 518a1b01f52edcf5fa365e2275d4b995ffd719c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac47747f7789b23801900804522681e5a4b10e5a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805180"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078702"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Ruby에서 Queue Storage를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "84805180"
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Ruby 애플리케이션 만들기
-Ruby 애플리케이션을 만듭니다. 지침은 [Linux의 App Service에서 Ruby 앱 만들기](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby)를 참조하세요.
+Ruby 애플리케이션을 만듭니다. 지침은 [Linux의 App Service에서 Ruby 앱 만들기](https://docs.microsoft.com/azure/app-service/quickstart-ruby)를 참조하세요.
 
 ## <a name="configure-your-application-to-access-storage"></a>스토리지에 액세스하도록 애플리케이션 구성
 Azure Storage를 사용하려면 스토리지 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함된 Ruby Azure 패키지를 다운로드하여 사용해야 합니다.

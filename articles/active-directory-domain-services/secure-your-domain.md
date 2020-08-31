@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 6c5e0779ce0dfe2730a60873316c66184e038a35
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 50cf58f83115cfb8c84fe7b2a37b6664c2d9c567
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039877"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116685"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인을 보호 하기 위해 약한 암호화 및 암호 해시 동기화 사용 안 함
 
@@ -74,6 +74,11 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 ```
 
 보안 설정이 관리 되는 도메인에 적용 되는 데 몇 분 정도 걸립니다.
+
+> [!IMPORTANT]
+> NTLM을 사용 하지 않도록 설정한 후 Azure AD Connect에서 전체 암호 해시 동기화를 수행 하 여 관리 되는 도메인에서 모든 암호 해시를 제거 합니다. NTLM을 사용 하지 않는 경우 암호 해시 동기화를 적용 하지 않는 경우 사용자 계정에 대 한 NTLM 암호 해시는 다음 암호 변경 시에만 제거 됩니다. 이 동작을 통해 NTLM이 인증 방법으로 사용 되는 시스템에 캐시 된 자격 증명이 있는 경우 사용자가 계속 로그인 할 수 있습니다.
+>
+> NTLM 암호 해시가 Kerberos 암호 해시와 다르면 NTLM으로의 대체가 작동 하지 않습니다. 또한 VM이 관리 되는 도메인 컨트롤러에 연결 되어 있으면 캐시 된 자격 증명은 더 이상 작동 하지 않습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

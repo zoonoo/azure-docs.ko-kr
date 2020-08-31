@@ -1,6 +1,6 @@
 ---
 title: DistCp를 사용하여 Azure Data Lake Storage Gen2에 데이터 복사 | Microsoft Docs
-description: DistCp 도구를 사용하여 Data Lake Storage Gen2에서 데이터 복사
+description: DistCp (Apache Hadoop distributed copy tool)를 사용 하 여 Azure Data Lake Storage Gen2 간에 데이터를 복사 합니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 4930d99c4175126ffba65598bd6b33e973ba1c44
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 734ad2d45dbb27894e5da4fbeb11c0e8b60df8bd
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109504"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035674"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사
 

@@ -43,20 +43,14 @@
           href: plan-an-application-integration.md
         - name: 갤러리에 나열되지 않은 앱에 대한 계획
           href: non-gallery-apps.md
-        - name: 액세스 패널 배포 계획
+        - name: 내 앱 배포 계획
           href: access-panel-deployment-plan.md
         - name: 개발자를 위한 지침
           href: developer-guidance-for-integrating-applications.md
-    - name: SSO(Single sign-on)
+    - name: Single Sign-On
       items:
-        - name: 다중 테넌트 애플리케이션용 SSO 사용
-          href: isv-sso-content.md
-        - name: 다중 테넌트 애플리케이션용 Azure 테넌트 만들기
-          href: isv-tenant-multi-tenant-app.md
-        - name: 다중 테넌트 페더레이션 선택
-          href: isv-choose-multi-tenant-federation.md
-        - name: 다중 테넌트 애플리케이션용 설명서 만들기
-          href: isv-create-sso-documentation.md
+        - name: Single Sign-On 옵션
+          href: sso-options.md
         - name: Single Sign-On 배포 계획
           href: plan-sso-deployment.md
         - name: 한 번 클릭 SSO
@@ -252,7 +246,7 @@
               href: application-types.md
             - name: 할당된 예기치 않은 사용자
               href: ways-users-get-assigned-to-applications.md
-        - name: 액세스 패널 문제 해결
+        - name: 내 앱 문제 해결
           items:
             - name: 브라우저 확장 관리
               href: manage-access-panel-browser-extension.md
@@ -262,8 +256,6 @@
               href: access-panel-troubleshoot-unexpected-application.md
             - name: 로그인할 수 없음
               href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: 브라우저 확장을 설치하는 오류
-              href: access-panel-extension-problem-installing.md
             - name: 셀프 서비스 앱 액세스를 사용하는 오류
               href: access-panel-troubleshoot-self-service-access.md
         - name: 온-프레미스 앱 문제 해결

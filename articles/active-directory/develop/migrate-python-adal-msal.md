@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 4737b2ef701f643ff5bec47be29b3139e27fb146
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8dcd2b55d177c533336842293b2aedaef6b4222c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845156"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119915"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Python에 대 한 ADAL에서 MSAL 마이그레이션 가이드
 
@@ -38,19 +38,19 @@ ADAL은 Azure Active Directory (Azure AD) v 1.0 끝점에서 작동 합니다. M
   - OAuth v2.0
   - OIDC (Openid connect Connect)
 
-자세한 내용은 v2.0 [(Microsoft identity platform) 끝점의 다른 항목](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison) 을 참조 하세요.
+자세한 내용은 v2.0 [(Microsoft identity platform) 끝점의 다른 항목](../azuread-dev/azure-ad-endpoint-comparison.md) 을 참조 하세요.
 
 ### <a name="scopes-not-resources"></a>리소스가 아닌 범위
 
-ADAL Python은 리소스에 대 한 토큰을 가져오지만 MSAL Python은 범위에 대 한 토큰을 획득 합니다. MSAL Python의 API 화면에 더 이상 리소스 매개 변수가 없습니다. 필요한 사용 권한 및 요청 된 리소스를 선언 하는 문자열의 목록으로 범위를 제공 해야 합니다. 범위에 대 한 몇 가지 예를 보려면 [Microsoft Graph의 범위](https://docs.microsoft.com/graph/permissions-reference)를 참조 하세요.
+ADAL Python은 리소스에 대 한 토큰을 가져오지만 MSAL Python은 범위에 대 한 토큰을 획득 합니다. MSAL Python의 API 화면에 더 이상 리소스 매개 변수가 없습니다. 필요한 사용 권한 및 요청 된 리소스를 선언 하는 문자열의 목록으로 범위를 제공 해야 합니다. 범위에 대 한 몇 가지 예를 보려면 [Microsoft Graph의 범위](/graph/permissions-reference)를 참조 하세요.
 
 리소스에 범위 접미사를 추가 하 여 v2.0 `/.default` 끝점 (ADAL)에서 Microsoft MSAL (id 플랫폼 끝점)으로 앱을 마이그레이션할 수 있습니다. 예를 들어의 리소스 값에 대해 `https://graph.microsoft.com` 해당 하는 범위 값은 `https://graph.microsoft.com/.default` 입니다.  리소스가 URL 형식이 아닌 폼의 리소스 ID 인 경우 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` 범위 값을으로 계속 사용할 수 있습니다 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
-다양 한 범위 형식에 대 한 자세한 내용은 [Microsoft id 플랫폼의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) 및 v1.0 토큰을 [수락 하는 Web API에 대 한 범위](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes) 문서를 참조 하세요.
+다양 한 범위 형식에 대 한 자세한 내용은 [Microsoft id 플랫폼의 사용 권한 및 동의](./v2-permissions-and-consent.md) 및 v1.0 토큰을 [수락 하는 Web API에 대 한 범위](./msal-v1-app-scopes.md) 문서를 참조 하세요.
 
 ### <a name="error-handling"></a>오류 처리
 
-Python 용 ADAL (Azure Active Directory 인증 라이브러리)은 예외를 사용 하 여 `AdalError` 문제가 있음을 표시 합니다. Python 용 MSAL은 일반적으로 오류 코드를 대신 사용 합니다. 자세한 내용은 [Msal For Python error 처리](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=python)를 참조 하세요.
+Python 용 ADAL (Azure Active Directory 인증 라이브러리)은 예외를 사용 하 여 `AdalError` 문제가 있음을 표시 합니다. Python 용 MSAL은 일반적으로 오류 코드를 대신 사용 합니다. 자세한 내용은 [Msal For Python error 처리](./msal-handling-exceptions.md?tabs=python)를 참조 하세요.
 
 ### <a name="api-changes"></a>API 변경 내용
 
@@ -122,4 +122,4 @@ print("Migration completed")
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [v1.0 및 v2.0 비교](active-directory-v2-compare.md)를 참조하세요.
+자세한 내용은 [v1.0 및 v2.0 비교](../azuread-dev/azure-ad-endpoint-comparison.md)를 참조하세요.

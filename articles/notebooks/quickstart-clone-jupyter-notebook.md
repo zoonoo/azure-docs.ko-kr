@@ -3,12 +3,12 @@ title: Azure Notebooks 미리 보기를 사용하여 GitHub에서 Jupyter Notebo
 description: GitHub 리포지토리에서 Jupyter 노트를 신속하게 복제하고 Azure Notebooks 계정에서 실행합니다.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 35352e74a8db071a2f85bd71857d47f3af1953e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 267e79e7d4bf108ac3b2c72d64cee5a07ba638be
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833089"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424480"
 ---
 # <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 Notebook 복제
 
@@ -49,7 +49,7 @@ Azure Notebooks 클론이 클라우드에 있으므로 로컬 복사본을 만�
 
 1. 복제가 완료되면 Azure Notebooks에서 모든 파일의 복사본을 볼 수 있는 새 프로젝트로 이동됩니다.
 
-    [![](media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
+    :::image type="content" source="media/quickstarts/completed-clone.png" alt-text="완료된 클론 보기" lightbox="media/quickstarts/completed-clone.png":::
 
 ## <a name="share-a-notebook"></a>노트 공유
 

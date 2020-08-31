@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 (클래식) Azure Automation 세션 호스트 크기 조정-Azure
 description: Azure Automation를 사용 하 여 Windows 가상 데스크톱 (클래식) 세션 호스트 크기를 자동으로 조정 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4c09ce867a7d4dbc11c42485c39c40bd427fa451
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f4092b9d5ee7453533561f5921781fee4d1823eb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288633"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005587"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Azure Automation를 사용 하 여 Windows 가상 데스크톱 (클래식) 세션 호스트 크기 조정
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
 
 VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비용을 줄일 수 있습니다. VM을 크기 조정한다는 것은 사용량이 적은 시간에는 세션 호스트 VM을 종료 및 할당 취소하고 사용량이 많은 시간에는 다시 켜서 할당하는 것을 의미합니다.
 
@@ -94,7 +92,7 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
     ```powershell
     Login-AzAccount
     ```
-    
+
     >[!NOTE]
     >계정에는 크기 조정 도구를 배포 하려는 Azure 구독에 대 한 참가자 권한이 있어야 합니다.
 
@@ -119,7 +117,7 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
          "Location"              = "<Azure_region_for_deployment>"
          "WorkspaceName"         = "<Log_analytics_workspace_name>"       # Optional. If specified, Log Analytics will be used to configure the custom log table that the runbook PowerShell script can send logs to
     }
-    
+
     .\CreateOrUpdateAzAutoAccount.ps1 @Params
     ```
 
@@ -208,23 +206,23 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId "<app
     # Set-RdsContext -TenantGroupName "<Tenant_Group_Name>"
     ```
 
-5. 다음 PowerShell 스크립트를 실행 하 여 호스트 풀의 Azure 논리 앱 및 실행 일정을 만듭니다. 
+5. 다음 PowerShell 스크립트를 실행 하 여 호스트 풀의 Azure 논리 앱 및 실행 일정을 만듭니다.
 
     >[!NOTE]
     >자동 크기 조정 하려는 각 호스트 풀에 대해이 스크립트를 실행 해야 하지만 Azure Automation 계정은 하나만 필요 합니다.
 
     ```powershell
     $AADTenantId = (Get-AzContext).Tenant.Id
-    
+
     $AzSubscription = Get-AzSubscription | Out-GridView -OutputMode:Single -Title "Select your Azure Subscription"
     Select-AzSubscription -Subscription $AzSubscription.Id
-    
+
     $ResourceGroup = Get-AzResourceGroup | Out-GridView -OutputMode:Single -Title "Select the resource group for the new Azure Logic App"
-    
+
     $RDBrokerURL = (Get-RdsContext).DeploymentUrl
     $WVDTenant = Get-RdsTenant | Out-GridView -OutputMode:Single -Title "Select your WVD tenant"
     $WVDHostPool = Get-RdsHostPool -TenantName $WVDTenant.TenantName | Out-GridView -OutputMode:Single -Title "Select the host pool you'd like to scale"
-    
+
     $LogAnalyticsWorkspaceId = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Workspace ID returned by when you created the Azure Automation account, otherwise leave it blank"
     $LogAnalyticsPrimaryKey = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Primary Key returned by when you created the Azure Automation account, otherwise leave it blank"
     $RecurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
@@ -237,12 +235,12 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId "<app
     $LimitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, any session host VM that has user sessions, will be left untouched"
     $LogOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
     $LogOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-    
+
     $AutoAccount = Get-AzAutomationAccount | Out-GridView -OutputMode:Single -Title "Select the Azure Automation account"
     $AutoAccountConnection = Get-AzAutomationConnection -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName | Out-GridView -OutputMode:Single -Title "Select the Azure RunAs connection asset"
-    
+
     $WebhookURIAutoVar = Get-AzAutomationVariable -Name 'WebhookURI' -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName
-    
+
     $Params = @{
          "AADTenantId"                   = $AADTenantId                             # Optional. If not specified, it will use the current Azure context
          "SubscriptionID"                = $AzSubscription.Id                       # Optional. If not specified, it will use the current Azure context
@@ -267,7 +265,7 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId "<app
          "LogOffMessageBody"             = $LogOffMessageBody                       # Optional. Default: "Your session will be logged off. Please save and close everything."
          "WebhookURI"                    = $WebhookURIAutoVar.Value
     }
-    
+
     .\CreateOrUpdateAzLogicApp.ps1 @Params
     ```
 

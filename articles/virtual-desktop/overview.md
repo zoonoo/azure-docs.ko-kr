@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop이란? - Azure
 description: Windows Virtual Desktop의 개요입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ff1f20314d79c507c696325d19c83e10ec4513f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 003662beefcb2ee8f99a5f565ed680d406421a62
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386576"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002380"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란?
 
@@ -132,14 +130,14 @@ Windows Virtual Desktop은 x86(32비트), Windows 10 Enterprise N 또는 Windows
 
 |운영 체제|Azure 이미지 갤러리|수동 VM 배포|Azure Resource Manager 템플릿 통합|Azure Marketplace에서 호스트 풀 프로비저닝|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 다중 세션, 버전 1903|yes|yes|yes|예|
-|Windows 10 다중 세션, 버전 1809|yes|yes|예|아니요|
-|Windows 10 Enterprise, 버전 1903|yes|yes|yes|예|
-|Windows 10 Enterprise, 버전 1809|yes|yes|예|아니요|
-|Windows 7 Enterprise|yes|yes|예|아니요|
-|Windows Server 2019|yes|yes|예|예|
-|Windows Server 2016|yes|yes|yes|yes|
-|Windows Server 2012 R2|예|yes|예|아니요|
+|Windows 10 다중 세션, 버전 1903|예|예|예|예|
+|Windows 10 다중 세션, 버전 1809|예|예|아니요|아니요|
+|Windows 10 Enterprise, 버전 1903|예|예|예|예|
+|Windows 10 Enterprise, 버전 1809|예|예|아니요|아니요|
+|Windows 7 Enterprise|예|예|아니요|아니요|
+|Windows Server 2019|예|예|아니요|예|
+|Windows Server 2016|예|예|예|예|
+|Windows Server 2012 R2|예|예|아니요|아니요|
 
 ## <a name="next-steps"></a>다음 단계
 

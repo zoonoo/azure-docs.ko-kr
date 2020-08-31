@@ -1,6 +1,6 @@
 ---
 title: Azure Maps 웹 SDK의 이미지 템플릿 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps 웹 SDK에서 HTML 표식 및 다양 한 계층으로 이미지 템플릿을 사용 하는 방법에 대해 알아봅니다.
+description: Azure Maps 웹 SDK를 사용 하 여 지도에 이미지 아이콘 및 패턴 채워진 다각형을 추가 하는 방법에 대해 알아봅니다. 사용 가능한 이미지 및 채우기 패턴 템플릿을 봅니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 2942ae25e3ac84ae6f91ebbba08581eb87bcd169
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ae3fa4684e4e71115d2d4ddce3c34ccb4f1cb703
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285682"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004657"
 ---
 # <a name="how-to-use-image-templates"></a>이미지 템플릿을 사용하는 방법
 
@@ -106,7 +106,7 @@ CodePen의 Azure Maps ()를 사용 하 여 <a href='https://codepen.io/azuremaps
 
 
 > [!TIP]
-> 이미지 템플릿도 지도 외부에서 사용할 수 있습니다. GetImageTemplate 작동는 자리 표시 자가 있는 SVG 문자열을 반환 합니다. `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. 올바른 SVG 문자열을 만들려면 이러한 자리 표시자 값을 바꿉니다. 그런 다음 HTML DOM에 직접 SVG 문자열을 추가 하거나 데이터 URI로 변환 하 여 이미지 태그에 삽입할 수 있습니다. 예를 들면 다음과 같습니다.
+> 이미지 템플릿도 지도 외부에서 사용할 수 있습니다. GetImageTemplate 작동는 자리 표시 자가 있는 SVG 문자열을 반환 합니다. `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. 올바른 SVG 문자열을 만들려면 이러한 자리 표시자 값을 바꿉니다. 그런 다음 HTML DOM에 직접 SVG 문자열을 추가 하거나 데이터 URI로 변환 하 여 이미지 태그에 삽입할 수 있습니다. 예:
 > ```JavaScript
 > //Retrieve an SVG template and replace the placeholder values.
 > var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);

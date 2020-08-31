@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Disk 문제 해결 | Microsoft Docs
-description: Azure Data Box Disk에서 발견된 문제 해결 방법을 설명합니다.
+description: 로그를 사용 하 여 Azure Data Box Disk를 배포할 때 발생할 수 있는 유효성 검사 문제를 해결 하는 방법에 대해 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: troubleshooting
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 35b4b206de9c16d66387135b0ca75b6aaeb7c744
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c1b38c4021660b9f59098f8442d16bfd0ecc582
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565010"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925545"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>로그를 사용 하 여 Azure Data Box Disk 유효성 검사 문제 해결
 

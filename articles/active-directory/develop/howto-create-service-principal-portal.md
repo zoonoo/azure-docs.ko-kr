@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 06e1abc4f863674cc67c1a78a9f2f626565d296f
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828934"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117229"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -178,7 +178,7 @@ Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/fr
    ![나중에 이 키를 검색할 수 없으므로 비밀 값 복사](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>리소스에 대 한 액세스 정책 구성
-응용 프로그램에서 액세스 해야 하는 리소스에 대 한 추가 권한을 구성 해야 할 수도 있습니다. 예를 들어 키, 암호 또는 인증서에 대 한 액세스 권한을 응용 프로그램에 부여 하려면 [키 자격 증명 모음 액세스 정책을 업데이트](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) 해야 합니다.  
+응용 프로그램에서 액세스 해야 하는 리소스에 대 한 추가 권한을 구성 해야 할 수도 있습니다. 예를 들어 키, 암호 또는 인증서에 대 한 액세스 권한을 응용 프로그램에 부여 하려면 [키 자격 증명 모음 액세스 정책을 업데이트](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) 해야 합니다.  
 
 1. [Azure Portal](https://portal.azure.com)에서 주요 자격 증명 모음으로 이동 하 여 **액세스 정책**을 선택 합니다.  
 1. **액세스 정책 추가**를 선택 하 고 응용 프로그램에 부여 하려는 키, 암호 및 인증서 권한을 선택 합니다.  이전에 만든 서비스 사용자를 선택 합니다.

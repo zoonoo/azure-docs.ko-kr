@@ -3,15 +3,15 @@ title: 서비스 카탈로그 관리형 앱 게시
 description: 조직의 구성원을 위한 Azure 관리형 애플리케이션을 만드는 방법이 나와 있습니다.
 author: tfitzmac
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: d0a3e2a435be679a2a35941dfa24978ae77291b0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f6a3a16fe7fd6b0036b36520262e85a9066a4e63
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249039"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497857"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>빠른 시작: 관리되는 애플리케이션 정의 만들기 및 게시
 
@@ -195,7 +195,7 @@ az storage blob upload \
 
 ### <a name="create-an-azure-active-directory-user-group-or-application"></a>Azure Active Directory 사용자 그룹 또는 애플리케이션 만들기
 
-다음 단계는 고객의 리소스를 관리하기 위한 사용자 그룹, 사용자 또는 애플리케이션을 선택하는 것입니다. 이 ID에는 할당된 역할에 따라 관리되는 리소스 그룹에 대한 권한이 있습니다. 역할은 소유자 또는 참가자와 같은 기본 제공 RBAC(역할 기반 Access Control) 역할일 수 있습니다. 새 Active Directory 사용자 그룹을 만들려면 [그룹을 만들고 Azure Active Directory에 구성원 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
+다음 단계는 고객의 리소스를 관리하기 위한 사용자 그룹, 사용자 또는 애플리케이션을 선택하는 것입니다. 이 ID에는 할당된 역할에 따라 관리되는 리소스 그룹에 대한 권한이 있습니다. 역할은 소유자 또는 기여자 같은 Azure 기본 제공 역할입니다. 새 Active Directory 사용자 그룹을 만들려면 [그룹을 만들고 Azure Active Directory에 구성원 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 리소스 관리에 사용할 사용자 그룹의 개체 ID가 필요합니다. 
 

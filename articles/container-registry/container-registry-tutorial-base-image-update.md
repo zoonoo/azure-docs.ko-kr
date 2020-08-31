@@ -3,13 +3,13 @@ title: 자습서 - 기본 이미지 업데이트 시 이미지 빌드 트리거
 description: 이 자습서에서는 기본 이미지가 동일한 레지스트리에서 업데이트 될 때 클라우드에서 컨테이너 이미지 빌드를 자동으로 트리거하도록 Azure Container Registry 작업을 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 4797dd1f1fe19b98ab94c4743ad4af3c43ce0627
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: seodec18, mvc, devx-track-javascript
+ms.openlocfilehash: 0efac34d05dfaf8877efec2e66f1f95a19ca95be
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78402863"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87408002"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>자습서: Azure Container Registry에서 기본 이미지가 업데이트될 때 컨테이너 이미지 빌드 자동화 
 

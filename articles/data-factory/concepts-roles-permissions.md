@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 923b3fbb617f46ba0551f6b21c384331559da2f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263248"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036354"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory용 역할 및 권한
 
@@ -26,21 +26,21 @@ ms.locfileid: "85263248"
 
 ## <a name="roles-and-requirements"></a>역할 및 요구 사항
 
-데이터 팩터리 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정이 *참여자* 또는 *소유자* 역할의 구성원이거나, Azure 구독의 *관리자*여야 합니다. 구독에 있는 권한을 보려면 Azure Portal에서 오른쪽 위 모서리에 있는 사용자 이름을 선택한 다음, **권한**을 선택합니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 
+Data Factory 인스턴스를 만들려면 Azure에 로그인 하는 데 사용 하는 사용자 계정이 *참가자* 역할, *소유자* 역할 또는 azure 구독의 *관리자* 의 구성원 이어야 합니다. 구독에 있는 권한을 보려면 Azure Portal에서 오른쪽 위 모서리에 있는 사용자 이름을 선택한 다음, **권한**을 선택합니다. 여러 구독에 액세스할 수 있는 경우 적절한 구독을 선택합니다. 
 
 데이터 세트, 연결된 서비스, 파이프라인, 트리거 및 통합 런타임을 포함하여 Data Factory에 대한 자식 리소스를 만들고 관리하려면 다음 요구 사항을 적용해야 합니다.
-- Azure Portal에서 자식 리소스를 만들고 관리하려면 리소스 그룹 수준 이상의 **Data Factory 기여자** 역할에 속해야 합니다.
+- Azure Portal에서 자식 리소스를 만들고 관리 하려면 **리소스 그룹** 수준 이상의 **Data Factory 참여자** 역할에 속해야 합니다.
 - PowerShell 또는 SDK를 사용하여 자식 리소스를 만들고 관리하려면 리소스 수준 이상의 **기여자** 역할만으로도 충분합니다.
 
 사용자를 역할에 추가하는 방법에 대한 지침 샘플은 [역할 추가](../cost-management-billing/manage/add-change-subscription-administrator.md) 문서를 참조하세요.
 
 ## <a name="set-up-permissions"></a>권한 설정
 
-작성한 데이터 팩터리는 다른 사용자가 사용 가능하도록 설정할 수 있습니다. 다른 사용자에게 데이터 팩터리 액세스 권한을 제공하려는 경우 데이터 팩터리가 포함된 리소스 그룹의 기본 제공 **데이터 팩터리 참가자** 역할에 해당 사용자를 추가해야 합니다.
+작성한 데이터 팩터리는 다른 사용자가 사용 가능하도록 설정할 수 있습니다. 다른 사용자에 게이 액세스 권한을 부여 하려면 Data Factory를 포함 하는 **리소스 그룹** 의 기본 제공 **Data Factory 참가자** 역할에 해당 사용자를 추가 해야 합니다.
 
 ### <a name="scope-of-the-data-factory-contributor-role"></a>데이터 팩터리 참가자 역할의 범위
 
-**데이터 팩터리 참가자** 역할의 멤버 자격이 있는 사용자는 다음 작업을 수행할 수 있습니다.
+**Data Factory 참여자** 역할의 멤버 자격을 통해 사용자는 다음 작업을 수행할 수 있습니다.
 - 데이터 팩터리 및 하위 리소스(데이터 세트, 연결된 서비스, 파이프라인, 트리거 및 통합 런타임 포함)를 만들고 편집하고 삭제할 수 있습니다.
 - Resource Manager 템플릿을 배포할 수 있습니다. Resource Manager 배포는 Azure Portal의 데이터 팩터리에서 사용되는 배포 방법입니다.
 - 데이터 팩터리에 대한 App Insights 경고를 관리할 수 있습니다.
@@ -50,7 +50,7 @@ ms.locfileid: "85263248"
 
 ### <a name="resource-manager-template-deployment"></a>Resource Manager 템플릿 배포
 
-리소스 그룹 이상 수준에서 **데이터 팩터리 참가자** 역할이 있는 사용자는 Resource Manager 템플릿을 배포할 수 있습니다. 즉, 해당 역할의 구성원은 Resource Manager 템플릿을 사용하여 데이터 팩터리와 해당 하위 리소스(데이터 세트, 연결된 서비스, 파이프라인, 트리거, 통합 런타임 포함)를 모두 배포할 수 있습니다. 하지만 이 역할의 멤버 자격이 있는 사용자가 다른 리소스를 만들 수 있는 것은 아닙니다.
+리소스 그룹 이상 수준에서 **데이터 팩터리 참가자** 역할이 있는 사용자는 Resource Manager 템플릿을 배포할 수 있습니다. 즉, 해당 역할의 구성원은 Resource Manager 템플릿을 사용하여 데이터 팩터리와 해당 하위 리소스(데이터 세트, 연결된 서비스, 파이프라인, 트리거, 통합 런타임 포함)를 모두 배포할 수 있습니다. 이 역할의 멤버 자격을 통해 사용자는 다른 리소스를 만들 수 없습니다.
 
 Azure 리포지토리 및 GitHub에 대한 사용 권한은 Data Factory 사용 권한과 독립적입니다. 결과적으로, 독자 역할의 구성원으로서 리포지토리 사용 권한을 가진 사용자는 Data Factory 자식 리소스를 편집하고 리포지토리에 변경을 커밋할 수 있지만 이러한 변경 내용을 게시할 수는 없습니다.
 

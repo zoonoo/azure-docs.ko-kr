@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용 하 여 Azure Vm의 SQL Server를 
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4d197f8b3c1ed74ef45c1f7942ead52ccef0c14a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 41511abaa071bd0f64ee699c52486b71ec036a68
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513186"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926453"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Azure Vm의 SQL Server 백업에 대 한 지원 매트릭스
 
@@ -25,21 +25,26 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 **지원되는 SQL Server 버전** | [제품 수명 주기 페이지 검색](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017)에 설명된 SQL Server 2019, SQL Server 2017, [제품 수명 주기 페이지 검색](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack)에 설명된 SQL Server 2016 및 SP, SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express
 **지원되는 .NET 버전** | VM에 설치된 .NET Framework 4.5.2 이상
 
-## <a name="feature-consideration-and-limitations"></a>기능 고려 사항 및 제한 사항
+## <a name="feature-considerations-and-limitations"></a>기능 고려 사항 및 제한 사항
 
-* SQL Server 백업은 Azure Portal 또는 **PowerShell**에서 구성할 수 있습니다. CLI는 지원 하지 않습니다.
+|Setting  |최대 제한 |
+|---------|---------|
+|서버 및 자격 증명 모음에서 보호할 수 있는 데이터베이스 수    |   2000      |
+|지원 되는 데이터베이스 크기 (이 외에 성능 문제가 발생할 수 있음)   |   2TB      |
+|데이터베이스에서 지원 되는 파일 수    |   1000      |
+
+>[!NOTE]
+> [자세한 Resource Planner를 다운로드](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) 하 여 VM 리소스, 대역폭 및 백업 정책에 따라 서버 별로 권장 되는 보호 된 데이터베이스의 대략적인 수를 계산 합니다.
+
+* SQL Server 백업은 Azure Portal 또는 **PowerShell**에서 구성할 수 있습니다. CLI는 지원 되지 않습니다.
 * 솔루션은 Azure Resource Manager VM과 클래식 VM의 두 종류 [배포](../azure-resource-manager/management/deployment-models.md)에서 모두 지원됩니다.
-* SQL Server를 실행하는 VM에서 Azure 공용 IP 주소에 액세스하려면 인터넷 연결이 필요합니다.
-* SQL Server **장애 조치 (Failover) 클러스터 인스턴스 (FCI)** 는 지원 되지 않습니다.
+* 모든 백업 유형 (전체/차등/로그) 및 복구 모델 (단순/전체/대량 로그)이 지원 됩니다.
+* 전체 및 복사 전용 전체 백업 유형은 **읽기 전용** 데이터베이스에 대해 지원 됩니다.
+* SQL 네이티브 압축은 백업 정책에서 사용자가 명시적으로 사용 하도록 설정한 경우에만 지원 됩니다. Azure Backup은 사용자가 설정한 대로이 컨트롤의 값에 따라 압축/NO_COMPRESSION 절을 사용 하 여 인스턴스 수준 기본값을 재정의 합니다.
+* TDE 사용 데이터베이스 백업이 지원 됩니다. TDE로 암호화 된 데이터베이스를 다른 SQL Server 복원 하려면 먼저 [대상 서버에 인증서를 복원](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server)해야 합니다. SQL Server 2016 이상 버전에 대 한 TDE 지원 데이터베이스의 백업 압축을 사용할 수 있지만 [여기](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593)에 설명 된 대로 낮은 전송 크기를 사용할 수 있습니다.
 * 미러 데이터베이스와 데이터베이스 스냅샷에 대한 백업 및 복원 작업은 지원되지 않습니다.
-* 백업 솔루션을 2개 이상 사용하여 독립 실행형 SQL Server 인스턴스 또는 SQL Always On 가용성 그룹을 백업하면 오류가 발생할 수 있으므로 그렇게 하지 말아야 합니다.
-* 같은 솔루션 또는 다른 솔루션을 사용하여 한 가용성 그룹의 두 노드를 개별적으로 백업해도 오류가 발생할 수 있습니다.
-* Azure Backup은 **읽기 전용** 데이터베이스에 전체 백업 및 복사 전용 전체 백업만 지원합니다.
-* 많은 수의 파일이 있는 데이터베이스는 보호할 수 없습니다. 지원되는 최대 파일 수는 **1000**개입니다.  
-* 자격 증명 모음에서 최대 **~ 2000** SQL Server 데이터베이스를 백업할 수 있습니다. 데이터베이스 수가 이보다 더 많은 경우 자격 증명 모음을 여러 개 만들면 됩니다.
-* 한 번에 데이터베이스 **50**개까지 백업을 구성할 수 있습니다. 이 제한은 백업 부하 최적화에 도움이 됩니다.
-* 최대 **2tb** 크기의 데이터베이스를 지원 합니다. 크기 보다 큰 경우 성능 문제가 발생할 수 있습니다.
-* 서버 별로 보호할 수 있는 데이터베이스 수에 대 한 의미를 이해 하려면 대역폭, VM 크기, 백업 빈도, 데이터베이스 크기 등의 요인을 고려 하십시오. Resource planner를 [다운로드](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) 하 여 VM 리소스 및 백업 정책에 따라 서버당 사용할 수 있는 데이터베이스의 대략적인 수를 계산 합니다.
+* SQL Server **장애 조치 (Failover) 클러스터 인스턴스 (FCI)** 는 지원 되지 않습니다.
+* 둘 이상의 백업 솔루션을 사용 하 여 독립 실행형 SQL Server 인스턴스 또는 SQL Always on 가용성 그룹을 백업 하면 백업 오류가 발생할 수 있습니다. 그렇게 하지 마십시오. 같은 솔루션 또는 다른 솔루션을 사용하여 한 가용성 그룹의 두 노드를 개별적으로 백업해도 오류가 발생할 수 있습니다.
 * 가용성 그룹이 구성 되 면 몇 가지 요소에 따라 다른 노드에서 백업이 수행 됩니다. 아래는 가용성 그룹에 대한 백업 동작을 요약한 것입니다.
 
 ### <a name="back-up-behavior-with-always-on-availability-groups"></a>Always On 가용성 그룹을 사용하여 백업 동작
@@ -55,7 +60,7 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 
 #### <a name="backup-preference-primary"></a>백업 기본 설정: 기본
 
-**백업 유형** | **노드**
+**백업 유형** | **Node**
 --- | ---
 전체 | 기본
 차등 | 기본
@@ -64,7 +69,7 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 
 #### <a name="backup-preference-secondary-only"></a>백업 기본 설정: 보조만
 
-**백업 유형** | **노드**
+**백업 유형** | **Node**
 --- | ---
 전체 | 기본
 차등 | 기본
@@ -73,7 +78,7 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 
 #### <a name="backup-preference-secondary"></a>백업 기본 설정: 보조
 
-**백업 유형** | **노드**
+**백업 유형** | **Node**
 --- | ---
 전체 | 기본
 차등 | 기본
@@ -82,7 +87,7 @@ Azure Backup를 사용 하 여 Microsoft Azure 클라우드 플랫폼에서 호�
 
 #### <a name="no-backup-preference"></a>백업 기본 설정 없음
 
-**백업 유형** | **노드**
+**백업 유형** | **Node**
 --- | ---
 전체 | 기본
 차등 | 기본

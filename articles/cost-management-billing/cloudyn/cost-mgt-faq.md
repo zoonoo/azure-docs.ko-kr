@@ -1,20 +1,21 @@
 ---
 title: Azure의 Cloudyn에 대한 질문과 대답
-description: 이 문서에서는 Cloudyn에 대한 일반적인 질문에 대한 답변을 제공합니다.
+description: Cloudyn 포털을 사용하여 일반적인 간접 엔터프라이즈 설정 문제를 해결하고 기타 질문과 대답을 확인하는 방법을 알아봅니다.
 author: bandersmsft
 ms.author: banders
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: b1ec81ea135079defb390becc025f51cde2dad7f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7b78d9d7bf725e3d82c88360c822455de1301ef6
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80411252"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688031"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn에 대한 질문과 대답
 

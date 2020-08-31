@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 766fb9fbe50f8a138eae020082680204872a653a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87315448"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921095"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>서비스 공급자에 대 한 Azure Monitor 로그
 
@@ -40,7 +40,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 분산 아키텍처의 장점은 다음과 같습니다.
 
-* 고객은 [Azure 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)를 통해 특정 수준의 사용 권한을 확인 하거나 자체 [역할 기반 액세스](../../role-based-access-control/overview.md)를 사용 하 여 로그에 대 한 액세스를 관리할 수 있습니다.
+* 고객은 [azure 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)를 통해 특정 수준의 사용 권한을 확인 하거나 자신의 [azure RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 사용 하 여 로그에 대 한 액세스를 관리할 수 있습니다.
 * 에이전트 기반 VM 데이터 뿐만 아니라 모든 유형의 리소스에서 로그를 수집할 수 있습니다. Azure 감사 로그 등을 예로 들 수 있습니다.
 * 각 고객은 보존 및 데이터 제한과 같은 해당 작업 영역의 설정이 서로 다를 수 있습니다.
 * 규정 및 준수를 위해 고객을 서로 격리합니다.
@@ -90,4 +90,3 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 * [Power BI](./powerbi.md)를 사용하여 요약 보고서 생성
 
 * [Azure에서 위임 된 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)에 고객을 등록 합니다.
-

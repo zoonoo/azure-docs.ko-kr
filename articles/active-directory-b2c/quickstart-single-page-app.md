@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a754873aeafe8d4e7b48d49647469874ff40f7e
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: db18c71b09cd9beb58799ad4fbcbc944061153fb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80875886"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921761"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정
 
@@ -75,6 +75,10 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 ![웹 API 응답을 보여 주는 브라우저의 샘플 애플리케이션](./media/quickstart-single-page-app/call-api-spa.png)
 
 샘플 단일 페이지 애플리케이션은 보호되는 웹 API 리소스에 대한 요청에 액세스 토큰을 포함합니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+다른 Azure AD B2C 빠른 시작 또는 자습서를 사용하려는 경우 Azure AD B2C 테넌트를 사용할 수 있습니다. 더 이상 필요하지 않으면 [Azure AD B2C 테넌트를 삭제](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

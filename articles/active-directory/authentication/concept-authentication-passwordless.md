@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 105f911b97e01a4b05673fc67b51c677df15eb89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 70f7082de204cedd25b3b87b7157376505598712
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051282"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718087"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
@@ -52,7 +52,7 @@ MFA (multi-factor authentication)와 같은 기능은 조직을 보호 하는 �
 1. 클라우드 AP 공급자는 세션 키를 사용 하 여 암호화 된 PRT를 수신 합니다. 클라우드 AP 공급자는 장치의 개인 전송 키를 사용 하 여 세션 키의 암호를 해독 하 고 TPM (장치 신뢰할 수 있는 플랫폼 모듈)을 사용 하 여 세션 키를 보호 합니다.
 1. 클라우드 AP 공급자는 Windows에 대 한 성공적인 인증 응답을 반환 합니다. 그러면 사용자는 SSO ()를 다시 인증 하지 않고도 클라우드 및 온-프레미스 응용 프로그램 뿐만 아니라 Windows에 액세스할 수 있습니다.
 
-비즈니스용 Windows Hello [계획 가이드](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) 를 사용 하 여 비즈니스용 windows hello 배포 유형과 고려해 야 할 옵션에 대 한 결정을 내리는 데 도움을 받을 수 있습니다.
+비즈니스용 Windows Hello [계획 가이드](/windows/security/identity-protection/hello-for-business/hello-planning-guide) 를 사용 하 여 비즈니스용 windows hello 배포 유형과 고려해 야 할 옵션에 대 한 결정을 내리는 데 도움을 받을 수 있습니다.
 
 ## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator 앱
 
@@ -60,7 +60,7 @@ MFA (multi-factor authentication)와 같은 기능은 조직을 보호 하는 �
 
 ![Microsoft Authenticator 앱을 사용 하 여 Microsoft Edge에 로그인](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
-Authenticator 앱은 모든 iOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로 전환 합니다. 사용자는 휴대폰에 대 한 알림을 받고, 화면에 표시 되는 숫자를 휴대폰에 있는 것과 일치 시킨 다음, 생체 인식 (터치 또는 얼굴) 또는 PIN을 사용 하 여 확인 하 여 모든 플랫폼 또는 브라우저에 로그인 할 수 있습니다. 설치에 대 한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) 를 참조 하세요.
+Authenticator 앱은 모든 iOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로 전환 합니다. 사용자는 휴대폰에 대 한 알림을 받고, 화면에 표시 되는 숫자를 휴대폰에 있는 것과 일치 시킨 다음, 생체 인식 (터치 또는 얼굴) 또는 PIN을 사용 하 여 확인 하 여 모든 플랫폼 또는 브라우저에 로그인 할 수 있습니다. 설치에 대 한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](../user-help/user-help-auth-app-download-install.md) 를 참조 하세요.
 
 Authenticator 앱을 사용 하는 암호 없는 인증은 비즈니스용 Windows Hello와 동일한 기본 패턴을 따릅니다. Azure AD가 사용 되는 Microsoft Authenticator 앱 버전을 찾을 수 있도록 사용자를 식별 해야 하기 때문에 좀 더 복잡 합니다.
 
@@ -120,7 +120,7 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만 Microsoft는 �
 | 공급자 | 연락처 |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
-| Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
+| Feitian | [https://shop.ftsafe.us/pages/microsoft](https://shop.ftsafe.us/pages/microsoft) |
 | 숨겼습니다 | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | TrustKey 솔루션 | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |

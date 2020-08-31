@@ -1,23 +1,21 @@
 ---
 title: 저장소 FSLogix 프로필 컨테이너 Windows 가상 데스크톱-Azure
 description: Azure Storage에 Windows 가상 데스크톱 FSLogix 프로필을 저장 하는 옵션입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dfa5d6bc5707679bbe5dada9f28046202e7aae5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4702c68dcda0c794aef34d3c0675e2fd158e6d4f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808528"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009412"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션
 
-Azure는 FSLogix 프로필 컨테이너를 저장 하는 데 사용할 수 있는 여러 저장소 솔루션을 제공 합니다. 이 문서에서는 Azure에서 Windows 가상 데스크톱 FSLogix 사용자 프로필 컨테이너에 대해 제공 하는 저장소 솔루션을 비교 합니다. 대부분의 고객에 대 한 Azure Files에 FSLogix 프로필 컨테이너를 저장 하는 것이 좋습니다. 
+Azure는 FSLogix 프로필 컨테이너를 저장 하는 데 사용할 수 있는 여러 저장소 솔루션을 제공 합니다. 이 문서에서는 Azure에서 Windows 가상 데스크톱 FSLogix 사용자 프로필 컨테이너에 대해 제공 하는 저장소 솔루션을 비교 합니다. 대부분의 고객에 대 한 Azure Files에 FSLogix 프로필 컨테이너를 저장 하는 것이 좋습니다.
 
 Windows 가상 데스크톱은 FSLogix 프로필 컨테이너를 권장 사용자 프로필 솔루션으로 제공 합니다. FSLogix는 Windows Virtual Desktop과 같은 원격 컴퓨팅 환경에서 프로필을 로밍하도록 설계되었습니다. 로그인 시이 컨테이너는 기본적으로 지원 되는 VHD (가상 하드 디스크) 및 Hyper-v VHDX (가상 하드 디스크)를 사용 하 여 컴퓨팅 환경에 동적으로 연결 됩니다. 사용자 프로필은 즉시 사용할 수 있으며 시스템에서 네이티브 사용자 프로필과 똑같이 표시 됩니다.
 
@@ -27,7 +25,7 @@ Windows 가상 데스크톱은 FSLogix 프로필 컨테이너를 권장 사용�
 
 |기능|Azure 파일|Azure NetApp Files|직접 스토리지 공간|
 |--------|-----------|------------------|---------------------|
-|사용 사례|범용 가상 컴퓨터|NetApp 온-프레미스에서의 Ultra 성능 또는 마이그레이션|플랫폼 간 사용 가능|
+|사용 사례|범용 가상 컴퓨터|NetApp 온-프레미스에서의 Ultra 성능 또는 마이그레이션|플랫폼 간|
 |플랫폼 서비스|예, Azure 네이티브 솔루션|예, Azure 네이티브 솔루션|아니요, 자체 관리|
 |국가별 가용성|모든 지역|[영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|모든 지역|
 |중복성|로컬 중복/영역 중복/지역 중복|로컬 중복|로컬 중복/영역 중복/지역 중복|

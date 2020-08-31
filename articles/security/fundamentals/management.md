@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/08/2020
 ms.author: terrylan
-ms.openlocfilehash: d8baf1c70d115b80e3238d3eedf128057684d2e6
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 73d82efed438d447c7af3bfc54d5c3fc22cdd819
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224709"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921931"
 ---
 # <a name="security-management-in-azure"></a>Azure의 보안 관리
 Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 사용 권한을 가진 최종 사용자 디바이스 등 여러 디바이스에서 자신의 클라우드 환경을 관리할 수 있습니다. 경우에 따라 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)와 같은 웹 기반 콘솔을 통해 관리 기능이 수행 됩니다. 다른 경우, 가상 사설망(VPN), 터미널 서비스, 클라이언트 애플리케이션 프로토콜 또는 (프로그래밍 방식의) Azure 서비스 관리 API(SMAPI)를 통해 온-프레미스 시스템에서 Azure에 직접 연결할 수 있습니다. 또한 클라이언트 엔드포인트는 태블릿이나 스마트폰 같이 조인 또는 격리되고 관리되지 않는 도메인이 될 수 있습니다.
@@ -48,7 +48,7 @@ Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 
 * 관리 작업은 손상으로 이어질 수 있는 작업과 함께 수행하면 안 됩니다(예: 인프라 서버를 감염시키는 관리자의 전자 메일 내의 맬웨어).
 * 매우 민감한 작업에 사용되는 워크스테이션은 인터넷 검색 등 위험도가 높은 용도에 사용하는 시스템으로 사용하면 안 됩니다.
 
-불필요한 소프트웨어를 제거하여 시스템의 공격 노출 영역을 줄입니다. 예제:
+불필요한 소프트웨어를 제거하여 시스템의 공격 노출 영역을 줄입니다. 예:
 
 * 디바이스의 주요 목적이 클라우드 서비스를 관리하는 것인 경우 모든 표준 관리, 지원 또는 개발 워크스테이션은 이메일 클라이언트 또는 기타 생산성 애플리케이션을 설치할 필요가 없습니다.
 
@@ -66,7 +66,7 @@ Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 
 ### <a name="providing-security-for-azure-remote-management"></a>Azure의 원격 관리를 위한 보안 제공
 Azure는 Azure 클라우드 서비스 및 가상 머신을 관리하는 관리자를 지원하기 위해 보안 메커니즘을 제공합니다. 이러한 메커니즘은 다음을 포함합니다.
 
-* 인증 및 [역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md).
+* 인증 및 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * 모니터링, 로깅 및 보고.
 * 인증서 및 암호화된 통신.
 * 웹 관리 포털.
@@ -138,7 +138,7 @@ RD 게이트웨이를 통해 Azure에 연결되지 않은 독립 실행형 강�
 ## <a name="client-configuration"></a>클라이언트 구성
 강화된 워크스테이션에 대한 세 가지 기본 구성을 지정하는 것이 좋습니다. 이들의 가장 큰 차이점은 비용, 유용성, 접근성이며, 모든 옵션에 걸쳐 비슷한 보안 프로필을 유지합니다. 다음 테이블은 각각에 대한 장점과 위험을 간단히 분석한 내용입니다. ("회사 PC"는 역할에 관계 없이 모든 도메인 사용자를 위해 배포되는 표준 데스크톱 PC 구성을 의미합니다.)
 
-| Configuration | 혜택 | 단점 |
+| 구성 | 이점 | 단점 |
 | --- | --- | --- |
 | 독립 실행형 강화된 워크스테이션 |밀접하게 제어된 워크스테이션 |전용 데스크톱의 비용 증가 |
 | - | 애플리케이션 악용 위험성 감소 |관리 노력 감소 |
@@ -168,7 +168,7 @@ RD 게이트웨이를 통해 Azure에 연결되지 않은 독립 실행형 강�
 
 회사 PC 가상 머신은 보호된 공간에서 실행되고 사용자 애플리케이션을 제공합니다. 호스트는 "정리 소스"로 유지되고 루트 운영 체제에서 엄격한 네트워크 정책을 적용합니다(예: 가상 머신으로부터 RDP 액세스 차단).
 
-## <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>최선의 구현 방법
 Azure에서 애플리케이션 및 데이터를 관리하는 경우 다음의 추가 지침을 고려합니다.
 
 ### <a name="dos-and-donts"></a>권장 사항 및 금지 사항

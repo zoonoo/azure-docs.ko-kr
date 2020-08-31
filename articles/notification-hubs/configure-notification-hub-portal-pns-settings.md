@@ -11,18 +11,19 @@ ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: de135b57755919a1d312783409caf3e800e03fd5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: c8e2372e22c9db3aa5ea8b0bd953f18a2c01fbe2
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077987"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761028"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>빠른 시작: 알림 허브에서 푸시 알림 설정
 
 Azure Notification Hubs는 사용하기 쉽고 확장 가능한 푸시 엔진을 제공합니다. Notification Hubs를 사용하여 모든 플랫폼(iOS, Android, Windows, Baidu) 및 백 엔드(클라우드 또는 온-프레미스)에 알림을 보냅니다. 자세한 내용은 [Azure Notification Hubs란?](notification-hubs-push-notification-overview.md)를 참조하세요.
 
-이 빠른 시작에서는 Notification Hubs의 PNS(플랫폼 알림 시스템) 설정을 사용하여 여러 플랫폼에서 푸시 알림을 설정합니다. 빠른 시작은 Azure Portal에서 수행할 단계를 보여줍니다.  [Google Firebase Cloud Messaging](?tabs=azure-cli#google-firebase-cloud-messaging-fcm)에는 Azure CLI 사용 지침이 포함되어 있습니다.
+이 빠른 시작에서는 Notification Hubs의 PNS(플랫폼 알림 시스템) 설정을 사용하여 여러 플랫폼에서 푸시 알림을 설정합니다. 빠른 시작은 Azure Portal에서 수행할 단계를 보여줍니다. [Google Firebase Cloud Messaging](?tabs=azure-cli#google-firebase-cloud-messaging-fcm)에는 Azure CLI 사용 지침이 포함되어 있습니다.
 
 알림 허브를 아직 만들지 않은 경우 지금 만듭니다. 자세한 내용은 [Azure Portal에서 Azure 알림 허브 만들기](create-notification-hub-portal.md) 또는 [Azure CLI를 사용하여 Azure 알림 허브 만들기](create-notification-hub-azure-cli.md)를 참조하세요.
 
@@ -108,9 +109,7 @@ Google FCM용 푸시 알림을 설정하려면 다음을 수행합니다.
 
 [az notification-hub credential](/cli/azure/ext/notification-hub/notification-hub/credential) 명령을 사용하여 다른 플랫폼에 대한 Azure CLI 참조를 가져옵니다.
 
----
-
-Android 애플리케이션에 알림을 푸시하는 방법에 대한 자세한 내용은 [Firebase를 사용하여 Android 디바이스에 푸시 알림 보내기](notification-hubs-android-push-notification-google-fcm-get-started.md)를 참조하세요.
+Android 애플리케이션에 알림을 보내는 방법에 대한 자세한 내용은 [Firebase를 사용하여 Android 디바이스에 푸시 알림 보내기](notification-hubs-android-push-notification-google-fcm-get-started.md)를 참조하세요.
 
 ## <a name="windows-push-notification-service"></a>Windows Push Notification Service
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 20d14d656132b2809fe5a79d909c27799438a247
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9f488675e4f2437982e2426da73b4db1a713905d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280939"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607294"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 애플리케이션 제품 게시 가이드
 
@@ -21,10 +21,10 @@ ms.locfileid: "87280939"
 
 ## <a name="offer-overview"></a>제품 개요  
 
-SaaS 애플리케이션은 Microsoft AppSource 및 Azure Marketplace에서 사용할 수 있습니다.  두 상점 모두 나열, 평가판 및 트랜잭션 제품을 지원합니다.
+SaaS 애플리케이션은 Microsoft AppSource 및 Azure Marketplace에서 사용할 수 있습니다.  온라인 스토어는 모두 목록, 평가판 및 거래 제품을 지원 합니다.
 
 **나열:**  나열 게시 옵션은 연락처 제품 형식으로 이루어지고 평가판 또는 트랜잭션 수준의 참여가 불가능할 때 사용됩니다. 이 방식은 마켓 내 솔루션의 게시자가 비즈니스 수익을 창출하는 거래를 할 수 있는 잠재 고객을 바로 받을 수 있다는 장점이 있습니다.  
-**평가판/트랜잭션:**  고객은 솔루션에 대한 평가판을 직접 구입하거나 요청할 수 있습니다. 평가판 환경을 제공하면 고객에게 제공되는 참여 수준이 높아지고 고객이 솔루션을 구입하기 전에 탐색할 수 있습니다. 평가판 환경을 사용할 경우 상점에서 홍보할 기회를 갖고 고객 참여를 통해 보다 풍부하고 많은 잠재 고객을 창출할 수 있습니다. 체험의 경우 적어도 체험 기간 동안 무료 지원이 포함되어야 합니다.  
+**평가판/트랜잭션:**  고객은 솔루션에 대한 평가판을 직접 구입하거나 요청할 수 있습니다. 평가판 환경을 제공하면 고객에게 제공되는 참여 수준이 높아지고 고객이 솔루션을 구입하기 전에 탐색할 수 있습니다. 평가판 환경을 사용 하는 경우 온라인 매장에서 프로 모션을 향상 시킬 가능성이 있으며, 고객 계약에서 더 많은 잠재 고객을 받게 됩니다. 체험의 경우 적어도 체험 기간 동안 무료 지원이 포함되어야 합니다.  
 
 | SaaS 앱 제품 | 비즈니스 요구 사항 | 기술적인 요구 사항 |  
 | --- | --- | --- |  

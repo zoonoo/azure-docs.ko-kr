@@ -10,13 +10,13 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 9d49ea99b97411e15d3f264057c865219e4d63c4
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: how-to, contperfq4, tracking-python
+ms.openlocfilehash: 0a7a5f21ee868da2b9c3a6c7dc8bb5968531d0d0
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853503"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824205"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,6 +32,13 @@ __가상 네트워크__는 공용 인터넷에서 Azure 리소스를 격리하�
 + [Azure Virtual Network 서비스](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 및 [IP 네트워킹](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)에 대한 일반적인 실무 지식
 
 + 컴퓨팅 리소스에 사용할 기존 가상 네트워크 및 서브넷
+
++ 가상 네트워크 또는 서브넷에 리소스를 배포 하려면 사용자 계정에 Azure 역할 기반 액세스 제어 (RBAC)에서 다음 작업을 수행할 수 있는 권한이 있어야 합니다.
+
+    - 가상 네트워크 리소스에 대 한 "Microsoft. Network/virtualNetworks/join/action".
+    - 서브넷 리소스에 대 한 "Microsoft. Network/virtualNetworks/subnet/join/action".
+
+    네트워크를 사용 하는 RBAC에 대 한 자세한 내용은 [네트워킹 기본 제공 역할](/azure/role-based-access-control/built-in-roles#networking) 을 참조 하세요.
 
 ## <a name="private-endpoints"></a>프라이빗 엔드포인트
 
@@ -85,7 +92,7 @@ Studio 액세스 권한을 부여 하지 못한 경우이 오류가 표시 되 `
 
 동일한 가상 네트워크에 작업 영역 및 저장소 계정을 추가 하 여 서로 액세스할 수 있도록 합니다.
 
-1. 작업 영역을 가상 네트워크에 연결 하려면 [Azure 개인 링크를 사용 하도록 설정](how-to-configure-private-link.md)합니다. 이 기능은 현재 미리 보기 상태 이며 미국 동부, 미국 서 부 2, 미국 남부 중부 지역에서 사용할 수 있습니다.
+1. 작업 영역을 가상 네트워크에 연결 하려면 [Azure 개인 링크를 사용 하도록 설정](how-to-configure-private-link.md)합니다. 이 기능은 현재 미리 보기 상태 이며 미국 동부 및 미국 서 부 2 지역에서 사용할 수 있습니다.
 
 1. 저장소 계정을 가상 네트워크에 연결 하려면 [방화벽 및 가상 네트워크 설정을 구성](#use-a-storage-account-for-your-workspace)합니다.
 
@@ -359,6 +366,12 @@ Azure Machine Learning compute를 사용 하 여 [강제 터널링](/azure/vpn-g
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
+
+        > [!TIP]
+        > 미국 버지니아, 미국-애리조나 지역 또는 중국 동부-2 지역을 사용 하는 경우 이러한 명령은 IP 주소를 반환 하지 않습니다. 대신, 다음 링크 중 하나를 사용 하 여 IP 주소 목록을 다운로드 합니다.
+        >
+        > * [Azure Government에 대 한 Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=57063)
+        > * [Azure 중국의 azure IP 범위 및 서비스 태그](https://www.microsoft.com//download/details.aspx?id=57062)
     
     UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 __다음 홉 유형__을 __인터넷__으로 설정합니다. 다음 이미지는 Azure Portal에서 UDR의 예를 보여 줍니다.
 

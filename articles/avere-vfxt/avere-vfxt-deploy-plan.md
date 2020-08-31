@@ -1,17 +1,17 @@
 ---
 title: Avere vFXT 시스템 계획 - Azure
-description: Avere vFXT for Azure를 배포하기 전에 수행할 계획에 대해 설명합니다.
+description: 사용자 요구에 적합 한 Azure 클러스터에 대 한 Avere vFXT를 계획 합니다. Azure Marketplace 이동 하거나 가상 머신을 만들기 전에 확인 해야 하는 질문에 대해 알아봅니다.
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 6acc1ffd197ddba4290ff7c0751b259d98a70927
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80754385"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272793"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Avere vFXT 시스템 계획
 
@@ -166,7 +166,7 @@ Avere vFXT for Azure 클러스터는 프라이빗 서브넷에 있으며 공용 
 
 ## <a name="vm-access-roles"></a>VM 액세스 역할
 
-Azure는 RBAC ( [역할 기반 액세스 제어](../role-based-access-control/index.yml) )를 사용 하 여 특정 작업을 수행 하도록 클러스터 vm에 권한을 부여 합니다. 예를 들어 클러스터 컨트롤러에는 클러스터 노드 Vm을 만들고 구성 하기 위한 권한 부여가 필요 합니다. 클러스터 노드는 다른 클러스터 노드에 IP 주소를 할당 하거나 다시 할당할 수 있어야 합니다.
+Azure는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/index.yml) 를 사용 하 여 특정 작업을 수행 하도록 클러스터 vm에 권한을 부여 합니다. 예를 들어 클러스터 컨트롤러에는 클러스터 노드 Vm을 만들고 구성 하기 위한 권한 부여가 필요 합니다. 클러스터 노드는 다른 클러스터 노드에 IP 주소를 할당 하거나 다시 할당할 수 있어야 합니다.
 
 Avere vFXT virtual machines에는 두 개의 기본 제공 Azure 역할이 사용 됩니다.
 

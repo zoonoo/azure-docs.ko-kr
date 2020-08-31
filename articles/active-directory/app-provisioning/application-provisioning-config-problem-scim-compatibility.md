@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c54478282cb1106ae95fe1c9e3fbb15e9c37bbf9
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 39a4cbd5ffd04aa3346b1ce4f3b73576b92c4d3b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808578"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065491"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -43,43 +43,109 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 | 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  예  | 2018년 12월 18일  | customappSSO로 다운 그레이드 |
 | 다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | 예  |  2018년 12월 18일  | customappSSO로 다운 그레이드 |
 | 그룹 생성 요청에 있는 스키마 URI가 잘못됨 | 예  |  2018년 12월 18일  |  customappSSO로 다운 그레이드 |
-| 규정 준수를 보장 하기 위해 패치 동작 업데이트 | 아니요 | TBD| 미리 보기 플래그 사용 |
+| 규정 준수를 보장 하기 위해 패치 동작 업데이트 (예: 부울로 활성 및 적절 한 그룹 멤버 자격 제거) | 아니요 | TBD| 미리 보기 플래그 사용 |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>SCIM 동작을 변경 하기 위한 플래그
 기본 SCIM 클라이언트 동작을 변경 하려면 응용 프로그램의 테 넌 트 URL에서 아래 플래그를 사용 합니다.
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="이후 동작에 대 한 SCIM 플래그입니다.":::
 
-* 규정 준수를 보장 하기 위해 패치 동작 업데이트
+* 다음 URL을 사용 하 여 패치 동작을 업데이트 하 고 SCIM 준수를 보장 합니다 (예:를 부울로 활성화 하 고 적절 한 그룹 멤버 자격 제거). 이 동작은 현재 플래그를 사용 하는 경우에만 사용할 수 있지만 다음 몇 달 동안 기본 동작이 됩니다.
+  * **URL (SCIM 규격):** AzureAdScimPatch062020
   * **SCIM RFC 참조:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
-  * **URL (SCIM 규격):** AzureAdScimPatch062020
   * **행동**
-    * 규격 그룹 구성원 제거:
   ```json
+   PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
    {
-     "schemas":
-      ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-     "Operations":[{
-       "op":"remove",
-       "path":"members[value eq \"2819c223-7f76-...413861904646\"]"
-     }]
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "remove",
+            "path": "members[value eq \"16b083c0-f1e8-4544-b6ee-27a28dc98761\"]"
+        }
+    ]
    }
+
+    PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "add",
+            "path": "members",
+            "value": [
+                {
+                    "value": "10263a6910a84ef9a581dd9b8dcc0eae"
+                }
+            ]
+        }
+    ]
+    } 
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "someone@contoso.com"
+        },
+        {
+            "op": "replace",
+            "path": "emails[type eq \"work\"].primary",
+            "value": true
+        },
+        {
+            "op": "replace",
+            "value": {
+                "active": false,
+                "userName": "someone"
+            }
+        }
+    ]
+    }
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "active",
+            "value": false
+        }
+    ]
+    }
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "add",
+            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department",
+            "value": "Tech Infrastructure"
+        }
+    ]
+    }
+   
   ```
-  * **URL (비 SCIM 규격):** AzureAdScimPatch2017
-  * **행동**
-    * 비규격 그룹 멤버 자격 제거:
-   ```json
-   {
-     "schemas":
-     ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-     "Operations":[{
-       "op":"Remove",  
-       "path":"members",
-       "value":[{"value":"2819c223-7f76-...413861904646"}]
-     }]
-   }
-   ```
+
+  * **다운 그레이드 URL:** 새 SCIM 규격 동작이 비 갤러리 응용 프로그램에서 기본값이 되 면 다음 URL을 사용 하 여 이전 비 SCIM 규격 동작으로 롤백할 수 있습니다. AzureAdScimPatch2017
+  
+
 
 ## <a name="upgrading-from-the-older-customappsso-job-to-the-scim-job"></a>이전 customappsso 작업에서 SCIM 작업으로 업그레이드
 다음 단계를 수행 하면 기존 customappsso 작업이 삭제 되 고 새 scim 작업이 생성 됩니다. 
@@ -139,4 +205,3 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 ## <a name="next-steps"></a>다음 단계
 [SaaS 애플리케이션에 대한 사용자 프로비전 및 프로비전 해제 구성에 대해 자세히 알아보기](user-provisioning.md)
-

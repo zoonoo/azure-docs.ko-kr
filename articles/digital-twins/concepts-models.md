@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 2d062ea4f38742129d44be0e2b7ff51fe3ad8dd1
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 1f6fc7bff31faa62c290a4c02be3e80fee6fa200
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562432"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042635"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Azure Digital Twins의 쌍 모델 이해
 
@@ -36,8 +36,8 @@ Azure Digital Twins는 **Dtdl _버전 2_** 를 사용 합니다. 이 DTDL 버전
 모델 정의 내에서 최상위 코드 항목은 **인터페이스**입니다. 이는 전체 모델을 캡슐화 하 고 모델의 나머지는 인터페이스 내에서 정의 됩니다. 
 
 DTDL 모델 인터페이스에는 다음의 각 필드를 0 개, 1 개 또는 여러 개 포함할 수 있습니다.
-* **속성** -속성은 엔터티의 상태를 나타내는 데이터 필드입니다 (예: 많은 개체 지향 프로그래밍 언어의 속성). 시간 제한 데이터 이벤트 인 원격 분석과 달리 속성은 백업 저장소를 포함 하며 언제 든 지 읽을 수 있습니다.
-* **원격 분석** -원격 분석 필드는 측정값이 나 이벤트를 나타내며 장치 센서 판독값을 설명 하는 데 종종 사용 됩니다. 원격 분석은 디지털 쌍에 저장 되지 않습니다. 데이터 이벤트의 스트림을 어딘가에 보낼 준비가 된 것과 같습니다. 
+* **속성** -속성은 엔터티의 상태를 나타내는 데이터 필드입니다 (예: 많은 개체 지향 프로그래밍 언어의 속성). 속성은 백업 저장소를 포함 하며 언제 든 지 읽을 수 있습니다.
+* **원격 분석** -원격 분석 필드는 측정값이 나 이벤트를 나타내며 장치 센서 판독값을 설명 하는 데 종종 사용 됩니다. 속성과 달리 원격 분석은 디지털 쌍에 저장 되지 않습니다. 처리 해야 하는 일련의 시간 바인딩 데이터 이벤트입니다. 속성과 원격 분석 간의 차이점에 대 한 자세한 내용은 아래의 [*속성 및 원격 분석*](#properties-vs-telemetry) 섹션을 참조 하십시오.
 * **구성** 요소 구성 요소를 사용 하면 원하는 경우 모델 인터페이스를 다른 인터페이스의 어셈블리로 빌드할 수 있습니다. 구성 요소의 예로는 *휴대폰*에 대 한 모델을 정의 하는 데 사용 되는 *frontCamera* 인터페이스 (및 다른 구성 요소 인터페이스 *백 카메라*)가 있습니다. 먼저 자체 모델 처럼 *frontCamera* 에 대 한 인터페이스를 정의한 다음 *휴대폰*을 정의할 때 참조할 수 있습니다.
 
     구성 요소를 사용 하 여 솔루션의 핵심 부분 이지만 별도의 id가 필요 하지 않은 항목을 설명할 수 있으며 쌍으로 된 쌍으로 생성, 삭제 또는 다시 정렬할 필요가 없습니다. 쌍이 쌍으로 연결 된 쌍을 쌍으로 연결 하려면 서로 다른 모델의 개별 디지털 쌍으로 연결 하 여 *관계* (다음 글머리 기호 참조)를 표시 합니다.
@@ -47,7 +47,25 @@ DTDL 모델 인터페이스에는 다음의 각 필드를 0 개, 1 개 또는 �
 * **관계** -관계를 사용 하면 디지털 쌍이 다른 디지털 쌍과 관련 되는 방식을 나타낼 수 있습니다. 관계는 *contains* ("floor 포함 방"), *사항이* ("hvac 사항이 대화방"), *isBilledTo* ("압축기가 사용자에 게 청구 됨") 등 다양 한 의미 체계를 나타낼 수 있습니다. 관계를 통해 솔루션은 상호 관련 엔터티의 그래프를 제공할 수 있습니다.
 
 > [!NOTE]
-> DTDL의 사양에서는 디지털 쌍 (예: 리셋 명령 또는 팬을 전환 하는 명령)에서 실행할 수 있는 메서드인 **명령도**정의 합니다. 그러나 *Azure Digital Twins에서는 현재 명령이 지원 되지 않습니다.*
+> [DTDL의 사양](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) 에서는 디지털 쌍 (예: 리셋 명령 또는 팬을 전환 하는 명령)에서 실행할 수 있는 메서드인 **명령도**정의 합니다. 그러나 *Azure Digital Twins에서는 현재 명령이 지원 되지 않습니다.*
+
+### <a name="properties-vs-telemetry"></a>속성 및 원격 분석
+
+Azure Digital Twins의 DTDL **속성과** **원격 분석** 필드를 구분 하는 몇 가지 추가 지침은 다음과 같습니다.
+
+Azure Digital Twins 모델에 대 한 속성 및 원격 분석의 차이점은 다음과 같습니다.
+* **속성** 에는 백업 저장소가 있어야 합니다. 즉, 언제 든 지 속성을 읽고 해당 값을 검색할 수 있습니다. 속성에 쓸 수 있으면 속성에 값을 저장할 수도 있습니다.  
+* **원격 분석** 은 이벤트 스트림과 매우 유사 합니다. short lifespans 있는 데이터 메시지 집합입니다. 이벤트가 발생할 때 수행할 작업에 대 한 수신 대기를 설정 하지 않은 경우에는 나중에 이벤트를 추적 하지 않습니다. 나중에 다시 읽어 올 수 없습니다. 
+  - C # 용어로 원격 분석은 c # 이벤트와 비슷합니다. 
+  - IoT 용어로 원격 분석은 일반적으로 장치에서 전송 되는 단일 측정입니다.
+
+대부분의 장치는 생성 하는 측정 값을 저장 하거나 관심이 없으므로 IoT 장치에서 **원격 분석** 을 사용 하는 경우가 많습니다. "원격 분석" 이벤트 스트림으로 전송 하기만 하면 됩니다. 이 경우 언제 든 지 원격 분석 필드의 최신 값에 대해 장치를 검색할 수 없습니다. 대신 장치에서 메시지를 수신 대기 하 고 메시지가 도착할 때 동작을 수행 해야 합니다. 
+
+결과적으로, Azure Digital Twins에서 모델을 디자인할 때 대부분의 경우 **속성** 을 사용 하 여 쌍을 모델링할 것입니다. 이를 통해 백업 저장소와 데이터 필드를 읽고 쿼리 하는 기능을 사용할 수 있습니다.
+
+원격 분석 및 속성은 종종 장치에서 수신 되는 데이터를 처리 하기 위해 함께 작동 합니다. Azure Digital Twins로의 모든 수신은 [api](how-to-use-apis-sdks.md)를 통해 발생 하므로 일반적으로 수신 함수를 사용 하 여 장치에서 원격 분석 또는 속성 이벤트를 읽고 ADT의 응답으로 속성을 설정 합니다. 
+
+Azure Digital Twins API에서 원격 분석 이벤트를 게시할 수도 있습니다. 다른 원격 분석과 마찬가지로이 이벤트는를 처리 하는 수신기를 필요로 하는 수명이 짧은 이벤트입니다.
 
 ### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Azure Digital Twins DTDL 구현 세부 사항
 
@@ -116,7 +134,7 @@ DTDL 모델은 Azure Digital Twins와 호환 되려면 이러한 요구 사항�
 
 모델의 필드는 다음과 같습니다.
 
-| 필드 | Description |
+| 필드 | 설명 |
 | --- | --- |
 | `@id` | 모델에 대 한 식별자입니다. 형식 이어야 합니다 `dtmi:<domain>:<unique model identifier>;<model version number>` . |
 | `@type` | 설명 하는 정보의 종류를 식별 합니다. 인터페이스의 경우 형식은 *interface*입니다. |
@@ -204,14 +222,7 @@ Dtdl 당 *속성* 및 *원격 분석* 특성의 스키마는 표준 기본 유�
 
 ## <a name="validating-models"></a>모델 유효성 검사
 
-> [!TIP]
-> Azure Digital Twins 인스턴스에 업로드 하기 전에 오프 라인으로 모델의 유효성을 검사 하는 것이 좋습니다.
-
-DTDL이 정확한 지 확인 하기 위해 모델 문서의 유효성을 검사 하는 데 사용할 수 있는 언어와 무관 한 샘플이 있습니다. [**Dtdl Validator 샘플**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)에서 찾을 수 있습니다.
-
-DTDL 유효성 검사기 샘플은 클라이언트 쪽 라이브러리 ( [**DigitalTwins**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/))로 NuGet에서 사용할 수 있는 .NET dtdl 파서 라이브러리를 기반으로 합니다. 라이브러리를 직접 사용 하 여 고유한 유효성 검사 솔루션을 디자인할 수도 있습니다. 파서 라이브러리를 사용 하는 경우 Azure 디지털 Twins에서 실행 중인 버전과 호환 되는 버전을 사용 해야 합니다. 미리 보기 중에는 버전 *3.7.0*입니다.
-
-[*방법: 모델 구문 분석 및 유효성 검사*](how-to-use-parser.md)에서 사용 예제를 포함 하 여 파서 라이브러리에 대해 자세히 알아볼 수 있습니다.
+[!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

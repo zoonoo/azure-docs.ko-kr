@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 0798b7674828b14a37f20921e05820d995bff6a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760799"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078940"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>NDES (네트워크 장치 등록 서비스) 서버에서 Azure AD 응용 프로그램 프록시와 통합
 
@@ -89,10 +89,10 @@ Azure AD 응용 프로그램 프록시은 Azure를 기반으로 합니다. DDOS 
 
 1. **HTTP 오류 403 –** 사용할 수 없음 응답이 표시 되어야 합니다.
 
-1. 제공 된 NDES URL (Microsoft Intune을 통해)을 장치로 변경 합니다 .이 변경은 Microsoft 끝점 구성 센터 또는 Intune 클라우드에 있을 수 있습니다.
+1. 제공 된 NDES URL (Microsoft Intune을 통해)을 장치로 변경 합니다. 이러한 변경은 Microsoft Endpoint Configuration Manager 또는 Microsoft Endpoint Manager 관리 센터에 있을 수 있습니다.
 
-   * Configuration Center에 대해 CRP (인증서 등록 지점)로 이동 하 여 URL을 조정 합니다. 이 URL은 장치를 호출 하 고 챌린지를 제공 하는 장치입니다.
-   * Intune 독립 실행형이 라고도 하는 Intune 클라우드의 경우 새 SCEP 정책을 편집 하거나 만들고 새 URL을 추가 합니다.
+   * Configuration Manager의 경우 인증서 등록 지점으로 이동 하 여 URL을 조정 합니다. 이 URL은 장치를 호출 하 고 챌린지를 제공 하는 장치입니다.
+   * Intune 독립 실행형의 경우 새 SCEP 정책을 편집 하거나 만들고 새 URL을 추가 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,21 +5,21 @@ keywords: Azure Key Vault 인증 로컬 자격 증명
 author: msmbaldwin
 services: key-vault
 ms.author: mbaldwin
-ms.date: 06/30/2020
-ms.topic: conceptual
+ms.date: 08/08/2020
+ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 6edb6f026f3062dfb2beafd863cf090519f6b66a
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: af7cb87f8caf0176505c8af864ae8d3cb0c312a0
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875986"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585698"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
 > [!NOTE]
-> **Microsoft. Azure. AppAuthentication** 은 새로운 Key Vault SDK와 함께 사용 하는 것이 더 이상 권장 되지 않습니다. .NET, Java, TypeScript 및 Python에 사용할 수 있는 새 Azure Identity library **DefaultAzureCredentials** 로 대체 되었으며 모든 새 개발에 사용 해야 합니다. 자세한 내용은 [인증 및 AZURE SDK에서](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html)찾을 수 있습니다.
+> **Microsoft. Azure. AppAuthentication** 은 새로운 Key Vault SDK와 함께 사용 하는 것이 더 이상 권장 되지 않습니다. 이는 .NET, Java, TypeScript 및 Python에 사용할 수 있는 새 Azure Id 라이브러리 **DefaultAzureCredentials** 대체 되었으며 모든 새 개발에 사용 해야 합니다. 자세한 내용은 [인증 및 AZURE SDK에서](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/)찾을 수 있습니다.
 
 Azure Key Vault에 인증 하려면 공유 암호 또는 인증서 인 Azure Active Directory (Azure AD) 자격 증명이 필요 합니다.
 
@@ -210,7 +210,7 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
     az ad sp create-for-rbac --keyvault <keyvaultname> --cert <certificatename> --create-cert --skip-assignment
     ```
 
-    인증서 식별자는 다음 형식의 URL이 됩니다.`https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
+    인증서 식별자는 다음 형식의 URL이 됩니다. `https://<keyvaultname>.vault.azure.net/secrets/<certificatename>`
 
 1. `{KeyVaultCertificateSecretIdentifier}`이 연결 문자열에서을 인증서 식별자로 바꿉니다.
 
@@ -235,14 +235,14 @@ Azure App Service 또는 활성화된 관리 ID를 사용하는 Azure VM에서 �
 
 프로세스를 제어하려면 `AzureServiceTokenProvider` 생성자에 전달되거나 *AzureServicesAuthConnectionString* 환경 변수에 지정된 연결 문자열을 사용합니다.  다음과 같은 옵션이 지원됩니다.
 
-| 연결 문자열 옵션 | 시나리오 | 주석|
+| 연결 문자열 옵션 | 시나리오 | 의견|
 |:--------------------------------|:------------------------|:----------------------------|
-| `RunAs=Developer; DeveloperTool=AzureCli` | 로컬 개발 | `AzureServiceTokenProvider`는 AzureCli를 사용 하 여 토큰을 가져옵니다. |
-| `RunAs=Developer; DeveloperTool=VisualStudio` | 로컬 개발 | `AzureServiceTokenProvider`Visual Studio를 사용 하 여 토큰을 가져옵니다. |
-| `RunAs=CurrentUser` | 로컬 개발 | .NET Core에서는 지원 되지 않습니다. `AzureServiceTokenProvider`Azure AD 통합 인증을 사용 하 여 토큰을 가져옵니다. |
-| `RunAs=App` | [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider`관리 id를 사용 하 여 토큰을 가져옵니다. |
-| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Azure 리소스에 대 한 사용자 할당 id](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider`사용자 할당 id를 사용 하 여 토큰을 가져옵니다. |
-| `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | 사용자 지정 서비스 인증 | `KeyVaultCertificateSecretIdentifier`인증서의 암호 식별자입니다. |
+| `RunAs=Developer; DeveloperTool=AzureCli` | 로컬 개발 | `AzureServiceTokenProvider` 는 AzureCli를 사용 하 여 토큰을 가져옵니다. |
+| `RunAs=Developer; DeveloperTool=VisualStudio` | 로컬 개발 | `AzureServiceTokenProvider` Visual Studio를 사용 하 여 토큰을 가져옵니다. |
+| `RunAs=CurrentUser` | 로컬 개발 | .NET Core에서는 지원 되지 않습니다. `AzureServiceTokenProvider` Azure AD 통합 인증을 사용 하 여 토큰을 가져옵니다. |
+| `RunAs=App` | [Azure 리소스에 대한 관리 ID](../../active-directory/managed-identities-azure-resources/index.yml) | `AzureServiceTokenProvider` 관리 id를 사용 하 여 토큰을 가져옵니다. |
+| `RunAs=App;AppId={ClientId of user-assigned identity}` | [Azure 리소스에 대 한 사용자 할당 id](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) | `AzureServiceTokenProvider` 사용자 할당 id를 사용 하 여 토큰을 가져옵니다. |
+| `RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}` | 사용자 지정 서비스 인증 | `KeyVaultCertificateSecretIdentifier` 인증서의 암호 식별자입니다. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`| 서비스 주체 | `AzureServiceTokenProvider`는 인증서를 사용하여 Azure AD에서 토큰을 가져옵니다. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | 서비스 주체 | `AzureServiceTokenProvider`는 인증서를 사용하여 Azure AD에서 토큰을 가져옵니다.|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | 서비스 주체 |`AzureServiceTokenProvider`는 암호를 사용하여 Azure AD에서 토큰을 가져옵니다. |

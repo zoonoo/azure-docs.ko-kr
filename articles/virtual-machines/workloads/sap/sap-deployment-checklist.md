@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea691ff42f9e5f214aa9987fae53732be844e034
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836346"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651729"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -44,7 +44,8 @@ ms.locfileid: "87836346"
     - Azure에서 높은 영향의 비즈니스 데이터를 실행 하기 위한 보안 원칙 데이터 보안에 대 한 자세한 내용은 [Azure 보안 설명서](../../../security/index.yml)를 참조 하세요.
 2.  기술 디자인 문서입니다. 이 문서에는 다음이 포함 되어야 합니다.
     - 솔루션에 대 한 블록 다이어그램입니다.
-    - Azure에서 계산, 저장소 및 네트워킹 구성 요소의 크기를 조정 합니다. Azure Vm의 SAP 크기 조정에 대해서는 [sap support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)를 참조 하세요.
+    - Azure에서 계산, 저장소 및 네트워킹 구성 요소의 크기를 조정 합니다. Azure Vm의 SAP 크기 조정에 대 한 자세한 내용은 [SAP 
+    -  참고 #1928533] ( https://launchpad.support.sap.com/#/notes/1928533) .
     - 비즈니스 연속성 및 재해 복구 아키텍처.
     - OS, DB, 커널 및 SAP 지원 팩 버전에 대 한 자세한 정보를 제공 합니다. SAP NetWeaver 또는 S/4HANA에서 지원 되는 모든 OS 릴리스가 Azure Vm에서 지원 되는 것은 아닙니다. DBMS 릴리스의 경우에도 마찬가지입니다. Sap와 Azure를 지원 하기 위해 SAP 릴리스, DBMS 릴리스 및 OS 릴리스를 정렬 하 고 필요한 경우 다음 원본을 확인 하세요. Sap 및 Microsoft에서 완벽 한 지원을 받으려면 SAP 및 Azure에서 지원 되는 릴리스 조합이 있어야 합니다. 필요한 경우 일부 소프트웨어 구성 요소를 업그레이드 하도록 계획 해야 합니다. 지원 되는 SAP, OS 및 DBMS 소프트웨어에 대 한 자세한 내용은 다음에 설명 되어 있습니다.
         - [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533). 이 정보는 Azure Vm에서 지원 되는 최소 OS 릴리스를 정의 합니다. 또한 대부분의 HANA가 아닌 데이터베이스에 필요한 최소 데이터베이스 릴리스를 정의 합니다. 마지막으로 SAP에서 지 원하는 Azure VM 유형에 대 한 SAP 크기 조정 기능을 제공 합니다.
@@ -56,9 +57,11 @@ ms.locfileid: "87836346"
         - [SAP support note #2555629-SAP HANA 2.0 동적 계층화 – 하이퍼바이저 및 클라우드 지원](https://launchpad.support.sap.com/#/notes/2555629)
         - [SAP support note #1662610-Linux 용 SIOS 보호 도구 모음에 대 한 지원 세부 정보](https://launchpad.support.sap.com/#/notes/1662610)
         - 다른 SAP 관련 제품에 대 한 SAP 참고 사항     
-    - SAP 프로덕션 시스템에는 엄격한 3 계층 설계를 권장 합니다. 단일 VM에서 ASCS 및/또는 DBMS 및/또는 앱 서버를 결합 하지 않는 것이 좋습니다. SAP Central Services에 다중 SID 클러스터 구성을 사용 하는 것은 Azure의 Windows 게스트 운영 체제에서 지원 됩니다. 그러나이 구성은 Azure에서 Linux 운영 체제의 SAP Central Services에 대해 지원 되지 않습니다. Windows 게스트 OS 시나리오에 대 한 설명서는 다음 문서에서 찾을 수 있습니다.
+    - SAP Central Services에 다중 SID 클러스터 구성을 사용 하는 것은 Azure의 Windows, SLES 및 RHEL 게스트 운영 체제에서 지원 됩니다. 이러한 다중 SID 클러스터에 대해 더 많은 ASCS/SCS를 향상 시킬 수 있다는 점에 유의 하세요. 각 게스트 OS 시나리오에 대 한 설명서는 다음 문서에서 찾을 수 있습니다.
         - [Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
         - [Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
+        - [SAP 응용 프로그램에 대 한 SUSE Linux Enterprise Server Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
+        - [SAP 응용 프로그램에 대 한 Red Hat Enterprise Linux Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
     - 고가용성 및 재해 복구 아키텍처.
         - RTO 및 RPO에 따라 고가용성 및 재해 복구 아키텍처가 어떻게 표시 되어야 하는지 정의 합니다.
         - 영역 내에서 고가용성을 위해 원하는 DBMS가 Azure에서 제공 해야 하는 항목을 확인 합니다. 대부분의 DBMS 패키지는 프로덕션 시스템에 권장 되는 동기 상시 대기의 동기 메서드를 제공 합니다. [Sap 워크 로드 및 관련 문서에 대 한 Azure VIRTUAL MACHINES DBMS 배포에 대 한 고려 사항](./dbms_guide_general.md) 부터 시작 하 여 다른 데이터베이스에 대 한 sap 관련 설명서도 확인 하세요.
@@ -74,11 +77,11 @@ ms.locfileid: "87836346"
 4.  기초 서비스 디자인. 이 디자인에는 다음 항목이 포함 되어야 합니다.
     - Active Directory 및 DNS 디자인
     - Azure 내의 네트워크 토폴로지와 다른 SAP 시스템에 대 한 할당입니다.
-    - Azure에서 인프라 및 SAP 응용 프로그램을 관리 하는 팀을 위한 [역할 기반 액세스](../../../role-based-access-control/overview.md) 구조.
+    - Azure에서 인프라 및 SAP 응용 프로그램을 관리 하는 팀을 위한 azure [RBAC (역할 기반 액세스 제어)](../../../role-based-access-control/overview.md) 구조.
     - 리소스 그룹 토폴로지.
     - [태그 지정 전략](../../../azure-resource-manager/management/tag-resources.md#tags-and-billing).
     - Vm 및 기타 인프라 구성 요소 및/또는 논리적 이름의 명명 규칙
-5.  Microsoft 프리미어 지원 계약. Microsoft 기술 계정 관리자 (TAM)를 식별 합니다. SAP 지원 요구 사항에 대해서는 [sap support note #2015553](https://launchpad.support.sap.com/#/notes/2015553)를 참조 하세요.
+5.  Microsoft Professional 또는 프리미어 지원 계약. Microsoft와 함께 프리미어 지원 계약이 있는 경우 Microsoft TAM (기술 계정 관리자)을 확인 하세요. SAP 지원 요구 사항에 대해서는 [sap support note #2015553](https://launchpad.support.sap.com/#/notes/2015553)를 참조 하세요.
 6.  구독에 대 한 Azure 구독 및 코어 할당량의 수입니다. 필요 [에 따라 Azure 구독의 할당량을 늘리려면 지원 요청을 여세요](../../../azure-portal/supportability/resource-manager-core-quotas-request.md) .
 7.  SAP 데이터를 Azure로 마이그레이션하기 위한 데이터 절감 및 데이터 마이그레이션 계획. Sap NetWeaver 시스템의 경우 SAP는 대량의 데이터 볼륨을 제한 하는 방법에 대 한 지침을 포함 합니다. SAP ERP 시스템의 데이터 관리에 대 한 [sap 가이드](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) 를 참조 하세요. 일부 콘텐츠는 일반적으로 NetWeaver 및 S/4HANA 시스템에도 적용 됩니다.
 8.  자동화 된 배포 방법. Azure에서 인프라 배포를 자동화 하는 목표는 결정적 방식으로 배포 하 고 결정적 결과를 얻는 것입니다. 많은 고객이 PowerShell 또는 CLI 기반 스크립트를 사용 합니다. 하지만 SAP 용 Azure 인프라를 배포 하 고 SAP 소프트웨어를 설치 하는 데 사용할 수 있는 다양 한 오픈 소스 기술이 있습니다. GitHub에 대 한 예제를 찾을 수 있습니다.
@@ -106,11 +109,12 @@ ms.locfileid: "87836346"
            -  [Azure의 Windows 가상 머신에 대 한 크기](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 크기를 조정 하는 데 *최대 캐시 되지 않은 디스크 처리량* 을 고려 하는 것이 중요 합니다.
            -  [Azure의 Linux 가상 머신에 대 한 크기](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 크기를 조정 하는 데 *최대 캐시 되지 않은 디스크 처리량* 을 고려 하는 것이 중요 합니다.
    2. 저장할.
-        - 최소한 SAP 응용 프로그램 계층을 나타내는 Vm에 대해 [Azure 표준 SSD 저장소](../../windows/disks-types.md#standard-ssd) 를 사용 하 고 성능이 중요 하지 않은 dbms를 배포 합니다.
-        - 일반적으로 [Azure 표준 HDD 디스크](../../windows/disks-types.md#standard-hdd)를 사용 하지 않는 것이 좋습니다.
-        - 원격으로 성능이 중요 한 모든 DBMS Vm에 대해 [Azure Premium Storage](../../windows/disks-types.md#premium-ssd) 를 사용 합니다.
+        - [SAP 워크 로드의 문서 Azure Storage 유형을](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) 확인 하세요.
+        - 최소한 SAP 응용 프로그램 계층을 나타내는 Vm에 대해 [Azure 표준 SSD 저장소](../../disks-types.md#standard-ssd) 를 사용 하 고 성능이 중요 하지 않은 dbms를 배포 합니다.
+        - 일반적으로 [Azure 표준 HDD 디스크](../../disks-types.md#standard-hdd)를 사용 하지 않는 것이 좋습니다.
+        - 원격으로 성능이 중요 한 모든 DBMS Vm에 대해 [Azure Premium Storage](../../disks-types.md#premium-ssd) 를 사용 합니다.
         - [Azure managed disks](https://azure.microsoft.com/services/managed-disks/)를 사용 합니다.
-        - M-Series가 있는 DBMS 로그 드라이브에 대해 Azure Write Accelerator를 사용합니다. [쓰기 가속기](../../linux/how-to-enable-write-accelerator.md)에 설명 된 대로 쓰기 가속기 제한 및 사용에 대해 알고 있어야 합니다.
+        - M-Series가 있는 DBMS 로그 드라이브에 대해 Azure Write Accelerator를 사용합니다. [쓰기 가속기](../../how-to-enable-write-accelerator.md)에 설명 된 대로 쓰기 가속기 제한 및 사용에 대해 알고 있어야 합니다.
         - 다양 한 DBMS 형식에 대해 일반적인 [SAP 관련 dbms 설명서](./dbms_guide_general.md) 및 일반 문서가 가리키는 dbms 관련 설명서를 확인 합니다.
         - SAP HANA에 대 한 자세한 내용은 [Azure에서 인프라 구성 및 작업 SAP HANA](./hana-vm-operations.md)을 참조 하세요.
         - 디바이스 ID를 사용하여 Azure 데이터 디스크를 Azure Linux VM에 탑재해서는 안됩니다. 대신 UUID(Universally Unique Identifier)를 사용합니다. 예를 들어 Azure 데이터 디스크를 탑재하기 위해 그래픽 도구를 사용하는 경우 주의해야 합니다. /Etc/fstab의 항목을 두 번 확인 하 여 UUID가 디스크를 탑재 하는 데 사용 되는지 확인 합니다. 자세한 내용은 [이 문서](../../linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk)에서 찾을 수 있습니다.

@@ -4,12 +4,12 @@ description: Azure Service Bus 및 AMQP(Advanced Message Queuing Protocol) 1.0�
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 935579bdcb142969d9baf7ca24cf03268620bf46
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: be6b5de7946fc54ab58087fccabed9f5ed09251d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799687"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065780"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Azure Service Bus 및 AMQP 1.0와 함께 JMS (Java Message Service) 사용
 
@@ -29,7 +29,7 @@ Azure Service Bus에서 AMQP 1.0에 대 한 지원은 효율적인 이진 프로
 이 가이드에서는 라는 큐를 포함 하는 Service Bus 네임 스페이스가 이미 있다고 가정 `basicqueue` 합니다. 그렇지 않으면 [Azure Portal](https://portal.azure.com)를 사용 하 여 [네임 스페이스와 큐를 만들](service-bus-create-namespace-portal.md) 수 있습니다. Service Bus 네임스페이스와 큐를 만드는 방법에 대한 자세한 내용은 [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)을 참조하세요.
 
 > [!NOTE]
-> 분할된 큐 및 토픽은 또한 AMQP를 지원합니다. 자세한 내용은 [분할된 메시징 엔터티](service-bus-partitioning.md) 및 [Service Bus 분할 큐 및 토픽을 위한 AMQP 1.0 지원](service-bus-partitioned-queues-and-topics-amqp-overview.md)을 참조하세요.
+> 분할된 큐 및 토픽은 또한 AMQP를 지원합니다. 자세한 내용은 [분할된 메시징 엔터티](service-bus-partitioning.md) 및 [Service Bus 분할 큐 및 토픽을 위한 AMQP 1.0 지원](./service-bus-amqp-protocol-guide.md)을 참조하세요.
 > 
 > 
 
@@ -380,7 +380,7 @@ Service Bus와 함께 JMS over AMQP 1.0을 사용하는 경우 다음과 같은 
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Service Bus의 AMQP 1.0 지원](service-bus-amqp-overview.md)
-* [Service Bus .NET API와 함께 AMQP 1.0을 사용하는 방법](service-bus-dotnet-advanced-message-queuing.md)
+* [Service Bus .NET API와 함께 AMQP 1.0을 사용하는 방법](./service-bus-amqp-dotnet.md)
 * [Service Bus AMQP 1.0 개발자 가이드](service-bus-amqp-dotnet.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Java 개발자 센터](https://azure.microsoft.com/develop/java/)

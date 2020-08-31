@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: a210098652a18959debfeabe36b390d1bdfca7fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e5f137808bb5e4c6876206bca7950117edb85aab
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287468"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005672"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -36,7 +36,7 @@ AKS에서 Kubernetes 마스터 구성 요소는 Microsoft에서 제공하는 관
 
 기본적으로 Kubernetes API 서버는 공용 IP 주소 및 FQDN (정규화 된 도메인 이름)을 사용 합니다. [권한 있는 IP 범위][authorized-ip-ranges]를 사용 하 여 API 서버 끝점에 대 한 액세스를 제한할 수 있습니다. 가상 네트워크에 대 한 API 서버 액세스를 제한 하는 완전 한 [개인 클러스터][private-clusters] 를 만들 수도 있습니다.
 
-Kubernetes 역할 기반 액세스 제어 및 Azure Active Directory를 사용하여 API 서버에 대한 액세스를 제어할 수 있습니다. 자세한 내용은 [AKS와 Azure AD 통합][aks-aad]을 참조하세요.
+Kubernetes RBAC (역할 기반 액세스 제어) 및 Azure Active Directory를 사용 하 여 API 서버에 대 한 액세스를 제어할 수 있습니다. 자세한 내용은 [AKS와 Azure AD 통합][aks-aad]을 참조하세요.
 
 ## <a name="node-security"></a>노드 보안
 

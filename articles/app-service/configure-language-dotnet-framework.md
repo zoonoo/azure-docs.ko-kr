@@ -2,14 +2,15 @@
 title: ASP.NET apps 구성
 description: Azure App Service에서 ASP.NET 앱을 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1aeb243b3ff4a1e6bd2ae984510d2ec709776fa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30fddaec9ca5d0439beadedf7c5ca6b6c7d51d83
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84908001"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961706"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Azure App Service에 대 한 ASP.NET 앱 구성
 
@@ -18,7 +19,7 @@ ms.locfileid: "84908001"
 
 ASP.NET apps를 컴파일된 이진 파일로 Azure App Service에 배포 해야 합니다. Visual Studio 게시 도구는 솔루션을 빌드한 다음 컴파일된 이진 파일을 직접 배포 하는 반면, App Service 배포 엔진은 코드 리포지토리를 먼저 배포한 다음 이진 파일을 컴파일합니다.
 
-이 가이드에서는 ASP.NET 개발자를 위한 주요 개념 및 지침을 제공 합니다. Azure App Service 사용한 적이 없는 경우 먼저 [ASP.NET 퀵 스타트](app-service-web-get-started-dotnet-framework.md) 및 [ASP.NET with SQL Database 자습서](app-service-web-tutorial-dotnet-sqldatabase.md) 를 따르세요.
+이 가이드에서는 ASP.NET 개발자를 위한 주요 개념 및 지침을 제공 합니다. Azure App Service 사용한 적이 없는 경우 먼저 [ASP.NET 퀵 스타트](quickstart-dotnet-framework.md) 및 [ASP.NET with SQL Database 자습서](app-service-web-tutorial-dotnet-sqldatabase.md) 를 따르세요.
 
 ## <a name="show-supported-net-framework-runtime-versions"></a>지원 되는 .NET Framework 런타임 버전 표시
 
@@ -94,7 +95,7 @@ ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브�
 
 ## <a name="access-diagnostic-logs"></a>진단 로그 액세스
 
-[진단을](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace)사용 하 여 응용 프로그램 코드에 진단 메시지를 추가할 수 있습니다. 예를 들면 다음과 같습니다. 
+[진단을](/dotnet/api/system.diagnostics.trace)사용 하 여 응용 프로그램 코드에 진단 메시지를 추가할 수 있습니다. 예를 들면 다음과 같습니다. 
 
 ```csharp
 Trace.TraceError("Record not found!"); // Error trace

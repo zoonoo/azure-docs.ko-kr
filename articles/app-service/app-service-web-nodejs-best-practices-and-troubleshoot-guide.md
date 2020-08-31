@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e2c60e851d61a5f33e1b050412b0e91b81e20a16
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169988"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961893"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
-이 문서에서는 Azure App Service에서 실행되는 [노드 애플리케이션](app-service-web-get-started-nodejs.md)([iisnode](https://github.com/azure/iisnode) 사용)에 대한 모범 사례 및 문제 해결 단계를 알아봅니다.
+이 문서에서는 Azure App Service ( [iisnode](https://github.com/azure/iisnode)사용)에서 실행 되는 [Windows Node.js 응용 프로그램](quickstart-nodejs.md?pivots=platform-windows) 에 대 한 모범 사례 및 문제 해결 단계를 알아봅니다.
 
 > [!WARNING]
 > 프로덕션 사이트에서 문제 해결 단계를 사용할 때는 주의하세요. 비프로덕션 설정(예: 스테이징 슬롯)에서 앱의 문제를 해결하는 것이 좋으며 문제가 해결되면 스테이징 슬롯을 프로덕션 슬롯으로 교환하는 것이 좋습니다.
@@ -87,7 +87,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-기본값은 False입니다. 설정된 경우 노드 애플리케이션에서 명명된 파이프(환경 변수 IISNODE\_CONTROL\_PIPE)에 연결할 수 있으며 "재활용" 메시지를 보낼 수 있습니다. 그러면 w3wp가 정상적으로 재활용됩니다.
+기본값은 false입니다. 설정된 경우 노드 애플리케이션에서 명명된 파이프(환경 변수 IISNODE\_CONTROL\_PIPE)에 연결할 수 있으며 "재활용" 메시지를 보낼 수 있습니다. 그러면 w3wp가 정상적으로 재활용됩니다.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
@@ -99,7 +99,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-기본값은 False입니다. true로 설정되면 iisnode에서 HTTP 응답 헤더 `iisnode-debug`를 보내는 모든 HTTP 응답에 추가하고 `iisnode-debug` 헤더 값은 URL입니다. 개별 진단 정보 조각은 URL 조각을 확인하여 얻을 수 있지만 브라우저에서 URL을 열면 시각화를 달성할 수 있습니다.
+기본값은 false입니다. true로 설정되면 iisnode에서 HTTP 응답 헤더 `iisnode-debug`를 보내는 모든 HTTP 응답에 추가하고 `iisnode-debug` 헤더 값은 URL입니다. 개별 진단 정보 조각은 URL 조각을 확인하여 얻을 수 있지만 브라우저에서 URL을 열면 시각화를 달성할 수 있습니다.
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
@@ -107,7 +107,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-기본값은 False입니다. true로 설정하면 iisnode에서 HTTP 상태 코드 및 Win32 오류 코드가 브라우저에 표시됩니다. win32 코드는 특정 유형의 문제를 디버깅하는 데 유용합니다.
+기본값은 false입니다. true로 설정하면 iisnode에서 HTTP 상태 코드 및 Win32 오류 코드가 브라우저에 표시됩니다. win32 코드는 특정 유형의 문제를 디버깅하는 데 유용합니다.
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled(라이브 프로덕션 사이트에서 사용 안 함)
 
@@ -273,9 +273,9 @@ NODE.exe에 `NODE_PENDING_PIPE_INSTANCES`라는 설정이 있습니다. Azure Ap
 
 Azure App Service에서 다음 링크를 따라 node.js 애플리케이션에 대해 자세히 알아보세요.
 
-* [Azure App Service에서 Node.js 웹앱 시작](app-service-web-get-started-nodejs.md)
-* [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
+* [Azure App Service에서 Node.js 웹앱 시작](quickstart-nodejs.md)
+* [Azure App Service에서 Node.js 웹앱을 디버그하는 방법](/archive/blogs/azureossds/debugging-node-js-apps-on-azure-app-services)
 * [Azure 애플리케이션에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service Web Apps: Node.js](/archive/blogs/silverlining/windows-azure-websites-node-js)
 * [Node.js 개발자 센터](../nodejs-use-node-modules-azure-apps.md)
 * [Super 암호 Kudu 디버그 콘솔 탐색](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

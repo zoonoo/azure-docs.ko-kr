@@ -5,17 +5,17 @@ author: ghogen
 manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
-ms.custom: aaddev, vs-azure
+ms.custom: devx-track-csharp, aaddev, vs-azure
 ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: b77241b1413fea09e5a16e8bd5cbcda8db5b2327
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1ba7db72743ac122a697bf271e783ec64e041e8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477127"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165484"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio에서 연결된 서비스를 사용 하 여 Azure Active Directory 추가
 
@@ -72,5 +72,5 @@ Azure Active Directory (Azure AD)를 사용 하 여 ASP.NET MVC 웹 응용 프�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory 인증 시나리오](authentication-scenarios.md)
+- [Azure Active Directory 인증 시나리오](./authentication-vs-authorization.md)
 - [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v2-aspnet-webapp.md)

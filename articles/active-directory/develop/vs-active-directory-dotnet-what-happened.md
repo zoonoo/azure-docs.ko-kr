@@ -9,13 +9,13 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.custom: aaddev, vs-azure
-ms.openlocfilehash: b6a364cbd29c3273466bee15b9a54e097497a8e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev, vs-azure
+ms.openlocfilehash: ab72512b2e5d915dbd4b8a3d7d8446a5932eef9e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479116"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165450"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>내 MVC 프로젝트(Visual Studio Azure Active Directory 연결된 서비스)의 변경 내용
 
@@ -162,5 +162,5 @@ Visual Studio 2015는 연결된 서비스를 추가할 때 변경 및 제거된 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory 인증 시나리오](authentication-scenarios.md)
+- [Azure Active Directory 인증 시나리오](./authentication-vs-authorization.md)
 - [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v2-aspnet-webapp.md)

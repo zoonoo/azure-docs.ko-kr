@@ -1,19 +1,17 @@
 ---
 title: 세션 호스트 Azure Automation 크기 조정 - Azure
 description: Azure Automation을 사용하여 Windows Virtual Desktop 세션 호스트 크기를 자동으로 조정하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3fa85b7129aecb1f54c9e8da51cc8f2e98b8e915
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a7ac01d71316fe4ccf44aa422d88dc31b1fd0ca4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128317"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009446"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Azure Automation을 사용하여 세션 호스트 크기 조정
 
@@ -91,7 +89,7 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
     ```powershell
     Login-AzAccount
     ```
-    
+
     >[!NOTE]
     >계정에는 크기 조정 도구를 배포 하려는 Azure 구독에 대 한 참가자 권한이 있어야 합니다.
 
@@ -117,7 +115,7 @@ VM(가상 머신)을 크기 조정하여 총 Windows Virtual Desktop 배포 비�
          "Location"              = "<Azure_region_for_deployment>"
          "WorkspaceName"         = "<Log_analytics_workspace_name>"       # Optional. If specified, Log Analytics will be used to configure the custom log table that the runbook PowerShell script can send logs to
     }
-    
+
     .\CreateOrUpdateAzAutoAccount.ps1 @Params
     ```
 
@@ -183,14 +181,14 @@ Azure Automation 계정에 실행 계정을 만들려면 다음을 수행 합니
 
     ```powershell
     $AADTenantId = (Get-AzContext).Tenant.Id
-    
+
     $AzSubscription = Get-AzSubscription | Out-GridView -OutputMode:Single -Title "Select your Azure Subscription"
     Select-AzSubscription -Subscription $AzSubscription.Id
-    
+
     $ResourceGroup = Get-AzResourceGroup | Out-GridView -OutputMode:Single -Title "Select the resource group for the new Azure Logic App"
-    
+
     $WVDHostPool = Get-AzResource -ResourceType "Microsoft.DesktopVirtualization/hostpools" | Out-GridView -OutputMode:Single -Title "Select the host pool you'd like to scale"
-    
+
     $LogAnalyticsWorkspaceId = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Workspace ID returned by when you created the Azure Automation account, otherwise leave it blank"
     $LogAnalyticsPrimaryKey = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Primary Key returned by when you created the Azure Automation account, otherwise leave it blank"
     $RecurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
@@ -203,12 +201,12 @@ Azure Automation 계정에 실행 계정을 만들려면 다음을 수행 합니
     $LimitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, any session host VM that has user sessions, will be left untouched"
     $LogOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
     $LogOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
-    
+
     $AutoAccount = Get-AzAutomationAccount | Out-GridView -OutputMode:Single -Title "Select the Azure Automation account"
     $AutoAccountConnection = Get-AzAutomationConnection -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName | Out-GridView -OutputMode:Single -Title "Select the Azure RunAs connection asset"
-    
+
     $WebhookURIAutoVar = Get-AzAutomationVariable -Name 'WebhookURIARMBased' -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName
-    
+
     $Params = @{
          "AADTenantId"                   = $AADTenantId                             # Optional. If not specified, it will use the current Azure context
          "SubscriptionID"                = $AzSubscription.Id                       # Optional. If not specified, it will use the current Azure context
@@ -232,7 +230,7 @@ Azure Automation 계정에 실행 계정을 만들려면 다음을 수행 합니
          "LogOffMessageBody"             = $LogOffMessageBody                       # Optional. Default: "Your session will be logged off. Please save and close everything."
          "WebhookURI"                    = $WebhookURIAutoVar.Value
     }
-    
+
     .\CreateOrUpdateAzLogicApp.ps1 @Params
     ```
 

@@ -1,26 +1,24 @@
 ---
 title: Windows 가상 데스크톱 Windows 10 또는 7에 연결-Azure
 description: Windows 데스크톱 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결 하는 방법
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 88e325c5a743513baa5a580ae65005c545a07b78
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 85e0c1b146cfba0cb95a6612f33e42a465bfd20b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288793"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008749"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Windows Desktop 클라이언트와 연결
 
 > 적용 대상: Windows 7, Windows 10 및 Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md)를 참조하세요.
 
 Windows 데스크톱 클라이언트를 사용 하 여 windows 7, Windows 10 및 Windows 10 IoT Enterprise를 사용 하는 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다. 클라이언트는 창 8 또는 Windows 8.1을 지원 하지 않습니다.
 

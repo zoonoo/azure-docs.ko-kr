@@ -1,14 +1,14 @@
 ---
 title: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플 개요
 description: 오스트레일리아 정부 ISM PROTECTED 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 ISM PROTECTED 제어를 평가하는 데 도움이 됩니다.
-ms.date: 03/10/2020
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: d82598498fa7eb24ec2ea3f591d08ce8f9503b54
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517102"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760433"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>오스트레일리아 정부 ISM PROTECTED 청사진 샘플의 제어 매핑
 
@@ -106,10 +106,10 @@ ms.locfileid: "85517102"
 
 - 스토리지 계정에 대한 무제한 네트워크 액세스 감사
 - Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.
-- \[미리 보기\]: 암호 없이 계정에서 원격으로 연결할 수 있는 Linux VM의 감사 결과를 표시합니다.
-- \[미리 보기\]:  암호 없이 계정에서 원격으로 연결할 수 있는 Linux VM을 감사하기 위한 필수 조건을 배포합니다.
-- \[미리 보기\]: 암호 없는 계정이 있는 Linux VM의 감사 결과 표시
-- \[미리 보기\]: 암호 없는 계정이 있는 Linux VM을 감사하기 위한 필수 조건 배포
+- 암호 없이 계정에서 원격으로 연결할 수 있는 Linux VM의 감사 결과를 표시합니다.
+- 암호 없이 계정에서 원격으로 연결할 수 있는 Linux VM을 감사하기 위한 필수 조건을 배포합니다.
+- 암호 없는 계정이 있는 Linux VM의 감사 결과 표시
+- 암호 없는 계정이 있는 Linux VM을 감사하기 위한 필수 조건 배포
 
 ### <a name="0974-multi-factor-authentication-is-used-to-authenticate-standard-users"></a>0974 다단계 인증이 표준 사용자를 인증하는 데 사용됨
 
@@ -122,8 +122,8 @@ ms.locfileid: "85517102"
 
 ### <a name="0421-passphrases-used-for-single-factor-authentication-are-a-minimum-of-14-characters-with-complexity-ideally-as-4-random-words"></a>0421 단일 단계 인증에 사용되는 암호는 14자 이상이며, 복잡성이 높은 4개의 임의 단어를 포함하는 것이 좋음
 
-- \[미리 보기\]: '보안 설정 - 계정 정책'에서 Windows VM 구성의 감사 결과 표시
-- \[미리 보기\]: '보안 설정 - 계정 정책'에서 Windows VM 구성을 감사하는 필수 조건 배포
+- '보안 설정 - 계정 정책'에서 Windows VM 구성의 감사 결과 표시
+- '보안 설정 - 계정 정책'에서 Windows VM 구성을 감사하는 필수 조건 배포
 
 ## <a name="guidelines-for-system-management---system-administration"></a>시스템 관리 지침 - 시스템 관리
 
@@ -147,7 +147,7 @@ ms.locfileid: "85517102"
 - SQL 데이터베이스의 취약성을 수정해야 합니다.
 - SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.
 - SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.
-- \[미리 보기\]: Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
+- 머신에서 취약성 평가를 사용하도록 설정해야 함
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 - 머신 보안 구성의 취약성을 수정해야 합니다.
@@ -159,7 +159,7 @@ ms.locfileid: "85517102"
 - SQL 데이터베이스의 취약성을 수정해야 합니다.
 - SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.
 - SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.
-- \[미리 보기\]: Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
+- Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 - 머신 보안 구성의 취약성을 수정해야 합니다.
@@ -171,7 +171,7 @@ ms.locfileid: "85517102"
 - SQL 데이터베이스의 취약성을 수정해야 합니다.
 - SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.
 - SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.
-- \[미리 보기\]: Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
+- Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 - 머신 보안 구성의 취약성을 수정해야 합니다.
@@ -183,7 +183,7 @@ ms.locfileid: "85517102"
 - SQL 데이터베이스의 취약성을 수정해야 합니다.
 - SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.
 - SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.
-- \[미리 보기\]: Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
+- Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 - 머신 보안 구성의 취약성을 수정해야 합니다.
@@ -195,7 +195,7 @@ ms.locfileid: "85517102"
 - SQL 데이터베이스의 취약성을 수정해야 합니다.
 - SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.
 - SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.
-- \[미리 보기\]: Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
+- Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 - 머신 보안 구성의 취약성을 수정해야 합니다.
@@ -207,7 +207,7 @@ ms.locfileid: "85517102"
 - SQL 데이터베이스의 취약성을 수정해야 합니다.
 - SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.
 - SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.
-- \[미리 보기\]: Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
+- Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 - 머신 보안 구성의 취약성을 수정해야 합니다.
@@ -229,8 +229,8 @@ ms.locfileid: "85517102"
 ### <a name="0582-the-following-events-are-logged-for-operating-systems-access-to-important-data-and-processes-application-crashes-and-any-error-messages-attempts-to-use-special-privileges-changes-to-accounts-changes-to-security-policy-changes-to-system-configurations-domain-name-system-dns-and-hypertext-transfer-protocol-http-requests-failed-attempts-to-access-data-and-system-resources-service-failures-and-restarts-system-startup-and-shutdown-transfer-of-data-to-external-media-user-or-group-management-use-of-special-privileges"></a>0582 중요한 데이터 및 프로세스에 대한 액세스, 애플리케이션 작동 중단 및 오류 메시지, 특수 권한 사용 시도, 계정 변경, 보안 정책 변경, 시스템 구성 변경, DNS(Domain Name System) 및 HTTP(Hypertext Transfer Protocol) 요청, 데이터 및 시스템 리소스에 대한 액세스 시도 실패, 서비스 실패 및 다시 시작, 시스템 시작 및 종료, 외부 미디어로 데이터 전송, 사용자 또는 그룹 관리, 특수 권한 사용과 같은 운영 체제에 대한 이벤트가 기록됨
 
 - \[미리 보기\]: Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
-- \[미리 보기\]: VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
+- VMSS의 Log Analytics 에이전트 배포 감사 - 목록에 없는 VM 이미지(OS)
+- VM용 Log Analytics 작업 영역 감사 - 보고서 불일치
 - 진단 설정 감사
 
 ### <a name="1537-the-following-events-are-logged-for-databases-access-to-particularly-important-information-addition-of-new-users-especially-privileged-users-any-query-containing-comments-any-query-containing-multiple-embedded-queries-any-query-or-database-alerts-or-failures-attempts-to-elevate-privileges-attempted-access-that-is-successful-or-unsuccessful-changes-to-the-database-structure-changes-to-user-roles-or-database-permissions-database-administrator-actions-database-logons-and-logoffs-modifications-to-data-use-of-executable-commands"></a>1537 특히 중요한 정보에 대한 액세스, 새 사용자, 특히 권한이 있는 사용자, 설명이 포함된 쿼리, 여러 포함된 쿼리가 있는 쿼리, 쿼리/데이터베이스 경고 또는 실패, 권한 상승 시도, 성공적이거나 실패한 액세스 시도, 데이터베이스 구조 변경, 사용자 역할 또는 데이터베이스 권한 변경, 데이터베이스 관리자 작업, 데이터베이스 로그온 및 로그오프, 데이터 수정, 실행 가능한 명령 사용과 같은 데이터베이스에 대한 이벤트가 기록됨
@@ -246,7 +246,7 @@ ms.locfileid: "85517102"
 - SQL 데이터베이스의 취약성을 수정해야 합니다.
 - SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.
 - SQL 관리형 인스턴스에서 취약성 평가를 사용하도록 설정해야 합니다.
-- \[미리 보기\]: Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
+- Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
 - 취약성 평가 솔루션으로 취약성을 수정해야 합니다.
 - 머신 보안 구성의 취약성을 수정해야 합니다.

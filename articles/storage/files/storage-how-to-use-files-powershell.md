@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0008ab89f4599e2ada51b5637a9665a249bc1c4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 360af0406a816a02540881962ed8794d69ce3bbb
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340834"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531815"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure 파일 공유 만들기 및 관리 
 이 가이드에서는 PowerShell을 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 산업 표준 SMB 프로토콜을 지원하며 여러 머신, 애플리케이션 및 인스턴스 전반에서 파일 공유를 활성화합니다. 
@@ -88,7 +88,7 @@ File REST 프로토콜을 직접 사용할 수 있지만(즉, REST HTTP 호출 �
 - 서버리스 리소스([Azure Functions](../../azure-functions/functions-overview.md) 등)를 활용하고 있는 경우 
 - 백업 또는 바이러스 백신 검사를 수행하는 것과 같은 많은 Azure 파일 공유와 상호 작용하는 값 추가 서비스를 만듭니다.
 
-다음 예제에서는 Azure PowerShell 모듈을 사용하여 File REST 프로토콜로 Azure 파일 공유를 조작하는 방법을 보여줍니다. `-Context` 매개 변수는 파일 공유에 대해 표시된 작업을 수행하기 위해 스토리지 계정 키를 검색하는 데 사용됩니다. 스토리지 계정 키를 검색하려면 스토리지 계정에 `Owner` RBAC 역할이 있어야 합니다.
+다음 예제에서는 Azure PowerShell 모듈을 사용하여 File REST 프로토콜로 Azure 파일 공유를 조작하는 방법을 보여줍니다. `-Context` 매개 변수는 파일 공유에 대해 표시된 작업을 수행하기 위해 스토리지 계정 키를 검색하는 데 사용됩니다. 스토리지 계정 키를 검색하려면 스토리지 계정에 `Owner` Azure 역할이 있어야 합니다.
 
 #### <a name="create-directory"></a>디렉터리 만들기
 Azure 파일 공유의 루트에 *myDirectory*라는 새 디렉터리를 만들려면 [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory) cmdlet을 사용합니다.

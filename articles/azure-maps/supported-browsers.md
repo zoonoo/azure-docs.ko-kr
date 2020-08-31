@@ -1,6 +1,6 @@
 ---
 title: 웹 SDK 지원 브라우저 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps 웹 SDK에 대해 지원 되는 브라우저와 브라우저가 지원 되는 브라우저 인지 확인 하는 방법을 알아봅니다.
+description: Azure Maps 웹 SDK가 브라우저를 지원 하는지 확인 하는 방법을 알아봅니다. 지원 되는 브라우저 목록을 봅니다. 레거시 브라우저에서 map services를 사용 하는 방법에 대해 알아봅니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: e81b15b974469d319384a67b08512130b7876a30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6d4ea19e5547adb7bee25f4bdce295eb9a76d44
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76988790"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002935"
 ---
 # <a name="web-sdk-supported-browsers"></a>웹 SDK 지원 브라우저
 

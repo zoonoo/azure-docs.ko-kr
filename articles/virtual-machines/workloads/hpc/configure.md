@@ -10,15 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 08/01/2020
+ms.date: 08/07/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: dfa1c790dc0f2e229b3bfa19616e5760c3d3d02e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d4661c0819d214a2c750eb1582559f8d8a5959ed
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825143"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006607"
 ---
 # <a name="configure-and-optimize-vms"></a>VM 구성 및 최적화
 
@@ -27,9 +27,18 @@ ms.locfileid: "87825143"
 ## <a name="vm-images"></a>VM 이미지
 InfiniBand 사용 Vm에서 RDMA를 사용 하도록 설정 하려면 적절 한 드라이버가 필요 합니다. Linux에서 Marketplace의 CentOS VM 이미지는 적절 한 드라이버를 사용 하 여 미리 구성 된 상태로 제공 됩니다. Ubuntu VM 이미지는 [여기에 설명 된 지침](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351)에 따라 올바른 드라이버를 사용 하 여 구성할 수 있습니다. 적절 한 드라이버 및 구성을 사용 하 여 [사용자 지정 VM 이미지](../../linux/tutorial-custom-images.md) 를 만들고 해당 recurringly를 다시 사용 하는 것도 좋습니다.
 
+> [!NOTE]
+> GPU 사용 [N 시리즈](../../sizes-gpu.md) Vm에서는 [vm 확장](../../extensions/hpccompute-gpu-linux.md) 을 통해 또는 [수동으로](../../linux/n-series-driver-setup.md)추가할 수 있는 적절 한 gpu 드라이버가 추가로 필요 합니다. Marketplace의 일부 VM 이미지는 Nvidia GPU 드라이버와 함께 미리 설치 되어 있습니다.
+
 ### <a name="centos-hpc-vm-images"></a>CentOS-HPC VM 이미지
+
+#### <a name="non-sr-iov-enabled-vms"></a>SR-IOV를 사용할 수 없는 Vm
 SR-IOV를 사용 하도록 설정 되지 않은 [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances), CentOS 버전 6.5 이상 버전의 경우 Marketplace에서 최대 7.5까지 적합 합니다. 예를 들어 [H16 시리즈 vm](../../h-series.md)의 경우 7.1 ~ 7.5 버전을 권장 합니다. 이러한 VM 이미지는 RDMA 및 Intel MPI 버전 5.1에 대 한 네트워크 다이렉트 드라이버를 사용 하 여 미리 로드 됩니다.
 
+> [!NOTE]
+> SR-IOV를 사용할 수 없는 Vm에 대 한 이러한 CentOS 기반 HPC 이미지에서 커널 업데이트는 **yum** 구성 파일에서 사용할 수 없습니다. 이는 NetworkDirect Linux RDMA 드라이버가 RPM 패키지로 배포 되 고 커널이 업데이트 되는 경우 드라이버 업데이트가 작동 하지 않기 때문입니다.
+
+#### <a name="sr-iov-enabled-vms"></a>SR-IOV 사용 Vm
   SR-IOV를 사용 하도록 설정 된 [RDMA 지원 vm](../../sizes-hpc.md#rdma-capable-instances)의 경우 Marketplace에서 [CentOS 버전 7.6 이상](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) 버전 VM 이미지가 적합 합니다. 이러한 VM 이미지는 RDMA 용 OFED 드라이버 및 널리 사용 되는 다양 한 MPI 라이브러리 및 과학적 컴퓨팅 패키지를 사용 하 여 최적화 되 고 미리 로드 되며 시작 하는 가장 쉬운 방법입니다.
 
   기본 CentOS Marketplace 이미지에서 CentOS-HPC 버전 7.6 이상 VM 이미지를 만드는 데 사용 되는 스크립트의 예는 [azhpc 리포지토리](https://github.com/Azure/azhpc-images/tree/master/centos)에 있습니다.

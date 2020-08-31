@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: mialdrid
-ms.openlocfilehash: b4a83013d2cbeb2871a3963ec0c95144c02f4d66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 459a70c787dfdcd54fb3010655390787022c8f2e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77187022"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921625"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>Express 경로 CrossConnnections API 개발 및 통합
 
@@ -30,7 +30,7 @@ ExpressRouteCrossConnections 리소스로 이동할 경우의 이점:
 
 * Express 경로 파트너에 대 한 향후 개선 사항은 ExpressRouteCrossConnection 리소스에서 제공 될 예정입니다.
 
-* 파트너는 expressRouteCrossConnection 리소스에 [역할 기반 Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview) 적용할 수 있습니다. 이러한 컨트롤은 사용자 계정에서 expressRouteCrossConnection 리소스를 수정 하 고 피어 링 구성을 추가/업데이트/삭제할 수 있는 권한을 정의할 수 있습니다.
+* 파트너는 azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview) 를 expressRouteCrossConnection 리소스에 적용할 수 있습니다. 이러한 컨트롤은 사용자 계정에서 expressRouteCrossConnection 리소스를 수정 하 고 피어 링 구성을 추가/업데이트/삭제할 수 있는 권한을 정의할 수 있습니다.
 
 * ExpressRouteCrossConnection 리소스는 Express 경로 연결 문제를 해결 하는 데 도움이 될 수 있는 Api를 노출 합니다. 여기에는 ARP 테이블, BGP 경로 테이블 요약 및 BGP 경로 테이블 정보가 포함 됩니다. 이 기능은 클래식 배포 Api에서 지원 되지 않습니다.
 

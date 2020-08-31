@@ -13,12 +13,12 @@ ms.date: 11/21/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: f1ad755e444968cbbbe9e048be53fb72f65c3b37
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5d01d1143563637e21aaa06a3f997c1507e4d8f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87312642"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114781"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Java 용 MSAL에서 Active Directory Federation Services 지원
 
@@ -48,4 +48,4 @@ Java 용 MSAL은 azure ad (관리 되는 사용자)에서 관리 되는 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-페더레이션된 사례는 [홈 영역 검색 정책을 사용 하 여 응용 프로그램에 대 한 Azure Active Directory 로그인 동작 구성](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal) 을 참조 하세요.
+페더레이션된 사례는 [홈 영역 검색 정책을 사용 하 여 응용 프로그램에 대 한 Azure Active Directory 로그인 동작 구성](../manage-apps/configure-authentication-for-federated-users-portal.md) 을 참조 하세요.

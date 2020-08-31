@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: a358052d5f3959a236f29461890c989e77edb4dc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 086c853b21301074cf35f13db52db1fdb145518c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369019"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489574"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Synapse SQL 리소스 사용
 
@@ -27,7 +27,7 @@ SQL 주문형은 적절한 크기를 선택할 필요가 없는 쿼리당 과금
 
 가격 및 성능을 최적화하기 위한 이상적인 DWU(데이터 웨어하우스 단위) 수를 선택하는 방법에 대한 권장 사항 및 단위 수를 변경하는 방법을 안내합니다.
 
-### <a name="what-are-data-warehouse-units"></a>데이터 웨어하우스 단위란?
+### <a name="data-warehouse-units"></a>데이터 웨어하우스 단위
 
 Synapse SQL 풀은 프로비저닝되는 분석 리소스 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의됩니다. 이러한 세 가지 리소스는 DWU(데이터 웨어하우스 단위)라는 컴퓨팅 규모 단위의 번들로 제공됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 서비스 수준을 변경하면 시스템에서 사용 가능한 DWU 수를 변경하여 시스템의 성능과 비용이 조정됩니다.
 
@@ -79,7 +79,7 @@ DWU 및 cDWU 모두 컴퓨팅을 확장 또는 축소할 수 있고 데이터 �
 
 각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management)을 참조하세요.
 
-### <a name="how-many-data-warehouse-units-do-i-need"></a>필요한 데이터 웨어하우스 단위
+### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>필요한 데이터 웨어하우스 단위 수 평가
 
 이상적인 데이터 웨어하우스 단위 수는 워크로드 및 시스템에 로드한 데이터 양에 따라 매우 다릅니다.
 

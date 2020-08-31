@@ -14,12 +14,12 @@ ms.date: 05/18/2020
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: f3896bf795e3b1ca258f65fa2c6f4974f2115014
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4990b81d929019b3d201f004176234fa0ea78339
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282996"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118453"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 
@@ -50,8 +50,8 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | --- | --- | --- |
 | ID | 필수 | Azure AD는 이 특성을 사용하여 반환된 응답의 `InResponseTo` 특성을 채웁니다. ID는 숫자로 시작할 수 없으므로 GUID의 문자열 표현에 "id"와 같은 문자열을 앞에 추가합니다. 예를 들어 `id6c1c178c166d486687be4aaf5e482730` 은 유효한 ID입니다. |
 | 버전 | 필수 | 이 매개 변수는 **2.0**으로 설정해야 합니다. |
-| IssueInstant | 필수 | UTC 값과 [라운드 트립 형식("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)을 포함하는 DateTime 문자열입니다. Azure AD에는 이 형식의 DateTime 값이 필요하지만, 값을 평가하거나 사용하지 않습니다. |
-| AssertionConsumerServiceUrl | 선택 사항 | 제공되는 경우 이 매개 변수는 Azure AD에서 클라우드 서비스의 `RedirectUri`와 일치해야 합니다. |
+| IssueInstant | 필수 | UTC 값과 [라운드 트립 형식("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings)을 포함하는 DateTime 문자열입니다. Azure AD에는 이 형식의 DateTime 값이 필요하지만, 값을 평가하거나 사용하지 않습니다. |
+| AssertionConsumerServiceUrl | 옵션 | 제공되는 경우 이 매개 변수는 Azure AD에서 클라우드 서비스의 `RedirectUri`와 일치해야 합니다. |
 | ForceAuthn | 옵션 | 부울 값입니다. true이면 Azure AD에 유효한 세션이 있어도 사용자를 다시 인증해야 합니다. |
 | IsPassive | 옵션 | 사용자 상호 작용 없이 세션 쿠키(있는 경우)를 사용하여 Azure AD가 사용자를 자동으로 인증할지를 지정하는 부울 값입니다. True이면 Azure AD는 세션 쿠키를 사용하여 사용자 인증을 시도합니다. |
 
@@ -101,7 +101,7 @@ ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는
 ### <a name="signature"></a>서명
 요소의 `Signature` 요소는 `AuthnRequest` 선택 사항입니다. 서명이 존재 하는 경우 Azure AD는 서명 된 인증 요청의 유효성을 검사 하지 않습니다. 요청자 확인은 등록된 Assertion Consumer Service URL에만 응답하여 제공됩니다.
 
-### <a name="subject"></a>주체
+### <a name="subject"></a>제목
 `Subject` 요소를 포함하지 마세요. Azure AD는 요청 주제 지정을 지원하지 않고, 요청이 제공되면 오류를 반환합니다.
 
 ## <a name="response"></a>응답

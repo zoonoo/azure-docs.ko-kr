@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1e8fd08a22d5d243f404a12ff96c1a8797b97f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1cf4af12b9ef912d37014215e422d5b9c73903f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485586"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007882"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준
 
@@ -222,13 +222,13 @@ Microsoft Azure 고객 Lockbox에 대 한 Azure 보안 기준에는 배포의 �
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
-**지침**: 고객 Lockbox 요청에 대 한 관리 권한이 있는 사용자 계정의 인벤토리를 유지 관리 합니다. 구독에 대 한 Azure Portal의 IAM (Id 및 액세스 제어) 창을 사용 하 여 RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다. 역할은 Azure Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다.
+**지침**: 고객 Lockbox 요청에 대 한 관리 권한이 있는 사용자 계정의 인벤토리를 유지 관리 합니다. 구독에 대 한 Azure Portal의 IAM (Id 및 액세스 제어) 창을 사용 하 여 azure RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다. 역할은 Azure Active Directory의 사용자, 그룹, 서비스 사용자 및 관리 되는 id에 적용 됩니다.
 
 고객 조직에서 Azure 구독에 대 한 소유자 역할을 가진 사용자는 Microsoft에서 전자 메일을 받아 보류 중인 액세스 요청에 대해 알립니다. 고객 Lockbox 요청의 경우이 사람은 지정 된 승인자입니다.
 
 * [사용자 지정 역할 이해](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [통합 문서에 대해 RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [통합 문서에 대 한 Azure RBAC를 구성 하는 방법](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [고객 Lockbox에서 액세스 요청 권한 이해](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -353,7 +353,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: 계정 로그인 동작 편차에 대한 경고
 
@@ -439,7 +439,7 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: 호스트 기반 데이터 손실 방지를 사용하여 액세스 제어 적용
 
-**지침**: 해당 없음. 이 권장 사항은 컴퓨팅 리소스를 위한 것입니다. Microsoft는 고객 Lockbox에 대 한 기본 인프라를 관리 하 고, 고객 데이터의 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다.
+**지침**: 해당 없음. 이 추천 사항은 컴퓨팅 리소스를 위한 것입니다. Microsoft는 고객 Lockbox에 대 한 기본 인프라를 관리 하 고, 고객 데이터의 손실 또는 노출을 방지 하기 위해 엄격한 컨트롤을 구현 했습니다.
 
 * [Azure 고객 데이터 보호](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
@@ -527,11 +527,11 @@ Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들고 �
 
 * [Azure 구독을 확인하는 방법](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Azure 역할 기반 액세스 제어 이해](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure 역할 기반 액세스 제어 이해 (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: 자산 메타데이터 유지 관리
 
@@ -891,7 +891,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: 보안 경고에 대한 대응 자동화
 

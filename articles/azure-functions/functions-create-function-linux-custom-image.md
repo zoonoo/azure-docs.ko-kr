@@ -3,14 +3,14 @@ title: 사용자 지정 이미지를 사용하여 Linux에서 Azure Functions �
 description: 사용자 지정 Linux 이미지에서 실행되는 Azure Functions를 만드는 방법을 알아봅니다.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc, tracking-python
+ms.custom: devx-track-csharp, mvc, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: d6061cd449a33ccf1bb461ada090c0412d1e94ae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: efe1706f2ea97c3eadab8deade7e13123af17752
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87485221"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225668"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -496,7 +496,7 @@ Azure Functions를 사용하면 고유한 통합 코드를 작성하지 않고�
 1. 루트 폴더에서 `docker build`를 다시 실행하고, 이번에는 태그의 버전을 `v1.0.1`로 업데이트합니다. 이전과 같이 `<docker_id>`를 Docker Hub 계정 ID로 바꿉니다.
 
     ```
-    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1
+    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1 .
     ```
     
 1. `docker push`를 사용하여 업데이트된 이미지를 리포지토리로 다시 푸시합니다.

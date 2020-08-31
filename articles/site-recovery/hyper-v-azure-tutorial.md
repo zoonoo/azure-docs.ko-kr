@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: afa8375805ebc5d52ac716126adca86850147166
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5ce98c785700301bba92926d7d5a243b614eca7f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134093"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504231"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정
 
@@ -51,14 +51,14 @@ ms.locfileid: "86134093"
 6. **System Center VMM을 사용하여 Hyper-V 호스트를 관리하나요?** 에서 **아니요**를 선택합니다.
 7. **확인**을 선택합니다.
 
-    ![복제 목표](./media/hyper-v-azure-tutorial/replication-goal.png)
+    ![인프라 준비의 보호 목표 옵션 스크린샷](./media/hyper-v-azure-tutorial/replication-goal.png)
 
 ## <a name="confirm-deployment-planning"></a>배포 계획 확인
 
 1. **배포 계획**에서 대규모 배포를 계획 중인 경우 페이지의 링크를 통해 Hyper-V용 Deployment Planner를 다운로드합니다. Hyper-V 배포 계획에 대해 [자세히 알아보세요](hyper-v-deployment-planner-overview.md).
 2. 이 자습서에서는 Deployment Planner가 필요하지 않습니다. **배포 계획을 완료하셨나요**에서 **나중에 수행**을 선택한 다음, **확인**을 선택합니다.
 
-    ![배포 계획](./media/hyper-v-azure-tutorial/deployment-planning.png)
+    ![인프라 준비의 배포 계획 옵션 스크린샷](./media/hyper-v-azure-tutorial/deployment-planning.png)
 
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
 
@@ -68,17 +68,17 @@ ms.locfileid: "86134093"
 2. **원본 준비**에서 **+Hyper-V 사이트**를 선택합니다.
 3. **Hyper-V 사이트 만들기**에서 사이트 이름을 지정합니다. 여기서는 **ContosoHyperVSite**를 사용합니다.
 
-    ![Hyper-V 사이트](./media/hyper-v-azure-tutorial/hyperv-site.png)
+    ![인프라 준비의 Hyper-V 사이트 선택 스크린샷](./media/hyper-v-azure-tutorial/hyperv-site.png)
 
 4. 사이트가 생성되면 **원본 준비** > **1단계: Hyper-V 사이트 선택**에서 생성된 사이트를 선택합니다.
 5. **+ Hyper-V**를 선택합니다.
 
-    ![Hyper-V 서버](./media/hyper-v-azure-tutorial/hyperv-server.png)
+    ![인프라 준비의 Hyper-V 서버 선택 스크린샷](./media/hyper-v-azure-tutorial/hyperv-server.png)
 
 6. Microsoft Azure Site Recovery Provider용 설치 관리자를 다운로드합니다.
 7. 자격 증명 모음 등록 키를 다운로드합니다. 공급자를 설치하려면 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 
-    ![공급자 및 등록 키 다운로드](./media/hyper-v-azure-tutorial/download.png)
+    ![공급자 및 등록 키를 다운로드하는 옵션의 스크린샷](./media/hyper-v-azure-tutorial/download.png)
     
 
 ### <a name="install-the-provider"></a>Provider 설치

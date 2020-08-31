@@ -13,16 +13,16 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76696524"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119881"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>B2C와 함께 Android 용 MSAL 사용
 
-MSAL(Microsoft 인증 라이브러리)을 사용하면 애플리케이션 개발자가 [Azure AD B2C(Azure Active Directory B2C)](https://docs.microsoft.com/azure/active-directory-b2c/)를 사용하여 소셜 및 로컬 ID로 사용자를 인증할 수 있습니다. Azure AD B2C는 ID 관리 서비스입니다. 이를 통해 고객이 응용 프로그램을 사용 하 여 등록, 로그인 및 프로필을 관리 하는 방법을 사용자 지정 하 고 제어할 수 있습니다.
+MSAL(Microsoft 인증 라이브러리)을 사용하면 애플리케이션 개발자가 [Azure AD B2C(Azure Active Directory B2C)](../../active-directory-b2c/index.yml)를 사용하여 소셜 및 로컬 ID로 사용자를 인증할 수 있습니다. Azure AD B2C는 ID 관리 서비스입니다. 이를 통해 고객이 응용 프로그램을 사용 하 여 등록, 로그인 및 프로필을 관리 하는 방법을 사용자 지정 하 고 제어할 수 있습니다.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>알려진 인증 기관 및 리디렉션 URI 구성
 
@@ -54,7 +54,7 @@ Android 용 MSAL에서 B2C 정책 (사용자 경험)은 개별 기관으로 구�
 }
 ```
 
-는 `redirect_uri` 앱 구성에 등록 되어 있어야 하며, `AndroidManifest.xml` [인증 코드 부여 흐름](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code)동안 리디렉션을 지원 하기 위해에도 있어야 합니다.
+는 `redirect_uri` 앱 구성에 등록 되어 있어야 하며, `AndroidManifest.xml` [인증 코드 부여 흐름](../../active-directory-b2c/authorization-code-flow.md)동안 리디렉션을 지원 하기 위해에도 있어야 합니다.
 
 ## <a name="initialize-ipublicclientapplication"></a>IPublicClientApplication 초기화
 
@@ -139,7 +139,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>정책 지정
 
-B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 `fromAuthority` `acquireToken` 또는 매개 변수를 생성할 때 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다 `acquireTokenSilent` .  예를 들어:
+B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 `fromAuthority` `acquireToken` 또는 매개 변수를 생성할 때 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다 `acquireTokenSilent` .  예를 들면 다음과 같습니다.
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -153,7 +153,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 ## <a name="handle-password-change-policies"></a>암호 변경 정책 처리
 
-로컬 계정 등록 또는 로그인 사용자 흐름에서 '**암호 잊음?**'를 표시 합니다. 링크를 클릭하도록 요청합니다. 이 링크를 클릭해도 암호 재설정 사용자 흐름이 자동으로 트리거되지는 않습니다.
+로컬 계정 등록 또는 로그인 사용자 흐름에서 '**암호 잊음?**'를 표시 합니다. 링크를 사용하여 비용 없이 계정을 만들 수 있습니다. 이 링크를 클릭해도 암호 재설정 사용자 흐름이 자동으로 트리거되지는 않습니다.
 
 대신 `AADB2C90118` 오류 코드가 앱에 반환됩니다. 앱은 암호를 재설정 하는 특정 사용자 흐름을 실행 하 여이 오류 코드를 처리 해야 합니다.
 
@@ -227,7 +227,7 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>IdToken 클레임
 
-IdToken에서 반환 된 클레임은 MSAL이 아니라 STS (보안 토큰 서비스)에 의해 채워집니다. 사용 된 IdP (id 공급자)에 따라 일부 클레임이 없을 수도 있습니다. 일부 IdPs는 현재 클레임을 제공 하지 않습니다 `preferred_username` . 이 클레임은 캐싱에 대해 MSAL에서 사용 되므로 자리 표시자 값가 `MISSING FROM THE TOKEN RESPONSE` 대신 사용 됩니다. B2C IdToken 클레임에 대 한 자세한 내용은 [Azure Active Directory B2C의 토큰 개요](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims)를 참조 하세요.
+IdToken에서 반환 된 클레임은 MSAL이 아니라 STS (보안 토큰 서비스)에 의해 채워집니다. 사용 된 IdP (id 공급자)에 따라 일부 클레임이 없을 수도 있습니다. 일부 IdPs는 현재 클레임을 제공 하지 않습니다 `preferred_username` . 이 클레임은 캐싱에 대해 MSAL에서 사용 되므로 자리 표시자 값가 `MISSING FROM THE TOKEN RESPONSE` 대신 사용 됩니다. B2C IdToken 클레임에 대 한 자세한 내용은 [Azure Active Directory B2C의 토큰 개요](../../active-directory-b2c/tokens-overview.md#claims)를 참조 하세요.
 
 ## <a name="managing-accounts-and-policies"></a>계정 및 정책 관리
 
@@ -239,4 +239,4 @@ B2C는 각 정책을 별도의 기관으로 처리 합니다. 따라서 각 정�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview) Azure AD B2C Azure Active Directory B2C에 대해 자세히 알아보세요.
+[Azure Active Directory B2C](../../active-directory-b2c/overview.md) Azure AD B2C Azure Active Directory B2C에 대해 자세히 알아보세요.

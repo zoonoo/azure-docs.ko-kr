@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b1f848b5e6fa053d81754d441fd4845c1a24ee5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361492"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926181"
 ---
 # <a name="authentication-and-user-permissions"></a>인증 및 사용자 권한
 
@@ -68,7 +68,7 @@ Excel 사용자는 Windows 계정, 조직 ID(메일 주소) 또는 외부 메일
 
 ![Azure Portal의 액세스 제어](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-이 수준의 역할은 포털에서 완료할 수 있거나 Azure Resource Manager 템플릿을 사용하여 작업을 수행해야 하는 사용자 또는 계정에 적용됩니다. 자세한 내용은 [역할 기반 Access Control](../role-based-access-control/overview.md)을 참조하세요. 
+이 수준의 역할은 포털에서 완료할 수 있거나 Azure Resource Manager 템플릿을 사용하여 작업을 수행해야 하는 사용자 또는 계정에 적용됩니다. 자세히 알아보려면 azure [역할 기반 액세스 제어 (AZURE RBAC)](../role-based-access-control/overview.md)를 참조 하세요. 
 
 ## <a name="database-roles"></a>데이터베이스 역할
 
@@ -81,4 +81,4 @@ Excel 사용자는 Windows 계정, 조직 ID(메일 주소) 또는 외부 메일
 [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [데이터베이스 역할 및 사용자 관리](analysis-services-database-users.md)  
 [서버 관리자 관리](analysis-services-server-admins.md)  
-[역할 기반 Access Control](../role-based-access-control/overview.md)  
+[Azure 역할 기반 access control (Azure RBAC)](../role-based-access-control/overview.md)  

@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/18/2020
+ms.date: 08/10/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 7a5b21551cd549f6a495f6cca7a8c5f96c72ddaa
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: a496f91621199dce6dc8e49963938ab0fafe5227
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081002"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053204"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -41,7 +41,6 @@ TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 �
 |FQDN 태그는 프로토콜: 설정할 포트가 필요|FQDN 태그를 사용하는 애플리케이션 규칙에는 포트: 프로토콜 정의가 필요합니다.|**https**를 포트: 프로토콜 값으로 사용할 수 있습니다. FQDN 태그를 사용할 때 이 필드 옵션이 작동하도록 하기 위한 작업이 진행 중입니다.|
 |방화벽을 다른 리소스 그룹 또는 구독으로 이동하는 기능은 지원되지 않습니다.|방화벽을 다른 리소스 그룹 또는 구독으로 이동하는 기능은 지원되지 않습니다.|이 기능은 로드맵에 있습니다. 방화벽을 다른 리소스 그룹 또는 구독으로 이동하려면 현재 인스턴스를 삭제하고 새 리소스 그룹 또는 구독에서 다시 만들어야 합니다.|
 |위협 인텔리전스 경고는 마스킹될 수 있습니다.|아웃바운드 필터링의 대상이 80/443인 네트워크 규칙은 위협 전용 모드로 구성되면 위협 인텔리전스 경고를 마스킹합니다.|애플리케이션 규칙을 사용하여 80/443에 대한 아웃바운드 필터링을 만듭니다. 또는 위협 인텔리전스 모드를 **경고 및 거부**로 변경합니다.|
-|Azure Firewall에서 이름 확인에 Azure DNS만 사용|Azure Firewall은 Azure DNS만 사용해서 FQDN을 확인합니다. 사용자 지정 DNS 서버는 지원되지 않습니다. 다른 서브넷의 DNS 확인에는 영향을 주지 않습니다.|이 제한 사항을 완화하기 위해 노력하고 있습니다.|
 |Azure Firewall DNAT는 개인 IP 대상에는 작동하지 않습니다.|Azure Firewall DNAT 지원은 인터넷 송신/수신으로 제한됩니다. DNAT는 현재 개인 IP 대상에는 작동하지 않습니다. 예: 스포크-스포크.|이 문제가 현재 제한 사항입니다.|
 |첫 번째 공용 IP 구성을 제거할 수 없음|각 Azure Firewall 공용 IP 주소는 *IP 구성*에 할당됩니다.  첫 번째 IP 구성은 방화벽을 배포하는 동안 할당되며, 일반적으로 방화벽 서브넷에 대한 참조도 포함하고 있습니다(템플릿 배포를 통해 명시적으로 다르게 구성하지 않는 이상). 이 IP 구성을 삭제하면 방화벽이 할당 취소되므로 삭제할 수 없습니다. 방화벽에 사용 가능한 다른 공용 IP 주소가 하나 이상 있는 경우 이 IP 구성과 연결된 공용 IP 주소를 변경하거나 제거할 수 있습니다.|이것은 의도적인 것입니다.|
 |가용성 영역은 배포 중에만 구성할 수 있습니다.|가용성 영역은 배포 중에만 구성할 수 있습니다. 방화벽이 배포된 후에는 가용 영역을 구성할 수 없습니다.|이것은 의도적인 것입니다.|

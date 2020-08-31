@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77085184"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119932"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL으로 응용 프로그램 마이그레이션
 
@@ -45,7 +45,7 @@ Microsoft id 플랫폼은 Azure Active Directory v 1.0과 몇 가지 중요 한 
 * Azure Active Directory v1.0 끝점을 사용 하려면 응용 프로그램 등록 중에 모든 사용 권한을 미리 선언 해야 합니다. 이는 해당 권한이 정적 임을 의미 합니다.
 * Microsoft id 플랫폼을 사용 하면 권한을 동적으로 요청할 수 있습니다. 앱은 필요한 경우에만 권한을 요청 하 고 앱에 필요한 것 보다 더 많은 요청을 요청할 수 있습니다.
 
-Azure Active Directory v 1.0과 Microsoft id 플랫폼 간의 차이점에 대 한 자세한 내용은 [microsoft identity platform (v2.0)로 업데이트 하는 이유](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison)를 참조 하세요.
+Azure Active Directory v 1.0과 Microsoft id 플랫폼 간의 차이점에 대 한 자세한 내용은 [microsoft identity platform (v2.0)로 업데이트 하는 이유](../azuread-dev/azure-ad-endpoint-comparison.md)를 참조 하세요.
 
 ## <a name="adal-and-msal-library-differences"></a>ADAL 및 MSAL 라이브러리 차이점
 
@@ -61,11 +61,11 @@ MSAL에서 기본 상호 작용은 `MSALPublicClientApplication` [OAuth 2.0 공�
 
 ADAL에서 앱은 *resource* `https://graph.microsoft.com` Azure Active Directory v 1.0 끝점에서 토큰을 획득 하는 등의 리소스 식별자를 제공 해야 했습니다. 리소스는 응용 프로그램 매니페스트에서 파악 하는 다양 한 범위 또는 oAuth2Permissions를 정의할 수 있습니다. 이로 인해 클라이언트 앱은 앱 등록 중에 미리 정의 된 특정 범위의 범위에 대해 해당 리소스의 토큰을 요청할 수 있습니다.
 
-MSAL에서 단일 리소스 식별자 대신 앱은 요청당 범위 집합을 제공 합니다. 범위는 리소스 식별자와 리소스/권한 형식의 사용 권한 이름입니다. 예를 들면 `https://graph.microsoft.com/user.read`과 같습니다.
+MSAL에서 단일 리소스 식별자 대신 앱은 요청당 범위 집합을 제공 합니다. 범위는 리소스 식별자와 리소스/권한 형식의 사용 권한 이름입니다. 예를 들어 `https://graph.microsoft.com/user.read`
 
 MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
-* 앱에 필요한 모든 사용 권한 목록을 제공 합니다. 예를 들어: 
+* 앱에 필요한 모든 사용 권한 목록을 제공 합니다. 예를 들면 다음과 같습니다. 
 
     `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
@@ -75,9 +75,9 @@ MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
 이는 모든 응용 프로그램에 대해 기본 제공 되는 범위입니다. 응용 프로그램을 등록할 때 구성 된 사용 권한의 정적 목록을 참조 합니다. 의 동작은의 동작과 유사 `resource` 합니다. 이는 유사한 범위 및 사용자 경험 집합이 유지 되도록 마이그레이션하는 경우에 유용할 수 있습니다.
 
-범위를 사용 하려면 `/.default` `/.default` 리소스 식별자에를 추가 합니다. 예: `https://graph.microsoft.com/.default` 리소스가 슬래시 ()로 끝나는 경우 선행 슬래시를 포함 하 여 계속 해 서 `/` 추가 해야 `/.default` 합니다 .이 경우에는 이중 슬래시 ()가 포함 된 범위가 생성 `//` 됩니다.
+범위를 사용 하려면 `/.default` `/.default` 리소스 식별자에를 추가 합니다. 예: `https://graph.microsoft.com/.default`. 리소스가 슬래시 ()로 끝나는 경우 선행 슬래시를 포함 하 여 계속 해 서 `/` 추가 해야 `/.default` 합니다 .이 경우에는 이중 슬래시 ()가 포함 된 범위가 생성 `//` 됩니다.
 
-여기에서 "/.default" 범위를 사용 하는 방법에 대 한 자세한 내용은 여기를 참조 [하세요](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope) .
+여기에서 "/.default" 범위를 사용 하는 방법에 대 한 자세한 내용은 여기를 참조 [하세요](./v2-permissions-and-consent.md#the-default-scope) .
 
 ### <a name="supporting-different-webview-types--browsers"></a>브라우저 & 다양 한 웹 보기 유형 지원
 
@@ -146,7 +146,7 @@ V0.3.0 버전부터 MSAL은 Microsoft Authenticator 앱을 사용 하 여 조정
 
 1. 응용 프로그램에 대 한 broker 호환 리디렉션 URI 형식을 등록 합니다. Broker 호환 리디렉션 URI 형식은 `msauth.<app.bundle.id>://auth` 입니다. `<app.bundle.id>`을 응용 프로그램의 번들 ID로 바꿉니다. ADAL에서 마이그레이션하는 경우 응용 프로그램을 이미 broker를 사용할 수 있는 경우에는 추가 작업이 필요 하지 않습니다. 이전 리디렉션 URI는 MSAL과 완전히 호환 되므로 3 단계로 건너뛸 수 있습니다.
 
-2. Info.plist 파일에 응용 프로그램의 리디렉션 URI 체계를 추가 합니다. 기본 MSAL 리디렉션 URI의 경우 형식은 `msauth.<app.bundle.id>` 입니다. 예를 들어:
+2. Info.plist 파일에 응용 프로그램의 리디렉션 URI 체계를 추가 합니다. 기본 MSAL 리디렉션 URI의 경우 형식은 `msauth.<app.bundle.id>` 입니다. 예를 들면 다음과 같습니다.
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -207,7 +207,7 @@ IOS의 MSAL은 다음과 같은 두 가지 유형의 SSO도 지원 합니다.
 
 ## <a name="intune-mam-sdk"></a>Intune MAM SDK
 
-[INTUNE MAM SDK](https://docs.microsoft.com/intune/app-sdk-get-started) 는 [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2) 버전부터 iOS 용 msal을 지원 합니다.
+[INTUNE MAM SDK](/intune/app-sdk-get-started) 는 [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2) 버전부터 iOS 용 msal을 지원 합니다.
 
 ## <a name="msal-and-adal-in-the-same-app"></a>동일한 앱의 MSAL 및 ADAL
 
@@ -226,7 +226,7 @@ MSAL으로 전환 하 고 AAD 계정을 사용 하도록 설정 하기 위해 �
 
 리디렉션 URI는 형식 이어야 `msauth.<app.bundle.id>://auth` 합니다. `<app.bundle.id>`을 응용 프로그램의 번들 ID로 바꿉니다. [Azure Portal](https://aka.ms/MobileAppReg)에서 리디렉션 URI를 지정 합니다.
 
-IOS의 경우에만 인증서 기반 인증을 지원 하기 위해 추가 리디렉션 URI를 응용 프로그램에 등록 하 고 다음 형식으로 Azure Portal 해야 `msauth://code/<broker-redirect-uri-in-url-encoded-form>` 합니다. 예를 들면 `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`과 같습니다.
+IOS의 경우에만 인증서 기반 인증을 지원 하기 위해 추가 리디렉션 URI를 응용 프로그램에 등록 하 고 다음 형식으로 Azure Portal 해야 `msauth://code/<broker-redirect-uri-in-url-encoded-form>` 합니다. 예를 들어 `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 모든 앱에서 리디렉션 Uri를 모두 등록 하는 것이 좋습니다.
 

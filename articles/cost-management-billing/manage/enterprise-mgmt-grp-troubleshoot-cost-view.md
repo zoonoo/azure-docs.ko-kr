@@ -4,20 +4,21 @@ description: Azure Portal 내에서 조직의 비용 보기에 발생할 수 있
 author: bandersmsft
 ms.reviewer: amberb
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: troubleshooting
-ms.date: 06/05/2019
+ms.date: 08/20/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 6c4fe563057e8d7fedbd68280bc8059867d997ed
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bd7f1ff20189b971ba32e5c4b40b380fc22611b2
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120248"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686856"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>기업 비용 보기 문제 해결
 
-기업 등록계약 내에 등록된 사용자에게 비용이 표시되지 않도록 하는 여러 설정이 있습니다.  이러한 설정은 등록 관리자가 관리합니다. 또는 Microsoft를 통해 직접 등록을 구입하지 않은 경우 파트너가 설정을 관리합니다.  이 문서를 통해 이러한 설정이 무엇이고 등록에 미치는 영향을 이해할 수 있습니다. 이러한 설정은 Azure RBAC(역할 기반 액세스 제어) 역할과는 별개입니다.
+기업 등록계약 내에 등록된 사용자에게 비용이 표시되지 않도록 하는 여러 설정이 있습니다.  이러한 설정은 등록 관리자가 관리합니다. 또는 Microsoft를 통해 직접 등록을 구입하지 않은 경우 파트너가 설정을 관리합니다.  이 문서를 통해 이러한 설정이 무엇이고 등록에 미치는 영향을 이해할 수 있습니다. 이러한 설정은 Azure 역할과는 별개입니다.
 
 ## <a name="enable-access-to-costs"></a>비용에 대한 액세스 사용
 

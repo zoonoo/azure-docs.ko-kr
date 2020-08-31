@@ -1,31 +1,29 @@
 ---
 title: Windows 가상 데스크톱 (클래식) 문제 진단-Azure
 description: Windows 가상 데스크톱 (클래식) 진단 기능을 사용 하 여 문제를 진단 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 257ad5aa11bfaece70f676b452119d7800e2d1e2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7e652f04b42b132e7c1307503b1764dda7b2036b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285053"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009344"
 ---
 # <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱 (클래식)의 문제를 식별 하 고 진단 합니다.
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../diagnostics-role-service.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../diagnostics-role-service.md)를 참조하세요.
 
 Windows Virtual Desktop은 관리자가 단일 인터페이스를 통해 문제를 식별할 수 있도록 지원하는 진단 기능을 제공합니다. Windows Virtual Desktop 역할은 사용자가 시스템과 상호 작용할 때마다 진단 작업을 로깅합니다. 각 로그에는 트랜잭션에 개입한 Windows Virtual Desktop 역할, 오류 메시지, 테넌트 정보, 사용자 정보와 같은 관련 정보가 포함됩니다. 진단 작업은 최종 사용자 작업과 관리자 작업 양쪽에 의해 생성되며, 다음과 같은 세 가지 버킷으로 구분됩니다.
 
 * 피드 구독 작업: 최종 사용자가 Microsoft 원격 데스크톱 애플리케이션을 통해 피드에 연결하려고 시도할 때마다 이 작업이 트리거됩니다.
 * 연결 작업: 최종 사용자가 Microsoft 원격 데스크톱 애플리케이션을 통해 데스크톱 또는 RemoteApp에 연결하려고 시도할 때마다 이 작업이 트리거됩니다.
 * 관리 작업: 관리자가 시스템에서 호스트 풀 만들기, 앱 그룹에 사용자 할당, 역할 할당 만들기와 같은 관리 작업을 수행할 때마다 이 작업이 트리거됩니다.
-  
+
 진단 역할 서비스 자체가 Windows Virtual Desktop의 일부이므로 Windows Virtual Desktop에 도달하지 않는 연결은 진단 결과에 표시되지 않습니다. Windows Virtual Desktop 연결 문제는 최종 사용자가 네트워크 연결 문제를 경험할 때 발생할 수 있습니다.
 
 시작하려면 PowerShell 세션에서 사용할 수 있도록 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](/powershell/windows-virtual-desktop/overview/). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
@@ -39,7 +37,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Windows Virtual Desktop 진단은 하나의 PowerShell cmdlet만 사용하지만 문제의 범위를 좁히고 문제를 분리할 수 있도록 여러 선택적 매개 변수를 포함합니다. 다음 섹션에서는 문제 진단을 위해 실행할 수 있는 cmdlet을 안내합니다. 대부분의 필터는 함께 적용할 수 있습니다. `<tenantName>`과 같이 괄호로 묶인 값은 사용자의 상황에 맞는 값으로 바꾸어야 합니다.
 
 >[!IMPORTANT]
->진단 기능은 단일 사용자의 문제 해결을 위한 기능입니다. PowerShell을 사용하는 모든 쿼리에는 *-UserName* 또는 *-ActivityID* 매개 변수를 포함해야 합니다. 모니터링용으로는 Log Analytics를 사용하세요. 작업 영역으로 진단 데이터를 보내는 방법은 [진단 기능에 Log Analytics 사용](diagnostics-log-analytics-2019.md)을 참조하세요. 
+>진단 기능은 단일 사용자의 문제 해결을 위한 기능입니다. PowerShell을 사용하는 모든 쿼리에는 *-UserName* 또는 *-ActivityID* 매개 변수를 포함해야 합니다. 모니터링용으로는 Log Analytics를 사용하세요. 작업 영역으로 진단 데이터를 보내는 방법은 [진단 기능에 Log Analytics 사용](diagnostics-log-analytics-2019.md)을 참조하세요.
 
 ### <a name="filter-diagnostic-activities-by-user"></a>사용자를 기준으로 진단 작업 필터링
 

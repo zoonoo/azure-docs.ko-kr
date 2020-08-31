@@ -1,6 +1,6 @@
 ---
 title: 원격 모니터링 액세스 제어 - Azure | Microsoft Docs
-description: 이 문서에서는 원격 모니터링 솔루션 가속기에서 RBAC(역할 기반 액세스 제어)를 구성하는 방법에 대한 정보를 제공합니다.
+description: 이 문서에서는 원격 모니터링 솔루션 가속기에서 RBAC (역할 기반 액세스 제어)를 구성 하는 방법에 대 한 정보를 제공 합니다.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,17 +8,17 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: has-adal-ref
-ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: has-adal-ref, devx-track-csharp
+ms.openlocfilehash: b32e0a60e099b5ad184f8919be3f93646c3a68b3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920718"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018147"
 ---
-# <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어 구성
+# <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어 구성
 
-이 문서에서는 원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어를 구성하는 방법에 대한 정보를 제공합니다. 역할 기반 액세스 제어를 사용하면 개별 사용자의 액세스를 솔루션의 특정 기능으로 제한할 수 있습니다.
+이 문서에서는 원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어를 구성 하는 방법에 대 한 정보를 제공 합니다. 역할 기반 액세스 제어를 사용 하면 개별 사용자에 대 한 액세스를 솔루션의 특정 기능으로 제한할 수 있습니다.
 
 ## <a name="default-settings"></a>기본 설정
 
@@ -244,7 +244,7 @@ public async Task DeleteAsync(string id)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어를 구현하는 방법을 알아보았습니다.
+이 문서에서는 원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어를 구현 하는 방법에 대해 알아보았습니다.
 
 원격 모니터링 솔루션 액셀러레이터에서 Time Series Insights 탐색기에 대한 액세스 권한을 관리하는 방법에 대한 자세한 내용은 [Time Series Insights Explorer에 대한 액세스 제어 구성](iot-accelerators-remote-monitoring-rbac-tsi.md)을 참조하세요.
 

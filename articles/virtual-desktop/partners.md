@@ -1,19 +1,17 @@
 ---
 title: Windows 가상 데스크톱 파트너 통합-Azure
 description: Windows 가상 데스크톱의 파트너에 대해 알아보고 통합 하는 방법에 대 한 설명서를 참조 하세요.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d78de3d8e7fadc4b6760fef85fb4b850cc25111e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 94da428862e1af66ee58e739b3ad3b5b95be3310
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075744"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612370"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -38,7 +36,7 @@ Microsoft Azure의 VMware 수평 클라우드는 VMware 수평의 모든 기능�
 Windows 가상 데스크톱 승인 공급자 인 VMware는 통합 및 사용 하기 쉬운 전원 관리, 클라우드 기반 모니터링 및 폭발 익스트림 프로토콜과 같이 VMware 수평과 함께 제공 되는 추가 기능을 계속 제공 하면서 Windows 가상 데스크톱을 사용 하려는 고객에 게 도움을 줍니다. 이러한 기능은 지속적으로 뛰어난 사용자 환경을 제공 하기 위해 즉시 변화 하는 네트워크 상태에 맞게 조정 됩니다. VMware 수평 클라우드는 VMware 앱 볼륨 및 동적 환경 관리자와 함께 제공 됩니다 .이는 MSIX 앱 연결 및 FSLogix를 사용 하는 고급 응용 프로그램 및 사용자 환경 관리 기능을 추가 합니다.
 
 - [파트너 웹 사이트로 이동](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html)합니다.
-- [VMWare 수평 클라우드 기술 설명서를 참조](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure)하세요.
+- [VMware 수평 클라우드 기술 설명서를 참조](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure)하세요.
 
 ## <a name="10zig"></a>10ZiG
 
@@ -69,9 +67,9 @@ Automai를 사용 하면 단일 플랫폼에서 성능 테스트, 기능 테스�
 
 ![Cloudhouse 로고](./media/partners/cloudhouse.png)
 
-Cloudhouse은 고객에 게 최신 Windows 운영 체제와 호환 되지 않는 응용 프로그램을 포함 하 여 모든 응용 프로그램을 Windows 가상 데스크톱 환경으로 이동할 수 있는 턴키 응용 프로그램 마이그레이션 서비스를 고객에 게 제공 하 여 고객이 다중 세션 Windows 10을 실제로 활용할 수 있도록 하는 Windows 가상 데스크톱 부가 서비스 공급자입니다. 
+Cloudhouse은 고객에 게 최신 Windows 운영 체제와 호환 되지 않는 응용 프로그램을 포함 하 여 모든 응용 프로그램을 Windows 가상 데스크톱 환경으로 이동할 수 있는 턴키 응용 프로그램 마이그레이션 서비스를 고객에 게 제공 하 여 고객이 다중 세션 Windows 10을 실제로 활용할 수 있도록 하는 Windows 가상 데스크톱 부가 서비스 공급자입니다.
 
-입증 된 Cloudhouse 컨테이너 화 기술을 활용 하 여 Cloudhouse 서비스는 Windows XP, Windows 7 또는 Windows 8 용으로 설계 된 응용 프로그램을 포함 하 여 모든 응용 프로그램을 가져와서 코드를 변경 하거나 사용자 경험에 영향을 주지 않고 최신 Windows 가상 데스크톱에 배포 합니다. Cloudhouse는 기본 운영 체제에서 응용 프로그램을 격리 하 여 Windows 가상 데스크톱의 가치를 더 추가 하 여 Windows 서비스 업데이트가 컨테이너 화 된 응용 프로그램에 영향을 주지 않고 롤아웃 되도록 합니다. 
+입증 된 Cloudhouse 컨테이너 화 기술을 활용 하 여 Cloudhouse 서비스는 Windows XP, Windows 7 또는 Windows 8 용으로 설계 된 응용 프로그램을 포함 하 여 모든 응용 프로그램을 가져와서 코드를 변경 하거나 사용자 경험에 영향을 주지 않고 최신 Windows 가상 데스크톱에 배포 합니다. Cloudhouse는 기본 운영 체제에서 응용 프로그램을 격리 하 여 Windows 가상 데스크톱의 가치를 더 추가 하 여 Windows 서비스 업데이트가 컨테이너 화 된 응용 프로그램에 영향을 주지 않고 롤아웃 되도록 합니다.
 
 - [파트너 웹 사이트로 이동](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua)합니다.
 
@@ -111,9 +109,9 @@ Wyse 씬 클라이언트는 공격에 취약 한 영역, 보안 준수 표준 �
 
 ![deviceTRUST 로고](./media/partners/devicetrust.png)
 
-deviceTRUST는 회사 엔터프라이즈를 tsi 하는 Windows 가상 데스크톱 부가 서비스 공급자입니다. 이를 통해 사용자는 모든 네트워크를 통해 어떤 위치에서 든 모든 장치에서 Windows 가상 데스크톱에 액세스할 수 있으며 IT 부서는 해당 관리 요구 사항을 충족 해야 하는 정보를 제공 하 고 제어할 수 있습니다. 
+deviceTRUST는 회사 엔터프라이즈를 tsi 하는 Windows 가상 데스크톱 부가 서비스 공급자입니다. 이를 통해 사용자는 모든 네트워크를 통해 어떤 위치에서 든 모든 장치에서 Windows 가상 데스크톱에 액세스할 수 있으며 IT 부서는 해당 관리 요구 사항을 충족 해야 하는 정보를 제공 하 고 제어할 수 있습니다.
 
-deviceTRUST는 Windows 가상 데스크톱의 가치를 상황별 보안 기술로 확장 합니다. deviceTRUST를 사용 하면 보안 Windows 가상 데스크톱 액세스에 대 한 조건부 액세스, Windows 가상 데스크톱 내에서 조건부 응용 프로그램 액세스 및 추가 인프라 없이 조건부 Windows 가상 데스크톱 정책을 적용할 수 있습니다. DeviceTRUST를 사용 하면 모든 보안, 규정 준수 및 규정 요구 사항을 충족 하는 유연한 모바일 작업 영역을 사용할 수 있습니다. 
+deviceTRUST는 Windows 가상 데스크톱의 가치를 상황별 보안 기술로 확장 합니다. deviceTRUST를 사용 하면 보안 Windows 가상 데스크톱 액세스에 대 한 조건부 액세스, Windows 가상 데스크톱 내에서 조건부 응용 프로그램 액세스 및 추가 인프라 없이 조건부 Windows 가상 데스크톱 정책을 적용할 수 있습니다. DeviceTRUST를 사용 하면 모든 보안, 규정 준수 및 규정 요구 사항을 충족 하는 유연한 모바일 작업 영역을 사용할 수 있습니다.
 
 - [파트너 웹 사이트로 이동](https://devicetrust.com/wvd)합니다.
 
@@ -121,7 +119,7 @@ deviceTRUST는 Windows 가상 데스크톱의 가치를 상황별 보안 기술�
 
 ![Ekran 시스템 로고](./media/partners/ekran.png)
 
-Ekran System은 IT 팀이 Microsoft Azure 가상 컴퓨터에서 모든 원격 사용자 동작을 모니터링할 수 있도록 하는 Windows 가상 데스크톱 값-추가 파트너입니다. Ekran 시스템을 사용 하면 응용 프로그램 이름, 활성 창 제목, 방문한 Url, 키 입력 등과 같은 다양 한 상황에 맞는 메타 데이터를 수집 하면서 게시 된 응용 프로그램 또는 가상 데스크톱의 모든 사용자 세션에 대해 화면 작업을 기록할 수 있습니다. 고급 기능은 심층 가시성과 빠른 인시던트 응답 시간을 제공 하 여 Ekran 시스템을 효율적인 참가자 위협 관리 및 규정 준수 솔루션으로 만듭니다.  
+Ekran System은 IT 팀이 Microsoft Azure 가상 컴퓨터에서 모든 원격 사용자 동작을 모니터링할 수 있도록 하는 Windows 가상 데스크톱 값-추가 파트너입니다. Ekran 시스템을 사용 하면 응용 프로그램 이름, 활성 창 제목, 방문한 Url, 키 입력 등과 같은 다양 한 상황에 맞는 메타 데이터를 수집 하면서 게시 된 응용 프로그램 또는 가상 데스크톱의 모든 사용자 세션에 대해 화면 작업을 기록할 수 있습니다. 고급 기능은 심층 가시성과 빠른 인시던트 응답 시간을 제공 하 여 Ekran 시스템을 효율적인 참가자 위협 관리 및 규정 준수 솔루션으로 만듭니다.
 
 Ekran 시스템 클라이언트의 고유한 부동 끝점 라이선스는 동적으로 변경 되는 가상 데스크톱을 지원 하기 위해 자동화 됩니다. Ekran System을 사용 하면 삭제 된 비영구 가상 데스크톱의 라이선스를 자동으로 할당 해제 하 고 데이터베이스에서 제거할 수 있습니다. Ekran 시스템은 Azure Active Directory 및 Azure 센티널과 원활 하 게 통합 됩니다.
 
@@ -144,7 +142,7 @@ FabulaTech는 Windows 가상 데스크톱 클라이언트와 원활 하 게 통�
 ![Flexxible IT 로고](./media/partners/flexxible.png)
 
 Flexxible IT는 조직을 통해 Windows 가상 데스크톱 및 Citrix 작업 영역 인프라를 신속 하 게 확장, 모니터링 및 효율적으로 관리할 수 있는 기능을 제공 하는 Windows 가상 데스크톱 값-추가 파트너입니다. Flexxible | SUITE를 사용 하면 IT 관리자가 온-프레미스에서 Windows 가상 데스크톱 워크 로드를 지능적으로 프로 비전 및 관리 하 고 Azure에서 호스트할 수 있습니다.
- 
+
 Flexxible IT 기술은 인프라 구성, 데스크톱 프로 비전 및 일상적인 관리를 간소화 하는 일반적인 프로세스를 자동화 하 여 네이티브 Windows 가상 데스크톱 및 Citrix 작업 영역 모두의 가치를 확장 합니다. 복잡 한 PowerShell 스크립트 또는 시간이 많이 걸리는 수동 프로세스에 대 한 필요 없이 제품군은 확장 가능한 데스크톱 배포, 광범위 한 모니터링 및 보고, 안전한 위임 된 관리를 제공 합니다. 이러한 기능을 통해 사용자에 게 향상 된 서비스 수준 및 품질 Windows 가상 데스크톱 환경을 제공 하는 데 집중할 수 있습니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7A)하세요.
@@ -165,7 +163,7 @@ HP 씬 클라이언트는 Microsoft Azure 및 Windows 가상 데스크톱 서비
 ![IGEL 로고](./media/partners/igel.png)
 
 IGEL은 Microsoft Azure 및 Windows 가상 데스크톱 서비스의 승인 되 고 확인 된 파트너입니다. IGEL은 간소화 되 고 간단 하 고 안전한 Linux 기반 끝점을 사용 하 여 하나 이상의 사용자 장치에서 가상 앱, 데스크톱 및 클라우드 작업 영역에 액세스 하도록 디자인 된 클라우드 작업 영역에 대 한 차세대 최첨단 OS 인 IGEL OS를 제공 합니다. 플랫폼 독립적인 소프트웨어 솔루션인 IGEL OS와 해당 서버 기반 관리 및 제어 소프트웨어 (IGEL Universal Management Suite)는 엔터프라이즈에서 경제적 다중 세션 Windows 가상 데스크톱을 비롯 한 Azure 기반 클라우드 인스턴스 및 Windows 가상 데스크톱 데스크톱을 최대한 활용 하 여 끝점 하드웨어 및 끝점 장치 관리 및 운영 비용을 절감할 수 있도록 하는 끝점 관리 및 제어 솔루션을 구성 합니다.
- 
+
 IGEL OS는 Citrix, Microsoft 및 VMware에서 널리 사용 되는 모든 가상 앱, 데스크톱 및 클라우드 작업 영역 클라이언트 프로토콜을 지원 합니다. 여기에는 조직에서 고유한 사용자 환경에 Windows 가상 데스크톱 서비스를 신속 하 게 도입할 수 있도록 85 주변 장치, 인터페이스 및 프로토콜 파트너의 통합 기술이 포함 되어 있습니다. IGEL OS는 읽기 전용 모듈식 끝점 OS로, 변조 로부터 보호 하는 데 도움이 됩니다. 이제 끝점 하드웨어 (일부 선택 된 모델) 또는 UEFI 프로세스에서 Azure 클라우드 및 Windows 가상 데스크톱 서비스에 이르기까지 끝점에서 실행 되는 모든 주요 주요 프로세스의 무결성을 확인 하는 완전 한 "신뢰 체인"이 포함 됩니다. IGEL OS를 사용 하 여 기업은 사용자의 끝점 장치에 대 한 무결성, 보안 및 관리 효율성을 완벽 하 게 확신 하는 Azure 클라우드에서 Windows 가상 데스크톱을 구독할 수 있습니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviO)하세요.
@@ -175,9 +173,9 @@ IGEL OS는 Citrix, Microsoft 및 VMware에서 널리 사용 되는 모든 가상
 
 ![Ivanti](./media/partners/ivanti.png)
 
-Ivanti 사용자 작업 영역 관리자는 원활한 이식성을 위해 데스크톱의 사용자 데이터를 분리 하 여 데스크톱 배포 및 관리를 용이 하 게 하는 Windows 가상 데스크톱 값 추가 서비스입니다. Ivanti를 사용 하면 사용자는 Windows 10으로 마이그레이션, Microsoft 365 채택 또는 클라우드로 서비스 이동 등의 복잡 한 프로젝트를 빠르게 제공할 수 있습니다. 
+Ivanti 사용자 작업 영역 관리자는 원활한 이식성을 위해 데스크톱의 사용자 데이터를 분리 하 여 데스크톱 배포 및 관리를 용이 하 게 하는 Windows 가상 데스크톱 값 추가 서비스입니다. Ivanti를 사용 하면 사용자는 Windows 10으로 마이그레이션, Microsoft 365 채택 또는 클라우드로 서비스 이동 등의 복잡 한 프로젝트를 빠르게 제공할 수 있습니다.
 
-Windows 가상 데스크톱과 함께 사용 하는 경우 Ivanti 사용자 작업 영역 관리자는 사용자 데스크톱 환경에 대 한 간단한 상황별 관리를 제공 하 여 긴 로그인 시간을 제거 하 고 eradicating 그룹 정책을 금세 합니다. Ivanti 사용자 작업 영역 관리자 기본 템플릿을 사용 하면 에이전트 및 기존 콘솔을 통해 사용자를 간편 하 게 설치할 수 있습니다. Ivanti 사용자 작업 영역 관리자는 응답성이 뛰어난 보안 데스크톱을 제공 하 고, 서버에 비용을 절감 하 고, 사용자를 보다 효율적으로 관리 하 고, 끝점 보안 위험을 줄입니다. 
+Windows 가상 데스크톱과 함께 사용 하는 경우 Ivanti 사용자 작업 영역 관리자는 사용자 데스크톱 환경에 대 한 간단한 상황별 관리를 제공 하 여 긴 로그인 시간을 제거 하 고 eradicating 그룹 정책을 금세 합니다. Ivanti 사용자 작업 영역 관리자 기본 템플릿을 사용 하면 에이전트 및 기존 콘솔을 통해 사용자를 간편 하 게 설치할 수 있습니다. Ivanti 사용자 작업 영역 관리자는 응답성이 뛰어난 보안 데스크톱을 제공 하 고, 서버에 비용을 절감 하 고, 사용자를 보다 효율적으로 관리 하 고, 끝점 보안 위험을 줄입니다.
 
 - [파트너 웹 사이트로 이동](https://www.ivanti.com/products/user-workspace-manager)합니다.
 
@@ -237,9 +235,9 @@ Nerdio는 Azure 리소스를 쉽게 프로 비전 하 고 배포를 간소화할
 
 ![Numecent 로고](./media/partners/numecent.png)
 
-Numecent는 windows 가상 데스크톱 환경에서 복잡 하거나 호환 되지 않는 Windows 앱의 신속한 온 보 딩 및 마이그레이션을 통해 총 운영 비용을 크게 줄여 주는 Windows 가상 데스크톱 부가 서비스 공급자입니다. 또한 numecent는 사용자가 수행 해야 하는 구성의 양을 최소화 하 고 응용 프로그램 업데이트를 줄이고 복잡 한 프로세스를 간소화 합니다. Numecent Cloudpaging은 다른 응용 프로그램 제공 도구 보다 더 많은 응용 프로그램을 원활 하 게 지원 하므로 다양 한 응용 프로그램 집합을 사용 하 여 환경에서 시간과 IT 워크 로드를 줄일 수 있습니다. 
+Numecent는 windows 가상 데스크톱 환경에서 복잡 하거나 호환 되지 않는 Windows 앱의 신속한 온 보 딩 및 마이그레이션을 통해 총 운영 비용을 크게 줄여 주는 Windows 가상 데스크톱 부가 서비스 공급자입니다. 또한 numecent는 사용자가 수행 해야 하는 구성의 양을 최소화 하 고 응용 프로그램 업데이트를 줄이고 복잡 한 프로세스를 간소화 합니다. Numecent Cloudpaging은 다른 응용 프로그램 제공 도구 보다 더 많은 응용 프로그램을 원활 하 게 지원 하므로 다양 한 응용 프로그램 집합을 사용 하 여 환경에서 시간과 IT 워크 로드를 줄일 수 있습니다.
 
-Windows 가상 데스크톱과 함께 사용 하면 배포에서 소프트웨어 자산 수명 주기를 완료 하 여 응용 프로그램을 업그레이드, 계량 및 제거 하는 방법으로 Cloudpaging이 비용을 더 줄일 수 있습니다. Cloudpaging은 Windows 가상 데스크톱 배포에 대 한 실시간으로 필요에 따라 앱을 동적으로 프로 비전 하 여 이미지 관리를 간소화 합니다. Cloudpaging은 정기적인 Windows 10 업데이트를 통해 관리 또는 개입 없이 응용 프로그램을 실행 하는 데 도움이 됩니다. 또한 cloudpaging 이러한 응용 프로그램의 보다 효율적인 배포 및 사용을 가능 하 게 하 여 비용이 많이 드는 응용 프로그램의 라이선스 비용을 줄여줍니다. 
+Windows 가상 데스크톱과 함께 사용 하면 배포에서 소프트웨어 자산 수명 주기를 완료 하 여 응용 프로그램을 업그레이드, 계량 및 제거 하는 방법으로 Cloudpaging이 비용을 더 줄일 수 있습니다. Cloudpaging은 Windows 가상 데스크톱 배포에 대 한 실시간으로 필요에 따라 앱을 동적으로 프로 비전 하 여 이미지 관리를 간소화 합니다. Cloudpaging은 정기적인 Windows 10 업데이트를 통해 관리 또는 개입 없이 응용 프로그램을 실행 하는 데 도움이 됩니다. 또한 cloudpaging 이러한 응용 프로그램의 보다 효율적인 배포 및 사용을 가능 하 게 하 여 비용이 많이 드는 응용 프로그램의 라이선스 비용을 줄여줍니다.
 
 - [파트너 웹 사이트로 이동](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/)합니다.
 
@@ -247,9 +245,9 @@ Windows 가상 데스크톱과 함께 사용 하면 배포에서 소프트웨어
 
 ![PolicyPak 로고](./media/partners/policypak.png)
 
-PolicyPak Software는 응용 프로그램, 데스크톱, 브라우저, Java 및 보안 설정에 대 한 전체 설정 관리를 수행 하는 Windows 가상 데스크톱 파트너입니다. PolicyPak는 데스크톱, 시스템 및 보안 설정을 준수 상태로 유지 합니다. PolicyPak는 Windows의 기본 제공 관리 기능을 향상 시키기 위해 구성 요소 집합을 추가 하 여 Windows 가상 데스크톱의 가치를 향상 시킵니다. 기존 Active Directory 그룹 정책 및/또는 Windows Intune을 사용 하 여 PolicyPak의 설정을 제공 하 고 관리자가 Windows 10 컴퓨터를 관리 하는 기능을 향상 시킵니다. 
+PolicyPak Software는 응용 프로그램, 데스크톱, 브라우저, Java 및 보안 설정에 대 한 전체 설정 관리를 수행 하는 Windows 가상 데스크톱 파트너입니다. PolicyPak는 데스크톱, 시스템 및 보안 설정을 준수 상태로 유지 합니다. PolicyPak는 Windows의 기본 제공 관리 기능을 향상 시키기 위해 구성 요소 집합을 추가 하 여 Windows 가상 데스크톱의 가치를 향상 시킵니다. 기존 Active Directory 그룹 정책 및/또는 Windows Intune을 사용 하 여 PolicyPak의 설정을 제공 하 고 관리자가 Windows 10 컴퓨터를 관리 하는 기능을 향상 시킵니다.
 
-PolicyPak의 가장 중요 한 사용 사례는 로컬 관리자 권한을 제거 하 고 UAC 프롬프트를 표시 하며, 랜 섬 웨어를 차단 하 고, 여러 브라우저를 관리 하 고, Internet Explorer의 엔터프라이즈 및 호환성 모드를 관리 하 고, Windows 10 파일 연결을 관리 하 고, windows 10 시작 메뉴와 작업 표시줄을 관리 하 고, Windows 10 기능 및 선택적 기능을 관리 하는 것  
+PolicyPak의 가장 중요 한 사용 사례는 로컬 관리자 권한을 제거 하 고 UAC 프롬프트를 표시 하며, 랜 섬 웨어를 차단 하 고, 여러 브라우저를 관리 하 고, Internet Explorer의 엔터프라이즈 및 호환성 모드를 관리 하 고, Windows 10 파일 연결을 관리 하 고, windows 10 시작 메뉴와 작업 표시줄을 관리 하 고, Windows 10 기능 및 선택적 기능을 관리 하는 것
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviN)하세요.
 - [파트너 웹 사이트로 이동](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html)합니다.
@@ -258,9 +256,9 @@ PolicyPak의 가장 중요 한 사용 사례는 로컬 관리자 권한을 제�
 
 ![프린터 논리 로고](./media/partners/printerlogic.png)
 
-프린터 논리는 IT 전문가가 모든 인쇄 서버를 제거 하 고 항상 사용 가능한 서버 리스 인쇄 인프라를 제공할 수 있도록 하는 Windows 가상 데스크톱 부가 가치 서비스 공급자 플랫폼입니다. 프린터 논리는 중앙에서 관리 하 고 프린터 개체를 프린터 또는 끝점 OS에 배포할 수 있도록 하 여 Windows 가상 데스크톱 및 Azure의 가치를 확장 합니다. 
+프린터 논리는 IT 전문가가 모든 인쇄 서버를 제거 하 고 항상 사용 가능한 서버 리스 인쇄 인프라를 제공할 수 있도록 하는 Windows 가상 데스크톱 부가 가치 서비스 공급자 플랫폼입니다. 프린터 논리는 중앙에서 관리 하 고 프린터 개체를 프린터 또는 끝점 OS에 배포할 수 있도록 하 여 Windows 가상 데스크톱 및 Azure의 가치를 확장 합니다.
 
-SaaS로 제공 되거나 사용자 고유의 사설 클라우드에서 웹 스택으로 제공 되는, 프린터 논리 플랫폼은 사용자 ID, 장치 이름 또는 위치에 따라 사용자가 가상 세션에 필요한 적절 한 프린터를 항상 보유 하 고 있는지 확인 합니다. 이 기능은 인쇄 추적 및 보고, 모바일 인쇄, 보안 배지 릴리스 인쇄 등의 전체 엔터프라이즈 인쇄 관리 기능 모음을 보완 합니다. 
+SaaS로 제공 되거나 사용자 고유의 사설 클라우드에서 웹 스택으로 제공 되는, 프린터 논리 플랫폼은 사용자 ID, 장치 이름 또는 위치에 따라 사용자가 가상 세션에 필요한 적절 한 프린터를 항상 보유 하 고 있는지 확인 합니다. 이 기능은 인쇄 추적 및 보고, 모바일 인쇄, 보안 배지 릴리스 인쇄 등의 전체 엔터프라이즈 인쇄 관리 기능 모음을 보완 합니다.
 
 - [파트너 웹 사이트로 이동](https://www.printerlogic.com)합니다.
 
@@ -279,8 +277,8 @@ Printix는 office 인쇄 리소스에 대 한 사용자 연결을 자동화 하�
 
 ![RDPSoft 로고](./media/partners/rdpsoft.png)
 
-RDPSoft는 강력 하 고 저렴 한 모니터링, 관리 및 보고 솔루션을 제공 하는 Windows 가상 데스크톱 파트너입니다. IT 전문가는 해당 원격 데스크톱 회사 제품을 통해 Windows 가상 데스크톱 배포의 상태, 성능, 사용자 활동, 라이선스 및 보안에 대 한 통찰력을 얻을 수 있습니다. 
- 
+RDPSoft는 강력 하 고 저렴 한 모니터링, 관리 및 보고 솔루션을 제공 하는 Windows 가상 데스크톱 파트너입니다. IT 전문가는 해당 원격 데스크톱 회사 제품을 통해 Windows 가상 데스크톱 배포의 상태, 성능, 사용자 활동, 라이선스 및 보안에 대 한 통찰력을 얻을 수 있습니다.
+
 RDPSoft의 원격 데스크톱 회사 솔루션은 Windows 가상 데스크톱 관리를 향상 시킵니다. 프리미엄 관리 기능을 사용 하면 원격 지원, 사용자 세션 및 프로세스 관리를 제공 하 여 지원 센터 직원에 게 Windows 가상 데스크톱 관리 작업을 간편 하 게 위임할 수 있습니다. 이와 동시에 원격 데스크톱 지향 제품군은 사용자 단위 성능 및 로드, 사용자 활동 및 감사, Windows 가상 데스크톱 연결 품질 (대기 시간 및 대역폭), 라이선스 및 보안에 대 한 풍부한 메트릭을 검토를 위해 중앙 Azure SQL Database 인스턴스에 수집 합니다. RDPSoft를 사용 하면 풍부한 기록 보고 및 종합적인 대시보드를 클릭 하 여 바로 이동할 수 있습니다.
 
 - [파트너 웹 사이트로 이동](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)합니다.
@@ -322,7 +320,7 @@ ThinPrint 's ezeep 솔루션은 기존 엔터프라이즈 인쇄 인프라에 �
 
 ![Tricerat 로고](./media/partners/tricerat.png)
 
-Tricerat는 Windows 가상 데스크톱 및 기타 데스크톱 플랫폼을 위한 고급 인쇄 관리 솔루션을 제공 합니다. Tricerat 소프트웨어는 강력한 기능을 제공 하 여 사용자와 관리자 모두에 게 더 나은 환경을 제공 합니다. 관리자는 전체 드라이버 관리, 간소화 된 인쇄 큐 배포 및 하이브리드 플랫폼에서 일관 된 관리를 통해 효율성을 확보할 수 있습니다. 사용자 환경은 더 짧은 로그인 시간, 사용자, 장치 및 네트워크 위치에 기반한 지능형 인쇄 큐, 빠른 프린터 선택을 위한 셀프 서비스 옵션으로 향상 됩니다. 
+Tricerat는 Windows 가상 데스크톱 및 기타 데스크톱 플랫폼을 위한 고급 인쇄 관리 솔루션을 제공 합니다. Tricerat 소프트웨어는 강력한 기능을 제공 하 여 사용자와 관리자 모두에 게 더 나은 환경을 제공 합니다. 관리자는 전체 드라이버 관리, 간소화 된 인쇄 큐 배포 및 하이브리드 플랫폼에서 일관 된 관리를 통해 효율성을 확보할 수 있습니다. 사용자 환경은 더 짧은 로그인 시간, 사용자, 장치 및 네트워크 위치에 기반한 지능형 인쇄 큐, 빠른 프린터 선택을 위한 셀프 서비스 옵션으로 향상 됩니다.
 
 Tricerat를 사용 하면 Windows 가상 데스크톱 이상에서 인쇄를 원활 하 게 진행 합니다. Tricerat software를 사용 하면 관리자가 온-프레미스 프린터를 클라우드에 쉽게 연결 하 여 기존 환경에서 새로운 최신 작업 영역으로 엔터프라이즈 인쇄 관리를 확장할 수 있습니다.
 
@@ -344,7 +342,7 @@ uberAgent는 데이터를 수집 하지 않는 최종 사용자 컴퓨팅을 위
 
 작업 영역 365은 모든 정보 (비즈니스 데이터, 문서, 통신 및 마이크로 앱)를 결합 한 작업 영역에서 모든 로컬, 웹 또는 호스팅된 응용 프로그램에 대 한 액세스를 제공 합니다. 사용자가 개인 설정 된 작업 영역을 제공 하기 위해 역할, 위치, 장치, 브라우저 등에 자동으로 조정 됩니다. 사용자는 화면 아래에 있는 기술에 관계 없이 간단 하 고 일관 된 환경을 얻을 수 있습니다. RDP, Citrix 및 레거시 응용 프로그램과 같은 현재 솔루션을 통합 하 고, 동일한 사용자 환경을 유지 하면서 Windows 가상 데스크톱으로 이동할 수 있습니다. 또한 SharePoint, OneDrive, 팀, 파일 서버 등의 모든 파일 위치를 하나의 문서 관리 앱에서 통합할 수 있습니다.
 
-IT 관리자는 작업 영역 365를 사용 하 여 사용 권한에 따라 사용자가 Windows 가상 데스크톱 사용 응용 프로그램을 사용할 수 있도록 설정할 수 있습니다. 그런 다음 관리자는 이러한 응용 프로그램을 공유 응용 프로그램 그룹에 추가할 수 있습니다. Windows 가상 데스크톱 응용 프로그램이 작업 영역 365에 표시 되 면 사용자는 다시 로그인 하지 않고도 작업 영역에서 열 수 있습니다. 
+IT 관리자는 작업 영역 365를 사용 하 여 사용 권한에 따라 사용자가 Windows 가상 데스크톱 사용 응용 프로그램을 사용할 수 있도록 설정할 수 있습니다. 그런 다음 관리자는 이러한 응용 프로그램을 공유 응용 프로그램 그룹에 추가할 수 있습니다. Windows 가상 데스크톱 응용 프로그램이 작업 영역 365에 표시 되 면 사용자는 다시 로그인 하지 않고도 작업 영역에서 열 수 있습니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vARh)하세요.
 - [파트너 웹 사이트로 이동](https://workspace365.net/product-tour/hybrid-workspace-365/)합니다.

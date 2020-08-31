@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c7027f474c9ff5cbd90ed1800d74e3b4ebd60b3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1f7486f1080c0fbb25b1be6ab70bb647a546ceca
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836941"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234995"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -24,27 +24,13 @@ ms.locfileid: "87836941"
 * CLI를 사용 하 여 이러한 단계를 수동으로 진행 하려면이 문서의 CLI 버전 [*(방법: 인스턴스 및 인증 설정 (cli))*](how-to-set-up-instance-cli.md)을 참조 하세요.
 * 배포 스크립트 샘플을 사용 하 여 자동화 된 설치를 실행 하려면이 문서의 스크립팅된 버전 [*(방법: 인스턴스 및 인증 설정 (스크립팅된))*](how-to-set-up-instance-scripted.md)을 참조 하세요.
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
- 
-그런 다음 자격 증명을 사용 하 여 [Azure Portal](https://ms.portal.azure.com/) 에 로그인 합니다.
-
-## <a name="prerequisites-permission-requirements"></a>필수 조건: 사용 권한 요구 사항
-
-이 문서의 모든 단계를 완료 하려면 Azure 구독에서 소유자로 분류 해야 합니다. 
-
-Azure Portal의 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 에서 사용 권한 수준을 확인할 수 있습니다 .이 링크를 사용 하거나 포털 검색 표시줄을 사용 하 여 *구독* 을 찾을 수 있습니다. 사용 중인 구독의 이름을 찾고 *내 역할* 열에서 역할에 대 한 역할을 확인 합니다. 소유자 인 경우이 값은 *소유자*입니다.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="사용자를 소유자로 표시 하는 Azure Portal의 구독 페이지 보기" lightbox="media/how-to-set-up-instance/portal/subscriptions-role.png":::
-
-값이 *참가자* 또는 *소유자*가 아닌 다른 것으로 확인 되 면 다음 방법 중 하나를 진행할 수 있습니다.
-* 구독 소유자에 게 문의 하 고 소유자에 게 문의 하 여 사용자 대신이 문서의 단계를 완료 하도록 요청 하세요.
-* 구독 소유자 또는 구독에 대 한 사용자 액세스 관리자 역할을 가진 사용자에 게 연락 하 고 사용자가 직접 계속할 수 있는 권한을 부여 하도록 구독 소유자에 게 권한을 부여 하도록 요청 합니다. 이 방법이 적절 한지 여부는 조직 및 조직 내 사용자의 역할에 따라 달라 집니다.
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스 만들기
 
-이 섹션에서는 Azure Portal를 사용 하 여 **Azure Digital Twins의 새 인스턴스를 만듭니다** .
+이 섹션에서는 [Azure Portal](https://ms.portal.azure.com/)를 사용 하 여 **Azure Digital twins의 새 인스턴스를 만듭니다** . 포털로 이동 하 여 자격 증명으로 로그인 합니다.
 
-[Azure Portal](https://ms.portal.azure.com/)에 로그인 한 후 Azure 서비스 홈 페이지 메뉴에서 _리소스 만들기_ 를 선택 하 여 시작 합니다.
+포털에서 Azure 서비스 홈 페이지 메뉴에서 _리소스 만들기_ 를 선택 하 여 시작 합니다.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Azure Portal의 홈 페이지에서 ' 리소스 만들기 ' 선택":::
 
@@ -87,7 +73,7 @@ Azure Portal의 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azu
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="' Access control (IAM) ' 페이지에서 역할 할당을 추가 하려면 선택 합니다.":::
 
-다음 *역할 할당 추가* 페이지에서 값을 입력 합니다 (Azure 구독의 소유자가 완료 해야 함).
+다음 *역할 할당 추가* 페이지에서 값을 입력 합니다 (Azure 구독에서 [충분 한 권한이](#prerequisites-permission-requirements) 있는 사용자가 완료 해야 함).
 * **역할**: 드롭다운 메뉴에서 *Azure Digital twins 소유자 (미리 보기)* 를 선택 합니다.
 * **액세스 권한 할당**: 드롭다운 메뉴에서 *Azure AD 사용자, 그룹 또는 서비스 사용자를* 선택 합니다.
 * **선택**: 할당할 사용자의 이름 또는 전자 메일 주소를 검색 합니다. 결과를 선택 하면 사용자가 *선택한 구성원* 섹션에 표시 됩니다.
@@ -140,6 +126,9 @@ Azure Portal에서 [Azure Active Directory](https://portal.azure.com/#blade/Micr
 다음에 나오는 *api 권한 요청* 페이지에서 *내 조직* 에서 tab 키를 사용 하 고 *azure digital 쌍*를 검색 하는 api로 전환 합니다. Azure Digital Twins Api에 대 한 권한 할당을 진행 하려면 검색 결과에서 *Azure Digital Twins* 를 선택 합니다.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Azure Digital Twins를 표시 하는 ' API 권한 요청 ' 페이지 검색 결과 보기":::
+
+>[!NOTE]
+> 서비스의 이전 공개 미리 보기 (7 월 2020 이전)에서 기존 Azure Digital Twins 인스턴스가 아직 구독에 있는 경우 *Azure 스마트 공간 서비스* 를 대신 찾아야 합니다. 이는 동일한 Api 집합의 이전 이름 이며이 단계를 벗어나 사용자 환경을 변경 하지 않습니다.
 
 다음으로 이러한 Api에 부여할 사용 권한을 선택 합니다. **읽기 (1)** 권한을 확장 하 고 *읽기. 쓰기* 확인란을 선택 하 여이 앱 등록 판독기 및 작성기 권한을 부여 합니다.
 

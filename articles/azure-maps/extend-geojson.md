@@ -1,6 +1,6 @@
 ---
 title: 확장 된 GeoJSON 기 하 도형 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure 맵이 특정 기 하 도형을 나타내는 GeoJSON 사양을 확장 하는 방법에 대해 알아봅니다.
+description: 추가 기하학 셰이프를 포함 하도록 Azure Maps GeoJSON 사양을 확장 하는 방법에 대해 알아봅니다. 지도에서 사용할 원과 사각형을 설정 하는 예제를 봅니다.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/17/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 98db10f0fc7a417f39d4bb00e77af6bdea034a03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6cfbef3751a7b4256f689af0e5b3524ae6fa878
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687500"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037459"
 ---
 # <a name="extended-geojson-geometries"></a>확장 된 GeoJSON 기 하 도형
 
@@ -39,7 +39,7 @@ Azure Maps는 내부 및 지역별 기능을 검색할 수 있는 강력한 Api 
 
 `Circle`개체를 사용 하 여 표현 된 기 하 도형에는 `GeoJSON Feature` 다음 좌표와 속성이 포함 __되어야 합니다__ .
 
-- 중심
+- Center
 
     원 중심은 개체를 사용 하 여 표현 됩니다 `GeoJSON Point` .
 

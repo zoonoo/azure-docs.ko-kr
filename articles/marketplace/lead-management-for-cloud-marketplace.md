@@ -1,5 +1,5 @@
 ---
-title: 상업용 Marketplace에 대한 잠재 고객 관리 | Azure Marketplace 및 AppSource
+title: 상업적 marketplace에 대 한 리드 관리 | Azure Marketplace 및 AppSource
 description: Azure Marketplace 및 AppSource에 제안 및 기술 아티팩트를 게시하는 것과 관련된 다양한 주제의 개요
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 2abbef88ed7bac41b84eb06c8c0ec9c8a906b2f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b08324654a046b5a2296f6e533107c1b26a0e1fc
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119449"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606889"
 ---
-# <a name="lead-management-for-commercial-marketplace"></a>상업용 Marketplace에 대한 잠재 고객 관리
+# <a name="lead-management-for-the-commercial-marketplace"></a>상업적 marketplace에 대 한 리드 관리
 
 성공적인 비즈니스를 위한 핵심은 고객입니다. 오늘날 제품 구매 과정에서 마케터는 고객과 직접 연결하고 관계를 구축하는 데 주력해야 합니다. 고품질의 리드를 생성하는 것이 판매 주기에 중요한 수단인 이유입니다. [파트너 센터](https://partner.microsoft.com/)에 제품을 나열한 후 고객이 Marketplace에서 흥미를 나타내거나 제품을 배포한 직후에 프로그래밍 방식으로 고객 연락처 정보를 받는 도구가 제공됩니다. 
 
@@ -170,7 +170,7 @@ title = MSFT_TEST_636573304831318844
 
 **Marketplace에서 메일을 받았으나 CRM에서 리드를 찾을 수 없는 이유는 무엇인가요?**  
 
-최종 사용자의 메일 도메인 원본이 .edu일 수 있습니다. 개인 정보 보호를 위해 .edu 도메인에서 개인 식별이 가능한 데이터를 전달하지 않습니다. [도움말 및 지원](https://aka.ms/marketplacepublishersupport)에서 지원 티켓을 제출하세요.
+최종 사용자의 메일 도메인 원본이 .edu일 수 있습니다. 개인 정보 보호를 위해 .edu 도메인에서 개인 식별이 가능한 데이터를 전달 하지 않습니다. [도움말 및 지원](https://aka.ms/marketplacepublishersupport)에서 지원 티켓을 제출하세요.
 
 **Azure 테이블/Azure Blob을 리드 대상으로 구성했습니다. 리드를 보려면 어떻게 해야 하나요?** 
 

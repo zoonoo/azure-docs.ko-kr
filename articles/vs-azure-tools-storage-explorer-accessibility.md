@@ -1,6 +1,6 @@
 ---
-title: Azure Storage Explorer 접근성(미리 보기) | Microsoft Docs
-description: Azure Storage Explorer 접근성(미리 보기)
+title: Azure Storage 탐색기 내게 필요한 옵션 | Microsoft Docs
+description: Azure Storage 탐색기의 접근성을 이해 합니다. 사용 가능한 화면 판독기, 확대/축소 기능, 고대비 테마 및 바로 가기 키를 검토 합니다.
 services: storage
 documentationcenter: na
 author: MrayermannMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
-ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca4a8d719277eaa1d853d53d282649f839256be9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60457269"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035488"
 ---
 # <a name="storage-explorer-accessibility"></a>Storage Explorer 접근성
 
@@ -35,7 +35,7 @@ Linux    | (화면 판독기는 Linux에서 지원 되지 않음)
 
 Storage Explorer를 실행할 때 접근성 문제가 발생하면 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)하세요.
 
-## <a name="zoom"></a>확대/축소
+## <a name="zoom"></a>Zoom
 
 확대/축소를 통해 Storage Explorer에서 텍스트를 확대할 수 있습니다. 확대하려면 [도움말] 메뉴에서 **확대/축소**를 클릭합니다. [도움말] 메뉴를 사용하여 확대/축소 수준을 다시 기본 수준으로 축소하고 재설정할 수 있습니다.
 
@@ -59,7 +59,7 @@ Storage Explorer에는 두 개의 고대비 테마(**고대비 밝게**, **고�
 --------------|--------------------
 새 창    | **Control+Shift+N**
 편집기 닫기  | **Control+F4**
-끝내기          | **Control+Shift+W**
+Quit          | **Control+Shift+W**
 
 ### <a name="navigation-commands"></a>탐색 명령
 
@@ -95,9 +95,9 @@ Explorer               | **Control+Shift+E**
 
 명령 | 바로 가기 키
 --------|------------------
-복사    | **Control+C**
-잘라내기     | **Control+X**
-붙여넣기   | **Control+V**
+복사    | **Ctrl+C**
+잘라내기     | **Ctrl+X**
+붙여넣기   | **Ctrl+V**
 새로 고침  | **Control+R**
 
 ### <a name="other-commands"></a>기타 명령

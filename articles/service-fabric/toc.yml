@@ -671,7 +671,7 @@
                 - name: 프로그래밍 방식으로 규모 확장
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: 주 노드 형식 강화
-                  href: service-fabric-scale-up-node-type.md
+                  href: service-fabric-scale-up-primary-node-type.md
                 - name: 노드 형식 추가
                   href: virtual-machine-scale-set-scale-node-type-scale-out.md
                 - name: 노드 형식 제거

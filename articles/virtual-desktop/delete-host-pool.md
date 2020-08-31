@@ -1,19 +1,17 @@
 ---
 title: Windows 가상 데스크톱 호스트 풀 삭제-Azure
 description: Windows 가상 데스크톱에서 호스트 풀을 삭제 하는 방법
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ced0d7513524758975919fad90f19581d15d95f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dfc9858bea468389d8ce90677f048e5d1fd3bb82
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099548"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007593"
 ---
 # <a name="delete-a-host-pool"></a>호스트 풀 삭제
 
@@ -53,7 +51,7 @@ Azure Portal에서 호스트 풀을 삭제 하려면 다음을 수행 합니다.
 
 7. **제거**를 선택합니다.
 
-8. 삭제 중인 호스트 풀에 세션 호스트가 있는 경우 계속 하려면 사용 권한을 요청 하는 메시지가 표시 됩니다. **Yes**를 선택합니다.
+8. 삭제 중인 호스트 풀에 세션 호스트가 있는 경우 계속 하려면 사용 권한을 요청 하는 메시지가 표시 됩니다. **예**를 선택합니다.
 
 9. 그러면 Azure Portal에서 모든 세션 호스트를 제거 하 고 호스트 풀을 삭제 합니다. 세션 호스트와 관련 된 Vm은 삭제 되지 않으며 구독에서 유지 됩니다.
 

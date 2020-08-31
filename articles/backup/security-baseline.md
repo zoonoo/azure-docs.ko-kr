@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d0a6b6561b5d0995d7794993608a4991b1da2718
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 7b48ac1621c5c8788a4ecdb9ceb3af78f8e82a37
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810142"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890504"
 ---
 # <a name="azure-security-baseline-for-backup"></a>백업용 Azure 보안 기준
 
@@ -186,7 +186,7 @@ ms.locfileid: "87810142"
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: 로그 모니터링 및 검토
 
-**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 이러한 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
+**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 해당 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
 
 Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식별 하 고, 패턴을 분석 하 고, Recovery Services 자격 증명 모음에 대해 수집 되었을 수 있는 활동 로그 데이터를 기반으로 다양 한 통찰력을 제공
 
@@ -202,7 +202,7 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 L
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: 비정상 활동에 대한 경고 사용
 
-**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 이러한 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
+**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 해당 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
 
 경고는 사용자가 관련 작업을 수행할 수 있도록 사용자에 게 알림을 제공 하는 경우 주로 발생 합니다. 백업 경고 섹션에는 Azure Backup 서비스에 의해 생성 된 경고가 표시 됩니다. 이러한 경고는 서비스에 의해 정의 되며 사용자 지정 경고를 만들 수 없습니다.
 
@@ -350,7 +350,7 @@ Log Analytics 작업 영역을 Azure 센티널에 등록 하 여 보안 오케�
 
 - [Azure AD 로그인을 사용 하도록 Azure Backup를 구성 하는 방법](../app-service/configure-authentication-provider-aad.md)
 
-- [AAD 인스턴스를 만들고 구성하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center 모니터링**: 예
 
@@ -426,7 +426,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: 중요한 정보를 저장하거나 처리하는 시스템 격리
 
-**지침**: Azure IaaS vm을 백업 하는 경우 원본 데이터의 실수로 인 한 삭제를 방지 하기 위해 독립적이 고 격리 된 백업을 제공 Azure Backup 합니다. 백업은 복구 지점에 대한 기본 제공 관리를 사용하여 Recovery Services 자격 증명 모음에 저장됩니다.
+**지침**: Azure IaaS vm을 백업 하는 경우 원본 데이터의 실수로 인 한 삭제를 방지 하기 위해 독립적이 고 격리 된 백업을 제공 Azure Backup 합니다. 백업은 복구 지점의 기본 제공 관리 기능을 통해 Recovery Services 자격 증명 모음에 저장됩니다.
 
 개발, 테스트 및 프로덕션 Recovery Services 자격 증명 모음에 대 한 별도의 구독 및/또는 관리 그룹을 구현 합니다. 리소스는 VNet/서브넷으로 구분 되며, 적절 하 게 태그가 지정 되 고, NSG 또는 Azure 방화벽으로 보호 됩니다. 중요 한 데이터를 저장 하거나 처리 하는 리소스는 충분히 격리 되어야 합니다. 중요 한 데이터를 저장 하거나 처리 Virtual Machines 하는 경우 정책 및 프로시저를 구현 하 여 사용 하지 않을 때이를 해제 합니다.
 
@@ -580,7 +580,7 @@ Microsoft에서 검사하고 패치하는 기본 플랫폼입니다. 서비스 �
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Azure 자산 검색 사용
 
-**지침**: Azure Resource Graph를 사용하여 구독 내의 모든 리소스(예: 컴퓨팅, 스토리지, 네트워크, 포트 및 프로토콜 등)를 쿼리/검색합니다.  테넌트에서 적절한 권한(읽기)을 확인하고, 모든 Azure 구독 및 구독 내의 리소스를 열거합니다.
+**지침**: Azure 리소스 그래프를 사용 하 여 구독 내의 모든 리소스 (예: 계산, 저장소, 네트워크, 포트 및 프로토콜)를 쿼리/검색 합니다.  테넌트에서 적절한 권한(읽기)을 확인하고, 모든 Azure 구독 및 구독 내의 리소스를 열거합니다.
 
 클래식 Azure 리소스는 Resource Graph를 통해 검색할 수 있지만 앞으로 Azure Resource Manager 리소스를 만들어 사용하는 것이 좋습니다.
 
@@ -860,7 +860,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: Microsoft 맬웨어 방지 프로그램은 Azure 서비스 (예: Azure Backup)를 지 원하는 기본 호스트에서 사용 하도록 설정 되어 있지만 콘텐츠에서 실행 되지 않습니다.
 
-App Service, Data Lake Storage, Blob Storage 등의 비 계산 Azure 리소스에 업로드 되는 파일을 미리 검색 합니다.
+App Service, Data Lake Storage 및 Blob Storage와 같은 비 계산 Azure 리소스에 업로드 되는 파일을 미리 검색 합니다.
 
 데이터 서비스에 대 한 Azure Security Center의 위협 검색을 사용 하 여 저장소 계정에 업로드 된 맬웨어를 검색 합니다.
 
@@ -902,7 +902,7 @@ Azure Key Vault 내에서 고객 관리 키를 백업 합니다.
 
 - [Azure에서 키 자격 증명 모음 키를 백업하는 방법](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Azure Backup의 암호화 이해](./backup-encryption.md#encryption-of-backup-data-using-customer-managed-keys)
+- [Azure Backup의 암호화 이해](./backup-encryption.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

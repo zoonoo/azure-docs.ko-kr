@@ -3,13 +3,13 @@ title: Azure Notebooks 미리 보기에서 Jupyter Notebook 만들기 및 공유
 description: Azure Notebooks 미리 보기에서 Jupyter Notebook을 만들고 실행한 다음, 해당 Notebook을 다른 사용자와 공유합니다.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.custom: tracking-python
-ms.openlocfilehash: 809cb006e1ea40e31d079b40febee6a09714731f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 77575b5b9e006ac9881d03dc95509d55c53c26d7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832103"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589336"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 Notebook 만들기 및 공유
 
@@ -43,9 +43,9 @@ ms.locfileid: "85832103"
 
 1. 잠시 후 Azure Notebooks는 새 프로젝트로 이동합니다. **+ 새로 만들기** 드롭다운 목록 ( **+** 만 나타날 수 있음)을 선택하여 Notebook에 이 프로젝트를 추가한 다음, **Notebook**을 선택합니다.
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    :::image type="content" source="media/quickstarts/empty-project-new-notebook-button.png" alt-text="빈 새 프로젝트 및 Notebook 명령 추가" lightbox="media/quickstarts/empty-project-new-notebook-button.png":::
 
-1. **새 Notebook 만들기** 팝업이 나타나면 *HelloWorldInPython.ipynb* ( *.ipynb*은 IronPython (Jupyter) Notebook을 의미함) 같은 Notebook 파일 이름을 입력한 다음, **Python 3.6** 언어 (*커널*이라고도 함)를 선택합니다.
+1. **새 Notebook 만들기** 팝업이 나타나면 *HelloWorldInPython.ipynb* (*.ipynb*은 IronPython (Jupyter) Notebook을 의미함) 같은 Notebook 파일 이름을 입력한 다음, **Python 3.6** 언어 (*커널*이라고도 함)를 선택합니다.
 
     ![새 Notebook 만들기 팝업](media/quickstarts/new-notebook-popup.png)
 
@@ -106,4 +106,4 @@ Notebook을 공유하려면 필요한 경우 프로젝트 페이지로 다시 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀 분석을 실행할 Jupyter Notebook 생성 및 실행](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀 분석을 실행할 Jupyter Notebook 만들기 및 실행](tutorial-create-run-jupyter-notebook.md)

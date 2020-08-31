@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09d82c4834e50e0dff74edb5ccd14287736b937e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1753373b360a78918682b5f6102dcc896e2d90c3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844476"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652641"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "87844476"
 
 다음 표에서는 이 문서에서 다루는 각 개발 환경을 장단점과 함께 보여 줍니다.
 
-| Environment | 장점 | 단점 |
+| 환경 | 장점 | 단점 |
 | --- | --- | --- |
 | [클라우드 기반 Azure Machine Learning 계산 인스턴스 (미리 보기)](#compute-instance) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요. |
 | [로컬 환경](#local) | 개발 환경 및 종속성에 대 한 모든 권한 원하는 빌드 도구, 환경 또는 IDE를 사용 하 여를 실행 합니다. | 시작 하는 데 시간이 더 오래 걸립니다. 필요한 SDK 패키지를 설치 해야 하 고, 아직 설치 되어 있지 않은 경우에도 환경을 설치 해야 합니다. |
@@ -215,7 +215,7 @@ Jupyter Notebook 환경에서 이러한 구성 요소를 사용 하도록 설정
     conda activate myenv
     ```
 
-1. 샘플 노트북 집합에 대 한 [GitHub 리포지토리](https://aka.ms/aml-notebooks) 를 복제 합니다.
+1. 샘플 노트북 집합에 대 한 [GitHub 리포지토리](https://github.com/Azure/MachineLearningNotebooks) 를 복제 합니다.
 
     ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git
@@ -312,7 +312,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
    > 다른 SDK 추가 기능을 설치할 수 없습니다. 위의 옵션 [databricks] 또는 [automl] 중 하나만 선택 합니다.
 
    * **모든 클러스터에 자동으로 연결을**선택 하지 않습니다.
-   * 클러스터 이름 옆에 있는 **연결** 을 선택 합니다.
+   * 클러스터 이름 옆에 있는  **연결** 을 선택 합니다.
 
 1. 상태가 **연결**됨으로 변경 될 때까지 오류를 모니터링 합니다 .이는 몇 분 정도 걸릴 수 있습니다.  이 단계가 실패 하는 경우:
 
@@ -323,8 +323,8 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
    다음 사항도 고려해 야 합니다.
    + AutoML config에서 Azure Databricks 사용 하는 경우 다음 매개 변수를 추가 합니다.
-       1. ```max_concurrent_iterations```는 클러스터의 작업자 노드 수를 기반으로 합니다.
-        2. ```spark_context=sc```는 기본 spark 컨텍스트를 기반으로 합니다.
+       1. ```max_concurrent_iterations``` 는 클러스터의 작업자 노드 수를 기반으로 합니다.
+        2. ```spark_context=sc``` 는 기본 spark 컨텍스트를 기반으로 합니다.
    + 또는 이전 SDK 버전이 있는 경우 클러스터의 설치 된 라이브러리에서 선택을 취소 하 고 휴지통으로 이동 합니다. 새 SDK 버전을 설치하고 클러스터를 다시 시작합니다. 다시 시작한 후 문제가 발생 하면 클러스터를 분리 하 고 다시 연결 합니다.
 
 설치에 성공 하면 가져온 라이브러리는 다음 중 하 나와 같아야 합니다.
@@ -361,7 +361,7 @@ Databricks에 자동화 된 machine learning이 설치 된 자동화 된 machine
 
 다음과 같은 세 가지 방법으로 구성 파일을 만들 수 있습니다.
 
-* ** [Ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**:를 사용 하 여 파일 *에config.js* 를 작성 합니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
+* **  [Ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**:를 사용 하 여 파일 * 에config.js* 를 작성 합니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
 
 * **파일 다운로드**: [Azure Portal](https://ms.portal.azure.com)의 작업 영역 **개요** 섹션에서 **config.js켜기** 를 선택 합니다.
 

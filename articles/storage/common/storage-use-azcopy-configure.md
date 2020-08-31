@@ -1,6 +1,6 @@
 ---
 title: Azure Storage를 사용 하 여 AzCopy 구성, 최적화 및 문제 해결 | Microsoft Docs
-description: AzCopy를 구성 하 고 최적화 하 고 문제를 해결 합니다.
+description: Azure Storage를 사용 하 여 AzCopy를 구성 하 고 최적화 하 고 문제를 해결 합니다. 계획 및 로그 파일의 위치를 변경 하거나 제거 합니다. 기본 로그 수준을 변경 합니다.
 author: normesta
 ms.service: storage
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 7e79f186688f3b6531ac24df4e3ae4201cf1903c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9742f97832c1fc931a1679132e262f92c9f11225
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282435"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037187"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 

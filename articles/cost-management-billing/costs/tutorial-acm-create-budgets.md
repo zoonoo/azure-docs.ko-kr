@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 3572cbb3f8c4a4f20c0141ac1fae5f0aa6fbd216
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a48e4b594b82f6e910db26fc2319032fbef30b6b
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044987"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446011"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -40,7 +40,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 
 예산은 다음과 같은 유형의 Azure 계정 유형 및 범위에 대해 지원됩니다.
 
-- Azure 역할 기반 액세스 제어 범위
+- Azure RBAC(Azure 역할 기반 액세스 제어) 범위
     - 관리 그룹
     - Subscription
 - 기업계약 범위

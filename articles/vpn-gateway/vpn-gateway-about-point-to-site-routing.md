@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: P2S 라우팅 정보'
-description: 이 문서는 지점 및 사이트 간 VPN 라우팅이 작동하는 방법을 이해하는 데 도움이 됩니다.
+description: 다양 한 운영 체제, 원격 액세스 프로토콜 및 가상 네트워크 구성에 대 한 Azure 지점 및 사이트 간 VPN 라우팅에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: kumud
-ms.openlocfilehash: 536e1e57af16a87fba85323e9448bfb904d56384
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54b839170d95918889d1295eb20308688fbfb2a7
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027872"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032376"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>지점 및 사이트 간 VPN 라우팅 정보
 

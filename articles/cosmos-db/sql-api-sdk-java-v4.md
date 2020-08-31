@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 072beb4f6bd8f823b150a6e81f4308bdd6b29402
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: af0964dceca8b862d0008d878045203983a96bda
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852245"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586218"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core(SQL) API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -26,7 +26,8 @@ ms.locfileid: "87852245"
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data](sql-api-sdk-java-spring.md)
+> * [스프링 데이터 v2](sql-api-sdk-java-spring-v2.md)
+> * [스프링 데이터 v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark 커넥터](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST (영문)](/rest/api/cosmos-db/)
@@ -54,7 +55,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 |---|---|
 |**SDK 다운로드**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
 |**API 설명서** | [Java API 참조 설명서](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
-|**SDK에 참여** | [GitHub의 Java용 Azure SDK 중앙 리포지토리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos) | 
+|**SDK에 참여** | [GitHub의 Java용 Azure SDK 중앙 리포지토리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
 |**시작** | [빠른 시작: Azure Cosmos DB SQL API 데이터를 관리하는 Java 앱 빌드](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) <br> [빠른 시작 코드가 포함 된 GitHub 리포지토리](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**기본 코드 샘플** | [Azure Cosmos DB: SQL API에 대한 Java 예제](sql-api-java-sdk-samples.md) <br> [샘플 코드가 포함 된 GitHub 리포지토리](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
 |**변경 피드를 사용하는 콘솔 앱**| [변경 피드-Java SDK v4 샘플](create-sql-api-java-changefeed.md) <br> [샘플 코드가 포함 된 GitHub 리포지토리](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 
@@ -70,7 +71,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 ### <a name="440-beta1-unreleased"></a>4.4.0-베타. 1 (릴리스되지 않음)
 
 ### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
-#### <a name="new-features"></a>새 기능
+#### <a name="new-features"></a>새로운 기능
 * 재 행위자-핵심 라이브러리 버전을 (으)로 업데이트 했습니다 `3.3.8.RELEASE` . 
 * Reactor-netty 라이브러리 버전이로 업데이트 되었습니다 `0.9.10.RELEASE` . 
 * Netty 라이브러리 버전을로 업데이트 했습니다 `4.1.51.Final` . 
@@ -90,7 +91,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 * `.single()`찾을 수 없는 예외가 발생 하는 경우 원자로 체인이 중단 되도록 하는 연산자 문제를 해결 했습니다. 
 
 ### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
-#### <a name="new-features"></a>새 기능
+#### <a name="new-features"></a>새로운 기능
 * 스크립트 로깅 사용 API를에 추가 했습니다 `CosmosStoredProcedureRequestOptions` .
 * 기본값을 1 시간로 업데이트 하 `DirectConnectionConfig` `idleEndpointTimeout` 고 기본값 `connectTimeout` 을 5 초로 업데이트 합니다.
 #### <a name="key-bug-fixes"></a>핵심 버그 수정
@@ -102,7 +103,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 * 직접 모드에서 취소 된 요청을 처리 하는 동안 발생 하는 문제를 해결 `onErrorDropped` 했습니다. 
 
 ### <a name="410-2020-06-25"></a>4.1.0 (2020-06-25)
-#### <a name="new-features"></a>새 기능
+#### <a name="new-features"></a>새로운 기능
 * 쿼리에 대 한 지원이 추가 되었습니다 `GROUP BY` .
 * DirectConnectionConfig에서 maxConnectionsPerEndpoint의 기본값을 130로 늘립니다.
 * DirectConnectionConfig에서 maxRequestsPerConnection의 기본값을 30으로 늘렸습니다.
@@ -112,7 +113,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 * RntbdClientChannelPool의 요청 관리자에서 null 포인터 예외가 수정 되었습니다.
 
 ### <a name="401-2020-06-10"></a>4.0.1 (2020-06-10)
-#### <a name="new-features"></a>새 기능
+#### <a name="new-features"></a>새로운 기능
 * `QueryRequestOptions`의 이름이 `CosmosQueryRequestOptions`로 바뀌었습니다.
 * `ChangeFeedProcessorBuilder`작성기 패턴으로 업데이트 되었습니다.
 * `CosmosPermissionProperties`새 컨테이너 이름 및 자식 리소스 api로 업데이트 되었습니다.
@@ -146,7 +147,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 * `CosmosClientException``AzureException`를 확장 합니다. 
 * 에서 api를 `maxItemCount`  &  `requestContinuationToken` `FeedOptions` 사용 하는 대신에서 api `byPage()` `CosmosPagedFlux`  &  `CosmosPagedIterable` 를 제거 했습니다.
 * `CosmosPermissionProperties`Api에 대 한 공개 화면에서 도입 `Permission` 되었습니다.
-* 제거 `SqlParameterList` 된 형식 &을 (를)로 바꿨습니다.`List`
+* 제거 `SqlParameterList` 된 형식 &을 (를)로 바꿨습니다. `List`
 * 직접 TCP 클라이언트에서 여러 메모리 누수 문제를 수정 했습니다. 
 * 쿼리에 대 한 지원이 추가 되었습니다 `DISTINCT` . 
 * 에서 외부 종속성을 제거 했습니다 `fasterxml.uuid, guava, commons-io, commons-collection4, commons-text` .  
@@ -154,14 +155,14 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 * Netty를 4.1.45로 업데이트 했습니다 & project 원자로를 3.3.3 버전으로 업데이트 했습니다.
 * 공용 rest 계약을 클래스에 업데이트 했습니다 `Final` .
 * 시점 운영에 대 한 고급 진단에 대 한 지원이 추가 되었습니다.
-* 업데이트 된 패키지`com.azure.cosmos`
+* 업데이트 된 패키지 `com.azure.cosmos`
 * `models`모델/rest 계약에 대 한 패키지 추가
 * `utils`형식에 대 한 패키지를 추가 했습니다 `CosmosPagedFlux`  &  `CosmosPagedIterable` . 
 * SDK 전체에서 사용할 공용 Api를 업데이트 했습니다 `Duration` .
 * 패키지에 모든 rest 계약을 추가 했습니다 `models` .
 * `RetryOptions`의 이름이 `ThrottlingRetryOptions`으로 바뀌었습니다.
 * `CosmosPagedFlux`  &  `CosmosPagedIterable` 쿼리 api에 대 한 페이지 매김 형식이 추가 되었습니다. 
-* 에서 새 API를 사용 하 여 CosmosClients의 여러 인스턴스에서 지 수 클라이언트를 공유 하기 위한 지원이 추가 되었습니다.`CosmosClientBuilder#connectionSharingAcrossClientsEnabled(true)`
+* 에서 새 API를 사용 하 여 CosmosClients의 여러 인스턴스에서 지 수 클라이언트를 공유 하기 위한 지원이 추가 되었습니다. `CosmosClientBuilder#connectionSharingAcrossClientsEnabled(true)`
 * 이중 직렬화/deserialization을 제거 하 여 쿼리를 최적화 합니다. 
 * 불필요 한 복사를 앞뒤로 제거 하 여 응답 헤더를 최적화 합니다. 
 * `ByteBuffer`중간 문자열 인스턴스화를 제거 하 여 serialization/deserialization을 최적화 했습니다.
@@ -171,8 +172,8 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 * 쿼리 결과 값이 쿼리의 경우 쿼리 결과의 구문 분석과 관련 된 문제를 해결 했습니다. 
 * 직접 TCP 클라이언트의 소켓 유출 문제를 수정 했습니다.
 * `orderByQuery`연속 토큰 버그를 사용 하 여 수정 되었습니다.
-* `ChangeFeedProcessor`파티션을 찾을 수 없을 때 & 파티션 분할 처리를 위한 버그 수정
-* `ChangeFeedProcessor`여러 스레드 간에 임대 업데이트를 동기화 할 때의 버그 수정
+* `ChangeFeedProcessor` 파티션을 찾을 수 없을 때 & 파티션 분할 처리를 위한 버그 수정
+* `ChangeFeedProcessor` 여러 스레드 간에 임대 업데이트를 동기화 할 때의 버그 수정
 * StoreReader에서 예외가 발생 하는 경합 상태를 수정 했습니다. `ArrayIndexOutOfBound`
 
 ## <a name="faq"></a>FAQ

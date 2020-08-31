@@ -2,25 +2,21 @@
 title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 확대/축소 구성 Microsoft Docs'
 description: Azure AD에서 사용자 계정을 자동으로 프로 비전 및 프로 비전 해제 하 여 확대/축소 하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: fb5e51503fa20cd3ace6070cb1b51f5bf32d0e13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15e3d72661ad35335c744fbaf0ab39627d254750
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016267"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545984"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 확대/축소 구성
 
@@ -34,7 +30,7 @@ ms.locfileid: "87016267"
 > * Azure AD와 Zoom 간에 사용자 특성을 동기화 상태로 유지
 > * [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-tutorial) 을 확대/축소 (권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -50,7 +46,7 @@ ms.locfileid: "87016267"
 
 ## <a name="step-2-configure-zoom-to-support-provisioning-with-azure-ad"></a>2단계. Azure AD를 사용 하 여 프로 비전을 지원 하도록 확대/축소 구성
 
-1. [확대/축소 관리 콘솔](https://zoom.us/signin)에 로그인 합니다. 왼쪽 탐색 창에서 **개발자를 위한 고급 > 확대/축소** 로 이동 합니다.
+1. [확대/축소 관리 콘솔](https://zoom.us/signin)에 로그인 합니다. 왼쪽 탐색 창에서 **고급 > App Marketplace** 로 이동 합니다.
 
     ![통합 확대/축소](media/zoom-provisioning-tutorial/zoom01.png)
 
@@ -148,7 +144,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
 1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
-2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.  
 
 ## <a name="connector-limitations"></a>커넥터 제한 사항

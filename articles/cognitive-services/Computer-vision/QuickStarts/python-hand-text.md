@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 62a1e9813b53c9e51a60422d30754d2fecbf25d0
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: seodec18, devx-track-python
+ms.openlocfilehash: b1b510ebfcf3622aab79762e447802020781aad3
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84985754"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236253"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>빠른 시작: Computer Vision REST API 및 Python을 사용하여 인쇄 및 필기 텍스트 추출
 
@@ -68,14 +68,14 @@ missing_env = False
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 else:
-    print("From Azure Cogntivie Service, retrieve your endpoint and subscription key.")
+    print("From Azure Cognitive Service, retrieve your endpoint and subscription key.")
     print("\nSet the COMPUTER_VISION_ENDPOINT environment variable, such as \"https://westus2.api.cognitive.microsoft.com\".\n")
     missing_env = True
 
 if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
     subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
 else:
-    print("From Azure Cogntivie Service, retrieve your endpoint and subscription key.")
+    print("From Azure Cognitive Service, retrieve your endpoint and subscription key.")
     print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable, such as \"1234567890abcdef1234567890abcdef\".\n")
     missing_env = True
 

@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ff335cd6276083eb76efd74a4921d2bae96cd7c9
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: dadd3a8316efc5bf090a84a738c8f6da223d4572
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875305"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651797"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보안
 
@@ -118,5 +118,4 @@ Azure Machine Learning은 레이블 지정 프로젝트를 만들고, 관리하�
 ## <a name="next-steps"></a>다음 단계 
 
 + [이러한 단계를 사용 하 여](how-to-create-register-datasets.md) Azure Machine Learning Studio 또는 Python SDK를 사용 하 여 데이터 집합을 만듭니다.
-+ [샘플 노트북](https://aka.ms/dataset-tutorial)을 사용 하 여 데이터 집합 학습 예제를 사용해 보세요.
-+ 데이터 드리프트 예제는이 [데이터 드리프트 자습서](https://aka.ms/datadrift-notebook)를 참조 하세요.
++ [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)을 사용 하 여 데이터 집합 학습 예제를 사용해 보세요.

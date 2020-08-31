@@ -1,6 +1,6 @@
 ---
 title: Event Grid를 사용하여 Azure Maps 이벤트에 대응
-description: 이 문서에서는 Event Grid를 사용 하 여 Microsoft Azure 맵 이벤트에 반응 하는 방법에 대해 설명 합니다.
+description: 지역 구분와 관련 된 Azure Maps 이벤트에 대응 하는 방법을 알아봅니다. 이벤트를 수신 대기 하는 방법 및 Event Grid 사용 하 여 이벤트를 이벤트 처리기로 라우팅하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/16/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: eb64634f25564abc4044364950b4d462a22608aa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 701c94237ef5348e11b5d7fbc85d4da1f20136ee
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499514"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036813"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Event Grid를 사용하여 Azure Maps 이벤트에 대응
 

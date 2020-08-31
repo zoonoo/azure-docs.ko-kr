@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 0654bce86cf5fb0b5bd117e444721e95f137dd47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: f716af1d50eb8a24d8ab70f784cba31f65795cb7
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652685"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165909"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>MSAL.NET와 함께 유니버설 Windows 플랫폼 사용 시 고려 사항
 MSAL.NET에서 UWP (유니버설 Windows 플랫폼)를 사용 하는 응용 프로그램 개발자는이 문서에서 제공 하는 개념을 고려해 야 합니다.
@@ -56,12 +56,12 @@ WAB (기본 Windows 구성 요소)에서 개인 네트워크를 허용 하도록
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\authhost.exe\EnablePrivateNetwork = 00000001
 ```
 
-자세한 내용은 [웹 인증 브로커-Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler)를 참조 하세요.
+자세한 내용은 [웹 인증 브로커-Fiddler](/windows/uwp/security/web-authentication-broker#fiddler)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음 샘플에서는 자세한 정보를 제공 합니다.
 
-예제 | 플랫폼 | Description 
+샘플 | 플랫폼 | Description 
 |------ | -------- | -----------|
 |[활성-디렉터리-dotnet-v2-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | MSAL.NET를 사용 하는 UWP 클라이언트 응용 프로그램입니다. Azure AD 2.0 끝점을 사용 하 여 인증 하는 사용자에 대 한 Microsoft Graph 액세스 합니다. <br>![토폴로지](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[활성-디렉터리-xamarin-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | MSAL을 사용 하 여 Azure AD 2.0 끝점을 통해 Microsoft 개인 계정 및 Azure AD를 인증 하는 방법을 보여 주는 간단한 Xamarin Forms 앱입니다. 또한 Microsoft Graph 액세스 하 고 결과 토큰을 표시 하는 방법을 보여 줍니다. <br>![토폴로지](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

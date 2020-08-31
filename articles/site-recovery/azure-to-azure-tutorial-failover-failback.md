@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9bc0d25e19ad3412e62eb3386b0faf3ae5d2a444
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8d38aa513b0829c2626fcd4a92c40faabff1f83e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68782584"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502395"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>지역 간 Azure VM의 장애 조치(failover) 및 다시 보호
 
@@ -38,7 +38,7 @@ ms.locfileid: "68782584"
 
 1. **복제된 항목**에서 장애 조치(failover)할 VM > **장애 조치(Failover)** 를 선택합니다.
 
-   ![장애 조치](./media/azure-to-azure-tutorial-failover-failback/failover.png)
+   ![VM의 장애 조치(failover) 옵션을 보여주는 스크린샷](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
 2. **장애 조치(Failover)** 에서 장애 조치(failover)할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "68782584"
 > [!NOTE]
 > VM에 대한 복제를 설정한 후 추가할 VM을 장애 조치(failover)할 때 복제 지점은 복구에 사용할 수 있는 디스크를 표시합니다. 예를 들어, VM에 단일 디스크가 있고 새로운 디스크를 추가하는 경우, 디스크를 추가하기 전에 생성한 복제 지점은 “2개 디스크 중 하나”로 구성된 복제 지점을 표시합니다.
 
-![추가된 디스크를 사용하여 장애 조치(failover)](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
+![디스크가 추가된 장애 조치(failover)를 보여주는 스크린샷](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>보조 VM 다시 보호
 
@@ -67,7 +67,7 @@ VM의 장애 조치(failover) 후 주 지역에 다시 복제되도록 다시 �
 1. VM이 **장애 조치(Failover) 커밋** 상태이고 주 지역을 사용할 수 있는지 확인하면 새 리소스를 만들고 액세스할 수 있습니다.
 2. **자격 증명 모음** > **복제된 항목**에서 장애 조치(failover)된 VM을 마우스 오른쪽 단추로 클릭한 다음 **다시 보호**를 선택합니다.
 
-   ![마우스 오른쪽 단추를 클릭하여 다시 보호](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+   ![VM의 다시 보호 옵션 스크린샷](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
 2. 보조 지역에서 주 지역으로의 보호 방향이 이미 선택되어 있는지 확인합니다.
 3. **리소스 그룹, 네트워크, 스토리지 및 가용성 집합** 정보를 검토합니다. 신규로 표시된 리소스가 다시 보호 작업의 일부로 생성됩니다.

@@ -2,18 +2,18 @@
 title: 'PowerShell: FHIR Server for Azure 배포 - Azure API for FHIR'
 description: 이 빠른 시작에서는 PowerShell을 사용하여 Microsoft 오픈 소스 FHIR 서버를 배포하는 방법을 설명합니다.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: f959b884f67f354599b99bb6dd24918b28d13382
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.author: matjazl
+ms.openlocfilehash: c133a309cc85ffcfb69be2ae7bbb614cbb540f2e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "84819890"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847145"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-powershell"></a>빠른 시작: PowerShell을 사용하여 오픈 소스 FHIR 서버 배포
 

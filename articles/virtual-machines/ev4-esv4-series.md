@@ -9,19 +9,19 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: aa7e773cb45ea23d0e091ce12cc8488114ddfbdf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6e35e32c92535a408c8df22d7306895150a59519
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837060"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050151"
 ---
 # <a name="ev4-and-esv4-series"></a>Ev4 및 Esv4 시리즈
 
-Ev4 및 Esv4 시리즈는 &reg; &reg; 하이퍼 스레드 구성의 Intel Xeon Platinum 8272CL Cl (캐스케이드 Lake) 프로세서에서 실행 되며, 다양 한 메모리 집약적 엔터프라이즈 응용 프로그램 및 RAM의 최대 504GiB 기능에 적합 합니다.
+Ev4 및 Esv4 시리즈는 &reg; &reg; 하이퍼 스레드 구성의 Intel Xeon Platinum 8272CL Cl (캐스케이드 Lake) 프로세서에서 실행 되며, 다양 한 메모리 집약적 엔터프라이즈 응용 프로그램 및 RAM의 최대 504GiB 기능에 적합 합니다. 3.4 GHz의 모든 코어 터보 클록 속도를 제공 합니다.
 
 > [!NOTE]
-> 질문과 대답은 [로컬 임시 디스크가 없는 AZURE VM 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
+> 질문과 대답은  [로컬 임시 디스크가 없는 AZURE VM 크기](azure-vms-no-temp-disk.md)를 참조 하세요.
 
 ## <a name="ev4-series"></a>Ev4 시리즈
 
@@ -82,7 +82,7 @@ Premium Storage 캐싱:  지원됨
 | Standard_E48s_v4 | 48 | 384 | 원격 저장소만 | 32 | 462000/2904 (1200) | 76800/1152 | 8|24000 |
 | Standard_E64s_v4 <sup>1</sup> | 64 | 504| 원격 저장소만 | 32 | 615000/3872 (1600) | 80000/1200 | 8|30000 |
 
-<sup>1</sup> [제한 된 코어 크기를 사용할 수](./windows/constrained-vcpu.md)있습니다.
+<sup>1</sup> [제한 된 코어 크기를 사용할 수](./constrained-vcpu.md)있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
@@ -97,7 +97,7 @@ Premium Storage 캐싱:  지원됨
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대 한 자세한 정보: [디스크 유형](./linux/disks-types.md#ultra-disk)
+디스크 유형에 대 한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>다음 단계

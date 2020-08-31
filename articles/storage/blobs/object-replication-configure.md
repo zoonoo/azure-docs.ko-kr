@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 73b568057bbb846958b6fe95f11c285326fe3688
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dd85504ac2321310288efe5d0a1ef7dfcde60f21
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495185"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88566066"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>블록 blob에 대한 개체 복제(미리 보기) 구성
 
@@ -45,7 +45,7 @@ Azure Portal에서 복제 정책을 만들려면 다음 단계를 수행합니�
 
 1. Azure Portal의 원본 스토리지 계정으로 이동합니다.
 1. **Blob service**에서 **개체 복제**를 선택 합니다.
-1. **복제 설정**을 선택합니다.
+1. **복제 규칙 설정**을 선택 합니다.
 1. 대상 구독 및 스토리지 계정을 선택합니다.
 1. **컨테이너 쌍** 섹션에서 원본 계정에서 원본 컨테이너를 선택하고 대상 계정에서 대상 컨테이너를 선택합니다. 복제 정책에 따라 최대 10개의 컨테이너 쌍을 만들 수 있습니다.
 
@@ -175,15 +175,18 @@ az login
 원본 및 대상 스토리지 계정에서 blob 버전 관리를 사용하도록 설정하고 원본 계정에서 변경 피드를 사용하도록 설정합니다. 꺾쇠 괄호로 묶인 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
-az storage blob service-properties update --resource-group <resource-group> \
+az storage blob service-properties update \
+    --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-versioning
 
-az storage blob service-properties update --resource-group <resource-group> \
+az storage blob service-properties update \
+    --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-change-feed
 
-az storage blob service-properties update --resource-group <resource-group> \
+az storage blob service-properties update \
+    --resource-group <resource-group> \
     --account-name <dest-storage-account> \
     --enable-versioning
 ```
@@ -191,17 +194,30 @@ az storage blob service-properties update --resource-group <resource-group> \
 각 스토리지 계정에 원본 및 대상 컨테이너를 만듭니다.
 
 ```azurecli
-az storage container create --account-name <source-storage-account> --name source-container3 --auth-mode login
-az storage container create --account-name <source-storage-account> --name source-container4 --auth-mode login
+az storage container create \
+    --account-name <source-storage-account> \
+    --name source-container3 \
+    --auth-mode login
+az storage container create \
+    --account-name <source-storage-account> \
+    --name source-container4 \
+    --auth-mode login
 
-az storage container create --account-name <dest-storage-account> --name source-container3 --auth-mode login
-az storage container create --account-name <dest-storage-account> --name source-container4 --auth-mode login
+az storage container create \
+    --account-name <dest-storage-account> \
+    --name source-container3 \
+    --auth-mode login
+az storage container create \
+    --account-name <dest-storage-account> \
+    --name source-container4 \
+    --auth-mode login
 ```
 
 대상 계정에 새 복제 정책 및 연결된 규칙을 만듭니다.
 
 ```azurecli
-az storage account or-policy create --account-name <dest-storage-account> \
+az storage account or-policy create \
+    --account-name <dest-storage-account> \
     --resource-group <resource-group> \
     --source-account <source-storage-account> \
     --destination-account <dest-storage-account> \
@@ -210,7 +226,8 @@ az storage account or-policy create --account-name <dest-storage-account> \
     --min-creation-time '2020-05-10T00:00:00Z' \
     --prefix-match a
 
-az storage account or-policy rule add --account-name <dest-storage-account> \
+az storage account or-policy rule add \
+    --account-name <dest-storage-account> \
     --destination-container dest-container4 \
     --policy-id <policy-id> \
     --resource-group <resource-group> \
@@ -221,7 +238,8 @@ az storage account or-policy rule add --account-name <dest-storage-account> \
 정책 ID를 사용하여 원본 계정에 정책을 만듭니다.
 
 ```azurecli
-az storage account or-policy show --resource-group <resource-group> \
+az storage account or-policy show \
+    --resource-group <resource-group> \
     --name <dest-storage-account> \
     --policy-id <policy-id> |
     --az storage account or-policy create --resource-group <resource-group> \

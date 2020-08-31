@@ -1,18 +1,19 @@
 ---
 title: Azure의 엔터프라이즈 관리자 역할 이해
-description: Azure의 엔터프라이즈 관리자 역할에 대해 알아봅니다.
+description: Azure의 엔터프라이즈 관리자 역할에 대해 알아봅니다. 5가지 개별 관리 역할을 할당할 수 있습니다.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 787614afa1c71eee075a2e3efa81fa0cba17d1ba
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124343"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686465"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Azure Enterprise 역할 관리
 
@@ -103,9 +104,9 @@ Azure Portal에서 표시되는 가격은 사용자의 관리 역할 및 엔터�
 
 두 정책을 설정하는 방법을 알아보려면 [Azure의 청구 정보에 대한 액세스 관리](manage-billing-access.md)를 참조하세요.
 
-다음 표에서는 기업계약 관리자 역할, 요금 보기 정책, Azure Portal의 RBAC(역할 기반 액세스 제어) 역할, Azure Portal에 표시되는 가격 간의 관계를 보여 줍니다. 엔터프라이즈 관리자에게는 항상 조직의 EA 가격을 기준으로 사용량 세부 정보가 표시됩니다. 그러나 부서 관리자 및 계정 소유자에게는 요금 보기 정책 및 해당 RBAC 역할에 따라 다른 가격 보기가 표시됩니다. 다음 표에 나열된 부서 관리자 역할은 부서 관리자 및 부서 관리자(읽기 전용) 역할을 둘 다 가리킵니다.
+다음 표에서는 기업계약 관리자 역할, 요금 보기 정책, Azure Portal의 Azure 역할, Azure Portal에 표시되는 가격 간의 관계를 보여줍니다. 엔터프라이즈 관리자에게는 항상 조직의 EA 가격을 기준으로 사용량 세부 정보가 표시됩니다. 그러나 부서 관리자 및 계정 소유자에게는 요금 보기 정책 및 해당 Azure 역할에 따라 다른 가격 보기가 표시됩니다. 다음 표에 나열된 부서 관리자 역할은 부서 관리자 및 부서 관리자(읽기 전용) 역할을 둘 다 가리킵니다.
 
-|기업계약 관리자 역할|역할에 대한 요금 보기 정책|RBAC 역할|가격 보기|
+|기업계약 관리자 역할|역할에 대한 요금 보기 정책|Azure 역할|가격 보기|
 |---|---|---|---|
 |계정 소유자 또는 부서 관리자|✔ 사용|소유자|조직의 EA 가격|
 |계정 소유자 또는 부서 관리자|✘ 사용 안 함|소유자|소매 가격|
@@ -113,7 +114,7 @@ Azure Portal에서 표시되는 가격은 사용자의 관리 역할 및 엔터�
 |계정 소유자 또는 부서 관리자|✘ 사용 안 함 |none|가격 없음|
 |None|해당 없음 |소유자|소매 가격|
 
-엔터프라이즈 관리자 역할 및 요금 보기 정책은 Enterprise Portal에서 설정합니다. RBAC 역할은 Azure Portal에서 업데이트할 수 있습니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+엔터프라이즈 관리자 역할 및 요금 보기 정책은 Enterprise Portal에서 설정합니다. Azure 역할은 Azure Portal에서 업데이트할 수 있습니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 
 

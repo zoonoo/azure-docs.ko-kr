@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65b4ede6f4851418bf17d42db5b3215dafa9234
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c98269f9851272e8caa9b26ae0c57ed13e9a99f2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995176"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049131"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>조건부 액세스: 준수 장치 필요
 
@@ -40,11 +40,11 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 1. **할당**에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자**를 선택합니다.
    1. **제외**에서 **사용자 및 그룹**을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
-   1. **완료** 를 선택합니다.
+   1. **완료**를 선택합니다.
 1. **클라우드 앱 또는 작업**  >  **포함**아래에서 **모든 클라우드 앱**을 선택 합니다.
    1. 특정 응용 프로그램을 정책에서 제외 해야 하는 경우 제외 된 **클라우드 앱 선택** 의 **제외** 탭에서 해당 응용 프로그램을 선택 하 고 **선택**을 선택할 수 있습니다.
-   1. **완료** 를 선택합니다.
-1. **조건**  > **클라이언트 앱(미리 보기)** 에서 **구성**을 **예**로 설정하고 **완료**를 선택합니다.
+   1. **완료**를 선택합니다.
+1. **Conditions**  >  **클라이언트 앱 (미리 보기)** 아래에서  >  **이 정책이 적용 될 클라이언트 앱을 선택**하 고 모든 기본값을 선택 된 채로 두고 **완료**를 선택 합니다.
 1. **액세스 제어**  >  **권한 부여**에서 **준수 상태로 표시 된 장치 필요**를 선택 합니다.
    1. **선택**을 선택합니다.
 1. 설정을 확인하고 **정책 사용**을 **켜기**로 설정합니다.
@@ -61,7 +61,7 @@ Windows 7, iOS, Android, macOS 및 일부 타사 웹 브라우저에서 Azure AD
 
 [조건부 액세스 일반 정책](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-report-only.md)
+[조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 

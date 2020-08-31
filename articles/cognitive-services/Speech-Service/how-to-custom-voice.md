@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 2aacf8881a57f0677177cd341a0ddc63224b26b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 272367d5311952b45c73febe0e05b1ec2d225261
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402047"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056689"
 ---
 # <a name="get-started-with-custom-voice"></a>Custom Voice 시작
 
@@ -56,7 +56,7 @@ Azure 계정과 음성 서비스 구독을 만든 후에는 사용자 지정 음
 4. 다른 음성 구독으로 전환 하려면 위쪽 탐색에 있는 코그 아이콘을 사용 합니다.
 
 > [!NOTE]
-> 사용자 지정 음성 서비스는 30 일 무료 평가판 키를 지원 하지 않습니다. 서비스를 사용 하려면 먼저 Azure에서 F0 또는 S0 키를 만들어야 합니다.
+> 서비스를 사용 하려면 먼저 Azure에서 F0 또는 S0 키를 만들어야 합니다.
 
 ## <a name="how-to-create-a-project"></a>프로젝트를 만드는 방법
 

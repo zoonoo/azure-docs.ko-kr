@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 08/21/2020
 ms.author: b-juche
-ms.openlocfilehash: a0d672f782cb9f476fa81d28ee369072caf8509b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9facbc1629b8e1330c6bbafb4444d5bfc237d16f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147196"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752302"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -33,21 +33,22 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |----------------|---------------------|--------------------------------------|
 |  Azure 지역별 NetApp 계정 수   |  10    |  예   |
 |  NetApp 계정 당 용량 풀 수   |    25     |   예   |
+|  구독 당 볼륨 수   |    500     |   예   |
 |  용량 풀 당 볼륨 수     |    500   |    예     |
-|  볼륨당 스냅숏 수       |    255     |    예        |
+|  볼륨당 스냅숏 수       |    255     |    아니요        |
 |  Azure Virtual Network Azure NetApp Files (Microsoft NetApp/볼륨)에 위임 된 서브넷 수    |   1   |    아니요    |
-|  Azure NetApp Files 사용 하는 VNet에서 사용 된 Ip 수 (즉시 피어 링 Vnet 포함)   |    1000   |    예   |
-|  단일 용량 풀의 최소 크기   |  4TiB     |    예  |
-|  단일 용량 풀의 최대 크기    |  500TiB   |   예   |
-|  단일 볼륨의 최소 크기    |    100GiB    |    예    |
-|  단일 볼륨의 최대 크기     |    100 TiB    |    예    |
-|  단일 파일의 최대 크기     |    16TiB    |    예    |    
-|  단일 디렉터리에서 디렉터리 메타 데이터의 최대 크기      |    320 M B    |    예    |    
+|  Azure NetApp Files 사용 하는 VNet에서 사용 된 Ip 수 (즉시 피어 링 Vnet 포함)   |    1000   |    아니요   |
+|  단일 용량 풀의 최소 크기   |  4TiB     |    아니요  |
+|  단일 용량 풀의 최대 크기    |  500TiB   |   아니요   |
+|  단일 볼륨의 최소 크기    |    100GiB    |    아니요    |
+|  단일 볼륨의 최대 크기     |    100TiB    |    아니요    |
+|  단일 파일의 최대 크기     |    16TiB    |    아니요    |    
+|  단일 디렉터리에서 디렉터리 메타 데이터의 최대 크기      |    320 M B    |    아니요    |    
 |  볼륨당 최대 파일 수 ([maxfiles](#maxfiles))     |    1억    |    예    |    
 
 자세한 내용은 [용량 관리 faq](azure-netapp-files-faqs.md#capacity-management-faqs)를 참조 하세요.
 
-## <a name="maxfiles-limits"></a>Maxfiles 제한<a name="maxfiles"></a> 
+## <a name="maxfiles-limits"></a>Maxfiles 제한 <a name="maxfiles"></a> 
 
 Azure NetApp Files 볼륨에는 *maxfiles*라는 제한이 있습니다. Maxfiles 한도는 볼륨에 포함 될 수 있는 파일 수입니다. Azure NetApp Files 볼륨의 maxfiles 제한은 볼륨의 크기 (할당량)를 기준으로 인덱싱됩니다. 볼륨에 대 한 maxfiles 제한은 프로 비전 된 볼륨 크기의 TiB 2000만 파일의 비율을 늘리거나 줄입니다. 
 
@@ -63,7 +64,7 @@ Azure NetApp Files 볼륨에는 *maxfiles*라는 제한이 있습니다. Maxfile
 
 볼륨에 대해 최소 4 개의 TiB의 할당량을 이미 할당 한 경우에는 [지원 요청](#limit_increase) 을 시작 하 여 maxfiles 제한을 1억 이상 늘릴 수 있습니다.
 
-## <a name="request-limit-increase"></a>요청 제한 증가<a name="limit_increase"></a> 
+## <a name="request-limit-increase"></a>요청 제한 증가 <a name="limit_increase"></a> 
 
 Azure 지원 요청을 만들어 위의 표에서 조정 가능한 제한을 늘릴 수 있습니다. 
 

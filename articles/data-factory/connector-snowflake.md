@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/30/2020
-ms.openlocfilehash: 48248b07b64278d5c8d4f297bf83df813aa486fe
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/28/2020
+ms.openlocfilehash: 5bc64985401fce1c58a985b6b9fdead620c9aa8f
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529503"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048179"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 눈송이 간 데이터 복사
 
@@ -36,7 +36,7 @@ ms.locfileid: "87529503"
 - 눈송이의 [copy를 [location] 명령으로](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) 활용 하는 눈송이의 데이터를 최상의 성능을 얻기 위해 복사 합니다.
 - 눈송이의 [copy to [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) 명령을 사용 하 여 최상의 성능을 얻기 위해 데이터를 눈송이로 복사 합니다. Azure의 눈송이를 지원 합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -46,10 +46,10 @@ ms.locfileid: "87529503"
 
 다음은 눈송이 연결 된 서비스에 대해 지원 되는 속성입니다.
 
-| 속성         | 설명                                                  | 필수 |
+| 속성         | Description                                                  | 필수 |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | Type 속성은 **눈송이**로 설정 되어야 합니다.              | 예      |
-| connectionString | 눈송이 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. Azure Key Vault에 암호나 전체 연결 문자열을 배치 하도록 선택할 수 있습니다. 자세한 내용은 테이블 아래의 예를 참조 하 고 [Azure Key Vault 문서의 저장소 자격 증명](store-credentials-in-key-vault.md) 을 참조 하세요.<br><br>일반적인 설정은 다음과 같습니다.<br>- **계정 이름:** 눈송이 계정 (지역 및 클라우드 플랫폼을 식별 하는 추가 세그먼트 포함)의 [전체 계정 이름](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (예: xy12345)입니다.<br/>- **사용자 이름:** 연결에 대 한 사용자의 로그인 이름입니다.<br>- **암호:** 사용자에 대 한 암호입니다.<br>- **데이터베이스:** 연결 되 면 사용할 기본 데이터베이스입니다. 지정 된 역할에 권한이 있는 기존 데이터베이스 여야 합니다.<br>- **웨어하우스:** 연결 된 후 사용할 가상 웨어하우스입니다. 지정 된 역할에 권한이 있는 기존 웨어하우스로 지정 해야 합니다.<br>- **역할:** 눈송이 세션에서 사용할 기본 액세스 제어 역할입니다. 지정 된 역할은 지정 된 사용자에 게 이미 할당 된 기존 역할 이어야 합니다. 기본 역할은 PUBLIC입니다. | 예      |
+| connectionString | 눈송이 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. Azure Key Vault에 암호나 전체 연결 문자열을 배치 하도록 선택할 수 있습니다. 자세한 내용은 테이블 아래의 예를 참조 하 고 [Azure Key Vault 문서의 저장소 자격 증명](store-credentials-in-key-vault.md) 을 참조 하세요.<br><br>일반적인 설정은 다음과 같습니다.<br>- **계정 이름:** 눈송이 계정 (지역 및 클라우드 플랫폼을 식별 하는 추가 세그먼트 포함)의  [전체 계정 이름](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) (예: xy12345)입니다.<br/>- **사용자 이름:** 연결에 대 한 사용자의 로그인 이름입니다.<br>- **암호:** 사용자에 대 한 암호입니다.<br>- **데이터베이스:** 연결 되 면 사용할 기본 데이터베이스입니다. 지정 된 역할에 권한이 있는 기존 데이터베이스 여야 합니다.<br>- **웨어하우스:** 연결 된 후 사용할 가상 웨어하우스입니다. 지정 된 역할에 권한이 있는 기존 웨어하우스로 지정 해야 합니다.<br>- **역할:** 눈송이 세션에서 사용할 기본 액세스 제어 역할입니다. 지정 된 역할은 지정 된 사용자에 게 이미 할당 된 기존 역할 이어야 합니다. 기본 역할은 PUBLIC입니다. | 예      |
 | connectVia       | 데이터 저장소에 연결 하는 데 사용 되는 [통합 런타임](concepts-integration-runtime.md) 입니다. Azure integration runtime 또는 자체 호스팅 integration runtime (데이터 저장소가 개인 네트워크에 있는 경우)을 사용할 수 있습니다. 지정 하지 않으면 기본 Azure integration runtime을 사용 합니다. | 예       |
 
 **예:**
@@ -102,7 +102,7 @@ ms.locfileid: "87529503"
 
 눈송이 데이터 집합에 대해 지원 되는 속성은 다음과 같습니다.
 
-| 속성  | 설명                                                  | 필수                    |
+| 속성  | Description                                                  | 필수                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 데이터 집합의 type 속성은 **SnowflakeTable**로 설정 해야 합니다. | 예                         |
 | 스키마 | 스키마의 이름입니다. |원본에 대해 아니요, 싱크에 대해 예  |
@@ -140,7 +140,7 @@ ms.locfileid: "87529503"
 
 눈송이에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성이 지원 됩니다.
 
-| 속성                     | 설명                                                  | 필수 |
+| 속성                     | Description                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 type 속성은 **SnowflakeSource**로 설정 해야 합니다. | 예      |
 | Query          | 눈송이에서 데이터를 읽는 SQL 쿼리를 지정 합니다.<br>저장 프로시저 실행은 지원 되지 않습니다. | 예       |
@@ -160,14 +160,14 @@ ms.locfileid: "87529503"
 
     - **Parquet** 형식의 경우 압축 코덱은 **None**, **Snappy**또는 **Lzo**입니다.
     - **구분 기호로 분리 된 텍스트** 형식:
-        - `rowDelimiter`는 **\r\n**또는 모든 단일 문자입니다.
+        - `rowDelimiter` 는 **\r\n**또는 모든 단일 문자입니다.
         - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
         - `encodingName`는 기본값으로 남아 있거나 **utf-8**로 설정됩니다.
-        - `quoteChar`**큰따옴표**, **작은따옴표** 또는 **빈 문자열** (따옴표 문자 없음)입니다.
+        - `quoteChar` 는 **큰따옴표**, **작은따옴표**또는 **빈 문자열** (따옴표 문자 없음)입니다.
     - **JSON** 형식의 경우 직접 복사는 원본 눈송이 테이블 또는 쿼리 결과도 단일 열을 가지 며이 열의 데이터 형식은 **VARIANT**, **OBJECT**또는 **배열인**경우에만 지원 합니다.
         - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
         - `encodingName`는 기본값으로 남아 있거나 **utf-8**로 설정됩니다.
-        - `filePattern`복사 활동 싱크에서 기본값 또는 **Setofobjects**로 설정 됩니다.
+        - `filePattern` 복사 활동 싱크에서 기본값 또는 **Setofobjects**로 설정 됩니다.
 
 - 복사 활동 원본에서 `additionalColumns` 가 지정 되지 않았습니다.
 - 열 매핑이 지정 되지 않았습니다.
@@ -271,7 +271,7 @@ ms.locfileid: "87529503"
 
 데이터를 눈송이로 복사 하기 위해 복사 작업 **싱크** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성          | 설명                                                  | 필수                                      |
+| 속성          | Description                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | 복사 작업 싱크의 type 속성은 **SnowflakeSink**로 설정 됩니다. | 예                                           |
 | preCopyScript     | 각 실행 시 눈송이에 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
@@ -292,10 +292,10 @@ ms.locfileid: "87529503"
     - **Parquet** 형식의 경우 압축 코덱은 **None**또는 **Snappy**입니다.
 
     - **구분 기호로 분리 된 텍스트** 형식:
-        - `rowDelimiter`는 **\r\n**또는 모든 단일 문자입니다. 행 구분 기호가 "\r\n"이 아닌 경우 `firstRowAsHeader` **false**여야 하 고 `skipLineCount` 가 지정 되지 않습니다.
+        - `rowDelimiter` 는 **\r\n**또는 모든 단일 문자입니다. 행 구분 기호가 "\r\n"이 아닌 경우 `firstRowAsHeader` **false**여야 하 고 `skipLineCount` 가 지정 되지 않습니다.
         - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
-        - `encodingName`기본값은 "UTF-8", "UTF-16", "UTF-16", "32 UTF-8", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "로 설정 됩니다. ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "iso-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-        - `quoteChar`**큰따옴표**, **작은따옴표** 또는 **빈 문자열** (따옴표 문자 없음)입니다.
+        - `encodingName` 기본값은 "UTF-8", "UTF-16", "UTF-16", "32 UTF-8", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "로 설정 됩니다. ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "iso-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
+        - `quoteChar` 는 **큰따옴표**, **작은따옴표**또는 **빈 문자열** (따옴표 문자 없음)입니다.
     - **JSON** 형식의 경우 직접 복사는 싱크 눈송이 테이블에 단일 열만 있고이 열의 데이터 형식이 **VARIANT**, **OBJECT**또는 **배열인**경우에만 지원 합니다.
         - `compression`압축, **gzip**, **bzip2**또는 **deflate**일 수 **없습니다**.
         - `encodingName`는 기본값으로 남아 있거나 **utf-8**로 설정됩니다.
@@ -305,7 +305,7 @@ ms.locfileid: "87529503"
 
    -  `additionalColumns`을(를) 지정하지 않았습니다.
    - 원본이 폴더인 경우 `recursive` 는 true로 설정 됩니다.
-   - `prefix`, `modifiedDateTimeStart` `modifiedDateTimeEnd` 는 지정 되지 않습니다.
+   - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` 및 `enablePartitionDiscovery`는 지정되지 않습니다.
 
 **예:**
 

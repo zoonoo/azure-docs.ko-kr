@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma, twhitney
 ms.custom: aaddev, devx-track-java
-ms.openlocfilehash: 3b775d88409a03f6de54b9db3ab62d6988c5bddd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ec4103251d27114b8fe40101c0e78c259106a440
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313050"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120884"
 ---
 # <a name="adal-to-msal-migration-guide-for-java"></a>Java 용 ADAL-MSAL 마이그레이션 가이드
 
@@ -37,15 +37,15 @@ Java 용 MSAL은 Microsoft id 플랫폼에서 사용 하는 것이 좋습니다.
 
 ## <a name="differences"></a>차이점
 
-개발자 용 Azure AD () 끝점 (및 ADAL4J)을 사용 하 여 작업 하는 경우 v2.0 ( [Microsoft identity platform) 끝점에 대 한 다른 사항을](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison)읽을 수 있습니다.
+개발자 용 Azure AD () 끝점 (및 ADAL4J)을 사용 하 여 작업 하는 경우 v2.0 ( [Microsoft identity platform) 끝점에 대 한 다른 사항을](../azuread-dev/azure-ad-endpoint-comparison.md)읽을 수 있습니다.
 
 ## <a name="scopes-not-resources"></a>리소스가 아닌 범위
 
-ADAL4J는 리소스에 대 한 토큰을 획득 하는 반면, Java 용 MSAL은 범위 토큰을 획득 합니다. Java 클래스에 대 한 다양 한 MSAL에는 범위 매개 변수가 필요 합니다. 이 매개 변수는 필요한 사용 권한 및 요청 된 리소스를 선언 하는 문자열 목록입니다. 예제 범위를 보려면 [Microsoft Graph의 범위](https://docs.microsoft.com/graph/permissions-reference) 를 참조 하세요.
+ADAL4J는 리소스에 대 한 토큰을 획득 하는 반면, Java 용 MSAL은 범위 토큰을 획득 합니다. Java 클래스에 대 한 다양 한 MSAL에는 범위 매개 변수가 필요 합니다. 이 매개 변수는 필요한 사용 권한 및 요청 된 리소스를 선언 하는 문자열 목록입니다. 예제 범위를 보려면 [Microsoft Graph의 범위](/graph/permissions-reference) 를 참조 하세요.
 
 리소스에 범위 접미사를 추가 하 여 v2.0 `/.default` 끝점 (ADAL)에서 Microsoft MSAL (id 플랫폼 끝점)으로 앱을 마이그레이션할 수 있습니다. 예를 들어의 리소스 값에 대해 `https://graph.microsoft.com` 해당 하는 범위 값은 `https://graph.microsoft.com/.default` 입니다.  리소스가 URL 형식이 아닌 폼의 리소스 ID 인 경우 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` 범위 값을으로 계속 사용할 수 있습니다 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
-다양 한 범위 형식에 대 한 자세한 내용은 [Microsoft id 플랫폼의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) 및 v1.0 토큰을 [수락 하는 Web API에 대 한 범위](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes) 문서를 참조 하세요.
+다양 한 범위 형식에 대 한 자세한 내용은 [Microsoft id 플랫폼의 사용 권한 및 동의](./v2-permissions-and-consent.md) 및 v1.0 토큰을 [수락 하는 Web API에 대 한 범위](./msal-v1-app-scopes.md) 문서를 참조 하세요.
 
 ## <a name="core-classes"></a>핵심 클래스
 
@@ -86,9 +86,9 @@ V2.0에서 인증 기관을 사용 하는 경우 `https://login.microsoftonline.
 
 v1.0 엔드포인트(ADAL에서 사용)는 v1.0 토큰만 내보냅니다.
 
-V2.0 끝점 (MSAL에서 사용)은 v1.0 및 v2.0 토큰을 내보낼 수 있습니다. 개발자는 web API의 응용 프로그램 매니페스트 속성을 사용 하 여 허용 되는 토큰 버전을 선택할 수 있습니다. `accessTokenAcceptedVersion` [응용 프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) 참조 설명서에서를 참조 하세요.
+V2.0 끝점 (MSAL에서 사용)은 v1.0 및 v2.0 토큰을 내보낼 수 있습니다. 개발자는 web API의 응용 프로그램 매니페스트 속성을 사용 하 여 허용 되는 토큰 버전을 선택할 수 있습니다. `accessTokenAcceptedVersion` [응용 프로그램 매니페스트](./reference-app-manifest.md) 참조 설명서에서를 참조 하세요.
 
-V1.0 및 v2.0 토큰에 대 한 자세한 내용은 [Azure Active Directory 액세스 토큰](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)을 참조 하세요.
+V1.0 및 v2.0 토큰에 대 한 자세한 내용은 [Azure Active Directory 액세스 토큰](./access-tokens.md)을 참조 하세요.
 
 ## <a name="adal-to-msal-migration"></a>ADAL에서 MSAL로 마이그레이션
 

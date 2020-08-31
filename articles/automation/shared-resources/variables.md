@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9658175b0d42db9acfc94d39e4ab226bfe2cfc4b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ee49ae905622b4b76d782f6a31e0c2333b6d54be
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187322"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055295"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Azure Automation의 변수 관리
 
@@ -30,10 +30,10 @@ Automation 변수는 다음과 같은 시나리오에 유용합니다.
 
 Azure Automation은 변수를 유지하고 Runbook 또는 DSC 구성이 실패한 경우에도 변수를 사용할 수 있도록 합니다. 이 동작 덕분에 하나의 Runbook 또는 DSC 구성이 설정한 값을 다른 Runbook이 사용하거나 동일한 Runbook이나 DSC 구성이 다음에 실행될 때 다시 사용할 수 있습니다.
 
-Azure Automation은 암호화된 각 변수를 안전하게 저장합니다. 변수를 만들 때 Azure Automation을 사용하여 해당 암호화 및 스토리지를 보안 자산으로 지정할 수 있습니다. 
+Azure Automation은 암호화된 각 변수를 안전하게 저장합니다. 변수를 만들 때 보안 자산으로 Azure Automation 여 해당 암호화 및 저장소를 지정할 수 있습니다. 변수를 만든 후에는 변수를 다시 만들지 않고 암호화 상태를 변경할 수 없습니다. Azure Security Center [Automation 계정 변수에 설명 된](../../security-center/recommendations-reference.md#recs-computeapp)대로 모든 Azure Automation 변수를 암호화 하는 것이 좋습니다. 
 
 >[!NOTE]
->Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. Azure Automation은 시스템 관리 Key Vault에 키를 저장합니다. 보안 자산을 저장하기 전에 Automation이 Key Vault에서 키를 로드한 다음, 자산을 암호화하는 데 사용합니다. 
+>Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. Azure Automation은 시스템 관리 키 자격 증명 모음에 키를 저장합니다. 보안 자산을 저장하기 전에 Automation이 Key Vault에서 키를 로드한 다음, 자산을 암호화하는 데 사용합니다. 
 
 ## <a name="variable-types"></a>변수 형식
 
@@ -69,7 +69,7 @@ Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변�
 
 다음 표의 내부 cmdlet은 Runbook 및 DSC 구성에서 변수에 액세스하는 데 사용됩니다. 이러한 cmdlet은 글로벌 모듈 `Orchestrator.AssetManagement.Cmdlets`와 함께 제공됩니다. 자세한 내용은 [내부 cmdlet](modules.md#internal-cmdlets)을 참조하세요.
 
-| 내부 Cmdlet | Description |
+| 내부 cmdlet | Description |
 |:---|:---|
 |`Get-AutomationVariable`|기존 변수의 값을 검색합니다.|
 |`Set-AutomationVariable`|기존 변수의 값을 설정합니다.|

@@ -1,22 +1,22 @@
 ---
-title: 파트너 센터의 상업용 Marketplace 포털 개요
-description: 파트너 센터의 상업용 Marketplace 포털에 대해 자세히 알아보고, Azure Marketplace, AppSource 및 CSP(클라우드 솔루션 공급자) 프로그램을 통해 제품을 나열하고 판매하는 방법에 대해 자세히 알아봅니다.
+title: 파트너 센터의 상용 marketplace 포털 개요
+description: 파트너 센터의 Microsoft 상업적 marketplace 포털 및 CSP (클라우드 솔루션 공급자) 프로그램을 통해 Azure Marketplace, AppSource 및 제품을 나열 하 고 판매 하는 방법에 대해 자세히 알아보세요.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c91e6396171511fa3b11b0295504f0ca0d75d15
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047597"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030864"
 ---
-# <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>파트너 센터의 상업용 Marketplace 포털 개요
+# <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>파트너 센터의 상용 marketplace 포털 개요
 
-파트너 센터의 상업용 Marketplace 포털 사용을 환영합니다. [상업용 Marketplace 포털](https://partner.microsoft.com/dashboard/commercial-marketplace/)을 통해 제품 및 서비스로 수익을 창출하고 고객에게 다가가서 비즈니스를 성장시킬 수 있습니다.
+파트너 센터에서 상용 마켓플레이스 포털을 시작 합니다. [상업용 Marketplace 포털](https://partner.microsoft.com/dashboard/commercial-marketplace/)을 통해 제품 및 서비스로 수익을 창출하고 고객에게 다가가서 비즈니스를 성장시킬 수 있습니다.
 
 이 문서에서는 파트너 센터 계정을 만들고 사용하는 기본 사항을 다룹니다. 여기에는 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 또는 [AppSource](https://appsource.microsoft.com/)에 나열될 새로운 제품을 만들고, Cloud 파트너 포털에서 마이그레이션된 기존 제품을 관리하고, 질문에 대한 도움과 사용자 피드백 수집에 도움이 되는 리소스를 제공합니다.
 

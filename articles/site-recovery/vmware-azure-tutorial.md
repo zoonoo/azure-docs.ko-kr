@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 317cc5222b3444ae2ed242df694d317503c72a87
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9831305f3889f977a270630b40fa0d78ec1085bd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290667"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501204"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -87,7 +87,7 @@ ms.locfileid: "87290667"
 1. VMware vSphere 클라이언트를 사용하여 VMware vCenter 서버 또는 vSphere ESXi 호스트에 로그인합니다.
 2. **파일** 메뉴에서 **OVF 템플릿 배포**를 선택하여 **OVF 템플릿 배포 마법사**를 시작합니다.
 
-     ![OVF 템플릿](./media/vmware-azure-tutorial/vcenter-wizard.png)
+     ![VMWare vSphere 클라이언트의 OVF 템플릿 배포 명령 스크린샷](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
 3. **원본 선택**에서 다운로드한 OVF의 위치를 입력합니다.
 4. **리뷰 세부 정보**에서 **다음**을 선택합니다.
@@ -153,7 +153,7 @@ ms.locfileid: "87290667"
 1. **인프라 준비** > **대상**을 선택합니다. 사용할 Azure 구독을 선택합니다. Resource Manager 모델을 사용합니다.
 2. Site Recovery는 가상 네트워크가 하나 이상 있는지 확인합니다. 이 자습서 시리즈의 [첫 번째 자습서](tutorial-prepare-azure.md)에서 Azure 구성 요소를 설정할 때 다음과 같은 항목이 있어야 합니다.
 
-   ![대상 탭](./media/vmware-azure-tutorial/storage-network.png)
+   ![인프라 준비 > 대상 옵션의 스크린샷](./media/vmware-azure-tutorial/storage-network.png)
 
 ## <a name="create-a-replication-policy"></a>복제 정책 만들기
 
@@ -165,7 +165,7 @@ ms.locfileid: "87290667"
 6. **복구 지점 보존**에서 각 복구 지점이 보존되는 방법을 지정합니다. 이 자습서에서는 72시간을 사용합니다. 복제된 VM은 보존 기간 중 임의의 시점으로 복구될 수 있습니다.
 7. **앱 일치 스냅샷 빈도**에서 앱 일치 스냅샷이 만들어지는 빈도를 지정합니다. 기본값은 60분을 사용하고 있습니다. **확인**을 선택하여 정책을 만듭니다.
 
-   ![복제 정책 만들기](./media/vmware-azure-tutorial/replication-policy.png)
+   ![복제 정책 만들기 옵션의 스크린샷](./media/vmware-azure-tutorial/replication-policy.png)
 
 - 정책은 구성 서버와 자동으로 연결됩니다.
 - 기본적으로 장애 복구(failback)에 대해 일치 정책이 자동으로 만들어집니다. 예를 들어 복제 정책이 **rep-policy**인 경우 장애 복구(failback) 정책은 **rep-policy-failback**이 됩니다. 이 정책은 Azure에서 장애 복구(failback)를 시작하기 전에는 사용되지 않습니다.

@@ -9,16 +9,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: d5eef553d0d3bf5acbcb61ef8f2dcfab88a53266
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505771"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723166"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 온-프레미스 도메인에 대 한 Azure Active Directory Domain Services 리소스 포리스트 및 아웃 바운드 포리스트 트러스트 만들기
 
-암호 해시를 동기화할 수 없거나 스마트 카드를 사용하여 독점적으로 로그인하는 사용자가 자신의 암호를 모르는 환경에서는 Azure AD DS(Active Directory Domain Services)에서 리소스 포리스트를 사용할 수 있습니다. 리소스 포리스트는 Azure AD DS에서 하나 이상의 온-프레미스 AD DS 환경으로의 단방향 아웃바운드 트러스트를 사용합니다. 이 트러스트 관계를 통해 사용자, 애플리케이션 및 컴퓨터에서 Azure AD DS 관리형 도메인의 온-프레미스 도메인에 대해 인증할 수 있습니다. 리소스 포리스트에서 온-프레미스 암호 해시는 절대 동기화 되지 않습니다.
+암호 해시를 동기화할 수 없거나 스마트 카드를 사용하여 독점적으로 로그인하는 사용자가 자신의 암호를 모르는 환경에서는 Azure AD DS(Active Directory Domain Services)에서 리소스 포리스트를 사용할 수 있습니다. 리소스 포리스트는 Azure AD DS에서 하나 이상의 온-프레미스 AD DS 환경으로의 단방향 아웃바운드 트러스트를 사용합니다. 이 트러스트 관계를 통해 사용자, 애플리케이션 및 컴퓨터에서 Azure AD DS 관리형 도메인의 온-프레미스 도메인에 대해 인증할 수 있습니다. 리소스 포리스트에서 온-프레미스 암호 해시는 절대 동기화되지 않습니다.
 
 ![Azure AD DS에서 온-프레미스 AD DS로의 포리스트 트러스트에 대한 다이어그램](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
@@ -88,7 +88,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 1. 먼저 [AzResourceGroup][New-AzResourceGroup] cmdlet을 사용 하 여 리소스 그룹을 만듭니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹이 *westus* 지역에 만들어집니다. 자신의 이름과 원하는 지역을 사용합니다.
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzResourceGroup `
       -Name "myResourceGroup" `
       -Location "WestUS"
@@ -102,7 +102,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 1. 스크립트에 필요한 다음 매개 변수를 검토 `New-AzureAaddsForest` 합니다. 필수 구성 요소 **Azure PowerShell** 및 **Azure AD PowerShell** 모듈도 있는지도 확인 합니다. 응용 프로그램 및 온-프레미스 연결을 제공 하기 위한 가상 네트워크 요구 사항을 계획 했는지 확인 합니다.
 
-    | Name                         | 스크립트 매개 변수          | Description |
+    | Name                         | 스크립트 매개 변수          | 설명 |
     |:-----------------------------|---------------------------|:------------|
     | Subscription                 | *-azureSubscriptionId*    | Azure AD DS 청구에 사용 되는 구독 ID입니다. [Get-azurermsubscription][Get-AzureRMSubscription] cmdlet을 사용 하 여 구독 목록을 가져올 수 있습니다. |
     | 리소스 그룹               | *-aaddsResourceGroupName* | 관리 되는 도메인 및 관련 리소스에 대 한 리소스 그룹의 이름입니다. |
@@ -112,7 +112,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
     `New-AzureAaddsForest`이러한 리소스가 아직 없는 경우 스크립트는 azure 가상 네트워크 및 azure AD DS 서브넷을 만들 수 있습니다. 이 스크립트는 다음과 같이 지정 된 경우 작업 서브넷을 선택적으로 만들 수 있습니다.
 
-    | Name                              | 스크립트 매개 변수                  | Description |
+    | Name                              | 스크립트 매개 변수                  | 설명 |
     |:----------------------------------|:----------------------------------|:------------|
     | 가상 네트워크 이름              | *-aaddsVnetName*                  | 관리 되는 도메인에 대 한 가상 네트워크의 이름입니다.|
     | 주소 공간                     | *-aaddsVnetCIDRAddressSpace*      | 가상 네트워크의 주소 범위가 CIDR 표기법으로 되어 있습니다 (가상 네트워크를 만드는 경우).|
@@ -123,7 +123,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 1. 이제 스크립트를 사용 하 여 관리 되는 도메인 리소스 포리스트를 만듭니다 `New-AzureAaaddsForest` . 다음 예제에서는 *addscontoso.com* 라는 포리스트를 만들고 작업 서브넷을 만듭니다. 사용자 고유의 매개 변수 이름 및 IP 주소 범위 또는 기존 가상 네트워크를 제공 합니다.
 
-    ```azure-powershell
+    ```azurepowershell
     New-AzureAaddsForest `
         -azureSubscriptionId <subscriptionId> `
         -aaddsResourceGroupName "myResourceGroup" `
@@ -148,22 +148,22 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 1. Azure VPN 또는 Azure Express 경로 연결을 사용 하 여 온-프레미스 네트워크에 대 한 하이브리드 연결을 Azure에 만듭니다. 하이브리드 네트워크 구성은이 설명서의 범위를 벗어나 사용자 환경에 이미 있을 수 있습니다. 특정 시나리오에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-    * [Azure 사이트 간 VPN](/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Azure express 경로 개요](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Azure 사이트 간 VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+    * [Azure express 경로 개요](../expressroute/expressroute-introduction.md).
 
     > [!IMPORTANT]
     > 관리 되는 도메인의 가상 네트워크에 직접 연결을 만드는 경우 별도의 게이트웨이 서브넷을 사용 합니다. 관리 되는 도메인의 서브넷에서 게이트웨이를 만들지 마세요.
 
 1. 관리 되는 도메인을 관리 하려면 관리 VM을 만들고 관리 되는 도메인에 가입한 다음 필요한 AD DS 관리 도구를 설치 합니다.
 
-    관리 되는 도메인 리소스 포리스트를 배포 하는 동안 [Windows SERVER VM을 만든](https://docs.microsoft.com/azure/active-directory-domain-services/join-windows-vm) 다음 [핵심 AD DS 관리 도구를 설치](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-management-vm) 하 여 필요한 관리 도구를 설치 합니다. 도메인을 성공적으로 배포한 후 다음 단계 중 하나를 수행 하 여 관리 VM을 관리 되는 도메인에 조인 합니다.
+    관리 되는 도메인 리소스 포리스트를 배포 하는 동안 [Windows SERVER VM을 만든](./join-windows-vm.md) 다음 [핵심 AD DS 관리 도구를 설치](./tutorial-create-management-vm.md) 하 여 필요한 관리 도구를 설치 합니다. 도메인을 성공적으로 배포한 후 다음 단계 중 하나를 수행 하 여 관리 VM을 관리 되는 도메인에 조인 합니다.
 
 1. 온-프레미스 네트워크와 Azure 가상 네트워크 간의 네트워크 연결을 확인 합니다.
 
     * 예를 들어 온-프레미스 도메인 컨트롤러가 또는 원격 데스크톱을 사용 하 여 관리 되는 VM에 연결할 수 있는지 확인 `ping` 합니다.
     * 와 같은 유틸리티를 사용 하 여 관리 VM이 온-프레미스 도메인 컨트롤러에 다시 연결할 수 있는지 확인 `ping` 합니다.
 
-1. Azure Portal에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다. *Aaddscontoso.com* 와 같은 관리 되는 도메인을 선택 하 고 상태가 **실행 중**으로 보고 될 때까지 기다립니다.
+1. Azure Portal에서 **Azure AD Domain Services**를 검색하여 선택합니다. *Aaddscontoso.com* 와 같은 관리 되는 도메인을 선택 하 고 상태가 **실행 중**으로 보고 될 때까지 기다립니다.
 
     실행 되는 경우 [azure virtual network에 대 한 DNS 설정을 업데이트](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network) 한 후 [azure AD DS에 대 한 사용자 계정을 사용 하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) 하 여 관리 되는 도메인 리소스 포리스트의 구성을 마무리 합니다.
 
@@ -193,7 +193,7 @@ Install-Script -Name Add-AaddsResourceForestTrust
 
 이제 스크립트에 다음 정보를 제공 합니다.
 
-| Name                               | 스크립트 매개 변수     | Description |
+| Name                               | 스크립트 매개 변수     | 설명 |
 |:-----------------------------------|:---------------------|:------------|
 | Azure AD DS 도메인 이름            | *-ManagedDomainFqdn* | 관리 되는 도메인의 FQDN (예: *aaddscontoso.com* ) |
 | 온-프레미스 AD DS 도메인 이름      | *-TrustFqdn*         | 트러스트 된 포리스트의 FQDN (예: *onprem.contoso.com* ) |
@@ -204,7 +204,7 @@ Install-Script -Name Add-AaddsResourceForestTrust
 
 다음 예에서는 *onprem.contoso.com*에 *myAzureADDSTrust* 이라는 트러스트 관계를 만듭니다. 사용자 고유의 매개 변수 이름 및 암호를 사용 합니다.
 
-```azure-powershell
+```azurepowershell
 Add-AaddsResourceForestTrust `
     -ManagedDomainFqdn "aaddscontoso.com" `
     -TrustFqdn "onprem.contoso.com" `
@@ -260,7 +260,7 @@ Windows Server 가상 컴퓨터가 관리 되는 도메인 리소스 도메인�
 1. 원격 데스크톱 및 관리 되는 도메인 관리자 자격 증명을 사용 하 여 관리 되는 도메인 리소스 포리스트에 가입 된 Windows Server VM에 연결 합니다. 네트워크 수준 인증 (NLA) 오류가 발생 하는 경우 사용 된 사용자 계정이 도메인 사용자 계정이 아닙니다 .를 확인 합니다.
 
     > [!TIP]
-    > Azure AD Domain Services에 연결 된 Vm에 안전 하 게 연결 하려면 지원 되는 Azure 지역에서 [Azure 방호 호스트 서비스](https://docs.microsoft.com/azure/bastion/bastion-overview) 를 사용할 수 있습니다.
+    > Azure AD Domain Services에 연결 된 Vm에 안전 하 게 연결 하려면 지원 되는 Azure 지역에서 [Azure 방호 호스트 서비스](../bastion/bastion-overview.md) 를 사용할 수 있습니다.
 
 1. 명령 프롬프트를 열고, `whoami` 명령을 사용하여 현재 인증된 사용자의 고유 이름을 표시합니다.
 
@@ -286,7 +286,7 @@ Windows Server 가상 컴퓨터가 관리 되는 도메인 리소스 도메인�
 1. 원격 데스크톱 및 관리 되는 도메인 관리자 자격 증명을 사용 하 여 관리 되는 도메인 리소스 포리스트에 가입 된 Windows Server VM에 연결 합니다. 네트워크 수준 인증 (NLA) 오류가 발생 하는 경우 사용 된 사용자 계정이 도메인 사용자 계정이 아닙니다 .를 확인 합니다.
 
     > [!TIP]
-    > Azure AD Domain Services에 연결 된 Vm에 안전 하 게 연결 하려면 지원 되는 Azure 지역에서 [Azure 방호 호스트 서비스](https://docs.microsoft.com/azure/bastion/bastion-overview) 를 사용할 수 있습니다.
+    > Azure AD Domain Services에 연결 된 Vm에 안전 하 게 연결 하려면 지원 되는 Azure 지역에서 [Azure 방호 호스트 서비스](../bastion/bastion-overview.md) 를 사용할 수 있습니다.
 
 1. **Windows 설정**을 연 다음, **네트워크 및 공유 센터**를 검색하여 선택합니다.
 1. **고급 공유 설정 변경** 옵션을 선택합니다.

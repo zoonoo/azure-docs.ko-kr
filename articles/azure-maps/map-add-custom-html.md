@@ -1,6 +1,6 @@
 ---
 title: 맵에 HTML 표식 추가 | Microsoft Azure Maps
-description: 이 문서에서는 Microsoft Azure Maps Web SDK를 사용하여 맵에 HTML 표식을 추가하는 방법을 알아봅니다.
+description: 지도에 HTML 마커를 추가 하는 방법에 대해 알아봅니다. Azure Maps 웹 SDK를 사용 하 여 표식을 사용자 지정 하 고 마커에 팝업 및 마우스 이벤트를 추가 하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 9b7156bf5c266ccbba926a22a4afe46129ee3f1e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 58954a98215fd353c5944486446dab5664e5349c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286997"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035436"
 ---
 # <a name="add-html-markers-to-the-map"></a>맵에 HTML 표식 추가
 

@@ -3,12 +3,12 @@ title: Azure Service Bus에 대 한 문제 해결 가이드 | Microsoft Docs
 description: 이 문서에서는 예외 발생 시 수행할 수 있는 Azure Service Bus 메시징 예외 및 제안 된 작업 목록을 제공 합니다.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 6071aae85daa1852c9384656d7caf5e2deffd84e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 822a97a230a8646ddadde21eedc6c23d5e3efbd6
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071306"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067055"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure Service Bus에 대 한 문제 해결 가이드
 이 문서에서는 Azure Service Bus를 사용할 때 표시 될 수 있는 몇 가지 문제에 대 한 문제 해결 팁과 권장 사항을 제공 합니다. 
@@ -80,7 +80,7 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 Id에 Service Bus 항목에 액세스할 수 있는 권한이 없습니다. 
 
 ### <a name="resolution"></a>해결 방법
-이 오류를 해결 하려면 [Microsoft. Azure](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  자세한 내용은 [로컬 개발 인증](..\key-vault\service-to-service-authentication.md#local-development-authentication)을 참조 하세요. 
+이 오류를 해결 하려면 [Microsoft. Azure](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  자세한 내용은 [로컬 개발 인증](../key-vault/general/service-to-service-authentication.md#local-development-authentication)을 참조 하세요. 
 
 역할에 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 관리 Id 인증을 참조 하 여 Azure Service Bus 리소스에 액세스](service-bus-managed-service-identity.md)합니다.
 
@@ -101,5 +101,4 @@ Service Bus 네임 스페이스에 대 한 단일 연결을 사용 하 여 메�
 다음 문서를 참조하세요. 
 
 - [예외를 Azure Resource Manager](service-bus-resource-manager-exceptions.md)합니다. Azure Resource Manager (템플릿 또는 직접 호출을 통해)를 사용 하 여 Azure Service Bus와 상호 작용할 때 생성 되는 예외를 나열 합니다.
-- [메시징 예외](service-bus-messaging-exceptions.md). Azure Service Bus에 대해 .NET Framework에서 생성 된 예외 목록을 제공 합니다. 
-
+- [메시징 예외](service-bus-messaging-exceptions.md). Azure Service Bus에 대해 .NET Framework에서 생성 된 예외 목록을 제공 합니다.

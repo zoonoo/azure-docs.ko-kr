@@ -1,19 +1,17 @@
 ---
 title: Windows 가상 데스크톱에서 위임 된 액세스-Azure
 description: 예를 포함 하 여 Windows 가상 데스크톱 배포에서 관리 기능을 위임 하는 방법
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4e63ec864da9a6e7ce5448b322e0452503e2493c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f2aa2c74704cf89c082d2837b39e82902efa0a62
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853435"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010058"
 ---
 # <a name="delegated-access-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 위임된 액세스
 
@@ -40,18 +38,18 @@ Windows 가상 데스크톱 위임 된 액세스는 역할 할당의 각 요소�
 
 시작 하기 전에 [powershell 모듈 설정](powershell-module.md) 의 지침에 따라 Windows 가상 데스크톱 powershell 모듈을 설정 하지 않은 경우 확인 합니다.
 
-Windows 가상 데스크톱은 사용자 또는 사용자 그룹에 앱 그룹을 게시 하는 동안 Azure RBAC (역할 기반 액세스 제어)를 사용 합니다. 데스크톱 가상화 사용자 역할은 사용자 또는 사용자 그룹에 할당 되 고 범위는 앱 그룹입니다. 이 역할은 사용자에 게 앱 그룹에 대 한 특별 한 데이터 액세스를 제공 합니다.  
+Windows 가상 데스크톱은 사용자 또는 사용자 그룹에 앱 그룹을 게시 하는 동안 Azure RBAC (역할 기반 액세스 제어)를 사용 합니다. 데스크톱 가상화 사용자 역할은 사용자 또는 사용자 그룹에 할당 되 고 범위는 앱 그룹입니다. 이 역할은 사용자에 게 앱 그룹에 대 한 특별 한 데이터 액세스를 제공 합니다.
 
 앱 그룹에 Azure Active Directory 사용자를 추가 하려면 다음 cmdlet을 실행 합니다.
 
 ```powershell
-New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'  
+New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 앱 그룹에 사용자 그룹 Azure Active Directory 추가 하려면 다음 cmdlet을 실행 합니다.
 
 ```powershell
-New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -ObjectId <usergroupobjectid> -RoleDefinitionName "Desktop Virtualization User" -ResourceName <appgroupname> -ResourceGroupName <resourcegroupname> -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
 ## <a name="next-steps"></a>다음 단계

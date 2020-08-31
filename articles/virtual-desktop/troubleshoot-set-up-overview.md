@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 문제 해결 개요-Azure
 description: Windows 가상 데스크톱 환경을 설정 하는 동안 발생 하는 문제 해결에 대 한 개요입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4622e64b585d3d4795b11d29e7bffdf9991203c6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292545"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009361"
 ---
 # <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 문제 해결 개요, 피드백 및 지원
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md)를 참조하세요.
 
 이 문서에서는 Windows 가상 데스크톱 환경을 설정할 때 발생할 수 있는 문제에 대 한 개요를 제공 하 고 문제를 해결 하는 방법을 제공 합니다.
 

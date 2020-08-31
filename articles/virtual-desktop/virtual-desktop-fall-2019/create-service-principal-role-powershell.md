@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop(클래식) 서비스 사용자 역할 할당 - Azure
 description: Windows Virtual Desktop(클래식)에서 PowerShell을 사용하여 서비스 주체를 만들고 역할을 할당하는 방법을 설명합니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 015d0e0208b83cff3db3995383ce93ed6362ee49
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 67527967e76174fd0152775aed140ec89e1674ec
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270093"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008834"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell-in-windows-virtual-desktop-classic"></a>자습서: Windows Virtual Desktop(클래식)에서 PowerShell을 사용하여 서비스 주체 및 역할 할당 만들기
 

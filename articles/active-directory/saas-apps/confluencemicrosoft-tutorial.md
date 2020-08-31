@@ -2,26 +2,21 @@
 title: '자습서: Confluence SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
 description: Azure Active Directory와 Confluence SAML SSO by Microsoft 사이에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 1ad1cf90-52bc-4b71-ab2b-9a5a1280fb2d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7460a3c4a942194a66e585fed2b65be77b46b33e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9238a65643c9ff24166e9a9b9a05e8c924abfb37
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034148"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88544481"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>자습서: Confluence SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -68,7 +63,7 @@ Confluence SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 �
 
 - Confluence: 5.0 ~ 5.10
 - Confluence: 6.0.1 ~ 6.15.9
-- Confluence: 7.0.1 ~ 7.4.0
+- Confluence: 7.0.1 ~ 7.6.1
 
 > [!NOTE]
 > Confluence 플러그 인도 Ubuntu 버전 16.04에서 작동한다는 점에 유의하세요.

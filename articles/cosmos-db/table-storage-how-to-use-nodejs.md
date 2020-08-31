@@ -8,12 +8,13 @@ ms.topic: sample
 ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 2abe23de5fbd2feada6ac8ff0a827b8575bcb28b
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.custom: devx-track-javascript
+ms.openlocfilehash: cfcb5645a6284214e233758705537486f32967c6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171996"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079300"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 
@@ -122,7 +123,7 @@ function (returnObject, finalCallback, next)
 
 이 콜백에서 `returnObject`(서버에 요청 응답 반환)를 처리한 후 콜백은 `next`(있는 경우)를 호출하여 다른 필터를 계속 처리하거나 그렇지 않은 경우 `finalCallback`을 호출하여 서비스 호출을 종료해야 합니다.
 
-Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 `ExponentialRetryPolicyFilter** and `LinearRetryPolicyFilter`. The following creates a `TableService` object that uses the `ExponentialRetryPolicyFilter`가 포함되어 있습니다.
+재시도 논리를 구현하는 두 개의 필터는 Node.js용 Azure SDK, `ExponentialRetryPolicyFilter` 및 `LinearRetryPolicyFilter`를 포함합니다. 다음은 `ExponentialRetryPolicyFilter`를 사용하는 `TableService` 개체를 만듭니다.
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -483,5 +484,5 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * GitHub의 [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) 리포지토리
 * [Node.js 개발자용 Azure](https://docs.microsoft.com/azure/developer/javascript/)
-* [Azure에서 Node.js 웹앱 만들기](../app-service/app-service-web-get-started-nodejs.md)
+* [Azure에서 Node.js 웹앱 만들기](../app-service/quickstart-nodejs.md)
 * [Node.js 애플리케이션 빌드 및 Azure 클라우드 서비스에 배포](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (Windows PowerShell 사용)

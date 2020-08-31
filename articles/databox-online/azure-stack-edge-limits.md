@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Edge 제한 | Microsoft Docs
-description: Azure Stack Edge에 대 한 시스템 제한 및 권장 크기를 설명 합니다.
+description: 서비스 한도, 장치 제한 및 저장소 제한을 포함 하 여 Azure Stack Edge를 배포 하 고 작동할 때 제한 사항 및 권장 크기에 대해 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 4f7800efb5d4382e8d73c819d950fdfafd10f296
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bbcf3f61121813b91cb951809992d10977a640c
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82569837"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87922713"
 ---
 # <a name="azure-stack-edge-limits"></a>Azure Stack Edge 제한 사항
 

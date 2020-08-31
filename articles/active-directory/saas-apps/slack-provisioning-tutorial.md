@@ -2,25 +2,20 @@
 title: '자습서: 여유 시간에 대 한 사용자 프로 비전-Azure AD'
 description: 사용자 계정을 Slack으로 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ca536ddacb0f81459625b733eb79282e145afba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 368d75ecffda49f688a7a5ce11b60693650014c6
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87016323"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88527828"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Slack 구성
 
@@ -166,7 +161,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
 1. [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
-2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+2. [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 3. 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
@@ -187,7 +182,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 * 여유 시간에는 **사용자 이름** 및 **전자 메일과**특성만 사용할 수 있습니다.  
   
-* 일반적인 오류 코드는 공식 여유 시간 설명서에 설명 되어 있습니다.https://api.slack.com/scim#errors
+* 일반적인 오류 코드는 공식 여유 시간 설명서에 설명 되어 있습니다. https://api.slack.com/scim#errors
 
 ## <a name="change-log"></a>로그 변경
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 27fcbcec07012dc34c846f316fccf788a0d25329
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84025814"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921217"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Azure Portal를 사용 하 여 Azure SQL Database에서 데이터베이스의 �
 
 ## <a name="viewing-recommendations"></a>권장 사항 보기
 
-성능 권장 사항을 보고 적용하려면 Azure에서 올바른 [역할 기반 액세스 제어](../../role-based-access-control/overview.md) 권한이 필요합니다. 권장 사항을 보려면 **읽기 권한자**, **SQL DB 참가자** 권한이 필요하고, 모든 동작(인덱스 만들기 또는 삭제, 인덱스 만들기 취소)을 실행하려면 **소유자**, **SQL DB 참가자** 권한이 필요합니다.
+성능 권장 사항을 보고 적용 하려면 Azure에서 올바른 [AZURE RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 권한이 필요 합니다. 권장 사항을 보려면 **읽기 권한자**, **SQL DB 참가자** 권한이 필요하고, 모든 동작(인덱스 만들기 또는 삭제, 인덱스 만들기 취소)을 실행하려면 **소유자**, **SQL DB 참가자** 권한이 필요합니다.
 
 다음 단계를 사용 하 여 Azure Portal에 대 한 성능 권장 사항을 찾을 수 있습니다.
 
@@ -129,11 +129,11 @@ Azure SQL Database는 다음 세 가지 옵션을 사용하여 권장 사항을 
 
 | 상태 | 설명 |
 |:--- |:--- |
-| 보류 중 |권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
+| Pending |권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
 | 실행 중 |권장 사항을 적용 중입니다. |
 | 유효성 검사 중 |권장 사항이 성공적으로 적용되면 서비스가 성능을 측정합니다. |
-| 성공 |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
-| Error |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
+| Success |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
+| 오류 |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
 | 되돌리기 |권장 사항이 적용되었지만 효율적이지 않은 것으로 간주되어 자동으로 되돌리고 있습니다. |
 | 되돌림 |권장 사항을 되돌렸습니다. |
 
@@ -168,8 +168,8 @@ Azure SQL Database는 데이터베이스 성능을 향상 시키기 위한 권�
 * Azure SQL Database 성능 권장 사항에 대한 개요는 [성능 권장 사항](database-advisor-implement-performance-recommendations.md)을 참조하세요.
 * 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insights](query-performance-insight-use.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE  INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [역할 기반 액세스 제어](../../role-based-access-control/overview.md)
+* [Azure 역할 기반 access control (Azure RBAC)](../../role-based-access-control/overview.md)

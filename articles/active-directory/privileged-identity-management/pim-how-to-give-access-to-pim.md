@@ -10,27 +10,27 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17847546ace558d367aed6d935db0fed6d817f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742201"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009565"
 ---
-# <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>다른 관리자에 게 Privileged Identity Management을 관리할 수 있는 권한 부여
+# <a name="delegate-access-to-privileged-identity-management"></a>Privileged Identity Management에 대 한 액세스 위임
 
-조직에서 PIM (Privileged Identity Management)을 사용 하도록 설정 하는 전역 관리자는 자동으로 역할 할당 및 Privileged Identity Management에 대 한 액세스를 가져옵니다. 다른 전역 관리자를 비롯 하 여 기본적으로 Azure Active Directory (Azure AD) 조직에는 쓰기 액세스 권한이 없습니다. 다른 전역 관리자, 보안 관리자 및 보안 독자에 게는 Privileged Identity Management에 대 한 읽기 전용 액세스 권한이 있습니다. Privileged Identity Management에 대 한 액세스 권한을 부여 하기 위해 첫 번째 사용자는 **권한 있는 역할 관리자** 역할에 다른 사용자를 할당할 수 있습니다.
+PIM (Privileged Identity Management)에 대 한 액세스를 위임 하기 위해 전역 관리자는 권한 있는 역할 관리자 역할에 다른 사용자를 할당할 수 있습니다. 기본적으로 보안 관리자 및 보안 읽기 권한자는 Privileged Identity Management에 대 한 읽기 전용 액세스 권한을 갖습니다. Privileged Identity Management에 대 한 액세스 권한을 부여 하기 위해 첫 번째 사용자는 **권한 있는 역할 관리자** 역할에 다른 사용자를 할당할 수 있습니다. 권한 있는 역할 관리자 역할은 Azure AD 역할만 관리 하는 데 필요 합니다. 권한 있는 역할 관리자 권한은 Azure 리소스에 대 한 설정을 관리 하는 데 필요 하지 않습니다.
 
 > [!NOTE]
 > Privileged Identity Management를 관리 하려면 Azure Multi-Factor Authentication 필요 합니다. Microsoft 계정은 Azure Multi-Factor Authentication에 등록할 수 없으므로 Microsoft 계정를 사용 하 여 로그인 하는 사용자는 Privileged Identity Management에 액세스할 수 없습니다.
 
 한 명의 사용자가 잠긴 경우 또는 해당 계정이 삭제된 경우 최소한 두 명의 사용자가 항상 권한 있는 역할 관리자 역할에 있어야 합니다.
 
-## <a name="grant-access-to-manage-pim"></a>PIM을 관리하기 위한 액세스 권한 부여
+## <a name="delegate-access-to-manage-pim"></a>PIM을 관리 하기 위한 액세스 권한 위임
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -46,9 +46,9 @@ ms.locfileid: "84742201"
 
     ![권한 있는 역할 관리자 - 멤버](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
-1. **구성원 추가** 를 선택 하 여 관리 되는 멤버 추가 창을 엽니다.
+1. **구성원 추가** 를 선택 하 여 **관리 되는 멤버 추가** 창을 엽니다.
 
-1. 멤버 **선택** 을 선택 하 여 멤버 선택 창을 엽니다.
+1. 멤버 **선택** 을 선택 하 여 **멤버 선택** 창을 엽니다.
 
     ![권한 있는 역할 관리자 - 멤버 선택](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
 

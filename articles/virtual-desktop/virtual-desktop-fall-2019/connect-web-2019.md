@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 (클래식) 웹 클라이언트 연결-Azure
 description: 웹 클라이언트를 사용 하 여 Windows 가상 데스크톱 (클래식)에 연결 하는 방법
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: efe97c86ebfac8e130489b3105a97302866d6822
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c8a55e35ba89caefc362024fc871ac5eb800447b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270382"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008426"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-web-client"></a>웹 클라이언트를 사용 하 여 Windows 가상 데스크톱 (클래식)에 연결
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../connect-web.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../connect-web.md)를 참조하세요.
 
 웹 클라이언트를 사용하면 시간이 오래 걸리는 설치 프로세스 없이 웹 브라우저에서 Windows Virtual Desktop 리소스에 액세스할 수 있습니다.
 

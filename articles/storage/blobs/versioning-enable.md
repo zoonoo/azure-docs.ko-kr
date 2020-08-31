@@ -1,24 +1,29 @@
 ---
 title: Blob 버전 관리 설정 및 관리 (미리 보기)
 titleSuffix: Azure Storage
-description: Azure Portal 또는 Azure Resource Manager 템플릿을 사용 하 여 blob 버전 관리를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
+description: Azure Portal 또는 Azure Resource Manager 템플릿을 사용 하 여 blob 버전 관리 (미리 보기)를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7e8d712a3477fe7dd9b963f203b3374dd5fa2a2e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086050"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001062"
 ---
-# <a name="enable-and-manage-blob-versioning"></a>Blob 버전 관리 설정 및 관리
+# <a name="enable-and-manage-blob-versioning-preview"></a>Blob 버전 관리 설정 및 관리 (미리 보기)
 
-Azure Portal 또는 Azure Resource Manager 템플릿을 사용 하 여 언제 든 지 저장소 계정에 대 한 blob 버전 관리 (미리 보기)를 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
+Blob storage 버전 관리 (미리 보기)를 사용 하도록 설정 하 여 이전 버전의 개체를 자동으로 유지 관리할 수 있습니다.  Blob 버전 관리를 사용 하는 경우 데이터를 잘못 수정 하거나 삭제 한 경우 이전 버전의 blob을 복원 하 여 데이터를 복구할 수 있습니다.
+
+이 문서에서는 Azure Portal 또는 Azure Resource Manager 템플릿을 사용 하 여 저장소 계정에 대 한 blob 버전 관리를 사용 하거나 사용 하지 않도록 설정 하는 방법을 보여 줍니다.
+
+Blob 버전 관리를 사용 하도록 설정 하기 전에 미리 보기에 등록 해야 합니다. 미리 보기에 등록 하는 방법을 비롯 하 여 blob 버전 관리에 대해 자세히 알아보려면 [blob 버전 관리 (미리 보기)](versioning-overview.md)를 참조 하세요.
 
 ## <a name="enable-blob-versioning"></a>BLOB 버전 관리 사용
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 894eecc7746ddb1352708f2dfe5d6d2d53cdd8c9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9c1b694d3a50759dcf49222f4e6b27ac7b34f9e5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021656"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502157"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Synapse SQL에서 인증에 Azure Active Directory 인증 사용
 
@@ -99,7 +99,7 @@ Synapse SQL에 포함된 데이터베이스 사용자를 만들려면 Azure AD I
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-## <a name="connecting-using-azure-ad-identities"></a>Azure AD ID를 사용하여 연결
+## <a name="connect-using-azure-ad-identities"></a>Azure AD ID를 사용하여 연결
 
 Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베이스에 연결하는 다음 방법을 지원합니다.
 

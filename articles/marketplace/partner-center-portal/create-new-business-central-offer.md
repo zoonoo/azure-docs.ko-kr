@@ -1,18 +1,18 @@
 ---
 title: Dynamics 365 Business Central 제품 만들기 - Microsoft 상업용 Marketplace
-description: 파트너 센터의 상업용 Marketplace 포털에서 새 Dynamics 365 Business Central 제품을 만들기 위한 단계 및 고려 사항을 알아봅니다. Azure Marketplace에서 또는 CSP(클라우드 솔루션 공급자) 프로그램을 통해 제품을 나열하거나 판매할 수 있습니다.
+description: 파트너 센터의 Microsoft 상업적 marketplace에서 새로운 Dynamics 365 비즈니스 센터 제품을 만들기 위한 단계 및 고려 사항에 대해 알아봅니다. Azure Marketplace에서 또는 CSP(클라우드 솔루션 공급자) 프로그램을 통해 제품을 나열하거나 판매할 수 있습니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 06/17/2020
-ms.openlocfilehash: 5ec8949d1ba614ca947f9848182ae2c94e044fc3
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: 4226f9cc45589b8c555d3d54918e31a04acbfc6b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800401"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817054"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Dynamics 365 Business Central 제품 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "87800401"
     ![왼쪽 탐색 메뉴를 보여 줍니다.](./media/new-offer-dynamics-365-business-central.png)
 
 > [!NOTE]
-> 제품이 게시된 후 파트너 센터에서 해당 제품에 대해 편집한 내용이 상점에 표시되려면 제품을 다시 게시해야 합니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
+> 제품을 게시 한 후에는 제품을 다시 게시 한 후에만 파트너 센터에서 해당 제품에 대 한 편집 내용이 온라인 매장에 표시 됩니다. 변경을 수행한 후에는 항상 다시 게시해야 합니다.
 
 ## <a name="new-offer"></a>새 제안
 
@@ -131,7 +131,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. 설명
+9. Description
 10. 스크린샷/비디오
 
 ### <a name="name"></a>속성
@@ -180,19 +180,21 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 백서, 브로슈어, 검사 목록, 프레젠테이션 등의 관련 마케팅 문서를 하나 이상(3개까지) 제공합니다. 이러한 문서는 .pdf 형식이어야 합니다.
 
-### <a name="store-logos"></a>스토어 로고
+### <a name="marketplace-images"></a>Marketplace 이미지
 
-**큰** 크기의 로고 (216 x 216 및 350 x 350 픽셀)에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** (48 x 48 픽셀) 크기 로고를 만듭니다. 필요에 따라이를 다른 이미지로 바꿀 수 있습니다.
+**큰** 크기의 로고에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로이를 바꿀 수 있습니다.
 
-목록의 다른 위치에서 사용 하려면 두 로고 크기가 모두 필요 합니다.
+- **큼** (216 x 216에서 350 x 350 px, required)
+- **작음** (48 x 48 px, 선택 사항)
 
-- **소형**(48 x 48)
-- **큼** (216 x 216 및 350 x 350)
+이러한 로고는 목록의 다른 위치에서 사용 됩니다.
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >파일을 업로드하는 동안 문제가 발생한 경우 로컬 네트워크가 파트너 센터에서 사용하는 `https://upload.xboxlive.com` 서비스를 차단하지 않는지 확인하세요.
-
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>스크린샷
 

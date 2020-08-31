@@ -3,18 +3,18 @@ title: Azure IoT Central 애플리케이션 만들기 | Microsoft Docs
 description: 새로운 Azure IoT Central 애플리케이션을 만듭니다. 무료 가격 책정 플랜 또는 표준 가격 책정 플랜을 사용하여 애플리케이션 만들기
 author: viv-liu
 ms.author: viviali
-ms.date: 02/12/2020
+ms.date: 07/30/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: b670776804c9758774bf216052254148f063e7da
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 4b939505f807385f235def2606d0f29564f5d08f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758154"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552580"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Azure IoT Central 애플리케이션 만들기
 
@@ -43,8 +43,11 @@ ms.locfileid: "81758154"
     ![Azure IoT Central 청구 정보](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
 
     > [!NOTE]
-    > 이전 페이지에서 **사용자 지정 앱**을 선택한 경우 **애플리케이션 템플릿** 드롭다운이 표시됩니다. 여기에서 사용자 지정 및 레거시 템플릿 사이를 전환할 수 있습니다. 조직에서 사용할 수 있게 된 다른 템플릿도 표시될 수 있습니다.
+    > 이전 페이지에서 **사용자 지정 앱**을 선택한 경우 **애플리케이션 템플릿** 드롭다운이 표시됩니다. 조직에서 제공하는 다른 템플릿이 드롭다운에 표시될 수 있습니다. 
 
+    >[!IMPORTANT]
+    >이전에 레거시 애플리케이션 템플릿에서 사용할 수 있었던 모든 기능을 이제는 최신 **사용자 지정 애플리케이션** 템플릿(V3)에서 사용할 수 있으므로, **사용자 지정 애플리케이션(레거시)** 템플릿(V2)이 사용 중지되었습니다. 
+    
 1. 7일 무료 평가판 가격 책정 플랜 또는 표준 가격 책정 플랜을 사용하여 이 애플리케이션을 만들도록 선택합니다.
 
     - *무료* 플랜을 사용하여 만든 애플리케이션은 7일 동안 무료로 제공되며 최대 5개의 디바이스를 지원합니다. 만료되기 전에 언제든지 표준 가격 책정 플랜을 사용하도록 변환할 수 있습니다.

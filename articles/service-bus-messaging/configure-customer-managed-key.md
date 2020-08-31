@@ -3,12 +3,12 @@ title: 휴지 상태의 데이터를 암호화 하기 위한 고유한 키 구�
 description: 이 문서에서는 rest Azure Service Bus 데이터를 암호화 하기 위한 고유한 키를 구성 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ca1597f26ec1c7ccaa578d4e7dcd68e0ef54f60c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97de8df336367a74f66628675569c06d7726f2a4
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85475988"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067242"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 데이터 Azure Service Bus 데이터를 암호화 하기 위해 고객이 관리 하는 키 구성
 Azure Service Bus Premium은 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Service Bus Premium은 Azure Storage를 사용 하 여 데이터를 저장 하며, 기본적으로 Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 
@@ -21,7 +21,7 @@ BYOK 기능을 사용 하도록 설정 하는 작업은 네임 스페이스에�
 > [!NOTE]
 > 서비스 쪽 암호화에 대 한 고객 관리 키에는 몇 가지 주의 사항이 있습니다. 
 >   * 이 기능은 [Azure Service Bus 프리미엄](service-bus-premium-messaging.md) 계층에서 지원 됩니다. 표준 계층 Service Bus 네임 스페이스에 대해 사용 하도록 설정할 수 없습니다.
->   * 암호화는 새 네임 스페이스 또는 빈 네임 스페이스에만 사용할 수 있습니다. 네임 스페이스에 데이터가 포함 되어 있으면 암호화 작업이 실패 합니다.
+>   * 암호화는 새 네임 스페이스 또는 빈 네임 스페이스에만 사용할 수 있습니다. 네임 스페이스에 큐 또는 항목이 포함 되어 있으면 암호화 작업이 실패 합니다.
 
 Azure Key Vault를 사용 하 여 키를 관리 하 고 키 사용을 감사할 수 있습니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](../key-vault/general/overview.md)
 
@@ -44,7 +44,7 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
 
 고객이 관리 하는 키를 사용 하도록 설정한 후에는 고객 관리 키를 Azure Service Bus 네임 스페이스와 연결 해야 합니다. Service Bus은 Azure Key Vault만 지원 합니다. 이전 섹션에서 **고객이 관리 하는 키로 암호화** 옵션을 사용 하도록 설정 하는 경우 키를 Azure Key Vault으로 가져와야 합니다. 또한 키에는 **일시 삭제** 및 키에 대해 구성 된 **제거 안 함** 이 있어야 합니다. 이러한 설정은 [PowerShell](../key-vault/general/soft-delete-powershell.md) 또는 [CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection)를 사용 하 여 구성할 수 있습니다.
 
-1. 새 키 자격 증명 모음을 만들려면 Azure Key Vault [빠른](../key-vault/general/overview.md)시작을 수행 합니다. 기존 키를 가져오는 방법에 대 한 자세한 내용은 [키, 암호 및 인증서 정보](../key-vault/about-keys-secrets-and-certificates.md)를 참조 하세요.
+1. 새 키 자격 증명 모음을 만들려면 Azure Key Vault [빠른](../key-vault/general/overview.md)시작을 수행 합니다. 기존 키를 가져오는 방법에 대 한 자세한 내용은 [키, 암호 및 인증서 정보](../key-vault/general/about-keys-secrets-certificates.md)를 참조 하세요.
 1. 자격 증명 모음을 만들 때 일시 삭제 및 제거 보호를 모두 켜려면 [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) 명령을 사용 합니다.
 
     ```azurecli-interactive
@@ -323,5 +323,3 @@ Azure 키 자격 증명 모음 회전 메커니즘을 사용 하 여 키 자격 
 다음 문서를 참조하세요.
 - [Service Bus 개요](service-bus-messaging-overview.md)
 - [Key Vault 개요](../key-vault/general/overview.md)
-
-

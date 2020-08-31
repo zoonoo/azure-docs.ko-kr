@@ -3,16 +3,16 @@ title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: a4e21f29762a30baec8d5cf6e3914da2b5faadeb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321771"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002778"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
 
-리소스 관리를 간소화 하기 위해 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 Azure 구독 수준에서 리소스를 배포할 수 있습니다. 예를 들어 구독에 적용 되는 [정책](../../governance/policy/overview.md) 및 [역할 기반 액세스 제어](../../role-based-access-control/overview.md) 를 구독에 배포할 수 있습니다. 구독 내에서 리소스 그룹을 만들고 구독의 리소스 그룹에 리소스를 배포할 수도 있습니다.
+리소스 관리를 간소화 하기 위해 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 Azure 구독 수준에서 리소스를 배포할 수 있습니다. 예를 들어 구독에 [정책](../../governance/policy/overview.md) 및 [azure 역할 기반 액세스 제어 (azure RBAC)](../../role-based-access-control/overview.md) 를 배포 하 여 구독 전체에 적용할 수 있습니다. 구독 내에서 리소스 그룹을 만들고 구독의 리소스 그룹에 리소스를 배포할 수도 있습니다.
 
 > [!NOTE]
 > 구독 수준 배포에서 800개의 다른 리소스 그룹에 배포할 수 있습니다.
@@ -473,7 +473,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Access Control
 
-역할 할당에 관해 알아보려면 [RBAC 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-template.md)를 참조하세요.
+역할 할당에 대해 알아보려면 [Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당 추가](../../role-based-access-control/role-assignments-template.md)를 참조 하세요.
 
 다음 예제에서는 리소스 그룹을 만들고 해당 그룹에 잠금을 적용 한 다음 보안 주체에 역할을 할당 합니다.
 

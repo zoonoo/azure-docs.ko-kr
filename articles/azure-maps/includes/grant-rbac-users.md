@@ -9,16 +9,16 @@ ms.topic: include
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8dfc3714362b082168c32ba73e234e9b5fb43525
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 816e4e439bb98ced8bbc5b5d8a7d38ef65aee33f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545112"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010955"
 ---
 ## <a name="grant-role-based-access-for-users-to-azure-maps"></a>Azure Maps 사용자에 게 역할 기반 액세스 권한 부여
 
-하나 이상의 Azure Maps 액세스 제어 역할 정의에 Azure AD 그룹 또는 보안 주체를 할당 하 여 RBAC ( *역할 기반 액세스 제어* )를 부여 합니다. Azure Maps 사용할 수 있는 Azure 역할 정의를 보려면 **Access control (IAM)** 로 이동 합니다. **역할**을 선택한 다음 *Azure Maps*로 시작 하는 역할을 검색 합니다.
+Azure AD 그룹 또는 보안 주체를 하나 이상의 Azure Maps 역할 정의에 할당 하 여 azure *RBAC (역할 기반 액세스 제어)* 를 부여 합니다. Azure Maps 사용할 수 있는 Azure 역할 정의를 보려면 **Access control (IAM)** 로 이동 합니다. **역할**을 선택한 다음 *Azure Maps*로 시작 하는 역할을 검색 합니다.
 
 * Azure Maps에 대 한 많은 양의 사용자 액세스를 효율적으로 관리 하려면 [AZURE AD 그룹](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)을 참조 하세요.
 * 사용자가 응용 프로그램에 대 한 인증을 받을 수 있도록 하려면 Azure AD에서 사용자를 만들어야 합니다. [AZURE AD를 사용 하 여 사용자 추가 또는 삭제](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory)를 참조 하세요.
@@ -27,7 +27,7 @@ ms.locfileid: "87545112"
 
 1. **Azure Maps 계정**으로 이동 합니다. **액세스 제어 (IAM)**  >  **역할 할당**을 선택 합니다.
 
-    ![RBAC 부여](../media/how-to-manage-authentication/how-to-grant-rbac.png)
+    ![Azure RBAC를 사용 하 여 액세스 권한 부여](../media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. **역할 할당** 탭의 **역할**에서 **Azure Maps 데이터 판독기** 또는 **Azure Maps 데이터 참가자**와 같은 기본 제공 Azure Maps 역할 정의를 선택 합니다. **액세스 할당**에서 **Azure AD 사용자, 그룹 또는 서비스 보안 주체**를 선택합니다. 이름으로 보안 주체를 선택 합니다. 그런 다음 **저장**을 선택합니다.
 

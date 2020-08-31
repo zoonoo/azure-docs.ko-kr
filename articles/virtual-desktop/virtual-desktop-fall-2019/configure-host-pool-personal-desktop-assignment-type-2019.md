@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 (클래식) 개인 데스크톱 할당 유형-Azure
 description: Windows 가상 데스크톱 (클래식) 개인 데스크톱 호스트 풀의 할당 유형을 구성 하는 방법입니다.
-services: virtual-desktop
-author: HeidiLohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76b68ba0a51d250e4ce143314c9126597133e97f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 669010d2de90498c98fc685fe931b084a11cd104
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87271045"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008511"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type-for-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱 (클래식)에 대 한 개인 데스크톱 호스트 풀 할당 유형 구성
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../configure-host-pool-personal-desktop-assignment-type.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../configure-host-pool-personal-desktop-assignment-type.md)를 참조하세요.
 
 사용자의 요구에 맞게 Windows Virtual Desktop 환경을 조정하도록 개인 데스크톱 호스트 풀의 할당 유형을 구성할 수 있습니다. 이 항목에서는 사용자에 대한 자동 또는 직접 할당을 구성하는 방법을 보여 줍니다.
 

@@ -6,15 +6,15 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: dseven
-ms.author: mihansen
-author: hansenms
+ms.author: matjazl
+author: matjazl
 ms.date: 02/07/2019
-ms.openlocfilehash: 684f85042fd09c14621801ec017fea0e632f2598
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f8b5e344fc963d466571e75ff16f17367dc32971
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "84870533"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844850"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Postman을 사용하여 Azure API for FHIR 액세스
 
@@ -23,6 +23,7 @@ ms.locfileid: "84870533"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure의 FHIR 엔드포인트. 관리되는 Azure API for FHIR 또는 오픈 소스 FHIR server for Azure를 사용하여 설정할 수 있습니다. [Azure Portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md) 또는 [Azure CLI](fhir-paas-cli-quickstart.md)를 사용하여 관리되는 Azure API for FHIR을 설정합니다.
+- FHIR 서비스에 액세스하는 데 사용할 [클라이언트 애플리케이션](register-confidential-azure-ad-client-app.md)
 - Postman 설치. [https://www.getpostman.com](https://www.getpostman.com)에서 가져올 수 있습니다.
 
 ## <a name="fhir-server-and-authentication-details"></a>FHIR 서버 및 인증 세부 정보
@@ -108,7 +109,7 @@ Azure API for FHIR에 대한 메타데이터 URL은 `https://MYACCOUNT.azureheal
 }
 ```
 
-문제 해결 시 올바른 대상(`aud` 클레임)이 있는지 확인하는 것이 좋습니다. 토큰에 올바른 발급자(`iss` 클레임)가 있고 올바른 대상(`aud` 클레임)이 있지만 FHIR API에 액세스할 수 없는 경우에는 사용자 또는 서비스 주체(`oid` 클레임)가 FHIR 데이터 평면에 액세스할 수 없는 것일 수 있습니다. [Azure Role Based Access Control을 사용](configure-azure-rbac.md)하여 사용자에게 데이터 평면 역할을 할당하는 것이 좋습니다. 데이터 평면에 대한 외부의 보조 Azure Active Directory 테넌트를 사용하는 경우 [로컬 RBAC 할당을 구성](configure-local-rbac.md)해야 합니다.
+문제 해결 시 올바른 대상(`aud` 클레임)이 있는지 확인하는 것이 좋습니다. 토큰에 올바른 발급자(`iss` 클레임)가 있고 올바른 대상(`aud` 클레임)이 있지만 FHIR API에 액세스할 수 없는 경우에는 사용자 또는 서비스 주체(`oid` 클레임)가 FHIR 데이터 평면에 액세스할 수 없는 것일 수 있습니다. [Azure RBAC(Azure 역할 기반 액세스 제어)를 사용](configure-azure-rbac.md)하여 사용자에게 데이터 평면 역할을 할당하는 것이 좋습니다. 데이터 평면에 대한 외부의 보조 Azure Active Directory 테넌트를 사용하는 경우 [로컬 RBAC 할당을 구성](configure-local-rbac.md)해야 합니다.
 
 또한 [Azure CLI를 사용하여 Azure API for FHIR에 대한 토큰을 가져올](get-healthcare-apis-access-token-cli.md) 수 있습니다. Azure CLI에서 얻은 토큰을 사용하는 경우 권한 부여 유형 “전달자 토큰”을 사용하여 토큰을 직접 붙여넣어야 합니다.
 

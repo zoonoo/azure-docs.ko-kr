@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)의 클러스터 격리에 대한 클
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cdeecabf569e3c6f9b280e6b0179e5378f5b1c95
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077768"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003112"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 격리 모범 사례
 
@@ -24,7 +24,7 @@ AKS(Azure Kubernetes Service)에서 클러스터를 관리할 경우 종종 팀 
 
 ## <a name="design-clusters-for-multi-tenancy"></a>다중 테넌트용 클러스터 설계
 
-Kubernetes는 동일한 클러스터에서 팀 및 워크로드를 논리적으로 격리할 수 있는 기능을 제공합니다. 목표는 각 팀에 필요한 리소스로 범위가 지정된 가장 적은 권한을 제공하는 것입니다. Kubernetes의 [네임스페이스][k8s-namespaces]는 논리적 격리 경계를 만듭니다. 격리 및 다중 테 넌 트에 대 한 추가 Kubernetes 기능 및 고려 사항은 다음과 같습니다.
+Kubernetes는 동일한 클러스터에서 팀 및 워크로드를 논리적으로 격리할 수 있는 기능을 제공합니다. 목표는 각 팀에 필요한 리소스로 범위가 지정된 가장 적은 권한을 제공하는 것입니다. Kubernetes의 [네임 스페이스][k8s-namespaces] 는 논리적 격리 경계를 만듭니다. 격리 및 다중 테 넌 트에 대 한 추가 Kubernetes 기능 및 고려 사항은 다음과 같습니다.
 
 * **예약**에는 리소스 할당량 및 Pod 중단 예산과 같은 기본 기능 사용이 포함됩니다. 이러한 기능에 대한 자세한 내용은 [AKS의 기본 스케줄러 기능 모범 사례][aks-best-practices-scheduler]를 참조하세요.
   * 더 고급 스케줄러 기능에는 taint/toleration, 노드 선택기 및 노드/Pod 선호도 또는 선호도 방지가 포함됩니다. 이러한 기능에 대한 자세한 내용은 [AKS의 고급 스케줄러 기능 모범 사례][aks-best-practices-advanced-scheduler]를 참조하세요.
@@ -42,7 +42,7 @@ Kubernetes는 동일한 클러스터에서 팀 및 워크로드를 논리적으�
 
 클러스터의 논리적 분리는 일반적으로 클러스터를 물리적으로 분리하는 것보다 더 높은 Pod 밀도를 제공합니다. 클러스터에서 유휴 상태인 여유 컴퓨팅 용량이 부족합니다. Kubernetes 클러스터 자동 크기 조정기와 결합된 경우에는 요구에 맞게 노드 수를 강화 또는 규모 축소할 수 있습니다. 이 자동 크기 조정의 모범 사례 접근 방식을 사용하면 필요한 만큼만 노드를 실행하고 비용을 최소화할 수 있습니다.
 
-AKS 또는 다른 곳의 Kubernetes 환경은 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. 다중 테 넌 트 환경에서 여러 테 넌 트가 일반적인 공유 인프라에서 작동 하 고 있습니다. 결과적으로 모든 테 넌 트를 신뢰할 수 없는 경우에는 다른 테 넌 트가 다른 테 넌 트의 보안 및 서비스에 영향을 주지 않도록 추가 계획을 수행 해야 합니다. *Pod 보안 정책*과 같은 추가 보안 기능과 노드에 대해 보다 세분화된 RBAC(역할 기반 액세스 제어)를 사용하면 악용이 더 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다.
+AKS 또는 다른 곳의 Kubernetes 환경은 악의적인 다중 테넌트 사용에 대해 완전히 안전하지 않습니다. 다중 테 넌 트 환경에서 여러 테 넌 트가 일반적인 공유 인프라에서 작동 하 고 있습니다. 결과적으로 모든 테 넌 트를 신뢰할 수 없는 경우에는 다른 테 넌 트가 다른 테 넌 트의 보안 및 서비스에 영향을 주지 않도록 추가 계획을 수행 해야 합니다. *Pod 보안 정책* 및 노드에 대 한 세분화 된 역할 기반 액세스 제어 (RBAC)와 같은 추가 보안 기능을 활용 하는 것이 더 어려워집니다. 그러나 악의적인 다중 테넌트 워크로드를 실행할 때 진정한 보안을 위해서는 하이퍼바이저가 신뢰할 수 있는 유일한 보안 수준입니다. Kubernetes의 보안 도메인은 개별 노드가 아닌 전체 클러스터가 됩니다. 이러한 유형의 악의적인 다중 테넌트 워크로드의 경우 물리적으로 격리된 클러스터를 사용해야 합니다.
 
 ## <a name="physically-isolate-clusters"></a>물리적으로 클러스터 격리
 

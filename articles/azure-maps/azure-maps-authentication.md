@@ -1,7 +1,7 @@
 ---
 title: Microsoft Azure 맵으로 인증
 titleSuffix: Azure Maps
-description: 이 문서에서는 Azure Active Directory 및 공유 키 인증에 대해 알아봅니다.
+description: Azure Maps에서 요청을 인증 하는 두 가지 방법, 즉 공유 키 인증 및 Azure Active Directory (Azure AD) 인증에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/27/2020
@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: af3f9b4595be5af2477fdbef4e5f0a15224e8a93
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285835"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036847"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
@@ -80,7 +80,7 @@ Authorization: Bearer eyJ0e….HNIVN
 
 ## <a name="authorization-with-role-based-access-control"></a>역할 기반 액세스 제어를 사용 하는 권한 부여
 
-Azure Maps는 개별 Azure AD 사용자, 그룹, 응용 프로그램, Azure 리소스 및 Azure 관리 되는 id를 포함 하 여 Azure [역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/overview) 를 위한 모든 보안 주체 유형에 대 한 액세스를 지원 합니다. 보안 주체 유형에는 역할 정의 라고도 하는 권한 집합이 부여 됩니다. 역할 정의는 REST API 작업에 대 한 권한을 제공 합니다. 하나 이상의 Azure Maps 계정에 대 한 액세스를 적용 하는 것을 범위 라고 합니다. 보안 주체, 역할 정의 및 범위를 적용 하는 경우 역할 할당이 만들어집니다. 
+Azure Maps은 개별 Azure AD 사용자, 그룹, 응용 프로그램, Azure 리소스 및 Azure 관리 되는 id를 포함 하 여 azure [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview) 의 모든 보안 주체 유형에 대 한 액세스를 지원 합니다. 보안 주체 유형에는 역할 정의 라고도 하는 권한 집합이 부여 됩니다. 역할 정의는 REST API 작업에 대 한 권한을 제공 합니다. 하나 이상의 Azure Maps 계정에 대 한 액세스를 적용 하는 것을 범위 라고 합니다. 보안 주체, 역할 정의 및 범위를 적용 하는 경우 역할 할당이 만들어집니다. 
 
 다음 섹션에서는 Azure AD 역할 기반 액세스 제어와 Azure Maps 통합의 개념 및 구성 요소에 대해 설명 합니다. Azure Maps 계정을 설정 하는 프로세스의 일부로 Azure AD 디렉터리는 Azure Maps 계정이 있는 Azure 구독에 연결 됩니다. 
 

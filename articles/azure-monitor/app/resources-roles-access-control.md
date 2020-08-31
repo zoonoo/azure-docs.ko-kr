@@ -3,19 +3,19 @@ title: Azure Application Insights에서 리소스, 역할 및 액세스 제어 |
 description: 조직 Insights의 소유자, 참여자 및 읽기 권한자입니다.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 38c7d7bcbcf193149fd8ab5e632674b6f8530a44
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3d69ad7eeb7c8dd32c2e3cb286f9596bed7fe042
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325698"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926504"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
 
-[Microsoft Azure의 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)를 사용하여 Azure [Application Insights][start]의 데이터에 대한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
+Azure [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용 하 여 azure [Application Insights][start]에서 데이터에 대 한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세한 정보를 알아보세요](#access).
+> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아보기](#access).
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -101,7 +101,7 @@ Outlook.com, OneDrive, Windows Phone 또는 XBox Live를 사용하는 사람은 
 
 ## <a name="related-content"></a>관련 콘텐츠
 
-* [Azure의 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)
+* [Azure 역할 기반 access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>역할 멤버 자격을 확인하기 위한 PowerShell 쿼리
 
@@ -135,4 +135,3 @@ $resourceGroup = "RGNAME"
 [group]: ../../azure-resource-manager/management/overview.md
 [portal]: https://portal.azure.com/
 [start]: ./app-insights-overview.md
-

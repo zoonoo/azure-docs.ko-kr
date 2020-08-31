@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 7a44e9c6b0545bce83f17c3bf85149d4ebe95dc1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f382e3cf0f5d2d60c2868c6698b1ea901fbac023
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955678"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121445"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Azure Vm의 SQL Server에 대 한 질문과 대답
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -162,7 +162,7 @@ ms.locfileid: "85955678"
 
 1. **같은 VM에 SQL Server의 두 번째 인스턴스를 설치할 수 있나요? 기본 인스턴스의 설치된 기능을 변경할 수 있나요?**
 
-   예. SQL Server 설치 미디어는 **C** 드라이브의 폴더에 있습니다. 이 위치에서 **Setup.exe** 를 실행하여 새 SQL Server 인스턴스를 실행하거나 컴퓨터에 설치된 다른 SQL Server 기능을 변경합니다. 자동화된 백업, 자동화된 패치 및 Azure Key Vault 통합과 같은 일부 기능은 기본 인스턴스 또는 올바르게 구성된 명명된 인스턴스에 대해서만 작동합니다(질문 3 참조). 
+   예. SQL Server 설치 미디어는 **C** 드라이브의 폴더에 있습니다. 이 위치에서 **Setup.exe** 를 실행하여 새 SQL Server 인스턴스를 실행하거나 컴퓨터에 설치된 다른 SQL Server 기능을 변경합니다. 자동화된 백업, 자동화된 패치 및 Azure Key Vault 통합과 같은 일부 기능은 기본 인스턴스 또는 올바르게 구성된 명명된 인스턴스에 대해서만 작동합니다(질문 3 참조). Azure 하이브리드 혜택 또는 **종 량** 제 라이선스 모델을 [통해 소프트웨어 보증](licensing-model-azure-hybrid-benefit-ahb-change.md) 을 사용 하는 고객은 추가 라이선스 비용을 들이지 않고 가상 컴퓨터에 SQL Server 인스턴스를 여러 개 설치할 수 있습니다. 추가 SQL Server 인스턴스는 올바르게 구성 되지 않은 경우 시스템 리소스에 대 한 부담을 수 있습니다. 
 
 1. **SQL Server의 기본 인스턴스를 제거할 수 있나요?**
 

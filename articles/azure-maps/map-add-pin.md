@@ -1,6 +1,6 @@
 ---
 title: 지도에 기호 계층 추가 | Microsoft Azure 맵
-description: 이 문서에서는 기호 계층을 사용 하 여 기호를 사용자 지정 하 고 Microsoft Azure Maps 웹 SDK를 사용 하 여 맵에 기호를 추가 하는 방법에 대해 알아봅니다.
+description: 지도에 텍스트 또는 아이콘과 같은 사용자 지정 기호를 추가 하는 방법에 대해 알아봅니다. 이 목적을 위해 Azure Maps 웹 SDK에서 데이터 원본 및 기호 레이어를 사용 하는 방법을 참조 하세요.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: c10e47ea10939b60c6c334229fb18ec2702af11f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d705a43da2b2db37c6601f5865ad6e569688b2a7
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286922"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010194"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>맵에 기호 계층 추가
 

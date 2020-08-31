@@ -1,14 +1,14 @@
 ---
 title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 규정 준수 세부 정보를 가져오는 방법을 알아봅니다.
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 8da1876842e89e806b61bba611db74795a6710d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7795bba9fec79ee13600d9c72f68e9c763b169e4
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521537"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054655"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 규정 준수 데이터 가져오기
 
@@ -34,7 +34,7 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 - 범위에 새로 할당된 정책 또는 이니셔티브는 업데이트됩니다. 이 시나리오에 대한 평가 주기 및 타이밍은 범위에 대한 새 할당과 동일합니다.
 
-- 리소스는 Azure Resource Manager, REST, Azure CLI 또는 Azure PowerShell를 통해 할당 된 범위에 배포 됩니다. 이 시나리오에서 효과 이벤트(추가, 감사, 거부, 배포) 및 개별 리소스에 대한 호환 상태 정보는 약 15분 후에 포털 및 SDK에서 사용할 수 있습니다. 이 이벤트는 다른 리소스에 대한 평가로 이어지지 않습니다.
+- 리소스는 Azure Resource Manager, REST API 또는 지원 되는 SDK를 통해 할당 된 범위 내에 배포 되거나 업데이트 됩니다. 이 시나리오에서 효과 이벤트(추가, 감사, 거부, 배포) 및 개별 리소스에 대한 호환 상태 정보는 약 15분 후에 포털 및 SDK에서 사용할 수 있습니다. 이 이벤트는 다른 리소스에 대한 평가로 이어지지 않습니다.
 
 - 표준 준수 평가 주기입니다. 24시간마다 한 번씩 할당은 자동으로 다시 계산됩니다. 많은 리소스에 대해 대규모 정책 또는 이니셔티브를 평가하는 데는 시간이 걸릴 수 있습니다. 따라서 평가 주기 완료 시점을 미리 예측할 수 없습니다. 작업이 완료되면 업데이트된 준수 결과는 포털 및 SDK에서 지원됩니다.
 

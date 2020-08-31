@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 01ddef37702cb4dedaefb3e94e488ef478f292c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0fc4fb91653f4a764540df0a7bc0cf0deee30fe6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520803"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080833"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure Logic Apps에서 호출할 수 있는 사용자 지정 API 만들기
 
@@ -30,12 +30,12 @@ Azure Logic Apps는 논리 앱 워크플로에서 사용할 수 있는 [수백 �
 > [!TIP] 
 > API를 웹앱으로 배포할 수 있지만 API 앱으로 배포하는 것이 좋습니다. 이렇게 하면 클라우드에서 API를 빌드, 호스트 및 사용할 때 작업을 더 쉽게 수행할 수 있습니다. API에서 코드를 변경할 필요가 없이 API 앱에 코드를 배포하기만 하면 됩니다. 예를 들어 다음 언어를 사용하여 만든 API 앱을 빌드하는 방법을 알아봅니다. 
 > 
-> * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
-> * [Java](../app-service/app-service-web-get-started-java.md)
-> * [Node.JS](../app-service/app-service-web-get-started-nodejs.md)
-> * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/containers/quickstart-python.md)
-> * [Ruby](../app-service/containers/quickstart-ruby.md)
+> * [ASP.NET](../app-service/quickstart-dotnetcore.md). 
+> * [Java](../app-service/quickstart-java.md)
+> * [Node.JS](../app-service/quickstart-nodejs.md)
+> * [PHP](../app-service/quickstart-php.md)
+> * [Python](../app-service/quickstart-python.md)
+> * [Ruby](../app-service/quickstart-ruby.md)
 >
 > 논리 앱용으로 빌드된 API 앱 샘플은 [Azure Logic Apps GitHub 리포지토리](https://github.com/logicappsio) 또는 [블로그](https://aka.ms/logicappsblog)를 방문하세요.
 

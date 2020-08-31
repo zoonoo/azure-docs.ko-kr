@@ -1,6 +1,6 @@
 ---
 title: AzCopy를 사용 하 여 Amazon s 3에서 Azure Storage로 데이터 복사 Microsoft Docs
-description: AzCopy 및 Amazon S3 버킷을 사용하여 데이터 전송
+description: AzCopy를 사용 하 여 Amazon s 3에서 Azure Storage로 데이터를 복사 합니다. AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는 파일을 복사하는 데 사용할 수 있는 명령줄 유틸리티입니다.
 services: storage
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 88acb4fe31470dab3ca6f273fd8d942e7f84e687
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ac093f707167160e916c15b935cb3d8ff6bbc748
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281891"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037119"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>AzCopy를 사용 하 여 Amazon S3에서 Azure Storage로 데이터 복사
 
@@ -34,7 +34,7 @@ AzCopy를 다운로드 하려면 [AzCopy 시작](storage-use-azcopy-v10.md) 문�
 >
 > 대신 SAS 토큰을 사용 하 여 blob 데이터에 대 한 액세스 권한을 부여 하는 경우 각 AzCopy 명령의 리소스 URL에 해당 토큰을 추가할 수 있습니다.
 >
-> 예를 들면 `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`과 다음과 같습니다.
+> 예: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`
 
 ### <a name="authorize-with-aws-s3"></a>AWS S3 인증
 

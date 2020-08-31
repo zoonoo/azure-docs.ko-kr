@@ -3,13 +3,13 @@ title: 자습서 - Jupyter Notebook 만들기 및 실행 - Azure Notebooks 미�
 description: 데이터 과학의 선형 회귀 프로세스를 보여주는 Azure Notebooks 미리 보기에서 Jupyter Notebook을 만들고 실행하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.custom: tracking-python
-ms.openlocfilehash: fd7fc324894595a991074c6d83ffc0f9fa3cff75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: cb8be1618de7e95a7096e4ea9dec78bf4aa277f6
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85834134"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589266"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
 
@@ -219,7 +219,7 @@ Jupyter는 주 UI 요소를 둘러보는 기능을 기본적으로 제공합니�
 
 ## <a name="create-a-code-cell-with-commands"></a>명령을 사용하여 코드 셀 만들기
 
-이전 Markdown 셀에서 설명했듯이, Notebook에서 직접 명령을 포함할 수 있습니다. 명령을 사용하여 패키지를 설치하고, 데이터를 검색하는 curl 또는 wget을 실행하는 등의 작업을 할 수 있습니다. Jupyter Notebook은 Linux 가상 머신 내에서 효과적으로 실행되므로 Linux 명령 세트 전체를 사용할 수 있습니다.
+이전 Markdown 셀에서 설명했듯이, Notebook에서 직접 명령을 포함할 수 있습니다. 명령을 사용하여 패키지를 설치하고, 데이터를 검색하는 curl 또는 wget을 실행하는 등의 작업을 할 수 있습니다. Jupyter Notebooks는 Linux 가상 머신 내에서 효과적으로 실행되므로 Linux 명령 집합 전체를 사용할 수 있습니다.
 
 1. 이전 Markdown 셀에서 **실행**을 사용한 후에 나타난 코드 셀에 아래 명령을 입력합니다. 새 셀이 보이지 않으면 **삽입** > **아래에 셀 삽입**을 사용하거나 도구 모음에서 **+** 단추를 사용하여 새 셀을 만듭니다.
 
@@ -419,7 +419,7 @@ Notebook의 *.ipynb* 파일을 다운로드하여 Python 확장을 사용해 Vis
 
 자세한 내용은 Visual Studio Code 설명서에서 [Jupyter Notebook 디버그](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook)를 참조하세요.
 
-[Visual Studio Code - Jupyter 지원](https://code.visualstudio.com/docs/python/jupyter-support)에서 Visual Studio Code의 Juypter Notebook용 추가 기능도 참조하세요.
+[Visual Studio Code - Jupyter 지원](https://code.visualstudio.com/docs/python/jupyter-support)에서 Visual Studio Code의 Juypter Notebooks용 추가 기능도 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

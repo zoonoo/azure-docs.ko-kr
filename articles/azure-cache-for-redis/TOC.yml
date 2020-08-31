@@ -39,11 +39,11 @@
       items:
         - name: Spring Boot Initializer 구성
           href: cache-java-spring-boot-initializer-with-redis-cache.md
-    - name: 순위표와 함께 캐싱 사용
+    - name: 순위표 만들기
       href: cache-web-app-cache-aside-leaderboard.md
-    - name: Azure PowerShell
+    - name: Azure PowerShell로 관리
       href: cache-how-to-manage-redis-cache-powershell.md
-    - name: Azure CLI
+    - name: Azure CLI로 관리
       href: cli-samples.md
 - name: 개념
   items:
@@ -65,7 +65,7 @@
     - name: 계획
       items:
         - name: 캐시 계층 선택
-          href: cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use
+          href: cache-overview.md#choosing-the-right-tier
         - name: 클러스터링을 통해 캐시 배포
           href: cache-how-to-premium-clustering.md
         - name: Redis 데이터 지속성을 통해 캐시 지속
@@ -82,6 +82,12 @@
           href: cache-migration-guide.md
         - name: Managed Cache Service에서 마이그레이션(사용되지 않음)
           href: cache-migrate-to-redis.md
+        - name: 계획 FAQ
+          href: cache-planning-faq.md
+    - name: 빌드
+      items:
+        - name: 개발 FAQ
+          href: cache-development-faq.md
     - name: 자동화
       items:
         - name: Azure Powershell을 사용하여 배포 및 관리
@@ -106,12 +112,22 @@
           href: cache-how-to-redis-cli-tool.md
         - name: TLS 1.0 및 1.1 제거
           href: cache-remove-tls-10-11.md
+        - name: 관리 FAQ
+          href: cache-management-faq.md
     - name: 모니터
       items:
         - name: Azure Portal에서 모니터링
           href: cache-how-to-monitor.md
         - name: 예외에 대한 경고 설정
           href: cache-how-to-monitor.md#operations-and-alerts
+        - name: 모니터링 FAQ
+          href: cache-monitor-troubleshoot-faq.md
+    - name: 확장
+      items:
+        - name: 다른 크기 및 계층으로 업데이트
+          href: cache-how-to-scale.md
+        - name: Redis 클러스터를 이용한 확장/감축
+          href: cache-how-to-premium-clustering.md
     - name: 진단 및 문제 해결
       items:
         - name: Redis 서버 문제 해결
@@ -122,12 +138,8 @@
           href: cache-troubleshoot-timeouts.md
         - name: 데이터 손실 문제 해결
           href: cache-troubleshoot-data-loss.md
-    - name: 확장
-      items:
-        - name: 다른 크기 및 계층으로 업데이트
-          href: cache-how-to-scale.md
-        - name: Redis 클러스터를 이용한 확장/감축
-          href: cache-how-to-premium-clustering.md
+        - name: 문제 해결 FAQ
+          href: cache-monitor-troubleshoot-faq.md
 - name: 참조
   items:
     - name: Azure Cache for Redis 샘플

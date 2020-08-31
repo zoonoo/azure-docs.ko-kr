@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 0a82050bef36e139c122ea97f777fb5cb1906974
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ae177f2cbfa1b6ecef2ef6326b2d8b5008504933
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052972"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019405"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Azure Webhooks를 사용하여 .NET으로 Media Services 작업 알림 모니터링 
 
@@ -61,7 +62,7 @@ Media Services 함수를 개발하는 경우 함수 전체에서 사용할 환�
 
 [애플리케이션 설정](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) 섹션은 이 문서에 정의된 웹후크에서 사용되는 매개 변수를 정의합니다. 또한 다음 매개 변수를 앱 설정에 추가합니다. 
 
-|이름|정의|예제| 
+|Name|정의|예제| 
 |---|---|---|
 |SigningKey |서명 키입니다.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
 |WebHookEndpoint | 웹후크 엔드포인트 주소입니다. 웹후크 함수를 만든 후에 **함수 URL 가져오기** 링크에서 URL을 복사할 수 있습니다. | https: \/ /juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g = =.|

@@ -46,6 +46,8 @@
       href: dns-settings.md
     - name: 여러 공용 IP 배포 - PowerShell
       href: multiple-public-ip-powershell.md
+    - name: 규칙 계층 정의
+      href: rule-hierarchy.md
 - name: 참조
   items:
     - name: Azure CLI

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: ba66716abe80a1b12bc64b739f498a0a01d54fe3
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e85a78582c0f7aac188198ad91f9ac91ddf62961
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533175"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950377"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -172,11 +172,13 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         기능 등록의 상태를 확인 합니다. 
 
         > [!NOTE]
-        > 로 변경 하기 전에 **Registrationstate** 는 `Registering` 몇 분 동안 상태일 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+        > **RegistrationState** `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
 
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
+        
+        Azure CLI 명령을 사용 하 여 [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) 기능을 [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) 등록 하 고 등록 상태를 표시할 수도 있습니다. 
 
     * **사용자 이름**과 **암호**를 포함한 자격 증명
 

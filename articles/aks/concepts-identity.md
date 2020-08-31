@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: f87e3f4add0cb5949036ec6caca2e361e2e88ea0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: edb6a8e04537a74b7ea7d4c9bd9bd27fdc39e402
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498126"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007083"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 
@@ -19,17 +19,17 @@ ms.locfileid: "87498126"
 
 이 문서에서는 AKS에서 권한을 인증하고 할당하는 데 도움이 되는 핵심 개념을 소개합니다.
 
-- [Kubernetes 역할 기반 액세스 제어 (RBAC)](#kubernetes-role-based-access-controls-rbac)
+- [Kubernetes RBAC (역할 기반 액세스 제어)](#kubernetes-role-based-access-control-rbac)
   - [Roles 및 ClusterRoles](#roles-and-clusterroles)
   - [RoleBindings 및 ClusterRoleBindings](#rolebindings-and-clusterrolebindings) 
   - [Kubernetes 서비스 계정](#kubernetes-service-accounts)
 - [Azure Active Directory 통합](#azure-active-directory-integration)
-- [Azure RBAC](#azure-role-based-access-controls-rbac)
+- [Azure RBAC](#azure-role-based-access-control-azure-rbac)
   - [Azure RBAC를 사용 하 여 AKS 리소스에 대 한 액세스 권한 부여](#azure-rbac-to-authorize-access-to-the-aks-resource)
   - [Kubernetes 권한 부여에 대 한 Azure RBAC (미리 보기)](#azure-rbac-for-kubernetes-authorization-preview)
 
 
-## <a name="kubernetes-role-based-access-controls-rbac"></a>Kubernetes 역할 기반 액세스 제어 (RBAC)
+## <a name="kubernetes-role-based-access-control-rbac"></a>Kubernetes RBAC (역할 기반 액세스 제어)
 
 사용자가 수행할 수 있는 작업에 대 한 세부적인 필터링을 제공 하기 위해 Kubernetes는 RBAC (역할 기반 액세스 제어)를 사용 합니다. 이 제어 메커니즘을 통해 리소스 만들기 또는 수정, 실행 중인 애플리케이션 워크로드에서 로그 보기 등의 작업을 수행할 수 있는 권한을 사용자 또는 사용자 그룹에 할당할 수 있습니다. 이러한 권한은 단일 네임스페이스로 범위가 지정되거나 전체 AKS 클러스터에서 부여할 수 있습니다. Kubernetes RBAC를 사용하여 권한을 정의하는 *역할*을 만든 다음, *역할 바인딩*을 통해 해당 역할을 사용자에게 할당합니다.
 
@@ -95,7 +95,7 @@ OpenID Connect와 함께 AKS 클러스터에 Azure AD 인증이 제공됩니다.
  
 **[여기](managed-aad.md)에서 AAD와 AKS를 통합 하는 방법에 대해 알아봅니다.**
 
-## <a name="azure-role-based-access-controls-rbac"></a>Azure RBAC(역할 기반 액세스 제어)
+## <a name="azure-role-based-access-control-azure-rbac"></a>Azure 역할 기반 access control (Azure RBAC)
 
 Azure RBAC는 Azure 리소스에 대한 액세스를 세밀하게 관리할 수 있는 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 기반의 권한 부여 시스템입니다.
 
@@ -107,7 +107,7 @@ Azure RBAC를 사용하여 적용할 권한을 설명하는 *역할 정의*를 �
 
 AKS 클러스터를 완벽 하 게 운영 하는 데 필요한 액세스 수준에는 다음 두 가지가 있습니다. 
 1. [Azure 구독에서 AKS 리소스에 액세스](#azure-rbac-to-authorize-access-to-the-aks-resource)합니다. 이 프로세스를 통해 AKS Api를 사용 하 여 클러스터를 확장 하거나 업그레이드 하는 작업을 제어 하 고 kubeconfig를 끌어올 수 있습니다.
-2. Kubernetes API에 대 한 액세스. 이 액세스는 [KUBERNETES RBAC](#kubernetes-role-based-access-controls-rbac) (일반적으로) 또는 [Kubernetes 권한 부여를 위해 AKS와 Azure RBAC를 통합](#azure-rbac-for-kubernetes-authorization-preview) 하 여 제어 됩니다.
+2. Kubernetes API에 대 한 액세스. 이 액세스는 [KUBERNETES RBAC](#kubernetes-role-based-access-control-rbac) (일반적으로) 또는 [Kubernetes 권한 부여를 위해 AKS와 Azure RBAC를 통합](#azure-rbac-for-kubernetes-authorization-preview) 하 여 제어 됩니다.
 
 ### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Azure RBAC를 사용 하 여 AKS 리소스에 대 한 액세스 권한 부여
 
@@ -136,7 +136,7 @@ Azure RBAC 통합을 사용 하면 AKS는 Kubernetes 권한 부여 webhook 서�
 
 AKS는 다음과 같은 네 가지 기본 제공 역할을 제공 합니다. [Kubernetes 기본 제공 역할과](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) 비슷하지만 crds 지원과 같은 몇 가지 차이점이 있습니다. 각 기본 제공 역할에서 허용 하는 작업의 전체 목록을 보려면 [여기](../role-based-access-control/built-in-roles.md)를 참조 하세요.
 
-| 역할                                | Description  |
+| 역할                                | 설명  |
 |-------------------------------------|--------------|
 | Azure Kubernetes 서비스 RBAC 뷰어  | 읽기 전용 액세스를 허용 하 여 네임 스페이스의 대부분의 개체를 표시 합니다. 역할 또는 역할 바인딩을 볼 수 없습니다. 암호의 내용을 읽으면 네임 스페이스의 자격 증명에 액세스할 수 있으므로이 역할은 보기를 허용 하지 않습니다 .이 `Secrets` `ServiceAccount` 는 네임 스페이스에서 API 액세스를 허용 합니다 `ServiceAccount` (권한 상승 형태).  |
 | Azure Kubernetes 서비스 RBAC 기록기 | 네임 스페이스의 대부분의 개체에 대 한 읽기/쓰기 액세스를 허용 합니다. 이 역할은 역할이 나 역할 바인딩을 보거나 수정할 수 없습니다. 그러나이 역할을 사용 하 여 `Secrets` 네임 스페이스의 ServiceAccount로 pod를 액세스 하 고 실행할 수 있으므로 네임 스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻는 데 사용할 수 있습니다. |

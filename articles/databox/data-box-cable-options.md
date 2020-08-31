@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box 케이블 연결 옵션 | Microsoft Docs
-description: Azure Data Box의 다양한 케이블 연결 옵션을 설명합니다.
+description: 관리 포트 또는 데이터 포트를 사용 하 여 데이터 전송에 대 한 Azure Data Box 케이블을 연결 하는 다양 한 방법에 대해 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: ffabd917eff1c545bba734ab1621b947ee8d9ae9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a1ce22cd700368d630d70912ea266d16fd772bf
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77920640"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925212"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Azure Data Box의 케이블 연결 옵션
 

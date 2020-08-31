@@ -6,30 +6,30 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 224436c155f1133621abede21878b49ebc9b3331
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: c9da97607961a7d701851c6892393cdf537b9a32
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185217"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008035"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Azure Cache for Redis를 관리하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 대해 [다시 부팅](#reboot) 및 [업데이트 예약](#schedule-updates)과 같은 관리 작업을 수행하는 방법에 대해 설명합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="reboot"></a>다시 부팅
+## <a name="reboot"></a>Reboot
 **재부팅** 블레이드에서는 하나 이상의 캐시 노드를 재부팅할 수 있습니다. 이 다시 부팅 기능을 사용하면 캐시 노드에 오류가 발생하는 경우 애플리케이션의 복원력을 테스트할 수 있습니다.
 
-![다시 부팅](./media/cache-administration/redis-cache-administration-reboot.png)
+![Reboot](./media/cache-administration/redis-cache-administration-reboot.png)
 
 다시 부팅할 노드를 선택하고 **다시 부팅**을 클릭합니다.
 
-![다시 부팅](./media/cache-administration/redis-cache-reboot.png)
+![Reboot](./media/cache-administration/redis-cache-reboot.png)
 
 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 재부팅할 캐시 분할을 선택할 수 있습니다.
 
-![다시 부팅](./media/cache-administration/redis-cache-reboot-cluster.png)
+![Reboot](./media/cache-administration/redis-cache-reboot-cluster.png)
 
 하나 이상의 캐시 노드를 다시 부팅하려면 원하는 노드를 선택하고 **다시 부팅**을 클릭합니다. 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 다시 부팅할 원하는 분할을 선택하고 **다시 부팅**을 클릭합니다. 몇 분 후 선택된 노드가 다시 부팅되고, 다시 몇 분 후에 온라인 상태가 됩니다.
 
@@ -98,5 +98,7 @@ ms.locfileid: "86185217"
 * [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Cache for Redis 프리미엄 계층](cache-premium-tier-intro.md) 기능을 자세히 살펴봅니다.
+Azure Cache for Redis 기능에 대해 자세히 알아보세요.
+
+* [Redis 서비스 계층에 대 한 Azure 캐시](cache-overview.md#service-tiers)
 

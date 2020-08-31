@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ecd7b0bc34d532e7d748bc9468d3a155b9aa2ad2
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e9384dd3865b106488dc8ec303b060736f23ded7
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87901745"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797788"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -137,7 +137,7 @@ SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포�
 
 Azure 파일 공유의 파일 또는 디렉터리에 허용 되는 동시 열린 핸들의 상한에 도달 하면 오류 1816이 발생 합니다. 자세한 내용은 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets)을 참조하세요.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조 하세요.
 
@@ -176,7 +176,7 @@ Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(I
 ### <a name="cause"></a>원인
 이 문제는 일반적으로 파일 또는 디렉터리에 열린 핸들이 있는 경우에 발생 합니다. 
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속 발생 하면 다음을 수행 합니다.
 
@@ -222,7 +222,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 기본적으로 Windows File Explorer는 관리자 권한으로 실행되지 않습니다. 관리자 명령 프롬프트에서 net use를 실행할 경우 네트워크 드라이브를 관리자 권한으로 매핑합니다. 매핑된 드라이브는 사용자 중심이므로 다른 사용자 계정으로 탑재될 경우 로그인된 사용자 계정에 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 비관리자 명령줄에서 공유를 탑재하세요. 또는 [이 TechNet 항목](https://technet.microsoft.com/library/ee844140.aspx) 을 따라 **EnableLinkedConnections** 레지스트리 값을 구성할 수 있습니다.
 
 <a id="netuse"></a>
@@ -232,7 +232,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용자 계정 이름이 슬래시로 시작되면 드라이브 매핑에 실패합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 단계 중 하나를 사용하여 문제를 해결할 수 있습니다.
 
@@ -253,7 +253,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 
 드라이브는 사용자별로 탑재됩니다. 애플리케이션 또는 서비스가 드라이브를 탑재한 계정이 아닌 다른 사용자 계정으로 실행되는 경우 애플리케이션에는 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 솔루션 중 하나를 사용하세요.
 
@@ -294,7 +294,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 이 문제는 클라이언트 머신에서 대규모 디렉터리에 대한 캐시가 충분하지 않을 때 발생할 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 **DirectoryCacheEntrySizeMax** 레지스트리 값을 조정하여 클라이언트 머신에 더 큰 디렉터리 목록의 캐시를 허용합니다.
 
@@ -305,27 +305,27 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
  
 예를 들어 0x100000으로 설정하고 성능이 향상되는지 확인할 수 있습니다.
 
-## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>오류 Aaddsten\notnon Azure Files "에 대해 AAD DS (Azure Active Directory 도메인 서비스) 인증을 사용 하도록 설정 했습니다." 테 넌 트 Id를 사용 하 여 활성 테 넌 트 Id를 찾을 수 없습니다. "
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-azure-ad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>오류 aaddsten\notnononenotnenonenotnenenenotnenenenenonenenenenenenoneneneneneneneneneneneneneAzure Files AD DS Azure Active Directory nonenene
 
 ### <a name="cause"></a>원인
 
-오류 Aaddsten앤틸리스 Notfound는 aad [도메인 서비스 (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) 가 연결 된 구독의 aad 테 넌 트에서 만들어지지 않는 저장소 계정에서 [Azure Files에서 Azure Active Directory Domain Services (Azure AD DS) 인증을 사용 하도록 설정](storage-files-identity-auth-active-directory-domain-service-enable.md) 하려고 할 때 발생 합니다.  
+오류 AadDsTenantNotFound는 azure [Ad 도메인 서비스 (azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) 가 연결 된 구독의 azure ad 테 넌 트에 만들어지지 않는 저장소 계정의 [Azure Files에서 Azure Active Directory Domain Services (azure AD DS) 인증을 사용 하도록 설정](storage-files-identity-auth-active-directory-domain-service-enable.md) 하려고 할 때 발생 합니다.  
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
-스토리지 계정이 배포된 구독의 AAD 테넌트에 AAD DS를 사용하도록 설정합니다. 관리형 도메인을 만들려면 AAD 테넌트의 관리자 권한이 필요합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
+저장소 계정이 배포 된 구독의 Azure AD 테 넌 트에서 Azure AD DS를 사용 하도록 설정 합니다. 관리 되는 도메인을 만들려면 Azure AD 테 넌 트의 관리자 권한이 있어야 합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>오류 ' 시스템 오류 1359이 발생 했습니다. AAD DS (Azure Active Directory 도메인 서비스) 인증을 사용 하도록 설정한 상태에서 파일 공유에 대 한 SMB 액세스를 통해 수신 된 내부 오류
+## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>오류 ' 시스템 오류 1359이 발생 했습니다. Azure AD DS (Azure Active Directory 도메인 서비스) 인증을 사용 하도록 설정한 상태에서 파일 공유에 대 한 SMB 액세스를 통해 수신 된 내부 오류
 
 ### <a name="cause"></a>원인
 
-오류 ' 시스템 오류 1359이 발생 했습니다. 도메인 DNS 이름이 숫자 문자로 시작 하는 AAD DS에 대해 사용 하도록 설정 된 AAD DS 인증을 사용 하 여 파일 공유에 연결 하려고 하면 내부 오류가 발생 합니다. 예를 들어 AAD DS 도메인 DNS 이름이 "1domain" 이면 AAD 자격 증명을 사용 하 여 파일 공유를 탑재 하려고 할 때이 오류가 발생 합니다. 
+오류 ' 시스템 오류 1359이 발생 했습니다. 도메인 DNS 이름이 숫자 문자로 시작 하는 Azure AD DS에 대해 Azure AD DS 인증을 사용 하도록 설정 하 여 파일 공유에 연결 하려고 하면 내부 오류가 발생 합니다. 예를 들어 Azure AD DS 도메인 DNS 이름이 "1domain" 이면 Azure AD 자격 증명을 사용 하 여 파일 공유를 탑재 하려고 할 때이 오류가 발생 합니다. 
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
-현재 아래 규칙과 함께 적용 되는 새 도메인 DNS 이름을 사용 하 여 AAD DS를 다시 배포 하는 것을 고려할 수 있습니다.
+현재 아래 규칙과 함께 적용 되는 새 도메인 DNS 이름을 사용 하 여 Azure AD DS를 다시 배포 하는 것을 고려할 수 있습니다.
 - 이름은 숫자로 시작할 수 없습니다.
 - 이름은 3 ~ 63 자 길이 여야 합니다.
 
@@ -350,7 +350,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 4. CheckGetKerberosTicket: 저장소 계정에 연결 하기 위해 Kerberos 티켓을 가져오려고 시도 합니다. 
 5. CheckADObjectPasswordIsCorrect: 저장소 계정을 나타내는 AD id에 구성 된 암호가 storage 계정 kerb1 또는 kerb2 key와 일치 하는지 확인 합니다.
 6. CheckSidHasAadUser: 로그온 한 AD 사용자가 Azure AD와 동기화 되었는지 확인 합니다. 특정 AD 사용자가 Azure AD에 동기화 되었는지 여부를 확인 하려면 입력 매개 변수에서-UserName 및-Domain을 지정 하면 됩니다.
-7. CheckAadUserHasSid: Azure AD 사용자에 게 AD의 SID가 있는지 확인 합니다 .이 검사를 수행 하려면 사용자가 매개 변수-ObjectId를 사용 하 여 Azure AD 사용자의 개체 Id를 입력 해야 합니다. 
+7. CheckAadUserHasSid: Azure AD 사용자에 게 AD의 SID가 있는지 확인 합니다 .이 검사를 수행 하려면 사용자가 매개 변수-ObjectId를 사용 하 여 Azure AD 사용자의 개체 ID를 입력 해야 합니다. 
 8. CheckStorageAccountDomainJoined: 저장소 계정의 속성을 확인 하 여 AD 인증을 사용 하도록 설정 하 고 계정의 AD 속성이 채워지는지 확인 합니다.
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Windows 파일 탐색기를 사용 하 여 디렉터리/파일 수준 사용 권한 (Windows Acl)을 구성할 수 없습니다.
@@ -361,9 +361,19 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 - 보안 탭에서 편집 권한을 클릭 하면 권한 마법사가 로드 되지 않습니다. 
 - 새 사용자 또는 그룹을 선택 하려고 하면 도메인 위치에 올바른 AD DS 도메인이 표시 되지 않습니다. 
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 [Icacls 도구](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 를 사용 하 여 디렉터리/파일 수준 사용 권한을 해결 방법으로 구성 하는 것이 좋습니다. 
+
+## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>AzStorageAccountForAuth cmdlet을 실행할 때 발생 하는 오류
+
+### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>오류: "디렉터리 서비스에서 상대 식별자를 할당할 수 없습니다."
+
+RID 마스터 FSMO 역할을 보유 하는 도메인 컨트롤러를 사용할 수 없거나 도메인에서 제거 되 고 백업에서 복원 된 경우이 오류가 발생할 수 있습니다.  모든 도메인 컨트롤러가 실행 중이 고 사용 가능한 지 확인 합니다.
+
+### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>오류: "이름이 지정되지 않았으므로 위치 매개 변수를 바인딩할 수 없습니다."
+
+이 오류는 Join-AzStorageAccountforAuth 명령의 구문 오류에 의해 트리거될 수 있습니다.  맞춤법 오류 또는 구문 오류에 대 한 명령을 확인 하 고 최신 버전의 AzFilesHybrid 모듈 (이 설치 되어 있는지 확인 https://github.com/Azure-Samples/azure-files-samples/releases) 합니다.  
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

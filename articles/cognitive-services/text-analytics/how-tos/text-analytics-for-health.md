@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: dbd0699924268b38d69bc576a5886e8d31fa1208
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4ba7aa530699ab0e06ac42e3701265254b617f73
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373473"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167694"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 상태에 대 한 Text Analytics 사용 (미리 보기)
+
+> [!NOTE]
+> 상태 컨테이너에 대 한 Text Analytics 최근에 업데이트 되었습니다. 최근 변경 내용에 대 한 자세한 내용은 [새로운 기능](../whats-new.md) 을 참조 하세요. 최신 컨테이너를 끌어와 나열 된 업데이트를 사용 해야 합니다.
 
 > [!IMPORTANT] 
 > 상태 Text Analytics은 "있는 그대로" 및 "모든 오류를 포함 하 여" 제공 되는 미리 보기 기능입니다. 따라서 **상태 (미리 보기)에 대 한 Text Analytics는 프로덕션 환경에서 구현 하거나 배포 해서는** 안 됩니다. 상태에 대 한 Text Analytics는 질병 또는 기타 조건에 대 한 진단, 치료, 완화, 처리 또는 방지에 사용 하기 위한 의료 장치, 임상 지원, 진단 도구 또는 기타 기술로 사용할 수 없으며, Microsoft가 이러한 목적을 위해이 기능을 사용할 수 있는 라이선스 또는 권한이 부여 되지 않습니다. 이 기능은 의료 전문가의 전문 의료 통지, 의료 보험 통지, 진단, 처리 또는 임상를 위한 대체 방법으로 설계 되거나 구현 하거나 배포 하기 위한 것이 아니며, 사용 하지 않아야 합니다. 고객은 상태에 대 한 Text Analytics의 사용만을 담당 합니다. Microsoft는 의료 목적을 위해이 기능을 사용 하 여 제공 되는 Text Analytics 또는 모든 사람의 의료 요구 사항을 충족 하는 경우에만이 기능을 제공 합니다. 
@@ -90,7 +93,7 @@ Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/
 > [!NOTE]
 > Azure 웹 앱을 사용 하 여 다음 형식으로 도메인을 자동으로 가져옵니다.`<appservice_name>.azurewebsites.net`
 
-Azure CLI를 사용 하 여이 PowerShell 스크립트를 실행 하 고 HTTPS를 통해 구독 및 컨테이너 이미지를 사용 하 여 Web App for Containers를 만듭니다. 첫 번째 요청을 제출 하기 전에 스크립트가 완료 될 때까지 기다립니다 (약 20 분).
+Azure CLI를 사용 하 여이 PowerShell 스크립트를 실행 하 고 HTTPS를 통해 구독 및 컨테이너 이미지를 사용 하 여 Web App for Containers를 만듭니다. 첫 번째 요청을 제출 하기 전에 스크립트가 완료 될 때까지 기다립니다 (약 25-30 분).
 
 ```bash
 $subscription_name = ""                    # THe name of the subscription you want you resource to be created on.
@@ -120,7 +123,8 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 또한 ACI (Azure Container Instance)를 사용 하 여 배포를 보다 쉽게 만들 수 있습니다. ACI는 서버를 사용 하지 않는 관리 되는 Azure 환경에서 주문형 Docker 컨테이너를 실행할 수 있는 리소스입니다. 
 
-Azure Portal를 사용 하 여 ACI 리소스를 배포 하는 단계는 [Azure Container Instances 사용 방법을](text-analytics-how-to-use-container-instances.md) 참조 하세요. 컨테이너 이미지를 사용 하 여 구독에서 ACI를 만드는 Azure CLI를 사용 하 여 아래 PowerShell 스크립트를 사용할 수도 있습니다.  첫 번째 요청을 제출 하기 전에 스크립트가 완료 될 때까지 기다립니다 (약 20 분).
+Azure Portal를 사용 하 여 ACI 리소스를 배포 하는 단계는 [Azure Container Instances 사용 방법을](text-analytics-how-to-use-container-instances.md) 참조 하세요. 컨테이너 이미지를 사용 하 여 구독에서 ACI를 만드는 Azure CLI를 사용 하 여 아래 PowerShell 스크립트를 사용할 수도 있습니다.  첫 번째 요청을 제출 하기 전에 스크립트가 완료 될 때까지 기다립니다 (약 25-30 분).  최대 Cpu 수에 대 한 제한으로 인해 요청 당 5 개 이상의 매우 많은 문서 (각각 5000 자)를 전송 하려는 경우이 옵션을 선택 하지 마십시오.
+가용성 정보는 [ACI 지역 지원](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability) 문서를 참조 하세요. 
 
 > [!NOTE] 
 > Azure Container Instances 기본 제공 도메인에 대 한 HTTPS 지원을 포함 하지 않습니다. HTTPS가 필요한 경우 인증서를 만들고 도메인을 등록 하는 등 수동으로 구성 해야 합니다. 아래 NGINX를 사용 하 여이 작업을 수행 하는 지침을 찾을 수 있습니다.
@@ -143,7 +147,7 @@ $DOCKER_IMAGE_NAME = "containerpreview.azurecr.io/microsoft/cognitive-services-h
 
 az login
 az account set -s $subscription_name
-az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 5 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
+az container create --resource-group $resource_group_name --name $azure_container_instance_name --image $DOCKER_IMAGE_NAME --cpu 4 --memory 12 --registry-login-server $DOCKER_REGISTRY_LOGIN_SERVER --registry-username $DOCKER_REGISTRY_SERVER_USERNAME --registry-password $DOCKER_REGISTRY_SERVER_PASSWORD --port 5000 --dns-name-label $DNS_LABEL --environment-variables Eula=accept Billing=$TEXT_ANALYTICS_RESOURCE_API_ENDPOINT ApiKey=$TEXT_ANALYTICS_RESOURCE_API_KEY
 
 # Once deployment complete, the resource should be available at: http://<unique_dns_label>.<resource_group_region>.azurecontainer.io:5000
 ```
@@ -228,7 +232,7 @@ docker-compose up
 아래 예제 말아 예를 사용 하 여 배포 된 컨테이너에 쿼리를 제출 하 고 `serverURL` 변수를 적절 한 값으로 바꿉니다.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.0-preview.1/domains/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -268,8 +272,8 @@ example.json
                     "offset": 17,
                     "length": 11,
                     "text": "itchy sores",
-                    "type": "SYMPTOM_OR_SIGN",
-                    "score": 0.97,
+                    "category": "SymptomOrSign",
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ]
@@ -282,8 +286,8 @@ example.json
                     "offset": 11,
                     "length": 4,
                     "text": "50mg",
-                    "type": "DOSAGE",
-                    "score": 1.0,
+                    "category": "Dosage",
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 },
                 {
@@ -291,8 +295,8 @@ example.json
                     "offset": 16,
                     "length": 8,
                     "text": "benadryl",
-                    "type": "MEDICATION_NAME",
-                    "score": 0.99,
+                    "category": "MedicationName",
+                    "confidenceScore": 1.0,
                     "isNegated": false,
                     "links": [
                         {
@@ -338,50 +342,35 @@ example.json
                     "offset": 32,
                     "length": 11,
                     "text": "twice daily",
-                    "type": "FREQUENCY",
-                    "score": 1.0,
+                    "category": "Frequency",
+                    "confidenceScore": 1.0,
                     "isNegated": false
                 }
             ],
             "relations": [
                 {
-                    "relationType": "DOSAGE_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "0",
-                            "role": "ATTRIBUTE"
-                        },
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        }
-                    ]
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
                 },
                 {
-                    "relationType": "FREQUENCY_OF_MEDICATION",
-                    "score": 1.0,
-                    "entities": [
-                        {
-                            "id": "1",
-                            "role": "ENTITY"
-                        },
-                        {
-                            "id": "2",
-                            "role": "ATTRIBUTE"
-                        }
-                    ]
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
                 }
             ]
         }
     ],
     "errors": [],
-    "modelVersion": "2020-05-08"
+    "modelVersion": "2020-07-24"
 }
 ```
 
-> [!NOTE] 
-> 부정 감지를 사용 하는 경우에는 단일 부정 단어가 한 번에 여러 용어를 처리할 수 있습니다. 인식 된 엔터티의 부정은 플래그의 부울 값으로 JSON 출력에 표시 됩니다 `isNegated` .
+### <a name="negation-detection-output"></a>부정 감지 출력
+
+부정 감지를 사용 하는 경우, 경우에 따라 단일 부정 단어가 한 번에 여러 용어를 해결할 수 있습니다. 인식 된 엔터티의 부정은 플래그의 부울 값으로 JSON 출력에 표시 됩니다 `isNegated` .
 
 ```json
 {
@@ -389,7 +378,7 @@ example.json
   "offset": 90,
   "length": 10,
   "text": "chest pain",
-  "type": "SYMPTOM_OR_SIGN",
+  "category": "SymptomOrSign",
   "score": 0.9972,
   "isNegated": true,
   "links": [
@@ -402,6 +391,33 @@ example.json
       "id": "0000023593"
     },
     ...
+```
+
+### <a name="relation-extraction-output"></a>관계 추출 출력
+
+관계 추출 출력에는 관계의 *원본* 및 *대상*에 대 한 URI 참조가 포함 됩니다. 관계 역할이 인 엔터티 `ENTITY` 는 필드에 할당 됩니다 `target` . 관계 역할이 인 엔터티 `ATTRIBUTE` 는 필드에 할당 됩니다 `source` . 약어 관계는 양방향 `source` 및 `target` 필드를 포함 하며 `bidirectional` 로 설정 됩니다 `true` . 
+
+```json
+"relations": [
+  {
+      "relationType": "DosageOfMedication",
+      "score": 1.0,
+      "bidirectional": false,
+      "source": "#/documents/2/entities/0",
+      "target": "#/documents/2/entities/1",
+      "entities": [
+          {
+              "id": "0",
+              "role": "ATTRIBUTE"
+          },
+          {
+              "id": "1",
+              "role": "ENTITY"
+          }
+      ]
+  },
+...
+]
 ```
 
 ## <a name="see-also"></a>참고 항목

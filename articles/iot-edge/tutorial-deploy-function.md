@@ -4,19 +4,19 @@ description: 이 자습서에서는 Azure 함수를 IoT Edge 모듈로 개발한
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/25/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: f909ca12ce080fc5d1241bcc649c041361e405a7
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: d9b9ba3a8092992c9ebca9b3242223213b75ad80
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80421171"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439677"
 ---
-# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure 함수 배포
+# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure Functions 배포
 
 비즈니스 논리를 직접 Azure IoT Edge 디바이스에 구현하는 코드를 배포하려면 Azure Functions를 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 IoT Edge 디바이스에서 센서 데이터를 필터링하는 Azure 함수를 만들고 배포하는 과정을 안내합니다. 여기서는 [Windows](quickstart.md) 또는 [Linux](quickstart-linux.md) 빠른 시작의 시뮬레이션된 디바이스에 Azure IoT Edge 배포에서 만든 시뮬레이션된 IoT Edge 디바이스를 사용합니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "80421171"
 ![다이어그램 - 자습서 아키텍처: 함수 모듈 준비 및 배포](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
-이 자습서에서 만드는 Azure 함수는 디바이스에서 생성한 온도 데이터를 필터링합니다. 함수는 온도가 지정된 임계값을 초과하는 경우에만 Azure IoT Hub에 메시지 업스트림을 전송합니다.
+이 자습서에서 만드는 Azure 함수는 디바이스에서 생성한 온도 데이터를 필터링합니다. 이 함수는 온도가 지정된 임계값을 초과하는 경우에만 Azure IoT Hub에 메시지 업스트림을 전송합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -71,13 +71,15 @@ Azure Functions를 사용하여 IoT Edge 모듈을 개발하려면 다음과 같
    | 솔루션 이름 제공 | **FunctionSolution**과 같은 솔루션에 대한 설명이 포함된 이름을 입력하거나 기본값을 적용합니다. |
    | 모듈 템플릿 선택 | **Azure Functions - C#** 을 선택합니다. |
    | 모듈 이름 제공 | 모듈의 이름을 **CSharpFunction**으로 지정합니다. |
-   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. 마지막 문자열은 \<레지스트리 이름\>.azurecr.io/CSharpFunction과 같습니다. |
+   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 **로그인 서버** 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. 최종 문자열은 \<registry name\>.azurecr.io/CSharpFunction 형식입니다. |
 
    ![Docker 이미지 리포지토리 제공](./media/tutorial-deploy-function/repository.png)
 
 ### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 
 환경 파일은 컨테이너 레지스트리의 자격 증명을 저장하고 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 프라이빗 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다.
+
+IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌어온 후 환경 파일에 채우려고 합니다. 사용자 자격 증명이 이미 포함되어 있는지 확인합니다. 그렇지 않은 경우 다음과 같이 지금 추가합니다.
 
 1. VS Code 탐색기에서 .env 파일을 엽니다.
 2. 필드를 Azure 컨테이너 레지스트리에서 복사한 **사용자 이름** 및 **암호** 값으로 업데이트합니다.
@@ -172,30 +174,25 @@ IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도�
 
 1. 파일을 저장합니다.
 
-## <a name="build-your-iot-edge-solution"></a>IoT Edge 솔루션 빌드
+## <a name="build-and-push-your-iot-edge-solution"></a>IoT Edge 솔루션 빌드 및 푸시
 
 이전 섹션에서는 IoT Edge 솔루션을 만들고 **CSharpFunction**을 수정하여 보고된 머신 온도가 허용 가능한 임계값 미만인 메시지를 필터링했습니다. 이제 솔루션을 컨테이너 이미지로 빌드하고 컨테이너 레지스트리로 푸시해야 합니다.
 
-이 섹션에서는 Visual Studio Code가 이미지를 레지스트리에 푸시할 수 있도록 개발 머신에서 로컬로 로그인하여 두 번째로 컨테이너 레지스트리에 대한 자격 증명을 제공합니다(첫 번째는 IoT Edge 솔루션의 **.env** 파일에 있음).
-
 1. **보기** > **터미널**을 차례로 선택하여 VS Code 통합 터미널을 엽니다.
 
-2. 통합 터미널에 다음 명령을 입력하여 컨테이너 레지스트리에 로그인합니다. 앞에서 복사한 Azure 컨테이너 레지스트리의 사용자 이름 및 로그인 서버를 사용합니다.
+2. 터미널에 다음 명령을 입력하여 Docker에 로그인합니다. Azure Container Registry의 사용자 이름, 암호 및 로그인 서버로 로그인합니다. Azure Portal에서 레지스트리의 **액세스 키** 섹션에서 이러한 값을 검색할 수 있습니다.
 
-    ```csh/sh
-    docker login -u <ACR username> <ACR login server>
-    ```
+   ```bash
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
+   ```
 
-    암호를 묻는 메시지가 표시되면 컨테이너 레지스트리의 암호를 붙여넣고(터미널 창에 표시되지 않음) **Enter** 키를 누릅니다.
+   `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
 
-    ```csh/sh
-    Password: <paste in the ACR password and press enter>
-    Login Succeeded
-    ```
+3. VS Code 탐색기에서 **deployment.template.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다.
 
-3. VS Code 탐색기에서 deployment.template.json 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다.
+   빌드 및 푸시 명령은 세 가지 작업을 시작합니다. 먼저, 배포 템플릿 및 기타 솔루션 파일의 정보로 작성된 전체 배포 매니페스트를 포함하는 **config**라는 솔루션에 새 폴더를 만듭니다. 둘째, `docker build`를 실행하여 대상 아키텍처의 적절한 dockerfile을 기준으로 컨테이너 이미지를 빌드합니다. 그런 다음, `docker push`를 실행하여 컨테이너 레지스트리에 이미지 리포지토리를 푸시합니다.
 
-솔루션을 빌드하도록 Visual Studio Code에 지시하면 먼저 배포 템플릿의 정보를 가져와서 **config**라는 새 폴더에 deployment.json 파일을 생성합니다. 그런 다음, 통합 터미널에서 두 개의 명령, 즉 `docker build`과 `docker push`를 실행합니다. 빌드 명령은 코드를 빌드하고 함수를 컨테이너화합니다. 그런 다음, push 명령은 솔루션을 초기화할 때 지정한 컨테이너 레지스트리로 코드를 푸시합니다.
+   이 프로세스는 처음에는 몇 분 정도 걸릴 수 있지만 다음번에 명령을 실행할 때는 더 빨라집니다.
 
 ## <a name="view-your-container-image"></a>컨테이너 이미지 보기
 
@@ -210,13 +207,15 @@ IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도�
 
 Azure Portal을 사용하여 빠른 시작에서 수행한 것처럼 IoT Edge 디바이스에 함수 모듈을 배포할 수 있습니다. 또한 Visual Studio Code 내에서 모듈을 배포하고 모니터링할 수 있습니다. 다음 섹션에서는 필수 조건에 나와 있는 VS Code용 Azure IoT Tools를 사용합니다. 아직 설치하지 않은 경우 확장을 설치합니다.
 
-1. VS Code 탐색기에서 **Azure IoT Hub 디바이스** 섹션을 펼칩니다.
+1. Visual Studio Code 탐색기의 **Azure IoT Hub** 섹션에서 **디바이스**를 확장하여 IoT 디바이스 목록을 표시합니다.
 
 2. IoT Edge 디바이스의 이름을 마우스 오른쪽 단추로 클릭한 다음, **단일 디바이스용 배포 만들기**를 선택합니다.
 
-3. **CSharpFunction**이 포함된 솔루션 폴더를 찾습니다. config 폴더를 열고 **deployment.json** 파일을 선택한 다음, **Edge 배포 매니페스트 선택**을 클릭합니다.
+3. **CSharpFunction**이 포함된 솔루션 폴더를 찾습니다. config 폴더를 열고 **deployment.amd64.json** 파일을 선택한 다음, **Edge 배포 매니페스트 선택**을 클릭합니다.
 
-4. **Azure IoT Hub 디바이스** 섹션을 새로 고칩니다. **SimulatedTemperatureSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **CSharpFunction**이 표시됩니다. 모듈을 시작하는 데 몇 분 정도 걸릴 수 있습니다. IoT Edge 디바이스는 IoT Hub에서 해당 새 배포 정보를 검색하고, 새 컨테이너를 시작하고, 상태를 IoT Hub에 다시 보고해야 합니다.
+4. 배포되어 실행 중인 모듈의 목록을 보려면 디바이스 아래에서 **모듈**을 확장합니다. 새로고침 단추를 클릭합니다. **SimulatedTemperatureSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **CSharpFunction**이 표시됩니다.
+
+    모듈을 시작하는 데 몇 분 정도 걸릴 수 있습니다. IoT Edge 디바이스는 IoT Hub에서 해당 새 배포 정보를 검색하고, 새 컨테이너를 시작하고, 상태를 IoT Hub에 다시 보고해야 합니다.
 
    ![VS Code에서 배포된 모듈 보기](./media/tutorial-deploy-function/view-modules.png)
 

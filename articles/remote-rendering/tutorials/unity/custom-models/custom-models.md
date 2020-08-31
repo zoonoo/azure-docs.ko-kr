@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: b08670c51b56f01ad1193d2729ecc77821242a19
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 3753c809d8222030a885693ede800fe17c08b14b
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200744"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224546"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>자습서: 인터페이스 및 사용자 지정 모델
 
@@ -75,14 +75,14 @@ MRTK 및 자습서 자산이 프로젝트에 포함된 후에는 MRTK 프로필�
 1. *Assets/RemoteRenderingTutorial/Prefabs/AppMenu*에서 **AppMenu** prefab을 찾습니다.
 1. **AppMenu** prefab을 장면으로 끌어 놓습니다.
 1. 처음으로 *Text Mesh Pro* 자산을 장면에 포함하는 것이므로 **TMP Importer** 대화 상자가 표시됩니다. 표시되는 메시지에 따라 **TMP Essentials 가져오기**를 수행합니다. 그런 다음, 가져오기 대화 상자를 닫습니다. 예 및 추가 기능은 필요 없습니다.
-1. **AppMenu**는 세션에 연결하는 것에 동의하도록 자동으로 연결되어 모달을 제공하도록 구성되어 있으므로, 이전에 배치된 바이패스를 제거할 수 있습니다. **RemoteRenderingCoordinator** GameObject의 **On Requesting Authorization** 이벤트에서 '-' 단추를 눌러 이전에 구현한 권한 부여에 대한 바이패스를 제거합니다.\
- ![바이패스 제거](./media/remove-bypass-event.png).\
+1. **AppMenu**는 세션에 연결하는 것에 동의하도록 자동으로 연결되어 모달을 제공하도록 구성되어 있으므로, 이전에 배치된 바이패스를 제거할 수 있습니다. **RemoteRenderingCoordinator** GameObject의 **On Requesting Authorization** 이벤트에서 '-' 단추를 눌러 이전에 구현한 권한 부여에 대한 바이패스를 제거합니다.
+ ![바이패스 제거](./media/remove-bypass-event.png).
 1. Unity 편집기에서 **재생**을 눌러 보기 컨트롤러를 테스트합니다.
 1. MRTK가 구성되었으므로, 이제 편집기에서 WASD 키를 사용하여 보기 위치를 변경하고 마우스 오른쪽 단추를 누른 채로 마우스를 이동하여 보기 방향을 변경할 수 있습니다. 장면 주위를 약간 "이동"하여 컨트롤의 느낌을 살펴보세요.
 1. 디바이스에서 손바닥을 들어올려 **AppMenu**를 소환할 수 있습니다. Unity 편집기에서는 바로 가기 키 'M'을 사용합니다.
 1. 메뉴가 보이지 않으면 'M' 키를 눌러 메뉴를 소환합니다. 메뉴는 쉽게 조작할 수 있도록 카메라 근처에 배치됩니다.
-1. 이제 권한 부여가 **AppMenu** 오른쪽에 요청으로 표시됩니다. 이제부터 이것을 사용하여 앱에서 원격 렌더링 세션을 관리하도록 권한을 부여합니다.\
- ![UI 권한 부여](./media/authorize-request-ui.png)\
+1. 이제 권한 부여가 **AppMenu** 오른쪽에 요청으로 표시됩니다. 이제부터 이것을 사용하여 앱에서 원격 렌더링 세션을 관리하도록 권한을 부여합니다.
+ ![UI 권한 부여](./media/authorize-request-ui.png)
 1. Unity 재생을 중지하고 자습서를 계속 진행합니다.
 
 ## <a name="manage-model-state"></a>모델 상태 관리
@@ -105,19 +105,23 @@ MRTK 및 자습서 자산이 프로젝트에 포함된 후에는 MRTK 프로필�
 
     public class RemoteRenderedModel : BaseRemoteRenderedModel
     {
-        [SerializeField]
-        [Tooltip("The friendly name for this model")]
-        private string modelDisplayName;
-        [SerializeField]
-        [Tooltip("The URI for this model")]
-        private string modelPath;
-
         public bool AutomaticallyLoad = true;
 
         private ModelState currentModelState = ModelState.NotReady;
 
+        [SerializeField]
+        [Tooltip("The friendly name for this model")]
+        private string modelDisplayName;
         public override string ModelDisplayName { get => modelDisplayName; set => modelDisplayName = value; }
-        public override string ModelPath { get => modelPath; set => modelPath = value; }
+
+        [SerializeField]
+        [Tooltip("The URI for this model")]
+        private string modelPath;
+        public override string ModelPath
+        {
+            get => modelPath.Trim();
+            set => modelPath = value;
+        }
 
         public override ModelState CurrentModelState
         {
@@ -255,11 +259,11 @@ MRTK 및 자습서 자산이 프로젝트에 포함된 후에는 MRTK 프로필�
 테스트 모델을 다시 로드하여 새 스크립트를 테스트하겠습니다. 스크립트를 포함하고 테스트 모델의 부모가 될 게임 개체를 만듭니다.
 
 1. 장면에서 빈 게임 개체를 새로 만들고 이름을 **TestModel**로 지정합니다.
-1. **TestModel**에 *RemoteRenderedModel* 스크립트를 추가합니다.\
+1. **TestModel**에 *RemoteRenderedModel* 스크립트를 추가합니다.
 ![RemoteRenderedModel 구성 요소 추가](./media/add-remote-rendered-model-script.png)
-1. `Model Display Name` 및 `Model Path`를 각각 "*TestModel*" 및 "*builtin://Engine*"으로 채웁니다.\
+1. `Model Display Name` 및 `Model Path`를 각각 "*TestModel*" 및 "*builtin://Engine*"으로 채웁니다.
 ![모델 세부 정보 지정](./media/add-model-script.png)
-1. 카메라 앞에 있는 **TestModel** 개체를 **x = 0, y = 0, z = 3** 위치에 배치합니다.\
+1. 카메라 앞에 있는 **TestModel** 개체를 **x = 0, y = 0, z = 3** 위치에 배치합니다.
 ![개체 배치](./media/test-model-position.png)
 1. **AutomaticallyLoad**가 켜져 있는지 확인합니다.
 1. Unity 편집기에서 **재생**을 눌러 애플리케이션을 테스트합니다.
@@ -280,7 +284,7 @@ MRTK 및 자습서 자산이 프로젝트에 포함된 후에는 MRTK 프로필�
 ## <a name="load-and-rendering-a-custom-model"></a>사용자 지정 모델 로드 및 렌더링
 
 1. 장면에 빈 GameObject를 새로 만들고 사용자 지정 모델과 비슷하게 이름을 지정합니다.
-1. 새로 만든 GameObject에 *RemoteRenderedModel* 스크립트를 추가합니다.\
+1. 새로 만든 GameObject에 *RemoteRenderedModel* 스크립트를 추가합니다.
  ![RemoteRenderedModel 구성 요소 추가](./media/add-remote-rendered-model-script.png)
 1. `Model Display Name`에 적절한 모델 이름을 입력합니다.
 1. `Model Path`에는 위의 수집 단계에서 만든 모델의 *SAS(공유 액세스 서명)* URI를 입력합니다.

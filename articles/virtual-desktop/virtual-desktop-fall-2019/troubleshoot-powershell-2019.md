@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 (클래식) PowerShell-Azure
 description: Windows 가상 데스크톱 (클래식) 테 넌 트 환경을 설정 하는 경우 PowerShell을 사용 하 여 문제를 해결 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 04ef12d6de8820740be687bd09ffaa5a8e69eb86
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 23d1e4b06c9c0278742da0cec8ac565b5f80a362
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269617"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004905"
 ---
 # <a name="windows-virtual-desktop-classic-powershell"></a>Windows 가상 데스크톱 (클래식) PowerShell
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../troubleshoot-powershell.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../troubleshoot-powershell.md)를 참조하세요.
 
 Windows 가상 데스크톱과 함께 PowerShell을 사용 하는 경우 오류 및 문제를 해결 하려면이 문서를 사용 합니다. 원격 데스크톱 서비스 PowerShell에 대 한 자세한 내용은 [Windows 가상 데스크톱 PowerShell](/powershell/module/windowsvirtualdesktop/)을 참조 하세요.
 

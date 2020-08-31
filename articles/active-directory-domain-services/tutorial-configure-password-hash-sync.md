@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: e9d6f31674db0744e220a9cd88033a32bb5c1e17
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 02828e0c159e2d30dacc5759f1239dae1268dac5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024692"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491785"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>자습서: 하이브리드 환경을 위해 Azure Active Directory Domain Services에서 암호 동기화 활성화
 
@@ -22,7 +22,7 @@ ms.locfileid: "86024692"
 
 온-프레미스 AD DS 환경에서 동기화된 계정으로 Azure AD DS를 사용하려면, NTLM 및 Kerberos 인증에 필요한 암호 해시를 동기화하도록 Azure AD Connect를 구성해야 합니다. Azure AD Connect가 구성된 후에는, 온-프레미스 계정 생성 또는 암호 변경 이벤트도 레거시 암호 해시를 Azure AD와 동기화합니다.
 
-온-프레미스 AD DS 환경이 없는 클라우드 전용 계정을 사용하는 경우에는 이러한 단계를 수행할 필요가 없습니다.
+온-프레미스 AD DS 환경이 없는 클라우드 전용 계정을 사용하거나 *리소스 포리스트*를 사용하는 경우에는 이러한 단계를 수행할 필요가 없습니다. 리소스 포리스트를 사용하는 관리되는 도메인의 경우 온-프레미스 암호 해시가 절대 동기화되지 않습니다. 온-프레미스 계정에 대한 인증에는 자신의 AD DS 도메인 컨트롤러에 대한 포리스트 트러스트를 다시 사용합니다.
 
 이 자습서에서는 다음에 대해 알아봅니다.
 

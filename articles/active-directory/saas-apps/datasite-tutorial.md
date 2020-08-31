@@ -2,25 +2,21 @@
 title: '자습서: Datasite와 Azure Active Directory SSO(Single Sign-On) 통합 | Microsoft Docs'
 description: Azure Active Directory와 Datasite 간에 Single Sign-On을 구성하는 방법을 알아봅니다.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: a17bc3e3-f565-4a7b-b90f-f6f385ddf0fb
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 08/05/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0da42ef51646f7775234ed870e59c442d54933c1
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 4608e8b818fcb75d91d7daf5278ba1dd30c9d667
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170552"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88555902"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datasite"></a>자습서: Datasite와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -87,17 +83,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     **로그인 URL** 텍스트 상자에서 `https://auth.<ENVIRONMENT>.com/sp/ACS.saml2` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Datasite 클라이언트 지원 팀](mailto:applicationsupport@datasite.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
-
-1. Datasite 애플리케이션에는 사용자 지정 특성 매핑을 SAML 토큰 특성 구성에 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
-
-    ![이미지](common/default-attributes.png)
-
-1. 위에서 언급한 특성 외에도 Datasite 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
-    
-    | Name | 원본 특성 |
-    | -------------| --------- |
-    | organizationId | < organizationId > |
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Datasite 클라이언트 지원 팀](mailto:service@datasite.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -139,11 +125,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-datasite-sso"></a>Datasite SSO 구성
 
-**Datasite** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 Azure Portal에서 [Datasite 지원 팀](mailto:applicationsupport@datasite.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Datasite** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 Azure Portal에서 [Datasite 지원 팀](mailto:service@datasite.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-datasite-test-user"></a>Datasite 테스트 사용자 만들기
 
-이 섹션에서는 Datasite에서 B.Simon이라는 사용자를 만듭니다.  [Datasite 지원 팀](mailto:applicationsupport@datasite.com)과 협력하여 사용자를 Datasite 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Datasite에서 B.Simon이라는 사용자를 만듭니다.  [Datasite 지원 팀](mailto:service@datasite.com)과 협력하여 사용자를 Datasite 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

@@ -5,26 +5,25 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: c3c79944aa4add0a32dbb584b13606e32e146a1a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04e496806f2c388eb3a69df1b4cc3897b8132f6c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050289"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962913"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>PowerShell을 사용하여 삭제된 App Service 앱 복원
 
-Azure App Service에서 앱을 실수로 삭제한 경우 [Az PowerShell 모듈](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0)의 명령을 사용하여 앱을 복원할 수 있습니다.
+Azure App Service에서 앱을 실수로 삭제한 경우 [Az PowerShell 모듈](/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0)의 명령을 사용하여 앱을 복원할 수 있습니다.
 
 > [!NOTE]
-> 삭제된 앱은 초기 삭제 후 30일이 지나면 시스템에서 제거됩니다. 제거된 앱은 복구할 수 없습니다.
->
-
-> [!NOTE]
-> 삭제 취소 기능은 소비 계획에 대해 지원 되지 않습니다.
+> - 삭제된 앱은 초기 삭제 후 30일이 지나면 시스템에서 제거됩니다. 앱을 제거한 후에는 복구할 수 없습니다.
+> - 삭제 취소 기능은 소비 계획에 대해 지원 되지 않습니다.
+> - App Service Environment에서 실행 되는 앱 서비스 앱은 스냅숏을 지원 하지 않습니다. 따라서 App Service Environment에서 실행 되는 App Service 앱에 대해서는 삭제 취소 기능과 복제 기능이 지원 되지 않습니다.
 >
 
 ## <a name="re-register-app-service-resource-provider"></a>App Service 리소스 공급자 다시 등록
+
 일부 고객은 삭제된 앱 목록을 검색하지 못하는 문제가 발생할 수 있습니다. 이 문제를 해결하려면 다음 명령을 실행합니다.
 
 ```powershell
@@ -52,6 +51,7 @@ Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_locatio
 - **Deletion Time**: 앱이 삭제된 시기  
 
 ## <a name="restore-deleted-app"></a>삭제된 앱 복원
+
 >[!NOTE]
 > `Restore-AzDeletedWebApp`은 함수 앱에서 지원되지 않습니다.
 
@@ -61,7 +61,7 @@ Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_locatio
 Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
-> 배포 슬롯은 앱의 일부로 복원되지 않습니다. 스테이징 슬롯을 복원해야 하는 경우 `-Slot <slot-name>` 플래그를 사용합니다.
+> 배포 슬롯은 앱의 일부로 복원되지 않습니다. 스테이징 슬롯을 복원 해야 하는 경우 플래그를 사용 `-Slot <slot-name>`  합니다.
 >
 
 명령에 대한 입력은 다음과 같습니다.
@@ -73,7 +73,7 @@ Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetA
 기본적으로 `Restore-AzDeletedWebApp` 는 앱 구성도 모두 콘텐츠를 복원 합니다. 콘텐츠만 복원하려면 이 commandlet과 함께 `-RestoreContentOnly` 플래그를 사용합니다.
 
 > [!NOTE]
-> 앱이 호스트된 후 App Service Environment에서 삭제된 경우에는 해당 App Service Environment가 계속 존재하는 경우에만 복원할 수 있습니다.
+> 앱이에서 호스트 된 후 App Service Environment에서 삭제 된 경우에는 해당 App Service Environment 여전히 있는 경우에만 복원할 수 있습니다.
 >
 
-전체 commandlet 참조는 여기에서 찾을 수 있습니다. [Restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).
+전체 commandlet 참조는 여기에서 찾을 수 있습니다. [Restore-AzDeletedWebApp](/powershell/module/az.websites/restore-azdeletedwebapp).

@@ -6,6 +6,10 @@
       href: overview.md
     - name: 이전 릴리스와의 차이점
       href: overview-differences.md
+- name: 빠른 시작
+  items:
+    - name: 샘플 시나리오 살펴보기
+      href: quickstart-adt-explorer.md
 - name: 자습서
   items:
     - name: 클라이언트 앱 코딩
@@ -22,6 +26,8 @@
       href: concepts-twins-graph.md
     - name: 쿼리 언어
       href: concepts-query-language.md
+    - name: 쿼리 단위
+      href: concepts-query-units.md
     - name: 다른 서비스와 통합
       href: concepts-integration.md
     - name: 이벤트 경로
@@ -55,7 +61,7 @@
         - name: 사용자 지정 모델 관리
           href: how-to-manage-model.md
         - name: 모델 구문 분석 및 유효성 검사
-          href: how-to-use-parser.md
+          href: how-to-parse-models.md
         - name: 태그 추가
           href: how-to-use-tags.md
     - name: 라이브 실행 환경 사용
@@ -70,24 +76,32 @@
           href: how-to-create-azure-function.md
         - name: 쌍 그래프 쿼리
           href: how-to-query-graph.md
-        - name: Azure Monitor의 메트릭 보기
-          href: how-to-view-metrics.md
     - name: 연결 입력
       items:
         - name: IoT Hub에서 원격 분석 수집
           href: how-to-ingest-iot-hub-data.md
+        - name: Logic Apps와 통합
+          href: how-to-integrate-logic-apps.md
     - name: 연결 출력
       items:
         - name: 엔드포인트 및 경로 관리
-          href: how-to-manage-routes.md
+          items:
+            - name: API 및 CLI 버전
+              href: how-to-manage-routes-apis-cli.md
+            - name: 포털 버전
+              href: how-to-manage-routes-portal.md
         - name: Azure Maps와 통합
           href: how-to-integrate-maps.md
         - name: Azure Time Series Insights와 통합
           href: how-to-integrate-time-series-insights.md
     - name: 문제 해결
       items:
+        - name: Azure Monitor의 메트릭 보기
+          href: troubleshoot-metrics.md
         - name: 진단 로그 사용
           href: troubleshoot-diagnostics.md
+        - name: 경고 사용
+          href: troubleshoot-alerts.md
         - name: 알려진 문제
           href: troubleshoot-known-issues.md
         - name: 문제 해결
@@ -166,6 +180,8 @@
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/'
         - name: DTDL 유효성 검사기(샘플)
           href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
+        - name: DPS 및 IoT Hub 통합 샘플
+          href: 'https://github.com/Azure-Samples/digital-twins-iothub-integration'
     - name: Azure 도구
       items:
         - name: Azure Cloud Shell

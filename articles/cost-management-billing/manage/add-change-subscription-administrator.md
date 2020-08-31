@@ -5,20 +5,21 @@ author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 2ccdb16af788f6f8d106628742b2a83e25b26263
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126128"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683099"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
 
 
-Azure 리소스에 대한 액세스를 관리하려면 적절한 관리자 역할이 있어야 합니다. Azure에는 선택할 수 있는 몇 가지 기본 제공 역할이 있는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)라는 인증 시스템이 있습니다. 이러한 역할은 관리 그룹, 구독 또는 리소스 그룹과 같은 다른 범위에서 할당할 수 있습니다. 기본적으로 새 Azure 구독을 만드는 사람은 다른 사용자에게 구독에 대한 관리 액세스 권한을 할당할 수 있습니다.
+Azure 리소스에 대한 액세스를 관리하려면 적절한 관리자 역할이 있어야 합니다. Azure에는 선택할 수 있는 몇 가지 기본 제공 역할이 있는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)라는 인증 시스템이 있습니다. 이러한 역할은 관리 그룹, 구독 또는 리소스 그룹과 같은 다른 범위에서 할당할 수 있습니다. 기본적으로 새 Azure 구독을 만드는 사람은 다른 사용자에게 구독에 대한 관리 액세스 권한을 할당할 수 있습니다.
 
 이 문서에서는 구독 범위에서 RBAC를 사용하여 사용자에 대한 관리자 역할을 추가하거나 변경하는 방법을 설명합니다.
 
@@ -33,7 +34,7 @@ RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 좋습
 
 ## <a name="assign-a-subscription-administrator"></a>구독 관리자 할당
 
-사용자를 Azure 구독의 관리자로 지정하려면 기존 관리자는 구독 범위에서 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할(RBAC 역할)을 할당합니다. 소유자 역할을 할당하면 다른 사용자에게 액세스를 위임할 수 있는 권한을 비롯한 구독의 리소스에 대한 모든 권한이 사용자에게 제공됩니다. 이러한 단계는 다른 역할 할당과 동일합니다.
+사용자를 Azure 구독의 관리자로 지정하려면 기존 관리자는 구독 범위에서 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할(Azure 역할)을 할당합니다. 소유자 역할을 할당하면 다른 사용자에게 액세스를 위임할 수 있는 권한을 비롯한 구독의 리소스에 대한 모든 권한이 사용자에게 제공됩니다. 이러한 단계는 다른 역할 할당과 동일합니다.
 
 구독에 대한 계정 관리자를 잘 모를 경우 다음 단계를 사용하여 확인하세요.
 

@@ -1,23 +1,21 @@
 ---
 title: Windows Virtual Desktop용 GPU 구성 - Azure
 description: Windows Virtual Desktop에서 GPU 가속 렌더링 및 인코딩을 사용하도록 설정하는 방법입니다.
-services: virtual-desktop
 author: gundarev
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a80e9940aff69d351fde7512cfc38a12d6029f74
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a253723367681d947a9bd94c1505ab4cc156c08
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291502"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612642"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 GPU(그래픽 처리 장치) 가속 구성
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md)를 참조하세요.
 
 Windows Virtual Desktop은 향상된 앱 성능 및 확장성을 위해 GPU 가속 렌더링 및 인코딩을 지원합니다. GPU 가속은 특히 그래픽이 많은 앱에 매우 중요합니다.
 
@@ -53,12 +51,12 @@ Azure에서 배포된 드라이버만 Windows Virtual Desktop에서 지원됩니
 1. 로컬 관리자 권한이 있는 계정을 사용하여 VM의 데스크톱에 연결합니다.
 2. 시작 메뉴를 열고 “gpedit.msc”를 입력하여 그룹 정책 편집기를 엽니다.
 3. 트리를 탐색하여 **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > **원격 데스크톱 세션 호스트** > **원격 세션 환경**으로 이동합니다.
-4. **모든 원격 데스크톱 서비스 세션에 대해 하드웨어 기본 그래픽 어댑터 사용** 정책을 선택하고, 해당 정책을 **사용**으로 설정하여 원격 세션에서 GPU 렌더링을 사용하도록 설정합니다.
+4. **모든 원격 데스크톱 서비스 세션에 대해 하드웨어 그래픽 어댑터 사용** 정책을 선택 하 고이 정책을 **사용으로 설정** 하 여 원격 세션에서 GPU 렌더링을 사용 하도록 설정 합니다.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>GPU 가속 프레임 인코딩 구성
 
 원격 데스크톱은 원격 데스크톱 클라이언트에 전송하기 위해 앱 및 데스크톱에 의해 렌더링된 모든 그래픽(GPU 또는 CPU를 사용하여 렌더링됨)을 인코딩합니다. 화면 일부가 자주 업데이트 되는 경우 화면의이 부분은 비디오 코덱 (h.264/AVC)로 인코딩됩니다. 기본적으로 원격 데스크톱은 이 인코딩에 대해 사용 가능한 GPU를 활용하지 않습니다. 세션 호스트에 대한 그룹 정책을 구성하여 GPU 가속 프레임 인코딩을 사용하도록 설정합니다. 위의 단계를 계속합니다.
- 
+
 >[!NOTE]
 >GPU 가속 프레임 인코딩은 NVv4 시리즈 Vm에서 사용할 수 없습니다.
 

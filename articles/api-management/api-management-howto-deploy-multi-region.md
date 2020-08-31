@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 427ebfe865002612be2f9aeb9db416f5c2f41e52
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82790482"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065457"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>여러 Azure 지역에 Azure API Management 서비스 인스턴스를 배포하는 방법
 
@@ -28,6 +28,9 @@ Azure API Management는 여러 지역 배포를 지원 하므로 API 게시자�
 
 > [!NOTE]
 > API Management의 게이트웨이 구성 요소만 모든 지역에 배포 됩니다. 서비스 관리 구성 요소 및 개발자 포털은 주 지역 에서만 호스팅됩니다. 따라서 주 지역 가동 중단이 발생 하는 경우에는 기본 지역이 다시 온라인 상태가 될 때까지 개발자 포털에 액세스 하 고 구성을 변경 하는 기능 (예: Api 추가, 정책 적용)이 손상 됩니다. 주 지역은 오프 라인 상태 이지만 보조 지역은 사용 가능한 최신 구성을 사용 하 여 API 트래픽을 계속 제공 합니다.
+
+>[!IMPORTANT]
+> 단일 지역에 고객 데이터를 저장할 수 있도록 하는 기능은 현재 아시아 태평양 지역의 동남 아시아 지역 (싱가포르) 에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 지역에 저장 됩니다.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 

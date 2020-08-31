@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8fdf298357370415c1b3af95dd9ed22ad8539786
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d480b8db69b34eda7ca1ea8e1b2755179f9c673f
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125483"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055176"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>.NET의 내구성이 있는 엔터티에 대 한 개발자 가이드
 
@@ -203,7 +203,7 @@ public class Counter : ICounter
 
 ### <a name="example-client-signals-entity-through-interface"></a>예: 클라이언트에서 인터페이스를 통해 신호를 보냅니다.
 
-클라이언트 코드 `SignalEntityAsync<TEntityInterface>` 는를 사용 하 여을 구현 하는 엔터티에 신호를 보낼 수 있습니다 `TEntityInterface` . 예를 들어:
+클라이언트 코드 `SignalEntityAsync<TEntityInterface>` 는를 사용 하 여을 구현 하는 엔터티에 신호를 보낼 수 있습니다 `TEntityInterface` . 다음은 그 예입니다.
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -471,7 +471,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
             ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(ctx.GetState<int>()));
+            ctx.Return(ctx.GetState<int>());
             break;
         case "delete":
             ctx.DeleteState();

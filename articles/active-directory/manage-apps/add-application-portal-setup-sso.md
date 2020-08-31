@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f8f19e6b98143bb48430decdd51f5626e72d422
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 461a424f23161e1567c6b32a38db0225efc56b1e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387288"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808391"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 SSO(Single Sign-On) 설정
 
@@ -61,6 +61,16 @@ Azure AD 테넌트에 애플리케이션 추가를 완료하면 개요 페이지
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="스크린샷이 GitHub 가격 책정 페이지의 엔터프라이즈 구독에 있는 Single Sign-On 옵션을 표시합니다.":::
 
 
-## <a name="next-step"></a>다음 단계
+> [!TIP]
+> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](https://docs.microsoft.com/graph/application-saml-sso-configure-api)를 참조하세요.
 
-- [앱 삭제](delete-application-portal.md)
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 빠른 시작 시리즈를 완료한 후에는 앱을 삭제하여 테스트 테넌트를 정리하는 것이 좋습니다. 앱 삭제에 대한 내용은 이 시리즈의 마지막 빠른 시작에서 다룹니다. [앱 삭제](delete-application-portal.md)를 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+앱을 삭제하는 방법에 대한 다음 문서를 진행하세요.
+> [!div class="nextstepaction"]
+> [앱 삭제](delete-application-portal.md)

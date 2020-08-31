@@ -2,20 +2,30 @@
 title: Azure Data Lake Analytics 개요
 description: Data Lake Analytics를 통해 모든 규모의 클라우드 데이터에서 얻는 정보를 사용하여 비즈니스를 이끌 수 있습니다.
 services: data-lake-analytics
+author: saveenr
+ms.author: saveenr
+ms.reviewer: jasonwhowell
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: 01a38829056d8f96ddc1029fc4df5ec79414e8bb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b86b569b1b14b943cdc6dcc805a7b7a208d03447
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321008"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475122"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>Azure Data Lake Analytics이란?
 
 Azure Data Lake Analytics는 빅 데이터를 간소화하는 주문형 분석 작업 서비스입니다. 하드웨어를 배포, 구성 및 조정하는 대신, 데이터를 변형하고 귀중한 통찰력을 얻기 위한 쿼리를 작성합니다. 이 분석 서비스는 필요한 전력 크기만큼 다이얼을 설정하여 어떤 크기의 작업도 즉시 처리할 수 있습니다. 실행할 때 작업 기준으로 비용이 부과되므로 비용 효과적일 수 있습니다. 
+
+## <a name="azure-data-lake-analytics-recent-update-information"></a>Azure Data Lake Analytics 최신 업데이트 정보
+
+Azure Data Lake Analytics 서비스는 특정 목적을 위해 불규칙적으로 업데이트됩니다. 구성 요소 업데이트, 구성 요소 베타 미리 보기 등을 통해 이 서비스에 대한 지원이 지속적으로 제공됩니다. 
+
+- 최신 업데이트 일반 정보는 [Data Lake Analytics의 새로운 기능](data-lake-analytics-whats-new.md)을 참조하세요.
+- 각 업데이트에 대한 자세한 내용은 [Azure Data Lake Analytics 릴리스 정보](https://github.com/Azure/AzureDataLake/tree/master/docs/Release_Notes)를 참조하세요.
 
 ## <a name="dynamic-scaling"></a>동적 크기 조정
   
@@ -41,8 +51,10 @@ Data Lake Analytics은 빅 데이터 작업을 실행하기 위한 경제적인 
   
 Data Lake Analytics는 최고의 성능, 처리량 및 병렬 처리를 위해 Azure Data Lake Storage와 함께 작동하며 Azure Storage Blob, Azure SQL Database, Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)와 함께 작동합니다.
 
+
 ## <a name="next-steps"></a>다음 단계
 
+* See the Azure Data Lake Analytics recent update using [Azure Data Lake Analytics의 새로운 기능](data-lake-analytics-whats-new.md)을 사용하는 Azure Data Lake Analytics 최신 업데이트를 참조하세요.
 * [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli.md)를 사용하여 Data Lake Analytics 시작
 * [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)를 사용하여 Azure Data Lake Analytics 관리
 * [Data Lake Analytics로 비용을 제어하고 절약하는 방법](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)

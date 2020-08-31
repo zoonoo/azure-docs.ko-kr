@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ace22a6896a121f5cd8af838c7b0e427bd0287dc
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: MT
+ms.openlocfilehash: b48e5e28b15d17796138d493a7d9c628791df2e6
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "67181885"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830134"
 ---
-## <a name="enable-event-grid-resource-provider"></a>Event Grid 리소스 공급자를 사용하도록 설정
+## <a name="enable-the-event-grid-resource-provider"></a>Event Grid 리소스 공급자 사용
 
 이전에 Azure 구독에서 Event Grid를 사용하지 않은 경우 Event Grid 리소스 공급자를 등록해야 할 수 있습니다. 공급자를 등록하는 다음 명령을 실행합니다.
 

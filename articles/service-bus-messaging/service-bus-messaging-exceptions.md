@@ -3,12 +3,12 @@ title: Azure Service Bus 메시징 예외 | Microsoft Docs
 description: 이 문서에서는 예외 발생 시 수행할 수 있는 Azure Service Bus 메시징 예외 및 제안 된 작업 목록을 제공 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: dd57938c24565257aefebc89a8b070865e6791af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c648cdce87b26e6258ff8bc25506ca2ebd3bbd9
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341649"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064607"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus 메시징 예외
 이 문서에서는 .NET Framework Api에 의해 생성 된 .NET 예외를 나열 합니다. 
@@ -16,21 +16,21 @@ ms.locfileid: "85341649"
 ## <a name="exception-categories"></a>예외 범주
 메시징 API는 다음 범주에 해당하는 예외와, 해당 예외의 해결을 위해 수행할 수 있는 관련 조치를 함께 생성합니다. 예외의 의미 및 원인은 메시징 엔터티의 형식에 따라 달라질 수 있습니다.
 
-1. 사용자 코딩 오류 ([ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx))를 사용 합니다. 일반 조치: 코드를 수정한 후 계속합니다.
-2. 설치/구성 오류 ([ServiceBus. microsoft.servicebus.messaging.messagingentitynotfoundexception](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [system.unauthorizedaccessexception](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 일반 조치: 구성을 검토하고 필요한 경우 변경합니다.
+1. 사용자 코딩 오류 ([ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1), [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1), [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1), [SerializationException](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1))를 사용 합니다. 일반 조치: 코드를 수정한 후 계속합니다.
+2. 설치/구성 오류 ([ServiceBus. microsoft.servicebus.messaging.messagingentitynotfoundexception](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [system.unauthorizedaccessexception](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1). 일반 조치: 구성을 검토하고 필요한 경우 변경합니다.
 3. 일시적인 예외 ([ServiceBus](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [ServiceBus, ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [ServiceBus](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception))를 통해 처리 될 것입니다. 일반 조치: 작업을 다시 시도하거나 사용자에게 알립니다. `RetryPolicy`클라이언트 SDK의 클래스는 다시 시도를 자동으로 처리 하도록 구성할 수 있습니다. 자세한 내용은 [다시 시도 지침](/azure/architecture/best-practices/retry-service-specific#service-bus)을 참조 하세요.
-4. 기타 예외 ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). 일반 작업: 예외 형식에만 적용 됩니다. 다음 섹션의 표를 참조 하세요. 
+4. 기타 예외 ([System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1), [System.TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). 일반 작업: 예외 형식에만 적용 됩니다. 다음 섹션의 표를 참조 하세요. 
 
 ## <a name="exception-types"></a>예외 유형
 다음 표에서는 메시징 예외 유형과 원인, 사용자가 수행할 수 있는 제안 조치 참고를 열거합니다.
 
 | **예외 유형** | **설명/원인/예** | **제안 된 작업** | **자동/즉시 다시 시도 참고** |
 | --- | --- | --- | --- |
-| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |서버가 지정 된 시간 내에 요청 된 작업에 응답 하지 않았습니다 .이 작업은 [Operationtimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings)에 의해 제어 됩니다. 서버가 요청된 작업을 완료했을 수도 있습니다. 네트워크 또는 기타 인프라 지연으로 인해 발생할 수 있습니다. |필요한 경우 시스템 상태에서 일관성을 확인하고 다시 시도합니다. [시간 제한 예외](#timeoutexception)를 참조하세요. |일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
-| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |요청 된 사용자 작업은 서버 또는 서비스 내에서 허용 되지 않습니다. 자세한 내용은 예외 메시지를 참조하세요. 예를 들어 [Complete ()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) 는 [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드로 메시지를 받은 경우이 예외를 생성 합니다. |코드 및 설명서를 확인합니다. 요청된 작업이 유효한지 확인합니다. |다시 시도 해도 도움이 되지 않습니다. |
-| [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |이미 종료, 중단 또는 삭제된 개체에서 작업을 호출하려 시도합니다. 드문 경우지만 앰비언트 트랜잭션이 이미 삭제되었을 수 있습니다. |코드를 확인 하 고 삭제 된 개체에 대 한 작업을 호출 하지 않는지 확인 합니다. |다시 시도 해도 도움이 되지 않습니다. |
-| [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |[Tokenprovider](/dotnet/api/microsoft.servicebus.tokenprovider) 개체가 토큰을 가져올 수 없습니다. 토큰이 잘못 되었거나 토큰에 작업을 수행 하는 데 필요한 클레임이 포함 되어 있지 않습니다. |올바른 값을 사용하여 토큰 공급자를 만드는지 확인합니다. Access Control Service의 구성을 확인 합니다. |일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
-| [ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) |메서드에 제공된 하나 이상의 인수가 잘못되었습니다.<br /> [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory)에 제공된 URI에 경로 세그먼트가 포함됩니다.<br /> [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory)에 제공된 URI 스키마가 올바르지 않습니다. <br />속성 값이 32KB보다 큽니다. |호출 코드를 확인하고 인수가 정확한지 확인합니다. |다시 시도 해도 도움이 되지 않습니다. |
+| [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) |서버가 지정 된 시간 내에 요청 된 작업에 응답 하지 않았습니다 .이 작업은 [Operationtimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings)에 의해 제어 됩니다. 서버가 요청된 작업을 완료했을 수도 있습니다. 네트워크 또는 기타 인프라 지연으로 인해 발생할 수 있습니다. |필요한 경우 시스템 상태에서 일관성을 확인하고 다시 시도합니다. [시간 제한 예외](#timeoutexception)를 참조하세요. |일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
+| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1) |요청 된 사용자 작업은 서버 또는 서비스 내에서 허용 되지 않습니다. 자세한 내용은 예외 메시지를 참조하세요. 예를 들어 [Complete ()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) 는 [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) 모드로 메시지를 받은 경우이 예외를 생성 합니다. |코드 및 설명서를 확인합니다. 요청된 작업이 유효한지 확인합니다. |다시 시도 해도 도움이 되지 않습니다. |
+| [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1) |이미 종료, 중단 또는 삭제된 개체에서 작업을 호출하려 시도합니다. 드문 경우지만 앰비언트 트랜잭션이 이미 삭제되었을 수 있습니다. |코드를 확인 하 고 삭제 된 개체에 대 한 작업을 호출 하지 않는지 확인 합니다. |다시 시도 해도 도움이 되지 않습니다. |
+| [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) |[Tokenprovider](/dotnet/api/microsoft.servicebus.tokenprovider) 개체가 토큰을 가져올 수 없습니다. 토큰이 잘못 되었거나 토큰에 작업을 수행 하는 데 필요한 클레임이 포함 되어 있지 않습니다. |올바른 값을 사용하여 토큰 공급자를 만드는지 확인합니다. Access Control Service의 구성을 확인 합니다. |일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
+| [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1) |메서드에 제공된 하나 이상의 인수가 잘못되었습니다.<br /> [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory)에 제공된 URI에 경로 세그먼트가 포함됩니다.<br /> [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory)에 제공된 URI 스키마가 올바르지 않습니다. <br />속성 값이 32KB보다 큽니다. |호출 코드를 확인하고 인수가 정확한지 확인합니다. |다시 시도 해도 도움이 되지 않습니다. |
 | [MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception) |작업과 연결 된 엔터티가 존재 하지 않거나 삭제 되었습니다. |엔터티가 있는지 확인합니다. |다시 시도 해도 도움이 되지 않습니다. |
 | [MessageNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |특정 시퀀스 번호를 통해 메시지 수신을 시도합니다. 이 메시지를 찾을 수 없습니다. |메시지를 아직 받지 않았는지 확인 합니다. 전달 실패 큐에서 메시지가 전달되지 않았는지 확인합니다. |다시 시도 해도 도움이 되지 않습니다. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |클라이언트에서 Service Bus에 대 한 연결을 설정할 수 없습니다. |제공된 호스트 이름이 정확하며 호스트에 연결할 수 있는지 확인합니다. |간헐적인 연결 문제라면 재시도로 문제를 해결할 수 있습니다. |
@@ -45,8 +45,8 @@ ms.locfileid: "85341649"
 | [MessagingEntityDisabledException](/dotnet/api/microsoft.azure.servicebus.messagingentitydisabledexception) |비활성화된 엔터티의 런타임 작업에 대한 요청입니다. |엔터티를 활성화합니다. |그 사이에 엔터티가 활성화된 경우 다시 시도하면 문제가 해결될 수 있습니다. |
 | [NoMatchingSubscriptionException](/dotnet/api/microsoft.servicebus.messaging.nomatchingsubscriptionexception) |사전 필터링이 활성화되었으며 일치하는 필터가 없는 항목에 메시지를 보내는 경우 Service Bus가 이 예외를 반환합니다. |하나 이상의 필터가 일치하는지 확인합니다. |다시 시도 해도 도움이 되지 않습니다. |
 | [MessageSizeExceededException](/dotnet/api/microsoft.servicebus.messaging.messagesizeexceededexception) |메시지 페이로드가 256KB 제한을 초과합니다. 256KB 제한은 총 메시지 크기입니다. 여기에는 시스템 속성과 모든 .NET 오버헤드가 포함됩니다. |메시지 페이로드의 크기를 줄인 다음 작업을 다시 시도합니다. |다시 시도 해도 도움이 되지 않습니다. |
-| [TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx) |앰비언트 트랜잭션(*Transaction.Current*)이 올바르지 않습니다. 완료되었거나 중단되었을 수 있습니다. 내부 예외가 추가 정보를 제공할 수 있습니다. | |다시 시도 해도 도움이 되지 않습니다. |
-| [TransactionInDoubtException](https://msdn.microsoft.com/library/system.transactions.transactionindoubtexception.aspx) |의심스러운 트랜잭션에서 작업을 시도하거나, 트랜잭션을 커밋하려고 시도하는데 해당 트랜잭션의 상태가 확실하지 않습니다. |트랜잭션이 이미 커밋되었을 수 있으므로 애플리케이션에서 이 예외를 처리해야 합니다(특수한 경우). |- |
+| [TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1) |앰비언트 트랜잭션(*Transaction.Current*)이 올바르지 않습니다. 완료되었거나 중단되었을 수 있습니다. 내부 예외가 추가 정보를 제공할 수 있습니다. | |다시 시도 해도 도움이 되지 않습니다. |
+| [TransactionInDoubtException](/dotnet/api/system.transactions.transactionindoubtexception?view=netcore-3.1) |의심스러운 트랜잭션에서 작업을 시도하거나, 트랜잭션을 커밋하려고 시도하는데 해당 트랜잭션의 상태가 확실하지 않습니다. |트랜잭션이 이미 커밋되었을 수 있으므로 애플리케이션에서 이 예외를 처리해야 합니다(특수한 경우). |- |
 
 ## <a name="quotaexceededexception"></a>QuotaExceededException
 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) 은 특정 엔터티에 대한 할당량이 초과됐음을 나타냅니다.
@@ -65,7 +65,7 @@ Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xx
 
 ### <a name="namespaces"></a>네임스페이스
 
-네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 예를 들어:
+네임스페이스의 경우 [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception)은 애플리케이션이 네임스페이스에 대한 최대 연결 수를 초과했음을 나타낼 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```Output
 Microsoft.ServiceBus.Messaging.QuotaExceededException: ConnectionsQuotaExceeded for namespace xxx.
@@ -83,9 +83,9 @@ ConnectionsQuotaExceeded for namespace xxx.
 2. **수신기 중지됨**. 수신기가 큐 또는 구독에서 메시지 수신을 중지했습니다. 이를 식별하는 방법은 메시지의 전체 분석을 보여 주는 [QueueDescription.MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) 속성에서 확인하는 것입니다. [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) 속성이 크거나 증가 하는 경우 메시지를 작성 하는 동안 빨리 읽지 않습니다.
 
 ## <a name="timeoutexception"></a>TimeoutException
-[TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) 은 사용자가 시작한 작업이 작업 시간 제한보다 더 오래 걸린다는 것을 나타냅니다. 
+[TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) 은 사용자가 시작한 작업이 작업 시간 제한보다 더 오래 걸린다는 것을 나타냅니다. 
 
-이 제한에 도달하면 [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)이 발생할 수 있으므로 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) 속성 값도 확인해야 합니다.
+이 제한에 도달하면 [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1)이 발생할 수 있으므로 [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit?view=netcore-3.1) 속성 값도 확인해야 합니다.
 
 ### <a name="queues-and-topics"></a>큐 및 토픽
 큐 및 토픽의 경우 제한 시간은 연결 문자열의 일부로 [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) 속성에서 또는 [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder)를 통해 지정됩니다. 오류 메시지 자체는 다를 수 있지만 현재 작업에 대해 지정된 시간 제한 값을 항상 포함합니다. 

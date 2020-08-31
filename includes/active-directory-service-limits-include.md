@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 840357f51bbeeb877aba48fd8d04baad204cec1e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: ba0791108878dada5088428ce40d1af672d1892a
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375768"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011057"
 ---
 다음은 Azure AD(Azure Active Directory) 서비스에 대한 사용 제약 조건 및 기타 서비스 제한입니다.
 
@@ -30,4 +30,4 @@ ms.locfileid: "87375768"
 | 액세스 패널 |할당된 라이선스에 관계없이 사용자별 액세스 패널에 표시할 수 있는 애플리케이션의 수는 제한이 없습니다.  |
 | 보고서 | 최대 1,000행을 표시하거나 보고서에 다운로드할 수 있습니다. 그 외의 데이터는 잘립니다. |
 | 관리 단위 | Azure AD 리소스가 멤버로 포함될 수 있는 관리 단위의 수는 30개 이하입니다. |
-| 관리자 역할 및 권한 | <ul><li>그룹은 [소유자](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership)로 추가할 수 없습니다.</li><li>그룹은 [역할](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)에 할당할 수 없습니다.</li><li>관리자가 아닌 사용자는 어떤 디렉터리 정보에도 액세스할 수 없도록 차단하는 Azure AD 조직 전체 스위치 외에는 다른 사용자의 디렉터리 정보를 읽는 기능을 제한할 수 없습니다(권장하지 않음). 기본 권한에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)를 참조하세요.</li><li>관리자 역할 멤버 자격을 추가하고 해지가 발효될 때까지 최대 15분이 소요되거나 로그아웃/로그인이 필요할 수 있습니다.</li></ul> |
+| 관리자 역할 및 권한 | <ul><li>그룹은 [소유자](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership)로 추가할 수 없습니다.</li><li>관리자가 아닌 사용자는 어떤 디렉터리 정보에도 액세스할 수 없도록 차단하는 Azure AD 조직 전체 스위치 외에는 다른 사용자의 디렉터리 정보를 읽는 기능을 제한할 수 없습니다(권장하지 않음). 기본 권한에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users)를 참조하세요.</li><li>관리자 역할 멤버 자격을 추가하고 해지가 발효될 때까지 최대 15분이 소요되거나 로그아웃/로그인이 필요할 수 있습니다.</li></ul> |

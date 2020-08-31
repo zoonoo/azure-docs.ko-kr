@@ -7,20 +7,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/06/2020
+ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 2b46e115b6360b161a1b2ad9b176f3afbfaf27d0
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 480c1e991225f707b6497849b6e8d8b5c4124f21
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86277846"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505407"
 ---
 [참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * 학습 데이터 세트가 포함된 Azure Storage Blob. 학습 데이터 세트를 결합하는 옵션 및 팁에 대한 자세한 내용은 [사용자 지정 모델에 대한 학습 데이터 세트 빌드](../../build-training-data-set.md)를 참조하세요. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Train** 폴더에 있는 파일을 사용할 수 있습니다.
 * 최신 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 
@@ -60,26 +60,11 @@ Build succeeded.
 
 선호하는 편집기 또는 IDE에서 프로젝트 디렉터리의 *Program.cs* 파일을 엽니다. 다음 `using` 지시문을 추가합니다.
 
-```csharp
-using Azure.AI.FormRecognizer;
-using Azure.AI.FormRecognizer.Models;
-using Azure.AI.FormRecognizer.Training;
-
-using System;
-using System.IO;
-using System.Threading.Tasks;
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_using)]
 
 그런 다음, 다음 코드를 애플리케이션의 **Main** 메서드에 추가합니다. 이 비동기 작업은 나중에 정의합니다. 
 
-```csharp
-static void Main(string[] args)
-{
-    var t1 = RunFormRecognizerClient();
-
-    Task.WaitAll(t1);
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
@@ -112,18 +97,8 @@ Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다�
 
 `Main`에서 참조되는 작업을 `Main` 메서드 아래에 정의합니다. 여기서는 위에서 정의한 구독 변수를 사용하여 클라이언트 개체 두 개를 인증합니다. **AzureKeyCredential** 개체를 사용하면 필요한 경우 새 클라이언트 개체를 만들지 않고 API 키를 업데이트할 수 있습니다.
 
-```csharp
-static async Task RunFormRecognizerClient()
-{ 
-    string endpoint = Environment.GetEnvironmentVariable(
-        "FORM_RECOGNIZER_ENDPOINT");
-    string apiKey = Environment.GetEnvironmentVariable(
-        "FORM_RECOGNIZER_KEY");
-    var credential = new AzureKeyCredential(apiKey);
-    
-    var trainingClient = new FormTrainingClient(new Uri(endpoint), credential);
-    var recognizerClient = new FormRecognizerClient(new Uri(endpoint), credential);
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_auth)]
+
 
 ### <a name="call-client-specific-methods"></a>클라이언트 관련 메서드 호출
 
@@ -137,29 +112,7 @@ static async Task RunFormRecognizerClient()
 > [!NOTE]
 > 이 가이드의 코드 조각은 URL을 통해 액세스되는 원격 양식을 사용합니다. 로컬 양식 문서를 대신 처리하려는 경우 [참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre)의 관련 메서드를 참조하세요.
 
-```csharp
-    string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
-    string formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
-    string receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-recognizer/media"
-    + "/contoso-allinone.jpg";
-
-    // Call Form Recognizer scenarios:
-    Console.WriteLine("Get form content...");
-    await GetContent(recognizerClient, formUrl);
-
-    Console.WriteLine("Analyze receipt...");
-    await AnalyzeReceipt(recognizerClient, receiptUrl);
-
-    Console.WriteLine("Train Model with training data...");
-    Guid modelId = await TrainModel(trainingClient, trainingDataUrl);
-
-    Console.WriteLine("Analyze PDF form...");
-    await AnalyzePdfForm(recognizerClient, modelId, formUrl);
-
-    Console.WriteLine("Manage models...");
-    await ManageModels(trainingClient, trainingDataUrl) ;
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_calls)]
 
 ## <a name="recognize-form-content"></a>양식 콘텐츠 인식
 
@@ -167,45 +120,13 @@ Form Recognizer를 사용하면 모델을 학습시킬 필요 없이 문서의 �
 
 지정된 URI에서 파일의 콘텐츠를 인식하려면 **StartRecognizeContentFromUri** 메서드를 사용합니다.
 
-```csharp
-private static async Task<Guid> GetContent(
-    FormRecognizerClient recognizerClient, string invoiceUri)
-{
-    Response<FormPageCollection> formPages = await recognizerClient
-        .StartRecognizeContentFromUri(new Uri(invoiceUri))
-        .WaitForCompletionAsync();
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_call)]
+
 
 그러면 제출된 문서의 각 페이지당 하나씩 **FormPage** 개체 컬렉션이 반환됩니다. 다음 코드는 이러한 개체에서 반복되고 추출된 키/값 쌍 및 테이블 데이터를 출력합니다.
 
-```csharp
-    foreach (FormPage page in formPages.Value)
-    {
-        Console.WriteLine($"Form Page {page.PageNumber} has {page.Lines.Count}" + 
-            $" lines.");
-    
-        for (int i = 0; i < page.Lines.Count; i++)
-        {
-            FormLine line = page.Lines[i];
-            Console.WriteLine($"    Line {i} has {line.Words.Count}" + 
-                $" word{(line.Words.Count > 1 ? "s" : "")}," +
-                $" and text: '{line.Text}'.");
-        }
-    
-        for (int i = 0; i < page.Tables.Count; i++)
-        {
-            FormTable table = page.Tables[i];
-            Console.WriteLine($"Table {i} has {table.RowCount} rows and" +
-                $" {table.ColumnCount} columns.");
-            foreach (FormTableCell cell in table.Cells)
-            {
-                Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex})" +
-                    $" contains text: '{cell.Text}'.");
-            }
-        }
-    }
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_print)]
+
 
 ## <a name="recognize-receipts"></a>영수증 확인
 
@@ -213,96 +134,15 @@ private static async Task<Guid> GetContent(
 
 URI를 통해 영수증을 인식하려면 **StartRecognizeReceiptsFromUri** 메서드를 사용합니다. 그러면 제출된 문서의 각 페이지당 하나씩 **RecognizedReceipt** 개체 컬렉션이 반환됩니다. 다음 코드는 지정된 URI에서 영수증을 처리하고 주요 필드와 값을 콘솔에 출력합니다.
 
-```csharp
-private static async Task<Guid> AnalyzeReceipt(
-    FormRecognizerClient recognizerClient, string receiptUri)
-{
-    RecognizedReceiptCollection receipts = await recognizerClient.StartRecognizeReceiptsFromUri(new Uri(receiptUri))
-    .WaitForCompletionAsync();
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
 
-    foreach (RecognizedReceipt receipt in receipts)
-    {
-    FormField merchantNameField;
-    if (receipt.RecognizedForm.Fields.TryGetValue("MerchantName", out merchantNameField))
-    {
-        if (merchantNameField.Value.Type == FieldValueType.String)
-        {
-            string merchantName = merchantNameField.Value.AsString();
-
-            Console.WriteLine($"Merchant Name: '{merchantName}', with confidence {merchantNameField.Confidence}");
-        }
-    }
-
-    FormField transactionDateField;
-    if (receipt.RecognizedForm.Fields.TryGetValue("TransactionDate", out transactionDateField))
-    {
-        if (transactionDateField.Value.Type == FieldValueType.Date)
-        {
-            DateTime transactionDate = transactionDateField.Value.AsDate();
-
-            Console.WriteLine($"Transaction Date: '{transactionDate}', with confidence {transactionDateField.Confidence}");
-        }
-    }
-```
 
 코드의 다음 블록은 영수증에서 검색된 개별 항목에서 반복되고 콘솔에 세부 정보를 출력합니다.
-
-```csharp
-    FormField itemsField;
-    if (receipt.RecognizedForm.Fields.TryGetValue("Items", out itemsField))
-    {
-        if (itemsField.Value.Type == FieldValueType.List)
-        {
-            foreach (FormField itemField in itemsField.Value.AsList())
-            {
-                Console.WriteLine("Item:");
-
-                if (itemField.Value.Type == FieldValueType.Dictionary)
-                {
-                    IReadOnlyDictionary<string, FormField> itemFields = itemField.Value.AsDictionary();
-
-                    FormField itemNameField;
-                    if (itemFields.TryGetValue("Name", out itemNameField))
-                    {
-                        if (itemNameField.Value.Type == FieldValueType.String)
-                        {
-                            string itemName = itemNameField.Value.AsString();
-
-                            Console.WriteLine($"    Name: '{itemName}', with confidence {itemNameField.Confidence}");
-                        }
-                    }
-
-                    FormField itemTotalPriceField;
-                    if (itemFields.TryGetValue("TotalPrice", out itemTotalPriceField))
-                    {
-                        if (itemTotalPriceField.Value.Type == FieldValueType.Float)
-                        {
-                            float itemTotalPrice = itemTotalPriceField.Value.AsFloat();
-
-                            Console.WriteLine($"    Total Price: '{itemTotalPrice}', with confidence {itemTotalPriceField.Confidence}");
-                        }
-                    }
-                }
-            }
-        }
-    }
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_item_print)]
 
 마지막으로, 마지막 코드 블록은 영수증에 총 값을 출력합니다.
 
-```csharp
-    FormField totalField;
-    if (receipt.RecognizedForm.Fields.TryGetValue("Total", out totalField))
-    {
-        if (totalField.Value.Type == FieldValueType.Float)
-        {
-            float total = totalField.Value.AsFloat();
-
-            Console.WriteLine($"Total: '{total}', with confidence '{totalField.Confidence}'");
-        }
-    }
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_total_print)]
 
 ## <a name="train-a-custom-model"></a>사용자 지정 모델 학습
 
@@ -317,82 +157,25 @@ private static async Task<Guid> AnalyzeReceipt(
 
 다음 메서드는 지정된 문서 세트를 모델에 학습시키고 모델의 상태를 콘솔에 출력합니다. 
 
-```csharp
-private static async Task<Guid> TrainModel(
-    FormRecognizerClient trainingClient, string trainingDataUrl)
-{
-    CustomFormModel model = await trainingClient
-        .StartTrainingAsync(new Uri(trainingFileUrl), useTrainingLabels: false).WaitForCompletionAsync();
-    
-    Console.WriteLine($"Custom Model Info:");
-    Console.WriteLine($"    Model Id: {model.ModelId}");
-    Console.WriteLine($"    Model Status: {model.Status}");
-    Console.WriteLine($"    Requested on: {model.RequestedOn}");
-    Console.WriteLine($"    Completed on: {model.CompletedOn}");
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train)]
 
 반환되는 **CustomFormModel** 개체는 모델에서 인식할 수 있는 양식 유형과 각 양식 유형에서 추출할 수 있는 필드에 대한 정보를 포함합니다. 다음 코드 블록은 이 정보를 콘솔에 출력합니다.
 
-```csharp
-    foreach (CustomFormSubmodel submodel in model.Submodels)
-    {
-        Console.WriteLine($"Submodel Form Type: {submodel.FormType}");
-        foreach (CustomFormModelField field in submodel.Fields.Values)
-        {
-            Console.Write($"    FieldName: {field.Name}");
-            if (field.Label != null)
-            {
-                Console.Write($", FieldLabel: {field.Label}");
-            }
-            Console.WriteLine("");
-        }
-    }
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train_response)]
 
 마지막으로, 이 메서드는 모델의 고유 ID를 반환합니다.
 
-```csharp
-    return model.ModelId;
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_train_return)]
 
 ### <a name="train-a-model-with-labels"></a>레이블을 사용하여 모델 학습
 
 학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습시키려면 학습 문서와 별도로 Blob Storage 컨테이너에 특별한 레이블 정보 파일( *\<filename\>.pdf.labels.json*)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 이러한 레이블 파일이 있으면 `true`로 설정된 *uselabels* 매개 변수를 사용하여 **StartTrainingAsync** 메서드를 호출할 수 있습니다.
 
-```csharp
-private static async Task<Guid> TrainModelWithLabelsAsync(
-    FormRecognizerClient trainingClient, string trainingDataUrl)
-{
-    CustomFormModel model = await trainingClient
-    .StartTrainingAsync(new Uri(trainingFileUrl), useTrainingLabels: true).WaitForCompletionAsync();
-    
-    Console.WriteLine($"Custom Model Info:");
-    Console.WriteLine($"    Model Id: {model.ModelId}");
-    Console.WriteLine($"    Model Status: {model.Status}");
-    Console.WriteLine($"    Requested on: {model.RequestedOn}");
-    Console.WriteLine($"    Completed on: {model.CompletedOn}");
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels)]
 
 반환되는 **CustomFormModel**은 모델에서 추출할 수 있는 필드와 각 필드의 예상 정확도를 나타냅니다. 다음 코드 블록은 이 정보를 콘솔에 출력합니다.
 
-```csharp
-    foreach (CustomFormSubmodel submodel in model.Submodels)
-    {
-        Console.WriteLine($"Submodel Form Type: {submodel.FormType}");
-        foreach (CustomFormModelField field in submodel.Fields.Values)
-        {
-            Console.Write($"    FieldName: {field.Name}");
-            if (field.Accuracy != null)
-            {
-                Console.Write($", Accuracy: {field.Accuracy}");
-            }
-            Console.WriteLine("");
-        }
-    }
-    return model.ModelId;
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels_response)]
 
 ## <a name="analyze-forms-with-a-custom-model"></a>사용자 지정 모델을 사용하여 양식 분석
 
@@ -403,118 +186,41 @@ private static async Task<Guid> TrainModelWithLabelsAsync(
 
 **StartRecognizeCustomFormsFromUri** 메서드를 사용합니다. 그러면 제출된 문서의 각 페이지당 하나씩 **RecognizedForm** 개체 컬렉션이 반환됩니다.
 
-```csharp
-// Analyze PDF form data
-private static async Task AnalyzePdfForm(
-    FormRecognizerClient formClient, Guid modelId, string pdfFormFile)
-{    
-    Response<IReadOnlyList<RecognizedForm>> forms = await recognizerClient
-        .StartRecognizeCustomFormsFromUri(modelId, new Uri(formUri))
-        .WaitForCompletionAsync();
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze)]
 
 다음 코드에서는 분석 결과를 콘솔에 출력합니다. 인식된 각 필드와 해당 값을 신뢰도 점수와 함께 출력합니다.
 
-```csharp
-    foreach (RecognizedForm form in forms.Value)
-    {
-        Console.WriteLine($"Form of type: {form.FormType}");
-        foreach (FormField field in form.Fields.Values)
-        {
-            Console.WriteLine($"Field '{field.Name}: ");
-    
-            if (field.LabelText != null)
-            {
-                Console.WriteLine($"    Label: '{field.LabelText.Text}");
-            }
-    
-            Console.WriteLine($"    Value: '{field.ValueText.Text}");
-            Console.WriteLine($"    Confidence: '{field.Confidence}");
-        }
-    }
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze_response)]
 
 ## <a name="manage-your-custom-models"></a>사용자 지정 모델 관리
 
 이 섹션에서는 계정에 저장된 사용자 지정 모델을 관리하는 방법을 보여 줍니다. 다음 코드는 단일 메서드의 모든 모델 관리 작업을 수행하는 예를 보여 줍니다. 우선 아래의 메서드 시그니처를 복사하세요.
 
-```csharp
-private static async Task ManageModels(
-    FormRecognizerClient trainingClient, string trainingFileUrl)
-{
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage)]
 
 ### <a name="check-the-number-of-models-in-the-formrecognizer-resource-account"></a>FormRecognizer 리소스 계정의 모델 수 확인
 
 다음 코드 블록은 Form Recognizer 계정에 저장된 모델 수를 확인하고 이를 계정 제한과 비교합니다.
 
-```csharp
-    // Check number of models in the FormRecognizer account, 
-    // and the maximum number of models that can be stored.
-    AccountProperties accountProperties = trainingClient.GetAccountProperties();
-    Console.WriteLine($"Account has {accountProperties.CustomModelCount} models.");
-    Console.WriteLine($"It can have at most {accountProperties.CustomModelLimit}" +
-        $" models.");
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_count)]
 
 ### <a name="list-the-models-currently-stored-in-the-resource-account"></a>리소스 계정에 현재 저장된 모델 나열
 
 다음 코드 블록은 계정의 현재 모델을 나열하고 해당 세부 정보를 콘솔에 출력합니다.
 
-```csharp
-    // List the first ten or fewer models currently stored in the account.
-    Pageable<CustomFormModelInfo> models = trainingClient.GetModelInfos();
-    
-    foreach (CustomFormModelInfo modelInfo in models.Take(10))
-    {
-        Console.WriteLine($"Custom Model Info:");
-        Console.WriteLine($"    Model Id: {modelInfo.ModelId}");
-        Console.WriteLine($"    Model Status: {modelInfo.Status}");
-        Console.WriteLine($"    Created On: {modelInfo.CreatedOn}");
-        Console.WriteLine($"    Last Modified: {modelInfo.LastModified}");
-    }
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_list)]
 
 ### <a name="get-a-specific-model-using-the-models-id"></a>모델 ID를 사용하여 특정 모델 가져오기
 
 다음 코드 블록은 [모델 학습](#train-a-model-without-labels) 섹션에서와 마찬가지로 새 모델을 학습시킨 다음, 해당 ID를 사용하여 두 번째 참조를 검색합니다.
 
-```csharp
-    // Create a new model to store in the account
-    CustomFormModel model = await trainingClient.StartTrainingAsync(
-        new Uri(trainingFileUrl)).WaitForCompletionAsync();
-    
-    // Get the model that was just created
-    CustomFormModel modelCopy = trainingClient.GetCustomModel(model.ModelId);
-    
-    Console.WriteLine($"Custom Model {modelCopy.ModelId} recognizes the following" +
-        " form types:");
-    
-    foreach (CustomFormSubModel subModel in modelCopy.Models)
-    {
-        Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
-        foreach (CustomFormModelField field in subModel.Fields.Values)
-        {
-            Console.Write($"    FieldName: {field.Name}");
-            if (field.Label != null)
-            {
-                Console.Write($", FieldLabel: {field.Label}");
-            }
-            Console.WriteLine("");
-        }
-    }
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_get)]
 
 ### <a name="delete-a-model-from-the-resource-account"></a>리소스 계정에서 모델 삭제
 
 해당 ID를 참조하여 계정에서 모델을 삭제할 수도 있습니다.
 
-```csharp
-    // Delete the model from the account.
-    trainingClient.DeleteModel(model.ModelId);
-}
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_manage_model_delete)]
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
@@ -537,11 +243,10 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 예를 들어 잘못된 URI를 사용하여 영수증 이미지를 제출하는 경우 "잘못된 요청"을 나타내는 `400` 오류가 반환됩니다.
 
-```csharp Snippet:FormRecognizerBadRequest
+```csharp
 try
 {
     RecognizedReceiptCollection receipts = await client.StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
-
 }
 catch (RequestFailedException e)
 {

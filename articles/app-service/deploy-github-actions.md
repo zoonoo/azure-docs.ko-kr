@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python
-ms.openlocfilehash: 51a340c2fb32de60f20c678e0bc23f2420261e44
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 264976fdfe514a8778c60fe9242ac555f268718d
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849882"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962573"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>GitHub Actions를 사용하여 App Service에 배포
 
@@ -28,49 +28,76 @@ Azure App Service 워크플로의 경우 파일에는 다음 세 개의 섹션�
 
 |섹션  |작업  |
 |---------|---------|
-|**인증** | 1. 서비스 주체 정의 <br /> 2. GitHub 비밀 만들기 |
-|**빌드** | 1. 환경 설정 <br /> 2. 웹앱 빌드 |
-|**배포** | 1. 웹앱 배포 |
+|**인증** | 1. 서비스 주체를 정의 합니다. <br /> 2. GitHub 비밀을 만듭니다. |
+|**빌드** | 1. 환경을 설정 합니다. <br /> 2. 웹 앱을 빌드합니다. |
+|**배포** | 1. 웹 앱을 배포 합니다. |
 
-## <a name="create-a-service-principal"></a>서비스 주체 만들기
+## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/)에서 [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 이 명령을 실행할 수 있습니다.
+# <a name="user-level-credentials"></a>[사용자 수준 자격 증명](#tab/userlevel)
+
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 이 명령을 실행할 수 있습니다.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> --sdk-auth
+az ad sp create-for-rbac --name "myApp" --role contributor \
+                            --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
+                            --sdk-auth
 ```
 
-이 예제에서는 리소스의 자리 표시자를 구독 ID, 리소스 그룹 이름 및 앱 이름으로 바꿉니다. 출력은 App Service 앱에 대한 액세스를 제공하는 역할 할당 자격 증명입니다. GitHub에서 인증하는 데 사용할 수 있는 이 JSON 개체를 복사합니다.
+위의 예제에서 자리 표시자를 구독 ID, 리소스 그룹 이름 및 앱 이름으로 바꿉니다. 출력은 아래와 같이 App Service 앱에 대 한 액세스를 제공 하는 역할 할당 자격 증명을 포함 하는 JSON 개체입니다. 나중에이 JSON 개체를 복사 합니다.
 
-> [!NOTE]
-> 인증을 위해 게시 프로필을 사용하기로 결정한 경우에는 서비스 주체를 만들 필요가 없습니다.
+```output 
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
+```
 
 > [!IMPORTANT]
-> 항상 최소한의 액세스 권한을 부여하는 것이 좋습니다. 그 이유는 이전 예제의 범위가 전체 리소스 그룹이 아닌 특정 App Service 앱으로 제한되기 때문입니다.
+> 항상 최소한의 액세스 권한을 부여하는 것이 좋습니다. 이전 예제의 범위는 전체 리소스 그룹이 아니라 특정 App Service 앱으로 제한 됩니다.
+
+# <a name="app-level-credentials"></a>[앱 수준 자격 증명](#tab/applevel)
+
+앱에 대 한 게시 프로필을 사용 하 여 앱 수준 자격 증명을 사용할 수 있습니다. 포털에서 앱의 관리 페이지로 이동 합니다. **개요** 페이지에서 **게시 프로필 가져오기** 옵션을 클릭 합니다.
+
+나중에 파일의 내용이 필요 합니다.
+
+---
 
 ## <a name="configure-the-github-secret"></a>GitHub 비밀 구성
 
-또한 배포에 앱 수준 자격 증명(게시 프로필)을 사용할 수 있습니다. 비밀을 구성하는 단계를 수행합니다.
+# <a name="user-level-credentials"></a>[사용자 수준 자격 증명](#tab/userlevel)
 
-1. **게시 프로필 가져오기** 옵션을 사용하여 포털에서 App Service 앱의 게시 프로필을 다운로드합니다.
+[GitHub](https://github.com/)에서 리포지토리를 찾아보고 **설정 > 비밀을 선택 하 > 새 비밀을 추가**합니다.
 
-2. [GitHub](https://github.com/)에서 리포지토리를 검색하고 **설정 > 비밀 > 새 비밀 추가**를 선택합니다.
+[사용자 수준 자격 증명](#generate-deployment-credentials)을 사용 하려면 Azure CLI 명령의 전체 JSON 출력을 암호의 값 필드에 붙여넣습니다. 암호에와 같은 이름을 지정 합니다 `AZURE_CREDENTIALS` .
 
-    ![secrets](media/app-service-github-actions/secrets.png)
+나중에 워크플로 파일을 구성 하는 경우 `creds` Azure 로그인 동작의 입력에 대 한 암호를 사용 합니다. 예를 들어:
 
-3. 다운로드한 게시 프로필 파일의 콘텐츠를 비밀의 값 필드에 붙여넣습니다.
+```yaml
+- uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
+```
 
-4. 이제 분기의 워크플로 파일인 `.github/workflows/workflow.yml`에서 Azure Web App 배포 작업의 입력 `publish-profile`에서 비밀을 바꿉니다.
+# <a name="app-level-credentials"></a>[앱 수준 자격 증명](#tab/applevel)
+
+[GitHub](https://github.com/)에서 리포지토리를 찾아보고 **설정 > 비밀을 선택 하 > 새 비밀을 추가**합니다.
+
+[앱 수준 자격 증명](#generate-deployment-credentials)을 사용 하려면 다운로드 한 게시 프로필 파일의 내용을 비밀의 값 필드에 붙여넣습니다. 암호에와 같은 이름을 지정 합니다 `azureWebAppPublishProfile` .
+
+나중에 워크플로 파일을 구성 하는 경우 `publish-profile` Azure 웹 앱 배포 작업의 입력에 대 한 암호를 사용 합니다. 예를 들어:
     
-    ```yaml
-        - uses: azure/webapps-deploy@v2
-          with:
-            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-    ```
+```yaml
+- uses: azure/webapps-deploy@v2
+  with:
+    publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+```
 
-5. 비밀은 정의된 후 다음과 같이 표시됩니다.
-
-    ![secrets](media/app-service-github-actions/app-service-secrets.png)
+---
 
 ## <a name="set-up-the-environment"></a>환경 설정
 
@@ -192,43 +219,9 @@ App Service 앱에 코드를 배포하려면 `azure/webapps-deploy@v2` 작업을
 | **package** | (선택 사항) 패키지 또는 폴더 경로. *.zip, *.war, *.jar 또는 배포할 폴더 |
 | **slot-name** | (선택 사항) 프로덕션 슬롯이 아닌 기존 슬롯 입력 |
 
-### <a name="deploy-using-publish-profile"></a>게시 프로필을 사용하여 배포
+# <a name="user-level-credentials"></a>[사용자 수준 자격 증명](#tab/userlevel)
 
-다음은 게시 프로필을 사용하여 Node.js 앱을 빌드하고 Azure에 배포하는 샘플 워크플로입니다.
-
-```yaml
-# File: .github/workflows/workflow.yml
-
-on: push
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    # checkout the repo
-    - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
-    
-    - name: Setup Node 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-    - name: 'npm install, build, and test'
-      run: |
-        npm install
-        npm run build --if-present
-        npm run test --if-present
-       
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
-          uses: azure/webapps-deploy@v2
-          with: 
-            app-name: node-rn
-            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-```
-
-### <a name="deploy-using-azure-service-principal"></a>Azure 서비스 주체를 사용하여 배포
-
-다음은 Azure 서비스 주체를 사용하여 Node.js 앱을 빌드하고 Azure에 배포하는 샘플 워크플로입니다.
+다음은 Azure 서비스 주체를 사용하여 Node.js 앱을 빌드하고 Azure에 배포하는 샘플 워크플로입니다. `creds`입력 `AZURE_CREDENTIALS` 이 앞에서 만든 비밀을 참조 하는 방법을 확인 합니다.
 
 ```yaml
 on: [push]
@@ -268,6 +261,42 @@ jobs:
       run: |
         az logout
 ```
+
+# <a name="app-level-credentials"></a>[앱 수준 자격 증명](#tab/applevel)
+
+앱의 게시 프로필을 사용 하 여 Node.js 앱을 빌드하고 Azure에 배포 하는 샘플 워크플로는 다음과 같습니다. `publish-profile`입력 `azureWebAppPublishProfile` 이 앞에서 만든 비밀을 참조 하는 방법을 확인 합니다.
+
+```yaml
+# File: .github/workflows/workflow.yml
+
+on: push
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    # checkout the repo
+    - name: 'Checkout GitHub Action' 
+      uses: actions/checkout@master
+    
+    - name: Setup Node 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: 'npm install, build, and test'
+      run: |
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+       
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+          uses: azure/webapps-deploy@v2
+          with: 
+            app-name: node-rn
+            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+```
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

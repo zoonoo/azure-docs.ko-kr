@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 01287f344d77dedade30892d76f5fdbd54481df1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 76be966d8202bb56a6762a261be5adeaf2d58d6b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042886"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926402"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Azure SQL Database에 대한 Query Performance Insight
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Query Performance Insight는 단일 및 풀링된 데이터베이스에 대 한 
 
 ![쿼리](./media/query-performance-insight-use/opening-title.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx) 가 활성 상태여야 합니다. 기본적으로 Azure SQL Database의 모든 데이터베이스에 대해 자동으로 사용 하도록 설정 됩니다. 쿼리 저장소를 실행하지 않는 경우 Azure Portal에서 사용하도록 설정하라는 메시지가 나타납니다.
 
@@ -39,7 +39,7 @@ Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저�
 
 ## <a name="permissions"></a>사용 권한
 
-Query Performance Insight를 사용하려면 다음 [역할 기반 액세스 제어](../../role-based-access-control/overview.md) 권한이 필요합니다.
+Query Performance Insight를 사용 하려면 다음 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md) 권한이 필요 합니다.
 
 * 최상위 리소스 사용 쿼리 및 차트를 보려면 **판독기**, **소유자**, **기여자**, **SQL DB 기여자** 또는 **SQL Server 기여자** 권한이 필요합니다.
 * 쿼리 텍스트를 보려면 **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다.
@@ -86,7 +86,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
    > 더 세부적인 비교(최대 1분)는 사용자 지정 DTU 사용률 차트를 생성하는 것을 고려합니다.
    >
    > 1. Azure Portal에서 **Azure SQL Database**  >  **모니터링**을 선택 합니다.
-   > 2. **메트릭**을 선택 합니다.
+   > 2. **메트릭**을 선택합니다.
    > 3. **+차트 추가**를 선택합니다.
    > 4. 차트에서 DTU 백분율을 선택합니다.
    > 5. 또한 왼쪽 상단 메뉴에서 **최근 24시간**을 선택하고 이를 1분으로 변경합니다.
@@ -178,7 +178,7 @@ Query Performance Insight의 기간 및 실행 수라는 두 메트릭은 잠재
    > 데이터베이스 DTU 사용량을 더 자세하게(최대 1분) 파악하려면 Azure Portal에서 사용자 지정 차트 만들기를 고려합니다.
    >
    > 1. **Azure SQL Database**  >  **모니터링**을 선택 합니다.
-   > 2. **메트릭**을 선택 합니다.
+   > 2. **메트릭**을 선택합니다.
    > 3. **+차트 추가**를 선택합니다.
    > 4. 차트에서 DTU 백분율을 선택합니다.
    > 5. 또한 왼쪽 상단 메뉴에서 **최근 24시간**을 선택하고 이를 1분으로 변경합니다.

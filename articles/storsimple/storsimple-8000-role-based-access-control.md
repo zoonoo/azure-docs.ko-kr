@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 04993d36689c917db05a1b5f2132b107c7c9b412
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 38500edeca2241bfa9ab093e037af18159994b02
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535113"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87920418"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple에 대한 역할 기반 액세스 제어
 
@@ -163,7 +163,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 ## <a name="add-users-to-the-custom-role"></a>사용자 지정 역할에 사용자 추가
 
-역할 할당의 범위인 리소스, 리소스 그룹 또는 구독 내에서 액세스 권한을 부여합니다. 액세스 권한을 제공할 때에는 부모 노드에서 부여한 액세스 권한이 자식에게 상속된다는 점을 기억하세요. 자세한 내용은 [역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
+역할 할당의 범위인 리소스, 리소스 그룹 또는 구독 내에서 액세스 권한을 부여합니다. 액세스 권한을 제공할 때에는 부모 노드에서 부여한 액세스 권한이 자식에게 상속된다는 점을 기억하세요. 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../role-based-access-control/overview.md)로 이동 하세요.
 
 1. **액세스 제어 (IAM)** 로 이동 합니다. 액세스 제어 블레이드에서 **+ 추가**를 선택합니다.
 

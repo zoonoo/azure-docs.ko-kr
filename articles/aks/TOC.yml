@@ -141,7 +141,7 @@
           href: uptime-sla.md
         - name: 근접 배치 그룹 사용(미리 보기)
           href: reduce-latency-ppg.md
-        - name: 노드 이미지 업그레이드(미리 보기)
+        - name: 노드 이미지 업그레이드
           href: node-image-upgrade.md
         - name: 프로세스 노드 OS 업데이트
           href: node-updates-kured.md
@@ -170,6 +170,8 @@
         - name: Terraform을 사용하여 AKS 배포
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: Kubernetes 리소스 뷰어 사용(미리 보기)
+          href: kubernetes-portal.md
         - name: Kubernetes 대시보드 사용
           href: kubernetes-dashboard.md
     - name: 데이터 볼륨 구성
@@ -290,8 +292,8 @@
           href: windows-container-powershell.md
         - name: 원격으로 연결
           href: rdp.md
-        - name: 알려진 제한 사항
-          href: windows-node-limitations.md
+        - name: Windows Server 컨테이너 FAQ
+          href: windows-faq.md
         - name: Kubernetes 대시보드 사용
           href: kubernetes-dashboard.md
         - name: Windows Server 컨테이너용 Dockerfiles 만들기
@@ -364,6 +366,8 @@
           href: ssh.md
         - name: Linux 성능 도구
           href: troubleshoot-linux.md
+        - name: Resource Health 이벤트 확인(미리 보기)
+          href: aks-resource-health.md
 - name: 참조
   items:
     - name: Azure CLI

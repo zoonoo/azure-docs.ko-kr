@@ -2,14 +2,14 @@
 title: 풀의 VM 크기 선택
 description: Azure Batch 풀에서 컴퓨팅 노드에 사용할 수 있는 VM 크기를 선택하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 08/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: e56632ce66cb25bf023813f2b98be6141f651465
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9aef1fc21120401252d188b7373c6ce4139c71c4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143526"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005149"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택
 
@@ -35,12 +35,12 @@ Virtual Machine 구성의 Batch 풀은 거의 모든 VM 크기([Linux](../virtua
 | DC | None |
 | Dv2, DSv2 | 모든 크기 |
 | Dv3, Dsv3 | 모든 크기 |
-| Dav4<sup>1</sup> | 없음 - 아직 사용할 수 없습니다. |
-| Dasv4<sup>1</sup> | Standard_D48as_v4, Standard_D64as_v4 Standard_D96as_v4를 제외한 모든 크기 |
+| Dav4<sup>1</sup> | 모든 크기 |
+| Dasv4<sup>1</sup> | 모든 크기 |
 | Ddv4, Ddsv4 |  없음 - 아직 사용할 수 없습니다. |
 | Ev3, Esv3 | E64is_v3 및 E64i_v3를 제외한 모든 크기 |
-| Eav4<sup>1</sup> | Standard_E48a_v4, Standard_E64a_v4 Standard_E96a_v4를 제외한 모든 크기 |
-| Easv4<sup>1</sup> | Standard_E48as_v4, Standard_E64as_v4 Standard_E96as_v4를 제외한 모든 크기 |
+| Eav4<sup>1</sup> | 모든 크기 |
+| Easv4<sup>1</sup> | 모든 크기 |
 | Edv4, Edsv4 |  없음 - 아직 사용할 수 없습니다. |
 | F, Fs | 모든 크기 |
 | Fsv2 | 모든 크기 |
@@ -60,7 +60,7 @@ Virtual Machine 구성의 Batch 풀은 거의 모든 VM 크기([Linux](../virtua
 | NDv2<sup>1</sup> | 없음 - 아직 사용할 수 없습니다. |
 | NV | 모든 크기 |
 | NVv3<sup>1</sup> | 모든 크기 |
-| NVv4 | 없음 |
+| NVv4 | None |
 | SAP HANA | None |
 
 <sup>1</sup> 이러한 VM 크기는 가상 머신 구성의 Batch 풀에 할당할 수 있지만 새 Batch 계정을 만들고 특정 [할당량 증가](batch-quota-limit.md#increase-a-quota)를 요청해야 합니다. VM 시리즈당 vCPU 할당량이 Batch 계정에 대해 완전히 지원되면 이 제한이 제거됩니다.

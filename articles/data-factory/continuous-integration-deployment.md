@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: f44c3ac51bfc509df0b8f2b82c2d6259bba0aa3c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336925"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047687"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -113,7 +113,7 @@ Azure Data Factory에서 CI/CD(지속적인 통합 및 지속적인 업데이트
     h. **배포 모드**에 대해 **증분**을 선택합니다.
 
     > [!WARNING]
-    > **배포 모드**에 대해 **전체**를 선택하면 Resource Manager 템플릿에 정의되지 않은 대상 리소스 그룹의 모든 리소스를 포함하여 기존 리소스가 삭제될 수 있습니다.
+    > 전체 배포 모드에서는 리소스 그룹에 있지만 새 리소스 관리자 템플릿에 지정 되지 않은 리소스는 **삭제**됩니다. 자세한 내용은 [Azure Resource Manager 배포 모드](../azure-resource-manager/templates/deployment-modes.md) 를 참조 하세요.
 
     ![Data Factory Prod 배포](media/continuous-integration-deployment/continuous-integration-image9.png)
 
@@ -625,6 +625,8 @@ Data Factory를 통해 Git 통합을 사용할 때 개발에서 테스트, 프�
 
     - Data Factory 엔터티는 서로 종속됩니다. 예를 들어, 트리거는 파이프라인에 종속되고, 파이프라인은 데이터 세트 및 다른 파이프라인에 종속됩니다. 리소스 하위 집합을 선택적으로 게시하면 예기치 않은 동작 및 오류가 발생할 수 있습니다.
     - 선택적으로 게시해야 하는 경우 핫픽스를 사용하는 것이 좋습니다. 자세한 내용은 [핫픽스 프로덕션 환경](#hotfix-production-environment)을 참조 하세요.
+
+- Azure Data Factory 팀에서는 데이터 팩터리의 개별 엔터티 (파이프라인, 데이터 집합 등)에 RBAC 컨트롤을 할당 하지 않는 것이 좋습니다. 예를 들어 개발자가 파이프라인 또는 데이터 집합에 액세스할 수 있는 경우 데이터 팩터리의 모든 파이프라인 또는 데이터 집합에 액세스할 수 있어야 합니다. 데이터 팩터리 내에서 많은 RBAC 역할을 구현 해야 하는 경우 두 번째 데이터 팩터리 배포를 살펴보세요.
 
 -   프라이빗 분기에서 게시할 수 없습니다.
 

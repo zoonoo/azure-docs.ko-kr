@@ -3,12 +3,12 @@ title: Azure Service Bus 메시지 개요 | Microsoft Docs
 description: 이 문서에서는 완전 관리형 엔터프라이즈 통합 메시지 브로커인 Azure Service Bus에 대한 개괄적인 개요를 제공합니다.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 8583996cde23b056261662a0640aa310e63d45a9
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 478dd0debb5117e76cf8d0ab6599dcf363c12ab3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341669"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501477"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
 
@@ -92,7 +92,7 @@ Service Bus은 DLQ(배달하지 못한 편지 큐)를 지원합니다. DLQ는 �
 ### <a name="security-protocols"></a>보안 프로토콜
 <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
 
-Service Bus는 [SAS(공유 액세스 서명)](service-bus-sas.md), [RBAC(역할 기반 액세스 제어)](authenticate-application.md) 및 [Azure 리소스에 대한 관리 ID](service-bus-managed-service-identity.md) 같은 보안 프로토콜을 지원합니다.
+Service Bus는 [SAS(공유 액세스 서명)](service-bus-sas.md), [Azure RBAC(Azure 역할 기반 액세스 제어)](authenticate-application.md) 및 [Azure 리소스에 대한 관리 ID](service-bus-managed-service-identity.md) 같은 보안 프로토콜을 지원합니다.
 
 ### <a name="geo-disaster-recovery"></a>지리적 재해 복구
 

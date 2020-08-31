@@ -2,17 +2,17 @@
 title: 클라이언트 앱 코딩
 titleSuffix: Azure Digital Twins
 description: .NET(C#) SDK를 사용하여 클라이언트 앱의 최소 코드를 작성하는 자습서입니다.
-author: cschormann
-ms.author: cschorm
+author: baanders
+ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b1039bb94626dec35eff040e023a84283d9d3a4a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 52a22dd215769208b60f180b576ae5763d67eade
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537424"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723472"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Azure Digital Twins API를 사용하여 코딩
 
@@ -48,7 +48,7 @@ dotnet new console
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity
+dotnet add package Azure.identity --version 1.1.1
 ```
 
 첫 번째 종속성은 [.NET용 Azure IoT Digital Twin 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)입니다. 두 번째 종속성은 Azure에 대한 인증에 유용한 도구를 제공합니다.
@@ -174,7 +174,7 @@ Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 DTDL 파일에 �
 > 이 자습서의 진행을 위해 Visual Studio를 사용하는 경우, 새로 만든 JSON 파일을 선택하고 속성 검사기에서 *출력 디렉터리로 복사* 속성을 *변경된 내용만 복사* 또는 *항상 복사*로 설정합니다. 이렇게 하면 자습서의 나머지 부분에서 **F5**를 사용하여 프로그램을 실행할 때 Visual Studio에서 기본 경로를 사용하여 JSON 파일을 찾을 수 있습니다.
 
 > [!TIP] 
-> DTDL이 유효한지 확인하기 위해 모델 문서를 검사하는 데 사용할 수 있는 언어 독립적 [DTDL 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)이 있습니다. 이 파일은 DTDL 파서 라이브러리를 기반으로 합니다. DTDL 파서 라이브러리에 대한 자세한 내용은 [*방법: 모델 구문 분석 및 유효성 검사*](how-to-use-parser.md)를 참조하세요.
+> DTDL이 유효한지 확인하기 위해 모델 문서를 검사하는 데 사용할 수 있는 언어 독립적 [DTDL 유효성 검사기 샘플](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator)이 있습니다. 이 파일은 DTDL 파서 라이브러리를 기반으로 합니다. DTDL 파서 라이브러리에 대한 자세한 내용은 [*방법: 모델 구문 분석 및 유효성 검사*](how-to-parse-models.md)를 참조하세요.
 
 다음으로 *Program.cs*에 코드를 추가하여 방금 만든 모델을 Azure Digital Twins 인스턴스에 업로드합니다.
 

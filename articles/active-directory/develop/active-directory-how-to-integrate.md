@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: 50748334a59dd6b3d7601bd8a32ac99bfe90b0fe
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c193742527cf69526d69549d3c10f5591f0d2f93
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552818"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115699"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Microsoft id 플랫폼과 통합
 
@@ -31,15 +31,15 @@ ms.locfileid: "87552818"
 
 ### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Microsoft id 플랫폼을 응용 프로그램에 로그인 하는 방법으로 지원
 
-**로그인 충돌을 줄이고 지원 비용을 절감합니다.** Microsoft id 플랫폼을 사용 하 여 응용 프로그램에 로그인 하면 사용자에 게 기억할 이름 및 암호가 하나 이상 없습니다. 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Microsoft id 플랫폼은 Office 365 및 Microsoft Azure을 포함 하 여 전 세계에서 가장 인기 있는 일부 클라우드 응용 프로그램에 대 한 로그인을 진행 합니다. 수백만 명의 조직에서 수백만 명의 사용자가 Microsoft id 플랫폼에 이미 로그인 한 경우를 들 수 있습니다. [Microsoft id 플랫폼 로그인에 대 한 지원을 추가 하는](authentication-scenarios.md)방법에 대해 자세히 알아보세요.
+**로그인 충돌을 줄이고 지원 비용을 절감합니다.** Microsoft id 플랫폼을 사용 하 여 응용 프로그램에 로그인 하면 사용자에 게 기억할 이름 및 암호가 하나 이상 없습니다. 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Microsoft id 플랫폼은 Office 365 및 Microsoft Azure을 포함 하 여 전 세계에서 가장 인기 있는 일부 클라우드 응용 프로그램에 대 한 로그인을 진행 합니다. 수백만 명의 조직에서 수백만 명의 사용자가 Microsoft id 플랫폼에 이미 로그인 한 경우를 들 수 있습니다. [Microsoft id 플랫폼 로그인에 대 한 지원을 추가 하는](./authentication-vs-authorization.md)방법에 대해 자세히 알아보세요.
 
 **애플리케이션 등록을 단순화합니다.**  응용 프로그램에 등록 하는 동안 Microsoft id 플랫폼은 등록 양식을 미리 채우거 나 완전히 제거할 수 있도록 사용자에 대 한 필수 정보를 보낼 수 있습니다. 사용자는 소셜 미디어 및 모바일 애플리케이션에서 본 것과 비슷한 친숙한 동의 환경을 통해 자신의 Azure AD 계정을 사용하여 애플리케이션을 등록할 수 있습니다. 모든 사용자는 참여를 요구 하지 않고 Microsoft id 플랫폼과 통합 된 응용 프로그램에 등록 하 고 로그인 할 수 있습니다. [Azure AD 계정 로그인을 위해 애플리케이션 등록](../../app-service/configure-authentication-provider-aad.md)에 대해 자세히 알아보세요.
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>사용자를 찾고, 사용자 프로 비전을 관리 하 고, 응용 프로그램에 대 한 액세스를 제어 합니다.
 
-**디렉터리에서 사용자를 찾습니다.**  Microsoft Graph API를 사용 하 여 사용자가 전자 메일 주소를 입력 하도록 요구 하는 대신 다른 사용자를 초대 하거나 액세스 권한을 부여할 때 조직에서 다른 사용자를 검색 하 고 찾아볼 수 있습니다. 사용자는 조직 계층의 세부 정보 보기 등 친숙한 주소록 유형의 인터페이스를 사용하여 찾아볼 수 있습니다. [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/overview)에 대해 자세히 알아보세요.
+**디렉터리에서 사용자를 찾습니다.**  Microsoft Graph API를 사용 하 여 사용자가 전자 메일 주소를 입력 하도록 요구 하는 대신 다른 사용자를 초대 하거나 액세스 권한을 부여할 때 조직에서 다른 사용자를 검색 하 고 찾아볼 수 있습니다. 사용자는 조직 계층의 세부 정보 보기 등 친숙한 주소록 유형의 인터페이스를 사용하여 찾아볼 수 있습니다. [MICROSOFT GRAPH API](/graph/overview)에 대해 자세히 알아보세요.
 
-**Active Directory 그룹 및 고객이 이미 관리하는 메일 그룹을 다시 사용합니다.**   Azure AD에는 고객이 이미 메일 배포에 사용하고 액세스를 관리하는 그룹이 포함되어 있습니다. Microsoft Graph API를 사용 하 여 고객이 응용 프로그램에서 별도의 그룹 집합을 만들고 관리 하도록 요구 하는 대신 이러한 그룹을 다시 사용 합니다. 로그인 토큰의 애플리케이션에 그룹 정보가 전송될 수도 있습니다. [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/overview)에 대해 자세히 알아보세요.
+**Active Directory 그룹 및 고객이 이미 관리하는 메일 그룹을 다시 사용합니다.**   Azure AD에는 고객이 이미 메일 배포에 사용하고 액세스를 관리하는 그룹이 포함되어 있습니다. Microsoft Graph API를 사용 하 여 고객이 응용 프로그램에서 별도의 그룹 집합을 만들고 관리 하도록 요구 하는 대신 이러한 그룹을 다시 사용 합니다. 로그인 토큰의 애플리케이션에 그룹 정보가 전송될 수도 있습니다. [MICROSOFT GRAPH API](/graph/overview)에 대해 자세히 알아보세요.
 
 **Microsoft id 플랫폼을 사용 하 여 응용 프로그램에 대 한 액세스 권한이 있는 사용자를 제어 합니다.**  Azure AD의 관리자 및 애플리케이션 소유자는 애플리케이션에 대한 액세스 권한을 특정 사용자 및 그룹에게 할당할 수 있습니다. Microsoft Graph API를 사용 하 여이 목록을 읽고 응용 프로그램 내에서 리소스 및 액세스의 프로 비전 및 프로 비전 해제를 제어 하는 데 사용할 수 있습니다.
 
@@ -47,13 +47,13 @@ ms.locfileid: "87552818"
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>사용자의 프로필, 일정, 메일, 연락처, 파일 등에 액세스
 
-**Microsoft id 플랫폼은 Office 365 및 기타 Microsoft 비즈니스 서비스에 대 한 권한 부여 서버입니다.**  응용 프로그램에 로그인 하거나 OAuth 2.0를 사용 하 여 현재 사용자 계정을 Azure AD 사용자 계정에 연결 하도록 지 원하는 Microsoft id 플랫폼을 지 원하는 경우 사용자의 프로필, 일정, 전자 메일, 연락처, 파일 및 기타 정보에 대 한 읽기 및 쓰기 액세스를 요청할 수 있습니다. 사용자의 일정에 매끄럽게 이벤트를 쓸 수 있으며 사용자의 OneDrive에 파일을 읽거나 쓸 수 있습니다. [Office 365 API 액세스](https://msdn.microsoft.com/office/office365/howto/platform-development-overview)에 대해 자세히 알아보세요.
+**Microsoft id 플랫폼은 Office 365 및 기타 Microsoft 비즈니스 서비스에 대 한 권한 부여 서버입니다.**  응용 프로그램에 로그인 하거나 OAuth 2.0를 사용 하 여 현재 사용자 계정을 Azure AD 사용자 계정에 연결 하도록 지 원하는 Microsoft id 플랫폼을 지 원하는 경우 사용자의 프로필, 일정, 전자 메일, 연락처, 파일 및 기타 정보에 대 한 읽기 및 쓰기 액세스를 요청할 수 있습니다. 사용자의 일정에 매끄럽게 이벤트를 쓸 수 있으며 사용자의 OneDrive에 파일을 읽거나 쓸 수 있습니다. [Office 365 API 액세스](/previous-versions/office/office-365-api/)에 대해 자세히 알아보세요.
 
 ### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Azure 및 Office 365 마켓플레이스에서 응용 프로그램 홍보
 
 **이미 Azure AD를 사용 중인 수백만 개의 조직에 애플리케이션을 홍보합니다.**   이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/)에서 애플리케이션 홍보하기에 대해 자세히 알아보세요.
 
-**사용자가 애플리케이션에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.**  사용자가 나중에 애플리케이션으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 대해 자세히 알아보세요.
+**사용자가 애플리케이션에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.**  사용자가 나중에 애플리케이션으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](../user-help/my-apps-portal-end-user-access.md)에 대해 자세히 알아보세요.
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>안전한 장치-서비스 및 서비스 간 통신
 
@@ -73,9 +73,9 @@ Microsoft id 플랫폼과의 통합은 추가 코드를 작성 하지 않아도 
 
 **Multi-factor authentication.**  Microsoft id 플랫폼은 네이티브 multi-factor authentication을 제공 합니다. 애플리케이션에 액세스하기 위해 IT 관리자가 다단계 인증을 요구할 수 있으므로 이 지원을 직접 코딩할 필요가 없습니다. [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)에 대해 자세히 알아보세요.
 
-**비정상적인 로그인 감지.**  Microsoft id 플랫폼은 하루에 10억 개 이상의 로그인을 처리 하 고, 기계 학습 알고리즘을 사용 하 여 의심 스러운 활동을 감지 하 고 IT 관리자에 게 가능한 문제를 알립니다. Microsoft id 플랫폼 로그인을 지원 하 여 응용 프로그램은이 보호의 이점을 얻습니다. [Azure Active Directory 액세스 보고서 보기](../active-directory-view-access-usage-reports.md)에 대해 자세히 알아보세요.
+**비정상적인 로그인 감지.**  Microsoft id 플랫폼은 하루에 10억 개 이상의 로그인을 처리 하 고, 기계 학습 알고리즘을 사용 하 여 의심 스러운 활동을 감지 하 고 IT 관리자에 게 가능한 문제를 알립니다. Microsoft id 플랫폼 로그인을 지원 하 여 응용 프로그램은이 보호의 이점을 얻습니다. [Azure Active Directory 액세스 보고서 보기](../reports-monitoring/overview-reports.md)에 대해 자세히 알아보세요.
 
-**조건부 액세스.**  관리자는 다단계 인증 외에도 특정 조건을 충족해야 사용자가 애플리케이션에 로그인할 수 있도록 요구할 수 있습니다. 클라이언트 디바이스의 IP 주소 범위, 지정된 그룹의 멤버 자격, 액세스에 사용되는 디바이스의 상태 조건을 설정할 수 있습니다. [Azure Active Directory 조건부 액세스](../active-directory-conditional-access-azure-portal.md)에 대해 자세히 알아보세요.
+**조건부 액세스.**  관리자는 다단계 인증 외에도 특정 조건을 충족해야 사용자가 애플리케이션에 로그인할 수 있도록 요구할 수 있습니다. 클라이언트 디바이스의 IP 주소 범위, 지정된 그룹의 멤버 자격, 액세스에 사용되는 디바이스의 상태 조건을 설정할 수 있습니다. [Azure Active Directory 조건부 액세스](../conditional-access/overview.md)에 대해 자세히 알아보세요.
 
 ### <a name="easy-development"></a>손쉬운 개발
 
@@ -91,5 +91,4 @@ Microsoft id 플랫폼과의 통합은 추가 코드를 작성 하지 않아도 
 
 [코드 작성 시작하기](v2-overview.md#getting-started).
 
-[Microsoft id 플랫폼을 사용 하 여 사용자 로그인](authentication-scenarios.md)
-
+[Microsoft id 플랫폼을 사용 하 여 사용자 로그인](./authentication-vs-authorization.md)

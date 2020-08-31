@@ -1,15 +1,15 @@
 ---
 title: Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트워크를 배포 하 고 구성 하는 방법
-ms.date: 07/27/2020
+ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d6999b32224e6c41cdf9869554c884fc4779c217
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533430"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184213"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 
@@ -350,10 +350,22 @@ ORGNAME 환경 변수에 설정 된 피어 조직의 모든 피어 노드에 cha
 피어 클라이언트 응용 프로그램에서 아래 명령을 실행 하 여 채널에서 chaincode를 인스턴스화합니다.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
 각각 및에서 인스턴스화 함수 이름 및 공백으로 구분 된 인수 목록을 전달 `<instantiateFunc>` `<instantiateFuncArgs>` 합니다. 예를 들어 chaincode_example02에서로 설정 된 chaincode을 `<instantiateFunc>` `init` `<instantiateFuncArgs>` "a" "2000" "b" "1000"로 설정 합니다.
+
+플래그를 사용 하 여 컬렉션 구성 JSON 파일을 전달할 수도 있습니다 `--collections-config` . 또는 `-t` 전용 트랜잭션에 사용 되는 chaincode를 인스턴스화하는 동안 플래그를 사용 하 여 임시 인수를 설정 합니다.
+
+예를 들어:
+
+```bash
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
+```
+
+는 \<collectionConfigJSONFilePath\> 개인 데이터 chaincode의 인스턴스화에 대해 정의 된 컬렉션을 포함 하는 JSON 파일의 경로입니다. 다음 경로에서 azhlfTool 디렉터리를 기준으로 하는 샘플 컬렉션 구성 JSON 파일을 찾을 수 있습니다 `./samples/chaincode/src/private_marbles/collections_config.json` .
+\<transientArgs\>문자열 형식의 유효한 JSON으로 전달 합니다. 특수 문자를 이스케이프 합니다. 예: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > 채널의 한 피어 조직에서 한 번 명령을 실행 합니다. 트랜잭션이 가져오므로에 성공적으로 제출 되 면 가져오므로는이 트랜잭션을 채널의 모든 피어 조직에 배포 합니다. 따라서 chaincode은 채널의 모든 피어 조직에 있는 모든 피어 노드에서 인스턴스화됩니다.  
@@ -377,8 +389,12 @@ ORGNAME 환경 변수에 설정 된 피어 조직의 모든 피어 노드에 cha
 아래 명령을 실행 하 여 chaincode를 쿼리 합니다.  
 
 ```bash
-./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
+보증 피어는 chaincode가 설치 되 고 트랜잭션 실행을 위해 호출 되는 피어입니다. \<endorsingPeers\>현재 피어 조직에서 포함 하는 피어 노드 이름을 설정 해야 합니다. 지정 된 chaincode 및 채널 조합에 대 한 보증 피어를 공백으로 구분 하 여 나열 합니다. 예: `-p "peer1" "peer3"`.
+
+AzhlfTool를 사용 하 여 chaincode을 설치 하는 경우 피어 노드 이름을 보증 피어 인수에 값으로 전달 합니다. Chaincode는 해당 조직의 모든 피어 노드에 설치 됩니다. 
+
 각각 및에서 쿼리 함수 이름 및 공백으로 구분 된 인수 목록을 전달  `<queryFunction>`    `<queryFuncArgs>`   합니다. 다시 chaincode_example02로 이동 chaincode을 참조로 가져와 세계 상태에서 "a"의 값을  `<queryFunction>`    `query`  `<queryArgs>` "a"로 설정 합니다.  
 
 ## <a name="troubleshoot"></a>문제 해결

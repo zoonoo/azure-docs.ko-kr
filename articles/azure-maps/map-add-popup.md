@@ -1,6 +1,6 @@
 ---
 title: 맵의 점에 팝업 추가 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 지점에 팝업을 추가 하는 방법에 대해 설명 합니다.
+description: Azure Maps 팝업, 팝업 템플릿 및 팝업 이벤트에 대해 알아봅니다. 맵의 점에 팝업을 추가 하는 방법 및 팝업을 다시 사용 하 고 사용자 지정 하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/27/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 298e05d6527129a20c92b8bacf08cb3090b162c6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5235b273ab45a2ece011f38bf363b33230101396
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286912"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036507"
 ---
 # <a name="add-a-popup-to-the-map"></a>맵에 팝업 추가
 

@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: 구성 설정'
-description: Azure Virtual Network 게이트웨이의 VPN Gateway 설정에 대해 알아봅니다.
+description: 리소스 관리자 배포 모델에서 만든 가상 네트워크에 대 한 VPN Gateway 리소스 및 설정에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f801b94a16ae6fcee6896dd70510469c5e20098
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708147"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036915"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
@@ -41,7 +41,7 @@ VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 �
 
 VPN Gateway에는 `-GatewayType` *Vpn*이 필요합니다.
 
-예:
+예제:
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -91,7 +91,7 @@ VPN 게이트웨이가 있는데 다른 게이트웨이 SKU를 사용하려는 �
 
 [!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
-## <a name="connection-types"></a><a name="connectiontype"></a>연결 형식
+## <a name="connection-types"></a><a name="connectiontype"></a>연결 유형
 
 Resource Manager 배포 모델에서 각 구성이 작동하려면 특정 가상 네트워크 게이트웨이 연결 유형이 필요합니다. `-ConnectionType` 에 대해 사용 가능한 Resource Manager PowerShell 값은 다음과 같습니다.
 
@@ -114,7 +114,7 @@ VPN Gateway 구성에 대한 가상 네트워크 게이트웨이 만들 때 VPN 
 
 선택하는 VPN 유형은 만들려는 솔루션에 대한 연결 요구 사항을 모두 충족해야 합니다. 예를 들어 동일한 가상 네트워크에 대해 S2S VPN Gateway 연결 및 P2S VPN Gateway 연결을 만들려는 경우 P2S에는 RouteBased VPN 유형이 필요하기 때문에 VPN 유형 *RouteBased* 를 사용해야 합니다. VPN 디바이스가 RouteBased VPN 연결을 지원하는지 확인해야 합니다. 
 
-가상 네트워크 게이트웨이를 만든 후에는 VPN 유형을 변경할 수 없습니다. 가상 네트워크 게이트웨이를 삭제하고 새로 만들어야 합니다. 두 가지 VPN 유형이 있습니다.
+가상 네트워크 게이트웨이를 만든 후에는 VPN 유형을 변경할 수 없습니다. 가상 네트워크 게이트웨이를 삭제하고 새로 만들어야 합니다. 두 가지 VPN 형식은 다음과 같습니다.
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
@@ -169,7 +169,7 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 VPN Gateway를 구성하기 위해 REST API, PowerShell cmdlet 또는 Azure CLI를 사용할 경우 추가 기술 리소스 및 특정 구문 요구 사항에 대해서는 다음 페이지를 참조하세요.
 
-| **클래식** | **리소스 관리자** |
+| **클래식** | **Resource Manager** |
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |

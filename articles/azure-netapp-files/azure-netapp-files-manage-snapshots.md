@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: 271c3c9f63ee3f761826e214f3bf32a8df5f1cbe
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d70558efb1ea54f069981062e5379d995dbeddd2
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533294"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950343"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
@@ -60,11 +60,12 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
 2. 기능 등록의 상태를 확인 합니다. 
 
     > [!NOTE]
-    > 로 변경 하기 전에 **Registrationstate** 는 `Registering` 몇 분 동안 상태일 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+    > **RegistrationState** `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
+Azure CLI 명령을 사용 하 여 [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) 기능을 [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) 등록 하 고 등록 상태를 표시할 수도 있습니다. 
 
 ### <a name="create-a-snapshot-policy"></a>스냅숏 정책 만들기 
 
@@ -150,7 +151,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
     ![새 볼륨으로 스냅샷 복원](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 3. 볼륨 만들기 창에서 새 볼륨에 대 한 정보를 제공 합니다.  
-    * **이름의**   
+    * **이름**   
         만들고 있는 볼륨의 이름을 지정합니다.  
         
         이름은 각 리소스 그룹 내에서 고유해야 합니다. 3자 이상이어야 합니다.  영숫자 문자를 사용할 수 있습니다.

@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery를 사용하여 Windows Server 2008 서버를 Azure로 마이그레이션
-description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 Windows Server 2008 머신을 Azure로 마이그레이션하는 방법을 설명합니다.
+title: Azure Migrate/Site Recovery를 사용하여 Windows Server 2008 서버를 Azure로 마이그레이션
+description: 이 문서에서는 온-프레미스 Windows Server 2008 머신을 Azure로 마이그레이션하는 방법을 설명하고 Azure Migrate를 권장합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c62cb9b64c42446c1f4ba8f6eb496fc792ff59a1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d8cd8bf2e1a29b122fb4bac7a12454f102183fe3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281279"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845564"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008을 실행하는 서버에서 Azure로 마이그레이션
 
@@ -31,9 +31,11 @@ ms.locfileid: "87281279"
 
 ## <a name="migrate-with-azure-migrate"></a>Azure Migrate로 마이그레이션
 
-[Azure Migrate](../migrate/migrate-services-overview.md) 서비스를 사용하여 머신을 Azure로 마이그레이션하는 것이 좋습니다. Azure Migrate는 Azure Migrate, 기타 Azure 서비스 및 타사 도구를 사용하여 온-프레미스 머신을 Azure로 평가하고 마이그레이션하기 위한 중앙 집중식 허브를 제공합니다. Azure Site Recovery는 마이그레이션이 아닌 재해 복구에만 사용해야 합니다.
+[Azure Migrate](../migrate/migrate-services-overview.md) 서비스를 사용하여 머신을 Azure로 마이그레이션하는 것이 좋습니다. 
 
-Azure Migrate는 Windows Server 2008을 실행하는 서버의 마이그레이션을 지원합니다.
+- Azure Migrate는 서버 마이그레이션을 위해 특별히 빌드되었습니다.
+- Azure Migrate는 온-프레미스 머신을 Azure로 검색, 평가 및 마이그레이션하기 위한 중앙 허브를 제공합니다. Azure Site Recovery는 마이그레이션이 아닌 재해 복구에만 사용해야 합니다.
+- Azure Migrate는 Windows Server 2008을 실행하는 서버의 마이그레이션을 지원합니다.
 
 
 ## <a name="migrate-with-site-recovery"></a>Site Recovery로 마이그레이션
@@ -104,7 +106,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 5. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
 6. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정**을 클릭하고 **만들기**를 클릭합니다.
 
-   ![새 자격 증명 모음](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
+   ![새 자격 증명 모음 만들기 옵션을 보여주는 스크린샷](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
 
 **대시보드**의 **모든 리소스** 아래와 주 **Recovery Services 자격 증명 모음** 페이지에 새 자격 증명 모음이 추가됩니다.
 
@@ -136,15 +138,15 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 > [!WARNING]
 > 복제 정책의 앱 일치 스냅샷 빈도 설정에서 **꺼짐**을 지정합니다. Windows Server 2008을 실행하는 서버를 복제하는 동안 크래시 일관성 복구 시점만 지원됩니다. 앱 일치 스냅샷 빈도에 대해 다른 값을 지정하면 앱 일치 복구 시점의 부족으로 인해 서버의 복제 상태가 위험으로 전환되어 잘못된 경고가 발생합니다.
 
-   ![복제 정책 만들기](media/migrate-tutorial-windows-server-2008/create-policy.png)
+   ![복제 정책 만들기 옵션을 보여주는 스크린샷](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ### <a name="enable-replication"></a>복제 사용
 
 마이그레이션할 Windows Server 2008 SP2 / Windows Server 2008 R2 SP1 서버에 대해 [복제를 사용](physical-azure-disaster-recovery.md#enable-replication)합니다.
    
-   ![물리적 서버 추가](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
+   ![물리적 머신을 추가하는 옵션을 보여주는 스크린샷](media/migrate-tutorial-windows-server-2008/Add-physical-server.png)
 
-   ![복제 사용](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
+   ![복제를 사용하도록 설정하는 옵션을 보여주는 스크린샷](media/migrate-tutorial-windows-server-2008/Enable-replication.png)
 
 ### <a name="run-a-test-migration"></a>테스트 마이그레이션 실행
 
@@ -152,7 +154,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
 
 모든 것이 예상대로 작동하는지 확인할 수 있도록 Azure에 대해 [테스트 장애 조치(Failover)](tutorial-dr-drill-azure.md)를 실행합니다.
 
-   ![테스트 장애 조치](media/migrate-tutorial-windows-server-2008/testfailover.png)
+   ![테스트 장애 조치(failover) 명령을 보여주는 스크린샷](media/migrate-tutorial-windows-server-2008/testfailover.png)
 
 
 ### <a name="migrate-to-azure"></a>Azure로 마이그레이션
@@ -168,7 +170,7 @@ Windows Server 2008 또는 Windows Server 2008 R2를 실행 중인 Hyper-V 가�
     - 마이그레이션 프로세스가 완료되고, 서버에 대한 복제가 중지되고, 서버에 대한 Site Recovery 청구가 중지됩니다.
     - 이 단계는 복제 데이터를 정리합니다. 마이그레이션된 VM을 삭제하지 않습니다.
 
-   ![마이그레이션 완료](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+   ![전체 마이그레이션 명령을 보여주는 스크린샷](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]

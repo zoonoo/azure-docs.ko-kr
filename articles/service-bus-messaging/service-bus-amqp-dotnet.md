@@ -3,12 +3,12 @@ title: .NET 및 AMQP 1.0을 사용한 Azure Service Bus | Microsoft Docs
 description: 이 문서에서는 AMQP (고급 메시징 큐 프로토콜)를 사용 하 여 .NET 응용 프로그램에서 Azure Service Bus를 사용 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d969607a28759af3b6ee36d79638bb27d0d53808
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340181"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067106"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>AMQP 1.0을 사용하여 .NET에서 Service Bus 사용
 
@@ -66,19 +66,19 @@ AMQP를 사용하는 경우 `;TransportType=Amqp`을(를) 사용하여 연결 �
 | decimal |decimal128 |AMQP 값 |
 | char |char |AMQP 값 |
 | DateTime |timestamp |AMQP 값 |
-| Guid |uuid |AMQP 값 |
+| GUID |uuid |AMQP 값 |
 | byte[] |binary |AMQP 값 |
-| string |string |AMQP 값 |
+| 문자열 |문자열 |AMQP 값 |
 | System.Collections.IList |list |AMQP 값: 컬렉션에 포함된 항목은 이 테이블에서 정의된 것만 가능합니다. |
 | System.Array |array |AMQP 값: 컬렉션에 포함된 항목은 이 테이블에서 정의된 것만 가능합니다. |
 | System.Collections.IDictionary |map |AMQP 값: 컬렉션에 포함된 항목은 이 테이블에서 정의된 것만 가능합니다.참고: 문자열만 지원됩니다. |
 | URI |설명된 문자열(아래 표 참조) |AMQP 값 |
 | DateTimeOffset |설명된 long(아래 표 참조) |AMQP 값 |
 | TimeSpan |설명된 long(아래 참조) |AMQP 값 |
-| STREAM |binary |AMQP 데이터(여러 개가 있을 수 있음). 데이터 섹션에는 스트림 개체에서 읽은 원시 바이트가 포함되어 있습니다. |
+| 스트림 |binary |AMQP 데이터(여러 개가 있을 수 있음). 데이터 섹션에는 스트림 개체에서 읽은 원시 바이트가 포함되어 있습니다. |
 | 다른 개체 |binary |AMQP 데이터(여러 개가 있을 수 있음). 애플리케이션에서 제공된 DataContractSerializer 또는 serializer를 사용하는 개체의 직렬화된 이진을 포함합니다. |
 
-| .NET 형식 | 매핑된 AMQP 설명된 형식 | 참고 |
+| .NET 형식 | 매핑된 AMQP 설명된 형식 | 메모 |
 | --- | --- | --- |
 | URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |Uri.AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset.UtcTicks |
@@ -109,7 +109,7 @@ AMQP를 사용하는 경우 기본 프로토콜에 비해 Service Bus .NET API�
 * [AMQP 1.0 프로토콜 가이드]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
-[DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
+[DataContractSerializer]: /dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
@@ -117,4 +117,3 @@ AMQP를 사용하는 경우 기본 프로토콜에 비해 Service Bus .NET API�
 [Azure portal]: https://portal.azure.com
 [Service Bus AMQP 개요]: service-bus-amqp-overview.md
 [AMQP 1.0 프로토콜 가이드]: service-bus-amqp-protocol-guide.md
-

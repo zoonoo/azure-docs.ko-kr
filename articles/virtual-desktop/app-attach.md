@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop MSIX app attach - Azure
 description: Windows Virtual Desktop에 맞게 MSIX app attach을 설정하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 328f7bb8c03cb78f4b5375eb4f6e3d9891b83942
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e461bbf8c3a6cd845744fc0e17b5d1f0eb9bef58
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760671"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010160"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 
@@ -220,7 +218,7 @@ MSIX app attach에는 다음 순서로 수행해야 하는 네 가지 단계가 
 
 각 단계는 PowerShell 스크립트를 만듭니다. 각 단계에 대한 샘플 스크립트는 [여기](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach)에 있습니다.
 
-### <a name="stage-the-powershell-script"></a>PowerShell 스크립트 스테이징
+### <a name="stage-powershell-script"></a>스테이지 PowerShell 스크립트
 
 PowerShell 스크립트를 업데이트하기 전에 VHD에 볼륨의 볼륨 GUID가 있는지 확인해야 합니다. 볼륨 GUID를 가져오려면 다음을 수행합니다.
 
@@ -264,88 +262,48 @@ PowerShell 스크립트를 업데이트하기 전에 VHD에 볼륨의 볼륨 GUI
     #MSIX app attach staging sample
 
     #region variables
-
     $vhdSrc="<path to vhd>"
-
     $packageName = "<package name>"
-
     $parentFolder = "<package parent folder>"
-
     $parentFolder = "\" + $parentFolder + "\"
-
     $volumeGuid = "<vol guid>"
-
     $msixJunction = "C:\temp\AppAttach\"
-
     #endregion
 
     #region mountvhd
-
     try
-
     {
-
-    Mount-VHD -Path $vhdSrc -NoDriveLetter -ReadOnly
-
-    Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
-
+          Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
+          Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
     }
-
     catch
-
     {
-
-    Write-Host ("Mounting of " + $vhdSrc + " has failed!") -BackgroundColor Red
-
+          Write-Host ("Mounting of " + $vhdSrc + " has failed!") -BackgroundColor Red
     }
-
     #endregion
 
     #region makelink
-
     $msixDest = "\\?\Volume{" + $volumeGuid + "}\"
-
     if (!(Test-Path $msixJunction))
-
     {
-
-    md $msixJunction
-
+         md $msixJunction
     }
 
     $msixJunction = $msixJunction + $packageName
-
     cmd.exe /c mklink /j $msixJunction $msixDest
-
     #endregion
 
     #region stage
-
-    [Windows.Management.Deployment.PackageManager,Windows.Management.Deployment,ContentType=WindowsRuntime]
-    | Out-Null
-
+    [Windows.Management.Deployment.PackageManager,Windows.Management.Deployment,ContentType=WindowsRuntime] | Out-Null
     Add-Type -AssemblyName System.Runtime.WindowsRuntime
-
-    $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where {
-    $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult]
-    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
-
-    $asTaskAsyncOperation =
-    $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult],
-    [Windows.Management.Deployment.DeploymentProgress])
-
+    $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where { $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult] AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
+    $asTaskAsyncOperation = $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult], [Windows.Management.Deployment.DeploymentProgress])
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
-
     $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
-
     $path = ([System.Uri]$path).AbsoluteUri
-
     $asyncOperation = $packageManager.StagePackageAsync($path, $null, "StageInPlace")
-
     $task = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))
-
     $task
-
     #endregion
     ```
 
@@ -357,17 +315,12 @@ PowerShell 스크립트를 업데이트하기 전에 VHD에 볼륨의 볼륨 GUI
 #MSIX app attach registration sample
 
 #region variables
-
 $packageName = "<package name>"
-
 $path = "C:\Program Files\WindowsApps\" + $packageName + "\AppxManifest.xml"
-
 #endregion
 
 #region register
-
 Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
-
 #endregion
 ```
 
@@ -379,15 +332,11 @@ Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 #MSIX app attach deregistration sample
 
 #region variables
-
 $packageName = "<package name>"
-
 #endregion
 
 #region deregister
-
 Remove-AppxPackage -PreserveRoamableApplicationData $packageName
-
 #endregion
 ```
 
@@ -399,21 +348,14 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 #MSIX app attach de staging sample
 
 #region variables
-
 $packageName = "<package name>"
-
 $msixJunction = "C:\temp\AppAttach\"
-
 #endregion
 
 #region deregister
-
 Remove-AppxPackage -AllUsers -Package $packageName
-
 cd $msixJunction
-
 rmdir $packageName -Force -Verbose
-
 #endregion
 ```
 
@@ -440,7 +382,7 @@ rmdir $packageName -Force -Verbose
 2. 3단계의 스크립트에서 다음 변수를 업데이트합니다.
       1. `$contentID`는 인코딩되지 않은 라이선스 파일(.xml)의 ContentID 값입니다. 원하는 텍스트 편집기에서 라이선스 파일을 열 수 있습니다.
       2. `$licenseBlob`은 인코딩된 라이선스 파일(. bin)의 라이선스 Blob에 대한 전체 문자열입니다. 원하는 텍스트 편집기에서 인코딩된 라이선스 파일을 열 수 있습니다.
-3. 관리자 PowerShell 프롬프트에서 다음 스크립트를 실행합니다. 라이선스 설치를 수행하기에 좋은 위치는 [스테이징 스크립트](#stage-the-powershell-script)의 끝이며 관리자 프롬프트에서도 실행해야 합니다.
+3. 관리자 PowerShell 프롬프트에서 다음 스크립트를 실행합니다. 라이선스 설치를 수행하기에 좋은 위치는 [스테이징 스크립트](#stage-powershell-script)의 끝이며 관리자 프롬프트에서도 실행해야 합니다.
 
 ```powershell
 $namespaceName = "root\cimv2\mdm\dmmap"

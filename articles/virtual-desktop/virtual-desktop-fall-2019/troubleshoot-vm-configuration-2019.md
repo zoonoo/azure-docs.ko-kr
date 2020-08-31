@@ -1,24 +1,22 @@
 ---
 title: Windows 가상 데스크톱 (클래식) 세션 호스트 문제 해결-Azure
 description: Windows 가상 데스크톱 (클래식) 세션 호스트 가상 컴퓨터를 구성할 때 발생 하는 문제를 해결 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0155c9cf6b5d9df8a6a8831896093c4c6b074cd6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291264"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008630"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Windows 가상 데스크톱 (클래식) 세션 호스트 가상 컴퓨터 구성
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체 Azure Resource Manager를 지원 하지 않는 Windows 가상 데스크톱 (클래식)에 적용 됩니다. Azure Resource Manager Windows 가상 데스크톱 개체를 관리 하려는 경우 [이 문서](../troubleshoot-vm-configuration.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../troubleshoot-vm-configuration.md)를 참조하세요.
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 세션 호스트 Vm (가상 컴퓨터)을 구성할 때 발생 하는 문제를 해결할 수 있습니다.
 
@@ -311,7 +309,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 
 시간 제한이 만료 되 면 "이 컴퓨터에 사용할 수 있는 원격 데스크톱 클라이언트 액세스 라이선스가 없어 원격 세션의 연결을 끊었습니다." 라는 오류 메시지가 표시 됩니다.
 
-이러한 메시지 중 하나가 표시 되 면 이미지에 최신 Windows 업데이트가 설치 되어 있지 않거나 그룹 정책을 통해 원격 데스크톱 라이선스 모드를 설정 하는 것입니다. 다음 섹션의 단계에 따라 그룹 정책 설정을 확인 하 고, Windows 10 Enterprise 다중 세션 버전을 확인 하 고, 해당 업데이트를 설치 합니다.  
+이러한 메시지 중 하나가 표시 되 면 이미지에 최신 Windows 업데이트가 설치 되어 있지 않거나 그룹 정책을 통해 원격 데스크톱 라이선스 모드를 설정 하는 것입니다. 다음 섹션의 단계에 따라 그룹 정책 설정을 확인 하 고, Windows 10 Enterprise 다중 세션 버전을 확인 하 고, 해당 업데이트를 설치 합니다.
 
 >[!NOTE]
 >Windows 가상 데스크톱에는 호스트 풀에 Windows Server 세션 호스트가 포함 된 경우 RDS CAL (클라이언트 액세스 라이선스)만 필요 합니다. RDS CAL를 구성 하는 방법에 대 한 자세한 내용은 [클라이언트 액세스 라이선스를 사용 하 여 RDS 배포 라이선스](/windows-server/remote/remote-desktop-services/rds-client-access-license/)를 참조 하세요.

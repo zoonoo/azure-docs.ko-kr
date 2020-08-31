@@ -4,6 +4,8 @@
   items:
     - name: Azure API for FHIR 정보
       href: overview.md
+    - name: Azure IoT Connector for FHIR(미리 보기) 정보
+      href: overview.md#azure-iot-connector-for-fhir-preview
 - name: 빠른 시작
   expanded: true
   items:
@@ -19,7 +21,7 @@
       href: fhir-oss-powershell-quickstart.md
     - name: FHIR Server for Azure 배포 - CLI
       href: fhir-oss-cli-quickstart.md
-    - name: IoT 커넥터 배포 - 포털
+    - name: Azure IoT Connector for FHIR(미리 보기) 배포 - 포털
       href: iot-fhir-portal-quickstart.md
 - name: 자습서
   expanded: false
@@ -86,7 +88,7 @@
       href: enable-diagnostic-logging.md
     - name: Azure API for FHIR의 토큰 가져오기 - CLI
       href: get-healthcare-apis-access-token-cli.md
-    - name: IoT 커넥터에서 오류 문제 해결
+    - name: Azure IoT Connector for FHIR(미리 보기)의 오류 문제 해결
       href: iot-troubleshoot-guide.md
 - name: 개념
   expanded: false
@@ -97,12 +99,12 @@
       href: azure-ad-hcapi-token-validation.md
     - name: 사용자 지정 HTTP 헤더를 사용하여 감사 로그에 데이터 추가
       href: use-custom-headers.md
-    - name: IoT 커넥터 작동
+    - name: Azure IoT Connector for FHIR(미리 보기) 작동
       expanded: false
       items:
-        - name: IoT 커넥터 데이터 흐름
+        - name: Azure IoT Connector for FHIR(미리 보기) 데이터 흐름
           href: iot-data-flow.md
-        - name: IoT 커넥터 매핑 템플릿
+        - name: Azure IoT Connector for FHIR(미리 보기) 매핑 템플릿
           href: iot-mapping-templates.md
 - name: 리소스
   items:

@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: dccf8b2e9608de4f22f9782eb9f3cdb489e18be3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e1f97fddb07e56946e37c04d9b9685412782c560
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319714"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659758"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Azure Portal에서 Azure Machine Learning 작업 영역 만들기 및 관리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,8 +43,9 @@ ms.locfileid: "87319714"
    필드|설명 
    ---|---
    작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws**를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요. 작업 영역 이름은 대/소문자를 구분하지 않습니다.
-   구독 |사용할 Azure 구독을 선택합니다.
-   Resource group | 구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예에서는 **docs-aml**을 사용합니다. 
+   Subscription |사용할 Azure 구독을 선택합니다.
+   Resource group | 구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예에서는 **docs-aml**을 사용합니다. 기존 리소스 그룹을 사용 하려면 *참가자* 또는 *소유자* 역할이 필요 합니다.  액세스에 대 한 자세한 내용은 [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)를 참조 하세요.
+   위치 | 사용자 및 데이터 리소스와 가장 가까운 위치를 선택하여 작업 영역을 만듭니다.
    위치 | 사용자 및 데이터 리소스와 가장 가까운 위치를 선택하여 작업 영역을 만듭니다.
    Workspace Edition | **기본** 또는 **엔터프라이즈**를 선택 합니다.  이 작업 영역 버전은 액세스 및 가격 책정을 사용할 수 있는 기능을 결정 합니다. [Basic 및 Enterprise edition 제품](overview-what-is-azure-ml.md#sku)에 대해 자세히 알아보세요. 
 
@@ -78,7 +79,7 @@ ms.locfileid: "87319714"
 
 1. 업그레이드 하려는 작업 영역을 선택 합니다.
 
-1. 페이지의 오른쪽 위에서 자세히 **알아보기** 를 선택 합니다.
+1. 페이지의 오른쪽 위에서 자세히 **알아보기**  를 선택 합니다.
 
    [![작업 영역 ](./media/how-to-manage-workspace/upgrade.png) 업그레이드](./media/how-to-manage-workspace/upgrade.png#lightbox)
 

@@ -2,25 +2,21 @@
 title: Azure AD 응용 프로그램 프록시 질문과 대답 | Microsoft Docs
 description: Azure AD 응용 프로그램 프록시을 사용 하 여 내부 온-프레미스 응용 프로그램을 원격 사용자에 게 게시 하는 방법에 대 한 FAQ (질문과 대답)에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: aa9a930195908671cc0e772fd9643dcbce9dbb1c
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562415"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589166"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -31,6 +27,9 @@ ms.locfileid: "87562415"
 ### <a name="what-license-is-required-to-use-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시을 사용 하는 데 필요한 라이선스는 무엇 인가요?
 
 Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 또는 P2 라이선스가 있어야 합니다. 라이선스에 대 한 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/) 을 참조 하세요.
+
+### <a name="what-happens-to-azure-ad-application-proxy-in-my-tenant-if-my-license-expires"></a>내 라이선스가 만료 된 경우 내 테 넌 트의 Azure AD 응용 프로그램 프록시는 어떻게 되나요?
+라이선스가 만료 되 면 응용 프로그램 프록시가 자동으로 사용 하지 않도록 설정 됩니다. 응용 프로그램 정보는 최대 1 년 동안 저장 됩니다.
 
 ### <a name="why-is-the-enable-application-proxy-button-grayed-out"></a>"응용 프로그램 프록시 사용 단추가 회색으로 표시 되는 이유는 무엇 인가요?
 
@@ -87,6 +86,15 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 
 
 ## <a name="application-configuration"></a>애플리케이션 구성
+
+### <a name="i-am-receiving-an-error-about-an-invalid-certificate-or-possible-wrong-password"></a>잘못 된 인증서 또는 잘못 된 암호에 대 한 오류를 수신 하 고 있습니다.
+
+SSL 인증서를 업로드 한 후에는 포털에서 "잘못 된 인증서, 잘못 된 암호를 사용할 수 있습니다." 라는 메시지가 표시 됩니다.
+
+이 오류를 해결 하기 위한 몇 가지 팁은 다음과 같습니다.
+- 인증서의 문제를 확인 합니다. 로컬 컴퓨터에 설치 합니다. 문제가 발생 하지 않으면 인증서가 양호 합니다.
+- 암호에 특수 문자가 포함 되어 있지 않은지 확인 합니다. 테스트를 위해 암호는 문자 0-9, a-z 및 a-z만 포함 해야 합니다.
+- Microsoft 소프트웨어 키 저장소 공급자를 사용 하 여 인증서를 만든 경우 RSA 알고리즘을 사용 해야 합니다.
 
 ### <a name="what-is-the-length-of-the-default-and-long-back-end-timeout-can-the-timeout-be-extended"></a>기본 및 "긴" 백 엔드 시간 제한의 길이는 어떻게 되나요? 제한 시간을 연장할 수 있나요?
 

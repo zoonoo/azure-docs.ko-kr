@@ -5,12 +5,12 @@ ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: e3f3e457a0eb9bcce08499bf7d10c69185d7f211
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 227849380d543f6ea5bc1c0ae9cd6dfbf8de69b0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337719"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934211"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c-with-rest"></a>빠른 시작: REST를 사용 하 여 c #을 사용 하 여 QnA Maker에서 기술 자료 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "84337719"
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 최신 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 * [QnA Maker 리소스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다.

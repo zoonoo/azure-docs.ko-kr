@@ -1,19 +1,20 @@
 ---
 title: Microsoft 365 계정을 사용하여 Azure에 등록
-description: Microsoft 365 계정을 사용하여 Azure 구독을 만드는 방법 알아보기
+description: Microsoft 365 계정을 사용하여 Azure 구독을 만드는 방법을 알아봅니다. 기존 Azure 및 Microsoft 365 계정을 서로 연결할 수도 있습니다.
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 2d3711e33a5fa9b95ce43b4d2f4730517df0a449
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 5fef68c9de4dae8063799255fcc7d68ff6b1e6b8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810298"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684850"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-microsoft-365-account"></a>Microsoft 365 계정을 사용하여 Azure 구독에 등록
 

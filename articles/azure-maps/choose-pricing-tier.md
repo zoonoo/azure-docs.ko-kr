@@ -1,19 +1,19 @@
 ---
 title: Microsoft Azure Maps에 대 한 적절 한 가격 책정 계층 선택
-description: 이 문서에서는 Microsoft Azure 맵에서 제공 되는 가격 책정 계층에 대해 알아봅니다.
+description: 가격 책정 계층 Azure Maps에 대해 알아봅니다. 어떤 기능을 어떤 계층에서 제공 하는지 확인 하 고 가격 책정 계층을 선택 하기 위한 주요 고려 사항을 확인 합니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 359c2270f3de269adae13ce976cedeb4248935d2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3603a4f5d103987b25bd5f976b89f943f98565a8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285767"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163988"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Azure Maps에서 적절한 가격 책정 계층 선택
 
@@ -47,6 +47,7 @@ S0 및 S1 가격 책정 계층이 처리할 수 있는 데이터 처리량은 �
 | Azure Maps 데이터 (미리 보기)                |                     | ✓        |
 | 모바일 (미리 보기)                       |                     | ✓        |
 | 날씨 (미리 보기)                        |✓                    |✓        |
+|  작성자 (미리 보기)                         |                   |✓        |
 
 다음과 같은 추가 사항을 고려 합니다.
 

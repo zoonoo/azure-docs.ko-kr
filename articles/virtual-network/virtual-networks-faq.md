@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 0f277661ab61e7292fbb81d96c26c7d48c6d03ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c242b08c598b04c84ab330e846704eace23c4858
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087053"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205478"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure Virtual Network FAQ(질문과 대답)
 
@@ -109,7 +109,7 @@ VNet 내에서 TCP, UDP 및 ICMP TCP/IP 프로토콜을 사용할 수 있습니�
 ### <a name="can-i-modify-the-size-of-my-subnet-after-i-create-it"></a>서브넷을 만든 후 크기를 수정할 수 있습니까?
 예. VNet 내에서 배포된 VM 또는 서비스가 없는 경우 서브넷을 추가, 제거, 확장 또는 축소할 수 있습니다.
 
-### <a name="can-i-modify-subnets-after-i-created-them"></a>서브넷을 만든 후 수정할 수 있습니까?
+### <a name="can-i-modify-vnet-after-i-created-them"></a>Vnet을 만든 후 수정할 수 있나요?
 예. VNet에서 사용되는 CIDR 블록을 추가, 제거 및 수정할 수 있습니다.
 
 ### <a name="if-i-am-running-my-services-in-a-vnet-can-i-connect-to-the-internet"></a>VNet에서 서비스를 실행 중인 경우 인터넷에 연결할 수 있습니까?
@@ -356,7 +356,7 @@ VNet 서비스 엔드포인트는 Azure 서비스 리소스 보호에 도움이 
 예, 구성할 수 있습니다. 가상 네트워크 및 Azure 서비스 리소스는 동일한 구독이나 서로 다른 구독에 있을 수 있습니다. 유일한 요구사항은 가상 네트워크와 Azure 서비스 리소스가 모두 AD(Active Directory) 테넌트에 있어야 한다는 것입니다.
 
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>가상 네트워크 및 Azure 서비스 리소스가 서로 다른 AD 테넌트에 속해 있는 경우 VNet 서비스 엔드포인트를 켜고 VNet ACL을 설정할 수 있나요?
-아니요, AD 테넌트 간에는 VNet 서비스 엔드포인트와 VNet AC이 지원되지 않습니다.
+예, Azure Storage 및 Azure Key Vault에 대 한 서비스 끝점을 사용할 수 있습니다. 서비스의 나머지 부분에서는 VNet 서비스 끝점 및 VNet Acl이 AD 테 넌 트에서 지원 되지 않습니다.
 
 ### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>Azure Virtual Network gateway (VPN) 또는 Express 경로 게이트웨이를 통해 연결 된 온-프레미스 장치의 IP 주소가 VNet 서비스 끝점을 통해 Azure PaaS 서비스에 액세스할 수 있나요?
 기본적으로 가상 네트워크에 대해 보호된 Azure 서비스 리소스는 온-프레미스 네트워크에서 연결할 수 없습니다. 온-프레미스의 트래픽을 허용하려는 경우 온-프레미스 또는 ExpressRoute의 공용 IP 주소(일반적으로 NAT)도 허용해야 합니다. Azure 서비스 리소스에 대한 IP 방화벽 구성을 통해 해당 IP 주소를 추가할 수 있습니다.

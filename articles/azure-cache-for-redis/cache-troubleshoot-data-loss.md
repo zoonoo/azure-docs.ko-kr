@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: ba0430461df5ce1a2d615b819dbe5e8a36ae52b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 29492ee6b7bce50c4807a36d0c252e18e6aadf87
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184534"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008953"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Azure Cache for Redis 데이터 손실 문제 해결
 
@@ -119,6 +119,6 @@ Redis는 메모리 내 데이터 저장소입니다. 데이터는 Redis 캐시�
 ## <a name="additional-information"></a>추가 정보
 
 - [Azure Cache for Redis 서버 쪽 문제 해결](cache-troubleshoot-server.md)
-- [사용해야 하는 Azure Cache for Redis 제안 및 크기는 어떻게 되나요?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+- [올바른 계층 선택](cache-overview.md#choosing-the-right-tier)
 - [Azure Cache for Redis를 모니터링하는 방법](cache-how-to-monitor.md)
-- [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)
+- [어떻게 Redis 명령을 실행할 수 있나요?](cache-development-faq.md#how-can-i-run-redis-commands)

@@ -1,6 +1,6 @@
 ---
 title: Azure Storage 테이블 디자인 패턴 | Microsoft Docs
-description: Azure Table service 솔루션에 패턴을 사용합니다.
+description: Azure의 Table service 솔루션과 함께 사용 하기에 적합 한 디자인 패턴을 검토 합니다. 다른 문서에서 설명 하는 문제 및 장단점을 해결 합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,12 +8,13 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: cbafe7c3e3b76ea13a8ca7a82b2968662b43685a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b200782d10ae3637fcade63feab1e638d40acddb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081233"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006349"
 ---
 # <a name="table-design-patterns"></a>테이블 디자인 패턴
 이 아티클에서는 Table service 솔루션에서 사용하기에 적합한 몇 가지 패턴에 대해 알아봅니다. 또한 다른 Table Storage 디자인 아티클에서 설명한 문제 및 장단점 중 일부를 실용적으로 해결할 수 있는 방법도 확인합니다. 다음 다이어그램에는 서로 다른 패턴 간의 관계가 요약되어 있습니다.  
@@ -310,7 +311,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 다음 예제에서는 특정 직원(예: Sales 부서의 직원 000123)에 대한 모든 검토 데이터를 검색할 수 있는 방법을 간략하게 설명합니다.  
 
-$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 'empid_000124')&$select=RowKey,Manager Rating,Peer Rating,Comments  
+$filter = (PartitionKey eq ' Sales ') and (RowKey ge ' empid_000123 ') and (RowKey lt ' 000123_2012 ') &$select = RowKey, Manager 등급, 피어 등급, 설명  
 
 ### <a name="issues-and-considerations"></a>문제 및 고려 사항
 이 패턴을 구현할 방법을 결정할 때 다음 사항을 고려하세요.  
@@ -377,7 +378,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 이 접근 방식을 사용하면 애플리케이션이 각 사용자에 대한 로그인 엔터티를 별도의 파티션에 삽입하고 삭제할 수 있기 때문에 파티션 핫스폿이 방지됩니다. 그러나 이 접근 방식은 엔터티 수가 많은 경우 삭제할 모든 엔터티를 식별하기 위해 먼저 테이블 검색을 수행한 다음 각 이전 엔터티를 삭제해야 하기 때문에 시간과 비용이 많이 들 수 있습니다. 여러 삭제 요청을 EGT로 일괄 처리하면 이전 엔터티를 삭제하는 데 필요한 서버 왕복 횟수를 줄일 수 있습니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 각 로그인 시도 날짜에 별도의 테이블을 사용합니다. 위의 엔터티 디자인을 사용하면 엔터티를 삽입할 때 핫스폿을 방지할 수 있으며, 매일 수십만 개의 개별 로그인 엔터티를 찾아서 삭제하는 대신 매일 하나의 테이블만 삭제하면 되므로(단일 스토리지 작업) 이전 엔터티 삭제가 간편해집니다.  
 
 ### <a name="issues-and-considerations"></a>문제 및 고려 사항

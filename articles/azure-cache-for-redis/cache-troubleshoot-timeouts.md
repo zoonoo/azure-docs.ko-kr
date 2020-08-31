@@ -5,13 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 10/18/2019
-ms.openlocfilehash: 3d9360a4b5c5f0ef080b3de2a9d425bcdf2b2e70
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bf8b20dadd2fcd78657aa6877e796b645332dd94
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081902"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213457"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Azure Cache for Redis 시간 제한 문제 해결
 
@@ -120,5 +121,5 @@ Redis는 `synctimeout` 기본 값이 5000 밀리초 인 동기 작업에 대해 
 
 - [Azure Cache for Redis 클라이언트 쪽 문제 해결](cache-troubleshoot-client.md)
 - [Azure Cache for Redis 서버 쪽 문제 해결](cache-troubleshoot-server.md)
-- [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Azure Cache for Redis를 모니터링하는 방법](cache-how-to-monitor.md)

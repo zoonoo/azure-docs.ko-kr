@@ -58,10 +58,10 @@
               href: connect-azure-security-center.md
             - name: IoT용 Azure Security Center
               href: connect-asc-iot.md
+            - name: Azure WAF(웹 애플리케이션 방화벽)
+              href: connect-azure-waf.md
             - name: 도메인 이름 서버
               href: connect-dns.md
-            - name: Microsoft 웹 애플리케이션 방화벽
-              href: connect-microsoft-waf.md
             - name: Windows 방화벽
               href: connect-windows-firewall.md
             - name: Windows 보안 이벤트

@@ -4,17 +4,17 @@ description: 이 자습서에서는 Linux 디바이스용 Linux 컨테이너를 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 924654dace53b326e3a29bb834f773122b0476ab
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ec61bf4db949649c993fad4a3255b55626cb259
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081120"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056230"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>자습서: Linux 디바이스를 위한 IoT Edge 모듈 개발
 
@@ -63,7 +63,7 @@ IoT Edge 모듈을 개발할 때 개발 머신과 모듈을 결과적으로 배�
 
 * 본인의 개발 선호도에 자신의 머신 또는 가상 머신을 사용할 수 있습니다.
   * 개발 머신에서 중첩된 가상화를 지원하는지 확인합니다. 이 기능은 다음 섹션에서 설치하는 컨테이너 엔진을 실행하는 데 필요합니다.
-* 컨테이너 엔진을 실행할 수 있는 대부분의 운영 체제에서 Linux 디바이스용 IoT Edge 모듈을 개발할 수 있습니다. 이 자습서에서는 Windows 머신을 사용하지만 MacOS 또는 Linux에서 알려진 차이점을 설명합니다.
+* 컨테이너 엔진을 실행할 수 있는 대부분의 운영 체제에서 Linux 디바이스용 IoT Edge 모듈을 개발할 수 있습니다. 이 자습서에서는 Windows 머신을 사용하지만 macOS 또는 Linux에서 알려진 차이점을 설명합니다.
 * 이 자습서의 뒷부분에 나오는 모듈 템플릿 패키지를 끌어오려면 [Git](https://git-scm.com/)을 설치하세요.  
 * [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
@@ -112,7 +112,7 @@ Visual Studio Code용 IoT 확장을 사용하여 IoT Edge 모듈을 개발합니
 
 8. 왼쪽의 작업 표시줄에서 아이콘을 선택하거나 **보기** > **탐색기**를 선택하여 Visual Studio Code의 탐색기 섹션을 엽니다.
 
-9. 탐색기 섹션 맨 아래에서 축소된 **Azure IoT Hub 디바이스** 메뉴를 확장합니다. 명령 팔레트를 통해 선택한 IoT Hub와 연결된 디바이스 및 IoT Edge 디바이스가 표시됩니다.
+9. 탐색기 섹션 맨 아래에서 축소된 **Azure IoT Hub/디바이스** 메뉴를 확장합니다. 명령 팔레트를 통해 선택한 IoT Hub와 연결된 디바이스 및 IoT Edge 디바이스가 표시됩니다.
 
    ![IoT Hub의 디바이스 보기](./media/tutorial-develop-for-linux/view-iot-hub-devices.png)
 
@@ -134,7 +134,7 @@ Visual Studio Code 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루�
    | 솔루션 이름 제공 | 솔루션에 대한 설명이 포함된 이름을 입력하거나 기본값 **EdgeSolution**을 적용합니다. |
    | 모듈 템플릿 선택 | **C# 모듈**을 선택합니다. |
    | 모듈 이름 제공 | 기본값인 **SampleModule**을 그대로 사용합니다. |
-   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에 제공한 이름으로 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<registry name\>.azurecr.io/samplemodule과 같습니다. |
+   | 모듈의 Docker 이미지 리포지토리 제공 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 마지막 단계에 제공한 이름으로 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 **로그인 서버** 값으로 바꿉니다. Azure Portal에 있는 컨테이너 레지스트리의 개요 페이지에서 Login 서버 값을 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<registry name\>.azurecr.io/samplemodule과 같습니다. |
 
    ![Docker 이미지 리포지토리 제공](./media/tutorial-develop-for-linux/image-repository.png)
 
@@ -151,6 +151,9 @@ Visual Studio Code 창에 새 솔루션이 로드되면 생성된 다음 파일�
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>IoT Edge 에이전트에 레지스트리 자격 증명 제공
 
 환경 파일은 컨테이너 레지스트리의 자격 증명을 저장하고 IoT Edge 런타임과 공유합니다. 이러한 자격 증명은 런타임에서 컨테이너 이미지를 IoT Edge 디바이스로 가져오기 위해 필요합니다.
+
+>[!NOTE]
+>**localhost:5000** 값을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꾸지 않은 경우 [**프로젝트 템플릿 만들기**](#create-a-project-template) 단계에서 **.env** 파일 및 배포 매니페스트의 registryCredentials 섹션이 누락됩니다. 
 
 IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌어온 후 환경 파일에 채우려고 합니다. 사용자 자격 증명이 이미 포함되어 있는지 확인합니다. 그렇지 않은 경우 다음과 같이 지금 추가합니다.
 
@@ -172,7 +175,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 
 만든 솔루션 템플릿에는 IoT Edge 모듈용 샘플 코드가 포함되어 있습니다. 이 샘플 모듈은 메시지 수신한 후 전달합니다. 파이프라인 기능은 IoT Edge의 중요한 개념인 모듈이 서로 통신하는 방식을 보여 줍니다.
 
-각 모듈의 코드에는 여러 개의 *입력* 및 *출력* 큐가 선언될 수 있습니다. 디바이스에서 실행되는 IoT Edge 허브는 모듈 중 하나의 출력에 있는 메시지를 하나 이상의 모듈 입력으로 라우팅합니다. 입력 및 출력을 선언하는 특정 언어는 언어마다 다르지만 개념은 모든 모듈에서 동일합니다. 모듈 간 라우팅에 대한 자세한 내용은 [경로 선언](module-composition.md#declare-routes)을 참조하세요.
+각 모듈의 코드에는 여러 개의 *입력* 및 *출력* 큐가 선언될 수 있습니다. 디바이스에서 실행되는 IoT Edge 허브는 모듈 중 하나의 출력에 있는 메시지를 하나 이상의 모듈 입력으로 라우팅합니다. 입력 및 출력을 선언하는 특정 언어는 코드마다 다르지만 개념은 모든 모듈에서 동일합니다. 모듈 간 라우팅에 대한 자세한 내용은 [경로 선언](module-composition.md#declare-routes)을 참조하세요.
 
 프로젝트 템플릿과 함께 제공되는 샘플 C# 코드는 .NET용 IoT Hub SDK에서 [ModuleClient 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)를 사용합니다.
 
@@ -194,11 +197,11 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 
 7. $edgeAgent의 원하는 속성 중에서 **modules** 속성을 찾습니다.
 
-   여기에는 두 개의 모듈이 표시되어야 합니다. 첫 번째는 **SimulatedTemperatureSensor**로, 모듈을 테스트하는 데 사용할 수 있는 시뮬레이트된 온도 데이터를 제공하기 위해 기본적으로 모든 템플릿에 포함되어 있습니다. 두 번째는 **SampleModule**로, 이 솔루션의 일부로 생성한 모듈입니다.
+   여기에는 두 개의 모듈이 표시되어야 합니다. 하나는 **SimulatedTemperatureSensor** 모듈로, 모듈을 테스트하는 데 사용할 수 있는 시뮬레이트된 온도 데이터를 제공하기 위해 기본적으로 모든 템플릿에 포함되어 있습니다. 다른 하나는 **SampleModule**로, 이 솔루션의 일부로 생성한 모듈입니다.
 
 8. 파일 맨 아래에서 **$edgeHub** 모듈의 원하는 속성을 찾습니다.
 
-   IoT Edge 허브 모듈의 기능 중 하나는 배포의 모든 모듈 간에 메시지를 라우팅하는 것입니다. **routes** 속성에서 값을 검토합니다. 첫 번째 경로 **SampleModuleToIoTHub**는 와일드카드 문자( **\*** )를 사용하여 SampleModule 모듈의 출력 큐에서 가져온 모든 메시지를 나타냅니다. 이러한 메시지는 IoT Hub를 지정하는 예약 이름인 *$upstream*으로 이동됩니다. 두 번째 경로 sensorToSampleModule은 SimulatedTemperatureSensor 모듈에서 메시지를 가져온 후 SampleModule 코드에서 초기화된 것으로 확인한 *input1* 입력 큐로 라우팅합니다.
+   IoT Edge 허브 모듈의 기능 중 하나는 배포의 모든 모듈 간에 메시지를 라우팅하는 것입니다. **routes** 속성에서 값을 검토합니다. 경로 중 하나인 **SampleModuleToIoTHub**는 와일드카드 문자( **\*** )를 사용하여 SampleModule 모듈의 출력 큐에서 가져온 모든 메시지를 나타냅니다. 이러한 메시지는 IoT Hub를 지정하는 예약 이름인 *$upstream*으로 이동됩니다. 다른 경로인 **sensorToSampleModule**은 SimulatedTemperatureSensor 모듈에서 메시지를 가져온 후 SampleModule 코드에서 초기화된 것으로 확인한 *input1* 입력 큐로 라우팅합니다.
 
    ![deployment.template.json의 경로 검토](./media/tutorial-develop-for-linux/deployment-routes.png)
 
@@ -276,7 +279,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 
 이제 빌드한 컨테이너 이미지를 디바이스에 배포해야 하므로 컨테이너 레지스트리에 저장되어 있는지 확인합니다. IoT Edge 디바이스가 작동되고 실행 중인지 확인합니다.
 
-1. Visual Studio Code 탐색기에서 Azure IoT Hub 디바이스 섹션을 확장합니다.
+1. Visual Studio Code 탐색기의 **Azure IoT Hub** 섹션에서 **디바이스**를 확장하여 IoT 디바이스 목록을 표시합니다.
 
 2. 배포하려는 IoT Edge 디바이스를 마우스 오른쪽 단추로 클릭한 다음, **단일 디바이스용 배포 만들기**를 선택합니다.
 
@@ -286,9 +289,7 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
 
    deployment.template.json 파일은 컨테이너 레지스트리 자격 증명 또는 모듈 이미지 값을 포함하지 않으므로 사용하지 않도록 합니다. Linux ARM32 디바이스를 대상으로 하는 경우 배포 매니페스트 이름이 deployment.arm32v7.json으로 지정됩니다.
 
-4. IoT Edge 디바이스에 대한 세부 정보를 확장한 다음, 디바이스의 **모듈** 목록을 확장합니다.
-
-5. SimulatedTemperatureSensor 및 SampleModule 모듈이 디바이스에서 실행되는 것을 확인할 때까지 새로 고침 단추를 사용하여 디바이스 보기를 업데이트합니다.
+4. 배포되어 실행 중인 모듈의 목록을 보려면 디바이스 아래에서 **모듈**을 확장합니다. 새로고침 단추를 클릭합니다. 새 SimulatedTemperatureSensor 및 SampleModule 모듈이 디바이스에서 실행되는 것을 볼 수 있습니다.
 
    두 모듈이 모두 시작하는 데 몇 분 정도 걸릴 수 있습니다. IoT Edge 런타임은 새 배포 매니페스트를 받고, 컨테이너 런타임에서 모듈 이미지를 끌어온 후 각 새 모듈을 시작해야 합니다.
 
@@ -327,6 +328,14 @@ SampleModule 코드는 입력 큐의 메시지를 받고 출력 큐를 통해 �
    IoT Edge 모듈은 대/소문자를 구분하지 않습니다.
 
    SimulatedTemperatureSensor 및 SampleModule 로그는 처리 중인 메시지를 표시됩니다. edgeAgent 모듈은 다른 모듈을 시작하므로, 해당 로그는 배포 매니페스트 구현에 대한 정보를 포함합니다. 나열되지 않거나 실행되고 있지 않은 모듈이 있으면 edgeAgent 로그에 오류가 있을 수 있습니다. edgeHub 모듈은 모듈과 IoT Hub 간의 통신을 담당합니다. 모듈이 작동되고 실행 중이지만 IoT Hub에 메시지가 도착하지 않으면 edgeHub 로그에 오류가 있을 수 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다. 테스트 디바이스와 동일한 IoT Edge 디바이스를 계속 사용해도 됩니다.
+
+그렇지 않은 경우 요금이 발생하지 않도록 이 문서에서 사용한 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다.
+
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

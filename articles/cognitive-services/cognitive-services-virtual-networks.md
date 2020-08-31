@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 6f5df14d9488f8ccb1f93c2a16ba52998f25e268
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 808d42c821272882bbf0e01a36e49f7f10b30efa
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876583"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88505030"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Azure Cognitive Services 가상 네트워크 구성
 
@@ -40,10 +40,9 @@ Cognitive Services 리소스를 보호 하려면 먼저 기본적으로 모든 �
 
 ## <a name="supported-regions-and-service-offerings"></a>지원 되는 지역 및 서비스 제공
 
-아래에 나열 된 Cognitive Services은 상용 클라우드 및 US Gov 클라우드의 가상 네트워크를 지원 합니다. 서비스가 여기에 나열 되지 않은 경우 가상 네트워크를 아직 지원 하지 않습니다.
+Vnet (가상 네트워크)는 [Cognitive Services을 사용할 수 있는 지역](https://azure.microsoft.com/global-infrastructure/services/)에서 지원 됩니다. 인식 서비스가 나열 되지 않은 경우 현재 가상 네트워크를 지원 하지 않습니다.
 
 > [!div class="checklist"]
-
 > * [Anomaly Detector](./anomaly-detector/index.yml)
 > * [Computer Vision](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
@@ -55,24 +54,26 @@ Cognitive Services 리소스를 보호 하려면 먼저 기본적으로 모든 �
 > * [텍스트 분석](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
 > * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
+> * [몰입형 리더](./immersive-reader/index.yml)
 
 ## <a name="service-tags"></a>서비스 태그
 
 Cognitive Services는 네트워크 규칙 구성에 대 한 서비스 태그를 지원 합니다. 아래 나열 된 서비스는 **CognitiveServicesManagement** service 태그에 포함 되어 있습니다.
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * [Anomaly Detector](./anomaly-detector/index.yml)
 > * [Computer Vision](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
 > * [Custom Vision](./custom-vision-service/index.yml)
 > * [Face](./face/index.yml)
 > * [Form Recognizer](./form-recognizer/index.yml)
-> * [Language Understanding (LUIS)](./luis/index.yml)
+> * [언어 이해(LUIS)](./luis/index.yml)
 > * [Personalizer](./personalizer/index.yml)
 > * [텍스트 분석](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
 > * [Translator](./translator/index.yml)
 > * [음성 서비스](./speech-service/index.yml)
+> * [몰입형 리더](./immersive-reader/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>기본 네트워크 액세스 규칙 변경
 

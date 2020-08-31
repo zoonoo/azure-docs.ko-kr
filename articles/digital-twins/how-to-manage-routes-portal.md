@@ -2,17 +2,17 @@
 title: 끝점 및 경로 관리 (포털)
 titleSuffix: Azure Digital Twins
 description: Azure Portal를 사용 하 여 Azure Digital Twins 데이터에 대 한 끝점 및 이벤트 경로를 설정 하 고 관리 하는 방법을 참조 하세요.
-author: v-lakast
-ms.author: v-lakast
+author: baanders
+ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7d563c7706529c6f3e280f7d138c0d6ba0dfc849
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 87b674a9c6b7f7d591b39f1baf54c4d54082f306
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902206"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987310"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Azure Digital Twins에서 끝점 및 경로 관리 (포털)
 

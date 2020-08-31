@@ -125,20 +125,26 @@
           href: partition-data.md
         - name: 가상 파티션 키
           href: synthetic-partition-keys.md
-    - name: 프로비전된 처리량
+    - name: 용량
       items:
         - name: 요청 단위
           displayName: 'RUs, RU'
           href: request-units.md
-        - name: 프로비저닝된 처리량 소개
-          displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
-          href: set-throughput.md
-        - name: 처리량 프로비저닝 자동 크기 조정
-          href: provision-throughput-autoscale.md
-        - name: 처리량 자동 크기 조정과 표준(수동) 처리량 중에 선택
-          href: how-to-choose-offer.md
-        - name: 자동 스케일링 FAQ
-          href: autoscale-faq.md
+        - name: 프로비전된 처리량
+          items:
+            - name: 프로비저닝된 처리량 소개
+              displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
+              href: set-throughput.md
+            - name: 처리량 프로비저닝 자동 크기 조정
+              href: provision-throughput-autoscale.md
+            - name: 처리량 자동 크기 조정과 표준(수동) 처리량 중에 선택
+              href: how-to-choose-offer.md
+            - name: 자동 스케일링 FAQ
+              href: autoscale-faq.md
+        - name: 서버를 사용하지 않음
+          href: serverless.md
+        - name: 프로비저닝된 처리량과 서버리스 중에서 선택
+          href: throughput-serverless.md
     - name: SQL 쿼리(SQL query)
       items:
         - name: 시작
@@ -223,22 +229,40 @@
                     - name: 날짜 및 시간 함수
                       displayName: 'date and time functions, date and time, datetime, system functions, built-in functions'
                       href: sql-query-date-time-functions.md
-                    - name: GetCurrentDateTime
-                      displayName: 'GetCurrentDateTime, get current date time, date and time functions, datetime'
-                      href: sql-query-getcurrentdatetime.md
-                    - name: GetCurrentTimestamp
-                      displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
-                      href: sql-query-getcurrenttimestamp.md
-                    - name: DateTimeFromParts
-                      displayName: 'DateTimeFromParts, date time from parts, date and time functions, datetime'
-                      href: sql-query-datetimefromparts.md
                     - name: DateTimeAdd
                       displayName: 'DateTimeAdd, date time add, timestamp, date and time functions, datetime'
                       href: sql-query-datetimeadd.md
                     - name: DateTimeDiff
                       displayName: 'DateTimeDiff, date time diff, date and time functions, datetime'
                       href: sql-query-datetimediff.md
-                - name: 수치 연산 함수
+                    - name: DateTimeFromParts
+                      displayName: 'DateTimeFromParts, date time from parts, date and time functions, datetime'
+                      href: sql-query-datetimefromparts.md
+                    - name: DateTimePart
+                      displayName: 'DateTimePart, date time part, date and time functions, datetime'
+                      href: sql-query-datetimepart.md
+                    - name: DateTimeToTicks
+                      displayName: 'DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks'
+                      href: sql-query-datetimetoticks.md
+                    - name: DateTimeToTimestamp
+                      displayName: 'DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp'
+                      href: sql-query-datetimetotimestamp.md
+                    - name: GetCurrentDateTime
+                      displayName: 'GetCurrentDateTime, get current date time, date and time functions, datetime'
+                      href: sql-query-getcurrentdatetime.md
+                    - name: GetCurrentTicks
+                      displayName: 'GetCurrentTicks, get current ticks, date and time functions, datetime, ticks'
+                      href: sql-query-getcurrentticks.md
+                    - name: GetCurrentTimestamp
+                      displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
+                      href: sql-query-getcurrenttimestamp.md
+                    - name: TicksToDateTime
+                      displayName: 'TicksToDateTime, ticks to date time, date and time functions, datetime, ticks'
+                      href: sql-query-tickstodatetime.md
+                    - name: TimestampToDateTime
+                      displayName: 'TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp'
+                      href: sql-query-timestamptodatetime.md
+                - name: 수학 함수
                   items:
                     - name: 수학 함수
                       displayName: 'mathematical, mathematical functions, system functions, built-in functions'
@@ -486,6 +510,8 @@
           href: unique-keys.md
         - name: 트랜잭션 및 낙관적 동시성 제어
           href: database-transactions-optimistic-concurrency.md
+        - name: Attachments
+          href: attachments.md
     - name: 변경 피드
       items:
         - name: 변경 피드 개요
@@ -944,26 +970,28 @@
           href: how-to-manage-conflicts.md
         - name: 세션 토큰 형식 변환
           href: how-to-convert-session-token.md
-    - name: 프로비전된 처리량
+    - name: 용량
       items:
-        - name: 컨테이너에 표준(수동) 처리량 프로비저닝
-          displayName: 'request units, RUs, RU, collection level'
-          href: how-to-provision-container-throughput.md
-        - name: 데이터베이스에 표준(수동) 처리량 프로비저닝
-          displayName: 'request units, RUs, RU, shared throughput, database level'
-          href: how-to-provision-database-throughput.md
-        - name: 데이터베이스 또는 컨테이너에서 처리량 프로비저닝 자동 크기 조정
-          displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
-          href: how-to-provision-autoscale-throughput.md
-        - name: Cosmos Capacity Planner를 사용하여 RU/s 예측
-          displayName: 'request units, RUs, RU, capacity'
-          href: estimate-ru-with-capacity-planner.md
         - name: 요청 단위 요금 찾기
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
-        - name: Azure Functions 타이머를 사용하여 크기 조정
-          displayName: 'request units, RUs, RU, timer'
-          href: scale-on-schedule.md
+        - name: 프로비전된 처리량
+          items:
+            - name: 컨테이너에 표준(수동) 처리량 프로비저닝
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-container-throughput.md
+            - name: 데이터베이스에 표준(수동) 처리량 프로비저닝
+              displayName: 'request units, RUs, RU, shared throughput, database level'
+              href: how-to-provision-database-throughput.md
+            - name: 데이터베이스 또는 컨테이너에서 처리량 프로비저닝 자동 크기 조정
+              displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
+              href: how-to-provision-autoscale-throughput.md
+            - name: Cosmos Capacity Planner를 사용하여 RU/s 예측
+              displayName: 'request units, RUs, RU, capacity'
+              href: estimate-ru-with-capacity-planner.md
+            - name: Azure Functions 타이머를 사용하여 크기 조정
+              displayName: 'request units, RUs, RU, timer'
+              href: scale-on-schedule.md
     - name: 컨테이너 및 항목 작업
       items:
         - name: Cosmos DB 데이터 작업
@@ -1248,7 +1276,7 @@
           href: sql-api-sdk-dotnet-changefeed.md
         - name: .NET 대량 실행기 라이브러리 v2
           href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Java SDK
+    - name: Java SDK 및 커넥터
       items:
         - name: Java SDK v4
           href: sql-api-sdk-java-v4.md
@@ -1256,6 +1284,12 @@
           href: sql-api-sdk-async-java.md
         - name: 동기 Java SDK v2
           href: sql-api-sdk-java.md
+        - name: Spring Data 커넥터 v2
+          href: sql-api-sdk-java-spring-v2.md
+        - name: Spring Data 커넥터 v3
+          href: sql-api-sdk-java-spring-v3.md
+        - name: Spark 커넥터
+          href: sql-api-sdk-java-spark.md
         - name: Java 대량 실행기 라이브러리 v2
           href: sql-api-sdk-bulk-executor-java.md
     - name: Node.js

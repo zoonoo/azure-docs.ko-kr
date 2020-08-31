@@ -2,25 +2,21 @@
 title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 Insight4GRC 구성 | Microsoft Docs'
 description: 사용자 계정을 Azure AD에서 Insight4GRC로 자동으로 프로 비전 및 프로 비전 해제 하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: beatrizd
-ms.assetid: d0eab8a0-571b-4609-96b1-bdbc761a25de
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1404854e054c8fc4967ba863486969b8a87db526
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86927a525fbfcb6a252d8e3d214733a0f1e83ed1
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77621522"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550380"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Insight4GRC 구성
 
@@ -35,7 +31,7 @@ ms.locfileid: "77621522"
 > * Insight4GRC에서 그룹 및 그룹 멤버 자격 프로 비전
 > * Insight4GRC에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/insight4grc-tutorial) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -55,7 +51,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Insight4GRC�
 1. 전달자 토큰을 얻으려면 최종 고객이 [지원 팀](mailto:support.ss@rsmuk.com)에 문의 해야 합니다.
 2. SCIM 끝점 URL을 가져오려면 SCIM 끝점 URL을 생성 하는 데 사용 되므로 Insight4GRC 도메인 이름을 준비 해야 합니다. Insight4GRC를 사용 하 여 초기 소프트웨어 구매의 일부로 Insight4GRC 도메인 이름을 검색할 수 있습니다.
 
-## <a name="step-3-add-insight4grc-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Insight4GRC 추가
+## <a name="step-3-add-insight4grc-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Insight4GRC 추가
 
 Azure AD 응용 프로그램 갤러리에서 Insight4GRC를 추가 하 여 Insight4GRC에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대해 Insight4GRC를 설정한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
@@ -145,7 +141,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 프로비저닝을 구성한 후에는 다음 리소스를 사용하여 배포를 모니터링합니다.
 
 * [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 여부를 확인합니다.
-* [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
+* [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 * 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스

@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: 950d85f391504095ceaaa10996145ca832b6db19
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 53bd4905cf4b8829d65ce2b10c85260ff3f8926c
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432724"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210524"
 ---
 # <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Azure 큐 서비스를 사용 하 여 Node.js에서 큐 만들기 및 삭제
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "87432724"
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
-빈 Node.js 애플리케이션을 만듭니다. Node.js 애플리케이션을 만드는 방법에 대한 지침은 [Azure App Service에서 Node.js 웹앱 만들기](../../app-service/app-service-web-get-started-nodejs.md), [Azure Cloud Service에 Node.js 애플리케이션 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)(Windows PowerShell 사용) 또는 [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)를 참조하세요.
+빈 Node.js 애플리케이션을 만듭니다. Node.js 애플리케이션을 만드는 방법에 대한 지침은 [Azure App Service에서 Node.js 웹앱 만들기](../../app-service/quickstart-nodejs.md), [Azure Cloud Service에 Node.js 애플리케이션 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)(Windows PowerShell 사용) 또는 [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)를 참조하세요.
 
 ## <a name="configure-your-application-to-access-storage"></a>스토리지에 액세스하도록 애플리케이션 구성
 Azure Storage를 사용하려면 스토리지 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
@@ -195,7 +195,7 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
   if(!error){
     // Messages retrieved
-    for(var index in result){
+    for(var index in results){
       // text is available in result[index].messageText
       var message = results[index];
       queueSvc.deleteMessage(queueName, message.messageId, message.popReceipt, function(error, deleteResponse){
@@ -341,7 +341,7 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 
 [Azure Portal]: https://portal.azure.com
 
-[Azure App Service에서 Node.js 웹앱 만들기](../../app-service/app-service-web-get-started-nodejs.md)
+[Azure App Service에서 Node.js 웹앱 만들기](../../app-service/quickstart-nodejs.md)
 
 [Azure Cloud Service에서 Node.js 애플리케이션 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 

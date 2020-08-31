@@ -3,12 +3,12 @@ title: ISO 27001 Shared Services 청사진 샘플 개요
 description: ISO 27001 Shared Services 청사진 샘플에 대한 개요 및 아키텍처입니다. 이 청사진 샘플은 고객이 특정 ISO 27001 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 0ef39a4e409320d08529904239dc17fc563c2044
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072876"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927354"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 Shared Services 청사진 샘플 개요
 
@@ -25,7 +25,7 @@ VDC는 Microsoft에서 대기업 고객과 함께 사용하는 입증된 참조 
 
 이 환경은 ISO 27001 표준을 기반으로 하는 완전히 모니터링되는 안전한 엔터프라이즈급 공유 서비스 인프라를 제공하는 데 사용되는 여러 가지 Azure 서비스로 구성됩니다. 이 환경은 다음과 같은 요소로 구성됩니다.
 
-- 제어 평면 관점에서 직무 분리에 사용되는 RBAC([역할 기반 액세스 제어](../../../../role-based-access-control/overview.md)) 역할. 인프라를 배포하기 전에 다음과 같은 세 가지 역할이 정의됩니다.
+- 컨트롤 플레인 관점에서 직무 분리에 사용되는 [Azure 역할](../../../../role-based-access-control/overview.md) 인프라를 배포하기 전에 다음과 같은 세 가지 역할이 정의됩니다.
   - NetOps 역할에는 방화벽 설정, NSG 설정, 라우팅 및 기타 네트워크 기능을 비롯한 네트워크 환경을 관리할 수 있는 권한이 있습니다.
   - SecOps 역할에는 [Azure Security Center](../../../../security-center/security-center-intro.md)를 배포 및 관리하고 [Azure 정책](../../../policy/overview.md) 및 기타 보안 관련 권한을 정의하는 데 필요한 권한이 있습니다.
   - SysOps 역할에는 다른 운영 권한 중에서도 구독 내에서 [Azure 정책](../../../policy/overview.md)을 정의하고 전체 환경에 대한 [Log Analytics](../../../../azure-monitor/overview.md)를 관리하는 데 필요한 권한이 있습니다.

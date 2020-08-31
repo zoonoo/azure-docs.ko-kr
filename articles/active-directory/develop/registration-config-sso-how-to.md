@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 9b6451d29a3a874e09d74cbe664662a395b647f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 465adbb71abaa45160399ecba2ebfb692a8307c2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82890473"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120680"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>응용 프로그램에 대 한 Single Sign-On를 구성 하는 방법
 
@@ -26,20 +26,20 @@ ms.locfileid: "82890473"
 
 * 모바일 앱을 빌드하는 경우 조정되었거나 조정되지 않은 SSO를 사용하려면 추가 구성이 필요할 수 있습니다.
 
-Android의 경우 [Android에서 앱 간 SSO를 사용하도록 설정](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)을 참조하세요.<br>
+Android의 경우 [Android에서 앱 간 SSO를 사용하도록 설정](../azuread-dev/howto-v1-enable-sso-android.md)을 참조하세요.<br>
 
-iOS의 경우 [iOS에서 앱 간 SSO를 사용하도록 설정](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)을 참조하세요.
+iOS의 경우 [iOS에서 앱 간 SSO를 사용하도록 설정](../azuread-dev/howto-v1-enable-sso-ios.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD SSO](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)<br>
+[Azure AD SSO](../manage-apps/what-is-single-sign-on.md)<br>
 
-[Android에서 앱 간 SSO를 사용하도록 설정](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)<br>
+[Android에서 앱 간 SSO를 사용하도록 설정](../azuread-dev/howto-v1-enable-sso-android.md)<br>
 
-[iOS에서 앱 간 SSO를 사용하도록 설정](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)<br>
+[iOS에서 앱 간 SSO를 사용하도록 설정](../azuread-dev/howto-v1-enable-sso-ios.md)<br>
 
-[AzureAD와 앱 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
+[AzureAD와 앱 통합](./quickstart-register-app.md)<br>
 
-[Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](./v2-permissions-and-consent.md)<br>
 
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

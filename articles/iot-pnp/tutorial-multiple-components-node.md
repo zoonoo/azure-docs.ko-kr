@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 808d1ad522f6678ced54de334e7ea39fb60cd165
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d26179ab82f29ce8f937f5b444463c1308d92047
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420689"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904075"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-preview-multiple-component-device-application-to-iot-hub-nodejs"></a>자습서: 샘플 IoT 플러그 앤 플레이 미리 보기 여러 구성 요소 디바이스 애플리케이션을 IoT Hub에 연결(Node.js)
 
@@ -98,29 +98,29 @@ set DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
 
 1. 구현되는 디바이스의 DTMI인 `modelId`를 정의합니다. 이 DTMI는 사용자 정의되며 [온도 컨트롤러 DTDL 모델](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json)의 DTMI와 일치해야 합니다.
 
-1. 온도 컨트롤러 DTDL 모델에 정의된 구성 요소를 구현합니다. 실제 온도 컨트롤러의 구성 요소는 이러한 두 인터페이스를 구현해야 합니다. 이러한 두 인터페이스는 중앙 리포지토리에 이미 게시되어 있습니다. 이 샘플의 두 인터페이스는 다음과 같습니다.
+2. 온도 컨트롤러 DTDL 모델에 정의된 구성 요소를 구현합니다. 실제 온도 컨트롤러의 구성 요소는 이러한 두 인터페이스를 구현해야 합니다. 이러한 두 인터페이스는 중앙 리포지토리에 이미 게시되어 있습니다. 이 샘플의 두 인터페이스는 다음과 같습니다.
   - Thermostat
   - Azure에서 개발한 디바이스 정보
 
-1. 구성 요소 이름을 정의합니다. 이 샘플에는 두 개의 자동 온도 조절기와 하나의 디바이스 정보 구성 요소가 있습니다.
+3. 구성 요소 이름을 정의합니다. 이 샘플에는 두 개의 자동 온도 조절기와 하나의 디바이스 정보 구성 요소가 있습니다.
 
-1. 명령 이름을 정의합니다. 디바이스에서 이러한 명령에 응답합니다.
+4. 명령 이름을 정의합니다. 디바이스에서 이러한 명령에 응답합니다.
 
-1. `serialNumber` 상수를 정의합니다. `serialNumber`는 고정된 특정 디바이스입니다.
+5. `serialNumber` 상수를 정의합니다. `serialNumber`는 고정된 특정 디바이스입니다.
 
-1. 명령 처리기를 정의합니다.
+6. 명령 처리기를 정의합니다.
 
-1. 명령 응답을 보낼 함수를 정의합니다.
+7. 명령 응답을 보낼 함수를 정의합니다.
 
-1. 명령 요청을 기록하는 도우미 함수를 정의합니다.
+8. 명령 요청을 기록하는 도우미 함수를 정의합니다.
 
-1. 속성을 만드는 도우미 함수를 정의합니다.
+9. 속성을 만드는 도우미 함수를 정의합니다.
 
-1. 속성 업데이트 수신기를 정의합니다.
+10. 속성 업데이트 수신기를 정의합니다.
 
-1. 이 디바이스의 원격 분석 데이터를 전송하는 함수를 정의합니다. 자동 온도 조절기와 루트 구성 요소 둘 다 원격 분석 데이터를 전송합니다. 이 함수는 구성 요소 이름을 매개 변수로 수신합니다.
+11. 이 디바이스의 원격 분석 데이터를 전송하는 함수를 정의합니다. 자동 온도 조절기와 루트 구성 요소 둘 다 원격 분석 데이터를 전송합니다. 이 함수는 구성 요소 이름을 매개 변수로 수신합니다.
 
-1. 다음과 같은 작업을 수행하는 `main` 함수를 정의합니다.
+12. 다음과 같은 작업을 수행하는 `main` 함수를 정의합니다.
 
     1. 디바이스 SDK를 사용하여 디바이스 클라이언트를 만들고 IoT 허브에 연결합니다. 디바이스에서 `modelId`를 제공합니다. 그러면 IoT Hub가 디바이스를 IoT 플러그 앤 플레이 디바이스로 식별할 수 있습니다.
 

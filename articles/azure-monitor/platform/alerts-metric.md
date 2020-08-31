@@ -4,14 +4,14 @@ description: Azure Portal 또는 CLI를 사용 하 여 메트릭 경고 규칙�
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/11/2020
 ms.subservice: alerts
-ms.openlocfilehash: c040958d9518485bc5d583fc01aedd50d5c6e57a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321125"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065865"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리
 
@@ -53,7 +53,7 @@ ms.locfileid: "87321125"
 
 10. 필요에 따라 **집계 세분성** 및 **평가 빈도**를 조정 하 여 조건을 구체화 합니다. 
 
-11. **Done**을 클릭합니다.
+11. **완료**를 클릭합니다.
 
 12. 필요에 따라 복잡한 경고 규칙을 모니터링하려면 다른 조건을 추가합니다. 현재 사용자가 동적 임계값을 단일 조건으로 적용하는 경고 규칙을 사용할 수 있습니다.
 
@@ -87,6 +87,7 @@ ms.locfileid: "87321125"
     > 메트릭 경고가 만들어진 후에는 **대상 리소스** 및 **경고 규칙 이름**을 편집할 수 없습니다.
 
 6. **완료**를 클릭하여 편집 내용을 저장합니다.
+
 
 ## <a name="with-azure-cli"></a>Azure CLI 사용
 
@@ -133,6 +134,23 @@ ms.locfileid: "87321125"
     ```azurecli
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
+
+## <a name="with-powershell"></a>PowerShell 사용
+
+메트릭 경고 규칙에는 전용 PowerShell cmdlet을 사용할 수 있습니다.
+
+- [AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): 새 메트릭 경고 규칙을 만들거나 기존 규칙을 업데이트 합니다.
+- [AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): 하나 이상의 메트릭 경고 규칙을 가져옵니다.
+- [AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): 메트릭 경고 규칙을 삭제 합니다.
+
+## <a name="with-rest-api"></a>REST API 사용
+
+- [만들기 또는 업데이트](/rest/api/monitor/metricalerts/createorupdate): 새 메트릭 경고 규칙을 만들거나 기존 규칙을 업데이트 합니다.
+- [Get](/rest/api/monitor/metricalerts/get): 특정 메트릭 경고 규칙을 가져옵니다.
+- [리소스 그룹별 목록](/rest/api/monitor/metricalerts/listbyresourcegroup): 특정 리소스 그룹에서 메트릭 경고 규칙의 목록을 가져옵니다.
+- [구독 별로 나열](/rest/api/monitor/metricalerts/listbysubscription): 특정 구독에서 메트릭 경고 규칙의 목록을 가져옵니다.
+- [업데이트](/rest/api/monitor/metricalerts/update): 메트릭 경고 규칙을 업데이트 합니다.
+- [삭제](/rest/api/monitor/metricalerts/delete): 메트릭 경고 규칙을 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

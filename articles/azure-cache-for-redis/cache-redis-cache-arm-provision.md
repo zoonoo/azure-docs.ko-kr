@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 0dbcbd173ce0a7c4c6a123f0644b870aa3cec2f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d00a6b7753a61bb2527a56231b2fe054736f1b0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829893"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008579"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>템플릿을 사용하여 Azure Cache for Redis 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "85829893"
 전체 템플릿은 [Azure Cache for Redis 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json)을 참조하세요.
 
 > [!NOTE]
-> 새 [프리미엄 계층](cache-premium-tier-intro.md) 에 대한 Resource Manager 템플릿을 사용할 수 있습니다. 
+> 새 [프리미엄 계층](cache-overview.md#service-tiers) 에 대한 Resource Manager 템플릿을 사용할 수 있습니다. 
 > 
 > * [클러스터링이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [데이터 지속성이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)

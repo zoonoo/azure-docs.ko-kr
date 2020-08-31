@@ -4,12 +4,12 @@ description: Azure storage 계정을 사용 하 여 전송 파이프라인을 �
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0bbdfc8d1586b7d71daf6d4cbfdc4288357aa45b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259460"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009157"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>다른 레지스트리에 아티팩트 전송
 
@@ -234,6 +234,8 @@ PipelineRun 리소스 관리자 [템플릿 파일](https://github.com/Azure/acr/
 |targetName     |  원본 저장소 계정으로 내보낸 아티팩트 blob에 대해 선택 하는 이름 (예: *myblob* )
 |artifacts | 태그 또는 매니페스트 다이제스트로 전송할 소스 아티팩트의 배열<br/>예: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
 
+동일한 속성을 사용 하 여 PipelineRun 리소스를 다시 배포 하는 경우 [Forceupdatetag](#redeploy-pipelinerun-resource) 속성도 사용 해야 합니다.
+
 [Az deployment group create][az-deployment-group-create] 를 실행 하 여 PipelineRun 리소스를 만듭니다. 다음 예에서는 배포 *exportPipelineRun*의 이름을로 합니다.
 
 ```azurecli
@@ -291,6 +293,8 @@ PipelineRun 리소스 관리자 [템플릿 파일](https://github.com/Azure/acr/
 |pipelineResourceId     |  가져오기 파이프라인의 리소스 ID입니다.<br/>예: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/importPipelines/myImportPipeline`       |
 |sourceName     |  저장소 계정에서 내보낸 아티팩트의 기존 blob의 이름 (예: *myblob* )
 
+동일한 속성을 사용 하 여 PipelineRun 리소스를 다시 배포 하는 경우 [Forceupdatetag](#redeploy-pipelinerun-resource) 속성도 사용 해야 합니다.
+
 [Az deployment group create][az-deployment-group-create] 를 실행 하 여 리소스를 실행 합니다.
 
 ```azurecli
@@ -304,6 +308,23 @@ az deployment group create \
 
 ```azurecli
 az acr repository list --name <target-registry-name>
+```
+
+## <a name="redeploy-pipelinerun-resource"></a>PipelineRun 리소스 다시 배포
+
+*동일한 속성*을 사용 하 여 PipelineRun 리소스를 다시 배포 하는 경우 **forceupdatetag** 속성을 활용 해야 합니다. 이 속성은 구성이 변경 되지 않은 경우에도 PipelineRun 리소스를 다시 만들어야 함을 나타냅니다. PipelineRun 리소스를 다시 배포할 때마다 forceUpdateTag가 서로 다른 지 확인 하세요. 아래 예제에서는 내보내기에 대해 PipelineRun를 다시 만듭니다. 현재 datetime은 forceUpdateTag를 설정 하는 데 사용 되므로이 속성은 항상 고유 합니다.
+
+```console
+CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`
+```
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipelineRun \
+  --parameters azuredeploy.parameters.json \
+  --parameters forceUpdateTag=$CURRENT_DATETIME
 ```
 
 ## <a name="delete-pipeline-resources"></a>파이프라인 리소스 삭제

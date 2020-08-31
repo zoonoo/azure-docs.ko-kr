@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c4274292dfbd53abed09dfeae77ec976afe9ebc0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282962"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958663"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft ID 플랫폼 및 OAuth 2.0 On-Behalf-Of 흐름
 
@@ -63,7 +63,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 | 매개 변수 | Type | 설명 |
 | --- | --- | --- |
-| `grant_type` | 필요한 공간 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
+| `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
 | `client_secret` | 필수 | Azure Portal - 앱 등록 페이지에서 앱에 대해 생성한 클라이언트 암호입니다. |
 | `assertion` | 필수 | 중간 계층 API에 전송 된 액세스 토큰입니다.  이 토큰에는 `aud` 이 OBO 요청 (필드로 표시 된 앱)을 만드는 앱의 대상 그룹 () 클레임이 있어야 합니다 `client-id` . 응용 프로그램은 다른 응용 프로그램에 대 한 토큰을 사용할 수 없습니다. 예를 들어 클라이언트가 MS Graph 용 토큰을 전송 하는 경우에는 API가 OBO를 사용 하 여이 API를 사용할 수 없습니다.  대신 토큰을 거부 해야 합니다.  |
@@ -95,7 +95,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 | 매개 변수 | Type | 설명 |
 | --- | --- | --- |
-| `grant_type` | 필요한 공간 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
+| `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
 | `client_id` | 필수 |  [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당한 애플리케이션(클라이언트) ID입니다. |
 | `client_assertion_type` | 필수 | 값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`여야 합니다. |
 | `client_assertion` | 필수 | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요. |
@@ -153,7 +153,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 > [!NOTE]
-> 위의 액세스 토큰은 마이크로 Osft 그래프에 대 한 v 1.0 형식 토큰입니다. 토큰 형식이 액세스 되는 **리소스** 를 기반으로 하 고 요청 하는 데 사용 되는 끝점과 관련이 없기 때문입니다. Microsoft Graph는 v1.0 토큰을 허용하도록 설정되어 있으므로 클라이언트가 Microsoft Graph에 대한 토큰을 요청할 때 Microsoft ID 플랫폼이 v1.0 액세스 토큰을 생성합니다. 다른 앱은 v2.0 형식 토큰, v 1.0 형식 토큰 또는 독점적 이거나 암호화 된 토큰 형식을 원합니다.  V1.0 및 v2.0 끝점 모두 토큰 형식을 내보낼 수 있습니다. 이렇게 하면 클라이언트가 토큰을 요청한 방법이 나 위치에 관계 없이 리소스에서 항상 올바른 토큰 형식을 가져올 수 있습니다. 
+> 위의 액세스 토큰은 Microsoft Graph에 대 한 v 1.0 형식 토큰입니다. 토큰 형식이 액세스 되는 **리소스** 를 기반으로 하 고 요청 하는 데 사용 되는 끝점과 관련이 없기 때문입니다. Microsoft Graph는 v1.0 토큰을 허용하도록 설정되어 있으므로 클라이언트가 Microsoft Graph에 대한 토큰을 요청할 때 Microsoft ID 플랫폼이 v1.0 액세스 토큰을 생성합니다. 다른 앱은 v2.0 형식 토큰, v 1.0 형식 토큰 또는 독점적 이거나 암호화 된 토큰 형식을 원합니다.  V1.0 및 v2.0 끝점 모두 토큰 형식을 내보낼 수 있습니다. 이렇게 하면 클라이언트가 토큰을 요청한 방법이 나 위치에 관계 없이 리소스에서 항상 올바른 토큰 형식을 가져올 수 있습니다. 
 >
 > 애플리케이션에만 액세스 토큰이 표시되어야 합니다. 클라이언트는 이를 검사하지 **않아야 합니다**. 코드의 다른 앱에 대 한 액세스 토큰을 검사 하면 앱에서 토큰의 형식을 변경 하거나 해당 앱의 암호화를 시작할 때 앱이 예기치 않게 중단 됩니다. 
 
@@ -194,49 +194,6 @@ Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 
 > [!TIP]
 > 프런트 엔드 웹 애플리케이션에서 SAML로 보호되는 웹 서비스를 호출하는 경우 간단히 API를 호출하고 사용자 기존 세션을 사용하여 일반적인 대화형 인증 흐름을 시작할 수 있습니다. 서비스 간 호출이 사용자 컨텍스트를 제공하기 위해 SAML 토큰을 요구할 경우에만 OBO 흐름을 사용해야 합니다.
-
-### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>공유 비밀을 통해 OBO 요청을 사용하여 SAML 토큰 가져오기
-
-SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포함됩니다.
-
-| 매개 변수 | Type | 설명 |
-| --- | --- | --- |
-| grant_type |필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
-| 어설션 |필수 | 요청에 사용된 액세스 토큰 값입니다.|
-| client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
-| client_secret |필수 | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
-| 리소스 |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. SAML 토큰의 대상이 될 리소스입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
-| requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
-| requested_token_type | required | 요청된 토큰의 형식을 지정합니다. 값은 액세스된 리소스의 요구 사항에 따라 **urn:ietf:params:oauth:token-type:saml2** 또는 **urn:ietf:params:oauth:token-type:saml1**입니다. |
-
-응답에는 UTF8 및 Base64url로 인코딩된 SAML 토큰이 포함됩니다.
-
-- **OBO 호출에 기반한 SAML 어설션에 대한 SubjectConfirmationData**: 대상 애플리케이션에서 **SubjectConfirmationData**의 받는 사람 값이 필요한 경우 이 값은 리소스 애플리케이션 구성의 비 와일드카드 회신 URL이어야 합니다.
-- **SubjectConfirmationData 노드**: 이 노드는 SAML 응답의 일부가 아니므로 **InResponseTo** 특성을 포함할 수 없습니다. SAML 토큰을 수신하는 애플리케이션은 **InResponseTo** 특성이 없는 SAML 어설션을 수락할 수 있어야 합니다.
-
-- **동의**: OAuth 흐름에서 사용자 데이터가 포함된 SAML 토큰을 받으려면 동의를 부여해야 합니다. 사용 권한 및 관리자 동의를 가져오는 방법에 대한 내용은 [Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent)를 참조하세요.
-
-### <a name="response-with-saml-assertion"></a>SAML 어설션을 사용하여 응답
-
-| 매개 변수 | 설명 |
-| --- | --- |
-| token_type |토큰 유형 값을 나타냅니다. Azure AD는 **전달자**유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
-| scope |토큰에 부여된 액세스 범위입니다. |
-| expires_in |액세스 토큰이 유효한 기간(초)입니다. |
-| expires_on |액세스 토큰이 만료되는 시간입니다. 날짜는 1970-01-01T0:0:0Z UTC부터 만료 시간까지 기간(초)으로 표시됩니다. 이 값은 캐시된 토큰의 수명을 결정하는 데 사용됩니다. |
-| resource |수신 서비스(보안 리소스)의 앱 ID URI입니다. |
-| access_token |SAML 어설션을 반환하는 매개 변수입니다. |
-| refresh_token |토큰 새로 고침. 호출 서비스는 이 토큰을 사용하여 현재 SAML 어설션이 만료된 후 다른 액세스 토큰을 요청할 수 있습니다. |
-
-- token_type: 전달자
-- expires_in: 3296
-- ext_expires_in: 0
-- expires_on: 1529627844
-- resource: `https://api.contoso.com`
-- access_token:\<SAML assertion\>
-- issued_token_type: urn:ietf:params:oauth:token-type:saml2
-- refresh_token:\<Refresh token\>
-
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>중간 계층 애플리케이션에 대한 동의 얻기
 

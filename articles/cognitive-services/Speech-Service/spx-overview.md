@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: trbye
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ab019250e03feb9a776d628c06e792b884252260
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6b852186834fba858e8a049a8230b38f3d69164d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501817"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067429"
 ---
 # <a name="what-is-the-speech-cli"></a>Speech CLI란?
 
 음성 CLI는 코드를 작성 하지 않고도 음성 서비스를 사용 하는 명령줄 도구입니다. 음성 CLI에는 최소의 설정이 필요 하며, 음성 서비스의 주요 기능 실험을 바로 시작 하 여 사용 사례가 충족 될 수 있는지 확인 하는 것이 쉽습니다. 몇 분 내에 파일 디렉터리에서 일괄 처리 음성 인식과 같은 간단한 테스트 워크플로를 실행 하거나 파일에서 문자열 컬렉션에 대 한 텍스트-음성 변환 등의 간단한 테스트 워크플로를 실행할 수 있습니다. 간단한 워크플로 외에도, 음성 CLI는 프로덕션에 사용할 수 있으며 자동화 된 또는 셸 스크립트를 사용 하 여 더 큰 프로세스를 실행 하도록 확장할 수 있습니다 `.bat` .
 
-Speech SDK의 대부분의 기본 기능은 음성 CLI에서 사용할 수 있지만, 일부 고급 기능 및 사용자 지정은 음성 CLI에서 간소화 되었습니다. 음성 CLI 또는 Speech SDK를 사용할 시기를 결정 하려면 다음 지침을 고려 하세요.
+음성 SDK의 대부분의 기본 기능은 음성 CLI에서 사용할 수 있으며, 일부 고급 기능 및 사용자 지정은 음성 CLI에서 간소화 됩니다. 음성 CLI 또는 Speech SDK를 사용할 시기를 결정 하려면 다음 지침을 고려 하세요.
 
 다음 경우에 음성 CLI를 사용 합니다.
 * 최소한의 설정 및 코드 없이 음성 서비스 기능을 시험해 볼 수 있습니다.
@@ -38,13 +38,13 @@ Speech SDK의 대부분의 기본 기능은 음성 CLI에서 사용할 수 있�
 
 * 음성 합성-텍스트 파일의 입력 또는 명령줄에서 직접 입력을 사용 하 여 텍스트를 음성으로 변환 합니다. [SSML 구성과](speech-synthesis-markup.md) [표준 또는 신경망](speech-synthesis-markup.md#standard-neural-and-custom-voices)을 사용 하 여 음성 출력 특성을 사용자 지정 합니다.
 
-* 음성 번역-소스 언어로 오디오를 대상 언어로 텍스트로 변환 합니다.
+* 음성 번역-소스 언어로 오디오를 대상 언어로 텍스트 또는 오디오로 변환 합니다.
 
-* Azure 계산 리소스에서 실행-를 사용 하 여 Azure 원격 계산 리소스에서 실행 되도록 SPX 명령을 보냅니다 `spx webjob` .
+* Azure compute 리소스에서 실행-를 사용 하 여 Azure 원격 계산 리소스에서 실행 되는 음성 CLI 전송 명령을 실행 `spx webjob` 합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
-음성 CLI를 시작 하려면 [기본 사항 문서](spx-basics.md)를 참조 하세요. 이 문서에서는 SPX를 사용 하 여 몇 가지 기본 명령을 실행 하는 방법을 보여 주고 음성 텍스트 및 텍스트 음성 변환에 대해 일괄 처리 작업을 실행 하기 위한 약간 더 고급 명령도 보여 줍니다. 기본 문서를 읽은 후에는 몇 가지 사용자 지정 명령을 작성 하거나 간단한 음성 작업을 자동화 하기 위해 SPX 구문을 충분히 이해 해야 합니다.
+음성 CLI를 시작 하려면 [기본 사항 문서](spx-basics.md)를 참조 하세요. 이 문서에서는 몇 가지 기본 명령을 실행 하는 방법을 보여 주고 음성 텍스트 및 텍스트 음성 변환에 대해 일괄 처리 작업을 실행 하기 위한 약간 더 고급 명령도 보여 줍니다. 기본 문서를 읽은 후에는 몇 가지 사용자 지정 명령을 작성 하거나 간단한 음성 서비스 작업을 자동화 하는 구문을 충분히 이해 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

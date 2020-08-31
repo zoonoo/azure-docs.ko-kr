@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 20be34191355e6ade40e0f3b218818bfa5345a28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/7/2020
+ms.openlocfilehash: a9d6c1b2438f20a06062842b96b147e094760238
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79533235"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031220"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Azure Database for MySQL에 데이터를 복제합니다.
 
@@ -29,6 +29,11 @@ ms.locfileid: "79533235"
 
 ### <a name="data-not-replicated"></a>데이터가 복제되지 않음
 마스터 서버의 [*mysql 시스템 데이터베이스*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)는 복제되지 않습니다. 마스터 서버에서 계정 및 사용 권한에 대한 변경 내용은 복제되지 않습니다. 마스터 서버에서 계정을 만들고 이 계정으로 복제 서버에 액세스해야 하는 경우 복제 서버 쪽에서 동일한 계정을 수동으로 만듭니다. 시스템 데이터베이스에 포함된 테이블을 이해하려면 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)를 참조합니다.
+
+### <a name="filtering"></a>필터링
+마스터 서버 (온-프레미스, 가상 컴퓨터 또는 다른 클라우드 공급자가 호스팅하는 데이터베이스 서비스)에서 테이블을 복제 하는 것을 건너뛰려면 `replicate_wild_ignore_table` 매개 변수가 지원 됩니다. 필요에 따라 [Azure Portal](howto-server-parameters.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용 하 여 Azure에서 호스트 되는 복제본 서버에서이 매개 변수를 업데이트 합니다.
+
+이 매개 변수에 대한 자세한 내용은 [MySQL 설명서](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table)를 참조하세요.
 
 ### <a name="requirements"></a>요구 사항
 - 마스터 서버 버전은 MySQL 버전 5.6 이상이어야 합니다. 

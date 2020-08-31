@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4928938c38df8a1ed0f1e31c73e755a4f7f6c371
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ea951943c3f48443e4348d633c16ed61303f7aa8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87367633"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449048"
 ---
 # <a name="tutorial-manipulating-models"></a>자습서: 모델 조작
 
@@ -332,18 +332,14 @@ ms.locfileid: "87367633"
 
 2. 이전에 만든 **TestModel** GameObject에서 **RemoteRayCastPointerHandler** 구성 요소 및 **RemoteEntityHelper** 구성 요소를 모두 추가합니다.
 1. `EntityToDebugLog` 메서드를 `OnRemoteEntityClicked` 이벤트에 할당합니다. 이벤트의 출력 형식과 메서드의 입력 형식이 일치하면 Unity의 동적 이벤트 후크를 사용하여 이벤트 값을 메서드에 자동으로 전달할 수 있습니다.
-    1. 새 콜백 필드를 만듭니다.
-    ![콜백 추가](./media/add-callback-remote-entity-clicked.png)
-    1. 부모 GameObject를 참조하도록 **Remote Entity Helper(원격 엔터티 도우미)** 구성 요소를 Object 필드로 끕니다.
-    ![개체 할당](./media/assign-object.png)
-    1. `EntityToDebugLog`를 콜백으로 할당합니다.
-    ![콜백 할당](./media/remote-entity-event.png)
+    1. 새 콜백 필드 만들기 ![콜백 추가](./media/add-callback-remote-entity-clicked.png)
+    1. 부모 GameObject를 참조하도록 **원격 엔터티 도우미** 구성 요소를 개체 필드로 끌기 ![개체 할당](./media/assign-object.png)
+    1. 콜백으로 `EntityToDebugLog` 할당 ![콜백 할당](./media/remote-entity-event.png)
 1. Unity 편집기에서 Play(재생)를 눌러 장면을 시작하고, 원격 세션에 연결하고, 테스트 모델을 로드합니다.
 1. MRTK의 손 시뮬레이션을 사용하여 왼쪽 Shift 키를 길게 누릅니다.
 1. 손 광선이 테스트 모델을 가리키도록 시뮬레이션된 손을 유도합니다.
 1. 길게 클릭하여 `OnPointerClicked` 이벤트를 실행하는 에어 탭을 시뮬레이션합니다.
-1. Unity 콘솔에서 선택한 자식 엔터티의 이름이 포함된 로그 메시지를 확인합니다. 예를 들어 다음과 같습니다.
-![자식 엔터티 예제](./media/child-entity-example.png)
+1. Unity 콘솔에서 선택한 자식 엔터티의 이름이 포함된 로그 메시지를 확인합니다. 예를 들면 다음과 같습니다. ![자식 엔터티 예제](./media/child-entity-example.png)
 
 ## <a name="synchronizing-the-remote-object-graph-into-the-unity-hierarchy"></a>원격 개체 그래프를 Unity 계층 구조에 동기화
 
@@ -353,7 +349,7 @@ ms.locfileid: "87367633"
 1. Unity의 계층 구조에서 **TestModel** GameObject의 자식을 펼치고, **TestModel_Entity** GameObject를 선택합니다.
 1. 검사기에서 *Show Children(자식 항목 표시)* 단추를 클릭합니다.
 ![Show children](./media/show-remote-children.png)
-1. 계층 구조에서 자식을 계속 펼치고, 많은 자식 목록이 표시될 때까지 *Show Children*을 클릭합니다.
+1. 계층 구조에서 자식을 계속 펼치고, 많은 자식 목록이 표시될 때까지 *Show Children(자식 항목 표시)* 을 클릭합니다.
 ![모든 자식](./media/test-model-children.png)
 
 이제 계층 구조가 수십 개의 엔터티 목록으로 채워집니다. 이러한 엔터티 중 하나를 선택하면 검사기에서 `Transform` 및 `RemoteEntitySyncObject` 구성 요소가 표시됩니다. 기본적으로 각 엔터티는 프레임마다 자동으로 동기화되지 않으므로 `Transform`에 대한 로컬 변경 내용이 서버와 동기화되지 않습니다. *Sync Every Frame(모든 프레임 동기화)* 을 선택한 다음, Scene(장면) 보기에서 변환을 이동, 크기 조정 또는 회전할 수 있습니다. 장면 보기에는 렌더링된 모델이 표시되지 않지만, Game(게임) 보기에서는 모델의 위치와 회전이 시각적으로 업데이트되는지 확인할 수 있습니다.
@@ -377,7 +373,7 @@ ms.locfileid: "87367633"
 1. 손 광선이 테스트 모델을 가리키도록 시뮬레이션된 손을 유도합니다.
 1. 길게 클릭하여 `OnPointerClicked` 이벤트를 실행하는 에어 탭을 시뮬레이션합니다.
 1. Hierarchy(계층 구조)를 선택하여 펼쳐서 클릭된 엔터티를 나타내는 새 자식 개체를 표시합니다.
-![GameObject 표현](./media/gameobject-representing-entity.png)\
+![GameObject 표현](./media/gameobject-representing-entity.png)
 1. 테스트가 완료되면 나중에 다른 효과의 일부로 통합할 수 있으므로 `MakeSyncedGameObject`에 대한 콜백을 제거합니다.
 
 > [!NOTE]

@@ -8,7 +8,7 @@
 - name: 자습서
   items:
     - name: Docker 및 PostgreSQL을 사용하는 Python 웹앱
-      href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+      href: ../app-service/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
     - name: 'Docker, Jenkins 및 Linux를 사용하는 CI/CD'
       href: /azure/jenkins/tutorial-jenkins-github-docker-cicd
 - name: 방법 가이드

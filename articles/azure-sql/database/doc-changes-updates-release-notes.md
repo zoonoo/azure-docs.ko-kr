@@ -11,19 +11,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533362"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236576"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database의 새로운 기능
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 이 문서에는 현재 공개 미리 보기로 제공 되는 Azure SQL Database 및 Azure SQL Managed Instance 기능이 나열 되어 있습니다. SQL Database 및 SQL Managed Instance 업데이트 및 개선 사항에 대해서는 [SQL Database & sql Managed Instance 서비스 업데이트](https://azure.microsoft.com/updates/?product=sql-database)를 참조 하세요. 다른 Azure 서비스에 대한 개선 사항 및 업데이트는 [서비스 업데이트](https://azure.microsoft.com/updates)를 참조하세요.
 
-## <a name="whats-new"></a>새로운 기능은 무엇입니까?
+## <a name="whats-new"></a>새로운 기능
 
 Azure SQL Database 및 Azure SQL Managed Instance에 대 한 설명서는 개별 섹션으로 분할 되었습니다. 또한 관리 되는 인스턴스를 *Azure SQL Database 관리* 되는 인스턴스에서 *Azure SQL Managed Instance*로 참조 하는 방법도 업데이트 했습니다.
 
@@ -52,7 +52,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 | ---| --- |
 | 단일 데이터베이스와 탄력적 풀을 통한 데이터베이스 복구 가속화 | 자세한 내용은 [데이터베이스 복구 가속화](../accelerated-database-recovery.md)를 참조하세요.|
 | 데이터 검색 및 분류  |자세한 내용은 [Azure SQL Database 및 Azure Synapse Analytics 데이터 검색 & 분류](data-discovery-and-classification-overview.md)를 참조 하세요.|
-| 탄력적 데이터베이스 작업 | 자세한 내용은 [탄력적 작업 만들기, 구성 및 관리](elastic-jobs-overview.md)를 참조하세요. |
+| 탄력적 데이터베이스 작업 (미리 보기) | 자세한 내용은 [탄력적 작업 만들기, 구성 및 관리](elastic-jobs-overview.md)를 참조하세요. |
 | 탄력적 쿼리 | 자세한 내용은 [탄력적 쿼리 개요](elastic-query-overview.md)를 참조하세요. |
 | 탄력적 트랜잭션 | [클라우드 데이터베이스의 분산 트랜잭션](elastic-transactions-overview.md). |
 | Azure Portal의 쿼리 편집기 |자세한 내용은 [Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리](connect-query-portal.md)를 참조하세요.|
@@ -97,6 +97,7 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 
 |문제  |발견된 날짜  |상태  |해결된 날짜  |
 |---------|---------|---------|---------|
+|[서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.](#service-principal-cannot-access-azure-ad-and-akv)|8 월 2020|해결 방법 있음||
 |[CHECKSUM 없는 수동 백업 복원이 실패할 수 있음](#restoring-manual-backup-without-checksum-might-fail)|2020년 5월|해결됨|2020년 6월|
 |[기존 작업을 수정, 사용 안 함 또는 사용 하도록 설정할 때 에이전트가 응답 하지 않습니다.](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|2020년 5월|해결됨|2020년 6월|
 |[리소스 그룹에 대 한 사용 권한이 SQL Managed Instance에 적용 되지 않음](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|2020년 2월|해결 방법 있음||
@@ -124,6 +125,11 @@ Azure의 단일 관리 되는 Azure SQL Database 데이터베이스, Azure SQL M
 |보안 연결을 사용 하는 외부 (비 Azure) 메일 서버를 사용 하는 데이터베이스 메일 기능||해결됨|2019년 10월|
 |포함 된 데이터베이스는 SQL Managed Instance 지원 되지 않습니다.||해결됨|2019년 8월|
 
+### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.
+
+경우에 따라 Azure AD 및 Azure Key Vault (AKV) 서비스에 액세스 하는 데 사용 되는 서비스 주체에 문제가 있을 수 있습니다. 따라서이 문제는 SQL Managed Instance를 사용 하 여 Azure AD 인증 및 TDE (투명 한 데이터베이스 암호화) 사용에 영향을 줍니다. 이는 일시적인 연결 문제 또는 외부 공급자의 로그인/사용자 만들기 또는 EXECUTE AS LOGIN/USER와 같은 문을 실행 하지 못하는 경우에 발생할 수 있습니다. 새 Azure SQL Managed Instance에서 고객 관리 키를 사용 하 여 TDE를 설정 하는 것도 일부 환경에서 작동 하지 않을 수 있습니다.
+
+**해결 방법**: 업데이트 명령을 실행 하기 전에 SQL Managed Instance에서이 문제가 발생 하지 않도록 하거나, 업데이트 명령 후에이 문제가 이미 발생 한 경우 Azure Portal로 이동 하 여 sql Managed Instance [Active Directory 관리자 블레이드](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal)로 이동 합니다. "Managed Instance에 Azure Active Directory 액세스 하려면 서비스 주체가 필요 합니다. 라는 오류 메시지가 표시 되는지 확인 합니다. 서비스 주체를 만들려면 여기를 클릭 하십시오. " 이 오류 메시지가 발생 한 경우이를 클릭 하 고이 오류가 해결 될 때까지 제공 된 단계별 지침을 따르세요.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>CHECKSUM 없는 수동 백업 복원이 실패할 수 있음
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 2d00a489af35f5960aaeb1dda7add5337d48d57d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7bcda79403e021384fc987a67865441dd8732885
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448161"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927456"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Ink Recognizer API란?
 
@@ -43,7 +43,7 @@ Ink Recognizer API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고 J
 
 가입 후:
 
-1. 잉크 스트로크 데이터를 가져와서 유효한 JSON으로 [서식을 지정](concepts/send-ink-data.md#sending-ink-data)합니다.
+1. 잉크 스트로크 데이터를 가져와서 유효한 JSON으로 [서식을 지정](concepts/send-ink-data.md#sending-ink-data)합니다. API는 요청당 최대 1500개의 잉크 스트로크를 허용합니다. 
 1. 데이터를 사용하여 Ink Recognizer API에 요청을 보냅니다.
 1. 반환된 JSON 메시지를 구문 분석하여 API 응답을 처리합니다.
 

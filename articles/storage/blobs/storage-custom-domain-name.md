@@ -9,18 +9,18 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 95fd62584ef73f3f2f198c84913652f460fc5b1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 903413b6ca00600e15ac3af0a93b98a8d67a1c28
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465544"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053629"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑
 
 사용자 지정 도메인을 blob service 끝점 또는 [정적 웹 사이트](storage-blob-static-website.md) 끝점에 매핑할 수 있습니다. 
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
 > 이 매핑은 하위 도메인 (예:)에 대해서만 작동 `www.contoso.com` 합니다. 웹 끝점을 루트 도메인 (예:)에서 사용할 수 있도록 하려면 `contoso.com` Azure CDN를 사용 해야 합니다. 지침은이 문서의 HTTPS를 [사용 하 여 사용자 지정 도메인 매핑](#enable-https) 섹션을 참조 하세요. 이 문서의 해당 섹션으로 이동 하 여 사용자 지정 도메인의 루트 도메인을 사용 하도록 설정 했기 때문에 HTTPS를 사용 하도록 설정 하는 단계는 선택 사항입니다. 

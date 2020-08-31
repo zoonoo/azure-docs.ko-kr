@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 API 서버에 액세스 하�
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: c92d4e00da1cc3d372cca0bf4efbe648ae522608
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 404bd600f825a5da334811744132c6aa9b751566
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057469"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006896"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 권한이 부여 된 IP 주소 범위를 사용 하 여 API 서버에 대 한 액세스 보호
 
@@ -66,7 +66,7 @@ az aks create \
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>표준 SKU 부하 분산 장치에 대 한 아웃 바운드 Ip를 지정 합니다.
 
-AKS 클러스터를 만들 때 클러스터에 대 한 아웃 바운드 IP 주소 또는 접두사를 지정 하면 해당 주소 또는 접두사도 허용 됩니다. 예를 들면 다음과 같습니다.
+AKS 클러스터를 만들 때 클러스터에 대 한 아웃 바운드 IP 주소 또는 접두사를 지정 하면 해당 주소 또는 접두사도 허용 됩니다. 예:
 
 ```azurecli-interactive
 az aks create \
@@ -118,7 +118,7 @@ az aks update \
 
 ## <a name="disable-authorized-ip-ranges"></a>권한 있는 IP 범위 사용 안 함
 
-권한 있는 IP 범위를 사용 하지 않도록 설정 하려면 [az aks update][az-aks-update] 를 사용 하 고 API server 권한 있는 ip 범위를 사용 하지 않도록 빈 범위를 지정 합니다. 예를 들면 다음과 같습니다.
+권한 있는 IP 범위를 사용 하지 않도록 설정 하려면 [az aks update][az-aks-update] 를 사용 하 고 API server 권한 있는 ip 범위를 사용 하지 않도록 빈 범위를 지정 합니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az aks update \

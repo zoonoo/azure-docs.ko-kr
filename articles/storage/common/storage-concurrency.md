@@ -1,7 +1,7 @@
 ---
 title: 동시성 관리
 titleSuffix: Azure Storage
-description: Blob, 큐, 테이블 및 파일 서비스의 동시성을 관리하는 방법을 알아봅니다.
+description: Blob, 큐, 테이블 및 파일 서비스에 대 한 Azure Storage에서 동시성을 관리 하는 방법에 대해 알아봅니다. 사용 되는 세 가지 주요 데이터 동시성 전략을 이해 합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 099711bf09fc29a1168ca8ce73ea6ae93f810a08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2732781d32e92c8ec03116988e33ec4fbe0b2330
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504290"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021564"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Microsoft Azure Storage에서 동시성 관리
 

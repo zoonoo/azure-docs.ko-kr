@@ -12,12 +12,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ea1afd2ecac8974c0e865e235288da545a9f1244
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af363bb30d6515ce969afe146c780baa4b31cd83
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885534"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117212"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -46,7 +46,7 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 
 ## <a name="use-the-development-support-tools"></a>개발 지원 도구 사용
 
-| 도구  | 설명  |
+| 도구  | Description  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | ID 또는 액세스 토큰을 붙여넣어 클레임 이름 및 값을 디코드합니다. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Microsoft Graph API에 대해 요청을 하고 응답을 확인할 수 있는 도구입니다. |
@@ -62,7 +62,7 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
 | ADAL 라이브러리 | [adal](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL 라이브러리     | [msal](https://stackoverflow.com/questions/tagged/msal) |
 | OWIN 미들웨어  | [[azure-active directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
-| [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
+| [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
 | [Microsoft Graph API](https://developer.microsoft.com/graph/) | [[microsoft 그래프]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
 | 인증 또는 권한 부여 주제와 관련된 다른 모든 영역 | [[azure-active directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |

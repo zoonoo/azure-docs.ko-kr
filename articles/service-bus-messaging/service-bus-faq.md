@@ -3,12 +3,12 @@ title: Azure Service Bus FAQ | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus에 대 한 FAQ (질문과 대답)를 제공 합니다.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 04ff12d28be1dd232c5666b17d8a121f8020ca89
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e098b05dba25a51d5d6ef7c50a1b73730828357a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371246"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080816"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus-질문과 대답 (FAQ)
 
@@ -57,7 +57,7 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
 1. 명령 프롬프트에서 다음 명령을 실행합니다. 
 
     ```
-    nslookup <YourNamespaceName>.cloudapp.net
+    nslookup <YourNamespaceName>.servicebus.windows.net
     ```
 2. `Non-authoritative answer`에서 반환된 IP 주소를 적어 둡니다. 이 IP 주소는 정적입니다. 다른 클러스터로 네임스페이스를 복원하는 경우에만 변경될 수 있습니다.
 
@@ -66,7 +66,7 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
 1. 먼저 네임스페이스에서 nslookup을 실행합니다.
 
     ```
-    nslookup <yournamespace>.cloudapp.net
+    nslookup <yournamespace>.servicebus.windows.net
     ```
 2. **신뢰할 수 없는 응답** 섹션에서 다음 형식 중 하나로 표시되는 이름을 적어 둡니다. 
 

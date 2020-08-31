@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2020
-ms.openlocfilehash: d4398b2bf37ad5dcf60a931f5d4991a3ad00845a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5a7f13982de000478b14eb75d7341ed2e99c1274
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826537"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245573"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-자동 장애 조치 그룹을 사용 하면 서버 또는 관리 되는 인스턴스의 모든 데이터베이스에 있는 데이터베이스 그룹의 복제 및 장애 조치 (failover)를 다른 지역으로 관리할 수 있습니다. 지리적으로 복제 된 데이터베이스를 대규모로 배포 하 고 관리할 수 있도록 설계 된 기존 [활성 지역 복제](active-geo-replication-overview.md) 기능을 기반으로 하는 선언적 추상화입니다. 수동으로 장애 조치 (failover)를 시작 하거나 사용자 정의 정책을 기반으로 Azure 서비스에 위임할 수 있습니다. 후자 옵션을 사용 하면 주 지역에서 SQL Database 또는 SQL Managed Instance 가용성을 완전히 또는 부분적으로 손실 하는 치명적인 오류 또는 기타 계획 되지 않은 이벤트 후 보조 지역의 여러 관련 데이터베이스를 자동으로 복구할 수 있습니다. 장애 조치 (failover) 그룹은 하나 또는 여러 데이터베이스를 포함할 수 있으며, 일반적으로 동일한 응용 프로그램에서 사용 됩니다. 또한 읽을 수 있는 보조 데이터베이스를 사용하여 읽기 전용 쿼리 워크로드를 오프로드할 수 있습니다. 자동 장애 조치 그룹에 여러 데이터베이스가 포함되기 때문에 주 서버에서 이러한 데이터베이스를 구성해야 합니다. 자동 장애 조치 그룹은 그룹에 있는 모든 데이터베이스를 다른 지역의 단일 보조 서버 또는 인스턴스로 복제 하도록 지원 합니다.
+자동 장애 조치 그룹 기능을 사용 하면 서버 또는 관리 되는 인스턴스의 모든 데이터베이스에 있는 데이터베이스 그룹의 복제 및 장애 조치 (failover)를 다른 지역으로 관리할 수 있습니다. 지리적으로 복제 된 데이터베이스를 대규모로 배포 하 고 관리할 수 있도록 설계 된 기존 [활성 지역 복제](active-geo-replication-overview.md) 기능을 기반으로 하는 선언적 추상화입니다. 수동으로 장애 조치 (failover)를 시작 하거나 사용자 정의 정책을 기반으로 Azure 서비스에 위임할 수 있습니다. 후자 옵션을 사용 하면 주 지역에서 SQL Database 또는 SQL Managed Instance 가용성을 완전히 또는 부분적으로 손실 하는 치명적인 오류 또는 기타 계획 되지 않은 이벤트 후 보조 지역의 여러 관련 데이터베이스를 자동으로 복구할 수 있습니다. 장애 조치 (failover) 그룹은 하나 또는 여러 데이터베이스를 포함할 수 있으며, 일반적으로 동일한 응용 프로그램에서 사용 됩니다. 또한 읽을 수 있는 보조 데이터베이스를 사용하여 읽기 전용 쿼리 워크로드를 오프로드할 수 있습니다. 자동 장애 조치 그룹에 여러 데이터베이스가 포함되기 때문에 주 서버에서 이러한 데이터베이스를 구성해야 합니다. 자동 장애 조치 그룹은 그룹에 있는 모든 데이터베이스를 다른 지역의 단일 보조 서버 또는 인스턴스로 복제 하도록 지원 합니다.
 
 > [!NOTE]
 > 동일 하거나 다른 지역에 여러 Azure SQL Database 보조 데이터베이스를 사용 하려는 경우 [활성 지역 복제](active-geo-replication-overview.md)를 사용 합니다.
@@ -203,7 +203,7 @@ OLTP 작업을 수행할 때 `<fog-name>.database.windows.net`을 서버 URL로 
 1. 계획 된 장애 조치 (failover)를 수행 하 여 주 서버를 B로 전환 합니다. 서버 A가 새 보조 서버가 됩니다. 장애 조치 (failover)로 인해 몇 분의 가동 중지 시간이 발생할 수 있습니다. 실제 시간은 장애 조치 (failover) 그룹의 크기에 따라 달라 집니다.
 2. [활성 지역 복제](active-geo-replication-overview.md)를 사용 하 여 server B에서 server C로 각 데이터베이스의 추가 보조 데이터베이스를 만듭니다. 서버 B의 각 데이터베이스에는 서버 A와 서버 C에 각각 하나씩 두 개의 보조 데이터베이스가 있습니다. 이렇게 하면 전환 하는 동안 주 데이터베이스가 보호 된 상태로 유지 됩니다.
 3. 장애 조치 (failover) 그룹을 삭제 합니다. 이 시점에서 로그인에 실패 하 게 됩니다. 이는 장애 조치 (failover) 그룹 수신기에 대 한 SQL 별칭이 삭제 되 고 게이트웨이에서 장애 조치 (failover) 그룹 이름을 인식 하지 못하기 때문입니다.
-4. 서버 A와 C 간에 이름이 같은 장애 조치 (failover) 그룹을 다시 만듭니다. 이 시점에서 로그인은 실패 하 게 됩니다.
+4. 서버 B와 C 간의 이름이 같은 장애 조치 (failover) 그룹을 다시 만듭니다. 이 시점에서 로그인은 실패 하 게 됩니다.
 5. 새 장애 조치 (failover) 그룹에 B의 모든 주 데이터베이스를 추가 합니다.
 6. 장애 조치 그룹의 계획 된 장애 조치 (failover)를 수행 하 여 B 및 C로 전환 합니다. 이제 server C가 기본이 되 고 B-보조 데이터베이스가 됩니다. 서버 A의 모든 보조 데이터베이스는 C의 기본 데이터베이스에 자동으로 연결 됩니다. 1 단계와 마찬가지로 장애 조치 (failover)로 인해 몇 분의 가동 중지 시간이 발생할 수 있습니다.
 7. 서버 A를 삭제 합니다. 의 모든 데이터베이스는 자동으로 삭제 됩니다.
@@ -231,7 +231,7 @@ OLTP 작업을 수행할 때 `<fog-name>.database.windows.net`을 서버 URL로 
 > [!IMPORTANT]
 > 서브넷에서 만든 첫 번째 관리 되는 인스턴스는 동일한 서브넷에 있는 모든 후속 인스턴스의 DNS 영역을 결정 합니다. 즉, 동일한 서브넷의 두 인스턴스는 서로 다른 DNS 영역에 속할 수 없습니다.
 
-주 인스턴스와 동일한 DNS 영역에 보조 SQL Managed Instance를 만드는 방법에 대 한 자세한 내용은 [보조 관리 되는 인스턴스 만들기](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance)를 참조 하세요.
+주 인스턴스와 동일한 DNS 영역에 보조 SQL Managed Instance를 만드는 방법에 대 한 자세한 내용은 [보조 관리 되는 인스턴스 만들기](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance)를 참조 하세요.
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>두 인스턴스 간의 복제 트래픽 활성화
 
@@ -378,10 +378,10 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 ## <a name="preventing-the-loss-of-critical-data"></a>중요한 데이터 손실 방지
 
-광역 네트워크의 높은 대기 시간으로 인해 연속 복사는 비동기 복제 메커니즘을 사용합니다. 비동기 복제를 수행하면 오류가 발생하는 경우에 일부 데이터 손실은 불가피합니다. 그러나 일부 애플리케이션은 데이터 손실이 없어야 합니다. 이러한 중요한 업데이트를 보호하기 위해 애플리케이션 개발자는 트랜잭션을 커밋한 후 즉시 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 시스템 프로시저를 호출할 수 있습니다. `sp_wait_for_database_copy_sync`를 호출 하면 마지막으로 커밋된 트랜잭션이 보조 데이터베이스로 전송 될 때까지 호출 스레드가 차단 됩니다. 그러나 전송된 트랜잭션이 보조 데이터베이스에서 재생 및 커밋될 때까지 기다리지 않습니다. `sp_wait_for_database_copy_sync`는 특정 연속 복사 링크로 범위가 지정 됩니다. 주 데이터베이스에 대한 연결 권한이 있는 모든 사용자는 이 프로시저를 호출할 수 있습니다.
+광역 네트워크의 높은 대기 시간으로 인해 연속 복사는 비동기 복제 메커니즘을 사용합니다. 비동기 복제를 수행하면 오류가 발생하는 경우에 일부 데이터 손실은 불가피합니다. 그러나 일부 애플리케이션은 데이터 손실이 없어야 합니다. 이러한 중요한 업데이트를 보호하기 위해 애플리케이션 개발자는 트랜잭션을 커밋한 후 즉시 [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) 시스템 프로시저를 호출할 수 있습니다. `sp_wait_for_database_copy_sync`를 호출 하면 마지막으로 커밋된 트랜잭션이 보조 데이터베이스로 전송 될 때까지 호출 스레드가 차단 됩니다. 그러나 전송된 트랜잭션이 보조 데이터베이스에서 재생 및 커밋될 때까지 기다리지 않습니다. `sp_wait_for_database_copy_sync` 는 특정 연속 복사 링크로 범위가 지정 됩니다. 주 데이터베이스에 대한 연결 권한이 있는 모든 사용자는 이 프로시저를 호출할 수 있습니다.
 
 > [!NOTE]
-> `sp_wait_for_database_copy_sync`장애 조치 (failover) 후 데이터 손실을 방지 하지만 읽기 액세스를 위해 전체 동기화를 보장 하지는 않습니다. 프로시저 호출로 인 한 지연 시간은 `sp_wait_for_database_copy_sync` 매우 중요할 수 있으며 호출 시 트랜잭션 로그의 크기에 따라 달라 집니다.
+> `sp_wait_for_database_copy_sync` 장애 조치 (failover) 후 데이터 손실을 방지 하지만 읽기 액세스를 위해 전체 동기화를 보장 하지는 않습니다. 프로시저 호출로 인 한 지연 시간은 `sp_wait_for_database_copy_sync` 매우 중요할 수 있으며 호출 시 트랜잭션 로그의 크기에 따라 달라 집니다.
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>장애 조치(failover) 그룹 및 지정 시간 복원
 

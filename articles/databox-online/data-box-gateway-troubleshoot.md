@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 Azure Data Box Gateway 문제 해결 | Microsoft Docs
-description: Azure Data Box Gateway 문제를 해결하는 방법을 설명합니다.
+description: Azure Data Box Gateway에서 문제를 해결 하는 방법을 알아봅니다. 진단을 실행 하 고, 지원 정보를 수집 하 고, 로그를 사용 하 여 문제를 해결할 수 있습니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: troubleshooting
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 9688df6c27717cc74c874c75a9df0b47ffd24853
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e49cc400fd8af3d284a223363f3384063d862981
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564008"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927184"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Azure Data Box Gateway 문제 해결
 

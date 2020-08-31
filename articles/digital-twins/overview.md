@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 45b535db9fccb41542ee74cb28845d49211e16ec
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0e17ecea6c85329b22310ebe1d06e2fe63cdd773
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281058"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042822"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
-**Azure Digital Twins**는 전체 환경의 포괄적인 디지털 모델을 만들 수 있는 PaaS(Platform as a Service) 제품입니다. 이러한 환경에는 건물, 공장, 농장, 에너지 네트워크, 철로, 경기장 - 심지어 도시 전체가 포함될 수 있습니다. 이러한 디지털 모델을 사용하 여 더 나은 제품, 최적화된 작업, 비용 절감 및 혁신적인 고객 환경을 구동하는 정보를 얻을 수 있습니다.
+**Azure Digital Twins**는 전체 환경의 디지털 모델을 기반으로 기술 자료 그래프를 만들 수 있는 PaaS(Platform as a Service) 제품입니다. 이러한 환경에는 건물, 공장, 농장, 에너지 네트워크, 철로, 경기장 - 심지어 도시 전체가 포함될 수 있습니다. 이러한 디지털 모델을 사용하 여 더 나은 제품, 최적화된 작업, 비용 절감 및 혁신적인 고객 환경을 구동하는 정보를 얻을 수 있습니다.
 
 Azure Digital Twins 위에 도메인 전문 지식을 활용하여 다음과 같은 사용자 지정, 연결된 솔루션을 빌드합니다:
 * 모든 환경을 모델링하고 디지털 쌍을 확장 가능하고 안전한 방식으로 생활 속으로 가져옵니다.

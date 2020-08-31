@@ -2,14 +2,14 @@
 title: Azure의 서버리스 컨테이너
 description: Azure Container Instances 서비스는 가상 머신을 관리하지 않고 또 더 높은 수준의 오케스트레이터를 채택하지 않고도 Azure에서 격리된 컨테이너를 실행하는 가장 빠르고 간단한 방법을 제공합니다.
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 08/10/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: bd68fab380754eca38eebf3fd52634508f282cf6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259509"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121666"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances란?
 
@@ -21,6 +21,11 @@ Azure Container Instances는 간단한 애플리케이션, 작업 자동화 및 
 
 컨테이너는 VM(가상 머신)에 비해 상당한 시작 이점을 제공합니다. Azure Container Instances는 VM을 프로비전 및 관리할 필요 없이 Azure에서 몇 초 안에 컨테이너를 시작할 수 있습니다.
 
+Docker Hub, 프라이빗 [Azure 컨테이너 레지스트리](../container-registry/index.yml) 또는 다른 클라우드 기반 docker 레지스트리에서 Linux 또는 Windows 컨테이너 이미지를 가져옵니다. Azure Container Instances는 여러 가지 일반적인 기본 OS 이미지를 캐시하여 사용자 지정 애플리케이션 이미지의 배포 속도를 향상합니다.
+
+> [!NOTE]
+> 현재는 온-프레미스 레지스트리의 이미지를 Azure Container Instances에 배포할 수 없습니다.
+
 ## <a name="container-access"></a>컨테이너 액세스
 
 Azure Container Instances는 IP 주소 및 FQDN(정규화된 도메인 이름)을 사용하여 컨테이너 그룹을 인터넷에 직접 노출할 수 있습니다. 컨테이너 인스턴스를 만들 때 사용자 정의 DNS 이름 레이블을 지정하여 *customlabel*.*azureregion*.azurecontainer.io에서 애플리케이션에 연결할 수 있습니다.
@@ -30,10 +35,15 @@ Azure Container Instances는 IP 주소 및 FQDN(정규화된 도메인 이름)�
 > [!IMPORTANT]
 > 2020년 1월 13일부터 Azure Container Instances는 TLS 1.2를 사용하기 위해 서버 및 애플리케이션의 모든 보안 연결이 필요합니다. TLS 1.0 및 1.1에 대한 지원이 중단됩니다.
 
-## <a name="hypervisor-level-security"></a>하이퍼바이저 수준 보안
+## <a name="compliant-deployments"></a>규격 배포
+
+### <a name="hypervisor-level-security"></a>하이퍼바이저 수준 보안
 
 지금까지는 컨테이너가 애플리케이션 종속성 격리 및 리소스 관리를 제공했지만 적대적인 다중 테넌트 사용을 위해서 충분히 보강되지 않았습니다. Azure Container Instances는 애플리케이션이 VM에서 격리되는 것처럼 컨테이너에서도 격리되도록 보장합니다.
 
+### <a name="customer-data"></a>고객 데이터
+
+ACI 서비스는 컨테이너 그룹이 예상대로 실행되고 있는지 확인하는 데 필요한 최소한의 고객 데이터를 저장합니다. 단일 지역에 고객 데이터를 저장하는 것은 현재 아시아 태평양 지역의 동남 아시아 지역(싱가포르)에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 [지역](https://azure.microsoft.com/global-infrastructure/geographies/)에 저장됩니다. 자세히 알아보려면 Azure 지원에 문의하세요.
 
 ## <a name="custom-sizes"></a>사용자 지정 크기
 
@@ -68,7 +78,7 @@ Azure Container Instances는 호스트 컴퓨터, 로컬 네트워크, 스토리
 
 ## <a name="virtual-network-deployment"></a>가상 네트워크 배포
 
-현재 Azure 지역의 하위 집합에서 프로덕션 워크로드에 사용할 수 있는 Azure Containers Instances의 이 기능을 통해 [Azure 가상 네트워크에 컨테이너 인스턴스를 배포](container-instances-vnet.md)하도록 설정할 수 있습니다. 컨테이너 인스턴스를 가상 네트워크 내의 서브넷에 배포하면 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](../expressroute/expressroute-introduction.md)를 통해 온-프레미스에 있는 컨테이너 인스턴스를 포함하여 가상 네트워크의 다른 리소스와 안전하게 통신할 수 있습니다.
+Azure Containers Instances를 사용하면 [Azure 가상 네트워크에 컨테이너 인스턴스를 배포](container-instances-vnet.md)할 수 있습니다. 컨테이너 인스턴스를 가상 네트워크 내의 서브넷에 배포하면 컨테이너 인스턴스는 [VPN 게이트웨이](../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [ExpressRoute](../expressroute/expressroute-introduction.md)를 통해 온-프레미스에 있는 리소스를 비롯한 가상 네트워크의 다른 리소스와 안전하게 통신할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

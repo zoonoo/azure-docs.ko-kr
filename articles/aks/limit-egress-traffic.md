@@ -5,13 +5,14 @@ services: container-service
 ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
+ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 9d06852e9d3d61b3e3d368a1d1c6f4107aff1442
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 51b457b99afc478631ce9b39a4a7d51ffd57401c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251317"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003176"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -226,6 +227,8 @@ Azure 방화벽은이 구성을 간소화 하는 Azure Kubernetes Service ( `Azu
 
 > [!NOTE]
 > FQDN 태그는 위에 나열 된 fqdn을 모두 포함 하 고 자동으로 최신 상태로 유지 됩니다.
+>
+> SNAT 포트 소모 문제를 방지 하기 위해 프로덕션 시나리오에 대 한 Azure 방화벽에서 최소 20 개의 프런트 엔드 Ip를 사용 하는 것이 좋습니다.
 
 다음은 배포의 예제 아키텍처입니다.
 
@@ -364,7 +367,7 @@ Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 
 ```azure-cli
 # Create UDR and add a route for Azure Firewall
 
-az network route-table create -g $RG --name $FWROUTE_TABLE_NAME
+az network route-table create -g $RG -$LOC --name $FWROUTE_TABLE_NAME
 az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP --subscription $SUBID
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
@@ -482,14 +485,14 @@ az aks create -g $RG -n $AKSNAME -l $LOC \
 CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
 # Add to AKS approved list
-az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 
 ```
 
  [Az aks] [az-aks] 명령을 사용 하 여 `kubectl` 새로 만든 Kubernetes 클러스터에 연결 하도록를 구성 합니다. 
 
  ```azure-cli
- az aks get-credentials -g $RG -n $AKS_NAME
+ az aks get-credentials -g $RG -n $AKSNAME
  ```
 
 ### <a name="deploy-a-public-service"></a>공용 서비스 배포

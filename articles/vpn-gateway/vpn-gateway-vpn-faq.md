@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
-ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5d66e79e79edd98f3192d0187d6f0454c3aeffa
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708929"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121479"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -126,6 +126,10 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 ### <a name="can-i-configure-force-tunneling"></a>강제 터널링을 구성할 수 있나요?
 
 예. [강제 터널링 구성](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
+
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>VPN 연결에서 NAT-T를 사용할 수 있나요?
+
+예, NAT 통과 (NAT-T)가 지원 됩니다. Azure VPN Gateway는 IPsec 터널에 대 한 내부 패킷과 NAT와 유사한 기능을 수행 하지 않습니다.  이 구성에서 온-프레미스 장치가 IPSec 터널을 시작 하는지 확인 하세요.
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Azure에서 내 VPN 서버를 설정하여 온-프레미스 네트워크에 연결하는 데 사용할 수 있습니까?
 

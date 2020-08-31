@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Maps 웹 맵 컨트롤 시작
-description: Microsoft Azure Maps 웹 맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용 하 여 맵 및 포함 된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링 하는 방법에 대해 알아봅니다.
+description: Azure Maps에서 맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용 하 여 웹 및 모바일 응용 프로그램에 맵을 추가 하는 방법에 대해 알아봅니다. Maps를 지역화 하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/20/2020
@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 40ae1492084430f7dbca331d1439b4ded099c866
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e4309b3fdda1296aade19de2874e7f3423b9fc0f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287077"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035963"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤 사용
 
 맵 컨트롤 클라이언트 쪽 JavaScript 라이브러리를 사용 하면 맵 및 포함 된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 웹 페이지에서 맵 컨트롤를 사용 하려면 다음 필수 구성 요소 중 하나가 있어야 합니다.
 
@@ -34,22 +34,22 @@ ms.locfileid: "87287077"
 
 1. 새 HTML 파일 만들기
 
-2. Azure Maps 웹 SDK에서 로드합니다. 두 가지 옵션 중 하나를 선택할 수 있습니다.
+2. Azure Maps 웹 SDK에서 로드합니다. 다음 두 가지 옵션 중 하나를 선택하세요.
 
     * HTML 파일의 요소에서 JavaScript 및 스타일 시트에 대 한 참조를 추가 하 여 Azure Maps 웹 SDK의 전역적으로 호스팅된 CDN 버전을 사용 합니다 `<head>` .
 
-        ```HTML
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-        ```
+      ```html
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+      ```
 
     * [NPM 패키지를 사용](https://www.npmjs.com/package/azure-maps-control) 하 여 AZURE MAPS 웹 SDK 소스 코드를 로컬로 로드 하 고 앱과 함께 호스트 합니다. 이 패키지에는 TypeScript 정의도 포함됩니다.
 
-    > **npm install azure-maps-control**
+      > **npm install azure-maps-control**
 
     그런 다음 Azure Maps 스타일 시트에 대 한 참조를 `<head>` 파일의 요소에 추가 합니다.
 
-    ```HTML
+    ```html
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
      ```
 

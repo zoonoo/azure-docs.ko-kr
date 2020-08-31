@@ -3,12 +3,13 @@ title: 공유 액세스 서명을 사용 하 여 액세스 제어 Azure Service 
 description: 공유 액세스 서명을 사용한 Azure Service Bus 액세스 제어 개요, Azure Service Bus를 사용한 SAS 권한 부여 상세 정보
 ms.topic: article
 ms.date: 07/30/2020
-ms.openlocfilehash: b75f1ec3a1aac36124287523140c24d468329aaa
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460697"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012078"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>공유 액세스 서명을 사용한 Service Bus 액세스 제어
 
@@ -19,7 +20,7 @@ SAS는 권한 부여 규칙에 따라 Service Bus에 대한 액세스를 보호�
 > [!NOTE]
 > Azure Service Bus는 Azure Active Directory (Azure AD)를 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스 권한을 부여 합니다. Azure AD에서 반환 된 OAuth 2.0 토큰을 사용 하는 사용자 또는 응용 프로그램에 대 한 권한 부여는 SAS (공유 액세스 서명)를 통해 뛰어난 보안과 사용 편의성을 제공 합니다. Azure AD를 사용 하는 경우 코드에 토큰을 저장 하 고 잠재적인 보안 취약점을 초래할 필요가 없습니다.
 >
-> 가능 하면 Azure Service Bus 응용 프로그램에서 Azure AD를 사용 하는 것이 좋습니다. 자세한 내용은 다음 문서를 참조하세요.
+> 가능 하면 Azure Service Bus 응용 프로그램에서 Azure AD를 사용 하는 것이 좋습니다. 자세한 내용은 다음 아티클을 참조하세요.
 > - [Azure Active Directory를 사용 하 여 응용 프로그램을 인증 하 고 권한을 부여 하 여 Azure Service Bus 엔터티에 액세스](authenticate-application.md)합니다.
 > - [Azure Service Bus 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증](service-bus-managed-service-identity.md)
 
@@ -27,7 +28,7 @@ SAS는 권한 부여 규칙에 따라 Service Bus에 대한 액세스를 보호�
 
 공유 액세스 서명은 간단한 토큰을 사용하는 클레임 기반 권한 부여 메커니즘입니다. SAS를 사용하여 키는 연결 중에 전달되지 않습니다. 키는 서비스에 의해 나중에 확인될 수 있는 정보를 암호화하여 서명하는 데 사용됩니다. SAS는 클라이언트가 권한 부여 규칙 이름 및 일치 키를 즉시 소유하는 사용자 이름 및 암호 구성표와 유사하게 사용될 수 있습니다. SAS는 또한 클라이언트가 서명 키의 소유 없이 보안 토큰 서비스에서 시간 제한 및 서명된 액세스 토큰을 받는 페더레이션된 보안 모델과 유사하게 사용될 수도 있습니다.
 
-Service Bus에서 SAS 인증은 연결된 액세스 권한 및 기본 및 보조 암호화 키 쌍이 있는 [공유 액세스 권한 부여 규칙](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)으로 구성됩니다. 키는 Base64 표현에서 256비트 값입니다. Service Bus [릴레이](../service-bus-relay/relay-what-is-it.md), [큐](service-bus-messaging-overview.md#queues) 및 [항목](service-bus-messaging-overview.md#topics)의 네임스페이스 수준에서 규칙을 구성할 수 있습니다.
+Service Bus에서 SAS 인증은 연결된 액세스 권한 및 기본 및 보조 암호화 키 쌍이 있는 [공유 액세스 권한 부여 규칙](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)으로 구성됩니다. 키는 Base64 표현에서 256비트 값입니다. Service Bus [릴레이](../azure-relay/relay-what-is-it.md), [큐](service-bus-messaging-overview.md#queues) 및 [항목](service-bus-messaging-overview.md#topics)의 네임스페이스 수준에서 규칙을 구성할 수 있습니다.
 
 [공유 액세스 서명](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) 토큰은 선택한 권한 부여 규칙의 이름, 액세스해야 하는 리소스의 URI, 만료 인스턴트 및 선택한 권한 부여 규칙의 기본 또는 보조 암호화 키를 사용하여 이러한 필드를 통해 계산된 HMAC-SHA256 암호화 서명을 포함합니다.
 
@@ -67,9 +68,9 @@ Service Bus 네임스페이스, 큐 또는 항목에 대한 [SharedAccessAuthori
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`**-토큰 만료 인스턴트. 토큰이 만료될 때 1970년 1월 1일(UNIX Epoch)의 Epoch `00:00:00 UTC` 이후의 초를 반영하는 정수
-* **`skn`**-권한 부여 규칙의 이름입니다.
-* **`sr`**-액세스 되는 리소스의 URI입니다.
+* **`se`** -토큰 만료 인스턴트. 토큰이 만료될 때 1970년 1월 1일(UNIX Epoch)의 Epoch `00:00:00 UTC` 이후의 초를 반영하는 정수
+* **`skn`** -권한 부여 규칙의 이름입니다.
+* **`sr`** -액세스 되는 리소스의 URI입니다.
 * **`sig`** 서명과.
 
 는 `signature-string` 리소스 URI (이전 섹션에서 설명 하는**범위** )에 대해 계산 된 SHA-256 해시와 토큰 만료 인스턴트의 문자열 표현을 LF로 구분 하 여 계산 합니다.
@@ -84,7 +85,7 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 리소스 URI은 액세스를 하려는 Service Bus 리소스의 전체 URI입니다. 예를 들면 `http://<namespace>.servicebus.windows.net/<entityPath>` 또는 `sb://<namespace>.servicebus.windows.net/<entityPath>`입니다. 즉, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`과 같습니다. 
 
-**URI는 [%로 인코딩해야](https://msdn.microsoft.com/library/4fkewx0t.aspx)합니다.**
+**URI는 [%로 인코딩해야](/dotnet/api/system.web.httputility.urlencode?view=netcore-3.1)합니다.**
 
 이 URI로 또는 부모 계층 중 하나에 의해 지정된 엔터티에 서명에 사용된 공유 액세스 권한 부여 규칙을 구성해야 합니다. 예를 들어 이전 예에서 `http://contoso.servicebus.windows.net/contosoTopics/T1` 또는 `http://contoso.servicebus.windows.net`입니다.
 
@@ -254,7 +255,7 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많습니
 
 다음 테이블에서는 Service Bus 리소스의 다양한 작업에 필요한 액세스 권한을 보여줍니다.
 
-| 연산 | 필요한 클레임 | 클레임 범위 |
+| 작업(Operation) | 필요한 클레임 | 클레임 범위 |
 | --- | --- | --- |
 | **Namespace** | | |
 | 네임스페이스에서 권한 부여 규칙 구성 |관리 |네임스페이스 주소 |

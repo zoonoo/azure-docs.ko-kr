@@ -6,17 +6,17 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562449"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080714"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 로컬 캐시 개요
 
 > [!NOTE]
-> [Windows 컨테이너](app-service-web-get-started-windows-container.md) 또는 [Linux의 App Service](containers/app-service-linux-intro.md)와 같이 함수 앱 또는 컨테이너 화 된 App Service 앱에서 로컬 캐시는 지원 되지 않습니다.
+> [Windows 컨테이너](quickstart-custom-container.md?pivots=container-windows) 또는 [Linux의 App Service](overview.md#app-service-on-linux)와 같이 함수 앱 또는 컨테이너 화 된 App Service 앱에서 로컬 캐시는 지원 되지 않습니다.
 
 
 Azure App Service 콘텐츠는 Azure Storage에 저장 되며 콘텐츠 공유로 지속적으로 노출 됩니다. 이 디자인은 다양한 앱으로 작업하기 위한 것이며, 다음과 같은 특성을 가집니다.  
@@ -36,7 +36,7 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>로컬 캐시가 App Service 동작을 변경하는 방식
 * _D:\home_은 앱이 시작될 때 VM 인스턴스에서 만들어진 로컬 캐시를 가리킵니다. _D:\local_은 임시 VM 관련 스토리지를 계속 가리킵니다.
-* 로컬 캐시는 각각 _D:\home\site_ 및 _D:\home\siteextensions_에 공유 콘텐츠 저장소의 _/site_ 및 _/siteextensions_ 폴더에 대한 일회성 복사본을 포함합니다. 앱이 시작 되 면 파일이 로컬 캐시로 복사 됩니다. 각 앱에 대 한 두 폴더의 크기는 기본적으로 1gb로 제한 되지만 2gb로 증가할 수 있습니다. 캐시 크기가 늘어나면 캐시를 로드 하는 데 시간이 더 오래 걸립니다. 복사한 파일이 로컬 캐시의 크기를 초과 하는 경우 App Service는 로컬 캐시를 자동으로 무시 하 고 원격 파일 공유에서 읽습니다.
+* 로컬 캐시는 각각 _D:\home\site_ 및 _D:\home\siteextensions_에 공유 콘텐츠 저장소의 _/site_ 및 _/siteextensions_ 폴더에 대한 일회성 복사본을 포함합니다. 앱이 시작 되 면 파일이 로컬 캐시로 복사 됩니다. 각 앱에 대 한 두 폴더의 크기는 기본적으로 1gb로 제한 되지만 2gb로 증가할 수 있습니다. 캐시 크기가 늘어나면 캐시를 로드 하는 데 시간이 더 오래 걸립니다. 로컬 캐시 제한인 2gb로 증가 하 고 복사 된 파일이 최대 크기인 2gb를 초과 하는 경우 App Service 자동으로 로컬 캐시를 무시 하 고 원격 파일 공유에서 읽기를 자동으로 무시 합니다. 제한이 정의 되어 있지 않거나 제한이 2gb 보다 작은 값으로 설정 되 고 복사 된 파일이 제한을 초과 하는 경우 배포 또는 교환이 오류로 인해 실패할 수 있습니다.
 * 로컬 캐시는 읽기/쓰기가 가능합니다. 그러나 앱이 가상 머신을 이동하거나 다시 시작된 경우 모든 수정 내용이 삭제됩니다. 중요 업무용 데이터를 콘텐츠 저장소에 저장하는 앱에 로컬 캐시를 사용해서는 안 됩니다.
 * _D:\home\LogFiles_ 및 _D:\home\Data_에는 로그 파일 및 앱 데이터가 포함됩니다. 두 개의 하위 폴더가 VM 인스턴스에 로컬로 저장되고 공유 콘텐츠 저장소에 주기적으로 복사됩니다. 앱은 로그 파일 및 데이터를 이러한 폴더에 써서 유지할 수 있습니다. 그러나 공유 콘텐츠 저장소로의 복사는 최상의 노력 방식을 따르므로 VM 인스턴스의 갑작스러운 작동 중단으로 인해 로그 파일 및 데이터가 손실될 수 있습니다.
 * [로그 스트리밍](troubleshoot-diagnostic-logs.md#stream-logs)은 최상의 노력 복사의 영향을 받습니다. 스트리밍된 로그에서 최대 1분의 지연을 확인할 수 있습니다.
@@ -111,7 +111,7 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 ### <a name="where-are-my-logs"></a>내 로그는 어디에 있나요?
 로컬 캐시를 사용하는 경우 로그 폴더와 데이터 폴더가 서로 약간 다르게 표시됩니다. 그러나 하위 폴더의 구조는 하위 폴더가 "고유한 VM 식별자" + 타임스탬프 형식의 하위 폴더 아래에 중첩된다는 점을 제외하고는 동일하게 유지됩니다.
 
-### <a name="i-have-local-cache-enabled-but-my--app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>로컬 캐시를 사용하도록 설정했지만 앱이 여전히 다시 시작됩니다. 그 이유는 무엇입니까? 로컬 캐시는 빈번한 앱 다시 시작에 도움이 된다고 생각했습니다.
+### <a name="i-have-local-cache-enabled-but-my--app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>로컬 캐시를 사용하도록 설정했지만 앱이 여전히 다시 시작됩니다. 왜 그럴까요? 로컬 캐시는 빈번한 앱 다시 시작에 도움이 된다고 생각했습니다.
 로컬 캐시는 스토리지 관련 앱 다시 시작을 방지하는 데 도움이 됩니다. 그러나 VM의 계획된 인프라 업그레이드 중에는 앱이 여전히 다시 시작될 수 있습니다. 로컬 캐시를 사용하는 경우에 발생하는 전체 앱 다시 시작은 횟수가 줄어야 합니다.
 
 ### <a name="does-local-cache-exclude-any-directories-from-being-copied-to-the-faster-local-drive"></a>로컬 캐시는 더 빠른 로컬 드라이브로 복사할 대상에서 디렉터리를 제외합니까?

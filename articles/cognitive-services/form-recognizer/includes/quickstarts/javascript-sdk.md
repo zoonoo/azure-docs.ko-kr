@@ -10,18 +10,18 @@ ms.topic: include
 ms.date: 05/08/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a8b49beb463b4e9e19ee98baaef911e6dff15631
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 17b0ede8d917ea24bf6fa6fbcda49b1860ef83b9
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405463"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246149"
 ---
 [참조 설명서](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [패키지(npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * 학습 데이터 세트가 포함된 Azure Storage Blob. 학습 데이터 세트를 결합하는 옵션 및 팁에 대한 자세한 내용은 [사용자 지정 모델에 대한 학습 데이터 세트 빌드](../../build-training-data-set.md)를 참조하세요. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Train** 폴더에 있는 파일을 사용할 수 있습니다.
 * 현재 버전의 [Node.js](https://nodejs.org/)
 

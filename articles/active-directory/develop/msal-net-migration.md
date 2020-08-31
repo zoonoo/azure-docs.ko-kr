@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: e758c69f91fb60a83dfcc119b2c7f7aba44384ca
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: cdd93cf8751ce2e46f06020b1d18d42416f793d4
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054664"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166111"
 ---
 # <a name="migrating-applications-to-msalnet"></a>애플리케이션을 MSAL.NET으로 마이그레이션
 
@@ -37,7 +37,7 @@ MSAL.NET(.NET용 Microsoft 인증 라이브러리) 및 ADAL.NET(.NET용 Azure AD
 
 대부분의 경우 Microsoft 인증 라이브러리의 최신 세대인 MSAL.NET 및 Microsoft ID 플랫폼 엔드포인트를 사용하려고 합니다. MSAL.NET을 사용하면 Azure AD(회사 및 학교 계정), MSA(Microsoft (개인) 계정) 또는 Azure AD B2C를 사용하여 애플리케이션에 로그인하는 사용자에 대한 토큰을 얻을 수 있습니다.
 
-개발자용 Azure AD(v1.0) 엔드포인트 및 ADAL.NET에 이미 익숙한 경우 [Microsoft ID 플랫폼(v2.0) 엔드포인트와의 차이점은?](active-directory-v2-compare.md)을 참조하는 것이 좋습니다.
+개발자용 Azure AD(v1.0) 엔드포인트 및 ADAL.NET에 이미 익숙한 경우 [Microsoft ID 플랫폼(v2.0) 엔드포인트와의 차이점은?](../azuread-dev/azure-ad-endpoint-comparison.md)을 참조하는 것이 좋습니다.
 
 그러나 애플리케이션이 이전 버전의 [ADFS(Active Directory Federation Services)](/windows-server/identity/active-directory-federation-services)를 사용하여 사용자를 로그인해야 하는 경우에는 여전히 ADAL.NET을 사용해야 합니다. 자세한 내용은 [ADFS 지원](https://aka.ms/msal-net-adfs-support)을 참조 하세요.
 
@@ -121,7 +121,7 @@ MSAL.NET에서 클레임 챌린지 예외는 다음과 같은 방법으로 처�
 허용 | ADAL.NET | MSAL.NET
 ----- |----- | -----
 대화형 | [대화형 인증](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [MSAL.NET에서 대화형으로 토큰 획득](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
-통합 Windows 인증 | [Windows의 통합 인증(Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Windows 통합 인증](msal-authentication-flows.md#integrated-windows-authentication)
+Windows 통합 인증 | [Windows의 통합 인증(Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Windows 통합 인증](msal-authentication-flows.md#integrated-windows-authentication)
 사용자 이름/암호 | [사용자 이름 및 암호를 사용하여 토큰 획득](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [사용자 이름 암호 인증](msal-authentication-flows.md#usernamepassword)
 디바이스 코드 흐름 | [웹 브라우저가 없는 디바이스에 대한 디바이스 프로필](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [장치 코드 흐름](msal-authentication-flows.md#device-code)
 
@@ -161,7 +161,7 @@ v1.0 및 v2.0 토큰에 대한 자세한 내용은 [Azure Active Directory 액�
 
 ## <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>V1.0 토큰을 수락 하는 웹 API에 대 한 범위
 
-OAuth2 권한은 v1.0 웹 API(리소스) 애플리케이션에서 클라이언트 애플리케이션에 공개하는 권한 범위입니다. 이러한 권한 범위를 동의를 통해 클라이언트 애플리케이션에 부여할 수 있습니다. [Azure Active Directory 애플리케이션 매니페스트](active-directory-application-manifest.md)에서 oauth2Permissions 관련 섹션을 참조하세요.
+OAuth2 권한은 v1.0 웹 API(리소스) 애플리케이션에서 클라이언트 애플리케이션에 공개하는 권한 범위입니다. 이러한 권한 범위를 동의를 통해 클라이언트 애플리케이션에 부여할 수 있습니다. [Azure Active Directory 애플리케이션 매니페스트](./reference-app-manifest.md)에서 oauth2Permissions 관련 섹션을 참조하세요.
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>v1.0 애플리케이션의 특정 OAuth2 권한에 대한 액세스를 요청하는 범위
 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3a8b271a030de2ddd3aa40b5bb0af871319c0e1f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d2ef76a054642807f0d72a758ae084a19557caf8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171808"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009004"
 ---
 # <a name="azure-resource-graph-security-baseline-for-azure-security-benchmark"></a>Azure Security 벤치 마크에 대 한 azure 리소스 그래프 보안 기준
 
-이 보안 기준은 azure [Security 벤치 마크](../../../security/benchmarks/overview.md) 의 지침을 Azure 리소스 그래프로 적용 합니다. Azure 보안 벤치 마크는 Azure에서 클라우드 솔루션을 보호할 수 있는 방법에 대 한 권장 사항을 제공 합니다. 콘텐츠는 azure 보안 벤치 마크에 정의 된 **보안 컨트롤** 및 Azure 리소스 그래프에 적용 되는 관련 지침에 따라 그룹화 됩니다. Azure 리소스 그래프에 적용할 수 없는 **컨트롤** 은 제외 되었습니다. Azure 리소스 그래프가 완전히 Azure 보안 벤치 마크에 매핑되는 방식을 보려면 [전체 azure Virtual Network 보안 기준 매핑 파일](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)을 참조 하세요.
+이 보안 기준은 azure [Security 벤치 마크](../../../security/benchmarks/overview.md) 의 지침을 Azure 리소스 그래프로 적용 합니다. Azure Security Benchmark는 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 권장 사항을 제공합니다. 콘텐츠는 azure 보안 벤치 마크에 정의 된 **보안 컨트롤** 및 Azure 리소스 그래프에 적용 되는 관련 지침에 따라 그룹화 됩니다. Azure 리소스 그래프에 적용할 수 없는 **컨트롤** 은 제외 되었습니다. Azure 리소스 그래프가 완전히 Azure 보안 벤치 마크에 매핑되는 방식을 보려면 [전체 azure Virtual Network 보안 기준 매핑 파일](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)을 참조 하세요.
 
 
 
@@ -26,7 +26,7 @@ ms.locfileid: "86171808"
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: 정기적으로 사용자 액세스 검토 및 조정
 
-**지침**: Azure 리소스 그래프는 RBAC (역할 기반 액세스 제어)를 기반으로 리소스 유형과 속성에 대 한 액세스를 제공 합니다. 정기적으로 보안 주체 (사용자, 그룹 및 서비스 계정)에 부여 된 액세스를 감사 하 고 검토 하 여 쿼리가 적절 한 리소스에 대 한 결과를 반환 하는지 확인 합니다.
+**지침**: Azure 리소스 그래프는 azure RBAC (역할 기반 액세스 제어)를 기반으로 하는 리소스 유형 및 속성에 대 한 액세스를 제공 합니다. 정기적으로 보안 주체 (사용자, 그룹 및 서비스 계정)에 부여 된 액세스를 감사 하 고 검토 하 여 쿼리가 적절 한 리소스에 대 한 결과를 반환 하는지 확인 합니다.
 
 * [Azure Resource Graph의 권한](../overview.md#permissions-in-azure-resource-graph)
 
@@ -82,7 +82,7 @@ ms.locfileid: "86171808"
 
 **Azure Security Center 모니터링**: 해당 없음
 
-**책임:** Customer
+**책임**: Customer
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: 승인되지 않은 Azure 리소스 모니터링
 

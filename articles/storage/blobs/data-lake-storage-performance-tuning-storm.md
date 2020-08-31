@@ -1,6 +1,6 @@
 ---
 title: '성능 조정: 스톰, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Azure Data Lake Storage Gen2의 Storm 성능 튜닝에 대한 지침입니다.
+description: Azure HDInsight 클러스터에서 Azure 스톰 토폴로지의 성능을 조정 하 고 Azure Data Lake Storage Gen2 하는 방법에 대 한 지침을 이해 합니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 60e0d3fc22fdfc158110e9936748cc0bda280853
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85499839992f872896153e360507d7d1ba7fea38
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465918"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037204"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: 스톰, HDInsight & Azure Data Lake Storage Gen2
 
 Azure Storm 토폴로지의 성능을 조정할 때 고려해야 하는 요소를 이해합니다. 예를 들어, Spout 및 Bolt(작업이 I/O 또는 메모리 집약적인지에 따름)에서 수행한 작업의 특징을 이해하는 것이 중요합니다. 이 문서에서는 다양한 성능 조정 지침, 일반적인 문제 해결 등을 다룹니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: 분석을 위한 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조 하세요.

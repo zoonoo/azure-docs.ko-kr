@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: be3d06d8ea493ab7c246ace5c49d5e5bc0036108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d50357a648d63984ae70a32e0fdd7260a86d6a6a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463538"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020816"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>.NET에서 Blob 스냅샷 만들기 및 관리
 
@@ -24,7 +25,7 @@ Azure Storage의 blob 스냅숏에 대 한 자세한 내용은 [.net에서 blob 
 
 ## <a name="create-a-snapshot"></a>스냅샷 만들기
 
-# <a name="net-version-12x"></a>[.NET 버전 2.x](#tab/v12)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 .NET 용 Azure Storage 클라이언트 라이브러리의 버전 2.x를 사용 하 여 블록 blob의 스냅숏을 만들려면 다음 방법 중 하나를 사용 합니다.
 
@@ -77,7 +78,7 @@ private static async Task CreateBlockBlobSnapshot(string accountName, string con
 }
 ```
 
-# <a name="net-version-11x"></a>[.NET 버전 11.x](#tab/v11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 .NET 용 Azure Storage 클라이언트 라이브러리의 버전 11. x를 사용 하 여 블록 blob의 스냅숏을 만들려면 다음 방법 중 하나를 사용 합니다.
 
@@ -126,11 +127,11 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 Blob을 삭제 하려면 먼저 해당 blob의 모든 스냅숏을 삭제 해야 합니다. 스냅샷을 개별적으로 삭제하거나 원본 Blob를 삭제할 때 모든 스냅샷을 삭제되도록 지정할 수 있습니다. 스냅샷이 있는 Blob을 삭제하려고 하면 오류가 발생합니다.
 
-# <a name="net-version-12x"></a>[.NET 버전 2.x](#tab/v12)
+# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
 
 .NET 용 Azure Storage 클라이언트 라이브러리의 버전 12. x를 사용 하 여 blob 및 해당 스냅숏을 삭제 하려면 다음 방법 중 하나를 사용 하 고 [DeleteSnapshotsOption](/dotnet/api/azure.storage.blobs.models.deletesnapshotsoption) 열거형을 포함 합니다.
 
-- [삭제](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.delete)
+- [Delete](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.delete)
 - [DeleteAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteasync)
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteifexistsasync)
@@ -141,11 +142,11 @@ Blob을 삭제 하려면 먼저 해당 blob의 모든 스냅숏을 삭제 해야
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
 ```
 
-# <a name="net-version-11x"></a>[.NET 버전 11.x](#tab/v11)
+# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 .NET 용 Azure Storage 클라이언트 라이브러리의 버전 11. x를 사용 하 여 blob 및 해당 스냅숏을 삭제 하려면 다음 blob 삭제 방법 중 하나를 사용 하 고 [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) 열거형을 포함 합니다.
 
-- [삭제](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
+- [Delete](/dotnet/api/microsoft.azure.storage.blob.cloudblob.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.deleteifexistsasync)
@@ -162,4 +163,4 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 - [Blob 스냅숏](snapshots-overview.md)
 - [Blob 버전 (미리 보기)](versioning-overview.md)
-- [Blob에 대 한 일시 삭제](storage-blob-soft-delete.md)
+- [Blob에 대한 일시 삭제](storage-blob-soft-delete.md)

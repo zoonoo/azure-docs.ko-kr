@@ -9,14 +9,14 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: a1f6548a83736cfb0e519559fd22e16d4527ae0b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c578958616e4b4d2d7d3aef1de1650566e0bd40e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197671"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496409"
 ---
-# <a name="using-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Synapse SQL에서 다단계 AAD 인증 사용(MFA용 SSMS 지원)
+# <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Synapse SQL에서 다단계 AAD 인증 사용(MFA용 SSMS 지원)
 
 Synapse SQL은 *Active Directory 유니버설 인증*을 사용하여 SSMS(SQL Server Management Studio)에서 연결을 지원합니다. 
 

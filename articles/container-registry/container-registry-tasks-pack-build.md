@@ -4,12 +4,12 @@ description: Az acr pack build 명령을 사용 하 여 앱에서 컨테이너 �
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 1892f4c20eb75e5e95140c829c49a708a81c2184
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: f99175165e01a9287a66c59957fc7a239b00393a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87408019"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077223"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>클라우드 네이티브 Buildpack을 사용 하 여 앱에서 이미지 빌드 및 푸시
 
@@ -96,7 +96,7 @@ docker run --rm -p 8080:8080 myregistry.azurecr.io/java-app:runid
 
 ## <a name="next-steps"></a>다음 단계
 
-를 사용 하 여 컨테이너 이미지를 빌드하고 푸시한 후 원하는 `az acr pack build` 대상에 이미지를 배포할 수 있습니다. Azure 배포 옵션은 [App Service](../app-service/containers/tutorial-custom-docker-image.md) 또는 [azure Kubernetes 서비스](../aks/tutorial-kubernetes-deploy-cluster.md)에서 실행 하는 것을 포함 합니다.
+를 사용 하 여 컨테이너 이미지를 빌드하고 푸시한 후 원하는 `az acr pack build` 대상에 이미지를 배포할 수 있습니다. Azure 배포 옵션은 [App Service](../app-service/tutorial-custom-container.md) 또는 [azure Kubernetes 서비스](../aks/tutorial-kubernetes-deploy-cluster.md)에서 실행 하는 것을 포함 합니다.
 
 ACR 작업 기능에 대 한 자세한 내용은 [Acr 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화](container-registry-tasks-overview.md)를 참조 하세요.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 5e32baa10e98f0f57a861f8cebfb7506ad615631
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdb502685259a5e12bf0182c36aa6c73ec7c1dd5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74980063"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958936"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>서비스 끝점과 Application Gateway 통합
 Azure 애플리케이션 게이트웨이와의 통합에 대해 약간 다른 구성이 필요한 App Service에는 세 가지 변형이 있습니다. 이러한 변형에는 일반 App Service, ILB (내부 Load Balancer) App Service Environment ASE () 및 외부 ASE 라고도 합니다. 이 문서에서는 App Service (다중 테 넌 트)를 사용 하 여 구성 하 고 ILB 및 외부 ASE에 대 한 고려 사항을 설명 하는 방법을 안내 합니다.
@@ -33,7 +33,7 @@ App Service 및 Application Gateway를 만드는 것 외에도이 구성에는 �
 
 ## <a name="using-azure-portal"></a>Azure Portal 사용
 Azure Portal를 사용 하 여 설치를 프로 비전 하 고 구성 하는 네 가지 단계를 수행 합니다. 기존 리소스가 있는 경우 첫 번째 단계를 건너뛸 수 있습니다.
-1. App Service 설명서의 빠른 시작 중 하나를 사용 하 여 App Service를 만듭니다. 예를 들어 [.NET Core 빠른](../../app-service/app-service-web-get-started-dotnet.md) 시작
+1. App Service 설명서의 빠른 시작 중 하나를 사용 하 여 App Service를 만듭니다. 예를 들어 [.NET Core 빠른](../quickstart-dotnetcore.md) 시작
 2. [포털 빠른](../../application-gateway/quick-create-portal.md)시작을 사용 하 여 Application Gateway를 만들지만 백 엔드 대상 추가 섹션을 건너뜁니다.
 3. [Application Gateway에서 App Service을 백 엔드로](../../application-gateway/configure-web-app-portal.md)구성 하지만 액세스 제한 섹션을 건너뜁니다.
 4. 마지막으로 [서비스 끝점을 사용 하 여 액세스 제한을](../../app-service/app-service-ip-restrictions.md#service-endpoints)만듭니다.
@@ -84,6 +84,6 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 ## <a name="next-steps"></a>다음 단계
-App Service Environment에 대 한 자세한 내용은 [App Service Environment 설명서](https://docs.microsoft.com/azure/app-service/environment)를 참조 하세요.
+App Service Environment에 대 한 자세한 내용은 [App Service Environment 설명서](/azure/app-service/environment)를 참조 하세요.
 
 웹 앱을 더욱 안전 하 게 보호 하기 위해 Application Gateway의 웹 응용 프로그램 방화벽에 대 한 정보는 [Azure 웹 응용 프로그램 방화벽 설명서](../../web-application-firewall/ag/ag-overview.md)에서 찾을 수 있습니다.

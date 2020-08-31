@@ -1,7 +1,7 @@
 ---
 title: 가상 컴퓨터에 공용 IP 주소 연결
 titlesuffix: Azure Virtual Network
-description: Azure Portal 또는 Azure CLI를 사용 하 여 VM (가상 머신)에 공용 IP 주소를 연결 합니다.
+description: Azure Portal 또는 Azure CLI를 사용 하 여 공용 IP 주소를 VM (가상 컴퓨터)에 연결 하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: ''
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: d4ca5b067a1afe4225fe0e2e4c42c827e1eaedf6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9b5fc9e4118d98905138b7f205f61d85a96b60b0
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265231"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035470"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>가상 컴퓨터에 공용 IP 주소 연결
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a198456412c3146db2bc3e2a2483377e387f452d
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: b957ea9131c5124925b74576fd78665522afd8dc
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513335"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080235"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>자습서: 관리 ID를 사용하여 .NET에서 Key Vault를 Azure Web App에 연결
 
@@ -140,7 +140,7 @@ App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정�
 
 ### <a name="create-a-remote-web-app"></a>원격 웹앱 만들기
 
-`myAppServicePlan` App Service 계획에서 [Azure 웹앱](../../app-service/containers/app-service-linux-intro.md)을 만듭니다. 
+`myAppServicePlan` App Service 계획에서 [Azure 웹앱](../../app-service/overview.md#app-service-on-linux)을 만듭니다. 
 
 > [!Important]
 > Key Vault와 마찬가지로 Azure Web App의 이름도 고유해야 합니다. 다음 예제에서 \<your-webapp-name\>을 웹앱 이름으로 바꿉니다.

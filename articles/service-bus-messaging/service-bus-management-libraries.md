@@ -4,12 +4,13 @@ description: 이 문서에서는 Azure Service Bus 관리 라이브러리를 사
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 915606bffc2037c8fcd1a7d33218143f40c78f2c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341708"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008049"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus 관리 라이브러리
 
@@ -22,15 +23,15 @@ Azure Service Bus 관리 라이브러리는 Service Bus 네임스페이스 및 �
 * 토픽 만들기, 업데이트, 삭제
 * 구독 만들기, 업데이트, 삭제
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Service Bus 관리 라이브러리 사용을 시작하려면 Azure AD(Azure Active Directory) 서비스로 인증해야 합니다. Azure AD를 사용하려면 Azure 리소스에 대한 액세스를 제공하는 서비스 주체로 인증해야 합니다. 서비스 주체 만들기에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.  
 
-* [Azure Portal를 사용 하 여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체를 만듭니다.](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Azure Portal를 사용 하 여 리소스에 액세스할 수 있는 Active Directory 응용 프로그램 및 서비스 주체를 만듭니다.](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Azure CLI를 사용하여 리소스에 액세스하는 서비스 주체 만들기](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
-이러한 자습서는 관리 라이브러리를 통해 인증에 사용되는 `AppId`(클라이언트 ID), `TenantId` 및 `ClientSecret`(인증 키)를 제공합니다. 실행 하려는 리소스 그룹에 대 한 [**Azure Service Bus 이상의 데이터 소유자**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) 또는 [**참가자**](/azure/role-based-access-control/built-in-roles#contributor) 권한이 있어야 합니다.
+이러한 자습서는 관리 라이브러리를 통해 인증에 사용되는 `AppId`(클라이언트 ID), `TenantId` 및 `ClientSecret`(인증 키)를 제공합니다. 실행 하려는 리소스 그룹에 대 한 [**Azure Service Bus 이상의 데이터 소유자**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 또는 [**참가자**](../role-based-access-control/built-in-roles.md#contributor) 권한이 있어야 합니다.
 
 ## <a name="programming-pattern"></a>프로그래밍 패턴
 

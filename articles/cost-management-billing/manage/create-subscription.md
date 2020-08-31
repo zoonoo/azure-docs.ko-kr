@@ -1,17 +1,18 @@
 ---
 title: 추가 Azure 구독 만들기
-description: Azure Portal에서 새 Azure 구독을 추가하는 방법을 알아봅니다.
+description: Azure Portal에서 새 Azure 구독을 추가하는 방법을 알아봅니다. 청구 계정 양식에 대한 정보를 확인하고 사용 가능한 추가 리소스를 살펴봅니다.
 author: amberbhargava
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d6a8196816aaaa61458050334f605cb41afa16b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: df303801daba0509177e48565b3ddbe7674013e8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200849"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689969"
 ---
 # <a name="create-an-additional-azure-subscription"></a>추가 Azure 구독 만들기
 
@@ -50,7 +51,7 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 
 |필드  |정의  |
 |---------|---------|
-|속성     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
+|Name     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
 |제안     | 개발 또는 테스트 작업에 이 구독을 사용하려는 경우 EA 개발/테스트를 선택하고 그렇지 않은 경우 Microsoft Azure 엔터프라이즈를 사용합니다. DevTest 제품은 EA 개발/테스트 구독을 만들기 위해 등록 계정에 대해 활성화되어야 합니다.|
 
 **Microsoft 고객 계약**
@@ -60,7 +61,7 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 |청구 프로필     | 구독에 대한 요금은 선택한 청구 프로필로 청구됩니다. 하나의 청구 프로필에만 액세스할 수 있는 경우 선택 영역이 회색으로 표시됩니다.     |
 |청구서 섹션     | 구독에 대한 요금은 청구 프로필 청구서의 이 섹션에 표시됩니다. 하나의 청구서 섹션에만 액세스할 수 있는 경우 선택 영역이 회색으로 표시됩니다.  |
 |계획     | 개발 또는 테스트 작업에 이 구독을 사용하려는 경우 DevTest용 Microsoft Azure 플랜을 선택하고 그렇지 않은 경우 Microsoft Azure 플랜을 사용합니다. 청구 프로필에 대해 하나의 계획만 활성화되는 경우 선택 영역이 회색으로 표시됩니다.  |
-|속성     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
+|Name     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
 
 **Microsoft 파트너 계약**
 
@@ -68,7 +69,7 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 |---------|---------|
 |Customer    | 선택한 고객에 대한 구독이 생성됩니다. 고객이 한 명만 있는 경우 선택 영역이 회색으로 표시됩니다.  |
 |Reseller    | 고객에게 서비스를 제공하는 재판매인입니다. 이 필드는 CSP 2계층 모델에서 간접 공급자에만 적용되는 선택적 필드입니다. |
-|속성     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
+|Name     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>프로그래밍 방식으로 추가 Azure 구독 만들기
 

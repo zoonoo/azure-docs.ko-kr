@@ -1,26 +1,24 @@
 ---
 title: Android에서 Windows 가상 데스크톱에 연결-Azure
 description: Android 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결 하는 방법
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1d0aebffa5f3d27a77928c2a1c7461384bf99ce8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 79d88d218d04d00def19bdd2aa98f76d2f128de1
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387883"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007763"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Android 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결
 
 > 적용 대상: Android 4.1 이상, Chromebooks ChromeOS 53 이상
 
 >[!IMPORTANT]
->이 콘텐츠는 windows 가상 데스크톱 개체가 Azure Resource Manager windows 가상 데스크톱에 적용 됩니다. Azure Resource Manager 개체 없이 Windows 가상 데스크톱 (클래식)을 사용 하는 경우 [이 문서](./virtual-desktop-fall-2019/connect-android-2019.md)를 참조 하세요.
+>이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/connect-android-2019.md)를 참조하세요.
 
 다운로드 가능한 클라이언트를 사용 하 여 Android 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다. Google Play 스토어를 지 원하는 Chromebook 장치에서 Android 클라이언트를 사용할 수도 있습니다. 이 가이드에서는 Android 클라이언트를 설정 하는 방법을 설명 합니다.
 

@@ -4,12 +4,12 @@ description: 다양 한 시나리오에 대 한 App Service의 인증 및 권한
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 747729b7cbb3dcce72eb36704b5965e8427b59e1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2fa2e3463e057062ba743c2f6989aa571c85c983
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424259"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962471"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -17,8 +17,7 @@ ms.locfileid: "87424259"
 
 지금 바로 시작하려면 다음 자습서 중 하나를 참조하세요.
 
-* [자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여(Windows)](app-service-web-tutorial-auth-aad.md)
-* [자습서: Azure App Service에서 Linux용 엔드투엔드 사용자 인증 및 권한 부여](containers/tutorial-auth-aad.md)
+* [자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여](tutorial-auth-aad.md)
 * [Azure Active Directory 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-aad.md)
 * [Facebook 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-facebook.md)
 * [Google 로그인을 사용하도록 앱을 구성하는 방법](configure-authentication-provider-google.md)
@@ -34,7 +33,7 @@ ms.locfileid: "87424259"
 
 **요청이 인증되지 않은 경우 수행할 작업**에서 **익명 요청 허용(작업 없음)** 을 선택합니다.
 
-로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예를 들면 다음과 같습니다.
+로그인 페이지, 탐색 모음 또는 앱의 다른 위치에서 사용하도록 설정한 각 공급자에 로그인 링크를 추가합니다(`/.auth/login/<provider>`). 예를 들어:
 
 ```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -56,7 +55,7 @@ ms.locfileid: "87424259"
 
 클라이언트 리디렉션 로그인에 애플리케이션은 사용자가 수동으로 공급자에 로그인한 다음, 유효성 검사를 위해 인증 토큰을 App Service에 제출합니다([인증 흐름](overview-authentication-authorization.md#authentication-flow) 참조). 이 유효성 검사 자체는 실제로 원하는 앱 리소스에 대한 액세스 권한을 부여하지 않지만, 유효성 검사가 성공하면 앱 리소스에 액세스하는 데 사용할 수 있는 세션 토큰이 제공됩니다. 
 
-공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 예를 들면 다음과 같습니다. 
+공급자 토큰의 유효성을 검사하려면 먼저 원하는 공급자를 사용하여 App Service 앱을 구성해야 합니다. 런타임 시 공급자에서 인증 토큰을 검색한 후 유효성 검사를 위해 토큰을 `/.auth/login/<provider>`에 게시합니다. 예를 들어: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -67,7 +66,7 @@ Content-Type: application/json
 
 토큰 형식은 공급자에 따라 약간 다릅니다. 자세한 내용은 다음 표를 참조하세요.
 
-| 공급자 값 | 요청 본문에 필요 | 의견 |
+| 공급자 값 | 요청 본문에 필요 | 주석 |
 |-|-|-|
 | `aad` | `{"access_token":"<access_token>"}` | |
 | `microsoftaccount` | `{"access_token":"<token>"}` | `expires_in` 속성은 선택 사항입니다. <br/>Live 서비스에서 토큰을 요청하는 경우 항상 `wl.basic` 범위를 요청합니다. |
@@ -87,7 +86,7 @@ Content-Type: application/json
 }
 ```
 
-이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예를 들면 다음과 같습니다. 
+이 세션 토큰이 있으면 `X-ZUMO-AUTH` 헤더를 HTTP 요청에 추가하여 보호된 앱 리소스에 액세스할 수 있습니다. 예를 들어: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -108,7 +107,7 @@ X-ZUMO-AUTH: <authenticationToken_value>
 <a href="/.auth/logout">Sign out</a>
 ```
 
-기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 예를 들면 다음과 같습니다.
+기본적으로 성공적인 로그아웃은 클라이언트를 `/.auth/logout/done` URL로 리디렉션합니다. `post_logout_redirect_uri` 쿼리 매개 변수를 추가하여 로그아웃 후 리디렉션 페이지를 변경할 수 있습니다. 예를 들어:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -147,7 +146,7 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 
 모든 언어로 작성된 코드 또는 프레임워크는 이러한 헤더에서 필요한 정보를 가져올 수 있습니다. ASP.NET 4.6 앱의 경우 **ClaimsPrincipal** 이 적절한 값으로 자동 설정됩니다. 그러나 ASP.NET Core App Service 사용자 클레임과 통합 되는 인증 미들웨어는 제공 하지 않습니다. 해결 방법은 [MaximeRouiller. AppService. EasyAuth](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)를 참조 하세요.
 
-또한 애플리케이션에서 `/.auth/me`를 호출하여 인증된 사용자에 대한 추가 세부 사항을 가져올 수 있습니다. Mobile Apps 서버 SDK는 이 데이터를 사용하기 위한 도우미 메서드를 제공합니다. 자세한 내용은 [Azure Mobile Apps Node.js SDK를 사용하는 방법](../app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-getidentity) 및 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#user-info)을 참조하세요.
+앱에 대해 [토큰 저장소](overview-authentication-authorization.md#token-store) 를 사용 하는 경우를 호출 하 여 인증 된 사용자에 대 한 추가 세부 정보를 가져올 수도 있습니다 `/.auth/me` . Mobile Apps 서버 SDK는 이 데이터를 사용하기 위한 도우미 메서드를 제공합니다. 자세한 내용은 [Azure Mobile Apps Node.js SDK를 사용하는 방법](/previous-versions/azure/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk#howto-tables-getidentity) 및 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#user-info)을 참조하세요.
 
 ## <a name="retrieve-tokens-in-app-code"></a>앱 코드에서 토큰 검색
 
@@ -162,14 +161,14 @@ App Service는 특수 헤더를 사용하여 사용자 클레임을 애플리케
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
-클라이언트 코드(예: 모바일 앱 또는 브라우저 내 JavaScript)에서 HTTP `GET` 요청을 `/.auth/me`에 전송합니다. 반환된 JSON에는 공급자별 토큰이 있습니다.
+클라이언트 코드 (예: 모바일 앱 또는 브라우저 내 JavaScript)에서에 HTTP 요청을 보냅니다 `GET` `/.auth/me` ([토큰 저장소](overview-authentication-authorization.md#token-store) 를 사용 하도록 설정 해야 함). 반환된 JSON에는 공급자별 토큰이 있습니다.
 
 > [!NOTE]
 > 액세스 토큰은 공급자 리소스에 액세스하기 위한 것이므로 클라이언트 암호를 사용하여 공급자를 구성하는 경우에만 표시됩니다. 새로 고침 토큰을 가져오는 방법을 알아보려면 액세스 토큰 새로 고침을 참조하세요.
 
 ## <a name="refresh-identity-provider-tokens"></a>ID 공급자 토큰 새로 고침
 
-[세션 토큰](#extend-session-token-expiration-grace-period)이 아닌 공급자의 액세스 토큰이 만료되면 사용자를 다시 인증해야 해당 토큰을 다시 사용할 수 있습니다. 애플리케이션의 `/.auth/refresh` 엔드포인트에 대한 `GET` 호출을 수행하면 토큰 만료를 방지할 수 있습니다. 호출되면 App Service에서는 인증된 사용자에 대한 토큰 저장소의 액세스 토큰을 자동으로 새로 고칩니다. 이후에 앱 코드에서 토큰을 요청하면 새로 고쳐진 토큰을 가져옵니다. 단, 토큰 새로 고침을 실행하기 위해서는 토큰 저장소에 사용자 공급자에 대한 [토큰 새로 고침](https://auth0.com/learn/refresh-tokens/)이 포함되어야 합니다. 새로 고침 토큰을 얻는 방법은 각 공급자에서 제공하는 문서에 나와 있으며, 다음 목록은 간단한 요약입니다.
+[세션 토큰](#extend-session-token-expiration-grace-period)이 아닌 공급자의 액세스 토큰이 만료되면 사용자를 다시 인증해야 해당 토큰을 다시 사용할 수 있습니다. 애플리케이션의 `/.auth/refresh` 엔드포인트에 대한 `GET` 호출을 수행하면 토큰 만료를 방지할 수 있습니다. 이 호출 되 면 App Service는 인증 된 사용자에 대 한 [토큰 저장소](overview-authentication-authorization.md#token-store) 의 액세스 토큰을 자동으로 새로 고칩니다. 이후에 앱 코드에서 토큰을 요청하면 새로 고쳐진 토큰을 가져옵니다. 단, 토큰 새로 고침을 실행하기 위해서는 토큰 저장소에 사용자 공급자에 대한 [토큰 새로 고침](https://auth0.com/learn/refresh-tokens/)이 포함되어야 합니다. 새로 고침 토큰을 얻는 방법은 각 공급자에서 제공하는 문서에 나와 있으며, 다음 목록은 간단한 요약입니다.
 
 - **Google**: `access_type=offline` 쿼리 문자열 매개 변수를 `/.auth/login/google` API 호출에 추가합니다. Mobile Apps SDK를 사용하는 경우 `LogicAsync` 오버로드 중 하나에 매개 변수를 추가할 수 있습니다([Google 새로 고침 토큰](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) 참조).
 - **Facebook**: 새로 고침 토큰을 제공하지 않습니다. 수명이 긴 토큰은 60일 후에 만료됩니다([액세스 토큰의 Facebook 만료 및 확장](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension) 참조).
@@ -270,7 +269,7 @@ App Service는 가장 간단한 인증 사례 (예: 인증 되지 않은 요청 
 
 ### <a name="identity-provider-level"></a>Id 공급자 수준
 
-Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들면 다음과 같습니다.
+Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들어:
 
 - [Azure App Service](configure-authentication-provider-aad.md)의 경우 Azure AD에서 직접 [엔터프라이즈 수준의 액세스를 관리할](../active-directory/manage-apps/what-is-access-management.md) 수 있습니다. 자세한 내용은 [응용 프로그램에 대 한 사용자 액세스를 제거 하는 방법](../active-directory/manage-apps/methods-for-removing-user-access.md)을 참조 하세요.
 - [Google](configure-authentication-provider-google.md)의 경우 조직에 속한 google API 프로젝트는 조직의 사용자 에게만 액세스를 허용 하도록 구성할 [수 있습니다 (](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) [Google의 **OAuth 2.0 지원 설정** 페이지](https://support.google.com/cloud/answer/6158849?hl=en)참조).
@@ -298,6 +297,9 @@ Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들�
     1.  `enabled`"True"로 설정 합니다.
     2.  `isAuthFromFile`"True"로 설정 합니다.
     3.  `authFilePath`파일 이름으로 설정 합니다 (예: "auth.json").
+
+> [!NOTE]
+> 의 형식은 `authFilePath` 플랫폼 마다 다릅니다. Windows에서 상대 경로와 절대 경로를 모두 지원 합니다. 상대를 권장 합니다. Linux의 경우 현재 절대 경로만 지원 되므로 설정 값은 "/home/site/wwwroot/auth.json" 또는 유사 해야 합니다.
 
 이 구성을 업데이트 한 후에는 해당 사이트에 대 한 인증/권한 부여 App Service의 동작을 정의 하는 데 파일의 내용이 사용 됩니다. Azure Resource Manager 구성으로 돌아가려면 `isAuthFromFile` 다시 "false"로 설정 하면 됩니다.
 
@@ -469,8 +471,68 @@ Id 공급자는 특정 턴 키 인증을 제공할 수 있습니다. 예를 들�
 }
 ```
 
+## <a name="pin-your-app-to-a-specific-authentication-runtime-version"></a>앱을 특정 인증 런타임 버전에 고정
+
+인증/권한 부여를 사용 하도록 설정 하면 [기능 개요](overview-authentication-authorization.md#how-it-works)에 설명 된 대로 플랫폼 미들웨어가 HTTP 요청 파이프라인에 삽입 됩니다. 이 플랫폼 미들웨어는 정기적인 플랫폼 업데이트의 일부로 새로운 기능 및 향상 된 기능으로 정기적으로 업데이트 됩니다. 기본적으로 웹 또는 함수 앱은이 플랫폼 미들웨어의 최신 버전에서 실행 됩니다. 이러한 자동 업데이트는 항상 이전 버전과 호환 됩니다. 그러나이 자동 업데이트에서 웹 또는 함수 앱에 대 한 런타임 문제가 발생 하는 드문 경우 이지만 이전 미들웨어 버전으로 일시적으로 롤백할 수 있습니다. 이 문서에서는 특정 버전의 인증 미들웨어에 앱을 일시적으로 고정 하는 방법을 설명 합니다.
+
+### <a name="automatic-and-manual-version-updates"></a>자동 및 수동 버전 업데이트 
+
+앱에 대 한 설정을 설정 하 여 특정 버전의 플랫폼 미들웨어에 앱을 고정할 수 있습니다 `runtimeVersion` . 앱은 특정 버전에 명시적으로 다시 고정 하도록 선택 하지 않는 한 항상 최신 버전에서 실행 됩니다. 한 번에 몇 가지 버전이 지원 됩니다. 더 이상 지원 되지 않는 잘못 된 버전에 고정 하면 앱에서 최신 버전을 대신 사용 합니다. 항상 최신 버전을 실행 하려면 `runtimeVersion` ~ 1로 설정 합니다. 
+
+### <a name="view-and-update-the-current-runtime-version"></a>현재 런타임 버전 확인 및 업데이트
+
+앱에서 사용 하는 런타임 버전을 변경할 수 있습니다. 앱을 다시 시작한 후 새 런타임 버전이 적용 됩니다. 
+
+#### <a name="view-the-current-runtime-version"></a>현재 런타임 버전 보기
+
+Azure CLI를 사용 하거나 앱의 built0 버전 HTTP 끝점 중 하나를 통해 플랫폼 인증 미들웨어의 현재 버전을 볼 수 있습니다.
+
+##### <a name="from-the-azure-cli"></a>Azure CLI에서
+
+Azure CLI를 사용 하 여 [az webapp auth show](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) 명령을 사용 하 여 현재 미들웨어 버전을 확인 합니다.
+
+```azurecli-interactive
+az webapp auth show --name <my_app_name> \
+--resource-group <my_resource_group>
+```
+
+이 코드에서를 `<my_app_name>` 앱 이름으로 바꿉니다. 또한를 `<my_resource_group>` 앱에 대 한 리소스 그룹의 이름으로 바꿉니다.
+
+`runtimeVersion`CLI 출력에 필드가 표시 됩니다. 명확성을 위해 잘린 다음 예제 출력과 유사 합니다. 
+```output
+{
+  "additionalLoginParams": null,
+  "allowedAudiences": null,
+    ...
+  "runtimeVersion": "1.3.2",
+    ...
+}
+```
+
+##### <a name="from-the-version-endpoint"></a>버전 끝점에서
+
+앱에서/.auth/version 끝점을 적중 하 여 앱이 실행 되 고 있는 현재 미들웨어 버전을 볼 수도 있습니다. 다음 예제 출력과 유사 합니다.
+```output
+{
+"version": "1.3.2"
+}
+```
+
+#### <a name="update-the-current-runtime-version"></a>현재 런타임 버전을 업데이트 합니다.
+
+Azure CLI를 사용 하 여 `runtimeVersion` [az webapp auth update](/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) 명령을 사용 하 여 앱에서 설정을 업데이트할 수 있습니다.
+
+```azurecli-interactive
+az webapp auth update --name <my_app_name> \
+--resource-group <my_resource_group> \
+--runtime-version <version>
+```
+
+를 `<my_app_name>` 앱의 이름으로 바꿉니다. 또한를 `<my_resource_group>` 앱에 대 한 리소스 그룹의 이름으로 바꿉니다. 또한을 (를 `<version>` ) 1.x 런타임의 유효한 버전 또는 최신 버전으로 바꿉니다 `~1` . https://github.com/Azure/app-service-announcements)에 고정할 버전을 결정 하는 데 도움이 되는 다양 한 런타임 버전 [여기] (릴리스 정보)을 찾을 수 있습니다.
+
+앞의 코드 샘플에서 **사용해 보세요.** 를 선택하여 [Azure Cloud Shell](../cloud-shell/overview.md)에서 이 명령을 실행할 수 있습니다. 또한 [Azure CLI locally(로컬로 Azure CLI 설치)](/cli/azure/install-azure-cli)를 사용하면 [az login](/cli/azure/reference-index#az-login)을 실행하여 로그인한 후 이 명령을 실행할 수도 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 종단 간 사용자 인증 및 권한 부여 (Windows)](app-service-web-tutorial-auth-aad.md) 
->  [자습서: 종단 간 사용자 인증 및 권한 부여 (Linux)](containers/tutorial-auth-aad.md)
+> [자습서: 엔드투엔드 사용자 인증 및 권한 부여](tutorial-auth-aad.md)

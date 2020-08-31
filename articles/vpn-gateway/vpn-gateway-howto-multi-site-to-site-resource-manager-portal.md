@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5a74f1ca8d1055885561a35dbd18899193d3924d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0561be00f50dad0fe89ca47428802f45ee44f50d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984142"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121428"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>기존 VPN 게이트웨이 연결이 있는 VNet에 사이트 간 연결 추가
 
@@ -43,7 +43,7 @@ ms.locfileid: "84984142"
 * VNet용 가상 네트워크 게이트웨이는 RouteBased입니다. PolicyBased VPN 게이트웨이가 있다면 가상 네트워크 게이트웨이를 삭제하고 새 VPN 게이트웨이를 RouteBased로 만들어야 합니다.
 * 어떠한 주소 범위도 이 Vnet이 연결하고 있는 Vnet에 대해 겹치지 않습니다.
 * 호환되는 VPN 디바이스 및 그것을 구성할 수 있는 사람이 있습니다. [VPN 디바이스 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요. VPN 디바이스를 구성하는 방법과 온-프레미스 네트워크 구성에 있는 IP 주소 범위에 익숙하지 않은 경우 세부 정보를 제공할 수 있는 다른 사람의 도움을 받아야 합니다.
-* VPN 디바이스에 대한 외부 연결 공용 IP 주소가 있습니다. 이 IP 주소는 NAT 뒤에 배치할 수 없습니다.
+* VPN 디바이스에 대한 외부 연결 공용 IP 주소가 있습니다.
 
 ## <a name="part-1---configure-a-connection"></a><a name="part1"></a>1부 - 연결 구성
 1. 브라우저에서 [Azure Portal](https://portal.azure.com) 로 이동 하 고 필요한 경우 Azure 계정으로 로그인 합니다.
@@ -57,7 +57,7 @@ ms.locfileid: "84984142"
 5. **연결 추가** 페이지에서 다음 필드에 정보를 입력합니다.
    
    * **이름:** 연결을 만들고자 하는 사이트에 부여하고자 하는 이름입니다.
-   * **연결 형식:****사이트 간(IPSec)** 을 선택합니다.
+   * **연결 형식:** **사이트 간 (IPsec)을**선택 합니다.
      
      ![연결 추가 페이지](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "연결 추가 페이지")<br>
 

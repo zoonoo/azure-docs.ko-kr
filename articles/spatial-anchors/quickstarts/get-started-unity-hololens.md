@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9e946d7f4616799768711ee8c18584a2a8fcff2a
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 3d5a5d7ec07587b20a8a6285deafa6215db990a5
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81482002"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810380"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하는 Unity HoloLens 앱 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "81482002"
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-- Windows 컴퓨터에 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 또는 2019.2</a> 및 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> 이상이 설치되어 있어야 합니다. Visual Studio 설치에는 **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소가 포함되어야 합니다. <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a> 및 <a href="https://git-lfs.github.com/">Git LFS</a>도 설치해야 합니다.
+- Windows 컴퓨터에 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4(LTS)</a> 및 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> 이상이 설치되어 있어야 합니다. Visual Studio 설치에는 **유니버설 Windows 플랫폼 개발** 워크로드 및 **Windows 10 SDK(10.0.18362.0 이상)** 구성 요소가 포함되어야 합니다. <a href="https://git-scm.com/download/win" target="_blank">Windows용 Git</a> 및 <a href="https://git-lfs.github.com/">Git LFS</a>도 설치해야 합니다.
 - [개발자 모드](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)가 설정된 HoloLens 디바이스가 필요합니다. 디바이스에 [Windows 10 2018년 10월 업데이트](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018)(RS5라고도 함)가 설치되어 있어야 합니다. HoloLens의 최신 릴리스로 업데이트하려면 **설정** 앱을 열고 **업데이트 및 보안**으로 이동한 다음, **업데이트 확인**을 선택합니다.
 - 앱에서 **SpatialPerception** 기능을 사용하도록 설정해야 합니다. 이 설정은 **빌드 설정** > **플레이어 설정** > **게시 설정** > **기능**에 있습니다.
 - 앱에서 **Windows Mixed Reality SDK**의 **Virtual Reality Supported**(가상 현실 지원)를 사용하도록 설정해야 합니다. 이 설정은 **빌드 설정** > **플레이어 설정** > **XR 설정**에 있습니다.
@@ -56,13 +56,7 @@ ms.locfileid: "81482002"
 
 **빌드 설정** 창을 닫습니다.
 
-## <a name="configure-the-account-identifier-and-key"></a>계정 식별자 및 키 구성
-
-**프로젝트** 창에서 `Assets/AzureSpatialAnchors.Examples/Scenes`로 이동하여 `AzureSpatialAnchorsBasicDemo.unity` 장면 파일을 엽니다.
-
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
-
-**파일** > **저장**을 선택하여 장면을 저장합니다.
 
 ## <a name="export-the-hololens-visual-studio-project"></a>HoloLens Visual Studio 프로젝트 내보내기
 
@@ -90,15 +84,12 @@ HoloLens 디바이스를 켜고, 로그인하고, USB 케이블을 사용하여 
 
 Visual Studio에서 **디버깅 중지**를 선택하거나 Shift+F5 키를 눌러 앱을 중지합니다.
 
-## <a name="troubleshooting"></a>문제 해결
-
-### <a name="unity-20193"></a>Unity 2019.3
-
-호환성이 손상되는 변경으로 인해 Unity 2019.3은 현재 지원되지 않습니다. Unity 2019.1 또는 2019.2를 사용하세요.
-
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
 > [자습서: 여러 디바이스 간에 공간 앵커 공유](../tutorials/tutorial-share-anchors-across-devices.md)
+
+> [!div class="nextstepaction"]
+> [방법: Unity 프로젝트에서 Azure Spatial Anchors 구성](../how-tos/setup-unity-project.md)

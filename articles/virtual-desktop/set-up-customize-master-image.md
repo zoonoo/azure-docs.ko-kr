@@ -1,19 +1,17 @@
 ---
 title: 마스터 VHD 이미지 준비 및 사용자 지정-Azure
 description: Azure에 Windows 가상 데스크톱 마스터 이미지를 준비, 사용자 지정 및 업로드 하는 방법입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fe354991ce19031cc4a51b07098ab12240569a90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a10a32a98a240f740f48f7b25e6fa6ac3f2e873
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832528"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009514"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
@@ -140,7 +138,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>추가 언어 지원 포함
 
-이 문서에서는 언어 및 국가별 지원을 구성 하는 방법에 대해 다루지 않습니다. 자세한 내용은 다음 항목을 참조하세요.
+이 문서에서는 언어 및 국가별 지원을 구성 하는 방법에 대해 다루지 않습니다. 자세한 내용은 다음 아티클을 참조하세요.
 
 - [Windows 이미지에 언어 추가](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
 - [주문형 기능](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)

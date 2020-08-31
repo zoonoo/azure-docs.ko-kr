@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/31/2020
-ms.openlocfilehash: 339926fbd3c96f6f6c279d29676950b9915b4256
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/25/2020
+ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87484162"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826823"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Azure HDInsight 릴리스 정보
 
@@ -23,9 +23,9 @@ ms.locfileid: "87484162"
 
 Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객들 사이에서 가장 인기 있는 서비스 중 하나입니다.
 
-## <a name="release-date-07302020"></a>릴리스 날짜: 07/30/2020
+## <a name="release-date-08092020"></a>릴리스 날짜: 08/09/2020
 
-이 릴리스는 HDInsight 3.6 및 4.0 둘 다에 적용됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
+이 릴리스는 HDInsight 4.0에만 적용 됩니다. HDInsight 릴리스는 며칠 동안의 준비 작업을 거쳐 모든 지역에서 사용할 수 있게 됩니다. 여기에 나오는 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다립니다.
 
 ## <a name="new-features"></a>새로운 기능
 ### <a name="support-for-sparkcruise"></a>SparkCruise 지원
@@ -65,5 +65,14 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 * [HIVE-22136](https://issues.apache.org/jira/browse/HIVE-22136)
 * [HIVE-18786](https://issues.apache.org/jira/browse/HIVE-18786)
 
+다음은 HBase에 대 한 백 포팅 된 JIRAs
+* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
+* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
+* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
+
 ## <a name="component-version-change"></a>구성 요소 버전 변경
 이 릴리스에 대한 구성 요소 버전이 변경되지 않았습니다. [이 문서](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)에서 hdinsight 4.0 및 hdinsight 3.6의 최신 구성 요소 버전을 찾을 수 있습니다.
+
+## <a name="known-issues"></a>알려진 문제
+
+Azure Portal에서 사용자가 공개 키의 SSH 인증 유형을 사용 하 여 Azure HDInsight 클러스터를 만들 때 오류가 발생 하는 문제가 해결 되었습니다. 사용자가 **검토 + 만들기**를 클릭 하면 "SSH 사용자 이름에서 3 개의 연속 문자를 포함 하지 않아야 합니다." 오류가 표시 됩니다. 이 문제는 해결 되었지만 수정 된 보기를 로드 하려면 CTRL + f 5를 눌러 브라우저 캐시를 새로 고쳐야 할 수도 있습니다. 이 문제에 대 한 해결 방법은 ARM 템플릿을 사용 하 여 클러스터를 만드는 것 이었습니다. 

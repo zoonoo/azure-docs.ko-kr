@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: 20a158aac6a03dfe0bd8929de9fa66ea215aa29c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194114"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141502"
 ---
 # <a name="national-clouds"></a>국가별 클라우드
 
@@ -67,7 +67,7 @@ ms.locfileid: "84194114"
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-국가별 클라우드 환경에서 Microsoft Graph API를 호출하는 방법을 알아보려면 [국가별 클라우드 배포의 Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/deployments)로 이동하세요.
+국가별 클라우드 환경에서 Microsoft Graph API를 호출하는 방법을 알아보려면 [국가별 클라우드 배포의 Microsoft Graph](/graph/deployments)로 이동하세요.
 
 > [!IMPORTANT]
 > 글로벌 서비스의 특정 지역에서 제공되는 특정 서비스와 기능이 모든 국가별 클라우드에서 제공되지 않을 수도 있습니다. 사용 가능한 서비스를 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast)으로 이동하세요.
@@ -78,7 +78,7 @@ Microsoft ID 플랫폼을 사용하여 애플리케이션을 빌드하는 방법
 
 다음에 대해 자세히 알아봅니다.
 
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure 독일](https://docs.microsoft.com/azure/germany/)
-- [Azure AD 인증 기본 사항](authentication-scenarios.md)
+- [Azure Government](../../azure-government/index.yml)
+- [Azure China 21Vianet](/azure/china/)
+- [Azure 독일](../../germany/index.yml)
+- [Azure AD 인증 기본 사항](./authentication-vs-authorization.md)

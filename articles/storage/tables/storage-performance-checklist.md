@@ -3,17 +3,17 @@ title: Table storage에 대한 성능 및 확장성 검사 목록 - Azure Storag
 description: 고성능 애플리케이션을 개발할 때 Table storage에서 사용하는 방법에 대해 검증된 사례의 검사 목록입니다.
 services: storage
 author: tamram
+ms.author: tamram
 ms.service: storage
 ms.topic: overview
 ms.date: 10/10/2019
-ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7c805e9cf15e22b9200ef86c6c22ac3f50e77719
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75749559"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236389"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Table storage에 대한 성능 및 확장성 검사 목록
 

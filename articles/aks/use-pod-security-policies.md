@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service)에서 PodSecurityPolicy를 사용 �
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: b5e9ec19392056115ae739d40c429d93d6ac810e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3c8ec61666942fc74dcb64c03c0e3f06986e8c37
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015581"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987276"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
@@ -22,11 +22,7 @@ ms.locfileid: "87015581"
 
 AKS 클러스터의 보안을 향상 시키기 위해 예약할 수 있는 pod을 제한할 수 있습니다. 허용 하지 않는 리소스를 요청 하는 pod는 AKS 클러스터에서 실행할 수 없습니다. Pod 보안 정책을 사용 하 여이 액세스를 정의 합니다. 이 문서에서는 pod 보안 정책을 사용 하 여 AKS에서 pod의 배포를 제한 하는 방법을 보여 줍니다.
 
-> [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 옵트인입니다. 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 최상의 노력에 대 한 고객 지원에서 부분적으로 다룹니다. 따라서 이러한 기능은 프로덕션 용도로 사용할 수 없습니다. 자세한 내용은 다음 지원 문서를 참조 하세요.
->
-> * [AKS 지원 정책][aks-support-policies]
-> * [Azure 지원 FAQ][aks-faq]
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

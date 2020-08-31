@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: fb8687c091e8c34ad1fbae2a50981327b3994b6e
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 9bd4c7f17ec1a75e54ca857325cdbb7bf3358511
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051947"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234706"
 ---
 # <a name="what-is-conditional-access"></a>조건부 액세스란?
 
@@ -38,7 +38,8 @@ ms.locfileid: "85051947"
 
 ![개념적 조건부 액세스 프로세스 흐름](./media/overview/conditional-access-overview-how-it-works.png)
 
-1단계 인증이 완료된 후 조건부 액세스 정책이 적용됩니다. 조건부 액세스는 DoS(서비스 거부) 공격 같은 시나리오에서 최전방 방어선으로 사용하기 위해 개발된 것은 아니지만, 이러한 이벤트의 신호를 활용하여 액세스를 결정할 수 있습니다.
+> [!IMPORTANT]
+> 조건부 액세스 정책은 1단계 인증이 완료된 후에 적용됩니다. 조건부 액세스는 DoS(서비스 거부) 공격과 같은 시나리오에 대한 조직의 최전방 방어선으로 사용하기 위해 개발된 것은 아니지만, 이러한 이벤트의 신호를 사용하여 액세스를 결정할 수 있습니다.
 
 ## <a name="common-signals"></a>일반적인 신호
 

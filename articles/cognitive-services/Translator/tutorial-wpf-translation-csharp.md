@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: f80d22adc432a81fcc88391e71ed7540399fa559
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 70550b61354c23889836b48be6f09475569ecd52
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995737"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88589659"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>자습서: WPF를 사용하여 번역 앱 만들기
 
@@ -40,7 +40,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 | 서비스 | 기능 | Description |
 |---------|---------|-------------|
 | 변환기 | [언어 가져오기](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | 텍스트 번역에 지원되는 전체 언어 목록을 검색합니다. |
-| 변환기 | [번역](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | 텍스트를 60개가 넘는 언어로 번역합니다. |
+| 변환기 | [번역](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | 텍스트를 70개가 넘는 언어로 번역합니다. |
 | 변환기 | [검색](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | 입력 텍스트의 언어를 감지합니다. 감지에 대한 신뢰도 점수를 포함합니다. |
 | Bing 맞춤법 검사 | [맞춤법 검사](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | 맞춤법 오류를 수정하여 번역 정확도를 향상시킵니다. |
 
@@ -263,7 +263,7 @@ WPF란? 데스크톱 클라이언트 앱을 만드는 UI 프레임워크입니�
 
 ## <a name="get-supported-languages"></a>지원되는 언어 가져오기
 
-Translator는 현재 60개가 넘는 언어를 지원합니다. 시간이 지남에 따라 새로운 언어 지원이 추가되므로 앱의 언어 목록을 하드 코드하는 대신 Translator에서 공개되는 언어 리소스를 호출하는 것이 좋습니다.
+Translator는 현재 70개가 넘는 언어를 지원합니다. 시간이 지남에 따라 새로운 언어 지원이 추가되므로 앱의 언어 목록을 하드 코드하는 대신 Translator에서 공개되는 언어 리소스를 호출하는 것이 좋습니다.
 
 이 섹션에서는 언어 리소스에 대한 `GET` 요청을 만들어 번역에 사용할 수 있는 언어 목록을 지정합니다.
 

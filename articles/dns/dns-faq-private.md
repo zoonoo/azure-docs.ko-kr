@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: rohink
-ms.openlocfilehash: 0945f89e3c18ab20ece0b493a49ec9f7f31e4e13
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d6faf5bd42c90ea1510d454a2ab7939f121b3d0d
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529197"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87925008"
 ---
 # <a name="azure-private-dns-faq"></a>Azure 프라이빗 DNS FAQ
 
@@ -38,7 +38,7 @@ Azure의 다른 내부 DNS 옵션에 대 한 자세한 내용은 [vm 및 역할 
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>다른 구독에 속한 가상 네트워크를 개인 영역에 연결할 수 있나요?
 
-예. 가상 네트워크와 프라이빗 DNS 영역에 대해 쓰기 작업 권한이 있어야 합니다. 쓰기 권한은 여러 Azure 역할에 부여할 수 있습니다. 예를 들어 클래식 네트워크 참여자 Azure 역할에는 가상 네트워크에 대 한 쓰기 권한이 있고 사설 DNS 영역 참가자 역할에는 개인 DNS 영역에 대 한 쓰기 권한이 있습니다. Azure 역할에 대 한 자세한 내용은 [역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조 하세요.
+예. 가상 네트워크와 프라이빗 DNS 영역에 대해 쓰기 작업 권한이 있어야 합니다. 쓰기 권한은 여러 Azure 역할에 부여할 수 있습니다. 예를 들어 클래식 네트워크 참여자 Azure 역할에는 가상 네트워크에 대 한 쓰기 권한이 있고 사설 DNS 영역 참가자 역할에는 개인 DNS 영역에 대 한 쓰기 권한이 있습니다. Azure 역할에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../role-based-access-control/overview.md)를 참조 하세요.
 
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>가상 컴퓨터를 삭제 하면 자동으로 등록 된 가상 컴퓨터 DNS 레코드가 개인 영역에 자동으로 삭제 됩니까?
 

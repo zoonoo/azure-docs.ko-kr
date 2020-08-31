@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 6738f598275e91ce8a811c3ef6bcc6d5dc84e0bd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbc06b657525880f22bd5fb38e902f906d438c9c
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089501"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88565913"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>빠른 시작: 첫 번째 정적 웹앱 빌드
 
@@ -98,7 +98,7 @@ GitHub로 로그인한 다음, 리포지토리 정보를 입력합니다.
 :::image type="content" source="media/getting-started/next-build-button.png" alt-text="다음 빌드 단추":::
 
 > [!NOTE]
->  리포지토리가 표시되지 않는 경우 GitHub에서 Azure Static Web Apps에 권한을 부여해야 할 수 있습니다. GitHub 리포지토리로 이동하여 **설정 > 애플리케이션 > 권한 부여된 OAuth 앱**으로 이동하고 **Azure Static Web Apps**를 선택한 다음 **권한 부여**를 선택합니다. 조직 리포지토리의 경우 사용 권한을 부여하려면 조직의 소유자여야 합니다.
+>  리포지토리가 표시되지 않는 경우 GitHub에서 Azure Static Web Apps에 권한을 부여해야 할 수 있습니다. [GitHub 홈페이지](https://github.com)로 이동하고 계정 이미지를 클릭하여 드롭다운 메뉴를 엽니다. **설정**을 클릭한 다음, **애플리케이션 > 인증된 OAuth 앱 > Azure Static Web Apps**를 클릭하고 마지막으로 **Grant**를 선택합니다. 조직 리포지토리의 경우 사용 권한을 부여하려면 조직의 소유자여야 합니다.
 
 ### <a name="build"></a>빌드
 

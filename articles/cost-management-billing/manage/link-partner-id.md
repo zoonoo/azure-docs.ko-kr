@@ -6,29 +6,30 @@ ms.reviewer: dhgandhi
 ms.author: banders
 ms.date: 07/24/2020
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 343db06ba658f31c258d2a63c4a52aa86993c1cd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8f3e4762b0c0286a47b407595cf73b66bef8d750
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281789"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682844"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
 Microsoft 파트너는 고객이 Microsoft 제품을 사용하여 비즈니스 및 업무 목표를 달성할 수 있도록 하는 서비스를 제공합니다. 고객을 대신하여 Azure 서비스를 관리, 구성 및 지원하는 경우 파트너 사용자는 고객 환경에 액세스할 수 있어야 합니다. 파트너는 파트너 관리 링크(PAL)를 사용하여 파트너 네트워크 ID를 서비스 배달에 사용되는 자격 증명과 연결할 수 있습니다.
 
-PAL을 통해 Microsoft는 Azure 고객 성공을 주도하는 파트너를 식별하고 인식할 수 있습니다. Microsoft는 계정의 권한(RBAC 역할) 및 범위(구독, 리소스 그룹, 리소스)를 기반으로 영향과 Azure 사용 수익을 귀하 조직에 귀속시킬 수 있습니다.
+PAL을 통해 Microsoft는 Azure 고객 성공을 주도하는 파트너를 식별하고 인식할 수 있습니다. Microsoft는 계정의 권한(Azure 역할) 및 범위(구독, 리소스 그룹, 리소스)를 기반으로 영향과 Azure 사용 수익을 귀하 조직에 귀속시킬 수 있습니다.
 
 ## <a name="get-access-from-your-customer"></a>고객의 액세스 권한 가져오기
 
 파트너 ID를 연결하려면 먼저 고객이 다음 옵션 중 하나를 사용하여 해당 Azure 리소스에 대한 액세스 권한을 사용자에게 부여해야 합니다.
 
-- **게스트 사용자**: 고객은 사용자를 게스트 사용자로 추가하고 RBAC(역할 기반 액세스 제어) 역할을 할당할 수 있습니다. 자세한 내용은 [다른 디렉터리에서 게스트 사용자 추가](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요.
+- **게스트 사용자**: 고객은 사용자를 게스트 사용자로 추가하고 Azure 역할을 할당할 수 있습니다. 자세한 내용은 [다른 디렉터리에서 게스트 사용자 추가](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요.
 
-- **디렉터리 계정**: 고객은 자신의 디렉터리에 사용자 계정을 만들고 RBAC 역할을 할당할 수 있습니다.
+- **디렉터리 계정**: 고객은 자신의 디렉터리에 사용자 계정을 만들고 Azure 역할을 할당할 수 있습니다.
 
-- **서비스 주체**: 고객은 해당 디렉터리에서 조직의 앱 또는 스크립트를 추가하고 RBAC 역할을 할당할 수 있습니다. 앱 또는 스크립트의 ID를 서비스 주체라고 합니다.
+- **서비스 주체**: 고객은 해당 디렉터리에서 조직의 앱 또는 스크립트를 추가하고 Azure 역할을 할당할 수 있습니다. 앱 또는 스크립트의 ID를 서비스 주체라고 합니다.
 
 - **Azure Lighthouse**: 사용자가 테넌트 내에서 작업할 수 있도록 고객이 구독(또는 리소스 그룹)을 위임할 수 있습니다. 자세한 내용은 [Azure 위임 리소스 관리](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management)를 참조하세요.
 
@@ -168,9 +169,8 @@ PAL(파트너 관리자 링크)을 통해 Microsoft는 고객이 비즈니스 �
 
 **PAL은 어떤 데이터를 수집하나요?**
 
-기존 자격 증명에 대한 PAL 연결은 새로운 고객 데이터를 Microsoft에 제공하지 않습니다. 파트너는 고객의 Azure 환경에 적극적으로 참여하는 Microsoft에 원격 분석을 제공하기만 하면 됩니다. Microsoft는 고객이 파트너에게 제공하는 계정 권한(RBAC 역할) 및 범위(관리 그룹, 구독, 리소스 그룹, 리소스)를 기반으로 고객 환경에서 영향과 Azure 사용 수익을 파트너 조직에 귀속시킬 수 있습니다. 
+기존 자격 증명에 대한 PAL 연결은 새로운 고객 데이터를 Microsoft에 제공하지 않습니다. 파트너는 고객의 Azure 환경에 적극적으로 참여하는 Microsoft에 원격 분석을 제공하기만 하면 됩니다. Microsoft는 고객이 파트너에게 제공하는 계정 권한(Azure 역할) 및 범위(관리 그룹, 구독, 리소스 그룹, 리소스)를 기반으로 고객 환경에서 영향과 Azure 사용 수익을 파트너 조직에 귀속시킬 수 있습니다. 
 
 **이는 고객의 Azure 환경 보안에 영향을 주나요?**
 
-PAL 연결은 이미 프로비저닝된 자격 증명에 파트너의 MPN ID만 추가하고, 권한(RBAC 역할)을 변경하거나 파트너 또는 Microsoft에 추가 Azure 서비스 데이터를 제공하지 않습니다. 
-
+PAL 연결은 이미 프로비저닝된 자격 증명에 파트너의 MPN ID만 추가하고, 권한(Azure 역할)을 변경하거나 파트너 또는 Microsoft에 추가 Azure 서비스 데이터를 제공하지 않습니다. 

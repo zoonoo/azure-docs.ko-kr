@@ -5,18 +5,18 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74671620"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080201"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service의 운영 체제 기능
 이 문서에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 실행되는 모든 Windows 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 
 
 > [!NOTE] 
-> App Service의 [Linux 앱](containers/app-service-linux-intro.md)은 자체 컨테이너에서 실행됩니다. 호스트 운영 체제에 대한 액세스는 허용되지 않으며, 컨테이너에 대한 루트 액세스 권한이 제공되지 않습니다. 마찬가지로, [Windows 컨테이너에서 실행되는 앱](app-service-web-get-started-windows-container.md)의 경우 컨테이너에 대한 관리자 액세스 권한은 있지만 호스트 운영 체제에 대한 액세스 권한은 없습니다. 
+> App Service의 [Linux 앱](overview.md#app-service-on-linux)은 자체 컨테이너에서 실행됩니다. 호스트 운영 체제에 대한 액세스는 허용되지 않으며, 컨테이너에 대한 루트 액세스 권한이 제공되지 않습니다. 마찬가지로, [Windows 컨테이너에서 실행되는 앱](quickstart-custom-container.md?pivots=container-windows)의 경우 컨테이너에 대한 관리자 액세스 권한은 있지만 호스트 운영 체제에 대한 액세스 권한은 없습니다. 
 >
 
 <a id="tiers"></a>
@@ -51,7 +51,7 @@ App Service에는 로컬 드라이브와 네트워크 드라이브를 포함한 
 - App Service에서 단독으로 사용하며 고객이 액세스할 수 없는 Azure 패키지 cspkg 파일을 포함하는 애플리케이션 드라이브
 - VM의 크기에 따라 크기가 달라지는 "user" 드라이브(C:\ 드라이브) 
 
-애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 예를 들어: 
+애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 예를 들면 다음과 같습니다. 
 
 - 앱이 디스크 공간 부족을 나타내는 오류를 throw할 수 있습니다.
 - Kudu 콘솔로 이동하면 디스크 오류가 표시될 수 있습니다.
@@ -60,7 +60,7 @@ App Service에는 로컬 드라이브와 네트워크 드라이브를 포함한 
 
 <a id="NetworkDrives"></a>
 
-### <a name="network-drives-aka-unc-shares"></a>네트워크 드라이브(일명 UNC 공유)
+### <a name="network-drives-unc-shares"></a>네트워크 드라이브 (UNC 공유)
 앱 배포 및 유지 관리를 간단하게 만드는 App Service의 고유한 측면 중 하나는 모든 사용자 콘텐츠가 UNC 공유 집합에 저장된다는 점입니다. 이 모델은 부하가 분산된 여러 개의 서버가 있는 온-프레미스 웹 호스팅 환경에서 사용되는 일반적인 콘텐츠 스토리지 패턴에 잘 매핑됩니다. 
 
 App Service 내에는 각 데이터 센터에서 만들어진 다수의 UNC 공유가 있습니다. 각 데이터 센터에서 모든 고객의 사용자 콘텐츠가 차지하는 비율이 각 UNC 공유에 할당됩니다. 뿐만 아니라 단일 고객의 구독에 대한 모든 파일 콘텐츠는 항상 동일한 UNC 공유에 보관됩니다. 
@@ -123,7 +123,7 @@ App Service의 각 응용 프로그램은 "응용 프로그램 풀 id" 라는 �
 
 App Service는 VM 인스턴스에 대한 원격 데스크톱 액세스를 제공하지 않습니다.
 
-## <a name="more-information"></a>추가 정보
+## <a name="more-information"></a>자세한 정보
 
 [Azure App Service 샌드박스](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - App Service의 실행 환경에 대한 최신 정보입니다. 이 페이지는 App Service 개발 팀에서 직접 유지 관리합니다.
 

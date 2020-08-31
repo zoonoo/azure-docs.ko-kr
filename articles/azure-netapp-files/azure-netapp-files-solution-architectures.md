@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/20/2020
 ms.author: b-juche
-ms.openlocfilehash: 19e02012c31246b3b6b4636ef61154fbade347ce
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e7bdf6ce35e2649a068de234b4b52e13efe72c44
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494624"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690547"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
@@ -44,8 +44,8 @@ ms.locfileid: "87494624"
 
 ### <a name="file-sharing-and-global-file-caching"></a>파일 공유 및 전역 파일 캐싱
 
-* [Talon/Azure NetApp Files 배포](https://youtu.be/91LKb1qsLIM)
 * [사용자 고유의 Azure NFS 빌드 Wrestling Linux 파일 공유를 클라우드로](https://cloud.netapp.com/blog/ma-anf-blg-build-your-own-linux-nfs-file-shares)
+* [전역 파일 캐시/Azure NetApp Files 배포](https://youtu.be/91LKb1qsLIM)
 
 ### <a name="sql-server"></a>SQL Server
 
@@ -68,6 +68,7 @@ ms.locfileid: "87494624"
 ### <a name="sap-hana"></a>SAP HANA 
 
 * [SAP HANA Azure 가상 머신 스토리지 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+* [Red Hat Enterprise Linux Azure NetApp Files를 사용 하 여 SAP HANA 확장의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat)
 * [SUSE Linux Enterprise Server Azure NetApp Files를 사용 하 여 Azure Vm에서 대기 노드로 확장 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
 * [Red Hat Enterprise Linux Azure NetApp Files를 사용 하 여 Azure Vm에서 대기 노드로 확장 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
 
@@ -85,6 +86,7 @@ ms.locfileid: "87494624"
 
 ### <a name="windows-virtual-desktop"></a>Windows Virtual Desktop
 
+* [Windows Virtual Desktop에서 Azure NetApp Files를 사용할 경우의 이점](solutions-windows-virtual-desktop.md)
 * [Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
 * [엔터프라이즈 규모의 Windows 가상 데스크톱](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)

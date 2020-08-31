@@ -13,10 +13,10 @@
       items:
         - name: 앱 등록
           href: quickstart-register-app.md
-        - name: 웹 API에 액세스하도록 앱 구성
-          href: quickstart-configure-app-access-web-apis.md
         - name: 웹 API를 공개하도록 앱 구성
           href: quickstart-configure-app-expose-web-apis.md
+        - name: 웹 API에 액세스하도록 앱 구성
+          href: quickstart-configure-app-access-web-apis.md
         - name: 앱에서 지원되는 계정 수정
           href: quickstart-modify-supported-accounts.md
         - name: 앱 제거
@@ -48,7 +48,7 @@
         - name: ASP.NET
           href: quickstart-v2-dotnet-native-aspnet.md
         - name: ASP.NET Core
-          href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
+          href: 'https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/active-directory-dotnet-native-aspnetcore-v2/'
     - name: 모바일 및 데스크톱 앱
       items:
         - name: Android
@@ -298,6 +298,9 @@
               displayName: 'firstline worker, frontline worker, flw'
             - name: 단일 및 다중 계정 퍼블릭 클라이언트 앱
               href: single-multi-account.md
+            - name: 오류 및 예외 처리
+              href: msal-android-handling-exceptions.md
+              displayName: 'android, mobile'
             - name: 로깅
               href: msal-logging.md?tabs=android
         - name: iOS 및 macOS
@@ -465,13 +468,13 @@
     - name: 자동 사용자 프로비저닝(SCIM)
       items:
         - name: 자동 사용자 프로비저닝이란?
-          href: /azure/active-directory/app-provisioning/user-provisioning
+          href: ../app-provisioning/user-provisioning.md
         - name: SCIM 엔드포인트 개발 및 통합
-          href: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md
         - name: 일반적인 프로비전 시나리오
-          href: /azure/active-directory/app-provisioning/scim-graph-scenarios
+          href: ../app-provisioning/scim-graph-scenarios.md
         - name: MS Graph를 사용하여 구성 자동화
-          href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
+          href: ../app-provisioning/application-provisioning-configure-api.md
     - name: Azure Portal 도움말 문서
       items:
         - name: 사용자 지정 개발 애플리케이션에 대한 토큰 수명 기본값
@@ -627,7 +630,7 @@
         - name: Azure AD App Gallery에 게시
           href: v2-howto-app-gallery-listing.md
         - name: Office 365 판매자 대시보드에 게시
-          href: 'https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store'
+          href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
 - name: 참조
   items:
     - name: 애플리케이션 매니페스트.
@@ -639,7 +642,7 @@
       displayName: 'MSAL, auth library, SDK'
       href: reference-v2-libraries.md
     - name: Microsoft Graph의 ID 및 액세스 API
-      href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview'
+      href: /graph/api/resources/azure-ad-overview
     - name: 인증 및 권한 부여 오류 코드
       displayName: AADSTS
       href: reference-aadsts-error-codes.md
@@ -660,7 +663,7 @@
     - name: Microsoft에 로그인 시도
       href: 'https://azure.microsoft.com/develop/identity/signin/'
     - name: Azure 리소스에 대한 관리 ID
-      href: 'https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview'
+      href: ../managed-identities-azure-resources/overview.md
     - name: 도움말 보기
       displayName: 'support, help options'
       href: developer-support-help-options.md

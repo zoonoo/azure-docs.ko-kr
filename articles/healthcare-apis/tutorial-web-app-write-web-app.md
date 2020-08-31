@@ -5,16 +5,16 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: 8d9153cfa645c380a7e53dd75c7f7ed08eaa95c4
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: bb9c206a17a11f0cf710ac4ee3ac7ccae0fa9eb9
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "84870324"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848029"
 ---
 # <a name="write-azure-web-application-to-read-fhir-data"></a>Azure 웹 애플리케이션을 작성하여 FHIR 데이터 읽기
 이제 FHIR 서버 및 POST 데이터에 연결할 수 있으므로 FHIR 데이터를 읽을 웹 애플리케이션을 작성할 준비가 되었습니다. 자습서의 마지막 단계에서는 웹 애플리케이션을 작성하고 액세스하는 과정을 안내합니다.

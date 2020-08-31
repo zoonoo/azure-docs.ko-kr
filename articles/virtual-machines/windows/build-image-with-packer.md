@@ -1,24 +1,24 @@
 ---
-title: Packer를 사용하여 Windows VM 이미지를 만드는 방법
-description: Azure에서 Packer를 사용하여 Windows 가상 머신의 이미지를 만드는 방법에 대해 알아보기
+title: PowerShell-패키지를 사용 하 여 VM 이미지를 만드는 방법
+description: Azure에서 패키지를 사용 하 여 가상 머신의 이미지를 만드는 방법에 대해 알아봅니다.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 02/22/2019
+ms.date: 08/05/2020
 ms.author: cynthn
-ms.openlocfilehash: 1597d249899756ac0d43d2dcd90019179b81bb3b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 16f2bc2cc22fa38ece78b4a07298235abd7d629d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284662"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587092"
 ---
-# <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Windows 가상 머신 이미지를 만드는 방법
+# <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell: Azure에서 패키지를 사용 하 여 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 머신)은 Windows 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 OS 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 빌드하는 방법을 자세히 설명합니다.
 
-이 문서는 2019년 2월 21일에 [Az PowerShell 모듈](/powershell/azure/install-az-ps) 버전 1.3.0 및 [Packer](https://www.packer.io/docs/install) 버전 1.3.4를 사용하여 마지막으로 테스트되었습니다.
+이 문서는 [1.6.1 버전을](https://www.packer.io/docs/install) 사용 하 여 8/5/2020에서 마지막으로 테스트 되었습니다.
 
 > [!NOTE]
 > 이제 Azure에는 고유한 사용자 지정 이미지를 정의하고 만드는 데 필요한 Azure Image Builder(미리 보기) 서비스가 있습니다. Azure Image Builder는 Packer를 기반으로 빌드되므로 기존 Packer 셸 프로비저닝 프로그램 스크립트도 사용할 수 있습니다. Azure Image Builder를 시작하려면 [Azure Image Builder를 사용하여 Windows VM 만들기](image-builder.md)를 참조하세요.
@@ -26,10 +26,10 @@ Azure의 각 VM(가상 머신)은 Windows 배포판 및 OS 버전을 정의하�
 ## <a name="create-azure-resource-group"></a>Azure 리소스 그룹 만들기
 빌드 프로세스 동안 Packer는 원본 VM을 빌드하므로 임시 Azure 리소스를 만듭니다. 이미지로 사용하기 위해 해당 원본 VM을 캡처하려면 리소스 그룹을 정의해야 합니다. Packer 빌드 프로세스의 출력은 이 리소스 그룹에 저장됩니다.
 
-[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예에서는 *e미국* 위치에 *myPackerGroup* 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell
-$rgName = "myResourceGroup"
+$rgName = "myPackerGroup"
 $location = "East US"
 New-AzResourceGroup -Name $rgName -Location $location
 ```
@@ -37,13 +37,12 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Azure 자격 증명 만들기
 Packer는 서비스 사용자를 사용하여 Azure를 인증합니다. Azure 서비스 사용자는 앱, 서비스 및 Packer와 같은 자동화 도구를 사용할 수 있는 보안 ID입니다. 서비스 주체가 Azure에서 수행할 수 있는 작업에 대한 사용 권한은 사용자가 제어하고 정의합니다.
 
-[New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)을 사용하여 서비스 사용자를 만들고 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)를 사용하여 리소스를 만들고 관리하는 권한을 서비스 사용자에게 할당합니다. `-DisplayName` 값은 고유해야 합니다. 필요에 따라 사용자의 값으로 바꿉니다.  
+[AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal)를 사용 하 여 서비스 주체를 만듭니다. `-DisplayName` 값은 고유해야 합니다. 필요에 따라 사용자의 값으로 바꿉니다.  
 
 ```azurepowershell
-$sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
+$sp = New-AzADServicePrincipal -DisplayName "PackerSP$(Get-Random)"
 $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
 $plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
-New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
 그런 다음 암호와 애플리케이션 ID를 출력합니다.
@@ -85,7 +84,7 @@ Get-AzSubscription
     "tenant_id": "zzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz",
     "subscription_id": "yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy",
 
-    "managed_image_resource_group_name": "myResourceGroup",
+    "managed_image_resource_group_name": "myPackerGroup",
     "managed_image_name": "myPackerImage",
 
     "os_type": "Windows",
@@ -112,7 +111,6 @@ Get-AzSubscription
     "inline": [
       "Add-WindowsFeature Web-Server",
       "while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
-      "while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }",
       "while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
       "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
       "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"

@@ -1,6 +1,6 @@
 ---
 title: 맵에 선 계층 추가 | Microsoft Azure Maps
-description: 이 문서에서는 Microsoft Azure Maps Web SDK를 사용하여 맵에 선 계층을 추가하는 방법을 알아봅니다.
+description: 지도에 선을 추가 하는 방법에 대해 알아봅니다. Azure Maps 웹 SDK를 사용 하 여 지도에 선 계층을 추가 하 고 기호 및 색 그라데이션을 사용 하 여 줄을 사용자 지정 하는 예제를 참조 하세요.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 366de0d17a1cdd62b95d39b1ad04b9bc76bec52c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c834ae6061fce6f2fc2f4cd7c4d80e036775b156
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286939"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010211"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>맵에 선 계층 추가
 

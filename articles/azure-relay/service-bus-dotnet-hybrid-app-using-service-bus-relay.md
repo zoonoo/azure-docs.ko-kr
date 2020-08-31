@@ -2,13 +2,14 @@
 title: Azure Windows Communication Foundation (WCF) 릴레이 하이브리드 온-프레미스/클라우드 응용 프로그램 (.NET) | Microsoft Docs
 description: Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스를 노출하는 방법을 알아봅니다.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6299899ee45bbad8b5e5fdbca01805604794d62
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314406"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922551"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스 노출
 
@@ -30,7 +31,7 @@ ms.locfileid: "85314406"
 > * Azure에 웹 앱을 배포 합니다.
 > * Azure에서 앱을 실행 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -229,7 +230,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 이 섹션에서는 제품 서비스에서 검색한 데이터를 표시하는 간단한 ASP.NET 애플리케이션을 빌드합니다.
 
-### <a name="create-the-project"></a>프로젝트를 만듭니다.
+### <a name="create-the-project"></a>프로젝트 만들기
 
 1. Visual Studio가 관리자 권한으로 실행 되 고 있는지 확인 합니다.
 1. Visual Studio에서 **새 프로젝트 만들기**를 선택합니다.
@@ -244,7 +245,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
     ![인증 지정][18]
 
 1. **새 ASP.NET 웹 응용 프로그램 만들기**로 돌아가서 **만들기** 를 선택 하 여 MVC 앱을 만듭니다.
-1. 새 웹 앱에 대 한 Azure 리소스를 구성 합니다. [웹 앱 게시](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard)의 단계를 따릅니다. 그런 다음이 자습서로 돌아가 다음 단계를 계속 합니다.
+1. 새 웹 앱에 대 한 Azure 리소스를 구성 합니다. [웹 앱 게시](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard)의 단계를 따릅니다. 그런 다음이 자습서로 돌아가 다음 단계를 계속 합니다.
 1. **솔루션 탐색기**에서 **모델** 을 마우스 오른쪽 단추로 클릭 한 다음 **Add**  >  **클래스**추가를 선택 합니다.
 1. 클래스 이름을 *Product.cs*로 지정한 다음 **추가**를 선택 합니다.
 
@@ -427,7 +428,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
 
 다음 단계는 Azure 웹 앱 **ProductsPortal** 프런트 엔드를 다시 게시 하는 것입니다.
 
-1. **솔루션 탐색기**에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 선택 합니다. **게시** 페이지에서 **게시**를 선택 합니다.
+1. **솔루션 탐색기**에서 **ProductsPortal** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시**를 선택 합니다. **게시** 페이지에서 **게시**를 선택합니다.
 
    > [!NOTE]
    > 배포 후 **ProductsPortal** 웹 프로젝트가 자동으로 시작되면 브라우저 창에 오류 메시지가 표시될 수 있습니다. 예상된 동작이며 **ProductsServer** 애플리케이션이 아직 실행되지 않기 때문에 발생합니다.

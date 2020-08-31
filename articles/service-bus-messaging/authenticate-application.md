@@ -3,15 +3,15 @@ title: Azure Service Bus 엔터티에 액세스 하는 응용 프로그램 인�
 description: 이 문서에서는 Azure Service Bus 엔터티 (큐, 토픽 등)에 액세스 하 Azure Active Directory 응용 프로그램을 인증 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: f5142e59e1711d9bf63a7badc2d0947fd86f49f4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b12f2f294a66159a7035240c361ab93f9f84718e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835972"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064828"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Azure Service Bus 엔터티에 액세스 하 Azure Active Directory 응용 프로그램 인증 및 권한 부여
-Azure Service Bus은 Azure Active Directory (Azure AD)를 사용 하 여 엔터티 (큐, 토픽, 구독 또는 필터)에 대 한 요청 Service Bus에 권한을 부여 하는 것을 지원 합니다. Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
+Azure Service Bus은 Azure Active Directory (Azure AD)를 사용 하 여 엔터티 (큐, 토픽, 구독 또는 필터)에 대 한 요청 Service Bus에 권한을 부여 하는 것을 지원 합니다. Azure AD를 사용 하면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
 
 ## <a name="overview"></a>개요
 보안 주체 (사용자, 그룹 또는 응용 프로그램)가 Service Bus 엔터티에 대 한 액세스를 시도 하는 경우 요청에 권한이 부여 되어야 합니다. Azure AD를 사용 하 여 리소스에 대 한 액세스는 2 단계 프로세스입니다. 
@@ -27,12 +27,12 @@ Service Bus에 대 한 요청을 하는 네이티브 응용 프로그램 및 웹
 
 
 ## <a name="assigning-azure-roles-for-access-rights"></a>액세스 권한에 대 한 Azure 역할 할당
-Azure AD (Azure Active Directory)는 azure [역할 기반 access control (AZURE RBAC)](../role-based-access-control/overview.md)을 통해 보안 리소스에 대 한 액세스 권한을 부여 합니다. Azure Service Bus는 Service Bus 엔터티에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 하 고 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
+Azure AD (Azure Active Directory)는 [AZURE RBAC](../role-based-access-control/overview.md)를 통해 보안 리소스에 대 한 액세스 권한을 부여 합니다. Azure Service Bus는 Service Bus 엔터티에 액세스 하는 데 사용 되는 일반 권한 집합을 포함 하는 Azure 기본 제공 역할 집합을 정의 하 고 데이터에 액세스 하기 위한 사용자 지정 역할을 정의할 수도 있습니다.
 
 Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 범위는 구독, 리소스 그룹 또는 Service Bus 네임 스페이스의 수준으로 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
 ## <a name="azure-built-in-roles-for-azure-service-bus"></a>Azure Service Bus에 대 한 Azure 기본 제공 역할
-Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통한 네임스페이스 및 관련된 모든 리소스의 관리는 이미 RBAC(*역할 기반 액세스 제어*) 모델을 사용하여 보호되고 있습니다. Azure는 Service Bus 네임 스페이스에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
+Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통한 네임 스페이스 및 관련 된 모든 리소스의 관리는 이미 Azure RBAC 모델을 사용 하 여 보호 됩니다. Azure는 Service Bus 네임 스페이스에 대 한 액세스 권한을 부여 하기 위한 다음과 같은 Azure 기본 제공 역할을 제공 합니다.
 
 - [Azure Service Bus 데이터 소유자](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): Service Bus 네임 스페이스와 해당 엔터티 (큐, 토픽, 구독 및 필터)에 대 한 데이터 액세스를 가능 하 게 합니다.
 - [Azure Service Bus 데이터 발신자](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender):이 역할을 사용 하 여 Service Bus 네임 스페이스 및 해당 엔터티에 대 한 액세스를 보낼 수 있습니다.
@@ -55,7 +55,7 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 
 
 ## <a name="assign-azure-roles-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 역할 할당  
-RBAC 및 Azure Portal를 사용 하 여 Azure 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 [이 문서](..//role-based-access-control/role-assignments-portal.md)를 참조 하세요. 
+Azure RBAC 및 Azure Portal를 사용 하 여 Azure 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 [이 문서](..//role-based-access-control/role-assignments-portal.md)를 참조 하세요. 
 
 역할 할당에 적절 한 범위를 결정 한 후 Azure Portal에서 해당 리소스로 이동 합니다. 리소스에 대 한 액세스 제어 (IAM) 설정을 표시 하 고 다음 지침에 따라 역할 할당을 관리 합니다.
 
@@ -102,7 +102,7 @@ Azure AD를 사용 하 여 Service Bus 엔터티에 권한을 부여 하는 첫 
 
 ![등록 된 응용 프로그램의 응용 프로그램 ID](./media/authenticate-application/application-id.png)
 
-Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정보는 [Azure Active Directory와 애플리케이션 통합](../active-directory/develop/quickstart-v2-register-an-app.md)을 참조하세요.
+Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정보는 [Azure Active Directory와 애플리케이션 통합](../active-directory/develop/quickstart-register-app.md)을 참조하세요.
 
 > [!IMPORTANT]
 > **TenantId** 와 **ApplicationId**를 적어 둡니다. 응용 프로그램을 실행 하려면 이러한 값이 필요 합니다.
@@ -150,16 +150,16 @@ GitHub의 [Service Bus에 대 한 역할 기반 액세스 제어](https://github
 
 
 ## <a name="next-steps"></a>다음 단계
-- RBAC에 대해 자세히 알아보려면 [azure 역할 기반 액세스 제어 란? (AZURE RBAC)](../role-based-access-control/overview.md)을 참조 하세요.
+- Azure RBAC에 대해 자세히 알아보려면 azure [역할 기반 액세스 제어 란? (AZURE rbac)](../role-based-access-control/overview.md)을 참조 하세요.
 - Azure PowerShell, Azure CLI 또는 REST API를 사용 하 여 Azure 역할 할당을 할당 하 고 관리 하는 방법을 알아보려면 다음 문서를 참조 하세요.
-    - [Azure PowerShell을 사용하여 RBAC(역할 기반 액세스 제어) 관리](../role-based-access-control/role-assignments-powershell.md)  
-    - [Azure CLI를 사용하여 RBAC(역할 기반 액세스 제어) 관리](../role-based-access-control/role-assignments-cli.md)
-    - [REST API를 사용하여 RBAC(역할 기반 액세스 제어) 관리](../role-based-access-control/role-assignments-rest.md)
-    - [Azure Resource Manager 템플릿으로 RBAC (역할 기반 액세스 제어) 관리](../role-based-access-control/role-assignments-template.md)
+    - [Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-powershell.md)  
+    - [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-cli.md)
+    - [REST API를 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-rest.md)
+    - [Azure Resource Manager 템플릿을 사용 하 여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-template.md)
 
 Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
-- [RBAC 샘플 Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
+- [Azure RBAC 샘플 Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
 - [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 - [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 - [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)

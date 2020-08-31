@@ -1,6 +1,6 @@
 ---
 title: 렌더링 검사 | Microsoft Azure 맵
-description: 이 문서에서는 렌더링 범위를 렌더링 한 세부 정보 수준과 함께 Microsoft Azure 지도를 사용 하 여 영역에 대해 알아봅니다.
+description: Azure Maps 상세 데이터 또는 단순화 된 데이터를 사용 하 여 다양 한 영역을 렌더링 하는지 여부를 알아봅니다. 해당 지역의 래스터 타일 및 벡터 타일 맵에 사용 되는 수준을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 03/22/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 47dd619b4853e7167ae1b141c5741511075325c2
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 69b122196cbeb7508cddf3a890768f83fdcd4727
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127913"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030931"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps 렌더링 검사
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center의 적응형 애플리케이션 제어
-description: 이 문서를 통해 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하 여 Azure 컴퓨터에서 실행 되는 응용 프로그램을 허용 목록 수 있습니다.
+description: 이 문서에서는 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하 여 Azure 컴퓨터에서 실행 되는 응용 프로그램을 나열할 수 있습니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,173 +11,218 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/23/2019
+ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 1dc94c5ec08cc27fb1819ccc16fd766c62aad796
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77604678"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691482"
 ---
-# <a name="adaptive-application-controls"></a>적응 애플리케이션 컨트롤
-이 연습을 통해 Azure Security Center에서 애플리케이션 컨트롤을 구성하는 방법에 대해 알아봅니다.
+# <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
 
-## <a name="what-are-adaptive-application-controls-in-security-center"></a>Security Center의 적응형 애플리케이션 제어란 무엇입니까?
-적응 응용 프로그램 제어는 Azure 및 비 Azure 컴퓨터 (Windows 및 Linux)에서 실행할 수 있는 응용 프로그램을 제어 하는 데 도움이 되는 Azure Security Center의 지능적이 고 자동화 된 종단 간 솔루션입니다. 다른 이점 중 하나는 맬웨어에 대해 컴퓨터를 강화 하는 데 도움이 됩니다. Security Center는 기계 학습을 사용 하 여 컴퓨터에서 실행 중인 응용 프로그램을 분석 하 고이 인텔리전스에서 허용 목록을 만듭니다. 이 기능은 응용 프로그램 허용 목록 정책을 구성 하 고 유지 관리 하는 프로세스를 간소화 하 여 다음과 같은 작업을 수행할 수 있도록 합니다.
+Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 데이터 기반 지능형 기능으로 보안을 향상 시키는 방법에 대해 알아봅니다.
 
-- 맬웨어 방지 솔루션에서 누락될 수 있는 것들을 포함하여 악성 애플리케이션 실행 시도를 차단하거나 경고합니다.
-- 사용이 허가된 소프트웨어만 사용하도록 규정된 조직의 보안 정책을 준수합니다.
-- 사용자 환경에서 사용자 동의 없이 설치된 소프트웨어를 사용하지 않습니다.
-- 오래되고 지원되지 않는 앱을 실행하지 않습니다.
-- 조직에서 허용되지 않는 특정 소프트웨어 도구를 사용하지 않습니다.
-- IT 기술을 사용하여 앱 사용을 통해 중요한 데이터에 대한 액세스를 제어할 수 있습니다.
 
-> [!NOTE]
-> 비 Azure 및 Linux 컴퓨터의 경우에는 적응 응용 프로그램 컨트롤이 감사 모드 에서만 지원 됩니다.
+## <a name="what-are-security-centers-adaptive-application-controls"></a>Security Center의 적응 응용 프로그램 컨트롤은 무엇 인가요?
 
-## <a name="how-to-enable-adaptive-application-controls"></a>적응형 애플리케이션 제어를 사용하는 방법은 무엇입니까?
+적응 응용 프로그램 컨트롤은 컴퓨터에 대해 알려진 안전한 응용 프로그램의 허용 목록을 정의 하기 위한 인텔리전트 및 자동화 된 솔루션입니다. 
 
-적응 응용 프로그램 컨트롤은 구성 된 컴퓨터 그룹에서 실행할 수 있는 응용 프로그램 집합을 정의 하는 데 도움이 됩니다. 이 기능은 Azure 및 비 Azure Windows (모든 버전, 클래식 또는 Azure Resource Manager) 및 Linux 컴퓨터에서 사용할 수 있습니다. 다음 단계를 사용 하 여 응용 프로그램 허용 목록을 구성 합니다.
+조직에는 종종 동일한 프로세스를 정기적으로 실행 하는 컴퓨터 컬렉션이 있습니다. Security Center는 기계 학습을 사용 하 여 컴퓨터에서 실행 되는 응용 프로그램을 분석 하 고 알려진 안전한 소프트웨어 목록을 만듭니다. 허용 목록은 특정 Azure 워크 로드를 기반으로 하며, 아래 지침을 사용 하 여 권장 사항을 추가로 사용자 지정할 수 있습니다.
 
-1. **Security Center** 대시보드를 엽니다.
+적응 응용 프로그램 제어를 사용 하도록 설정 하 고 구성 하면 안전한 것으로 정의한 응용 프로그램이 아닌 다른 응용 프로그램을 실행 하는 경우 보안 경고를 받게 됩니다.
 
-1. 왼쪽 창의 **고급 클라우드 방어** 아래에서 **적응형 애플리케이션 제어**를 선택합니다.
 
-    [![방어](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png#lightbox)
+## <a name="what-are-the-benefits-of-adaptive-application-controls"></a>적응 응용 프로그램 컨트롤의 이점은 무엇 인가요?
 
-**적응형 애플리케이션 제어** 페이지가 표시됩니다.
+알려진 안전한 응용 프로그램의 목록을 정의 하 고 다른 항목이 실행 될 때 경고를 생성 하 여 여러 보안 강화 목표를 달성할 수 있습니다.
 
-![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
+- 맬웨어 방지 솔루션에 의해 누락 될 수 있는 경우에도 잠재적 맬웨어를 식별 합니다.
+- 사용이 허가 된 소프트웨어만 사용 하도록 규정 하는 로컬 보안 정책 준수 향상
+- 이전 또는 지원 되지 않는 응용 프로그램을 실행 하지 않습니다.
+- 조직에서 금지 하는 특정 소프트웨어 방지
+- 중요 한 데이터에 액세스 하는 앱의 감독 증가
 
-**VM** 섹션에는 세 개의 탭이 있습니다.
 
-* **구성됨**: 애플리케이션 제어로 구성된 VM을 포함하는 그룹 목록입니다.
-* **권장**: 애플리케이션 제어가 권장되는 그룹 목록입니다. Security Center는 기계 학습을 사용하여 VM이 동일한 애플리케이션을 일관되게 실행하는지 여부에 따라 어떤 VM이 애플리케이션을 제어하는 데 좋은 후보인지 식별합니다.
-* **권장 사항 없음**: 애플리케이션 제어 권장 사항이 없는 VM을 포함하는 그룹 목록입니다. 예를 들어 애플리케이션이 항상 변경되어 안정적인 상태에 도달하지 않았던 VM이 있습니다.
 
-> [!NOTE]
-> 비슷한 VM이 최적의 권장 애플리케이션 제어 정책을 사용하도록, Security Center에서는 독점적 클러스터링 알고리즘을 사용하여 VM 그룹을 만듭니다.
->
->
+## <a name="availability"></a>가용성
 
-### <a name="configure-a-new-application-control-policy"></a>새 애플리케이션 컨트롤 정책 구성
+|양상|세부 정보|
+|----|:----|
+|릴리스 상태:|일반 공급|
+|결정|표준 계층|
+|지원 되는 컴퓨터:|![예, ](./media/icons/yes-icon.png) Windows 및 Linux를 실행 하는 azure 및 비 azure 컴퓨터<br>![예 ](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) 컴퓨터|
+|필요한 역할 및 사용 권한:|**보안 판독기** 및 **읽기** 권한자 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 볼 수 있습니다.<br>**참가자** 및 **보안 관리자** 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 편집할 수 있습니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|||
 
-1. 응용 프로그램 제어 권장 사항이 있는 그룹 목록에 대해 **권장** 탭을 선택 합니다.
 
-   ![권장](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-   목록에는 다음이 포함됩니다.
+## <a name="enable-application-controls-on-a-group-of-machines"></a>컴퓨터 그룹에서 응용 프로그램 제어 사용
 
-   - **그룹 이름**: 구독 및 그룹의 이름입니다.
-   - **Vm 및 컴퓨터**: 그룹의 가상 머신 수
-   - **상태**: 권장 구성의 상태
-   - **심각도**: 권장 구성의 심각도 수준
+구독에서 유사한 응용 프로그램 집합을 일관 되 게 실행 하는 컴퓨터 그룹을 식별 한 Security Center 경우, **컴퓨터에서 안전 응용 프로그램을 정의 하기 위한 적응 응용 프로그램 제어를 사용 하도록 설정**하 라는 메시지가 표시 됩니다.
 
-2. 그룹을 클릭하여 **애플리케이션 제어 규칙 만들기** 옵션을 엽니다.
+권장 사항을 선택 하거나 적응 응용 프로그램 컨트롤 페이지를 열어 알려진 알려진 안전한 응용 프로그램 및 컴퓨터 그룹 목록을 봅니다.
 
-   [![애플리케이션 컨트롤 규칙](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png#lightbox)
+1. Security Center의 메뉴에서 **적응 응용 프로그램 컨트롤**을 선택 합니다.
 
-3. **VM 선택**에서 권장된 VM 목록을 검토하고 애플리케이션 허용 목록 정책을 적용하지 않을 항목을 선택 취소합니다. 다음으로, 다음과 같은 두 개의 목록이 표시됩니다.
+    다음 탭으로 그룹화 된 Vm이 있는 **적응 응용 프로그램 컨트롤** 페이지가 열립니다.
 
-   - **권장되는 애플리케이션**: 이 그룹 내 VM에서 자주 사용되는 애플리케이션 목록으로, 실행을 허용할 것을 권장합니다.
-   - **더 많은 애플리케이션**: 이 그룹 내 VM에서 사용 빈도가 낮거나 악용 가능한(아래 참조) 것으로 알려진 애플리케이션 목록으로, 검토가 권장됩니다.
+    - **구성** 됨-응용 프로그램의 허용 목록이 이미 정의 된 컴퓨터 그룹입니다. 구성 된 탭은 각 그룹에 대해 다음을 보여 줍니다.
+        - 그룹에 있는 컴퓨터 수
+        - 최근 경고
 
-4. 각 목록의 애플리케이션을 검토하고 적용하지 않을 애플리케이션을 선택 취소하세요. 각 목록에는 다음과 같은 정보가 포함됩니다.
+    - **권장** -동일한 응용 프로그램을 일관 되 게 실행 하 고 허용 목록이 구성 되지 않은 컴퓨터 그룹입니다. 이러한 그룹에 대해 적응 응용 프로그램 컨트롤을 사용 하는 것이 좋습니다.
+    
+      > [!TIP]
+      > 접두사가 "REVIEWGROUP" 인 그룹 이름이 표시 되는 경우에는 부분적으로 일관 된 응용 프로그램 목록이 있는 컴퓨터가 포함 됩니다. 패턴을 볼 수 없지만이 그룹을 검토 하 여 [그룹의 적응 응용 프로그램 제어 규칙 편집](#editing-a-groups-adaptive-application-controls-rule)에 설명 된 대로 일부 적응 응용 프로그램 제어 규칙을 수동으로 _정의할 수 있는지 여부를 확인_ 하는 것이 좋습니다. Security Center
+      >
+      > [컴퓨터를 한 그룹에서 다른 그룹으로 이동](#move-a-machine-from-one-group-to-another)에 설명 된 대로이 그룹에서 다른 그룹으로 컴퓨터를 이동할 수도 있습니다.
 
-   - **이름**: 애플리케이션의 인증서 정보 또는 전체 경로입니다.
-   - **파일 형식**: 애플리케이션 파일 형식. EXE, 스크립트, MSI 또는 이러한 형식의 모든 순열이 될 수 있습니다.
-   - **악용**가능: 경고 아이콘은 공격자가 특정 응용 프로그램을 사용 하 여 응용 프로그램 허용 목록을 우회할 수 있는지 여부를 나타냅니다. 승인 전에 이러한 애플리케이션을 검토하는 것이 좋습니다.
-   - **사용자**: 애플리케이션을 실행할 수 있도록 허용하는 것이 좋은 사용자
+    - **권장 사항 없음** -정의 된 허용 응용 프로그램 목록이 없는 컴퓨터 이며 기능을 지원 하지 않습니다. 다음과 같은 이유로이 탭에 컴퓨터가 있을 수 있습니다.
+      - Log Analytics 에이전트가 없습니다.
+      - Log Analytics 에이전트가 이벤트를 보내지 않습니다.
+      - GPO 또는 로컬 보안 정책에서 사용 하도록 설정 된 기존 [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) 정책을 사용 하는 Windows 컴퓨터입니다.
 
-5. 선택이 완료되면 **만들기**를 선택합니다. <br>
-   만들기를 선택 하면 Azure Security Center Windows 서버 (AppLocker)에서 제공 되는 기본 제공 응용 프로그램 허용 목록 솔루션을 기반으로 적절 한 규칙을 자동으로 만듭니다.
+      > [!TIP]
+      > Security Center는 컴퓨터 그룹당 고유한 권장 사항을 정의 하기 위해 2 주 이상의 데이터가 필요 합니다. 최근에 만들었거나 표준 계층을 사용 하 여 최근에 사용 하도록 설정 된 구독에 속하는 컴퓨터는 **권장 사항 없음** 탭 아래에 표시 됩니다.
 
-> [!NOTE]
-> - Security Center는 기준을 만들고 VM의 그룹별로 고유한 권장 사항을 채우기 위해 최소 2주의 데이터를 필요로 합니다. Security Center 표준 계층의 새 고객은 먼저 VM의 그룹이 *권장 사항 없음* 탭 아래에 나타나는 동작을 예상해야 합니다.
-> - Security Center의 적응형 애플리케이션 제어는 이미 GPO 또는 로컬 보안 정책을 통해 AppLocker 정책이 설정된 VM을 지원하지 않습니다.
-> -  보안 모범 사례는 Security Center가 항상 허용할 것으로 선택된 애플리케이션에 대한 게시자 규칙을 만들려고 시도하고, 애플리케이션에 게시자 정보가 없는 경우에만(즉, 서명되지 않음) 특정 애플리케이션의 전체 경로에 대해 경로 규칙을 만드는 것입니다.
->   
 
-### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>애플리케이션 컨트롤을 사용하여 구성된 그룹의 편집 및 모니터링
+1. **권장** 탭을 엽니다. 권장 허용 목록이 있는 컴퓨터 그룹이 표시 됩니다.
 
-1. 응용 프로그램 허용 목록 정책으로 구성 된 그룹을 편집 하 고 모니터링 하려면 **적응형 응용 프로그램 제어** 페이지로 돌아가서 **Vm 그룹**에서 **구성 됨** 을 선택 합니다.
+   ![권장 탭](./media/security-center-adaptive-application/adaptive-application-recommended-tab.png)
 
-   ![그룹](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+1. 그룹을 선택합니다. 
 
-   목록에는 다음이 포함됩니다.
+1. 새 규칙을 구성 하려면이 특정 컴퓨터 그룹에 고유 하 게 적용 되는 **응용 프로그램 제어 규칙 구성** 페이지의 다양 한 섹션을 검토 합니다.
 
-   - **그룹 이름**: 구독 및 그룹의 이름입니다.
-   - **Vm 및 컴퓨터**: 그룹의 가상 머신 수
-   - **모드**: 감사 모드는 허용 목록에 없는 응용 프로그램을 실행 하려는 시도를 로깅합니다. 응용 프로그램을 허용 목록에 없는 경우 적용을 사용 하면 응용 프로그램을 실행할 수 없습니다.
-   - **경고**: 현재 위반
+   ![새 규칙 구성](./media/security-center-adaptive-application/adaptive-application-create-rule.png)
 
-2. **애플리케이션 제어 정책 편집** 페이지에서 변경할 그룹을 선택합니다.
+   1. **컴퓨터 선택** -기본적으로 식별 된 그룹의 모든 컴퓨터를 선택 합니다. 이 규칙에서 제거 하려는 항목을 선택 취소 합니다.
+   
+   1. **권장 되는 응용 프로그램** -이 그룹 내의 컴퓨터에 공통적인 응용 프로그램 목록을 검토 하 여 실행을 허용 하는 것이 좋습니다.
+   
+   1. **추가 응용 프로그램** -이 그룹 내 컴퓨터에서 자주 표시 되지 않거나 악용 가능한 것으로 알려진 응용 프로그램 목록을 검토 합니다. 경고 아이콘은 공격자가 응용 프로그램 허용 목록을 무시 하는 데 특정 응용 프로그램을 사용할 수 있음을 나타냅니다. 이러한 응용 프로그램을 신중 하 게 검토 하는 것이 좋습니다.
 
-   ![보호](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+      > [!TIP]
+      > 두 응용 프로그램 목록에는 특정 응용 프로그램을 특정 사용자로 제한 하는 옵션이 포함 되어 있습니다. 가능한 경우 최소 권한의 원칙을 채택 합니다.
+      > 
+      > 응용 프로그램은 게시자에 의해 정의 됩니다. 응용 프로그램에 게시자 정보가 없는 경우 (서명 되지 않은 경우) 특정 응용 프로그램의 전체 경로에 대 한 경로 규칙이 만들어집니다.
 
-3. **보호 모드** 아래에서 다음 중 하나를 선택할 수 있습니다.
+   1. 규칙을 적용 하려면 **감사**를 선택 합니다. 
 
-   - **감사**: 이 모드에서 애플리케이션 컨트롤 솔루션은 규칙을 적용하지 않고 보호되는 VM에서의 작업만 감사합니다. 이는 대상 VM에서 앱이 실행되는 것을 차단하기 전에 먼저 전반적인 동작을 관찰하려는 시나리오에 권장됩니다.
-   - **적용**: 이 모드에서 애플리케이션 컨트롤 솔루션은 규칙을 적용하고 실행이 허용되지 않은 애플리케이션을 차단합니다.
 
-   > [!NOTE]
-   > -  **적용** 보호 모드는 추가 공지가 있을 때까지 비활성화됩니다.
-   > - 앞서 언급한 것처럼 기본적으로 새 애플리케이션 컨트롤 정책은 항상 *감사* 모드에서 구성됩니다. 
+
+
+## <a name="editing-a-groups-adaptive-application-controls-rule"></a>그룹의 적응 응용 프로그램 제어 규칙 편집
+
+조직의 알려진 변경 내용으로 인해 컴퓨터 그룹에 대 한 허용 목록을 편집 하도록 결정할 수 있습니다. 
+
+컴퓨터 그룹에 대 한 규칙을 편집 하려면:
+
+1. Security Center의 메뉴에서 **적응 응용 프로그램 컨트롤**을 선택 합니다.
+
+1. **구성 됨** 탭에서 편집 하려는 규칙이 포함 된 그룹을 선택 합니다.
+
+1. [컴퓨터 그룹에서 적응 응용 프로그램 제어 사용](#enable-application-controls-on-a-group-of-machines)에 설명 된 대로 **응용 프로그램 제어 규칙 구성** 페이지의 다양 한 섹션을 검토 합니다.
+
+1. 필요에 따라 하나 이상의 사용자 지정 규칙을 추가 합니다.
+
+   1. **규칙 추가**를 선택 합니다.
+
+      ![사용자 지정 규칙 추가](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
+
+   1. 알려진 안전한 경로를 정의 하는 경우 **규칙 유형을** ' 경로 '로 변경 합니다. 경로에 와일드 카드를 포함할 수 있습니다.
+   
+      > [!TIP]
+      > 경로의 와일드 카드가 유용할 수 있는 몇 가지 시나리오는 다음과 같습니다.
+      > 
+      > * 경로 끝에 와일드 카드를 사용 하 여이 폴더와 하위 폴더에 있는 모든 실행 파일을 허용 합니다.
+      > * 경로 중간에 와일드 카드를 사용 하 여 변경 된 폴더 이름 (예: 알려진 실행 파일, 자동으로 생성 된 폴더 이름 등을 포함 하는 개인 사용자 폴더)으로 알려진 실행 파일 이름 사용
+  
+   1. 허용 되는 사용자 및 보호 된 파일 형식을 정의 합니다.
+
+   1. 규칙 정의를 완료 한 후 **추가**를 선택 합니다.
+
+1. 변경 내용을 적용 하려면 **저장**을 선택 합니다.
+
+
+
+
+## <a name="responding-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>"적응 응용 프로그램 제어 정책의 Allowlist 규칙을 업데이트 해야 합니다." 권장 사항
+
+이 권장 사항은 이전에는 허용 되지 않은 잠재적으로 합법적인 동작을 Security Center의 machine learning에서 식별 하는 경우에 나타납니다. 권장 사항은 거짓 긍정 경고 수를 줄이기 위해 기존 정의에 대 한 새 규칙을 제안 합니다.
+
+문제를 해결 하려면 다음을 수행 합니다.
+
+1. 권장 사항 페이지에서 **적응 응용 프로그램 제어 정책에서 Allowlist 규칙** 을 선택 하 여 새로 식별 된 잠재적으로 합법적인 동작을 포함 하는 그룹을 확인 합니다.
+
+1. 편집 하려는 규칙이 포함 된 그룹을 선택 합니다.
+
+1. [컴퓨터 그룹에서 적응 응용 프로그램 제어 사용](#enable-application-controls-on-a-group-of-machines)에 설명 된 대로 **응용 프로그램 제어 규칙 구성** 페이지의 다양 한 섹션을 검토 합니다.
+
+1. 변경 내용을 적용 하려면 **감사**를 선택 합니다.
+
+
+
+
+## <a name="auditing-alerts-and-violations"></a>경고 및 위반 감사
+
+1. Security Center의 메뉴에서 **적응 응용 프로그램 컨트롤**을 선택 합니다.
+
+1. 최근 경고가 있는 컴퓨터의 그룹을 확인 하려면 **구성 됨** 탭에 나열 된 그룹을 검토 합니다.
+
+1. 자세히 조사 하려면 그룹을 선택 합니다.
+
+   ![최근 경고](./media/security-center-adaptive-application/recent-alerts.png)
+
+1. 자세한 내용과 영향을 받는 컴퓨터의 목록에서 경고를 선택 합니다.
+
+
+
+## <a name="move-a-machine-from-one-group-to-another"></a>컴퓨터를 한 그룹에서 다른 그룹으로 이동
+
+컴퓨터를 한 그룹에서 다른 그룹으로 이동 하면 해당 컴퓨터에 적용 된 응용 프로그램 제어 정책이 사용자가 이동한 그룹의 설정으로 변경 됩니다. 구성 된 그룹에서 구성 되지 않은 그룹으로 컴퓨터를 이동할 수도 있습니다. 이렇게 하면 컴퓨터에 적용 된 모든 응용 프로그램 제어 규칙이 제거 됩니다.
+
+1. **적응 응용 프로그램 컨트롤** 페이지의 **구성 됨** 탭에서 이동할 컴퓨터를 포함 하는 그룹을 선택 합니다.
+
+1. **구성 된 컴퓨터**의 목록을 엽니다.
+
+1. 행의 끝에 있는 세 개의 점으로 컴퓨터의 메뉴를 열고 **이동**을 선택 합니다. **컴퓨터를 다른 그룹으로 이동** 창이 열립니다.
+
+1. 대상 그룹을 선택 하 고 **컴퓨터 이동**을 선택 합니다.
+
+1. 변경 내용을 저장 하려면 **저장**을 선택 합니다.
+
+
+
+
+
+## <a name="managing-application-controls-via-the-rest-api"></a>REST API를 통해 응용 프로그램 컨트롤 관리 
+
+적응 응용 프로그램 컨트롤을 프로그래밍 방식으로 관리 하려면 REST API을 사용 합니다. 
+
+전체 API 설명서는 [여기](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols)에 있습니다.
+
+REST API에서 사용할 수 있는 일부 함수는 다음과 같습니다.
+
+* **목록** 모든 그룹 권장 사항을 검색 하 고 각 그룹에 대 한 개체를 사용 하 여 JSON을 제공 합니다.
+
+* **Get** 은 전체 권장 사항 데이터 (즉, 컴퓨터 목록, 게시자/경로 규칙 등)를 사용 하 여 JSON을 검색 합니다.
+
+* **Put** 은 규칙을 구성 합니다. **Get** 을 사용 하 여 검색 한 JSON을이 요청에 대 한 본문으로 사용 합니다.
+ 
+   > [!IMPORTANT]
+   > **Put** 함수에는 Get 명령에 의해 반환 된 JSON 보다 더 많은 매개 변수가 필요 합니다.
    >
+   > Put 요청에서 JSON을 사용 하기 전에 recommendationStatus, configurationStatus, 문제, 위치 및 sourceSystem 속성을 제거 합니다.
 
-4. **정책 확장**에서 허용할 애플리케이션 경로를 추가합니다. 이러한 경로를 추가 하면 Security Center는 선택한 VM 그룹 내의 Vm에서 응용 프로그램 허용 목록 정책을 업데이트 하 고 이미 있는 규칙 외에 이러한 응용 프로그램에 대 한 적절 한 규칙을 만듭니다.
 
-5. **최근 경고** 섹션에 나열된 현재 위반을 검토합니다. Azure Security Center 내 **경고**로 리디렉션할 각 줄을 클릭하고, 연결된 VM에서 Azure Security Center에 의해 검색된 모든 경고를 봅니다.
-   - **경고**: 기록된 위반.
-   - **VM의 수**: 이러한 경고 유형이 있는 가상 머신의 수입니다.
 
-6. **게시자 허용 목록 규칙**, **허용 목록 규칙 경로** 및 **허용 목록 규칙 해시**에서 현재 그룹 내 VM에서 구성된 애플리케이션 허용 목록 규칙을 규칙 컬렉션 유형에 따라 확인할 수 있습니다. 각 규칙에 대해 다음을 확인할 수 있습니다.
-
-   - **규칙**: AppLocker에서 어떤 애플리케이션을 검사하는지에 따라 애플리케이션의 실행이 허용되는지 여부를 검사하는 특정 매개 변수입니다.
-   - **파일 형식**: 특정 규칙에서 다루는 파일 형식입니다. EXE, 스크립트, MSI 또는 이러한 파일 유형의 모든 순열일 수 있습니다.
-   - **사용자**: 애플리케이션 허용 목록 규칙에서 다루는 애플리케이션의 실행이 허용된 사용자의 이름 또는 번호입니다.
-
-   ![허용 목록 규칙](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
-
-7. 각 줄의 끝에 있는 세 점을 클릭하면 특정 규칙을 삭제하거나 허용된 사용자를 편집할 수 있습니다.
-
-8. **적응형 애플리케이션 제어** 정책을 변경한 후 **저장**을 클릭합니다.
-
-### <a name="not-recommended-list"></a>권장되지 않음 목록
-
-Security Center는 안정적인 애플리케이션의 집합을 실행하는 가상 머신을 위해 애플리케이션 허용 목록 정책만 권장합니다. 관련된 VM의 애플리케이션이 계속 변경되는 경우 권장 사항이 생성되지 않습니다.
-
-![권장](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
-
-목록에는 다음이 포함되어 있습니다.
-- **그룹 이름**: 구독 및 그룹의 이름입니다.
-- **Vm 및 컴퓨터**: 그룹의 가상 머신 수
-
-Azure Security Center를 사용하면 권장되지 않는 VM 그룹에서도 애플리케이션 허용 목록 정책을 정의할 수 있습니다. 해당 그룹에서도 애플리케이션 허용 목록 정책을 구성하려면 이전에 설명한 동일한 원칙을 따릅니다.
-
-## <a name="move-a-vm-from-one-group-to-another"></a>한 그룹에서 다른 그룹으로 VM 이동
-
- VM을 한 그룹에서 다른 그룹으로 이동 하면 해당 VM에 적용 된 응용 프로그램 제어 정책이 사용자가 이동한 그룹의 설정으로 변경 됩니다. 구성 된 그룹에서 구성 되지 않은 그룹으로 VM을 이동할 수도 있습니다. 이렇게 하면 이전에 VM에 적용 된 응용 프로그램 제어 정책이 모두 제거 됩니다.
-
- 1. **적응 응용 프로그램 컨트롤** 페이지의 **구성 됨** 탭에서 현재 이동 하려는 VM이 속한 그룹을 클릭 합니다.
-1. **구성 된 vm 및 컴퓨터**를 클릭 합니다.
-1. 이동할 VM의 줄에서 세 개의 점을 클릭 하 고 이동을 클릭 **합니다.** **컴퓨터를 다른 그룹으로 이동** 창이 열립니다.
-
-    ![보호](./media/security-center-adaptive-application/adaptive-application-move-group.png)
-
- 1. VM을 이동할 대상 그룹을 선택 하 고 **컴퓨터 이동**을 클릭 한 다음 **저장**을 클릭 합니다.
-
-    ![보호](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
-
- > [!NOTE]
-> **컴퓨터 이동**을 클릭 한 후에 **저장** 을 클릭 해야 합니다. **저장**을 클릭 하지 않으면 컴퓨터가 이동 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하 여 Azure 및 비 Azure Vm에서 실행 되는 응용 프로그램을 허용 목록 하는 방법을 배웠습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
+이 문서에서는 Azure Security Center에서 적응 응용 프로그램 제어를 사용 하 여 Azure 및 비 Azure 컴퓨터에서 실행 되는 응용 프로그램의 허용 목록을 정의 하는 방법을 배웠습니다. Security Center의 다른 클라우드 워크 로드 보호 기능에 대 한 자세한 내용은 다음을 참조 하세요.
 
-* [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.
-* [Azure Security Center의 보안 상태 모니터링](security-center-monitoring.md) Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center의 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) 다양한 유형의 보안 경고에 대해 알아봅니다.
-* [Azure Security Center 문제 해결 가이드를 참조](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide)하세요. Security Center의 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [JIT (just-in-time) VM 액세스 이해](just-in-time-explained.md)
+* [Azure Kubernetes 클러스터 보안 설정](azure-kubernetes-service-integration.md)

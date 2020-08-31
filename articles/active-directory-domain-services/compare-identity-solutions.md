@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 013b78e0e8ad47e98b1d192bfc48c5c4a4de0163
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1ed1305939f4f8a9de62de85a2f09c323a2636b1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555136"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489591"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>자체 관리형 Active Directory Domain Services, Azure Active Directory 및 관리형 Azure Active Directory Domain Services 비교
 
@@ -47,7 +47,7 @@ Kerberos 또는 NTLM과 같은 기존 인증 메커니즘에 액세스해야 하
 
 Azure AD DS를 사용하면 Microsoft에서 핵심 서비스 구성 요소를 *관리형* 도메인 환경으로 배포하고 유지 관리합니다. VM, Windows Server OS 또는 DC(도메인 컨트롤러)와 같은 구성 요소에 대한 AD DS 인프라를 배포, 관리, 패치 및 보호하지 않습니다.
 
-Azure AD DS는 기능의 더 작은 하위 세트를 기존의 자체 관리형 AD DS 환경에 제공하여 설계 및 관리 복잡성의 일부를 줄입니다. 예를 들어 설계하고 유지 관리할 AD 포리스트, 도메인, 사이트 및 복제 링크가 없습니다. 그래도 [Azure AD DS와 온-프레미스 환경(현재 미리 보기)간에 포리스트 트러스트를 만들][create-forest-trust] 수 있습니다.
+Azure AD DS는 기능의 더 작은 하위 세트를 기존의 자체 관리형 AD DS 환경에 제공하여 설계 및 관리 복잡성의 일부를 줄입니다. 예를 들어 설계하고 유지 관리할 AD 포리스트, 도메인, 사이트 및 복제 링크가 없습니다. 그래도 [Azure AD DS와 온-프레미스 환경 간에 포리스트 트러스트를 만들][create-forest-trust] 수 있습니다.
 
 클라우드에서 실행되고 Kerberos 또는 NTLM과 같은 기존 인증 메커니즘에 액세스해야 하는 애플리케이션과 서비스의 경우 Azure AD DS는 관리 오버헤드가 최소화된 관리되는 도메인 환경을 제공합니다. 자세한 내용은 [Azure AD DS에서 사용자 계정, 암호 및 관리에 대한 관리 개념][administration-concepts]을 참조하세요.
 

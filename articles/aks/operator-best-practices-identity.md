@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c7e8cd28380a86a671c74af03fa479abce5cfe25
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0e11f345bfed287be3170df38a909ed24149b754
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107141"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010262"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
 
@@ -33,7 +33,7 @@ AKS(Azure Kubernetes Service)에서 클러스터를 배포 및 유지 관리하�
 
 Kubernetes 클러스터의 개발자 및 애플리케이션 소유자는 다양한 다른 리소스에 액세스해야 합니다. Kubernetes는 어떤 사용자가 어떤 리소스를 조작할지 제어할 수 있는 ID 관리 솔루션을 제공하지 않습니다. 대신 일반적으로 클러스터를 기존 ID 솔루션과 통합합니다. Azure AD(Active Directory)는 기업환경에 맞게 준비된 ID 관리 솔루션을 제공하며 AKS 클러스터와 통합할 수 있습니다.
 
-AKS의 Azure AD 통합형 클러스터를 사용하여 리소스에 대한 액세스 권한을 정의하는 *Role* 또는 *ClusterRole*을 만듭니다. 그런 다음, Azure AD의 사용자 또는 그룹에 역할을 ‘바인딩’ 합니다.** 이러한 Kubernetes RBAC(역할 기반 액세스 제어)는 다음 섹션에서 설명합니다. Azure AD 통합 및 리소스 액세스 제어 방법은 다음 다이어그램에서 볼 수 있습니다.
+AKS의 Azure AD 통합형 클러스터를 사용하여 리소스에 대한 액세스 권한을 정의하는 *Role* 또는 *ClusterRole*을 만듭니다. 그런 다음, Azure AD의 사용자 또는 그룹에 역할을 ‘바인딩’ 합니다.** 이러한 Kubernetes RBAC (역할 기반 액세스 제어)에 대해서는 다음 섹션에서 설명 합니다. Azure AD 통합 및 리소스 액세스 제어 방법은 다음 다이어그램에서 볼 수 있습니다.
 
 ![AKS와 Azure Active Directory 통합을 위한 클러스터 수준 인증](media/operator-best-practices-identity/cluster-level-authentication-flow.png)
 
@@ -46,7 +46,7 @@ AKS의 Azure AD 통합형 클러스터를 사용하여 리소스에 대한 액�
 
 Azure AD를 사용하는 AKS 클러스터를 만들려면 [AKS와 Azure Active Directory 통합][aks-aad]을 참조하세요.
 
-## <a name="use-kubernetes-role-based-access-controls-rbac"></a>Kubernetes 역할 기반 액세스 제어 (RBAC) 사용
+## <a name="use-kubernetes-role-based-access-control-rbac"></a>Kubernetes 역할 기반 액세스 제어 (RBAC) 사용
 
 **모범 사례 가이드** - Kubernetes RBAC을 사용하여 사용자 또는 그룹이 클러스터의 리소스를 대상으로 가져야 하는 권한을 정의합니다. 필요한 최소 권한을 할당하는 역할 및 바인딩을 만듭니다. Azure AD와 통합되므로 사용자 상태 또는 그룹 멤버 자격의 변경 내용이 자동으로 업데이트되고 클러스터 리소스에 대한 액세스가 최신 상태입니다.
 
@@ -95,7 +95,7 @@ AKS 클러스터를 완벽 하 게 운영 하는 데 필요한 액세스 수준�
 1. Azure 구독에서 AKS 리소스에 액세스 합니다. 이 액세스 수준을 통해 AKS Api를 사용 하 여 클러스터를 확장 하거나 업그레이드 하는 작업을 제어 하 고 kubeconfig를 끌어올 수 있습니다.
 AKS 리소스 및 kubeconfig에 대 한 액세스를 제어 하는 방법을 보려면 [클러스터 구성 파일에 대 한 액세스 제한](control-kubeconfig-access.md)을 참조 하세요.
 
-2. Kubernetes API에 대 한 액세스. 이 액세스 수준은 [KUBERNETES RBAC](#use-kubernetes-role-based-access-controls-rbac) (일반적으로) 또는 Kubernetes 권한 부여를 위해 AKS와 Azure RBAC를 통합 하 여 제어 됩니다.
+2. Kubernetes API에 대 한 액세스. 이 액세스 수준은 [KUBERNETES RBAC](#use-kubernetes-role-based-access-control-rbac) (일반적으로) 또는 Kubernetes 권한 부여를 위해 AKS와 Azure RBAC를 통합 하 여 제어 됩니다.
 Azure RBAC를 사용 하 여 Kubernetes API에 권한을 부여 하는 방법에 대 한 자세한 내용은 [Kubernetes 권한 부여를 위해 AZURE Rbac 사용](manage-azure-rbac.md)세부적으로을 참조 하세요.
 
 ## <a name="use-pod-identities"></a>Pod ID 사용

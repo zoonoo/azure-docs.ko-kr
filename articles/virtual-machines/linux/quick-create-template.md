@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 479e580ee8821f0a6de054c631714c5386927e4f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bd22d20703dc72e220f9b479b4a4005033f964ae
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083919"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649774"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Ubuntu Linux 가상 머신 만들기
 
@@ -33,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json" range="1-261" highlight="110-260":::
+:::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json":::
 
 
 이러한 리소스는 템플릿에 정의되어 있습니다.
@@ -65,7 +65,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - **DNS 레이블 접두사**: DNS 레이블의 일부로 사용할 고유 식별자를 입력합니다.
     - **Ubuntu OS 버전**: VM에서 실행하려는 Ubuntu 버전을 선택합니다.
     - **위치**: 기본값은 리소스 그룹과 같은 위치입니다(이미 있는 경우).
-    - **VM 크기**: VM에 사용할 [크기](sizes.md)를 선택합니다.
+    - **VM 크기**: VM에 사용할 [크기](../sizes.md)를 선택합니다.
     - **Virtual Network 이름**: vNet에 사용할 이름입니다.
     - **서브넷 이름**: VM에서 사용해야 하는 서브넷의 이름입니다.
     - **네트워크 보안 그룹 이름**: NSG의 이름입니다.

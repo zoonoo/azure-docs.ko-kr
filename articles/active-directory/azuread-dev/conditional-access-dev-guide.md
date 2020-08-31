@@ -13,12 +13,12 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8895e52209622025f943aaa6a4261b68a7e2899c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034842"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116306"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Azure Active Directory 조건부 액세스 기능에 대 한 개발자 지침
 
@@ -90,7 +90,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-Azure AD 조건부 액세스는 [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)에 포함된 기능입니다. [허가되지 않은 사용 현황 보고서](../active-directory-conditional-access-unlicensed-usage-report.md)에서 라이선스 요구 사항에 대해 자세히 알아볼 수 있습니다. 개발자는 Azure AD Premium이 포함된 Enterprise Mobility Suite에 대한 평가판 구독이 속한 [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx)에 참여할 수 있습니다.
+Azure AD 조건부 액세스는 [Azure AD Premium](../fundamentals/active-directory-whatis.md)에 포함된 기능입니다. [허가되지 않은 사용 현황 보고서](../reports-monitoring/overview-reports.md)에서 라이선스 요구 사항에 대해 자세히 알아볼 수 있습니다. 개발자는 Azure AD Premium이 포함된 Enterprise Mobility Suite에 대한 평가판 구독이 속한 [Microsoft Developer Network](/)에 참여할 수 있습니다.
 
 ### <a name="considerations-for-specific-scenarios"></a>특정 시나리오에 대한 고려 사항
 
@@ -177,7 +177,7 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 ## <a name="see-also"></a>참고 항목
 
-* 기능에 대해 자세히 알아보려면 [Azure Active Directory의 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 참조하세요.
+* 기능에 대해 자세히 알아보려면 [Azure Active Directory의 조건부 액세스](../conditional-access/overview.md)를 참조하세요.
 * 더 많은 Azure AD 샘플 코드를 보려면 [샘플 코드의 GitHub 리포지토리](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)를 참조하세요.
 * ADAL SDK에 대한 자세한 내용을 보고 참조 설명서에 액세스하려면 [라이브러리 가이드](active-directory-authentication-libraries.md)를 참조하세요.
 * 다중 테넌트 시나리오에 대한 자세한 내용은 [다중 테넌트 패턴을 사용하여 사용자를 로그인하는 방법](../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)을 참조하세요.

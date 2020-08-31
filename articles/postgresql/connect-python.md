@@ -1,19 +1,19 @@
 ---
-title: Python을 사용하여 - Azure Database for PostgreSQL - 단일 서버에 연결
+title: '빠른 시작: Python을 사용하여 - Azure Database for PostgreSQL - 단일 서버에 연결'
 description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 서버의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 Python 코드 샘플을 제공합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc, devcenter, tracking-python
+ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 9bb94ee63873dea321af252a4380a7aab10df6ff
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a9303909eb98fc0ff2d7582fa7f5807a879e7958
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071479"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182685"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 단일 서버의 데이터 연결 및 쿼리
 

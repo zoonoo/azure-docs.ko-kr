@@ -2,16 +2,31 @@
 title: Service Fabric 애플리케이션 업그레이드
 description: 이 문서에서는 업그레이드 모드 선택 및 상태 확인 수행 등을 포함하여 Service Fabric 애플리케이션 업그레이드를 소개합니다.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: 9e7a93dd3ef8a1adf6617dcd57887a0ce694c509
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 8/5/2020
+ms.openlocfilehash: cb0c1c0049957244b94b59707b70e47dc53f6c9f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248002"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067514"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 애플리케이션 업그레이드
 Azure Service Fabric 애플리케이션은 서비스의 컬렉션입니다. 업그레이드가 진행되는 동안 Service Fabric은 새로운 [애플리케이션 매니페스트](service-fabric-application-and-service-manifests.md)를 이전 버전과 비교하여 애플리케이션의 어떤 서비스를 업데이트해야 하는지 결정합니다. 서비스 패브릭은 이전 버전의 버전 번호를 가진 서비스 매니페스트의 버전 번호를 비교합니다. 서비스가 변경되지 않으면 해당 서비스가 업그레이드되지 않습니다.
+
+> [!NOTE]
+> [Applicationparameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s는 응용 프로그램 업그레이드에서 유지 되지 않습니다. 현재 응용 프로그램 매개 변수를 유지 하기 위해 사용자는 매개 변수를 먼저 가져온 후 아래와 같은 업그레이드 API 호출로 전달 해야 합니다.
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## <a name="rolling-upgrades-overview"></a>롤링 업그레이드 개요
 롤링 애플리케이션 업그레이드에서 업그레이드는 여러 단계로 수행됩니다. 각 단계에서 업데이트 도메인이라고 하는 클러스터의 노드 하위 집합에 업그레이드가 적용됩니다. 결과적으로, 전체 업그레이드 과정에서 애플리케이션 가용성이 유지됩니다. 업그레이드가 진행되는 동안 클러스터에 이전 버전과 새 버전이 동시에 포함될 수 있습니다.

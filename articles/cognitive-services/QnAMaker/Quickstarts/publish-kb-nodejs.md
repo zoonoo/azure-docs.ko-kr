@@ -5,12 +5,12 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-javascript
 ms.topic: how-to
-ms.openlocfilehash: 18ccec5332e3751a86225ab087a1f68b0577cf96
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 447b8a07f6bbda42be4def96ee8f1244fa752526
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406098"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245590"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>퀵 스타트: Node.js에 대 한 REST Api QnA Maker
 
@@ -31,7 +31,7 @@ Node.js용 QnA Maker REST API를 사용하여 다음을 수행합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
+* Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * 현재 버전의 [Node.js](https://nodejs.org)
 * [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)가 있어야 합니다. 키와 엔드포인트(리소스 이름 포함)를 검색하려면 Azure Portal에서 리소스에 대해 **빠른 시작**을 선택합니다.
 
@@ -88,7 +88,7 @@ const request = require("requestretry");
 
 다음 환경 값을 설정합니다.
 
-* `QNAMAKER_RESOURCE_KEY`- **키는** 32 문자열이 고, Azure Portal QnA Maker 리소스의 **빠른 시작** 페이지에서 사용할 수 있습니다. 이는 예측 엔드포인트 키와 동일하지 않습니다.
+* `QNAMAKER_RESOURCE_KEY` - **키는** 32 문자열이 고, Azure Portal QnA Maker 리소스의 **빠른 시작** 페이지에서 사용할 수 있습니다. 이는 예측 엔드포인트 키와 동일하지 않습니다.
 * `QNAMAKER_AUTHORING_ENDPOINT` - `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` 형식의 작성 엔드포인트에는 **리소스 이름**이 포함됩니다. 이는 예측 엔드포인트를 쿼리하는 데 사용되는 URL과 동일하지 않습니다.
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]

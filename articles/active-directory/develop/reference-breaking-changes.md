@@ -12,12 +12,12 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2fe41cdc6fa1adef96568981df5bb13129fe900f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026733"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115036"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능?
 
@@ -49,7 +49,7 @@ ms.locfileid: "87026733"
 
 2018 6 월 1 일에 Azure Government의 AAD (공식 Azure Active Directory) 기관이에서로 변경 되었습니다 `https://login-us.microsoftonline.com` `https://login.microsoftonline.us` . 이 변경은 AAD도 서비스를 Azure Government 하는 Microsoft 365 GCC High 및 DoD에도 적용 됩니다. 미국 정부 테 넌 트 내에서 응용 프로그램을 소유 하는 경우 끝점에서 사용자를 로그인 하도록 응용 프로그램을 업데이트 해야 합니다 `.us` .  
 
-5 월 5 일에 Azure AD는 공개 끝점 ()을 사용 하 여 정부 사용자가 미국 정부 테 넌 트에 호스트 된 앱에 로그인 하지 못하도록 차단 하는 끝점 변경을 적용 하기 시작 합니다 `microsoftonline.com` .  영향을 받는 앱은 오류를 표시 하기 시작 `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` 합니다. 이 오류는 앱이 공용 클라우드 끝점에서 미국 정부 사용자에 게 로그인을 시도 하 고 있음을 나타냅니다. 앱이 공용 클라우드 테 넌 트에 있고 미국 정부 사용자를 지원 하려면 앱을 업데이트 하 여 [명시적으로 지원](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)해야 합니다. 이를 위해서는 미국 정부 클라우드에서 새 앱 등록을 만들어야 할 수 있습니다. 
+5 월 5 일에 Azure AD는 공개 끝점 ()을 사용 하 여 정부 사용자가 미국 정부 테 넌 트에 호스트 된 앱에 로그인 하지 못하도록 차단 하는 끝점 변경을 적용 하기 시작 합니다 `microsoftonline.com` .  영향을 받는 앱은 오류를 표시 하기 시작 `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` 합니다. 이 오류는 앱이 공용 클라우드 끝점에서 미국 정부 사용자에 게 로그인을 시도 하 고 있음을 나타냅니다. 앱이 공용 클라우드 테 넌 트에 있고 미국 정부 사용자를 지원 하려면 앱을 업데이트 하 여 [명시적으로 지원](./authentication-national-cloud.md)해야 합니다. 이를 위해서는 미국 정부 클라우드에서 새 앱 등록을 만들어야 할 수 있습니다. 
 
 이 변경 내용은 미국 정부 클라우드의 사용자가 응용 프로그램에 로그인 하는 빈도에 따라 점진적 출시를 사용 하 여 수행 됩니다. 앱에 미국 정부 사용자의 로그인은 자주 적용 되지 않으며 미국 정부 사용자가 자주 사용 하는 앱은 적용이 적용 됩니다. 6 월 2020에 모든 앱에서 적용이 완료 될 것으로 간주 됩니다. 
 
@@ -98,7 +98,7 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 **영향을 받는 엔드포인트**: v1.0 및 v2.0 모두
 
-**영향을 받는 프로토콜**: 어디서 나 게시를 사용 합니다 ([클라이언트 자격 증명](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [인증 코드 상환](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ropc](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [obo](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)및 [새로 고침 토큰 상환](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token)).
+**영향을 받는 프로토콜**: 어디서 나 게시를 사용 합니다 ([클라이언트 자격 증명](./v2-oauth2-client-creds-grant-flow.md), [인증 코드 상환](./v2-oauth2-auth-code-flow.md), [ropc](./v2-oauth-ropc.md), [obo](./v2-oauth2-on-behalf-of-flow.md)및 [새로 고침 토큰 상환](./v2-oauth2-auth-code-flow.md#refresh-the-access-token)).
 
 9/2 주부터 POST 메서드를 사용 하는 인증 요청은 보다 엄격한 HTTP 표준을 사용 하 여 유효성이 검사 됩니다.  특히 공백과 큰따옴표 (")는 요청 양식 값에서 더 이상 제거 되지 않습니다. 이러한 변경으로 인해 기존 클라이언트는 중단 되지 않으며, Azure AD로 전송 되는 요청은 매번 안정적으로 처리 됩니다. 나중에 (위 참조) 요청 내에서 중복 된 매개 변수를 거부 하 고 BOM을 무시할 계획입니다.
 
@@ -113,9 +113,9 @@ HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램�
 
 **개시 날짜**: 2019 년 7 월 26 일
 
-**영향을 받는 끝점**: [V1.0 및 v2.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) 모두 [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**영향을 받는 끝점**: [V1.0 및 v2.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) 모두 [v2.0](./v2-oauth2-client-creds-grant-flow.md)
 
-**영향을 받는 프로토콜**: [클라이언트 자격 증명 (앱 전용 토큰)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+**영향을 받는 프로토콜**: [클라이언트 자격 증명 (앱 전용 토큰)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
 
 보안 변경은 응용 프로그램 전용 토큰 (클라이언트 자격 증명 부여를 통해 권한 부여를 통해)이 발급 되는 방식을 변경 하는 7 월 26 일에 실시간으로 발생 합니다. 이전에는 응용 프로그램에서 테 넌 트의 현재 상태와 상관 없이 해당 응용 프로그램에 대 한 동의한 다른 앱을 호출 하는 토큰을 가져올 수 있었습니다.  이 동작은 리소스 (웹 Api 라고도 함)가 단일 테 넌 트 (기본값)로 설정 되도록 업데이트 되었으므로 클라이언트 응용 프로그램이 리소스 테 넌 트 내에 있어야 합니다.  클라이언트와 API 간의 기존 동의가 아직 필요 하지 않으며, 응용 프로그램에서 `roles` 클레임을 제공 하 고 API에 대 한 예상 값을 포함 하 고 있는지 확인 하기 위해 여전히 자체 권한 부여 검사를 수행 해야 합니다.
 

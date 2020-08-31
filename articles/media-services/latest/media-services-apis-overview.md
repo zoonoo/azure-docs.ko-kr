@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 703c08cd5a884c8bfdd027b4ecf457c9e954a2dc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dcec4d0bc93433c768faf10e4520131aeecc5e77
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043411"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719192"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Microsoft Azure Media Services v3 API로 개발
 
@@ -86,7 +86,7 @@ Azure Resource Manager의 이름을 지정하는 방법에 대한 자세한 내�
 
 Azure Microsoft Azure Media Services [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json)에 `x-ms-long-running-operation`으로 표시되는 작업은 장기 실행 작업입니다. 
 
-비동기 Azure 작업을 추적하는 방법에 대한 자세한 내용은 [비동기 작업](../../azure-resource-manager/management/async-operations.md#monitor-status-of-operation)을 참조하세요.
+비동기 Azure 작업을 추적하는 방법에 대한 자세한 내용은 [비동기 작업](../../azure-resource-manager/management/async-operations.md)을 참조하세요.
 
 Microsoft Azure Media Services에는 다음과 같은 장기 실행 작업이 있습니다.
 

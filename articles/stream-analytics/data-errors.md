@@ -5,17 +5,17 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/27/2020
-ms.openlocfilehash: 725d1cf38a0c7f6de02addc62577e397a935af94
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 08/07/2020
+ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041050"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053153"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics 데이터 오류
 
-데이터 오류는 데이터를 처리 하는 동안 발생 하는 오류입니다.  이러한 오류는 데이터 serialization, 직렬화 및 쓰기 작업 중에 발생 하는 경우가 가장 많습니다.  데이터 오류가 발생 하면 Stream Analytics는 자세한 정보와 예제 이벤트를 리소스 로그에 기록 합니다.  경우에 따라 포털 알림을 통해이 정보 요약도 제공 됩니다.
+데이터 오류는 데이터를 처리 하는 동안 발생 하는 오류입니다.  이러한 오류는 데이터 serialization, 직렬화 및 쓰기 작업 중에 발생 하는 경우가 가장 많습니다.  데이터 오류가 발생 하면 Stream Analytics는 자세한 정보와 예제 이벤트를 리소스 로그에 기록 합니다. 이러한 추가 정보를 얻기 위해 작업에서 진단 로그를 사용 하도록 설정 합니다. 경우에 따라 포털 알림을 통해이 정보에 대 한 요약도 제공 됩니다.
 
 이 문서에서는 입력 및 출력 데이터 오류에 대 한 다양 한 오류 유형, 원인 및 리소스 로그 세부 정보를 설명 합니다.
 

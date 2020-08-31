@@ -1,19 +1,17 @@
 ---
 title: Windows 가상 데스크톱 FAQ-Azure
 description: Windows 가상 데스크톱에 대 한 질문과 대답 및 모범 사례입니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504418"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121122"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Windows Virtual Desktop FAQ
 
@@ -25,7 +23,7 @@ ms.locfileid: "87504418"
 
 앱 그룹에 사용자 액세스 관리자 역할을 할당 하 여 사용자 또는 사용자 그룹에 앱 그룹을 게시 해야 합니다.
 
-사용자에 게 메시지 보내기, 사용자 로그 아웃 등의 사용자 세션만 관리 하도록 제한 하려면 사용자 지정 역할을 만들 수 있습니다. 예를 들면 다음과 같습니다. 
+사용자에 게 메시지 보내기, 사용자 로그 아웃 등의 사용자 세션만 관리 하도록 제한 하려면 사용자 지정 역할을 만들 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 "actions": [
@@ -49,8 +47,6 @@ ms.locfileid: "87504418"
 사용자가 앱 그룹에 할당 되 면 서비스는 간단한 Azure 역할 할당을 수행 합니다. 따라서 사용자의 AD (Azure Active Directory)와 앱 그룹의 Azure AD는 동일한 위치에 있어야 합니다. 호스트 풀, 앱 그룹 및 작업 영역과 같은 모든 서비스 개체도 사용자와 동일한 Azure AD에 있어야 합니다.
 
 Active Directory를 동일한 VNET (가상 네트워크)에서 사용자의 Azure AD와 동기화 하는 경우 다른 Azure AD에서 Vm (가상 머신)을 만들 수 있습니다.
-
-Azure Lighthouse는 Windows 가상 데스크톱 환경 관리를 완벽 하 게 지원 하지 않습니다. Lighthouse는 현재 Azure AD 테 넌 트 사용자 관리를 지원 하지 않으므로, Lighthouse 고객은 고객이 사용자를 관리 하는 데 사용 하는 Azure AD에 여전히 로그인 해야 합니다.
 
 ## <a name="what-are-location-restrictions"></a>위치 제한은 무엇 인가요?
 
@@ -116,7 +112,7 @@ Windows 가상 데스크톱은 현재 팀에 최적화 되어 있습니다. Micr
 
 FSLogix의 제한 또는 할당량은 사용자 프로필 VHD (X) 파일을 저장 하는 데 사용 되는 저장소 패브릭에 따라 다릅니다.
 
-다음 표에서는 FSLogix 프로필에서 각 사용자를 지 원하는 데 필요한 리소스의 예를 보여 줍니다. 요구 사항은 각 프로필의 사용자, 응용 프로그램 및 작업에 따라 크게 달라질 수 있습니다. 
+다음 표에서는 FSLogix 프로필에서 각 사용자를 지 원하는 데 필요한 리소스의 예를 보여 줍니다. 요구 사항은 각 프로필의 사용자, 응용 프로그램 및 작업에 따라 크게 달라질 수 있습니다.
 
 | 리소스 | 요구 사항 |
 |---|---|
@@ -134,3 +130,11 @@ FSLogix의 제한 또는 할당량은 사용자 프로필 VHD (X) 파일을 저�
 - 지역 및 구독 당 만들 수 있는 코어 수에는 제한이 있습니다. 예를 들어 기업계약 구독이 있는 경우 350 코어를 만들 수 있습니다. 템플릿을 실행할 때마다 만들 수 있는 Vm 수를 결정 하려면 VM 당 기본 코어 수 또는 고유한 코어 제한으로 350을 나누어야 합니다. [Virtual Machines 한도 Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager)에서 자세히 알아보세요.
 
 - VM 접두사 이름과 Vm 수가 15 자 미만입니다. 자세히 알아보려면 [Azure 리소스에 대 한 명명 규칙 및 제한 사항](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute)을 참조 하세요.
+
+## <a name="can-i-manage-windows-virtual-desktop-environments-with-azure-lighthouse"></a>Azure Lighthouse를 사용 하 여 Windows 가상 데스크톱 환경을 관리할 수 있나요?
+
+Azure Lighthouse는 Windows 가상 데스크톱 환경 관리를 완벽 하 게 지원 하지 않습니다. Lighthouse는 현재 Azure AD 테 넌 트 사용자 관리를 지원 하지 않으므로, Lighthouse 고객은 고객이 사용자를 관리 하는 데 사용 하는 Azure AD에 여전히 로그인 해야 합니다.
+
+또한 Windows 가상 데스크톱 서비스에서 CSP 샌드박스 구독을 사용할 수 없습니다. 자세히 알아보려면 [Integration sandbox 계정](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account)을 참조 하세요.
+
+마지막으로, CSP 소유자 계정에서 리소스 공급자를 사용 하도록 설정한 경우 CSP 고객 계정은 리소스 공급자를 수정할 수 없습니다.

@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 7cecbc48eb362c2c0f1741352e6f7f5f6ad40c9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5abb6852e267fa7d7277e0e0674a4099343e14ca
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80550254"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114917"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>iOS 디바이스의 공유 디바이스 모드
 
@@ -67,7 +67,7 @@ ms.locfileid: "80550254"
       - 형식: Boolean
       - 값: True
 
-    Intune을 사용 하 여를 구성 하는 방법에 대 한 자세한 내용은 [intune 구성 설명서](https://docs.microsoft.com/intune/configuration/ios-device-features-settings)를 참조 하세요.
+    Intune을 사용 하 여를 구성 하는 방법에 대 한 자세한 내용은 [intune 구성 설명서](/intune/configuration/ios-device-features-settings)를 참조 하세요.
 
 1. 다음으로 mdm 프로필을 통해 장치에 Microsoft Authenticator 앱을 푸시하는 MDM을 구성 합니다.
 

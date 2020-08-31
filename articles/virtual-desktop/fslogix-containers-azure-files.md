@@ -1,19 +1,17 @@
 ---
 title: Windows 가상 데스크톱 FSLogix 프로필 컨테이너 파일-Azure
 description: 이 문서에서는 Windows 가상 데스크톱 및 Azure files 내의 FSLogix 프로필 컨테이너에 대해 설명 합니다.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7728ff96ccc3da5a36d919e61518a3ce3d13581c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611979"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002393"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
@@ -49,15 +47,15 @@ UPD 및 RUP는 RDSH (원격 데스크톱 세션 호스트) 및 VHD (가상 하�
 
 | 기술 | 최신 설정 | Win32 설정 | OS 설정 | 사용자 데이터 | 서버 SKU에서 지원 됨 | Azure의 백 엔드 저장소 | 백 엔드 저장소 온-프레미스 | 버전 지원 | 후속 로그인 시간 |참고|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **사용자 프로필 디스크 (UPD)** | 예 | 예 | 예 | 예 | 예 | 예 | 예 | Win 7 이상 | 예 | |
-| **로밍 사용자 프로필 (RUP), 유지 관리 모드** | 예 | 예 | 예 | 예 | 예| 예 | 예 | Win 7 이상 | 아니요 | |
-| **Enterprise State Roaming (ESR)** | 예 | 예 | 예 | 아니요 | 참고 사항 보기 | 예 | 아니요 | Win 10 | 아니요 | 서버 SKU에서 함수를 사용 하지만 지원 사용자 인터페이스를 지원 하지 않습니다. |
-| **UE-V (사용자 환경 가상화)** | 예 | 예 | 예 | 예 | 예 | 예 | 예 | Win 7 이상 | 아니요 |  |
-| **OneDrive 클라우드 파일** | 아니요 | 아니요 | 예 | 예 | 참고 사항 보기 | 참고 사항 보기  | 참고 참조 | Win 10 RS3 | 아니요 | 서버 SKU에서 테스트 되지 않았습니다. Azure의 백 엔드 저장소는 동기화 클라이언트에 따라 달라 집니다. 백 엔드 저장소 온-프레미스에 동기화 클라이언트가 필요 합니다. |
+| **사용자 프로필 디스크 (UPD)** | 예 | 예 | 예 | 예 | 예 | 아니요 | 예 | Win 7 이상 | 예 | |
+| **로밍 사용자 프로필 (RUP), 유지 관리 모드** | 아니요 | 예 | 예 | 예 | 예| 아니요 | 예 | Win 7 이상 | 아니요 | |
+| **Enterprise State Roaming (ESR)** | 예 | 아니요 | 예 | 아니요 | 참고 사항 보기 | 예 | 아니요 | Win 10 | 아니요 | 서버 SKU에서 함수를 사용 하지만 지원 사용자 인터페이스를 지원 하지 않습니다. |
+| **UE-V (사용자 환경 가상화)** | 예 | 예 | 예 | 아니요 | 예 | 아니요 | 예 | Win 7 이상 | 아니요 |  |
+| **OneDrive 클라우드 파일** | 아니요 | 아니요 | 아니요 | 예 | 참고 사항 보기 | 참고 사항 보기  | 참고 참조 | Win 10 RS3 | 아니요 | 서버 SKU에서 테스트 되지 않았습니다. Azure의 백 엔드 저장소는 동기화 클라이언트에 따라 달라 집니다. 백 엔드 저장소 온-프레미스에 동기화 클라이언트가 필요 합니다. |
 
 #### <a name="performance"></a>성능
 
-성능 요구 사항을 해결 하려면 UPD [(S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) 를 사용 스토리지 공간 다이렉트 해야 합니다. UPD는 SMB (서버 메시지 블록) 프로토콜을 사용 합니다. 사용자가 기록 되는 VM에 프로필을 복사 합니다. S2D를 사용 하는 UPD Windows 가상 데스크톱에 권장 되는 솔루션입니다.  
+성능 요구 사항을 해결 하려면 UPD [(S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) 를 사용 스토리지 공간 다이렉트 해야 합니다. UPD는 SMB (서버 메시지 블록) 프로토콜을 사용 합니다. 사용자가 기록 되는 VM에 프로필을 복사 합니다. S2D를 사용 하는 UPD Windows 가상 데스크톱에 권장 되는 솔루션입니다.
 
 #### <a name="cost"></a>비용
 

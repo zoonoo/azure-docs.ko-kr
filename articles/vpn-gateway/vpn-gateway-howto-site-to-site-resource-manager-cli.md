@@ -1,6 +1,6 @@
 ---
 title: '온-프레미스 네트워크를 가상 네트워크에 연결: 사이트 간 VPN: CLI'
-description: 공용 인터넷을 통해 온-프레미스 네트워크에서 Azure Virtual Network에 IPsec을 만드는 단계입니다. 이 단계는 CLI를 사용하여 크로스-프레미스 사이트 간 VPN Gateway 연결을 만드는 데 도움이 됩니다.
+description: CLI를 사용 하 여 공용 인터넷을 통해 온-프레미스 네트워크에서 Azure virtual network로 IPsec 사이트 간 VPN Gateway 연결을 만듭니다.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 28d0fa3a0fdc2f8ac65fc3545abab0a273051e37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a90563f77a1e491bdc7fb7d421dedc7b265790d6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987500"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030608"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>CLI를 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
 

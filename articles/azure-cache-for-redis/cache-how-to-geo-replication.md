@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184976"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003705"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 지역에서 복제를 설정 하는 방법
 
@@ -24,7 +24,7 @@ ms.locfileid: "86184976"
 
 두 캐시 간에 지역에서 복제를 구성 하려면 다음 필수 구성 요소를 충족 해야 합니다.
 
-- 두 캐시는 모두 [프리미엄 계층](cache-premium-tier-intro.md) 캐시입니다.
+- 두 캐시는 모두 [프리미엄 계층](cache-overview.md#service-tiers) 캐시입니다.
 - 두 캐시는 동일한 Azure 구독에 있습니다.
 - 보조 연결 된 캐시는 캐시 크기가 같거나 기본 연결 된 캐시 보다 큰 캐시 크기입니다.
 - 두 캐시가 생성 되 고 실행 중 상태가 됩니다.
@@ -186,5 +186,6 @@ Azure 지역 간 자동 장애 조치 (failover)는 지역에서 복제 된 캐�
 고객이 시작한 장애 조치 (failover)를 시작 하려면 먼저 캐시의 연결을 해제 합니다. 그런 다음 Redis 클라이언트를 변경 하 여 (이전에 연결 된) 보조 캐시의 연결 끝점을 사용 합니다. 두 캐시의 연결이 끊어지면 보조 캐시는 일반적인 읽기-쓰기 캐시가 다시 되며 Redis 클라이언트에서 직접 요청을 받습니다.
 
 ## <a name="next-steps"></a>다음 단계
+Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
-[Azure Cache for Redis 프리미엄 계층](cache-premium-tier-intro.md)에 대해 자세히 알아봅니다.
+* [Redis 서비스 계층에 대 한 Azure 캐시](cache-overview.md#service-tiers)

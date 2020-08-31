@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 07/28/2020
-ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798072"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816527"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 Azure 가상 머신 제품 만들기
 
@@ -242,20 +242,24 @@ Azure Marketplace 검색 결과에 표시할 제품에 대한 자세한 설명�
 
 제품에 사용할 로고와 이미지를 제공합니다. 모든 이미지는 PNG 형식이어야 합니다. 이미지가 흐리면 제출이 거부됩니다.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >파일을 업로드하는 데 문제가 있으면 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스가 로컬 네트워크에서 차단되지 않는지 확인합니다.
 
-#### <a name="store-logos"></a>스토어 로고
+#### <a name="azure-marketplace-logos"></a>Azure Marketplace 로고
 
-**큰** 크기의 로고 (216 x 216 및 350 x 350 픽셀)에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작은** (48 x 48 픽셀) 및 **보통** (90 x 90 픽셀) 크기 로고를 만듭니다. 필요에 따라이를 다른 이미지로 바꿀 수 있습니다.
+**큰** 크기의 로고에 대 한 PNG 파일을 제공 합니다. 파트너 센터는이를 사용 하 여 **작고** **중간** 로고를 만듭니다. 필요에 따라 나중에 다른 이미지로 바꿀 수 있습니다.
 
-목록의 다른 위치에서 사용 하려면 세 가지 로고 크기가 모두 필요 합니다.
+- **큼** (216 x 216에서 350 x 350 px, required)
+- **중간** (90 x 90 px, 선택 사항)
+- **작음** (48 x 48 px, 선택 사항)
 
-- **소형**(48 x 48)
-- **중형**(90 x 90)
-- **큼** (216 x 216 및 350 x 350)
+이러한 로고는 목록의 다른 위치에서 사용 됩니다.
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>스크린샷
 
@@ -288,6 +292,8 @@ Azure Marketplace 검색 결과에 표시할 제품에 대한 자세한 설명�
 ## <a name="plan-overview"></a>플랜 개요
 
 파트너 센터의 동일한 제품 내에서 다양한 플랜 옵션을 제공할 수 있습니다. 제품에는 수익 화 대상 그룹, Azure 지역, 기능 또는 VM 이미지에 따라 달라질 수 있는 하나 이상의 계획 (이전의 SKU)이 필요 합니다.
+
+각 제품에 대해 최대 100 요금제를 만들 수 있습니다. 최대 45 개는 개인 일 수 있습니다. [Microsoft 상업적 marketplace에서 비공개 제품](../private-offers.md)의 비공개 요금제에 대해 자세히 알아보세요.
 
 플랜이 만들어지면 **플랜 개요** 탭을 선택하여 다음 항목을 표시합니다.
 
@@ -535,7 +541,7 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 4. 사용 약관
 5. 개인 정보 취급 방침 주소 (링크)
 6. Offer name
-7. 설명
+7. Description
 8. 유용한 링크
 9. 스크린샷/비디오
 
@@ -566,8 +572,8 @@ Azure Marketplace에서 제공 정보를 표시 하는 방법의 예는 다음�
 
 #### <a name="call-out-descriptions"></a>호출 설명
 
-1. 이름
-2. 설명
+1. Name
+2. Description
 3. 유용한 링크
 4. 스크린샷/비디오
 

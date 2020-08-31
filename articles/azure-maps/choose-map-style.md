@@ -1,6 +1,6 @@
 ---
 title: Azure Maps 웹 맵 컨트롤의 스타일 변경
-description: 이 문서에서는 Azure Maps 웹 맵 컨트롤의 스타일 기능에 대해 알아봅니다.
+description: 지도의 스타일 및 옵션을 변경 하는 방법에 대해 알아봅니다. 사용자가 다른 스타일 사이를 전환할 수 있도록 Azure Maps에서 지도에 스타일 선택 컨트롤을 추가 하는 방법을 참조 하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/27/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a4c1629302c72d6f59f7f1fd10dc850d46cea5a7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15224afac33a3e236c2d1ed9f60515bdc2f34c4f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285804"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036796"
 ---
 # <a name="change-the-style-of-the-map"></a>맵 스타일 변경
 

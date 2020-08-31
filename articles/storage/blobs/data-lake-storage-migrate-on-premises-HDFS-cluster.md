@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage로 마이그레이션
-description: 온-프레미스 HDFS 저장소에서 Azure Storage로 데이터 마이그레이션
+description: Data Box 장치를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage (blob Storage 또는 Data Lake Storage Gen2)로 데이터를 마이그레이션합니다.
 author: normesta
 ms.service: storage
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 6c5f2a041f03d53e1ea7c3f981683f4b70d3963b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a50f85e76f16f1e5ba8823adb1ea1aa02157fcee
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84466003"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032563"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage로 마이그레이션
 
@@ -27,7 +27,7 @@ Data Box 장치를 사용 하 여 Hadoop 클러스터의 온-프레미스 HDFS �
 > * 장치를 Microsoft에 다시 배송 합니다.
 > * 파일 및 디렉터리에 대 한 액세스 권한 적용 (Data Lake Storage Gen2에만 해당)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 마이그레이션을 완료 하려면 이러한 항목이 필요 합니다.
 
@@ -75,7 +75,7 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
 
     이러한 파일이 있는지 확인 하려면 명령을 사용 `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` 합니다. `<hadoop_install_dir>`자리 표시자를 Hadoop을 설치한 디렉터리의 경로로 바꿉니다. 정규화 된 경로를 사용 해야 합니다.
 
-    예:
+    예제:
 
     `azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar` `azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar`
 

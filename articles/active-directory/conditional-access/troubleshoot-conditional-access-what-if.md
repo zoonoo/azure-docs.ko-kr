@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 07/03/2019
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: eb51e8590e2859a9fe8692f79c5b1238ed5a2098
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737642"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948184"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>What If 도구를 사용하여 조건부 액세스 문제 해결
 
@@ -67,7 +67,7 @@ What If 도구를 시작하려면 **사용자**만 있으면 됩니다.
 
 적절하게 구성되었는지 유효성을 검사하기 위해 관리자는 What If 도구를 사용하여 허용해야 하는 위치 및 거부해야 하는 위치의 액세스를 모방할 수 있습니다.
 
-![액세스 차단이 포함된 결과를 보여 주는 What If 도구](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
+[![블록 액세스를 포함 하는 결과를 보여 주는 What If 도구](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png#lightbox)
 
 이 경우 Contoso가 해당 위치의 액세스를 차단했으므로 사용자는 북한으로 여행 시 클라우드 앱 액세스가 차단됩니다.
 
@@ -76,6 +76,6 @@ What If 도구를 시작하려면 **사용자**만 있으면 됩니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [조건부 액세스란?](overview.md)
-* [Azure Active Directory Identity Protection이란?](../identity-protection/overview-v2.md)
+* [Azure Active Directory Identity Protection이란?](../identity-protection/overview-identity-protection.md)
 * [디바이스 ID란?](../devices/overview.md)
 * [작동 방법: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) 문서를 참조하세요

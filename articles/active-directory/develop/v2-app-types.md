@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bdacee476fbc25154fe225700730f1b8f7f872ec
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 7b89add55a060c7ba0ef9488f1f6438090b8d3d2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682256"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121173"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 애플리케이션 유형
 
@@ -83,7 +83,7 @@ Microsoft ID 플랫폼 엔드포인트에서 받은 공개 서명 키로 ID 토�
 
 이 시나리오의 작동 방식을 확인하려면 [Microsoft ID 플랫폼 시작](v2-overview.md#getting-started) 섹션의 웹앱 로그인 코드 샘플 중 하나를 시도해 보세요.
 
-간단한 로그인뿐 아니라 웹 서버 앱은 REST API와 같은 다른 웹 서비스에 액세스해야 할 수도 있습니다. 이 경우 웹 서버 앱은 [OAuth 2.0 권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md)을 사용하여 결합된 OpenID Connect 및 OAuth 2.0 흐름에 참여합니다. 이 시나리오에 대한 자세한 내용은 [웹앱 및 Web API 시작](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)을 참조하세요.
+간단한 로그인뿐 아니라 웹 서버 앱은 REST API와 같은 다른 웹 서비스에 액세스해야 할 수도 있습니다. 이 경우 웹 서버 앱은 [OAuth 2.0 권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md)을 사용하여 결합된 OpenID Connect 및 OAuth 2.0 흐름에 참여합니다. 이 시나리오에 대한 자세한 내용은 [웹앱 및 Web API 시작](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet)을 참조하세요.
 
 
 ## <a name="web-apis"></a>Web API

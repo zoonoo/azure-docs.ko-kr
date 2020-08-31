@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a077e1dfd166051ad1cf16e42d11e8eeb61d2c91
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 88f1924f69aed350b39f953cb7503a0dde9ca9ad
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419855"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056317"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Just-in-time 액세스를 사용 하 여 관리 포트 보호
 
@@ -31,21 +31,14 @@ JIT 작동 방식 및 기본 논리에 대 한 전체 설명은 [just-in-time �
 
 ## <a name="availability"></a>가용성
 
-- 릴리스 상태: **일반** 공급
-- 가격 책정: **표준 계층**. [가격 책정에 대해 자세히 알아보세요](/azure/security-center/security-center-pricing).
-- 필요한 역할 및 사용 권한:
-    - **판독기** 및 **securityreader** 역할은 둘 다 JIT 상태와 매개 변수를 볼 수 있습니다.
-    - JIT에서 사용할 수 있는 사용자 지정 역할을 만들려면 [jit를 구성 하 고 사용 하는 데 필요한 사용 권한](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit) 을 참조 하세요.
-    - VM에 대 한 JIT 액세스를 요청 해야 하는 사용자에 게 최소 권한 역할을 만들고 다른 JIT 작업을 수행 하지 않으려면 Security Center GitHub 커뮤니티 페이지에서 [JitLeastPrivilegedRole 스크립트](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) 를 사용 합니다.
-- 지원 되는 Vm: 
-    - Azure Resource Manager를 통해 배포 된 Vm을 ✔ 합니다.
-    - 클래식 배포 모델을 사용 하 여 배포 된 Vm을 ✘ 합니다. [이러한 배포 모델에 대해 자세히 알아보세요](../azure-resource-manager/management/deployment-models.md).
-    - Azure [방화벽 관리자](https://docs.microsoft.com/azure/firewall-manager/overview)에서 제어 하는 azure 방화벽으로 보호 되는 vm을 ✘ 합니다.
-- 클라우드: 
-    - ✔ 상용 클라우드
-    - ✔ 국가/소버린(미국 정부, 중국 정부, 기타 정부)
-
-
+|양상|세부 정보|
+|----|:----|
+|릴리스 상태:|일반 공급|
+|결정|표준 계층|
+|지원 되는 Vm:|![](./media/icons/yes-icon.png)Azure Resource Manager를 통해 배포 되는 vm입니다.<br>![](./media/icons/no-icon.png)클래식 배포 모델을 사용 하 여 vm을 배포 하지 않았습니다. [이러한 배포 모델에 대해 자세히 알아보세요](../azure-resource-manager/management/deployment-models.md).<br>![Azure ](./media/icons/no-icon.png) [방화벽 관리자](https://docs.microsoft.com/azure/firewall-manager/overview) 에서 제어 하는 azure 방화벽으로 보호 되는 vm 없음|
+|필요한 역할 및 사용 권한:|**판독기** 및 **securityreader** 역할은 둘 다 JIT 상태와 매개 변수를 볼 수 있습니다.<br>JIT에서 사용할 수 있는 사용자 지정 역할을 만들려면 [jit를 구성 하 고 사용 하는 데 필요한 권한은 무엇 인가요?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)를 참조 하세요.<br>VM에 대 한 JIT 액세스를 요청 해야 하는 사용자에 게 최소 권한 역할을 만들고 다른 JIT 작업을 수행 하지 않으려면 Security Center GitHub 커뮤니티 페이지에서 [JitLeastPrivilegedRole 스크립트](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) 를 사용 합니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|||
 
 
 ## <a name="enable-jit-vm-access"></a>JIT VM 액세스 사용<a name="jit-configure"></a>

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07e265710c69c2ed72df520bf090b7c7d86c8097
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e6ae39fea8c3839208fc366ba0ce8d69799357d2
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503772"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056723"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>테이블 및 큐에 대해 고객이 관리 하는 키를 지 원하는 계정 만들기
 
@@ -40,7 +40,7 @@ Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화�
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell에 등록 하려면 [AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) 명령을 호출 합니다.
+PowerShell에 등록 하려면 [AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) 명령을 호출 합니다.
 
 ```powershell
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
@@ -62,7 +62,7 @@ az feature register --namespace Microsoft.Storage \
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-해당 없음
+N/A
 
 ---
 
@@ -120,7 +120,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-해당 없음
+N/A
 
 ---
 

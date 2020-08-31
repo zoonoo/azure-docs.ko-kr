@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: e19db61efbf93e3191d5780d07952f3d195c7a59
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fb83b30f0844b9bf0e362e6f1e3a3822ba0044d1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533059"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950003"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>볼륨의 서비스 수준을 동적으로 변경
 
@@ -33,8 +33,7 @@ ms.locfileid: "87533059"
 
 * 볼륨을 다른 용량 풀로 이동한 후에는 더 이상 이전 볼륨 활동 로그 및 볼륨 메트릭에 액세스할 수 없습니다. 새 용량 풀 아래의 새 활동 로그 및 메트릭으로 볼륨이 시작 됩니다.
 
-* 볼륨을 상위 서비스 수준의 용량 풀로 이동 하는 경우 (예: *표준* 에서 *프리미엄* 또는 *Ultra* service 수준으로 이동), 더 낮은 서비스 수준의 용량 풀로 볼륨을 다시 이동 하려면 7 일 이상 기다려야 합니다 (예: *Ultra* 에서 *premium* 또는 *Standard*로 이동).  
-동일한 서비스 수준이 나 낮은 서비스 수준으로 볼륨을 용량 풀로 이동 하는 경우에는이 대기 기간이 적용 되지 않습니다.
+* 볼륨을 상위 서비스 수준의 용량 풀로 이동 하는 경우 (예: *표준* 에서 *프리미엄* 또는 *Ultra* service 수준으로 전환) 해당 볼륨을 더 낮은 서비스 수준의 용량 풀 (예: *Ultra* 에서 *프리미엄* 또는 *표준*으로 이동)로 *다시* 이동 하려면 7 일 이상 기다려야 합니다.  
 
 ## <a name="register-the-feature"></a>기능 등록
 
@@ -49,11 +48,12 @@ ms.locfileid: "87533059"
 2. 기능 등록의 상태를 확인 합니다. 
 
     > [!NOTE]
-    > 로 변경 하기 전에 **Registrationstate** 는 `Registering` 몇 분 동안 상태일 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+    > **RegistrationState** `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
 
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
+Azure CLI 명령을 사용 하 여 [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) 기능을 [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) 등록 하 고 등록 상태를 표시할 수도 있습니다. 
 
 ## <a name="move-a-volume-to-another-capacity-pool"></a>볼륨을 다른 용량 풀로 이동
 

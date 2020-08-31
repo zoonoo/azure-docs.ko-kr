@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 300bb317d521ac9202fdd1a02328f844110a48e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f17a634a9bc3b410eec8ed6e868d454dc9ecee6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550409"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116600"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "85550409"
 ## <a name="requirements"></a>요구 사항
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
-- [결합 된 보안 정보 등록 미리 보기](concept-registration-mfa-sspr-combined.md)
+- [결합 된 보안 정보 등록 미리 보기](concept-registration-mfa-sspr-combined.md) 사용
 - 호환 되는 [FIDO2 보안 키](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN에는 Windows 10 버전 1809 이상이 필요 합니다. * *
 

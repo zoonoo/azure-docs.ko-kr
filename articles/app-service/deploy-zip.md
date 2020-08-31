@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 32fc57e720f9c23f6ef26f02b2cd4a82c4266984
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e2959403d2e5db38d03013e798fe299d56837227
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957038"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962114"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>ZIP 또는 WAR 파일을 사용하여 Azure App Service에 앱 배포
 
@@ -31,16 +31,16 @@ WAR 파일 배포를 사용하면 [WAR](https://wikipedia.org/wiki/WAR_(file_for
 > [!NOTE]
 > 를 사용 하는 경우 `ZipDeploy` 타임 스탬프가 이미 배포 된 것과 일치 하지 않는 경우에만 파일이 복사 됩니다. 출력을 캐시 하는 빌드 프로세스를 사용 하 여 zip을 생성 하면 배포 속도가 빨라질 수 있습니다. 자세한 내용은 [zip 파일이 나 url에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-이 문서의 단계를 완료 하려면 [App Service 앱을 만들거나](/azure/app-service/)다른 자습서에 대해 만든 앱을 사용 합니다.
+이 문서의 단계를 완료 하려면 [App Service 앱을 만들거나](./index.yml)다른 자습서에 대해 만든 앱을 사용 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
-지금은 위의 끝점이 Linux App Services에 대해 작동 하지 않습니다. 대신 FTP 또는 [ZIP 배포 API](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment) 를 사용 하는 것이 좋습니다.
+지금은 위의 끝점이 Linux App Services에 대해 작동 하지 않습니다. 대신 FTP 또는 [ZIP 배포 API](faq-app-service-linux.md#continuous-integration-and-deployment) 를 사용 하는 것이 좋습니다.
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Azure CLI를 사용하여 ZIP 파일 배포
 

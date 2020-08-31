@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: ed3e9da628ab779ab47673fa2ce728c5c25539be
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82883229"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166436"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET를 사용 하 여 소셜 id로 사용자 로그인
 
@@ -78,7 +78,7 @@ AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
 
 - `policy`Azure AD B2C 사용자 흐름 또는 사용자 지정 정책 (예:)의 이름을 포함 하는 문자열입니다 `PolicySignUpSignIn` .
 - `ParentActivityOrWindow`는 Android (활동)에 필요 하며 iOS의 Microsoft Windows 및 UIViewController와 같은 부모 UI를 지 원하는 다른 플랫폼의 경우 선택 사항입니다. UI 대화 상자에 대 한 자세한 내용은 MSAL Wiki의 [Withparentactivityorwindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) 를 참조 하십시오.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`는 지정 된 정책에 대 한 계정을 찾는 메서드입니다. 예를 들어:
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)`는 지정 된 정책에 대 한 계정을 찾는 메서드입니다. 다음은 그 예입니다. 
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -134,7 +134,7 @@ ROPC flow에서 사용자 이름/암호를 사용 하 여 다음과 같은 몇 �
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 ROPC 흐름 구성
 
-Azure AD B2C 테 넌 트에서 새 사용자 흐름을 만들고 **ROPC를 사용 하 여 로그인** 을 선택 하 여 사용자 흐름에 ropc를 사용 하도록 설정 합니다. 자세한 내용은 [리소스 소유자 암호 자격 증명 흐름 구성](/azure/active-directory-b2c/configure-ropc)을 참조 하세요.
+Azure AD B2C 테 넌 트에서 새 사용자 흐름을 만들고 **ROPC를 사용 하 여 로그인** 을 선택 하 여 사용자 흐름에 ropc를 사용 하도록 설정 합니다. 자세한 내용은 [리소스 소유자 암호 자격 증명 흐름 구성](../../active-directory-b2c/configure-ropc.md)을 참조 하세요.
 
 `IPublicClientApplication`메서드를 포함 합니다 `AcquireTokenByUsernamePassword` .
 
@@ -182,7 +182,7 @@ MSAL.NET는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache?vie
 
 제안 된 해결 방법은 위에 설명 된 [정책에 따라 캐싱](#acquire-a-token-to-apply-a-policy) 을 사용 하는 것입니다.
 
-또는 `tid` Azure AD B2C에서 [사용자 지정 정책을](../../active-directory-b2c/custom-policy-get-started.md) 사용 하는 경우 클레임을 사용할 수 있습니다. 사용자 지정 정책은 [클레임 변환을](/azure/active-directory-b2c/claims-transformation-technical-profile)사용 하 여 응용 프로그램에 추가 클레임을 반환할 수 있습니다.
+또는 `tid` Azure AD B2C에서 [사용자 지정 정책을](../../active-directory-b2c/custom-policy-get-started.md) 사용 하는 경우 클레임을 사용할 수 있습니다. 사용자 지정 정책은 [클레임 변환을](../../active-directory-b2c/claims-transformation-technical-profile.md)사용 하 여 응용 프로그램에 추가 클레임을 반환할 수 있습니다.
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>"토큰 응답에 없음"에 대 한 완화
 
@@ -194,6 +194,6 @@ MSAL.NET는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache?vie
 
 Azure AD B2C 응용 프로그램에 대 한 MSAL.NET를 대화형으로 토큰을 가져오는 방법에 대 한 자세한 내용은 다음 샘플에서 제공 됩니다.
 
-| 예제 | 플랫폼 | 설명|
+| 샘플 | 플랫폼 | Description|
 |------ | -------- | -----------|
 |[b2c-xamarin-네이티브](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | MSAL.NET를 사용 하 여 Azure AD B2C를 통해 사용자를 인증 한 후 반환 된 토큰을 사용 하 여 web API에 액세스 하는 Xamarin Forms 앱입니다.|

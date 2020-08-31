@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: article
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: beafd0d49e8fccaef4ccc043d198875b9f1b1ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 750ee2f05e81fe18560a20227aefb52ca343e07b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341019"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067531"
 ---
 # <a name="service-bus-messaging-samples"></a>Service Bus 메시징 샘플
 Service Bus 메시지 샘플은 [Service Bus 메시지](https://azure.microsoft.com/services/service-bus/)의 주요 기능을 보여 줍니다. 현재 다음 위치에서 샘플을 찾을 수 있습니다.
@@ -30,5 +30,4 @@ Service Bus 메시지 샘플은 [Service Bus 메시지](https://azure.microsoft.
 Service Bus의 개념적 개요는 다음 항목을 참조하세요.
 
 * [Service Bus 메시징 개요](service-bus-messaging-overview.md)
-* [Service Bus 아키텍처](service-bus-architecture.md)
-
+* [Service Bus 아키텍처](./service-bus-messaging-overview.md)

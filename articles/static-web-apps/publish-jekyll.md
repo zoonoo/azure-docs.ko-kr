@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 3ced7e758669041d11d50ae7bfaf1065cf5439b3
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561904"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797703"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Jekyll 사이트 게시
 
@@ -51,7 +51,7 @@ Jekyll CLI(명령줄 인터페이스)를 사용하여 Jekyll 앱을 만듭니다
    cd static-app
    ```
 
-1. 새 git 리포지토리를 초기화합니다.
+1. 새 Git 리포지토리를 초기화합니다.
 
    ```bash
     git init
@@ -146,7 +146,7 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
 
 1. 텍스트 편집기에서 Jekyll 앱을 열고 _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ 파일을 엽니다.
 
-1. `- uses: actions/checkout@v1` 줄을 다음 구성 블록으로 바꿉니다.
+1. `- uses: actions/checkout@v2` 블록 뒤에 나오는 구성 블록에 줄을 추가합니다.
 
     ```yml
     - uses: actions/checkout@v2
@@ -154,12 +154,12 @@ Azure Static Web Apps는 GitHub를 사용하여 웹 사이트를 게시합니다
         submodules: true
     - name: Set up Ruby
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
-        with:
+      with:
         ruby-version: 2.6
     - name: Install dependencies
-        run: bundle install
+      run: bundle install
     - name: Jekyll build
-        run: jekyll build
+      run: jekyll build
     ```
 
 1. 업데이트된 워크플로를 커밋하고 GitHub로 푸시합니다.

@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec0b3ef559abe1c65872d8ecf87f63e6ff3ed4b0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223910"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808238"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트에서 애플리케이션 삭제
 
@@ -44,9 +43,15 @@ Azure AD 테넌트에서 애플리케이션을 삭제하려면 다음을 수행�
 1. 왼쪽 창의 **관리** 섹션에서 **속성**을 선택합니다.
 1. **삭제**를 선택한 다음, **예**를 선택하여 Azure AD 테넌트에서 앱을 삭제할지 확인합니다.
 
+> [!TIP]
+> Graph API를 사용하여 앱 관리를 자동화할 수 있습니다. [Microsoft Graph API를 사용하여 앱 관리 자동화](https://docs.microsoft.com/graph/application-saml-sso-configure-api)를 참조하세요.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 빠른 시작 시리즈를 완료한 후에는 앱을 삭제하여 테스트 테넌트를 정리하는 것이 좋습니다. 이 빠른 시작에서는 앱을 삭제하는 방법을 다루었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [애플리케이션 관리 모범 사례](application-management-fundamentals.md)
-- [애플리케이션 관리 공통 시나리오](common-scenarios.md)
-- [애플리케이션 관리 표시 유형 및 제어](cloud-app-security.md)
+빠른 시작 시리즈를 완료했습니다. 다음 단계로 앱 관리 모범 사례를 읽어 보세요.
+> [!div class="nextstepaction"]
+> [애플리케이션 관리 모범 사례](application-management-fundamentals.md)

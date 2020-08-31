@@ -1,5 +1,5 @@
 ---
-title: 새 Elastic Database 작업으로 마이그레이션
+title: 새 Elastic Database 작업으로 마이그레이션 (미리 보기)
 description: 새 Elastic Database 작업으로 마이그레이션합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: bb5f7c441ae25e24857d0709b32e17931c3c63a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1f9e392ddb7b5a79b01459925fe711707db97b5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84038374"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121190"
 ---
-# <a name="migrate-to-the-new-elastic-database-jobs"></a>새 Elastic Database 작업으로 마이그레이션
+# <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>새 Elastic Database 작업로 마이그레이션 (미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 업그레이드된 버전의 [Elastic Database 작업](elastic-jobs-overview.md)이 지원됩니다.
@@ -93,7 +93,7 @@ Use-AzureSqlJobConnection -CurrentAzureSubscription -Credential (Get-Credential)
 
 이제 이전 및 새로운 탄력적 작업 cmdlet이 모두 설치되었으므로 작업 자격 증명, 대상 및 작업을 새로운 *작업 데이터베이스*로 마이그레이션합니다.
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치 프로그램
 
 ```powershell
 $ErrorActionPreference = "Stop";

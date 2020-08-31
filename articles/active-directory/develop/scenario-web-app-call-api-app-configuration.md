@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 2da2755af4b44c0b17550676845c38c1a93cf801
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8827d413144d8bc6f00c3948a99be3ee3aa2264e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845190"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855442"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>웹 API를 호출하는 웹앱: 코드 구성
 
@@ -49,10 +49,11 @@ public void ConfigureServices(IServiceCollection services)
 {
     // more code here
 
-    services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd")
-            .AddMicrosoftWebAppCallsdWebApi(Configuration,
-                                           initialScopes: new string[] { "user.read" })
-            .AddInMemoryTokenCaches();
+    services.AddMicrosoftIdentityWebAppAuthentication(Configuration,
+                                                      "AzureAd")
+            .EnableTokenAcquisitionToCallDownstreamApi(
+                    initialScopes: new string[] { "user.read" })
+                .AddInMemoryTokenCaches();
 
     // more code here
 }
@@ -61,7 +62,7 @@ public void ConfigureServices(IServiceCollection services)
 토큰 캐시에 대해 자세히 알아보려면 [토큰 캐시 직렬화 옵션](#token-cache)을 참조하세요.
 
 > [!NOTE]
-> 여기에서 코드 예제를 완전히 이해하려면 [ASP.NET Core 기본](https://docs.microsoft.com/aspnet/core/fundamentals), 특히 [종속성 주입](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) 및 [옵션](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)에 대해 잘 알고 있어야 합니다.
+> 여기에서 코드 예제를 완전히 이해하려면 [ASP.NET Core 기본](/aspnet/core/fundamentals), 특히 [종속성 주입](/aspnet/core/fundamentals/dependency-injection) 및 [옵션](/aspnet/core/fundamentals/configuration/options)에 대해 잘 알고 있어야 합니다.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -268,13 +269,13 @@ def authorized():
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-ASP.NET Core 자습서에서는 종속성 주입을 사용하여 애플리케이션에 대한 Startup.cs 파일에서 토큰 캐시 구현을 결정할 수 있습니다. Microsoft.Identity.Web에는 [토큰 캐시 직렬화](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application)에 설명된 미리 작성된 토큰 캐시 직렬 변환기가 제공됩니다. ASP.NET Core [분산 메모리 캐시](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache)를 선택할 수도 있습니다.
+ASP.NET Core 자습서에서는 종속성 주입을 사용하여 애플리케이션에 대한 Startup.cs 파일에서 토큰 캐시 구현을 결정할 수 있습니다. Microsoft.Identity.Web에는 [토큰 캐시 직렬화](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application)에 설명된 미리 작성된 토큰 캐시 직렬 변환기가 제공됩니다. ASP.NET Core [분산 메모리 캐시](/aspnet/core/performance/caching/distributed#distributed-memory-cache)를 선택할 수도 있습니다.
 
 ```csharp
 // Use a distributed token cache by adding:
-    services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd")
-            .AddMicrosoftWebAppCallsWebApi(Configuration,
-                                           initialScopes: new string[] { "user.read" })
+    services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureAd")
+            .EnableTokenAcquisitionToCallDownstreamApi(
+                initialScopes: new string[] { "user.read" })
             .AddDistributedTokenCaches();
 
 // Then, choose your implementation.
@@ -297,7 +298,7 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-토큰 캐시 공급자에 대 한 자세한 내용은 ASP.NET Core 웹 앱 자습서 뿐만 아니라 Microsoft의 [token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) 문서를 참조 하세요. [ ](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache)웹 앱 자습서의 토큰 캐시 단계입니다.
+토큰 캐시 공급자에 대 한 자세한 내용은 ASP.NET Core 웹 앱 자습서 뿐만 아니라 Microsoft의 [token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) 문서를 참조 하세요. [ ](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) 웹 앱 자습서의 토큰 캐시 단계입니다.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

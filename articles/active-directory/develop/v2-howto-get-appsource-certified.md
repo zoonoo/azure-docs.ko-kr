@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 18102b5501bcfca0aabc6609b8472aa45c23ec7f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 08acaf4f0171e586ff2cc3f52134395fb5925df7
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172636"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118810"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory에 대해 인증 된 AppSource 가져오기
 
@@ -40,7 +40,7 @@ AppSource에서 독립 실행형 SaaS 애플리케이션을 나열하려면 애�
 
 *단일 테넌트 애플리케이션*은 정의된 Azure AD 인스턴스의 사용자의 로그인만 허용하는 애플리케이션입니다. 외부 사용자(다른 조직의 회사 또는 학교 계정 또는 개인 계정 포함)는 각 사용자를 게스트 계정으로 애플리케이션이 등록된 Azure AD 인스턴스에 추가한 후 단일 테넌트 애플리케이션에 로그인 할 수 있습니다. 
 
-[Azure AD B2B 협업](../b2b/what-is-b2b.md)을 통해 사용자를 게스트 계정으로 Azure AD에 추가할 수 있으며, 이 작업은 [프로그래밍 방식으로](../../active-directory-b2c/code-samples.md) 수행할 수 있습니다. B2B를 사용하는 경우 사용자는 로그인하라는 초대장이 필요하지 않은 셀프 서비스 포털을 만들 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 등록을 위한 셀프 서비스 포털](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal)을 참조하세요.
+[Azure AD B2B 협업](../external-identities/what-is-b2b.md)을 통해 사용자를 게스트 계정으로 Azure AD에 추가할 수 있으며, 이 작업은 [프로그래밍 방식으로](../../active-directory-b2c/code-samples.md) 수행할 수 있습니다. B2B를 사용하는 경우 사용자는 로그인하라는 초대장이 필요하지 않은 셀프 서비스 포털을 만들 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 등록을 위한 셀프 서비스 포털](../external-identities/self-service-portal.md)을 참조하세요.
 
 단일 테넌트 애플리케이션은 *연락처* 환경을 활성화할 수 있지만 AppSource가 권장하는 단일 클릭/평가판 체험을 활성화하려는 경우 애플리케이션에서 다중 테넌트를 대신 활성화합니다.
 
@@ -98,7 +98,7 @@ AppSource에서 독립 실행형 SaaS 애플리케이션을 나열하려면 애�
 
     ![사이트로 다시 리디렉션되는 경우 사용자에 게 표시 되는 경험을 표시 합니다.](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png)
 
-### <a name="more-information"></a>추가 정보
+### <a name="more-information"></a>자세한 정보
 
 AppSource 평가판 체험에 대한 자세한 내용은 [이 비디오](https://aka.ms/trialexperienceforwebapps)를 참조하세요. 
 
@@ -114,6 +114,3 @@ Azure AD 통합의 경우 지원을 제공하기 위해 커뮤니티와 함께 [
 
 - Azure AD 로그인을 지원하는 애플리케이션 구축에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](authentication-flows-app-scenarios.md)를 참조하세요.
 - AppSource에 SaaS 애플리케이션을 나열하는 방법에 대한 내용은 [AppSource 파트너 정보](https://appsource.microsoft.com/partners)를 참조하세요.
-
-
-
