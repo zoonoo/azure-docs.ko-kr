@@ -12,12 +12,12 @@ ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1384dc760edb0bca66344d8892c18fdebb54855d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853580"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068729"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -58,7 +58,7 @@ ms.locfileid: "88853580"
 | `verified_secondary_email` | 사용자의 SecondaryAuthoritativeEmail에서 소싱됩니다.   | JWT        |           |        |
 | `vnet`                     | VNET 지정자 정보입니다. | JWT        |           |      |
 | `fwd`                      | IP 주소입니다.| JWT    |   | 요청 클라이언트의 원래 IPv4 주소를 추가합니다(VNET 내에 있는 경우). |
-| `ctry`                     | 사용자의 국가/지역 | JWT |  | Azure AD는 `ctry` 선택적 클레임 (있는 경우)을 반환 하 고 필드의 값은 fr-fr, JP, SZ 등의 표준 2 자로 된 국가/지역 코드입니다. |
+| `ctry`                     | 사용자의 국가/지역 | JWT, SAML |  | Azure AD는 `ctry` 선택적 클레임 (있는 경우)을 반환 하 고 필드의 값은 fr-fr, JP, SZ 등의 표준 2 자로 된 국가/지역 코드입니다. |
 | `tenant_ctry`              | 리소스 테 넌 트의 국가 | JWT | | `ctry`관리자가 테 넌 트 수준에서 설정 하는 것과 동일 합니다.  또한은 표준 두 문자로 된 값 이어야 합니다. |
 | `xms_pdl`             | 기본 설정 데이터 위치   | JWT | | 다중 지역 테넌트의 경우 기본 데이터 위치는 사용자가 거주하는 지리적 지역을 나타내는 세 문자로 된 코드입니다. 자세한 내용은 [기본 설정 데이터 위치에 대한 Azure AD Connect 설명서](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md)를 참조합니다.<br/>예를 들어 아시아 태평양의 경우 `APC`입니다. |
 | `xms_pl`                   | 사용자 기본 설정 언어  | JWT ||설정되는 경우 사용자의 기본 설정 언어입니다. 게스트 액세스 시나리오에서 해당 홈 테넌트의 원본 위치입니다. 형식이 지정된 LL-CC("en-us")입니다. |

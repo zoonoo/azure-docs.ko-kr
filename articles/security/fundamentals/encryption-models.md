@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 105d867b4eafe37ca6555e3f6b54dc521a7264fe
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 51d7cb32ef2d1d7750a0bb53cfa3ccc111bd1302
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227311"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89143736"
 ---
 # <a name="data-encryption-models"></a>데이터 암호화 모델
 
@@ -60,7 +60,7 @@ Azure에서 지원 되는 암호화 모델은 앞에서 설명한 대로 "클라
 
 클라이언트 쪽 암호화 모델은 서비스 또는 호출 애플리케이션이 리소스 공급자 또는 Azure 외부에서 수행되는 암호화를 나타냅니다. 이 암호화는 Azure의 서비스 애플리케이션이나 고객 데이터 센터에서 실행되는 애플리케이션에서 수행할 수 있습니다. 두 경우 모두 Azure 리소스 공급자에서 이 암호화 모델을 활용할 때 어떤 방식으로든 데이터의 암호를 해독할 수 없거나 암호화 키에 대한 액세스 권한이 없는 데이터의 암호화된 Blob을 받습니다. 이 모델에서는 키 관리가 호출 서비스/애플리케이션에서 수행되며 Azure 서비스에 대해 불투명합니다.
 
-![Client](./media/encryption-models/azure-security-encryption-atrest-fig2.png)
+![클라이언트](./media/encryption-models/azure-security-encryption-atrest-fig2.png)
 
 ## <a name="server-side-encryption-using-service-managed-keys"></a>서비스 관리 키를 사용하여 서버 쪽 암호화
 
@@ -159,9 +159,9 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | Translator Text                  | 예                | 예                | -                  |
 | Power BI                         | 예                | 미리 보기, RSA 2048비트 | -                  |
 | **분석**                    |                    |                    |                    |
-| Azure Stream Analytics           | 예                | 해당 없음\*            | -                  |
-| Event Hubs                       | 예                | 예, 모든 RSA 길이입니다. | -                  |
-| Functions                        | 예                | 예, 모든 RSA 길이입니다. | -                  |
+| Azure Stream Analytics           | 예                | 해당 없음\*              | -                  |
+| Event Hubs                       | 예                | 예                | -                  |
+| Functions                        | 예                | 예                | -                  |
 | Azure Analysis Services          | 예                | -                  | -                  |
 | Azure Data Catalog               | 예                | -                  | -                  |
 | Azure HDInsight                  | 예                | 모두                | -                  |
@@ -175,25 +175,25 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | Container Instances              | 예                | 예                | -                  |
 | Container Registry               | 예                | 예                | -                  |
 | **Compute**                      |                    |                    |                    |
-| Virtual Machines                 | 예                | 예, RSA 2048비트  | -                  |
-| 가상 머신 확장 집합        | 예                | 예, RSA 2048비트  | -                  |
-| SAP HANA                         | 예                | 예, RSA 2048비트  | -                  |
+| Virtual Machines                 | 예                | 예                | -                  |
+| 가상 머신 확장 집합        | 예                | 예                | -                  |
+| SAP HANA                         | 예                | 예                | -                  |
 | App Service                      | 예                | 예\*\*            | -                  |
 | Automation                       | 예                | 예\*\*            | -                  |
 | Azure 기능                  | 예                | 예\*\*            | -                  |
-| Azure portal                     | 예                | 예\*\*            | -                  |
+| Azure Portal                     | 예                | 예\*\*            | -                  |
 | Logic Apps                       | 예                | 예                | -                  |
 | Azure 관리 되는 응용 프로그램       | 예                | 예\*\*            | -                  |
 | Service Bus                      | 예                | 예                | -                  |
 | Site Recovery                    | 예                | 예                | -                  |
 | **데이터베이스**                    |                    |                    |                    |
-| Virtual Machines의 SQL Server   | 예                | 예, RSA 2048비트  | 예                |
-| Azure SQL Database               | 예                | 예, RSA 2048비트  | 예                |
+| Virtual Machines의 SQL Server   | 예                | 예                | 예                |
+| Azure SQL Database               | 예                | 예, RSA 3072 비트  | 예                |
 | Azure SQL Database for MariaDB   | 예                | -                  | -                  |
 | MySQL에 대 한 Azure SQL Database     | 예                | 예                | -                  |
 | PostgreSQL에 대 한 Azure SQL Database | 예               | 예                | -                  |
-| Azure Synapse Analytics          | 예                | 예, RSA 2048비트  | -                  |
-| SQL Server Stretch Database      | 예                | 예, RSA 2048비트  | 예                |
+| Azure Synapse Analytics          | 예                | 예, RSA 3072 비트  | -                  |
+| SQL Server Stretch Database      | 예                | 예, RSA 3072 비트  | 예                |
 | Table Storage                    | 예                | 예                | 예                |
 | Azure Cosmos DB                  | 예                | 예                | -                  |
 | Azure Databricks                 | 예                | 예                | -                  |
@@ -203,7 +203,7 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | Azure Repos                      | 예                | -                  | 예                |
 | **ID**                     |                    |                    |                    |
 | Azure Active Directory           | 예                | -                  | -                  |
-| Azure Active Directory Domain Services | 예          | 예, RSA 2048비트  | -                  |
+| Azure Active Directory Domain Services | 예          | 예                | -                  |
 | **통합**                  |                    |                    |                    |
 | Service Bus                      | 예                | 예                | 예                |
 | Event Grid                       | 예                | -                  | -                  |
@@ -220,20 +220,20 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | IoT용 Azure Security Center    | 예                | 예                | -                  |
 | Azure Sentinel                   | 예                | 예                | -                  |
 | **스토리지**                      |                    |                    |                    |
-| Blob Storage                     | 예                | 예, RSA 2048비트  | 예                |
-| 프리미엄 Blob Storage             | 예                | 예, RSA 2048비트  | 예                |
+| Blob Storage                     | 예                | 예                | 예                |
+| 프리미엄 Blob Storage             | 예                | 예                | 예                |
 | Disk Storage                     | 예                | 예                | -                  |
 | 울트라 디스크 저장소               | 예                | 예                | -                  |
 | 관리 되는 디스크 저장소             | 예                | 예                | -                  |
-| File Storage                     | 예                | 예, RSA 2048비트  | -                  |
-| 파일 Premium Storage             | 예                | 예, RSA 2048비트  | -                  |
-| 파일 동기화                        | 예                | 예, RSA 2048비트  | -                  |
+| File Storage                     | 예                | 예                | -                  |
+| 파일 Premium Storage             | 예                | 예                | -                  |
+| 파일 동기화                        | 예                | 예                | -                  |
 | Queue storage                    | 예                | 예                | 예                |
 | Avere vFXT                       | 예                | -                  | -                  |
 | Azure Cache for Redis            | 예                | 해당 없음\*              | -                  |
 | Azure NetApp Files               | 예                | 예                | -                  |
-| Archive Storage                  | 예                | 예, RSA 2048비트  | -                  |
-| StorSimple                       | 예                | 예, RSA 2048비트  | 예                |
+| Archive Storage                  | 예                | 예                | -                  |
+| StorSimple                       | 예                | 예                | 예                |
 | Azure Backup                     | 예                | 예                | 예                |
 | Data Box                         | 예                | -                  | 예                |
 | Data Box Edge                    | 예                | 예                | -                  |

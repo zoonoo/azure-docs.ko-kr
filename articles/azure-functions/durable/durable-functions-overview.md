@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: adf58b667d17393fc905fbf31261530fce88d9f8
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: d1c4f62f19a36867ebc85a98b0cd38bbbf8ce757
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272351"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660685"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -704,8 +704,9 @@ Durable Functions 요금은 Azure Functions와 동일하게 청구됩니다. 자
 * [Visual Studio 2019를 사용하는 C#](durable-functions-create-first-csharp.md)
 * [Visual Studio Code를 사용하는 JavaScript](quickstart-js-vscode.md)
 * [Visual Studio Code를 사용하는 Python](quickstart-python-vscode.md)
+* [Visual Studio Code를 사용하는 PowerShell](quickstart-powershell-vscode.md)
 
-두 빠른 시작에서는 “hello world” 지속성 함수를 로컬에서 만들고 테스트합니다. 그런 후 함수 코드를 Azure에 게시합니다. 생성한 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다.
+이러한 빠른 시작에서는 "hello world" 지속성 함수를 로컬에서 만들고 테스트합니다. 그런 후 함수 코드를 Azure에 게시합니다. 생성한 함수는 다른 함수에 대한 호출을 오케스트레이션하고 함께 연결합니다.
 
 ## <a name="learn-more"></a>자세한 정보
 

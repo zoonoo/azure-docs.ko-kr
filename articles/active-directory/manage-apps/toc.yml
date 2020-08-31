@@ -212,16 +212,10 @@
               href: application-sign-in-unexpected-user-consent-prompt.md
             - name: 사용자 동의 오류
               href: application-sign-in-unexpected-user-consent-error.md
-            - name: 사용자 지정 포털에서 로그인하는 문제
-              href: application-sign-in-other-problem-deeplink.md
-            - name: 액세스 패널에서 로그인하는 문제
+            - name: 내 앱에서 로그인하는 문제
               href: application-sign-in-other-problem-access-panel.md
             - name: 애플리케이션 로그인 페이지의 오류
               href: application-sign-in-problem-application-error.md
-            - name: 암호 Single Sign-On 관련 문제 - 비갤러리 앱
-              href: application-sign-in-problem-password-sso-non-gallery.md
-            - name: 암호 Single Sign-On 관련 문제 - 갤러리 앱
-              href: application-sign-in-problem-password-sso-gallery.md
             - name: Microsoft 앱에 로그인하는 문제
               href: application-sign-in-problem-first-party-microsoft.md
             - name: 페더레이션된 Single Sign-On 관련 문제 - 비갤러리 앱
@@ -232,14 +226,12 @@
               href: application-sign-in-problem-custom-dev.md
         - name: Single Sign-On 문제 해결
           items:
+            - name: 암호 기반 Single Sign-On 문제 해결
+              href: troubleshoot-password-based-sso.md
             - name: 페더레이션된 일반적인 문제 구성 - 갤러리 앱
               href: configure-federated-single-sign-on-gallery-applications-problems.md
             - name: 페더레이션된 일반적인 문제 구성 - 비갤러리 앱
               href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-            - name: 암호 구성 일반적인 문제 - 갤러리 앱
-              href: configure-password-single-sign-on-gallery-applications-problems.md
-            - name: 암호 구성 일반적인 문제 - 비갤러리 앱
-              href: configure-password-single-sign-on-non-gallery-applications-problems.md
         - name: 앱 목록 및 할당 문제 해결
           items:
             - name: 테넌트의 애플리케이션 목록 관리
@@ -248,16 +240,10 @@
               href: ways-users-get-assigned-to-applications.md
         - name: 내 앱 문제 해결
           items:
-            - name: 브라우저 확장 관리
-              href: manage-access-panel-browser-extension.md
             - name: 표시되지 않는 앱
               href: access-panel-troubleshoot-application-not-appearing.md
             - name: 예기치 않은 앱 표시
               href: access-panel-troubleshoot-unexpected-application.md
-            - name: 로그인할 수 없음
-              href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: 셀프 서비스 앱 액세스를 사용하는 오류
-              href: access-panel-troubleshoot-self-service-access.md
         - name: 온-프레미스 앱 문제 해결
           items:
             - name: 애플리케이션 프록시 문제 해결

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eaa2f2bc0ee26a4f543ea0938db6c226a9a6575
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 4c10f0ab4ff7fd8461ef81da67e50f7e5e174104
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049250"
+ms.locfileid: "89068629"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>조건부 액세스: 레거시 인증 차단
 
@@ -37,7 +37,7 @@ ms.locfileid: "89049250"
 1. **클라우드 앱 또는 작업**에서 **모든 클라우드 앱**을 선택합니다.
    1. **완료**를 선택합니다.
 1. **조건**  >  **클라이언트 앱**에서 **구성** 을 **예**로 설정 합니다.
-   1. **Exchange ActiveSync 클라이언트** 및 **다른 클라이언트만**확인란을 선택 합니다.
+   1. **Exchange ActiveSync 클라이언트** 및 **다른 클라이언트만**확인란을 선택 합니다. Azure에서 Exchange ActiveSync 조건부 액세스 정책을 배포하려면 사용자도 전역 관리자여야 합니다.
    1. **완료**를 선택합니다.
 1. **액세스 제어** > **권한 부여**에서 **액세스 차단**을 선택합니다.
    1. **선택**을 선택합니다.

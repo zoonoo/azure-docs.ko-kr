@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: beb5c7262a5475f5c1535e120fcebe4c70838c7e
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 1873cd14883e8b1a5174b8761e4a0bc9ba1ef872
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135490"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641860"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성
 
@@ -47,7 +47,7 @@ Azure AD 테넌트에 애플리케이션 추가를 마치면 개요 페이지가
 3. 구성에 사용할 수 있는 옵션을 잠시 살펴봅니다.
     - **사용자가 로그인할 수 있습니까?** 는 애플리케이션에 할당된 사용자가 로그인할 수 있는지 여부를 결정합니다.
     - **사용자 할당이 필요하나요?** 는 애플리케이션에 할당되지 않은 사용자가 로그인할 수 있는지 여부를 결정합니다.
-    - **사용자에게 표시되나요?** 는 앱에 할당된 사용자가 [액세스 패널](https://myapps.microsoft.com) 및 Office 365 앱 시작 관리자에서 앱을 볼 수 있는지 여부를 결정합니다. (Office 365 또는 Microsoft 365 웹 사이트의 왼쪽 위 모서리에 있는 와플 메뉴를 참조하세요.)
+    - **사용자에게 표시되나요?** 는 앱에 할당된 사용자가 [내 앱](https://myapps.microsoft.com) 및 Office 365 앱 시작 관리자에서 앱을 볼 수 있는지 여부를 결정합니다. (Office 365 또는 Microsoft 365 웹 사이트의 왼쪽 위 모서리에 있는 와플 메뉴를 참조하세요.)
     
     > [!TIP]
     > 사용자 할당은 탐색의 **사용자 및 그룹** 섹션에서 이루어집니다.

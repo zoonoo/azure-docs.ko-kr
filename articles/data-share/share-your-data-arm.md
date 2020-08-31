@@ -1,20 +1,20 @@
 ---
-title: '빠른 시작: 조직 외부에서 공유 - Azure Data Share'
-description: 빠른 시작 - Azure Data Share 및 Resource Manager 템플릿을 사용하여 고객 및 파트너와 데이터 공유
+title: 조직 외부에서 공유(ARM 템플릿) - Azure Data Share 빠른 시작
+description: 이 빠른 시작에서는 Azure Data Share 및 Resource Manager 템플릿을 사용하여 고객 및 파트너와 데이터를 공유하는 방법을 알아봅니다.
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 08/17/2020
-ms.openlocfilehash: 62c800e8da3ab4f99b0933e286debcb05c5c3e22
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.date: 08/19/2020
+ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88575650"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654109"
 ---
-# <a name="tutorial-share-data-using-azure-data-share-and-resource-manager-templates"></a>자습서: Azure Data Share 및 Resource Manager 템플릿을 사용하여 데이터 공유
+# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>빠른 시작: Azure Data Share 및 Resource Manager 템플릿을 사용하여 데이터 공유
 
 Azure Resource Manager 템플릿을 사용하여 Azure 스토리지 계정에서 새로운 Azure Data Share를 설정하고 Azure 조직 외부의 고객 및 파트너와 데이터 공유를 시작하는 방법을 알아봅니다. 지원되는 데이터 저장소 목록은 [Azure Data Share에서 지원되는 데이터 저장소](./supported-data-stores.md)를 참조하세요.
 
@@ -101,4 +101,4 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure 데이터 공유를 만들고 수신자를 초대하는 방법을 알아보았습니다. 데이터 소비자가 데이터 공유를 수락하고 받는 방법을 알아보려면, [데이터 수락 및 받기](subscribe-to-data-share.md) 자습서를 계속 진행하세요.
+이 빠른 시작에서는 Azure 데이터 공유를 만들고 수신자를 초대하는 방법을 알아보았습니다. 데이터 소비자가 데이터 공유를 수락하고 받는 방법을 알아보려면, [데이터 수락 및 받기](subscribe-to-data-share.md) 자습서를 계속 진행하세요.
