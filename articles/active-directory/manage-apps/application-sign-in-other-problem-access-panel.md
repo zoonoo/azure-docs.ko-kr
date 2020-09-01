@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 9dd407ce2727582039089c0abe31b68bfe5d0f30
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 472ab82e6941be5c1485773b1115d91eda701666
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070329"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231183"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Azure AD 내 앱에서 응용 프로그램에 로그인 하는 문제 해결
 
@@ -27,10 +27,16 @@ ms.locfileid: "89070329"
 이러한 애플리케이션은 Azure AD 포털에서 사용자를 대신하여 구성됩니다. 응용 프로그램을 올바르게 구성 하 고 사용자 또는 사용자가 구성원으로 속한 그룹에 할당 하 여 내 앱에서 응용 프로그램을 확인 해야 합니다. 
 
 사용자가 볼 수 있는 앱의 종류는 다음과 같은 범주로 분류됩니다.
--   Office 365 애플리케이션
+-   Microsoft 365 및 Office 365 응용 프로그램
 -   페더레이션 기반 SSO로 구성된 Microsoft 및 타사 애플리케이션
 -   암호 기반 SSO 애플리케이션
 -   기존 SSO 솔루션을 사용한 애플리케이션
+
+앱이 나타나거나 표시 되지 않는 경우를 확인 하는 몇 가지 사항은 다음과 같습니다.
+- 앱이 Azure AD에 추가 되었는지 확인 하 고 사용자가 할당 되었는지 확인 합니다. 자세히 알아보려면 [응용 프로그램 관리에 대 한 빠른 시작 시리즈](view-applications-portal.md)를 참조 하세요.
+- 앱을 최근에 추가한 경우 사용자가 다시 로그 아웃 했다가 다시 로그인 합니다. 
+- 앱이 Office와 같은 라이선스를 요구 하는 경우 사용자에 게 적절 한 라이선스가 할당 되었는지 확인 합니다.
+- 라이선스 변경에 걸리는 시간은 그룹의 크기와 복잡도에 따라 달라질 수 있습니다.
 
 ## <a name="general-issues-to-check-first"></a>먼저 확인해야 할 일반적인 문제
 

@@ -3,12 +3,12 @@ title: 리소스에 대 한 태그 지원
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 91c6d5930a9066e73355a0c8e6021b1e7c20802d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 1f74ecff7c5db7a851ad2795fdfdb8e552a309c0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855088"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231523"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](tag-resources.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다. [Cost Management 비용 분석](../../cost-management-billing/costs/group-filter.md) 및 [Azure 청구 송장 및 일간 사용 현황 데이터](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)에서 태그를 기준으로 비용을 볼 수 있습니다.
@@ -263,6 +263,9 @@ ms.locfileid: "88855088"
 > | reportFeedback | 아니요 | 예 |
 > | 서비스 | 예 | 예 |
 > | validateServiceName | 아니요 | 아니요 |
+
+> [!NOTE]
+> Azure API Management는 각 서비스에 대해 최대 15 개의 태그 이름/값 쌍을 만드는 것만 지원 합니다.
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -902,7 +905,7 @@ ms.locfileid: "88855088"
 > | 보고서 | 아니요 | 아니요 |
 > | 설정 | 아니요 | 아니요 |
 > | showbackRules | 아니요 | 아니요 |
-> | 보기 | 아니요 | 예 |
+> | 뷰 | 아니요 | 예 |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 

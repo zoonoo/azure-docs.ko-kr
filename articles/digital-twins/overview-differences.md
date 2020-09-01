@@ -5,16 +5,16 @@ description: 새 버전의 Azure Digital Twins에서 변경된 내용 이해
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ad99dc3dc17e81c3b5da144b21519781353baa47
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6d1786766fc61ed0edfdc53295a50ba212818fc0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826826"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181428"
 ---
-# <a name="how-is-the-new-azure-digital-twins-different-from-the-previous-version-2018"></a>새 Azure Digital Twins는 이전 버전(2018)과 어떻게 다릅니까?
+# <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>새로운 Azure Digital Twins란? 이전 버전(2018)과 어떻게 다릅니까?
 
 Azure Digital Twins의 첫 번째 공개 미리 보기는 2018년 10월에 릴리스됐습니다. 이전 버전의 핵심 개념은 이제 공개 미리 보기의 새로운 서비스로 제공되었지만 서비스를 보다 유연하고 액세스할 수 있도록 하기 위해 많은 인터페이스 및 구현 세부 정보가 변경되었습니다. 이러한 변경 내용은 고객의 피드백에 따라 반영되었습니다.
 
@@ -44,5 +44,4 @@ Azure Digital Twins의 첫 번째 공개 미리 보기는 2018년 10월에 릴�
 
 다음으로 첫 번째 자습서를 사용하여 Azure Digital Twins를 사용하는 방법을 알아봅니다.
 
-> [!div class="nextstepaction"]
-> [*자습서: 클라이언트 앱 코딩*](tutorial-code.md)
+[*자습서: 클라이언트 앱 코딩*](tutorial-code.md)

@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6aff48844f42286de1d30368288b83e5356a36bd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0daa094a6d804cd8a40c4ba76b696e3c9b580f8a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016889"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230350"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Python의 Azure Machine Learning 파이프라인에서 자동화 된 ML 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,9 +41,7 @@ Azure Machine Learning의 자동화 된 ML 기능을 사용 하면 가능한 모
 
 
 > [!TIP]
-> 파이프라인 단계 간에 임시 데이터를 전달 하기 위한 향상 된 환경은 공개 미리 보기 클래스인 및에서 사용할 수 있습니다  `OutputFileDatasetConfig` `OutputTabularDatasetConfig` .  이러한 클래스는 실험적 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다.
-> 
->실험적 기능에 대 한 자세한 내용은을 참조 하십시오 https://aka.ms/azuremlexperimental .
+> 파이프라인 단계 간에 임시 데이터를 전달 하기 위한 향상 된 환경은 공개 미리 보기 클래스인 및에서 사용할 수 있습니다  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) .  이러한 클래스는 [실험적](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다.
 
 는 `AutoMLStep` 개체를 통해 구성 됩니다 `AutoMLConfig` . `AutoMLConfig` 는 [Python에서 자동화 된 ML 실험 구성](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings)에 설명 된 대로 유연한 클래스입니다. 
 
@@ -51,7 +49,7 @@ Azure Machine Learning의 자동화 된 ML 기능을 사용 하면 가능한 모
 
 구체적으로 설명 하기 위해이 문서에서는 분류 태스크에 대 한 간단한 파이프라인을 만듭니다. 이 태스크는 Titanic을 예측 하 고 있지만, 전달 하는 것을 제외 하 고 데이터 또는 태스크에 대해서는 다루지 않습니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 ### <a name="retrieve-initial-dataset"></a>초기 데이터 집합 검색
 
@@ -272,7 +270,7 @@ prepped_data = prepped_data_path.parse_parquet_files(file_extension=None)
 위의 코드 조각은 `PipelineOutputTabularDataset` `PipelineOutputFileDataset` 데이터 준비 단계의 출력에서 높은 성능을 생성 합니다.
 
 > [!TIP]
-> 공개 미리 보기 클래스에는 `OutputFileDatasetConfig` `OutputFileDatasetConfig` `OutputTabularDatasetConfig` automl 실행에서 사용 하기 위해를로 변환 하는 기능도 있습니다. `OutputFileDatasetConfig` [SDK 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py)의 디자인 패턴 및 메서드에 대해 자세히 알아보세요.
+> 공개 미리 보기 클래스에는 `OutputFileDatasetConfig` `OutputFileDatasetConfig` [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) automl 실행에서 사용 하기 위해를로 변환 하는 기능도 있습니다. `OutputFileDatasetConfig` [SDK 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py)의 디자인 패턴 및 메서드에 대해 자세히 알아보세요.
 
 또 다른 옵션은 `Dataset` 작업 영역에 등록 된 개체를 사용 하는 것입니다.
 

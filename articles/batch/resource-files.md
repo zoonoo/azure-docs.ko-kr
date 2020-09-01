@@ -3,12 +3,12 @@ title: 리소스 파일 생성 및 사용
 description: 다양한 입력 소스에서 Batch 리소스 파일을 만드는 방법을 알아봅니다. 이 문서에서는 이를 만들고 VM에 추가하는 몇 가지 일반적인 방법을 설명합니다.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: e1bf7520774a0f4143aadd2298f300b3ac5c75a3
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146303"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230945"
 ---
 # <a name="creating-and-using-resource-files"></a>리소스 파일 생성 및 사용
 
@@ -99,7 +99,7 @@ Batch 작업에는 모두 동일한 공용 파일을 사용하는 여러 태스�
 
 한 태스크에 수백 개의 리소스 파일이 지정된 경우 Batch에서 태스크가 너무 크다며 거부할 수 있습니다. 태스크 자체에서 리소스 파일 수를 최소화하여 태스크를 작게 유지하는 것이 가장 좋습니다.
 
-태스크에 필요한 파일 수를 최소화할 방법이 없는 경우 리소스 파일의 스토리지 컨테이너를 참조하는 단일 리소스 파일을 만들어 태스크를 최적화할 수 있습니다. 이렇게 하려면 리소스 파일을 Azure Storage 컨테이너에 넣고 리소스 파일에 다양한 "컨테이너" [메서드](/dotnet/api/microsoft.azure.batch.resourcefileazure-dotnet#methods)를 사용합니다. Blob 접두사 옵션을 사용하여 태스크용으로 다운로드할 파일 컬렉션을 지정할 수 있습니다.
+태스크에 필요한 파일 수를 최소화할 방법이 없는 경우 리소스 파일의 스토리지 컨테이너를 참조하는 단일 리소스 파일을 만들어 태스크를 최적화할 수 있습니다. 이렇게 하려면 리소스 파일을 Azure Storage 컨테이너에 넣고 리소스 파일에 다양한 "컨테이너" [메서드](/dotnet/api/microsoft.azure.batch.resourcefile#methods)를 사용합니다. Blob 접두사 옵션을 사용하여 태스크용으로 다운로드할 파일 컬렉션을 지정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

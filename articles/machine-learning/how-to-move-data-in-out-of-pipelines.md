@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: f870f90ede4465bf9ebf5c886e1ebb7aa76acaaa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8b20a0815ab16a3713d640a25171e440a8330dd1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997900"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230316"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>ML 파이프라인 단계로/단계 간에 데이터 이동(Python)
 
@@ -33,9 +33,8 @@ ms.locfileid: "88997900"
 - 유지 하려는 새 `Dataset` 개체 `PipelineData` 만들기
 
 > [!TIP]
-> 파이프라인 단계 간에 임시 데이터를 전달 하 고 파이프라인 실행 후 데이터를 유지 하기 위한 향상 된 환경은 공개 미리 보기 클래스인 및에서 사용할 수 있습니다  `OutputFileDatasetConfig` `OutputTabularDatasetConfig` .  이러한 클래스는 실험적 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다.
-> 
->실험적 기능에 대 한 자세한 내용은을 참조 하십시오 https://aka.ms/azuremlexperimental .
+> 파이프라인 단계 간에 임시 데이터를 전달 하 고 파이프라인 실행 후 데이터를 유지 하기 위한 향상 된 환경은 공개 미리 보기 클래스인 및에서 사용할 수 있습니다  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) .  이러한 클래스는 [실험적](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다.
+
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

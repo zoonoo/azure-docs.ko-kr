@@ -216,6 +216,13 @@
         - name: Resource Manager 템플릿 사용
           displayName: arm
           href: how-to-create-workspace-template.md
+    - name: 컴퓨팅 리소스 만들기
+      items:
+        - name: Studio 사용
+          href: how-to-create-attach-compute-studio.md
+        - name: Python SDK 사용
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-create-attach-compute-sdk.md
     - name: 환경 설정
       items:
         - name: 개발 환경 설정
@@ -265,7 +272,7 @@
         - name: 데이터 액세스
           items:
             - name: Azure Storage에 연결
-              displayName: 'blob, get, fileshare, access, mount, download, data lake'
+              displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
             - name: 데이터 저장소에서 데이터 가져오기
               displayName: 'data, data set, register, access data'
@@ -286,7 +293,7 @@
               href: how-to-differential-privacy.md
     - name: 모델 학습
       items:
-        - name: 학습 환경 설정
+        - name: 교육 실행 제출
           displayName: 'run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
         - name: ML용 추정기 사용

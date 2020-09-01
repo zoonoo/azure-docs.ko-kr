@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: bb4cc150fab388846b35dc9adebfacf7a56e9bbc
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 224623f7851c35b12e1f2e1d028355c202128fa1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073508"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89244758"
 ---
 # <a name="azure-security-baseline-for-backup"></a>백업용 Azure 보안 기준
 
@@ -186,7 +186,7 @@ ms.locfileid: "89073508"
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: 로그 모니터링 및 검토
 
-**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 해당 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
+**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 이러한 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
 
 Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 수행 하 여 용어를 검색 하 고, 추세를 식별 하 고, 패턴을 분석 하 고, Recovery Services 자격 증명 모음에 대해 수집 되었을 수 있는 활동 로그 데이터를 기반으로 다양 한 통찰력을 제공
 
@@ -202,7 +202,7 @@ Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 L
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: 비정상 활동에 대한 경고 사용
 
-**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 해당 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
+**지침**: Azure Backup는 Recovery Services 자격 증명 모음에 기본 제공 모니터링 및 경고 기능을 제공 합니다. 이러한 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 또한 Azure Monitor를 사용하여 모니터링 및 보고의 규모를 늘릴 수도 있습니다.
 
 경고는 사용자가 관련 작업을 수행할 수 있도록 사용자에 게 알림을 제공 하는 경우 주로 발생 합니다. 백업 경고 섹션에는 Azure Backup 서비스에 의해 생성 된 경고가 표시 됩니다. 이러한 경고는 서비스에 의해 정의 되며 사용자 지정 경고를 만들 수 없습니다.
 
@@ -426,7 +426,7 @@ Azure AD 사용자 계정에 대 한 진단 설정을 만들고 감사 로그 �
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: 중요한 정보를 저장하거나 처리하는 시스템 격리
 
-**지침**: Azure IaaS vm을 백업 하는 경우 원본 데이터의 실수로 인 한 삭제를 방지 하기 위해 독립적이 고 격리 된 백업을 제공 Azure Backup 합니다. 백업은 복구 지점의 기본 제공 관리 기능을 통해 Recovery Services 자격 증명 모음에 저장됩니다.
+**지침**: Azure IaaS vm을 백업 하는 경우 원본 데이터의 실수로 인 한 삭제를 방지 하기 위해 독립적이 고 격리 된 백업을 제공 Azure Backup 합니다. 백업은 복구 지점에 대한 기본 제공 관리를 사용하여 Recovery Services 자격 증명 모음에 저장됩니다.
 
 개발, 테스트 및 프로덕션 Recovery Services 자격 증명 모음에 대 한 별도의 구독 및/또는 관리 그룹을 구현 합니다. 리소스는 VNet/서브넷으로 구분 되며, 적절 하 게 태그가 지정 되 고, NSG 또는 Azure 방화벽으로 보호 됩니다. 중요 한 데이터를 저장 하거나 처리 하는 리소스는 충분히 격리 되어야 합니다. 중요 한 데이터를 저장 하거나 처리 Virtual Machines 하는 경우 정책 및 프로시저를 구현 하 여 사용 하지 않을 때이를 해제 합니다.
 

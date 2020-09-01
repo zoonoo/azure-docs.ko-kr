@@ -238,12 +238,6 @@
               href: application-types.md
             - name: 할당된 예기치 않은 사용자
               href: ways-users-get-assigned-to-applications.md
-        - name: 내 앱 문제 해결
-          items:
-            - name: 표시되지 않는 앱
-              href: access-panel-troubleshoot-application-not-appearing.md
-            - name: 예기치 않은 앱 표시
-              href: access-panel-troubleshoot-unexpected-application.md
         - name: 온-프레미스 앱 문제 해결
           items:
             - name: 애플리케이션 프록시 문제 해결

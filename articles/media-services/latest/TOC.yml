@@ -7,6 +7,8 @@
     - name: Media Services의 새로운 기능
       displayName: release notes
       href: release-notes.md
+    - name: Media Services 규정 준수
+      href: concept-compliance.md
 - name: 빠른 시작
   items:
     - name: 환경 설정
@@ -45,33 +47,34 @@
           href: encrypt-content-quickstart.md
 - name: 자습서
   items:
-    - name: 원격 파일 인코딩 및 비디오 스트리밍
+    - name: .NET
       items:
-        - name: REST 사용
-          displayName: 'encoding, job, transform'
+        - name: 원격 파일 REST 인코딩 및 스트리밍
           href: stream-files-tutorial-with-rest.md
-        - name: CLI 사용
-          href: stream-files-cli-quickstart.md
-        - name: .NET 사용
+        - name: 원격 파일 .NET 인코딩 및 스트리밍
           href: stream-files-dotnet-quickstart.md
-        - name: Node.js 사용
+        - name: 업로드된 파일 인코딩 및 스트리밍
+          href: stream-files-tutorial-with-api.md
+        - name: 라이브 스트리밍
+          href: stream-live-tutorial-with-api.md
+        - name: 비디오 분석
+          href: analyze-videos-tutorial-with-api.md
+        - name: AES-128로 동적으로 암호화
+          href: protect-with-aes128.md
+        - name: DRM을 사용하여 동적으로 암호화
+          href: protect-with-drm.md
+    - name: CLI
+      items:
+        - name: 원격 파일 CLI 인코딩 및 스트리밍
+          href: stream-files-cli-quickstart.md
+    - name: Node.js
+      items:
+        - name: 원격 파일 Node.js 인코딩 및 스트리밍
           href: stream-files-nodejs-quickstart.md
-    - name: Azure Log Analytics에 AMS 이벤트 저장
-      href: tutorial-events-log-analytics.md
-    - name: 업로드된 파일 인코딩 및 비디오 스트리밍
-      displayName: 'encode, encoding, job, transform'
-      href: stream-files-tutorial-with-api.md
-    - name: 라이브 스트리밍
-      href: stream-live-tutorial-with-api.md
-      displayName: 'Live Events, Live Outputs, ingest'
-    - name: 비디오 분석
-      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
-      href: analyze-videos-tutorial-with-api.md
-    - name: AES-128로 동적으로 암호화
-      href: protect-with-aes128.md
-    - name: DRM을 사용하여 동적으로 암호화
-      displayName: 'PlayReady, Widevine, FairPlay'
-      href: protect-with-drm.md
+    - name: Azure portal
+      items:
+        - name: Azure Log Analytics에 AMS 이벤트 저장
+          href: tutorial-events-log-analytics.md
 - name: 샘플
   items:
     - name: Media Services v3 샘플

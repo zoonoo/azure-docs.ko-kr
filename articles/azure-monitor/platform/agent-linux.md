@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: eb68aa1dae69134cfdab057a95de8a2393f9a32c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998937"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230469"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 컴퓨터에 Log Analytics 에이전트 설치
 이 문서에서는 다음 방법을 사용 하 여 Linux 컴퓨터에 Log Analytics 에이전트를 설치 하는 방법에 대해 자세히 설명 합니다.
@@ -51,11 +51,19 @@ Log Analytics 에이전트에서 지 원하는 Linux 배포 목록은 [Azure Mon
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-Python2 실행 파일은 다음 명령을 사용 하 여 "python"으로 별칭을 지정 해야 합니다.
+Python2 실행 파일은 *python*으로 별칭을 지정 해야 합니다. 다음은이 별칭을 설정 하는 데 사용할 수 있는 한 가지 방법입니다.
 
-```
-alternatives --set python `which python2`
-```
+1. 다음 명령을 실행 하 여 기존 별칭을 제거 합니다.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. 다음 명령을 실행 하 여 별칭을 만듭니다.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ## <a name="supported-linux-hardening"></a>지원 되는 Linux 강화
 OMS 에이전트는 Linux에 대해 제한 된 사용자 지정 지원을 제공 합니다. 
@@ -64,7 +72,8 @@ OMS 에이전트는 Linux에 대해 제한 된 사용자 지정 지원을 제공
 - 서명에
 
 다음은 계획 되었지만 아직 지원 되지 않습니다.
-- CIS-SELINUX
+- 들
+- SELINUX
 
 기타 강화 및 사용자 지정 방법은 지원 되지 않으며 OMS 에이전트에 대해 계획 되지 않았습니다.  
 
@@ -117,9 +126,9 @@ Linux 패키지용 Log Analytics 에이전트를 설치한 후 다음과 같은 
 
 Linux 컴퓨터가 프록시 서버를 통해 Log Analytics를 통해 통신 해야 하는 경우를 포함 하 여 명령줄에서이 구성을 지정할 수 있습니다 `-p [protocol://][user:password@]proxyhost[:port]` . *프로토콜* 속성은 `http` 또는을 허용 `https` 하 고, *proxyhost* 속성은 프록시 서버의 정규화 된 도메인 이름 또는 IP 주소를 허용 합니다. 
 
-`https://proxy01.contoso.com:30443`
+예: `https://proxy01.contoso.com:30443`
 
-두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. `https://user01:password@proxy01.contoso.com:30443`
+두 경우 모두 인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Log Analytics 작업 영역에 연결 하도록 Linux 컴퓨터를 구성 하려면 작업 영역 ID 및 기본 키를 제공 하는 다음 명령을 실행 합니다. 다음 명령은 에이전트를 다운로드하고, 해당 체크섬의 유효성을 검사한 다음, 설치합니다.
     
@@ -175,7 +184,7 @@ Linux 용 Log Analytics 에이전트는 자동 압축 풀기 및 설치 가능�
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예를 들어: 
+    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예: 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>

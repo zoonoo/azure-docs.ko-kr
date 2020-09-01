@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: cd9b015c292d262430d3fd845e06e38866bc6239
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4dced0e0597e4df2fe215c9f4b85e3e8defd92c3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018725"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230384"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -318,6 +318,26 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 ## <a name="automated-machine-learning"></a>자동화된 기계 학습
 
+* 최신 **버전에 대 한 AutoML 종속성의 최근 업그레이드는 compatibilitity를 중단 합니다**. SDK 버전 1.13.0에서 이전 패키지에 고정 된 이전 버전의 비 호환성으로 인해 이전 sdk에 모델이 로드 되지 않고 현재 고정 된 최신 버전입니다. 다음과 같은 오류가 표시 됩니다.
+  * 모듈을 찾을 수 없음: 예. `No module named 'sklearn.decomposition._truncated_svd` ,
+  * 가져오기 오류: 예: `ImportError: cannot import name 'RollingOriginValidator'` ,
+  * 특성 오류: 예. `AttributeError: 'SimpleImputer' object has no attribute 'add_indicator`
+  
+  이 문제를 해결 하려면 AutoML SDK 교육 버전에 따라 다음 두 단계 중 하나를 수행 합니다.
+  1. AutoML SDK 교육 버전이 1.13.0 보다 큰 경우 및가 필요 `pandas == 0.25.1` `sckit-learn==0.22.1` 합니다. 버전이 일치 하지 않는 경우 아래와 같이 scikit 및/또는 pandas를 올바른 버전으로 업그레이드 합니다.
+  
+  ```bash
+     pip install --upgrade pandas==0.25.1
+     pip install --upgrade scikit-learn==0.22.1
+  ```
+  
+  2. AutoML SDK 교육 버전이 1.12.0 보다 작거나 같은 경우 및가 필요 `pandas == 0.23.4` `sckit-learn==0.20.3` 합니다. 버전이 일치 하지 않는 경우 아래와 같이 scikit 및/또는 pandas를 올바른 버전으로 다운 그레이드 합니다.
+  
+  ```bash
+    pip install --upgrade pandas==0.23.4
+    pip install --upgrade scikit-learn==0.20.3
+  ```
+ 
 * **TensorFlow**: SDK 버전 1.5.0을 기준으로 자동화 된 machine learning은 기본적으로 TensorFlow 모델을 설치 하지 않습니다. TensorFlow를 설치 하 고 자동 ML 실험에서 사용 하려면 TensorFlow = = 1.12.0 via CondaDependecies를 설치 합니다. 
  
    ```python
