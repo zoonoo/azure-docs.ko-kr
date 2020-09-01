@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 32b3207fc86f9aab7194d63a0e57eea459fd7eac
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4288e2e955f8205f3b6551c83a5c883eecf02501
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018028"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264813"
 ---
-# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES 사전 설정을 사용자 지정하여 고급 인코딩 수행 
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>MES 사전 설정을 사용자 지정하여 고급 인코딩 수행
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>개요
 
@@ -51,7 +53,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
 <Height>100%</Height>
 ```
 
-## <a name="generate-thumbnails"></a><a id="thumbnails"></a>미리 보기 생성
+## <a name="generate-thumbnails"></a>미리 보기 생성
 
 이 섹션에서는 미리 보기를 생성하는 기본 설정을 사용자 지정하는 방법을 보여줍니다. 아래에 정의된 사전 설정은 미리 보기를 생성하는 데 필요한 정보 뿐만 아니라 파일을 인코딩하는 방법에 대한 정보를 포함합니다. [이 섹션](media-services-mes-presets-overview.md)에 문서화된 MES 사전 설정 중 하나를 가져와서 미리 보기를 생성하는 코드를 추가할 수 있습니다.  
 
@@ -64,7 +66,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
 
 [고려 사항](#considerations) 섹션을 검토해야 합니다.
 
-### <a name="json-preset"></a><a id="json"></a>JSON 사전 설정
+### <a name="json-preset"></a>JSON 사전 설정
 
 ```json
 {
@@ -166,7 +168,7 @@ XML 사전 설정을 사용하는 경우 아래 XML 예제에 표시된 것처�
 }
 ```
 
-### <a name="xml-preset"></a><a id="xml"></a>XML 사전 설정
+### <a name="xml-preset"></a>XML 사전 설정
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>

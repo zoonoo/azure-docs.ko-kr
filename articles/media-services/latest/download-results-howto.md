@@ -9,17 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b4aa523c6f2fe1e833fa7dfe99cc870bf6014eb7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bc1ac986ffb8e15df5dab14403aac5eca05c5b5d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009919"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263725"
 ---
 # <a name="download-the-results-of-a-job"></a>작업 결과 다운로드
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Media Services에서 비디오를 처리 하는 경우 (예: 인코딩 또는 분석) [작업](transforms-jobs-concept.md)결과를 저장 하는 출력 [자산](assets-concept.md) 을 만들어야 합니다. 그런 다음 Media Service 및 Storage Api를 사용 하 여 로컬 폴더에 이러한 결과를 다운로드할 수 있습니다. 
 

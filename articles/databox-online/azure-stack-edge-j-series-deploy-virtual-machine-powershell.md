@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 2c8d9a27725259c34060552494a56f14621f54b4
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: d5210a3788f7bb054492c2d83c595c26fa3c4f42
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147034"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265714"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge 장치에 Vm 배포
+# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge GPU 장치에 Vm 배포
 
 <!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
 
@@ -490,7 +490,7 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 다음 표준 Dv2 시리즈 Vm은 Azure Stack Edge 장치에서 만들 수 있도록 지원 됩니다.
 
 ### <a name="dv2-series"></a>Dv2 시리즈
-|크기     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
+|Size     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
 |-------------------|----|----|-----|----|------|------------|---------|
 |**Standard_D1_v2** |1   |3.5 |50   |500 |3000  |4 / 4x500   |2 |
 |**Standard_D2_v2** |2   |7   |100  |500 |6000  |8 / 8x500   |2 |
@@ -499,7 +499,7 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 |**Standard_D5_v2** |16  |56  |800  |500 |48000 |64 / 64x500 |8 |
 
 ### <a name="dsv2-series"></a>DSv2 시리즈
-|크기     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
+|Size     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
 |--------------------|----|----|----|-----|------|-------------|---------|
 |**Standard_DS1_v2** |1   |3.5 |7   |1000 |4000  |4/4x2300   |2 |
 |**Standard_DS2_v2** |2   |7   |14  |1000 |8000  |8/8x2300   |2 |
@@ -508,7 +508,7 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 |**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64/64x2300 |8 |
 
 ### <a name="dv2-series"></a>Dv2 시리즈
-|크기     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
+|Size     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8 / 8x500    |2 |
 |**Standard_D12_v2** |4   |28  |200  |500 |12000  |16 / 16x500  |4 |
@@ -517,7 +517,7 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 
 
 ### <a name="dsv2-series"></a>DSv2 시리즈
-|크기     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
+|Size     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4/4x2300    |2 |
 |**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |8/8x2300    |4 |

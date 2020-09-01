@@ -3,7 +3,7 @@ title: Azure Media Services에서 대기 시간이 짧은 라이브 설정 | Mic
 description: 이 항목에서는 대기 시간이 짧은 라이브 설정에 대해 간략하게 설명 하 고 짧은 대기 시간을 설정 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/22/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e454ce84049f0f7c90da45ed77532f9ba2d90fd4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7f874491f392f320a6cdf833864c7b3eddc2f5e2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018708"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265323"
 ---
 # <a name="live-event-low-latency-settings"></a>라이브 이벤트 낮은 대기 시간 설정
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 이 문서에서는 [라이브 이벤트](/rest/api/media/liveevents)에서 짧은 대기 시간을 설정하는 방법을 보여줍니다. 또한 다양한 플레이어에서 짧은 대기 시간 설정을 사용하는 경우 표시되는 일반적인 결과에 대해 설명합니다. 그 결과는 CDN 및 네트워크 대기 시간에 따라 다릅니다.
 
