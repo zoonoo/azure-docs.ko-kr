@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 73f426fdcc020320989f0d09410066b66a131cfa
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9873bd8f94c80caccd75033e2a8a4bc2cffcde03
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177281"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227035"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Azure 구독을 다른 Azure AD 디렉터리 (미리 보기)에 전송
 
@@ -42,7 +42,7 @@ ms.locfileid: "89177281"
 
 1. 전송 준비
 
-1. Azure 구독의 청구 소유권을 다른 계정에 양도
+1. Azure 구독을 다른 디렉터리로 전송
 
 1. 역할 할당, 사용자 지정 역할 및 관리 되는 id와 같은 대상 디렉터리에 리소스를 다시 만듭니다.
 
@@ -74,14 +74,14 @@ ms.locfileid: "89177281"
 | 시스템 할당 관리 id | 예 | 예 | [관리 id 나열](#list-role-assignments-for-managed-identities) | 관리 되는 id를 사용 하지 않도록 설정 했다가 다시 사용 하도록 설정 해야 합니다. 역할 할당을 다시 만들어야 합니다. |
 | 사용자 할당 관리 id | 예 | 예 | [관리 id 나열](#list-role-assignments-for-managed-identities) | 관리 되는 id를 삭제 하 고 다시 만든 다음 적절 한 리소스에 연결 해야 합니다. 역할 할당을 다시 만들어야 합니다. |
 | Azure Key Vault | 예 | 예 | [Key Vault 액세스 정책 나열](#list-key-vaults) | 키 자격 증명 모음과 연결 된 테 넌 트 ID를 업데이트 해야 합니다. 새 액세스 정책을 제거 하 고 추가 해야 합니다. |
-| Azure AD 인증 통합이 사용 되는 azure SQL database | 예 | 예 | [Azure AD 인증을 사용 하 여 Azure SQL 데이터베이스 확인](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
+| Azure AD 인증 통합이 사용 되는 azure SQL database | 예 | 아니요 | [Azure AD 인증을 사용 하 여 Azure SQL 데이터베이스 확인](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Azure Storage 및 Azure Data Lake Storage Gen2 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure Data Lake Storage Gen1 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure 파일 | 예 | 예 |  | Acl을 다시 만들어야 합니다. |
 | Azure 파일 동기화 | 예 | 예 |  |  |
 | Azure Managed Disks | 예 | 해당 없음 |  |  |
 | Kubernetes 용 Azure Container Service | 예 | 예 |  |  |
-| Azure Active Directory Domain Services | 예 | 예 |  |  |
+| Azure Active Directory Domain Services | 예 | 아니요 |  |  |
 | 앱 등록 | 예 | 예 |  |  |
 
 > [!WARNING]
@@ -269,7 +269,7 @@ ms.locfileid: "89177281"
 > [!WARNING]
 > 구독을 전송 하면 원본 디렉터리의 모든 역할 할당이 **영구적으로** 삭제 되며 복원할 수 없습니다. 구독을 전송한 후에는 다시 이동할 수 없습니다. 이 단계를 수행 하기 전에 이전 단계를 완료 해야 합니다.
 
-1. 청구 소유권도 전송할지 여부를 결정 합니다.
+1. 또한 청구 소유권을 다른 계정으로 전송할지 여부를 결정 합니다.
 
 1. 다른 디렉터리로 구독을 전송 합니다.
 

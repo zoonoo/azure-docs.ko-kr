@@ -1,6 +1,6 @@
 ---
-title: Gen2 탐색기에서 데이터 시각화-Azure Time Series Insights Gen2 | Microsoft Docs
-description: Azure Time Series Insights Gen2 탐색기에서 제공 되는 기능 및 옵션에 대해 알아봅니다.
+title: TSI 탐색기에서 데이터 시각화-Azure Time Series Insights Gen2 | Microsoft Docs
+description: Azure Time Series Insights 탐색기에서 제공 되는 기능 및 옵션에 대해 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -8,22 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68b80a3511a82ff06677d3b7bb1fbea1c68cb2ae
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 31ed5f93fc7d1b44ae8a4afb1f4368d0b52eb2fd
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164158"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227052"
 ---
-# <a name="azure-time-series-insights-gen2-explorer"></a>Gen2 탐색기 Azure Time Series Insights
+# <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 
 이 문서에서는 Azure Time Series Insights Gen2 [Demo 환경](https://insights.timeseries.azure.com/preview/demo)에서 사용할 수 있는 다양 한 기능 및 옵션을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-Azure Time Series Insights Gen2 탐색기를 시작 하려면 다음을 수행 해야 합니다.
+Azure Time Series Insights 탐색기를 시작 하려면 다음을 수행 해야 합니다.
 
 * Azure Time Series Insights Gen2 환경을 프로 비전 합니다. [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) 자습서를 읽어 인스턴스를 프로 비전 하는 방법에 대해 자세히 알아보세요.
 * 계정에 대해 만든 Azure Time Series Insights Gen2 환경에 대 한 [데이터 액세스를 제공](./time-series-insights-data-access.md) 합니다. 자신과 다른 사용자에 대한 액세스 권한을 모두 부여할 수 있습니다.
@@ -31,11 +31,11 @@ Azure Time Series Insights Gen2 탐색기를 시작 하려면 다음을 수행 �
   * [이벤트 허브에 연결 하는 방법](./time-series-insights-how-to-add-an-event-source-eventhub.md) 알아보기
   * [IoT hub에 연결 하는 방법](./time-series-insights-how-to-add-an-event-source-iothub.md) 알아보기
 
-## <a name="explore-the-azure-time-series-insights-gen2-explorer"></a>Gen2 탐색기 Azure Time Series Insights 탐색
+## <a name="explore-the-azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기 살펴보기
 
-Azure Time Series Insights Gen2 탐색기는 다음과 같은 7 개의 요소로 구성 됩니다.
+Azure Time Series Insights 탐색기는 다음과 같은 7 개의 요소로 구성 됩니다.
 
-[![Azure Time Series Insights Gen2 Explorer 개요](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
+[![Azure Time Series Insights 탐색기 개요](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
 1. [환경 패널](#1-environment-panel): 모든 Azure Time Series Insights Gen2 환경을 표시 합니다.
 1. [탐색 모음](#2-navigation-bar): **분석** 및 **모델** 페이지 간을 전환할 수 있습니다.
@@ -193,7 +193,7 @@ Azure Time Series Insights Gen2 탐색 패널이 앱 위쪽에 표시 됩니다.
 > [!TIP]
 > 프로필 아이콘을 선택 하 여 언어를 선택할 수도 있습니다.
 
-Azure Time Series Insights Gen2 탐색기는 다음과 같은 두 가지 테마를 지원 합니다.
+Azure Time Series Insights 탐색기는 두 가지 테마를 지원 합니다.
 
 * **밝은 테마**:이 문서 전체에 표시 되는 기본 테마입니다.
 * **어두운 테마**: 다음과 같이 탐색기를 렌더링 합니다.
@@ -204,7 +204,7 @@ Azure Time Series Insights Gen2 탐색기는 다음과 같은 두 가지 테마�
 
 ### <a name="gen2-terms-panel"></a>Gen2 용어 패널
 
-이 섹션은 업데이트 된 UI에서 탐색기를 사용 하려고 시도 하는 기존 Gen 1 환경에만 적용 됩니다. Gen 1 제품 및 Gen2 제품을 조합 하 여 사용 하는 것이 좋습니다. 기존 UI의 일부 기능을 업데이트 된 탐색기에 추가 했지만, 새 Azure Time Series Insights Gen2 탐색기에서 Gen 1 환경에 대 한 전체 UI 환경을 가져올 수 있습니다.
+이 섹션은 업데이트 된 UI에서 탐색기를 사용 하려고 시도 하는 기존 Gen 1 환경에만 적용 됩니다. Gen 1 제품 및 Gen2 제품을 조합 하 여 사용 하는 것이 좋습니다. 기존 UI의 일부 기능을 업데이트 된 탐색기에 추가 했지만 새 Azure Time Series Insights 탐색기에서 Gen 1 환경에 대 한 전체 UI 환경을 얻을 수 있습니다.
 
 계층 구조 대신 Azure Time Series Insights Gen2 용어 창이 표시 됩니다. 용어 패널을 사용 하 여 사용자 환경에서 쿼리를 정의할 수 있습니다. 조건자를 기준으로 데이터를 필터링 하는 데도 사용 됩니다.
 
@@ -214,7 +214,7 @@ Azure Time Series Insights Gen2 용어 편집기 패널에는 다음 매개 변�
 
 **Where**: where 절을 사용 하 여 다음 표에 나열 된 피연산자 집합을 사용 하 여 이벤트를 신속 하 게 필터링 합니다. 피연산자를 선택하여 검색을 수행하는 경우 조건자는 해당 검색에 따라 자동으로 업데이트됩니다. 지원 되는 피연산자 유형은 다음과 같습니다.
 
-| 작업(Operation)    | 지원되는 형식    | 메모 |
+| 작업(Operation)    | 지원되는 형식    | 참고 |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |

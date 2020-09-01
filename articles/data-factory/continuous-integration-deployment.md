@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: f44c3ac51bfc509df0b8f2b82c2d6259bba0aa3c
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.date: 08/31/2020
+ms.openlocfilehash: 582a9eb4c98e89602e35e2ee424a00adc54a88e3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047687"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229551"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -335,6 +335,16 @@ Resource Manager 템플릿을 내보낼 때 Data Factory는 협업 분기뿐만 
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {
@@ -390,7 +400,6 @@ Resource Manager 템플릿을 내보낼 때 Data Factory는 협업 분기뿐만 
             "typeProperties": {
                 "scope": "="
             }
-
         }
     },
     "Microsoft.DataFactory/factories/linkedServices": {
@@ -427,7 +436,8 @@ Resource Manager 템플릿을 내보낼 때 Data Factory는 협업 분기뿐만 
                     "aadResourceId": "=",
                     "sasUri": "|:-sasUri:secureString",
                     "sasToken": "|",
-                    "connectionString": "|:-connectionString:secureString"
+                    "connectionString": "|:-connectionString:secureString",
+                    "hostKeyFingerprint": "="
                 }
             }
         },
@@ -450,8 +460,8 @@ Resource Manager 템플릿을 내보낼 때 Data Factory는 협업 분기뿐만 
                     "fileName": "="
                 }
             }
-        }}
-}
+        }
+    }
 ```
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>예: 기존 Azure Databricks 대화형 클러스터 ID 매개 변수화
@@ -460,6 +470,16 @@ Resource Manager 템플릿을 내보낼 때 Data Factory는 협업 분기뿐만 
 
 ```json
 {
+    "Microsoft.DataFactory/factories": {
+        "properties": {
+            "globalParameters": {
+                "*": {
+                    "value": "="
+                }
+            }
+        },
+        "location": "="
+    },
     "Microsoft.DataFactory/factories/pipelines": {
     },
     "Microsoft.DataFactory/factories/dataflows": {

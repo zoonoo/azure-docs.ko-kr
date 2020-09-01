@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9964a10b85d9f388a4498766c6e81ee52498aa37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c28e869bff1d0e921a1e5a952dbfcb21ee97d16b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076177"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228327"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>블록 blob에 대한 개체 복제(미리 보기) 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "89076177"
 시작 하기 전에 다음 기능 미리 보기에 등록 했는지 확인 합니다.
 
 - [개체 복제(미리 보기)](object-replication-overview.md)
-- [Blob 버전 관리(미리 보기)](versioning-overview.md)
+- [Blob 버전 관리](versioning-overview.md)
 - [Azure Blob 스토리지의 변경 피드 지원(미리 보기)](storage-blob-change-feed.md)
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)

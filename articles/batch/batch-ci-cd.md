@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: ed85678cefe45bbe27595488211173d4fa5418bd
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146422"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229398"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Azure Pipelines를 사용하여 HPC 솔루션 빌드 및 배포
 
@@ -29,7 +29,7 @@ Azure Pipelines는 소프트웨어의 빌드, 배포, 테스트 및 모니터링
 이 문서의 단계를 수행하려면 Azure DevOps 조직과 팀 프로젝트가 필요합니다.
 
 * [Azure DevOps 조직 만들기](/azure/devops/organizations/accounts/create-organization)
-* [Azure DevOps에서 프로젝트 만들기](/azure/devops/organizations/projects/create-projects)
+* [Azure DevOps에서 프로젝트 만들기](/azure/devops/organizations/projects/create-project)
 
 ### <a name="source-control-for-your-environment"></a>환경의 소스 제어
 
@@ -325,7 +325,7 @@ Azure DevOps Services의 [Azure Pipelines](/azure/devops/pipelines/get-started/)
 
     a. [비주얼 디자이너를 사용합니다](/azure/devops/pipelines/get-started-designer). 이를 위해서는 **새 파이프라인** 페이지에서 “비주얼 디자이너 사용”을 클릭합니다.
 
-    b. [YAML 빌드를 사용합니다](/azure/devops/pipelines/get-started-yamls). 새 파이프라인 페이지에서 Azure Repos 또는 GitHub 옵션을 클릭하여 새 YAML 파이프라인을 만들 수 있습니다. 또는 아래 예제를 소스 제어에 저장하고 비주얼 디자이너를 클릭하여 기존 YAML 파일을 참조한 다음 YAML 템플릿을 사용할 수도 있습니다.
+    b. [YAML 빌드를 사용합니다](/azure/devops/pipelines/get-started-yaml). 새 파이프라인 페이지에서 Azure Repos 또는 GitHub 옵션을 클릭하여 새 YAML 파이프라인을 만들 수 있습니다. 또는 아래 예제를 소스 제어에 저장하고 비주얼 디자이너를 클릭하여 기존 YAML 파일을 참조한 다음 YAML 템플릿을 사용할 수도 있습니다.
 
     ```yml
     # To publish an application into Azure Batch, we need to

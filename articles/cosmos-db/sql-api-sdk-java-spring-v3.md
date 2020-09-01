@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 04a50d37606754ff4540d1056e378d46388e2592
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e67e6911eeac29036dee2b68c19395b34e1d11da
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590721"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228038"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Core 용 스프링 데이터 Azure Cosmos DB v3 (SQL) API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ cosmos.queryMetricsEnabled=true
 
 ## <a name="helpful-content"></a>유용한 내용
 
-| 콘텐츠 | 스프링 데이터 프레임 워크 v 2.2 | 스프링 데이터 프레임 워크 v 2.3 |
+| Content | 스프링 데이터 프레임 워크 v 2.2 | 스프링 데이터 프레임 워크 v 2.3 |
 |---|---|
 | **SDK 다운로드** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-2-cosmos) | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-3-cosmos) |
 |**SDK에 참여** | [GitHub의 스프링 데이터 Azure Cosmos DB 리포지토리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-2-cosmos) | [GitHub의 스프링 데이터 Azure Cosmos DB 리포지토리](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-3-cosmos) | 
@@ -130,8 +130,10 @@ cosmos.queryMetricsEnabled=true
 
 ## <a name="release-history"></a>릴리스 기록
 
+### <a name="300-beta2-unreleased"></a>3.0.0-beta. 2 (릴리스되지 않음)
+
 ### <a name="300-beta1-2020-08-17"></a>3.0.0-beta. 1 (2020-08-17)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 그룹 ID를로 업데이트 했습니다 `com.azure` .
 * 아티팩트 ID를로 업데이트 했습니다 `azure-spring-data-2-3-cosmos` .
 * Azure cosmos SDK 종속성을로 업데이트 했습니다 `4.3.2-beta.2` .

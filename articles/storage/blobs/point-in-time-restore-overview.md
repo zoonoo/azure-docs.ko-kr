@@ -10,12 +10,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2840e82508ee4f4046aec8f23c00a5c275bf5b67
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 07a1e81f2fe63ea8d34f362627ad79ab6729f3f0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074460"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229126"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>블록 Blob에 대한 지정 시간 복원(미리 보기)
 
@@ -56,7 +56,7 @@ Azure Storage는 UTC 시간 및 현재 순간에 지정 된 요청 된 복원 �
 
 - [일시 삭제](soft-delete-overview.md)
 - [변경 피드(미리 보기)](storage-blob-change-feed.md)
-- [Blob 버전 관리(미리 보기)](versioning-overview.md)
+- [Blob 버전 관리](versioning-overview.md)
 
 지정 시간 복원을 사용 하기 전에 저장소 계정에 이러한 기능을 사용 하도록 설정 합니다. 변경 피드 및 Blob 버전 관리 미리 보기를 사용하도록 설정하기 전에 먼저 등록해야 합니다.
 
@@ -105,7 +105,7 @@ Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Mic
 # Register for change feed (preview)
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
-# Register for blob versioning (preview)
+# Register for Blob versioning
 Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace

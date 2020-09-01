@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 55a4f06b93aafbd1e94a3bf6573ba39dc25022b5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f84298c2c43afbb9e0379516be1e83002a7e3926
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077010"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228684"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob Storage 기능
 
@@ -45,7 +45,6 @@ ms.locfileid: "89077010"
 |스냅샷|미리 보기|아직 지원되지 않음|[Blob 스냅숏](snapshots-overview.md)|
 |정적 웹 사이트|미리 보기|아직 지원되지 않음|[Azure Storage에서 정적 웹 사이트 호스팅](storage-blob-static-website.md)|
 |변경 불가능한 스토리지|미리 보기|아직 지원되지 않음|[비즈니스에 중요한 BLOB 데이터를 변경이 불가능한 스토리지에 저장](storage-blob-immutable-storage.md)|
-|수명 주기 관리 정책|미리 보기|아직 지원되지 않음|[Azure Blob Storage 수명 주기 관리](storage-lifecycle-management-concepts.md)|
 |컨테이너 일시 삭제|미리 보기|미리 보기|[컨테이너에 대 한 일시 삭제 (미리 보기)](soft-delete-container-overview.md)|
 |Blob 일시 삭제|아직 지원되지 않음|아직 지원되지 않음|[Blob에 대한 일시 삭제](storage-blob-soft-delete.md)|
 |Blobfuse|미리 보기|아직 지원되지 않음|[blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법](storage-how-to-mount-container-linux.md)|

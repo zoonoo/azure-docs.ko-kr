@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 3c7bb19f93bc5b6d345930eb1928ca620e391bb0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 0d917ea686c2003bf46b6fca872ef67fb0363107
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144076"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228919"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -56,10 +56,8 @@ ML 파이프라인을 실행 하는 데 필요한 리소스를 만듭니다.
 * `Dataset`데이터 저장소에 상주 하거나 데이터 저장소에 액세스할 수 있는 영구 데이터를 가리키도록 개체를 구성 합니다. `PipelineData`파이프라인 단계 간에 전달 되는 임시 데이터에 대 한 개체를 구성 합니다. 
 
     > [!TIP]
-    > 파이프라인 단계 간에 임시 데이터를 전달 하기 위한 향상 된 환경은 공개 미리 보기 클래스인에서 사용할 수 있습니다  `OutputFileDatasetConfig` .  이 클래스는 실험적 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다.
-    > 
-    >실험적 기능에 대 한 자세한 내용은을 참조 하십시오 https://aka.ms/azuremlexperimental .
-    
+    > 파이프라인 단계 간에 임시 데이터를 전달 하기 위한 향상 된 환경은 공개 미리 보기 클래스인에서 사용할 수 있습니다  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) .  이 클래스는 [실험적](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다.
+
 * 파이프라인 단계가 실행될 [컴퓨팅 대상](concept-azure-machine-learning-architecture.md#compute-targets)을 설정합니다.
 
 ### <a name="set-up-a-datastore"></a>데이터 저장소 설정
