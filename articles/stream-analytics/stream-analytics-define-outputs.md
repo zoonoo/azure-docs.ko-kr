@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 92cc742fce101b67bfb359381b4eabf9cf2a404e
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: ade5972226a735ce5d093890091536baf02f5eff
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869578"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068986"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Azure Stream Analytics 출력
 
@@ -24,7 +24,7 @@ Stream Analytics 작업 출력을 만들고, 편집하고, 테스트하려면 [A
 
 | 출력 형식 | 분할 | 보안 | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Azure Active Directory 사용자 </br> MSI|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|예|Azure Active Directory 사용자 </br> MSI|
 |[Azure SQL Database](sql-database-output.md)|예, 사용하도록 설정해야 합니다.|SQL 사용자 인증 </br> MSI (미리 보기)|
 |[Azure Synapse Analytics(미리 보기)](azure-synapse-analytics-output.md)|아니요|SQL 사용자 인증|
 |[Blob storage 및 Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|예|MSI </br> 액세스 키|

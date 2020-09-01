@@ -17,12 +17,13 @@ ms.date: 08/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a198a63d633573ad683a3f8e8215b2975721bc9
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bb3ea568d35ca1ad489fea3cd910c0e1e5dc9722
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794938"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071417"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>보고용 Azure AD PowerShell cmdlet
 
@@ -53,7 +54,7 @@ Azure Active Directory (Azure AD) 보고서를 사용 하 여 사용자 방향 (
 | 응용 프로그램 표시 이름      | AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName eq ' Azure AD 클라우드 동기화 '" |
 | 범주                      | AzureADAuditDirectoryLogs-Filter "category eq ' ApplicationManagement '" |
 | 작업 날짜 시간            | AzureADAuditDirectoryLogs-Filter "activityDateTime gt 2019-04-18" |
-| 위 항목 모두              | AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName eq ' Azure AD 클라우드 Sync ' 및 category eq ' ApplicationManagement ' 및 activityDateTime gt 2019-04-18"|
+| 위의 모든 항목              | AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName eq ' Azure AD 클라우드 Sync ' 및 category eq ' ApplicationManagement ' 및 activityDateTime gt 2019-04-18"|
 
 
 다음 이미지는이 명령에 대 한 예를 보여 줍니다. 
@@ -75,7 +76,7 @@ Azure Active Directory (Azure AD) 보고서를 사용 하 여 사용자 방향 (
 | 만든 날짜 시간              | AzureADAuditSignInLogs-Filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (4/18 5:30 pm 이후의 모든 항목) |
 | 상태                        | AzureADAuditSignInLogs-Filter "status/errorCode eq 50105" |
 | 응용 프로그램 표시 이름      | AzureADAuditSignInLogs-Filter "appDisplayName eq ' StoreFrontStudio [wsfed enabled] '" |
-| 위 항목 모두              | AzureADAuditSignInLogs-Filter "userDisplayName eq ' TimosPerkins ' 및 status/errorCode ne 0 및 appDisplayName eq ' StoreFrontStudio [wsfed enabled] '" |
+| 위의 모든 항목              | AzureADAuditSignInLogs-Filter "userDisplayName eq ' TimosPerkins ' 및 status/errorCode ne 0 및 appDisplayName eq ' StoreFrontStudio [wsfed enabled] '" |
 
 
 다음 이미지는이 명령에 대 한 예를 보여 줍니다. 
