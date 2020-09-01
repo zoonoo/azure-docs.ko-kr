@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 291de9c28909a415d28a3bab3c033653f62b4df4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a247ef24104d9ecb9c827896d2bbfda8c50b9958
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009103"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269406"
 ---
-#  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>fMP4 청크를 생성하는 인코딩 작업 만들기
+# <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>fMP4 청크를 생성하는 인코딩 작업 만들기
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>개요
 
@@ -48,7 +50,7 @@ ms.locfileid: "89009103"
 
 개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 ```csharp
 using System;

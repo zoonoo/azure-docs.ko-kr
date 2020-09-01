@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 953217d15e6aede86d863bcd5be6df583d15df6d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 09664de9ab2040ad04127ee1556c21244ac6bc2d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180085"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269678"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -27,7 +27,7 @@ Azure AD(Azure Active Directory)를 사용하면 제한된 관리자가 권한�
 
 ## <a name="limit-use-of-global-administrator"></a>전역 관리자 사용 제한
 
-전역 관리자 역할에 할당된 사용자는 Azure AD 조직의 모든 관리 설정을 읽고 수정할 수 있습니다. 기본적으로 Azure 구독에 가입하는 사람에게는 Azure AD 조직의 전역 관리자 역할이 할당됩니다. 전역 관리자와 권한 있는 역할 관리자만이 관리자 역할을 위임할 수 있습니다. 비즈니스 위험을 줄이기 위해 조직 내 극소수의 사람에게만 이 역할을 할당하는 것이 좋습니다.
+전역 관리자 역할에 할당된 사용자는 Azure AD 조직의 모든 관리 설정을 읽고 수정할 수 있습니다. 기본적으로 사용자가 Microsoft 클라우드 서비스에 등록할 때 Azure AD 테 넌 트가 만들어지고 사용자는 전역 관리자 역할의 구성원이 됩니다. 기존 테 넌 트에 구독을 추가 하면 전역 관리자 역할에 할당 되지 않습니다. 전역 관리자와 권한 있는 역할 관리자만이 관리자 역할을 위임할 수 있습니다. 비즈니스 위험을 줄이기 위해 조직 내 극소수의 사람에게만 이 역할을 할당하는 것이 좋습니다.
 
 모범 사례에 따라 조직 내에서 5명 미만의 사람에게만 이 역할을 할당하는 것이 좋습니다. 조직에서 전역 관리자 역할에 할당된 관리자가 5명을 초과하는 경우 다음과 같은 방법으로 수를 줄일 수 있습니다.
 

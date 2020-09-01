@@ -10,16 +10,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: af9f1f745f58e9d51ff7c5755d24b819ed9443f7
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147465"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269729"
 ---
 # <a name="media-services-regulatory-compliance"></a>규정 준수 Media Services
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Media Services는 정보 영향 수준 2부터 5까지 미국 연방 위험 & FedRAMP (권한 부여 관리 프로그램) 및 미국 방어 부서에 대 한 까다로운 요구 사항을 충족 합니다. Azure Government를 포함 하 여 보호 된 서비스를 배포 하면 Office 365 미국 정부 기관 및 Dynamics 365 정부 기관, 연방 및 방어 기관에서 다양 한 규격 서비스 배열을 사용할 수 있습니다.
 

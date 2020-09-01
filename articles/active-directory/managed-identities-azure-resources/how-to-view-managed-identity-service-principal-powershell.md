@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5536d18ed2af83da122f5748912a0544bbbf7b19
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a9da4689a1b5579f90a1df0feb487e50d57a9d98
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074830"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269219"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>PowerShell을 사용하여 관리 ID의 서비스 주체 보기
 
@@ -35,7 +35,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요.
 - 아직 Azure 계정이 없는 경우 [체험 계정에 가입](https://azure.microsoft.com/free/)합니다.
-- [가상 머신](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) 또는 [애플리케이션에서 시스템 할당 ID](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity)를 사용하도록 설정합니다.
+- [가상 머신](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) 또는 [애플리케이션에서 시스템 할당 ID](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity)를 사용하도록 설정합니다.
 - 최신 버전의 [Azure PowerShell](/powershell/azure/install-az-ps) 설치
 
 ## <a name="view-the-service-principal"></a>서비스 주체 보기
@@ -49,5 +49,3 @@ Get-AzADServicePrincipal -DisplayName <VM or application name>
 ## <a name="next-steps"></a>다음 단계
 
 PowerShell을 사용하여 Azure AD 서비스 주체를 확인하는 방법에 대한 자세한 내용은 [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)을 참조하세요.
-
-

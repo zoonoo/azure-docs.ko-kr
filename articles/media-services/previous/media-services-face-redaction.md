@@ -14,14 +14,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7cdacabcc97d37c144b498ea9a05ccc9d6bffc04
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a562e31a26cc6cf7188dd635273bd9fa8c57213
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019864"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269474"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 편집 
+# <a name="redact-faces-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 편집
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>개요
 **Azure Media Redactor**는 클라우드에서 확장성 있는 얼굴 편집 기능을 제공하는 [Azure Media Analytics](media-services-analytics-overview.md) MP(미디어 프로세서)입니다. 얼굴 편집을 사용하면 선택한 개인의 얼굴을 흐리게 표시하기 위해 동영상을 수정할 수 있습니다. 공공 안전과 새 미디어 시나리오를 위해 얼굴 편집 서비스를 사용할 수 있습니다. 짧은 장면이라도 여러 명의 얼굴이 포함된 경우 수동으로 편집하려면 많은 시간이 걸릴 수 있지만 이 서비스를 사용하면 몇 번의 간단한 단계를 통해 얼굴을 편집할 수 있습니다. 자세한 내용은 [이](https://azure.microsoft.com/blog/azure-media-redactor/) 블로그를 참조 하세요.
 
@@ -35,7 +38,7 @@ ms.locfileid: "89019864"
 ### <a name="combined-mode"></a>결합된 모드
 이 모드는 수동 입력 없이 자동으로 편집된 mp4를 생성합니다.
 
-| 단계 | 파일 이름 | 메모 |
+| 단계 | 파일 이름 | 참고 |
 | --- | --- | --- |
 | 입력 자산 |foo.bar |WMV, MOV 또는 MP4 형식의 동영상 |
 | 입력 구성 |작업 구성 사전 설정 |{'version':'1.0', 'options': {'mode':'combined'}} |
@@ -50,7 +53,7 @@ ms.locfileid: "89019864"
 ### <a name="analyze-mode"></a>분석 모드
 2단계 워크플로의 **분석** 단계는 동영상 입력을 사용하여 얼굴 위치의 JSON 파일과 검색된 각 얼굴의 jpg 이미지를 생성합니다.
 
-| 단계 | 파일 이름 | 메모 |
+| 단계 | 파일 이름 | 참고 |
 | --- | --- | --- |
 | 입력 자산 |foo.bar |WMV, MPV 또는 MP4 형식의 동영상 |
 | 입력 구성 |작업 구성 사전 설정 |{'version':'1.0', 'options': {'mode':'analyze'}} |
@@ -115,7 +118,7 @@ ms.locfileid: "89019864"
 
 분석 단계의 출력에는 원본 동영상이 포함되지 않습니다. 동영상을 편집 모드 작업의 입력 자산으로 업로드하고 기본 파일로 선택해야 합니다.
 
-| 단계 | 파일 이름 | 메모 |
+| 단계 | 파일 이름 | 참고 |
 | --- | --- | --- |
 | 입력 자산 |foo.bar |WMV, MPV 또는 MP4 형식의 동영상. 1단계와 동일한 동영상입니다. |
 | 입력 자산 |foo_annotations.json |1단계의 주석 메타데이터 파일 및 수정 사항(선택 사항) |
@@ -196,7 +199,7 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 
 개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 ```csharp
 using System;

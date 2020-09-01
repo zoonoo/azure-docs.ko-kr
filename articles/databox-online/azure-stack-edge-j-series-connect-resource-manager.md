@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 8c7f571489a9e565fac8c23db4c08321be6f551d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: cf57d81c2ef56662abbd529a5de90e03c00e091a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146201"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269814"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-device"></a>Azure Stack에 지 장치에서 Azure Resource Manager에 연결
 
@@ -36,7 +36,7 @@ Azure Resource Manager은 Azure Stack Edge 장치 API를 호출 하 고 Vm 만�
 
 | # | 엔드포인트 | 지원되는 프로토콜 | 사용 되는 포트 | 사용 대상 |
 | --- | --- | --- | --- | --- |
-| 1. | Azure Resource Manager | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
+| 1. | Azure 리소스 관리자 | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
 | 2. | 보안 토큰 서비스 | https | 443 | 액세스 및 새로 고침 토큰을 통해 인증 하려면 |
 | 3. | Blob | https | 443 | REST를 통해 Blob storage에 연결 하려면 |
 
@@ -99,9 +99,9 @@ Azure Resource Manager에 연결 하려면 서명 체인 및 끝점 인증서를
 
 3. 이러한 모든 인증서의 경우 주체 이름 및 주체 대체 이름이 다음 지침을 준수 하는지 확인 합니다.
 
-    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
-    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
