@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27e4fd7762f1f65a46aa7c3aaaf5c131220caba7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2f9b3cdd0b2080a26a9b1948263a7638dc66f2b3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012996"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259747"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.
@@ -158,7 +160,7 @@ iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay
     <add key="Audience" value="urn:test"/>
     ```
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음 샘플에서는 Media Services를 사용하여 FairPlay로 암호화된 콘텐츠를 배달하는 기능을 보여 줍니다. 이 기능은 .NET 버전 3.6.0용 Azure Media Services SDK에서 도입되었습니다. 
 

@@ -3,21 +3,21 @@ title: Azure Media Services의 스트리밍 로케이터 | Microsoft Docs
 description: 이 문서에서는 스트리밍 로케이터의 개념과 Azure Media Services에서 이러한 로케이터를 사용하는 방법을 설명합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
-ms.author: juliako
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b4ba1bf63c1b8ebe6b7e294f416eb528ce444c5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fe448ea5a4d9610ff82beb7cfa1071d2e8249dfd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005788"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257622"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
 
@@ -91,7 +91,7 @@ CBCS (FairPlay)를 사용 하 여 HLS 스트림을 암호화 하려는 경우에
 
 연결 된 자산 이름에 따라 스트리밍 로케이터를 가져오려면 다음 작업을 사용 합니다.
 
-|언어|API|
+|Language|API|
 |---|---|
 |REST (영문)|[liststreaminglocators](/rest/api/media/assets/liststreaminglocators)|
 |CLI|[az ams asset list-streaming-locator](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|

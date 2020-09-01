@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Azure Media Services v3 엔터티의 필터링, 순서 지정 및 페이징에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 4fbd587b99875690a8c95952ce6b11d41e402726
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 96f08f75d0921fdf88b71c8e8dd2398a6b85ec6d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009885"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258472"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Media Services 엔터티의 필터링, 순서 지정 및 페이징
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 이 항목에서는 Azure Media Services v3 엔터티를 나열 하는 경우 사용할 수 있는 OData 쿼리 옵션 및 페이지 매김 지원에 대해 설명 합니다.
 
@@ -45,7 +47,7 @@ ms.locfileid: "89009885"
 - `ge`: 필드가 상수 값 *보다 크거나 같은지* 여부를 테스트 합니다.
 - `le`: 필드가 상수 값 *보다 작거나 같은지* 여부를 테스트 합니다.
 
-## <a name="filter"></a>Assert
+## <a name="filter"></a>필터
 
 를 사용 `$filter` 하 여 원하는 개체만 찾도록 OData 필터 매개 변수를 제공 합니다.
 
@@ -64,7 +66,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>정렬 기준
 
-`$orderby`지정 된 매개 변수를 사용 하 여 반환 된 개체를 정렬 합니다. 예를 들어:  
+`$orderby`지정 된 매개 변수를 사용 하 여 반환 된 개체를 정렬 합니다. 예를 들면 다음과 같습니다.  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -156,7 +158,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 다음 표에서는 필터링 및 순서 지정 옵션을 다른 엔터티에 적용할 수 있는 방법을 보여 줍니다.
 
-|엔터티 이름|속성 이름|Assert|주문|
+|엔터티 이름|속성 이름|필터|주문|
 |---|---|---|---|
 |[Assets](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` 및 `desc`|
 ||properties.alternateId |`eq`||

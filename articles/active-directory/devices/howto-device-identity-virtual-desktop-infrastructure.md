@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e2c516371ada59501edd89491a07014ef949eba
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f0313c27666cda785b24f23436f6ad727f337ca8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604385"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259356"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>장치 id 및 데스크톱 가상화
 
@@ -58,7 +58,7 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 |   |   |   | 비영구 | 예 |
 |   | 관리형 | Windows 현재 | 영구적 | 예 |
 |   |   |   | 비영구 | 예 |
-| Azure AD 등록 | 페더레이션된/관리 | Windows 현재/Windows 하위 수준 | 영구/비영구 | 해당 사항 없음 |
+| Azure AD 등록 | 페더레이션된/관리 | Windows 현재/Windows 하위 수준 | 영구/비영구 | 해당 없음 |
 
 <sup>1</sup> **windows 현재** 장치는 Windows 10, Windows Server 2016 및 windows server 2019를 나타냅니다.
 
@@ -68,7 +68,7 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 
 <sup>4</sup> **관리 되** 는 id 인프라 환경은 [원활한 Single Sign-On](../hybrid/how-to-connect-sso.md)를 사용 하 여 Azure AD가 [phs (암호 해시 동기화](../hybrid/whatis-phs.md) ) 또는 [pta (통과 인증)](../hybrid/how-to-connect-pta.md) 로 배포 된 id 공급자로 Azure AD를 사용 하는 환경을 나타냅니다.
 
-<sup>5</sup> **Windows 현재에 대 한 지 속성 지원을 지원 하지 않는** 경우 아래 지침 섹션에서 설명 하는 추가 고려 사항이 필요 합니다.
+<sup>5</sup> **Windows 현재에 대 한 지 속성 지원을 지원 하지 않는** 경우 아래 지침 섹션에서 설명 하는 추가 고려 사항이 필요 합니다. 이 시나리오에는 Windows 10 1803, Windows Server 2019 또는 Windows Server (반기 채널) 버전 1803이 필요 합니다.
 
 <sup>6</sup> **Windows 하위 수준에 대 한 지 속성 지원을** 사용 하려면 아래 지침 섹션에 설명 된 대로 추가로 고려해 야 합니다.
 

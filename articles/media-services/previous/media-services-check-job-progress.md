@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2368108ab2a6c6799254e2846f566d71882ad1b7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 591f69855204c4489eb3e9c6edb3900044dda2db
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021471"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258404"
 ---
-# <a name="monitor-job-progress-using-net"></a>.NET을 사용하여 작업 진행 상태 모니터링 
+# <a name="monitor-job-progress-using-net"></a>.NET을 사용하여 작업 진행 상태 모니터링
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](../latest/index.yml)의 최신 버전을 확인하세요. 또한 [v2에서 v3로의 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)을 참조하세요.

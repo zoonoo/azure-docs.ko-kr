@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38d383f7dac832449e5b10e5cda6b0db859f9a0
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 42b980f809074c275a5e62098d4162e4cb4340a0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180340"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259373"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -191,9 +191,9 @@ az role assignment create \
 
 Azure RBAC를 사용 하 여 Azure 구독 리소스에 대 한 액세스를 관리 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](/azure/role-based-access-control/role-assignments-cli)
-- [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](/azure/role-based-access-control/role-assignments-portal)
-- [Azure PowerShell를 사용 하 여 Azure 역할 할당을 추가 하거나 제거](/azure/role-based-access-control/role-assignments-powershell)합니다.
+- [Azure CLI를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-cli.md)
+- [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)
+- [Azure PowerShell를 사용 하 여 Azure 역할 할당을 추가 하거나 제거](../../role-based-access-control/role-assignments-powershell.md)합니다.
 
 ## <a name="using-conditional-access"></a>조건부 액세스 사용
 
@@ -339,7 +339,7 @@ VM에 대 한 원격 데스크톱 연결을 시작할 때 다음과 같은 오�
 
 ![자격 증명이 작동 하지 않음](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-원격 데스크톱 연결을 시작 하는 데 사용 하는 Windows 10 PC가 Azure AD에 가입 되어 있거나, VM이 조인 되는 동일한 Azure AD 디렉터리에 연결 된 하이브리드 Azure AD 인지 확인 합니다. 장치 id에 대 한 자세한 내용은 [장치 Id 정의](/azure/active-directory/devices/overview)문서를 참조 하세요.
+원격 데스크톱 연결을 시작 하는 데 사용 하는 Windows 10 PC가 Azure AD에 가입 되어 있거나, VM이 조인 되는 동일한 Azure AD 디렉터리에 연결 된 하이브리드 Azure AD 인지 확인 합니다. 장치 id에 대 한 자세한 내용은 [장치 Id 정의](./overview.md)문서를 참조 하세요.
 
 > [!NOTE]
 > Windows 10 Build 20H1은 VM에 대 한 RDP 연결을 시작 하기 위해 Azure AD에 등록 된 PC에 대 한 지원을 추가 했습니다. VM에 대 한 연결을 시작 하기 위해 RDP 클라이언트로 등록 된 (Azure AD 조인 또는 하이브리드 Azure AD 조인 된) PC를 사용 하는 경우 AzureAD\UPn 형식으로 자격 증명을 입력 해야 합니다 (예: AzureAD\john@contoso.com ).
@@ -367,4 +367,4 @@ VM에 대 한 원격 데스크톱 연결을 시작할 때 다음과 같은 오�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Active Directory에 대한 자세한 내용은 [Azure Active Directory란?](/azure/active-directory/fundamentals/active-directory-whatis)을 참조하세요.
+Azure Active Directory에 대한 자세한 내용은 [Azure Active Directory란?](../fundamentals/active-directory-whatis.md)을 참조하세요.
