@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/28/2020
-ms.openlocfilehash: 68fa972d45ab0db6e5274142f550c2bd829e7917
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055586"
+ms.locfileid: "89076517"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -89,11 +89,11 @@ ms.locfileid: "89055586"
 
 - **장애 조치 그룹 읽기-쓰기 수신기**
 
-  현재 주 URL을 가리키는 DNS CNAME 레코드입니다. 장애 조치 그룹을 만들 때 자동으로 생성 되며 장애 조치 (failover) 후 주 데이터베이스가 변경 되 면 읽기-쓰기 작업을 주 데이터베이스에 투명 하 게 다시 연결할 수 있습니다. 서버에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는로 구성 됩니다 `<fog-name>.database.windows.net` . SQL Managed Instance에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는로 구성 됩니다 `<fog-name>.zone_id.database.windows.net` .
+  현재 주 URL을 가리키는 DNS CNAME 레코드입니다. 장애 조치 그룹을 만들 때 자동으로 생성 되며 장애 조치 (failover) 후 주 데이터베이스가 변경 되 면 읽기-쓰기 작업을 주 데이터베이스에 투명 하 게 다시 연결할 수 있습니다. 서버에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는로 구성 됩니다 `<fog-name>.database.windows.net` . SQL Managed Instance에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는로 구성 됩니다 `<fog-name>.<zone_id>.database.windows.net` .
 
 - **장애 조치 그룹 읽기 전용 수신기**
 
-  보조 데이터베이스의 URL을 가리키는 읽기 전용 수신기를 가리키는 DNS CNAME 레코드가 생성됩니다. 이 파일은 장애 조치 (failover) 그룹을 만들 때 자동으로 생성 되며, 지정 된 부하 분산 규칙을 사용 하 여 읽기 전용 SQL 워크 로드를 보조 복제본에 투명 하 게 연결할 수 있도록 허용 합니다. 서버에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는로 구성 됩니다 `<fog-name>.secondary.database.windows.net` . SQL Managed Instance에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는로 구성 됩니다 `<fog-name>.zone_id.secondary.database.windows.net` .
+  보조 데이터베이스의 URL을 가리키는 읽기 전용 수신기를 가리키는 DNS CNAME 레코드가 생성됩니다. 이 파일은 장애 조치 (failover) 그룹을 만들 때 자동으로 생성 되며, 지정 된 부하 분산 규칙을 사용 하 여 읽기 전용 SQL 워크 로드를 보조 복제본에 투명 하 게 연결할 수 있도록 허용 합니다. 서버에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는로 구성 됩니다 `<fog-name>.secondary.database.windows.net` . SQL Managed Instance에서 장애 조치 (failover) 그룹을 만들 때 수신기 URL에 대 한 DNS CNAME 레코드는로 구성 됩니다 `<fog-name>.secondary.<zone_id>.database.windows.net` .
 
 - **자동 장애 조치 정책**
 
@@ -257,13 +257,13 @@ OLTP 작업을 수행할 때 `<fog-name>.zone_id.database.windows.net`을 서버
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a>읽기 전용 수신기를 사용 하 여 보조 인스턴스에 연결
 
-특정 데이터가 부실해도 정상적으로 수행 가능한 논리적으로 격리된 읽기 전용 작업이 있는 경우에는 애플리케이션에서 보조 데이터베이스를 사용할 수 있습니다. 지역 복제된 보조 데이터베이스에 직접 연결하려는 경우 `<fog-name>.zone_id.secondary.database.windows.net`을 서버 URL로 사용하면 지역 복제된 보조 데이터베이스에 직접 연결됩니다.
+특정 데이터가 부실해도 정상적으로 수행 가능한 논리적으로 격리된 읽기 전용 작업이 있는 경우에는 애플리케이션에서 보조 데이터베이스를 사용할 수 있습니다. 지역 복제된 보조 데이터베이스에 직접 연결하려는 경우 `<fog-name>.secondary.<zone_id>.database.windows.net`을 서버 URL로 사용하면 지역 복제된 보조 데이터베이스에 직접 연결됩니다.
 
 > [!NOTE]
 > 특정 서비스 계층에서 SQL Database 읽기 [전용 복제본의](read-scale-out.md) 사용을 지원 하 여 읽기 전용 복제본의 용량을 사용 하 고 `ApplicationIntent=ReadOnly` 연결 문자열에 매개 변수를 사용 하 여 읽기 전용 쿼리 작업 부하를 분산할 수 있습니다. 지역 복제된 보조 데이터베이스를 구성한 경우 이 기능을 사용하여 주 위치 또는 지역 복제된 위치에 있는 읽기 전용 복제본에 연결할 수 있습니다.
 >
-> - 주 위치의 읽기 전용 복제본에 연결하려면 `<fog-name>.zone_id.database.windows.net`을 사용합니다.
-> - 보조 위치의 읽기 전용 복제본에 연결 하려면를 사용 `<fog-name>.secondary.zone_id.database.windows.net` 합니다.
+> - 주 위치의 읽기 전용 복제본에 연결하려면 `<fog-name>.<zone_id>.database.windows.net`을 사용합니다.
+> - 보조 위치의 읽기 전용 복제본에 연결 하려면를 사용 `<fog-name>.secondary.<zone_id>.database.windows.net` 합니다.
 
 ### <a name="preparing-for-performance-degradation"></a>성능 저하 준비
 
@@ -404,7 +404,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-| cmdlet | Description |
+| cmdlet | 설명 |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |
@@ -415,7 +415,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [az sql 장애 조치 (failover) 그룹 삭제](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |
@@ -442,7 +442,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-| cmdlet | Description |
+| cmdlet | 설명 |
 | --- | --- |
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |이 명령은 장애 조치 (failover) 그룹을 만들고 주 및 보조 인스턴스에 등록 합니다.|
 | [AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |장애 조치 (failover) 그룹의 구성을 수정 합니다.|
@@ -453,7 +453,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [az sql 장애 조치 (failover) 그룹 삭제](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |

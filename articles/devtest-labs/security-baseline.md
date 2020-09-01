@@ -3,12 +3,12 @@ title: Azure DevTest Labs에 대 한 Azure 보안 기준
 description: Azure DevTest Labs에 대 한 Azure 보안 기준
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: ed263ad80250531431840516f2764055c75abd50
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: dc53eacf456d1e7c1926c6d7f20e343b3a84340d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212316"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078047"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azure DevTest Labs에 대 한 Azure 보안 기준
 
@@ -52,7 +52,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: 운영 체제에서 보안 로그 수집
 **지침:** 고객이 Vm (가상 머신)을 만들고 소유 하는 Azure DevTest Labs. 따라서이를 모니터링 하는 것은 조직의 책임입니다. Azure Security Center를 사용 하 여 계산 OS를 모니터링할 수 있습니다. 운영 체제에서 Security Center에 의해 수집 되는 데이터에는 OS 유형 및 버전, OS (Windows 이벤트 로그), 실행 중인 프로세스, 컴퓨터 이름, IP 주소 및 로그인 한 사용자가 포함 됩니다. 또한 Log Analytics 에이전트는 크래시 덤프 파일을 수집 합니다.
 
-자세한 내용은 다음 문서를 참조하세요. 
+자세한 내용은 다음 아티클을 참조하세요. 
 
 - [Azure Monitor를 사용 하 여 Azure 가상 머신 내부 호스트 로그를 수집 하는 방법](../azure-monitor/learn/quick-collect-azurevm.md)
 - [Azure Security Center 데이터 수집 이해](../security-center/security-center-enable-data-collection.md)
@@ -73,7 +73,7 @@ Azure 계산 리소스에 대 한 시간 동기화를 구성 하는 방법에 �
 ### <a name="26-monitor-and-review-logs"></a>2.6: 로그 모니터링 및 검토
 **지침:** Azure 활동 로그 진단 설정을 사용 하도록 설정 하 고 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics에서 쿼리를 실행 하 여 용어를 검색 하 고, 추세를 식별 하 고, 패턴을 분석 하 고, Azure DevTest Labs에 대해 수집 되었을 수 있는 활동 로그 데이터를 기반으로 다양 한 통찰력을 제공 합니다.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 아티클을 참조하세요.
 
 - [진단 설정을 Azure 활동 로그에 사용하도록 설정하는 방법](../azure-monitor/platform/diagnostic-settings.md)
 - [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 하는 방법](../azure-monitor/platform/activity-log.md)
@@ -159,7 +159,7 @@ DevTest Labs에는 기본 암호 개념이 없습니다.
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Azure Active Directory에서 SSO(Single Sign-On) 사용
 **지침:** DevTest Labs는 id 관리에 Azure AD 서비스를 사용 합니다. DevTest Labs를 기반으로 환경에 대 한 액세스 권한을 사용자에 게 부여 하는 경우 다음 두 가지 주요 측면을 고려 하세요.
 
-- **리소스 관리:** 리소스를 관리 하는 Azure Portal에 대 한 액세스를 제공 합니다 (Vm 만들기, 환경 만들기, 시작, 중지, 다시 시작, 삭제 및 아티팩트 적용 등). 리소스 관리는 RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure에서 수행 됩니다. 사용자에 게 역할을 할당 하 고 리소스 및 액세스 수준 사용 권한을 설정 합니다.
+- **리소스 관리:** 리소스를 관리 하는 Azure Portal에 대 한 액세스를 제공 합니다 (Vm 만들기, 환경 만들기, 시작, 중지, 다시 시작, 삭제 및 아티팩트 적용 등). 리소스 관리는 azure에서 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 수행 됩니다. 사용자에 게 역할을 할당 하 고 리소스 및 액세스 수준 사용 권한을 설정 합니다.
 - **가상 컴퓨터 (네트워크 수준)**: 기본 구성에서 vm은 로컬 관리자 계정을 사용 합니다. 사용 가능한 도메인 (Azure AD Domain Services, 온-프레미스 도메인 또는 클라우드 기반 도메인)이 있으면 컴퓨터를 도메인에 조인할 수 있습니다. 그런 다음 사용자는 도메인 가입 아티팩트를 사용 하 여 도메인 기반 id를 사용 하 여 컴퓨터에 연결할 수 있습니다. 
 
 - [DevTest Labs에 대 한 참조 아키텍처](devtest-lab-reference-architecture.md#architecture)
@@ -315,9 +315,9 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 **책임:** Customer
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
-**지침:** Azure Active Directory (Azure AD) 역할 기반 액세스 제어 (RBAC)를 사용 하 여 Azure DevTest Labs labs에 대 한 액세스를 제어 합니다.
+**지침:** Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure DevTest Labs의 랩에 대 한 액세스를 제어 합니다.
 
-- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/role-assignments-portal.md)
 - [DevTest Labs의 역할 이해](devtest-lab-add-devtest-user.md)
 
 **Azure Security Center 모니터링:** 해당 없음
@@ -638,12 +638,12 @@ Azure Security Center의 권장 사항을 Azure 리소스에 대 한 보안 구�
 **책임:** Customer
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: 사용자 지정 운영 체제 이미지를 안전하게 저장
-**지침:** 사용자 지정 이미지를 사용 하는 경우 RBAC (역할 기반 액세스 제어)를 사용 하 여 권한 있는 사용자만 이미지에 액세스할 수 있도록 합니다. 공유 이미지 갤러리를 사용 하 여 이미지를 필요한 특정 랩에 공유할 수 있습니다. 컨테이너 이미지의 경우 Azure Container Registry에 저장 하 고 RBAC를 사용 하 여 권한 있는 사용자만 이미지에 액세스할 수 있도록 합니다.
+**지침:** 사용자 지정 이미지를 사용 하는 경우 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 권한 있는 사용자만 이미지에 액세스할 수 있도록 합니다. 공유 이미지 갤러리를 사용 하 여 이미지를 필요한 특정 랩에 공유할 수 있습니다. 컨테이너 이미지의 경우 Azure Container Registry에 저장 하 고 Azure RBAC를 사용 하 여 권한 있는 사용자만 이미지에 액세스할 수 있도록 합니다.
 
-- [Azure의 RBAC 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [Azure에서 RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Azure RBAC 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Azure RBAC를 구성 하는 방법](../role-based-access-control/quickstart-assign-role-user-portal.md)
 - [DevTest Labs에 대 한 공유 이미지 갤러리 구성](configure-shared-image-gallery.md)
-- [Container Registry에 대 한 RBAC 이해](../container-registry/container-registry-roles.md)
+- [Container Registry에 대 한 Azure RBAC 이해](../container-registry/container-registry-roles.md)
 
 **Azure Security Center 모니터링:** 해당 없음
 

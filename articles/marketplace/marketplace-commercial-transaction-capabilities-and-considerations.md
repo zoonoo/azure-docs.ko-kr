@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 04a984a2dfa473502fd9e534e52b60b33be52757
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: d086f8f3a2f4939012691d5bd03cc92a50ac4613
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88704963"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078319"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
@@ -143,6 +143,8 @@ BYOL의 비용 구조는 다음과 같습니다.
 |---------|---------|
 |Microsoft는 라이선스 비용의 80%를 지불합니다. <br> \* Microsoft는 적격 SaaS 앱에 대해 90%의 라이선스 비용을 지급합니다.   |   매월 $80.00 <br> \* 매월 $90.00    |
 |Microsoft는 라이선스 비용의 20%를 유지합니다. <br> \* Microsoft는 적격 SaaS 앱에 대해 10%의 라이선스 비용을 유지합니다.  |  매월 $20.00 <br> \* $10.00     |
+
+### <a name="reduced-service-fee"></a>서비스 요금 절감
 
 상업적 marketplace에 게시 하는 특정 제품의 경우 Microsoft는 [Microsoft 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)에 설명 된 대로 20%에서 10%까지 Marketplace 서비스 요금을 절감 합니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 최소 5 영업일 동안 자격을 충족 해야 합니다. 줄어든 Marketplace 서비스 요금은 Azure IP 공동 판매 incentivized SaaS, Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에 적용 됩니다.
 

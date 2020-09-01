@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1a5ed324ae109a151bf21050993bff02434410df
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e949c3db6d8c0cafab8556dbfde367e6e49273e9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814453"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078200"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 암호화
 
@@ -69,6 +69,8 @@ Azure Storage 리소스 공급자를 사용 하 여 저장소 계정에 대 한 
 
 > [!NOTE]
 > 미리 보기 중에는 읽기 액세스 지역 중복 저장소 (RA-GRS) 및 읽기 액세스 지역 중복 저장소 (RA-GZRS) 계정에 암호화 범위가 지원 되지 않습니다.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!IMPORTANT]
 > 암호화 범위 미리 보기는 비프로덕션 용도로만 사용 됩니다. 현재 프로덕션 SLA(서비스 수준 계약)는 사용할 수 없습니다.

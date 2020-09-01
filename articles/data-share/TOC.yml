@@ -1,6 +1,7 @@
 - name: Azure Data Share 설명서
   href: index.yml
 - name: 개요
+  expanded: true
   items:
     - name: Azure Data Share란?
       href: overview.md
@@ -36,6 +37,11 @@
       href: samples-powershell.md
 - name: 방법 가이드
   items:
+    - name: 소스별 데이터 공유 및 수신
+      items:
+        - name: Azure Data Explorer에서 공유
+          href: /azure/data-explorer/data-share
+          maintainContext: true
     - name: 모니터
       href: how-to-monitor.md
     - name: 문제 해결
@@ -54,9 +60,6 @@
       href: security.md
     - name: 재해 복구
       href: disaster-recovery.md
-    - name: Azure Data Explorer 데이터 공유
-      href: /azure/data-explorer/data-share
-      maintainContext: true
 - name: 참조
   items:
     - name: .NET

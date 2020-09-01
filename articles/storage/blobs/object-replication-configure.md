@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd85504ac2321310288efe5d0a1ef7dfcde60f21
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 9964a10b85d9f388a4498766c6e81ee52498aa37
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566066"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076177"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>블록 blob에 대한 개체 복제(미리 보기) 구성
 
@@ -24,6 +24,8 @@ ms.locfileid: "88566066"
 개체 복제를 구성하는 경우 원본 스토리지 계정 및 대상 계정을 지정하는 복제 정책을 만듭니다. 복제 정책에는 원본 컨테이너와 대상 컨테이너를 지정하고 원본 컨테이너에서 복제할 블록 Blob을 나타내는 하나 이상의 규칙이 포함되어 있습니다.
 
 이 문서에서는 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 스토리지 계정에 대한 개체 복제를 구성하는 방법을 설명합니다. Azure Storage 리소스 공급자 클라이언트 라이브러리 중 하나를 사용하여 개체 복제를 구성할 수도 있습니다.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-a-replication-policy-and-rules"></a>복제 정책 및 규칙 만들기
 

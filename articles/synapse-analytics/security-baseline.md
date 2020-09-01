@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7f05e4fb0443107370f9182706bd35b45771e0f2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 97be10352d25daf9c60ce41fe1fc9e728513ba94
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210901"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076818"
 ---
 # <a name="azure-security-baseline-for-synapse-analytics"></a>Synapse Analytics에 대 한 Azure 보안 기준
 
@@ -138,7 +138,7 @@ Azure Synapse SQL 풀에 서비스 끝점을 사용 하는 경우 Azure SQL data
 
 **지침**: Azure Policy을 사용 하 여 SQL 풀과 관련 된 리소스에 대 한 네트워크 보안 구성을 정의 하 고 구현 합니다. "Microsoft .Sql" 네임 스페이스를 사용 하 여 사용자 지정 정책 정의를 정의 하거나 Azure SQL 데이터베이스/서버 네트워크 보호를 위해 설계 된 기본 제공 정책 정의를 사용할 수 있습니다. Azure SQL Database 서버에 대해 적용 가능한 기본 제공 네트워크 보안 정책의 예는 "SQL Server 가상 네트워크 서비스 끝점을 사용 해야 합니다."입니다.
 
-Azure 청사진을 사용 하 여 Azure 리소스 관리 템플릿, RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 단일 청사진 정의로 패키지화 하 여 대규모 Azure 배포를 간소화 합니다. Blueprint를 새로운 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어 및 관리를 세부적으로 조정합니다.
+Azure 청사진을 사용 하 여 azure 리소스 관리 템플릿, azure RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 단일 청사진 정의로 패키지화 하 여 대규모 Azure 배포를 간소화 합니다. Blueprint를 새로운 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어 및 관리를 세부적으로 조정합니다.
 
 * [Azure Policy를 구성하고 관리하는 방법](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -582,7 +582,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 **책임**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
 **지침**: azure RBAC (역할 기반 액세스 제어)를 사용 하 여 Synapse sql 풀에서 azure sql database에 대 한 액세스를 관리 합니다.
 
@@ -610,7 +610,7 @@ Microsoft에서 관리하는 기본 플랫폼의 경우 Microsoft는 모든 고�
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: 중요한 저장 정보 암호화
 
-**지침**: tde (투명 한 데이터 암호화)는 미사용 데이터를 암호화 하 여 악의적인 오프 라인 활동의 위협 으로부터 AZURE Synapse SQL을 보호 하는 데 도움이 됩니다. 애플리케이션에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다. Azure에서 TDE의 기본 설정은 DEK가 기본 제공 서버 인증서로 보호 되는 것입니다. 또는 TDE에 대 한 고객 관리 TDE (BYOK (Bring Your Own Key) 지원)를 사용할 수 있습니다. 이 시나리오에서 DEK를 암호화 하는 TDE 보호기는 고객이 관리 하는 비대칭 키로, 고객이 소유 하 고 관리 하는 Azure Key Vault (Azure의 클라우드 기반 외부 키 관리 시스템)에 저장 되 고 키 자격 증명 모음을 벗어날 수 없습니다.
+**지침**: tde (투명 한 데이터 암호화)는 미사용 데이터를 암호화 하 여 악의적인 오프 라인 활동의 위협 으로부터 AZURE Synapse SQL을 보호 하는 데 도움이 됩니다. 데이터베이스, 연결된 백업 및 미사용 로그 파일 트랜잭션에 애플리케이션을 변경하지 않고 실시간으로 암호화 및 암호 해독을 수행합니다. Azure에서 TDE의 기본 설정은 DEK가 기본 제공 서버 인증서로 보호 되는 것입니다. 또는 TDE에 대 한 고객 관리 TDE (BYOK (Bring Your Own Key) 지원)를 사용할 수 있습니다. 이 시나리오에서 DEK를 암호화 하는 TDE 보호기는 고객이 관리 하는 비대칭 키로, 고객이 소유 하 고 관리 하는 Azure Key Vault (Azure의 클라우드 기반 외부 키 관리 시스템)에 저장 되 고 키 자격 증명 모음을 벗어날 수 없습니다.
 
 * [서비스 관리 투명 한 데이터 암호화 이해](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal)
 

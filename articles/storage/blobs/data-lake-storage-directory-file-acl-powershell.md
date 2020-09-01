@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: e80db84789ab5c8b0f07bc6a76ae99f8db3c8b80
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3343f0e21cdf8873447bd448c200102940b632e8
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051035"
+ms.locfileid: "89077095"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>PowerShell을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
@@ -22,7 +23,7 @@ ms.locfileid: "89051035"
 
 [참조](https://docs.microsoft.com/powershell/module/Az.Storage/?view=azps-4.5.0)  |  [Gen1 To Gen2 mapping](#gen1-gen2-map)  |  [사용자 의견 제공](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
