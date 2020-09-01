@@ -3,18 +3,18 @@ title: Azure CLI를 사용 하 여 Azure 파일 공유 백업
 description: Azure CLI를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 54852112591b5f5eec1ecbac34b836b4cb0f4f1f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cc4422a7d20dbd231729922bd013549d5276deb1
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012027"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182210"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>CLI를 사용 하 여 Azure 파일 공유 백업
 
 Azure CLI (명령줄 인터페이스)는 Azure 리소스를 관리 하기 위한 명령줄 환경을 제공 합니다. Azure 리소스를 사용 하는 사용자 지정 자동화를 빌드하기 위한 좋은 도구입니다. 이 문서에서는 Azure CLI를 사용 하 여 Azure 파일 공유를 백업 하는 방법을 자세히 설명 합니다. [Azure PowerShell](./backup-azure-afs-automation.md)을 사용하거나 [Azure Portal](backup-afs.md)에서 이 단계를 수행할 수도 있습니다.
 
-이 자습서의 끝 부분에서는 Azure CLI 사용 하 여 아래 작업을 수행 하는 방법을 설명 합니다.
+이 자습서의 끝 부분에서는 Azure CLI 사용 하 여 아래 작업을 수행 하는 방법을 알아봅니다.
 
 * Recovery Services 자격 증명 모음 만들기
 * Azure 파일 공유에 대 한 백업 사용

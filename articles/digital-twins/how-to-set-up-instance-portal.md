@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1f7486f1080c0fbb25b1be6ab70bb647a546ceca
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 300a11c36b11230d2bd75534f152a0a5955743ed
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234995"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181795"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Azure Digital Twins 인스턴스 및 인증 설정 (포털)
 
@@ -107,7 +107,7 @@ Azure Portal에서 [Azure Active Directory](https://portal.azure.com/#blade/Micr
 뒤에 나오는 *응용 프로그램 등록* 페이지에서 요청 된 값을 입력 합니다.
 * **이름**: 등록과 연결할 Azure AD 응용 프로그램 표시 이름입니다.
 * **지원 되는 계정 유형**: *이 조직 디렉터리 에서만 계정 선택 (기본 디렉터리만-단일 테 넌 트)*
-* **리디렉션 URI**: azure ad 응용 프로그램에 대 한 *azure ad 응용 프로그램 회신 URL* 입니다. 을 사용할 수 있습니다 `http://localhost` .
+* **리디렉션 URI**: azure ad 응용 프로그램에 대 한 *azure ad 응용 프로그램 회신 URL* 입니다. 에 대 한 *공용 클라이언트/네이티브 (모바일 & 데스크톱)* URI를 추가 `http://localhost` 합니다.
 
 작업이 완료 되 면 *등록* 단추를 누릅니다.
 

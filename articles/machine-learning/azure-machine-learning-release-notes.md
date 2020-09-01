@@ -9,18 +9,63 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: b6a060f4487bed5b820126d7a886cf68fa76868a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 648a1ab7eac05e42a2d3ae292cccef8c0833a84d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652069"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226814"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 참조 페이지를 참조 하세요.
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
+
+## <a name="2020-08-31"></a>2020-08-31
+
+### <a name="azure-machine-learning-sdk-for-python-v1130"></a>Azure Machine Learning SDK for Python v 1.13.0
++ **미리 보기 기능**
+  + **azureml-core**
+  
+    새 출력 데이터 집합 기능을 사용 하면 Blob, ADLS Gen 1, ADLS Gen 2 및 파일 공유를 포함 하 여 클라우드 저장소에 다시 쓸 수 있습니다. 데이터를 출력 하는 위치, 데이터를 출력 하는 방법 (탑재 또는 업로드를 통해), 나중에 다시 사용 하기 위해 출력 데이터를 등록 하 고 파이프라인 단계 간에 중간 데이터를 전달할 것인지 여부를 구성할 수 있습니다. 이렇게 하면 재현 가능성을 공유 하 고, 데이터 중복을 방지 하며, 비용 효율성과 생산성을 높일 수 있습니다. [사용 방법 알아보기](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py)
+    
++ **버그 수정 및 향상 된 기능**
+  + **azureml-automl-core**
+    + AutoML에 대 한 모든 pip 종속성을 고정 하기 위해 validated_ {platform} _requirements.txt 파일을 추가 했습니다.
+    + 이 릴리스에서는 4Gb 보다 큰 모델을 지원 합니다.
+    + 자동 Ml 종속성 업그레이드: `scikit-learn` (now 0.22.1), (now `pandas` 0.25.1), `numpy` (이제 1.18.2).
+  + **azureml-automl-runtime**
+    + Horovod를 설정 하 여 항상 fp16 압축을 사용 하도록 합니다.
+    + 이 릴리스에서는 4Gb 보다 큰 모델을 지원 합니다.
+    + ImportError를 사용 하 여 AutoML이 실패 하는 문제를 해결 함: 이름을 가져올 수 없습니다 `RollingOriginValidator` .
+    + 자동 Ml 종속성 업그레이드: `scikit-learn` (now 0.22.1), (now `pandas` 0.25.1), `numpy` (이제 1.18.2).
+  + **azureml-dnn-자동 ml-예측**
+    + 자동 Ml 종속성 업그레이드: `scikit-learn` (now 0.22.1), (now `pandas` 0.25.1), `numpy` (이제 1.18.2).
+  + **azureml-contrib-fairness**
+    + Azureml에 대 한 간단한 설명을 제공 합니다.
+  + **azureml-contrib-pipeline-steps**
+    + 이 패키지는 더 이상 사용 되지 않으며 사용자가 azureml-파이프라인 단계를 대신 사용 해야 함을 나타내는 메시지가 추가 되었습니다.
+  + **azureml-core**
+    + 작업 영역에 대 한 목록 키 명령이 추가 되었습니다.
+    + 작업 영역 SDK 및 CLI에서 tags 매개 변수를 추가 합니다.
+    + 로 인해 데이터 집합을 사용 하 여 자식 실행을 제출 하는 작업이 실패 하는 버그를 수정 `TypeError: can't pickle _thread.RLock objects` 했습니다.
+    + 모델 목록 ()에 대 한 page_count 기본/설명서를 추가 하는 중입니다.
+    + Adbworkspace 매개 변수를 사용 하 고 작업 영역 adb 링크/연결 해제 runner를 추가 하도록 CLI&SDK를 수정 합니다.
+    + Dataset에서 버그를 수정 합니다. 최신 데이터 집합 버전을 업데이트 하는 데에는에 대 한 데이터 집합 업데이트 버전이 호출 되지 않습니다. 
+    + 데이터 집합의 버그를 수정 합니다. get_by_name는 특정 이전 버전이 실제로 검색 된 경우에도 최신 데이터 집합 버전에 대 한 태그를 표시 합니다.
+  + **azureml-interpret**
+    + Azureml의 shap 점수 매기기 explainers에 확률 출력이 추가 되었습니다 .이는 원래 설명의 shap_values_output 매개 변수를 기반으로 해석 됩니다.
+  + **azureml-pipeline-core**
+    + 개선 된 `PipelineOutputAbstractDataset.register` 설명서입니다.
+  + **azureml-train-automl-client**
+    + 자동 Ml 종속성 업그레이드: `scikit-learn` (now 0.22.1), (now `pandas` 0.25.1), `numpy` (이제 1.18.2).
+  + **azureml-train-automl-runtime**
+    + 자동 Ml 종속성 업그레이드: `scikit-learn` (now 0.22.1), (now `pandas` 0.25.1), `numpy` (이제 1.18.2).
+  + **azureml-train-core**
+    + 이제 사용자가 HyperDriveConfig를 만들 때 유효한 hyperparameter_sampling 인수를 제공 해야 합니다. 또한 HyperDriveRunConfig에 대 한 설명서는 사용자에 게 HyperDriveRunConfig의 사용 중단을 알리기 위해 편집 되었습니다.
+    + PyTorch 기본 버전을 1.4로 되돌립니다.
+    + PyTorch 1.6 & Tensorflow 2.2 이미지 및 큐 레이트 환경을 추가 합니다.
 
 ## <a name="2020-08-17"></a>2020-08-17
 
@@ -533,7 +578,7 @@ ms.locfileid: "88652069"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
     
-| 웹 기반 도구  |     설명  | 버전 | 
+| 웹 기반 도구  |     Description  | 버전 | 
 |---|---|---|
 | Azure ML Studio 노트북   |     전자 필기장 파일의 첫 번째 내 클래스 작성 및 Azure ML Python SDK에서 사용할 수 있는 모든 작업을 지원 합니다. | Basic & Enterprise  |   
 
@@ -1045,7 +1090,7 @@ ms.locfileid: "88652069"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
 
-| 웹 기반 도구 | 설명 | 버전 |
+| 웹 기반 도구 | Description | 버전 |
 |-|-|-|
 | 노트북 VM (미리 보기) | 완전히 관리 되는 클라우드 기반 워크스테이션 | Basic & Enterprise |
 | [자동화 된 machine learning](tutorial-first-experiment-automated-ml.md) (미리 보기) | 기계 학습 모델 개발을 자동화 하기 위한 코드 환경 없음 | Enterprise |
@@ -1510,10 +1555,6 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + AutomatedML에서 사용 하도록 설정 됩니다 `TabularDataset` . 에 대해 자세히 알아보려면를 `TabularDataset` 참조 하세요 https://aka.ms/azureml/howto/createdatasets .
 
 + **버그 수정 및 향상 된 기능**
-  + **automl-nativeclient**
-    + 학습 및/또는 유효성 검사 레이블 (y 및 y_valid)이 numpy 배열이 아닌 pandas 데이터 프레임 형식으로 제공 될 때 발생 하는 오류를 수정 했습니다.
-    + `RawDataContext`데이터와 개체만 필요로 하는을 만들기 위해 인터페이스를 업데이트 했습니다 `AutoMLBaseSettings` .
-    +  자동 Ml 사용자가 예측 시 충분 하지 않은 학습 시리즈를 삭제할 수 있습니다. -자동 Ml 사용자가 예측 시 학습 집합에 없는 테스트 집합에서 조직를 삭제할 수 있습니다.
   + **azure-cli-ml**
     + 이제 Microsoft에서 생성 된 및 고객 인증서 모두 AKS 클러스터에 배포 된 점수 매기기 끝점에 대 한 TLS/SSL 인증서를 업데이트할 수 있습니다.
   + **azureml-automl-core**
@@ -1581,7 +1622,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
 ### <a name="azure-portal"></a>Azure portal
 + **미리 보기 기능**
   + 이제 실행 정보 페이지에 대 한 로그 및 출력 파일 스트리밍을 사용할 수 있습니다. 이 파일은 미리 보기 토글이 설정 된 경우 실시간으로 업데이트를 스트리밍합니다.
-  + 작업 영역 수준에서 할당량을 설정 하는 기능은 미리 보기로 릴리스됩니다. AmlCompute 할당량은 구독 수준에서 할당 되지만 이제 작업 영역 간에 해당 할당량을 배포 하 고 공평 하 게 공유 및 거 버 넌 스에 할당할 수 있습니다. 작업 영역의 왼쪽 탐색 모음에서 사용 **+ 할당량** 블레이드를 클릭 하 고 **할당량 구성** 탭을 선택 하기만 하면 작업 영역 간 작업 이므로 작업 영역 수준에서 할당량을 설정할 수 있으려면 구독 관리자 여야 합니다.
+  + 작업 영역 수준에서 할당량을 설정 하는 기능은 미리 보기로 릴리스됩니다. AmlCompute 할당량은 구독 수준에서 할당 되지만 이제 작업 영역 간에 해당 할당량을 배포 하 고 공평 하 게 공유 및 거 버 넌 스에 할당할 수 있습니다. 작업 영역의 왼쪽 탐색 모음에서 **사용량 + 할당량** 블레이드를 클릭 하 고 **할당량 구성** 탭을 선택 하면 됩니다. 작업 영역 간 작업 이므로 작업 영역 수준에서 할당량을 설정할 수 있으려면 구독 관리자 여야 합니다.
 
 ## <a name="2019-08-05"></a>2019-08-05
 
@@ -1650,9 +1691,6 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + [추정를 사용 하 여 이전 실행에서 학습을 다시 시작](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb) 하는 방법을 알아봅니다.
 
 + **버그 수정 및 향상 된 기능**
-  + **automl-nativeclient**
-    + 변환 후 (버그 연결) 끊어질 열 형식에 대 한 버그 수정
-    + Y_query는 begin (#459519)에서 None (s)을 포함 하는 개체 유형이 될 수 있습니다.
   + **azure-cli-ml**
     + CLI 명령 "모델 배포" 및 "서비스 업데이트"는 이제 매개 변수, 구성 파일 또는 둘의 조합을 허용 합니다. 매개 변수는 파일의 특성 보다 우선 합니다.
     + 이제 등록 후 모델 설명을 업데이트할 수 있습니다.

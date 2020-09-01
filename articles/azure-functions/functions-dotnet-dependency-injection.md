@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 6fe6079ca4cdf76757088cbdc00dd1af3c2225ea
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 6badcedba7fa1e1b605fc5553e5c6eed52c4203b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642370"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182074"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -253,7 +253,7 @@ public class HttpTrigger
 
 옵션을 사용하는 방법에 대한 자세한 내용은 [ASP.NET Core의 옵션 패턴](/aspnet/core/fundamentals/configuration/options)을 참조하세요.
 
-### <a name="customizing-configuration-sources"></a>구성 원본 사용자 지정
+## <a name="customizing-configuration-sources"></a>구성 원본 사용자 지정
 
 > [!NOTE]
 > 구성 원본 사용자 지정은 Azure Functions 호스트 버전 2.0.14192.0 및 3.0.14191.0부터 사용할 수 있습니다.
@@ -280,7 +280,8 @@ namespace MyNamespace
 
             builder.ConfigurationBuilder
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
-                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false);
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
+                .AddEnvironmentVariables();
         }
     }
 }

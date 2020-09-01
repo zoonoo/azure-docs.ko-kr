@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: dc17c25a84c3d0af39bfa7a8902bdc1d93f201e8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80b7d5ca67751cf7ece775331cc13cfbac10395b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518325"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182397"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>음성 서비스 컨테이너 설치 및 실행 (미리 보기)
 
@@ -26,16 +26,16 @@ ms.locfileid: "88518325"
 > [!IMPORTANT]
 > 모든 음성 컨테이너는 현재 [공용 "제어 된" 미리 보기](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services)의 일부로 제공 됩니다. 음성 컨테이너가 GA (일반 공급)로 진행 될 때 알림이 생성 됩니다.
 
-| 기능 | 기능 | 최신 버전 |
+| 함수 | 기능 | 가장 늦은 날짜 |
 |--|--|--|
-| 음성 텍스트 변환 | 중간 결과를 사용 하 여 감정 및 speech 연속 실시간 음성 또는 배치 오디오 녹음을 분석 합니다.  | 2.3.1 |
-| Custom Speech 텍스트 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 사용자 지정 모델을 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 중간 결과가 포함 된 텍스트로 speech. | 2.3.1 |
-| 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. | 1.5.0 |
-| 사용자 지정 텍스트 음성 변환 | [사용자 지정 음성 포털](https://aka.ms/custom-voice-portal)에서 사용자 지정 모델을 사용 하 여 텍스트를 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 자연 스러운 음성으로 변환 합니다. | 1.5.0 |
+| 음성 텍스트 변환 | 중간 결과를 사용 하 여 감정 및 speech 연속 실시간 음성 또는 배치 오디오 녹음을 분석 합니다.  | 2.4.0 |
+| Custom Speech 텍스트 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 사용자 지정 모델을 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 중간 결과가 포함 된 텍스트로 speech. | 2.4.0 |
+| 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. | 1.6.0 |
+| 사용자 지정 텍스트 음성 변환 | [사용자 지정 음성 포털](https://aka.ms/custom-voice-portal)에서 사용자 지정 모델을 사용 하 여 텍스트를 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 자연 스러운 음성으로 변환 합니다. | 1.6.0 |
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 음성 컨테이너를 사용 하기 전에 다음 필수 구성 요소:
 
@@ -165,7 +165,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 다음 태그는 해당 형식의 예입니다.
 
 ```
-2.3.1-amd64-en-us-preview
+2.4.0-amd64-en-us-preview
 ```
 
 **음성-텍스트** 컨테이너의 지원 되는 모든 로캘에 대해 [음성 텍스트 이미지 태그](../containers/container-image-tags.md#speech-to-text)를 참조 하세요.
@@ -207,7 +207,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 다음 태그는 해당 형식의 예입니다.
 
 ```
-1.5.0-amd64-en-us-ariarus-preview
+1.6.0-amd64-en-us-ariarus-preview
 ```
 
 지원 되는 모든 로캘과 **텍스트 음성 변환** 컨테이너의 해당 음성에 대해 [텍스트 음성 변환 이미지 태그](../containers/container-image-tags.md#text-to-speech)를 참조 하세요.
@@ -263,7 +263,7 @@ ApiKey={API_KEY}
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>음성 텍스트 출력에서 감정 분석 
 
-음성-텍스트 컨테이너의 v 2.2.0에서 시작 하 여 출력에서 [감정 분석 V3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 를 호출할 수 있습니다. 감정 분석을 호출 하려면 텍스트 분석 API 리소스 끝점이 필요 합니다. 예를 들어: 
+음성-텍스트 컨테이너의 v 2.2.0에서 시작 하 여 출력에서 [감정 분석 V3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 를 호출할 수 있습니다. 감정 분석을 호출 하려면 텍스트 분석 API 리소스 끝점이 필요 합니다. 예: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -310,7 +310,7 @@ CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
 
 다음 표는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |
@@ -372,7 +372,7 @@ Docker run 명령의 매개 변수에 대 한 인수로 사용할 **모델 ID** 
 
 다음 표는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |
@@ -423,6 +423,8 @@ WSS 및 HTTPS 프로토콜을 사용 하는 방법에 대 한 자세한 내용�
 #### <a name="analyze-sentiment"></a>감정 분석
 
 [컨테이너에](#analyze-sentiment-on-the-speech-to-text-output)텍스트 분석 API 자격 증명을 제공한 경우 speech SDK를 사용 하 여 감정 분석을 통해 음성 인식 요청을 보낼 수 있습니다. *단순* 또는 *자세한* 형식을 사용 하도록 API 응답을 구성할 수 있습니다.
+> [!NOTE]
+> 음성 서비스의 v2.0 Python SDK에는 감정 분석에 대해 식별 된 문제가 있습니다. 음성 서비스 Python SDK에서 감정 분석을 사용 하는 경우에는 v 1.12. x 또는 이전 버전을 사용 하세요.
 
 # <a name="simple-format"></a>[단순 형식](#tab/simple-format)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: ab316d7b101a05dd9b6bba2e11bfe77239619126
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 5c5326310887cd5756ae264a35aafe7e771a7863
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146762"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226797"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -30,7 +30,7 @@ Azure Machine Learning 계산 인스턴스는 데이터 과학자을 위한 관�
 
 컴퓨팅 인스턴스는 기계 학습 개발 환경에 최적화된 완전 관리형 클라우드 기반 워크스테이션입니다. 다음과 같은 이점을 제공합니다.
 
-|주요 이점|설명|
+|주요 이점|Description|
 |----|----|
 |생산성|Azure Machine Learning studio에서 통합 된 노트북 및 다음 도구를 사용 하 여 모델을 빌드 및 배포할 수 있습니다.<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (미리 보기)<br/>계산 인스턴스는 Azure Machine Learning 작업 영역 및 스튜디오와 완전히 통합 됩니다. 작업 영역의 다른 데이터 과학자와 전자 필기장 및 데이터를 공유할 수 있습니다. [SSH](how-to-set-up-vs-code-remote.md) 를 사용 하 여 원격 개발 VS Code를 설정할 수도 있습니다. |
 |관리 및 보안|보안 공간을 줄이고 엔터프라이즈 보안 요구 사항에 따라 규정 준수를 추가합니다. 컴퓨팅 인스턴스는 다음과 같은 강력한 관리 정책과 보안 네트워킹 구성을 제공합니다.<br/><br/>- Resource Manager 템플릿 또는 Azure Machine Learning SDK에서 자동 프로비저닝<br/>- [Azure 역할 기반 access control (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [가상 네트워크 지원](how-to-enable-virtual-network.md#compute-instance)<br/>- SSH 액세스를 사용하거나 사용하지 않도록 설정하는 SSH 정책<br/>TLS 1.2 사용 |
@@ -80,10 +80,10 @@ Python 패키지는 **Python 3.6 - AzureML** 환경에 모두 설치됩니다.
 
 ### <a name="installing-packages"></a>패키지 설치
 
-Jupyter Notebook 또는 Rstudio에 직접 패키지를 설치할 수 있습니다.
+Jupyter Notebook 또는 RStudio에 직접 패키지를 설치할 수 있습니다.
 
 * RStudio는 오른쪽 아래에 있는 **패키지** 탭 또는 왼쪽 위의 **콘솔** 탭을 사용합니다.  
-* Python: 설치 코드를 추가하고 Jupyter Notebook 셀에서 실행합니다.
+* Python: 설치 코드를 추가 하 고 Jupyter Notebook 셀에를 실행 합니다.
 
 또는 다음과 같은 방법으로 터미널 창에 액세스할 수 있습니다.
 

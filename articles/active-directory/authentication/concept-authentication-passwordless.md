@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f7082de204cedd25b3b87b7157376505598712
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718087"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226678"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
@@ -114,6 +114,8 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만 Microsoft는 �
 | 2 | 클라이언트 pin | 이 기능을 사용 하면 두 번째 요소로 자격 증명을 보호 하 고 사용자 인터페이스가 없는 보안 키에 적용할 수 있습니다. |
 | 3 | hmac-비밀 | 이 확장을 통해 오프 라인 이거나 비행기 모드에서 장치에 로그인 할 수 있습니다. |
 | 4 | RP 당 여러 계정 | 이 기능을 사용 하면 Microsoft 계정 및 Azure Active Directory 같은 여러 서비스에서 동일한 보안 키를 사용할 수 있습니다. |
+
+### <a name="fido2-security-key-providers"></a>FIDO2 보안 키 공급자
 
 다음 공급자는 암호 없는 환경과 호환 되는 것으로 알려진 다양 한 폼 팩터를 FIDO2 보안 키를 제공 합니다. FIDO 동맹 뿐만 아니라 공급 업체에 문의 하 여 이러한 키의 보안 속성을 평가 하는 것이 좋습니다.
 

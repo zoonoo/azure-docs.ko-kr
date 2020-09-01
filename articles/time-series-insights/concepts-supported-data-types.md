@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 254732630dcf28b90413a1269a34d3aa388cb06c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 08/31/2020
+ms.openlocfilehash: 4e6586453469797458bc60fc7499a45a9aad9b9b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997866"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226746"
 ---
 # <a name="supported-data-types"></a>지원되는 데이터 형식
 
@@ -34,9 +34,10 @@ ms.locfileid: "88997866"
 
 > [!NOTE]
 > **문자열** 형식이 null을 허용 하지 않습니다.
->   * [시계열 쿼리에서](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) 표현 된 [TSX (시계열 식)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) 는 빈 문자열 (**' '**)의 값과 **NULL** 을 비교 하는 것과 동일한 방식으로 동작 합니다 .는와 동일 합니다. `$event.siteid.String = NULL` `$event.siteid.String = ''`
->   * 원래 이벤트에 빈 문자열이 포함 된 경우에도 API에서 **NULL** 값을 반환할 수 있습니다.
->   * 비교 또는 평가를 수행 하기 위해 **문자열** 열의 **NULL** 값에 대 한 종속성을 사용 하지 말고, 빈 문자열과 동일한 방식으로 처리 합니다.
+>
+> * [시계열 쿼리에서](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) 표현 된 [TSX (시계열 식)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) 는 빈 문자열 (**' '**)의 값과 **NULL** 을 비교 하는 것과 동일한 방식으로 동작 합니다 .는와 동일 합니다. `$event.siteid.String = NULL` `$event.siteid.String = ''`
+> * 원래 이벤트에 빈 문자열이 포함 된 경우에도 API에서 **NULL** 값을 반환할 수 있습니다.
+> * 비교 또는 평가를 수행 하기 위해 **문자열** 열의 **NULL** 값에 대 한 종속성을 사용 하지 말고, 빈 문자열과 동일한 방식으로 처리 합니다.
 
 ## <a name="sending-mixed-data-types"></a>혼합 데이터 형식 보내기
 

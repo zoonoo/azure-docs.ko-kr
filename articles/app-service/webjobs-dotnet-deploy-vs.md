@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ed473568fbad5bad380001cd2e2faccd90994099
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959904"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226032"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Visual Studio를 사용 하 여 WebJobs 개발 및 배포
 
@@ -184,9 +184,9 @@ WebJob 배포 정보:
 
 WebJob의 형식은 *트리거됨* 또는 *연속*일 수 있습니다.
 
-- 트리거됨 (기본값): 트리거된 WebJob은 바인딩 이벤트 또는 [일정](#scheduling-a-triggered-webjob)에 따라 시작 하거나 요청 시 수동으로 트리거할 때 시작 됩니다. 웹 앱이 실행 되는 모든 인스턴스에서 실행 되지만 필요에 따라 WebJob을 단일 인스턴스로 제한할 수 있습니다.
+- 트리거됨 (기본값): 트리거된 WebJob은 바인딩 이벤트 또는 [일정](#scheduling-a-triggered-webjob)에 따라 시작 하거나 요청 시 수동으로 트리거할 때 시작 됩니다. 웹 앱이 실행 되는 단일 인스턴스에서 실행 됩니다.
 
-- 연속: WebJob을 만들 때 [연속](#continuous-execution) webjob이 즉시 시작 됩니다. 이 유형의 WebJob은 제한 없는 작업 또는 장기 실행 작업에 가장 적합 합니다. 작업을 종료하는 경우 다시 시작할 수 있습니다.  
+- 연속: WebJob을 만들 때 [연속](#continuous-execution) webjob이 즉시 시작 됩니다. 기본적으로 모든 웹 앱 크기 조정 된 인스턴스에서 실행 되지만 *설정. 작업*을 통해 단일 인스턴스로 실행 되도록 구성할 수 있습니다.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 

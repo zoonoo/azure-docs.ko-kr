@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cb5902e3bc8bbed63d7a6e074ece824e16c5609
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: abc0417fc6f97501566f03d7eae0e4274d1dbced
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165161"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182346"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.  
@@ -225,7 +225,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 ## <a name="november-2015"></a>2015년 11월
 **새로운 기능:**
 
-* Azure [RBAC (역할 기반 액세스 제어)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) 에 대 한 지원
+* Azure [RBAC (역할 기반 액세스 제어)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) 에 대 한 지원
 
 **새로운 미리 보기 기능:**
 

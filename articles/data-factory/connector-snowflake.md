@@ -1,6 +1,6 @@
 ---
-title: 눈송이에서 눈송이로 데이터 복사
-description: Azure Data Factory를 사용 하 여 눈송이에서 눈송이로 데이터를 복사 하는 방법에 대해 알아봅니다.
+title: 눈송이에서 데이터 복사 및 변환
+description: Data Factory를 사용 하 여 눈송이에서 데이터를 복사 하 고 변환 하는 방법에 대해 알아봅니다.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -11,30 +11,33 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 5bc64985401fce1c58a985b6b9fdead620c9aa8f
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: fa8bb310d6a088db92b3dfd8eb6d2f584e9ffab7
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048179"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181887"
 ---
-# <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 눈송이 간 데이터 복사
+# <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 눈송이에서 데이터 복사 및 변환
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 눈송이에서 눈송이로 데이터를 복사 하는 방법을 설명 합니다. Data Factory에 대 한 자세한 내용은 [소개 문서](introduction.md)를 참조 하세요.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 눈송이에서 눈송이로 데이터를 복사 하 고 데이터 흐름을 사용 하 여 눈송이에서 데이터를 변환 하는 방법을 설명 합니다. Data Factory에 대 한 자세한 내용은 [소개 문서](introduction.md)를 참조 하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
 이 눈송이 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
 - [지원 되는 원본/싱크 행렬](copy-activity-overview.md) 테이블이 포함 된 [복사 작업](copy-activity-overview.md)
+- [매핑 데이터 흐름](concepts-data-flow-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 복사 작업의 경우이 눈송이 커넥터는 다음과 같은 기능을 지원 합니다.
 
 - 눈송이의 [copy를 [location] 명령으로](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) 활용 하는 눈송이의 데이터를 최상의 성능을 얻기 위해 복사 합니다.
-- 눈송이의 [copy to [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) 명령을 사용 하 여 최상의 성능을 얻기 위해 데이터를 눈송이로 복사 합니다. Azure의 눈송이를 지원 합니다.
+- 눈송이의 [copy to [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) 명령을 사용 하 여 최상의 성능을 얻기 위해 데이터를 눈송이로 복사 합니다. Azure의 눈송이를 지원 합니다. 
+
+Azure Synapse Analytics 작업 영역을 사용 하는 경우 눈송이를 싱크로 지원 하지 않습니다.
 
 ## <a name="get-started"></a>시작
 
@@ -105,8 +108,8 @@ ms.locfileid: "89048179"
 | 속성  | Description                                                  | 필수                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 데이터 집합의 type 속성은 **SnowflakeTable**로 설정 해야 합니다. | 예                         |
-| 스키마 | 스키마의 이름입니다. |원본에 대해 아니요, 싱크에 대해 예  |
-| 테이블 | 테이블/뷰의 이름입니다. |원본에 대해 아니요, 싱크에 대해 예  |
+| 스키마 | 스키마의 이름입니다. ADF에서는 스키마 이름이 대/소문자를 구분 합니다. |원본에 대해 아니요, 싱크에 대해 예  |
+| 테이블 | 테이블/뷰의 이름입니다. ADF에서 테이블 이름은 대/소문자를 구분 합니다. |원본에 대해 아니요, 싱크에 대해 예  |
 
 **예:**
 
@@ -143,7 +146,7 @@ ms.locfileid: "89048179"
 | 속성                     | Description                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 type 속성은 **SnowflakeSource**로 설정 해야 합니다. | 예      |
-| Query          | 눈송이에서 데이터를 읽는 SQL 쿼리를 지정 합니다.<br>저장 프로시저 실행은 지원 되지 않습니다. | 예       |
+| Query          | 눈송이에서 데이터를 읽는 SQL 쿼리를 지정 합니다. 스키마 이름, 테이블 및 열에 소문자가 포함 된 경우 쿼리의 개체 식별자 (예:)를 인용 합니다 `select * from "schema"."myTable"` .<br>저장 프로시저 실행은 지원 되지 않습니다. | 예       |
 | exportSettings | 눈송이에서 데이터를 검색 하는 데 사용 되는 고급 설정입니다. COPY into 명령에서 지원 되는 항목을 구성 하 여 문이 호출 될 때 Data Factory 전달 하 게 됩니다. | 예       |
 | ***에서 `exportSettings` 다음을 수행 합니다.*** |  |  |
 | 형식 | **SnowflakeExportCopyCommand**로 설정 된 내보내기 명령의 유형입니다. | 예 |
@@ -172,7 +175,7 @@ ms.locfileid: "89048179"
 - 복사 활동 원본에서 `additionalColumns` 가 지정 되지 않았습니다.
 - 열 매핑이 지정 되지 않았습니다.
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -194,7 +197,7 @@ ms.locfileid: "89048179"
         "typeProperties": {
             "source": {
                 "type": "SnowflakeSource",
-                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "sqlReaderQuery": "SELECT * FROM MYTABLE",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
                     "additionalCopyOptions": {
@@ -223,7 +226,7 @@ ms.locfileid: "89048179"
 > [!NOTE]
 > 스테이징 Azure Blob 저장소 연결 된 서비스는 눈송이 복사 명령에 필요한 공유 액세스 서명 인증을 사용 해야 합니다. 
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -307,7 +310,7 @@ ms.locfileid: "89048179"
    - 원본이 폴더인 경우 `recursive` 는 true로 설정 됩니다.
    - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` 및 `enablePartitionDiscovery`는 지정되지 않습니다.
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -357,7 +360,7 @@ ms.locfileid: "89048179"
 > [!NOTE]
 > 스테이징 Azure Blob 저장소 연결 된 서비스는 눈송이 복사 명령에 필요한 공유 액세스 서명 인증을 사용 해야 합니다.
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -396,6 +399,83 @@ ms.locfileid: "89048179"
 ]
 ```
 
+## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
+
+매핑 데이터 흐름에서 데이터를 변환할 때 눈송이에서 테이블을 읽고 쓸 수 있습니다. 자세한 내용은 매핑 데이터 흐름에서 [원본 변환](data-flow-source.md) 및 [싱크 변환](data-flow-sink.md)을 참조하세요. 눈송이 데이터 집합 또는 [인라인 데이터 집합](data-flow-source.md#inline-datasets) 을 원본 및 싱크 형식으로 사용 하도록 선택할 수 있습니다.
+
+### <a name="source-transformation"></a>원본 변환
+
+다음 표에서는 눈송이 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다. 커넥터는 눈송이 [내부 데이터 전송을](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)활용 합니다.
+
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| 테이블 | 테이블을 입력으로 선택 하는 경우 데이터 흐름은 인라인 데이터 집합을 사용할 때 눈송이 데이터 집합 또는 원본 옵션에 지정 된 테이블의 모든 데이터를 가져옵니다. | 예 | String | *(인라인 데이터 집합에만 해당)*<br>tableName<br>schemaName |
+| 쿼리 | 쿼리를 입력으로 선택 하는 경우 눈송이에서 데이터를 인출 하는 쿼리를 입력 합니다. 이 설정은 데이터 집합에서 선택한 테이블을 재정의 합니다.<br>스키마 이름, 테이블 및 열에 소문자가 포함 된 경우 쿼리의 개체 식별자 (예:)를 인용 합니다 `select * from "schema"."myTable"` . | 예 | String | Query |
+
+#### <a name="snowflake-source-script-examples"></a>눈송이 원본 스크립트 예제
+
+눈송이 데이터 집합을 원본 유형으로 사용 하는 경우 연결 된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SnowflakeSource
+```
+
+인라인 데이터 집합을 사용 하는 경우 연결 된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'query',
+    query: 'select * from MYTABLE',
+    store: 'snowflake') ~> SnowflakeSource
+```
+
+### <a name="sink-transformation"></a>싱크 변환
+
+아래 표에는 눈송이 싱크에 의해 지원 되는 속성이 나와 있습니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다. 인라인 데이터 집합을 사용 하는 경우 [데이터 집합 속성](#dataset-properties) 섹션에 설명 된 속성과 동일한 추가 설정이 표시 됩니다. 커넥터는 눈송이 [내부 데이터 전송을](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)활용 합니다.
+
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Update 메서드 | 눈송이 대상에서 허용 되는 작업을 지정 합니다.<br>행을 업데이트, upsert 또는 삭제 하려면 해당 작업에 대 한 행의 태그를 변경 하는 [행 변환이](data-flow-alter-row.md) 필요 합니다. | 예 | `true` 또는 `false` | 삭제할 <br/>삽입 가능한 <br/>있는 <br/>upsertable |
+| 키 열 | 업데이트, upsert 및 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다. | 예 | 배열 | 키 |
+| 테이블 작업 | 쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지를 결정 합니다.<br>- **없음**: 테이블에 대 한 작업이 수행 되지 않습니다.<br>- **다시 만들기**: 테이블이 삭제 되 고 다시 생성 됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거 됩니다. | 예 | `true` 또는 `false` | 다시<br/>truncate |
+
+#### <a name="snowflake-sink-script-examples"></a>눈송이 싱크 스크립트 예제
+
+눈송이 데이터 집합을 싱크 유형으로 사용 하는 경우 연결 된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:true,
+    insertable:true,
+    updateable:true,
+    upsertable:false,
+    keys:['movieId'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
+
+인라인 데이터 집합을 사용 하는 경우 연결 된 데이터 흐름 스크립트는 다음과 같습니다.
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    tableName: 'table',
+    schemaName: 'schema',
+    deletable: true,
+    insertable: true,
+    updateable: true,
+    upsertable: false,
+    store: 'snowflake',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

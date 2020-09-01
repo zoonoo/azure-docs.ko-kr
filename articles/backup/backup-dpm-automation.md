@@ -3,12 +3,12 @@ title: PowerShell을 사용하여 DPM 워크로드 백업
 description: PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure Backup을 배포 및 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 7b4e63e94599b1445a7244018e00999df8365cd3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4f0364ef218d346149191e168540eed4827001de
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014679"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182465"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
 
@@ -232,10 +232,10 @@ Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSett
 
 ## <a name="protect-data-to-azure-backup"></a>Azure Backup에 데이터 보호
 
-이 섹션에서는 DPM에 프로덕션 서버를 추가한 후 데이터를 로컬 DPM 스토리지에 보호한 다음 Azure Backup에 보호합니다. 예제에서 파일과 폴더를 백업하는 방법을 보여 줍니다. 논리는 모든 DPM 지원 데이터 소스를 백업하도록 쉽게 확장될 수 있습니다. 모든 DPM 백업은 4개 부분으로 구성된 보호 그룹(PG)에 의해 제어됩니다.
+이 섹션에서는 DPM 서버를 DPM에 추가 하 고 데이터를 로컬 DPM 저장소로 보호 한 다음 Azure Backup 합니다. 예제에서는 파일과 폴더를 백업 하는 방법을 보여 줍니다. 논리는 모든 DPM 지원 데이터 소스를 백업하도록 쉽게 확장될 수 있습니다. 모든 DPM 백업은 4개 부분으로 구성된 보호 그룹(PG)에 의해 제어됩니다.
 
 1. **그룹 멤버**는 동일한 보호 그룹 내에서 보호하려는 모든 보호 개체(DPM에서는 *데이터 원본*)의 목록입니다. 예를 들어, 백업 요구 사항이 다르기 때문에 하나의 보호 그룹에서는 프로덕션 VM을 보호하고 다른 보호 그룹에서는 SQL Server 데이터베이스를 보호할 수 있습니다. 프로덕션 서버에 데이터 원본을 백업할 수 있으려면 DPM 에이전트가 서버에 설치되어 있고 DPM에 의해 관리되는지 확인해야 합니다. [DPM 에이전트를 설치](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019)하고 해당 DPM 서버에 링크하는 단계를 따릅니다.
-2. **데이터 보호 방법**은 대상 백업 위치(테이프, 디스크 및 클라우드)를 지정합니다. 이 예에서는 데이터를 로컬 디스크와 클라우드에 보호합니다.
+2. **데이터 보호 방법**은 대상 백업 위치(테이프, 디스크 및 클라우드)를 지정합니다. 이 예제에서는 로컬 디스크 및 클라우드로 데이터를 보호 합니다.
 3. 백업을 수행해야 할 때와 DPM 서버 및 프로덕션 서버 간의 데이터 동기화 빈도를 지정하는 **백업 일정**입니다.
 4. Azure에 복구 지점을 보존할 기간을 지정하는 **보존 일정** 입니다.
 
@@ -276,7 +276,7 @@ $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name
 Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 ```
 
-선택한 모든 데이터 원본이 보호 그룹에 추가될 때까지 필요한 만큼 이 단계를 반복합니다. 또한 하나의 데이터 원본으로만 시작한 다음, 보호 그룹을 만들기 위한 워크플로를 완료하고 나중에 해당 보호 그룹에 더 많은 데이터 원본을 추가할 수도 있습니다.
+선택한 모든 데이터 원본을 보호 그룹에 추가할 때까지 필요한 만큼이 단계를 반복 합니다. 또한 하나의 데이터 원본으로만 시작한 다음, 보호 그룹을 만들기 위한 워크플로를 완료하고 나중에 해당 보호 그룹에 더 많은 데이터 원본을 추가할 수도 있습니다.
 
 ### <a name="selecting-the-data-protection-method"></a>데이터 보호 방법 선택
 

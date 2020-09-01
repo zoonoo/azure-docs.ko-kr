@@ -4,12 +4,12 @@ description: Azure 리소스 로그에 대해 지원 되는 서비스 및 이벤
 ms.subservice: logs
 ms.topic: reference
 ms.date: 06/15/2020
-ms.openlocfilehash: fd2dc4030816ab0b31befe46ac60d5e96fdae917
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: acd661467e90b4915daa2f3eb31f34fd350dc9f5
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782127"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226466"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Azure 리소스 로그의 공통 및 서비스별 스키마
 
@@ -23,7 +23,7 @@ ms.locfileid: "88782127"
 
 ## <a name="top-level-common-schema"></a>최상위 공용 스키마
 
-| Name | 필수/선택 | 설명 |
+| 이름 | 필수/선택 | 설명 |
 |---|---|---|
 | time | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
 | resourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
@@ -54,9 +54,6 @@ ms.locfileid: "88782127"
 | Application Gateway |[Application Gateway에 대 한 로깅](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Azure Automation에 대 한 Log analytics](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 로깅](../../batch/batch-diagnostics.md) |
-| Azure Database for MySQL | [Azure Database for MySQL 진단 로그](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Database for PostgreSQL | [Azure Database for PostgreSQL 로그](../../postgresql/concepts-server-logs.md#resource-logs) |
-| Azure Data Explorer | [Azure 데이터 탐색기 로그](/azure/data-explorer/using-diagnostic-logs) |
 | Cognitive Services | [Azure Cognitive Services에 대 한 로깅](../../cognitive-services/diagnostic-logging.md) |
 | Container Registry | [Azure Container Registry에 대 한 로깅](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [CDN에 대 한 Azure 로그](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -64,7 +61,11 @@ ms.locfileid: "88782127"
 | Data Factory | [Azure Monitor를 사용 하 여 데이터 팩터리 모니터링](../../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Azure Data Lake Analytics에 대 한 로그 액세스](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Azure Data Lake Store에 대 한 로그 액세스](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Azure Data Explorer | [Azure 데이터 탐색기 로그](/azure/data-explorer/using-diagnostic-logs) |
+| Azure Database for MySQL | [Azure Database for MySQL 진단 로그](../../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure Database for PostgreSQL 로그](../../postgresql/concepts-server-logs.md#resource-logs) |
 | Azure Databricks | [Azure Databricks의 진단 로깅](https://github.com/MicrosoftDocs/databricks-pr/blob/live/databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
+| Digital Twins | [Digital Twins 진단 설정](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Azure Event Hubs 로그](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express 경로 | 스키마를 사용할 수 없음 |
 | Azure Firewall | 스키마를 사용할 수 없음 |
@@ -84,6 +85,7 @@ ms.locfileid: "88782127"
 | Traffic Manager | [Traffic Manager 로그 스키마](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | 가상 네트워크 | 스키마를 사용할 수 없음 |
 | Virtual Network 게이트웨이 | 스키마를 사용할 수 없음 |
+
 
 
 ## <a name="next-steps"></a>다음 단계

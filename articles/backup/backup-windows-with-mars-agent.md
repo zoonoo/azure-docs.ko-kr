@@ -3,18 +3,18 @@ title: MARS 에이전트를 사용 하 여 Windows 컴퓨터 백업
 description: MARS (Microsoft Azure Recovery Services) 에이전트를 사용 하 여 Windows 컴퓨터를 백업 합니다.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 381df40dfe4149b2f43dc22bb2186ec1f17b0515
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 55eb8bdf069fd1b5793468ae52f764eb4288f261
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825902"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182091"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Azure에 Windows Server 파일 및 폴더 백업
 
 이 문서에서는 [Azure Backup](backup-overview.md) 서비스 및 MICROSOFT AZURE RECOVERY SERVICES (MARS) 에이전트를 사용 하 여 Windows 컴퓨터를 백업 하는 방법을 설명 합니다. MARS는 Azure Backup 에이전트 라고도 합니다.
 
-이 아티클에서는 다음 방법을 설명합니다.
+이 문서에서는 다음을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >
@@ -53,7 +53,7 @@ Azure Backup는 DST (일광 절약 시간)를 자동으로 고려 하지 않습�
     ![백업할 항목 선택](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 1. **백업할 항목 선택** 페이지에서 **다음**을 선택 합니다.
-1. **백업 일정 지정** 페이지에서 매일 또는 매주 백업을 수행할 시간을 지정 합니다. 그러고 나서 ‘다음’을 선택합니다. 
+1. **백업 일정 지정** 페이지에서 매일 또는 매주 백업을 수행할 시간을 지정 합니다. **다음**을 선택합니다.
 
     * 복구 지점은 백업을 수행할 때 생성 됩니다.
     * 사용자 환경에서 생성 되는 복구 지점의 수는 백업 일정에 따라 다릅니다.
@@ -65,7 +65,7 @@ Azure Backup는 DST (일광 절약 시간)를 자동으로 고려 하지 않습�
 
         ![주간 백업 일정 설정](./media/backup-configure-vault/week-schedule.png)
 
-1. **보존 정책 선택** 페이지에서 데이터의 기록 복사본을 저장 하는 방법을 지정 합니다. 그러고 나서 ‘다음’을 선택합니다. 
+1. **보존 정책 선택** 페이지에서 데이터의 기록 복사본을 저장 하는 방법을 지정 합니다. **다음**을 선택합니다.
 
     * 보존 설정은 저장할 복구 지점과 저장 기간을 지정 합니다.
     * 매일 보존 설정의 경우 매일 보존에 지정 된 시간에 최신 복구 지점이 지정 된 기간 (일) 동안 보존 됨을 표시 합니다. 또는 매월 30 일에 생성 된 복구 지점을 12 개월 동안 저장 하도록 지정할 수 있습니다.

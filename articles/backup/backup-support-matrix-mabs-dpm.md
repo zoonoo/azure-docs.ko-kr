@@ -3,12 +3,12 @@ title: MABS & System Center DPM 지원 매트릭스
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 또는 System Center DPM을 사용 하 여 온-프레미스 및 Azure VM 리소스를 백업 하는 경우 지원 Azure Backup를 요약 합니다.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 90b79dfa412102b139f2f094fb9ca07a6361cab0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 71f188ffca125bc13eb2e9a43f466aeb61c64b75
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019575"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182006"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM을 사용 하 여 백업에 대 한 지원 매트릭스
 
@@ -60,7 +60,7 @@ DPM/MABS 및 Azure Backup를 사용한 백업은 다음과 같이 작동 합니�
 
 **배포** | **지원** | **세부 정보**
 --- | --- | ---
-**온-프레미스에 배포** | 물리적 서버<br/><br/>Hyper-V VM<br/><br/> VMware VM | DPM/MABS를 VMware VM으로 설치 하는 경우 해당 Vm에서 실행 되는 VMware Vm 및 워크 로드만 백업 합니다.
+**온-프레미스에 배포** | 실제 서버<br/><br/>Hyper-V VM<br/><br/> VMware VM | DPM/MABS를 VMware VM으로 설치 하는 경우 해당 Vm에서 실행 되는 VMware Vm 및 워크 로드만 백업 합니다.
 **Azure Stack VM으로 배포** | MABS만 | DPM은 Azure Stack VM을 백업하는 데 사용할 수 없습니다.
 **Azure VM으로 배포** | 해당 Vm에서 실행 되는 Azure Vm 및 워크 로드를 보호 합니다. | Azure에서 실행 되는 DPM/MABS는 온-프레미스 컴퓨터를 백업할 수 없습니다.
 
@@ -85,8 +85,8 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 **설치** | 단일 용도의 컴퓨터에 DPM/MABS를 설치 합니다.<br/><br/> DPM/MABS를 도메인 컨트롤러에 설치 하지 마세요. 응용 프로그램 서버 역할이 설치 된 컴퓨터, Microsoft Exchange Server 또는 System Center Operations Manager를 실행 하는 컴퓨터 또는 클러스터 노드에서 DPM/MABS를 설치 하지 마세요.<br/><br/> [모든 DPM 시스템 요구 사항을 검토](/system-center/dpm/prepare-environment-for-dpm#dpm-server)합니다.
 **도메인** | DPM/MABS는 도메인에 가입 되어 있어야 합니다. DPM/MABS를 먼저 설치한 후 도메인에 가입합니다. 배포가 지원되지 않으면 DPM/MABS를 새 도메인으로 이동
 **스토리지** | 최신 백업 저장소 (MB)는 DPM 2016/MABS v2 이상에서 지원 됩니다. MABS v1에는 사용할 수 없습니다.
-**MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세히 알아보기](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
-**MABS 이동** | MBS를 사용하는 경우 스토리지 보존이 지원될 때 MABS를 새 서버로 이동<br/><br/> 새 서버는 원래 서버와 이름이 같아야 합니다. 동일한 스토리지 풀을 유지하고 동일한 MABS 데이터베이스를 사용하여 데이터 복구 지점을 저장하려는 경우에는 이름을 변경할 수 없습니다.<br/><br/> MABS 데이터베이스를 복원해야 하므로 백업이 필요합니다.
+**MABS 업그레이드** | MABS v3를 직접 설치하거나 MABS v2에서 MABS v3로 업그레이드할 수 있습니다. [자세한 정보를 알아보세요](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
+**MABS 이동** | MBS를 사용하는 경우 스토리지 보존이 지원될 때 MABS를 새 서버로 이동<br/><br/> 새 서버는 원래 서버와 이름이 같아야 합니다. 동일한 스토리지 풀을 유지하고 동일한 MABS 데이터베이스를 사용하여 데이터 복구 지점을 저장하려는 경우에는 이름을 변경할 수 없습니다.<br/><br/> 복원 해야 하므로 MABS 데이터베이스를 백업 해야 합니다.
 
 ## <a name="mabs-support-on-azure-stack"></a>Azure Stack의 MABS 지원
 

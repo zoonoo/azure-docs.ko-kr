@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 310fde15a850214aa1741c9cb587c0edcf570a37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 703e67b4829413776dc8d98843888fbd67906baa
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085386"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182193"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-device"></a>Azure Stack Edge 장치에서 Kubernetes 역할 기반 Access Control
 
@@ -26,9 +26,43 @@ Azure Stack Edge 장치에서 계산 역할을 구성할 때 Kubernetes 클러�
 
 Kubernetes RBAC를 사용 하 여 사용자 또는 사용자 그룹을 할당 하거나, 리소스를 만들거나 수정 하는 등의 작업을 수행 하거나, 실행 중인 응용 프로그램 워크 로드에서 로그를 볼 수 있습니다. 이러한 권한은 단일 네임 스페이스로 범위를 지정 하거나 전체 클러스터에서 부여할 수 있습니다. 
 
-Kubernetes 클러스터를 설정 하면이 클러스터에 해당 하는 단일 사용자가 만들어지며 클러스터 관리 사용자 라고 합니다.  `kubeconfig`파일은 클러스터 관리 사용자와 연결 됩니다. `kubeconfig`이 파일은 사용자를 인증 하기 위해 클러스터에 연결 하는 데 필요한 모든 구성 정보를 포함 하는 텍스트 파일입니다. 
+Kubernetes 클러스터를 설정 하면이 클러스터에 해당 하는 단일 사용자가 만들어지며 클러스터 관리 사용자 라고 합니다.  `kubeconfig`파일은 클러스터 관리 사용자와 연결 됩니다. `kubeconfig`이 파일은 사용자를 인증 하기 위해 클러스터에 연결 하는 데 필요한 모든 구성 정보를 포함 하는 텍스트 파일입니다.
 
-### <a name="namespaces-and-users"></a>네임 스페이스 및 사용자
+## <a name="namespaces-types"></a>네임 스페이스 형식
+
+Kubernetes 리소스 (예: pod 및 배포)는 논리적으로 네임 스페이스로 그룹화 됩니다. 이러한 그룹은 Kubernetes 클러스터를 논리적으로 분할 하 고 리소스를 만들거나 보거나 관리 하기 위해 액세스를 제한 하는 방법을 제공 합니다. 사용자는 할당된 네임스페이스 내의 리소스와만 상호 작용할 수 있습니다.
+
+네임 스페이스는 여러 사용자가 여러 팀 또는 프로젝트에 걸쳐 분산 된 환경에서 사용 하기 위한 것입니다. 소수의 사용자를 포함 하는 클러스터의 경우에는 네임 스페이스를 만들거나 고려할 필요가 없습니다. 제공 하는 기능이 필요한 경우 네임 스페이스 사용을 시작 합니다.
+
+자세한 내용은 [Kubernetes 네임스페이스](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)를 참조하세요.
+
+
+Azure Stack Edge 장치에는 다음 네임 스페이스가 있습니다.
+
+- **시스템 네임 스페이스** -이 네임 스페이스는 DNS 및 프록시와 같은 네트워크 기능 또는 Kubernetes 대시보드의 핵심 리소스가 존재 하는 곳입니다. 일반적으로 사용자 고유의 애플리케이션은 이 네임스페이스에 배포하지 않습니다. 이 네임 스페이스를 사용 하 여 Kubernetes 클러스터 문제를 디버그 합니다. 
+
+    장치에는 여러 시스템 네임 스페이스가 있으며 이러한 시스템 네임 스페이스에 해당 하는 이름은 예약 되어 있습니다. 다음은 예약 된 시스템 네임 스페이스 목록입니다. 
+    - kube-시스템
+    - metallb-시스템
+    - d 네임 스페이스
+    - default
+    - kubernetes-대시보드
+    - default
+    - kube-임대
+    - kube-public
+    - iotedge
+    - azure-호
+
+    사용자가 만든 사용자 네임 스페이스에 대해 예약 된 이름을 사용 하지 않아야 합니다. 
+<!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
+
+- **사용자 네임 스페이스** - **kubectl** 을 통해 응용 프로그램을 로컬로 배포 하는 데 사용할 수 있는 네임 스페이스입니다.
+ 
+- **IoT Edge 네임 스페이스** -이 네임 스페이스에 연결 하 여 `iotedge` IoT Edge를 통해 응용 프로그램을 배포 합니다.
+
+- **Azure arc 네임 스페이스** -이 `azure-arc` 네임 스페이스에 연결 하 여 azure arc를 통해 응용 프로그램을 배포 합니다. 
+
+## <a name="namespaces-and-users"></a>네임 스페이스 및 사용자
 
 실제 세계에서는 클러스터를 여러 네임 스페이스로 분할 하는 것이 중요 합니다. 
 
@@ -43,7 +77,6 @@ Kubernetes에는 네임 스페이스 수준 및 클러스터 수준에서 사용
 - **Rolebindings**: 역할을 정의한 후에는 **rolebindings** 를 사용 하 여 지정 된 네임 스페이스에 대 한 역할을 할당할 수 있습니다. 
 
 이 접근 방식을 사용 하면 사용자가 할당 된 네임 스페이스의 응용 프로그램 리소스에만 액세스할 수 있는 단일 Kubernetes 클러스터를 논리적으로 구분할 수 있습니다. 
-
 
 ## <a name="rbac-on-azure-stack-edge"></a>Azure Stack Edge의 RBAC
 
@@ -92,14 +125,6 @@ Azure Stack Edge 장치에서 네임 스페이스와 사용자를 사용 하는 
 - 다른 사용자 네임 스페이스에서 이미 사용 중인 이름을 가진 사용자 네임 스페이스를 만들 수 없습니다. 예를 들어를 만든가 있는 경우 `test-ns` 다른 네임 스페이스를 만들 수 없습니다 `test-ns` .
 - 이미 예약 된 이름의 사용자를 만들 수는 없습니다. 예를 들어 `aseuser` 는 예약 된 클러스터 관리자 이므로 사용할 수 없습니다.
 
-Azure Stack Edge 네임 스페이스에 대 한 자세한 내용은 [네임 스페이스 형식](azure-stack-edge-gpu-kubernetes-workload-management.md#namespaces-types)을 참조 하세요.
-
-
-<!--To deploy applications on an Azure Stack Edge device, use the following :
- 
-- First, you will use the PowerShell runspace to create a user, create a namespace, and grant user access to that namespace.
-- Next, you will use the Azure Stack Edge resource in the Azure portal to create persistent volumes using either static or dynamic provisioning for the stateful applications that you will deploy.
-- Finally, you will use the services to expose applications externally and within the Kubernetes cluster.-->
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 21845b51fdd108221d5e1bce50e953b79084d17d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2e2a41f797c6c58597e90ef6bd6e373ab7408a7b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085362"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182057"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Azure Stack Edge 장치에서 워크 로드 관리 Kubernetes
 
@@ -33,40 +33,13 @@ Azure Stack Edge 장치에 배포할 수 있는 두 가지 일반적인 작업 �
 
     Kubernetes 배포를 만들어 상태 저장 응용 프로그램을 배포할 수 있습니다. 
 
-## <a name="namespaces-types"></a>네임 스페이스 형식
+## <a name="deployment-flow"></a>배포 흐름
 
-Kubernetes 리소스 (예: pod 및 배포)는 논리적으로 네임 스페이스로 그룹화 됩니다. 이러한 그룹은 Kubernetes 클러스터를 논리적으로 분할 하 고 리소스를 만들거나 보거나 관리 하기 위해 액세스를 제한 하는 방법을 제공 합니다. 사용자는 할당된 네임스페이스 내의 리소스와만 상호 작용할 수 있습니다.
-
-네임 스페이스는 여러 사용자가 여러 팀 또는 프로젝트에 걸쳐 분산 된 환경에서 사용 하기 위한 것입니다. 소수의 사용자를 포함 하는 클러스터의 경우에는 네임 스페이스를 만들거나 고려할 필요가 없습니다. 제공 하는 기능이 필요한 경우 네임 스페이스 사용을 시작 합니다.
-
-자세한 내용은 [Kubernetes 네임스페이스](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)를 참조하세요.
-
-
-Azure Stack Edge 장치에는 다음 네임 스페이스가 있습니다.
-
-- **시스템 네임 스페이스** -이 네임 스페이스는 DNS 및 프록시와 같은 네트워크 기능 또는 Kubernetes 대시보드의 핵심 리소스가 존재 하는 곳입니다. 일반적으로 사용자 고유의 애플리케이션은 이 네임스페이스에 배포하지 않습니다. 이 네임 스페이스를 사용 하 여 Kubernetes 클러스터 문제를 디버그 합니다. 
-
-    장치에는 여러 시스템 네임 스페이스가 있으며 이러한 시스템 네임 스페이스에 해당 하는 이름은 예약 되어 있습니다. 다음은 예약 된 시스템 네임 스페이스 목록입니다. 
-    - kube-시스템
-    - metallb-시스템
-    - d 네임 스페이스
-    - default
-    - kubernetes-대시보드
-    - default
-    - kube-임대
-    - kube-public
-    - iotedge
-    - azure-호
-
-    사용자가 만든 사용자 네임 스페이스에 대해 예약 된 이름을 사용 하지 않아야 합니다. 
-<!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
-
-- **사용자 네임 스페이스** - **kubectl** 을 통해 응용 프로그램을 로컬로 배포 하는 데 사용할 수 있는 네임 스페이스입니다.
+Azure Stack Edge 장치에 응용 프로그램을 배포 하려면 다음 단계를 수행 합니다. 
  
-- **IoT Edge 네임 스페이스** -이 네임 스페이스에 연결 하 여 `iotedge` IoT Edge를 통해 응용 프로그램을 배포 합니다.
-
-- **Azure arc 네임 스페이스** -이 `azure-arc` 네임 스페이스에 연결 하 여 azure arc를 통해 응용 프로그램을 배포 합니다.
-
+1. **액세스 구성**: 먼저 PowerShell runspace를 사용 하 여 사용자를 만들고, 네임 스페이스를 만들고, 해당 네임 스페이스에 대 한 사용자 액세스 권한을 부여 합니다.
+2. **저장소 구성**: 다음에는 Azure Portal에서 Azure Stack Edge 리소스를 사용 하 여 배포할 상태 저장 응용 프로그램에 대해 정적 또는 동적 프로 비전을 사용 하는 영구 볼륨을 만듭니다.
+3. **네트워킹 구성**: 마지막으로 서비스를 사용 하 여 외부 및 Kubernetes 클러스터 내에서 응용 프로그램을 노출 합니다.
  
 ## <a name="deployment-types"></a>배포 형식
 
@@ -78,7 +51,7 @@ Azure Stack Edge 장치에는 다음 네임 스페이스가 있습니다.
 
 - **IoT Edge 배포**: IoT Edge를 통해 Azure IoT Hub에 연결 합니다. 네임 스페이스를 통해 Azure Stack Edge 장치에서 K8 클러스터에 연결 합니다 `iotedge` . 이 네임 스페이스에 배포 된 IoT Edge 에이전트는 Azure에 대 한 연결을 담당 합니다. `IoT Edge deployment.json`Azure DevOps CI/CD를 사용 하 여 구성을 적용 합니다. 네임 스페이스 및 IoT Edge 관리는 클라우드 운영자를 통해 수행 됩니다.
 
-- **Azure/Arc 배포**: azure Arc는 K8 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 를 통해 Azure Stack Edge 장치에서 K8 클러스터를 연결 합니다 `azure-arc namespace` .  에이전트는 Azure에 대 한 연결을 담당 하는이 네임 스페이스에 배포 됩니다. GitOps 기반 구성 관리를 사용 하 여 배포 구성을 적용 합니다. 또한 Azure Arc는 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure Arc 사용 Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)을 참조 하세요.
+- **Azure/Arc 배포**: azure Arc는 K8 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 를 통해 Azure Stack Edge 장치에서 K8 클러스터를 연결 합니다 `azure-arc namespace` . 에이전트는 Azure에 대 한 연결을 담당 하는이 네임 스페이스에 배포 됩니다. GitOps 기반 구성 관리를 사용 하 여 배포 구성을 적용 합니다. 또한 Azure Arc는 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure Arc 사용 Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)을 참조 하세요.
 
 ## <a name="choose-the-deployment-type"></a>배포 유형 선택
 

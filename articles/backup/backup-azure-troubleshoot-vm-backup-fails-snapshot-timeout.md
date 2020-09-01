@@ -4,12 +4,12 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 1bfd83534bda6397983b0595acc089e901c473d6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021486"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182040"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -57,7 +57,7 @@ Azure Backup VM 스냅숏 확장을 사용 하 여 Azure 가상 컴퓨터의 응
   - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
   - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
-- **네트워크 액세스가 필요한 지 확인**합니다. Azure Storage 확장 리포지토리에서 확장 패키지를 다운로드 하 고 확장 상태 업로드가 Azure Storage에 게시 됩니다. [자세히 알아보기](../virtual-machines/extensions/features-windows.md#network-access).
+- **네트워크 액세스가 필요한 지 확인**합니다. Azure Storage 확장 리포지토리에서 확장 패키지를 다운로드 하 고 확장 상태 업로드가 Azure Storage에 게시 됩니다. [자세한 정보를 알아보세요](../virtual-machines/extensions/features-windows.md#network-access).
   - 지원 되지 않는 버전의 에이전트를 사용 하는 경우 VM에서 해당 지역에 있는 Azure storage에 대 한 아웃 바운드 액세스를 허용 해야 합니다.
   - 게스트 방화벽이 나 프록시를 사용 하 여에 대 한 액세스를 차단 하는 경우에 `168.63.129.16` 는 위의 방법에 관계 없이 확장이 실패 합니다. 포트 80, 443 및 32526이 필요 합니다. [자세한 정보](../virtual-machines/extensions/features-windows.md#network-access).
 
