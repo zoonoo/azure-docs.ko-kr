@@ -1,19 +1,19 @@
 ---
-title: Azure Stack Edge storage 계정 관리 | Microsoft Docs
+title: Azure Stack Edge GPU storage 계정 관리 | Microsoft Docs
 description: Azure Portal를 사용 하 여 Azure Stack Edge에서 저장소 계정을 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/11/2019
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 01148fabd6fb5df791ac09090304feee8c72a2d1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 549fa8a01455d45c959db60bc5df31c13b4da984
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086621"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146371"
 ---
 # <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge"></a>Azure Portal를 사용 하 여 Azure Stack에 지 저장소 계정 관리
 

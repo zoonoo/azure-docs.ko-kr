@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ddf4336015ad172cdf13e224b10ca2536e8f6a25
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3c7bb19f93bc5b6d345930eb1928ca620e391bb0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018079"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144076"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -111,7 +111,8 @@ output_data1 = PipelineData(
 
 ## <a name="set-up-a-compute-target"></a>컴퓨팅 대상 설정
 
-Azure Machine Learning에서 ‘__컴퓨팅__’(또는 ‘__컴퓨팅 대상__’) 용어는 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다. 계산 대상의 전체 목록과 작업 영역에 연결 하는 방법에 대해서는 [모델 학습을 위한 계산 목표 설정 및 사용](how-to-set-up-training-targets.md) 을 참조 하세요. 계산 대상을 만들거나 연결 하는 프로세스는 모델을 학습 하거나 파이프라인 단계를 실행 하는 경우와 동일 합니다. 컴퓨팅 대상을 만들고 연결한 후 [파이프라인 단계](#steps)에서 `ComputeTarget` 개체를 사용합니다.
+
+Azure Machine Learning에서 ‘__컴퓨팅__’(또는 ‘__컴퓨팅 대상__’) 용어는 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다.   계산 대상의 전체 목록은 [모델 학습을 위한 계산 대상](concept-compute-target.md#train) 을 참조 하 고 작업 영역에 연결 하는 방법에 대 한 [계산 대상을 만듭니다](how-to-create-attach-compute-sdk.md) .   계산 대상을 만들거나 연결 하는 프로세스는 모델을 학습 하거나 파이프라인 단계를 실행 하는 경우와 동일 합니다. 컴퓨팅 대상을 만들고 연결한 후 [파이프라인 단계](#steps)에서 `ComputeTarget` 개체를 사용합니다.
 
 > [!IMPORTANT]
 > 컴퓨팅 대상에 대한 관리 작업 수행은 원격 작업 내에서 지원되지 않습니다. 기계 학습 파이프라인은 원격 작업으로 제출되므로 파이프라인 내부에서 컴퓨팅 대상에 관리 작업을 사용하지 마십시오.

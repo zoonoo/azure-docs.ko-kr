@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 0a7a5f21ee868da2b9c3a6c7dc8bb5968531d0d0
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 343063c74912b234268757c36384ea876c068c21
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824205"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146824"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -438,7 +438,7 @@ except ComputeTargetException:
     cpu_cluster.wait_for_completion(show_output=True)
 ```
 
-만들기 프로세스가 완료되면 실험에서 클러스터를 사용하여 모델을 학습시킵니다. 자세한 내용은 [학습의 컴퓨팅 대상 선택 및 사용](how-to-set-up-training-targets.md)을 참조하세요.
+만들기 프로세스가 완료되면 실험에서 클러스터를 사용하여 모델을 학습시킵니다. 자세한 내용은 [학습에 계산 대상 사용](how-to-set-up-training-targets.md)을 참조 하세요.
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
@@ -667,7 +667,7 @@ Azure Firewall과 함께 Azure Machine Learning을 사용하는 방법에 대한
 > * Azure Machine Learning 작업 영역 지역이 [privated 링크 사용 지역](https://docs.microsoft.com/azure/private-link/private-link-overview#availability)이어야 합니다. 
 > * Azure Container Registry가 프리미엄 버전이어야 합니다. 업그레이드에 대한 자세한 내용은 [SKU 변경](/azure/container-registry/container-registry-skus#changing-skus)을 참조하세요.
 > * Azure Container Registry가 스토리지 계정 및 학습 또는 유추에 사용되는 컴퓨팅 대상과 동일한 가상 네트워크 및 서브넷에 있어야 합니다.
-> * Azure Machine Learning 작업 영역에 [Azure Machine Learning 컴퓨팅 클러스터](how-to-set-up-training-targets.md#amlcompute)가 포함되어야 합니다.
+> * Azure Machine Learning 작업 영역에 [Azure Machine Learning 컴퓨팅 클러스터](how-to-create-attach-compute-sdk.md#amlcompute)가 포함되어야 합니다.
 >
 >     ACR이 가상 네트워크 뒤에 있으면 Azure Machine Learning에서 ACR을 사용하여 Docker 이미지를 직접 빌드할 수 없습니다. 대신 컴퓨팅 클러스터가 이미지를 빌드하는 데 사용됩니다.
 
@@ -828,14 +828,15 @@ Azure Firewall과 함께 Azure Machine Learning을 사용하는 방법에 대한
 
     네트워크 보안 그룹에 대해 기본 아웃바운드 규칙을 유지합니다. 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)의 기본 보안 규칙을 참조하세요.
 
+
     기본 아웃바운드 규칙을 사용하지 않고 가상 네트워크의 아웃바운드 액세스를 제한하려면 [가상 네트워크에서 아웃바운드 연결 제한](#limiting-outbound-from-vnet) 섹션을 참조하세요.
 
-1. VM 또는 HDInsight 클러스터를 Azure Machine Learning 작업 영역에 연결합니다. 자세한 내용은 [모델 학습의 컴퓨팅 대상 설정](how-to-set-up-training-targets.md)을 참조하세요.
+1. VM 또는 HDInsight 클러스터를 Azure Machine Learning 작업 영역에 연결합니다. 자세한 내용은 [모델 학습에 계산 대상 사용](how-to-set-up-training-targets.md)을 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [학습 환경 설정](how-to-set-up-training-targets.md)
+* [모델 학습에 컴퓨팅 대상 사용](how-to-set-up-training-targets.md)
 * [프라이빗 엔드포인트 설정](how-to-configure-private-link.md)
 * [모델 배포 위치](how-to-deploy-and-where.md)
 * [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](how-to-secure-web-service.md)

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 009818c9b208f5f464949f5e3ffe1404e509ac4b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017722"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146626"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>내 앱 배포 Azure Active Directory 계획
 
@@ -55,11 +55,8 @@ Azure AD 내 앱은 다음과 같은 방법으로 비즈니스를 활용 합니�
 내 앱은 무료 이며 기본 수준에서 사용할 라이선스가 필요 하지 않습니다. 그러나 디렉터리의 개체 수와 배포 하려는 추가 기능에는 추가 라이선스가 필요할 수 있습니다. 라이선스 요구 사항이 있는 몇 가지 일반적인 Azure AD 시나리오는 다음과 같은 보안 기능을 포함 합니다.
 
 * [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-
 * [그룹 기반 구성원 자격](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-
 * [셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-
 * [Azure Active Directory ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
 [AZURE AD에 대 한 전체 라이선스 가이드](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요.
@@ -69,7 +66,6 @@ Azure AD 내 앱은 다음과 같은 방법으로 비즈니스를 활용 합니�
 이 프로젝트를 시작 하기 전에 다음 필수 구성 요소를 완료 하십시오.
 
 * [응용 프로그램 SSO 통합](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-
 * [Azure AD 사용자 및 그룹 인프라 관리](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Azure AD 내 앱 배포 계획
@@ -121,7 +117,7 @@ Azure AD 내 앱은 다음과 같은 방법으로 비즈니스를 활용 합니�
 
 다음 표에서는 몇 가지 중요 한 내 앱 구성 및 사용할 수 있는 일반적인 값을 보여 줍니다.
 
-| 구성| 일반적인 값 |
+| Configuration| 일반적인 값 |
 | - | - |
 | 파일럿 그룹 결정| 사용할 Azure AD 보안 그룹을 식별 하 고 모든 파일럿 구성원이 그룹에 속해 있는지 확인 합니다. |
 | 프로덕션에 사용할 그룹을 결정 합니다.| 사용할 azure AD 보안 그룹 또는 Azure AD에 동기화 된 Active Directory 그룹을 식별 합니다. 모든 파일럿 구성원이 그룹의 일부 인지 확인 합니다. |
@@ -139,7 +135,6 @@ Azure AD 내 앱은 다음과 같은 방법으로 비즈니스를 활용 합니�
 관리자 동의를 사용 하려면 조직의 전역 관리자 여야 하며 응용 프로그램은 다음 중 하나 여야 합니다.
 
 * 조직에 등록 됨
-
 * 다른 Azure AD 조직에 등록 되었으며 이전에 한 명 이상의 사용자가 동의한
 
 자세한 내용은 [Azure Active Directory에서 최종 사용자가 응용 프로그램에 동의 하는 방식 구성](configure-user-consent.md)을 참조 하세요.
@@ -180,9 +175,7 @@ SaaS 응용 프로그램을 배포 하 고 구성 하는 방법에 대 한 자�
 암호 기반 SSO 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 다음 옵션을 사용할 수 있습니다.
 
 * [Internet Explorer에 대 한 그룹 정책](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-
 * [Internet Explorer에 대 한 Configuration Manager](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-
 * [Chrome, Firefox, Microsoft Edge 또는 IE에 대 한 사용자 구동 다운로드 및 구성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 암호 기반 SSO 응용 프로그램을 사용 하지 않는 사용자는 확장의 이점을 누릴 수 있습니다. 이러한 혜택에는 검색 표시줄에서 앱을 시작 하 고 최근에 사용한 응용 프로그램에 대 한 액세스를 찾고 내 앱 페이지에 대 한 링크를 포함 하는 기능이 포함 됩니다.
@@ -294,7 +287,6 @@ Microsoft 365 응용 프로그램의 경우 사용자는 할당 된 라이선스
 
 #### <a name="application-self-service-capabilities-test-case-examples"></a>응용 프로그램 셀프 서비스 기능 테스트 사례 예제
 
-
 | 비즈니스 사례| 예상된 결과 |
 | - | - |
 | 사용자가 응용 프로그램에 대 한 멤버 자격을 관리할 수 있음| 사용자는 앱에 대 한 액세스 권한이 있는 구성원을 추가/제거할 수 있습니다. |
@@ -319,22 +311,5 @@ Microsoft 365 응용 프로그램의 경우 사용자는 할당 된 라이선스
 
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 를 사용 하 여 디렉터리 권한이 있는 사용자에 게 추가 감사, 제어 및 액세스 검토를 제공할 역할을 관리할 수 있습니다.
 
-### <a name="troubleshoot-my-apps-issues"></a>내 앱 문제 해결
-
-Microsoft 문서를 해결 하는 일반적인 시나리오를 사용 하 여 지원 조직에 대 한 문제 해결 가이드를 만듭니다. 조직에서 사용 하는 계층에 대 한 지원을 중단 하는 가이드를 만들 수 있습니다.
-
-참조에 대 한 다음 문제 해결 가이드를 참조 하세요.
-
-[응용 프로그램이 나타나지 않음](access-panel-troubleshoot-application-not-appearing.md)
-
-[예기치 않은 응용 프로그램이 나타납니다.](access-panel-troubleshoot-unexpected-application.md)
-
-[사용자가 내 앱에 로그인 할 수 없음](access-panel-troubleshoot-web-sign-in-problem.md)
-
-[셀프 서비스 응용 프로그램 액세스를 사용 하는 문제](access-panel-troubleshoot-self-service-access.md)
-
-[브라우저 확장 문제](manage-access-panel-browser-extension.md)
-
 ## <a name="next-steps"></a>다음 단계
-
 [Azure Multi-Factor Authentication 배포 계획](https://aka.ms/deploymentplans/mfa)

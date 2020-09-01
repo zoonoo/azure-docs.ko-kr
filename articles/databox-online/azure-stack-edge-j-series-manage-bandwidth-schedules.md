@@ -1,19 +1,19 @@
 ---
-title: Azure Stack Edge 대역폭 일정 관리 | Microsoft Docs
-description: Azure Portal를 사용 하 여 Azure Stack에 지에서 대역폭 일정을 관리 하는 방법을 설명 합니다.
+title: Azure Stack Edge GPU 대역폭 일정 관리 | Microsoft Docs
+description: Azure Portal를 사용 하 여 Azure Stack Edge GPU에서 대역폭 일정을 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/12/2019
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: c991159ffae59626014e5b727c5fb1d1616581cb
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b27c4fb9beb631b40617307cfc5952b7dcb45369
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89084947"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147051"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge"></a>Azure Portal를 사용 하 여 Azure Stack에 지에서 대역폭 일정을 관리 합니다. 
 

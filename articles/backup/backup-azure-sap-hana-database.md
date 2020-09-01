@@ -3,12 +3,12 @@ title: Azure Backup을 사용하여 Azure에 SAP HANA 데이터베이스 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 가상 머신에 SAP HANA 데이터베이스를 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c1db5bb8cd49fb45f1d34b5748d820a16724372e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 07b82e166b0ec6f0d3a29de50584158b67750e8e
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892493"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146558"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -193,6 +193,8 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 2. **백업 항목**에서 SAP HANA 데이터베이스를 실행하는 VM을 선택하고 **지금 백업**을 클릭합니다.
 3. **지금 백업**에서 수행할 백업 유형을 선택 합니다. 그런 다음 **확인**을 클릭합니다. 이 백업은이 백업 항목과 연결 된 정책에 따라 보존 됩니다.
 4. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중**에서 작업 진행률을 모니터링할 수 있습니다. 데이터베이스의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
+
+기본적으로 요청 시 백업의 보존은 45 일입니다.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Azure Backup이 설정된 데이터베이스에서 SAP HANA Studio 백업 실행
 

@@ -1,19 +1,19 @@
 ---
-title: 'Edge Azure Stack에 대 한 c # IoT Edge 모듈 | Microsoft Docs'
-description: 'Azure Stack에 지에 배포할 수 있는 c # IoT Edge 모듈을 개발 하는 방법에 대해 알아봅니다.'
+title: 'GPU를 사용 하는 Azure Stack Edge 용 c # IoT Edge 모듈 | Microsoft Docs'
+description: 'Azure Stack Edge GPU 장치에 배포할 수 있는 c # IoT Edge 모듈을 개발 하는 방법에 대해 알아봅니다.'
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: a6fb02033d7f242649907eaed8bf01aa23b3cbbe
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: cef6524bd228d5fed342cabfb2959e5d8ab8954e
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89084987"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146235"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>C # IoT Edge 모듈을 개발 하 여 Azure Stack에 지에서 파일 이동
 
@@ -42,7 +42,7 @@ Azure Stack Edge 장치는 IoT Edge 모듈을 배포 하 고 실행할 수 있�
 
 파일이 클라우드 공유에 있으면 Azure Storage 계정으로 자동으로 업로드됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 확인합니다.
 

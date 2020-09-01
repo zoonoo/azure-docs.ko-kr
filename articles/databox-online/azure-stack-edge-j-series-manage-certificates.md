@@ -1,19 +1,19 @@
 ---
-title: Azure Stack Edge에서 인증서 사용 | Microsoft Docs
-description: 을 사용 하는 이유, 장치에서 인증서를 업로드 하는 방법 등을 포함 하 여 Azure Stack에 지 장치에서 인증서를 사용 하는 방법을 설명 합니다.
+title: Azure Stack Edge GPU에서 인증서 사용 | Microsoft Docs
+description: 을 사용 하는 이유, 장치에서 인증서를 업로드 하는 방법 등을 포함 하 여 Azure Stack Edge GPU 장치에서 인증서를 사용 하는 방법을 설명 합니다.
 services: Azure Stack Edge
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: e257ecbcc608dfc6ecb9aedae69eeef083395836
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7742d036857525ce6be64a53234f7aa717d4bdca
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086346"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147085"
 ---
 # <a name="use-certificates-with-azure-stack-edge-series"></a>Azure Stack Edge 시리즈에서 인증서 사용 
 
@@ -100,7 +100,7 @@ Azure Stack Edge 장치에서 사용 되는 다양 한 유형의 인증서는 �
 
     |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
-    |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 

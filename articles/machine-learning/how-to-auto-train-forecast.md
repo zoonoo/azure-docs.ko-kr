@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: 3a6ecc44791602ea074ebdd1fdf4e11393e10a4b
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 900e36ec3e508f9d3616cf0c0d19ea4ff067f775
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852150"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144790"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "88852150"
 * [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 개체에서 특정 시계열 매개 변수 구성
 * 시계열 데이터를 사용하여 예측 실행
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에는 다음이 필요 합니다. 
 
@@ -248,7 +248,6 @@ automl_config = AutoMLConfig(task='forecasting',
 Azure Machine Learning studio에서 만든 AutoML 실험에 대해 DNN를 사용 하도록 설정 하려면 [studio 방법에서 작업 형식 설정](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)을 참조 하세요.
 
 자동화된 ML은 네이티브 시계열 및 딥 러닝 모델을 권장 사항 시스템의 일부로 제공합니다. 
-
 
 모델| Description | 이점
 ----|----|---

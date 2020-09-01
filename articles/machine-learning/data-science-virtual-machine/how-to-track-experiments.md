@@ -1,7 +1,7 @@
 ---
 title: 실험 추적 및 배포 모델
 titleSuffix: Azure Data Science Virtual Machine
-description: Azure Machine learning 서비스 및/또는 MLFlow를 사용 하 여 DSVM에서 실험을 추적 하 고 기록 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 및/또는 MLFlow를 사용 하 여 DSVM에서 실험을 추적 하 고 기록 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,14 +9,14 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 687cd6570a9518be6f398a40fcd2d0e10a9634f2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 943e8bd9f272f3dc8cefbfbccd326cf520497bb2
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817728"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146898"
 ---
-# <a name="track-experiments-and-deploy-models-in-azureml"></a>AzureML에서 실험 추적 및 모델 배포
+# <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Azure Machine Learning에서 실험 추적 및 모델 배포
 
 실험을 추적하고 실행 메트릭을 모니터링하여 모델 생성 프로세스를 개선합니다. 이 문서에서는 [Mlflow](https://mlflow.org/) API를 사용 하 여 학습 스크립트에 로깅 코드를 추가 하 고 Azure Machine Learning 실험을 추적 하는 방법에 대해 알아봅니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "88817728"
 
 ![실험 추적](./media/how-to-track-experiments/mlflow-diagram-track.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure Machine Learning 작업 영역를 프로 비전](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace) 해야 합니다.
 

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: b90cda409096f940d6c2b1c64517731e81c41fbe
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c3abd6a57eac851a5440ecdef6185cb310305434
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069166"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146779"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -106,7 +106,7 @@ Azure Machine Learning은 모든 실행을 기록하고 실험에 다음 정보�
 
 실행 구성은 학습 스크립트를 포함 하는 디렉터리 내의 파일에 보관 될 수 있습니다.   또는 메모리 내 개체로 생성 되 고 실행을 전송 하는 데 사용 될 수 있습니다.
 
-실행 구성 예제는 [모델 학습을 위한 컴퓨팅 대상 선택 및 사용](how-to-set-up-training-targets.md)을 참조하세요.
+예제 실행 구성은 [계산 대상을 사용 하 여 모델 학습](how-to-set-up-training-targets.md)을 참조 하세요.
 
 ### <a name="estimators"></a>예측 도구
 

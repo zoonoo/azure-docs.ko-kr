@@ -1,23 +1,23 @@
 ---
-title: Azure Stack에 지 장치에서 Azure Resource Manager 암호를 설정 합니다.
-description: Azure PowerShell를 사용 하 여 Azure Stack에 지에서 실행 되는 Azure Resource Manager에 연결 하는 방법을 설명 합니다.
+title: Azure Stack에 지 GPU 장치에서 Azure Resource Manager 암호를 설정 합니다.
+description: Azure PowerShell를 사용 하 여 Azure Stack에 지 GPU에서 실행 되는 Azure Resource Manager에 연결 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/24/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: d56f12c746383576a32e2c0ade542bc8aedff22d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d64db4ab8da1f5f0f4c2dc69b2bc6d4da66c8e91
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086610"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146286"
 ---
 # <a name="set-azure-resource-manager-password"></a>암호 Azure Resource Manager 설정
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
 이 문서에서는 Azure Resource Manager 암호를 설정 하는 방법을 설명 합니다. Azure Resource Manager를 통해 장치 로컬 Api에 연결 하는 경우이 암호를 설정 해야 합니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "89086610"
 
 2. **설정 > 속성**으로 이동 합니다. **속성** 페이지에서 다음 매개 변수를 적어 둡니다.
 
-    - Resource group
+    - 리소스 그룹
     - CIK 암호화 키: 보기를 선택한 후 **암호화 키**를 복사 합니다.
 
     ![CIK 암호화 키 가져오기](media/azure-stack-edge-j-series-set-azure-resource-manager-password/get-cik-portal.png)

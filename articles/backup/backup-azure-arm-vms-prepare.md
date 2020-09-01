@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 Azure VM 백업
 description: Azure Backup을 사용하여 Recovery Services 자격 증명 모음에 Azure VM을 백업하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: fd958fe658306fd068356764100e6aaa15f4fc67
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826313"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145657"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
@@ -155,7 +155,7 @@ Completed | 실패 | 경고와 함께 완료
 실패 | 실패 | 실패
 
 이제 이 기능을 사용하면 동일한 VM에 대해 두 개의 백업이 병렬로 실행될 수 있지만, 각 단계(스냅샷, 자격 증명 모음으로 데이터 전송)에서 하나의 하위 작업만 실행할 수 있습니다. 따라서 실행 중인 백업 작업으로 인해 다음 날의 백업이 실패 한 경우에는이 분리 기능을 사용 하지 않는 것이 좋습니다. 이후 일의 백업에는 스냅숏이 완료 될 수 있지만 이전 날짜의 백업 작업이 진행 중일 경우 **자격 증명 모음으로 데이터를 전송** 하는 작업이 생략 됩니다.
-자격 증명 모음에 생성된 증분 복구 지점은 자격 증명 모음에서 만든 마지막 복구 지점부터 모든 변동을 캡처합니다. 사용자에 게는 비용에 영향을 주지 않습니다.
+자격 증명 모음에 생성 된 증분 복구 지점은 자격 증명 모음에서 만든 가장 최근 복구 지점에서 모든 변동 (code churn)을 캡처합니다. 사용자에 게는 비용에 영향을 주지 않습니다.
 
 ## <a name="optional-steps"></a>선택적 단계
 

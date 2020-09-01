@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell를 통해 Azure Stack Edge 장치에 Vm 배포
+title: Azure PowerShell를 통해 Azure Stack Edge GPU 장치에 Vm 배포
 description: Azure PowerShell를 사용 하 여 Azure Stack Edge 장치에서 Vm (가상 머신)을 만들고 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 113f81c2c4209b851f2029bad2202fbb8bbfe103
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6e776b6dfc233ffb12d3597a0e6bc203f1674abd
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89084899"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147068"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-via-azure-powershell-script"></a>Azure PowerShell 스크립트를 통해 Azure Stack Edge 장치에 Vm 배포
 
@@ -21,7 +21,7 @@ ms.locfileid: "89084899"
 
 이 자습서에서는 Azure PowerShell 스크립트를 사용 하 여 Azure Stack Edge 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 스크립트를 사용 하 여 Azure Stack Edge 장치에서 VM 만들기 및 관리를 시작 하기 전에 다음 단계에 나열 된 필수 구성 요소를 완료 했는지 확인 해야 합니다.
 

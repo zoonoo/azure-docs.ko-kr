@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 27c129af9fbf3e76c6c57fbf084596876b51955b
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 805141dedddcd915d266c9651fc51732fb51e1b0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141928"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146738"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
@@ -27,13 +27,13 @@ ms.locfileid: "88141928"
 
 계산 대상에 사용 하는 계산 리소스는 [작업 영역](concept-workspace.md)에 연결 됩니다. 로컬 컴퓨터 이외의 계산 리소스는 작업 영역의 사용자가 공유 합니다.
 
-## <a name="training-compute-targets"></a><a name="train"></a>계산 대상 학습
+## <a name="training-compute-targets"></a><a name="train"></a> 계산 대상 학습
 
 Azure Machine Learning는 여러 계산 리소스에 대해 다양 한 지원을 제공 합니다.  다양 한 시나리오에 대 한 지원이 다를 수 있지만 고유한 계산 리소스를 연결할 수도 있습니다.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-[모델 학습을 위한 계산 대상 설정 및 사용](how-to-set-up-training-targets.md)에 대해 자세히 알아보세요.
+[모델 학습에 계산 대상 사용](how-to-set-up-training-targets.md)에 대해 자세히 알아보세요.
 
 ## <a name="deployment-targets"></a><a name="deploy"></a>배포 대상
 
@@ -46,11 +46,11 @@ Azure Machine Learning는 여러 계산 리소스에 대해 다양 한 지원을
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning compute (관리)
 
-Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 합니다. 이 계산은 machine learning 워크 로드에 최적화 되어 있습니다. 계산 클러스터와 [계산 인스턴스](concept-compute-instance.md) 는 유일 하 게 관리 되는 계산 Azure Machine Learning. 추가 관리 되는 계산 리소스를 나중에 추가할 수 있습니다.
+Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 합니다. 이 계산은 machine learning 워크 로드에 최적화 되어 있습니다. 계산 클러스터와 [계산 인스턴스](concept-compute-instance.md) 는 유일 하 게 관리 되는 계산 Azure Machine Learning. 
 
 다음에서 계산 인스턴스 또는 계산 클러스터 Azure Machine Learning 만들 수 있습니다.
-* Azure Machine Learning Studio
-* Azure portal
+* [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
+* Azure Portal
 * Python SDK 계산 [Einstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) 및 [amlcompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) 클래스
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (미리 보기)
 * 리소스 관리자 템플릿입니다. 예제 템플릿은 [create Azure Machine Learning compute 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute)을 참조 하세요.
@@ -68,7 +68,7 @@ Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 
 
 
 > [!NOTE]
-> 계산 클러스터는 유휴 상태일 때 0 개 노드로 자동 확장 되므로 사용 하지 않을 때에는 요금이 청구 되지 않습니다.  그러나 계산 *인스턴스*는 항상 켜져 있으며 자동 크기 조정 하지 않습니다.  추가 비용을 방지 하기 위해 사용 하지 않을 때는 [계산 인스턴스를 중지](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) 해야 합니다.
+> 계산 클러스터는 유휴 상태일 때 0 개 노드로 자동 확장 되므로 사용 하지 않을 때에는 요금이 청구 되지 않습니다.  그러나 계산 *인스턴스*는 항상 켜져 있으며 자동 크기 조정 하지 않습니다.  추가 비용을 방지 하기 위해 사용 하지 않을 때는 [계산 인스턴스를 중지](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) 해야 합니다. 
 
 ### <a name="supported-vm-series-and-sizes"></a>지원되는 VM 시리즈 및 크기
 
@@ -107,5 +107,5 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 ## <a name="next-steps"></a>다음 단계
 
 방법 배우기:
-* [모델 학습을 위한 계산 대상 설정](how-to-set-up-training-targets.md)
+* [계산 대상을 사용 하 여 모델 학습](how-to-set-up-training-targets.md)
 * [계산 대상에 모델 배포](how-to-deploy-and-where.md)

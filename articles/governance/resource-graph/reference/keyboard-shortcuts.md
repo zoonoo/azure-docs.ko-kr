@@ -4,12 +4,12 @@ description: Azure Portal의 Azure 리소스 그래프 탐색기는 작업을 �
 ms.date: 08/25/2020
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: f5995498f2b95828a7c03dbcd5669491e62de2e7
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88848908"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146439"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Azure 리소스 그래프 탐색기의 바로 가기 키
 
@@ -22,7 +22,6 @@ ms.locfileid: "88848908"
 |주석 처리/주석 처리 제거 |<kbd>T</kbd>+<kbd>/</kbd> | <kbd>입력</kbd>+<kbd>/</kbd> |
 |내어쓰기 |<kbd>CTRL</kbd> + <kbd>[</kbd> |<kbd>Cmd</kbd> + <kbd>[</kbd> |
 |들여쓰기 |<kbd>CTRL</kbd> + <kbd>]</kbd> |<kbd>Cmd</kbd> + <kbd>]</kbd> |
-|모두 선택 |<kbd>CTRL</kbd> + <kbd>A</kbd> |<kbd>Cmd</kbd> + <kbd>A</kbd> |
 |줄을 아래로 이동 |<kbd>ALT</kbd> + <kbd>↓</kbd> |<kbd>옵션</kbd> + <kbd>↓</kbd> |
 |줄을 위로 이동 합니다. |<kbd>ALT</kbd> + <kbd>↑</kbd> |<kbd>옵션</kbd> + <kbd>↑</kbd> |
 |바꾸기 |<kbd>CTRL</kbd> + <kbd>F</kbd> |<kbd>Cmd</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd> |

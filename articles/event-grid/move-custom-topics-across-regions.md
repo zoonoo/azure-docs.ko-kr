@@ -4,12 +4,12 @@ description: 이 문서에서는 한 지역에서 다른 지역으로 Azure Even
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
-ms.openlocfilehash: f33636f7033495a1e437715cc89c492889e4dfe0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086253"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145345"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>사용자 지정 항목 Azure Event Grid 다른 지역으로 이동
 여러 가지 이유로 리소스를 다른 지역으로 이동 하는 것이 좋습니다. 예를 들어 새 Azure 지역을 활용 하 여 내부 정책 및 거 버 넌 스 요구 사항을 충족 하거나 용량 계획 요구 사항에 대 한 응답으로 사용할 수 있습니다. 
@@ -25,7 +25,7 @@ ms.locfileid: "89086253"
 - **배포 확인**. 사용자 지정 항목이 대상 지역에 만들어졌는지 확인 합니다. 
 - **이동을 완료**하려면 원본 영역에서 사용자 지정 항목을 삭제 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 - 빠른 시작: 소스 영역에서 [웹 끝점으로 사용자 지정 이벤트 라우팅을](custom-event-quickstart-portal.md) 완료 합니다. 이 단계를 수행 하 여이 문서의 단계를 테스트할 수 있습니다. 
 - 대상 지역에서 Event Grid 서비스를 사용할 수 있는지 확인 합니다. [지역별 사용 가능 제품](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all)을 참조하세요.
 
@@ -80,6 +80,8 @@ ms.locfileid: "89086253"
 ## <a name="verify"></a>확인
 
 1. 배포에 성공한 후 **리소스로 이동**을 선택 합니다. 
+
+    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="리소스로 이동":::
 1. 사용자 지정 항목에 대 한 **Event Grid 항목** 페이지가 표시 되는지 확인 합니다.   
 1. [웹 끝점에 대 한 사용자 지정 이벤트 라우팅](custom-event-quickstart-portal.md#send-an-event-to-your-topic) 의 단계에 따라 항목에 이벤트를 보냅니다. Webhook 이벤트 처리기가 호출 되는지 확인 합니다. 
 

@@ -3,12 +3,12 @@ title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ad1c0944076f24363961da21ee347dbd7c0239c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 41e93f2a6a9fb21720dd2348dd611160b05b65c0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163512"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146915"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -35,7 +35,7 @@ Azure Lighthouse를 사용 하면 다른 테 넌 트의 다른 계정에 로그�
 
 Azure PowerShell [AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription) 은 `HomeTenantId` `ManagedByTenantIds` 각 구독에 대 한 및 특성을 보여 주므로 반환 된 구독이 관리 되는 테 넌 트 또는 관리 테 넌 트에 속하는지 여부를 식별할 수 있습니다.
 
-마찬가지로 [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) 와 같은 Azure CLI 명령은 `homeTenantId` 및 특성을 표시 `managedByTenants` 합니다.
+마찬가지로 [az account list](/cli/azure/account#az-account-list) 와 같은 Azure CLI 명령은 `homeTenantId` 및 특성을 표시 `managedByTenants` 합니다.
 
 > [!TIP]
 > Azure CLI를 사용하는 경우 이러한 값이 표시되지 않으면 `az account clear`를 실행하고 `az login --identity`를 실행하여 캐시를 지워봅니다.

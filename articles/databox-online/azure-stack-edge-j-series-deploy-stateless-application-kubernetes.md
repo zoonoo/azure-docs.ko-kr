@@ -1,25 +1,25 @@
 ---
-title: Kubectl를 사용 하 여 Microsoft Azure Stack Edge 장치에서 Kubernetes 상태 비저장 응용 프로그램 배포를 실행 하 고 관리 합니다. Microsoft Docs
+title: Kubectl를 사용 하 여 Azure Stack Edge GPU 장치에 Kubernetes 상태 비저장 응용 프로그램 배포 | Microsoft Docs
 description: Microsoft Azure Stack Edge 장치에서 kubectl를 사용 하 여 Kubernetes 상태 비저장 응용 프로그램 배포를 만들고 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/21/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: be93e2806e499e3a9331493c16c8a87195a98600
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f2bd0b8c222b9f9643d53da33619af438c121a2f
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89084944"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145963"
 ---
 # <a name="run-and-manage-a-kubernetes-stateless-application-on-your-azure-stack-edge-device"></a>Azure Stack Edge 장치에서 Kubernetes 상태 비저장 응용 프로그램 실행 및 관리
 
 이 문서에서는 기존 Kubernetes 클러스터에서 kubectl 명령을 사용 하 여 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다. 또한이 문서에서는 상태 비저장 응용 프로그램에서 pod을 만들고 설정 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Kubernetes 클러스터를 만들고 명령줄 도구를 사용 하기 전에 `kubectl` 다음을 확인 해야 합니다.
 

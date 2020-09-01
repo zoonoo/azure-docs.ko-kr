@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 2a40c6158b5d29f695360c04a0d4376efd4238f9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 927908fa708e7e687bf82400c10e08fbcccdef19
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288461"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145028"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
@@ -29,7 +29,11 @@ ms.locfileid: "87288461"
 * [B 시리즈](../sizes-b-series-burstable.md)
 * [DCsv2 시리즈](../dcv2-series.md)
 * [DSv2 시리즈](../dv2-dsv2-series.md) 및 [Dsv3 시리즈](../dv3-dsv3-series.md)
+* [Dsv4 시리즈](../dv4-dsv4-series.md)
+* [Ddsv4 시리즈](../ddv4-ddsv4-series.md)
+* [Dasv4 시리즈](../dav4-dasv4-series.md)
 * [Esv3 시리즈](../ev3-esv3-series.md)
+* [Easv4 시리즈](../eav4-easv4-series.md)
 * [Fsv2 시리즈](../fsv2-series.md)
 * [GS 시리즈](../sizes-previous-gen.md#gs-series)
 * [HB 시리즈](../hb-series.md)

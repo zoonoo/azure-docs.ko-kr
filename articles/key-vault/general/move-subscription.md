@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 3c2fef4ebd7db076a502f63101c80c4e08683b39
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782722"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145368"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>다른 구독으로 Azure Key Vault 이동
 
@@ -58,8 +58,6 @@ Azure Portal에서 Azure Policy 페이지로 이동하고 현재 구독에 대�
 * 새 구독의 리소스 그룹.
 
 ## <a name="procedure"></a>절차
-
-다음과 같은 경우입니다. 
 
 ### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>동일한 테 넌 트 내의 새 구독으로 Key Vault 이동
 

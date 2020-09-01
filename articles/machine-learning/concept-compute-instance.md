@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: c72777bf2a4415a7f773f82a21a121f5e58f2ec0
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: ab316d7b101a05dd9b6bba2e11bfe77239619126
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651918"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146762"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -24,7 +24,7 @@ Azure Machine Learning 계산 인스턴스는 데이터 과학자을 위한 관�
 
 기계 학습을 위해 클라우드에서 완전히 구성 되 고 관리 되는 개발 환경으로 계산 인스턴스를 사용 합니다. 개발 및 테스트 목적으로 학습 및 추론 계산 대상으로 사용할 수도 있습니다.  
 
-프로덕션 등급 모델 학습의 경우 다중 노드 크기 조정 기능이 포함 된 [Azure Machine Learning 계산 클러스터](how-to-set-up-training-targets.md#amlcompute) 를 사용 합니다. 프로덕션 등급 모델 배포의 경우 [Azure Kubernetes Service 클러스터](how-to-deploy-azure-kubernetes-service.md)를 사용 합니다.
+프로덕션 등급 모델 학습의 경우 다중 노드 크기 조정 기능이 포함 된 [Azure Machine Learning 계산 클러스터](how-to-create-attach-compute-sdk.md#amlcompute) 를 사용 합니다. 프로덕션 등급 모델 배포의 경우 [Azure Kubernetes Service 클러스터](how-to-deploy-azure-kubernetes-service.md)를 사용 합니다.
 
 ## <a name="why-use-a-compute-instance"></a>컴퓨팅 인스턴스를 사용하는 이유
 
@@ -138,18 +138,7 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅**을 선택한 
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>계산 인스턴스 만들기
 
-Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 실행할 준비가 되 면 **계산** 섹션 또는 **노트북** 섹션에서 새 계산 인스턴스를 만듭니다.
-
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="새 계산 인스턴스 만들기":::
-
-
-|필드  |Description  |
-|---------|---------|
-|컴퓨팅 이름     |  <li>이름은 필수 이며 길이가 3 ~ 007e; 24 자 사이 여야 합니다.</li><li>유효한 문자는 대 문자와 소문자, 숫자 및  **-** 문자입니다.</li><li>이름은 문자로 시작 해야 합니다.</li><li>이름은 Azure 지역 내의 모든 기존 계산에서 고유 해야 합니다. 선택한 이름이 고유 하지 않으면 경고가 표시 됩니다.</li><li>문자를 사용 하는 경우 **-**  이름 뒤에 하나 이상의 문자가와 야 합니다.</li>     |
-|가상 머신 유형 |  CPU 또는 GPU를 선택 합니다. 이 형식을 만든 후에는 변경할 수 없습니다.     |
-|가상 머신 크기     |  지원 되는 가상 머신 크기는 해당 지역에서 제한 될 수 있습니다. [가용성 목록](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) 확인     |
-|SSH 액세스 사용/사용 안 함     |   SSH 액세스는 기본적으로 사용 되지 않습니다.  SSH 액세스는 일 수 없습니다. 만든 후 변경 됩니다. [VS Code 원격](how-to-set-up-vs-code-remote.md) 으로 대화형으로 디버깅 하려는 경우 액세스를 사용 하도록 설정 해야 합니다.   |
-|고급 설정     |  선택 사항입니다. 가상 네트워크를 구성 합니다. **리소스 그룹**, **가상 네트워크**및 **서브넷** 을 지정 하 여 Azure Virtual Network (vnet) 내에서 계산 인스턴스를 만듭니다. 자세한 내용은 vnet에 대 한 다음 [네트워크 요구 사항](how-to-enable-virtual-network.md#compute-instance) 을 참조 하세요.        |
+Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 실행할 준비가 되 면 **계산** 섹션 또는 **노트북** 섹션에서 [새 계산 인스턴스를 만듭니다](how-to-create-attach-compute-studio.md#compute-instance) . 
 
 인스턴스를 만들 수도 있습니다.
 * [통합 된 노트북 환경](tutorial-1st-experiment-sdk-setup.md#azure) 에서 직접
@@ -158,7 +147,7 @@ Azure Machine Learning studio의 작업 영역에서, 노트북 중 하나를 �
 * Azure Machine Learning SDK 사용
 * [Azure Machine Learning에 대 한 CLI 확장](reference-azure-machine-learning-cli.md#computeinstance) 에서
 
-VM 제품군 할당량 당 지역별 전용 코어 및 계산 인스턴스 생성에 적용 되는 총 지역 할당량 는 통합 되 고 Azure Machine Learning 교육 계산 클러스터 할당량과 공유 됩니다. 계산 인스턴스를 중지 하는 경우에는 계산 인스턴스를 다시 시작할 수 있도록 할당량을 해제 하지 않습니다.
+VM 제품군 할당량 당 지역별 전용 코어 및 계산 인스턴스 생성에 적용 되는 총 지역 할당량은 통합 되 고 Azure Machine Learning 교육 계산 클러스터 할당량과 공유 됩니다. 계산 인스턴스를 중지 하는 경우에는 계산 인스턴스를 다시 시작할 수 있도록 할당량을 해제 하지 않습니다.
 
 ## <a name="compute-target"></a>컴퓨팅 대상
 

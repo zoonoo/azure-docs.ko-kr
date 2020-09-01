@@ -145,7 +145,7 @@
               href: azure-stack-edge-return-device.md
             - name: 디바이스 바꾸기
               href: azure-stack-edge-replace-device.md
-        - name: 모니터
+        - name: Monitor
           items:
             - name: 메트릭 차트 사용
               href: azure-stack-edge-monitor.md
@@ -154,7 +154,7 @@
         - name: 문제 해결
           items:
             - name: 디바이스 문제
-              href: azure-stack-edge-troubleshoot.md
+              href: azure-stack-edge-gpu-troubleshoot.md
             - name: 문제 정렬
               href: azure-stack-edge-troubleshoot-ordering.md
             - name: Microsoft 지원에 문의

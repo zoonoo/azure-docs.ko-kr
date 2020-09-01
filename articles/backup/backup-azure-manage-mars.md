@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Reco
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: b3b648ca27a407640b42932fe2ed7c32f5109114
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893071"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145572"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Recovery Services) 에이전트 백업 관리
 
@@ -173,7 +173,7 @@ ms.locfileid: "88893071"
 
 이 섹션에서는 MARS로 보호 된 원본 컴퓨터를 삭제 하거나, 손상 되었거나, 맬웨어/랜 섬 웨어에 감염 되었거나, 서비스 해제 되어 있으므로 더 이상 사용할 수 없는 시나리오에 대해 설명 합니다.
 
-이러한 컴퓨터의 경우 Azure Backup 서비스는 백업 정책에 지정 된 보존 규칙에 따라 마지막 복구 지점이 만료 되지 않도록 합니다. 즉, 정리 되지 않습니다. 따라서 컴퓨터를 안전 하 게 복원할 수 있습니다.  백업 된 데이터에 대해 수행할 수 있는 다음 시나리오를 고려 하십시오.
+이러한 컴퓨터의 경우 Azure Backup 서비스는 최근 복구 지점이 백업 정책에 지정 된 보존 규칙에 따라 만료 되지 않도록 합니다 (즉, 정리 되지 않음). 따라서 컴퓨터를 안전 하 게 복원할 수 있습니다.  백업 된 데이터에 대해 수행할 수 있는 다음 시나리오를 고려 하십시오.
 
 ### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>시나리오 1: 원본 컴퓨터를 사용할 수 없으므로 더 이상 백업 데이터를 보존할 필요가 없습니다.
 

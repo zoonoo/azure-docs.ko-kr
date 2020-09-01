@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 186839425e6ab2fb5430a82650615425bb93d51a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d0341e5a4d5dc036a4c3f90b2a25003137602694
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651763"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144841"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -55,7 +55,7 @@ Azure Machine Learning을 사용하는 일반적인 학습 작업은 [RunConfigu
 * [실행 구성이란?](concept-azure-machine-learning-architecture.md#run-configurations)
 * [자습서: 첫 번째 ML 모델 학습](tutorial-1st-experiment-sdk-train.md)
 * [예제: 학습 모델의 Jupyter Notebook 예제](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
-* [방법: 모델 학습의 컴퓨팅 대상 설정 및 사용](how-to-set-up-training-targets.md)
+* [방법: 모델 학습에 계산 대상 사용](how-to-set-up-training-targets.md)
 
 ### <a name="automated-machine-learning"></a>자동화된 Machine Learning
 
@@ -160,4 +160,4 @@ VS Code 확장을 사용 하 여 교육 작업을 실행 하 고 관리할 수 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[학습 환경 설정](how-to-set-up-training-targets.md) 방법을 알아봅니다.
+[모델 학습에 계산 대상을 사용](how-to-set-up-training-targets.md)하는 방법에 대해 알아봅니다.
