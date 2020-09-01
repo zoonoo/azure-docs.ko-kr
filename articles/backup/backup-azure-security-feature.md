@@ -4,12 +4,12 @@ description: Azure Backup의 보안 기능을 사용하여 백업을 좀 더 안
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: cbd9ee0336953b65b4e2d55d294d30309ebe0de7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892459"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181683"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Backup을 사용하여 하이브리드 백업을 보호하기 위한 보안 기능
 
@@ -22,7 +22,7 @@ ms.locfileid: "88892459"
 > [!NOTE]
 > IaaS (infrastructure as a service) VM 백업을 사용 하는 경우 보안 기능을 사용 하도록 설정 해서는 안 됩니다. 이러한 기능은 아직 IaaS VM 백업에 사용할 수 없으므로 사용 하도록 설정 해도 아무런 영향을 주지 않습니다. 다음을 사용 하는 경우에만 보안 기능을 사용 하도록 설정 해야 합니다. <br/>
 >
-> - **에이전트를 Azure Backup**합니다. 최소 에이전트 버전 2.0.9052. 이러한 기능을 사용하도록 설정하면 중요한 작업을 수행하기 위해 이 에이전트 버전으로 업그레이드해야 합니다. <br/>
+> - **에이전트를 Azure Backup**합니다. 최소 에이전트 버전 2.0.9052. 이러한 기능을 사용 하도록 설정한 후에는 중요 한 작업을 수행 하기 위해이 에이전트 버전으로 업그레이드 해야 합니다. <br/>
 > - **Azure Backup Server**. Azure Backup Server 업데이트 1을 포함한 최소 Azure Backup 에이전트 버전 2.0.9052. <br/>
 > - **System Center Data Protection Manager**. Data Protection Manager 2012 R2 UR12 또는 Data Protection Manager 2016 UR2를 포함한 최소 Azure Backup 에이전트 버전 2.0.9052. <br/>
 
@@ -48,7 +48,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 모든 보안 기능�
     ![Recovery Services 자격 증명 모음 속성의 스크린샷](./media/backup-azure-security-feature/security-settings-update.png)
 
     업데이트 링크를 누르면 기능 요약을 제공 하 고 사용 하도록 설정할 수 있는 **보안 설정** 창이 열립니다.
-5. **Azure Multi-Factor Authentication을 구성했습니까?** 드롭다운 목록에서 값을 선택하여 [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)을 사용하도록 설정했는지 확인합니다. 사용 하도록 설정 된 경우 Azure Portal 로그인 하는 동안 다른 장치 (예: 휴대폰)에서 인증을 요청 하는 메시지가 표시 됩니다.
+5. **Azure Multi-Factor Authentication를 구성 했습니까?** 드롭다운 목록에서 [azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md)를 사용 하도록 설정 했는지 확인 하는 값을 선택 합니다. 사용 하도록 설정 된 경우 Azure Portal 로그인 하는 동안 다른 장치 (예: 휴대폰)에서 인증을 요청 하는 메시지가 표시 됩니다.
 
    Backup에서 중요한 작업을 수행할 때 Azure Portal에서 사용할 수 있는 보안 PIN을 입력해야 합니다. Azure Multi-Factor Authentication을 사용하도록 설정하면 보안 계층이 추가됩니다. 유효한 Azure 자격 증명을 가지며 두 번째 디바이스에서 인증을 받은 인증된 사용자만 Azure Portal에 액세스할 수 있습니다.
 6. 보안 설정을 저장 하려면 **사용** 을 선택 하 고 **저장**을 선택 합니다. 이전 단계에서 **Azure Multi-Factor Authentication을 구성했습니까?** 목록에서 값을 선택한 후에만 **사용**을 선택할 수 있습니다.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 0104f9002a1fb4f6f1d0d31bd6eea50bce1b365b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 562acfe1ae96f7f88b72945846bcb49c0cc1f216
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050372"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179541"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 HDFS 서버에서 데이터 복사
 
@@ -172,8 +172,8 @@ HDFS 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니�
 | ***추가 설정*** |  | |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. `recursive`이 *true* 로 설정 되 고 싱크가 파일 기반 저장소 인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사 되거나 생성 되지 않습니다. <br>허용되는 값은 *true*(기본값) 및 *false*입니다.<br>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. |예 |
 | modifiedDatetimeStart    | 파일이 *마지막으로 수정*된 특성을 기준으로 필터링 됩니다. <br>마지막으로 수정한 시간이의 범위 내에 있는 경우 파일이 선택 됩니다 `modifiedDatetimeStart` `modifiedDatetimeEnd` . 시간은 *2018-12-01T05:00:00z*형식으로 UTC 표준 시간대에 적용 됩니다. <br> 속성은 NULL 일 수 있습니다. 즉, 데이터 집합에 파일 특성 필터가 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 NULL 인 경우 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 되어 있음을 의미 합니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 NULL 인 경우 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 되어 있음을 의미 합니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 예                                            |
-| Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true**입니다. | 거짓                                            |
-| 파티션 (partitionRootPath) | 파티션 검색을 사용 하는 경우 분할 된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정 합니다.<br/><br/>지정 되지 않은 경우 기본적으로<br/>-원본에 있는 파일 또는 데이터 집합의 파일 경로를 사용 하는 경우 파티션 루트 경로는 데이터 집합에서 구성 된 경로입니다.<br/>-와일드 카드 폴더 필터를 사용 하는 경우 파티션 루트 경로는 첫 번째 와일드 카드 앞의 하위 경로입니다.<br/><br/>예를 들어 데이터 집합의 경로를 "root/folder/year = 2020/month = 08/day = 27"로 구성 한다고 가정 합니다.<br/>-파티션 루트 경로를 "root/folder/year = 2020"으로 지정 하는 경우 복사 작업은 파일 내의 열 외에도 각각 두 개의 열을 생성 하 `month` 고 `day` 값을 "08" 및 "27"로 생성 합니다.<br/>-파티션 루트 경로를 지정 하지 않으면 추가 열이 생성 되지 않습니다. | 거짓                                            |
+| Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true**입니다. | 예                                            |
+| 파티션 (partitionRootPath) | 파티션 검색을 사용 하는 경우 분할 된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정 합니다.<br/><br/>지정 되지 않은 경우 기본적으로<br/>-원본에 있는 파일 또는 데이터 집합의 파일 경로를 사용 하는 경우 파티션 루트 경로는 데이터 집합에서 구성 된 경로입니다.<br/>-와일드 카드 폴더 필터를 사용 하는 경우 파티션 루트 경로는 첫 번째 와일드 카드 앞의 하위 경로입니다.<br/><br/>예를 들어 데이터 집합의 경로를 "root/folder/year = 2020/month = 08/day = 27"로 구성 한다고 가정 합니다.<br/>-파티션 루트 경로를 "root/folder/year = 2020"으로 지정 하는 경우 복사 작업은 파일 내의 열 외에도 각각 두 개의 열을 생성 하 `month` 고 `day` 값을 "08" 및 "27"로 생성 합니다.<br/>-파티션 루트 경로를 지정 하지 않으면 추가 열이 생성 되지 않습니다. | 예                                            |
 | maxConcurrentConnections | 저장소 저장소에 동시에 연결할 수 있는 연결 수입니다. 데이터 저장소에 대 한 동시 연결 수를 제한 하려는 경우에만 값을 지정 합니다. | 예                                            |
 | ***DistCp 설정*** |  | |
 | distcpSettings | HDFS DistCp를 사용할 때 사용할 속성 그룹입니다. | 예 |
@@ -250,7 +250,7 @@ HDFS 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습니�
 
 복사 작업은 DistCp를 사용 하 여 Azure Blob storage ( [준비 된 복사](copy-activity-performance.md)포함) 또는 azure data lake store에 있는 그대로 파일을 복사 하도록 지원 합니다. 이 경우 DistCp는 자체 호스팅 통합 런타임에서 실행 되는 대신 클러스터의 기능을 활용할 수 있습니다. DistCp를 사용 하면 특히 클러스터가 매우 강력한 경우 더 나은 복사 처리량이 제공 됩니다. 데이터 팩터리의 구성에 따라 복사 작업은 자동으로 DistCp 명령을 생성 하 고,이를 Hadoop 클러스터에 제출 하 고, 복사 상태를 모니터링 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 DistCp를 사용 하 여 HDFS에서 Azure Blob storage (준비 된 복사 포함) 또는 Azure data lake store로 파일을 복사 하려면 Hadoop 클러스터가 다음 요구 사항을 충족 하는지 확인 합니다.
 
@@ -393,7 +393,7 @@ HDFS 커넥터에 Kerberos 인증을 사용 하도록 온-프레미스 환경을
 
     b. **그룹 정책 관리 편집기** 창에서 **컴퓨터 구성**  >  **정책**  >  **Windows 설정**  >  **보안 설정**  >  **로컬 정책**  >  **보안 옵션**을 선택 하 고 **네트워크 보안 구성: Kerberos에 허용 된 암호화 유형 구성**을 선택 합니다.
 
-    다. KDC 서버에 연결할 때 사용할 암호화 알고리즘을 선택 합니다. 모든 옵션을 선택할 수 있습니다.
+    c. KDC 서버에 연결할 때 사용할 암호화 알고리즘을 선택 합니다. 모든 옵션을 선택할 수 있습니다.
 
     !["네트워크 보안: Kerberos에 허용 된 암호화 유형 구성" 창 스크린샷](media/connector-hdfs/config-encryption-types-for-kerberos.png)
 
@@ -409,7 +409,7 @@ HDFS 커넥터에 Kerberos 인증을 사용 하도록 온-프레미스 환경을
 
     b. **보기** > **고급 기능**을 선택하여 고급 기능을 구성합니다.
 
-    다. **고급 기능** 창에서 매핑을 만들 계정을 마우스 오른쪽 단추로 클릭 하 고 **이름 매핑** 창에서 **Kerberos 이름** 탭을 선택 합니다.
+    c. **고급 기능** 창에서 매핑을 만들 계정을 마우스 오른쪽 단추로 클릭 하 고 **이름 매핑** 창에서 **Kerberos 이름** 탭을 선택 합니다.
 
     d. 영역에서 보안 주체를 추가합니다.
 

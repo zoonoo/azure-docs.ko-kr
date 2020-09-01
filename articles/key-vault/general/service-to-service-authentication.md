@@ -9,12 +9,12 @@ ms.date: 08/08/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: af7cb87f8caf0176505c8af864ae8d3cb0c312a0
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 860f9b0e49423b5d144d56ecd965153f7a362d87
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585698"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180918"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -54,7 +54,7 @@ Azure Key Vault에 인증 하려면 공유 암호 또는 인증서 인 Azure Act
     string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
-`AzureServiceTokenProvider` 클래스는 메모리에서 토큰을 캐시하여 만료 직전에 Azure AD에서 검색합니다. 따라서 더 이상 메서드를 호출 하기 전에 만료를 확인할 필요가 없습니다 `GetAccessTokenAsync` . 토큰을 사용하려면 메서드를 호출하기만 하면 됩니다.
+는 `GetAccessTokenAsync` `AzureServiceTokenProvider` 토큰을 메모리에 캐시 하 고 만료 직전에 Azure AD에서 검색 하기 때문에 메서드를 호출 하기 전에 토큰의 만료를 확인할 필요가 없습니다. 
 
 `GetAccessTokenAsync` 메서드는 리소스 식별자가 필요합니다. Microsoft Azure services에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](../../active-directory/msi-overview.md)을 참조 하세요.
 

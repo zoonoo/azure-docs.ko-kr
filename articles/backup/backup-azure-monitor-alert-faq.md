@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 모니터링 경고 및 Azure Back
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 4ce1d65414011b1e307cc16fe886adeb007b262c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cf6929b9b926a6e6469f3fa789a19e60d5883d21
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000722"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181496"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup 모니터링 경고-FAQ
 
@@ -19,7 +19,7 @@ ms.locfileid: "89000722"
 
 ### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>보고 데이터가 LA (Log Analytics) 작업 영역으로 이동이 시작 되었는지 확인 어떻게 할까요??
 
-구성 된 LA 작업 영역으로 이동 하 여 **로그** 메뉴 항목으로 이동 하 고 CoreAzureBackup 쿼리를 실행 합니다. 1을 사용 합니다. 반환 되는 레코드가 표시 되는 경우 데이터가 작업 영역으로 이동 하기 시작 했음을 의미 합니다. 초기 데이터 푸시는 최대 24 시간이 걸릴 수 있습니다.
+구성한 LA 작업 영역으로 이동 합니다. **로그** 메뉴 항목으로 이동 하 여 쿼리를 실행 `CoreAzureBackup | take 1` 합니다. 반환 되는 레코드가 표시 되는 경우 데이터가 작업 영역으로 이동 하기 시작 했음을 의미 합니다. 초기 데이터 푸시는 최대 24 시간이 걸릴 수 있습니다.
 
 ### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>LA 작업 영역에 대 한 데이터 푸시의 빈도는 어떻게 되나요?
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1261e36c782068844712908e62a72b77d34ba5af
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ff797f8b6fd375a940f77b4e0400bcb7a74450c4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046734"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179762"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비
 
@@ -21,8 +21,8 @@ ms.locfileid: "89046734"
 이 예를 실행 하기 전에 [기본 빠른](spring-cloud-quickstart.md)시작을 사용해 볼 수 있습니다.
 
 다른 예제에서는 POM 파일이 구성된 경우 Azure Spring Cloud에 애플리케이션을 배포하는 방법을 설명합니다. 
-* [Azure Portal을 사용하여 앱 시작](spring-cloud-quickstart-launch-app-portal.md)
-* [Azure CLI를 사용하여 앱 시작](spring-cloud-quickstart-launch-app-cli.md)
+* [첫 번째 앱 시작](spring-cloud-quickstart.md)
+* [마이크로서비스 빌드 및 실행](spring-cloud-quickstart-sample-app-introduction.md)
 
 이 문서에서는 필요한 종속성과 이것을 POM 파일에 추가하는 방법을 설명합니다.
 

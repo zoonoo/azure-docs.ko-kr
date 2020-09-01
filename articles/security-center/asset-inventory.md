@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 08/11/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 7fab15ae4e9e58af58a4490beb2d512379976d1c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: f3a542cd62c3d593dbc0cce7982d47222e9a7c88
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263939"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181106"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Asset inventory 및 관리 도구를 사용 하 여 리소스 탐색 및 관리
 
@@ -38,9 +38,9 @@ Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 �
 |양상|세부 정보|
 |----|:----|
 |릴리스 상태:|미리 보기|
-|결정|무료|
+|결정|Free|
 |필요한 역할 및 사용 권한:|모든 사용자가 액세스할 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
 |||
 
 
@@ -102,6 +102,9 @@ KQL ( [Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kus
 1. 보안 검색에 **포함** 된 필터를 사용 하려면 ID, 보안 검사 또는 CVE name의 사용 가능한 텍스트를 검색 하 여 영향을 받는 리소스를 필터링 합니다.
 
     !["보안 결과 포함" 필터](./media/asset-inventory/security-findings-contain-elements.png)
+
+    > [!TIP]
+    > **보안 검색 결과** 에는 단일 값만 허용 하는 및 **태그** 필터가 포함 됩니다. 둘 이상의 필터를 사용 하려면 필터 **추가**를 사용 합니다.
 
 1. **가격 책정 계층** 필터를 사용 하려면 하나 이상의 옵션 (Free, Partial 또는 Standard)을 선택 합니다.
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/18/2020
-ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 08/31/2020
+ms.openlocfilehash: 0d5390beff6c3e0045c6b887f0262a54a737a851
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589506"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181768"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치
 
@@ -36,6 +36,15 @@ ms.locfileid: "88589506"
 > 프로덕션 환경에 배포 하기 전에 응용 프로그램을 장애 조치 (failover) 하는 것을 확인 하면 프로덕션 환경에서 응용 프로그램 오류의 위험을 완화 하 고 고객의 응용 프로그램 가용성에 영향을 줍니다.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 수동 장애 조치 (failover) 시작
+
+### <a name="rbac-permissions-required"></a>RBAC 권한 필요
+
+장애 조치 (failover)를 시작 하는 사용자에 게는 다음 RBAC 역할 중 하나가 있어야 합니다.
+
+- 구독 소유자 역할 또는
+- Managed Instance 참가자 역할 또는
+- 다음 권한이 있는 사용자 지정 역할:
+  - `Microsoft.Sql/managedInstances/failover/action`
 
 ### <a name="using-powershell"></a>PowerShell 사용
 

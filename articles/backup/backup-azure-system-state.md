@@ -3,12 +3,12 @@ title: Azure에 Windows 시스템 상태 백업
 description: Windows Server 컴퓨터의 시스템 상태를 Azure에 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: b3e4e5451d40d7b0e600875b73e4810d5818d168
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 14ca17284d48355260cdeda6ef3b20b4794a0c4f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013438"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181632"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Azure에 Windows 시스템 상태 백업
 
@@ -80,7 +80,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 스토리지 중복�
 
     ![MARS 설치 관리자가 완료 되었습니다.](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-    에이전트를 아직 설치할 필요가 없습니다. 에이전트는 자격 증명 모음을 다운로드한 후에 설치할 수 있습니다.
+    에이전트를 아직 설치할 필요가 없습니다. 자격 증명 모음 자격 증명을 다운로드 한 후에 에이전트를 설치할 수 있습니다.
 
 6. **인프라 준비** 창에서 **다운로드**를 선택 합니다.
 

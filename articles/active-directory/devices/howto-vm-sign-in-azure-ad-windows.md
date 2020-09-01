@@ -12,19 +12,19 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b38d383f7dac832449e5b10e5cda6b0db859f9a0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005028"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180340"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
 이제 조직에서는 **Windows Server 2019 Datacenter edition** 또는 **windows 10 1809** 이상을 실행 하는 Azure vm (가상 머신)에 대 한 AD (Azure Active Directory) 인증을 활용할 수 있습니다. Azure AD를 사용 하 여 Vm에 인증 하면 정책을 중앙에서 제어 하 고 적용할 수 있습니다. Azure RBAC (역할 기반 액세스 제어) 및 Azure AD 조건부 액세스와 같은 도구를 사용 하 여 VM에 액세스할 수 있는 사용자를 제어할 수 있습니다. 이 문서에서는 Azure AD 인증을 사용 하도록 Windows Server 2019 VM을 만들고 구성 하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> Azure Windows Vm에 대 한 azure AD 로그인은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
+> Azure Windows Vm에 대 한 azure AD 로그인은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은  [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
 Azure AD 인증을 사용 하 여 Azure에서 Windows Vm에 로그인 하는 경우 다음과 같은 여러 가지 이점이 있습니다.
 
@@ -32,7 +32,7 @@ Azure AD 인증을 사용 하 여 Azure에서 Windows Vm에 로그인 하는 경
 - 에서는 더 이상 로컬 관리자 계정을 관리할 필요가 없습니다.
 - Azure RBAC를 사용 하면 필요에 따라 Vm에 적절 한 액세스 권한을 부여 하 고 더 이상 필요 하지 않을 때 제거할 수 있습니다.
 - VM에 대 한 액세스를 허용 하기 전에 Azure AD 조건부 액세스에서 다음과 같은 추가 요구 사항을 적용할 수 있습니다. 
-   - Multi-factor Authentication
+   - Multi-Factor Authentication
    - 로그인 위험 검사
 - VDI 배포에 포함 되는 Azure Windows Vm의 Azure AD 조인을 자동화 하 고 크기를 조정 합니다.
 
@@ -274,7 +274,7 @@ AADLoginForWindows extension이 특정 오류 코드와 함께 실패 하는 경
 
    - 로컬 관리자로 VM에 RDP를 실행 하 고 VM의 관리자 권한 명령줄에서이 명령을 실행 하 여 끝점이 유효한 테 넌 트 ID를 반환 하는지 확인 합니다.
       
-      - 말아-H 메타 데이터: truehttp://169.254.169.254/metadata/identity/info?api-version=2018-02-01
+      - 말아-H 메타 데이터: true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01
 
 1. VM 관리자가 AADLoginForWindows 확장을 설치 하려고 하지만, 시스템 할당 관리 id가 VM을 먼저 사용 하도록 설정 하지 않았습니다. VM의 Id 블레이드로 이동 합니다. 시스템 할당 됨 탭에서 상태가 켜기로 설정 되어 있는지 확인 합니다.
 
@@ -329,7 +329,7 @@ VM에 대 한 원격 데스크톱 연결을 시작할 때 다음과 같은 오�
 
 ![계정이이 장치를 사용할 수 없도록 구성 되어 있습니다.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-사용자에 게 가상 컴퓨터 관리자 로그인 또는 가상 컴퓨터 사용자 로그인 역할을 부여 하는 VM에 대 한 [RBAC 정책을 구성](../../virtual-machines/linux/login-using-aad.md) 했는지 확인 합니다.
+사용자에 게 가상 머신 관리자 로그인 또는 가상 머신 사용자 로그인 역할을 부여 하는 VM에 대 한 [AZURE RBAC 정책을 구성](../../virtual-machines/linux/login-using-aad.md) 했는지 확인 합니다.
  
 #### <a name="unauthorized-client"></a>권한 없는 클라이언트
 

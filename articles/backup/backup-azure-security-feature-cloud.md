@@ -3,12 +3,12 @@ title: Azure Backup에 대 한 일시 삭제
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: a23d9d1e2ceeb767784490ba65542a5e91b6785b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 76928b98bdb21ffa79fce8435bfe4dda92e0c72d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004921"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179966"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Azure Backup에 대 한 일시 삭제
 
@@ -97,7 +97,7 @@ REST API를 사용 하 여 일시 삭제 기능을 사용 하지 않도록 설�
 
 ### <a name="using-azure-powershell"></a>Azure PowerShell 사용
 
-일시 삭제를 사용 하지 않도록 설정 하기 전에 항목이 삭제 된 경우 일시 삭제 된 상태가 됩니다. 삭제 작업을 즉시 삭제 하려면 삭제 작업을 취소 한 후 다시 수행 해야 합니다.
+일시 삭제를 사용 하지 않도록 설정 하기 전에 항목이 삭제 된 경우 일시 삭제 된 상태에 있게 됩니다. 삭제 작업을 즉시 삭제 하려면 삭제 작업을 취소 한 후 다시 수행 해야 합니다.
 
 일시 삭제 된 상태에 있는 항목을 식별 합니다.
 
@@ -134,7 +134,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 ### <a name="using-rest-api"></a>REST API 사용
 
-일시 삭제를 사용 하지 않도록 설정 하기 전에 항목이 삭제 된 경우 일시 삭제 된 상태가 됩니다. 삭제 작업을 즉시 삭제 하려면 삭제 작업을 취소 한 후 다시 수행 해야 합니다.
+일시 삭제를 사용 하지 않도록 설정 하기 전에 항목이 삭제 된 경우 일시 삭제 된 상태에 있게 됩니다. 삭제 작업을 즉시 삭제 하려면 삭제 작업을 취소 한 후 다시 수행 해야 합니다.
 
 1. 먼저 [여기](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion)에 설명 된 단계를 사용 하 여 삭제 작업을 실행 취소 합니다.
 2. 그런 다음 [여기](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api)에 설명 된 단계를 사용 하 여 REST API를 사용 하는 일시 삭제 기능을 비활성화 합니다.

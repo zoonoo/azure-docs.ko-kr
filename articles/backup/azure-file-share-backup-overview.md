@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 정보
 description: Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 7960040df4208ad021bca3406f6472d8c3206d81
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: dd8a17639c006dd1c0e8cc193776bb63cb536ceb
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892255"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180017"
 ---
 # <a name="about-azure-file-share-backup"></a>Azure 파일 공유 백업 정보
 
@@ -50,7 +50,13 @@ Azure 파일 공유 백업은 클라우드에서 데이터를 보호 하 고 온
 
 ## <a name="backup-costs"></a>백업 비용
 
-현재 Azure 파일 공유 백업은 스냅숏 기반 솔루션 이므로 스냅숏에 대해서만 요금이 부과 됩니다. 스냅숏에 대해 발생 하는 저장소 요금은 [여기](https://azure.microsoft.com/pricing/details/storage/files/)에 언급 된 가격 정보에 따라 Azure Files 사용량과 함께 청구 됩니다.
+Azure 파일 공유 백업 솔루션과 관련 된 비용에는 두 가지가 있습니다.
+
+1. **스냅숏 저장소 비용**: 스냅숏에 대해 발생 하는 저장소 요금은 [여기](https://azure.microsoft.com/pricing/details/storage/files/) 에 언급 된 가격 정보에 따라 Azure Files 사용량과 함께 청구 됩니다. 
+
+2. **보호 된 인스턴스 요금** : 2020 년 9 월 1 일부 터 고객은 [여기](https://azure.microsoft.com/en-in/pricing/details/backup/) 에 언급 된 가격 책정 정보에 따라 보호 된 인스턴스 요금을 청구 합니다. 보호 된 인스턴스 요금은 저장소 계정에 있는 보호 된 파일 공유의 전체 크기에 따라 달라 집니다.
+
+Azure 파일 공유 백업에 대 한 자세한 추정치를 얻기 위해 자세한 [Azure Backup 가격 책정 평가기](https://aka.ms/AzureBackupCostEstimates)을 다운로드할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

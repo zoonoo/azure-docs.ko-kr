@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c4183ed7343434b575015e94afb4111b3d14c5e3
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b51eb7e59e32985363d83c3d515fa7f54babac1f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071553"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179457"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
@@ -35,7 +35,7 @@ ms.locfileid: "89071553"
 | 요구 사항 | Description |
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health는 Azure AD Premium 기능이기 때문에 Azure AD Premium이 필요합니다. <br /><br />자세한 내용은 시작 하기를 참조 하십시오 [Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) <br />30일 무료 평가판을 시작하려면 [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/)을 참조하세요. |
-| 사용자는 Azure AD Connect Health를 시작할 수 있는 Azure AD의 전역 관리자여야 합니다. |기본적으로 전역 관리자만 Health Agent를 설치할 수 있고, 이것을 시작하고 포털에 액세스하고 Azure AD Connect Health 내에서 작업을 수행하도록 구성할 수 있습니다. 자세한 내용은 [Azure AD 디렉터리 관리](../fundamentals/active-directory-administer.md)를 참조하세요. <br /><br /> Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 조직의 다른 사용자에 게 Azure AD Connect Health에 대 한 액세스를 허용할 수 있습니다. 자세한 내용은 [Azure AD Connect Health에 대 한 AZURE RBAC (역할 기반 액세스 제어)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) 를 참조 하세요. <br /><br />**중요:** 에이전트를 설치할 때 사용하는 계정은 직장 또는 학교 계정이어야 합니다. Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](../fundamentals/sign-up-organization.md) 을 참조 하세요. |
+| 사용자는 Azure AD Connect Health를 시작할 수 있는 Azure AD의 전역 관리자여야 합니다. |기본적으로 전역 관리자만 Health Agent를 설치할 수 있고, 이것을 시작하고 포털에 액세스하고 Azure AD Connect Health 내에서 작업을 수행하도록 구성할 수 있습니다. 자세한 내용은 [Azure AD 디렉터리 관리](../fundamentals/active-directory-administer.md)를 참조하세요. <br /><br /> Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 조직의 다른 사용자에 게 Azure AD Connect Health에 대 한 액세스를 허용할 수 있습니다. 자세한 내용은 [Azure AD Connect Health에 대 한 AZURE RBAC (역할 기반 액세스 제어)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) 를 참조 하세요. <br /><br />**중요:** 에이전트를 설치할 때 사용하는 계정은 직장 또는 학교 계정이어야 합니다. Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](../fundamentals/sign-up-organization.md) 을 참조 하세요. |
 | Azure AD Connect Health Agent는 각 대상 서버에 설치됩니다. | Azure AD Connect Health가 데이터를 수신하고 모니터링 및 분석 기능을 제공하려면 Health Agents가 대상 서버에 설치되고 구성되어야 합니다. <br /><br />예를 들어, AD FS 인프라에서 데이터를 가져오려면 AD FS 및 웹 애플리케이션 프록시 서버에 에이전트가 설치되어야 합니다. 마찬가지로 온-프레미스 AD DS 인프라에 대한 데이터를 가져오려면 에이전트는 도메인 컨트롤러에 설치되어야 합니다. <br /><br /> |
 | Azure 서비스 엔드포인트에 대한 아웃바운드 연결 | 에이전트는 설치 및 런타임 중에 Azure AD Connect Health 서비스 엔드포인트에 연결되어야 합니다. 방화벽을 사용하여 아웃바운드 연결을 차단하는 경우 다음 엔드포인트가 허용 목록에 추가되어 있는지 확인합니다. [아웃바운드 연결 엔드포인트](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)를 참조하세요. |
 |IP 주소를 기반으로 하는 아웃바운드 연결 | 방화벽의 IP 주소 기반 필터링은 [Azure IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.|
@@ -82,15 +82,15 @@ ms.locfileid: "89071553"
 설치하기 전에 AD FS 서버 호스트 이름이 고유하고 AD FS 서비스에 없는지 확인합니다.
 에이전트 설치를 시작하려면 다운로드한 .exe 파일을 두 번 클릭합니다. 첫 번째 화면에서 설치를 클릭합니다.
 
-![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/install1.png)
+![Azure AD Connect Health AD FS 설치 시작](./media/how-to-connect-health-agent-install/install1.png)
 
 설치가 완료되면 지금 구성을 클릭합니다.
 
-![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/install2.png)
+![Azure AD Connect Health AD FS 설치 완료](./media/how-to-connect-health-agent-install/install2.png)
 
 PowerShell 창을 열고 에이전트 등록 프로세스를 시작합니다. 대화 상자가 나타나면 에이전트 등록을 수행할 권한이 있는 Azure AD 계정으로 로그인합니다. 기본적으로 전역 관리자 계정은 액세스 권한이 있습니다.
 
-![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/install3.png)
+![Azure AD Connect Health AD FS 로그인 구성](./media/how-to-connect-health-agent-install/install3.png)
 
 로그인한 후 PowerShell이 계속됩니다. 완료된 후에 PowerShell을 닫으면 구성이 완료됩니다.
 
@@ -98,7 +98,7 @@ PowerShell 창을 열고 에이전트 등록 프로세스를 시작합니다. �
 
 이전 섹션에 설명된 필수 조건이 모두 충족되지 않으면 PowerShell 창에 경고가 표시됩니다. 에이전트를 설치하기 전에 [요구 사항](how-to-connect-health-agent-install.md#requirements)을 완료해야 합니다. 다음 스크린샷은 이러한 오류의 예입니다.
 
-![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/install4.png)
+![Azure AD Connect Health AD FS 스크립트 구성](./media/how-to-connect-health-agent-install/install4.png)
 
 에이전트가 설치되었는지 확인하려면 서버에서 다음 서비스를 살펴봅니다. 구성을 완료했다면 해당 서비스가 실행 중이어야 합니다. 그렇지 않으면 구성이 완료될 때까지 해당 서비스가 중지됩니다.
 
@@ -106,7 +106,7 @@ PowerShell 창을 열고 에이전트 등록 프로세스를 시작합니다. �
 * Azure AD Connect Health AD FS Insights Service
 * Azure AD Connect Health AD FS Monitoring Service
 
-![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/install5.png)
+![Azure AD Connect Health AD FS 서비스](./media/how-to-connect-health-agent-install/install5.png)
 
 ### <a name="agent-installation-on-windows-server-2008-r2-servers"></a>Windows Server 2008 R2 서버에서 에이전트 설치
 
@@ -231,21 +231,21 @@ Azure AD Connect를 성공적으로 설치한 후 동기화에 대한 Azure AD C
 
 에이전트 설치를 시작하려면 다운로드한 .exe 파일을 두 번 클릭합니다. 첫 번째 화면에서 설치를 클릭합니다.
 
-![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install1.png)
+![AD DS 설치를 위한 Azure AD Connect Health 에이전트 시작](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install1.png)
 
 설치가 완료되면 지금 구성을 클릭합니다.
 
-![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install2.png)
+![AD DS 설치를 위한 Azure AD Connect Health 에이전트 마침](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install2.png)
 
 명령 프롬프트가 실행된 다음 PowerShell에서 Register-AzureADConnectHealthADDSAgent가 실행됩니다. Azure에 로그인하라는 메시지가 표시되면, 로그인을 진행합니다.
 
-![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install3.png)
+![Azure AD Connect Health 에이전트 AD DS 로그인 구성](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install3.png)
 
 로그인한 후 PowerShell이 계속됩니다. 완료된 후에 PowerShell을 닫으면 구성이 완료됩니다.
 
 이때 서비스가 자동으로 시작되면서 에이전트에 모니터링과 데이터 수집이 허용됩니다. 이전 섹션에 설명된 필수 조건이 모두 충족되지 않으면 PowerShell 창에 경고가 표시됩니다. 에이전트를 설치하기 전에 [요구 사항](how-to-connect-health-agent-install.md#requirements)을 완료해야 합니다. 다음 스크린샷은 이러한 오류의 예입니다.
 
-![AD DS용 Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install4.png)
+![AD DS 스크립트 구성 Azure AD Connect Health 에이전트](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install4.png)
 
 에이전트가 설치되었는지 확인하려면 도메인 컨트롤러에서 다음 서비스를 살펴봅니다.
 
@@ -254,12 +254,12 @@ Azure AD Connect를 성공적으로 설치한 후 동기화에 대한 Azure AD C
 
 구성을 완료했다면 이러한 서비스가 이미 실행 중이어야 합니다. 그렇지 않으면 구성이 완료될 때까지 해당 서비스가 중지됩니다.
 
-![Azure AD Connect Health 확인](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
+![AD DS 서비스용 Azure AD Connect Health 에이전트](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
 ### <a name="quick-agent-installation-in-multiple-servers"></a>여러 서버에 빠른 에이전트 설치
 
 1. Azure AD에서 암호를 사용 하 여 사용자 계정을 만듭니다.
-2. 포털을 통해 Azure AD Connect Health에서이 로컬 AAD 계정의 **소유자** 역할을 할당 합니다. [여기](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)의 단계를 따르세요. 모든 서비스 인스턴스에 역할을 할당 합니다. 
+2. 포털을 통해 Azure AD Connect Health에서이 로컬 AAD 계정의 **소유자** 역할을 할당 합니다. [여기](how-to-connect-health-operations.md#manage-access-with-azure-rbac)의 단계를 따르세요. 모든 서비스 인스턴스에 역할을 할당 합니다. 
 3. 설치를 위해 로컬 도메인 컨트롤러에서 .exe MSI 파일을 다운로드 합니다.
 4. 다음 스크립트를 실행 하 여 등록 합니다. 매개 변수를 만든 새 사용자 계정 및 암호를 바꿉니다. 
 
@@ -295,7 +295,7 @@ Register-AzureADConnectHealthADDSAgent -Credential $myCreds
 이 명령은 비대화형 방식으로 또는 서버-코어 시스템에서 등록을 완료하기 위해 "자격 증명"을 매개 변수로 수락합니다.
 * 자격 증명은 매개 변수로 전달되는 PowerShell 변수에서 캡처할 수 있습니다.
 * 에이전트를 등록할 권한이 있고 MFA를 사용하도록 설정되어 있지 않은 Azure AD ID를 제공할 수 있습니다.
-* 기본적으로 전역 관리자는 에이전트 등록을 수행할 권한이 있습니다. 기타 낮은 권한의 ID가 이 단계를 수행하도록 허용할 수도 있습니다. Azure [RBAC (역할 기반 액세스 제어)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)에 대해 자세히 알아보세요.
+* 기본적으로 전역 관리자는 에이전트 등록을 수행할 권한이 있습니다. 기타 낮은 권한의 ID가 이 단계를 수행하도록 허용할 수도 있습니다. Azure [RBAC (역할 기반 액세스 제어)](how-to-connect-health-operations.md#manage-access-with-azure-rbac)에 대해 자세히 알아보세요.
 
 ```powershell
     $cred = Get-Credential

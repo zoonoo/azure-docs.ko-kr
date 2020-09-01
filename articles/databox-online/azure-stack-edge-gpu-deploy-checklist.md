@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/26/2020
+ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 065a6595ba89e00310ff41cd63b929f6d6d83222
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e1233e17dfe2a56e6ea995190b243ed9c64b8945
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086083"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181360"
 ---
 # <a name="deployment-checklist-for-your-azure-stack-edge-device"></a>Azure Stack Edge 장치에 대 한 배포 검사 목록  
 
@@ -27,8 +27,8 @@ ms.locfileid: "89086083"
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | 장치 관리               | <li>Microsoft Azure 구독</li><li>Azure Active Directory Graph API</li><li>Microsoft Azure Storage 계정</li>|<li>Azure Stack Edge/Data Box Gateway, 참가자 권한 사용</li><li>관리자 또는 사용자 액세스 권한 확인</li><li>액세스 자격 증명이 필요 합니다.</li> |
 | 장치 설치               | 패키지의 전원 케이블 <br>우리에 게는 125 V에 대 한 SVE 18/3 케이블과 NEMA 5-15P to C13 (입/출력) 커넥터가 포함 된 15 암페어가 제공 됩니다.                                                                                                                                                                                                          | 장치와 함께 제공 됩니다.<br>자세한 내용은 [국가별로 지원 되는 전원 코드](azure-stack-edge-technical-specifications-power-cords-regional.md) 의 목록을 참조 하세요.                                                                                        |
-|                                   | <li>포트 1에 대 한 하나 이상의 X 1-GbE RJ-45 네트워크 케이블 </li><li> 포트 3, 포트 4, 포트 5 또는 포트 6의 경우 최소 1 X 25gbe SFP + 구리 케이블</li>| 고객은 이러한 케이블을 조달 해야 합니다.<br>장치 네트워크 카드에 대해 지원 되는 네트워크 케이블, 스위치 및 트랜시버의 전체 목록은 [Cavium FastlinQ 41000 시리즈 상호 운용성 매트릭스](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) 를 참조 하세요.                                                                          | 
-| 첫 번째 장치 연결      | 포트 1에 초기 연결을 위한 고정 IP (192.168.100.10/24)가 있습니다. <li>192.168.100.0/24 네트워크에서 IP 주소를 사용 하 여 포트 1에 직접 연결 하는 데 랩톱이 필요 합니다.</li><li> 추가 구성의 경우 장치의 로컬 UI를 사용 `https://192.168.100.10` 합니다.</li>|                                                                                                                   |
+|                                   | <li>포트 1에 대 한 하나 이상의 X 1-GbE RJ-45 네트워크 케이블  </li><li> 포트 3, 포트 4, 포트 5 또는 포트 6의 경우 최소 1 X 25gbe SFP + 구리 케이블</li>| 고객은 이러한 케이블을 조달 해야 합니다.<br>장치 네트워크 카드에 대해 지원 되는 네트워크 케이블, 스위치 및 트랜시버의 전체 목록은 [Cavium FastlinQ 41000 시리즈 상호 운용성 매트릭스](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) 및 [Mellanox 이중 포트 25g connectx-3-4 채널 네트워크 어댑터 호환 제품](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products)을 참조 하세요.| 
+| 첫 번째 장치 연결      | 포트 1에 초기 연결을 위한 고정 IP (192.168.100.10/24)가 있습니다. <li>192.168.100.0/24 네트워크에서 IP 주소를 사용 하 여 포트 1에 직접 연결 하는 데 랩톱이 필요 합니다.</li><li> 추가 구성의 경우 장치의 로컬 UI를 사용 `https://192.168.100.10` 합니다.</li><li> 초기 설치가 완료 되 면 장치에 대해 최소 1gbe 스위치를 사용 해야 합니다. 연결 된 스위치가 1gbe 이상이 아닌 경우 로컬 웹 UI에 액세스할 수 없습니다.</li>|                                                                                                                   |
 | 장치 로그온                      | 장치 관리자 암호는 8 자에서 16 자 사이 여야 합니다. <br>암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다.                                            | 기본 암호는 처음 로그인 할 때 만료 되는 *Password1* 입니다.                                                     |
 | 네트워크 설정                  | 장치는 2 x 1Gbe, 4 x 25 GbE 네트워크 포트와 함께 제공 됩니다. <li>포트 1은 관리 설정만 구성 하는 데 사용 됩니다. 하나 이상의 데이터 포트를 연결 하 고 구성할 수 있습니다. </li><li> 포트 2-포트 6 사이에서 하나 이상의 데이터 네트워크 인터페이스를 인터넷에 연결 해야 합니다 (Azure에 대 한 연결 사용).</li><li> IP 설정은 DHCP/고정 IPv4 구성을 지원 합니다. | 고정 IPv4 구성에는 IP, DNS 서버 및 기본 게이트웨이가 필요 합니다.                                                                                                                  |
 | 네트워크 설정 계산     | <li>Kubernetes 노드에는 2 개의 정적 공용 Ip가 필요 하 고, 하나 이상의 고정 IP는 계산 모듈에 액세스 하는 Edge 허브 서비스 Azure Stack 합니다.</li><li>Kubernetes 클러스터 외부에서 외부에서 액세스 해야 하는 각 추가 서비스 또는 컨테이너에 대해 하나의 IP가 필요 합니다.</li>                                                                                                                       | 고정 IPv4 구성만 지원 됩니다.                                                                      |

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 1204435a5f1d7a48fceb654df10b8394d6f5df50
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: db3bfddd3376a013cc8921f9e0b94bd30bfe041f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146643"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181530"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
@@ -29,7 +29,8 @@ ms.locfileid: "89146643"
 
 * [B 시리즈](../sizes-b-series-burstable.md)
 * [DCsv2 시리즈](../dcv2-series.md)
-* [DSv2 시리즈](../dv2-dsv2-series.md) 및 [Dsv3 시리즈](../dv3-dsv3-series.md)
+* [DSv2 시리즈](../dv2-dsv2-series.md) 
+* [Dsv3 시리즈](../dv3-dsv3-series.md)
 * [Dsv4 시리즈](../dv4-dsv4-series.md)
 * [Ddsv4 시리즈](../ddv4-ddsv4-series.md)
 * [Dasv4 시리즈](../dav4-dasv4-series.md)
@@ -39,10 +40,12 @@ ms.locfileid: "89146643"
 * [GS 시리즈](../sizes-previous-gen.md#gs-series)
 * [HB 시리즈](../hb-series.md)
 * [HC 시리즈](../hc-series.md)
-* [Ls 시리즈](../sizes-previous-gen.md#ls-series) 및 [Lsv2 시리즈](../lsv2-series.md)
+* [Ls 시리즈](../sizes-previous-gen.md#ls-series) 
+* [Lsv2 시리즈](../lsv2-series.md)
 * [M 시리즈](../m-series.md)
 * [Mv2 시리즈](../mv2-series.md)<sup>1</sup>
-* [NCv2 시리즈](../ncv2-series.md) 및 [NCv3 시리즈](../ncv3-series.md)
+* [NCv2 시리즈](../ncv2-series.md) 
+* [NCv3 시리즈](../ncv3-series.md)
 * [ND 시리즈](../nd-series.md)
 * [NVv3 시리즈](../nvv3-series.md)
 
@@ -84,7 +87,7 @@ Azure는 현재 온-프레미스 Hyper-V가 2세대 VM에 대해 지원하는 �
 |---------|--------------|--------------|
 | 부팅             | PCAT                      | UEFI                               |
 | 디스크 컨트롤러 | IDE                       | SCSI                               |
-| VM 크기         | 모든 VM 크기 | Premium Storage를 지원하는 VM만 해당 |
+| VM 크기         | 모든 VM 크기 | [사용 가능한 크기 보기](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>1세대와 2세대 간 기능 비교
 

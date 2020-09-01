@@ -3,12 +3,12 @@ title: Azure Data Box를 사용 하 여 오프 라인 백업
 description: Azure Data Box를 사용 하 여 MARS 에이전트에서 Recovery Services 자격 증명 모음으로 대량 초기 백업 데이터를 오프 라인으로 설정 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 6ad97ee60c3c7debea72357cf7fc8d483a3c1d46
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 5a4aeebeddcca4adcac511c7c225c8809dd29c93
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761562"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180935"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Data Box를 사용한 Azure Backup 오프라인 백업
 
@@ -21,7 +21,7 @@ ms.locfileid: "88761562"
 
 이 문서에서는 Azure Data Box를 사용 하 여 MARS 에이전트에서 Recovery Services 자격 증명 모음으로 대량 초기 백업 데이터를 오프 라인으로 설정 하는 방법을 설명 합니다.
 
-## <a name="supported-platforms"></a>지원 플랫폼
+## <a name="supported-platforms"></a>지원되는 플랫폼
 
 Azure Data Box를 사용 하 여 MARS 에이전트에서 데이터를 시드 하는 프로세스는 다음 Windows Sku에서 지원 됩니다.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 9224888a38c86e35df9ad516c761fd7012824c15
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7274cef73bff3fb87d55ad636ff0167c8a064796
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085279"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180680"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Kubernetes 대시보드를 사용 하 여 Azure Stack Edge GPU 장치 모니터링
 
@@ -26,6 +26,7 @@ ms.locfileid: "89085279"
 > [!div class="checklist"]
 >
 > * 장치에서 Kubernetes 대시보드 액세스
+> * `aseuser`구성 다운로드
 > * 장치에 배포 된 모듈 보기
 > * 장치에 배포 된 응용 프로그램의 IP 주소를 가져옵니다.
 > * 장치에 배포 된 모듈의 컨테이너 로그 보기
@@ -33,13 +34,13 @@ ms.locfileid: "89085279"
 
 ## <a name="about-kubernetes-dashboard"></a>Kubernetes 대시보드 정보
 
-Kubernetes 대시보드는 컨테이너 화 된 응용 프로그램 문제를 해결 하는 데 사용할 수 있는 웹 기반 사용자 인터페이스입니다. Kubernetes 대시보드는 Kubernetes 명령줄에 대 한 UI 기반 대안입니다 `kubectl` . 
+Kubernetes 대시보드는 컨테이너 화 된 응용 프로그램 문제를 해결 하는 데 사용할 수 있는 웹 기반 사용자 인터페이스입니다. Kubernetes 대시보드는 Kubernetes 명령줄에 대 한 UI 기반 대안입니다 `kubectl` . 자세한 내용은 [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)를 참조 하세요. 
 
-Azure Stack Edge 장치에서 읽기 전용 모드로 Kubernetes 대시보드를 사용 하 여 Azure Stack Edge 장치에서 실행 되는 응용 프로그램의 개요를 가져오고, Kubernetes 클러스터 리소스의 상태를 보고, 장치에서 발생 한 모든 오류를 볼 수 있습니다.
+Azure Stack Edge 장치에서 *읽기 전용* 모드로 Kubernetes 대시보드를 사용 하 여 Azure Stack Edge 장치에서 실행 되는 응용 프로그램의 개요를 가져오고, Kubernetes 클러스터 리소스의 상태를 보고, 장치에서 발생 한 모든 오류를 볼 수 있습니다.
 
 ## <a name="access-dashboard"></a>액세스 대시보드
 
-Kubernetes 대시보드는 읽기 전용 이며 포트 31000의 Kubernetes 마스터 노드에서 실행 됩니다. 대시보드에 액세스 하려면 다음 단계를 수행 합니다. 
+Kubernetes 대시보드는 *읽기 전용* 이며 포트 31000의 Kubernetes 마스터 노드에서 실행 됩니다. 대시보드에 액세스 하려면 다음 단계를 수행 합니다. 
 
 1. 장치의 로컬 UI에서 **장치** 로 이동한 후 **장치 끝점**으로 이동 합니다. Kubernetes 대시보드 URL을 선택 하 여 브라우저에서 대시보드를 엽니다.
 

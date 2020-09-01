@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: cdc5f56d4500581b36f366663dc3db915070ee2e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: bbb959b6b1d71c81f7b920b3962f693716041e16
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649848"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181751"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장
 
@@ -71,7 +71,7 @@ ms.locfileid: "88649848"
 1. 적절한 자격 증명을 사용하여 VM에 SSH합니다. [az vm show](/cli/azure/vm#az-vm-show)를 사용하여 VM의 공용 IP 주소를 볼 수 있습니다.
 
     ```azurecli
-    az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
+    az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --output tsv
     ```
 
 1. 기본 파티션과 파일 시스템을 확장합니다.
@@ -105,7 +105,7 @@ ms.locfileid: "88649848"
         1      0.00B  107GB  107GB  ext4
     ```
 
-    다. `resizepart`를 사용하여 파티션을 확장합니다. 파티션 수 *1*과 새 파티션에 대한 크기를 입력합니다.
+    c. `resizepart`를 사용하여 파티션을 확장합니다. 파티션 수 *1*과 새 파티션에 대한 크기를 입력합니다.
 
     ```bash
     (parted) resizepart

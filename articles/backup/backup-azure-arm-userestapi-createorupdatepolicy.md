@@ -1,15 +1,15 @@
 ---
 title: REST API를 사용 하 여 백업 정책 만들기
-description: 이 문서에서는 REST API를 사용 하 여 백업 정책 (일정 및 보존)을 만들고 관리 하는 방법에 대해 설명 합니다.
+description: 이 문서에서는 REST API를 사용 하 여 백업 정책 (일정 및 보존)을 만들고 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 4678c6aaa03d511da35d5efee2b1e75d08546781
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e4e6f5b5cf28c3830a91a494ea60680eee1546f6
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006264"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179609"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 백업 정책 만들기
 
@@ -29,10 +29,10 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 예를 들어 Azure VM 백업의 백업을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |필수  |Type  |설명  |
+|이름  |필수  |Type  |Description  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
-|tags     |         | Object        |  리소스 태그       |
+|tags     |         | 개체        |  리소스 태그       |
 
 요청 본문의 전체 정의 목록은 [백업 정책 REST API 문서](/rest/api/backup/protectionpolicies/createorupdate)를 참조하세요.
 
@@ -137,7 +137,7 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 다른 작업을 만들 때 202 (수락 됨) 두 개의 응답을 반환 하 고 해당 작업이 완료 되 면 200 (OK)를 반환 합니다.
 
-|Name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |200 정상     |    [보호 PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  정상       |
 |202 수락됨     |         |     수락됨    |
