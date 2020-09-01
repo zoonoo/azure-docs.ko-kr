@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 097b3c71b01a8ad0e930d7aa0d7be46a1e835e1a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: edbce017b1090a029d49c9f2f8812e7e65133fcb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495168"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073134"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>블록 Blob에 대한 개체 복제(미리 보기)
 
@@ -31,6 +31,8 @@ ms.locfileid: "87495168"
 :::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="개체 복제 작동 방식을 보여 주는 다이어그램":::
 
 개체 복제를 구성하는 방법에 대한 자세한 내용은 [개체 복제 구성(미리 보기)](object-replication-configure.md)을 참조하세요.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="object-replication-policies-and-rules"></a>개체 복제 정책 및 규칙
 

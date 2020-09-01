@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 999f7bb14f87d883fa399b1168e887e935651e47
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056536"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074537"
 ---
 # <a name="blob-versioning-preview"></a>Blob 버전 관리(미리 보기)
 
@@ -29,6 +29,8 @@ Blob 버전 관리를 사용 하도록 설정 하는 방법을 알아보려면 [
 
 > [!IMPORTANT]
 > Blob 버전 관리를 통해 저장소 계정이 나 컨테이너를 실수로 삭제 하는 경우를 복구할 수 없습니다. 저장소 계정이 실수로 삭제 되지 않도록 하려면 저장소 계정 리소스에 대해 **Cannotdelete** 잠금을 구성 합니다. Azure 리소스 잠금에 대 한 자세한 내용은 [예기치 않은 변경을 방지 하기 위해 리소스 잠그기](../../azure-resource-manager/management/lock-resources.md)를 참조 하세요.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-blob-versioning-works"></a>Blob 버전 관리 작동 방법
 
@@ -163,7 +165,7 @@ Blob 스냅숏은 특정 시점에서 수행 되는 blob의 읽기 전용 복사
 
 다음 다이어그램에서는 버전이 지정 된 blob의 스냅숏을 만들 때 발생 하는 상황을 보여 줍니다. 다이어그램에서 버전 ID가 2 및 3 인 blob 버전 및 스냅숏에는 동일한 데이터가 포함 되어 있습니다.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="버전이 지정 된 blob의 스냅숏을 보여 주는 다이어그램":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="버전이 지정 된 blob의 스냅숏을 보여 주는 다이어그램 ":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Blob 버전에 대 한 작업 권한 부여
 
@@ -192,7 +194,7 @@ Blob 버전에 대 한 서명 된 리소스는 `bv` 입니다. 자세한 내용�
 
 | **사용 권한** | **URI 기호** | **허용되는 작업** |
 |----------------|----------------|------------------------|
-| DELETE         | x              | Blob 버전을 삭제 합니다. |
+| 삭제         | x              | Blob 버전을 삭제 합니다. |
 
 ## <a name="about-the-preview"></a>미리 보기 정보
 

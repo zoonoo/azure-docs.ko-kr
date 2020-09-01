@@ -10,12 +10,12 @@ ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7e8d712a3477fe7dd9b963f203b3374dd5fa2a2e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b34664d36be2f18bc6821d5b13ca8bd403f2b6fc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001062"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074409"
 ---
 # <a name="enable-and-manage-blob-versioning-preview"></a>Blob 버전 관리 설정 및 관리 (미리 보기)
 
@@ -24,6 +24,8 @@ Blob storage 버전 관리 (미리 보기)를 사용 하도록 설정 하 여 �
 이 문서에서는 Azure Portal 또는 Azure Resource Manager 템플릿을 사용 하 여 저장소 계정에 대 한 blob 버전 관리를 사용 하거나 사용 하지 않도록 설정 하는 방법을 보여 줍니다.
 
 Blob 버전 관리를 사용 하도록 설정 하기 전에 미리 보기에 등록 해야 합니다. 미리 보기에 등록 하는 방법을 비롯 하 여 blob 버전 관리에 대해 자세히 알아보려면 [blob 버전 관리 (미리 보기)](versioning-overview.md)를 참조 하세요.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="enable-blob-versioning"></a>BLOB 버전 관리 사용
 

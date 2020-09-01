@@ -97,7 +97,11 @@
     - name: 보안
       items:
         - name: 네트워크 보안 그룹
-          href: security-overview.md
+          items:
+            - name: 개요
+              href: security-overview.md
+            - name: 작동 방법
+              href: network-security-group-how-it-works.md
         - name: 애플리케이션 보안 그룹
           href: application-security-groups.md
         - name: 서비스 태그
@@ -422,7 +426,7 @@
       href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/virtual-network
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/allversions
