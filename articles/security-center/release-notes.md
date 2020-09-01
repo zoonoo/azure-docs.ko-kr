@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: c7df035aec199953bdf9a6bd56262af70a5a77e7
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 0c0e286ac9f94768541bb40b9ccca01e0469e0c8
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723965"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177247"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -159,11 +159,11 @@ Kubernetes 작업은 Security Center 기본적으로 보안을 유지 하기 위
 
 이 업데이트에서 확인이 제거 되었으며 이제 ' 사용자 지정 ' Windows 및 Linux 컴퓨터에 취약성 평가 도구를 배포할 수 있습니다. 사용자 지정 이미지는 marketplace 기본값에서 수정한 이미지입니다.
 
-이제 더 많은 컴퓨터에서 통합 취약성 평가 확장 (Qualys 기반)을 배포할 수 있지만, [Qualys 기본 제공 취약점 스캐너 배포](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner)에 나열 된 OS를 사용 하는 경우에만 지원을 사용할 수 있습니다.
+이제 더 많은 컴퓨터에서 통합 취약성 평가 확장 (Qualys 기반)을 배포할 수 있지만, [표준 계층 vm에 통합 취약성 스캐너 배포](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-standard-tier-vms) 에 나열 된 OS를 사용 하는 경우에만 지원을 사용할 수 있습니다.
 
-[가상 컴퓨터에 대 한 통합 취약성 스캐너](built-in-vulnerability-assessment.md)에 대해 자세히 알아보세요 (표준 계층에만 해당).
+[가상 컴퓨터에 대 한 통합 취약성 스캐너](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)에 대해 자세히 알아보세요 (표준 계층에만 해당).
 
-Qualys 또는 Rapid7에서 개인적으로 사용이 허가 된 취약점 평가 솔루션을 사용 하는 방법에 대 한 자세한 내용은 [파트너 취약점 검사 솔루션 배포](partner-vulnerability-assessment.md)를
+Qualys 또는 Rapid7에서 개인적으로 사용이 허가 된 취약점 평가 솔루션을 사용 하는 방법에 대 한 자세한 내용은 [파트너 취약점 검사 솔루션 배포](deploy-vulnerability-assessment-vm.md)를
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Azure Files 및 Azure Data Lake Storage Gen2 (미리 보기)를 포함 하도록 위협 방지 Azure Storage 확장 됨
@@ -415,7 +415,7 @@ Azure policy에서 정책을 찾을 수 있습니다.
 
 "가상 머신에서 기본 제공 취약성 평가 솔루션 사용(Qualys에서 제공)"
 
-[가상 머신에 대한 Security Center의 통합 취약성 평가](built-in-vulnerability-assessment.md)에 대해 자세히 알아보세요.
+[가상 머신에 대한 Security Center의 통합 취약성 평가](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)에 대해 자세히 알아보세요.
 
 
 

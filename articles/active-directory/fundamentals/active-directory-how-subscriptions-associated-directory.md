@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95c3ad5fa66e1327c1fe646303f268ae4e84bd89
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: cbc1286b6c434d1c7a110c75dd5085de2043012d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825024"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179099"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -44,15 +44,16 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 
 - 구독을 연결 하거나 추가한 후에 수행 되는 변경 내용 및 영향을 받는 방법에 대 한 다음 목록을 검토 하세요.
 
-  - RBAC를 사용 하 여 역할이 할당 된 사용자는 액세스 권한을 잃게 됩니다.
+  - Azure RBAC를 사용 하 여 역할이 할당 된 사용자는 액세스 권한을 잃게 됩니다.
   - 서비스 관리자 및 공동 관리자가 액세스할 수 없게 됩니다.
   - 키 자격 증명 모음이 있는 경우 액세스할 수 없게 되며 연결 후 수정 해야 합니다.
   - Virtual Machines 또는 Logic Apps와 같은 리소스에 대 한 관리 id가 있는 경우 연결 후 다시 사용 하도록 설정 하거나 다시 만들어야 합니다.
   - 등록 된 Azure Stack 있는 경우 연결 후 다시 등록 해야 합니다.
+  - 자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도(미리 보기)](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
 
 - 다음 조건을 충족하는 계정을 사용하여 로그인해야 합니다.
 
-  - 구독에 대 한 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할 할당을 포함 합니다. 소유자 역할을 할당 하는 방법에 대 한 자세한 내용은 [RBAC를 사용 하 여 Azure 리소스에 대 한 액세스 관리 및 Azure Portal](../../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
+  - 구독에 대 한 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할 할당을 포함 합니다. 소유자 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
   - 는 현재 디렉터리와 새 디렉터리에 모두 있습니다. 현재 디렉터리는 구독과 연결 되어 있습니다. 새 디렉터리를 구독과 연결 합니다. 다른 디렉터리에 대 한 액세스 권한을 얻는 방법에 대 한 자세한 내용은 [Azure Portal에서 B2B 공동 작업 사용자 추가 Azure Active Directory](../b2b/add-users-administrator.md)를 참조 하세요.
 
 - Azure CSP(클라우드 서비스 공급자) 구독(MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), Microsoft 내부 구독(MS-AZR-0015P) 또는 Microsoft Imagine 구독(MS-AZR-0144P)을 사용하고 있지 않은지 확인합니다.
@@ -90,6 +91,8 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 - 리소스에 대해 시스템 할당 관리 Id를 사용한 경우에는 이러한 id를 다시 사용 하도록 설정 해야 합니다. 사용자 할당 관리 Id를 사용한 경우에는 이러한 id를 다시 만들어야 합니다. 관리 되는 Id를 다시 사용 하도록 설정 하거나 다시 만든 후에는 해당 id에 할당 된 사용 권한을 다시 설정 해야 합니다. 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../managed-identities-azure-resources/overview.md)을 참조하세요.
 
 - 이 구독을 사용 하 여 Azure Stack를 등록 한 경우 다시 등록 해야 합니다. 자세한 내용은 [Azure를 사용 하 여 Azure Stack 등록](/azure-stack/operator/azure-stack-registration)을 참조 하세요.
+
+- 자세한 내용은 [다른 Azure AD 디렉터리로 Azure 구독 양도(미리 보기)](../../role-based-access-control/transfer-subscription.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

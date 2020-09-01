@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88993db2ca7fa697aadb584fdfcbd9fe200b11c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: f9adf6ce4559234eec74c92f09aa752eb1f9ab51
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386065"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177332"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 청구 모델
 
@@ -58,7 +59,7 @@ MAU (월간 활성 사용자) 청구는 **취소할**수 없습니다. Azure AD 
 
 MAU 기반 계량은 구독/리소스 소유자가 변경 내용을 확인 하는 즉시 사용 하도록 설정 됩니다. 월별 청구서는 변경 될 때까지 청구 되는 인증 단위와 변경으로 시작 하는 MAU의 새 단위를 반영 합니다.
 
-사용자는 전환 월에 두 번 계산 되지 않습니다. 변경 전에 인증 하는 고유 활성 사용자에 게는 달력 월의 인증 당 요금이 부과 됩니다. 이러한 동일한 사용자는 구독 청구 주기의 나머지 부분에 대 한 MAU 계산에 포함 되지 않습니다. 예를 들어:
+사용자는 전환 월에 두 번 계산 되지 않습니다. 변경 전에 인증 하는 고유 활성 사용자에 게는 달력 월의 인증 당 요금이 부과 됩니다. 이러한 동일한 사용자는 구독 청구 주기의 나머지 부분에 대 한 MAU 계산에 포함 되지 않습니다. 예:
 
 * Contoso B2C 테 넌 트에는 1000 명의 사용자가 있습니다. 250 사용자는 지정 된 달에 활성화 됩니다. 구독 관리자는 해당 월 10 일에 인증 단위를 MAU (월간 활성 사용자)로 변경 합니다.
 * 1-10에 대 한 청구는 인증 당 모델을 사용 하 여 청구 됩니다.
@@ -82,7 +83,7 @@ Azure Active Directory B2C (Azure AD B2C)에 대 한 사용 요금은 Azure 구�
 
 Azure AD B2C 테 넌 트에 연결 된 구독은 추가 Azure AD B2C 리소스를 포함 하 여 Azure AD B2C 사용 또는 기타 Azure 리소스의 요금 청구에 사용 될 수 있습니다. Azure AD B2C 테넌트 내의 다른 Azure 라이선스 기반 서비스 또는 Office 365 라이선스를 추가하는 데는 구독을 사용할 수 없습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure 구독](https://azure.microsoft.com/free/)
 * 구독에 연결 하려는 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)
@@ -132,11 +133,24 @@ Azure CSP(Cloud Solution Providers) 구독은 Azure AD B2C에서 지원됩니다
 
 ## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Azure AD B2C 테 넌 트 청구 구독 변경
 
-원본 및 대상 구독이 동일한 Azure Active Directory 테 넌 트 내에 있는 경우 Azure AD B2C 테 넌 트를 다른 구독으로 이동할 수 있습니다.
+### <a name="move-using-azure-resource-manager"></a>Azure Resource Manager 사용 하 여 이동
+
+원본 및 대상 구독이 동일한 Azure Active Directory 테 넌 트 내에 있는 경우 Azure Resource Manager를 사용 하 여 테 넌 트를 다른 구독으로 이동할 수 Azure AD B2C.
 
 Azure AD B2C 테 넌 트와 같은 Azure 리소스를 다른 구독으로 이동 하는 방법에 대 한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조 하세요.
 
 이동을 시작 하기 전에 전체 문서를 읽고 이러한 이동에 대 한 제한 사항 및 요구 사항을 완전히 이해 해야 합니다. 리소스 이동에 대 한 지침 외에도 이동 전 검사 목록 및 이동 작업의 유효성을 검사 하는 방법과 같은 중요 한 정보를 포함 합니다.
+
+### <a name="move-by-un-linking-and-re-linking"></a>연결을 취소 하 고 다시 연결 하 여 이동
+
+원본 및 대상 구독이 다른 Azure Active Directory 테 넌 트와 연결 된 경우 위에 설명 된 대로 Azure Resource Manager를 통해 이동을 수행할 수 없습니다. 그러나 원본 구독에서 Azure AD B2C 테 넌 트의 연결을 취소 하 고 대상 구독에 다시 연결 하 여 동일한 최종 결과를 얻을 수 있습니다. 이 메서드는 삭제 하는 개체만 Azure AD B2C 테 넌 트 자체가 아닌 *청구 링크*이므로 안전 합니다. 사용자, 앱, 사용자 흐름 등은 영향을 받지 않습니다.
+
+1. Azure AD B2C 디렉터리 자체에서 대상 azure AD 테 넌 트 (대상 Azure 구독이 연결 된 테 넌 트)에서 [게스트 사용자를 초대](user-overview.md#guest-user) 하 고이 사용자에 게 Azure AD B2C **전역 관리자** 역할이 있는지 확인 합니다.
+1. 위의 [Azure AD B2C 테 넌 트 리소스 관리](#manage-your-azure-ad-b2c-tenant-resources) 섹션에 설명 된 대로 원본 azure 구독에서 Azure AD B2C를 나타내는 *azure 리소스로* 이동 합니다. 실제 Azure AD B2C 테 넌 트로 전환 하지 않습니다.
+1. **개요** 페이지에서 **삭제** 단추를 클릭 합니다. 관련 Azure AD B2C 테 넌 트의 사용자 또는 응용 프로그램은 삭제 *되지* 않습니다. 단지 원본 구독에서 청구 링크만 제거 합니다.
+1. 1 단계에서 Azure AD B2C 관리자로 추가 된 사용자 계정으로 Azure Portal에 로그인 합니다. 그런 다음 대상 Azure Active Directory 테 넌 트에 연결 된 대상 Azure 구독으로 이동 합니다. 
+1. 위의 [링크 만들기](#create-the-link) 절차를 수행 하 여 대상 구독에서 청구 링크를 다시 설정 합니다.
+1. 이제 Azure AD B2C 리소스가 대상 Azure 구독 (대상 Azure Active Directory에 연결 됨)으로 이동 되었으며 앞으로이 구독을 통해 요금이 청구 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

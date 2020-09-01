@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 6be397631621c727bb8979df2ee8eec3aca43096
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799369"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177094"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>로컬로 PowerShell Azure Functions 디버그
 
@@ -65,6 +65,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ## <a name="set-the-attach-point"></a>연결 지점 설정
 
 PowerShell 함수를 디버깅 하려면 디버거를 연결 하기 위해 함수를 중지 해야 합니다. `Wait-Debugger`Cmdlet은 실행을 중지 하 고 디버거를 대기 합니다.
+
+>[!NOTE]
+>PowerShell 7을 사용 하는 경우 코드에서 호출을 추가할 필요가 없습니다 `Wait-Debugger` .
 
 다음과 `Wait-Debugger` 같이 문 바로 위에 cmdlet에 대 한 호출을 추가 하기만 하면 됩니다 `if` .
 

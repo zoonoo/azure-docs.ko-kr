@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신 복구 지점에서 파일 
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 7ff746b85142714c129c04e7f8a3d20ac4b6cb53
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fd68c33e4425d717837923b90119d42569a1f003
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020170"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178523"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -285,7 +285,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 | openSUSE | 42.2 이상 |
 
 > [!NOTE]
-> SLES 12 SP4 OS를 사용 하는 컴퓨터에서 파일 복구 스크립트를 실행 하는 동안 몇 가지 문제가 발견 되었으며 SLES 팀과 함께 조사 하 고 있습니다.
+> SLES 12 SP4 OS를 사용 하는 컴퓨터에서 파일 복구 스크립트를 실행 하는 동안 몇 가지 문제가 발견 되었습니다. SLES 팀으로 조사 하 고 있습니다.
 > 현재 SLES 12 SP2 및 SP3 OS 버전을 사용하는 머신에서 파일 복구 스크립트를 실행할 수 있습니다.
 >
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 65662af2bad5475b024366a2ff550ff30e6c0e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: aa9b5a3f6f7ca935e4e6b3645c58da5516384072
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014661"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178014"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -103,18 +103,60 @@ Windows 서비스 **COM+ System** 애플리케이션 문제로 인해 Backup 작
 오류 코드: ExtensionFailedVssWriterInBadState <br/>
 오류 메시지: VSS 기록기가 잘못된 상태에 있으므로 스냅샷 작업이 실패했습니다.
 
-잘못된 상태의 VSS 기록기를 다시 시작합니다. 관리자 권한의 명령 프롬프트에서 ```vssadmin list writers```를 실행합니다. 출력에는 모든 VSS 기록기와 해당 상태가 포함됩니다. **[1] 안정** 상태가 아닌 모든 VSS 기록기는 관리자 권한 명령 프롬프트에서 다음 명령을 실행하여 다시 시작합니다.
+이 오류는 VSS 기록기가 잘못 된 상태에 있기 때문에 발생 합니다. Azure Backup 확장은 VSS 기록기와 상호 작용 하 여 디스크의 스냅숏을 생성 합니다. 이 문제를 해결하려면 다음 단계를 따릅니다.
 
-* ```net stop serviceName```
-* ```net start serviceName```
+잘못된 상태의 VSS 기록기를 다시 시작합니다.
+- 관리자 권한의 명령 프롬프트에서 ```vssadmin list writers```를 실행합니다.
+- 출력에는 모든 VSS 기록기와 해당 상태가 포함됩니다. 상태가 **[1]** 이 아닌 모든 vss 기록기의 경우 해당 vss 기록기의 서비스를 다시 시작 합니다. 
+- 서비스를 다시 시작 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 실행 합니다.
 
-도움이 되는 또 다른 절차는 관리자 권한 명령 프롬프트(관리자 권한)에서 다음 명령을 실행하는 것입니다.
+ ```net stop serviceName``` <br>
+ ```net start serviceName```
+
+> [!NOTE]
+> 일부 서비스를 다시 시작 하면 프로덕션 환경에 영향을 줄 수 있습니다. 승인 프로세스가 수행 되 고 예약 된 가동 중지 시간에 서비스가 다시 시작 되는지 확인 합니다.
+ 
+   
+VSS 기록기를 다시 시작 해도 문제가 해결 되지 않고 시간 제한으로 인해 문제가 계속 되 면 다음을 수행 합니다.
+- 관리자 권한 명령 프롬프트에서 다음 명령을 실행 하 여 blob-스냅숏에 대해 스레드가 생성 되지 않도록 합니다.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-이 레지스트리 키를 추가 하면 blob 스냅숏에 대해 스레드가 생성 되지 않으며 제한 시간이 초과 되지 않습니다.
+### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState-VSS (볼륨 섀도 복사본) 서비스가 잘못 된 상태 여 서 스냅숏 작업이 실패 했습니다.
+
+오류 코드: Extensionfailedstateful Serviceinbadstate <br/>
+오류 메시지: VSS (볼륨 섀도 복사본) 서비스가 잘못 된 상태 여 서 스냅숏 작업이 실패 했습니다.
+
+이 오류는 VSS 서비스가 잘못 된 상태에 있기 때문에 발생 합니다. Azure Backup 확장은 VSS 서비스와 상호 작용 하 여 디스크의 스냅숏을 만드는 데 사용 됩니다. 이 문제를 해결하려면 다음 단계를 따릅니다.
+
+VSS (볼륨 섀도 복사본) 서비스를 다시 시작 합니다.
+- Services.msc로 이동 하 여 ' 볼륨 섀도 복사본 서비스 '를 다시 시작 합니다.<br>
+(또는)<br>
+- 이렇게 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 사용합니다.
+
+ ```net stop VSS``` <br>
+ ```net start VSS```
+
+ 
+문제가 계속 되 면 예약 된 가동 중지 시간에 VM을 다시 시작 합니다.
+
+### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable-선택한 VM 크기를 사용할 수 없으므로 VM을 만들지 못했습니다.
+
+오류 코드: UserErrorSkuNotAvailable 오류 메시지: 선택한 VM 크기를 사용할 수 없으므로 VM을 만들지 못했습니다. 
+ 
+이 오류는 복원 작업 중에 선택한 VM 크기가 지원 되지 않는 크기 이기 때문에 발생 합니다. <br>
+
+이 문제를 해결 하려면 복원 작업 중에 [디스크 복원](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) 옵션을 사용 합니다. 이러한 디스크를 사용 하 여 [Powershell cmdlet](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks)을 사용 하 여 [지원 되는 지원 되는 vm 크기](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) 목록에서 vm을 만듭니다.
+
+### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported-시장 진입 구매 요청이 없어서 VM을 만들지 못했습니다.
+
+오류 코드: UserErrorMarketPlaceVMNotSupported 오류 메시지: 시장 위치 구매 요청이 없어서 VM을 만들지 못했습니다. 
+ 
+Azure Backup은 Azure Marketplace에서 사용할 수 있는 Vm의 백업 및 복원을 지원 합니다. 이 오류는 Azure Marketplace에서 더 이상 사용할 수 없는 VM (특정 계획/게시자 설정 사용)을 복원 하려고 할 때 발생 합니다. [여기에서 자세한 내용을 알아보세요](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal).
+- 이 문제를 해결 하려면 복원 작업 중에 [디스크 복원](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) 옵션을 사용한 다음 [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) 또는 [Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) cmdlet을 사용 하 여 vm에 해당 하는 최신 마켓플레이스 정보를 사용 하 여 vm을 만듭니다.
+- 게시자에 Marketplace 정보가 없는 경우 데이터 디스크를 사용 하 여 데이터를 검색 하 고이를 기존 VM에 연결할 수 있습니다.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - 백업 확장에 대한 구성을 구문 분석하지 못했습니다.
 

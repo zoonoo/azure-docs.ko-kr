@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: ed29752e0b5f2ee9acf0382ef96e1b685f9cc886
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b4eff5910ff5230902d497b55b2afbe6d605365a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068510"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177434"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Microsoft Authenticator를 사용 하는 iOS 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션
 
@@ -25,7 +25,7 @@ Azure Active Directory Authentication Library for .NET (ADAL.NET) 및 iOS broker
 
 어디서 시작해야 합니까? 이 문서는 ADAL에서 MSAL으로 Xamarin iOS 앱을 마이그레이션하는 데 도움이 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 이 문서에서는 iOS broker와 통합 된 Xamarin iOS 앱이 이미 있다고 가정 합니다. 그렇지 않으면 MSAL.NET로 직접 이동 하 여 해당 위치에서 broker 구현을 시작 합니다. 새 응용 프로그램을 사용 하 여 MSAL.NET에서 iOS broker를 호출 하는 방법에 대 한 자세한 내용은 [이 설명서](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications)를 참조 하세요.
 
 ## <a name="background"></a>배경
@@ -119,7 +119,7 @@ MSAL.NET에서 iOS에 대 한 개체 창을 설정 하는 두 가지 작업을 �
 이 할당을 통해 broker에 대 한 호출을 사용 하 여 UIViewController가 있는지 확인할 수 있습니다. 올바르게 설정 되지 않은 경우 다음 오류가 발생할 수 있습니다. `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 1. AcquireTokenInteractive 호출에서를 사용 하 여 `.WithParentActivityOrWindow(App.RootViewController)` 사용할 개체 창에 대 한 참조를 전달 합니다.
 
-**예를 들면 다음과 같습니다.**
+**예:**
 
 `App.cs`의 경우
 ```csharp
@@ -160,7 +160,7 @@ URL 구성표는 앱에 고유 합니다.
 
 접두사로 사용한 다음 `CFBundleURLName`
 
-`$"msauth.(BundleId")`
+예: `$"msauth.(BundleId")`
 
 ```csharp
  <key>CFBundleURLTypes</key>
@@ -225,20 +225,33 @@ ADAL.NET 및 MSAL.NET 모두 broker를 대상으로 하는 경우 리디렉션 U
 
 `"<app-scheme>://<your.bundle.id>"`
 
-예:
+예제:
 
 `mytestiosapp://com.mycompany.myapp`
 </td><td>
 
 `$"msauth.{BundleId}://auth"`
 
-예:
+예제:
 
 `public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; `
 
 </table>
 
 Azure Portal에서 리디렉션 URI를 등록 하는 방법에 대 한 자세한 내용은 [7 단계: 앱 등록에 리디렉션 Uri 추가](msal-net-use-brokers-with-xamarin-apps.md#step-7-add-a-redirect-uri-to-your-app-registration)를 참조 하세요.
+
+### <a name="step-7-set-the-entitlementsplist"></a>**7 단계: info.plist 설정**
+
+Info.plist 파일에서 키 집합 액세스를 사용 하도록 설정 *합니다* .
+
+```xml
+ <key>keychain-access-groups</key>
+    <array>
+      <string>$(AppIdentifierPrefix)com.microsoft.adalcache</string>
+    </array>
+```
+
+키 집합 액세스를 사용 하는 방법에 대 한 자세한 내용은 키 [집합 액세스 사용](msal-net-xamarin-ios-considerations.md#enable-keychain-access)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

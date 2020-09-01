@@ -3,12 +3,12 @@ title: DPM 및 MABS에 대 한 Azure Data Box를 사용 하 여 오프 라인 �
 description: Azure Data Box를 사용 하 여 DPM 및 MABS에서 초기 백업 데이터를 오프 라인으로 초기값으로 지정할 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 5a8fbf3869794b6a5ef78e78177f130e4e009795
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017603"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177689"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>DPM 및 MABS (미리 보기)에 대 한 Azure Data Box를 사용 하 여 오프 라인 시드
 
@@ -73,7 +73,7 @@ DPM/MABS에서 실행 중인 MARS 에이전트는 [최신 버전](https://aka.ms
 
 ## <a name="setup-azure-data-box-devices"></a>Azure Data Box 장치 설치
 
-Azure Data Box 장치를 받은 후에는 주문한 Azure Data Box SKU에 따라 아래 해당 섹션의 단계를 수행 하 여 DPM/MABS 서버의 Data Box 장치를 설정 하 고 준비 하 여 초기 백업 데이터를 식별 하 고 전송 합니다.
+Azure Data Box 장치를 받은 후 주문한 Azure Data Box SKU에 따라 아래 해당 섹션의 단계를 수행 하 여 DPM/MABS 서버에 대 한 Data Box 장치를 설정 하 고 준비 하 여 초기 백업 데이터를 확인 하 고 전송 합니다.
 
 ### <a name="setup-azure-data-box-disk"></a>Azure Data Box 디스크 설정
 
@@ -149,7 +149,7 @@ DPM/MABS 서버는 시스템 컨텍스트에서 작동 하므로 Azure Data Box 
           - Azure.Storage       *4.6.1*<br>
      >  - Azure AD 애플리케이션은 *AzureOfflineBackup_\<object GUID of the user>* 으로 등록됩니다.
 
-13. Data Box 디스크의 포장을 풀고 디스크를 연결 및 잠금 해제한 올바른 Data Box 주문을 선택합니다. **다음**을 선택합니다.
+13. Data Box 디스크의 압축을 풀고 연결 하 고 잠금을 해제 한 올바른 데이터 상자 순서를 선택 합니다. **다음**을 선택합니다.
 
     ![DataBox 선택](./media/offline-backup-azure-data-box-dpm-mabs/select-databox.png)
 

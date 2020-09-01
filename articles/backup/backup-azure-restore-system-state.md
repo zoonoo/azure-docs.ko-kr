@@ -3,12 +3,12 @@ title: Windows Server에 시스템 상태 복원
 description: Azure의 백업에서 Windows Server 시스템 상태를 복원 하는 방법에 대 한 단계별 설명입니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 9237d3d087da7f9e72813baa0056cd6b70f2c914
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: d3fb88ddbb02327db4388de18d2645519e13d2ec
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892544"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178589"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -112,7 +112,7 @@ Windows Server가 손상되었거나 액세스할 수 없고 Windows Server 시�
 
 ## <a name="apply-restored-system-state-on-a-windows-server"></a>Windows Server에서 복원된 시스템 상태 적용
 
-Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일로 복구했다면 Windows Server Backup 유틸리티를 사용하여 복구된 시스템 상태를 Windows Server에 적용합니다. Windows Server Backup 유틸리티를 서버에 사용할 수 있습니다. 다음 단계에서는 복구된 시스템 상태를 적용하는 방법을 설명합니다.
+Azure Recovery Services 에이전트를 사용 하 여 시스템 상태를 파일로 복구한 후에는 Windows Server 백업 유틸리티를 사용 하 여 복구 된 시스템 상태를 Windows Server에 적용 합니다. Windows Server Backup 유틸리티를 서버에 사용할 수 있습니다. 다음 단계에서는 복구된 시스템 상태를 적용하는 방법을 설명합니다.
 
 1. Windows Server 백업 스냅인을 엽니다. 스냅인이 설치된 위치를 모르는 경우 컴퓨터 또는 서버에서 **Windows Server Backup**을 검색합니다.
 

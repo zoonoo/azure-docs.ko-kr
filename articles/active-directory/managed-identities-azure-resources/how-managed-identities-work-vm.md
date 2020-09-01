@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 06/11/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb5355d4c83961d87ad4b880f6b3758b212e74dd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b93f45b05e6d7773afc2f750fd1a9a034c01ca1e
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014352"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178674"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>Azure 리소스에 대한 관리 ID가 Azure 가상 머신과 함께 작동하는 방법
 
@@ -55,7 +55,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 3. Azure Resource Manager는 Instance Metadata Service ID 엔드포인트를 서비스 주체 클라이언트 ID 및 인증서로 업데이트하여 VM에서 ID를 구성합니다.
 
-4. VM에 ID가 생긴 후에는 서비스 주체 정보를 사용하여 Azure 리소스에 대한 VM 액세스 권한을 부여합니다. Azure Resource Manager를 호출하려면 Azure AD에서 RBAC(역할 기반 액세스 제어)를 사용하여 VM 서비스 주체에 적절한 역할을 할당합니다. Key Vault를 호출하려면 Key Vault의 특정 비밀 또는 키에 대한 액세스 권한을 코드에 부여합니다.
+4. VM에 ID가 생긴 후에는 서비스 주체 정보를 사용하여 Azure 리소스에 대한 VM 액세스 권한을 부여합니다. Azure Resource Manager를 호출 하려면 azure RBAC (역할 기반 액세스 제어)를 사용 하 여 VM 서비스 주체에 적절 한 역할을 할당 합니다. Key Vault를 호출하려면 Key Vault의 특정 비밀 또는 키에 대한 액세스 권한을 코드에 부여합니다.
 
 5. VM에서 실행되는 코드는 Azure Instance Metadata Service 엔드포인트에서 토큰(`http://169.254.169.254/metadata/identity/oauth2/token`)을 요청할 수 있으며, VM 내에서만 액세스할 수 있습니다.
     - 리소스 매개 변수가 토큰을 보낼 대상 서비스를 지정합니다. Azure Resource Manager에 인증하려면 `resource=https://management.azure.com/`을 사용합니다.
@@ -73,7 +73,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 3. Azure Resource Manager는 VM에서 사용자 할당 관리 ID를 구성하라는 요청을 받고 사용자 할당 관리 ID 서비스 주체 클라이언트 ID 및 인증서로 Azure Instance Metadata Service ID 엔드포인트를 업데이트합니다.
 
-4. 사용자 할당 관리 ID가 생성된 후에는 서비스 주체 정보를 사용하여 Azure 리소스에 대한 ID 액세스 권한을 부여합니다. Azure Resource Manager를 호출하려면 Azure AD에서 RBAC를 사용하여 사용자 할당 ID의 서비스 주체에 적절한 역할을 할당합니다. Key Vault를 호출하려면 Key Vault의 특정 비밀 또는 키에 대한 액세스 권한을 코드에 부여합니다.
+4. 사용자 할당 관리 ID가 생성된 후에는 서비스 주체 정보를 사용하여 Azure 리소스에 대한 ID 액세스 권한을 부여합니다. Azure Resource Manager를 호출 하려면 Azure RBAC를 사용 하 여 사용자 할당 id의 서비스 주체에 적절 한 역할을 할당 합니다. Key Vault를 호출하려면 Key Vault의 특정 비밀 또는 키에 대한 액세스 권한을 코드에 부여합니다.
 
    > [!Note]
    > 이 단계를 3단계 전에 수행할 수도 있습니다.
