@@ -1,21 +1,21 @@
 ---
 title: Azure Stack Edge GPU에서 인증서 사용 | Microsoft Docs
 description: 을 사용 하는 이유, 장치에서 인증서를 업로드 하는 방법 등을 포함 하 여 Azure Stack Edge GPU 장치에서 인증서를 사용 하는 방법을 설명 합니다.
-services: Azure Stack Edge
+services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 7742d036857525ce6be64a53234f7aa717d4bdca
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: bf7f9236c8f0835d0041b4b0c454a492330ef878
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147085"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268879"
 ---
-# <a name="use-certificates-with-azure-stack-edge-series"></a>Azure Stack Edge 시리즈에서 인증서 사용 
+# <a name="use-certificates-with-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에서 인증서 사용
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -52,7 +52,7 @@ Azure Stack Edge 장치에서 사용 되는 다양 한 유형의 인증서는 �
 
 인증서 또는 서명 인증 기관에 서명 하는 인증 기관에 대 한 인증서입니다. 
 
-### <a name="types"></a>형식
+### <a name="types"></a>유형
 
 이러한 인증서는 루트 인증서 또는 중간 인증서 일 수 있습니다. 루트 인증서는 항상 자체 서명 되거나 자체 서명 됩니다. 중간 인증서는 자체 서명 되지 않고 서명 기관에서 서명 됩니다.
 
@@ -77,7 +77,7 @@ Azure Stack Edge 장치에서 사용 되는 다양 한 유형의 인증서는 �
 - DNS 도메인이 변경 되어도 장치 이름이 변경 되지 않으면 노드 인증서를 변경 해야 합니다. 사용자 고유의 노드 인증서를 가져오는 경우 장치 일련 번호를 변경할 수 없으며, 도메인 이름만 변경할 수 있습니다.
 - 다음 표를 사용 하 여 노드 인증서를 만들 때 안내 합니다.
    
-    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |노드|`<NodeSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br><br>`<NodeSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
    
@@ -98,9 +98,9 @@ Azure Stack Edge 장치에서 사용 되는 다양 한 유형의 인증서는 �
 - 끝점 인증서의 속성은 일반적인 SSL 인증서의 속성과 유사 합니다. 
 - 끝점 인증서를 만들 때 다음 표를 사용 합니다.
 
-    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
-    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
@@ -114,7 +114,7 @@ Azure Stack Edge 장치에서 사용 되는 다양 한 유형의 인증서는 �
 - 로컬 UI 인증서는 `.pfx` 내보낼 수 있는 개인 키를 사용 하 여 형식으로도 업로드 됩니다.
 - 로컬 UI 인증서를 업로드 한 후 브라우저를 다시 시작 하 고 캐시를 지워야 합니다. 브라우저에 대 한 구체적인 지침을 참조 하세요.
 
-    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |로컬 UI| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
    
