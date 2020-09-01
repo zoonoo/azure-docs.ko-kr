@@ -16,14 +16,17 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 70acbb239df3806437127e41510bfebc1358532a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 36a1a198f4bd2279a9d9b8b9700b1ddd038a0900
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015971"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256667"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>프리미엄 인코더로 여러 입력 파일 및 구성 요소 속성 사용
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>개요
 **미디어 인코더 프리미엄 워크플로** 미디어 프로세서로 작업을 제출할 때 구성 요소 속성을 사용자 지정하고 클립 목록 XML 콘텐츠를 지정하거나 여러 입력 파일을 전송해야 하는 시나리오가 있습니다. 예는 다음과 같습니다.
 

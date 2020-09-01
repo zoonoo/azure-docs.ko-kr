@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Edge 장치에서 PHP 방명록 앱을 Arc 사용 Kubernetes에 배포 | Microsoft Docs
+title: Azure Stack Edge GPU 장치에서 PHP 방명록 앱을 Arc 사용 Kubernetes에 배포 | Microsoft Docs
 description: Azure Stack Edge 장치의 Arc enabled Kubernetes 클러스터에서 GitOps를 사용 하 여 Redis를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 46cef291a447a7c243ee9ef66ee64e9c6264ad23
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 83ac012c861a0d066bdc47d8e15cbe7ac398aa23
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085770"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254222"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge"></a>Azure Stack Edge에서 Redis on Arc enabled Kubernetes cluster를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램을 배포 합니다.
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Azure Stack Edge GPU에서 Redis on Arc enabled Kubernetes cluster를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램 배포
 
 이 문서에서는 Kubernetes 및 Azure Arc를 사용 하 여 간단한 다중 계층 웹 응용 프로그램을 빌드하고 배포 하는 방법을 보여 줍니다. 이 예제는 다음과 같은 구성 요소로 구성 됩니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "89085770"
 이 절차는 [Azure Stack Edge 장치에서 Kubernetes 작업](azure-stack-edge-gpu-kubernetes-workload-management.md) 을 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 상태 비저장 응용 프로그램을 배포 하기 전에 장치에서 장치에 액세스 하는 데 사용할 클라이언트 및 장치에 대 한 다음 필수 구성 요소를 완료 했는지 확인 합니다.
 

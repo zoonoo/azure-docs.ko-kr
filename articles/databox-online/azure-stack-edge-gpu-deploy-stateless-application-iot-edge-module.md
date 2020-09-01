@@ -1,6 +1,6 @@
 ---
-title: 모듈에 액세스 하려면 Azure Stack Edge에서 계산 네트워크 관리 | Microsoft Docs
-description: Azure Stack Edge에서 계산 네트워크를 확장 하 여 외부 IP를 통해 모듈에 액세스 하는 방법을 설명 합니다.
+title: IoT Edge 모듈을 통해 Azure Stack Edge GPU에 Kubernetes 상태 비저장 앱 배포 | Microsoft Docs
+description: 외부 IP를 통해 액세스 되는 IoT Edge 모듈을 사용 하 여 Azure Stack Edge GPU 장치에 Kubernetes 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 8de3dbd754cd0cbef947d2cde44542f9f3f77a08
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 15316cbdd44053bfaf7403815ba42d92e2264b7b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085651"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254171"
 ---
-# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-device"></a>IoT Edge 모듈을 사용 하 여 Azure Stack Edge 장치에서 Kubernetes 상태 비저장 응용 프로그램 실행
+# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-gpu-device"></a>IoT Edge 모듈을 사용 하 여 Azure Stack Edge GPU 장치에서 Kubernetes 상태 비저장 응용 프로그램을 실행 합니다.
 
 이 문서에서는 IoT Edge 모듈을 사용 하 여 Azure Stack에 지 장치에 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "89085651"
 
 이 방법 문서에서는 웹 서버 앱 모듈을 사용 하 여 시나리오를 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작 하기 전에 다음이 필요 합니다.
 

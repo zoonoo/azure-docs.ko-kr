@@ -1,23 +1,23 @@
 ---
-title: Microsoft Azure Stack Edge 장치에 GPU 모듈을 배포 합니다. Microsoft Docs
+title: Azure Stack Edge GPU 장치에 GPU 모듈을 배포 합니다. Microsoft Docs
 description: 계산을 사용 하도록 설정 하 고 로컬 UI를 통해 Azure Stack Edge 장치를 계산 하도록 설정 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 68badb1524c869309a0e2d96eaf6c9e490111bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5af86001d46bf194c9b61f325052a4cde0d86d5e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085807"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254562"
 ---
-# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-device"></a>Azure Stack Edge 장치에서 GPU 사용 IoT 모듈 배포
+# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에서 GPU 사용 IoT 모듈 배포
 
-이 문서에서는 Azure Stack에 지 장치에서 GPU 사용 IoT Edge 모듈을 배포 하는 방법을 설명 합니다. 
+이 문서에서는 Azure Stack Edge GPU 장치에서 GPU 사용 IoT Edge 모듈을 배포 하는 방법을 설명 합니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
   - GPU 모듈을 실행할 Azure Stack Edge를 준비 합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "89085807"
 
 이 문서의 GPU 샘플 모듈에는 GPU에 대 한 CPU에 대 한 PyTorch 및 TensorFlow 벤치마킹 샘플 코드가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 확인합니다.
 

@@ -16,14 +16,16 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 39cbfebcf34ef47ae93972a11be44ef3bcec0d66
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5665357474b392a413d2b70f9c321b5da3e0bfe5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008950"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256449"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Azure Media Indexer를 사용하여 미디어 파일 인덱싱
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > **Azure Media Indexer** 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는 이 [레거시 구성 요소](legacy-components.md) 항목을 참조하세요. [Azure Media Services Video Indexer](../video-indexer/index.yml) 이 레거시 미디어 프로세서를 대체 합니다. 자세한 내용은 [Azure Media Indexer 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조하세요.
@@ -248,7 +250,7 @@ Azure Media Indexer를 사용하면 미디어 파일 콘텐츠를 검색 가능�
 | --- | --- | --- |
 | **input** |false |인덱싱할 자산 파일입니다.</p><p>Azure Media Indexer는 MP4, WMV, MP3, M4A, WMA, AAC, WAV의 미디어 파일 형식을 지원합니다.</p><p>아래에서 보여 주듯이 **입력** 요소의 **name** 또는 **list** 특성에 파일 이름을 지정할 수 있습니다. 인덱싱할 파일을 지정하지 않으면 기본 파일이 선택됩니다. 기본 자산 파일이 설정되지 않은 경우 입력 자산의 첫 번째 파일이 인덱싱됩니다.</p><p>자산 파일 이름을 명시적으로 지정하려면 다음을 수행합니다.<br/>`<input name="TestFile.wmv">`<br/><br/>한 번에 여러 자산 파일을 인덱싱할 수도 있습니다(최대 10개 파일). 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면<br/><br/><ol class="ordered"><li><p>텍스트 파일(매니페스트 파일)을 만들고 .lst 확장명을 지정합니다. </p></li><li><p>입력 자산에 있는 모든 자산 파일의 이름 목록을 이 매니페스트 파일에 추가합니다. </p></li><li><p>자산에 매니페스트 파일을 추가(업로드)합니다.  </p></li><li><p>입력의 목록 특성에 매니페스트 파일의 이름을 지정합니다.<br/>`<input list="input.lst">`</li></ol><br/><br/>참고: 매니페스트 파일에 10개 이상의 파일을 추가하는 경우 인덱싱 작업이 2006 오류 코드와 함께 실패합니다. |
 | **메타** |false |어휘 적응에 사용되는 지정된 자산 파일에 대한 메타데이터입니다.  적절한 명사와 같은 비표준 어휘 단어를 인식하는 인덱서를 준비하는 경우 유용합니다.<br/>`<metadata key="..." value="..."/>` <br/><br/>미리 정의된 **키**에 대해 **값**을 제공할 수 있습니다. 현재 다음 키가 지원됩니다.<br/><br/>"title" 및 "description" - 어휘 적응에서 작업에 대한 언어 모델을 조정하고 음성 인식 정확도를 향상하는 데 사용됩니다.  값 시드 인터넷으로 인덱싱 태스크 기간 동안 내부 디렉터리를 보강할 콘텐츠를 사용하여 문맥적으로 관련된 텍스트 문서를 검색하여 찾습니다.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **요소** <br/><br/>  버전 1.2에 추가되었습니다. 현재 지원되는 유일한 기능은 음성 인식("ASR")입니다. |false |음성 인식 기능에는 다음 설정 키가 포함됩니다.<table><tr><th><p>키</p></th>        <th><p>Description</p></th><th><p>예제 값</p></th></tr><tr><td><p>언어</p></td><td><p>멀티미디어 파일에서 인식되는 자연 언어입니다.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>원하는 출력 자막 형식의 세미콜론으로 구분된 목록(있는 경우)</p></td><td><p>ttml; webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>키워드 XML 파일이 필요한지 여부를 지정하는 부울 플래그입니다.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>신뢰 수준에 관계없이 전체 캡션을 강제로 적용할지 여부를 지정하는 부울 플래그입니다.  </p><p>기본값은 false이고 신뢰 수준이 50% 미만인 단어 및 구는 최종 캡션 출력에서 생략되고 줄임표("...")로 대체됩니다.  줄임표는 캡션 품질 제어 및 감사에 유용합니다.</p></td><td><p>True; False. </p></td></tr></table> |
+| **요소** <br/><br/>  버전 1.2에 추가되었습니다. 현재 지원되는 유일한 기능은 음성 인식("ASR")입니다. |false |음성 인식 기능에는 다음 설정 키가 포함됩니다.<table><tr><th><p>키</p></th>        <th><p>Description</p></th><th><p>예제 값</p></th></tr><tr><td><p>Language</p></td><td><p>멀티미디어 파일에서 인식되는 자연 언어입니다.</p></td><td><p>English, Spanish</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>원하는 출력 자막 형식의 세미콜론으로 구분된 목록(있는 경우)</p></td><td><p>ttml; webvtt</p></td></tr><tr><td><p></p></td><td><p> </p></td><td><p>True; False</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>키워드 XML 파일이 필요한지 여부를 지정하는 부울 플래그입니다.</p></td><td><p>True; False. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>신뢰 수준에 관계없이 전체 캡션을 강제로 적용할지 여부를 지정하는 부울 플래그입니다.  </p><p>기본값은 false이고 신뢰 수준이 50% 미만인 단어 및 구는 최종 캡션 출력에서 생략되고 줄임표("...")로 대체됩니다.  줄임표는 캡션 품질 제어 및 감사에 유용합니다.</p></td><td><p>True; False. </p></td></tr></table> |
 
 ### <a name="error-codes"></a><a id="error_codes"></a>오류 코드
 오류 발생 시 Azure Media Indexer는 다음 오류 코드 중 하나를 다시 보고해야 합니다.

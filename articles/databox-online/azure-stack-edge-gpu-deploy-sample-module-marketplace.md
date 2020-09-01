@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 1532283be8521ad5c6cd5a9e2252e5ba839a4aa3
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: ac9ff084476f37348b72bdb42b9b74660132b762
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085863"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254637"
 ---
-# <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-device"></a>Azure Stack에 지 장치의 Azure Marketplace에서 GPU 사용 IoT 모듈 배포
+# <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-gpu-device"></a>Azure Stack에 지 GPU 장치의 Azure Marketplace에서 GPU 사용 IoT 모듈 배포
 
 이 문서에서는 Azure Stack Edge 장치의 Azure Marketplace에서 GPU (그래픽 처리 장치) 사용 IoT Edge 모듈을 배포 하는 방법을 설명 합니다. 
 
@@ -28,7 +28,7 @@ ms.locfileid: "89085863"
 
 이 문서의 GPU 샘플 모듈에는 GPU에 대 한 CPU에 대 한 PyTorch 및 TensorFlow 벤치마킹 샘플 코드가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 확인합니다.
 

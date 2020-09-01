@@ -1,7 +1,7 @@
 ---
 title: 실험 추적 및 배포 모델
 titleSuffix: Azure Data Science Virtual Machine
-description: Azure Machine Learning 및/또는 MLFlow를 사용 하 여 DSVM에서 실험을 추적 하 고 기록 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 및/또는 MLFlow를 사용 하 여 Data Science Virtual Machine에서 실험을 추적 하 고 기록 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 943e8bd9f272f3dc8cefbfbccd326cf520497bb2
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146898"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254803"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Azure Machine Learning에서 실험 추적 및 모델 배포
 
@@ -26,7 +26,7 @@ ms.locfileid: "89146898"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [Azure Machine Learning 작업 영역를 프로 비전](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace) 해야 합니다.
+* [Azure Machine Learning 작업 영역를 프로 비전 해야 합니다](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace) .
 
 ## <a name="create-a-new-notebook"></a>새 Notebook 만들기
 
@@ -127,11 +127,11 @@ with mlflow.start_run():
 
 ## <a name="deploy-model-in-azure-machine-learning"></a>Azure Machine Learning에 모델 배포
 
-이 섹션에서는 DSVM에서 학습 된 모델을 Azure Machine Learning에 배포 하는 방법을 간략하게 설명 합니다.
+이 섹션에서는 DSVM에서 학습 된 모델을 Azure Machine Learning에 배포 하는 방법에 대해 간략하게 설명 합니다.
 
 ### <a name="step-1-create-inference-compute"></a>1 단계: 유추 계산 만들기
 
-[AzureML 스튜디오](https://ml.azure.com) 의 왼쪽 메뉴에서 __계산__ 을 클릭 한 다음 __유추 클러스터__ 탭을 클릭 합니다. 다음으로, 아래와 같이 __새로 만들기 + 새로 만들기__ 를 클릭 합니다.
+[AzureML 스튜디오](https://ml.azure.com) 의 왼쪽 메뉴에서 __계산__ 을 클릭 한 다음 __유추 클러스터__ 탭을 클릭 합니다. 다음으로 아래 설명 된 대로 __+ 새로 만들기__ 를 클릭 합니다.
 
 ![유추 계산 만들기](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
@@ -151,7 +151,7 @@ __새 유추 클러스터__ 창에서 다음에 대 한 세부 정보를 입력 
 
 ### <a name="step-2-deploy-no-code-inference-service"></a>2 단계: 코드 없는 유추 서비스 배포
 
-코드에 모델을 등록 하는 경우 `register_model` 프레임 워크를 사용 하도록 지정 합니다. Azure Machine Learning는 다음 프레임 워크에 대 한 코드 배포를 지원 하지 않습니다.
+를 사용 하 여 코드에 모델을 등록 하는 경우 프레임 워크를 사용 하 `register_model` 는 것으로 지정 했습니다. Azure Machine Learning는 다음 프레임 워크에 대 한 코드 배포를 지원 하지 않습니다.
 
 * scikit-learn
 * Tensorflow SaveModel 형식
@@ -167,7 +167,7 @@ __새 유추 클러스터__ 창에서 다음에 대 한 세부 정보를 입력 
 
 ![배포](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
-1 단계에서 만든 유추 클러스터 (Azure Kubernetes Service)에 모델을 배포 합니다. 서비스 이름을 제공 하 여 아래 세부 정보를 입력 하 고 1 단계에서 만든 AKS 계산 클러스터의 이름을 입력 합니다. 또한 __CPU 예약 용량__ 을 1 (0.1에서) 및 __메모리 예약 용량__ 을 1 (0.5)로 늘리는 것이 좋습니다. __고급__ 을 클릭 하 고 세부 정보를 입력 하 여이 작업을 수행할 수 있습니다. 그런 다음 __배포__를 클릭 합니다.
+1 단계에서 만든 유추 클러스터 (Azure Kubernetes Service)에 모델을 배포 합니다. 서비스 이름을 제공 하 여 아래 세부 정보를 입력 하 고 1 단계에서 만든 AKS 계산 클러스터의 이름을 입력 합니다. 또한 __CPU 예약 용량__ 을 1 (0.1에서) 및 __메모리 예약 용량__ 을 1 (0.5)로 늘리는 것이 좋습니다. __고급__ 을 클릭 하 고 세부 정보를 입력 하 여이를 늘릴 수 있습니다. 그런 다음 __배포__를 클릭 합니다.
 
 ![배포 세부 정보](./media/how-to-track-experiments/mlflow-experiments-5.png)
 
@@ -177,7 +177,7 @@ __새 유추 클러스터__ 창에서 다음에 대 한 세부 정보를 입력 
 
 ![모델 사용](./media/how-to-track-experiments/mlflow-experiments-8.png)
 
-배포 상태가 __정상__으로 __전환__ 되는 것을 알 수 있습니다. 또한이 세부 정보 섹션에서는 응용 프로그램 개발자가 ML 모델을 앱에 통합 하는 데 사용할 수 있는 REST 끝점 및 Swagger Url을 제공 합니다.
+배포 상태가 __정상__으로 __전환__ 되는 것으로 표시 되어야 합니다. 또한이 세부 정보 섹션에서는 응용 프로그램 개발자가 ML 모델을 앱에 통합 하는 데 사용할 수 있는 REST 끝점 및 Swagger Url을 제공 합니다.
 
 [Postman](https://www.postman.com/)을 사용 하 여 끝점을 테스트 하거나 AzureML SDK를 사용할 수 있습니다.
 
@@ -200,7 +200,7 @@ print(output)
 
 ### <a name="step-4-clean-up"></a>4 단계: 정리
 
-진행 중인 계산 요금이 발생 하지 않도록 1 단계에서 만든 유추 계산을 삭제 해야 합니다. Azure Machine Learning Studio의 왼쪽 메뉴에서 계산 > 유추 클러스터를 클릭 > 계산 > 삭제를 선택 합니다.
+진행 중인 계산 요금이 발생 하지 않도록 1 단계에서 만든 유추 계산을 삭제 합니다. Azure Machine Learning Studio의 왼쪽 메뉴에서 계산 > 유추 클러스터를 클릭 > 계산 > 삭제를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

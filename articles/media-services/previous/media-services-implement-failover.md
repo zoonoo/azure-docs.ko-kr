@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 91ef9d8bf75874f07c6a4a9c5763ff77b97b0180
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 10976c91e781763264d73adcc54ba88ec8d07f54
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008967"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256534"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Media Services v2를 사용 하 여 장애 조치 스트리밍 구현
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 이 연습에서는 주문형 스트리밍에 대한 중복성을 처리 하기 위해 한 자산에서 다른 자산으로 콘텐츠(Blob)를 복사하는 방법을 보여줍니다. 이 시나리오는 데이터 센터에서 가동이 중단되는 경우 두 데이터 센터 간에 장애 조치할 Azure Content Delivery Network를 설정하려는 경우에 유용합니다. 이 연습에서는 Azure Media Services SDK, Azure Media Services REST API 및 Azure Storage SDK를 사용하여 다음 작업을 설명합니다.
 

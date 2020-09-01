@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 207afe4117e0ab843a35ceadd021c2a201bc5de3
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7754c57563ec5acb9028c2ace217f318fea5e959
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085231"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256282"
 ---
 # <a name="system-requirements-for-azure-stack-edge-with-gpu"></a>GPU를 사용 하는 Azure Stack Edge에 대 한 시스템 요구 사항 
 
@@ -40,7 +40,7 @@ Azure Stack Edge에 대 한 시스템 요구 사항은 다음과 같습니다.
 
 Azure Stack에서 관리 되는 경우 다음과 같은 계층화 된 저장소 계정이 SMB/NFS/REST 인터페이스에서 지원 됩니다.
 
-|형식  |스토리지 계정  |의견  |
+|유형  |스토리지 계정  |설명  |
 |---------|---------|---------|
 |표준     |GPv1: 블록 Blob         |         |
 |    |  Blob storage: 블록 Blob       | NAS 에서만 지원 됨     |

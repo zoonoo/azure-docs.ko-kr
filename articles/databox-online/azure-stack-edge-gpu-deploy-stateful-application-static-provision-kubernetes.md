@@ -1,6 +1,6 @@
 ---
 title: Kubectl를 사용 하 여 Azure Stack Edge 장치에서 정적으로 프로 비전 된 공유를 통해 Kubernetes 상태 저장 앱 배포 | Microsoft Docs
-description: Microsoft Azure Stack Edge 장치에서 kubectl를 사용 하 여 정적으로 프로 비전 된 공유를 통해 Kubernetes 상태 저장 응용 프로그램 배포를 만들고 관리 하는 방법을 설명 합니다.
+description: Azure Stack Edge GPU 장치에서 kubectl를 사용 하 여 정적으로 프로 비전 된 공유를 통해 Kubernetes 상태 저장 응용 프로그램 배포를 만들고 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: alkohli
-ms.openlocfilehash: cabd27849445c0eab93a6649d228a172b66bd1a4
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 17be54536f785049aef6831e01f1f12219225b90
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085806"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254375"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-device"></a>Kubectl를 사용 하 여 Azure Stack Edge 장치에서 PersistentVolume로 Kubernetes 상태 저장 응용 프로그램을 실행 합니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "89085806"
 이 절차는 [Azure Stack Edge 장치에서 Kubernetes 저장소](azure-stack-edge-gpu-kubernetes-storage.md) 를 검토 하 고 [Kubernetes 저장소](https://kubernetes.io/docs/concepts/storage/)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 상태 저장 응용 프로그램을 배포 하기 전에 장치에서 장치에 액세스 하는 데 사용할 클라이언트 및 장치에 대 한 다음 필수 구성 요소를 완료 했는지 확인 합니다.
 
