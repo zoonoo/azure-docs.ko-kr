@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Azure DevOps Starter를 사용하여 .NET용 CI/CD 파이프라인 만들기'
-description: Azure DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 빠른 몇 단계로 원하는 Azure 서비스에서 .NET 앱을 시작할 수 있습니다.
+description: Azure DevOps Starter를 사용하면 Azure를 쉽게 시작할 수 있습니다. 몇 단계로 빠르게 원하는 Azure 서비스에서 .NET 앱을 시작할 수 있습니다.
 ms.prod: devops
 ms.technology: devops-cicd
 services: azure-devops-project
@@ -26,7 +26,7 @@ ms.locfileid: "88163699"
 
 DevOps Starter를 사용하여 .NET Core 또는 ASP.NET 애플리케이션에 대한 CI(연속 통합) 및 CD(지속적인 업데이트)를 구성합니다. DevOps Starter는 Azure Pipelines에서 빌드 및 릴리스 파이프라인의 초기 구성을 간소화합니다.
 
-Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료로 구독을 구할 수 있습니다.
+Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료로 구독할 수 있습니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -64,7 +64,7 @@ DevOps Starter는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Azu
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>코드 변경 내용 커밋 및 CI/CD 실행
 
-DevOps Starter는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만들었습니다. 리포지토리를 살펴보고 애플리케이션의 코드를 변경하려면 다음 단계를 수행합니다.
+DevOps Starter는 Azure Repos 또는 GitHub에 Git 리포지토리를 만듭니다. 리포지토리를 살펴보고 애플리케이션의 코드를 변경하려면 다음 단계를 수행합니다.
 
 1. DevOps Starter 대시보드 왼쪽에서 **마스터** 분기에 대한 링크를 선택합니다. 이 링크는 새로 생성된 Git 리포지토리 보기를 엽니다.
 
@@ -82,11 +82,11 @@ DevOps Starter는 Azure Repos 또는 GitHub에서 Git 리포지토리를 만들�
 
 ## <a name="examine-the-cicd-pipeline"></a>CD 파이프라인 검토
 
-이전 단계에서 Azure DevOps Starter가 전체 CI/CD 파이프라인을 자동으로 구성했습니다. 필요에 따라 파이프라인을 탐색하고 사용자 지정합니다. Azure DevOps 빌드 및 릴리스 파이프라인을 숙지하려면 다음을 수행합니다.
+이전 단계에서 Azure DevOps Starter가 전체 CI/CD 파이프라인을 자동으로 구성했습니다. 필요에 따라 파이프라인을 탐색하고 사용자화합니다. Azure DevOps 빌드 및 릴리스 파이프라인을 숙지하려면 다음을 수행합니다.
 
 1. DevOps Starter 대시보드 맨 위에서 **빌드 파이프라인**을 선택합니다. 이 링크는 브라우저 탭 및 새 프로젝트에 대한 Azure DevOps 빌드 파이프라인을 엽니다.
 
-1. 줄임표(...)를 선택합니다.  이 작업은 새 빌드 큐, 빌드 일시 중지 및 빌드 파이프라인 편집과 같은 여러 활동을 시작할 수 있는 메뉴를 엽니다.
+1. 줄임표(...)를 선택합니다.  이 작업은 새로운 빌드 큐에 대기, 빌드 일시 중지 및 빌드 파이프라인 편집과 같은 여러 활동을 시작할 수 있는 메뉴를 엽니다.
 
 1. **편집**을 선택합니다.
 
