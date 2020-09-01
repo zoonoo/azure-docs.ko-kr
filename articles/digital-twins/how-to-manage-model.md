@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 85056710c8072c55e2661021795d9aedb407b629
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a2b3bfa8553e7c350c08fa7e1a7376ca08d9644
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013007"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079779"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -113,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들어:
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 [
@@ -170,9 +170,9 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `ModelData` . `Mo
 
 모델을 인스턴스에 업로드 하 고 나면 모델 인터페이스 전체를 변경할 수 없습니다. 이는 기존의 모델 "편집"이 없음을 의미 합니다.
 
-대신 Azure Digital Twins에서 또는 변경과 같은 모델을 변경 하려는 경우 `DisplayName` `Description` 동일한 모델의 **최신 버전** 을 업로드 하는 방법이 있습니다. 이렇게 하면 원래 모델이 재정의 됩니다.
+대신 Azure Digital Twins에서 모델을 변경 하려는 경우이 작업을 수행 하는 방법은 동일한 모델의 **최신 버전** 을 업로드 하는 것입니다. 미리 보기 중에는 모델 버전을 이동 하는 경우에만 필드를 제거 하 고 새 필드를 추가 하는 것은 허용 되지 않습니다. 새 필드를 추가 하려면 [새 모델을 만들어야](#create-models)합니다.
 
-이렇게 하려면 원래 모델의 DTDL로 시작 합니다. 변경할 필드를 업데이트 합니다.
+기존 모델의 새 버전을 만들려면 원래 모델의 DTDL로 시작 합니다. 변경할 필드를 업데이트 합니다.
 
 그런 다음 모델의 필드를 업데이트 하 여이를 최신 버전의 모델로 표시 `id` 합니다. 모델 ID의 마지막 섹션인은 `;` 모델 번호를 나타냅니다. 이제이 모델의 더 업데이트 된 버전 임을 나타내려면 값의 끝에 있는 숫자를 `id` 현재 버전 번호 보다 큰 숫자로 늘립니다.
 

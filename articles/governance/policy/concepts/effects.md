@@ -3,12 +3,12 @@ title: 효과 작동 방식 이해
 description: Azure Policy 정의는 규정 준수가 관리되고 보고되는 방법을 결정하는 다양한 효과가 있습니다.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 83566cc638c4db1b00dbe40a48064a7c94250d8c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958765"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079662"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -488,7 +488,7 @@ Modify에서 지원 되는 작업은 다음과 같습니다.
 - `identity.type`가상 컴퓨터 및 가상 컴퓨터 크기 집합의 관리 되는 id 유형 () 값을 추가 하거나 바꿉니다.
 - 특정 별칭 (미리 보기)의 값을 추가 하거나 바꿉니다.
   - `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }` 사용
-    Azure PowerShell에서 수정에 사용할 수 있는 별칭 목록을 가져옵니다.
+    Azure PowerShell **4.6.0** 이상에서 Modify와 함께 사용할 수 있는 별칭 목록을 가져옵니다.
 
 > [!IMPORTANT]
 > 태그를 관리 하는 경우 추가 작업 형식 및 기존 리소스를 수정 하는 기능을 제공 하는 대신 수정을 사용 하는 것이 좋습니다. 그러나 관리 id를 만들 수 없거나 수정이 아직 리소스 속성에 대 한 별칭을 지원 하지 않는 경우에는 추가를 권장 합니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7dc0913ab206c6b9152d7d6155642c28b430d6f2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2e3b6845b66978b4892303549dabca4034a870b2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836329"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079645"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Logic Apps에 대 한 Azure 보안 기준
 
@@ -182,7 +182,7 @@ Logic Apps의 진단 로그를 사용하도록 설정해야 함
 
 DDoS Protection 표준을 사용하도록 설정해야 합니다.
 
-또한 Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 패키지화 하 여 대규모 Azure 배포를 간소화할 수 있습니다. Blueprint를 새로운 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어 및 관리를 세부적으로 조정합니다.
+또한 Azure 청사진을 사용 하 여 단일 청사진 정의에서 Azure Resource Manager 템플릿, azure RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 패키지화 하 여 대규모 Azure 배포를 간소화할 수 있습니다. Blueprint를 새로운 구독 및 환경에 쉽게 적용하고 버전 관리를 통해 제어 및 관리를 세부적으로 조정합니다.
 
 * [Azure Policy를 구성하고 관리하는 방법](../governance/policy/tutorials/create-and-manage.md)
 
@@ -641,7 +641,7 @@ Microsoft는 Azure Logic Apps에 대 한 기본 인프라를 관리 하 고, 고
 
 **책임**: 공유됨
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: 역할 기반 액세스 제어를 사용 하 여 리소스에 대 한 액세스를 제어 합니다.
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
 **지침**: 특정 사용자나 그룹만 논리 앱 관리, 편집 및 보기와 같은 특정 작업을 실행 하도록 허용할 수 있습니다. 사용자의 권한을 제어 하려면 azure 구독에서 구성원에 사용자 지정 또는 기본 제공 역할을 할당할 수 있도록 azure RBAC (역할 기반 액세스 제어)를 사용 합니다.
 - 논리 앱 참가자: 논리 앱을 관리할 수 있지만 앱에 대한 액세스는 변경할 수 없습니다.
@@ -877,7 +877,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 **지침**: 비즈니스 운영에 필요한 Logic Apps 관련 된 리소스 이지만 조직에 대 한 위험이 높아질 수 있으며, 자체 가상 머신 및/또는 가상 네트워크 내에서 격리 되 고 Azure 방화벽 또는 네트워크 보안 그룹을 사용 하 여 충분히 안전 하 게 보호 되어야 합니다.
 
-비즈니스 작업을 수행 하는 데 필요한 Logic Apps, 조직에 대 한 위험이 높아질 수 있으므로, 특정 권한 및 RBAC 경계를 포함 하는 별도의 리소스 그룹을 통해 가능한 모든 경우에 격리 해야 합니다.
+비즈니스 작업을 수행 하는 데 필요 하지만 조직에서 더 높은 위험을 초래할 수 있는 Logic Apps, 특정 권한 및 Azure RBAC 경계를 포함 하는 별도의 리소스 그룹을 통해 가능한 한 격리 해야 합니다.
 
 * [가상 네트워크를 만드는 방법](../virtual-network/quick-create-portal.md)
 
@@ -885,7 +885,7 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [관리 그룹을 만드는 방법](../governance/management-groups/create.md)
 
-* [RBAC를 통해 Logic Apps에 대 한 액세스를 보호 하는 방법](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+* [Azure RBAC를 통해 Logic Apps에 대 한 액세스를 보호 하는 방법](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Azure Security Center 모니터링**: 해당 없음
 
