@@ -3,23 +3,25 @@ title: Azure Media Services v3로 설명 오디오 트랙 신호 보내기 | Mic
 description: 이 자습서의 단계에 따라 파일을 업로드 하 고, 비디오를 인코딩하고, 설명 오디오 트랙을 추가 하 고, Media Services v3로 콘텐츠를 스트리밍합니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.date: 09/25/2019
-ms.author: juliako
-ms.openlocfilehash: cce2dfe943519f39fbe0660338babf782fee4336
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 1a8986dcba9dc64eb77d8bc8c6e77704fa212abb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006655"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267431"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>설명 오디오 트랙 신호
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 비디오에 내레이션 트랙을 추가하여 시각적으로 장애가 있는 클라이언트가 내레이션을 들어 비디오 녹화를 따르도록 할 수 있습니다. Media Services v3에서 매니페스트 파일의 오디오 트랙에 주석을 달고 설명 오디오 트랙에 신호를 보낼 수 있습니다.
 

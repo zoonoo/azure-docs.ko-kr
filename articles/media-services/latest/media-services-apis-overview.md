@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Microsoft Azure Media Services v3로 개발 시 엔터티와 API에 적용되는 규칙에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/21/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: dcec4d0bc93433c768faf10e4520131aeecc5e77
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 6cb771b8df4ab81ff9c538a38b084856b1dfbc39
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719192"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267278"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Microsoft Azure Media Services v3 API로 개발
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 개발자인 경우 Media Services [REST API](/rest/api/media/) 또는 REST API와 상호 작용할 수 있도록 하는 클라이언트 라이브러리를 사용하여 사용자 지정 미디어 워크플로를 손쉽게 만들고, 관리하고 유지할 수 있습니다. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API는 OpenAPI 사양(이전 명칭 Swagger)에 기반을 두고 있습니다.
 

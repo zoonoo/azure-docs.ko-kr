@@ -10,16 +10,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/13/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: abf4b8dffc69cfee9332d18e59d0a2852fa7617e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: cd2b9848ef1358c1aeaaed43e55d9914ac701564
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226151"
+ms.locfileid: "89267108"
 ---
 # <a name="stream-content-with-cdn-integration"></a>CDN 통합을 사용 하 여 콘텐츠 스트리밍
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure CDN(콘텐츠 전송 네트워크)은 전 세계에 전략적으로 배치된 물리적 노드에서 콘텐츠를 캐싱하여 사용자에게 고대역폭 콘텐츠를 신속하게 전송할 수 있는 글로벌 솔루션을 개발자에게 제공합니다.  
 

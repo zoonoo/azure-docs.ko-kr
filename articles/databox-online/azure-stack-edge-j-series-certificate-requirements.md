@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 8c4203e820946509290f3bbbe6d6309646903883
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b24b745a53b632ce32cda37058363bf974d400b3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085117"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268265"
 ---
 # <a name="certificate-requirements"></a>인증서 요구 사항
 
@@ -53,7 +53,7 @@ ms.locfileid: "89085117"
 
 * 끝점 인증서를 만들 때 다음 표를 사용 합니다.
 
-    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |

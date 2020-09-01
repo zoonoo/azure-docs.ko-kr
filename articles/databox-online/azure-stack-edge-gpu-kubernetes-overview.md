@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: b85586a431a20102035e253537fc45c8a8a54796
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: be7e01644d7d1f232c50b1efbadf100671a262fe
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085399"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268111"
 ---
-# <a name="kubernetes-on-your-azure-stack-edge-device"></a>Azure Stack Edge 장치의 Kubernetes
+# <a name="kubernetes-on-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치의 Kubernetes
 
 Kubernetes는 컨테이너 화 된 응용 프로그램을 오케스트레이션 하는 인기 있는 오픈 소스 플랫폼입니다. 이 문서에서는 Kubernetes에 대 한 개요를 제공 하 고, Azure Stack Edge 장치에서 Kubernetes가 작동 하는 방식을 설명 합니다. 
 
@@ -61,7 +61,7 @@ Kubernetes 클러스터 아키텍처에 대 한 자세한 내용은 [Kubernetes 
 
 Kubernetes 네트워킹을 사용 하면 컨테이너 간 네트워킹, pod-pod 네트워킹, pod-서비스 네트워킹 및 인터넷-서비스 네트워킹을 비롯 한 Kubernetes 네트워크 내에서 통신을 구성할 수 있습니다. 자세한 내용은 [Azure Stack Edge 장치에 대 한 네트워킹 모델 Kubernetes 네트워킹](azure-stack-edge-gpu-kubernetes-networking.md)을 참조 하세요.
 
-## <a name="updates"></a>Updates
+## <a name="updates"></a>업데이트
 
 새 Kubernetes 버전을 사용할 수 있게 되 면 Azure Stack Edge 장치에 사용할 수 있는 표준 업데이트를 사용 하 여 클러스터를 업그레이드할 수 있습니다. 업그레이드 하는 방법에 대 한 단계는 [Azure Stack Edge에 대 한 업데이트 적용](azure-stack-edge-gpu-install-update.md)을 참조 하세요.
 

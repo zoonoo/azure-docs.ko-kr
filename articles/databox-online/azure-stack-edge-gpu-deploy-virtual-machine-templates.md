@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 330186b12efcc31e9f99d7c4bdbff3e081311c23
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5b69d10bc2f3c5ec737e026059c82c3efac681b5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085494"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268162"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-device-via-templates"></a>템플릿을 통해 Azure Stack Edge 장치에 Vm 배포
+# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>템플릿을 통해 Azure Stack Edge GPU 장치에 Vm 배포
 
 이 자습서에서는 템플릿을 사용 하 여 Azure Stack Edge 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다. 이러한 템플릿은 VM에 대 한 인프라 및 구성을 정의 하는 JSON (JavaScript Object Notation) 파일입니다. 이러한 템플릿에서는 배포할 리소스 및 해당 리소스에 대 한 속성을 지정 합니다.
 

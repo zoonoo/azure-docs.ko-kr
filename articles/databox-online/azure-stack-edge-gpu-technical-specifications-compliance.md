@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 87c96ef6487895d3230541f0ae5fe15c5a645368
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3f354655a612d4085b0a0de45ae1a6e5ee097ade
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085291"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266666"
 ---
-# <a name="azure-stack-edge-technical-specifications-and-compliance"></a>Azure Stack Edge 기술 사양 및 규정 준수
+# <a name="technical-specifications-and-compliance-for-azure-stack-edge-with-gpu"></a>GPU를 사용 하는 Azure Stack에 지에 대 한 기술 사양 및 규정 준수 
 
 온보드 GPU (그래픽 처리 장치)를 사용 하는 Azure Stack Edge의 하드웨어 구성 요소는이 문서에 설명 된 기술 사양 및 규제 표준을 준수 합니다. 기술 사양은 하드웨어, PSUs (전원 공급 장치), 저장소 용량, 엔클로저 및 환경 표준을 설명 합니다.
 

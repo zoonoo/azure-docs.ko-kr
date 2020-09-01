@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 88a528e8e7f8713a766c715faaea9bb0f29f046e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 57574b66ddb20e592a5979a4b827347f7c8e09af
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085374"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268094"
 ---
-# <a name="kubernetes-storage-management-on-your-azure-stack-edge-device"></a>Azure Stack Edge 장치에서 저장소 관리 Kubernetes
+# <a name="kubernetes-storage-management-on-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에서 저장소 관리 Kubernetes
 
 Azure Stack Edge 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 컨테이너 화 된 응용 프로그램을 pod의 Kubernetes 클러스터에 배포할 수 있습니다. Kubernetes 클러스터에서 pod에 저장소를 제공 하는 고유한 방법이 있습니다. 
 

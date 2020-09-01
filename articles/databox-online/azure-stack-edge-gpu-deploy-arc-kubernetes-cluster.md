@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge 장치의 Kubernetes에서 Azure Arc 사용 | Microsoft Docs
-description: Azure Stack Edge 장치의 기존 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하는 방법을 설명 합니다.
+title: Azure Stack Edge GPU 장치에서 Kubernetes의 Azure Arc 사용 Microsoft Docs
+description: Azure Stack Edge GPU 장치의 기존 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 03bf2a01ad4c1d5d017d881bf171806fa33e8799
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5cd163b4c7514507d2a0563f1254c83dd22a3af2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086113"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268196"
 ---
-# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-device"></a>Azure Stack Edge 장치에서 Kubernetes 클러스터에 Azure Arc 사용
+# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에서 Kubernetes 클러스터에 Azure Arc 사용
 
 이 문서에서는 Azure Stack Edge 장치의 기존 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하는 방법을 보여 줍니다. 
 
 이 절차는 [Azure Stack Edge 장치에서 Kubernetes 워크 로드](azure-stack-edge-gpu-kubernetes-workload-management.md) 를 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에 Azure Stack Edge 장치에서 장치에 액세스 하는 데 사용할 클라이언트에 대해 다음과 같은 필수 구성 요소를 완료 했는지 확인 합니다.
 
@@ -132,7 +132,7 @@ Azure Arc를 통해 Kubernetes 클러스터를 구성 하기 전에 구독을 �
     서비스 주체를 만들고 역할 할당을 수행 하는 방법에 대 한 자세한 내용은 [Azure Arc 사용 온 보 딩 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-arc/kubernetes/create-onboarding-service-principal)의 단계를 참조 하세요.
 
 
-## <a name="enable-arc-on-kubernetes-cluster"></a>Kubernetes 클러스터에서 원호 사용
+## <a name="enable-arc-on-kubernetes-cluster"></a>Kubernetes 클러스터에서 Arc 사용
 
 Azure Arc 관리를 위해 Kubernetes 클러스터를 구성 하려면 다음 단계를 수행 합니다.
 

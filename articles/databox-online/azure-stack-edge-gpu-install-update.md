@@ -1,22 +1,23 @@
 ---
 title: Azure Stack Edge GPU 장치에 업데이트 설치 | Microsoft Docs
-description: Azure Portal 및 Azure Stack Edge GPU 장치에 대 한 로컬 웹 UI를 사용 하 여 업데이트를 적용 하는 방법을 설명 합니다.
+description: Azure Portal 및 장치의 로컬 웹 UI를 사용 하 여 업데이트를 적용 하는 방법에 대해 설명 Azure Stack Edge GPU 장치 및 Kubernetes 클러스터
 services: databox
 author: alkohli
 ms.service: databox
-ms.topic: article
-ms.date: 06/12/2020
+ms.subservice: edge
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 0e973e41493b8e84f31a82d5379a01a0e851a48d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6bafeeeda686dafadc3f5104240f8d018de83aeb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085434"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268247"
 ---
 # <a name="update-your-azure-stack-edge-with-gpu"></a>GPU를 사용 하 여 Azure Stack Edge 업데이트 
 
-이 문서에서는 로컬 웹 UI를 통해 GPU를 사용 하 여 Azure Stack Edge에 업데이트를 설치 하 고 Azure Portal를 통해 업데이트를 설치 하는 데 필요한 단계를 설명 합니다. Azure Stack Edge 장치를 최신 상태로 유지 하기 위해 소프트웨어 업데이트나 핫픽스를 적용 합니다. 
+이 문서에서는 로컬 웹 UI를 통해 GPU를 사용 하 여 Azure Stack Edge에 업데이트를 설치 하 고 Azure Portal를 통해 업데이트를 설치 하는 데 필요한 단계를 설명 합니다. 장치에 Azure Stack Edge 장치 및 관련 Kubernetes cluaster을 최신 상태로 유지 하기 위해 소프트웨어 업데이트나 핫픽스를 적용 합니다. 
 
 > [!IMPORTANT]
 > - 업데이트 **2008** 은 장치의 **2.1.1328.1904** 소프트웨어 버전에 해당 합니다. 이 업데이트에 대 한 자세한 내용은 [릴리스 정보](azure-stack-edge-gpu-2008-release-notes.md)를 참조 하세요.

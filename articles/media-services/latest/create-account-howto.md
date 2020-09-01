@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/15/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 23a26e01c8329fa384d29443a143b173c58a2c6e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 93f5e4d659b94bd79345a5e687de14ab6a5e8ba6
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539139"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267975"
 ---
 # <a name="create-a-media-services-account"></a>Media Services 계정 만들기
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure에서 암호화, 인코딩, 분석, 관리 및 스트리밍을 시작하려면 Media Services 계정을 만들어야 합니다. Media Services 계정은 하나 이상의 스토리지 계정과 연결되어야 합니다. 이 문서에서는 새 Azure Media Services 계정을 만드는 단계를 설명 합니다.
 
@@ -89,7 +91,7 @@ Azure Portal은 Azure Media Services 계정을 신속 하 게 만드는 방법�
 
 [!INCLUDE [Create a Media Services account with CLI](./includes/task-create-media-services-account-cli.md)]
 
-### <a name="see-also"></a>참조
+### <a name="see-also"></a>참고 항목
 
 * [Azure CLI](/cli/azure/ams?view=azure-cli-latest)
 * [Media Services 계정에 보조 저장소 연결](/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)

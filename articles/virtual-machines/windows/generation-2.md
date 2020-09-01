@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: db3bfddd3376a013cc8921f9e0b94bd30bfe041f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b18218515e4fbd9886317e116c76186b8372392c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181530"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267550"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2세대 VM 지원
 
@@ -29,7 +29,7 @@ ms.locfileid: "89181530"
 
 * [B 시리즈](../sizes-b-series-burstable.md)
 * [DCsv2 시리즈](../dcv2-series.md)
-* [DSv2 시리즈](../dv2-dsv2-series.md) 
+* [Dsv2 시리즈](../dv2-dsv2-series.md) 
 * [Dsv3 시리즈](../dv3-dsv3-series.md)
 * [Dsv4 시리즈](../dv4-dsv4-series.md)
 * [Ddsv4 시리즈](../ddv4-ddsv4-series.md)

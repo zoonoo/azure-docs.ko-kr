@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5b6a02118aabce7a2f80c016584af1e9808a2df5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 263bf1cd2a7e2a37a1c4fae172ce4f66b1e59b5f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021507"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265986"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-net"></a>.NET을 사용하여 Azure Media Services 원격 분석 구성 
+# <a name="configuring-azure-media-services-telemetry-with-net"></a>.NET을 사용하여 Azure Media Services 원격 분석 구성
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 이 문서는 .NET SDK를 사용하여 AMS(Azure Media Services) 원격 분석을 구성할 때 수행할 수 있는 일반적인 단계를 설명합니다. 
 
@@ -76,7 +78,7 @@ ms.locfileid: "89021507"
         <add key="StorageAccountName" value="storage_name" />
     ```
  
-## <a name="example"></a>예제  
+## <a name="example"></a>예  
     
 다음 예제에서는 지정된 AMS 계정에 대해 원격 분석을 사용하도록 설정하고 Azure Media Services .NET SDK를 사용하여 메트릭을 쿼리하는 방법을 보여 줍니다.  
 

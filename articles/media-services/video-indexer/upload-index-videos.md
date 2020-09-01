@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 153540ce0bf49740d0b3387715d83c8efd7af2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011874"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268828"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -109,7 +109,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 비디오에서 식별된 사용자
   - 속성
     
-      |속성|Description|
+      |이름|Description|
       |---|---|
       |id| 비디오 ID|
       |faceId|비디오 인덱스에 표시되는 얼굴 ID|
@@ -118,7 +118,7 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
         
     - 예: https: \/ /test.com/notifyme?projectName=MyProject&id = 1234abcd&faceid = 12&knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5&personName = Inigo_Montoya 
 
-##### <a name="notes"></a>메모
+##### <a name="notes"></a>참고
 
 - Video Indexer는 원래 URL에 제공된 기존 매개 변수를 반환합니다.
 - 제공된 URL은 인코딩해야 합니다.
@@ -167,7 +167,7 @@ SingleBitrate 전송률의 경우 출력 마다 표준 인코더 비용이 적�
 
 다음 C# 코드 조각에서는 모든 Video Indexer API를 사용하는 방법을 보여 줍니다.
 
-#### <a name="instructions-for-running-this-code-sample"></a>이 코드 샘플을 실행 하기 위한 지침
+**다음 코드 샘플을 실행 하는 방법에 대 한 지침**
 
 이 코드를 개발 플랫폼에 복사한 후에 API Management 인증 키와 비디오 URL의 두 매개 변수를 제공 해야 합니다.
 

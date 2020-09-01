@@ -1,21 +1,21 @@
 ---
-title: Azure Stack Edge 장치를 배포 하기 위한 배포 전 검사 목록 | Microsoft Docs
-description: 이 문서에서는 Azure Stack Edge 장치를 배포 하기 전에 수집할 수 있는 정보에 대해 설명 합니다.
+title: Azure Stack Edge GPU 장치를 배포 하기 위한 배포 전 검사 목록 | Microsoft Docs
+description: 이 문서에서는 Azure Stack Edge GPU 장치를 배포 하기 전에 수집할 수 있는 정보에 대해 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/29/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: e1233e17dfe2a56e6ea995190b243ed9c64b8945
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9d7b3388b7e3a31c23b34b21017f012d40e9f849
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181360"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268145"
 ---
-# <a name="deployment-checklist-for-your-azure-stack-edge-device"></a>Azure Stack Edge 장치에 대 한 배포 검사 목록  
+# <a name="deployment-checklist-for-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에 대 한 배포 검사 목록  
 
 이 문서에서는 Azure Stack Edge 장치의 실제 배포에 앞서 수집할 수 있는 정보에 대해 설명 합니다. 
 

@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb4efd26502c20a33cb61ab1c9d58f2757bbd70
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 59f83d232874a7702598b6ea5fdd458c101e7e79
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948303"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266581"
 ---
 # <a name="custom-controls-preview"></a>사용자 지정 컨트롤(미리 보기)
 
 사용자 지정 컨트롤은 Azure Active Directory의 미리 보기 기능입니다. 사용자 지정 컨트롤을 사용 하는 경우 사용자는 Azure Active Directory 외부에서 인증 요구 사항을 충족 하기 위해 호환 서비스로 리디렉션됩니다. 이 제어를 충족 하기 위해 사용자의 브라우저는 외부 서비스로 리디렉션되고 필요한 인증을 수행한 다음 Azure Active Directory 다시 리디렉션됩니다. Azure Active Directory는 응답을 확인 하 고 사용자가 성공적으로 인증 되거나 유효성이 확인 되 면 사용자는 조건부 액세스 흐름을 계속 진행 합니다.
 
 > [!NOTE]
-> 사용자 지정 제어 기능을 계획 하는 변경 내용에 대 한 자세한 내용은 2 월 2020 [새로운 기능 업데이트](../fundamentals/whats-new.md#upcoming-changes-to-custom-controls)를 참조 하세요.
+> 사용자 지정 컨트롤 기능을 계획 하는 변경 내용에 대 한 자세한 내용은 [새로운 기능에 대 한](../fundamentals/whats-new-archive.md#upcoming-changes-to-custom-controls)2 월 2020 보관을 참조 하세요.
 
 ## <a name="creating-custom-controls"></a>사용자 지정 컨트롤 만들기
 

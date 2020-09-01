@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 8394ddbc4247eb992532fb11d06d8f5432edd1c7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4eab89710e031ead0a3758afd2367e60d26f395b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085422"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268128"
 ---
-# <a name="kubernetes-networking-in-your-azure-stack-edge-device"></a>Azure Stack Edge 장치의 Kubernetes 네트워킹
+# <a name="kubernetes-networking-in-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치의 Kubernetes 네트워킹
 
 Azure Stack Edge 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 컨테이너 화 된 응용 프로그램을 Pod의 Kubernetes 클러스터에 배포할 수 있습니다. Kubernetes 클러스터의 Pod에는 네트워킹을 사용 하는 고유한 방법이 있습니다. 
 

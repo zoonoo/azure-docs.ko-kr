@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 2e2a41f797c6c58597e90ef6bd6e373ab7408a7b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 38c46bdcce64f726b3a7ddf74e0cfd10a14ba663
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182057"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268036"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Azure Stack Edge 장치에서 워크 로드 관리 Kubernetes
 
@@ -47,11 +47,11 @@ Azure Stack Edge 장치에 응용 프로그램을 배포 하려면 다음 단계
 
 ![Kubernetes 워크 로드 배포](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **로컬 배포**: `kubectl` K8를 배포 하는 데 사용할 수 있는와 같은 명령줄 액세스 도구를 통해 수행 됩니다 `yamls` . 파일을 사용 하 여 만든 Azure Stack Edge에서 K8 클러스터에 연결 합니다 `kubeconfig` . 자세한 내용은 [kubectl를 통해 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)를 참조 하세요.
+- **로컬 배포**: `kubectl` Kubernetes를 배포 하는 데 사용할 수 있는와 같은 명령줄 액세스 도구를 통해 수행 됩니다 `yamls` . 파일을 사용 하 여 만든 Azure Stack Edge에서 Kubernetes 클러스터에 연결 합니다 `kubeconfig` . 자세한 내용은 [kubectl를 통해 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)를 참조 하세요.
 
-- **IoT Edge 배포**: IoT Edge를 통해 Azure IoT Hub에 연결 합니다. 네임 스페이스를 통해 Azure Stack Edge 장치에서 K8 클러스터에 연결 합니다 `iotedge` . 이 네임 스페이스에 배포 된 IoT Edge 에이전트는 Azure에 대 한 연결을 담당 합니다. `IoT Edge deployment.json`Azure DevOps CI/CD를 사용 하 여 구성을 적용 합니다. 네임 스페이스 및 IoT Edge 관리는 클라우드 운영자를 통해 수행 됩니다.
+- **IoT Edge 배포**: IoT Edge를 통해 Azure IoT Hub에 연결 합니다. 네임 스페이스를 통해 Azure Stack Edge 장치에서 Kubernetes 클러스터에 연결 합니다 `iotedge` . 이 네임 스페이스에 배포 된 IoT Edge 에이전트는 Azure에 대 한 연결을 담당 합니다. `IoT Edge deployment.json`Azure DevOps CI/CD를 사용 하 여 구성을 적용 합니다. 네임 스페이스 및 IoT Edge 관리는 클라우드 운영자를 통해 수행 됩니다.
 
-- **Azure/Arc 배포**: azure Arc는 K8 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 를 통해 Azure Stack Edge 장치에서 K8 클러스터를 연결 합니다 `azure-arc namespace` . 에이전트는 Azure에 대 한 연결을 담당 하는이 네임 스페이스에 배포 됩니다. GitOps 기반 구성 관리를 사용 하 여 배포 구성을 적용 합니다. 또한 Azure Arc는 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure Arc 사용 Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)을 참조 하세요.
+- **Azure/Arc 배포**: azure Arc는 Kubernetes 클러스터에 응용 프로그램을 배포 하는 데 사용할 수 있는 하이브리드 관리 도구입니다. 를 통해 Azure Stack Edge 장치에서 Kubernetes 클러스터를 연결 합니다 `azure-arc namespace` . 에이전트는 Azure에 대 한 연결을 담당 하는이 네임 스페이스에 배포 됩니다. GitOps 기반 구성 관리를 사용 하 여 배포 구성을 적용 합니다. 또한 Azure Arc는 컨테이너에 대 한 Azure Monitor를 사용 하 여 클러스터를 보고 모니터링할 수 있습니다. 자세한 내용은 [Azure Arc 사용 Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)을 참조 하세요.
 
 ## <a name="choose-the-deployment-type"></a>배포 유형 선택
 

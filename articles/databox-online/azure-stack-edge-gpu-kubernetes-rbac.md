@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 703e67b4829413776dc8d98843888fbd67906baa
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 697c686b61a86cb01327364ad73f30f88e2e151d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182193"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268077"
 ---
-# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-device"></a>Azure Stack Edge 장치에서 Kubernetes 역할 기반 Access Control
+# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에서 Kubernetes 역할 기반 Access Control
 
 
 Azure Stack Edge 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes를 사용 하 여 RBAC (역할 기반 액세스 제어)를 사용 하 여 장치의 클러스터 리소스에 대 한 액세스를 제한할 수 있습니다.
