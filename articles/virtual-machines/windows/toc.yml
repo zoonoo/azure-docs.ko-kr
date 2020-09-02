@@ -657,6 +657,8 @@
           href: instance-metadata-service.md
         - name: 중첩된 가상화 사용
           href: nested-virtualization.md
+        - name: 자동 VM 게스트 패치(미리 보기)
+          href: automatic-vm-guest-patching.md
     - name: 플랫폼 유지 관리
       items:
         - name: 유지 관리 알림
