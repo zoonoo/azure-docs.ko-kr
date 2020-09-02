@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
-ms.openlocfilehash: 04619df8009aca3fecf317481d030280d5532281
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 4f969b08c16b26fe67ca6520323fcde780d43925
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510915"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929774"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Postman에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
-> * [C#](search-create-index-dotnet.md)
+> * [C#](./search-get-started-dotnet.md)
 > * [Python](search-get-started-python.md)
 > * [포털](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-이 문서에서는 [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice) 및 요청을 보내고 받기 위한 API 클라이언트를 사용하여 REST API 요청을 대화형으로 작성하는 방법을 설명합니다. API 클라이언트와 이러한 지침을 사용하면 코드를 작성하기 전에 요청을 보내고 응답을 볼 수 있습니다.
+이 문서에서는 [Azure Cognitive Search REST API](/rest/api/searchservice) 및 요청을 보내고 받기 위한 API 클라이언트를 사용하여 REST API 요청을 대화형으로 작성하는 방법을 설명합니다. API 클라이언트와 이러한 지침을 사용하면 코드를 작성하기 전에 요청을 보내고 응답을 볼 수 있습니다.
 
 이 문서는 Postman 애플리케이션을 사용합니다. 미리 정의된 요청을 사용하려는 경우 [Postman 컬렉션을 다운로드하여 가져올](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) 수 있습니다. 
 
@@ -74,7 +74,7 @@ Postman에서 다음 스크린샷과 같은 요청을 작성합니다. 명령으
 
 ## <a name="1---create-an-index"></a>1 - 인덱스 만들기
 
-Azure Cognitive Search에서는 일반적으로 데이터를 로드하기 전에 인덱스를 만듭니다. 이 작업에는 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) REST API가 사용됩니다. 
+Azure Cognitive Search에서는 일반적으로 데이터를 로드하기 전에 인덱스를 만듭니다. 이 작업에는 [인덱스 만들기](/rest/api/searchservice/create-index) REST API가 사용됩니다. 
 
 URL은 `hotels` 인덱스 이름을 포함하도록 확장됩니다.
 
@@ -128,7 +128,7 @@ fields 컬렉션은 문서 구조를 정의합니다. 각 문서에는 이러한
 
 ## <a name="2---load-documents"></a>2 - 문서 로드
 
-인덱스 생성과 인덱스 채우기는 별도의 단계입니다. Azure Cognitive Search에서 인덱스에는 검색 가능한 모든 데이터가 포함됩니다. 이 시나리오에서 데이터는 JSON 문서로 제공됩니다. 이 작업에는 [문서 추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) REST API가 사용됩니다. 
+인덱스 생성과 인덱스 채우기는 별도의 단계입니다. Azure Cognitive Search에서 인덱스에는 검색 가능한 모든 데이터가 포함됩니다. 이 시나리오에서 데이터는 JSON 문서로 제공됩니다. 이 작업에는 [문서 추가, 업데이트 또는 삭제](/rest/api/searchservice/addupdate-or-delete-documents) REST API가 사용됩니다. 
 
 URL은 `docs` 컬렉션 및 `index` 작업을 포함하도록 확장됩니다.
 
@@ -236,12 +236,12 @@ Postman에서 이렇게 하려면 다음을 수행합니다.
 207이 표시될 경우 하나 이상의 문서를 업로드하지 못했습니다. 404가 표시될 경우 요청의 헤더 또는 본문에 구문 오류가 있습니다. `/docs/index`를 포함하도록 엔드포인트를 변경했는지 확인하십시오.
 
 > [!Tip]
-> 선택한 데이터 원본의 경우 인덱싱에 필요한 코드의 양을 줄이고 단순화할 수 있는 대체 *인덱서* 방식을 선택할 수 있습니다. 자세한 내용은 [인덱서 작업](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)을 참조하세요.
+> 선택한 데이터 원본의 경우 인덱싱에 필요한 코드의 양을 줄이고 단순화할 수 있는 대체 *인덱서* 방식을 선택할 수 있습니다. 자세한 내용은 [인덱서 작업](/rest/api/searchservice/indexer-operations)을 참조하세요.
 
 
 ## <a name="3---search-an-index"></a>3 - 인덱스 검색
 
-이제 인덱스와 문서 집합이 로드되었으므로 [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 사용하여 이에 대해 쿼리를 실행할 수 있습니다.
+이제 인덱스와 문서 집합이 로드되었으므로 [문서 검색 REST API](/rest/api/searchservice/search-documents)를 사용하여 이에 대해 쿼리를 실행할 수 있습니다.
 
 URL은 검색 연산자를 사용하여 지정된 쿼리 식을 포함하도록 확장됩니다.
 
@@ -278,7 +278,7 @@ https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?
 ```
 
 ## <a name="get-index-properties"></a>인덱스 속성 가져오기
-[통계 가져오기](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics)를 사용하여 문서 개수와 인덱스 크기를 쿼리할 수도 있습니다. 
+[통계 가져오기](/rest/api/searchservice/get-index-statistics)를 사용하여 문서 개수와 인덱스 크기를 쿼리할 수도 있습니다. 
 
 ```
 https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2020-06-30

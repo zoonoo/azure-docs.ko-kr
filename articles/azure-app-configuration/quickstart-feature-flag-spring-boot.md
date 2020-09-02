@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 615815f11264578bc2a5930553c8e6f5bfed937f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 337baae97d426fe05ac59290a882865038f60c02
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121904"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019745"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>빠른 시작: Spring Boot 앱에 기능 플래그 추가
 
@@ -97,7 +97,7 @@ Spring Boot 기능 관리 라이브러리는 포괄적인 기능 플래그 지�
     ```
 
 > [!Note]
-> 스프링 웹에 종속되지 않는 비웹 기능 관리 라이브러리가 있습니다. 차이점은 GitHub의 [설명서](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management)를 참조하세요.
+> 스프링 웹에 종속되지 않는 비웹 기능 관리 라이브러리가 있습니다. 차이점은 GitHub의 [설명서](https://github.com/microsoft/spring-cloud-azure)를 참조하세요.
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 

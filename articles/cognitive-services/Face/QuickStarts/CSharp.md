@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 781fecd199d23ffd6c338d767e52479c07d23387
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fe6def8a935fcc6f093c4489409a3bcde829ac10
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549510"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294937"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>빠른 시작: Face REST API 및 C#을 사용하여 이미지에서 얼굴 감지
 
@@ -70,7 +70,7 @@ namespace DetectFace
 
         // replace <myresourcename> with the string found in your endpoint URL
         const string uriBase =
-            "https://<myresourcename>.cognitive.microsoft.com/face/v1.0/detect";
+            "https://<myresourcename>.cognitiveservices.azure.com/face/v1.0/detect";
 ```
 
 ### <a name="receive-image-input"></a>이미지 입력 수신

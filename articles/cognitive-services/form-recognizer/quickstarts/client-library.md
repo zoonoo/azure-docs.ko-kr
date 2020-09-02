@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: pafarley
-ms.custom: devx-track-javascript
+ms.custom: devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: eb44456815642989a6f2b36cb15e159318018644
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 0aa72b595bf60184aa840922a3d8a6496bb983a7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723336"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934358"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>빠른 시작: Form Recognizer 클라이언트 라이브러리 사용
 
@@ -29,10 +29,6 @@ Form Recognizer 클라이언트 라이브러리를 사용하여 다음을 수행
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 관리](#manage-your-custom-models)
-
-> [!NOTE]
-> 클라이언트 라이브러리는 일반 공급 v2.0에서 최신 버전의 Form Recognizer를 지원합니다. 
-
 
 ::: zone pivot="programming-language-csharp"
 

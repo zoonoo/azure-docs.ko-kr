@@ -11,17 +11,19 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
-ms.date: 08/18/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8a5d52f2705a04c290f1122335430c12db8d294c
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: dfa87921bc6a5a6c34b4dec33f4aae1907507730
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604582"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291622"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Microsoft Azure Media Services를 사용하여 많은 미디어 원본 파일 형식을 인코딩할 수 있습니다. 모든 주요 디바이스(예: iOS 및 Android 디바이스)에 연결되는 콘텐츠 보호를 사용하거나 사용하지 않는 다양한 스트리밍 프로토콜을 통해 이러한 기능을 제공합니다. 이러한 클라이언트는 여러 다양한 프로토콜을 이해합니다. 예를 들어, iOS는 HLS(HTTP 라이브 스트리밍) 형식으로 스트림이 배달되어야 하 고 Android 디바이스는 HLS와 MPEG DASH를 모두 지원합니다.
 

@@ -7,19 +7,19 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 228e6f144a1d6e3d0fc4f8fd8cb35c6f4e989ee9
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 562185697f8f80fc52b06be80a9f15271f16c0a3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084102"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961468"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Docker Compose 구성을 사용하여 다중 컨테이너(미리 보기) 앱 만들기
 
 > [!NOTE]
 > 다중 컨테이너는 미리 보기 상태입니다.
 
-[Web App for Containers](overview.md#app-service-on-linux)는 Docker 이미지를 사용할 수 있는 유연한 방법을 제공합니다. 이 빠른 시작은 Docker Compose 구성을 사용하여 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에서 Web App for Containers에 다중 컨테이너 앱(미리 보기)을 배포하는 방법을 보여줍니다.
+[Web App for Containers](overview.md#app-service-on-linux)는 Docker 이미지를 사용할 수 있는 유연한 방법을 제공합니다. 이 빠른 시작은 Docker Compose 구성을 사용하여 [Cloud Shell](../cloud-shell/overview.md)에서 Web App for Containers에 다중 컨테이너 앱(미리 보기)을 배포하는 방법을 보여줍니다.
 
 Cloud Shell에서 이 빠른 시작을 완료하지만 [Azure CLI](/cli/azure/install-azure-cli)(2.0.32 이상)를 사용하여 이러한 명령을 로컬로 실행할 수도 있습니다. 
 

@@ -6,19 +6,19 @@ ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 875649d2405aa5542a7b66e247cc50d4b2cba20d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 49f2100386af21cee8f76403d7a2d2e4ac6b8f63
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083952"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961339"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>App Service에서 Ruby on Rails 앱 만들기
 
-[Linux의 Azure App Service](overview.md#app-service-on-linux)는 Linux 운영 체제를 사용하여 확장성이 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작 자습서에서는 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용하여 Linux의 App Service에 Ruby on Rails 앱을 배포하는 방법을 보여줍니다.
+[Linux의 Azure App Service](overview.md#app-service-on-linux)는 Linux 운영 체제를 사용하여 확장성이 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작 자습서에서는 [Cloud Shell](../cloud-shell/overview.md)을 사용하여 Linux의 App Service에 Ruby on Rails 앱을 배포하는 방법을 보여줍니다.
 
 > [!NOTE]
-> Ruby 개발 스택은 현재 Ruby on Rails만 지원합니다. Sinatra와 같은 다른 플랫폼을 사용하거나 지원되지 않는 Ruby 버전을 사용하려는 경우 [사용자 지정 컨테이너에서 실행](containers/quickstart-docker-go.md)해야 합니다.
+> Ruby 개발 스택은 현재 Ruby on Rails만 지원합니다. Sinatra와 같은 다른 플랫폼을 사용하거나 지원되지 않는 Ruby 버전을 사용하려는 경우 [사용자 지정 컨테이너에서 실행](./quickstart-custom-container.md?pivots=platform-linux%3fpivots%3dplatform-linux)해야 합니다.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-configured.png)
 
