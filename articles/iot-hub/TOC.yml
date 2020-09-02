@@ -84,11 +84,6 @@
       href: tutorial-firmware-update.md
     - name: 디바이스 연결 테스트
       href: tutorial-connectivity.md
-- name: 샘플
-  items:
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 개념
   items:
     - name: TLS 지원
@@ -461,6 +456,9 @@
       href: 'https://docs.microsoft.com/rest/api/iothub/certificates'
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.devices/iothub-allversions
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: 기능 및 API 사용 중지
       items:
         - name: 작업 모니터링
