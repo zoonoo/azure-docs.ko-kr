@@ -8,17 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 08/06/2020
+ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: 7bcda79403e021384fc987a67865441dd8732885
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6c1a720e7e9bd9c71f925f104ca7fc70a1a5ef59
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927456"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051069"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Ink Recognizer API란?
 
+[!INCLUDE [ink-recognizer-deprecation](includes/deprecation-note.md)]
 
 Ink Recognizer Cognitive Service는 디지털 잉크 콘텐츠를 분석하고 인식하는 클라우드 기반 REST API를 제공합니다. OCR(광학 문자 인식)을 사용하는 서비스와 달리, 이 API는 입력으로 디지털 잉크 스트로크 데이터가 필요합니다. 디지털 잉크 스트로크는 시간 순서로 정렬된 2D 포인트 세트(X,Y 좌표)로, 디지털 펜 또는 손가락 같은 입력 도구의 움직임을 나타냅니다. 그런 다음, 입력에서 도형과 필기 콘텐츠를 인식하고, 인식된 모든 엔터티가 포함된 JSON 응답을 반환합니다.
 

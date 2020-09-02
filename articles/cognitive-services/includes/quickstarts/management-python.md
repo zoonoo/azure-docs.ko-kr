@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 743b05b38eddc80ce7462a3439613fc767d91daa
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 7cc76ab7c9ce2191a54d5bd61282267467603694
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607638"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321595"
 ---
 [참조 설명서](https://docs.microsoft.com/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [패키지(PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
 
@@ -22,15 +22,9 @@ ms.locfileid: "88607638"
 * 유효한 Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/).
 * [Python 3.x](https://www.python.org/)
 
-## <a name="create-an-azure-service-principal"></a>Azure 서비스 주체 만들기
+[!INCLUDE [Create a service principal](./create-service-principal.md)]
 
-애플리케이션이 Azure 계정과 상호 작용하도록 하려면 사용 권한을 관리하는 Azure 서비스 주체가 필요합니다. [Azure 서비스 주체 만들기](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-4.4.0&viewFallbackFrom=azps-3.3.0)의 지침을 따르세요.
-
-서비스 주체를 만들면 비밀 값, ID 및 애플리케이션 ID가 있는 것을 볼 수 있습니다. 이후 단계를 위해 애플리케이션 ID 및 비밀을 임시 위치에 저장합니다.
-
-## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-
-Cognitive Services 리소스를 만들기 전에 계정에 리소스를 포함할 Azure 리소스 그룹이 있어야 합니다. 리소스 그룹이 아직 없는 경우 [Azure Portal](https://ms.portal.azure.com/)에서 만듭니다.
+[!INCLUDE [Create a resource group](./create-resource-group.md)]
 
 ## <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
@@ -72,71 +66,7 @@ Python 스크립트를 열고 다음 라이브러리를 가져옵니다.
 
 [!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
 
-아래 SKU 목록과 가격 정보를 참조하세요. 
-
-#### <a name="multi-service"></a>다중 서비스
-
-| 서비스                    | 종류                      |
-|----------------------------|---------------------------|
-| 여러 서비스. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/) 페이지를 참조하세요.            | `CognitiveServices`     |
-
-
-#### <a name="vision"></a>Vision
-
-| 서비스                    | 종류                      |
-|----------------------------|---------------------------|
-| Computer Vision            | `ComputerVision`          |
-| Custom Vision - 예측 | `CustomVision.Prediction` |
-| Custom Vision - 학습   | `CustomVision.Training`   |
-| Face                       | `Face`                    |
-| Form Recognizer            | `FormRecognizer`          |
-| Ink Recognizer             | `InkRecognizer`           |
-
-#### <a name="search"></a>검색
-
-| 서비스            | 종류                  |
-|--------------------|-----------------------|
-| Bing Autosuggest   | `Bing.Autosuggest.v7` |
-| Bing 사용자 지정 검색 | `Bing.CustomSearch`   |
-| Bing Entity Search | `Bing.EntitySearch`   |
-| Bing Search        | `Bing.Search.v7`      |
-| Bing 맞춤법 검사   | `Bing.SpellCheck.v7`  |
-
-#### <a name="speech"></a>음성
-
-| 서비스            | 종류                 |
-|--------------------|----------------------|
-| Speech Services    | `SpeechServices`     |
-| 음성 인식 | `SpeakerRecognition` |
-
-#### <a name="language"></a>언어
-
-| 서비스            | 종류                |
-|--------------------|---------------------|
-| 양식 이해 | `FormUnderstanding` |
-| LUIS               | `LUIS`              |
-| QnA Maker          | `QnAMaker`          |
-| 텍스트 분석     | `TextAnalytics`     |
-| 텍스트 번역   | `TextTranslation`   |
-
-#### <a name="decision"></a>의사 결정
-
-| 서비스           | 종류               |
-|-------------------|--------------------|
-| Anomaly Detector  | `AnomalyDetector`  |
-| Content Moderator | `ContentModerator` |
-| Personalizer      | `Personalizer`     |
-
-
-#### <a name="pricing-tiers-and-billing"></a>가격 책정 계층 및 요금 청구
-
-가격 책정 계층(및 청구되는 금액)은 인증 정보를 사용하여 전송하는 트랜잭션 수를 기반으로 합니다. 각 가격 책정 계층은 다음을 지정합니다.
-* 초당 허용되는 최대 트랜잭션 수(TPS)입니다.
-* 가격 책정 계층 내에서 사용하도록 설정된 서비스 기능입니다.
-* 미리 정의된 트랜잭션 수에 대한 비용입니다. 이 숫자를 초과하면 서비스에 대한 [가격 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/)에 지정된 대로 추가 요금이 발생합니다.
-
-> [!NOTE]
-> 대부분의 Cognitive Services에는 서비스를 시도하는 데 사용할 수 있는 체험 계층이 있습니다. 체험 계층을 사용하려면 리소스의 SKU로 `F0`을 사용합니다.
+[!INCLUDE [SKUs and pricing](./sku-pricing.md)]
 
 ## <a name="create-a-cognitive-services-resource"></a>Cognitive Services 리소스 만들기
 

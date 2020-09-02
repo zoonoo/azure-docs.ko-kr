@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
-ms.openlocfilehash: 709efa3fb4f85ab5d0c3d345fd9a5ceada274459
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 48a80d7367943c2c86fd3822a5c236b0cdf11846
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226067"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926443"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 

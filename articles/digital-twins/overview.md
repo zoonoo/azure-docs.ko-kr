@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 0e17ecea6c85329b22310ebe1d06e2fe63cdd773
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: ea08843dc73ed7603181eee1cf36495fda82b8d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042822"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003850"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
@@ -105,5 +105,4 @@ Azure Digital Twins의 이전 미리 보기 릴리스로 작업한 경우 변경
 
 첫 번째 자습서를 사용하여 Azure Digital Twins 작업을 자세히 살펴보겠습니다:
 
-> [!div class="nextstepaction"]
-> [*자습서: 클라이언트 앱 코딩*](tutorial-code.md)
+[*자습서: 클라이언트 앱 코딩*](tutorial-code.md)
