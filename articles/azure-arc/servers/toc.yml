@@ -4,6 +4,8 @@
   items:
     - name: Azure Arc 지원 서버 정보
       href: overview.md
+    - name: Connected Machine 에이전트의 새로운 기능
+      href: agent-release-notes.md
 - name: 빠른 시작
   items:
     - name: Arc 지원 서버 에이전트 사용
@@ -14,12 +16,6 @@
       href: ./learn/tutorial-assign-policy-portal.md
     - name: 컴퓨터 모니터링
       href: ./learn/tutorial-enable-vm-insights.md
-- name: 샘플
-  items:
-    - name: Azure Policy 기본 제공 기능
-      items:
-        - name: Arc 지원 서버
-          href: policy-samples.md
 - name: 개념
   items:
     - name: 보안
@@ -55,3 +51,6 @@
           href: data-residency.md
         - name: REST (영문)
           href: /rest/api/hybridcompute
+        - name: Azure Policy 기본 제공 기능
+          displayName: 'samples, policies, definitions'
+          href: policy-reference.md

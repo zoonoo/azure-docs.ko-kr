@@ -273,7 +273,9 @@
               href: msal-net-adfs-support.md
             - name: MSAL.NET으로 마이그레이션
               href: msal-net-migration.md
-            - name: 브로커를 사용하여 MSAL.NET으로 Xamarin 앱 마이그레이션
+            - name: broker를 사용하여 Xamarin Android 앱을 MSAL.NET으로 마이그레이션
+              href: msal-net-migration-android-broker.md
+            - name: broker를 사용하여 Xamarin iOS 앱을 MSAL.NET으로 마이그레이션
               href: msal-net-migration-ios-broker.md
             - name: 웹 브라우저 고려 사항
               href: msal-net-web-browsers.md

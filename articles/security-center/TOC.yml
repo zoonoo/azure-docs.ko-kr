@@ -107,12 +107,12 @@
           href: update-regulatory-compliance-packages.md
     - name: VM 취약성 검색
       items:
-        - name: 취약성 검색 개요
-          href: security-center-vulnerability-assessment-recommendations.md
-        - name: VM에 대한 통합 취약성 검사기
-          href: built-in-vulnerability-assessment.md
-        - name: 외부 검사기 사용
-          href: partner-vulnerability-assessment.md
+        - name: VM에 통합 취약성 검사기 배포
+          href: deploy-vulnerability-assessment-vm.md
+        - name: VM에 BYOL 취약성 솔루션 배포
+          href: deploy-vulnerability-assessment-byol-vm.md
+        - name: VM에서 취약성 검토 및 수정
+          href: remediate-vulnerability-findings-vm.md
     - name: 위협 방지 구성 및 경고 처리
       items:
         - name: 보안 경고 관리
