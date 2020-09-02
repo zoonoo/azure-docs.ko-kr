@@ -79,9 +79,6 @@
       href: samples-powershell.md
     - name: 리소스 관리자 템플릿
       href: samples-resource-manager-templates.md
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
     - name: Terraform
       href: samples-terraform.md
 - name: 개념
@@ -285,6 +282,9 @@
       href: /rest/api/appservice/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.web/allversions
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: App Service 블로그

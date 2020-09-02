@@ -26,10 +26,6 @@
       href: resource-manager-template.md
     - name: 진단 로깅
       href: diagnostic-logging.md
-- name: 샘플
-  items:
-    - name: Azure Policy 기본 제공 기능
-      href: ./policy-samples.md
 - name: 보안
   items:
     - name: Cognitive Services 보안
@@ -86,6 +82,11 @@
           href: ./big-data/recipes/anomaly-detection.md
         - name: '레시피: 아트 탐색기'
           href: ./big-data/recipes/art-explorer.md
+- name: 참고
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: Azure 로드맵

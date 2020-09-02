@@ -111,7 +111,7 @@
                   href: database/long-term-retention-overview.md
         - name: 모니터링 및 튜닝
           items:
-            - name: 문서화
+            - name: 설명서
               href: database/monitoring-tuning-index.yml
             - name: 개요
               href: database/monitor-tune-overview.md
@@ -223,7 +223,7 @@
                   href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
 - name: SQL Database(SQL DB)
   items:
-    - name: 문서화
+    - name: 설명서
       href: database/index.yml
     - name: 개요
       items:
@@ -633,14 +633,11 @@
           href: database/powershell-script-content-guide.md?tabs=single-database
         - name: Azure 리소스 관리자
           href: database/arm-templates-content-guide.md?tabs=single-database
-        - name: Azure Policy 기본 제공 기능
-          displayName: 'samples, policies, definitions'
-          href: ./database/policy-samples.md
         - name: 코드 샘플
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL Managed Instance(SQL MI)
   items:
-    - name: 문서화
+    - name: 설명서
       href: managed-instance/index.yml
     - name: 개요
       items:
@@ -911,14 +908,11 @@
           href: database/powershell-script-content-guide.md?tabs=managed-instance
         - name: Azure 리소스 관리자
           href: database/arm-templates-content-guide.md?tabs=managed-instance
-        - name: Azure Policy 기본 제공 기능
-          displayName: 'samples, policies, definitions'
-          href: ./database/policy-samples.md
         - name: 코드 샘플
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Azure VM의 SQL Server
   items:
-    - name: 문서화
+    - name: 설명서
       href: virtual-machines/index.yml
     - name: Windows
       items:
@@ -1080,6 +1074,9 @@
               href: 'https://docs.microsoft.com/sql/connect/sql-connection-libraries'
             - name: REST (영문)
               href: /rest/api/
+            - name: Azure Policy 기본 제공 기능
+              displayName: 'samples, policies, definitions'
+              href: ./database/policy-reference.md
         - name: 리소스
           items:
             - name: FAQ
@@ -1180,6 +1177,9 @@
           href: /sql/connect/python/python-driver-for-sql-server
         - name: Ruby
           href: /sql/connect/ruby/ruby-driver-for-sql-server
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./database/policy-reference.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

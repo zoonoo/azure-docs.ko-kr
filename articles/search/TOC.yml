@@ -88,9 +88,6 @@
       href: /samples/browse/?languages=python&products=azure-cognitive-search
     - name: REST 샘플
       href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 개념
   items:
     - name: 전체 텍스트 검색
@@ -496,6 +493,9 @@
           items:
             - name: 명명된 엔터티 인식
               href: cognitive-search-skill-named-entity-recognition.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: Azure 커뮤니티 지원

@@ -75,9 +75,6 @@
   items:
     - name: 코드 샘플
       href: event-hubs-samples.md
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 개념
   items:
     - name: Event Hubs 용어
@@ -290,6 +287,9 @@
       href: event-hubs-quotas.md
     - name: Apache Kafka 구성
       href: apache-kafka-configurations.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

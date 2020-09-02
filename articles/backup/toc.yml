@@ -44,11 +44,6 @@
           href: tutorial-sap-hana-restore-cli.md
         - name: 백업된 SAP HANA 데이터베이스 관리 - CLI
           href: tutorial-sap-hana-manage-cli.md
-- name: 샘플
-  items:
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 개념
   items:
     - name: 지원 매트릭스
@@ -428,6 +423,9 @@
       href: /rest/api/recoveryservices/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.recoveryservices/allversions
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: 규정 준수

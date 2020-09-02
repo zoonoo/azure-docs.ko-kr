@@ -83,9 +83,6 @@
       href: cli-samples.md
     - name: Azure 리소스 관리자
       href: resource-manager-samples.md
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 개념
   items:
     - name: NoSQL 및 관계형 데이터베이스
@@ -580,7 +577,7 @@
       items:
         - name: 보안 개요
           href: database-security.md
-        - name: 데이터 암호화.
+        - name: 데이터 암호화
           href: database-encryption-at-rest.md
         - name: 데이터에 안전하게 액세스
           displayName: 'master key, resource token, users, roles'
@@ -1305,6 +1302,11 @@
       displayName: ARM
     - name: 에뮬레이터 릴리스 정보
       href: local-emulator-release-notes.md
+- name: 참고
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

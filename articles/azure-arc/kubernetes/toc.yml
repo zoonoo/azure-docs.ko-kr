@@ -4,12 +4,6 @@
   items:
     - name: Arc 지원 Kubernetes 정보
       href: overview.md
-- name: 샘플
-  items:
-    - name: Azure Policy 기본 제공 기능
-      items:
-        - name: Arc 지원 Kubernetes
-          href: policy-samples.md
 - name: 방법 가이드
   items:
     - name: Azure Arc에 연결
@@ -34,3 +28,8 @@
           href: deploy-azure-iot-edge-workloads.md
     - name: 문제 해결
       href: Troubleshooting.md
+- name: 참고
+  items:
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: policy-reference.md

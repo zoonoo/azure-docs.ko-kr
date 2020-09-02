@@ -15,7 +15,7 @@
       items:
         - name: Service Bus 큐 만들기
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -72,9 +72,6 @@
   items:
     - name: Service Bus 샘플
       href: service-bus-samples.md
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: 개념
   items:
     - name: 프리미엄 메시징
@@ -272,6 +269,9 @@
       href: service-bus-messaging-sql-filter.md
     - name: SQLRuleAction 구문
       href: service-bus-messaging-sql-rule-action.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: FAQ
