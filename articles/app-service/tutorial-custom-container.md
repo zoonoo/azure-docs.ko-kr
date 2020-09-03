@@ -7,18 +7,18 @@ ms.author: msangapu
 keywords: azure app service, 웹앱, linux, windows, docker, 컨테이너
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a3579ba805d0da08184e6274de60086a9d55a938
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: df46d61ddfba5f4da977b19db3158691c78168f8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212943"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958476"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 사용자 지정 소프트웨어를 Azure App Service로 마이그레이션
 
 ::: zone pivot="container-windows"  
 
-[Azure App Service](overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 애플리케이션 스택을 제공합니다. 미리 구성된 Windows 환경은 관리자 액세스의 운영 체제, 소프트웨어 설치, 글로벌 어셈블리 캐시 변경 내용을 잠급니다([Azure App Service의 운영 체제 기능](operating-system-functionality.md) 참조). 하지만 App Service(미리 보기)에서 사용자 지정 Windows 컨테이너를 사용하면 앱에 필요한 OS 변경이 가능합니다. 따라서 사용자 지정 OS 및 소프트웨어 구성이 필요한 온-프레미스 앱을 쉽게 마이그레이션할 수 있습니다. 이 자습서에서는 Windows 글꼴 라이브러리에 설치된 사용자 지정 글꼴을 사용하는 ASP.NET 앱을 App Service로 마이그레이션하는 방법을 보여줍니다. 사용자 지정 구성된 Windows 이미지를 Visual Studio에서 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)로 배포한 다음, App Service에서 실행합니다.
+[Azure App Service](overview.md)는 IIS에서 실행하는 ASP.NET 또는 Node.js와 같은 Windows에서 미리 정의된 애플리케이션 스택을 제공합니다. 미리 구성된 Windows 환경은 관리자 액세스의 운영 체제, 소프트웨어 설치, 글로벌 어셈블리 캐시 변경 내용을 잠급니다([Azure App Service의 운영 체제 기능](operating-system-functionality.md) 참조). 하지만 App Service(미리 보기)에서 사용자 지정 Windows 컨테이너를 사용하면 앱에 필요한 OS 변경이 가능합니다. 따라서 사용자 지정 OS 및 소프트웨어 구성이 필요한 온-프레미스 앱을 쉽게 마이그레이션할 수 있습니다. 이 자습서에서는 Windows 글꼴 라이브러리에 설치된 사용자 지정 글꼴을 사용하는 ASP.NET 앱을 App Service로 마이그레이션하는 방법을 보여줍니다. 사용자 지정 구성된 Windows 이미지를 Visual Studio에서 [Azure Container Registry](../container-registry/index.yml)로 배포한 다음, App Service에서 실행합니다.
 
 ![Windows 컨테이너에서 실행 중인 웹앱을 표시합니다.](media/tutorial-custom-container/app-running.png)
 
@@ -92,7 +92,7 @@ _InstallFont.ps1_은 **CustomFontSample** 프로젝트에서 찾을 수 있습�
 
 ## <a name="publish-to-azure-container-registry"></a>Azure Container Registry에 게시
 
-[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)는 컨테이너 배포용 이미지를 저장할 수 있습니다. Azure Container Registry에서 호스트되는 이미지를 사용하도록 App Service를 구성할 수 있습니다.
+[Azure Container Registry](../container-registry/index.yml)는 컨테이너 배포용 이미지를 저장할 수 있습니다. Azure Container Registry에서 호스트되는 이미지를 사용하도록 App Service를 구성할 수 있습니다.
 
 ### <a name="open-publish-wizard"></a>게시 마법사 열기
 
@@ -439,7 +439,7 @@ az group create --name AppSvc-DockerTutorial-rg --location westus2
     
     이 환경 변수에 대한 자세한 내용은 [샘플의 GitHub 리포지토리에 있는 추가 정보](https://github.com/Azure-Samples/docker-django-webapp-linux)를 참조하세요.
 
-1. [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 명령을 사용하여 [관리 ID](/azure/app-service/overview-managed-identity)를 웹앱에 사용하도록 설정합니다.
+1. [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 명령을 사용하여 [관리 ID](./overview-managed-identity.md)를 웹앱에 사용하도록 설정합니다.
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -466,7 +466,7 @@ az group create --name AppSvc-DockerTutorial-rg --location westus2
     - `<registry-name>` 값을 컨테이너 레지스트리의 이름으로 바꿉니다.
     - `<subscription-id>` 값을 `az account show` 명령에서 검색된 구독 ID로 바꿉니다.
 
-이러한 권한에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어란?](/azure/role-based-access-control/overview)을 참조하세요. 
+이러한 권한에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어란?](../role-based-access-control/overview.md)을 참조하세요. 
 
 ## <a name="deploy-the-image-and-test-the-app"></a>이미지 배포 및 앱 테스트
 

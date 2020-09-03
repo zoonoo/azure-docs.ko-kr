@@ -3,7 +3,7 @@ title: 자습서 - Azure Front Door용 사용자 지정 도메인에 HTTPS 구�
 description: 이 자습서에서는 사용자 지정 도메인에 대한 Azure Front Door 구성에서 HTTPS를 활성화하거나 비활성화하는 방법을 알아봅니다.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
-ms.author: sharadag
-ms.openlocfilehash: 770353f893762f0f35d744fe1e7a5e4de4a671ce
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.author: duau
+ms.openlocfilehash: 3956a843e67dba82486f350fc4380d4c8f6065f1
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808776"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399823"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 

@@ -8,18 +8,19 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
-ms.openlocfilehash: 693a7006a9f5742341a11af23b64bcd8c501618f
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 09273cf901830e850acca05c57c0b110ffd7e28a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705897"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002865"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Blob에서 AI 생성 검색 가능 콘텐츠
 
 Azure Blob Storage에 비정형 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)은 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 새 콘텐츠를 만들 수 있습니다. 이 C# 자습서에서는 이미지에 OCR(광학 인식)을 적용하고 자연어 처리를 수행하여 쿼리, 패싯 및 필터에 활용할 수 있는 새로운 필드를 만듭니다.
 
-이 자습서에서는 C# 및 [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)를 사용하여 다음 작업을 수행합니다.
+이 자습서에서는 C# 및 [.NET SDK](/dotnet/api/overview/azure/search)를 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * Azure Blob Storage에서 애플리케이션 파일과 이미지로 시작합니다.
@@ -127,7 +128,7 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
 
 ### <a name="install-nuget-packages"></a>NuGet 패키지 설치
 
-[Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)는 HTTP 및 JSON의 세부 정보를 처리하지 않고도 인덱스, 데이터 원본, 인덱서 및 기술 세트를 관리하고, 문서를 업로드 및 관리하고, 쿼리를 실행할 수 있게 하는 몇 가지 클라이언트 라이브러리로 구성됩니다. 이러한 클라이언트 라이브러리는 모두 NuGet 패키지로 배포됩니다.
+[Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)는 HTTP 및 JSON의 세부 정보를 처리하지 않고도 인덱스, 데이터 원본, 인덱서 및 기술 세트를 관리하고, 문서를 업로드 및 관리하고, 쿼리를 실행할 수 있게 하는 몇 가지 클라이언트 라이브러리로 구성됩니다. 이러한 클라이언트 라이브러리는 모두 NuGet 패키지로 배포됩니다.
 
 이 프로젝트의 경우 `Microsoft.Azure.Search` NuGet 패키지 버전 9 이상을 설치합니다.
 
@@ -680,7 +681,7 @@ private static Index CreateDemoIndex(SearchServiceClient serviceClient)
 using Index = Microsoft.Azure.Search.Models.Index;
 ```
 
-인덱스 정의에 대한 자세한 내용은 [인덱스 만들기(Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index)를 참조하세요.
+인덱스 정의에 대한 자세한 내용은 [인덱스 만들기(Azure Cognitive Search REST API)](/rest/api/searchservice/create-index)를 참조하세요.
 
 ### <a name="step-4-create-and-run-an-indexer"></a>4단계: 인덱서 만들기 및 실행
 
@@ -905,7 +906,7 @@ catch (Exception e)
 }
 ```
 
-추가 필드 반복: 이 연습의 콘텐츠, 언어 코드, 핵심 구 및 조직. 쉼표로 구분된 목록을 사용하여 [Select](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) 속성을 통해 여러 필드를 반환할 수 있습니다.
+추가 필드 반복: 이 연습의 콘텐츠, 언어 코드, 핵심 구 및 조직. 쉼표로 구분된 목록을 사용하여 [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) 속성을 통해 여러 필드를 반환할 수 있습니다.
 
 <a name="reset"></a>
 
