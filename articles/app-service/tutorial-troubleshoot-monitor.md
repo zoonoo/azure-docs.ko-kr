@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 106427a6b26386e6ff881862f836e9108a27aa96
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c34cf47a5b8c20c10b160ac6e55309b3c18448f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082328"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959020"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>자습서: Azure Monitor를 사용하여 App Service 앱 문제 해결
 
@@ -18,9 +18,9 @@ ms.locfileid: "88082328"
 > Azure Monitor와 App Service의 통합은 [미리 보기](https://aka.ms/appsvcblog-azmon)에 있습니다.
 >
 
-이 자습서에서는 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)를 사용하여 [App Service](overview.md) 앱의 문제를 해결하는 방법을 보여줍니다. 샘플 앱에는 메모리를 소모하고 HTTP 500 오류가 발생하는 코드가 포함되어 있으므로 Azure Monitor를 사용하여 문제를 진단하고 해결할 수 있습니다. 완료되면 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)와 통합된 Linux의 App Service에서 샘플 앱이 실행됩니다.
+이 자습서에서는 [Azure Monitor](../azure-monitor/overview.md)를 사용하여 [App Service](overview.md) 앱의 문제를 해결하는 방법을 보여줍니다. 샘플 앱에는 메모리를 소모하고 HTTP 500 오류가 발생하는 코드가 포함되어 있으므로 Azure Monitor를 사용하여 문제를 진단하고 해결할 수 있습니다. 완료되면 [Azure Monitor](../azure-monitor/overview.md)와 통합된 Linux의 App Service에서 샘플 앱이 실행됩니다.
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)는 클라우드 및 온-프레미스 환경에서 원격 분석을 수집, 분석 및 작동하기 위한 종합적인 솔루션을 제공하여 애플리케이션 및 서비스의 가용성과 성능을 극대화합니다.
+[Azure Monitor](../azure-monitor/overview.md)는 클라우드 및 온-프레미스 환경에서 원격 분석을 수집, 분석 및 작동하기 위한 종합적인 솔루션을 제공하여 애플리케이션 및 서비스의 가용성과 성능을 극대화합니다.
 
 이 자습서에서는 다음을 수행하는 방법을 알아봅니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "88082328"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - [Azure 구독](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure CLI](/cli/azure/install-azure-cli)
 - [Git](https://git-scm.com/)
 
 ## <a name="create-azure-resources"></a>Azure 리소스 만들기
@@ -73,12 +73,12 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 
 ### <a name="create-a-diagnostic-setting"></a>진단 설정 만들기
 
-진단 설정을 사용하면 로그 쿼리를 사용하여 다른 모니터링 데이터를 분석하기 위해 특정 Azure 서비스에 대한 메트릭을 Azure Monitor 로그에 수집할 수 있습니다. 이 자습서에서는 웹 서버 및 표준 출력/오류 로그를 사용하도록 설정합니다. 로그 유형 및 설명의 전체 목록은 [지원되는 로그 유형](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#supported-log-types)을 참조하세요.
+진단 설정을 사용하면 로그 쿼리를 사용하여 다른 모니터링 데이터를 분석하기 위해 특정 Azure 서비스에 대한 메트릭을 Azure Monitor 로그에 수집할 수 있습니다. 이 자습서에서는 웹 서버 및 표준 출력/오류 로그를 사용하도록 설정합니다. 로그 유형 및 설명의 전체 목록은 [지원되는 로그 유형](./troubleshoot-diagnostic-logs.md#supported-log-types)을 참조하세요.
 
 다음 명령을 실행하여 AppServiceConsoleLogs(표준 출력/오류) 및 AppServiceHTTPLogs(웹 서버 로그)에 대한 진단 설정을 만듭니다. _\<app-name>_ 및 _\<workspace-name>_ 를 값으로 바꿉니다. 
 
 > [!NOTE]
-> 처음 두 명령인 `resourceID` 및 `workspaceID`는 `az monitor diagnostic-settings create` 명령에 사용되는 변수입니다. 이 명령에 대한 자세한 내용은 [Azure CLI를 사용하여 진단 설정 만들기](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli)를 참조하세요.
+> 처음 두 명령인 `resourceID` 및 `workspaceID`는 `az monitor diagnostic-settings create` 명령에 사용되는 변수입니다. 이 명령에 대한 자세한 내용은 [Azure CLI를 사용하여 진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli)를 참조하세요.
 >
 
 ```bash
@@ -129,7 +129,7 @@ Azure Portal에서 Log Analytics 작업 영역을 선택합니다.
 
 ### <a name="log-queries"></a>로그 쿼리
 
-로그 쿼리를 사용하면 Azure Monitor 로그에서 수집된 데이터의 값을 완벽하게 활용할 수 있습니다. 로그 쿼리를 사용하여 AppServiceHTTPLogs 및 AppServiceConsoleLogs 모두에서 로그를 식별합니다. 로그 쿼리에 대한 자세한 내용은 [로그 쿼리 개요](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)를 참조하세요.
+로그 쿼리를 사용하면 Azure Monitor 로그에서 수집된 데이터의 값을 완벽하게 활용할 수 있습니다. 로그 쿼리를 사용하여 AppServiceHTTPLogs 및 AppServiceConsoleLogs 모두에서 로그를 식별합니다. 로그 쿼리에 대한 자세한 내용은 [로그 쿼리 개요](../azure-monitor/log-query/log-query-overview.md)를 참조하세요.
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>로그 쿼리를 사용하여 AppServiceHTTPLogs 보기
 

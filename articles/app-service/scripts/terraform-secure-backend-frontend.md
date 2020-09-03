@@ -8,21 +8,21 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 238cd5e79fe749052206cfdf25d576f88f1020e8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 76591b9f397bd84e5afac19a56dd2c6467f4650f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065440"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962233"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Private Endpoint 및 VNet 통합으로 안전하게 연결된 두 개의 웹앱 만들기
 
-이 문서에서는 다음 단계에 따라 두 개의 웹앱(프런트 엔드 및 백 엔드)을 안전하게 연결하는 [Private Endpoint](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) 및 지역 [VNet 통합](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)을 사용하는 예를 보여줍니다.
+이 문서에서는 다음 단계에 따라 두 개의 웹앱(프런트 엔드 및 백 엔드)을 안전하게 연결하는 [Private Endpoint](../networking/private-endpoint.md) 및 지역 [VNet 통합](../web-sites-integrate-with-vnet.md)을 사용하는 예를 보여줍니다.
 - VNet 배포
 - 통합을 위한 첫 번째 서브넷 만들기
 - 프라이빗 엔드포인트에 대한 두 번째 서브넷을 만듭니다. 네트워크 정책을 사용하지 않도록 설정하려면 특정 매개 변수를 설정해야 합니다.
 - Private Endpoint 기능에 필요한 최소 SKU인 PremiumV2 형식의 App Service 계획 1개 배포
-- 특정 앱 설정을 통해 프런트 엔드 웹앱을 만들어 프라이빗 DNS 영역을 사용합니다. [자세한 정보](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones)
+- 특정 앱 설정을 통해 프런트 엔드 웹앱을 만들어 프라이빗 DNS 영역을 사용합니다. [자세한 정보](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - 프런트 엔드 웹앱을 통합 서브넷에 연결
 - 백 엔드 웹앱 만들기
 - 웹앱 privatelink.azurewebsites.net에 대한 프라이빗 링크 영역 이름으로 DNS 프라이빗 영역을 만듭니다.
@@ -31,7 +31,7 @@ ms.locfileid: "88065440"
 
 ## <a name="how-to-use-terraform-in-azure"></a>Azure에서 terraform을 사용하는 방법
 
-[Azure 설명서](https://docs.microsoft.com/azure/developer/terraform/)로 이동하여 Azure에서 terraform을 사용하는 방법을 알아봅니다.
+[Azure 설명서](/azure/developer/terraform/)로 이동하여 Azure에서 terraform을 사용하는 방법을 알아봅니다.
 
 ## <a name="the-complete-terraform-file"></a>전체 terraform 파일
 
@@ -149,4 +149,4 @@ resource "azurerm_private_endpoint" "privateendpoint" {
 ## <a name="next-steps"></a>다음 단계
 
 
-> [Azure에서 Terraform을 사용하는 방법에 대해 자세히 알아보기](https://docs.microsoft.com/azure/developer/terraform/)
+> [Azure에서 Terraform을 사용하는 방법에 대해 자세히 알아보기](/azure/developer/terraform/)
