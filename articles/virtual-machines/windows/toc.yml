@@ -70,23 +70,23 @@
             - name: VHD 업로드에서 VM 만들기
               href: ./../scripts/virtual-machines-windows-powershell-upload-generalized-script.md
             - name: OS 디스크 연결
-              href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md
+              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md
             - name: 스냅샷에서 VM 만들기
               href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md
         - name: 스토리지 관리
           items:
             - name: VHD에서 관리 디스크 만들기
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
             - name: 스냅샷에서 관리 디스크 만들기
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
             - name: 관리 디스크 복사
               href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: 스냅샷을 VHD로 스토리지 계정에 내보내기
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: 관리 디스크의 VHD를 스토리지 계정에 내보내기
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
             - name: VHD에서 스냅샷 만들기
-              href: ../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md
+              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
             - name: 스냅샷 복사
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: 보안
@@ -118,15 +118,15 @@
         - name: 스토리지 관리
           items:
             - name: VHD에서 관리 디스크 만들기
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
             - name: 스냅샷에서 관리 디스크 만들기
-              href: ../scripts/virtual-machines-windows-cli-sample-create-managed-disk-from-snapshot.md
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
             - name: 관리 디스크 복사
               href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: 스냅샷을 VHD로 스토리지 계정에 내보내기
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: 관리 디스크의 VHD를 스토리지 계정에 내보내기
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
+              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
             - name: 스냅샷 복사
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: 네트워크
@@ -172,7 +172,7 @@
         - name: VM 크기
           href: ../sizes.md
         - name: 2세대 VM
-          href: generation-2.md
+          href: ../generation-2.md
         - name: 범용 가상 컴퓨터
           items:
             - name: 개요
@@ -621,7 +621,7 @@
     - name: VM 관리
       items:
         - name: VM 사용량
-          href: vm-usage.md
+          href: ../vm-usage.md
         - name: 일반 PowerShell 작업
           href: ps-common-ref.md
         - name: VM 크기 변경
@@ -918,7 +918,7 @@
           href: ../../virtual-network/quick-create-portal.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
         - name: VM에 대한 포트 열기
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: nsg-quickstart-portal.md
             - name: Azure PowerShell
               href: nsg-quickstart-powershell.md

@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Computer Vision이란?
-      href: Home.md
+      href: overview.md
     - name: 새로운 기능
       href: whats-new.md
 - name: 빠른 시작
