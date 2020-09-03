@@ -7,14 +7,14 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: e4364c3c5bcba1a04837f3f9e7a0576579211c72
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 35814f34550ac7bf4ad85a96d0838df62fe63be6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796598"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073185"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault 가용성 및 중복성
 
@@ -32,8 +32,6 @@ Azure Key Vault에는 서비스의 개별 구성 요소가 실패해도 애플�
 
 * 지역 장애 조치 시 서비스를 장애 조치하는 데 몇 분 정도 걸릴 수 있습니다. 장애 조치(failover) 전에 이 시간 동안 이루어진 요청이 실패할 수 있습니다.
 * 장애 조치(failover) 동안 주요 자격 증명 모음은 읽기 전용 모드입니다. 이 모드에서 지원되는 요청은 다음과 같습니다.
-  * 주요 자격 증명 모음 나열
-  * 주요 자격 증명 모음 속성 가져오기
   * 인증서 나열
   * 인증서 가져오기
   * 암호 나열
