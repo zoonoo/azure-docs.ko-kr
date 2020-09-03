@@ -10,12 +10,13 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: ff56a3e9c15d6f4bf04765c30084a9ca68df0e73
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 017dabf16384e53d924ed69f36b64050fcacb5bf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544760"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934789"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 
