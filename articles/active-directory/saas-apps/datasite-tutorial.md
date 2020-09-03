@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 4608e8b818fcb75d91d7daf5278ba1dd30c9d667
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 36a90dee086a0ada705a0c067f3ad9d717542d52
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555902"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077537"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datasite"></a>자습서: Datasite와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -42,6 +42,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 * Datasite는 **SP**에서 시작한 SSO를 지원합니다.
 
 * Datasite가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="adding-datasite-from-the-gallery"></a>갤러리에서 Datasite 추가
 
@@ -80,10 +83,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    **로그인 URL** 텍스트 상자에서 `https://auth.<ENVIRONMENT>.com/sp/ACS.saml2` 패턴을 사용하여 URL을 입력합니다.
-
-    > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Datasite 클라이언트 지원 팀](mailto:service@datasite.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    **로그온 URL** 텍스트 상자에 `https://auth.datasite.com/sp/ACS.saml2` URL을 입력합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
