@@ -3,7 +3,7 @@ title: PowerShell을 사용하여 Azure VM에서 관리 ID 구성 - Azure AD
 description: PowerShell을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID를 구성하는 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/19/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 474e6c96be810192d3c4e1ada1ab2e0391a5d4f9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: cbbe4dbb7c7db0ca17a9ddddf5016bdc52b9e93d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606480"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269355"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>PowerShell을 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -44,7 +44,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm"></a>Azure VM 생성 중에 시스템 할당 관리 ID를 사용하도록 설정
 
-시스템 할당 관리 ID를 사용하도록 설정된 Azure VM을 만들려면 계정에 [Virtual Machine 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 역할 할당이 필요합니다.  추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
+시스템 할당 관리 ID를 사용하도록 설정된 Azure VM을 만들려면 계정에 [Virtual Machine 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할 할당이 필요합니다.  추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
 1. 다음 Azure VM 빠른 시작 중 하나를 참조하여 필요한 섹션만 완료하세요("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기").
 
@@ -61,7 +61,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-azure-vm"></a>기존 Azure VM에서 시스템 할당 관리 ID를 사용하도록 설정
 
-원래 시스템 할당 관리 ID 없이 프로비전된 VM에서 해당 ID를 사용하도록 설정하려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 역할 할당이 필요합니다.  추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
+원래 시스템 할당 관리 ID 없이 프로비전된 VM에서 해당 ID를 사용하도록 설정하려면 계정에 [가상 머신 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할 할당이 필요합니다.  추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
 1. `Connect-AzAccount`를 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다.
 
@@ -108,7 +108,7 @@ VM에서 시스템이 할당한 ID를 사용하도록 설정한 후에는 그룹
 
 ## <a name="disable-system-assigned-managed-identity-from-an-azure-vm"></a>Azure VM에서 시스템 할당 관리 ID를 사용하지 않도록 설정
 
-VM에서 시스템 할당 관리 ID를 사용하지 않도록 설정하려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 역할 할당이 필요합니다.  추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
+VM에서 시스템 할당 관리 ID를 사용하지 않도록 설정하려면 계정에 [가상 머신 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할 할당이 필요합니다.  추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
 시스템 할당 관리 ID는 더 이상 필요하지 않고 사용자 할당 관리 ID는 여전히 필요한 Virtual Machine이 있는 경우 다음 cmdlet을 사용합니다.
 
@@ -140,7 +140,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 
 ### <a name="assign-a-user-assigned-managed-identity-to-a-vm-during-creation"></a>생성 중에 VM에 사용자 할당 관리 ID 할당
 
-VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 및 [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할 할당이 필요합니다. 추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
+VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 및 [관리 ID 운영자](../../role-based-access-control/built-in-roles.md#managed-identity-operator) 역할 할당이 필요합니다. 추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
 1. 다음 Azure VM 빠른 시작 중 하나를 참조하여 필요한 섹션만 완료하세요("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기").
 
@@ -157,7 +157,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>기존 Azure VM에 사용자 할당 관리 ID 할당
 
-VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 및 [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할 할당이 필요합니다. 추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
+VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 및 [관리 ID 운영자](../../role-based-access-control/built-in-roles.md#managed-identity-operator) 역할 할당이 필요합니다. 추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
 1. `Connect-AzAccount`를 사용하여 Azure에 로그인합니다. VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다.
 
@@ -187,7 +187,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Azure VM에서 사용자 할당 관리 ID 제거
 
-VM의 사용자 할당 ID를 제거하려면 계정에 [가상 머신 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) 역할 할당이 필요합니다.
+VM의 사용자 할당 ID를 제거하려면 계정에 [가상 머신 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 역할 할당이 필요합니다.
 
 VM에 여러 사용자 할당 관리 ID가 있는 경우 다음 명령을 사용하여 마지막 것을 제외하고 모두 제거할 수 있습니다. `<RESOURCE GROUP>` 및 `<VM NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY NAME>`은 사용자 할당 관리 ID의 이름 속성으로, VM에 남아 있어야 합니다. 이 정보는 VM 개체의 `Identity` 속성을 쿼리하여 찾을 수 있습니다.  예: `$vm.Identity`
 

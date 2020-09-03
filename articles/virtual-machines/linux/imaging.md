@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 781cc10895f3a77afe71d508c1194b425010ec41
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815303"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319545"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Azure에서 Linux 이미지 가져오기 및 만들기
 
@@ -46,7 +46,7 @@ Azure는 일반화 및 특수화의 두 가지 기본 이미지 유형을 제공
 
 ### <a name="generalized-images"></a>일반화된 이미지
 
-일반화된 이미지는 처음 부팅할 때 설치를 완료해야 하는 이미지입니다. 예를 들어 처음 부팅할 때 호스트 이름, 관리 사용자 및 기타 VM 특정 구성을 설정합니다. 이는 이미지를 여러 번 다시 사용하려는 경우와 만드는 중에 매개 변수를 전달하려는 경우에 유용합니다. Azure 에이전트가 일반화된 이미지에 포함되는 경우 에이전트에서 매개 변수를 처리하고 초기 구성이 완료되었다는 신호를 플랫폼에 다시 보냅니다. 이 프로세스를 **프로비저닝**이라고 합니다. 
+일반화된 이미지는 처음 부팅할 때 설치를 완료해야 하는 이미지입니다. 예를 들어 처음 부팅할 때 호스트 이름, 관리 사용자 및 기타 VM 특정 구성을 설정합니다. 이는 이미지를 여러 번 다시 사용하려는 경우와 만드는 중에 매개 변수를 전달하려는 경우에 유용합니다. Azure 에이전트가 일반화된 이미지에 포함되는 경우 에이전트에서 매개 변수를 처리하고 초기 구성이 완료되었다는 신호를 플랫폼에 다시 보냅니다. 이 프로세스를 [프로비저닝](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning)이라고 합니다. 
 
 프로비저닝하려면 이미지에 구축 프로그램이 포함되어 있어야 합니다. 다음 두 가지 구축 프로그램이 있습니다.
 - [Azure Linux 에이전트](../extensions/agent-linux.md)
