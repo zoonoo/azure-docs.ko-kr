@@ -9,12 +9,12 @@ author: ericgre
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 8b15b3c4444a6f26734b133f169cea7074956ae7
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: f88ccd077c857826271484c9929b37f8c5d751fe
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042916"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962709"
 ---
 # <a name="terraform-samples-for-azure-app-service"></a>Azure App Service에 대한 Terraform 샘플
 
@@ -24,5 +24,5 @@ ms.locfileid: "88042916"
 |-|-|
 |**앱 만들기**||
 | [두 개의 앱을 만들고 Private Endpoint 및 VNet 통합으로 안전하게 연결](./scripts/terraform-secure-backend-frontend.md )| Private Endpoint 및 VNet 통합을 통해 두 개의 App Service 앱을 만들고 앱을 함께 연결합니다. |
-| [App Service를 프로비저닝하고 슬롯 교환을 사용하여 배포](https://docs.microsoft.com/azure/developer/terraform/provision-infrastructure-using-azure-deployment-slots)| Azure 배포 슬롯을 사용하여 App Service 인프라를 프로비저닝합니다. |
+| [App Service를 프로비저닝하고 슬롯 교환을 사용하여 배포](/azure/developer/terraform/provision-infrastructure-using-azure-deployment-slots)| Azure 배포 슬롯을 사용하여 App Service 인프라를 프로비저닝합니다. |
 | | |
