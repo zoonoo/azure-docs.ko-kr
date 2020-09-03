@@ -7,16 +7,16 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0018e952516e08d6d01e2e79fea038745acadf62
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b63d487d09679e64b5a2029284471c1aa3c3b769
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082498"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958307"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>자습서: Linux 및 Azure Cosmos DB에서 Azure App Service를 사용하여 Java Spring Boot Java 웹앱 빌드
 
-이 자습서에서는 Azure에서 Java 웹앱을 빌드하고, 구성하고, 배포하고, 크기를 조정하는 프로세스를 단계별로 설명합니다. 작업이 완료되면 [Linux의 Azure App Service](overview.md)에서 실행되는 [Azure Cosmos DB](/azure/cosmos-db)에 [Spring Boot](https://projects.spring.io/spring-boot/) 애플리케이션 저장 데이터가 생성됩니다.
+이 자습서에서는 Azure에서 Java 웹앱을 빌드하고, 구성하고, 배포하고, 크기를 조정하는 프로세스를 단계별로 설명합니다. 작업이 완료되면 [Linux의 Azure App Service](overview.md)에서 실행되는 [Azure Cosmos DB](../cosmos-db/index.yml)에 [Spring Boot](https://projects.spring.io/spring-boot/) 애플리케이션 저장 데이터가 생성됩니다.
 
 ![Azure Cosmos DB에 데이터를 저장하는 Spring Boot 애플리케이션](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
@@ -33,14 +33,14 @@ ms.locfileid: "88082498"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 고유한 컴퓨터에 설치된 [Azure CLI](https://docs.microsoft.com/cli/azure/overview) 
+* 고유한 컴퓨터에 설치된 [Azure CLI](/cli/azure/overview) 
 * [Git](https://git-scm.com/)
 * [Java JDK](https://aka.ms/azure-jdks)
 * [Maven](https://maven.apache.org)
 
 ## <a name="clone-the-sample-todo-app-and-prepare-the-repo"></a>샘플 TODO 앱 복제 및 리포지토리 준비
 
-이 자습서에서는 [Spring 데이터 Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb)에서 지원되는 Spring REST API를 호출하는 웹 UI에서 샘플 할 일 목록 앱을 사용합니다. 앱의 코드는 [GitHub](https://github.com/Microsoft/spring-todo-app)에서 사용할 수 있습니다. Spring 및 Cosmos DB를 사용하여 Java 앱을 작성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB SQL API를 사용한 Spring Boot Starter 자습서](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db ) 및 [Spring 데이터 Azure Cosmos DB 빠른 시작](https://github.com/Microsoft/spring-data-cosmosdb#quick-start)을 참조하세요.
+이 자습서에서는 [Spring 데이터 Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb)에서 지원되는 Spring REST API를 호출하는 웹 UI에서 샘플 할 일 목록 앱을 사용합니다. 앱의 코드는 [GitHub](https://github.com/Microsoft/spring-todo-app)에서 사용할 수 있습니다. Spring 및 Cosmos DB를 사용하여 Java 앱을 작성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB SQL API를 사용한 Spring Boot Starter 자습서](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) 및 [Spring 데이터 Azure Cosmos DB 빠른 시작](https://github.com/Microsoft/spring-data-cosmosdb#quick-start)을 참조하세요.
 
 
 터미널에서 다음 명령을 실행하여 샘플 리포지토리를 복제하고 샘플 앱 환경을 설정합니다.
@@ -310,7 +310,7 @@ az group delete --name <your-azure-group-name>
 ## <a name="next-steps"></a>다음 단계
 
 [Java 개발자용 Azure](/java/azure/)
-[Spring Boot](https://spring.io/projects/spring-boot), [Cosmos DB용 Spring Data](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction) 및 [App Service Linux](overview.md)
+[Spring Boot](https://spring.io/projects/spring-boot), [Cosmos DB용 Spring Data](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), [Azure Cosmos DB](../cosmos-db/introduction.md) 및 [App Service Linux](overview.md)
 
 개발자 가이드에서 App Service on Linux의 Java 앱을 실행하는 방법에 대해 자세히 알아봅니다.
 
