@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cffd72171693499365f31b6eb51fd2586187b98b
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271266"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226210"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>자습서: 로그 분석 마법사 구성
 
@@ -41,15 +41,15 @@ ms.locfileid: "88271266"
 
 다음 문서를 숙지하세요.
 
-- [자습서: Azure 리소스에서 리소스 로그 수집 및 분석](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)
+- [자습서: Azure 리소스에서 리소스 로그 수집 및 분석](../../azure-monitor/learn/tutorial-resource-logs.md)
 
-- [활동 로그를 Log Analytics와 통합하는 방법](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [활동 로그를 Log Analytics와 통합하는 방법](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Azure AD에서 응급 액세스 계정 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Azure AD에서 응급 액세스 계정 관리](../users-groups-roles/directory-emergency-access.md)
 
-- [KQL 빠른 참조](https://docs.microsoft.com/azure/data-explorer/kql-quick-reference)
+- [KQL 빠른 참조](/azure/data-explorer/kql-quick-reference)
 
-- [Azure Monitor 통합 문서](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Azure Monitor 통합 문서](../../azure-monitor/platform/workbooks-overview.md)
 
 
 
