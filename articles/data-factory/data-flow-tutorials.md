@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 08/11/2020
-ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c1527161948a6312fc0877748b2818b3ccc2143e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067854"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322622"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -107,8 +107,6 @@ ms.locfileid: "88067854"
 
 [데이터 계보](https://www.youtube.com/watch?v=5KvqYF-y93s)
 
-[최적화 팁](https://www.youtube.com/watch?v=a2KtwUJngHo)
-
 [매개 변수가 있는 파일 반복](http://youtu.be/uEgz0ptYRDM?hd=1)
 
 [시작 시간 줄이기](https://youtu.be/FFCbU4ujCiY?t=528)
@@ -121,7 +119,7 @@ ms.locfileid: "88067854"
 
 [데이터 흐름 시작 시간 최적화](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
-[데이터 흐름에 대한 Azure Integration Runtimes](https://mssqldude.wordpress.com/)
+[데이터 흐름에 대한 Azure Integration Runtimes](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 ## <a name="mapping-data-flow-scenarios"></a>매핑 데이터 흐름 시나리오
 
@@ -131,7 +129,7 @@ ms.locfileid: "88067854"
 
 [주소 패턴 지우기](https://youtu.be/axEYbuU3lmw)
 
-[중복 제거](https://www.youtube.com/watch?v=OLenvYwg__I)
+[중복 제거](https://youtu.be/QOi26ETtPTw)
 
 [파일 병합](http://youtu.be/WbDTBAyYte8)
 
