@@ -3,19 +3,19 @@ title: Azure Resource Manager 템플릿 샘플 - Azure Front Door
 description: 기본 Front Door를 만들고 Front Door 속도 제한을 구성하기 위한 템플릿을 포함하여 Azure Front Door용 Resource Manager 템플릿 샘플에 대해 알아봅니다.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2020
-ms.author: sharadag
-ms.openlocfilehash: 14f9cb33ce298b97ead0f6d7fbec0ad77e79a1ee
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.author: duau
+ms.openlocfilehash: 961214b3a815eb8ae9b0fcb283599b3474d4706e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182190"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399364"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Front Door에 대한 Azure Resource Manager 배포 모델 템플릿
 
