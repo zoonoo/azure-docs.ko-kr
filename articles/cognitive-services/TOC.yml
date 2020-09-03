@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Cognitive Services란?
-      href: Welcome.md
+      href: what-are-cognitive-services.md
     - name: Cognitive Services 문서의 새로운 기능
       href: whats-new-docs.md
     - name: Cognitive Services 및 기계 학습
@@ -82,7 +82,7 @@
           href: ./big-data/recipes/anomaly-detection.md
         - name: '레시피: 아트 탐색기'
           href: ./big-data/recipes/art-explorer.md
-- name: 참고
+- name: 참조
   items:
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'

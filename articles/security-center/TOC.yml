@@ -61,8 +61,6 @@
           href: security-center-recommendations.md
         - name: 보안 정책 개요
           href: tutorial-security-policy.md
-        - name: 기본 제공 보안 정책
-          href: security-center-policy-definitions.md
         - name: 권장 사항을 사용하여 보안 강화
           href: security-center-using-recommendations.md
         - name: 보안 기준
@@ -157,7 +155,7 @@
       href: asset-inventory.md
     - name: 다른 도구 및 서비스와 통합
       items:
-        - name: Windows Admin Center와 통합
+        - name: Windows Admin Center 서버 보호
           href: windows-admin-center-integration.md
         - name: Azure App Service 웹앱 및 API 보호
           href: security-center-app-services.md
@@ -211,6 +209,9 @@
       href: security-center-features-retirement-july2019.md
     - name: 엔드포인트 보호 평가 및 권장 사항
       href: security-center-endpoint-protection.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

@@ -949,6 +949,8 @@
           href: ./disk-encryption.md
         - name: Ranger 및 Apache Ambari의 LDAP 동기화
           href: ./domain-joined/ldap-sync.md
+        - name: 전송 중 이중 암호화
+          href: ./domain-joined/encryption-in-transit.md
     - name: 방법 가이드
       items:
         - name: 자격 증명 관리에 ID 브로커 사용

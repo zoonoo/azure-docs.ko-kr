@@ -39,9 +39,6 @@
   items:
     - name: Key Vault 코드 샘플
       href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: 개념
   items:
     - name: 기본 개념
@@ -90,6 +87,8 @@
           href: managed-identity.md
         - name: 액세스 제어 정책 사용
           href: group-permissions-for-apps.md
+        - name: Azure 역할 기반 액세스 제어(미리 보기) 사용
+          href: rbac-guide.md
         - name: 액세스 문제 해결
           href: troubleshooting-access-issues.md
     - name: 개발
@@ -158,11 +157,14 @@
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
     - name: Python
       href: /python/api/overview/azure/keyvault/management?view=azure-python
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/keyvault
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.keyvault/allversions
       displayName: ARM
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

@@ -71,17 +71,17 @@
           items:
             - name: kubectl을 통해
               items:
-                - name: Kubernetes 클러스터에 액세스
+                - name: Kubernetes 클러스터 액세스
                   href: azure-stack-edge-gpu-create-kubernetes-cluster.md
-                - name: 상태 비저장 앱 노출
+                - name: 상태 비저장 앱
                   href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md
-                - name: 상태 저장 앱 배포(정적 프로비저닝됨)
+                - name: 정적 프로비저닝된 상태 저장 앱
                   href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md
-                - name: 상태 저장 앱 배포(동적 프로비저닝됨)
+                - name: 동적 프로비저닝된 상태 저장 앱
                   href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md
             - name: IoT Edge를 통해
               items:
-                - name: 상태 비저장 앱 노출
+                - name: 상태 비저장 앱
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
             - name: Azure Arc를 통해
               items:
@@ -119,8 +119,8 @@
               href: azure-stack-edge-j-series-create-certificates-tool.md
             - name: 인증서 오류 문제 해결
               href: azure-stack-edge-j-series-certificate-troubleshooting.md
-            - name: C# 모듈 개발
-              href: azure-stack-edge-j-series-create-iot-edge-module.md
+        - name: C# 모듈 개발
+          href: azure-stack-edge-j-series-create-iot-edge-module.md
         - name: Edge 컴퓨팅 관리
           href: azure-stack-edge-j-series-manage-compute.md
         - name: 스토리지 게이트웨이 관리

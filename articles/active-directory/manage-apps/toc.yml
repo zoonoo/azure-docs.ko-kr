@@ -16,6 +16,8 @@
       href: add-application-portal.md
     - name: 앱 구성
       href: add-application-portal-configure.md
+    - name: 앱에 사용자 할당
+      href: add-application-portal-assign-users.md
     - name: Single Sign-On 설정
       href: add-application-portal-setup-sso.md
     - name: 앱 삭제

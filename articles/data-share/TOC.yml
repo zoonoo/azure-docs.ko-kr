@@ -9,9 +9,9 @@
       href: supported-data-stores.md
 - name: 빠른 시작
   items:
-    - name: 데이터 공유 만들기 - Azure Portal
+    - name: 데이터 공유 - Azure Portal
       href: share-your-data-portal.md
-    - name: 데이터 공유 만들기 - ARM 템플릿
+    - name: 데이터 공유 - ARM 템플릿
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: 자습서
@@ -39,6 +39,10 @@
   items:
     - name: 소스별 데이터 공유 및 수신
       items:
+        - name: Azure Storage에서 공유
+          href: how-to-share-from-storage.md
+        - name: Azure SQL Database 또는 Synapse Analytics에서 공유
+          href: how-to-share-from-sql.md
         - name: Azure Data Explorer에서 공유
           href: /azure/data-explorer/data-share
           maintainContext: true
