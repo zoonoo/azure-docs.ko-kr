@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: b7402dc3f7c1e5c7ff5552b2f454156ef1539711
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5604153d31a2828bcefbeccbd2f4fea428e878b5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212669"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961536"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>빠른 시작: Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -59,8 +59,8 @@ ms.locfileid: "88212669"
 
 App Service를 설정하는 과정에서 다음 항목을 만듭니다.
 
-- 서비스에 필요한 모든 Azure 리소스를 포함할 새 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/management/overview#terminology)
-- 앱을 호스팅하는 웹 서버 팜의 위치, 크기 및 기능을 지정하는 새 [호스팅 계획](https://docs.microsoft.com/azure/app-service/overview-hosting-plans)
+- 서비스에 필요한 모든 Azure 리소스를 포함할 새 [리소스 그룹](../azure-resource-manager/management/overview.md#terminology)
+- 앱을 호스팅하는 웹 서버 팜의 위치, 크기 및 기능을 지정하는 새 [호스팅 계획](./overview-hosting-plans.md)
 
 다음 단계에 따라 App Service를 만들고 웹앱을 게시합니다.
 
@@ -160,7 +160,7 @@ App Service를 설정하는 과정에서 다음 항목을 만듭니다.
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-[Linux의 App Service](overview.md#app-service-on-linux)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Linux의 App Service에서 [.NET Core](https://docs.microsoft.com/aspnet/core/) 앱을 만드는 방법을 보여줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 앱을 만들고 Git을 사용하여 앱에 .NET Core 코드를 배포합니다.
+[Linux의 App Service](overview.md#app-service-on-linux)는 Linux 운영 체제를 기반으로 확장성이 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Linux의 App Service에서 [.NET Core](/aspnet/core/) 앱을 만드는 방법을 보여줍니다. [Azure CLI](/cli/azure/get-started-with-azure-cli)를 사용하여 앱을 만들고 Git을 사용하여 앱에 .NET Core 코드를 배포합니다.
 
 ![Azure에서 실행되는 샘플 앱](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -322,4 +322,4 @@ git push azure master
 > [!div class="nextstepaction"]
 > [ASP.NET Core 앱 구성](configure-language-dotnetcore.md)
 
-::: zone-end  
+::: zone-end

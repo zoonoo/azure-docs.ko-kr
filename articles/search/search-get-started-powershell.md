@@ -9,23 +9,24 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
-ms.openlocfilehash: b74deaecd1a71fec14e31f0a6aca2fed34361d76
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f803532e7d08d0de21541cb5d1b52639b623bb90
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506008"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078302"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>빠른 시작: REST API를 사용하여 PowerShell에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
-> * [PowerShell(REST)](search-create-index-rest-api.md)
-> * [C#](search-create-index-dotnet.md)
+> * [PowerShell(REST)]()
+> * [C#](./search-get-started-dotnet.md)
 > * [Postman(REST)](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 > * [포털](search-get-started-portal.md)
 > 
 
-이 문서에서는 PowerShell 및 [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 Azure Cognitive Search 인덱스를 만들고, 로드하고, 쿼리하는 과정을 안내합니다. 이 문서에서는 PowerShell 명령을 대화형으로 실행하는 방법에 대해 설명합니다. 또는 동일한 작업을 수행하는 [PowerShell 스크립트를 다운로드하여 실행](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)할 수 있습니다.
+이 문서에서는 PowerShell 및 [Azure Cognitive Search REST API](/rest/api/searchservice/)를 사용하여 Azure Cognitive Search 인덱스를 만들고, 로드하고, 쿼리하는 과정을 안내합니다. 이 문서에서는 PowerShell 명령을 대화형으로 실행하는 방법에 대해 설명합니다. 또는 동일한 작업을 수행하는 [PowerShell 스크립트를 다운로드하여 실행](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -33,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에 필요한 서비스와 도구는 다음과 같습니다. 
 
-+ [PowerShell 5.1 이상](https://github.com/PowerShell/PowerShell)(순차적 및 대화형 단계에 [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) 사용)
++ [PowerShell 5.1 이상](https://github.com/PowerShell/PowerShell)(순차적 및 대화형 단계에 [Invoke-RestMethod](/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) 사용)
 
 + [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
@@ -85,7 +86,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="1---create-an-index"></a>1 - 인덱스 만들기
 
-포털을 사용하지 않는 경우 데이터를 로드하려면 먼저 서비스에 인덱스가 있어야 합니다. 이 단계에서는 인덱스를 정의하고 서비스로 푸시합니다. 이 단계에는 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index) REST API가 사용됩니다.
+포털을 사용하지 않는 경우 데이터를 로드하려면 먼저 서비스에 인덱스가 있어야 합니다. 이 단계에서는 인덱스를 정의하고 서비스로 푸시합니다. 이 단계에는 [인덱스 만들기](/rest/api/searchservice/create-index) REST API가 사용됩니다.
 
 인덱스의 필수 요소에는 name 및 fields 컬렉션이 포함됩니다. fields 컬렉션은 *문서*의 구조를 정의합니다. 각 필드에는 사용되는 방법(예: 검색 결과에서 전체 텍스트 검색 가능, 필터링 가능 또는 조회 가능 여부)을 결정하는 이름, 형식 및 속성이 있습니다. 인덱스 내에서 `Edm.String` 형식의 필드 중 하나는 문서 ID에 대한 *key*로 지정해야 합니다.
 
@@ -179,7 +180,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="2---load-documents"></a>2 - 문서 로드
 
-문서를 푸시하려면 인덱스의 URL 엔드포인트에 대한 HTTP POST 요청을 사용합니다. 이 작업의 REST API는 [문서 추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)입니다.
+문서를 푸시하려면 인덱스의 URL 엔드포인트에 대한 HTTP POST 요청을 사용합니다. 이 작업의 REST API는 [문서 추가, 업데이트 또는 삭제](/rest/api/searchservice/addupdate-or-delete-documents)입니다.
 
 1. 다음 예제를 PowerShell에 붙여넣어 로드하려는 문서가 포함된 **$body** 개체를 만듭니다. 
 
@@ -281,7 +282,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
     ```
-    결과는 다음 예제와 비슷합니다. [201 상태 코드](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes)가 표시됩니다.
+    결과는 다음 예제와 비슷합니다. [201 상태 코드](/rest/api/searchservice/HTTP-status-codes)가 표시됩니다.
 
     ```
     {
@@ -317,7 +318,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="3---search-an-index"></a>3 - 인덱스 검색
 
-이 단계에서는 [문서 검색 API](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 사용하여 인덱스를 쿼리하는 방법을 보여 줍니다.
+이 단계에서는 [문서 검색 API](/rest/api/searchservice/search-documents)를 사용하여 인덱스를 쿼리하는 방법을 보여 줍니다.
 
 $url 검색에서는 작은따옴표를 사용해야 합니다. 쿼리 문자열에는 **$** 문자가 포함되며, 전체 문자열을 작은따옴표로 묶으면 이스케이프 처리를 생략할 수 있습니다.
 

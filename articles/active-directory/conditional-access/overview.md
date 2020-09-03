@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 9bd4c7f17ec1a75e54ca857325cdbb7bf3358511
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 6475fc61502a82844605ba267db5f8da984c8de6
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234706"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948881"
 ---
 # <a name="what-is-conditional-access"></a>조건부 액세스란?
 
@@ -100,6 +100,6 @@ ms.locfileid: "88234706"
 
 - [단계별로 조건부 액세스 정책 작성](concept-conditional-access-policies.md)
 - [조건부 액세스 배포 계획](plan-conditional-access.md)
-- [ID 보호에 대한 자세한 정보](../identity-protection/overview-v2.md)
+- [ID 보호에 대한 자세한 정보](../identity-protection/overview-identity-protection.md)
 - [Microsoft Cloud App Security에 대한 자세한 정보](/cloud-app-security/what-is-cloud-app-security)
 - [Microsoft Intune에 대한 자세한 정보](/intune/index)

@@ -5,12 +5,12 @@ keywords: Azure, 인공 지능, ai, 자연어 처리, nlp, 자연어 인식, nlu
 ms.topic: overview
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 22fe99e1552a9612adfbc455d60852f1591a1a54
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 98d801f6a34feb40d56215f8b6257a68ec628e10
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752157"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320055"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -64,7 +64,7 @@ LUIS 앱은 도메인별 자연어 모델을 포함합니다. 미리 작성된 �
 |`When does your store open?`|StoreHoursAndLocation|open|
 |`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|1pm, Bob|
 
-[작성](https://go.microsoft.com/fwlink/?linkid=2092087) API 또는 [**LUIS 포털**](https://www.luis.ai)(또는 둘 다)을 사용하여 모델을 빌드합니다. [포털](get-started-portal-build-app.md) 및 [SDK 클라이언트 라이브러리](quickstart-sdk.md)를 사용하여 빌드하는 방법에 대해 자세히 알아봅니다.
+[작성](https://go.microsoft.com/fwlink/?linkid=2092087) API 또는 [**LUIS 포털**](https://www.luis.ai)(또는 둘 다)을 사용하여 모델을 빌드합니다. [포털](get-started-portal-build-app.md) 및 [SDK 클라이언트 라이브러리](azure-sdk-quickstart.md)를 사용하여 빌드하는 방법에 대해 자세히 알아봅니다.
 
 ## <a name="step-2-get-the-query-prediction"></a>2단계: 쿼리 예측 가져오기
 
@@ -126,7 +126,7 @@ LUIS는 기존 LUIS 리소스의 일부로 Text Analytics의 기능을 제공합
 
 ## <a name="learn-with-the-quickstarts"></a>빠른 시작으로 학습
 
-[포털](get-started-portal-build-app.md) 및 [SDK 클라이언트 라이브러리](quickstart-sdk.md)를 사용하여 실습 빠른 시작이 포함된 LUIS에 대해 알아봅니다.
+[포털](get-started-portal-build-app.md) 및 [SDK 클라이언트 라이브러리](azure-sdk-quickstart.md)를 사용하여 실습 빠른 시작이 포함된 LUIS에 대해 알아봅니다.
 
 
 ## <a name="next-steps"></a>다음 단계

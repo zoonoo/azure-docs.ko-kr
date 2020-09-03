@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafd3d7805924d92354c3de6ded50f17598f80f6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 293aa80336b259a760a835e3ece56d50287f06ed
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078073"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299884"
 ---
 # <a name="what-is-application-management"></a>애플리케이션 관리란?
 
@@ -93,6 +93,6 @@ Azure AD로 마이그레이션하면 비용을 절약하고 온-프레미스 인
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD의 앱 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
+- [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
 - [애플리케이션 통합 시작](plan-an-application-integration.md)
 - [프로비저닝 자동화 방법 알아보기](../app-provisioning/user-provisioning.md)

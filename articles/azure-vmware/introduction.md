@@ -3,12 +3,12 @@ title: 소개
 description: Azure에서 VMware 기반 워크로드를 배포하고 관리하는 Azure VMware 솔루션의 기능과 이점에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: 9d39cb759190eef535519decccec943ab66de2c7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3d6801a6cdec7600cc6003711a08e6af8c86483e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752138"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005057"
 ---
 # <a name="what-is-azure-vmware-solution-preview"></a>Azure VMware 솔루션 미리 보기란?
 
@@ -46,7 +46,7 @@ Azure VMware 솔루션 프라이빗 클라우드 및 VMware 소프트웨어를 �
 
 ## <a name="monitoring-your-private-cloud"></a>프라이빗 클라우드 모니터링
 
-[Azure Monitor에서 로그](../azure-monitor/overview.md)를 사용하여 Azure VMware 솔루션 프라이빗 클라우드에서 실행되는 가상 머신의 로그를 수집할 수 있습니다. 온-프레미스 VM에서 실행하는 것과 동일한 쿼리를 사용하여 Azure VMware 솔루션 프라이빗 클라우드에서 실행되는 Linux 및 Windows 가상 머신에서 [MMA 에이전트를 다운로드하여 설치](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration)할 수 있습니다. 일반적으로 가상 머신에서 실행하는 것과 동일한 쿼리를 실행할 수 있습니다. 쿼리를 만드는 방법에 대한 자세한 내용은 [쿼리를 작성하는 방법](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries)을 참조하세요.
+[Azure Monitor에서 로그](../azure-monitor/overview.md)를 사용하여 Azure VMware 솔루션 프라이빗 클라우드에서 실행되는 가상 머신의 로그를 수집할 수 있습니다. 온-프레미스 VM에서 실행하는 것과 동일한 쿼리를 사용하여 Azure VMware 솔루션 프라이빗 클라우드에서 실행되는 Linux 및 Windows 가상 머신에서 [MMA 에이전트를 다운로드하여 설치](../azure-monitor/platform/log-analytics-agent.md#installation-options)할 수 있습니다. 일반적으로 가상 머신에서 실행하는 것과 동일한 쿼리를 실행할 수 있습니다. 쿼리를 만드는 방법에 대한 자세한 내용은 [쿼리를 작성하는 방법](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

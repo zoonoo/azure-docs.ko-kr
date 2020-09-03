@@ -3,7 +3,7 @@ title: Azure VMSS에서 관리 ID 구성 - Azure AD
 description: Azure Portal을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID를 구성하는 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d05ee1be18b315c63ccf9d564ea95391a163826e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e9ab1adeac5f8c67e06682f49fdded88e6a350e7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924498"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262676"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -37,7 +37,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
     > [!NOTE]
     > 추가 Azure AD 디렉터리 역할 할당이 필요하지 않습니다.
 
-    - [가상 머신 참가자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor): 가상 머신 확장 집합에서 시스템 할당 관리 ID를 사용하도록 설정하고 제거합니다.
+    - [가상 머신 참가자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): 가상 머신 확장 집합에서 시스템 할당 관리 ID를 사용하도록 설정하고 제거합니다.
 
 ## <a name="system-assigned-managed-identity"></a>시스템 할당 관리 ID
 

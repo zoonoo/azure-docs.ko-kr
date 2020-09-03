@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 37a619fe3279d1cb03763b14c3dfc9e315d850b9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 441e53123512a9611f9568edccfd40a3e17c981f
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685649"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055433"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Automation 계정 만들기
 
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |:---|:---|:---|
 | [작업 영역](/azure/templates/microsoft.operationalinsights/workspaces) | workspaces | 2020-03-01-preview |
 | [Automation 계정](/azure/templates/microsoft.automation/automationaccounts) | Automation | 2020-01-13-preview |
-| [작업 영역 연결된 서비스](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | 작업 영역 | 2020-03-01-preview |
+| [작업 영역 연결된 서비스](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | workspaces | 2020-03-01-preview |
 
 ### <a name="before-you-use-the-template"></a>템플릿을 사용하기 전에 확인해야 할 사항
 

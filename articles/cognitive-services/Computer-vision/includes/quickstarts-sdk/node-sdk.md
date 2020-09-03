@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 4d025057cf8992e1dc54a0fd4a07814c7cbb13d3
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 71e6d159a7bb69e5aab28752f5ecf1eacaebd624
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88748884"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321900"
 ---
 <a name="HOLTop"></a>
 
@@ -255,5 +255,5 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 > [!div class="nextstepaction"]
 >[Computer Vision API 참조(Node.js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
 
-* [Computer Vision이란?](../../Home.md)
+* [Computer Vision이란?](../../overview.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js)에서 확인할 수 있습니다.
