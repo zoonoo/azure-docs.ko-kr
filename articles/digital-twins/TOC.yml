@@ -82,6 +82,8 @@
       items:
         - name: IoT Hub에서 원격 분석 수집
           href: how-to-ingest-iot-hub-data.md
+        - name: DPS를 사용하여 디바이스 자동 관리
+          href: how-to-provision-using-device-provisioning-service.md
         - name: Logic Apps와 통합
           href: how-to-integrate-logic-apps.md
     - name: 연결 출력
@@ -183,7 +185,9 @@
         - name: DTDL 유효성 검사기(샘플)
           href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
         - name: DPS 및 IoT Hub 통합 샘플
-          href: 'https://github.com/Azure-Samples/digital-twins-iothub-integration'
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/'
+        - name: Azure Digital Twins 사용자 지정 Swagger
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/'
     - name: Azure 도구
       items:
         - name: Azure Cloud Shell

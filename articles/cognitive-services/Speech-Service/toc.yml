@@ -241,11 +241,8 @@
   items:
     - name: 의도 인식 설명서
       href: index-intent-recognition.yml
-    - name: 빠른 시작
-      items:
-        - name: '음성, 의도 및 엔터티 인식'
-          displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
-          href: quickstarts/intent-recognition.md
+    - name: 의도 인식 빠른 시작
+      href: quickstarts/intent-recognition.md
     - name: 방법 가이드
       items:
         - name: 'LUIS, C#을 통해 음성 의도 인식'
@@ -466,18 +463,14 @@
           href: custom-keyword-basics.md
 - name: Speaker Recognition
   items:
-    - name: 개요
-      items:
-        - name: Speaker Recognition이란?
-          href: speaker-recognition-overview.md
-        - name: Speaker Recognition 기본 사항
-          href: speaker-recognition-basics.md
+    - name: Speaker Recognition 개요
+      href: speaker-recognition-overview.md
+    - name: Speaker Recognition 빠른 시작
+      href: get-started-speaker-recognition.md
     - name: 참조
       items:
-        - name: REST API
-          items:
-            - name: Speaker Recognition REST API
-              href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+        - name: Speaker Recognition REST API
+          href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
 - name: Hosting
   items:
     - name: 호스팅 설명서

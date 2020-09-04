@@ -4,16 +4,6 @@
   items:
     - name: Virtual WAN이란?
       href: virtual-wan-about.md
-    - name: Architecture
-      items:
-        - name: Virtual WAN으로 마이그레이션
-          href: migrate-from-hub-spoke-topology.md
-        - name: 글로벌 전송 네트워크 아키텍처
-          href: virtual-wan-global-transit-network-architecture.md
-        - name: SD-WAN 연결 아키텍처
-          href: sd-wan-connectivity-architecture.md
-        - name: 중국과 상호 연결
-          href: interconnect-china.md
 - name: 자습서
   items:
     - name: 사이트 간 연결 만들기
@@ -36,11 +26,21 @@
           href: virtual-wan-locations-partners.md
         - name: 파트너를 위한 자동화 지침
           href: virtual-wan-configure-automation-providers.md
+    - name: Architecture
+      items:
+        - name: Virtual WAN으로 마이그레이션
+          href: migrate-from-hub-spoke-topology.md
+        - name: 글로벌 전송 네트워크 아키텍처
+          href: virtual-wan-global-transit-network-architecture.md
+        - name: SD-WAN 연결 아키텍처
+          href: sd-wan-connectivity-architecture.md
+        - name: 중국과 상호 연결
+          href: interconnect-china.md
     - name: 라우팅
       items:
         - name: 가상 허브 라우팅 정보
           href: about-virtual-hub-routing.md
-        - name: 시나리오
+        - name: 라우팅 시나리오
           items:
             - name: 보편적 연결(Any-to-Any)
               href: scenario-any-to-any.md
@@ -154,8 +154,6 @@
   items:
     - name: FAQ
       href: virtual-wan-faq.md
-    - name: 업데이트 알림
-      href: 'https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
     - name: 구독 및 서비스 한도

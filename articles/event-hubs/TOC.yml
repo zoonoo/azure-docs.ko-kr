@@ -125,8 +125,12 @@
       maintainContext: true
 - name: 방법 가이드
   items:
-    - name: 지역 간 이동
-      href: move-across-regions.md
+    - name: 이동
+      items:
+        - name: 네임스페이스를 다른 영역으로 이동
+          href: move-across-regions.md
+        - name: 전용 클러스터를 다른 지역으로 이동
+          href: move-cluster-across-regions.md
     - name: 동적으로 파티션 추가
       href: dynamically-add-partitions.md
     - name: Azure Stack Hub에서 Blob Storage를 검사점 저장소로 사용

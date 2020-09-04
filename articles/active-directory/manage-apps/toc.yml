@@ -39,6 +39,10 @@
       href: application-management-fundamentals.md
     - name: 앱 관리 공통 시나리오
       href: common-scenarios.md
+    - name: 테넌트에서 앱 보기
+      href: application-types.md
+    - name: 앱에 사용자 할당
+      href: ways-users-get-assigned-to-applications.md
     - name: 클라우드 앱 통합 계획
       items:
         - name: 앱 통합 시작
@@ -114,7 +118,7 @@
           href: grant-admin-consent.md
         - name: 관리자 동의 워크플로 구성(미리 보기)
           href: configure-admin-consent-workflow.md
-        - name: 앱에 사용자 또는 그룹 할당
+        - name: 앱에 대한 사용자 할당 관리
           href: assign-user-or-group-access-portal.md
         - name: 앱에 부여된 사용 권한 검토
           href: manage-application-permissions.md
@@ -124,8 +128,6 @@
           href: access-panel-manage-self-service-access.md
         - name: 앱에 대한 사용자 액세스 권한을 제거하는 메서드
           href: methods-for-removing-user-access.md
-        - name: 사용자 또는 그룹 액세스 권한 제거
-          href: remove-user-or-group-access-portal.md
         - name: 사용자로부터 앱 숨기기
           href: hide-application-from-user-portal.md
         - name: 사용자 로그인 비활성화
@@ -203,11 +205,7 @@
     - name: 문제 해결
       items:
         - name: 앱 추가 문제 해결
-          items:
-            - name: 일반적인 문제 - 갤러리 앱
-              href: adding-gallery-app-common-problems.md
-            - name: 일반적인 문제 - 비갤러리 앱
-              href: adding-non-gallery-app-common-problems.md
+          href: troubleshoot-adding-apps.md
         - name: 사용자 로그인 문제 해결
           items:
             - name: 예기치 않은 동의 확인 프롬프트
@@ -234,12 +232,6 @@
               href: configure-federated-single-sign-on-gallery-applications-problems.md
             - name: 페더레이션된 일반적인 문제 구성 - 비갤러리 앱
               href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: 앱 목록 및 할당 문제 해결
-          items:
-            - name: 테넌트의 애플리케이션 목록 관리
-              href: application-types.md
-            - name: 할당된 예기치 않은 사용자
-              href: ways-users-get-assigned-to-applications.md
         - name: 온-프레미스 앱 문제 해결
           items:
             - name: 애플리케이션 프록시 문제 해결
