@@ -126,7 +126,7 @@
       items:
         - name: 개요
           href: design-elt-data-loading.md
-        - name: 모범 사례
+        - name: 최선의 구현 방법
           href: guidance-for-loading-data.md
         - name: Columnstore 압축
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
@@ -222,8 +222,6 @@
               href: sql-data-warehouse-develop-user-defined-schemas.md
             - name: 변수 할당
               href: sql-data-warehouse-develop-variable-assignment.md
-            - name: 보기
-              href: sql-data-warehouse-develop-views.md
     - name: 쿼리
       items:
         - name: 동적 SQL

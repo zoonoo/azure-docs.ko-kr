@@ -219,9 +219,10 @@
     - name: 컴퓨팅 리소스 만들기
       items:
         - name: Studio 사용
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
           href: how-to-create-attach-compute-studio.md
         - name: Python SDK 사용
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
           href: how-to-create-attach-compute-sdk.md
     - name: 환경 설정
       items:
@@ -477,9 +478,6 @@
         - name: 병렬 실행 단계 디버그 및 문제 해결
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
-        - name: 기계 학습 파이프라인 반복 및 진화
-          displayName: modularizing testing
-          href: concept-pipeline-practices-tips.md
     - name: CI/CD용 Azure Pipelines
       displayName: 'continuous, integration, delivery'
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context

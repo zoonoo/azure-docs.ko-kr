@@ -93,6 +93,9 @@
     - name: 새 정책의 영향 평가
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: 권장된 정책
+      displayName: 'VMs, virtual machines'
+      href: ./concepts/recommended-policies.md
     - name: 규정 준수
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md

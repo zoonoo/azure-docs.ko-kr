@@ -23,6 +23,8 @@
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: security-controls-policy.md
+        - name: 보안 개요
+          href: security-overview.md
 - name: 방법 가이드
   items:
     - name: Azure Arc에 연결

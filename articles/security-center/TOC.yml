@@ -130,6 +130,7 @@
         - name: 경고에 대한 응답 자동화
           href: workflow-automation.md
         - name: 경고 내보내기
+          displayName: continuous
           href: continuous-export.md
     - name: 보안 권장 사항을 사용하여 보안 향상
       items:
@@ -150,6 +151,7 @@
         - name: 권장 사항에 대한 응답 자동화
           href: workflow-automation.md
         - name: 권장 사항 내보내기
+          displayName: continuous
           href: continuous-export.md
     - name: 자산 인벤토리로 리소스 관리
       href: asset-inventory.md
