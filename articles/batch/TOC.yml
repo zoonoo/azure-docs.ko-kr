@@ -109,8 +109,6 @@
           href: credential-access-key-vault.md
         - name: Batch로 인증서 사용
           href: batch-certificates.md
-    - name: 애플리케이션 패키지 사용
-      href: batch-application-packages.md
     - name: 파일 및 애플리케이션을 풀 노드에 복사
       items:
         - name: 풀 노드에 애플리케이션 및 데이터 복사

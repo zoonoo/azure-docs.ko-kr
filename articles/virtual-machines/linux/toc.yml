@@ -307,14 +307,6 @@
           href: ../acu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: vCPU 할당량
           href: quotas.md
-        - name: 예약 인스턴스
-          items:
-            - name: VM 선불
-              href: prepay-reserved-vm-instances.md
-            - name: Azure 예약이란?
-              href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
-            - name: VM 인스턴스 크기 유연성
-              href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: 벤치마크 점수
           href: compute-benchmark-scores.md
     - name: 보증 배포

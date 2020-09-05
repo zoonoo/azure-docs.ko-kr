@@ -229,7 +229,7 @@
     - name: 준비 로드맵
       href: security-center-readiness-roadmap.md
     - name: 'Azure 보안, 개인 정보 보호 및 규정 준수 블로그'
-      href: 'https://blogs.msdn.com/b/azuresecurity/'
+      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
     - name: Stack Overflow의 Azure Security Center
       href: 'https://stackoverflow.com/search?q=azure-security-center'
     - name: 동영상
