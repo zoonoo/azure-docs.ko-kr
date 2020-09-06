@@ -3,17 +3,17 @@ title: Azure Cost Management와 AWS 통합 설정
 description: 이 문서에서는 Azure Cost Management와의 AWS 비용 및 사용 현황 보고서 통합을 설정하고 구성하는 과정을 안내합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 08/28/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 639d63df060a680e8c135a9be054ac412d1ca8dd
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8bf3df25d4702b4a0cc6361f20ad08e618e7d62b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685003"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266106"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>AWS 비용 및 사용 현황 보고서 통합 설정 및 구성
 
@@ -71,7 +71,6 @@ Cost Management의 AWS 계정에 대한 역할 기반 액세스를 사용하도�
 5. **계정 ID**에 **432263259397**을 입력합니다.
 6. **옵션**에서 **외부 ID 필요(타사에서 이 역할을 가정하는 경우 모범 사례)** 를 선택합니다.
 7. **외부 ID**에서 AWS 역할과 Azure Cost Management 사이에 공유 암호인 외부 ID를 입력합니다. Cost Management의 **새 커넥터** 페이지에서도 동일한 외부 ID를 사용합니다. 외부 ID를 입력하는 경우 강력한 암호 정책을 사용하는 것이 좋습니다.
-
     > [!NOTE]
     > **MFA 요구**에 대한 선택 항목을 변경하지 마세요. 선택 해제로 두어야 합니다.
 8. 완료되면 **다음: 사용 권한**을 클릭합니다.
@@ -148,23 +147,23 @@ AWS 조직에 대한 권한을 추가합니다.
 }
 ```
 
-## <a name="set-up-a-new-aws-connector-in-azure"></a>Azure에서 새 AWS 커넥터 설정
+## <a name="set-up-a-new-connector-for-aws-in-azure"></a>Azure에서 AWS용 새 커넥터 설정
 
 다음 정보를 사용하여 AWS 커넥터를 만들고 AWS 비용 모니터링을 시작합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Cost Management + 청구** > **Cost Management**로 이동합니다.
-3. **설정**에서 **클라우드 커넥터(미리 보기)** 를 선택합니다.  
-    ![클라우드 커넥터(미리 보기) 설정을 보여주는 예제](./media/aws-integration-setup-configure/cloud-connectors-preview01.png)입니다.
-4. 페이지 맨 위에 있는 **+ 추가**를 선택하여 커넥터를 만듭니다.
-5. **AWS 커넥터 만들기** 페이지의 **표시 이름**에서 커넥터의 이름을 입력합니다.  
-    ![AWS 커넥터를 만드는 페이지의 예제](./media/aws-integration-setup-configure/create-aws-connector01.png)
-6. 필요에 따라 기본 관리 그룹을 선택합니다. 검색된 모든 연결 계정이 저장됩니다. 나중에 설정할 수 있습니다.
-7. 미리 보기가 만료될 때 연속 작업을 보장하려는 경우 **청구** 섹션에서 **일반 공급 시 1%가 자동으로 과금**을 선택합니다. 자동 옵션을 선택하는 경우 청구 구독을 선택해야 합니다.
-8. **역할 ARN**의 경우 AWS에서 역할을 설정할 때 사용한 값을 입력합니다.
-9. **외부 ID**의 경우 AWS에서 역할을 설정할 때 사용한 값을 입력합니다.
-10. **보고서 이름**의 경우 AWS에서 만든 이름을 입력합니다.
-11. **다음**을 선택한 다음, **만들기**를 선택합니다.
+3. **설정**에서 **AWS용 커넥터**를 선택합니다.  
+4. 페이지 맨 위에 있는 **+ 추가**를 선택하여 커넥터를 만듭니다.  
+    :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="AWS용 커넥터 설정을 보여주는 예제" :::
+1. **커넥터 만들기** 페이지의 **표시 이름**에 커넥터 이름을 입력합니다.  
+    :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="AWS 커넥터를 만드는 페이지의 예제" :::
+1. 필요에 따라 기본 관리 그룹을 선택합니다. 검색된 모든 연결 계정이 저장됩니다. 나중에 설정할 수 있습니다.
+1. 연속 작업을 보장하려면 **청구** 섹션에서 **자동 갱신**을 **켜기**로 선택합니다. 자동 옵션을 선택하는 경우 청구 구독을 선택해야 합니다.
+1. **역할 ARN**의 경우 AWS에서 역할을 설정할 때 사용한 값을 입력합니다.
+1. **외부 ID**의 경우 AWS에서 역할을 설정할 때 사용한 값을 입력합니다.
+1. **보고서 이름**의 경우 AWS에서 만든 이름을 입력합니다.
+1. **다음**을 선택한 다음, **만들기**를 선택합니다.
 
 새 AWS 범위, AWS 통합 계정, AWS 연결 계정 및 해당 비용 데이터가 표시되는 데 몇 시간이 걸릴 수 있습니다.
 
@@ -178,16 +177,19 @@ AWS 조직에 대한 권한을 추가합니다.
 - 새 범위가 범위 선택기에 추가되었는지 확인합니다. 최신 데이터를 보려면 **새로 고침**을 선택합니다.
 - **클라우드 커넥터** 페이지에서 커넥터를 선택하고 **청구 계정으로 이동**을 선택하여 관리 그룹에 연결된 계정을 할당합니다.
 
-## <a name="manage-cloud-connectors"></a>클라우드 커넥터 관리
+> [!NOTE]
+> 관리 그룹은 현재 MCA(Microsoft 고객 계약) 고객에게 지원되지 않습니다. MCA 고객은 커넥터를 만들고 AWS 데이터를 볼 수 있습니다. 그러나 MCA 고객은 관리 그룹에서 Azure 비용과 AWS 비용을 함께 볼 수 없습니다.
 
-**클라우드 커넥터** 페이지에서 커넥터를 선택하는 경우 다음을 수행할 수 있습니다.
+## <a name="manage-aws-connectors"></a>AWS 커넥터 관리
+
+**AWS용 커넥터** 페이지에서 커넥터를 선택하면 다음을 수행할 수 있습니다.
 
 - AWS 통합 계정에 대한 정보를 보려면 **청구 계정으로 이동**을 선택합니다.
 - 커넥터에 대한 역할 할당을 관리하려면 **Access Control**을 선택합니다.
 - **편집**을 선택하여 커넥터를 업데이트합니다. AWS 계정 번호는 역할 ARN에 표시되기 때문에 변경할 수 없습니다. 하지만 새 커넥터를 만들 수 있습니다.
 - **확인**을 선택하여 Cost Management에서 커넥터 설정을 사용하여 데이터를 수집할 수 있는지 확인합니다.
 
-![만든 AWS 커넥터의 예제 목록](./media/aws-integration-setup-configure/list-aws-connectors.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-connector-details.png" alt-text="AWS 커넥터 세부 정보 예" :::
 
 ## <a name="set-up-azure-management-groups"></a>Azure 관리 그룹 설정
 
@@ -197,9 +199,9 @@ Azure 구독과 AWS 연결 계정을 동일한 관리 그룹에 배치하여 클
 
 ## <a name="set-up-an-aws-consolidated-account"></a>AWS 통합 계정 설정
 
-AWS 통합 계정은 여러 AWS 계정에 대한 청구 및 지불을 결합합니다. 또한 AWS 연결 계정으로 작동합니다.
+AWS 통합 계정은 여러 AWS 계정에 대한 청구 및 지불을 결합합니다. 또한 AWS 연결 계정으로 작동합니다. AWS 커넥터 페이지의 링크를 사용하여 AWS 통합 계정에 대한 세부 정보를 볼 수 있습니다. 
 
-![AWS 통합 계정에 대한 예제 세부 정보](./media/aws-integration-setup-configure/aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-consolidated-account01.png" alt-text="AWS 통합 계정에 대한 예제 세부 정보" :::
 
 이 페이지에서 다음 작업을 수행할 수 있습니다.
 
@@ -221,7 +223,7 @@ AWS 연결 계정은 AWS 리소스를 만들고 관리하는 위치입니다. �
 - AWS 연결 계정과 관리 그룹의 연결을 업데이트하려면 **업데이트**를 선택합니다.
 - 범위에 대한 역할 할당을 설정하려면 **Access Control**을 선택합니다.
 
-![AWS 연결 계정 페이지의 예제](./media/aws-integration-setup-configure/aws-linked-account01.png)
+:::image type="content" source="./media/aws-integration-setup-configure/aws-linked-account01.png" alt-text="AWS 연결 계정 페이지의 예제" :::
 
 ### <a name="permissions-for-an-aws-linked-account"></a>AWS 연결 계정에 대한 사용 권한
 

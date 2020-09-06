@@ -1,32 +1,37 @@
 ---
-title: '빠른 시작: Computer Vision 클라이언트 라이브러리 | Microsoft Docs'
+title: '빠른 시작: Computer Vision 클라이언트 라이브러리'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작을 사용하여 Azure Cognitive Services에서 애플리케이션을 Computer Vision API에 연결합니다.
+description: 선택한 언어로 된 네이티브 클라이언트 라이브러리를 통해 애플리케이션에서 Azure Computer Vision을 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 06/29/2020
+ms.date: 08/31/2020
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom:
+- devx-track-python
+- devx-track-javascript
+- devx-track-csharp
+- cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 699f2c3b16346a88bdd5828c32dc64225a712e05
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+keywords: 컴퓨터 비전, 컴퓨터 비전 서비스
+ms.openlocfilehash: 87ff6a03f45fe61b44712166966a1fe3851ffb41
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852041"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321881"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>빠른 시작: Computer Vision 클라이언트 라이브러리 사용
 
-Computer Vision 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Computer Vision은 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다.
+Computer Vision 클라이언트 라이브러리를 시작합니다. Computer Vision 서비스는 이미지를 처리하고 시각적 기능에 대한 정보를 반환하는 AI 알고리즘을 제공합니다. 다음 단계에 따라 애플리케이션에 패키지를 설치하고 기본 작업에 대한 샘플 코드를 사용해 보세요.
 
 Computer Vision 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
 * 태그, 텍스트 설명, 얼굴, 성인 콘텐츠 등에 대한 이미지를 분석합니다.
-* 일괄 읽기 API를 사용하여 인쇄 텍스트 및 필기 텍스트를 인식합니다.
+* 읽기 API를 사용하여 인쇄 및 필기 텍스트를 읽습니다.
 
 ::: zone pivot="programming-language-csharp"
 

@@ -4,41 +4,32 @@ description: Azure Migrate 서비스의 새로운 기능 및 최신 업데이트
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 58c77dccd1e43ed497cd56b2831eb2ab914d8d5d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e32c7433649cc6716a57a6aa2384c1e2d266e102
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85556923"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927174"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
+
+## <a name="update-august-2020"></a>업데이트(2020년 8월)
+
+- 포털에서 Azure Migrate 프로젝트 키가 생성되고 어플라이언스 등록을 완료하는 데 사용되는 온보딩 환경이 개선되었습니다.
+- 포털에서 OVA/VHD 파일 또는 설치 관리자 스크립트를 다운로드하여 각각 VMware 및 Hyper-V 어플라이언스를 설정하는 옵션입니다.
+- 향상된 사용자 환경으로 어플라이언스 구성 관리자를 새로 고쳤습니다.
+- Hyper-V VM 검색을 위한 여러 자격 증명 지원.
+- 추가된 자격 증명과 검색 소스에 대한 검색, 정렬 및 필터링 기능이 향상되었습니다.
+- 단일 항목 입력, 여러 항목 입력 및 사용자가 Hyper-V 호스트/클러스터 및 물리적 서버에 대한 검색 소스를 추가할 수 있는 CSV 옵션을 가져옵니다.
+- 테이블에 추가된 각 원본에 대한 유효성 검사 및 검색 작업의 상태 업데이트로 오류 환경이 향상되었습니다. 
 
 ## <a name="update-june-2020"></a>업데이트(2020년 6월)
 
 - 이제 온-프레미스 VMware VM을 [AVS(Azure VMware 솔루션)](https://go.microsoft.com/fwlink/?linkid=2132637)로 마이그레이션하기 위한 평가가 지원됩니다. [자세히 알아보기](how-to-create-azure-vmware-solution-assessment.md)
 - 물리적 서버 검색에 대한 어플라이언스의 여러 자격 증명을 지원합니다.
 - 테넌트 제한이 구성된 테넌트에 대해 어플라이언스에서 Azure 로그인을 허용하도록 지원합니다.
-- 새 Azure Migrate 어플라이언스 버전이 아래에 나열되어 있습니다.
-
-### <a name="azure-public-cloud"></a>Azure 퍼블릭 클라우드
-
-**시나리오** | **다운로드** | **SHA256**
---- | --- | ---
-Hyper-V(8.93GB) | [최신 버전](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
-VMware(10.9GB) | [최신 버전](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
-Physical(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
-
-
-### <a name="azure-government"></a>Azure Government
-
-**시나리오** | **다운로드** | **SHA256**
---- | --- | ---
-Hyper-V(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
-VMware(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
-Physical(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
-
 
 
 ## <a name="update-april-2020"></a>업데이트(2020년 4월)

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ffb72b4b06b8925cae57989a171d7efbd88c3866
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 52dd9d2f6299f8d574934e7baec54333d2ffc0c8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686609"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997577"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>구독자와 CSP 간에 Azure 구독 전송
 
@@ -24,6 +24,9 @@ ms.locfileid: "88686609"
 [Azure Expert MSP(관리형 서비스 공급자)](https://partner.microsoft.com/membership/azure-expert-msp)로 인증된 CSP 직접 청구 파트너는 직접 EA(기업계약)가 있는 고객에 대한 Azure 구독 전송을 요청할 수 있습니다. MCA(Microsoft 고객 계약)를 수락하고 Azure 요금제를 구매한 고객에게만 구독 전송이 허용됩니다.
 
 요청이 승인되면 CSP는 고객에게 결합된 청구서를 제공할 수 있습니다. 구독을 전송하는 CSP에 대한 자세한 내용은 [MPA 계정에 대한 Azure 구독의 청구 소유권 얻기](mpa-request-ownership.md)를 참조하세요.
+
+>[!IMPORTANT]
+> EA 구독을 CSP 파트너에게 전송한 후 이전에 EA 구독에 적용된 할당량 증가는 기본값으로 다시 설정됩니다. 구독 전송 후 추가 할당량이 필요한 경우 CSP 공급자가 [할당량 증가](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests) 요청을 제출하도록 합니다. 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>CSP 파트너에 대한 기타 구독 전송
 

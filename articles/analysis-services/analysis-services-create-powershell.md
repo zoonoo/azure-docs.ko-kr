@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작 - PowerShell을 사용하여 Azure Analysis Services 만들기 | Azure Analysis Services | Microsoft Docs
-description: PowerShell을 사용하여 Azure Analysis Services 서버를 만드는 방법 알아보기
+description: 이 빠른 시작에서는 PowerShell을 사용하여 Azure Analysis Services 서버를 만드는 방법을 설명합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 03/30/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.custom: references_regions
-ms.openlocfilehash: 375d72c8de0aa16d2c10da701fb9670a9c87b79f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: references_regions , devx-track-azurepowershell
+ms.openlocfilehash: 737649538aaf82352e27aec6220b13ba355a7a82
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015462"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229347"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>빠른 시작: 서버 만들기 - PowerShell
 
@@ -73,6 +73,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 이 빠른 시작에서는 PowerShell을 사용하여 Azure 구독에서 서버를 만드는 방법을 알아보았습니다. 이제 서버가 생겼으니, 서버 방화벽을 구성하여(선택 사항) 보안을 강화할 수 있습니다. 또한 포털에서 바로 기본 샘플 데이터 모델을 서버에 추가할 수 있습니다. 샘플 모델이 있으면 model 데이터베이스 역할을 구성하고 클라이언트 연결을 테스트하는 방법을 알아볼 때 유용합니다. 자세히 알아보려면 샘플 모델 추가를 위한 자습서를 계속합니다.
 
 > [!div class="nextstepaction"]
-> [빠른 시작: 서버 방화벽 구성 - 포털](analysis-services-qs-firewall.md)      
-> [!div class="nextstepaction"]
-> [자습서: 서버에 샘플 모델 추가](analysis-services-create-sample-model.md)
+> [빠른 시작: 서버 방화벽 구성 - Portal](analysis-services-qs-firewall.md)      

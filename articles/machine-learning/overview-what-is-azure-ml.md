@@ -9,18 +9,18 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 53ccd610c6f0f36d4ab04efbada2070a22975023
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 2c043ab535504a02a151d308de0562debdba950a
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650114"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145895"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
 이 문서에서는 ML 모델의 학습, 배포, 자동화, 관리 및 추적에 사용할 수 있는 클라우드 기반 환경인 Azure Machine Learning에 대해 알아봅니다. 
 
-Azure Machine Learning은 전통적인 기계 학습부터 딥 러닝, 감독 학습 및 자율 학습에 이르는 모든 종류의 기계 학습에 사용할 수 있습니다. Python 또는 R 코드를 작성하려 하든, 아니면 [디자이너](tutorial-designer-automobile-price-train-score.md)와 같은 코드를 사용하지 않거나 최소한의 코드만 사용하는 옵션을 사용하든, Azure Machine Learning 작업 영역에서 매우 정확한 기계 학습 및 딥 러닝 모델의 빌드, 학습 및 추적을 수행할 수 있습니다. 
+Azure Machine Learning은 전통적인 기계 학습부터 딥 러닝, 감독 학습 및 자율 학습에 이르는 모든 종류의 기계 학습에 사용할 수 있습니다. SDK를 사용하여 Python 또는 R 코드를 작성하든, [스튜디오](#build-ml-models-in-the-studio)에서 코드 없음/낮은 코드 옵션으로 작업하든 상관없이 Azure Machine Learning 작업 영역에서 기계 학습 및 딥 러닝 모델을 빌드, 학습 및 추적할 수 있습니다. 
 
 로컬 머신에서 학습을 시작한 다음, 클라우드로 확장할 수 있습니다. 
 
@@ -63,27 +63,31 @@ Azure Machine Learning은 개발자와 데이터 과학자에게 다음을 비�
 
 Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> 또는 <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>를 사용하여 로컬 머신에서 학습을 시작한 다음, 클라우드로 확장할 수 있습니다. 
 
-Azure Machine Learning 컴퓨팅 및 [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)와 같이 사용할 수 있는 여러 [컴퓨팅 대상](how-to-set-up-training-targets.md)과 [고급 하이퍼 매개 변수 튜닝 서비스](how-to-tune-hyperparameters.md)를 통해 클라우드의 강력한 기능을 사용하여 더 나은 모델을 더 빠르게 빌드할 수 있습니다.
+Azure Machine Learning 컴퓨팅 및 [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)와 같이 사용할 수 있는 여러 [컴퓨팅 대상](how-to-create-attach-compute-sdk.md)과 [고급 하이퍼 매개 변수 튜닝 서비스](how-to-tune-hyperparameters.md)를 통해 클라우드의 강력한 기능을 사용하여 더 나은 모델을 더 빠르게 빌드할 수 있습니다.
 
 SDK를 사용하여 [모델 학습 및 튜닝을 자동화](tutorial-auto-train-models.md)할 수도 있습니다.
 
-## <a name="build-ml-models-with-no-code-tools"></a>코드를 작성할 필요가 없는 도구를 사용하여 ML 모델 빌드
+## <a name="build-ml-models-in-the-studio"></a>스튜디오에서 ML 모델 빌드
 
-코드를 작성할 필요가 전혀 또는 거의 없는 학습 및 배포를 위해 다음 도구를 사용해 보세요.
+[Azure Machine Learning 스튜디오](https://www.ml.azure.com)는 모델 학습, 배포 및 자산 관리를 위한 낮은 코드와 코드 없음 옵션에 대한 Azure Machine Learning의 웹 포털입니다. 스튜디오는 원활한 환경을 위해 Azure Machine Learning SDK와 통합됩니다. 자세한 내용은 [Azure Machine Learning 스튜디오란?](overview-what-is-machine-learning-studio.md)을 참조하세요.
 
 + **Azure Machine Learning 디자이너(미리 보기)**
 
-  이 디자이너를 사용하면 코드를 전혀 작성하지 않고도 기계 학습 모델의 데이터 준비, 교육, 테스트, 배포, 관리 및 추적을 수행할 수 있습니다. 프로그래밍이 필요하지 않으며, 데이터 세트와 모듈을 시각적으로 연결하여 모델을 구성할 수 있습니다. [디자이너 자습서](tutorial-designer-automobile-price-train-score.md)를 사용해 보세요.
+  [디자이너](concept-designer.md)를 사용하여 코드를 작성하지 않고도 기계 학습 모델을 학습하고 배포할 수 있습니다. 시작하려면 [디자이너 자습서](tutorial-designer-automobile-price-train-score.md)를 사용해 보세요. 
 
-  [Azure Machine Learning 디자이너 개요 문서](concept-designer.md)에서 자세히 알아보세요. 
+  ![Azure Machine Learning 디자이너의 끌어서 놓기 인터페이스 애니메이션 gif](media/concept-designer/designer-drag-and-drop.gif)
 
-  ![Azure Machine Learning 디자이너 예](./media/overview-what-is-azure-ml/designer-drag-and-drop.gif)
++ **실험 추적**
 
-+ **자동화된 기계 학습 UI**
+  스튜디오에서 [데이터 과학 실험을 추적하고 시각화](tutorial-first-experiment-automated-ml.md)하는 방법에 대해 알아봅니다. 
 
-  사용하기 쉬운 인터페이스에서 [자동화된 ML 실험](tutorial-first-experiment-automated-ml.md)을 만드는 방법을 알아보세요. 
+    ![Azure Machine Learning 스튜디오에서 세부 정보 실행](media/how-to-track-experiments/experimentation-tab.gif)
 
-  [![Azure Machine Learning Studio 탐색 창](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+
++ **이 외에도 많은 기능이 있습니다.**
+
+  [ml.azure.com](https://www.ml.azure.com)에서 Azure Machine Learning 스튜디오를 방문하세요. 
+
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: 배포 및 수명 주기 관리
 적합한 모델이 있는 경우 웹 서비스, IoT 디바이스 또는 Power BI에서 해당 모델을 쉽게 사용할 수 있습니다. 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md) 문서를 참조하세요.

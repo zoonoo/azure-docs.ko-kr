@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: db9e8f71787026abea74fbbfeed51a227a295601
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 8fba7245475c9873a3e2d3abeda4806d1376e7ca
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488956"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300037"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인지 기술 세트 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "84488956"
 
 + Azure Cognitive Search 서비스 [서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
-+ [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/)가 있는 Azure Storage 계정
++ [Blob Storage](../storage/blobs/index.yml)가 있는 Azure Storage 계정
 
 > [!NOTE]
 > 또한 이 빠른 시작은 AI에 대한 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 사용합니다. 워크로드가 너무 작으므로 Cognitive Services는 최대 20개의 트랜잭션을 무료로 처리하기 위해 백그라운드에서 탭으로 처리됩니다. 즉, 추가 Cognitive Services 리소스를 만들지 않고도 이 연습을 완료할 수 있습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "84488956"
 
 1. 여러 종류의 작은 파일 집합으로 구성된 [샘플 데이터를 다운로드](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)하세요. 파일의 압축을 풉니다.
 
-1. [Azure 스토리지 계정을 만들](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)거나 [기존 계정을 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. [Azure 스토리지 계정을 만들](../storage/common/storage-account-create.md?tabs=azure-portal)거나 [기존 계정을 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    + 대역폭 요금이 부과되지 않도록 Azure Cognitive Search와 동일한 지역을 선택합니다. 
 
@@ -76,7 +76,7 @@ ms.locfileid: "84488956"
 
 1. 이 빠른 시작에서는 **체험** Cognitive Services 리소스를 사용합니다. 샘플 데이터는 14개의 파일로 구성되어 있으므로 이 빠른 시작에서는 Cognitive Services에서 20개의 트랜잭션을 무료로 할당하는 것으로 충분합니다. 
 
-   ![Cognitive Services 연결](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   ![Cognitive Services 연결 기본 서비스 연결](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 1. **보강 추가**를 확장하고 4개를 선택합니다. 
 
@@ -86,7 +86,7 @@ ms.locfileid: "84488956"
 
    엔터티 인식(사람, 조직 및 위치)과 이미지 분석 기술을 선택합니다.
 
-   ![Cognitive Services 연결](media/cognitive-search-quickstart-blob/skillset.png)
+   ![기술 세트에 대한 Cognitive Services 선택 서비스 연결](media/cognitive-search-quickstart-blob/skillset.png)
 
    다음 페이지를 계속합니다.
 
@@ -169,7 +169,7 @@ ms.locfileid: "84488956"
 
 출력은 검색 인덱스로 전달되고, 인덱싱 중에 만들어진 이름-값 쌍과 인덱스의 개별 필드 간에 매핑됩니다. 내부적으로, 포털은 [주석](cognitive-search-concept-annotations-syntax.md)을 설정하고 [기술 집합](cognitive-search-defining-skillset.md)을 정의하여 작업 및 일반적인 흐름의 순서를 설정합니다. 이러한 단계는 포털에서 숨겨지지만, 코드 작성을 시할 때 이러한 개념이 중요합니다.
 
-마지막으로, 인덱스를 쿼리하여 내용을 확인할 수 있는 방법을 알아보았습니다. 결국 Azure Cognitive Search에서 제공하는 검색 가능한 인덱스는 [간단](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)하거나 [완전히 확장](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)된 쿼리 구문을 사용하여 쿼리할 수 있습니다. 보강된 필드를 포함하는 인덱스는 다른 인덱스와 비슷합니다. 원하는 경우 표준 또는 [사용자 지정 분석기](search-analyzers.md), [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [동의어](search-synonyms.md), [패싯 필터](search-filters-facets.md), 지역 검색, 기타 Azure Cognitive Search 기능을 통합할 수 있습니다.
+마지막으로, 인덱스를 쿼리하여 내용을 확인할 수 있는 방법을 알아보았습니다. 결국 Azure Cognitive Search에서 제공하는 검색 가능한 인덱스는 [간단](/rest/api/searchservice/simple-query-syntax-in-azure-search)하거나 [완전히 확장](/rest/api/searchservice/lucene-query-syntax-in-azure-search)된 쿼리 구문을 사용하여 쿼리할 수 있습니다. 보강된 필드를 포함하는 인덱스는 다른 인덱스와 비슷합니다. 원하는 경우 표준 또는 [사용자 지정 분석기](search-analyzers.md), [점수 매기기 프로필](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [동의어](search-synonyms.md), [패싯 필터](search-filters-facets.md), 지역 검색, 기타 Azure Cognitive Search 기능을 통합할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

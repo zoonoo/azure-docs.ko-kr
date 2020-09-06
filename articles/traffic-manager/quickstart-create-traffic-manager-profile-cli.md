@@ -1,24 +1,24 @@
 ---
-title: '빠른 시작: HA 애플리케이션용 프로필 만들기 - Azure CLI - Azure Traffic Manager'
+title: '빠른 시작: 애플리케이션의 HA용 프로필 만들기 - Azure CLI - Azure Traffic Manager'
 description: 이 빠른 시작 문서에서는 고가용성 웹 애플리케이션을 빌드하기 위한 Traffic Manager 프로필을 만드는 방법을 설명합니다.
 services: traffic-manager
-author: rohinkoul
-mnager: twooley
+author: duongau
+mnager: kumud
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/29/2019
-ms.author: rohink
+ms.date: 08/26/2020
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1de651d5321fa3a0dea4da33c5d41839e67ad9dc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 429d107a68c8631983bf791108f5091f31a480c3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491190"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178085"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 고가용성 웹 애플리케이션에 대한 Traffic Manager 프로필 만들기
 
@@ -117,7 +117,7 @@ az webapp create \
 
 기본 엔드포인트를 사용할 수 없으면 트래픽이 자동으로 장애 조치 엔드포인트로 라우팅됩니다.
 
-다음 예제에서 **<app1name_eastus>** 및 **<app2name_westeurope>** 을 이전 섹션에서 각 지역에 대해 만든 앱 이름으로 바꾸고, **<appspname_eastus>** 및 **<appspname_westeurope>** 을 이전 섹션에서 App Service 계획을 만드는 데 사용한 이름으로 바꾸고, **<profile_name>** 을 이전 섹션에서 사용한 프로필 이름으로 바꿉니다. 
+다음 예제에서는 **<app1name_eastus>** 및 **<app2name_westeurope>** 를 이전 섹션의 각 지역에 대해 만든 앱 이름으로 바꿉니다. 그런 다음, **<profile_name>** 을 이전 섹션에서 사용한 프로필 이름으로 바꿉니다. 
 
 **미국 동부 엔드포인트**
 
@@ -174,7 +174,7 @@ az network traffic-manager endpoint create \
 
 이 섹션에서는 Traffic Manager 프로필의 도메인 이름을 확인합니다. 또한 기본 엔드포인트를 사용할 수 없도록 구성합니다. 마지막으로 웹앱을 계속 사용할 수 있는지 확인합니다. 이는 Traffic Manager에서 트래픽을 장애 조치 엔드포인트로 보내기 때문입니다.
 
-다음 예제에서 **<app1name_eastus>** 및 **<app2name_westeurope>** 을 이전 섹션에서 각 지역에 대해 만든 앱 이름으로 바꾸고, **<appspname_eastus>** 및 **<appspname_westeurope>** 을 이전 섹션에서 App Service 계획을 만드는 데 사용한 이름으로 바꾸고, **<profile_name>** 을 이전 섹션에서 사용한 프로필 이름으로 바꿉니다.
+다음 예제에서는 **<app1name_eastus>** 및 **<app2name_westeurope>** 를 이전 섹션의 각 지역에 대해 만든 앱 이름으로 바꿉니다. 그런 다음, **<profile_name>** 을 이전 섹션에서 사용한 프로필 이름으로 바꿉니다.
 
 ### <a name="determine-the-dns-name"></a>DNS 이름 확인
 

@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: 가용성 영역을 사용하여 Azure Firewall 만들기 - Resource Manager 템플릿'
-description: 템플릿을 사용하여 Azure Firewall을 배포합니다. 이 가상 네트워크에는 세 개의 서브넷이 있는 하나의 VNet이 포함됩니다. 두 개의 Windows Server 가상 머신이 배포됩니다. 점프 상자와 서버입니다.
+description: 이 빠른 시작에서는 템플릿을 사용하여 Azure Firewall을 배포합니다. 이 가상 네트워크에는 세 개의 서브넷이 있는 하나의 VNet이 포함됩니다. 두 개의 Windows Server 가상 머신이 배포됩니다. 점프 상자와 서버입니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 104e2e9f6593d95caf77c0796f8b9465eebcfcee
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705132"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071723"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>빠른 시작: 가용성 영역을 사용하여 Azure Firewall 배포 - ARM 템플릿
 

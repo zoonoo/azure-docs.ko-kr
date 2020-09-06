@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
-ms.date: 04/20/2020
-ms.openlocfilehash: 1869671b465b7175cf3160c41debc66cbd0818ad
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.date: 08/24/2020
+ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367107"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292982"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 개요
 
@@ -59,7 +59,7 @@ Apache Ranger 및 Ambari 감사 로그와 ssh 액세스 로그에 액세스하�
 
 조직 보안 및 준수 요구 사항을 충족하는 데는 데이터 보호가 중요합니다. 권한 없는 직원의 데이터 액세스를 제한하고 데이터를 암호화해야 합니다.
 
-Azure 스토리지 및 Data Lake Storage Gen1/Gen2는 투명한 서버 쪽 미사용 [데이터 암호화](../../storage/common/storage-service-encryption.md)를 지원합니다. 보안 HDInsight 클러스터는 미사용 데이터의 서버 쪽 암호화에서 원활하게 작동합니다.
+HDInsight는 플랫폼 관리형 키 및 [고객 관리형 키](../disk-encryption.md)를 모두 사용하여 미사용 데이터 암호화를 지원합니다. 전송 중인 데이터의 암호화는 TLS와 IPSec 둘 다로 처리됩니다. 자세한 내용은 [Azure HDInsight 전송 중 암호화](encryption-in-transit.md)를 참조하세요.
 
 ### <a name="compliance"></a>규정 준수
 
@@ -79,7 +79,7 @@ Azure 규정 준수 제품은 공식 인증을 비롯한 다양한 유형의 보
 |  | 스토리지 계정에서 ["보안 전송 필요"](../../storage/common/storage-require-secure-transfer.md) 속성을 사용하도록 설정 | Customer |
 |  | [Azure Storage 방화벽](../../storage/common/storage-network-security.md) 및 가상 네트워크 구성 | Customer |
 |  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)에 대해 [Azure 가상 네트워크 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 구성 | Customer |
-|  | 전송 중인 데이터에 [TLS 암호화](../../storage/common/storage-security-tls.md)를 사용하도록 설정 | Customer |
+|  | 클러스터 내 통신에 TLS 및 IPSec을 사용하려면 [전송 중 암호화](./encryption-in-transit.md) 기능이 활성화되어 있는지 확인합니다. | Customer |
 |  | Azure Storage 암호화용 [고객 관리형 키](../../storage/common/storage-encryption-keys-portal.md) 구성 | Customer |
 |  | [고객 잠금 장치](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)를 사용하여 Azure 지원을 통해 데이터에 대한 액세스 제어 | Customer |
 | 애플리케이션 및 미들웨어 보안 | AAD-DS와 통합 및 [인증 구성](apache-domain-joined-configure-using-azure-adds.md) | Customer |

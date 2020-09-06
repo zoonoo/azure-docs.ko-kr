@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Azure Firewall Manager를 사용하여 가상 허브 보호 - Resource Manager 템플릿'
-description: Azure Firewall Manager를 사용하여 가상 허브를 보호하는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Azure Firewall Manager를 사용하여 가상 허브를 보호하는 방법을 알아봅니다.
 services: firewall-manager
 author: vhorne
-ms.service: firewall
+ms.service: firewall-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: bfa957d8fb0eeb8020472026e18c41dc6e65fdc3
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 050dfa737ad04127f8c72158fbecb2e8e70e05c1
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705761"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075344"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>빠른 시작: Azure Firewall Manager를 사용하여 가상 허브 보호 - ARM 템플릿
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 1873cd14883e8b1a5174b8761e4a0bc9ba1ef872
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 1cc7d7755d22568b9b66216709dc0c3765d58657
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641860"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300156"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션 속성 구성
 
@@ -93,6 +93,6 @@ Azure AD 테넌트에 애플리케이션 추가를 마치면 개요 페이지가
 
 ## <a name="next-steps"></a>다음 단계
 
-앱에 대한 Single Sign-On을 지정하는 방법에 대한 다음 문서를 진행하세요.
+다음 문서로 이동하여 앱에 사용자를 할당하는 방법을 알아봅니다.
 > [!div class="nextstepaction"]
-> [Single Sign-On 설정](add-application-portal-setup-sso.md)
+> [앱에 사용자 할당](add-application-portal-assign-users.md)

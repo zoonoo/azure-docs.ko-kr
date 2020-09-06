@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: eec99ae353d4e5ca1bede1afef135def96207c50
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604693"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304135"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Azure Virtual WAN을 사용하려면 사용자에게 SD-WAN/VPN 디바이스를 사용하는 허브 및 스포크가 있어야 하나요?
 
@@ -249,9 +249,12 @@ ExpressRoute 회로가 가상 허브에 연결되면 온-프레미스와 Azure �
 
 현재 동작은 VNet 간 연결에서 허브 간 경로보다 ExpressRoute 회로 경로를 선호합니다. 그러나 가상 WAN 설정에서는 이 방법을 권장하지 않습니다. ExpressRoute 경로보다 허브 간 경로를 선호하도록 Virtual WAN 팀에서 픽스를 개발하는 중입니다. 여러 ExpressRoute 회로(여러 공급자)를 하나의 허브에 연결하고 Virtual WAN에서 제공하는 허브 간 연결을 지역 간 트래픽 흐름에 사용하는 것이 좋습니다.
 
+### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>Virtual WAN의 다른 리소스 그룹에 허브를 만들 수 있나요?
+예. 이 옵션은 현재 powershell을 통해서만 사용할 수 있습니다. Virtual WAN 포털은 Virtual WAN 리소스 자체와 동일한 리소스 그룹의 허브를 요구합니다.
+
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Virtual WAN에서 IPv6를 지원하나요?
 
-IPv6는 Virtual WAN 허브 및 해당 게이트웨이에서 지원되지 않습니다. IPv6를 지원하는 VNet이 있고 해당 VNet을 Virtual WAN에 연결하려는 경우에는 이 시나리오가 현재 지원되지 않습니다.
+IPv6는 Virtual WAN 허브 및 해당 게이트웨이에서 지원되지 않습니다. IPv4 및 IPv6를 지원하는 VNet이 있고 해당 VNet을 Virtual WAN에 연결하려는 경우 이 시나리오는 현재 지원되지 않습니다. 
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>스크립트에서 다양한 Virtual WAN 기능을 자동화하는 데 사용할 수 있는 권장 API 버전은 무엇인가요?
 

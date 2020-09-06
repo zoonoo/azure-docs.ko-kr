@@ -1,23 +1,26 @@
 ---
 title: '빠른 시작: Ink Recognizer REST API와 C#으로 디지털 잉크 인식'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서 Ink Recognizer API를 사용하여 디지털 잉크 스트로크 인식을 시작하는 방법을 보여줍니다.
+description: 이 빠른 시작에서는 Ink Recognizer API 및 C#을 사용하여 디지털 잉크 스트로크 인식을 시작하는 방법을 보여줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: f61566c3d5efa7f973141253353fde7e4893bc6e
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a4bb02f11c7a9a75ddc96e0ee8e9f4b868f8ade5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986077"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051596"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>빠른 시작: Ink Recognizer REST API와 C#으로 디지털 잉크 인식
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 이 빠른 시작을 사용하여 디지털 잉크 스트로크를 Ink Recognizer API에 보내기 시작합니다. 이 C# 애플리케이션은 JSON 형식의 잉크 스트로크 데이터가 포함된 API 요청을 보내고 응답을 받습니다.
 

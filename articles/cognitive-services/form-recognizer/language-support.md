@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 182cf54f58b4fbb8b80fb4ff9d7c1a9c1e353470
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 1554722308675a44a9c144059cc9886996fa3166
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723914"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918437"
 ---
 # <a name="language-support-for-form-recognizer"></a>Form Recognizer에 대한 언어 지원
 
@@ -26,11 +26,11 @@ ms.locfileid: "88723914"
 |:-----|:----:|:-----:|:---:|:---:|
 |중국어(간체) | `zh-Hans`| | ✔ |
 |네덜란드어 | `nl` | |✔ |
-|영어 | `en` |✔ |
+|영어(인쇄 및 필기) | `en` |✔ |
 |프랑스어 | `fr` | |✔ |
 |독일어 | `de` | |✔ |
 |이탈리아어 | `it` | |✔ |
 |포르투갈어 | `pt` | |✔ |
 |스페인어 | `es` | |✔ |
 
-* Form Recognizer v2.1 공개 미리 보기는 `Analyze Layout` 및 `Train Custom Model`(_레이블을 사용하여 학습_ 및 _레이블 없이 학습_) 작업에 대해 이러한 언어를 지원합니다. `Analyze Receipt` 및 `Analyze Business Card`는 영어로만 지원됩니다.
+* Form Recognizer v2.1 공개 미리 보기는 레이아웃 및 사용자 지정을 위해 이러한 언어를 지원합니다. 미리 빌드된 영수증 및 미리 빌드된 명함은 영어로만 지원됩니다.

@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 7dd81afb3189055c194b8a94b4bcbdf48f85d6f2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5ceaf949df88468b2239bd901f639ba6096b0d5f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658392"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269644"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Data Share를 사용하여 데이터 공유
 
@@ -47,7 +47,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
 1. 배포가 완료되면 **리소스로 이동**을 선택합니다.
 
-## <a name="create-a-data-share"></a>Data Share 만들기
+## <a name="create-a-share"></a>공유 만들기
 
 1. Data Share 개요 페이지로 이동합니다.
 
@@ -57,15 +57,15 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
 1. **만들기**를 선택합니다.
 
-1. Data Share에 대한 세부 정보를 채웁니다. 이름, 공유 유형, 공유 콘텐츠의 설명 및 사용 약관(선택 사항)을 지정합니다. 
+1. 공유에 대한 세부 정보를 입력합니다. 이름, 공유 유형, 공유 콘텐츠의 설명 및 사용 약관(선택 사항)을 지정합니다. 
 
    ![EnterShareDetails](./media/enter-share-details.png "공유 세부 정보 입력") 
 
 1. **계속**을 선택합니다.
 
-1. Data Share에 데이터 세트를 추가하려면 **데이터 세트 추가**를 선택합니다. 
+1. 공유에 데이터 세트를 추가하려면 **데이터 세트 추가**를 선택합니다. 
 
-   ![데이터 세트](./media/datasets.png "데이터 세트")
+   ![공유에 데이터 세트 추가](./media/datasets.png "데이터 세트")
 
 1. 추가하려는 데이터 세트 형식을 선택합니다. 이전 단계에서 선택한 공유 유형(스냅샷 또는 내부)에 따라 다른 데이터 세트 유형 목록이 표시됩니다. Azure SQL Database 또는 Azure SQL Data Warehouse에서 공유하는 경우 일부 SQL 자격 증명을 입력하라는 메시지가 표시됩니다. 필수 구성 요소의 일부로 만든 사용자를 사용하여 인증합니다.
 

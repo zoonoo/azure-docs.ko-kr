@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 08/27/2020
 ms.author: aahi
-ms.openlocfilehash: 1e9928359f314ed57004df0264ac843871083eba
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141860"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000960"
 ---
 # <a name="what-is-the-text-analytics-api"></a>텍스트 분석 API란?
 
@@ -82,26 +82,7 @@ Text Analytics API는 클라우드 기반 서비스로 원시 텍스트에 대�
 
 ## <a name="data-limits"></a>데이터 제한
 
-모든 Text Analytics API 엔드포인트는 원시 텍스트 데이터를 수락합니다. 현재 제한은 각 문서에 대해 5,120자입니다. 더 큰 문서를 분석해야 할 경우 더 작은 청크로 분리하면 됩니다.
-
-| 제한 | 값 |
-|------------------------|---------------|
-| 단일 문서의 최대 크기 | [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements)로 측정해서 5,120자입니다. |
-| 전체 요청의 최대 크기 | 1MB |
-| 요청의 최대 문서 수 | 최대 1000개 문서([각 기능에 따라 다름](concepts/data-limits.md)) |
-
-요금 제한은 가격 책정 계층에 따라 달라집니다.
-
-| 계층          | 초당 요청 | 분당 요청 |
-|---------------|---------------------|---------------------|
-| S / 다중 서비스 | 1000                | 1000                |
-| S0 / F0         | 100                 | 300                 |
-| S1            | 200                 | 300                 |
-| S2            | 300                 | 300                 |
-| S3            | 500                 | 500                 |
-| S4            | 1000                | 1000                |
-
-요청은 각 Text Analytics 기능에 대해 개별적으로 측정됩니다. 예를 들어 가격 책정 계층에 대한 최대 요청 수를 각 기능에 동시에 보낼 수 있습니다.      
+모든 Text Analytics API 엔드포인트는 원시 텍스트 데이터를 수락합니다. 자세한 내용은 [데이터 제한](concepts/data-limits.md) 문서를 참조하세요.
 
 ## <a name="unicode-encoding"></a>유니코드 인코딩
 

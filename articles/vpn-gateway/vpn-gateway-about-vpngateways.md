@@ -6,20 +6,19 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 08/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: c7fbea977904145aa2e8851f45a4b70f9ce0c560
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: contperfq1
+ms.openlocfilehash: 23d8d28a03217b1359462332da736f852cfaf8ea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855604"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015393"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
 VPN Gateway는 공용 인터넷을 통해 Azure 가상 네트워크와 온-프레미스 위치 간에 암호화된 트래픽을 전송하는 데 사용되는 특정 유형의 가상 네트워크 게이트웨이입니다. VPN Gateway를 사용하여 Microsoft 네트워크를 통해 Azure 가상 네트워크 간에 암호화된 트래픽을 보낼 수도 있습니다. VPN Gateway는 각 가상 네트워크당 하나만 사용할 수 있습니다. 그러나 동일한 VPN Gateway에 대해 여러 연결을 만들 수 있습니다. 동일한 VPN Gateway에 대해 여러 연결을 만들면 모든 VPN 터널이 사용 가능한 게이트웨이 대역폭을 공유합니다.
-
-VPN 게이트웨이는 Azure 가용성 영역에서 배포할 수 있습니다. 그러면 가상 네트워크 게이트웨이에 복원력, 확장성 및 고가용성이 제공됩니다. Azure Availability Zones에서 게이트웨이를 배포하면 Azure에서 영역 수준 오류로의 온-프레미스 네트워크 연결성을 보호하면서 물리적 및 논리적으로 영역 내 게이트웨이를 구분합니다. [Azure 가용성 영역의 영역 중복 가상 네트워크 게이트웨이 정보](about-zone-redundant-vnet-gateways.md)를 참조하세요.
 
 ## <a name="what-is-a-virtual-network-gateway"></a><a name="whatis"></a>가상 네트워크 게이트웨이란?
 
@@ -33,9 +32,15 @@ VPN 게이트웨이는 Azure 가용성 영역에서 배포할 수 있습니다. 
 
 VPN Gateway 연결은 특정 설정으로 구성된 여러 리소스에 따라 다릅니다. 대부분의 리소스는 개별적으로 구성할 수 있지만 일부 리소스는 특정 순서로 구성해야 합니다.
 
-### <a name="design-connection-topology-diagrams"></a><a name="diagrams"></a>디자인: 연결 토폴로지 다이어그램
+### <a name="design"></a><a name="diagrams"></a>디자인
 
-VPN Gateway 연결에 사용할 수 있는 다양한 구성이 있다는 사실을 꼭 기억하시기 바랍니다. 그 중에서 필요에 맞는 최상의 구성을 결정해야 합니다. 예를 들어 지점 및 사이트 간, 사이트 간 및 공존 ExpressRoute/사이트 간 연결 모두에는 서로 다른 지침과 구성 요구 사항이 있습니다. 디자인 및 연결 토폴로지 다이어그램에 대한 자세한 내용은 [디자인](design.md)을 참조하세요.
+VPN Gateway 연결에 사용할 수 있는 다양한 구성이 있다는 사실을 꼭 기억하시기 바랍니다. 그 중에서 필요에 맞는 최상의 구성을 결정해야 합니다. 예를 들어 지점 및 사이트 간, 사이트 간 및 공존 ExpressRoute/사이트 간 연결 모두에는 서로 다른 지침과 구성 요구 사항이 있습니다. 디자인에 대한 정보와 연결 토폴로지 다이어그램을 보려면 [디자인](design.md)을 참조하세요.
+
+### <a name="planning-table"></a><a name="planningtable"></a>계획 표
+
+다음 테이블은 솔루션에 대한 최상의 연결 옵션을 결정하는 데 도움이 될 수 있습니다.
+
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ### <a name="settings"></a><a name="settings"></a>설정
 
@@ -44,12 +49,6 @@ VPN Gateway 연결에 사용할 수 있는 다양한 구성이 있다는 사실�
 ### <a name="deployment-tools"></a><a name="tools"></a>배포 도구
 
 Azure Portal과 같은 하나의 구성 도구를 사용하여 리소스를 시작하고 구성할 수 있습니다. 나중에 PowerShell과 같은 다른 도구로 전환하도록 결정하여 추가 리소스를 구성하거나 해당하는 경우 기존 리소스를 수정할 수 있습니다. 현재, Azure Portal에서 모든 리소스 및 리소스 설정을 구성할 수 없습니다. 각 연결 토폴로지에 대한 문서의 지침은 특정 구성 도구가 필요한지 여부를 지정합니다.
-
-### <a name="planning-table"></a><a name="planningtable"></a>계획 표
-
-다음 테이블은 솔루션에 대한 최상의 연결 옵션을 결정하는 데 도움이 될 수 있습니다.
-
-[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gateway-skus"></a><a name="gwsku"></a>게이트웨이 SKU
 
@@ -61,6 +60,10 @@ Azure Portal과 같은 하나의 구성 도구를 사용하여 리소스를 시�
 ### <a name="gateway-skus-by-tunnel-connection-and-throughput"></a><a name="benchmark"></a>터널, 연결 및 처리량별 게이트웨이 SKU
 
 [!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+
+## <a name="availability-zones"></a><a name="availability"></a>가용성 영역
+
+VPN 게이트웨이는 Azure 가용성 영역에서 배포할 수 있습니다. 그러면 가상 네트워크 게이트웨이에 복원력, 확장성 및 고가용성이 제공됩니다. Azure Availability Zones에서 게이트웨이를 배포하면 Azure에서 영역 수준 오류로의 온-프레미스 네트워크 연결성을 보호하면서 물리적 및 논리적으로 영역 내 게이트웨이를 구분합니다. [Azure 가용성 영역의 영역 중복 가상 네트워크 게이트웨이 정보](about-zone-redundant-vnet-gateways.md)를 참조하세요.
 
 ## <a name="pricing"></a><a name="pricing"></a>가격 책정
 

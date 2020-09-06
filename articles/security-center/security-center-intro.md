@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: bb75405a1cd1e282023936673aa73be25556e0af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c42009f5e02180dc5e4c5e3e4b43f00277d7bf58
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529355"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177906"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -63,39 +63,36 @@ Azure Security Center를 사용하여 보안 상태를 강화할 수 있습니�
 
 워크로드가 안전한지 알고 확인하는 것이 보안의 기본 사항이며, 이는 맞춤화된 보안 정책을 구현하는 것에서 시작됩니다. Security Center의 모든 정책은 Azure Policy 제어를 기반으로 빌드되므로 **최고 수준의 정책 솔루션**이 제공하는 포괄적인 범위와 유연성을 얻을 수 있습니다. Security Center에서는 관리 그룹, 전체 구독 및 전체 테넌트에 대해 실행할 정책까지 설정할 수 있습니다.
 
-![Security Center 대시보드](media/security-center-intro/sc-dashboard.png)
+:::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="정책 관리 페이지":::
 
 Security Center를 사용하면 **섀도 IT 구독을 확인**할 수 있습니다. 대시보드에서 **검사되지 않음** 레이블이 표시된 구독을 살펴보면 새로 만든 구독이 있을 때 즉시 알 수 있으며, 해당 구독이 정책에 의해 검사되고 Azure Security Center에서 보호되도록 할 수 있습니다.
 
-![Security Center 정책 대시보드](media/security-center-intro/sc-policy-dashboard.png)
-
-Security Center의 고급 모니터링 기능을 사용하면 **시간에 따른 준수 및 거버넌스를 추적하고 관리**할 수 있습니다. **전반적인 준수**에서는 구독이 워크로드와 관련된 정책을 준수하는 정도에 대한 측정값을 제공합니다. 
-
-![시간에 따른 Security Center 정책](media/security-center-intro/sc-policy-time.png)
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Security Center 정책 대시보드":::
 
 ### <a name="continuous-assessments"></a>연속 평가
 
 Security Center는 워크로드 전체에 배포되는 새 리소스를 지속적으로 검색하고 보안 모범 사례에 따라 구성되었는지 여부를 평가하며, 그렇지 않은 경우 리소스에 플래그가 지정되어 머신을 보호하기 위해 수정해야 하는 권장 사항 목록이 우선 순위에 따라 작성됩니다.
 
+각 권장 사항이 전체 보안 상태에 얼마나 중요한지 이해하는 데 도움이 되도록 Security Center는 권장 사항을 보안 제어에 그룹화하고 각 제어에 **보안 점수** 값을 추가합니다. 이는 **보안 작업의 우선 순위를 지정**하는 데 중요합니다.
+
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Security Center 보안 점수":::
+
+### <a name="network-map"></a>네트워크 맵
+
 Security Center에서 네트워크의 보안 상태를 지속적으로 모니터링하기 위해 제공하는 가장 강력한 도구 중 하나는 **네트워크 맵**입니다. 맵을 사용하여 워크로드의 토폴로지를 살펴보고 각 노드가 제대로 구성되었는지 확인할 수 있습니다. 노드가 연결된 방식을 확인할 수 있으며, 이 정보를 통해 공격자가 네트워크를 쉽게 탐색할 수 있게 하는 원치 않는 연결을 차단할 수 있습니다.
 
-![Security Center 네트워크 맵](media/security-center-intro/sc-net-map.png)
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Security Center 네트워크 맵":::
 
-Security Center에서는 **보안 점수**를 추가하여 보안 경고를 한 단계 더 쉽게 완화할 수 있습니다. 보안 점수는 이제 각 추천 사항이 전체 보안 상태에 대한 중요도를 파악하는 데 도움이 되는 각 추천 사항과 연결됩니다. 이는 **보안 작업의 우선 순위를 지정**하는 데 중요합니다.
-
-![Security Center 보안 점수](media/security-center-intro/sc-secure-score.png)
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>권장 제어를 구성하여 보안 최적화 및 개선
 
 Azure Security Center 가치의 핵심은 권장 사항에 있습니다. 권장 사항은 사용자 워크로드에서 발견된 특정 보안 문제에 맞게 조정되며, Security Center는 취약성을 찾을 뿐 아니라 취약성을 제거하는 방법에 대한 특정 지침을 제공하여 자동으로 보안 관리 작업을 수행합니다.
 
-![Security Center 권장 사항](media/security-center-intro/sc-recommendations.png)
-
 이러한 방식으로 운영되는 Security Center를 통해 보안 정책을 설정하는 것은 물론, 리소스 전체에 보안 구성 표준을 적용할 수도 있습니다.
 
 권장 사항은 각 리소스의 공격 표면을 줄이는 데 도움이 됩니다. 여기에는 Azure 가상 머신, 비 Azure 서버 및 SQL, Storage 계정 등의 Azure PaaS 서비스가 포함되며 각 리소스 유형이 다르게 평가되고 고유한 표준을 갖습니다.
 
-![Security Center 권장 사항 예제](media/security-center-intro/sc-recommendation-example.png)
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Security Center 권장 사항 예제":::
 
 ## <a name="protect-against-threats"></a>위협으로부터 보호
 
@@ -103,9 +100,7 @@ Security Center의 위협 방지를 사용하면 Azure의 PaaS(Platforms as a Se
 
 Security Center의 위협 방지에는 사이버 적극 대처(kill-chain) 분석에 따라 사용자 환경의 경고 간에 상관 관계를 자동으로 파악하는 Fusion 적극 대처(kill-chain) 분석이 포함됩니다. 이 분석은 공격 캠페인의 전체 스토리, 시작된 위치 및 리소스에 미치는 영향을 이해하는 데 도움이 됩니다.
 
-
-
-![Security Center 공격 권장 사항](media/security-center-intro/sc-attack-recommendation.png)
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="보안 경고":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Microsoft Defender Advanced 위협 보호와 통합
 
@@ -120,8 +115,6 @@ Security Center는 Azure PaaS 서비스 전체의 위협을 탐지하는 데 도
 ### <a name="block-brute-force-attacks"></a>무차별 암호 대입 공격(brute force attack) 차단
 
 Security Center는 무차별 암호 대입 공격(brute force attack)에 대한 노출을 제한하는 데 도움이 됩니다. Just-In-Time VM 액세스를 통해 가상 머신 포트에 대한 액세스를 줄이면 불필요한 액세스를 방지하여 네트워크를 강화할 수 있습니다. 권한 있는 사용자, 허용된 원본 IP 주소 범위 또는 IP 주소에 대해서만, 제한된 시간 동안 선택한 포트에 보안 액세스 정책을 설정할 수 있습니다.
-
-![Security Center 무차별 암호 대입 공격](media/security-center-intro/sc-brute-force.png)
 
 ### <a name="protect-data-services"></a>데이터 서비스 보호
 

@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9011c56096d61e50ae3655a76a396ec3f2dd97c5
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 65b35c30d796f733e91c71e569634b61f9f7c52b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352683"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959292"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>빠른 시작: Linux 또는 Windows에서 실행되는 샘플 IoT 플러그 앤 플레이 미리 보기 디바이스 애플리케이션을 IoT Hub에 연결(C)
 
@@ -117,7 +117,10 @@ git clone --depth 1 --recurse-submodules https://github.com/Azure/azure-iot-sdk-
 
 IoT 허브에 원격 분석을 전송하는 IoT 플러그 앤 플레이 디바이스를 시뮬레이트하는 SDK에서 샘플 애플리케이션을 실행하려면 다음을 수행합니다.
 
-**IOTHUB_DEVICE_CONNECTION_STRING**이라는 환경 변수를 만들어 이전에 기록한 디바이스 연결 문자열을 저장합니다.
+연결 문자열을 사용하여 IoT 허브에 연결하도록 샘플을 구성하는 두 가지 환경 변수를 만듭니다.
+
+- 값이 `"connectionString"`인 **IOTHUB_DEVICE_SECURITY_TYPE**
+- **IOTHUB_DEVICE_CONNECTION_STRING** - 이전에 기록한 디바이스 연결 문자열을 저장합니다.
 
 _cmake_ 폴더에서 실행 파일이 있는 폴더로 이동하여 실행합니다.
 

@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 8/13/2020
+ms.date: 09/01/2020
 ms.topic: include
-ms.custom: include file, devx-track-javascript
+ms.custom: include file, devx-track-javascript, cog-serv-seo-aug-2020
 ms.author: diberry
-ms.openlocfilehash: e52aba2fe6189c8964fd6525581b0bd6ee6def48
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: b961bb0598a1f6e9cdc7b4df27af50e7af1d9d81
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246225"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89323110"
 ---
 Node.js용 LUIS(Language Understanding) 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
@@ -43,13 +43,13 @@ Node.js용 LUIS(Language Understanding) 클라이언트 라이브러리를 사�
     mkdir quickstart-sdk && cd quickstart-sdk
     ```
 
-1. `package.json` 파일을 만들어 디렉터리를 JavaScript 애플리케이션으로 초기화합니다. 
+1. `package.json` 파일을 만들어 디렉터리를 JavaScript 애플리케이션으로 초기화합니다.
 
     ```console
     npm init -y
     ```
 
-1. JavaScript 코드용으로 `index.js`라는 파일을 만듭니다. 
+1. JavaScript 코드용으로 `index.js`라는 파일을 만듭니다.
 
     ```console
     touch index.js
@@ -61,7 +61,7 @@ Node.js용 LUIS(Language Understanding) 클라이언트 라이브러리를 사�
 
 ```console
 npm install @azure/ms-rest-js
-npm install @azure/cognitiveservices-luis-authoring 
+npm install @azure/cognitiveservices-luis-authoring
 npm install @azure/cognitiveservices-luis-runtime
 ```
 
@@ -91,6 +91,8 @@ npm install @azure/cognitiveservices-luis-runtime
 
 LUIS(Language Understanding) 작성 클라이언트는 Azure를 인증하는 [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) 개체이며, 이 개체에는 작성 키가 포함되어 있습니다.
 
+## <a name="code-examples-for-authoring"></a>작성에 대한 코드 예제
+
 클라이언트가 만들어지면 이 클라이언트를 사용하여 다음과 같은 기능에 액세스합니다.
 
 * 앱 - [추가](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#add-applicationcreateobject--msrest-requestoptionsbase-), [삭제](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#deletemethod-string--models-appsdeletemethodoptionalparams-), [게시](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#publish-string--applicationpublishobject--msrest-requestoptionsbase-)
@@ -105,6 +107,8 @@ LUIS(Language Understanding) 작성 클라이언트는 Azure를 인증하는 [LU
 
 LUIS(Language Understanding) 작성 클라이언트는 Azure를 인증하는 [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/luisruntimeclient?view=azure-node-latest) 개체이며, 이 개체에는 작성 키가 포함되어 있습니다.
 
+## <a name="code-examples-for-prediction-runtime"></a>예측 런타임에 대한 코드 예제
+
 클라이언트가 만들어지면 이 클라이언트를 사용하여 다음과 같은 기능에 액세스합니다.
 
 * `staging` 또는 `production` 슬롯별 [예측](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-)
@@ -118,16 +122,16 @@ LUIS(Language Understanding) 작성 클라이언트는 Azure를 인증하는 [LU
 
 [!code-javascript[Add NPM libraries to code file](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=Dependencies)]
 
-## <a name="add-boilerplate-code"></a>상용구 코드 추가 
+## <a name="add-boilerplate-code"></a>상용구 코드 추가
 
-1. `quickstart` 메서드와 해당 호출을 추가합니다. 이 메서드는 나머지 코드의 대부분을 보유합니다. 이 메서드는 파일 끝에서 호출됩니다. 
+1. `quickstart` 메서드와 해당 호출을 추가합니다. 이 메서드는 나머지 코드의 대부분을 보유합니다. 이 메서드는 파일 끝에서 호출됩니다.
 
     ```javascript
     const quickstart = async () => {
-    
+
         // add calls here
-    
-    
+
+
     }
     quickstart()
         .then(result => console.log("Done"))
@@ -136,9 +140,11 @@ LUIS(Language Understanding) 작성 클라이언트는 Azure를 인증하는 [LU
             })
     ```
 
-1. 별도로 지정하지 않는 한 나머지 코드를 빠른 시작 메서드에 추가합니다. 
+1. 별도로 지정하지 않는 한 나머지 코드를 빠른 시작 메서드에 추가합니다.
 
 ## <a name="create-variables-for-the-app"></a>앱에 대한 변수 만들기
+
+두 개의 변수 세트를 만듭니다. 첫 번째 집합은 변경하고 두 번째 집합은 코드 샘플에 표시된 그대로 둡니다. 
 
 1. 작성 키 및 리소스 이름을 저장할 변수를 만듭니다.
 
@@ -152,7 +158,7 @@ LUIS(Language Understanding) 작성 클라이언트는 Azure를 인증하는 [LU
 
 키를 사용하여 [CognitiveServicesCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest) 개체를 만들어서 엔드포인트와 함께 사용하여 [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) 개체를 만듭니다.
 
-[!code-javascript[Create LUIS authoring client object](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringCreateClient)]
+[!code-javascript[Authenticate the client](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringCreateClient)]
 
 ## <a name="create-a-luis-app"></a>LUIS 앱 만들기
 
@@ -160,7 +166,7 @@ LUIS 앱에는 의도, 엔터티 및 발화 예제를 비롯한 NLP(자연어 �
 
 앱을 만드는 [AppsOperation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest) 개체의 [add](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest) 메서드를 만듭니다. 이름과 언어 문화권은 필수 속성입니다.
 
-[!code-javascript[Create LUIS client app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringCreateApplication)]
+[!code-javascript[Create a LUIS app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringCreateApplication)]
 
 
 ## <a name="create-intent-for-the-app"></a>앱용 의도 만들기
@@ -170,7 +176,7 @@ LUIS 앱 모델의 기본 개체는 의도입니다. 의도는 사용자 발화 
 
 `intentName` 값은 [앱에 대한 변수 만들기](#create-variables-for-the-app) 섹션에 있는 변수의 일부로 `OrderPizzaIntent`에 하드 코딩됩니다.
 
-[!code-javascript[Create intent](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AddIntent)]
+[!code-javascript[Create intent for the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AddIntent)]
 
 ## <a name="create-entities-for-the-app"></a>앱용 엔터티 만들기
 
@@ -182,7 +188,7 @@ LUIS 앱 모델의 기본 개체는 의도입니다. 의도는 사용자 발화 
 
 엔터티 생성 코드는 하위 엔터티 및 `Quantity` 하위 엔터티에 적용되는 기능을 사용하여 기계 학습 엔터티를 만듭니다.
 
-:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="엔터티 생성 코드는 하위 엔터티 및 `Quantity` 하위 엔터티에 적용되는 기능을 사용하여 기계 학습 엔터티를 만듭니다.":::
+:::image type="content" source="../media/quickstart-sdk/machine-learned-entity.png" alt-text="생성된 엔터티, 하위 엔터티 및 기능이 `Quantity` 하위 엔터티에 적용되는 기계 학습 엔터티를 보여주는 포털의 부분 스크린샷.":::
 
 [!code-javascript[Create entities for the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddEntities)]
 
@@ -196,11 +202,11 @@ LUIS 앱 모델의 기본 개체는 의도입니다. 의도는 사용자 발화 
 
 각 발화 예제에 대한 하나의 개체인 [ExampleLabelObject](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/examplelabelobject?view=azure-node-latest) 개체의 목록을 만들어 발화 예제를 추가합니다. 각 예제는 엔터티 이름과 엔터티 값의 이름/값 쌍으로 구성된 사전을 통해 모든 엔터티를 표시해야 합니다. 엔터티 값은 발화 예제의 텍스트에 표시된 것과 정확히 일치해야 합니다.
 
-:::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="엔터티 값은 발화 예제의 텍스트에 표시된 것과 정확히 일치해야 합니다.":::
+:::image type="content" source="../media/quickstart-sdk/labeled-example-machine-learned-entity.png" alt-text="포털에서 레이블이 지정된 예제 발화를 보여주는 부분 스크린샷.":::
 
 앱 ID, 버전 ID 및 예제를 사용하여 [examples.add](https://docs.microsoft.com//javascript/api/@azure/cognitiveservices-luis-authoring/examples?view=azure-node-latest#add-string--string--examplelabelobject--models-examplesaddoptionalparams-)를 호출합니다.
 
-[!code-javascript[Add example utterance to a specific intent](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddLabeledExamples)]
+[!code-javascript[Add example utterance to intent](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=AuthoringAddLabeledExamples)]
 
 ## <a name="train-the-app"></a>앱 학습
 
@@ -210,9 +216,9 @@ LUIS 앱 모델의 기본 개체는 의도입니다. 의도는 사용자 발화 
 
 이 빠른 시작에서 보여 주는 것과 같은 매우 작은 모델은 매우 빠르게 학습됩니다. 프로덕션 수준 애플리케이션의 경우 앱을 학습시키려면 학습이 성공했는지 여부와 성공한 시기를 확인하는 [get_status](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/train?view=azure-node-latest#getstatus-string--string--msrest-requestoptionsbase-) 메서드에 대한 폴링 호출이 포함되어야 합니다. 응답은 각 개체에 대한 개별 상태가 있는 [ModelTrainingInfo](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/modeltraininginfo?view=azure-node-latest) 개체의 목록입니다. 모든 개체가 성공해야 학습이 완료된 것으로 간주합니다.
 
-[!code-javascript[Train the app's version](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=TrainAppVersion)]
+[!code-javascript[Train the app](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=TrainAppVersion)]
 
-## <a name="publish-a-language-understanding-app"></a>Language Understanding 앱 게시
+## <a name="publish-app-to-production-slot"></a>프로덕션 슬롯에 앱 게시
 
 [app.publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/apps?view=azure-node-latest#publish-string--applicationpublishobject--msrest-requestoptionsbase-) 메서드를 사용하여 LUIS 앱을 게시합니다. 그러면 현재 학습된 버전이 엔드포인트의 지정된 슬롯에 게시됩니다. 클라이언트 애플리케이션에서 이 엔드포인트를 사용하여 의도 및 엔터티 추출의 예측을 위한 사용자 발화를 보냅니다.
 
@@ -225,7 +231,7 @@ LUIS 앱 모델의 기본 개체는 의도입니다. 의도는 사용자 발화 
 
 [!INCLUDE [Caution about using authoring key](caution-authoring-key.md)]
 
-[!code-javascript [Create LUIS runtime client object](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=PredictionCreateClient)]
+[!code-javascript [Authenticate the prediction runtime client](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=PredictionCreateClient)]
 
 ## <a name="get-prediction-from-runtime"></a>런타임에서 예측 가져하기
 
@@ -233,7 +239,7 @@ LUIS 앱 모델의 기본 개체는 의도입니다. 의도는 사용자 발화 
 
 **[luisRuntimeClient.prediction.getSlotPrediction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/predictionoperations?view=azure-node-latest#getslotprediction-string--string--predictionrequest--models-predictiongetslotpredictionoptionalparams-)** 메서드는 요청을 처리할 여러 매개 변수(예: 앱 ID, 슬롯 이름 및 예측 요청 개체)가 필요합니다. verbose, show all intents, log와 같은 다른 옵션은 선택 사항입니다.
 
-[!code-javascript [Get prediction based on query](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=QueryPredictionEndpoint)]
+[!code-javascript [Get prediction from runtime](~/cognitive-services-quickstart-code/javascript/LUIS/sdk-3x/index.js?name=QueryPredictionEndpoint)]
 
 [!INCLUDE [Prediction JSON response](sdk-json.md)]
 

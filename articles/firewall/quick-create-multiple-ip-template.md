@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: 여러 공용 IP 주소로 Azure Firewall 만들기 - Resource Manager 템플릿'
-description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 여러 공용 IP 주소로 Azure Firewall을 만드는 방법에 대해 알아봅니다.
+description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 여러 공용 IP 주소가 있는 Azure Firewall을 만드는 방법에 대해 알아봅니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/14/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 41190cd52e29b187182589f93e9d494d05943cf8
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 282ce16c926c61008d0ebd70106b161425a15c9e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705438"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079084"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>빠른 시작: 여러 공용 IP 주소로 Azure Firewall 만들기 - ARM 템플릿
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/01/2020
-ms.openlocfilehash: c6ab5c2cae2bb966c2b040b40dbf36e56a54411b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6adbd83ddfbdb82d1054d4e74dd9492d08583ede
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496755"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292540"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>빠른 시작: 포털에서 데모 앱 만들기(Azure Cognitive Search)
 
@@ -61,7 +61,7 @@ Azure Portal의 **데모 앱 만들기** 마법사를 사용하여 브라우저�
 
 1. [설명]에서 다른 사용자가 특정 문서를 클릭할지 여부를 결정하는 데 도움이 될 수 있는 세부 정보를 제공하는 필드를 선택합니다.
 
-   ![샘플 데이터에 대한 데이터 원본 페이지](media/search-create-app-portal/configure-results.png)
+   ![샘플 데이터에 대한 결과 구성](media/search-create-app-portal/configure-results.png)
 
 ## <a name="add-a-sidebar"></a>사이드바 추가
 
@@ -111,4 +111,4 @@ Azure Cognitive Search에서 패싯 탐색은 누적 필터링 환경입니다. 
 기본 앱은 초기 검색 및 작은 작업에 유용하지만, 초기에 API를 검토하면 개념과 워크플로를 더 심층적으로 이해하는 데 도움이 됩니다.
 
 > [!div class="nextstepaction"]
-> [.NET SDK를 사용하여 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [.NET SDK를 사용하여 인덱스 만들기](./search-get-started-dotnet.md)

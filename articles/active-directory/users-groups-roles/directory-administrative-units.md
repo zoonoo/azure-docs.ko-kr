@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 276b6cc8038a7ac8e0ddd27a3c3eb7c87f05ed1b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5854ef57a08218fee4479eb9e075824f4a1ff781
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795901"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376386"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Azure Active Directory의 관리 단위 관리(미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "88795901"
 
 관리 단위를 사용하면 정의하는 조직의 부서, 지역 또는 기타 세그먼트로 제한된 관리자 권한을 부여할 수 있습니다. 관리 단위를 사용하여 지역 관리자에게 권한을 위임하거나 세부적인 수준에서 정책을 설정할 수 있습니다. 예를 들어 사용자 계정 관리자는 프로필 정보를 업데이트하고, 암호를 다시 설정하고, 자신의 관리 단위에 포함된 사용자에게만 라이선스를 할당할 수 있습니다.
 
- 예를 들어 지원하는 지역 내의 사용자만 관리하도록 권한이 제한된 지역 지원 전문가인 [기술 지원팀 관리자](directory-assign-admin-roles.md#helpdesk-administrator) 역할을 위임할 수 있습니다.
+예를 들어 지원하는 지역 내의 사용자만 관리하도록 권한이 제한된 지역 지원 전문가인 [기술 지원팀 관리자](directory-assign-admin-roles.md#helpdesk-administrator) 역할을 위임할 수 있습니다.
 
 ## <a name="deployment-scenario"></a>배포 시나리오
 
@@ -54,7 +54,7 @@ ms.locfileid: "88795901"
 
 관리 단위를 사용하여 Azure AD 리소스를 논리적으로 그룹화할 수 있습니다. 예를 들어 IT 부서가 전 세계에 흩어져 있는 조직의 경우 지리적 경계를 정의하는 관리 단위를 만드는 것이 적합할 수 있습니다. 하위 조직이 반자율적으로(semi-autonomous) 운영되는 다국적 조직 시나리오에서는 각 하위 조직을 관리 단위로 표시할 수 있습니다.
 
-관리 단위를 만드는 기준은 조직의 고유한 요구 사항에 따라 결정됩니다. 관리 단위는 M365 서비스에서 구조를 정의하는 일반적인 방법입니다. M365 서비스에서 사용되는 용도를 염두에 두고 관리 단위를 준비하는 것이 좋습니다. M365 전체에서 관리 단위에 속한 공통 리소스를 연결할 수 있을 때 관리 단위를 최대로 활용할 수 있습니다.
+관리 단위를 만드는 기준은 조직의 고유한 요구 사항에 따라 결정됩니다. 관리 단위는 Microsoft 365 서비스에서 구조를 정의하는 일반적인 방법입니다. Microsoft 365 서비스에서 사용되는 용도를 염두에 두고 관리 단위를 준비하는 것이 좋습니다. Microsoft 365 전체에서 관리 단위에 속한 공통 리소스를 연결할 수 있을 때 관리 단위를 최대로 활용할 수 있습니다.
 
 조직에서 관리 단위를 만들 때 일반적으로 다음과 같은 단계를 거치게 됩니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "88795901"
 
 ## <a name="currently-supported-scenarios"></a>현재 지원되는 시나리오
 
-전역 관리자 또는 권한 있는 역할 관리자는 Azure AD 포털을 사용하여 관리 단위를 만들고, 사용자를 관리 단위의 멤버로 추가하고, IT 직원을 관리 단위 범위가 지정된 관리자 역할에 할당할 수 있습니다. 그러면 관리 단위 범위가 지정된 관리자는 Office 365 포털을 사용하여 관리 단위에 속한 사용자의 기본적인 관리 업무를 수행할 수 있습니다.
+전역 관리자 또는 권한 있는 역할 관리자는 Azure AD 포털을 사용하여 관리 단위를 만들고, 사용자를 관리 단위의 멤버로 추가하고, IT 직원을 관리 단위 범위가 지정된 관리자 역할에 할당할 수 있습니다. 그러면 관리 단위 범위가 지정된 관리자는 Microsoft 365 관리 센터를 사용하여 관리 단위에 속한 사용자의 기본적인 관리 업무를 수행할 수 있습니다.
 
 또한 그룹을 관리 단위의 멤버로 추가할 수 있으며, 관리 단위 범위가 지정된 그룹 관리자는 PowerShell, Microsoft Graph 및 Azure AD 포털을 사용하여 그룹을 관리할 수 있습니다.
 
@@ -99,7 +99,7 @@ ms.locfileid: "88795901"
 >
 > 관리 단위 범위가 지정된 관리자는 동적 그룹 멤버 관리 규칙을 관리할 수 없습니다.
 
-관리 단위는 관리 권한에만 범위를 적용합니다. 멤버 또는 관리자가 자신의 [기본 사용자 권한](../fundamentals/users-default-permissions.md)을 사용하여 관리 단위 외부의 다른 사용자, 그룹 또는 리소스를 검색하는 것을 막을 수 없습니다. Office 365 포털에서는 범위가 지정된 관리자의 관리 단위 외부에 있는 사용자가 필터링되지만 Azure AD 포털, PowerShell 및 기타 Microsoft 서비스에서는 다른 사용자를 탐색할 수 있습니다.
+관리 단위는 관리 권한에만 범위를 적용합니다. 멤버 또는 관리자가 자신의 [기본 사용자 권한](../fundamentals/users-default-permissions.md)을 사용하여 관리 단위 외부의 다른 사용자, 그룹 또는 리소스를 검색하는 것을 막을 수 없습니다. Microsoft 365 관리 센터에서는 범위가 지정된 관리자의 관리 단위 외부에 있는 사용자가 필터링되지만 Azure AD 포털, PowerShell 및 기타 Microsoft 서비스에서는 다른 사용자를 탐색할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

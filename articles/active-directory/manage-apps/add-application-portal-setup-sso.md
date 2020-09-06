@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 461a424f23161e1567c6b32a38db0225efc56b1e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 040cc2dfa48f24fff4c7dda2cb6010efb01e9b86
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808391"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300139"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트의 애플리케이션에 대한 SSO(Single Sign-On) 설정
 
@@ -32,6 +32,7 @@ Azure AD 테넌트에 추가한 애플리케이션에 대한 SSO를 설정하려
 - 선택 사항: [앱 보기](view-applications-portal.md) 완료.
 - 선택 사항: [앱 추가](add-application-portal.md) 완료.
 - 선택 사항: [앱 구성](add-application-portal-configure.md) 완료.
+- 선택 사항: [앱에 사용자 할당](add-application-portal-assign-users.md) 완료.
 
 
 >[!IMPORTANT]

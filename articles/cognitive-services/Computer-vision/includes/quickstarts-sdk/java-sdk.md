@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/19/2019
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 6eacaf2ec75c485dbdd7e66a73cdd36787da6126
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 2b305b1ffc5c72780f903c7798fbce24c630baba
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88753060"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321884"
 ---
 <a name="HOLTop"></a>
 
@@ -78,13 +78,13 @@ mkdir -p src/main/java
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
-이 빠른 시작에서는 Gradle 종속성 관리자를 사용합니다. 다른 종속성 관리자에 대한 클라이언트 라이브러리 및 정보는 [Maven 중앙 리포지토리](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/)에서 찾을 수 있습니다.
+이 빠른 시작에서는 Gradle 종속성 관리자를 사용합니다. 다른 종속성 관리자에 대한 클라이언트 라이브러리 및 정보는 [Maven 중앙 리포지토리](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-computervision)에서 찾을 수 있습니다.
 
 프로젝트의 *build.gradle.kts* 파일에서 Computer Vision 클라이언트 라이브러리를 종속성으로 포함시킵니다.
 
 ```kotlin
 dependencies {
-    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.2-beta")
+    compile(group = "com.microsoft.azure.cognitiveservices", name = "azure-cognitiveservices-computervision", version = "1.0.4-beta")
 }
 ```
 
@@ -204,26 +204,47 @@ Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분�
 
 ## <a name="read-printed-and-handwritten-text"></a>인쇄 텍스트 및 필기 텍스트 읽기
 
-Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다.
+Computer Vision은 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 이 섹션에서는 로컬 파일 경로를 사용하고 이미지의 텍스트를 콘솔에 인쇄하는 `ReadFromFile` 메서드를 정의합니다.
 
 > [!NOTE]
 > URL을 사용하여 원격 이미지의 텍스트를 읽을 수도 있습니다. 원격 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)의 샘플 코드를 참조하세요.
 
-### <a name="call-the-recognize-api"></a>Recognize API 호출
+### <a name="set-up-test-image"></a>테스트 이미지 설정
 
-먼저 다음 코드를 사용하여 지정된 이미지에 대한 **recognizePrintedTextInStream** 메서드를 호출합니다. 이 코드를 프로젝트에 추가할 때 `localTextImagePath`의 값을 로컬 이미지의 경로로 바꾸어야 합니다. [샘플 이미지](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg)를 다운로드하여 여기에서 사용할 수 있습니다.
+**resources/** 폴더를 프로젝트의 **src/main/** 폴더에 만들고, 텍스트를 읽을 이미지를 추가합니다. [샘플 이미지](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg)를 다운로드하여 여기에서 사용할 수 있습니다.
+
+그런 다음, 다음 메서드 정의를 **ComputerVisionQuickstarts** 클래스에 추가합니다. 필요한 경우 이미지 파일과 일치하도록 `localFilePath`의 값을 변경합니다. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_setup)]
+
+### <a name="call-the-read-api"></a>읽기 API 호출
+
+그런 후, 다음 코드를 추가하여 지정된 이미지에 대해 **readInStreamWithServiceResponseAsync** 메서드를 호출합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
 
-### <a name="print-recognize-results"></a>Recognize 결과 인쇄
 
-다음 코드 블록은 반환된 텍스트를 처리하고 구문 분석하여 각 줄의 첫 번째 단어를 인쇄합니다. 이 코드를 사용하여 **OcrResult** 인스턴스의 구조를 빠르게 파악할 수 있습니다.
+다음 코드 블록은 읽기 호출의 응답에서 작업 ID를 추출합니다. 이 ID를 도우미 메서드와 함께 사용하여 텍스트 읽기 결과를 콘솔에 인쇄합니다. 
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_print)]
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_response)]
 
-마지막으로 try/catch 블록과 메서드 정의를 닫습니다.
+try/catch 블록과 메서드 정의를 닫습니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_catch)]
+
+### <a name="get-read-results"></a>읽기 결과 가져오기
+
+그런 다음, 도우미 메서드에 대한 정의를 추가합니다. 이 메서드는 이전 단계의 작업 ID를 사용하여 읽기 작업을 쿼리하고 사용할 수 있을 때 OCR 결과를 가져옵니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_result_helper_call)]
+
+나머지 메서드는 OCR 결과를 구문 분석하여 콘솔에 인쇄합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_result_helper_print)]
+
+마지막으로, 위에서 사용된 다른 도우미 메서드를 추가합니다. 이 메서드는 초기 응답에서 작업 ID를 추출합니다.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
@@ -253,5 +274,5 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 > [!div class="nextstepaction"]
 >[Computer Vision 참조(Java)](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable)
 
-* [Computer Vision이란?](../../Home.md)
+* [Computer Vision이란?](../../overview.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java)에서 확인할 수 있습니다.

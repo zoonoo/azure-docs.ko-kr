@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4f2c0a51f7c8d2441c9ddff2520dae2f5cc13565
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 40f820a32c7848b5370cb664d706e9f20928bc5c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495348"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296484"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>빠른 시작: 간단한 Azure CLI 명령을 사용하여 Azure Database for MySQL 만들기 - az mysql up(미리 보기)
 
@@ -75,7 +75,7 @@ admin-password | 시스템 생성 | 관리자 사용자의 암호입니다.
 
 서버가 만들어지면 다음과 같은 설정이 제공됩니다.
 
-- “devbox”라는 방화벽 규칙이 만들어집니다. Azure CLI에서 `az mysql up` 명령이 실행되는 머신의 IP 주소를 검색하여 해당 IP 주소를 허용 목록에 추가합니다.
+- “devbox”라는 방화벽 규칙이 만들어집니다. Azure CLI는 `az mysql up` 명령이 실행되는 머신의 IP 주소를 검색하여 해당 IP 주소를 허용합니다.
 - “Azure 서비스에 대한 액세스 허용”이 켜기로 설정됩니다. 이 설정은 구독에 없는 리소스를 포함하여 모든 Azure 리소스로부터의 연결을 허용하도록 서버의 방화벽을 구성합니다.
 - `wait_timeout` 매개 변수가 8시간으로 설정됩니다.
 - “sampledb”라는 빈 데이터베이스가 만들어집니다.

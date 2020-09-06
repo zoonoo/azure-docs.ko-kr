@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 993dff37f9bde5e674dbe5d41d6d4c6da92f0bc9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e9a2ff5d46557ddf8f5f62b456e8a3d54bf90c55
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327534"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290348"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Java에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "87327534"
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [포털](search-get-started-portal.md)
-> * [PowerShell](search-create-index-rest-api.md)
+> * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
@@ -373,7 +373,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 프로젝트의 구조가 다음과 같은지 확인합니다.
 
-    ![프로젝트 디렉터리 구조](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    ![프로젝트 디렉터리 구조 및 클래스](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
 1. **Maven** 도구 창을 열고 다음 Maven 목표를 실행합니다. `verify exec:java`
 ![Maven 목표 실행: verify exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)

@@ -1,24 +1,26 @@
 ---
 title: '빠른 시작: Ink Recognizer REST API와 Java로 디지털 잉크 인식'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서 Ink Recognizer API를 사용하여 디지털 잉크 스트로크 인식을 시작합니다.
+description: 이 빠른 시작에서 Ink Recognizer API 및 Java를 사용하여 디지털 잉크 스트로크 인식을 시작합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-java
-ms.openlocfilehash: 902d8a592893a70b8a694ab888bb3c22c6c9670a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b73f5013fdbef34344ece672bacff90db9bac60b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371552"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051579"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>빠른 시작: Ink Recognizer REST API와 Java로 디지털 잉크 인식
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 이 빠른 시작을 사용하여 디지털 잉크 스트로크에 Ink Recognizer API를 사용하기 시작합니다. 이 Java 애플리케이션은 JSON 형식의 잉크 스트로크 데이터가 포함된 API 요청을 보내고 응답을 받습니다.
 

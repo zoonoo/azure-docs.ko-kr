@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 659d136695943d846fe57986d4b64a37f0d8f30e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808238"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300122"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>빠른 시작: Azure AD(Azure Active Directory) 테넌트에서 애플리케이션 삭제
 
@@ -30,6 +30,7 @@ Azure AD 테넌트에서 애플리케이션을 삭제하려면 다음이 필요�
 - 선택 사항: [앱 보기](view-applications-portal.md) 완료.
 - 선택 사항: [앱 추가](add-application-portal.md) 완료.
 - 선택 사항: [앱 구성](add-application-portal-configure.md) 완료.
+- 선택 사항: [앱에 사용자 할당](add-application-portal-assign-users.md) 완료.
 - 선택 사항: [Single Sign-On 설정](add-application-portal-setup-sso.md) 완료.
 
 >[!IMPORTANT]

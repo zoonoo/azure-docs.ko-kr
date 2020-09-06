@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: be124bdde4427113d56f44f0c1fa19c600bd768e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9277842339d7c4fa74e2e0f1febcf5916d86f4a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496053"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180782"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Azure Synapse Analytics(작업 영역 미리 보기)란?
 
@@ -24,7 +24,7 @@ ms.locfileid: "86496053"
 
 이러한 솔루션은 구축, 구성, 보안 및 유지 관리가 어렵기 때문에 인텔리전트 인사이트를 신속하게 추출하기 까지 시간이 지체되었습니다.
 
-**Azure Synapse**는 통합 분석 서비스로써, 데이터 웨어하우스와 빅 데이터 분석 시스템 전체에서 모든 규모의 모든 데이터에 대한 인사이트를 얻는 시간을 앞당길 수 있는 서비스입니다. 엔터프라이즈 데이터 웨어하우징에 사용되는 최고의 **SQL** 기술, 빅 데이터 분석에 사용되는 **Spark** 기술 및 **파이프라인**을 결합하여 활동 및 데이터 이동을 조정합니다.
+**Azure Synapse**는 통합 분석 서비스로써, 데이터 웨어하우스와 빅 데이터 분석 시스템 전체에서 모든 규모의 모든 데이터에 대한 인사이트를 얻는 시간을 앞당길 수 있는 서비스입니다. 엔터프라이즈 데이터 웨어하우징에 사용되는 최고의 **SQL** 기술, 빅 데이터 분석에 사용되는 **Spark** 기술, 데이터 통합 및 ETL/ELT를 위한 **파이프라인**을 결합합니다.
 
 Azure Synapse에는 관리, 모니터링, 코딩 및 보안을 위한 단일 환경과 모델을 제공하는 웹 네이티브 **Studio** 사용자 환경이 제공됩니다.
 
@@ -59,13 +59,13 @@ Azure Synapse는 SQL과 Spark를 함께 사용하는 기존의 기술 장벽을 
 * SQL과 Spark는 데이터 레이크에 저장된 Parquet, CSV, TSV 및 JSON 파일을 직접 검색하고 분석할 수 있습니다.
 * SQL과 Spark 데이터베이스 간 데이터 이동을 위한 빠른고 확장성 있는 로드 및 언로드
 
-### <a name="built-in-orchestration-via-pipelines"></a>파이프라인을 통한 기본 제공 오케스트레이션
+### <a name="built-in-data-integration-via-pipelines"></a>파이프라인을 통한 기본 제공 데이터 통합
 
-Azure Synapse에는 Azure Data Factory와 동일한 데이터 통합 엔진과 환경이 기본으로 제공되기 때문에 별도의 오케스트레이션 엔진을 사용하지 않고도 풍부한 데이터 파이프라인을 만들 수 있습니다.
+Azure Synapse에는 Azure Data Factory와 동일한 데이터 통합 엔진과 환경이 기본으로 제공되기 때문에 Synapse Analytics를 종료하지 않고도 다양한 규모의 ETL 파이프라인을 만들 수 있습니다.
 
-* Azure Synapse와 90개가 넘는 온-프레미스 데이터 원본 간에 데이터 이동
-* 노트북, 파이프라인, Spark 작업, SQL 스크립트, 저장 프로시저 오케스트레이션
+* 90개 이상의 데이터 원본에서 데이터 수집
 * 데이터 흐름 활동을 사용하는 코드 없는 ETL
+* Notebooks, Spark 작업, 저장 프로시저, SQL 스크립트 등 오케스트레이션
 
 ### <a name="unified-management-monitoring-and-security"></a>통합 관리, 모니터링 및 보안
 

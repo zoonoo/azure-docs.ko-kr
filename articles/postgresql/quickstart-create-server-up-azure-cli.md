@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a2b7ceea74091931c92d28f8fa47b9046b545fc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 662d34d3ed89a7d440a604de4338de334ea0bd11
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496579"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300020"
 ---
 # <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>빠른 시작: Azure CLI 명령인 az postgres up(미리 보기)을 사용하여 Azure Database for PostgreSQL - 단일 서버 만들기
 
@@ -75,7 +75,7 @@ admin-password | 시스템 생성 | 관리자 사용자의 암호입니다.
 
 서버가 만들어지면 다음과 같은 설정이 제공됩니다.
 
-- “devbox”라는 방화벽 규칙이 만들어집니다. Azure CLI에서 `az postgres up` 명령이 실행되는 머신의 IP 주소를 검색하여 해당 IP 주소를 허용 목록에 추가합니다.
+- “devbox”라는 방화벽 규칙이 만들어집니다. Azure CLI는 `az postgres up` 명령이 실행되는 머신의 IP 주소를 검색하여 해당 IP 주소를 허용합니다.
 - “Azure 서비스에 대한 액세스 허용”이 켜기로 설정됩니다. 이 설정은 구독에 없는 리소스를 포함하여 모든 Azure 리소스로부터의 연결을 허용하도록 서버의 방화벽을 구성합니다.
 - “sampledb”라는 빈 데이터베이스가 만들어집니다.
 - “sampledb”에 대한 권한이 있는 “root”라는 새 사용자가 만들어집니다.

@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure Synapse Analytics용 Apache Spark Notebook 만들기'
-description: 이 빠른 시작에서는 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀(미리 보기)을 만들고 Spark SQL 쿼리를 실행하는 방법을 보여 줍니다.
+title: '빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀 만들기'
+description: 이 빠른 시작에서는 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀을 만들고 Spark SQL 쿼리를 실행하는 방법을 보여줍니다.
 services: synapse-analytics
 author: euangMS
 ms.author: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: d89033a8d26c5ee71d505b85a4ebbe91b86d3e50
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4ca718db8d2d2d57c73e8e492e2edbee221cb3ec
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496250"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049811"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>빠른 시작: 웹 도구를 사용하여 Azure Synapse Analytics에서 Apache Spark 풀 만들기
 

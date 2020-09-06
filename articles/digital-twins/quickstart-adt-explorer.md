@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: b199a50443445b983011d755c3ffacaa71131faf
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: bbb1378419c68db07be5ca14ca6834810f2fc9f5
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893980"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055467"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>ADT 탐색기를 사용하여 Azure Digital Twins 샘플 시나리오 살펴보기
 
@@ -26,6 +26,10 @@ Azure Digital Twins를 사용하면 실제 환경의 라이브 모델을 만들�
 1. 미리 작성된 모델 및 그래프 데이터를 업로드하여 샘플 시나리오 생성
 1. 만들어진 시나리오 그래프 살펴보기
 1. 그래프 변경
+
+작업할 샘플 그래프는 두 개의 층과 두 개의 방이 있는 건물을 나타냅니다. 그래프는 다음과 같습니다.
+
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="화살표로 연결된 4개의 원형 노드로 구성된 그래프의 뷰입니다. 'Floor1'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room1'이라는 레이블이 지정된 원에 연결되고, 'Floor0'이라는 레이블이 지정된 원은 '포함'이라는 레이블이 지정된 화살표로 'Room0'이라는 레이블이 지정된 원에 연결되어 있습니다. 'Floor1' 및 'Floor0'은 연결되지 않았습니다.":::
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -98,7 +102,7 @@ Azure Digital Twins를 사용하는 첫 번째 단계는 **Azure Digital Twins �
 이전에 [필수 조건](#prerequisites) 섹션에서 수집한 중요 정보를 입력합니다.
 * 애플리케이션(클라이언트) ID
 * 디렉터리(테넌트) ID
-* ADT URL(*https://<instance host name>* 형식)
+* *https://{instance host name}* 형식의 ADT URL
 
 >[!NOTE]
 > 언제든지 동일한 아이콘을 선택하여 로그인 상자를 다시 가져오면 이 정보를 다시 방문/편집할 수 있습니다. 전달한 값을 유지합니다.
@@ -170,7 +174,7 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경에 대한 어휘를
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="그래프 보기 상자에서 아이콘이 강조 표시되어 있습니다. 이 아이콘은 클라우드를 가리키는 화살표를 보여 줍니다." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-파일 선택기 상자에서 *client/examples* 폴더로 다시 이동하고, _**buildingScenario.xlsx**_ 스프레드시트 파일을 선택합니다. 이 파일에는 샘플 그래프에 대한 설명이 포함되어 있습니다. [확인]을 누릅니다.
+파일 선택기 상자에서 *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* 폴더로 이동하여 _**buildingScenario.xlsx**_ 스프레드시트 파일을 선택합니다. 이 파일에는 샘플 그래프에 대한 설명이 포함되어 있습니다. [확인]을 누릅니다.
 
 몇 초 후 ADT 탐색기에서 로드될 그래프의 미리 보기를 표시하는 *가져오기* 보기를 엽니다.
 

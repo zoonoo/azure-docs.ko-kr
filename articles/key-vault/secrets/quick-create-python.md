@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: b31f22f9a3909df308fdcfa994833887828f2539
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f1f044eb3af35019eaf010e118bc4a5814269e9e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876362"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378556"
 ---
 # <a name="quickstart-azure-key-vault-secrets-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 비밀 클라이언트 라이브러리
 
@@ -27,7 +27,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 - TLS/SSL 인증서 작업을 간소화하고 자동화합니다.
 - FIPS 140-2 수준 2 유효성이 검사된 HSM을 사용합니다.
 
-[API 참조 설명서](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault/)
+[API 참조 설명서](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault-secrets/)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -73,7 +73,7 @@ pip install azure.identity
 
 Python용 Azure Key Vault 클라이언트 라이브러리를 사용하면 키 및 관련 자산(예: 인증서 및 비밀)을 관리할 수 있습니다. 아래의 코드 샘플에서는 클라이언트를 만들고, 비밀을 설정, 검색 및 삭제하는 방법을 보여 줍니다.
 
-전체 콘솔 앱은 https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app 에서 사용할 수 있습니다.
+이 문서에 표시된 것과 유사한 작업과 기타 Key Vault 기능을 보여주는 샘플 앱은 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets/samples)에서 사용할 수 있습니다.
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -99,7 +99,7 @@ client = SecretClient(vault_url=KVUri, credential=credential)
 
 ### <a name="save-a-secret"></a>비밀 저장
 
-이제 애플리케이션이 인증되었으므로 client.SetSecret 메서드]를 사용하여 Key Vault에 비밀을 넣을 수 있습니다(/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync). 이 작업을 위해 비밀 이름이 필요하며, 이 샘플에서는 "mySecret"을 사용하고 있습니다.  
+이제 애플리케이션이 인증되었으므로 client.[set_secret 메서드](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#set-secret-name--value----kwargs-)를 사용하여 키 자격 증명 모음에 비밀을 넣을 수 있습니다. 이 작업을 위해 비밀 이름이 필요하며, 이 샘플에서는 "mySecret"을 사용합니다.  
 
 ```python
 client.set_secret(secretName, secretValue)
@@ -113,7 +113,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 ### <a name="retrieve-a-secret"></a>비밀 검색
 
-이제 [client.GetSecret 메서드](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync)를 사용하여 이전에 설정한 값을 검색할 수 있습니다.
+이제 [get_secret 메서드](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#get-secret-name--version-none----kwargs-)를 사용하여 이전에 설정한 값을 검색할 수 있습니다.
 
 ```python
 retrieved_secret = client.get_secret(secretName)
@@ -123,10 +123,10 @@ retrieved_secret = client.get_secret(secretName)
 
 ### <a name="delete-a-secret"></a>비밀 삭제
 
-마지막으로 [client.DeleteSecret 메서드](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync)를 사용하여 Key Vault에서 비밀을 삭제해 보겠습니다.
+마지막으로, [begin_delete_secret 메서드](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#begin-delete-secret-name----kwargs-)를 사용하여 Key Vault에서 비밀을 삭제해 보겠습니다.
 
 ```python
-client.delete_secret(secretName)
+client.begin_delete_secret(secretName)
 ```
 
 [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) 명령을 사용하여 비밀이 삭제되었는지 확인할 수 있습니다.
@@ -183,7 +183,7 @@ retrieved_secret = client.get_secret(secretName)
 print(f"Your secret is '{retrieved_secret.value}'.")
 print(f"Deleting your secret from {keyVaultName} ...")
 
-client.delete_secret(secretName)
+client.begin_delete_secret(secretName)
 
 print(" done.")
 ```
@@ -192,6 +192,6 @@ print(" done.")
 
 이 빠른 시작에서는 키 자격 증명 모음을 만들고, 비밀을 저장하고, 해당 비밀을 검색했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
-- [Azure Key Vault 개요](../general/overview.md) 참조
-- [Azure Key Vault 개발자 가이드](../general/developers-guide.md) 참조
-- [Azure Key Vault 모범 사례](../general/best-practices.md) 검토
+- [Azure Key Vault 개요](../general/overview.md)
+- [Azure Key Vault 개발자 가이드](../general/developers-guide.md)
+- [Azure Key Vault 모범 사례](../general/best-practices.md)

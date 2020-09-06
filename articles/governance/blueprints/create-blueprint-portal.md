@@ -1,14 +1,14 @@
 ---
 title: '빠른 시작: 포털에서 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 Azure Portal을 통해 아티팩트를 만들고 정의하고 배포합니다.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a37c621e0a90a0748d3ddc3fda34612c54712ed9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045215"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051525"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>빠른 시작: 포털에서 청사진 정의 및 할당
 
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    1. **형식**을 **기본 제공**으로 변경합니다. **검색**에 **태그**를 입력합니다.
 
-   1. **검색** 바깥쪽을 클릭하면 필터링이 수행됩니다. **리소스 그룹에 태그 및 해당 기본값 추가**를 선택합니다.
+   1. 필터링이 발생하도록 **검색**에서 포커스를 변경합니다. **리소스 그룹에 태그 및 해당 기본값 추가**를 선택합니다.
 
    1. **추가**를 선택하여 이 아티팩트를 청사진에 추가합니다.
 

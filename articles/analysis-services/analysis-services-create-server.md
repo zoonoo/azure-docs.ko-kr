@@ -1,18 +1,18 @@
 ---
 title: 빠른 시작 - Azure Portal에서 Analysis Services 서버 만들기 | Microsoft Docs
-description: Azure Portal를 사용하여 Azure Analysis Services 서버 인스턴스를 빠르게 만드는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Analysis Services 서버 인스턴스를 만드는 방법을 설명합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 36899aa789f4947fe860621bc1795bfbe2ff1ecf
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 488e7c84e481edd1b136fe90ab948d3cfb51ed2c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697475"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230783"
 ---
 # <a name="quickstart-create-a-server---portal"></a>빠른 시작: 서버 만들기 - 포털
 
@@ -58,6 +58,4 @@ ms.locfileid: "83697475"
 이 빠른 시작에서는 Azure 구독에서 서버를 만드는 방법을 알아보았습니다. 이제 서버가 생겼으니, 서버 방화벽을 구성하여(선택 사항) 보안을 강화할 수 있습니다. 또한 포털에서 바로 기본 샘플 데이터 모델을 서버에 추가할 수 있습니다. 샘플 모델이 있으면 model 데이터베이스 역할을 구성하고 클라이언트 연결을 테스트하는 방법을 알아볼 때 유용합니다. 자세히 알아보려면 샘플 모델 추가를 위한 자습서를 계속합니다.
 
 > [!div class="nextstepaction"]
-> [빠른 시작: 서버 방화벽 구성 - 포털](analysis-services-qs-firewall.md)   
-> [!div class="nextstepaction"]
-> [자습서: 서버에 샘플 모델 추가](analysis-services-create-sample-model.md)
+> [빠른 시작: 서버 방화벽 구성 - Portal](analysis-services-qs-firewall.md)   

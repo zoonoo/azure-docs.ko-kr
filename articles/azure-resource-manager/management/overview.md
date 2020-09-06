@@ -2,13 +2,14 @@
 title: Azure Resource Manager 개요
 description: Azure에서 리소스 배포, 관리 및 Access Control용 Azure 리소스 관리자 사용 방법을 설명합니다.
 ms.topic: overview
-ms.date: 04/21/2020
-ms.openlocfilehash: 089919e227b33859dbeabd98ecd75845a28a3f42
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 09/01/2020
+ms.custom: contperfq1
+ms.openlocfilehash: 2dc33093df0d9bc0bd75410bac8d200fe6555257
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087030"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293951"
 ---
 # <a name="what-is-azure-resource-manager"></a>Azure Resource Manager란?
 
@@ -68,25 +69,33 @@ Azure는 [관리 그룹](../../governance/management-groups/overview.md), 구독
 
 리소스 그룹을 정의할 때 고려해야 할 몇 가지 중요한 요인이 있습니다.
 
-* 그룹에서 모든 리소스는 동일한 수명 주기를 공유해야 합니다. 리소스를 함께 배포, 업데이트, 삭제합니다. 서버와 같은 하나의 리소스에 다양한 배포 주기가 존재하는 경우 다른 리소스 그룹에 있어야 합니다.
+* 리소스 그룹의 모든 리소스는 동일한 수명 주기를 공유해야 합니다. 리소스를 함께 배포, 업데이트, 삭제합니다. 서버와 같은 하나의 리소스에 다양한 배포 주기가 존재하는 경우 다른 리소스 그룹에 있어야 합니다.
 
 * 각 리소스는 하나의 리소스 그룹에만 있을 수 있습니다.
-
-* 일부 리소스는 리소스 그룹 외부에 존재할 수 있습니다. 이러한 리소스는 [구독](../templates/deploy-to-subscription.md), [관리 그룹](../templates/deploy-to-management-group.md) 또는 [테넌트](../templates/deploy-to-tenant.md)에 배포됩니다. 이러한 범위에서는 특정 리소스 유형만 지원됩니다.
 
 * 언제든지 리소스 그룹에 리소스를 추가하거나 제거할 수 있습니다.
 
 * 특정 리소스 그룹에서 다른 그룹에 리소스를 이동할 수 있습니다. 자세한 내용을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](move-resource-group-and-subscription.md)을 참조하세요.
 
-* 리소스 그룹은 다른 지역에 있는 리소스를 포함할 수 있습니다.
+* 리소스 그룹의 리소스는 리소스 그룹과 다른 지역에 있을 수 있습니다.
 
-* 관리 작업에 대한 Access Control 범위를 지정하는 데 리소스 그룹을 사용할 수 있습니다.
+* 리소스 그룹을 만들 때 해당 리소스 그룹의 위치를 제공해야 합니다. 리소스 그룹에 위치가 필요한 이유는 무엇인지 궁금할 수 있습니다. 리소스의 위치가 리소스 그룹과 다른 경우 리소스 그룹 위치가 중요한 이유는 무엇인가요? 리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 리소스 그룹의 위치를 지정하면 메타데이터가 저장되는 위치를 지정하게 됩니다. 규정 준수 때문에 특정 지역에 데이터가 저장되는지 확인해야 합니다.
 
-* 리소스는 다른 리소스 그룹의 리소스와 상호 작용할 수 있습니다. 이 상호 작용은 두 개의 리소스가 관련되어 있지만 동일한 수명 주기를 공유하지 않는 경우에 일반적입니다(예: 데이터베이스에 연결된 웹앱).
+   리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 신뢰할 수 있는 애플리케이션을 빌드하는 방법에 대한 자세한 내용은 [신뢰할 수 있는 Azure 애플리케이션 디자인](/azure/architecture/checklist/resiliency-per-service)을 참조하세요.
 
-리소스 그룹을 만들 때 해당 리소스 그룹의 위치를 제공해야 합니다. 리소스 그룹에 위치가 필요한 이유는 무엇인지 궁금할 수 있습니다. 리소스의 위치가 리소스 그룹과 다른 경우 리소스 그룹 위치가 중요한 이유는 무엇인가요? 리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 리소스 그룹의 위치를 지정하면 메타데이터가 저장되는 위치를 지정하게 됩니다. 규정 준수 때문에 특정 지역에 데이터가 저장되는지 확인해야 합니다.
+* 관리 작업에 대한 Access Control 범위를 지정하는 데 리소스 그룹을 사용할 수 있습니다. 리소스 그룹을 관리하려면 [Azure 정책](../../governance/policy/overview.md), [RBAC 역할](../../role-based-access-control/role-assignments-portal.md) 또는 [리소스 잠금](lock-resources.md)을 할당하면 됩니다.
 
-리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 신뢰할 수 있는 애플리케이션을 빌드하는 방법에 대한 자세한 내용은 [신뢰할 수 있는 Azure 애플리케이션 디자인](/azure/architecture/checklist/resiliency-per-service)을 참조하세요.
+* 리소스 그룹에 [태그를 적용](tag-resources.md)할 수 있습니다. 리소스 그룹의 리소스는 이러한 태그를 상속하지 않습니다.
+
+* 리소스는 다른 리소스 그룹의 리소스에 연결할 수 있습니다. 이 시나리오는 두 리소스가 관련되어 있지만 동일한 수명 주기를 공유하지 않는 경우에 일반적입니다. 예를 들어 다른 리소스 그룹의 데이터베이스에 연결하는 웹앱이 있을 수 있습니다.
+
+* 리소스 그룹을 삭제하면 리소스 그룹의 모든 리소스도 삭제됩니다. Azure Resource Manager가 이러한 삭제를 오케스트레이션하는 방법에 대한 자세한 내용은 [Azure Resource Manager 리소스 그룹 및 리소스 삭제](delete-resource-group.md)를 참조하세요.
+
+* 각 리소스 그룹에 리소스 종류의 인스턴스를 최대 800개까지 배포할 수 있습니다. 일부 리소스 종류는 [800개 인스턴스 제한에서 제외](resources-without-resource-group-limit.md)됩니다.
+
+* 일부 리소스는 리소스 그룹 외부에 존재할 수 있습니다. 이러한 리소스는 [구독](../templates/deploy-to-subscription.md), [관리 그룹](../templates/deploy-to-management-group.md) 또는 [테넌트](../templates/deploy-to-tenant.md)에 배포됩니다. 이러한 범위에서는 특정 리소스 유형만 지원됩니다.
+
+* 리소스 그룹을 만들려면 [포털](manage-resource-groups-portal.md#create-resource-groups), [PowerShell](manage-resource-groups-powershell.md#create-resource-groups), [Azure CLI](manage-resource-groups-cli.md#create-resource-groups) 또는 [ARM(Azure Resource Manager) 템플릿](../templates/deploy-to-subscription.md#resource-groups)을 사용하면 됩니다.
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Azure Resource Manager의 복원력
 

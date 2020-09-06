@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 5925d80f23052324e5512908241ed573c681d835
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 57202752a965ad0405a04b2eba4cdf42070c94bf
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590254"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319499"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>빠른 시작: App Configuration을 사용하여 .NET Core 앱 만들기
 
@@ -44,7 +44,7 @@ ms.locfileid: "88590254"
 
 1. 프로젝트에 대한 새 폴더를 만듭니다.
 
-2. 새 폴더에서 다음 명령을 실행하여 새 ASP.NET Core 콘솔 앱 프로젝트를 만듭니다.
+2. 새 폴더에서 다음 명령을 실행하여 새 .NET Core 콘솔 앱 프로젝트를 만듭니다.
 
     ```dotnetcli
     dotnet new console

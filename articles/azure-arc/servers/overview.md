@@ -1,16 +1,16 @@
 ---
 title: Azure Arc 지원 서버(미리 보기) 개요
-description: Azure Arc 지원 서버(미리 보기)를 사용하여 Azure 리소스인 것처럼 Azure 외부에 호스팅되는 머신을 관리하는 방법에 대해 알아봅니다.
+description: Azure Arc 지원 서버(미리 보기)를 사용하여 Azure 리소스처럼 Azure 외부에 호스팅되는 머신을 관리하는 방법에 대해 알아봅니다.
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
 ms.custom: references_regions
 ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: dfc4d8e046cef5af7c3eaf0d31ce2d6120dfc8f2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: c368307df911f5143541bb5337eb76a208416909
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211322"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228090"
 ---
 # <a name="what-is-azure-arc-enabled-servers-preview"></a>Azure Arc 지원 서버(미리 보기)란?
 
@@ -51,4 +51,4 @@ Connected Machine 에이전트는 5분마다 정기적인 하트비트 메시지
 
 ## <a name="next-steps"></a>다음 단계
 
-여러 하이브리드 머신에서 Arc 지원 서버(미리 보기)를 평가하거나 활성화하기 전에 [연결된 머신 에이전트 개요](agent-overview.md) 문서를 검토하여 필요한 사항, 에이전트에 대한 기술 세부 정보 및 배포 방법을 이해하세요.
+여러 하이브리드 머신에서 Arc 지원 서버(미리 보기)를 평가하거나 활성화하기 전에 [연결된 머신 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보 및 배포 방법을 이해하세요.

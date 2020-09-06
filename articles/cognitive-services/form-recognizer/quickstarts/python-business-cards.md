@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 8132358dcd0ad9d87dc6687afd2adef1942f3b67
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 5e27aaebc015f47e0fcdb5da81770d49b86ad000
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823907"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934330"
 ---
 # <a name="quickstart-extract-business-card-data-using-the-form-recognizer-rest-api-with-python"></a>빠른 시작: Python과 함께 Form Recognizer REST API를 사용하여 명함 데이터 추출
 
@@ -38,33 +38,35 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="analyze-a-business-card"></a>명함 분석
 
-명함 분석을 시작하려면 아래 Python 스크립트를 사용하여 **[Analyze Business Card](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** API를 호출합니다. 스크립트를 실행하기 전에 다음과 같이 변경합니다.
+명함 분석을 시작하려면 아래 Python 스크립트를 사용하여 **[Analyze Business Card](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)** API를 호출합니다. 스크립트를 실행하기 전에 다음과 같이 변경합니다.
 
-1. `<Endpoint>`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
-1. `<path to your business card>`을 로컬 양식 문서에 대한 경로로 바꿉니다.
+1. `<endpoint>`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
+1. `<path to your business card>`를 명함 이미지 또는 PDF의 로컬 경로로 바꿉니다.
 1. `<subscription key>`를 이전 단계에서 복사한 구독 키로 바꿉니다.
+1. `<file type>`을 'image/jpeg', 'image/png', 'application/pdf' 또는 'image/tiff'로 바꿉니다.
 
     ```python
-    ########### Python Form Recognizer Async Business cards #############
+    ########### Python Form Recognizer Async Business Cards #############
 
     import json
     import time
     from requests import get, post
     
     # Endpoint URL
-    endpoint = r"<Endpoint>"
+    endpoint = r"<endpoint>"
     apim_key = "<subscription key>"
     post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyze"
     source = r"<path to your business card>"
+    content_type = "<file type>"
     
     headers = {
         # Request headers
-        'Content-Type': '<file type>',
+        'Content-Type': content_type,
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     
     params = {
-        "includeTextDetails": True
+        "includeTextDetails": True  # True to output all recognized text
     }
     
     with open(source, "rb") as f:
@@ -86,15 +88,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 명령 프롬프트 창을 엽니다.
 1. 프롬프트에서 `python` 명령을 사용하여 샘플을 실행합니다. 예들 들어 `python form-recognizer-businesscards.py`입니다.
 
-**Operation-Location** 헤더가 포함된 `202 (Success)` 응답을 받게 되며, 스크립트가 콘솔에 인쇄됩니다. 이 헤더에는 비동기 작업 상태를 쿼리하고 결과를 가져오는 데 사용할 수 있는 작업 ID가 포함됩니다. 다음 예제 값에서 `operations/` 다음 문자열은 작업 ID입니다.
+**Operation-Location** 헤더가 포함된 `202 (Success)` 응답을 받게 되며, 스크립트가 콘솔에 인쇄됩니다. 이 헤더에는 장기 실행 작업의 상태를 쿼리하고 결과를 가져오는 데 사용할 수 있는 결과 ID가 포함되어 있습니다. 다음 예제 값에서 `operations/` 다음 문자열은 결과 ID입니다.
 
 ```console
-https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeresults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeResults/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
 
 ## <a name="get-the-business-card-results"></a>명함 결과 가져오기
 
-**Analyze Business Card** API를 호출한 후 **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeReceiptResult)** API를 호출하여 작업의 상태와 추출된 데이터를 가져옵니다. Python 스크립트 맨 아래에 다음 코드를 추가합니다. 새 API 호출에서 작업 ID 값을 사용합니다. 이 스크립트는 결과를 사용할 수 있을 때까지 API를 일정한 간격으로 호출합니다. 1초 이상의 간격을 사용하는 것이 좋습니다.
+**Analyze Business Card** API를 호출한 후 **[Get Analyze Layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult)** API를 호출하여 작업의 상태와 추출된 데이터를 가져옵니다. Python 스크립트 맨 아래에 다음 코드를 추가합니다. 새 API 호출에서 결과 ID 값을 사용합니다. 이 스크립트는 결과를 사용할 수 있을 때까지 API를 일정한 간격으로 호출합니다. 1초 이상의 간격을 사용하는 것이 좋습니다.
 
 ```python
 n_tries = 10
@@ -129,7 +131,7 @@ while n_try < n_tries:
 ### <a name="examine-the-response"></a>응답 검사
 ![Contoso 회사의 명함](../media/business-card-english.jpg)
 
-이 샘플은 Form Recognizer에서 반환하는 JSON 출력을 보여줍니다. 이 샘플은 예제의 가독성을 위해 잘렸습니다.
+이 샘플은 Form Recognizer에서 반환하는 JSON 출력을 보여줍니다. 가독성을 위해 잘렸습니다.
 
 ```json
 {
@@ -243,7 +245,7 @@ while n_try < n_tries:
 }
 ```
 
-스크립트는 **명함 분석** 작업이 완료될 때까지 콘솔에 응답을 출력합니다. `"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. `"documentResults"` 노드에는 모델이 검색한 명함 특정 값이 포함됩니다. 여기서 회사 이름, 이름, 성, 전화 등과 같은 유용한 키/값 쌍을 찾을 수 있습니다.
+스크립트는 **명함 분석** 작업이 완료될 때까지 콘솔에 응답을 출력합니다. `"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. `"documentResults"` 노드에는 모델이 검색한 명함 특정 값이 포함됩니다. 여기서 회사 이름, 이름, 성, 전화 등과 같은 유용한 연락처 정보를 찾을 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -251,4 +253,4 @@ while n_try < n_tries:
 이 빠른 시작에서는 Python과 함께 Form Recognizer REST API를 사용하여 명함의 콘텐츠를 추출했습니다. 다음으로, 참조 설명서를 통해 Form Recognizer API에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)
+> [REST API 참조 설명서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
