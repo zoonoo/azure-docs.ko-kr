@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: bb2a7d8ef55e993726b185e5652c8dff9e96b23e
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 887b2da46fdcd6ad275f18913fd7ba675700ad3b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056366"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015988"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>자습서: R을 사용하여 기계 학습 모델 만들기(미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,8 +29,8 @@ ms.locfileid: "88056366"
 이 자습서에서는 다음 작업을 수행합니다.
 > [!div class="checklist"]
 > * Azure Machine Learning 작업 영역 만들기
-> * 작업 영역에서 이 자습서를 실행하는 데 필요한 파일로 Notebook 폴더 복제
 > * 작업 영역에서 RStudio 열기
+> * 이 자습서를 실행하는 데 필요한 https://github.com/Azure/azureml-sdk-for-r 파일을 작업 영역으로 복제
 > * 데이터 로드 및 학습 준비
 > * 원격 학습에 사용할 수 있도록 데이터 저장소에 데이터 업로드
 > * 원격으로 모델을 학습하는 컴퓨팅 리소스 만들기
@@ -53,33 +53,11 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 > **작업 영역** 및 **구독**을 적어 둡니다. 올바른 작업 영역에 실험을 만들려면 이 정보가 필요합니다. 
 
 
-## <a name="clone-a-notebook-folder"></a><a name="azure"></a>Notebook 폴더 복제
-
-이 예에서는 작업 영역의 클라우드 Notebook 서버를 설치하지 않는 미리 구성된 환경으로 사용합니다. 환경, 패키지 및 종속성을 제어하려면 [사용자 고유의 환경](https://azure.github.io/azureml-sdk-for-r/articles/installation.html)을 사용합니다.
-
-모든 기술 수준의 데이터 과학 전문가용 데이터 과학 시나리오를 수행하기 위한 기계 학습 도구를 포함하는 통합 인터페이스인 Azure Machine Learning Studio에서 다음 실험 설정 및 실행 단계를 완료합니다.
-
-1. [Azure Machine Learning Studio](https://ml.azure.com/)에 로그인합니다.
-
-1. 해당 구독과 직접 만든 작업 영역을 선택합니다.
-
-1. 왼쪽에서 **Notebook**을 선택합니다.
-
-1. **Samples** 폴더를 엽니다.
-
-1. **R** 폴더를 엽니다.
-
-1. 버전 번호가 있는 폴더를 엽니다.  이 번호는 R SDK의 현재 릴리스를 나타냅니다.
-
-1. **vignettes** 폴더의 오른쪽에 있는 **"..."** 를 선택한 다음, **복제**를 선택합니다.
-
-    ![폴더 복제](media/tutorial-1st-r-experiment/clone-folder.png)
-
-1. 작업 영역에 액세스하는 각 사용자를 표시하는 폴더 목록이 표시됩니다.  **vignettes** 폴더를 복제할 폴더를 선택합니다.
-
 ## <a name="open-rstudio"></a><a name="open"></a>RStudio 열기
 
-컴퓨팅 인스턴스 또는 Notebook VM에서 RStudio를 사용하여 이 자습서를 실행합니다.  
+이 예제에서는 작업 영역의 컴퓨팅 인스턴스를 설치하지 않는 미리 구성된 환경으로 사용합니다. 사용자 고유의 머신에서 환경, 패키지 및 종속성을 제어하려면 [사용자 고유의 환경](https://azure.github.io/azureml-sdk-for-r/articles/installation.html)을 사용합니다.
+
+Azure ML 컴퓨팅 인스턴스에서 RStudio를 사용하여 이 자습서를 실행합니다.  
 
 1. 왼쪽에서 **Compute**를 선택합니다.
 
@@ -87,10 +65,19 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 1. 컴퓨팅이 실행되면 **RStudio** 링크를 사용하여 RStudio를 엽니다.
 
-1. RStudio에서 *vignettes* 폴더는 오른쪽 아래에 있는 **파일** 섹션의 *사용자*에서 몇 개 수준 아래입니다.  *vignettes* 아래에서 *train-and-deploy-to-aci* 폴더를 선택하여 이 자습서에 필요한 파일을 찾습니다.
+
+## <a name="clone-the-sample-vignettes"></a><a name="azure"></a>샘플 vignettes 복제 
+
+이 자습서에서 실행할 vignettes 파일의 복사본에 대한 https://github.com/azure/azureml-sdk-for-r GitHub 리포지토리를 복제합니다.
+
+1. RStudio에서 "터미널" 탭으로 이동하고 리포지토리를 복제할 디렉터리에 cd를 넣습니다.
+
+1. 터미널에서 "git 복제 https://github.com/Azure/azureml-sdk-for-r.git"를 실행하여 리포지토리를 복제합니다.
+
+1. RStudio에서 복제된 *azureml-sdk-for-r* 폴더의 *vignettes* 폴더로 이동합니다.  *vignettes*에서 *train-and-deploy-first-model.Rmd* 파일을 선택하여 이 자습서에 사용되는 vignette를 찾습니다. vignette에 사용되는 추가 파일은 *train-and-deploy-first-model* 하위 폴더에 있습니다. vignette를 연 후 **세션 > 작업 디렉터리 설정 > 원본 파일 위치로**를 통해 작업 디렉터리를 파일 위치로 설정합니다. 
 
 > [!Important]
-> 이 문서의 나머지 부분에는 *train-and-deploy-to-aci.Rmd* 파일에 표시되는 것과 동일한 콘텐츠가 포함되어 있습니다. RMarkdown 사용 경험이 있는 경우 해당 파일의 코드를 자유롭게 사용할 수 있습니다.  또는 해당 프로그램에서 또는 이 문서에서 R 스크립트나 명령줄로 코드 조각을 복사한 후 붙여 넣을 수 있습니다.  
+> 이 문서의 나머지 부분에는 *train-and-deploy-first-model.Rmd* 파일에 표시되는 것과 동일한 콘텐츠가 포함되어 있습니다. RMarkdown 사용 경험이 있는 경우 해당 파일의 코드를 자유롭게 사용할 수 있습니다.  또는 해당 프로그램에서 또는 이 문서에서 R 스크립트나 명령줄로 코드 조각을 복사한 후 붙여 넣을 수 있습니다. 
 
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
@@ -197,7 +184,7 @@ upload_files_to_datastore(ds,
 * 작업 제출
 
 ### <a name="prepare-the-training-script"></a>학습 스크립트 준비
-`accidents.R`이라는 학습 스크립트가 이 자습서와 동일한 디렉터리에 제공되었습니다. 학습용 Azure Machine Learning을 활용하기 위해 수행된 **학습 스크립트 내**에서 다음 작업 세부 정보를 확인하세요.
+`accidents.R`이라는 학습 스크립트가 *train-and-deploy-first-model* 디렉터리에 제공되었습니다. 학습용 Azure Machine Learning을 활용하기 위해 수행된 **학습 스크립트 내**에서 다음 작업 세부 정보를 확인하세요.
 
 * 학습 스크립트에서 인수 `-d`를 사용하여 학습 데이터가 있는 디렉터리를 찾습니다. 나중에 작업을 정의하고 제출할 때 이 인수에 대한 데이터 저장소를 가리킵니다. Azure ML은 학습 작업을 위해 원격 클러스터에 스토리지 폴더를 탑재합니다.
 * 학습 스크립트는 `log_metric_to_run()`을 사용하여 Azure ML의 실행 기록에 대한 메트릭으로 최종 정확도를 로깅합니다. Azure ML SDK는 학습 실행 중 다양한 메트릭을 로깅하는 일련의 로깅 API를 제공합니다. 이러한 메트릭은 실험 실행 기록에 기록되고 유지됩니다. 그런 다음, 언제든지 메트릭에 액세스하거나 [studio](https://ml.azure.com)의 실행 세부 정보 페이지에서 볼 수 있습니다. 로깅 메서드 `log_*()`의 전체 세트에 대해서는 [참조](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation)를 참조하세요.
@@ -216,7 +203,7 @@ Azure ML 추정기는 컴퓨팅 대상에 대해 학습 스크립트를 실행�
 * 학습에 필요한 모든 환경 종속성. 학습용으로 작성된 기본 Docker 이미지는 학습 스크립트에 필요한 3개의 패키지(`caret`, `e1071` 및 `optparse`)를 이미 포함하고 있습니다.  따라서 추가 정보를 지정할 필요가 없습니다. 기본적으로 포함되지 않은 R 패키지를 사용하는 경우 추정기의 `cran_packages` 매개 변수를 사용하여 CRAN 패키지를 더 추가합니다. 구성 가능 옵션의 전체 세트에 대해서는 [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html) 참조를 참조하세요.
 
 ```R
-est <- estimator(source_directory = ".",
+est <- estimator(source_directory = "train-and-deploy-first-model",
                  entry_script = "accidents.R",
                  script_params = list("--data_folder" = ds$path(target_path)),
                  compute_target = compute_target
@@ -331,6 +318,7 @@ r_env <- r_environment(name = "basic_env")
 ```R
 inference_config <- inference_config(
   entry_script = "accident_predict.R",
+  source_directory = "train-and-deploy-first-model",
   environment = r_env)
 ```
 

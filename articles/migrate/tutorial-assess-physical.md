@@ -3,12 +3,12 @@ title: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션�
 description: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 온-프레미스 물리적 서버를 평가하는 방법에 대해 설명합니다.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 5b4d5241e4236d4c11f2e2a5a8feb7c73258cba0
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 21ffc425ff7d04bbb1bc0c3a550133ae5374b1e9
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171384"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950105"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Azure Migrate:Server Assessment를 사용하여 물리적 서버 평가
 
@@ -70,7 +70,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 11. Azure Migrate 프로젝트가 배포될 때까지 몇 분 정도 기다립니다. 프로젝트 페이지로 이동합니다. 프로젝트가 표시되지 않으면 Azure Migrate 대시보드의 **서버**에서 액세스할 수 있습니다.
 
 
-## <a name="set-up-the-appliance"></a>어플라이언스 설정
+## <a name="set-up-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 설정
 
 Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
 
@@ -82,15 +82,23 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
     - 어플라이언스를 처음으로 구성하고, Azure Migrate 프로젝트에 등록합니다.
 - 단일 Azure Migrate 프로젝트에 대해 여러 어플라이언스를 설정할 수 있습니다. 모든 어플라이언스에서 원하는 수의 물리적 서버를 검색할 수 있습니다. 어플라이언스당 최대 1000개의 서버를 검색할 수 있습니다.
 
+### <a name="generate-the-azure-migrate-project-key"></a>Azure Migrate 프로젝트 키 생성
+
+1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 선택합니다.
+2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **물리적 또는 기타(AWS, GCP, Xen 등)** 를 선택합니다.
+3. **1: Azure Migrate 프로젝트 키 생성**에서 물리적 또는 가상 서버 검색용으로 설정할 Azure Migrate 어플라이언스의 이름을 제공합니다. 이름은 14자 이하의 영숫자여야 합니다.
+1. **키 생성**을 클릭하여 필요한 Azure 리소스 만들기를 시작합니다. 리소스를 만드는 동안 머신 검색 페이지를 닫지 마세요.
+1. Azure 리소스 생성에 성공하면 **Azure Migrate 프로젝트 키**가 생성됩니다.
+1. 이 키는 구성 단계에서 어플라이언스 등록을 완료하는 데 필요하므로 복사해 둡니다.
+
 ### <a name="download-the-installer-script"></a>설치 프로그램 스크립트 다운로드
 
-어플라이언스에 대한 압축 파일을 다운로드합니다.
+**2: Azure Migrate 어플라이언스 다운로드**에서 **다운로드**를 클릭합니다.
 
-1. **마이그레이션 목표** > **서버** > **Azure Migrate: 서버 평가**에서 **검색**을 클릭합니다.
-2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **가상화되지 않음/기타**를 클릭합니다.
-3. **다운로드**를 클릭하여 압축 파일을 다운로드합니다.
+   ![머신 검색 옵션](./media/tutorial-assess-physical/servers-discover.png)
 
-    ![설치 프로그램 다운로드](./media/tutorial-assess-physical/download-appliance.png)
+
+   ![키 생성 옵션](./media/tutorial-assess-physical/generate-key-physical.png)
 
 
 ### <a name="verify-security"></a>보안 확인
@@ -100,20 +108,20 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
 2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 퍼블릭 클라우드의 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - 퍼블릭 클라우드의 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
     - 정부 클라우드의 사용 예: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
 3.  최신 어플라이언스 버전 및 해시 값을 확인합니다.
     - 퍼블릭 클라우드의 경우:
 
         **시나리오** | **다운로드*** | **해시 값**
         --- | --- | ---
-        Physical(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
+        물리적(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | 6de88e229c2b4836d16ce03fdfac93b5c27274945577bd8a359d598cf3777b24
 
     - Azure Government의 경우:
 
         **시나리오** | **다운로드*** | **해시 값**
         --- | --- | ---
-        Physical(63.1MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
+        물리적(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140338) | 5a4715a9d10e81a5f38192b7d1c6ac0919ae3998afbf2e933c99bafae6bef80e
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Azure Migrate 설치 프로그램 스크립트 실행
 
@@ -129,13 +137,17 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
 
 스크립트를 다음과 같이 실행합니다.
 
-1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.  기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
+1. 어플라이언스를 호스팅할 서버의 폴더에 .zip 파일을 추출합니다.  기존 Azure Migrate 어플라이언스의 머신에서 스크립트를 실행하지 않아야 합니다.
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
 4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1**이라는 스크립트를 실행합니다.
 
-    - 퍼블릭 클라우드의 경우: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
-    - Azure Government의 경우: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+    - 퍼블릭 클라우드의 경우: 
+    
+        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
+    - Azure Government의 경우: 
+    
+        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
 
     스크립트가 성공적으로 완료되면 어플라이언스 웹 애플리케이션이 시작됩니다.
 
@@ -153,42 +165,51 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
 1. 어플라이언스에 연결할 수 있는 모든 머신에서 브라우저를 열고, 어플라이언스 웹앱의 URL(**https://*어플라이언스 이름 또는 IP 주소*): 44368**)을 엽니다.
 
    또는 바탕 화면에서 앱 바로 가기를 클릭하여 앱을 열 수 있습니다.
-2. 웹앱 > **필수 구성 요소 설정**에서 다음을 수행합니다.
-    - **라이선스**: 사용 조건에 동의하고 타사 정보를 읽습니다.
+2. **사용 조건**에 동의하고 타사 정보를 읽습니다.
+1. 웹앱 > **필수 구성 요소 설정**에서 다음을 수행합니다.
     - **연결**: 앱에서 서버가 인터넷에 액세스할 수 있는지 확인합니다. 서버에서 프록시를 사용하는 경우:
-        - **프록시 설정**을 클릭하고, 프록시 주소와 수신 포트를 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 지정합니다.
+        - **프록시 설정**을 클릭하고 프록시 주소(http://ProxyIPAddress 또는 http://ProxyFQDN) 형식) 및 수신 포트를 지정합니다.
         - 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
         - HTTP 프록시만 지원됩니다.
+        - 프록시 세부 정보를 추가했거나 프록시 및/또는 인증을 사용하지 않도록 설정한 경우 **저장**을 클릭하여 연결 확인을 다시 트리거합니다.
     - **시간 동기화**: 시간이 확인됩니다. 서버 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
-    - **업데이트 설치**: Azure Migrate 서버 평가에서 어플라이언스에 최신 업데이트가 설치되어 있는지 확인합니다.
+    - **업데이트 설치**: Azure Migrate 서버 평가는 어플라이언스에 최신 업데이트가 설치되어 있는지 확인합니다. 확인이 완료되면 **어플라이언스 서비스 보기**를 클릭하여 어플라이언스에서 실행 중인 구성 요소의 상태와 버전을 확인할 수 있습니다.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Azure Migrate를 사용하여 어플라이언스 등록
 
-1. **로그인**을 클릭합니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
-2. 새로 만들기 탭에서 Azure 자격 증명을 사용하여 로그인합니다.
-    - 사용자 이름과 암호를 사용하여 로그인합니다.
-    - PIN을 사용한 로그인은 지원되지 않습니다.
-3. 성공적으로 로그인하면 웹앱으로 돌아갑니다.
-4. Azure Migrate 프로젝트가 만들어진 구독을 선택합니다. 그런 다음, 해당 프로젝트를 선택합니다.
-5. 어플라이언스의 이름을 지정합니다. 이름은 14자 이하의 영숫자여야 합니다.
-6. **등록**을 클릭합니다.
+1. 포털에서 복사한 **Azure Migrate 프로젝트 키**를 붙여넣습니다. 키가 없는 경우 **서버 평가> 검색> 기존 어플라이언스 관리**로 이동하고 키 생성 시 입력한 어플라이언스 이름을 선택하고 해당 키를 복사합니다.
+1. **로그인**을 클릭합니다. 그러면 새 브라우저 탭에 Azure 로그인 프롬프트가 열립니다. 표시되지 않으면 브라우저에서 팝업 차단을 사용하지 않도록 설정했는지 확인합니다.
+1. 새 탭에서 Azure 사용자 이름과 암호를 사용하여 로그인합니다.
+   
+   PIN을 사용한 로그인은 지원되지 않습니다.
+3. 성공적으로 로그인되었으면 웹앱으로 돌아갑니다. 
+4. 로깅에 사용되는 Azure 사용자 계정에 키 생성 중에 생성된 Azure 리소스에 대한 올바른 [권한](tutorial-prepare-physical.md)이 있는 경우 어플라이언스 등록이 시작됩니다.
+1. 어플라이언스가 성공적으로 등록되면 **세부 정보 보기**를 클릭하여 등록 세부 정보를 볼 수 있습니다.
 
 
 ## <a name="start-continuous-discovery"></a>연속 검색 시작
 
 이제 어플라이언스에서 검색할 물리적 서버에 연결하여 검색을 시작합니다.
 
-1. **자격 증명 추가**를 클릭하여 어플라이언스가 서버를 검색하는 데 사용할 계정 자격 증명을 지정합니다.  
-2. 사용자 이름 및 암호로 로그인합니다. 키를 사용한 로그인은 지원되지 않습니다. 또한 사용자는 루트 로그인 또는 로컬 관리자 그룹의 일부여야 합니다.
-3. **운영 체제**, 자격 증명의 친숙한 이름, 사용자 이름 및 암호를 지정합니다. 그런 다음, **추가**를 클릭합니다.
-Windows 및 Linux 서버에 대해 여러 자격 증명을 추가할 수 있습니다.
-4. **서버 추가**를 클릭하고 서버에 연결하기 위한 서버 세부 정보(FQDN/IP 주소 및 자격 증명의 식별 이름)를 지정합니다(한 행에 한 항목).
-5. **유효성 검사**를 클릭합니다. 유효성 검사 후 검색 가능한 서버 목록이 표시됩니다.
-    - 서버에 대한 유효성 검사가 실패하면 마우스로 **상태** 열의 아이콘 위를 가리켜서 오류를 검토합니다. 문제를 해결하고, 유효성을 다시 검사합니다.
-    - 서버를 제거하려면 > **삭제**를 선택합니다.
-6. 유효성 검사가 완료되면 **저장 및 검색 시작**을 클릭하여 검색 프로세스를 시작합니다.
+1. **1단계: Windows 및 Linux 물리적 서버 또는 가상 서버를 검색하는 데 필요한 자격 증명 제공**에서 **자격 증명 추가**를 클릭하여 자격 증명의 식별 이름을 지정하고 Windows 또는 Linux 서버의 **사용자 이름** 및 **암호**를 추가합니다. **Save**를 클릭합니다.
+1. 여러 자격 증명을 한 번에 추가하려면 **더 추가**를 클릭하여 더 많은 자격 증명을 저장하고 추가합니다. 물리적 서버 검색에 여러 자격 증명이 지원됩니다.
+1. **2단계: 물리적 또는 가상 서버 세부 정보 제공**에서 **검색 원본 추가**를 클릭하여 서버 **IP 주소/FQDN**을 지정하고 서버에 연결할 자격 증명의 식별 이름을 지정합니다.
+1. 한 번에 하나씩 **단일 항목을 추가**하거나 한꺼번에 **여러 항목을 추가**할 수 있습니다. 또한 **CSV 가져오기**를 통해 서버 세부 정보를 제공하는 옵션도 있습니다.
 
-그러면 검색을 시작합니다. 검색된 서버의 메타데이터가 Azure Portal에 표시되는 데 서버 당 약 1.5분이 걸립니다.
+    ![검색 원본을 추가하는 옵션](./media/tutorial-assess-physical/add-discovery-source-physical.png)
+
+    - **단일 항목 추가**를 선택하는 경우 OS 유형을 선택하고, 자격 증명의 식별 이름을 지정하고, 서버 **IP 주소/FQDN**을 추가하고 **저장**을 클릭합니다.
+    - **여러 항목 추가**를 선택하는 경우 텍스트 상자에 자격 증명의 식별 이름과 서버 **IP 주소/FQDN**을 지정하여 여러 레코드를 한 번에 추가할 수 있습니다. 추가된 레코드를 **확인**하고 **저장**을 클릭하세요.
+    - **CSV가져오기**를 선택하는 경우 _(기본적으로 선택됨)_ CSV 템플릿 파일을 다운로드하고 서버 **IP 주소/FQDN** 및 자격 증명 식별 이름으로 파일을 채울 수 있습니다. 그런 다음, 파일을 어플라이언스로 가져와 파일의 레코드를 **확인**하고 **저장**을 클릭합니다.
+
+1. 저장을 클릭하면 어플라이언스가 추가된 서버에 대한 연결의 유효성을 검사하고 각 서버에 대한 테이블에 **유효성 검사 상태**를 표시합니다.
+    - 서버에 대한 유효성 검사가 실패하면 테이블의 상태 열에서 **유효성 검사 실패**를 클릭하여 오류를 검토합니다. 문제를 해결하고, 유효성을 다시 검사합니다.
+    - 서버를 제거하려면 **삭제**를 클릭합니다.
+1. 검색을 시작하기 전에 언제든지 서버에 대한 연결의 **유효성을 다시 검사**할 수 있습니다.
+1. **검색 시작**을 클릭하여 유효성 검사에 성공한 서버의 검색을 시작합니다. 검색이 성공적으로 시작되었으면 테이블의 각 서버에 대한 검색 상태를 확인할 수 있습니다.
+
+
+그러면 검색을 시작합니다. 검색된 서버의 메타데이터가 Azure Portal에 표시되는 데 서버당 약 2분이 걸립니다.
 
 ### <a name="verify-servers-in-the-portal"></a>포털에서 서버 확인
 

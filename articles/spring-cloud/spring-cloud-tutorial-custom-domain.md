@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: d6e4b77c6eba976de052295e4a0001924ad90644
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 05107d0246be2273c09e91573bd30a4108ac7795
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374204"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290330"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Azure Spring Cloud에 기존 사용자 지정 도메인 매핑
 DNS(Domain Name Service)는 네트워크를 통해 네트워크 노드 이름을 저장하는 기술입니다. 이 자습서에서는 CNAME 레코드를 사용하여 www.contoso.com 같은 도메인을 매핑합니다. 이 기술은 인증서를 사용하여 사용자 지정 도메인을 보호하며 SSL(Secure Sockets Layer)이라고도 하는 TLS(전송 계층 보안)를 적용하는 방법을 보여줍니다. 
@@ -20,7 +20,7 @@ DNS(Domain Name Service)는 네트워크를 통해 네트워크 노드 이름을
 인증서는 웹 트래픽을 암호화합니다. 이러한 TLS/SSL 인증서는 Azure Key Vault에 저장할 수 있습니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
-* Azure Spring Cloud에 배포된 애플리케이션. [빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](spring-cloud-quickstart-launch-app-portal.md)을 참조하거나 기존 앱을 사용하세요.
+* Azure Spring Cloud에 배포된 애플리케이션. [빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](spring-cloud-quickstart.md)을 참조하거나 기존 앱을 사용하세요.
 * GoDaddy 같은 도메인 공급자의 DNS 레지스트리에 대한 액세스 권한이 있는 도메인
 * 타사 공급자의 프라이빗 인증서(즉, 자체 서명된 인증서) 인증서는 도메인과 일치해야 합니다.
 * 배포된 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 인스턴스
@@ -145,7 +145,7 @@ az spring-cloud app custom-domain list --app <app name>
 1. **인증서**를 선택하거나 가져옵니다.
 1. **저장**을 클릭합니다.
 
-    ![SSL 바인딩 추가](./media/custom-dns-tutorial/add-ssl-binding.png)
+    ![SSL 바인딩 추가 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 
 또는 Azure CLI를 사용하여 **ssl 바인딩을 추가**할 수 있습니다.
 ```
@@ -154,14 +154,14 @@ az spring-cloud app custom-domain update --domain-name <domain name> --certifica
 
 SSL 바인딩을 성공적으로 추가한 후에는 도메인 상태가 안전함을 나타내는 **정상**으로 표시됩니다. 
 
-![SSL 바인딩 추가](./media/custom-dns-tutorial/secured-domain-state.png)
+![SSL 바인딩 추가 2](./media/custom-dns-tutorial/secured-domain-state.png)
 
 ## <a name="enforce-https"></a>HTTPS 적용
 기본적으로 여전히 누구나 HTTP를 사용하여 앱에 액세스할 수 있지만, 모든 HTTP 요청을 HTTPS 포트로 리디렉션할 수 있습니다.
 
 앱 페이지의 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다. **HTTPS만 사용**을 *True*로 설정합니다.
 
-![SSL 바인딩 추가](./media/custom-dns-tutorial/enforce-http.png)
+![SSL 바인딩 추가 3](./media/custom-dns-tutorial/enforce-http.png)
 
 또는 Azure CLI를 사용하여 HTTPS를 적용할 수 있습니다.
 ```

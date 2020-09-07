@@ -1,17 +1,17 @@
 ---
 title: '자습서: 조직 외부에서 공유 - Azure Data Share'
 description: 자습서 - Azure Data Share를 사용하여 고객 및 파트너와 데이터 공유
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/30/2020
-ms.openlocfilehash: 1de793dc2f4f72efb67c954e60262c3d7f1b74fc
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/28/2020
+ms.openlocfilehash: 4f3c9d739f959670700182baf80c4a08e53d8587
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511976"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259067"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 공유  
 
@@ -73,7 +73,7 @@ ms.locfileid: "87511976"
 
 Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
-1. 포털의 왼쪽 상단 모서리에서 **리소스 만들기** 단추(+)를 선택합니다.
+1. 포털의 왼쪽 상단 모서리에 있는 메뉴 단추를 선택한 다음, **리소스 만들기**(+)를 선택합니다.
 
 1. *Data Share*를 검색합니다.
 
@@ -83,17 +83,17 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | 속성 | *datashareacount* | 데이터 공유 계정의 이름을 지정합니다. |
     | Subscription | 사용자의 구독 | 데이터 공유 계정에 사용할 Azure 구독을 선택합니다.|
-    | Resource group | *test-resource-group* | 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. |
+    | 리소스 그룹 | *test-resource-group* | 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. |
     | 위치 | *미국 동부 2* | 데이터 공유 계정에 대한 지역을 선택합니다.
+    | 이름 | *datashareaccount* | 데이터 공유 계정의 이름을 지정합니다. |
     | | |
 
-1. **만들기**를 선택하여 데이터 공유 계정을 프로비저닝합니다. 새 데이터 공유 계정을 프로비저닝하는 데 일반적으로 2분 정도 걸립니다. 
+1. **검토 + 만들기**를 선택한 다음, **만들기**를 선택하여 데이터 공유 계정을 프로비저닝합니다. 새 데이터 공유 계정을 프로비저닝하는 데 일반적으로 2분 정도 걸립니다. 
 
 1. 배포가 완료되면 **리소스로 이동**을 선택합니다.
 
-## <a name="create-a-data-share"></a>Data Share 만들기
+## <a name="create-a-share"></a>공유 만들기
 
 1. Data Share 개요 페이지로 이동합니다.
 
@@ -103,15 +103,15 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
 1. **만들기**를 선택합니다.   
 
-1. Data Share에 대한 세부 정보를 채웁니다. 이름, 공유 유형, 공유 콘텐츠의 설명 및 사용 약관(선택 사항)을 지정합니다. 
+1. 공유에 대한 세부 정보를 입력합니다. 이름, 공유 유형, 공유 콘텐츠의 설명 및 사용 약관(선택 사항)을 지정합니다. 
 
     ![EnterShareDetails](./media/enter-share-details.png "공유 세부 정보 입력") 
 
 1. **계속**을 선택합니다.
 
-1. Data Share에 데이터 세트를 추가하려면 **데이터 세트 추가**를 선택합니다. 
+1. 공유에 데이터 세트를 추가하려면 **데이터 세트 추가**를 선택합니다. 
 
-    ![데이터 세트](./media/datasets.png "데이터 세트")
+    ![공유에 데이터 세트 추가](./media/datasets.png "데이터 세트")
 
 1. 추가하려는 데이터 세트 형식을 선택합니다. 이전 단계에서 선택한 공유 유형(스냅샷 또는 내부)에 따라 다른 데이터 세트 유형 목록이 표시됩니다. Azure SQL Database 또는 Azure SQL Data Warehouse에서 공유하는 경우 일부 SQL 자격 증명을 입력하라는 메시지가 표시됩니다. 필수 구성 요소의 일부로 만든 사용자를 사용하여 인증합니다.
 
@@ -135,7 +135,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
 1. **계속**을 선택합니다.
 
-1. 검토 + 만들기 탭에서 패키지 콘텐츠, 설정, 받는 사람 및 동기화 설정을 검토합니다. **만들기**
+1. 검토 + 만들기 탭에서 패키지 콘텐츠, 설정, 받는 사람 및 동기화 설정을 검토합니다. **만들기**를 선택합니다.
 
 이제 Azure Data Share가 생성되었고 Data Share의 받는 사람이 초대를 수락할 준비가 되었습니다. 
 

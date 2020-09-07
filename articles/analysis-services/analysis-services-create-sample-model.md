@@ -1,18 +1,18 @@
 ---
 title: 자습서 - 샘플 모델 추가 - Azure Analysis Services | Microsoft Docs
-description: 이 자습서 단원에서는 Azure Analysis Services에서 샘플 모델을 추가하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Analysis Services에서 샘플 모델을 추가하는 방법을 알아봅니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 88ed58ea1eea80b4b890c31260fc65153377eaaa
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5b84c2e50ae7f5038cf9cb8a96c0c51d6537c929
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83697510"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230900"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>자습서: 포털에서 샘플 모델 추가
 
@@ -24,7 +24,7 @@ ms.locfileid: "83697510"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. **새 모델** > **데이터 원본 선택**에서 **샘플 데이터**가 선택되어 있는지 확인한 다음, **추가**를 클릭합니다.
 
-    ![샘플 데이터 선택](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
+    ![새 모델 선택](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 
 3. **개요**에서 `adventureworks` 샘플 모델이 추가되었는지 확인합니다.
 

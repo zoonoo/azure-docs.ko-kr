@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: bdea7fc3c295016204a80772bdf367dda7e194fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546307"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296892"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>자습서: XaitPorter와 Azure Active Directory 통합
 
@@ -112,7 +112,7 @@ XaitPorter에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
-6. **IP 주소** 또는 **앱 페더레이션 메타데이터 URL**을 [SmartRecruiters 지원 팀](https://www.smartrecruiters.com/about-us/contact-us/)에 제공하므로 XaitPorter에서는 IP 주소가 해당하는 쪽의 허용 목록을 구성하는 XaitPorter 인스턴스에서 연결할 수 있는지 확인합니다. 
+6. **IP 주소** 또는 **앱 페더레이션 메타데이터 URL**을 [SmartRecruiters 지원 팀](https://www.smartrecruiters.com/about-us/contact-us/)에 제공하므로 XaitPorter에서는 IP 주소가 해당하는 쪽의 승인 목록을 구성하는 XaitPorter 인스턴스에서 연결할 수 있는지 확인합니다. 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>XaitPorter Single Sign-On 구성
 
@@ -213,4 +213,3 @@ XaitPorter에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 - [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

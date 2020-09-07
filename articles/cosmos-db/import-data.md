@@ -4,14 +4,14 @@ description: '자습서: 오픈 소스 Azure Cosmos DB 데이터 마이그레이
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 08/31/2020
 ms.author: dech
-ms.openlocfilehash: 5c9eb2409b67d71882406c21728fbf2429eb16a9
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9992d6f1f9f1d0aad6f451d6a974f4df9f655881
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118766"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255990"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>자습서: 데이터 마이그레이션 도구를 사용하여 Azure Cosmos DB로 데이터 마이그레이션
 
@@ -40,6 +40,9 @@ Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 * **처리량 증가:** 데이터 마이그레이션 기간은 개별 컬렉션 또는 컬렉션 세트에 대해 설정한 처리량에 따라 다릅니다. 대량 데이터 마이그레이션의 경우 처리량을 늘려야 합니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. Azure Portal에서 처리량을 늘리는 방법에 대한 자세한 내용은 Azure Cosmos DB의 [성능 수준](performance-levels.md) 및 [가격 책정 계층](https://azure.microsoft.com/pricing/details/cosmos-db/)을 참조하세요.
 
 * **Azure Cosmos DB 리소스 만들기:** 데이터 마이그레이션을 시작하기 전에 Azure Portal에서 모든 컬렉션을 미리 만듭니다. 데이터베이스 수준 처리량이 있는 Azure Cosmos DB 계정으로 마이그레이션하는 경우에는 Azure Cosmos 컨테이너를 만들 때 파티션 키를 제공합니다.
+
+> [!IMPORTANT]
+> Azure Cosmos 계정에 연결할 때 데이터 마이그레이션 도구가 TLS(Transport Layer Security) 1.2를 사용하는지 확인하려면 .NET Framework 버전 4.7을 사용하거나 [이 문서](https://docs.microsoft.com/dotnet/framework/network-programming/tls)에 있는 지침을 따릅니다.
 
 ## <a name="overview"></a><a id="Overviewl"></a>개요
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 65c3e3df9fe62614eff15585373360ebcaa158cf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fa4e91a087c7dcfce247cacc2dff83458bc87f64
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543332"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079985"
 ---
 # <a name="tutorial-integrate-sansan-with-azure-active-directory"></a>자습서: Sansan과 Azure Active Directory 통합
 
@@ -37,7 +37,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. Sansan에서 **SP** 시작 SSO를 지원합니다.
+이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
+* Sansan에서 **SP** 시작 SSO를 지원합니다.
+* Sansan이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-sansan-from-the-gallery"></a>갤러리에서 Sansan 추가
 
@@ -50,20 +52,20 @@ Sansan이 Azure AD에 통합되도록 구성하려면 갤러리의 Sansan을 관
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Sansan**을 입력합니다.
 1. 결과 패널에서 **Sansan**을 선택한 후 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso"></a>Azure AD SSO 구성 및 테스트
 
 테스트 사용자 **Britta Simon**을 사용하여 Sansan으로 Azure AD SSO를 구성 및 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Sansan의 관련 사용자 간에 연결이 형성되어야 합니다.
 
 Sansan에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. 사용자가 이 기능을 사용할 수 있도록 **[Azure AD SSO를 구성](#configure-azure-ad-sso)** 합니다.
-2. **[Sansan 구성](#configure-sansan)** - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Sansan 테스트 사용자 만들기](#create-sansan-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Sansan에 만듭니다.
-6. **[SSO를 테스트](#test-sso)** 하여 구성이 작동하는지 여부를 확인합니다.
+   * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+   * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Sansan 구성](#configure-sansan)** - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
+   * **[Sansan 테스트 사용자 만들기](#create-sansan-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Sansan에 만듭니다.
+1. **[SSO를 테스트](#test-sso)** 하여 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -75,18 +77,22 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 페이지에서 다음 필드에 대한 값을 입력합니다.
 
-    1. **로그온 URL** 텍스트 상자에서 다음 패턴을 사용하여 URL 중 하나를 입력합니다.
-    
-    | Environment | URL |
-    |:--- |:--- |
-    | PC 웹 |`https://ap.sansan.com/v/saml2/<company name>/acs` |
-    | 네이티브 모바일 앱 |`https://internal.api.sansan.com/saml2/<company name>/acs` |
-    | 모바일 브라우저 설정 |`https://ap.sansan.com/s/saml2/<company name>/acs` |
+    1. **로그온 URL** 텍스트 상자에 `https://ap.sansan.com/` URL을 입력합니다.
 
-    2. **식별자(엔터티 ID)** 텍스트 상자에서 여러 식별자 값을 설정하고 환경에 따라 이러한 식별자 중 하나를 선택할 수 있습니다.
+   1. **식별자(엔터티 ID)** 텍스트 상자에 다음 URL을 입력합니다.  
+   `https://ap.sansan.com/saml2/<company name>`
+
+   1. **회신 URL** 텍스트 상자에서 다음 패턴을 사용하여 URL 중 하나를 입력합니다.
+
+    
+       | Environment | URL |
+      |:--- |:--- |
+      | PC |`https://ap.sansan.com/v/saml2/<company name>/acs` |
+      | Smartphone 앱 |`https://internal.api.sansan.com/<company name>/acs` |
+      | Smartphone 웹 |`https://ap.sansan.com/s/saml2/<company name>/acs` |
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 해당 값을 얻으려면 [Sansan 클라이언트 지원 팀](https://www.sansan.com/form/contact)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. **Sansan 관리자 설정**에서 실제 값을 확인합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드하고 본인의 컴퓨터에 저장합니다.
 
@@ -96,10 +102,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="configure-sansan"></a>Sansan 구성
-
-**Sansan** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Sansan 클라이언트 지원 팀](https://www.sansan.com/form/contact)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
-
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
@@ -108,7 +110,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `Britta Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `BrittaSimon@contoso.com`)을 입력합니다.
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `BrittaSimon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -130,14 +132,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
+## <a name="configure-sansan"></a>Sansan 구성
+
+**Sansan** 쪽에서 **Single Sign-On 설정**을 수행하려면 요구 사항에 따라 아래 단계를 수행하세요.
+
+   * [일본어](https://jp-help.sansan.com/hc/ja/articles/900001551383 ) 버전.
+
+   * [영어](https://jp-help.sansan.com/hc/en-us/articles/900001551383 ) 버전.
+
+
 ### <a name="create-sansan-test-user"></a>Sansan 테스트 사용자 만들기
 
-이 섹션에서는 Sansan에서 Britta Simon이라는 사용자를 만듭니다. Sansan 애플리케이션에서 SSO를 수행하기 전에 해당 사용자를 애플리케이션에 프로비전해야 합니다.
+이 섹션에서는 Sansan에서 Britta Simon이라는 사용자를 만듭니다. 사용자를 만드는 방법에 대한 자세한 내용은 [이러한](https://jp-help.sansan.com/hc/en-us/articles/206508997-Adding-users) 단계를 참조하세요.
 
-> [!NOTE]
-> 한 사용자 또는 여러 사용자를 수동으로 만들려면 [Sansan 지원 팀](https://www.sansan.com/form/contact)에 문의해야 합니다.
-
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 액세스 패널에서 Sansan 타일을 선택하면 SSO를 설정한 Sansan에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 

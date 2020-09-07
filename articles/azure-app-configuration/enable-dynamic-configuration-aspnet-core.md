@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 217c564a6bdb340ec15262c1eaf54a75bbffc833
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b0435daee7f5bbd1435d5e69fc32f27c21e5e4a3
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585018"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300292"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
@@ -53,13 +53,11 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 *Sentinel 키*는 구성이 변경될 때 신호를 보내는 데 사용되는 특수 키입니다. 앱은 Sentinel 키에 대한 변경을 모니터링합니다. 변경이 검색되면 모든 구성 값을 새로 고칩니다. 이 방법은 모든 키의 변경을 모니터링하는 것과 비교하여 앱의 App Configuration에 대한 전체 요청 수를 줄입니다.
 
 1. Azure Portal에서 **구성 탐색기 > 만들기 > 키-값**을 차례로 선택합니다.
-
 1. **키**에 대해 *TestApp:Settings:Sentinel*을 입력합니다. **값**에 대해 1을 입력합니다. **레이블** 및 **콘텐츠 형식**은 비워 둡니다.
-
 1. **적용**을 선택합니다.
 
-    > [!NOTE]
-    > 센티널 키를 사용하지 않는 경우 감시하려는 모든 키를 수동으로 등록해야 합니다.
+> [!NOTE]
+> 센티널 키를 사용하지 않는 경우 감시하려는 모든 키를 수동으로 등록해야 합니다.
 
 ## <a name="reload-data-from-app-configuration"></a>App Configuration에서 데이터 다시 로드
 
@@ -162,9 +160,8 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     }
     ```
     ---
-
-    > [!TIP]
-    > 구성 값을 읽을 때 옵션 패턴에 대해 자세히 알아보려면  [ASP.NET Core의 옵션 패턴](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1)을 참조하세요.
+    > [!Tip]
+    > 구성 값을 읽을 때 옵션 패턴에 대해 자세히 알아보려면  [ASP.NET Core의 옵션 패턴](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1)을 참조하세요.
 
 4. `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 받는 동안 새로 고침을 위해 등록된 구성 설정을 업데이트할 수 있도록 `UseAzureAppConfiguration` 미들웨어를 추가합니다.
 
@@ -316,15 +313,15 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
 1. .NET Core CLI를 사용하여 앱을 빌드하려면 명령 셸에서 다음 명령을 실행합니다.
 
-```console
+    ```console
         dotnet build
-```
+    ```
 
 1. 빌드가 성공적으로 완료되면 다음 명령을 실행하여 웹앱을 로컬로 실행합니다.
 
-```console
+    ```console
         dotnet run
-```
+    ```
 
 1. 브라우저 창을 열고, `dotnet run` 출력에 표시된 URL로 이동합니다.
 

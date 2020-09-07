@@ -55,6 +55,8 @@
           href: check-status-user-account-provisioning.md
         - name: 구성 내보내기 및 가져오기
           href: export-import-provisioning-configuration.md
+        - name: 보고서 프로비저닝
+          href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: 애플리케이션 프로비저닝 문제 해결
       items:
         - name: 알려진 문제

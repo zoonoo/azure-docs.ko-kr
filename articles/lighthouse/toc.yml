@@ -47,6 +47,9 @@
     - name: 고객 보기 및 관리
       displayName: my customers
       href: ./how-to/view-manage-customers.md
+    - name: 파트너 ID 연결
+      displayName: 'partner earned credit, pec, mpn'
+      href: ./how-to/partner-earned-credit.md
     - name: 위임에 대한 액세스 권한 제거
       displayName: 'delete, undelegate'
       href: ./how-to/remove-delegation.md

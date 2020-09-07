@@ -1,18 +1,18 @@
 ---
 title: 자습서 - Azure Analysis Services 역할 구성 | Microsoft Docs
-description: Azure Portal 또는 SQL Server Management Studio를 사용하여 Azure Analysis Services 관리자 및 사용자 역할을 구성하는 방법에 대해 알아봅니다.
+description: 이 자습서에서는 Azure Portal 또는 SQL Server Management Studio를 사용하여 Azure Analysis Services 관리자 및 사용자 역할을 구성하는 방법에 대해 알아봅니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 0a19a0ed359cae61778866303d864d60e0e7606e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84016392"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229364"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>자습서: 서버 관리자 및 사용자 역할 구성
 
@@ -63,7 +63,7 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 
 3. **개체 탐색기**에서 서버 개체를 펼쳐서 살펴봅니다. 서버 속성을 마우스 오른쪽 단추를 클릭하여 확인합니다.
    
-    ![SSMS에서 연결](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
+    ![SSMS의 개체 탐색기](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>서버 관리자 역할에 사용자 계정 추가
 

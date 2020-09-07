@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258629"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268896"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 수락 및 받기  
 
@@ -38,7 +38,7 @@ ms.locfileid: "88258629"
 * 스토리지 계정에 쓸 수 있는 권한으로, *Microsoft.Storage/storageAccounts/write*에 있습니다. 이 권한은 기여자 역할에 있습니다. 
 * 스토리지 계정에 역할 할당을 추가할 수 있는 권한입니다. 이 권한은 *Microsoft.Authorization/role assignments/write*에 있습니다. 이 권한은 소유자 역할에 있습니다.  
 
-### <a name="receive-data-into-a-sql-based-source"></a>SQL 기반 원본으로 데이터를 받습니다.
+### <a name="receive-data-into-a-sql-based-target"></a>SQL 기반 대상으로 데이터를 받습니다.
 
 * SQL 서버의 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write*에 있습니다. 이 권한은 기여자 역할에 있습니다. 
 * 데이터 공유 리소스의 관리 ID가 Azure SQL Database 또는 Azure SQL Data Warehouse에 액세스할 수 있는 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
@@ -78,7 +78,7 @@ ms.locfileid: "88258629"
 
    Azure Portal에서 직접 초대를 열려면 Azure Portal에서 **데이터 공유 초대**를 검색합니다. 그러면 데이터 공유 초대 목록으로 이동됩니다.
 
-   ![초대](./media/invitations.png "초대 목록") 
+   ![초대 목록](./media/invitations.png "초대 목록") 
 
 1. 확인하려는 공유를 선택합니다. 
 

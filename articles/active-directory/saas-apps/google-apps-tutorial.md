@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 5ff34b967e2ba42c01c904b8854ecfa04c394e17
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d20d527c35eac422efdc3719f153b6d7e8f4ef07
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551526"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017538"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>자습서: Google Cloud (G Suite) Connector와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -225,15 +225,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. Azure Portal에서 복사한 **로그인 URL**값을 Google Cloud (G Suite) Connector의 **Sign-in page URL(로그인 페이지 URL)** 필드에 붙여넣습니다.
 
-    다. Azure Portal에서 복사한 **로그아웃 URL**값을 Google Cloud (G Suite) Connector의 **Sign-out page URL(로그아웃 페이지 URL)** 필드에 붙여넣습니다.
+    다. Azure Portal에서 복사한 **로그인 URL** 값을 Google Cloud(G Suite) Connector의 **로그인 아웃 페이지 URL** 필드에 붙여넣습니다.
 
-    d. Azure Portal에서 복사한 **암호 변경 URL** 값을 Google Cloud (G Suite) Connector의 **암호 변경 URL** 필드에 붙여넣습니다.
+    > [!NOTE]
+    > Google 클라우드(G Suite)는 SAML 로그 아웃 프로토콜을 기반으로 합니다. 따라서 **로그 아웃 페이지 URL** 필드에서 SAML 로그 아웃 URL(예: 로그인 URL)을 동일한 값으로 사용해야 합니다.
 
-    e. Google Cloud (G Suite) Connectors에서 **Verification certificate(확인 인증서)** 에 대해 Azure Portal에서 다운로드한 인증서를 업로드합니다.
+    d. Google Cloud (G Suite) Connectors에서 **Verification certificate(확인 인증서)** 에 대해 Azure Portal에서 다운로드한 인증서를 업로드합니다.   
 
-    f. Azure AD에서 위의 **기본 SAML 구성**에 설명된 참고 사항에 따라 **도메인 특정 발급자 사용** 옵션을 선택/선택 취소합니다.
+    e. Azure AD에서 위의 **기본 SAML 구성**에 설명된 참고 사항에 따라 **도메인 특정 발급자 사용** 옵션을 선택/선택 취소합니다.
 
-    g. **변경 내용 저장**을 클릭합니다.
+    f. Azure Portal에서 복사한 **암호 변경 URL** 값을 Google Cloud (G Suite) Connector의 **암호 변경 URL** 필드에 붙여넣습니다.
+
+    g. **저장**을 클릭합니다.
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Google Cloud (G Suite) Connector 테스트 사용자 만들기
 

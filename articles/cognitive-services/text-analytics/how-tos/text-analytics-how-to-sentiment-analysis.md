@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 05/18/2020
+ms.date: 08/25/2020
 ms.author: aahi
-ms.openlocfilehash: acd8fae81baa7ad65b8d9c321c55a6311cbf4c72
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: a0557c3ccf6510ab3ee2ae29cbef1fc754473345
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141248"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933021"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>방법: Text Analytics API를 사용하여 감정 감지
 
@@ -40,7 +40,7 @@ Text Analytics API의 감정 분석 기능은 텍스트를 평가하여 각 문�
 
 감정 분석 v3는 텍스트에 감정 레이블을 적용합니다. 이는 문장과 문서 각각에 대한 신뢰도 점수와 함께 문장과 문서 수준에서 반환됩니다. 
 
-레이블은 `positive`, `negative` 및 `neutral`입니다. 문서 수준에서 `mixed` 감정 레이블을 반환할 수도 있습니다. 문서의 감정은 다음과 같이 결정됩니다.
+레이블은 *긍정*, *부정* 및 *중립*입니다. 문서 수준에서 *혼합된* 감정 레이블을 반환할 수도 있습니다. 문서의 감정은 다음과 같이 결정됩니다.
 
 | 문장 감정                                                                            | 반환된 문서 레이블 |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -49,7 +49,7 @@ Text Analytics API의 감정 분석 기능은 텍스트를 평가하여 각 문�
 | 문서에 `negative` 문장과 `positive` 문장이 각각 하나 이상 있습니다.    | `mixed`                 |
 | 문서의 모든 문장이 `neutral`입니다.                                                  | `neutral`               |
 
-신뢰도 점수의 범위는 1에서 0까지입니다. 점수가 1에 가까울수록 레이블 분류에 대한 높은 신뢰도를 의미하며, 점수가 낮을수록 낮은 신뢰도를 의미합니다. 각 문서 또는 문장 내의 신뢰도 점수 합계는 1입니다.
+신뢰도 점수의 범위는 1에서 0까지입니다. 점수가 1에 가까울수록 레이블 분류에 대한 높은 신뢰도를 의미하며, 점수가 낮을수록 낮은 신뢰도를 의미합니다. 각 문서 또는 각 문장에 대해 레이블(긍정, 부정 및 중립)과 관련된 예측 점수는 최대 1까지 추가됩니다.
 
 ### <a name="opinion-mining"></a>의견 마이닝
 

@@ -3,13 +3,13 @@ title: '자습서: PowerShell을 사용한 여러 Azure VM 백업'
 description: 이 자습서에서는 Azure PowerShell을 사용하여 여러 Azure VM을 Recovery Services 자격 증명 모음에 백업하는 방법을 자세히 설명합니다.
 ms.topic: tutorial
 ms.date: 03/05/2019
-ms.custom: mvc
-ms.openlocfilehash: a0f6bd2bebb0961388d4f81663167d9e579958a2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 33090a0156d147fee5ab362b284ec503039617c4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513220"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181734"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>PowerShell을 사용하여 Azure VM 백업
 
@@ -27,7 +27,7 @@ ms.locfileid: "86513220"
 > * 보호된 가상 머신에 대한 주문형 백업 작업 트리거. 가상 머신을 백업하거나 보호하려면 먼저 [필수 조건](backup-azure-arm-vms-prepare.md)을 완료하여 VM을 보호하기 위한 환경을 준비해야 합니다.
 
 > [!IMPORTANT]
-> 이 자습서에서는 리소스 그룹 및 Azure 가상 머신을 이미 만들었다고 가정합니다.
+> 이 자습서에서는 리소스 그룹과 Azure 가상 머신을 이미 만들었다고 가정합니다.
 
 ## <a name="sign-in-and-register"></a>로그인 및 등록
 
@@ -58,7 +58,7 @@ ms.locfileid: "86513220"
     New-AzRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
     ```
 
-2. 많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이런 이유 때문에, 백업 Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
+2. 많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이러한 이유로 인해 Backup Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault –Name myRSVault

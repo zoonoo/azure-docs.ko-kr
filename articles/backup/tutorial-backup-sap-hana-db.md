@@ -3,12 +3,12 @@ title: 자습서 - Azure VM에서 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure VM에서 실행되는 SAP HANA 데이터베이스를 Azure Backup Recovery Services 자격 증명 모음에 백업하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 50c71d58a2409d0062c414b4328eaf8a919e338b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b43fd5c432b06902de0a898fc4bb0f114143b3ba
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757492"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375281"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>자습서: Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -36,7 +36,9 @@ ms.locfileid: "88757492"
   * 기본 **hdbuserstore**에 있어야 합니다. 기본값은 SAP HANA가 설치된 `<sid>adm` 계정입니다.
   * MDC의 경우 키가 **NAMESERVER**의 SQL 포트를 가리켜야 합니다. SDC의 경우 **INDEXSERVER**의 SQL 포트를 가리켜야 합니다.
   * 사용자를 추가하고 삭제하려면 자격 증명이 있어야 합니다
+  * 사전 등록 스크립트를 성공적으로 실행한 후에 이 키를 삭제할 수 있습니다.
 * HANA가 설치된 가상 머신에서 루트 사용자로 SAP HANA 백업 구성 스크립트(사전 등록 스크립트)를 실행합니다. [이 스크립트](https://aka.ms/scriptforpermsonhana)를 실행하면 HANA 시스템이 백업 준비가 됩니다. [사전 등록 스크립트의 기능](#what-the-pre-registration-script-does) 섹션을 참조하면 사전 등록 스크립트에 대해 자세히 이해할 수 있습니다.
+* HANA 설정에서 프라이빗 엔드포인트를 사용하는 경우 [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 *-sn* 또는 *--skip-network-checks* 매개 변수를 사용하여 실행합니다.
 
 >[!NOTE]
 >사전 등록 스크립트는 RHEL(7.4, 7.6 및 7.7)에서 실행되는 SAP HANA 워크로드용 **compat-unixODBC234** 및 RHEL 8.1용 **unixODBC**를 설치합니다. [이 패키지는 RHEL for SAP HANA(RHEL 7 Server의 경우), RPM(SAP 솔루션용 업데이트 서비스) 리포지토리에 있습니다](https://access.redhat.com/solutions/5094721).  Azure Marketplace RHEL 이미지의 경우 리포지토리는 **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**입니다.
@@ -71,7 +73,7 @@ NSG(네트워크 보안 그룹)를 사용하는 경우 *AzureBackup* 서비스 �
 
 1. **추가**를 선택합니다. [보안 규칙 설정](../virtual-network/manage-network-security-group.md#security-rule-settings)에 설명된 대로 새 규칙을 만드는 데 필요한 세부 정보를 모두 입력합니다. **대상** 옵션이 *서비스 태그*로 설정되고 **대상 서비스 태그**가 *AzureBackup*으로 설정되어 있는지 확인합니다.
 
-1. **추가**를 클릭하여 새로 만든 아웃바운드 보안 규칙을 저장합니다.
+1. **추가**를 선택하여 새로 만든 아웃바운드 보안 규칙을 저장합니다.
 
 마찬가지로, Azure Storage 및 Azure AD에 대한 NSG 아웃바운드 보안 규칙을 만들 수 있습니다. 서비스 태그에 대한 자세한 내용은 이 [문서](../virtual-network/service-tags-overview.md)를 참조하세요.
 
@@ -103,7 +105,7 @@ Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업하는 경우 V
 
 * Linux 배포에 따라 스크립트는 Azure Backup 에이전트에 필요한 모든 패키지를 설치하거나 업데이트합니다.
 * Azure Active Directory 및 Azure Storage와 같은 종속 서비스 및 Azure Backup 서버와의 아웃바운드 네트워크 연결 검사를 수행합니다.
-* [사전 요구 사항](#prerequisites)의 일부로 나열된 사용자 키를 사용하여 HANA 시스템에 로그인합니다. 사용자 키는 HANA 시스템에서 백업 사용자(AZUREWLBACKUPHANAUSER)를 만드는 데 사용되며 사전 등록 스크립트가 성공적으로 실행된 후 사용자 키를 삭제할 수 있습니다.
+* [사전 요구 사항](#prerequisites)의 일부로 나열된 사용자 키를 사용하여 HANA 시스템에 로그인합니다. 사용자 키는 HANA 시스템에서 백업 사용자(AZUREWLBACKUPHANAUSER)를 만드는 데 사용되며 **사전 등록 스크립트가 성공적으로 실행된 후 사용자 키를 삭제할 수 있습니다**.
 * AZUREWLBACKUPHANAUSER에는 다음과 같은 필수 역할 및 권한이 할당됩니다.
   * DATABASE ADMIN(MDC의 경우) 및 BACKUP ADMIN(SDC의 경우): 복원 중에 새 데이터베이스를 만듭니다.
   * CATALOG READ: 백업 카탈로그를 읽습니다.
@@ -163,11 +165,11 @@ Recovery Services 자격 증명 모음을 만들려면:
 
 ## <a name="discover-the-databases"></a>데이터베이스 검색
 
-1. 자격 증명 모음의 **시작**에서 **백업**을 클릭합니다. **작업이 실행되는 위치**에서 **Azure VM의 SAP HANA**를 선택합니다.
-2. **검색 시작**을 클릭합니다. 그러면 자격 증명 모음 지역에서 보호되지 않는 Linux VM의 검색이 시작됩니다. 보호하려는 Azure VM이 표시됩니다.
-3. **Virtual Machines 선택**에서 링크를 클릭하여 데이터베이스 검색을 위해 SAP HANA VM에 액세스할 수 있는 권한을 Azure Backup 서비스에 제공하는 스크립트를 다운로드합니다.
+1. 자격 증명 모음의 **시작**에서 **백업**을 선택합니다. **작업이 실행되는 위치**에서 **Azure VM의 SAP HANA**를 선택합니다.
+2. **검색 시작**을 선택합니다. 그러면 자격 증명 모음 지역에서 보호되지 않는 Linux VM의 검색이 시작됩니다. 보호하려는 Azure VM이 표시됩니다.
+3. **Virtual Machines 선택**에서 링크를 선택하여 데이터베이스 검색을 위해 SAP HANA VM에 액세스할 수 있는 권한을 Azure Backup 서비스에 제공하는 스크립트를 다운로드합니다.
 4. 백업하려는 SAP HANA 데이터베이스를 호스팅하는 VM에서 스크립트를 실행합니다.
-5. VM에서 스크립트가 실행되면 **Virtual Machines 선택**에서 해당 VM을 선택합니다. 그런 다음, **DB 검색**을 클릭합니다.
+5. VM에서 스크립트가 실행되면 **Virtual Machines 선택**에서 해당 VM을 선택합니다. 그런 다음, **DB 검색**을 선택합니다.
 6. Azure Backup에서 VM의 모든 SAP HANA 데이터베이스를 검색합니다. 검색하는 동안 Azure Backup은 VM을 자격 증명 모음에 등록하고 확장을 해당 VM에 설치합니다. 에이전트는 데이터베이스에 설치되지 않습니다.
 
    ![데이터베이스 검색](./media/tutorial-backup-sap-hana-db/database-discovery.png)
@@ -176,11 +178,11 @@ Recovery Services 자격 증명 모음을 만들려면:
 
 이제 백업하려는 데이터베이스가 검색되었으므로 백업을 사용하도록 설정해 보겠습니다.
 
-1. **백업 구성**을 클릭합니다.
+1. **백업 구성**을 선택합니다.
 
    ![백업 구성](./media/tutorial-backup-sap-hana-db/configure-backup.png)
 
-2. **백업할 항목 선택**에서 보호하려는 데이터베이스를 하나 이상 선택한 다음, **확인**을 클릭합니다.
+2. **백업할 항목 선택**에서 보호하려는 데이터베이스를 하나 이상 선택한 다음, **확인**을 선택합니다.
 
    ![백업할 항목 선택](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
 
@@ -188,9 +190,9 @@ Recovery Services 자격 증명 모음을 만들려면:
 
    ![백업 정책 선택](./media/tutorial-backup-sap-hana-db/backup-policy.png)
 
-4. 정책이 만들어지면 **백업 메뉴**에서 **백업 사용**을 클릭합니다.
+4. 정책이 만들어지면 **백업** 메뉴에서 **백업 사용**을 선택합니다.
 
-   ![백업 사용 클릭](./media/tutorial-backup-sap-hana-db/enable-backup.png)
+   ![백업 사용 선택](./media/tutorial-backup-sap-hana-db/enable-backup.png)
 
 5. 포털의 **알림** 영역에서 백업 구성 진행률을 추적합니다.
 
@@ -227,7 +229,7 @@ Recovery Services 자격 증명 모음을 만들려면:
    >증분 백업은 현재 지원되지 않습니다.
    >
 
-7. **확인**을 클릭하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
+7. **확인**을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
 8. **로그 백업**을 선택하여 트랜잭션 로그 백업 정책을 추가합니다.
    * **로그 백업**은 기본적으로 **사용**으로 설정됩니다. SAP HANA에서 모든 로그 백업을 관리하므로 이 기능을 사용하지 않도록 설정할 수 없습니다.
    * 백업 일정은 **2시간**으로 설정하고, 보존 기간은 **15일**로 설정했습니다.
@@ -238,8 +240,8 @@ Recovery Services 자격 증명 모음을 만들려면:
    > 하나의 전체 백업이 성공적으로 완료된 후에만 로그 백업을 수행합니다.
    >
 
-9. **확인**을 클릭하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
-10. 백업 정책 정의가 완료되면 **확인**을 클릭합니다.
+9. **확인**을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
+10. 백업 정책 정의가 완료되면 **확인**을 선택합니다.
 
 이제 SAP HANA 데이터베이스에 대한 백업이 성공적으로 구성되었습니다.
 

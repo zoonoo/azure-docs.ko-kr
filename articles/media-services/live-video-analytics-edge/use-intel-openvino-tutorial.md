@@ -4,12 +4,12 @@ description: 이 자습서에서는 Intel에서 제공하는 AI 모델 서버를
 ms.topic: tutorial
 ms.date: 07/24/2020
 titleSuffix: Azure
-ms.openlocfilehash: 2268300f711a939ed808d1f39bbde1653e8832c8
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 102c54d8f738c3e8e62c7092d0df6ec7d12b8a0c
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212351"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950258"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>자습서: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브 비디오 분석 
 
@@ -53,7 +53,7 @@ HTTP 확장 노드는 프록시 역할을 수행합니다. 비디오 프레임�
 ## <a name="about-openvino-model-server--ai-extension-from-intel"></a>OpenVINO™ Model Server – Intel의 AI 확장 정보
 Intel® Distribution of [OpenVINO™ 툴킷](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html)(개방형 시각적 유추 및 신경망 최적화)은 개발자와 데이터 과학자가 컴퓨터 비전 워크로드의 속도를 높이고 딥 러닝 유추 및 배포를 간소화하고 에지에서 클라우드에 이르는 Intel® 플랫폼 전반에서 다른 유형의 데이터를 간편하게 실행하도록 설정하는 데 유용합니다. 여기에는 모델 최적화 프로그램 및 유추 엔진이 있는 Intel® Deep Learning Deployment Toolkit 및 40가지 이상의 최적화된 사전 학습 모델이 있는 [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo) 리포지토리가 포함됩니다.
 
-복잡한 고성능 라이브 비디오 분석 솔루션을 구축하려면 IoT Edge 모듈의 Live Video Analytics가 에지에서 규모를 활용할 수 있는 강력한 유추 엔진과 쌍을 이뤄야 합니다. 이 자습서에서는 유추 요청이 IoT Edge의 Live Video Analytics와 작동하도록 설계된 Edge 모듈인 [OpenVINO™ Model Server – Intel의 AI 확장](https://aka.ms/lva-intel-ovms)으로 전송됩니다. 유추 서버 모듈에는 OVMS(OpenVINO™ Model Server)가 포함되어 있습니다. OVMS는 컴퓨터 비전 워크로드에 고도로 최적화되고 Intel 아키텍처용으로 개발된 OpenVINO™ 툴킷으로 구동되는 유추 서버입니다. 유추 서버와 IoT Edge 모듈의 Live Video Analytic 간에 비디오 프레임 및 추론 결과를 간편하게 교환할 수 있도록 OVMS에 확장이 추가되었기 때문에, OpenVINO 지원 모델을 실행할 수 있습니다. ([여기](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)에서 코드를 수정하여 유추 서버 모듈을 사용자 지정할 수 있습니다.) Intel 하드웨어가 제공하는 광범위한 가속 메커니즘에서 추가로 선택할 수도 있습니다. 여기에는 CPU(Atom, Core, Xeon), FPGA, VPU가 포함됩니다.
+복잡한 고성능 라이브 비디오 분석 솔루션을 구축하려면 IoT Edge 모듈의 Live Video Analytics가 에지에서 규모를 활용할 수 있는 강력한 유추 엔진과 쌍을 이뤄야 합니다. 이 자습서에서는 유추 요청이 IoT Edge의 Live Video Analytics와 작동하도록 설계된 Edge 모듈인 [OpenVINO™ Model Server – Intel의 AI 확장](https://aka.ms/lva-intel-ovms)으로 전송됩니다. 유추 서버 모듈에는 OVMS(OpenVINO™ Model Server)가 포함되어 있습니다. OVMS는 컴퓨터 비전 워크로드에 고도로 최적화되고 Intel® 아키텍처용으로 개발된 OpenVINO™ 도구 키트로 구동되는 유추 서버입니다. 유추 서버와 IoT Edge 모듈의 Live Video Analytic 간에 비디오 프레임 및 추론 결과를 간편하게 교환할 수 있도록 OVMS에 확장이 추가되었기 때문에, OpenVINO™ 도구 키트 지원 모델을 실행할 수 있습니다([코드](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)를 수정하여 유추 서버 모듈을 사용자 지정할 수 있음). Intel® 하드웨어가 제공하는 광범위한 가속 메커니즘에서 추가로 선택할 수도 있습니다. 여기에는 CPU(Atom, Core, Xeon), FPGA, VPU가 포함됩니다.
 
 이 유추 서버의 초기 릴리스에서는 다음 [모델](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_models)에 액세스할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: d3199eb67e5672cd6f4a6d99219f184e7fbbdf6f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5402ee3283e5ae11f43884b4002486e8bdefae2c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687402"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294410"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Azure EA Portal 액세스 문제 해결
 
@@ -32,7 +32,7 @@ Azure EA Portal을 사용하여 인증 수준이 서로 다른 사용자에게 �
 - 회사 또는 학교 계정 교차 테넌트 - 클라우드에 대한 페더레이션을 사용하여 Active Directory를 설정하고 여러 테넌트에 있는 여러 계정을 갖는 조직에 적합합니다.
 - 혼합 계정 - Microsoft 계정과 회사 또는 학교 계정을 사용하여 사용자를 추가할 수 있습니다.
 
-등록에 추가된 첫 번째 회사 또는 학교 계정에 따라 _기본_ 또는 _마스터_ 도메인이 결정됩니다. 다른 테넌트를 사용하여 회사 또는 학교 계정을 추가하려면 등록에서 인증 수준을 교차 테넌트로 변경해야 합니다.
+등록에 추가된 첫 번째 회사 또는 학교 계정은 _기본_ 도메인을 결정합니다. 다른 테넌트를 사용하여 회사 또는 학교 계정을 추가하려면 등록에서 인증 수준을 교차 테넌트로 변경해야 합니다.
 
 인증 수준을 업데이트하려면
 

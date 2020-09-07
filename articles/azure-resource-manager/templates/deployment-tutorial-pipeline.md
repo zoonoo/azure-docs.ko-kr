@@ -1,15 +1,15 @@
 ---
 title: Azure Pipelines를 사용한 연속 통합
 description: Azure Resource Manager 템플릿을 지속적으로 빌드, 테스트 및 배포하는 방법을 알아봅니다.
-ms.date: 04/22/2020
+ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118922"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892680"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>자습서: Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 지속적인 통합
 
@@ -175,8 +175,8 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
     * **위치**: 리소스 그룹의 위치를 선택합니다(예: **미국 중부**).
     * **템플릿 위치**: **연결된 아티팩트**를 선택합니다. 그러면 연결된 리포지토리에서 템플릿 파일을 직접 찾습니다.
     * **템플릿**: **CreateWebApp/azuredeploy.json**을 입력합니다. 폴더 이름과 파일 이름을 변경한 경우 이 값을 변경해야 합니다.
-    * **템플릿 매개 변수**: 이 필드는 공백으로 둡니다. 매개 변수 값을 **Override 템플릿 매개 변수에 지정합니다.
-    * **overrideParameters**: **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]** 을 입력합니다. 프로젝트 이름과 연결된 템플릿 URL을 바꿉니다. 연결된 템플릿 URL은 [GitHub 리포지토리 만들기](#create-a-github-repository)의 끝부분에서 작성한 것입니다.
+    * **템플릿 매개 변수**: 이 필드는 공백으로 둡니다. 매개 변수 값을 **템플릿 매개 변수 재정의**에 지정합니다.
+    * **템플릿 매개 변수 재정의**: **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]** 을 입력합니다. 프로젝트 이름과 연결된 템플릿 URL을 바꿉니다. 연결된 템플릿 URL은 [GitHub 리포지토리 만들기](#create-a-github-repository)의 끝부분에서 작성한 것입니다. **https://raw.githubusercontent.com** 로 시작합니다.
     * **배포 모드**: **증분**을 선택합니다.
     * **배포 이름**: **DeployPipelineTemplate**을 입력합니다. **배포 이름**을 표시하려면 **고급**을 선택합니다.
 

@@ -178,3 +178,7 @@
               href: on-premises-connection.md
             - name: ExpressRoute를 통해 Azure 가상 네트워크 연결
               href: azure-expressroute-connection.md
+    - name: 릴리스 정보
+      items:
+        - name: CloudSimple 2020년 9월 업데이트
+          href: update-plan-sept-2020.md

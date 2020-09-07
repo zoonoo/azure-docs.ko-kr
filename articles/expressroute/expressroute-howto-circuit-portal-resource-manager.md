@@ -2,17 +2,17 @@
 title: 자습서 - ExpressRoute를 사용하여 회로 만들기 및 수정
 description: 이 자습서에서는 ExpressRoute 회로를 만들고, 프로비저닝하고, 확인하고, 업데이트하고, 삭제하고, 프로비저닝 해제하는 방법을 알아봅니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/20/2018
-ms.author: cherylmc
-ms.openlocfilehash: 686ac8013879eff8adc4476d56119bbb4a169900
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 09/01/2020
+ms.author: duau
+ms.openlocfilehash: 58c35b094d21dc562e61b4819c0d8e063908392d
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74813115"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322144"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>자습서: ExpressRoute 회로 만들기 및 수정
 
@@ -25,7 +25,15 @@ ms.locfileid: "74813115"
 > * [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
 >
 
-이 문서에서는 Azure Portal 및 Azure Resource Manager 배포 모델을 사용하여 ExpressRoute 회로를 만듭니다. 상태를 확인하고, 회로를 업데이트, 삭제 또는 프로비전 해제할 수도 있습니다.
+이 자습서에서는 Azure Portal 및 Azure Resource Manager 배포 모델을 사용하여 ExpressRoute 회로를 만드는 방법을 보여 줍니다. 상태를 확인하고, 회로를 업데이트, 삭제 또는 프로비전 해제할 수도 있습니다.
+
+이 자습서에서는 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * ExpressRoute 회로 만들기
+> * 회로의 현재 상태 가져오기
+> * 회로 수정
+> * 회로 프로비전 해제 및 삭제
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -47,38 +55,51 @@ ms.locfileid: "74813115"
 
 새 리소스를 만드는 옵션을 선택하여 ExpressRoute 회로를 만들 수 있습니다. 
 
-1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다. 다음 이미지에 표시된 대로 **네트워킹** > **ExpressRoute**를 선택합니다.
+1. Azure Portal 메뉴에서 **리소스 만들기**를 선택합니다. 다음 이미지에 표시된 대로 **네트워킹** > **ExpressRoute**를 선택합니다.
 
-   ![ExpressRoute 회로 만들기](./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png)
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-expressroute-circuit-menu.png" alt-text="ExpressRoute 회로 만들기":::
 
-2. **ExpressRoute**를 클릭하면 **ExpressRoute 회로 만들기** 페이지가 표시됩니다. 이 페이지의 값에 데이터를 입력할 때 올바른 SKU 계층(Standard 또는 Premium) 및 데이터 계량 청구 모델(제한 없음 또는 요금제)을 지정해야 합니다.
+2. **ExpressRoute**를 클릭하면 **ExpressRoute 만들기** 페이지가 표시됩니다. 회로에 대한 **리소스 그룹**, **지역** 및 **이름**을 제공합니다. 그런 다음, **다음: 구성 >** 을 클릭합니다.
 
-   ![SKU 계층 및 데이터 요금제 구성](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="리소스 그룹 및 지역 구성":::
 
-   * **계층** 은 ExpressRoute 표준 또는 ExpressRoute Premium 추가 기능이 사용되는지 여부를 결정합니다. **표준**을 지정하여 표준 SKU를 가져오거나 프리미엄 추가 기능을 위해 **프리미엄**을 지정할 수 있습니다.
-   * **데이터 요금제** 는 청구서 유형을 결정합니다. 데이터 요금제의 경우 **Metered**를 선택하고 무제한 데이터 요금제의 경우 **Unlimited**를 선택할 수 있습니다. 청구 유형을 **Metered**에서 **Unlimited**로 변경할 수 있습니다.
+3. 이 페이지의 값에 데이터를 입력할 때 올바른 SKU 계층(Local, Standard 또는 Premium) 및 데이터 계량 청구 모델(제한 없음 또는 요금제)을 지정해야 합니다.
 
-     > [!IMPORTANT]
-     > 청구 유형은 **무제한**에서 **계량됨**으로 변경할 수 없습니다.
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="회로 구성":::
+    
+    * **포트 유형**은 피어링 위치에서 서비스 공급자에 연결하거나 Microsoft의 글로벌 네트워크에 직접 연결하는지 결정합니다.
+    * **새로 만들기 또는 클래식에서 가져오기**는 새 회로가 생성되고 있는지 또는 클래식 회로를 ARM으로 마이그레이션하는지를 결정합니다.
+    * **공급자**는 서비스를 요청하는 인터넷 서비스를 제공합니다.
+    * **피어링 위치**는 Microsoft와 피어링하는 물리적 위치입니다.
 
-   * **피어링 위치**는 Microsoft와 피어링하는 물리적 위치입니다.
+    > [!IMPORTANT]
+    > 피어링 위치는 Microsoft와 피어링하는 [물리적 위치](expressroute-locations.md)를 나타냅니다. 이 위치는 Azure Network Resource Provider가 있는 지리적 위치를 참조하는 "Location" 속성에 **연결되지 않습니다** . 이 속성에 연결되지 않는 대신 회로의 피어링 위치와 지리적으로 가까운 네트워크 리소스 공급자를 선택 하는 것이 좋습니다.
 
-     > [!IMPORTANT]
-     > 피어링 위치는 Microsoft와 피어링하는 [물리적 위치](expressroute-locations.md)를 나타냅니다. 이 위치는 Azure Network Resource Provider가 있는 지리적 위치를 참조하는 "Location" 속성에 **연결되지 않습니다** . 이 속성에 연결되지 않는 대신 회로의 피어링 위치와 지리적으로 가까운 네트워크 리소스 공급자를 선택 하는 것이 좋습니다.
+    * **SKU**는 ExpressRoute 로컬, ExpressRoute 표준 또는 ExpressRoute 프리미엄 추가 기능이 사용되는지 여부를 결정합니다. **로컬**을 지정하여 로컬 SKU를 가져오거나, **표준**을 지정하여 표준 SKU를 가져오거나 프리미엄 추가 기능을 위해 **프리미엄**을 지정할 수 있습니다.
+    * **청구 모델**은 청구서 유형을 결정합니다. 데이터 요금제의 경우 **Metered**를 선택하고 무제한 데이터 요금제의 경우 **Unlimited**를 선택할 수 있습니다. 청구 유형을 **Metered**에서 **Unlimited**로 변경할 수 있습니다.
+
+    > [!IMPORTANT]
+    > 청구 유형은 **무제한**에서 **계량됨**으로 변경할 수 없습니다.
+
+    * **클래식 작업 허용**을 사용하여 클래식 가상 네트워크를 회로에 연결할 수 있습니다.
 
 ### <a name="3-view-the-circuits-and-properties"></a>3. 회로 및 속성 보기
 
 **모든 회로 보기**
 
-왼쪽 메뉴에서 **모든 리소스** 를 선택하면 만들어 놓은 모든 회로를 볼 수 있습니다.
+왼쪽 메뉴에서 **모든 리소스 > 네트워킹> ExpressRoute 회로**를 선택하면 만들어 놓은 모든 회로를 볼 수 있습니다.
 
-![회로 보기](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Expressroute 회로 메뉴":::
+
+구독에서 만든 모든 Expressroute 회로가 여기에 표시됩니다.
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Expressroute 회로 목록":::
 
 **속성 보기**
 
-회로를 선택하여 회로의 속성을 볼 수 있습니다. 회로의 **개요** 페이지에서 서비스 키가 서비스 키 필드에 표시됩니다. 회로의 서비스 키를 복사하고 서비스 공급자로 전달하여 프로비전 프로세스를 완료해야 합니다. 회로 서비스 키는 회로에 지정됩니다.
+회로를 선택하여 회로의 속성을 볼 수 있습니다. 회로의 **개요** 페이지에서 서비스 키가 서비스 키 필드에 표시됩니다. 회로의 서비스 키를 참조하고 서비스 공급자에게 제공하여 프로비저닝 프로세스를 완료합니다. 서비스 키는 회로에 지정됩니다.
 
-![속성 보기](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="속성 보기":::
 
 ### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. 프로비전을 위해 연결 공급자에 서비스 키 보내기
 
@@ -86,26 +107,26 @@ ms.locfileid: "74813115"
 
 새 ExpressRoute 회로를 만들면 회로는 다음 상태가 됩니다.
 
-공급자 상태: 프로비전 안 됨<BR>
-회로 상태: 사용
+공급자 상태: **프로비저닝되지 않음**<BR>
+회로 상태: **Enabled**
 
-![프로비전 프로세스 시작](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="프로비전 프로세스 시작":::
 
 연결 공급자가 사용자에 대해 활성화를 처리 중이면 회로가 다음 상태로 변경됩니다.
 
-공급자 상태: 프로비전<BR>
-회로 상태: 사용
+공급자 상태: **프로비전**<BR>
+회로 상태: **Enabled**
 
 ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 
-공급자 상태: 프로비전됨<BR>
-회로 상태: 사용
+공급자 상태: **프로비저닝됨**<BR>
+회로 상태: **Enabled**
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. 회로 키의 상태를 주기적으로 확인
 
 원하는 회로를 선택하여 회로의 속성을 볼 수 있습니다. **공급자 상태**를 확인하고 계속하기 전에 **프로비전됨**으로 이동했는지 확인합니다.
 
-![회로 및 공급자 상태](./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="회로 및 공급자 상태":::
 
 ### <a name="6-create-your-routing-configuration"></a>6. 라우팅 구성 만들기
 
@@ -137,7 +158,7 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 * 요금제를 *데이터 요금*에서 *무제한 데이터 요금*으로 변경합니다.
 
   > [!IMPORTANT]
-  > 요금제를 무제한 데이터 요금에서 데이터 요금으로 변경하는 것은 지원되지 않습니다.
+  > 요금제를 **무제한 데이터 요금**에서 **데이터 요금**으로 변경하는 것은 지원되지 않습니다.
 
 * *Allow Classic Operations*을 활성화하거나 비활성화할 수 있습니다.
   > [!IMPORTANT]
@@ -149,15 +170,19 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 
 ExpressRoute 회로를 수정하려면 **구성**을 클릭합니다.
 
-![회로 수정](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="회로 수정":::
 
-## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>ExpressRoute 회로 프로비전 해제 및 삭제
+## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>ExpressRoute 회로 프로비저닝 해제 및 삭제
 
-**삭제** 아이콘을 선택하여 ExpressRoute 회로를 삭제할 수 있습니다. 다음 정보에 유의하세요.
+ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비전 중** 또는 **프로비전됨**인 경우에는 서비스 공급자에게 회로 프로비전 해제를 요청해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
 
-* 모든 가상 네트워크를 ExpressRoute 회로에서 연결 해제해야 합니다. 이 작업에 실패한 경우 회로에 연결된 가상 네트워크가 있는지 확인하세요.
-* ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비전 중** 또는 **프로비전됨**인 경우에는 서비스 공급자에게 회로 프로비전 해제를 요청해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
-* 서비스 공급자가 회로 프로비전을 해제하여 서비스 공급자 프로비전 상태가 **프로비전되지 않음**이 되면 회로를 삭제할 수 있습니다. 그러면 회로에 대한 요금 청구가 중지됩니다.
+> [!NOTE]
+>* 프로비저닝을 해제하기 전에 *모든 가상 네트워크*를 ExpressRoute 회로에서 연결 해제해야 합니다. 이 작업에 실패한 경우 회로에 연결된 가상 네트워크가 있는지 확인하세요.
+>* 서비스 공급자가 회로 프로비전을 해제하여 서비스 공급자 프로비전 상태가 **프로비전되지 않음**이 되면 회로를 삭제할 수 있습니다. 그러면 회로에 대한 요금 청구가 중지됩니다.
+
+**삭제** 아이콘을 선택하여 ExpressRoute 회로를 삭제할 수 있습니다. 
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="회로 삭제":::
 
 ## <a name="next-steps"></a>다음 단계
 

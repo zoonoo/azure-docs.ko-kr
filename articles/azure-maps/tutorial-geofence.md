@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3ea9923dd98a49b1533defa3e95616655b7ea78d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121241"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299306"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 지오펜스 설정
 
@@ -258,15 +258,15 @@ Azure Maps는 세 가지 이벤트 유형을 지원합니다. Azure Maps에서 �
 
 5. 이전 섹션에서 만든 Logic App 퇴장 엔드포인트에 대해 1 ~ 4단계를 반복합니다. 3단계에서 이벤트 유형으로 `Geofence Exited`를 선택해야 합니다.
 
-## <a name="use-search-geofence-get-api"></a>지오펜스 가져오기 검색 API 사용
+## <a name="use-spatial-geofence-get-api"></a>Spatial Geofence Get API 사용
 
-이제 일부 장비가 지오펜스에서 들어오거나 나갈 때 [지오펜스 가져오기 검색 API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)를 사용하여 이메일 알림을 Operations Manager에 보냅니다.
+이제 [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)를 사용하여 일부 장비가 지오펜스에서 들어오거나 나갈 때 이메일 알림을 Operations Manager에 보냅니다.
 
 각 장비에는 `deviceId`가 있습니다. 이 자습서에서는 고유 ID가 `device_1`인 단일 장비를 추적합니다.
 
 명확히 하기 위해 다음 다이어그램에서는 지오펜스 외부의 어딘가에 있는 *시작* 위치에서 시작하여 시간 경과에 따라 장비의 5개 위치를 보여 줍니다. 이 자습서의 목적을 위해 해당 위치에서 디바이스를 쿼리하지 않으므로 *시작* 위치는 정의되지 않습니다.
 
-초기 지오펜스 입장/퇴장을 나타내는 장비 위치를 사용하여 [지오펜스 가져오기 검색 API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)를 쿼리하면, Event Grid에서 적절한 Logic App 엔드포인트를 호출하여 이메일 알림을 Operations Manager에 보냅니다.
+초기 지오펜스 입장/퇴장을 나타내는 장비 위치를 사용하여 [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)를 쿼리하면 Event Grid에서 적절한 Logic App 엔드포인트를 호출하여 이메일 알림을 Operations Manager에 보냅니다.
 
 다음 각 섹션에서는 장비의 서로 다른 5개 위치 좌표를 사용하여 HTTP GET 지오펜싱 API 요청을 수행합니다.
 

@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: c1d927583ecf0ac5684c607b7d203c3224fe87b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c4fa5a2554f10a720c0f2241e17514e798cf7f4c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318830"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812940"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너용 파이프라인 및 데이터 세트 예제(미리 보기)
 
@@ -55,9 +55,9 @@ Azure Machine Learning 디자이너에서 기본 제공되는 예제를 사용�
 
 1. 파이프라인 실행이 완료되면 파이프라인을 검토하고 각 모듈의 출력을 확인하여 자세히 알아볼 수 있습니다. 다음 단계를 사용하여 모듈 출력을 봅니다.
 
-   1. 캔버스에서 모듈을 선택합니다.
+   1. 표시하려는 출력의 캔버스에서 모듈을 마우스 오른쪽 단추로 클릭합니다.
+   1. **시각화**를 선택합니다.
 
-   1. 캔버스 오른쪽에 있는 모듈 세부 정보 창에서 **출력 + 로그**를 선택합니다. 그래프 아이콘 ![시각화 아이콘](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png)을 선택하여 각 모듈의 결과를 봅니다. 
 
    가장 일반적인 기계 학습 시나리오 중 일부에 대한 샘플을 시작점으로 사용합니다.
 

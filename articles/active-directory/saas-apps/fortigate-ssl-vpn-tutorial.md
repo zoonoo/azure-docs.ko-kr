@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b679028a0d99d20497ad1f4e7d870c39b76a136
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: ecb53d661b1171f9c1b18d37d0bb35952645ba7e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88657129"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299714"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>자습서: FortiGate SSL VPN과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -67,8 +67,8 @@ FortiGate SSL VPN에서 Azure AD SSO를 구성하고 테스트하려면 다음 �
     1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
     1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[FortiGate SSL VPN SSO 구성](#configure-fortigate-ssl-vpn-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[FortiGate SSL VPN 테스트 사용자 만들기](#create-fortigate-ssl-vpn-test-user)** - B.Simon의 Azure AD 표현과 연결되는 대응 사용자를 FortiGate SSL VPN에 만듭니다.
-1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+    1. **FortiGate SSL VPN 테스트 사용자 만들기** - B.Simon의 Azure AD 표현과 연결되는 대응 사용자를 FortiGate SSL VPN에 만듭니다.
+1. **[SSO 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
@@ -142,28 +142,119 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
+### <a name="create-a-security-group-for-the-test-user"></a>테스트 사용자에 대한 보안 그룹 만들기
+
+이 섹션에서는 테스트 사용자에 대한 보안 그룹을 Azure Active Directory에 만듭니다. 이 보안 그룹은 FortiGate에서 VPN을 통한 사용자 네트워크 액세스 권한을 부여하는 데 사용됩니다.
+
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **그룹**을 차례로 선택합니다.
+1. 화면 위쪽에서 **새 그룹**을 선택합니다.
+1. **새 그룹** 속성에서 다음 단계를 수행합니다.
+   1. **그룹 유형** 필드에서 **보안**을 선택합니다.
+   1. **이름** 필드에 `FortiGateAccess`을 입력합니다.
+   1. **그룹 설명** 필드에서 `Group for granting FortiGate VPN access`를 입력합니다.
+   1. **Azure AD 역할을 그룹에 할당할 수 있음(미리 보기)** 설정에 대해 **아니요**를 선택합니다.
+   1. **멤버 자격 유형** 필드에서 **할당됨**을 선택합니다.
+   1. **멤버** 아래에서 **선택한 멤버가 없음**을 선택 합니다.
+   1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+   1. **만들기**를 선택합니다.
+1. Azure Active Directory의 **그룹** 블레이드로 돌아가면 **FortiGateAccess** 그룹을 찾고 나중에 사용할 수 있도록 **개체 ID**를 적어 둡니다.
+
 ## <a name="configure-fortigate-ssl-vpn-sso"></a>FortiGate SSL VPN SSO 구성
 
-**FortiGate SSL VPN** 쪽의 Single Sign-On를 구성하려면 [이](https://aka.ms/AA9avum) 문서를 따르세요.
+### <a name="upload-the-base64-saml-certificate-to-the-fortigate-appliance"></a>Base64 SAML 인증서를 FortiGate 어플라이언스에 업로드
 
-> [!NOTE]
-> FortiGate SSL VPN 구성에 대한 자세한 내용은 [이](https://docs.fortinet.com/document/fortigate/6.4.0/new-features/558169/saml-sp-for-vpn-authentication) 링크를 참조하세요.
+테넌트에서 FortiGate 앱의 SAML 구성을 완료한 후 Base64로 인코딩된 SAML 인증서를 다운로드했습니다. 이는 FortiGate 어플라이언스에 업로드해야 합니다.
 
-### <a name="create-fortigate-ssl-vpn-test-user"></a>FortiGate SSL VPN 테스트 사용자 만들기
+1. FortiGate 어플라이언스의 관리 포털에 로그인합니다.
+1. 왼쪽 메뉴에서 **시스템**을 클릭합니다.
+1. **시스템** 아래에서 **인증서**를 클릭합니다.
+1. **가져오기** -> **원격 인증서**를 차례로 클릭합니다.
+1. Azure 테넌트의 FortiGate 앱 배포에서 다운로드한 인증서를 찾아서 선택하고, **확인**을 클릭합니다.
 
-이 섹션에서는 FortiGate SSL VPN에서 B.Simon이라는 사용자를 만듭니다.  [FortiGate SSL VPN 지원 팀](mailto:tac_amer@fortinet.com)과 협력하여 FortiGate SSL VPN 플랫폼에서 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+인증서가 업로드되면 **시스템** > **인증서** > **원격 인증서** 아래에 있는 이름을 적어 둡니다. 기본적으로 이름은 REMOTE_Cert_**N**입니다. 여기서 **N**은 정수 값입니다.
 
-## <a name="test-sso"></a>SSO 테스트 
+### <a name="perform-fortigate-command-line-configuration"></a>FortiGate 명령줄 구성 수행
+
+다음 단계를 수행하려면 Azure 로그아웃 URL을 구성해야 합니다. 이 URL에는 물음표(?)가 포함되어 있습니다. 이 문자를 성공적으로 전송하려면 특별한 단계가 필요합니다. 이러한 단계는 FortiGate CLI 콘솔에서 수행할 수 없습니다. 대신 PuTTY와 같은 도구를 사용하여 FortiGate 어플라이언스에 대한 SSH 세션을 설정합니다. FortiGate 어플라이언스가 Azure 가상 머신인 경우 Azure 가상 머신 직렬 콘솔에서 다음 단계를 수행할 수 있습니다.
+
+이러한 단계를 수행하려면 이전에 기록한 값이 필요합니다.
+
+- 엔터티 ID
+- 회신 URL
+- 로그아웃 URL
+- Azure 로그인 URL
+- Azure AD 식별자
+- Azure 로그아웃 URL
+- Base64 SAML 인증서 이름(REMOTE_Cert_N)
+
+1. FortiGate 어플라이언스에 대한 SSH 세션을 설정하고, FortiGate 관리자 계정으로 로그인합니다.
+1. 다음 명령을 수행합니다.
+
+   ```console
+    config user saml
+    edit azure
+    set entity-id <Entity ID>
+    set single-sign-on-url <Reply URL>
+    set single-logout-url <Logout URL>
+    set idp-single-sign-on-url <Azure Login URL>
+    set idp-entity-id <Azure AD Identifier>
+    set idp-single-logout-url <Azure Logout URL>
+    set idp-cert <Base64 SAML Certificate Name>
+    set user-name username
+    set group-name group
+    end
+
+   ```
+
+   > [!NOTE]
+   > **Azure 로그아웃 URL**에는 `?` 문자가 포함되어 있습니다. URL을 FortiGate 직렬 콘솔에 올바르게 제공하려면 특수 키 시퀀스를 입력해야 합니다. URL은 일반적으로 `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`입니다.
+   >
+   > Azure 로그아웃 URL을 직렬 콘솔에 입력하려면 `set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation`을 입력합니다.
+   > 
+   > 그런 다음, CTRL+V를 선택하고 URL의 나머지 부분을 붙여넣어 줄을 완성합니다(`set idp-single-logout-url https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`).
+
+### <a name="configure-fortigate-for-group-matching"></a>그룹 일치를 위한 FortiGate 구성
+
+이 섹션에서는 테스트 사용자가 있는 보안 그룹의 개체 ID를 인식하도록 FortiGate를 구성합니다. 이렇게 하면 FortiGate에서 이 그룹 멤버 자격에 따라 액세스 결정을 내릴 수 있습니다.
+
+다음 단계를 수행하려면 이전에 만든 **FortiGateAccess** 보안 그룹의 개체 ID가 필요합니다.
+
+1. FortiGate 어플라이언스에 대한 SSH 세션을 설정하고, FortiGate 관리자 계정으로 로그인합니다.
+1. 다음 명령을 수행합니다.
+
+   ```
+    config user group
+    edit FortiGateAccess
+    set member azure
+    config match
+    edit 1
+    set server-name azure
+    set group-name <Object Id>
+    next
+    end
+    next
+    end
+   ```
+
+### <a name="create-fortigate-vpn-portals-and-firewall-policy"></a>FortiGate VPN 포털 및 방화벽 정책 만들기
+
+이 섹션에서는 위에서 만든 **FortiGateAccess** 보안 그룹에 대한 액세스 권한을 부여하는 FortiGate VPN 포털 및 방화벽 정책을 구성합니다.
+
+ [FortiGate 지원 팀](mailto:tac_amer@fortinet.com)과 협력하여 VPN 포털 및 방화벽 정책을 FortiGate VPN 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 다음 단계를 완료해야 합니다.
+
+## <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 FortiGate SSL VPN 타일을 클릭하면 SSO를 설정한 FortiGate SSL VPN에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
+Microsoft 및 FortiGate는 최상의 최종 사용자 환경을 위해 Fortinet VPN 클라이언트인 FortiClient를 사용하도록 추천합니다.
+
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Migrate를 사용하여 AWS VM을 Azure�
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 0ef9adfe7ee88141b67bb9e8c9586c5cc6e5df6f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 386f5cbefe8ad6a375437eea7fea75b5fb5a7f65
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762422"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048536"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services) VM 검색, 평가 및 Azure로 마이그레이션
 
@@ -20,6 +20,7 @@ ms.locfileid: "88762422"
 
 이 자습서에서는 다음 작업 방법을 배웁니다.
 > [!div class="checklist"]
+>
 > * 마이그레이션을 위한 필수 조건을 확인합니다.
 > * Azure Migrate: 서버 마이그레이션을 사용하여 Azure 리소스를 준비합니다. Azure Migrate에서 사용할 Azure 계정 및 리소스에 대한 권한을 설정합니다.
 > * 마이그레이션을 위해 AWS EC2 인스턴스를 준비합니다.
@@ -57,7 +58,7 @@ Azure로 마이그레이션하기 전에 VM 검색 및 마이그레이션 평가
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
-- 마이그레이션하려는 AWS VM에서 지원되는 OS 버전을 실행하고 있는지 확인합니다. AWS VM은 마이그레이션을 위해 물리적 컴퓨터로 처리됩니다. 물리적 서버 마이그레이션 워크플로에 [지원되는 운영 체제](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines)를 검토합니다. 실제 마이그레이션을 진행하기 전에 테스트 마이그레이션(테스트 장애 조치)을 수행하여 VM이 예상대로 작동하는지 확인하는 것이 좋습니다.
+- 마이그레이션하려는 AWS VM에서 지원되는 OS 버전을 실행하고 있는지 확인합니다. AWS VM은 마이그레이션을 위해 물리적 컴퓨터로 처리됩니다. 물리적 서버 마이그레이션 워크플로에 [지원되는 운영 체제 및 커널 버전](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines)을 검토합니다. *hostnamectl* 또는 *uname -a*와 같은 표준 명령을 사용하여 Linux VM의 OS 및 커널 버전을 확인할 수 있습니다.  실제 마이그레이션을 진행하기 전에 테스트 마이그레이션(테스트 장애 조치)을 수행하여 VM이 예상대로 작동하는지 확인하는 것이 좋습니다.
 - AWS VM에서 Azure로 마이그레이션하는 데 [지원되는 구성](./migrate-support-matrix-physical-migration.md#physical-server-requirements)을 준수하는지 확인합니다.
 - Azure에 복제하는 AWS VM에서 [Azure VM 요구 사항](./migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수하는지 확인합니다.
 - VM을 Azure로 마이그레이션하기 전에 VM에서 몇 가지 사항을 변경해야 합니다.
@@ -252,7 +253,7 @@ Mobility Service 에이전트가 마이그레이션할 원본 AWS VM에 설치�
 4. **프로세스 서버**에서 복제 어플라이언스의 이름을 선택합니다. 
 5. **게스트 자격 증명**에서, [복제 설치 관리자 설치](#download-the-replication-appliance-installer) 중에 만든 더미 계정을 선택하여 모바일 서비스를 수동으로 설치합니다(푸시 설치는 지원되지 않음). 그런 다음, **다음: 가상 머신**을 클릭합니다.   
  
-    ![VM 복제](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
+    ![설정 복제](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 6. **Virtual Machines**의 **평가에서 마이그레이션 설정을 가져오시겠습니까?** 에서 기본 설정인 **아니요, 수동으로 마이그레이션 설정 지정**을 그대로 유지합니다.
 7. 마이그레이션하려는 각 VM을 선택합니다. 그런 다음, **다음: 대상 설정**을 클릭합니다.
 
@@ -381,11 +382,23 @@ Mobility Service 에이전트가 마이그레이션할 원본 AWS VM에 설치�
 **질문:** AWS VM을 검색하는 동안 "BIOS GUID를 가져오지 못했습니다."라는 오류가 발생합니다.   
 **답변:** 인증에는 항상 루트 로그인을 사용하고 의사 사용자는 사용하지 않습니다. 또한 AWS VM에 지원되는 운영 체제를 검토합니다.  
 
-**질문:** 내 복제 상태가 진행되고 있지 않습니다.    
+**질문:** 내 복제 상태가 진행되고 있지 않습니다.   
 **답변:** 복제 어플라이언스에서 요구 사항을 충족하는지 확인합니다. 데이터 전송을 위해 복제 어플라이언스 9443 TCP 포트 및 443 HTTPS 포트에서 필요한 포트를 사용하도록 설정했는지 확인합니다. 동일한 프로젝트에 연결되는 복제 어플라이언스의 버전이 오래되고 중복되지 않는지 확인합니다.   
 
 **질문:** 원격 Windows 관리 서비스에서 504 HTTP 상태 코드로 인해 Azure Migrate를 사용하여 AWS 인스턴스를 검색할 수 없습니다.    
-**답변:** Azure Migrate 어플라이언스 요구 사항 및 URL 액세스 요구 사항을 검토해야 합니다. 어플라이언스 등록을 차단하는 프록시 설정이 없는지 확인합니다.   
+**답변:** Azure Migrate 어플라이언스 요구 사항 및 URL 액세스 요구 사항을 검토해야 합니다. 어플라이언스 등록을 차단하는 프록시 설정이 없는지 확인합니다.
+
+**질문:** AWS VM을 Azure로 마이그레이션하기 전에 변경해야 하나요?   
+**답변:** EC2 VM을 Azure로 마이그레이션하기 전에 이러한 변경을 수행해야 할 수 있습니다.
+
+- VM 프로비저닝에 대해 클라우드 초기화를 사용하는 경우 Azure에 복제하기 전에 VM에서 클라우드 초기화를 사용하지 않도록 설정할 수 있습니다. VM의 클라우드 init에서 수행하는 프로비저닝 단계는 AWS에 따라 다를 수 있으며 Azure로 마이그레이션한 후에는 유효하지 않습니다. 
+- VM이 PV VM(반가상화)이 아니고 HVM VM이 아닌 경우 반가상화 VM은 AWS에서 사용자 지정 부팅 시퀀스를 사용하기 때문에 Azure에서 그대로 실행할 수 없습니다. Azure로 마이그레이션을 수행하기 전에 PV 드라이버를 제거하여 이 문제를 해결할 수 있습니다.  
+- 최종 마이그레이션 전에 테스트 마이그레이션을 실행하는 것이 좋습니다.  
+
+
+**질문:** Amazon Linux 운영 체제를 실행하는 AWS VM을 마이그레이션할 수 있나요?  
+**답변:** Amazon Linux OS는 AWS에서만 지원되므로 Amazon Linux를 실행하는 VM은 있는 그대로 마이그레이션할 수 없습니다.
+Amazon Linux에서 실행되는 워크로드를 마이그레이션하려면 Azure에서 CentOS/RHEL VM을 실행하고 관련 워크로드 마이그레이션 방법을 사용하여 AWS Linux 머신에서 실행되는 워크로드를 마이그레이션할 수 있습니다. 예를 들어 워크로드에 따라 웹 서버에 대한 데이터베이스 또는 배포 도구 등의 마이그레이션에 도움이 되는 워크로드별 도구가 있을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

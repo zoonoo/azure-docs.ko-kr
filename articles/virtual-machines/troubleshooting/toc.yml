@@ -105,6 +105,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: 보안 정책을 적용하는 동안 VM이 응답하지 않음
           href: unresponsive-vm-apply-security-policy.md
+        - name: Windows 부팅 관리자 오류 - 잘못된 이미지 해시 상태
+          href: windows-boot-error-invalid-image-hash.md
         - name: Windows 중지 오류 - 잘못된 시스템 구성 정보
           href: windows-stop-error-bad-system-config-info.md
         - name: Windows 중지 오류 - 메모리 없음 상태

@@ -36,12 +36,6 @@
       href: concepts-security.md
 - name: 방법 가이드
   items:
-    - name: 개발
-      items:
-        - name: API 및 SDK 사용
-          href: how-to-use-apis-sdks.md
-        - name: AutoRest를 사용하여 사용자 지정 SDK 만들기
-          href: how-to-create-custom-sdks.md
     - name: 배포
       items:
         - name: Azure Digital Twins CLI 사용
@@ -78,6 +72,14 @@
           href: how-to-create-azure-function.md
         - name: 쌍 그래프 쿼리
           href: how-to-query-graph.md
+    - name: 클라이언트 앱 개발
+      items:
+        - name: API 및 SDK 사용
+          href: how-to-use-apis-sdks.md
+        - name: AutoRest를 사용하여 사용자 지정 SDK 만들기
+          href: how-to-create-custom-sdks.md
+        - name: Azure SignalR 서비스와 통합
+          href: how-to-integrate-azure-signalr.md
     - name: 연결 입력
       items:
         - name: IoT Hub에서 원격 분석 수집
@@ -188,6 +190,8 @@
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/'
         - name: Azure Digital Twins 사용자 지정 Swagger
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/'
+        - name: SignalR 통합 샘플
+          href: 'https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/'
     - name: Azure 도구
       items:
         - name: Azure Cloud Shell

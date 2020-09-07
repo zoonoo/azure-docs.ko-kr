@@ -3,12 +3,12 @@ title: Azure Event Hubs - 실시간 이벤트에서 데이터 변칙 시각화
 description: '자습서: Microsoft Azure Event Hubs로 보내는 실시간 이벤트에서 데이터 변칙 시각화'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 595c0e06750171c844249a77ecef16c84dc8ada5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1394f9bedfdfc3715090bdb8a9028d2654a1e4e3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85315612"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934058"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs에 보내는 실시간 이벤트에서 데이터 이상 시각화
 
@@ -308,7 +308,7 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
 
    ![데이터 세트를 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. 시각화 형식으로 **카드**를 선택합니다. **필드** 아래에서 **값 추가**를 선택한 다음, **fraudulentuses**를 선택합니다.
+9. 시각화 형식으로 **카드**를 선택합니다. **필드**에서 **값 추가**를 클릭한 다음, `fraudulentuses`를 선택합니다.
 
    ![시각화 형식 및 필드를 지정하는 스크린샷.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -329,9 +329,9 @@ Stream Analytic 작업에서 **시작**, **지금**, **시작**을 차례로 클
 
 12. **시각화 형식**에서 **꺾은선형 차트**를 선택합니다.
 
-13. **축**에서 **값 추가**를 클릭하고 **windowend**를 선택합니다. 
+13. **축**에서 **값 추가**를 클릭하고 `windowend`를 선택합니다. 
 
-14. **축**에서 **값 추가**를 클릭하고 **fraudulentuses**를 선택합니다.
+14. **값**에서 **값 추가**를 클릭하고 `fraudulentuses`를 선택합니다.
 
 15. **표시할 시간 창**에 지난 5분을 선택합니다. **다음**을 클릭합니다.
 
@@ -378,6 +378,6 @@ Remove-AzResourceGroup -Name $resourceGroup
 Azure Event Hubs에 대해 자세히 알아보려면 다음 문서를 진행하세요.
 
 > [!div class="nextstepaction"]
-> [.NET Standard를 사용하여 Azure Event Hubs로 메시지 전송 시작](get-started-dotnet-standard-send-v2.md)
+> [.NET Standard를 사용하여 Azure Event Hubs로 메시지 전송 시작](event-hubs-dotnet-standard-getstarted-send.md)
 
 [계정을 만드세요]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

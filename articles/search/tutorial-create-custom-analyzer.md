@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021888"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290313"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>자습서: 전화 번호에 대한 사용자 지정 분석기 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "87021888"
 
 경우에 따라 사용 가능한 텍스트 필드와 같이 올바른 [언어 분석기](index-add-language-analyzers.md)를 선택하기만 하면 검색 결과가 향상됩니다. 그러나 전화 번호, URL 또는 이메일을 정확하게 검색하는 것과 같은 일부 시나리오에서는 사용자 지정 분석기를 사용해야 할 수도 있습니다.
 
-이 자습서에서는 Postman 및 Azure Cognitive Search의 [REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 다음을 수행합니다.
+이 자습서에서는 Postman 및 Azure Cognitive Search의 [REST API](/rest/api/searchservice/)를 사용하여 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * 분석기의 작동 방식 설명
@@ -225,7 +225,7 @@ GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic
 
 ## <a name="4---debug-search-results"></a>4 - 검색 결과 디버그
 
-이러한 검색 결과를 이해하려면 먼저 분석기의 작동 방식을 이해해야 합니다. 여기서는 [텍스트 분석 API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)를 사용하여 기본 분석기를 테스트한 다음, 요구 사항을 충족하는 분석기를 만들 수 있습니다.
+이러한 검색 결과를 이해하려면 먼저 분석기의 작동 방식을 이해해야 합니다. 여기서는 [텍스트 분석 API](/rest/api/searchservice/test-analyzer)를 사용하여 기본 분석기를 테스트한 다음, 요구 사항을 충족하는 분석기를 만들 수 있습니다.
 
 ### <a name="how-analyzers-work"></a>분석기의 작동 방식
 
@@ -239,7 +239,7 @@ GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic
 
 아래 다이어그램에서는 이러한 세 가지 구성 요소가 함께 작동하여 문장을 토큰화하는 방법을 확인할 수 있습니다.
 
-  ![분석기 프로세스 다이어그램](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  ![문장을 토큰화하는 분석기 프로세스 다이어그램](media/tutorial-create-custom-analyzer/analyzers-explained.png)
 
 그런 다음, 이러한 토큰은 반전된 인덱스에 저장되어 전체 텍스트를 빠르게 검색할 수 있도록 허용합니다.  반전된 인덱스는 어휘 분석 중에 추출된 모든 고유한 용어를 해당 용어가 발생한 문서에 매핑하여 전체 텍스트 검색을 가능하게 합니다. 아래 다이어그램에서는 이 예를 확인할 수 있습니다.
 
@@ -251,7 +251,7 @@ GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic
 1. 그런 다음, 반전된 인덱스에서 일치하는 용어가 있는 문서를 검색합니다.
 1. 마지막으로, [유사성 알고리즘](index-ranking-similarity.md)에 따라 검색된 문서의 순위를 매깁니다.
 
-  ![분석기 프로세스 다이어그램](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  ![분석기 프로세스 순위 유사성 다이어그램](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
 
 쿼리 용어가 반전된 인덱스의 용어와 일치하지 않으면 결과가 반환되지 않습니다. 쿼리가 작동하는 방법에 대한 자세한 내용은 [전체 텍스트 검색에 대한 이 문서](search-lucene-query-architecture.md)를 참조하세요.
 
@@ -260,7 +260,7 @@ GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic
 
 ### <a name="test-analyzer-using-the-analyze-text-api"></a>텍스트 분석 API를 사용하여 분석기 테스트
 
-Azure Cognitive Search는 분석기를 테스트하여 분석기에서 텍스트를 처리하는 방법을 이해할 수 있도록 하는 [텍스트 분석 API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)를 제공합니다.
+Azure Cognitive Search는 분석기를 테스트하여 분석기에서 텍스트를 처리하는 방법을 이해할 수 있도록 하는 [텍스트 분석 API](/rest/api/searchservice/test-analyzer)를 제공합니다.
 
 텍스트 분석 API는 다음 요청을 사용하여 호출됩니다.
 

@@ -4,12 +4,12 @@ description: 이 자습서에서는 Recovery Services 자격 증명 모음을 �
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a9517ffc1e37d50f7c0e57b9ed53fb8bcf55fd70
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757509"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180578"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal을 사용하여 여러 가상 머신을 백업
 
@@ -53,7 +53,7 @@ Recovery Services 자격 증명 모음에는 백업 데이터, 그리고 보호�
 
     ![Recovery Services 자격 증명 모음 값](./media/tutorial-backup-vm-at-scale/review-and-create.png)
 
-    Recovery Services 자격 증명 모음은 보호 중인 가상 머신과 동일한 위치에 있어야 합니다. 가상 머신이 여러 지역에 있는 경우 각 지역에 Recovery Services 자격 증명 모음을 만듭니다. 이 자습서에서는 *서유럽*에 Recovery Services 자격 증명 모음을 만듭니다. 이 지역에 *myVM*(퀵 스타트로 만든 가상 머신)을 생성했기 때문입니다.
+    Recovery Services 자격 증명 모음은 보호 중인 가상 머신과 동일한 위치에 있어야 합니다. 가상 머신이 여러 지역에 있는 경우 각 지역에 Recovery Services 자격 증명 모음을 만듭니다. 이 자습서에서는 *서유럽*에 Recovery Services 자격 증명 모음을 만듭니다. 이 지역에 *myVM*(빠른 시작으로 만든 가상 머신)을 생성했기 때문입니다.
 
 1. Recovery Services 자격 증명 모음을 만들 준비가 되면 **만들기**를 선택합니다.
 

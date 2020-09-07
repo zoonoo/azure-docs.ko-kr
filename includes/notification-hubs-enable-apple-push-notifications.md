@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a9e8574ea2d7222871c7f065383e6c0c62057dd3
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
-ms.translationtype: MT
+ms.openlocfilehash: 1cb7753f54e9c1334e35635c227f776041631f1d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81007836"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864854"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>인증서 서명 요청 파일 생성
 
@@ -95,7 +95,7 @@ APNs(Apple Push Notification Service)는 인증서를 사용하여 푸시 알림
     **Create a new Certificate**(새 인증서 만들기) 화면이 표시됩니다.
 
     > [!NOTE]
-    > 이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 알림을 보낼 때 동일한 인증서 유형을 사용하는지만 확인하면 됩니다.
+    > 이 자습서에서는 앱에서 고유한 디바이스 토큰을 생성하는 데 사용하는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 알림을 보낼 때 동일한 인증서 유형을 사용하는지만 확인하면 됩니다.
 
 3. **Choose File**(파일 선택)을 선택하고, 첫 번째 작업에서 CSR 파일을 저장한 위치로 이동한 다음, 인증서 이름을 두 번 클릭하여 로드합니다. 그런 다음, **계속**을 선택합니다.
 
@@ -211,7 +211,7 @@ APNs(Apple Push Notification Service)는 인증서를 사용하여 푸시 알림
 **Notification Services**에서 **Apple(APNS)** 을 선택한 다음, 이전에 [Notification Hubs에 대한 인증서 만들기](#creating-a-certificate-for-notification-hubs) 섹션에서 선택한 접근 방식에 따라 적절한 단계를 수행합니다.  
 
 > [!NOTE]
-> 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우에만 **애플리케이션 모드**에서 **프로덕션** 모드를 사용합니다.
+> App Store 또는 앱 Ad-Hoc 배포 프로필을 사용하여 앱을 빌드하는 경우 **애플리케이션 모드**용 **프로덕션**을 사용합니다. 이렇게 하면 디바이스가 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보낼 수 있습니다.
 
 ### <a name="option-1-using-a-p12-push-certificate"></a>옵션 1: .p12 푸시 인증서 사용
 

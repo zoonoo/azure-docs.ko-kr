@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: b4167f8958f7a1613c4d48625f7a79a02c7588d0
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4028d6732220dba4848c88306a501ce22af7487a
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543404"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144027"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>자습서: CLI에서 모델 학습 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -300,7 +300,7 @@ runconfig 파일에는 학습 실행용 환경을 구성하는 데 사용되는 
 > [!TIP]
 > runconfig 파일을 수동으로 만들 수 있지만 이 예제의 파일은 리포지토리에 포함된 `generate-runconfig.py` 파일을 사용하여 만들었습니다. 이 파일은 등록된 데이터 세트에 대한 참조를 가져오고, 프로그래밍 방식으로 실행 구성을 만든 다음, 파일에 보관합니다.
 
-실행 구성 파일에 대한 자세한 내용은 [모델 학습의 컴퓨팅 대상 설정 및 사용](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli)을 참조하세요. 전체 JSON 참조는 [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json)을 참조하세요.
+실행 구성 파일에 대한 자세한 내용은 [모델 학습의 컴퓨팅 대상 사용](how-to-set-up-training-targets.md#whats-a-run-configuration)을 참조하세요. 전체 JSON 참조는 [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json)을 참조하세요.
 
 ## <a name="submit-the-training-run"></a>학습 실행 제출
 

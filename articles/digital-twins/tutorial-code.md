@@ -1,5 +1,5 @@
 ---
-title: 클라이언트 앱 코딩
+title: '자습서: 클라이언트 앱 코딩'
 titleSuffix: Azure Digital Twins
 description: .NET(C#) SDK를 사용하여 클라이언트 앱의 최소 코드를 작성하는 자습서입니다.
 author: baanders
@@ -7,16 +7,23 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 52a22dd215769208b60f180b576ae5763d67eade
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723472"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923707"
 ---
-# <a name="coding-with-the-azure-digital-twins-apis"></a>Azure Digital Twins API를 사용하여 코딩
+# <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>자습서: Azure Digital Twins API를 사용하여 코딩
 
 Azure Digital Twins를 사용하는 개발자는 Azure Digital Twins 서비스 인스턴스와 상호 작용하기 위한 클라이언트 애플리케이션을 작성하는 것이 일반적입니다. 이 개발자 중심 자습서에서는 [.NET(C#)용 Azure IoT Digital Twin 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)를 사용하여 Azure Digital Twins 서비스에 대한 프로그래밍을 소개합니다. C# 콘솔 클라이언트 앱을 작성하는 과정을 처음부터 단계별로 안내합니다.
+
+> [!div class="checklist"]
+> * 프로젝트 설정
+> * 프로젝트 코드 시작   
+> * 전체 코드 샘플
+> * 리소스 정리
+> * 다음 단계
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -48,7 +55,7 @@ dotnet new console
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.1.1
+dotnet add package Azure.identity
 ```
 
 첫 번째 종속성은 [.NET용 Azure IoT Digital Twin 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)입니다. 두 번째 종속성은 Azure에 대한 인증에 유용한 도구를 제공합니다.
@@ -419,7 +426,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
@@ -532,24 +538,7 @@ namespace minimal
  
 이 자습서에서 사용한 인스턴스를 다음 자습서인 [*자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기*](tutorial-command-line-app.md)에서 다시 사용할 수 있습니다. 다음 자습서를 계속 진행하려는 경우 여기에서 설정한 Azure Digital Twins 인스턴스를 유지할 수 있습니다.
  
-이 자습서에서 만든 리소스가 더 이상 필요하지 않으면 다음 단계에 따라 삭제합니다.
-
-[Azure Cloud Shell](https://shell.azure.com)을 사용하면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령으로 리소스 그룹의 모든 Azure 리소스를 삭제할 수 있습니다. 그러면 리소스 그룹과 Azure Digital Twins 인스턴스가 제거됩니다.
-
-> [!IMPORTANT]
-> 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 
-
-Azure Cloud Shell을 열고 다음 명령을 실행하여 리소스 그룹과 그 안에 포함된 모든 항목을 삭제합니다.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-그리고 다음 명령을 사용하여 클라이언트 앱에 대해 만든 Azure Active Directory 앱 등록을 삭제합니다.
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 마지막으로, 로컬 컴퓨터에서 만든 프로젝트 폴더를 삭제합니다.
 
@@ -561,7 +550,3 @@ az ad app delete --id <your-application-ID>
 
 > [!div class="nextstepaction"]
 > [*자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기*](tutorial-command-line-app.md)
-
-또한 방법 문서에서 추가 관리 작업을 학습하여 이 자습서에서 작성한 코드에 추가하거나, 개념 설명서를 검토하여 자습서에서 작업한 요소에 대한 자세한 정보를 알아볼 수 있습니다.
-* [*방법: 사용자 지정 모델 관리*](how-to-manage-model.md)
-* [*개념: 사용자 지정 모델*](concepts-models.md)

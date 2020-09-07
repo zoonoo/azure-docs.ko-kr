@@ -52,6 +52,8 @@
           href: users-sharing-accounts.md
         - name: 관리자 역할에 사용자 할당
           href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
+        - name: 사용자 관리 향상
+          href: users-search-enhanced.md
         - name: 사용자 대량 삭제
           href: users-bulk-delete.md
         - name: 삭제한 사용자 복원

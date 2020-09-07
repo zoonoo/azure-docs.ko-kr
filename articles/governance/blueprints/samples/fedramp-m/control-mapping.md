@@ -3,12 +3,12 @@ title: FedRAMP Moderate 청사진 샘플 컨트롤
 description: FedRAMP Moderate 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
 ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: 0dae1e9482c198fed5f0b1b2e46d222c46ca5555
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 264467fa03a1c72c31ea6073f57a7931ece3da64
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921710"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296144"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>FedRAMP Moderate 청사진 샘플의 컨트롤 매핑
 
@@ -102,19 +102,19 @@ Azure 구독 소유자가 한 명만 있으면 관리 중복이 허용되지 않
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) 최소한의 기능 | 프로그램 실행 금지
 
-Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하는 자동화된 인텔리전트 엔드투엔드 애플리케이션 허용 목록 관리 솔루션입니다. 애플리케이션 제어는 승인되지 않은 애플리케이션의 실행을 금지하는 적용 모드에서 실행할 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 Azure Policy 정의를 할당합니다.
+Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하거나 방지할 수 있는 자동화된 인텔리전트 엔드투엔드 애플리케이션 필터링 솔루션입니다. 애플리케이션 제어는 승인되지 않은 애플리케이션의 실행을 금지하는 적용 모드에서 실행할 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 Azure Policy 정의를 할당합니다.
 
 - 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) 최소한의 기능 | 권한이 부여된 소프트웨어/허용 목록
 
-Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하는 자동화된 인텔리전트 엔드투엔드 애플리케이션 허용 목록 관리 솔루션입니다. 애플리케이션 제어를 사용하면 가상 머신에 사용하도록 승인인 애플리케이션 목록을 만들 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하거나 방지할 수 있는 자동화된 인텔리전트 엔드투엔드 애플리케이션 필터링 솔루션입니다. 애플리케이션 제어를 사용하면 가상 머신에 사용하도록 승인인 애플리케이션 목록을 만들 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 사용자가 설치한 소프트웨어
 
-Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하는 자동화된 인텔리전트 엔드투엔드 애플리케이션 허용 목록 관리 솔루션입니다. 애플리케이션 제어를 사용하면 소프트웨어 제한 정책을 적용하고 규정 준수 여부를 모니터링할 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하거나 방지할 수 있는 자동화된 인텔리전트 엔드투엔드 애플리케이션 필터링 솔루션입니다. 애플리케이션 제어를 사용하면 소프트웨어 제한 정책을 적용하고 규정 준수 여부를 모니터링할 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 가상 머신에서 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.
 

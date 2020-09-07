@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/12/2020
+ms.date: 08/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 8bd41034d6d4cfa444ae4c0711fd46cb2924d009
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d8a4a4360265cabc179c8cd41d0a33a0575f55a6
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554086"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855013"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>자습서: Palo Alto Networks - Admin UI와 Azure Active Directory 통합
 
@@ -43,6 +43,7 @@ Palo Alto Networks - Admin UI와의 Azure AD 통합을 구성하려면 다음 �
 
 * Palo Alto Networks - Admin UI에서 **SP** 시작 SSO를 지원합니다.
 * Palo Alto Networks - Admin UI에서 **Just-In-Time** 사용자 프로비전을 지원합니다.
+* Palo Alto Networks - Admin UI가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-palo-alto-networks---admin-ui-from-the-gallery"></a>갤러리에서 Palo Alto Networks - Admin UI 추가
 
@@ -55,8 +56,7 @@ Palo Alto Networks - Admin UI의 Azure AD 통합을 구성하려면 갤러리의
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **Palo Alto Networks - Admin UI**를 입력합니다.
 1. 결과 패널에서 **Palo Alto Networks - Admin UI**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
-
+## <a name="configure-and-test-azure-ad-sso"></a>Azure AD SSO 구성 및 테스트
 이 섹션에서는 **B.Simon**이라는 테스트 사용자를 기반으로 하여 Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 Single Sign-On이 작동하려면 Azure AD 사용자와 Palo Alto Networks - Admin UI의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
@@ -116,6 +116,9 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하려면 �
     | 사용자 이름 | user.userprincipalname |
     | adminrole | customadmin |
     | | |
+
+    > [!NOTE]
+    > _adminrole_ 값은 9단계에서 설명한 대로 **Palo Alto Networks**에 구성된 역할 이름과 동일해야 합니다. 
 
     > [!NOTE]
     > 특성에 대한 자세한 내용은 다음 문서를 참조하세요.
@@ -272,5 +275,3 @@ Palo Alto Networks - Admin UI는 Just-In-Time 사용자 프로비저닝을 지�
 - [Azure AD에서 Palo Alto Networks - Admin UI 사용해보기](https://aad.portal.azure.com/)
 
 - [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [고급 표시 유형 및 컨트롤을 사용하여 Palo Alto Networks - Admin UI를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

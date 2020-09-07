@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b3f279b28bf78114556623865a9f132174c6e41
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550543"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297317"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>자습서: Hightail과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -109,7 +109,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> Hightail 앱에서 Single Sign On을 구성하기 전에 이 도메인을 사용하는 모든 사용자가 Single Sign On 기능을 활용할 수 있도록 Hightail 팀을 통해 전자 메일 도메인을 허용 목록에 포함시키세요.
+> Hightail 앱에서 Single Sign On을 구성하기 전에 이 도메인을 사용하는 모든 사용자가 Single Sign On 기능을 사용할 수 있도록 Hightail 팀의 허용 목록에 이메일 도메인을 추가하세요.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

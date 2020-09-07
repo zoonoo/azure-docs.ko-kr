@@ -10,16 +10,17 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b61ba7f160d012cc3d9ad9f477e969a626fdc38e
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541422"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378018"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>단일 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
-Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/managed-identity.md)를 사용하는 것이지만, 이 방법을 사용할 수 없는 시나리오도 있습니다. 이러한 경우 액세스 키 또는 비밀이 사용됩니다. 액세스 키 또는 비밀은 정기적으로 순환해야 합니다.
+Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/authentication.md)를 사용하는 것이지만, 이 방법을 사용할 수 없는 시나리오도 있습니다. 이러한 경우 액세스 키 또는 비밀이 사용됩니다. 액세스 키 또는 비밀은 정기적으로 순환해야 합니다.
 
 이 자습서에서는 단일 인증 자격 증명 세트를 사용하는 데이터베이스 및 서비스의 비밀을 정기적으로 자동 순환하는 방법을 보여줍니다. 특히 이 자습서에서는 Azure Event Grid 알림에 의해 트리거되는 함수를 사용하여 Azure Key Vault에 저장된 SQL 서버 암호를 순환합니다.
 
@@ -112,7 +113,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-함수 앱을 만들고 관리 ID를 사용하여 Key Vault에 액세스하는 방법에 대한 자세한 내용은 [Azure Portal에서 함수 앱 만들기](../../azure-functions/functions-create-function-app-portal.md) 및 [관리 ID를 사용하여 Key Vault 인증 제공](../general/managed-identity.md)을 참조하세요.
+함수 앱을 만들고 관리 ID를 사용하여 Key Vault에 액세스하는 방법에 대한 자세한 내용은 [Azure Portal에서 함수 앱 만들기](/azure/azure-functions/functions-create-function-app-portal), [App Service 및 Azure Functions에 관리 ID를 사용하는 방법](/azure/app-service/overview-managed-identity) 및 [Azure Portal을 사용하여 Key Vault 액세스 정책 할당](../general/assign-access-policy-portal.md)을 참조하세요.
 
 ### <a name="rotation-function"></a>순환 함수
 이전 단계에서 배포된 함수는 이벤트를 사용하여 Key Vault 및 SQL 데이터베이스를 업데이트하는 방식으로 비밀의 순환을 트리거합니다. 

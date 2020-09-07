@@ -62,7 +62,7 @@
       href: walkthroughs-azure-data-lake.md
     - name: 'SQL Server를 사용하는 R, Python 및 T-SQL'
       href: walkthroughs-sql-server.md
-    - name: SQL DW를 사용하는 T-SQL 및 Python
+    - name: Azure Synapse Analytics를 사용하는 T-SQL 및 Python
       href: walkthroughs-sql-data-warehouse.md
 - name: 유틸리티 및 도구
   items:

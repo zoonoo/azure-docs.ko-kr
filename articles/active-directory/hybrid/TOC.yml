@@ -262,6 +262,8 @@
           href: how-to-connect-health-diagnose-sync-errors.md
         - name: Azure AD Connect Health 경고 카탈로그
           href: how-to-connect-health-alert-catalog.md
+        - name: Azure AD Connect Health 데이터 검색
+          href: how-to-connect-health-data-retrieval.md
     - name: Azure AD Connect 동기화 관리
       items:
         - name: 준비 서버 및 재해 복구

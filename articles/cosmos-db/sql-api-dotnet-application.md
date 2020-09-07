@@ -8,12 +8,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
-ms.openlocfilehash: 69a0fec0dd5036b021926045ff3a63a011966654
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 6772150338dd0d172f2f100c2aa8cae7175b18d6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118885"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051300"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발
 
@@ -116,36 +117,19 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 ### <a name="add-views"></a><a name="add-views"></a>뷰 추가
 
-다음으로, 아래의 세 가지 보기를 추가해 보겠습니다.
+다음으로, 다음 보기를 추가해 보겠습니다.
 
-* 목록 항목 보기 추가
-* 새 항목 보기 추가
-* 편집 항목 보기 추가
+* 항목 보기 만들기
+* 항목 보기 삭제
+* 항목 세부 정보를 가져오는 보기
+* 편집 항목 보기
+* 모든 항목을 나열하는 보기
 
-#### <a name="add-a-list-item-view"></a><a name="AddItemIndexView"></a>목록 항목 뷰 추가
+#### <a name="create-item-view"></a><a name="AddNewIndexView"></a>항목 보기 만들기
 
 1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Views** 폴더를 클릭하고, **추가** > **새 폴더**를 차례로 선택합니다. 폴더 이름을 *Item*으로 지정합니다.
 
 1. 마우스 오른쪽 단추로 빈 **Item** 폴더를 클릭한 다음, **추가** > **보기**를 차례로 선택합니다.
-
-1. **MVC 보기 추가**에서 다음 값을 제공합니다.
-
-   * **보기 이름**에서 *인덱스*를 입력합니다.
-   * **템플릿**에서 **목록**을 선택합니다.
-   * **모델 클래스**에서 **항목(todo.Models)** 을 선택합니다.
-   * **레이아웃 페이지 사용**을 선택하고, *~/Views/Shared/_Layout.cshtml*을 입력합니다.
-
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="MVC 보기 추가 대화 상자를 보여 주는 스크린샷":::
-
-1. 이러한 값을 모두 추가한 후 **추가**를 클릭하면 Visual Studio에서 새 템플릿 뷰를 만듭니다.
-
-완료되면 Visual Studio에서 만든 *cshtml* 파일을 엽니다. Visual Studio에서 해당 파일을 닫을 수 있습니다. 나중에 다시 살펴보겠습니다.
-
-#### <a name="add-a-new-item-view"></a><a name="AddNewIndexView"></a>새 항목 뷰 추가
-
-목록 항목에 대한 뷰를 만든 방법과 유사하게, 다음 단계를 사용하여 항목을 만들기 위한 새 뷰를 만듭니다.
-
-1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Item** 폴더를 클릭하고, **추가** > **보기**를 차례로 선택합니다.
 
 1. **MVC 보기 추가**에서 다음과 같이 변경합니다.
 
@@ -155,9 +139,44 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
    * **레이아웃 페이지 사용**을 선택하고, *~/Views/Shared/_Layout.cshtml*을 입력합니다.
    * **추가**를 선택합니다.
 
-#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>항목 편집 뷰 추가
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="MVC 보기 추가 대화 상자를 보여 주는 스크린샷":::
 
-마지막으로, 다음 단계를 사용하여 항목을 편집하기 위한 뷰를 추가합니다.
+1. 다음으로, **추가**를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
+
+#### <a name="delete-item-view"></a><a name="AddEditIndexView"></a>항목 보기 삭제
+
+1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Item** 폴더를 다시 클릭하고, **추가** > **보기**를 차례로 선택합니다.
+
+1. **MVC 보기 추가**에서 다음과 같이 변경합니다.
+
+   * **보기 이름** 상자에 *Delete*를 입력합니다.
+   * **템플릿** 상자에서 **삭제**를 선택합니다.
+   * **모델 클래스** 상자에서 **Item(todo.Models)** 을 선택합니다.
+   * **레이아웃 페이지 사용**을 선택하고, *~/Views/Shared/_Layout.cshtml*을 입력합니다.
+   * **추가**를 선택합니다.
+
+1. 다음으로, **추가**를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Delete.cshtml":::
+
+#### <a name="add-a-view-to-get-an-item-details"></a><a name="AddItemIndexView"></a>보기를 추가하여 항목 세부 정보 가져오기
+
+1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Item** 폴더를 클릭하고, **추가** > **보기**를 차례로 선택합니다.
+
+1. **MVC 보기 추가**에서 다음 값을 제공합니다.
+
+   * **보기 이름**에서 *세부 정보*를 입력합니다.
+   * **템플릿**에서 **세부 정보**를 선택합니다.
+   * **모델 클래스**에서 **항목(todo.Models)** 을 선택합니다.
+   * **레이아웃 페이지 사용**을 선택하고, *~/Views/Shared/_Layout.cshtml*을 입력합니다.
+
+1. 다음으로, **추가**를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
+
+#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>항목 편집 뷰 추가
 
 1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Item** 폴더를 다시 클릭하고, **추가** > **보기**를 차례로 선택합니다.
 
@@ -169,7 +188,29 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
    * **레이아웃 페이지 사용**을 선택하고, *~/Views/Shared/_Layout.cshtml*을 입력합니다.
    * **추가**를 선택합니다.
 
-이러한 단계가 완료되면 나중에 이러한 보기로 돌아갈 때 Visual Studio에서 모든 *cshtml* 문서를 닫습니다.
+1. 다음으로, **추가**를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Edit.cshtml":::
+
+#### <a name="add-a-view-to-list-all-the-items"></a><a name="AddEditIndexView"></a>모든 항목을 나열하는 보기 추가
+
+마지막으로, 다음 단계를 사용하여 모든 항목을 가져오는 보기를 추가합니다.
+
+1. **솔루션 탐색기**에서 마우스 오른쪽 단추로 **Item** 폴더를 다시 클릭하고, **추가** > **보기**를 차례로 선택합니다.
+
+1. **MVC 보기 추가**에서 다음과 같이 변경합니다.
+
+   * **뷰 이름** 상자에 *Index*를 입력합니다.
+   * **템플릿** 상자에서 **List**를 선택합니다.
+   * **모델 클래스** 상자에서 **Item(todo.Models)** 을 선택합니다.
+   * **레이아웃 페이지 사용**을 선택하고, *~/Views/Shared/_Layout.cshtml*을 입력합니다.
+   * **추가**를 선택합니다.
+
+1. 다음으로, **추가**를 선택하고 Visual Studio에서 새 템플릿 보기를 만들도록 합니다. 생성된 파일의 코드를 다음 내용으로 바꿉니다.
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Index.cshtml":::
+
+이러한 단계가 완료되면 Visual Studio에서 모든 *cshtml* 문서를 닫습니다.
 
 ### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>서비스 선언 및 초기화
 

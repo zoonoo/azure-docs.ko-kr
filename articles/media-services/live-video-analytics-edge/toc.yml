@@ -93,10 +93,10 @@
       href: troubleshoot-how-to.md
 - name: 참조
   items:
-    - name: HTTP 데이터 계약
-      href: http-data-contract.md
-    - name: gRPC 데이터 계약
-      href: grpc-data-contract.md
+    - name: HTTP 확장 프로토콜
+      href: http-extension-protocol.md
+    - name: gRPC 확장 프로토콜
+      href: grpc-extension-protocol.md
     - name: 유추 메타데이터 스키마
       href: inference-metadata-schema.md
     - name: 직접 메서드

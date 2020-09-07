@@ -312,6 +312,8 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: 사용자 지정 Docker 이미지를 사용하여 학습
+          href: how-to-train-with-custom-image.md
         - name: 교육 추적 및 모니터링
           items:
             - name: '시작, 모니터링 또는 실행 취소'

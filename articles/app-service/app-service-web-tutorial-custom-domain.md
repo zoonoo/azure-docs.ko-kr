@@ -5,14 +5,14 @@ keywords: App Service, Azure App Service, 도메인 매핑, 도메인 이름, �
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/13/2020
+ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1496f46eb29831dfb858f061ccc00c9e3dbc2e75
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 4a2c65e2685dada6412adf8c8ad9c63f472b91e8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782314"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962284"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -33,7 +33,7 @@ ms.locfileid: "88782314"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [App Service 앱을 만들거나](/azure/app-service/) 다른 자습서에서 만든 앱을 사용합니다.
+* [App Service 앱을 만들거나](./index.yml) 다른 자습서에서 만든 앱을 사용합니다.
 * 도메인 이름을 구입하고 도메인 공급자(예: GoDaddy)의 DNS 레지스트리에 대한 액세스 권한이 있는지 확인합니다.
 
   예를 들어 `contoso.com` 및 `www.contoso.com`에 대한 DNS 항목을 추가하려면 `contoso.com` 루트 도메인에 대한 DNS 설정을 구성할 수 있어야 합니다.
@@ -138,38 +138,34 @@ CNAME 및 TXT 레코드를 추가하면 DNS 레코드 페이지는 다음 예제
 
 #### <a name="enable-the-cname-record-mapping-in-azure"></a>Azure에서 CNAME 레코드 매핑 사용
 
-Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다.
+1. Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다.
 
-![사용자 지정 도메인 메뉴](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![사용자 지정 도메인 메뉴](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-앱의 **사용자 지정 도메인** 페이지에서 정규화된 사용자 지정 DNS 이름(`www.contoso.com`)을 목록에 추가합니다.
+1. 앱의 **사용자 지정 도메인** 페이지에서 정규화된 사용자 지정 DNS 이름(`www.contoso.com`)을 목록에 추가합니다.
 
-**사용자 지정 도메인 추가** 옆에 있는 **+** 아이콘을 선택합니다.
+1. **사용자 지정 도메인 추가**를 선택합니다.
 
-![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-`www.contoso.com`과 같이 CNAME 레코드를 추가한 정규화된 도메인 이름을 입력합니다.
+1. `www.contoso.com`과 같이 CNAME 레코드를 추가한 정규화된 도메인 이름을 입력합니다.
 
-**유효성 검사**를 선택합니다.
+1. **유효성 검사**를 선택합니다. **사용자 지정 도메인 추가** 페이지가 표시됩니다.
 
-**사용자 지정 도메인 추가** 페이지가 표시됩니다.
+1. **호스트 이름 레코드 형식**이 **CNAME(www\.example.com 또는 하위 도메인)** 으로 설정되어 있는지 확인합니다. **사용자 지정 도메인 추가**를 선택합니다.
 
-**호스트 이름 레코드 형식**이 **CNAME(www\.example.com 또는 하위 도메인)** 으로 설정되어 있는지 확인합니다.
+    ![앱에 DNS 이름 추가](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-**사용자 지정 도메인 추가**를 선택합니다.
+    새 사용자 지정 도메인이 앱의 **사용자 지정 도메인** 페이지에 반영될 때까지 약간의 시간이 걸릴 수 있습니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
 
-![앱에 DNS 이름 추가](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+    ![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-새 사용자 지정 도메인이 앱의 **사용자 지정 도메인** 페이지에 반영될 때까지 약간의 시간이 걸릴 수 있습니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
+    > [!NOTE]
+    > 사용자 지정 도메인에 대한 경고 레이블은 TLS/SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인으로 보내는 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. TLS 바인딩을 추가하려면 [Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조하세요.
 
-![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
+    이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
 
-> [!NOTE]
-> 사용자 지정 도메인에 대한 **안전하지 않음** 레이블은 TLS/SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. TLS 바인딩을 추가하려면 [Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조하세요.
-
-이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
-
-![확인 오류](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
+    ![확인 오류](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
 <a name="a" aria-hidden="true"></a>
 
@@ -223,33 +219,29 @@ A 레코드를 앱(일반적으로 루트 도메인)에 매핑하려면 두 개�
 
 Azure Portal에서 해당 앱의 **사용자 지정 도메인** 페이지로 돌아가서 정규화된 사용자 지정 DNS 이름(예: `contoso.com`)을 목록에 추가합니다.
 
-**사용자 지정 도메인 추가** 옆에 있는 **+** 아이콘을 선택합니다.
+1. **사용자 지정 도메인 추가**를 선택합니다.
 
-![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-`contoso.com`과 같이 A 레코드를 구성한 정규화된 도메인 이름을 입력합니다.
+1. `contoso.com`과 같이 A 레코드를 구성한 정규화된 도메인 이름을 입력합니다. 
 
-**유효성 검사**를 선택합니다.
+1. **유효성 검사**를 선택합니다. **사용자 지정 도메인 추가** 페이지가 표시됩니다.
 
-**사용자 지정 도메인 추가** 페이지가 표시됩니다.
+1. **호스트 이름 레코드 형식**이 **A 레코드(example.com)** 로 설정되어 있는지 확인합니다. **사용자 지정 도메인 추가**를 선택합니다.
 
-**호스트 이름 레코드 형식**이 **A 레코드(example.com)** 로 설정되어 있는지 확인합니다.
+    ![앱에 DNS 이름 추가](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-**사용자 지정 도메인 추가**를 선택합니다.
+    새 사용자 지정 도메인이 앱의 **사용자 지정 도메인** 페이지에 반영될 때까지 약간의 시간이 걸릴 수 있습니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
 
-![앱에 DNS 이름 추가](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
+    ![추가된 A 레코드](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
-새 사용자 지정 도메인이 앱의 **사용자 지정 도메인** 페이지에 반영될 때까지 약간의 시간이 걸릴 수 있습니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
-
-![추가된 A 레코드](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
-
-> [!NOTE]
-> 사용자 지정 도메인에 대한 **안전하지 않음** 레이블은 TLS/SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. TLS 바인딩을 추가하려면 [Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조하세요.
-
-이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
-
-![확인 오류](./media/app-service-web-tutorial-custom-domain/verification-error.png)
-
+    > [!NOTE]
+    > 사용자 지정 도메인에 대한 경고 레이블은 TLS/SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인으로 보내는 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. TLS 바인딩을 추가하려면 [Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조하세요.
+    
+    이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
+    
+    ![확인 오류](./media/app-service-web-tutorial-custom-domain/verification-error.png)
+    
 <a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>와일드카드 도메인 매핑
@@ -279,33 +271,31 @@ CNAME을 추가하면 DNS 레코드 페이지가 다음 예제와 비슷합니�
 
 이제 와일드카드 이름과 일치하는 모든 하위 도메인을 앱에 추가할 수 있습니다(예: `sub1.contoso.com`, `sub2.contoso.com`, `*.contoso.com`은 모두 `*.contoso.com`과 일치).
 
-Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다.
+1. Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다.
 
-![사용자 지정 도메인 메뉴](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![사용자 지정 도메인 메뉴](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-**사용자 지정 도메인 추가** 옆에 있는 **+** 아이콘을 선택합니다.
+1. **사용자 지정 도메인 추가**를 선택합니다.
 
-![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-와일드카드 도메인과 일치하는 정규화된 도메인 이름(예: `sub1.contoso.com`)을 입력한 다음 **유효성 검사**를 선택합니다.
+1. 와일드카드 도메인과 일치하는 정규화된 도메인 이름(예: `sub1.contoso.com`)을 입력한 다음 **유효성 검사**를 선택합니다.
 
-**사용자 지정 도메인 추가** 단추가 활성화됩니다.
+    **사용자 지정 도메인 추가** 단추가 활성화됩니다.
 
-**호스트 이름 레코드 형식**이 **CNAME 레코드(www\.example.com or any subdomain)** 로 설정되어 있는지 확인합니다.
+1. **호스트 이름 레코드 형식**이 **CNAME 레코드(www\.example.com or any subdomain)** 로 설정되어 있는지 확인합니다. **사용자 지정 도메인 추가**를 선택합니다.
 
-**사용자 지정 도메인 추가**를 선택합니다.
+    ![앱에 DNS 이름 추가](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-![앱에 DNS 이름 추가](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
+    새 사용자 지정 도메인이 앱의 **사용자 지정 도메인** 페이지에 반영될 때까지 약간의 시간이 걸릴 수 있습니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
 
-새 사용자 지정 도메인이 앱의 **사용자 지정 도메인** 페이지에 반영될 때까지 약간의 시간이 걸릴 수 있습니다. 데이터를 업데이트하려면 브라우저를 새로 고쳐 보세요.
+1. **+** 아이콘을 다시 선택하여 와일드카드 도메인과 일치하는 또 다른 사용자 지정 도메인을 추가합니다. 예를 들어 `sub2.contoso.com`을 추가합니다.
 
-**+** 아이콘을 다시 선택하여 와일드카드 도메인과 일치하는 또 다른 사용자 지정 도메인을 추가합니다. 예를 들어 `sub2.contoso.com`을 추가합니다.
+    ![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard-2.png)
 
-![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
-
-> [!NOTE]
-> 사용자 지정 도메인에 대한 **Note Secure** 레이블은 TLS/SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. TLS 바인딩을 추가하려면 [Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조하세요.
-
+    > [!NOTE]
+    > 사용자 지정 도메인에 대한 경고 레이블은 TLS/SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인으로 보내는 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. TLS 바인딩을 추가하려면 [Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조하세요.
+    
 ## <a name="test-in-browser"></a>브라우저에서 테스트
 
 이전에 구성한 DNS 이름(예: `contoso.com`, `www.contoso.com`, `sub1.contoso.com` 및 `sub2.contoso.com`)을 찾습니다.

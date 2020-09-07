@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 물리적 서버의 평가/마이그�
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: aba1608c9219e7e8dffe66344b04fa3f085b06f3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420790"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927377"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>물리적 서버의 평가 및 Azure로 마이그레이션 준비
 
@@ -40,6 +40,7 @@ Azure Migrate를 사용할 수 있도록 Azure를 설정합니다.
 **Azure Migrate 프로젝트 만들기** | Azure 계정에는 프로젝트를 만들 수 있는 기여자 또는 소유자 권한이 있어야 합니다. 
 **리소스 공급자 등록(평가 전용)** | Azure Migrate는 경량 Azure Migrate 어플라이언스를 사용하여 Azure Migrate:Server Assessment를 통해 머신을 검색하고 평가합니다.<br/><br/> 어플라이언스 등록 중에 리소스 공급자는 어플라이언스에서 선택한 구독에 등록됩니다. [자세히 알아보기](migrate-appliance-architecture.md#appliance-registration).<br/><br/> 리소스 공급자를 등록하려면 구독에 대한 기여자 또는 소유자 역할이 필요합니다.
 **Azure AD 앱 만들기(평가 전용)** | 어플라이언스를 등록할 때 Azure Migrate는 어플라이언스에서 실행되는 에이전트와 Azure에서 실행되는 각 서비스 간의 통신에 사용되는 Azure AD(Azure Active Directory) 앱을 만듭니다. [자세히 알아보기](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Azure AD 앱(애플리케이션 개발자에서 사용 가능) 역할을 만들 수 있는 권한이 필요합니다.
+**Key Vault 만들기** | Key Vault는 어플라이언스 등록의 일부로 만들어지며 구성 중에 어플라이언스에 다운로드된 인증서를 관리하는 데 사용됩니다.<br/><br/>Azure Migrate가 Key Vault를 만들 수 있도록 하려면 Azure 계정에 Azure Migrate 프로젝트가 있는 리소스 그룹에 대한 기여자 권한이 필요합니다.
 
 
 ### <a name="assign-permissions-to-create-project"></a>프로젝트를 만들 수 있는 권한 할당 

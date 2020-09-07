@@ -3,14 +3,14 @@ title: 사용자 지정 이미지를 사용하여 Linux에서 Azure Functions �
 description: 사용자 지정 Linux 이미지에서 실행되는 Azure Functions를 만드는 방법을 알아봅니다.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: devx-track-csharp, mvc, devx-track-python
+ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: efe1706f2ea97c3eadab8deade7e13123af17752
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: f068f91a104c15099809343438cc925fb8856248
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225668"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146864"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -81,17 +81,19 @@ func init LocalFunctionsProject --worker-runtime node --language typescript --do
 
 # <a name="bash"></a>[bash](#tab/bash)
 ```bash
-mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -Ddocker
+mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8 -Ddocker
 ```
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 ```powershell
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
 # <a name="cmd"></a>[Cmd](#tab/cmd)
 ```cmd
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-Ddocker"
+mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" "-Ddocker"
 ```
 ---
+
+`-DjavaVersion` 매개 변수는 함수 런타임에 사용할 Java 버전을 알려줍니다. 미리 보기로 제공되는 Java 11에서 함수를 실행하려면 `-DjavaVersion=11`을 사용합니다. `-DjavaVersion`을 지정하지 않으면 Maven은 기본적으로 Java 8로 설정됩니다. 자세한 내용은 [Java 버전](functions-reference-java.md#java-versions)을 참조하세요.
 
 Maven은 배포 시 프로젝트 생성 완료를 위해 필요한 값을 요청합니다.   
 메시지가 표시되면 다음 값을 제공합니다.
@@ -106,8 +108,6 @@ Maven은 배포 시 프로젝트 생성 완료를 위해 필요한 값을 요청
 `Y`를 입력하거나 Enter 키를 눌러 확인합니다.
 
 Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만드는데, 이 예제에서는 `fabrikam-functions`입니다. 
-
-Azure에서 Java 11을 실행하려면 pom.xml 파일의 값을 수정해야 합니다. 자세히 알아보려면 [Java 버전](functions-reference-java.md#java-versions)을 참조하세요.
 ::: zone-end
 `--docker` 옵션은 프로젝트에 대한 `Dockerfile`을 생성하는데, 이는 Azure Functions 및 선택한 런타임에서 사용하는 데 적합한 사용자 지정 컨테이너를 정의합니다.
 
@@ -159,14 +159,6 @@ mvn azure-functions:run
 ## <a name="build-the-container-image-and-test-locally"></a>컨테이너 이미지 빌드 및 로컬로 테스트
 
 (선택 사항) 프로젝트 폴더의 루트에서 *Dockerfile*을 검사합니다. Dockerfile은 Linux에서 함수 앱을 실행하는 데 필요한 환경을 설명합니다.  Azure Functions에 대해 지원되는 기본 이미지의 전체 목록은 [Azure Functions 기본 이미지 페이지](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
-
-::: zone pivot="programming-language-java"  
-Java 11(미리 보기)에서 실행 중인 경우 생성된 Dockerfile의 `JAVA_VERSION` 빌드 인수를 다음과 같이 변경합니다. 
-
-```docker
-ARG JAVA_VERSION=11
-```
-::: zone-end
     
 루트 프로젝트 폴더에서 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 명령을 실행하고 이름(`azurefunctionsimage`) 및 태그(`v1.0.0`)를 입력합니다. `<DOCKER_ID>`를 Docker 허브 계정 ID로 바꿉니다. 이 명령은 컨테이너에 대한 Docker 이미지를 빌드합니다.
 
@@ -311,17 +303,17 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
 
     1. 왼쪽 탐색 패널에서 **함수**를 선택한 다음, 확인하려는 함수를 선택합니다.
 
-        ![Azure Portal의 함수 URL 가져오기 명령](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+        ![Azure Portal에서 함수 선택](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
 
     
     1. **함수 URL 가져오기**를 선택합니다.
 
-        ![Azure Portal의 함수 URL 가져오기 명령](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
+        ![Azure Portal에서 함수 URL 가져오기](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
 
     
     1. 팝업 창에서 **기본값(함수 키)** 을 선택한 다음, URL을 클립보드에 복사합니다. 키는 `?code=` 뒤에 나오는 문자열입니다.
 
-        ![Azure Portal의 함수 URL 가져오기 명령](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+        ![기본 함수 액세스 키 선택](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
 
 
     > [!NOTE]  

@@ -1,5 +1,5 @@
 ---
-title: 엔드투엔드 솔루션 연결
+title: '자습서: 엔드투엔드 솔루션 연결'
 titleSuffix: Azure Digital Twins
 description: 디바이스 데이터를 기반으로 하는 엔드투엔드 Azure Digital Twins 솔루션을 구축하는 자습서입니다.
 author: baanders
@@ -7,22 +7,23 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827346"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401778"
 ---
-# <a name="build-out-an-end-to-end-solution"></a>엔드투엔드 솔루션 빌드
+# <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
 환경의 라이브 데이터를 기반으로 전체 엔드투엔드 솔루션을 설정하기 위해 디바이스 및 데이터 관리를 위해 다른 Azure 서비스에 Azure Digital Twins 인스턴스를 연결할 수 있습니다.
 
 이 자습서에서는 다음을 수행합니다.
-* Azure Digital Twins 인스턴스 설정
-* 샘플 빌딩 시나리오에 대해 알아보고 미리 작성된 구성 요소를 인스턴스화합니다.
-* [Azure Functions](../azure-functions/functions-overview.md) 앱을 사용하여 [IoT Hub](../iot-hub/about-iot-hub.md) 디바이스에서 시뮬레이션된 원격 분석을 디지털 트윈 속성으로 라우팅합니다.
-* Azure Functions, 엔드포인트 및 경로를 사용하여 디지털 트윈 알림을 처리하여 **트윈 그래프**를 통해 변경 내용을 전파합니다.
+> [!div class="checklist"]
+> * Azure Digital Twins 인스턴스 설정
+> * 샘플 빌딩 시나리오에 대해 알아보고 미리 작성된 구성 요소를 인스턴스화합니다.
+> * [Azure Functions](../azure-functions/functions-overview.md) 앱을 사용하여 [IoT Hub](../iot-hub/about-iot-hub.md) 디바이스에서 시뮬레이션된 원격 분석을 디지털 트윈 속성으로 라우팅합니다.
+> * Azure Functions, 엔드포인트 및 경로를 사용하여 디지털 트윈 알림을 처리하여 **트윈 그래프**를 통해 변경 내용을 전파합니다.
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -365,6 +366,8 @@ az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-nam
 
 그런 다음, 방금 만든 Azure Digital Twins 엔드포인트에 이벤트를 보내는 Azure Digital Twins 경로를 만듭니다.
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ```azurecli
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
@@ -433,7 +436,7 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 
 이 자습서에서 만든 리소스가 더 이상 필요하지 않은 경우 다음 절차에 따라 삭제합니다. 
 
-Azure Cloud Shell을 사용하면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령으로 리소스 그룹의 모든 Azure 리소스를 삭제할 수 있습니다. 그러면 Azure Digital Twins 인스턴스, IoT 허브와 허브 디바이스 등록, 이벤트 그리드 토픽과 관련 구독, 스토리지와 같은 관련 리소스를 포함한 두 Azure Functions 앱을 비롯한 리소스 그룹이 제거됩니다.
+[Azure Cloud Shell](https://shell.azure.com)을 사용하면 [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) 명령으로 리소스 그룹의 모든 Azure 리소스를 삭제할 수 있습니다. 그러면 리소스 그룹(Azure Digital Twins 인스턴스, IoT 허브와 허브 디바이스 등록, 이벤트 그리드 토픽과 관련 구독, 스토리지와 같은 관련 리소스를 모두 포함하는 Azure Functions 앱)이 제거됩니다.
 
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 
@@ -448,14 +451,13 @@ az group delete --name <your-resource-group>
 az ad app delete --id <your-application-ID>
 ```
 
-마지막으로, 로컬 컴퓨터에서 다운로드한 프로젝트 샘플 폴더를 삭제합니다.
+마지막으로, 로컬 컴퓨터에 다운로드한 프로젝트 샘플 폴더를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 라이브 디바이스 데이터로 구동되는 Azure Digital Twins를 보여주는 엔드투엔드 시나리오를 만들었습니다.
 
 다음으로, 개념 설명서를 통해 자습서에서 작업한 요소에 대해 자세히 알아보세요.
-* [*개념: 사용자 지정 모델*](concepts-models.md)
 
-또는 방법 문서로 시작하여 이 자습서의 프로세스에 대해 더 자세히 알아보세요.
-* [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)
+> [!div class="nextstepaction"]
+> [*개념: 사용자 지정 모델*](concepts-models.md)

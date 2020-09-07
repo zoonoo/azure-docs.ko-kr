@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
-ms.date: 02/10/2020
+ms.date: 08/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: be8f0c85f62779dec9231a9f44155d4608e88b52
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: fb380e4b71ba68daf694ab725c41be64f066805e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852704"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854924"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>자습서: 첫 번째 ML 모델 학습
 
@@ -43,21 +43,24 @@ ms.locfileid: "87852704"
 
 1. [1부](tutorial-1st-experiment-sdk-setup.md#open)에 표시된 대로 폴더에서 **tutorial-1st-experiment-sdk-train.ipynb**를 엽니다.
 
-
-> [!Warning]
-> Jupyter 인터페이스에서 *새로운* Notebook을 만들지 **마세요**. Notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb*에는 이 자습서에 **필요한 모든 코드와 데이터**가 포함되어 있습니다.
+Jupyter 인터페이스에서 *새로운* Notebook을 만들지 **마세요**. Notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb*에는 이 자습서에 **필요한 모든 코드와 데이터**가 포함되어 있습니다.
 
 ## <a name="connect-workspace-and-create-experiment"></a>작업 영역 연결 및 실험 만들기
 
-> [!Important]
-> 이 문서의 나머지 부분에는 Notebook에 표시되는 것과 동일한 콘텐츠가 포함되어 있습니다.  
->
-> 코드를 실행할 때 함께 읽도록 하려면 지금 Jupyter Notebook으로 전환합니다. 
-> Notebook에서 단일 코드 셀을 실행하려면 코드 셀을 클릭하고 **Shift+Enter** 키를 누릅니다. 또는 상단 도구 모음에서 **모두 실행**을 선택하여 전체 Notebook을 실행합니다.
+<!-- nbstart https://raw.githubusercontent.com/Azure/MachineLearningNotebooks/master/tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb -->
 
-`Workspace` 클래스를 가져오고 `from_config().` 함수를 사용하여 `config.json` 파일에서 구독 정보를 로드합니다. 이 함수는 기본적으로 현재 디렉터리에서 JSON 파일을 찾지만 `from_config(path="your/file/path")`를 사용하여 파일을 가리키는 경로 매개 변수를 지정할 수도 있습니다. 클라우드 Notebook 서버에서 파일은 루트 디렉터리에 자동으로 있습니다.
+> [!TIP]
+> _tutorial-1st-experiment-sdk-train.ipynb_의 콘텐츠. 코드를 실행할 때 함께 읽도록 하려면 지금 Jupyter Notebook으로 전환합니다. Notebook에서 단일 코드 셀을 실행하려면 코드 셀을 클릭하고 **Shift+Enter** 키를 누릅니다. 또는 상단 도구 모음에서 **모두 실행**을 선택하여 전체 Notebook을 실행합니다.
 
-다음 코드에서 추가 인증을 요청하는 경우 링크를 브라우저에 붙여넣고 인증 토큰을 입력하기만 하면 됩니다.
+
+`Workspace` 클래스를 가져오고 `from_config().` 함수를 사용하여 `config.json` 파일에서 구독 정보를 로드합니다. 이 함수는 기본적으로 현재 디렉터리에서 JSON 파일을 찾지만 `from_config(path="your/file/path")`를 사용하여 파일을 가리키는 경로 매개 변수를 지정할 수도 있습니다. 작업 영역의 클라우드 Notebook 서버에서 이 Notebook을 실행하는 경우 파일은 자동으로 루트 디렉터리에 있습니다.
+
+다음 코드에서 추가 인증을 요청하는 경우 링크를 브라우저에 붙여넣고 인증 토큰을 입력하기만 하면 됩니다. 또한 사용자에게 연결된 테넌트가 둘 이상 있는 경우 다음 줄을 추가해야 합니다.
+```
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
+Additional details on authentication can be found here: https://aka.ms/aml-notebook-auth 
+```
 
 ```python
 from azureml.core import Workspace
@@ -105,16 +108,16 @@ alphas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 for alpha in alphas:
     run = experiment.start_logging()
     run.log("alpha_value", alpha)
-
+    
     model = Ridge(alpha=alpha)
     model.fit(X=X_train, y=y_train)
     y_pred = model.predict(X=X_test)
     rmse = math.sqrt(mean_squared_error(y_true=y_test, y_pred=y_pred))
     run.log("rmse", rmse)
-
+    
     model_name = "model_alpha_" + str(alpha) + ".pkl"
     filename = "outputs/" + model_name
-
+    
     joblib.dump(value=model, filename=filename)
     run.upload_file(name=model_name, path_or_stream=filename)
     run.complete()
@@ -162,7 +165,7 @@ for run in experiment.get_runs():
     # each logged metric becomes a key in this returned dict
     run_rmse = run_metrics["rmse"]
     run_id = run_details["runId"]
-
+    
     if minimum_rmse is None:
         minimum_rmse = run_rmse
         minimum_rmse_runid = run_id
@@ -172,15 +175,15 @@ for run in experiment.get_runs():
             minimum_rmse_runid = run_id
 
 print("Best run_id: " + minimum_rmse_runid)
-print("Best run_id rmse: " + str(minimum_rmse))
+print("Best run_id rmse: " + str(minimum_rmse))    
 ```
-
 ```output
 Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
 Best run_id rmse: 57.234760283951765
 ```
 
 최상의 실행 ID를 사용하여 실험 개체와 함께 `Run` 생성자를 사용하여 개별 실행을 가져옵니다. 그런 다음 `get_file_names()`를 호출하여 이 실행에서 다운로드할 수 있는 모든 파일을 표시합니다. 이 경우 학습 중에 각 실행에 대해 하나의 파일만 업로드했습니다.
+
 
 ```python
 from azureml.core import Run
@@ -194,9 +197,11 @@ print(best_run.get_file_names())
 
 실행 개체에서 `download()`를 호출하여 다운로드할 모델 파일 이름을 지정합니다. 기본적으로 이 함수는 현재 디렉터리에 다운로드합니다.
 
+
 ```python
 best_run.download_file(name="model_alpha_0.1.pkl")
 ```
+<!-- nbend -->
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

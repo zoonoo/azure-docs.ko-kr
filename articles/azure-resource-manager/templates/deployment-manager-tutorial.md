@@ -2,15 +2,15 @@
 title: Azure Deployment Manager를 사용하여 템플릿 배포
 description: Azure Deployment Manager에서 Resource Manager 템플릿을 사용하여 Azure 리소스를 배포하는 방법에 대해 알아봅니다.
 author: mumian
-ms.date: 12/04/2019
+ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 43291bdaa277c06262be2d7bb5ba8d3f61ff35ea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 49465f05b5484dfd358136866b67ce35f789799f
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86056891"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892935"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(공개 미리 보기)
 
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="understand-the-scenario"></a>시나리오 이해
 
-서비스 토폴로지 템플릿은 서비스를 구성하는 Azure 리소스와 이러한 리소스를 배포할 위치를 설명합니다. 서비스 토폴로지 정의에 구성되는 계층 구조는 다음과 같습니다.
+서비스 토폴로지 템플릿은 서비스를 구성하는 Azure 리소스와 이를 배포할 위치를 설명합니다. 서비스 토폴로지 정의에 구성되는 계층 구조는 다음과 같습니다.
 
 * 서비스 토폴로지
   * Services

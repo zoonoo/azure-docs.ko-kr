@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9da1340d08d4eaab3ba208c667861093ef0f799b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420824"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079118"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>자습서: Azure Firewall Manager를 사용하여 가상 허브 보호
 
@@ -32,6 +32,10 @@ Firewall Manager는 허브 가상 네트워크 아키텍처도 지원합니다. 
 > * 서버 배포
 > * 방화벽 정책 만들기 및 허브 보안 설정
 > * 방화벽 테스트
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처 만들기
 
@@ -252,7 +256,7 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
 
    Microsoft 홈페이지가 표시됩니다.
 
-5. [https://www.microsoft.com]\(https://www.google.com ) 로 이동합니다.
+5. [https://www.microsoft.com]\(https://www.google.com) 로 이동합니다.
 
    방화벽에 의해 차단됩니다.
 
@@ -270,6 +274,10 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
 
 따라서, 방화벽 네트워크 규칙이 작동하는지 확인했습니다.
 * 다른 가상 네트워크에 있는 서버에 원격 데스크톱을 연결할 수 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+방화벽 리소스 테스트가 완료되면 **fw-manager** 리소스 그룹을 삭제하여 모든 방화벽 관련 리소스를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

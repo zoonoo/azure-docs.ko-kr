@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 26679a7111e11eaf48e948fa6d3622814327433a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 69a0795b9c299b5113c39ce2c4556573f730e4b7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252575"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013948"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>자습서: IoT Hub에 대해 수동 장애 조치(failover) 수행
 
@@ -31,7 +31,9 @@ ms.locfileid: "86252575"
 > * 장애 복구를 수행하여 기본 위치에 IoT Hub의 작업을 반환합니다. 
 > * 허브가 올바른 위치에서 올바르게 실행 중인지 확인합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+IoT Hub를 사용한 수동 장애 조치(failover) 및 Microsoft 시작 장애 조치(failover)에 대한 자세한 내용은 [지역 간 재해 복구](iot-hub-ha-dr.md#cross-region-dr)를 참조하세요.
+
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -83,7 +85,7 @@ IoT Hub에 대해 하루 최대 두 번의 장애 조치 및 두 번의 장애 �
 
    수동 장애 조치를 수행하는 데 걸리는 시간은 허브에 등록된 디바이스의 수에 비례합니다. 예를 들어 100,000개의 디바이스가 있는 경우 15분 정도가 걸릴 수 있지만 5백만 개의 디바이스가 있는 경우 1시간 이상 걸릴 수 있습니다.
 
-   ![수동 장애 조치 창을 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
+   ![수동 장애 조치(failover) 확인 창을 보여주는 스크린샷](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
    수동 장애 조치(failover) 프로세스가 실행되는 동안 수동 장애 조치(failover)가 진행 중임을 알리는 배너가 표시됩니다. 
 

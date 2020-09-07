@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 Hyper-V VM의 평가/마이그레이�
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8ecb886b5d5cd9d6811788043b924880b4c366c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109623"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928924"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>평가하고 Azure로 마이그레이션할 Hyper-V VM 준비
 
@@ -38,6 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 **Azure Migrate 프로젝트 만들기** | Azure Migrate 프로젝트는 Azure Migrate 도구, Microsoft 도구 및 타사 제품을 사용하여 평가 및 마이그레이션을 오케스트레이션하고 관리하기 위한 중앙 위치를 제공합니다. | Azure 계정에는 프로젝트가 있는 리소스 그룹에 Contributor 또는 Owner 권한이 있어야 합니다.
 **어플라이언스 등록** | Azure Migrate는 경량 Azure Migrate 어플라이언스를 사용하여 Hyper-V VM을 검색하고 평가합니다. [자세히 알아보기](migrate-appliance-architecture.md#appliance-registration). | 어플라이언스를 등록하려면 Azure 계정에 Azure 구독에 대한 Contributor 또는 Owner 권한이 있어야 합니다.
 **Azure AD 앱 만들기** | 어플라이언스를 등록할 때 Azure Migrate는 어플라이언스에서 실행되는 에이전트와 Azure Migrate 간의 통신에 사용되는 Azure AD(Azure Active Directory) 앱을 만듭니다. | Azure 계정에는 Azure AD 앱을 만들 수 있는 권한이 필요합니다.
+**Key Vault 만들기** | Key Vault는 어플라이언스 등록의 일부로 만들어지며 구성 중에 어플라이언스에 다운로드된 인증서를 관리하는 데 사용됩니다.| Azure Migrate가 Key Vault를 만들 수 있도록 하려면 Azure 계정에 Azure Migrate 프로젝트가 있는 리소스 그룹에 대한 기여자 권한이 필요합니다.
 **VM 만들기** | 리소스 그룹 및 가상 네트워크에서 VM을 만들고 Azure 관리 디스크에 쓸 수 있는 권한이 필요합니다. | Azure 계정에 Virtual Machine Contributor 역할이 필요합니다.
 
 
@@ -81,6 +82,7 @@ Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니
 #### <a name="assign-application-developer-role"></a>애플리케이션 개발자 역할 할당
 
 테넌트/글로벌 관리자는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. [자세히 알아보기](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+
 
 ### <a name="assign-azure-account-permissions"></a>Azure 계정 권한 할당
 

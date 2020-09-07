@@ -4,12 +4,12 @@ description: Azure Migrate를 사용하여 VMware VM의 평가/마이그레이�
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8d4d6ac1149c397442a8ca7dd01f46f04ffc89b4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109579"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927309"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>평가 후 Azure로 마이그레이션할 VMware VM 준비
 
@@ -36,8 +36,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 --- | --- | ---
 **Azure Migrate 프로젝트 만들기** | Azure Migrate 프로젝트는 Azure Migrate 도구, Microsoft 도구 및 타사 제품을 사용하여 평가 및 마이그레이션을 오케스트레이션하고 관리하기 위한 중앙 위치를 제공합니다. | Azure 계정에는 프로젝트가 있는 리소스 그룹에 Contributor 또는 Owner 권한이 있어야 합니다.
 **어플라이언스 등록** | Azure Migrate는 가벼운 Azure Migrate 어플라이언스를 사용하여 VM을 검색하고, Server Assessment 도구를 사용하여 VM을 평가하고, Server Migration 도구에서 에이전트 없는 마이그레이션을 사용하여 VM을 마이그레이션합니다. [등록](migrate-appliance-architecture.md#appliance-registration)에 대해 자세히 알아보세요. | 어플라이언스를 등록하려면 Azure 계정에 Azure 구독에 대한 Contributor 또는 Owner 권한이 있어야 합니다.
-**Azure AD 앱 만들기** | 어플라이언스를 등록하면 Azure Migrate는 Azure AD(Azure Active Directory) 앱을 만듭니다. <br/><br/> - 첫 번째 앱은 어플라이언스에서 실행되는 에이전트와 Azure Migrate 간의 통신에 사용됩니다. <br/><br/> - 두 번째 앱은 에이전트 없는 VMware VM 마이그레이션을 위해 사용자의 구독에서 생성된 KeyVault에 액세스하는 데만 사용됩니다.   | Azure 계정에는 Azure AD 앱을 만들 수 있는 권한이 필요합니다.
-**Key Vault 만들기** | 에이전트 없는 마이그레이션을 사용하여 VMware VM을 마이그레이션하기 위해, Azure Migrate에서는 구독의 복제 계정에 대한 액세스 키를 관리하는 Key Vault를 만듭니다. | Azure Migrate가 Key Vault를 만들 수 있도록, Azure Migrate 프로젝트가 있는 리소스 그룹에 대한 권한(Owner 또는 Contributor와 User Access Administrator)을 설정합니다.
+**Azure AD 앱 만들기** | 어플라이언스를 등록할 때 Azure Migrate는 두 개의 Azure AD(Azure Active Directory) 앱을 만듭니다. <br/><br/> - 첫 번째 앱은 어플라이언스에서 실행되는 에이전트와 Azure Migrate 간의 통신에 사용됩니다. <br/><br/> - 두 번째 앱은 에이전트 없는 VMware VM 마이그레이션을 위해 사용자의 구독에서 생성된 KeyVault에 액세스하는 데만 사용됩니다.   | Azure 계정에는 Azure AD 앱을 만들 수 있는 이러한 [권한](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware#assign-permissions-to-create-azure-ad-apps)이 필요합니다.
+**Key Vault 만들기** | - 첫 번째 Key Vault는 어플라이언스 등록의 일부로 만들어지며 구성 중에 어플라이언스에 다운로드된 인증서를 관리하는 데 사용됩니다. <br/><br/> \- 에이전트 없는 마이그레이션을 사용하여 VMware VM을 마이그레이션하기 위해 Azure Migrate는 구독의 복제 계정에 대한 액세스 키를 관리하는 또 다른 Key Vault를 만듭니다.| Azure Migrate가 Key Vault를 만들 수 있도록, Azure Migrate 프로젝트가 있는 리소스 그룹에 대한 권한(Owner 또는 Contributor와 User Access Administrator)을 설정합니다.
 
 
 ### <a name="assign-permissions-to-create-project"></a>프로젝트를 만들 수 있는 권한 할당

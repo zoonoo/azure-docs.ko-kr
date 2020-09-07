@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 0d2ee8fbcb71d8703702f2c72e0bf629563667b9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: bf4864e0c6342cbd4729d5b99479eb2ef1a2c48c
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542198"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378222"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>두 개의 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
-Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/managed-identity.md)를 사용하는 것이지만, 이 방법을 사용할 수 없는 시나리오도 있습니다. 이러한 경우 액세스 키 또는 암호가 사용됩니다. 액세스 키와 암호는 자주 순환해야 합니다.
+Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/authentication.md)를 사용하는 것이지만, 이 방법을 사용할 수 없는 시나리오도 있습니다. 이러한 경우 액세스 키 또는 암호가 사용됩니다. 액세스 키와 암호는 자주 순환해야 합니다.
 
 이 자습서에서는 두 개의 인증 자격 증명 세트를 사용하는 데이터베이스 및 서비스의 비밀을 정기적으로 자동 순환하는 방법을 보여줍니다. 특히 이 자습서에서는 Azure Event Grid 알림에 의해 트리거되는 함수를 사용하여 Azure Key Vault에 비밀로 저장된 Azure Storage 계정 키를 순환합니다. :
 
@@ -91,7 +91,7 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 1. **검토+만들기**를 선택합니다.
 1. **만들기**
 
-   ![검토+만들기](../media/secrets/rotation-dual/dual-rotation-2.png)
+   ![첫 번째 스토리지 계정 검토 및 만들기](../media/secrets/rotation-dual/dual-rotation-2.png)
 
 위의 단계를 마치면 스토리지 계정, 서버 팜, 함수 앱, 애플리케이션 인사이트가 생깁니다. 배포가 완료되면 아래 화면이 표시됩니다. ![배포 완료](../media/secrets/rotation-dual/dual-rotation-3.png)
 > [!NOTE]
@@ -136,13 +136,13 @@ az keyvault secret set --name storageKey --vault-name akvrotation-kv --value <ke
 ```azurecli
 az keyvault secret show --vault-name akvrotation-kv --name storageKey
 ```
-`keyName`을 대체하도록 `CredentialId`가 업데이트되고 `value`가 재생성됩니다. ![비밀 표시](../media/secrets/rotation-dual/dual-rotation-4.png)
+`CredentialId`는 대체 `keyName`로 업데이트되고 `value`는 ![첫 번째 스토리지계정에 대한 az keyvault secret show의 출력](../media/secrets/rotation-dual/dual-rotation-4.png)을 다시 생성됩니다.
 
 값의 유효성을 검사하기 위한 액세스 키를 검색합니다.
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
-![액세스 키 목록](../media/secrets/rotation-dual/dual-rotation-5.png)
+![첫 번째 스토리지 계정에 대한 az 스토리지 계정 키 목록 출력](../media/secrets/rotation-dual/dual-rotation-5.png)
 
 ## <a name="add-additional-storage-accounts-for-rotation"></a>순환할 추가 스토리지 계정 추가
 
@@ -164,7 +164,7 @@ az storage account keys list -n akvrotationstorage
 1. **검토+만들기**를 선택합니다.
 1. **만들기**
 
-   ![검토+만들기](../media/secrets/rotation-dual/dual-rotation-7.png)
+   ![두 번째 스토리지 계정 검토 및 만들기](../media/secrets/rotation-dual/dual-rotation-7.png)
 
 ### <a name="add-another-storage-account-access-key-to-key-vault"></a>Key Vault에 또 다른 스토리지 계정 액세스 키 추가
 
@@ -190,13 +190,13 @@ az keyvault secret set --name storageKey2 --vault-name akvrotation-kv --value <k
 ```azurecli
 az keyvault secret show --vault-name akvrotation-kv --name storageKey2
 ```
-`keyName`을 대체하도록 `CredentialId`가 업데이트되고 `value`가 재생성됩니다. ![비밀 표시](../media/secrets/rotation-dual/dual-rotation-8.png)
+`CredentialId`는 대체 `keyName`로 업데이트되고 `value`는 ![두 번째 스토리지계정에 대한 az keyvault secret show의 출력](../media/secrets/rotation-dual/dual-rotation-8.png)을 다시 생성됩니다.
 
 값의 유효성을 검사하기 위한 액세스 키를 검색합니다.
 ```azurecli
 az storage account keys list -n akvrotationstorage 
 ```
-![액세스 키 목록](../media/secrets/rotation-dual/dual-rotation-9.png)
+![두 번째 스토리지 계정에 대한 az 스토리지 계정 키 목록 출력](../media/secrets/rotation-dual/dual-rotation-9.png)
 
 ## <a name="available-key-vault-dual-credential-rotation-functions"></a>사용 가능한 Key Vault 이중 자격 증명 순환 함수
 

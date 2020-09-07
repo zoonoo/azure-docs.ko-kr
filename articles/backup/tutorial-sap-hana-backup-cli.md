@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure CLI를 사용하여 Azure VM에서 실
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a0b6683183d6bf73b5376c6320106373ffd4ba78
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: eb6b9f4d58a94cc8a4b9f70b5ead7d319a0d51b5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762405"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007590"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure VM에서 SAP HANA 데이터베이스 복원
 
@@ -141,7 +141,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-[az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet은 등록, 백업 구성, 백업 데이터 삭제 등과 같은 다른 작업뿐 아니라 보호된 데이터베이스에서 실행되었거나 현재 실행 중인 모든 백업 작업(예약된 백업 또는 요청 시 백업)을 나열합니다.
+[az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) cmdlet은 등록, 백업 구성 및 백업 데이터 삭제와 같은 다른 작업 외에도 보호된 데이터베이스에서 실행되었거나 현재 실행 중인 모든 백업 작업(예약된 백업 또는 요청 시 백업)을 나열합니다.
 
 >[!NOTE]
 >Azure Backup은 Azure VM에서 실행되는 SAP HANA 데이터베이스를 백업할 때 일광 절약 시간제 변경을 자동으로 조정하지 않습니다.

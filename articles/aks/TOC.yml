@@ -187,6 +187,14 @@
           href: azure-netapp-files.md
         - name: Azure Ultra Disks 사용(미리 보기)
           href: use-ultra-disks.md
+        - name: CSI 스토리지 드라이버
+          items:
+            - name: CSI 스토리지 드라이버 사용(미리 보기)
+              href: csi-storage-drivers.md
+            - name: Azure Disk CSI 드라이버(미리 보기)
+              href: azure-disk-csi.md
+            - name: Azure Files CSI 드라이버(미리 보기)
+              href: azure-files-csi.md
     - name: 네트워킹 구성
       items:
         - name: 기존 가상 네트워크 만들기 또는 사용
@@ -252,9 +260,9 @@
           href: update-credentials.md
         - name: Azure Active Directory 통합 사용
           items:
-            - name: AKS 관리형 AAD
+            - name: AKS 관리형 Azure AD
               href: managed-aad.md
-            - name: AAD 통합(레거시)
+            - name: Azure AD 통합(레거시)
               href: azure-ad-integration-cli.md
         - name: Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
           href: manage-azure-rbac.md
@@ -369,7 +377,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST (영문)
+    - name: REST
       href: /rest/api/aks
     - name: PowerShell
       href: /powershell/module/az.aks#aks

@@ -102,17 +102,9 @@
         - name: 배포 단계
           displayName: 'standards, fedramp, high'
           href: ./samples/fedramp-h/deploy.md
-    - name: HIPAA HITRUST
-      items:
-        - name: 개요
-          displayName: 'standards, HIPAA HITRUST'
-          href: ./samples/HIPAA-HITRUST/index.md
-        - name: 컨트롤 매핑
-          displayName: 'standards, HIPAA HITRUST'
-          href: ./samples/HIPAA-HITRUST/control-mapping.md
-        - name: 배포 단계
-          displayName: 'standards, HIPAA HITRUST'
-          href: ./samples/HIPAA-HITRUST/deploy.md
+    - name: HIPAA HITRUST 9.2
+      displayName: 'standards, HIPAA HITRUST'
+      href: ./samples/hipaa-hitrust-9-2.md
     - name: IRS 1075
       items:
         - name: 개요

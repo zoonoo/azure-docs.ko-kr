@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 49984349ce8d9d1bc43778c0042dd21485eded15
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1b6fdbdfaef601751961d022858545d731fe62a8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829682"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856023"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드 만들기
 
@@ -40,6 +40,9 @@ ms.locfileid: "87829682"
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-new-dashboard"></a>새 대시보드 만들기
+> [!WARNING]
+> 애플리케이션 인사이트 리소스를 다른 리소스 그룹 또는 구독으로 이동하는 경우 이전 타일을 제거하고 새 위치에 있는 동일한 애플리케이션 인사이트 리소스에서 새 타일을 고정하여 대시보드를 수동으로 업데이트해야 합니다. 
+
 단일 대시보드는 여러 애플리케이션, 리소스 그룹 및 구독에서 리소스를 포함할 수 있습니다.  애플리케이션에 대한 새 대시보드를 만들어서 자습서를 시작합니다.  
 
 1. 대시보드 창에서 **새 대시보드**를 선택합니다.

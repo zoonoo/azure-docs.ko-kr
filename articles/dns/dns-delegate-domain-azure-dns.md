@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 207254164296d6ed3b0c412c4bf19322ca3ffc0c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84710136"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077996"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>자습서: Azure DNS에서 도메인 호스트
 
 Azure DNS를 사용하여 DNS 도메인을 호스트하고 DNS 레코드를 관리할 수 있습니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다.
 
-도메인 이름 등록 기관에서 contoso.net 도메인을 구입한 후 Azure DNS에서 이름이 contoso.net인 영역을 만든다고 가정해 봅시다. 여러분이 도메인 소유자이므로 등록 기관에서 도메인의 이름 서버(NS) 레코드를 구성하는 옵션을 제공합니다. 등록 기관은 NS 레코드를 .net 부모 영역에 저장합니다. 그러면 전 세계의 인터넷 사용자가 contoso.net의 DNS 레코드를 확인하려고 시도하는 경우 Azure DNS 영역의 도메인으로 리디렉션됩니다.
+도메인 이름 등록 기관에서 contoso.net 도메인을 구입한 후 Azure DNS에서 이름이 contoso.net인 영역을 만든다고 가정해 봅시다. 여러분이 도메인 소유자이므로 등록 기관에서 도메인의 이름 서버(NS) 레코드를 구성하는 옵션을 제공합니다. 등록 기관은 NS 레코드를 .NET 부모 영역에 저장합니다. 그러면 전 세계의 인터넷 사용자가 contoso.net의 DNS 레코드를 확인하려고 시도하는 경우 Azure DNS 영역의 도메인으로 리디렉션됩니다.
 
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 Azure DNS에서 호스트할 수 있는 도메인 이름으로 테스트할 수 있어야 합니다. 이 도메인에 대한 전체 제어 권한이 있어야 합니다. 전체 제어 권한에는 도메인의 NS(이름 서버) 레코드를 설정하는 권한이 포함됩니다.
 
-이 자습서에 사용되는 예제 도메인은 contoso.net이지만 사용자 고유의 도메인 이름을 사용하세요.
+이 예제에서는 부모 도메인을 **contoso.net**으로 참조합니다.
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
@@ -45,14 +45,19 @@ Azure DNS에서 호스트할 수 있는 도메인 이름으로 테스트할 수 
    ![DNS 영역](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
 1. **DNS 영역 만들기**를 선택합니다.
-1. **DNS 영역 만들기** 페이지에서 다음 값을 입력한 다음 **만들기**를 선택합니다.
+1. **DNS 영역 만들기** 페이지에서 다음 값을 입력한 다음, **만들기**를 선택합니다(예: **contoso.net**).
+      > [!NOTE] 
+      > 만드는 새 영역이 자식 영역(예: 부모 영역 = contoso.net 자식 영역 = child.contoso.net)인 경우 [새 자식 DNS 영역 만들기 자습서](./tutorial-public-dns-zones-child.md)를 참조하세요.
 
-   | **설정** | **값** | **세부 정보** |
-   |---|---|---|
-   |**이름**|[해당 도메인 이름] |구입한 도메인 이름입니다. 예를 들어 이 자습서에서는 contoso.net을 사용합니다.|
-   |**구독**|[구독 이름]|영역을 만들 구독을 선택합니다.|
-   |**리소스 그룹**|**새로 만들기:** contosoRG|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다.<br>리소스 그룹의 위치는 DNS 영역에 영향을 미치지 않습니다. DNS 영역 위치는 항상 "글로벌"이므로 표시되지 않습니다.|
-   |**위치**|미국 동부||
+    | **설정** | **값** | **세부 정보** |
+    |--|--|--|
+    | **프로젝트 세부 정보:**  |  |  |
+    | **리소스 그룹**    | ContosoRG | 리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹의 위치는 DNS 영역에 영향을 미치지 않습니다. DNS 영역 위치는 항상 "글로벌"이므로 표시되지 않습니다. |
+    | **인스턴스 세부 정보:** |  |  |
+    | **영역 자식**        | 선택하지 않은 상태로 유지 | 이 영역은 [자식 영역](./tutorial-public-dns-zones-child.md)이 **아니**므로 선택하지 않은 상태로 두어야 합니다. |
+    | **이름**              | contoso.net | 부모 영역 이름 필드      |
+    | **위치**          | 미국 동부 | 이 필드는 리소스 그룹 생성의 일부로 선택한 위치를 기반으로 합니다.  |
+    
 
 ## <a name="retrieve-name-servers"></a>이름 서버 검색
 

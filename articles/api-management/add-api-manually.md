@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82203270"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295265"
 ---
 # <a name="add-an-api-manually"></a>API를 수동으로 추가
 
@@ -45,7 +45,7 @@ ms.locfileid: "82203270"
 이때 백 엔드 API의 작업에 매핑되는 API Management의 작업은 없습니다. API Management를 통해서가 아니라 백 엔드를 통해 노출되는 작업을 호출하는 경우 **404**가 표시됩니다.
 
 >[!NOTE] 
-> 기본적으로 추가한 API가 일부 백 엔드 서비스에 연결되더라도 허용 목록에 추가할 때까지 APIM는 어떤 작업도 공개하지 않습니다. 백 엔드 서비스의 작업을 허용 목록에 추가하려면 백 엔드 작업에 매핑되는 APIM 작업을 만듭니다.
+> 기본적으로 API를 추가할 때 일부 백 엔드 서비스에 연결되더라도 APIM은 사용자가 허용할 때까지 어떤 작업도 공개하지 않습니다. 백 엔드 서비스의 작업을 허용하려면 백 엔드 작업에 매핑되는 APIM 작업을 만듭니다.
 
 ## <a name="add-and-test-an-operation"></a>작업 추가 및 테스트
 

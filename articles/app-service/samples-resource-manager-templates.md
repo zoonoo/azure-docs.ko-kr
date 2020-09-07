@@ -4,15 +4,15 @@ description: 몇 가지 일반적인 App Service 시나리오에 대한 Azure Re
 author: tfitzmac
 tags: azure-service-management
 ms.topic: sample
-ms.date: 01/04/2019
+ms.date: 08/26/2020
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 4ac8e7d51ce9a3d5694f2853219bb04869a91734
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5129fccceb633991767cdd3b52bbb5b6af067270
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517708"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891048"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>App Service에 대한 Azure Resource Manager 템플릿
 
@@ -44,6 +44,7 @@ App Services 리소스의 JSON 구문 및 속성에 대해 알아보려면 [Micr
 | [Azure SQL Database의 데이터베이스가 포함된 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| 기본 서비스 수준에서 Azure SQL Database에 App Service 앱과 데이터베이스를 배포합니다. |
 | [Blob 스토리지 연결을 사용하는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Azure Blob 스토리지 연결 문자열을 사용하여 App Service 앱을 배포합니다. 그런 다음, 앱에서 Blob 스토리지를 사용할 수 있습니다. |
 | [Azure Cache for Redis를 사용하는 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Azure Cache for Redis를 사용하여 App Service 앱을 배포합니다. |
+| [백 엔드 웹앱에 연결된 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection)| VNet 삽입 및 Private Endpoint와 함께 안전하게 연결된 두 개의 웹앱(프런트 엔드 및 백 엔드)을 배포합니다. |
 |**App Service Environment**| **설명** |
 | [App Service Environment v2 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | 가상 네트워크에 App Service Environment v2를 만듭니다. |
 | [ILB 주소로 App Service Environment v2 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | 프라이빗 내부 부하 분산 장치 주소로 가상 네트워크에 App Service Environment v2를 만듭니다. |

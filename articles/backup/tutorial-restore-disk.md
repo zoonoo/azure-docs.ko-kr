@@ -4,12 +4,12 @@ description: Backup 및 Recovery Services를 사용하여 Azure에서 디스크�
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 56ea3de451e625ef5c55f92daa1b86bd34b1c4c4
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: d93f3d24762f4b9a3da4a9e725d28810f6700fe0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141349"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890691"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Azure CLI를 사용하여 VM 복원
 
@@ -59,7 +59,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>VM 디스크 복원
 
 > [!IMPORTANT]
-> Az CLI 버전 2.0.74 이상을 사용하여 관리 디스크 복원을 비롯한 빠른 복원의 모든 이점을 활용할 것을 강력하게 권장합니다. 사용자가 항상 최신 버전을 사용하는 것이 가장 좋습니다.
+> Az CLI 버전 2.0.74 이상을 사용하여 관리 디스크 복원을 비롯한 빠른 복원의 모든 이점을 활용할 것을 강력하게 권장합니다. 항상 최신 버전을 사용하는 것이 가장 좋습니다.
 
 ### <a name="managed-disk-restore"></a>관리 디스크 복원
 
@@ -88,7 +88,7 @@ az backup recoverypoint list \
     ```
 
     > [!WARNING]
-    > 대상-리소스 그룹을 입력하지 않으면 관리 디스크는 지정된 스토리지 계정에 비관리 디스크로 복원됩니다. 이 경우 지정된 스토리지 계정에 따라 디스크 복원에 걸리는 시간이 크게 달라지므로 복원 시간에 큰 영향을 미치게 됩니다. 고객은 arget-resource-group 매개 변수가 지정된 경우에만 인스턴트 복원의 이점을 얻을 수 있습니다. 관리 디스크를 관리되지 않는 상태로 복원하려는 경우에는 target-resource-group 매개 변수를 제공하지 않고 대신 아래에 표시된 대로 restore-as-unmanaged-disk 매개 변수를 제공합니다. 이 매개 변수는 az 3.4.0 이상에서 사용할 수 있습니다.
+    > **target-resource-group**이 제공되지 않으면 관리 디스크는 지정된 스토리지 계정에 비관리 디스크로 복원됩니다. 이 경우 지정된 스토리지 계정에 따라 디스크 복원에 걸리는 시간이 크게 달라지므로 복원 시간에 큰 영향을 미치게 됩니다. target-resource-group 매개 변수가 지정된 경우에만 즉시 복원의 이점을 얻을 수 있습니다. 관리 디스크를 관리되지 않는 상태로 복원하려는 경우에는 **target-resource-group** 매개 변수를 제공하지 않고 대신 아래에 표시된 대로 **restore-as-unmanaged-disk** 매개 변수를 제공합니다. 이 매개 변수는 az 3.4.0 이상에서 사용할 수 있습니다.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -101,11 +101,11 @@ az backup recoverypoint list \
     --restore-as-unmanaged-disk
     ```
 
-이렇게 하면 관리 디스크는 지정된 스토리지 계정에 관리되지 않는 디스크로 복원되며 '인스턴트' 복원 기능을 활용하지 않습니다. 이후 버전의 CLI에서는 target-resource-group 매개 변수 또는 'restore-as-unmanaged-disk' 매개 변수를 제공해야 합니다.
+이렇게 하면 관리 디스크는 지정된 스토리지 계정에 관리되지 않는 디스크로 복원되며 '인스턴트' 복원 기능을 활용하지 않습니다. 이후 버전의 CLI에서는 **target-resource-group** 매개 변수 또는 **restore-as-unmanaged-disk** 매개 변수를 제공해야 합니다.
 
 ### <a name="unmanaged-disks-restore"></a>비관리 디스크 복원
 
-백업된 VM에 관리되지 않는 디스크가 있고 복구 지점에서 디스크를 복원하려는 경우 먼저 Azure 스토리지 계정을 제공해야 합니다. 이 스토리지 계정은 나중에 복원된 디스크에서 VM을 배포하는 데 사용할 수 있는 VM 구성 및 배포 템플릿을 저장하는 데 사용됩니다. 기본적으로 비관리 디스크는 원래 스토리지 계정에 복원됩니다. 사용자가 모든 비관리 디스크를 한 곳에 복원하려는 경우에는 지정된 스토리지 계정을 해당 디스크의 준비 위치로도 사용할 수 있습니다.
+백업된 VM에 관리되지 않는 디스크가 있고 복구 지점에서 디스크를 복원하려는 경우 먼저 Azure 스토리지 계정을 제공해야 합니다. 이 스토리지 계정은 나중에 복원된 디스크에서 VM을 배포하는 데 사용할 수 있는 VM 구성 및 배포 템플릿을 저장하는 데 사용됩니다. 기본적으로 비관리 디스크는 원래 스토리지 계정에 복원됩니다. 모든 비관리 디스크를 한 곳에 복원하려는 경우에는 지정된 스토리지 계정을 해당 디스크의 준비 위치로도 사용할 수 있습니다.
 
 추가 단계에서 복원된 디스크를 사용하여 VM을 만듭니다.
 

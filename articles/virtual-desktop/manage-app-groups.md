@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e495288bcd2c966dab49925a55507ab1f2379f64
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 21dba3c9beeefa2b25b8038f6cbd0ec77f947774
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659486"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226729"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>자습서: Azure Portal을 사용하여 앱 그룹 관리
 
@@ -31,6 +31,8 @@ ms.locfileid: "88659486"
 Azure Portal 또는 PowerShell을 사용하여 호스트 풀 및 세션 호스트 VM을 이미 만든 경우 다음 프로세스를 사용하여 Azure Portal에서 애플리케이션 그룹을 추가할 수 있습니다.
 
 1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+   
+   >![참고] US Gov 포털에 로그인하는 경우 [https://portal.azure.us/](https://portal.azure.us/)로 이동합니다.
 
 2.  **Windows Virtual Desktop**을 검색하여 선택합니다.
 

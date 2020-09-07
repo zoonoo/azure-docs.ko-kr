@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: c31c52d278c1e40b18b3308ca154b934d060d403
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 856bace0c67c5afedd6305158326af46037e7f21
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071163"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299230"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>자습서: 경고 및 작업 그룹을 사용하여 Spring Cloud 리소스를 모니터링하는 방법
 
@@ -24,7 +24,7 @@ Azure Spring Cloud 경고는 사용 가능한 스토리지, 요청 속도 또는
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure Spring Cloud 인스턴스와 함께 작동합니다.  [빠른 시작](spring-cloud-quickstart-launch-app-cli.md)을 따라 시작하세요.
+Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure Spring Cloud 인스턴스와 함께 작동합니다.  [빠른 시작](spring-cloud-quickstart.md)을 따라 시작하세요.
 
 다음 절차에서는 Spring Cloud 인스턴스의 왼쪽 탐색 창에 있는 **경고** 옵션에서 시작하여 **작업 그룹** 및 **경고**를 모두 초기화합니다. 이 절차는 Azure Portal의 **모니터 개요** 페이지에서 시작할 수도 있습니다. 
 
@@ -76,11 +76,11 @@ Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure 
 
 1. 조건을 선택합니다. 이 예제에서는 **시스템 CPU 사용량 비율**을 사용합니다.
 
-   ![포털의 새 경고 규칙에 대한 스크린샷](media/alerts-action-groups/alerts-3-1.png)
+   ![스크린샷 포털 새 경고 규칙 2](media/alerts-action-groups/alerts-3-1.png)
 
 1. **신호 논리 구성** 창을 아래로 스크롤하여 모니터링할 **임계값**을 설정합니다.
 
-   ![포털의 새 경고 규칙에 대한 스크린샷](media/alerts-action-groups/alerts-3-2.png)
+   ![스크린샷 포털 새 경고 규칙 3](media/alerts-action-groups/alerts-3-2.png)
 
 1. **Done**을 클릭합니다.
 
@@ -88,7 +88,7 @@ Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure 
 
  **작업**에서 **작업 그룹 선택**을 클릭합니다. **작업** 창에서 이전에 정의한 **작업 그룹**을 선택합니다.
 
-   ![포털의 새 경고 규칙에 대한 스크린샷](media/alerts-action-groups/alerts-3-3.png) 
+   ![스크린샷 포털 새 경고 규칙 4](media/alerts-action-groups/alerts-3-3.png) 
 
 1. 아래로 스크롤하고, **경고 세부 정보** 아래에서 경고 규칙의 이름을 지정합니다.
 
@@ -96,15 +96,15 @@ Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure 
 
 1. **경고 규칙 만들기**를 클릭합니다.
 
-   ![포털의 새 경고 규칙에 대한 스크린샷](media/alerts-action-groups/alerts-3-4.png)
+   ![스크린샷 포털 새 경고 규칙 5](media/alerts-action-groups/alerts-3-4.png)
 
 새 경고 규칙을 사용하도록 설정되었는지 확인합니다.
 
-   ![포털의 새 경고 규칙에 대한 스크린샷](media/alerts-action-groups/alerts-4.png)
+   ![스크린샷 포털 새 경고 규칙 6](media/alerts-action-groups/alerts-4.png)
 
 **메트릭** 페이지를 사용하여 규칙을 만들 수도 있습니다.
 
-   ![포털의 새 경고 규칙에 대한 스크린샷](media/alerts-action-groups/alerts-5.png)
+   ![스크린샷 포털 새 경고 규칙 7](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>다음 단계
 

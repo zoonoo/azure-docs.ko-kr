@@ -3,15 +3,15 @@ title: Windows Virtual Desktop 호스트 풀 - Azure Portal - Azure
 description: Azure Portal을 사용하여 Windows Virtual Desktop 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 09/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755486"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322588"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>자습서: Azure Portal로 호스트 풀 만들기
 
@@ -47,6 +47,8 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 새 호스트 풀 만들기를 시작하려면 다음을 수행합니다.
 
 1. [https://portal.azure.com](https://portal.azure.com/)에서 Azure Portal에 로그인합니다.
+   
+   >![참고] US Gov 포털에 로그인하는 경우 [https://portal.azure.us/](https://portal.azure.us/)로 이동합니다.
 
 2. 검색 창에서 **Windows Virtual Desktop**을 입력한 다음, [서비스] 아래에서 **Windows Virtual Desktop**을 찾아서 선택합니다.
 
@@ -72,7 +74,7 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
       > [!div class="mx-imgBorder"]
       > ![할당 유형 필드 드롭다운 메뉴의 스크린샷. 사용자가 자동을 선택했습니다.](media/assignment-type-field.png)
 
-9. **풀링됨**을 선택하는 경우 다음 정보를 입력합니다.
+9.  **풀링됨**을 선택하는 경우 다음 정보를 입력합니다.
 
      - **최대 세션 제한**에 대해 단일 세션 호스트로 부하가 분산되도록 하려는 최대 사용자 수를 입력합니다.
      - **부하 분산 알고리즘**에 대해 사용 패턴에 따라 [너비 우선] 또는 [깊이 우선] 중 하나를 선택합니다.
@@ -129,9 +131,11 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 
 7. VM에서 사용할 OS 디스크의 종류(표준 SSD, 프리미엄 SSD 또는 표준 HDD)를 선택합니다.
 
-8. 네트워크 및 보안 아래에서 사용자가 만든 가상 머신을 배치하려는 **가상 네트워크** 및 **서브넷**을 선택합니다. 가상 네트워크 내의 가상 머신을 도메인에 조인해야 하므로 가상 네트워크에서 도메인 컨트롤러에 연결할 수 있는지 확인합니다. 다음으로, 공용 IP를 가상 머신에 사용할지 여부를 선택합니다. 개인 IP가 더 안전하므로 **아니요**를 선택하는 것이 좋습니다.
+8. 네트워크 및 보안 아래에서 사용자가 만든 가상 머신을 배치하려는 **가상 네트워크** 및 **서브넷**을 선택합니다. 가상 네트워크 내의 가상 머신을 도메인에 조인해야 하므로 가상 네트워크에서 도메인 컨트롤러에 연결할 수 있는지 확인합니다. 선택한 가상 네트워크의 DNS 서버는 도메인 컨트롤러의 IP를 사용하도록 구성해야 합니다.
 
-9. 원하는 보안 그룹의 종류(**기본** , **고급**  또는 **없음**)를 선택합니다.
+9. 다음으로, 가상 머신의 공용 IP를 사용할지 여부를 선택합니다. 개인 IP가 더 안전하므로 **아니요**를 선택하는 것이 좋습니다.
+
+10. 원하는 보안 그룹의 종류(**기본** , **고급**  또는 **없음**)를 선택합니다.
 
     **기본**을 선택하는 경우 인바운드 포트를 열지 여부를 선택해야 합니다. **예**를 선택하는 경우 인바운드 연결을 허용하는 표준 포트의 목록에서 선택합니다.
 
@@ -143,11 +147,13 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 
     **고급**을 선택하는 경우 이미 구성한 기존 네트워크 보안 그룹을 선택합니다.
 
-10. 그런 다음, 가상 머신을 특정 도메인 및 조직 구성 단위에 조인할지 여부를 선택합니다. **예**를 선택하는 경우 조인할 도메인을 지정합니다. 필요에 따라 가상 머신을 배치하려는 특정 조직 구성 단위를 추가할 수 있습니다. **아니요**를 선택하면 VM이 **AD 도메인 조인 UPN**의 접미사와 일치하는 도메인에 조인됩니다.
+11. 그런 다음, 가상 머신을 특정 도메인 및 조직 구성 단위에 조인할지 여부를 선택합니다. **예**를 선택하는 경우 조인할 도메인을 지정합니다. 필요에 따라 가상 머신을 배치하려는 특정 조직 구성 단위를 추가할 수 있습니다. **아니요**를 선택하면 VM이 **AD 도메인 조인 UPN**의 접미사와 일치하는 도메인에 조인됩니다.
 
-11. [관리자 계정] 아래에서 선택한 가상 네트워크의 Active Directory 도메인 관리자에 대한 자격 증명을 입력합니다.
+  - OU를 지정하는 경우 따옴표 없이 전체 경로(고유 이름)를 사용해야 합니다.
 
-12. **다음: 작업 영역 >** 을 선택합니다.
+12. [관리자 계정] 아래에서 선택한 가상 네트워크의 Active Directory 도메인 관리자에 대한 자격 증명을 입력합니다. 이 계정은 MFA(다단계 인증)를 활성화할 수 없습니다. Azure AD DS(Azure Active Directory Domain Services) 도메인에 조인할 때 계정은 Azure AD DC 관리자 그룹의 일부여야 하며 계정 암호는 Azure AD DS에서 작동해야 합니다.
+
+13. **다음: 작업 영역 >** 을 선택합니다.
 
 이제 호스트 풀을 설정하는 다음 단계로서 앱 그룹을 작업 영역에 등록할 준비가 되었습니다.
 

@@ -3,18 +3,18 @@ title: Azure Cost Management에서 AWS 비용 및 사용량 관리
 description: 이 문서는 Cost Management에서 비용 분석 및 예산을 사용하여 AWS 비용과 사용량을 관리하는 방법을 이해하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 08/28/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 4d6a961388c9794a7584e8529dac75d068f91ed4
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7df27a6ed288555d0f4815223fd0bb6dddff6f44
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685020"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266228"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Azure에서 AWS 비용 및 사용량 관리
 
@@ -36,17 +36,18 @@ AWS 비용은 다음 범위의 비용 분석에서 사용할 수 있습니다.
 
 ### <a name="view-aws-linked-accounts-under-a-management-group"></a>관리 그룹의 AWS 연결 계정 보기
 
-관리 그룹 범위를 사용하여 비용을 보는 것은 다른 구독 및 연결된 계정에서 발생하는 집계된 비용을 확인하는 유일한 방법입니다. 관리 그룹을 사용하면 클라우드 간 보기가 제공됩니다.
+관리 그룹 범위를 사용하여 비용을 보는 것이 다른 Azure 구독 및 AWS 연결 계정에서 발생하는 집계된 비용을 확인하는 유일한 방법입니다. 관리 그룹을 사용하면 Azuredhk AWS의 비용을 함께 볼 수 있는 클라우드 간 보기를 제공합니다.
 
 비용 분석에서 범위 선택기를 열고 AWS 연결 계정이 포함된 관리 그룹을 선택합니다. 다음은 Azure Portal의 예제 이미지입니다.
 
-![선택 범위 보기의 예제](./media/aws-integration-manage/select-scope01.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope01.png" alt-text="관리 그룹 아래에 연결된 계정이 있는 범위 선택 보기의 예" :::
 
 다음은 공급자(Azure 및 AWS)별로 그룹화된 비용 분석의 관리 그룹 비용을 보여주는 예제입니다.
 
-![비용 분석 중 사분기에 대한 Azure 및 AWS 비용을 보여주는 예제](./media/aws-integration-manage/cost-analysis-aws-azure.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="비용 분석 중 사분기에 대한 Azure 및 AWS 비용을 보여주는 예제" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+
+> [!NOTE]
+> 관리 그룹은 현재 MCA(Microsoft 고객 계약) 고객에게 지원되지 않습니다. MCA 고객은 커넥터를 만들고 AWS 데이터를 볼 수 있습니다. 그러나 MCA 고객은 관리 그룹에서 Azure 비용과 AWS 비용을 함께 볼 수 없습니다.
 
 ### <a name="view-aws-linked-account-costs"></a>AWS 연결 계정 비용 보기
 
@@ -54,21 +55,17 @@ AWS 연결 계정 비용을 보려면 범위 선택기를 열고 AWS 연결 계�
 
 다음은 AWS 연결 계정 범위를 선택하는 방법을 보여주는 예제입니다.
 
-![선택 범위 보기의 예제](./media/aws-integration-manage/select-scope02.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="AWS 연결 계정을 표시하는 범위 선택 보기의 예" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>AWS 통합 계정 비용 보기
 
 AWS 통합 계정 비용을 보려면 범위 선택기를 열고 AWS 통합 계정을 선택합니다. 다음은 AWS 통합 계정 범위를 선택하는 방법을 보여주는 예제입니다.
 
-![선택 범위 보기의 예제](./media/aws-integration-manage/select-scope03.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="통합 계정이 있는 선택 범위 보기의 예" :::
 
 이 범위는 AWS 통합 계정에 연결된 모든 AWS 연결 계정에 대한 집계 보기를 제공합니다. 다음은 서비스 이름별로 그룹화된 AWS 통합 계정에 대한 비용을 보여주는 예제입니다.
 
-![비용 분석의 AWS 통합 비용을 보여주는 예제](./media/aws-integration-manage/cost-analysis-aws-consolidated.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="비용 분석의 AWS 통합 비용을 보여주는 예제" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>필터링 및 그룹화에 사용할 수 있는 차원
 
@@ -83,13 +80,13 @@ AWS 통합 계정 비용을 보려면 범위 선택기를 열고 AWS 통합 계�
 | 미터 범주 | lineitem/UsageType | 모두 |   |
 | 작업(Operation) | lineItem/Operation | 모두 |   |
 | 리소스 | lineItem/ResourceId | 모두 |   |
-| 리소스 유형 | product/instanceType | 모두 | product/instanceType이 null이면 lineItem/UsageType이 사용됩니다. |
+| 리소스 종류 | product/instanceType | 모두 | product/instanceType이 null이면 lineItem/UsageType이 사용됩니다. |
 | ResourceGuid | 해당 없음 | 모두 | Azure 미터 GUID입니다. |
 | 서비스 이름 | product/ProductName | 모두 | product/ProductName이 null이면 lineItem/ProductCode가 사용됩니다. |
 | 서비스 계층 |   |   |   |
 | 구독 ID | lineItem/UsageAccountId | 통합 계정 및 관리 그룹 |   |
 | 구독 이름 | 해당 없음 | 통합 계정 및 관리 그룹 | 계정 이름은 AWS 조직 API를 사용하여 수집됩니다. |
-| 태그 | resourceTags/\* | 모두 | _user:_ 접두사는 사용자 정의 태그에서 제거되어 클라우드 간 태그를 허용합니다. _aws:_ 접두사는 그대로 유지됩니다. |
+| 태그 | resourceTags | 모두 | _user:_ 접두사는 사용자 정의 태그에서 제거되어 클라우드 간 태그를 허용합니다. _aws:_ 접두사는 그대로 유지됩니다. |
 | 청구 계정 ID | bill/PayerAccountId | 관리 그룹 |   |
 | 청구 계정 이름 | 해당 없음 | 관리 그룹 | 계정 이름은 AWS 조직 API를 사용하여 수집됩니다. |
 | 공급자 | 해당 없음 | 관리 그룹 | AWS 또는 Azure 중 하나입니다. |
@@ -98,7 +95,7 @@ AWS 통합 계정 비용을 보려면 범위 선택기를 열고 AWS 통합 계�
 
 예산을 사용하여 비용을 사전에 관리하고 조직의 책임감을 높입니다. 예산은 AWS 통합 계정 및 AWS 연결 계정 범위에 대해 설정됩니다. Cost Management에 표시된 AWS 통합 계정에 대한 예산 예제는 다음과 같습니다.
 
-![AWS 통합 계정에 대한 예산을 보여주는 예제](./media/aws-integration-manage/budgets-aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="AWS 통합 계정에 대한 예산을 보여주는 예제" :::
 
 ## <a name="aws-data-collection-process"></a>AWS 데이터 수집 프로세스
 
@@ -110,15 +107,15 @@ AWS 커넥터를 설정한 후 데이터 수집 및 검색 프로세스가 시�
 
 ## <a name="aws-integration-pricing"></a>AWS 통합 가격 책정
 
-각 AWS 커넥터에는 90일의 평가판이 있습니다. 공개 미리 보기 중에는 무료입니다.
+각 AWS 커넥터에는 90일의 평가판이 있습니다.
 
 정가는 AWS 월별 비용의 1%입니다. 매월 이전 달의 청구된 비용을 기준으로 요금이 청구됩니다.
 
-AWS API에 액세스하면 추가 비용이 발생할 수 있습니다.
+AWS API에 액세스하면 AWS에서 추가 비용이 발생할 수 있습니다.
 
 ## <a name="aws-integration-limitations"></a>AWS 통합 제한 사항
 
-- Cost Management는 여러 통화 유형을 포함하는 비용 보고서를 지원하지 않습니다. 여러 통화를 포함하는 범위를 선택하면 오류 메시지가 표시됩니다.
+- Cost Management의 예산은 여러 통화를 사용하는 관리 그룹을 지원하지 않습니다. 여러 통화를 사용하는 관리 그룹은 예산 평가를 표시하지 않습니다. 예산을 만들 때 여러 통화를 사용하는 관리 그룹을 선택하면 오류 메시지가 표시됩니다.
 - 클라우드 커넥터는 AWS GovCloud(US), AWS Gov 또는 AWS China를 지원하지 않습니다.
 - Cost Management는 AWS _사용 비용_만 표시합니다. 세금, 지원, 환불, RI, 크레딧 또는 기타 요금 유형도 아직 지원되지 않습니다.
 
