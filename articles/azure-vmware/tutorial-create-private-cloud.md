@@ -2,13 +2,13 @@
 title: 자습서 - Azure에서 vSphere 클러스터 배포
 description: Azure VMWare Solution을 사용하여 Azure에 vSphere 클러스터를 배포하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: 8aeedeeb785f149239f2bf9a4b58a18ec8bfeb77
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/07/2020
+ms.openlocfilehash: 69a29a459ba283bb34169112ac2fa174ac6a14af
+ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750484"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89512376"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>자습서: Azure에서 Azure VMware Solution 프라이빗 클라우드 배포
 
@@ -30,14 +30,7 @@ Azure VMware Solution에서는 시작 시 온-프레미스 vCenter를 사용하�
 
 ## <a name="register-the-resource-provider"></a>리소스 공급자 등록
 
-Azure VMware Solution을 사용하려면 먼저 구독에 리소스 공급자를 등록해야 합니다.
-
-```
-azurecli-interactive
-az provider register -n Microsoft.AVS --subscription <your subscription ID>
-```
-
-리소스 공급자를 등록하는 추가 방법은 [리소스 공급자 및 유형](../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요.
+[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
 
 ## <a name="create-a-private-cloud"></a>프라이빗 클라우드 만들기
@@ -46,34 +39,7 @@ Azure VMware Solution 프라이빗 클라우드는 [Azure Portal](#azure-portal)
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-1. **새 리소스 만들기**를 선택합니다. **Marketplace 검색** 텍스트 상자에서 `Azure VMware Solution`을 입력하고, 목록에서 **Azure VMware 솔루션**을 선택합니다. **Azure VMware 솔루션** 창에서 **만들기**를 선택합니다.
-
-1. **기본** 탭에서 필드 값을 입력합니다. 다음 표에서는 필드에 대한 속성을 나열합니다.
-
-   | 필드   | 값  |
-   | ---| --- |
-   | **구독** | 배포에 사용할 구독입니다.|
-   | **리소스 그룹** | 프라이빗 클라우드 리소스에 대한 리소스 그룹입니다. |
-   | **위치** | 위치(예: **미국 동부**)를 선택합니다.|
-   | **리소스 이름** | Azure VMware Solution 프라이빗 클라우드의 이름입니다. |
-   | **SKU** | 다음 SKU 값을 선택합니다. AV36 |
-   | **호스트** | 프라이빗 클라우드 클러스터에 추가할 호스트의 수입니다. 기본값은 3이며, 배포 후에 늘리거나 줄일 수 있습니다.  |
-   | **vCenter 관리자 암호** | 클라우드 관리자 암호를 입력합니다. |
-   | **NSX-T 관리자 암호** | NSX-T 관리자 암호를 입력합니다. |
-   | **주소 블록** | 프라이빗 클라우드의 CIDR 네트워크에 대한 IP 주소 블록(예: 10.175.0.0/22)을 입력합니다. |
-
-   :::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="기본 탭에서 필드 값을 입력합니다." border="true":::
-
-1. 완료되면 **검토 + 만들기**를 선택합니다. 다음 화면에서 입력한 정보를 확인합니다. 정보가 모두 올바르면 **만들기**를 선택합니다.
-
-   > [!NOTE]
-   > 이 단계는 약 두 시간 정도 걸립니다. 
-
-1. 배포가 성공했는지 확인합니다. 만든 리소스 그룹으로 이동하고 프라이빗 클라우드를 선택합니다.  배포가 완료되면 **성공** 상태가 표시됩니다. 
-
-   :::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="배포가 성공했는지 확인합니다." border="true":::
+[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-avs-private-cloud-azure-portal-steps.md)]
 
 ### <a name="azure-cli"></a>Azure CLI
 

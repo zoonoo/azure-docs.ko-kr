@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343766"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485804"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 수신기 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "84343766"
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Azure Portal에서 부하 분산 장치 만들기
 
-다음 지침에서는 [부하 분산 장치 - Azure Portal](../windows/availability-group-load-balancer-portal-configure.md) 문서의 [Azure Portal에서 부하 분산 장치 만들기 및 구성](../windows/availability-group-load-balancer-portal-configure.md#create-and-configure-the-load-balancer-in-the-azure-portal) 섹션에 나오는 1~4단계를 안내합니다.
+다음 지침에서는 [부하 분산 장치 - Azure Portal](../windows/availability-group-load-balancer-portal-configure.md) 문서의 [Azure Portal에서 부하 분산 장치 만들기 및 구성](../windows/availability-group-load-balancer-portal-configure.md#create--configure-load-balancer) 섹션에 나오는 1~4단계를 안내합니다.
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 

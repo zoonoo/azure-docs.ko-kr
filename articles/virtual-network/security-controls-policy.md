@@ -1,18 +1,18 @@
 ---
 title: Azure Virtual Network에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Virtual Network에 사용 가능한 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: dcd8740d5ab987e881b610a0509c1fdbb61d34ae
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 3da97d99a592f48fba6aa3763e018aab7d9b9e50
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380339"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485278"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-network"></a>Azure Virtual Network에 대한 Azure Policy 규정 준수 컨트롤
 

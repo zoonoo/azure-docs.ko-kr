@@ -1,18 +1,18 @@
 ---
 title: Azure Container Registry에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Container Registry에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 0e45211c29f3524463da1dd6e8d52602f53e3e4f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1bc6ec1b79b11a5a81fcac7969f2733e77f6f010
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424726"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487177"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-container-registry"></a>Azure Container Registry에 대한 Azure Policy 규정 준수 컨트롤
 

@@ -1,16 +1,16 @@
 ---
 title: Azure App Service에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure App Service에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 ms.service: app-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 7f3ee428bcd2344a17d92b15087c104cc6bbc9cd
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: aee0ef0c4781ae588b7e21ce1631778be4f34606
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87567782"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484846"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-app-service"></a>Azure App Service에 대한 Azure Policy 규정 준수 컨트롤
 

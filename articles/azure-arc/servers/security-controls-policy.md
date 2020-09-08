@@ -1,15 +1,15 @@
 ---
 title: Azure Arc 지원 서버(미리 보기)에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Arc 지원 서버(미리 보기)에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 6a585465a4e2d3c3c59a6c00d3d7c74d5bf3951e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: c1743d89b65639689209bbe35e2e7b8b75c13ebb
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206322"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489251"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-for-servers"></a>서버용 Azure Arc에 대한 Azure Policy 규정 준수 컨트롤
 

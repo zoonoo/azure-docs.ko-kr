@@ -1,18 +1,18 @@
 ---
 title: Azure Service Fabric에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Service Fabric에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: erikadoyle
 ms.author: edoyle
 ms.service: service-fabric
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 985d1cc83cc1c84b581762d6cf234c7a511f271b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9e7c600959424a20a2cdab91757b26d86ea107a0
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293606"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482076"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-service-fabric"></a>Azure Service Fabric에 대한 Azure Policy 규정 준수 컨트롤
 

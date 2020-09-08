@@ -4,12 +4,12 @@ description: 이 자습서에서는 Kestrel을 사용하여 ASP.NET Core 프런�
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6b8587982a8cbe496427960495055adbd68a07a7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b309a13288c8ea95f453c1e80549a979e3f89921
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997288"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441530"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>자습서: Kestrel을 사용하여 ASP.NET Core Web API 프런트 엔드 서비스에 HTTPS 엔드포인트 추가
 
@@ -238,7 +238,7 @@ private X509Certificate2 FindMatchingCertificateBySubject(string subjectCommonNa
 
 **SetupEntryPoint** 지점에서 PowerShell을 실행하려면 PowerShell 파일을 가리키는 일괄 처리 파일에서 PowerShell.exe를 실행하면 됩니다. 먼저 서비스 프로젝트에 일괄 처리 파일을 추가합니다.  솔루션 탐색기에서 **VotingWeb**을 마우스 오른쪽 단추로 클릭하고 **추가**->**새 항목**을 선택하여 "Setup.bat" 라는 새 파일을 추가합니다.  *Setup.bat* 파일을 편집하고 다음 명령을 추가합니다.
 
-```bat
+```cmd
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 

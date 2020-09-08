@@ -1,18 +1,18 @@
 ---
 title: Azure Logic Apps에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Logic Apps에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: ecfan
 ms.author: estfan
 ms.service: logic-apps
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 9c451a44af4cf10eaf116eeb7e07d35c3e54a2ed
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fe0b8518bda695126f67d35c123aa60288b76f8a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293641"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484422"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-logic-apps"></a>Azure Logic Apps에 대한 Azure Policy 규정 준수 컨트롤
 

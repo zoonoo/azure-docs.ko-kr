@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 47c846f0d8d1cccd91301c7424b2618fffddd565
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1afeca4f627236c5172dd07a44751015c16d2f58
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998444"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462023"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 자동 완성 및 제안 추가
 
@@ -31,7 +31,7 @@ ms.locfileid: "88998444"
 
 이 자습서는 시리즈의 일부이며 [C# 자습서: 검색 결과 페이지 매김 - Azure Cognitive Search](tutorial-csharp-paging.md)에서 만든 페이지 매김 프로젝트를 기반으로 합니다.
 
-또는 이 특정 자습서: [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead)에 대한 솔루션을 다운로드하여 실행할 수 있습니다.
+또는 이 특정 자습서: [3-add-typeahead](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)에 대한 솔루션을 다운로드하여 실행할 수 있습니다.
 
 ## <a name="add-suggestions"></a>제안 추가
 

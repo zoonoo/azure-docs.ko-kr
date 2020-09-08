@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: 140365abad266617443d58b7ed59f05a27009f59
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433059"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462176"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>자습서: Azure에서 Azure DevOps Services 및 Azure Pipelines를 사용하여 Linux 가상 머신에 앱 배포
 
@@ -84,9 +84,10 @@ https://github.com/azure-devops/fabrikam-node
 
 #### <a name="java"></a>[Java](#tab/java)
 
-- Java Spring Boot 및 Spring Cloud 기반 앱을 배포하려면 완전히 지원되는 OpenJDK 기반 런타임을 제공하는 [이 템플릿](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804)을 사용하여 Azure에서 Linux VM을 만듭니다.
-- Tomcat 서버에서 Java 서블릿을 배포하려면 [이 Azure 템플릿](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804)을 사용하여 Java 8이 포함된 Linux VM을 만들고 [Tomcat 9.x를 서비스로 구성](https://tomcat.apache.org/tomcat-9.0-doc/setup.html)합니다.
-- Java EE 기반 앱을 배포하려면 Azure 템플릿을 사용하여 [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), [Linux VM + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) 또는 [Linux VM + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14를 만듭니다. 
+- Java Spring Boot 및 Spring Cloud 기반 앱을 배포하려면 완전히 지원되는 OpenJDK 기반 런타임을 제공하는 [이 템플릿](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004)을 사용하여 Azure에서 Linux VM을 만듭니다.
+- Tomcat 서버에서 Java 서블릿을 배포하려면 [이 Azure 템플릿](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004)을 사용하여 Java 8이 포함된 Linux VM을 만들고 [Tomcat 9.x를 서비스로 구성](https://tomcat.apache.org/tomcat-9.0-doc/setup.html)합니다.
+- Java EE 기반 앱을 배포하려면 Azure 템플릿을 사용하여 [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), [Linux VM + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) 또는 [Linux VM + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) + WildFly/JBoss 14를 만듭니다. 
+
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
