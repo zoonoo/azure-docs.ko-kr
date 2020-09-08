@@ -42,7 +42,7 @@
               href: ./iot-edge-module.md
             - name: 컨설팅 서비스
               href: ./consulting-services.md
-            - name: 'Office 365, Dynamics 365 및 Power BI'
+            - name: 'Microsoft 365, Dynamics 365 및 Power BI'
               href: ./appsource-offer-publishing-guide.md
             - name: Azure AD를 사용하여 인증 제안 사용
               href: ./enable-appsource-marketplace-using-azure-ad.md
@@ -60,7 +60,7 @@
             - name: 클라우드 솔루션 공급자
               href: ./cloud-solution-providers.md
             - name: 프로그램 온보딩 연결 가이드
-              href: ./cloud-partner-portal/business-applications-isv-program.md
+              href: ./business-applications-isv-program.md
         - name: Marketplace 혜택
           href: ./gtm-your-marketplace-benefits.md
           items:
@@ -135,7 +135,7 @@
                       href: ./partner-center-portal/common-sas-uri-issues.md
         - name: 컨설팅 서비스
           items:
-            - name: 필수 구성 요소
+            - name: 사전 요구 사항
               href: ./partner-center-portal/consulting-service-prerequisites.md
             - name: 컨설팅 서비스 제품 만들기
               href: ./partner-center-portal/create-consulting-service-offer.md
@@ -294,7 +294,7 @@
       items:
         - name: 개요
           href: ./cloud-partner-portal-api-overview.md
-        - name: 필수 구성 요소
+        - name: 사전 요구 사항
           href: ./cloud-partner-portal-api-prerequisites.md
         - name: 고려 사항
           href: ./cloud-partner-portal-api-considerations.md
