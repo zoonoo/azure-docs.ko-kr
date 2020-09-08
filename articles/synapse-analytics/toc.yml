@@ -36,6 +36,8 @@
   items:
     - name: Azure Portal을 사용하여 Synapse 작업 영역 만들기
       href: quickstart-create-workspace.md
+    - name: 템플릿을 사용하여 배포
+      href: quickstart-deployment-template-workspaces.md
     - name: Azure CLI를 사용하여 Synapse 작업 영역 만들기
       href: quickstart-create-workspace-cli.md
     - name: Synapse Studio 사용
@@ -210,6 +212,8 @@
               href: ./spark/apache-spark-delta-lake-overview.md
             - name: Apache Spark 성능
               href: ./spark/apache-spark-performance.md
+            - name: 하이퍼스페이스 인덱스를 사용하여 Apache Spark에 대한 성능 최적화
+              href: ./spark/apache-spark-performance-hyperspace.md
             - name: Apache Spark 자동 크기 조정 동작
               href: ./spark/apache-spark-autoscale.md
         - name: 개발
@@ -254,7 +258,7 @@
           items:
             - name: 개요
               href: ./sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: 최선의 구현 방법
+            - name: 모범 사례
               href: sql/data-loading-best-practices.md
             - name: Columnstore 압축
               href: sql/data-load-columnstore-compression.md
@@ -681,7 +685,7 @@
               href: ../data-factory/connector-presto.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: QuickBooks Online
               href: ../data-factory/connector-quickbooks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: REST
+            - name: REST (영문)
               href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Salesforce
               href: ../data-factory/connector-salesforce.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -920,7 +924,7 @@
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 질문과 대답
-      href: 'https://docs.microsoft.com/en-us/answers/questions/topics/single/25423.html'
+      href: 'https://docs.microsoft.com/answers/questions/topics/single/25423.html'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
     - name: Stack Overflow
