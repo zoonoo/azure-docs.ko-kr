@@ -29,6 +29,8 @@
           href: quickstart-service-python.md
 - name: 자습서
   items:
+    - name: 여러 구성 요소 디바이스 연결(C)
+      href: tutorial-multiple-components-c.md
     - name: 여러 구성 요소 디바이스 연결(C#)
       href: tutorial-multiple-components-csharp.md
     - name: 여러 구성 요소 디바이스 연결(Java)
