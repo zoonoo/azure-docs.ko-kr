@@ -35,6 +35,8 @@
   items:
     - name: Azure SignalR Service 내부 기능
       href: signalr-concept-internals.md
+    - name: 서비스 모드
+      href: concept-service-mode.md
     - name: ASP.NET Core SignalR 크기 조정
       href: signalr-concept-scale-aspnet-core.md
     - name: 서버를 사용하지 않음
