@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: cc29eb959876a0c9c6f8c8e5dee2d18aaa5443ac
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 57577c840c93888b2b96971994724f085ad44ebe
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825361"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569308"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 
@@ -90,7 +90,7 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 
 Microsoft는 빠른 시작을 가장 많이 사용되는 프로그래밍 언어로 제공하며, 각각 기본 디자인 패턴을 학습하고 코드를 10분 이내에 실행할 수 있도록 설계되었습니다. 각 기능에 대한 빠른 시작은 다음 목록을 참조하세요.
 
-* [음성 텍스트 변환 빠른 시작](speech-to-text-basics.md)
+* [음성 텍스트 변환 빠른 시작](get-started-speech-to-text.md)
 * [텍스트 음성 변환 빠른 시작](get-started-text-to-speech.md)
 * [음성 번역 빠른 시작](speech-translation-basics.md)
 * [의도 인식 빠른 시작](quickstarts/intent-recognition.md)

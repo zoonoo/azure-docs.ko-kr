@@ -3,7 +3,7 @@ title: '빠른 시작: Azure Front Door Service를 사용하여 고가용성 설
 description: 이 빠른 시작에서는 Azure Front Door Service를 고가용성, 고성능 글로벌 웹 애플리케이션에 사용하는 방법을 설명합니다.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.assetid: ''
 ms.service: frontdoor
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
-ms.author: sharadag
-ms.openlocfilehash: c1ce34bb7fc851d3f763241c9e92371b43ed1861
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: duau
+ms.openlocfilehash: 16ebfe7ae39d63f455e39c677acc61b31d40bb5a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82133378"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569240"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>빠른 시작: 고가용성 글로벌 웹 애플리케이션에 대한 Front Door 만들기
 
@@ -165,5 +165,3 @@ Front Door를 만들면 구성이 전역적으로 배포되는 데 몇 분 정�
 사용자 지정 도메인을 Front Door에 추가하는 방법을 알아보려면 다음 문서로 계속 진행하세요.
 > [!div class="nextstepaction"]
 > [사용자 지정 도메인 추가](front-door-custom-domain.md)
-
-트래픽 라우팅에 대해 자세히 알아보려면 [Front Door 라우팅 방법](front-door-routing-methods.md)을 참조하세요.

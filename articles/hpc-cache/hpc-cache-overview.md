@@ -4,15 +4,15 @@ description: 고성능 컴퓨팅을 위한 파일 액세스 가속기 솔루션�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 07/16/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
 ms.custom: references_regions
-ms.openlocfilehash: 8c8223872ec3ef1d875e10ead8f327db01a924c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c898b0d5a58654547cb6205ee0c845c9cfa4aa9
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053671"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611746"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Azure HPC Cache란?
 
@@ -65,11 +65,11 @@ Azure HPC Cache 배포는 정량적 분석 계산, 위험 분석 워크로드 �
 * US Gov 애리조나
 * US Gov 버지니아
 
-## <a name="service-availability"></a>서비스 가용성
+<!-- ## Service availability
 
-Azure HPC 캐시에서 사용할 각 구독에 대해 액세스를 요청해야 합니다. 이 제한은 서비스 품질을 보장하는 데 도움이 됩니다.
+You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality.
 
-[이 양식](https://aka.ms/onboard-hpc-cache)을 입력하여 액세스를 요청합니다. 구독이 액세스 목록에 추가된 후에는 캐시를 만들 수 있습니다.
+Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches. -->
 
 ## <a name="next-steps"></a>다음 단계
 
