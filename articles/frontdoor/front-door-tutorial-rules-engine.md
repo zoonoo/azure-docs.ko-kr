@@ -3,7 +3,7 @@ title: '자습서: 규칙 엔진 구성 - Azure Front Door'
 description: 이 문서에서는 Azure Portal 및 CLI에서 규칙 엔진을 구성하는 방법에 대한 자습서를 제공합니다.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: mebeatty
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2ab9bc72aa30ddb16d0719827b6d7baeab86c057
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1ff8ca7d7c5972869de4c0d394129c591c7f4a7c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491309"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399075"
 ---
 # <a name="configure-your-rules-engine"></a>규칙 엔진 구성
 

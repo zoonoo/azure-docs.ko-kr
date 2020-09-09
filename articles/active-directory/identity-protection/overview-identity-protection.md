@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ffe7f58f27d028dd114f548521feeeb74bb12cf1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815184"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437703"
 ---
 # <a name="what-is-identity-protection"></a>Identity Protection이란?
 
@@ -102,17 +102,17 @@ Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| 기능 | 세부 정보 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free / Office 365 앱 |
+| 기능 | 세부 정보  | Azure AD Free / Office 365 앱 | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| 위험 정책 | 사용자 위험 정책(ID 보호를 통해) | 예 | 아니요 | 예 |
-| 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해) | 예 | 아니요 | 예 |
-| 보안 보고서 | 개요 | 예 | 아니요 | 예 |
-| 보안 보고서 | 위험한 사용자 | 모든 권한 | 제한적 정보 제공 | 제한적 정보 제공 |
-| 보안 보고서 | 위험한 로그인 | 모든 권한 | 제한적 정보 제공 | 제한적 정보 제공 |
-| 보안 보고서 | 위험 탐지 | 모든 권한 | 제한적 정보 제공 | 예 |
-| 공지 | 위험에 처한 사용자가 알림을 감지함 | 예 | 아니요 | 예 |
-| 공지 | 주 단위 요약 | 예 | 아니요 | 예 |
-| | MFA 등록 정책 | 예 | 아니요 | 아니요 |
+| 위험 정책 | 사용자 위험 정책(ID 보호를 통해)  | 아니요 | 아니요 |예 | 
+| 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해)  | 아니요 |  아니요 |예 |
+| 보안 보고서 | 개요 |  아니요 | 아니요 |예 |
+| 보안 보고서 | 위험한 사용자  | 제한적 정보 제공 | 제한적 정보 제공 | 모든 권한|
+| 보안 보고서 | 위험한 로그인  | 제한적 정보 제공 | 제한적 정보 제공 | 모든 권한|
+| 보안 보고서 | 위험 탐지   | 아니요 | 제한적 정보 제공| 모든 권한|
+| 공지 | 위험에 처한 사용자가 알림을 감지함  | 아니요 | 아니요 |예 |
+| 공지 | 주 단위 요약| 아니요 | 아니요 | 예 | 
+| | MFA 등록 정책 | 아니요 | 아니요 | 예 |
 
 ## <a name="next-steps"></a>다음 단계
 

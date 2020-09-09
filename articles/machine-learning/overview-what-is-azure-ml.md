@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c043ab535504a02a151d308de0562debdba950a
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 233eb06714dc8ac614cceef157f87d175c3f455b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145895"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462465"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -69,7 +69,7 @@ SDK를 사용하여 [모델 학습 및 튜닝을 자동화](tutorial-auto-train-
 
 ## <a name="build-ml-models-in-the-studio"></a>스튜디오에서 ML 모델 빌드
 
-[Azure Machine Learning 스튜디오](https://www.ml.azure.com)는 모델 학습, 배포 및 자산 관리를 위한 낮은 코드와 코드 없음 옵션에 대한 Azure Machine Learning의 웹 포털입니다. 스튜디오는 원활한 환경을 위해 Azure Machine Learning SDK와 통합됩니다. 자세한 내용은 [Azure Machine Learning 스튜디오란?](overview-what-is-machine-learning-studio.md)을 참조하세요.
+[Azure Machine Learning 스튜디오](https://studio.azureml.net)는 모델 학습, 배포 및 자산 관리를 위한 낮은 코드와 코드 없음 옵션에 대한 Azure Machine Learning의 웹 포털입니다. 스튜디오는 원활한 환경을 위해 Azure Machine Learning SDK와 통합됩니다. 자세한 내용은 [Azure Machine Learning 스튜디오란?](overview-what-is-machine-learning-studio.md)을 참조하세요.
 
 + **Azure Machine Learning 디자이너(미리 보기)**
 
@@ -86,7 +86,7 @@ SDK를 사용하여 [모델 학습 및 튜닝을 자동화](tutorial-auto-train-
 
 + **이 외에도 많은 기능이 있습니다.**
 
-  [ml.azure.com](https://www.ml.azure.com)에서 Azure Machine Learning 스튜디오를 방문하세요. 
+  [ml.azure.com](https://studio.azureml.net)에서 Azure Machine Learning 스튜디오를 방문하세요. 
 
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: 배포 및 수명 주기 관리

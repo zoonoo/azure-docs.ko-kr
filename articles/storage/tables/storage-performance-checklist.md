@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a60683b8dbf809bc3e91ffd8720b545db4c361d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008678"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458335"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Table storage에 대한 성능 및 확장성 검사 목록
 
@@ -189,7 +189,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 
 Azure Storage 오류 코드에 대한 자세한 내용은 [상태 및 오류 코드](/rest/api/storageservices/status-and-error-codes2)를 참조하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 이 섹션에는 Table service에서 성능을 크게 향상시키는 데 사용할 수 있는 다양한 빠른 구성 설정이 나와 있습니다.
 
@@ -197,7 +197,7 @@ Azure Storage 오류 코드에 대한 자세한 내용은 [상태 및 오류 코
 
 2013-08-15 스토리지 서비스 버전부터 Table service는 테이블 데이터를 전송하는 데 XML 기반 AtomPub 형식 대신 JSON을 사용하도록 지원합니다. JSON을 사용하면 페이로드 크기를 최대 75%까지 줄일 수 있으며 애플리케이션의 성능을 크게 향상시킬 수 있습니다.
 
-자세한 내용은 [Microsoft Azure Tables: JSON 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) 및 [Table Service 작업용 페이로드 형식](https://msdn.microsoft.com/library/azure/dn535600.aspx) 게시물을 참조하세요.
+자세한 내용은 [Microsoft Azure 테이블: JSON 소개](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) 및 [Table Service 작업의 페이로드 형식](https://msdn.microsoft.com/library/azure/dn535600.aspx)을 참조하세요.
 
 ### <a name="disable-nagle"></a>Nagle 사용 안 함
 
@@ -216,7 +216,7 @@ Table service의 성능에 영향을 미치는 가장 중요한 단일 요인은
 테이블은 파티션으로 구분됩니다. 파티션에 저장되는 모든 엔터티는 같은 파티션 키를 공유하며 해당 파티션 내에서 엔터티를 식별하는 데 사용되는 고유한 행 키를 포함합니다. 파티션을 사용하는 경우에는 이점도 있지만 확장성 제한도 적용됩니다.
 
 - 이점: 최대 100개의 개별 스토리지 작업(총 크기 한도 4MB)을 포함하는 단일 원자성 일괄 처리 트랜잭션에서 동일한 파티션의 엔터티를 업데이트할 수 있습니다. 또한 같은 수의 엔터티를 검색한다고 가정할 때 여러 파티션에 분산된 데이터보다 단일 파티션 내의 데이터를 더 효율적으로 쿼리할 수 있습니다. 단, 테이블 데이터 쿼리와 관련된 추가 권장 사항을 확인해야 합니다.
-- 확장성 한계: 파티션이 원자성 일괄 처리 트랜잭션을 지원하므로 단일 파티션에 저장된 엔터티에 대한 액세스는 부하 분산할 수 없습니다. 이러한 이유로 개별 테이블 파티션의 확장성 목표는 전체적으로 Table service의 목표보다 낮습니다.
+- 확장성 제한: 파티션은 원자성 일괄 처리 트랜잭션을 지원하므로 단일 파티션에 저장된 엔터티에 대한 액세스는 부하 분산할 수 없습니다. 이러한 이유로 개별 테이블 파티션의 확장성 목표는 전체적으로 Table service의 목표보다 낮습니다.
 
 테이블과 파티션의 이러한 특성을 고려할 때 다음과 같은 디자인 원칙을 적용해야 합니다.
 

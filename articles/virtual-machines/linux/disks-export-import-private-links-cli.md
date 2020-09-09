@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 2c9c63956144c6438dc0900fa9fdd06ce7d30f60
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 5c846bc126d6a6a8b0a8ed4a599c6d43a4d83616
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322061"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421223"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure CLI - Private Links를 사용하여 관리 디스크에 대한 가져오기/내보내기 액세스 제한
 
@@ -56,19 +56,17 @@ az account set --subscription $subscriptionId
 ```
 
 ## <a name="create-a-disk-access-using-azure-cli"></a>Azure CLI를 사용하여 디스크 액세스 만들기
-```azurecli-interactive
-az deployment group create -g $resourceGroupName \
---template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDiskAccess.json" \
---parameters "region=$region" "diskAccessName=$diskAccessName"
+```azurecli
+az disk-access create -n $diskAccessName -g $resourceGroupName -l $region
 
-diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
+diskAccessId=$(az disk-access show -n $diskAccessName -g $resourceGroupName --query [id] -o tsv)
 ```
 
 ## <a name="create-a-virtual-network"></a>Virtual Network 만들기
 
 프라이빗 엔드포인트에는 NSG(네트워크 보안 그룹)와 같은 네트워크 정책이 지원되지 않습니다. 지정된 서브넷에 프라이빗 엔드포인트를 배포하려면 해당 서브넷에 명시적 비활성화 설정이 필요합니다. 
 
-```azurecli-interactive
+```azurecli
 az network vnet create --resource-group $resourceGroupName \
     --name $vnetName \
     --subnet-name $subnetName
@@ -77,7 +75,7 @@ az network vnet create --resource-group $resourceGroupName \
 
 Azure는 리소스를 가상 네트워크 내의 서브넷에 배포하므로 프라이빗 엔드포인트 네트워크 정책을 사용하지 않도록 서브넷을 업데이트해야 합니다. 
 
-```azurecli-interactive
+```azurecli
 az network vnet subnet update --resource-group $resourceGroupName \
     --name $subnetName  \
     --vnet-name $vnetName \
@@ -85,7 +83,7 @@ az network vnet subnet update --resource-group $resourceGroupName \
 ```
 ## <a name="create-a-private-endpoint-for-the-disk-access-object"></a>디스크 액세스 개체용 프라이빗 엔드포인트 만들기
 
-```azurecli-interactive
+```azurecli
 az network private-endpoint create --resource-group $resourceGroupName \
     --name $privateEndPointName \
     --vnet-name $vnetName  \
@@ -99,7 +97,7 @@ az network private-endpoint create --resource-group $resourceGroupName \
 
 Storage Blob 도메인에 대한 프라이빗 DNS 영역을 만들고, Virtual Network와의 연결 링크를 만들고, DNS 영역 그룹을 만들어 프라이빗 엔드포인트를 프라이빗 DNS 영역과 연결합니다. 
 
-```azurecli-interactive
+```azurecli
 az network private-dns zone create --resource-group $resourceGroupName \
     --name "privatelink.blob.core.windows.net"
 
@@ -128,14 +126,13 @@ diskSizeGB=128
 
 diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
 
-az deployment group create -g $resourceGroupName \
-   --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDisksWithExportViaPrivateLink.json" \
-   --parameters "diskName=$diskName" \
-   "diskSkuName=$diskSkuName" \
-   "diskSizeGB=$diskSizeGB" \
-   "diskAccessId=$diskAccessId" \
-   "region=$region" \
-   "networkAccessPolicy=AllowPrivate"
+az disk create -n $diskName \
+-g $resourceGroupName \
+-l $region \
+--size-gb $diskSizeGB \
+--sku $diskSkuName \
+--network-access-policy AllowPrivate \
+--disk-access $diskAccessId 
 ```
 
 ## <a name="create-a-snapshot-of-a-disk-protected-with-private-links"></a>Private Links로 보호되는 디스크의 스냅샷 만들기
@@ -150,13 +147,12 @@ diskId=$(az disk show -n $sourceDiskName -g $resourceGroupName --query [id] -o t
 
 diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
 
-az deployment group create -g $resourceGroupName \
-   --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateSnapshotWithExportViaPrivateLink.json" \
-   --parameters "snapshotName=$snapshotNameSecuredWithPL" \
-   "sourceResourceId=$diskId" \
-   "diskAccessId=$diskAccessId" \
-   "region=$region" \
-   "networkAccessPolicy=AllowPrivate" 
+az snapshot create -n $snapshotNameSecuredWithPL \
+-g $resourceGroupName \
+-l $region \
+--source $diskId \
+--network-access-policy AllowPrivate \
+--disk-access $diskAccessId 
 ```
 
 ## <a name="next-steps"></a>다음 단계

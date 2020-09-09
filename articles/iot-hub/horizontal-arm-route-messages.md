@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: fd2742744ef4f2f616e772c8f387887e113b132a
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 4112e8aae485e229beb16d21e90280750e1465e1
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88861742"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462669"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure IoT Hub 및 스토리지 계정 배포
 
@@ -32,8 +32,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 :::code language="json" source="~/quickstart-templates/101-iothub-auto-route-messages/azuredeploy.json":::
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다. 
-* [Microsoft.Devices/Iothubs](/azure/templates/microsoft.iothubs)
-* [Microsoft.Storage/](/azure/templates/microsoft.storage)
+* [Microsoft.Devices/Iothubs](/azure/templates/microsoft.devices/iothubs)
+* [Microsoft.Storage/](/azure/templates/microsoft.storage/allversions)
 
 ## <a name="deploy-the-template-and-run-the-sample-app"></a>템플릿 배포 및 샘플 앱 실행
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
     [![Azure에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
-1. [IoT C# 샘플](https://Azure-Samples/azure-iot-samples-csharp)을 다운로드하고 압축을 풉니다.
+1. [IoT C# 샘플](https://docs.microsoft.com/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/)을 다운로드하고 압축을 풉니다.
 
 1. 명령 창을 열고, IoT C# 샘플의 압축을 푼 폴더로 이동합니다. arm-read-write.csproj 파일이 있는 폴더를 찾습니다. 이 명령 창에서 환경 변수를 만듭니다. [Azure Portal](https://portal.azure.com )에 로그인하여 키를 가져옵니다. **리소스 그룹**을 선택한 다음, 이 빠른 시작에서 사용되는 리소스 그룹을 선택합니다.
 

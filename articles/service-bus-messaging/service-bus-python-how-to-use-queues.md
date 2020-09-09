@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 55ed71c6947c70ac797656f2f18cf71dd8aaae9d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a09f20b2c392dbf219750a76e9570239227dc865
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852483"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458564"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>빠른 시작: Python에서 Azure Service Bus 큐 사용
 
@@ -81,7 +81,7 @@ Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB
 큐 클라이언트는 **ServiceBusClient** 개체의 `get_receiver` 메서드를 사용하여 큐에서 메시지를 받습니다. 다음 코드 예제에서는 큐 클라이언트를 만들고 `taskqueue` 큐에서 메시지를 수신합니다. `<connectionstring>`을 Service Bus 기본 연결 문자열 값으로 바꿉니다. 
 
 ```python
-from azure.servicebus import QueueClient, Message
+from azure.servicebus import QueueClient
 
 # Create the QueueClient
 queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")

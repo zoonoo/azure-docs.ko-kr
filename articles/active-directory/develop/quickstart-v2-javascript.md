@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 1e537c6f61a7c461b2a9edb4097fba95f5c66a6f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ed94b44972ffc8c53ce96c0240f11ad44535531b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120527"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434608"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -151,7 +151,7 @@ ms.locfileid: "88120527"
 [Node.js](https://nodejs.org/en/download/)를 사용하여 웹 서버에서 프로젝트 실행:
 
 1. 서버를 시작하려면 프로젝트의 디렉터리에서 다음 명령을 실행합니다.
-    ```batch
+    ```cmd
     npm install
     npm start
     ```
@@ -179,7 +179,7 @@ MSAL 라이브러리는 사용자를 로그인하고 Microsoft ID 플랫폼으�
 
 또는 Node.js가 설치된 경우 다음과 같이 Node.js 패키지 관리자(npm)를 통해 최신 버전을 다운로드할 수 있습니다.
 
-```batch
+```cmd
 npm install msal
 ```
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 5fcc50670973c361d830e4e6bbf2ce26101b8582
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213379"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442601"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에 대한 Azure Private Link
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "88213379"
 Private Link를 사용하면 **프라이빗 엔드포인트**를 통해 Azure의 다양한 PaaS 서비스에 연결할 수 있습니다. Private Link 기능을 지원하는 PaaS 서비스 목록을 보려면 [Private Link 설명서](../../private-link/index.yml) 페이지로 이동하세요. 프라이빗 엔드포인트는 특정 [VNet](../../virtual-network/virtual-networks-overview.md) 및 서브넷 내의 개인 IP 주소입니다.
 
 > [!IMPORTANT]
-> 이 문서는 Azure SQL Database 및 Azure Synapse Analytics(이전의 Azure SQL Data Warehouse) 모두에 적용됩니다. 편의상 '데이터베이스'라는 용어는 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스를 모두 나타냅니다. 마찬가지로 '서버'에 대한 모든 참조는 Azure SQL Database 및 Azure Synapse Analytics를 호스트하는 [논리 SQL 서버](logical-servers.md)를 참조하는 것입니다. 이 문서는 **Azure SQL Managed Instance**에 적용되지 *않습니다*.
+> 이 문서는 Azure SQL Database 및 Azure Synapse Analytics(이전의 SQL Data Warehouse) 모두에 적용됩니다. 편의상 '데이터베이스'라는 용어는 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스를 모두 나타냅니다. 마찬가지로 '서버'에 대한 모든 참조는 Azure SQL Database 및 Azure Synapse Analytics를 호스트하는 [논리 SQL 서버](logical-servers.md)를 참조하는 것입니다. 이 문서는 **Azure SQL Managed Instance**에 적용되지 *않습니다*.
 
 ## <a name="data-exfiltration-prevention"></a>데이터 반출 방지
 

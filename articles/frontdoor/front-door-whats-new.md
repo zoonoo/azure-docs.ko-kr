@@ -3,7 +3,7 @@ title: Azure Front Door 최근 변경 내용
 description: 이 문서에서는 Azure Front Door에 적용된 최근 변경 내용에 대한 지속적인 목록을 제공합니다.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
-ms.author: mebeatty
-ms.openlocfilehash: 26e3e242a5085e228e426ad2cba51b1f1982ad74
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: e402a87ae441ed98a9da93f8b9e347c38c48126f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521482"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398820"
 ---
 # <a name="whats-new-in-azure-front-door"></a>Azure Front Door의 새로운 기능
 
