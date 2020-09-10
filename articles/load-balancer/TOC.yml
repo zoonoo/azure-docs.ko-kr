@@ -81,6 +81,8 @@
       href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: 방법
   items:
+    - name: 포털 설정
+      href: manage.md
     - name: 가상 머신 크기 집합
       items:
         - name: 기존 Azure Load Balancer와 함께 사용 - 포털

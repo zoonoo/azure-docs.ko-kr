@@ -924,8 +924,6 @@
               href: virtual-machines/windows/doc-changes-updates-release-notes.md
         - name: 빠른 시작
           items:
-            - name: SQL VM 만들기
-              items: null
             - name: 포털
               href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
             - name: PowerShell
@@ -1139,7 +1137,7 @@
       href: /dotnet/api/microsoft.azure.management.sql.models
     - name: Java
       href: /java/api/com.microsoft.azure.management.sql
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/sql/
     - name: SQL용 Resource Manager 템플릿
       displayName: ARM

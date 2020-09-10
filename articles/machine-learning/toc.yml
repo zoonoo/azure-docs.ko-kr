@@ -224,6 +224,9 @@
         - name: Python SDK 사용
           displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
           href: how-to-create-attach-compute-sdk.md
+        - name: Azure Kubernetes Service
+          displayName: 'AKS, inference'
+          href: how-to-create-attach-kubernetes.md
     - name: 환경 설정
       items:
         - name: 개발 환경 설정

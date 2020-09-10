@@ -96,7 +96,7 @@
         - name: 네트워크 보안 그룹
           items:
             - name: 개요
-              href: security-overview.md
+              href: network-security-groups-overview.md
             - name: 작동 방식
               href: network-security-group-how-it-works.md
         - name: 애플리케이션 보안 그룹

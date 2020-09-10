@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d416c6fdef85b83d91ca0e341659f87618d268e0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8617b0b71e58d22ccd2cf753e4ddc862932f68da
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504520"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536058"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault 방화벽 및 가상 네트워크 구성
 
@@ -129,5 +129,5 @@ PowerShell을 사용하여 Key Vault 방화벽 및 가상 네트워크를 구성
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Key Vault의 가상 네트워크 서비스 엔드포인트](overview-vnet-service-endpoints.md))
-* [키 자격 증명 모음 보안](secure-your-key-vault.md))
+* [Key Vault의 가상 네트워크 서비스 엔드포인트](overview-vnet-service-endpoints.md)
+* [Key Vault 보안 설정](secure-your-key-vault.md)
