@@ -11,12 +11,12 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 884e97815a048d3e37dba57d362d71e72ef5e103
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: efe2f062cc75fb05484fe810a3ae16c07e93339b
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120850"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651749"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -173,7 +173,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>작업 영역 구성
 
-기존 작업 영역에서 작업 영역 개체를 만듭니다. [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다. `Workspace.from_config()`는 **config.json** 파일을 읽어 `ws`라는 개체에 인증 세부 정보를 로드합니다. `ws`는 이 자습서에서 나머지 코드에 사용됩니다.
+기존 작업 영역에서 작업 영역 개체를 만듭니다. [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)는 Azure 구독 및 리소스 정보를 허용하는 클래스입니다. 또한 클라우드 리소스를 만들어서 모델 실행을 모니터링하고 추적합니다. `Workspace.from_config()`는 **config.json** 파일을 읽어 `ws`라는 개체에 인증 세부 정보를 로드합니다. `ws`는 이 자습서에서 나머지 코드에 사용됩니다.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -300,7 +300,7 @@ BEST: The best observed score thus far.
 
 ## <a name="explore-the-results"></a>결과 탐색
 
-[Jupyter 위젯](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)을 통해 자동 학습 결과를 살펴봅니다. 위젯을 사용하면 모든 개별 실행 반복에 대한 그래프와 테이블을 학습 정확도 메트릭 및 메타데이터와 함께 볼 수 있습니다. 또한 드롭다운 선택기를 사용하면 기본 메트릭과 다른 정확도 메트릭을 필터링할 수 있습니다.
+[Jupyter 위젯](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)을 통해 자동 학습 결과를 살펴봅니다. 위젯을 사용하면 모든 개별 실행 반복에 대한 그래프와 테이블을 학습 정확도 메트릭 및 메타데이터와 함께 볼 수 있습니다. 또한 드롭다운 선택기를 사용하면 기본 메트릭과 다른 정확도 메트릭을 필터링할 수 있습니다.
 
 ```python
 from azureml.widgets import RunDetails

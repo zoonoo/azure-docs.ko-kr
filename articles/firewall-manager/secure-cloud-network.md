@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 09/08/2020
 ms.author: victorh
-ms.openlocfilehash: 9da1340d08d4eaab3ba208c667861093ef0f799b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9d1e2d257074555e7a2e78930e1f9be6cd4d90fe
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079118"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536005"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>자습서: Azure Firewall Manager를 사용하여 가상 허브 보호
 
@@ -109,30 +109,6 @@ Firewall Manager를 사용하여 보안 가상 허브를 만듭니다.
 8. **만들기**를 선택합니다.
 
 반복하여 **Spoke-02** 가상 네트워크에 연결합니다. 연결 이름 - **hub-spoke-02**
-
-### <a name="configure-the-hub-and-spoke-routing"></a>허브 및 스포크 라우팅 구성
-
-Azure Portal에서 Cloud Shell을 열고 다음 Azure PowerShell을 실행하여 필요한 허브 및 스포크 라우팅을 구성합니다. 피어링된 스포크/분기 연결에서 전파를 **없음**으로 설정해야 합니다. 이렇게 설정하면 스포크 간의 Any-to-Any 통신을 차단하고, 그 대신 기본 경로를 사용하여 트래픽을 방화벽으로 라우팅합니다.
-
-```azurepowershell
-$noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `
-                  -HubName hub-01 -Name noneRouteTable
-$vnetConns = Get-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-             -ParentResourceName hub-01
-
-$vnetConn = $vnetConns[0]
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
-Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-   -ParentResourceName hub-01 -Name $vnetConn.Name `
-   -RoutingConfiguration $vnetConn.RoutingConfiguration
-
-$vnetConn = $vnetConns[1]
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
-Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-   -ParentResourceName hub-01 -Name $vnetConn.Name -RoutingConfiguration $vnetConn.RoutingConfiguration
-```
 
 ## <a name="deploy-the-servers"></a>서버 배포
 

@@ -11,12 +11,12 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: 600b19ffac61f8f7c7336f114c6b52c6bc88b5ad
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: c981bed2b30f47223a1fd562d4a5d0fff96e3adf
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489513"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646971"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드
 
@@ -142,7 +142,7 @@ model = Model.register(model_path="models/inception_v3.ckpt",
 
 기계 학습 파이프라인은 로컬로 실행할 수 없으므로 클라우드 리소스 또는 *원격 컴퓨팅 대상*에서 실행합니다. 원격 컴퓨팅 대상은 실험 및 기계 학습 워크플로를 실행하는 재사용 가능한 가상 컴퓨팅 환경입니다. 
 
-다음 코드를 실행하여 GPU 사용 [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) 대상을 만든 다음, 작업 영역에 연결합니다. 컴퓨팅 대상에 대한 자세한 내용은 [개념 문서](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)를 참조하세요.
+다음 코드를 실행하여 GPU 사용 [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) 대상을 만든 다음, 작업 영역에 연결합니다. 컴퓨팅 대상에 대한 자세한 내용은 [개념 문서](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)를 참조하세요.
 
 
 ```python
@@ -305,7 +305,7 @@ parallel_run_config = ParallelRunConfig(
 * 입력 및 출력 데이터와 모든 사용자 지정 매개 변수
 * 단계 중에 실행할 스크립트 또는 SDK 논리에 대한 참조
 
-여러 클래스가 [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) 부모 클래스에서 상속됩니다. 특정 프레임워크 또는 스택을 사용하여 단계를 빌드하는 클래스를 선택할 수 있습니다. 다음 예제에서는 사용자 지정 Python 스크립트를 사용하여 단계 논리를 정의하는 `ParallelRunStep` 클래스를 사용합니다. 스크립트에 대한 인수가 단계에 대한 입력 또는 단계의 출력인 경우 해당 인수는 각각 `arguments` 배열 *및*`input` 또는 `output` 매개 변수에 *모두* 정의되어야 합니다. 
+여러 클래스가 [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py&preserve-view=true) 부모 클래스에서 상속됩니다. 특정 프레임워크 또는 스택을 사용하여 단계를 빌드하는 클래스를 선택할 수 있습니다. 다음 예제에서는 사용자 지정 Python 스크립트를 사용하여 단계 논리를 정의하는 `ParallelRunStep` 클래스를 사용합니다. 스크립트에 대한 인수가 단계에 대한 입력 또는 단계의 출력인 경우 해당 인수는 각각 `arguments` 배열 *및*`input` 또는 `output` 매개 변수에 *모두* 정의되어야 합니다. 
 
 둘 이상의 단계가 있는 시나리오에서는 `outputs` 배열의 개체 참조는 이후 파이프라인 단계에 대한 *입력*으로 사용할 수 있게 됩니다.
 
@@ -329,7 +329,7 @@ batch_score_step = ParallelRunStep(
 )
 ```
 
-다른 단계 유형에 사용할 수 있는 모든 클래스의 목록은 [steps 패키지](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py)를 참조하세요.
+다른 단계 유형에 사용할 수 있는 모든 클래스의 목록은 [steps 패키지](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true)를 참조하세요.
 
 ## <a name="submit-the-pipeline"></a>파이프라인 제출
 
@@ -386,9 +386,9 @@ published_pipeline
 
 REST 엔드포인트에서 파이프라인을 실행하려면 OAuth2 전달자 유형의 인증 헤더가 필요합니다. 다음 예제에서는 설명을 위해 대화형 인증을 사용하지만, 자동화된 인증 또는 헤드리스 인증이 필요한 대부분의 프로덕션 시나리오에서는 [이 문서에서 설명한 대로](how-to-setup-authentication.md) 서비스 주체 인증을 사용합니다.
 
-서비스 주체 인증에는 *앱 등록*을 *Azure Active Directory*에 만드는 작업이 포함됩니다. 먼저 클라이언트 비밀을 생성한 다음, 서비스 주체 *역할 액세스* 권한을 기계 학습 작업 영역에 부여합니다. 인증 흐름은 [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) 클래스를 사용하여 관리합니다. 
+서비스 주체 인증에는 *앱 등록*을 *Azure Active Directory*에 만드는 작업이 포함됩니다. 먼저 클라이언트 비밀을 생성한 다음, 서비스 주체 *역할 액세스* 권한을 기계 학습 작업 영역에 부여합니다. 인증 흐름은 [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) 클래스를 사용하여 관리합니다. 
 
-[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py) 및 `ServicePrincipalAuthentication`은 모두 `AbstractAuthentication`에서 상속됩니다. 두 경우 모두 [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#get-authentication-header--) 함수를 동일한 방식으로 사용하여 헤더를 가져옵니다.
+[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) 및 `ServicePrincipalAuthentication`은 모두 `AbstractAuthentication`에서 상속됩니다. 두 경우 모두 [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#&preserve-view=trueget-authentication-header--) 함수를 동일한 방식으로 사용하여 헤더를 가져옵니다.
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: bdf2bf4102795d35df7eae658e3a24028da79b33
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2500a22d4d3775f7cfea7afbf4e8d106ec2da139
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551305"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647971"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Cisco Webex 구성
 
@@ -97,7 +97,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![Cisco Webex 프로비전](./media/cisco-webex-provisioning-tutorial/secrettoken1.png)
 
-6.  **테넌트 URL** 필드에 `https://api.ciscoweb.com/v1/scim/[OrgId]` 형식으로 값을 입력합니다. `[OrgId]`를 얻으려면 [Cisco Webex 컨트롤 허브](https://admin.webex.com/login)에 로그인합니다. 왼쪽 아래에서 조직 이름을 클릭하고 **조직 ID**의 값을 복사합니다. 
+6.  **테넌트 URL** 필드에 `https://api.ciscospark.com/v1/scim/[OrgId]` 형식으로 값을 입력합니다. `[OrgId]`를 얻으려면 [Cisco Webex 컨트롤 허브](https://admin.webex.com/login)에 로그인합니다. 왼쪽 아래에서 조직 이름을 클릭하고 **조직 ID**의 값을 복사합니다. 
 
     * **비밀 토큰**의 값을 얻으려면 이 [URL](https://idbroker.webex.com/idb/saml2/jsp/doSSO.jsp?type=login&goto=https%3A%2F%2Fidbroker.webex.com%2Fidb%2Foauth2%2Fv1%2Fauthorize%3Fresponse_type%3Dtoken%26client_id%3DC4ca14fe00b0e51efb414ebd45aa88c1858c3bfb949b2405dba10b0ca4bc37402%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fauth%252Fcode%26scope%3Dspark%253Apeople_read%2520spark%253Apeople_write%2520Identity%253ASCIM%26state%3Dthis-should-be-a-random-string-for-security-purpose)로 이동합니다. 표시되는 webex 로그인 페이지에서 조직의 전체 Cisco Webex 관리자 계정으로 로그인합니다. 사이트에 연결할 수 없다는 오류 페이지가 표시되지만, 이는 정상적인 동작입니다.
 

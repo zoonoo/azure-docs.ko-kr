@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: f56b289f65bf12c1ad89d046d6bc26acd76249ce
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 402eaec50d273c4d8d9215f53fa433d0db4332e8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849782"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649909"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>자습서: MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "87849782"
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 >[!NOTE]
-> 이 문서의 코드는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 버전 1.0.83으로 테스트되었습니다.
+> 이 문서의 코드는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 버전 1.0.83으로 테스트되었습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -183,7 +183,7 @@ mnist_file_dataset = mnist_file_dataset.register(workspace=ws,
 
 ### <a name="display-some-sample-images"></a>일부 샘플 이미지 표시
 
-압축된 파일을 `numpy` 배열로 로드합니다. 그런 다음, `matplotlib`를 사용하여 데이터 세트에 있는 30개의 무작위 이미지를 그리고, 위에 레이블을 표시합니다. 이 단계를 수행하려면 `util.py` 파일에 포함된 `load_data` 함수가 필요합니다. 이 파일은 샘플 폴더에 포함되어 있습니다. 이 Notebook과 동일한 폴더에 있는지 확인합니다. `load_data` 함수는 압축 파일을 numpy 배열로 간단히 구문 분석합니다.
+압축된 파일을 `numpy` 배열로 로드합니다. 그런 다음, `matplotlib`를 사용하여 데이터 세트에 있는 30개의 무작위 이미지를 그리고, 위에 레이블을 표시합니다. 이 단계를 수행하려면 `utils.py` 파일에 포함된 `load_data` 함수가 필요합니다. 이 파일은 샘플 폴더에 포함되어 있습니다. 이 Notebook과 동일한 폴더에 있는지 확인합니다. `load_data` 함수는 압축 파일을 numpy 배열로 간단히 구문 분석합니다.
 
 ```python
 # make sure utils.py is in the same directory as this code
@@ -386,7 +386,7 @@ run
 
 ### <a name="jupyter-widget"></a>Jupyter 위젯
 
-[Jupyter 위젯](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)으로 실행의 진행 상태를 감시합니다. 실행 제출과 마찬가지로, 위젯은 비동기이며 작업이 완료될 때까지 10~15초마다 라이브 업데이트를 제공합니다.
+[Jupyter 위젯](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)으로 실행의 진행 상태를 감시합니다. 실행 제출과 마찬가지로, 위젯은 비동기이며 작업이 완료될 때까지 10~15초마다 라이브 업데이트를 제공합니다.
 
 ```python
 from azureml.widgets import RunDetails

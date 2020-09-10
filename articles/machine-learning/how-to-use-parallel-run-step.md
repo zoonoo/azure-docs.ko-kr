@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracychms
 ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 04d1e531f3041ef0a6231607cc795c67168ebf2e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 0fb46f4b9fd29c47e9cd38920665b2791f678847
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651202"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647232"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대량의 데이터에 대한 일괄 처리 유추 실행
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,7 +67,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-compute-target"></a>컴퓨팅 대상 만들기
 
-Azure Machine Learning에서 *컴퓨팅*(또는 *컴퓨팅* 대상)은 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다. 다음 코드를 실행하여 [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) 대상을 기반으로 CPU를 만듭니다.
+Azure Machine Learning에서 *컴퓨팅*(또는 *컴퓨팅* 대상)은 기계 학습 파이프라인에서 계산 단계를 수행하는 머신 또는 클러스터를 가리킵니다. 다음 코드를 실행하여 [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) 대상을 기반으로 CPU를 만듭니다.
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
@@ -134,9 +134,9 @@ def_data_store = ws.get_default_datastore()
 
 ### <a name="create-the-data-inputs"></a>데이터 입력 만들기
 
-일괄 처리 유추의 입력은 병렬 처리를 위해 분할하려는 데이터입니다. 일괄 처리 유추 파이프라인은 [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py)를 통해 데이터 입력을 수락합니다.
+일괄 처리 유추의 입력은 병렬 처리를 위해 분할하려는 데이터입니다. 일괄 처리 유추 파이프라인은 [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true)를 통해 데이터 입력을 수락합니다.
 
-`Dataset`는 Azure Machine Learning에서 데이터를 탐색, 변환 및 관리하는 데 사용됩니다. 형식은 [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 및 [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) 두 가지입니다. 이 예제에서는 `FileDataset`를 입력으로 사용합니다. `FileDataset`는 컴퓨터에 파일을 다운로드하거나 탑재하는 기능을 제공합니다. 데이터 세트를 만들어 데이터 원본 위치에 대한 참조를 만듭니다. 데이터 세트에 하위 집합 변환을 적용한 경우 하위 집합 변환 역시 데이터 세트에 저장됩니다. 데이터는 기존 위치에 그대로 남아 있으므로 추가 스토리지 비용이 발생하지 않습니다.
+`Dataset`는 Azure Machine Learning에서 데이터를 탐색, 변환 및 관리하는 데 사용됩니다. 형식은 [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) 및 [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) 두 가지입니다. 이 예제에서는 `FileDataset`를 입력으로 사용합니다. `FileDataset`는 컴퓨터에 파일을 다운로드하거나 탑재하는 기능을 제공합니다. 데이터 세트를 만들어 데이터 원본 위치에 대한 참조를 만듭니다. 데이터 세트에 하위 집합 변환을 적용한 경우 하위 집합 변환 역시 데이터 세트에 저장됩니다. 데이터는 기존 위치에 그대로 남아 있으므로 추가 스토리지 비용이 발생하지 않습니다.
 
 Azure Machine Learning 데이터 세트에 대한 자세한 내용은 [데이터 세트 만들기 및 액세스(미리 보기)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets)를 참조하세요.
 
@@ -147,7 +147,7 @@ path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 ```
 
-일괄 처리 유추 파이프라인을 실행할 때 동적 데이터 입력을 사용하려면 입력 `Dataset`를 [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py)로 정의하면 됩니다. 일괄 처리 유추 파이프라인 실행을 다시 제출할 때마다 입력 데이터 세트를 지정할 수 있습니다.
+일괄 처리 유추 파이프라인을 실행할 때 동적 데이터 입력을 사용하려면 입력 `Dataset`를 [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true)로 정의하면 됩니다. 일괄 처리 유추 파이프라인 실행을 다시 제출할 때마다 입력 데이터 세트를 지정할 수 있습니다.
 
 ```python
 from azureml.data.dataset_consumption_config import DatasetConsumptionConfig
@@ -159,7 +159,7 @@ input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pip
 
 ### <a name="create-the-output"></a>출력 만들기
 
-[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 개체는 파이프라인 단계 간에 중간 데이터를 전송하는 데 사용됩니다. 이 예제에서는 유추 출력에 사용합니다.
+[`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) 개체는 파이프라인 단계 간에 중간 데이터를 전송하는 데 사용됩니다. 이 예제에서는 유추 출력에 사용합니다.
 
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
@@ -353,7 +353,7 @@ parallelrun_step = ParallelRunStep(
 ```
 ### <a name="create-and-run-the-pipeline"></a>파이프라인 만들기 및 실행
 
-이제 파이프라인을 실행합니다. 먼저, 이전에 만든 작업 영역 참조와 파이프라인 단계를 사용하여 [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) 개체를 만듭니다. `steps` 매개 변수는 단계의 배열입니다. 여기서는 일괄 처리 유추에 대한 단계가 하나만 있습니다. 여러 단계가 있는 파이프라인을 빌드하려면 이 배열에서 단계를 순서대로 배치합니다.
+이제 파이프라인을 실행합니다. 먼저, 이전에 만든 작업 영역 참조와 파이프라인 단계를 사용하여 [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py&preserve-view=true) 개체를 만듭니다. `steps` 매개 변수는 단계의 배열입니다. 여기서는 일괄 처리 유추에 대한 단계가 하나만 있습니다. 여러 단계가 있는 파이프라인을 빌드하려면 이 배열에서 단계를 순서대로 배치합니다.
 
 다음으로, `Experiment.submit()` 함수를 사용하여 실행할 파이프라인을 제출합니다.
 
@@ -371,7 +371,7 @@ pipeline_run = experiment.submit(pipeline)
 일괄 처리 유추 작업을 완료하는 데 시간이 오래 걸릴 수 있습니다. 이 예제에서는 Jupyter 위젯을 사용하여 진행률을 모니터링합니다. 다음을 사용하여 작업의 진행률을 모니터링할 수도 있습니다.
 
 * Azure Machine Learning Studio 
-* [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py) 개체의 콘솔 출력
+* [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py&preserve-view=true) 개체의 콘솔 출력
 
 ```python
 from azureml.widgets import RunDetails
