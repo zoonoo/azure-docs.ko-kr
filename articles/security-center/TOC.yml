@@ -136,7 +136,11 @@
       items:
         - name: 추천 수정
           href: security-center-remediate-recommendations.md
+        - name: 강제 적용/거부를 사용한 잘못된 구성 방지
+          displayName: recommendations
+          href: prevent-misconfigurations.md
         - name: 보안 상태 강화
+          displayName: recommendations
           href: security-center-monitoring.md
         - name: 권장 사항 참조 목록
           href: recommendations-reference.md

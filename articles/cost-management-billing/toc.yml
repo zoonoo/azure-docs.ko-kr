@@ -114,6 +114,8 @@
           href: understand/mca-overview.md
         - name: Microsoft 파트너 계약에 대한 청구 계정
           href: understand/mpa-overview.md
+        - name: 파트너 간 구독 전송(미리 보기)
+          href: manage/azure-plan-subscription-transfer-partners.md
 - name: 방법 가이드
   items:
     - name: Cost Management + 청구 구성

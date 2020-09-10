@@ -5,7 +5,7 @@
   items:
     - name: 솔루션 아키텍처
       href: architecture.md
-    - name: Azure RTOS용 보안 솔루션
+    - name: Azure RTOS용 보안 모듈
       href: iot-security-azure-rtos.md
     - name: 보안 에이전트
       href: security-agent-architecture.md
@@ -23,6 +23,8 @@
 - name: 빠른 시작
   expanded: true
   items:
+    - name: Azure RTOS용 보안 모듈 구성
+      href: quickstart-azure-rtos-security-module.md
     - name: IoT Hub에서 IoT용 Azure Security Center 온보드
       href: quickstart-onboard-iot-hub.md
     - name: 솔루션 구성
@@ -37,6 +39,12 @@
       href: quickstart-investigate-security-alerts.md
 - name: 개념
   items:
+    - name: Azure RTOS용 보안 모듈
+      items:
+        - name: Azure RTOS용 보안 모듈 이해
+          href: concept-rtos-security-module.md
+        - name: Azure RTOS용 보안 모듈 경고 및 권장 사항
+          href: concept-rtos-security-alerts-recommendations.md
     - name: 보안 에이전트 인증
       href: concept-security-agent-authentication-methods.md
     - name: 보안 모듈
@@ -55,6 +63,8 @@
       href: concept-pricing.md
 - name: 방법 가이드
   items:
+    - name: Azure RTOS용 보안 모듈 작업
+      href: how-to-azure-rtos-security-module.md
     - name: 어떤 에이전트를 배포해야 하나요?
       items:
         - name: 배포할 에이전트 선택
@@ -87,13 +97,29 @@
       href: how-to-configure-with-sentinel.md
     - name: 솔루션 사용자 지정
       href: how-to-customize-solution.md
-- name: 리소스
+- name: 참조
   items:
+    - name: Azure RTOS API용 보안 모듈
+      href: azure-rtos-security-module-api.md
     - name: 질문과 대답
       href: resources-frequently-asked-questions.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
-    - name: 'Azure 보안, 개인 정보 보호 및 규정 준수 블로그'
-      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
+- name: 리소스
+  items:
+    - name: Microsoft Learn을 통해 보안 기술 쌓기
+      href: 'https://docs.microsoft.com/learn/browse/?term=securityS&terms=securityS'
+    - name: Azure Security Center 설명서
+      href: 'https://docs.microsoft.com/azure/security-center/'
+    - name: Azure 보안 설명서
+      href: 'https://docs.microsoft.com/azure/security/'
+    - name: Stack Overflow의 Azure RTOS 보안 모듈
+      href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'
+    - name: 'Azure IoT 보안, 개인 정보 보호 및 규정 준수 블로그'
+      href: 'https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/security-center/'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'

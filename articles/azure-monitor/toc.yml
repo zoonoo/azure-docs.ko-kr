@@ -566,6 +566,8 @@
               href: platform/itsmc-overview.md
             - name: IT Service Management 연결
               href: platform/itsmc-connections.md
+            - name: 보안 내보내기 통합
+              href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Service Manager 웹앱 만들기
               href: platform/itsmc-service-manager-script.md
             - name: ServiceNow ITSM 동기화 문제 수정
@@ -720,6 +722,10 @@
                       href: app/monitor-performance-live-website-now.md
                 - name: Java
                   href: app/java-on-premises.md
+        - name: OpenTelemetry
+          items:
+            - name: FAQ
+              href: faq.md#opentelemetry
         - name: 리소스 만들기(클래식)
           href: app/create-new-resource.md
         - name: 리소스 만들기(작업 영역 기반)
@@ -1010,6 +1016,8 @@
           href: insights/container-insights-health.md
         - name: GPU 성능 모니터링
           href: insights/container-insights-gpu-monitoring.md
+        - name: 배포 및 HPA 모니터링
+          href: insights/container-insights-deployment-hpa-metrics.md
         - name: 라이브 데이터 보기
           items:
             - name: 라이브 데이터(미리 보기) 개요

@@ -16,24 +16,14 @@
   items:
     - name: 음성 텍스트 변환 설명서
       href: index-speech-to-text.yml
-    - name: 개요
-      items:
-        - name: 음성 텍스트 변환이란?
-          href: speech-to-text.md
-        - name: 음성 인식 기본 사항
-          href: speech-to-text-basics.md
-    - name: 빠른 시작
-      items:
-        - name: 마이크 입력에서 음성 인식
-          href: quickstarts/speech-to-text-from-microphone.md
-        - name: 오디오 파일에서 음성 인식
-          href: quickstarts/speech-to-text-from-file.md
-        - name: Blob 스토리지에 저장된 음성 인식
-          href: quickstarts/from-blob.md
-        - name: Speech Studio에서 오디오 파일을 사용하여 모델 테스트
-          href: quickstarts/speech-studio-test-model.md
+    - name: 음성 텍스트 변환 개요
+      href: speech-to-text.md
+    - name: 음성 텍스트 변환 빠른 시작
+      href: get-started-speech-to-text.md
     - name: 방법 가이드
       items:
+        - name: Blob 스토리지에 저장된 음성 인식
+          href: quickstarts/from-blob.md
         - name: 음성 인식 모드 선택
           href: how-to-choose-recognition-mode.md
         - name: 음성 인식 소스 언어 변경
@@ -57,6 +47,8 @@
           href: tutorial-tenant-model.md
     - name: 사용자 지정
       items:
+        - name: Speech Studio에서 오디오 파일을 사용하여 모델 테스트
+          href: quickstarts/speech-studio-test-model.md
         - name: Custom Speech에 대한 데이터 준비
           href: how-to-custom-speech-test-and-train.md
         - name: Custom Speech 데이터 검사
@@ -75,33 +67,29 @@
           href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: 참조
       items:
-        - name: 음성 SDK API
-          items:
-            - name: C++
-              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/cppref'
-            - name: C#
-              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/csharpref'
-            - name: Java
-              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/javaref'
-            - name: JavaScript
-              displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/javascriptref'
-            - name: Objective-C
-              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/objectivecref'
-            - name: Python
-              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/pythonref'
-            - name: 릴리스 정보
-              displayName: 'release notes,updates,what''s new,what is new,changes'
-              href: releasenotes.md
-        - name: REST API
-          items:
-            - name: Speech-to-Text REST API
-              href: rest-speech-to-text.md
+        - name: C++
+          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/cppref'
+        - name: C#
+          displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/csharpref'
+        - name: Java
+          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/javaref'
+        - name: JavaScript
+          displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/javascriptref'
+        - name: Objective-C
+          displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/objectivecref'
+        - name: Python
+          displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/pythonref'
+        - name: 릴리스 정보
+          displayName: 'release notes,updates,what''s new,what is new,changes'
+          href: releasenotes.md
+        - name: Speech-to-Text REST API
+          href: rest-speech-to-text.md
     - name: 리소스
       items:
         - name: 언어 지원

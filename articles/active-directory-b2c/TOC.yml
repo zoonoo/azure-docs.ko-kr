@@ -69,6 +69,8 @@
           href: tokens-overview.md
         - name: 액세스 토큰 요청
           href: access-tokens.md
+    - name: 정책 키
+      href: policy-keys-overview.md
     - name: 사용자 흐름 및 정책
       items:
         - name: 사용자 흐름

@@ -77,3 +77,11 @@
       items:
         - name: Date_Bucket(Transact-SQL)
           href: date-bucket-tsql.md
+        - name: 날짜 보존 및 정리
+          items:
+            - name: 데이터 보존 개요
+              href: data-retention-overview.md
+            - name: 데이터 보존 사용 또는 사용 안 함
+              href: data-retention-enable-disable.md
+            - name: 데이터 보존 정리
+              href: data-retention-cleanup.md
