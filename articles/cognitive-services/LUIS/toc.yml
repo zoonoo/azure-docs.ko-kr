@@ -130,6 +130,8 @@
           href: luis-concept-devops-automation.md
 - name: 방법 가이드
   items:
+    - name: LUIS 포털에 로그인
+      href: sign-in-luis-portal.md
     - name: 새 앱 시작
       href: luis-how-to-start-new-app.md
       displayName: 'import, export, container'
