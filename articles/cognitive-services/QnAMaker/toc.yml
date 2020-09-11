@@ -24,6 +24,8 @@
   items:
     - name: Power Virtual Agent와 통합
       href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+    - name: Azure Bot Service로 FAQ 봇 만들기
+      href: Tutorials/create-faq-bot-with-azure-bot-service.md
     - name: 배치 파일을 사용하여 테스트
       href: Quickstarts/batch-testing.md
 - name: 개념
@@ -91,7 +93,7 @@
         - name: 새 기술 자료로 마이그레이션
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: 테스트
+        - name: 테스트 기술 자료
           href: How-To/test-knowledge-base.md
     - name: QnA 쌍 관리
       items:

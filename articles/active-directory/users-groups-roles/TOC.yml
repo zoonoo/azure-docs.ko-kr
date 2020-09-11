@@ -9,8 +9,8 @@
     - name: Azure AD에 사용자 추가
       href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: 사용자에게 라이선스 할당
-      href: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
-    - name: 무제한 앱 등록에 대한 사용 권한 부여
+      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: 무제한 앱 등록 만들기
       href: roles-quickstart-app-registration-limits.md
     - name: 그룹 만료 설정
       href: groups-quickstart-expiration.md
@@ -175,6 +175,8 @@
               href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
             - name: PowerShell에서 사용자 지정 역할 할당
               href: roles-assign-powershell.md
+            - name: 엔터프라이즈 앱에 대한 사용자 지정 역할
+              href: custom-enterprise-apps.md
             - name: 사용자 지정 역할
               href: roles-custom-available-permissions.md
             - name: 앱 관리자 권한 위임

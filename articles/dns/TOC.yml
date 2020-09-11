@@ -17,6 +17,8 @@
           href: dns-getstarted-powershell.md
         - name: 공용 영역 만들기 - CLI
           href: dns-getstarted-cli.md
+        - name: 공용 영역 만들기 - ARM 템플릿
+          href: dns-get-started-template.md
     - name: 프라이빗 DNS
       items:
         - name: 프라이빗 영역 만들기 - 포털
