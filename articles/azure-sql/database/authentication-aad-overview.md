@@ -11,18 +11,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 04/23/2020
-ms.openlocfilehash: e1f97b1a29681a65cddf3a5904020555e903fe63
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984778"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434285"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Azure Active Directory 인증 사용
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Azure ad (Azure Active Directory) 인증은 Azure AD에서 id를 사용 하 여 [Azure SQL Database](sql-database-paas-overview.md), [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)및 [azure Synapse Analytics (이전의 Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에 연결 하는 메커니즘입니다.
+Azure ad (Azure Active Directory) 인증은 Azure AD에서 id를 사용 하 여 [Azure SQL Database](sql-database-paas-overview.md), [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)및 [azure Synapse Analytics (이전의 SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에 연결 하는 메커니즘입니다.
 
 > [!NOTE]
 > 이 문서는 Azure SQL Database, SQL Managed Instance 및 Azure Synapse Analytics에 적용 됩니다.
@@ -168,7 +168,7 @@ Azure AD 서버 보안 주체 (로그인)에 대해 지원 되는 인증 방법�
 - SQL Database의 로그인, 사용자, 데이터베이스 역할 및 권한에 대 한 개요는 [로그인, 사용자, 데이터베이스 역할 및 사용 권한](logins-create-manage.md)을 참조 하세요.
 - 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](https://msdn.microsoft.com/library/ms181127.aspx)를 참조하세요.
 - 데이터베이스 역할에 대한 자세한 내용은 [데이터베이스 역할](https://msdn.microsoft.com/library/ms189121.aspx)을 참조하세요.
-- SQL Managed Instance에 대 한 Azure AD 서버 보안 주체 (로그인)를 만드는 구문은 [로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)를 참조 하세요.
+- SQL Managed Instance에 대 한 Azure AD 서버 보안 주체 (로그인)를 만드는 구문은  [로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)를 참조 하세요.
 - SQL Database의 방화벽 규칙에 대한 자세한 내용은 [SQL Database 방화벽 규칙](firewall-configure.md)을 참조하세요.
 
 <!--Image references-->

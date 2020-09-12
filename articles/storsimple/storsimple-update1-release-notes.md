@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11138857e33eec0f854ddb61956ea24c858c49a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17e20048c4cb4de2be6fe36be100b472f0b8ee73
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60531013"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459966"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 디바이스의 업데이트 1.2 릴리스 정보
 
@@ -57,14 +57,14 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
     StorSimple 5000-7000 시리즈에서 8000 시리즈 디바이스로 마이그레이션하는 방법에 대한 자세한 내용은 [마이그레이션 가이드](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)를 참조하세요. 
 * **Azure 정부 포털에서 가용성** – StorSimple은 이제 Azure 정부 포털에서 사용 가능합니다. [Azure Government 포털에서 StorSimple 디바이스를 배포](storsimple-deployment-walkthrough-gov.md)하는 방법을 참조하세요.
 * **다른 클라우드 서비스 공급자에 대한 지원** – 지원되는 다른 클라우드 서비스 공급자는 Amazon S3, RRS가 있는 Amazon S3, HP 및 OpenStack(베타)입니다.
-* **최신 스토리지 API에 대한 업데이트** –이 릴리스에서 StorSimple은 최신 Azure Storage 서비스 API로 업데이트되었습니다. 업데이트 1 이전 소프트웨어 버전(Release, 0.1, 0.2 및 0.3)을 실행하는 StorSimple 8000 시리즈 디바이스는 2009년 7월 17일보다 오래된 버전의 Azure Storage 서비스 API를 사용합니다. 업데이트된 [Storage 서비스 버전 제거에 대한 알림](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)에서 설명한 것처럼, 2016년 8월 1일 이 API는 더 이상 사용되지 않습니다. 2016년 8월 1일 전에 StorSimple 8000 시리즈 Update 1을 적용하는 것이 매우 중요합니다. 실패한 경우 StorSimple 디바이스는 정상적으로 작동 중지됩니다.
+* **최신 스토리지 API에 대한 업데이트** –이 릴리스에서 StorSimple은 최신 Azure Storage 서비스 API로 업데이트되었습니다. 업데이트 1 이전 소프트웨어 버전(Release, 0.1, 0.2 및 0.3)을 실행하는 StorSimple 8000 시리즈 디바이스는 2009년 7월 17일보다 오래된 버전의 Azure Storage 서비스 API를 사용합니다. 업데이트된 [Storage 서비스 버전 제거에 대한 알림](https://docs.microsoft.com/archive/blogs/windowsazurestorage/microsoft-azure-storage-service-version-removal-update-extension-to-2016)에서 설명한 것처럼, 2016년 8월 1일 이 API는 더 이상 사용되지 않습니다. 2016년 8월 1일 전에 StorSimple 8000 시리즈 Update 1을 적용하는 것이 매우 중요합니다. 실패한 경우 StorSimple 디바이스는 정상적으로 작동 중지됩니다.
 * **영역 중복 스토리지(ZRS) 지원** – 최신 버전의 스토리지 API에 대한 업데이트로, StorSimple 8000 시리즈는 로컬 중복 스토리지(LRS) 및 지역 중복 스토리지(GRS) 외에도 영역 중복 스토리지(ZRS)를 지원합니다. ZRS에 대 한 [Azure Storage 중복 옵션](../storage/common/storage-redundancy.md) 에 대 한 자세한 내용은이 문서를 참조 하세요.
 * **향상된 초기 배포 및 업데이트 환경** – 이 릴리스에서 설치 및 업데이트 프로세스가 향상되었습니다. 네트워크 구성 및 방화벽 설정이 올바르지 않은 경우 설치 마법사를 통한 설치가 향상되어 사용자에게 피드백을 제공합니다. 추가 진단 cmdlet이 제공되어 디바이스의 네트워킹 문제를 해결하는 데 도움이 됩니다. 문제 해결에 사용되는 새로운 진단 cmdlet에 대한 자세한 내용은 [배포 문제 해결 문서](storsimple-troubleshoot-deployment.md) 를 참조하세요.
 
 ## <a name="issues-fixed-in-update-12"></a>업데이트 1.2에서 해결된 문제
 다음 테이블에서 업데이트 1.2, 1.1 및 1에서 해결된 문제를 간략하게 설명합니다.    
 
-| 아니요. | 기능 | 문제점 | 해결된 업데이트 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
+| 아닙니다. | 기능 | 문제 | 해결된 업데이트 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
 | --- | --- | --- | --- | --- | --- |
 | 1 |StorSimple용 Windows PowerShell |사용자가 StorSimple용 Windows PowerShell을 사용하여 StorSimple 디바이스에 원격으로 액세스한 다음, 설치 마법사를 시작하는 경우, 데이터 0 IP가 입력되자 마자 충돌이 발생했습니다. 이 버그는 이제 업데이트 1에서 해결됩니다. |Update 1 |예 |예 |
 | 2 |공장 기본 설정 |일부 경우에 공장 재설정을 수행하면 StorSimple 디바이스가 중단될 수 있으며 **공장 재설정으로 재설정 진행 중(8단계)** 메시지가 표시될 수 있습니다. cmdlet가 진행 중인 동안 CTRL+C를 누르면 발생합니다. 이 버그는 이제 수정되었습니다. |Update 1 |예 |아니요 |
@@ -82,7 +82,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 ## <a name="known-issues-in-update-12"></a>업데이트 1.2의 알려진 문제
 다음 표에서 이 릴리스의 알려진 문제를 간략하게 설명합니다.
 
-| 아니요. | 기능 | 문제점 | 주석/해결 방법 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
+| 아닙니다. | 기능 | 문제 | 주석/해결 방법 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
 | --- | --- | --- | --- | --- | --- |
 | 1 |디스크 쿼럼 |드문 경우에 8600 디바이스의 EBOD 인클로저에 있는 대부분의 디스크의 연결이 끊겨 디스크 쿼럼이 없는 경우, 스토리지 풀이 오프라인 상태가 됩니다. 디스크가 다시 연결되더라도 오프라인 상태로 유지됩니다. |디바이스를 다시 부팅해야 합니다. 문제가 지속되면 다음 단계에 대해 Microsoft 지원에 문의하세요. |예 |아니요 |
 | 2 |잘못된 컨트롤러 ID |컨트롤러가 교체되면 컨트롤러 0이 컨트롤러 1로 표시될 수 있습니다. 컨트롤러 교체 중, 이미지가 피어 노드에서 로드되면 컨트롤러 ID는 처음에 피어 컨트롤러의 ID로 표시될 수 있습니다. 드문 경우에 시스템을 다시 부팅한 후 이 동작이 나타날 수도 있습니다. |추가적인 조치가 필요하지 않습니다. 컨트롤러 교체를 완료 한 후 이 상황이 저절로 해결됩니다. |예 |아니요 |

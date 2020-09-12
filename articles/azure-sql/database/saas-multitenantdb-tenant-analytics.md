@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: a264e40814952577d3a7db3b36c168dfc396f388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249169"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442908"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ ms.locfileid: "85249169"
 
 모든 데이터가 하나의 다중 테넌트 데이터베이스에 저장되어 있다면 모든 테넌트가 손쉽게 데이터에 액세스할 수 있습니다. 그러나 데이터가 수천 개의 데이터베이스에 분산되어 저장되어 있다면 액세스가 복잡해집니다. 이러한 복잡성을 해결하는 한 가지 방법은 데이터를 분석 데이터베이스 또는 데이터 웨어하우스로 추출하는 것입니다. 이렇게 하면 데이터 웨어하우스를 대상으로 쿼리하여 모든 테넌트의 티켓 데이터로부터 인사이트를 수집할 수 있습니다.
 
-이 자습서에서는 샘플 SaaS 애플리케이션을 사용하여 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 탄력적 작업을 사용하여 각 테넌트 데이터베이스로부터의 데이터 추출 일정을 예약합니다. 추출된 데이터는 분석 저장소에 저장됩니다. 분석 저장소로 SQL Database나 SQL Data Warehouse를 사용할 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
+이 자습서에서는 샘플 SaaS 애플리케이션을 사용하여 분석 시나리오를 처음부터 끝까지 살펴봅니다. 먼저 탄력적 작업을 사용하여 각 테넌트 데이터베이스로부터의 데이터 추출 일정을 예약합니다. 추출된 데이터는 분석 저장소에 저장됩니다. 분석 저장소는 SQL Database 또는 Azure Synapse Analytics (이전의 SQL Data Warehouse) 일 수 있습니다. 대규모 데이터 추출 시에는 [Azure Data Factory](../../data-factory/introduction.md)를 사용하는 것이 권장됩니다.
 
 다음으로, 집계된 데이터를 일련의 [스타 스키마](https://www.wikipedia.org/wiki/Star_schema) 테이블로 단편화합니다. 테이블은 중앙의 팩트 테이블과 관련 차원 테이블로 이루어집니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "85249169"
 
 ## <a name="setup"></a>설정
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 

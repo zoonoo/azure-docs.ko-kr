@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 62dfa3214b86139a8f836b3d9bd72585653b7fa2
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 16e15976c6f09881b75dcec207833f48aa1c4e7a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189933"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437676"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 고가용성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,11 +91,11 @@ Hyperscale의 가용성 모델에는 다음 4 개의 계층이 포함 됩니다.
 
 ## <a name="accelerated-database-recovery-adr"></a>ADR(가속 데이터베이스 복구)
 
-[ADR (가속화 된 데이터베이스 복구)](../accelerated-database-recovery.md) 는 특히 장기 실행 트랜잭션이 있을 때 데이터베이스 가용성을 크게 향상 시키는 새로운 데이터베이스 엔진 기능입니다. ADR는 현재 Azure SQL Database, Azure SQL Managed Instance 및 Azure SQL Data Warehouse에 사용할 수 있습니다.
+[ADR (가속화 된 데이터베이스 복구)](../accelerated-database-recovery.md) 는 특히 장기 실행 트랜잭션이 있을 때 데이터베이스 가용성을 크게 향상 시키는 새로운 데이터베이스 엔진 기능입니다. ADR는 현재 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 사용할 수 있습니다.
 
 ## <a name="testing-application-fault-resiliency"></a>응용 프로그램 오류 복원 력 테스트
 
-고가용성은 데이터베이스 응용 프로그램에 대해 투명 하 게 작동 하는 SQL Database 및 SQL Managed Instance 플랫폼의 기본 부분입니다. 그러나 계획 되거나 계획 되지 않은 이벤트 중에 시작 된 자동 장애 조치 (failover) 작업이 프로덕션 환경에 배포 되기 전에 응용 프로그램에 영향을 주는지 확인 하는 것을 알 수 있습니다. 특수 API를 호출 하 여 데이터베이스, 탄력적 풀 또는 관리 되는 인스턴스를 다시 시작 하 여 장애 조치 (failover)를 수동으로 트리거할 수 있습니다. 영역 중복 데이터베이스 또는 탄력적 풀의 경우 API 호출로 인해 이전 주 데이터베이스의 가용성 영역과 다른 가용성 영역에서 새 주 데이터베이스로 클라이언트 연결이 리디렉션됩니다. 따라서 장애 조치 (failover)가 기존 데이터베이스 세션에 미치는 영향을 테스트 하는 것 외에도 네트워크 지연 시간이 변경 되어 종단 간 성능이 변경 되는지 확인할 수 있습니다. 다시 시작 작업은 개입 하지 않으며 많은 수의 플랫폼에서 스트레스를 발생 시킬 수 있기 때문에 각 데이터베이스, 탄력적 풀 또는 관리 되는 인스턴스에 대해 30 분 마다 하나의 장애 조치 (failover) 호출만 허용 됩니다.
+고가용성은 데이터베이스 애플리케이션에 대해 투명하게 작동하는 SQL Database 및 SQL Managed Instance 플랫폼의 기본 부분입니다. 그러나 애플리케이션을 프로덕션 환경에 배포하기 전에 계획되거나 계획되지 않은 이벤트 중에 시작된 자동 장애 조치(failover) 작업이 애플리케이션에 어떤 영향을 미치는지 테스트해보고 싶을 수 있습니다. 특수 API를 호출 하 여 데이터베이스, 탄력적 풀 또는 관리 되는 인스턴스를 다시 시작 하 여 장애 조치 (failover)를 수동으로 트리거할 수 있습니다. 영역 중복 데이터베이스 또는 탄력적 풀의 경우 API 호출로 인해 이전 주 데이터베이스의 가용성 영역과 다른 가용성 영역에서 새 주 데이터베이스로 클라이언트 연결이 리디렉션됩니다. 따라서 장애 조치 (failover)가 기존 데이터베이스 세션에 미치는 영향을 테스트 하는 것 외에도 네트워크 지연 시간이 변경 되어 종단 간 성능이 변경 되는지 확인할 수 있습니다. 다시 시작 작업은 개입 하지 않으며 많은 수의 플랫폼에서 스트레스를 발생 시킬 수 있기 때문에 각 데이터베이스, 탄력적 풀 또는 관리 되는 인스턴스에 대해 30 분 마다 하나의 장애 조치 (failover) 호출만 허용 됩니다.
 
 장애 조치 (failover)는 PowerShell, REST API 또는 Azure CLI를 사용 하 여 시작할 수 있습니다.
 

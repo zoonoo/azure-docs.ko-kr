@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: dbf4770bf5ac1747d596e6907dbc903ce8c16de9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07689f7d16cd1df451fdab28f188e5c4a324486e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804343"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594818"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -20,12 +20,11 @@ Azure Portal를 사용 하 여 TLS 종료를 위한 인증서로 [응용 프로�
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 자체 서명된 인증서 만들기
-> * 네트워크 설정
-> * 인증서가 있는 애플리케이션 게이트웨이 만들기
-> * 수신기 및 리디렉션 규칙 추가
-> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
+* 자체 서명된 인증서 만들기
+* 네트워크 설정
+* 인증서가 있는 애플리케이션 게이트웨이 만들기
+* 수신기 및 리디렉션 규칙 추가
+* 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -133,7 +132,7 @@ Export-PfxCertificate `
 이 예제에서는 애플리케이션 게이트웨이에서 백 엔드 풀에 대한 서버를 제공하도록 가상 머신 확장 집합을 만듭니다.
 
 1. 포털 왼쪽 위 모서리에서 **+리소스 만들기**를 선택합니다.
-2. **Compute**를 선택 합니다.
+2. **컴퓨팅**을 선택합니다.
 3. 검색 상자에 *확장 집합*을 입력하고 Enter 키를 누릅니다.
 4. **가상 머신 확장 집합**을 선택한 후 **만들기**를 선택합니다.
 5. **가상 머신 확장 집합 이름**으로 *myvmss*를 입력합니다.
@@ -215,7 +214,7 @@ IIS 사용하여 인스턴스를 변경한 후에는 이 변경 내용으로 확
 1. **myAppGateway**를 선택합니다.
 2. **개요** 페이지에서 **프런트 엔드 공용 IP 주소** 아래의 IP 주소를 기록해 둡니다.
 
-3. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예를 들면 http://52.170.203.149과 같습니다.
+3. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예를 들어 http://52.170.203.149
 
    ![보안 경고](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 

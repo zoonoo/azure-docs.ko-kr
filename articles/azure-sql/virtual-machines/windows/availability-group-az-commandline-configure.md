@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a74a791c8c6a95c71faf1f4a0ce6eaacd7c68901
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 212ead54f0f8212ae251175d40873e7cec4e0240
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003000"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482660"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Azure VM에서 SQL Server에 대 한 가용성 그룹 구성 (PowerShell & Az CLI)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "89003000"
 
 가용성 그룹의 배포는 아직 SSMS (SQL Server Management Studio) 또는 T-sql (Transact-sql)을 통해 수동으로 수행 됩니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Always On 가용성 그룹을 구성 하려면 다음 필수 구성 요소가 있어야 합니다. 
 
@@ -44,13 +44,13 @@ Azure CLI를 사용하여 Always On 가용성 그룹을 구성하려면 다음 �
 - 도메인에서 **컴퓨터 개체 만들기** 권한이 있는 기존 도메인 사용자 계정. 예를 들어 도메인 관리자 계정에는 일반적으로 충분한 권한이 있습니다(예: account@domain.com). 또한 이 계정은 클러스터를 만들 각 VM의 로컬 관리자 그룹에 속해 있어야 합니다.
 - SQL Server를 제어하는 도메인 사용자 계정. 
  
-## <a name="create-a-storage-account-as-a-cloud-witness"></a>클라우드 감시로 저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기 
+
 클러스터에는 클라우드 감시 역할을 할 스토리지 계정이 필요합니다. 기존 스토리지 계정을 사용하거나 새 스토리지 계정을 만들 수 있습니다. 기존 스토리지 계정을 사용하려면 다음 섹션으로 건너뜁니다. 
 
 다음은 스토리지 계정을 만드는 코드 조각입니다. 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
 
 ```azurecli-interactive
 # Create the storage account
@@ -80,7 +80,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ---
 
-## <a name="define-windows-failover-cluster-metadata"></a>Windows 장애 조치 (failover) 클러스터 메타 데이터 정의
+## <a name="define-cluster-metadata"></a>클러스터 메타 데이터 정의
 
 Azure CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) 명령 그룹은 가용성 그룹을 호스팅하는 WSFC(Windows Server 장애 조치(Failover) 클러스터) 서비스의 메타데이터를 관리합니다. 클러스터 메타데이터에는 Active Directory 도메인, 클러스터 계정, 클라우드 감시로 사용되는 스토리지 계정 및 SQL Server 버전이 포함됩니다. [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create)를 사용하여 첫 번째 SQL Server VM이 추가될 때 클러스터가 정의된 대로 만들어지도록 WSFC의 메타데이터를 정의합니다. 
 
@@ -183,6 +183,17 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 ```
 
 ---
+
+
+## <a name="validate-cluster"></a>클러스터 유효성 검사 
+
+Microsoft에서 장애 조치 (failover) 클러스터를 지원 하려면 클러스터 유효성 검사를 통과 해야 합니다. 원격 데스크톱 프로토콜 (RDP)와 같은 선호 하는 방법을 사용 하 여 VM에 연결 하 고 클러스터에서 유효성 검사를 통과 했는지 확인 한 다음 계속 진행 합니다. 이렇게 하지 않으면 클러스터가 지원 되지 않는 상태가 됩니다. 
+
+장애 조치(Failover) 클러스터 관리자 (FCM)를 사용 하거나 다음 PowerShell 명령을 사용 하 여 클러스터의 유효성을 검사할 수 있습니다.
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
 
 ## <a name="create-availability-group"></a>가용성 그룹 만들기
 

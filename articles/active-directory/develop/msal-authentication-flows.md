@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 0dbd7eb9203f31b580f586a8a7d1fa216533628c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170516"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437873"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
@@ -142,7 +142,7 @@ MSAL 기반 응용 프로그램은 먼저 토큰을 *자동*으로 획득 한 �
 
 ## <a name="on-behalf-of"></a>On-behalf-of
 
-[OAuth 2 just-in-time 인증 흐름](v2-oauth2-on-behalf-of-flow.md) 흐름은 응용 프로그램이 다른 서비스 또는 web api를 호출 해야 하는 서비스 또는 웹 api를 호출할 때 사용 됩니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 중간 계층 서비스에서 다운스트림 서비스로 인증 된 요청을 수행 하려면 사용자를 *대신* 하 여 Microsoft id 플랫폼에서 액세스 토큰을 보호 해야 합니다.
+[OAuth 2 just-in-time 인증 흐름](v2-oauth2-on-behalf-of-flow.md) 흐름은 응용 프로그램이 다른 서비스 또는 web api를 호출 해야 하는 서비스 또는 웹 api를 호출할 때 사용 됩니다. 이 개념은 요청 체인을 통해 위임된 사용자 ID 및 권한을 전파하는 것입니다. 중간 계층 서비스에서 다운스트림 서비스로 인증 된 요청을 수행 하려면 사용자를 *대신* 하 여 Microsoft id 플랫폼에서 액세스 토큰을 보호 해야 합니다.
 
 ![On-behalf-of 흐름 다이어그램](media/msal-authentication-flows/on-behalf-of.png)
 
@@ -185,7 +185,7 @@ DevOps와 같은 일부 시나리오에서는 사용자 이름/암호 흐름이 
 - 이 흐름은 .NET 데스크톱 및 .NET Core에서 사용할 수 있지만 유니버설 Windows 플랫폼에서는 사용할 수 없습니다.
 - Azure AD B2C에서 ROPC 흐름은 로컬 계정에 대해서만 작동 합니다. MSAL.NET 및 Azure AD B2C의 ROPC에 대 한 자세한 내용은 [Azure AD B2C에서 Ropc 사용](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc)을 참조 하세요.
 
-## <a name="integrated-windows-authentication"></a>통합 Windows 인증
+## <a name="integrated-windows-authentication"></a>Windows 통합 인증
 
 MSAL은 도메인에 가입 되거나 Azure AD에 가입 된 Windows 컴퓨터에서 실행 되는 데스크톱 및 모바일 응용 프로그램에 대 한 IWA (Windows 통합 인증)를 지원 합니다. 이러한 응용 프로그램은 IWA를 사용 하 여 사용자의 UI 상호 작용 없이도 토큰을 자동으로 가져올 수 있습니다.
 
@@ -209,7 +209,7 @@ IWA는 다단계 인증을 바이패스하지 않습니다. 다단계 인증이 
 공용 클라이언트 응용 프로그램을 생성할 때 전달 된 기관은 다음 중 하나 여야 합니다.
 
 - 테 넌 트, 여기서은 테 넌 트 `https://login.microsoftonline.com/{tenant}/,` `{tenant}` ID 또는 테 넌 트와 연결 된 도메인 이름을 나타내는 GUID입니다.
-- 회사 및 학교 계정(`https://login.microsoftonline.com/organizations/`) Microsoft 개인 계정 (MSA)은 지원 되지 않습니다. `/common`또는 테 넌 트를 사용할 수 없습니다 `/consumers` .
+- 회사 및 학교 계정(`https://login.microsoftonline.com/organizations/`) Microsoft 개인 계정 (MSA)은 지원 되지 않습니다. `/common` 또는 테 넌 트를 사용할 수 없습니다 `/consumers` .
 
 IWA는 자동 흐름이므로 다음 중 하나를 충족해야 합니다.
 
@@ -219,7 +219,7 @@ IWA는 자동 흐름이므로 다음 중 하나를 충족해야 합니다.
 이는 다음 중 하나에 해당함을 의미합니다.
 
 - 개발자는 자신에 대 한 Azure Portal **권한 부여** 를 선택 했습니다.
-- 테 넌 트 관리자가 Azure Portal에서 앱 등록의 **API 사용 권한** 탭에서 **{테 넌 트 도메인}에 대 한 Grant/revoke 관리자 동의** 를 선택 했습니다 ( [웹 api에 대 한 액세스 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)참조).
+- 테 넌 트 관리자가 Azure Portal에서 앱 등록의 **API 사용 권한** 탭에서 **{테 넌 트 도메인}에 대 한 Grant/revoke 관리자 동의** 를 선택 했습니다 ( [웹 API에 액세스할 수 있는 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)참조).
 - 사용자가 응용 프로그램에 동의할 수 있는 방법을 제공 했습니다. [개별 사용자 동의 요청](v2-permissions-and-consent.md#requesting-individual-user-consent)을 참조 하세요.
 - 테 넌 트 관리자가 응용 프로그램에 동의할 수 있는 방법을 제공 했습니다. [관리자 동의](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)를 참조 하세요.
 

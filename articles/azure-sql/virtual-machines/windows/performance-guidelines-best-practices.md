@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a2ba89a9adec5443ed8ae2a10e0230874b571f46
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9abc6574117b194a626c2697f5297a13566e0447
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690241"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481793"
 ---
-# <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 성능 지침
+# <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 성능 지침
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 이 문서에서는 Microsoft Azure Virtual Machines의 SQL Server 성능 최적화에 대 한 지침을 제공 합니다.
@@ -197,6 +197,19 @@ SQL Server 2014부터 새로운 기능인 [Azure의 SQL Server 데이터 파일]
 ![적격 스토리지 선택 취소](./media/performance-guidelines-best-practices/uncheck-eligible-cluster-storage.png)
 
 만약 스토리지 공간을 사용하면서 **클러스터에 사용할 수 있는 모든 스토리지를 추가하세요.** 확인란을 선택 취소하지 않으면 Windows에서 클러스터링 프로세스 도중 가상 디스크를 분리합니다. 그 결과, 스토리지 공간이 클러스터에서 제거되고 PowerShell을 사용하여 다시 연결할 때까지 디스크 관리자 또는 탐색기에 표시되지 않습니다. 스토리지 공간은 여러 디스크를 스토리지 풀로 그룹화합니다. 자세한 내용은 [스토리지 공간](/windows-server/storage/storage-spaces/overview)을 참조하세요.
+
+## <a name="multiple-instances"></a>여러 인스턴스 
+
+단일 가상 머신에 여러 SQL Server 인스턴스를 배포 하는 경우 다음 모범 사례를 고려 합니다. 
+
+- 운영 체제에 대해 남아 있는 메모리가 있는지 확인 하 여 각 SQL Server 인스턴스에 대 한 최대 서버 메모리를 설정 합니다. 가상 컴퓨터에 할당 된 메모리 양을 변경 하는 경우 SQL Server 인스턴스에 대 한 메모리 제한을 업데이트 해야 합니다. 
+- 데이터, 로그 및 TempDB에는 서로 다른 워크 로드 패턴이 있으며 서로에 영향을 주지 않기 때문에 별도의 Lun이 있어야 합니다. 
+- 응용 프로그램 Sla 내에서 최대 작업량을 처리할 수 있도록 프로덕션과 유사한 워크 로드에서 환경을 철저히 테스트 합니다. 
+
+오버 로드 된 시스템의 부호에는 작업자 스레드 고갈, 저속 응답 시간 및/또는 지연 된 디스패처 시스템 메모리가 포함 될 수 있습니다. 
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

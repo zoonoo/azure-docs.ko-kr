@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 958a433cc76f00010fe6fd431d8bea4fe6380a9c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146692"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651166"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 액세스 보안
 
@@ -81,9 +81,9 @@ Azure Machine Learning 데이터 집합은 저장소 서비스의 데이터를 �
 
 데이터 집합에는 두 가지 유형이 있습니다. 
 
-+ [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) 은 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. 데이터가 이미 정리 되어 학습 실험에서 사용할 준비가 된 경우 FileDatasets에서 참조 하는 파일을 계산 대상으로 [다운로드 하거나 탑재할](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) 수 있습니다.
++ [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) 은 데이터 저장소 또는 public url의 단일 또는 여러 파일을 참조 합니다. 데이터가 이미 정리 되어 학습 실험에서 사용할 준비가 된 경우 FileDatasets에서 참조 하는 파일을 계산 대상으로 [다운로드 하거나 탑재할](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) 수 있습니다.
 
-+ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 추가 조작 및 정리를 위해 TabularDataset를 pandas 또는 Spark 데이터 프레임에 로드할 수 있습니다. TabularDatasets에서 만들 수 있는 데이터 형식의 전체 목록은 [TabularDatasetFactory 클래스](https://aka.ms/tabulardataset-api-reference)를 참조 하세요.
++ [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 추가 조작 및 정리를 위해 TabularDataset를 pandas 또는 Spark 데이터 프레임에 로드할 수 있습니다. TabularDatasets에서 만들 수 있는 데이터 형식의 전체 목록은 [TabularDatasetFactory 클래스](https://aka.ms/tabulardataset-api-reference)를 참조 하세요.
 
 다음 설명서에서 추가 데이터 집합 기능을 찾을 수 있습니다.
 

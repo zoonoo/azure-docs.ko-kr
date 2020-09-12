@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: ec716924d3cebf8e78b0505b95837b91c568813a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ead1a324d342f818551ac05ac385ba4fa5b8b877
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78898158"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439087"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 지원되는 데이터 원본
 
@@ -45,7 +45,7 @@ ms.locfileid: "78898158"
       <td></td>
     </tr>
     <tr>
-      <td>Azure Blob 스토리지</td>
+      <td>Azure Blob Storage</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -143,7 +143,7 @@ ms.locfileid: "78898158"
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL Data Warehouse 테이블</td>
+      <td>Azure Synapse Analytics 테이블</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -151,7 +151,7 @@ ms.locfileid: "78898158"
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL Data Warehouse 뷰</td>
+      <td>Azure Synapse Analytics 보기</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -932,7 +932,7 @@ ms.locfileid: "78898158"
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Command</td>
       <td>Stored procedure</td>
       <td>
@@ -948,7 +948,7 @@ ms.locfileid: "78898158"
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>TableValuedFunction</td>
       <td>Table-valued function</td>
       <td>
@@ -964,7 +964,7 @@ ms.locfileid: "78898158"
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Container</td>
       <td>Database</td>
       <td>
@@ -978,7 +978,7 @@ ms.locfileid: "78898158"
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Table</td>
       <td>Table, view</td>
       <td>

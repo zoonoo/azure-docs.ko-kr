@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: af0964dceca8b862d0008d878045203983a96bda
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f88004d219989b06d4bc7e75e76aca1ce1e894fe
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586218"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536403"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core(SQL) API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 
 ## <a name="helpful-content"></a>유용한 내용
 
-| 콘텐츠 | 링크 |
+| Content | 링크 |
 |---|---|
 |**SDK 다운로드**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
 |**API 설명서** | [Java API 참조 설명서](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
@@ -68,10 +68,36 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 
 ## <a name="release-history"></a>릴리스 기록
 
-### <a name="440-beta1-unreleased"></a>4.4.0-베타. 1 (릴리스되지 않음)
+### <a name="440-beta2-unreleased"></a>4.4.0-beta. 2 (릴리스되지 않음)
+#### <a name="key-bug-fixes"></a>핵심 버그 수정
+* Tcnative를 사용 하도록 설정 하면 RequestTimeoutException이 수정 되었습니다.
+
+### <a name="440-beta1-2020-08-27"></a>4.4.0-beta. 1 (2020-08-27)
+#### <a name="new-features"></a>새로운 기능
+* 여러 문서를 효율적으로 로드 하기 위해 새 API를 추가 했습니다 (pk/id 쌍 목록 또는 pk 값 집합에 대 한 모든 문서를 통해).
+* 새 `deleteItem` API를 추가 했습니다.
+* 기본적으로 쿼리 메트릭을 사용 합니다.
+#### <a name="key-bug-fixes"></a>핵심 버그 수정
+* 에서 NPE을 수정 `GatewayAddressCache` 했습니다.
+* 항목 응답이 0 인 쿼리 메트릭 문제를 수정 합니다.
+* 주소 구문 분석 및 마스터 키 인증에 대 한 성능 향상 (CPU 사용량 감소).
+
+### <a name="432-beta2-2020-08-17"></a>4.3.2 (2020-08-17)
+#### <a name="key-bug-fixes"></a>핵심 버그 수정
+* 이전 버전에서 변경 된 사항은 없으며, 스프링 데이터 모듈과의 호환성 문제에 대 한 릴리스입니다.
+
+### <a name="432-beta1-2020-08-14"></a>4.3.2-beta. 1 (2020-08-14)
+#### <a name="key-bug-fixes"></a>핵심 버그 수정
+* 사용 하지 않는 TCP 연결의 조기 닫기를 방지 하기 위해 RntbdServiceEndpoint의 문제가 수정 되었습니다.
+
+### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
+#### <a name="key-bug-fixes"></a>핵심 버그 수정
+* `GROUP BY`한 페이지만 반환 하는 쿼리와 관련 된 문제가 해결 되었습니다.
+* 중앙 SDK 지침을 준수 하기 위한 고정 사용자 에이전트 문자열 형식입니다.
+* 쿼리 계획 진단을 포함 하도록 향상 된 진단 정보입니다.
 
 ### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 재 행위자-핵심 라이브러리 버전을 (으)로 업데이트 했습니다 `3.3.8.RELEASE` . 
 * Reactor-netty 라이브러리 버전이로 업데이트 되었습니다 `0.9.10.RELEASE` . 
 * Netty 라이브러리 버전을로 업데이트 했습니다 `4.1.51.Final` . 
@@ -91,7 +117,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 * `.single()`찾을 수 없는 예외가 발생 하는 경우 원자로 체인이 중단 되도록 하는 연산자 문제를 해결 했습니다. 
 
 ### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 스크립트 로깅 사용 API를에 추가 했습니다 `CosmosStoredProcedureRequestOptions` .
 * 기본값을 1 시간로 업데이트 하 `DirectConnectionConfig` `idleEndpointTimeout` 고 기본값 `connectTimeout` 을 5 초로 업데이트 합니다.
 #### <a name="key-bug-fixes"></a>핵심 버그 수정
@@ -103,7 +129,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 * 직접 모드에서 취소 된 요청을 처리 하는 동안 발생 하는 문제를 해결 `onErrorDropped` 했습니다. 
 
 ### <a name="410-2020-06-25"></a>4.1.0 (2020-06-25)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * 쿼리에 대 한 지원이 추가 되었습니다 `GROUP BY` .
 * DirectConnectionConfig에서 maxConnectionsPerEndpoint의 기본값을 130로 늘립니다.
 * DirectConnectionConfig에서 maxRequestsPerConnection의 기본값을 30으로 늘렸습니다.
@@ -113,7 +139,7 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 * RntbdClientChannelPool의 요청 관리자에서 null 포인터 예외가 수정 되었습니다.
 
 ### <a name="401-2020-06-10"></a>4.0.1 (2020-06-10)
-#### <a name="new-features"></a>새로운 기능
+#### <a name="new-features"></a>새 기능
 * `QueryRequestOptions`의 이름이 `CosmosQueryRequestOptions`로 바뀌었습니다.
 * `ChangeFeedProcessorBuilder`작성기 패턴으로 업데이트 되었습니다.
 * `CosmosPermissionProperties`새 컨테이너 이름 및 자식 리소스 api로 업데이트 되었습니다.

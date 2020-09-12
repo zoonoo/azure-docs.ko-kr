@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/20/2020
-ms.openlocfilehash: 6455c186e05fc98b1ec340c152f9b3e5710f1dd5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/06/2020
+ms.openlocfilehash: 84a7a205e52ba37eb6fcb3b624e0f71a9b9bbc10
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087913"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505491"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Azure-SSIS Integration Runtime 패키지 저장소를 사용 하 여 패키지 관리
 
@@ -57,7 +57,7 @@ SSMS에서 Azure-SSIS IR에 연결한 후 패키지 저장소, 폴더 또는 패
       > [!NOTE]
       > Azure-SSIS IR 패키지 저장소에 SSIS 패키지를 가져오는 것은 한 번만 수행할 수 있으며, SQL Server/SSIS 버전을 유지 하면서 기본 MSDB/파일 시스템/Azure Files에만 복사 합니다. 
       >
-      > Azure-SSIS IR 현재 140의 기본 호환성 수준이이 고,이는 **SQL Server 2017**와 동일 하기 때문에 낮은 버전의 패키지를 실행 하면 런타임에 SSIS 2017 패키지로 업그레이드 됩니다. 더 높은 버전의 패키지 실행은 지원 되지 않습니다.
+      > Azure-SSIS IR 현재 **SQL Server 2017**을 기반으로 하기 때문에 하위 버전 패키지를 실행 하면 런타임에 SSIS 2017 패키지로 업그레이드 됩니다. 더 높은 버전의 패키지 실행은 지원 되지 않습니다.
       >
       > 또한 레거시 SSIS 패키지 저장소는 특정 SQL Server 버전에 바인딩되고 해당 버전의 SSMS 에서만 액세스할 수 있으므로, 이전 SSIS 패키지 저장소의 하위 버전 패키지를 SSMS 2019 이상 버전을 사용 하 여 Azure-SSIS IR 패키지 저장소로 가져오려면 먼저 지정 된 SSMS 버전을 사용 하 여 파일 시스템으로 내보내야 합니다.
       >
@@ -72,7 +72,7 @@ SSMS에서 Azure-SSIS IR에 연결한 후 패키지 저장소, 폴더 또는 패
       > [!NOTE]
       > Azure-SSIS IR 패키지 저장소에서 SSIS 패키지를 내보내는 것은 한 번만 수행할 수 있으며, 보호 수준을 전환 하지 않고 수행 하면 SQL Server/SSIS 버전을 유지 하는 동안에만 복사 됩니다. 그렇지 않으면 SSIS 2019 이상 버전 패키지로 업그레이드 됩니다.
       >
-      > Azure-SSIS IR 현재 140의 기본 호환성 수준이이 고,이는 **SQL Server 2017**와 동일 하기 때문에 낮은 버전의 패키지를 실행 하면 런타임에 SSIS 2017 패키지로 업그레이드 됩니다. 더 높은 버전의 패키지 실행은 지원 되지 않습니다.
+      > Azure-SSIS IR 현재 **SQL Server 2017**을 기반으로 하기 때문에 하위 버전 패키지를 실행 하면 런타임에 SSIS 2017 패키지로 업그레이드 됩니다. 더 높은 버전의 패키지 실행은 지원 되지 않습니다.
       >
       > 또는 보호 수준을 전환 하는 동안 Azure-SSIS IR 패키지 저장소에서 여러 SSIS 패키지를 내보내려면 [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) 명령줄 유틸리티를 사용 합니다. [dtutil로 여러 패키지 배포](#deploying-multiple-packages-with-dtutil)를 참조 하세요.
 
@@ -124,7 +124,7 @@ SSMS에서 Azure-SSIS IR에 연결한 후 메뉴를 마우스 오른쪽 단추�
 
 SQL Server/SSIS 설치와 함께 제공 되는 [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) 명령줄 유틸리티를 사용 하 여 여러 패키지를 배치로 배포할 수 있습니다. 특정 SSIS 버전에 바인딩되어 있으므로이를 사용 하 여 보호 수준을 전환 하지 않고 하위 버전의 패키지를 배포 하는 경우에는 SSIS 버전을 유지 하면서 복사 하기만 하면 됩니다. 이를 사용 하 여 배포 하 고 보호 수준을 동시에 전환 하는 경우 SSIS 버전으로 업그레이드 합니다.
 
- Azure-SSIS IR 현재 140의 기본 호환성 수준이이 고,이는 **SQL Server 2017**와 동일 하기 때문에 낮은 버전의 패키지를 실행 하면 런타임에 SSIS 2017 패키지로 업그레이드 됩니다. 더 높은 버전의 패키지 실행은 지원 되지 않습니다.
+ Azure-SSIS IR 현재 **SQL Server 2017**을 기반으로 하기 때문에 하위 버전 패키지를 실행 하면 런타임에 SSIS 2017 패키지로 업그레이드 됩니다. 더 높은 버전의 패키지 실행은 지원 되지 않습니다.
 
 따라서 런타임 업그레이드를 방지 하려면 패키지 배포 모델에서 Azure-SSIS IR 실행 되는 패키지를 배포할 때 SQL Server/SSIS 2017 설치와 함께 제공 되는 dtutil 2017을 사용 해야 합니다. 이 목적을 위해 무료 [SQL Server/SSIS 2017 Developer Edition](https://go.microsoft.com/fwlink/?linkid=853016) 을 다운로드 하 여 설치할 수 있습니다. 설치 되 면이 폴더에서 dtutil 2017를 찾을 수 있습니다 `YourLocalDrive:\Program Files\Microsoft SQL Server\140\DTS\Binn` .
 

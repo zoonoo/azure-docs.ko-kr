@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee6945cec4c2441334e665947568743aaf29226
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ebde1be459078f4f3473ebc3042d8acebcce910a
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013591"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613732"
 ---
 # <a name="debug-rendering"></a>디버그 렌더링
 
@@ -74,6 +74,10 @@ void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight
 
 * 텍스트 오버레이를 활성화하면 성능 오버헤드가 거의 발생하지 않습니다.
 * 와이어프레임 모드를 사용하도록 설정하면 사소한 성능 오버헤드가 발생하지만 장면에 따라 달라질 수 있습니다. 복잡한 장면의 경우 이 모드는 프레임 속도가 60-Hz 대상 아래로 떨어질 수 있습니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C + + RemoteManager::D ebugRenderingSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: 442b5acf3a6786b9fcaf0a96015a6df31215653c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/08/2020
+ms.openlocfilehash: 75c434b5c1927251940a691a16069425b4cc88a3
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231421"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500405"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -197,7 +197,7 @@ Azure Portal에서 논리 앱에 대해 Azure AD OAuth를 사용 하도록 설�
    | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **정책 이름** | 예 | 권한 부여 정책에 사용하려는 이름입니다. |
-   | **클레임** | 예 | 논리 앱이 인바운드 호출에서 받는 클레임 유형 및 값입니다. 사용 가능한 클레임 유형은 다음과 같습니다. <p><p>- **발급자** <br>- **대상 그룹** <br>- **제목** <br>- **JWT ID**(JSON Web Token ID) <p><p>최소한 **클레임** 목록에는 또는로 시작 하는 값이 있는 **발급자** 클레임 `https://sts.windows.net/` 또는 `https://login.microsoftonline.com/` Azure AD 발급자 ID가 포함 되어야 합니다. 이러한 클레임 유형에 대한 자세한 내용은 [Azure AD 보안 토큰의 클레임](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens)을 참조하세요. 자체 클레임 유형 및 값을 지정할 수도 있습니다. |
+   | **클레임** | 예 | 논리 앱이 인바운드 호출에서 받는 클레임 유형 및 값입니다. 사용 가능한 클레임 유형은 다음과 같습니다. <p><p>- **발급자** <br>- **대상 그룹** <br>- **제목** <br>- **JWT ID**(JSON Web Token ID) <p><p>최소한 **클레임** 목록에는 발급자 클레임이 포함 되어야 합니다. **발급자** 클레임은로 시작 `https://sts.windows.net/` 하거나 `https://login.microsoftonline.com/` Azure AD 발급자 ID로 시작 하는 값을 포함 해야 합니다. 이러한 클레임 유형에 대한 자세한 내용은 [Azure AD 보안 토큰의 클레임](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens)을 참조하세요. 자체 클레임 유형 및 값을 지정할 수도 있습니다. |
    |||
 
 1. 또 다른 클레임을 추가하려면 다음 옵션 중에서 선택합니다.
@@ -216,6 +216,9 @@ Azure Portal에서 논리 앱에 대해 Azure AD OAuth를 사용 하도록 설�
 
 논리 앱을 배포 하기 위해 ARM 템플릿에서 Azure AD OAuth를 사용 하도록 설정 하려면 `properties` [논리 앱의 리소스 정의](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition)에 대 한 섹션에서 `accessControl` 개체를 포함 하는 개체 (없는 경우)를 추가 `triggers` 합니다. 개체에서 `triggers` `openAuthenticationPolicies` 다음 구문을 따라 하나 이상의 권한 부여 정책을 정의 하는 개체를 추가 합니다.
 
+> [!NOTE]
+> 최소한 `claims` `iss` `https://sts.windows.net/` `https://login.microsoftonline.com/` Azure AD 발급자 ID로 시작 하는 값을 포함 하는 클레임을 배열에 포함 해야 합니다. 이러한 클레임 유형에 대한 자세한 내용은 [Azure AD 보안 토큰의 클레임](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens)을 참조하세요. 자체 클레임 유형 및 값을 지정할 수도 있습니다.
+
 ```json
 "resources": [
    {
@@ -233,7 +236,7 @@ Azure Portal에서 논리 앱에 대해 Azure AD OAuth를 사용 하도록 설�
                         "claims": [
                            {
                               "name": "<claim-name>",
-                              "values": "<claim-value>"
+                              "value": "<claim-value>"
                            }
                         ]
                      }
@@ -811,7 +814,7 @@ HTTP 및 HTTPS 엔드포인트는 다양한 종류의 인증을 지원합니다.
 | [클라이언트 인증서](#client-certificate-authentication) | Azure API Management, Azure App Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [원시](#raw-authentication) | Azure API Management, Azure App Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [관리 ID](#managed-identity-authentication) | Azure API Management, Azure 앱 Services, Azure Functions, HTTP |
+| [관리 ID](#managed-identity-authentication) | Azure API Management, Azure 앱 Services, Azure Functions, HTTP, HTTP Webhook |
 |||
 
 <a name="basic-authentication"></a>

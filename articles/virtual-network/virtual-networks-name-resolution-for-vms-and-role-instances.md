@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cf630f6028248d799a3953d25db27a2150602586
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 46b3a782d93a55ed7f6eee6c76886f27c2652572
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087014"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469646"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -48,7 +48,7 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 | Azure의 VM 또는 역할 인스턴스에서 온-프레미스 컴퓨터와 서비스 이름을 확인합니다. |고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 사용 하 여 이름 확인](#name-resolution-that-uses-your-own-dns-server)을 참조 하세요. |FQDN만 |
 | 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인. |해당 가상 네트워크에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달하면 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 사용 하 여 이름 확인](#name-resolution-that-uses-your-own-dns-server)을 참조 하세요. |FQDN만 |
 | 내부 IP에 대한 역방향 DNS |[자체 DNS 서버를 사용 하 여](#name-resolution-that-uses-your-own-dns-server) [개인 영역](../dns/private-dns-overview.md) 또는 [Azure에서 제공](#azure-provided-name-resolution) 하는 이름 확인 또는 이름 확인을 Azure DNS 합니다. |해당 없음 |
-| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |해당 없음|
+| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 사항 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |해당 없음|
 
 ## <a name="azure-provided-name-resolution"></a>Azure에서 제공하는 이름 확인
 
@@ -86,7 +86,7 @@ Azure 제공 이름 확인을 사용할 때 고려해야 할 사항입니다.
 역방향 DNS는 모든 ARM 기반 가상 네트워크에서 지원 됩니다. 역방향 DNS 쿼리 (PTR 쿼리)를 실행 하 여 가상 컴퓨터의 IP 주소를 가상 컴퓨터의 Fqdn에 매핑할 수 있습니다.
 * 가상 컴퓨터의 IP 주소에 대 한 모든 PTR 쿼리는 vmname 형식의 Fqdn을 반환 \[ \] 합니다. internal.cloudapp.net
 * Vmname 형식의 Fqdn에 대 한 전방 조회 \[ \] 는 가상 컴퓨터에 할당 된 IP 주소로 확인 됩니다.
-* 가상 네트워크가 등록 가상 네트워크로 [Azure DNS 개인 영역](../dns/private-dns-overview.md) 에 연결 된 경우 역방향 DNS 쿼리는 두 개의 레코드를 반환 합니다. 레코드 하나는 \[ vmname \] . [ privatednszonename] 및 기타는 \[ vmname. internal.cloudapp.net 형식입니다 \] .
+* 가상 네트워크가 등록 가상 네트워크로 [Azure DNS 개인 영역](../dns/private-dns-overview.md) 에 연결 된 경우 역방향 DNS 쿼리는 두 개의 레코드를 반환 합니다. 레코드 하나는 vmname 형식입니다 \[ \] . [ privatednszonename] 및 기타는 \[ vmname \] . internal.cloudapp.net 형식입니다.
 * 역방향 DNS 조회는 다른 가상 네트워크에 피어 링 경우에도 지정 된 가상 네트워크로 범위가 지정 됩니다. 피어 링 가상 네트워크에 있는 가상 컴퓨터의 IP 주소에 대 한 역방향 DNS 쿼리 (PTR 쿼리)는 NXDOMAIN를 반환 합니다.
 * 가상 네트워크에서 역방향 DNS 기능을 해제 하려는 경우 [Azure DNS 개인 영역](../dns/private-dns-overview.md) 을 사용 하 여 역방향 조회 영역을 만들고이 영역을 가상 네트워크에 연결 하 여이 작업을 수행할 수 있습니다. 예를 들어 가상 네트워크의 IP 주소 공간이 10.20.0.0/16 인 경우 빈 개인 DNS 영역 20.10.in를 만들고 가상 네트워크에 연결할 수 있습니다. 영역을 가상 네트워크에 연결 하는 동안 링크에서 자동 등록을 사용 하지 않도록 설정 해야 합니다. 이 영역은 가상 네트워크에 대 한 기본 역방향 조회 영역을 재정의 하 고이 영역이 비어 있으므로 역방향 DNS 쿼리에 대 한 NXDOMAIN을 받게 됩니다. 개인 DNS 영역을 만들고 가상 네트워크에 연결 하는 방법에 대 한 자세한 내용은 [빠른 시작 가이드](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) 를 참조 하세요.
 

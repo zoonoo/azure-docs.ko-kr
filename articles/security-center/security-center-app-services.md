@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec3fb8609612f3920e330da7922fdd1eb8883305
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080797"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459779"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Azure App Service 웹앱 및 API 보호
 
@@ -32,7 +32,7 @@ App Service 계획을 사용 하도록 설정 하면 Security Center App Service
 Security Center는 클라우드의 규모와 Azure에서 클라우드 공급자로의 표시 유형을 활용 하 여 일반적인 웹 앱 공격을 모니터링 합니다. 공격자가 정찰 단계에 있는 동안에도 응용 프로그램에 대 한 공격을 검색 하 고 새로운 공격을 식별할 수 Security Center. Azure native Security Center service로 서는이 PaaS의 기본 계산 노드를 포함 하는 호스트 기반 보안 분석을 제공 하는 고유한 위치에도 있으므로 이미 악용 된 웹 응용 프로그램에 대 한 공격을 검색할 Security Center 있습니다. 자세한 내용은 [Azure App Service에 대 한 위협 방지](threat-protection.md#app-services)를 참조 하세요.
 
 
-## <a name="enabling-monitoring-and-protection-of-app-service"></a>App Service 모니터링 및 보호 사용
+## <a name="enable-monitoring-and-protection-of-app-service"></a>App Service의 모니터링 및 보호 사용
 
 1. Azure Portal에서 Security Center를 선택 합니다.
 2. **가격 책정 & 설정** 으로 이동 하 여 구독을 선택 합니다.
@@ -64,4 +64,4 @@ App Service에 대한 모니터링과 권장 사항을 사용하지 않도록 �
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [앱 서비스](security-center-virtual-machine-protection.md#app-services): 상태 요약이 포함 된 app service environment의 목록을 봅니다.
 * [Azure Security Center에서 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 보안 블로그](https://docs.microsoft.com/archive/blogs/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

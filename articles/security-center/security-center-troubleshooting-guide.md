@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e26744c2003bd55b33b638b15775c52abbe1dc32
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f5e71697ca6ce9e2585bbb903ad8c46744e05e13
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836008"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462397"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 
@@ -29,7 +29,7 @@ Security Center는 Log Analytics 에이전트를 사용하여 데이터를 수�
 
 * VMBA(Virtual Machine 동작 분석)
 * 네트워크 분석
-* SQL Database 및 SQL Data Warehouse 분석
+* SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse) 분석
 * 컨텍스트 정보
 
 경고 유형에 따라, 고객은 다음 리소스를 사용하여 경고를 조사하는 데 필요한 정보를 수집할 수 있습니다.
@@ -151,4 +151,4 @@ Security Center 대시보드를 로드하는 문제가 있는 경우 Security Ce
 * [Azure Security Center 감지 기능](security-center-detection-capabilities.md)
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](faq-general.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 보안 블로그](https://docs.microsoft.com/archive/blogs/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

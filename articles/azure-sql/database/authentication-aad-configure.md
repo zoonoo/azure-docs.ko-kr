@@ -12,18 +12,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 08/17/2020
-ms.openlocfilehash: 3eb1a4cbfcf62617796af6a26cb4688b734eb617
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551844"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434404"
 ---
-# <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Azure SQL을 사용 하 여 Azure AD 인증 구성 및 관리
+# <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Azure SQL에서 Azure AD 인증 구성 및 관리
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-이 문서에서는 Azure Active Directory (Azure AD) 인스턴스를 만들고 채운 다음 [Azure SQL Database](sql-database-paas-overview.md), [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)및 [azure Synapse Analytics (이전의 Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에서 azure ad를 사용 하는 방법을 보여 줍니다. 개요는 [Azure Active Directory 인증](authentication-aad-overview.md)을 참조 하세요.
+이 문서에서는 Azure Active Directory (Azure AD) 인스턴스를 만들고 채운 다음 [Azure SQL Database](sql-database-paas-overview.md), [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)및 [azure Synapse Analytics (이전의 SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에서 azure ad를 사용 하는 방법을 보여 줍니다. 개요는 [Azure Active Directory 인증](authentication-aad-overview.md)을 참조 하세요.
 
 ## <a name="azure-ad-authentication-methods"></a>Azure AD 인증 방법
 
@@ -73,7 +73,7 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 > [!IMPORTANT]
 > Azure SQL Managed Instance를 프로 비전 하는 경우에만 다음 단계를 수행 합니다. 이 작업은 글로벌/회사 관리자 또는 Azure AD의 권한 있는 역할 관리자만 실행할 수 있습니다.
 >
-> **공개 미리 보기**에서 Azure AD의 그룹에 **디렉터리 독자** 역할을 할당할 수 있습니다. 그런 다음 그룹 소유자는이 그룹의 구성원으로 관리 되는 인스턴스 id를 추가할 수 있습니다. 그러면 SQL Managed Instance에 대 한 Azure AD 관리자를 프로 비전 할 수 있습니다. 이 기능에 대 한 자세한 내용은 [AZURE SQL Azure Active Directory의 디렉터리 판독기 역할](authentication-aad-directory-readers-role.md)을 참조 하세요.
+> **공개 미리 보기**에서 Azure AD의 그룹에 **디렉터리 독자** 역할을 할당할 수 있습니다. 그런 다음 그룹 소유자는이 그룹의 구성원으로 관리 되는 인스턴스 id를 추가할 수 있습니다. 그러면 SQL Managed Instance에 대 한 Azure AD 관리자를 프로 비전 할 수 있습니다. 이 기능에 대한 자세한 내용은 [Azure SQL용 Azure Active Directory의 Directory Readers 역할](authentication-aad-directory-readers-role.md)을 참조하세요.
 
 SQL Managed Instance는 보안 그룹 구성원 자격 또는 새 사용자 만들기를 통해 사용자 인증 등의 작업을 성공적으로 수행 하기 위해 Azure AD를 읽을 수 있는 권한이 필요 합니다. 이 작업을 수행 하려면 Azure AD를 읽을 수 있는 권한을 SQL Managed Instance 부여 해야 합니다. Azure Portal 또는 PowerShell을 사용 하 여이 작업을 수행할 수 있습니다.
 

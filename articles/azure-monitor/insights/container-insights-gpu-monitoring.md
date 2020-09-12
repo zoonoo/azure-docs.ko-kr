@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 GPU 모니터링 
 description: 이 문서에서는 Kubernetes Azure Monitor 클러스터를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 958f5ab33edcd280f5673391eba907728f1153c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373311"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569699"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 GPU 모니터링 구성
 
@@ -24,7 +24,10 @@ ms.locfileid: "80373311"
 
 컨테이너에 대 한 Azure Monitor는 60 초 간격으로 다음 메트릭을 수집 하 여 **InsightMetrics** 테이블에 저장 함으로써 노드의 gpu 사용량 모니터링과 pod 및 작업 부하를 자동으로 시작 합니다.
 
-|메트릭 이름 |메트릭 차원 (태그) |Description |
+>[!NOTE]
+>Gpu 노드를 사용 하 여 클러스터를 프로 비전 한 후 gpu 작업을 실행 하기 위해 AKS에서 요구 하는 [gpu 드라이버가](../../aks/gpu-cluster.md) 설치 되어 있는지 확인 합니다. 컨테이너 Azure Monitor는 노드에서 실행 되는 GPU 드라이버 pod를 통해 GPU 메트릭을 수집 합니다. 
+
+|메트릭 이름 |메트릭 차원 (태그) |설명 |
 |------------|------------------------|------------|
 |containerGpuDutyCycle |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName, gpuId, gpuModel, gpuVendor|GPU가 사용 중이 고 컨테이너에 대해 적극적으로 처리 되는 과거 샘플 기간 (60 초) 동안의 시간 비율입니다. 업무 주기는 1에서 100 사이의 숫자입니다. |
 |containerGpuLimits |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName |각 컨테이너는 한 개 이상의 Gpu로 한도를 지정할 수 있습니다. GPU의 일부를 요청 하거나 제한할 수 없습니다. |

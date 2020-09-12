@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 34553c1b211b9e2c4b13a083f5c3a6732fb65472
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502701"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595246"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Azure CLI를 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
@@ -23,13 +23,12 @@ ms.locfileid: "87502701"
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 필요한 네트워크 리소스에 대한 리소스 그룹 만들기
-> * 네트워크 리소스 만들기
-> * 애플리케이션에서 들어오는 트래픽에 대한 애플리케이션 게이트웨이 만들기
-> * 여러 종류의 트래픽에 대한 서버 풀 및 회람 규칙 지정
-> * 풀 크기를 자동으로 조정할 수 있도록 각 풀의 확장 집합 만들기
-> * 여러 종류의 트래픽이 올바른 풀로 이동하는지 확인하기 위한 테스트 실행
+* 필요한 네트워크 리소스에 대한 리소스 그룹 만들기
+* 네트워크 리소스 만들기
+* 애플리케이션에서 들어오는 트래픽에 대한 애플리케이션 게이트웨이 만들기
+* 여러 종류의 트래픽에 대한 서버 풀 및 회람 규칙 지정
+* 풀 크기를 자동으로 조정할 수 있도록 각 풀의 확장 집합 만들기
+* 여러 종류의 트래픽이 올바른 풀로 이동하는지 확인하기 위한 테스트 실행
 
 원하는 경우 [Azure PowerShell](tutorial-url-route-powershell.md) 또는 [Azure Portal](create-url-route-portal.md)을 사용하여 이 절차를 완료할 수 있습니다.
 
@@ -98,7 +97,7 @@ az network application-gateway create \
  애플리케이션 게이트웨이를 만들 때까지 몇 분 정도 걸릴 수 있습니다. 애플리케이션 게이트웨이가 생성되면 다음과 같은 새 기능을 볼 수 있습니다.
 
 
-|기능  |Description  |
+|기능  |설명  |
 |---------|---------|
 |appGatewayBackendPool     |애플리케이션 게이트웨이에 백 엔드 주소 풀이 하나 이상 있어야 합니다.|
 |appGatewayBackendHttpSettings     |포트 80 및 HTTP 프로토콜을 통신에 사용하도록 지정합니다.|

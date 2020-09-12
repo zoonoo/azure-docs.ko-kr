@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8328fa9c9e32a22e8e5093aa343f333cd1914ddc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038670"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500303"
 ---
 # <a name="supported-authentication-methods"></a>지원 되는 인증 방법
 
@@ -43,9 +43,13 @@ Windows 가상 데스크톱은 세션 호스트 인증을 위해 NTLM (NT LAN Ma
 >[!NOTE]
 >스마트 카드 및 Windows Hello는 Kerberos를 사용 하 여 로그인 할 수 있습니다. Kerberos를 사용 하 여 로그인 하려면 도메인 컨트롤러에 대 한 시야를 사용 해야 합니다.
 
+## <a name="hybrid-identity"></a>하이브리드 ID
+
+Windows 가상 데스크톱은 Active Directory Federation Services (ADFS)를 사용 하 여 페더레이션된를 포함 하 여 Azure Active Directory (AD)를 통해 [하이브리드 id](../active-directory/hybrid/whatis-hybrid-identity.md) 를 지원 합니다. 사용자가 Azure AD를 통해 검색할 수 있어야 하기 때문에 Windows 가상 데스크톱은 ADFS를 사용 하 여 독립 실행형 Active Directory 배포를 지원 하지 않습니다.
+
 ## <a name="single-sign-on-sso"></a>SSO (Single sign-on)
 
-Windows 가상 데스크톱은 현재 인증 또는 SSO에 대 한 Active Directory Federation Services (ADFS)를 지원 하지 않습니다.
+Windows 가상 데스크톱은 현재 SSO에 대 한 Active Directory Federation Services (ADFS)를 지원 하지 않습니다.
 
 세션 호스트에 대 한 자격 증명을 입력 하 라는 메시지가 표시 되는 것을 방지 하는 유일한 방법은 클라이언트에 저장 하는 것입니다. 다른 사용자가 리소스에 액세스 하는 것을 방지 하기 위해 보안 장치 에서만이 작업을 수행 하는 것이 좋습니다.
 

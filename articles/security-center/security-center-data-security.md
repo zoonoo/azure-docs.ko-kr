@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 115a01fe0b1edc343ed9efd324c4be3b53251566
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9047309854df27ac0721eee51e20d7ccc989f443
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519510"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459694"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center 데이터 보안
 고객이 위협을 방지, 탐지 및 대응하는 데 도움이 되도록 Azure Security Center에서 구성 정보, 메타데이터, 이벤트 로그 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
@@ -65,7 +65,7 @@ VM 디스크 스냅샷은 VM 디스크와 동일한 스토리지 계정에 저�
 
 **Azure Security Center Storage**: 파트너 경고를 포함하는 보안 경고에 대한 정보는 관련된 Azure 리소스의 위치에 따라 지역적으로 저장되는 반면 보안 상태에 대한 정보 및 권장 사항은 고객의 위치에 따라 미국 또는 유럽에 중앙 집중식으로 저장됩니다. 컴퓨터 아티팩트는 VM과 동일한 지역에 중앙 집중식으로 저장됩니다.
 
-## <a name="managing-data-collection-from-virtual-machines"></a>가상 머신에서 데이터 컬렉션 관리
+## <a name="manage-data-collection-from-virtual-machines"></a>가상 머신에서 데이터 컬렉션 관리
 
 Azure에서 Security Center를 사용하는 경우 각 Azure 구독에 대해 데이터 수집이 활성화됩니다. 또한 Azure Security Center의 보안 정책 섹션에서 구독에 대한 데이터 수집을 설정할 수 있습니다. 데이터 수집이 설정되면 Azure Security Center에서 Log Analytics 에이전트를 지원되는 기존의 모든 Azure 가상 머신 및 새로 만든 Azure 가상 머신에 프로비저닝합니다.
 Log Analytics 에이전트는 다양한 보안 관련 구성 및 이벤트를 검사하여 [ETW(Windows용 이벤트 추적)](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx)로 보냅니다. 또한 운영 체제는 컴퓨터를 실행하는 동안 이벤트 로그 이벤트를 발생시킵니다. 이러한 데이터의 예: 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 프로세스 실행, 컴퓨터 이름, IP 주소, 로그인된 사용자 및 테넌트 ID입니다. Log Analytics 에이전트는 이벤트 로그 항목 및 ETW 추적을 읽고, 분석을 위해 작업 영역에 복사합니다. 또한 Log Analytics 에이전트를 사용하면 프로세스 만들기 이벤트 및 명령줄 감사를 수행할 수 있습니다.
@@ -90,4 +90,4 @@ Azure Security Center를 무료로 사용하는 경우 보안 정책의 가상 �
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) — 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 보안 블로그](https://docs.microsoft.com/archive/blogs/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

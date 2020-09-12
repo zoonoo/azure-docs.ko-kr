@@ -3,15 +3,15 @@ title: PowerShell을 사용 하 여 RDP 속성 사용자 지정-Azure
 description: PowerShell cmdlet을 사용 하 여 Windows 가상 데스크톱에 대 한 RDP 속성을 사용자 지정 하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 439f009d70775428a00f627160bf4d6b8ab9b089
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009106"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462227"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>호스트 풀의 RDP (원격 데스크톱 프로토콜) 속성 사용자 지정
 
@@ -21,6 +21,16 @@ ms.locfileid: "88009106"
 다중 모니터 환경 및 오디오 리디렉션과 같은 RDP (호스트 풀의 원격 데스크톱 프로토콜) 속성을 사용자 지정 하면 요구 사항에 따라 사용자에 게 최적의 환경을 제공할 수 있습니다. Azure Portal를 사용 하거나 **AzWvdHostPool** cmdlet의 *-customrdpproperty* 매개 변수를 사용 하 여 WINDOWS 가상 데스크톱에서 RDP 속성을 사용자 지정할 수 있습니다.
 
 지원 되는 속성 및 해당 기본값의 전체 목록은 [지원 되는 RDP 파일 설정](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) 을 참조 하세요.
+
+## <a name="default-rdp-file-properties"></a>기본 RDP 파일 속성
+
+RDP 파일에는 기본적으로 다음 속성이 있습니다.
+
+|RDP 속성|바탕 화면|RemoteApp으로|
+|---|---|---|
+|다중 모니터 모드|사용|해당 없음|
+|드라이브 리디렉션 사용|드라이브, 클립보드, 프린터, COM 포트, USB 장치 및 스마트 카드|드라이브, 클립보드 및 프린터|
+|원격 오디오 모드|로컬로 재생|로컬로 재생|
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

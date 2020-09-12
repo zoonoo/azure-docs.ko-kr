@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bae0eb91460bf7ab72abbaa7fa56b2515367d37d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526506"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436190"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>파일 시스템 오류로 인 한 Linux VM 시작 문제 해결
 
@@ -83,7 +83,7 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
 
    > [!Note]
    > Linux 용 직렬 콘솔을 사용 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
-   > * [직렬 콘솔을 사용 하 여 GRUB 및 단일 사용자 모드에 액세스](../linux/serial-console-grub-single-user-mode.md)
+   > * [직렬 콘솔을 사용 하 여 GRUB 및 단일 사용자 모드에 액세스](serial-console-grub-single-user-mode.md)
    > * [SysRq 및 NMI 호출에 직렬 콘솔 사용](./serial-console-nmi-sysrq.md)
 
 2. 전원 아이콘 단추를 선택한 다음, VM 다시 시작을 선택 합니다. (직렬 콘솔이 사용 하도록 설정 되지 않았거나 연결 되지 않은 경우 단추가 표시 되지 않습니다.)

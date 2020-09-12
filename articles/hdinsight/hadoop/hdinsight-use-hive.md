@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 95af0cd4b59863ad0f591476441d9a7733765453
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076031"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462278"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 
@@ -28,7 +28,7 @@ HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형�
 |대화형 쿼리|[LLAP(낮은 대기 시간 분석 처리)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 기능을 제공하여 대화형 쿼리에 대한 응답 시간을 개선하는 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Interactive Query로 시작](../interactive-query/apache-interactive-query-get-started.md) 문서를 참조하세요.|
 |Hadoop은|일괄 처리 프로세싱 워크로드에 대해 조정된 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Apache Hadoop으로 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md) 문서를 참조하세요.|
 |Spark|Apache Spark에는 Hive 작업을 위한 기본 제공 기능이 있습니다. 자세한 내용은 [HDInsight에서 Apache Spark 시작](../spark/apache-spark-jupyter-spark-sql.md) 문서를 참조하세요.|
-|HBase|HiveQL은 Apache HBase에 저장된 데이터를 쿼리하는 데 사용할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache HBase 시작](../hbase/apache-hbase-tutorial-get-started-linux.md) 문서를 참조하세요.|
+|HBase는|HiveQL은 Apache HBase에 저장된 데이터를 쿼리하는 데 사용할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache HBase 시작](../hbase/apache-hbase-tutorial-get-started-linux.md) 문서를 참조하세요.|
 
 ## <a name="how-to-use-hive"></a>Hive 사용 방법
 
@@ -100,7 +100,7 @@ Hive는 **사용자 정의 함수(UDF)** 를 통해 확장 될 수도 있습니�
 
 * [Apache Hive에서 C# 사용자 정의 함수 사용](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [HDInsight에 사용자 지정 Apache Hive 사용자 정의 함수를 추가하는 방법](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [HDInsight에 사용자 지정 Apache Hive 사용자 정의 함수를 추가하는 방법](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [날짜/시간 형식을 Hive 타임스탬프로 변환하는 Apache Hive 사용자 지정 함수 예제](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -131,7 +131,7 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 이전 예제에서 HiveQL 문은 다음 작업을 수행합니다.
 
-|인수를 제거합니다. |설명 |
+|문 |설명 |
 |---|---|
 |DROP TABLE|이미 테이블이 있는 경우 삭제합니다.|
 |CREATE EXTERNAL TABLE|Hive에 새 **외부** 테이블을 만듭니다. 외부 테이블만 테이블 정의를 Hive에 저장합니다. 데이터는 원래 위치에 원래 형식으로 남아 있습니다.|
@@ -164,7 +164,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 이러한 문은 다음 작업을 수행합니다.
 
-|인수를 제거합니다. |설명 |
+|문 |설명 |
 |---|---|
 |존재 하지 않는 경우 CREATE TABLE|테이블이 존재 하지 않는 경우 만듭니다. **EXTERNAL** 키워드가 사용 되지 않으므로이 문은 내부 테이블을 만듭니다. 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에서 전적으로 관리됩니다.|
 |ORC로 저장 됨|데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC는 Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.|

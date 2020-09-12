@@ -3,12 +3,12 @@ title: Azure Migrate Server 평가에서 에이전트 없는 종속성 분석 �
 description: Azure Migrate Server 평가에서 에이전트 없는 종속성 분석을 설정 합니다.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e6e562a18fa2ee0b89416ea67cc15394e760ada
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771379"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536441"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>머신 종속성 분석(에이전트 없음)
 
@@ -25,7 +25,7 @@ ms.locfileid: "84771379"
 
 - 종속성 분석 보기에서는 현재 그룹에서 서버를 추가 하거나 제거할 수 없습니다.
 - 서버 그룹에 대 한 종속성 맵을 현재 사용할 수 없습니다.
-- 종속성 데이터는 테이블 형식으로 다운로드할 수 없습니다.
+- 400 서버에 대해 동시에 종속성 데이터 수집을 설정할 수 있습니다. 400의 일괄 처리로 시퀀싱 하 여 더 많은 수의 서버를 분석 수 있습니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 

@@ -4,21 +4,21 @@ description: 스토리지 분석 메트릭 (클래식 메트릭)에서 Azure Mon
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 09/04/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c8eae70b88aa454e5d712b3c5b7930b12d169912
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f0357c153a068b1f857e4595fa17a9ac6bc22104
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078251"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500269"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Azure Monitor에서 메트릭으로 전환
 
-**2023 년 8 월 31** 일에는 스토리지 분석 메트릭을 사용 하 *는 것이 좋습니다* . 클래식 메트릭을 사용 하는 경우 해당 날짜 이전의 Azure Monitor의 메트릭으로 전환 해야 합니다. 이 문서는 전환을 수행 하는 데 도움이 됩니다.
+**2023 년 8 월 31** 일에는 스토리지 분석 메트릭을 사용 하 *는 것이 좋습니다* . 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)를 참조 하세요. 클래식 메트릭을 사용 하는 경우 해당 날짜 이전의 Azure Monitor의 메트릭으로 전환 해야 합니다. 이 문서는 전환을 수행 하는 데 도움이 됩니다. 
 
 ## <a name="steps-to-complete-the-transition"></a>전환을 완료 하는 단계
 

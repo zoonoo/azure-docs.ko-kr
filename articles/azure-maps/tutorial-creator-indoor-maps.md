@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688092"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469918"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Creator를 사용하여 실내 맵 만들기
 
@@ -120,7 +120,7 @@ ms.locfileid: "88688092"
 4. 작성기 탭에서 새 **GET** HTTP 메서드를 시작합니다. Azure Maps 기본 구독 키를 `status URL`에 추가합니다. 3 단계에서 복사한에서 **GET** 요청을 수행 `status URL` 합니다. 는 `status URL` 다음 URL과 유사 합니다.
 
     ```http
-    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
     변환 프로세스가 아직 완료되지 않은 경우 다음 JSON 응답과 같은 내용이 표시될 수 있습니다.
@@ -208,7 +208,7 @@ ms.locfileid: "88688092"
 3. `statusURL`에서 타일 세트에 대한 **GET** 요청을 수행합니다. 인증을 위해 Azure Maps 기본 구독 키를 추가합니다. 요청은 다음 URL과 같습니다.
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 4. **GET** HTTP 요청이 성공적으로 완료되면 만든 타일 세트에 대한 `tilesetId`가 응답 헤더에 포함됩니다. `tilesetId`를 복사합니다.

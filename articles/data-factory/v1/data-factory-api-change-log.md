@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
-ms.openlocfilehash: dbbbdebdcf1db7afe485166f5744f2291b757d50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7936fcd1e4a629a813c4266920f6c34a15cf9b4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74979005"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438945"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure 데이터 팩터리 - .NET API 변경 로그
 > [!NOTE]
@@ -75,10 +75,10 @@ ms.locfileid: "74979005"
 ### <a name="feature-additions"></a>기능 추가 사항
 * 파일을 ORC(Optimized Row Columnar) 형식으로 복사하기 위해 새 StorageFormat 형식 [OrcFormat](https://msdn.microsoft.com/library/mt723391.aspx) 형식이 추가되었습니다.
 * [AllowPolyBase](https://msdn.microsoft.com/library/mt723396.aspx) 및 PolyBaseSettings 속성을 SqlDWSink에 추가합니다.
-  * PolyBase를 사용하여 SQL Data Warehouse로 데이터를 복사할 수 있도록 합니다.
+  * PolyBase를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 데이터를 복사할 수 있도록 합니다.
 
 ## <a name="version-461"></a>버전 4.6.1
-### <a name="bug-fixes"></a>버그 픽스
+### <a name="bug-fixes"></a>버그 수정
 * 작업 창을 나열하기 위한 HTTP 요청을 해결합니다.
   * 요청 페이로드에서 리소스 그룹 이름 및 데이터 팩터리 이름을 제거합니다.
 
@@ -163,7 +163,7 @@ ms.locfileid: "74979005"
 | TableListResponse |[DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters |[DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) |
 
-* **List** 메서드는 이제 페이징된 결과를 반환합니다. 응답에 비어 있지 않은 **NextLink** 속성이 포함된 경우 클라이언트 애플리케이션은 모든 페이지가 반환될 때까지 다음 페이지를 계속 가져와야 합니다.  다음은 예제입니다.
+* **List** 메서드는 이제 페이징된 결과를 반환합니다. 응답에 비어 있지 않은 **NextLink** 속성이 포함된 경우 클라이언트 애플리케이션은 모든 페이지가 반환될 때까지 다음 페이지를 계속 가져와야 합니다.  예를 들면 다음과 같습니다.
 
     ```csharp
     PipelineListResponse response = client.Pipelines.List("ResourceGroupName", "DataFactoryName");
@@ -181,5 +181,5 @@ ms.locfileid: "74979005"
 * **List** 파이프라인 API는 전체 세부 정보 대신 파이프라인의 요약만 반환합니다. 예를 들어 파이프라인 요약의 작업에는 이름과 형식만 포함됩니다.
 
 ### <a name="feature-additions"></a>기능 추가 사항
-* [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 클래스는 두 가지 새로운 속성인 **SliceIdentifierColumnName** 및 **SqlWriterCleanupScript**를 지원하여 Azure SQL Data Warehouse에 대한 idempotent 복사를 지원합니다. 이러한 속성에 대한 자세한 내용은 [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조하세요.
-* 이제 복사 작업의 일부로 Azure SQL Database 및 Azure SQL Data Warehouse 소스에 대한 저장 프로시저 실행을 지원합니다. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx)와 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName**과 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대한 자세한 내용은 Azure.com에서 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조하세요.  
+* [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 클래스는 Azure Azure Synapse Analytics에 대 한 idempotent 복사를 지원 하기 위해 **SliceIdentifierColumnName** 및 **sql cleanupscript**라는 두 개의 새로운 속성을 지원 합니다. 이러한 속성에 대 한 자세한 내용은 [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조 하세요.
+* 이제 복사 작업의 일부로 Azure SQL Database 및 Azure Synapse 분석 소스에 대 한 저장 프로시저 실행을 지원 합니다. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx)와 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 클래스에는 **SqlReaderStoredProcedureName**과 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대 한 자세한 내용은 Azure.com의 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure Synapse 분석](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조 하세요.  

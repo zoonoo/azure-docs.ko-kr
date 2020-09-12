@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 8/11/2020
 ms.author: b-juche
-ms.openlocfilehash: f4cc253de0de9d099cfc4881f48182cf9b2a1616
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: dcdb3e8ce545227bc11cc60e3885c1a985ed34f4
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134584"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460000"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대 한 이중 프로토콜 (NFSv3 및 SMB) 볼륨 만들기
 
@@ -37,7 +37,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
 
 * [Active Directory 연결에 대 한 요구 사항을](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)충족 하는지 확인 합니다. 
 * DNS 서버에 역방향 조회 영역을 만든 다음 해당 역방향 조회 영역에 AD 호스트 컴퓨터의 포인터 (PTR) 레코드를 추가 합니다. 그렇지 않으면 이중 프로토콜 볼륨 만들기가 실패 합니다.
-* NFS 클라이언트가 최신 상태이 고 운영 체제에 대 한 최신 업데이트를 실행 중인지 확인 합니다.
+* NFS 클라이언트가 최신 상태 이며 운영 체제에 대 한 최신 업데이트를 실행 중인지 확인 합니다.
 
 ## <a name="create-a-dual-protocol-volume"></a>이중 프로토콜 볼륨 만들기
 
@@ -76,7 +76,7 @@ Azure NetApp Files에서는 NFS (NFSv3 및 NFSv 4.1), SMBv3 또는 이중 프로
     
         ![서브넷 만들기](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * 볼륨에 기존 스냅숏 정책을 적용 하려면 **고급 섹션 표시** 를 클릭 하 여 확장 하 고 풀 다운 메뉴에서 스냅숏 정책을 선택 합니다. 
+    * 볼륨에 기존 스냅숏 정책을 적용 하려면 **고급 섹션 표시** 를 클릭 하 여 확장 하 고, 스냅숏 경로를 숨길지 여부를 지정 하 고, 풀 다운 메뉴에서 스냅숏 정책을 선택 합니다. 
 
         스냅숏 정책을 만드는 방법에 대 한 자세한 내용은 [스냅숏 정책 관리](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)를 참조 하세요.
 

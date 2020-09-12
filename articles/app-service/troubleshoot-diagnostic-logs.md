@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 5eaf107861d20cea395209418c343d25461b3836
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962182"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469935"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -62,7 +62,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 | Level | 포함 된 범주 |
 |-|-|
-|**사용 안 함** | 없음 |
+|**Disabled** | 없음 |
 |**오류** | 오류, 위험 |
 |**경고** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
@@ -108,9 +108,9 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 ## <a name="add-log-messages-in-code"></a>코드에 로그 메시지 추가
 
-응용 프로그램 코드에서 일반적인 로깅 기능을 사용 하 여 응용 프로그램 로그에 로그 메시지를 보냅니다. 예를 들어:
+응용 프로그램 코드에서 일반적인 로깅 기능을 사용 하 여 응용 프로그램 로그에 로그 메시지를 보냅니다. 다음은 그 예입니다. 
 
-- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예를 들어:
+- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 다음은 그 예입니다. 
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -138,12 +138,12 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 예를 들어:
+오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 다음은 그 예입니다. 
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예를 들어:
+HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 다음은 그 예입니다. 
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -191,7 +191,7 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 | AppServiceHTTPLogs | 예 | 예 | 웹 서버 로그 |
 | Appservice환경 Platformlogs | 예 | 예 | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
 | AppServiceAuditLogs | 예 | 예 | FTP 및 Kudu를 통한 로그인 활동 |
-| AppServiceFileAuditLogs | 예 | TBD | FTP 및 Kudu를 통해 파일 변경 |
+| AppServiceFileAuditLogs | 예 | TBD | 사이트 콘텐츠에 대 한 파일 변경 내용 프리미엄 계층 이상 에서만 사용할 수 있습니다. |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | 애플리케이션 로그 전송 사용 |
 | AppServiceIPSecAuditLogs  | 예 | 예 | IP 규칙의 요청 |
 | AppServicePlatformLogs  | TBA | 예 | 컨테이너 로그 |

@@ -1,6 +1,6 @@
 ---
 title: 데이터 변환
-description: Hadoop, Machine Learning 또는 Azure Data Lake Analytics를 사용하여 Azure Data Factory에서 데이터를 변환 또는 처리하는 방법에 대해 알아봅니다.
+description: Hadoop, Machine Learning 또는 Azure Data Lake Analytics를 사용 하 여 Azure Data Factory 데이터를 변환 하거나 데이터를 처리 합니다.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: fdb10894ab9d1c6b805b8b43c90e54126d67b8dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19b4ee621a3918a49b524c5e4515bddd5962e0f4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606621"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442788"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 
@@ -78,7 +78,7 @@ Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machi
 이러한 Machine Learning 작업에 대한 자세한 내용은 [Machine Learning 작업 사용](transform-data-using-machine-learning.md)을 참조하세요. 
 
 ### <a name="stored-procedure-activity"></a>저장 프로시저 작업
-Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM의 Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database의 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [저장 프로시저 작업](transform-data-using-stored-procedure.md) 문서를 참조하세요.  
+Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용 하 여 엔터프라이즈 또는 Azure VM의 데이터 저장소 Azure SQL Database, Azure Synapse Analytics (이전의 SQL Data Warehouse), SQL Server 데이터베이스 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [저장 프로시저 작업](transform-data-using-stored-procedure.md) 문서를 참조하세요.  
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
 Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다. 자세한 내용은 [Data Analytics U-SQL 작업](transform-data-using-data-lake-analytics.md) 문서를 참조하세요. 

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 09/03/2020
 ms.author: juliako
-ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837312"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505342"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -29,6 +29,16 @@ ms.locfileid: "87837312"
 * 알려진 문제
 * 버그 수정
 * 사용되지 않는 기능
+
+## <a name="august-2020"></a>2020년 8월
+
+### <a name="mobile-design-for-the-video-indexer-website"></a>Video Indexer 웹 사이트용 모바일 디자인
+
+이제 Video Indexer 웹 사이트 환경에서 모바일 장치를 지원 합니다. 사용자 환경이 모바일 화면 크기에 맞게 조정 됩니다 (사용자 지정 Ui 제외). 
+
+### <a name="accessibility-improvements-and-bug-fixes"></a>내게 필요한 옵션 개선 사항 및 버그 수정 
+
+WCAG (웹 콘텐츠 접근성 지침)의 일환으로 Video Indexer 웹 사이트 환경은 Microsoft 접근성 표준의 일부로 등급 C에 맞춰 정렬 됩니다. 키보드 탐색, 프로그래밍 방식 액세스 및 화면 판독기와 관련 된 몇 가지 버그와 개선 사항이 해결 되었습니다. 
 
 ## <a name="july-2020"></a>2020년 7월
 
@@ -129,7 +139,7 @@ Video Indexer 지역 끝점은 모두 www로만 시작 되도록 통합 되었�
  
 ### <a name="new-video-indexer-github-repository"></a>새 Video Indexer GitHub 리포지토리
 
-이제 여러 프로젝트를 포함 하는 새로운 Video Indexer GitHub, 시작 가이드 및 코드 샘플을 사용할 수 있습니다.https://github.com/Azure-Samples/media-services-video-indexer
+이제 여러 프로젝트를 포함 하는 새로운 Video Indexer GitHub, 시작 가이드 및 코드 샘플을 사용할 수 있습니다. https://github.com/Azure-Samples/media-services-video-indexer
  
 ### <a name="swagger-update"></a>Swagger 업데이트
 

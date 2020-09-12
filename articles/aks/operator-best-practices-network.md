@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Services)의 가상 네트워크 리소스 및
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: fc839fd69e3b574c47aa7bb712583dfc0b9c711d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542707"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482728"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 네트워크 연결 및 보안에 대한 모범 사례
 
@@ -31,7 +31,7 @@ AKS(Azure Kubernetes Services)에서 클러스터를 만들고 관리할 때 노
 가상 네트워크는 AKS 노드 및 고객이 애플리케이션에 액세스할 수 있도록 하기 위해 기본 연결을 제공합니다. AKS 클러스터를 가상 네트워크에 배포하는 방법에는 다음 두 가지가 있습니다.
 
 * **Kubenet 네트워킹** - Azure는 클러스터가 배포될 때 가상 네트워크 리소스를 관리하고 [kubenet][kubenet] Kubernetes 플러그 인을 사용합니다.
-* **Azure CNI 네트워킹** - 기존 가상 네트워크에 배포되며 [Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그 인을 사용합니다. Pod는 다른 네트워크 서비스 또는 온-프레미스 리소스로 라우팅될 수 있는 개별 IP를 수신합니다.
+* **AZURE cni 네트워킹** -가상 네트워크에 배포 하 고 [Cni (Azure Container 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그 인을 사용 합니다. Pod는 다른 네트워크 서비스 또는 온-프레미스 리소스로 라우팅될 수 있는 개별 IP를 수신합니다.
 
 CNI(컨테이너 네트워킹 인터페이스)는 컨테이너 런타임이 네트워크 공급자에게 요청할 수 있도록 하는 공급업체 중립 프로토콜입니다. 사용자가 기존 Azure Virtual Network에 연결할 때 Azure CNI는 pod 및 노드에 IP 주소를 할당하고, IPAM(IP 주소 관리) 기능을 제공합니다. 각 노드 및 pod 리소스는 Azure Virtual Network에서 IP 주소를 받으며, 다른 리소스 또는 서비스와 통신하기 위해 추가 라우팅이 필요하지 않습니다.
 
@@ -64,14 +64,14 @@ Kubenet은 AKS 클러스터에서 가상 네트워크 및 서브넷을 별도로
 
 **모범 사례 지침** - HTTP 또는 HTTPS 트래픽을 애플리케이션으로 분산하려면 수신 리소스 및 컨트롤러를 사용합니다. 수신 컨트롤러는 일반 Azure Load Balancer를 능가하는 추가 기능을 제공하며 기본 Kubernetes 리소스로 관리할 수 있습니다.
 
-Azure Load Balancer는 AKS 클러스터의 애플리케이션에 고객 트래픽을 배포할 수 있지만 해당 트래픽에 대한 정보가 제한됩니다. 부하 분산 장치 리소스는 계층 4에서 작동하며, 프로토콜 또는 포트를 기준으로 트래픽을 분산합니다. HTTP 또는 HTTPS를 사용하는 대부분의 웹 애플리케이션은 계층 7에서 작동하는 Kuberenetes 수신 리소스 및 컨트롤러를 사용해야 합니다. 수신 쪽은 애플리케이션의 URL을 기준으로 트래픽을 분산하며 TLS/SSL 종료를 처리할 수 있습니다. 또한 이 기능은 사용자가 노출 및 매핑하는 IP 주소 수를 줄입니다. 부하 분산 장치를 사용할 경우 각 애플리케이션은 일반적으로 AKS 클러스터의 서비스에 공용 IP 주소가 할당 및 매핑되어야 합니다. 수신 리소스를 사용할 경우 단일 IP 주소로 여러 애플리케이션에 트래픽을 분산할 수 있습니다.
+Azure Load Balancer는 AKS 클러스터의 애플리케이션에 고객 트래픽을 배포할 수 있지만 해당 트래픽에 대한 정보가 제한됩니다. 부하 분산 장치 리소스는 계층 4에서 작동하며, 프로토콜 또는 포트를 기준으로 트래픽을 분산합니다. HTTP 또는 HTTPS를 사용 하는 대부분의 웹 응용 프로그램은 계층 7에서 작동 하는 Kubernetes 수신 리소스 및 컨트롤러를 사용 해야 합니다. 수신 쪽은 애플리케이션의 URL을 기준으로 트래픽을 분산하며 TLS/SSL 종료를 처리할 수 있습니다. 또한 이 기능은 사용자가 노출 및 매핑하는 IP 주소 수를 줄입니다. 부하 분산 장치를 사용할 경우 각 애플리케이션은 일반적으로 AKS 클러스터의 서비스에 공용 IP 주소가 할당 및 매핑되어야 합니다. 수신 리소스를 사용할 경우 단일 IP 주소로 여러 애플리케이션에 트래픽을 분산할 수 있습니다.
 
 ![AKS 클러스터의 수신 트래픽 흐름을 보여 주는 다이어그램](media/operator-best-practices-network/aks-ingress.png)
 
  수신 쪽에는 두 가지 구성 요소가 있습니다.
 
  * 바로 수신 *리소스*와
- * 수신 *컨트롤러*입니다.
+ * 수신 *컨트롤러*
 
 수신 리소스는 AKS 클러스터에서 실행되는 서비스로 트래픽을 라우팅하기 위한 호스트, 인증서 및 규칙을 정의하는 YAML 매니페스트 `kind: Ingress`입니다. 다음 예제의 YAML 매니페스트는 *myapp.com*에 대한 트래픽을 두 서비스 *blogservice* 또는 *storeservice* 중 하나로 분산합니다. 고객은 액세스하는 URL에 따라 특정 서비스로 이동됩니다.
 

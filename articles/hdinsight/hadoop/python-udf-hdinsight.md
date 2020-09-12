@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 2f02e579f7679180cecfd8a48736b3af307ba371
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874761"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462244"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>HDInsight의 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수) 사용
 
@@ -25,7 +25,7 @@ Python2.7은 기본적으로 HDInsight 3.0 이상에 설치됩니다. 스트림 
 
 HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습니다. Jython은 Java Virtual Machine에서 직접 실행 되며 스트리밍을 사용 하지 않습니다. Jython는 Pig와 함께 Python을 사용할 때 권장되는 Python 인터프리터입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * **SSH 클라이언트** 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
@@ -38,7 +38,7 @@ HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습
 
 ## <a name="storage-configuration"></a>스토리지 구성
 
-사용 된 저장소 계정이 유형 또는 인 경우 아무 작업도 필요 하지 `Storage (general purpose v1)` 않습니다 `StorageV2 (general purpose v2)` .  이 문서의 프로세스는 최소한의 출력을 생성 합니다 `/tezstaging` .  기본 hadoop 구성은 `/tezstaging` `fs.azure.page.blob.dir` for service의 구성 변수에 포함 됩니다 `core-site.xml` `HDFS` .  이 구성을 수행 하면 디렉터리가 저장소 계정 종류에 대해 지원 되지 않는 페이지 blob로 출력 됩니다 `BlobStorage` .  `BlobStorage`이 문서에를 사용 하려면 `/tezstaging` 구성 변수에서을 제거 `fs.azure.page.blob.dir` 합니다.  [AMBARI UI](../hdinsight-hadoop-manage-ambari.md)에서 구성에 액세스할 수 있습니다.  그렇지 않으면 다음과 같은 오류 메시지가 표시 됩니다.`Page blob is not supported for this account type.`
+사용 된 저장소 계정이 유형 또는 인 경우 아무 작업도 필요 하지 `Storage (general purpose v1)` 않습니다 `StorageV2 (general purpose v2)` .  이 문서의 프로세스는 최소한의 출력을 생성 합니다 `/tezstaging` .  기본 hadoop 구성은 `/tezstaging` `fs.azure.page.blob.dir` for service의 구성 변수에 포함 됩니다 `core-site.xml` `HDFS` .  이 구성을 수행 하면 디렉터리가 저장소 계정 종류에 대해 지원 되지 않는 페이지 blob로 출력 됩니다 `BlobStorage` .  `BlobStorage`이 문서에를 사용 하려면 `/tezstaging` 구성 변수에서을 제거 `fs.azure.page.blob.dir` 합니다.  [AMBARI UI](../hdinsight-hadoop-manage-ambari.md)에서 구성에 액세스할 수 있습니다.  그렇지 않으면 다음과 같은 오류 메시지가 표시 됩니다. `Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > 이 문서의 단계에서는 다음과 같이 가정합니다.  
@@ -300,8 +300,8 @@ Get-AzHDInsightJobOutput `
 
 Python 인터프리터를 지정하려면 Python 스크립트를 참조할 때 `register`를 사용합니다. 다음 예제에서는 Pig as `myfuncs`를 사용하여 스크립트를 등록합니다.
 
-* **Jython을 사용 하려면**:`register '/path/to/pigudf.py' using jython as myfuncs;`
-* **C Python을 사용 하려면**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Jython을 사용 하려면**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **C Python을 사용 하려면**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > Jython을 사용 하는 경우 pig_jython 파일의 경로는 로컬 경로 또는 WASBS://경로일 수 있습니다. 그러나 C Python을 사용할 경우에는 Pig 작업을 제출하는 데 사용하는 노드의 로컬 파일 시스템에 있는 파일을 참조해야 합니다.
@@ -594,7 +594,7 @@ Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An e
 
 ## <a name="next-steps"></a><a name="next"></a>다음 단계
 
-기본적으로 제공되지 않는 Python 모듈을 로드해야 하는 경우 [Azure HDInsight에 모듈을 배포하는 방법](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx)(영문)을 참조하세요.
+기본적으로 제공되지 않는 Python 모듈을 로드해야 하는 경우 [Azure HDInsight에 모듈을 배포하는 방법](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight)(영문)을 참조하세요.
 
 Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법은 다음 문서를 참조하세요.
 

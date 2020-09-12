@@ -1,5 +1,5 @@
 ---
-title: 연속 통합 및 배포
+title: 지속적인 통합 및 배포
 description: Azure Pipelines를 사용한 연속 통합 및 배포에 대 한 기본 제공 지원을 통해 데이터 웨어하우징에 대 한 엔터프라이즈급 데이터베이스 DevOps 환경
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 725e8165f8a7bdb654f61d7257867a2d0bf17110
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 131811ffd268f001a047a7031170f0723770d24c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213570"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462329"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>데이터 웨어하우징에 대 한 지속적인 통합 및 배포
 
@@ -44,13 +44,13 @@ ms.locfileid: "85213570"
 
 이 시점에서 원본 제어 리포지토리 마스터 분기에 대한 체크 인에서 데이터베이스 프로젝트의 성공적인 Visual Studio 빌드를 자동으로 트리거하는 간단한 환경이 있습니다. 로컬 데이터베이스 프로젝트를 변경하고 마스터 분기에서 변경 내용을 체크 인하여 자동화가 엔드투엔드 방식으로 작동하는지 확인합니다.
 
-## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Azure SQL Data Warehouse(또는 Database) 배포 작업을 사용한 지속적인 배포
+## <a name="continuous-deployment-with-the-azure-synapse-analytics-or-database-deployment-task"></a>Azure Synapse Analytics (또는 데이터베이스) 배포 작업을 사용한 연속 배포
 
-1. [Azure SQL Database 배포 작업](/azure/devops/pipelines/targets/azure-sqldb)을 사용하여 새 작업을 추가하고, 대상 데이터 웨어하우스에 연결하는 데 필요한 필드를 채웁니다. 이 작업이 실행되면 이전 빌드 프로세스에서 생성된 DACPAC가 대상 데이터 웨어하우스에 배포됩니다. [Azure SQL Data Warehouse 배포 작업](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment)을 사용할 수도 있습니다.
+1. [Azure SQL Database 배포 작업](/azure/devops/pipelines/targets/azure-sqldb)을 사용하여 새 작업을 추가하고, 대상 데이터 웨어하우스에 연결하는 데 필요한 필드를 채웁니다. 이 작업이 실행되면 이전 빌드 프로세스에서 생성된 DACPAC가 대상 데이터 웨어하우스에 배포됩니다. [Azure Synapse Analytics 배포 작업](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment)을 사용할 수도 있습니다.
 
       ![배포 작업](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "배포 작업")
 
-2. 자체 호스팅 에이전트를 사용하는 경우 SQL Data Warehouse에 올바른 SqlPackage.exe를 사용하도록 환경 변수를 설정해야 합니다. 경로는 다음과 같습니다.
+2. 자체 호스팅 에이전트를 사용 하는 경우 Azure Synapse Analytics에 올바른 SqlPackage.exe를 사용 하도록 환경 변수를 설정 해야 합니다. 경로는 다음과 같습니다.
 
       ![환경 변수](./media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "환경 변수")
 

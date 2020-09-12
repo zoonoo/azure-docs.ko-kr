@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 7d008dc0f7ed90397ac07e12320d861b107f0f46
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e6763633ce27c537f1384e8e51020d44132c0377
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120935"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469850"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>텍스트 분석 API의 모델 버전 관리
 
-텍스트 분석 API 버전 3을 사용 하 여 데이터에 사용 되는 모델 버전을 선택할 수 있습니다. 선택적 `model-version` 매개 변수를 사용 하 여 API 요청에서 모델의 버전을 선택 합니다. 예: `<resource-url>/text/analytics/v3.0/sentiment?model-version=2020-04-01`. 이 매개 변수를 지정 하지 않으면 API는 기본적으로 안정적인 최신 버전으로 지정 됩니다. 
+텍스트 분석 API 버전 3을 사용 하 여 데이터에 사용 되는 모델 버전을 선택할 수 있습니다. 선택적 `model-version` 매개 변수를 사용 하 여 API 요청에서 모델의 버전을 선택 합니다. 예: `<resource-url>/text/analytics/v3.0/sentiment?model-version=2020-04-01` 이 매개 변수를 지정 하지 않으면 API는 기본적으로 안정적인 최신 버전으로 지정 됩니다. 
 
 ## <a name="available-versions"></a>사용 가능한 버전
 
@@ -44,13 +44,10 @@ ms.locfileid: "88120935"
 
 | 엔드포인트                        | 컨테이너 이미지 태그                     | 모델 버전 |
 |---------------------------------|-----------------------------------------|---------------|
-| `/domains/health`               | `1.1.013150001-amd64-preview`또는 최신 | `2020-07-24`  |
+| `/entities/health`               | `1.1.013150001-amd64-preview` 또는 최신 | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |
-| `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-07-24`  |
-
-
 
 
 ## <a name="next-steps"></a>다음 단계

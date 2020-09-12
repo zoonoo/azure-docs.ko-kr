@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 7c1de2b6ef59efdaaed64fcf687fed0c834683c0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 7134fc5d591fffdfb9aea13767e597dddc92b038
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037599"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434948"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory에 대한 관리 ID
 
@@ -32,7 +32,7 @@ ms.locfileid: "86037599"
 Data Factory에 대 한 관리 id는 다음과 같은 기능을 제공 합니다.
 
 - [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다 .이 경우 데이터 팩터리 관리 id는 Azure Key Vault 인증에 사용 됩니다.
-- [Azure Blob Storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md) 및 [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)를 포함하는 커넥터.
+- [Azure Blob storage](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md)및 [azure Synapse Analytics (이전의 SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)를 포함 하는 커넥터.
 - [웹 활동](control-flow-web-activity.md).
 
 ## <a name="generate-managed-identity"></a>관리 id 생성

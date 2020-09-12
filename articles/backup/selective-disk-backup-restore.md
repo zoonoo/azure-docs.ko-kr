@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 컴퓨터 백업 솔루션을 사�
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 12b5b4cd35d70d8ebbd6b269e82c46984652bd07
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: fa5ab60481b431971abb1e3fcb5c85492eb5b22a
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961995"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506698"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Azure 가상 컴퓨터에 대 한 선택적 디스크 백업 및 복원
 
@@ -268,6 +268,10 @@ Azure Portal를 통해 VM에 대 한 선택적 디스크 백업 환경을 구성
 Azure Portal를 사용 하 여 백업을 사용 하도록 설정 하는 경우 **OS 디스크만 백업** 옵션을 선택할 수 있습니다. 따라서 OS 디스크를 사용 하 여 Azure VM의 백업을 구성 하 고 연결 된 모든 데이터 디스크를 제외할 수 있습니다.
 
 ![OS 디스크만 백업 구성](./media/selective-disk-backup-restore/configure-backup-operating-system-disk.png)
+
+## <a name="using-azure-rest-api"></a>Azure REST API 사용
+
+몇 개의 선택 디스크를 사용 하 여 Azure VM 백업을 구성 하거나, [여기](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)에 설명 된 대로 몇 개의 디스크를 포함/제외 하도록 기존 VM의 보호를 수정할 수 있습니다.
 
 ## <a name="selective-disk-restore"></a>선택적 디스크 복원
 

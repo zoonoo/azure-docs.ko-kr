@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 788eebaf28a768acbdb5b1eb778f196fe05dc3e3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012946"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651229"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)란 무엇인가요? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -114,7 +114,7 @@ Azure Machine Learning 디자이너를 통해 대화형 캔버스에서 [데이�
 
 게시된 파이프라인은 각 모듈의 파이프라인 초안에서 정의한 컴퓨팅 리소스에서 실행됩니다.
 
-디자이너는 SDK와 동일한 [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) 개체를 만듭니다.
+디자이너는 SDK와 동일한 [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) 개체를 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: 0c0e286ac9f94768541bb40b9ccca01e0469e0c8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: f3aeccd30a9c89c2a43dfb85d4a57274037ec05f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177247"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569257"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -28,6 +28,104 @@ Azure 보안은 현재 개발 중이며 지속적으로 향상된 기능을 수�
 - 사용되지 않는 기능
 
 이 페이지는 정기적으로 업데이트되므로 자주 다시 방문해 주세요. 6개월 이상된 항목을 찾으려는 경우 [Azure Security Center의 새로운 기능 아카이브](release-notes-archive.md)에서 찾을 수 있습니다.
+
+
+## <a name="september-2020"></a>2020년 9월
+
+9 월의 업데이트는 다음과 같습니다.
+
+- [이제 취약점 평가 결과를 연속 내보내기에서 사용할 수 있습니다.](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
+- [새 리소스를 만들 때 권장 사항을 적용 하 여 보안 구성을 방지 합니다.](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
+- [향상 된 네트워크 보안 그룹 권장 사항](#network-security-group-recommendations-improved)
+- [사용 되지 않는 미리 보기 AKS 권장 사항 "Pod 보안 정책은 Kubernetes Services에서 정의 해야 합니다."](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
+- [Azure Security Center 개선 된 전자 메일 알림](#email-notifications-from-azure-security-center-improved)
+- [보안 점수는 미리 보기 권장 사항을 포함 하지 않습니다.](#secure-score-doesnt-include-preview-recommendations)
+- [이제 권장 사항에 심각도 표시기 및 새로 고침 간격이 포함 됩니다.](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
+
+### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>이제 취약점 평가 결과를 연속 내보내기에서 사용할 수 있습니다.
+
+연속 내보내기를 사용 하 여 Azure Event Hubs, Log Analytics 작업 영역 또는 Azure Monitor에 대 한 경고 및 권장 사항을 실시간으로 스트리밍합니다. 여기에서이 데이터를 SIEMs (예: Azure 센티널, Power BI, Azure 데이터 탐색기 등)와 통합할 수 있습니다.
+
+Security Center의 통합 취약성 평가 도구는 ' 부모 ' 권장 사항 내에서 "가상 머신의 취약성을 수정 해야 합니다."와 같은 조치 가능한 권장 사항으로 리소스에 대 한 결과를 반환 합니다. 
+
+이제 권장 사항을 선택 하 고 **보안 검색 포함** 옵션을 사용 하도록 설정 하는 경우 연속 내보내기를 통해 보안 결과를 내보낼 수 있습니다.
+
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="보안 결과 포함 연속 내보내기 구성 전환" :::
+
+관련 페이지:
+
+- [Azure virtual machines에 대 한 Security Center의 통합 취약성 평가 솔루션](deploy-vulnerability-assessment-vm.md)
+- [Azure Container Registry 이미지에 대 한 Security Center의 통합 취약성 평가 솔루션](monitor-container-security.md)
+- [연속 내보내기](continuous-export.md)
+
+### <a name="prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources"></a>새 리소스를 만들 때 권장 사항을 적용 하 여 보안 구성을 방지 합니다.
+
+보안 오류는 보안 문제의 주요 원인입니다. 이제 Security Center는 특정 권장 사항에 대 한 새로운 리소스의 잘못 된 구성을 *방지* 하는 기능을 제공 합니다. 
+
+이 기능을 통해 워크 로드를 안전 하 게 유지 하 고 보안 점수를 안정화 시킬 수 있습니다.
+
+특정 권장 사항에 따라 보안 구성을 강제 적용 하는 것은 다음 두 가지 모드로 제공 됩니다.
+
+- Azure Policy **거부** 효과를 사용 하 여 비정상 리소스 생성을 중지할 수 있습니다.
+
+- **적용** 옵션을 사용 하면 Azure 정책의 **Deployifnotexist** 효과를 활용 하 고 만들 때 비호환 리소스를 자동으로 수정할 수 있습니다.
+ 
+이는 선택한 보안 권장 사항에 대해 사용할 수 있으며 리소스 세부 정보 페이지의 맨 위에서 찾을 수 있습니다.
+
+[권장 사항 적용/거부 권장 사항](prevent-misconfigurations.md)에 대 한 자세한 정보.
+
+###  <a name="network-security-group-recommendations-improved"></a>향상 된 네트워크 보안 그룹 권장 사항
+
+거짓 긍정의 일부 인스턴스를 줄이기 위해 네트워크 보안 그룹과 관련 된 다음과 같은 보안 권장 사항이 개선 되었습니다.
+
+- VM에 연결된 NSG에서 모든 네트워크 포트를 제한해야 함
+- 가상 머신에서 관리 포트를 닫아야 합니다.
+- 인터넷 연결 가상 머신은 네트워크 보안 그룹과 함께 보호되어야 합니다.
+- 서브넷을 네트워크 보안 그룹과 연결해야 합니다.
+
+
+### <a name="deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services"></a>사용 되지 않는 미리 보기 AKS 권장 사항 "Pod 보안 정책은 Kubernetes Services에서 정의 해야 합니다."
+
+Preview 권장 사항 "Pod Security 정책은 Kubernetes Services에서 정의 해야 합니다."는 [Azure Kubernetes 서비스](https://docs.microsoft.com/azure/aks/use-pod-security-policies) 설명서에 설명 된 대로 사용 되지 않습니다.
+
+Pod 보안 정책 (미리 보기) 기능은 사용 중단에 대해 설정 되며, 2020 년 10 월 15 일 이후에는 AKS에 대 한 Azure Policy를 위해 더 이상 사용할 수 없습니다.
+
+Pod 보안 정책 (미리 보기)이 더 이상 사용 되지 않는 경우에는 더 이상 사용 되지 않는 기능을 사용 하 여 기존 클러스터에서이 기능을 사용 하지 않도록 설정 해야 합니다.
+
+
+### <a name="email-notifications-from-azure-security-center-improved"></a>Azure Security Center 개선 된 전자 메일 알림
+
+보안 경고와 관련 된 전자 메일의 다음 영역이 개선 되었습니다. 
+
+- 모든 심각도 수준에 대 한 경고에 대 한 전자 메일 알림을 보내는 기능이 추가 됨
+- 구독에서 다른 RBAC 역할을 사용 하 여 사용자에 게 알리는 기능이 추가 됨
+- 구독 소유자에 게는 기본적으로 심각도가 높은 경고 (진짜 위반 가능성이 높음)에 대해 사전에 알려 드립니다.
+- 전자 메일 알림 구성 페이지에서 전화 번호 필드를 제거 했습니다.
+
+자세한 내용은 [보안 경고에 대 한 전자 메일 알림 설정](security-center-provide-security-contact-details.md)을 확인 하세요.
+
+
+### <a name="secure-score-doesnt-include-preview-recommendations"></a>보안 점수는 미리 보기 권장 사항을 포함 하지 않습니다. 
+
+Security Center는 리소스, 구독 및 조직의 보안 이슈를 지속적으로 평가합니다. 그런 다음, 현재 보안 상황을 한눈에 파악할 수 있도록 모든 결과를 단일 점수에 집계합니다. 즉, 점수가 높을수록 식별된 위험 수준은 낮습니다.
+
+새로운 위협이 발견 되 면 새로운 권장 사항을 통해 새로운 보안 조언이 Security Center 제공 됩니다. 안전 점수가 변경 되지 않도록 하 고 점수에 영향을 주기 전에 새로운 권장 사항을 탐색할 수 있는 유예 기간을 제공 하기 위해 **미리 보기** 로 플래그가 지정 된 권장 사항이 더 이상 보안 점수 계산에 포함 되지 않습니다. 가능 하면 항상 재구성 해야 하므로 미리 보기 기간이 종료 되 면 점수를 매길 수 있습니다.
+
+또한 **미리 보기** 권장 사항은 리소스를 "비정상"으로 렌더링 하지 않습니다.
+
+미리 보기 권장 사항의 예는 다음과 같습니다.
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그를 사용 하는 권장 사항":::
+
+[보안 점수에 대해 자세히 알아보세요](secure-score-security-controls.md).
+
+
+### <a name="recommendations-now-include-a-severity-indicator-and-the-freshness-interval"></a>이제 권장 사항에 심각도 표시기 및 새로 고침 간격이 포함 됩니다.
+
+이제 권장 사항에 대 한 세부 정보 페이지에는 새로 고침 간격 표시기 (관련 된 경우)와 권장 사항의 심각도가 명확 하 게 표시 됩니다.
+
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="최신 및 심각도를 보여주는 권장 사항 페이지":::
+
 
 
 ## <a name="august-2020"></a>2020년 8월
@@ -489,7 +587,7 @@ Azure 정책에서 사용자 지정 이니셔티브를 만들고, 여기에 정�
 
 이제 사용자 지정 권장 구성 메타데이터를 편집하는 옵션도 추가했습니다. 메타데이터 옵션에는 심각도, 수정 단계, 위협 정보 등이 포함됩니다.  
 
-[세부 정보를 사용하여 사용자 지정 권장 사항 향상](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information)에 대해 자세히 알아보세요.
+[세부 정보를 사용하여 사용자 지정 권장 사항 향상](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information)에 대해 자세히 알아보세요.
 
 
 
@@ -550,79 +648,3 @@ ID 및 액세스 권장 사항의 예는 다음과 같습니다.
 [ID 및 액세스 권장 사항](recommendations-reference.md#recs-identity)에 대해 자세히 알아보세요.
 
 [ID 및 액세스 모니터링](security-center-identity-access.md)에 대해 자세히 알아보세요.
-
-
-## <a name="march-2020"></a>2020년 3월
-
-3 월의 업데이트는 다음과 같습니다.
-- [이제 일반 공급되는 워크플로 자동화](#workflow-automation-is-now-generally-available)
-- [Windows Admin Center와 Azure Security Center 통합](#integration-of-azure-security-center-with-windows-admin-center)
-- [Azure Kubernetes Service에 대한 보호](#protection-for-azure-kubernetes-service)
-- [Just-in-Time 환경 개선](#improved-just-in-time-experience)
-- [사용되지 않는 웹 애플리케이션에 대한 두 가지 보안 권장 사항](#two-security-recommendations-for-web-applications-deprecated)
-
-
-### <a name="workflow-automation-is-now-generally-available"></a>이제 일반 공급되는 워크플로 자동화
-
-Azure Security Center의 워크플로 자동화 기능이 이제 일반 공급됩니다. 이를 사용하여 보안 경고 및 권장 사항에 대한 Logic Apps를 자동으로 트리거합니다. 또한 빠른 수정 옵션을 사용할 수 있는 경고 및 모든 권장 사항에 대해 수동 트리거를 사용할 수 있습니다.
-
-모든 보안 프로그램에는 인시던트 응답을 위한 여러 워크플로가 포함되어 있습니다. 이러한 프로세스에는 관련 이해 관계자에게 알리고, 변경 관리 프로세스를 시작하고, 특정 수정 단계를 적용하는 것이 포함될 수 있습니다. 보안 전문가는 가능한 한 해당 절차의 여러 단계를 자동화할 것을 권장합니다. 자동화는 오버헤드를 줄이고 프로세스 단계가 미리 정의된 요구 사항에 따라 빠르고 일관되게 수행되도록 하여 보안을 향상시킬 수 있습니다.
-
-워크플로를 실행하기 위한 자동 및 수동 Security Center 기능에 대한 자세한 내용은 [워크플로 자동화](workflow-automation.md)를 참조하세요.
-
-[Logic Apps 만들기](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)에 대해 자세히 알아보세요.
-
-
-### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Windows Admin Center와 Azure Security Center 통합
-
-이제 Windows Admin Center에서 Azure Security Center로 온-프레미스 Windows 서버를 바로 이동할 수 있습니다. 그러면 Security Center는 온-프레미스 서버, 가상 머신 및 추가 PaaS 워크로드를 포함하여 모든 Windows Admin Center 리소스에 대한 보안 정보를 볼 수 있는 단일 창이 됩니다.
-
-Windows Admin Center에서 Azure Security Center로 서버를 이동한 후 다음을 수행할 수 있습니다.
-
-- Windows Admin Center의 Security Center 확장에서 보안 경고 및 권장 사항을 확인합니다.
-- 보안 상태를 확인하고 Azure Portal 또는 API를 통해 Security Center에서 Windows Admin Center 관리 서버에 대한 추가 세부 정보를 검색합니다.
-
-[Windows Admin Center와 Azure Security Center를 통합하는 방법](windows-admin-center-integration.md)에 대해 자세히 알아보세요.
-
-
-### <a name="protection-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대한 보호
-
-Azure Security Center는 AKS(Azure Kubernetes Service)를 보호하기 위해 컨테이너 보안 기능을 확장하고 있습니다.
-
-널리 사용되는 오픈 소스 플랫폼 Kubernetes는 이제 컨테이너 오케스트레이션에 대한 업계 표준으로 널리 채택되고 있습니다. 이러한 광범위한 구현에도 불구하고, Kubernetes 환경을 보호하는 방법에 대한 이해가 부족합니다. 컨테이너화된 애플리케이션의 공격 노출 영역을 방어하려면 인프라가 안전하게 구성되고 잠재적 위협에 대해 지속적으로 모니터링되도록 하는 전문 지식이 필요합니다.
-
-Security Center 방어에는 다음이 포함됩니다.
-
-- **검색 및 가시성** - Security Center에 등록된 구독 내에서 관리되는 AKS 인스턴스를 지속적으로 검색합니다.
-- **보안 권장 사항** - AKS에 대한 보안 모범 사례를 준수하는 데 도움이 되는 실행 가능한 권장 사항입니다. 이러한 권장 사항은 조직의 보안 상태의 일부로 표시되도록 보안 점수에 포함됩니다. AKS 관련 권장 사항의 예는 "역할 기반 액세스 제어를 사용하여 Kubernetes 서비스 클러스터에 대한 액세스를 제한해야 합니다"를 참조하세요.
-- **위협 방지** - AKS 배포에 대한 지속적인 분석을 통해 Security Center는 호스트 및 AKS 클러스터 수준에서 탐지된 위협 및 악의적인 활동을 경고합니다.
-
-[Security Center와 Azure Kubernetes Services 통합](azure-kubernetes-service-integration.md)에 대해 자세히 알아보세요.
-
-[Security Center의 컨테이너 보안 기능](container-security.md)에 대해 자세히 알아보세요.
-
-
-### <a name="improved-just-in-time-experience"></a>Just-in-Time 환경 개선
-
-관리 포트를 보호하는 Azure Security Center의 Just-in-Time 도구의 기능, 작업 및 UI는 다음과 같이 향상되었습니다. 
-
-- **양쪽 맞춤 필드** - Azure Portal의 Just-in-Time 페이지를 통해 VM(가상 머신)에 대한 액세스를 요청할 때 새 선택적 필드를 사용하여 요청에 대한 근거를 입력할 수 있습니다. 이 필드에 입력한 정보는 활동 로그에서 추적할 수 있습니다. 
-- **중복된 JIT(Just-in-Time) 규칙 자동 정리** - JIT 정책을 업데이트할 때마다 정리 도구가 자동으로 실행되어 전체 규칙 집합의 유효성을 검사합니다. 이 도구는 정책의 규칙과 NSG의 규칙 간 불일치를 검색합니다. 정리 도구에서 불일치를 발견하면 원인을 확인하고 안전한 경우 더 이상 필요하지 않은 기본 제공 규칙을 제거합니다. 클리너는 만든 규칙을 삭제하지 않습니다. 
-
-[JIT 액세스 기능](security-center-just-in-time.md)에 대해 자세히 알아보세요.
-
-
-### <a name="two-security-recommendations-for-web-applications-deprecated"></a>사용되지 않는 웹 애플리케이션에 대한 두 가지 보안 권장 사항
-
-사용되지 않는 웹 애플리케이션에 대한 두 가지 보안 권장 사항은 다음과 같습니다. 
-
-- IaaS NSG의 웹 애플리케이션에 대한 규칙을 강화해야 합니다.
-    (관련 정책: IaaS의 웹 애플리케이션에 대한 NSG 규칙을 강화해야 합니다.)
-
-- App Services에 대한 액세스를 제한해야 합니다.
-    (관련 정책: App Services에 대한 액세스를 제한해야 합니다[미리 보기].)
-
-이러한 권장 사항은 Security Center 권장 사항 목록에 더 이상 표시되지 않습니다. 관련 정책은 "Security Center 기본값"이라는 이니셔티브에 더 이상 포함되지 않습니다.
-
-[보안 권장 사항](recommendations-reference.md)에 대해 자세히 알아보세요.
-

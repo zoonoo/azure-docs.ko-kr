@@ -9,12 +9,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a62d12aa92e41d4a91f963d962616af11d917195
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 2232aa46b0586ca62e80c8b9002271a67e4021c1
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604456"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651119"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
@@ -89,7 +89,7 @@ Azure Machine Learning은 파이프라인 단계 간의 모든 종속성을 자�
 
 ## <a name="building-pipelines-with-the-python-sdk"></a>Python SDK를 사용 하 여 파이프라인 빌드
 
-[Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)에서 파이프라인은 모듈에 정의 된 python 개체입니다 `azureml.pipeline.core` . [파이프라인](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) 개체는 하나 이상의 [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) 개체의 순서가 지정 된 시퀀스를 포함 합니다. `PipelineStep`클래스가 추상 클래스이 고 실제 단계는 [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py), [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py)또는 [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py)와 같은 서브 클래스입니다. [Modulestep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py) 클래스는 파이프라인 간에 공유할 수 있는 재사용 가능한 단계 시퀀스를 포함 합니다. 는 `Pipeline` 의 일부로 실행 됩니다 `Experiment` .
+[Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)에서 파이프라인은 모듈에 정의 된 python 개체입니다 `azureml.pipeline.core` . [파이프라인](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py&preserve-view=true) 개체는 하나 이상의 [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py&preserve-view=true) 개체의 순서가 지정 된 시퀀스를 포함 합니다. `PipelineStep`클래스가 추상 클래스이 고 실제 단계는 [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py&preserve-view=true), [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py&preserve-view=true)또는 [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true)와 같은 서브 클래스입니다. [Modulestep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py&preserve-view=true) 클래스는 파이프라인 간에 공유할 수 있는 재사용 가능한 단계 시퀀스를 포함 합니다. 는 `Pipeline` 의 일부로 실행 됩니다 `Experiment` .
 
 Azure ML 파이프라인은 Azure Machine Learning 작업 영역에 연결 되 고 파이프라인 단계는 해당 작업 영역 내에서 사용할 수 있는 계산 대상과 연결 됩니다. 자세한 내용은 [Azure Portal에서 Azure Machine Learning 작업 영역 만들기 및 관리](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) 또는 [Azure Machine Learning에서 계산 대상 이란?](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)를 참조 하세요.
 
@@ -125,7 +125,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-코드 조각은 일반적인 Azure Machine Learning 개체, a, a, a `Workspace` `Datastore` [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py)및으로 시작 `Experiment` 합니다. 그런 다음 코드는 및을 보유할 개체를 `input_data` 만듭니다 `output_data` . 배열은 `steps` `PythonScriptStep` 데이터 개체를 사용 하 고에서 실행 되는 단일 요소를 보유 합니다 `compute_target` . 그런 다음 코드는 `Pipeline` 작업 영역 및 단계 배열을 전달 하 여 개체 자체를 인스턴스화합니다. 에 대 한 호출은 `experiment.submit(pipeline)` AZURE ML 파이프라인 실행을 시작 합니다. 에 대 한 호출은 `wait_for_completion()` 파이프라인이 완료 될 때까지 차단 됩니다. 
+코드 조각은 일반적인 Azure Machine Learning 개체, a, a, a `Workspace` `Datastore` [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py&preserve-view=true)및으로 시작 `Experiment` 합니다. 그런 다음 코드는 및을 보유할 개체를 `input_data` 만듭니다 `output_data` . 배열은 `steps` `PythonScriptStep` 데이터 개체를 사용 하 고에서 실행 되는 단일 요소를 보유 합니다 `compute_target` . 그런 다음 코드는 `Pipeline` 작업 영역 및 단계 배열을 전달 하 여 개체 자체를 인스턴스화합니다. 에 대 한 호출은 `experiment.submit(pipeline)` AZURE ML 파이프라인 실행을 시작 합니다. 에 대 한 호출은 `wait_for_completion()` 파이프라인이 완료 될 때까지 차단 됩니다. 
 
 파이프라인을 데이터에 연결 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning의 데이터 액세스](concept-data.md) 및 [ML 파이프라인 단계 간 데이터 이동 (Python)](how-to-move-data-in-out-of-pipelines.md)문서를 참조 하세요. 
 
@@ -159,6 +159,6 @@ Azure ML 파이프라인은 초기 개발 단계에서 가치를 제공 하기 �
 
 + [대량 데이터에서 일괄 처리 예측을 실행](tutorial-pipeline-batch-scoring-classification.md )하는 방법에 대해 알아봅니다.
 
-+ [파이프라인 코어](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) 및 [파이프라인 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)는 SDK 참조 문서를 참조 하세요.
++ [파이프라인 코어](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) 및 [파이프라인 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true)는 SDK 참조 문서를 참조 하세요.
 
 + 예제 Jupyter 노트북 보여주는 [Azure Machine Learning 파이프라인](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)을 사용해 보세요. 노트북을 실행 하 여 [이 서비스를 탐색](samples-notebooks.md)하는 방법을 알아봅니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39736f0a369064e1a825ba3f6975a01c5e9ecc40
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 27aabac75516eed2c68b4f14c6593411d0141ef1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147516"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437244"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
@@ -108,7 +108,7 @@ CAE 지원 클라이언트를 사용 하지 않는 경우 [구성 가능한 토�
 1. 이 경우 리소스 공급자는 액세스를 거부 하 고 401 + 클레임 챌린지를 다시 클라이언트에 보냅니다.
 1. CAE 지원 클라이언트는 401 + 클레임 챌린지를 이해 합니다. 캐시를 우회 하 고 1 단계로 돌아가서 클레임 챌린지와 함께 새로 고침 토큰을 Azure AD로 다시 보냅니다. 그러면 Azure AD는 모든 조건을 다시 평가 하 고이 경우 사용자에 게 다시 인증 하 라는 메시지를 표시 합니다.
 
-### <a name="user-condition-change-flow-public-preview"></a>사용자 조건 변경 흐름 (공개 미리 보기):
+### <a name="user-condition-change-flow-preview"></a>사용자 조건 변경 흐름 (미리 보기):
 
 다음 예제에서는 조건부 액세스 관리자가 특정 IP 범위 에서만 액세스할 수 있도록 위치 기반 조건부 액세스 정책을 구성 했습니다.
 
@@ -135,18 +135,22 @@ CAE 지원 클라이언트를 사용 하지 않는 경우 [구성 가능한 토�
 
 ## <a name="troubleshooting"></a>문제 해결
 
+### <a name="supported-location-policies"></a>지원 되는 위치 정책
+
+CAE의 경우 명명 된 IP 기반 명명 된 위치에 대 한 정보를 제공 합니다. [MFA 신뢰할 수 있는 ip](../authentication/howto-mfa-mfasettings.md#trusted-ips) 또는 국가 기반 위치와 같은 다른 위치 설정에 대 한 정보는 없습니다. 사용자가 mfa 신뢰할 수 있는 IP 또는 MFA 신뢰할 수 있는 IP 또는 국가 위치를 포함 하는 신뢰할 수 있는 위치에서 가져온 경우에는 사용자가 다른 위치로 이동한 후 CAE 적용 되지 않습니다. 이러한 경우에는 즉시 IP 적용 확인 없이 1 시간 CAE 토큰을 발급 합니다.
+
+> [!IMPORTANT]
+> 연속 액세스 평가를 위한 위치를 구성 하는 경우 [ip 기반 조건부 액세스 위치 조건만](../conditional-access/location-condition.md#preview-features) 사용 하 고 id 공급자 및 리소스 공급자가 볼 수 있는 **IPv4 및 IPv6 둘 다를 포함**한 모든 ip 주소를 구성 합니다. Azure Multi-Factor Authentication의 서비스 설정 페이지에서 사용할 수 있는 국가 위치 조건 또는 신뢰할 수 있는 ip 기능을 사용 하지 마세요.
+
 ### <a name="ip-address-configuration"></a>IP 주소 구성
 
-Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예를 들면 다음과 같습니다.
+Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 다음은 그 예입니다. 
 
 - Id 공급자는 클라이언트에서 하나의 IP 주소를 확인 합니다.
 - 리소스 공급자는 프록시를 통과 한 후 클라이언트와 다른 IP 주소를 확인 합니다.
 - Id 공급자가 확인 하는 IP 주소는 정책에서 허용 되는 IP 범위의 일부 이지만 리소스 공급자의 IP 주소는 그렇지 않습니다.
 
 무한 루프를 방지 하기 위해 사용자 환경에이 시나리오가 있는 경우 Azure AD는 1 시간 CAE 토큰을 발급 하며 클라이언트 위치 변경을 적용 하지 않습니다. 이 경우에도 클라이언트 위치 변경 이벤트 외의 [다른 이벤트](#critical-event-evaluation) 를 평가 하 고 있으므로 기존 1 시간 토큰에 비해 보안이 향상 됩니다.
-
-> [!IMPORTANT]
-> 연속 액세스 평가를 위한 위치를 구성 하는 경우 [IP 기반 조건부 액세스 위치 조건만](../conditional-access/location-condition.md)사용 합니다. Azure Multi-Factor Authentication의 서비스 설정 페이지에서 사용할 수 있는 국가 위치 조건 또는 신뢰할 수 있는 ip 기능을 사용 하지 마세요.
 
 ### <a name="office-and-web-account-manager-settings"></a>Office 및 웹 계정 관리자 설정
 

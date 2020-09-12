@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9cf6fa26cec0abbc52a990d71c1c2fcc5d6023e4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f59f8af3f9a845f7e8663877f6d806c33b216a41
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612557"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482847"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대 한 부하 분산 장치 구성
 
@@ -40,7 +40,7 @@ ms.locfileid: "88612557"
 
 이 문서를 통해 Azure Portal에서 부하 분산 장치를 만들고 구성합니다. 프로세스 완료 후에는 가용성 그룹 수신기에 대한 부하 분산 장치에서 IP 주소를 사용하도록 클러스터를 구성합니다.
 
-## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>Azure 포털에서 부하 분산 장치 만들기 및 구성
+## <a name="create--configure-load-balancer"></a>부하 분산 장치 만들기 & 구성 
 
 이 작업 부분에서 다음 단계를 수행 합니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "88612557"
    | --- | --- |
    | **이름** |부하 분산 장치를 나타내는 텍스트 이름입니다. 예를 들어 **sqlLB**입니다. |
    | **형식** |**내부**: 대부분의 구현에서는 동일한 가상 네트워크 내에 있는 애플리케이션이 가용성 그룹에 연결할 수 있도록 하는 내부 부하 분산 장치를 사용합니다.  </br> **외부**: 애플리케이션이 공용 인터넷 연결을 통해 가용성 그룹에 연결할 수 있도록 합니다. |
-   | **SKU** |**Standard**: SQL 인스턴스가 부하 분산 장치와 다른 가용성 집합에 있는 경우 필요 합니다. </br> **기본**: 기본 옵션입니다. |
+   | **SKU** |**기본**: 기본 옵션입니다. SQL Server 인스턴스가 동일한 가용성 집합에 있는 경우에만 유효 합니다. </br> **표준**: 기본 설정입니다. SQL Server 인스턴스가 동일한 가용성 집합에 있는 경우 유효 합니다. SQL Server 인스턴스가 다른 가용성 영역에 있는 경우 필요 합니다. |
    | **가상 네트워크** |SQL Server 인스턴스가 있는 가상 네트워크를 선택합니다. |
    | **서브넷** |SQL Server 인스턴스가 있는 서브넷을 선택합니다. |
    | **IP 주소 할당** |**정적** |

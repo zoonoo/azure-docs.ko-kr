@@ -2,14 +2,13 @@
 title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 ms.topic: conceptual
-author: davidsmatlak
-ms.date: 06/04/2020
-ms.openlocfilehash: 86c9958818b5439502ab37471ed7a51fb3f21bf9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 09/02/2020
+ms.openlocfilehash: b9b2b7217b854153f03d61713d8b4a1bcf5bfd9d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854056"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470173"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -27,6 +26,9 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 > 제한을 조정할 수 있는 경우 테이블에는 **기본 제한** 및 **최대 제한** 헤더가 포함 됩니다. 제한은 기본 한도를 초과 하는 경우에만 발생할 수 있으며 최대 한도를 초과 하면 안 됩니다.
 >
 > 제한 또는 할당량을 기본 한도 이상으로 올리려면 [무료로 온라인 고객 지원 요청을 여세요](../templates/error-resource-quota.md).
+>
+> 소프트 한 *도* 및 *하드 제한* 이라는 용어는 보통 비공식적으로 현재 조정 가능한 제한 (소프트 제한) 및 최대 제한 (하드 제한)을 설명 하는 데 사용 됩니다. 한도를 조정할 수 없는 경우에는 소프트 제한이 없으며 하드 제한만 있으면 됩니다.
+>
 
 [무료 평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p) 에는 제한 또는 할당량 증가가 제공 되지 않습니다. [평가판 구독](https://azure.microsoft.com/offers/ms-azr-0044p)을 사용하는 경우 [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/) 구독으로 업그레이드할 수 있습니다. 자세한 내용은 [Azure 무료 평가판 구독을 종 량 제 구독](../../cost-management-billing/manage/upgrade-azure-subscription.md) 및 [무료 평가판 구독 FAQ](https://azure.microsoft.com/free/free-account-faq)로 업그레이드를 참조 하세요.
 
@@ -75,6 +77,10 @@ Azure Resource Manager 및 Azure 리소스 그룹을 사용 하는 경우 다음
 ## <a name="automation-limits"></a>Automation 한도
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
+
+## <a name="azure-app-configuration"></a>Azure App Configuration
+
+[!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
 ## <a name="azure-cache-for-redis-limits"></a>Azure Cache for Redis 제한
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6adfd9bc778318b406d5ce27cadccdad02d73d69
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049692"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437465"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Azure 간 VM 네트워크 연결 문제 해결
 
@@ -108,7 +108,7 @@ Azure Site Recovery 서비스 끝점에 대 한 연결을 설정할 수 없습�
 
 #### <a name="resolution"></a>해결 방법
 
-Azure Site Recovery는 지역에 따라 [Site Recovery IP 범위](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)에 액세스할 수 있어야 합니다. VM에서 필요한 IP 범위에 액세스할 수 있는지 확인 합니다.
+Azure NSG (네트워크 보안 그룹) 규칙/방화벽 프록시를 사용 하 여 컴퓨터에서 아웃 바운드 네트워크 연결을 제어 하는 경우 몇 가지 서비스 태그를 허용 해야 합니다. [자세한 정보를 알아보세요](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>문제 4: 네트워크 트래픽이 온-프레미스 프록시 서버를 통과 하는 경우 Azure-Azure 복제가 실패 함 (151072)
 

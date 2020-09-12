@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d4aad485741abc1c0f54e14e00cd8654a8addbca
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: contperfq1
+ms.openlocfilehash: f64e3459863cc7b7ffddfae824f9c4012802a457
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930804"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500320"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Azure Files에서 Azure Active Directory Domain Services 인증 사용
 
@@ -24,7 +25,7 @@ Azure 파일 공유를 처음 접하는 경우 다음 일련의 문서를 읽기
 > Azure Files는 RC4-HMAC 암호화를 사용 하 여 Azure AD DS에서 Kerberos 인증을 지원 합니다. AES Kerberos 암호화는 아직 지원 되지 않습니다.
 > Azure Files azure AD와 전체 동기화를 사용 하 여 Azure AD DS 인증을 지원 합니다. Azure AD에서 제한 된 id 집합만 동기화 하는 Azure AD DS에서 범위 동기화를 사용 하도록 설정한 경우 인증 및 권한 부여는 지원 되지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure 파일 공유에 대해 SMB를 통해 Azure AD를 사용 하도록 설정 하기 전에 다음 필수 구성 요소를 완료 했는지 확인 합니다.
 
@@ -58,7 +59,7 @@ Azure 파일 공유에 대해 SMB를 통해 Azure AD를 사용 하도록 설정 
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-[모든 Azure 공용 지역](https://azure.microsoft.com/global-infrastructure/locations/)에서 azure AD DS를 사용 하 여 Azure Files 인증을 사용할 수 있습니다.
+Azure AD DS를 사용 하 여 Azure Files 인증은 [모든 Azure 공용 및 .gov 지역](https://azure.microsoft.com/global-infrastructure/locations/)에서 사용할 수 있습니다.
 
 ## <a name="overview-of-the-workflow"></a>워크플로의 개요
 

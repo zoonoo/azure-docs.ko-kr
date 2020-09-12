@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: 회로에 대 한 NAT 요구 사항'
 description: 이 페이지는 ExpressRoute 회로에 NAT를 구성하고 관리하는 자세한 요구 사항을 제공합니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: cherylmc
-ms.openlocfilehash: 62effa04fd6130c35d3e2e64a401c124fe383200
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: a2c322c765d39a3afe4974ed88bf4dc18fd467a3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521924"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569648"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 NAT을 설치하고 관리해야 합니다. 일부 연결 공급자는 NAT을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 그런 서비스를 제공하는지를 확인합니다. 그렇지 않은 경우 아래에 설명한 요구 사항을 준수해야 합니다. 
@@ -20,7 +20,7 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
 [ExpressRoute 회로 라우팅 도메인](expressroute-circuit-peerings.md) 페이지를 검토하여 다양한 라우팅 도메인의 개요를 가져옵니다. 공용 Azure 및 Microsoft 피어링에 대한 공용 IP 주소 요구 사항을 충족하려면 네트워크와 Microsoft 간에 NAT를 설치하는 것이 좋습니다. 이 섹션에서는 설치해야 하는 NAT 인프라에 대한 자세한 설명을 제공합니다.
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Microsoft 피어링에 대한 NAT 요구 사항
-Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통해 지원하지 않는 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스 목록에는 Exchange Online, SharePoint Online 및 비즈니스용 Skype와 같은 Office 365 서비스가 포함 되어 있습니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원할 예정입니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소에 SNAT되어야 합니다. Microsoft 클라우드 서비스에서 네트워크에 보내는 트래픽은 [비대칭 라우팅](expressroute-asymmetric-routing.md)을 방지하기 위해 인터넷 에지에서 SNAT되어야 합니다. 아래 그림은 Microsoft 피어링에 어떻게 NAT을 설치할지에 대한 개략적인 그림을 제공합니다.
+Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통해 지원하지 않는 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스 목록은 Exchange Online, SharePoint Online 및 비즈니스용 Skype와 같은 Microsoft 365 서비스를 포함 합니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원할 예정입니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소에 SNAT되어야 합니다. Microsoft 클라우드 서비스에서 네트워크에 보내는 트래픽은 [비대칭 라우팅](expressroute-asymmetric-routing.md)을 방지하기 위해 인터넷 에지에서 SNAT되어야 합니다. 아래 그림은 Microsoft 피어링에 어떻게 NAT을 설치할지에 대한 개략적인 그림을 제공합니다.
 
 ![Microsoft 피어 링에 대해 NAT를 설정 하는 방법에 대 한 개략적인 다이어그램입니다.](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
@@ -34,7 +34,7 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
   > 
 
 ### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>네트워크에 보내는 Microsoft에서 생성된 트래픽
-* 특정 시나리오는 네트워크 내에서 호스팅되는 서비스 엔드포인트에 대한 연결을 시작하기 위해 Microsoft이 필요합니다. 시나리오의 일반적인 예는 Office 365에서 네트워크에 호스팅된 ADFS 서버에 대한 연결입니다. 이러한 경우 네트워크에서 Microsoft 피어링에 적절한 접두사를 유출해야 합니다. 
+* 특정 시나리오는 네트워크 내에서 호스팅되는 서비스 엔드포인트에 대한 연결을 시작하기 위해 Microsoft이 필요합니다. 이 시나리오의 일반적인 예는 Microsoft 365에서 네트워크에 호스트 되는 ADFS 서버에 연결 하는 것입니다. 이러한 경우 네트워크에서 Microsoft 피어링에 적절한 접두사를 유출해야 합니다. 
 * [비대칭 라우팅](expressroute-asymmetric-routing.md)을 방지할 수 있도록 네트워크 내부의 서비스 엔드포인트에 대한 인터넷 에지에서 Microsoft 트래픽을 SNAT해야 합니다. 대상 IP가 ExpressRoute를 통해 받은 경로와 일치하는 요청 **및 회신**은 항상 ExpressRoute를 통해 전송됩니다. 요청은 인터넷을 통해 수신되고 회신은 ExpressRoute를 통해 전송되는 경우 비대칭 라우팅이 있는 것입니다. 인터넷 에지에서 들어오는 Microsoft 트래픽을 SNAT하면 회신 트래픽이 강제로 인터넷 에지로 돌아가기 때문에 문제가 해결됩니다.
 
 ![ExpressRoute를 포함한 비대칭 라우팅](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)

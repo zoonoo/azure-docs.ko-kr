@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3a2b3bfa8553e7c350c08fa7e1a7376ca08d9644
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079779"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536458"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
@@ -113,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 예를 들면 다음과 같습니다.
+모델 파일에는 두 개 이상의 모델이 포함 될 수 있습니다. 이 경우에는 모델을 JSON 배열에 배치 해야 합니다. 다음은 그 예입니다. 
 
 ```json
 [
@@ -168,11 +168,16 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `ModelData` . `Mo
 
 ### <a name="update-models"></a>모델 업데이트
 
-모델을 인스턴스에 업로드 하 고 나면 모델 인터페이스 전체를 변경할 수 없습니다. 이는 기존의 모델 "편집"이 없음을 의미 합니다.
+모델이 Azure Digital Twins 인스턴스에 업로드 되 면 모델 인터페이스 전체를 변경할 수 없습니다. 이는 기존의 모델 "편집"이 없음을 의미 합니다. 또한 Azure Digital Twins는 동일한 모델을 다시 업로드할 수 없습니다.
 
-대신 Azure Digital Twins에서 모델을 변경 하려는 경우이 작업을 수행 하는 방법은 동일한 모델의 **최신 버전** 을 업로드 하는 것입니다. 미리 보기 중에는 모델 버전을 이동 하는 경우에만 필드를 제거 하 고 새 필드를 추가 하는 것은 허용 되지 않습니다. 새 필드를 추가 하려면 [새 모델을 만들어야](#create-models)합니다.
+대신 모델을 변경 하려는 경우 (예: `displayName` 또는 업데이트 `description` ) 모델의 **새 버전** 을 업로드 하는 방법이 있습니다. 
+
+#### <a name="model-versioning"></a>모델 버전 관리
 
 기존 모델의 새 버전을 만들려면 원래 모델의 DTDL로 시작 합니다. 변경할 필드를 업데이트 합니다.
+
+>[!NOTE]
+>미리 보기 중에는 모델 버전을 이동 하는 동안 기존 필드를 제거 하지 않고 새 필드를 추가할 수 있습니다. 필드를 제거 하려면 [새로운 모델을 만들어야](#create-models)합니다.
 
 그런 다음 모델의 필드를 업데이트 하 여이를 최신 버전의 모델로 표시 `id` 합니다. 모델 ID의 마지막 섹션인은 `;` 모델 번호를 나타냅니다. 이제이 모델의 더 업데이트 된 버전 임을 나타내려면 값의 끝에 있는 숫자를 `id` 현재 버전 번호 보다 큰 숫자로 늘립니다.
 
@@ -188,7 +193,17 @@ API를 호출 하 여 모든 반환 개체를 검색 합니다 `ModelData` . `Mo
 "@id": "dtmi:com:contoso:PatientRoom;2",
 ```
 
-그런 다음 새 버전의 모델을 인스턴스에 업로드 합니다. 이전 버전의 대신이 모델을 사용 하 여 만든 새 쌍는 업데이트 된 버전을 사용 합니다.
+그런 다음 새 버전의 모델을 인스턴스에 업로드 합니다. 
+
+이 버전의 모델은 디지털 쌍에 사용 하기 위해 인스턴스에서 사용할 수 있습니다. 이전 버전의 모델을 덮어쓰지 않으므로 [제거](#remove-models)될 때까지 여러 버전의 모델이 인스턴스에 **공존 하 게** 됩니다.
+
+#### <a name="impact-on-twins"></a>쌍에 미치는 영향
+
+새 쌍을 만들 때 새 모델 버전과 이전 모델 버전이 공존 하므로 새 쌍은 새 버전의 모델 또는 이전 버전을 사용할 수 있습니다.
+
+즉, 새 버전의 모델을 업로드 해도 기존 쌍에 자동으로 영향을 주지 않습니다. 기존 쌍는 단순히 이전 모델 버전의 인스턴스를 유지 합니다.
+
+*방법: digital 쌍 관리*의 [*디지털 쌍 모델 업데이트*](how-to-manage-twin.md#update-a-digital-twins-model) 섹션에 설명 된 대로 패치를 적용 하 여 기존 쌍를 새 모델 버전으로 업데이트할 수 있습니다. 동일한 패치 내에서 새 모델을 따르도록 **모델 ID** (새 버전) 및 쌍 **에서 변경 해야 하는 모든 필드**를 업데이트 해야 합니다.
 
 ### <a name="remove-models"></a>모델 제거
 
@@ -273,6 +288,8 @@ Azure Digital 쌍는이 상태를 방지 하지 않으므로 모델 정의 스�
 ## <a name="manage-models-with-cli"></a>CLI를 사용 하 여 모델 관리
 
 Azure Digital Twins CLI를 사용 하 여 모델을 관리할 수도 있습니다. 명령은 [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)에서 찾을 수 있습니다.
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

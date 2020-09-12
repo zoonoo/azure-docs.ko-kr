@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
-ms.openlocfilehash: 6058b0d72eafe3a44ebdbabf291af05c08e772b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7c317a0b4fea0c981b227bace00c1b8924fd582c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038276"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536385"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Azure Marketplace의 보안 권장 사항 이미지
 
@@ -65,11 +65,3 @@ ms.locfileid: "87038276"
 
 조직에 Azure marketplace에 이미지가 없는 경우에도 이러한 권장 사항에 대해 Windows 및 Linux 이미지 구성을 확인 하는 것이 좋습니다.
 
-## <a name="contacting-customers"></a>고객에 게 연락
-
-고객 및 연락처 전자 메일을 확인 하려면:
-
-1.  Cloud 파트너 포털의 왼쪽 레일에서 **Insights**를 선택 합니다.
-2.  **주문 및 사용 현황** 탭에서 **시작 날짜** 및 **종료 날짜** 필드를 사용 하 여 필요한 날짜 범위 내에서 사용을 쿼리 합니다. 매일 제품에 사용 된 Azure 구독을 보여 줍니다. 이 데이터를 내보냅니다. 
-3.  마찬가지로 **고객** 탭에서 고객 기반을 쿼리하고 내보냅니다.
-4.  2 단계의 구독 ID를 3 단계의 구독 ID와 일치 하 여 필요한 고객 정보를 찾습니다.

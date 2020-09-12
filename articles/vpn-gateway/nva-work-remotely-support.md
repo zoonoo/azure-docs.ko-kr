@@ -5,14 +5,14 @@ services: vpn-gateway
 author: scottnap
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/21/2020
+ms.date: 09/08/2020
 ms.author: scottnap
-ms.openlocfilehash: 8a22e8f0bde2d13b4055566d96680fadc2db6e11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4783016e472907392f2d379efa0fed2d90ed21bc
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80337103"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595362"
 ---
 # <a name="working-remotely-network-virtual-appliance-nva-considerations-for-remote-work"></a>원격 작업: 원격 작업에 대 한 NVA (네트워크 가상 어플라이언스) 고려 사항
 
@@ -52,6 +52,8 @@ Azure Marketplace의 모든 주요 NVA 공급 업체에는 솔루션을 배포�
 대부분의 주요 NVA 파트너는 COVID-19를 실행 하는 동안 예기치 않게 예기치 않은 증가에 대 한 확장에 대 한 지침을 게시 파트너 리소스에 대 한 몇 가지 유용한 링크는 다음과 같습니다.
 
 [Barracuda는 COVID-19 동안 데이터를 보호 하는 동안 집에서 작업을 사용 하도록 설정 합니다.](https://www.barracuda.com/covid-19/work-from-home "COVID-19 동안 데이터를 보호 하는 동안 홈에서 작업 사용")
+
+[Coronavirus 동안 확인 지점 보안 원격 인력](https://www.checkpoint.com/solutions/secure-remote-workforce-during-coronavirus/ "Coronavirus 시 원격 인력 보호")
 
 [COVID-19 준비에 대 한 Cisco AnyConnect 구현 및 성능/크기 조정 참조](https://www.cisco.com/c/en/us/support/docs/security/anyconnect-secure-mobility-client/215331-anyconnect-implementation-and-performanc.html "COVID-19 준비에 대 한 Cisco AnyConnect 구현 및 성능/크기 조정 참조")
 

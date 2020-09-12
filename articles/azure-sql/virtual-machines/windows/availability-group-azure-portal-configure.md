@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 46e2563b0d1c26c984616b523a367c8b2cff7aaa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038574"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482802"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Azure VM에서 SQL Server에 대 한 가용성 그룹 구성 (Azure Portal-미리 보기)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,7 +31,7 @@ Azure Portal를 사용 하 여 새 클러스터를 만들거나 기존 클러스
    > 이 기능은 현재 미리 보기로 제공 되며 원하는 지역을 사용할 수 없는 경우 잠시 후에 다시 확인 하세요. 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure Portal를 사용 하 여 Always On 가용성 그룹을 구성 하려면 다음 필수 구성 요소가 있어야 합니다. 
 
@@ -74,9 +74,14 @@ Azure Portal를 사용 하 여 클러스터를 구성 합니다. 새 클러스�
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="SQL 서비스 계정, 클러스터 운영자 계정 및 클러스터 부트스트랩 계정에 대 한 자격 증명을 제공 합니다.":::
 
 1. 클러스터에 추가 하려는 SQL Server Vm을 선택 합니다. 다시 시작 해야 하는지 여부를 확인 하 고 주의 해 서 진행 합니다. 모든 관리 효율성 모드로 SQL VM 리소스 공급자에 등록 되어 있고 기본 SQL Server VM와 동일한 가상 네트워크에 있는 Vm만 표시 됩니다. 
-1. **적용** 을 선택 하 여 클러스터를 만듭니다. 
+1. **적용** 을 선택 하 여 클러스터를 만듭니다. 위쪽 탐색 모음의 종 모양 아이콘에서 액세스할 수 있는 **활동 로그** 에서 배포 상태를 확인할 수 있습니다. 
+1. Microsoft에서 장애 조치 (failover) 클러스터를 지원 하려면 클러스터 유효성 검사를 통과 해야 합니다. 선호 하는 방법 (예: RDP (원격 데스크톱 프로토콜))을 사용 하 여 VM에 연결 하 고 클러스터에서 유효성 검사를 통과 하는지 확인 하 고 계속 진행 합니다. 이렇게 하지 않으면 클러스터가 지원 되지 않는 상태가 됩니다. 장애 조치(Failover) 클러스터 관리자 (FCM)를 사용 하거나 다음 PowerShell 명령을 사용 하 여 클러스터의 유효성을 검사할 수 있습니다.
 
-위쪽 탐색 모음의 종 모양 아이콘에서 액세스할 수 있는 **활동 로그** 에서 배포 상태를 확인할 수 있습니다. 
+    ```powershell
+    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+    ```
+    
+
 
 ### <a name="onboard-existing-cluster"></a>기존 클러스터 온보드
 
@@ -93,6 +98,8 @@ SQL Server VM 환경에 구성 된 클러스터가 이미 있는 경우 Azure Po
 
 1. 클러스터에 대 한 설정을 검토 합니다. 
 1. 클러스터를 등록 하려면 [ **적용** ]을 선택한 다음 계속 하려면 [ **예]** 를 선택 합니다.
+
+
 
 
 ## <a name="create-availability-group"></a>가용성 그룹 만들기

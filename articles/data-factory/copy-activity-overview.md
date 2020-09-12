@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 54597953aac6fabe419a9d1b62b16de7ca7bd1e0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534348"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440595"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -65,7 +65,7 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 
 복사 작업을 사용 하도록 설정 하는 서비스는 [Azure integration runtime 위치](concepts-integration-runtime.md#integration-runtime-location)에 나열 된 지역 및 지역에서 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지에서는 대개 지역 간 홉이 없는 효율적인 데이터 이동이 가능합니다. 특정 지역에서 Data Factory 및 데이터 이동의 가용성을 확인 하려면 [지역별 제품](https://azure.microsoft.com/regions/#services) 을 참조 하세요.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -129,17 +129,17 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 
 | 속성 | 설명 | 필수 여부 |
 |:--- |:--- |:--- |
-| 형식 | 복사 활동의 경우를로 설정 합니다.`Copy` | 예 |
+| type | 복사 활동의 경우를로 설정 합니다. `Copy` | 예 |
 | 입력 | 원본 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 입력만 지원 합니다. | 예 |
 | outputs | 싱크 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 출력만 지원 합니다. | 예 |
 | typeProperties | 속성을 지정 하 여 복사 작업을 구성 합니다. | 예 |
 | source | 복사 원본 유형 및 데이터 검색을 위한 해당 속성을 지정 합니다.<br/>자세한 내용은 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 나열 된 커넥터 문서의 "복사 작업 속성" 섹션을 참조 하세요. | 예 |
 | 싱크 | 데이터를 쓰기 위한 복사 싱크 유형과 해당 속성을 지정 합니다.<br/>자세한 내용은 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 나열 된 커넥터 문서의 "복사 작업 속성" 섹션을 참조 하세요. | 예 |
-| 번역기 | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 이 속성은 기본 복사 동작이 사용자의 요구를 충족 하지 않는 경우에 적용 됩니다.<br/>자세한 내용은 [복사 활동의 스키마 매핑](copy-activity-schema-and-type-mapping.md)을 참조 하세요. | 예 |
-| dataIntegrationUnits | [Azure integration runtime](concepts-integration-runtime.md) 에서 데이터 복사에 사용 하는 전력의 양을 나타내는 측정값을 지정 합니다. 이러한 단위는 이전에는 DMU (클라우드 데이터 이동 단위)로 알려져 있었습니다. <br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance-features.md#data-integration-units)를 참조 하세요. | 예 |
-| parallelCopies | 원본에서 데이터를 읽고 싱크에 데이터를 쓸 때 복사 작업에서 사용할 병렬 처리를 지정 합니다.<br/>자세한 내용은 [병렬 복사](copy-activity-performance-features.md#parallel-copy)를 참조 하세요. | 예 |
-| 보존 | 데이터를 복사 하는 동안 메타 데이터/Acl을 유지할지 여부를 지정 합니다. <br/>자세한 내용은 [메타 데이터 유지](copy-activity-preserve-metadata.md)를 참조 하세요. |예 |
-| enableStaging<br/>stagingSettings | 원본에서 싱크로 데이터를 직접 복사 하는 대신 Blob 저장소에서 중간 데이터를 준비할 지 여부를 지정 합니다.<br/>유용한 시나리오 및 구성 세부 정보에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance-features.md#staged-copy)를 참조 하세요. | 예 |
+| 번역기 | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 이 속성은 기본 복사 동작이 사용자의 요구를 충족 하지 않는 경우에 적용 됩니다.<br/>자세한 내용은 [복사 활동의 스키마 매핑](copy-activity-schema-and-type-mapping.md)을 참조 하세요. | 아니요 |
+| dataIntegrationUnits | [Azure integration runtime](concepts-integration-runtime.md) 에서 데이터 복사에 사용 하는 전력의 양을 나타내는 측정값을 지정 합니다. 이러한 단위는 이전에는 DMU (클라우드 데이터 이동 단위)로 알려져 있었습니다. <br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance-features.md#data-integration-units)를 참조 하세요. | 아니요 |
+| parallelCopies | 원본에서 데이터를 읽고 싱크에 데이터를 쓸 때 복사 작업에서 사용할 병렬 처리를 지정 합니다.<br/>자세한 내용은 [병렬 복사](copy-activity-performance-features.md#parallel-copy)를 참조 하세요. | 아니요 |
+| 보존 | 데이터를 복사 하는 동안 메타 데이터/Acl을 유지할지 여부를 지정 합니다. <br/>자세한 내용은 [메타 데이터 유지](copy-activity-preserve-metadata.md)를 참조 하세요. |아니요 |
+| enableStaging<br/>stagingSettings | 원본에서 싱크로 데이터를 직접 복사 하는 대신 Blob 저장소에서 중간 데이터를 준비할 지 여부를 지정 합니다.<br/>유용한 시나리오 및 구성 세부 정보에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance-features.md#staged-copy)를 참조 하세요. | 아니요 |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 원본에서 싱크로 데이터를 복사할 때 호환 되지 않는 행을 처리 하는 방법을 선택 합니다.<br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조 하세요. | 예 |
 
 ## <a name="monitoring"></a>모니터링
@@ -183,7 +183,7 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 
 ## <a name="add-additional-columns-during-copy"></a>복사 하는 동안 다른 열 추가
 
-원본 데이터 저장소에서 싱크로 데이터를 복사 하는 것 외에도 싱크에 따라 복사할 데이터 열을 추가 하도록를 구성할 수 있습니다. 예를 들면 다음과 같습니다.
+원본 데이터 저장소에서 싱크로 데이터를 복사 하는 것 외에도 싱크에 따라 복사할 데이터 열을 추가 하도록를 구성할 수 있습니다. 다음은 그 예입니다. 
 
 - 파일 기반 원본에서 복사 하는 경우 데이터를 가져온 파일에서 추적할 추가 열로 상대 파일 경로를 저장 합니다.
 - ADF 식으로 열을 추가 하 고, 파이프라인 이름/파이프라인 ID와 같은 ADF 시스템 변수를 연결 하거나, 업스트림 활동의 출력에서 다른 동적 값을 저장 합니다.
@@ -200,7 +200,7 @@ Data lake migration과 같은 시나리오에서 원본에서 싱크로 데이�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| additionalColumns | 추가 데이터 열을 추가 하 여 싱크에 복사 합니다.<br><br>배열의 각 개체 `additionalColumns` 는 추가 열을 나타냅니다. 는 `name` 열 이름을 정의 하 고은 해당 `value` 열의 데이터 값을 나타냅니다.<br><br>허용 되는 데이터 값은 다음과 같습니다.<br>- **`$$FILEPATH`**-예약 변수는 데이터 집합에 지정 된 폴더 경로에 소스 파일의 상대 경로를 저장 함을 나타냅니다. 파일 기반 원본에 적용 합니다.<br>- **식**<br>- **정적 값** | 예 |
+| additionalColumns | 추가 데이터 열을 추가 하 여 싱크에 복사 합니다.<br><br>배열의 각 개체 `additionalColumns` 는 추가 열을 나타냅니다. 는 `name` 열 이름을 정의 하 고은 해당 `value` 열의 데이터 값을 나타냅니다.<br><br>허용 되는 데이터 값은 다음과 같습니다.<br>- **`$$FILEPATH`** -예약 변수는 데이터 집합에 지정 된 폴더 경로에 소스 파일의 상대 경로를 저장 함을 나타냅니다. 파일 기반 원본에 적용 합니다.<br>- **식**<br>- **정적 값** | 예 |
 
 **예:**
 
@@ -249,7 +249,7 @@ SQL database/Azure Synapse Analytics로 데이터를 복사 하는 경우 대상
 
 - [Azure SQL Database](connector-azure-sql-database.md)
 - [Azure SQL Database Managed Instance](connector-azure-sql-managed-instance.md)
-- [Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
+- [Azure Synapse Analytics(이전의 SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
 ![싱크 테이블 만들기](media/copy-activity-overview/create-sink-table.png)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a0529248c58f7fa7f962d9d1432411c351c7bdd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130775"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440646"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업 내결함성
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -159,7 +159,7 @@ Timestamp,Level,OperationName,OperationItem,Message
     다음은 그 예입니다.  SQL Server에서 SQL Database로 데이터를 복사합니다. 기본 키가 싱크 SQL Database에 정의되어 있지만 이러한 기본 키가 원본 SQL Server에 정의되어 있지 않습니다. 원본에 있는 중복된 행을 싱크로 복사할 수 없습니다. 복사 작업은 원본 데이터의 첫 번째 행만 싱크에 복사합니다. 중복된 기본 키 값을 포함하는 후속 원본 행을 호환되지 않는 것으로 감지하고 건너뜁니다.
 
 >[!NOTE]
->- PolyBase를 사용하여 SQL Data Warehouse로 데이터를 로드하려면 복사 작업에서 "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)"를 통해 거부 정책을 지정하여 PolyBase의 네이티브 내결함성 설정을 구성하세요. PolyBase와 호환되지 않는 행을 계속해서 아래와 같이 정상적으로 Blob 또는 ADLS로 리디렉션할 수 있습니다.
+>- PolyBase를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 데이터를 로드 하려면 복사 작업에서 "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)"를 통해 거부 정책을 지정 하 여 polybase의 기본 내결함성 설정을 구성 합니다. PolyBase와 호환되지 않는 행을 계속해서 아래와 같이 정상적으로 Blob 또는 ADLS로 리디렉션할 수 있습니다.
 >- [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)를 호출하도록 복사 작업이 구성된 경우 이 기능이 적용되지 않습니다.
 >- [SQL 싱크의 저장 프로시저](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink)를 호출하도록 복사 작업이 구성된 경우 이 기능이 적용되지 않습니다.
 
@@ -185,11 +185,11 @@ Timestamp,Level,OperationName,OperationItem,Message
 }, 
 ```
 
-속성 | 설명 | 허용되는 값 | 필수
+속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | 복사 중에 호환되지 않는 행을 건너뛸지 지정합니다. | True<br/>False(기본값) | 아니요
+enableSkipIncompatibleRow | 복사 중에 호환되지 않는 행을 건너뛸지 지정합니다. | True<br/>False(기본값) | 예
 logStorageSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예
-linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)의 연결된 서비스입니다. | `AzureBlobStorage` 또는 `AzureBlobFS` 형식의 연결된 서비스 이름은 로그 파일을 저장하는 데 사용되는 인스턴스를 참조합니다. | 아니요
+linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties)의 연결된 서비스입니다. | `AzureBlobStorage` 또는 `AzureBlobFS` 형식의 연결된 서비스 이름은 로그 파일을 저장하는 데 사용되는 인스턴스를 참조합니다. | 예
 경로 | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예
 
 ### <a name="monitor-skipped-rows"></a>건너뛴 행 모니터링
@@ -262,9 +262,9 @@ Timestamp, Level, OperationName, OperationItem, Message
 속성 | Description | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | 복사 중에 호환되지 않는 행을 건너뛸지 지정합니다. | True<br/>False(기본값) | 예
-redirectIncompatibleRowSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 아니요
+redirectIncompatibleRowSettings | 호환되지 않는 행을 기록하려는 경우 지정할 수 있는 속성 그룹입니다. | &nbsp; | 예
 linkedServiceName | 건너뛰는 행을 포함하는 로그를 저장하는 [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties)의 연결된 서비스입니다. | `AzureStorage` 또는 `AzureDataLakeStore` 형식의 연결된 서비스 이름은 사용자가 로그 파일을 저장하는 데 사용하려는 인스턴스를 참조합니다. | 예
-경로 | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 아니요
+경로 | 건너뛴 행을 포함하는 로그 파일의 경로입니다. | 호환되지 않는 데이터를 기록하는 데 사용하려는 경로를 지정합니다. 경로를 지정하지 않으면 서비스가 대신 컨테이너를 만듭니다. | 예
 
 ### <a name="monitor-skipped-rows"></a>건너뛴 행 모니터링
 복사 작업 실행이 완료되면 복사 작업 출력에서 건너뛴 행의 수를 볼 수 있습니다.

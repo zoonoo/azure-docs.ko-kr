@@ -1,19 +1,19 @@
 ---
 title: HBase 클러스터를 최신 버전으로 마이그레이션 - Azure HDInsight
 description: Azure HDInsight에서 Apache HBase 클러스터를 최신 버전으로 마이그레이션하는 방법입니다.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 23843743b58db91d457b509fa38243f110b76b41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 9e233b93a1dc054e6d9f713e790e706d589bf01e
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079550"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89503995"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Apache HBase 클러스터를 최신 버전으로 마이그레이션
 
@@ -32,16 +32,16 @@ Apache HBase를 업그레이드하기 전에 원본 및 대상 클러스터의 H
 
 | 호환성 유형 | 주 버전| 부 버전 | 패치 |
 | --- | --- | --- | --- |
-| 클라이언트-서버 통신 호환성 | N | Y | 지원 |
-| 서버 간 호환성 | N | Y | 지원 |
-| 파일 형식 호환성 | N | Y | 지원 |
-| 클라이언트 API 호환성 | N | Y | 지원 |
+| 클라이언트-서버 통신 호환성 | N | Y | Y |
+| 서버 간 호환성 | N | Y | Y |
+| 파일 형식 호환성 | N | Y | Y |
+| 클라이언트 API 호환성 | N | Y | Y |
 | 클라이언트 이진 호환성 | N | N | Y |
 | **서버 쪽 제한 API 호환성** |  |  |  |
-| Stable | N | Y | 지원 |
+| Stable | N | Y | Y |
 | 진화 | N | N | Y |
 | 불안정 | N | N | N |
-| 종속성 호환성 | N | Y | 지원 |
+| 종속성 호환성 | N | Y | Y |
 | 운영 호환성 | N | N | Y |
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>동일한 Apache HBase 주 버전으로 업그레이드

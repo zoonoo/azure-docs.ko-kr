@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53a41c3921ee92b1ec79edf95999c97f80cbce45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461704"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462363"
 ---
 # <a name="securing-paas-deployments"></a>PaaS 배포 보안
 
@@ -102,9 +102,9 @@ Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl)�
 | --- | --- | --- |
 | 스푸핑 | 인증 | HTTPS 연결을 사용해야 하도록 지정합니다. |
 | 변조 | 무결성 | TLS/SSL 인증서의 유효성을 검사 합니다. |
-| 거부 | 거부 없음 | Azure [모니터링 및 진단](/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다. |
+| 부인 | 부인 방지 | Azure [모니터링 및 진단](/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다. |
 | 정보 공개 | 기밀성 | [서비스 인증서](/rest/api/appservice/certificates)를 사용하여 미사용 상태의 중요한 데이터를 암호화합니다. |
-| 서비스 거부 | 가용성 | 성능 메트릭에서 서비스 거부 상황 가능성을 모니터링합니다. 연결 필터를 구현합니다. |
+| 서비스 거부 | 사용 가용성 | 성능 메트릭에서 서비스 거부 상황 가능성을 모니터링합니다. 연결 필터를 구현합니다. |
 | 권한 상승 | 권한 부여 | [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements)를 사용합니다. |
 
 ## <a name="develop-on-azure-app-service"></a>Azure App Service에서 개발 진행
@@ -151,10 +151,10 @@ Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure PaaS 배포의 보안 이점과 클라우드 애플리케이션의 보안 모범 사례에 대해 중점적으로 설명했습니다. 다음 단계에서는 특정 Azure 서비스를 사용하여 PaaS 웹 및 모바일 솔루션을 보호하는 권장 사례에 대해 알아보겠습니다. 먼저 Azure App Service, Azure SQL Database, Azure SQL Data Warehouse 및 Azure Storage를 살펴보겠습니다. 다른 Azure 서비스에 권장되는 사례에 대한 문서를 사용할 수 있으며, 해당 링크는 다음 목록에서 제공합니다.
+이 문서에서는 Azure PaaS 배포의 보안 이점과 클라우드 애플리케이션의 보안 모범 사례에 대해 중점적으로 설명했습니다. 다음 단계에서는 특정 Azure 서비스를 사용하여 PaaS 웹 및 모바일 솔루션을 보호하는 권장 사례에 대해 알아보겠습니다. Azure App Service, Azure SQL Database 및 Azure Synapse Analytics로 시작 하 고 Azure Storage 합니다. 다른 Azure 서비스에 권장되는 사례에 대한 문서를 사용할 수 있으며, 해당 링크는 다음 목록에서 제공합니다.
 
 - [Azure App Service](paas-applications-using-app-services.md)
-- [Azure SQL Database 및 Azure SQL Data Warehouse](paas-applications-using-sql.md)
+- [Azure SQL Database 및 Azure Synapse 분석](paas-applications-using-sql.md)
 - [Azure Storage](paas-applications-using-storage.md)
 - Azure Cache for Redis
 - Azure Service Bus

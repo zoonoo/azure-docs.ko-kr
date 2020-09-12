@@ -10,13 +10,13 @@ manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/30/2020
-ms.openlocfilehash: 66cc7b0d4f205a93c41f49ecaadac495a98b6da6
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/08/2020
+ms.openlocfilehash: 2f4e0728a863521f772f4d1c9531b07f427bfb3e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949136"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595093"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -242,13 +242,13 @@ Key Vault 또는 MSI 인증을 사용해도 연속 통합과 배포가 쉬워집
 
 ## <a name="switch-to-a-different-git-repository"></a>다른 Git 리포지토리로 전환
 
-다른 Git 리포지토리로 전환하려면 Data Factory 개요 페이지의 오른쪽 위 모서리에 있는 **Git 리포지토리 설정** 아이콘을 클릭합니다. 아이콘이 보이지 않으면 로컬 브라우저 캐시를 지우십시오. 아이콘을 선택하여 현재 리포지토리와 연결을 제거합니다.
+다른 Git 리포지토리로 전환 하려면 **소스 제어**에서 관리 허브의 git 구성 페이지로 이동 합니다. **연결 끊기**를 선택 합니다. 
 
-![GIT 아이콘](media/author-visually/remove-repo.png)
+![GIT 아이콘](media/author-visually/remove-repository.png)
 
-리포지토리 설정 창이 나타나면 **Git 제거**를 선택합니다. 데이터 팩터리 이름을 입력하고 **확인**을 클릭하여 데이터 팩터리와 연결된 Git 리포지토리를 제거합니다.
+데이터 팩터리 이름을 입력하고 **확인**을 클릭하여 데이터 팩터리와 연결된 Git 리포지토리를 제거합니다.
 
-![현재 Git 리포지토리와 연결 제거](media/author-visually/remove-repo2.png)
+![현재 Git 리포지토리와 연결 제거](media/author-visually/remove-repository-2.png)
 
 현재 리포지토리와 연결을 제거한 후에 다른 리포지토리를 사용하도록 Git 설정을 구성한 다음, 기존 Data Factory 리소스를 새 리포지토리로 가져올 수 있습니다.
 

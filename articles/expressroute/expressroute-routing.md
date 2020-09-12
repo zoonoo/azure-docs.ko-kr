@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: 라우팅 요구 사항'
 description: 이 페이지는 ExpressRoute 회로에 라우팅을 구성하고 관리하는 자세한 요구 사항을 제공합니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.author: cherylmc
-ms.openlocfilehash: 7e70348ba1638057fdab579c1f2799a0f5aa77a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 5b7af755c9843456c25c8d18b78be48d83b96acd
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341356"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569614"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -83,7 +83,7 @@ BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합
 프라이빗 피어링에 대한 공용 또는 프라이빗 IPv4 주소를 사용할 수 있습니다. 개인 피어링의 경우 다른 고객과 주소가 중첩되지 않도록 트래픽의 엔드투엔드 격리를 제공합니다. 이러한 주소는 인터넷에는 보급되지 않습니다. 
 
 ### <a name="microsoft-peering"></a>Microsoft 피어링
-Microsoft 피어링 경로를 사용하면 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스 목록은 Exchange Online, SharePoint Online, 비즈니스용 Skype 및 Microsoft 팀과 같은 Office 365 서비스를 포함 합니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원합니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소를 사용해야 합니다.
+Microsoft 피어링 경로를 사용하면 Microsoft 클라우드 서비스에 연결할 수 있습니다. 서비스 목록은 Exchange Online, SharePoint Online, 비즈니스용 Skype 및 Microsoft 팀과 같은 Microsoft 365 서비스를 포함 합니다. Microsoft는 Microsoft 피어링에 양방향 연결을 지원합니다. Microsoft 클라우드 서비스에 보내는 트래픽은 Microsoft 네트워크를 입력하기 전에 유효한 공용 IPv4 주소를 사용해야 합니다.
 
 IP 주소 및 AS 번호가 다음 레지스트리 중 하나에 등록되었는지 확인합니다.
 
@@ -100,7 +100,7 @@ IP 주소 및 AS 번호가 다음 레지스트리 중 하나에 등록되었는�
 프라이빗 AS 번호는 Microsoft 피어링에서 허용되었지만 수동 유효성 검사에도 필요합니다. 또한 받은 접두사에 대한 AS PATH에서 프라이빗 AS 번호를 제거합니다. 따라서 [Microsoft 피어링에 대한 라우팅에 영향을 주기](expressroute-optimize-routing.md) 위해 AS PATH에 프라이빗 AS 번호를 추가할 수는 없습니다. 
 
 > [!IMPORTANT]
-> 공용 인터넷 및 ExpressRoute를 통해 동일한 공용 IP 경로를 보급하지 않습니다. 비대칭 라우팅을 초래하는 잘못된 구성의 위험을 줄이려면 ExpressRoute를 통해 Microsoft에 보급되는 [NAT IP 주소](expressroute-nat.md)가 인터넷에 보급된 적이 없는 범위에 포함되는 것이 좋습니다. 이렇게 할 수 없다면 인터넷 연결의 범위보다 더 구체적인 범위를 ExpressRoute를 통해 보급해야 합니다. NAT에 대한 공용 경로 외에 ExpressRoute를 통해 Microsoft 내에서 Office 365 엔드포인트와 통신하는 온-프레미스 네트워크의 사용자가 사용하는 공용 IP 주소를 보급할 수도 있습니다. 
+> 공용 인터넷 및 ExpressRoute를 통해 동일한 공용 IP 경로를 보급하지 않습니다. 비대칭 라우팅을 초래하는 잘못된 구성의 위험을 줄이려면 ExpressRoute를 통해 Microsoft에 보급되는 [NAT IP 주소](expressroute-nat.md)가 인터넷에 보급된 적이 없는 범위에 포함되는 것이 좋습니다. 이렇게 할 수 없다면 인터넷 연결의 범위보다 더 구체적인 범위를 ExpressRoute를 통해 보급해야 합니다. NAT에 대 한 공용 경로 외에도 Microsoft 내의 Microsoft 365 끝점과 통신 하는 온-프레미스 네트워크의 서버에서 사용 하는 공용 IP 주소를 Express 경로를 통해 보급할 수 있습니다. 
 > 
 > 
 
@@ -138,7 +138,7 @@ ExpressRoute는 전송 라우터로 구성할 수 없습니다. 전송 라우팅
 * 사용자 정의 라우팅을 사용하여 인터넷 연결이 필요한 모든 서브넷에 인터넷 연결을 허용할 수 있습니다.
 
 > [!NOTE]
-> 기본 경로를 보급하면 Windows 및 다른 VM 라이선스 정품 인증이 중단됩니다. [여기](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) 서 지침을 수행하여 이 문제를 해결합니다.
+> 기본 경로를 보급하면 Windows 및 다른 VM 라이선스 정품 인증이 중단됩니다. [여기](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) 서 지침을 수행하여 이 문제를 해결합니다.
 > 
 > 
 
@@ -183,7 +183,7 @@ ExpressRoute는 전송 라우터로 구성할 수 없습니다. 전송 라우팅
 | 노르웨이 서부 | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 12076:55043 | 
 | **아시아 태평양** | |
 | 동아시아 | 12076분 51010초 | 12076:52010 | 12076:53010 | 12076:54010 | 12076:55010 |
-| 동남아시아 | 12076분 51011초 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
+| 동남 아시아 | 12076분 51011초 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
 | **일본** | |
 | 일본 동부 | 12076분 51012초 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
 | 일본 서부 | 12076분 51013초 | 12076:52013 | 12076:53013 | 12076:54013 | 12076:55013 |
@@ -226,13 +226,13 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 | CRM 온라인\*\*\*\* |12076:5040 |
 | Azure 글로벌 서비스\* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
-| Azure Resource Manager |12076:5070 |
+| Azure 리소스 관리자 |12076:5070 |
 | 기타 Office 365 Online services * * | 12076분 5100초 |
 
-\*Azure 글로벌 서비스에는 지금은 Azure DevOps만 포함 됩니다.
+\* Azure 글로벌 서비스에는 지금은 Azure DevOps만 포함 됩니다.
 \*\*Microsoft에서 필요한 권한 부여는 [Microsoft 피어 링에 대 한 경로 필터 구성](how-to-routefilter-portal.md) 을 참조 하세요.\
-\*\*\*이 커뮤니티는 또한 Microsoft 팀 서비스에 필요한 경로도 게시 합니다.
-\*\*\*\*CRM Online은 Dynamics v 8.2를 지원 합니다. 상위 버전의 경우 Dynamics 배포를 위한 지역 커뮤니티를 선택 합니다.
+\*\*\* 이 커뮤니티는 또한 Microsoft 팀 서비스에 필요한 경로도 게시 합니다.
+\*\*\*\* CRM Online은 Dynamics v 8.2를 지원 합니다. 상위 버전의 경우 Dynamics 배포를 위한 지역 커뮤니티를 선택 합니다.
 
 > [!NOTE]
 > Microsoft는 Microsoft에 보급하는 경로에 설정한 BGP 커뮤니티 값을 인식하지 않습니다.

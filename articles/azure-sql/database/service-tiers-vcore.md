@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 08/14/2020
-ms.openlocfilehash: 7131ddac840d2854969147da2eeb82a890ce3410
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19f811c636d5cf3ffb3eef9904c7ba4f7d456b5f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586820"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462210"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore 모델 개요-Azure SQL Database 및 Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ Azure SQL Database 및 Azure SQL Managed Instance에서 사용 하는 가상 코
 
 VCore 모델의 서비스 계층 옵션에는 범용, 중요 비즈니스용 및 Hyperscale이 포함 됩니다. 서비스 계층은 일반적으로 가용성 및 재해 복구와 관련 된 저장소 아키텍처, 공간 및 i/o 제한 및 비즈니스 연속성 옵션을 정의 합니다.
 
-|-|**범용**|**중요 비즈니스용**|**하이퍼스케일**|
+|-|**일반 용도**|**중요 비즈니스용**|**하이퍼스케일**|
 |---|---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 예산에 맞게 균형 있고 확장 가능한 컴퓨팅 및 스토리지 옵션을 제공합니다. |는 여러 개의 격리 된 복제본을 사용 하 여 비즈니스 응용 프로그램에서 오류에 대 한 가장 높은 복원 력을 제공 하 고, 데이터베이스 복제본 별로 최고 i/o 성능을 제공 합니다.|확장성이 뛰어난 저장소 및 읽기 확장 요구 사항에 대 한 대부분의 비즈니스 워크 로드.  에서는 둘 이상의 격리 된 데이터베이스 복제본의 구성을 허용 하 여 오류에 대 한 더 높은 복원 력을 제공 합니다. |
 |스토리지|원격 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**서버**를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**SQL Managed Instance**: 32 g b-8tb |로컬 SSD 저장소를 사용 합니다.<br/>**프로 비전 된 계산 SQL Database**:<br/>5GB~4TB<br/>**SQL Managed Instance**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
@@ -100,7 +100,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 ### <a name="compute-and-memory-specifications"></a>계산 및 메모리 사양
 
 
-|하드웨어 세대  |Compute  |메모리  |
+|하드웨어 세대  |컴퓨팅  |메모리  |
 |:---------|:---------|:---------|
 |Gen4     |-Intel® E5-2673 v3 (Haswell) 2.4 GHz 프로세서<br>-최대 24 개의 vCores 프로 비전 (1 개 Vcores = 1 실제 코어)  |-vCore 당 7GB<br>-최대 168 GB 프로 비전|
 |5세대     |**프로비저닝된 컴퓨팅**<br>-Intel® E5-2673 v4 (Broadwell) 2.3 GHz, Intel® SP-8160 (Skylake) \* 및 intel® 8272CL (케스케이드 Lake) 2.5 GHz \* 프로세서<br>-최대 80 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)<br><br>**서버리스 컴퓨팅**<br>-Intel® E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel® SP-8160 (Skylake) * 프로세서<br>-최대 40 vCores 자동 확장 (1 Vcores = 1 하이퍼 스레드)|**프로비저닝된 컴퓨팅**<br>-vCore 당 5.1 GB<br>-최대 408 GB 프로 비전<br><br>**서버리스 컴퓨팅**<br>-VCore 당 최대 24gb까지 자동 확장<br>-최대 120 GB까지 자동 확장|
@@ -148,7 +148,7 @@ Azure Portal에서 만들 때 SQL Database의 데이터베이스 또는 풀에 �
   
 **기존 SQL Managed Instance의 하드웨어 생성을 변경 하려면**
 
-# <a name="the-azure-portal"></a>[Azure 포털](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
 SQL Managed Instance 페이지에서 설정 섹션 아래에 있는 **가격 책정 계층** 링크를 선택 합니다.
 
@@ -188,7 +188,7 @@ Gen5는 전 세계 대부분의 지역에서 사용할 수 있습니다.
 
 #### <a name="fsv2-series"></a>Fsv2 시리즈
 
-Fsv2 시리즈는 오스트레일리아 중부, 오스트레일리아 중부 2, 오스트레일리아 동부, 오스트레일리아 남동쪽, 브라질 남부, 캐나다 중부, 동아시아, 미국 동부, 프랑스 중부, 인도 중부, 인도 서 부, 대한민국 중부, 한국 남부, 북부 유럽, 남아프리카 공화국 북부, 동남 아시아, 영국 남부, 영국 서부, 유럽 서부, 미국 서 부 2 지역에서 사용할 수 있습니다.
+Fsv2 시리즈는 오스트레일리아 중부, 오스트레일리아 중부 2, 오스트레일리아 동부, 오스트레일리아 남동쪽, 브라질 남부, 캐나다 중부, 동아시아, 미국 동부, 프랑스 중부, 인도 중부, 대한민국 중부, 대한민국 남부, 북부, 남아프리카 공화국 북부, 동남 아시아, 영국 남부, 영국 서부, 유럽 서부, 미국 서 부 2 지역에서 사용할 수 있습니다.
 
 
 #### <a name="m-series"></a>M 시리즈

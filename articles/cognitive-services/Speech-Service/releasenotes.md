@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 8df54adf8f3aeaa58e30d6d9218cec8bec8c1121
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 94947499452c7f1b8515fee56996b13120232f34
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525924"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462380"
 ---
 # <a name="speech-service-release-notes"></a>Speech Service 릴리스 정보
 
 ## <a name="text-to-speech-2020-august-release"></a>텍스트 음성 변환 2020-8 월 릴리스
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 
 * **신경망: 새 말하기 스타일 `en-US` Aria 음성**. AriaNeural는 뉴스를 읽을 때 newscaster 처럼 들릴 수 있습니다. ' Newscast-공식 ' 스타일은 더 심각 하 게 들리지만 ' newscast-일반 ' 스타일은 더 낮은 수준에서 비공식적입니다. [SSML에서 말하는 스타일을 사용 하는 방법을](speech-synthesis-markup.md)참조 하세요.
 
@@ -50,7 +50,7 @@ ms.locfileid: "88525924"
 
 * Vocoders는 다음과 같은 음성에 대해 향상 된 기능 및 전반적인 성능 속도를 40%로 업데이트 했습니다.
 
-    | Locale | 음성 |
+    | 로캘 | 음성 |
     |---|---|    
     | `en-GB` | Mia |
     | `es-MX` | Dalia |
@@ -69,7 +69,7 @@ ms.locfileid: "88525924"
 ## <a name="new-speech-to-text-locales-2020-august-release"></a>새 음성 텍스트 로캘: 2020-8 월 릴리스
 8 월에는 음성 텍스트에서 26 개의 새 로캘이 출시 되었습니다. 2 유럽 언어 `cs-CZ` 와 `hu-HU` , 영어 (미국) 로캘, 영어 (미국)를 포함 하는 스페인어 로캘이 모두 포함 됩니다. 다음은 새 로캘의 목록입니다. [여기](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)에서 전체 언어 목록을 참조 하세요.
 
-| Locale  | 언어                          |
+| 로캘  | 언어                          |
 |---------|-----------------------------------|
 | `cs-CZ` | 체코어(체코)            | 
 | `en-HK` | 영어 (홍콩)               | 
@@ -130,7 +130,7 @@ ms.locfileid: "88525924"
 
 ## <a name="text-to-speech-2020-july-release"></a>텍스트 음성 변환 2020-7 월 릴리스
 
-### <a name="new-features"></a>새로운 기능
+### <a name="new-features"></a>새 기능
 
 * **신경망, 15 개의 새로운 신경망**: 신경망에 추가 된 새 음성: 신경망 `ar-EG` (이집트), Zariyah (아랍어), Salma `ar-SA` `ca-ES` (스페인), 카탈로니아어 (스페인), Christel `da-DK` (덴마크), Neerja ( `es-IN` 영어 (인도)) Noora `fi-FI` (핀란드), 힌디어 (인도), Swara의 `hi-IN` Colette, 네덜란드어 (네덜란드), 폴란드어 (폴란드어) `nl-NL` `pl-PL` `pt-PT` `ru-RU` `sv-SE` `th-TH` `zh-HK` `zh-TW` , Fernanda In 러시아어 (폴란드어), Dariya in 러시아어 (러시아), Hillevi in 태국어 (태국), Achara in 스웨덴어 (HiuGaai, 번체) 및 광둥어 in 중국어 (HsiaoYu 대만) [지원 되](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices)는 모든 언어를 확인 합니다.  
 
@@ -250,7 +250,7 @@ ms.locfileid: "88525924"
 
 **샘플**
 - **Go**: [음성 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone?pivots=programming-language-go) 및 [사용자 지정 음성 도우미](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/voice-assistants?pivots=programming-language-go)에 대 한 빠른 시작을 추가 했습니다. [여기](https://github.com/microsoft/cognitive-services-speech-sdk-go/tree/master/samples)에서 샘플 코드를 찾습니다. 
-- **JavaScript**: [텍스트 음성](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript)변환, [변환](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/translate-speech-to-text?pivots=programming-language-javascript)및 [의도 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript)에 대 한 빠른 시작을 추가 했습니다.
+- **JavaScript**: [텍스트 음성](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/text-to-speech?pivots=programming-language-javascript)변환, [변환](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started-speech-translation?tabs=script&pivots=programming-language-csharp)및 [의도 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/intent-recognition?pivots=programming-language-javascript)에 대 한 빠른 시작을 추가 했습니다.
 - [C \# ](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) 및 [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) 에 대 한 키워드 인식 샘플 (Android).  
 
 **Covid-19 요약 테스트:** 지난 몇 주 동안 원격으로 작업 하기 때문에 일반적으로 수행 하는 것 처럼 많은 수동 확인 테스트를 수행할 수 없습니다. 모든 항목을 손상 했을 수 있으며 자동화 된 테스트가 모두 통과 했을 수 있습니다. 오류가 발생 하지 않은 경우 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen)에서 알려주세요.<br>
@@ -597,7 +597,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 - Android
   - APK 생성 중에 ProGuard 지원이 설정되었습니다.
 
-**향상 된 기능**
+**개선 사항**
 
 - 스레드, 잠금, 뮤텍스 수를 줄이면서 내부 스레드 사용이 개선되었습니다.
 - 오류 보고/정보가 개선되었습니다. 일부 경우에는 오류 메시지가 모든 방식으로 전파 되지 않습니다.
@@ -629,7 +629,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 - 프록시 지원: 개체에서 `SpeechConfig` 이제 함수를 호출 하 여 프록시 정보 (호스트 이름, 포트, 사용자 이름 및 암호)를 설정할 수 있습니다. iOS에서는 아직 이 기능을 사용할 수 없습니다.
 - 향상된 오류 코드 및 메시지입니다. 인식이 오류를 반환한 경우 이미 `Reason`(취소된 이벤트의) 또는 `CancellationDetails`(인식 결과의) `Error`로 설정되어 있습니다. 취소 이벤트에는 이제 두 개의 추가 멤버 `ErrorCode` 및 `ErrorDetails`가 포함됩니다. 서버에서 보고된 오류를 사용하여 추가 오류 정보를 반환하는 경우 해당 서버를 새 멤버에서 사용할 수 있습니다.
 
-**향상 된 기능**
+**개선 사항**
 
 - 인식기 구성에서 추가 확인을 추가하고, 추가 오류 메시지를 추가했습니다.
 - 오디오 파일의 중간에 긴 무음 시간 처리가 향상되었습니다.

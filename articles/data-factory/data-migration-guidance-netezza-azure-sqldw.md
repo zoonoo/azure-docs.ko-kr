@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
-ms.openlocfilehash: a0263880262da95f4d26ee8388da464e9a59efca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2197136b86d0bfbb2de79af6712c953339d46371
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416452"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442840"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Azure Data Factory를 사용 하 여 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory은 온-프레미스 Netezza 서버에서 Azure storage 계정 또는 Azure SQL Data Warehouse 데이터베이스로 대규모로 데이터를 마이그레이션하는 데 성능과 강력 하 고 비용 효율적인 메커니즘을 제공 합니다. 
+Azure Data Factory은 온-프레미스 Netezza 서버에서 Azure storage 계정 또는 Azure Synapse Analytics (이전의 SQL Data Warehouse) 데이터베이스로 대규모로 데이터를 마이그레이션하는 안정적이 고, 강력 하며, 비용 효율적인 메커니즘을 제공 합니다. 
 
 이 문서에서는 데이터 엔지니어 및 개발자를 위한 다음 정보를 제공합니다.
 
@@ -57,7 +57,7 @@ Azure Data Factory 복사 작업을 사용 하 여 원본 및 싱크 데이터 �
 
 ## <a name="network-security"></a>네트워크 보안 
 
-기본적으로 Azure Data Factory는 HTTPS (하이퍼텍스트 전송 프로토콜 보안)를 통해 암호화 된 연결을 사용 하 여 온-프레미스 Netezza 서버에서 Azure storage 계정 또는 Azure SQL Data Warehouse 데이터베이스로 데이터를 전송 합니다. HTTPS는 전송 중인 데이터의 암호화를 제공하고, 도청 및 메시지 가로채기(man-in-the-middle) 공격을 방지합니다.
+기본적으로 Azure Data Factory는 HTTPS (하이퍼텍스트 전송 프로토콜 보안)를 통해 암호화 된 연결을 사용 하 여 온-프레미스 Netezza 서버에서 Azure storage 계정 또는 Azure Synapse Analytics 데이터베이스로 데이터를 전송 합니다. HTTPS는 전송 중인 데이터의 암호화를 제공하고, 도청 및 메시지 가로채기(man-in-the-middle) 공격을 방지합니다.
 
 또는 공용 인터넷을 통해 데이터를 전송 하지 않으려는 경우 Azure Express 경로를 통해 개인 피어 링 링크를 통해 데이터를 전송 하 여 더 높은 수준의 보안을 달성할 수 있습니다. 
 
@@ -109,7 +109,7 @@ Azure Data Factory 복사 작업을 사용 하 여 원본 및 싱크 데이터 �
    
    - [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) 또는 [저장소 계정 키](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication)를 사용할 수도 있습니다. 
 
-- Azure SQL Data Warehouse에 인증 하려면:
+- Azure Synapse Analytics에 인증 하려면:
 
    - [Azure 리소스에 관리 되는 id를](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity)사용 하는 것이 좋습니다.
    
@@ -131,7 +131,7 @@ Azure Data Factory 복사 작업을 사용 하 여 원본 및 싱크 데이터 �
 
 네트워크 또는 데이터 저장소의 일시적인 문제로 인해 복사 작업이 실패 하는 경우 실패 한 복사 작업을 다시 실행 하 여 테이블에서 특정 파티션을 다시 로드할 수 있습니다. 다른 파티션을 로드 하는 다른 복사 작업은 영향을 받지 않습니다.
 
-Azure SQL Data Warehouse 데이터베이스에 데이터를 로드 하는 경우 Azure Blob storage를 사용 하 여 복사 작업 내에서 PolyBase를 스테이징으로 사용 하도록 설정 하는 것이 좋습니다.
+Azure Synapse Analytics 데이터베이스에 데이터를 로드 하는 경우 Azure Blob storage를 사용 하 여 복사 작업 내에서 PolyBase를 스테이징으로 사용 하도록 설정 하는 것이 좋습니다.
 
 ### <a name="migrate-delta-data"></a>델타 데이터 마이그레이션 
 
@@ -162,7 +162,7 @@ Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생
 
 ### <a name="estimate-your-pricing"></a>가격 책정 예측 
 
-온-프레미스 Netezza 서버에서 Azure SQL Data Warehouse 데이터베이스로 데이터를 마이그레이션하기 위해 생성 되는 다음 파이프라인을 고려 합니다.
+온-프레미스 Netezza 서버에서 Azure Synapse Analytics 데이터베이스로 데이터를 마이그레이션하기 위해 생성 되는 다음 파이프라인을 고려 합니다.
 
 ![가격 책정 파이프라인](media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png)
 
@@ -196,7 +196,7 @@ Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생
 - [ODBC 커넥터](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Azure Blob storage 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Azure Data Lake Storage Gen2 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Azure SQL 데이터 웨어하우스 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
+- [Azure Synapse Analytics 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
 - [복사 작업 성능 조정 가이드](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [자체 호스팅 통합 런타임 만들기 및 구성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [자체 호스팅 Integration Runtime HA 및 확장성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)

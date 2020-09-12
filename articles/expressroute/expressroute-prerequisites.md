@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: 필수 조건'
 description: 이 페이지에서는 Azure ExpressRoute 회로를 주문하기 전에 충족해야 하는 요구 사항 목록을 제공합니다. 검사 목록을 포함합니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: cherylmc
-ms.openlocfilehash: a72eba9bde0745e66bdf8e7efd8eaec7d6a0b186
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 87c8a7523222afd3ae4daeb8fb5824025e693cd1
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74083369"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569631"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 필수 구성 요소 및 검사 목록
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 다음 섹션에 나열된 다음 요구 사항을 충족하는지 확인해야 합니다.
@@ -20,8 +20,8 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Azure 계정
-* 유효한 활성 Microsoft Azure 계정 ExpressRoute 회로를 설정하려면 이 계정이 필요합니다. ExpressRoute 회로는 Azure 구독 내의 리소스입니다. Azure 구독은 Office 365와 같은 비 Azure Microsoft 클라우드 서비스에 대 한 연결이 제한 되는 경우에도 필요 합니다.
-* 활성 Office 365 구독(Office 365 서비스를 사용하는 경우). 자세한 내용은 이 문서의 Office 365 특정 요구 사항 섹션을 참조하세요.
+* 유효한 활성 Microsoft Azure 계정 ExpressRoute 회로를 설정하려면 이 계정이 필요합니다. ExpressRoute 회로는 Azure 구독 내의 리소스입니다. Azure 구독은 Microsoft 365와 같은 비 Azure Microsoft 클라우드 서비스로 연결을 제한 하는 경우에도 필요 합니다.
+* 활성 Microsoft 365 구독 (Microsoft 365 서비스를 사용 하는 경우) 자세한 내용은이 문서의 Microsoft 365 특정 요구 사항 섹션을 참조 하세요.
 
 ## <a name="connectivity-provider"></a>연결 공급자
 
@@ -36,16 +36,16 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
 * **QoS**: 비즈니스용 Skype에는 차별화된 QoS 처리를 필요로 하는 다양한 서비스(예: 음성, 비디오, 텍스트)가 있습니다. 사용자와 공급자는 [QoS 요구 사항](expressroute-qos.md)을 따라야 합니다.
 * **네트워크 보안**: ExpressRoute를 통해 Microsoft Cloud에 연결할 때 [네트워크 보안](../best-practices-network-security.md)을 고려합니다.
 
-## <a name="office-365"></a>Office 365
-ExpressRoute에서 Office 365를 사용하도록 설정하려는 경우 Office 365 요구 사항에 대한 자세한 내용은 다음 문서를 검토합니다.
+## <a name="microsoft-365"></a>Microsoft 365
+Express 경로에서 Microsoft 365를 사용 하도록 설정 하려는 경우 Microsoft 365 요구 사항에 대 한 자세한 내용은 다음 문서를 검토 하세요.
 
-* [Office 365용 ExpressRoute 개요](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
-* [Office 365 용 Express 경로를 사용 하 여 라우팅](https://support.office.com/article/Routing-with-ExpressRoute-for-Office-365-e1da26c6-2d39-4379-af6f-4da213218408)
-* [ExpressRoute를 사용한 고가용성 및 장애 조치](https://aka.ms/erhighavailability)
-* [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-* [Office 365에 대한 네트워크 계획 및 성능 조정](https://support.office.com/article/Network-planning-and-performance-tuning-for-Office-365-e5f1228c-da3c-4654-bf16-d163daee8848)
-* [네트워크 대역폭 계산기 및 도구](https://support.office.com/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
-* [온-프레미스 환경과 Office 365 통합](https://support.office.com/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
+* [Microsoft 365 용 Azure Express 경로](/microsoft-365/enterprise/azure-expressroute)
+* [Microsoft 365 용 Express 경로를 사용 하 여 라우팅](/microsoft-365/enterprise/routing-with-expressroute)
+* [ExpressRoute를 사용한 고가용성 및 장애 조치(failover)](https://aka.ms/erhighavailability)
+* [Microsoft 365 Url 및 IP 주소 범위](/microsoft-365/enterprise/urls-and-ip-address-ranges)
+* [Microsoft 365에 대 한 네트워크 계획 및 성능 조정](/microsoft-365/enterprise/network-planning-and-performance)
+* [Microsoft 365에 대 한 네트워크 및 마이그레이션 계획](/microsoft-365/enterprise/network-and-migration-planning)
+* [온-프레미스 환경과 Microsoft 365 통합](/microsoft-365/enterprise/microsoft-365-integration)
 * [Office 365 고급 교육 비디오의 ExpressRoute](https://channel9.msdn.com/series/aer/)
 
 ## <a name="next-steps"></a>다음 단계

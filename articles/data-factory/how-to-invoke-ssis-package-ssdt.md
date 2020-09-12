@@ -11,13 +11,13 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 08/10/2020
-ms.openlocfilehash: 006b7db9f63f5ba74fee936383206b18c42aa038
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.date: 09/06/2020
+ms.openlocfilehash: fb5b5cb0ac4a9ace7b5de5e92308da58fd2b1fec
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041867"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504947"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>SSDT에서 Azure에서 SSIS 패키지 실행
 
@@ -27,7 +27,7 @@ ms.locfileid: "88041867"
 
 이 기능을 사용 하 여 새로 만든/기존 Azure-SSIS IR을 SSIS 프로젝트에 연결한 다음 패키지를 실행할 수 있습니다.  Azure SQL Database 서버 또는 프로젝트 배포 모델의 관리 되는 인스턴스에서 호스팅하는 SSIS 카탈로그 (SSISDB)에 배포할 패키지 실행을 지원 합니다. 패키지 배포 모델에서 Azure SQL 관리 되는 인스턴스에 의해 호스트 되는 파일 시스템/Azure Files/SQL Server 데이터베이스 (MSDB)에 배포 되는 패키지 실행도 지원 합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 기능을 사용 하려면 [여기](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)에서 Visual STUDIO 용 SSIS 프로젝트 확장 (VS)을 사용 하 여 최신 SSDT를 다운로드 하 여 설치 하세요. 또는 [여기](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)에서 최신 SSDT를 독립 실행형 설치 관리자로 다운로드 하 여 설치할 수도 있습니다.
 
@@ -45,7 +45,7 @@ Azure 사용 프로젝트가 생성 된 후 Azure Data Factory에서 SSIS에 연
 
 Azure-SSIS IR에 즉시 연결 하려면 [Azure-SSIS IR에 연결](#connectssisir) 을 참조 하세요. 자세한 내용은을 참조 하세요. SSDT의 솔루션 탐색기 창에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭 하 고 메뉴를 팝업 하 여 나중에 연결할 수도 있습니다. 그런 다음 Azure Data Factory 하위 메뉴 **에서** ssis의 **AZURE DATA FACTORY 항목에서 ssis에 연결** 을 선택 합니다.
 
-### <a name="azure-enabling-existing-ssis-projects"></a><a name="azureenableproject"></a>Azure-기존 SSIS 프로젝트를 사용 하도록 설정
+### <a name="azure-enabling-existing-ssis-projects"></a><a name="azureenableproject"></a> Azure-기존 SSIS 프로젝트를 사용 하도록 설정
 
 기존 SSIS 프로젝트의 경우 다음 단계에 따라 Azure를 사용 하도록 설정할 수 있습니다.
 
@@ -57,13 +57,13 @@ Azure-SSIS IR에 즉시 연결 하려면 [Azure-SSIS IR에 연결](#connectssisi
 
    ![Visual Studio 구성 선택](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-select-visual-studio-configurations.png)
 
-3. Azure-기존 SSIS 프로젝트를 사용 하도록 설정 하려면 대상 서버 버전을 Azure-SSIS IR에서 지 원하는 최신 버전으로 설정 해야 합니다. 현재 Azure-SSIS IR에는 140의 기본 호환성 수준이 있으며,이는 **SQL Server 2017**와 동일 합니다. SQL Server 2017에서 지원 되지 않는 추가 구성 요소가 패키지에 포함 되어 있지 않은지 확인 하세요. 또한 사용자 지정 설치를 통해 Azure-SSIS IR에 호환 되는 추가 구성 요소가 모두 설치 되어 있는지 확인 하세요. [Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)사용자 지정을 참조 하세요. 계속 하려면 **다음** 단추를 선택 합니다.
+3. Azure-기존 SSIS 프로젝트를 사용 하도록 설정 하려면 대상 서버 버전을 Azure-SSIS IR에서 지 원하는 최신 버전으로 설정 해야 합니다. Azure-SSIS IR 현재 **SQL Server 2017**을 기반으로 합니다. SQL Server 2017에서 지원 되지 않는 추가 구성 요소가 패키지에 포함 되어 있지 않은지 확인 하세요. 또한 사용자 지정 설치를 통해 Azure-SSIS IR에 호환 되는 추가 구성 요소가 모두 설치 되어 있는지 확인 하세요. [Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)사용자 지정을 참조 하세요. 계속 하려면 **다음** 단추를 선택 합니다.
 
    ![대상 서버 버전 전환](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-switch-target-server-version-step.png)
 
 4. [Azure-SSIS IR에 연결](#connectssisir) 을 참조 하 여 프로젝트를 Azure-SSIS IR 연결을 완료 합니다.
 
-## <a name="connect-azure-enabled-projects-to-ssis-in-azure-data-factory"></a><a name="connectssisir"></a>Azure Data Factory에서 SSIS에 Azure 사용 프로젝트 연결
+## <a name="connect-azure-enabled-projects-to-ssis-in-azure-data-factory"></a><a name="connectssisir"></a> Azure Data Factory에서 SSIS에 Azure 사용 프로젝트 연결
 
 Azure 사용 프로젝트를 ADF의 SSIS에 연결 하면 패키지를 Azure Files로 업로드 하 고 Azure-SSIS IR에서 실행할 수 있습니다. 이렇게 하려면 다음 단계를 수행 합니다.
 
@@ -117,7 +117,7 @@ Azure에서 패키지를 실행 하기 전에이를 평가 하 여 잠재적인 
 
 ## <a name="execute-ssis-packages-in-azure"></a>Azure에서 SSIS 패키지 실행
 
-### <a name="configuring-azure-enabled-settings"></a><a name="azureenabledsettings"></a>Azure 사용 설정 구성
+### <a name="configuring-azure-enabled-settings"></a><a name="azureenabledsettings"></a> Azure 사용 설정 구성
 
 Azure에서 패키지를 실행 하기 전에 azure에서 사용할 수 있는 설정을 구성할 수 있습니다. 예를 들어 다음 단계를 수행 하 여 Azure-SSIS IR에서 Windows 인증을 사용 하도록 설정 하 여 온-프레미스/클라우드 데이터 저장소에 액세스할 수 있습니다.
 
@@ -151,7 +151,7 @@ Azure 사용 프로젝트를 ADF의 SSIS에 연결 하 고, 클라우드 호환�
 
 패키지에 로컬 파일 시스템에 저장 된 자식 패키지를 참조 하는 패키지 실행 태스크가 포함 되어 있는 경우 다음과 같은 추가 단계를 수행 합니다.
 
-1. 프로젝트에 연결 된 동일한 Azure Storage 계정으로 Azure Files에 자식 패키지를 업로드 하 고 새 UNC (범용 명명 규칙) 경로를 가져옵니다. 예를 들면`\\YourStorageAccountName.file.core.windows.net\ssdtexecution\YourChildPackage1.dtsx`
+1. 프로젝트에 연결 된 동일한 Azure Storage 계정으로 Azure Files에 자식 패키지를 업로드 하 고 새 UNC (범용 명명 규칙) 경로를 가져옵니다. 예를 들면 `\\YourStorageAccountName.file.core.windows.net\ssdtexecution\YourChildPackage1.dtsx`
 
 2. 패키지 실행 태스크의 파일 연결 관리자에 있는 자식 패키지의 파일 경로를 새 UNC 경로로 바꿉니다.
    - SSDT를 실행 하는 로컬 컴퓨터에서 새 UNC 경로에 액세스할 수 없는 경우 파일 연결 관리자의 속성 패널에 해당 경로를 입력할 수 있습니다.
@@ -168,7 +168,7 @@ Azure에서 SSIS 패키지를 실행 하는 것은 **EncryptSensitiveWithUserKey
 
 패키지가 이미 **EncryptSensitiveWithPassword**EncryptAllWithPassword 보호 수준을 사용 하도록 구성 된 경우에는 / **EncryptAllWithPassword** 변경 되지 않은 상태로 유지 됩니다. Azure-SSIS IR에서 실행 하기 위해 패키지를 Azure Files에 업로드할 때에도 암호화 암호가 임의로 생성 됩니다.
 
-### <a name="switching-package-execution-environments"></a><a name="switchenvironment"></a>패키지 실행 환경 전환
+### <a name="switching-package-execution-environments"></a><a name="switchenvironment"></a> 패키지 실행 환경 전환
 
 프로젝트 배포 모델에서 프로젝트/패키지를 매개 변수화 하는 경우 여러 VS 구성을 만들어 패키지 실행 환경을 전환할 수 있습니다. 이러한 방식으로 런타임에 프로젝트/패키지 매개 변수에 환경 특정 값을 할당할 수 있습니다. 로컬 및 클라우드 환경에서 패키지를 실행 하기 위해 두 개 이상의 서로 다른 VS 구성을 사용 하는 것이 좋습니다. 따라서 클라우드 구성에 대해 프로젝트를 사용 하도록 설정할 수 있습니다. 로컬 컴퓨터와 Azure 간에 패키지 실행 환경을 전환 하는 단계별 예제는 다음과 같습니다.
 

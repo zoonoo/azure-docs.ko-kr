@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: 마이그레이션, aro, openshift, red hat
-ms.openlocfilehash: 68e8be24273dfab490d2423b76c372f2ff9f2b38
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 322c0cf5ece2a9c950e71b947e2aa6088a165cb8
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513189"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469748"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Azure Red Hat OpenShift 3.11에서 Azure Red Hat OpenShift 4로 마이그레이션
 
@@ -100,7 +100,7 @@ Azure Red Hat OpenShift 4는 다음 PersistentVolume 플러그 인을 지원 합
 
 Azure Red Hat OpenShift 4는 소스 코드에서 이미지를 빌드하고, 배포 하 고, 해당 수명 주기를 관리할 수 있습니다. 이를 사용 하도록 설정 하기 위해 Azure Red Hat OpenShift는 Azure Red Hat OpenShift 환경에 배포 하 여 이미지를 로컬로 관리할 수 있는 4 개의 [내부 통합 컨테이너 이미지 레지스트리](https://docs.openshift.com/aro/4/registry/registry-options.html) 를 제공 합니다.
 
-[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), [red hat](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-quay-overview_registry-options), 레지스트리 또는 인증을 사용 하는 [red hat Registry](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options)와 같은 외부 레지스트리를 사용 하는 경우 클러스터에서 저장소에 액세스할 수 있도록 클러스터에 자격 증명을 제공 하는 단계를 수행 합니다.
+[Azure Container Registry](../container-registry/index.yml), [red hat](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-quay-overview_registry-options), 레지스트리 또는 인증을 사용 하는 [red hat Registry](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options)와 같은 외부 레지스트리를 사용 하는 경우 클러스터에서 저장소에 액세스할 수 있도록 클러스터에 자격 증명을 제공 하는 단계를 수행 합니다.
 
 ### <a name="monitoring"></a>모니터링
 
@@ -128,4 +128,3 @@ az openshift delete --name $CLUSTER_NAME
 ```
 ## <a name="next-steps"></a>다음 단계
 Red Hat이 제공 하는 Azure Red Hat OpenShift 설명서를 [여기](https://docs.openshift.com/aro/4/welcome/index.html)에서 확인 하세요.
-

@@ -6,16 +6,16 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 775aa44043e9c8900bd0c040ab603736314ea34e
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694908"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469986"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 Azure AD 테 넌 트 만들기
 
-Red Hat OpenShift를 Microsoft Azure 클러스터를 만들 [Azure Active Directory (AZURE AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 테 넌 트가 필요 합니다. *테 넌 트는* azure, Microsoft Intune 또는 Microsoft 365에 등록 하 여 Microsoft와의 관계를 만들 때 조직 또는 앱 개발자가 받는 azure AD의 전용 인스턴스입니다. 각 Azure AD 테 넌 트는 서로 다르며 다른 Azure AD 테 넌 트와 별개 이며 고유한 회사 및 학교 id와 앱 등록을 포함 합니다.
+Red Hat OpenShift를 Microsoft Azure 클러스터를 만들 [Azure Active Directory (AZURE AD)](../active-directory/develop/quickstart-create-new-tenant.md) 테 넌 트가 필요 합니다. *테 넌 트는* azure, Microsoft Intune 또는 Microsoft 365에 등록 하 여 Microsoft와의 관계를 만들 때 조직 또는 앱 개발자가 받는 azure AD의 전용 인스턴스입니다. 각 Azure AD 테 넌 트는 서로 다르며 다른 Azure AD 테 넌 트와 별개 이며 고유한 회사 및 학교 id와 앱 등록을 포함 합니다.
 
 Azure AD 테 넌 트가 아직 없는 경우 다음 지침에 따라 새로 만듭니다.
 
@@ -39,7 +39,7 @@ Azure AD 테 넌 트가 아직 없는 경우 다음 지침에 따라 새로 만�
 
 ## <a name="resources"></a>리소스
 
-[AZURE AD 테 넌 트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)에 대 한 자세한 내용은 [Azure Active Directory 설명서](https://docs.microsoft.com/azure/active-directory/) 를 확인 하세요.
+[AZURE AD 테 넌 트](../active-directory/develop/quickstart-create-new-tenant.md)에 대 한 자세한 내용은 [Azure Active Directory 설명서](../active-directory/index.yml) 를 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

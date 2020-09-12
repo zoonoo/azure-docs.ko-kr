@@ -1,19 +1,19 @@
 ---
 title: Azure 프라이빗 엔드포인트를 사용하여 비공개로 웹앱에 연결
-description: Azure 프라이빗 엔드포인트를 사용하여 비공개로 웹앱에 연결
+description: 이 문서에서는 Azure 개인 끝점을 사용 하 여 개인적으로 웹 앱에 연결 하는 방법을 설명 합니다.
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 09/08/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 1b3ac4c79ce92f591e74821a9f355717e4b22ea4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d547546c3c0e0bbcdde65a654bf373ab7407be3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737396"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569464"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Azure 개인 끝점 (미리 보기)을 사용 하 여 개인적으로 웹 앱에 연결
 
@@ -27,7 +27,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="virtual-network-and-virtual-machine"></a>가상 네트워크 및 가상 컴퓨터
 
@@ -39,7 +39,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 1. 화면의 왼쪽 위에서 **리소스 만들기**  >  **네트워킹**  >  **가상 네트워크** 를 선택 하거나 검색 상자에서 **virtual network** 를 검색 합니다.
 
-1. **가상 네트워크 만들기**에서 기본 사항 탭에 다음 정보를 입력 하거나 선택 합니다.
+1. **가상 네트워크 만들기**의 기본 탭에서 다음 정보를 입력하거나 선택합니다.
 
    > [!div class="mx-imgBorder"]
    > ![Virtual Network 만들기][1]
@@ -65,7 +65,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. 가상 머신 만들기 - 기본 사항에서 다음 정보를 입력하거나 선택합니다.
 
    > [!div class="mx-imgBorder"]
-   >![가상 컴퓨터 기본][4]
+   >![가상 컴퓨터 기본 ][4]
 
 1. **"다음: 디스크"를** 선택 합니다.
 
@@ -94,7 +94,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. 웹 앱 만들기-기본에서 다음 정보를 입력 하거나 선택 합니다.
 
    > [!div class="mx-imgBorder"]
-   >![웹 앱 기본][6]
+   >![웹 앱 기본 ][6]
 
 1. **"검토 + 만들기"** 를 선택 합니다.
 
@@ -138,13 +138,13 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 1. 다운로드 한 .rdp 파일을 엽니다.
 
-- 메시지가 표시되면 연결을 선택합니다.
-- VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다.
+   - 메시지가 표시되면 연결을 선택합니다.
+   - VM을 만들 때 지정한 사용자 이름과 암호를 입력합니다.
 
-> [!Note]
-> VM을 만들 때 입력 한 자격 증명을 지정 하려면 다른 계정을 사용 하 > 다른 옵션을 선택 해야 할 수도 있습니다.
+   > [!Note]
+   > VM을 만들 때 입력 한 자격 증명을 지정 하려면 다른 계정을 사용 하 > 다른 옵션을 선택 해야 할 수도 있습니다.
 
-- 확인을 선택합니다.
+   - 확인을 선택합니다.
 
 1. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. 인증서 경고가 표시되면 예 또는 계속을 선택합니다.
 
@@ -174,12 +174,21 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. MyVM에서 공용 IP를 통해 웹 앱에 액세스할 수 없는지 확인 합니다. 브라우저를 열고 웹 앱 이름을 붙여 넣습니다. 403 금지 된 오류 페이지가 있어야 합니다.
 
    > [!div class="mx-imgBorder"]
-   >![Forbidden][17]
+   >![IP 주소를 사용 하는 동안 오류가 발생 했습니다.][17]
 
-> [!Important]
-> 이 기능이 미리 보기 상태 이므로 DNS 항목을 수동으로 관리 해야 합니다.
+   > [!Important]
+   > 이 기능이 미리 보기 상태 이므로 DNS 항목을 수동으로 관리 해야 합니다.
 
-1. 호스트 항목을 만들고 파일 탐색기를 연 다음 호스트 파일을 찾습니다.
+   DNS의 경우 다음과 같은 두 가지 옵션을 선택할 수 있습니다.
+   - VM의 호스트 파일 사용 
+   - 또는 Azure DNS 개인 영역 서비스를 사용 합니다.
+
+1. 첫 번째 해결 방법: privatelink.azurewebsites.net 이라는 DNS 개인 영역을 만들고 VNet에 연결할 수 있습니다.
+1. 그런 다음 개인 끝점의 IP 주소를 사용 하 여 두 개의 A 레코드 (앱 이름 및 SCM 이름)를 만들어야 합니다.
+   > [!div class="mx-imgBorder"]
+   >![DNS 개인 영역 레코드][21]
+
+1. 두 번째 해결 방법: 호스트 항목을 만들고 파일 탐색기를 연 다음 호스트 파일을 찾습니다.
 
    > [!div class="mx-imgBorder"]
    >![호스트 파일][18]
@@ -214,7 +223,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png
 [2]: ./media/create-private-endpoint-webapp-portal/ipaddresses.png
 [3]: ./media/create-private-endpoint-webapp-portal/subnet.png
-[4]: ./media/create-private-endpoint-webapp-portal/virtualmachine.png
+[4]: ./media/create-private-endpoint-webapp-portal/virtual-machine.png
 [5]: ./media/create-private-endpoint-webapp-portal/vmnetwork.png
 [6]: ./media/create-private-endpoint-webapp-portal/webapp.png
 [7]: ./media/create-private-endpoint-webapp-portal/webappnetworking.png
@@ -231,6 +240,8 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 [18]: ./media/create-private-endpoint-webapp-portal/explorer.png
 [19]: ./media/create-private-endpoint-webapp-portal/hosts.png
 [20]: ./media/create-private-endpoint-webapp-portal/webappwithpe.png
+[21]: ./media/create-private-endpoint-webapp-portal/dns-private-zone-records.png
+
 
 <!--Links-->
 [privatenedpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

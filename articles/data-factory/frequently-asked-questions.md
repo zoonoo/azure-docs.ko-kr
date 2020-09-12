@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187284"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440510"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 
@@ -22,7 +22,7 @@ ms.locfileid: "84187284"
 
 이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  
 
-## <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요? 
+## <a name="what-is-azure-data-factory"></a>Azure Data Factory란? 
 Data Factory은 데이터의 이동과 변환을 자동화 하는 완전히 관리 되는 클라우드 기반의 데이터 통합 ETL 서비스입니다. 장비를 작동하여 원자재를 완제품으로 변형하는 공장처럼 Azure Data Factory는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다. 
 
 Azure Data Factory를 사용하여 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는 데이터 기반 워크플로를 만들 수 있습니다. 데이터 흐름을 사용 하 여 데이터를 처리 하 고 변환할 수 있습니다. 또한 ADF는 Azure HDInsight, Azure Databricks 및 SQL Server Integration Services (SSIS) Integration runtime과 같은 계산 서비스를 사용 하 여 직접 코딩 된 변환에 대 한 외부 계산 엔진을 지원 합니다. 
@@ -101,7 +101,7 @@ Integration runtime은 다양 한 네트워크 환경에서 다음과 같은 데
 
 데이터를 이동 하 고 변환 하는 데 필요한 만큼 하나 이상의 통합 런타임 인스턴스를 배포할 수 있습니다. Integration runtime은 Azure 공용 네트워크 또는 개인 네트워크 (온-프레미스, Azure Virtual Network 또는 Amazon Web Services 가상 사설 클라우드 [VPC])에서 실행할 수 있습니다. 
 
-자세한 내용은 [Azure Data Factory의 통합 런타임](concepts-integration-runtime.md)을 참조 하세요.
+자세한 내용은 [Azure Data Factory의 Integration Runtime](concepts-integration-runtime.md)을 참조하세요.
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>통합 런타임의 수 제한은 얼마입니까?
 Data Factory에서 사용할 수 있는 Integration Runtimes 인스턴스의 수에는 엄격한 제한이 없습니다. 하지만 Integration Runtime이 SSIS 패키지 실행을 위해 구독당 사용할 수 있는 VM 코어 수는 제한되어 있습니다. 자세한 내용은 [Data Factory 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits)을 참조하세요.
@@ -109,7 +109,7 @@ Data Factory에서 사용할 수 있는 Integration Runtimes 인스턴스의 수
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Azure Data Factory의 최상위 개념은 무엇인가요?
 Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data Factory)가 있을 수 있습니다. Azure Data Factory는 함께 작동하여 데이터를 이동하고 변환하는 단계를 사용하여 데이터 기반 워크플로를 작성할 수 있는 플랫폼으로서 함께 작동하는 네 가지 핵심 구성 요소로 구성됩니다.
 
-### <a name="pipelines"></a>Pipelines
+### <a name="pipelines"></a>파이프라인
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 작업 단위를 수행하는 작업의 논리적 그룹입니다. 파이프라인의 활동이 모여 작업을 수행합니다. 예를 들어 Azure Blob에서 데이터를 수집한 다음 HDInsight 클러스터에서 Hive 쿼리를 실행하여 데이터를 분할하는 작업 그룹이 파이프라인에 포함될 수 있습니다. 이점은 각 작업을 개별적으로 관리하는 대신, 파이프라인을 사용하여 여러 작업을 하나의 집합으로 관리할 수 있다는 것입니다. 파이프라인의 작업을 서로 연결하여 순차적으로 작동하거나 독립적으로 병렬 작동할 수 있습니다.
 
 ### <a name="data-flows"></a>데이터 흐름
@@ -190,7 +190,7 @@ Microsoft에서 데이터 흐름에 대 한 도움말 또는 문제 해결을 �
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Data Factory에서 다른 90 데이터 집합 형식을 사용 하 여 데이터에 액세스 어떻게 할까요??
 
-데이터 흐름 매핑 기능을 사용 하면 현재 Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 분리 된 텍스트 파일을 Azure SQL Database Azure SQL Data Warehouse 고, Blob storage에서 파일을 Parquet 하거나 원본 및 싱크에 대해 기본적으로 Data Lake Storage Gen2 수 있습니다. 
+데이터 흐름 매핑 기능은 현재 Azure SQL Database, Azure Synapse Analytics (이전의 SQL Data Warehouse), Azure Blob storage 또는 Azure Data Lake Storage Gen2에서 분리 된 텍스트 파일, Blob storage의 Parquet 파일 및 원본 및 싱크에 대해 기본적으로 Data Lake Storage Gen2 수 있습니다. 
 
 복사 작업을 사용 하 여 다른 커넥터에서 데이터를 준비 하 고 데이터 흐름 작업을 실행 하 여 데이터를 준비한 후 데이터를 변환 합니다. 예를 들어 파이프라인이 먼저 Blob storage에 복사 된 다음 데이터 흐름 작업은 원본에서 데이터 집합을 사용 하 여 해당 데이터를 변환 합니다.
 

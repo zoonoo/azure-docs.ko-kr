@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 6496e5c953b3dd5e387a79906b22645ba4a24b4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 458336f27f01cfb0d127b96cd3df6aa40f8db0b3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84019982"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440561"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -28,7 +28,7 @@ ms.locfileid: "84019982"
 
 이 문서에서는 Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명합니다. Data Factory 관리 리소스는 Azure 보안 인프라를 기반으로 하며 Azure가 제공하는 모든 가능한 보안 수단을 사용합니다.
 
-Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](concepts-pipelines-activities.md)를 만듭니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 이 파이프라인은 데이터 팩터리가 작성된 지역에 상주합니다. 
+Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](concepts-pipelines-activities.md)를 만듭니다. 파이프라인은 한데 모여 작업을 수행하는 작업의 논리적 그룹화입니다. 이 파이프라인은 데이터 팩터리가 작성된 지역에 상주합니다. 
 
 Data Factory가 몇몇 지역에서만 지원되더라도 데이터 이동 서비스는 [전역적으로 지원](concepts-integration-runtime.md#integration-runtime-location)되며 데이터 준수, 효율성 및 네트워크 송신 비용 감소를 보장합니다. 
 
@@ -51,7 +51,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
-- **클라우드 시나리오**: 이 시나리오에서는 원본과 대상 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 스토리지 서비스가 포함됩니다. 지원되는 데이터 원본의 전체 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에서 확인하세요.
+- **클라우드 시나리오**: 이 시나리오에서는 원본과 대상 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure Synapse Analytics (이전의 SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 저장소 서비스가 포함 됩니다. 지원되는 데이터 원본의 전체 목록은 [지원되는 데이터 저장소 및 형식](copy-activity-overview.md#supported-data-stores-and-formats)에서 확인하세요.
 - **하이브리드 시나리오**: 이 시나리오에서는 원본 또는 대상 중 하나는 온-프레미스 회사 네트워크 내부 또는 방화벽 뒤에 있습니다. 또는 데이터 저장소는 프라이빗 네트워크 또는 가상 네트워크(가장 자주 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -67,7 +67,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 클라우드 데이터 저장소가 HTTPS 또는 TLS를 지원하는 경우 Data Factory의 데이터 이동 서비스와 클라우드 데이터 저장소 간의 모든 데이터 전송은 보안 채널 HTTPS 또는 TLS를 통해 이루어집니다.
 
 > [!NOTE]
-> Azure SQL Database와 Azure SQL Data Warehouse에 대한 모든 연결은 항상 데이터를 데이터베이스로/에서 전송하는 중에 암호화(SSL/TLS)가 필요합니다. JSON을 사용하여 파이프라인을 작성하는 동안 암호화 속성을 추가하고 연결 문자열에서 **true**로 설정합니다. Azure Storage의 경우 연결 문자열에 **HTTPS** 를 사용할 수 있습니다.
+> Azure SQL Database 및 Azure Synapse Analytics에 대 한 모든 연결은 데이터를 데이터베이스에 전송 하는 동안 암호화 (SSL/TLS)가 필요 합니다. JSON을 사용하여 파이프라인을 작성하는 동안 암호화 속성을 추가하고 연결 문자열에서 **true**로 설정합니다. Azure Storage의 경우 연결 문자열에 **HTTPS** 를 사용할 수 있습니다.
 
 > [!NOTE]
 > Oracle에서 데이터를 이동하면서 전송 중에 암호화를 사용하려면 아래 옵션 중 하나를 따르세요.
@@ -80,8 +80,8 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 ### <a name="data-encryption-at-rest"></a>휴지 상태의 암호화
 일부 데이터 저장소가 미사용 데이터 암호화를 지원합니다. 이러한 데이터 저장소에 데이터 암호화 메커니즘을 사용하는 것이 좋습니다. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-Azure SQL Data Warehouse의 TDE(투명한 데이터 암호화)는 미사용 데이터에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 데 도움을 줍니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Data Warehouse에서 데이터베이스 보호](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)를 참조하세요.
+#### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+Azure Synapse Analytics의 TDE (투명한 데이터 암호화)는 미사용 데이터에 대 한 실시간 암호화 및 암호 해독을 수행 하 여 악의적인 활동의 위협 으로부터 보호 합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [Azure Synapse Analytics에서 데이터베이스 보안](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)을 참조 하세요.
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database는 애플리케이션을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Database 및 Data Warehouse를 위한 투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 참조하세요.
@@ -153,10 +153,10 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 ![게이트웨이가 있는 IPSec VPN](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>IP 주소에 대 한 방화벽 구성 및 허용 목록 설정
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> IP 주소에 대 한 방화벽 구성 및 허용 목록 설정
 
 > [!NOTE] 
-> 각 데이터 원본에서 요구 하는 대로 회사 방화벽 수준에서 도메인에 대 한 포트를 관리 하거나 허용 목록을 설정 해야 할 수 있습니다. 이 표는 Azure SQL Database, Azure SQL Data Warehouse 및 Azure Data Lake Store만을 예제로 사용합니다.
+> 각 데이터 원본에서 요구 하는 대로 회사 방화벽 수준에서 도메인에 대 한 포트를 관리 하거나 허용 목록을 설정 해야 할 수 있습니다. 이 테이블은 Azure SQL Database, Azure Synapse Analytics 및 Azure Data Lake Store를 예제로만 사용 합니다.
 
 > [!NOTE] 
 > Azure Data Factory를 통한 데이터 액세스 전략에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory)를 참조 하세요.
@@ -169,7 +169,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> 각 데이터 원본에서 요구 하는 대로 회사 방화벽 수준에서 도메인에 대 한 포트를 관리 하거나 허용 목록을 설정 해야 할 수 있습니다. 이 표는 Azure SQL Database, Azure SQL Data Warehouse 및 Azure Data Lake Store만을 예제로 사용합니다.   
+> 각 데이터 원본에서 요구 하는 대로 회사 방화벽 수준에서 도메인에 대 한 포트를 관리 하거나 허용 목록을 설정 해야 할 수 있습니다. 이 테이블은 Azure SQL Database, Azure Synapse Analytics 및 Azure Data Lake Store를 예제로만 사용 합니다.   
 
 다음 표에서는 Windows 방화벽에 대한 인바운드 포트 요구 사항을 제공합니다.
 
@@ -185,12 +185,12 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 다음 클라우드 데이터 저장소를 사용 하려면 자체 호스팅 통합 런타임 컴퓨터의 IP 주소를 허용 해야 합니다. 이러한 데이터 저장소 중 일부에는 기본적으로 허용 목록이 필요 하지 않을 수 있습니다. 
 
 - [Azure SQL Database](../azure-sql/database/firewall-configure.md) 
-- [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
-- [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
+- [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Data Lake Storage](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 **자체 호스팅 통합 런타임을 다른 데이터 팩터리에서 공유할 수 있습니까?**
 
@@ -198,7 +198,7 @@ Azure Virtual Network는 클라우드의 사용자 네트워크를 논리적으�
 
 **자체 호스팅 통합 런타임 작동에 필요한 포트 요구 사항은 무엇입니까?**
 
-자체 호스팅 통합 런타임은 HTTP 기반 연결을 만들어서 인터넷에 액세스하게 합니다. 자체 호스팅 통합 런타임에서 이 연결을 만들려면 아웃바운드 포트 443이 열려야 합니다. 자격 증명 관리자 응용 프로그램에 대 한 컴퓨터 수준 (회사 방화벽 수준이 아님) 에서만 인바운드 포트 8060을 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본 또는 대상으로 사용되는 경우 포트 1433도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 IP 주소에 대 한 허용 목록 설정](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) 섹션을 참조 하세요. 
+자체 호스팅 통합 런타임은 HTTP 기반 연결을 만들어서 인터넷에 액세스하게 합니다. 자체 호스팅 통합 런타임에서 이 연결을 만들려면 아웃바운드 포트 443이 열려야 합니다. 자격 증명 관리자 응용 프로그램에 대 한 컴퓨터 수준 (회사 방화벽 수준이 아님) 에서만 인바운드 포트 8060을 엽니다. Azure SQL Database 또는 Azure Synapse Analytics를 원본 또는 대상으로 사용 하는 경우 포트 1433도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 IP 주소에 대 한 허용 목록 설정](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) 섹션을 참조 하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

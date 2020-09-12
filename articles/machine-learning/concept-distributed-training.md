@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 8c2867fc5d57cf9ad6eb6bf2d90e02c61e320120
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 62edee6a882191551ce2409646ea8b617576c059
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146660"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651159"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Azure Machine Learning를 사용한 분산 학습
 
@@ -24,7 +24,7 @@ ms.locfileid: "89146660"
 
 ## <a name="deep-learning-and-distributed-training"></a>심층 학습 및 분산 교육 
 
-분산 학습에는 [데이터 병렬 처리](#data-parallelism) 와 [모델 병렬 처리](#model-parallelism)라는 두 가지 주요 유형이 있습니다. 심층 학습 모델에 대 한 분산 교육의 경우 [Python의 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 는 인기 있는 프레임 워크, PyTorch 및 TensorFlow와의 통합을 지원 합니다. 두 프레임 워크는 분산 학습에 데이터 병렬 처리를 사용 하 고 계산 속도를 최적화 하기 위해 [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) 를 활용할 수 있습니다. 
+분산 학습에는 [데이터 병렬 처리](#data-parallelism) 와 [모델 병렬 처리](#model-parallelism)라는 두 가지 주요 유형이 있습니다. 심층 학습 모델에 대 한 분산 교육의 경우 [Python의 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 는 인기 있는 프레임 워크, PyTorch 및 TensorFlow와의 통합을 지원 합니다. 두 프레임 워크는 분산 학습에 데이터 병렬 처리를 사용 하 고 계산 속도를 최적화 하기 위해 [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) 를 활용할 수 있습니다. 
 
 * [PyTorch를 사용 하 여 분산 교육](how-to-train-pytorch.md#distributed-training)
 

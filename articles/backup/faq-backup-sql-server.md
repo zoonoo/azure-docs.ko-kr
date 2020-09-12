@@ -4,12 +4,12 @@ description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: c1efbc44ae1e4bea96c063e4dc734f1cc53a42ac
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9c6e99b81ce10cfabd4109bb18376b2579edef20
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180102"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500337"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -60,7 +60,7 @@ SQL 제한 사항에 따라 보조 복제본에서 전체 백업만 복사를 �
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>온-프레미스 가용성 그룹을 보호할 수 있나요?
 
-아니요. Azure Backup는 Azure에서 실행 되는 SQL Server 데이터베이스를 보호 합니다. Azure와 온-프레미스 컴퓨터 간에 AG (가용성 그룹)를 분산 하는 경우 주 복제본이 Azure에서 실행 되는 경우에만 AG를 보호할 수 있습니다. 또한 Azure Backup는 Recovery Services 자격 증명 모음과 동일한 Azure 지역에서 실행 되는 노드만 보호 합니다.
+아닙니다. Azure Backup는 Azure에서 실행 되는 SQL Server 데이터베이스를 보호 합니다. Azure와 온-프레미스 컴퓨터 간에 AG (가용성 그룹)를 분산 하는 경우 주 복제본이 Azure에서 실행 되는 경우에만 AG를 보호할 수 있습니다. 또한 Azure Backup는 Recovery Services 자격 증명 모음과 동일한 Azure 지역에서 실행 되는 노드만 보호 합니다.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>Azure 지역 간에 가용성 그룹을 보호할 수 있나요?
 
@@ -72,7 +72,7 @@ Azure Backup Recovery Services 자격 증명 모음은 자격 증명 모음과 �
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>백업 작업 메뉴에서 예약된 백업 작업을 볼 수 있나요?
 
-**백업 작업** 메뉴에는 주문형 백업 작업만 표시 됩니다. 예약 된 작업의 경우 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 사용 합니다.
+**백업 작업** 메뉴에는 예약 된 로그 백업이 매우 빈번 하 게 수행 되므로 예약 된 로그 백업을 제외 하 고 모든 예약 된 작업 및 요청 시 작업이 표시 됩니다. 예약 된 로그 작업의 경우 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 사용 합니다.
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>이후 데이터베이스가 백업을 위해 자동으로 추가되나요?
 

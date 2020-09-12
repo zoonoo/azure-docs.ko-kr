@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2020
-ms.openlocfilehash: f152283b1280cde2a26569b8acf10738e883e39e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 86d647a79b7babc2780cb0db904e689f3916673f
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816027"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500388"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
@@ -60,7 +60,7 @@ ISE에서 논리 앱을 만들고 실행 하는 경우 다중 테 넌 트 Logic 
   * Azure Automation, Azure Key Vault, Azure Event Grid 및 Azure Monitor 로그
   * FTP, SFTP-SSH, 파일 시스템 및 SMTP
   * SAP, IBM MQ, IBM DB2 및 IBM 3270
-  * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
+  * SQL Server, Azure Synapse Analytics, Azure Cosmos DB
   * AS2, X12 및 EDIFACT
 
   드문 경우 이지만 온-프레미스 시스템 또는 데이터 원본에 ISE 커넥터를 사용할 수 있는 경우 온 [-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)를 사용 하지 않고 직접 연결할 수 있습니다. 자세한 내용은이 항목의 뒷부분에 있는 [온-프레미스 시스템 액세스](#on-premises) 를 참조 하세요.
@@ -142,7 +142,7 @@ ISE에서 실행 되는 논리 앱, 기본 제공 트리거, 기본 제공 작�
 
 ## <a name="integration-accounts-with-ise"></a>ISE와의 통합 계정
 
-ISE(통합 서비스 환경) 내에서 논리 앱을 통해 통합 계정을 사용할 수 있습니다. 그러나 해당 통합 계정은 연결된 논리 앱과 *동일한 ISE*를 사용해야 합니다. ISE의 논리 앱은 같은 ISE에 있는 통합 계정만 참조할 수 있습니다. 통합 계정을 만들 때는 통합 계정의 위치로 ISE를 선택할 수 있습니다. ISE를 사용 하 여 통합 계정에 대 한 가격 책정 및 청구 작업 방법을 알아보려면 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요.
+ISE(통합 서비스 환경) 내에서 논리 앱을 통해 통합 계정을 사용할 수 있습니다. 그러나 해당 통합 계정은 연결된 논리 앱과 *동일한 ISE*를 사용해야 합니다. ISE의 논리 앱은 같은 ISE에 있는 통합 계정만 참조할 수 있습니다. 통합 계정을 만들 때는 통합 계정의 위치로 ISE를 선택할 수 있습니다. ISE를 사용 하 여 통합 계정에 대 한 가격 책정 및 청구 작업 방법을 알아보려면 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 참조 하세요. 가격 책정 요금은 [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요. 제한 정보는 [통합 계정 제한](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/14/2018
-ms.openlocfilehash: a5d49a16324a5a97f4a0507f9abf47ea602ea072
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fb19524079f84e92e1ddbc98a61917026492663
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72328706"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469901"
 ---
 # <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Azure Cloud Shell에서 Azure 리소스에 대한 관리 ID 사용
 
@@ -43,8 +43,8 @@ echo The MSI access token is $access_token
 
 코드에서 토큰을 캐시하는 경우 토큰이 만료되었음을 리소스가 가리키는 시나리오를 처리하도록 준비해야 합니다.
 
-토큰 오류를 처리하려면 [MSI 액세스 토큰 컬링에 대한 MSI 페이지](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling)를 참조하세요.
+토큰 오류를 처리하려면 [MSI 액세스 토큰 컬링에 대한 MSI 페이지](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#error-handling)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[MSI에 대해 자세히 알아보기](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
-[MSI VM에서 액세스 토큰 획득](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)
+[MSI에 대해 자세히 알아보기](../active-directory/managed-identities-azure-resources/overview.md)  
+[MSI VM에서 액세스 토큰 획득](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)

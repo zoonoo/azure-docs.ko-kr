@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d464124c6841cb2e3186d521b93d7ae08f94c9e9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770968"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440527"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>복사 작업 성능 문제 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "84770968"
 
 이 문서에서는 Azure Data Factory에서 복사 작업 성능 문제를 해결 하는 방법을 설명 합니다. 
 
-복사 작업을 실행 한 후 [복사 작업 모니터링](copy-activity-monitoring.md) 보기에서 실행 결과 및 성능 통계를 수집할 수 있습니다. 다음은 예제입니다.
+복사 작업을 실행 한 후 [복사 작업 모니터링](copy-activity-monitoring.md) 보기에서 실행 결과 및 성능 통계를 수집할 수 있습니다. 다음은 이에 대한 예입니다.
 
 ![복사 작업 실행 세부 정보 모니터링](./media/copy-activity-overview/monitor-copy-activity-run-details.png)
 
@@ -142,7 +142,7 @@ ms.locfileid: "84770968"
 
   - Azure Portal > 데이터 팩터리-> 개요 페이지에서 자체 호스팅 IR의 CPU 및 메모리 사용량 추세를 확인 합니다. CPU 사용량이 크거나 사용 가능한 메모리가 부족 한 경우 [IR을 확장/축소](create-self-hosted-integration-runtime.md#high-availability-and-scalability) 하는 것이 좋습니다.
 
-  - 이 적용 되는 경우 커넥터 관련 데이터 로드 모범 사례를 채택 합니다. 예를 들어:
+  - 이 적용 되는 경우 커넥터 관련 데이터 로드 모범 사례를 채택 합니다. 다음은 그 예입니다. 
 
     - [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source)에서 데이터를 복사 하는 경우 데이터를 병렬로 복사 하도록 데이터 파티션 옵션을 사용 하도록 설정 합니다.
 
@@ -179,7 +179,7 @@ ms.locfileid: "84770968"
 * Azure Blob storage: blob 저장소에 [대 한 확장성 및 성능 목표](../storage/blobs/scalability-targets.md) 와 [blob 저장소에 대 한 성능 및 확장성 검사 목록](../storage/blobs/storage-performance-checklist.md)입니다.
 * Azure 테이블 저장소: 테이블 저장소에 [대 한 확장성 및 성능 목표](../storage/tables/scalability-targets.md) 와 [테이블 저장소에 대 한 성능 및 확장성 검사 목록](../storage/tables/storage-performance-checklist.md)입니다.
 * Azure SQL Database: [성능을 모니터링](../sql-database/sql-database-single-database-monitor.md) 하 고 DTU (데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
-* Azure SQL Data Warehouse: 해당 기능은 DWUs (데이터 웨어하우스 단위)로 측정 됩니다. [Azure SQL Data Warehouse에서 계산 능력 관리 (개요)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조 하세요.
+* Azure Synapse Analytics (이전의 SQL Data Warehouse): 해당 기능은 DWUs (데이터 웨어하우스 단위)로 측정 됩니다. [Azure Synapse Analytics에서 계산 능력 관리 (개요)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조 하세요.
 * Azure Cosmos DB: [Azure Cosmos DB의 성능 수준](../cosmos-db/performance-levels.md)입니다.
 * SQL Server: [성능을 모니터링 하 고 조정](https://msdn.microsoft.com/library/ms189081.aspx)합니다.
 * 온-프레미스 파일 서버: [파일 서버에 대 한 성능 조정](https://msdn.microsoft.com/library/dn567661.aspx)

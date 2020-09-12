@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81273293"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470139"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell에서 파일 유지
 Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 유지합니다. 처음 시작 시 Cloud Shell은 세션 간에 파일을 유지하기 위해 새 또는 기존 파일 공유를 연결하도록 요구합니다.
@@ -66,7 +66,7 @@ Cloud Shell는 지정 된 구독 내에서 저장소 계정에 Azure 파일 공�
 
 Cloud Shell 컴퓨터는 아래 하위 지역에 위치합니다.
 
-|Area|지역|
+|영역|지역|
 |---|---|
 |아메리카|미국 동부, 미국 중남부, 미국 서부|
 |유럽|북유럽, 서유럽|
@@ -83,7 +83,7 @@ Cloud Shell 컴퓨터는 아래 하위 지역에 위치합니다.
 사용자는 `(Get-CloudDrive | Get-AzStorageAccount).Location` PowerShell에서를 실행 하 여 파일 공유의 위치를 볼 수 있습니다.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Azure 리소스 정책으로 리소스 만들기 제한
-Cloud Shell에서 생성된 Storage 계정에 `ms-resource-usage:azure-cloud-shell` 태그가 지정됩니다. 사용자가 Cloud Shell에서 스토리지 계정을 만드는 것을 허용하지 않으려면 이 특정 태그로 트리거되는 [태그에 대한 Azure 리소스 정책](../azure-policy/json-samples.md)을 만듭니다.
+Cloud Shell에서 생성된 Storage 계정에 `ms-resource-usage:azure-cloud-shell` 태그가 지정됩니다. 사용자가 Cloud Shell에서 스토리지 계정을 만드는 것을 허용하지 않으려면 이 특정 태그로 트리거되는 [태그에 대한 Azure 리소스 정책](../governance/policy/samples/index.md)을 만듭니다.
 
 ## <a name="how-cloud-shell-storage-works"></a>Cloud Shell 스토리지 작동 방법 
 Cloud Shell은 다음 방법 모두를 통해 파일을 유지합니다. 
@@ -103,7 +103,7 @@ Cloud Shell에서 라는 명령을 실행할 수 있습니다 .이 명령을 `cl
 ### <a name="list-clouddrive"></a>목록 `clouddrive`
 `clouddrive`로 마운트된 파일 공유를 확인하려면 `df` 명령을 실행합니다. 
 
-clouddrive에 대한 파일 경로는 URL에서 스토리지 계정 이름 및 파일 공유를 표시합니다. 예를 들면 `//storageaccountname.file.core.windows.net/filesharename`과 같습니다.
+clouddrive에 대한 파일 경로는 URL에서 스토리지 계정 이름 및 파일 공유를 표시합니다. 예를 들어 `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -142,7 +142,7 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 ### <a name="unmount-clouddrive"></a>clouddrive 탑재 해제
 언제든지 Cloud Shell에 마운트된 파일 공유의 마운트를 해제할 수 있습니다. Azure Cloud Shell에는 사용될 탑재된 파일 공유가 필요하므로 다음 세션에서는 또 다른 파일 공유를 만들고 탑재하라는 메시지가 표시됩니다.
 
-1. `clouddrive unmount`을 실행합니다.
+1. `clouddrive unmount`를 실행합니다.
 2. 프롬프트 승인 및 확인
 
 파일 공유는 수동으로 삭제하지 않은 한 계속 유지됩니다. Cloud Shell은 후속 세션에서 이 파일 공유를 더 이상 검색하지 않습니다. 자세한 세부 정보를 보려면 아래와 같이 `clouddrive unmount -h`를 실행합니다.
@@ -170,4 +170,4 @@ clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareNam
 ## <a name="next-steps"></a>다음 단계
 [Cloud Shell 빠른 시작](quickstart.md) <br>
 [Microsoft Azure Files 스토리지에 대해 알아보기](../storage/files/storage-files-introduction.md) <br>
-[저장소 태그에 대해 알아보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[저장소 태그에 대해 알아보기](../azure-resource-manager/management/tag-resources.md) <br>

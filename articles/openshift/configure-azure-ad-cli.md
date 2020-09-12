@@ -8,16 +8,16 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 393185d2167e18df3f8c1319e7367efbc437de1a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590339"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469425"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Azure Red Hat OpenShift 4 클러스터에 대 한 Azure Active Directory 인증 구성 (CLI)
 
-CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.6.0 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.6.0 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 Azure Active Directory 응용 프로그램을 구성 하는 데 사용할 클러스터 관련 Url을 검색 합니다.
 
@@ -66,7 +66,7 @@ az account show --query tenantId -o tsv
 
 ## <a name="create-a-manifest-file-to-define-the-optional-claims-to-include-in-the-id-token"></a>매니페스트 파일을 만들어 ID 토큰에 포함할 선택적 클레임을 정의 합니다.
 
-응용 프로그램 개발자는 Azure AD 응용 프로그램에서 [선택적 클레임](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) 을 사용 하 여 응용 프로그램으로 전송 되는 토큰에서 원하는 클레임을 지정할 수 있습니다.
+응용 프로그램 개발자는 Azure AD 응용 프로그램에서 [선택적 클레임](../active-directory/develop/active-directory-optional-claims.md) 을 사용 하 여 응용 프로그램으로 전송 되는 토큰에서 원하는 클레임을 지정할 수 있습니다.
 
 선택적 클레임을 사용하여 다음을 수행할 수 있습니다.
 
@@ -127,7 +127,7 @@ az ad app permission add \
 
 기본적으로 Azure AD(Azure Active Directory) 테넌트에 등록된 애플리케이션은 성공적으로 인증한 테넌트의 모든 사용자에게 제공됩니다. Azure AD를 사용하면 테넌트 관리자 및 개발자는 앱을 테넌트의 특정 사용자 집합 또는 보안 그룹으로 제한할 수 있습니다.
 
-Azure Active Directory 설명서의 지침에 따라 [사용자 및 그룹을 앱에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration)합니다.
+Azure Active Directory 설명서의 지침에 따라 [사용자 및 그룹을 앱에 할당](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration)합니다.
 
 ## <a name="configure-openshift-openid-authentication"></a>OpenShift Openid connect 인증 구성
 

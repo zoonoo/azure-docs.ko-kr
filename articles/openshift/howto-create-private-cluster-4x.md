@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: c196d48d22a2bd714c4b6252ad927d18790f4674
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 11343ba668a4b74c436313f0abd4daed577c36d4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056774"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505355"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Azure Red Hat OpenShift 4 프라이빗 클러스터 만들기
 
@@ -23,17 +23,35 @@ ms.locfileid: "88056774"
 > * 필수 구성 요소를 설정하고 필요한 가상 네트워크 및 서브넷 만들기
 > * 프라이빗 API 서버 엔드포인트 및 프라이빗 수신 컨트롤러를 사용하여 클러스터 배포
 
-CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-### <a name="register-the-resource-provider"></a>리소스 공급자 등록
+### <a name="register-the-resource-providers"></a>리소스 공급자 등록
 
-다음으로, `Microsoft.RedHatOpenShift` 리소스 공급자를 구독에 등록해야 합니다.
+1. 여러 Azure 구독이 있는 경우 관련 구독 ID를 지정 합니다.
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. 리소스 공급자를 등록 합니다 `Microsoft.RedHatOpenShift` .
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+
+1. 리소스 공급자를 등록 합니다 `Microsoft.Compute` .
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. 리소스 공급자를 등록 합니다 `Microsoft.Storage` .
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Red Hat 풀 비밀 가져오기(선택 사항)
 
@@ -141,7 +159,7 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **마스터 서브넷에서 [서브넷 프라이빗 엔드포인트 정책을 사용하지 않도록 설정](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy)합니다.** 클러스터에 연결하고 관리하는 데 필요합니다.
+5. **마스터 서브넷에서 [서브넷 프라이빗 엔드포인트 정책을 사용하지 않도록 설정](../private-link/disable-private-link-service-network-policy.md)합니다.** 클러스터에 연결하고 관리하는 데 필요합니다.
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -207,7 +225,7 @@ az aro list-credentials \
 ```
 
 >[!IMPORTANT]
-> 프라이빗 Azure Red Hat OpenShift 클러스터에 연결하려면 사용자가 만든 Virtual Network 또는 클러스터가 배포된 Virtual Network로 [피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)된 Virtual Network가 있는 호스트에서 다음 단계를 수행해야 합니다.
+> 프라이빗 Azure Red Hat OpenShift 클러스터에 연결하려면 사용자가 만든 Virtual Network 또는 클러스터가 배포된 Virtual Network로 [피어링](../virtual-network/virtual-network-peering-overview.md)된 Virtual Network가 있는 호스트에서 다음 단계를 수행해야 합니다.
 
 브라우저에서 콘솔 URL을 시작하고 `kubeadmin` 자격 증명을 사용하여 로그인합니다.
 
@@ -230,9 +248,9 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 ```
 
 >[!IMPORTANT]
-> 프라이빗 Azure Red Hat OpenShift 클러스터에 연결하려면 사용자가 만든 Virtual Network 또는 클러스터가 배포된 Virtual Network로 [피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)된 Virtual Network가 있는 호스트에서 다음 단계를 수행해야 합니다.
+> 프라이빗 Azure Red Hat OpenShift 클러스터에 연결하려면 사용자가 만든 Virtual Network 또는 클러스터가 배포된 Virtual Network로 [피어링](../virtual-network/virtual-network-peering-overview.md)된 Virtual Network가 있는 호스트에서 다음 단계를 수행해야 합니다.
 
-다음 명령을 사용하여 OpenShift 클러스터의 API 서버에 로그인합니다. 를 **\<kubeadmin password>** 방금 검색 한 암호로 바꿉니다.
+다음 명령을 사용하여 OpenShift 클러스터의 API 서버에 로그인합니다. **\<kubeadmin password>** 를 방금 검색한 암호로 바꿉니다.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>

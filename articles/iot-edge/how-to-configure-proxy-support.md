@@ -3,17 +3,19 @@ title: 네트워크 프록시용 디바이스 구성 - Azure IoT Edge | Microsof
 description: 프록시 서버를 통해 통신하도록 Azure IoT Edge 런타임과 인터넷 연결 IoT Edge 모듈을 구성하는 방법을 설명합니다.
 author: kgremban
 ms.author: kgremban
-ms.date: 3/10/2020
-ms.topic: conceptual
+ms.date: 09/03/2020
+ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
-ms.custom: amqp
-ms.openlocfilehash: 270e6a0173ed0088ff5d37c989947f5272634200
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- amqp
+- contperfq1
+ms.openlocfilehash: e6c85ba79c21c9a8120feebc02477506eb93d2e5
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687189"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500371"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성
 
@@ -21,29 +23,29 @@ IoT Edge 디바이스는 HTTPS 요청을 전송하여 IoT Hub와 통신합니다
 
 이 문서에서는 프록시 서버 뒤에 IoT Edge 장치를 구성 하 고 관리 하는 다음 4 단계를 안내 합니다.
 
-1. **IoT Edge 런타임을 디바이스에 설치합니다.**
+1. [**장치에 IoT Edge 런타임 설치**](#install-the-runtime-through-a-proxy)
 
-   IoT Edge 설치 스크립트는 인터넷에서 패키지와 파일을 끌어오고 장치에서 프록시 서버를 통해 통신 하 여 요청을 수행 해야 합니다. 자세한 단계는이 문서의 [프록시를 통해 런타임 설치](#install-the-runtime-through-a-proxy) 섹션을 참조 하세요. Windows 장치의 경우 설치 스크립트에도 [오프 라인 설치](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation) 옵션이 제공 됩니다.
+   IoT Edge 설치 스크립트는 인터넷에서 패키지와 파일을 끌어오고 장치에서 프록시 서버를 통해 통신 하 여 요청을 수행 해야 합니다. Windows 장치의 경우 설치 스크립트에도 [오프 라인 설치](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation) 옵션이 제공 됩니다.
 
-   이 단계는 IoT Edge 장치를 처음 설정할 때 한 번 수행 되는 프로세스입니다. IoT Edge 런타임을 업데이트 하는 경우에도 동일한 연결이 필요 합니다.
+   이 단계는 IoT Edge 장치를 처음 설정할 때 구성 하는 일회성 프로세스입니다. IoT Edge 런타임을 업데이트 하는 경우에도 동일한 연결이 필요 합니다.
 
-2. **장치에서 Docker 디먼 및 IoT Edge 디먼을 구성 합니다.**
+2. [**장치에서 Docker 디먼 및 IoT Edge 디먼 구성**](#configure-the-daemons)
 
-   IoT Edge는 장치에서 두 디먼를 사용 하며, 둘 다 프록시 서버를 통해 웹 요청을 수행 해야 합니다. IoT Edge 디먼은 IoT Hub와의 통신을 담당 합니다. Moby 디먼은 컨테이너 관리를 담당 하므로 컨테이너 레지스트리와 통신 합니다. 자세한 단계는이 문서의 [디먼 구성](#configure-the-daemons) 섹션을 참조 하세요.
+   IoT Edge는 장치에서 두 디먼를 사용 하며, 둘 다 프록시 서버를 통해 웹 요청을 수행 해야 합니다. IoT Edge 디먼은 IoT Hub와의 통신을 담당 합니다. Moby 디먼은 컨테이너 관리를 담당 하므로 컨테이너 레지스트리와 통신 합니다.
 
-   이 단계는 IoT Edge 장치를 처음 설정할 때 한 번 수행 되는 프로세스입니다.
+   이 단계는 IoT Edge 장치를 처음 설정할 때 구성 하는 일회성 프로세스입니다.
 
-3. **장치의 config.xml 파일에서 IoT Edge 에이전트 속성을 구성 합니다.**
+3. [**장치의 구성. yaml 파일에서 IoT Edge 에이전트 속성 구성**](#configure-the-iot-edge-agent)
 
-   IoT Edge 디먼은 처음에 edgeAgent 모듈을 시작 하지만 edgeAgent 모듈은 IoT Hub에서 배포 매니페스트를 검색 하 고 다른 모든 모듈을 시작 합니다. IoT Edge 에이전트가 IoT Hub에 대 한 초기 연결을 설정 하려면 장치 자체에서 수동으로 edgeAgent module 환경 변수를 구성 합니다. 초기 연결 후 edgeAgent 모듈을 원격으로 구성할 수 있습니다. 자세한 단계는이 문서의 [IoT Edge 에이전트 구성](#configure-the-iot-edge-agent) 섹션을 참조 하세요.
+   IoT Edge 디먼은 처음에 edgeAgent 모듈을 시작 합니다. 그런 다음 edgeAgent 모듈은 IoT Hub에서 배포 매니페스트를 검색 하 고 다른 모든 모듈을 시작 합니다. IoT Edge 에이전트가 IoT Hub에 대 한 초기 연결을 설정 하려면 장치 자체에서 수동으로 edgeAgent module 환경 변수를 구성 합니다. 초기 연결 후 edgeAgent 모듈을 원격으로 구성할 수 있습니다.
 
-   이 단계는 IoT Edge 장치를 처음 설정할 때 한 번 수행 되는 프로세스입니다.
+   이 단계는 IoT Edge 장치를 처음 설정할 때 구성 하는 일회성 프로세스입니다.
 
-4. **이후 모든 모듈 배포의 경우 프록시를 통해 통신 하는 모듈에 대 한 환경 변수를 설정 합니다.**
+4. [**이후 모든 모듈 배포의 경우 프록시를 통해 통신 하는 모든 모듈에 대해 환경 변수를 설정 합니다.**](#configure-deployment-manifests)
 
-   IoT Edge 장치를 설정 하 고 프록시 서버를 통해 IoT Hub에 연결한 후에는 이후의 모든 모듈 배포에서 연결을 유지 해야 합니다. 자세한 단계는이 문서의 [배포 매니페스트 구성](#configure-deployment-manifests) 섹션을 참조 하세요.
+   IoT Edge 장치를 설정 하 고 프록시 서버를 통해 IoT Hub에 연결한 후에는 이후의 모든 모듈 배포에서 연결을 유지 해야 합니다.
 
-   이 단계는 원격으로 수행 되는 지속적인 프로세스 이며, 모든 새 모듈 또는 배포 업데이트는 장치에서 프록시 서버를 통해 통신 하는 기능을 유지 합니다.
+   이 단계는 모든 새 모듈이 나 배포 업데이트에서 프록시 서버를 통해 통신 하는 장치의 기능을 유지 하도록 원격으로 수행 되는 지속적인 프로세스입니다.
 
 ## <a name="know-your-proxy-url"></a>프록시 URL 파악
 
@@ -83,7 +85,7 @@ Windows 장치에 IoT Edge 런타임을 설치 하는 경우 프록시 서버를
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
    ```
 
-URL에 포함할 수 없는 프록시 서버에 대한 복잡한 자격 증명이 있는 경우 `-InvokeWebRequestParameters` 내에서 `-ProxyCredential` 매개 변수를 사용합니다. 예제:
+URL에 포함할 수 없는 프록시 서버에 대한 복잡한 자격 증명이 있는 경우 `-InvokeWebRequestParameters` 내에서 `-ProxyCredential` 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
@@ -205,13 +207,13 @@ IoT Edge 장치가 프록시 서버와 작동 하도록 구성 된 후에는 이
 
 두 개의 런타임 모듈인 edgeAgent와 edgeHub가 프록시 서버를 통해 통신하도록 항상 구성하여 IoT Hub와의 연결을 유지할 수 있게 합니다. EdgeAgent 모듈에서 프록시 정보를 제거 하는 경우 연결을 다시 설정 하는 유일한 방법은 이전 섹션에 설명 된 대로 장치에서 config.xml 파일을 편집 하는 것입니다.
 
-EdgeAgent 및 edgeHub 모듈 외에도 다른 모듈에는 프록시 구성이 필요할 수 있습니다. 이러한 모듈은 blob storage와 같은 IoT Hub 외에 Azure 리소스에 액세스 해야 하는 모듈 이며, 배포 매니페스트 파일에서 해당 모듈에 대해 HTTPS_PROXY 변수를 지정 해야 합니다.
+EdgeAgent 및 edgeHub 모듈 외에도 다른 모듈에는 프록시 구성이 필요할 수 있습니다. Blob 저장소와 같은 IoT Hub 외에 Azure 리소스에 액세스 해야 하는 모듈에는 배포 매니페스트 파일에 지정 된 HTTPS_PROXY 변수가 있어야 합니다.
 
 다음 절차는 IoT Edge 장치의 수명 내내 적용 됩니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
-**모듈 설정** 마법사를 사용하여 IoT Edge 디바이스의 배포를 만들 때는 모든 모듈에 **환경 변수** 섹션에 있으므로 이 섹션을 통해 프록시 서버 연결을 구성할 수 있습니다.
+**모듈 설정** 마법사를 사용 하 여 IoT Edge 장치에 대 한 배포를 만드는 경우 모든 모듈에는 프록시 서버 연결을 구성할 수 있는 **환경 변수** 섹션이 있습니다.
 
 IoT Edge 에이전트 및 IoT Edge 허브 모듈을 구성 하려면 마법사의 첫 번째 단계에서 **런타임 설정** 을 선택 합니다.
 
@@ -221,7 +223,7 @@ IoT Edge 에이전트 및 IoT Edge 허브 모듈 정의에 모두 **https_proxy*
 
 ![Https_proxy 환경 변수 설정](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
-배포 매니페스트에 추가하는 기타 모든 모듈은 같은 패턴을 따릅니다. 모듈 이름 및 이미지를 설정하는 페이지에는 환경 변수 섹션이 있습니다.
+배포 매니페스트에 추가하는 기타 모든 모듈은 같은 패턴을 따릅니다.
 
 ### <a name="json-deployment-manifest-files"></a>JSON 배포 매니페스트 파일
 

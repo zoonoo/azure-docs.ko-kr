@@ -2,13 +2,13 @@
 title: Azure Lab Services에서 랩에 추가 소유자를 추가 하는 방법
 description: 이 문서에서는 관리자가 Azure Lab Services의 랩에 사용자를 소유자로 추가 하는 방법을 보여 줍니다.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 6671a3070dae672769eecf59d614d3b75455ef5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/04/2020
+ms.openlocfilehash: 4b46dd08a3b9527cdfc7bdf766ee4976e67656d0
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445868"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482672"
 ---
 # <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Azure Lab Services에서 기존 랩에 추가 소유자를 추가 하는 방법
 이 문서에서는 관리자가 기존 랩에 추가 소유자를 추가할 수 있는 방법을 보여 줍니다.
@@ -31,6 +31,9 @@ ms.locfileid: "85445868"
         ![랩 계정에 대 한 읽기 권한자 역할에 사용자 추가 ](./media/how-to-add-user-lab-owner/reader-lab-account.png)
 
 ## <a name="add-user-to-the-owner-role-for-the-lab"></a>랩의 소유자 역할에 사용자 추가
+
+> [!NOTE]
+> 랩에 대 한 읽기 권한자 권한만 있는 사용자는 labs.azure.com에 표시 되지 않습니다.
 
 1. **랩 계정** 페이지로 돌아가서 왼쪽 메뉴에서 **모든 실습** 을 선택 합니다.
 2. 사용자를 소유자로 추가 하려는 **랩을** 선택 합니다. 

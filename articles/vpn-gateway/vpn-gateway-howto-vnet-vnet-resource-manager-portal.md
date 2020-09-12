@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/05/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5abf79d23ca2de661383cc002dac9d7f9e4dc5bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b14f3c241fd21d3d4f9c4e17ae95d8048139cec1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84985567"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442874"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
@@ -178,7 +178,7 @@ VNet1 및 v 둘 다에 대 한 가상 네트워크 게이트웨이가 완료 되
    ![연결 확인](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png "연결 확인")
 3. **이름** 열에서 연결 중 하나를 선택 하 여 자세한 정보를 확인 합니다. 데이터 흐름이 시작되면 **데이터 입력** 및 **데이터 출력** 값이 보입니다.
 
-   ![Status](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "상태")
+   ![상태](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "상태")
 
 ## <a name="add-additional-connections"></a>연결 추가
 

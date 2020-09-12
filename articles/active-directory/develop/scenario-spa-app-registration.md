@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2d596b6d0e291d197146bf5e00827d82b74c125c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311571"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434540"
 ---
 # <a name="single-page-application-app-registration"></a>단일 페이지 애플리케이션: 앱 등록
 
@@ -32,7 +32,7 @@ MSAL.js 1.0 및 2.0 기반 애플리케이션의 경우 둘 다 먼저 다음 �
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 계정에서 여러 테넌트에 액세스할 수 있는 경우 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 만들려는 앱 등록을 포함해야 할 테넌트를 선택합니다.
 1. **Azure Active Directory**를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록**을 선택합니다.
-1. **새 등록**을 선택하고 애플리케이션의 **이름**을 입력한 다음, 애플리케이션의 **지원되는 계정 유형**을 선택합니다. **리디렉션 URI**를 입력하면 **안 됩니다**. 다른 계정 유형에 대한 설명은 [Azure Portal을 사용하여 새 애플리케이션 등록](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)을 참조하세요.
+1. **새 등록**을 선택하고 애플리케이션의 **이름**을 입력한 다음, 애플리케이션의 **지원되는 계정 유형**을 선택합니다. **리디렉션 URI**를 입력하면 **안 됩니다**. 다른 계정 유형에 대한 설명은 [Azure Portal을 사용하여 새 애플리케이션 등록](quickstart-register-app.md)을 참조하세요.
 1. **등록**을 선택하여 앱 등록을 만듭니다.
 
 그런 다음, **리디렉션 URI**로 앱 등록을 구성하여 Microsoft ID 플랫폼이 보안 토큰과 함께 클라이언트를 리디렉션해야 하는 위치를 지정합니다. 애플리케이션에서 사용 중인 MSAL.js 버전에 해당하는 단계를 사용합니다.
@@ -40,7 +40,7 @@ MSAL.js 1.0 및 2.0 기반 애플리케이션의 경우 둘 다 먼저 다음 �
 - [인증 코드 흐름을 사용하는 MSAL.js 2.0](#redirect-uri-msaljs-20-with-auth-code-flow)(권장)
 - [암시적 흐름을 사용하는 MSAL.js 1.0](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>리디렉션 URI: [인증 코드 흐름과MSAL.js 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>리디렉션 URI: [ 인증 코드 흐름과MSAL.js 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
 
 MSAL.js 2.0 이상을 사용하는 앱의 리디렉션 URI를 추가하려면 다음 단계를 따르세요. MSAL.js 2.0보다 높은 버전에서는 [브라우저의 타사 쿠키 제한](reference-third-party-cookies-spas.md)에 대한 대응으로 PKCE 및 CORS를 사용하여 인증 코드 흐름을 지원합니다. 암시적 허용 흐름은 MSAL.js 2.0보다 높은 버전에서 지원되지 않습니다.
 
@@ -54,7 +54,7 @@ MSAL.js 2.0 이상을 사용하는 앱의 리디렉션 URI를 추가하려면 �
 
 추가 지침을 보려면 [자습서](tutorial-v2-javascript-auth-code.md) 를 따르세요.
 
-## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>리디렉션 URI: [암시적 흐름을 사용 하는MSAL.js 1.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>리디렉션 URI: [ 암시적 흐름을 사용 하는MSAL.js 1.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
 
 MSAL.js 1.3 이하 및 암시적 허용 흐름을 사용하는 단일 페이지 앱에 대한 리디렉션 URI를 추가하려면 다음 단계를 수행합니다. MSAL.js 1.3 이전 버전을 사용하는 애플리케이션은 인증 코드 흐름을 지원하지 않습니다.
 

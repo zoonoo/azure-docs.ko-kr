@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 046cd30c0f93a468287c73573a3d18f4ba66221b
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6cf77aa41a9a485ba70519fed33c1b6aec736525
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690224"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470071"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Azure Red Hat OpenShift 4 클러스터 응용 프로그램 백업 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "88690224"
 > * 필수 구성 요소를 설정 하 고 필요한 도구를 설치 합니다.
 > * Azure Red Hat OpenShift 4 응용 프로그램 백업 만들기
 
-CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -122,7 +122,7 @@ oc get backups -n velero <name of backup> -o yaml
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Red Hat OpenShift 4 클러스터 응용 프로그램을 백업 했습니다. 다음 방법에 대해 알아보았습니다.
+이 문서에서는 Azure Red Hat OpenShift 4 클러스터 응용 프로그램을 백업 했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Velero를 사용 하 여 OpenShift v4 클러스터 응용 프로그램 백업 만들기

@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 64b71c135126ebb540d5ccf72f829f83c74ed0b3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b468f967e68b72e3c9da276dc2077fc09256c895
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495321"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470037"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Azure Red Hat OpenShift 개발 환경 설정
 
@@ -37,9 +37,9 @@ az --version
 
 예를 들어 출력의 첫 번째 줄에 CLI 버전이 포함 됩니다 `azure-cli (2.0.65)` .
 
-새 설치 또는 업그레이드가 필요한 경우 [Azure CLI를 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 하는 지침은 다음과 같습니다.
+새 설치 또는 업그레이드가 필요한 경우 [Azure CLI를 설치](/cli/azure/install-azure-cli?view=azure-cli-latest) 하는 지침은 다음과 같습니다.
 
-또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)를 사용할 수 있습니다. Azure Cloud Shell 사용 하는 경우 [Azure Red Hat OpenShift 클러스터 만들기 및 관리](tutorial-create-cluster.md) 자습서 시리즈를 따라 진행 하려는 경우 **Bash** 환경을 선택 해야 합니다.
+또는 [Azure Cloud Shell](../cloud-shell/overview.md)를 사용할 수 있습니다. Azure Cloud Shell 사용 하는 경우 [Azure Red Hat OpenShift 클러스터 만들기 및 관리](tutorial-create-cluster.md) 자습서 시리즈를 따라 진행 하려는 경우 **Bash** 환경을 선택 해야 합니다.
 
 ## <a name="register-providers-and-features"></a>공급자 및 기능 등록
 
@@ -103,7 +103,7 @@ Azure Red Hat OpenShift 클러스터에 대 한 테 넌 트로 사용할 Azure A
 
 ## <a name="create-an-azure-ad-user-security-group-and-application-object"></a>Azure AD 사용자, 보안 그룹 및 응용 프로그램 개체 만들기
 
-Azure Red Hat OpenShift를 사용 하려면 저장소 구성과 같은 클러스터에서 작업을 수행할 수 있는 권한이 있어야 합니다. 이러한 권한은 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)를 통해 표현 됩니다. 또한 Azure Red Hat OpenShift 클러스터에서 실행 중인 앱을 테스트 하기 위해 새 Active Directory 사용자를 만들려고 합니다.
+Azure Red Hat OpenShift를 사용 하려면 저장소 구성과 같은 클러스터에서 작업을 수행할 수 있는 권한이 있어야 합니다. 이러한 권한은 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 통해 표현 됩니다. 또한 Azure Red Hat OpenShift 클러스터에서 실행 중인 앱을 테스트 하기 위해 새 Active Directory 사용자를 만들려고 합니다.
 
 [AZURE ad 앱 개체 및 사용자 만들기](howto-aad-app-configuration.md) 의 지침에 따라 서비스 주체를 만들고, 앱에 대 한 클라이언트 암호 및 인증 콜백 URL을 생성 하 고, 새 Azure AD 보안 그룹 및 사용자를 만들어 클러스터에 액세스 합니다.
 
@@ -115,4 +115,4 @@ Azure Red Hat OpenShift를 사용 하려면 저장소 구성과 같은 클러스
 > [!div class="nextstepaction"]
 > [Azure Red Hat OpenShift 클러스터 만들기](tutorial-create-cluster.md)
 
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
+[azure-cli-install]: /cli/azure/install-azure-cli

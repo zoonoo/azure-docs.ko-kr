@@ -3,12 +3,12 @@ title: 컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법 | Micr
 description: 컨테이너에 대 한 Azure Monitor는 메트릭 및 로그 데이터를 수집 하 고이 문서에서는 레코드를 설명 하 고 샘플 쿼리를 포함 합니다.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 12c32c84f2c2aef5d6d0817c11e1ef010f30ffcb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f9b30f11ae6a2f64601b9595bfb1d45493209849
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320292"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569682"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법
 
@@ -20,16 +20,15 @@ ms.locfileid: "87320292"
 
 | 데이터 | 데이터 원본 | 데이터 형식 | 필드 |
 |------|-------------|-----------|--------|
-| 호스트 및 컨테이너에 대한 성능 | 사용 메트릭은 cAdvisor에서 가져오고 Kube api에서 제한 됩니다. | `Perf` | 컴퓨터, ObjectName, CounterName &#40;%프로세서 시간, 디스크 읽기 MB, 디스크 쓰기 MB, 메모리 사용 MB, 네트워크 수신 바이트, 네트워크 송신 바이트, 프로세서 사용 초, 네트워크&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
-| 컨테이너 인벤토리 | Docker | `ContainerInventory` | TimeGenerated, 컴퓨터, 컨테이너 이름, ContainerHostname, 이미지, ImageTag, ContainerState, ExitCode, EnvironmentVar, 명령, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| 컨테이너 인벤토리 | Kubelet | `ContainerInventory` | TimeGenerated, 컴퓨터, 컨테이너 이름, ContainerHostname, 이미지, ImageTag, ContainerState, ExitCode, EnvironmentVar, 명령, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | 컨테이너 로그 | Docker | `ContainerLog` | TimeGenerated, 컴퓨터, 이미지 ID, 컨테이너 이름, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | 컨테이너 노드 인벤토리 | Kube API | `ContainerNodeInventory`| TimeGenerated, 컴퓨터, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | Kubernetes 클러스터의 Pod 인벤토리 | Kube API | `KubePodInventory` | TimeGenerated, 컴퓨터, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, 컨테이너 상태, ContainerStatusReason, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, Poduid, SourceSystem |
 | Kubernetes 클러스터의 노드 부분 인벤토리 | Kube API | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Kubernetes 이벤트 | Kube API | `KubeEvents` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
 | Kubernetes 클러스터의 서비스 | Kube API | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Kubernetes 클러스터의 노드 부분에 대한 성능 메트릭 || 성능 &#124; (ObjectName = = "K8SNode") | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
-| Kubernetes 클러스터의 컨테이너 부분에 대한 성능 메트릭 || 성능 &#124; (ObjectName = = "K8SContainer") | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
+| Kubernetes 클러스터의 노드 부분에 대한 성능 메트릭 | 사용 메트릭은 cAdvisor에서 가져오고 Kube api에서 제한 됩니다. | 성능 &#124; (ObjectName = = "K8SNode") | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
+| Kubernetes 클러스터의 컨테이너 부분에 대한 성능 메트릭 | 사용 메트릭은 cAdvisor에서 가져오고 Kube api에서 제한 됩니다. | 성능 &#124; (ObjectName = = "K8SContainer") | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
 | 사용자 지정 메트릭 ||`InsightsMetrics` | 컴퓨터, 이름, 네임 스페이스, 원본, SourceSystem, 태그<sup>1</sup>, Timegenerated, Type, Va, _ResourceId | 
 
 <sup>1</sup> *Tags* 속성은 해당 메트릭에 대 한 [여러 차원을](../platform/data-platform-metrics.md#multi-dimensional-metrics) 나타냅니다. 테이블에 수집 및 저장 된 메트릭과 레코드 속성에 대 한 설명에 대 한 자세한 내용은 `InsightsMetrics` [InsightsMetrics 개요](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md)를 참조 하세요.

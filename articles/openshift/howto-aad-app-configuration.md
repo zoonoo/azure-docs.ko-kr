@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d3326587d9c03e0a3960016b8ba3668c825ee6d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382908"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470088"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Red Hat OpenShift에 대 한 Azure Active Directory 통합
 
@@ -30,7 +30,7 @@ Red Hat OpenShift Microsoft Azure 클러스터 대신 작업을 수행할 수 �
 1. [사용자-모든 사용자](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) 블레이드로 이동 합니다.
 2. **+ 새 사용자** 를 클릭 하 여 **사용자** 창을 엽니다.
 3. 이 사용자의 **이름을** 입력 합니다.
-4. 만든 테 넌 트의 이름을 기준으로 **사용자 이름을** 만들고 `.onmicrosoft.com` 끝에를 추가 합니다. 예를 들어 `yourUserName@yourTenantName.onmicrosoft.com`. 이 사용자 이름을 적어 씁니다. 클러스터에 로그인 하는 데 필요 합니다.
+4. 만든 테 넌 트의 이름을 기준으로 **사용자 이름을** 만들고  `.onmicrosoft.com` 끝에를 추가 합니다. 예: `yourUserName@yourTenantName.onmicrosoft.com`. 이 사용자 이름을 적어 씁니다. 클러스터에 로그인 하는 데 필요 합니다.
 5. 디렉터리 **역할** 을 클릭 하 여 디렉터리 역할 창을 열고 **소유자** 를 선택한 다음 창 맨 아래에서 **확인** 을 클릭 합니다.
 6. **사용자** 창에서 **암호 표시** 를 클릭 하 고 임시 암호를 기록 합니다. 처음 로그인 하면 다시 설정 하 라는 메시지가 표시 됩니다.
 7. 창 맨 아래에서 **만들기** 를 클릭 하 여 사용자를 만듭니다.
@@ -86,9 +86,9 @@ Azure Active Directory에 대 한 앱 인증을 위한 클라이언트 암호를
 
 ![인증서 및 암호 창의 스크린샷](./media/howto-create-tenant/create-key.png)
 
-Azure 애플리케이션 개체에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)를 참조 하세요.
+Azure 애플리케이션 개체에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조 하세요.
 
-새 Azure AD 응용 프로그램을 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory v 1.0 끝점으로 앱 등록](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)을 참조 하세요.
+새 Azure AD 응용 프로그램을 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory v 1.0 끝점으로 앱 등록](../active-directory/develop/quickstart-register-app.md)을 참조 하세요.
 
 ## <a name="add-api-permissions"></a>API 사용 권한 추가
 
@@ -110,12 +110,12 @@ Azure 애플리케이션 개체에 대 한 자세한 내용은 [Azure Active Dir
 > [!IMPORTANT]
 > 동의가 부여 된 후에만 클러스터 관리자 그룹의 동기화가 작동 합니다. *관리 동의 필요* 열에서 확인 표시와 메시지 " *구독 이름*에 대해 부여 됨" 메시지가 표시 된 녹색 원이 표시 됩니다.
 
-관리자 및 기타 역할 관리에 대 한 자세한 내용은 [Azure 구독 관리자 추가 또는 변경](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator)을 참조 하세요.
+관리자 및 기타 역할 관리에 대 한 자세한 내용은 [Azure 구독 관리자 추가 또는 변경](../cost-management-billing/manage/add-change-subscription-administrator.md)을 참조 하세요.
 
 ## <a name="resources"></a>리소스
 
-* [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [빠른 시작: Azure Active Directory v1.0 엔드포인트에 앱 등록](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)
+* [빠른 시작: Azure Active Directory v1.0 엔드포인트에 앱 등록](../active-directory/develop/quickstart-register-app.md)
 
 ## <a name="next-steps"></a>다음 단계
 

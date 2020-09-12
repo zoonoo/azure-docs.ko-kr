@@ -11,20 +11,20 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 76a31b10c15f2dff3d6d9304dcff6d0fb489ea7f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 827d66b51aa2080c4fb10209439d7781ddf787a7
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210393"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436928"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Azure SQL Database의 서버에 대 한 가상 네트워크 서비스 끝점 및 규칙 사용
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*가상 네트워크 규칙* 은 데이터베이스에 대 한 서버 및 [Azure SQL Database](sql-database-paas-overview.md) 의 탄력적 풀 또는 [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 의 데이터베이스에 대 한 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락 하는지 여부를 제어 하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 가상 네트워크 규칙 기능이 때때로 Azure SQL Database 및 SQL Data Warehouse의 데이터베이스로 안전 하 게 통신 하는 데 가장 적합 한 옵션을 설명 합니다.
+*가상 네트워크 규칙* 은 데이터베이스에 대 한 서버 및 [Azure SQL Database](sql-database-paas-overview.md) 의 탄력적 풀 또는 [Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 의 데이터베이스에 대 한 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락 하는지 여부를 제어 하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 가상 네트워크 규칙 기능이 때때로 Azure SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에서 데이터베이스에 대 한 통신을 안전 하 게 허용 하는 데 가장 적합 한 옵션을 설명 합니다.
 
 > [!NOTE]
-> 이 문서는 Azure SQL Database 및 Azure Synapse Analytics(이전의 SQL Data Warehouse) 모두에 적용됩니다. 편의상 '데이터베이스'라는 용어는 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스를 모두 나타냅니다. 마찬가지로 '서버'에 대한 모든 참조는 Azure SQL Database 및 Azure Synapse Analytics를 호스트하는 [논리 SQL 서버](logical-servers.md)를 참조하는 것입니다.
+> 이 문서는 Azure SQL Database 및 Azure Synapse 분석 모두에 적용 됩니다. 편의상 '데이터베이스'라는 용어는 Azure SQL Database 및 Azure Synapse Analytics의 데이터베이스를 모두 나타냅니다. 마찬가지로 '서버'에 대한 모든 참조는 Azure SQL Database 및 Azure Synapse Analytics를 호스트하는 [논리 SQL 서버](logical-servers.md)를 참조하는 것입니다.
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 [가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]가 있어야 합니다.
 
@@ -104,13 +104,13 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향
 
-Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한하도록 허용하는 동일한 기능을 구현했습니다. Azure SQL Database에서 사용 중인 Azure Storage 계정에서 이 기능을 사용하도록 선택한 경우 문제가 발생할 수 있습니다. 다음은 이로 인해 영향을 받는 Azure SQL Database 및 Azure SQL Data Warehouse 기능의 목록 및 논의 내용입니다.
+Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한하도록 허용하는 동일한 기능을 구현했습니다. Azure SQL Database에서 사용 중인 Azure Storage 계정에서 이 기능을 사용하도록 선택한 경우 문제가 발생할 수 있습니다. 다음은이에 영향을 받는 Azure SQL Database 및 Azure Synapse Analytics 기능을 나열 하 고 설명 하는 것입니다.
 
 ### <a name="azure-synapse-polybase-and-copy-statement"></a>Azure Synapse PolyBase 및 COPY 문
 
 PolyBase와 COPY 문은 일반적으로 처리량이 높은 데이터 수집을 위해 Azure Storage 계정에서 Azure Synapse Analytics로 데이터를 로드 하는 데 사용 됩니다. 데이터를 로드 하는 Azure Storage 계정에서 VNet 서브넷 집합 으로만 액세스를 제한 하는 경우 PolyBase를 사용 하는 경우 연결이 중단 되 고 저장소 계정에 대 한 COPY 문이 중단 됩니다. VNet에 보안이 설정 된 Azure Storage에 연결 하는 Azure Synapse Analytics에서 복사 및 PolyBase를 사용 하 여 가져오기 및 내보내기 시나리오를 사용 하도록 설정 하려면 아래에 나와 있는 단계를 따르세요.
 
-#### <a name="prerequisites"></a>필수 구성 요소
+#### <a name="prerequisites"></a>사전 요구 사항
 
 - [이 가이드](https://docs.microsoft.com/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
 - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)를 사용하여 범용 v2로 업그레이드해야 합니다.
@@ -227,7 +227,7 @@ PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설
 
 - [가상 네트워크 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트 *형식 이름*으로 태그가 지정된 서브넷이 있어야 합니다.
 
@@ -275,7 +275,7 @@ Azure SQL Database에 관련된 특정 Virtual Network 서비스 엔드포인트
 
 <a name="anchor-how-to-links-60h"></a>
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 
 - [Azure 가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]
 - [서버 수준 및 데이터베이스 수준 방화벽 규칙][sql-db-firewall-rules-config-715d]

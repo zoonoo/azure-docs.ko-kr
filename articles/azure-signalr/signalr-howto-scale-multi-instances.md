@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: ecf4a35fc239a70e87550a97e71d7abd3d00ecfa
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd6ac8c4d4fc4c3fec4f549f8ef4f955e2b1c637
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921990"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439217"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>여러 인스턴스를 사용 하 여 SignalR 서비스를 확장 하는 방법
 최신 SignalR 서비스 SDK는 SignalR 서비스 인스턴스에 대 한 여러 끝점을 지원 합니다. 이 기능을 사용 하 여 동시 연결의 크기를 조정 하거나 지역 간 메시징에 사용할 수 있습니다.
@@ -27,7 +27,7 @@ Key `Azure:SignalR:ConnectionString` 또는 `Azure:SignalR:ConnectionString:` Si
 
 다음 명령을 사용 하 여 여러 인스턴스 연결 문자열을 추가할 수 있습니다 `dotnet` .
 
-```batch
+```cmd
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-b:primary <ConnectionString2>
 dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <ConnectionString3>

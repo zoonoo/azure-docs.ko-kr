@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: b3d1371f486a73b40d352007e3681fd451a8a8b7
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: fdaffef6c682bd1f9c81f14af6cd949816f7555a
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815830"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505525"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Microsoft Azure Cosmos DB 분석 저장소(미리 보기)란?
 
@@ -155,10 +155,15 @@ Microsoft Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록
 * 존재하고 값이 양수 "n"으로 설정되면 항목이 트랜잭션 저장소에서 마지막으로 수정되고 "n"초 후에 분석 저장소에서 만료됩니다. 이 설정은 트랜잭션 저장소의 데이터를 보존 하는 것과 관계 없이 분석 저장소에서 제한 된 기간 동안 운영 데이터를 보존 하려는 경우에 활용할 수 있습니다.
 
 몇 가지 고려할 점은 다음과 같습니다.
-*   분석 TTL 값으로 분석 저장소를 사용하도록 설정한 후 나중에 다른 유효한 값으로 분석 저장소를 업데이트할 수 있습니다. 
-*   컨테이너 또는 항목 수준에서 트랜잭션 TTL을 설정할 수 있지만 현재 분석 TTL은 컨테이너 수준에서만 설정할 수 있습니다.
-*   컨테이너 수준에서 분석 TTL > = 트랜잭션 TTL을 설정하여 분석 저장소에 작동 데이터를 더 길게 보존할 수 있습니다.
-*   분석 TTL = 트랜잭션 TTL로 설정하여 트랜잭션 저장소를 미러링하도록 분석 저장소를 만들 수 있습니다.
+*   분석 TTL 값을 사용 하 여 분석 저장소를 활성화 한 후 나중에 다른 유효한 값으로 업데이트할 수 있습니다. 
+*   컨테이너 또는 항목 수준에서 트랜잭션 TTL을 설정할 수 있지만 현재는 분석 TTL을 컨테이너 수준 에서만 설정할 수 있습니다.
+*   컨테이너 수준에서 분석 TTL >= 트랜잭션 TTL을 설정 하 여 분석 저장소에서 작업 데이터를 더 길게 보존할 수 있습니다.
+*   분석 TTL = 트랜잭션 TTL을 설정 하 여 트랜잭션 저장소를 미러 하도록 분석 저장소를 만들 수 있습니다.
+
+컨테이너에서 anaytical 저장소를 사용 하도록 설정 하는 경우:
+ * Azure Portal을 사용 하 여 분석 TTL은 기본값-1로 설정 됩니다. 데이터 탐색기 아래의 컨테이너 설정으로 이동 하 여이 값을 ' n ' 초로 변경할 수 있습니다. 
+ 
+ * Azure SDK 또는 Powershell 또는 CLI를 사용 하 여 분석 TTL을-1 또는 ' n '으로 설정 하 여 사용 하도록 설정할 수 있습니다. 
 
 자세한 내용은 [컨테이너에 분석 TTL을 구성하는 방법](configure-synapse-link.md#create-analytical-ttl)을 참조하세요
 

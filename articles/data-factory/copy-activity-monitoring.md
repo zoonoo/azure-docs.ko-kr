@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: fd2bd404d59b57eae111ba969fb7dcf20a98de35
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036371"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440612"
 ---
 # <a name="monitor-copy-activity"></a>복사 작업 모니터
 
@@ -30,7 +30,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 복사 작업 실행을 모니터링 하려면 데이터 팩터리 **작성자 & 모니터링** UI로 이동 합니다. **모니터** 탭에서 파이프라인 실행 목록이 표시 되 면 파이프라인 **이름** 링크를 클릭 하 여 파이프라인 실행의 활동 실행 목록에 액세스 합니다.
 
-![복사 작업 실행 모니터링](./media/copy-activity-overview/monitor-pipeline-run.png)
+![파이프라인 실행 모니터링](./media/copy-activity-overview/monitor-pipeline-run.png)
 
 이 수준에서 복사 작업 입력, 출력 및 오류 (복사 작업 실행이 실패 한 경우)에 대 한 링크와 기간/상태와 같은 통계를 볼 수 있습니다. 복사 작업 이름 옆의 **자세히** 단추 (안경)를 클릭 하면 복사 작업 실행에 대 한 자세한 정보가 제공 됩니다. 
 
@@ -38,7 +38,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 이 그래픽 모니터링 보기에서는 데이터 읽기/쓰기 볼륨, 원본에서 싱크로 복사 된 데이터의 파일/행 수, 처리량, 복사 시나리오에 적용 된 구성, 복사 작업이 해당 기간 및 세부 정보로 이동 하는 단계를 포함 하 여 복사 작업 실행 정보를 Azure Data Factory 표시 합니다. 가능한 각 메트릭 및 자세한 설명에서 [이 표](#monitor-programmatically) 를 참조 하세요. 
 
-일부 시나리오에서는 Data Factory 복사 작업을 실행할 때 복사 작업 모니터링 보기의 맨 위에 예에 나와 있는 것 처럼 **"성능 튜닝 팁"** 이 표시 됩니다. 팁은 복사 처리량 향상을 위해 변경 해야 하는 사항에 대 한 제안 사항을 비롯 하 여 특정 복사 실행에 대해 ADF에서 식별 한 병목 상태를 알려 줍니다. [자동 성능 튜닝 팁](copy-activity-performance-troubleshooting.md#performance-tuning-tips)에 대해 자세히 알아보세요.
+일부 시나리오에서는 Data Factory 복사 작업을 실행할 때 복사 작업 모니터링 보기의 맨 위에 예에 나와 있는 것 처럼 **"성능 튜닝 팁"**  이 표시 됩니다. 팁은 복사 처리량 향상을 위해 변경 해야 하는 사항에 대 한 제안 사항을 비롯 하 여 특정 복사 실행에 대해 ADF에서 식별 한 병목 상태를 알려 줍니다. [자동 성능 튜닝 팁](copy-activity-performance-troubleshooting.md#performance-tuning-tips)에 대해 자세히 알아보세요.
 
 아래쪽 **실행 세부 정보 및 기간은** 복사 작업을 수행 하는 주요 단계를 설명 하며,이는 복사 성능 문제를 해결 하는 데 특히 유용 합니다. 복사 실행에 대 한 병목 상태는 기간이 가장 긴 것입니다. 각 스테이지가 나타내는 내용과 자세한 문제 해결 지침은에서 [복사 작업 성능 문제 해결](copy-activity-performance-troubleshooting.md) 을 참조 하세요.
 
@@ -57,7 +57,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 | filesRead | 파일 기반 소스에서 읽은 파일 수입니다. | Int64 값(단위 없음) |
 | filesWritten | 파일 기반 싱크에 대해 작성/커밋된 파일 수입니다. | Int64 값(단위 없음) |
 | filesSkipped | 파일 기반 소스에서 건너뛴 파일 수입니다. | Int64 값(단위 없음) |
-| dataConsistencyVerification | 원본 및 대상 저장소 간에 복사 된 데이터가 일관 되 게 확인 되었는지 확인할 수 있는 데이터 일관성 확인에 대 한 세부 정보입니다. [이 문서](copy-activity-data-consistency.md#monitoring)에서 자세히 알아보세요. | Array |
+| dataConsistencyVerification | 원본 및 대상 저장소 간에 복사 된 데이터가 일관 되 게 확인 되었는지 확인할 수 있는 데이터 일관성 확인에 대 한 세부 정보입니다. [이 문서](copy-activity-data-consistency.md#monitoring)에서 자세히 알아보세요. | 배열 |
 | sourcePeakConnections | 복사 작업을 실행 하는 동안 원본 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int64 값(단위 없음) |
 | sinkPeakConnections | 복사 작업을 실행 하는 동안 싱크 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int64 값(단위 없음) |
 | rowsRead | 원본에서 읽은 행 수입니다. 원본 및 싱크 데이터 집합이 이진 형식 형식 이거나 설정이 동일한 다른 형식 형식인 경우를 제외 하 고 파일을 있는 그대로 복사 하는 경우에는이 메트릭이 적용 되지 않습니다. | Int64 값(단위 없음) |
@@ -67,15 +67,15 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 | throughput | 데이터 전송 률입니다. | 부동 소수점 수 (KBps) |
 | sourcePeakConnections | 복사 작업을 실행 하는 동안 원본 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int32 값 (단위 없음) |
 | sinkPeakConnections| 복사 작업을 실행 하는 동안 싱크 데이터 저장소에 설정 된 최대 동시 연결 수입니다.| Int32 값 (단위 없음) |
-| sqlDwPolyBase | 데이터를 SQL Data Warehouse에 복사할 때 PolyBase를 사용할지 여부를 지정 합니다. | 부울 |
+| sqlDwPolyBase | 데이터가 Azure Synapse Analytics로 복사 될 때 (이전에 SQL Data Warehouse) PolyBase를 사용할지 여부입니다. | 부울 |
 | redshiftUnload | Redshift에서 데이터를 복사할 때 언로드가 사용 되는지 여부입니다. | 부울 |
 | hdfsDistcp | HDFS에서 데이터를 복사할 때 DistCp를 사용할지 여부를 지정 합니다. | 부울 |
 | effectiveIntegrationRuntime | 작업을 실행 하는 데 사용 되는 IR (통합 런타임) 또는 런타임 형식 `<IR name> (<region if it's Azure IR>)` 입니다. | 텍스트(문자열) |
 | usedDataIntegrationUnits | 복사 중 효율적인 데이터 통합 단위입니다. | Int32 값 |
 | usedParallelCopies | 복사 동안 유효한 parallelCopies입니다. | Int32 값 |
 | logPath | Blob 저장소에서 건너뛴 데이터의 세션 로그 경로입니다. [내결함성](copy-activity-overview.md#fault-tolerance)을 참조 하세요. | 텍스트(문자열) |
-| executionDetails | 복사 작업을 수행 하는 단계 및 해당 단계, 기간, 구성 등에 대해 자세히 설명 합니다. 이 섹션은 변경 될 수 있으므로이 섹션을 구문 분석 하지 않는 것이 좋습니다. 복사 성능을 이해 하 고 문제를 해결 하는 데 도움이 되는 방법을 더 잘 이해 하려면 [시각적 개체 모니터링](#monitor-visually) 섹션을 참조 하세요. | Array |
-| perfRecommendation 사항 | 성능 튜닝 팁을 복사 합니다. 자세한 내용은 [성능 튜닝 팁](copy-activity-performance-troubleshooting.md#performance-tuning-tips) 을 참조 하세요. | Array |
+| executionDetails | 복사 작업을 수행 하는 단계 및 해당 단계, 기간, 구성 등에 대해 자세히 설명 합니다. 이 섹션은 변경 될 수 있으므로이 섹션을 구문 분석 하지 않는 것이 좋습니다. 복사 성능을 이해 하 고 문제를 해결 하는 데 도움이 되는 방법을 더 잘 이해 하려면 [시각적 개체 모니터링](#monitor-visually) 섹션을 참조 하세요. | 배열 |
+| perfRecommendation 사항 | 성능 튜닝 팁을 복사 합니다. 자세한 내용은 [성능 튜닝 팁](copy-activity-performance-troubleshooting.md#performance-tuning-tips) 을 참조 하세요. | 배열 |
 | billingReference | 지정 된 실행에 대 한 청구 사용량입니다. [활동 실행 수준에서 모니터 사용에](plan-manage-costs.md#monitor-consumption-at-activity-run-level)대해 자세히 알아보세요. | Object |
 | durationInQueue | 복사 작업 실행을 시작 하기 전의 대기 시간 (초)입니다. | Object |
 

@@ -4,12 +4,12 @@ description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3acb7379644b5bfcb22ed86b6bde7031095fef24
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 9f335ca6912545b39fb8276f5895f98e653735d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224856"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89656948"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -104,7 +104,7 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 
 사용 가능한 구성 옵션은 
 
-| 속성 | Type | 설명
+| Name | Type | 설명
 |------|------|----------------
 | src | 문자열 **[필수]** | SDK를 로드할 위치의 전체 URL입니다. 이 값은 동적으로 추가 된 스크립트/태그의 "src" 특성에 사용 됩니다 &lt; &gt; . 공용 CDN 위치나 개인적으로 호스트 된 항목을 사용할 수 있습니다.
 | name | 문자열 *[선택 사항]* | 초기화 된 SDK에 대 한 전역 이름 `appInsights` 입니다. 기본값은입니다. 는 ```window.appInsights``` 초기화 된 인스턴스에 대 한 참조입니다. 참고: 이름 값을 제공 하거나 이전 인스턴스가 할당 된 것으로 나타나는 경우 (전역 이름 appInsightsSDK을 통해)이 이름 값도 전역 네임 스페이스에 정의 됩니다 .이 이름 값은 ```window.appInsightsSDK=<name value>``` SDK 초기화 코드에서 올바른 코드 조각 구조 및 프록시 메서드를 초기화 하 고 업데이트 하는 데 필요 합니다.
@@ -115,7 +115,7 @@ SDK 로드 오류에 대 한 보고는 특히 IE 8에서 지원 되지 않습니
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Azure Portal 원격 분석 보내기
 
-기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 이러한 개체는 다음과 같습니다.
+기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 여기에는 다음이 포함됩니다.
 
 - 에 대 한 정보를 포함 하 여 앱의 Catch 되지 않은 **예외**
     - 스택 추적
@@ -150,10 +150,10 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. 을 제외한 모든 필드는 선택 사항 `instrumentationKey` 입니다.
 
-| 속성 | 기본값 | Description |
+| 속성 | 기본값 | 설명 |
 |------|---------|-------------|
 | instrumentationKey | null | **필수**<br>Azure Portal에서 가져온 계측 키입니다. |
 | accountId | null | 앱이 사용자를 계정으로 그룹화 하는 경우 계정 ID (선택 사항)입니다. 공백, 쉼표, 세미콜론, 같음 또는 세로 막대가 없습니다. |
@@ -204,8 +204,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 기본적으로이 SDK는 단일 페이지 응용 프로그램에서 발생 하는 상태 기반 경로 변경을 처리 **하지** 않습니다. 단일 페이지 응용 프로그램에 대해 자동 경로 변경 추적을 사용 하도록 설정 하려면 `enableAutoRouteTracking: true` 설치 구성에를 추가 하면 됩니다.
 
-현재이 SDK를 사용 하 여 초기화할 수 있는 별도의 [반응 플러그 인](#react-extensions)을 제공 합니다. 또한 사용자에 대 한 경로 변경 추적을 수행 하 고 [다른 반응 특정 원격 분석](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)을 수집 합니다.
-
+현재이 SDK를 사용 하 여 초기화할 수 있는 별도의 [반응 플러그 인](javascript-react-plugin.md)을 제공 합니다. 또한 사용자에 대 한 경로 변경 추적을 수행 하 고 다른 반응 특정 원격 분석을 수집 합니다.
 > [!NOTE]
 > `enableAutoRouteTracking: true`반응 플러그 인을 사용 **하지 않는** 경우에만를 사용 합니다. 두 가지 모두 경로가 변경 될 때 새 PageViews를 보낼 수 있습니다. 둘 다 사용 하도록 설정 된 경우 중복 PageViews를 보낼 수 있습니다.
 
@@ -213,12 +212,13 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 를 설정 하면 `autoTrackPageVisitTime: true` 각 페이지에서 사용자가 소비한 시간이 추적 됩니다. 새 페이지 보기에서 *이전* 페이지에서 사용자가 소비한 시간은 이라는 [사용자 지정 메트릭으로](../platform/metrics-custom-overview.md) 전송 됩니다 `PageVisitTime` . 이 사용자 지정 메트릭은 [메트릭 탐색기](../platform/metrics-getting-started.md) "로그 기반 메트릭"으로 볼 수 있습니다.
 
-## <a name="react-extensions"></a>확장에 대응
+## <a name="extensions"></a>확장
 
 | 확장 |
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
+| [Angular](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js) |
 
 ## <a name="correlation"></a>상관 관계
 
@@ -315,7 +315,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 
 ## <a name="examples"></a>예제
 
-실행 가능한 예제는 [Application Insights JAVASCRIPT SDK 샘플](https://github.com/topics/applicationinsights-js-demo) 을 참조 하세요.
+실행 가능한 예제는 [Application Insights JAVASCRIPT SDK 샘플](https://github.com/Azure-Samples?q=applicationinsights-js-demo)을 참조 하세요.
 
 ## <a name="upgrading-from-the-old-version-of-application-insights"></a>이전 버전의 Application Insights에서 업그레이드
 

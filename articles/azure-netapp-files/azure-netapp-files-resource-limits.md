@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 9facbc1629b8e1330c6bbafb4444d5bfc237d16f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 60d3c9df270561c94b8eb162595e4fe01713c0b5
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752302"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536482"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -56,11 +56,11 @@ Azure NetApp Files 볼륨에는 *maxfiles*라는 제한이 있습니다. Maxfile
 
 |    볼륨 크기 (할당량)     |  Maxfiles 한도의 자동 readjustment    |
 |----------------------------|-------------------|
-|    < 1 TiB                 |    2천만     |
-|    >= 1 TiB < 2 TiB    |    4000만     |
-|    >= 2 TiB 하지만 < 3 TiB    |    6천만     |
-|    >= 3 TiB < 4 TiB    |    8000만     |
-|    >= 4 TiB                |    1억    |
+|    <= 1 TiB                |    2천만     |
+|    > 1 TiB <= 2 TiB    |    4000만     |
+|    > 2 TiB <= 3 TiB    |    6천만     |
+|    > 3 TiB <= 4 TiB    |    8000만     |
+|    > 4 TiB                 |    1억    |
 
 볼륨에 대해 최소 4 개의 TiB의 할당량을 이미 할당 한 경우에는 [지원 요청](#limit_increase) 을 시작 하 여 maxfiles 제한을 1억 이상 늘릴 수 있습니다.
 

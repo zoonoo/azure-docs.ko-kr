@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: f333f28dc0e02e8d010f5521f298d0f0b031dbf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab9b396f72ddd35638519ab69f17e034479e0d5a
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311042"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504913"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>의심스러운 IoT 디바이스 조사
 
@@ -39,7 +39,7 @@ IoT 서비스 경고에 대 한 Azure Security Center은 IoT 장치에서 의심
 데이터 저장소에 대 한 Log Analytics 작업 영역을 찾으려면 다음을 수행 합니다.
 
 1. IoT Hub를 엽니다.
-1. **보안**에서 **개요**를 클릭 한 다음 **설정**을 선택 합니다.
+1. **보안**아래에서 **설정**을 선택 하 고 **데이터 수집**을 선택 합니다.
 1. Log Analytics 작업 영역의 구성 세부 정보를 변경합니다.
 1. **저장**을 클릭합니다.
 
