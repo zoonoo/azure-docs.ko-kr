@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 2c96e4b7baa2c463c42db9440cadb3cb396fde1b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 20e709db9e6992f52b04934cb0f6eb65d3dcb44c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642472"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489530"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)란?
 
@@ -67,7 +67,7 @@ Azure SQL Edge를 사용하면 애플리케이션을 더 쉽고 효율적으로 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/): SQL Server에서 SQL Database에 이르는 모든 SQL 인프라를 관리하는 체험 다운로드 가능한 클라이언트 애플리케이션입니다.
 - [Visual Studio의 SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt/): SQL Server 관계형 데이터베이스, SQL 데이터베이스, Integration Services 패키지, Analysis Services 데이터 모델 및 Reporting Services 보고서를 개발하는 다운로드 가능한 무료 클라이언트 애플리케이션입니다.
 - [Azure Data Studio](/sql/azure-data-studio/what-is/) - Windows, macOS 및 Linux에서 Microsoft 온-프레미스 및 클라우드 데이터 플랫폼 제품군을 사용하는 데이터 전문가를 위한 플랫폼 간 데이터베이스 도구이며 무료로 다운로드할 수 있습니다.
-- [Visual Studio Code](https://code.visualstudio.com/docs) - Windows, macOS 및 Linux용 오픈 소스 코드 편집기이며 무료로 다운로드할 수 있습니다. Microsoft SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse를 쿼리하는 [mssql 확장](https://aka.ms/mssql-marketplace)을 비롯한 여러 확장을 지원합니다.
+- [Visual Studio Code](https://code.visualstudio.com/docs) - Windows, macOS 및 Linux용 오픈 소스 코드 편집기이며 무료로 다운로드할 수 있습니다. Microsoft SQL Server, Azure SQL Database 및 Azure Synapse Analytics를 쿼리 하는 [mssql 확장](https://aka.ms/mssql-marketplace) 을 비롯 한 확장을 지원 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: Global Reach 구성'
 description: 이 문서는 온-프레미스 네트워크 간의 프라이빗 네트워크를 설정하고 Global Reach를 사용하도록 설정하기 위해 ExpressRoute 회로를 함께 연결하는 데 유용합니다.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: jaredro
-ms.openlocfilehash: ddf4625b8e638f7cb13999136ec5aa1afc99418a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: dd4c6f0b9d518acf06f7d018a65cc2b9b92db33d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738416"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395454"
 ---
 # <a name="configure-expressroute-global-reach"></a>ExpressRoute Global Reach 구성
 

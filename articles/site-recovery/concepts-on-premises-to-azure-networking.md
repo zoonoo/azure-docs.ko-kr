@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용 하 여 Azure Vm 온-프레미스 장애 조치 (failover)에 연결
 description: Azure Site Recovery를 사용 하 여 온-프레미스에서 Azure로 장애 조치 (failover) 후 Azure Vm에 연결 하는 방법을 설명 합니다.
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
-ms.author: mayg
-ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: harshacs
+ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770495"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568781"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>온-프레미스에서 장애 조치 (failover) 후 Azure Vm에 연결 
 
@@ -60,7 +60,7 @@ Azure Vm에 대 한 연결을 보장 하려면 장애 조치 (failover) 전에 �
 
 장애 조치 (failover) 후 생성 된 Azure Vm에서 다음을 수행 합니다.
 
-1. 인터넷을 통해 VM에 연결하려면 공용 IP 주소를 VM에 할당합니다. 온-프레미스 머신에 사용한 것과 동일한 공용 IP 주소는 Azure VM에 사용할 수 없습니다. [자세한 정보](../virtual-network/virtual-network-public-ip-address.md)
+1. 인터넷을 통해 VM에 연결하려면 공용 IP 주소를 VM에 할당합니다. 온-프레미스 머신에 사용한 것과 동일한 공용 IP 주소는 Azure VM에 사용할 수 없습니다. [자세히 알아보기](../virtual-network/virtual-network-public-ip-address.md)
 2. VM의 NSG(네트워크 보안 그룹) 규칙에서 RDP 또는 SSH 포트로 들어오는 연결을 허용하는지 확인합니다.
 3. [부트 진단](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) 을 확인 하 여 VM을 확인 합니다.
 
@@ -96,19 +96,19 @@ IP 주소를 유지 하려면 다음 단계를 수행 해야 합니다.
 
 ### <a name="failover-example"></a>장애 조치 예제
 
-한 가지 예를 살펴보겠습니다.
+예제를 살펴보겠습니다.
 
 - 가상의 회사 Woodgrove Bank는 온-프레미스의 비즈니스 앱을 호스트 하 여 Azure에서 모바일 앱을 호스팅합니다.
 - 사이트 간 VPN을 통해 온-프레미스에서 Azure로 연결 합니다. 
 - Woodgrove는 Site Recovery을 사용 하 여 온-프레미스 컴퓨터를 Azure에 복제 합니다.
 - 온-프레미스 앱은 하드 코드 된 IP 주소를 사용 하므로 Azure에서 동일한 IP 주소를 유지 하려고 합니다.
 - 온-프레미스 앱을 실행 하는 컴퓨터는 세 개의 서브넷으로 실행 됩니다.
-    - 192.168.1.0/24.
+    - 192.168.1.0/24
     - 192.168.2.0/24
     - 192.168.3.0/24
 - Azure에서 실행 되는 앱은 Azure VNet **Azure 네트워크** 의 두 서브넷에 있습니다.
-- 172.16.1.0/24
-- 172.16.2.0/24.
+    - 172.16.1.0/24
+    - 172.16.2.0/24
 
 주소를 유지 하기 위해 수행 하는 작업은 다음과 같습니다.
 

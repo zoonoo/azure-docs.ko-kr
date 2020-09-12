@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b92bfad99c854f75c945121d352a7122d8c6db89
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d5de8374f58eaf8dc83f54f05557b0a125191c34
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011602"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613715"
 ---
 # <a name="cut-planes"></a>평면 잘라내기
 
@@ -56,7 +56,6 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 }
 ```
 
-
 ### <a name="cutplanecomponent-properties"></a>CutPlaneComponent 속성
 
 다음 속성은 절단면 구성 요소에서 노출됩니다.
@@ -68,6 +67,11 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 * `FadeColor` 및 `FadeLength`:
 
   *FadeColor*의 알파 값이 0이 아닌 경우 절단면에 가까운 픽셀은 FadeColor의 RGB 부분으로 페이드됩니다. 알파 채널의 강도에 따라 페이드 색을 완전히 페이드할지 아니면 부분적으로만 페이드할지 여부를 결정합니다. *FadeLength*는 이 페이드가 발생하는 거리를 정의합니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # CutPlaneComponent 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
+* [C + + CutPlaneComponent 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/cutplanecomponent)
 
 ## <a name="next-steps"></a>다음 단계
 

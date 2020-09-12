@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: 피어 링 구성'
 description: 이 문서에서는 Express 경로 개인 및 Microsoft 피어 링을 만들고 프로 비전 하는 단계를 설명 합니다. 이 문서에서는 회로의 상태를 확인, 업데이트 또는 삭제 하는 방법도 보여 줍니다.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/13/2019
-ms.author: mialdrid
-ms.openlocfilehash: 6bcbe2bd038a3e27df86b281c51cf0a151c5b5af
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.author: duau
+ms.openlocfilehash: 8ac38c25821a9f636ac98903599ee7d3acfa5e17
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542911"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395726"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>ExpressRoute 회로의 피어링 만들기 및 수정
 
@@ -25,7 +25,7 @@ ms.locfileid: "87542911"
 > * [공용 피어링](about-public-peering.md)
 > * [비디오 - 프라이빗 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [비디오 - Microsoft 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
-> * [PowerShell (클래식)](expressroute-howto-routing-classic.md)
+> * [PowerShell(클래식)](expressroute-howto-routing-classic.md)
 > 
 
 Express 경로 회로에 대해 개인 피어 링 및 Microsoft 피어 링을 구성할 수 있습니다 (Azure 공용 피어 링은 새 회로에서 사용 되지 않음). 피어 링은 선택 하는 순서에 관계 없이 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다. 라우팅 도메인 및 피어링에 대한 자세한 내용은 [ExpressRoute 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요. 공용 피어 링에 대 한 자세한 내용은 [express 경로 공용 피어 링](about-public-peering.md)을 참조 하세요.

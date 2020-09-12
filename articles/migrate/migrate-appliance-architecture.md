@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스 아키텍처
 description: 서버 평가 및 마이그레이션에 사용되는 Azure Migrate 어플라이언스에 대해 간략히 설명합니다.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a83e044acc329572a5f3bfd4856f90379319ba1d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919746"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514573"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Azure Migrate 어플라이언스 아키텍처
 
@@ -62,15 +62,15 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 
 ## <a name="discovery-and-collection-process"></a>검색 및 수집 프로세스
 
-![아키텍처](./media/migrate-appliance-architecture/architecture.png)
+![Architecture](./media/migrate-appliance-architecture/architecture1.png)
 
 어플라이언스는 다음 프로세스를 사용 하 여 vCenter 서버 및 Hyper-v 호스트/클러스터와 통신 합니다.
 
 1. **검색 시작**:
-    - Hyper-v 어플라이언스에서 검색을 시작 하면 WinRM 포트 5985 (HTTP) 및 5986 (HTTPS)에서 Hyper-v 호스트와 통신 합니다.
+    - Hyper-v 어플라이언스에서 검색을 시작 하면 WinRM 포트 5985 (HTTP)에서 Hyper-v 호스트와 통신 합니다.
     - VMware 어플라이언스에서 검색을 시작 하면 기본적으로 TCP 포트 443의 vCenter server와 통신 합니다. VCenter server가 다른 포트에서 수신 대기 하는 경우 어플라이언스 웹 앱에서 구성할 수 있습니다.
 2. **메타 데이터 및 성능 데이터를 수집**합니다.
-    - 어플라이언스는 CIM(Common Information Model) (CIM) 세션을 사용 하 여 hyper-v 호스트에서 5985 및 5986 포트의 hyper-v VM 데이터를 수집 합니다.
+    - 어플라이언스는 CIM(Common Information Model) (CIM) 세션을 사용 하 여 5985 포트의 Hyper-v 호스트에서 Hyper-v VM 데이터를 수집 합니다.
     - 어플라이언스는 기본적으로 포트 443와 통신 하 여 vCenter Server에서 VMware VM 데이터를 수집 합니다.
 3. **데이터 보내기**: 어플라이언스는 Azure Migrate 서버 평가를 위해 수집 된 데이터를 보내고 SSL 포트 443을 통해 서버 마이그레이션을 Azure Migrate 합니다. 어플라이언스는 인터넷을 통해 Azure에 연결 하거나 공용/Microsoft 피어 링과 함께 Express 경로를 사용할 수 있습니다.
     - 성능 데이터의 경우 어플라이언스는 실시간 사용률 데이터를 수집 합니다.
@@ -81,17 +81,12 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
     - 서버 마이그레이션의 경우 어플라이언스는 VM 데이터 수집을 시작 하 여 Azure에 복제 합니다.
 4. **평가 및 마이그레이션**: 이제 Azure Migrate Server 평가를 사용 하 여 어플라이언스에서 수집한 메타 데이터에서 평가를 만들 수 있습니다. 또한 Azure Migrate 서버 마이그레이션을 사용 하 여 VMware Vm 마이그레이션을 시작 하 여 에이전트 없는 VM 복제를 오케스트레이션 할 수도 있습니다.
 
-
-
-
-
 ## <a name="appliance-upgrades"></a>어플라이언스 업그레이드
 
 어플라이언스에서 실행되는 Azure Migrate 에이전트가 업데이트되면 어플라이언스가 업그레이드됩니다. 이는 기본적으로 어플라이언스에서 자동 업데이트를 사용 하기 때문에 자동으로 발생 합니다. 이 기본 설정을 변경 하 여 에이전트를 수동으로 업데이트할 수 있습니다.
 
 HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance "자동 업데이트" 키를 0 (DWORD)로 설정 하 여 레지스트리에서 자동 업데이트를 해제 합니다.
 
- 
 
 ## <a name="next-steps"></a>다음 단계
 

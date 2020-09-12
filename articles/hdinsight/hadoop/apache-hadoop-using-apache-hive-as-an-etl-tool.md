@@ -1,19 +1,19 @@
 ---
 title: Apache Hive를 ETL 도구로 사용 - Azure HDInsight
 description: Apache Hive를 사용하여 Azure HDInsight에서 데이터를 ETL(추출, 변환 및 로드)합니다.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 1627fccb49f0ddbf7a3a0a42f5a483059101dae2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 9b9dcd683915c17ae6909ebb88927d275e9a5896
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076065"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505287"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive를 ETL(추출, 변환 및 로드) 도구로 사용
 
@@ -69,7 +69,7 @@ Hive를 사용 하 여 ETL을 수행 하는 일반적인 단계는 다음과 같
 Hive를 사용 하 여 다음을 비롯 한 다양 한 종류의 대상으로 데이터를 출력할 수 있습니다.
 
 * 관계형 데이터(예: SQL Server 또는 Azure SQL Database)
-* 데이터 웨어하우스(예: Azure SQL Data Warehouse)
+* 데이터 웨어하우스 (예: Azure Synapse Analytics)
 * Excel
 * Azure 테이블 및 Blob Storage
 * 데이터를 특정 형식으로 또는 특정 형식의 정보 구조를 포함하는 파일로 처리해야 하는 애플리케이션 또는 서비스
@@ -79,9 +79,9 @@ Hive를 사용 하 여 다음을 비롯 한 다양 한 종류의 대상으로 �
 
 ETL 모델은 일반적으로 다음 작업을 수행하려는 경우에 사용됩니다.
 
-`*`외부 원본에서 기존 데이터베이스 또는 정보 시스템으로 스트림 데이터 또는 많은 양의 반구조적 또는 비구조적 데이터를 로드 합니다.
-`*`클러스터를 통해 둘 이상의 변환 패스를 사용 하 여 데이터를 로드 하기 전에 정리, 변환 및 유효성 검사를 수행 합니다.
-`*`정기적으로 업데이트 되는 보고서 및 시각화를 생성 합니다. 예를 들어, 보고서가 너무 길어서 낮 동안 생성할 수 없는 경우 밤에 실행되도록 보고서를 예약할 수 있습니다. Hive 쿼리를 자동으로 실행 하기 위해 [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) 및 PowerShell을 사용할 수 있습니다.
+`*` 외부 원본에서 기존 데이터베이스 또는 정보 시스템으로 스트림 데이터 또는 많은 양의 반구조적 또는 비구조적 데이터를 로드 합니다.
+`*` 클러스터를 통해 둘 이상의 변환 패스를 사용 하 여 데이터를 로드 하기 전에 정리, 변환 및 유효성 검사를 수행 합니다.
+`*` 정기적으로 업데이트 되는 보고서 및 시각화를 생성 합니다. 예를 들어, 보고서가 너무 길어서 낮 동안 생성할 수 없는 경우 밤에 실행되도록 보고서를 예약할 수 있습니다. Hive 쿼리를 자동으로 실행 하기 위해 [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) 및 PowerShell을 사용할 수 있습니다.
 
 데이터의 대상이 데이터베이스가 아닌 경우 쿼리 내에서 적절 한 형식으로 파일을 생성할 수 있습니다 (예: CSV). 그런 후 이 파일을 Excel 또는 Power BI로 가져올 수 있습니다.
 

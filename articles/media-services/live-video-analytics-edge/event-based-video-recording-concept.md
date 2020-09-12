@@ -3,12 +3,12 @@ title: 이벤트 기반 비디오 기록-Azure
 description: 'EVR(이벤트 기반 비디오 녹화)은 이벤트에 의해 트리거되는 비디오 녹화 프로세스를 말합니다. 문제의 이벤트는 비디오 신호 자체의 처리 (예: 동작에 대 한 검색) 또는 독립적인 원본 (예: 도어 열기)으로 인해 발생할 수 있습니다.  이벤트 기반 비디오 기록과 관련 된 몇 가지 사용 사례는이 문서에 설명 되어 있습니다.'
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 0a6f7ca4233c195c7494fc6f63e7dfb5bf654c17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3efd2b9be41928ab4721d6db4aa84c0f1f57e2f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260746"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568506"
 ---
 # <a name="event-based-video-recording"></a>이벤트 기반 비디오 녹화  
  
@@ -34,7 +34,8 @@ Asset sink 노드에 대 한 대 안으로, [파일 싱크](media-graph-concept.
 
 아래 다이어그램은이 사용 사례를 해결 하는 미디어 그래프를 그래픽으로 나타낸 것입니다. 이러한 미디어 그래프의 그래프 토폴로지의 JSON 표현은 [여기](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-motion-assets/topology.json)에서 찾을 수 있습니다.
 
-![동작 검색을 기준으로 비디오 녹화](./media/event-based-video-recording/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/motion-detection.svg" alt-text="동작 검색을 기준으로 비디오 녹화":::
 
 다이어그램에서 RTSP 원본 노드는 카메라에서 라이브 비디오 피드를 캡처하여 [동작 감지 프로세서](media-graph-concept.md#motion-detection-processor) 노드에 전달 합니다. 라이브 비디오에서 동작을 감지할 때 동작 감지 프로세서 노드는 [신호 게이트 프로세서](media-graph-concept.md#signal-gate-processor) 노드 뿐만 아니라 IoT Hub 메시지 싱크 노드로 이동 하는 이벤트를 생성 합니다. 후자 노드는 이벤트를 다른 대상으로 라우팅할 수 있는 위치에서 IoT Edge 허브로 전송 하 여 경고를 트리거합니다. 
 
@@ -44,7 +45,8 @@ Asset sink 노드에 대 한 대 안으로, [파일 싱크](media-graph-concept.
 
 이 사용 사례에서 다른 IoT 센서의 신호를 사용 하 여 비디오 기록을 트리거할 수 있습니다. 아래 다이어그램은이 사용 사례를 해결 하는 미디어 그래프를 그래픽으로 나타낸 것입니다. 이러한 미디어 그래프의 그래프 토폴로지의 JSON 표현은 [여기](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-files/topology.json)에서 찾을 수 있습니다.
 
-![다른 원본의 이벤트를 기반으로 하는 비디오 녹음](./media/event-based-video-recording/other-sources.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="다른 원본의 이벤트를 기반으로 하는 비디오 녹음":::
 
 다이어그램에서 외부 센서는 IoT Edge 허브로 이벤트를 보냅니다. 그런 다음 이벤트는 [IoT Hub 메시지 원본](media-graph-concept.md#iot-hub-message-source) 노드를 통해 신호 게이트 프로세서 노드로 라우팅됩니다. 신호 게이트 프로세서 노드의 동작은 이전 사용 사례와 동일 합니다 .이는 외부 이벤트에 의해 트리거될 때 라이브 비디오 피드가 RTSP 원본 노드에서 파일 싱크 노드 (또는 자산 싱크 노드)로 이동 하는 것을 허용 합니다. 
 
@@ -54,7 +56,8 @@ Asset sink 노드에 대 한 대 안으로, [파일 싱크](media-graph-concept.
 
 이 사용 사례에서 외부 논리 시스템의 신호에 따라 비디오 클립을 기록할 수 있습니다. 이러한 사용 사례의 예는 고속도로의 트래픽 비디오 피드에서 트럭이 검색 된 경우에만 비디오 클립을 기록 하는 것일 수 있습니다. 아래 다이어그램은이 사용 사례를 해결 하는 미디어 그래프를 그래픽으로 나타낸 것입니다. 이러한 미디어 그래프의 그래프 토폴로지의 JSON 표현은 [여기](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json)에서 찾을 수 있습니다.
 
-![외부 추론 모듈을 기반으로 하는 비디오 녹화](./media/event-based-video-recording/external-inferencing-module.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="외부 추론 모듈을 기반으로 하는 비디오 녹화":::
 
 다이어그램에서 RTSP 원본 노드는 카메라에서 라이브 비디오 피드를 캡처하여 두 개의 분기로 전달 합니다. 하나는 [신호 게이트 프로세서](media-graph-concept.md#signal-gate-processor) 노드를 포함 하 고 다른 하나는 [HTTP 확장](media-graph-concept.md) 노드를 사용 하 여 외부 논리 모듈로 데이터를 전송 합니다. HTTP 확장 노드를 사용 하면 미디어 그래프가 휴지 상태의 외부 유추 서비스로 이미지 프레임 (JPEG, BMP 또는 PNG 형식)을 보낼 수 있습니다. 이 신호 경로는 일반적으로 낮은 프레임 속도 (<5fps)만 지원할 수 있습니다. [프레임 전송률 필터 프로세서](media-graph-concept.md#frame-rate-filter-processor) 노드를 사용 하 여 HTTP 확장 노드로 이동 하는 비디오의 프레임 속도로 낮출 수 있습니다.
 

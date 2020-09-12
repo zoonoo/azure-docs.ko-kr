@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/18/2020
+ms.date: 09/06/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b3a838e52bb0b9f3a3be7195bd528c08e499c0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: f8598e77940bd2b33a9d8ba2c5a56348be841f7b
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783657"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505104"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "88783657"
 
 이 문서에서는 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 하나 이상 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - Azure AD Premium P2
 - 전역 관리자 또는 사용자 관리자
@@ -100,22 +100,31 @@ ms.locfileid: "88783657"
 
 1. 검토가 완료된 후 수행할 작업을 지정하려면 **완료 시 설정** 섹션을 확장합니다.
 
-    ![액세스 검토 완료 설정 만들기](./media/create-access-review/upon-completion-settings.png)
+    ![액세스 검토 완료 설정 만들기](./media/create-access-review/upon-completion-settings-new.png)
 
-1. 거부 된 사용자에 대 한 액세스 권한을 자동으로 제거 하려면 **리소스에 결과 자동 적용** 을 **사용**으로 설정 합니다. 검토가 완료될 때 결과를 수동으로 적용하려면 스위치를 **사용 안 함**으로 설정합니다.
+2. 거부 된 사용자에 대 한 액세스 권한을 자동으로 제거 하려면 **리소스에 결과 자동 적용** 을 **사용**으로 설정 합니다. 검토가 완료될 때 결과를 수동으로 적용하려면 스위치를 **사용 안 함**으로 설정합니다.
 
-1. **검토자가 응답하지 않는 경우** 목록을 사용하여 검토 기간 내에 검토자가 검토하지 않은 사용자를 어떻게 할 것인지 지정합니다. 이 설정은 검토자가 수동으로 검토한 사용자에게 영향을 주지 않습니다. 최종 검토자의 결정이 [거부]이면 사용자의 액세스 권한이 제거됩니다.
+3. 검토자가 **응답 하지 않는 경우** 목록에서 검토자가 검토 기간 내에 검토 하지 않은 사용자에 게 발생 하는 작업을 지정 하려면 사용 합니다. 이 설정은 검토자가 수동으로 검토한 사용자에게 영향을 주지 않습니다. 최종 검토자의 결정이 [거부]이면 사용자의 액세스 권한이 제거됩니다.
 
     - **변경 없음** - 사용자의 액세스 권한을 그대로 유지
     - **액세스 권한 제거** - 사용자의 액세스 권한을 제거
     - **액세스 권한 승인** - 사용자의 액세스 권한을 승인
     - **권장 작업 수행** - 사용자의 지속적인 액세스를 거부할 것인지 아니면 승인할 것인지에 대한 시스템의 권장 사항을 수용
 
+4. 모드 거부 된 사용자에 게 적용 하는 작업을 사용 하 여 게스트 사용자가 거부 된 경우 수행할 작업을 지정할 수 있습니다.
+    - **옵션 1** 은 검토 중인 그룹 또는 응용 프로그램에 대 한 거부 된 사용자 액세스를 제거 하 고 테 넌 트에도 로그인 할 수 있습니다. 
+    - **옵션 2** 는 다른 리소스에 대 한 액세스 권한이 있는지 여부에 관계 없이 거부 된 사용자가 테 넌 트에 로그인 하지 못하도록 차단 합니다. 오류가 발생 했거나 관리자가 한 사람의 액세스를 다시 사용 하도록 설정한 경우 사용자가 사용 하지 않도록 설정 된 후 30 일 이내에이 작업을 수행할 수 있습니다. 사용 하지 않도록 설정 된 사용자에 대해 수행 되는 작업이 없는 경우 테 넌 트에서 삭제 됩니다.
+
+조직의 리소스에 더 이상 액세스할 수 없는 게스트 사용자를 제거 하는 모범 사례에 대 한 자세한 내용은 [Azure AD Identity Governance를 사용 하 여 더 이상 리소스 액세스 권한이 없는 외부 사용자를 검토 하 고 제거 하](access-reviews-external-users.md)는 문서를 참조 하세요.
+
+>[!NOTE]
+> 거부 된 사용자에 게 적용 하는 작업은 이전에 게스트 사용자로 범위가 지정 된 경우에만 작동 합니다 ( **하나 이상의 액세스 검토 섹션 만들기** 섹션 8 단계).
+
 ### <a name="advanced-settings"></a>고급 설정
 
 1. 추가 설정을 지정하려면 **고급 설정** 섹션을 확장합니다.
 
-    ![액세스 검토-고급 설정 만들기](./media/create-access-review/advanced-settings-preview.png)
+    ![액세스 검토-고급 설정 만들기](./media/create-access-review/advanced-settings-preview-new.png)
 
 1. **권장 사항 표시**를 **사용**으로 설정하면 사용자의 액세스 정보에 따라 검토자에게 시스템 권장 사항이 표시됩니다.
 

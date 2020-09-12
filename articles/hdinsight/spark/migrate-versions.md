@@ -1,18 +1,18 @@
 ---
 title: Apache Spark 2.1 또는 2.2 워크로드에서 2.3 또는 2.4로 마이그레이션 - Azure HDInsight
 description: Apache Spark 2.1 및 2.2에서 2.3 또는 2.4로 마이그레이션하는 방법을 알아봅니다.
-author: ashishthaps1
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 681de5d8e4daeaabb865cde3ef93008b2965824e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1ce9b0faa6636d1318871cc9ef66cfbe47908265
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497151"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504981"
 ---
 # <a name="migrate-apache-spark-21-and-22-workloads-to-23-and-24"></a>Apache Spark 2.1 및 2.2 워크로드를 2.3 및 2.4로 마이그레이션
 

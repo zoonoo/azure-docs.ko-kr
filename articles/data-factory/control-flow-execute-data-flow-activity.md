@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 04/30/2020
-ms.openlocfilehash: 1004f7fcc8ff93a170b724a6d8b1c2216b9c39b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726976"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485040"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업
 
@@ -60,8 +60,8 @@ ms.locfileid: "84726976"
 integrationRuntime | 데이터 흐름이 실행 되는 계산 환경입니다. 지정 하지 않으면 자동 확인 Azure 통합 런타임이 사용 됩니다. | IntegrationRuntimeReference | 아니요
 compute. coreCount | Spark 클러스터에서 사용 되는 코어 수입니다. Azure Integration runtime 자동 확인이 사용 되는 경우에만 지정할 수 있습니다. | 8, 16, 32, 48, 80, 144, 272 | 아니요
 계산. | Spark 클러스터에서 사용 되는 계산의 유형입니다. Azure Integration runtime 자동 확인이 사용 되는 경우에만 지정할 수 있습니다. | "일반", "서는 E최적화 됨", "MemoryOptimized" | 아니요
-linkedService | SQL DW 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 저장소 계정 | LinkedServiceReference | 데이터 흐름이 SQL DW를 읽거나 쓰는 경우에만
-스테이징. folderPath | SQL DW 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 blob 저장소 계정의 폴더 경로 | String | 데이터 흐름이 SQL DW를 읽거나 쓰는 경우에만
+linkedService | Azure Synapse Analytics 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 저장소 계정 | LinkedServiceReference | 데이터 흐름이 Azure Synapse Analytics를 읽거나 쓰는 경우에만
+스테이징. folderPath | Azure Synapse Analytics 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 blob storage 계정의 폴더 경로 | String | 데이터 흐름이 Azure Synapse Analytics를 읽거나 쓰는 경우에만
 
 ![데이터 흐름 실행](media/data-flow/activity-data-flow.png "데이터 흐름 실행")
 
@@ -86,7 +86,7 @@ linkedService | SQL DW 원본 또는 싱크를 사용 하는 경우 PolyBase 스
 
 ### <a name="polybase"></a>PolyBase
 
-Azure SQL Data Warehouse를 싱크 또는 원본으로 사용 하는 경우 PolyBase 일괄 처리 로드를 위한 스테이징 위치를 선택 해야 합니다. PolyBase를 사용 하면 데이터를 행 단위로 로드 하는 대신 일괄 처리를 대량으로 로드할 수 있습니다. PolyBase는 로드 시간을 SQL DW로 대폭 줄입니다.
+Azure Synapse Analytics (이전의 SQL Data Warehouse)를 싱크 또는 원본으로 사용 하는 경우 PolyBase 일괄 처리 로드를 위한 스테이징 위치를 선택 해야 합니다. PolyBase를 사용 하면 데이터를 행 단위로 로드 하는 대신 일괄 처리를 대량으로 로드할 수 있습니다. PolyBase를 통해 Azure Synapse Analytics로 로드 시간이 크게 단축 됩니다.
 
 ## <a name="parameterizing-data-flows"></a>데이터 흐름 매개 변수화
 

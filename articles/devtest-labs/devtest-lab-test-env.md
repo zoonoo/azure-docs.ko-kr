@@ -3,12 +3,12 @@ title: VM 및 PaaS 테스트 환경에 Azure DevTest Labs 사용 | Microsoft Doc
 description: VM 및 PaaS 테스트 환경 시나리오에 Azure DevTest Labs를 사용하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9207c070c13c5e276a6ab95e3bcf1bb8671dc382
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 978071aa160098612a5effebfb30d5d58b777df7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272898"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299833"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>VM 및 PaaS 테스트 환경에 Azure DevTest Labs 사용
 
@@ -46,7 +46,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
    | Task | 학습 내용 |
    | --- | --- |
-   | [Azure Marketplace 이미지 구성](devtest-lab-configure-marketplace-images.md) |테스터에게 필요한 이미지만 선택할 수 있도록 Azure Marketplace 이미지를 허용 목록에 추가할 수 있는 방법을 알아봅니다.|
+   | [Azure Marketplace 이미지 구성](devtest-lab-configure-marketplace-images.md) |Azure Marketplace 이미지를 허용할 수 있는 방법에 대해 알아보고 테스터에 게 원하는 이미지만 선택할 수 있습니다.|
    | [사용자 지정 이미지 만들기](devtest-lab-create-template.md) |테스터가 사용자 지정 이미지를 사용하여 신속하게 VM을 만들 수 있도록 필요한 소프트웨어를 미리 설치하여 사용자 지정 이미지를 만듭니다.|
    | [이미지 팩터리에 대한 자세한 정보](./devtest-lab-faq.md#blog-post) |이미지 팩터리를 설정 및 사용하는 방법을 설명하는 비디오를 시청하세요.|
 

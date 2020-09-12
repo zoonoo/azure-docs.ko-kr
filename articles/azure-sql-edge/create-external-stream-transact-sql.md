@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: d4ad11d156fd3a672e93b5e039c82d16b2aebdc3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 17783662ba91f227a7b0bf69203bf21dd8342277
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321737"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489547"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM(Transact-SQL)
 
@@ -26,7 +26,7 @@ EXTERNAL STREAM을 지정하고 이벤트 허브 또는 Blob 스토리지 같은
 
 | 데이터 원본 유형 | 입력 | 출력 | Description |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge 허브 | 지원 | 지원 | 스트리밍 데이터를 읽고 Azure IoT Edge 허브에 쓰기 위한 데이터 원본입니다. 자세한 내용은 [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)를 참조 하세요.|
+| Azure IoT Edge 허브 | Y | Y | 스트리밍 데이터를 읽고 Azure IoT Edge 허브에 쓰기 위한 데이터 원본입니다. 자세한 내용은 [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)를 참조 하세요.|
 | SQL Database | N | Y | SQL Database에 스트리밍 데이터를 쓰는 데이터 원본 연결입니다. 데이터베이스는 Azure SQL Edge의 로컬 데이터베이스 이거나 SQL Server 또는 Azure SQL Database의 원격 데이터베이스 일 수 있습니다.|
 | Kafka | Y | N | Kafka 토픽에서 스트리밍 데이터를 읽는 데이터 원본입니다. Azure SQL Edge의 ARM64 버전에는 kafka 지원 기능을 사용할 수 없습니다.|
 
@@ -141,7 +141,7 @@ WITH  ( <with_options> )
   - MAXIMUM_BATCH_COUNT:  
     Azure 함수 호출마다 함수에 전송되는 최대 이벤트 수이며 기본값은 100입니다. SQL Database의 경우 모든 대량 삽입 트랜잭션과 함께 전송되는 최대 레코드 수이며 기본값은 10,000입니다. 
     - 모든 SQL 기반 출력에 적용 됩니다. 
-  - STAGING_AREA: EXTERNAL DATA SOURCE 개체에서Blob Storage로 적용. SQL Data Warehouse에 높은 처리량의 데이터를 수집하기 위한 준비 영역입니다. 
+  - STAGING_AREA: Azure Synapse Analytics에 처리량이 높은 데이터를 수집 하기 위한 스테이징 영역을 Blob Storage 하는 외부 데이터 원본 개체 
     - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다.
 
 

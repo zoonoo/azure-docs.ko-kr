@@ -12,16 +12,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1595d7e205c788f90177836f3c0370681b7747b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089705"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569087"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Azure Security Center으로 Microsoft Defender Advanced Threat Protection
 
 Azure Security Center는 [Microsoft DEFENDER ATP (Advanced Threat Protection)](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) 와 통합 되어 포괄적인 Edr (끝점 검색 및 응답) 기능을 제공 합니다.
+
+
+## <a name="availability"></a>가용성
+
+|양상|세부 정보|
+|----|:----|
+|릴리스 상태:|**출시**|
+|결정|표준 계층|
+|지원 되는 컴퓨터:|![예](./media/icons/yes-icon.png) Windows를 실행 하는 Azure 컴퓨터<br>![예](./media/icons/yes-icon.png) Windows를 실행 하는 Azure Arc 컴퓨터|
+|필요한 역할 및 사용 권한:|통합을 사용 하거나 사용 하지 않도록 설정 하려면 **보안 관리자** 또는 **소유자** 입니다.<br>Security Center에서 MDATP 경고를 보려면 **보안 읽기 권한자**, **읽기 권한자**, **리소스 그룹 참가자**, **리소스 그룹 소유자**, **보안 관리자**, **구독 소유자**또는 **구독 참가자** 입니다.|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드.<br>![아니요](./media/icons/no-icon.png) 공용 Azure 클라우드에서 워크 로드를 실행 하는 GCC 고객<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|||
+
 
 ## <a name="microsoft-defender-atp-features-in-security-center"></a>Security Center의 Microsoft Defender ATP 기능
 
@@ -55,7 +68,7 @@ Azure Security Center를 사용 하 여 서버를 모니터링 하는 경우 Mic
 데이터를 저장할 위치가 구성되면 변경할 수 없습니다. 데이터를 다른 위치로 이동 해야 하는 경우 Microsoft 지원에 문의 하 여 테 넌 트를 다시 설정 합니다.
 
 
-## <a name="onboarding-servers-to-security-center"></a>Security Center에 서버 등록 
+## <a name="onboard-servers-to-security-center"></a>Security Center에 서버 등록 
 
 Security Center에 서버를 등록 하려면 이동을 클릭 하 여 Microsoft Defender ATP 서버 온 보 딩 서버에서 등록 **Azure Security Center** 합니다.
 

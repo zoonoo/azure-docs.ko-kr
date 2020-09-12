@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3b4ba62072e26f16a0e39416c9ae346d1acefd9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5dd6d682c9db044763cad64eec420c1974d4ac03
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997526"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613703"
 ---
 # <a name="outline-rendering"></a>윤곽 렌더링
 
@@ -29,7 +29,7 @@ ms.locfileid: "88997526"
 | `PulseRateHz`    | float   | 초당 윤곽 진동 속도입니다.|
 | `PulseIntensity` | float   | 윤곽 펄스 효과의 강도입니다. 펄스가 없는 경우의 0.0과 전체 펄스인 경우의 1.0 사이여야 합니다. 강도는 암시적으로 윤곽의 최소 불투명도를 `MinOpacity = 1.0 - PulseIntensity`로 설정합니다. |
 
-![윤곽](./media/outlines.png) `color` 매개 변수를 노란색(왼쪽)에서 자홍색(중앙)으로 바꾸고 `pulseIntensity`를 0에서 0.8(오른쪽)로 바꾸는 효과입니다.
+![다른 윤곽선 매개 변수를 사용 하 여 세 번 렌더링 된 개체는 ](./media/outlines.png) `color` 매개 변수를 노랑 (왼쪽)에서 마젠타 (가운데)로, `pulseIntensity` 0에서 0.8 (오른쪽)으로 변경 하는 효과를 의미 합니다.
 
 ## <a name="example"></a>예제
 
@@ -60,6 +60,11 @@ void SetOutlineParameters(ApiHandle<AzureSession> session)
 ## <a name="performance"></a>성능
 
 윤곽 렌더링은 렌더링 성능에 상당한 영향을 줄 수 있습니다. 이러한 영향은 지정된 프레임에서 선택한 개체와 선택하지 않은 개체 사이의 화면 공간 관계에 따라 달라집니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # RemoteManager OutlineSettings 속성](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
+* [C + + RemoteManager:: OutlineSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#outlinesettings)
 
 ## <a name="next-steps"></a>다음 단계
 

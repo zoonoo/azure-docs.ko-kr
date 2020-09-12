@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 1cb5716e2f02a99e4d39a4041a2e54e87cf43568
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 722d935c242a51ddfc01377676f026b71a8951b8
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114662"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468541"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Azure 가상 네트워크에 Cloud Shell 배포
 > [!NOTE]
@@ -52,7 +52,7 @@ Cloud Shell에 사용할 수 있는 원하는 가상 네트워크를 식별 해�
 네트워크 프로필은 리소스의 특정 네트워크 속성을 지정 하는 Azure 리소스에 대 한 네트워크 구성 템플릿입니다.
 
 ### <a name="azure-relay"></a>Azure Relay
-[Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) 를 사용 하면 직접 연결할 수 없는 두 개의 끝점이 통신할 수 있습니다. 이 경우 관리자의 브라우저가 개인 네트워크의 컨테이너와 통신 하도록 허용 하는 데 사용 됩니다.
+[Azure Relay](../azure-relay/relay-what-is-it.md) 를 사용 하면 직접 연결할 수 없는 두 개의 끝점이 통신할 수 있습니다. 이 경우 관리자의 브라우저가 개인 네트워크의 컨테이너와 통신 하도록 허용 하는 데 사용 됩니다.
 
 Cloud Shell에 사용 되는 Azure Relay 인스턴스는 컨테이너 리소스에 액세스할 수 있는 네트워크를 제어 하도록 구성할 수 있습니다. 
 - 공용 인터넷에서 액세스할 수 있습니다 .이 구성에서는 Cloud Shell 외부에서 내부 리소스에 연결 하는 방법을 제공 합니다. 
@@ -66,7 +66,7 @@ Cloud Shell에 사용 되는 Azure Relay 인스턴스는 컨테이너 리소스�
 
 * 미리 보기 중에는 가상 네트워크의 Cloud Shell에 대해 더 작은 지역이 지원 됩니다. 현재 WestUS 및 WestCentralUS로 제한 됩니다.
 
-* [Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) 무료 서비스가 아닙니다. [가격](https://azure.microsoft.com/pricing/details/service-bus/)을 확인 하세요. Cloud Shell 시나리오에서는 Cloud Shell를 사용 하는 동안 각 관리자에 대해 하나의 하이브리드 연결이 사용 됩니다. Cloud Shell 세션이 완료 된 후 연결이 자동으로 종료 됩니다.
+* [Azure Relay](../azure-relay/relay-what-is-it.md) 무료 서비스가 아닙니다. [가격](https://azure.microsoft.com/pricing/details/service-bus/)을 확인 하세요. Cloud Shell 시나리오에서는 Cloud Shell를 사용 하는 동안 각 관리자에 대해 하나의 하이브리드 연결이 사용 됩니다. Cloud Shell 세션이 완료 된 후 연결이 자동으로 종료 됩니다.
 
 ## <a name="register-the-resource-provider"></a>리소스 공급자 등록
 
@@ -114,4 +114,4 @@ Cloud Shell에 연결 하 고 첫 실행 환경에 대 한 메시지가 표시 �
 ![Cloud Shell isolated VNET first 환경 설정에 대해 설명 합니다.](media/private-vnet/vnet-settings.png)
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Virtual Network에 대 한 자세한 정보](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+[Azure Virtual Network에 대 한 자세한 정보](../virtual-network/virtual-networks-overview.md)

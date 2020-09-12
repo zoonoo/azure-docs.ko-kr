@@ -3,12 +3,12 @@ title: 미디어 그래프 개념-Azure
 description: 미디어 그래프를 사용 하 여 미디어를 캡처할 위치, 처리 방법 및 결과를 전달 해야 하는 위치를 정의할 수 있습니다. 이 문서에서는 미디어 그래프 개념에 대 한 자세한 설명을 제공 합니다.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 1e280d6fe8303a85bee41adf83ac54e7c96df304
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048428"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567941"
 ---
 # <a name="media-graph"></a>미디어 그래프
 
@@ -21,7 +21,8 @@ ms.locfileid: "89048428"
 
 미디어 그래프를 사용 하 여 미디어를 캡처할 위치, 처리 방법 및 결과를 전달 해야 하는 위치를 정의할 수 있습니다. 원하는 방식으로 구성 요소 또는 노드를 연결 하 여이를 수행 합니다. 아래 다이어그램에서는 미디어 그래프를 그래픽으로 표현 합니다.  
 
-![미디어 그래프의 그래픽 표현](./media/media-graph/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/media-graph.svg" alt-text="미디어 그래프":::
 
 IoT Edge의 Live Video Analytics는 다양 한 유형의 원본, 프로세서 및 싱크를 지원 합니다.
 
@@ -39,7 +40,8 @@ IoT Edge의 Live Video Analytics를 사용 하면 "graph 토폴로지" 및 "grap
 
 그래프 토폴로지 및 그래프 인스턴스의 수명 주기는 다음 상태 다이어그램에 표시 됩니다.
 
-![그래프 토폴로지 및 그래프 인스턴스 수명 주기](./media/media-graph/graph-topology-lifecycle.svg)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="그래프 토폴로지 및 그래프 인스턴스 수명 주기":::
 
 [그래프 토폴로지를 만드는](direct-methods.md#graphtopologyset)것으로 시작 합니다. 그런 다음이 토폴로지에서 처리 하려는 각 라이브 비디오 피드에 대해 [그래프 인스턴스를 만듭니다](direct-methods.md#graphinstanceset). 
 
@@ -88,11 +90,11 @@ RTSP 원본 노드를 사용 하면 [RTSP] (서버에서 미디어를 수집할 
 
 #### <a name="http-extension-processor"></a>HTTP 확장 프로세서
 
-HTTP 확장 프로세서 노드를 사용 하면 고유한 IoT Edge 모듈을 미디어 그래프에 연결할 수 있습니다. 이 노드는 디코딩된 비디오 프레임을 입력으로 사용 하 고 이러한 프레임을 모듈에서 노출 하는 HTTP REST 끝점에 릴레이 합니다. 이 노드에는 필요한 경우 REST 끝점을 사용 하 여 인증 하는 기능이 있습니다. 또한 노드에는 REST 끝점에 릴레이 되기 전에 비디오 프레임의 크기를 조정 하 고 인코딩하기 위한 기본 제공 이미지 포맷터가 있습니다. Scaler에는 이미지 가로 세로 비율을 유지 하거나, 패딩 하거나, 늘일 수 있는 옵션이 있습니다. 이미지 인코더는 JPEG, PNG 또는 BMP 형식을 지원 합니다.
+HTTP 확장 프로세서 노드를 사용 하면 고유한 IoT Edge 모듈을 미디어 그래프에 연결할 수 있습니다. 이 노드는 디코딩된 비디오 프레임을 입력으로 사용 하 고 이러한 프레임을 모듈에서 노출 하는 HTTP REST 끝점에 릴레이 합니다. 이 노드에는 필요한 경우 REST 끝점을 사용 하 여 인증 하는 기능이 있습니다. 또한 노드에는 REST 끝점에 릴레이 되기 전에 비디오 프레임의 크기를 조정 하 고 인코딩하기 위한 기본 제공 이미지 포맷터가 있습니다. Scaler에는 이미지 가로 세로 비율을 유지 하거나, 패딩 하거나, 늘일 수 있는 옵션이 있습니다. 이미지 인코더는 JPEG, PNG 또는 BMP 형식을 지원 합니다. 프로세서에 대 한 자세한 내용은 [여기](media-graph-extension-concept.md#http-extension-processor)를 참조 하세요.
 
 #### <a name="grpc-extension-processor"></a>gRPC 확장 프로세서
 
-GRPC 확장 프로세서 노드는 디코딩된 비디오 프레임을 입력으로 사용 하 고 이러한 프레임을 모듈에서 제공 하는 [Grpc](terminology.md#grpc) 끝점에 릴레이 합니다. 또한 노드에는 gRPC 끝점으로 릴레이 되기 전에 비디오 프레임의 크기를 조정 하 고 인코딩하기 위한 기본 제공 이미지 포맷터가 있습니다. Scaler에는 이미지 가로 세로 비율을 유지 하거나, 패딩 하거나, 늘일 수 있는 옵션이 있습니다. 이미지 인코더는 jpeg, png 또는 bmp 형식을 지원 합니다.
+GRPC 확장 프로세서 노드는 디코딩된 비디오 프레임을 입력으로 사용 하 고 이러한 프레임을 모듈에서 제공 하는 [Grpc](terminology.md#grpc) 끝점에 릴레이 합니다. 노드는 [공유 메모리](https://en.wikipedia.org/wiki/Shared_memory) 를 사용 하 여 데이터를 전송 하거나 콘텐츠를 grpc 메시지의 본문에 직접 포함할 수 있도록 지원 합니다. 또한 노드에는 gRPC 끝점으로 릴레이 되기 전에 비디오 프레임의 크기를 조정 하 고 인코딩하기 위한 기본 제공 이미지 포맷터가 있습니다. Scaler에는 이미지 가로 세로 비율을 유지 하거나, 패딩 하거나, 늘일 수 있는 옵션이 있습니다. 이미지 인코더는 jpeg, png 또는 bmp 형식을 지원 합니다. 프로세서에 대 한 자세한 내용은 [여기](media-graph-extension-concept.md#grpc-extension-processor)를 참조 하세요.
 
 #### <a name="signal-gate-processor"></a>신호 게이트 프로세서  
 

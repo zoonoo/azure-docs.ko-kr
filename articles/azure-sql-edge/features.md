@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/13/2020
-ms.openlocfilehash: 70a54f52470a715df1011199d5cbd6aa5030094d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/03/2020
+ms.openlocfilehash: 87ccb28f527082dccee338396b460124652c0e76
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539213"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462703"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)에서 지원하는 기능 
 
@@ -67,8 +67,8 @@ Azure SQL Edge는 SQL Server on Linux 기능 하위 집합을 지 원하는 것 
 | 영역 | 지원되지 않는 기능 또는 서비스 |
 |-----|-----|
 | **데이터베이스 디자인** | 메모리 내 OLTP 및 관련 DDL 명령과 Transact-sql 함수, 카탈로그 뷰 및 동적 관리 뷰 |
-| &nbsp; | `HierarchyID`데이터 형식, 관련 DDL 명령 및 Transact-sql 함수, 카탈로그 뷰 및 동적 관리 뷰 |
-| &nbsp; | `Spatial`데이터 형식, 관련 DDL 명령 및 Transact-sql 함수, 카탈로그 뷰 및 동적 관리 뷰 |
+| &nbsp; | `HierarchyID` 데이터 형식, 관련 DDL 명령 및 Transact-sql 함수, 카탈로그 뷰 및 동적 관리 뷰 |
+| &nbsp; | `Spatial` 데이터 형식, 관련 DDL 명령 및 Transact-sql 함수, 카탈로그 뷰 및 동적 관리 뷰 |
 | &nbsp; | 스트레치 DB 및 관련 DDL 명령과 Transact-sql 함수, 카탈로그 뷰 및 동적 관리 뷰 |
 | &nbsp; | 전체 텍스트 인덱스 및 검색, 관련 DDL 명령 및 Transact-sql 함수, 카탈로그 뷰 및 동적 관리 뷰|
 | &nbsp; | `FileTable`, `FILESTREAM` 및 관련 DDL 명령과 transact-sql 함수, 카탈로그 뷰 및 동적 관리 뷰|
@@ -89,6 +89,10 @@ Azure SQL Edge는 SQL Server on Linux 기능 하위 집합을 지 원하는 것 
 | &nbsp; | CLR 종속 날짜 및 시간 카탈로그 뷰, 함수 및 쿼리 절 |
 | &nbsp; | 버퍼 풀 확장입니다. |
 | &nbsp; | 데이터베이스 메일. |
+| &nbsp; | Service Broker |
+| &nbsp; | 정책 기반 관리 |
+| &nbsp; | 관리 데이터 웨어하우스 |
+| &nbsp; | 포함된 데이터베이스 |
 | **SQL Server 에이전트** |  하위 시스템: CmdExec, PowerShell, 큐 판독기, SSIS, SSAS 및 SSRS. |
 | &nbsp; | 알립니다. |
 | &nbsp; | 관리 되는 백업. |

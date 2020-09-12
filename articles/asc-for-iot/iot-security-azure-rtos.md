@@ -1,6 +1,6 @@
 ---
-title: Azure RTOS 지원
-description: IoT 서비스 Azure Security Center에서 Azure RTOS의 지원에 대해 알아봅니다.
+title: Azure RTOS 개요의 보안 모듈
+description: IoT 서비스의 Azure Security Center 일부로 Azure RTOS 지원 및 구현에 대 한 보안 모듈에 대해 자세히 알아보세요.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2020
+ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: af4579d25b94fc12f67cfc91d0f6a5af4b35c810
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bcf98f503b0f0c8bf76435d9884297d5f53d65e6
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097756"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514478"
 ---
-# <a name="azure-security-center-for-iot-security-solution-for-azure-rtos"></a>Azure RTOS 용 IoT 보안 솔루션에 대 한 Azure Security Center 
+# <a name="overview-security-module-for-azure-rtos-preview"></a>개요: Azure RTOS (미리 보기)에 대 한 보안 모듈
 
-IoT 보안 모듈에 대 한 Azure Security Center는 Azure RTOS 장치에 대 한 포괄적인 보안 솔루션을 제공 합니다. Azure RTOS는 실시간 운영 체제 장치에 대 한 일반적인 위협 요소를 포함 하는 기본 제공 보안 모듈을 제공 합니다. 
+IoT RTOS 보안 모듈에 대 한 Azure Security Center는 Azure RTOS 장치에 대 한 포괄적인 보안 솔루션을 제공 합니다. Azure RTOS는 이제 기본 제공 되는 Azure IoT 보안 모듈과 함께 제공 되며 실시간 운영 체제 장치에서 일반적인 위협과 잠재적 악성 활동에 대 한 검사를 제공 합니다. 
 
 ![IoT Azure RTOS의 Azure Security Center](./media/architecture/azure-rtos-security-monitoring.png)
 
 
-Azure RTOS 지원으로 IoT 보안 모듈에 대 한 Azure Security Center는 다음과 같은 기능을 제공 합니다. 
+Azure RTOS의 보안 모듈은 다음과 같은 기능을 제공 합니다. 
 - 악의적인 네트워크 활동 검색
 - 사용자 지정 경고 기반, 장치 동작 기준 지정
 - 장치 보안 예방 강화
@@ -43,20 +43,18 @@ Azure RTOS 지원으로 IoT 보안 모듈에 대 한 Azure Security Center는 �
 
 ### <a name="improve-your-device-security-hygiene"></a>장치 보안 예방 강화
 
-IoT에 권장 되는 인프라 Azure Security Center 활용 하면 장치의 보안 상태에 영향을 줄 수 있는 환경에서 발생 하는 문제에 대 한 지식과 정보를 얻을 수 있습니다. IoT 장치 보안 상태가 저하 되 면 보안은 항상 모든 조직 내의 가장 약한 링크로 측정 되기 때문에 변경 되지 않은 상태로 유지 될 경우 잠재적 공격이 성공할 수 있습니다. 
+IoT에 권장 되는 인프라 Azure Security Center 활용 하면 장치의 보안 상태에 영향을 줄 수 있는 환경에서 발생 하는 문제에 대 한 지식과 정보를 얻을 수 있습니다. 약한 IoT 장치 보안 상태를 사용 하면 보안은 항상 모든 조직 내의 가장 약한 링크로 측정 되기 때문에 변경 되지 않은 상태로 유지 되는 경우 잠재적인 공격이 성공할 수 있습니다. 
 
 ## <a name="get-started-protecting-azure-rtos-devices"></a>Azure RTOS 장치 보호 시작 하기
 
-- Azure RTOS 용 IoT 보안 모듈에 대 한 Azure Security Center은 장치에 대 한 무료 다운로드로 제공 됩니다. IoT cloud service에 대 한 Azure Security Center는 Azure 구독 당 30 일 평가판으로 제공 됩니다. [Azure RTOS 용 IoT 보안 모듈에 대 한 Azure Security Center](https://github.com/azure-rtos/iot-security-module-preview) 를 다운로드 하 여 시작 합니다. 
+Azure RTOS의 보안 모듈은 장치에 대 한 무료 다운로드로 제공 됩니다. IoT cloud service에 대 한 Azure Security Center는 Azure 구독 당 30 일 평가판으로 제공 됩니다. 시작 하려면 [Azure RTOS 용 보안 모듈](https://github.com/azure-rtos/iot-security-module-preview) 을 다운로드 하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 IoT Azure RTOS 지원에 대 한 Azure Security Center에 대해 알아보았습니다. IoT Hub에서 보안 솔루션을 시작 하 고 사용 하도록 설정 하는 방법을 알아보려면 다음 문서를 참조 하세요.
+이 문서에서는 Azure RTOS 서비스의 보안 모듈에 대해 알아보았습니다. 보안 모듈에 대 한 자세한 내용을 알아보고 시작 하려면 다음 문서를 참조 하세요.
 
-- [서비스 필수 구성 요소](service-prerequisites.md)
-- [시작](getting-started.md)
-- [솔루션 구성](quickstart-configure-your-solution.md)
-- [IoT Hub에서 보안 사용](quickstart-onboard-iot-hub.md)
-- [IoT FAQ에 대 한 Azure Security Center](resources-frequently-asked-questions.md)
-- [IoT용 Azure Security Center 보안 경고](concept-security-alerts.md)
+- [Azure RTOS IoT 보안 모듈 개념](concept-rtos-security-module.md)
+- [빠른 시작: Azure RTOS IoT 보안 모듈](quickstart-azure-rtos-security-module.md)
+
+

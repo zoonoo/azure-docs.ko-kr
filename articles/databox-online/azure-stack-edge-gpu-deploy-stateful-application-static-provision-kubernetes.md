@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 17be54536f785049aef6831e01f1f12219225b90
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d9200b66d51292271f546eb111f3355649318b91
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254375"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462720"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-device"></a>Kubectl를 사용 하 여 Azure Stack Edge 장치에서 PersistentVolume로 Kubernetes 상태 저장 응용 프로그램을 실행 합니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "89254375"
 이 절차는 [Azure Stack Edge 장치에서 Kubernetes 저장소](azure-stack-edge-gpu-kubernetes-storage.md) 를 검토 하 고 [Kubernetes 저장소](https://kubernetes.io/docs/concepts/storage/)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 상태 저장 응용 프로그램을 배포 하기 전에 장치에서 장치에 액세스 하는 데 사용할 클라이언트 및 장치에 대 한 다음 필수 구성 요소를 완료 했는지 확인 합니다.
 
@@ -55,7 +55,10 @@ Azure Stack Edge 장치에 상태 저장 응용 프로그램을 배포할 준비
 
 ## <a name="provision-a-static-pv"></a>정적 PV 프로 비전
 
-PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합니다. SMB 또는 NFS 공유에 대해 PV를 프로 비전 하려면 다음 단계를 수행 합니다. 
+PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합니다. 다음 단계를 수행 하 여 SMB 공유에 대해 PV를 프로 비전 합니다. 
+
+> [!NOTE]
+> 이 방법 문서에 사용 된 특정 예제는 NFS 공유에서 작동 하지 않습니다. 일반적으로 NFS 공유는 데이터베이스가 아닌 응용 프로그램을 사용 하 여 Azure Stack Edge 장치에 프로 비전 할 수 있습니다.
 
 1. 에 지 공유 또는에 지 로컬 공유를 만들지 여부를 선택 합니다. 공유 [추가](azure-stack-edge-manage-shares.md#add-a-share) 의 지침에 따라 공유를 만듭니다. **Edge 계산에 공유 사용**에 대 한 확인란을 선택 해야 합니다.
 
@@ -71,7 +74,7 @@ PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합�
 
         ![PV에 대 한 기존 로컬 공유 탑재](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-2.png)
 
-1. 공유 이름을 적어 둡니다. 이 공유를 만들 때 생성 된 SMB 또는 NFS 공유에 해당 하는 Kubernetes 클러스터에 영구적 볼륨 개체가 자동으로 생성 됩니다. 
+1. 공유 이름을 적어 둡니다. 이 공유를 만들 때 생성 된 SMB 공유에 해당 하는 Kubernetes 클러스터에 영구적 볼륨 개체가 자동으로 생성 됩니다. 
 
 ## <a name="deploy-mysql"></a>MySQL 배포
 
@@ -147,7 +150,7 @@ PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합�
               claimName: mysql-pv-claim
     ```
     
-2. `mysql-pv.yml`을 저장 한 폴더와 동일한 폴더에 파일을 복사 하 고 저장 `mysql-deployment.yml` 합니다. 이전에에서 만든 SMB 또는 NFS 공유를 사용 하려면 `kubectl` `volumeName` PVC 개체의 필드를 공유 이름으로 설정 합니다. 
+2. `mysql-pv.yml`을 저장 한 폴더와 동일한 폴더에 파일을 복사 하 고 저장 `mysql-deployment.yml` 합니다. 이전에에서 만든 SMB 공유를 사용 하려면 `kubectl` `volumeName` PVC 개체의 필드를 공유 이름으로 설정 합니다. 
 
     > [!NOTE] 
     > YAML 파일의 들여쓰기가 올바른지 확인 합니다. [Yaml 보풀이](http://www.yamllint.com/) 있는지 확인 하 여 유효성을 검사 한 후 저장할 수 있습니다.
@@ -158,8 +161,8 @@ PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합�
     metadata:
       name: mysql-pv-claim
     spec:
-      volumeName: <nfs-or-smb-share-name-here>
-      storageClassName: manual
+      volumeName: <smb-share-name-here>
+      storageClassName: ""
       accessModes:
         - ReadWriteOnce
       resources:
@@ -289,7 +292,6 @@ PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합�
 
 ## <a name="verify-mysql-is-running"></a>MySQL이 실행 중인지 확인
 
-이전 YAML 파일은 클러스터의 Pod가 데이터베이스에 액세스할 수 있도록 하는 서비스를 만듭니다. ClusterIP: None 서비스 옵션을 사용 하면 서비스 DNS 이름을 Pod의 IP 주소로 직접 확인할 수 있습니다. 이는 서비스 뒤에 Pod가 하나 뿐 이며 Pod의 수를 늘리지 않으려는 경우에 가장 적합 합니다.
 
 MySQL을 실행 하는 pod의 컨테이너에 대해 명령을 실행 하려면 다음을 입력 합니다.
 

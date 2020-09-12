@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021316"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613667"
 ---
 # <a name="pbr-materials"></a>PBR 재질
 
@@ -55,7 +55,7 @@ Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materi
 
   Metalness 값과 metalness map을 모두 제공 하면 최종 값이 두 값의 곱입니다.
 
-  ![metalness 및 황삭](./media/metalness-roughness.png)
+  ![다른 metalness 및 황삭 값으로 렌더링 된 구](./media/metalness-roughness.png)
 
   위의 그림에서 오른쪽 아래에 있는 구는 실제 금속 재질 처럼 보이고 왼쪽 아래는 ceramic 또는 플라스틱 처럼 보입니다. 또한 albedo 색은 실제 속성에 따라 변경 됩니다. 황삭를 사용 하면 재질의 반사 선명도가 상실 됩니다.
 
@@ -63,13 +63,13 @@ Azure 원격 렌더링에서 지원 되는 [재질 유형](../../concepts/materi
 
 * **occlusionMap** 및 **aoscale:** [앰비언트 폐색](https://en.wikipedia.org/wiki/Ambient_occlusion) 은 폐색 영역에 그림자를 추가 하 여 crevices를 사용 하는 개체를 보다 사실적으로 보입니다. 폐색 값의 범위 `0.0` `1.0` 는에서 사이 `0.0` 입니다. 여기서는 폐색 (어둡기를 의미)이 고 occlusions 없음을 `1.0` 의미 합니다. 2D 질감이 폐색 맵으로 제공 되는 경우 효과가 활성화 되 고 *Aoscale* 이 승수 역할을 합니다.
 
-  ![폐색 맵](./media/boom-box-ao2.gif)
+  ![앰비언트 폐색를 사용 하거나 사용 하지 않고 개체를 렌더링 합니다.](./media/boom-box-ao2.gif)
 
 * **투명:** 이 경우에는 사용 하거나 사용 하지 않도록 설정 하는 것과 같은 여러 가지 투명성 설정이 있습니다. 불투명은 albedo 색의 알파 채널에 의해 정의 됩니다. 이 기능을 사용 하는 경우 반투명 화면을 그리기 위해 보다 복잡 한 렌더링 파이프라인이 호출 됩니다. Azure 원격 렌더링은 진정한 [주문 독립적 투명성](https://en.wikipedia.org/wiki/Order-independent_transparency) (oit)을 구현 합니다.
 
   투명 한 기 하 도형은 렌더링 하는 데 비용이 많이 듭니다. 트리의 리프와 같이 표면에 구멍이 필요한 경우에는 대신 알파 클리핑을 사용 하는 것이 좋습니다.
 
-  ![](./media/transparency.png)위의 이미지에서 투명도 확인은 가장 오른쪽 구가 완전히 투명 하 게 표시 되는 방식 이지만 리플렉션이 계속 표시 됩니다.
+  ![위의 이미지에서는 0으로 렌더링 된 구를 렌더링 합니다 ](./media/transparency.png) . 위의 이미지에서는 오른쪽 구가 완전히 투명 하지만 리플렉션이 계속 표시 됩니다.
 
   > [!IMPORTANT]
   > 런타임에 불투명에서 투명으로 전환 되어야 하는 재질은 *TileBasedComposition* [렌더링 모드](../../concepts/rendering-modes.md)를 사용 해야 합니다. 이 제한은 시작할 때 투명 자료로 변환 되는 재질에는 적용 되지 않습니다.
@@ -80,6 +80,13 @@ Azure 원격 렌더링은 GGX .NDF, Schlick 프레스 넬 대칭 및 GGX Smith �
 
  Azure 원격 렌더링에 사용 되는 *Metalness-황삭* .pbr 모델에 대 한 대안은 *Glossiness* .pbr 모델입니다. 이 모델은 다양 한 자료를 나타낼 수 있습니다. 그러나 비용이 더 많이 들고, 일반적으로 실시간 사례에서 제대로 작동 하지 않습니다.
 ( *확산, 반사)* 값 쌍 *(BaseColor, Metalness)* 으로 변환할 수 없기 때문에 *Glossiness* 에서 *Metalness* 로 변환 하는 것이 항상 가능 하지는 않습니다. 모든 *(BaseColor, Metalness)* 쌍이 잘 정의 된 *(확산, 반사)* 쌍에 해당 하므로 다른 방향으로 변환 하는 것이 더 간단 하 고 정확 합니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # PbrMaterial 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C # RemoteManager CreateMaterial ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C + + PbrMaterial 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
+* [C + + RemoteManager:: CreateMaterial ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>다음 단계
 

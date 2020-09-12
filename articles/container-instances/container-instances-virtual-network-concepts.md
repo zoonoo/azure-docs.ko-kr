@@ -3,13 +3,12 @@ title: 가상 네트워크를 사용 하는 시나리오
 description: Azure 가상 네트워크에 컨테이너 그룹을 배포 하는 시나리오, 리소스 및 제한 사항입니다.
 ms.topic: article
 ms.date: 08/11/2020
-ms.author: danlep
-ms.openlocfilehash: 0474a5f85829080a89a74195483484c464de5840
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 5e9c1d1606a9ad491ba7a7e623f1606717aa5b1f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870768"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569172"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>가상 네트워크 시나리오 및 리소스
 

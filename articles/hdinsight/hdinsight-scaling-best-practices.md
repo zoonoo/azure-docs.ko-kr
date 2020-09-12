@@ -1,19 +1,19 @@
 ---
 title: 클러스터 크기 조정 - Azure HDInsight
 description: Azure HDInsight에서 워크 로드와 일치 하도록 Apache Hadoop 클러스터 탄력적으로 크기 조정
-author: ashishthaps
+author: hrasheed-msft
 ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: a9d419052f000b220c993109e45d371398607275
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 44cfc5b651bdd5dc0d7abee575bd964ad0b603d0
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006453"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505015"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
@@ -111,9 +111,9 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 
     작업자 노드로 크기를 조정한 후 `N` HDInsight는 다음 구성을 자동으로 설정 하 고 Hive를 다시 시작 합니다.
 
-  * 최대 총 동시 쿼리:`hive.server2.tez.sessions.per.default.queue = min(N, 32)`
-  * Hive의 LLAP에서 사용 하는 노드 수:`num_llap_nodes  = N`
-  * Hive LLAP 디먼을 실행 하는 노드 수:`num_llap_nodes_for_llap_daemons = N`
+  * 최대 총 동시 쿼리: `hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Hive의 LLAP에서 사용 하는 노드 수: `num_llap_nodes  = N`
+  * Hive LLAP 디먼을 실행 하는 노드 수: `num_llap_nodes_for_llap_daemons = N`
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>클러스터를 안전 하 게 확장 하는 방법
 
@@ -146,7 +146,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

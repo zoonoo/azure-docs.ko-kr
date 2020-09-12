@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 62df01a02feacb8311d14e0bae7ceccb44d47a5a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 78007c9f153267b72a94dc4b4024155dee6beb88
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497661"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442993"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 
@@ -26,9 +26,9 @@ ms.locfileid: "86497661"
 이 문서는 Azure Data Factory의 파이프라인 및 활동을 이해하고 데이터 이동 및 데이터 처리 시나리오를 위한 엔드투엔드 데이터 기반 워크플로 사용하는 데 도움이 됩니다.
 
 ## <a name="overview"></a>개요
-데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 예를 들어 파이프라인에는 로그 데이터를 수집 하 고 정리 하는 일련의 작업이 포함 될 수 있습니다. 그런 다음 매핑 데이터 흐름을 시작 하 여 로그 데이터를 분석 합니다. 파이프라인을 사용 하면 각 작업을 개별적이 아니라 하나의 집합으로 관리할 수 있습니다. 활동 대신 파이프라인을 독립적으로 배포 하 고 예약 합니다.
+데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 한데 모여 작업을 수행하는 작업의 논리적 그룹화입니다. 예를 들어, 파이프라인에는 로그 데이터를 수집하고 정리한 다음 매핑 데이터 흐름을 시작하여 로그 데이터를 분석하는 일련의 작업이 포함될 수 있습니다. 파이프라인을 사용하면 작업을 개별적으로 관리하는 대신 하나의 세트로 관리할 수 있습니다. 작업이 아닌 파이프라인을 독립적으로 배포하고 예약합니다.
 
-파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어 복사 작업을 사용 하 여 SQL Server에서 Azure Blob Storage로 데이터를 복사할 수 있습니다. 그런 다음 데이터 흐름 활동 또는 Databricks 노트북 활동을 사용 하 여 blob storage의 데이터를 처리 하 고 비즈니스 인텔리전스 보고 솔루션을 기반으로 하는 Azure Synapse Analytics 풀로 변환 합니다.
+파이프라인의 작업은 데이터에 대해 수행할 동작을 정의합니다. 예를 들어 복사 작업을 사용 하 여 SQL Server에서 Azure Blob Storage로 데이터를 복사할 수 있습니다. 그런 다음 데이터 흐름 활동 또는 Databricks 노트북 활동을 사용 하 여 blob storage의 데이터를 처리 하 고 비즈니스 인텔리전스 보고 솔루션을 기반으로 하는 Azure Synapse Analytics 풀로 변환 합니다.
 
 Data Factory에는 [데이터 이동 작업](copy-activity-overview.md), [데이터 변환 작업](transform-data.md)및 [제어 작업](control-flow-web-activity.md)이라는 세 가지 작업 그룹이 있습니다. 활동은 0 개 이상의 입력 [데이터 집합](concepts-datasets-linked-services.md) 을 사용 하 고 하나 이상의 출력 [데이터 집합](concepts-datasets-linked-services.md)을 생성할 수 있습니다. 다음 다이어그램은 데이터 팩터리의 파이프라인, 활동 및 데이터 세트 간 관계를 보여 줍니다.
 
@@ -50,14 +50,14 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 데이터 변환 작업 | 컴퓨팅 환경
 ---------------------------- | -------------------
 [데이터 흐름](control-flow-execute-data-flow-activity.md) | Azure Data Factory에서 관리 하는 Azure Databricks
-[Azure 함수](control-flow-azure-function-activity.md) | Azure Functions
+[Azure 함수](control-flow-azure-function-activity.md) | Azure 기능
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [Machine Learning 작업: 일괄 처리 실행 및 리소스 업데이트](transform-data-using-machine-learning.md) | Azure VM
-[저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse 또는 SQL Server
+[저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (이전의 SQL Data Warehouse) 또는 SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure 데이터 레이크 분석
 [사용자 지정 작업](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
@@ -76,12 +76,12 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 [Filter](control-flow-filter-activity.md) | 입력 배열에 필터 식 적용
 [For Each](control-flow-for-each-activity.md) | ForEach 작업은 파이프라인의 반복 제어 흐름을 정의합니다. 이 작업을 사용하여 컬렉션을 반복하고 루프의 지정된 작업을 실행합니다. 이 활동의 루프 구현은 프로그래밍 언어의 Foreach 반복 구조와 비슷합니다.
 [메타데이터 가져오기](control-flow-get-metadata-activity.md) | GetMetadata 작업을 사용하면 Azure Data Factory에 있는 모든 데이터의 메타데이터를 검색할 수 있습니다.
-[If 조건 작업](control-flow-if-condition-activity.md) | If 조건을 사용하여 True 또는 False로 평가되는 조건을 기반으로 분기할 수 있습니다. If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이로 평가 되는 경우 작업 집합을 평가 하 `true` 고 조건이로 평가 되 면 다른 작업 집합을 평가 합니다.`false.`
+[If 조건 작업](control-flow-if-condition-activity.md) | If 조건을 사용하여 True 또는 False로 평가되는 조건을 기반으로 분기할 수 있습니다. If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이로 평가 되는 경우 작업 집합을 평가 하 `true` 고 조건이로 평가 되 면 다른 작업 집합을 평가 합니다. `false.`
 [조회 작업](control-flow-lookup-activity.md) | 조회 작업을 사용하면 모든 외부 소스에서 레코드/테이블 이름/값을 읽거나 조회할 수 있습니다. 이 출력을 다음 작업에서 추가로 참조할 수 있습니다.
 [변수 설정](control-flow-set-variable-activity.md) | 기존 변수의 값을 설정 합니다.
 [Until 작업](control-flow-until-activity.md) | 프로그래밍 언어의 Do-Until 루핑 구조와 유사한 Do-Until 루프를 구현합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다.
 [유효성 검사 작업](control-flow-validation-activity.md) | 참조 데이터 집합이 존재 하거나 지정 된 조건을 충족 하거나 시간 제한에 도달 하는 경우에만 파이프라인이 실행을 계속 하도록 합니다.
-[대기 작업](control-flow-wait-activity.md) | 파이프라인에서 대기 작업을 사용 하는 경우 파이프라인은 지정 된 시간 동안 기다린 후 후속 작업 실행을 계속 합니다.
+[Wait 작업](control-flow-wait-activity.md) | 파이프라인에서 대기 작업을 사용 하는 경우 파이프라인은 지정 된 시간 동안 기다린 후 후속 작업 실행을 계속 합니다.
 [웹 작업](control-flow-web-activity.md) | 웹 작업은 Data Factory 파이프라인에서 사용자 지정 REST 엔드포인트를 호출하는 데 사용할 수 있습니다. 작업에서 사용하고 액세스하도록 데이터 세트 및 연결된 서비스를 전달할 수 있습니다.
 [웹후크 작업](control-flow-webhook-activity.md) | Webhook 활동을 사용 하 여 끝점을 호출 하 고 콜백 URL을 전달 합니다. 파이프라인 실행은 다음 작업을 진행 하기 전에 콜백이 호출 될 때까지 기다립니다.
 
@@ -106,9 +106,9 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 }
 ```
 
-태그 | 설명 | 형식 | 필수
+태그 | 설명 | Type | 필수
 --- | ----------- | ---- | --------
-name | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" </li></ul> | String | 예
+name | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" </li></ul> | String | 예
 description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | 아니요
 작업 | **활동** 섹션에는 내부에서 정의된 하나 이상의 활동이 있을 수 있습니다. JSON 작업 요소에 대한 자세한 내용은 [JSON 작업](#activity-json) 섹션을 참조하세요. | Array | 예
 매개 변수 | **매개 변수** 섹션은 파이프라인 내에 정의된 매개 변수 한 개 이상을 포함할 수 있으므로 파이프라인을 유연하게 다시 사용할 수 있습니다. | 목록 | 아니요
@@ -143,7 +143,7 @@ description | 파이프라인의 용도를 설명하는 텍스트를 지정합�
 
 태그 | 설명 | 필수
 --- | ----------- | ---------
-name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 55개</li><li>문자 번호 또는 밑줄 ()로 시작 해야 합니다. \_</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | 예</li></ul>
+name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 55개</li><li>문자 번호 또는 밑줄 ()로 시작 해야 합니다. \_</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | 예</li></ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | 예
 type | 활동의 형식입니다. 작업의 여러 가지 유형에 대해서는 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities) 및 [제어 작업](#control-flow-activities) 섹션을 참조하세요. | 예
 linkedServiceName | 작업에서 사용하는 연결된 서비스의 이름입니다.<br/><br/>작업은 필요한 컴퓨팅 환경에 연결하는 연결된 서비스를 지정해야 할 수 있습니다. | HDInsight 작업, Azure Machine Learning 일괄 처리 점수 매기기 작업, 저장 프로시저 작업의 경우 예입니다. <br/><br/>다른 모든 사용자의 경우 아니요
@@ -182,11 +182,11 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 }
 ```
 
-JSON 이름 | 설명 | 허용되는 값 | 필요한 공간
+JSON 이름 | Description | 허용되는 값 | 필수
 --------- | ----------- | -------------- | --------
-시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan | 아니요. 기본 시간 제한은 7일입니다.
-retry | 최대 다시 시도 횟수 | 정수 | 아니요. 기본값은 0입니다.
-retryIntervalInSeconds | 다시 시도 사이의 지연(초) | 정수 | 아니요. 기본값은 30초입니다.
+시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan | 아닙니다. 기본 시간 제한은 7일입니다.
+retry | 최대 다시 시도 횟수 | 정수 | 아닙니다. 기본값은 0입니다.
+retryIntervalInSeconds | 다시 시도 사이의 지연(초) | 정수 | 아닙니다. 기본값은 30초입니다.
 secureOutput | True로 설정 하면 활동의 출력이 안전한 것으로 간주 되어 모니터링을 위해 기록 되지 않습니다. | 부울 | 아니요. 기본값은 false입니다.
 
 ### <a name="control-activity"></a>제어 작업
@@ -208,7 +208,7 @@ secureOutput | True로 설정 하면 활동의 출력이 안전한 것으로 간
 
 태그 | 설명 | 필수
 --- | ----------- | --------
-name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 55개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\" | 예</li><ul>
+name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 55개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | 예</li><ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | 예
 type | 활동의 형식입니다. 다양 한 유형의 작업에 대 한 [데이터 이동 작업](#data-movement-activities), [데이터 변환 작업](#data-transformation-activities)및 [제어 작업](#control-flow-activities) 섹션을 참조 하세요. | 예
 typeProperties | typeProperties 섹션의 속성은 각 작업 유형에 따라 달라집니다. 활동의 형식 속성을 보려면 이전 섹션의 활동 링크를 클릭합니다. | 아니요

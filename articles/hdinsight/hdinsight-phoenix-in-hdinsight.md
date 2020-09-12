@@ -1,19 +1,19 @@
 ---
 title: HDinsight의 Apache Phoenix - Azure HDInsight
 description: Apache Phoenix 개요
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 14591f334801329e78000a007783c3d6c4c3b5ae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f98021d1e94b3796b2aeb6ba2e883e4e1380b8ca
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082542"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504335"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Azure HDInsight의 Apache Phoenix
 
@@ -39,7 +39,7 @@ CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) IN
 
 이 방법은 단일 인덱싱 쿼리를 실행하는 것보다 성능을 크게 향상시킬 수 있습니다. 이 유형의 보조 인덱스는 쿼리에 포함된 모든 열을 포함하는 **포함 인덱스**입니다. 따라서 테이블 조회가 필요 하지 않으며 인덱스는 전체 쿼리를 만족 합니다.
 
-### <a name="views"></a>뷰
+### <a name="views"></a>보기
 
 Phoenix 뷰는 물리적 테이블을 100개 이상 만들 때 성능이 저하되기 시작하는 HBase 제한을 극복하는 방법을 제공합니다. Phoenix 뷰를 사용하면 여러 *가상 테이블*이 하나의 기본 실제 HBase 테이블을 공유할 수 있습니다.
 
@@ -134,7 +134,7 @@ HDInsight HBase 클러스터에는 구성을 변경하기 위한 [Ambari UI](hdi
 
     ![Ambari Phoenix SQL 구성 섹션](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [HDInsight에서 Linux 기반 HBase 클러스터와 함께 Apache Phoenix 사용](hbase/apache-hbase-query-with-phoenix.md)
 

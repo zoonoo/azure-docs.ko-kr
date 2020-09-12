@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 77573ac4240eeded1f803d88f218aaf4d4c5a929
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 84a1e2edcbe9e9da93a158ebc11e7bf638dae100
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636129"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462737"
 ---
 # <a name="speech-service-for-telephony-data"></a>전화 통신 데이터를 위한 음성 서비스
 
@@ -50,7 +50,7 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
 [음성 텍스트](speech-to-text.md) 는 모든 콜 센터 솔루션에서 가장 많이 검색 된 기능입니다. 많은 다운스트림 분석 프로세스에서 transcribed 텍스트를 사용 하므로_WER_(단어 오류 요금)는 매우 중요 합니다. 콜 센터 전사의 핵심 과제 중 하나는 콜 센터에서 흔히 발생하는 소음(예 - 배경에서 말하는 다른 상담원), 매우 다양한 언어 로캘과 방언 및 실제 전화 신호의 낮은 품질입니다. WER은 지정 된 로캘에 대해 음향 및 언어 모델이 얼마나 잘 학습 되는지와 밀접 하 게 연관 되어 있으므로 로캘에 맞게 모델을 사용자 지정 하는 기능이 중요 합니다. 당사의 최신 통합 버전 4.x 모델은 전사 정확도와 대기 시간 둘 다에 대한 솔루션입니다. 수십 시간 동안의 어쿠스틱 데이터와 수십억 개의 어휘 정보를 사용 하 여 학습 하 고, 통합 모델은 콜 센터 데이터를 높여줄 시장에서 가장 정확한 모델입니다.
 
-### <a name="sentiment"></a>데이터
+### <a name="sentiment"></a>감정
 
 고객의 환경이 좋은지 여부를 측정하는 것은 콜 센터 영역에 적용할 때 음성 분석의 매우 중요한 영역 중 하나입니다. 당사의 [일괄 처리 전사 API](batch-transcription.md)는 발화별로 감정 분석을 제공합니다. 통화 음성 텍스트의 일부로 얻은 값 세트를 집계하여 상담원과 고객 모두에 대한 통화의 감정을 결정할 수 있습니다.
 
@@ -60,9 +60,9 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
 ### <a name="translation"></a>Translation
 
-일부 회사에서는 배달 관리자가 고객의 세계 전체 환경을 이해할 수 있도록 외국어 지원 호출에서 번역 된 기록을 제공 하는 방법을 시험해 볼 수 있습니다. 당사의 [번역](translation.md) 기능은 탁월합니다. 많은 로캘에 대해 오디오-오디오 또는 오디오-텍스트를 번역할 수 있습니다.
+일부 회사에서는 배달 관리자가 고객의 세계 전체 환경을 이해할 수 있도록 외국어 지원 호출에서 번역 된 기록을 제공 하는 방법을 시험해 볼 수 있습니다. 당사의 [번역](/azure/cognitive-services/speech-service/speech-translation) 기능은 탁월합니다. 많은 로캘에 대해 오디오-오디오 또는 오디오-텍스트를 번역할 수 있습니다.
 
-### <a name="text-to-speech"></a>텍스트에서 음성 변환
+### <a name="text-to-speech"></a>Text to Speech
 
 [텍스트 음성 변환](text-to-speech.md)은 고객과 상호 작용하는 봇을 구현하는 데 있어서 또 하나의 중요한 영역입니다. 일반적인 경로는 고객이 말하고, 해당 음성이 텍스트로 전사되고, 텍스트의 의도를 분석하고, 인식된 의도를 기반으로 응답을 합성한 다음, 자산을 고객에게 표시하거나 합성된 음성 응답을 생성하는 것입니다. 물론이 모든 것이 신속 하 게 발생 하므로 이러한 시스템이 성공 하면 대기 시간이 짧고 중요 한 구성 요소가 됩니다.
 

@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aac6f833985a708c7ed65542e314b65fa1039ef7
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783234"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569053"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Azure Security Center 권장 사항을 사용하여 보안 강화
+
 보안 정책을 구성한 다음 Azure Security Center에서 제공한 권장 사항을 구현하여 중요한 보안 이벤트의 가능성을 줄일 수 있습니다. 이 문서에서는 Security Center에서 보안 정책 및 권장 사항을 사용하여 보안 공격을 완화할 수 있는 방법을 보여 줍니다. 
 
 Security Center는 자동 검색을 자동으로 실행 하 여 Azure 리소스의 보안 상태를 분석 합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 보안 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. Security Center 24 시간 이내에 권장 사항을 업데이트 합니다. 단, 다음과 같은 예외가 있습니다.
@@ -38,7 +39,7 @@ Contoso는 최근 해당 온-프레미스 리소스의 일부를 Azure로 마이
 ## <a name="use-azure-security-center"></a>Azure Security Center 사용
 Contoso의 IT 보안 부서에서 일하는 David은 보안 취약성을 감지하고 방지하기 위해 이미 Azure Security Center의 Contoso의 구독에서 Security Center를 온보딩하도록 선택했습니다. 
 
-Security Center는 Contoso Azure 리소스의 보안 상태를 자동으로 분석하고 기본 보안 정책을 적용합니다. Security Center가 잠재적인 보안 취약점을 식별하는 경우 보안 정책에서 설정된 컨트롤에 따라 **권장 사항**을 만듭니다. 
+Security Center는 Contoso Azure 리소스의 보안 상태를 자동으로 분석하고 기본 보안 정책을 적용합니다. Security Center 잠재적인 보안 취약점을 식별 하는 경우 보안 정책에서 설정 된 컨트롤에 따라 **권장 사항을** 만듭니다. 
 
 David는 모든 구독에서 Azure 보안 표준 계층을 실행 하 여 사용 가능한 전체 권장 사항 및 보안 기능을 가져옵니다. 또한 Jeff는 [Windows](quick-onboard-windows-computer.md) 및 [Linux](quick-onboard-linux-computer.md) 서버에서 Security Center의 하이브리드 지원을 활용할 수 있도록 아직 클라우드로 마이그레이션되지 않은 기존의 모든 온-프레미스 서버를 보드 합니다.
 
@@ -66,6 +67,11 @@ Jeff는 다음 작업을 수행합니다.
 6. Jeff에는 다양 한 인터넷 연결 Vm이 있으며 해당 포트가 노출 되기 때문에 공격자가 서버를 제어할 수 있습니다. 따라서 Jeff는 [**JUST-IN-TIME VM 액세스**](security-center-just-in-time.md)를 사용 하도록 선택 합니다.
 
 Jeff는 계속해서 높은 우선 순위 및 중간 우선 순위 권장 사항을 살펴보면서 구현할지 결정했습니다. 각 권장 사항에 대해 Jeff는 Security Center에서 제공 하는 세부 정보를 확인 하 여 영향을 받는 리소스, 보안 점수 영향, 각 권장 사항 및 각 문제를 완화 하는 방법에 대 한 수정 단계를 이해 합니다.
+
+### <a name="enforce-recommendations-to-prevent-security-misconfigurations"></a>보안 오류를 방지 하기 위한 권장 사항 적용
+
+사용자가 Jeff의 점수에 부정적인 영향을 주는 리소스를 만들지 않도록 하기 위해 가장 중요 한 권장 사항에 대해 적용 및 거부 옵션을 구성 합니다. [권장 사항 적용/거부 권장 사항](prevent-misconfigurations.md)에 대 한 자세한 정보.
+
 
 ## <a name="conclusion"></a>결론
 Security Center에서 권장 사항을 모니터링하면 공격이 발생하기 전에 보안 취약점을 제거할 수 있습니다. 권장 사항을 재구성 하면 보안 점수와 워크 로드의 보안 상태가 향상 됩니다. Security Center는 사용자가 배포한 새 리소스를 자동으로 검색하고, 보안 정책에 따라 평가하고, 보안을 유지하기 위한 새 권장 사항을 제공합니다.

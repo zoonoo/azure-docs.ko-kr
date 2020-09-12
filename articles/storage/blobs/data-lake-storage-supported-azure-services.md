@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b185b6e7706b2049f2821400db9d810588000419
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c3a5f3a984c95af400c9e0c1543e3c1883290668
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848216"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442959"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2를 지원하는 Azure 서비스
 
@@ -26,7 +26,7 @@ Azure 서비스를 사용 하 여 데이터를 수집 하 고 분석을 수행 �
 > [!NOTE]
 > 지원 수준은 서비스가 Gen 2 Data Lake Storage 지원 되는 방법만을 나타냅니다.
 
-|Azure 서비스 |지원 수준 |Azure AD |공유 키| 관련 문서 |
+|Azure 서비스 |지원 수준 |Azure AD |공유 키| 관련된 문서 |
 |---------------|-------------------|---|---|---|
 |Azure 데이터 팩터리|일반 공급|예|예|[Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure Databricks|일반 공급|예|예|[Azure Databricks와 함께 사용](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) <br> [빠른 시작: Azure Databricks를 사용 하 여 Azure Data Lake Storage Gen2에서 데이터 분석](data-lake-storage-quickstart-create-databricks-account.md) <br>[자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse) <br>[자습서: Spark를 사용 하 여 Azure Databricks으로 데이터 Data Lake Storage Gen2 액세스](data-lake-storage-use-databricks-spark.md)|
@@ -44,7 +44,6 @@ Azure 서비스를 사용 하 여 데이터를 수집 하 고 분석을 수행 �
 |Azure Data Explorer|일반 공급|예|예|[Azure 데이터 탐색기를 사용 하 여 Azure Data Lake에서 데이터 쿼리](https://docs.microsoft.com/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|미리 보기|예|예|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
 |Azure Content Delivery Network|아직 지원되지 않음|해당 없음|해당 없음|[문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](https://docs.microsoft.com/azure/cdn/cdn-overview)|
-
 
 ## <a name="see-also"></a>참고 항목
 

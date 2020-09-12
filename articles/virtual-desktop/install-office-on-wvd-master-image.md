@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3e53d8bf8f7cb024b468983f596d3d1bd5c91ee7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1596dd8c03ba546c47429183e5d237579f1634f1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007304"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442925"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>마스터 VHD 이미지에 Office 설치
 
@@ -56,7 +56,7 @@ Office 배포 도구를 사용 하려면 구성 XML 파일이 필요 합니다. 
 
 Office 배포 도구에는 setup.exe 포함 되어 있습니다. Office를 설치 하려면 명령줄에서 다음 명령을 실행 합니다.
 
-```batch
+```cmd
 Setup.exe /configure configuration.xml
 ```
 
@@ -90,7 +90,7 @@ Setup.exe /configure configuration.xml
 
 Office를 설치한 후 기본 Office 동작을 업데이트할 수 있습니다. 다음 명령을 개별적으로 실행 하거나 배치 파일을 실행 하 여 동작을 업데이트 합니다.
 
-```batch
+```cmd
 rem Mount the default user registry hive
 reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
 rem Must be executed with default registry hive mounted.
@@ -117,41 +117,41 @@ OneDrive는 일반적으로 사용자별로 설치 됩니다. 이 환경에서 �
 
 1. 먼저, OneDrive 설치 관리자를 준비할 위치를 만듭니다. 로컬 디스크 폴더 또는 [ \\ \\ unc] (file://unc) 위치에 문제가 없습니다.
 
-2. 이 링크를 사용 하 여 준비 위치로 OneDriveSetup.exe를 다운로드 합니다.<https://aka.ms/OneDriveWVD-Installer>
+2. 이 링크를 사용 하 여 준비 위치로 OneDriveSetup.exe를 다운로드 합니다. <https://aka.ms/OneDriveWVD-Installer>
 
 3. 생략 하 여 OneDrive에 office를 설치한 경우 **\<ExcludeApp ID="OneDrive" /\>** 다음 명령을 실행 하 여 관리자 권한 명령 프롬프트에서 기존 OneDrive 사용자별 설치를 제거 합니다.
 
-    ```batch
+    ```cmd
     "[staged location]\OneDriveSetup.exe" /uninstall
     ```
 
 4. 관리자 권한 명령 프롬프트에서이 명령을 실행 하 여 **Allusers 설치** 레지스트리 값을 설정 합니다.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
     ```
 
 5. 다음 명령을 실행 하 여 컴퓨터 단위 모드에서 OneDrive를 설치 합니다.
 
-    ```batch
+    ```cmd
     Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. 다음 명령을 실행 하 여 모든 사용자에 대해 로그인 할 때 OneDrive를 시작 하도록 구성 합니다.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
     ```
 
 7. 다음 명령을 실행 하 여 **사용자 계정 자동 구성** 을 사용 하도록 설정 합니다.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
     ```
 
 8. 다음 명령을 실행 하 여 Windows의 알려진 폴더를 OneDrive로 리디렉션하고 이동 합니다.
 
-    ```batch
+    ```cmd
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 

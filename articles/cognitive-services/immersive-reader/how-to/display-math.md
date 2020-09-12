@@ -2,20 +2,20 @@
 title: 몰입 형 판독기에 수학 표시
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 몰입 형 판독기에 수치를 표시 하는 방법을 보여 줍니다.
-author: pasta
+author: nitinme
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.author: pasta
+ms.author: nitinme
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6bde75fe0fb856633d7849173faf21db76edc950
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 2bc178dcd473154f65d0b74d20e9f608c4061f9f
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406914"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505321"
 ---
 # <a name="how-to-display-math-in-the-immersive-reader"></a>몰입 형 판독기에서 수학을 표시 하는 방법
 

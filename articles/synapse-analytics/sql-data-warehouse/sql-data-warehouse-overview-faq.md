@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b3ee3f729e1e2f03d7c72a72081ad2e3f0316cbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 228fa18fef0f681437fd2c0c87e3114d14977a49
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482533"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462652"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (이전의 SQL DW) 질문과 대답
 
@@ -27,7 +27,7 @@ A. Azure Synapse는 데이터 웨어하우징 및 빅 데이터 분석을 함께
 
 17. Azure SQL Data Warehouse 어떻게 되었습니까?
 
-A. Azure Synapse는 SQL DW (Azure SQL Data Warehouse)로 진화 하 고 있습니다. 우리는 동일한 업계 최고의 데이터 웨어하우스를 새로운 수준의 성능 및 기능으로 완전히 새로운 수준으로 만들었습니다. Azure Synapse를 사용 하 여 프로덕션에서 기존 데이터 웨어하우스 워크 로드를 계속 실행할 수 있습니다. 자세한 내용은 [Azure Synapse Analytics 란?](sql-data-warehouse-overview-what-is.md)을 참조 하세요.
+A. Azure Synapse는 Azure SQL Data Warehouse 진화 하 고 있습니다. 우리는 동일한 업계 최고의 데이터 웨어하우스를 새로운 수준의 성능 및 기능으로 완전히 새로운 수준으로 만들었습니다. Azure Synapse를 사용 하 여 프로덕션에서 기존 데이터 웨어하우스 워크 로드를 계속 실행할 수 있습니다. 자세한 내용은 [Azure Synapse Analytics란?](sql-data-warehouse-overview-what-is.md)을 참조하세요.
 
 17. Synapse SQL pool 이란?
 
@@ -47,7 +47,7 @@ A. SOC 및 ISO와 같은 제품에 대한 다양한 규정 준수 제안에 대�
 
 17. Power BI 연결할 수 있나요?
 
-A. 예! Power BI는 Azure Synapse를 사용 하 여 직접 쿼리를 지원 하지만 많은 수의 사용자 또는 실시간 데이터를 위한 것이 아닙니다. Power BI 성능을 최적화 하려면 Azure Analysis Services 또는 Analysis Services IaaS를 Power BI 사용 하는 것이 좋습니다.
+A. 예. Power BI는 Azure Synapse를 사용 하 여 직접 쿼리를 지원 하지만 많은 수의 사용자 또는 실시간 데이터를 위한 것이 아닙니다. Power BI 성능을 최적화 하려면 Azure Analysis Services 또는 Analysis Services IaaS를 Power BI 사용 하는 것이 좋습니다.
 
 17. Synapse SQL 풀 용량 제한은 무엇 인가요?
 

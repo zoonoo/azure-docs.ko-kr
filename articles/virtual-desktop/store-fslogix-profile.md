@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4702c68dcda0c794aef34d3c0675e2fd158e6d4f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0b1a5e36232e74caa34037efbbb0da0c39051998
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009412"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568696"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션
 
@@ -28,8 +28,8 @@ Windows 가상 데스크톱은 FSLogix 프로필 컨테이너를 권장 사용�
 |사용 사례|범용 가상 컴퓨터|NetApp 온-프레미스에서의 Ultra 성능 또는 마이그레이션|플랫폼 간|
 |플랫폼 서비스|예, Azure 네이티브 솔루션|예, Azure 네이티브 솔루션|아니요, 자체 관리|
 |국가별 가용성|모든 지역|[영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|모든 지역|
-|중복성|로컬 중복/영역 중복/지역 중복|로컬 중복|로컬 중복/영역 중복/지역 중복|
-|계층 및 성능|Standard<br>Premium<br>약 3 밀리초 대기 시간에 공유 당 5gbps와 공유 당 최대 10만 IOPS|Standard<br>Premium<br>매우<br>최대 320k (16K) IOPS (볼륨 당 4.5 GBps, 약 1 밀리초 대기 시간)|표준 HDD: 최대 500 IOPS 디스크당 제한<br>표준 SSD: 디스크당 최대 4k IOPS 제한<br>프리미엄 SSD: 디스크당 최대 20k IOPS 제한<br>스토리지 공간 다이렉트 프리미엄 디스크를 권장 합니다.|
+|중복|로컬 중복/영역 중복/지역 중복|로컬 중복|로컬 중복/영역 중복/지역 중복|
+|계층 및 성능|Standard<br>Premium<br>약 3 밀리초 대기 시간에 공유 당 5gbps와 공유 당 최대 10만 IOPS|Standard<br>Premium<br>Ultra<br>최대 320k (16K) IOPS (볼륨 당 4.5 GBps, 약 1 밀리초 대기 시간)|표준 HDD: 최대 500 IOPS 디스크당 제한<br>표준 SSD: 디스크당 최대 4k IOPS 제한<br>프리미엄 SSD: 디스크당 최대 20k IOPS 제한<br>스토리지 공간 다이렉트 프리미엄 디스크를 권장 합니다.|
 |용량|100 공유 당 TiB|볼륨당 100 TiB, 구독 당 최대 12.5 PiB|디스크당 최대 32 TiB|
 |필수 인프라|최소 공유 크기 1 GiB|최소 용량 풀 4 TiB, 최소 볼륨 크기 100 GiB|Azure IaaS의 두 Vm (+ 클라우드 감시) 또는 디스크에 대 한 비용 없이 3 개 이상의 Vm|
 |프로토콜|SMB 2.1/3. 및 REST|NFSv3, NFSv 4.1 (preview), SMB 3.x/2.x|NFSv3, NFSv 4.1, SMB 3.1|
@@ -51,7 +51,7 @@ FSLogix 프로필 컨테이너, 사용자 프로필 디스크 및 기타 사용�
 
 사용자 고유의 FSLogix 프로필 컨테이너를 만들 준비가 되 면 다음 자습서 중 하나를 시작 하세요.
 
-- [Windows 가상 데스크톱의 Azure Files에서 FSLogix 프로필 컨테이너 시작](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
+- [Windows 가상 데스크톱의 Azure Files에서 FSLogix 프로필 컨테이너 시작](create-file-share.md)
 - [Azure NetApp 파일을 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기](create-fslogix-profile-container.md)
 - [Azure에서 UPD 저장소에 대 한 2 노드 스토리지 공간 다이렉트 스케일 아웃 파일 서버 배포](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) 의 지침은 사용자 프로필 디스크 대신 FSLogix 프로필 컨테이너를 사용 하는 경우에도 적용 됩니다.
 

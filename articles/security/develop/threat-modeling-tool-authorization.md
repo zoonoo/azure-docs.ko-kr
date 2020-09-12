@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 77964eed6960a79920f359a03c65102ad949a210
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 51d8b740ba1275b23bc17a58284141dce0d48fe0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004666"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300003"
 ---
 # <a name="security-frame-authorization--mitigations"></a>보안 프레임: 권한 부여 | 완화 
 | 제품/서비스 | 아티클 |
@@ -205,7 +205,7 @@ WHERE userID=:id < - session var
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Event Hubs 인증 및 보안 모델 개요](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **단계** | 이벤트 허브에 대한 직접 액세스 권한을 부여하는 토큰을 디바이스에 제공하면 안됩니다. 게시자에게만 액세스 권한을 부여하는 디바이스에 최소 권한의 토큰을 사용하면 악의적이거나 손상된 디바이스로 확인되는 경우 이를 식별하여 블랙리스트에 추가할 수 있습니다.|
+| **단계** | 이벤트 허브에 대한 직접 액세스 권한을 부여하는 토큰을 디바이스에 제공하면 안됩니다. 게시자에 대 한 액세스 권한만 부여 하는 장치에 대 한 최소 권한 있는 토큰을 사용 하면 rogue 또는 손상 된 장치로 검색 된 경우 해당 토큰을 식별 하 고 허용 하지 않을 수 있습니다.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>최소 권한이 필요한 SAS 키를 사용하여 이벤트 허브에 연결
 

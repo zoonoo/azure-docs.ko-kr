@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: damaerte
-ms.openlocfilehash: 766245dcfe42c16106df6beed938fe2f04af05cc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f824bddf833a1e2c01a3b779abc2c5252d8e0547
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286673"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468660"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud Shell 개요
 
@@ -33,7 +33,7 @@ Azure Cloud Shell은 Azure 리소스를 관리하기 위해 브라우저에서 �
 
     ![Azure Portal에서 Cloud Shell를 시작 하는 아이콘](media/overview/portal-launch-icon.png)
 
-- **코드 조각**: [Docs.microsoft.com](https://docs.microsoft.com) 및 [Microsoft Learn](https://docs.microsoft.com/learn/)에서 Azure CLI 및 Azure PowerShell 코드 조각과 함께 표시 되는 **사용해 보기** 단추를 선택 합니다.
+- **코드 조각**: [Docs.microsoft.com]() 및 [Microsoft Learn](/learn/)에서 Azure CLI 및 Azure PowerShell 코드 조각과 함께 표시 되는 **사용해 보기** 단추를 선택 합니다.
 
     ```azurecli-interactive
     az account show
@@ -87,8 +87,8 @@ Cloud Shell은 다음에서 사용할 수 있는 유연한 도구입니다.
 
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)
-* [Azure PowerShell 설명서](https://docs.microsoft.com/powershell/azure/)
+* [Azure CLI 설명서](/cli/azure)
+* [Azure PowerShell 설명서](/powershell/azure/)
 * [Azure 모바일 앱](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code Azure 계정 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
@@ -111,7 +111,7 @@ Cloud Shell 컴퓨터는 임시 이지만 파일은 디스크 이미지와 이�
 * Cloud Shell은 파일 공유에 보관된 5GB 이미지를 사용하여 $Home을 유지합니다.
 * 사용 권한은 Bash의 일반적인 Linux 사용자로 설정됩니다.
 
-[Azure Cloud Shell의 Bash](features.md)와 [Azure Cloud Shell의 PowerShell](features-powershell.md)에 들어 있는 기능에 대해 자세히 알아 보세요.
+[Azure Cloud Shell의 Bash](features.md)와 [Azure Cloud Shell의 PowerShell](./features.md)에 들어 있는 기능에 대해 자세히 알아 보세요.
 
 ## <a name="pricing"></a>가격 책정
 

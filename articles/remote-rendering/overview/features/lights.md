@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: e33e012480c876dc5befbb93404bdb131ea9329a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ddce7e2f073914e9393eabf12e8b0f4ef347828
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022149"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613656"
 ---
 # <a name="scene-lighting"></a>장면 조명
 
@@ -38,7 +38,7 @@ Azure 원격 렌더링에서는 `PointLightComponent` 단일 지점에서의 조
 
 * **Radius:** 기본 반지름은 0 이며,이 경우 광원이 점 빛의 역할을 합니다. 반지름이 0 보다 크면 반사 하이라이트의 모양을 변경 하는 구면 광원으로 작동 합니다.
 
-* **길이:** `Length`및가 모두 `Radius` 0이 아니면 빛은 튜브 광원의 역할을 합니다. Neon 튜브를 시뮬레이션 하는 데 사용할 수 있습니다.
+* **길이:** `Length` 및가 모두 `Radius` 0이 아니면 빛은 튜브 광원의 역할을 합니다. Neon 튜브를 시뮬레이션 하는 데 사용할 수 있습니다.
 
 * **AttenuationCutoff:** 왼쪽에서 (0, 0) 조명의 감쇠는 해당에 따라 다릅니다 `Intensity` . 그러나 사용자 지정 최소/최대 거리를 제공할 수 있습니다 .이 거리는 조명의 농도가 0으로 선형적으로 조정 됩니다. 이 기능을 사용 하 여 특정 조명의 영향을 더 작은 범위에 적용할 수 있습니다.
 
@@ -69,6 +69,17 @@ Azure 원격 렌더링에서는 `PointLightComponent` 단일 지점에서의 조
 ## <a name="performance-considerations"></a>성능 고려 사항
 
 광원은 렌더링 성능에 상당한 영향을 미칩니다. 응용 프로그램에 필요한 경우에만 신중 하 게 사용 합니다. 정적 방향성 구성 요소를 비롯 한 모든 정적 글로벌 조명 조건은 추가 렌더링 비용 없이 [사용자 지정 하늘 질감](sky.md)을 사용 하 여 달성할 수 있습니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # LightComponentBase 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
+* [C # PointLightComponent 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
+* [C # SpotLightComponent 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
+* [C # DirectionalLightComponent 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
+* [C + + LightComponentBase 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/lightcomponentbase)
+* [C + + PointLightComponent 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/pointlightcomponent)
+* [C + + SpotLightComponent 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/spotlightcomponent)
+* [C + + DirectionalLightComponent 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/directionallightcomponent)
 
 ## <a name="next-steps"></a>다음 단계
 

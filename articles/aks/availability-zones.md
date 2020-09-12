@@ -4,13 +4,13 @@ description: AKS(Azure Kubernetes Service)의 가용성 영역에 노드를 배�
 services: container-service
 ms.custom: fasttrack-edit, references_regions
 ms.topic: article
-ms.date: 08/13/2020
-ms.openlocfilehash: f24351c5f77e6c00365497d5e6deeefea8271cb9
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.date: 09/04/2020
+ms.openlocfilehash: b6162249592bf470c3b8e52686abd44b813d5606
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871414"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489139"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -150,7 +150,8 @@ Name:       aks-nodepool1-28993262-vmss000004
 이제 영역 1과 2에 두 개의 추가 노드가 있습니다. 3개의 복제본으로 구성된 애플리케이션을 배포할 수 있습니다. NGINX를 예로 들어 보겠습니다.
 
 ```console
-kubectl run nginx --image=nginx --replicas=3
+kubectl create deployment nginx --image=nginx
+kubectl scale deployment nginx --replicas=3
 ```
 
 Pod가 실행되는 노드를 보면 3개의 다른 가용성 영역에 해당하는 노드에서 Pod가 실행되고 있는 것을 볼 수 있습니다. 예를 들어 `kubectl describe pod | grep -e "^Name:" -e "^Node:"` Bash 셸에서 명령을 사용 하면 다음과 유사한 출력이 표시 됩니다.
