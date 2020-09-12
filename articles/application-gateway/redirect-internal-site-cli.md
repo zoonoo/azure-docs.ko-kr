@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: d889d0c13c911e02d73bb1de76b7c3d1aa240027
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0730148a3da41d0d72961ea521577fa370b183d
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806810"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596093"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 내부 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -21,12 +21,11 @@ Azure CLI를 사용하여 [애플리케이션 게이트웨이](overview.md)를 �
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 네트워크 설정
-> * 애플리케이션 게이트웨이 만들기
-> * 수신기 및 리디렉션 규칙 추가
-> * 백 엔드 풀로 가상 머신 확장 집합 만들기
-> * 도메인에서 CNAME 레코드 만들기
+* 네트워크 설정
+* 애플리케이션 게이트웨이 만들기
+* 수신기 및 리디렉션 규칙 추가
+* 백 엔드 풀로 가상 머신 확장 집합 만들기
+* 도메인에서 CNAME 레코드 만들기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 2af52d1e7c211ccc0b5c18ed1ecda66d46d80786
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806491"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595947"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>App Service 문제 해결 Application Gateway
 
@@ -23,9 +23,8 @@ Azure 애플리케이션 게이트웨이의 백 엔드 대상으로 Azure App Se
 
 이 문서에서는 다음과 같은 문제를 해결 하는 방법을 알아봅니다.
 
-> [!div class="checklist"]
-> * 리디렉션 시 app service URL은 브라우저에 노출 됩니다.
-> * App service ARRAffinity cookie 도메인은 원래 호스트 대신 app service 호스트 이름인 example.azurewebsites.net로 설정 됩니다.
+* 리디렉션 시 app service URL은 브라우저에 노출 됩니다.
+* App service ARRAffinity cookie 도메인은 원래 호스트 대신 app service 호스트 이름인 example.azurewebsites.net로 설정 됩니다.
 
 백 엔드 응용 프로그램에서 리디렉션 응답을 보내는 경우 백 엔드 응용 프로그램에서 지정한 URL과 다른 URL로 클라이언트를 리디렉션할 수 있습니다. App service가 응용 프로그램 게이트웨이 뒤에서 호스트 되는 경우이 작업을 수행할 수 있으며, 클라이언트가 상대 경로에 대 한 리디렉션을 수행 해야 할 수 있습니다. 예를 들어 contoso.azurewebsites.net/path1에서 contoso.azurewebsites.net/path2로의 리디렉션이 있습니다. 
 

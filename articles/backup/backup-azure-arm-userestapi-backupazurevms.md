@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업에 �
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006298"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506630"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
@@ -274,6 +274,35 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 이렇게 하면 VM에 대해 보호를 사용 하도록 설정 하 고 첫 번째 백업이 정책 일정에 따라 트리거됩니다.
 
+### <a name="excluding-disks-in-azure-vm-backup"></a>Azure VM 백업에서 디스크 제외
+
+또한 Azure Backup은 Azure VM에서 디스크의 하위 집합을 선택적으로 백업 하는 방법을 제공 합니다. 자세한 내용은 [여기](selective-disk-backup-restore.md)에 나와 있습니다. 보호를 사용 하도록 설정 하는 동안 몇 가지 디스크를 선택적으로 백업 하려면 [보호를 사용 하도록 설정](#example-request-body)하는 동안 다음 코드 조각이 요청 본문 이어야 합니다.
+
+```json
+{
+"properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "policyId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupPolicies/DefaultPolicy",
+    "extendedProperties":  {
+      "diskExclusionProperties":{
+          "diskLunList":[0,1],
+          "isInclusionList":true
+        }
+    }
+}
+}
+```
+
+위의 요청 본문에서 백업할 디스크 목록이 확장 속성 섹션에 제공 됩니다.
+
+|속성  |값  |
+|---------|---------|
+|diskLunList     | 디스크 LUN 목록은 *데이터 디스크의 lun*목록입니다. **OS 디스크는 항상 백업 되며 언급 하지 않아도**됩니다.        |
+|IsInclusionList     | 백업 하는 동안 Lun이 포함 되려면 **true** 여야 합니다. **False**이면 앞서 언급 한 lun이 제외 됩니다.         |
+
+따라서 OS 디스크만 백업 하는 요구 사항이 있는 경우 _모든_ 데이터 디스크를 제외 해야 합니다. 데이터 디스크가 포함 되지 않도록 하는 것이 더 쉬운 방법입니다. 따라서 디스크 LUN 목록이 비어 있고 **IsInclusionList** 가 **true**가 됩니다. 마찬가지로 하위 집합을 선택 하는 것이 더 쉬운 방법에 대해 생각해 보겠습니다. 몇 개의 디스크가 항상 제외 되거나 몇 개의 디스크가 항상 포함 되어야 합니다. LUN 목록과 부울 변수 값을 적절 하 게 선택 합니다.
+
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>보호된 Azure VM에 대한 주문형 백업 트리거
 
 Azure VM이 백업용으로 구성 되 면 백업은 정책 일정에 따라 수행 됩니다. 첫 번째 예약 백업을 대기하거나 언제든 주문형 백업을 트리거할 수 있습니다. 주문형 백업의 보존은 백업 정책의 보존과는 별개이며 특정 날짜/시간을 지정할 수 있습니다. 지정하지 않으면 주문형 백업을 트리거한 날로부터 30일까지로 간주됩니다.
@@ -389,7 +418,7 @@ X-Powered-By: ASP.NET
 
 VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protection-for-the-azure-vm)과 동일한 형식을 사용할 수 있습니다. [요청 본문](#example-request-body)의 새 정책 ID를 제공하고 요청을 제출합니다. 예: testVM의 정책을 ' DefaultPolicy '에서 ' ProdPolicy '로 변경 하려면 요청 본문에 ' ProdPolicy ' ID를 제공 합니다.
 
-```http
+```json
 {
   "properties": {
     "protectedItemType": "Microsoft.Compute/virtualMachines",
@@ -400,6 +429,15 @@ VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protectio
 ```
 
 응답은 [보호 사용의 경우](#responses-to-create-protected-item-operation)에 설명된 것과 동일한 형식을 따름
+
+#### <a name="excluding-disks-during-azure-vm-protection"></a>Azure VM 보호 중에 디스크 제외
+
+Azure VM이 이미 백업 된 경우 보호 정책을 변경 하 여 백업 하거나 제외할 디스크 목록을 지정할 수 있습니다. [보호를 사용 하도록 설정 하는 동안 디스크를 제외](#excluding-disks-in-azure-vm-backup) 하는 것과 동일한 형식으로 요청을 준비 합니다.
+
+> [!IMPORTANT]
+> 위의 요청 본문은 항상 제외 하거나 포함할 데이터 디스크의 최종 복사본입니다. 이전 구성에는 *추가* 되지 않습니다. 예: 먼저 "제외 데이터 디스크 1"로 보호를 업데이트 한 후 "데이터 디스크 2 제외"로 반복 하면 후속 백업에서 *데이터 디스크 2만 제외 되* 고 데이터 디스크 1이 포함 됩니다. 이는 항상 후속 백업에서 포함/제외 되는 최종 목록입니다.
+
+제외 되거나 포함 된 디스크의 현재 목록을 가져오려면 [여기](https://docs.microsoft.com/rest/api/backup/protecteditems/get)에 설명 된 대로 보호 된 항목 정보를 가져옵니다. 응답은 데이터 디스크 Lun 목록을 제공 하 고이를 포함 하거나 제외할지를 나타냅니다.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>보호를 중지하지만 기존 데이터는 보존
 

@@ -11,12 +11,12 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d7fa9336a7a90ab73d3dc60c6c865ebadfb2af1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb6dbde941d5a2f399aba55eec415c879e74384
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213502"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461208"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Synapse SQL에서 트랜잭션 최적화
 
@@ -419,4 +419,4 @@ Synapse SQL을 사용 하면 필요에 따라 SQL 풀을 [일시 중지, 다시 
 
 ## <a name="next-steps"></a>다음 단계
 
-격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SYNAPSE SQL의 트랜잭션](sql-data-warehouse-develop-transactions.md) 을 참조 하세요.  기타 모범 사례의 개요에 대해서는 [SQL Data Warehouse 모범 사례](sql-data-warehouse-best-practices.md)를 참조하세요.
+격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SYNAPSE SQL의 트랜잭션](sql-data-warehouse-develop-transactions.md) 을 참조 하세요.  다른 모범 사례에 대 한 개요는 [Azure Synapse Analytics 모범 사례](sql-data-warehouse-best-practices.md)를 참조 하세요.

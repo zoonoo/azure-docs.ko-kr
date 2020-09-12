@@ -2,17 +2,17 @@
 title: Azure Express 경로 직접 정보
 description: 사용 가능한 Sku 및 기술 요구 사항과 같이 Express 경로 다이렉트에 등록 하는 데 필요한 정보 및 Azure Express 경로 다이렉트의 주요 기능에 대해 알아봅니다.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: jaredro
-ms.openlocfilehash: f0faa4992b025783e4e5448dcf04fcfa958ba5ed
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192352"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566401"
 ---
 # <a name="about-expressroute-direct"></a>ExpressRoute Direct 정보
 
@@ -35,7 +35,7 @@ Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해�
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>서비스 공급자 및 ExpressRoute Direct를 사용하는 ExpressRoute
 
-| **서비스 공급자를 사용하는 ExpressRoute** | **Express 경로 직접** | 
+| **서비스 공급자를 사용하는 ExpressRoute** | **ExpressRoute Direct** | 
 | --- | --- |
 | 서비스 공급자를 활용하여 기존 인프라로 빠른 온보딩 및 연결 활성화 | 모든 계층의 100 Gbps/10 Gbps 인프라 및 전체 관리 필요
 | 이더넷 및 MPLS를 포함하는 수백 개의 공급자와 통합 | 규제 산업 및 대규모 데이터 수집에 대한 직접/전용 용량 |
@@ -44,7 +44,7 @@ Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해�
 
 ## <a name="expressroute-direct-circuits"></a>ExpressRoute Direct 회로
 
-Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하 여 Microsoft Azure 및 Office 365와 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다.
+Microsoft Azure ExpressRoute를 사용하면 연결 공급자에서 쉽게 처리된 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하 여 Microsoft Azure 및 Microsoft 365와 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다.
 
 각 피어링 위치는 Microsoft의 글로벌 네트워크에 대한 액세스 권한을 가지며 기본적으로 지리적 영역에 있는 모든 지역에 액세스할 수 있으며 프리미엄 회로를 사용하여 전 세계 모든 지역에 액세스할 수 있습니다.  
 

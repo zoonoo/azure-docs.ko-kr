@@ -11,12 +11,12 @@ author: jpe316
 ms.date: 06/03/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 263038ee1be8b31d493282cd920f386132420156
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a5f56beb179f7c72fe66c7423999201f3460b143
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648788"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646288"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>FPGA (필드 프로그래밍 가능 게이트 배열) 및 배포 방법
 
@@ -67,7 +67,7 @@ Azure의 FPGAs는 다음을 지원 합니다.
   
 FPGAs는 다음 Azure 지역에서 사용할 수 있습니다.
   - 미국 동부
-  - 동남아시아
+  - 동남 아시아
   - 서유럽
   - 미국 서부 2
 
@@ -78,7 +78,7 @@ FPGAs는 다음 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="deploy-models-on-fpgas"></a>FPGA에 모델 배포
 
-[Azure Machine Learning 하드웨어 가속 모델](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py)를 사용 하 여 모델을 fpgas에서 웹 서비스로 배포할 수 있습니다. FPGAs를 사용 하면 단일 일괄 처리 크기를 사용 하는 경우에도 매우 짧은 대기 시간 유추가 가능 합니다. 유추 또는 모델 점수 매기기는 배포 된 모델이 예측에 사용 되는 단계 이며 가장 일반적으로 프로덕션 데이터에 사용 됩니다.
+[Azure Machine Learning 하드웨어 가속 모델](https://docs.microsoft.com/python/api/azureml-accel-models/azureml.accel?view=azure-ml-py&preserve-view=true)를 사용 하 여 모델을 fpgas에서 웹 서비스로 배포할 수 있습니다. FPGAs를 사용 하면 단일 일괄 처리 크기를 사용 하는 경우에도 매우 짧은 대기 시간 유추가 가능 합니다. 유추 또는 모델 점수 매기기는 배포 된 모델이 예측에 사용 되는 단계 이며 가장 일반적으로 프로덕션 데이터에 사용 됩니다.
 
 FPGA에 모델을 배포 하려면 다음 단계를 수행 해야 합니다.
 
@@ -89,7 +89,7 @@ FPGA에 모델을 배포 하려면 다음 단계를 수행 해야 합니다.
 
 이 샘플에서는 TensorFlow 그래프를 만들어 입력 이미지를 전처리 하 고, FPGA에서 ResNet 50을 사용 하 여 featurizer 만든 다음, ImageNet 데이터 집합에 대해 학습 한 분류자를 통해 기능을 실행 합니다. 그런 다음 AKS 클러스터에 모델을 배포 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 계정이 없는 경우 [종 량](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) 제 계정을 만들어야 합니다 (무료 AZURE 계정은 FPGA 할당량에 적합 하지 않음).
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -121,7 +121,7 @@ FPGA에 모델을 배포 하려면 다음 단계를 수행 해야 합니다.
     ```
 ### <a name="1-define-the-tensorflow-model"></a>1. TensorFlow 모델을 정의 합니다.
 
-[Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용하여 서비스 정의를 만듭니다. 서비스 정의는 TensorFlow를 기반으로 그래프(입력, 기능화기 및 분류자) 파이프라인을 설명하는 파일입니다. 배포 명령은 자동으로 정의 및 그래프를 ZIP 파일로 압축하고, ZIP 파일을 Azure Blob Storage에 업로드합니다. DNN가 FPGA에서 실행 되도록 이미 배포 되었습니다.
+[Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용하여 서비스 정의를 만듭니다. 서비스 정의는 TensorFlow를 기반으로 그래프(입력, 기능화기 및 분류자) 파이프라인을 설명하는 파일입니다. 배포 명령은 자동으로 정의 및 그래프를 ZIP 파일로 압축하고, ZIP 파일을 Azure Blob Storage에 업로드합니다. DNN가 FPGA에서 실행 되도록 이미 배포 되었습니다.
 
 1. Azure Machine Learning 작업 영역 로드
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a9cc1ebbe8cfea2548f61ee1d88180ed39a75eb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ce676c8966f67aeb233b2b9daf3f8f1c57327e6a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002439"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462091"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>빠른 시작: v10 클라이언트 라이브러리를 사용 하 여 검색 인덱스 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "89002439"
 
 Visual Studio 및 [Microsoft Azure Search 클라이언트 라이브러리](/dotnet/api/overview/azure/search/client10?view=azure-dotnet)를 사용 하 여 azure Cognitive Search 인덱스를 만들고 로드 하 고 쿼리 하는 .net Core 콘솔 응용 프로그램을 c #으로 만듭니다. 
 
-이 문서에서는 응용 프로그램을 만드는 방법을 설명 합니다. [전체 응용 프로그램을 다운로드 하 고 실행할](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v10)수도 있습니다.
+이 문서에서는 응용 프로그램을 만드는 방법을 설명 합니다. [전체 응용 프로그램을 다운로드 하 고 실행할](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v10)수도 있습니다.
 
 > [!NOTE]
 > 이 문서의 데모 코드는 편의를 위해 Azure Cognitive Search 버전 10 .NET SDK의 동기 메서드를 사용 합니다. 하지만 프로덕션 시나리오에서는 확장성과 응답성을 유지하기 위해 자체 애플리케이션에 비동기 메서드를 사용하는 것이 좋습니다. 예를 들어, `Create` 및 `Delete` 대신`CreateAsync` 및 `DeleteAsync`를 사용할 수 있습니다.
@@ -107,9 +107,9 @@ Visual Studio 및 [Microsoft Azure Search 클라이언트 라이브러리](/dotn
 
 1. 프로젝트에 빈 클래스 정의 2개를 추가합니다. Address.Methods.cs, Hotel.Methods.cs
 
-1. Address.Methods.cs의 기본 콘텐츠를 다음 코드 [1-25줄](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25)로 덮어씁니다.
+1. Address.Methods.cs의 기본 콘텐츠를 다음 코드 [1-25줄](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25)로 덮어씁니다.
 
-1. Hotel.Methods.cs에서 [1-68줄](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68)을 복사합니다.
+1. Hotel.Methods.cs에서 [1-68줄](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68)을 복사합니다.
 
 ## <a name="1---create-index"></a>1 - 인덱스 만들기
 

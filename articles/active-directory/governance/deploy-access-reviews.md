@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011347"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461037"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
 
@@ -93,7 +93,7 @@ ms.locfileid: "89011347"
 
 * **It 관리** 는 it 인프라를 관리 하 고 클라우드 투자 및 SaaS (Software As a Service) 앱을 관리 합니다. 이 팀은 다음 작업을 수행 합니다.
 
-   * Office 365 및 Azure AD를 포함 하 여 인프라 및 앱에 대 한 권한 있는 액세스를 검토 합니다.
+   * Microsoft 365 및 Azure AD를 포함 하 여 인프라 및 앱에 대 한 권한 있는 액세스를 검토 합니다.
 
    * 최신 액세스 목록을 유지 하기 위해 예외 목록 또는 IT 파일럿 프로젝트를 유지 관리 하는 데 사용 되는 그룹에 대 한 액세스 검토를 예약 하 고 실행 합니다.
 
@@ -180,7 +180,7 @@ ms.locfileid: "89011347"
 
 * [Single sign-on을 위해 AZURE AD와 통합 된 응용 프로그램](../manage-apps/what-is-application-management.md) (예: SaaS, lob (기간 업무)).
 
-* 그룹 [멤버 자격](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (azure ad에 동기화 되었거나 Microsoft 팀을 포함 하 여 azure Ad 또는 Office 365에서 만들어짐).
+* 그룹 [멤버 자격](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (azure ad에 동기화 되었거나 Microsoft 팀을 포함 하 여 azure ad 또는 Microsoft 365에서 만들어짐).
 
 * 리소스 (그룹, 앱 및 사이트)를 단일 패키지로 그룹화 하 여 액세스를 관리 하는 [패키지에 액세스](/azure/active-directory/governance/entitlement-management-overview) 합니다.
 
@@ -304,7 +304,7 @@ ms.locfileid: "89011347"
 
 ## <a name="plan-access-reviews-for-groups"></a>그룹에 대 한 액세스 검토 계획
 
-액세스 패키지 외에도 그룹 멤버 자격 검토는 액세스를 관리 하는 가장 효과적인 방법입니다. 리소스에 대 한 액세스는 [보안 그룹 또는 Office 365 그룹](../fundamentals/active-directory-manage-groups.md)을 통해 할당 되 고 사용자가 해당 그룹에 추가 되어 액세스 권한을 얻을 수 있도록 하는 것이 좋습니다.
+액세스 패키지 외에도 그룹 멤버 자격 검토는 액세스를 관리 하는 가장 효과적인 방법입니다. 리소스에 대 한 액세스는 [보안 그룹 또는 Microsoft 365 그룹](../fundamentals/active-directory-manage-groups.md)을 통해 할당 되며, 해당 그룹에 사용자를 추가 하 여 액세스 권한을 얻을 수 있도록 하는 것이 좋습니다.
 
 단일 그룹에 해당 하는 모든 리소스에 대 한 액세스 권한을 부여할 수 있습니다. 개별 리소스 또는 응용 프로그램 및 기타 리소스를 그룹화 하는 액세스 패키지에 그룹 액세스 권한을 할당할 수 있습니다. 이 방법을 사용 하 여 각 응용 프로그램에 대 한 개별 액세스 권한이 아닌 그룹에 대 한 액세스를 검토할 수 있습니다. 
 
@@ -322,9 +322,9 @@ ms.locfileid: "89011347"
 
 액세스 해야 하는 사용자를 파악 하는 것이 가장 좋습니다. 그룹 소유자는 구성원 자격을 검토 하는 것이 좋습니다. 그룹의 소유권은 그룹의 유형에 따라 다릅니다.
 
-Office 365 및 Azure AD에서 만든 그룹에는 잘 정의 된 소유자가 하나 이상 있습니다. 대부분의 경우 이러한 소유자는 액세스할 수 있는 사용자를 파악 하는 그룹에 대해 완벽 한 검토자를 만듭니다. 
+Microsoft 365 및 Azure AD에서 만든 그룹에는 잘 정의 된 소유자가 하나 이상 있습니다. 대부분의 경우 이러한 소유자는 액세스할 수 있는 사용자를 파악 하는 그룹에 대해 완벽 한 검토자를 만듭니다. 
 
-예를 들어 Microsoft 팀은 Office 365 그룹을 기본 권한 부여 모델로 사용 하 여 사용자에 게 SharePoint, Exchange, OneNote 또는 기타 Office 365 서비스에 있는 리소스에 대 한 액세스 권한을 부여 합니다. 팀의 작성자는 자동으로 소유자가 되며 해당 그룹의 멤버 자격을 증명 책임이 있습니다. 
+예를 들어 Microsoft 팀은 기본 권한 부여 모델로 Microsoft 365 그룹을 사용 하 여 SharePoint, Exchange, OneNote 또는 기타 Microsoft 365 서비스에 있는 리소스에 대 한 액세스 권한을 사용자에 게 부여 합니다. 팀의 작성자는 자동으로 소유자가 되며 해당 그룹의 멤버 자격을 증명 책임이 있습니다. 
 
 Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크립팅을 통해 그룹을 반드시 정의 해야 하는 것은 아닙니다. 그룹의 "소유자" 섹션에서 또는 그래프를 통해 Azure AD 포털을 통해 정의 하는 것이 좋습니다.
 
@@ -403,7 +403,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 * 보안 관리자
 
-* 모든 Office 365 및 Dynamics 서비스 관리 역할
+* 모든 Microsoft 365 및 Dynamics 서비스 관리 역할
 
 여기에서 선택한 역할에는 영구 및 적격 역할이 포함 됩니다. 
 
@@ -496,7 +496,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 액세스 검토 작업은 [AZURE AD의 감사 로그](../reports-monitoring/concept-audit-logs.md)에서 기록 되 고 사용할 수 있습니다. 범주, 활동 유형 및 날짜 범위에서 감사 데이터를 필터링 할 수 있습니다. 예제 쿼리는 다음과 같습니다.
 
-| 범주| Policy |
+| 범주| 정책 |
 | - | - |
 | 활동 유형| 액세스 검토 만들기 |
 | | 액세스 검토 업데이트 |

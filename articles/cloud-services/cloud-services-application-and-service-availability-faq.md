@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a2596d4f6a8aa9fb4c95dfb5a3ccab7d7206f3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75386921"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461309"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 애플리케이션 및 서비스 사용 가능성 문제: FAQ(질문과 대답)
 
@@ -33,7 +33,7 @@ Microsoft에서는 대략 한 달에 한 번 Windows Azure PaaS VM에 대한 새
 
 최신 게스트 OS 업데이트에 대한 자세한 내용은 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스](cloud-services-guestos-update-matrix.md)를 참조하세요.
 
-게스트 및 호스트 OS 업데이트의 기술 세부 정보에 대한 다시 시작 및 포인터에 도움이 되는 정보는 [OS 업그레이드로 인한 역할 인스턴스 다시 시작](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)이라는 MSDN 블로그 게시물을 참조하세요.
+게스트 및 호스트 OS 업데이트의 기술 세부 정보에 대한 다시 시작 및 포인터에 도움이 되는 정보는 [OS 업그레이드로 인한 역할 인스턴스 다시 시작](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades)이라는 MSDN 블로그 게시물을 참조하세요.
 
 ## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>서비스가 일정 시간 동안 유휴 상태가 된 후에 클라우드 서비스에 대한 첫 번째 요청이 평소보다 오래 걸리는 이유는 무엇인가요?
 웹 서버가 첫 번째 요청을 받으면 먼저 코드를 다시 컴파일하고 다음 요청을 처리합니다. 바로 이러한 이유로 첫 번째 요청은 다른 항목보다 더 많은 시간이 걸립니다. 기본적으로 앱 풀은 사용자가 휴지하는 경우에 종료됩니다. 또한 앱 풀은 기본적으로 1,740분(29시간)마다 재활용됩니다.

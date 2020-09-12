@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 081da2b3f6fbe97ebce21940d7e0ca8978793b15
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: eef8abebde2578ac549b2facfc1317a90ecc7fb5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652103"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658569"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
@@ -204,9 +204,9 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 ## <a name="automl-in-azure-machine-learning"></a>Azure Machine Learning의 AutoML
 
-Azure Machine Learning은 자동화된 ML 작업을 위한 두 가지 환경을 제공합니다.
+Azure Machine Learning는 자동화 된 ML 작업을 위한 두 가지 환경을 제공 합니다.
 
-* 코드 환경 고객의 경우 [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+* 코드 환경 고객의 경우 [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
 
 * 제한된 코드 환경 또는 코드리스 환경 고객의 경우 [https://ml.azure.com](https://ml.azure.com/)의 Azure Machine Learning Studio  
 
@@ -277,7 +277,7 @@ AutoML을 사용 하 여 시작 및 실행 하기 위한 여러 리소스가 있
 
  + **코드를 낮거나 사용 하지 않으려면** [자습서: Azure Machine Learning studio를 사용 하 여 자동화 된 ML 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)를 참조 하세요.
 
-방법 문서에서는 AutoML이 제공 하는 기능에 대 한 추가 세부 정보를 제공 합니다. 예: 
+방법 문서에서는 AutoML이 제공 하는 기능에 대 한 추가 세부 정보를 제공 합니다. 예를 들면 다음과 같습니다. 
 
 + 자동 학습 실험에 대 한 설정 구성
     + Azure Machine Learning Studio의 경우 [이러한 단계를 사용](how-to-use-automated-ml-for-ml-models.md)합니다. 
@@ -289,9 +289,9 @@ AutoML을 사용 하 여 시작 및 실행 하기 위한 여러 리소스가 있
 
 [자동화 된 기계 학습 샘플에 대 한 GitHub 노트북 리포지토리에서](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)자세한 코드 예제 및 사용 사례를 검토 합니다.
 
-### <a name="python-sdk-reference"></a>Python SDK 참조 
+### <a name="python-sdk-reference"></a>Python SDK 참조
 
-[Automl 클래스 참조 설명서](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)를 사용 하 여 SDK 디자인 패턴 및 클래스 사양의 전문 지식을 활용. 
+[Automl 클래스 참조 설명서](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true)를 사용 하 여 SDK 디자인 패턴 및 클래스 사양의 전문 지식을 활용. 
 
 > [!Note]
 > 자동화 된 기계 학습 기능을 [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) 및 [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/) 같은 다른 Microsoft 솔루션 에서도 사용할 수 있습니다.

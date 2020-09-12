@@ -11,12 +11,12 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 44755ab13b95db1ffec8183d00a4054e291c5a50
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bce5e14db133ad55a2035c0c8074486ed1b8a6ec
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039027"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460510"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL 문제 해결
 
@@ -37,7 +37,7 @@ ms.locfileid: "86039027"
 | 문제                                                        | 해결 방법                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio 개체 탐색기에 Azure AD 사용자가 없음           | 이것은 알려진 문제이며  해결 방법으로 [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에서 사용자를 봅니다.  Synapse SQL 풀에서 Azure Active Directory를 사용하는 방법에 대한 자세한 내용은 [Azure Synapse에 대한 인증](sql-data-warehouse-authentication.md)을 참조하세요. |
-| 수동 스크립팅, 스크립팅 마법사 사용 또는 SSMS를 통한 연결이 느려지거나 응답하지 않거나 오류를 생성함 | 사용자가 master 데이터베이스에서 만들어졌는지 확인합니다. 스크립팅 옵션에서 엔진 버전이 "Microsoft Azure SQL Data Warehouse Edition"으로 설정되고 엔진 유형이 "Microsoft Azure SQL Database"로 설정되어 있는지도 확인합니다. |
+| 수동 스크립팅, 스크립팅 마법사 사용 또는 SSMS를 통한 연결이 느려지거나 응답하지 않거나 오류를 생성함 | 사용자가 master 데이터베이스에서 만들어졌는지 확인합니다. 스크립팅 옵션에서 엔진 버전이 "Microsoft Azure Synapse Analytics Edition"으로 설정 되어 있고 엔진 유형이 "Microsoft Azure SQL Database" 인지도 확인 합니다. |
 | SSMS에서 스크립트 생성 실패                               | "종속 개체에 대한 스크립트 생성" 옵션이 "True"로 설정된 경우 Synapse SQL 풀용 스크립트 생성이 실패합니다. 이 문제를 해결하려면 사용자가 수동으로 **도구 -> 옵션 -> SQL Server 개체 탐색기 -> 종속 개체에 대한 스크립트 생성 옵션으로 이동하여 false로 설정**해야 합니다 |
 
 ## <a name="performance"></a>성능

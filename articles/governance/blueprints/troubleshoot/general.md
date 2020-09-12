@@ -3,12 +3,12 @@ title: 일반적인 오류 문제 해결
 description: 정책 위반 및 청사진 매개 변수 함수와 같은 청사진을 만들고 할당 하 고 제거 하는 문제를 해결 하는 방법에 대해 알아봅니다.
 ms.date: 06/29/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d1dcd88fd6f7a9ab5035a5977ab5d50f3e6caf54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557512"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651322"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Azure Blueprints를 사용하여 오류 문제 해결
 
@@ -22,9 +22,9 @@ ms.locfileid: "85557512"
 
 1. 왼쪽 페이지에서 **할당 된 청사진** 을 선택 하 고 검색 상자를 사용 하 여 청사진 할당을 필터링 하 여 실패 한 할당을 찾습니다. 실패한 모든 할당을 그룹화하여 표시하도록 **프로비전 상태** 열을 기준으로 할당 테이블을 정렬할 수도 있습니다.
 
-1. _실패_ 한 상태가 포함 된 청사진을 마우스 왼쪽 단추로 클릭 하거나 마우스 오른쪽 단추를 클릭 하 고 **할당 정보 보기**를 선택 합니다.
+1. _실패_ 한 상태가 포함 된 청사진을 선택 하거나 마우스 오른쪽 단추를 클릭 하 고 **할당 세부 정보 보기**를 선택 합니다.
 
-1. 청사진 할당 페이지의 위쪽에는 실패한 할당임을 알려주는 경고의 빨간색 배너가 있습니다. 자세한 내용을 보려면 배너의 아무 곳을 클릭합니다.
+1. 청사진 할당 페이지의 위쪽에는 실패한 할당임을 알려주는 경고의 빨간색 배너가 있습니다. 자세한 내용을 보려면 배너에서 아무 곳 이나 선택 합니다.
 
 일반적으로 청사진 전체가 아니라 아티팩트로 인해 오류가 발생합니다. 아티팩트가 Key Vault를 만들고 Azure Policy가 Key Vault 생성을 방해하면 전체 할당이 실패합니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "85557512"
 
 ### <a name="scenario-policy-violation"></a><a name="policy-violation"></a>시나리오: 정책 위반
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 정책 위반으로 인해 템플릿을 배포하지 못했습니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "85557512"
 
 ### <a name="scenario-blueprint-parameter-is-a-function"></a><a name="escape-function-parameter"></a>시나리오: 청사진 매개 변수는 함수입니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 함수인 청사진 매개 변수는 아티팩트로 전달되기 전에 처리됩니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "85557512"
 
 ### <a name="scenario-assignment-deletion-timeout"></a><a name="assign-delete-timeout"></a>시나리오: 할당 삭제 제한 시간
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 청사진 할당 삭제가 완료 되지 않았습니다.
 

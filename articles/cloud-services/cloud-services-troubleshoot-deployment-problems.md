@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: ccb08f853ae0f941dd5f9c0eca8c77f0f650905a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b86ff205981cfe7bb00ecb3ca58804fba3e80b0
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71122744"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460102"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>클라우드 서비스 배포 문제 해결
 Azure에 클라우드 서비스 애플리케이션 패키지를 배포할 때 Azure portal의 **속성** 창에서 배포에 대한 정보를 얻을 수 있습니다. 클라우드 서비스에 발생한 문제를 해결하기 위해 이 창에서 세부 정보를 사용할 수 있고 새로운 지원 요청을 할 때 Azure 지원 센터에 이 정보를 제공할 수 있습니다.
@@ -49,7 +49,7 @@ Azure에서 문제가 있는 노드를 검색하고 따라서 역할 인스턴�
 2. Azure 포털의 **속성** 창에서 정보를 검토하고 역할이 재활용된 것을 관찰하는 동안 서비스 복구가 발생했는지 여부를 확인합니다.
 
 또한 역할은 호스트 OS와 게스트 OS를 업데이트하는 동안 대략 한 달에 한 번 정도 재활용합니다.  
-자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+자세한 내용은 [OS 업그레이드로 인해 역할 인스턴스 다시 시작](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades)
 
 ## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>문제: VIP 교환을 수행하고 오류를 받을 수 없어요
 배포 업데이트가 진행 중인 경우 VIP 교환이 허용되지 않습니다. 배포 업데이트가 다음과 같은 경우 자동으로 발생할 수 있습니다.
@@ -67,14 +67,14 @@ Azure에서 문제가 있는 노드를 검색하고 따라서 역할 인스턴�
 ## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>문제: 역할 인스턴스가 시작됨, 초기화 중, 사용 중 및 중지됨 사이를 반복해요
 이 상태는 애플리케이션 코드, 패키지 또는 구성 파일에 문제가 있음을 나타낼 수 있습니다. 이 경우 몇 분마다 상태가 변경되는 것을 확인할 수 있어야 하고 Azure 포털은 **재활용 중**, **사용 중** 또는 **초기화 중**과 같이 표시됩니다. 역할 인스턴스의 실행을 방해하는 애플리케이션에 문제가 있다는 것을 의미합니다.
 
-이 문제를 해결하는 방법에 대한 자세한 내용은 [Azure PaaS Compute 진단 데이터](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) 및 [역할을 재활용하는 일반적인 문제](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md) 블로그 게시물을 참조하세요.
+이 문제를 해결하는 방법에 대한 자세한 내용은 [Azure PaaS Compute 진단 데이터](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data) 및 [역할을 재활용하는 일반적인 문제](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md) 블로그 게시물을 참조하세요.
 
 ## <a name="problem-my-application-stopped-working"></a>문제: 내 애플리케이션의 작동이 중지되었어요
 1. Azure 포털에서 역할 인스턴스를 클릭합니다.
 2. Azure 포털의 **속성** 창에서 다음 조건을 고려하여 문제를 해결합니다.
    * 역할 인스턴스가 최근에 중지된 경우(**중지 횟수** 값으로 확인 가능), 배포 업데이트 때문일 수 있습니다. 역할 인스턴스가 다시 스스로 작동하는지 확인하기 위해 기다립니다.
    * 역할 인스턴스가 **사용 중**인 경우 애플리케이션 코드가 [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) 이벤트를 처리하는지 확인합니다. 이 이벤트를 처리하는 일부 코드를 추가하거나 수정해야 합니다.
-   * [Azure PaaS Compute 진단 데이터](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) 블로그 게시물에서 진단 데이터 및 문제 해결 시나리오를 수행합니다.
+   * [Azure PaaS Compute 진단 데이터](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data) 블로그 게시물에서 진단 데이터 및 문제 해결 시나리오를 수행합니다.
 
 > [!WARNING]
 > 클라우드 서비스를 재활용하면 배포에 대한 속성을 다시 설정하며 이렇게 하면 원래 문제에 대한 정보가 효과적으로 지워집니다.
@@ -84,4 +84,4 @@ Azure에서 문제가 있는 노드를 검색하고 따라서 역할 인스턴�
 ## <a name="next-steps"></a>다음 단계
 클라우드 서비스에 대한 [문제해결 문서](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) 를 더 봅니다.
 
-Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)를 참조하세요.
+Azure PaaS 컴퓨터 진단 데이터를 사용하여 클라우드 서비스 역할 문제를 해결하는 방법을 알아보려면 [Kevin Williamson의 블로그 시리즈](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data)를 참조하세요.

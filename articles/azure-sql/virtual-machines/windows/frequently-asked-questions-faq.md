@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: f382e3cf0f5d2d60c2868c6698b1ea901fbac023
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a5f4ff3dade381cf1a68ac5e9e820be153acf5ee
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121445"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483748"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Azure Vm의 SQL Server에 대 한 질문과 대답
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -164,6 +164,9 @@ ms.locfileid: "88121445"
 
    예. SQL Server 설치 미디어는 **C** 드라이브의 폴더에 있습니다. 이 위치에서 **Setup.exe** 를 실행하여 새 SQL Server 인스턴스를 실행하거나 컴퓨터에 설치된 다른 SQL Server 기능을 변경합니다. 자동화된 백업, 자동화된 패치 및 Azure Key Vault 통합과 같은 일부 기능은 기본 인스턴스 또는 올바르게 구성된 명명된 인스턴스에 대해서만 작동합니다(질문 3 참조). Azure 하이브리드 혜택 또는 **종 량** 제 라이선스 모델을 [통해 소프트웨어 보증](licensing-model-azure-hybrid-benefit-ahb-change.md) 을 사용 하는 고객은 추가 라이선스 비용을 들이지 않고 가상 컴퓨터에 SQL Server 인스턴스를 여러 개 설치할 수 있습니다. 추가 SQL Server 인스턴스는 올바르게 구성 되지 않은 경우 시스템 리소스에 대 한 부담을 수 있습니다. 
 
+1. **VM의 최대 인스턴스 수는 얼마 인가요?**
+   2012 SQL Server SQL Server 2019는 독립 실행형 서버에서 [50 인스턴스](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP) 를 지원할 수 있습니다. Azure 온-프레미스의 경우와 관계 없이 동일한 제한입니다. 환경을 보다 잘 준비 하는 방법을 알아보려면 [모범 사례](performance-guidelines-best-practices.md#multiple-instances) 를 참조 하세요. 
+
 1. **SQL Server의 기본 인스턴스를 제거할 수 있나요?**
 
    예, 그러나 몇 가지 고려 사항이 있습니다. 첫째, SQL Server와 관련된 청구는 VM의 라이선스 모델에 따라 계속해서 발생할 수 있습니다. 둘째, 이전 응답에서 설명한 대로 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 따라 다른 기능이 있습니다. IaaS 확장을 제거하지 않고 기본 인스턴스를 제거하는 경우에도 확장은 기본 인스턴스를 계속 찾고 이벤트 로그 오류를 생성할 수 있습니다. 이러한 오류는 두 원본 즉, **Microsoft SQL Server 자격 증명 관리** 및 **Microsoft SQL Server IaaS 에이전트**에서 발생합니다. 오류 중 하나는 다음과 유사할 수 있습니다.
@@ -179,6 +182,9 @@ ms.locfileid: "88121445"
 1. **SQL Server VM에서 SQL Server를 완전히 제거할 수 있나요?**
 
    예, 그러나 SQL Server Azure VM에 대한 [가격 책정 지침](pricing-guidance.md)에 설명된 대로 SQL Server VM에 대한 비용 청구가 계속됩니다. SQL Server가 더 이상 필요하지 않는 경우 새 가상 컴퓨터를 배포하고 데이터와 애플리케이션을 새 가상 컴퓨터에 마이그레이션할 수 있습니다. 그런 다음 SQL Server 가상 머신을 제거할 수 있습니다.
+
+1. **Azure Portal을 사용하여 동일한 VM에서 여러 인스턴스를 관리할 수 있나요?**
+   아니요. 포털 관리는 SQL Server IaaS 에이전트 확장을 사용 하는 SQL VM 리소스 공급자에 의해 제공 됩니다. 이와 같이 리소스 공급자에 대 한 동일한 제한이 확장으로 적용 됩니다. 포털은 하나의 기본 인스턴스 또는 명명 된 인스턴스 하나를 올바르게 구성 하기만 하면 관리할 수 있습니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md) 을 참조 하세요. 
    
 ## <a name="updating-and-patching"></a>업데이트 및 패치
 

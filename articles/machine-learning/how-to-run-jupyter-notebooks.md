@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 861fcabbfca07cb342fda42ea2425fa290a1598e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: a59905c1d410ae0ffd4520f3b61fd37e649012e7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386455"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650913"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter Notebooks를 실행하는 방법
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,7 +48,7 @@ Azure Machine Learning 작업 영역에서 새 Jupyter Notebook을 만들고 작
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="새 파일을 만듭니다.":::
 
 1. 파일 이름을 지정합니다. 
-1. Jupyter Notebook 파일의 경우 파일 형식으로 **Python Notebook**을 선택합니다.
+1. Jupyter Notebook 파일의 경우 파일 형식으로 **노트북** 을 선택 합니다.
 1. 파일 디렉터리를 선택합니다.
 1. **만들기**를 선택합니다.
 
@@ -77,12 +77,12 @@ Notebook 페이지의 맨 위에 있는 도구를 사용하여 Notebook을 포�
 1. [Azure Machine Learning 스튜디오](https://ml.azure.com)에서 작업 영역 열기
 1. 왼쪽에서 **Notebook**을 선택합니다.
 1. 왼쪽의 **사용자 파일** 섹션에 있는 모든 Notebook을 선택합니다.  여기에 Notebook이 없으면 먼저 [Notebook을 만듭니다.](#create)
-1. **컴퓨팅** 대상을 선택하거나 새 대상을 만들고 실행될 때까지 기다립니다.
+1. 계산 대상을 선택 하거나 새 **계산** 대상을 만들고 실행 될 때까지 기다립니다.
 1. **터미널 열기** 아이콘을 선택합니다.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="터미널을 엽니다.":::
 
-1. 아이콘이 표시되지 않는 경우 컴퓨팅 대상의 오른쪽에 있는 **...** 을 선택한 다음 **터미널 열기**를 선택합니다.
+1. 아이콘이 표시 되지 않으면 계산 대상의 오른쪽에 **있는 ...** 를 선택한 다음, **터미널 열기**를 선택 합니다.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="...에서 터미널 열기":::
 
@@ -109,6 +109,22 @@ Notebook 도구 모음에서 Jupyter 또는 JupyterLab을 시작할 수도 있�
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) 는 멤버 목록, 매개 변수 정보, 요약 정보 및 단어 자동 완성 등 다양 한 기능을 포함 하는 코드 완성 지원입니다. 이러한 기능을 사용하면 사용 중인 코드에 대한 자세한 정보를 보고, 입력하는 매개 변수를 계속 추적하고, 단 몇 번의 키 입력만으로 속성과 메서드에 대한 호출을 추가할 수 있습니다.  
 
 코드를 입력할 때 Ctrl + Space를 사용 하 여 IntelliSense를 트리거합니다.
+
+### <a name="clean-your-notebook-preview"></a>노트북 청소 (미리 보기)
+
+> [!IMPORTANT]
+> 수집 기능은 현재 공개 미리 보기로 제공 됩니다.
+> 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+노트북을 만드는 과정에서 일반적으로 데이터 탐색 또는 디버깅에 사용한 셀이 표시 됩니다. *수집* 기능은 이러한 불필요 한 셀 없이 깨끗 한 노트북을 생성 하는 데 도움이 됩니다.
+
+1. 모든 노트북 셀을 실행 합니다.
+1. 새 전자 필기장을 실행 하려는 코드가 포함 된 셀을 선택 합니다. 예를 들어 실험을 제출 하는 코드 또는 모델을 등록 하는 코드를 예로 들 수도 있습니다.
+1. 셀 도구 모음에 표시 되는 **수집** 아이콘을 선택 합니다.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="스크린샷: 수집 아이콘을 선택 합니다.":::
+1. 새 "수집 된" 노트북의 이름을 입력 합니다.  
+
+새 노트북에는 코드 셀만 포함 되어 있으며, 모든 셀은 수집 하도록 선택한 셀과 동일한 결과를 생성 하는 데 필요 합니다.
 
 ### <a name="save-and-checkpoint-a-notebook"></a>노트북 저장 및 검사점
 
@@ -157,7 +173,7 @@ Notebook에서 실험을 실행하려면 먼저 실행 중인 [컴퓨팅 인스�
 
 ### <a name="view-logs-and-output"></a>로그 및 출력 보기
 
-[Notebook 위젯](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)을 사용하여 실행 및 로그의 진행률을 볼 수 있습니다. 위젯은 비동기적이며 학습을 마칠 때까지 업데이트를 제공합니다. Azure Machine Learning 위젯은 Jupyter 및 JupyterLab에서도 지원됩니다.
+[Notebook 위젯](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)을 사용하여 실행 및 로그의 진행률을 볼 수 있습니다. 위젯은 비동기적이며 학습을 마칠 때까지 업데이트를 제공합니다. Azure Machine Learning 위젯은 Jupyter 및 JupyterLab에서도 지원됩니다.
 
 ## <a name="change-the-notebook-environment"></a>Notebook 환경 변경
 

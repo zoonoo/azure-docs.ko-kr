@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 19d6a646df22e2f8c9bdfc03f15453a520e527a4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962828"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596042"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure App Service 및 Azure Functions의 인증 및 권한 부여
 
@@ -147,13 +147,13 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 > [!CAUTION]
 > 이러한 방식으로 액세스를 제한 하는 것은 앱에 대 한 모든 호출에 적용 됩니다 .이는 여러 단일 페이지 응용 프로그램과 마찬가지로 공개적으로 사용 가능한 홈 페이지를 사용 하는 앱에는 바람직하지 않을 수 있습니다.
 
-## <a name="more-resources"></a>기타 참고 자료
+## <a name="more-resources"></a>추가 리소스
 
-[자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여(Windows)](tutorial-auth-aad.md)  
-[자습서: Azure App Service에서 Linux용 엔드투엔드 사용자 인증 및 권한 부여](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
-App Service에서 인증 [및 권한 부여 사용자 지정](app-service-authentication-how-to.md) 
- [Azure AppService EasyAuth (타사)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
- 의 .net Core 통합 [.Net Core (타사)를 사용 하 여 Azure App Service 인증 가져오기](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+* [자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여(Windows)](tutorial-auth-aad.md)  
+* [자습서: Azure App Service에서 Linux용 엔드투엔드 사용자 인증 및 권한 부여](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
+* [App Service의 인증 및 권한 부여 사용자 지정](app-service-authentication-how-to.md)
+* [Azure AppService EasyAuth (타사)의 .NET Core 통합](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+* [.NET Core (타사)를 사용 하 여 Azure App Service 인증 가져오기](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 공급자별 방법 가이드:
 

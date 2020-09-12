@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: a65e5e2b507f45fe51a8f6406edae4d96affe227
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a28ebd047e4d5e610ea0c895063eb87ce051d45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056521"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460323"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -20,7 +20,7 @@ AKS(Azure Kubernetes Service) 클러스터를 만들거나 관리할 때 경우�
 [Kubernetes 클러스터 문제 해결에 대한 공식 가이드](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/)를 검색합니다.
 pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지니어가 게시한 [문제 해결 가이드](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md)도 있습니다.
 
-## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>만들기 또는 업그레이드 동안 "할당량 초과" 오류가 발생합니다.   어떻게 해야 합니까? 
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>만들기 또는 업그레이드 동안 "할당량 초과" 오류가 발생합니다. 어떻게 해야 하나요? 
 
  [더 많은 코어를 요청합니다](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
@@ -29,7 +29,7 @@ pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지�
 노드당 최대 Pod 설정은 Azure Portal에서 AKS 클러스터를 배포하는 경우 기본적으로 30입니다.
 노드당 최대 Pod 설정은 Azure CLI에서 AKS 클러스터를 배포하는 경우 기본적으로 110입니다. Azure CLI의 최신 버전을 사용하도록 합니다. 이 설정은 `az aks create` 명령에서 `–-max-pods` 플래그를 사용하여 변경할 수 있습니다.
 
-## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>고급 네트워킹을 사용하여 AKS 클러스터를 배포하는 동안 insufficientSubnetSize 오류가 발생합니다.   어떻게 해야 합니까?
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>고급 네트워킹을 사용하여 AKS 클러스터를 배포하는 동안 insufficientSubnetSize 오류가 발생합니다. 어떻게 해야 하나요?
 
 이 오류는 리소스를 성공적으로 할당 하기 위해 클러스터에 사용 중인 서브넷의 CIDR 내에 더 이상 사용 가능한 Ip가 없음을 나타냅니다. Kubenet 클러스터의 경우 클러스터의 각 노드에 대 한 충분 한 IP 공간이 요구 사항에 해당 합니다. Azure CNI 클러스터의 경우 클러스터의 각 노드 및 pod에 대해 충분 한 IP 공간이 필요 합니다.
 [Pod에 ip를 할당 하려면 Azure CNI 디자인](configure-azure-cni.md#plan-ip-addressing-for-your-cluster)에 대해 자세히 알아보세요.
@@ -60,7 +60,7 @@ pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지�
    1. 이전 서브넷에 상주 하는 이전 nodepool에서 pod을 드레이닝 합니다.
    1. 이전 서브넷 및 이전 nodepool을 삭제 합니다.
 
-## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>내 Pod가 CrashLoopBackOff 모드에서 중단됩니다.   어떻게 해야 합니까?
+## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>내 Pod가 CrashLoopBackOff 모드에서 중단됩니다. 어떻게 해야 하나요?
 
 Pod가 해당 모드에서 중단되는 이유는 다양할 수 있습니다. 다음을 확인할 수 있습니다.
 
@@ -90,13 +90,17 @@ AKS에는 Slo (서비스 수준 목표) 및 Sla (서비스 수준 계약)를 보
 
 현재 기존 클러스터에서 RBAC(역할 기반 액세스 제어)를 사용하도록 설정할 수 없으므로 새 클러스터를 만들 때 이를 설정해야 합니다. `2020-03-01` 이후의 CLI, Portal 또는 API 버전을 사용하는 경우 기본적으로 RBAC를 사용하도록 설정됩니다.
 
-## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>RBAC를 사용하도록 설정된 클러스터를 만들었으며 이제 Kubernetes 대시보드에 많은 경고가 표시됩니다. 이전에는 대시보드가 경고없이 잘 작동되었습니다.   어떻게 해야 합니까?
+## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>RBAC를 사용하도록 설정된 클러스터를 만들었으며 이제 Kubernetes 대시보드에 많은 경고가 표시됩니다. 이전에는 대시보드가 경고없이 잘 작동되었습니다. 어떻게 해야 하나요?
 
 경고가 발생하는 이유는 클러스터에서 RBAC를 사용하도록 설정되어 있고 대시보드에 대한 액세스가 기본적으로 제한되어 있기 때문입니다. 일반적으로 클러스터의 모든 사용자에게 기본적으로 대시보드를 노출하면 보안 위협이 초래될 수 있으므로 이렇게 하는 것이 적절합니다. 그래도 대시보드를 사용하도록 설정하려면 [이 블로그 게시물](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/)의 단계를 따르세요.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>kubectl logs를 사용하여 로그를 가져올 수 없고 API 서버에 연결할 수 없습니다. "서버 오류: 백 엔드 전화 접속 오류가 발생했습니다.: dial tcp…"라는 오류가 발생합니다. 어떻게 해야 하나요?
 
 API 서버에 연결하기 위해 22, 9000 및 1194 포트가 열려 있는지 확인합니다. `kubectl get pods --namespace kube-system` 명령을 사용하여 `tunnelfront` 또는 `aks-link` Pod가 *kube-system* 네임스페이스에서 실행되고 있는지 확인합니다. 실행되지 않으면 pod를 강제로 삭제합니다. 그러면 다시 시작됩니다.
+
+## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>`"tls: client offered only unsupported versions"`AKS API에 연결할 때 내 클라이언트에서 가져옵니다.   어떻게 해야 합니까?
+
+AKS에서 지원 되는 최소 TLS 버전은 TLS 1.2입니다.
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>업그레이드하거나 크기를 조정하려고 하는 중에 `"Changing property 'imageReference' is not allowed"` 오류가 발생했습니다. 이 문제를 어떻게 해결하나요?
 
@@ -176,9 +180,9 @@ AKS 클러스터를 만드는 경우 사용자를 대신하여 리소스를 만�
 * 자동화 스크립트를 사용하는 경우 서비스 주체 만들기와 AKS 클러스터 만들기 사이의 시간 지연을 추가합니다.
 * Azure Portal을 사용하는 경우 만드는 중에 클러스터 설정으로 돌아가서 몇 분 후에 유효성 검사 페이지를 다시 시도합니다.
 
+## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>`"AADSTS7000215: Invalid client secret is provided."`AKS API를 사용 하는 경우   어떻게 해야 합니까?
 
-
-
+이는 일반적으로 서비스 주체 자격 증명이 만료 되었기 때문에 발생 합니다. [AKS 클러스터에 대 한 자격 증명을 업데이트 합니다.](update-credentials.md)
 
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>송신 트래픽을 제한한 후에 오류가 발생했습니다.
 
@@ -201,7 +205,7 @@ AKS 클러스터의 송신 트래픽을 제한하는 경우 AKS에 대한 [필�
 
 Kubernetes 버전 1.10에서 Azure 디스크를 다시 탑재하면 MountVolume.WaitForAttach가 실패할 수 있습니다.
 
-Linux의 경우 잘못된 DevicePath 형식 오류가 표시될 수 있습니다. 예를 들면 다음과 같습니다.
+Linux의 경우 잘못된 DevicePath 형식 오류가 표시될 수 있습니다. 다음은 그 예입니다.
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
@@ -255,7 +259,7 @@ spec:
   >[!NOTE]
   > 이는 gid 및 uid를 기본적으로 root 또는 0으로 탑재하기 때문입니다. gid 또는 uid가 root가 아닌 값(예: 1000)으로 설정된 경우 Kubernetes는 `chown`을 사용하여 해당 디스크 아래의 모든 디렉터리와 파일을 변경합니다. 이 작업을 수행하는 데 시간이 오래 걸릴 수 있으며 디스크를 매우 느리게 탑재할 수 있습니다.
 
-* initContainers에서 `chown`을 사용하여 gid 및 uid를 설정합니다. 예를 들면 다음과 같습니다.
+* initContainers에서 `chown`을 사용하여 gid 및 uid를 설정합니다. 다음은 그 예입니다.
 
 ```yaml
 initContainers:
@@ -278,7 +282,7 @@ Azure 디스크를 분리하지 못하면 지수 백오프를 사용하여 디�
 | 1.12 | 1.12.9 이상 |
 | 1.13 | 1.13.6 이상 |
 | 1.14 | 1.14.2 이상 |
-| 1.15 이상 | N/A |
+| 1.15 이상 | 해당 없음 |
 
 이 문제에 대한 수정이 없는 Kubernetes 버전을 사용하고 있고 노드에 사용되지 않는 디스크 목록이 있는 경우 존재하지 않는 모든 디스크를 VM에서 대량 작업으로 분리하여 완화할 수 있습니다. **존재하지 않는 디스크는 개별적으로 분리하지 못할 수 있습니다.**
 
@@ -297,7 +301,7 @@ Azure 디스크를 분리하지 못하면 지수 백오프를 사용하여 디�
 | 1.12 | 1.12.10 이상 |
 | 1.13 | 1.13.8 이상 |
 | 1.14 | 1.14.4 이상 |
-| 1.15 이상 | N/A |
+| 1.15 이상 | 해당 없음 |
 
 이 문제에 대한 수정이 없는 Kubernetes 버전을 사용하고 있고 노드가 실패 상태에 있는 경우 다음 중 하나를 사용하여 VM 상태를 수동으로 업데이트하여 완화할 수 있습니다.
 
@@ -414,7 +418,7 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 
 base64로 인코딩된 스토리지 계정 키를 사용하여 Azure 파일 비밀에서 `azurestorageaccountkey` 필드를 수동으로 업데이트하여 완화할 수 있습니다.
 
-스토리지 계정 키를 base64로 인코딩하려면 `base64`를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
+스토리지 계정 키를 base64로 인코딩하려면 `base64`를 사용할 수 있습니다. 다음은 그 예입니다.
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64

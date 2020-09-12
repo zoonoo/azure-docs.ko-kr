@@ -3,12 +3,12 @@ title: 사용자 지정 Linux 컨테이너 구성
 description: Azure App Service에서 사용자 지정 Linux 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 2f26f1b041b2d369b68aeb11755c8e8053862b16
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 9a27abe5457cf8adf2963db545c629134ae53709
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083020"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566979"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Azure App Service에 대 한 사용자 지정 Linux 컨테이너 구성
 
@@ -18,7 +18,7 @@ ms.locfileid: "88083020"
 
 ## <a name="configure-port-number"></a>포트 번호 구성
 
-기본적으로 App Service는 사용자 지정 컨테이너가 포트 80에서 수신 대기 하는 것으로 가정 합니다. 사용자 지정 이미지의 웹 서버는 80 이외의 포트를 사용할 수 있습니다. 앱 설정을 사용 하 여 사용자 지정 컨테이너에서 사용 하는 포트에 대 한 정보를 Azure에 알려 줍니다 `WEBSITES_PORT` . [이 자습서의 Python 샘플](https://github.com/Azure-Samples/docker-django-webapp-linux)에 대한 GitHub 페이지에서 `WEBSITES_PORT`를 _8000_으로 설정해야 함을 보여 줍니다. Cloud Shell에서 명령을 실행 하 여 설정할 수 있습니다 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) . 예를 들면 다음과 같습니다.
+기본적으로 App Service는 사용자 지정 컨테이너가 포트 80에서 수신 대기 하는 것으로 가정 합니다. 사용자 지정 이미지의 웹 서버는 80 이외의 포트를 사용할 수 있습니다. 앱 설정을 사용 하 여 사용자 지정 컨테이너에서 사용 하는 포트에 대 한 정보를 Azure에 알려 줍니다 `WEBSITES_PORT` . [이 자습서의 Python 샘플](https://github.com/Azure-Samples/docker-django-webapp-linux)에 대한 GitHub 페이지에서 `WEBSITES_PORT`를 _8000_으로 설정해야 함을 보여 줍니다. Cloud Shell에서 명령을 실행 하 여 설정할 수 있습니다 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) . 다음은 그 예입니다. 
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_PORT=8000
@@ -26,7 +26,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="configure-environment-variables"></a>환경 변수 구성
 
-사용자 지정 컨테이너는 외부에서 제공 해야 하는 환경 변수를 사용할 수 있습니다. Cloud Shell 명령을 실행 하 여에서 전달할 수 있습니다 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) . 예를 들면 다음과 같습니다.
+사용자 지정 컨테이너는 외부에서 제공 해야 하는 환경 변수를 사용할 수 있습니다. Cloud Shell 명령을 실행 하 여에서 전달할 수 있습니다 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) . 다음은 그 예입니다. 
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WORDPRESS_DB_HOST="myownserver.mysql.database.azure.com"
@@ -40,7 +40,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 영구 저장소를 사용 하지 않도록 설정 하면 디렉터리에 대 한 쓰기가 `/home` 앱을 다시 시작 하거나 여러 인스턴스에 걸쳐 지속 되지 않습니다. 유일한 예외는 `/home/LogFiles` Docker 및 컨테이너 로그를 저장 하는 데 사용 되는 디렉터리입니다. 영구 저장소를 사용 하도록 설정 하면 디렉터리에 대 한 모든 쓰기 `/home` 는 유지 되며 확장 된 앱의 모든 인스턴스에서 액세스할 수 있습니다.
 
-기본적으로 영구 저장소는 *사용 하도록* 설정 되어 있으며 설정은 응용 프로그램 설정에 표시 되지 않습니다. 이 기능을 사용 하지 않도록 설정 하려면 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` Cloud Shell에서 명령을 실행 하 여 앱 설정을 설정 합니다 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) . 예를 들면 다음과 같습니다.
+기본적으로 영구 저장소는 *사용 하도록* 설정 되어 있으며 설정은 응용 프로그램 설정에 표시 되지 않습니다. 이 기능을 사용 하지 않도록 설정 하려면 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` Cloud Shell에서 명령을 실행 하 여 앱 설정을 설정 합니다 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) . 다음은 그 예입니다. 
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=false
@@ -130,7 +130,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 *Docker-compose.ci.build.yml* 파일에서 `volumes` 옵션을에 매핑합니다 `${WEBAPP_STORAGE_HOME}` . 
 
-`WEBAPP_STORAGE_HOME`은 앱의 영구 스토리지에 매핑되는 App Service의 환경 변수입니다. 예를 들면 다음과 같습니다.
+`WEBAPP_STORAGE_HOME`은 앱의 영구 스토리지에 매핑되는 App Service의 환경 변수입니다. 다음은 그 예입니다. 
 
 ```yaml
 wordpress:
@@ -147,6 +147,7 @@ wordpress:
 
 - 인증/권한 부여
 - 관리 ID
+- CORS
 
 ### <a name="docker-compose-options"></a>Docker Compose 옵션
 

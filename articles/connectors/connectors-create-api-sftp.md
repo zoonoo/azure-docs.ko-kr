@@ -1,21 +1,22 @@
 ---
-title: SFTP 계정에 연결
-description: Azure Logic Apps를 사용하여 SSH를 통해 SFTP 서버에 대한 파일을 모니터링, 만들기, 관리, 전송 및 수신하는 작업 및 프로세스 자동화
+title: SFTP 계정에 연결 (사용 되지 않음)
+description: Azure Logic Apps를 사용 하 여 SFTP 서버에 대 한 파일을 모니터링, 생성, 관리, 전송 및 수신 하는 작업 및 프로세스를 자동화 합니다.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: divswa, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ROBOTS: NOINDEX
+ms.openlocfilehash: 817c17b0e05180f5c7a616320a25c2bc3c21c5f8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74789276"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651408"
 ---
-# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
+# <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Azure Logic Apps에서 SFTP 파일 모니터링, 만들기 및 관리
 
 > [!IMPORTANT]
 > SFTP 커넥터는 사용 되지 않으므로 [sftp-SSH 커넥터](../connectors/connectors-sftp-ssh.md) 를 사용 하세요. 논리 앱 디자이너에서 더 이상 SFTP 트리거와 작업을 선택할 수 없습니다.
@@ -33,7 +34,7 @@ SFTP 서버에서 이벤트를 모니터링하는 트리거를 사용하고 다�
 
 SFTP 커넥터는 *50 MB 미만의* 파일만 처리 하 고 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원 하지 않습니다. 큰 파일의 경우 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용 합니다. Sftp 커넥터와 SFTP-ssh 커넥터 간의 차이점을 보려면 SFTP-ssh 문서에서 [Sftp 비교-ssh와 sftp](../connectors/connectors-sftp-ssh.md#comparison) 를 검토 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -113,10 +114,6 @@ SFTP 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 
 ### <a name="sftp-action-get-content"></a>SFTP 작업: 콘텐츠 가져오기
 
 이 작업은 SFTP 서버의 파일에서 콘텐츠를 가져옵니다. 따라서 예를 들어 이전 예제의 트리거와 파일의 콘텐츠가 충족해야 하는 조건을 추가할 수 있습니다. 조건이 true인 경우 콘텐츠를 가져오는 작업을 실행할 수 있습니다.
-
-## <a name="connector-reference"></a>커넥터 참조
-
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/sftpconnector/)를 검토하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

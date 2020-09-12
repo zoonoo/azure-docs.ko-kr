@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 09/09/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 66855260bd44ef83972fa251d076d0204cba32da
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795231"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646593"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft id 플랫폼 ID 토큰
 
@@ -54,9 +54,9 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |클레임 | 형식 | Description |
 |-----|--------|-------------|
 |`typ` | 문자열 - 항상 "JWT" | 토큰이 JWT 토큰 임을 나타냅니다.|
-|`alg` | 문자열 | 토큰을 서명하는 데 사용된 알고리즘을 나타냅니다. 예: "RS256" |
-|`kid` | 문자열 | 이 토큰에 서명하는 데 사용되는 공개 키의 지문입니다. v1.0 및 v2.0 액세스 `id_tokens`로 내보냅니다. |
-|`x5t` | 문자열 | `kid`와 동일합니다(사용 및 값). 그러나 호환성을 위해 v1.0 `id_tokens`로만 내보내는 레거시 클레임입니다. |
+|`alg` | String | 토큰을 서명하는 데 사용된 알고리즘을 나타냅니다. 예: "RS256" |
+|`kid` | String | 이 토큰에 서명하는 데 사용되는 공개 키의 지문입니다. v1.0 및 v2.0 액세스 `id_tokens`로 내보냅니다. |
+|`x5t` | String | `kid`와 동일합니다(사용 및 값). 그러나 호환성을 위해 v1.0 `id_tokens`로만 내보내는 레거시 클레임입니다. |
 
 ### <a name="payload-claims"></a>페이로드 클레임
 
@@ -70,21 +70,23 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 |`idp`|문자열, 대개 STS URI입니다. | 토큰의 주체를 인증한 ID 공급자를 기록합니다. 이 값은 사용자 계정이 발행자(예: 게스트)와 동일한 테넌트에 속하지 않는 경우 발행자 클레임의 값과 동일합니다. 클레임이 없는 경우 `iss` 값을 대신 사용할 수 있음을 의미합니다.  조직 컨텍스트(예: Azure AD 테넌트에 초대된 개인 계정)에서 사용되는 개인 계정의 경우, `idp` 클레임은 ‘live.com’ 또는 Microsoft 계정 테넌트 `9188040d-6c67-4c5b-b112-36a304b66dad`가 포함된 STS URI일 수 있습니다. |
 |`nbf` |  int, UNIX 타임스탬프 | "nbf"(not before) 클레임은 JWT가 그 이전에는 처리를 허용하지 않아야 하는 시간을 식별합니다.|
 |`exp` |  int, UNIX 타임스탬프 | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다.  예를 들어 인증이 필요 하거나 토큰 해지가 검색 된 경우와 같이 리소스는이 시간 전에 토큰을 거부할 수 있습니다. |
-| `c_hash`| 문자열 |코드 해시는 OAuth 2.0 권한 부여 코드와 함께 ID 토큰이 발급된 경우에만 ID 토큰에 포함됩니다. 이 코드 해시는 인증 코드의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법에 대한 자세한 내용은 [OpenID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html)을 참조하세요. |
-|`at_hash`| 문자열 |액세스 토큰 해시는 `/authorize` OAuth 2.0 액세스 토큰을 사용 하 여 끝점에서 id 토큰을 발급 하는 경우에만 id 토큰에 포함 됩니다. 액세스 토큰의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법에 대한 자세한 내용은 [OpenID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken)을 참조하세요. 이는 끝점의 ID 토큰에서 반환 되지 않습니다 `/token` . |
+| `c_hash`| String |코드 해시는 OAuth 2.0 권한 부여 코드와 함께 ID 토큰이 발급된 경우에만 ID 토큰에 포함됩니다. 이 코드 해시는 인증 코드의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법에 대한 자세한 내용은 [OpenID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html)을 참조하세요. |
+|`at_hash`| String |액세스 토큰 해시는 `/authorize` OAuth 2.0 액세스 토큰을 사용 하 여 끝점에서 id 토큰을 발급 하는 경우에만 id 토큰에 포함 됩니다. 액세스 토큰의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행하는 방법에 대한 자세한 내용은 [OpenID Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken)을 참조하세요. 이는 끝점의 ID 토큰에서 반환 되지 않습니다 `/token` . |
 |`aio` | 불투명 문자열 | Azure AD에서 토큰을 다시 사용하기 위해 데이터를 기록하는 데 사용하는 내부 클레임입니다. 무시됩니다.|
 |`preferred_username` | String | 사용자를 나타내는 기본 사용자 이름입니다. 메일 주소, 전화 번호 또는 지정된 형식이 없는 일반 사용자 이름일 수 있습니다. 해당 값은 변경 가능하며 시간이 지남에 따라 변경될 수 있습니다. 해당 값은 변경 가능하므로 권한 부여 결정을 내리는 데 사용되지 않아야 합니다. `profile`이 클레임을 받으려면 범위가 필요 합니다.|
-|`email` | 문자열 | `email` 클레임은 이메일 주소가 있는 게스트 계정에 대해 기본적으로 제공됩니다.  사용자 앱은 `email` [선택적 클레임](active-directory-optional-claims.md)을 사용하여 관리되는 사용자(리소스와 동일한 테넌트의 사용자)에 대한 이메일 클레임을 요청할 수 있습니다.  v2.0 엔드포인트에서 사용자 앱은 `email` OpenID Connect 범위를 요청할 수도 있지만, 클레임을 가져오기 위해 선택적 클레임 및 범위를 모두 요청할 필요는 없습니다.  이메일 클레임은 사용자의 프로필 정보에서 주소 지정이 가능한 메일만 지원합니다. |
-|`name` | 문자열 | `name` 클레임은 토큰의 주체를 식별하는, 사람이 읽을 수 있는 값을 제공합니다. 값은 고유 하지 않을 수 있으며, 변경 가능 하 고, 표시 용도로만 사용 하도록 설계 되었습니다. `profile`이 클레임을 받으려면 범위가 필요 합니다. |
-|`nonce`| 문자열 | Nonce는 원본에 포함된 매개 변수와 일치하며 IDP에 대한 요청을 인증합니다. 일치하지 않는 경우 애플리케이션이 토큰을 거부해야 합니다. |
+|`email` | String | `email` 클레임은 이메일 주소가 있는 게스트 계정에 대해 기본적으로 제공됩니다.  사용자 앱은 `email` [선택적 클레임](active-directory-optional-claims.md)을 사용하여 관리되는 사용자(리소스와 동일한 테넌트의 사용자)에 대한 이메일 클레임을 요청할 수 있습니다.  v2.0 엔드포인트에서 사용자 앱은 `email` OpenID Connect 범위를 요청할 수도 있지만, 클레임을 가져오기 위해 선택적 클레임 및 범위를 모두 요청할 필요는 없습니다.  이메일 클레임은 사용자의 프로필 정보에서 주소 지정이 가능한 메일만 지원합니다. |
+|`name` | String | `name` 클레임은 토큰의 주체를 식별하는, 사람이 읽을 수 있는 값을 제공합니다. 값은 고유 하지 않을 수 있으며, 변경 가능 하 고, 표시 용도로만 사용 하도록 설계 되었습니다. `profile`이 클레임을 받으려면 범위가 필요 합니다. |
+|`nonce`| String | Nonce는 원본에 포함된 매개 변수와 일치하며 IDP에 대한 요청을 인증합니다. 일치하지 않는 경우 애플리케이션이 토큰을 거부해야 합니다. |
 |`oid` | 문자열, GUID | 이 경우에 Microsoft ID 시스템에 있는 개체의 변경할 수 없는 식별자는 사용자 계정입니다. 이 ID는 애플리케이션에서 사용자를 고유하게 식별합니다. 동일한 사용자가 로그인한 두 개의 다른 애플리케이션은 `oid` 클레임에서 동일한 값을 받습니다. Microsoft Graph는 이 ID를 지정된 사용자 계정에 대한 `id` 속성으로 반환합니다. 에서는 `oid` 여러 앱에서 사용자의 상관 관계를 지정할 수 있으므로 `profile` 이 클레임을 받으려면 범위가 필요 합니다. 단일 사용자가 여러 테 넌 트에 있는 경우 사용자는 각 테 넌 트에 다른 개체 ID를 포함 합니다. 사용자가 동일한 자격 증명을 사용 하는 각 계정에 로그인 하더라도 다른 계정으로 간주 됩니다. `oid`클레임은 GUID 이며 다시 사용할 수 없습니다. |
 |`roles`| 문자열 배열 | 로그인 하는 사용자에 게 할당 된 역할 집합입니다. |
 |`rh` | 불투명 문자열 |Azure에서 토큰의 유효성을 다시 검사하기 위해 사용하는 내부 클레임입니다. 무시됩니다. |
-|`sub` | 문자열 | 앱 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 주체는 쌍으로 된 식별자이며 특정 애플리케이션 ID에 고유합니다. 단일 사용자가 두 개의 다른 클라이언트 Id를 사용 하 여 두 개의 다른 앱에 로그인 하는 경우 해당 앱은 주체 클레임에 대해 두 개의 다른 값을 받게 됩니다. 이는 아키텍처 및 개인 정보 요구 사항에 따라 필요 하거나 필요 하지 않을 수 있습니다. |
+|`sub` | String | 앱 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 주체는 쌍으로 된 식별자이며 특정 애플리케이션 ID에 고유합니다. 단일 사용자가 두 개의 다른 클라이언트 Id를 사용 하 여 두 개의 다른 앱에 로그인 하는 경우 해당 앱은 주체 클레임에 대해 두 개의 다른 값을 받게 됩니다. 이는 아키텍처 및 개인 정보 요구 사항에 따라 필요 하거나 필요 하지 않을 수 있습니다. |
 |`tid` | 문자열, GUID | 사용자가 속해 있는 Azure AD 테넌트를 나타내는 GUID입니다. 회사 및 학교 계정의 경우 GUID는 사용자가 속해 있는 조직의 변경이 불가능한 테넌트 ID입니다. 개인 계정의 경우 이 값은 `9188040d-6c67-4c5b-b112-36a304b66dad`입니다. `profile`이 클레임을 받으려면 범위가 필요 합니다. |
-|`unique_name` | 문자열 | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. 이 값은 지정 된 시점에 고유 하지만 메일 및 기타 식별자를 다시 사용할 수 있으므로이 값은 다른 계정에 다시 나타날 수 있으므로 표시 목적 으로만 사용 해야 합니다. v1.0 `id_tokens`로만 발급됩니다. |
+|`unique_name` | String | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. 이 값은 지정 된 시점에 고유 하지만 메일 및 기타 식별자를 다시 사용할 수 있으므로이 값은 다른 계정에 다시 나타날 수 있으므로 표시 목적 으로만 사용 해야 합니다. v1.0 `id_tokens`로만 발급됩니다. |
 |`uti` | 불투명 문자열 | Azure에서 토큰의 유효성을 다시 검사하기 위해 사용하는 내부 클레임입니다. 무시됩니다. |
 |`ver` | 문자열, 1.0 또는 2.0 | id_token의 버전을 나타냅니다. |
+|`hasgroups`|부울|사용자가 하나 이상의 그룹에 있음을 나타내는 경우 항상 true입니다. 전체 그룹 클레임이 URL 길이 제한 (현재 6 개 이상 그룹)을 초과 하 여 URI 조각을 확장 하는 경우 암시적 권한 부여 흐름에서 JWTs에 대 한 그룹 클레임 대신 사용 됩니다. 클라이언트가 Microsoft Graph API를 사용하여 사용자 그룹(`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`)을 결정해야 함을 표시합니다.|
+|`groups:src1`|JSON 개체 | 길이는 제한되지 않으나(위의 `hasgroups` 참조) 토큰에게는 너무 큰 토큰 요청의 경우 사용자의 전체 그룹 목록에 대한 링크가 포함됩니다. 분산된 클레임으로서의 JWT인 경우 SAML이 `groups` 클레임 대신에 새 클레임이 됩니다. <br><br>**JWT 값 예제**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> 자세한 내용은 [Groups 초과분 클레임](#groups-overage-claim)을 참조 하세요.|
 
 > [!NOTE]
 > V1.0 및 v2.0 id_token 위의 예제에서 볼 수 있는 것 처럼 전달 되는 정보의 양에 차이가 있습니다. 이 버전은 요청 된 끝점을 기준으로 합니다. 기존 응용 프로그램에서 Azure AD 끝점을 사용 하는 경우 새 응용 프로그램은 v2.0 "Microsoft id 플랫폼" 끝점을 사용 해야 합니다.
@@ -102,6 +104,26 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01x
 > 사용자에 `idp` 대 한 정보를 테 넌 트 간에 상관 관계를 저장 하기 위해 클레임을 사용 하지 마세요.  `oid` `sub` 응용 프로그램이 테 넌 트 간에 사용자를 추적할 수 없도록 설계를 통해 테 넌 트 간에 사용자 변경에 대 한 및 클레임이 변경 되기 때문에 작동 하지 않습니다.  
 >
 > 사용자가 한 테 넌 트에 있고 다른 사용자에서 인증 하는 게스트 시나리오는 사용자가 서비스에 대 한 새 사용자 인 것 처럼 사용자를 처리 해야 합니다.  Contoso 테 넌 트의 문서와 권한은 Fabrikam 테 넌 트에서 적용 되지 않습니다. 이는 테 넌 트 간 실수로 인 한 데이터 누출을 방지 하는 데 중요 합니다.
+
+### <a name="groups-overage-claim"></a>그룹 초과분 클레임
+토큰 크기가 HTTP 헤더 크기 제한을 초과 하지 않도록 하기 위해 Azure AD는 클레임에 포함 된 개체 Id의 수를 제한 합니다 `groups` . 사용자가 초과분 제한(SAML 토큰의 경우 150, JWT 토큰의 경우 200)보다 많은 그룹의 멤버인 경우 Azure AD는 토큰의 그룹 클레임을 내보내지 않습니다. 대신 애플리케이션에 Microsoft Graph API를 쿼리하여 사용자의 그룹 멤버 자격을 검색하도록 가리키는 토큰의 초과분 클레임이 포함됩니다.
+
+```json
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
+       }
+     }
+  ...
+ }
+```
 
 ## <a name="validating-an-id_token"></a>id_token을 유효성 검사하는 중
 

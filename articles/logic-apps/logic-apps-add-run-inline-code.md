@@ -7,12 +7,12 @@ ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a1c3828a4b1899ff4b22c0a9520f676add21fe02
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a1fca14035dd4a9af00ecfb8d1d01dc27ab0b8d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420127"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658163"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Azure Logic Apps에서 인라인 코드를 사용 하 여 코드 조각 추가 및 실행
 
@@ -29,11 +29,11 @@ ms.locfileid: "87420127"
 
 이 작업은 코드 조각을 실행 하 고 논리 앱의 후속 작업에서 사용할 수 있는 **Result**라는 토큰으로 해당 코드 조각의 출력을 반환 합니다. 코드에 대 한 함수를 만들려는 다른 시나리오의 경우 논리 앱에서 [Azure 함수를 만들고 호출](../logic-apps/logic-apps-azure-functions.md) 해 보세요.
 
-이 문서에서는 Office 365 Outlook 계정에 새 전자 메일이 도착할 때 예제 논리 앱이 트리거됩니다. 코드 조각은 메일 본문에 표시 되는 모든 전자 메일 주소를 추출 하 고 반환 합니다.
+이 문서에서는 회사 또는 학교 계정에 새 전자 메일이 도착할 때 예제 논리 앱이 트리거됩니다. 코드 조각은 메일 본문에 표시 되는 모든 전자 메일 주소를 추출 하 고 반환 합니다.
 
 ![예제 개요](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -129,7 +129,7 @@ ms.locfileid: "87420127"
 
 이 테이블에는 다음 하위 속성에 대 한 자세한 내용이 포함 되어 있습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 |----------|------|-------|
 | `actions` | 개체 컬렉션 | 코드 조각이 실행 되기 전에 실행 되는 작업의 결과 개체입니다. 각 개체에는 키가 동작 이름인 *키-값* 쌍이 있으며이 값은를 사용 하 여 [actions () 함수](../logic-apps/workflow-definition-language-functions-reference.md#actions) 를 호출 하는 것과 같습니다 `@actions('<action-name>')` . 작업 이름은 기본 워크플로 정의에 사용 되는 것과 동일한 동작 이름을 사용 합니다 .이 이름은 작업 이름의 공백 ("")을 밑줄 (_)로 대체 합니다. 이 개체는 현재 워크플로 인스턴스 실행에서 작업 속성 값에 대 한 액세스를 제공 합니다. |
 | `trigger` | Object | 트리거의 결과 개체 이며 [trigger () 함수](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 호출 하는 것과 동일 합니다. 이 개체는 현재 워크플로 인스턴스 실행의 트리거 속성 값에 대 한 액세스를 제공 합니다. |
@@ -219,7 +219,7 @@ ms.locfileid: "87420127"
 
    ![매개 변수 추가](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
-   | 매개 변수 | Description |
+   | 매개 변수 | 설명 |
    |-----------|-------------|
    | **actions** | 이전 작업의 결과를 포함 합니다. [작업 결과 포함](#action-results)을 참조 하세요. |
    | **트리거** | 트리거의 결과를 포함 합니다. [트리거 결과 포함](#trigger-results)을 참조 하세요. |

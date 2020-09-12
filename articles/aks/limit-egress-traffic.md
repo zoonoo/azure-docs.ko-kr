@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 51b457b99afc478631ce9b39a4a7d51ffd57401c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 00a20ece2358f0054e4490ffb914f78b82d9c509
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003176"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594262"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -49,8 +49,8 @@ AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로�
 
 | 대상 끝점                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *디스크나* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *디스크나* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *디스크나* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
-| **`*:9000`** <br/> *디스크나* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *디스크나* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *디스크나* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
 | **`*:123`** 또는 **`ntp.ubuntu.com:123`** (Azure 방화벽 네트워크 규칙을 사용 하는 경우)  | UDP      | 123     | Linux 노드에서 NTP (Network Time Protocol) 시간 동기화에 필요 합니다.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 사용자 지정 DNS 서버를 사용 하는 경우 클러스터 노드에서 액세스할 수 있는지 확인 해야 합니다. |
 | **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
@@ -76,9 +76,9 @@ AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로�
 
 | 대상 끝점                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *디스크나* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *디스크나* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *디스크나* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
-| **`*:9000`** <br/> *디스크나* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *디스크나* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *디스크나* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
-| **`*:22`** <br/> *디스크나* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:22`** <br/> *디스크나* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:22`** <br/> *디스크나* <br/> **`APIServerIP:22`** `(only known after cluster creation)`  | TCP           | 22      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:22`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:22`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:22`** <br/> *Or* <br/> **`APIServerIP:22`** `(only known after cluster creation)`  | TCP           | 22      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
 | **`*:123`** 또는 **`ntp.ubuntu.com:123`** (Azure 방화벽 네트워크 규칙을 사용 하는 경우)  | UDP      | 123     | Linux 노드에서 NTP (Network Time Protocol) 시간 동기화에 필요 합니다.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 사용자 지정 DNS 서버를 사용 하는 경우 클러스터 노드에서 액세스할 수 있는지 확인 해야 합니다. |
 | **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
@@ -105,8 +105,8 @@ AKS 클러스터에 대해 다음과 같은 네트워크 및 FQDN/응용 프로�
 
 | 대상 끝점                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *디스크나* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *디스크나* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *디스크나* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
-| **`*:9000`** <br/> *디스크나* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *디스크나* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *디스크나* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
 | **`*:123`** 또는 **`ntp.ubuntu.com:123`** (Azure 방화벽 네트워크 규칙을 사용 하는 경우)  | UDP      | 123     | Linux 노드에서 NTP (Network Time Protocol) 시간 동기화에 필요 합니다.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | 사용자 지정 DNS 서버를 사용 하는 경우 클러스터 노드에서 액세스할 수 있는지 확인 해야 합니다. |
 | **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | API 서버에 액세스 하는 pod/배포를 실행 하는 경우에는 해당 pod/배포가 API IP를 사용 합니다.  |
@@ -280,7 +280,7 @@ FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
 
 모든 리소스를 저장할 리소스 그룹을 만듭니다.
 
-```azure-cli
+```azurecli
 # Create Resource Group
 
 az group create --name $RG --location $LOC
@@ -294,6 +294,7 @@ AKS 클러스터와 Azure 방화벽을 호스트 하는 두 개의 서브넷이 
 az network vnet create \
     --resource-group $RG \
     --name $VNET_NAME \
+    --location $LOC \
     --address-prefixes 10.42.0.0/16 \
     --subnet-name $AKSSUBNET_NAME \
     --subnet-prefix 10.42.1.0/24
@@ -320,12 +321,12 @@ Azure Firewall 인바운드 및 아웃바운드 규칙을 구성해야 합니다
 
 Azure 방화벽 프런트 엔드 주소로 사용 되는 표준 SKU 공용 IP 리소스를 만듭니다.
 
-```azure-cli
+```azurecli
 az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
 Azure Firewall을 만들려면 미리 보기 CLI 확장을 등록합니다.
-```azure-cli
+```azurecli
 # Install Azure Firewall preview CLI extension
 
 az extension add --name azure-firewall
@@ -340,7 +341,7 @@ az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
 > Azure 방화벽에 대 한 공용 IP 주소를 설정 하는 데 몇 분 정도 걸릴 수 있습니다.
 > 네트워크 규칙에서 FQDN을 활용 하려면 DNS 프록시를 사용 하도록 설정 해야 합니다. 사용 하도록 설정 하면 방화벽은 포트 53에서 수신 대기 하 고 위에 지정 된 DNS 서버에 DNS 요청을 전달 합니다. 이렇게 하면 방화벽에서 FQDN을 자동으로 변환할 수 있습니다.
 
-```azure-cli
+```azurecli
 # Configure Firewall IP Config
 
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
@@ -364,10 +365,10 @@ Azure는 Azure 서브넷, 가상 네트워크 및 온-프레미스 네트워크 
 
 지정된 서브넷과 연결할 빈 경로 테이블을 만듭니다. 경로 테이블은 위에서 만든 Azure Firewall로 다음 홉을 정의합니다. 각 서브넷에는 0 또는 하나의 경로 테이블이 연결될 수 있습니다.
 
-```azure-cli
+```azurecli
 # Create UDR and add a route for Azure Firewall
 
-az network route-table create -g $RG -$LOC --name $FWROUTE_TABLE_NAME
+az network route-table create -g $RG -l $LOC --name $FWROUTE_TABLE_NAME
 az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP --subscription $SUBID
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
@@ -398,7 +399,7 @@ Azure Firewall 서비스에 대한 자세한 내용은 [Azure Firewall 설명서
 
 클러스터를 방화벽과 연결하려면 클러스터의 서브넷에 대한 전용 서브넷이 위에서 만든 경로 테이블을 참조해야 합니다. 클러스터와 방화벽을 모두 보유하는 가상 네트워크에 대한 명령을 실행하여 클러스터의 서브넷에 대한 경로 테이블을 업데이트하면 연결을 수행할 수 있습니다.
 
-```azure-cli
+```azurecli
 # Associate route table with next hop to Firewall to the AKS subnet
 
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
@@ -414,7 +415,7 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NA
 
 AKS에서 서비스 주체를 사용하여 클러스터 리소스를 만듭니다. 만든 시간에 전달 되는 서비스 주체는 AKS에서 사용 하는 저장소 리소스, Ip 및 부하 분산 장치와 같은 기본 AKS 리소스를 만드는 데 사용 됩니다 ( [관리 id](use-managed-identity.md) 를 대신 사용할 수도 있음). 아래에서 적절 한 사용 권한이 부여 되지 않은 경우 AKS 클러스터를 프로 비전 할 수 없습니다.
 
-```azure-cli
+```azurecli
 # Create SP and Assign Permission to Virtual Network
 
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
@@ -422,7 +423,7 @@ az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 
 이제 `APPID` 및 `PASSWORD`를 이전 명령 출력에 의해 자동으로 생성된 서비스 주체 appid 및 서비스 주체 암호로 바꿉니다. AKS에서 리소스를 배포할 수 있도록 서비스 사용자에 게 사용 권한을 부여 하는 VNET 리소스 ID를 참조 합니다.
 
-```azure-cli
+```azurecli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
 PASSWORD="<SERVICEPRINCIPAL_PASSWORD_GOES_HERE>"
 VNETID=$(az network vnet show -g $RG --name $VNET_NAME --query id -o tsv)
@@ -460,7 +461,7 @@ SUBNETID=$(az network vnet subnet show -g $RG --vnet-name $VNET_NAME --name $AKS
 >
 > Api [**server 권한이 부여 된 IP 범위**](api-server-authorized-ip-ranges.md) 에 대 한 AKS 기능을 추가 하 여 api 서버 액세스를 방화벽의 공용 끝점 으로만 제한할 수 있습니다. 권한 있는 IP 범위 기능은 다이어그램에서 옵션으로 표시 됩니다. 권한 있는 IP 범위 기능을 사용하도록 설정하여 API 서버 액세스를 제한하는 경우 개발자 도구는 방화벽의 가상 네트워크에서 jumpbox를 사용하거나 모든 개발자 엔드포인트를 권한 있는 IP 범위에 추가해야 합니다.
 
-```azure-cli
+```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
   --node-count 3 --generate-ssh-keys \
   --network-plugin $PLUGIN \
@@ -491,7 +492,7 @@ az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/3
 
  [Az aks] [az-aks] 명령을 사용 하 여 `kubectl` 새로 만든 Kubernetes 클러스터에 연결 하도록를 구성 합니다. 
 
- ```azure-cli
+ ```azurecli
  az aks get-credentials -g $RG -n $AKSNAME
  ```
 
@@ -754,7 +755,7 @@ SERVICE_IP=$(k get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].
 ```
 
 다음을 실행 하 여 NAT 규칙을 추가 합니다.
-```azure-cli
+```azurecli
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
 ```
 
@@ -772,7 +773,7 @@ AKS 투표 앱이 표시 됩니다. 이 예제에서는 방화벽 공용 IP가 `
 
 Azure 리소스를 정리하려면 AKS 리소스 그룹을 삭제합니다.
 
-```azure-cli
+```azurecli
 az group delete -g $RG
 ```
 

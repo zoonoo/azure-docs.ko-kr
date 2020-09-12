@@ -3,12 +3,12 @@ title: Azure Lighthouse에 고객 온보딩
 description: Azure Lighthouse에 고객을 등록 하 여 Azure 위임 된 리소스 관리를 통해 자신의 테 넌 트를 통해 해당 리소스에 액세스 하 고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 08/20/2020
 ms.topic: how-to
-ms.openlocfilehash: db6a819c72f1ef46f542ed47cad6caae23c0d191
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 4de31a0ad2cdc3134cd61654a71ebe803982b52e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719056"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483799"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
@@ -19,7 +19,7 @@ ms.locfileid: "88719056"
 
 여러 고객에 대 한 온 보 딩 프로세스를 반복할 수 있습니다. 적절 한 권한이 있는 사용자가 관리 되는 테 넌 트에 로그인 하면 해당 사용자는 모든 개별 고객 테 넌 트에 로그인 하지 않고도 관리 작업을 수행 하기 위해 고객 테 넌 트 범위에서 권한을 부여할 수 있습니다.
 
-고객 계약에 미치는 영향을 추적하고 인지도를 얻으려면 MPN(Microsoft 파트너 네트워크) ID를 온보딩한 각 구독에 대해 액세스 권한이 있는 하나 이상의 사용자 계정과 연결합니다. 서비스 공급자 테 넌 트에서이 연결을 수행 해야 합니다. 간단히 하기 위해, 테넌트에서 MPN ID와 연결된 서비스 주체 계정을 만들고 온보딩한 모든 고객에 대한 읽기 권한자 액세스 권한을 이 계정에 부여하는 것이 좋습니다. 자세한 내용은 [Azure 계정에 파트너 ID 연결](../../cost-management-billing/manage/link-partner-id.md)을 참조하세요.
+고객 계약에 미치는 영향을 추적하고 인지도를 얻으려면 MPN(Microsoft 파트너 네트워크) ID를 온보딩한 각 구독에 대해 액세스 권한이 있는 하나 이상의 사용자 계정과 연결합니다. 서비스 공급자 테 넌 트에서이 연결을 수행 해야 합니다. MPN ID와 연결 된 테 넌 트에 서비스 주체 계정을 만든 다음, 고객을 등록할 때마다 해당 서비스 주체를 포함 하는 것이 좋습니다. 자세한 내용은 [파트너 ID를 연결 하 여 위임 된 리소스에서 파트너 획득 크레딧을 사용 하도록 설정](partner-earned-credit.md)을 참조 하세요.
 
 > [!NOTE]
 > 또한 고객은 [Azure Marketplace에 게시](publish-managed-services-offers.md)하는 관리 서비스 제품 (공용 또는 개인)을 구매할 때 Azure Lighthouse에 등록 수 있습니다. 여기에 설명 된 온 보 딩 프로세스를 사용 하 여 Azure Marketplace에 게시 된 제품을 함께 사용할 수도 있습니다.

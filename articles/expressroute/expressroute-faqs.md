@@ -2,17 +2,17 @@
 title: FAQ - Azure ExpressRoute | Microsoft Docs
 description: ExpressRoute FAQ는 Azure 서비스, 비용, 데이터 및 연결, SLA, 공급자 및 위치, 대역폭 및 추가 기술 세부 정보에 대한 정보를 포함합니다.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
-ms.author: jaredro
-ms.openlocfilehash: 8309c98e9ae45650f65fcd54676cc7655934039d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: 6253dd616ca184449f3f144d538c1ed20de54cc2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537125"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566423"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -84,7 +84,7 @@ Azure Microsoft 피어링에 ExpressRoute 회로를 사용하도록 설정하면
 
 **지원됨:**
 
-* [Office 365](https://aka.ms/ExpressRouteOffice365)
+* [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * Power BI - Azure 지역 커뮤니티를 통해 사용할 수 있습니다. Power BI 테넌트의 지역을 확인하는 방법은 [여기](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located)를 참조하세요.
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)(Azure 글로벌 서비스 커뮤니티)
@@ -158,7 +158,7 @@ Dynamics 365 및 CDS(Common Data Service) 환경은 Azure에서 호스팅되므�
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Microsoft 피어링에 중복성을 구현하는 방법은 무엇인가요?
 
-Microsoft 피어링을 사용하여 Azure Storage 또는 Azure SQL 같은 Azure 공용 서비스에 액세스하거나 Office 365에 Microsoft 피어링을 사용하는 고객은 단일 실패 지점을 방지하기 위해 서로 다른 피어링 위치에 여러 회로를 구현하는 것이 좋습니다. 고객은 두 회로에 동일한 접두사를 보급하고 [AS PATH 접두사](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)를 사용하거나 다른 접두사를 보급하여 온-프레미스의 경로를 확인할 수 있습니다.
+Microsoft 피어 링을 사용 하 여 Azure Storage 또는 Azure SQL과 같은 Azure 공용 서비스에 액세스 하는 경우, 단일 실패 지점을 방지 하기 위해 서로 다른 피어 링 위치에 여러 회로를 구현 하는 경우에는 Microsoft 365 Microsoft 피어 링을 사용 하는 고객에 게 매우 권장 됩니다. 고객은 두 회로에 동일한 접두사를 보급하고 [AS PATH 접두사](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending)를 사용하거나 다른 접두사를 보급하여 온-프레미스의 경로를 확인할 수 있습니다.
 
 고가용성을 위한 설계에 대한 내용은 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)를 참조하세요.
 
@@ -217,13 +217,13 @@ BGP 경로 선택 및 공통 라우터 구성에 대한 자세한 내용은 [여
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>가상 네트워크를 포함하는 여러 Azure 구독을 가지고 있습니다. 개별 구독에 속한 가상 네트워크를 단일 ExpressRoute 회로에 연결할 수 있나요?
 
-예. 회로와 동일한 구독 또는 단일 ExpressRoute 회로를 사용하는 서로 다른 구독에서 최대 10개 가상 네트워크를 연결할 수 있습니다. ExpressRoute 프리미엄 기능을 사용하여 이 한도를 늘릴 수 있습니다.
+예. 회로와 동일한 구독 또는 단일 ExpressRoute 회로를 사용하는 서로 다른 구독에서 최대 10개 가상 네트워크를 연결할 수 있습니다. ExpressRoute 프리미엄 기능을 사용하여 이 한도를 늘릴 수 있습니다. 전용 회로에 대 한 연결 및 대역폭 요금은 Express 경로 회로 소유자에 게 적용 됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유 합니다.
 
 자세한 내용은 [여러 구독에서 ExpressRoute 회로 공유](expressroute-howto-linkvnet-arm.md)를 참조하세요.
 
 ### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>다른 Azure Active Directory 테넌트 또는 기업계약 등록에 연결된 여러 Azure 구독이 있습니다. 별도 테넌트 및 등록에 속하는 가상 네트워크를 동일한 테넌트 또는 등록에 없는 단일 ExpressRoute 회로에 연결할 수 있나요?
 
-예. ExpressRoute 인증은 추가 구성 없이도 구독, 테넌트 및 등록 간에 적용될 수 있습니다. 
+예. ExpressRoute 인증은 추가 구성 없이도 구독, 테넌트 및 등록 간에 적용될 수 있습니다. 전용 회로에 대 한 연결 및 대역폭 요금은 Express 경로 회로 소유자에 게 적용 됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유 합니다.
 
 자세한 내용은 [여러 구독에서 ExpressRoute 회로 공유](expressroute-howto-linkvnet-arm.md)를 참조하세요.
 
@@ -293,7 +293,7 @@ ExpressRoute Premium은 다음 기능의 모음입니다.
 
 * 증가된 라우팅 테이블은 프라이빗 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
 * ExpressRoute 회로에서 사용할 수 있는 VNet 및 ExpressRoute Global Reach 연결 수가 증가했습니다(기본값은 10). 자세한 내용은 [ExpressRoute 제한](#limits) 표를 참조하세요.
-* Office 365에 연결
+* Microsoft 365에 대 한 연결
 * Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 한 지리적 지역의 VNet을 다른 지역의 ExpressRoute 회로와 연결할 수 있습니다.<br>
     **예:**
 
@@ -344,43 +344,43 @@ ExpressRoute 로컬은 표준 SKU 및 프리미엄 SKU와 더불어 ExpressRoute
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>ExpressRoute 로컬을 사용할 수 있고 각 피어링 위치가 매핑되는 Azure 지역은 어디인가요?
 ExpressRoute 로컬은 1개 또는 2개의 Azure 지역이 인접한 피어링 위치에서 사용할 수 있습니다. 해당 시/도 또는 국가/지역에 Azure 지역이 없는 피어링 위치에서는 사용할 수 없습니다. [위치 페이지](expressroute-locations-providers.md)에서 정확한 매핑을 참조하세요.  
 
-## <a name="expressroute-for-office-365"></a>Office 365용 ExpressRoute
+## <a name="expressroute-for-microsoft-365"></a>Microsoft 365 용 Express 경로
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services"></a>Office 365 서비스에 연결하려면 어떻게 ExpressRoute 회로를 만드나요?
+### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-microsoft-365-services"></a>Microsoft 365 서비스에 연결 하는 Express 경로 회로를 만들 어떻게 할까요? 있나요?
 
 1. [ExpressRoute 필수 구성 요소 페이지](expressroute-prerequisites.md)를 검토하여 요구 사항을 충족하는지 확인합니다.
 2. 사용자 연결 요구 사항이 충족되는지 확인하려면 [ExpressRoute 파트너 및 위치](expressroute-locations.md) 문서에서 서비스 공급자 및 위치 목록을 검토합니다.
-3. [Office 365에 대한 네트워크 계획 및 성능 튜닝](https://aka.ms/tune/)을 검토하여 용량 요구 사항을 계획합니다.
+3. [Microsoft 365에 대 한 네트워크 계획 및 성능 튜닝](/microsoft-365/enterprise/network-planning-and-performance)을 검토 하 여 용량 요구 사항을 계획 합니다.
 4. [회로 프로비전 및 회로 상태에 대한 ExpressRoute 워크플로](expressroute-workflows.md)의 연결 설정 워크플로에 나열된 단계를 따릅니다.
 
 > [!IMPORTANT]
-> Office 365 서비스에 대한 연결을 구성할 때 ExpressRoute Premium 추가 기능을 사용하도록 설정했는지 확인하세요.
+> Microsoft 365 services에 대 한 연결을 구성할 때 Express 경로 프리미엄 추가 기능을 사용 하도록 설정 했는지 확인 합니다.
 > 
 > 
 
-### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services"></a>기존 ExpressRoute 회로가 Office 365 서비스에 대한 연결을 지원할 수 있나요?
+### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-microsoft-365-services"></a>기존 Express 경로 회로에서 Microsoft 365 서비스에 대 한 연결을 지원할 수 있나요?
 
-예. 기존 ExpressRoute 회로가 Office 365 서비스에 대한 연결을 지원하도록 구성할 수 있나요? Office 365 서비스에 연결하는 데 충분한 용량이 있는지와 프리미엄 추가 기능을 사용하도록 설정했는지를 확인합니다. [Office 365의 네트워크 계획 및 성능 조정](https://aka.ms/tune/)을 참조하면 연결 요구 사항을 계획할 수 있습니다. [ExpressRoute 회로 만들기 및 수정](expressroute-howto-circuit-classic.md)도 참조하세요.
+예. 기존 Express 경로 회로를 Microsoft 365 서비스에 대 한 연결을 지원 하도록 구성할 수 있습니다. Microsoft 365 서비스에 연결할 수 있는 충분 한 용량이 있고 프리미엄 추가 기능을 사용 하도록 설정 했는지 확인 합니다. [Microsoft 365에 대 한 네트워크 계획 및 성능 튜닝](/microsoft-365/enterprise/network-planning-and-performance) 을 통해 연결 요구 사항을 계획할 수 있습니다. [ExpressRoute 회로 만들기 및 수정](expressroute-howto-circuit-classic.md)도 참조하세요.
 
-### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>ExpressRoute 연결을 통해 어느 Office 365 서비스에 액세스할 수 있나요?
+### <a name="what-microsoft-365-services-can-be-accessed-over-an-expressroute-connection"></a>Express 경로 연결을 통해 액세스할 수 있는 Microsoft 365 서비스는 무엇 인가요?
 
-ExpressRoute에서 지원되는 최신 서비스 목록은 [Office 365 URL 및 IP 주소 범위](https://aka.ms/o365endpoints) 페이지를 참조하세요.
+Express 경로를 통해 지원 되는 최신 서비스 목록은 [Microsoft 365 url 및 IP 주소 범위](/microsoft-365/enterprise/urls-and-ip-address-ranges) 페이지를 참조 하세요.
 
-### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>Office 365 서비스용 ExpressRoute의 비용은 얼마인가요?
+### <a name="how-much-does-expressroute-for-microsoft-365-services-cost"></a>Microsoft 365 서비스에 대 한 Express 경로는 얼마나 되나요?
 
-Office 365 서비스를 사용하려면 프리미엄 추가 기능을 사용하도록 설정해야 합니다. 자세한 내용은 [가격 세부 정보 페이지](https://azure.microsoft.com/pricing/details/expressroute/)를 참조하세요.
+Microsoft 365 서비스를 사용 하려면 프리미엄 추가 기능을 사용 해야 합니다. 자세한 내용은 [가격 세부 정보 페이지](https://azure.microsoft.com/pricing/details/expressroute/)를 참조하세요.
 
-### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>Office 365용 ExpressRoute가 지원하는 영역
+### <a name="what-regions-is-expressroute-for-microsoft-365-supported-in"></a>에서 지원 되는 Microsoft 365에 대해 어떤 지역이 지원 되나요?
 
 [ExpressRoute 파트너 및 위치](expressroute-locations.md)를 참조하세요.
 
-### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>ExpressRoute가 내 조직에 구성되어 있더라도 인터넷을 통해 Office 365에 액세스할 수 있나요?
+### <a name="can-i-access-microsoft-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>Express 경로를 조직에 대해 구성한 경우에도 인터넷을 통해 Microsoft 365에 액세스할 수 있나요?
 
-예. ExpressRoute가 네트워크에 구성되어 있더라도 인터넷을 통해 Office 365 서비스 엔드포인트에 연결할 수 있습니다. 사용자의 위치에서 네트워크가 ExpressRoute 통해 Office 365 서비스에 연결되도록 구성하는 경우 조직의 네트워킹 팀에 문의하십시오.
+예. 네트워크에 대해 Express 경로를 구성한 경우에도 인터넷을 통해 Microsoft 365 서비스 끝점에 연결할 수 있습니다. 사용자 위치의 네트워크가 Express 경로를 통해 Microsoft 365 서비스에 연결 하도록 구성 된 경우 조직의 네트워킹 팀에 문의 하세요.
 
-### <a name="how-can-i-plan-for-high-availability-for-office-365-network-traffic-on-azure-expressroute"></a>Azure ExpressRoute에서 Office 365 네트워크 트래픽에 대한 고가용성을 위해 어떤 계획이 가능합니까?
+### <a name="how-can-i-plan-for-high-availability-for-microsoft-365-network-traffic-on-azure-expressroute"></a>Azure Express 경로에서 Microsoft 365 네트워크 트래픽의 고가용성을 계획 하려면 어떻게 해야 하나요?
 [Azure ExpressRoute의 고가용성 및 장애 조치](https://aka.ms/erhighavailability)에 대한 권장 사항 참조
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>Azure 미국 정부 ExpressRoute 회로를 통해 Office 365 미국 정부 커뮤니티(GCC) 서비스에 액세스할 수 있나요?
@@ -395,11 +395,11 @@ Office 365 서비스를 사용하려면 프리미엄 추가 기능을 사용하�
 
 ### <a name="i-turned-on-microsoft-peering-and-now-i-am-trying-to-select-exchange-online-but-it-is-giving-me-an-error-that-i-am-not-authorized-to-do-it"></a>Microsoft 피어링을 사용하도록 설정했고, 지금은 Exchange Online을 선택하려고 했지만 이 작업을 수행할 권한이 없다는 오류 메시지가 표시됩니다.
 
-경로 필터를 사용하면 모든 고객이 Microsoft 피어링을 설정할 수 있습니다. 그러나 Office 365 서비스를 사용하려면 여전히 Office 365에서 권한을 부여받아야 합니다.
+경로 필터를 사용하면 모든 고객이 Microsoft 피어링을 설정할 수 있습니다. 그러나 Microsoft 365 서비스를 사용 하는 경우에도 Microsoft 365에서 권한을 부여 받아야 합니다.
 
 ### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>2017년 8월 1일 이전에 Microsoft 피어링을 사용하도록 설정했습니다. 경로 필터를 사용하려면 어떻게 해야 하나요?
 
-기존 회로가 Office 365용 접두사를 계속 보급하게 됩니다. 동일한 Microsoft 피어링을 통해 Azure 공용 접두사 보급 알림을 추가하려면 경로 필터를 만들고, 보급해야 하는 서비스(필요한 Office 365 서비스 포함)를 선택하고, 해당 필터를 Microsoft 피어링에 추가할 수 있습니다. 자세한 내용은 [Microsoft 피어링용 경로 필터 구성](how-to-routefilter-powershell.md)을 참조하세요.
+기존 회로는 Microsoft 365에 대 한 접두사를 계속 보급 합니다. 동일한 Microsoft 피어 링을 통해 Azure 공용 접두사 보급 알림을 추가 하려면 경로 필터를 만들고, 보급 해야 하는 서비스 (필요한 Microsoft 365 서비스 포함)를 선택 하 고, Microsoft 피어 링에 필터를 연결 하면 됩니다. 자세한 내용은 [Microsoft 피어링용 경로 필터 구성](how-to-routefilter-powershell.md)을 참조하세요.
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>한 위치에서 Microsoft 피어링을 사용하고 있습니다. 이제 다른 위치에서 사용하도록 설정하려고 했지만 접두사가 표시되지 않습니다.
 

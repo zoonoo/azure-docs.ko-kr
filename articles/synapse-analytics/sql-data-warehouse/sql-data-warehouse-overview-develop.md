@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Analytics에서 Synapse SQL 풀을 개발 하기 위한 리소스
-description: SQL Data Warehouse에 대 한 개발 개념, 디자인 결정, 권장 사항 및 코딩 기술입니다.
+description: Azure Synapse Analytics에 대 한 개발 개념, 디자인 결정, 권장 사항 및 코딩 기술입니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a3c0d7924fb550761d050c9c404b1065c7d3cf72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95f712f196c37650b52220c9e34f6cb6b50bff23
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211496"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460612"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL 풀에 대 한 디자인 결정 및 코딩 기술 
  이 문서에서는 Azure Synapse의 SQL 풀에 대 한 주요 디자인 결정, 권장 사항 및 코딩 기술을 더 잘 이해 하는 데 도움이 되는 추가 리소스를 찾을 수 있습니다.
@@ -38,7 +38,7 @@ ms.locfileid: "85211496"
 
 * [저장 프로시저](sql-data-warehouse-develop-stored-procedures.md)
 * [레이블에](sql-data-warehouse-develop-label.md)
-* [뷰](sql-data-warehouse-develop-views.md)
+* [뷰](performance-tuning-materialized-views.md)
 * [임시 테이블](sql-data-warehouse-tables-temporary.md)
 * [동적 SQL](sql-data-warehouse-develop-dynamic-sql.md)
 * [루프로](sql-data-warehouse-develop-loops.md)

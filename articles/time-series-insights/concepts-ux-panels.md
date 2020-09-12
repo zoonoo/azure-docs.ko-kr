@@ -1,5 +1,5 @@
 ---
-title: TSI 탐색기에서 데이터 시각화-Azure Time Series Insights Gen2 | Microsoft Docs
+title: Time Series Insights 탐색기에서 데이터 시각화-Azure Time Series Insights Gen2 | Microsoft Docs
 description: Azure Time Series Insights 탐색기에서 제공 되는 기능 및 옵션에 대해 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 31ed5f93fc7d1b44ae8a4afb1f4368d0b52eb2fd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0933e34e5bdd8469b827ed03c0eff51a4ecba0d5
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227052"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488170"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 
 이 문서에서는 Azure Time Series Insights Gen2 [Demo 환경](https://insights.timeseries.azure.com/preview/demo)에서 사용할 수 있는 다양 한 기능 및 옵션을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure Time Series Insights 탐색기를 시작 하려면 다음을 수행 해야 합니다.
 
@@ -47,7 +47,7 @@ Azure Time Series Insights 탐색기는 다음과 같은 7 개의 요소로 구�
 
 ## <a name="1-environment-panel"></a>1. 환경 패널
 
-환경 패널에는 사용자가 액세스할 수 있는 모든 Azure Time Series Insights Gen2 환경이 표시 됩니다. 이 목록에는 Gen 1 환경 뿐만 아니라 Gen2 환경이 포함 됩니다. 즉시 사용 하려는 환경을 선택 하기만 하면 됩니다.
+환경 패널에는 사용자가 액세스할 수 있는 모든 Azure Time Series Insights Gen2 환경이 표시 됩니다. 이 목록에는 Gen2 환경과 Gen1 환경이 포함 됩니다. 즉시 사용 하려는 환경을 선택 하기만 하면 됩니다.
 
 1. 표시 된 환경 옆에 있는 드롭다운 화살표를 선택 합니다.
 
@@ -200,11 +200,11 @@ Azure Time Series Insights 탐색기는 두 가지 테마를 지원 합니다.
 
   [![선택한 짙은 테마](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
-## <a name="gen-1-environment-controls"></a>Gen 1 환경 컨트롤
+## <a name="gen1-environment-controls"></a>Gen1 환경 컨트롤
 
 ### <a name="gen2-terms-panel"></a>Gen2 용어 패널
 
-이 섹션은 업데이트 된 UI에서 탐색기를 사용 하려고 시도 하는 기존 Gen 1 환경에만 적용 됩니다. Gen 1 제품 및 Gen2 제품을 조합 하 여 사용 하는 것이 좋습니다. 기존 UI의 일부 기능을 업데이트 된 탐색기에 추가 했지만 새 Azure Time Series Insights 탐색기에서 Gen 1 환경에 대 한 전체 UI 환경을 얻을 수 있습니다.
+이 섹션은 업데이트 된 UI에서 탐색기를 사용 하려고 시도 하는 기존 Gen1 환경에만 적용 됩니다. Gen1 product 및 Gen2 제품을 함께 사용 하는 것이 좋습니다. 기존 UI의 일부 기능을 업데이트 된 탐색기에 추가 했지만 새 Azure Time Series Insights 탐색기에서 Gen1 환경에 대 한 전체 UI 환경을 가져올 수 있습니다.
 
 계층 구조 대신 Azure Time Series Insights Gen2 용어 창이 표시 됩니다. 용어 패널을 사용 하 여 사용자 환경에서 쿼리를 정의할 수 있습니다. 조건자를 기준으로 데이터를 필터링 하는 데도 사용 됩니다.
 

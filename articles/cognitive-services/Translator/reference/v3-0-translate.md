@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: a853a28cf7633b5e81bfec2865cc8dc91f2d2f40
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 59e064dc2b9d33bda966eb50544c8383b0394dd3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903989"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566605"
 ---
 # <a name="translator-30-translate"></a>Translator 3.0: 변환
 
@@ -43,7 +43,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
     <td><em>필수 매개 변수</em>입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 <code>3.0</code>이어야 합니다.</td>
   </tr>
   <tr>
-    <td>다음으로 변경:</td>
+    <td>을</td>
     <td><em>필수 매개 변수</em>입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 <code>translation</code> 범위에 포함된 <a href="./v3-0-languages.md">지원되는 언어</a> 중 하나여야 합니다. 예를 들어, 독일어로 번역하려면 <code>to=de</code>를 사용합니다.<br/>쿼리 문자열의 매개 변수를 반복하여 동시에 여러 언어로 번역할 수도 있습니다. 예를 들어, 독일어 및 이탈리아어로 번역하려면 <code>to=de&to=it</code>를 사용합니다.</td>
   </tr>
 </table>
@@ -236,7 +236,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 
 오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 찾을 수 있습니다. 
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ### <a name="translate-a-single-input"></a>단일 입력 번역
 
@@ -280,7 +280,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
     }
 ]
 ```
-응답은 앞의 예제에 나온 응답과 유사합니다. 언어 자동 검색이 요청되었으므로 응답에는 입력 텍스트에 대해 검색된 언어에 대한 정보도 포함됩니다. 
+응답은 앞의 예제에 나온 응답과 유사합니다. 언어 자동 검색이 요청되었으므로 응답에는 입력 텍스트에 대해 검색된 언어에 대한 정보도 포함됩니다. 언어 자동 검색은 더 긴 입력 텍스트에서 잘 작동 합니다.
 
 ### <a name="translate-with-transliteration"></a>음차를 사용한 번역
 
@@ -391,7 +391,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
   </tr>
 </table> 
 
-예를 들어:
+다음은 그 예입니다. 
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"

@@ -3,16 +3,16 @@ title: Dynamics 365 Business Central 제품 만들기 - Microsoft 상업용 Mark
 description: 파트너 센터의 Microsoft 상업적 marketplace에서 새로운 Dynamics 365 비즈니스 센터 제품을 만들기 위한 단계 및 고려 사항에 대해 알아봅니다. Azure Marketplace에서 또는 CSP(클라우드 솔루션 공급자) 프로그램을 통해 제품을 나열하거나 판매할 수 있습니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 4226f9cc45589b8c555d3d54918e31a04acbfc6b
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 953d22e2dc41ca64af3793c8e0f67a203eb5ca7c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817054"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646854"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Dynamics 365 Business Central 제품 만들기
 
@@ -131,7 +131,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. Description
+9. 설명
 10. 스크린샷/비디오
 
 ### <a name="name"></a>속성

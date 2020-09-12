@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 080952752dc5abfd7cf61ae1c5b00b539af58b99
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128678"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646570"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>네트워크에 대 한 Azure Monitor (미리 보기)
-네트워크에 대 한 Azure Monitor는 구성 없이 배포 된 모든 네트워크 리소스에 대 한 상태 및 메트릭의 포괄적인 보기를 제공 합니다. 고급 검색 기능을 사용 하면 호스트 된 웹 사이트 이름을 간단히 검색 하 여 웹 사이트를 호스트 하는 리소스를 식별 하는 등의 시나리오를 통해 리소스 종속성을 식별할 수 있습니다.
+네트워크에 대 한 Azure Monitor는 구성 없이 배포 된 모든 네트워크 리소스에 대 한 상태 및 메트릭의 포괄적인 보기를 제공 합니다. 고급 검색 기능을 사용 하면 호스트 된 웹 사이트 이름을 검색 하 여 웹 사이트를 호스트 하는 리소스를 식별 하는 등의 시나리오를 지 원하는 리소스 종속성을 식별할 수 있습니다.
 
 네트워크 **개요** 페이지의 Azure Monitor는 리소스 상태 및 경고와 함께 네트워킹 리소스의 인벤토리를 시각화 하는 간편한 방법을 제공 합니다. 이는 다음과 같은 네 가지 주요 기능 영역으로 구분 됩니다.
 
@@ -52,11 +52,11 @@ ms.locfileid: "87128678"
 
 ![Application Gateway 뷰](media/network-insights-overview/application-gateway.png)
 
-Application Gateway에 대 한 **종속성** 보기는 프런트 엔드 ip를 수신기, 규칙 및 백 엔드 풀에 연결 하는 방법을 간략하게 보여 줍니다. 연결 가장자리는 색으로 구분 되며 백 엔드 풀 상태에 따라 추가 세부 정보를 제공 합니다. 이 보기에는 VMSS 및 VM 인스턴스와 같은 관련 된 모든 백 엔드 풀에 대 한 Application Gateway 메트릭과 메트릭의 상세 보기가 제공 됩니다.
+Application Gateway에 대 한 **종속성** 보기는 프런트 엔드 ip를 수신기, 규칙 및 백 엔드 풀에 연결 하는 방법을 간략하게 보여 줍니다. 연결 가장자리는 색으로 구분 되며 백 엔드 풀 상태에 따라 추가 세부 정보를 제공 합니다. 이 보기에는 가상 머신 확장 집합, 가상 머신 인스턴스 등 관련 된 모든 백 엔드 풀에 대 한 Application Gateway 메트릭 및 메트릭에 대 한 자세한 보기가 제공 됩니다.
 
 ![종속성 보기](media/network-insights-overview/dependency-view.png)
 
-종속성 그래프를 사용 하면 구성 설정을 쉽게 탐색할 수 있습니다. 백 엔드 풀을 마우스 오른쪽 단추로 클릭 하 여 다른 기능에 액세스 합니다. 예를 들어 백 엔드 풀이 VM 인 경우 VM Insights에 직접 액세스 하 고 연결 문제를 확인 하는 Network Watcher 연결 문제를 해결할 수 있습니다.
+종속성 그래프를 사용 하면 구성 설정을 쉽게 탐색할 수 있습니다. 백 엔드 풀을 마우스 오른쪽 단추로 클릭 하 여 다른 기능에 액세스 합니다. 예를 들어 백 엔드 풀이 가상 컴퓨터 이면 가상 컴퓨터 정보 및 Network Watcher 연결에 직접 액세스 하 여 문제를 해결 하 고 연결 문제를 식별할 수 있습니다.
 
 ![종속성 보기 메뉴](media/network-insights-overview/dependency-view-menu.png)
 
@@ -66,7 +66,7 @@ Application Gateway에 대 한 **종속성** 보기는 프런트 엔드 ip를 �
 
 다른 필터를 통해 특정 경로 및 상태에 대 한 범위를 좁힐 수 있습니다. 예를 들어 상태가 *비정상*인 모든 가장자리를 표시 하려면 상태 드롭다운에서 *비정상* **상태를** 선택 합니다.
 
-Application gateway에 대 한 자세한 메트릭, 모든 백 엔드 풀 리소스 및 프런트 엔드 Ip를 사용 하 여 미리 구성 된 통합 문서를 시작 하려면 **상세 메트릭 보기** 를 클릭 합니다. 
+Application gateway에 대 한 자세한 메트릭과 모든 백 엔드 풀 리소스 및 프런트 엔드 Ip를 사용 하 여 미리 구성 된 통합 문서를 시작 하려면 **상세 메트릭 보기** 를 클릭 합니다. 
 
 ## <a name="next-steps"></a>다음 단계 
 

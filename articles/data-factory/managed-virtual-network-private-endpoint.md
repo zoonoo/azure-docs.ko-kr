@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 0553cb47ba0119cf1bc5e744b689b6c510ba8396
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225685"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594359"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
 
@@ -59,7 +59,7 @@ Azure Data Factory은 개인 링크를 지원 합니다. 개인 링크를 사용
 > 모든 Azure 데이터 원본에 연결하는 관리형 프라이빗 엔드포인트를 만드는 것이 좋습니다. 
  
 > [!WARNING]
-> PaaS 데이터 저장소 (Blob, ADLS Gen2, SQL DW)에 이미이에 대해 만들어진 개인 끝점이 있고 모든 네트워크에서 액세스할 수 있는 경우에도 ADF는 관리 되는 개인 끝점을 사용 하 여 액세스할 수 있습니다. 이러한 시나리오에서는 개인 끝점을 만들어야 합니다. 
+> PaaS 데이터 저장소 (Blob, ADLS Gen2, Azure Synapse Analytics)에 이미이에 대해 만들어진 개인 끝점이 있고 모든 네트워크에서 액세스할 수 있는 경우에도 ADF는 관리 되는 개인 끝점을 사용 하 여 액세스할 수 있습니다. 이러한 시나리오에서는 개인 끝점을 만들어야 합니다. 
 
 Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 상태로 개인 끝점 연결이 생성 됩니다. 승인 워크플로가 시작됩니다. 프라이빗 링크 리소스 소유자가 연결을 승인 또는 거부합니다.
 
@@ -83,6 +83,23 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure 개인 링크 서비스
+- Azure Search
+- Azure Database for MySQL
+- Azure Database for PostgreSQL
+- Azure Database for MariaDB
+
+### <a name="supported-regions"></a>지원되는 지역
+- 미국 동부
+- 미국 동부 2
+- 미국 중서부
+- 미국 서부 2
+- 미국 중남부
+- 미국 중부
+- 북유럽
+- 서유럽
+- 영국 남부
+- 동남 아시아
+- 오스트레일리아 동부
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>ADF 관리 Virtual Network에서 공용 끝점을 통한 아웃 바운드 통신
 - 아웃 바운드 통신용 포트 443만 열립니다.

@@ -11,24 +11,27 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 72d0745e5a885ddbc57a9a849a7537a40e0b1215
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3d8bf3f087592a7d629a247b1c10721237699fdc
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590067"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613527"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Azure SQL Managed Instance 이란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL Managed Instance는 광범위 하 게 관리 되 고 있는 플랫폼의 모든 이점에 가장 SQL Server 광범위 한 데이터베이스 엔진 호환성을 제공 하는 효율적이 고 확장 가능한 클라우드 데이터베이스 서비스입니다. SQL Managed Instance는 최신 SQL Server (Enterprise Edition) 데이터베이스 엔진과 100% 호환성을 제공 하 고, 일반적인 보안 문제를 해결 하는 기본 [VNet (가상 네트워크](../../virtual-network/virtual-networks-overview.md) ) 구현을 제공 하 고, 기존 SQL Server 고객에 게 적합 한 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/) 을 제공 합니다. SQL Managed Instance를 사용 하면 기존 SQL Server 고객이 응용 프로그램 및 데이터베이스를 최소한으로 변경 하 여 온-프레미스 응용 프로그램을 클라우드로 리프트 앤 시프트 할 수 있습니다. 동시에 SQL Managed Instance는 관리 오버 헤드 및 TCO를 크게 줄이는 모든 PaaS 기능 (자동 패치 및 버전 업데이트, [자동화 된 백업](../database/automated-backups-overview.md), [고가용성](../database/high-availability-sla.md))을 유지 합니다.
 
+Azure SQL Managed Instance를 처음 접하는 경우 심층 [AZURE sql 비디오 시리즈](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)의 *azure sql Managed Instance* 비디오를 확인 하세요.
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61/player]
+
 > [!IMPORTANT]
 > SQL Managed Instance 현재 사용할 수 있는 지역 목록은 [지원 되는 지역](resource-limits.md#supported-regions)을 참조 하세요.
 
 다음 다이어그램에서는 SQL Managed Instance의 주요 기능을 간략하게 설명 합니다.
 
-![주요 특징](./media/sql-managed-instance-paas-overview/key-features.png)
+![주요 기능](./media/sql-managed-instance-paas-overview/key-features.png)
 
 Azure SQL Managed Instance은 최대한 마이그레이션 작업을 최소화 하면서 온-프레미스 또는 IaaS, 자체 빌드 또는 ISV에서 제공 하는 많은 수의 앱을 완전히 관리 되는 PaaS 클라우드 환경으로 마이그레이션하는 고객을 위해 설계 되었습니다. 고객은 완전히 자동화 된 [Azure 데이터 마이그레이션 서비스](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)를 사용 하 여 기존 SQL Server 인스턴스를 SQL Managed Instance로 리프트 앤 시프트 할 수 있습니다 .이는 기본 VNet 지원과 함께 고객 인스턴스의 SQL Server 및 완전 한 격리를 제공 합니다.  소프트웨어 보증을 통해 [SQL Server의 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 사용 하 여 SQL Managed Instance에 대 한 할인 된 요금으로 기존 라이선스를 교환할 수 있습니다. SQL Managed Instance는 높은 보안과 풍부한 프로그래밍 영역이 필요한 SQL Server 인스턴스에 대해 클라우드의 최상의 마이그레이션 대상입니다.
 
@@ -41,7 +44,7 @@ SQL Managed Instance Azure SQL Database와 SQL Server 데이터베이스 엔진 
 
 | **PaaS의 이점** | **비즈니스 연속성** |
 | --- | --- |
-|하드웨어를 구입하고 관리할 필요가 없음 <br>기본 인프라 관리를 위한 오버헤드가 없음 <br>신속한 프로비전 및 서비스 크기 조정 <br>자동 패치 적용 및 버전 업그레이드 <br>다른 PaaS 데이터 서비스와 통합 |99.99% 작동 시간 SLA  <br>기본 제공 되는 [고가용성](../database/high-availability-sla.md) <br>[자동화된 백업](../database/automated-backups-overview.md)으로 보호되는 데이터 <br>고객이 구성 가능한 백업 보존 기간 <br>사용자가 시작하는 [백업](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>지정 [시간 데이터베이스 복원](../database/recovery-using-backups.md#point-in-time-restore) 기능 |
+|하드웨어를 구입하고 관리할 필요가 없음 <br>기본 인프라 관리를 위한 오버헤드가 없음 <br>신속한 프로비전 및 서비스 크기 조정 <br>자동 패치 적용 및 버전 업그레이드 <br>다른 PaaS 데이터 서비스와 통합 |99.99% 작동 시간 SLA  <br>기본 제공 되는 [고가용성](../database/high-availability-sla.md) <br>[자동화된 백업](../database/automated-backups-overview.md)으로 보호되는 데이터 <br>고객이 구성 가능한 백업 보존 기간 <br>사용자가 시작하는 [백업](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true) <br>지정 [시간 데이터베이스 복원](../database/recovery-using-backups.md#point-in-time-restore) 기능 |
 |**보안 및 규정 준수** | **관리**|
 |Isolated 환경 ([VNet 통합](connectivity-architecture-overview.md), 단일 테 넌 트 서비스, 전용 계산 및 저장소) <br>[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure Active Directory (AZURE AD) 인증](../database/authentication-aad-overview.md), Single Sign-On 지원 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 서버 보안 주체 (로그인)</a>  <br>규정 준수 표준을 준수 Azure SQL Database <br>[SQL 감사](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스
 
@@ -50,7 +53,7 @@ SQL Managed Instance Azure SQL Database와 SQL Server 데이터베이스 엔진 
 
 다음 표에서는 SQL Managed Instance의 주요 기능을 보여 줍니다.
 
-|기능 | Description|
+|기능 | 설명|
 |---|---|
 | SQL Server 버전/빌드 | SQL Server 데이터베이스 엔진 (안정적인 최신) |
 | 관리되는 자동 백업 | 예 |
@@ -60,7 +63,7 @@ SQL Managed Instance Azure SQL Database와 SQL Server 데이터베이스 엔진 
 | 데이터베이스당 데이터 파일(행) 수 | 여러 |
 | 데이터베이스당 로그 파일(로그) 수 | 1 |
 | VNet - Azure Resource Manager 배포 | 예 |
-| VNet - 클래식 배포 모델 | 예 |
+| VNet - 클래식 배포 모델 | 아니요 |
 | 포털 지원 | 예|
 | 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)의 일부입니다. |
 | 기본 제공 분석 서비스(SSAS) | 아니요 - SSAS는 별도의 [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)입니다. |
@@ -182,7 +185,7 @@ SQL Managed Instance은 온-프레미스 또는 IaaS 데이터베이스 구현�
 
 ### <a name="backup-and-restore"></a>백업 및 복원  
 
-마이그레이션 방식에서는 Azure Blob Storage에 SQL을 백업합니다. Azure storage blob에 저장 된 백업은 [T-SQL RESTORE 명령을](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current)사용 하 여 관리 되는 인스턴스로 직접 복원할 수 있습니다.
+마이그레이션 방식에서는 Azure Blob Storage에 SQL을 백업합니다. Azure storage blob에 저장 된 백업은 [T-SQL RESTORE 명령을](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current&preserve-view=true)사용 하 여 관리 되는 인스턴스로 직접 복원할 수 있습니다.
 
 - 와이드 세계 가져오기-표준 데이터베이스 백업 파일을 복원 하는 방법을 보여 주는 빠른 시작은 [관리 되는 인스턴스로 백업 파일 복원](restore-sample-database-quickstart.md)을 참조 하세요. 이 빠른 시작에서는 Azure Blob storage에 백업 파일을 업로드 하 고 SAS (공유 액세스 서명) 키를 사용 하 여 보호 해야 함을 보여 줍니다.
 - URL에서 복원하는 방법에 대한 자세한 내용은 [URL에서 네이티브 복원](migrate-to-instance-from-sql-server.md#native-restore-from-url)을 참조하세요.
@@ -202,7 +205,7 @@ SQL Managed Instance는 SQL Server 2008 데이터베이스와의 이전 버전�
   
 다음 다이어그램에서는 SQL Managed Instance의 노출 영역 호환성을 간략하게 설명 합니다.  
 
-![마이그레이션](./media/sql-managed-instance-paas-overview/migration.png)
+![노출 영역 호환성](./media/sql-managed-instance-paas-overview/migration.png)
 
 ### <a name="key-differences-between-sql-server-on-premises-and-sql-managed-instance"></a>SQL Server 온-프레미스와 SQL Managed Instance의 주요 차이점
 

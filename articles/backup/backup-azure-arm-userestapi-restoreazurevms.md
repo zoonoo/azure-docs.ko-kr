@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure 가상 머신 
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: f9cd0cca938dac79071d7ded6f6139f4e3c3840d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011193"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506681"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>REST API를 사용하여 Azure Virtual Machines 복원
 
@@ -242,6 +242,30 @@ Azure VM 백업에서 디스크 복원을 트리거하려면 요청 본문의 �
     }
   }
 }
+```
+
+### <a name="restore-disks-selectively"></a>선택적으로 디스크 복원
+
+[디스크를 선택적으로 백업](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)하는 경우 현재 백업 된 디스크 목록이 [복구 지점 요약](#select-recovery-point) 및 [자세한 응답](https://docs.microsoft.com/rest/api/backup/recoverypoints/get)에 제공 됩니다. [여기](selective-disk-backup-restore.md#selective-disk-restore)에서 디스크를 선택적으로 복원 하 고 자세한 정보를 확인할 수도 있습니다. 백업 된 디스크 목록에서 디스크를 선택적으로 복원 하려면 복구 지점 응답에서 디스크의 LUN을 찾아 아래와 같이 [위의 요청 본문](#example-request) 에 **restoreDiskLunList** 속성을 추가 합니다.
+
+```json
+{
+    "properties": {
+        "objectType": "IaasVMRestoreRequest",
+        "recoveryPointId": "20982486783671",
+        "recoveryType": "RestoreDisks",
+        "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+        "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
+        "region": "westus",
+        "createNewCloudService": false,
+        "originalStorageAccountOption": false,
+        "encryptionDetails": {
+          "encryptionEnabled": false
+        },
+        "restoreDiskLunList" : [0]
+    }
+}
+
 ```
 
 [위에서](#responses)설명한 대로 응답을 추적 하 고 장기 실행 작업이 완료 되 면 백업 된 가상 컴퓨터의 디스크와 구성 ("VMConfig.json")이 지정 된 저장소 계정에 표시 됩니다.

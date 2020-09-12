@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 23563074bc8bbf02b36e86ff6c78acf3034670a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cac7b4f376300722762b1cedbf52a5c2e0ecb6e4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655884"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596121"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 
@@ -36,7 +36,7 @@ IR(통합 런타임)은 서로 다른 네트워크 환경에서 데이터 통합
 
 ### <a name="create-a-self-hosted-ir-via-azure-powershell"></a>Azure PowerShell를 통해 자체 호스팅 IR 만들기
 
-1. 이 작업에 Azure PowerShell를 사용할 수 있습니다. 다음은 예제입니다.
+1. 이 작업에 Azure PowerShell를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
@@ -107,7 +107,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 응용 프로그램의 매개 변수 및 속성에 대 한 자세한 내용은 다음과 같습니다. 
 
-| 속성                                                    | 설명                                                  | 필요한 공간 |
+| 속성                                                    | 설명                                                  | 필수 |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | 지정 된 인증 키를 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다. | 아니요       |
 | **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | 지정 된 인증 키와 노드 이름을 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다. | 아니요       |
@@ -118,7 +118,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 | **Generatebackupfile** "`<filePath>`" "`<password>`"            | 현재 노드에 대 한 백업 파일을 생성 합니다. 백업 파일에는 노드 키와 데이터 저장소 자격 증명이 포함 됩니다. | 아니요       |
 | **Importbackupfile** "`<filePath>`" "`<password>`"              | 백업 파일에서 노드를 복원 합니다.                          | 아니요       |
 | **다시 시작**                                                     | 자체 호스팅 integration runtime 호스트 서비스를 다시 시작 합니다.   | 아니요       |
-| **Start**                                                       | 자체 호스팅 integration runtime 호스트 서비스를 시작 합니다.     | 아니요       |
+| **시작**                                                       | 자체 호스팅 integration runtime 호스트 서비스를 시작 합니다.     | 아니요       |
 | **중지**                                                        | 자체 호스팅 integration runtime 호스트 서비스를 중지 합니다.        | 아니요       |
 | **StartUpgradeService**                                         | 자체 호스팅 integration runtime 업그레이드 서비스를 시작 합니다.       | 아니요       |
 | **StopUpgradeService**                                          | 자체 호스팅 integration runtime 업그레이드 서비스를 중지 합니다.        | 아니요       |
@@ -153,7 +153,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 - 데이터 저장소가 Azure IaaS (Infrastructure as a Service) 가상 머신의 클라우드에 있는 경우에도 자체 호스팅 통합 런타임을 사용 합니다.
 - FIPS 규격 암호화를 사용 하는 Windows 서버에 설치한 자체 호스팅 통합 런타임에서 태스크가 실패할 수 있습니다. 이 문제를 해결하려면 서버에서 FIPS 규격 암호화를 사용하지 않도록 설정합니다. FIPS 호환 암호화를 사용 하지 않도록 설정 하려면 다음 레지스트리 하위 키의 값을 1 (사용)에서 0 (사용 안 함)으로 변경 `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - 지원 되는 Windows 버전은 다음과 같습니다.
   + Windows 7 서비스 팩 1
@@ -163,7 +163,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
   + Windows Server 2012
   + Windows Server 2012 R2
   + Windows Server 2016
-  + Windows Server 2019
+  + 시작
    
    도메인 컨트롤러에 자체 호스팅 통합 런타임 설치가 지원 되지 않습니다.
 - .NET Framework 4.6.1 이상이 필요합니다. Windows 7 컴퓨터에 자체 호스팅 통합 런타임을 설치하는 경우 .NET Framework 4.6.1 이상을 설치합니다. 자세한 내용은 [.NET Framework 시스템 요구 사항](/dotnet/framework/get-started/system-requirements)을 참조하세요.
@@ -320,6 +320,7 @@ Integration runtime 노드 간의 통신을 보호 하는 데 사용 하는 TLS/
 
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
+
 Windows 방화벽 수준 또는 컴퓨터 수준에서는 이러한 아웃 바운드 포트를 일반적으로 사용할 수 있습니다. 그렇지 않으면 자체 호스팅 통합 런타임 컴퓨터에서 도메인 및 포트를 구성할 수 있습니다.
 
 > [!NOTE]
@@ -331,13 +332,13 @@ Windows 방화벽 수준 또는 컴퓨터 수준에서는 이러한 아웃 바�
 
 회사 방화벽, 자체 호스팅 통합 런타임 컴퓨터의 Windows 방화벽 및 데이터 저장소 자체에 방화벽 규칙을 적절 하 게 사용 하도록 설정 해야 합니다. 이러한 규칙을 사용 하면 자체 호스팅 통합 런타임이 원본 및 싱크에 성공적으로 연결 될 수 있습니다. 복사 작업과 관련된 각 데이터 저장소에 대해 규칙을 사용하도록 설정합니다.
 
-예를 들어 온-프레미스 데이터 저장소에서 SQL Database 싱크 또는 Azure SQL Data Warehouse 싱크로 복사 하려면 다음 단계를 수행 합니다.
+예를 들어 온-프레미스 데이터 저장소에서 SQL Database 싱크 또는 Azure Synapse Analytics (이전의 SQL Data Warehouse) 싱크로 복사 하려면 다음 단계를 수행 합니다.
 
 1. Windows 방화벽 및 회사 방화벽 둘 다에 대해 포트 1433에서 아웃 바운드 TCP 통신을 허용 합니다.
 1. SQL Database의 방화벽 설정을 구성 하 여 허용 된 IP 주소 목록에 자체 호스팅 통합 런타임 컴퓨터의 IP 주소를 추가 합니다.
 
 > [!NOTE]
-> 방화벽에서 아웃 바운드 포트 1433을 허용 하지 않는 경우 자체 호스팅 통합 런타임에서 SQL 데이터베이스에 직접 액세스할 수 없습니다. 이 경우 [준비 된 복사본](copy-activity-performance.md) 을 사용 하 여 SQL Database 하 고 SQL Data Warehouse 수 있습니다. 이 시나리오에서는 데이터 이동에 HTTPS (포트 443)만 필요 합니다.
+> 방화벽에서 아웃 바운드 포트 1433을 허용 하지 않는 경우 자체 호스팅 통합 런타임에서 SQL 데이터베이스에 직접 액세스할 수 없습니다. 이 경우 [스테이징 된 복사본](copy-activity-performance.md) 을 사용 하 여 SQL Database 및 Azure Synapse 분석을 수행할 수 있습니다. 이 시나리오에서는 데이터 이동에 HTTPS (포트 443)만 필요 합니다.
 
 ## <a name="proxy-server-considerations"></a>프록시 서버 고려 사항
 
@@ -360,9 +361,9 @@ Windows 방화벽 수준 또는 컴퓨터 수준에서는 이러한 아웃 바�
 자체 호스팅 integration runtime을 등록 한 후 프록시 설정을 확인 하거나 업데이트 하려면 Microsoft Integration Runtime Configuration Manager를 사용 합니다.
 
 1. **Microsoft 통합 런타임 구성 관리자**를 엽니다.
-1. **설정** 탭을 선택 합니다.
+1. **설정** 탭을 선택합니다.
 1. **Http 프록시**에서 **변경** 링크를 선택 하 여 **http 프록시 설정** 대화 상자를 엽니다.
-1. **새로 만들기**를 선택합니다. 그러면 프록시 설정을 저장 하 고 integration runtime 호스트 서비스를 다시 시작할 수 있는 권한을 요청 하는 경고가 표시 됩니다.
+1. **다음**을 선택합니다. 그러면 프록시 설정을 저장 하 고 integration runtime 호스트 서비스를 다시 시작할 수 있는 권한을 요청 하는 경고가 표시 됩니다.
 
 구성 관리자 도구를 사용 하 여 HTTP 프록시를 확인 하 고 업데이트할 수 있습니다.
 

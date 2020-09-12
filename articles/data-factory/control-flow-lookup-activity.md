@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: 7a0b4e52d729c3f13d5ac425627970d67b87979e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.date: 09/09/2020
+ms.openlocfilehash: e75921e5ee5b148d81c637800f46403d3d410f42
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795884"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613481"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 
@@ -29,7 +29,9 @@ ms.locfileid: "88795884"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-다음은 조회 작업에 지원되는 데이터 원본입니다. 조회 작업에서 반환할 수 있는 최대 행 수는 5,000개, 최대 크기는 2MB입니다. 현재 시간 제한 전까지 가능한 최대 조회 작업 기간은 1시간입니다.
+다음은 조회 작업에 지원되는 데이터 원본입니다. 
+
+조회 작업은 최대 5000 개의 행을 반환할 수 있습니다. 결과 집합에 추가 레코드가 포함 되어 있으면 첫 번째 5000 행이 반환 됩니다. 조회 작업 출력은 최대 2mb의 크기를 지원 하며, 크기가 제한을 초과 하는 경우 작업은 실패 합니다. 현재 시간 제한 전까지 가능한 최대 조회 작업 기간은 1시간입니다.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -54,7 +56,7 @@ ms.locfileid: "88795884"
 
 ## <a name="type-properties"></a>형식 속성
 
-Name | Description | Type | 필수 여부
+Name | 설명 | Type | 필수 여부
 ---- | ----------- | ---- | --------
 데이터 세트 | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
 source | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예

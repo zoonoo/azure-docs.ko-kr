@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: 3c2d13794f2fc3af4541032d1f94967681c0deee
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078421"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461241"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Redis 용 Azure Cache 만들기
 
@@ -27,7 +27,7 @@ Redis 용 Azure 캐시를 배포 하는 Azure Resource Manager 템플릿을 만�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **저장소 계정**: 계정을 만들려면 [Azure Storage 계정 만들기](/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=template)를 참조 하세요. 저장소 계정은 진단 데이터에 사용 됩니다.
+* **저장소 계정**: 계정을 만들려면 [Azure Storage 계정 만들기](/azure/storage/common/storage-account-create?tabs=azure-portal)를 참조 하세요. 저장소 계정은 진단 데이터에 사용 됩니다.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
@@ -38,7 +38,7 @@ Redis 용 Azure 캐시를 배포 하는 Azure Resource Manager 템플릿을 만�
 다음 리소스는 템플릿에 정의되어 있습니다.
 
 * [Redis/](/azure/templates/microsoft.cache/redis)
-* [Microsoft Insights/diagnosticsettings](/azure/templates/diagnosticsettings)
+* [Microsoft Insights/diagnosticsettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
 새 [프리미엄 계층](cache-overview.md#service-tiers) 에 대 한 리소스 관리자 템플릿도 사용할 수 있습니다.
 

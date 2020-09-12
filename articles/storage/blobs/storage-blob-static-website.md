@@ -6,25 +6,28 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/14/2020
+ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8864201fc5bf86a5451c790a51141cee46bffeb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 72ffad3724ba9c981984ef8410fc9dd9556d8b8e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432516"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89486861"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
-*$web*이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 사용할 수 있습니다. Azure Storage에서 콘텐츠를 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS(Platform as a service) 서비스를 포함하는 서버리스 아키텍처를 사용할 수 있습니다.
+*$web*이라는 스토리지 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 사용할 수 있습니다. Azure Storage에서 콘텐츠를 호스팅하면 [Azure Functions](/azure/azure-functions/functions-overview) 및 기타 PaaS(Platform as a service) 서비스를 포함하는 서버리스 아키텍처를 사용할 수 있습니다. 정적 웹 사이트 호스팅 Azure Storage 웹 서버에서 콘텐츠를 렌더링 하지 않아도 되는 경우 유용한 옵션입니다.
+
+[App Service 정적 Web Apps](https://azure.microsoft.com/services/app-service/static/) 는 정적 웹 사이트 호스팅을 Azure Storage 하는 데 적합 하며 웹 서버에서 콘텐츠를 렌더링 하지 않아도 되는 경우에도 적합 합니다. App Service 정적 Web Apps GitHub 원본에서 전역 배포로 완전히 관리 되는 CI/CD (지속적인 통합 및 지속적인 업데이트) 워크플로를 제공 합니다.
+
+웹 서버에서 콘텐츠를 렌더링 해야 하는 경우 [Azure App Service](https://azure.microsoft.com/services/app-service/)를 사용할 수 있습니다.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
-> 사이트가 서버 쪽 코드에 종속되는 경우 대신 [Azure App Service](/azure/app-service/overview)를 사용합니다.
-범용 v2 Standard storage 계정을 만들어야 합니다. 정적 웹 사이트는 다른 유형의 스토리지 계정에서 사용할 수 없습니다.
+> 범용 v2 Standard storage 계정을 만들어야 합니다. 정적 웹 사이트는 다른 유형의 스토리지 계정에서 사용할 수 없습니다.
 
 ## <a name="setting-up-a-static-website"></a>정적 웹 사이트 설정
 
@@ -103,6 +106,11 @@ Azure Storage에서 기본적으로 지원하므로 사용자 지정 도메인�
 정적 웹 사이트 기능의 일부로 헤더를 구성할 수 있는 방법은 없습니다. 그러나 Azure CDN을 사용하여 헤더를 추가하고 헤더 값을 추가(또는 덮어쓰기)할 수 있습니다. [Azure CDN에 대한 표준 규칙 엔진 참조](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference)를 참조하세요.
 
 캐싱을 제어하는 데 헤더를 사용하려는 경우 [캐싱 규칙을 사용하여 Azure CDN 캐싱 동작 제어](https://docs.microsoft.com/azure/cdn/cdn-caching-rules)를 참조하세요.
+
+## <a name="multi-region-website-hosting"></a>다중 지역 웹 사이트 호스팅
+
+여러 지역에서 웹 사이트를 호스팅하려면 지역 캐싱에 [Content Delivery Network](https://docs.microsoft.com/azure/cdn/) 를 사용 하는 것이 좋습니다. 각 지역에서 서로 다른 콘텐츠를 제공 하려는 경우 [Azure Front 도어](https://docs.microsoft.com/azure/frontdoor/) 를 사용 합니다. 또한 장애 조치 (failover) 기능을 제공 합니다. 사용자 지정 도메인을 사용 하려는 경우에는 [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/) 를 사용 하지 않는 것이 좋습니다. Azure Storage 사용자 지정 도메인 이름을 확인 하는 방법 때문에 문제가 발생할 수 있습니다.
+
 
 ## <a name="pricing"></a>가격 책정
 

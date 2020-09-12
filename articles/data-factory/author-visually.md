@@ -9,13 +9,13 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 05/15/2020
-ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/08/2020
+ms.openlocfilehash: 6f8d74ade382db9bfa28c3ab6f03b95b5ac7947c
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343119"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567125"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory에서 시각적 작성
 
@@ -39,9 +39,17 @@ Azure Data Factory UX(사용자 인터페이스 환경)을 사용하면 코드�
 
 파이프라인, 데이터 세트 및 데이터 흐름과 같은 최상위 리소스의 경우 캔버스 오른쪽에 있는 속성 창에서 상위 수준 속성을 편집할 수 있습니다. 속성 창에는 이름, 설명, 주석 및 기타 고급 속성 등의 속성이 포함됩니다. 파이프라인 활동 및 데이터 흐름 변환과 같은 하위 리소스는 캔버스 하단의 패널을 사용하여 편집됩니다. 
 
-![제작 캔버스](media/author-visually/properties-pane.png)
+![속성 창](media/author-visually/properties-pane.png)
 
 속성 창은 기본적으로 리소스 생성 시에만 열립니다. 편집하려면 캔버스의 오른쪽 위 모서리에 있는 속성 창 아이콘을 클릭합니다.
+
+### <a name="related-resources"></a>관련 리소스
+
+속성 창에서 **관련** 탭을 선택 하 여 선택한 리소스에 종속 된 리소스를 확인할 수 있습니다. 현재 리소스를 참조 하는 모든 리소스는 여기에 나열 됩니다.
+
+![관련 리소스](media/author-visually/related-resources.png)
+
+예를 들어 위의 이미지에서 한 파이프라인과 두 개의 데이터 흐름은 현재 선택 된 데이터 집합을 사용 합니다.
 
 ## <a name="management-hub"></a>관리 허브
 

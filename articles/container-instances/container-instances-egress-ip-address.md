@@ -3,14 +3,12 @@ title: 고정 아웃 바운드 IP 구성
 description: 수신 및 송신에 방화벽의 공용 IP 주소를 사용 하는 Azure Container Instances 작업에 대 한 Azure 방화벽 및 사용자 정의 경로 구성
 ms.topic: article
 ms.date: 07/16/2020
-author: dlepow
-ms.author: danlep
-ms.openlocfilehash: d748e3e6239ba913afc5b8aadd7e85dcd1027c04
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 497645b9fe7f908cc9b8b4d7ed0ba5e201570160
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023707"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566571"
 ---
 # <a name="configure-a-single-public-ip-address-for-outbound-and-inbound-traffic-to-a-container-group"></a>컨테이너 그룹에 대 한 아웃 바운드 및 인바운드 트래픽에 대 한 단일 공용 IP 주소 구성
 
@@ -33,7 +31,7 @@ ms.locfileid: "87023707"
 
 컨테이너 그룹은 이미지에서 작은 웹 앱을 실행 합니다 `aci-helloworld` . 설명서의 다른 문서에 나와 있는 것 처럼이 이미지는 정적 HTML 페이지를 제공 하는 Node.js으로 작성 된 작은 웹 앱을 패키지 합니다.
 
-하나 필요 하면 먼저 [az group create][az-group-create] 명령을 사용 하 여 Azure 리소스 그룹을 만듭니다. 예를 들어:
+하나 필요 하면 먼저 [az group create][az-group-create] 명령을 사용 하 여 Azure 리소스 그룹을 만듭니다. 다음은 그 예입니다. 
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

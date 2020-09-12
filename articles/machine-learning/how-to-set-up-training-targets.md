@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ca76ec5bef1d908ca3cea6ce0f58b1205c1676ca
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: da48b593b8f645566b2f9775fabc5d8e62e625b6
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144093"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661566"
 ---
 # <a name="submit-a-training-run-to-a-compute-target"></a>계산 대상에 학습 실행 제출
 
@@ -28,10 +28,10 @@ ms.locfileid: "89144093"
 
 **스크립트 실행 구성**내에서 각 계산 대상에 대 한 환경을 정의 하기만 하면 됩니다.  그런 다음 다른 컴퓨팅 대상에서 학습 실험을 실행하려는 경우에 해당 컴퓨팅에 대한 실행 구성을 지정합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
-* [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)`ws`
 * 계산 대상인 `my_compute_target` 입니다.  다음을 사용 하 여 계산 대상을 만듭니다.
   * [Python SDK](how-to-create-attach-compute-sdk.md) 
@@ -39,11 +39,11 @@ ms.locfileid: "89144093"
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>스크립트 실행 구성 이란?
 
-[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) 개체를 사용 하 여 학습 실험을 제출 합니다.  이 개체는 다음을 포함합니다.
+[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 개체를 사용 하 여 학습 실험을 제출 합니다.  이 개체는 다음을 포함합니다.
 
 * **source_directory**: 학습 스크립트를 포함하는 원본 디렉터리
 * **스크립트**: 학습 스크립트 식별
-* **run_config**: [실행 구성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py)으로, 학습의 발생 위치를 정의 합니다. 에서 `run_config` 학습 스크립트를 실행할 때 사용할 계산 대상과 환경을 지정 합니다.  
+* **run_config**: [실행 구성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true)으로, 학습의 발생 위치를 정의 합니다. 에서 `run_config` 학습 스크립트를 실행할 때 사용할 계산 대상과 환경을 지정 합니다.  
 
 ## <a name="whats-an-environment"></a>환경 이란?
 
@@ -167,7 +167,7 @@ run = experiment.submit(config=script_run_config)
 ## <a name="next-steps"></a>다음 단계
 
 * [자습서: 모델 학습](tutorial-train-models-with-aml.md)은 모델 학습에 관리되는 컴퓨팅 대상을 사용합니다.
-* [하이퍼 매개 변수를 효율적으로 튜닝](how-to-tune-hyperparameters.md)하여 보다 나은 모델을 빌드하는 방법을 알아봅니다.
+* 하이퍼 [매개 변수를 효율적으로 조정](how-to-tune-hyperparameters.md) 하 여 더 나은 모델을 빌드하는 방법을 알아봅니다. view = azure-ml-py&preserve-view = true)
 * 모델을 학습했으면 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 알아봅니다.
-* [RunConfiguration 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 참조를 확인합니다.
+* [RunConfiguration 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true) SDK 참조를 확인합니다.
 * [Azure Virtual Networks에서 Azure Machine Learning 사용](how-to-enable-virtual-network.md)

@@ -3,12 +3,12 @@ title: 포털에서 기존 할당 업데이트
 description: Azure 청사진의 포털에서 기존 청사진 할당을 업데이트 하는 메커니즘에 대해 알아봅니다.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 888ebbf0149f8f75f867bb17115988cb20d25df2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051426"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651375"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>기존 청사진 할당을 업데이트하는 방법
 
@@ -26,17 +26,17 @@ ms.locfileid: "89051426"
 
 1. 청사진 목록에서 청사진 할당을 선택 합니다. 그런 다음 **업데이트 할당** 단추를 사용 하거나 청사진 할당을 마우스 오른쪽 단추로 클릭 하 고 **할당 업데이트**를 선택 합니다.
 
-   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="기존 청사진 할당 업데이트" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="' 할당 업데이트 ' 단추가 강조 표시 된 청사진 할당 페이지의 스크린샷" border="false":::
 
 1. **청사진 할당** 페이지는 원래 할당의 모든 값으로 미리 채워져 있습니다. **청사진 정의 버전**, **잠금 할당** 상태, 청사진 정의에 있는 동적 매개 변수를 변경합니다. 변경을 마쳤으면 **할당** 을 선택 합니다.
 
 1. 업데이트된 할당 세부 정보 페이지에서 새 상태를 확인합니다. 이 예제에서는 할당에 **잠금**을 추가했습니다.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="기존 청사진 할당을 업데이트 함-잠금 모드 변경 됨" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="잠금 모드가 변경 된 것을 보여 주는 업데이트 된 청사진 할당의 스크린샷" border="false":::
 
 1. 드롭다운을 사용 하 여 다른 **할당 작업** 에 대 한 세부 정보를 탐색 합니다. 선택한 할당 작업에서 **관리 되는 리소스** 를 업데이트 하는 테이블입니다.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="청사진 할당의 할당 작업" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="할당 작업 및 해당 상태를 보여 주는 업데이트 된 청사진 할당의 스크린샷" border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>할당 업데이트에 대한 규칙
 

@@ -1,6 +1,6 @@
 ---
 title: Striim 빠른 시작
-description: Striim 및 Azure SQL Data Warehouse로 빨리 시작합니다.
+description: Striim 및 Azure Synapse Analytics를 빠르게 시작 하세요.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 945bcd03bc3bf13517836e7a5624bd5142782183
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6b5fa1a42201479c5d426a5bbb9188d0cb8e03d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208555"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485977"
 ---
-# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Marketplace 제품 설치 안내서
+# <a name="striim-azure-synapse-analytics-marketplace-offering-install-guide"></a>Striim Azure Synapse Analytics Marketplace 제품 설치 가이드
 
-이 빠른 SQL Data Warehouse의 기존 인스턴스가 이미 있다고 가정합니다.
+이 빠른 시작에서는 Azure Synapse Analytics의 기존 인스턴스가 이미 있다고 가정 합니다.
 
-Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQL Data Warehouse (Staged)(SQL Data Warehouse로의 데이터 통합용 Striim(미리 구성)) 옵션을 선택합니다. 
+Azure Marketplace에서 Striim을 검색 하 고 Azure Synapse Analytics (준비 됨)에 대 한 데이터 통합 Striim를 선택 합니다. 
 
 ![Striim 설치][install]
 
@@ -32,7 +32,7 @@ Azure Marketplace에서 Striim을 검색하고 Striim for Data Integration to SQ
 
 배포되면 Azure Portal에서 \<VM Name>-masternode를 클릭하고 연결을 클릭한 다음, VM 로컬 계정을 사용하여 로그인을 복사합니다. 
 
-![SQL Data Warehouse에 Striim 연결][connect]
+![Azure Synapse Analytics에 Striim 연결][connect]
 
 <https://www.microsoft.com/en-us/download/details.aspx?id=54671>의 sqljdbc42.jar을 로컬 머신에 다운로드합니다. 
 

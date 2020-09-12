@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef88a15286389c98bb77f982afbc54358897eef4
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 72ed8fede56385248415caf0438b190d5c191bbc
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783861"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460867"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 외부 사용자에 대 한 액세스 제어
 
@@ -105,7 +105,7 @@ Azure AD 자격 관리는 [AZURE AD b2b (기업 간)](../external-identities/wha
 
 ### <a name="review-your-microsoft-365-group-sharing-settings"></a>Microsoft 365 그룹 공유 설정 검토
 
-- 외부 사용자에 대 한 액세스 패키지에 Microsoft 365 그룹을 포함 하려면 게스트 **액세스를 허용** 하도록 **사용자가 조직에 새 게스트를 추가** 하도록 허용이 설정 되어 있는지 확인 합니다. 자세한 내용은 [Microsoft 365 그룹에 대 한 게스트 액세스 관리](/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access)를 참조 하세요.
+- 외부 사용자에 대 한 액세스 패키지에 Microsoft 365 그룹을 포함 하려면 게스트 **액세스를 허용** 하도록 **사용자가 조직에 새 게스트를 추가** 하도록 허용이 설정 되어 있는지 확인 합니다. 자세한 내용은 [Microsoft 365 그룹에 대 한 게스트 액세스 관리](/Microsoft 365/admin/create-groups/manage-guest-access-in-groups?view=Microsoft 365-worldwide#manage-groups-guest-access)를 참조 하세요.
 
 - 외부 사용자가 SharePoint Online 사이트 및 Microsoft 365 그룹에 연결 된 리소스에 액세스할 수 있게 하려면 SharePoint Online 외부 공유를 설정 해야 합니다. 자세한 내용은 [외부 공유 설정 또는 해제](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)를 참조 하세요.
 

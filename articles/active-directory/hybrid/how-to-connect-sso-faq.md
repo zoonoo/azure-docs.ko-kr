@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5c3e0ffc000d3d239e87e9771d1b49d98fd206
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589047"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658338"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: 질문과 대답
 
@@ -37,7 +37,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 **Q: Seamless SSO는 [Microsoft Azure 독일 클라우드](https://www.microsoft.de/cloud-deutschland) 및 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서 사용할 수 있나요?**
 
-Seamless SSO는 Azure Government 클라우드에 사용할 수 있습니다. 자세한 내용은 [Azure Government에 대한 하이브리드 ID 고려 사항](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud)을 참조하세요.
+Seamless SSO는 Azure Government 클라우드에 사용할 수 있습니다. 자세한 내용은 [Azure Government에 대한 하이브리드 ID 고려 사항](./reference-connect-government-cloud.md)을 참조하세요.
 
 **Q: Seamless SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용하는 애플리케이션은 무엇인가요?**
 
@@ -62,11 +62,11 @@ Seamless SSO는 Azure Government 클라우드에 사용할 수 있습니다. 자
 
 **Q: Seamless SSO에서는 `userPrincipalName` 대신 `Alternate ID`를 사용자 이름으로 지원하나요?**
 
-예. Seamless SSO는 [여기서](how-to-connect-install-custom.md) 보여주듯이 Azure AD Connect에서 구성할 때 `Alternate ID`를 사용자 이름으로 지원합니다. 모든 Office 365 애플리케이션에서 `Alternate ID`를 지원하지는 않습니다. 지원 내용은 특정 애플리케이션의 설명서를 참조하세요.
+예. Seamless SSO는 [여기서](how-to-connect-install-custom.md) 보여주듯이 Azure AD Connect에서 구성할 때 `Alternate ID`를 사용자 이름으로 지원합니다. 모든 Microsoft 365 응용 프로그램은 지원 하지 않습니다 `Alternate ID` . 지원 내용은 특정 애플리케이션의 설명서를 참조하세요.
 
-**Q: [Azure AD 조인](../active-directory-azureadjoin-overview.md) 및 Seamless SSO에서 제공하는 Single Sign-On 환경 간에 차이점은 무엇인가요?**
+**Q: [Azure AD 조인](../devices/overview.md) 및 Seamless SSO에서 제공하는 Single Sign-On 환경 간에 차이점은 무엇인가요?**
 
-[Azure AD 조인](../active-directory-azureadjoin-overview.md)에서는 Azure AD에서 해당 디바이스를 등록한 경우 사용자에게 SSO를 제공합니다. 이러한 디바이스를 반드시 도메인에 가입할 필요는 없습니다. *기본 새로 고침 토큰*이나 *PRT* 및 Kerberos를 사용하여 SSO를 제공하지 않습니다. 사용자 환경은 Windows 10 디바이스에서 가장 적합합니다. SSO는 Microsoft Edge 브라우저에서 자동으로 실행됩니다. 또한 브라우저 확장을 사용하여 Chrome에서 작동합니다.
+[Azure AD 조인](../devices/overview.md)에서는 Azure AD에서 해당 디바이스를 등록한 경우 사용자에게 SSO를 제공합니다. 이러한 디바이스를 반드시 도메인에 가입할 필요는 없습니다. *기본 새로 고침 토큰*이나 *PRT* 및 Kerberos를 사용하여 SSO를 제공하지 않습니다. 사용자 환경은 Windows 10 디바이스에서 가장 적합합니다. SSO는 Microsoft Edge 브라우저에서 자동으로 실행됩니다. 또한 브라우저 확장을 사용하여 Chrome에서 작동합니다.
 
 테넌트에서 Azure AD 조인 및 Seamless SSO를 사용할 수 있습니다. 이러한 두 기능은 상호 보완적입니다. 두 기능이 모두 설정되어 있으면 Azure AD Join에서 SSO는 Seamless SSO보다 우선합니다.
 
@@ -85,7 +85,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
 
    **1단계. Seamless SSO가 활성화된 AD 포리스트 목록 가져오기**
 
-   1. 먼저 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
+   1. 먼저 [Azure AD PowerShell](/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
    2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
    3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
    4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
@@ -130,7 +130,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
 
    Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를 실행합니다.
 
-   1. 먼저 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
+   1. 먼저 [Azure AD PowerShell](/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
    2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
    3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
    4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
@@ -145,7 +145,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
 
    Azure AD Connect를 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래의 태스크 1-4를 따릅니다. 대신 PowerShell을 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래의 태스크 5를 이동합니다.
 
-   1. 먼저 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
+   1. 먼저 [Azure AD PowerShell](/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
    2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
    3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
    4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.

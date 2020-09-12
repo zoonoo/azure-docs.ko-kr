@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱 호스트 풀 부하 분산-Azure
 description: Windows 가상 데스크톱 환경에 대 한 호스트 풀 부하 분산 방법에 대해 알아봅니다.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 09/04/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ee8cb5f2297851d2c2b2f34be3d90573fdcf2530
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2b977d64dea1cef3b8142758e57d91e92e5bcc02
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007440"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461122"
 ---
 # <a name="host-pool-load-balancing-methods"></a>호스트 풀 부하 분산 메서드
 
@@ -34,7 +34,7 @@ Windows 가상 데스크톱에서 다음과 같은 부하 분산 방법을 사�
 
 너비 우선 부하 분산 방법을 사용 하면이 시나리오에 맞게 최적화 하기 위해 사용자 연결을 배포할 수 있습니다. 이 방법은 풀링된 가상 데스크톱 환경에 연결 하는 사용자에 게 최상의 환경을 제공 하려는 조직에 적합 합니다.
 
-너비 우선 메서드는 먼저 새 연결을 허용 하는 세션 호스트를 쿼리 합니다. 그런 다음 메서드는 최소 수의 세션을 사용 하 여 세션 호스트를 선택 합니다. 연결 되어 있는 경우 메서드는 쿼리의 첫 번째 세션 호스트를 선택 합니다.
+너비 우선 메서드는 먼저 새 연결을 허용 하는 세션 호스트를 쿼리 합니다. 그런 다음이 메서드는 세션 호스트의 절반에서 가장 적은 수의 세션 호스트를 임의로 선택 합니다. 예를 들어 11, 12, 13, 14, 15, 16, 17, 18 및 19 개의 컴퓨터가 있는 9 대의 컴퓨터가 있으면 새로 만든 세션이 자동으로 첫 번째 컴퓨터로 이동 하지 않습니다. 대신 세션 수가 가장 적은 처음 5 개 컴퓨터 (11, 12, 13, 14, 15)로 이동할 수 있습니다.
 
 ## <a name="depth-first-load-balancing-method"></a>깊이 우선 부하 분산 방법
 

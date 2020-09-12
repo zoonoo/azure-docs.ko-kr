@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fe328de9460efb743037f697c7f564e2c628278d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc2b72779460c2b7e3999204ace50ca57388b9a2
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388938"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594189"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 REST API 클레임 교환 통합
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD B2C(Azure Active Directory B2C)의 기반이 되는 ID 환경 프레임워크를 사용하여 사용자 경험에서 RESTful API와 통합할 수 있습니다. 이 문서에서는 [RESTful 기술 프로필](https://identitydivision.visualstudio.com/defaultcollection/Identity%20CXP/_git/GTP?path=%2Fyoelh%2Fdocs%2Frest-api%2Frestful-technical-profile.md&version=GBmaster)을 사용하여 RESTful 서비스와 상호 작용하는 사용자 경험을 만드는 방법을 보여 줍니다.
+Azure AD B2C(Azure Active Directory B2C)의 기반이 되는 ID 환경 프레임워크를 사용하여 사용자 경험에서 RESTful API와 통합할 수 있습니다. 이 문서에서는 [RESTful 기술 프로필](restful-technical-profile.md)을 사용하여 RESTful 서비스와 상호 작용하는 사용자 경험을 만드는 방법을 보여 줍니다.
 
 Azure AD B2C를 사용하면 RESTful 서비스를 호출하여 사용자 경험에 고유한 비즈니스 논리를 추가할 수 있습니다. ID 환경 프레임워크는 RESTful 서비스에서 데이터를 주고받아 클레임을 교환할 수 있습니다. 예를 들어, 다음을 수행할 수 있습니다.
 
@@ -125,9 +125,9 @@ RESTful 클레임 공급자가 구문 분석한 출력 클레임은 항상 다�
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="contacts.0.person.name" />
-  <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="contacts.0.person.emails.0.email" />
-  <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="contacts.0.person.loyaltyNumber" />
+  <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="contacts[0].person.name" />
+  <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="contacts[0].person.emails[0].email" />
+  <OutputClaim ClaimTypeReferenceId="loyaltyNumber" PartnerClaimType="contacts[0].person.loyaltyNumber" />
 </OutputClaims>
 ```
 

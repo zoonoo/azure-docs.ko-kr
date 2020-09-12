@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 31e1eb952bb37f5864e296811ba6e61bb0e58320
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87490288"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483731"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Azure Synapse SQL 풀의 PolyBase 데이터 로드 전략 디자인
 
@@ -38,7 +38,7 @@ SQL 풀 용 PolyBase ELT를 구현 하는 기본 단계는 다음과 같습니�
 5. 데이터를 변환합니다.
 6. 프로덕션 테이블에 데이터를 삽입합니다.
 
-로드 자습서는 [PolyBase를 사용하여 Azure Blob Storage에서 Azure SQL Data Warehouse로 데이터 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+로드 자습서는 [PolyBase를 사용 하 여 azure blob storage에서 Azure Synapse Analytics로 데이터 로드](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조 하세요.
 
 자세한 정보는 [로드 패턴 블로그](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)를 참조하세요.
 
@@ -50,7 +50,7 @@ SQL 풀 용 PolyBase ELT를 구현 하는 기본 단계는 다음과 같습니�
 
 PolyBase는 UTF-8 및 UTF-16으로 인코딩된 구분된 텍스트 파일에서 데이터를 로드합니다. 그리고 분리된 텍스트 파일 외에 Hadoop 파일 형식 RC 파일, ORC 및 Parquet에서도 데이터를 로드합니다. 또한 Gzip 및 Snappy 압축 파일에서도 데이터를 로드할 수 있습니다. PolyBase는 현재 확장 ASCII, 고정 너비 형식 및 중첩된 형식(예: WinZip, JSON 및 XML)을 지원하지 않습니다.
 
-SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 분리된 텍스트 파일로 데이터를 내보낼 수 있습니다. Parquet to SQL DW 데이터 형식 매핑은 다음과 같습니다.
+SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)를 사용하여 분리된 텍스트 파일로 데이터를 내보낼 수 있습니다. Parquet to Azure Synapse Analytics 데이터 형식 매핑은 다음과 같습니다.
 
 | **Parquet 데이터 형식** |                      **SQL 데이터 형식**                       |
 | :-------------------: | :----------------------------------------------------------: |
@@ -63,10 +63,10 @@ SQL Server에서 내보내는 경우에는 [bcp 명령줄 도구](/sql/tools/bcp
 |         float         |                             real                             |
 |        double         |                            money                             |
 |        double         |                          smallmoney                          |
-|        string         |                            nchar                             |
-|        string         |                           nvarchar                           |
-|        string         |                             char                             |
-|        string         |                           varchar                            |
+|        문자열         |                            nchar                             |
+|        문자열         |                           nvarchar                           |
+|        문자열         |                             char                             |
+|        문자열         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
 |       timestamp       |                             date                             |
@@ -121,7 +121,7 @@ PolyBase를 사용하여 데이터를 로드하려는 경우 다음 로드 옵�
 - [T-SQL을 이용한 PolyBase](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json): Azure Blob Storage 또는 Azure Data Lake Store에 데이터가 있을 경우 효과적입니다. 로드 프로세스를 가장 잘 제어할 수 있지만, 외부 데이터 개체를 정의해야 합니다. 다른 방법에서는 원본 테이블을 대상 테이블에 매핑할 때 배후에서 이러한 개체를 정의합니다.  T-SQL 로드를 조정하려면 Azure Data Factory, SSIS 또는 Azure 함수를 사용할 수 있습니다.
 - [SSIS를 사용 하는 PolyBase](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 는 원본 데이터가 SQL Server 때 잘 작동 합니다. SSIS는 대상 테이블 매핑에 대해 원본을 정의하고 로드를 조정합니다. 이미 SSIS 패키지가 있는 경우 새 데이터 웨어하우스 대상으로 작업하도록 패키지를 수정할 수 있습니다.
 - [ADF(Azure Data Factory)를 이용한 PolyBase](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json): 또 다른 오케스트레이션 도구입니다.  파이프라인을 정의하고 작업을 예약합니다.
-- [Azure Databricks polybase](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 는 SQL Data Warehouse 테이블에서 Databricks 데이터 프레임로 데이터를 전송 하 고 polybase를 사용 하 여 Databricks 데이터 프레임에서 SQL Data Warehouse 테이블로 데이터를 기록 합니다.
+- [Azure Databricks polybase](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 는 Azure Synapse analytics 테이블에서 Databricks 데이터 프레임로 데이터를 전송 하 고 polybase를 사용 하 여 Databricks 데이터 프레임에서 Azure Synapse analytics 테이블로 데이터를 씁니다.
 
 ### <a name="non-polybase-loading-options"></a>PolyBase 외 로드 옵션
 

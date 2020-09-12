@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 517d6f7f06025b35dd27fa69d1de1b4139de6c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73c4931533e3926086320531a0800a572d13808c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478011"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535775"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대 한 서비스 약관 및 개인 정보 취급 방침 구성
 
@@ -58,7 +58,7 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Azure Portal 사용
 Azure Portal에서 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인 하 고 올바른 AzureAD 테 넌 트 (B2C 아님)를 선택 합니다.
 2. **앱 등록** 섹션으로 이동하여 앱을 선택합니다.
 3. **브랜딩** 창을 엽니다.
 4. **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
@@ -69,6 +69,11 @@ Azure Portal에서 다음 단계를 수행 합니다.
 ### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>앱 개체 JSON을 사용하여
 
 앱 개체 JSON을 직접 수정하는 것을 선호하는 경우 Azure Portal 또는 애플리케이션 등록 포털에서 매니페스트 편집기를 사용하여 앱의 서비스 약관 및 개인정보처리방침 링크를 포함할 수 있습니다.
+
+1. **앱 등록** 섹션으로 이동 하 여 앱을 선택 합니다.
+2. **매니페스트** 창을 엽니다.
+3. Ctrl + F, "informationalUrls"을 검색 합니다. 정보를 입력 합니다.
+4. 변경 내용을 저장합니다.
 
 ```json
     "informationalUrls": { 

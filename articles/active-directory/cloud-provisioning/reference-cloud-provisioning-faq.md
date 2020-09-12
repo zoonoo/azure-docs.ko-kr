@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efcf2df4e472d022fcdec0c9b7c69c73192c503f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: HT
+ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518473"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658368"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Azure Active Directory Connect 클라우드 프로 비전 FAQ
 
@@ -74,7 +74,7 @@ Azure AD Connect 동기화를 사용하면 온-프레미스 동기화 서버에�
 
 **Q:  Exchange 하이브리드가 지원되지 않는다는 것은 무슨 의미인가요?**
 
-Exchange 하이브리드 배포 기능을 통해 온-프레미스 및 Office 365에서 모두 Exchange 사서함을 동시에 존재하게 할 수 있습니다. Azure AD Connect에서는 특성의 특정 세트를 Azure AD에서 온-프레미스 디렉터리로 다시 동기화합니다.  클라우드 프로비저닝 에이전트는 현재 이러한 특성을 온-프레미스 디렉터리로 다시 동기화하지 않으므로 Azure AD Connect의 대체 항목으로 지원되지 않습니다.
+Exchange 하이브리드 배포 기능을 사용 하면 온-프레미스와 Microsoft 365 모두 Exchange 사서함을 동시에 사용할 수 있습니다. Azure AD Connect에서는 특성의 특정 세트를 Azure AD에서 온-프레미스 디렉터리로 다시 동기화합니다.  클라우드 프로비저닝 에이전트는 현재 이러한 특성을 온-프레미스 디렉터리로 다시 동기화하지 않으므로 Azure AD Connect의 대체 항목으로 지원되지 않습니다.
 
 **Q:  Windows Server Core에 클라우드 프로저닝 에이전트를 설치할 수 있나요?**
 

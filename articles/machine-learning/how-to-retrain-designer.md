@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 181d79c6aef87999bc1b4242a70870edf60ad7df
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 11e04d0aa313a005cfd13bca134c75bb712fd234
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319629"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661598"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)를 사용하여 모델 재학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "87319629"
 
 ### <a name="sample-pipeline"></a>샘플 파이프라인
 
-이 문서에 사용된 파이프라인은 [Sample 3: 수입 예측](samples-designer.md#classification)의 변경된 버전입니다. 파이프라인에서는 자체 데이터를 사용하여 모델을 학습시키는 방법을 보여 주기 위해 샘플 데이터 세트 대신 [데이터 가져오기](algorithm-module-reference/import-data.md) 모듈을 사용합니다.
+이 문서에서 사용 되는 파이프라인은 디자이너 홈페이지에서 샘플 파이프라인 [수입 예측](samples-designer.md#classification) 의 변경 된 버전입니다. 파이프라인에서는 자체 데이터를 사용하여 모델을 학습시키는 방법을 보여 주기 위해 샘플 데이터 세트 대신 [데이터 가져오기](algorithm-module-reference/import-data.md) 모듈을 사용합니다.
 
 ![데이터 가져오기 모듈을 강조 표시하는 상자를 포함된 수정된 샘플 파이프라인을 보여 주는 스크린샷](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -83,7 +83,8 @@ ms.locfileid: "87319629"
 1. 실행 로그와 함께 **다른 출력**에서 모델을 찾을 수 있습니다.
 1. 또는 **출력 보기** 아이콘을 선택합니다. 여기에서 대화 상자의 지침에 따라 데이터 저장소로 직접 이동할 수 있습니다. 
 
-![학습된 모델을 다운로드하는 방법을 보여 주는 스크린샷](./media/how-to-retrain-designer/trained-model-view-output.png)
+> [!div class="mx-imgBorder"]
+> ![학습된 모델을 다운로드하는 방법을 보여 주는 스크린샷](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>학습 파이프라인 게시
 
@@ -101,9 +102,9 @@ ms.locfileid: "87319629"
 
 이제 게시된 학습 파이프라인이 있으므로 이를 사용하여 새 데이터에 대해 모델을 재학습시킬 수 있습니다. 스튜디오 작업 영역이나 프로그래밍 방식으로 파이프라인 엔드포인트에서 실행을 제출할 수 있습니다.
 
-### <a name="submit-runs-by-using-the-designer"></a>디자이너를 사용하여 실행 제출
+### <a name="submit-runs-by-using-the-studio-portal"></a>Studio 포털을 사용 하 여 실행 제출
 
-디자이너에서 매개 변수가 있는 파이프라인 엔드포인트 실행을 제출하려면 다음 단계를 사용합니다.
+다음 단계를 사용 하 여 studio 포털에서 실행 되는 매개 변수가 있는 파이프라인 끝점을 제출 합니다.
 
 1. 스튜디오 작업 영역에서 **엔드포인트** 페이지로 이동합니다.
 1. **파이프라인 엔드포인트** 탭을 선택합니다. 그런 다음 파이프라인 엔드포인트를 선택합니다.

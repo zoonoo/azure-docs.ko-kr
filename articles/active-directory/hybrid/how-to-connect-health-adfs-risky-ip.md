@@ -16,15 +16,15 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98109199f489839253965bef3033d27935cff13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 431b45f4ef3431e7fd1d34cf80278892470c36ef
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359351"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660845"
 ---
 # <a name="risky-ip-report-public-preview"></a>위험한 IP 보고서 (공개 미리 보기)
-AD FS 고객은 암호 인증 엔드포인트를 인터넷에 공개하여 최종 사용자가 Office 365와 같은 SaaS 애플리케이션에 액세스할 수 있게 하는 인증 서비스를 제공할 수 있습니다. 이 경우 악의적 행위자가 AD FS 시스템에 대한 로그인을 시도하여 사용자의 암호를 추측하고 종료하고 애플리케이션 리소스에 액세스할 수 있습니다. Windows Server 2012 R2의 AD FS 이후부터 AD FS에서는 이러한 유형의 공격을 방지하기 위해 엑스트라넷 계정 잠금 기능을 제공합니다. 더 낮은 버전을 사용하는 경우 AD FS 시스템을 Windows Server 2016으로 업그레이드하는 것이 좋습니다. <br />
+AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사용자가 Microsoft 365 같은 SaaS 응용 프로그램에 액세스할 수 있도록 인증 서비스를 제공할 수 있습니다. 이 경우 악의적 행위자가 AD FS 시스템에 대한 로그인을 시도하여 사용자의 암호를 추측하고 종료하고 애플리케이션 리소스에 액세스할 수 있습니다. Windows Server 2012 R2의 AD FS 이후부터 AD FS에서는 이러한 유형의 공격을 방지하기 위해 엑스트라넷 계정 잠금 기능을 제공합니다. 더 낮은 버전을 사용하는 경우 AD FS 시스템을 Windows Server 2016으로 업그레이드하는 것이 좋습니다. <br />
 
 또한 단일 IP 주소에서 여러 사용자에 대해 여러 로그인을 시도할 수도 있습니다. 이러한 경우 사용자당 시도 횟수가 AD FS의 계정 잠금 보호 임계값보다 낮을 수 있습니다. Azure AD Connect Health는 이제 이 조건을 감지하고 해당 문제가 발생하면 관리자에게 알리는 "위험한 IP 보고서"를 제공합니다. 이 보고서의 주요 이점은 다음과 같습니다. 
 - 실패한 암호 기반 로그인의 임계값을 초과하는 IP 주소 검색
@@ -35,7 +35,7 @@ AD FS 고객은 암호 인증 엔드포인트를 인터넷에 공개하여 최�
 
 > [!NOTE]
 > 이 보고서를 사용하려면 AD FS 감사를 사용하도록 설정해야 합니다. 자세한 내용은 [AD FS 감사 사용](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs)을 참조하십시오. <br />
-> 미리 보기에 액세스하려면 전역 관리자 또는 [보안 읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) 권한이 필요합니다.  
+> 미리 보기에 액세스하려면 전역 관리자 또는 [보안 읽기 권한자](../../role-based-access-control/built-in-roles.md#security-reader) 권한이 필요합니다.  
 > 
 
 ## <a name="what-is-in-the-report"></a>보고서에는 무엇이 있나요?
@@ -99,7 +99,7 @@ AD FS 고객은 암호 인증 엔드포인트를 인터넷에 공개하여 최�
 
 ## <a name="faq"></a>FAQ
 **보고서에 개인 IP 주소 범위가 표시되는 이유는 무엇인가요?**  <br />
-개인 IP 주소(<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) 및 Exchange IP 주소는 IP 허용 목록에서 필터링되고 True로 표시됩니다. 개인 IP 주소 범위가 표시되는 경우 웹 애플리케이션 프록시 서버에 요청을 전달할 때 외부 부하 분산 장치에서 클라이언트 IP 주소를 보내지 않을 가능성이 큽니다.
+개인 IP 주소 (<i>& 172.x.x.x,</i>x. x. x. x. x) 및 Exchange ip 주소는 필터링 되어 IP 승인 목록에서 True로 표시 됩니다. 개인 IP 주소 범위가 표시되는 경우 웹 애플리케이션 프록시 서버에 요청을 전달할 때 외부 부하 분산 장치에서 클라이언트 IP 주소를 보내지 않을 가능성이 큽니다.
 
 **보고서에 부하 분산 장치 IP 주소가 표시되는 이유는 무엇인가요?**  <br />
 부하 분산 장치 IP 주소가 표시되는 경우 웹 애플리케이션 프록시 서버에 요청을 전달할 때 외부 부하 분산 장치에서 클라이언트 IP 주소를 보내지 않을 가능성이 큽니다. 포워드 클라이언트 IP 주소를 전달하도록 올바르게 부하 분산 장치를 구성하세요. 
@@ -113,9 +113,9 @@ AD FS 고객은 암호 인증 엔드포인트를 인터넷에 공개하여 최�
 - AD FS 팜에서는 감사를 사용할 수 없습니다.
 
 **보고서에 액세스할 수 없는 이유는 무엇인가요?**  <br />
-전역 관리자 또는 [보안 읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) 권한이 필요합니다. 전역 관리자에게 문의하여 액세스 권한을 얻으세요.
+전역 관리자 또는 [보안 읽기 권한자](../../role-based-access-control/built-in-roles.md#security-reader) 권한이 필요합니다. 전역 관리자에게 문의하여 액세스 권한을 얻으세요.
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent 설치](how-to-connect-health-agent-install.md)

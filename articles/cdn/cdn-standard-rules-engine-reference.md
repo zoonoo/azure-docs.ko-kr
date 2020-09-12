@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: cae0ec1daed8277d1e7e4f3c5cbc701965ac00b8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760093"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661765"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Azure CDN에 대한 표준 규칙 엔진 참조
 
@@ -59,7 +59,7 @@ Azure Content Delivery Network (Azure CDN)에 대 한 [표준 규칙 엔진](cdn
 
 ### <a name="wildcard-values"></a>와일드카드 값
 
-현재 표준 규칙 엔진의 **Urlpath 일치 조건** 에 와일드 카드 문자를 지원 합니다. \*문자는 하나 이상의 문자를 나타내는 별표입니다. 
+현재 표준 규칙 엔진의 **Urlpath 일치 조건** 에 와일드 카드 문자를 지원 합니다. \*문자는 하나 이상의 문자를 나타내는 와일드 카드입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

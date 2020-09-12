@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d642397ef42227e530bd9eff14c3da6078241281
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b678e4de76619ff17703caecfa7a52682e835674
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085874"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462567"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 
@@ -31,7 +31,7 @@ HDInsight는 Azure Storage 및 Azure Data Lake Storage에 대 한 HDFS (Hadoop �
 
 ## <a name="upload-data-to-azure-storage"></a>Azure Storage에 데이터 업로드
 
-### <a name="utilities"></a>공공 시설
+### <a name="utilities"></a>유틸리티
 
 Microsoft는 Azure Storage에서 작업할 다음 유틸리티를 제공합니다.
 
@@ -58,7 +58,7 @@ Hadoop 명령을 사용 하려면 먼저 [SSH 또는 PuTTY](hdinsight-hadoop-lin
 hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-예를 들면 `hadoop fs -copyFromLocal data.txt /example/data/data.txt`과 같습니다.
+예를 들어 `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로/example/data/data.txt 실제로는 Azure Storage에 있습니다. 파일이 다음과 같을 수도 있습니다.
 
@@ -68,7 +68,7 @@ HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로/example/
 
 `wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
-파일에 사용 되는 다른 Hadoop 명령 목록은 다음을 참조 하세요.[https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+파일에 사용 되는 다른 Hadoop 명령 목록은 다음을 참조 하세요. [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > Apache HBase 클러스터에서 데이터 쓰기 시 사용되는 기본 블록 크기는 256KB입니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령을 사용하여 12GB를 초과하는 데이터를 기록하면 오류가 발생합니다. 자세한 내용은 [blob에서 쓰기에 대 한 저장소 예외](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob)를 참조 하세요.
@@ -77,7 +77,7 @@ HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로/example/
 
 Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 몇몇 애플리케이션이 있습니다. 다음 테이블은 이러한 애플리케이션 중 일부의 목록입니다.
 
-| 클라이언트 | Linux | OS X | Windows |
+| Client | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [HDInsight 용 Microsoft Visual Studio Tools](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
@@ -88,7 +88,7 @@ Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 �
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Azure Storage를 로컬 드라이브로 탑재
 
-[Azure Storage를 로컬 드라이브로 탑재](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)를 참조하세요.
+[Azure Storage를 로컬 드라이브로 탑재](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive)를 참조하세요.
 
 ## <a name="upload-using-services"></a>서비스를 사용하여 업로드
 
@@ -98,7 +98,7 @@ Azure Data Factory 서비스는 데이터를 작성 하기 위한 완전히 관�
 
 |스토리지 유형|설명서|
 |----|----|
-|Azure Blob 스토리지|[Azure Data Factory를 사용하여 Azure Blob Storage에(서) 데이터 복사](../data-factory/connector-azure-blob-storage.md)|
+|Azure Blob Storage|[Azure Data Factory를 사용하여 Azure Blob Storage에(서) 데이터 복사](../data-factory/connector-azure-blob-storage.md)|
 |Azure Data Lake Storage Gen1|[Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1 간에 데이터 복사](../data-factory/connector-azure-data-lake-store.md)|
 |Azure Data Lake Storage Gen2 |[Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드](../data-factory/load-azure-data-lake-storage-gen2.md)|
 

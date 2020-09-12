@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 00718e15b069e9be25abdaf0e4460eae20c6afd0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0725a97aecab5d03c2f5e3937c181a95a7b97c2a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998077"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461513"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Azure Open 데이터 집합에서 Azure Machine Learning 데이터 집합 만들기
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Azure Open 데이터 집합은 예측 솔루션을 보강 하 고 정확성을 �
 개방형 데이터 집합은 Microsoft Azure의 클라우드에 있으며 [Azure Machine Learning PYTHON SDK](#create-datasets-with-the-sdk) 및 [Azure Machine Learning studio](#create-datasets-with-the-studio)에 모두 포함 되어 있습니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 다음이 필요 합니다.
 
@@ -111,7 +111,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
     ![데이터 집합 선택](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. 데이터 집합을 등록할 이름을 선택 하 고 필요에 따라 사용 가능한 필터를 사용 하 여 데이터를 필터링 합니다. 이 경우 **공용 휴일** 데이터 집합에 대해 기간을 1 년으로, 국가 코드를 미국 으로만 필터링 합니다. 필드 설명 및 날짜 범위와 같은 데이터 정보는 [Azure Open 데이터 집합 카탈로그](https://azure.microsoft.com/services/op[en-datasets/catalog/) 를 참조 하세요. **만들기**를 선택합니다.
+1. 데이터 집합을 등록할 이름을 선택 하 고 필요에 따라 사용 가능한 필터를 사용 하 여 데이터를 필터링 합니다. 이 경우 **공용 휴일** 데이터 집합에 대해 기간을 1 년으로, 국가 코드를 미국 으로만 필터링 합니다. 필드 설명 및 날짜 범위와 같은 데이터 정보는 [Azure Open 데이터 집합 카탈로그](https://azure.microsoft.com/services/open-datasets/catalog) 를 참조 하세요. **만들기**를 선택합니다.
 
     ![데이터 집합 매개 변수 설정 및 데이터 집합 만들기](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

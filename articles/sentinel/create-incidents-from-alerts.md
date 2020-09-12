@@ -13,18 +13,18 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 1593b96ae8412632120e8977635a4193996ca88d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4c631360417afda41b7f48a46b618e7a4328aef
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025121"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660700"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Microsoft 보안 경고에서 인시던트 자동 생성
 
-Azure Sentinel에 연결된 Microsoft 보안 솔루션(예: Microsoft Cloud App Security 및 Azure Advanced Threat Protection)에서 트리거된 경고는 Azure Sentinel에서 인시던트를 자동으로 만들지 않습니다. 기본적으로 Microsoft 솔루션을 Azure Sentinel에 연결하면, 해당 서비스에서 생성된 경고는 Azure Sentinel의 원시 데이터로, Azure Sentinel 작업 영역의 보안 경고 테이블에 저장됩니다. 그러면 해당 데이터를 Sentinel에 연결하는 다른 모든 원시 데이터와 마찬가지로 사용할 수 있습니다.
+Microsoft Cloud App Security 및 Microsoft Defender for Identity (이전 Azure ATP)와 같이 Azure 센티널에 연결 된 Microsoft 보안 솔루션에서 트리거되는 경고는 Azure 센티널에서 인시던트를 자동으로 만들지 않습니다. 기본적으로 Microsoft 솔루션을 Azure Sentinel에 연결하면, 해당 서비스에서 생성된 경고는 Azure Sentinel의 원시 데이터로, Azure Sentinel 작업 영역의 보안 경고 테이블에 저장됩니다. 그러면 해당 데이터를 Sentinel에 연결하는 다른 모든 원시 데이터와 마찬가지로 사용할 수 있습니다.
 
 이 문서의 지침에 따라, 연결된 Microsoft 보안 솔루션에서 경고가 트리거될 때마다 인시던트가 자동으로 생성되도록 Azure Sentinel을 쉽게 구성할 수 있습니다.
 
@@ -33,7 +33,7 @@ Azure Sentinel에 연결된 Microsoft 보안 솔루션(예: Microsoft Cloud App 
 
 ## <a name="using-microsoft-security-incident-creation-analytic-rules"></a>Microsoft 보안 인시던트 생성 분석 규칙 사용
 
-Azure Sentinel에 기본 제공되는 규칙을 사용하여 Azure Sentinel 인시던트를 실시간으로 자동 생성할 연결된 Microsoft 보안 솔루션을 선택합니다. Microsoft 보안 솔루션에 의해 생성된 경고 중 Azure Sentinel에서 인시던트를 생성할 경고를 필터링하는 옵션을 보다 구체적으로 정의하기 위해 규칙을 편집할 수도 있습니다. 예를 들어 심각도가 높은 Azure Security Center 경고에서만 Azure Sentinel 인시던트가 자동으로 생성되도록 선택할 수 있습니다.
+Azure Sentinel에 기본 제공되는 규칙을 사용하여 Azure Sentinel 인시던트를 실시간으로 자동 생성할 연결된 Microsoft 보안 솔루션을 선택합니다. Microsoft 보안 솔루션에 의해 생성된 경고 중 Azure Sentinel에서 인시던트를 생성할 경고를 필터링하는 옵션을 보다 구체적으로 정의하기 위해 규칙을 편집할 수도 있습니다. 예를 들어 심각도가 높은 Azure Defender (이전의 Azure Security Center) 경고 에서만 Azure 센티널 인시던트를 자동으로 만들도록 선택할 수 있습니다.
 
 1. Azure Sentinel 아래의 Azure Portal에서 **Analytics**를 선택합니다.
 
@@ -47,7 +47,7 @@ Azure Sentinel에 기본 제공되는 규칙을 사용하여 Azure Sentinel 인�
 
 1. 규칙 세부 정보를 수정하고 경고 이름에 포함된 텍스트 또는 경고 심각도별로 인시던트를 생성하는 경고를 필터링하도록 선택할 수 있습니다.  
       
-    예를 들어 **Microsoft 보안 서비스** 필드에서 **Azure Security Center**를 선택하고 **심각도 기준 필터링** 필드에서 **높음**를 선택하면 심각도가 높은 Azure Security Center 경고만 Azure Sentinel에서 자동으로 인시던트를 생성합니다.  
+    예를 들어 **Microsoft Security service** 필드에서 **Azure defender** (계속 Azure Security Center 호출 될 수 있음)를 선택 하 고 **심각도 별 필터** 필드에서 **높음** 을 선택 하는 경우 심각도가 높은 azure defender 경고만 azure 센티널에서 인시던트를 자동으로 만듭니다.  
 
     ![규칙 만들기 마법사](media/incidents-from-alerts/create-rule-wizard.png)
 

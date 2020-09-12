@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: 비대칭 라우팅'
 description: 이 문서에서는 대상에 여러 개의 링크가 있는 네트워크에서 비대칭 라우팅을 사용하여 발생할 수 있는 문제를 살펴봅니다.
 services: expressroute
-author: osamazia
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: osamam
-ms.openlocfilehash: 8adfcc6559e3e2d48aabd3cfeec4fe20541917c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: ee96abb51e03fb1dc567b66d180cb520de299d95
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74072152"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566537"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>여러 네트워크 경로를 포함한 비대칭 라우팅
 이 문서에서는 네트워크 원본과 대상 간에 여러 경로를 사용할 수 있을 때 전달 및 반환 네트워크 트래픽에서 다른 경로를 사용하는 방법을 설명합니다.
@@ -64,5 +64,5 @@ Express 경로 및 인터넷에 대해 동일한 NAT (네트워크 주소 변환
 ![원본 기반 NAT 네트워크 구성](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="asymmetric-routing-detection"></a>비대칭 라우팅 감지
-경로 추적은 네트워크 트래픽이 예상된 경로를 탐색하도록 하는 가장 좋은 방법입니다. 온-프레미스 SMTP 서버에서 Microsoft로 전달되는 트래픽이 인터넷 경로를 사용해야 하는 경우 예상된 경로 추적은 SMTP 서버에서 Office 365로 이동합니다. 결과를 통해 트래픽이 네트워크를 ExpressRoute가 아닌 인터넷에 남겨두는지 유효성을 검사합니다.
+경로 추적은 네트워크 트래픽이 예상된 경로를 탐색하도록 하는 가장 좋은 방법입니다. 온-프레미스 SMTP 서버에서 Microsoft로 인터넷 경로를 사용 하는 트래픽이 예상 되는 경우 경로 추적는 SMTP 서버에서 Microsoft 365으로 예상 됩니다. 결과를 통해 트래픽이 네트워크를 ExpressRoute가 아닌 인터넷에 남겨두는지 유효성을 검사합니다.
 

@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 54eb9b1b28de562395b4926c599bc5cb157fc63b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c49f751bae048d2faf7047e538eebcac5d818b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708844"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658729"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Azure SQL Managed Instance 풀 (미리 보기) 이란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,6 +79,7 @@ Azure SQL Managed Instance의 인스턴스 풀은 더 작은 SQL Server 인스�
 - 인스턴스 수준 제한 외에도 *인스턴스 풀 수준에*적용 되는 두 가지 제한이 있습니다.
   - 풀 당 총 저장소 크기 (8TB)
   - 풀 당 총 데이터베이스 수 (100)입니다.
+- 인스턴스 풀 내에 배포 된 인스턴스에 대해 AAD 관리자를 설정할 수 없으므로 AAD 인증을 사용할 수 없습니다.
 
 모든 인스턴스의 전체 저장소 할당과 데이터베이스 수는 인스턴스 풀에 의해 노출 되는 한도 보다 낮거나 같아야 합니다.
 

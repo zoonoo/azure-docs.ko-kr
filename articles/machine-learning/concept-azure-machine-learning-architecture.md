@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c3abd6a57eac851a5440ecdef6185cb310305434
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c24e9f58154b1523496a82761a8c48ba06dea46c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146779"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651253"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -110,7 +110,7 @@ Azure Machine Learning은 모든 실행을 기록하고 실험에 다음 정보�
 
 ### <a name="estimators"></a>예측 도구
 
-인기 있는 프레임워크를 사용하여 모델 학습을 용이하게 하기 위해 예측 도구 클래스를 사용하여 실행 구성을 쉽게 만들 수 있습니다. 제네릭 [예측 도구](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)를 만들어서 사용하면 원하는 학습 프레임워크(예: scikit)를 사용하는 학습 스크립트를 제출할 수 있습니다.
+인기 있는 프레임워크를 사용하여 모델 학습을 용이하게 하기 위해 예측 도구 클래스를 사용하여 실행 구성을 쉽게 만들 수 있습니다. 제네릭 [예측 도구](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true)를 만들어서 사용하면 원하는 학습 프레임워크(예: scikit)를 사용하는 학습 스크립트를 제출할 수 있습니다.
 
 추정에 대 한 자세한 내용은 [추정를 사용 하 여 ML 모델 학습](how-to-train-ml-models.md)을 참조 하세요.
 
@@ -123,7 +123,9 @@ Azure Machine Learning은 모든 실행을 기록하고 실험에 다음 정보�
 
 ### <a name="logging"></a>로깅
 
-솔루션을 개발할 때 Python 스크립트에서 Azure Machine Learning Python SDK를 사용하여 임의 메트릭을 기록합니다. 실행 후에 메트릭을 쿼리하여 실행에서 배포하려는 모델을 생성했는지 여부를 확인합니다.
+Azure Machine Learning 표준 실행 메트릭을 자동으로 기록 합니다. 그러나 [PYTHON SDK를 사용 하 여 임의의 메트릭을 기록할](how-to-track-experiments.md)수도 있습니다.
+
+로그를 볼 수 있는 여러 가지 방법이 있습니다. 실행 상태를 실시간으로 모니터링 하거나 완료 후 결과를 볼 수 있습니다. 자세한 내용은 [ML 실행 로그 모니터링 및 보기](how-to-monitor-view-training-logs.md)를 참조 하세요.
 
 
 > [!NOTE]
@@ -189,6 +191,17 @@ Application Insights 원격 분석 또는 모델 원격 분석을 사용 하도�
 
 모델을 웹 서비스로 배포하는 예제는 [Azure Container Instance에 이미지 분류 모델 배포](tutorial-deploy-models-with-aml.md)를 참조하세요.
 
+#### <a name="real-time-endpoints"></a>실시간 엔드포인트
+
+디자이너 (미리 보기)에 학습 된 모델을 배포할 때 [모델을 실시간 끝점으로 배포할](tutorial-designer-automobile-price-deploy.md)수 있습니다. 실시간 끝점은 일반적으로 REST 끝점을 통해 단일 요청을 받아 실시간으로 예측을 반환 합니다. 이는 여러 값을 한 번에 처리 하 고 완료 된 후 데이터 저장소에 결과를 저장 하는 일괄 처리와는 대조적입니다.
+
+#### <a name="pipeline-endpoints"></a>파이프라인 엔드포인트
+
+파이프라인 끝점을 사용 하면 REST 끝점을 통해 프로그래밍 방식으로 [ML 파이프라인](#ml-pipelines) 을 호출할 수 있습니다. 파이프라인 끝점을 사용 하 여 파이프라인 워크플로를 자동화할 수 있습니다.
+
+파이프라인 끝점은 게시 된 파이프라인의 컬렉션입니다. 이 논리적 조직에서는 동일한 끝점을 사용 하 여 여러 파이프라인을 관리 하 고 호출할 수 있습니다. 파이프라인 끝점에서 게시 된 각 파이프라인의 버전이 지정 됩니다. 끝점에 대 한 기본 파이프라인을 선택 하거나 REST 호출에서 버전을 지정할 수 있습니다.
+ 
+
 #### <a name="iot-module-endpoints"></a>IoT 모듈 엔드포인트
 
 배포된 IoT 모듈 엔드포인트는 모델 및 연결된 스크립트나 애플리케이션과 모든 추가 종속성을 포함하는 Docker 컨테이너입니다. Edge 디바이스에서 Azure IoT Edge를 사용하여 이러한 모듈을 배포합니다.
@@ -212,12 +225,13 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 ### <a name="studio"></a>스튜디오
 
-[Azure Machine Learning studio](https://ml.azure.com) 에서는 작업 영역에 있는 모든 아티팩트의 웹 보기를 제공 합니다.  데이터 집합, 실험, 파이프라인, 모델 및 끝점의 결과 및 세부 정보를 볼 수 있습니다.  또한 스튜디오에서 계산 리소스 및 데이터 저장소를 관리할 수 있습니다.
+[Azure Machine Learning studio](overview-what-is-machine-learning-studio.md) 에서는 작업 영역에 있는 모든 아티팩트의 웹 보기를 제공 합니다.  데이터 집합, 실험, 파이프라인, 모델 및 끝점의 결과 및 세부 정보를 볼 수 있습니다.  또한 스튜디오에서 계산 리소스 및 데이터 저장소를 관리할 수 있습니다.
 
 또한 스튜디오는 Azure Machine Learning의 일부인 대화형 도구에 액세스할 수 있습니다.
 
 + 코드를 작성 하지 않고 워크플로 단계를 수행 하 [Azure Machine Learning 디자이너 (미리 보기)](concept-designer.md)
 + [자동화 된 기계 학습](concept-automated-ml.md) 을 위한 웹 환경
++ 통합 Jupyter 노트북 서버에서 사용자 고유의 코드를 작성 하 고 실행 하는 [노트북을 Azure Machine Learning](how-to-run-jupyter-notebooks.md) 합니다.
 + 프로젝트를 만들고, 관리 하 고, 모니터링 하 여 데이터에 레이블을 지정 하는 [데이터 레이블 지정 프로젝트](how-to-create-labeling-projects.md)
 
 ### <a name="programming-tools"></a>프로그래밍 도구
@@ -226,7 +240,7 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 > 아래 표시 된 (미리 보기) 도구는 현재 공개 미리 보기로 제공 됩니다.
 > 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-+  [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용하여 Python 환경에서 서비스와 상호 작용합니다.
++  [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용하여 Python 환경에서 서비스와 상호 작용합니다.
 + R (미리 보기) [에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) 를 사용 하 여 모든 r 환경에서 서비스와 상호 작용 합니다.
 + 자동화에 [AZURE MACHINE LEARNING CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) 를 사용 합니다.
 + [많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기반으로 하며 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.

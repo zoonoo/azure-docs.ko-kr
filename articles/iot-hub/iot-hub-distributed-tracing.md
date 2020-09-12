@@ -11,12 +11,14 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- fasttrack-edit
+- iot
+ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732569"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462040"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -33,12 +35,12 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 이 문서에서는 분산 추적과 함께 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)를 사용합니다. 다른 SDK의 경우 분산 추적 지원이 아직 진행 중입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - 분산 추적의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
 
   - **북유럽**
-  - **동남아시아**
+  - **동남 아시아**
   - **미국 서부 2**
 
 - 이 문서에서는 사용자가 IoT Hub로 원격 분석 메시지를 전송하는 방법을 잘 알고 있다고 가정합니다. [원격 분석 전송 C 빠른 시작](quickstart-send-telemetry-c.md)을 완료해야 합니다.
@@ -272,9 +274,9 @@ Log Analytics에 표시된 예제 로그:
 
 | TimeGenerated | OperationName | Category | Level | CorrelationId | DurationMs | 속성 |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
-| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
-| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
+| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
 다양한 유형의 로그를 이해하려면 [Azure IoT Hub 진단 로그](iot-hub-monitor-resource-health.md#distributed-tracing-preview)를 참조하세요.
 
@@ -307,10 +309,10 @@ IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 
 
 1. 메시지가 IoT 디바이스에서 생성됩니다.
 1. IoT 디바이스가 클라우드의 지원을 받아, 이 메시지에 추적 컨텍스트를 할당해야 하는지 결정합니다.
-1. SDK가 메시지 애플리케이션 속성에 메시지 생성 타임스탬프를 포함하는 `tracestate`를 추가합니다.
+1. SDK는 메시지를 `tracestate` 만든 타임 스탬프를 포함 하는 메시지 속성에를 추가 합니다.
 1. IoT 디바이스는 IoT Hub에 메시지를 보냅니다.
 1. 메시지가 IoT Hub 게이트웨이에 도착합니다.
-1. IoT Hub가 메시지 애플리케이션 속성에서 `tracestate`를 찾고 올바른 형식인지 확인합니다.
+1. IoT Hub는 `tracestate` 메시지 속성에서를 찾고 올바른 형식 인지 확인 합니다.
 1. 이 경우 IoT Hub는 메시지에 대해 전역적으로 고유한를 생성 하 `trace-id` `span-id` 고, "홉"에 대해를 생성 하 고, 작업에서 진단 로그를 Azure Monitor 하도록 기록 합니다 `DiagnosticIoTHubD2C` .
 1. 메시지 처리가 완료 되 면 IoT Hub 다른 작업을 생성 `span-id` 하 고 해당 작업 아래에 있는 기존과 함께 로그를 기록 합니다 `trace-id` `DiagnosticIoTHubIngress` .
 1. 메시지에 대해 라우팅을 사용하도록 설정하면, IoT Hub는 사용자 지정 엔드포인트에 쓰고, `DiagnosticIoTHubEgress` 범주 아래에 동일한 `trace-id`를 사용하여 다른 `span-id`를 기록합니다.

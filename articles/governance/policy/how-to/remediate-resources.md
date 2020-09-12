@@ -3,12 +3,12 @@ title: 규정 비준수 리소스 수정
 description: 이 지침에서는 Azure Policy에서 정책을 준수하지 않는 리소스를 수정하는 과정을 안내합니다.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 1274b049d7ce19601968697b22da38f0eb2cb5ff
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 52d8ef6dd66c52edd574b2ccfa51da16623a1afb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958748"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651361"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
@@ -19,7 +19,7 @@ ms.locfileid: "88958748"
 Azure Policy는 **deployIfNotExists** 정책 정의의 템플릿을 실행할 때 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md)를 사용합니다.
 Azure Policy는 각 할당용 관리 ID를 만듭니다. 단, 관리 ID를 부여할 역할 관련 세부 정보가 있어야 합니다. 관리 ID에서 역할이 누락된 경우 정책 또는 이니셔티브 할당 중에 이 오류가 표시됩니다. 포털 사용 시 Azure Policy는 할당이 시작되면 나열된 역할을 관리 ID에 자동으로 부여합니다. 관리 id의 _위치_ 는 Azure Policy 작업에 영향을 주지 않습니다.
 
-:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="관리 ID - 역할 누락" border="false":::
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="관리 id에 대해 정의 된 사용 권한이 없는 deployIfNotExists 정책의 스크린샷" border="false":::
 
 > [!IMPORTANT]
 > **deployIfNotExists** 또는 **수정**으로 수정된 리소스가 정책 할당의 범위를 벗어나거나, 템플릿이 정책 할당 범위를 벗어난 리소스의 속성에 액세스하는 경우에는 할당의 관리 ID에 [액세스 권한을 수동으로 부여](#manually-configure-the-managed-identity)해야 합니다. 이렇게 하지 않으면 수정 배포는 실패합니다.
@@ -90,15 +90,15 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="grant-defined-roles-through-portal"></a>포털을 통해 정의된 역할 부여
 
-포털을 사용하여 할당의 관리 ID에 정의된 역할을 부여하는 방법에는 두 가지가 있습니다. 그중 하나는 **액세스 제어(IAM)** 를 사용하는 것이고, 다른 하나는 정책 또는 이니셔티브 할당을 편집한 후에 **저장**을 클릭하는 것입니다.
+**액세스 제어 (IAM)** 를 사용 하거나 정책 또는 이니셔티브 할당을 편집 하 고 **저장**을 선택 하 여 할당 된 역할에 정의 된 역할을 부여 하는 두 가지 방법이 있습니다.
 
 할당의 관리 ID에 역할을 추가하려면 다음 단계를 수행합니다.
 
-1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
+1. **모든 서비스**를 선택한 다음, **정책을**검색 하 고 선택 하 여 Azure Portal에서 Azure Policy 서비스를 시작 합니다.
 
 1. Azure Policy 페이지의 왼쪽에서 **할당**을 선택합니다.
 
-1. 관리 ID가 있는 할당을 찾아서 해당 이름을 클릭합니다.
+1. 관리 id가 있는 할당을 찾아 이름을 선택 합니다.
 
 1. 편집 페이지에서 **할당 ID** 속성을 찾습니다. 할당 ID는 다음과 같이 표시됩니다.
 
@@ -110,10 +110,10 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. 역할 정의를 수동으로 추가해야 하는 리소스 또는 리소스 상위 컨테이너(리소스 그룹, 구독, 관리 그룹)로 이동합니다.
 
-1. 리소스 페이지에서 **액세스 제어(IAM)** 링크를 클릭한 다음 액세스 제어 페이지 위쪽의 **+ 역할 할당 추가**를 클릭합니다.
+1. 리소스 페이지에서 **access control (IAM)** 링크를 선택한 다음, 액세스 제어 페이지의 맨 위에 있는 **+ 역할 할당 추가** 를 선택 합니다.
 
 1. 정책 정의에서 **roleDefinitionIds**와 일치하는 적절한 역할을 선택합니다.
-   **다음에 대한 액세스 할당:** 은 기본값인 ‘Azure AD 사용자, 그룹 또는 애플리케이션’으로 설정해 둡니다. **선택** 상자에 앞에서 찾은 할당 리소스 ID 부분을 붙여넣거나 입력합니다. 검색이 완료되면 이름이 같은 개체를 클릭하여 ID를 선택하고 **저장**을 클릭합니다.
+   **다음에 대한 액세스 할당:** 은 기본값인 ‘Azure AD 사용자, 그룹 또는 애플리케이션’으로 설정해 둡니다. **선택** 상자에 앞에서 찾은 할당 리소스 ID 부분을 붙여넣거나 입력합니다. 검색이 완료 되 면 같은 이름의 개체를 선택 하 여 ID를 선택 하 고 **저장**을 선택 합니다.
 
 ## <a name="create-a-remediation-task"></a>수정 작업 만들기
 
@@ -123,32 +123,32 @@ if ($roleDefinitionIds.Count -gt 0)
 
 **수정 작업**을 만들려면 다음 작업을 수행합니다.
 
-1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
+1. **모든 서비스**를 선택한 다음, **정책을**검색 하 고 선택 하 여 Azure Portal에서 Azure Policy 서비스를 시작 합니다.
 
-   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="모든 서비스에서 정책 검색" border="false":::
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="모든 서비스에서 정책 검색의 스크린샷" border="false":::
 
 1. Azure Policy 페이지의 왼쪽에서 **수정**을 선택합니다.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Policy 페이지의 수정 선택" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="정책 페이지의 재구성 노드 스크린샷" border="false":::
 
-1. 비준수 리소스가 있는 모든 **deployIfNotExists** 및 **수정** 정책 할당이 **수정할 정책** 탭과 데이터 테이블에 포함됩니다. 비준수 리소스가 있는 정책을 클릭합니다. **새 수정 작업** 페이지가 열립니다.
+1. 비준수 리소스가 있는 모든 **deployIfNotExists** 및 **수정** 정책 할당이 **수정할 정책** 탭과 데이터 테이블에 포함됩니다. 비규격 리소스가 있는 정책에서을 선택 합니다. **새 수정 작업** 페이지가 열립니다.
 
    > [!NOTE]
-   > **규정 준수** 페이지에서 정책을 찾아서 클릭한 다음 **수정 작업 만들기** 단추를 클릭하여 **수정 작업** 페이지를 열 수도 있습니다.
+   > **업데이트 관리 작업** 페이지를 여는 다른 방법은 **준수** 페이지에서 정책을 찾아 선택한 다음 **재구성 작업 만들기** 단추를 선택 하는 것입니다.
 
 1. **새 수정 작업** 페이지에서 **범위** 줄임표를 사용해 수정할 리소스를 필터링하여 정책이 할당된 하위 리소스를 선택합니다. 개별 리소스 개체까지 포함하여 선택해야 합니다. 또한 **위치** 드롭다운을 사용하여 리소스를 추가로 필터링합니다. 테이블에 나열된 리소스만 수정됩니다.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="수정 - 수정할 리소스 선택" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="재구성 노드 및 수정할 리소스의 그리드 스크린샷" border="false":::
 
-1. 리소스를 필터링한 후에 **수정**을 클릭하여 수정 작업을 시작합니다. 정책 준수 페이지에서 **수정 작업** 탭이 열리고 작업 진행 상태가 표시됩니다. 수정 작업으로 만든 배포가 바로 시작됩니다.
+1. **재구성**을 선택 하 여 리소스를 필터링 한 후에 수정 작업을 시작 합니다. 정책 준수 페이지에서 **수정 작업** 탭이 열리고 작업 진행 상태가 표시됩니다. 수정 작업으로 만든 배포가 바로 시작됩니다.
 
-   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="수정 - 수정 작업의 진행 상황" border="false":::
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="수정 작업 탭의 스크린샷 및 기존 수정 작업의 진행률입니다." border="false":::
 
-1. 정책 준수 페이지에서 **수정 작업**을 클릭하여 진행 상황 관련 세부 정보를 확인합니다. 작업에 사용된 필터링과 수정 중인 리소스 목록이 표시됩니다.
+1. 정책 준수 페이지에서 **수정 작업** 을 선택 하 여 진행률에 대 한 세부 정보를 가져옵니다. 작업에 사용된 필터링과 수정 중인 리소스 목록이 표시됩니다.
 
-1. **수정 작업** 페이지에서 리소스를 마우스 오른쪽 단추로 클릭하여 수정 작업의 배포 또는 리소스를 확인합니다. 행 끝부분의 **관련 이벤트**를 클릭하여 오류 메시지와 같은 세부 정보를 확인합니다.
+1. **수정** 작업 페이지에서 리소스를 마우스 오른쪽 단추로 클릭 하 여 수정 작업의 배포 또는 리소스를 볼 수 있습니다. 행의 끝에서 **관련 이벤트** 를 선택 하 여 오류 메시지와 같은 세부 정보를 확인 합니다.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="수정 - 리소스 작업 상황에 맞는 메뉴" border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="작업 재구성 탭에서 리소스에 대 한 상황에 맞는 메뉴의 스크린샷" border="false":::
 
 **수정 작업**을 통해 배포한 리소스는 정책 준수 페이지의 **배포된 리소스** 탭에 추가됩니다.
 

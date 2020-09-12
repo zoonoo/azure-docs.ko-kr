@@ -1,24 +1,21 @@
 ---
 title: 전용 끝점을 사용 하 여 온-프레미스 컴퓨터에 대 한 복제 사용
 description: 이 문서에서는 Site Recovery에서 개인 끝점을 사용 하 여 온-프레미스 컴퓨터에 대 한 복제를 구성 하는 방법을 설명 합니다.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 13c19f07ac21f986a5523407e46c59c050ebf96d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142080"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658792"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>개인 끝점을 사용 하 여 온-프레미스 컴퓨터 복제
 
-Azure Site Recovery를 사용 하면 azure [개인 링크](../private-link/private-endpoint-overview.md) 개인 끝점을 사용 하 여 온-프레미스 컴퓨터를 azure의 가상 네트워크에 복제할 수 있습니다. 복구 자격 증명 모음에 대 한 개인 끝점 액세스 지원은 다음 지역에서 지원 됩니다.
-
-- Azure 상용: 미국 동부, 미국 서 부 2, 미국 동부
-- Azure Government: US Gov 버지니아, US Gov 애리조나, US Gov 텍사스, US DoD 동부, US DoD 중부
+Azure Site Recovery를 사용 하면 azure [개인 링크](../private-link/private-endpoint-overview.md) 개인 끝점을 사용 하 여 온-프레미스 컴퓨터를 azure의 가상 네트워크에 복제할 수 있습니다. 복구 자격 증명 모음에 대 한 개인 끝점 액세스는 모든 Azure 상용 & 정부 지역에서 지원 됩니다.
 
 이 항목에서는 다음 단계를 수행하는 방법에 대해 설명합니다.
 
@@ -210,7 +207,7 @@ Site Recovery 공급자 (Hyper-v 컴퓨터의 경우) 또는 프로세스 서버
 
    1. **레코드 집합 추가** 페이지에서 각 정규화 **된** 도메인 이름 및 개인 IP에 대 한 항목을 유형 레코드로 추가 합니다. **개요**의 **개인 끝점** 페이지에서 정규화 된 도메인 이름 및 ip의 목록을 가져올 수 있습니다. 다음 스크린샷에서 볼 수 있듯이 개인 끝점의 정규화 된 첫 번째 도메인 이름이 개인 DNS 영역의 레코드 집합에 추가 됩니다.
 
-      이러한 정규화 된 도메인 이름은이 패턴과 일치 합니다.`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      이러한 정규화 된 도메인 이름은이 패턴과 일치 합니다. `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="레코드 집합 추가 페이지를 보여 주는 스크린샷":::
 

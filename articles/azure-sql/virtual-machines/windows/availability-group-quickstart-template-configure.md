@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1359acfb768f7ac2fa3527afd041595d313249d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d1dedfcd4a93446b615d84e86666059fd210c18
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669242"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485756"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Azure 빠른 시작 템플릿을 사용하여 Azure VM에서 SQL Server에 대한 가용성 그룹 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -49,7 +49,7 @@ Azure 빠른 시작 템플릿을 사용하여 Always On 가용성 그룹을 구�
 - SQL Server를 제어하는 도메인 사용자 계정입니다. 
 
 
-## <a name="step-1-create-the-failover-cluster-and-join-sql-server-vms-to-the-cluster-by-using-a-quickstart-template"></a>1단계: 빠른 시작 템플릿을 사용하여 장애 조치(failover) 클러스터 만들기 및 클러스터에 SQL Server VM에 연결 
+## <a name="create-cluster"></a>클러스터 만들기
 SQL Server VM이 SQL VM 리소스 공급자에 등록된 후 SQL Server VM을 *SqlVirtualMachineGroups*에 연결할 수 있습니다. 이 리소스는 Windows 장애 조치(failover) 클러스터의 메타데이터를 정의합니다. 메타데이터에는 버전, 에디션, 정규화된 도메인 이름, 클러스터와 SQL Server를 관리하는 Active Directory 계정 및 스토리지 계정(클라우드 감시)이 포함됩니다. 
 
 *SqlVirtualMachineGroups* 리소스 그룹에 SQL Server VM을 추가하면 Windows 장애 조치(failover) 클러스터 서비스가 클러스터를 만들도록 부트스트랩된 다음, 해당 SQL Server VM이 클러스터에 연결됩니다. 이 단계는 **101-sql-vm-ag-setup** 빠른 시작 템플릿을 사용하여 자동화됩니다. 다음 단계를 사용하여 구현할 수 있습니다.
@@ -83,13 +83,25 @@ SQL Server VM이 SQL VM 리소스 공급자에 등록된 후 SQL Server VM을 *S
 > 템플릿 배포 중에 제공한 자격 증명은 배포 기간에만 저장됩니다. 배포가 완료되면 해당 암호가 제거됩니다. 클러스터에 SQL Server VM을 더 추가하는 경우 다시 입력하라는 메시지가 표시됩니다. 
 
 
-## <a name="step-2-manually-create-the-availability-group"></a>2단계: 수동으로 가용성 그룹 만들기 
+
+## <a name="validate-cluster"></a>클러스터 유효성 검사 
+
+Microsoft에서 장애 조치 (failover) 클러스터를 지원 하려면 클러스터 유효성 검사를 통과 해야 합니다. 원격 데스크톱 프로토콜 (RDP)와 같은 선호 하는 방법을 사용 하 여 VM에 연결 하 고 클러스터에서 유효성 검사를 통과 했는지 확인 한 다음 계속 진행 합니다. 이렇게 하지 않으면 클러스터가 지원 되지 않는 상태가 됩니다. 
+
+장애 조치(Failover) 클러스터 관리자 (FCM)를 사용 하거나 다음 PowerShell 명령을 사용 하 여 클러스터의 유효성을 검사할 수 있습니다.
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
+
+
+## <a name="create-availability-group"></a>가용성 그룹 만들기 
 [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) 또는 [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql)을 사용하여 일반적인 방법으로 가용성 그룹을 수동으로 만듭니다. 
 
 >[!IMPORTANT]
 > 지금 수신기를 만들지 *마세요*. 이 작업은 4단계의 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 통해 자동으로 수행됩니다. 
 
-## <a name="step-3-manually-create-the-internal-load-balancer"></a>3단계: 수동으로 내부 Load Balancer 만들기
+## <a name="create-load-balancer"></a>부하 분산 장치 만들기
 Always On 가용성 그룹 수신기를 사용하려면 Azure Load Balancer의 내부 인스턴스가 필요합니다. 내부 부하 분산 장치는 더 빠른 장애 조치(failover) 및 다시 연결을 허용하는 가용성 그룹 수신기에 대한 "부동" IP 주소를 제공합니다. 가용성 그룹의 SQL Server VM이 동일한 가용성 집합의 일부인 경우 기본 부하 분산 장치를 사용할 수 있습니다. 그렇지 않으면 표준 부하 분산 장치를 사용해야 합니다. 
 
 > [!IMPORTANT]
@@ -122,7 +134,7 @@ Always On 가용성 그룹 수신기를 사용하려면 Azure Load Balancer의 �
 >[!IMPORTANT]
 > 각 SQL Server VM에 대한 공용 IP 리소스에 표준 Load Balancer와 호환되는 표준 SKU가 있어야 합니다. VM 공용 IP 리소스의 SKU를 확인하려면 **리소스 그룹**으로 이동하여 SQL Server VM에 대한 **공용 IP 주소** 리소스를 선택하고 **개요** 창의 **SKU** 아래에서 값을 찾습니다. 
 
-## <a name="step-4-create-the-availability-group-listener-and-configure-the-internal-load-balancer-by-using-the-quickstart-template"></a>4단계: 가용성 그룹 수신기를 만들고 빠른 시작 템플릿을 사용하여 내부 부하 분산 장치 구성
+## <a name="create-listener"></a>수신기 만들기 
 
 가용성 그룹 수신기를 만들고 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 사용하여 내부 부하 분산 장치를 자동으로 구성합니다. 템플릿은 Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/AvailabilityGroupListener 리소스를 프로비저닝합니다. SQL VM 리소스 공급자를 통해 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿은 다음 작업을 수행합니다.
 
@@ -159,9 +171,9 @@ Always On 가용성 그룹 수신기를 사용하려면 Azure Load Balancer의 �
 1. 배포를 모니터링하려면 위쪽 탐색 배너의 **알림** 종 모양 아이콘에서 배포를 선택하거나 Azure Portal의 **리소스 그룹**으로 이동합니다. **설정**에서 **배포**를 선택하고 **Microsoft.Template** 배포를 선택합니다. 
 
 >[!NOTE]
->배포에 실패하는 경우 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 다시 배포하기 전에 PowerShell을 사용하여 [새로 만든 수신기를 수동으로 제거](#remove-the-availability-group-listener)해야 합니다. 
+>배포에 실패하는 경우 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 다시 배포하기 전에 PowerShell을 사용하여 [새로 만든 수신기를 수동으로 제거](#remove-listener)해야 합니다. 
 
-## <a name="remove-the-availability-group-listener"></a>가용성 그룹 수신기 제거
+## <a name="remove-listener"></a>수신기 제거
 템플릿을 통해 구성된 가용성 그룹 수신기를 나중에 제거해야 하는 경우 SQL VM 리소스 공급자를 이용해야 합니다. 수신기가 SQL VM 리소스 공급자를 통해 등록되었으므로 SQL Server Management Studio를 통해 수신기를 삭제하는 것만으로는 충분하지 않습니다. 
 
 가장 좋은 방법은 PowerShell에서 다음 코드 조각을 사용하여 SQL VM 리소스 공급자를 통해 삭제하는 것입니다. 이렇게 하면 SQL VM 리소스 공급자에서 가용성 그룹 수신기 메타데이터가 제거됩니다. 또한 가용성 그룹에서 수신기를 물리적으로 삭제합니다. 
@@ -175,19 +187,15 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 ## <a name="common-errors"></a>일반 오류
 이 섹션에서는 몇 가지 알려진 문제와 가능한 해결 방법을 설명합니다. 
 
-### <a name="availability-group-listener-for-availability-group-ag-name-already-exists"></a>가용성 그룹 '\<AG-Name>'의 가용성 그룹 수신기가 이미 있음
-가용성 그룹 수신기에 대한 Azure 빠른 시작 템플릿에 사용된 선택한 가용성 그룹에 이미 수신기가 포함되어 있습니다. 실제로 가용성 그룹 내에 있거나 해당 메타데이터가 SQL VM 리소스 공급자 내에 유지됩니다. **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 다시 배포하기 전에 [PowerShell](#remove-the-availability-group-listener)을 사용하여 수신기를 제거합니다. 
+가용성 그룹 **' '에 대 한 가용성 그룹 수신기 \<AG-Name> 가 이미 존재** 합니다. 가용성 그룹 수신기에 대 한 Azure 빠른 시작 템플릿에 사용 된 선택한 가용성 그룹에 이미 수신기가 포함 되어 있습니다. 실제로 가용성 그룹 내에 있거나 해당 메타데이터가 SQL VM 리소스 공급자 내에 유지됩니다. **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 다시 배포하기 전에 [PowerShell](#remove-listener)을 사용하여 수신기를 제거합니다. 
 
-### <a name="connection-only-works-from-primary-replica"></a>연결이 주 복제본에서만 작동함
-이 동작은 내부 부하 분산 장치의 구성이 일관되지 않은 상태로 유지된 실패한 **101-sql-vm-aglistener-setup** 템플릿 배포로 인한 것일 수 있습니다. 백 엔드 풀에 가용성 집합이 나열되는지, 상태 프로브 및 부하 분산 규칙에 대한 규칙이 있는지 확인합니다. 누락된 항목이 있으면 내부 부하 분산 장치의 구성이 일관되지 않은 상태입니다. 
+**연결은 주 복제본 에서만 작동** 합니다. 이 동작은 내부 부하 분산 장치의 구성을 일관 되지 않은 상태로 유지 하는 실패 한 **101-v m-v m** i-i-i-i-i-i-i-i-a 수신기-설치 템플릿 배포에서 백 엔드 풀에 가용성 집합이 나열되는지, 상태 프로브 및 부하 분산 규칙에 대한 규칙이 있는지 확인합니다. 누락된 항목이 있으면 내부 부하 분산 장치의 구성이 일관되지 않은 상태입니다. 
 
-이 동작을 해결하려면 [PowerShell](#remove-the-availability-group-listener)을 사용하여 수신기를 제거하고 Azure Portal을 통해 내부 Load Balancer를 삭제한 다음, 3단계에서 다시 시작합니다. 
+이 동작을 해결하려면 [PowerShell](#remove-listener)을 사용하여 수신기를 제거하고 Azure Portal을 통해 내부 Load Balancer를 삭제한 다음, 3단계에서 다시 시작합니다. 
 
-### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>BadRequest - SQL 가상 머신 목록만 업데이트할 수 있습니다.
-이 오류는 수신기가 SSMS(SQL Server Management Studio)를 통해 삭제되었지만 SQL VM 리소스 공급자에서 삭제되지 않은 경우 **101-sql-vm-aglistener-setup** 템플릿을 배포할 때 발생할 수 있습니다. SSMS를 통해 수신기를 삭제해도 SQL VM 리소스 공급자에서 수신기의 메타데이터는 제거되지 않습니다. 수신기는 [PowerShell](#remove-the-availability-group-listener)을 통해 리소스 공급자에서 삭제해야 합니다. 
+**Badrequest-SQL 가상 머신 목록만 업데이트할 수 있습니다** . 이 오류는 SQL Server Management Studio (SSMS)를 통해 수신기를 삭제 했지만 SQL VM 리소스 공급자에서 삭제 하지 않은 경우 **101---v m a m-i-v 수신기-설치** 템플릿을 배포 하는 경우에 발생할 수 있습니다. SSMS를 통해 수신기를 삭제해도 SQL VM 리소스 공급자에서 수신기의 메타데이터는 제거되지 않습니다. 수신기는 [PowerShell](#remove-listener)을 통해 리소스 공급자에서 삭제해야 합니다. 
 
-### <a name="domain-account-does-not-exist"></a>도메인 계정이 없음
-이 오류에는 두 가지 원인이 있을 수 있습니다. 지정된 도메인 계정이 없거나 데이터 [UPN(사용자 계정 이름)](/windows/desktop/ad/naming-properties#userprincipalname)이 없기 때문입니다. **101-sql-vm-ag-setup** 템플릿에는 UPN 형태(즉, user@domain.com)의 도메인 계정이 필요한데, 일부 도메인 계정에서 이 데이터가 누락되었을 수 있습니다. 일반적으로 서버가 도메인 컨트롤러로 승격될 때 로컬 사용자가 첫 번째 도메인 관리자 계정으로 마이그레이션되었거나 사용자가 PowerShell을 통해 생성된 경우에 이러한 상황이 발생합니다. 
+**도메인 계정이** 없습니다. 이 오류에는 두 가지 원인이 있을 수 있습니다. 지정된 도메인 계정이 없거나 데이터 [UPN(사용자 계정 이름)](/windows/desktop/ad/naming-properties#userprincipalname)이 없기 때문입니다. **101-sql-vm-ag-setup** 템플릿에는 UPN 형태(즉, user@domain.com)의 도메인 계정이 필요한데, 일부 도메인 계정에서 이 데이터가 누락되었을 수 있습니다. 일반적으로 서버가 도메인 컨트롤러로 승격될 때 로컬 사용자가 첫 번째 도메인 관리자 계정으로 마이그레이션되었거나 사용자가 PowerShell을 통해 생성된 경우에 이러한 상황이 발생합니다. 
 
 계정이 있는지 확인합니다. 계정이 있는 경우 두 번째 상황일 수 있습니다. 이 문제를 해결하려면 다음을 수행합니다.
 
@@ -202,7 +210,6 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 6. **적용**을 선택하여 변경 내용을 저장한 다음, **확인**을 선택하여 대화 상자를 닫습니다. 
 
 이러한 변경을 수행한 후에는 Azure 빠른 시작 템플릿을 한 번 더 배포해 봅니다. 
-
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -2,13 +2,13 @@
 title: 배포용 링크 템플릿
 description: Azure Resource Manager 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086815"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535561"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -19,7 +19,9 @@ ms.locfileid: "87086815"
 자습서의 경우 [자습서: 연결된 Azure Resource Manager 템플릿 만들기](./deployment-tutorial-linked-template.md)를 참조하세요.
 
 > [!NOTE]
-> 연결된 템플릿 또는 중첩된 템플릿의 경우 [증분](deployment-modes.md) 배포 모드만 사용할 수 있습니다.
+> 연결 된 또는 중첩 된 템플릿의 경우에는 배포 모드만 [증분](deployment-modes.md)로 설정할 수 있습니다. 그러나 주 템플릿은 전체 모드로 배포할 수 있습니다. 주 템플릿을 전체 모드로 배포 하 고 연결 된 템플릿이나 중첩 된 템플릿이 동일한 리소스 그룹을 대상으로 하는 경우 연결 된 또는 중첩 된 템플릿에 배포 된 리소스는 전체 모드 배포에 대 한 평가에 포함 됩니다. 주 템플릿과 연결 된 또는 중첩 된 템플릿에 배포 된 리소스의 결합 된 컬렉션을 리소스 그룹의 기존 리소스와 비교 합니다. 이 결합 된 컬렉션에 포함 되지 않은 모든 리소스는 삭제 됩니다.
+>
+> 연결 된 템플릿이나 중첩 된 템플릿이 다른 리소스 그룹을 대상으로 하는 경우 해당 배포는 증분 모드를 사용 합니다.
 >
 
 ## <a name="nested-template"></a>중첩된 템플릿
@@ -160,7 +162,7 @@ ms.locfileid: "87086815"
 
 의 `exampleVar` 속성 값에 따라의 값이 변경 `scope` `expressionEvaluationOptions` 됩니다. 다음 표에서는 두 범위에 대 한 결과를 보여 줍니다.
 
-| `expressionEvaluationOptions`범위 | 출력 |
+| `expressionEvaluationOptions` 범위 | 출력 |
 | ----- | ------ |
 | inner | 중첩 된 템플릿 |
 | 외부 (또는 기본값) | 부모 템플릿에서 |
@@ -312,14 +314,9 @@ ms.locfileid: "87086815"
 
 > [!NOTE]
 >
-> 예를 들어 다음과 같이 매개 변수를 사용 하 여 **http** 또는 **https**를 사용 하는 것으로 확인 되는 매개 변수를 사용 하 여 템플릿을 참조할 수 있습니다 `_artifactsLocation` .`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+> 예를 들어 다음과 같이 매개 변수를 사용 하 여 **http** 또는 **https**를 사용 하는 것으로 확인 되는 매개 변수를 사용 하 여 템플릿을 참조할 수 있습니다 `_artifactsLocation` . `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 가지 옵션은 연결된 템플릿을 스토리지 계정에 배치하고 해당 항목의 URI를 사용하는 것입니다.
-
-[템플릿 사양](./template-specs.md) (현재 비공개 미리 보기)을 사용 하 여 ARM 템플릿을 조직의 다른 사용자와 공유할 수 있습니다. 템플릿 사양을 사용 하 여 주 템플릿과 연결 된 템플릿을 패키지할 수도 있습니다. 자세한 내용은 다음을 참조하세요.
-
-- [자습서: 연결 된 템플릿으로 템플릿 사양을 만듭니다](./template-specs-create-linked.md).
-- [자습서: 템플릿 사양을 연결 된 템플릿으로 배포](./template-specs-deploy-linked-template.md)합니다.
 
 ### <a name="parameters-for-linked-template"></a>연결 된 템플릿의 매개 변수
 
@@ -369,6 +366,15 @@ Resource Manager에서 템플릿에 액세스할 수 있어야 합니다. 한 �
 ```
 
 인라인 매개 변수와 매개 변수 파일에 대한 링크를 둘 다 사용할 수는 없습니다. `parametersLink` 및 `parameters`를 둘 다 지정하면 오류를 발생하며 배포가 실패합니다.
+
+## <a name="template-specs"></a>템플릿 사양
+
+액세스 가능한 끝점에서 연결 된 템플릿을 유지 관리 하는 대신, 배포할 수 있는 단일 엔터티로 주 템플릿과 연결 된 템플릿을 패키지 하는 [템플릿 사양을](template-specs.md) 만들 수 있습니다. 템플릿 사양은 Azure 구독에 있는 리소스입니다. 이를 통해 조직의 사용자와 쉽게 템플릿을 안전 하 게 공유할 수 있습니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양에 대 한 액세스 권한을 부여 합니다. 이 기능은 현재 미리 보기 상태입니다.
+
+자세한 내용은 다음을 참조하세요.
+
+- [자습서: 연결 된 템플릿으로 템플릿 사양을 만듭니다](./template-specs-create-linked.md).
+- [자습서: 템플릿 사양을 연결 된 템플릿으로 배포](./template-specs-deploy-linked-template.md)합니다.
 
 ## <a name="contentversion"></a>contentVersion
 
@@ -724,6 +730,9 @@ done
 
 현재 [Azure Storage 방화벽](../../storage/common/storage-network-security.md)뒤에 있는 저장소 계정의 템플릿에 연결할 수 없습니다.
 
+> [!IMPORTANT]
+> SAS 토큰을 사용 하 여 연결 된 템플릿을 보호 하는 대신 [템플릿 사양을](template-specs.md)만드는 것이 좋습니다. 템플릿 사양에서는 주 템플릿과 연결 된 템플릿을 Azure 구독에 리소스로 안전 하 게 저장 합니다. RBAC를 사용 하 여 템플릿을 배포 해야 하는 사용자에 게 액세스 권한을 부여 합니다.
+
 다음 예제에서는 템플릿에 연결할 때 SAS 토큰을 전달하는 방법을 보여 줍니다.
 
 ```json
@@ -790,7 +799,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 다음 예제에서는 연결된 템플릿의 일반적인 사용 방법을 보여 줍니다.
 
-|기본 템플릿  |연결된 템플릿 |Description  |
+|기본 템플릿  |연결된 템플릿 |설명  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[연결된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | 연결된 템플릿에서 문자열을 반환합니다. |
 |[공용 IP 주소가 있는 Load Balancer](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[연결된 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |연결된 템플릿에서 공용 IP 주소를 반환하고 부하 분산 장치에서 해당 값을 설정합니다. |

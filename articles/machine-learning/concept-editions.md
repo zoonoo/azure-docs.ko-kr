@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: j-martens
 ms.author: jmartens
 ms.date: 06/11/2020
-ms.openlocfilehash: fbe3f0109ca3af2cf9ff44061c7882e6bd72c8a6
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ab8a49f62735a47c4ccc9fa488eed60088cd9c20
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508605"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658601"
 ---
 # <a name="enterprise-preview-and-basic-editions-of-azure-machine-learning"></a>Enterprise (preview) 및 기본 버전의 Azure Machine Learning 
 
@@ -113,7 +113,7 @@ Edition은 작업 영역을 만들 때마다 할당합니다. 고객은 이 기�
 | 기능     | 버전                 |
 |------------------------------------------------------------------------------------|:-----------:|
 | Azure [RBAC (역할 기반 액세스 제어)](how-to-assign-roles.md) 지원                                           | 모두                     |
-| 계산에 대 한 [VNet (Virtual Network)](how-to-enable-virtual-network.md) 지원                                         | 모두                     |
+| 계산에 대 한 [VNet (Virtual Network)](how-to-secure-training-vnet.md) 지원                                         | 모두                     |
 | 끝점 인증 점수 매기기                                                    | 모두                     |
 | [작업 영역 개인 링크](how-to-configure-private-link.md)                                                            | 모두                     |
 | 작업 영역에서 [할당량 관리](how-to-manage-quotas.md)                                                 | Enterprise edition만 해당 |

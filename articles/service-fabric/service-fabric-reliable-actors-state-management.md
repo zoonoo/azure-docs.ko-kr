@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92abfa9937c1ac3f7d4ba68e9228b29e0211e1af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9d5859886dbd1211f929be1031237f7e7d9b1fc1
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007794"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611717"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors 상태 관리
 Reliable Actors는 논리와 상태를 모두 캡슐화할 수 있는 단일 스레드 개체입니다. 행위자가 Reliable Services에서 실행되므로 동일한 지속성 및 복제 메커니즘을 사용하여 안전하게 상태를 유지할 수 있습니다. 이러한 방식으로 행위자는 실패한 후에 해당 상태를 손실하지 않고 가비지 수집 후 다시 활성화합니다. 또한 리소스 균형 조정 또는 업그레이드로 인해 클러스터의 노드 간에 이동하는 경우에도 그렇습니다.
@@ -115,7 +115,7 @@ class MyActorImpl extends FabricActor implements MyActor
 ### <a name="correctly-manage-the-actors-life-cycle"></a>행위자의 수명 주기를 올바르게 관리
 행위자 서비스의 파티션마다 상태의 크기를 관리하는 명확한 정책이 있어야 합니다. 행위자 서비스에는 고정된 수의 행위자를 두고 최대한 많이 다시 사용해야 합니다. 새 행위자를 지속적으로 만드는 경우 작업이 완료되고 나면 행위자를 삭제해야 합니다. 행위자 프레임워크는 존재하는 각 행위자에 대한 메타데이터를 저장합니다. 행위자의 상태를 모두 삭제해도 해당 행위자에 대한 메타데이터는 제거되지 않습니다. 시스템에 저장된 행위자에 대한 정보를 모두 제거하려면 행위자를 삭제해야 합니다([행위자와 해당 상태 삭제](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state) 참조). 추가 검사의 일환으로, 가끔 행위자 서비스를 쿼리하여 숫자 행위자가 예상 범위 내에 있는지 확인해야 합니다([행위자 열거](service-fabric-reliable-actors-enumerate.md) 참조).
  
-행위자 서비스의 데이터베이스 파일 크기가 예상 크기를 초과하여 증가하는 경우가 발생하면 이전 지침을 따르고 있는지 확인해야 합니다. 지침을 따르고 있는데 데이터베이스 파일 크기에 문제가 있으면 제품 팀과 함께 [지원 티켓을 열어서](service-fabric-support.md) 지원을 받는 것이 좋습니다.
+행위자 서비스의 데이터베이스 파일 크기가 예상 크기를 초과하여 증가하는 경우가 발생하면 이전 지침을 따르고 있는지 확인해야 합니다. 이러한 지침에 따라 데이터베이스 파일 크기 문제가 계속 발생 하는 경우 제품 팀과 함께 [지원 티켓을 열어](service-fabric-support.md) 도움을 받으세요.
 
 ## <a name="next-steps"></a>다음 단계
 

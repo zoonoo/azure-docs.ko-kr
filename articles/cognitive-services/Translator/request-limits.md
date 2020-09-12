@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 9ce2ea7da562372e5c1c25d4c0fe9ab410b02a1d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dff69f00833cc3f8004befd330d144f4da0e332d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903410"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566588"
 ---
 # <a name="request-limits-for-translator"></a>번역기에 대 한 요청 제한
 
@@ -27,11 +27,11 @@ ms.locfileid: "87903410"
 
 다음 표에서는 변환기의 각 작업에 대 한 배열 요소 및 문자 제한을 나열 합니다.
 
-| 연산 | 배열 요소의 최대 크기 |    최대 배열 요소 수 |    최대 요청 크기 (문자) |
+| 작업(Operation) | 배열 요소의 최대 크기 |    최대 배열 요소 수 |    최대 요청 크기 (문자) |
 |:----|:----|:----|:----|
-| Translate | 10000    | 100   | 10000 |
+| 번역 | 10000    | 100   | 10000 |
 | Transliterate | 5,000 | 10    | 5,000 |
-| Detect | 10000 | 100 |   50,000 |
+| Detect | 50,000 | 100 |   50,000 |
 | BreakSentence | 50,000    | 100 | 50,000 |
 | 사전 조회| 100 |  10  | 1,000 |
 | 사전 예제 | 100 for text 및 100 (200 total)| 10|   2,000 |
@@ -64,7 +64,7 @@ ms.locfileid: "87903410"
 
 [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) 함수를 사용하는 경우 문장 길이는 275자로 제한됩니다. 이러한 언어에 대한 예외가 있습니다.
 
-| Language | 코드 | 문자 제한 |
+| 언어 | 코드 | 문자 제한 |
 |----------|------|-----------------|
 | 중국어 | zh | 166 |
 | 독일어 | de | 800 |

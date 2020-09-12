@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: a5825cf5461213e3440893597059c84dcdc9ad33
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b55ba6ab73758ed562aaabeef91cf08acf659758
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236100"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646546"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -105,7 +105,7 @@ Application Gateway V1 SKU에서는 애플리케이션 게이트웨이를 중지
 
 ### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>Application Gateway v2는 UDR(사용자 정의 경로)을 지원하나요?
 
-예, 하지만 특정 시나리오에서만 지원합니다. 자세한 내용은 [Application Gateway 구성 개요](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)를 참조하세요.
+예, 하지만 특정 시나리오에서만 지원합니다. 자세한 내용은 [Application Gateway 인프라 구성](configuration-infrastructure.md#supported-user-defined-routes)을 참조 하세요.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway에서 x-forwarded-for 헤더를 지원하나요?
 
@@ -136,7 +136,7 @@ v2 SKU를 사용하는 대부분의 배포는 프로비저닝하는 데 약 6분
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Application Gateway 선호도 쿠키는 SameSite 특성을 지원하나요?
 예, [Chromium 브라우저](https://www.chromium.org/Home) [v80 업데이트](https://chromiumdash.appspot.com/schedule)에서는 SameSite 특성이 없는 HTTP 쿠키를 SameSite=Lax로 처리해 달라는 요구를 수락했습니다. 즉, 타사 컨텍스트에서는 브라우저가 Application Gateway 선호도 쿠키를 보내지 않습니다. 
 
-이 시나리오를 지원하기 위해, Application Gateway는 기존 *ApplicationGatewayAffinity* 쿠키 외에도 *ApplicationGatewayAffinityCORS*라는 또 다른 쿠키를 삽입합니다.  이러한 쿠키는 유사하지만, *ApplicationGatewayAffinityCORS* 쿠키에 다음과 같은 두 가지 특성이 더 추가되었습니다. *SameSite=None; Secure*. 이러한 특성은 원본 간 요청에서도 고정 세션을 유지합니다. 자세한 내용은 [쿠키 기반 선호도 섹션](configuration-overview.md#cookie-based-affinity)을 참조하세요.
+이 시나리오를 지원하기 위해, Application Gateway는 기존 *ApplicationGatewayAffinity* 쿠키 외에도 *ApplicationGatewayAffinityCORS*라는 또 다른 쿠키를 삽입합니다.  이러한 쿠키는 유사하지만, *ApplicationGatewayAffinityCORS* 쿠키에 다음과 같은 두 가지 특성이 더 추가되었습니다. *SameSite=None; Secure*. 이러한 특성은 원본 간 요청에서도 고정 세션을 유지합니다. 자세한 내용은 [쿠키 기반 선호도 섹션](configuration-http-settings.md#cookie-based-affinity)을 참조하세요.
 
 ## <a name="performance"></a>성능
 
@@ -186,7 +186,7 @@ IP 연결이 설정되어 있는 한, Application Gateway는 현재 속한 가�
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>애플리케이션 게이트웨이 서브넷에서 사용자 정의 경로를 지원하나요?
 
-[Application Gateway 서브넷에서 지원되는 사용자 정의 경로](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet)를 참조하세요.
+[Application Gateway 서브넷에서 지원되는 사용자 정의 경로](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes)를 참조하세요.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Application Gateway에서 한도는 어떻게 되나요? 이러한 한도를 늘릴 수 있나요?
 
@@ -404,7 +404,7 @@ AGIC (Application Gateway 수신 컨트롤러)를 사용 하면 [Azure 애플리
 
 ### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Kubenet가 AGIC에서 작동 하지 않는 AKS 클러스터는 무엇 인가요?
 
-AGIC는 Application Gateway 서브넷에 경로 테이블 리소스를 자동으로 연결 하려고 시도 하지만 AGIC의 사용 권한이 부족 하 여이 작업을 수행 하지 못할 수 있습니다. AGIC가 경로 테이블을 Application Gateway 서브넷에 연결할 수 없는 경우 AGIC 로그에 오류가 발생 합니다 .이 경우 AKS 클러스터에서 만든 경로 테이블을 Application Gateway의 서브넷에 수동으로 연결 해야 합니다. 자세한 내용은 [여기](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)에 있는 지침을 참조 하세요.
+AGIC는 Application Gateway 서브넷에 경로 테이블 리소스를 자동으로 연결 하려고 시도 하지만 AGIC의 사용 권한이 부족 하 여이 작업을 수행 하지 못할 수 있습니다. AGIC가 경로 테이블을 Application Gateway 서브넷에 연결할 수 없는 경우 AGIC 로그에 오류가 발생 합니다 .이 경우 AKS 클러스터에서 만든 경로 테이블을 Application Gateway의 서브넷에 수동으로 연결 해야 합니다. 자세한 내용은 [지원 되는 사용자 정의 경로](configuration-infrastructure.md#supported-user-defined-routes)를 참조 하세요.
 
 ### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>AKS 클러스터와 Application Gateway를 별도의 가상 네트워크에 연결할 수 있나요? 
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e068984e02a468169f286ab5b783e531a54bd6ed
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8d985587dc436d55e17c69e25295b5a58cb15b0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949782"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647497"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 시스템 노드 풀 관리 (AKS)
 
@@ -46,6 +46,7 @@ Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀
 * 시스템 노드 풀에는 2 개 이상의 vCPUs 및 4GB 메모리의 VM SKU가 필요 합니다.
 * 시스템 노드 풀은 [pod에 대 한 최소값 및 최대값 수식][maximum-pods]에 설명 된 대로 최소 30 개의 pod 지원 해야 합니다.
 * 별색 노드 풀에는 사용자 노드 풀이 필요 합니다.
+* 추가 시스템 노드 풀을 추가 하거나 시스템 노드 풀 인 노드 풀을 변경 하면 시스템 pod 자동으로 이동 *하지* 않습니다. 시스템 pod 사용자 노드 풀로 변경 하는 경우에도 동일한 노드 풀에서 계속 실행할 수 있습니다. 이전에 시스템 노드 풀 였던 system pod를 실행 하는 노드 풀을 삭제 하거나 축소 하는 경우 해당 시스템 pod 새 시스템 노드 풀에 기본 일정으로 다시 배포 됩니다.
 
 노드 풀을 사용 하 여 다음 작업을 수행할 수 있습니다.
 

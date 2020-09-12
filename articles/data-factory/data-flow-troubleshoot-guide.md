@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/16/2020
-ms.openlocfilehash: 0a691b562ebf030712eb0c13a688ea9a52fdb164
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.date: 09/08/2020
+ms.openlocfilehash: 6f2bf98e1c527be27ba0f08a43785ae7d3aea726
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263472"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594154"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 문제 해결
 
@@ -45,6 +45,8 @@ ms.locfileid: "88263472"
 - **메시지**: 브로드캐스트 조인 시간 초과 오류, 브로드캐스트 스트림이 디버그 실행에서 60초, 작업 실행에서 300초 안에 데이터를 생성하는지 확인
 - **원인**: 브로드캐스트의 기본 시간 제한은 디버그 실행에서 60초, 작업 실행에서 300초입니다. 브로드캐스트에 대해 선택한 스트림이 너무 커 이 제한 안에 데이터를 생성하지 못하는 것 같습니다.
 - **권장 사항**: 데이터 흐름 변환에서 조인, 존재 및 조회에 대해 최적화 탭을 선택합니다. 브로드캐스트의 기본 옵션은 "자동"입니다. 이 항목을 설정하거나 브로드캐스트 왼쪽 또는 오른쪽의 “고정”에서 수동으로 설정할 경우 더 큰 Azure Integration Runtime 구성을 설정하거나 브로드캐스트를 끌 수 있습니다. 데이터 흐름에서 최상의 성능을 내려면 Spark가 “자동”을 사용하여 브로드캐스트하고 메모리 최적화 Azure IR을 사용하도록 허용하는 것이 좋습니다.
+
+디버그 파이프라인 실행에서 디버그 테스트 실행의 데이터 흐름을 실행 하는 경우이 조건이 더 자주 실행 될 수 있습니다. 이는 더 빠른 디버그 환경을 유지 하기 위해 ADF가 브로드캐스트 시간 제한을 60 초에 제한 때문입니다. 트리거된 실행에서 300 초 제한 시간으로 확장 하려는 경우 디버그 > Use Activity Runtime 옵션을 사용 하 여 데이터 흐름 파이프라인 실행 작업에 정의 된 Azure IR를 활용할 수 있습니다.
 
 ### <a name="error-code-df-executor-conversion"></a>오류 코드: DF-Executor-Conversion
 

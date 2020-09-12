@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: fccc7281ed2978ccc63cd7b53a82c8a00b57d3c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37e76f54b9c4fe38c891f7cee7bc443d1b0b20f5
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805988"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596076"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Azure PowerShell을 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
@@ -23,10 +23,9 @@ Azure PowerShell을 사용하여 애플리케이션 액세스에 사용되는 UR
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 네트워크 설정
-> * 수신기, URL 경로 맵 및 규칙 만들기
-> * 확장 가능한 백 엔드 풀 만들기
+* 네트워크 설정
+* 수신기, URL 경로 맵 및 규칙 만들기
+* 확장 가능한 백 엔드 풀 만들기
 
 ![URL 라우팅 예제](./media/tutorial-url-route-powershell/scenario.png)
 

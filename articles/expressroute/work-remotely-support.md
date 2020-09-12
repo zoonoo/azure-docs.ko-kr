@@ -2,17 +2,17 @@
 title: Azure Express 경로를 사용 하 여 원격 사용자 지원
 description: 이 페이지에서는 Azure Express 경로를 활용 하 여 COVID-19 전염병로 원격 작업을 사용 하도록 설정 하는 방법을 설명 합니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/22/2020
-ms.author: ajitbhu
-ms.openlocfilehash: 18b30380ede0c95c7d039749a4d47f65e5824058
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: d51f47b73fe572ce81d3e7b54f902f94fcd11b5b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738076"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567676"
 ---
 # <a name="using-azure-expressroute-to-create-hybrid-connectivity-to-support-remote-users"></a>Azure Express 경로를 사용 하 여 원격 사용자를 지 원하는 하이브리드 연결 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "84738076"
 * [기존 Express 경로 회로에 대 한 대역폭을 늘리는 방법](expressroute-howto-circuit-portal-resource-manager.md#modify)
 * [Express 경로 모니터링, 메트릭 및 경고](expressroute-monitoring-metrics-alerts.md#expressroute-gateway-connections-in-bitsseconds)
 * [Express 경로를 통한 경로 최적화](expressroute-optimize-routing.md)
-* [O365 용 Azure Express 경로](https://docs.microsoft.com/office365/enterprise/azure-expressroute?redirectSourcePath=%252farticle%252f6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
+* [Microsoft 365 용 Azure Express 경로](/microsoft-365/enterprise/azure-expressroute)
 * [비대칭 라우팅 고려 사항](expressroute-asymmetric-routing.md)
 * [Azure Portal에서 지원 요청을 여는 방법](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 

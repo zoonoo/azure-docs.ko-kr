@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2b106a28514179d9be43b3c56ea8030eaf7ba13f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 294652a42d3b6a2468f024ce7ebdbdfc3615f9e1
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494998"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647876"
 ---
 # <a name="use-stored-procedures-in-sql-pool"></a>SQL 풀에서 저장 프로시저 사용
 
 솔루션 개발을 위한 Synapse SQL 풀 (데이터 웨어하우스)에서 저장 프로시저를 구현 하기 위한 팁입니다.
 
-## <a name="what-to-expect"></a>예상 프로그램
+## <a name="what-to-expect"></a>필요한 항목
 
 SQL 풀은 SQL Server에서 사용 되는 다양 한 T-sql 기능을 지원 합니다. 무엇보다도 솔루션의 성능을 최대화하기 위해 사용할 수 있는 특정 기능 확장 사항이 있습니다.
 
@@ -62,7 +62,7 @@ EXEC prc_nesting
 ```sql
 CREATE PROCEDURE prc_nesting_2
 AS
-EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
+EXEC sp_executesql N'SELECT ''another nest level'''  -- This call is nest level 2
 GO
 EXEC prc_nesting
 ```
@@ -78,7 +78,7 @@ SQL 풀에서는 INSERT 문을 사용 하 여 저장 프로시저의 결과 집�
 
 SQL 풀에서 구현 되지 않은 Transact-sql 저장 프로시저의 몇 가지 측면이 있습니다.
 
-아래에 이 계정과 키의 예제가 나와 있습니다.
+관련 토폴로지는 다음과 같습니다.
 
 * 임시 저장 프로시저
 * 숫자가 매겨진 저장 프로시저

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 0b5056f221fdd6036e5f6dff3d69a21c3a2dc27e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ce42c0ec75ebed52311fe6aa026f794d6c2f7584
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928567"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89513946"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure SignalR Service를 사용하여 Azure Functions 개발 및 구성
 
@@ -51,7 +51,9 @@ Negotiate 함수를 만드는 방법에 대 한 자세한 내용은 [ *SignalRCo
 
 *SignalR 트리거* 바인딩을 사용 하 여 SignalR Service에서 보낸 메시지를 처리 합니다. 클라이언트에서 메시지를 보내거나 클라이언트에서 연결 하거나 연결을 끊을 때 트리거될 수 있습니다.
 
-자세한 내용은 [ *SignalR 트리거* 바인딩 참조를 참조 하세요.](../azure-functions/functions-bindings-signalr-service-trigger.md)
+자세한 내용은 [ *SignalR 트리거* 바인딩 참조](../azure-functions/functions-bindings-signalr-service-trigger.md)를 참조 하세요.
+
+또한 서비스에서 클라이언트의 메시지가 있는 함수를 트리거하기 위해 함수 끝점을 업스트림으로 구성 해야 합니다. 업스트림을 구성 하는 방법에 대 한 자세한 내용은이 [문서](concept-upstream.md)를 참조 하세요.
 
 ### <a name="sending-messages-and-managing-group-membership"></a>메시지 보내기 및 그룹 멤버 자격 관리
 
@@ -109,7 +111,7 @@ public class SignalRTestHub : ServerlessHub
 
 ### <a name="define-hub-method"></a>허브 메서드 정의
 
-모든 **허브 메서드에는**  특성이 있어야 `[SignalRTrigger]` 하 고 매개 변수가 없는 생성자를 사용 **해야 합니다** . 그런 다음 **메서드 이름이** 매개 변수 **이벤트**로 처리 됩니다.
+모든 허브 메서드는 **must** `InvocationContext` 특성으로 데코레이팅된의 인수를 `[SignalRTrigger]` 사용 하 고 매개 변수가 없는 생성자를 사용 해야 합니다. 그런 다음 **메서드 이름이** 매개 변수 **이벤트**로 처리 됩니다.
 
 기본적으로 `category=messages` 메서드 이름은 다음 이름 중 하나입니다.
 
@@ -202,7 +204,11 @@ SignalR client SDK를 사용 하는 방법에 대 한 자세한 내용은 해당
 
 ### <a name="sending-messages-from-a-client-to-the-service"></a>클라이언트에서 서비스로 메시지 보내기
 
-SignalR SDK를 사용 하면 클라이언트 응용 프로그램에서 SignalR hub의 백 엔드 논리를 호출할 수 있지만,이 기능은 Azure Functions와 함께 SignalR Service를 사용 하는 경우에는 아직 지원 되지 않습니다. HTTP 요청을 사용 하 여 Azure Functions를 호출 합니다.
+SignalR 리소스에 대해 [업스트림](concept-upstream.md) 이 구성 된 경우 모든 SignalR 클라이언트를 사용 하 여 클라이언트에서 Azure Functions로 메시지를 보낼 수 있습니다. JavaScript의 예제는 다음과 같습니다.
+
+```javascript
+connection.send('method1', 'arg1', 'arg2');
+```
 
 ## <a name="azure-functions-configuration"></a>Azure Functions 구성
 

@@ -11,21 +11,21 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c8fb54261f51d74f02b7b79c27f7a2043426686
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e2e24246c749978cd2bbb5b3d0821eea6d7dfb4b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385146"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660875"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Azure AD Connect 그룹 쓰기 저장
 
-그룹 쓰기 저장은 고객이 하이브리드 요구에 맞게 클라우드 그룹을 활용할 수 있도록 합니다. Office 365 그룹 기능을 사용하는 경우 이 그룹을 온-프레미스 Active Directory에 표시할 수 있습니다. 이 옵션은 온-프레미스 Active Directory에 Exchange가 있는 경우에 **만** 사용할 수 있습니다.
+그룹 쓰기 저장은 고객이 하이브리드 요구에 맞게 클라우드 그룹을 활용할 수 있도록 합니다. Microsoft 365 그룹 기능을 사용 하는 경우 이러한 그룹이 온-프레미스 Active Directory에 표시 되도록 할 수 있습니다. 이 옵션은 온-프레미스 Active Directory에 Exchange가 있는 경우에 **만** 사용할 수 있습니다.
 
 ## <a name="pre-requisites"></a>필수 구성 요소
 그룹 쓰기 저장을 사용 하도록 설정 하려면 다음 필수 구성 요소를 충족 해야 합니다.
 - 테 넌 트에 대 한 라이선스를 Azure Active Directory Premium 합니다.
-- Exchange 온-프레미스 조직과 Office 365 간에 하이브리드 배포를 구성 하 고 제대로 작동 하는지 확인 했습니다.
+- Exchange 온-프레미스 조직과 Microsoft 365 간의 하이브리드 배포를 구성 하 고 제대로 작동 하는지 확인 했습니다.
 - 지원 되는 Exchange 온-프레미스 버전을 설치 합니다.
 - Azure Active Directory Connect를 사용 하 여 Single Sign-On 구성 
 
@@ -37,7 +37,7 @@ ms.locfileid: "87385146"
 3. **AZURE AD에 연결** 페이지에서 자격 증명을 입력 합니다. **다음**을 클릭합니다.
 4. **선택적 기능** 페이지에서 이전에 구성한 옵션이 여전히 선택 되어 있는지 확인 합니다.
 5. **그룹 쓰기 저장** 을 선택 하 고 **다음**을 클릭 합니다.
-6. **쓰기 저장 페이지**에서 Active Directory 조직 구성 단위 (OU)를 선택 하 여 Office 365에서 온-프레미스 조직으로 동기화 된 개체를 저장 하 **고 다음을 클릭 합니다**.
+6. **쓰기 저장 (Writeback) 페이지**에서 Microsoft 365에서 온-프레미스 조직으로 동기화 된 개체를 저장할 OU (조직 구성 단위) Active Directory 선택 하 고 **다음**을 클릭 합니다.
 7. 구성 **준비 완료** 페이지에서 **구성**을 클릭 합니다.
 8. 마법사가 완료 되 면 구성 완료 페이지에서 **끝내기** 를 클릭 합니다.
 9. Azure Active Directory Connect 서버에서 관리자 권한으로 Windows PowerShell을 열고 다음 명령을 실행 합니다.
@@ -48,7 +48,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncC
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
 ```
 
-Office 365 그룹을 구성 하는 방법에 대 한 자세한 내용은 [온-프레미스 Exchange 하이브리드를 사용 하 여 Microsoft 365 그룹 구성](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect)을 참조 하세요.
+Microsoft 365 그룹을 구성 하는 방법에 대 한 자세한 내용은 [온-프레미스 Exchange 하이브리드를 사용 하 여 Microsoft 365 그룹 구성](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect)을 참조 하세요.
 
 ## <a name="disabling-group-writeback"></a>그룹 쓰기 저장 사용 안 함
 그룹 쓰기 저장을 사용 하지 않도록 설정 하려면 다음 단계를 사용 합니다. 
