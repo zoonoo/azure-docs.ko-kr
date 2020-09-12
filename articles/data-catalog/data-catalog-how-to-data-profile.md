@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 0d0f3a45842638915947f5df04e06e2c81a7f5f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b27ff631ce13d70d15a6fd2b6dd5ad5bccaf5450
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081188"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442074"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 소스를 프로 파일링 하는 방법
 
@@ -29,7 +29,7 @@ ms.locfileid: "87081188"
 
 다음 데이터 원본은 데이터 프로파일링을 지원합니다.
 
-* SQL Server(Azure SQL DB 및 Azure SQL Data Warehouse 포함) 테이블 및 뷰
+* SQL Server (Azure SQL DB 및 Azure Synapse Analytics 포함) 테이블 및 뷰
 * Oracle 테이블 및 뷰
 * Teradata 테이블 및 뷰
 * Hive 테이블
@@ -88,7 +88,7 @@ ms.locfileid: "87081188"
 
 데이터 프로파일링은 등록된 데이터 자산에 대한 통계와 정보를 제공하여 비즈니스 문제를 해결하기 위해 데이터의 적합성을 결정할 수 있도록 합니다. 주석 달기 및 데이터 원본을 문서화하는 작업과 함께 데이터 프로필은 사용자가 데이터를 잘 이해할 수 있도록 합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 
 * [데이터 원본을 등록하는 방법](data-catalog-how-to-register.md)
 * [Azure Azure Data Catalog 시작](data-catalog-get-started.md)

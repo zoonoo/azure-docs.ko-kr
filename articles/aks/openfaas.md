@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 95039573c607f516755f08f1ebad8b968416ec8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98b1842f81703041f419850be17c0c05a24b7c6b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80631465"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440901"
 ---
 # <a name="using-openfaas-on-aks"></a>AKS에서 OpenFaaS 사용
 
 [Openfaas][open-faas] 는 컨테이너를 사용 하 여 서버 리스 함수를 빌드하기 위한 프레임 워크입니다. 오픈 소스 프로젝트로써 커뮤니티 내에서 대규모로 채택되었습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 OpenFaas를 설치하고 사용하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
@@ -91,7 +91,8 @@ alertmanager-config  1     20s
 NOTES:
 To verify that openfaas has started, run:
 
-  kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
+```console
+kubectl --namespace=openfaas get deployments -l "release=openfaas, app=openfaas"
 ```
 
 OpenFaaS 게이트웨이에 액세스하기 위해 공용 IP 주소를 생성합니다. 이 IP 주소를 검색하려면 [kubectl get service][kubectl-get] 명령을 사용합니다. 서비스에 IP 주소가 할당될 때까지 잠깐 시간이 걸릴 수 있습니다.

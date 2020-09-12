@@ -1,5 +1,5 @@
 ---
-title: 고급 위협 보호
+title: Advanced Threat Protection
 titleSuffix: Azure SQL Database, SQL Managed Instance, & Azure Synapse Analytics
 description: Advanced Threat Protection은 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에서 잠재적 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색 합니다.
 services: sql-database
@@ -13,12 +13,12 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 02/05/2020
 tags: azure-synapse
-ms.openlocfilehash: 822d4267d5b163ddda50302e2caea5c3ade3b7c4
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 07a39edcb7a5605759ae70a014549863a038de1c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985374"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437057"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Azure SQL Database, SQL Managed Instance 및 Azure Synapse 분석에 대 한 고급 위협 방지
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -35,7 +35,7 @@ Advanced Threat Protection은 비정상적인 활동에 대 한 보안 경고를
 
 ## <a name="alerts"></a>경고
 
-Azure SQL Database용 Advanced Threat Protection은 비정상적이며 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상 활동을 탐지합니다. Azure SQL Database에 대 한 경고 목록은 [Azure Security Center의 SQL Database 및 SQL Data Warehouse에 대 한 경고](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse)를 참조 하세요.
+Azure SQL Database용 Advanced Threat Protection은 비정상적이며 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상 활동을 탐지합니다. Azure SQL Database에 대 한 경고 목록은 [Azure Security Center에서 SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대 한 경고](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse)를 참조 하세요.
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>의심 스러운 이벤트 검색 살펴보기
 

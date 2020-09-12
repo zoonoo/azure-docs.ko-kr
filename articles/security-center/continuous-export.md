@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: eb7f642e36bd72f963481cb392d7e3a6c2555816
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 4d5cff416c1ac54e54d06e8def121db65bb7d191
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612387"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433938"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>보안 경고 및 권장 사항 내보내기
 
@@ -36,12 +36,12 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 |릴리스 상태:|일반 공급|
 |결정|무료 계층|
 |필요한 역할 및 사용 권한:|리소스 그룹 (또는 **소유자**)에 대 한 **보안 관리자 역할**<br>또한 대상 리소스에 대 한 쓰기 권한이 있어야 합니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/yes-icon.png) 중국 .Gov (이벤트 허브로), 기타 .Gov|
 |||
 
 
 
-## <a name="setting-up-a-continuous-export"></a>연속 내보내기 설정
+## <a name="set-up-a-continuous-export"></a>연속 내보내기 설정
 
 Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내기를 설정 하 고 있는지 여부에 따라 다음 단계가 필요 합니다.
 
@@ -55,12 +55,24 @@ Log Analytics 작업 영역 또는 Azure Event Hubs에 대 한 연속 내보내�
 
 1. 내보낼 데이터 형식을 선택 하 고 각 유형의 필터에서 선택 합니다 (예: 높은 심각도 경고만 내보내기).
 
+1. 선택 사항에 따라 이러한 4 가지 권장 사항 중 하나를 포함 하는 경우 취약성 평가 결과를 함께 포함할 수 있습니다.
+
+    - SQL 데이터베이스에 대 한 취약성 평가 결과를 재구성 해야 합니다.
+    - 컴퓨터의 SQL server에 대 한 취약성 평가 결과를 재구성 해야 함 (미리 보기)
+    - Azure Container Registry 이미지의 취약성을 수정해야 함(Qualys 제공)
+    - 가상 컴퓨터의 취약성을 재구성 해야 함
+
+    이러한 권장 사항을 포함 하는 결과를 포함 하려면 **보안 결과 포함** 옵션을 사용 하도록 설정 합니다.
+
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="보안 결과 포함 연속 내보내기 구성 전환" :::
+
+
 1. "대상 내보내기" 영역에서 데이터를 저장 하려는 위치를 선택 합니다. 데이터는 다른 구독 (예: 중앙 이벤트 허브 인스턴스 또는 중앙 Log Analytics 작업 영역)의 대상에 저장할 수 있습니다.
 
 1. **저장**을 선택합니다.
 
 
-## <a name="setting-up-continuous-export-via-the-rest-api"></a>REST API를 통해 연속 내보내기 설정
+## <a name="set-up-continuous-export-via-the-rest-api"></a>REST API를 통해 연속 내보내기 설정
 
 Azure Security Center [자동화 API](https://docs.microsoft.com/rest/api/securitycenter/automations)를 통해 연속 내보내기 기능을 구성 하 고 관리할 수 있습니다. 이 API를 사용 하 여 다음 가능한 대상 중 하나로 내보내도록 자동화를 만들거나 업데이트할 수 있습니다.
 
@@ -83,7 +95,7 @@ API는 Azure Portal에서 사용할 수 없는 추가 기능을 제공 합니다
 
 
 
-## <a name="configuring-siem-integration-via-azure-event-hubs"></a>Azure Event Hubs를 통한 SIEM 통합 구성
+## <a name="configure-siem-integration-via-azure-event-hubs"></a>Azure Event Hubs를 통한 SIEM 통합 구성
 
 Azure Event Hubs는 프로그래밍 방식으로 스트리밍 데이터를 사용 하기 위한 훌륭한 솔루션입니다. Azure Security Center 경고 및 권장 사항에 대해서는 타사 SIEM과 통합 하는 데 선호 되는 방법입니다.
 

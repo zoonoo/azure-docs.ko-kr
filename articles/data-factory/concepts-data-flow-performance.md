@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212041"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434234"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>매핑 데이터 흐름 성능 및 조정 가이드
 
@@ -126,7 +126,7 @@ Spark 클러스터 분리의 유형에 사용할 수 있는 세 가지 옵션이
 
 ### <a name="time-to-live"></a>TTL(Time to live)
 
-기본적으로 모든 데이터 흐름 작업은 IR 구성에 따라 새 클러스터를 회전 합니다. 클러스터 시작 시간은 몇 분 정도 걸리며, 완료 될 때까지 데이터 처리를 시작할 수 없습니다. 파이프라인이 여러 개의 **순차적** 데이터 흐름을 포함 하는 경우 TTL (time to live) 값을 설정할 수 있습니다. Ttl (time to live) 값을 지정 하면 해당 실행이 완료 된 후 특정 기간 동안 클러스터가 활성 상태로 유지 됩니다. 새 작업이 TTL 시간 동안 IR을 사용 하 여 시작 하는 경우 기존 클러스터를 다시 사용 하 고 시작 시간은 몇 분이 아니라 몇 초 이내입니다. 두 번째 작업이 완료 되 면 클러스터는 다시 TTL 시간 동안 활성 상태로 유지 됩니다.
+기본적으로 모든 데이터 흐름 작업은 IR 구성에 따라 새 클러스터를 회전 합니다. 클러스터 시작 시간은 몇 분 정도 걸리며, 완료 될 때까지 데이터 처리를 시작할 수 없습니다. 파이프라인이 여러 개의 **순차적** 데이터 흐름을 포함 하는 경우 TTL (time to live) 값을 설정할 수 있습니다. Ttl (time to live) 값을 지정 하면 해당 실행이 완료 된 후 특정 기간 동안 클러스터가 활성 상태로 유지 됩니다. 새 작업이 TTL 시간 동안 IR을 사용 하 여 시작 하는 경우 기존 클러스터를 다시 사용 하 고 시작 시간이 크게 단축 됩니다. 두 번째 작업이 완료 되 면 클러스터는 다시 TTL 시간 동안 활성 상태로 유지 됩니다.
 
 한 번에 하나의 작업만 단일 클러스터에서 실행할 수 있습니다. 사용 가능한 클러스터가 있지만 두 개의 데이터 흐름이 시작 되 면 하나만 라이브 클러스터를 사용 합니다. 두 번째 작업은 자체 격리 된 클러스터를 실행 합니다.
 

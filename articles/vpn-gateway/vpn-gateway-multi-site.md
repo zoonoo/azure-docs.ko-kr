@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/11/2020
+ms.date: 09/03/2020
 ms.author: yushwang
-ms.openlocfilehash: 5283e20b6121dbdc3ce57587d188ad5ad0e1b6b9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 93916bb1eb92447da45ebae7ccb2e61c5af1dd9b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041033"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441581"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>기존 VPN Gateway 연결이 있는 VNet에 사이트 간 연결 추가(클래식)
 
@@ -21,7 +21,7 @@ ms.locfileid: "86041033"
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
-> * [PowerShell (클래식)](vpn-gateway-multi-site.md)
+> * [PowerShell(클래식)](vpn-gateway-multi-site.md)
 >
 >
 
@@ -174,7 +174,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="6-download-keys"></a>6. 키 다운로드
 새 터널을 추가한 후 PowerShell cmdlet 'Get-AzureVNetGatewayKey'를 사용하여 각 터널의 IPsec/IKE 사전 공유 키를 가져옵니다.
 
-예를 들어:
+다음은 그 예입니다. 
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

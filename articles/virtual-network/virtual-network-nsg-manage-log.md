@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: c56b5ac1c1aa6fa5894d1aedcb94fe4694c2db28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 221f7577b3181b1535ab9f544073dac4d031fe66
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696034"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319443"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대 한 리소스 로깅
 
@@ -24,7 +24,7 @@ NSG(네트워크 보안 그룹)는 가상 네트워크 서브넷, 네트워크 �
 NSG에 대 한 로깅을 사용 하도록 설정 하면 다음과 같은 유형의 리소스 로그 정보를 수집할 수 있습니다.
 
 * **이벤트:** 항목은 MAC 주소에 따라 VM에 적용되는 NSG 규칙에 대해 기록됩니다.
-* **규칙 카운터:** 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수에 대한 항목을 포함합니다. 이러한 규칙에 대한 상태는 60초마다 수집됩니다.
+* **규칙 카운터:** 트래픽을 허용하거나 거부하기 위해 각 NSG 규칙이 적용된 횟수에 대한 항목을 포함합니다. 이러한 규칙의 상태는 300 초 마다 수집 됩니다.
 
 리소스 로그는 Azure Resource Manager 배포 모델을 통해 배포 된 NSGs에만 사용할 수 있습니다. 클래식 배포 모델을 통해 배포 된 NSGs에 대해 리소스 로깅을 사용 하도록 설정할 수 없습니다. 두 모델의 이해를 돕기 위해 [Azure 배포 모델 이해](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
@@ -45,7 +45,7 @@ NSG에 대 한 로깅을 사용 하도록 설정 하면 다음과 같은 유형�
 
 5. **진단 설정** 아래에서 다음 정보를 입력하거나 선택한 다음, **저장**을 선택합니다.
 
-    | Setting                                                                                     | 값                                                          |
+    | 설정                                                                                     | 값                                                          |
     | ---------                                                                                   |---------                                                       |
     | Name                                                                                        | 선택한 이름입니다.  예: *myNsgDiagnostics*      |
     | **스토리지 계정에 보관**, **이벤트 허브로의 스트림** 및 **Log Analytics에 보내기** | 여러 대상을 선택할 수 있습니다. 각각에 대해 자세히 알아보려면 [로그 대상](#log-destinations)을 참조하세요.                                                                                                                                           |

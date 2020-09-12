@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: yexu
-ms.openlocfilehash: a10f7c3dda4d16a264cf52f9fddcf2bf0ed93348
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0ba14a05ac42e9fccc1a146ad5943716652104d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84907513"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434200"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory의 데이터 복사 도구
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -69,7 +69,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 �
 데이터 복사 도구는 원본 및 대상 저장소 간에 열을 매핑할 때 사용자의 동작을 모니터링하고 학습합니다. 원본 데이터 저장소에서 한 개 이상의 열을 선택하고 대상 스키마에 매핑하면, 데이터 복사 도구는 양쪽에서 선택한 열 쌍에 대한 패턴을 분석하기 시작합니다. 그런 다음, 나머지 열에 같은 패턴을 적용합니다. 따라서 몇 번의 클릭만으로 모든 열이 원하는 방식대로 대상에 매핑되는 것을 볼 수 있습니다.  데이터 복사 도구가 제공하는 열 매핑 선택 항목이 만족스럽지 않은 경우, 이를 무시하고 열을 수동으로 매핑할 수 있습니다. 한편, 데이터 복사 도구는 패턴을 지속적으로 학습 및 업데이트하며, 궁극적으로 사용자가 원하는 열 매핑의 올바른 패턴에 도달합니다. 
 
 > [!NOTE]
-> SQL Server 또는 Azure SQL Database에서 Azure SQL Data Warehouse로 데이터를 복사할 때, 테이블이 대상 저장소에 없을 경우 데이터 복사 도구는 원본 스키마를 사용하여 자동 테이블 만들기를 지원합니다. 
+> SQL Server 또는 Azure SQL Database에서 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 데이터를 복사 하는 경우 대상 저장소에 테이블이 없는 경우 데이터 복사 도구는 원본 스키마를 사용 하 여 테이블을 자동으로 만들 수 있도록 지원 합니다. 
 
 ## <a name="filter-data"></a>데이터 필터링
 싱크 데이터 저장소에 복사해야 하는 데이터만 선택하도록 원본 데이터를 필터링할 수 있습니다. 필터링하면 싱크 데이터 저장소에 복사할 데이터 양이 줄고 이에 따라 복사 작업의 처리량이 향상됩니다. 데이터 복사 도구는 SQL 쿼리 언어를 사용하여 관계형 데이터베이스의 데이터를 필터링하거나 Azure Blob 폴더의 파일을 필터링할 수 있는 유연한 방법을 제공합니다. 

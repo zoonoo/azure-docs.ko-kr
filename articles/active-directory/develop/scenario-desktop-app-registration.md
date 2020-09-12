@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 599603ba867e21694392e38e9692280f010e08eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6796ac42a10d3b976b23f5af1418b1789011d61b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885160"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440952"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 데스크톱 앱: 앱 등록
 
@@ -28,7 +28,7 @@ ms.locfileid: "80885160"
 
 ### <a name="audience-for-interactive-token-acquisition"></a>대화형 토큰 획득을 위한 대상 그룹
 
-데스크톱 응용 프로그램에서 대화형 인증을 사용 하는 경우 모든 [계정 유형에](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)서 사용자에 게 로그인 할 수 있습니다.
+데스크톱 응용 프로그램에서 대화형 인증을 사용 하는 경우 모든 [계정 유형에](quickstart-register-app.md)서 사용자에 게 로그인 할 수 있습니다.
 
 ### <a name="audience-for-desktop-app-silent-flows"></a>데스크톱 앱 자동 흐름의 대상
 
@@ -41,7 +41,7 @@ ms.locfileid: "80885160"
 데스크톱 응용 프로그램에서 사용 하는 리디렉션 Uri는 사용 하려는 흐름에 따라 다릅니다.
 
 - 대화형 인증 또는 장치 코드 흐름을 사용 하는 경우를 사용 `https://login.microsoftonline.com/common/oauth2/nativeclient` 합니다. 이 구성을 얻으려면 응용 프로그램에 대 한 **인증** 섹션에서 해당 URL을 선택 합니다.
-  
+
   > [!IMPORTANT]
   > 현재 MSAL.NET는 Windows ()에서 실행 되는 데스크톱 응용 프로그램에서 기본적으로 다른 리디렉션 URI를 사용 `urn:ietf:wg:oauth:2.0:oob` 합니다. 나중에이 기본값을 변경 하려고 하므로를 사용 하는 것이 좋습니다 `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 

@@ -2,24 +2,24 @@
 title: 'Azure Express 경로: Express 경로 직접 구성: 포털'
 description: 이 페이지는 포털을 사용 하 여 Express 경로 다이렉트를 구성 하는 데 도움이 됩니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.author: cherylmc
-ms.openlocfilehash: 475b2aa99296995c3adb51eca2d6bdb53616670e
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.author: duau
+ms.openlocfilehash: 09d3723224f9c678e41a6cbc86b5f8f9655173c8
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903598"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401472"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Express 경로 직접 만들기
 
 이 문서에서는 Azure Portal를 사용 하 여 Express 경로 직접을 만드는 방법을 보여 줍니다.
 Express 경로 직접 사용을 통해 전 세계에 분산 된 피어 링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결할 수 있습니다. 자세한 내용은 [ExpressRoute Direct 정보](expressroute-erdirect-about.md)를 참조하세요.
 
-## <a name="before-you-begin"></a><a name="before"></a>시작하기 전에
+## <a name="before-you-begin"></a><a name="before"></a>시작 하기 전에
 
 **Microsoft. 네트워크** 리소스 공급자가 구독에 등록 되어 있는지 확인 합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다.
 

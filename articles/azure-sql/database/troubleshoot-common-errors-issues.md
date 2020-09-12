@@ -10,12 +10,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: e1a018b06b7ee7230612d2ee6a582214a817547b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4a1cfcbf110ab375a0fb357c1856fd0567a1c57a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985227"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459422"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 연결 문제 및 기타 오류 해결
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -119,7 +119,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 4. SQL 로그인 사용자 이름이 존재 하지 않는 경우 다음 단계를 수행 하 여 만듭니다.
 
    1. SSMS에서 **보안** 을 두 번 클릭 하 여 확장 합니다.
-   2. 마우스 오른쪽 단추로 **로그인**을 클릭한 다음 **새 로그인**을 선택합니다.
+   2. **로그인**을 마우스 오른쪽 단추로 클릭 한 다음 **새 로그인**을 선택 합니다.
    3. 자리 표시 자가 있는 생성 된 스크립트에서 다음 SQL 쿼리를 편집 하 고 실행 합니다.
 
    ```sql
@@ -128,9 +128,9 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
    GO
    ```
 
-5. **데이터베이스**를 두 번 클릭합니다.
+5. **데이터베이스**를 두 번 클릭 합니다.
 6. 사용자에 게 권한을 부여 하려는 데이터베이스를 선택 합니다.
-7. **보안**을 두 번 클릭합니다.
+7. **보안**을 두 번 클릭 합니다.
 8. **사용자**를 마우스 오른쪽 단추로 클릭 한 다음 **새 사용자**를 선택 합니다.
 9. 자리 표시 자가 있는 생성 된 스크립트에서 다음 SQL 쿼리를 편집 하 고 실행 합니다.
 
@@ -194,13 +194,13 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 2. 헤드 차단기에 대 한 **입력 버퍼** 를 확인 합니다.
 3. 헤드 차단기 쿼리를 조정 합니다.
 
-   심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)를 참조 하세요.
+   심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)를 참조 하세요.
 
 블로킹 및 장기 실행 쿼리를 처리 하는 것에도 불구 하 고 데이터베이스가 지속적으로 제한에 도달한 경우 더 많은 리소스 [버전이](https://azure.microsoft.com/pricing/details/sql-database/)있는 버전으로 업그레이드 하는 것이 좋습니다.
 
 동적 관리 뷰에 대 한 자세한 내용은 [시스템 동적 관리 뷰](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)를 참조 하세요.
 
-데이터베이스 제한에 대 한 자세한 내용은 [서버에 대 한 리소스 제한 SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server)을 참조 하세요.
+데이터베이스 제한에 대 한 자세한 내용은  [서버에 대 한 리소스 제한 SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server)을 참조 하세요.
 
 ### <a name="error-10929-resource-id-1"></a>오류 10929: 리소스 ID: 1
 
@@ -261,7 +261,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 
 또한 쿼리를 일괄 처리 하는 것이 좋습니다. 일괄 처리에 대 한 자세한 내용은 [일괄 처리를 사용 하 여 SQL Database 응용 프로그램 성능 향상](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance)을 참조 하세요.
 
-심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)를 참조 하세요.
+심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)를 참조 하세요.
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>오류 40551: TEMPDB 사용량이 너무 많아 세션이 종료 되었습니다.
 
@@ -292,7 +292,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 *차단 기간* 에 대 한 
 
 이 문제를 해결 하려면 쿼리를 최적화 해 보세요.
 
-심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)를 참조 하세요.
+심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)를 참조 하세요.
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>추가 리소스 거 버 넌 스 오류 메시지 표
 
@@ -356,7 +356,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-쿼리가 쿼리 문제에 의해 트리거되는 경우 다음과 유사한 호출 스택이 표시 됩니다. **SqlCommand** 클래스에 대 한 참조를 확인 합니다. 이 경우 쿼리를 [조정](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)합니다.
+쿼리가 쿼리 문제에 의해 트리거되는 경우 다음과 유사한 호출 스택이 표시 됩니다. **SqlCommand** 클래스에 대 한 참조를 확인 합니다. 이 경우 쿼리를 [조정](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud)합니다.
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()

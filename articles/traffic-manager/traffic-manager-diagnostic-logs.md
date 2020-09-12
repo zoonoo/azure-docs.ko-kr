@@ -2,20 +2,20 @@
 title: Azure Traffic Manager에서 리소스 로깅 사용
 description: Traffic Manager 프로필에 대 한 리소스 로깅을 사용 하도록 설정 하 고 결과로 생성 된 로그 파일에 액세스 하는 방법을 알아봅니다.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: rohink
-ms.openlocfilehash: 09c04d727e42f88bb376a59d66a23688e16abb13
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 25c0b18da1690557f11e36dd11dda693ddddb838
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089059"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401319"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Azure Traffic Manager에서 리소스 로깅 사용
 
@@ -71,7 +71,7 @@ Azure Monitor를 통해 제공 되는 모든 리소스 로그는 일반적인 �
 |필드 이름|필드 형식|정의|예제|
 |----|----|---|---|
 |EndpointName|String|상태가 기록되고 있는 Traffic Manager 엔드포인트의 이름입니다.|*myPrimaryEndpoint*|
-|상태|String|검색된 Traffic Manager 엔드포인트의 상태입니다. 상태는 **위로** 또는 **아래로**일 수 있습니다.|**최대**|
+|상태|String|검색된 Traffic Manager 엔드포인트의 상태입니다. 상태는 **위로** 또는 **아래로**일 수 있습니다.|**위로**|
 |||||
 
 ## <a name="next-steps"></a>다음 단계

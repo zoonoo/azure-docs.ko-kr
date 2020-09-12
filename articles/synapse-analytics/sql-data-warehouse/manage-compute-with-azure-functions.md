@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 60e79ecd4148829c38b237c0e28d60796e84ac01
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 11cb0c30a1a6ed70cca82e494fcec73936975f39
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543659"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442225"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Azure Functions를 사용 하 여 Azure Synapse Analytics SQL 풀에서 계산 리소스 관리
 
@@ -38,7 +38,7 @@ SQL 풀에서 Azure 함수 앱를 사용 하려면 SQL 풀 인스턴스와 동�
 
 앞에서 설명한 정보가 있으면 다음 템플릿을 배포합니다.
 
-[!["Azure에 배포" 라는 레이블이 지정 된 단추를 표시 하는 이미지입니다.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json)
+[!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwTimerScaler%2Fazuredeploy.json)
 
 템플릿이 배포되었으면 새로운 세 가지 리소스인 무료 Azure App Service 계획, 사용량 기준 함수 앱 계획, 로깅 및 작업 큐를 처리하는 스토리지 계정을 찾아야 합니다. 다른 섹션을 계속 읽고 배포된 기능을 요구 사항에 맞게 수정하는 방법을 알아보세요.
 
@@ -54,7 +54,7 @@ SQL 풀에서 Azure 함수 앱를 사용 하려면 SQL 풀 인스턴스와 동�
 
 3. 현재 표시되는 값이 *%ScaleDownTime%* 또는 *%ScaleUpTime%* 여야 합니다. 이러한 값은 일정이 [애플리케이션 설정](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)에 정의된 값을 따른다는 의미입니다. 지금은 이 값을 무시하고 다음 단계에 따라 일정을 원하는 시간으로 변경할 수 있습니다.
 
-4. 일정 영역에서 원하는 SQL Data Warehouse 강화 주기를 반영하도록 CRON 식의 시간을 추가합니다.
+4. 일정 영역에서 Azure Synapse Analytics를 확장할 빈도를 반영 하려는 CRON 식의 시간을 추가 합니다.
 
    ![함수 일정 변경](./media/manage-compute-with-azure-functions/change-schedule.png)
 

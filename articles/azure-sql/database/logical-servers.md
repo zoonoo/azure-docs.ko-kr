@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: dbcc82d3ec4b50cf51210f8a4319bbf374185a88
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: abb8f42e7fe4ffe6e933f466202247c73ece129a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498092"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441717"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Azure SQL Database 및 Azure Synapse의 논리 SQL server는 무엇 인가요?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -87,7 +87,7 @@ SQL Database 및 Azure Synapse의 서버:
 
 Azure PowerShell를 사용 하 여 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 다음 PowerShell cmdlet을 사용 합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](elastic-pool-overview.md)을 참조하세요.
 
-| cmdlet | Description |
+| cmdlet | 설명 |
 | --- | --- |
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|데이터베이스 만들기 |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|하나 이상의 데이터베이스 가져오기|
@@ -112,7 +112,7 @@ Azure PowerShell를 사용 하 여 서버, 데이터베이스 및 방화벽을 �
 
 [Azure CLI](/cli/azure)를 사용 하 여 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 다음 [Azure CLI SQL Database](/cli/azure/sql/db) 명령을 사용 합니다. [Cloud Shell](/azure/cloud-shell/overview)을 사용하여 CLI 브라우저에서 실행하거나 macOS, Linux 또는 Windows에서 [설치](/cli/azure/install-azure-cli)합니다. 탄력적 풀 만들기 및 관리에 대해서는 [탄력적 풀](elastic-pool-overview.md)을 참조하세요.
 
-| cmdlet | Description |
+| cmdlet | 설명 |
 | --- | --- |
 |[az sql db create](/cli/azure/sql/db#az-sql-db-create) |데이터베이스 만들기|
 |[az sql db list](/cli/azure/sql/db#az-sql-db-list)|서버에서 관리 하는 모든 데이터베이스 또는 탄력적 풀에 있는 모든 데이터베이스를 나열 합니다.|
@@ -145,12 +145,12 @@ Transact-sql을 사용 하 여 서버, 데이터베이스 및 방화벽을 만�
 > [!IMPORTANT]
 > Transact-SQL을 사용하여 서버를 만들거나 삭제할 수 없습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[CREATE DATABASE(Azure SQL Database)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current) | Azure SQL Database에서 새 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
 |[데이터베이스 만들기 (Azure Synapse)](/sql/t-sql/statements/create-database-transact-sql?view=azure-sqldw-latest) | Azure Synapse에서 새 데이터 웨어하우스 데이터베이스를 만듭니다. 새 데이터베이스를 만들려면 master 데이터베이스에 연결해야 합니다.|
 | [ALTER DATABASE(Azure SQL Database)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |데이터베이스 또는 탄력적 풀을 수정 합니다. |
-|[ALTER DATABASE(Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Azure Synapse에서 데이터 웨어하우스 데이터베이스를 수정 합니다.|
+|[ALTER DATABASE (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=sql-server-ver15)|Azure Synapse에서 데이터 웨어하우스 데이터베이스를 수정 합니다.|
 |[DROP DATABASE(Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|데이터베이스를 삭제합니다.|
 |[sys.database_service_objectives(Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|데이터베이스에 대 한 버전 (서비스 계층), 서비스 목표 (가격 책정 계층) 및 탄력적 풀 이름 (있는 경우)을 반환 합니다. 서버에 대 한 master 데이터베이스에 로그온 한 경우는 모든 데이터베이스에 대 한 정보를 반환 합니다. Azure Synapse의 경우 master 데이터베이스에 연결 해야 합니다.|
 |[sys.dm_db_resource_stats(Azure SQL 데이터베이스)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Azure SQL Database의 데이터베이스에 대 한 CPU, IO 및 메모리 소비량을 반환 합니다. 데이터베이스에서 활동이 없더라도 15초 간격으로 한 행이 있습니다.|
@@ -171,7 +171,7 @@ Transact-sql을 사용 하 여 서버, 데이터베이스 및 방화벽을 만�
 
 서버, 데이터베이스 및 방화벽을 만들고 관리 하려면 이러한 REST API 요청을 사용 합니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[서버-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|새 서버를 만들거나 업데이트합니다.|
 |[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|서버를 삭제 합니다.|

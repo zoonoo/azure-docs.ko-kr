@@ -1,6 +1,6 @@
 ---
 title: Data Factory에 대 한 데이터 관리 게이트웨이
-description: 데이터 게이트웨이를 설정하여 온-프레미스와 클라우드 간에 데이터를 이동합니다. Azure Data Factory의 데이터 관리 게이트웨이를 사용하여 데이터를 이동합니다.
+description: Azure Data Factory의 데이터 관리 게이트웨이를 사용하여 데이터를 이동합니다.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a83020af17758b570030a4c6129ffdd7dec58094
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087081"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441122"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
@@ -121,7 +121,7 @@ ms.locfileid: "86087081"
     ![포털의 다운로드 링크](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
 4. **구성** 페이지에서 **키 다시 만들기**를 클릭합니다. 신중하게 읽은 후 경고 메시지에 대해 예를 클릭합니다.
 
-    ![키 다시 만들기](media/data-factory-data-management-gateway/recreate-key-button.png)
+    ![키 다시 만들기 단추](media/data-factory-data-management-gateway/recreate-key-button.png)
 5. 키 옆의 복사 단추를 클릭합니다. 키가 클립보드에 복사됩니다.
 
     ![키 복사](media/data-factory-data-management-gateway/copy-gateway-key.png)
@@ -150,15 +150,15 @@ ms.locfileid: "86087081"
 Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으로 사용할 수 있습니다. 그렇지 않은 경우 게이트웨이 컴퓨터에서 도메인 및 포트를 그에 따라 구성할 수 있습니다.
 
 > [!NOTE]
-> 1. 소스/싱크에 따라 회사/Windows 방화벽에서 추가 도메인 및 아웃바운드 포트를 허용 목록으로 만들어야 할 수 있습니다.
-> 2. 일부 클라우드 데이터베이스(예: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) 등)의 경우 해당 방화벽 구성에서 게이트웨이 머신의 IP 주소를 허용 목록으로 만들어야 합니다.
+> 1. 원본/싱크에 따라 회사/Windows 방화벽에서 추가 도메인 및 아웃 바운드 포트를 허용 해야 할 수 있습니다.
+> 2. 일부 클라우드 데이터베이스 (예: [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access)등)의 경우 방화벽 구성에서 게이트웨이 컴퓨터의 IP 주소를 허용 해야 할 수 있습니다.
 >
 >
 
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>소스 데이터 저장소의 데이터를 싱크 데이터 저장소에 복사
 방화벽 규칙이 회사 방화벽, 게이트웨이 컴퓨터의 Windows 방화벽 및 데이터 저장소 자체에 올바르게 설정되어 있는지 확인합니다. 이러한 규칙을 사용하면 게이트웨이가 소스와 싱크에 모두 정상적으로 연결할 수 있습니다. 복사 작업과 관련된 각 데이터 저장소에 대해 규칙을 사용하도록 설정합니다.
 
-예를 들어 **온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure SQL Data Warehouse 싱크로**복사 하려면 다음 단계를 수행 합니다.
+예를 들어 **온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure Synapse Analytics (이전의 SQL Data Warehouse) 싱크로**복사 하려면 다음 단계를 수행 합니다.
 
 * Windows 방화벽 및 회사 방화벽 둘 다에 대해 포트 **1433** 에서 아웃 바운드 **TCP** 통신을 허용 합니다.
 * 논리 SQL server의 방화벽 설정을 구성 하 여 허용 된 IP 주소 목록에 게이트웨이 컴퓨터의 IP 주소를 추가 합니다.
@@ -175,7 +175,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으�
 
 게이트웨이는 프록시 서버를 사용하여 클라우드 서비스에 연결합니다. 초기 설치 중에 **변경** 링크를 클릭 합니다. **프록시 설정** 대화가 표시됩니다.
 
-![구성 관리자를 사용하여 프록시 설정](media/data-factory-data-management-gateway/SetProxySettings.png)
+![구성 관리자를 사용 하 여 프록시 설정 1](media/data-factory-data-management-gateway/SetProxySettings.png)
 
 이 대화 상자에는 세 가지 구성 옵션이 있습니다.
 
@@ -194,7 +194,7 @@ Windows 방화벽 수준에서 이러한 아웃바운드 포트를 일반적으�
 
 구성 관리자 도구를 사용하여 HTTP 프록시를 확인하고 업데이트할 수 있습니다.
 
-![구성 관리자를 사용하여 프록시 설정](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
+![구성 관리자를 사용 하 여 프록시 설정 2](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
 
 > [!NOTE]
 > NTLM 인증을 사용하여 프록시 서버를 설치하면 게이트웨이 호스트 서비스가 도메인 계정에서 실행됩니다. 나중에 도메인 계정의 암호를 변경하는 경우에는 서비스의 구성 설정을 업데이트하여 서비스를 다시 시작해야 합니다. 이 요구 사항을 감안하여, 암호를 자주 업데이트하지 않아도 되는 전용 도메인 계정을 사용해 프록시 서버에 액세스하는 것이 좋습니다.
@@ -233,7 +233,7 @@ HTTP 프록시에 대해 **시스템 프록시 사용** 설정을 선택 하는 
 > [!IMPORTANT]
 > diahost.exe.config와 diawp.exe.config를 **모두** 업데이트 하는 것을 잊지 마십시오.
 
-이러한 사항 외에 Microsoft Azure가 회사의 허용 목록에 있는지도 확인해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=41653)에서 유효한 Microsoft Azure IP 주소의 목록을 다운로드할 수 있습니다.
+이러한 사항 외에도 Microsoft Azure 회사의 허용 목록에 있는지 확인 해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=41653)에서 유효한 Microsoft Azure IP 주소의 목록을 다운로드할 수 있습니다.
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>방화벽 및 프록시 서버 관련 문제 발생 시 나타날 수 있는 증상
 다음과 비슷한 오류가 발생할 경우 방화벽 또는 프록시 서버가 잘못 구성된 것일 수 있습니다. 그러면 게이트웨이가 Data Factory에 연결하여 인증을 할 수 없게 됩니다. 이전 섹션을 참조하여 방화벽 및 프록시 서버가 올바르게 구성되었는지 확인합니다.
@@ -307,13 +307,13 @@ msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
-## <a name="configuration-manager"></a>Configuration Manager
+## <a name="configuration-manager"></a>구성 관리자
 게이트웨이를 설치하면 다음 방법 중 하나로 데이터 관리 게이트웨이 구성 관리자를 시작할 수 있습니다.
 
 1. **Search** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다.
 2. *C: \\ \\ Program Files \\ Microsoft 데이터 관리 Gateway \\ 2.0 \\ Shared*폴더에 있는 실행 파일 *ConfigManager.exe* 를 실행 합니다.
 
-### <a name="home-page"></a>홈페이지
+### <a name="home-page"></a>홈 페이지
 홈 페이지를 통해 다음 작업을 수행할 수 있습니다.
 
 * 게이트웨이의 상태를 봅니다(클라우드 서비스에 연결되어 있는지 등).
@@ -390,7 +390,7 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 
 다음 표에서는 **논리 게이트웨이**에 가능한 상태에 대해 설명합니다. 게이트웨이 상태는 게이트웨이 노드의 상태에 따라 달라집니다.
 
-상태 | 주석
+상태 | 의견
 :----- | :-------
 등록이 필요합니다. | 이 논리 게이트웨이에 노드가 아직 등록되지 않았습니다.
 온라인 | 게이트웨이 노드가 온라인 상태입니다.
@@ -422,10 +422,10 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
     ![구성 페이지](./media/data-factory-data-management-gateway/ConfigureBlade.png)
 5. **Microsoft 데이터 관리 게이트웨이 구성 관리자**를 열어 둡니다.
 
-    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)
+    ![구성 관리자](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. 포털의 **구성** 페이지에서 명령 모음에 있는 **키 다시 만들기**를 클릭하고 경고 메시지가 나타나면 **예**를 클릭합니다. 키 텍스트 옆의 **복사 단추**를 클릭하여 키를 클립보드에 복사합니다. 키를 다시 만드는 즉시 이전 컴퓨터의 게이트웨이가 작동 중지됩니다.
 
-    ![키 다시 만들기](./media/data-factory-data-management-gateway/RecreateKey.png)
+    ![키 2 다시 만들기](./media/data-factory-data-management-gateway/RecreateKey.png)
 7. 컴퓨터의 **데이터 관리 게이트웨이 구성 관리자**의 **게이트웨이 등록** 페이지에서 **키**를 텍스트 상자에 붙여 넣습니다. (선택 사항) **게이트웨이 키 표시** 확인란을 클릭하여 키 텍스트를 확인합니다.
 
     ![키 복사 및 등록](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)

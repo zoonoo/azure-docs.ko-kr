@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 10a6c2e4f6f9dcbb29eb16cbfabd8fba31668f06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201636"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441224"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Synapse SQL 풀을 사용 하 여 데이터를 로드 하는 모범 사례
 
@@ -175,6 +175,6 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 ## <a name="next-steps"></a>다음 단계
 
-- ELT (추출, 로드 및 변환) 프로세스를 설계할 때 복사 문이나 PolyBase에 대해 자세히 알아보려면 [SQL Data Warehouse에 대 한 Elt 디자인](design-elt-data-loading.md)을 참조 하세요.
+- ELT (추출, 로드 및 변환) 프로세스를 설계할 때 복사 문이나 PolyBase에 대해 자세히 알아보려면 [Azure Synapse Analytics 용 ELT 디자인](design-elt-data-loading.md)을 참조 하세요.
 - 로드 자습서의 경우 [COPY 문을 사용 하 여 Azure blob storage에서 SYNAPSE SQL로 데이터를 로드](load-data-from-azure-blob-storage-using-polybase.md)합니다.
 - 데이터 로드를 모니터링하려면 [DMV를 사용하여 워크로드 모니터링](sql-data-warehouse-manage-monitor.md)을 참조하세요.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: c4c340282becf34ae34bf9e48bceeb86d68f237b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa10f97d0eb2f48e80d20f90a254c44c6e95a8e8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345328"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436972"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>SQL Database로의 마이그레이션 중 Transact-SQL 차이점 해결
 
@@ -45,7 +45,7 @@ SQL Database에서 지원되는 기능 및 지원되지 않는 기능 목록은 
  [Azure SQL Database 기능 비교](features-comparison.md)에 설명 된 지원 되지 않는 기능과 관련 된 transact-sql 문 외에도 다음 문 및 문 그룹이 지원 되지 않습니다. 따라서 마이그레이션할 데이터베이스에서 다음 기능을 사용하고 있는 경우 T-SQL을 다시 엔지니어링하여 해당 T-SQL 기능 및 문을 제거합니다.
 
 - 시스템 개체의 데이터 정렬
-- 연결 관련: 엔드포인트 문. SQL Database는 Windows 인증을 지원 하지 않지만 유사한 Azure Active Directory 인증을 지원 합니다. 최신 버전의 SSMS를 사용해야 하는 인증 형식도 있습니다. 자세한 내용은 [Azure Active Directory 인증을 사용 하 여 SQL Database 또는 Azure SQL Data Warehouse에 연결](authentication-aad-overview.md)을 참조 하세요.
+- 연결 관련: 엔드포인트 문. SQL Database는 Windows 인증을 지원 하지 않지만 유사한 Azure Active Directory 인증을 지원 합니다. 최신 버전의 SSMS를 사용해야 하는 인증 형식도 있습니다. 자세한 내용은 [Azure Active Directory 인증을 사용 하 여 SQL Database 또는 Azure Azure Synapse Analytics (이전의 SQL Data Warehouse)에 연결](authentication-aad-overview.md)을 참조 하세요.
 - 세 개 또는 네 개의 부분으로 된 이름을 사용하여 데이터베이스 쿼리를 교차합니다. 읽기 전용 데이터베이스 간 쿼리는 [탄력적 데이터베이스 쿼리](elastic-query-overview.md)를 통해 지원됩니다.
 - 데이터베이스 간 소유권 체인, `TRUSTWORTHY` 설정
 - `EXECUTE AS LOGIN` 대신 '사용자로 실행'을 사용합니다.
@@ -82,7 +82,7 @@ Transact-sql 문법, 사용법 및 예제에 대 한 자세한 내용은 SQL Ser
 
 ### <a name="about-the-applies-to-tags"></a>'적용 대상' 태그 정보
 
-Transact-SQL 참조에는 현재까지 게시된 SQL Server 버전 2008과 관련된 문서가 포함되어 있습니다. 문서 제목 아래에는 아이콘 모음이 있습니다. 네 개의 SQL Server 플랫폼을 나열 하 고 적용 가능성을 나타냅니다. 예를 들어 가용성 그룹은 SQL Server 2012에서 도입되었습니다.  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)   문서는 문이 **SQL Server (2012부터 시작)** 에 적용 됨을 나타냅니다. 문은 SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse 또는 병렬 데이터 웨어하우스에 적용 되지 않습니다.
+Transact-SQL 참조에는 현재까지 게시된 SQL Server 버전 2008과 관련된 문서가 포함되어 있습니다. 문서 제목 아래에는 아이콘 모음이 있습니다. 네 개의 SQL Server 플랫폼을 나열 하 고 적용 가능성을 나타냅니다. 예를 들어 가용성 그룹은 SQL Server 2012에서 도입되었습니다.  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)   문서는 문이 **SQL Server (2012부터 시작)** 에 적용 됨을 나타냅니다. 문은 SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure Azure Synapse Analytics (이전의 SQL Data Warehouse) 또는 병렬 데이터 웨어하우스에 적용 되지 않습니다.
 
 경우에 따라 문서에 대 한 일반적인 주제를 제품에서 사용할 수 있지만 제품 간에는 약간의 차이가 있습니다. 차이점은 문서의 중간에 적절하게 표시됩니다. 경우에 따라 문서에 대 한 일반적인 주제를 제품에서 사용할 수 있지만 제품 간에는 약간의 차이가 있습니다. 차이점은 문서의 중간에 적절하게 표시됩니다. 예를 들어 CREATE TRIGGER 문서는 SQL Database에서 사용할 수 있습니다. 그러나 서버 수준 트리거에 대 한 **ALL server** 옵션은 SQL Database에서 서버 수준 트리거를 사용할 수 없음을 나타냅니다. 대신 데이터베이스 수준 트리거를 사용합니다.
 

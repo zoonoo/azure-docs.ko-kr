@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: e85a78582c0f7aac188198ad91f9ac91ddf62961
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 9ac30bdcb137afb26a8461f98a36b568ebe179b0
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950377"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459014"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -188,7 +188,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
     만든 Active Directory 연결이 나타납니다.
 
-    ![Active Directory 연결](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+    ![Active Directory 연결을 만듦](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
 
 ## <a name="add-an-smb-volume"></a>SMB 볼륨 추가
 
@@ -230,7 +230,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
     
         ![서브넷 만들기](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-    * 볼륨에 기존 스냅숏 정책을 적용 하려면 **고급 섹션 표시** 를 클릭 하 여 확장 하 고 풀 다운 메뉴에서 스냅숏 정책을 선택 합니다. 
+    * 볼륨에 기존 스냅숏 정책을 적용 하려면 **고급 섹션 표시** 를 클릭 하 여 확장 하 고, 스냅숏 경로를 숨길지 여부를 지정 하 고, 풀 다운 메뉴에서 스냅숏 정책을 선택 합니다. 
 
         스냅숏 정책을 만드는 방법에 대 한 자세한 내용은 [스냅숏 정책 관리](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)를 참조 하세요.
 

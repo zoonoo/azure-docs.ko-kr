@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/07/2020
-ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 013d8b77a16a4c7cd0efdadce25fd141793070be
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135535"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459524"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
 
@@ -97,7 +97,7 @@ Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https:/
 
    CLI 참조 명령을 실행 하기 전에 [Azure CLI을 설치](/cli/azure/install-azure-cli) 해야 합니다.  원한다 면 Azure Cloud Shell를 사용 하 여이 문서의 단계를 완료할 수도 있습니다.  Azure Cloud Shell는 브라우저를 통해 사용 하는 대화형 셸 환경입니다.  다음 방법 중 하나를 사용 하 여 Cloud Shell를 시작 합니다.
 
-   - 다음으로 이동 하 여 Cloud Shell을 엽니다.[https://shell.azure.com](https://shell.azure.com)
+   - 다음으로 이동 하 여 Cloud Shell을 엽니다. [https://shell.azure.com](https://shell.azure.com)
 
    - [Azure Portal](https://portal.azure.com) 의 오른쪽 위 모퉁이에 있는 메뉴 모음에서 **Cloud Shell** 단추를 선택 합니다.
 
@@ -109,18 +109,18 @@ Microsoft 및 파트너의 모니터링 솔루션은 [Azure Marketplace](https:/
     az login
     ```
 
-1. `log-analytics` 확장 설치
+1. `log-analytics-solution` 확장 설치
 
-   `log-analytics`명령은 핵심 Azure CLI의 실험적 확장입니다. [Azure CLI 확장 사용](/cli/azure/azure-cli-extensions-overview?)의 확장 참조에 대해 자세히 알아보세요.
+   `log-analytics-solution`명령은 핵심 Azure CLI의 실험적 확장입니다. [Azure CLI 확장 사용](/cli/azure/azure-cli-extensions-overview?)의 확장 참조에 대해 자세히 알아보세요.
 
    ```azurecli
-   az extension add --name log-analytics
+   az extension add --name log-analytics-solution
    ```
 
    다음 경고가 예상 됩니다.
 
    ```output
-   The installed extension `log-analytics` is experimental and not covered by customer support.  Please use with discretion.
+   The installed extension `log-analytics-solution` is experimental and not covered by customer support.  Please use with discretion.
    ```
 
 ### <a name="install-a-solution-with-the-azure-cli"></a>Azure CLI를 사용 하 여 솔루션 설치
@@ -159,7 +159,6 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
 
 * 각 솔루션 설치 시 하나의 Log Analytics 작업 영역과 하나의 Automation 계정만 사용할 수 있습니다. 솔루션을 여러 작업 영역에 개별적으로 설치할 수 있습니다.
 * 솔루션에서 Automation 계정을 요구하는 경우 Log Analytics 작업 영역과 Automation 계정이 서로 연결되어야 합니다. Log Analytics 작업 영역은 하나의 Automation 계정에만 연결되고, Automation 계정은 하나의 Log Analytics 작업 영역에만 연결될 수 있습니다.
-* 연결하려면 Log Analytics 작업 영역과 Automation 계정이 동일한 구독에 있어야 하지만 동일한 지역에 배포된 다른 리소스 그룹에 있을 수 있습니다. 미국 동부 지역에 있는 작업 영역과 미국 동부 2에 있는 Automation 계정의 경우는 예외입니다.
 
 Azure Marketplace를 통해 솔루션을 설치하는 경우 작업 영역 및 Automation 계정을 요구하는 메시지가 표시됩니다. 작업 영역과 계정이 아직 서로 연결되지 않았으면 둘 사이에 연결이 만들어집니다.
 

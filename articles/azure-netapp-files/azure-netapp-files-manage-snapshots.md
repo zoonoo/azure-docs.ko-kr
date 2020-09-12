@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: d70558efb1ea54f069981062e5379d995dbeddd2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950343"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459106"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
-Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용을 지원 하 여 자동 스냅숏 생성을 예약 합니다.  스냅숏을 새 볼륨으로 복원할 수도 있습니다.  
+Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용을 지원 하 여 자동 스냅숏 생성을 예약 합니다.  또한 스냅숏을 새 볼륨으로 복원 하거나 클라이언트를 사용 하 여 단일 파일을 복원할 수 있습니다.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>볼륨에 대한 주문형 스냅샷 만들기
 
@@ -165,7 +165,62 @@ Azure CLI 명령을 사용 하 여 [`az feature register`](https://docs.microsof
     새 볼륨은 스냅숏에 사용 되는 것과 동일한 프로토콜을 사용 합니다.   
     스냅샷이 복원된 새 볼륨은 볼륨 블레이드에 표시됩니다.
 
+## <a name="restore-a-file-from-a-snapshot-using-a-client"></a>클라이언트를 사용 하 여 스냅숏에서 파일 복원
+
+[전체 스냅숏을 볼륨으로 복원](#restore-a-snapshot-to-a-new-volume)하지 않으려는 경우 볼륨이 탑재 된 클라이언트를 사용 하 여 스냅숏에서 파일을 복원 하는 옵션이 있습니다.  
+
+탑재 된 볼륨에는  `.snapshot` (NFS 클라이언트에서) 또는 `~snapshot` 클라이언트에서 액세스할 수 있는 (SMB 클라이언트) 라는 스냅숏 디렉터리가 포함 되어 있습니다. 스냅숏 디렉터리는 볼륨의 스냅숏에 해당 하는 하위 디렉터리를 포함 합니다. 각 하위 디렉터리에는 스냅숏의 파일이 포함 되어 있습니다. 실수로 파일을 삭제 하거나 덮어쓴 경우 snapshot 하위 디렉터리에서 읽기/쓰기 디렉터리로 파일을 복사 하 여 부모 읽기/쓰기 디렉터리에 파일을 복원할 수 있습니다. 
+
+볼륨을 만들 때 스냅숏 경로 숨기기 확인란을 선택한 경우 스냅숏 디렉터리는 숨겨집니다. 볼륨을 선택 하 여 볼륨의 스냅숏 경로 숨기기 상태를 볼 수 있습니다. 볼륨 페이지에서 **편집** 을 클릭 하 여 스냅숏 경로 숨기기 옵션을 편집할 수 있습니다.  
+
+![볼륨 스냅숏 옵션 편집](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
+### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Linux NFS 클라이언트를 사용 하 여 파일 복원 
+
+1. `ls`Linux 명령을 사용 하 여 디렉터리에서 복원 하려는 파일을 나열 합니다 `.snapshot` . 
+
+    다음은 그 예입니다. 
+
+    `$ ls my.txt`   
+    `ls: my.txt: No such file or directory`   
+
+    `$ ls .snapshot`   
+    `daily.2020-05-14_0013/              hourly.2020-05-15_1106/`   
+    `daily.2020-05-15_0012/              hourly.2020-05-15_1206/`   
+    `hourly.2020-05-15_1006/             hourly.2020-05-15_1306/`   
+
+    `$ ls .snapshot/hourly.2020-05-15_1306/my.txt`   
+    `my.txt`
+
+2. 명령을 사용 `cp` 하 여 부모 디렉터리에 파일을 복사 합니다.  
+
+    다음은 그 예입니다.  
+
+    `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
+
+    `$ ls my.txt`   
+    `my.txt`   
+
+### <a name="restore-a-file-by-using-a-windows-client"></a>Windows 클라이언트를 사용 하 여 파일 복원 
+
+1. `~snapshot`볼륨의 디렉터리가 숨겨진 경우 표시할 부모 디렉터리에 [숨겨진 항목을 표시](https://support.microsoft.com/help/4028316/windows-view-hidden-files-and-folders-in-windows-10) `~snapshot` 합니다.
+
+    ![숨겨진 항목 표시](../media/azure-netapp-files/snapshot-show-hidden.png) 
+
+2. 에서 하위 디렉터리로 이동 `~snapshot` 하 여 복원 하려는 파일을 찾습니다.  파일을 마우스 오른쪽 단추로 클릭 합니다. **복사**를 선택합니다.  
+
+    ![복원할 파일 복사](../media/azure-netapp-files/snapshot-copy-file-restore.png) 
+
+3. 부모 디렉터리로 돌아갑니다. 부모 디렉터리를 마우스 오른쪽 단추로 클릭 하 고를 선택 `Paste` 하 여 파일을 디렉터리에 붙여넣습니다.
+
+    ![복원할 파일 붙여넣기](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
+
+4. 부모 디렉터리를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택한 다음 **이전 버전** 탭을 클릭 하 여 스냅숏 목록을 확인 하 고 **복원** 을 선택 하 여 파일을 복원할 수도 있습니다.  
+
+    ![속성 이전 버전](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure NetApp Files의 스토리지 계층 구조 이해](azure-netapp-files-understand-storage-hierarchy.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
+* [Azure NetApp Files 스냅숏 101 비디오](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

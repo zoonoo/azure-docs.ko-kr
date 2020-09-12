@@ -3,20 +3,20 @@ title: Azure Front 도어에서 메트릭 및 로그 모니터링 | Microsoft Do
 description: 이 문서에서는 Azure Front 도어가 지 원하는 다양 한 메트릭 및 액세스 로그에 대해 설명 합니다.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: sharadag
-ms.openlocfilehash: 249b2406f048709fd7e4f76f8272b3158708e5bb
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.author: duau
+ms.openlocfilehash: 6f5051dd7dedcc49320557f17148bcdc9bf539ab
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056434"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399755"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Azure 전면 도어에서 메트릭 및 로그 모니터링
 
@@ -99,8 +99,8 @@ Azure Monitor에서 Azure 리소스의 앞 문이나 모든 로그에 활동 로
 
 | 시나리오 | 로그 항목 수 | POP | BackendHostname | SentToOriginShield | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| 캐싱을 사용 하지 않는 라우팅 규칙 | 1 | Edge POP 코드 | 요청이 전달 된 백 엔드 | 거짓 | CONFIG_NOCACHE |
-| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | Empty | 거짓 | 리 |
+| 캐싱을 사용 하지 않는 라우팅 규칙 | 1 | Edge POP 코드 | 요청이 전달 된 백 엔드 | 아니요 | CONFIG_NOCACHE |
+| 캐싱이 설정 된 라우팅 규칙입니다. 가장자리 POP에서 캐시 적중 | 1 | Edge POP 코드 | Empty | 아니요 | 리 |
 | 캐싱이 설정 된 라우팅 규칙입니다. Edge POP에서 캐시 누락이 있지만 부모 캐시 POP에서 캐시 적중 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 비어 있음 | 1. True</br>2. False | 1. 누락</br>2. PARTIAL_HIT |
 | 캐싱이 설정 된 라우팅 규칙입니다. Edge 및 부모 캐시 POP에서 캐시 누락 | 2 | 1. Edge POP 코드</br>2. 부모 캐시 POP 코드 | 1. 부모 캐시 POP 호스트 이름</br>2. 캐시를 채우는 데 도움이 되는 백 엔드 | 1. True</br>2. False | 1. 누락</br>2. 누락 |
 

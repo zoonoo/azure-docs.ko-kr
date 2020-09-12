@@ -4,12 +4,12 @@ description: 이 문서에서는 검사점, 임대 및 병렬 읽기 이벤트�
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27b587e6562b5ba0c9bf28a52a00a9d8e7d9201c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a05f2172b266301919d0a800fb863b8f0dbe5884
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010463"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319505"
 ---
 # <a name="event-processor-host"></a>이벤트 프로세서 호스트
 > [!NOTE]
@@ -87,6 +87,8 @@ public class SimpleEventProcessor : IEventProcessor
 
 마지막으로, 소비자는 Event Hubs 서비스를 사용하여 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 인스턴스를 등록합니다. EventProcessorHost 인스턴스에 이벤트 프로세서 클래스를 등록하면 이벤트 처리가 시작됩니다. 등록하면 Event Hubs 서비스에 지시하여 소비자 앱에서 해당 파티션 중 일부의 이벤트를 사용하도록 예상하고 사용할 이벤트를 푸시할 때마다 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 구현 코드를 호출합니다. 
 
+> [!NOTE]
+> ConsumerGroupName은 대/소문자를 구분 합니다.  ConsumerGroupName를 변경 하면 스트림의 시작 부분에서 모든 파티션을 읽을 수 있습니다.
 
 ### <a name="example"></a>예제
 

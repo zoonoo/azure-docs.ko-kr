@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f9b493e862ed70bbeab9ac509c79003a535366d0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eed0527b69dcaacd3a8cd0cf7cd178aa2aca3468
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116542"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433911"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 새로운 앱 등록 환경
 
@@ -32,7 +32,7 @@ Azure Portal의 **Azure AD B2C** 또는 **Azure Active Directory** 서비스 모
 Azure AD B2C 앱 등록 환경은 모든 Azure AD 테 넌 트에 대 한 일반 [앱 등록 환경을](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) 기반으로 하지만 Azure AD B2C 테 넌 트에 맞게 조정 됩니다.
 
 ## <a name="whats-not-changing"></a>변경 되지 않는 항목
-- 응용 프로그램 및 관련 구성은 새 환경에서 있는 그대로 찾을 수 있습니다. 응용 프로그램을 다시 등록할 필요는 없으며, 응용 프로그램의 사용자는 다시 로그인 할 필요가 없습니다. 
+- 응용 프로그램 및 관련 구성은 새 환경에서 있는 그대로 찾을 수 있습니다. 응용 프로그램을 다시 등록할 필요는 없으며, 응용 프로그램의 사용자는 다시 로그인 할 필요가 없습니다.
 
 > [!NOTE]
 > 이전에 만든 모든 응용 프로그램을 보려면 **앱 등록** 블레이드로 이동 하 여 **모든 응용 프로그램** 탭을 선택 합니다. 그러면 레거시 환경, 새 환경 및 Azure AD 서비스에서 만든 앱이 표시 됩니다.
@@ -43,7 +43,7 @@ Azure AD B2C 앱 등록 환경은 모든 Azure AD 테 넌 트에 대 한 일반 
 
 -   **결합 된 앱 등록** 을 사용 하면 고객 관련 앱 또는 앱이 Microsoft Graph에 액세스할 수 있는지 여부에 관계 없이 앱을 신속 하 게 등록할 수 있습니다.
 
-- **끝점** 창에서는 openid connect connect 구성, SAML 메타 데이터, Microsoft Graph API 및 [OAuth 2.0 사용자 흐름 끝점](tokens-overview.md#endpoints)을 포함 하 여 시나리오에 대 한 관련 끝점을 신속 하 게 식별할 수 있습니다. 
+- **끝점** 창에서는 openid connect connect 구성, SAML 메타 데이터, Microsoft Graph API 및 [OAuth 2.0 사용자 흐름 끝점](tokens-overview.md#endpoints)을 포함 하 여 시나리오에 대 한 관련 끝점을 신속 하 게 식별할 수 있습니다.
 
 - **Api 권한** 및 **api 공개는** 보다 광범위 한 범위, 권한 및 동의 관리를 제공 합니다. 이제 응용 프로그램에 MS Graph 및 Azure AD Graph 권한을 할당할 수 있습니다.
 
@@ -57,7 +57,7 @@ Azure AD B2C 앱 등록 환경은 모든 Azure AD 테 넌 트에 대 한 일반 
 - 모든 조직 디렉터리의 계정 (모든 Azure AD 디렉터리 – 다중 테 넌 트)
 - 모든 조직 디렉터리 또는 모든 id 공급자의 계정 Azure AD B2C를 사용 하 여 사용자를 인증 합니다.
 
-다른 계정 유형을 이해 하려면 만들기 환경에서 **도움말** 선택을 선택 합니다. 
+다른 계정 유형을 이해 하려면 만들기 환경에서 **도움말** 선택을 선택 합니다.
 
 레거시 환경에서 앱은 항상 고객 지향 응용 프로그램으로 생성 되었습니다. 이러한 앱에 대해 계정 유형은 **모든 조직 디렉터리 또는 모든 id 공급자의 계정으로 설정 됩니다. Azure AD B2C를 사용 하 여 사용자를 인증**합니다.
 > [!NOTE]
@@ -68,9 +68,9 @@ Azure AD B2C 앱 등록 환경은 모든 Azure AD 테 넌 트에 대 한 일반 
 ## <a name="applications-for-devops-scenarios"></a>DevOps 시나리오용 응용 프로그램
 다른 계정 유형을 사용 하 여 Id 경험 프레임 워크 정책을 업로드 하거나 사용자를 프로 비전 하는 Microsoft Graph 같은 DevOps 시나리오를 관리 하는 앱을 만들 수 있습니다. [Microsoft Graph 응용 프로그램을 등록 하 여 Azure AD B2C 리소스를 관리 하는 방법을](microsoft-graph-get-started.md)알아봅니다.
 
-이러한 권한이 대부분 Azure B2C consumer 사용자에 게 적용 되지 않기 때문에 Microsoft Graph 권한이 모두 표시 되지 않을 수 있습니다. [Microsoft Graph를 사용 하 여 사용자 관리에 대해 자세히](manage-user-accounts-graph-api.md)알아보세요.  
+이러한 권한이 대부분 Azure B2C consumer 사용자에 게 적용 되지 않기 때문에 Microsoft Graph 권한이 모두 표시 되지 않을 수 있습니다. [Microsoft Graph를 사용 하 여 사용자 관리에 대해 자세히](manage-user-accounts-graph-api.md)알아보세요.
 
-## <a name="admin-consent-and-offline_accessopenid-scopes"></a>관리자 동의 및 offline_access + openid connect 범위  
+## <a name="admin-consent-and-offline_accessopenid-scopes"></a>관리자 동의 및 offline_access + openid connect 범위
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->
 
 **Openid connect** 범위는 Azure AD B2C 사용자가 앱에 로그인 할 수 있도록 하는 데 필요 합니다. **Offline_access** 범위는 사용자에 대 한 새로 고침 토큰을 발급 하는 데 필요 합니다. 이러한 범위는 이전에 추가 되었으며 기본적으로 관리자 동의가 부여 되었습니다. 이제 **openid connect 및 offline_access 권한에 관리자 동의 부여** 옵션을 선택 하 여 만들기 프로세스 중에 이러한 범위에 대 한 권한을 쉽게 추가할 수 있습니다. 또는 기존 앱에 대 한 **API 권한** 설정에서 관리자 동의를 사용 하 여 Microsoft Graph 권한을 추가할 수 있습니다.
@@ -78,11 +78,11 @@ Azure AD B2C 앱 등록 환경은 모든 Azure AD 테 넌 트에 대 한 일반 
 [권한 및 동의](../active-directory/develop/v2-permissions-and-consent.md)에 대해 자세히 알아보세요.
 
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>플랫폼/인증: 회신 Url/리디렉션 Uri
-레거시 환경에서 다양 한 플랫폼 형식은 **속성** 에서 웹 앱/a p i에 대 한 회신 Url 및 Native client에 대 한 리디렉션 URI로 관리 되었습니다. "Native clients"는 "공용 클라이언트" 라고도 하며 iOS, macOS, Android 및 기타 모바일 및 데스크톱 응용 프로그램 유형에 대 한 앱을 포함 합니다. 
+레거시 환경에서 다양 한 플랫폼 형식은 **속성** 에서 웹 앱/a p i에 대 한 회신 Url 및 Native client에 대 한 리디렉션 URI로 관리 되었습니다. "Native clients"는 "공용 클라이언트" 라고도 하며 iOS, macOS, Android 및 기타 모바일 및 데스크톱 응용 프로그램 유형에 대 한 앱을 포함 합니다.
 
-새 환경에서 회신 Url 및 리디렉션 Uri는 모두 리디렉션 Uri 라고 하며, 앱의 **인증** 섹션에서 찾을 수 있습니다. 앱 등록는 웹 앱 또는 네이티브 응용 프로그램으로 제한 되지 않습니다. 각 리디렉션 Uri를 등록 하 여 이러한 모든 플랫폼 유형에 동일한 앱 등록을 사용할 수 있습니다. 
+새 환경에서 회신 Url 및 리디렉션 Uri는 모두 리디렉션 Uri 라고 하며, 앱의 **인증** 섹션에서 찾을 수 있습니다. 앱 등록는 웹 앱 또는 네이티브 응용 프로그램으로 제한 되지 않습니다. 각 리디렉션 Uri를 등록 하 여 이러한 모든 플랫폼 유형에 동일한 앱 등록을 사용할 수 있습니다.
 
-리디렉션 Uri는 웹 또는 공용 (모바일 및 데스크톱) 앱 유형과 연결 해야 합니다. [리디렉션 Uri에 대 한 자세한 정보](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+리디렉션 Uri는 웹 또는 공용 (모바일 및 데스크톱) 앱 유형과 연결 해야 합니다. [리디렉션 Uri에 대 한 자세한 정보](../active-directory/develop/quickstart-register-app.md#add-a-redirect-uri)
 
 <!-- Whether an application should be treated as a public client is inferred at run-time from the Redirect URI platform type, if possible. The **Treat application as a public client** setting should be set to **Yes** for flows that might not use a redirect URI, such as ROPC flows. -->
 

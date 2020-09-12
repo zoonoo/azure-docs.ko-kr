@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
-ms.openlocfilehash: 8a78ed25be80cbf083467209f764109a26782278
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6a11e3d0cb41383b44b76975ecbd1c2ae2825015
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292794"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441496"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Azure에서 온-프레미스로 다시 보호
 
@@ -46,6 +46,9 @@ Azure로 온-프레미스 VMware VM 및 물리적 서버를 [장애 조치](site
 
 - 복구 계획을 다시 보호 하는 경우 보호 된 모든 컴퓨터에 대 한 값을 제공 해야 합니다.
 - Vm이 다중 VM 일관성을 위해 복제 그룹에 속하는 경우 복구 계획을 사용 하 여 다시 보호 수 있습니다. 복제 그룹의 Vm은 동일한 마스터 대상 서버를 사용 해야 합니다.
+
+>[!NOTE]
+>다시 보호 중에는 Azure에서 erstwhile로 전송 되는 데이터의 양은 0 바이트에서 모든 보호 된 컴퓨터에 대 한 디스크 크기의 합계 일 수 있으며 계산할 수 없습니다.
 
 ### <a name="before-you-start"></a>시작하기 전에
 

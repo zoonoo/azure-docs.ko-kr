@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 443ac9ee1c2f05cf90e866793449220d71e37b89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b72694f93ed5b712a0f684887df5b69a7b35c72
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210664"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441683"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Azure Synapse Analytics에 대한 메모리 및 동시성 제한
 
@@ -125,7 +125,7 @@ Azure Synapse Analytics에서 다양한 성능 수준과 리소스 클래스에 
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-쿼리 실행을 시작할 수 있는 동시성 슬롯이 충분하지 않은 경우 쿼리는 중요도에 따라 큐에 대기되고 실행됩니다.  중요도가 동일한 경우 쿼리는 선입 선출 방식으로 실행됩니다.  쿼리가 완료되고 쿼리 및 슬롯의 수가 한도 밑으로 떨어지면 SQL Data Warehouse는 큐에 저장된 쿼리를 릴리스합니다.
+쿼리 실행을 시작할 수 있는 동시성 슬롯이 충분하지 않은 경우 쿼리는 중요도에 따라 큐에 대기되고 실행됩니다.  중요도가 동일한 경우 쿼리는 선입 선출 방식으로 실행됩니다.  쿼리가 완료 되 고 쿼리 및 슬롯의 수가 한도 미만으로 떨어지면 Azure Synapse Analytics는 대기 중인 쿼리를 해제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

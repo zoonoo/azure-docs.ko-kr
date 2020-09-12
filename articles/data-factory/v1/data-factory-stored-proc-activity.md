@@ -1,6 +1,6 @@
 ---
 title: SQL Server 저장 프로시저 작업
-description: SQL Server 저장 프로시저 작업을 사용하여 데이터 팩터리 파이프라인으로 Azure SQL Database 또는 Azure SQL Data Warehouse에서 저장 프로시저를 호출하는 방법을 알아봅니다.
+description: SQL Server 저장 프로시저 작업을 사용 하 여 Data Factory 파이프라인에서 Azure SQL Database 또는 Azure Synapse Analytics의 저장 프로시저를 호출 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b348f3f3684d580ca84eed9b9a094717c12cf849
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c64c40e96c0ff5864e5b9c9d34bad896c0b03d91
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319087"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441700"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 저장 프로시저 작업
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -41,13 +41,13 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM(Virtual Machine)의 다음 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다.
 
 - Azure SQL Database
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics(이전의 SQL Data Warehouse)
 - SQL Server 데이터베이스. SQL Server를 사용 중인 경우 데이터베이스를 호스트하는 동일한 컴퓨터 또는 데이터베이스에 대한 액세스 권한이 있는 별도 컴퓨터에서 데이터 관리 게이트웨이를 설치합니다. 데이터 관리 게이트웨이는 온-프레미스/Azure VM에서 데이터 원본을 Cloud Services에 안전하고 관리되는 방식으로 연결하는 구성 요소입니다. 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요.
 
 > [!IMPORTANT]
-> Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink**를 구성할 수 있습니다. 자세한 내용은 [복사 작업에서 저장 프로시저 호출](data-factory-invoke-stored-procedure-from-copy-activity.md)을 참조하세요. 이 속성에 대한 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)를 참조하세요. 복사 작업을 사용하여 Azure SQL Data Warehouse로 데이터를 복사하는 동안 저장 프로시저를 호출하는 것은 지원되지 않습니다. 그러나 저장 프로시저 작업을 사용하여 SQL Data Warehouse의 저장 프로시저를 호출할 수 있습니다.
+> Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink**를 구성할 수 있습니다. 자세한 내용은 [복사 작업에서 저장 프로시저 호출](data-factory-invoke-stored-procedure-from-copy-activity.md)을 참조하세요. 이 속성에 대한 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)를 참조하세요. 복사 작업을 사용 하 여 Azure Synapse Analytics로 데이터를 복사 하는 동안 저장 프로시저를 호출 하는 것은 지원 되지 않습니다. 그러나 저장 프로시저 작업을 사용 하 여 Azure Synapse Analytics에서 저장 프로시저를 호출할 수 있습니다.
 >
-> Azure SQL Database, SQL Server 또는 Azure SQL Data Warehouse에서 데이터를 복사하는 경우 복사 작업에서 **sqlReaderStoredProcedureName** 속성을 사용하여 원본 데이터베이스에서 데이터를 읽는 저장 프로시저를 호출하도록 **SqlSource**를 구성할 수 있습니다. 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)를 참조하세요.
+> Azure SQL Database 또는 SQL Server 또는 Azure Synapse Analytics에서 데이터를 복사 하는 경우 복사 작업에서 **Sqlsource** 를 구성 하 여 **sqlReaderStoredProcedureName** 속성을 사용 하 여 원본 데이터베이스에서 데이터를 읽을 수 있도록 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 다음 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) 를 참조 하세요.
 
 다음 연습은 파이프라인에서 저장 프로시저 작업을 사용 하 여 Azure SQL Database에서 저장 프로시저를 호출 합니다.
 
@@ -68,9 +68,9 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
     ```
     Id는 고유 식별자이며 datetimestamp 열은 해당 ID가 생성된 날짜와 시간입니다.
     
-    ![샘플 데이터](./media/data-factory-stored-proc-activity/sample-data.png)
+    ![예제 데이터](./media/data-factory-stored-proc-activity/sample-data.png)
 
-    이 샘플에서는 저장 프로시저가 Azure SQL Database에 있습니다. 저장 프로시저가 Azure SQL Data Warehouse 및 SQL Server Database에 있는 경우 접근 방법이 비슷합니다. SQL Server Database의 경우 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치해야 합니다.
+    이 샘플에서는 저장 프로시저가 Azure SQL Database에 있습니다. 저장 프로시저가 Azure Synapse Analytics 및 SQL Server 데이터베이스에 있는 경우 접근 방식이 비슷합니다. SQL Server Database의 경우 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치해야 합니다.
 2. **sampletable**에 데이터를 삽입하는 다음 **저장 프로시저**를 만듭니다.
 
     ```SQL
@@ -90,10 +90,10 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **새로 만들기**를 클릭하고 **인텔리전스 + 분석**을 클릭한 다음 **Data Factory**를 클릭합니다.
 
-    ![새 data factory](media/data-factory-stored-proc-activity/new-data-factory.png)
+    ![새 데이터 팩터리 1](media/data-factory-stored-proc-activity/new-data-factory.png)
 3. **새 data factory** 블레이드에서 이름으로 **SProcDF**를 입력합니다. Azure Data Factory 이름은 **전역적으로 고유**합니다. 팩터리를 성공적으로 만들려면 데이터 팩터리의 이름의 접두사를 사용자의 이름으로 해야 합니다.
 
-   ![새 data factory](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
+   ![새 데이터 팩터리 2](media/data-factory-stored-proc-activity/new-data-factory-blade.png)
 4. Azure **구독**을 선택합니다.
 5. **리소스 그룹**에 대해 다음 단계 중 하나를 수행 합니다.
    1. **새로 만들기**를 클릭하고 리소스 그룹의 이름을 입력합니다.
@@ -111,7 +111,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 1. **SProcDF**에 대한 **Data Factory** 블레이드에서 **작성 및 배포**를 클릭하여 Data Factory 편집기를 시작합니다.
 2. 명령 모음에서 **새 데이터 저장소**를 클릭하고 **Azure SQL Database**를 선택합니다. 편집기에 Azure SQL 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
 
-   ![새 데이터 저장소](media/data-factory-stored-proc-activity/new-data-store.png)
+   ![새 데이터 저장소 1](media/data-factory-stored-proc-activity/new-data-store.png)
 3. JSON 스크립트에서 다음과 같이 변경합니다.
 
    1. `<servername>`을 서버의 이름으로 바꿉니다.
@@ -119,17 +119,17 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
    3. `<username@servername>`을 데이터베이스에 대한 액세스 권한이 있는 사용자 계정으로 바꿉니다.
    4. `<password>`를 사용자 계정의 암호로 바꿉니다.
 
-      ![새 데이터 저장소](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
+      ![새 데이터 저장소 2](media/data-factory-stored-proc-activity/azure-sql-linked-service.png)
 4. 연결된 서비스를 배포하려면 명령 모음에서 **배포**를 클릭합니다. 왼쪽의 트리 뷰에 AzureSqlLinkedService가 표시되는지 확인합니다.
 
-    ![연결된 서비스와 트리 뷰](media/data-factory-stored-proc-activity/tree-view.png)
+    ![연결 된 서비스가 있는 트리 뷰 1](media/data-factory-stored-proc-activity/tree-view.png)
 
 ### <a name="create-an-output-dataset"></a>출력 데이터 세트 만들기
-저장 프로시저가 어떠한 데이터도 생성하지 않는 경우에도 저장 프로시저 작업의 출력 데이터 세트를 지정해야 합니다. 이는 출력 데이터 세트가 작업의 일정(작업 실행 빈도 즉, 매시간, 매일 등)을 지정하기 때문입니다. 출력 데이터 세트는 Azure SQL Database 또는 Azure SQL Data Warehouse나 저장 프로시저를 실행하려는 SQL Server Database를 참조하는 **연결된 서비스**를 사용해야 합니다. 출력 데이터 세트는 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 세트에 자동으로 쓰지 않습니다. 출력 데이터 세트가 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. 경우에 따라 출력 데이터 세트는 **더미 데이터 세트**(저장 프로시저의 출력을 실제로 보관하고 있지 않은 테이블을 가리키는 데이터 세트)일 수 있습니다. 더미 데이터 세트는 저장 프로시저 작업의 실행 일정을 지정하는 데에만 사용됩니다.
+저장 프로시저가 어떠한 데이터도 생성하지 않는 경우에도 저장 프로시저 작업의 출력 데이터 세트를 지정해야 합니다. 이는 출력 데이터 세트가 작업의 일정(작업 실행 빈도 즉, 매시간, 매일 등)을 지정하기 때문입니다. 출력 데이터 집합은 Azure SQL Database 또는 Azure Synapse Analytics 또는 저장 프로시저를 실행 하려는 SQL Server 데이터베이스를 참조 하는 **연결 된 서비스** 를 사용 해야 합니다. 출력 데이터 세트는 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 세트에 자동으로 쓰지 않습니다. 출력 데이터 세트가 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. 경우에 따라 출력 데이터 세트는 **더미 데이터 세트**(저장 프로시저의 출력을 실제로 보관하고 있지 않은 테이블을 가리키는 데이터 세트)일 수 있습니다. 더미 데이터 세트는 저장 프로시저 작업의 실행 일정을 지정하는 데에만 사용됩니다.
 
 1. ... **를 클릭 합니다. 추가** 도구 모음에서 **새 데이터 집합**을 클릭 하 고 **Azure SQL**을 클릭 합니다. 명령 모음에서 **새 데이터 세트**를 클릭하고 **Azure SQL**을 선택합니다.
 
-    ![연결된 서비스와 트리 뷰](media/data-factory-stored-proc-activity/new-dataset.png)
+    ![연결 된 서비스가 있는 트리 뷰 2](media/data-factory-stored-proc-activity/new-dataset.png)
 2. 다음 JSON 스크립트를 복사하여 JSON 편집기에 붙여 넣습니다.
 
     ```JSON
@@ -200,13 +200,13 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 ### <a name="monitor-the-pipeline"></a>파이프라인 모니터링
 1. **X**를 클릭하여 Data Factory 편집기 블레이드를 닫고 Data Factory 블레이드로 돌아가서 **다이어그램**을 클릭합니다.
 
-    ![다이어그램 타일](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
+    ![다이어그램 타일 1](media/data-factory-stored-proc-activity/data-factory-diagram-tile.png)
 2. **다이어그램 보기**에 파이프라인의 개요와 이 자습서에 사용된 데이터 세트가 표시됩니다.
 
-    ![다이어그램 타일](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
+    ![다이어그램 타일 2](media/data-factory-stored-proc-activity/data-factory-diagram-view.png)
 3. [다이어그램 보기]에서 `sprocsampleout` 데이터 세트를 두 번 클릭합니다. 준비 상태의 조각이 표시됩니다. 조각은 JSON에서 시작 시간 및 종료 시간 사이의 매시간 생성되므로 5개 조각입니다.
 
-    ![다이어그램 타일](media/data-factory-stored-proc-activity/data-factory-slices.png)
+    ![다이어그램 타일 3](media/data-factory-stored-proc-activity/data-factory-slices.png)
 4. 조각이 **준비** 상태 이면 데이터베이스에 대해 쿼리를 실행 `select * from sampletable` 하 여 저장 프로시저에 의해 데이터가 테이블에 삽입 되었는지 확인 합니다.
 
    ![출력 데이터](./media/data-factory-stored-proc-activity/output.png)
@@ -277,7 +277,7 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 > [!IMPORTANT]
 > Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink**를 구성할 수 있습니다. 자세한 내용은 [복사 작업에서 저장 프로시저 호출](data-factory-invoke-stored-procedure-from-copy-activity.md)을 참조하세요. 이 속성에 대한 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties)를 참조하세요.
 > 
-> Azure SQL Database, SQL Server 또는 Azure SQL Data Warehouse에서 데이터를 복사하는 경우 복사 작업에서 **sqlReaderStoredProcedureName** 속성을 사용하여 원본 데이터베이스에서 데이터를 읽는 저장 프로시저를 호출하도록 **SqlSource**를 구성할 수 있습니다. 자세한 내용은 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)를 참조하세요.
+> Azure SQL Database 또는 SQL Server 또는 Azure Synapse Analytics에서 데이터를 복사 하는 경우 복사 작업에서 **Sqlsource** 를 구성 하 여 **sqlReaderStoredProcedureName** 속성을 사용 하 여 원본 데이터베이스에서 데이터를 읽을 수 있도록 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 다음 커넥터 문서 [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties), [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) 를 참조 하세요.
 
 ## <a name="json-format"></a>JSON 형식
 다음은 저장 프로시저 작업을 정의하기 위한 JSON 형식입니다.
@@ -309,8 +309,8 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 �
 | description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |예 |
 | type | **SqlServerStoredProcedure**로 설정되어야 합니다. | 예 |
 | 입력 | 선택 사항입니다. 입력 데이터 세트를 지정하는 경우 실행할 저장 프로시저 작업에 사용할 수 있어야 합니다('Ready' 상태). 저장 프로시저에서 입력 데이터 세트를 매개 변수로 사용할 수 없습니다. 저장 프로시저 작업을 시작하기 전에 종속성을 확인하는 데만 사용됩니다. |아니요 |
-| outputs | 저장 프로시저 작업에 대한 출력 데이터 세트를 지정해야 합니다. 출력 데이터 세트는 저장 프로시저 작업에 대한 **일정** (매시간, 매주, 매월 등)을 지정합니다. <br/><br/>출력 데이터 세트는 Azure SQL Database 또는 Azure SQL Data Warehouse나 저장 프로시저를 실행하려는 SQL Server Database를 참조하는 **연결된 서비스**를 사용해야 합니다. <br/><br/>출력 데이터 세트는 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 세트에 자동으로 쓰지 않습니다. 출력 데이터 세트가 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. <br/><br/>경우에 따라 출력 데이터 세트는 저장 프로시저 작업을 실행하는 일정을 지정하기 위해서만 사용되는 **더미 데이터 세트**일 수 있습니다. |예 |
-| storedProcedureName |출력 테이블에서 사용 하는 연결 된 서비스로 표시 되는 Azure SQL Database, Azure SQL Data Warehouse 또는 SQL Server의 저장 프로시저 이름을 지정 합니다. |예 |
+| outputs | 저장 프로시저 작업에 대한 출력 데이터 세트를 지정해야 합니다. 출력 데이터 세트는 저장 프로시저 작업에 대한 **일정** (매시간, 매주, 매월 등)을 지정합니다. <br/><br/>출력 데이터 집합은 Azure SQL Database 또는 Azure Synapse Analytics 또는 저장 프로시저를 실행 하려는 SQL Server 데이터베이스를 참조 하는 **연결 된 서비스** 를 사용 해야 합니다. <br/><br/>출력 데이터 세트는 파이프라인에서 다른 활동을 통한 후속 처리([활동 체이닝](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline))를 위해 저장 프로시저의 결과를 전달하는 방법으로 사용할 수 있습니다. 그러나 Data Factory는 저장 프로시저의 출력을 이 데이터 세트에 자동으로 쓰지 않습니다. 출력 데이터 세트가 가리키는 SQL 테이블에 기록하는 저장 프로시저입니다. <br/><br/>경우에 따라 출력 데이터 세트는 저장 프로시저 작업을 실행하는 일정을 지정하기 위해서만 사용되는 **더미 데이터 세트**일 수 있습니다. |예 |
+| storedProcedureName |출력 테이블에서 사용 하는 연결 된 서비스로 표시 되는 Azure SQL Database, Azure Synapse Analytics 또는 SQL Server의 저장 프로시저 이름을 지정 합니다. |예 |
 | storedProcedureParameters |저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수에 대해 null을 전달해야 하는 경우 구문: "param1": null(모두 소문자)을 사용합니다. 이 속성을 사용하는 방법에 대한 자세한 내용은 다음 샘플을 참조하세요. |아니요 |
 
 ## <a name="passing-a-static-value"></a>정적 값 전달

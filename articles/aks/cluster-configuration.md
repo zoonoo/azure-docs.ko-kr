@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: daffcbf0a2ceb6f28cbb539906d4c6387840aa20
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5b26054ae8dfb73dea8d064292beb73220be5e09
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752093"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433452"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -218,7 +218,7 @@ az extension update --name aks-preview
 ### <a name="use-gen2-vms-on-new-clusters-preview"></a>새 클러스터에서 Gen2 Vm 사용 (미리 보기)
 클러스터가 생성 될 때 선택한 SKU에 대해 Gen2 Vm을 사용 하도록 클러스터를 구성 합니다. `--aks-custom-headers`Gen2를 새 클러스터의 VM 생성으로 설정 하려면 플래그를 사용 합니다.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
 ```
 
@@ -227,7 +227,7 @@ Gen1 (1 세대) Vm을 사용 하 여 일반 클러스터를 만들려는 경우 
 ### <a name="use-gen2-vms-on-existing-clusters-preview"></a>기존 클러스터에서 Gen2 Vm 사용 (미리 보기)
 Gen2 Vm을 사용 하도록 새 노드 풀을 구성 합니다. 플래그를 사용 하 여 `--aks-custom-headers` Gen2을 해당 노드 풀의 VM 생성으로 설정 합니다.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
 ```
 
@@ -276,7 +276,7 @@ az extension update --name aks-preview
 
 클러스터를 만들 때 사용 후 삭제 OS 디스크를 사용 하도록 클러스터를 구성 합니다. `--aks-custom-headers`새 클러스터에 대 한 os 디스크 유형으로 사용 후 삭제 os를 설정 하려면 플래그를 사용 합니다.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
 ```
 
@@ -285,7 +285,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D
 ### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>기존 클러스터에서 사용 후 삭제 OS 사용 (미리 보기)
 새 노드 풀을 구성 하 여 사용 후 삭제 OS 디스크를 사용 합니다. 플래그를 사용 `--aks-custom-headers` 하 여 os 디스크 유형으로 해당 노드 풀의 os 디스크 유형으로 설정 합니다.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
 ```
 

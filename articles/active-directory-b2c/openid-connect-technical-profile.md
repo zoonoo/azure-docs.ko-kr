@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 09/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ff5a83a8ab608e685f43056debe45877965e0c53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f06ae55dc48152c2c10183cc60cb098b6c3786fa
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203999"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433758"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에 Openid connect Connect 기술 프로필 정의
 
@@ -74,7 +74,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [Openid connect Connect](https://op
 
 ## <a name="metadata"></a>메타데이터
 
-| attribute | 필요한 공간 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
 | IdTokenAudience | 아니요 | id_token의 대상 그룹입니다. 지정 된 경우 `aud` id 공급자가 반환 하는 토큰의 클레임이 IdTokenAudience 메타 데이터에 지정 된 것과 동일한 지 여부를 Azure AD B2C 확인 합니다.  |
@@ -91,12 +91,27 @@ Azure Active Directory B2C (Azure AD B2C)는 [Openid connect Connect](https://op
 | MarkAsFailureOnStatusCode5xx | 아니요 | HTTP 상태 코드가 5xx 범위에 있는 경우 외부 서비스에 대한 요청을 실패로 표시할지 여부를 나타냅니다. 기본값은 `false`입니다. |
 | DiscoverMetadataByTokenIssuer | 아니요 | JWT 토큰의 발급자를 사용하여 OIDC 메타데이터를 검색할지 여부를 나타냅니다. |
 | IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` , 또는 `false`   (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
+|token_endpoint_auth_method| 아니요| Azure AD B2C 인증 헤더를 토큰 끝점으로 전송 하는 방법을 지정 합니다. 가능한 값: `client_secret_post` (기본값) 및 `client_secret_basic` (공개 미리 보기). 자세한 내용은 [Openid connect Connect 클라이언트 인증 섹션](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)을 참조 하세요. |
+
+
+```xml
+<Metadata>
+  <Item Key="ProviderName">https://login.live.com</Item>
+  <Item Key="METADATA">https://login.live.com/.well-known/openid-configuration</Item>
+  <Item Key="response_types">code</Item>
+  <Item Key="response_mode">form_post</Item>
+  <Item Key="scope">openid profile email</Item>
+  <Item Key="HttpBinding">POST</Item>
+  <Item Key="UsePolicyInRedirectUri">0</Item>
+  <Item Key="client_id">Your Microsoft application client ID</Item>
+</Metadata>
+```
 
 ### <a name="ui-elements"></a>UI 요소
  
 다음 설정을 사용 하 여 오류 발생 시 표시 되는 오류 메시지를 구성할 수 있습니다. 메타 데이터는 Openid connect Connect 기술 프로필에서 구성 해야 합니다. 오류 메시지는 [지역화](localization-string-ids.md#sign-up-or-sign-in-error-messages)될 수 있습니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | UserMessageIfClaimsPrincipalDoesNotExist | 아니요 | 제공 된 사용자 이름을 가진 계정이 디렉터리에 없는 경우 사용자에 게 표시할 메시지입니다. |
 | UserMessageIfInvalidPassword | 아니요 | 암호가 잘못 된 경우 사용자에 게 표시할 메시지입니다. |
@@ -106,7 +121,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [Openid connect Connect](https://op
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타데이터가 `id_token`으로 설정된 경우 암호화 키를 생략할 수 있습니다.  |
 
@@ -114,7 +129,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [Openid connect Connect](https://op
 
 ID 공급자의 리디렉션 URI를 구성할 때 `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`를 입력합니다. 을 `{your-tenant-name}` 테 넌 트의 이름으로 바꾸어야 합니다. 리디렉션 URI는 모두 소문자여야 합니다.
 
-예:
+예제:
 
 - [사용자 지정 정책을 사용하여 MSA(Microsoft 계정)를 ID 공급자로 추가](identity-provider-microsoft-account-custom.md)
 - [Azure AD 계정을 사용하여 로그인](identity-provider-azure-ad-single-tenant-custom.md)

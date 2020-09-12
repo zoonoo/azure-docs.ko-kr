@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 97d2cd8e9ba51e4fc6ebab8459b04f4f37e876d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eec032ad56d00778627fc147761f61c03ba8bafd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668426"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442091"
 ---
 # <a name="security-controls-for-azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대 한 보안 제어
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -69,7 +69,7 @@ ms.locfileid: "84668426"
 | 보안 컨트롤 | 예/아니요 | 메모|
 |---|---|--|
 | 예방: 취약성 평가 | 예 | [SQL 취약성 평가 서비스를 참조 하 여 데이터베이스 취약성을 식별할 수 있습니다](sql-vulnerability-assessment.md). |
-| 예방: 데이터 검색 및 분류  | 예 | [Azure SQL Database 및 SQL Data Warehouse 데이터 검색 & 분류를](data-discovery-and-classification-overview.md)참조 하세요. |
+| 예방: 데이터 검색 및 분류  | 예 | [Azure SQL Database 및 Azure Synapse Analytics 데이터 검색 & 분류를](data-discovery-and-classification-overview.md)참조 하세요. |
 | 검색: 위협 검색 | 예 | [Azure SQL Database에 대 한 Advanced Threat Protection을](threat-detection-overview.md)참조 하세요. |
 
 ## <a name="next-steps"></a>다음 단계

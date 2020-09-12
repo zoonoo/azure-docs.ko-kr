@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 46e81242c1fba463f547015a244650ae6e574580
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: be3b82765f2f5268a75147e8e1ef6de34aeb8ff2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629085"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441071"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>제어 테이블을 사용하여 데이터베이스에서 대량 복사
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Oracle Server, Netezza, Teradata 또는 SQL Server의 데이터 웨어하우스 데이터를 Azure SQL Data Warehouse에 복사하려면 여러 테이블에서 대량의 데이터를 로드해야 합니다. 일반적으로 단일 테이블에서 여러 스레드를 병렬 처리하여 행을 로드할 수 있도록 각 테이블에 데이터를 분할해야 합니다. 이 문서에서는 이러한 시나리오에서 사용할 템플릿을 설명합니다.
+Oracle Server, Netezza, Teradata 또는 SQL Server의 데이터 웨어하우스에서 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 데이터를 복사 하려면 여러 테이블에서 대량의 데이터를 로드 해야 합니다. 일반적으로 단일 테이블에서 여러 스레드를 병렬 처리하여 행을 로드할 수 있도록 각 테이블에 데이터를 분할해야 합니다. 이 문서에서는 이러한 시나리오에서 사용할 템플릿을 설명합니다.
 
- >!NOTE 비교적 작은 데이터 볼륨이 포함된 적은 수의 테이블에서 SQL Data Warehouse로 데이터를 복사하려는 경우 [Azure Data Factory 데이터 복사 도구](copy-data-tool.md)를 사용하는 것이 더 효율적입니다. 이 문서에서 설명하는 템플릿은 해당 시나리오에 필요한 것 이상의 기능을 제공합니다.
+ >! 참고 비교적 작은 데이터 볼륨이 있는 적은 수의 테이블에서 Azure Synapse Analytics로 데이터를 복사 하려는 경우 [Azure Data Factory 데이터 복사 도구](copy-data-tool.md)를 사용 하는 것이 더 효율적입니다. 이 문서에서 설명하는 템플릿은 해당 시나리오에 필요한 것 이상의 기능을 제공합니다.
 
 ## <a name="about-this-solution-template"></a>이 솔루션 템플릿 정보
 
@@ -44,7 +44,7 @@ Oracle Server, Netezza, Teradata 또는 SQL Server의 데이터 웨어하우스 
 - *Data_Destination_Container*는 대상 저장소에서 데이터가 복사 되는 루트 폴더 경로입니다. 
 - *Data_Destination_Directory*는 대상 저장소에 데이터가 복사되는 루트 아래의 디렉터리 경로입니다. 
 
-대상 저장소의 경로를 정의하는 마지막 세 매개 변수는 선택한 대상이 파일 기반 스토리지인 경우에만 표시됩니다. "Azure Synapse Analytics(이전의 SQL DW)"를 대상 저장소로 선택하는 경우 이러한 매개 변수는 필요하지 않습니다. 그러나 SQL Data Warehouse의 테이블 이름과 스키마가 원본 데이터베이스와 같아야 합니다.
+대상 저장소의 경로를 정의하는 마지막 세 매개 변수는 선택한 대상이 파일 기반 스토리지인 경우에만 표시됩니다. "Azure Synapse Analytics(이전의 SQL DW)"를 대상 저장소로 선택하는 경우 이러한 매개 변수는 필요하지 않습니다. 그러나 Azure Synapse Analytics의 테이블 이름 및 스키마는 원본 데이터베이스의 이름과 동일 해야 합니다.
 
 ## <a name="how-to-use-this-solution-template"></a>이 솔루션 템플릿을 사용하는 방법
 
@@ -94,7 +94,7 @@ Oracle Server, Netezza, Teradata 또는 SQL Server의 데이터 웨어하우스 
 
     ![결과 검토](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (선택 사항) "Azure Synapse Analytics(이전의 SQL DW)"를 데이터 대상으로 선택한 경우 SQL Data Warehouse Polybase에 필요한 대로, 스테이징을 위해 Azure Blob 스토리지에 대한 연결을 시작해야 합니다. 이 템플릿은 Blob 스토리지에 대한 컨테이너 경로를 자동으로 생성합니다. 파이프라인이 실행된 후 컨테이너를 만들었는지 확인합니다.
+9. 필드 "Azure Synapse Analytics (이전의 SQL DW)"를 데이터 대상으로 선택한 경우 Azure Synapse Analytics Polybase에서 필요에 따라 스테이징을 위해 Azure Blob 저장소에 대 한 연결을 입력 해야 합니다. 이 템플릿은 Blob 스토리지에 대한 컨테이너 경로를 자동으로 생성합니다. 파이프라인이 실행된 후 컨테이너를 만들었는지 확인합니다.
     
     ![Polybase 설정](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/30/2018
-ms.openlocfilehash: 7564adb6e2e596b95cd138c8e4e2190a4c1e2a57
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 098ac343885db3e267dcefb3785f5abd55d17ee2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042648"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441037"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-databases-azure-sql-database"></a>여러 데이터베이스 (Azure SQL Database)에서 임시 분석 쿼리 실행
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +47,7 @@ SaaS 애플리케이션은 클라우드에 중앙 집중식으로 저장되는 �
 
 단일 다중 테넌트 데이터베이스에 있을 때 이 데이터에 액세스하는 것은 쉽지만 잠재적인 수천 개의 데이터베이스 규모로 분산되는 경우는 그렇게 쉽지 않습니다. 한 가지 방법은 공통 스키마를 통해 배포된 데이터베이스 집합 전체에서 쿼리를 구현하는 [탄력적 쿼리](elastic-query-overview.md)를 사용하는 것입니다. 이러한 데이터베이스는 여러 다른 리소스 그룹 및 구독에서 배포할 수 있습니다. 아직 하나의 공통 로그인으로 모든 데이터베이스에서 데이터를 추출하기 위한 액세스 권한을 얻어야 합니다. 탄력적 쿼리는 분산된(테넌트) 데이터베이스에서 테이블 또는 뷰를 미러링하는 외부 테이블이 정의되는 단일 *헤드* 데이터베이스를 사용합니다. 이 헤드 데이터베이스에 제출된 쿼리는 분산 쿼리 계획을 생성하기 위해 컴파일되며 이 쿼리 중 일부는 필요에 따라 테넌트 데이터베이스에 푸시됩니다. 탄력적 쿼리는 카탈로그 데이터베이스에서 분할된 데이터베이스 맵을 사용하여 모든 테넌트 데이터베이스의 위치를 확인합니다. 설정 및 쿼리는 일반 [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)을 사용하여 바로 진행되며 Power BI 또는 Excel 같은 도구에서의 임시 쿼리를 지원합니다.
 
-탄력적 쿼리는 테넌트 데이터베이스에 쿼리를 배포하여 라이브 프로덕션 데이터에 즉시 정보를 제공합니다. 그러나 탄력적 쿼리가 잠재적으로 많은 데이터베이스에서 데이터를 가져오면 쿼리 대기 시간이 단일 다중 테넌트 데이터베이스에 제출되는 해당 쿼리보다 높아지는 경우가 있습니다. 반환되는 데이터를 최소화하도록 쿼리를 디자인합니다. 탄력적 쿼리는 자주 사용되는 문서 또는 복잡한 분석 쿼리나 보고서를 빌드하는 경우와 달리 적은 양의 실시간 데이터를 쿼리하는 데 적합합니다. 쿼리 성능이 좋지 않은 경우 [실행 계획](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan)을 보고 원격 데이터베이스에 푸시되는 쿼리의 부분을 확인합니다. 또한 반환되는 데이터의 양을 평가합니다. 추출한 테넌트 데이터를 분석 쿼리에 최적화된 데이터베이스에 저장하는 경우 복잡한 분석 처리를 필요로 하는 쿼리가 효율적으로 제공됩니다. SQL Database 및 SQL Data Warehouse는 이러한 분석 데이터베이스를 호스트할 수 있습니다.
+탄력적 쿼리는 테넌트 데이터베이스에 쿼리를 배포하여 라이브 프로덕션 데이터에 즉시 정보를 제공합니다. 그러나 탄력적 쿼리가 잠재적으로 많은 데이터베이스에서 데이터를 가져오면 쿼리 대기 시간이 단일 다중 테넌트 데이터베이스에 제출되는 해당 쿼리보다 높아지는 경우가 있습니다. 반환되는 데이터를 최소화하도록 쿼리를 디자인합니다. 탄력적 쿼리는 자주 사용되는 문서 또는 복잡한 분석 쿼리나 보고서를 빌드하는 경우와 달리 적은 양의 실시간 데이터를 쿼리하는 데 적합합니다. 쿼리 성능이 좋지 않은 경우 [실행 계획](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan)을 보고 원격 데이터베이스에 푸시되는 쿼리의 부분을 확인합니다. 또한 반환되는 데이터의 양을 평가합니다. 추출한 테넌트 데이터를 분석 쿼리에 최적화된 데이터베이스에 저장하는 경우 복잡한 분석 처리를 필요로 하는 쿼리가 효율적으로 제공됩니다. SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)는 이러한 분석 데이터베이스를 호스트할 수 있습니다.
 
 분석에 대한 이 패턴은 [테넌트 분석 자습서](saas-multitenantdb-tenant-analytics.md)에서 설명되어 있습니다.
 

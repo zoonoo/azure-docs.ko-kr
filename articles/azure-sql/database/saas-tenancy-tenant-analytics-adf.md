@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: fff308f241a29cbf40bf2884fc412acf5942497b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f4f81f8159e5800da7dfec58c01f474cb1c0d07
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84036484"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437448"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Azure SQL Database, Azure Synapse Analytics, Data Factory 및 Power BI를 사용 하 여 SaaS 분석 살펴보기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 이 자습서에서는 엔드투엔드 분석 시나리오를 처음부터 끝까지 살펴봅니다. 시나리오는 테넌트 데이터에 대한 분석을 통해 소프트웨어 공급 업체가 스마트한 결정을 내리는 데 도움을 받는 방법을 보여 줍니다. 각 테넌트 데이터베이스에서 추출된 데이터를 사용하여 분석을 통해 샘플 Wingtip Tickets SaaS 애플리케이션을 비롯한 테넌트 동작을 살펴보게 됩니다. 이 시나리오는 다음과 같이 3단계로 구성됩니다.
 
-1. 각 테넌트 데이터베이스에서 분석 저장소로 **데이터를 추출**합니다. 이 경우는 SQL Data Warehouse입니다.
+1. 각 테 넌 트 데이터베이스에서 분석 저장소 (이 경우 SQL 풀)로 **데이터를 추출** 합니다.
 2. 분석 처리를 위해 **추출된 데이터를 최적화**합니다.
 3. **비즈니스 인텔리전스** 도구를 사용하여 의사 결정에 도움이 되는 유용한 인사이트를 얻습니다.
 
@@ -45,7 +45,7 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 
 모든 데이터가 하나의 다중 테넌트 데이터베이스에 저장되어 있다면 모든 테넌트가 손쉽게 데이터에 액세스할 수 있습니다. 그러나 데이터가 수천 개의 데이터베이스에 대규모로 분산되어 있다면 액세스가 복잡해집니다. 이러한 복잡성을 해결하는 한 가지 방법은 데이터를 분석 데이터베이스 또는 데이터 웨어하우스로 추출하여 쿼리하는 것입니다.
 
-이 자습서에서는 Wingtip Tickets 애플리케이션에 대한 엔드투엔드 분석 시나리오를 제공합니다. 첫째, [ADF(Azure Data Factory)](../../data-factory/introduction.md)는 각 테넌트 데이터베이스에서 티켓 판매량 및 관련 데이터를 추출하는 오케스트레이션 도구로 사용됩니다. 이 데이터는 분석 저장소의 준비 테이블로 로드됩니다. 분석 저장소는 SQL Database 또는 SQL Data Warehouse 일 수 있습니다. 이 자습서에서는 [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)를 분석 저장소로 사용합니다.
+이 자습서에서는 Wingtip Tickets 애플리케이션에 대한 엔드투엔드 분석 시나리오를 제공합니다. 첫째, [ADF(Azure Data Factory)](../../data-factory/introduction.md)는 각 테넌트 데이터베이스에서 티켓 판매량 및 관련 데이터를 추출하는 오케스트레이션 도구로 사용됩니다. 이 데이터는 분석 저장소의 준비 테이블로 로드됩니다. 분석 저장소는 SQL Database 또는 SQL 풀 일 수 있습니다. 이 자습서에서는 [Azure Synapse analytics (이전의 SQL Data Warehouse)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) 를 분석 저장소로 사용 합니다.
 
 다음으로, 추출된 데이터를 일련의 [스타 스키마](https://www.wikipedia.org/wiki/Star_schema) 테이블로 변환해 로드합니다. 테이블은 중앙의 팩트 테이블과 관련 차원 테이블로 이루어집니다.
 
@@ -66,7 +66,7 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 
 ## <a name="setup"></a>설정
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
@@ -83,11 +83,11 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
     - **$DemoScenario**  =  **1** 모든 장소에서 이벤트에 대 한 티켓 구입
 2. **F5** 키를 눌러 스크립트를 실행하고 모든 행사장에 대한 티켓 구입 기록을 만듭니다. 20개 테넌트를 사용하여 스크립트는 티켓 수만 장을 생성하는 데 10분 이상 걸릴 수 있습니다.
 
-### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>SQL Data Warehouse, Data Factory 및 Blob Storage 배포
+### <a name="deploy-azure-synapse-analytics-data-factory-and-blob-storage"></a>Azure Synapse Analytics, Data Factory 및 Blob Storage 배포
 
-Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이터베이스에 배포됩니다. ADF(Azure Data Factory)는 데이터 웨어하우스로 이 데이터의 ELT(추출, 로드, 변환)를 오케스트레이션하는 데 사용됩니다. SQL Data Warehouse로 데이터를 가장 효율적으로 로드하려면 ADF는 데이터를 중간 BLOB 파일로 추출한 다음, [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading)를 사용하여 데이터를 데이터웨어하우스로 로드합니다.
+Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이터베이스에 배포됩니다. ADF(Azure Data Factory)는 데이터 웨어하우스로 이 데이터의 ELT(추출, 로드, 변환)를 오케스트레이션하는 데 사용됩니다. 가장 효율적으로 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 데이터를 로드 하기 위해 ADF는 데이터를 중간 blob 파일로 추출한 다음 [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) 를 사용 하 여 데이터를 데이터 웨어하우스로 로드 합니다.
 
-이 단계에서는 SQL Data Warehouse 다음 자습서에서 사용 되는 추가 리소스를 배포 합니다. 예: _tenantanalytics_, _ \<user\> dbtodwload_및 _wingtipstaging \<user\> _라는 Azure storage 계정 이라는 Azure Data Factory 스토리지 계정은 데이터 웨어하우스에 로드하기 전에 추출된 데이터 파일을 BLOB으로 임시 보유하는 데 사용됩니다. 또한 이 단계에서는 데이터 웨어하우스 스키마를 배포하고 ELT 프로세스를 오케스트레이션하는 ADF 파이프라인을 정의합니다.
+이 단계에서는 다음 자습서에서 사용 되는 추가 리소스를 배포 합니다. _tenantanalytics_라는 SQL 풀 Azure Data Factory, _ \<user\> dbtodwload_및 _wingtipstaging \<user\> _라는 Azure storage 계정을 배포 합니다. 스토리지 계정은 데이터 웨어하우스에 로드하기 전에 추출된 데이터 파일을 BLOB으로 임시 보유하는 데 사용됩니다. 또한 이 단계에서는 데이터 웨어하우스 스키마를 배포하고 ELT 프로세스를 오케스트레이션하는 ADF 파이프라인을 정의합니다.
 
 1. PowerShell ISE에서 *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1*을 열고 다음을 설정합니다.
     - **$DemoScenario**  =  **2** 테 넌 트 분석 데이터 웨어하우스, blob 저장소 및 데이터 팩터리 배포
@@ -159,7 +159,7 @@ Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레�
 
 **파이프라인 3 - TableCopy**는 SQL Database(_rowversion_)에서 행 버전 번호를 사용하여 변경되거나 업데이트된 행을 식별합니다. 이 작업은 원본 테이블에서 행을 추출하기 위해 시작 및 마지막 행 버전을 찾습니다. 각 테넌트 데이터베이스에 저장된 **CopyTracker** 테이블은 각각 실행되는 각 원본 테이블에서 추출된 마지막 행을 추적합니다. 새로운 또는 변경된 행은 데이터 웨어하우스에서 **raw_Tickets**, **raw_Customers**, **raw_Venues** 및 **raw_Events**의 해당 준비 테이블로 복사됩니다. 마지막으로 마지막 행 버전은 **CopyTracker** 테이블에 저장되어 다음 추출에 대한 초기 행 버전으로 사용됩니다.
 
-원본 SQL Database, 대상 SQL Data Warehouse 및 중간 Blob Storage에 데이터 팩토리를 연결하는 세 개의 매개 변수가 있는 연결된 서비스가 있습니다. 다음 그림에 설명된 것 처럼 **작성자** 탭에서 **연결**을 클릭하여 연결된 서비스를 탐색합니다.
+또한 데이터 팩터리를 원본 SQL 데이터베이스, 대상 SQL 풀 및 중간 Blob 저장소에 연결 하는 매개 변수가 있는 연결 된 서비스 3 개가 있습니다. 다음 그림에 설명된 것 처럼 **작성자** 탭에서 **연결**을 클릭하여 연결된 서비스를 탐색합니다.
 
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
@@ -167,7 +167,7 @@ Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레�
   
 ### <a name="data-warehouse-pattern-overview"></a>데이터 웨어하우스 패턴 개요
 
-Azure Synapse (이전의 Azure SQL Data Warehouse)는 분석 저장소로 테 넌 트 데이터에 대해 집계를 수행 하는 데 사용 됩니다. 이 샘플에서는 PolyBase를 사용 하 여 데이터 웨어하우스로 데이터를 로드 합니다. 원시 데이터는 스타 스키마 테이블로 변환된 행을 추적하는 ID 열이 있는 준비 테이블에 로드됩니다. 다음 이미지는 ![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG) 같은 부하 패턴을 보여줍니다.
+Azure Synapse (이전의 SQL Data Warehouse)는 분석 저장소로 테 넌 트 데이터에 대해 집계를 수행 하는 데 사용 됩니다. 이 샘플에서는 PolyBase를 사용 하 여 데이터 웨어하우스로 데이터를 로드 합니다. 원시 데이터는 스타 스키마 테이블로 변환된 행을 추적하는 ID 열이 있는 준비 테이블에 로드됩니다. 다음 이미지는 ![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG) 같은 부하 패턴을 보여줍니다.
 
 SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사용합니다. 각 차원에는 ID 열을 사용하여 정의한 서로게이트 키가 있습니다. 모범 사례로 날짜 차원 테이블은 시간을 절약하기 위해 미리 채워져 있습니다. 다른 차원 CREATE TABLE 테이블의 경우 SELECT ... (CTAS) 문을 사용 하 여 기존에 수정 되거나 수정 되지 않은 행과 서로게이트 키를 포함 하는 임시 테이블을 만들 수 있습니다. 이는 IDENTITY_INSERT = ON을 사용하여 완료됩니다. 그런 다음, 새 행은 IDENTITY_INSERT=OFF를 사용하여 테이블에 삽입됩니다. 쉬운 롤백을 위해 기존 차원 테이블 및 임시 테이블의 이름을 바꾸어 새 차원 테이블로 만듭니다. 각 실행에 앞서 기존 차원 테이블은 삭제됩니다.
 

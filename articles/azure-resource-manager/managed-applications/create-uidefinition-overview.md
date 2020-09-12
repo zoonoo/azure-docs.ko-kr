@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 0e2aee194d3c97655dd4ec5aaeea46fb607c4c5e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210973"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319573"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>Azure 관리되는 애플리케이션의 만들기 환경을 위한 CreateUiDefinition.json
 
@@ -25,6 +25,7 @@ ms.locfileid: "88210973"
     "version": "0.1.2-preview",
     "parameters": {
         "config": {
+            "isWizard": false,
             "basics": { }
         },
         "basics": [ ],
@@ -35,7 +36,7 @@ ms.locfileid: "88210973"
 }
 ```
 
-CreateUiDefinition에는 항상 다음 세 가지 속성이 포함됩니다. 
+에는 `CreateUiDefinition` 항상 다음과 같은 세 가지 속성이 있습니다.
 
 * handler(핸들러)
 * 버전
@@ -43,41 +44,19 @@ CreateUiDefinition에는 항상 다음 세 가지 속성이 포함됩니다.
 
 처리기는 항상 이어야 `Microsoft.Azure.CreateUIDef` 하며, 지원 되는 최신 버전은 `0.1.2-preview` 입니다.
 
-매개 변수 속성의 스키마는 지정된 처리기와 버전의 조합에 따라 다릅니다. 관리 되는 응용 프로그램의 경우 지원 되는 속성은 `basics` ,, `steps` `outputs` 및 `config` 입니다. basics 및 steps 속성에는 Azure Portal에서 표시할 [요소](create-uidefinition-elements.md)(예: 텍스트 상자 및 드롭다운)가 포함됩니다. Outputs 속성은 지정 된 요소의 출력 값을 Azure Resource Manager 템플릿의 매개 변수에 매핑하는 데 사용 됩니다. `config`단계의 기본 동작을 재정의 해야 하는 경우에만를 사용 `basics` 합니다.
+매개 변수 속성의 스키마는 지정된 처리기와 버전의 조합에 따라 다릅니다. 관리 되는 응용 프로그램의 경우 지원 되는 속성은 `config` ,, `basics` `steps` 및 `outputs` 입니다. `config`단계의 기본 동작을 재정의 해야 하는 경우에만를 사용 `basics` 합니다. basics 및 steps 속성에는 Azure Portal에서 표시할 [요소](create-uidefinition-elements.md)(예: 텍스트 상자 및 드롭다운)가 포함됩니다. Outputs 속성은 지정 된 요소의 출력 값을 Azure Resource Manager 템플릿의 매개 변수에 매핑하는 데 사용 됩니다.
 
 `$schema`를 포함하는 것이 좋지만 선택 사항입니다. 지정하는 경우 `version`의 값은 `$schema` URI 내의 버전과 일치해야 합니다.
 
 JSON 편집기를 사용 하 여 createUiDefinition을 만든 다음 [Createuidefinition 샌드박스에서](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) 테스트 하 여 미리 볼 수 있습니다. 샌드박스에 대 한 자세한 내용은 [Azure Managed Applications에 대 한 포털 인터페이스 테스트](test-createuidefinition.md)를 참조 하세요.
 
-## <a name="basics"></a>기본 사항
-
-**기본** 단계는 Azure Portal에서 파일을 구문 분석할 때 생성 되는 첫 번째 단계입니다. 기본적으로 기본 단계를 통해 사용자는 구독, 리소스 그룹 및 배포 위치를 선택할 수 있습니다.
-
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="기본 사항 기본값":::
-
-이 섹션에서 더 많은 요소를 추가할 수 있습니다. 가능 하면 클러스터 이름 또는 관리자 자격 증명과 같은 배포 차원의 매개 변수를 쿼리 하는 요소를 추가 합니다.
-
-다음 예제에서는 기본 요소에 추가 된 입력란을 보여 줍니다.
-
-```json
-"basics": [
-    {
-        "name": "textBox1",
-        "type": "Microsoft.Common.TextBox",
-        "label": "Textbox on basics",
-        "defaultValue": "my text value",
-        "toolTip": "",
-        "visible": true
-    }
-]
-```
-
 ## <a name="config"></a>Config
 
-기본 단계에 대 한 기본 동작을 재정의 해야 하는 경우 구성 요소를 지정 합니다. 다음 예제에서는 사용할 수 있는 속성을 보여 줍니다.
+`config` 속성은 선택 사항입니다. 기본 단계의 기본 동작을 재정의 하거나 단계별 마법사로 인터페이스를 설정 하는 데 사용 합니다. 를 사용 하는 경우 `config` 파일의 섹션 ** 에 있는createUiDefinition.js** 의 첫 번째 속성 `parameters` 입니다. 다음 예제에서는 사용할 수 있는 속성을 보여 줍니다.
 
 ```json
 "config": {
+    "isWizard": false,
     "basics": {
         "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
         "subscription": {
@@ -124,15 +103,50 @@ JSON 편집기를 사용 하 여 createUiDefinition을 만든 다음 [Createuide
 },
 ```
 
-의 `description` 경우 리소스를 설명 하는 markdown 사용 문자열을 제공 합니다. 여러 줄 형식 및 링크가 지원 됩니다.
+### <a name="wizard"></a>마법사
 
-에 대해 `location` 재정의 하려는 위치 컨트롤에 대 한 속성을 지정 합니다. 재정의 되지 않은 모든 속성은 기본값으로 설정 됩니다. `resourceTypes` 정규화 된 리소스 형식 이름을 포함 하는 문자열 배열을 허용 합니다. 위치 옵션은 리소스 유형을 지 원하는 지역 으로만 제한 됩니다.  `allowedValues`   영역 문자열의 배열을 허용 합니다. 해당 영역만 드롭다운에 표시 됩니다.및를 모두 설정할 수 있습니다 `allowedValues`    `resourceTypes` . 결과는 두 목록의 교집합입니다. 마지막으로 `visible` 속성을 사용 하 여 위치 드롭다운을 조건부로 또는 완전히 사용 하지 않도록 설정할 수 있습니다.  
+`isWizard`속성을 사용 하면 다음 단계를 진행 하기 전에 각 단계의 유효성을 성공적으로 검사 하도록 요구할 수 있습니다. `isWizard`속성이 지정 되지 않은 경우 기본값은 **false**이 고 단계별 유효성 검사가 필요 하지 않습니다.
+
+을 `isWizard` 사용 하도록 설정 하면를 **true**로 설정 하 고 **기본** 탭을 사용할 수 있으며 다른 모든 탭은 사용 하지 않도록 설정 됩니다. **다음** 단추를 선택 하면 탭의 아이콘이 탭의 유효성 검사에 성공 또는 실패 여부를 나타냅니다. 탭의 필수 필드가 완료 되 고 유효성을 검사 한 후 **다음** 단추를 클릭 하 여 다음 탭으로 이동할 수 있습니다. 모든 탭에서 유효성 검사를 통과 하면 **검토 및 만들기** 페이지로 이동 하 고 **만들기** 단추를 선택 하 여 배포를 시작할 수 있습니다.
+
+:::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="탭 마법사":::
+
+### <a name="override-basics"></a>재정의 기본 사항
+
+기본 구성에서는 기본 단계를 사용자 지정할 수 있습니다.
+
+의 `description` 경우 리소스를 설명 하는 markdown 사용 문자열을 제공 합니다. 여러 줄 형식 및 링크가 지원 됩니다.
 
 `subscription`및 요소를 사용 하 여 `resourceGroup` 추가 유효성 검사를 지정할 수 있습니다. 유효성 검사를 지정 하는 구문은 [텍스트 상자](microsoft-common-textbox.md)에 대 한 사용자 지정 유효성 검사와 동일 합니다. `permission`구독 또는 리소스 그룹에 대 한 유효성 검사를 지정할 수도 있습니다.  
 
 구독 제어는 리소스 공급자 네임 스페이스의 목록을 수락 합니다. 예를 들어, **Microsoft Compute**를 지정할 수 있습니다. 사용자가 리소스 공급자를 지원 하지 않는 구독을 선택 하면 오류 메시지가 표시 됩니다. 이 오류는 리소스 공급자가 해당 구독에 등록 되지 않고 사용자에 게 리소스 공급자를 등록할 수 있는 권한이 없는 경우에 발생 합니다.  
 
 리소스 그룹 컨트롤에는에 대 한 옵션이 `allowExisting` 있습니다. `true`인 경우 사용자는 이미 리소스가 있는 리소스 그룹을 선택할 수 있습니다. 이 플래그는 솔루션 템플릿에 가장 적합 합니다. 기본 동작에서 사용자는 새 리소스 그룹 또는 비어 있는 리소스 그룹을 선택 해야 합니다. 대부분의 다른 시나리오에서는이 속성을 지정 하지 않아도 됩니다.  
+
+에 대해 `location` 재정의 하려는 위치 컨트롤에 대 한 속성을 지정 합니다. 재정의 되지 않은 모든 속성은 기본값으로 설정 됩니다. `resourceTypes` 정규화 된 리소스 형식 이름을 포함 하는 문자열 배열을 허용 합니다. 위치 옵션은 리소스 유형을 지 원하는 지역 으로만 제한 됩니다.  `allowedValues`   영역 문자열의 배열을 허용 합니다. 해당 영역만 드롭다운에 표시 됩니다.및를 모두 설정할 수 있습니다 `allowedValues`    `resourceTypes` . 결과는 두 목록의 교집합입니다. 마지막으로 `visible` 속성을 사용 하 여 위치 드롭다운을 조건부로 또는 완전히 사용 하지 않도록 설정할 수 있습니다.  
+
+## <a name="basics"></a>기본 사항
+
+**기본** 단계는 Azure Portal에서 파일을 구문 분석할 때 생성 되는 첫 번째 단계입니다. 기본적으로 기본 단계를 통해 사용자는 구독, 리소스 그룹 및 배포 위치를 선택할 수 있습니다.
+
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="기본 사항 기본값":::
+
+이 섹션에서 더 많은 요소를 추가할 수 있습니다. 가능 하면 클러스터 이름 또는 관리자 자격 증명과 같은 배포 차원의 매개 변수를 쿼리 하는 요소를 추가 합니다.
+
+다음 예제에서는 기본 요소에 추가 된 입력란을 보여 줍니다.
+
+```json
+"basics": [
+    {
+        "name": "textBox1",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Textbox on basics",
+        "defaultValue": "my text value",
+        "toolTip": "",
+        "visible": true
+    }
+]
+```
 
 ## <a name="steps"></a>단계
 

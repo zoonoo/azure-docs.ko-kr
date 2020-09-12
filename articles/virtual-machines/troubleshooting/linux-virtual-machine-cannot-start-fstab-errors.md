@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: cf27a842d37e96c82370e9b9b81763c8a5d1f7c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fd49993e6825c47bbae8f034715c03191e06ab2d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509055"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441666"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Fstab 오류로 인 한 Linux VM 시작 문제 해결
 
@@ -107,7 +107,7 @@ Give root password for maintenance
 ### <a name="using-single-user-mode"></a>단일 사용자 모드 사용
 
 1. [직렬 콘솔](./serial-console-linux.md)에 연결 합니다.
-2. 직렬 콘솔을 사용 하 여 단일 사용자 모드 [단일 사용자 모드](../linux/serial-console-grub-single-user-mode.md) 가져오기
+2. 직렬 콘솔을 사용 하 여 단일 사용자 모드 [단일 사용자 모드](serial-console-grub-single-user-mode.md) 가져오기
 3. Vm이 단일 사용자 모드로 부팅 되 면 원하는 텍스트 편집기를 사용 하 여 fstab 파일을 엽니다. 
 
    ```
@@ -180,7 +180,7 @@ Give root password for maintenance
 
 8. Fstab 파일에 대 한 변경 내용을 저장 합니다.
 
-9. 가상 머신을 다시 시작합니다.
+9. 가상 컴퓨터를 다시 시작합니다.
 
 10. 항목 설명 또는 수정을 완료 한 경우 시스템은 포털에서 bash 프롬프트에 도달 해야 합니다. VM에 연결할 수 있는지 여부를 확인 합니다.
 
@@ -235,7 +235,7 @@ Give root password for maintenance
 13. VM을 다시 만들고 SSH를 통해 연결할 수 있는 경우 다음 작업을 수행 합니다.
     * 복구 중에 변경 되었거나 주석 처리 된 fstab 줄을 검토 합니다.
     * UUID와 nofail 옵션을 적절 하 게 사용 하 고 있는지 확인 합니다.
-    * VM을 다시 시작 하기 전에 fstab 변경 내용을 테스트 합니다. 이렇게 하려면 다음 명령을 사용 합니다.``$ sudo mount -a``
+    * VM을 다시 시작 하기 전에 fstab 변경 내용을 테스트 합니다. 이렇게 하려면 다음 명령을 사용 합니다. ``$ sudo mount -a``
     * 이후 복구 시나리오에서 사용할 수정 된 fstab 파일의 추가 복사본을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계

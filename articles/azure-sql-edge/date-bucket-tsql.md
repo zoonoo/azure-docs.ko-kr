@@ -8,28 +8,26 @@ ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2019
-ms.openlocfilehash: c2f63abeb9f935236b4c35decb278eb86e0e2a82
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.date: 09/03/2020
+ms.openlocfilehash: 63b7ad84b0866c91e84007a188b82de65983790f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233302"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458853"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket(Transact-SQL)
 
-이 함수는 `1900-01-01 00:00:00.000`의 기본 원본 값에서 각 datetime 버킷의 시작에 해당하는 datetime 값을 반환합니다.
+이 함수는 매개 변수에 의해 정의 된 타임 스탬프에서 각 datetime 버킷의 시작에 해당 하는 datetime 값을 반환 하 고, `origin` `1900-01-01 00:00:00.000` 원본 매개 변수가 지정 되지 않은 경우의 기본 원점 값을 반환 합니다. 
 
 모든 Transact-SQL 날짜 및 시간 데이터 형식 및 함수에 대한 개요는 [날짜 및 시간 데이터 형식 및 함수(Transact-SQL)](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql/)를 참조하세요.
 
 [Transact-SQL 구문 표기 규칙](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql/)
 
-`DATE_BUCKET`은 `1900-01-01 00:00:00.000`의 기본 원본 날짜 값을 사용합니다(예: 1900년 1월 1일 월요일 오전 12:00).
-
 ## <a name="syntax"></a>구문
 
 ```sql
-DATE_BUCKET (datePart, number, date)
+DATE_BUCKET (datePart, number, date, origin)
 ```
 
 ## <a name="arguments"></a>인수
@@ -52,7 +50,7 @@ DATE_BUCKET (datePart, number, date)
 
 *number*
 
-*datePart* 인수와 결합된 버킷의 너비를 결정하는 정수입니다. 원본 시간으로부터의 dataPart 버킷 너비를 나타냅니다. **`This argument cannot be a negative integer value`** 를 참조하세요. 
+*datePart* 인수와 결합된 버킷의 너비를 결정하는 정수입니다. 원본 시간으로부터의 dataPart 버킷 너비를 나타냅니다. **`This argument cannot be a negative integer value`**. 
 
 *date*
 
@@ -66,6 +64,21 @@ DATE_BUCKET (datePart, number, date)
 + **time**
 
 *date*의 경우 위에서 언급한 데이터 형식 중 하나를 확인하는 경우 `DATE_BUCKET`은 열 식, 식 또는 사용자 정의 변수를 허용합니다.
+
+**원본** 
+
+다음 값 중 하나로 확인할 수 있는 선택적 식입니다.
+
++ **date**
++ **datetime**
++ **datetimeoffset**
++ **datetime2**
++ **smalldatetime**
++ **time**
+
+의 데이터 형식은 `Origin` 매개 변수의 데이터 형식과 일치 해야 합니다 `Date` . 
+
+`DATE_BUCKET` 는 `1900-01-01 00:00:00.000` 함수에 대해 원래 값이 지정 되지 않은 경우 기본 원본 날짜 값 (예: 12:00 오전 1 1900,, 오전 1 시)을 사용 합니다.
 
 ## <a name="return-type"></a>반환 형식
 
@@ -92,11 +105,19 @@ Select DATE_BUCKET(wk, 4, @date)
 Select DATE_BUCKET(wk, 6, @date)
 ```
 
-아래 식의 출력으로, 원본 시간으로부터 6275주입니다.
+아래의 식에 대 한 출력은 이며 `2020-04-06 00:00:00.0000000` 기본 원본 시간에서 6275 주입니다 `1900-01-01 00:00:00.000` .
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
 Select DATE_BUCKET(wk, 5, @date)
+```
+
+아래 식에 대 한 출력은 `2020-06-09 00:00:00.0000000` 지정 된 원본 시간에서 75 주입니다 `2019-01-01 00:00:00` .
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(wk, 5, @date, @origin)
 ```
 
 ## <a name="datepart-argument"></a>datepart 인수
@@ -126,6 +147,10 @@ Invalid bucket width value passed to date_bucket function. Only positive values 
 ```sql
 Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
 ```
+
+## <a name="origin-argument"></a>원본 인수  
+
+의 및 인수 데이터 형식은 `origin` `date` 동일 해야 합니다. 다른 데이터 형식을 사용 하는 경우 오류가 생성 됩니다.
 
 ## <a name="remarks"></a>설명
 
@@ -268,6 +293,15 @@ Where ShipDate between '2011-01-03 00:00:00.000' and '2011-02-28 00:00:00.000'
 order by DateBucket
 GO  
 ``` 
+### <a name="c-using-a-non-default-origin-value"></a>C. 기본이 아닌 값 사용
+
+이 예에서는 기본 orgin 값이 아닌 값을 사용 하 여 날짜 버킷을 생성 합니다. 
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(hh, 2, @date, @origin)
+```
 
 ## <a name="see-also"></a>참고 항목
 

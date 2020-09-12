@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 83ac012c861a0d066bdc47d8e15cbe7ac398aa23
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7fdd9b8ca0fd62d55f5a9412af9486bfb2b942c1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254222"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319295"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Azure Stack Edge GPU에서 Redis on Arc enabled Kubernetes cluster를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램 배포
 
@@ -28,7 +28,7 @@ ms.locfileid: "89254222"
 이 절차는 [Azure Stack Edge 장치에서 Kubernetes 작업](azure-stack-edge-gpu-kubernetes-workload-management.md) 을 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 상태 비저장 응용 프로그램을 배포 하기 전에 장치에서 장치에 액세스 하는 데 사용할 클라이언트 및 장치에 대 한 다음 필수 구성 요소를 완료 했는지 확인 합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "89254222"
       - Azure Stack Edge 장치의 로컬 UI에서 **개요** 로 이동 하 여 Kubernetes software 번호를 확인 합니다. 
       - 지원 되는 Kubernetes 버전에서 제공 되는 매핑과의 호환성을 위해 이러한 두 버전을 확인 합니다. <!--insert link-->.
 
-1. [Azure Arc 배포를 실행 하는 데 사용할 수 있는 Gitops 구성이](https://github.com/kagoyal/dbehaikudemo)있습니다. 다음 파일을 사용 `yaml` 하 여 Azure Stack에 지 장치에 배포 합니다.
+1. [Azure Arc 배포를 실행 하는 데 사용할 수 있는 Gitops 구성이](https://github.com/kagoyal/dbehaikudemo)있습니다. 이 예제에서는 다음 파일을 사용 하 여 `yaml` Azure Stack에 지 장치에 배포 합니다.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->

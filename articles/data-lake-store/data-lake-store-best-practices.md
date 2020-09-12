@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 2daa88d258e0bf761d9afce48b94e6cd6ff2fb95
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 103315b61592cc711f61ec5e95468e50314b9fa6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981438"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440833"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1을 사용하는 모범 사례
 
@@ -49,7 +49,7 @@ Data Lake Storage Gen1은 방화벽을 설정하고 액세스를 Azure 서비스
 
 ![Data Lake Storage Gen1 방화벽 설정](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Data Lake Storage Gen1 방화벽 설정")
 
-방화벽을 사용하도록 설정하면 HDInsight, Data Factory, SQL Data Warehouse 등과 같은 Azure 서비스만 Data Lake Storage Gen1에 액세스할 수 있습니다. Azure에서 사용하는 내부 네트워크 주소 변환으로 인해 Data Lake Storage Gen1 방화벽에서는 IP를 통해 특정 서비스를 제한할 수 없으며, 온-프레미스와 같은 Azure 외부 엔드포인트에 대한 제한에만 사용됩니다.
+방화벽이 사용 하도록 설정 되 면 HDInsight, Data Factory, Azure Synapse Analytics (이전의 SQL Data Warehouse) 등의 Azure 서비스만 Data Lake Storage Gen1에 액세스할 수 있습니다. Azure에서 사용하는 내부 네트워크 주소 변환으로 인해 Data Lake Storage Gen1 방화벽에서는 IP를 통해 특정 서비스를 제한할 수 없으며, 온-프레미스와 같은 Azure 외부 엔드포인트에 대한 제한에만 사용됩니다.
 
 ## <a name="performance-and-scale-considerations"></a>성능 및 크기 조정 고려 사항
 

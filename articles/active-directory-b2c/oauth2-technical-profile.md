@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
+ms.date: 09/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cda04ad57f1984064692cb1df4accc5a99de0910
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b45f5ae64a7b8fd97d5242c82fb90ee6c57286ac
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204033"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433894"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth2 기술 프로필 정의
 
@@ -77,7 +77,7 @@ Azure Active Directory B2C (Azure AD B2C)는 OAuth2 프로토콜 id 공급자에
 
 ## <a name="metadata"></a>메타데이터
 
-| attribute | 필요한 공간 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
 | IdTokenAudience | 아니요 | id_token의 대상 그룹입니다. 지정된 경우 Azure AD B2C는 토큰이 ID 공급자에서 반환된 클레임에 있고 지정된 토큰과 같은지 확인합니다. |
@@ -98,12 +98,13 @@ Azure Active Directory B2C (Azure AD B2C)는 OAuth2 프로토콜 id 공급자에
 | ExtraParamsInClaimsEndpointRequest | 아니요 | 일부 ID 공급자가 **ClaimsEndpoint** 요청으로 반환할 수 있는 추가 매개 변수를 포함합니다. 여러 매개 변수 이름은 이스케이프되고 쉼표 ',' 구분 기호로 구분되어야 합니다. |
 | IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true` , 또는 `false`   (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면이를로 설정 `true` 합니다. |
 | ResolveJsonPathsInJsonTokens  | 아니요 | 기술 프로필이 JSON 경로를 확인 하는지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. 이 메타 데이터를 사용 하 여 중첩 된 JSON 요소에서 데이터를 읽습니다. [Outputclaim](technicalprofiles.md#outputclaims)에서을 `PartnerClaimType` 출력 하려는 JSON 경로 요소로 설정 합니다. 예를 들면 `firstName.localized` , 또는 `data.0.to.0.email` 입니다.|
+|token_endpoint_auth_method| 아니요| Azure AD B2C 인증 헤더를 토큰 끝점으로 전송 하는 방법을 지정 합니다. 가능한 값: `client_secret_post` (기본값) 및 `client_secret_basic` (공개 미리 보기). 자세한 내용은 [Openid connect Connect 클라이언트 인증 섹션](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)을 참조 하세요. |
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필요한 공간 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다. 암호화 키는 **response_types** 메타데이터가 `code`로 설정된 경우에만 필요합니다. 이 경우 Azure AD B2C는 액세스 토큰에 대한 인증 코드를 교환하는 다른 호출을 수행합니다. 메타 데이터가로 설정 된 경우 `id_token` 암호화 키를 생략할 수 있습니다. |
 
@@ -113,7 +114,7 @@ ID 공급자의 리디렉션 URL을 구성할 때 `https://login.microsoftonline
 
 **login.microsoftonline.com** 대신 **b2clogin.com** 도메인을 사용하는 경우 login.microsoftonline.com 대신 b2clogin.com을 사용해야 합니다.
 
-예:
+예제:
 
 - [사용자 지정 정책을 사용하여 OAuth2 ID 공급자로 Google+ 추가](identity-provider-google-custom.md)
 

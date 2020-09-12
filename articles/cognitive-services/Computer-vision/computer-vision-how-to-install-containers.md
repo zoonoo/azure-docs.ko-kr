@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 70cbb21430253dc9683cd3803f2a09ef8bb858cb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 13d483507092892187bc13dd23bfa51ed516c890
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545644"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441156"
 ---
 # <a name="install-and-run-read-containers-preview"></a>컨테이너 읽기 (미리 보기)를 설치 하 고 실행 합니다.
 
@@ -55,6 +55,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
+
 > [!WARNING]
 > AVX2을 지원 하려면 호스트 컴퓨터가 *필요* 합니다. 컨테이너가 AVX2을 지원 하지 않으면 제대로 작동 *하지* 않습니다.
 
@@ -68,14 +69,14 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 | 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |-----------|------------|
-| 읽기 | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| 읽기 | `containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0` |
 
 명령을 사용 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 하 여 컨테이너 이미지를 다운로드 합니다.
 
 ### <a name="docker-pull-for-the-read-container"></a>읽기 컨테이너의 Docker pull
 
 ```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -186,13 +187,16 @@ Swagger UI에서을 선택 하 여 `asyncBatchAnalyze` 브라우저에서 확장
 }
 ```
 
+> [!IMPORTANT]
+> 예를 들어 Docker Compose 또는 Kubernetes에서 부하 분산 장치 뒤에 여러 읽기 컨테이너를 배포 하는 경우 외부 캐시가 있어야 합니다. 처리 컨테이너와 GET 요청 컨테이너는 다를 수 있기 때문에 외부 캐시는 결과를 저장 하 고 컨테이너 간에 공유 합니다. 캐시 설정에 대 한 자세한 내용은 [Computer Vision Docker 컨테이너 구성](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config)을 참조 하세요.
+
 ### <a name="synchronous-read"></a>동기 읽기
 
 작업을 사용 하 여 `POST /vision/v2.0/read/core/Analyze` 이미지를 동기적으로 읽을 수 있습니다. 전체적으로 이미지를 읽으면 API는 JSON 응답을 반환 합니다. 단, 오류가 발생 하는 경우는 예외입니다. 오류가 발생 하면 다음 JSON이 반환 됩니다.
 
 ```json
 {
-    status: "Failed"
+    "status": "Failed"
 }
 ```
 
@@ -283,7 +287,7 @@ Cognitive Services 컨테이너는 Azure 계정의 해당 리소스를 사용 �
 ## <a name="next-steps"></a>다음 단계
 
 * [컨테이너 구성](computer-vision-resource-container-config.md)에서 구성 설정을 검토합니다.
-* [Computer Vision 개요](Home.md)를 검토하여 인쇄 및 필기 텍스트를 인식하는 방법을 자세히 알아봅니다.
+* [Computer Vision 개요](overview.md)를 검토하여 인쇄 및 필기 텍스트를 인식하는 방법을 자세히 알아봅니다.
 * [Computer Vision API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)를 참조하여 컨테이너에서 지원하는 방법을 자세히 알아봅니다.
 * [FAQ(질문과 대답)](FAQ.md)를 참조하여 Computer Vision 기능과 관련된 문제를 해결합니다.
 * 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

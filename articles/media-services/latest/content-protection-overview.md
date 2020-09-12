@@ -11,16 +11,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 81ec96d244c36c0328134b415465d632ef6c1dd5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d0f040961bfb72082f8c5accb86999d489a93de5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267924"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401387"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Media Services 동적 암호화를 사용 하 여 콘텐츠 보호
 
@@ -156,6 +156,10 @@ MPEG 대시 프로토콜은 다음과 같은 컨테이너 형식 및 암호화 �
 |---|---|---|
 |fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
 |fMP4 | CENC(PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
+|fMP4 | PIFF 1.1 (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
+
+> [!NOTE]
+> PIFF 1.1 지원은 Common Encryption의 초기 "Silverlight" 버전을 구현 하는 스마트 TV (Samsung, LG)에 대 한 이전 버전과 호환 되는 솔루션으로 제공 됩니다. PlayReady 암호화의 PIFF 1.1 버전을 지 원하는 2009-2015 간에 제공 되는 legacey Samsung 또는 LG 스마트 Tv를 지 원하는 데 필요한 경우 PIFF 형식만 사용 하는 것이 좋습니다. 
 
 ### <a name="browsers"></a>브라우저
 
@@ -238,7 +242,7 @@ Media Services 고객은 *토큰 재생 방지* 기능을 통해 동일한 토�
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 합니다. Widevine 전용입니다. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 하며 FairPlay에만 해당 합니다.  
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";

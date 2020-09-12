@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 891d5907ee8c964ebe7e281f6298205712ce1186
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290097"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441173"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>SQL Database, SQL Managed Instance 및 Azure Synapse 분석에 대 한 데이터베이스 액세스 권한 부여
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 이 문서에서는 다음에 대해 알아봅니다.
 
-- 사용자가 관리 작업을 수행 하 고 이러한 데이터베이스에 저장 된 데이터에 액세스할 수 있도록 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)를 구성 하는 옵션입니다.
+- 사용자가 관리 작업을 수행 하 고 이러한 데이터베이스에 저장 된 데이터에 액세스할 수 있도록 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)를 구성 하는 옵션입니다.
 - 새 서버를 처음 만든 후의 액세스 및 권한 부여 구성
 - Master 데이터베이스 및 사용자 계정에 로그인 및 사용자 계정을 추가한 다음 이러한 계정에 관리 권한을 부여 하는 방법
 - 로그인 또는 포함 된 사용자 계정으로 사용자 데이터베이스의 사용자 계정을 추가 하는 방법입니다.
@@ -94,7 +94,7 @@ ms.locfileid: "87290097"
   - `dbmanager` `loginmanager` ALTER role 문을 사용 하 여 데이터베이스에서, 역할 또는 둘 다에 사용자 계정을 추가 `master` 합니다 (Azure Synapse의 경우 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) 문을 사용). [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
 
   > [!NOTE]
-  > `dbmanager`및 `loginmanager` 역할은 SQL Managed Instance 배포와 관련이 **없습니다** .
+  > `dbmanager` 및 `loginmanager` 역할은 SQL Managed Instance 배포와 관련이 **없습니다** .
 
   이러한 [특수 master 데이터베이스 역할](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) 의 멤버에 게는 데이터베이스를 만들고 관리 하거나 로그인을 만들고 관리할 수 있는 권한이 Azure SQL Database. `dbmanager` 역할의 구성원인 사용자가 만든 데이터베이스에서, 해당 구성원은 `db_owner` 고정 데이터베이스 역할에 매핑되며 `dbo` 사용자 계정을 사용하여 해당 데이터베이스에 로그인하고 해당 데이터베이스를 관리할 수 있습니다. 이러한 역할에는 master 데이터베이스 외부에서는 명시적인 권한이 없습니다.
 

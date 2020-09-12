@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 08/11/2020
-ms.openlocfilehash: 3bc8458aa009920f183b076d12185295ef294e07
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 18e1ff05d76937f8809408da0ed25f55120e456a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186083"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440578"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 설치 사용자 지정
 
@@ -143,13 +143,13 @@ Express 사용자 지정 설치에 대해 **사용이 허가 된 구성 요소**
 
    * **Sentryone의 작업 팩터리** 구성 요소를 선택 하는 경우 Azure-SSIS IR의 sentryone에서 구성 요소에 대 한 [작업 팩터리](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) 제품군을 설치할 수 있습니다. 이렇게 하려면 **라이선스 키** 텍스트 상자에 미리 구매한 제품 라이선스 키를 입력 합니다. 현재 통합 버전은 **2020.1.3**입니다.
 
-   * Oh22's HEDDA를 선택 하는 경우 ** IO** 구성 요소 HEDDA를 설치할 수 있습니다 [. ](https://hedda.io/ssis-component/)Azure-SSIS IR에서 oh22의 IO 데이터 품질/정리 구성 요소입니다. 이렇게 하려면 서비스를 미리 구매 해야 합니다. 현재 통합 버전은 **1.0.14**입니다.
+   * Oh22's HEDDA를 선택 하는 경우 ** IO** 구성 요소 HEDDA를 설치할 수 있습니다 [. ](https://hedda.io/ssis-component/) Azure-SSIS IR에서 oh22의 IO 데이터 품질/정리 구성 요소입니다. 이렇게 하려면 서비스를 미리 구매 해야 합니다. 현재 통합 버전은 **1.0.14**입니다.
 
    * **Oh22's SQLPhonetics.NET** 구성 요소를 선택 하는 경우 Azure-SSIS IR의 oh22에서 [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) 데이터 품질/일치 구성 요소를 설치할 수 있습니다. 이렇게 하려면 **라이선스 키** 텍스트 상자에 미리 구매한 제품 라이선스 키를 입력 합니다. 현재 통합 버전은 **1.0.45**입니다.
 
-   * **KingswaySoft의 Ssis Integration toolkit** 구성 요소를 선택 하는 경우 Azure-SSIS IR의 KINGSWAYSOFT에서 CRM/ERP/마케팅/공동 작업 앱 (예: Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce 마케팅 클라우드 등) 용 커넥터의 [ssis Integration toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) 제품군을 설치할 수 있습니다. 이렇게 하려면 **라이선스 키** 텍스트 상자에 미리 구매한 제품 라이선스 키를 입력 합니다. 현재 통합 버전은 **2019.2**입니다.
+   * **KingswaySoft의 Ssis Integration toolkit** 구성 요소를 선택 하는 경우 Azure-SSIS IR의 KINGSWAYSOFT에서 CRM/ERP/마케팅/공동 작업 앱 (예: Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce 마케팅 클라우드 등) 용 커넥터의 [ssis Integration toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) 제품군을 설치할 수 있습니다. 이렇게 하려면 **라이선스 키** 텍스트 상자에 미리 구매한 제품 라이선스 키를 입력 합니다. 현재 통합 버전은 **2020.1**입니다.
 
-   * **KingswaySoft의 Ssis 생산성 팩** 구성 요소를 선택 하는 경우 KingswaySoft의 구성 요소에 대 한 [ssis 생산성 팩](https://www.kingswaysoft.com/products/ssis-productivity-pack) 제품군을 Azure-SSIS IR에 설치할 수 있습니다. 이렇게 하려면 **라이선스 키** 텍스트 상자에 미리 구매한 제품 라이선스 키를 입력 합니다. 현재 통합 버전은 **10.0**입니다.
+   * **KingswaySoft의 Ssis 생산성 팩** 구성 요소를 선택 하는 경우 KingswaySoft의 구성 요소에 대 한 [ssis 생산성 팩](https://www.kingswaysoft.com/products/ssis-productivity-pack) 제품군을 Azure-SSIS IR에 설치할 수 있습니다. 이렇게 하려면 **라이선스 키** 텍스트 상자에 미리 구매한 제품 라이선스 키를 입력 합니다. 현재 통합 버전은 **20.1**입니다.
 
    * **Theobald Software의 추출 (is** 구성 요소를 선택 하는 경우 [에는 Azure-SSIS IR](https://theobald-software.com/en/xtract-is/) 의 Theobald Software에서 SAP 시스템용 커넥터 제품군 (ERP, s/4hana, BW)을 설치할 수 있습니다. 이렇게 하려면 먼저 구매한 제품 라이선스 파일을 & 끌어서 **라이선스 파일** 입력 상자에 저장/업로드 합니다. 현재 통합 버전은 **6.1.1.3**입니다.
 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e720a95007ff06a954affe03f43f386be3bed39f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541722"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442108"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "87541722"
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>이 가이드에서 다루지 않는 배포 제안
 
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics(이전의 SQL Data Warehouse)
 - Azure SQL Vm (IaaS)
 - SQL Server
 
@@ -47,7 +47,7 @@ ms.locfileid: "87541722"
 - 개인 정보 취급 방침
 - 보안 엔지니어
 
-### <a name="using-this-guide"></a><a id="using"></a>이 가이드 사용
+### <a name="using-this-guide"></a><a id="using"></a> 이 가이드 사용
 
 이 문서는 기존 [Azure SQL Database 보안](security-overview.md) 설명서와 함께 제공 됩니다.
 
@@ -228,7 +228,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 - SQL 데이터베이스:
   - 세부적인 권한 및 사용자 정의 데이터베이스 역할 (또는 Managed Instance의 서버 역할)을 사용 합니다.
     1. 필요한 역할 만들기
-       - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
+       - [역할 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
     1. 필수 사용자 만들기
        - [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
@@ -255,7 +255,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
 - 필요한 정확한 권한을 사용 하 여 사용자 지정 역할을 만들고 사용 합니다. 실제로 사용 되는 일반적인 역할은 다음과 같습니다.
   - 보안 배포
   - 관리자
-  - Developer
+  - 개발자
   - 지원 담당자
   - 감사자
   - 자동화 된 프로세스
@@ -501,7 +501,7 @@ Always Encrypted는 주로 Azure SQL Database (클라우드 연산자, Dba)의 �
 
 **구현 방법**:
 
-- Azure SQL Database 및 SQL Managed Instance에 연결 하는 클라이언트 컴퓨터가 [TLS (Transport Layer Security)](security-overview.md#transport-layer-security-encryption-in-transit)를 사용 하 고 있는지 확인 합니다.
+- Azure SQL Database 및 SQL Managed Instance에 연결 하는 클라이언트 컴퓨터가  [TLS (Transport Layer Security)](security-overview.md#transport-layer-security-encryption-in-transit)를 사용 하 고 있는지 확인 합니다.
 
 **모범 사례**:
 
@@ -742,7 +742,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 **구현 방법**:
 
-- SQL 감사 및 데이터 분류를 조합 하 여 사용 합니다.
+- SQL 감사 및 데이터 분류를 함께 사용합니다.
   - [SQL Database 감사](../../azure-sql/database/auditing-overview.md) 로그에서 특히 중요 한 데이터에 대 한 액세스를 추적할 수 있습니다. 또한 액세스 한 데이터와 같은 정보 및 해당 민감도 레이블을 볼 수 있습니다. 자세한 내용은 [데이터 검색, 분류](data-discovery-and-classification-overview.md) 및 [중요 한 데이터에 대 한 액세스 감사](data-discovery-and-classification-overview.md#audit-sensitive-data)를 참조 하세요.
 
 **모범 사례**:

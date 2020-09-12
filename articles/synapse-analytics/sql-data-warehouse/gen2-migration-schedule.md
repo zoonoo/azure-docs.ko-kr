@@ -12,12 +12,12 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 71219abaf6493d6dce03f05ad0e61fb71bff1745
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eebde4470ba2635a5287cb3b0103fa49e0e243e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207722"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441003"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Gen2로 SQL 풀 업그레이드
 
@@ -133,4 +133,4 @@ SQL 풀에 문제가 발생 하는 경우 [지원 요청](sql-data-warehouse-get
 - [현재 위치 업그레이드 및 복원 지점에서 업그레이드](upgrade-to-latest-generation.md)
 - [사용자 정의 복원 지점 만들기](sql-data-warehouse-restore-points.md)
 - [Gen2로 복원하는 방법 알아보기](sql-data-warehouse-restore-active-paused-dw.md)
-- [SQL Data Warehouse 지원 요청 열기](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Azure Synapse Analytics 지원 요청 열기](https://go.microsoft.com/fwlink/?linkid=857950)

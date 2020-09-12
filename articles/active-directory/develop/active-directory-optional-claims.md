@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/25/2020
+ms.date: 09/03/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068729"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436853"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>방법: 앱에 선택적 클레임 제공
 
@@ -130,7 +130,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **UI를 통해 선택적 클레임 구성:**
 
-[![UI를 사용하여 선택적 클레임을 구성하는 방법을 보여 줍니다](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png).
+[![UI에서 선택적 클레임 구성](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. **관리** 섹션에서 **토큰 구성**을 선택합니다.
 1. **선택적 클레임 추가**를 선택합니다.
@@ -182,7 +182,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 5: OptionalClaims 형식 속성**
 
-| Name          | 유형                       | Description                                           |
+| Name          | Type                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 컬렉션(OptionalClaim) | ID JWT 토큰에서 반환된 선택적 클레임입니다.     |
 | `accessToken` | 컬렉션(OptionalClaim) | JWT 액세스 토큰에서 반환된 선택적 클레임입니다. |
@@ -195,7 +195,7 @@ UI 또는 애플리케이션 매니페스트를 통해 애플리케이션에 대
 
 **표 6: OptionalClaim 형식 속성**
 
-| Name                   | 유형                    | Description                                                                                                                                                                                                                                                                                                   |
+| Name                   | Type                    | Description                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 선택적 클레임의 이름입니다.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | 클레임의 원본(디렉터리 개체)입니다. 확장 속성에서 가져온 미리 정의된 클레임 및 사용자 정의 클레임이 있습니다. 원본 값이 null이면 클레임은 미리 정의된 선택적 클레임입니다. 원본 값이 user이면 name 속성의 값은 user 개체의 확장 속성입니다. |
@@ -238,7 +238,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 1. 목록에서 선택적 클레임을 구성하려는 애플리케이션을 선택합니다.
 1. **관리** 섹션에서 **토큰 구성**을 선택합니다.
 1. **그룹 클레임 추가**를 선택합니다.
-1. 반환할 그룹 유형(**모든 그룹**, **SecurityGroup**또는 **DirectoryRole**)을 선택합니다. **모든 그룹** 옵션에는 **SecurityGroup**, **DirectoryRole** 및 **DistributionList**가 포함됩니다.
+1. 반환할 그룹 유형 (**보안 그룹**또는 **디렉터리 역할**, **모든 그룹**및/또는 **그룹을 응용 프로그램에 할당**)을 선택 합니다. **응용 프로그램 옵션에 할당 된 그룹** 에는 응용 프로그램에 할당 된 그룹만 포함 됩니다. **All groups** 옵션은 **securitygroup**, **directoryrole**및 **DistributionList**를 포함 하지만 **응용 프로그램에 할당 된 그룹**은 포함 하지 않습니다. 
 1. 선택 사항: 특정 토큰 유형 속성을 선택하여 온-프레미스 그룹 특성을 포함하도록 그룹 클레임 값을 수정하거나 클레임 유형을 역할로 변경합니다.
 1. **저장**을 선택합니다.
 
@@ -256,6 +256,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
    - "All"(includes SecurityGroup, DirectoryRole 및 DistributionList 포함)
    - "SecurityGroup"
    - "DirectoryRole"
+   - "ApplicationGroup" (이 옵션은 응용 프로그램에 할당 된 그룹만 포함)
 
    예를 들면 다음과 같습니다.
 
@@ -307,7 +308,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
     **UI 구성:**
 
-    [![UI를 사용하여 선택적 클레임을 구성하는 방법을 보여 줍니다](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png).
+    [![선택적 클레임 구성](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
     **애플리케이션 매니페스트 항목:**
 
@@ -328,7 +329,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
     **UI 구성:**
 
-    [![UI를 사용하여 선택적 클레임을 구성하는 방법을 보여 줍니다](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png).
+    [![매니페스트의 선택적 클레임](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
     **애플리케이션 매니페스트 항목:**
 
@@ -394,7 +395,7 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 1. **선택적 클레임 추가**를 선택하고, **SAML** 토큰 유형을 선택한 후 클레임 목록에서 **extn.skypeID**를 선택하고(skypeID라는 Azure AD 사용자 개체를 만든 경우에만 해당) **추가**를 선택합니다.
 
-    [![UI를 사용하여 선택적 클레임을 구성하는 방법을 보여 줍니다](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png).
+    [![SAML 토큰에 대 한 선택적 클레임](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **매니페스트 구성:**
 

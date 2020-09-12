@@ -4,19 +4,19 @@ description: Application Insights를 사용하여 웹 및 작업자 역할을 �
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 2de853655524e99e958f043b7801ee73e937e7ad
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1662b45d8243217357d1e69124832c499d587812
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923860"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437329"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services용 Application Insights
 [Application Insights][start]는 Application Insights SDK의 데이터와 Cloud Services의 [Azure Diagnostics](../platform/diagnostics-extension-overview.md) 데이터를 결합하여 [Azure Cloud Services 앱](https://azure.microsoft.com/services/cloud-services/)의 가용성, 성능, 오류 및 사용량을 모니터링할 수 있습니다. 앱의 성능 및 효과에 대한 생생한 피드백을 통해 충분한 정보를 바탕으로 각 개발 수명 주기의 디자인 방향을 결정할 수 있습니다.
 
 ![개요 대시보드](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이 작업을 시작하려면 다음이 필요합니다.
 
 * [Azure](https://azure.com) 구독. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 Microsoft 계정으로 로그인합니다. 
@@ -66,6 +66,8 @@ Application Insights를 사용하여 클라우드 서비스를 모니터링하�
 이 상황을 방지하려면 각 빌드 구성 또는 시스템의 “스탬프”(개발, 테스트, 프로덕션 등)에 대한 별도 리소스를 만듭니다. 각 빌드 구성에 대한 리소스를 별도 리소스 그룹에 둡니다. 
 
 원격 분석을 적절한 리소스에 전송하려면 빌드 구성에 따라 서로 다른 계측 키를 선택할 수 있도록 Application Insights SDK를 설정합니다. 
+
+여러 단계의 [계측 키를 동적으로 설정](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) 하는 방법을 알아봅니다. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>각 역할에 대한 Application Insights 리소스 만들기
 
@@ -262,7 +264,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 
 클라이언트 모바일 앱이 있는 경우 [App Center](../learn/mobile-center-quickstart.md)를 사용합니다. [분석](../log-query/log-query-overview.md)에서 이벤트 수를 표시하는 쿼리를 만들어 대시보드에 고정합니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 [예제](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) 는 웹 역할 및 두 작업자 역할이 포함되는 서비스를 모니터링합니다.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Azure Cloud Services에서 실행할 때의 "메서드를 찾을 수 없음" 예외
@@ -276,7 +278,7 @@ HTTP 요청과 같은 방법으로 요청을 추적하여 작업자 역할에 �
 * [Application Insights에 Azure Diagnostics를 보내도록 구성](../platform/diagnostics-extension-to-application-insights.md)
 * [자동으로 Application Insights 리소스 만들기](./powershell.md)
 * [Azure Diagnostics 자동화](./powershell-azure-diagnostics.md)
-* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
+* [Azure 기능](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: ./api-custom-events-metrics.md
 [availability]: ./monitor-web-app-availability.md

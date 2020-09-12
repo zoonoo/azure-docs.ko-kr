@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 300bc6acbe7821841b578dcc2166ecfc498ad750
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 0d1946862ec8af6a107ca4f5f963efbcb8912a5e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141298"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440935"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 API를 호출하는 데스크톱 앱: 토큰 획득
 
@@ -38,7 +38,7 @@ ms.locfileid: "88141298"
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
-                                            // if the app manages is at most one account  
+                                            // if the app manages is at most one account
 try
 {
  result = await app.AcquireTokenSilent(scopes, account)
@@ -370,7 +370,7 @@ if accounts:
 if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
-         scopes=config["scope"])    
+         scopes=config["scope"])
 
 ```
 
@@ -433,7 +433,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
   - 또는 테넌트 관리자자 사전에 테넌트의 모든 사용자에 대해 애플리케이션 사용을 동의했어야 합니다.
   - 다시 말하면,
     - 개발자가 직접 Azure Portal에서 **권한 부여** 단추를 선택했어야 합니다.
-    - 또는 테넌트 관리자가 애플리케이션 등록의 **API 권한** 탭에서 **{테넌트 도메인}에 대한 관리자 동의 권한 부여/해지**를 선택했어야 합니다. 자세한 내용은 [웹 API 액세스 권한 추가](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)를 참조하세요.
+    - 또는 테넌트 관리자가 애플리케이션 등록의 **API 권한** 탭에서 **{테넌트 도메인}에 대한 관리자 동의 권한 부여/해지**를 선택했어야 합니다. 자세한 내용은 [웹 API에 액세스할 수 있는 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)를 참조 하세요.
     - 또는 사용자가 애플리케이션에 동의할 방법을 제공했어야 합니다. 자세한 내용은 [개별 사용자의 동의 요청](./v2-permissions-and-consent.md#requesting-individual-user-consent)을 참조하세요.
     - 또는 테넌트 관리자가 애플리케이션에 동의할 방법을 제공했어야 합니다. 자세한 내용은 [관리자 동의](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)를 참조하세요.
 
@@ -925,7 +925,7 @@ if not result:
 
 웹 컨트롤이 없는 명령줄 도구를 작성하고 있는데 앞에 나온 흐름을 사용할 수 없거나 사용하지 않고 싶다면 디바이스 코드 흐름을 사용해야 합니다.
 
-Azure AD를 사용한 대화형 인증에는 웹 브라우저가 필요합니다. 자세한 내용은 [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser)(웹 브라우저의 용도)를 참조하세요. 디바이스 코드 흐름은 웹 브라우저를 제공하지 않는 디바이스나 운영 체제에서 사용자를 인증하기 위해 사용자가 컴퓨터나 휴대폰과 같은 다른 디바이스를 사용하여 대화형으로 로그인할 수 있도록 지원합니다. 애플리케이션은 디바이스 코드 흐름을 사용하여 이러한 디바이스 또는 OS용으로 설계된 2단계 프로세스를 통해 토큰을 가져옵니다. 이러한 애플리케이션의 예로 iOT 또는 CLI(명령줄) 도구에서 실행되는 애플리케이션을 들 수 있습니다. 기본 개념은 다음과 같습니다.
+Azure AD를 사용한 대화형 인증에는 웹 브라우저가 필요합니다. 자세한 내용은 [Usage of web browsers](https://aka.ms/msal-net-uses-web-browser)(웹 브라우저의 용도)를 참조하세요. 디바이스 코드 흐름은 웹 브라우저를 제공하지 않는 디바이스나 운영 체제에서 사용자를 인증하기 위해 사용자가 컴퓨터나 휴대폰과 같은 다른 디바이스를 사용하여 대화형으로 로그인할 수 있도록 지원합니다. 응용 프로그램은 장치 코드 흐름을 사용 하 여 이러한 장치나 운영 체제를 위해 설계 된 2 단계 프로세스를 통해 토큰을 가져옵니다. 이러한 애플리케이션의 예로 iOT 또는 CLI(명령줄) 도구에서 실행되는 애플리케이션을 들 수 있습니다. 기본 개념은 다음과 같습니다.
 
 1. 사용자 인증이 필요할 때마다 앱이 사용자에게 코드를 제공합니다. 사용자는 다른 디바이스(예: 인터넷에 연결된 스마트폰)를 사용하여 URL(예: `https://microsoft.com/devicelogin`)로 이동해야 합니다. 그런 다음 사용자에게 코드를 입력하라는 메시지가 표시됩니다. 사용자가 코드를 입력하면 웹 페이지는 동의 프롬프트, 다단계 인증(필요한 경우) 등을 포함하는 일반적인 인증 환경으로 사용자를 안내합니다.
 
@@ -978,7 +978,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
-    }         
+    }
 }
 
 private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)

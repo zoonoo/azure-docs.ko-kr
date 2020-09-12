@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f2c8dbebce685eea67672a2b8c93d51e356ac69c
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 834b3b60a887dadd75e00a7a33abaff15e1a9407
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226052"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441479"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -404,6 +404,9 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
 ## <a name="create-a-server-endpoint"></a>서버 엔드포인트 만들기
 서버 엔드포인트는 서버 볼륨의 폴더와 같이 등록된 서버의 특정 위치를 나타냅니다. 서버 엔드포인트는 등록된 서버(탑재된 공유가 아닌)의 경로여야 하며, 클라우드 계층화를 사용하려면 이 경로가 비 시스템 볼륨에 있어야 합니다. NAS(Network Attached Storage)는 지원되지 않습니다.
 
+> [!NOTE]
+> 볼륨에서 서버 끝점을 설정한 후 경로 또는 드라이브 문자를 변경 하는 것은 지원 되지 않습니다. 등록 된 서버에서 최종 경로를 사용 하 고 있는지 확인 합니다.
+
 # <a name="portal"></a>[포털](#tab/azure-portal)
 서버 끝점을 추가 하려면 새로 만든 동기화 그룹으로 이동한 후 **서버 끝점 추가**를 선택 합니다.
 
@@ -571,7 +574,7 @@ Get-StorageSyncSelfServiceRestore [[-Driveletter] <string>]
 
 볼륨 (64)에 대 한 기본 최대 VSS 스냅숏 수와이를 사용 하는 기본 일정은 볼륨에 저장할 수 있는 VSS 스냅숏의 수에 따라 정보 근로자가 복원할 수 있는 이전 버전의 최대 45 일을 초래 합니다.
 
-Max 인 경우 64 볼륨 당 VSS 스냅숏 설정이 올바르지 않으므로 [레지스트리 키를 통해 해당 값을 변경할](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies)수 있습니다.
+볼륨 당 최대 64 VSS 스냅숏이 올바른 설정이 아닌 경우 [레지스트리 키를 통해 해당 값을 변경할](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies)수 있습니다.
 새 한도를 적용 하려면 cmdlet을 다시 실행 하 여 이전에 사용 하도록 설정 된 모든 볼륨에서 이전 버전 호환성을 사용 하도록 설정 하 고-Force 플래그를 사용 하 여 볼륨 당 최대 VSS 스냅숏 수를 고려 합니다. 이렇게 하면 새로 계산 된 수의 호환 되는 일이 발생 합니다. 이 변경은 새로 계층화 된 파일에만 적용 되며 사용자가 수행한 VSS 일정에 따라 사용자 지정을 덮어씁니다.
 
 <a id="proactive-recall"></a>

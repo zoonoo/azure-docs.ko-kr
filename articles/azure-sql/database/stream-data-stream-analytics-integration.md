@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 7f3ae912b12f85be16d3df49dc10c022358f3af8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869867"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437074"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Azure Stream Analytics 통합 (미리 보기)을 사용 하 여 Azure SQL Database로 데이터 스트리밍
 
@@ -31,7 +31,7 @@ ms.locfileid: "88869867"
 - 미리 보기 데이터에 대 한 추가 사용 편의성: 선택한 테이블의 컨텍스트에서 이벤트 원본 (이벤트 허브/IoT Hub)에서 들어오는 데이터 미리 보기
 
 > [!IMPORTANT]
-> Azure Stream Analytics 작업은 Azure SQL Database, Azure SQL Managed Instance 또는 Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)로 출력 될 수 있습니다. 자세한 내용은 [출력](../../stream-analytics/sql-database-output.md)을 참조 하세요.
+> Azure Stream Analytics 작업은 Azure SQL Database, Azure SQL Managed Instance 또는 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 출력 될 수 있습니다. 자세한 내용은 [출력](../../stream-analytics/stream-analytics-define-outputs.md)을 참조 하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

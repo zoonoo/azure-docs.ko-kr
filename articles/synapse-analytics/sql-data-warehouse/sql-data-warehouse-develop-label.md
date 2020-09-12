@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d4459547300f5dfc7b7c22d1e531b928a13aa66c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91b6dac5fba4bb8dfd8cf4a3bb4e5952f8388bb5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213434"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459150"
 ---
 # <a name="using-labels-to-instrument-queries-in-synapse-sql-pool"></a>Synapse SQL 풀에서 레이블을 사용 하 여 쿼리 계측
 
 이 문서에는 SQL 풀에서 쿼리를 계측 하는 레이블을 사용 하 여 솔루션을 개발 하기 위한 팁이 포함 되어 있습니다.
 
-솔루션 개발을 위해 Azure SQL Data Warehouse에서 레이블을 사용하여 쿼리를 계측하기 위한 팁.
+솔루션 개발을 위해 Azure Synapse Analytics에서 레이블을 사용 하 여 쿼리를 계측 하는 팁입니다.
 
 ## <a name="what-are-labels"></a>레이블이란?
 
