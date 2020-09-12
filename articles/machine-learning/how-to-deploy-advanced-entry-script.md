@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 0499cd6885454604e89ce4cadc313b2f68c45156
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 95d3570d93aa4966fcf6864838ec01735b8662db
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544641"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650285"
 ---
 # <a name="advanced-entry-script-authoring"></a>고급 항목 스크립트 작성
 
 이 문서에서는 특수 한 사용 사례에 대 한 입력 스크립트를 작성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 배포 하려는 학습 된 machine learning 모델이 이미 있다고 가정 합니다. 모델 배포에 대해 자세히 알아보려면 [이 자습서](how-to-deploy-and-where.md)를 참조 하세요.
 
@@ -90,7 +90,7 @@ def run(data):
 ```
 
 
-## <a name="binary-ie-image-data"></a><a id="binary-data"></a>이진 데이터 (예: 이미지)
+## <a name="binary-ie-image-data"></a><a id="binary-data"></a> 이진 데이터 (예: 이미지)
 
 모델에서 이미지와 같은 이진 데이터를 허용 하는 경우 `score.py` 원시 HTTP 요청을 수락 하도록 배포에 사용 되는 파일을 수정 해야 합니다. 원시 데이터를 수락 하려면 `AMLRequest` 항목 스크립트에서 클래스를 사용 하 고 `@rawhttp` 함수에 데코레이터를 추가 합니다 `run()` .
 
@@ -260,7 +260,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-모델을 등록할 때 레지스트리에서 모델을 관리 하는 데 사용 되는 모델 이름을 제공 합니다. 이 이름을 [model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) 메서드와 함께 사용 하 여 로컬 파일 시스템에서 모델 파일의 경로를 검색할 수 있습니다. 폴더 또는 파일 컬렉션을 등록 하는 경우이 API는 해당 파일이 포함 된 디렉터리의 경로를 반환 합니다.
+모델을 등록할 때 레지스트리에서 모델을 관리 하는 데 사용 되는 모델 이름을 제공 합니다. 이 이름을 [model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) 메서드와 함께 사용 하 여 로컬 파일 시스템에서 모델 파일의 경로를 검색할 수 있습니다. 폴더 또는 파일 컬렉션을 등록 하는 경우이 API는 해당 파일이 포함 된 디렉터리의 경로를 반환 합니다.
 
 모델을 등록할 때 이름을 지정 합니다. 이름은 모델을 로컬 또는 서비스 배포 중에 배치 하는 위치에 해당 합니다.
 

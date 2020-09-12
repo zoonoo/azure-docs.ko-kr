@@ -3,12 +3,12 @@ title: Windows PowerShell DSC를 사용 하 여 연결 된 컴퓨터 에이전�
 description: 이 문서에서는 Windows PowerShell DSC를 사용 하 여 Azure Arc 사용 서버 (미리 보기)를 사용 하 여 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 25d6e435c261a83bf81c15d5dd445a936d48a08b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 675258ff95829c2dc9922571db5014b2ba93d336
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213075"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565823"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Windows PowerShell DSC를 사용 하 여 연결 된 컴퓨터 에이전트를 설치 하는 방법
 
@@ -82,7 +82,7 @@ Cmdlet을 사용 하 여 구성 문서 (MOF 파일)를 컴퓨터에 적용할 �
 
 이 리소스는 기존 DSC 구성에 추가 하 여 컴퓨터에 대 한 종단 간 구성을 나타낼 수 있습니다. 예를 들어이 리소스를 보안 운영 체제 설정을 설정 하는 구성에 추가할 수 있습니다.
 
-PowerShell 갤러리의 [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) 모듈을 사용 하 여 구성 결합을 더욱 간소화 하는 예제 구성의 [복합 리소스](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) 를 만들 수 있습니다.
+PowerShell 갤러리의 [CompositeResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) 모듈을 사용 하 여 구성 결합을 더욱 간소화 하는 예제 구성의 [복합 리소스](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) 를 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

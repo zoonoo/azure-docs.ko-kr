@@ -2,18 +2,18 @@
 title: 'Azure Express 경로: 회로 구성 워크플로'
 description: 이 페이지에서는 Express 경로 회로 및 피어 링을 구성 하기 위한 워크플로를 보여 줍니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.author: cherylmc
+ms.author: duau
 ms.custom: contperfq1
-ms.openlocfilehash: 229b7c145fa38443d2bc5f99005078ffa7f77065
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bb0d3cebd9382ef2c81b217417cfbcb6198b6ebb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814079"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565926"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>회로 프로비전 및 회로 상태에 대한 ExpressRoute 워크플로
 
@@ -86,7 +86,7 @@ PowerShell, Azure Portal 또는 CLI를 사용 하 여 Express 경로 회로 프�
 
 #### <a name="for-microsoft-peering"></a>Microsoft 피어 링의 경우
 
-이 기능을 사용 하 여 Office 365와 같은 Microsoft 온라인 서비스에 액세스할 수 있습니다. 또한 모든 Azure PaaS 서비스는 Microsoft 피어링을 통해 액세스할 수도 있습니다. 인터넷에 사용 하는 것과 다른 프록시/edge를 사용 하 여 Microsoft에 연결 해야 합니다. ExpressRoute 및 인터넷 모두에 동일한 Edge를 사용하면 비대칭 라우팅이 발생하고 네트워크에 대한 연결 중단이 발생합니다.
+이 기능을 사용 하 여 Microsoft 365 같은 Microsoft 온라인 서비스에 액세스할 수 있습니다. 또한 모든 Azure PaaS 서비스는 Microsoft 피어링을 통해 액세스할 수도 있습니다. 인터넷에 사용 하는 것과 다른 프록시/edge를 사용 하 여 Microsoft에 연결 해야 합니다. ExpressRoute 및 인터넷 모두에 동일한 Edge를 사용하면 비대칭 라우팅이 발생하고 네트워크에 대한 연결 중단이 발생합니다.
 
 * 경로 1 (/30)에 대 한 피어 링 서브넷은 공용 IP 여야 합니다.
 * 경로 2 (/30)의 피어 링 서브넷은 공용 IP 여야 합니다.

@@ -1,27 +1,29 @@
 ---
 title: 연결된 Log Analytics 작업 영역에 대해 지원되는 지역
-description: 이 문서에서는 Automation 계정과 Log Analytics 작업 영역 간에 지원되는 지역 매핑을 설명합니다.
+description: 이 문서에서는 Azure Automation의 특정 기능과 관련이 있으므로 Automation 계정과 Log Analytics 작업 영역 간에 지원 되는 지역 매핑을 설명 합니다.
+ms.date: 09/03/2020
 services: automation
-ms.service: automation
-ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 06/12/2020
 ms.topic: conceptual
-manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447861"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440663"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>연결된 Log Analytics 작업 영역에 대해 지원되는 지역
 
-Azure Automation에서 VM에 대한 업데이트 관리, 변경 내용 추적 및 인벤토리, 작업 시간 외 VM 시작/중지 기능을 사용하도록 설정할 수 있습니다. 그러나 특정 Azure 지역에서만 구독의 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다. 지역 매핑은 Automation 계정 및 Log Analytics 작업 영역에만 적용됩니다. Log Analytics 작업 영역과 Automation 계정이 동일한 구독에 있어야 하지만 동일한 지역에 배포된 다른 리소스 그룹에 있을 수 있습니다. 자세한 내용은 [Log Analytics 작업 영역 및 Automation 계정](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account)을 참조하세요.
+Azure Automation에서 서버 및 가상 컴퓨터에 대 한 업데이트 관리, 변경 내용 추적 및 인벤토리 및 작업 시간 외 VM 시작/중지 기능을 사용 하도록 설정할 수 있습니다. 이러한 기능은 Log Analytics 작업 영역에 종속 되므로 작업 영역을 Automation 계정과 연결 해야 합니다. 그러나 특정 영역만 함께 연결할 수 있습니다. 일반적으로 이러한 기능을 사용 하지 않는 작업 영역에 Automation 계정을 연결 하려는 경우에는 매핑을 적용할 수 *없습니다* .
+
+이 문서에서는 Automation 계정에서 이러한 기능을 사용 하도록 설정 하 고 사용할 수 있도록 지원 되는 매핑을 제공 합니다.
+
+자세한 내용은 [Log Analytics 작업 영역 및 Automation 계정](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account)을 참조 하세요.
 
 ## <a name="supported-mappings"></a>지원되는 매핑
+
+> [!NOTE]
+> 다음 표에서 볼 수 있듯이 Log Analytics와 Azure Automation 사이에는 하나의 매핑만 있을 수 있습니다.
 
 다음 표에 지원되는 매핑이 나와 있습니다.
 
@@ -52,7 +54,7 @@ Azure Automation에서 VM에 대한 업데이트 관리, 변경 내용 추적 �
 
 ## <a name="unlink-a-workspace"></a>작업 영역 연결 해제
 
-Automation 계정을 Log Analytics작업 영역에 더 이상 통합하지 않기로 결정할 경우 Azure Portal에서 직접 계정 연결을 해제할 수 있습니다. 계속하기 전에 먼저 사용 중인 경우 업데이트 관리, 변경 내용 추적 및 인벤토리, 작업 시간 외 VM 시작/중지를 [제거](move-account.md#remove-features)해야 합니다. 제거하지 않으면 연결 해제 작업을 완료할 수 없습니다. 
+Automation 계정을 Log Analytics작업 영역에 더 이상 통합하지 않기로 결정할 경우 Azure Portal에서 직접 계정 연결을 해제할 수 있습니다. 계속하기 전에 먼저 사용 중인 경우 업데이트 관리, 변경 내용 추적 및 인벤토리, 작업 시간 외 VM 시작/중지를 [제거](move-account.md#remove-features)해야 합니다. 제거하지 않으면 연결 해제 작업을 완료할 수 없습니다.
 
 기능이 제거되면 아래 단계에 따라 Automation 계정 연결을 해제할 수 있습니다.
 

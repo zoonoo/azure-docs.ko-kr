@@ -10,17 +10,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: 900e36ec3e508f9d3616cf0c0d19ea4ff067f775
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: fc8e8de817c1b311e3252c7399a09ed1c9eb7031
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144790"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651506"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 [PYTHON SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py)에서 자동화 된 machine Learning, automl을 사용 하 여 시계열 예측 회귀 모델을 구성 하 고 학습 하는 방법에 대해 알아봅니다. 
+이 문서에서는 [PYTHON SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)에서 자동화 된 machine Learning, automl을 사용 하 여 시계열 예측 회귀 모델을 구성 하 고 학습 하는 방법에 대해 알아봅니다. 
 
 최소한의 코드를 사용하는 환경의 경우 [자습서: 자동화된 기계 학습으로 수요 예측](tutorial-automated-ml-forecast.md)을 통해 [Azure Machine Learning Studio](https://ml.azure.com/)에서 자동화된 기계 학습을 사용하는 시계열 예측 예제를 참조하세요.
 
@@ -32,7 +32,7 @@ ms.locfileid: "89144790"
 * [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 개체에서 특정 시계열 매개 변수 구성
 * 시계열 데이터를 사용하여 예측 실행
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에는 다음이 필요 합니다. 
 
@@ -93,7 +93,7 @@ test_labels = test_data.pop(label).values
 ```
 
 > [!IMPORTANT]
-> 미래 가치를 예측하기 위해 모델을 학습하는 경우 학습에 사용된 모든 기능을 의도한 구간에 대해 예측을 실행할 때도 사용할 수 있는지 확인합니다. 예를 들어, 수요 예측을 만들 때 현재 주가에 대한 기능을 포함하면 학습 정확도가 크게 높아질 수 있습니다. 그러나 장기 구간을 사용하여 예측하려는 경우 미래 시계열 요소에 해당하는 선물 주가를 정확하게 예측할 수 없으며 모델 정확성이 떨어질 수 있습니다.
+> 미래 가치를 예측하기 위해 모델을 학습하는 경우 학습에 사용된 모든 기능을 의도한 구간에 대해 예측을 실행할 때도 사용할 수 있는지 확인합니다. <br> <br>예를 들어, 수요 예측을 만들 때 현재 주가에 대한 기능을 포함하면 학습 정확도가 크게 높아질 수 있습니다. 그러나 장기 구간을 사용하여 예측하려는 경우 미래 시계열 요소에 해당하는 선물 주가를 정확하게 예측할 수 없으며 모델 정확성이 떨어질 수 있습니다.
 
 <a name="config"></a>
 
@@ -101,11 +101,11 @@ test_labels = test_data.pop(label).values
 
 개체에서 별도의 학습 및 유효성 검사 집합을 직접 지정할 수 있습니다 `AutoMLConfig` .   [AutoMLConfig](#configure-experiment)에 대해 자세히 알아보세요.
 
-시계열 예측의 경우 학습 및 유효성 검사 데이터를 함께 전달할 때 **ROCV (롤링 원본 교차 유효성 검사)** 가 자동으로 사용 되며 `n_cross_validations` 의 매개 변수와 교차 유효성 검사 접기 수를 설정할 수 있습니다 `AutoMLConfig` . ROCV는 원본 시간 요소를 사용하여 계열을 학습 및 유효성 검사 데이터로 나눕니다. 원본을 시간에 따라 슬라이딩하여 교차 유효성 검사 겹을 생성합니다. 이 전략은 시계열 데이터 무결성을 유지 하 고 데이터 누출의 위험을 제거 합니다.
+시계열을 예측 하는 경우에는 기본 유효성 검사에 **ROCV (롤링 원본 교차 유효성 검사)** 만 사용 됩니다. 학습 및 유효성 검사 데이터를 함께 전달 하 고의 매개 변수를 사용 하 여 교차 유효성 검사 접기 수를 설정 합니다 `n_cross_validations` `AutoMLConfig` . ROCV는 원본 시간 요소를 사용하여 계열을 학습 및 유효성 검사 데이터로 나눕니다. 원본을 시간에 따라 슬라이딩하여 교차 유효성 검사 겹을 생성합니다. 이 전략은 시계열 데이터 무결성을 유지 하 고 데이터 누출의 위험을 제거 합니다.
 
-![대체 텍스트](./media/how-to-auto-train-forecast/ROCV.svg)
+![롤링 원본 교차 유효성 검사](./media/how-to-auto-train-forecast/ROCV.svg)
 
-다른 교차 유효성 검사 및 데이터 분할 옵션에 대해서는 [AutoML에서 데이터 분할 및 교차 유효성 검사 구성](how-to-configure-cross-validation-data-splits.md)을 참조 하세요.
+사용자 고유의 유효성 검사 데이터를 가져와서 [AutoML에서 데이터 분할 및 교차 유효성 검사 구성](how-to-configure-cross-validation-data-splits.md#provide-validation-data)에서 자세히 알아볼 수도 있습니다.
 
 
 ```python
@@ -118,7 +118,7 @@ automl_config = AutoMLConfig(task='forecasting',
 AutoML이 교차 유효성 검사를 적용 하 여 [오버 맞춤 모델을 방지](concept-manage-ml-pitfalls.md#prevent-over-fitting)하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="configure-experiment"></a>실험 구성
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) 개체는 자동화된 기계 학습 태스크에 필요한 설정 및 데이터를 정의합니다. 예측 모델의 구성은 표준 회귀 모델을 설정 하는 것과 유사 하지만 특정 기능화 단계 및 구성 옵션은 특히 시계열 데이터를 위한 것입니다. 
+[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 개체는 자동화된 기계 학습 태스크에 필요한 설정 및 데이터를 정의합니다. 예측 모델의 구성은 표준 회귀 모델을 설정 하는 것과 유사 하지만 특정 기능화 단계 및 구성 옵션은 특히 시계열 데이터를 위한 것입니다. 
 
 ### <a name="featurization-steps"></a>기능화 단계
 
@@ -163,13 +163,13 @@ featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy"
 featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
 ```
 
-실험을 위해 Azure Machine Learning studio를 사용 하는 경우 [방법 문서](how-to-use-automated-ml-for-ml-models.md#customize-featurization)를 참조 하세요.
+실험을 위해 Azure Machine Learning studio를 사용 하는 경우 [studio에서 기능화을 사용자 지정 하는 방법](how-to-use-automated-ml-for-ml-models.md#customize-featurization)을 참조 하세요.
 
 ### <a name="configuration-settings"></a>구성 설정
 
 회귀 문제와 마찬가지로 태스크 유형, 반복 횟수, 학습 데이터 및 교차 유효성 검사 수와 같은 표준 학습 매개 변수를 정의합니다. 예측 작업의 경우 실험에 영향을 주는 추가 매개 변수를 설정해야 합니다. 
 
-다음 표에서는 이러한 추가 매개 변수를 요약 합니다. 구문 디자인 패턴에 대 한 [참조 설명서](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) 를 참조 하세요.
+다음 표에서는 이러한 추가 매개 변수를 요약 합니다. 구문 디자인 패턴에 대 한 [참조 설명서](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 를 참조 하세요.
 
 | 매개 변수&nbsp;이름 | Description | 필수 |
 |-------|-------|-------|
@@ -245,7 +245,11 @@ automl_config = AutoMLConfig(task='forecasting',
                              ...
                              **time_series_settings)
 ```
+> [!Warning]
+> SDK를 사용 하 여 만든 실험에 대해 DNN를 사용 하도록 설정 하면 [최상의 모델 설명이](how-to-machine-learning-interpretability-automl.md) 사용 되지 않습니다.
+
 Azure Machine Learning studio에서 만든 AutoML 실험에 대해 DNN를 사용 하도록 설정 하려면 [studio 방법에서 작업 형식 설정](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)을 참조 하세요.
+
 
 자동화된 ML은 네이티브 시계열 및 딥 러닝 모델을 권장 사항 시스템의 일부로 제공합니다. 
 
@@ -254,7 +258,6 @@ Azure Machine Learning studio에서 만든 AutoML 실험에 대해 DNN를 사용
 Prophet(미리 보기)|Prophet은 강력한 계절적 효과와 여러 계절의 기록 데이터를 포함하는 시계열에서 가장 잘 작동합니다. 이 모델을 활용 하려면를 사용 하 여 로컬에 설치 `pip install fbprophet` 합니다. | 시계열의 이상값, 누락된 데이터 및 획기적인 변경에 정확하고 빠르고 강력하게 작동합니다.
 Auto-ARIMA(미리 보기)|자동 회귀 통합 이동 평균 (ARIMA)은 데이터가 고정 되어 있을 때 가장 잘 수행 됩니다. 즉, 평균 및 편차와 같은 통계 속성이 전체 세트에서 일정하게 유지됩니다. 예를 들어, 동전을 던질 때 앞면이 나올 확률은 오늘 던지든, 내일 던지든 또는 내년에 던지든 항상 50%입니다.| 과거의 값을 사용하여 미래의 값을 예측하므로 단변량 계열에 적합합니다.
 ForecastTCN(미리 보기)| ForecastTCN은 가장 까다로운 예측 태스크를 처리하고 데이터의 비선형 로컬 및 전역 추세 뿐만 아니라 시계열 간 관계를 캡처하도록 디자인된 신경망 모델입니다.|데이터의 복잡한 추세를 활용하고 가장 큰 데이터 세트로 쉽게 확장할 수 있습니다.
-
 
 DNN을 활용하는 자세한 코드 예제는 [음료 생산 예측 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)을 참조하세요.
 
@@ -266,8 +269,7 @@ DNN을 활용하는 자세한 코드 예제는 [음료 생산 예측 Notebook](h
 
 표는 창 집계가 적용 될 때 발생 하는 결과 기능 엔지니어링을 보여 줍니다. **최소값, 최대값** 및 **합계** 에 대 한 열은 정의 된 설정에 따라 3의 슬라이딩 윈도우에서 생성 됩니다. 각 행에는 새로운 계산 된 기능이 있습니다 .이 기능은 9 월 8 일에 대 한 타임 스탬프의 경우 2017 4:00am의 경우 최대, 최소 및 합계 값은 9 월 8 일 2017 1:00AM-3:00AM의 **수요 값** 을 사용 하 여 계산 됩니다. 이 3개의 기간은 함께 이동하면서 나머지 행의 데이터를 채웁니다.
 
-![대체 텍스트](./media/how-to-auto-train-forecast/target-roll.svg)
-
+![대상 롤링 창](./media/how-to-auto-train-forecast/target-roll.svg)
 
 [대상 이동 기간 집계 기능](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)을 활용하는 Python 코드 예제를 확인해 보세요.
 
@@ -336,5 +338,8 @@ day_datetime,store,week_of_year
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서](tutorial-auto-train-models.md)에 따라 자동화된 기계 학습으로 실험을 만드는 방법을 알아봅니다.
-* [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 참조 설명서를 확인합니다.
+* [모델 배포 방법 및 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다.
+* [Interpretability: 자동화 된 machine learning (미리 보기)의 모델](how-to-machine-learning-interpretability-automl.md)설명에 대해 알아봅니다. 
+* 여러 [모델 솔루션 가속기](https://aka.ms/many-models)에서 automl을 사용 하 여 여러 모델을 학습 하는 방법에 대해 알아봅니다.
+* 자동화 된 기계 학습으로 실험을 만드는 방법에 대 한 종단 간 예제는 [자습서](tutorial-auto-train-models.md) 를 따르세요.
+

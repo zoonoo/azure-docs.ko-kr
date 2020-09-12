@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/04/2019
-ms.openlocfilehash: 5330c751aaa3fcbd5c7fc268e4a4de08d336d474
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/09/2020
+ms.openlocfilehash: 5c24bd80721f626e38dcb886e89231c0b86056df
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735439"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650966"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대 한 고객 Lockbox
 
@@ -25,6 +25,49 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
 이 문서에서는 이후의 검토 및 감사를 위해 고객 Lockbox 요청을 시작, 추적 및 저장 하는 방법을 설명 합니다.
 
 고객 Lockbox 이제 일반 공급 되며, 현재 가상 컴퓨터에 대 한 원격 데스크톱 액세스를 사용할 수 있습니다.
+
+## <a name="supported-services-and-scenarios-in-preview"></a>미리 보기에서 지원 되는 서비스 및 시나리오
+
+다음 서비스는 현재 고객 Lockbox에 대해 미리 보기로 제공 됩니다.
+
+- API Management
+- Azure App Service
+- Azure Database for MySQL
+- Azure Databricks
+- Azure Synapse Analytics
+- Cognitive Services
+- Container Registry
+- Azure 데이터 팩터리
+- Azure Database for PostgreSQL
+- Azure Kubernetes Service
+- Azure Data Box
+- HDInsight
+- Functions
+- Azure Storage
+- Azure SQL DB
+- Azure Data Explorer
+- 가상 컴퓨터 (이제 메모리 덤프 및 관리 디스크에 대 한 액세스도 포함)
+- Azure 구독 전송
+
+조직에서 이러한 미리 보기 제품에 대 한 고객 Lockbox를 사용 하도록 설정 하려면 [고객 Lockbox Azure 공개 미리 보기](https://aka.ms/customerlockbox/insiderprogram)에 등록 합니다.
+
+## <a name="supported-services-and-scenarios-in-general-availability"></a>일반 공급에서 지원 되는 서비스 및 시나리오
+
+다음 서비스 및 시나리오는 현재 고객 Lockbox에 대 한 일반 공급으로 제공 됩니다.
+
+### <a name="remote-desktop-access-to-virtual-machines"></a>가상 컴퓨터에 대 한 원격 데스크톱 액세스
+
+현재 가상 컴퓨터에 대 한 원격 데스크톱 액세스 요청에 대해 고객 Lockbox를 사용할 수 있습니다. 지원 되는 작업은 다음과 같습니다.
+- PaaS (Platform as a service)-Azure Cloud Services (웹 역할 및 작업자 역할)
+- IaaS (Infrastructure as a service)-Windows 및 Linux (Azure Resource Manager에만 해당)
+- 가상 머신 확장 집합-Windows 및 Linux
+
+> [!NOTE]
+> IaaS 클래식 인스턴스는 고객 Lockbox에서 지원 되지 않습니다. IaaS 클래식 인스턴스에서 실행 되는 워크 로드가 있는 경우 클래식에서 리소스 관리자 배포 모델로 마이그레이션하는 것이 좋습니다. 지침은 [클래식에서 Azure Resource Manager IaaS 리소스의 플랫폼 지원 마이그레이션](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조 하세요.
+
+#### <a name="detailed-audit-logs"></a>자세한 감사 로그
+
+원격 데스크톱 액세스와 관련 된 시나리오의 경우 Windows 이벤트 로그를 사용 하 여 Microsoft 엔지니어가 수행한 작업을 검토할 수 있습니다. Azure Security Center 사용 하 여 이벤트 로그를 수집 하 고 분석을 위해 작업 영역에 데이터를 복사 하는 것이 좋습니다. 자세한 내용은 [Azure Security Center에서 데이터 수집](../../security-center/security-center-enable-data-collection.md)을 참조 하세요.
 
 ## <a name="workflow"></a>워크플로
 
@@ -65,7 +108,7 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
 
     ![Azure 고객 Lockbox-보류 중인 요청 보기](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 예:
+10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 다음은 그 예입니다. 
 
     ![Azure 고객 Lockbox-지원 티켓 요청 보기](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
@@ -91,40 +134,9 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
 
 ![Azure 고객 Lockbox-활동 로그](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="supported-services-and-scenarios-in-general-availability"></a>일반 공급에서 지원 되는 서비스 및 시나리오
+## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Azure Security 벤치 마크와 고객 Lockbox 통합
 
-다음 서비스 및 시나리오는 현재 고객 Lockbox에 대 한 일반 공급으로 제공 됩니다.
-
-### <a name="remote-desktop-access-to-virtual-machines"></a>가상 컴퓨터에 대 한 원격 데스크톱 액세스
-
-현재 가상 컴퓨터에 대 한 원격 데스크톱 액세스 요청에 대해 고객 Lockbox를 사용할 수 있습니다. 지원 되는 작업은 다음과 같습니다.
-- PaaS (Platform as a service)-Azure Cloud Services (웹 역할 및 작업자 역할)
-- IaaS (Infrastructure as a service)-Windows 및 Linux (Azure Resource Manager에만 해당)
-- 가상 머신 확장 집합-Windows 및 Linux
-
-> [!NOTE]
-> IaaS 클래식 인스턴스는 고객 Lockbox에서 지원 되지 않습니다. IaaS 클래식 인스턴스에서 실행 되는 워크 로드가 있는 경우 클래식에서 리소스 관리자 배포 모델로 마이그레이션하는 것이 좋습니다. 지침은 [클래식에서 Azure Resource Manager IaaS 리소스의 플랫폼 지원 마이그레이션](../../virtual-machines/windows/migration-classic-resource-manager-overview.md)을 참조 하세요.
-
-#### <a name="detailed-audit-logs"></a>자세한 감사 로그
-
-원격 데스크톱 액세스와 관련 된 시나리오의 경우 Windows 이벤트 로그를 사용 하 여 Microsoft 엔지니어가 수행한 작업을 검토할 수 있습니다. Azure Security Center 사용 하 여 이벤트 로그를 수집 하 고 분석을 위해 작업 영역에 데이터를 복사 하는 것이 좋습니다. 자세한 내용은 [Azure Security Center에서 데이터 수집](../../security-center/security-center-enable-data-collection.md)을 참조 하세요.
-
-## <a name="supported-services-and-scenarios-in-preview"></a>미리 보기에서 지원 되는 서비스 및 시나리오
-
-다음 서비스는 현재 고객 Lockbox에 대해 미리 보기로 제공 됩니다.
-
-- Azure Storage
-
-- Azure SQL DB
-
-- Azure Data Explorer
-
-- 가상 컴퓨터 (이제 메모리 덤프 및 관리 디스크에 대 한 액세스도 포함)
-
-- Azure 구독 전송
-
-조직에서 이러한 미리 보기 제품에 대 한 고객 Lockbox를 사용 하도록 설정 하려면 [고객 Lockbox Azure 공개 미리 보기](https://aka.ms/customerlockbox/insiderprogram)에 등록 합니다.
-
+Azure 보안 벤치 마크에 고객 Lockbox 적용 가능성을 다루는 새로운 기준 제어 ([3.13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios))가 도입 되었습니다. 이제 고객은 벤치 마크를 활용 하 여 서비스에 대 한 고객 Lockbox 적용 가능성을 검토할 수 있습니다.
 
 ## <a name="exclusions"></a>제외
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 6a8c4c3fa2bd73fa689458d6877d09900ea86938
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852160"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614063"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
@@ -31,9 +31,9 @@ ms.locfileid: "87852160"
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 > [!NOTE]
-> <a name="migrate-from-legacy"></a>새 개발자 포털은 레거시 개발자 포털과 호환 되지 않으며 자동화 된 마이그레이션은 가능 하지 않습니다. 콘텐츠 (페이지, 텍스트, 미디어 파일)를 수동으로 다시 만들고 새 포털의 모양을 사용자 지정 해야 합니다. 지침은 [개발자 포털 자습서](api-management-howto-developer-portal-customize.md) 를 참조 하십시오.
+> <a name="migrate-from-legacy"></a> 새 개발자 포털은 레거시 개발자 포털과 호환 되지 않으며 자동화 된 마이그레이션은 가능 하지 않습니다. 콘텐츠 (페이지, 텍스트, 미디어 파일)를 수동으로 다시 만들고 새 포털의 모양을 사용자 지정 해야 합니다. 지침은 [개발자 포털 자습서](api-management-howto-developer-portal-customize.md) 를 참조 하십시오.
 
-## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>관리 및 자체 호스팅 버전
+## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a> 관리 및 자체 호스팅 버전
 
 개발자 포털은 다음과 같은 두 가지 방법으로 빌드할 수 있습니다.
 
@@ -71,23 +71,23 @@ ms.locfileid: "87852160"
 
 이 섹션에서는 일반적인 특성의 개발자 포털에 대 한 일반적인 질문에 답변 합니다. 자체 호스팅 버전과 관련 된 질문은 [GitHub 리포지토리의 wiki 섹션](https://github.com/Azure/api-management-developer-portal/wiki)을 참조 하세요.
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>포털의 미리 보기 버전에서 마이그레이션하려면 어떻게 해야 하나요?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a> 포털의 미리 보기 버전에서 마이그레이션하려면 어떻게 해야 하나요?
 
-개발자 포털의 미리 보기 버전을 사용 하 여 API Management 서비스에서 미리 보기 콘텐츠를 프로 비전 했습니다. 사용자 환경을 개선 하기 위해 일반적으로 사용할 수 있는 버전에서 기본 콘텐츠가 크게 수정 되었습니다. 또한 새로운 위젯을 포함 합니다.
+개발자 포털의 미리 보기 버전을 처음으로 시작 하면 API Management 서비스에서 해당 기본 콘텐츠의 미리 보기 버전을 프로 비전 했습니다. 기본 콘텐츠는 일반적으로 사용할 수 있는 버전에서 크게 수정 되었습니다. 예를 들어 기본 콘텐츠의 미리 보기 버전은 로그인 페이지에 OAuth 단추를 포함 하지 않고 Api를 표시 하는 데 서로 다른 위젯을 사용 하며 개발자 포털 페이지를 구조화 하는 데 제한 된 기능을 사용 합니다. 콘텐츠에 차이가 있지만 개발자 포털을 게시할 때마다 포털의 엔진 (기본 위젯 포함)이 자동으로 업데이트 됩니다.
 
-관리 되는 버전을 사용 중인 경우 **작업** 메뉴 섹션에서 **콘텐츠 다시 설정** 을 클릭 하 여 포털의 콘텐츠를 다시 설정 합니다. 이 작업을 확인 하면 포털의 모든 콘텐츠가 제거 되 고 새 기본 콘텐츠가 프로 비전 됩니다. 포털의 엔진이 API Management 서비스에서 자동으로 업데이트 되었습니다.
+콘텐츠의 미리 보기 버전을 기준으로 포털을 많이 사용자 지정한 경우이를 그대로 그대로 사용 하 고 포털의 페이지에 새 위젯을 수동으로 추가할 수 있습니다. 그렇지 않으면 포털의 콘텐츠를 새 기본 콘텐츠로 바꾸는 것이 좋습니다.
+
+관리 포털에서 콘텐츠를 다시 설정 하려면 **작업** 메뉴 섹션에서 **콘텐츠 다시 설정** 을 클릭 합니다. 이 작업을 수행 하면 포털의 모든 콘텐츠가 제거 되 고 새 기본 콘텐츠가 프로 비전 됩니다. 개발자 포털 사용자 지정 및 변경 내용이 모두 손실 됩니다. **이 작업을 실행 취소할 수 없습니다**.
 
 ![포털 콘텐츠 다시 설정](media/api-management-howto-developer-portal/reset-content.png)
 
-자체 호스팅 버전을 사용 하는 경우 `scripts/cleanup.bat` GitHub 리포지토리에서 및를 사용 `scripts/generate.bat` 하 여 기존 콘텐츠를 제거 하 고 새 콘텐츠를 프로 비전 합니다. 포털의 코드를 GitHub 리포지토리에서 최신 릴리스로 업그레이드 해야 합니다.
+자체 호스팅 버전을 사용 하는 경우 `scripts.v2/cleanup.bat` `scripts.v2/generate.bat` GitHub 리포지토리에서 및 스크립트를 실행 하 여 기존 콘텐츠를 제거 하 고 새 콘텐츠를 프로 비전 합니다. 포털의 코드를 GitHub 리포지토리의 최신 릴리스로 미리 업그레이드 해야 합니다.
 
-포털의 콘텐츠를 다시 설정 하지 않으려는 경우 페이지 전체에서 새로 사용 가능한 위젯을 사용 하는 것을 고려할 수 있습니다. 기존 위젯은 자동으로 최신 버전으로 업데이트 되었습니다.
-
-일반 공급 발표 후에 포털을 프로 비전 한 경우 이미 새 기본 콘텐츠를 사용 해야 합니다. 사용자 측의 작업은 필요 하지 않습니다.
+11 월 2019에 일반 공급 발표 후 포털에 처음으로 액세스 한 경우 새 기본 콘텐츠를 이미 사용 하 고 있으므로 추가 작업이 필요 하지 않습니다.
 
 ### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>포털에 레거시 포털의 모든 기능이 있나요?
 
-개발자 포털은 더 이상 *응용 프로그램과* *문제*를 지원 하지 않습니다.
+개발자 포털은 더 이상 *응용 프로그램*, *문제*및 Facebook, Microsoft, Twitter 및 Google과의 직접 통합을 id 공급자로 지원 하지 않습니다 (대신 Azure AD B2C을 사용할 수 있음).
 
 ### <a name="has-the-legacy-portal-been-deprecated"></a>레거시 포털은 더 이상 사용 되지 않습니다.
 
@@ -115,11 +115,11 @@ ms.locfileid: "87852160"
 
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>포털이 Azure Resource Manager 템플릿을 지원 하나요? 아니면 API Management DevOps Resource Kit와 호환 되나요?
 
-아니요.
+아닙니다.
 
 ### <a name="is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management"></a>포털 콘텐츠가 API Management의 백업/복원 기능과 함께 저장 되나요?
 
-아니요.
+아닙니다.
 
 ### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>관리 되는 포털 종속성에 대 한 추가 VNet 연결을 사용 하도록 설정 해야 하나요?
 
@@ -145,7 +145,7 @@ Id 공급자 (예: AAD, AAD B2C)를 구성한 후에는 [포털을 다시 게시
 
 대부분의 구성 변경 (예: VNet, 로그인 및 제품 용어)에 [는 포털](api-management-howto-developer-portal-customize.md#publish)을 다시 게시 해야 합니다.
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a>대화형 콘솔을 사용 하는 경우 CORS 오류가 발생 합니다.
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a> 대화형 콘솔을 사용 하는 경우 CORS 오류가 발생 합니다.
 
 대화형 콘솔은 브라우저에서 클라이언트 쪽 API 요청을 만듭니다. API에 [cors 정책을](api-management-cross-domain-policies.md#CORS) 추가 하 여 cors 문제를 해결 합니다.
 

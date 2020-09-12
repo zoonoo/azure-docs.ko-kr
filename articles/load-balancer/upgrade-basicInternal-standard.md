@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.author: irenehua
-ms.openlocfilehash: 10a0c186bb1a0d9f974d485e7d2d1d7326bd849c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: a6d2b69b0b498601497c4b33fb6bdfede87002df
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033158"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500252"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Azure 내부 Load Balancer 업그레이드-아웃 바운드 연결이 필요 하지 않음
 [Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/skus#skus)를 참조 하세요.
@@ -48,7 +48,7 @@ ms.locfileid: "88033158"
 
 ## <a name="download-the-script"></a>스크립트 다운로드
 
-[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureILBUpgrade/4.0)에서 마이그레이션 스크립트를 다운로드 합니다.
+[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureILBUpgrade/5.0)에서 마이그레이션 스크립트를 다운로드 합니다.
 ## <a name="use-the-script"></a>스크립트 사용
 
 로컬 PowerShell 환경 설정 및 기본 설정에 따라 다음과 같은 두 가지 옵션을 사용할 수 있습니다.

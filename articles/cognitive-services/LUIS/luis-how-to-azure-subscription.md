@@ -3,14 +3,14 @@ title: 제작 및 런타임 키를 사용 하는 방법-LUIS
 description: Language Understanding (LUIS)를 처음 사용 하는 경우 제작 키를 만들 필요가 없습니다. 앱을 게시 하려는 경우 런타임 끝점을 사용 하 여 앱에 대 한 런타임 키를 만들고 할당 해야 합니다.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6bd8cc807a393d6c8027f5990b9897d93f2b78d2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 99f73399c410641be352111302b1d4999d1ebc1b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496902"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565908"
 ---
 # <a name="create-luis-resources"></a>LUIS 리소스 만들기
 
@@ -25,14 +25,18 @@ ms.locfileid: "87496902"
 
 LUIS는 세 가지 유형의 Azure 리소스와 Azure가 아닌 리소스 하나를 허용 합니다.
 
-|키|용도|인식 서비스`kind`|인식 서비스`type`|
+|리소스|용도|인식 서비스 `kind`|인식 서비스 `type`|
 |--|--|--|--|
-|작성 키|작성, 학습, 게시 및 테스트를 사용 하 여 응용 프로그램의 데이터에 액세스 하 고 관리 합니다. LUIS apps를 프로그래밍 방식으로 작성 하려는 경우 LUIS authoring key를 만듭니다.<br><br>키의 용도는 `LUIS.Authoring` 다음을 허용 하는 것입니다.<br>* 교육 및 게시를 포함 하 여 프로그래밍 방식으로 Language Understanding 앱 및 모델 관리<br> * [참가자 역할](#contributions-from-other-authors)에 사용자를 할당 하 여 제작 리소스에 대 한 사용 권한을 제어 합니다.|`LUIS.Authoring`|`Cognitive Services`|
-|쿼리 예측 키| 예측 끝점 요청을 쿼리 합니다. 클라이언트 앱이 스타터 리소스에서 제공 하는 1000 요청 보다 많은 예측을 요청 하기 전에 LUIS 예측 키를 만듭니다. |`LUIS`|`Cognitive Services`|
+|제작 리소스|응용 프로그램을 만들고, 관리 하 고, 학습 하 고, 테스트 하 고, 게시할 수 있습니다. LUIS apps programtically 또는 LUIS 포털에서 작성 하려는 경우 [LUIS authoring 리소스를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-luis-resources-in-azure-portal) . Azure authroring 리소스를 응용 프로그램에 연결할 수 있으려면 먼저 [LUIS 계정을 마이그레이션해야](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) 합니다. [참가자 역할](#contributions-from-other-authors)에 사용자를 할당 하 여 제작 리소스에 대 한 사용 권한을 제어할 수 있습니다. <br><br> LUIS 제작 리소스에 대 한 하나의 계층 사용할 수 있습니다.<br> * **F0 제작 리소스** 는 1m 무료 제작 트랜잭션과 1000 무료 예측 끝점 요청을 매월 제공 합니다. |`LUIS.Authoring`|`Cognitive Services`|
+|예측 리소스| LUIS 응용 프로그램을 게시 한 후 예측 리소스/키를 사용 하 여 예측 끝점 요청을 쿼리 합니다. 클라이언트 앱이 제작 또는 스타터 리소스에서 제공 하는 1000 요청 보다 많은 예측을 요청 하기 전에 LUIS 예측 리소스를 만듭니다. <br><br> 예측 리소스는 두 가지 계층으로 avialble 있습니다.<br> * 월간 1만 무료 예측 끝점 요청을 제공 하는 **F0 예측 리소스**<br> * 선불 계층 인 **S0 예측 리소스** 입니다. [가격 책정에 대 한 자세한 정보](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
+|시작/평가판 리소스|응용 프로그램을 만들고, 관리 하 고, 학습 하 고, 테스트 하 고, 게시할 수 있습니다. 이는 먼저 tp LUIS에 등록 하는 동안 스타터 리소스 옵션을 선택 하는 경우 deafult에 의해 만들어집니다. 그러나 시작 키는 결국 사용 되지 않으며, 모든 LUIS 사용자는 [자신의 계정을 마이그레이션하고](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) LUIS 응용 프로그램을 제작 리소스에 연결 해야 합니다. 이 리소스는 제작 리소스와 같은 역할 기반 액세스 제어에 대 한 권한을 부여 하지 않습니다. <br><br> 제작 리소스와 마찬가지로 스타터 리소스는 1M 무료 제작 트랜잭션과 1000 무료 예측 끝점 요청을 제공 합니다.|-|Azure 리소스가 아님|
 |[인식 서비스 다중 서비스 리소스 키](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|LUIS 및 기타 지원 되는 Cognitive Services 공유 된 쿼리 예측 끝점 요청|`CognitiveServices`|`Cognitive Services`|
-|Starter|LUIS 포털 또는 Api (Sdk 포함)를 통한 무료 제작 (역할 기반 액세스 제어 없음), 브라우저, API 또는 Sdk를 통해 매달 무료 1000 예측 끝점 요청|-|Azure 리소스가 아님|
 
-Azure 리소스 만들기 프로세스가 완료 되 면 LUIS 포털에서 앱에 [키를 할당](#assign-a-resource-to-an-app) 합니다.
+
+> [!Note]
+> LUIS에서 제공 하는 F0 (무료 계층) 리소스에는 두 가지 유형이 있습니다. 하나는 트랜잭션을 작성 하기 위한 것이 고 다른 하나는 예측 트랜잭션입니다. 예측 트랜잭션에 대 한 무료 할당량이 부족 한 경우 매월 1000 예측 트랜잭션을 제공 하는 제작 리소스가 아니라 매월 1만 무료 트랜잭션을 제공 하는 F0 예측 리소스를 사용 하 고 있는지 확인 합니다.
+
+Azure 리소스 만들기 프로세스가 완료 되 면 LUIS 포털에서 리소스를 앱에 [할당](#assign-a-resource-to-an-app) 합니다.
 
 게시 하 고 쿼리 하려는 [지역](luis-reference-regions.md#publishing-regions) 에서 LUIS apps를 작성 하는 것이 중요 합니다.
 
@@ -121,7 +125,7 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI에서 다�
 
 쿼리 액세스는 **관리** 섹션의 **응용 프로그램 정보** 페이지에 있는 설정에 의해 제어 됩니다.
 
-|[프라이빗 엔드포인트](#runtime-security-for-private-apps)|[공용 엔드포인트](#runtime-security-for-public-apps)|
+|[개인 끝점](#runtime-security-for-private-apps)|[공용 엔드포인트](#runtime-security-for-public-apps)|
 |:--|:--|
 |소유자 및 참가자가 사용할 수 있음|소유자, 참가자 및 앱 ID를 알고 있는 다른 사람이 사용할 수 있습니다.|
 
@@ -173,8 +177,8 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI에서 다�
 
 리소스 `kind` :
 
-* 만들`LUIS.Authoring`
-* 예측`LUIS`
+* 만들 `LUIS.Authoring`
+* 예측 `LUIS`
 
 1. Azure CLI에 로그인 합니다.
 
@@ -211,7 +215,9 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI에서 다�
 
 ## <a name="assign-a-resource-to-an-app"></a>앱에 리소스 할당
 
-다음 절차를 사용 하 여를 앱에 할당할 수 있습니다.
+Azure 구독이 없는 경우에는 새 리소스를 할당 하거나 만들 수 없습니다. 먼저 이동 하 여 [Azure 무료 평가판](https://azure.microsoft.com/en-us/free/) 을 만든 다음 LUIS로 돌아와서 포털에서 새 리소스를 만들어야 합니다.
+
+다음 절차를 사용 하 여 응용 프로그램에 작성 또는 예측 리소스를 할당 하거나 만들 수 있습니다.
 
 1. [LUIS 포털](https://www.luis.ai)에 로그인 한 다음 **내 앱** 목록에서 앱을 선택 합니다.
 1. **관리-> Azure 리소스** 페이지로 이동 합니다.
@@ -219,7 +225,9 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI에서 다�
     ![LUIS 포털에서 관리 > Azure 리소스를 선택 하 여 리소스를 앱에 할당 합니다.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 
 1. 예측 또는 제작 리소스 탭을 선택 하 고 **예측 리소스 추가** 또는 **제작 리소스 추가** 단추를 선택 합니다.
-1. 양식에서 필드를 선택 하 여 올바른 리소스를 찾은 다음 **저장**을 선택 합니다.
+1. 양식에서 필드를 선택 하 여 올바른 리소스를 찾은 다음 **저장** 을 선택 합니다.
+1. 기존 리소스가 없는 경우 "새 LUIS 리소스 만들기"를 선택 하 여 만들 수 있습니다. 창의 맨 아래에서
+
 
 ### <a name="assign-query-prediction-runtime-resource-without-using-luis-portal"></a>LUIS 포털을 사용 하지 않고 쿼리 예측 런타임 리소스 할당
 
@@ -235,7 +243,7 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     |헤더|값|
     |--|--|
-    |`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
+    |`Authorization`|`Authorization` 값이 `Bearer {token}`인 경우 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
     |`Ocp-Apim-Subscription-Key`|작성 키|
 
     이 API는 계정 이름으로 반환된 리소스 이름, 리소스 그룹 및 구독 ID를 포함하여 LUIS 구독의 JSON 개체 배열을 반환합니다. LUIS 앱에 할당할 LUIS 리소스인 배열에서 항목 하나를 찾습니다.
@@ -244,9 +252,9 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |형식|설정|Value|
+    |Type|설정|값|
     |--|--|--|
-    |헤더|`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
+    |헤더|`Authorization`|`Authorization` 값이 `Bearer {token}`인 경우 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
     |헤더|`Ocp-Apim-Subscription-Key`|작성 키|
     |헤더|`Content-type`|`application/json`|
     |쿼리 문자열|`appid`|LUIS 앱 ID

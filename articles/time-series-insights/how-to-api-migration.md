@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: shresha
-ms.openlocfilehash: 784c19844c658af6850c755244314145223c45ef
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d68323bb72779ec5978c721b5258d4c8a8d4940d
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163954"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650791"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>새 Azure Time Series Insights Gen2 API 버전으로 마이그레이션
 
@@ -39,7 +39,7 @@ ms.locfileid: "88163954"
 
 1. 탐색기에서 시계열 모델 변수 및 저장 된 쿼리에 사용 되는 구문을 업데이트 하 라는 메시지가 표시 됩니다.
 
-    [![요청할](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
+    [![prompt](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
 
     알림을 실수로 닫은 경우 알림 패널에서 찾을 수 있습니다.
 
@@ -56,11 +56,11 @@ ms.locfileid: "88163954"
 
     [![변수 업데이트](media/api-migration/ux-migration-tool-downloaded-types.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. **저장 된 쿼리 업데이트**를 클릭 합니다. 변수가 업데이트 되 면이 도구는 사용자에 게 알립니다.
+1. **저장 된 쿼리 업데이트**를 클릭 합니다. 저장 된 쿼리가 업데이트 되 면이 도구는 사용자에 게 알립니다.
 
     [![저장 된 쿼리 업데이트](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. **완료**를 클릭합니다.
+1. **Done**을 클릭합니다.
 
     [![완료 된 마이그레이션](media/api-migration/ux-migration-tool-updated-saved-queries.png)](media/v2-update-overview/overview-one.png#lightbox)
 
@@ -99,12 +99,12 @@ Power BI 커넥터를 사용 하 여 쿼리를 생성 한 경우 미리 보기 A
 
 - 형식 Api
   - [Put 작업](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
-- 쿼리 Api
+- 쿼리 API
   - [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
   - [GetSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
   - [GetAggregateSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 #### <a name="typesbatchput"></a>유형 Batchput
 

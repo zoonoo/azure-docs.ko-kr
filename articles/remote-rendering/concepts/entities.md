@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20de83e190a419b95c99c1c1238eb931910feb82
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1c49c7bfaa7714dda902d05537fbe3d8a55d5abe
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020289"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613931"
 ---
 # <a name="entities"></a>엔터티
 
@@ -21,7 +21,7 @@ ms.locfileid: "89020289"
 
 엔터티는 위치, 회전 및 크기로 정의되는 변환을 갖습니다. 엔터티 그 자체로는 눈에 보이는 기능을 갖지 않으며, 엔터티에 연결되는 구성 요소를 통해 동작이 추가됩니다. 예를 들어, [CutPlaneComponent](../overview/features/cut-planes.md)를 연결하면 엔터티 위치에 잘린 평면이 만들어집니다.
 
-엔터티 자체의 가장 중요한 측면은 계층 구조와 그로 인한 계층 변환입니다. 예를 들어, 공유 부모 엔터티에 여러 엔터티가 자식 요소로 연결된 경우, 부모 엔터티의 변환을 변경하여 모든 엔터티를 이동, 회전 및 크기 조정할 수 있습니다.
+엔터티 자체의 가장 중요한 측면은 계층 구조와 그로 인한 계층 변환입니다. 예를 들어, 공유 부모 엔터티에 여러 엔터티가 자식 요소로 연결된 경우, 부모 엔터티의 변환을 변경하여 모든 엔터티를 이동, 회전 및 크기 조정할 수 있습니다. 또한 엔터티의 `enabled` 상태를 사용 하 여 계층의 전체 하위 그래프에 대 한 표시 유형 및 광선 캐스팅에 대 한 응답을 해제할 수 있습니다.
 
 엔터티는 부모 요소에 의해 고유하게 소유됩니다. 즉, `Entity.Destroy()`로 부모 요소가 제거되면 그 자식 요소와 모든 연결된 [구성 요소](components.md)도 제거됩니다. 따라서 장면에서 모델을 제거하는 것은 모델의 루트 노드에서 `AzureSession.Actions.LoadModelAsync()` 또는 그 SAS 변형 `AzureSession.Actions.LoadModelFromSASAsync()`로 반환되는 `Destroy`를 호출하여 수행됩니다.
 
@@ -95,7 +95,6 @@ Double3 translation = entity->GetPosition();
 Quaternion rotation = entity->GetRotation();
 ```
 
-
 ### <a name="querying-spatial-bounds"></a>공간 경계 쿼리
 
 경계 쿼리는 하나의 엔터티를 루트로 사용하여 전체 개체 계층 구조에 작용하는 비동기 호출입니다. [개체 경계](object-bounds.md)에 대해 설명하는 챕터를 참조하세요.
@@ -137,6 +136,13 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 ```
 
 개체에 메타데이터가 없는 경우에도 쿼리가 성공합니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # 엔터티 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity)
+* [C # RemoteManager ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [C + + 엔터티 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
+* [C + + RemoteManager:: CreateEntity ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
 
 ## <a name="next-steps"></a>다음 단계
 

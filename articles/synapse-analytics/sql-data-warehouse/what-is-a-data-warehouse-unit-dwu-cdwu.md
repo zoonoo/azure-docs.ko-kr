@@ -11,12 +11,12 @@ ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 62b969ebde1ab5d52968189a6f0865fdb646f6b2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b0df359a25810f09d530b5f0cca9cabbd485c795
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374136"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461989"
 ---
 # <a name="data-warehouse-units-dwus"></a>DWUs (데이터 웨어하우스 단위)
 
@@ -51,7 +51,7 @@ SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 �
 SLO (서비스 수준 목표)는 SQL 풀의 비용 및 성능 수준을 결정 하는 확장성 설정입니다. Gen2 SQL 풀의 서비스 수준은 DWU(데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c).
 
 > [!NOTE]
-> Azure SQL Data Warehouse Gen2는 최근에 100cDWU만큼 낮은 컴퓨팅 계층을 지원하기 위해 크기 조정 기능을 추가했습니다. 현재 Gen1에 있는 기존 데이터 웨어하우스는 하위 컴퓨팅 계층이 필요한 경우 이제 추가 비용 없이 현재 사용 가능한 지역에서 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+> Azure Synapse Analytics Gen2는 최근 100 cDWU 낮은 계산 계층을 지 원하는 추가 크기 조정 기능을 추가 했습니다. 현재 Gen1에 있는 기존 데이터 웨어하우스는 하위 컴퓨팅 계층이 필요한 경우 이제 추가 비용 없이 현재 사용 가능한 지역에서 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
 
 T-SQL에서 SERVICE_OBJECTIVE 설정은 SQL 풀의 서비스 수준 및 성능 계층을 결정합니다.
 
@@ -100,7 +100,7 @@ SQL 풀은 데이터 양 조정이 가능한 대량의 컴퓨팅 및 쿼리를 �
 
 데이터 웨어하우스 단위를 변경하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)에 설명된 권한이 필요합니다.
 
-SQL DB 참가자 및 SQL Server 참가자와 같은 Azure 기본 제공 역할은 DWU 설정을 변경할 수 있습니다.
+SQL DB 기여자 및 SQL Server 기여자와 같은 Azure 기본 제공 역할은 DWU 설정을 변경할 수 있습니다.
 
 ## <a name="view-current-dwu-settings"></a>현재 DWU 설정 보기
 
@@ -141,7 +141,7 @@ DWU를 변경하려면 [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqlda
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-자세한 내용은 [SQL Data Warehouse용 PowerShell cmdlet](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)을 참조하세요.
+자세한 내용은 [Azure Synapse Analytics 용 PowerShell cmdlet](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 을 참조 하세요.
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -173,7 +173,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-추가 REST API 예제를 보려면 [SQL Data Warehouse용 REST API](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조하세요.
+자세한 REST API 예제는 [Azure Synapse Analytics 용 REST api](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 참조 하세요.
 
 ## <a name="check-status-of-dwu-changes"></a>DWU 변경 상태 확인
 

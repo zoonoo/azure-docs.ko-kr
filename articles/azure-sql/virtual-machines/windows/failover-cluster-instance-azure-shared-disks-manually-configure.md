@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: ffb739affac68898f6ed5ff1d972d3fd4a70df2f
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 8333de5b0139323b352d43a9259bde9d3b514fbe
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055263"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611806"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "89055263"
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>전제 조건 
 
 이 문서의 지침을 완료 하기 전에 다음이 이미 있어야 합니다.
 
@@ -217,7 +217,6 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="limitations"></a>제한 사항
 
-- Windows Server 2019에서는 SQL Server 2019만 지원 됩니다. 
 - [경량 관리 모드](sql-vm-resource-provider-register.md#management-modes) 에서는 SQL VM 리소스 공급자에 등록만 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계

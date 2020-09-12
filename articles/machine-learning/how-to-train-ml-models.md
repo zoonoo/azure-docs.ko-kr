@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 70e965e26d3b82cdc63a3c0e147919b8b40585af
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 69987210d69855b0fcaa676e406ec6a1c02a4d85
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146592"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650616"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "89146592"
 Azure Machine Learning에서는 [RunConfiguration 개체](how-to-set-up-training-targets.md#whats-a-run-configuration) 및 [ScriptRunConfig 개체](how-to-set-up-training-targets.md#submit)를 사용하여 학습 스크립트를 [다양한 컴퓨팅 대상](how-to-set-up-training-targets.md)에 제출할 수 있습니다. 이러한 패턴은 풍부한 유연성과 최대의 제어 능력을 제공합니다.
 
 
-예측 도구 클래스를 사용하면 딥 러닝 및 보충 학습을 통해 보다 쉽게 모델을 학습시킬 수 있습니다. 실행 구성을 쉽게 구성할 수 있는 높은 수준의 추상화를 제공합니다. 제네릭 [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py)를 만들고 사용하여 선택한 컴퓨팅 대상(로컬 머신, Azure의 단일 VM, Azure의 GPU 클러스터 등)에서 선택한 학습 프레임워크(예: scikit-learn)를 사용하여 학습 스크립트를 제출할 수 있습니다. PyTorch, TensorFlow, Chainer 및 보충 학습 작업의 경우 Azure Machine Learning은 이러한 프레임워크 사용을 간소화할 수 있도록 각각의 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 및 [보충 학습](how-to-use-reinforcement-learning.md) 예측 도구를 제공합니다.
+예측 도구 클래스를 사용하면 딥 러닝 및 보충 학습을 통해 보다 쉽게 모델을 학습시킬 수 있습니다. 실행 구성을 쉽게 구성할 수 있는 높은 수준의 추상화를 제공합니다. 제네릭 [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true)를 만들고 사용하여 선택한 컴퓨팅 대상(로컬 머신, Azure의 단일 VM, Azure의 GPU 클러스터 등)에서 선택한 학습 프레임워크(예: scikit-learn)를 사용하여 학습 스크립트를 제출할 수 있습니다. PyTorch, TensorFlow, Chainer 및 보충 학습 작업의 경우 Azure Machine Learning은 이러한 프레임워크 사용을 간소화할 수 있도록 각각의 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true), [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true) 및 [보충 학습](how-to-use-reinforcement-learning.md) 예측 도구를 제공합니다.
 
 ## <a name="train-with-an-estimator"></a>추정기를 사용하여 학습
 
@@ -116,7 +116,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 `custom_docker_image`| 사용하려는 이미지의 이름입니다. 공용 Docker 리포지토리(여기서는 Docker 허브)에서 사용할 수 있는 이미지만 제공합니다. 프라이빗 Docker 리포지토리의 이미지를 사용하려면 생성자의 `environment_definition` 매개 변수를 대신 사용합니다.| `None`
 `node_count`| 학습 작업에 사용할 노드의 수입니다. | `1`
 `process_count_per_node`| 각 노드에서 실행할 프로세스(또는 “작업자”)의 수입니다. 여기서는 각 노드에서 사용할 수 있는 `2` GPU를 사용합니다.| `1`
-`distributed_training`| MPI 백 엔드를 사용하여 분산 학습을 시작하기 위한 [MPIConfiguration ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) 개체입니다.  | `None`
+`distributed_training`| MPI 백 엔드를 사용하여 분산 학습을 시작하기 위한 [MPIConfiguration ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) 개체입니다.  | `None`
 
 
 마지막으로, 학습 작업을 제출합니다.
@@ -129,7 +129,7 @@ print(run.get_portal_url())
 
 모델을 학습한 후에는 작업 영역에 저장하고 등록할 수 있습니다. 모델 등록을 사용하면 모델을 작업 영역에 저장하고 버전을 지정하여 [모델 관리 및 배포](concept-model-management-and-deployment.md)를 간소화할 수 있습니다.
 
-다음 코드를 실행하면 모델을 작업 영역에 등록하고, 원격 컴퓨팅 컨텍스트 또는 배포 스크립트에서 이름으로 참조할 수 있도록 합니다. 자세한 내용 및 추가 매개 변수는 참조 문서에서 [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)을 참조하세요.
+다음 코드를 실행하면 모델을 작업 영역에 등록하고, 원격 컴퓨팅 컨텍스트 또는 배포 스크립트에서 이름으로 참조할 수 있도록 합니다. 자세한 내용 및 추가 매개 변수는 참조 문서에서 [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)을 참조하세요.
 
 ```python
 model = run.register_model(model_name='sklearn-sample', model_path=None)

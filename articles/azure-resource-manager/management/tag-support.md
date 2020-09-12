@@ -2,13 +2,13 @@
 title: 리소스에 대 한 태그 지원
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 1f74ecff7c5db7a851ad2795fdfdb8e552a309c0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/08/2020
+ms.openlocfilehash: ea46e263d934c327cf6dfa343a5e0b5a170f545e
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231523"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89513917"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](tag-resources.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다. [Cost Management 비용 분석](../../cost-management-billing/costs/group-filter.md) 및 [Azure 청구 송장 및 일간 사용 현황 데이터](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)에서 태그를 기준으로 비용을 볼 수 있습니다.
@@ -810,7 +810,7 @@ ms.locfileid: "89231523"
 > | ReservationRecommendations | 아니요 | 아니요 |
 > | ReservationSummaries | 아니요 | 아니요 |
 > | ReservationTransactions | 아니요 | 아니요 |
-> | 태그 | 아니요 | 예 |
+> | Tags | 아니요 | 예 |
 > | tenants | 예 | 아니요 |
 > | 용어 | 아니요 | 아니요 |
 > | UsageDetails | 아니요 | 예 |
@@ -905,7 +905,7 @@ ms.locfileid: "89231523"
 > | 보고서 | 아니요 | 아니요 |
 > | 설정 | 아니요 | 아니요 |
 > | showbackRules | 아니요 | 아니요 |
-> | 뷰 | 아니요 | 예 |
+> | 보기 | 아니요 | 예 |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
@@ -963,7 +963,10 @@ ms.locfileid: "89231523"
 > | dataFactories/metricDefinitions | 아니요 | 아니요 |
 > | dataFactorySchema | 아니요 | 예 |
 > | factories | 예 | 예 |
-> | factories / integrationRuntimes | 아니요 | 예 |
+> | factories / integrationRuntimes | 아니요 | 아니요 |
+
+> [!NOTE]
+> Data factory에서 Azure SSIS 통합 런타임을 사용 하는 경우 실행 비용에 data factory 태그로 태그가 지정 됩니다.  실행 중인 비용에 새 data factory 태그를 적용 하려면 Azure SSIS 통합 런타임을 중지 한 후 다시 시작 해야 합니다.
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 

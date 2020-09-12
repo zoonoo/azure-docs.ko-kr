@@ -4,14 +4,14 @@ description: Azure HPC 캐시를 사용 하기 위한 필수 구성 요소
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 1ead2a34b3617093fcbbb63d053f223fc96d698d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7731839d23ec49ddfee814cc6b2f6b3459372f03
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098451"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613984"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
 
@@ -36,9 +36,9 @@ Azure Portal를 사용 하 여 새 Azure HPC 캐시를 만들기 전에 사용�
 ## <a name="azure-subscription"></a>Azure 구독
 
 유료 구독을 권장 합니다.
-
+<!-- 
 > [!NOTE]
-> Azure HPC 캐시 팀은 액세스 목록에 구독을 추가 해야 캐시 인스턴스를 만드는 데 사용할 수 있습니다. 이 절차를 수행 하면 각 고객이 해당 캐시에서 고품질의 응답성을 유지할 수 있습니다. 액세스를 요청 하려면 [이 양식을](https://aka.ms/onboard-hpc-cache) 작성 하세요.
+> The Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.  -->
 
 ## <a name="network-infrastructure"></a>네트워크 인프라
 
@@ -143,7 +143,7 @@ NFS 저장소 시스템을 사용 하는 경우 (예: 온-프레미스 하드웨
 
   * 방화벽 설정을 확인 하 여 필요한 모든 포트에서 트래픽을 허용 하는지 확인 합니다. 데이터 센터의 온-프레미스 방화벽 뿐만 아니라 Azure에서 사용 되는 방화벽을 확인 해야 합니다.
 
-* **디렉터리 액세스:** `showmount`저장소 시스템에서 명령을 사용 하도록 설정 합니다. Azure HPC 캐시는이 명령을 사용 하 여 저장소 대상 구성이 유효한 내보내기를 가리키는지 확인 하 고 여러 탑재에서 동일한 하위 디렉터리에 액세스 하지 않도록 합니다 (파일 충돌 위험).
+* **디렉터리 액세스:** `showmount` 저장소 시스템에서 명령을 사용 하도록 설정 합니다. Azure HPC 캐시는이 명령을 사용 하 여 저장소 대상 구성이 유효한 내보내기를 가리키는지 확인 하 고 여러 탑재에서 동일한 하위 디렉터리에 액세스 하지 않도록 합니다 (파일 충돌 위험).
 
   > [!NOTE]
   > NFS 저장소 시스템에서 NetApp의 ONTAP 9.2 운영 체제를 사용 하는 경우을 **사용 하도록 설정 `showmount` 하지 마십시오 **. [Microsoft 서비스 및 지원 서비스](hpc-cache-support-ticket.md) 에 도움을 요청 하세요.

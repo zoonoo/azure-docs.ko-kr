@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: a6a185c61c32636dd0189bc5835f850348b196cd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: afc7e6c1ed41661c835a811a7cbcaa6f7771328e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020357"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645642"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>평가/종속성 시각화 문제 해결
 
@@ -126,7 +126,7 @@ Azure Migrate Server 평가는 현재 Windows 컴퓨터에 대해서만 운영 �
 Server Assessment는 온-프레미스 머신의 성능 데이터를 지속적으로 수집하여 Azure에서 VM SKU 및 디스크 SKU를 추천하는 데 사용합니다. 성능 기반 데이터를 수집 [하는 방법을 알아봅니다](concepts-assessment-calculation.md#calculate-sizing-performance-based) .
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>예약 인스턴스, VM 작동 시간 및 할인율 (%)의 잘못 된 조합을 사용 하 여 생성 되었다는 경고가 표시 되는 이유는 무엇 인가요?
-' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다. 이러한 속성의 잘못 된 조합을 사용 하 여 평가를 만든 후에는 편집 및 다시 계산 단추가 사용 하지 않도록 설정 됩니다. 새 평가를 만드세요. [자세히 알아보기](https://go.microsoft.com/fwlink/?linkid=2131554).
+' 예약 인스턴스 '를 선택 하면 ' 할인율 ' (' 할인율 ')이 및 ' VM 작동 시간 ' 속성은 적용 되지 않습니다. 이러한 속성의 잘못 된 조합을 사용 하 여 평가를 만든 후에는 편집 및 다시 계산 단추가 사용 하지 않도록 설정 됩니다. 새 평가를 만드세요. [자세한 정보를 알아보세요](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>실제 서버의 일부 네트워크 어댑터에 대 한 성능 데이터가 표시 되지 않습니다.
 
@@ -147,7 +147,8 @@ Hyper-v 가상화를 사용 하는 물리적 서버의 경우 준비 범주가 "
 
 ## <a name="dependency-visualization-in-azure-government"></a>Azure Government에서 종속성 시각화
 
-Azure Migrate는 종속성 시각화 기능의 서비스 맵에 따라 달라 집니다. 서비스 맵 현재 Azure Government에서 사용할 수 없기 때문에 Azure Government에서이 기능을 사용할 수 없습니다.
+에이전트 기반 종속성 분석은 Azure Government에서 지원 되지 않습니다. 에이전트 없는 종속성 분석을 사용 하세요.
+
 
 ## <a name="dependencies-dont-show-after-agent-install"></a>에이전트 설치 후 종속성이 표시 되지 않음
 
@@ -160,7 +161,7 @@ Windows VM의 경우
 
     ![MMA 상태](./media/troubleshoot-assessment/mma-properties.png)
 
-Linux Vm의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했는지 확인 합니다.
+Linux Vm의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했는지 확인 합니다. 자세한 문제 해결 지침은 [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues)를 참조 하세요.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -181,7 +182,6 @@ Linux Vm의 경우 MMA 및 종속성 에이전트의 설치 명령이 성공 했
 ## <a name="machines-show-install-agent"></a>컴퓨터에 "에이전트 설치"가 표시 됩니다.
 
 종속성 시각화를 사용 하 여 Azure에 컴퓨터를 마이그레이션한 후에는 다음과 같은 동작으로 인해 컴퓨터에서 "종속성 보기" 대신 "에이전트 설치" 작업을 표시할 수 있습니다.
-
 
 - Azure로 마이그레이션한 후 온-프레미스 컴퓨터는 꺼지고 동일한 Vm이 Azure에서 분리 됩니다. 이러한 컴퓨터는 다른 MAC 주소를 갖습니다.
 - 컴퓨터에는 온-프레미스 IP 주소를 보유 했는지 여부에 따라 다른 IP 주소를 사용할 수도 있습니다.

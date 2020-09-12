@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651729"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650687"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -213,7 +213,7 @@ ms.locfileid: "88651729"
 12. 워크 로드가 적용 되 면 Azure에서 시스템의 리소스 소비를 기록 합니다. 이 소비량을 이전 플랫폼의 레코드와 비교 합니다. 큰 차이가 있는 경우 향후 배포의 VM 크기를 조정 합니다. 크기, 저장소 및 Vm의 네트워크 대역폭도 줄일 수 있습니다.
     - [Azure에서 Windows 가상 머신에 대한 크기](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - [Azure에서 Linux 가상 머신에 대한 크기](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
-13. 시스템 복사 기능 및 프로세스를 시험해 보세요. 목표는 개발 시스템 또는 테스트 시스템을 쉽게 복사할 수 있도록 하는 것입니다. 따라서 프로젝트 팀은 새로운 시스템을 신속 하 게 가져올 수 있습니다. 이러한 작업에는 [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) 를 사용 하는 것이 좋습니다.
+13. 시스템 복사 기능 및 프로세스를 시험해 보세요. 목표는 개발 시스템 또는 테스트 시스템을 쉽게 복사할 수 있도록 하는 것입니다. 따라서 프로젝트 팀은 새로운 시스템을 신속 하 게 가져올 수 있습니다. 
 14. 팀의 Azure 역할 기반 액세스, 권한 및 프로세스를 최적화 하 고 h) 하 여 의무를 분리 해야 합니다. 동시에 모든 팀이 Azure 인프라에서 해당 작업을 수행할 수 있는지 확인 합니다.
 15. 직원 들이 이러한 작업을 실행할 수 있도록 고가용성 및 재해 복구 절차를 수행 하 고, 테스트 하 고, 문서화 합니다. 단점을 파악 하 고 배포에 통합 하는 새로운 Azure 기능을 조정 합니다.
 

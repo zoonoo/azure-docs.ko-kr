@@ -4,14 +4,14 @@ description: Azure HPC Cache 인스턴스를 만드는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: a988f08b2b6e30543c112b20e5b374130ceddc47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b1062556f1f971690f835274be15c11b072eca9
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092493"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612068"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Azure HPC Cache 만들기
 
@@ -29,7 +29,7 @@ Azure Portal 또는 Azure CLI를 사용 하 여 캐시를 만듭니다.
 
 ![Azure Portal의 프로젝트 세부 정보 페이지 스크린샷](media/hpc-cache-create-basics.png)
 
-**프로젝트 세부 정보**에서 캐시를 호스트할 구독 및 리소스 그룹을 선택합니다. 구독이 [액세스](hpc-cache-prerequisites.md#azure-subscription) 목록에 있는지 확인합니다.
+**프로젝트 세부 정보**에서 캐시를 호스트할 구독 및 리소스 그룹을 선택합니다.<!-- Make sure the subscription is on the [access](hpc-cache-prerequisites.md#azure-subscription) list.  -->
 
 **서비스 세부 정보**에서 캐시 이름과 다음 기타 특성을 설정합니다.
 
@@ -132,11 +132,11 @@ nets/<cache_subnet_name>"``
 
   | 캐시 크기 | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072GB    | 예         | 아니요          | 아니요          |
-  | 6144 GB    | 예         | 예         | 아니요          |
+  | 3072GB    | 예         | no          | no          |
+  | 6144 GB    | 예         | 예         | no          |
   | 12288 GB   | 예         | 예         | 예         |
   | 24576 GB   | no          | 예         | 예         |
-  | 49152 GB   | 아니요          | no          | 예         |
+  | 49152 GB   | no          | no          | 예         |
 
   가격 책정, 처리량 및 워크플로에 적절 한 캐시 크기를 조정 하는 방법에 대 한 중요 한 정보는 포털 지침 탭의 **캐시 용량 설정** 섹션을 참조 하세요.
 

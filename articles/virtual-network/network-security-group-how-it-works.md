@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: b0199af69eb5e7c05cee91a3a3cffd682aab75fd
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e60cdfb00d0dc9d446bd52a72e9fd15676acd285
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086284"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458198"
 ---
 # <a name="how-network-security-groups-filter-network-traffic"></a>네트워크 보안 그룹에서 네트워크 트래픽을 필터링 하는 방법
 <a name="network-security-groups"></a>
 
-Azure 네트워크 보안 그룹을 사용 하 여 azure 가상 네트워크에서 azure 리소스에 대 한 네트워크 트래픽을 필터링 할 수 있습니다. 네트워크 보안 그룹에는 여러 유형의 Azure 리소스에 대 한 인바운드 네트워크 트래픽 또는 아웃 바운드 네트워크 트래픽을 허용 하거나 거부 하는 [보안 규칙이](https://docs.microsoft.com/azure/virtual-network/security-overview.md#security-rules) 포함 되어 있습니다. 규칙마다 원본 및 대상, 포트, 프로토콜을 지정할 수 있습니다.
+Azure 네트워크 보안 그룹을 사용 하 여 azure 가상 네트워크에서 azure 리소스에 대 한 네트워크 트래픽을 필터링 할 수 있습니다. 네트워크 보안 그룹에는 여러 유형의 Azure 리소스에 대 한 인바운드 네트워크 트래픽 또는 아웃 바운드 네트워크 트래픽을 허용 하거나 거부 하는 [보안 규칙이](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) 포함 되어 있습니다. 규칙마다 원본 및 대상, 포트, 프로토콜을 지정할 수 있습니다.
 
 여러 Azure 서비스의 리소스를 한 Azure 가상 네트워크에 배포할 수 있습니다. 전체 목록은 [가상 네트워크에 배포할 수 있는 서비스 목록](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)을 참조하세요. 가상 머신의 각 가상 네트워크 [서브넷](virtual-network-manage-subnet.md#change-subnet-settings) 및 [네트워크 인터페이스](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group)에 네트워크 보안 그룹을 하나 연결하거나 연결하지 않을 수 있습니다. 동일한 네트워크 보안 그룹을 원하는 수의 서브넷 및 네트워크 인터페이스에 연결할 수 있습니다.
 
@@ -46,7 +46,7 @@ Azure 네트워크 보안 그룹을 사용 하 여 azure 가상 네트워크에�
 
 인바운드 트래픽의 경우 Azure는 네트워크 인터페이스에 연결된 네트워크 보안 그룹이 있으면 이 그룹의 규칙을 먼저 처리한 후 서브넷에 연결된 네트워크 보안 그룹이 있으면 이 그룹의 규칙을 처리합니다.
 
-- **VM1**: *NSG2*의 보안 규칙이 처리됩니다. 인터넷으로 나가는 포트 80을 거부하는 보안 규칙을 만들지 않는 이상, *NSG1* 및 *NSG2*의 [AllowInternetOutbound](https://docs.microsoft.com/azure/virtual-network/security-overview.md#allowinternetoutbound) 기본 보안 규칙에 트래픽을 허용합니다. *NSG2*에 포트 80을 거부하는 보안 규칙이 있으면 트래픽은 거부되고 *NSG1*에 의해 평가되지 않습니다. 두 네트워크 보안 그룹 중 어느 하나 또는 둘 모두의 가상 머신에서 포트 80을 거부하려면 규칙이 네트워크 보안 그룹에 인터넷으로 나가는 포트 80을 거부하는 있어야 합니다.
+- **VM1**: *NSG2*의 보안 규칙이 처리됩니다. 인터넷으로 나가는 포트 80을 거부하는 보안 규칙을 만들지 않는 이상, *NSG1* 및 *NSG2*의 [AllowInternetOutbound](https://docs.microsoft.com/azure/virtual-network/security-overview#allowinternetoutbound) 기본 보안 규칙에 트래픽을 허용합니다. *NSG2*에 포트 80을 거부하는 보안 규칙이 있으면 트래픽은 거부되고 *NSG1*에 의해 평가되지 않습니다. 두 네트워크 보안 그룹 중 어느 하나 또는 둘 모두의 가상 머신에서 포트 80을 거부하려면 규칙이 네트워크 보안 그룹에 인터넷으로 나가는 포트 80을 거부하는 있어야 합니다.
 - **VM2**: *VM2*에 연결된 네트워크 인터페이스에 네트워크 보안 그룹이 연결되지 않았기 때문에 모든 트래픽이 네트워크 인터페이스를 통해 서브넷으로 전송됩니다. *NSG1*의 규칙이 처리됩니다.
 - **VM3**: *NSG2*에 포트 80을 거부하는 보안 규칙이 있으면 트래픽이 거부됩니다. *NSG2*에 포트 80을 허용하는 보안 규칙이 있으면 포트 80에서 인터넷 아웃바운드가 허용됩니다. 네트워크 보안 그룹이 *Subnet2*에 연결되지 않았기 때문입니다.
 - **VM4**: 네트워크 보안 그룹이 가상 머신에 연결된 네트워크 인터페이스 또는 *Subnet3*에 연결되지 않았기 때문에 *VM4*에서 오는 모든 트래픽이 허용됩니다.

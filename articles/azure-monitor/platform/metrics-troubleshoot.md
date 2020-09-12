@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 54f99f2f8708fca9c02950a8886a2a9b976a93dd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829597"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440680"
 ---
 # <a name="troubleshooting-metrics-charts"></a>메트릭 차트 문제 해결
 
@@ -110,7 +110,7 @@ Azure 메트릭 차트는 파선 스타일을 사용 하 여 두 개의 알려�
 
 1. 스토리지 계정이 방화벽의 보호를 받고 있는지 확인합니다. 메트릭 데이터를 검색하고 차트를 그리려면 Azure Portal에서 스토리지 계정에 액세스해야 합니다.
 
-1. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 메트릭이 스토리지 계정으로 흘러 들어가고 있는지 확인합니다. 메트릭이 수집되지 않으면 [Azure Diagnostics 확장 문제 해결 가이드](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal)를 따릅니다.
+1. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 를 사용 하 여 메트릭이 저장소 계정으로 흐르는 지 유효성을 검사 합니다. 메트릭이 수집되지 않으면 [Azure Diagnostics 확장 문제 해결 가이드](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal)를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

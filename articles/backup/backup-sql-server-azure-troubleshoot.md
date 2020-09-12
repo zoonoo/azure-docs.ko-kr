@@ -3,12 +3,12 @@ title: SQL Server 데이터베이스 백업 문제 해결
 description: Azure Backup을 사용하여 Azure VM에서 실행되는 SQL Server 데이터베이스를 백업하는 경우의 문제 해결 정보입니다.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: b462ebd25a7dac4f215d599aa0dfa8665965fb2f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c81230a5b32ddb1487bf59e8e43dbb96328d8620
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180952"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89513969"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -44,14 +44,14 @@ Recovery Services 자격 증명 모음을 만들고 구성한 후 데이터베�
 
 1. 바이러스 백신 검사에서 다음 폴더를 제외 합니다.
 
-    `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
+    `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.AzureBackupWindowsWorkload`
 
     `C:\`가 나의 문자로 대체 합니다 *SystemDrive*.
 
 1. VM 내에서 실행 되는 다음 세 프로세스를 바이러스 백신 검사에서 제외 합니다.
 
     - IaasWLPluginSvc.exe
-    - IaasWorkloadCoordinaorService.exe
+    - IaaSWorkloadCoordinatorService.exe
     - TriggerExtensionJob.exe
 
 1. 또한 SQL은 바이러스 백신 프로그램 작업에 대 한 몇 가지 지침을 제공 합니다. 자세한 내용은 [이 문서](https://support.microsoft.com/help/309422/choosing-antivirus-software-for-computers-that-run-sql-server) 를 참조 하세요.

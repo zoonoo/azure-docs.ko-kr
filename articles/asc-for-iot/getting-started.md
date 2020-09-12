@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 452372f187e97a95b9eee88936b15a0409dd4fe0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99936161039b05e5e6c00c129e81a35befaae961
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311381"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514461"
 ---
 # <a name="get-started-with-azure-security-center-for-iot"></a>IoT용 Azure Security Center 시작
 
 이 문서에서는 IoT 서비스에 대 한 Azure Security Center의 다양 한 구성 요소에 대해 설명 하 고 가능한 두 가지 배포 옵션을 사용 하 여 서비스를 시작 하는 방법을 설명 합니다.
+
+Azure RTOS의 보안 모듈 시작을 찾고 있나요? [Azure RTOS의 보안 모듈에 대 한 빠른](quickstart-azure-rtos-security-module.md) 시작 섹션으로 이동 합니다. 
 
 ## <a name="deployment-options"></a>배포 옵션
 

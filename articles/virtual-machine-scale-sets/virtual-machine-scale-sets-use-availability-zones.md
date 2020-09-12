@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029317"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611914"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>가용성 영역을 사용하는 가상 머신 확장 집합 만들기
 
@@ -22,13 +22,17 @@ ms.locfileid: "87029317"
 
 ## <a name="availability-considerations"></a>가용성 고려 사항
 
-API 버전 *2017-12-01*부터 확장 집합을 하나 이상의 영역으로 배포하는 경우 "최대 분산" 또는 "정적 5 장애 도메인 분산"을 사용하여 배포할 수 있습니다. 최대 확산을 사용하여 확장 집합은 각 영역 내에서 가능한 많은 장애 도메인에서 VM을 분산합니다. 이 분산은 영역당 5개의 장애 도메인보다 크거나 작을 수 있습니다. "정적 5 장애 도메인 확산"을 사용하면 확장 집합은 영역당 정확히 5개의 장애 도메인에 VM을 분산합니다. 확장 집합이 할당 요청을 충족하는 영역당 5개의 개별 장애 도메인을 찾을 수 없으므로 요청이 실패합니다.
+지역 (비 영역) 확장 집합을 API 버전 *2017-12-01*에서 하나 이상의 영역에 배포 하는 경우 다음과 같은 가용성 옵션이 제공 됩니다.
+- 최대 분산 (platformFaultDomainCount = 1)
+- 정적 고정 분산 (platformFaultDomainCount = 5)
+- 저장소 디스크 장애 도메인에 맞게 분산 (platforFaultDomainCount = 2 또는 3)
+
+최대 확산을 사용하여 확장 집합은 각 영역 내에서 가능한 많은 장애 도메인에서 VM을 분산합니다. 이 분산은 영역당 5개의 장애 도메인보다 크거나 작을 수 있습니다. 고정 고정 분산을 사용 하는 경우 확장 집합은 영역 당 정확히 5 개의 장애 도메인에 Vm을 분산 합니다. 확장 집합이 할당 요청을 충족하는 영역당 5개의 개별 장애 도메인을 찾을 수 없으므로 요청이 실패합니다.
 
 이러한 방식은 대부분의 경우 최적의 분산을 제공하므로 **대부분의 워크로드에 대해 최대 분산을 사용하여 배포하는 것이 좋습니다**. 별개의 하드웨어 격리 단위에 복제본을 분산시켜야 하는 경우 가용성 영역에 전체적으로 분산시키고 각 영역 내에서 최대 분산을 활용하는 것이 좋습니다.
 
-최대 분산을 사용하면 VM이 분산되어 있는 장애 도메인의 수에 상관없이 확장 집합 VM 인스턴스 뷰 및 인스턴스 메타데이터에 하나의 장애 도메인만 표시됩니다. 각 영역 내 분산은 암시적입니다.
-
-최대 분산을 사용 하려면 *Platformfaultdomaincount* 를 *1*로 설정 합니다. 정적 5 장애 도메인 분산을 사용하려면 *platformFaultDomainCount*를 *5*로 설정합니다. API 버전 *2017-12-01*에서 *platformfaultdomaincount* 는 단일 영역 및 영역 간 확장 집합에 대해 기본적으로 *1* 로 설정 됩니다. 현재 지역 (비 영역) 확장 집합에 대해 정적 5 장애 도메인 분산만 지원 됩니다.
+> [!NOTE]
+> 최대 분산을 사용하면 VM이 분산되어 있는 장애 도메인의 수에 상관없이 확장 집합 VM 인스턴스 뷰 및 인스턴스 메타데이터에 하나의 장애 도메인만 표시됩니다. 각 영역 내 분산은 암시적입니다.
 
 ### <a name="placement-groups"></a>배치 그룹
 
@@ -39,7 +43,7 @@ API 버전 *2017-12-01*부터 확장 집합을 하나 이상의 영역으로 배
 
 ### <a name="zone-balancing"></a>영역 균형
 
-마지막으로 여러 영역에서 배포되는 확장 집합의 경우 "최상의 노력 영역 균형" 또는 "엄격한 영역 균형"을 선택하는 옵션을 갖습니다. 확장 집합은 각 영역에 동일한 수의 VM이 있거나 확장 집합의 다른 모든 영역에서 VM이 +\\- 1이면 "균형"으로 간주됩니다. 예를 들어:
+마지막으로 여러 영역에서 배포되는 확장 집합의 경우 "최상의 노력 영역 균형" 또는 "엄격한 영역 균형"을 선택하는 옵션을 갖습니다. 확장 집합은 각 영역에 동일한 수의 VM이 있거나 확장 집합의 다른 모든 영역에서 VM이 +\\- 1이면 "균형"으로 간주됩니다. 다음은 그 예입니다. 
 
 - 영역 1에 2개의 VM, 영역 2에 3개의 VM, 영역 3에 3개의 VM이 있는 확장 집합은 균형으로 간주됩니다. VM 수가 다른 영역은 하나 뿐이며 다른 영역보다 1개만 적습니다. 
 - 영역 1에 1개의 VM, 영역 2에 3개의 VM, 영역 3에 3개의 VM이 있는 확장 집합은 불균형으로 간주됩니다. 영역 1에는 영역 2 및 3보다 VM이 2개 적게 있습니다.
@@ -109,7 +113,7 @@ az vmss create \
 
 지정한 영역에 확장 집합 리소스와 VM을 모두 만들고 구성하는 데 몇 분 정도 걸립니다. 영역 중복 확장 집합 및 네트워크 리소스의 전체 예제는 [이 샘플 CLI 스크립트](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.sh)를 참조하세요.
 
-## <a name="use-azure-powershell"></a>Azure PowerShell 사용
+## <a name="use-azure-powershell"></a>Azure Powershell 사용
 
 가용성 영역을 사용하려면 지원되는 Azure 지역에 확장 집합을 만들어야 합니다. `-Zone` 매개 변수를 [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) 명령에 추가하고, 사용할 지역(예: 영역 *1*, *2* 또는 *3*)을 지정합니다.
 

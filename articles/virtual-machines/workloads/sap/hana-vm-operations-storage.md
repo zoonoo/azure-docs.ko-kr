@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2020
+ms.date: 09/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa6aba12af08e2b5e044eaeb299ec6090ab6d750
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 60947a8138972834f30274715226648d1b2360a1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650471"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440697"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -88,7 +88,7 @@ Azure 쓰기 가속기는 Azure M 시리즈 VM 전용 기능입니다. 이름에
 **권장 사항: 이러한 관찰 된 i/o SAP HANA 패턴의 결과로 Azure premium storage를 사용 하는 다른 볼륨에 대 한 캐싱은 다음과 같이 설정 해야 합니다.**
 
 - **/hana/data** -캐싱 또는 읽기 캐싱 없음
-- **/hana/log** - 캐싱 없음 - 읽기 캐싱 없이 쓰기 가속기를 사용하도록 설정해야 하는 M/Mv2 시리즈는 예외입니다. 
+- **/hana/log-** -Azure 쓰기 가속기를 사용 하도록 설정 해야 하는 M-및 Mv2 시리즈 vm에 대 한 예외입니다. 
 - **/hana/shared** - 읽기 캐싱
 - **OS 디스크** -VM을 만들 때 Azure에서 설정 하는 기본 캐싱을 변경 하지 않습니다.
 
@@ -236,6 +236,10 @@ Ultra Disk를 사용하면 원하는 크기, IOPS 및 디스크 처리량 범위
 
 권장 사항은 이 문서의 앞부분에서 설명한 대로 SAP 최소 요구 사항을 초과하는 경우가 많습니다. 나열된 권장 사항은 SAP에서 권장하는 크기와 다양한 VM 유형이 제공하는 최대 스토리지 처리량 간의 절충입니다.
 
+> [!NOTE]
+> Azure Ultra disk는 디스크의 1Gb 용량 당 최소 2 IOPS를 적용 합니다.
+
+
 | VM SKU | RAM | 최대 VM I/O<br /> 처리량 | /hana/data 볼륨 | /hana/data I/O 처리량 | /hana/data IOPS | /hana/log 볼륨 | /hana/log I/O 처리량 | /hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E20ds_v4 | 160 GiB | 480MB/s | 200GB | 400MBps | 2,500 | 80GB | 250MB | 1,800 |
@@ -249,11 +253,11 @@ Ultra Disk를 사용하면 원하는 크기, IOPS 및 디스크 처리량 범위
 | M64s | 1,000GiB | 1,000MB/s |  1,200GB | 600MBps | 5,000 | 512 GB | 250MBps  | 2,500 |
 | M64ms | 1,750GiB | 1,000MB/s | 2,100GB | 600MBps | 5,000 | 512 GB | 250MBps  | 2,500 |
 | M128s | 2,000GiB | 2,000MB/s |2,400GB | 750 MBps | 7,000 | 512 GB | 250MBps  | 2,500 | 
-| M128ms | 3,800GiB | 2,000MB/s | 4,800GB | 750 MBps |7,000 | 512 GB | 250MBps  | 2,500 | 
+| M128ms | 3,800GiB | 2,000MB/s | 4,800GB | 750 MBps |9,600 | 512 GB | 250MBps  | 2,500 | 
 | M208s_v2 | 2,850GiB | 1,000MB/s | 3,500GB | 750 MBps | 7,000 | 512 GB | 250MBps  | 2,500 | 
-| M208ms_v2 | 5,700GiB | 1,000MB/s | 7,200GB | 750 MBps | 7,000 | 512 GB | 250MBps  | 2,500 | 
-| M416s_v2 | 5,700GiB | 2,000MB/s | 7,200GB | 1,000MBps | 9,000 | 512 GB | 400MBps  | 4,000 | 
-| M416ms_v2 | 11,400GiB | 2,000MB/s | 14,400GB | 1,500MBps | 9,000 | 512 GB | 400MBps  | 4,000 |   
+| M208ms_v2 | 5,700GiB | 1,000MB/s | 7,200GB | 750 MBps | 14400 | 512 GB | 250MBps  | 2,500 | 
+| M416s_v2 | 5,700GiB | 2,000MB/s | 7,200GB | 1,000MBps | 14400 | 512 GB | 400MBps  | 4,000 | 
+| M416ms_v2 | 11,400GiB | 2,000MB/s | 14,400GB | 1,500MBps | 28800 | 512 GB | 400MBps  | 4,000 |   
 
 **나열된 값은 시작점으로 사용되며 실제 수요를 기준으로 평가해야 합니다.** Azure Ultra Disk의 장점은 VM을 종료하거나 시스템에 적용되는 워크로드를 중지하지 않고도 IOPS 및 처리량 값을 조정할 수 있다는 것입니다.   
 

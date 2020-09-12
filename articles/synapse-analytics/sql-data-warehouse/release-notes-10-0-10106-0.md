@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 01b6a72dfe3180324919fd712412ae88578c641b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047455"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89457994"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics 릴리스 정보
 
@@ -35,7 +35,7 @@ ms.locfileid: "89047455"
 > ```sql
 > SELECT SERVERPROPERTY('ProductVersion')
 >
-> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (Formerly SQL Data Warehouse):
+> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (formerly SQL Data Warehouse):
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
@@ -51,7 +51,7 @@ ms.locfileid: "89047455"
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-|**열 수준 암호화 (공개 미리 보기)**|Transact-sql을 사용 하 여 데이터 열에 대칭 암호화를 적용 하 여 Synapse SQL data warehouse의 중요 한 정보를 보호 합니다. 열 수준 암호화에는 인증서, 암호, 대칭 키 또는 비대칭 키로 보호 되는 대칭 키를 사용 하 여 데이터를 암호화 하는 데 사용할 수 있는 기본 제공 함수가 있습니다. 자세한 내용은 [데이터 열 암호화](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest)를 참조 하세요.|
+|**열 수준 암호화 (공개 미리 보기)**|Transact-sql을 사용 하 여 데이터 열에 대칭 암호화를 적용 하 여 Azure Synapse Analytics의 중요 한 정보를 보호 합니다. 열 수준 암호화에는 인증서, 암호, 대칭 키 또는 비대칭 키로 보호 되는 대칭 키를 사용 하 여 데이터를 암호화 하는 데 사용할 수 있는 기본 제공 함수가 있습니다. 자세한 내용은 [데이터 열 암호화](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest)를 참조 하세요.|
 |**GA (호환성 수준 지원)**|이 릴리스에서는 이제 사용자가 데이터베이스의 호환성 수준을 설정하여 특정 버전의 Synapse SQL 엔진에 대한 Transact-SQL 언어 및 쿼리 처리 동작을 얻을 수 있습니다. 자세한 내용은 [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) 및 [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.|
 |**행 수준 보안**|이 릴리스에는 RLS를 적용 한 행에 대 한 업데이트 및 삭제 작업에 대 한 개선 사항이 포함 되어 있습니다. 이 릴리스에서는 내장 함수가 DML 대상 테이블의 열을 참조 하지 않는 경우 ' is_rolemember ' 같은 내장 함수를 사용 하 여 업데이트 및 삭제 작업이 성공 합니다. 이러한 향상 전에는 기본 DML 작업의 제한으로 인해 이러한 작업이 실패 했습니다.|
 |**GA (DBCC SHRINKDATABASE)**|이제 지정 된 데이터베이스에 있는 데이터 및 로그 파일의 크기를 축소할 수 있습니다. 자세한 내용은 [설명서](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15)를 참조 하세요.|

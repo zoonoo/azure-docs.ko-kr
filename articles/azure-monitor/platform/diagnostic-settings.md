@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: c0fdf256409608c2eb3c6490dc25342d9d324832
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135439"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614047"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>플랫폼 로그 및 메트릭을 다른 대상으로 전송하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함 한 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. [플랫폼 메트릭은](data-platform-metrics.md) 기본적으로 수집 되며 일반적으로 Azure Monitor 메트릭 데이터베이스에 저장 됩니다. 이 문서에서는 플랫폼 메트릭 및 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성 하는 방법에 대해 자세히 설명 합니다.
@@ -100,7 +100,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
      - **Allmetrics** 리소스의 플랫폼 메트릭을 로그 형식으로 Azure 로그 저장소로 라우팅합니다. 이러한 메트릭은 일반적으로 Azure Monitor 메트릭 시계열 데이터베이스로만 전송 됩니다. Azure Monitor 로그 저장소 (Log Analytics를 통해 검색할 수 있는)에 전송 하 여 다른 로그에서 검색 하는 쿼리에 통합할 수 있습니다. 일부 리소스 종류에는이 옵션을 사용 하지 못할 수 있습니다. 지원 되는 경우 지원 되는 [메트릭 Azure Monitor](metrics-supported.md) 리소스 유형에 대해 수집 되는 메트릭을 나열 합니다.
 
        > [!NOTE]
-       > 이 문서의 앞부분에서 Azure Monitor 로그에 대 한 라우팅 메트릭을 확인 하는 방법을 참조 하세요.  
+       > 이 문서의 앞부분에서 Azure Monitor 로그로의 라우팅 메트릭 제한을 참조 하세요.  
 
 
      - **로그** 에는 리소스 종류에 따라 사용 가능한 다양 한 범주가 나열 됩니다. 대상으로 라우팅할 모든 범주를 선택 합니다.

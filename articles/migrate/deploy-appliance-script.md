@@ -3,12 +3,12 @@ title: 스크립트를 사용 하 여 Azure Migrate 어플라이언스 설정
 description: 스크립트를 사용 하 여 Azure Migrate 어플라이언스를 설정 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 43e47c6b4121a2f389dfec27873b90b7031c4f2c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5be6f161724b8ab555c406ebf6e75072d7902eda
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929978"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514410"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>스크립트를 사용 하 여 어플라이언스 설정
 
@@ -20,7 +20,7 @@ ms.locfileid: "88929978"
 - 물리적 서버용 어플라이언스를 설정 하려면 스크립트만 사용 하면 됩니다. [이 문서](how-to-set-up-appliance-physical.md)를 따릅니다.
 - Azure Government 클라우드에서 어플라이언스를 설정 하려면 [이 문서](deploy-appliance-script-government.md)를 따릅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 스크립트는 기존 물리적 컴퓨터 또는 VM에 Azure Migrate 어플라이언스를 설정 합니다.
 
@@ -51,7 +51,7 @@ VMware에 대 한 어플라이언스를 설정 하려면 포털에서 또는 [�
 
     **알고리즘** | **다운로드** | **SHA256**
     --- | --- | ---
-    VMware (85 MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | 5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
+    VMware(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116601) | 72fef66b8efd93106e626ea87354af0fb800893f9cb77edb5490490106c6a193
 
 
 
@@ -61,7 +61,7 @@ VMware에 대 한 어플라이언스를 설정 하려면 포털에서 또는 [�
 
 - 에이전트와 웹 응용 프로그램을 설치 합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯 한 Windows 역할을 설치 합니다.
-- IIS 다시 쓰기 가능한 모듈을 다운로드 하 여 설치 합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 다시 쓰기 가능한 모듈을 다운로드 하 여 설치 합니다. [자세한 정보를 알아보세요](https://www.microsoft.com/download/details.aspx?id=7435).
 - Azure Migrate에 대 한 영구 설정을 사용 하 여 레지스트리 키 (HKLM)를 업데이트 합니다.
 - 는 다음과 같이 로그 및 구성 파일을 만듭니다.
     - **구성 파일**:%ProgramData%\Microsoft Azure\Config
@@ -100,7 +100,7 @@ Hyper-v에 대 한 어플라이언스를 설정 하려면 포털 또는 [여기]
 
     **시나리오** | **다운로드** | **SHA256**
     --- | --- | ---
-    Hyper-v (85) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) |  5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
+    Hyper-V(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2116657) |  bea013eab690ae3a476422c55becd87c369c14834e52f8cafe6ad0ed7f416b4f
 
 ### <a name="run-the-script"></a>스크립트 실행
 
@@ -108,7 +108,7 @@ Hyper-v에 대 한 어플라이언스를 설정 하려면 포털 또는 [여기]
 
 - 에이전트와 웹 응용 프로그램을 설치 합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯 한 Windows 역할을 설치 합니다.
-- IIS 다시 쓰기 가능한 모듈을 다운로드 하 여 설치 합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 다시 쓰기 가능한 모듈을 다운로드 하 여 설치 합니다. [자세한 정보를 알아보세요](https://www.microsoft.com/download/details.aspx?id=7435).
 - Azure Migrate에 대 한 영구 설정을 사용 하 여 레지스트리 키 (HKLM)를 업데이트 합니다.
 - 는 다음과 같이 로그 및 구성 파일을 만듭니다.
     - **구성 파일**:%ProgramData%\Microsoft Azure\Config

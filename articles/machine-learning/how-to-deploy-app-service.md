@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 04ae1788dfd3050fdd2042f88a8e1829e9063ad3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 73769a5f8a677f5e08610560db1e5d90dd5b7c3a
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851361"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645620"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 machine learning 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,9 +46,9 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
     > [!IMPORTANT]
     > 이 문서의 코드 조각은 다음 변수를 설정 했다고 가정 합니다.
     >
-    > * `ws`-Azure Machine Learning 작업 영역입니다.
-    > * `model`-배포 될 등록 된 모델입니다.
-    > * `inference_config`-모델에 대 한 유추 구성입니다.
+    > * `ws` -Azure Machine Learning 작업 영역입니다.
+    > * `model` -배포 될 등록 된 모델입니다.
+    > * `inference_config` -모델에 대 한 유추 구성입니다.
     >
     > 이러한 변수를 설정 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
@@ -75,7 +75,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 이러한 엔터티는 __유추 구성__에 캡슐화 됩니다. 추론 구성은 항목 스크립트 및 기타 종속성을 참조합니다.
 
 > [!IMPORTANT]
-> Azure App Service에 사용할 유추 구성을 만드는 경우 [환경](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) 개체를 사용 해야 합니다. 사용자 지정 환경을 정의 하는 경우 pip 종속성으로 version >= 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용 하는 방법을 보여 줍니다.
+> Azure App Service에 사용할 유추 구성을 만드는 경우 [환경](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) 개체를 사용 해야 합니다. 사용자 지정 환경을 정의 하는 경우 pip 종속성으로 version >= 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 다음 예제에서는 환경 개체를 만들고 유추 구성에서 사용 하는 방법을 보여 줍니다.
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -101,7 +101,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 
 ## <a name="create-the-image"></a>이미지 만들기
 
-Azure App Service에 배포 되는 Docker 이미지를 만들려면 [모델인 패키지](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-)를 사용 합니다. 다음 코드 조각에서는 모델 및 유추 구성에서 새 이미지를 작성 하는 방법을 보여 줍니다.
+Azure App Service에 배포 되는 Docker 이미지를 만들려면 [모델인 패키지](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-)를 사용 합니다. 다음 코드 조각에서는 모델 및 유추 구성에서 새 이미지를 작성 하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 이 코드 조각에서는에 `model` 등록 된 모델이 포함 되어 있고 `inference_config` 유추 환경에 대 한 구성이 포함 되어 있다고 가정 합니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)를 참조 하세요.

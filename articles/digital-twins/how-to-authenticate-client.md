@@ -8,12 +8,12 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: c211c0e5ef0b39f778db7c922fafc735e2411068
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 88f74bcc93d640ec8d4d9014c6f25a6d0d0df680
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930046"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614000"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 
@@ -25,7 +25,7 @@ ms.locfileid: "88930046"
 
 Azure digital Twins의 Api 및 Sdk에 대 한 자세한 내용은 [*방법: Azure 디지털 쌍 api 및 Sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 먼저 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-scripted.md)에서 설정 단계를 완료 합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에 게 액세스 권한이 있으며 클라이언트 응용 프로그램에 대 한 사용 권한을 설정 하 게 됩니다. 이 설정이 완료 되 면 클라이언트 앱 코드를 작성할 준비가 된 것입니다.
 
@@ -34,7 +34,7 @@ Azure digital Twins의 Api 및 Sdk에 대 한 자세한 내용은 [*방법: Azur
 ## <a name="authentication-and-client-creation-net-c-sdk"></a>인증 및 클라이언트 만들기: .NET (c #) SDK
 
 먼저 .NET SDK 및 인증 도구를 사용 하기 위해 프로젝트에 다음 패키지를 포함 합니다.
-* `Azure.DigitalTwins.Core` (버전 `1.0.0-preview.2` )
+* `Azure.DigitalTwins.Core`
 * `Azure.Identity`
 
 선택한 도구에 따라 Visual Studio 패키지 관리자 또는 명령줄 도구를 사용 하 여 패키지를 포함할 수 있습니다 `dotnet` . 
@@ -104,7 +104,7 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 
 이 섹션에서는이 경우 인증 하는 방법을 설명 합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
 먼저 [*방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기*](how-to-create-custom-sdks.md)의 단계에 따라 AutoRest를 사용 하 여 사용자 지정 sdk를 만드는 단계를 완료 해야 합니다.
 

@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 8b20a0815ab16a3713d640a25171e440a8330dd1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 6744bbf2e77fa0ec275350678e75ff094eec82e0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230316"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650384"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>ML 파이프라인 단계로/단계 간에 데이터 이동(Python)
 
@@ -33,7 +33,7 @@ ms.locfileid: "89230316"
 - 유지 하려는 새 `Dataset` 개체 `PipelineData` 만들기
 
 > [!TIP]
-> 파이프라인 단계 간에 임시 데이터를 전달 하 고 파이프라인 실행 후 데이터를 유지 하기 위한 향상 된 환경은 공개 미리 보기 클래스인 및에서 사용할 수 있습니다  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) .  이러한 클래스는 [실험적](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다.
+> 파이프라인 단계 간에 임시 데이터를 전달 하 고 파이프라인 실행 후 데이터를 유지 하기 위한 향상 된 환경은 공개 미리 보기 클래스인 및에서 사용할 수 있습니다  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py&preserve-view=true) .  이러한 클래스는 [실험적](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=truestable-vs-experimental) 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다.
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -42,7 +42,7 @@ ms.locfileid: "89230316"
 
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-- [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 또는 [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 대한 액세스 권한
+- [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 또는 [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 대한 액세스 권한
 
 - Azure Machine Learning 작업 영역
   
@@ -61,7 +61,7 @@ ms.locfileid: "89230316"
 
 ## <a name="use-dataset-objects-for-pre-existing-data"></a>`Dataset`기존 데이터에 대 한 개체 사용 
 
-파이프라인으로 데이터를 수집 하는 기본 방법은 [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) 개체를 사용 하는 것입니다. `Dataset` 개체는 작업 영역 전체에서 사용할 수 있는 영구적 데이터를 나타냅니다.
+파이프라인으로 데이터를 수집 하는 기본 방법은 [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true) 개체를 사용 하는 것입니다. `Dataset` 개체는 작업 영역 전체에서 사용할 수 있는 영구적 데이터를 나타냅니다.
 
 개체를 만들고 등록 하는 방법에는 여러 가지가 있습니다 `Dataset` . 테이블 형식 데이터 집합은 하나 이상의 파일에서 사용할 수 있는 구분 된 데이터에 대 한 것입니다. 파일 데이터 집합은 이진 데이터 (예: 이미지) 또는 구문 분석 하는 데이터에 대 한 것입니다. 개체를 만드는 가장 간단한 프로그래밍 방법은 `Dataset` 작업 영역 저장소 또는 공용 url에서 기존 blob을 사용 하는 것입니다.
 
@@ -152,7 +152,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-pipelinedata-for-intermediate-data"></a>`PipelineData`중간 데이터에 사용
 
-`Dataset`개체가 영구 데이터를 나타내지만 파이프라인 단계에서 출력 되는 임시 데이터에 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 개체가 사용 됩니다. 개체의 수명은 `PipelineData` 단일 파이프라인 단계 보다 길기 때문에 파이프라인 정의 스크립트에서 정의 합니다. 개체를 만들 때 `PipelineData` 데이터를 저장할 이름 및 데이터 저장소를 제공 해야 합니다. `PipelineData` `PythonScriptStep` 및 인수를 _모두_ 사용 하 여 개체를에 전달 합니다 `arguments` `outputs` .
+`Dataset`개체가 영구 데이터를 나타내지만 파이프라인 단계에서 출력 되는 임시 데이터에 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) 개체가 사용 됩니다. 개체의 수명은 `PipelineData` 단일 파이프라인 단계 보다 길기 때문에 파이프라인 정의 스크립트에서 정의 합니다. 개체를 만들 때 `PipelineData` 데이터를 저장할 이름 및 데이터 저장소를 제공 해야 합니다. `PipelineData` `PythonScriptStep` 및 인수를 _모두_ 사용 하 여 개체를에 전달 합니다 `arguments` `outputs` .
 
 ```python
 
@@ -177,7 +177,8 @@ PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", outpu
 ```
 
 > [!TIP]
-> 파이프라인 단계 사이에 중간 데이터를 전달 하는 향상 된 환경은 공개 미리 보기 클래스인에서 사용할 수 있습니다 `OutputFileDatasetConfig` . `OutputFileDatasetConfig` [SDK 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py)의 디자인 패턴 및 메서드에 대해 자세히 알아보세요.
+> 파이프라인 단계 사이에 중간 데이터를 전달 하는 향상 된 환경은 공개 미리 보기 클래스인에서 사용할 수 있습니다 [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . 를 사용 하는 코드 예제는 `OutputFileDatasetConfig` [두 단계 ML 파이프라인을 빌드하](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)는 방법을 참조 하세요.
+
 
 ### <a name="use-pipelinedata-as-outputs-of-a-training-step"></a>`PipelineData`학습 단계의 출력으로 사용
 파이프라인의에서 `PythonScriptStep` 프로그램의 인수를 사용 하 여 사용 가능한 출력 경로를 검색할 수 있습니다. 이 단계가 첫 번째이 고 출력 데이터를 초기화 하는 경우 지정 된 경로에 디렉터리를 만들어야 합니다. 그런 다음에 포함 하려는 모든 파일을 작성할 수 있습니다 `PipelineData` .
@@ -192,7 +193,7 @@ with open(args.output_path, 'w') as f:
     f.write("Step 1's output")
 ```
 
-인수를로 설정 하 여를 만든 경우 `PipelineData` `is_directory` 호출을 수행 하기만 하면 되므로 `True` `os.makedirs()` 경로에 원하는 모든 파일을 자유롭게 작성할 수 있습니다. 자세한 내용은 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 참조 설명서를 참조 하세요.
+인수를로 설정 하 여를 만든 경우 `PipelineData` `is_directory` 호출을 수행 하기만 하면 되므로 `True` `os.makedirs()` 경로에 원하는 모든 파일을 자유롭게 작성할 수 있습니다. 자세한 내용은 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) 참조 설명서를 참조 하세요.
 
 
 ### <a name="read-pipelinedata-as-inputs-to-non-initial-steps"></a>`PipelineData`초기 단계가 아닌 단계에 대 한 입력으로 읽기
@@ -227,7 +228,7 @@ pipeline = Pipeline(workspace=ws, steps=[step1, step2])
 입력 값은 `PipelineData` 이전 출력의 경로입니다. 
 
 > [!TIP]
-> 파이프라인 단계 사이에 중간 데이터를 전달 하는 향상 된 환경은 공개 미리 보기 클래스인에서 사용할 수 있습니다 `OutputFileDatasetConfig` . `OutputFileDatasetConfig` [SDK 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py)의 디자인 패턴 및 메서드에 대해 자세히 알아보세요.
+> 파이프라인 단계 사이에 중간 데이터를 전달 하는 향상 된 환경은 공개 미리 보기 클래스인에서 사용할 수 있습니다 [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . 를 사용 하는 코드 예제는 `OutputFileDatasetConfig` [두 단계 ML 파이프라인을 빌드하](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)는 방법을 참조 하세요.
 
 이전에 표시 된 것 처럼, 첫 번째 단계는 단일 파일을 작성 하 고 사용 하는 것 처럼 보일 수 있습니다. 
 
@@ -249,7 +250,7 @@ step1_output_ds.register(name="processed_data", create_new_version=True)
 
 ```
 > [!TIP]
-> 파이프라인 실행 외부에서 중간 데이터를 유지 하기 위한 향상 된 환경은 공개 미리 보기 클래스인에서 사용할 수 있습니다 `OutputFileDatasetConfig` . `OutputFileDatasetConfig` [SDK 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py)의 디자인 패턴 및 메서드에 대해 자세히 알아보세요.
+> 파이프라인 실행 외부에서 중간 데이터를 유지 하기 위한 향상 된 환경은 공개 미리 보기 클래스인에서 사용할 수 있습니다 [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . 를 사용 하는 코드 예제는 `OutputFileDatasetConfig` [두 단계 ML 파이프라인을 빌드하](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)는 방법을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

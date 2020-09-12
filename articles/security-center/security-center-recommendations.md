@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6363100c844d071a3bb47521cec6ff7e988f6af8
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 11043d6686bd762b1c0a9827c7edb2230487cc72
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263230"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595447"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure Security Center의 보안 권장 사항 
 이 항목에서는 Azure 리소스를 보호 하는 데 도움이 되는 Azure Security Center의 권장 사항을 확인 하 고 이해 하는 방법을 설명 합니다.
@@ -57,6 +57,7 @@ Security Center는 리소스의 보안 상태를 분석 하 여 잠재적인 취
 
     페이지에는 다음이 포함 됩니다.
 
+    - 지원 되는 권장 사항에 대 한 **적용** 및 **거부** 단추 ( [적용/거부 권장 구성으로 잘못 된 구성 방지](prevent-misconfigurations.md)참조)
     - **심각도 표시기**
     - **새로 고침 간격**  (관련 된 경우) 
     - **설명** -문제에 대 한 간단한 설명입니다.
@@ -68,10 +69,19 @@ Security Center는 리소스의 보안 상태를 분석 하 여 잠재적인 취
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="이유가 있는 해당 리소스가 아닙니다.":::
 
+## <a name="preview-recommendations"></a>미리 보기 권장 사항
 
+**미리 보기로** 플래그가 지정 된 권장 사항은 보안 점수 계산에 포함 되지 않습니다.
+
+가능 하면 항상 재구성 해야 하므로 미리 보기 기간이 종료 되 면 점수를 매길 수 있습니다.
+
+미리 보기 권장 사항의 예는 다음과 같습니다.
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그를 사용 하는 권장 사항":::
  
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 보안 센터의 보안 권장 사항을 소개했습니다. 권장 사항을 수정 하는 방법을 알아보려면 다음을 수행 하십시오.
 
-* [권장 사항](security-center-remediate-recommendations.md) 수정-Azure 구독 및 리소스 그룹에 대 한 보안 정책을 구성 하는 방법을 알아봅니다.
+- [권장 사항](security-center-remediate-recommendations.md) 수정-Azure 구독 및 리소스 그룹에 대 한 보안 정책을 구성 하는 방법을 알아봅니다.
+- [강제 적용/거부 권장 구성으로 잘못 된 구성을 방지](prevent-misconfigurations.md)합니다.

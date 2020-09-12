@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d957da572bfdd3119dda506ac8f5bb42064d7758
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a488e2499b92b290ad2b55120c3c70a18d45d426
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020306"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613947"
 ---
 # <a name="components"></a>구성 요소
 
@@ -53,7 +53,6 @@ lightComponent->Destroy();
 lightComponent = nullptr;
 ```
 
-
 구성 요소는 생성 시 엔터티에 연결됩니다. 나중에 다른 엔터티로 이동할 수 없습니다. 구성 요소는 구성 요소 소유자 엔터티가 제거될 때 `Component.Destroy()`를 사용하여 명시적으로 삭제되거나 자동으로 삭제됩니다.
 
 한 번에 각 구성 요소 형식에서 단 하나의 인스턴스만 엔터티에 추가할 수 있습니다.
@@ -61,6 +60,15 @@ lightComponent = nullptr;
 ## <a name="unity-specific"></a>Unity 관련
 
 Unity 통합에는 구성 요소와의 상호 작용에 필요한 추가 확장 기능이 있습니다. [Unity 게임 개체 및 구성 요소](../how-tos/unity/objects-components.md)를 참조하세요.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # Componentbase](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.componentbase)
+* [C # RemoteManager CreateComponent ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createcomponent)
+* [C # Entity. FindComponentOfType ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity.findcomponentoftype)
+* [C + + ComponentBase](https://docs.microsoft.com/cpp/api/remote-rendering/componentbase)
+* [C + + RemoteManager:: CreateComponent ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createcomponent)
+* [C + + Entity:: FindComponentOfType ()](https://docs.microsoft.com/cpp/api/remote-rendering/entity#findcomponentoftype)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,18 +9,18 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056382"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500133"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Kubernetes에 자체 호스팅 게이트웨이 배포
 
 이 문서에서는 Kubernetes 클러스터에 Azure API Management 자체 호스팅 게이트웨이 구성 요소를 배포 하는 단계를 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 - Kubernetes 클러스터를 만듭니다.
@@ -63,7 +63,7 @@ ms.locfileid: "87056382"
 ## <a name="production-deployment-considerations"></a>프로덕션 배포 고려 사항
 
 ### <a name="access-token"></a>액세스 토큰
-유효한 액세스 토큰이 없으면 자체 호스팅 게이트웨이에서 연결 된 API Management 서비스의 끝점에서 구성 데이터에 액세스 하 고 해당 데이터를 다운로드할 수 없습니다. 액세스 토큰은 최대 30 일간 유효 합니다. 이를 다시 생성 해야 하며, 수동으로 또는 자동화를 통해 새 토큰으로 클러스터를 구성 해야 합니다. 
+유효한 액세스 토큰이 없으면 자체 호스팅 게이트웨이에서 연결 된 API Management 서비스의 끝점에서 구성 데이터에 액세스 하 고 해당 데이터를 다운로드할 수 없습니다. 액세스 토큰은 최대 30 일간 유효 합니다. 이를 다시 생성 해야 하며, 수동으로 또는 자동화를 통해 새 토큰으로 클러스터를 구성 해야 합니다.
 
 토큰 새로 고침을 자동화 하는 경우 [이 관리 API 작업](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) 을 사용 하 여 새 토큰을 생성 합니다. Kubernetes 암호 관리에 대 한 자세한 내용은 [Kubernetes 웹 사이트](https://kubernetes.io/docs/concepts/configuration/secret)를 참조 하세요.
 
@@ -106,6 +106,9 @@ DNS 이름 확인은 Azure에서 종속성에 연결 하 고 백 엔드 서비�
 Azure Portal에 제공 된 YAML 파일은 기본 [Clusterfirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) 정책을 적용 합니다. 이 정책을 통해 클러스터 DNS에서 확인 하지 못한 이름 확인 요청이 노드에서 상속 된 업스트림 DNS 서버로 전달 됩니다.
 
 Kubernetes의 이름 확인에 대 한 자세한 내용은 [Kubernetes 웹 사이트](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service)를 참조 하세요. 설치에 적합 한 [dns 정책](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) 또는 [dns 구성을](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) 사용자 지정 하는 것이 좋습니다.
+
+### <a name="external-traffic-policy"></a>외부 트래픽 정책
+Azure Portal에 제공 된 YAML 파일은 `externalTrafficPolicy` [서비스](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#service-v1-core) 개체의 필드를로 설정 `Local` 합니다. 이는 호출자 IP 주소 ( [요청 컨텍스트에서](api-management-policy-expressions.md#ContextVariables)액세스 가능)를 유지 하 고 노드 간 부하 분산을 사용 하지 않도록 설정 하 여 네트워크 홉의 발생을 제거 합니다. 이 설정을 사용 하면 노드당 게이트웨이 pod 수를 균등 하 게 배포 하는 트래픽의 비대칭 배포가 발생할 수 있습니다.
 
 ### <a name="custom-domain-names-and-ssl-certificates"></a>사용자 지정 도메인 이름 및 SSL 인증서
 

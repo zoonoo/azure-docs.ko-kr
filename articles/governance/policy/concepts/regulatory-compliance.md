@@ -3,12 +3,12 @@ title: 이니셔티브 정의의 규정 준수
 description: 이니셔티브 정의를 사용 하 여 Access Control, 구성 관리 등의 규정 도메인별 정책을 그룹화 하는 방법을 설명 합니다.
 ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 296febc1aad62d06c8e9dfcf4f285b16cacf0a40
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 15b03b5a40cba1290859b02883df70e3df54c5cf
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544624"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645528"
 ---
 # <a name="regulatory-compliance-in-azure-policy"></a>Azure Policy의 규정 준수
 
@@ -33,18 +33,18 @@ Microsoft에서 담당 하는 컨트롤은 `type` [정적](./definition-structur
 
 새 **탭이 페이지에 추가 됩니다.** 필터링은 **규정 준수 도메인** 에서 사용할 수 있으며 정책 정의는 `title` **policymetadata** 개체의 필드를 기준으로 그룹화 됩니다. 각 행은 준수 상태,이를 포함 하는 **규정 준수 도메인** , 책임 정보 및 해당 **컨트롤**을 구성 하는 비규격 및 규격 정책 정의의 수를 표시 하는 **컨트롤** 을 나타냅니다.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="NIST SP 800-53 4. 기본 제공 정의에 대 한 규정 준수 개요 샘플입니다.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-overview.png" alt-text="규격 및 비규격 컨트롤을 보여 주는 NIST SP 800-53 4. 기본 제공 정의에 대 한 규정 준수 개요의 스크린샷":::
 
 **컨트롤** 을 선택 하면 해당 컨트롤에 대 한 세부 정보 페이지가 열립니다. **개요** 에는 및의 정보가 포함 되어 있습니다 `description` `requirements` . **정책** 탭에는이 **컨트롤**에 기여 하는 이니셔티브의 개별 정책 정의가 모두 있습니다. **리소스 준수** 탭은 현재 표시 된 **컨트롤**의 멤버 정책에 의해 평가 되는 각 리소스에 대 한 세부적인 뷰를 제공 합니다.
 
 > [!NOTE]
 > **Microsoft에서 관리** 하는 평가 유형은 [정적](./definition-structure.md#type) 정책 정의를 위한 것입니다 `type` .
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="NIST SP 800-53 4, 기본 제공 정의의 시스템 및 통신 보호 도메인에 대 한 경계 보호 제어의 규정 준수 정책 정의 샘플입니다.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="NIST SP 800-53 4, 기본 제공 정의의 경계 보호 제어에 대 한 규제 준수 정보의 스크린샷":::
 
 동일한 **컨트롤** 페이지에서 **리소스 준수** 탭으로 변경 하면이 **컨트롤**의 정책 정의에 포함 된 모든 리소스가 표시 됩니다. 이름 또는 ID, 준수 상태, 리소스 유형 및 위치에 대 한 필터를 사용할 수 있습니다.
 
-:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="NIST SP 800-53 4. 기본 제공 정의의 시스템 및 통신 보호 도메인에 대 한 경계 보호 제어에서 정책 정의의 영향을 받는 규제 준수 리소스의 샘플입니다.":::
+:::image type="content" source="../media/regulatory-compliance/regulatory-compliance-resources.png" alt-text="NIST SP 800-53 4, 기본 제공 정의의 경계 보호 제어에 대 한 리소스 준수의 스크린샷":::
 
 ## <a name="regulatory-compliance-in-sdk"></a>SDK의 규정 준수
 

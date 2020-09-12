@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 18c7e5b3a1401540d7a94186fda647d413d562c0
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 44fe71f575a32ccc1a687bc87793cb6a8b6508a9
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723846"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650625"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Azure ML 학습 실행에서 로깅 사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,17 +37,17 @@ Azure Machine Learning Python SDK를 사용 하면 기본 Python 로깅 패키�
 
 ## <a name="data-types"></a>데이터 형식
 
-스칼라 값, 목록, 테이블, 이미지, 디렉터리 등을 비롯 한 여러 데이터 형식에 기록할 수 있습니다. 다른 데이터 형식에 대 한 자세한 내용 및 Python 코드 예제는 [클래스 참조 실행 페이지](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)를 참조 하세요.
+스칼라 값, 목록, 테이블, 이미지, 디렉터리 등을 비롯 한 여러 데이터 형식에 기록할 수 있습니다. 다른 데이터 형식에 대 한 자세한 내용 및 Python 코드 예제는 [클래스 참조 실행 페이지](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true)를 참조 하세요.
 
 ## <a name="interactive-logging-session"></a>대화형 로깅 세션
 
-대화형 로깅 세션은 일반적으로 노트북 환경에서 사용 됩니다. [Start_logging ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) 메서드는 대화형 로깅 세션을 시작 합니다. 세션 중에 기록 된 모든 메트릭은 실험에서 실행 레코드에 추가 됩니다. [Run. complete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) 메서드는 세션을 종료 하 고 실행을 완료 된 것으로 표시 합니다.
+대화형 로깅 세션은 일반적으로 노트북 환경에서 사용 됩니다. [Start_logging ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) 메서드는 대화형 로깅 세션을 시작 합니다. 세션 중에 기록 된 모든 메트릭은 실험에서 실행 레코드에 추가 됩니다. [Run. complete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) 메서드는 세션을 종료 하 고 실행을 완료 된 것으로 표시 합니다.
 
 ## <a name="scriptrunconfig-logs"></a>ScriptRunConfig 로그
 
-이 섹션에서는 ScriptConfig 실행 내의 로깅 코드를 추가 하는 방법에 대해 알아봅니다. [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) 클래스를 사용 하 여 반복 실행을 위한 스크립트 및 환경을 캡슐화 할 수 있습니다. 이 옵션을 사용 하 여 모니터링을 위한 시각적 Jupyter 노트북 위젯을 표시할 수도 있습니다.
+이 섹션에서는 ScriptConfig 실행 내의 로깅 코드를 추가 하는 방법에 대해 알아봅니다. [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) 클래스를 사용 하 여 반복 실행을 위한 스크립트 및 환경을 캡슐화 할 수 있습니다. 이 옵션을 사용 하 여 모니터링을 위한 시각적 Jupyter 노트북 위젯을 표시할 수도 있습니다.
 
-이 예에서는 알파 값에 대 한 매개 변수 스윕를 수행 하 고 [run .log ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#log-name--value--description----) 메서드를 사용 하 여 결과를 캡처합니다.
+이 예에서는 알파 값에 대 한 매개 변수 스윕를 수행 하 고 [run .log ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truelog-name--value--description----) 메서드를 사용 하 여 결과를 캡처합니다.
 
 1. 로깅 논리를 포함 하는 학습 스크립트를 만듭니다 `train.py` .
 

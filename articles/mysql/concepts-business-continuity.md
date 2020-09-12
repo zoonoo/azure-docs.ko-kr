@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: 74fdfb9f3a3f59f55b0f0ed4865601c0ddb7b7f2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b21062256896ebfc9c11b031413538b39620d1e7
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241967"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613974"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Azure Database for MySQL의 비즈니스 연속성 이해
 
@@ -19,11 +19,11 @@ ms.locfileid: "86241967"
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>비즈니스 연속성을 제공하는 데 사용할 수 있는 기능
 
-Azure Database for MySQL에는 자동화된 백업 및 사용자가 지역 복원을 시작할 수 있는 기능을 포함하는 비즈니스 연속성 기능이 제공됩니다. 이러한 기능은 ERT(예상 복구 시간) 및 잠재적 데이터 손실에 대해 각기 다른 특성이 있습니다. 이러한 옵션을 이해하면 적절한 옵션을 선택하여 다양한 시나리오에 함께 사용할 수 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트 후 애플리케이션이 완벽하게 복구되기까지 허용되는 최대 시간 즉, RTO(복구 시간 목표)를 이해해야 합니다. 중단 이벤트 후 복구될 때 애플리케이션이 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 크기(시간 간격)인 RPO(복구 지점 목표)도 이해해야 합니다.
+Azure Database for MySQL에는 자동화된 백업 및 사용자가 지역 복원을 시작할 수 있는 기능을 포함하는 비즈니스 연속성 기능이 제공됩니다. 이러한 기능은 ERT(예상 복구 시간) 및 잠재적 데이터 손실에 대해 각기 다른 특성이 있습니다. ERT (예상 복구 시간)는 복원/장애 조치 (failover) 요청 후 데이터베이스가 완전 하 게 작동 하는 데 예상 되는 기간입니다. 이러한 옵션을 이해하면 적절한 옵션을 선택하여 다양한 시나리오에 함께 사용할 수 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트 후 애플리케이션이 완벽하게 복구되기까지 허용되는 최대 시간 즉, RTO(복구 시간 목표)를 이해해야 합니다. 중단 이벤트 후 복구될 때 애플리케이션이 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 크기(시간 간격)인 RPO(복구 지점 목표)도 이해해야 합니다.
 
 다음 표에서는 ERT와 RPO에서 사용 가능한 기능을 비교합니다.
 
-| **기능** | **Basic** | **일반 용도** | **메모리 최적화** |
+| **기능** | **기본** | **일반 용도** | **메모리에 최적화** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 백업에서 특정 시점 복원 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 |
 | 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | ERT < 12시간<br/>RPO < 1시간 | ERT < 12시간<br/>RPO < 1시간 |

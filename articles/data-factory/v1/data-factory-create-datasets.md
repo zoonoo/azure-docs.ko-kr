@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 13ee8c5166e3b31ec186ca9aa2702d15de36e09f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ddb99fd7a7ce8265a6e9c63555cd6a226caacc4c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522400"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440731"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Azure Data Factory의 데이터 집합 (버전 1)
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -32,7 +32,7 @@ ms.locfileid: "86522400"
 > Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](data-factory-introduction.md)를 참조하세요. 데이터 팩터리를 실제로 만들어 본 경험이 없는 경우 [데이터 변환 자습서](data-factory-build-your-first-pipeline.md) 및 [데이터 이동 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하면 더 나은 이해를 얻을 수 있습니다.
 
 ## <a name="overview"></a>개요
-데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. **파이프라인**은 함께 하나의 작업을 수행하는 **활동**의 논리적 그룹화입니다. 파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어 복사 작업을 사용 하 여 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사할 수 있습니다. 그런 다음 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 Hive 활동을 사용하여 출력 데이터를 생성하도록 Blob Storage의 데이터를 처리합니다. 마지막으로 두 번째 복사 활동을 사용하여 BI(비즈니스 인텔리전스) 보고 솔루션의 기반이 되는 Azure SQL Data Warehouse로 출력 데이터를 복사합니다. 파이프라인 및 활동에 대 한 자세한 내용은 [Azure Data Factory 파이프라인 및 활동](data-factory-create-pipelines.md)을 참조 하세요.
+데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. **파이프라인**은 함께 하나의 작업을 수행하는 **활동**의 논리적 그룹화입니다. 파이프라인의 활동은 데이터에 수행할 작업을 정의합니다. 예를 들어 복사 작업을 사용 하 여 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사할 수 있습니다. 그런 다음 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 Hive 활동을 사용하여 출력 데이터를 생성하도록 Blob Storage의 데이터를 처리합니다. 마지막으로 두 번째 복사 작업을 사용 하 여 BI (비즈니스 인텔리전스) 보고 솔루션을 기반으로 하는 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 출력 데이터를 복사할 수 있습니다. 파이프라인 및 활동에 대 한 자세한 내용은 [Azure Data Factory 파이프라인 및 활동](data-factory-create-pipelines.md)을 참조 하세요.
 
 활동은 0 개 이상의 입력 **데이터 집합**을 사용 하 고 하나 이상의 출력 데이터 집합을 생성할 수 있습니다. 파이프라인에서 입력 데이터 세트는 활동에 대한 입력을 나타내고, 출력 데이터 세트는 활동에 대한 출력을 나타냅니다. 데이터 세트는 테이블, 파일, 폴더, 문서를 비롯한 다양한 데이터 저장소 내의 데이터를 식별합니다. 예를 들어 Azure Blob 데이터 세트은 파이프라인에서 데이터를 읽어들여야 하는 Blob Storage의 Blob 컨테이너와 폴더를 지정합니다.
 
@@ -77,7 +77,7 @@ Data Factory의 데이터 세트는 다음과 같이 JSON 형식으로 정의됩
 
 다음 표에서는 위의 JSON에서 속성을 설명합니다.
 
-| 속성 | 설명 | 필요한 공간 | 기본값 |
+| 속성 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
 | name |데이터 세트의 이름입니다. 명명 규칙은 [Azure Data Factory - 명명 규칙](data-factory-naming-rules.md) 을 참조하세요. |예 |해당 없음 |
 | type |데이터 세트의 형식입니다. Data Factory에서 지원하는 형식(예: AzureBlob, AzureSqlTable) 중 하나를 지정합니다. <br/><br/>자세한 내용은 [데이터 집합 형식](#Type)을 참조 하세요. |예 |해당 없음 |
@@ -141,7 +141,7 @@ Data Factory의 데이터 세트는 다음과 같이 JSON 형식으로 정의됩
 > [!IMPORTANT]
 > 데이터 세트가 파이프라인에서 생성되지 않으면 **external**로 표시되어야 합니다. 이 설정은 파이프라인에서 첫 번째 작업의 입력에 일반적으로 적용됩니다.
 
-## <a name="dataset-type"></a><a name="Type"></a>데이터 집합 형식
+## <a name="dataset-type"></a><a name="Type"></a> 데이터 집합 형식
 데이터 세트의 형식은 사용하는 데이터 저장소에 따라 달라집니다. Data Factory에서 지원하는 데이터 저장소 목록은 다음 표를 참조하세요. 해당 데이터 저장소에 대해 연결된 서비스 및 데이터 세트를 만드는 방법을 알아보려면 데이터 저장소를 클릭합니다.
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
@@ -231,7 +231,7 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 
 다음 표에서는 availability 섹션에서 사용할 수 있는 속성을 설명합니다.
 
-| 속성 | 설명 | 필요한 공간 | 기본값 |
+| 속성 | 설명 | 필수 | 기본값 |
 | --- | --- | --- | --- |
 | frequency |데이터 세트 조각 생성을 위한 시간 단위를 지정합니다.<br/><br/><b>지원되는 빈도</b>: 분, 시, 일, 주, 월 |예 |해당 없음 |
 | interval |빈도에 대한 승수를 지정합니다.<br/><br/>"frequency x interval"은 조각을 생성하는 빈도를 결정합니다. 예를 들어 데이터 세트를 매시간 조각화해야 하는 경우 <b>frequency</b>를 <b>Hour</b>로, <b>interval</b>을 <b>1</b>로 설정합니다.<br/><br/>**frequency**를 **Minute**로 지정하는 경우 interval을 15 이상으로 설정해야 합니다. |예 |해당 없음 |
@@ -278,7 +278,7 @@ structure의 각 열에는 다음과 같은 속성이 포함됩니다.
 데이터 세트 정의의 **policy** 섹션은 데이터 세트 조각이 충족해야 하는 기준 또는 조건을 정의합니다.
 
 ### <a name="validation-policies"></a>정책 유효성 검사
-| 정책 이름 | 설명 | 적용 대상 | 필요한 공간 | 기본값 |
+| 정책 이름 | 설명 | 적용 대상 | 필수 | 기본값 |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |**Azure Blob Storage**의 데이터가 최소 크기 요구 사항(MB)을 충족하는지 확인합니다. |Azure Blob Storage |아니요 |해당 없음 |
 | minimumRows |**Azure SQL 데이터베이스** 또는 **Azure 테이블**에서 데이터가 최소 행 수를 포함하는지 확인합니다. |<ul><li>Azure SQL Database</li><li>Azure 테이블</li></ul> |아니요 |해당 없음 |

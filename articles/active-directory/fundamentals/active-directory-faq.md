@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d88873dafd5a3ffac3f0135d877ff407427ffd6f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: afb6adc38fd44366b837119518622dd8931f9096
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179864"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565568"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Azure Active Directory에 대해 자주 묻는 질문과 대답
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -29,21 +29,21 @@ Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 �
 ## <a name="access-azure-and-azure-active-directory"></a>Azure 및 Azure Active Directory 액세스
 **Q: Azure Portal에서 Azure AD에 액세스하려고 할 때 “구독을 찾을 수 없음”이 표시되는 이유는 무엇인가요?**
 
-**A:** Azure Portal에 액세스하려면 각 사용자에게 Azure 구독을 통한 권한이 필요합니다. 유료 Office 365 또는 Azure AD 구독이 없는 경우 무료 [Azure 계정](https://azure.microsoft.com/free/
-) 또는 유료 구독을 활성화해야 합니다.
+**A:** Azure Portal에 액세스하려면 각 사용자에게 Azure 구독을 통한 권한이 필요합니다. 유료 Microsoft 365 또는 Azure AD 구독이 없는 경우 무료 [Azure 계정](https://azure.microsoft.com/free/
+) 또는 유료 구독을 활성화 해야 합니다.
 
 자세한 내용은 다음을 참조하세요.
 
 * [Azure 구독과 Azure Active Directory의 연관 관계](active-directory-how-subscriptions-associated-directory.md)
 
 ---
-**Q: Azure AD, Office 365와 Azure 간에는 어떤 관계가 있나요?**
+**Q: Azure AD, Microsoft 365 및 Azure 간의 관계는 무엇 인가요?**
 
-**A:** Azure AD는 모든 웹 서비스에 공통 ID 및 액세스 기능을 제공합니다. Office 365, Microsoft Azure, Intune 또는 기타 제품을 사용하든지 이러한 모든 서비스에 대해 로그온 및 액세스 관리 설정을 지원하는 데 Azure AD를 이미 사용 중입니다.
+**A:** Azure AD는 모든 웹 서비스에 공통 ID 및 액세스 기능을 제공합니다. Microsoft 365, Microsoft Azure, Intune 등을 사용 하는지에 관계 없이 Azure AD를 사용 하 여 이러한 모든 서비스에 대 한 로그온 및 액세스 관리를 설정 하는 데 도움이 됩니다.
 
 웹 서비스를 사용하도록 설정된 모든 사용자는 하나 이상의 Azure AD 인스턴스에 사용자 계정으로 정의되어 있습니다. 클라우드 애플리케이션 액세스와 같은 무료 Azure AD 기능에 이러한 계정을 설정할 수 있습니다.
 
-Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적인 엔터프라이즈 규모 관리 및 보안 솔루션을 통해 Office 365 및 Microsoft Azure와 같은 기타 웹 서비스를 보완합니다.
+Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적인 엔터프라이즈 규모 관리 및 보안 솔루션을 사용 하 여 Microsoft 365 및 Microsoft Azure와 같은 다른 웹 서비스를 보완 합니다.
 
 ---
 
@@ -55,7 +55,7 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 
 기본적으로 Azure 구독에 등록하는 사람에게는 디렉터리에 대한 글로벌 관리자 역할이 할당됩니다. 글로벌 관리자는 모든 Azure AD 디렉터리 기능에 액세스할 수 있습니다. Azure AD는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리자 역할 집합을 가지고 있습니다. 이러한 관리자는 Azure Portal의 다양한 기능에 대한 액세스 권한을 갖게 됩니다. 관리자의 역할은 사용자 만들기 또는 편집, 다른 사람에게 관리자 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 또는 도메인 관리와 같이 관리자가 수행할 수 있는 업무를 결정합니다.  Azure AD 디렉터리 관리자 및 그 역할에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md) 및 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
-또한, Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적인 엔터프라이즈 규모 관리 및 보안 솔루션을 통해 Office 365 및 Microsoft Azure와 같은 기타 웹 서비스를 보완합니다.
+또한 Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적인 엔터프라이즈 규모 관리 및 보안 솔루션을 통해 Microsoft 365 및 Microsoft Azure와 같은 다른 웹 서비스를 보완 합니다.
 
 ---
 **Q: 보고서에서 내 Azure AD 사용자 라이선스가 만료되는 시기를 표시하나요?**
@@ -90,16 +90,16 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 ---
 **Q: Azure AD에서 내 조직의 사용자에 대한 셀프 서비스 포털을 제공하나요?**
 
-**A:** 예, Azure AD는 사용자 셀프 서비스 및 애플리케이션 액세스를 위해 [Azure AD 액세스 패널](https://myapps.microsoft.com)을 제공합니다. Office 365 고객인 경우 [Office 365 포털](https://portal.office.com)에서 동일한 많은 기능을 찾을 수 있습니다.
+**A:** 예, Azure AD는 사용자 셀프 서비스 및 애플리케이션 액세스를 위해 [Azure AD 액세스 패널](https://myapps.microsoft.com)을 제공합니다. Microsoft 365 고객 인 경우 [Office 365 포털](https://portal.office.com)에서 동일한 많은 기능을 찾을 수 있습니다.
 
-자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
+자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ---
 **Q: Azure AD를 사용하면 내 온-프레미스 인프라를 관리하는 데 도움이 되나요?**
 
 **A:** 예. Azure AD Premium Edition에는 Azure AD Connect Health가 제공됩니다. Azure AD Connect Health를 사용하면 온-프레미스 ID 인프라 및 동기화 서비스를 모니터링하고 파악할 수 있습니다.  
 
-자세한 내용은 [온-프레미스 ID 인프라 및 클라우드 동기화 서비스 모니터링](../hybrid/whatis-hybrid-identity-health.md)을 참고하세요.  
+자세한 내용은 [온-프레미스 ID 인프라 및 클라우드 동기화 서비스 모니터링](../hybrid/whatis-azure-ad-connect.md)을 참고하세요.  
 
 ---
 ## <a name="password-management"></a>암호 관리
@@ -112,7 +112,7 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 
 **A:** 암호 쓰기 저장은 실시간으로 작동됩니다.
 
-자세한 내용은 [암호 관리 시작](../authentication/quickstart-sspr.md)을 참조하세요.
+자세한 내용은 [암호 관리 시작](../authentication/tutorial-enable-sspr.md)을 참조하세요.
 
 ---
 **Q: 관리자가 관리하는 암호로 암호 쓰기 저장을 사용할 수 있나요?**
@@ -121,11 +121,11 @@ Enterprise Mobility + Security와 같은 Azure AD 유료 서비스는 포괄적�
 
 <a name="for-more-answers-to-password-related-questions-see-password-management-frequently-asked-questions"></a>암호와 관련된 질문에 대한 자세한 답변은 [암호 관리 질문과 대답](../authentication/active-directory-passwords-faq.md)을 참조하세요.
 ---
-**Q:  암호 변경을 시도하는 동안 기존 Office 365/Azure AD 암호를 기억할 수 없는 경우 어떻게 해야 하나요?**
+**Q: 암호를 변경 하려고 시도 하는 동안 기존 Microsoft 365/Azure AD 암호를 기억할 수 없는 경우 어떻게 해야 하나요?**
 
 **A:** 이러한 상황에는 두 가지 옵션이 있습니다.  SSPR(셀프 서비스 암호 재설정)을 사용할 수 있으면 사용합니다.  SSPR 작동 여부는 구성 방식에 달려 있습니다.  자세한 내용은 [암호 재설정 포털의 작동 원리](../authentication/howto-sspr-deployment.md)를 참조하세요.
 
-Office 365 사용자의 경우 [사용자 암호 다시 설정](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)에 설명된 단계를 사용하여 관리자가 암호를 재설정할 수 있습니다.
+Microsoft 365 사용자의 경우 관리자는 [사용자 암호 다시 설정](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)에 설명 된 단계를 사용 하 여 암호를 다시 설정할 수 있습니다.
 
 Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호를 재설정할 수 있습니다.
 
@@ -171,7 +171,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 **A:** Azure AD는 다음과 같이 사용자가 자신의 애플리케이션을 보고 액세스할 수 있는 여러 가지 방법을 제공합니다.
 
 * Azure AD 액세스 패널
-* Office 365 애플리케이션 실행 프로그램
+* Microsoft 365 응용 프로그램 시작 관리자
 * 페더레이션된 앱에 직접 로그인
 * 페더레이션된 앱, 암호로 보호된 앱 또는 기존 앱에 대한 딥 링크
 
@@ -184,8 +184,8 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)
-* [Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+* [Azure AD의 인증 시나리오](../develop/authentication-vs-authorization.md)
+* [Active Directory 인증 프로토콜](/previous-versions/azure/dn151124(v=azure.100))
 * [Azure AD의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)
 
 ---
@@ -200,7 +200,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 **A:** Azure AD 조건부 액세스에서는 각 애플리케이션에 대한 고유한 액세스 정책을 할당할 수 있습니다. 정책에서 언제든지 또는 사용자가 로컬 네트워크에 연결되지 않은 경우 Multi-Factor Authentication을 요구할 수 있습니다.  
 
-자세한 내용은 [Azure Active Directory에 연결된 Office 365 및 기타 앱에 대한 액세스 보호](../conditional-access/overview.md)를 참조하세요.
+자세한 내용은 [Azure Active Directory에 연결 된 Microsoft 365 및 기타 앱에 대 한 액세스 보안](../conditional-access/overview.md)을 참조 하세요.
 
 ---
 **Q: SaaS 앱을 위한 자동 사용자 프로비저닝이란?**

@@ -1,6 +1,5 @@
 ---
 title: Azure SQL란?
-titleSuffix: " "
 description: Azure SQL 서비스 제품군의 다양 한 옵션에 대해 알아봅니다. azure VM의 Azure SQL Database, Azure SQL Managed Instance 및 SQL Server.
 services: sql-database
 ms.service: sql-database
@@ -13,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: ff8dd9d10bf5970a5a96080beb51e2c111d481e3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 344e52da8ef41e26ab0bfa7ef8e09a31f5d135ca
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280854"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611836"
 ---
 # <a name="what-is-azure-sql"></a>Azure SQL란? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -32,6 +31,11 @@ Azure SQL은 Azure 클라우드에서 SQL Server 데이터베이스 엔진을 �
 Azure SQL은 친숙 한 SQL Server 엔진을 기반으로 하므로 응용 프로그램을 쉽게 마이그레이션할 수 있으며 친숙 한 도구, 언어 및 리소스를 계속 사용할 수 있습니다. 자신의 기술과 경험이 클라우드로 전송 되므로 이미 보유 한 기능을 사용 하 여 더 많은 작업을 수행할 수 있습니다. 
 
 비즈니스 요구 사항에 적합 한 옵션을 일치 시키기 위해 각 제품이 Microsoft Azure SQL data platform에 어떻게 부합 하는지 알아보세요. 비용 절감 또는 최소 관리의 우선 순위를 지정 하는 경우이 문서를 통해 가장 관심 있는 비즈니스 요구 사항에 대해 제공 하는 방법을 결정 하는 데 도움이 될 수 있습니다.
+
+
+Azure SQL을 처음 접하는 경우 심층 [AZURE sql 비디오 시리즈](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)의 *azure sql* 비디오를 확인 하세요.
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
+
 
 
 ## <a name="overview"></a>개요
@@ -115,7 +119,7 @@ Azure SQL Database는 다음과 같은 배포 옵션을 제공합니다.
 | 온-프레미스 응용 프로그램은 Azure SQL Database의 데이터에 액세스할 수 있습니다. | Azure Express 경로 또는 VPN Gateway를 사용 하 여 [기본 가상 네트워크 구현](managed-instance/vnet-existing-add-subnet.md) 및 온-프레미스 환경에 연결 | SQL 가상 컴퓨터를 사용 하면 클라우드에서 부분적으로 실행 되 고 부분적으로 온-프레미스로 실행 되는 응용 프로그램을 사용할 수 있습니다. 예를 들어 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)를 통해 클라우드로 온-프레미스 네트워크 및 Active Directory 도메인을 확장할 수 있습니다. 하이브리드 클라우드 솔루션에 대한 자세한 내용은 [클라우드로 온-프레미스 데이터 솔루션 확장](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud)을 참조하세요. |
 
 
-## <a name="cost"></a>비용
+## <a name="cost"></a>Cost
 
 현금 strapped 시작 하 든, 예산 제약 조건에 따라 작동 하는 설정 된 회사의 팀이 든 상관 없이 데이터베이스를 호스트 하는 방법을 결정할 때 제한 된 자금은 종종 기본 드라이버입니다. 이 섹션에서는 azure SQL 서비스 제품군과 관련 된 Azure의 청구 및 라이선스 기본 사항에 대해 알아봅니다.  또한 총 애플리케이션 비용을 계산하는 방법에 대해 알아봅니다.
 

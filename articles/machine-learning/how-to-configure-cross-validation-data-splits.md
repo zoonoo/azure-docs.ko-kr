@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 900d5cd435a913c0859c862d176fd30130e0a079
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7a7b603efe376250607b4a48ff3ef2833f40a2bd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321499"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650734"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>자동화 된 기계 학습에서 데이터 분할 및 교차 유효성 검사 구성
 
@@ -24,14 +24,14 @@ ms.locfileid: "87321499"
 
 Azure Machine Learning에서 AutoML을 사용 하 여 여러 ML 모델을 작성 하는 경우 각 자식 실행은 정확도 또는 지 수 가중치와 같은 해당 모델의 품질 메트릭을 계산 하 여 관련 모델의 유효성을 검사 해야 합니다. 이러한 메트릭은 각 모델과의 예측을 유효성 검사 데이터의 과거 관찰 으로부터 실제 레이블과 비교 하 여 계산 합니다. 
 
-AutoML 실험은 모델 유효성 검사를 자동으로 수행 합니다. 다음 섹션에서는 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py)를 사용 하 여 유효성 검사 설정을 추가로 사용자 지정할 수 있는 방법을 설명 합니다. 
+AutoML 실험은 모델 유효성 검사를 자동으로 수행 합니다. 다음 섹션에서는 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)를 사용 하 여 유효성 검사 설정을 추가로 사용자 지정할 수 있는 방법을 설명 합니다. 
 
 코드 또는 코드가 없는 환경의 경우 [Azure Machine Learning studio에서 자동화 된 기계 학습 실험 만들기](how-to-use-automated-ml-for-ml-models.md)를 참조 하세요. 
 
 > [!NOTE]
 > 스튜디오는 현재 학습/유효성 검사 데이터 분할 및 교차 유효성 검사 옵션을 지원 하지만 유효성 검사 집합에 대 한 개별 데이터 파일을 지정 하는 것은 지원 하지 않습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에는 다음이 필요 합니다.
 
@@ -47,7 +47,7 @@ AutoML 실험은 모델 유효성 검사를 자동으로 수행 합니다. 다�
 
 ## <a name="default--data-splits-and-cross-validation"></a>기본 데이터 분할 및 교차 유효성 검사
 
-[AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) 개체를 사용 하 여 실험 및 학습 설정을 정의 합니다. 다음 코드 조각에서는 또는에 대 한 매개 변수가 `n_cross_validation` `validation_ data` 포함 **되지** 않은 필수 매개 변수만 정의 합니다.
+[AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 개체를 사용 하 여 실험 및 학습 설정을 정의 합니다. 다음 코드 조각에서는 또는에 대 한 매개 변수가 `n_cross_validation` `validation_ data` 포함 **되지** 않은 필수 매개 변수만 정의 합니다.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -93,7 +93,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="provide-validation-set-size"></a>유효성 검사 설정 크기를 제공 합니다.
 
-이 경우 실험을 위해 단일 데이터 집합만 제공 됩니다. 즉, `validation_data` 매개 변수가 지정 **되지 않고** 제공 된 데이터 집합이 `training_data` 매개 변수에 할당 됩니다.  개체에서 `AutoMLConfig` `validation_size` 유효성 검사를 위해 학습 데이터의 일부를 포함 하도록 매개 변수를 설정할 수 있습니다. 즉, 제공 된 초기에서 자동 Ml에 의해 유효성 검사 집합이 분할 됩니다 `training_data` . 이 값은 0.0에서 1.0 사이 여야 합니다. 예를 들어 0.2는 유효성 검사 데이터에 대 한 20%의 데이터를 보유 하 고 있음을 의미 합니다.
+이 경우 실험을 위해 단일 데이터 집합만 제공 됩니다. 즉, `validation_data` 매개 변수가 지정 **되지 않고** 제공 된 데이터 집합이  `training_data` 매개 변수에 할당 됩니다.  개체에서 `AutoMLConfig` `validation_size` 유효성 검사를 위해 학습 데이터의 일부를 포함 하도록 매개 변수를 설정할 수 있습니다. 즉, 제공 된 초기에서 자동 Ml에 의해 유효성 검사 집합이 분할 됩니다 `training_data` . 이 값은 0.0에서 1.0 사이 여야 합니다. 예를 들어 0.2는 유효성 검사 데이터에 대 한 20%의 데이터를 보유 하 고 있음을 의미 합니다.
 
 다음 코드 예제를 참조 하세요.
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a6e603ad5698e7a6a57799def8a0f2de28e0cada
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 8ad22abdf17c68c93a6189db839fe357e7acc91e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144892"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650839"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "89144892"
 
 다음 표에서는 이 문서에서 다루는 각 개발 환경을 장단점과 함께 보여 줍니다.
 
-| 환경 | 장점 | 단점 |
+| Environment | 장점 | 단점 |
 | --- | --- | --- |
 | [클라우드 기반 Azure Machine Learning 계산 인스턴스](#compute-instance) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요. |
 | [로컬 환경](#local) | 개발 환경 및 종속성에 대 한 모든 권한 원하는 빌드 도구, 환경 또는 IDE를 사용 하 여를 실행 합니다. | 시작 하는 데 시간이 더 오래 걸립니다. 필요한 SDK 패키지를 설치 해야 하 고, 아직 설치 되어 있지 않은 경우에도 환경을 설치 해야 합니다. |
@@ -63,7 +63,7 @@ Azure Machine Learning [계산 인스턴스](concept-compute-instance.md) 는 Ju
 
 계산 요금이 발생 하지 않도록 하려면 [계산 인스턴스를 중지](tutorial-1st-experiment-sdk-train.md#clean-up-resources)합니다.
 
-## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
+## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>데이터 과학 Virtual Machine
 
 DSVM는 사용자 지정된 VM(가상 머신) 이미지입니다. 데이터 과학 작업을 위해 설계되었으며 다음 요소가 미리 구성되어 있습니다.
 
@@ -185,7 +185,7 @@ DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
    >
    >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
-   SDK를 설치 하는 데 몇 분 정도 걸립니다. 설치 옵션에 대 한 자세한 내용은 [설치 가이드](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)를 참조 하세요.
+   SDK를 설치 하는 데 몇 분 정도 걸립니다. 설치 옵션에 대 한 자세한 내용은 [설치 가이드](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)를 참조 하세요.
 
 1. Machine learning 실험을 위한 다른 패키지를 설치 합니다.
 
@@ -361,11 +361,11 @@ Databricks에 자동화 된 machine learning이 설치 된 자동화 된 machine
 
 다음과 같은 세 가지 방법으로 구성 파일을 만들 수 있습니다.
 
-* **  [Ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**:를 사용 하 여 파일 * 에config.js* 를 작성 합니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
+* **  [Ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)**:를 사용 하 여 파일 * 에config.js* 를 작성 합니다. 이 파일은 작업 영역에 대한 구성 정보를 포함합니다. *config.json* 파일을 다른 개발 환경으로 다운로드 또는 복사할 수 있습니다.
 
 * **파일 다운로드**: [Azure Portal](https://ms.portal.azure.com)의 작업 영역 **개요** 섹션에서 **config.js켜기** 를 선택 합니다.
 
-     ![Azure Portal](./media/how-to-configure-environment/configure.png)
+     ![Azure portal](./media/how-to-configure-environment/configure.png)
 
 * **프로그래밍 방식으로 파일 만들기**: 다음 코드 조각에서 구독 ID, 리소스 그룹 및 작업 영역 이름을 제공 하 여 작업 영역에 연결 합니다. 그런 다음, 작업 영역 구성을 파일에 저장합니다.
 
@@ -389,4 +389,4 @@ Databricks에 자동화 된 machine learning이 설치 된 자동화 된 machine
 ## <a name="next-steps"></a>다음 단계
 
 - MNIST 데이터 집합을 사용 하 여 Azure Machine Learning에 대 한 [모델 학습](tutorial-train-models-with-aml.md)
-- [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 참조 보기
+- [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 참조 보기

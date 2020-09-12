@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194477"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490091"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 > [!NOTE]
@@ -39,14 +39,14 @@ ms.locfileid: "84194477"
 ## <a name="earlier-versions"></a>이전 버전
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>향상된 기능
-- 필요한 경우 방화벽의 모든 Azure IP 주소를 허용 목록에 포함하는 대신 DNS 항목을 추가하여 서비스 버스를 허용 목록에 포함할 수 있습니다. Azure Portal에서 각각의 DNS 항목을 찾을 수 있습니다(Data Factory -> '작성자 및 배포' -> '게이트웨이' -> JSON의 “serviceUrls”).
+- 필요한 경우 방화벽의 모든 Azure IP 주소를 허용 하는 대신 service bus를 허용 하는 DNS 항목을 추가할 수 있습니다. Azure Portal에서 각각의 DNS 항목을 찾을 수 있습니다(Data Factory -> '작성자 및 배포' -> '게이트웨이' -> JSON의 “serviceUrls”).
 - 이제 HDFS 커넥터는 TLS 유효성 검사를 건너뛸 수 있으므로 자체 서명 된 공용 인증서를 지원 합니다.
 - 업데이트 중에 클록 오차(clock skew)로 인해 발생하는 게이트웨이 오프라인 문제가 수정되었습니다.
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>향상된 기능
--   (필요한 경우) 방화벽의 모든 Azure IP 주소를 허용 목록에 포함하는 대신 DNS 항목을 추가해 Service Bus를 허용 목록에 추가할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+-   필요한 경우 방화벽의 모든 Azure IP 주소를 허용 하는 대신 Service Bus를 허용 하는 DNS 항목을 추가할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 -   이제, 단일 블록 Blob에/에서 데이터를 최대 4.75TB까지 복사할 수 있습니다. 이 크기는 단일 블록 Blob에 대해 지원되는 최대값입니다. 이전에는 195GB까지로 제한되었습니다.
 -   복사 작업 중 작은 파일 여러 개의 압축을 푸는 동안 발생하는 메모리 부족 문제가 수정되었습니다.
 -   수정 됨: 멱 등 성 기능을 사용 하 여 문서 DB에서 SQL Server로 복사 하는 동안 범위를 벗어난 문제가 발생 했습니다.
@@ -198,7 +198,7 @@ ms.locfileid: "84194477"
 
 *  구성 관리자에서 진단 도구 지원
 *  Azure 데이터 팩터리에 대 한 테이블 데이터 원본의 테이블 열 지원
-*  Azure 데이터 팩터리에 대 한 SQL DW 지원
+*  Azure Data Factory에 대 한 Azure Synapse Analytics 지원
 *  Azure 데이터 팩터리에 대한 BlobSource 및 FileSource의 단독 지원
 *  CopyBehavior 지원 – Azure Data Factory의 이진 복사 기능을 통해 BlobSink 및 FileSink에서 MergeFiles, PreserveHierarchy, FlattenHierarchy 지원
 *  Azure 데이터 팩터리의 진행률을 보고하는 복사 작업 지원

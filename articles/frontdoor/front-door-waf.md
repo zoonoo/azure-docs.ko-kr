@@ -1,22 +1,22 @@
 ---
 title: Azure Front Door와 Azure WAF(웹 애플리케이션 방화벽)를 사용하여 웹 애플리케이션을 신속하게 확장 및 보호 | Microsoft Docs
-description: 이 문서는 Azure Front Door Service에서 웹 애플리케이션 방화벽을 사용하는 방법을 이해하는 데 유용합니다.
+description: 이 문서는 Azure Front 도어 서비스에서 웹 응용 프로그램 방화벽을 사용 하는 방법을 이해 하는 데 도움이 됩니다.
 services: frontdoor
 documentationcenter: ''
-author: tremansdoerfer
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/06/2020
-ms.author: rimansdo
-ms.openlocfilehash: 6f91a98372aa85a52a6013a121235ca354004a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: a0252004b01e64b195b372d72682f6b777012258
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743544"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535434"
 ---
 # <a name="quickly-scale-and-protect-a-web-application-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Azure Front Door와 Azure WAF(웹 애플리케이션 방화벽)를 사용하여 웹 애플리케이션을 신속하게 확장 및 보호
 
@@ -119,7 +119,7 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 DNS 레코드를 업데이트하는 구체적인 단계는 DNS 서비스 공급자에 따라 다르지만 Azure DNS를 사용하여 DNS 이름을 호스트하는 경우에는 [DNS 레코드를 업데이트하는 단계](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli)에 대한 설명서를 참조하여 AFD hostName을 가리킬 수 있습니다. 
 
-여기서 한 가지 중요한 점은, 사용자가 영역 루트를 사용하여 웹 사이트로 이동하도록 하려면 Azure DNS 및 해당 [ALIAS 레코드 유형](https://docs.microsoft.com/azure/dns/dns-alias)을 사용하여 DNS 이름을 호스트해야 한다는 점입니다. 
+한 가지 중요 한 점은 사용자가 apex 영역 (예: contoso.com)을 사용 하 여 웹 사이트로 이동 해야 하는 경우 Azure DNS 사용 해야 하 고 DNS 이름을 호스트 하는 데 [별칭 레코드 형식을](https://docs.microsoft.com/azure/dns/dns-alias) 사용 해야 한다는 것입니다. 
 
 또한 AFD 구성도 업데이트하여 [사용자 지정 도메인을 추가](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain)해야 합니다. 그래야 AFD가 매핑을 이해할 수 있습니다.
 

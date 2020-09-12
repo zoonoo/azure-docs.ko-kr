@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5862daa21f8bf0075bb1dee567cbe887ec32d72
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6d77855f095c59b47156af735f4581076ce5a09c
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653276"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611636"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용 하 여 장애 조치 (Failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -66,7 +66,7 @@ Azure Vm에서 SQL Server는 SQL Server 장애 조치 (failover) 클러스터 �
 **이점은**다음과 같습니다. 
 - 고가용성 및 재해 복구 (HADR) 아키텍처를 그대로 유지 하면서 Azure로 마이그레이션하려는 응용 프로그램에 유용 합니다. 
 - 는 scsi PR (SCSI 영구 예약) 지원으로 인해 클러스터형 응용 프로그램을 Azure로 마이그레이션할 수 있습니다. 
-- SQL Server 2019에 대 한 모든 버전의 SQL Server 및 공유 Azure Ultra 디스크 저장소에 대해 공유 Azure 프리미엄 SSD을 지원 합니다. 
+- 는 공유 Azure 프리미엄 SSD 및 Azure Ultra Disk 저장소를 지원 합니다.
 - 단일 공유 디스크를 사용 하거나 여러 공유 디스크를 스트라이프 하 여 공유 저장소 풀을 만들 수 있습니다. 
 - Filestream을 지원 합니다.
 
@@ -153,10 +153,11 @@ SQL Server 현재 Azure 가상 컴퓨터의 장애 조치 (failover) 클러스�
 
 전체 확장은 자동화된 백업, 패치, 고급 포털 관리 등의 기능을 지원합니다. 이러한 기능은 에이전트가 경량 관리 모드로 다시 설치 된 후 SQL Server Vm에 대해 작동 하지 않습니다.
 
-### <a name="msdtc"></a>MSDTC   
-Azure Virtual Machines는 CSV (클러스터 공유 볼륨) 및 [azure 표준 Load Balancer](../../../load-balancer/load-balancer-standard-overview.md)의 저장소를 사용 하 여 Windows Server 2019에서 MSDTC를 지원 합니다.
+### <a name="msdtc"></a>MSDTC 
 
-Azure Virtual Machines에서 MSDTC는 Windows Server 2016 이전 버전에서는 지원 되지 않습니다.
+Azure Virtual Machines는 azure 공유 디스크를 사용 하는 SQL Server Vm 또는 [표준 LOAD BALANCER](../../../load-balancer/load-balancer-standard-overview.md) CSV (클러스터 공유 볼륨)의 저장소를 사용 하 여 Windows Server 2019에서 Microsoft DTC(DISTRIBUTED TRANSACTION COORDINATOR) (MSDTC)를 지원 합니다. 
+
+Azure Virtual Machines에서 MSDTC는 클러스터 된 공유 볼륨이 있는 Windows Server 2016 이전 버전에서는 지원 되지 않습니다. 이유는 다음과 같습니다.
 
 - 클러스터형 MSDTC 리소스는 공유 스토리지를 사용하도록 구성할 수 없습니다. Windows Server 2016에서 MSDTC 리소스를 만드는 경우 스토리지가 사용 가능하더라도 사용 가능한 공유 스토리지가 표시되지 않습니다. 이 문제는 Windows Server 2019에서 수정되었습니다.
 - 기본 부하 분산 장치는 RPC 포트를 처리하지 않습니다.

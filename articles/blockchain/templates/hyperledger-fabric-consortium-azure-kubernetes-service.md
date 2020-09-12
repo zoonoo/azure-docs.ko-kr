@@ -1,17 +1,17 @@
 ---
-title: Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
+title: Azure Kubernetes Service에 Hyperledger Fabric 컨소시엄 배포
 description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트워크를 배포 하 고 구성 하는 방법
 ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: d23a0120aafb4dc3e6952b40959a20f9a3456614
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226876"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651560"
 ---
-# <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
+# <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Azure Kubernetes Service에 Hyperledger Fabric 컨소시엄 배포
 
 Azure Kubernetes Service (AKS) 템플릿의 Hyperledger 패브릭을 사용 하 여 Azure에서 하이퍼 원장 Fabric consortium 네트워크를 배포 하 고 구성할 수 있습니다.
 
@@ -294,7 +294,7 @@ AZURE_FILE_CONNECTION_STRING=https://$STORAGE_ACCOUNT.file.core.windows.net/$STO
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
-`<anchorPeersList>` 는 앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 예:
+`<anchorPeersList>` 는 앵커 피어로 설정할 피어 노드의 공백으로 구분 된 목록입니다. 다음은 그 예입니다. 
 
   - `<anchorPeersList>` `"peer1"` Peer1 노드만 앵커 피어로 설정 하려는 경우로 설정 합니다.
   - `<anchorPeersList>` `"peer1" "peer3"` Peer1 및 peer3 노드를 앵커 피어로 설정 하려는 경우로 설정 합니다.
@@ -351,7 +351,7 @@ CHANNEL_NAME=<channelName>
 
 플래그를 사용 하 여 컬렉션의 구성 JSON 파일을 전달할 수도 있습니다 `--collections-config` . 또는 `-t` 전용 트랜잭션에 사용 되는 chaincode를 인스턴스화하는 동안 플래그를 사용 하 여 임시 인수를 설정 합니다.
 
-예:
+다음은 그 예입니다. 
 
 ```bash
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>

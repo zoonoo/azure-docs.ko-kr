@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 826f47115d15b9c46476af711eddc5499afab419
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8c0af87dc8e38c6d5184cec4614b47d2ae4a24ca
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830260"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458283"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -147,12 +147,12 @@ API Management 서비스를 백업하려면 다음 HTTP 요청을 실행합니�
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
 ```
 
-각 항목이 나타내는 의미는 다음과 같습니다.
+여기서
 
 -   `subscriptionId` - 백업하려는 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - Azure API Management 서비스의 리소스 그룹 이름입니다.
 -   `serviceName` - 백업을 만드는 API Management 서비스를 만들 때 지정하는 이름입니다.
--   `api-version`-다음으로 바꾸기`2018-06-01-preview`
+-   `api-version` -다음으로 바꾸기 `2018-06-01-preview`
 
 요청 본문에서 대상 Azure Storage 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 지정합니다.
 
@@ -196,12 +196,12 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
 ```
 
-각 항목이 나타내는 의미는 다음과 같습니다.
+여기서
 
 -   `subscriptionId` - 백업을 복원할 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - 백업을 복원할 Azure API Management 서비스를 포함하는 리소스 그룹의 이름입니다.
 -   `serviceName` - 백업을 복원할 API Management 서비스를 만들 때 지정한 이름입니다.
--   `api-version`-다음으로 바꾸기`2018-06-01-preview`
+-   `api-version` -다음으로 바꾸기 `2018-06-01-preview`
 
 요청 본문에서 백업 파일 위치를 지정합니다. 즉, Azure Storage 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 추가합니다.
 
@@ -234,7 +234,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 -   [Azure API Management 계정 복제](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Logic Apps로 API Management 백업 및 복원 자동화](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Azure API Management: 구성](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx) 
+-   [Azure API Management: 구성](https://docs.microsoft.com/archive/blogs/stuartleeks/azure-api-management-backing-up-and-restoring-configuration) 
      백업 및 복원 _Stuart에 설명 된 방법이 공식 지침과 일치 하지 않지만 흥미로운 방법이 있습니다._
 
 [backup an api management service]: #step1

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d7502414f6476cafcc85bbefd28a4ec463f62099
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: fd58adf9e845e296725131da96c3319a72895cb8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751690"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645691"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -45,7 +45,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 - 모델. 학습 된 모델이 없는 경우 [이 자습서](https://aka.ms/azml-deploy-cloud)에 제공 된 모델 및 종속성 파일을 사용할 수 있습니다.
-- [Python 용 AZURE MACHINE LEARNING SDK (소프트웨어 개발 키트)](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+- [Python 용 AZURE MACHINE LEARNING SDK (소프트웨어 개발 키트)](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
 ---
 
@@ -70,7 +70,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config(path=".file-path/ws_config.json")
 ```
 
-SDK를 사용 하 여 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Python 용 AZURE MACHINE LEARNING sdk](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) 설명서를 참조 하세요.
+SDK를 사용 하 여 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Python 용 AZURE MACHINE LEARNING sdk](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#&preserve-view=trueworkspace) 설명서를 참조 하세요.
 
 
 ---
@@ -123,7 +123,7 @@ az ml model register -n onnx_mnist -p mnist/model.onnx
 
 ### <a name="register-a-model-from-an-azure-ml-training-run"></a>Azure ML 학습 실행에서 모델 등록
 
-  SDK를 사용 하 여 모델을 학습 하는 경우 모델 학습 방법에 따라 [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) 개체나 [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) 개체를 받을 수 있습니다. 각 개체를 사용 하 여 실험 실행에서 만든 모델을 등록할 수 있습니다.
+  SDK를 사용 하 여 모델을 학습 하는 경우 모델 학습 방법에 따라 [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true) 개체나 [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) 개체를 받을 수 있습니다. 각 개체를 사용 하 여 실험 실행에서 만든 모델을 등록할 수 있습니다.
 
   + 개체에서 모델을 등록 합니다 `azureml.core.Run` .
  
@@ -134,7 +134,7 @@ az ml model register -n onnx_mnist -p mnist/model.onnx
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    `model_path`매개 변수는 모델의 클라우드 위치를 참조 합니다. 이 예제에서는 단일 파일의 경로를 사용 합니다. 모델 등록에 여러 파일을 포함 하려면를 `model_path` 파일을 포함 하는 폴더의 경로로 설정 합니다. 자세한 내용은 [register_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) 설명서를 참조 하세요.
+    `model_path`매개 변수는 모델의 클라우드 위치를 참조 합니다. 이 예제에서는 단일 파일의 경로를 사용 합니다. 모델 등록에 여러 파일을 포함 하려면를 `model_path` 파일을 포함 하는 폴더의 경로로 설정 합니다. 자세한 내용은 [register_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) 설명서를 참조 하세요.
 
   + 개체에서 모델을 등록 합니다 `azureml.train.automl.run.AutoMLRun` .
 
@@ -177,7 +177,7 @@ az ml model register -n onnx_mnist -p mnist/model.onnx
 
   모델 등록에 여러 파일을 포함 하려면를 `model_path` 파일을 포함 하는 폴더의 경로로 설정 합니다.
 
-자세한 내용은 [모델 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)에 대 한 설명서를 참조 하세요.
+자세한 내용은 [모델 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true)에 대 한 설명서를 참조 하세요.
 
 Azure Machine Learning 외부에서 학습 한 모델을 사용 하는 방법에 대 한 자세한 내용은 [기존 모델을 배포 하는 방법](how-to-deploy-existing-model.md)을 참조 하세요.
 
@@ -261,7 +261,7 @@ inference_config = InferenceConfig(entry_script='path-to-score.py',
 
 환경에 대 한 자세한 내용은 [교육 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요.
 
-유추 구성에 대 한 자세한 내용은 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 클래스 설명서를 참조 하세요.
+유추 구성에 대 한 자세한 내용은 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true) 클래스 설명서를 참조 하세요.
 
 ---
 
@@ -338,7 +338,7 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-자세한 내용은 [Localwebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [Model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py)에 대 한 설명서를 참조 하세요.
+자세한 내용은 [Localwebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true), [Model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)및 [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py&preserve-view=true)에 대 한 설명서를 참조 하세요.
 
 ---
 
@@ -348,12 +348,12 @@ print(service.state)
 
 다음 표에서는 다양 한 서비스 상태에 대해 설명 합니다.
 
-| 웹 서비스 상태 | Description | 최종 상태?
+| 웹 서비스 상태 | 설명 | 최종 상태?
 | ----- | ----- | ----- |
 | 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
 | Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
 | 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 아니요 |
-| 실패 | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
+| Failed | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
 | 정상 | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
 
 
@@ -380,7 +380,7 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 배포된 웹 서비스를 삭제하려면 `service.delete()`를 사용합니다.
 등록된 모델을 삭제하려면 `model.delete()`를 사용합니다.
 
-자세한 내용은 [WebService. delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) 및 [Model. delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)설명서를 참조 하십시오.
+자세한 내용은 [WebService. delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#&preserve-view=truedelete--) 및 [Model. delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truedelete--)설명서를 참조 하십시오.
 
 ---
 

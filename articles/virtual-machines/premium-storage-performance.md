@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: a13fa7c819dcccc101c23015214bac55d2ab26c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 48157c8d9285c48d49e76f39602075a2a8ac9682
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855541"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650706"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
@@ -130,7 +130,7 @@ PerfMon 카운터는 프로세서, 메모리, 각 논리 디스크 및 서버의
 | **최대 메모리** |애플리케이션을 원활하게 실행하는데 필요한 메모리의 양 |% 사용 중인 커밋된 바이트 |vmstat 사용 |
 | **최대 CPU** |애플리케이션을 원활하게 실행하는데 필요한 CPU 양 |% 프로세서 시간 |%util |
 
-[iostat](https://linux.die.net/man/1/iostat) 및 [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx)에 대해 자세히 알아봅니다.
+[iostat](https://linux.die.net/man/1/iostat) 및 [PerfMon](https://docs.microsoft.com/windows/win32/perfctrs/performance-counters-portal)에 대해 자세히 알아봅니다.
 
 
 

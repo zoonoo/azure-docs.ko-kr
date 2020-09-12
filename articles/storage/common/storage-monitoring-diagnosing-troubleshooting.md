@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 93015427dddfe2b311783c20587792e34c098ce8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b1b438dd9370e0f0d76e5c596176d9bd08cc76d5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011041"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462006"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -134,7 +134,7 @@ Azure 애플리케이션을 지속적으로 모니터링한 후 다음을 수행
 >
 >
 
-Blob 등의 다양한 스토리지 개체 크기를 예측하는 방법에 대한 도움말은 [Azure Storage 요금 청구 방식 이해 - 대역폭, 트랜잭션 및 용량](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx) 블로그 게시물을 참조하세요.
+Blob 등의 다양한 스토리지 개체 크기를 예측하는 방법에 대한 도움말은 [Azure Storage 요금 청구 방식 이해 - 대역폭, 트랜잭션 및 용량](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity) 블로그 게시물을 참조하세요.
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>가용성 모니터링
 시간 또는 분 메트릭 테이블( **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**)의 **가용성** 열 값을 모니터링하여 스토리지 계정의 스토리지 서비스 가용성을 모니터링해야 합니다. **가용성** 열에는 행이 표시하는 API 작업이나 서비스의 가용성을 나타내는 백분율 값이 포함되어 있습니다. 행에 서비스 또는 특정 API 작업 전체의 메트릭이 포함되어 있으면 **RowKey**가 표시됩니다.

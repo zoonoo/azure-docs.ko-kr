@@ -11,12 +11,12 @@ ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0bd15da523281a52d36c9ed1336244aa21eb48cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8db19b209ddefebd4a297f18fb9b178fcf40f21
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206702"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89457909"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>Synapse SQL 풀 개발 모범 사례
 
@@ -122,6 +122,6 @@ columnstore 테이블은 일반적으로 테이블당 100만 개가 넘는 행�
 
 [Azure Synapse에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)는 다른 사용자와 Azure Synapse 제품 그룹에 질문을 게시할 수 있는 곳입니다.  Microsoft는 이 포럼을 적극적으로 모니터링하여 사용자의 질문에 다른 사용자나 당사 직원이 응답하도록 합니다.  
 
-스택 오버플로에 질문하는 것을 선호하는 경우 [Azure SQL Data Warehouse 스택 오버플로 포럼](https://stackoverflow.com/questions/tagged/azure-sqldw)도 제공합니다.
+Stack Overflow에 대 한 질문을 하는 것을 선호 하는 경우 [Azure Synapse Analytics Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-sqldw)도 있습니다.
 
 [Azure Synapse 피드백](https://feedback.azure.com/forums/307516-sql-data-warehouse) 페이지를 사용하여 기능 요청을 수행할 수 있습니다.  요청을 추가하거나 다른 요청에 투표를 하면 기능의 순위를 지정하는 데 도움이 됩니다.

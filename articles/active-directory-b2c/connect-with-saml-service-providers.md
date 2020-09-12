@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 09/09/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2bf767bd87e0df791b0efff1294f15353234ba2c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 09edfc91f98e51a7dce7e98b48f2970ccba33586
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520212"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611614"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에 SAML 애플리케이션 등록
 
@@ -354,7 +354,8 @@ SAML 테스트 애플리케이션을 사용하는 이 자습서에서는 `logout
 
 **로그인**을 선택하면 사용자 로그인 화면이 표시됩니다. 로그인할 때 SAML 어설션이 다시 애플리케이션 예제에 발급됩니다.
 
-## <a name="enable-encypted-assertions"></a>(어설션 사용
+## <a name="enable-encrypted-assertions-optional"></a>암호화 된 어설션 사용 (선택 사항)
+
 서비스 공급자에 게 다시 전송 된 SAML 어설션을 암호화 하기 위해 Azure AD B2C는 서비스 공급자 공개 키 인증서를 사용 합니다. ' Encryption '을 사용 하는 KeyDescriptor로 위의 ["samlMetadataUrl"](#samlmetadataurl) 에 설명 된 SAML 메타 데이터에 공개 키가 있어야 합니다.
 
 다음은 암호화로 설정 된 사용을 포함 하는 SAML metadata KeyDescriptor의 예입니다.
@@ -369,35 +370,50 @@ SAML 테스트 애플리케이션을 사용하는 이 자습서에서는 `logout
 </KeyDescriptor>
 ```
 
-Azure AD B2C에서 암호화 된 어설션을 보내도록 설정 하려면 아래와 같이 신뢰 당사자 기술 프로필에서 **WantsEncryptedAssertion** 메타 데이터 항목을 true로 설정 합니다.
+Azure AD B2C에서 암호화 된 어설션을 보내도록 설정 하려면 신뢰 당사자 **WantsEncryptedAssertion** `true` [기술 프로필](relyingparty.md#technicalprofile)에서 WantsEncryptedAssertion 메타 데이터 항목을로 설정 합니다. SAML 어설션을 암호화 하는 데 사용 되는 알고리즘을 구성할 수도 있습니다. 자세한 내용은 [신뢰 당사자 기술 프로필 메타 데이터](relyingparty.md#metadata)를 참조 하세요. 
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-  PolicySchemaVersion="0.3.0.0"
-  TenantId="contoso.onmicrosoft.com"
-  PolicyId="B2C_1A_signup_signin_saml"
-  PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_signup_signin_saml">
- ..
- ..
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="SAML2"/>
-      <Metadata>
-          <Item Key="WantsEncryptedAssertions">true</Item>
-      </Metadata>
-     ..
-     ..
-     ..
-    </TechnicalProfile>
-  </RelyingParty>
-</TrustFrameworkPolicy>
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="WantsEncryptedAssertions">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
 ```
+
+## <a name="enable-identity-provider-initiated-flow-optional"></a>Id 공급자가 시작한 흐름 사용 (선택 사항)
+
+Id 공급자가 시작한 흐름에서 로그인 프로세스는 서비스 공급자 (신뢰 당사자 응용 프로그램)에 게 원치 않는 SAML 응답을 보내는 id 공급자 (Azure AD B2C)에 의해 시작 됩니다. Id 공급자가 시작한 흐름을 사용 하도록 설정 **IdpInitiatedProfileEnabled** 하려면 `true` 신뢰 당사자 [기술 프로필](relyingparty.md#technicalprofile)에서 IdpInitiatedProfileEnabled 메타 데이터 항목을로 설정 합니다.
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="IdpInitiatedProfileEnabled">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+Id 공급자가 시작한 흐름을 통해 사용자를 로그인 하거나 등록 하려면 다음 URL을 사용 합니다.
+
+```
+https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic/login
+```
+
+다음 값을 바꿉니다.
+
+* 테 넌 트 **이름으로 테 넌 트 이름**
+* **정책-** SAML 신뢰 당사자 정책 이름으로 이름
 
 ## <a name="sample-policy"></a>샘플 정책
 

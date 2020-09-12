@@ -2,18 +2,18 @@
 title: '네트워크 링크 성능 문제 해결: Azure'
 description: 이 페이지는 Azure 네트워크 링크 성능을 테스트하는 표준화된 방법을 제공합니다.
 services: expressroute
-author: tracsman
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 12/20/2017
-ms.author: jonor
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: e882035af3ac0a086c58b4886fd6999970712df1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521669"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566078"
 ---
 # <a name="troubleshooting-network-performance"></a>네트워크 성능 문제 해결
 ## <a name="overview"></a>개요
@@ -121,7 +121,7 @@ AzureCT PowerShell 모듈은 [가용성 테스트][Availability Doc] 및 [성능
 ![2][2]
 
 >[!NOTE]
-> MSEE는 Azure 클라우드에 있지 않습니다. ExpressRoute는 Azure가 아닌 Microsoft 네트워크의 에지에 있습니다. ExpressRoute로 MSEE와 연결되면 Microsoft의 네트워크에 연결된 것이며, 여기서 Office 365(Microsoft 피어링을 통해) 또는 Azure(프라이빗 및/또는 Microsoft 피어링을 통해) 같은 클라우드 서비스로 이동할 수 있습니다.
+> MSEE는 Azure 클라우드에 있지 않습니다. ExpressRoute는 Azure가 아닌 Microsoft 네트워크의 에지에 있습니다. MSEE에 대해 Express 경로를 사용 하 여 연결 하면 Microsoft의 네트워크에 연결 된 후에는 Microsoft 365 (Microsoft 피어 링 사용) 또는 Azure (개인 및/또는 Microsoft 피어 링 사용)와 같은 클라우드 서비스로 이동할 수 있습니다.
 >
 >
 
@@ -146,7 +146,7 @@ WAN 문제인 경우 서비스 공급자 또는 ISP와 테스트 결과를 공�
 
 Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네트워크 설명서][Network Docs]를 검토하고 여전히 [지원 티켓을 열어야][Ticket Link] 하는지 결정해야 합니다.
 
-## <a name="references"></a>참고 자료
+## <a name="references"></a>참조
 ### <a name="latencybandwidth-expectations"></a>대기 시간/대역폭 예상치
 >[!TIP]
 > 개발자가 테스트하는 엔드포인트 간 지리적 대기 시간(마일 또는 킬로미터)은 대기 시간을 구성하는 요소 중 단연코 가장 큰 구성 요소입니다. 장비 대기 시간(실제 및 가상 구성 요소, 홉 수 등)도 있지만 WAN 연결에서 전체 대기 시간의 구성 요소 중 가장 큰 비율을 차지하는 것은 지리적 대기 시간이라는 것이 증명되었습니다. 또한 거리는 직선 또는 로드맵 거리가 아닌 파이버 실행의 거리라는 것을 이해하는 것이 중요합니다. 이 거리의 정확한 값을 구하기는 매우 어렵습니다. 그래서 저는 보통 인터넷의 도시 거리 계산기를 사용하는데, 이 방법이 매우 부정확하다는 것을 알지만 일반적인 예상치를 설정하기에는 충분합니다.
@@ -160,7 +160,7 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
  - 프라이빗 피어링을 사용하도록 설정된 식별된 위치의 10Gbps Premium ExpressRoute 회로.
  - 지정된 지역의 UltraPerformance 게이트웨이를 사용하는 Azure VNet.
  - VNet에서 Windows Server 2016을 실행하는 DS5v2 VM. VM은 도메인에 가입되지 않았으며, AzureCT가 설치된 기본 Azure 이미지(최적화 또는 사용자 지정 없는)를 사용하여 빌드되었습니다.
- - 6회의 테스트가 실행되었으며, 테스트마다 AzureCT Get-LinkPerformance 명령을 사용하여 5분 부하 테스트를 수행했습니다. 예를 들면 다음과 같습니다.
+ - 6회의 테스트가 실행되었으며, 테스트마다 AzureCT Get-LinkPerformance 명령을 사용하여 5분 부하 테스트를 수행했습니다. 다음은 그 예입니다. 
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -197,7 +197,7 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
 \* 브라질까지의 대기 시간은 직선 거리가 파이버 실행 거리와 크게 다르다는 것을 보여 주는 좋은 예입니다. 저는 대기 시간이 160ms 근처일 것으로 예상했지만 실제로는 189ms입니다. 어딘가에 네트워크 문제가 있어서 제 예상과 다른 결과가 나올 수도 있지만, 대부분은 파이버 실행이 브라질까지 직선으로 가는 것이 아니라 시애틀에서 브라질까지 이동할 때 약 1,000km를 더 이동하기 때문입니다.
 
 ## <a name="next-steps"></a>다음 단계
-1. GitHub에서 Azure 연결 도구 키트 다운로드[https://aka.ms/AzCT][ACT]
+1. GitHub에서 Azure 연결 도구 키트 다운로드 [https://aka.ms/AzCT][ACT]
 2. [링크 성능 테스트][Performance Doc]에 대한 지침 수행
 
 <!--Image References-->
