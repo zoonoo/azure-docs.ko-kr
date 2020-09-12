@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6bbd54be46effe324199639477f9ca4ab31bea98
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
+ms.openlocfilehash: c21a6a2a42aa7417ddb53afd3beda735b54cff3d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091405"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299136"
 ---
 # <a name="bind-azure-cache-for-redis-to-your-azure-spring-cloud-application"></a>Azure Cache for Redis를 Azure Spring Cloud 애플리케이션에 바인딩 
 
@@ -24,7 +24,7 @@ Spring Boot 애플리케이션을 수동으로 구성하는 대신 Azure Spring 
 * Azure Cache for Redis 서비스 인스턴스
 * Azure CLI용 Azure Spring Cloud 확장
 
-배포된 Azure Spring Cloud 인스턴스가 없는 경우 [Azure Spring Cloud 앱 배포에 대한 빠른 시작](spring-cloud-quickstart-launch-app-portal.md)의 단계를 따릅니다.
+배포된 Azure Spring Cloud 인스턴스가 없는 경우 [Azure Spring Cloud 앱 배포에 대한 빠른 시작](spring-cloud-quickstart.md)의 단계를 따릅니다.
 
 ## <a name="bind-azure-cache-for-redis"></a>Azure Cache for Redis 바인딩
 

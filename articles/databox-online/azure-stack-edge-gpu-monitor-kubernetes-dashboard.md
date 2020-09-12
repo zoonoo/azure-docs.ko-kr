@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 7274cef73bff3fb87d55ad636ff0167c8a064796
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 12fe605fef444b4e0d7439350e350316157f53a5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180680"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297860"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Kubernetes 대시보드를 사용 하 여 Azure Stack Edge GPU 장치 모니터링
 
@@ -26,7 +26,6 @@ ms.locfileid: "89180680"
 > [!div class="checklist"]
 >
 > * 장치에서 Kubernetes 대시보드 액세스
-> * `aseuser`구성 다운로드
 > * 장치에 배포 된 모듈 보기
 > * 장치에 배포 된 응용 프로그램의 IP 주소를 가져옵니다.
 > * 장치에 배포 된 모듈의 컨테이너 로그 보기
@@ -42,26 +41,18 @@ Azure Stack Edge 장치에서 *읽기 전용* 모드로 Kubernetes 대시보드�
 
 Kubernetes 대시보드는 *읽기 전용* 이며 포트 31000의 Kubernetes 마스터 노드에서 실행 됩니다. 대시보드에 액세스 하려면 다음 단계를 수행 합니다. 
 
-1. 장치의 로컬 UI에서 **장치** 로 이동한 후 **장치 끝점**으로 이동 합니다. Kubernetes 대시보드 URL을 선택 하 여 브라우저에서 대시보드를 엽니다.
+1. 장치의 로컬 UI에서 **장치** 로 이동한 후 **장치 끝점**으로 이동 합니다. 
+1. **구성 다운로드** 를 선택 하 여 `kubeconfig` 대시보드에 액세스할 수 있는를 다운로드 합니다. `config.json`로컬 시스템에 파일을 저장 합니다.
+1. Kubernetes 대시보드 URL을 선택 하 여 브라우저에서 대시보드를 엽니다.
 
     ![로컬 UI의 장치 페이지에서 Kubernetes 대시보드 URL](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-url-local-ui-1.png)
 
-1. **Kubernetes 대시보드 로그인** 페이지에서 **토큰**을 선택 합니다. 
-1. 토큰을 제공 합니다. 
-    1. 토큰을 가져오려면 [장치의 PowerShell 인터페이스를 통해 연결](azure-stack-edge-gpu-connect-powershell-interface.md)합니다.
-    1. 다음 명령을 실행 합니다.  `Get-HcsKubernetesDashboardToken`
+1. **Kubernetes 대시보드 로그인** 페이지에서 다음을 수행 합니다.
     
-    1. 프롬프트에서 제공 된 토큰 문자열을 복사 합니다. 샘플 출력은 다음과 같습니다.
-        
-        ```powershell
-        [10.100.10.10]: PS>Get-HcsKubernetesDashboardToken
-        eyJhbGciOiJSUzI1NiIsImtpZCI6IkpFTEtBYTMyZ0Ezb01OYTVFSnVaUV85OWtLdXNETTZQR0k0UlFybGdReFUifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZC10b2tlbi03czZ6ayIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjU3NzY3ZDAzLTJlYWUtNDlkMi1hNDEyLTNkOTU3MDFiMThiMyIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlcm5ldGVzLWRhc2hib2FyZDprdWJlcm5ldGVzLWRhc2hib2FyZCJ9.UgNrpVYVJBEaWxFlljuENUQQmzFXMYG2VsJUIYFdp2AO20zX0k5dRvwcCpeGlqSKb9MyYjG0c6RmT9uCOZk-vAwt7btszQLD7KPCwh_nn_NiIyO8ApgGRYZP8NuP8CBTX3tl_hpwfHtZ0ksbuKAduIL-0uPF0rG5wgLk9cTEw6fKSc2UZW6bIzhNSp_uSiP6MexOS6OftF9JFZejkIGd33dSp-k-tgFlm2Zy96sdFJC0q-XsH7jygiVnfxA9XMs5wqW26LkCh0rfO2WI3C1XFK-4TpufRZLJHo5WPlu-Tnsxa8xmtk2jQ3us-sXcBRrvhPNPrNKkbqc9hbjmWfGD0Q
-        [10.100.10.10]: PS>
-        ```
-        
-1. **로그인**을 선택합니다.
-
-    ![Kubernetes 대시보드에 로그인](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png)
+    1. **Kubeconfig**를 선택 합니다. 
+        ![Kubeconfig 옵션 선택](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png) 
+    1. 줄임표 **...** 를 선택 합니다. `kubeconfig` 로컬 시스템에서 이전에 다운로드 한를 찾아서 가리킵니다. **로그인**을 선택합니다.
+        ![Kubeconfig 파일로 이동 합니다.](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
 6. 이제 읽기 전용 모드에서 Azure Stack Edge 장치에 대 한 Kubernetes 대시보드를 볼 수 있습니다.
 
@@ -110,6 +101,21 @@ IP 주소를 가져오려면 대시보드에서 다음 단계를 수행 합니�
 
     ![컨테이너 로그 보기 2](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-view-container-logs-1.png)
     
+
+## <a name="view-cpu-memory-usage"></a>CPU, 메모리 사용량 보기
+
+Azure Stack Edge 장치에 대 한 Kubernetes 대시보드의 Kubernetes 리소스에서 CPU 및 메모리 사용량을 집계 하는 [메트릭 서버 추가](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) 기능도 있습니다.
+ 
+예를 들어 모든 네임 스페이스의 배포에서 사용 되는 CPU 및 메모리를 볼 수 있습니다. 
+
+![모든 배포에서 CPU 및 메모리 사용량 보기](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-all-1.png)
+
+특정 네임 스페이스를 기준으로 필터링 할 수도 있습니다. 다음 예제에서는 Azure Arc 배포에 대 한 CPU 및 메모리 소비량을 볼 수 있습니다.  
+
+![Azure Arc 배포의 CPU 및 메모리 사용량 보기](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-azure-arc-1.png)
+
+Kubernetes 메트릭 서버는 [수평 Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)와 유사한 자동 크기 조정 파이프라인을 제공 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

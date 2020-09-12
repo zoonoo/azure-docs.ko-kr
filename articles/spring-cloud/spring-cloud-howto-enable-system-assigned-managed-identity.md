@@ -7,21 +7,21 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1b9d7326ec13176fbe65ba430a8a33bb93a48f74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c092052e05f355838f3853fa7376b46ef743de7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091456"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299648"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>시스템이 할당한 관리 ID를 Azure Spring Cloud 애플리케이션에 사용하도록 설정하는 방법
 Azure 리소스에 대 한 관리 되는 id는 Azure 스프링 클라우드 응용 프로그램과 같은 Azure 리소스에 Azure Active Directory 자동으로 관리 되는 id를 제공 합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
 이 문서에서는 Azure Portal 및 CLI (버전 0.2.4에서 사용 가능)를 사용 하 여 Azure 스프링 클라우드 앱에 대 한 시스템 할당 관리 id를 사용 하거나 사용 하지 않도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 Azure 리소스에 대 한 관리 id에 익숙하지 않은 경우 [개요 섹션](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)을 참조 하세요.
-배포 된 Azure 스프링 클라우드 인스턴스가 필요 합니다. Azure CLI를 [사용 하 여 배포 하는 빠른 시작을](spring-cloud-quickstart-launch-app-cli.md)따르세요.
+배포 된 Azure 스프링 클라우드 인스턴스가 필요 합니다. Azure CLI를 [사용 하 여 배포 하는 빠른 시작을](spring-cloud-quickstart.md)따르세요.
 
 ## <a name="add-a-system-assigned-identity"></a>시스템 할당 ID 추가
 시스템 할당 id를 사용 하 여 앱을 만들려면 응용 프로그램에서 추가 속성을 설정 해야 합니다.
@@ -47,7 +47,7 @@ Azure 리소스에 대 한 관리 id에 익숙하지 않은 경우 [개요 섹�
 az spring-cloud app create -n app_name -s service_name -g resource_group_name --assign-identity
 ```
 
-**기존 앱에서 시스템 할당 관리 Id 사용** `az spring-cloud app identity assign`명령을 사용 하 여 기존 앱에서 시스템이 할당 한 id를 사용 하도록 설정 합니다.
+**기존 앱에서 시스템 할당 관리 Id 사용** `az spring-cloud app identity assign` 명령을 사용 하 여 기존 앱에서 시스템이 할당 한 id를 사용 하도록 설정 합니다.
 
 ```azurecli
 az spring-cloud app identity assign -n app_name -s service_name -g resource_group_name
@@ -72,7 +72,7 @@ Azure 스프링 클라우드는 Azure 가상 머신과 토큰 획득을 위해 �
 1. 원하는 Virtual Machine으로 이동하여 **ID**를 선택합니다.
 1. **시스템 할당** / **상태**에서 **끄기** 를 선택 하 고 **저장**을 클릭 합니다.
 
- ![포털에서 관리 되는 id](./media/spring-cloud-managed-identity/remove-identity.png)
+ ![관리 ID](./media/spring-cloud-managed-identity/remove-identity.png)
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 시스템 할당 관리 id가 더 이상 필요 하지 않은 앱에서 제거 하려면 다음 명령을 사용 합니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713afb7b277fba65dc4c860e8bdd6b62b4e0147d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e0e0ad9086a7945201b1752126253f12eb751bf
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82204950"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320038"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Azure AD를 사용하여 ID 보안에 신속하게 대응
 
@@ -34,7 +34,7 @@ ms.locfileid: "82204950"
 - 클라우드 인텔리전스를 활용합니다.
 - 최종 사용자 셀프 서비스를 사용하도록 설정합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 가이드에서는 Azure AD에서 클라우드 전용 또는 하이브리드 id가 이미 설정 되어 있다고 가정 합니다. Id 유형 선택에 대 한 도움말은 [Azure Active Directory 하이브리드 id 솔루션에 적합 한 인증 방법 선택](../hybrid/choose-ad-authn.md) 문서를 참조 하세요. 
 
@@ -55,7 +55,7 @@ ms.locfileid: "82204950"
 | --- | --- |
 | [보안 기본값 사용](concept-fundamentals-security-defaults.md) | MFA를 사용 하도록 설정 하 고 레거시 인증을 차단 하 여 모든 사용자 id 및 응용 프로그램 보호 |
 | [암호 해시 동기화 사용](../hybrid/how-to-connect-password-hash-synchronization.md) (하이브리드 id를 사용 하는 경우) | 인증에 중복성을 제공 하 고 보안을 향상 시킵니다 (스마트 잠금, IP 잠금 및 유출 된 자격 증명을 검색 하는 기능 포함). |
-| [ADFS 스마트 잠금 사용](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (해당 하는 경우) | 악의적인 활동에서 엑스트라넷 계정 잠금이 발생 하지 않도록 사용자를 보호 합니다. |
+| [ADFS 스마트 잠금 사용](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (해당 하는 경우) | 악의적인 활동에서 엑스트라넷 계정 잠금이 발생 하지 않도록 사용자를 보호 합니다. |
 | [Azure Active Directory 스마트 잠금 사용](../authentication/howto-password-smart-lockout.md) (관리 되는 id를 사용 하는 경우) | 스마트 잠금 기능을 사용 하면 사용자의 암호를 추측 하려는 잘못 된 행위자를 잠그거나 무차별 암호 대입 메서드를 사용 하 여 가져올 수 있습니다. |
 | [응용 프로그램에 대 한 최종 사용자 동의를 사용 하지 않도록 설정](../manage-apps/configure-user-consent.md) | 관리자 동의 워크플로를 통해 관리자는 관리자 승인이 필요한 응용 프로그램에 대 한 액세스 권한을 부여 하 여 최종 사용자가 회사 데이터를 노출 하지 않도록 할 수 있습니다. 노출 영역을 줄이고 위험을 완화하는 데 도움이 되도록 향후 모든 사용자 동의 작업을 사용하지 않도록 설정는 것이 좋습니다. |
 | [지원 되는 SaaS 응용 프로그램을 갤러리에서 Azure AD로 통합 하 고 Single sign-on을 사용 하도록 설정](../manage-apps/add-application-portal.md) | Azure AD에는 수천 개의 사전 통합 애플리케이션이 들어 있는 갤러리가 있습니다. 조직에서 사용하는 애플리케이션 중 일부는 Azure Portal에서 직접 액세스할 수 있는 갤러리에 있을 것입니다. 향상 된 사용자 환경 (SSO)을 통해 원격 및 안전 하 게 회사 SaaS 응용 프로그램에 대 한 액세스 제공 |
@@ -82,7 +82,7 @@ ms.locfileid: "82204950"
 | [비밀 번호 쓰기 저장 구현](../authentication/tutorial-enable-sspr-writeback.md) (하이브리드 id를 사용 하는 경우) | 클라우드에서 암호 변경 내용을 온-프레미스 Windows Server Active Directory 환경에 다시 쓸 수 있도록 합니다. |
 | 조건부 액세스 정책 만들기 및 사용 | [관리 권한이 할당 된 계정을 보호 하는 관리자 용 MFA](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [레거시 인증 프로토콜과 관련 된 위험이 증가 하 여 레거시 인증 프로토콜을 차단 합니다.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [사용자 및 응용 프로그램의 보안을 유지 하기 위해 모든 사용자 및 응용 프로그램에 대 한 MFA로, 사용자 및 응용 프로그램의 보안을 유지 합니다.](../conditional-access/howto-conditional-access-policy-all-users-mfa.md) <br><br> [Azure 리소스에 액세스 하는 모든 사용자에 대해 multi-factor authentication을 요구 하 여 권한 있는 리소스를 보호 하려면 Azure 관리를 위한 MFA를 요구 합니다.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [암호 해시 동기화 사용](../hybrid/how-to-connect-password-hash-synchronization.md) (하이브리드 id를 사용 하는 경우) | 인증에 중복성을 제공 하 고 보안을 향상 시킵니다 (스마트 잠금, IP 잠금 및 유출 된 자격 증명을 검색 하는 기능 포함). |
-| [ADFS 스마트 잠금 사용](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (해당 하는 경우) | 악의적인 활동에서 엑스트라넷 계정 잠금이 발생 하지 않도록 사용자를 보호 합니다. |
+| [ADFS 스마트 잠금 사용](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (해당 하는 경우) | 악의적인 활동에서 엑스트라넷 계정 잠금이 발생 하지 않도록 사용자를 보호 합니다. |
 | [Azure Active Directory 스마트 잠금 사용](../authentication/howto-password-smart-lockout.md) (관리 되는 id를 사용 하는 경우) | 스마트 잠금 기능을 사용 하면 사용자의 암호를 추측 하려는 잘못 된 행위자를 잠그거나 무차별 암호 대입 메서드를 사용 하 여 가져올 수 있습니다. |
 | [응용 프로그램에 대 한 최종 사용자 동의를 사용 하지 않도록 설정](../manage-apps/configure-user-consent.md) | 관리자 동의 워크플로를 통해 관리자는 관리자 승인이 필요한 응용 프로그램에 대 한 액세스 권한을 부여 하 여 최종 사용자가 회사 데이터를 노출 하지 않도록 할 수 있습니다. 노출 영역을 줄이고 위험을 완화하는 데 도움이 되도록 향후 모든 사용자 동의 작업을 사용하지 않도록 설정는 것이 좋습니다. |
 | [응용 프로그램 프록시를 사용 하 여 온-프레미스 레거시 응용 프로그램에 대 한 원격 액세스 사용](../manage-apps/application-proxy-add-on-premises-application.md) | Azure AD 응용 프로그램 프록시을 사용 하도록 설정 하 고 사용자가 Azure AD 계정으로 로그인 하 여 온-프레미스 응용 프로그램에 안전 하 게 액세스할 수 있도록 레거시 앱과 통합 합니다. |
@@ -94,7 +94,7 @@ ms.locfileid: "82204950"
 | [둘 이상의 전역 관리자 지정](../users-groups-roles/directory-emergency-access.md) | 비상 시 사용하기 위해 둘 이상의 클라우드 전용 영구 전역 관리자 계정을 할당합니다. 이러한 계정은 매일 사용되지는 않으며 길고 복잡한 암호가 있어야 합니다. 투명 계정은 응급 상황에서 서비스에 액세스할 수 있도록 합니다. |
 | [가능한 경우 비전역 관리 역할 사용](../users-groups-roles/directory-assign-admin-roles.md) | 관리자에게 액세스해야 하는 영역에 대해 필요한 액세스 권한만 제공합니다. 모든 관리자가 전역 관리자일 필요는 없습니다. |
 | [Microsoft의 암호 지침 사용](https://www.microsoft.com/research/publication/password-guidance/) | 사용자에게 설정된 일정에 따라 자신의 암호를 변경하도록 더 이상 요구하지 않고, 복잡성 요구를 사용하지 않도록 설정합니다. 그러면 사용자는 암호를 기억하고 안전하게 유지하려고 노력합니다. |
-| [게스트 사용자 액세스에 대한 계획 만들기](../b2b/what-is-b2b.md) | 자신의 회사, 학교 또는 소셜 id를 사용 하 여 앱 및 서비스에 로그인 하도록 허용 하 여 게스트 사용자와 공동 작업 합니다. |
+| [게스트 사용자 액세스에 대한 계획 만들기](../external-identities/what-is-b2b.md) | 자신의 회사, 학교 또는 소셜 id를 사용 하 여 앱 및 서비스에 로그인 하도록 허용 하 여 게스트 사용자와 공동 작업 합니다. |
 
 ### <a name="guidance-for-azure-ad-premium-plan-2-customers"></a>Azure AD Premium 계획 2 고객에 대 한 지침입니다.
 
@@ -114,7 +114,7 @@ ms.locfileid: "82204950"
 | [Id 보호 사용자 및 로그인 위험 정책 사용](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Id 보호 사용자 및 로그인 정책을 사용 하도록 설정 합니다. 권장 되는 로그인 정책은 중간 위험 로그인을 대상으로 하 고 MFA를 요구 하는 것입니다. 사용자 정책의 경우 암호 변경 작업을 필요로 하는 높은 위험 사용자를 대상으로 해야 합니다. |
 | 조건부 액세스 정책 만들기 및 사용 | [관리 권한이 할당 된 계정을 보호 하는 관리자 용 MFA](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [레거시 인증 프로토콜과 관련 된 위험이 증가 하 여 레거시 인증 프로토콜을 차단 합니다.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Azure 리소스에 액세스 하는 모든 사용자에 대해 multi-factor authentication을 요구 하 여 권한 있는 리소스를 보호 하려면 Azure 관리를 위한 MFA를 요구 합니다.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [암호 해시 동기화 사용](../hybrid/how-to-connect-password-hash-synchronization.md) (하이브리드 id를 사용 하는 경우) | 인증에 중복성을 제공 하 고 보안을 향상 시킵니다 (스마트 잠금, IP 잠금 및 유출 된 자격 증명을 검색 하는 기능 포함). |
-| [ADFS 스마트 잠금 사용](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (해당 하는 경우) | 악의적인 활동에서 엑스트라넷 계정 잠금이 발생 하지 않도록 사용자를 보호 합니다. |
+| [ADFS 스마트 잠금 사용](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (해당 하는 경우) | 악의적인 활동에서 엑스트라넷 계정 잠금이 발생 하지 않도록 사용자를 보호 합니다. |
 | [Azure Active Directory 스마트 잠금 사용](../authentication/howto-password-smart-lockout.md) (관리 되는 id를 사용 하는 경우) | 스마트 잠금 기능을 사용 하면 사용자의 암호를 추측 하려는 잘못 된 행위자를 잠그거나 무차별 암호 대입 메서드를 사용 하 여 가져올 수 있습니다. |
 | [응용 프로그램에 대 한 최종 사용자 동의를 사용 하지 않도록 설정](../manage-apps/configure-user-consent.md) | 관리자 동의 워크플로를 통해 관리자는 관리자 승인이 필요한 응용 프로그램에 대 한 액세스 권한을 부여 하 여 최종 사용자가 회사 데이터를 노출 하지 않도록 할 수 있습니다. 노출 영역을 줄이고 위험을 완화하는 데 도움이 되도록 향후 모든 사용자 동의 작업을 사용하지 않도록 설정는 것이 좋습니다. |
 | [응용 프로그램 프록시를 사용 하 여 온-프레미스 레거시 응용 프로그램에 대 한 원격 액세스 사용](../manage-apps/application-proxy-add-on-premises-application.md) | Azure AD 응용 프로그램 프록시을 사용 하도록 설정 하 고 사용자가 Azure AD 계정으로 로그인 하 여 온-프레미스 응용 프로그램에 안전 하 게 액세스할 수 있도록 레거시 앱과 통합 합니다. |
@@ -126,7 +126,7 @@ ms.locfileid: "82204950"
 | [둘 이상의 전역 관리자 지정](../users-groups-roles/directory-emergency-access.md) | 비상 시 사용하기 위해 둘 이상의 클라우드 전용 영구 전역 관리자 계정을 할당합니다. 이러한 계정은 매일 사용되지는 않으며 길고 복잡한 암호가 있어야 합니다. 투명 계정은 응급 상황에서 서비스에 액세스할 수 있도록 합니다. |
 | [가능한 경우 비전역 관리 역할 사용](../users-groups-roles/directory-assign-admin-roles.md) | 관리자에게 액세스해야 하는 영역에 대해 필요한 액세스 권한만 제공합니다. 모든 관리자가 전역 관리자일 필요는 없습니다. |
 | [Microsoft의 암호 지침 사용](https://www.microsoft.com/research/publication/password-guidance/) | 사용자에게 설정된 일정에 따라 자신의 암호를 변경하도록 더 이상 요구하지 않고, 복잡성 요구를 사용하지 않도록 설정합니다. 그러면 사용자는 암호를 기억하고 안전하게 유지하려고 노력합니다. |
-| [게스트 사용자 액세스에 대한 계획 만들기](../b2b/what-is-b2b.md) | 자신의 회사, 학교 또는 소셜 id를 사용 하 여 앱 및 서비스에 로그인 하도록 허용 하 여 게스트 사용자와 공동 작업 합니다. |
+| [게스트 사용자 액세스에 대한 계획 만들기](../external-identities/what-is-b2b.md) | 자신의 회사, 학교 또는 소셜 id를 사용 하 여 앱 및 서비스에 로그인 하도록 허용 하 여 게스트 사용자와 공동 작업 합니다. |
 | [Privileged Identity Management 사용](../privileged-identity-management/pim-configure.md) | 조직에서 중요 한 리소스에 대 한 액세스를 관리, 제어 및 모니터링할 수 있으므로 관리자가 필요한 경우에만 액세스 권한을 보유 하 고 승인을 받을 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계

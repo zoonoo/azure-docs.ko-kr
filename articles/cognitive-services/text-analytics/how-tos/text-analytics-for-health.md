@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 4ba7aa530699ab0e06ac42e3701265254b617f73
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5bb244796414c828e1535e4874fc85aa83f182dc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167694"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300071"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 상태에 대 한 Text Analytics 사용 (미리 보기)
 
@@ -91,7 +91,7 @@ ms.locfileid: "88167694"
 Azure [Web App for Containers](https://azure.microsoft.com/services/app-service/containers/) 는 클라우드에서 실행 중인 컨테이너 전용 azure 리소스입니다. 자동 크기 조정, docker 컨테이너 및 docker 작성, HTTPS 지원 등의 기본 기능을 제공 합니다.
 
 > [!NOTE]
-> Azure 웹 앱을 사용 하 여 다음 형식으로 도메인을 자동으로 가져옵니다.`<appservice_name>.azurewebsites.net`
+> Azure 웹 앱을 사용 하 여 다음 형식으로 도메인을 자동으로 가져옵니다. `<appservice_name>.azurewebsites.net`
 
 Azure CLI를 사용 하 여이 PowerShell 스크립트를 실행 하 고 HTTPS를 통해 구독 및 컨테이너 이미지를 사용 하 여 Web App for Containers를 만듭니다. 첫 번째 요청을 제출 하기 전에 스크립트가 완료 될 때까지 기다립니다 (약 25-30 분).
 
@@ -161,11 +161,11 @@ az container create --resource-group $resource_group_name --name $azure_containe
 
 #### <a name="set-up-nginx-as-an-ingress-gateway"></a>수신 게이트웨이로 NGINX 설정
 
-NGINX는 [구성 파일](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) 을 사용 하 여 런타임에 기능을 사용 하도록 설정 합니다. 다른 서비스에 대 한 TLS 종료를 사용 하도록 설정 하려면 SSL 인증서를 지정 하 여 TLS 연결을 종료 하 고 `proxy_pass` 서비스에 대 한 주소를 지정 해야 합니다. 아래에 예제가 나와 있습니다.
+NGINX는 [구성 파일](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) 을 사용 하 여 런타임에 기능을 사용 하도록 설정 합니다. 다른 서비스에 대 한 TLS 종료를 사용 하도록 설정 하려면 SSL 인증서를 지정 하 여 TLS 연결을 종료 하 고  `proxy_pass` 서비스에 대 한 주소를 지정 해야 합니다. 아래에 예제가 나와 있습니다.
 
 
 > [!NOTE]
-> `ssl_certificate`NGINX 컨테이너의 로컬 파일 시스템 내에 경로를 지정 해야 합니다. 에 지정 된 주소는 `proxy_pass` NGINX 컨테이너의 네트워크 내에서 사용할 수 있어야 합니다.
+> `ssl_certificate` NGINX 컨테이너의 로컬 파일 시스템 내에 경로를 지정 해야 합니다. 에 지정 된 주소는 `proxy_pass` NGINX 컨테이너의 네트워크 내에서 사용할 수 있어야 합니다.
 
 NGINX 컨테이너는 아래에 탑재 된의 모든 파일을 `_.conf_` `/etc/nginx/conf.d/` HTTP 구성 경로에 로드 합니다.
 
@@ -399,22 +399,19 @@ example.json
 
 ```json
 "relations": [
-  {
-      "relationType": "DosageOfMedication",
-      "score": 1.0,
-      "bidirectional": false,
-      "source": "#/documents/2/entities/0",
-      "target": "#/documents/2/entities/1",
-      "entities": [
-          {
-              "id": "0",
-              "role": "ATTRIBUTE"
-          },
-          {
-              "id": "1",
-              "role": "ENTITY"
-          }
-      ]
+                {
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
+                },
+                {
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
+                }
+            ]
   },
 ...
 ]

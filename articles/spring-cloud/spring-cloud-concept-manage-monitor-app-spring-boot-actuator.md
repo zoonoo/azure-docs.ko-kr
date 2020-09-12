@@ -7,19 +7,19 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 5cfc13700decf0176b283f5f1f9bd81503c1b10a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c1ea19c22d003ed1aa7c3d3191ff20a69513bc5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037596"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299510"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Azure Spring Boot Actuator를 사용하여 앱 관리 및 모니터링
 
 앱에 새 이진을 배포한 후 기능을 확인 하 고 실행 중인 응용 프로그램에 대 한 정보를 볼 수 있습니다. 이 문서에서는 Azure 스프링 클라우드에서 제공 하는 테스트 끝점에서 API에 액세스 하 여 앱에 대 한 프로덕션 준비 기능을 제공 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
-이 문서에서는 Azure 스프링 클라우드 서비스에서 성공적으로 배포 하 고 부팅할 수 있는 스프링 부팅 2.x 응용 프로그램이 있다고 가정 합니다.  [빠른 시작: Azure Portal을 사용 하 여 기존 Azure 스프링 클라우드 응용 프로그램 시작을](spring-cloud-quickstart-launch-app-portal.md) 참조 하세요.
+## <a name="prerequisites"></a>전제 조건
+이 문서에서는 Azure 스프링 클라우드 서비스에서 성공적으로 배포 하 고 부팅할 수 있는 스프링 부팅 2.x 응용 프로그램이 있다고 가정 합니다.  [빠른 시작: Azure Portal을 사용 하 여 기존 Azure 스프링 클라우드 응용 프로그램 시작을](spring-cloud-quickstart.md) 참조 하세요.
 
 ## <a name="verify-app-through-test-endpoint"></a>테스트 끝점을 통해 앱 확인
 1. **응용 프로그램 대시보드** 로 이동 하 고 앱을 클릭 하 여 앱 개요 페이지를 입력 합니다.
@@ -63,12 +63,12 @@ Maven 기반 프로젝트에 작동기를 추가 하려면 ' 스타터 ' 종속�
 이제 앱 개요 창으로 돌아가 프로 비전 상태가 "성공"으로 변경 될 때까지 기다릴 수 있습니다.  실행 중인 인스턴스가 두 개 이상 있습니다.
 
 > [!Note] 
-> 앱을 공개에 노출 하면 이러한 발동기 끝점도 공개에 노출 됩니다. 환경 변수를 삭제 하 `management.endpoints.web.exposure.include` 고 다음을 설정 하 여 모든 끝점을 숨길 수 있습니다.`management.endpoints.web.exposure.exclude=*`
+> 앱을 공개에 노출 하면 이러한 발동기 끝점도 공개에 노출 됩니다. 환경 변수를 삭제 하 `management.endpoints.web.exposure.include` 고 다음을 설정 하 여 모든 끝점을 숨길 수 있습니다. `management.endpoints.web.exposure.exclude=*`
 
 ## <a name="view-the-actuator-endpoint-to-view-application-information"></a>응용 프로그램 정보를 보려면 발동기 끝점 보기
 1. 이제 url에 액세스 하 여 `"<test-endpoint>/actuator/"` 스프링 부팅 발동기에서 노출 하는 모든 끝점을 볼 수 있습니다.
 1. 액세스 url `"<test-endpoint>/actuator/env"` , 앱에서 사용 하는 활성 프로필 및 로드 된 모든 환경 변수를 볼 수 있습니다.
-1. 특정 환경을 검색 하려는 경우 url에 액세스 하 여 볼 수 있습니다 `"<test-endpoint>/actuator/env/{toMatch}"` .
+1. 특정 환경을 검색 하려는 경우 url에 액세스 하 여 볼 수 있습니다  `"<test-endpoint>/actuator/env/{toMatch}"` .
 
 기본 제공 되는 모든 끝점을 보려면 [끝점 노출](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints) 을 참조 하세요.
 

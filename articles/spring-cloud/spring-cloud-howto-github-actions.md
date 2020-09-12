@@ -7,18 +7,18 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 960e480bc3271a24f1fa898e1af6c55bcaaada7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f004be0afc6c73fdabe57e568cd57b51e9abcc5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037562"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299685"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>GitHub 작업을 사용 하는 Azure 스프링 클라우드 CI/CD
 
 GitHub 작업은 자동화 된 소프트웨어 개발 수명 주기 워크플로를 지원 합니다. Azure 스프링 클라우드의 GitHub 작업을 사용 하 여 Azure에 빌드, 테스트, 패키지, 릴리스 및 배포를 위해 리포지토리에 워크플로를 만들 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 예에서는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)필요 합니다.
 
 ## <a name="set-up-github-repository-and-authenticate"></a>GitHub 리포지토리 설정 및 인증
@@ -42,7 +42,7 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 }
 ```
 
-이 예제에서는 GitHub의 [피기백 메트릭](https://github.com/Azure-Samples/piggymetrics) 샘플을 사용 합니다.  샘플을 분기 하 고 GitHub 리포지토리 페이지를 연 다음 **설정** 탭을 클릭 합니다. **비밀** 메뉴를 열고 **새 비밀 추가**를 클릭 합니다.
+이 예제에서는 GitHub의 [피기백 메트릭](https://github.com/Azure-Samples/piggymetrics) 샘플을 사용 합니다.  샘플을 포크 하 고 GitHub 리포지토리 페이지를 연 다음 **설정** 탭을 클릭 합니다. **비밀** 메뉴를 열고 **새 비밀 추가**를 클릭 합니다.
 
  ![새 비밀 추가](./media/github-actions/actions1.png)
 
@@ -164,7 +164,7 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Maven 플러그 인을 사용 하 여 배포
-또 다른 옵션은 Jar을 배포 하 고 앱 설정을 업데이트 하는 데 [Maven 플러그 인](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) 을 사용 하는 것입니다. 명령은 `mvn azure-spring-cloud:deploy` idempotent 이며 필요한 경우 자동으로 앱을 만듭니다. 해당 앱을 미리 만들 필요가 없습니다.
+또 다른 옵션은 Jar을 배포 하 고 앱 설정을 업데이트 하는 데 [Maven 플러그 인](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart) 을 사용 하는 것입니다. 명령은 `mvn azure-spring-cloud:deploy` idempotent 이며 필요한 경우 자동으로 앱을 만듭니다. 해당 앱을 미리 만들 필요가 없습니다.
 
 ```
 name: AzureSpringCloud

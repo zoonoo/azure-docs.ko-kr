@@ -3,12 +3,12 @@ title: DPM 및 Azure Backup Server를 위한 오프라인 백업
 description: Azure Backup를 사용 하면 Azure Import/Export 서비스를 사용 하 여 네트워크에서 데이터를 보낼 수 있습니다. 이 문서에서는 DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로를 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 909c7cc85590005afd3b6bd32a94020937f96c32
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 368ae846a24ec04ee4b7da9b5971c00180be611d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002014"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378460"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>DPM 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로 (MABS)
 
@@ -51,10 +51,10 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 * Recovery Services 자격 증명 모음과 동일한 구독에서 Azure Storage 계정을 만듭니다.
 * Azure Active Directory 애플리케이션을 만드는 데 [필요한 권한](../active-directory/develop/howto-create-service-principal-portal.md)이 있는지 확인합니다. 오프라인 백업 워크플로는 Azure Storage 계정과 연결된 구독에 Azure Active Directory 애플리케이션을 만듭니다. 애플리케이션의 목표는 오프라인 백업 워크플로에 필요한 Azure Import 서비스에 대한 보안 및 범위 액세스를 Azure Backup에 제공하는 것입니다.
 * Azure Storage 계정이 포함된 구독에 Microsoft.ImportExport 리소스 공급자를 등록합니다. 리소스 공급자를 등록하려면 다음 단계를 따릅니다.
-    1. 주 메뉴에서 **구독**을 클릭합니다.
+    1. 주 메뉴에서 **구독**을 선택 합니다.
     2. 여러 구독을 구독 하는 경우 오프 라인 백업에 사용 중인 구독을 선택 합니다. 구독을 하나만 사용하는 경우 해당 구독이 표시됩니다.
-    3. 구독 메뉴에서 **리소스 공급자**를 클릭하여 공급자 목록을 봅니다.
-    4. 공급자 목록에서 Microsoft.ImportExport로 스크롤합니다. 상태가 NotRegistered인 경우 **등록**을 클릭합니다.
+    3. 구독 메뉴에서 **리소스 공급자** 를 선택 하 여 공급자 목록을 볼 수 있습니다.
+    4. 공급자 목록에서 Microsoft.ImportExport로 스크롤합니다. 상태가 **Notregistered**인 경우 등록을 선택 합니다.
 
        ![리소스 공급자 등록](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
@@ -68,7 +68,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 
 ## <a name="initiate-offline-backup"></a>오프라인 백업 시작
 
-1. 온라인 보호를 사용하여 새 보호 그룹을 생성하거나 기존 보호 그룹에 온라인 보호를 추가하는 경우 다음과 같은 화면이 표시됩니다. 초기 온라인 복제 방법을 선택하려면 **보유한 디스크를 사용하여 전송**을 선택하고 **다음**을 클릭합니다.
+1. 온라인 보호를 사용하여 새 보호 그룹을 생성하거나 기존 보호 그룹에 온라인 보호를 추가하는 경우 다음과 같은 화면이 표시됩니다. 초기 온라인 복제 방법을 선택 하려면 **내 디스크를 사용 하 여 전송** 을 선택 하 고 **다음**을 선택 합니다.
 
     ![Import 화면](./media/backup-azure-backup-server-import-export/create-new-protection-group.png)
 
@@ -160,7 +160,7 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 * 디스크의 반송 세부 정보
 
    1. Azure 구독에 로그인합니다.
-   2. 주 메뉴에서 **모든 서비스**를 클릭하고 모든 서비스 대화 상자에 Import를 입력합니다. **Import/Export 작업**이 표시되면 해당 작업을 클릭합니다.
+   2. 주 메뉴에서 **모든 서비스** 를 선택 하 고 모든 서비스 대화 상자에서 가져오기를 입력 합니다. **가져오기/내보내기 작업이**표시 되 면 해당 작업을 선택 합니다.
        ![배송 정보 입력](./media/backup-azure-backup-server-import-export/search-import-job.png)
 
        **Import/export 작업** 메뉴가 열리고 선택한 구독의 모든 Import/export 작업 목록이 표시됩니다.
@@ -169,11 +169,11 @@ Azure Backup 및 Azure Import/Export 서비스의 오프 라인 시드 기능을
 
        ![배송 정보 검토](./media/backup-azure-backup-server-import-export/import-job-found.png)
 
-   4. Import 작업에 대한 설정 메뉴에서 **배송 정보 관리**를 클릭하고 반송 세부 정보를 입력합니다.
+   4. 가져오기 작업의 설정 메뉴에서 **배송 정보 관리** 를 선택 하 고 반송 세부 정보를 입력 합니다.
 
        ![배송 정보 저장](./media/backup-azure-backup-server-import-export/shipping-info.png)
 
-   5. 배송 운송업체의 추적 번호가 있으면 Azure Import 작업 개요 페이지에서 배너를 클릭하고 다음 세부 정보를 입력합니다.
+   5. 배송 운송 업체의 추적 번호가 있으면 Azure 가져오기 작업 개요 페이지에서 배너를 선택 하 고 다음 세부 정보를 입력 합니다.
 
       > [!IMPORTANT]
       > Azure Import 작업 생성 후 2주 이내에 운송업체 정보 및 추적 번호가 업데이트되었는지 확인합니다. 2주 이내에 이 정보를 확인하지 못하면 작업이 삭제되고 드라이브가 처리되지 않을 수 있습니다.

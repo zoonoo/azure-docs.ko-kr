@@ -1,5 +1,5 @@
 ---
-title: Microsoft 365 정부에서 제공 되는 Azure AD의 새로운 기능 | Microsoft 문서
+title: Microsoft 365 정부에서 제공 되는 Azure AD의 새로운 기능 | Microsoft Docs
 description: 사용자에 게 영향을 줄 수 있는 Microsoft 365 정부 클라우드 인스턴스에서 Azure Active Directory (Azure AD)에 대 한 몇 가지 변경 내용에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0efc4bc8f89b0fbefbba171d80a3f8a1ed5e7f6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425547"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318933"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Microsoft 365 정부에서 Azure Active Directory의 새로운 기능
 
@@ -51,24 +51,24 @@ Microsoft 365 정부 온라인 서비스에 대 한 조직의 초기 등록 중�
 
 다음 표에서는 모든 고객에 대 한 끝점을 보여 줍니다.
 
-| 이름 | 끝점 세부 정보 |
+| Name | 끝점 세부 정보 |
 |------|------------------|
-| 포털 |Microsoft Azure Government:https://portal.azure.us<p>Microsoft 365 정부 – GCC High:https://portal.office365.us<p>Microsoft 365 정부 – DoD:https://portal.apps.mil |
+| 포털 |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 정부 – GCC High: https://portal.office365.us<p>Microsoft 365 정부 – DoD: https://portal.apps.mil |
 | Azure Active Directory 기관 끝점 | https://login.microsoftonline.us |
 | Microsoft 365 정부에 대 한 Microsoft Graph API-GCC High | https://graph.microsoft.us |
 | Microsoft 365 정부용 Microsoft Graph API-DoD | https://dod-graph.microsoft.us |
-| Azure Government services 끝점 | 자세한 내용은 [Azure Government 개발자 가이드](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) 를 참조 하세요. |
-| 정부 GCC 고급 끝점 Microsoft 365 | 자세한 내용은 [Office 365 미국 정부 GCC 높은 끝점](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) 을 참조 하세요. |
-| Microsoft 365 정부-DoD | 자세한 내용은 [Office 365 미국 정부 DoD 끝점](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) 을 참조 하세요. |
+| Azure Government services 끝점 | 자세한 내용은 [Azure Government 개발자 가이드](../../azure-government/documentation-government-developer-guide.md) 를 참조 하세요. |
+| 정부 GCC 고급 끝점 Microsoft 365 | 자세한 내용은 [Office 365 미국 정부 GCC 높은 끝점](/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) 을 참조 하세요. |
+| Microsoft 365 정부-DoD | 자세한 내용은 [Office 365 미국 정부 DoD 끝점](/office365/enterprise/office-365-u-s-government-dod-endpoints) 을 참조 하세요. |
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Government란?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
+- [Azure Government란?](../../azure-government/documentation-government-welcome.md)
 
 - [Azure Government AAD 기관 끝점 업데이트](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
 
 - [미국 정부 클라우드의 Microsoft Graph 끝점](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
-- [Office 365 미국 정부 GCC High 및 DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
+- [Office 365 미국 정부 GCC High 및 DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

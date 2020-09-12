@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 697c686b61a86cb01327364ad73f30f88e2e151d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 285a41230175392dafb69a99ca08be1f72339439
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268077"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318967"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에서 Kubernetes 역할 기반 Access Control
 
@@ -32,10 +32,7 @@ Kubernetes 클러스터를 설정 하면이 클러스터에 해당 하는 단일
 
 Kubernetes 리소스 (예: pod 및 배포)는 논리적으로 네임 스페이스로 그룹화 됩니다. 이러한 그룹은 Kubernetes 클러스터를 논리적으로 분할 하 고 리소스를 만들거나 보거나 관리 하기 위해 액세스를 제한 하는 방법을 제공 합니다. 사용자는 할당된 네임스페이스 내의 리소스와만 상호 작용할 수 있습니다.
 
-네임 스페이스는 여러 사용자가 여러 팀 또는 프로젝트에 걸쳐 분산 된 환경에서 사용 하기 위한 것입니다. 소수의 사용자를 포함 하는 클러스터의 경우에는 네임 스페이스를 만들거나 고려할 필요가 없습니다. 제공 하는 기능이 필요한 경우 네임 스페이스 사용을 시작 합니다.
-
-자세한 내용은 [Kubernetes 네임스페이스](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)를 참조하세요.
-
+네임 스페이스는 여러 사용자가 여러 팀 또는 프로젝트에 걸쳐 분산 된 환경에서 사용 하기 위한 것입니다. 자세한 내용은 [Kubernetes 네임스페이스](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)를 참조하세요.
 
 Azure Stack Edge 장치에는 다음 네임 스페이스가 있습니다.
 
@@ -47,20 +44,18 @@ Azure Stack Edge 장치에는 다음 네임 스페이스가 있습니다.
     - d 네임 스페이스
     - default
     - kubernetes-대시보드
-    - default
     - kube-임대
     - kube-public
-    - iotedge
-    - azure-호
+
 
     사용자가 만든 사용자 네임 스페이스에 대해 예약 된 이름을 사용 하지 않아야 합니다. 
 <!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
 
-- **사용자 네임 스페이스** - **kubectl** 을 통해 응용 프로그램을 로컬로 배포 하는 데 사용할 수 있는 네임 스페이스입니다.
+- **사용자 네임 스페이스** - **Kubectl** 또는 장치의 PowerShell 인터페이스를 통해 응용 프로그램을 로컬로 배포 하는 데 사용할 수 있는 네임 스페이스입니다.
  
-- **IoT Edge 네임 스페이스** -이 네임 스페이스에 연결 하 여 `iotedge` IoT Edge를 통해 응용 프로그램을 배포 합니다.
+- **IoT Edge 네임 스페이스** -이 네임 스페이스에 연결 하 여 `iotedge` IoT Edge를 통해 배포 된 응용 프로그램을 관리 합니다.
 
-- **Azure arc 네임 스페이스** -이 `azure-arc` 네임 스페이스에 연결 하 여 azure arc를 통해 응용 프로그램을 배포 합니다. 
+- **Azure arc 네임 스페이스** -이 네임 스페이스에 연결 하 여 `azure-arc` azure arc를 통해 배포 된 응용 프로그램을 관리 합니다. Azure Arc를 사용 하면 다른 사용자 네임 스페이스에 응용 프로그램을 배포할 수도 있습니다. 
 
 ## <a name="namespaces-and-users"></a>네임 스페이스 및 사용자
 
@@ -96,7 +91,7 @@ Azure Stack Edge 장치에는 여러 시스템 네임 스페이스가 있으며,
 
 이 다이어그램에서 Alice, Bob 및 척 적은 할당 된 사용자 네임 스페이스에만 액세스할 수 있습니다 .이 경우에는 `ns1` `ns2` 각각, 및 `ns3` 입니다. 이러한 네임 스페이스 내에는 관리자 액세스 권한이 있습니다. 반면에 클러스터 관리자는 시스템 네임 스페이스 및 클러스터 차원 리소스에 대 한 관리자 액세스 권한을 가집니다.
 
-`kubectl`명령을 사용 하 여 네임 스페이스를 만들거나, 사용자를 할당 하거나, 사용자를 할당 하거나, 파일을 다운로드할 수 있습니다 `kubeconfig` . 개략적인 워크플로는 다음과 같습니다.
+`kubectl`명령을 사용 하 여 네임 스페이스 및 사용자를 만들거나 네임 스페이스에 사용자를 할당 하거나 파일을 다운로드할 수 있습니다 `kubeconfig` . 개략적인 워크플로는 다음과 같습니다.
 
 1. 네임 스페이스 및 사용자를 만듭니다.  
 
@@ -123,7 +118,7 @@ Azure Stack Edge 장치에서 네임 스페이스와 사용자를 사용 하는 
 - 사용자 네임 스페이스를 만들고 해당 네임 스페이스 내에서 추가 사용자를 만들고 해당 사용자에 대 한 네임 스페이스 액세스 권한을 부여 하거나 취소할 수 있습니다.
 - 모든 시스템 네임 스페이스에 대 한 이름과 동일한 이름으로는 네임 스페이스를 만들 수 없습니다. 시스템 네임 스페이스의 이름은 예약 되어 있습니다.  
 - 다른 사용자 네임 스페이스에서 이미 사용 중인 이름을 가진 사용자 네임 스페이스를 만들 수 없습니다. 예를 들어를 만든가 있는 경우 `test-ns` 다른 네임 스페이스를 만들 수 없습니다 `test-ns` .
-- 이미 예약 된 이름의 사용자를 만들 수는 없습니다. 예를 들어 `aseuser` 는 예약 된 클러스터 관리자 이므로 사용할 수 없습니다.
+- 이미 예약 된 이름의 사용자를 만들 수는 없습니다. 예를 들어 `aseuser` 는 예약 된 사용자 이며 사용할 수 없습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

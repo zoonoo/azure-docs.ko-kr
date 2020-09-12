@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 02dc9e1ad9ee46b1a400e44b6ef737e70571a17a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b95e02046b2f05dd89ec8fce5da438380a8894e9
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75972595"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375793"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 보안-단일 서버
 
@@ -23,7 +23,7 @@ Azure Database for PostgreSQL 서버에서 데이터를 보호 하는 데 사용
 Azure Database for PostgreSQL 전송 계층 보안을 사용 하 여 전송 중인 데이터를 암호화 하 여 데이터를 보호 합니다. 암호화 (SSL/TLS)는 기본적으로 적용 됩니다.
 
 ### <a name="at-rest"></a>휴지 상태의
-Azure Database for PostgreSQL 서비스는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업이 포함된 데이터는 디스크에서 암호화되며, 쿼리를 실행하는 동안 만든 임시 파일은 제외됩니다. 이 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리됩니다. 스토리지 암호화는 항상 켜져 있고 해제할 수 없습니다.
+Azure Database for PostgreSQL 서비스는 미사용 데이터의 스토리지 암호화를 위해 FIPS 140-2 유효성 검사 암호화 모듈을 사용합니다. 백업을 비롯 한 데이터는 쿼리를 실행 하는 동안 생성 된 임시 파일을 포함 하 여 디스크에 암호화 됩니다. 이 서비스는 Azure 스토리지 암호화에 포함된 AES 256비트 암호화를 사용하며, 키는 시스템에서 관리됩니다. 스토리지 암호화는 항상 켜져 있고 해제할 수 없습니다.
 
 
 ## <a name="network-security"></a>네트워크 보안
@@ -48,7 +48,7 @@ Azure Database for PostgreSQL 서버를 만드는 동안 관리자 역할에 대
 [AAD (Azure Active Directory) 인증](concepts-aad-authentication.md)을 사용 하 여 서버에 연결할 수도 있습니다.
 
 
-## <a name="threat-protection"></a>위협 방지
+## <a name="threat-protection"></a>위협 보호
 
 비정상적인 활동을 검색 하는 [고급 위협 방지](concepts-data-access-and-security-threat-protection.md) 를 옵트인 (opt in) 하 여 서버에 액세스 하거나 악용 하려는 비정상적인 시도를 발견할 수 있습니다.
 

@@ -4,18 +4,18 @@ description: Azure 파일 공유를 백업할 때 지원 설정 및 제한 사�
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7d01f0f64fd183204fb7617040325e7d1b6e553e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6381170df93fdf52c2d0dc7059ad47bbff734025
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289502"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378035"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Azure 파일 공유 백업에 대한 지원 매트릭스
 
 [Azure Backup 서비스](./backup-overview.md)를 사용하여 Azure 파일 공유를 백업할 수 있습니다. 이 문서에서는 Azure Backup을 사용하여 Azure 파일 공유를 백업할 때의 지원 설정을 요약해서 설명합니다.
 
-## <a name="supported-regions"></a>지원되는 Azure 지역
+## <a name="supported-regions"></a>지원되는 지역
 
 ### <a name="ga-regions-for-azure-file-shares-backup"></a>Azure 파일 공유에 대 한 GA 지역 백업
 
@@ -25,7 +25,7 @@ Azure 파일 공유 백업은 독일 중부 (소 버린), 독일 북동쪽 (소 
 
 | 스토리지 계정 세부 정보 | 지원                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| 계정 종류            | Azure Backup은 범용 v1, 범용 v2 및 파일 스토리지 유형 스토리지 계정에 있는 Azure 파일 공유를 지원합니다. |
+| 계정 종류            | Azure Backup는 범용 v1, 범용 v2 및 file storage 유형 저장소 계정에 있는 Azure 파일 공유를 지원 합니다. |
 | 성능              | Azure Backup은 표준 및 Premium Storage 계정 모두에서 파일 공유를 지원합니다. |
 | 복제              | 모든 복제 유형을 사용 하는 저장소 계정의 Azure 파일 공유는 지원 됩니다. |
 | 방화벽 사용         | Microsoft Azure 서비스에서 저장소 계정에 액세스할 수 있도록 허용 하는 방화벽 규칙을 사용 하는 저장소 계정의 Azure 파일 공유가 지원 됩니다.|

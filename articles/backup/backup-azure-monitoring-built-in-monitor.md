@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Backup 작
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 0e1e50f27c6d0563ab51a74bbfa22d2a7f54ecd3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d04f57c19e31b946f7c360edb796bc4f0f5fcf71
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000739"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377406"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드 모니터링
 
@@ -63,7 +63,7 @@ SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 �
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>경고가 발생 하지 않는 경우의 예외
 
-오류가 발생 해도 경고가 발생 하지 않는 경우는 몇 가지 예외가 있습니다. 해당 항목은 다음과 같습니다.
+오류가 발생 해도 경고가 발생 하지 않는 경우는 몇 가지 예외가 있습니다. 관련 토폴로지는 다음과 같습니다.
 
 - 사용자가 실행 중인 작업을 명시적으로 취소 함
 - 다른 백업 작업이 진행 중 이므로 작업이 실패 합니다 (이전 작업이 완료 될 때까지 기다려야 함).
@@ -100,7 +100,7 @@ SQL 및 SAP HANA 같은 Azure 워크 로드 백업 솔루션의 경우 로그 �
 
 ## <a name="inactivating-alerts"></a>비활성화 경고
 
-활성 경고를 비활성화/해결 하려면 비활성화할 경고에 해당 하는 목록 항목을 선택할 수 있습니다. 이렇게 하면 경고에 대 한 자세한 정보를 표시 하는 화면이 열리고 맨 위에 **비활성화** 단추가 표시 됩니다. 이 단추를 클릭 하면 경고 상태가 **비활성**으로 변경 됩니다. 해당 경고에 해당 하는 목록 항목을 마우스 오른쪽 단추로 클릭 하 고 **비활성화**를 선택 하 여 경고를 비활성화할 수도 있습니다.
+활성 경고를 비활성화/해결 하려면 비활성화할 경고에 해당 하는 목록 항목을 선택할 수 있습니다. 이렇게 하면 경고에 대 한 자세한 정보를 표시 하는 화면이 열리고 맨 위에 **비활성화** 단추가 표시 됩니다. 이 단추를 선택 하면 경고 상태가 **비활성**으로 변경 됩니다. 해당 경고에 해당 하는 목록 항목을 마우스 오른쪽 단추로 클릭 하 고 **비활성화**를 선택 하 여 경고를 비활성화할 수도 있습니다.
 
 ![RS Vault 경고 비활성화](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

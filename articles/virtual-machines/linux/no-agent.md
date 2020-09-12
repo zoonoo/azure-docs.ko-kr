@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/06/2020
+ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: d177e7fd7d18b24f9d8fd7f3e6662abe16bba317
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045334"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322554"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>프로 비전 에이전트 없이 일반화 된 이미지 만들기
 
@@ -174,7 +174,7 @@ VM에 Python이 설치 되어 있지 않거나 사용할 수 없는 경우 다�
    </Health>
    ```
 
-3. WireServer에이 데이터를 게시 합니다.`curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
+3. WireServer에이 데이터를 게시 합니다. `curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
 
 ### <a name="automating-running-the-code-at-first-boot"></a>처음 부팅 시 코드 실행 자동화
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 이 systemd 서비스는 기본 프로 비전을 위한 세 가지 작업을 수행 합니다.
 
 1. Azure에 준비 된 보고서 (성공적으로 완료 되었음을 나타냄).
-1. IMDS에서이 데이터를 당겨 사용자가 제공한 VM 이름에 따라 VM의 이름을 바꿉니다.
+1. [Azure Instance Metadata Service (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service)에서이 데이터를 당겨 사용자가 제공한 vm 이름에 따라 vm의 이름을 바꿉니다. **참고** 또한 IMDS는 SSH 공개 키와 같은 다른 [인스턴스 메타 데이터](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service)를 제공 하므로 호스트 이름 이외의 항목을 설정할 수 있습니다.
 1. 을 사용 하지 않도록 설정 하 여 첫 번째 부팅 에서만 실행 되며 이후에 다시 부팅할 때는 실행 되지 않습니다.
 
 파일 시스템의 단위를 사용 하 여 사용 하도록 설정 하려면 다음을 실행 합니다.
@@ -267,7 +267,7 @@ Jun 11 20:28:56 thstringnopa2 systemd[1]: azure-provisioning.service: Succeeded.
 Jun 11 20:28:56 thstringnopa2 systemd[1]: Started Azure Provisioning.
 ```
 
-## <a name="support"></a>Support(지원)
+## <a name="support"></a>지원
 
 사용자 고유의 프로 비전 코드/에이전트를 구현 하는 경우이 코드에 대 한 지원을 소유 하 고 있으므로 Microsoft 지원에서 프로 비전 인터페이스와 관련 된 문제를 조사할 수 있습니다. 이 영역에서 지속적으로 향상 되 고 변경 되 고 있으므로 API 변경의 프로 비전을 위해 클라우드 init 및 Azure Linux 에이전트에서 변경 내용을 모니터링 해야 합니다.
 

@@ -11,20 +11,18 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 919f3105c1ee9cc8cbdfaf413be56f6dd6291683
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c29ad48e8dc626617786e519e84c92875bc6170
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212686"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378528"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>결과 세트 캐싱을 사용한 성능 조정
 
 결과 세트 캐싱을 사용하도록 설정한 경우 Synapse SQL은 반복 사용을 위해 사용자 데이터베이스에 쿼리 결과를 자동으로 캐시합니다.  이렇게 하면 후속 쿼리 실행 시 지속형 캐시에서 직접 결과를 가져올 수 있으므로 재계산이 필요하지 않습니다.   결과 세트 캐싱은 쿼리 성능을 향상시키고 컴퓨팅 리소스 사용량을 줄입니다.  또한 캐시된 결과 세트를 사용하는 쿼리는 동시성 슬롯을 사용하지 않으므로 기존 동시성 제한이 적용되지 않습니다. 보안을 위해 캐시된 결과를 만든 사용자와 동일한 데이터 액세스 권한이 있는 경우에만 캐시된 결과에 액세스할 수 있습니다.  
 
 ## <a name="key-commands"></a>주요 명령
-
-[사용자 데이터베이스에 대한 결과 세트 캐싱 설정/해제](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 [사용자 데이터베이스에 대한 결과 세트 캐싱 설정/해제](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 

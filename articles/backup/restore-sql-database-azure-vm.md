@@ -3,12 +3,12 @@ title: Azure VM에서 SQL Server 데이터베이스 복원
 description: 이 문서에서는 Azure VM에서 실행 되 고 Azure Backup을 사용 하 여 백업 되는 SQL Server 데이터베이스를 복원 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 682540e498c7531777032b5375f0105c03ce4ec6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826559"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377984"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -23,7 +23,7 @@ ms.locfileid: "88826559"
 - 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
 - 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>전제 조건
 
 데이터베이스를 복원 하기 전에 다음 사항에 유의 하십시오.
 
@@ -98,7 +98,7 @@ ms.locfileid: "88826559"
 
         ![대상 경로 입력](./media/backup-azure-sql-database/target-paths.png)
 
-1. **확인** 을 클릭 하 여 복원을 트리거합니다. **알림** 영역에서 복원 진행률을 추적 하거나, 자격 증명 모음의 **백업 작업** 보기에서 추적 합니다.
+1. **확인** 을 선택 하 여 복원을 트리거합니다. **알림** 영역에서 복원 진행률을 추적 하거나, 자격 증명 모음의 **백업 작업** 보기에서 추적 합니다.
 
     > [!NOTE]
     > 지정 시간 복원은 전체 및 대량 로그 복구 모드에 있는 데이터베이스의 로그 백업에 대해서만 사용할 수 있습니다.
@@ -161,7 +161,7 @@ ms.locfileid: "88826559"
     ![전체 복구 지점 선택](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
-    > 기본적으로 최근 30 일 동안의 복구 지점이 표시 됩니다. **필터** 를 클릭 하 고 사용자 지정 범위를 선택 하 여 30 일 보다 오래 된 복구 지점은 표시할 수 있습니다.
+    > 기본적으로 최근 30 일 동안의 복구 지점이 표시 됩니다. **필터** 를 선택 하 고 사용자 지정 범위를 선택 하 여 30 일 보다 오래 된 복구 지점은 표시할 수 있습니다.
 
 ### <a name="restore-databases-with-large-number-of-files"></a>많은 수의 파일을 포함 하는 데이터베이스 복원
 

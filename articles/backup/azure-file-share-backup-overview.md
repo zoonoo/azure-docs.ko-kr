@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 정보
 description: Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: dd8a17639c006dd1c0e8cc193776bb63cb536ceb
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180017"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378086"
 ---
 # <a name="about-azure-file-share-backup"></a>Azure 파일 공유 백업 정보
 
@@ -44,7 +44,7 @@ Azure 파일 공유 백업은 클라우드에서 데이터를 보호 하 고 온
 
 6. 원본 파일 공유에서 사용할 수 있는 스냅숏에서 Azure 파일 공유 콘텐츠 (개별 파일 또는 전체 공유)를 복원할 수 있습니다. 작업이 트리거되면 스냅숏 URL은 메타 데이터 저장소에서 검색 되 고 데이터는 원본 스냅숏에서 선택한 대상 파일 공유로 나열 되 고 전송 됩니다.
 
-7. Azure File Sync를 사용 하는 경우 백업 서비스는 복원 되는 파일의 경로를 Azure File Sync 서비스에 표시 하 고이 파일에 대 한 백그라운드 변경 검색 프로세스를 트리거합니다. 변경 된 모든 파일은 서버 끝점으로 동기화 됩니다. 이 프로세스는 Azure 파일 공유에 대 한 원래 복원과 동시에 발생 합니다.
+7. Azure File Sync를 사용 하는 경우 백업 서비스는 복원 되는 파일의 경로를 Azure File Sync 서비스에 표시 합니다. 그러면 해당 파일에 대 한 백그라운드 변경 감지 프로세스가 트리거됩니다. 변경 된 모든 파일은 서버 끝점으로 동기화 됩니다. 이 프로세스는 Azure 파일 공유에 대 한 원래 복원과 동시에 발생 합니다.
 
 8. 백업 및 복원 작업 모니터링 데이터는 Azure Backup 모니터링 서비스로 푸시됩니다. 이렇게 하면 단일 대시보드에서 파일 공유에 대 한 클라우드 백업을 모니터링할 수 있습니다. 또한 백업 상태가 영향을 받는 경우 경고 또는 전자 메일 알림을 구성할 수도 있습니다. 전자 메일은 Azure 전자 메일 서비스를 통해 전송 됩니다.
 
@@ -52,9 +52,9 @@ Azure 파일 공유 백업은 클라우드에서 데이터를 보호 하 고 온
 
 Azure 파일 공유 백업 솔루션과 관련 된 비용에는 두 가지가 있습니다.
 
-1. **스냅숏 저장소 비용**: 스냅숏에 대해 발생 하는 저장소 요금은 [여기](https://azure.microsoft.com/pricing/details/storage/files/) 에 언급 된 가격 정보에 따라 Azure Files 사용량과 함께 청구 됩니다. 
+1. **스냅숏 저장소 비용**: 스냅숏에 대해 발생 하는 저장소 요금은 [여기](https://azure.microsoft.com/pricing/details/storage/files/) 에 언급 된 가격 정보에 따라 Azure Files 사용량과 함께 청구 됩니다.
 
-2. **보호 된 인스턴스 요금** : 2020 년 9 월 1 일부 터 고객은 [여기](https://azure.microsoft.com/en-in/pricing/details/backup/) 에 언급 된 가격 책정 정보에 따라 보호 된 인스턴스 요금을 청구 합니다. 보호 된 인스턴스 요금은 저장소 계정에 있는 보호 된 파일 공유의 전체 크기에 따라 달라 집니다.
+2. **보호 된 인스턴스 요금**: 2020 년 9 월 1 일부 터 고객은 [여기](https://azure.microsoft.com/pricing/details/backup/)에 언급 된 가격 책정 정보에 따라 보호 된 인스턴스 요금을 청구 합니다. 보호 된 인스턴스 요금은 저장소 계정에 있는 보호 된 파일 공유의 전체 크기에 따라 달라 집니다.
 
 Azure 파일 공유 백업에 대 한 자세한 추정치를 얻기 위해 자세한 [Azure Backup 가격 책정 평가기](https://aka.ms/AzureBackupCostEstimates)을 다운로드할 수 있습니다.  
 

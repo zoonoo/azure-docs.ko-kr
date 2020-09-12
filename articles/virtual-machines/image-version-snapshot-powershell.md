@@ -1,6 +1,6 @@
 ---
-title: PowerShell-공유 이미지 갤러리에서 스냅숏 또는 VHD에서 이미지 만들기
-description: PowerShell을 사용 하 여 공유 이미지 갤러리에서 스냅숏 또는 VHD에서 이미지를 만드는 방법에 대해 알아봅니다.
+title: PowerShell-공유 이미지 갤러리의 스냅숏 또는 관리 디스크에서 이미지 만들기
+description: PowerShell을 사용 하 여 공유 이미지 갤러리에서 스냅숏 또는 관리 디스크에서 이미지를 만드는 방법에 대해 알아봅니다.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 315c635ba0864dc1565fd7ba5ccc450223d87ac9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2ebff0d86c27bcdbc11d23e18116b33b4ea838a6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494720"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300258"
 ---
-# <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>PowerShell을 사용 하 여 공유 이미지 갤러리의 VHD 또는 스냅숏에서 이미지 만들기
+# <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>PowerShell을 사용 하 여 공유 이미지 갤러리에서 관리 디스크 또는 스냅숏에서 이미지 만들기
 
-공유 이미지 갤러리로 마이그레이션하는 기존 스냅숏 또는 VHD가 있는 경우 VHD 나 스냅숏에서 직접 공유 이미지 갤러리 이미지를 만들 수 있습니다. 새 이미지를 테스트 한 후에는 원본 VHD 또는 스냅숏을 삭제할 수 있습니다. [Azure CLI](image-version-snapshot-cli.md)를 사용 하 여 공유 이미지 갤러리의 VHD 또는 스냅숏에서 이미지를 만들 수도 있습니다.
+공유 이미지 갤러리로 마이그레이션할 기존 스냅숏 또는 관리 디스크가 있는 경우 관리 디스크 또는 스냅숏에서 직접 공유 이미지 갤러리 이미지를 만들 수 있습니다. 새 이미지를 테스트 한 후에는 원본 관리 디스크 또는 스냅숏을 삭제할 수 있습니다. [Azure CLI](image-version-snapshot-cli.md)를 사용 하 여 공유 이미지 갤러리에서 관리 디스크 또는 스냅숏에서 이미지를 만들 수도 있습니다.
 
 이미지 갤러리의 이미지에는 다음 예제에서 만들 두 가지 구성 요소가 있습니다.
 - 이미지 **정의** 는 이미지 및 사용에 대 한 요구 사항에 대 한 정보를 전달 합니다. 여기에는 이미지가 Windows 또는 Linux 인지, 특수 하거나 일반화 되었는지, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함 됩니다. 이미지의 형식 정의입니다. 
@@ -27,14 +27,14 @@ ms.locfileid: "86494720"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서를 완료 하려면 스냅숏 또는 VHD가 있어야 합니다. 
+이 문서를 완료 하려면 스냅숏 또는 관리 디스크가 있어야 합니다. 
 
 데이터 디스크를 포함 하려는 경우 데이터 디스크 크기는 1TB 이상일 수 없습니다.
 
 이 문서를 진행할 때 필요한 경우 리소스 이름을 바꿉니다.
 
 
-## <a name="get-the-snapshot-or-vhd"></a>스냅숏 또는 VHD 가져오기
+## <a name="get-the-snapshot-or-managed-disk"></a>스냅숏 또는 관리 디스크 가져오기
 
 [AzSnapshot](/powershell/module/az.compute/get-azsnapshot)를 사용 하 여 리소스 그룹에서 사용할 수 있는 스냅숏 목록을 볼 수 있습니다. 
 
@@ -50,17 +50,17 @@ $source = Get-AzSnapshot `
    -ResourceGroupName myResourceGroup
 ```
 
-스냅숏 대신 VHD를 사용할 수도 있습니다. VHD를 가져오려면 [AzDisk](/powershell/module/az.compute/get-azdisk)을 사용 합니다. 
+스냅숏 대신 관리 디스크를 사용할 수도 있습니다. 관리 디스크를 가져오려면 [AzDisk](/powershell/module/az.compute/get-azdisk)을 사용 합니다. 
 
 ```azurepowershell-interactive
 Get-AzDisk | Format-Table -Property Name,ResourceGroupName
 ```
 
-그런 다음 VHD를 가져와 `$source` 변수에 할당 합니다.
+그런 다음 관리 디스크를 가져와 `$source` 변수에 할당 합니다.
 
 ```azurepowershell-interactive
 $source = Get-AzDisk `
-   -SnapshotName mySnapshot
+   -Name myDisk
    -ResourceGroupName myResourceGroup
 ```
 
@@ -88,7 +88,7 @@ $gallery = Get-AzGallery `
 
 이미지 정의는 이미지에 대한 논리적 그룹화를 만듭니다. 이미지에 대 한 정보를 관리 하는 데 사용 됩니다. 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 
 
-이미지 정의를 만들 때에 올바른 정보가 모두 있는지 확인 합니다. 이 예제에서는 스냅숏이 사용 중인 VM에서 스냅숏 또는 VHD를 사용 하 고 있으며 일반화 되지 않았다고 가정 합니다. Windows 또는 [waagent](https://github.com/Azure/WALinuxAgent) 용 Sysprep 또는 Linux 용으로 실행 한 후 VHD 또는 스냅숏이 일반화 된 OS를 사용 하는 경우 `-deprovision` `-deprovision+user` `-OsState` 를로 변경 합니다 `generalized` . 
+이미지 정의를 만들 때에 올바른 정보가 모두 있는지 확인 합니다. 이 예에서는 스냅숏 또는 관리 디스크를 사용 중인 VM에서 사용 하는 것으로 가정 하 고 일반화 되지 않은 것으로 가정 합니다. Windows 용 Sysprep 또는 [waagent](https://github.com/Azure/WALinuxAgent) 또는 Linux를 실행 한 후에 관리 되는 디스크 또는 스냅숏이 일반화 된 OS를 만든 경우 `-deprovision` `-deprovision+user` `-OsState` 를로 변경 합니다 `generalized` . 
 
 이미지 정의에 대해 지정할 수 있는 값에 대한 자세한 내용은 [이미지 정의](./windows/shared-image-galleries.md#image-definitions)를 참조하세요.
 
@@ -118,7 +118,7 @@ $imageDefinition = New-AzGalleryImageDefinition `
 
 이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
-OS 디스크 외에도 이미지에 데이터 디스크를 포함 하려면 매개 변수를 추가 하 `-DataDiskImage` 고 데이터 디스크 스냅숏 또는 VHD의 ID로 설정 합니다.
+OS 디스크 외에도 이미지에 데이터 디스크를 포함 하려면 매개 변수를 추가 하 `-DataDiskImage` 고 데이터 디스크 스냅숏 또는 관리 디스크의 ID로 설정 합니다.
 
 이 예제에서 이미지 버전은 *1.0.0*이며, *미국 중서부* 및 *미국 중남부* 데이터 센터 둘 다에 복제됩니다. 복제를 위한 대상 영역을 선택할 때 *원본* 지역을 복제 대상으로 포함 해야 합니다.
 

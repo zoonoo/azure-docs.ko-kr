@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: f5614da7eac0717894d2bcb3c9cfdd959cb57f72
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.date: 09/02/2020
+ms.openlocfilehash: 0d98afb97113f222b9ff0edc8405ea75ad10a3fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607279"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322078"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>결제 임계값, 메서드 및 시간 프레임
 
@@ -123,15 +123,14 @@ ms.locfileid: "88607279"
 | 리히텐슈타인 | 예 | 예 | 예 | 예 |
 | 리투아니아 | 예 | 예 | 예 | 예 |
 | 룩셈부르크 | 예 | 예 | 예 | 예 |
-| 북마케도니아 공화국 | 예 | 예 | 예 | 예 |
 | 마다가스카르 | 예 | 예 | 예 | 예 |
 | 말라위 | 예 | 예 | 예 | 예 |
 | 말레이시아 | 예 | 예 | 예 | 예 |
 | 말리 | 예 | 예 | 예 | 예 |
 | 몰타 | 예 | 예 | 예 | 예 |
-| 모리셔스 | 예 | 예 | 예 | 예 |
+| 모리셔스 | 예 | 예 | 아니요 | 예 |
 | 멕시코 | 예 | 예 | 예 | 예 |
-| 모나코 | 예 | 예 | 예 | 예 |
+| 모나코 | 예 | 예 | 아니요 | 예 |
 | 몽골 | 예 | 예 | 예 | 예 |
 | 몬테네그로 | 예 | 예 | 예 | 예 |
 | 모로코 | 예 | 예 | 예 | 예 |
@@ -142,6 +141,7 @@ ms.locfileid: "88607279"
 | 니카라과 | 예 | 예 | 예 | 예 |
 | 니제르 | 예 | 예 | 예 | 예 |
 | 나이지리아 | 예 | 예 | 예 | 예 |
+| 북마케도니아 | 아니요 | 예 | 예 | 예 |
 | 노르웨이 | 예 | 예 | 예 | 예 |
 | 오만 | 예 | 예 | 예 | 예 |
 | 파키스탄 | 예 | 예 | 예 | 예 |

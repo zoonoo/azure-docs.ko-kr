@@ -4,12 +4,12 @@ description: 역할 기반 Access Control을 사용하여 Recovery Services 자�
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 1a4bb617511f5d5ccf882ccb11e7d88eb7a848ea
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017807"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376131"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리
 
@@ -56,7 +56,7 @@ Azure Backup는 백업 관리 작업을 제어 하는 세 가지 기본 제공 �
 | 등록된 온-프레미스 Windows 서버/클라이언트/SCDPM 또는 Azure Backup Server 삭제 | Backup 참가자 | Recovery Services 자격 증명 모음 |
 
 > [!IMPORTANT]
-> VM 리소스 범위에서 VM 기여자를 지정하고 VM 설정의 일환으로 백업을 클릭하면 VM이 이미 백업되었다 하더라도 ‘백업 사용’ 화면이 열립니다. 백업 상태를 확인하기 위한 호출은 구독 수준에서만 작동하기 때문입니다. 이를 방지하려면 자격 증명 모음으로 이동하여 VM의 백업 항목을 열거나, 구독 수준에서 VM 기여자 역할을 지정합니다.
+> Vm 리소스 범위에서 VM 참가자를 지정 하 고 VM 설정의 일부분으로 **백업** 을 선택 하는 경우 vm이 이미 백업 된 경우에도 **백업 사용** 화면이 열립니다. 백업 상태를 확인 하는 호출은 구독 수준 에서만 작동 하기 때문입니다. 이를 방지 하려면 자격 증명 모음으로 이동 하 여 VM의 백업 항목 보기를 열거나 구독 수준에서 VM 참가자 역할을 지정 합니다.
 
 ## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Azure 파일 공유 백업에 대 한 최소 역할 요구 사항
 

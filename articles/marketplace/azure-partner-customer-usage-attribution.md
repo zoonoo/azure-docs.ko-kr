@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 04/14/2020
+ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031288"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320973"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>상업적 마켓플레이스 파트너 및 고객 사용 특성
 
@@ -97,9 +97,9 @@ GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 
 
 1. Resource Manager 템플릿을 엽니다.
 
-1. 기본 템플릿 파일에 새 리소스를 추가합니다. 리소스는 **mainTemplate.json** 또는 **azuredeploy.json** 파일에만 있어야 하며, 중첩되거나 연결된 템플릿에 있으면 안됩니다.
+1. 주 템플릿 파일에 [Microsoft .resources/배포](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) 유형의 새 리소스를 추가 합니다. 리소스는 **mainTemplate.json** 또는 **azuredeploy.json** 파일에만 있어야 하며, 중첩되거나 연결된 템플릿에 있으면 안됩니다.
 
-1. 접두사 뒤에 GUID 값을 입력 합니다 `pid-` (예: pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. 접두사 뒤에 GUID 값을 입력 하 여 `pid-` 리소스의 이름으로 입력 합니다. 예를 들어 GUID가 eb7927c8-dd66-43e1-b0cf-c346a422063 인 경우 리소스 이름은 _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_가 됩니다.
 
 1. 템플릿에서 오류를 확인합니다.
 
@@ -112,11 +112,11 @@ GUID(Globally Unique Identifier)를 추가하려면 주 템플릿 파일을 한 
 템플릿에 대한 추적 리소스를 사용하도록 설정하려면 리소스 섹션 아래에 다음 추가 리소스를 추가해야 합니다. 아래 샘플 코드를 기본 템플릿 파일에 추가할 때 사용자 고유의 입력으로 수정해야 합니다.
 리소스는 **mainTemplate.json** 또는 **azuredeploy.json** 파일에만 추가해야 하며, 중첩되거나 연결된 템플릿에 있으면 안 됩니다.
 
-```
+```json
 // Make sure to modify this sample code with your own inputs where applicable
 
 { // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
-    "apiVersion": "2018-02-01",
+    "apiVersion": "2020-06-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
@@ -153,6 +153,20 @@ Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent�
 
 > [!NOTE]
 > 각 클라이언트에 대한 특성을 추가합니다. 글로벌 정적 구성이 없습니다. 모든 클라이언트에서 추적할 수 있도록 클라이언트 팩터리에 태그를 지정할 수 있습니다. 자세한 내용은 [GitHub의 클라이언트 팩터리 샘플](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)을 참조하세요.
+
+#### <a name="example-the-net-sdk"></a>예: .NET SDK
+
+.NET의 경우 사용자 에이전트를 설정 해야 합니다. [흐름](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) 라이브러리는 다음 코드를 사용 하 여 사용자 에이전트를 설정 하는 데 사용할 수 있습니다 (예: c #의 경우).
+
+```csharp
+
+var azure = Microsoft.Azure.Management.Fluent.Azure
+    .Configure()
+    // Add your pid in the user agent header
+    .WithUserAgent("pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", String.Empty) 
+    .Authenticate(/* Credentials created via Microsoft.Azure.Management.ResourceManager.Fluent.SdkContext.AzureCredentialsFactory */)
+    .WithSubscription("<subscription ID>");
+```
 
 #### <a name="tag-a-deployment-by-using-the-azure-powershell"></a>Azure PowerShell을 사용하여 배포에 태그 지정
 
@@ -339,7 +353,7 @@ Azure Storage의 GUID 생성기 양식은 필요한 형식의 GUID를 생성하�
 
 **기본 템플릿의 *contentVersion* 속성을 업데이트하지 못했습니다.**
 
-어떤 이유로 이전의 contentVersion이 필요한 다른 템플릿에서 TemplateLink를 사용하여 템플릿을 배포하는 경우에 발생하는 버그 같습니다. 해결 방법은 메타데이터 속성을 사용하는 것입니다.
+이러한 문제는 어떤 이유로 이전 contentVersion이 필요한 다른 템플릿에서 TemplateLink를 사용 하 여 템플릿을 배포 하는 경우에 발생할 수 있습니다. 해결 방법은 메타데이터 속성을 사용하는 것입니다.
 
 ```
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a8e1d43138e0b7481ebb89d747fa26df9470a09f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c403398f7320cefa16a4a570645a6d7d750acc7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037138"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297504"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>스프링 마이크로서비스 앱용 Java 및 기본 OS
 다음은 스프링 마이크로 서비스 앱에 대 한 정상 Java 및 기본 운영 체제를 유지 관리 하기 위한 원칙입니다.
@@ -52,5 +52,5 @@ Azul 시스템은 기본 운영 체제에 대 한 변경 내용을 지속적으�
 > ![기본 배포](media/spring-cloud-principles/spring-cloud-default-deployment.png)
  
 ## <a name="next-steps"></a>다음 단계
-* [빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](spring-cloud-quickstart-launch-app-portal.md)
+* [빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작](spring-cloud-quickstart.md)
 * [Azure 및 Azure Stack에 대 한 Java 장기 지원](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)

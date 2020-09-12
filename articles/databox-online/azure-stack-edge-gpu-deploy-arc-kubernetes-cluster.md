@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cd163b4c7514507d2a0563f1254c83dd22a3af2
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3405f28d5f306e8370bae72eb5f3f3c406235c3d
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268196"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322027"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에서 Kubernetes 클러스터에 Azure Arc 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "89268196"
 이 절차는 [Azure Stack Edge 장치에서 Kubernetes 워크 로드](azure-stack-edge-gpu-kubernetes-workload-management.md) 를 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에 Azure Stack Edge 장치에서 장치에 액세스 하는 데 사용할 클라이언트에 대해 다음과 같은 필수 구성 요소를 완료 했는지 확인 합니다.
 
@@ -59,7 +59,7 @@ Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에
 
 ## <a name="register-kubernetes-resource-providers"></a>Kubernetes 리소스 공급자 등록
 
-Azure Arc를 통해 Kubernetes 클러스터를 구성 하기 전에 구독을 사용 하도록 설정 하 고 등록 해야 `Microsoft.Kubernetes` `Microsoft.KubernetesConfiguration` 합니다. 
+Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에 구독을 사용 하도록 설정 하 고 등록 해야 `Microsoft.Kubernetes` `Microsoft.KubernetesConfiguration` 합니다. 
 
 1. 리소스 공급자를 사용 하도록 설정 하려면 Azure Portal에서 배포에 사용할 구독으로 이동 합니다. **리소스 공급자**로 이동 합니다. 
 1. 오른쪽 창에서 추가 하려는 공급자를 검색 합니다. 이 예제에서는 `Microsoft.Kubernetes` 및 `Microsoft.KubernetesConfiguration` 입니다.
@@ -88,7 +88,7 @@ Azure Arc를 통해 Kubernetes 클러스터를 구성 하기 전에 구독을 �
 
 1. 서비스 주체를 만들려면를 통해 다음 명령을 사용 `az cli` 합니다.
 
-    `az as sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
 
     에 로그인 하는 방법에 대 한 자세한 내용은 `az cli` [에서 Cloud Shell를 시작 Azure Portal](../cloud-shell/quickstart-powershell.md?view=azure-cli-latest#start-cloud-shell)
 
@@ -142,12 +142,12 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성 하려면 다음 �
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-    Azure Stack Edge 장치에 Azure Arc를 배포 하려면 [Azure arc에 대해 지원](../azure-arc/kubernetes/overview.md#supported-regions)되는 지역을 사용 하 고 있는지 확인 합니다. Azure Arc는 현재 미리 보기 상태입니다. 
+    Azure Stack Edge 장치에 Azure Arc를 배포 하려면 [Azure arc에 대해 지원](../azure-arc/kubernetes/overview.md#supported-regions)되는 지역을 사용 하 고 있는지 확인 합니다. Azure Arc는 현재 미리 보기 상태입니다. 명령을 사용 하 여 cmdlet에 전달할 영역의 정확한 이름을 확인할 수도 있습니다 `az account list-locations` .
     
     예를 들면 다음과 같습니다.
    
     ```powershell
-    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "WestEurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
+    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
         [10.128.44.240]: PS>
     ```
     

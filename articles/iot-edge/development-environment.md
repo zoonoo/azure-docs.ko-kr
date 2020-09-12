@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96078be20e8048e481a994fefc169e48ab1d8459
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bee1f95e1f56b65912895fec8af2512c6cd7b85a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76511096"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300377"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>IoT Edge를 위한 개발 및 테스트 환경 준비
 
@@ -49,7 +49,7 @@ Visual Studio Code용 Azure IoT Edge 확장은 C#의 Azure 함수뿐만 아니�
 
 IoT Edge 확장 외에도 개발을 위한 추가 확장을 설치하면 유용할 수 있습니다. 예를 들어 [Visual Studio Code용 Docker 지원](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)을 사용하여 이미지, 컨테이너 및 레지스트리를 관리할 수 있습니다. 또한 지원되는 모든 주요 언어 모듈에는 개발 시 도움이 될 수 있는 Visual Studio Code용 확장이 있습니다.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>전제 조건
 
 일부 언어 및 서비스용 모듈 템플릿에는 Visual Studio Code를 사용하여 개발 컴퓨터에서 프로젝트 폴더를 빌드하는 데 필요한 필수 구성 요소가 있습니다.
 
@@ -82,10 +82,10 @@ IoT Edge 런타임만 프로덕션 환경에 배포할 수 있지만, 다음 도
 
 | 도구 | 다른 명칭 | 지원되는 플랫폼 | 적합한 대상 |
 | ---- | ------------- | ------------------- | --------- |
-| IoT EdgeHub 개발자 도구  | iotedgehubdev | Windows, Linux, MacOS | 모듈을 디버그하는 디바이스 시뮬레이트 |
-| IoT Edge 개발자 컨테이너 | microsoft/iotedgedev | Windows, Linux, MacOS | 종속성을 설치하지 않고 개발 |
-| 컨테이너의 IoT Edge 런타임 | iotedgec | Windows, Linux, MacOS, ARM | 런타임을 지원하지 않을 수 있는 디바이스에서 테스트 |
-| IoT Edge 디바이스 컨테이너 | toolboc/azure-iot-edge-device-container | Windows, Linux, MacOS, ARM | 많은 IoT Edge 디바이스를 포함하는 시나리오를 대규모로 테스트 |
+| IoT EdgeHub 개발자 도구  | iotedgehubdev | Windows, Linux, macOS | 모듈을 디버그하는 디바이스 시뮬레이트 |
+| IoT Edge 개발자 컨테이너 | microsoft/iotedgedev | Windows, Linux, macOS | 종속성을 설치하지 않고 개발 |
+| 컨테이너의 IoT Edge 런타임 | iotedgec | Windows, Linux, macOS, ARM | 런타임을 지원하지 않을 수 있는 디바이스에서 테스트 |
+| IoT Edge 디바이스 컨테이너 | toolboc/azure-iot-edge-device-container | Windows, Linux, macOS, ARM | 많은 IoT Edge 디바이스를 포함하는 시나리오를 대규모로 테스트 |
 
 ### <a name="iot-edgehub-dev-tool"></a>IoT EdgeHub 개발자 도구
 
@@ -103,7 +103,7 @@ Azure IoT Edge 개발 컨테이너는 IoT Edge 개발에 필요한 종속성이 
 
 ### <a name="iot-edge-runtime-in-a-container"></a>컨테이너의 IoT Edge 런타임
 
-컨테이너의 IoT Edge 런타임은 디바이스 연결 문자열을 환경 변수로 사용하는 전체 런타임을 제공합니다. 이 컨테이너를 사용하면 MacOS와 같이 기본적으로는 런타임을 지원하지 않을 수 있는 시스템에서 IoT Edge 모듈 및 시나리오를 테스트할 수 있습니다. 배포하는 모든 모듈은 런타임 컨테이너에서 외부에서 시작됩니다. 런타임 및 배포한 모든 모듈을 동일한 컨테이너에 두려면 대신 IoT Edge 디바이스 컨테이너를 고려합니다.
+컨테이너의 IoT Edge 런타임은 디바이스 연결 문자열을 환경 변수로 사용하는 전체 런타임을 제공합니다. 이 컨테이너를 사용 하면 macOS와 같이 기본적으로 런타임을 지원 하지 않을 수 있는 시스템에서 IoT Edge 모듈과 시나리오를 테스트할 수 있습니다. 배포하는 모든 모듈은 런타임 컨테이너에서 외부에서 시작됩니다. 런타임 및 배포한 모든 모듈을 동일한 컨테이너에 두려면 대신 IoT Edge 디바이스 컨테이너를 고려합니다.
 
 자세한 내용은 [컨테이너에서 Azure IoT Edge 실행](https://github.com/Azure/iotedgedev/tree/master/docker/runtime)을 참조하세요.
 
@@ -119,7 +119,7 @@ IoT Edge 디바이스 컨테이너는 컨테이너 엔진이 있는 어떤 컴�
 
 자세한 내용, 지침 및 예제를 보려면 다음 페이지를 참조하세요.
 
-* [Azure IoT Edge 연속 통합 및 지속적인 배포](how-to-ci-cd.md)
-* [Azure DevOps Projects를 사용하여 IoT Edge에 대한 CI/CD 파이프라인 만들기](how-to-devops-project.md)
+* [Azure IoT Edge 연속 통합 및 지속적인 배포](how-to-continuous-integration-continuous-deployment.md)
+* [Azure DevOps 스타터를 사용 하 여 IoT Edge에 대 한 CI/CD 파이프라인 만들기](how-to-devops-starter.md)
 * [Azure IoT Edge Jenkins 플러그 인](https://plugins.jenkins.io/azure-iot-edge)
 * [IoT Edge DevOps GitHub 리포지토리](https://github.com/toolboc/IoTEdge-DevOps)

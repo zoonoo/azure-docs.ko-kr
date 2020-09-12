@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: f1c5fb04597ec274eaf2b4a4e7a5e2b96f1816f1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 05accd69f1868b8b0e0f6dbd4fb5c21ee843ec5e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258829"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297724"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>자동 생성된 비트 전송률 사다리로 인코딩
 
@@ -39,7 +39,7 @@ ms.locfileid: "89258829"
 
 이 섹션에서는 **AdaptiveStreaming** 사전 설정으로 인코딩한 결과로 Media Services 인코더에 의해 생성된 출력 계층의 세 가지 예를 보여 줍니다. 모든 경우에 출력에는 128kbps로 인코딩된 스테레오 오디오와 오디오 전용 MP4 파일이 포함됩니다.
 
-### <a name="example-1"></a>예제 1
+### <a name="example-1"></a>예 1
 높이가 "1080"이고 프레임 속도가 "29.970"인 원본은 6개의 비디오 계층을 생성합니다.
 
 |계층|높이|너비|비트 전송률(kbps)|

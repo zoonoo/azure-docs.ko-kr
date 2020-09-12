@@ -9,33 +9,33 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/20/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
-ms.openlocfilehash: 61ba06054e86d544ae4ab1edbdef8d86667ef3b2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796581"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322605"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>2단계 인증 및 회사 또는 학교 계정에 대한 일반적인 문제
 
-Azure Active Directory (Azure AD) 조직은 2 단계 인증 (2FV)을 켤 수 있습니다. 원하는 것 보다 더 자주 발생 하는 것 처럼 보이는 몇 가지 일반적인 2FV 문제가 있습니다. 가장 일반적인 문제에 대 한 수정 사항을 설명 하기 위해이 문서를 함께 제공 합니다.
+몇 가지 일반적인 2단계 인증 문제들은 생각보다 더 자주 발생하는 것처럼 보이기도 합니다. 가장 일반적인 문제에 대 한 수정 사항을 설명 하기 위해이 문서를 함께 제공 합니다.
 
-2 개의 FV를 사용할 때 계정 로그인에는 다음 데이터의 조합이 필요 합니다.
+Azure Active Directory (Azure AD) 조직은 계정에 대해 2 단계 인증을 켤 수 있습니다. 2 단계 인증을 사용 하는 경우 계정 로그인에는 다음 데이터의 조합이 필요 합니다.
 
 - 사용자 이름
 - 사용자 암호
 - 모바일 장치 또는 전화
 
-2 fv는 사용자가 알고 있는 것과 사용자가 _알고_ _있는_것을 필요로 하기 때문에 암호 보다 안전 합니다. 실제 전화가 있는 해커는 없습니다.
+2 단계 인증에는 사용자가 알고 있는 것과 사용자가 _알고_ _있는_것이 필요 하기 때문에 2 단계 인증은 암호 보다 더 안전 합니다. 실제 전화가 있는 해커는 없습니다.
 
 >[!Important]
 >관리자의 경우, [Azure AD 문서](../index.yml)에서 Azure AD 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 확인할 수 있습니다.
 
-이 콘텐츠는 조직에서 사용자에 게 제공 하는 계정인 회사 또는 학교 계정을 지원 하기 위한 것입니다 (예: dritan@contoso.com ). 개인 Microsoft 계정 (예:)에 대 한 2 단계 확인에 문제가 있는 경우 danielle@outlook.com [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
+이 콘텐츠는 조직에서 사용자에 게 제공 하는 계정인 회사 또는 학교 계정을 사용 하는 데 도움이 될 수 있습니다 (예: dritan@contoso.com ). 개인 Microsoft 계정 (예:)에 대 한 2 단계 확인에 문제가 있는 경우 danielle@outlook.com [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>내 모바일 디바이스가 없습니다.
 
@@ -51,7 +51,15 @@ Azure Active Directory (Azure AD) 조직은 2 단계 인증 (2FV)을 켤 수 있
 
 2. 대체 인증 방법을 선택하고 2단계 인증 프로세스를 계속합니다.
 
-## <a name="i-lost-my-mobile-device-or-it-was-stolen"></a>모바일 디바이스를 분실했거나 도난당한 경우
+## <a name="i-cant-turn-two-factor-verification-off"></a>2단계 인증을 해제할 수 없는 경우
+
+- Microsoft 서비스에 대 한 개인 계정으로 2 단계 인증을 사용 하는 경우 (예:) alain@outlook.com [기능을 켜고 끌](https://account.live.com/proofs/Manage)수 있습니다.
+
+- 회사 또는 학교 계정으로 2 단계 인증을 사용 하는 경우이 추가 된 보안 기능을 사용 해야 하는 경우가 많습니다. 개별적으로 해제할 수 있는 방법은 없습니다.
+
+2단계 인증을 해제할 수 없는 경우, 조직 수준에서 적용된 보안 기본값 때문일 수도 있습니다. 보안 기본값에 관한 자세한 내용은 [보안 기본값이란?](../fundamentals/concept-fundamentals-security-defaults.md)을 참조하세요.
+
+## <a name="my-device-was-lost-or-stolen"></a>장치를 분실 하거나 도난당 했습니다.
 
 모바일 장치를 분실 했거나 도난당 한 경우 다음 작업 중 하나를 수행할 수 있습니다.
 
@@ -72,14 +80,14 @@ Azure Active Directory (Azure AD) 조직은 2 단계 인증 (2FV)을 켤 수 있
 디바이스 신호 및 인터넷 연결 여부 확인 | 전화 통화 및 문자 메시지가 모바일 디바이스에 수신되는지 확인합니다. 친구에게 전화 통화 및 문자 메시지 전송을 부탁해 두 가지 모두 수신되는지 확인합니다. 전화 또는 텍스트를 받지 못한 경우 먼저 모바일 장치가 켜져 있는지 확인 합니다. 장치가 켜져 있지만 통화 또는 텍스트를 받지 못하는 경우 네트워크에 문제가 있을 수 있습니다. 공급자에 게 문의 해야 합니다. 신호와 관련된 문제들이 종종 발생할 경우, 모바일 디바이스에 [Microsoft Authenticator 앱](user-help-auth-app-download-install.md)을 설치한 후 사용하는 것이 좋습니다. 이 인증자 앱은 셀 신호 또는 인터넷 연결이 없어도 로그인용으로 임의 보안 코드를 생성할 수 있습니다.
 방해 금지 해제 | 모바일 디바이스에서 **방해 금지** 기능을 사용하도록 설정하지 않았는지 확인합니다. 이 기능을 켜면 알림이 모바일 디바이스에서 경고하도록 허용되지 않습니다. 이 기능을 해제하는 방법에 관한 지침은 모바일 디바이스의 설명서를 참조하세요.
 전화 번호 차단 해제 | 미국에서 Microsoft의 음성 통화는 +1(866) 539 4191, +1(855) 330 8653 및 +1(877) 668 6536에서 발신됩니다.
-배터리 관련 설정 확인 | 이는 화면에서 약간 이상한 것 같습니다. 하지만 백그라운드에서 사용 되지 않는 앱의 남은 활성 상태를 중지 하도록 배터리 최적화를 설정한 경우 알림 시스템에 영향을 줄 가능성이 높습니다. 이 문제를 해결 하려면 인증 앱과 메시징 앱 모두에 대 한 배터리 최적화를 해제 하세요. 계정에 다시 로그인 해 보세요.
-타사 보안 앱 사용 안 함 | 일부 전화 보안 앱은 성가신 알려지지 않은 호출자의 문자 메시지 및 전화 통화를 차단 합니다. 이러한 앱은 휴대폰에서 확인 코드를 수신 하지 못할 수 있습니다. 휴대폰에서 타사 보안 앱을 사용 하지 않도록 설정한 다음 다른 확인 코드를 보내도록 요청 하세요.
+배터리 관련 설정 확인 | 백그라운드에서 자주 사용 되는 앱을 더 이상 사용 하지 않는 상태로 유지 하도록 배터리 최적화를 설정 하면 알림 시스템에 영향을 줄 수 있습니다. 인증 앱과 메시징 앱 모두에 대 한 배터리 최적화를 해제 해 보세요. 계정에 다시 로그인 해 보세요.
+타사 보안 앱 사용 안 함 | 일부 전화 보안 앱은 성가신 알려지지 않은 호출자의 문자 메시지 및 전화 통화를 차단 합니다. 보안 앱에서 확인 코드를 수신 하지 못할 수 있습니다. 휴대폰에서 타사 보안 앱을 사용 하지 않도록 설정한 다음 다른 확인 코드를 보내도록 요청 하세요.
 
 ## <a name="im-not-being-prompted-for-my-second-verification-information"></a>두 번째 확인 정보를 입력 하 라는 메시지가 표시 되지 않습니다.
 
 사용자 이름 및 암호를 사용 하 여 회사 또는 학교 계정에 로그인 합니다. 다음에는 추가 보안 확인 정보를 묻는 메시지가 표시 됩니다. 메시지가 표시 되지 않으면 장치를 아직 설정 하지 않은 것일 수 있습니다. 모바일 디바이스는 특정 추가 보안 확인 방법으로 작동하도록 설정해야 합니다.
 
-모바일 장치가 켜져 있고 사용 가능한 지 확인 하려면 [2 단계 인증 방법 관리 설정](multi-factor-authentication-end-user-manage-settings.md) 문서를 참조 하세요. 디바이스 또는 계정을 설정하지 않은 경우, [2단계 인증에 대한 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서의 해당 단계를 수행하여 설정을 진행할 수 있습니다.
+장치를 아직 설정 하지 않은 것일 수 있습니다. 모바일 장치를 특정 추가 보안 확인 방법으로 작동 하도록 설정 해야 합니다. 확인 방법으로 모바일 장치를 사용할 수 있도록 설정 하는 단계는 [2 단계 인증 방법 설정 관리](multi-factor-authentication-end-user-manage-settings.md)를 참조 하세요. 장치를 아직 설정 하지 않았거나 계정을 아직 설정 하지 않은 경우 [2 단계 인증을 위한 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서의 단계를 따를 수 있습니다.
 
 ## <a name="i-have-a-new-phone-number-and-i-want-to-add-it"></a>새 전화 번호를 추가 하려고 합니다.
 
@@ -95,13 +103,13 @@ Azure Active Directory (Azure AD) 조직은 2 단계 인증 (2FV)을 켤 수 있
 
 선택적 단계:
 
-- 모바일 장치에 Microsoft Authenticator 앱을 설치 하 고 설정 합니다. [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서의 단계를 수행 하 여을 설치 합니다.
+- [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서의 단계를 수행 하 여 모바일 장치에 Microsoft Authenticator 앱을 설치 합니다.
 
-- 신뢰할 수 있는 장치에 대 한 2 단계 인증 (2-FV)을 켭니다. [2 단계 인증 방법 설정 관리](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) 문서의 **신뢰할 수 있는 장치에 대 한 2 단계 확인 프롬프트 켜기** 섹션의 단계에 따라 2 개의 fv를 설정 합니다.
+- [2단계 인증 방법 설정 관리](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) 문서의 **신뢰할 수 있는 디바이스에서 2단계 인증 프롬프트 켜기** 섹션의 해당 단계에 따라 신뢰할 수 있는 디바이스에 대해 2단계 인증을 설정하세요.
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>여행 중 모바일 디바이스에 로그인하는 데 문제가 있는 경우
 
-국제 행선지에 있는 동안 문자 메시지와 같은 모바일 디바이스 관련 확인 방법을 사용하는 것이 더 어려울 수 있습니다. 또한 모바일 디바이스에서 로밍 요금이 발생할 수도 있습니다. 이 경우, Wi-Fi 핫스팟에 연결하는 옵션과 함께 Microsoft Authenticator 앱을 사용하는 것이 좋습니다. 모바일 장치에서 Microsoft Authenticator 앱을 설정 하는 방법에 대 한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서를 참조 하세요.
+국제 행선지에 있는 동안 문자 메시지와 같은 모바일 디바이스 관련 확인 방법을 사용하는 것이 더 어려울 수 있습니다. 또한 모바일 디바이스에서 로밍 요금이 발생할 수도 있습니다. 이 경우 Wi-fi 핫 스폿에 연결 하는 옵션과 함께 Microsoft Authenticator 앱을 사용 하는 것이 좋습니다. 모바일 장치에서 Microsoft Authenticator 앱을 설정 하는 방법에 대 한 자세한 내용은 [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서를 참조 하세요.
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>사용할 앱 암호를 수신할 수 없는 경우
 

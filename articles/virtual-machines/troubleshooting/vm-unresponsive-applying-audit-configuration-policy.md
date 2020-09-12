@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: e55fa377f28572901202b4d722bea70786edae22
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942128"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299527"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>감사 정책 구성 정책을 적용 하는 동안 가상 컴퓨터가 응답 하지 않습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "88942128"
 
 ## <a name="symptom"></a>증상
 
-[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 때 **감사 정책 구성 정책을 적용**하는 메시지를 사용 하 여 부팅 하는 동안 운영 체제 (OS)가 멈춘 것이 표시 되는 것을 볼 수 있습니다.
+[부팅 진단을](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) 사용 하 여 VM의 스크린샷을 볼 때 **감사 정책 구성 정책을 적용**하는 메시지를 사용 하 여 부팅 하는 동안 운영 체제 (OS)가 응답 하지 않는 것이 스크린샷에 표시 되는 것을 볼 수 있습니다.
 
   !["감사 정책 구성 정책 적용" 메시지를 사용 하 여 OS를 부팅 합니다.](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 

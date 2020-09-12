@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: d12df01fe1506f7f5ade9cce60ae7af0412e3010
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1f69fe027772dc2d008a567723a5b3c04f3ee51b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080814"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378205"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Azure Security Center의 적응 네트워크 강화
 Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법에 대해 알아봅니다.
@@ -35,6 +35,17 @@ Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법�
 
 
 ![네트워크 강화 보기](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+
+
+## <a name="availability"></a>가용성
+
+|양상|세부 정보|
+|----|:----|
+|릴리스 상태:|일반 공급|
+|결정|표준 계층|
+|필요한 역할 및 사용 권한:|컴퓨터의 NSGs에 대 한 쓰기 권한|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|||
 
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>적응 네트워크 강화 경고 및 규칙 보기

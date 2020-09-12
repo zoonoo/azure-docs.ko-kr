@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: d8e6a4e769b08d674b355f6f88a0967316e95c63
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782331"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300224"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
 
@@ -28,7 +28,7 @@ Translator를 사용 하 여 70 개 이상의 텍스트 번역 언어로 번역 
 ## <a name="text-translation"></a>텍스트 번역
 텍스트 번역은 변환기에서 사용 가능한 모든 언어로 변환 작업을 통해 사용할 수 있습니다. 또한 API는 검색 작업을 사용 하 여 언어 검색을 제공 하 고, 음 차 작업을 사용 하 여 음을, 사전 조회 및 사전 예제 작업을 사용 하 여 사전을 제공 합니다. 이러한 각 작업에 사용할 수 있는 언어는 다음과 같습니다. 
 
-### <a name="translate"></a>Translate
+### <a name="translate"></a>번역
 
 Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 지원 합니다. 
 
@@ -155,6 +155,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 |스와힐리어| `sw`    |
 |클링곤어|   `tlh-Latn`  |
 |한국어 |`ko`   |
+|쿠르드어 (중부)  |`ku-Arab`  |
 |라트비아어|   `lv`    |
 |리투아니아어|    `lt`    |
 |말레이어| `ms`        |
@@ -283,10 +284,12 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 
 | 언어    | 언어 코드 |
 |:----------- |:-------------:|
+|아프리칸스어| `af`|
 | 아랍어       | `ar`          |
 | 벵골어      | `bn`          |
 | 보스니아어(라틴 문자)      | `bs`          |
 | 불가리아어      | `bg`          |
+|카탈로니아어|   `ca`    |
 | 중국어 간체      | `zh-Hans`          |
 |중국어 번체|   `zh-Hant`   |
 | 크로아티아어      | `hr`          |
@@ -295,6 +298,8 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 네덜란드어      | `nl`          |
 | 영어    | `en`     |
 | 에스토니아어      | `et`          |
+|피지어|    `fj`    |
+|필리핀어|  `fil`   |
 | 핀란드어      | `fi`          |
 | 프랑스어      | `fr`          |
 | 독일어      | `de`          |
@@ -308,12 +313,14 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 아일랜드어 | `ga`  |
 | 이탈리아어      | `it`          |
 | 일본어      | `ja`          |
+|칸나다어|`kn`|
 | 스와힐리어|    `sw`    |
 | 한국어      | `ko`          |
 | 라트비아어      | `lv`          |
 | 리투아니아어      | `lt`          |
 | 마다가스카르어| `mg`    |
 | 말레이어|    `ms`        |
+|몰타어|   `mt`    |
 | 마오리어| `mi`  |
 | 마라티어| `mr`  |
 | 노르웨이어      | `nb`          |
@@ -329,7 +336,9 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 슬로베니아어      | `sl`          |
 | 스페인어      | `es`          |
 | 스웨덴어      | `sv`          |
+|타히티어|  `ty`    |
 | 태국어      | `th`          |
+|통가어|    `to`    |
 | 터키어      | `tr`          |
 | 우크라이나어      | `uk`          |
 | 우르두어| `ur`    |

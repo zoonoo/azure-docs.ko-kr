@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 6a1506de0bf21e44d84925fabeeea860f5807e2c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 2bf48b6808fccb1f4344e66a2b8f1fc2d4c52ef6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958102"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322452"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>장치의 데이터가 Azure에 표시 되지 않는 이유를 해결 IoT Central
 
@@ -57,7 +57,7 @@ az set account --subscription <your-subscription-id>
 장치에서 보내는 원격 분석을 모니터링 하려면 다음 명령을 사용 합니다.
 
 ```cmd/bash
-az iot central app monitor-events --app-id <app-id> --device-id <device-name>
+az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 장치가 IoT Central 성공적으로 연결 되 면 다음과 유사한 출력이 표시 됩니다.
@@ -82,7 +82,7 @@ Filtering on device: device-001
 장치가 IoT Central와 교환 하는 속성 업데이트를 모니터링 하려면 다음 미리 보기 명령을 사용 합니다.
 
 ```cmd/bash
-az iot central app monitor-properties --app-id <app-id> --device-id <device-name>
+az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 장치에서 속성 업데이트를 성공적으로 보내면 다음과 유사한 출력이 표시 됩니다.
@@ -106,7 +106,7 @@ rocessorArchitecture': 'ARM', 'swVersion': '1.0.0'}
 데이터가 모니터에 표시 되지 않으면 다음 명령을 실행 하 여 장치의 프로 비전 상태를 확인 합니다.
 
 ```cmd/bash
-az iot central app device registration-info --app-id <app-id> --device-id <device-name>
+az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
 다음 출력은 연결에서 차단 된 장치의 예를 보여 줍니다.
@@ -131,7 +131,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 
 | 장치 프로 비전 상태 | 설명 | 가능한 완화 방법 |
 | - | - | - |
-| 프로비전됨 | 바로 인식할 때 문제가 없습니다. | N/A |
+| 프로비전됨 | 바로 인식할 때 문제가 없습니다. | 해당 없음 |
 | 등록됨 | 장치가 IoT Central에 아직 연결 되지 않았습니다. | 연결 문제에 대 한 장치 로그를 확인 합니다. |
 | 차단 | 장치가 IoT Central에 연결 되지 못하도록 차단 되었습니다. | 장치가 IoT Central 응용 프로그램에 대 한 연결을 차단 합니다. IoT Central에서 장치 차단을 해제 하 고 다시 시도 하세요. 자세히 알아보려면 [장치 차단](concepts-get-connected.md#device-status-values)을 참조 하세요. |
 | 안 | 장치가 승인 되지 않았습니다. | 장치가 IoT Central 응용 프로그램에 연결 하도록 승인 되지 않았습니다. IoT Central에서 장치를 승인한 후 다시 시도 하세요. 자세히 알아보려면 [장치 승인](concepts-get-connected.md#connect-without-registering-devices) 을 참조 하세요. |
@@ -176,13 +176,13 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 - 원격 분석의 유효성을 검사 하려면 미리 보기 명령을 사용 합니다.
 
     ```cmd/bash
-    az iot central app validate-messages --app-id <app-id> --device-id <device-name>
+    az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - 속성 업데이트의 유효성을 검사 하려면 미리 보기 명령을 사용 합니다.
 
     ```cmd/bash
-    az iot central app validate-properties --app-id <app-id> --device-id <device-name>
+    az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
 명령을 처음 실행할 때 라이브러리를 설치할지 묻는 메시지가 표시 될 수 있습니다 `uamqp` `validate` .

@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 5b450254648cb253d6631397d703430401009f14
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925637"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300105"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Azure Monitor의 로그 데이터 및 작업 영역에 대한 액세스 관리
 
-Azure Monitor은 Log Analytics 작업 영역에 [로그](data-platform-logs.md) 데이터를 저장 합니다. 작업 영역은 데이터 및 구성 정보를 포함 하는 컨테이너입니다. 로그 데이터에 대 한 액세스를 관리 하려면 작업 영역과 관련 된 다양 한 관리 작업을 수행 합니다.
+Azure Monitor은 Log Analytics 작업 영역에 [로그](data-platform-logs.md) 데이터를 저장 합니다. 작업 영역은 데이터 및 구성 정보를 포함하는 컨테이너입니다. 로그 데이터에 대 한 액세스를 관리 하려면 작업 영역과 관련 된 다양 한 관리 작업을 수행 합니다.
 
 이 문서에서는에 대 한 액세스 권한을 부여 하는 방법을 비롯 하 여 로그에 대 한 액세스를 관리 하 고 해당 로그를 포함 하는 작업 영역을 관리 하는 
 
@@ -228,14 +228,14 @@ Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 
     * 사용자에 게 작업 영역에 대 한 다음 권한을 부여 합니다. 
 
-        * `Microsoft.OperationalInsights/workspaces/read`– 사용자가 작업 영역을 열거 하 고 Azure Portal 작업 영역 블레이드를 열 수 있도록 필요 합니다.
-        * `Microsoft.OperationalInsights/workspaces/query/read`– 쿼리를 실행할 수 있는 모든 사용자에 게 필요
-        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`– Azure AD 로그인 로그를 읽을 수 있습니다.
-        * `Microsoft.OperationalInsights/workspaces/query/Update/read`– 업데이트 관리 솔루션 로그를 읽을 수 있습니다.
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`– 업데이트 관리 솔루션 로그를 읽을 수 있습니다.
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`– 업데이트 관리 로그를 읽을 수 있습니다.
-        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`– 업데이트 관리 솔루션을 사용 하는 데 필요 합니다.
-        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`– 업데이트 관리 솔루션을 사용 하는 데 필요 합니다.
+        * `Microsoft.OperationalInsights/workspaces/read` – 사용자가 작업 영역을 열거 하 고 Azure Portal 작업 영역 블레이드를 열 수 있도록 필요 합니다.
+        * `Microsoft.OperationalInsights/workspaces/query/read` – 쿼리를 실행할 수 있는 모든 사용자에 게 필요
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` – Azure AD 로그인 로그를 읽을 수 있습니다.
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read` – 업데이트 관리 솔루션 로그를 읽을 수 있습니다.
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read` – 업데이트 관리 솔루션 로그를 읽을 수 있습니다.
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read` – 업데이트 관리 로그를 읽을 수 있습니다.
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` – 업데이트 관리 솔루션을 사용 하는 데 필요 합니다.
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` – 업데이트 관리 솔루션을 사용 하는 데 필요 합니다.
 
     * 사용자에 게 리소스에 대 한 다음 권한을 부여 합니다. `*/read` , 판독기 역할에 할당 된 또는 `Microsoft.Insights/logs/*/read` 입니다. 
 
@@ -270,7 +270,7 @@ _Securitybaseline_ 테이블에만 액세스할 수 있는 역할을 만들려�
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
-위의 예에서는 허용 되는 테이블의 허용 목록를 정의 합니다. 이 예에서는 사용자가 모든 테이블에 액세스할 수 있지만 _Securityalert_ 테이블에 액세스할 수 있는 경우 블랙 리스트 정의를 보여 줍니다.
+위의 예에서는 허용 되는 테이블 목록을 정의 합니다. 이 예에서는 사용자가 모든 테이블에 액세스할 수 있지만 _Securityalert_ 테이블에 액세스할 수 있는 경우 차단 된 목록 정의를 보여 줍니다.
 
 ```
 "Actions":  [

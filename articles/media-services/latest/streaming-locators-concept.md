@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe448ea5a4d9610ff82beb7cfa1071d2e8249dfd
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 68df5256949db44b2b347002570c64d1aa0d55ea
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89257622"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297963"
 ---
 # <a name="streaming-locators"></a>스트리밍 로케이터
 
@@ -91,7 +91,7 @@ CBCS (FairPlay)를 사용 하 여 HLS 스트림을 암호화 하려는 경우에
 
 연결 된 자산 이름에 따라 스트리밍 로케이터를 가져오려면 다음 작업을 사용 합니다.
 
-|Language|API|
+|언어|API|
 |---|---|
 |REST (영문)|[liststreaminglocators](/rest/api/media/assets/liststreaminglocators)|
 |CLI|[az ams asset list-streaming-locator](/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|

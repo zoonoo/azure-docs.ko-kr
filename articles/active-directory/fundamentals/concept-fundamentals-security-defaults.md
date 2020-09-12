@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 7c5015cb6328dba70fed40053bc234966572ae98
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 64ee8f2daddd53d37aeaf0f02208e02500b48f57
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873724"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320871"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값이란?
 
@@ -92,7 +92,7 @@ Azure Multi-Factor Authentication 등록을 완료한 후에는 로그인할 때
 > [!WARNING]
 > 보안 기본값을 사용하도록 설정하기 전에 관리자가 이전 인증 프로토콜을 사용하지 않는지 확인합니다. 자세한 내용은 [레거시 인증에서 전환하는 방법](concept-fundamentals-block-legacy-authentication.md)을 참조하세요.
 
-- [Office 365 및 Microsoft 365를 사용하여 이메일을 보내도록 다기능 디바이스 또는 애플리케이션을 설정하는 방법](https://docs.microsoft.com/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- [Office 365 및 Microsoft 365를 사용하여 이메일을 보내도록 다기능 디바이스 또는 애플리케이션을 설정하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>권한 있는 작업 보호
 
@@ -109,7 +109,7 @@ Azure Resource Manager에 액세스하고 구성을 업데이트하려는 사용
 테넌트에서 보안 기본값을 사용하도록 설정한 후 Azure Portal, Azure PowerShell 또는 Azure CLI에 액세스하는 모든 사용자는 추가 인증을 완료해야 합니다. 이 정책은 Azure Resource Manager에 액세스하는 관리자 또는 사용자 모두에게 적용됩니다. 
 
 > [!NOTE]
-> 2017년 이전 Exchange Online 테넌트는 최신 인증을 기본적으로 사용하지 않도록 설정합니다. 이러한 테넌트를 통해 인증하는 동안 로그인 루프가 발생하지 않도록 하려면 [최신 인증을 사용하도록 설정](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)해야 합니다.
+> 2017년 이전 Exchange Online 테넌트는 최신 인증을 기본적으로 사용하지 않도록 설정합니다. 이러한 테넌트를 통해 인증하는 동안 로그인 루프가 발생하지 않도록 하려면 [최신 인증을 사용하도록 설정](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)해야 합니다.
 
 > [!NOTE]
 > Azure AD Connect 동기화 계정은 보안 기본값에서 제외되며 다단계 인증에 등록하거나 이러한 인증을 수행하라는 메시지가 표시되지 않습니다. 조직에서는 다른 용도로 이 계정을 사용하지 않아야 합니다.

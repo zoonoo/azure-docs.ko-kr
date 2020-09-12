@@ -3,39 +3,25 @@ title: 고객 관리 키를 사용 하 여 Azure Kubernetes 서비스에서 Azur
 description: 사용자 고유의 키 (BYOK)를 가져와서 AKS OS 및 데이터 디스크를 암호화 합니다.
 services: container-service
 ms.topic: article
-ms.date: 07/17/2020
-ms.openlocfilehash: 5725bc9a4d16b93ba36ac800d25e3c30f090c2df
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.date: 09/01/2020
+ms.openlocfilehash: 8687d95878cde7d0ed3308d67f26ffc266abad1e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796887"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297759"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Azure 디스크를 사용 하 여 사용자 고유의 키 (BYOK) 가져오기
 
-Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 데이터는 Microsoft 관리형 키로 암호화됩니다. 암호화 키에 대 한 추가 제어를 위해 AKS 클러스터에 대 한 OS 및 데이터 디스크 모두에 대 한 미사용 암호화에 사용할 [고객 관리 키][customer-managed-keys] 를 제공할 수 있습니다.
+Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 데이터는 Microsoft 관리형 키로 암호화됩니다. 암호화 키에 대 한 추가 제어를 위해 AKS 클러스터에 대 한 OS 및 데이터 디스크 모두에 대 한 미사용 암호화에 사용할 고객 관리 키를 제공할 수 있습니다. [Linux][customer-managed-keys-linux] 및 [Windows][customer-managed-keys-windows]에서 고객이 관리 하는 키에 대해 자세히 알아보세요.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="limitations"></a>제한 사항
+* 데이터 디스크 암호화 지원은 Kubernetes 버전 1.17 이상을 실행 하는 AKS 클러스터로 제한 됩니다.
+* AKS 클러스터를 만들 때만 고객 관리 키를 사용 하 여 OS 및 데이터 디스크를 암호화할 수 있습니다.
 
-* 이 문서에서는 사용자가 *새 AKS 클러스터*를 만드는 것으로 가정 합니다.
-
+## <a name="prerequisites"></a>전제 조건
 * Key Vault를 사용 하 여 관리 디스크를 암호화할 때 *Azure Key Vault* 에 대해 일시 삭제 및 보호 제거를 사용 하도록 설정 해야 합니다.
-
-* Azure CLI 버전 2.0.79 이상 및 aks-preview 0.4.26 확장이 필요 합니다.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="install-latest-aks-cli-preview-extension"></a>최신 AKS CLI 미리 보기 확장 설치
-
-고객 관리 키를 사용 하려면 *aks-preview* CLI extension version 0.4.26 이상이 필요 합니다. [az extension add][az-extension-add] 명령을 사용하여 *aks-preview* Azure CLI 확장을 설치한 후 [az extension update][az-extension-update] 명령을 사용하여 사용 가능한 업데이트를 확인합니다.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+* Azure CLI 버전 2.11.1 이상이 필요 합니다.
 
 ## <a name="create-an-azure-key-vault-instance"></a>Azure Key Vault 인스턴스 만들기
 
@@ -155,11 +141,6 @@ az aks get-credentials --name myAksCluster --resource-group myResourceGroup --ou
 kubectl apply -f byok-azure-disk.yaml
 ```
 
-## <a name="limitations"></a>제한 사항
-
-* Kubernetes 버전 1.17 이상에서 지원 되는 데이터 디스크 암호화
-* 고객 관리 키를 사용 하는 암호화는 현재 새로운 AKS 클러스터에만 사용 되며 기존 클러스터는 업그레이드할 수 없습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 [AKS 클러스터 보안에 대 한 모범 사례][best-practices-security] 검토
@@ -171,6 +152,7 @@ kubectl apply -f byok-azure-disk.yaml
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
 [byok-azure-portal]: ../storage/common/storage-encryption-keys-portal.md
-[customer-managed-keys]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-windows]: ../virtual-machines/windows/disk-encryption.md#customer-managed-keys
+[customer-managed-keys-linux]: ../virtual-machines/linux/disk-encryption.md#customer-managed-keys
 [key-vault-generate]: ../key-vault/general/manage-with-cli2.md
 [supported-regions]: ../virtual-machines/windows/disk-encryption.md#supported-regions

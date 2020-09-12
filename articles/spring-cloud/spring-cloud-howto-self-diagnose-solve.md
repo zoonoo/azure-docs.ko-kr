@@ -7,21 +7,21 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1f48cd185f2aa25954627a9ff26f3e59b8e76e7a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d8f3b4d57f00ef33bbf566c36babafd83be9a5df
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037315"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299629"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Azure 스프링 클라우드의 문제를 자체 진단 하 고 해결 하는 방법
 Azure 스프링 클라우드 진단은 앱 문제를 해결 하는 데 도움이 되는 대화형 환경입니다. 구성이 필요하지 않습니다. 문제가 발견 되 면 Azure 스프링 클라우드 진단은 문제를 해결 하 고 문제를 해결 하는 데 도움이 되는 정보를 안내해 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* 배포된 Azure Spring Cloud 서비스 인스턴스 [Azure CLI를 통한 앱 배포를 위한 빠른 시작](spring-cloud-quickstart-launch-app-cli.md)을 수행하여 시작하세요.
+* 배포된 Azure Spring Cloud 서비스 인스턴스 [Azure CLI를 통한 앱 배포를 위한 빠른 시작](spring-cloud-quickstart.md)을 수행하여 시작하세요.
 * 해당 서비스 인스턴스에서 이미 하나 이상의 애플리케이션이 생성되었습니다.
 
 ## <a name="navigate-to-the-diagnostics-page"></a>진단 페이지로 이동 합니다.

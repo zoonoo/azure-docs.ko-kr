@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f75dea2cffbe710bf2778ceab5eacc91ffcca9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77c673ec52873d854647cf49c0efcbd650fb6aa8
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523114"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320650"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Azure Active Directory의 ID 보안 점수란?
 
@@ -104,7 +104,7 @@ ID 보안 점수는 다음과 같은 역할에 의해 사용될 수 있습니다
 
 ### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>ID 보안 점수는 Office 365 보안 점수와 어떤 관계가 있나요?
 
-[Microsoft 보안 점수](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) 에는 5 가지 고유한 제어 및 점수 범주가 있습니다.
+[Microsoft 보안 점수](/office365/securitycompliance/microsoft-secure-score) 에는 5 가지 고유한 제어 및 점수 범주가 있습니다.
 
 - ID
 - 데이터
@@ -116,4 +116,4 @@ Id 보안 점수는 Microsoft 보안 점수의 id 부분을 나타냅니다. 이
 
 ## <a name="next-steps"></a>다음 단계
 
-[Microsoft 보안 점수에 대해 자세히 알아보기](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)
+[Microsoft 보안 점수에 대해 자세히 알아보기](/office365/securitycompliance/microsoft-secure-score)

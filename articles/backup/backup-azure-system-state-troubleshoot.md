@@ -4,12 +4,12 @@ description: 이 문서에서는 온-프레미스 Windows server에 대 한 시�
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 7eb596853bfe17ec5bf14c8830c1b95bde5b7c98
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022363"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376284"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
 
@@ -40,7 +40,7 @@ ms.locfileid: "89022363"
 - Microsoft에서 시스템 상태 복구를 사용 하 여 다른 하드웨어로 복구 하지 않는 것이 좋습니다.
 - 시스템 상태 백업은 현재 "온-프레미스" Windows 서버를 지원 합니다. Azure Vm에는이 기능을 사용할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure Backup를 사용 하 여 시스템 상태 백업 문제를 해결 하기 전에 다음 필수 구성 요소 검사를 수행 합니다.  
 
@@ -66,20 +66,20 @@ PowerShell을 사용 하 여 Windows Server 백업을 설치 하려면 다음 �
 
 서버 관리자를 사용 하 여 Windows Server 백업를 설치 하려면 다음 단계를 수행 합니다.
 
-1. **서버 관리자**에서 **역할 및 기능 추가**를 클릭 합니다. **역할 및 기능 추가 마법사** 가 나타납니다.
+1. **서버 관리자**에서 **역할 및 기능 추가**를 선택 합니다. **역할 및 기능 추가 마법사** 가 나타납니다.
 
     ![대시보드](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
-2. **설치 유형** 을 선택 하 고 **다음**을 클릭 합니다.
+2. **설치 유형** 을 선택 하 고 **다음**을 선택 합니다.
 
     ![설치 유형](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. 서버 풀에서 서버를 선택 하 고 **다음**을 클릭 합니다. 서버 역할에서 기본 선택 항목을 그대로 두고 **다음**을 클릭 합니다.
-4. **기능** 탭에서 **Windows Server 백업** 를 선택 하 고 **다음**을 클릭 합니다.
+3. 서버 풀에서 서버를 선택 하 고 **다음**을 선택 합니다. 서버 역할에서 기본 선택 항목을 그대로 두고 **다음**을 선택 합니다.
+4. **기능** 탭에서 **Windows Server 백업** 를 선택 하 고 **다음**을 선택 합니다.
 
     ![기능 창 선택](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. **확인** 탭에서 **설치** 를 클릭 하 여 설치 프로세스를 시작 합니다.
+5. **확인** 탭에서 **설치** 를 선택 하 여 설치 프로세스를 시작 합니다.
 6. **결과** 탭에는 Windows Server에 Windows Server 백업 기능이 성공적으로 설치 되어 표시 됩니다.
 
     ![설치 결과](./media/backup-azure-system-state-troubleshoot/results.jpg)

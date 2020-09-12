@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 649f1e6cf79aa17d053cc547debf5232120bb4fe
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 1e4dfb399432278ee09d1c016faae8fd3b584647
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760637"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318049"
 ---
 # <a name="language-support-for-computer-vision"></a>Computer Vision에 대 한 언어 지원
 
@@ -56,9 +56,9 @@ Computer Vision의 OCR Api는 여러 언어를 지원 합니다. 언어 코드�
 
 ## <a name="image-analysis"></a>이미지 분석
 
-[분석-이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부 작업은 쿼리 매개 변수로 지정 된 다른 언어로 결과를 반환할 수 있습니다 `language` . 다른 작업을 수행 하면 지정 된 언어에 관계 없이 영어로 결과가 반환 되 고 다른 작업은 지원 되지 않는 언어에 대 한 예외를 throw 합니다. 작업은 및 쿼리 매개 변수를 사용 하 여 지정 됩니다 `visualFeatures` `details` . 이미지 분석을 통해 수행할 수 있는 모든 작업 목록은 [개요](home.md) 를 참조 하세요.
+[분석-이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API의 일부 작업은 쿼리 매개 변수로 지정 된 다른 언어로 결과를 반환할 수 있습니다 `language` . 다른 작업을 수행 하면 지정 된 언어에 관계 없이 영어로 결과가 반환 되 고 다른 작업은 지원 되지 않는 언어에 대 한 예외를 throw 합니다. 작업은 및 쿼리 매개 변수를 사용 하 여 지정 됩니다 `visualFeatures` `details` . 이미지 분석을 통해 수행할 수 있는 모든 작업 목록은 [개요](overview.md) 를 참조 하세요.
 
-|언어 | 언어 코드 | 범주 | 태그들 | 설명 | 성인 | 브랜드 | 색 | 얼굴 | ImageType | 개체 | 유명인 | 랜드마크 |
+|언어 | 언어 코드 | 범주 | Tags | 설명 | 성인 | 브랜드 | Color | 얼굴 | ImageType | 개체 | 유명인 | 랜드마크 |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |중국어 | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |영어 | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

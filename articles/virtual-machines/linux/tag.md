@@ -1,25 +1,20 @@
 ---
-title: Azure Linux 가상 머신에 태그를 만드는 방법
-description: Resource Manager 배포 모델을 사용하여 만든 Azure Linux 가상 머신에 태그를 지정하는 방법을 알아봅니다.
-services: virtual-machines-linux
-documentationcenter: ''
-author: mmccrory
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
-ms.service: virtual-machines-linux
+title: CLI를 사용 하 여 Azure 가상 머신에 태그를 만드는 방법
+description: Azure CLI를 사용 하 여 가상 컴퓨터에 태그를 지정 하는 방법을 알아봅니다.
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
 ms.topic: how-to
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
-ms.author: memccror
+ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a830f6eb604bb1173a7a552ad5f81c936f02d5fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1a417e7cff4c7afb601861ddfe09eec171f0cf15
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500524"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320616"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Azure에서 Linux 가상 머신에 태그를 지정하는 방법
 이 문서에서는 리소스 관리자 배포 모델을 통해 Azure의 Linux 가상 머신에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 50 개의 태그를 지원 합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 리소스 관리자 배포 모델을 통해 만든 리소스에 대해서만 지원됩니다.
@@ -62,5 +57,5 @@ Azure CLI 및 포털을 통해 리소스에 태그를 적용했으므로 이제 
 [Azure CLI environment]: ../../azure-resource-manager/management/manage-resources-cli.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/management/tag-resources.md
-[Understanding your Azure Bill]:../../cost-management-billing/understand/review-individual-bill.md
-[Gain insights into your Microsoft Azure resource consumption]:../../cost-management-billing/manage/usage-rate-card-overview.md
+[Understanding your Azure Bill]: ../../cost-management-billing/understand/review-individual-bill.md
+[Gain insights into your Microsoft Azure resource consumption]: ../../cost-management-billing/manage/usage-rate-card-overview.md

@@ -3,12 +3,12 @@ title: Azure Lab Services를 사용 하 여 윤리적 해킹 랩 설정 Microsof
 description: Azure Lab Services를 사용 하 여 랩을 설정 하는 방법에 대해 알아봅니다. 윤리적 해킹을 학습 합니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0e3a5c6e09038ea731e4157657b0e6ad9c9263ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5134a7db824bad69f42a4051319479f712051446
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443998"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297589"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>윤리적 해킹 클래스를 학습 하기 위한 랩 설정 
 이 문서에서는 윤리적 해킹의 법적 고 지에 초점을 맞춘 클래스를 설정 하는 방법을 보여 줍니다. 윤리적 해킹 커뮤니티에서 사용하는 방법인 침투 테스트는 누군가가 악의적인 공격자가 악용할 수 있는 취약성을 입증하기 위해 시스템 또는 네트워크에 대한 액세스 권한을 얻으려고 할 때 발생합니다. 
@@ -74,7 +74,7 @@ Rapid7 Metasploitable 이미지는 보안 취약성으로 의도적으로 구성
 1. **Metasploitable 지금 다운로드** 단추를 선택 합니다.
 1. Zip 파일이 다운로드 되 면 zip 파일의 압축을 풀고 위치를 저장 합니다.
 1. Hyper-v와 함께 사용할 수 있도록 추출 된 .vmdk 파일을 vhdx 파일로 변환 합니다. 이렇게 하려면 관리자 권한으로 PowerShell을 열고 .vmdk 파일이 있는 폴더로 이동 하 여 다음 지침을 따르세요.
-    1. [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497)를 다운로드 하 고 메시지가 표시 되 면 mvmc_setup.msi 파일을 실행 합니다.
+    1. [Microsoft Virtual Machine Converter](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi)를 다운로드 하 고 메시지가 표시 되 면 mvmc_setup.msi 파일을 실행 합니다.
     1. PowerShell 모듈을 가져옵니다.  모듈이 설치 되는 기본 위치는 C:\Program Files\Microsoft 가상 컴퓨터 변환기 \입니다.
 
         ```powershell

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 38c46bdcce64f726b3a7ddf74e0cfd10a14ba663
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 53bd7a404e4635833b03507e8b5ae93ae40b1c61
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268036"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318984"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Azure Stack Edge 장치에서 워크 로드 관리 Kubernetes
 
@@ -47,7 +47,7 @@ Azure Stack Edge 장치에 응용 프로그램을 배포 하려면 다음 단계
 
 ![Kubernetes 워크 로드 배포](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **로컬 배포**: `kubectl` Kubernetes를 배포 하는 데 사용할 수 있는와 같은 명령줄 액세스 도구를 통해 수행 됩니다 `yamls` . 파일을 사용 하 여 만든 Azure Stack Edge에서 Kubernetes 클러스터에 연결 합니다 `kubeconfig` . 자세한 내용은 [kubectl를 통해 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)를 참조 하세요.
+- **로컬 배포**:이 배포는 `kubectl` Kubernetes를 배포 하는 데 사용할 수 있는 명령줄 액세스 도구를 통해 수행 됩니다 `yamls` . 파일을 통해 Azure Stack Edge에서 Kubernetes 클러스터에 액세스 합니다 `kubeconfig` . 자세한 내용은 [kubectl를 통해 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)를 참조 하세요.
 
 - **IoT Edge 배포**: IoT Edge를 통해 Azure IoT Hub에 연결 합니다. 네임 스페이스를 통해 Azure Stack Edge 장치에서 Kubernetes 클러스터에 연결 합니다 `iotedge` . 이 네임 스페이스에 배포 된 IoT Edge 에이전트는 Azure에 대 한 연결을 담당 합니다. `IoT Edge deployment.json`Azure DevOps CI/CD를 사용 하 여 구성을 적용 합니다. 네임 스페이스 및 IoT Edge 관리는 클라우드 운영자를 통해 수행 됩니다.
 
@@ -59,9 +59,9 @@ Azure Stack Edge 장치에 응용 프로그램을 배포 하려면 다음 단계
 
 - **단일 또는 여러 형식**: 단일 배포 옵션이 나 다양 한 배포 옵션의 조합을 선택할 수 있습니다.
 - **클라우드 및 로컬**: 응용 프로그램에 따라 IoT Edge 및 Azure Arc를 통해 kubectl 또는 클라우드 배포를 통해 로컬 배포를 선택할 수 있습니다. 
-    - 로컬 배포는 개발 시나리오에 더 적합 합니다. 로컬 배포를 선택 하면 Azure Stack Edge 장치가 배포 되는 네트워크로 제한 됩니다.
+    - 로컬 배포를 선택 하면 Azure Stack Edge 장치가 배포 되는 네트워크로 제한 됩니다.
     - 배포할 수 있는 클라우드 에이전트가 있는 경우 클라우드 운영자를 배포 하 고 클라우드 관리를 사용 해야 합니다.
-- **IoT Vs Azure Arc**: 배포를 선택 하는 것은 제품 시나리오의 의도에 따라서도 달라 집니다. IoT 또는 IoT 에코 시스템과 보다 긴밀 하 게 통합 된 응용 프로그램 또는 컨테이너를 배포 하는 경우 응용 프로그램을 배포 하는 IoT Edge 방법을 선택 해야 합니다. 기존 Kubernetes 배포가 있는 경우 Azure Arc가 선호 하는 선택입니다.
+- **IoT Vs Azure Arc**: 배포를 선택 하는 것은 제품 시나리오의 의도에 따라서도 달라 집니다. IoT 또는 IoT 에코 시스템을 보다 긴밀 하 게 통합 하는 응용 프로그램 또는 컨테이너를 배포 하는 경우 IoT Edge를 선택 하 여 응용 프로그램을 배포 합니다. 기존 Kubernetes 배포가 있는 경우 Azure Arc가 선호 하는 선택입니다.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -76,4 +76,4 @@ IoT Edge를 통해 앱을 배포 하려면 다음을 참조 하세요.
 
 Azure Arc를 통해 앱을 배포 하려면 다음을 참조 하세요.
 
-- [Azure Arc를 사용 하 여 응용 프로그램을 배포](azure-stack-edge-gpu-deploy-sample-module.md)합니다.
+- [Azure Arc를 사용 하 여 응용 프로그램을 배포](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)합니다.

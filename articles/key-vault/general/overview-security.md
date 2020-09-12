@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault 보안 | Microsoft Docs
+title: Azure Key Vault 보안
 description: Azure Key Vault, 키 및 비밀에 대한 액세스 권한을 관리합니다. Key Vault의 인증 및 권한 부여 모델과 키 자격 증명 모음을 보호하는 방법을 설명합니다.
 services: key-vault
 author: msmbaldwin
@@ -10,17 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: edef64c215f96b34cd0efbff4521a7d5adb98885
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870581"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377576"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault 보안
 
-Azure Key Vault는 클라우드에서 암호화 키와 비밀(예: 인증서, 연결 문자열 및 암호)을 보호해야 하는 경우 사용합니다. 중요한 데이터와 중요 비즈니스용 데이터를 저장하게 되므로 자격 증명 모음과 여기에 저장된 데이터의 보안을 극대화하기 위한 단계를 수행해야 합니다. 이 문서에서는 Azure Key Vault 보안을 설계할 때 고려해야 하는 몇 가지 개념에 대해 설명합니다.
+Azure Key Vault를 사용 하 여 클라우드에서 인증서, 연결 문자열, 암호 등의 암호화 키와 암호를 보호 합니다. 중요 한 중요 한 데이터를 저장 하는 경우 자격 증명 모음 및 저장소에 저장 된 데이터의 보안을 최대화 하는 단계를 수행 해야 합니다.
 
 ## <a name="identity-and-access-management"></a>ID 및 액세스 관리
 
@@ -65,7 +64,7 @@ Key Vault 액세스 정책은 키, 비밀 또는 인증서에 대해 개별적�
 > [!IMPORTANT]
 > Key Vault 액세스 정책은 특정 키, 비밀 또는 인증서와 같은 세분화된 개체 수준 권한을 지원하지 않습니다. 사용자에게 키를 만들고 삭제하는 권한이 부여되면 해당 사용자는 Key Vault의 모든 키에 대해 이러한 작업을 수행할 수 있습니다.
 
-Key Vault에 대한 액세스 정책을 설정하려면 [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), [PowerShell](/powershell/azure/) 또는 [Key Vault 관리 REST API](/rest/api/keyvault/)를 사용합니다.
+키 자격 증명 모음에 대 한 액세스 정책을 설정 하려면 [Azure Portal](assign-access-policy-portal.md), [Azure CLI](assign-access-policy-cli.md), [Azure PowerShell](assign-access-policy-powershell.md)또는 [Key Vault 관리 REST api](/rest/api/keyvault/)를 사용 합니다.
 
 [Azure Key Vault에 대한 가상 네트워크 서비스 엔드포인트](overview-vnet-service-endpoints.md)를 사용하여 데이터 평면 액세스를 제한할 수 있습니다. 추가 보안 계층에 대한 [방화벽 및 가상 네트워크 규칙](network-security.md)을 구성할 수 있습니다.
 
@@ -93,7 +92,7 @@ Key Vault 로깅은 자격 증명 모음에서 수행된 작업에 대한 정보
 - 표준 Azure 액세스 제어 메서드를 사용하여 액세스할 수 있는 사용자를 제한하여 로그를 보호합니다.
 - 더 이상 스토리지 계정에 유지하지 않으려는 로그를 삭제합니다.
 
-스토리지 계정을 안전하게 관리하기 위한 권장 사항은 [Azure Storage 보안 가이드](../../storage/blobs/security-recommendations.md)를 참조하세요.
+저장소 계정을 안전 하 게 관리 하는 방법에 대 한 권장 사항은 [Azure Storage 보안 가이드](../../storage/blobs/security-recommendations.md) 를 검토 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: fe540dbb230f033f139e82325bf8e20846f5bfe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de232ab6c52afa45b40ef7863a0cb35d7b40531f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832545"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299119"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Bing Spell Check API에 요청 보내기
 
@@ -42,7 +42,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/spellcheck
 
 JavaScript를 사용하여 Bing Spell Check API를 호출하면, 브라우저에 내장된 보안 기능으로 인해 이러한 헤더의 값에 액세스하지 못할 수 있습니다
 
-이 문제를 해결하려면 CORS 프록시를 통해 Bing Spell Check API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
+이 문제를 해결하려면 CORS 프록시를 통해 Bing Spell Check API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 `Access-Control-Expose-Headers` 응답 헤더를 필터링 하 고 JavaScript에서 사용할 수 있도록 하는 헤더가 있습니다.
 
 [자습서 앱](../tutorials/spellcheck.md)이 선택적 클라이언트 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 프롬프트에서 다음 명령을 입력합니다.
 

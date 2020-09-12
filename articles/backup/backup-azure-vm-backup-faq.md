@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: ec79fc7c09f2bc1aeb2c07016365e831932fa1ff
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018113"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377321"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 
@@ -23,7 +23,7 @@ VM을 만들 때 [지원 되는 운영 체제](backup-support-matrix-iaas.md#sup
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>백업 비용이 VM 비용에 포함 되나요?
 
-아니요. 백업 비용은 VM의 비용과 별개입니다. [Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)에 대해 자세히 알아보세요.
+아닙니다. 백업 비용은 VM의 비용과 별개입니다. [Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)에 대해 자세히 알아보세요.
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>VM에 대 한 백업을 사용 하도록 설정 하는 데 필요한 권한은 무엇입니까?
 
@@ -43,7 +43,7 @@ Recovery Services 자격 증명 모음 및 VM에 다른 리소스 그룹이 있�
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>주문형 백업 작업은 예약된 백업과 동일한 보존 일정을 사용하나요?
 
-아니요. 주문형 백업 작업의 보존 범위를 지정 합니다. 기본적으로 포털에서 트리거된 이후 30일 동안 유지됩니다.
+아닙니다. 주문형 백업 작업의 보존 범위를 지정 합니다. 기본적으로 포털에서 트리거된 이후 30일 동안 유지됩니다.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>최근에 일부 VM에서 Azure Disk Encryption을 사용할 수 있습니다. 내 백업이 계속 작동하나요?
 
@@ -197,6 +197,6 @@ VM을 새 리소스 그룹으로 이동한 후 동일한 자격 증명 모음이
 
 현재 VM에 할당 된 백업 정책에 따라 VM (백업 항목) 수준에서 보존 설정을 볼 수 있습니다.
 
-백업에 대 한 보존 설정을 확인 하는 한 가지 방법은 Azure Portal에서 VM에 대 한 백업 항목 [대시보드로](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) 이동 하는 것입니다. 해당 백업 정책에 대 한 링크를 클릭 하면 VM에 연결 된 매일, 매주, 매월 및 매년 보존 지점의 보존 기간을 볼 수 있습니다.
+백업에 대 한 보존 설정을 확인 하는 한 가지 방법은 Azure Portal에서 VM에 대 한 백업 항목 [대시보드로](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) 이동 하는 것입니다. 해당 백업 정책에 대 한 링크를 선택 하면 VM에 연결 된 매일, 매주, 매월 및 매년 보존 지점의 보존 기간을 볼 수 있습니다.
 
 또한 [Backup 탐색기](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) 를 사용 하 여 단일 창에 있는 모든 vm의 보존 설정을 볼 수 있습니다. 모든 Recovery Services 자격 증명 모음에서 Backup 탐색기로 이동 하 고, **백업 항목** 탭으로 이동 하 고, 고급 보기를 선택 하 여 각 VM에 대 한 자세한 보존 정보를 확인 합니다.

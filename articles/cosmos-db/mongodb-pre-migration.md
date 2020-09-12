@@ -5,14 +5,14 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 09/01/2020
 ms.author: lbosq
-ms.openlocfilehash: ffa30b0fa42abc69c19b5e6c32f4224f3ad1c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be38b1cfa698907f44c6deee77bb9b8ca88b77b7
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263061"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318219"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에서 Azure Cosmos DB의 API for MongoDB로 데이터 마이그레이션을 위한 마이그레이션 전 단계
 
@@ -44,11 +44,10 @@ MongoDB(온-프레미스 또는 클라우드)에서 Azure Cosmos DB의 API for M
 
 |**마이그레이션 유형**|**해결 방법**|**고려 사항**|
 |---------|---------|---------|
-|오프라인|[데이터 마이그레이션 도구](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull; 간편한 설정 및 여러 소스 지원 <br/>&bull; 대량 데이터 세트에 적합하지 않습니다.|
-|오프라인|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull; 간편한 설정 및 여러 소스 지원 <br/>&bull; Azure Cosmos DB 대량 실행기 라이브러리 사용 <br/>&bull; 대량 데이터 세트에 적합 <br/>&bull; 검사점이 없으면 마이그레이션 과정에서 발생하는 모든 문제에 대해 전체 마이그레이션 프로세스를 다시 시작해야 함을 의미함<br/>&bull; 배달 못한 편지 큐가 없으면 일부 잘못된 파일이 전체 마이그레이션 프로세스를 중지할 수 있음을 의미함 <br/>&bull; 특정 데이터 원본에 대한 읽기 처리량을 늘리려면 사용자 지정 코드가 필요함|
+|온라인|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Azure Cosmos DB 대량 실행기 라이브러리 사용 <br/>&bull; 대량 데이터 세트에 적합하고 라이브 변경 내용 복제를 처리 <br/>&bull; 다른 MongoDB 소스에서만 작동|
+|오프라인|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Azure Cosmos DB 대량 실행기 라이브러리 사용 <br/>&bull; 대량 데이터 세트에 적합하고 라이브 변경 내용 복제를 처리 <br/>&bull; 다른 MongoDB 소스에서만 작동|
+|오프라인|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)|&bull; 간편한 설정 및 여러 소스 지원 <br/>&bull; Azure Cosmos DB 대량 실행기 라이브러리 사용 <br/>&bull; 대량 데이터 세트에 적합 <br/>&bull; 검사점이 없으면 마이그레이션 과정에서 발생하는 모든 문제에 대해 전체 마이그레이션 프로세스를 다시 시작해야 함을 의미함<br/>&bull; 배달 못한 편지 큐가 없으면 일부 잘못된 파일이 전체 마이그레이션 프로세스를 중지할 수 있음을 의미함 <br/>&bull; 특정 데이터 원본에 대한 읽기 처리량을 늘리려면 사용자 지정 코드가 필요함|
 |오프라인|[기존 Mongo 도구(mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull; 간편한 설정 및 통합 <br/>&bull; 제한에 대한 사용자 지정 처리 필요|
-|온라인|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; 완전 관리형 마이그레이션 서비스<br/>&bull; 마이그레이션 작업에 대한 호스팅 및 모니터링 솔루션을 제공합니다. <br/>&bull; 대량 데이터 세트에 적합하고 라이브 변경 내용 복제를 처리 <br/>&bull; 다른 MongoDB 소스에서만 작동|
-
 
 ## <a name="estimate-the-throughput-need-for-your-workloads"></a><a id="estimate-throughput"></a> 워크로드에 필요한 처리량 예측
 
@@ -71,16 +70,16 @@ Azure Cosmos DB에서 처리량은 사전에 프로비저닝되며 초당 RU(요
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-[진단 설정](cosmosdb-monitor-resource-logs.md)을 사용하여 Azure Cosmos DB에 대해 실행되는 쿼리의 빈도와 패턴을 파악할 수도 있습니다. 진단 로그의 결과를 스토리지 계정, EventHub 인스턴스 또는 [Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)로 보낼 수 있습니다.  
+[진단 설정](cosmosdb-monitor-resource-logs.md)을 사용하여 Azure Cosmos DB에 대해 실행되는 쿼리의 빈도와 패턴을 파악할 수도 있습니다. 진단 로그의 결과를 스토리지 계정, EventHub 인스턴스 또는 [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md)로 보낼 수 있습니다.  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>파티션 키 선택
 분할(Sharding이라고도 함)은 데이터를 마이그레이션하기 전에 고려해야 할 주요 요소입니다. Azure Cosmos DB는 완전 관리형 분할을 사용하여 스토리지 및 처리량 요구 사항에 맞게 데이터베이스의 용량을 늘립니다. 이 기능에는 라우팅 서버의 호스팅 또는 구성이 필요 없습니다.   
 
-이와 비슷한 방식으로 분할 기능이 자동으로 용량을 추가하고 그에 따라 데이터의 균형을 다시 조정합니다. 데이터의 올바른 파티션 키를 선택하는 방법에 대한 자세한 내용과 권장 사항은 [파티션 키 선택 문서](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey)를 참조하세요. 
+이와 비슷한 방식으로 분할 기능이 자동으로 용량을 추가하고 그에 따라 데이터의 균형을 다시 조정합니다. 데이터의 올바른 파티션 키를 선택하는 방법에 대한 자세한 내용과 권장 사항은 [파티션 키 선택 문서](partitioning-overview.md#choose-partitionkey)를 참조하세요. 
 
 ## <a name="index-your-data"></a><a id="indexing"></a>데이터 인덱싱
 
-MongoDB server 버전 3.6에 대 한 Azure Cosmos DB API는 자동으로 `_id` 필드를 인덱싱합니다. 이 필드는 삭제할 수 없습니다. 분할 된 키 당 필드의 고유성을 자동으로 적용 합니다 `_id` . 추가 필드를 인덱싱 하려면 MongoDB 인덱스 관리 명령을 적용 합니다. 이 기본 인덱싱 정책은 모든 필드를 기본적으로 인덱싱하는 Azure Cosmos DB SQL API와 다릅니다.
+MongoDB server 버전 3.6에 대 한 Azure Cosmos DB API는 자동으로 `_id` 필드를 인덱싱합니다. 이 필드는 삭제할 수 없습니다. 분할 된 키 당 필드의 고유성을 자동으로 적용 합니다 `_id` . 추가 필드를 인덱싱하려면 MongoDB 인덱스 관리 명령을 적용합니다. 이 기본 인덱싱 정책은 모든 필드를 기본적으로 인덱싱하는 Azure Cosmos DB SQL API와 다릅니다.
 
 Azure Cosmos DB에서 제공 하는 인덱싱 기능에는 복합 인덱스, 고유 인덱스 및 TTL (time-to-live) 인덱스를 추가 하는 작업이 포함 됩니다. 인덱스 관리 인터페이스는 `createIndex()` 명령에 매핑됩니다. [Azure Cosmos DB의 MONGODB API에 대 한](mongodb-indexing.md)자세한 내용은 인덱싱을 참조 하세요.
 

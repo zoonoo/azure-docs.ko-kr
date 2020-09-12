@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: 8748e4f78582ab133d7e527daba1c126dcb7e7e2
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 0fe8c4753cef9fa829a2cb696e164dbdf5f2b8f2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543710"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297572"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Azure Portal에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -62,7 +62,7 @@ az provider register --namespace Microsoft.ContainerInstance
 가상 노드 기능은 ACI의 기능 집합에 따라 크게 달라집니다. [Azure Container Instances에 대 한 할당량 및 제한](../container-instances/container-instances-quotas.md)외에도 다음 시나리오는 가상 노드에서 아직 지원 되지 않습니다.
 
 * 서비스 주체를 사용하여 ACR 이미지를 끌어옵니다. [해결 방법](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry)은 [Kubernetes 비밀](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)을 사용하는 것입니다.
-* [Virtual Network 제한 사항](../container-instances/container-instances-vnet.md)에는 VNet 피어링, Kubernetes 네트워크 정책 및 네트워크 보안 그룹이 있는 인터넷으로의 아웃바운드 트래픽이 포함됩니다.
+* [Virtual Network 제한 사항](../container-instances/container-instances-virtual-network-concepts.md)에는 VNet 피어링, Kubernetes 네트워크 정책 및 네트워크 보안 그룹이 있는 인터넷으로의 아웃바운드 트래픽이 포함됩니다.
 * 초기화 컨테이너
 * [호스트 별칭](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * ACI의 exec에 대한 [인수](../container-instances/container-instances-exec.md#restrictions)
@@ -72,7 +72,7 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 

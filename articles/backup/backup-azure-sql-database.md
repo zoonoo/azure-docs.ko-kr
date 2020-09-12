@@ -3,12 +3,12 @@ title: Azure에 SQL Server 데이터베이스 백업
 description: 이 문서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다. SQL Server 복구에 대해서도 설명합니다.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: d8cdafe215d9271151d8dacee114d40108e907bd
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3627162ef2f4330a4b6a78625b5e07bdcf56419b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892442"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376539"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
@@ -66,11 +66,11 @@ Windows 2008 r 2에서 실행 되는 **SQL 2008** 및 **2008** r 2의 경우 사
 
       ![로그인 - 신규 대화 상자에서 검색 선택](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. Windows 가상 서비스 계정 **NT SERVICE\AzureWLBackupPluginSvc**는 가상 머신 등록 및 SQL 검색 단계 중에 만들어졌습니다. **선택할 개체 이름 입력**에 표시된 대로 계정 이름을 입력합니다. **이름 확인**을 선택하여 이름을 확인합니다. **확인**을 클릭합니다.
+  4. Windows 가상 서비스 계정 **NT SERVICE\AzureWLBackupPluginSvc**는 가상 머신 등록 및 SQL 검색 단계 중에 만들어졌습니다. **선택할 개체 이름 입력**에 표시된 대로 계정 이름을 입력합니다. **이름 확인**을 선택하여 이름을 확인합니다. **확인**을 선택합니다.
 
       ![이름 확인을 클릭하여 알 수 없는 서비스 이름 확인](./media/backup-azure-sql-database/check-name.png)
 
-  5. **서버 역할**에서 **sysadmin** 역할이 선택되었는지 확인합니다. **확인**을 클릭합니다. 이제 필요한 권한이 있어야 합니다.
+  5. **서버 역할**에서 **sysadmin** 역할이 선택되었는지 확인합니다. **확인**을 선택합니다. 이제 필요한 권한이 있어야 합니다.
 
       ![sysadmin 서버 역할이 선택되어 있는지 확인](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
@@ -91,7 +91,7 @@ SQL Server 인스턴스에 **NT AUTHORITY\SYSTEM** 및 **NT Service\AzureWLBacku
 
 1. 개체 탐색기에서 SQL Server 인스턴스로 이동합니다.
 2. 보안 -> 로그인으로 이동합니다.
-3. 로그인을 마우스 오른쪽 단추로 클릭하고 *새 로그인…* 을 클릭합니다.
+3. 로그인을 마우스 오른쪽 단추로 클릭 하 고 *새 로그인* ...을 선택 합니다.
 
     ![SSMS를 사용한 새 로그인](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
@@ -107,7 +107,7 @@ SQL Server 인스턴스에 **NT AUTHORITY\SYSTEM** 및 **NT Service\AzureWLBacku
 
     ![SSMS에서 권한 부여](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
-7. 확인을 클릭합니다.
+7. 확인을 선택합니다.
 8. 동일한 일련의 단계(위의 1~7)를 반복하여 SQL Server 인스턴스에 NT Service\AzureWLBackupPluginSvc 로그인을 추가합니다. 로그인이 이미 있으면 sysadmin 서버 역할이 있는지 확인하고 상태에서 데이터베이스 엔진 연결 권한이 허용되고 로그인이 사용되는지 확인합니다.
 9. 사용 권한을 부여 하 고 나면 포털에서 **db** 를 다시 검색 합니다. **->** Azure VM의 자격 증명 모음 백업 인프라 **->** 워크 로드:
 

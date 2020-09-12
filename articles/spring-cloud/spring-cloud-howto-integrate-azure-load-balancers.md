@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 3a7ed148c4bc8d58b2dcbc344656137a403c62eb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4315427598d004459862bcf12959e22e83c84d5d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037545"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299729"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Azure 부하 분산 솔루션과 Azure Spring Cloud 통합
 
@@ -24,9 +24,9 @@ Azure는 이미 다른 부하 분산 솔루션을 제공 합니다. Azure 스프
 2.  Azure 앱 Gateway와 Azure 스프링 클라우드 통합
 3.  Azure 프런트 도어를 사용 하 여 Azure 스프링 클라우드 통합
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* Azure 스프링 클라우드: [azure 스프링 클라우드 서비스를 만드는 방법](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal)
+* Azure 스프링 클라우드: [azure 스프링 클라우드 서비스를 만드는 방법](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
 * Azure Traffic Manager: [Traffic Manager를 만드는 방법](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
 * Azure 앱 Gateway: [응용 프로그램 게이트웨이를 만드는 방법](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
 * Azure Front 도어: [Front 도어를 만드는 방법](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)

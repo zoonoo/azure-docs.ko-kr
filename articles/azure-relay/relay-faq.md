@@ -3,12 +3,12 @@ title: Azure Relay FAQ | Microsoft Docs
 description: 이 문서에서는 Azure Relay 서비스에 대 한 몇 가지 자주 묻는 질문에 대 한 답변을 제공 합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317027"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299289"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
@@ -18,7 +18,7 @@ ms.locfileid: "85317027"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>일반적인 질문
-### <a name="what-is-azure-relay"></a>Azure 릴레이란?
+### <a name="what-is-azure-relay"></a>Azure Relay란?
 [Azure Relay 서비스](relay-what-is-it.md)는 회사 엔터프라이즈 네트워크 내에 있는 서비스를 퍼블릭 클라우드에 더 안전하게 노출하여 하이브리드 애플리케이션을 간편하게 만듭니다. 방화벽 연결을 열지 않고 회사 네트워크 인프라를 방해하는 변경 사항 없이 서비스를 노출할 수 있습니다.
 
 ### <a name="what-is-a-relay-namespace"></a>릴레이 네임스페이스란?
@@ -119,8 +119,8 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>공유 액세스 서명이란 무엇이고 어떤 언어를 사용하여 서명을 생성할 수 있나요?
 공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. Node.js, PHP, Python, Java, C 및 c #에서 사용자 고유의 서명을 생성 하는 방법에 대 한 자세한 내용은 [공유 액세스 서명을 사용 하는 Service Bus 인증][Shared Access Signatures]을 참조 하세요.
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>릴레이 엔드포인트를 허용 목록에 추가할 수 있나요?
-예. 릴레이 클라이언트는 FQDN(정규화된 도메인 이름)을 사용하여 Azure Relay 서비스에 연결합니다. 고객은 DNS 허용 목록을 지원하는 방화벽에 `*.servicebus.windows.net`에 대한 항목을 추가할 수 있습니다.
+### <a name="is-it-possible-to-allow-only-some-relay-endpoints"></a>일부 릴레이 끝점만 허용할 수 있나요?
+예. 릴레이 클라이언트는 FQDN(정규화된 도메인 이름)을 사용하여 Azure Relay 서비스에 연결합니다. 고객은 `*.servicebus.windows.net` DNS 승인 목록을 지 원하는 방화벽에 항목을 추가할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [네임스페이스 만들기](relay-create-namespace-portal.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 96ebfecf01ff147a874674861c7cb64cb3725d52
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 82e984b629c8d838ba179b25a78262eccf078a04
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164923"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377865"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시을 통해 온-프레미스 응용 프로그램에 원격으로 액세스
 
@@ -58,7 +58,12 @@ Azure Active Directory 애플리케이션 프록시는 온-프레미스 웹 애�
 5. 커넥터는 온-프레미스 애플리케이션에 요청을 보냅니다.
 6. 응답은 커넥터 및 애플리케이션 프록시 서비스를 통해 사용자에게 전송됩니다.
 
-| 구성 요소 | Description |
+> [!NOTE]
+> 대부분의 Azure AD 하이브리드 에이전트와 마찬가지로 응용 프로그램 프록시 커넥터는 방화벽을 통해 인바운드 연결을 열지 않아도 됩니다. 3 단계의 사용자 트래픽은 Azure AD의 응용 프로그램 프록시 서비스에서 종료 됩니다. 응용 프로그램 프록시 커넥터 (온-프레미스)는 나머지 통신을 담당 합니다.
+>
+
+
+| 구성 요소 | 설명 |
 | --------- | ----------- |
 | 엔드포인트  | 엔드포인트는 URL 또는 [최종 사용자 포털](end-user-experiences.md)입니다. 사용자는 외부 URL에 액세스하여 네트워크 외부에서 애플리케이션에 연결할 수 있습니다. 네트워크 내 사용자는 URL 또는 최종 사용자 포털을 통해 애플리케이션에 액세스할 수 있습니다. 사용자가 이러한 엔드포인트 중 하나로 이동하면 Azure AD에서 인증한 다음 커넥터를 통해 온-프레미스 애플리케이션에 라우팅됩니다.|
 | Azure AD | Azure AD는 클라우드에 저장된 테넌트 디렉터리를 사용하여 인증을 수행합니다. |

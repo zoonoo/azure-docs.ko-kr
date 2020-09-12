@@ -7,20 +7,20 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: f40da30ff0d702078861367dea810cc8ca1ab91b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4a98207ef5b03f77a4f741894ec210f7551c5933
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305145"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378137"
 ---
-# <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace의 SaaS 처리 Api 버전 2
+# <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업적 marketplace의 SaaS 등록 Api 버전 2
 
 이 문서에서는 파트너가 Microsoft AppSource 및 Azure Marketplace에서 SaaS 제품을 판매할 수 있도록 하는 Api에 대해 자세히 설명 합니다. 파트너 센터에서 불가능 SaaS 제품을 게시 하려면 게시자가 이러한 Api와의 통합을 구현 해야 합니다.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>SaaS 구독 수명 주기 관리
 
-Azure Marketplace는 최종 고객이 구매한 SaaS 구독의 전체 수명 주기를 관리 합니다.  방문 페이지, 다시 사용 Api, 작업 Api 및 웹 후크를 사용 하 여 실제 SaaS 구독 활성화 및 사용, 업데이트 및 구독의 취소를 구동 합니다.  최종 고객의 청구서는 Microsoft에서 유지 관리 하는 SaaS 구독의 상태를 기준으로 합니다. 
+상용 marketplace는 최종 고객에 의해 구매한 후 SaaS 구독의 전체 수명 주기를 관리 합니다.  방문 페이지, 다시 사용 Api, 작업 Api 및 웹 후크를 사용 하 여 실제 SaaS 구독 활성화 및 사용, 업데이트 및 구독의 취소를 구동 합니다.  최종 고객의 청구서는 Microsoft에서 유지 관리 하는 SaaS 구독의 상태를 기준으로 합니다. 
 
 ### <a name="states-of-a-saas-subscription"></a>SaaS 구독의 상태
 
@@ -35,7 +35,7 @@ SaaS 구독 상태와 적용 가능한 작업이 표시 됩니다.
 계정을 만들려면 다음을 수행 합니다.
 
 1. 고객은 Microsoft AppSource 또는 Azure Portal에서 구매가 완료 된 후 SaaS 제품에 사용할 수 있는 **구성** 단추를 클릭 해야 합니다. 또는 구매 직후 고객이 받게 될 전자 메일의 또는입니다.
-2. 그러면 Microsoft는 새 브라우저 탭에서 토큰 매개 변수 (marketplace 구매 식별 토큰)를 사용 하 여 방문 페이지 URL을 열고 구매에 대해 파트너에 게 알립니다.
+2. 그러면 Microsoft는 새 브라우저 탭에서 토큰 매개 변수 (상업적 marketplace 구매 식별 토큰)를 사용 하 여 방문 페이지 URL을 열고 구매에 대해 파트너에 게 알립니다.
 
 이러한 호출의 예로는가 있지만 `https://contoso.com/signup?token=<blob>` 파트너 센터에서이 SaaS 제안의 방문 페이지 URL은으로 구성 됩니다 `https://contoso.com/signup` . 이 토큰은 SaaS 구매 및 고객을 고유 하 게 식별 하는 ID를 게시자에 게 제공 합니다.
 
@@ -46,12 +46,12 @@ SaaS 구독 상태와 적용 가능한 작업이 표시 됩니다.
 
 그런 다음 헤더 매개 변수 값으로 [SaaS RESOLVE API](#resolve-a-purchased-subscription)를 호출 하 여 게시자에서 *토큰* 을 다시 Microsoft로 전달 해야 합니다 `x-ms-marketplace-token header` .  API 호출의 결과로, 토큰은 구매한 구매의 고유 ID, 구매한 제안 ID, 구매한 요금제 ID 등 SaaS 구매 세부 정보를 위해 교환 됩니다.
 
-방문 페이지에서 고객은 AAD (Azure Active Directory) SSO (Single Sign-on)를 통해 신규 또는 기존 SaaS 계정에 로그온 해야 합니다.
+방문 페이지에서 고객은 Azure Active Directory (Azure AD) SSO (Single Sign-on)를 통해 신규 또는 기존 SaaS 계정에 로그온 해야 합니다.
 
 게시자는이 흐름에 Microsoft에서 요구 하는 사용자 환경을 제공 하기 위해 SSO 로그인을 구현 해야 합니다.  SSO를 구성할 때 다중 테 넌 트 Azure AD 응용 프로그램을 사용 하 여 회사 및 학교 계정이 나 개인 Microsoft 계정을 모두 허용 합니다.  이 요구 사항은 방문 페이지 및 Microsoft 자격 증명을 사용 하 여 이미 로그인 한 경우 SaaS 서비스로 리디렉션되는 사용자 에게만 적용 됩니다. SaaS 서비스에 대 한 모든 로그인에는 적용 되지 않습니다.
 
 > [!NOTE]
->SSO 로그인에 관리자가 앱에 대 한 권한을 부여 해야 하는 경우 파트너 센터의 제안에 대 한 설명은 관리 수준 액세스가 필요 하다는 것을 공개 해야 합니다. 이는 [Marketplace 인증 정책을](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options)준수 하기 위한 것입니다.
+>SSO 로그인에 관리자가 앱에 대 한 권한을 부여 해야 하는 경우 파트너 센터의 제안에 대 한 설명은 관리 수준 액세스가 필요 하다는 것을 공개 해야 합니다. 이는 [상업적 marketplace 인증 정책을](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options)준수 하기 위한 것입니다.
 
 로그인 한 후에는 고객이 게시자 쪽에서 SaaS 구성을 완료 해야 합니다. 그런 다음 게시자는 [구독 API 활성화](#activate-a-subscription) 를 호출 하 여 SaaS 계정의 프로비저닝이 완료 되었음을 Marketplace에 보내야 합니다.
 그러면 고객의 청구 주기가 시작 됩니다. 구독 활성화 API 호출에 성공 하지 않으면 고객에 게 구매 요금이 청구 되지 않습니다.
@@ -69,14 +69,14 @@ SaaS 구독이 이미 활성 상태이 고 고객이 Azure Portal 또는 M365 �
 
 이 작업은 기존 활성 SaaS 구독에 대 한 업데이트가 Microsoft와 게시자 모두에서 처리 됨을 의미 합니다. 이러한 업데이트는 다음을 통해 시작할 수 있습니다.
 
-* marketplace의 고객
-* marketplace의 CSP
-* 게시자의 SaaS 사이트에서 고객 (구매한 CSP에는 적용 되지 않음)
+- 상업적 marketplace의 고객입니다.
+- 상업적 marketplace의 CSP입니다.
+- 게시자의 SaaS 사이트에서 고객 (구매를 만든 CSP에는 적용 되지 않음)
 
 SaaS 구독에는 두 가지 유형의 업데이트를 사용할 수 있습니다.
 
-1. 고객이 구독에 대해 다른 계획을 선택할 때 계획을 업데이트 합니다.
-1. 고객이 구독에 대해 구매한 사용자 수를 변경 하는 경우 수량 업데이트
+- 고객이 구독에 대해 다른 계획을 선택할 때 계획을 업데이트 합니다.
+- 고객이 구독에 대해 구매한 사용자 수를 변경 하는 경우 수량 업데이트
 
 활성 구독만 업데이트할 수 있습니다. 구독이 업데이트 되는 동안 해당 상태는 Microsoft 쪽에서 활성 상태로 유지 됩니다.
 
@@ -137,7 +137,7 @@ Microsoft는 구독을 자동으로 취소 하기 전에 30 일의 유예 기간
 
 #### <a name="renewed-subscribed"></a>갱신 됨 (*구독*됨)
 
-구독 기간이 끝날 때 (월 또는 연도 이후) SaaS 구독은 Microsoft에서 자동으로 갱신 됩니다.  자동 갱신 설정의 기본값은 모든 SaaS 구독에 *적용* 됩니다. 활성 SaaS 구독은 정기적으로 계속 갱신 됩니다. 구독을 갱신 하는 경우 Microsoft는 게시자에 게 알리지 않습니다. 고객은 M365 관리 포털을 통하거나 Azure Portal를 통해 SaaS 구독에 대 한 자동 갱신을 해제할 수 있습니다.  이 경우 SaaS 구독은 현재 청구 기간 종료 시 자동으로 취소 됩니다.  또한 고객은 언제 든 지 SaaS 구독을 취소할 수 있습니다.
+구독 기간이 끝날 때 (월 또는 연도 이후) SaaS 구독은 Microsoft에서 자동으로 갱신 됩니다.  자동 갱신에 대 한 기본값은 모든 SaaS 구독에 *적용* 됩니다. 활성 SaaS 구독은 정기적으로 계속 갱신 됩니다. 구독을 갱신 하는 경우 Microsoft는 게시자에 게 알리지 않습니다. 고객은 M365 관리 포털을 통하거나 Azure Portal를 통해 SaaS 구독에 대 한 자동 갱신을 해제할 수 있습니다.  이 경우 SaaS 구독은 현재 청구 기간 종료 시 자동으로 취소 됩니다.  또한 고객은 언제 든 지 SaaS 구독을 취소할 수 있습니다.
 
 활성 구독만 자동으로 갱신 됩니다.  갱신 하는 동안 구독을 활성 상태로 유지 하 고 자동 갱신에 성공 합니다.  갱신 후 구독 기간의 시작 및 종료 날짜가 새 기간의 날짜로 업데이트 됩니다.
 
@@ -194,7 +194,7 @@ Resolve API를 호출 하면 지원 되는 모든 상태에서 SaaS 구독의 �
 |  `x-ms-requestid`    |  클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 |  `x-ms-correlationid` |  클라이언트의 작업에 대한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상호 연결합니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
 |  `authorization`     |  이 API 호출을 수행 하는 게시자를 식별 하는 고유한 액세스 토큰입니다. 형식은 `"Bearer <accessaccess_token>"` [Azure AD 앱을 기반으로 토큰 가져오기](./pc-saas-registration.md#get-the-token-with-an-http-post)에 설명 된 대로 게시자가 토큰 값을 검색 하는 경우입니다. |
-|  `x-ms-marketplace-token`  | 확인할 marketplace 구매 id *토큰* 매개 변수입니다.  토큰은 고객이 SaaS 파트너의 웹 사이트로 리디렉션되는 경우 방문 페이지 URL 호출에 전달 됩니다 (예: `https://contoso.com/signup?token=<token><authorization_token>` ). <br> <br>  *참고:* 인코딩된 *토큰* 값은 방문 페이지 url의 일부 이므로이 API 호출에서 매개 변수로 사용 되기 전에 디코딩되 야 합니다.  <br> <br> Url에서 인코딩된 문자열의 예는 다음과 같습니다. `contoso.com/signup?token=ab%2Bcd%2Fef` 여기서 token은입니다. `ab%2Bcd%2Fef`  디코딩된 동일한 토큰은 다음과 같습니다.`Ab+cd/ef` |
+|  `x-ms-marketplace-token`  | 확인할 marketplace 구매 id *토큰* 매개 변수입니다.  토큰은 고객이 SaaS 파트너의 웹 사이트로 리디렉션되는 경우 방문 페이지 URL 호출에 전달 됩니다 (예: `https://contoso.com/signup?token=<token><authorization_token>` ). <br> <br>  *참고:* 인코딩된 *토큰* 값은 방문 페이지 url의 일부 이므로이 API 호출에서 매개 변수로 사용 되기 전에 디코딩되 야 합니다.  <br> <br> Url에서 인코딩된 문자열의 예는 다음과 같습니다. `contoso.com/signup?token=ab%2Bcd%2Fef` 여기서 token은입니다. `ab%2Bcd%2Fef`  디코딩된 동일한 토큰은 다음과 같습니다. `Ab+cd/ef` |
 | | |
 
 *응답 코드:*
@@ -248,7 +248,7 @@ Code: 200은 제공 된를 기반으로 고유한 SaaS 구독 식별자를 반�
 
 ```
 
-코드: 400 잘못 된 요청입니다. `x-ms-marketplace-token`이 없거나, 형식이 잘못 되었거나, 잘못 되었거나, 만료 되었습니다.
+코드: 400 잘못 된 요청입니다. `x-ms-marketplace-token` 이 없거나, 형식이 잘못 되었거나, 잘못 되었거나, 만료 되었습니다.
 
 코드: 403 사용할 수 없음. 권한 부여 토큰이 잘못 되었거나 만료 되었거나 제공 되지 않았습니다.  요청에서 권한 부여 토큰을 만드는 데 사용 된 것과 다른 Azure AD 앱 ID로 게시 된 제안의 SaaS 구독에 액세스 하려고 합니다.
 
@@ -296,9 +296,9 @@ Code: 200은 제공 된를 기반으로 고유한 SaaS 구독 식별자를 반�
 
 코드: 400 잘못 된 요청: 유효성 검사에 실패 했습니다.
 
-* `planId`는 요청 페이로드에 존재 하지 않습니다.
-* `planId`에서 요청 페이로드가 구매한 것과 일치 하지 않습니다.
-* `quantity`에서 요청 페이로드가 구매한 것과 일치 하지 않습니다.
+* `planId` 는 요청 페이로드에 존재 하지 않습니다.
+* `planId` 에서 요청 페이로드가 구매한 것과 일치 하지 않습니다.
+* `quantity` 에서 요청 페이로드가 구매한 것과 일치 하지 않습니다.
 * SaaS 구독이 구독 또는 일시 중단 상태입니다.
 
 코드: 403 사용할 수 없음. 인증 토큰이 잘못 되었거나 만료 되었거나 제공 되지 않았습니다. 요청에서 권한 부여 토큰을 만드는 데 사용 된 것과 다른 Azure AD 앱 ID로 게시 된 제안의 SaaS 구독에 액세스 하려고 합니다.
@@ -322,7 +322,7 @@ Marketplace에서 게시자가 게시 한 모든 제품에 대해 구매한 모�
 |  매개 변수         | 값             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  2018-08-31을 사용 합니다.  |
-| `continuationToken`  | 선택적 매개 변수. 결과의 첫 번째 페이지를 검색 하려면 빈 상태로 둡니다.  매개 변수에서 반환 된 값을 사용 `@nextLink` 하 여 다음 페이지를 검색 합니다. |
+| `continuationToken`  | 선택적 매개 변수입니다. 결과의 첫 번째 페이지를 검색 하려면 빈 상태로 둡니다.  매개 변수에서 반환 된 값을 사용 `@nextLink` 하 여 다음 페이지를 검색 합니다. |
 
 *요청 헤더:*
 
@@ -426,7 +426,7 @@ Code: 200 게시자의 권한 부여 토큰에 따라이 게시자의 모든 제
 
 게시자가 marketplace에 게시 한 SaaS 제품에 대해 지정 된 구매한 SaaS 구독을 검색 합니다. 모든 구독 목록을 가져오기 위해 API를 호출 하는 대신 ID를 사용 하 여 특정 SaaS 구독에 대해 사용 가능한 모든 정보를 가져오려면이 호출을 사용 합니다.
 
-##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>가져오기`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>가져오기 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -498,7 +498,7 @@ Code: 200는 제공 된를 기반으로 하는 SaaS 구독에 대 한 세부 정
 
 이 호출은 이미 구매한 고객 외에도 해당 고객에 게 제공 되는 계획의 목록을 반환 합니다.  이 목록은 게시자 사이트의 최종 고객에 게 제공 될 수 있습니다.  최종 고객은 구독 계획을 반환 된 목록의 계획 중 하나로 변경할 수 있습니다.  계획을 목록에 나열 되지 않은 항목으로 변경 하면 실패 합니다.
 
-##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>가져오기`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>가져오기 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -552,7 +552,7 @@ SaaS 구독에 대해 구매한 기존 계획을 새 요금제 (공용 또는 �
 
 이 API는 활성 구독에 대해서만 호출할 수 있습니다.  모든 계획은 다른 기존 계획 (공용 또는 개인)으로 변경할 수 있지만 그 자체로는 변경할 수 없습니다.  개인 계획의 경우 파트너 센터에서 고객의 테 넌 트를 계획 대상의 일부로 정의 해야 합니다.
 
-##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>패치나`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>패치나 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -588,7 +588,7 @@ SaaS 구독에 대해 구매한 기존 계획을 새 요금제 (공용 또는 �
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 URL입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다. |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 URL입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
 코드: 400 잘못 된 요청: 유효성 검사 오류입니다.
 
@@ -617,7 +617,7 @@ SaaS 구독에 대해 구매한 사용자의 수량을 업데이트 (증가 또�
 
 좌석 수량은 현재 계획에서 허용 되는 것 보다 많을 수 없습니다.  이 경우 수량을 변경 하기 전에 계획을 변경 해야 합니다.
 
-##### <a name="patchhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>패치나`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patchhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>패치`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -653,7 +653,7 @@ SaaS 구독에 대해 구매한 사용자의 수량을 업데이트 (증가 또�
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다.  |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
 
 코드: 400 잘못 된 요청: 유효성 검사 오류입니다.
 
@@ -718,7 +718,7 @@ SaaS 구독에 대해 구매한 사용자의 수량을 업데이트 (증가 또�
 
 |  매개 변수         | 값             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예들 들어 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`입니다. |
+|  `Operation-Location`        |  작업 상태를 가져오기 위한 리소스에 대 한 링크입니다.  예: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
 코드: 400 잘못 된 요청입니다.  `allowedCustomerOperations`이 SaaS 구독의 삭제는 목록에 없습니다.
 
@@ -738,7 +738,7 @@ SaaS 구독에 대해 구매한 사용자의 수량을 업데이트 (증가 또�
 
 현재이 API 호출에 대 한 응답으로 **복원 작업만** 반환 됩니다.
 
-##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>가져오기`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>가져오기 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -792,11 +792,11 @@ Code: 200 지정 된 SaaS 구독에서 보류 중인 복원 작업을 반환 합
 
 #### <a name="get-operation-status"></a>작업 상태 가져오기
 
-게시자가 지정 된 비동기 작업의 상태 ( **구독 취소**, **Changeplan**또는 **chang)** 를 추적할 수 있도록 합니다.
+게시자가 지정 된 비동기 작업의 상태 (  **구독 취소**, **Changeplan**또는 **chang)** 를 추적할 수 있도록 합니다.
 
 `operationId`이 API 호출에 대 한는 **작업 위치**에서 반환 된 값, 보류 중인 작업 API 호출 또는 `<id>` webhook 호출에서 받은 매개 변수 값에서 검색할 수 있습니다.
 
-##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>가져오기`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>가져오기 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -857,7 +857,7 @@ Response body:
 
 `operationId`이 API 호출에 대 한는 **작업 위치**에서 반환 된 값, 보류 중인 작업 API 호출 또는 `<id>` webhook 호출에서 받은 매개 변수 값에서 검색할 수 있습니다.
 
-##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>패치나`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
+##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>패치나 `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -976,6 +976,6 @@ SaaS 구독 상태를 Microsoft 쪽과 일관 되 게 유지 하려면 게시자
 
 ## <a name="next-steps"></a>다음 단계
 
-Marketplace의 SaaS 제품에 대 한 추가 옵션은 Marketplace [계량 서비스 api](marketplace-metering-service-apis.md) 를 참조 하세요.
+상업적 marketplace에서 SaaS 제품에 대 한 추가 옵션은 [상업적 marketplace 계량 서비스 api](marketplace-metering-service-apis.md) 를 참조 하세요.
 
-이 문서에서 설명 하는 Api를 기반으로 하는 [SAAS SDK](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) 를 검토 하 여 사용 합니다.
+이 문서에서 설명 하는 Api를 기반으로 구축 된 [SAAS SDK](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) 를 검토 하 여 사용 합니다.

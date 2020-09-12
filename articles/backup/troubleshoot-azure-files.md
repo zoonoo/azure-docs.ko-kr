@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 9e8869ed75350fd4063832932f076fb6fd52d4e5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4908b8ed97bad43d9d24427660a8691ee43d7eaf
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001742"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376981"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Azure 파일 공유를 백업 하는 동안 발생 하는 문제 해결
 
@@ -51,7 +51,7 @@ ms.locfileid: "89001742"
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>보호 해제 파일 공유 후에 Recovery Services 자격 증명 모음을 삭제할 수 없습니다.
 
-Azure Portal에서 **자격 증명 모음**  >  **백업 인프라**  >  **저장소 계정을** 열고 **등록 취소** 를 클릭 하 여 Recovery Services 자격 증명 모음에서 저장소 계정을 제거 합니다.
+Azure Portal에서 **자격 증명 모음**  >  **백업 인프라**  >  **저장소 계정을**엽니다. **등록 취소** 를 선택 하 여 Recovery Services 자격 증명 모음에서 저장소 계정을 제거 합니다.
 
 >[!NOTE]
 >자격 증명 모음에 등록 된 모든 저장소 계정의 등록을 취소 한 후에만 Recovery Services 자격 증명 모음을 삭제할 수 있습니다.

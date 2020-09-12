@@ -9,15 +9,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: inhenkel
-ms.openlocfilehash: 103509de90d8819b19c46ebba7ae2dcc6071ac33
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a9e34c4aaeb6fc2c151233b05ed5584e0e624148
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256072"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297980"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Media Services 변환 및 작업
 
@@ -38,7 +38,7 @@ ms.locfileid: "89256072"
 3. 변환 목록을 표시 합니다.
 4. 변환을 나중에 사용 하지 않으려는 경우 삭제 합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 모든 비디오의 첫 번째 프레임을 미리 보기 이미지로 추출 한다고 가정해 보겠습니다. 수행 하는 단계는 다음과 같습니다.
 

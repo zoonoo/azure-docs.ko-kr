@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 837113c11f24eda91a62cc68fdc68180951eee16
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e2cfa21bc5223af058d412bf3f17f53cb151fc5c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269457"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297640"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>진단 로그 Media Services 모니터링
 
@@ -52,7 +52,7 @@ ms.locfileid: "89269457"
 
    ![진단 설정 섹션](media/media-services-diagnostic-logs/logs02.png)
 1. **보존 기간(일)** 슬라이더를 30으로 설정합니다. 이 슬라이더는 스토리지 계정에 모니터링 데이터를 보존할 일 수를 설정합니다. Azure Monitor는 지정된 일 수보다 오래된 데이터를 자동으로 삭제합니다. 보존 기간을 0일로 설정하면 데이터를 무기한 저장합니다.
-1. **Save**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
 이제 리소스의 모니터링 데이터가 스토리지 계정으로 이동합니다.
 
@@ -76,7 +76,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다. 
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name amsv3diagnostic \

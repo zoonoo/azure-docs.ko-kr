@@ -3,12 +3,12 @@ title: Azure에 Windows 시스템 상태 백업
 description: Windows Server 컴퓨터의 시스템 상태를 Azure에 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 14ca17284d48355260cdeda6ef3b20b4794a0c4f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 10d37bbafab6aa96986a5d7af88a509d4c8eac25
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181632"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376493"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Azure에 Windows 시스템 상태 백업
 
@@ -62,7 +62,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 스토리지 중복�
 
     ![파일 및 폴더 구성](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    확인을 클릭 하면 **백업 목표**옆에 확인 표시가 나타나고 **인프라 준비** 창이 열립니다.
+    확인을 선택 하면 **백업 목표**옆에 **확인**표시가 나타나고 **인프라 준비** 창이 열립니다.
 
     ![Backup 목표 구성, 다음으로 인프라 준비](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 

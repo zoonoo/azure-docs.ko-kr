@@ -1,5 +1,5 @@
 ---
-title: Azure에서 VHD의 스냅숏 만들기
+title: Azure CLI를 사용 하 여 VHD의 스냅숏 만들기
 description: 백업 또는 문제 해결을 위해 Azure에서 VHD의 복사본을 만드는 방법을 알아봅니다.
 author: roygara
 manager: twooley
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7f4489b3073462a93319886ee5560ed5a6660111
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659957"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89317998"
 ---
-# <a name="create-a-snapshot"></a>스냅샷 만들기 
+# <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>포털 또는 Azure CLI를 사용 하 여 스냅숏 만들기
 
 백업 또는 VM 문제 해결을 위해 OS 또는 데이터 디스크의 스냅샷을 만듭니다. 스냅샷은 VHD의 전체 읽기 전용 복사본입니다. 
 

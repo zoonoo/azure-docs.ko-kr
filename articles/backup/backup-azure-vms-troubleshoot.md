@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: aa9b5a3f6f7ca935e4e6b3645c58da5516384072
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178014"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376182"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -198,7 +198,7 @@ Azure Backup은 Azure Marketplace에서 사용할 수 있는 Vm의 백업 및 �
 
 * 게스트 에이전트가 설치되어 있고 응답하는지 확인합니다.
 * Azure Portal에서 **Virtual Machine** > **모든 설정** > **확장**으로 이동합니다.
-* 백업 확장 VmSnapshot 또는 VmSnapshotLinux를 선택하고 **제거**를 클릭합니다.
+* 백업 확장 VmSnapshot 또는 VmSnapshotLinux를 선택 하 고 **제거**를 선택 합니다.
 * 백업 확장을 삭제한 후 백업 작업을 다시 시도합니다.
 * 후속 백업 작업은 새 확장을 원하는 상태로 설치할 것입니다.
 

@@ -3,12 +3,12 @@ title: SAP HANA 데이터베이스 백업 오류 문제 해결
 description: Azure Backup를 사용하여 SAP HANA 데이터베이스를 백업하는 경우 발생할 수 있는 일반적인 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 4958a5e93e27c34772c7c3285470abbc31f5b089
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004173"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377687"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure의 SAP HANA 데이터베이스 백업 문제 해결
 
@@ -97,7 +97,7 @@ SDC HANA 인스턴스 "H21"이 백업되었다고 가정합니다. 백업 항목
 
 - 기본적으로 복원된 db 이름에는 백업 항목 이름이 채워집니다. 이 경우 h21(sdc)입니다.
 - H11로 대상을 선택 하면 복원 된 db 이름이 자동으로 변경 되지 않습니다. **h11(sdc)로 편집해야 합니다**. SDC와 관련하여 복원된 db 이름은 괄호로 묶은 소문자 'sdc'를 앞에 붙인 대상 인스턴스 ID입니다.
-- SDC에는 단일 데이터베이스만 있을 수 있으므로 이 확인란을 클릭하여 기존 데이터베이스 데이터를 복구 지점 데이터로 재정의하도록 허용해야 합니다.
+- SDC는 단일 데이터베이스만 포함할 수 있으므로 복구 지점 데이터를 사용 하 여 기존 데이터베이스 데이터의 재정의를 허용 하는 확인란을 선택 해야 합니다.
 - Linux는 대/소문자를 구분합니다. 따라서 대/소문자를 유지해야 합니다.
 
 ### <a name="multiple-container-database-mdc-restore"></a>MDC(여러 컨테이너 데이터베이스) 복원
@@ -165,7 +165,7 @@ SID 변경을 발생시키지 않는 SDC에서 MDC로의 업그레이드는 다�
 - 업그레이드를 수행합니다. 완료되면 HANA 시스템은 이제 시스템 DB 및 테넌트 DB가 있는 MDC가 됩니다.
 - [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 다시 실행합니다.
 - Azure Portal에서 동일한 머신에 대한 확장을 다시 등록합니다(**백업** -> **세부 정보 보기** -> 관련 Azure VM 선택 -> 다시 등록).
-- 동일한 VM에 대해 **DB 다시 검색**을 클릭합니다. 이 작업을 수행하면 3단계의 새 DB가 SDC가 아닌 SYSTEMDB 및 테넌트 DB로 표시됩니다.
+- 동일한 VM에 대해 **db** 다시 검색을 선택 합니다. 이 작업을 수행하면 3단계의 새 DB가 SDC가 아닌 SYSTEMDB 및 테넌트 DB로 표시됩니다.
 - 이전 SDC 데이터베이스는 계속 자격 증명 모음에 존재하며 이전에 백업된 데이터는 정책에 따라 보존됩니다.
 - 이러한 데이터베이스에 대한 백업 구성
 
@@ -178,7 +178,7 @@ SID를 변경하는 SDC에서 MDC로의 업그레이드는 다음과 같이 처�
 - 업그레이드를 수행합니다. 완료되면 HANA 시스템은 이제 시스템 DB 및 테넌트 DB가 있는 MDC가 됩니다.
 - 올바른 세부 정보(새 SID 및 MDC)를 사용하여 [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 다시 실행합니다. SID의 변경으로 인해 스크립트를 성공적으로 실행하는 데 문제가 있을 수 있습니다. 문제가 발생하는 경우 Azure Backup 지원 서비스에 문의하세요.
 - Azure Portal에서 동일한 머신에 대한 확장을 다시 등록합니다(**백업** -> **세부 정보 보기** -> 관련 Azure VM 선택 -> 다시 등록).
-- 동일한 VM에 대해 **DB 다시 검색**을 클릭합니다. 이 작업을 수행하면 3단계의 새 DB가 SDC가 아닌 SYSTEMDB 및 테넌트 DB로 표시됩니다.
+- 동일한 VM에 대해 **db** 다시 검색을 선택 합니다. 이 작업을 수행하면 3단계의 새 DB가 SDC가 아닌 SYSTEMDB 및 테넌트 DB로 표시됩니다.
 - 이전 SDC 데이터베이스는 계속 자격 증명 모음에 존재하며 이전에 백업된 데이터는 정책에 따라 보존됩니다.
 - 이러한 데이터베이스에 대한 백업 구성
 

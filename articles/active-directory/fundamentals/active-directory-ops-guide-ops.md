@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edb35986fcfc0e8855fa712b519ee7a8ca2f0ed8
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75422953"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321959"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Azure Active Directory 일반 작업 가이드 참조
 
@@ -49,8 +49,8 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 #### <a name="owners-recommended-reading"></a>소유자 권장 읽기
 
-- [Azure Active Directory에서 관리자 역할 할당](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Azure에서 거버넌스](https://docs.microsoft.com/azure/security/governance-in-azure)
+- [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure에서 거버넌스](../../governance/index.yml)
 
 ## <a name="hybrid-management"></a>하이브리드 관리
 
@@ -69,12 +69,12 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 #### <a name="hybrid-management-recommended-reading"></a>하이브리드 관리 권장 읽기
 
-- [Azure AD Connect: 자동 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
-- [Azure AD 응용 프로그램 프록시 커넥터 이해 | 자동 업데이트](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#automatic-updates)
+- [Azure AD Connect: 자동 업그레이드](../hybrid/how-to-connect-install-automatic-upgrade.md)
+- [Azure AD 응용 프로그램 프록시 커넥터 이해 | 자동 업데이트](../manage-apps/application-proxy-connectors.md#automatic-updates)
 
 ### <a name="azure-ad-connect-health-alert-baseline"></a>Azure AD Connect Health 경고 기준
 
-조직에서는 Azure AD Connect 및 AD FS의 모니터링 및 보고를 위해 [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect#what-is-azure-ad-connect-health) 를 배포 해야 합니다. Azure AD Connect 및 AD FS는 수명 주기 관리 및 인증을 중단 하 여 중단 될 수 있는 중요 한 구성 요소입니다. Azure AD Connect Health은 온-프레미스 id 인프라를 모니터링 하 고 통찰력을 얻을 수 있으므로 환경의 안정성을 보장 합니다.
+조직에서는 Azure AD Connect 및 AD FS의 모니터링 및 보고를 위해 [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) 를 배포 해야 합니다. Azure AD Connect 및 AD FS는 수명 주기 관리 및 인증을 중단 하 여 중단 될 수 있는 중요 한 구성 요소입니다. Azure AD Connect Health은 온-프레미스 id 인프라를 모니터링 하 고 통찰력을 얻을 수 있으므로 환경의 안정성을 보장 합니다.
 
 ![Azure AD Connect Heath 아키텍처](./media/active-directory-ops-guide/active-directory-ops-img16.png)
 
@@ -82,7 +82,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 #### <a name="azure-ad-connect-health-recommended-reading"></a>Azure AD Connect Health 권장 읽기
 
-- [Azure AD Connect Health Agent 설치](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
+- [Azure AD Connect Health Agent 설치](../hybrid/how-to-connect-health-agent-install.md)
 
 ### <a name="on-premises-agents-logs"></a>온-프레미스 에이전트 로그
 
@@ -90,11 +90,11 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 #### <a name="on-premises-agents-logs-recommended-reading"></a>온-프레미스 에이전트에서 권장 읽기를 기록 합니다.
 
-- [애플리케이션 프록시 문제 해결](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
-- [셀프 서비스 암호 재설정 문제 해결 - Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#password-writeback-event-log-error-codes)
-- [Azure AD 애플리케이션 프록시 커넥터 이해](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors)
-- [Azure AD Connect: 통과 인증 문제 해결](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication#collecting-pass-through-authentication-agent-logs)
-- [Azure MFA NPS 확장에 대 한 오류 코드 문제 해결](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-nps-errors)
+- [애플리케이션 프록시 문제 해결](../manage-apps/application-proxy-troubleshoot.md)
+- [셀프 서비스 암호 재설정 문제 해결 - Azure Active Directory](../authentication/active-directory-passwords-troubleshoot.md#password-writeback-event-log-error-codes)
+- [Azure AD 애플리케이션 프록시 커넥터 이해](../manage-apps/application-proxy-connectors.md)
+- [Azure AD Connect: 통과 인증 문제 해결](../hybrid/tshoot-connect-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs)
+- [Azure MFA NPS 확장에 대 한 오류 코드 문제 해결](../authentication/howto-mfa-nps-extension-errors.md)
 
 ### <a name="on-premises-agents-management"></a>온-프레미스 에이전트 관리
 
@@ -106,14 +106,14 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 #### <a name="on-premises-agents-management-recommended-reading"></a>온-프레미스 에이전트 관리 권장 읽기
 
-- [Azure AD 애플리케이션 프록시 커넥터 이해](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
+- [Azure AD 애플리케이션 프록시 커넥터 이해](../manage-apps/application-proxy-connectors.md)
 - [Azure AD 통과 인증-빠른 시작](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>규모에 맞게 관리
 
 ### <a name="identity-secure-score"></a>ID 보안 점수
 
-[Id 보안 점수](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score) 는 조직의 보안 상태를 수치로 측정 하 여 제공 합니다. 보고 되는 검색 결과를 지속적으로 검토 하 고 해결 하는 것은 핵심 이며 가장 높은 점수를 발생 시킬 수 있습니다. 점수는 다음에 도움이 됩니다.
+[Id 보안 점수](./identity-secure-score.md) 는 조직의 보안 상태를 수치로 측정 하 여 제공 합니다. 보고 되는 검색 결과를 지속적으로 검토 하 고 해결 하는 것은 핵심 이며 가장 높은 점수를 발생 시킬 수 있습니다. 점수는 다음에 도움이 됩니다.
 
 - ID 보안 상태를 객관적으로 측정
 - ID 보안 개선 계획
@@ -123,17 +123,17 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 현재 조직에 Id 보안 점수 변경을 모니터링할 프로그램이 없는 경우 계획을 구현 하 고 소유자를 할당 하 여 개선 작업을 모니터링 하 고 구동 하는 것이 좋습니다. 조직은 가능한 한 빨리 30 보다 큰 점수를 사용 하 여 개선 작업을 수정 해야 합니다.
 
-### <a name="notifications"></a>알림
+### <a name="notifications"></a>공지
 
-Microsoft는 관리자에 게 전자 메일 통신을 보내 서비스의 다양 한 변경 내용, 필요한 구성 업데이트 및 관리자 개입이 필요한 오류를 알립니다. 모든 알림을 승인 하 고 작업할 수 있는 적절 한 팀 구성원에 게 알림이 전송 되도록 고객은 알림 전자 메일 주소를 설정 하는 것이 중요 합니다. [Office 365 메시지 센터](https://docs.microsoft.com/office365/admin/manage/message-center) 에 여러 받는 사람을 추가 하 고 메일 그룹 또는 공유 사서함에 알림 (Azure AD Connect Health 알림 포함)을 보내도록 요청 하는 것이 좋습니다. 전자 메일 주소를 가진 전역 관리자 계정이 하나만 있는 경우 전자 메일을 사용할 수 있는 계정을 두 개 이상 구성 해야 합니다.
+Microsoft는 관리자에 게 전자 메일 통신을 보내 서비스의 다양 한 변경 내용, 필요한 구성 업데이트 및 관리자 개입이 필요한 오류를 알립니다. 모든 알림을 승인 하 고 작업할 수 있는 적절 한 팀 구성원에 게 알림이 전송 되도록 고객은 알림 전자 메일 주소를 설정 하는 것이 중요 합니다. [Office 365 메시지 센터](/office365/admin/manage/message-center) 에 여러 받는 사람을 추가 하 고 메일 그룹 또는 공유 사서함에 알림 (Azure AD Connect Health 알림 포함)을 보내도록 요청 하는 것이 좋습니다. 전자 메일 주소를 가진 전역 관리자 계정이 하나만 있는 경우 전자 메일을 사용할 수 있는 계정을 두 개 이상 구성 해야 합니다.
 
 Azure AD에서 사용 하는 "보낸 사람" 주소는 다음과 같습니다. 여기서는 <o365mc@email2.microsoft.com> Office 365 메시지 센터 알림을 보내고 <azure-noreply@microsoft.com> ,는와 관련 된 알림을 보냅니다.
 
-- [Azure AD 액세스 검토](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
-- [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
-- [Azure AD ID 보호](/azure/active-directory/identity-protection/howto-identity-protection-configure-notifications)
-- [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
-- [엔터프라이즈 앱 인증서 만료 알림](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
+- [Azure AD 액세스 검토](../governance/access-reviews-overview.md)
+- [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
+- [Azure AD ID 보호](../identity-protection/howto-identity-protection-configure-notifications.md)
+- [Azure AD Privileged Identity Management](../privileged-identity-management/pim-email-notifications.md)
+- [엔터프라이즈 앱 인증서 만료 알림](../manage-apps/manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration)
 - 엔터프라이즈 앱 서비스 프로비저닝 알림
 
 다음 표를 참조 하 여 전송 되는 알림 유형 및 확인할 위치를 알아봅니다.
@@ -148,13 +148,13 @@ Azure AD에서 사용 하는 "보낸 사람" 주소는 다음과 같습니다. �
 
 #### <a name="notifications-recommended-reading"></a>알림 권장 읽기
 
-- [조직의 주소, 기술 연락처 및 기타-Office 365 변경](https://docs.microsoft.com/office365/admin/manage/change-address-contact-and-more)
+- [조직의 주소, 기술 연락처 및 기타-Office 365 변경](/office365/admin/manage/change-address-contact-and-more)
 
 ## <a name="operational-surface-area"></a>운영 노출 영역
 
 ### <a name="ad-fs-lockdown"></a>AD FS 잠금
 
- [Azure ad 스마트 잠금의](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)azure ad 혜택을 직접 인증 하도록 응용 프로그램을 구성 하는 조직 Windows Server 2012 r 2에서 AD FS를 사용 하는 경우 AD FS [엑스트라넷 잠금 보호](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)를 구현 합니다. Windows Server 2016 이상에서 AD FS를 사용 하는 경우 [엑스트라넷 스마트 잠금을](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016)구현 합니다. 최소한, 내부 Active Directory에 대 한 무차별 암호 대입 공격의 위험을 포함 하도록 엑스트라넷 잠금을 설정 하는 것이 좋습니다. 그러나 Windows 2016 이상에서 AD FS 경우 [암호 스프레이](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) 공격을 완화 하는 데 도움이 되는 엑스트라넷 스마트 잠금도 사용 하도록 설정 해야 합니다.
+ [Azure ad 스마트 잠금의](../authentication/concept-sspr-howitworks.md)azure ad 혜택을 직접 인증 하도록 응용 프로그램을 구성 하는 조직 Windows Server 2012 r 2에서 AD FS를 사용 하는 경우 AD FS [엑스트라넷 잠금 보호](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)를 구현 합니다. Windows Server 2016 이상에서 AD FS를 사용 하는 경우 [엑스트라넷 스마트 잠금을](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016)구현 합니다. 최소한, 내부 Active Directory에 대 한 무차별 암호 대입 공격의 위험을 포함 하도록 엑스트라넷 잠금을 설정 하는 것이 좋습니다. 그러나 Windows 2016 이상에서 AD FS 경우 [암호 스프레이](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) 공격을 완화 하는 데 도움이 되는 엑스트라넷 스마트 잠금도 사용 하도록 설정 해야 합니다.
 
 AD FS Azure AD 페더레이션에만 사용 되는 경우 공격 노출 영역을 최소화 하기 위해 해제할 수 있는 몇 가지 끝점이 있습니다. 예를 들어 AD FS Azure AD에만 사용 되는 경우 **usernamemixed** 및 **windowstransport**에 대해 사용 하도록 설정 된 끝점이 아닌 ws-trust 끝점을 사용 하지 않도록 설정 해야 합니다.
 
@@ -164,7 +164,7 @@ AD FS Azure AD 페더레이션에만 사용 되는 경우 공격 노출 영역�
 
 Active Directory 관리 계층 모델은 환경 (계층 0)의 모든 제어와 공격자가 자주 손상 시키는 높은 위험 수준의 워크스테이션 자산 사이에서 버퍼 영역 집합을 사용 하 여 id 시스템을 보호 하도록 설계 되었습니다. ![계층 모델의 세 가지 계층을 보여 주는 다이어그램](./media/active-directory-ops-guide/active-directory-ops-img18.png)
 
-[계층 모델](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 은 세 가지 수준으로 구성 되며 표준 사용자 계정이 아닌 관리 계정만 포함 합니다.
+[계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 은 세 가지 수준으로 구성 되며 표준 사용자 계정이 아닌 관리 계정만 포함 합니다.
 
 - **계층 0**   -환경에서 엔터프라이즈 id를 직접 제어 합니다. 계층 0에는 Active Directory 포리스트, 도메인 또는 도메인 컨트롤러와 그 속의 모든 자산에 대한 직접 또는 간접 관리 권한을 가진 계정, 그룹 및 기타 자산이 포함됩니다. 모든 계층 0 자산은 서로를 효과적으로 제어하므로 보안 민감도가 동일합니다.
 - **계층 1**   -엔터프라이즈 서버 및 응용 프로그램 제어 계층 1 자산에는 서버 운영 체제, 클라우드 서비스 및 엔터프라이즈 애플리케이션이 포함됩니다. 계층 1 관리자 계정은 이러한 자산에서 호스트되는 상당한 양의 비즈니스 가치에 대한 관리 권한이 있습니다. 일반적인 역할 예로는 모든 엔터프라이즈 서비스에 영향을 줄 수 있는 기능으로 이러한 운영 체제를 유지 관리하는 서버 관리자가 있습니다.

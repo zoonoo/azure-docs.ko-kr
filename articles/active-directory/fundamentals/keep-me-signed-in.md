@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd24e6847dbf02bc7efe5d9e6ea02043879f720b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054715"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320259"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>' 로그인 유지? '를 구성 합니다. Azure AD 계정에 대 한 프롬프트
 
@@ -57,7 +57,7 @@ ms.locfileid: "86054715"
 
 고급 브랜딩 설정에서 **표시 옵션을 로그인 상태로 유지 설정을** **아니요** 로 설정 하 여 사용자가 인터럽트를 보지 못하도록 중지할 수 있습니다. 이렇게 하면 Azure AD 디렉터리의 모든 사용자에 대해 KMSI 프롬프트가 비활성화 됩니다.
 
-조건부 액세스에서 영구 브라우저 세션 컨트롤을 사용 하 여 사용자가 KMSI 프롬프트를 볼 수 없도록 할 수도 있습니다. 이 옵션을 사용 하면 디렉터리에서 남은 사용자의 로그인 동작에 영향을 주지 않고 사용자의 선택 그룹 (예: 전역 관리자)에 대 한 KMSI 프롬프트를 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [사용자 로그인 빈도](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)를 참조 하세요. 
+조건부 액세스에서 영구 브라우저 세션 컨트롤을 사용 하 여 사용자가 KMSI 프롬프트를 볼 수 없도록 할 수도 있습니다. 이 옵션을 사용 하면 디렉터리에서 남은 사용자의 로그인 동작에 영향을 주지 않고 사용자의 선택 그룹 (예: 전역 관리자)에 대 한 KMSI 프롬프트를 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [사용자 로그인 빈도](../conditional-access/howto-conditional-access-session-lifetime.md)를 참조 하세요. 
 
 사용자에 게 유용할 수 있는 경우에만 KMSI 프롬프트가 표시 되도록 하기 위해 다음 시나리오에는 KMSI 프롬프트가 의도적으로 표시 되지 않습니다.
 
@@ -72,6 +72,6 @@ ms.locfileid: "86054715"
 
 로그인 세션 시간 제한에 영향을 주는 기타 설정에 대해 알아봅니다.
 
-* Microsoft 365- [유휴 세션 제한 시간](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
-* Azure AD 조건부 액세스- [사용자 로그인 빈도](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
-* Azure Portal – [디렉터리 수준 비활성 시간 제한](https://docs.microsoft.com/azure/azure-portal/admin-timeout)
+* Microsoft 365- [유휴 세션 제한 시간](/sharepoint/sign-out-inactive-users)
+* Azure AD 조건부 액세스- [사용자 로그인 빈도](../conditional-access/howto-conditional-access-session-lifetime.md)
+* Azure Portal – [디렉터리 수준 비활성 시간 제한](../../azure-portal/set-preferences.md#change-the-directory-timeout-setting-admin)

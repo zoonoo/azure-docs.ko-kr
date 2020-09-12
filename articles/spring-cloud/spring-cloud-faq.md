@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: fcd9f0759ae885199347cc23d93e8f1c00251387
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1ad008ff3ef4f29ee358b075802deba7eef919bd
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260529"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322044"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -36,7 +36,8 @@ Azure 스프링 클라우드는 Azure Monitor, Application Insights 및 Log Anal
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Azure 스프링 클라우드를 사용할 수 있는 지역은 어디 인가요?
 
-미국 동부, 미국 서부 2, 서유럽 및 동남 아시아 지역입니다.
+미국 동부, 미국 동부 2, 미국 중부, 미국 중 북부, 미국 서 부 2, 유럽 서부, 유럽 서 부, 영국 남부, 동남 아시아 및 오스트레일리아 동부.
+
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Azure 스프링 클라우드의 알려진 제한은 무엇 인가요?
 
@@ -58,7 +59,7 @@ Azure 스프링 클라우드에 문제가 발생 한 경우 [Azure 지원 요청
 
 ### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>저는 Azure를 처음 접하는 스프링 클라우드 개발자입니다. Azure 스프링 클라우드 응용 프로그램을 개발 하는 방법을 배우는 가장 빠른 방법은 무엇 인가요?
 
-Azure 스프링 클라우드를 시작 하는 가장 빠른 방법은 [빠른 시작: Azure Portal을 사용 하 여 Azure 스프링 클라우드 응용 프로그램 시작](spring-cloud-quickstart-launch-app-portal.md)의 지침을 따르세요.
+Azure 스프링 클라우드를 시작 하는 가장 빠른 방법은 [빠른 시작: Azure Portal을 사용 하 여 Azure 스프링 클라우드 응용 프로그램 시작](spring-cloud-quickstart.md)의 지침을 따르세요.
 
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Azure Spring Cloud에서 지원하는 Java 런타임은 어떻게 되나요?
 
@@ -147,15 +148,15 @@ Azure 스프링 클라우드에 적용 가능한 중요 보안 패치 (CVE 점�
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>내 애플리케이션 컨테이너를 조작하기 위해 Kubernetes에 액세스할 수 있나요?
 
-아니요.  Azure Spring Cloud는 기본 아키텍처에서 개발자를 추상화하여 애플리케이션 코드와 비즈니스 논리에 집중할 수 있도록 합니다.
+아닙니다.  Azure Spring Cloud는 기본 아키텍처에서 개발자를 추상화하여 애플리케이션 코드와 비즈니스 논리에 집중할 수 있도록 합니다.
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Azure Spring Cloud는 원본에서 컨테이너를 빌드할 수 있도록 지원하나요?
 
-예. 자세한 내용은 [소스 코드에서 스프링 클라우드 응용 프로그램 시작](spring-cloud-launch-from-source.md)을 참조 하세요.
+예. 자세한 내용은 [소스 코드에서 스프링 클라우드 응용 프로그램 시작](spring-cloud-quickstart.md)을 참조 하세요.
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure Spring Cloud에서 앱 인스턴스의 자동 크기 조정을 지원하나요?
 
-아니요.
+아닙니다.
 
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>기존 스프링 클라우드 마이크로 서비스를 Azure 스프링 클라우드로 마이그레이션하기 위한 모범 사례는 무엇 인가요?
 

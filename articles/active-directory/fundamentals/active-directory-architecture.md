@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5599ce6f086ca9c3dcbf7ac406306b6198d3080a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 476cf8013f5dc8b5d54efb573cf305d81fc690b1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797617"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319154"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Azure Active Directory 아키텍처란?
 
@@ -123,4 +123,4 @@ Azure AD 서비스가 정상적으로 작동하지 않는 경우 최대한 빨�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Active Directory 개발자 가이드](https://docs.microsoft.com/azure/active-directory/develop)
+[Azure Active Directory 개발자 가이드](../develop/index.yml)

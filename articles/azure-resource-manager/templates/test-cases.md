@@ -2,15 +2,15 @@
 title: 테스트 도구 키트에 대 한 테스트 사례
 description: ARM 템플릿 테스트 도구 키트에 의해 실행 되는 테스트에 대해 설명 합니다.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5c18a2658ba1af9370699004860d1743603e8143
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255845"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378120"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>ARM 템플릿 테스트 도구 키트에 대 한 기본 테스트 사례
 
@@ -100,6 +100,37 @@ ms.locfileid: "85255845"
         "type": "SecureString"
     }
 }
+```
+
+## <a name="environment-urls-cant-be-hardcoded"></a>환경 Url은 하드 코딩 될 수 없습니다.
+
+테스트 이름: **Deploymenttemplate에 하드 코딩 Uri가 포함 되지 않아야 합니다** .
+
+템플릿에서 환경 Url을 하드 코딩 하지 마세요. 대신 [환경 함수](template-functions-deployment.md#environment) 를 사용 하 여 배포 중에 이러한 url을 동적으로 가져옵니다. 차단 된 URL 호스트 목록은 [테스트 사례](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1)를 참조 하세요.
+
+URL이 하드 코딩 되었으므로 다음 예제는이 테스트에 **실패** 합니다.
+
+```json
+"variables":{
+    "AzureURL":"https://management.azure.com"
+}
+```
+
+[Concat](template-functions-string.md#concat) 또는 [uri](template-functions-string.md#uri)와 함께 사용 하는 경우에도 테스트가 **실패** 합니다.
+
+```json
+"variables":{
+    "AzureSchemaURL1": "[concat('https://','gallery.azure.com')]",
+    "AzureSchemaURL2": "[uri('gallery.azure.com','test')]"
+}
+```
+
+다음 예에서는이 테스트를 **통과** 합니다.
+
+```json
+"variables": {
+    "AzureSchemaURL": "[environment().gallery]"
+},
 ```
 
 ## <a name="location-uses-parameter"></a>위치에서 매개 변수 사용
@@ -203,7 +234,7 @@ ms.locfileid: "85255845"
 
 리소스의 위치는 [템플릿 식](template-expressions.md) 또는로 설정 해야 합니다 `global` . 일반적으로 템플릿 식은 이전 테스트에서 설명한 location 매개 변수를 사용 합니다.
 
-다음 예에서는 위치가 식 또는가 아니기 때문에이 테스트에 **실패** 합니다 `global` .
+다음 예에서는 위치가 식이나가 아니기 때문에이 테스트에 **실패** 합니다 `global` .
 
 ```json
 {
@@ -351,18 +382,18 @@ ms.locfileid: "85255845"
 
 ## <a name="artifacts-parameter-defined-correctly"></a>아티팩트 매개 변수가 올바르게 정의 되었습니다.
 
-테스트 이름: **아티팩트-매개 변수**
+테스트 이름: **아티팩트 매개 변수**
 
-및에 대 한 매개 변수를 포함 하는 경우 `_artifactsLocation` `_artifactsLocationSasToken` 올바른 기본값과 유형을 사용 합니다. 이 테스트를 통과 하려면 다음 조건이 충족 되어야 합니다.
+및에 대 한 매개 변수를 포함 하는 경우 `_artifactsLocation` `_artifactsLocationSasToken` 올바른 기본값과 유형을 사용 합니다. 이 테스트를 통과 하려면 다음 조건을 충족 해야 합니다.
 
 * 하나의 매개 변수를 제공 하는 경우 다른 매개 변수를 제공 해야 합니다.
 * `_artifactsLocation`**문자열** 이어야 합니다.
-* `_artifactsLocation`주 템플릿의 기본값이 있어야 합니다.
-* `_artifactsLocation`중첩 된 템플릿에는 기본값을 사용할 수 없습니다. 
+* `_artifactsLocation` 주 템플릿의 기본값이 있어야 합니다.
+* `_artifactsLocation` 중첩 된 템플릿에는 기본값을 사용할 수 없습니다. 
 * `_artifactsLocation``"[deployment().properties.templateLink.uri]"`기본값에 대해 또는 원시 리포지토리 URL이 있어야 합니다.
 * `_artifactsLocationSasToken`**secureString** 이어야 합니다.
-* `_artifactsLocationSasToken`기본값에는 빈 문자열만 사용할 수 있습니다.
-* `_artifactsLocationSasToken`중첩 된 템플릿에는 기본값을 사용할 수 없습니다. 
+* `_artifactsLocationSasToken` 기본값에는 빈 문자열만 사용할 수 있습니다.
+* `_artifactsLocationSasToken` 중첩 된 템플릿에는 기본값을 사용할 수 없습니다. 
 
 ## <a name="declared-variables-must-be-used"></a>선언 된 변수를 사용 해야 합니다.
 
@@ -514,9 +545,9 @@ Concat 함수를 사용 하 여 리소스 ID를 만들지 마세요. 다음 예�
 
 및의 경우를 사용 하 여 `reference` `list*` 리소스 ID를 생성할 때 테스트가 **실패** `concat` 합니다.
 
-## <a name="dependson-cant-be-conditional"></a>dependsOn는 조건부 일 수 없습니다.
+## <a name="dependson-best-practices"></a>dependsOn 모범 사례
 
-테스트 이름: **DependsOn는 조건부** 가 아니어야 합니다.
+테스트 이름: **DependsOn 모범 사례**
 
 배포 종속성을 설정 하는 경우 [if](template-functions-logical.md#if) 함수를 사용 하 여 조건을 테스트 하지 마세요. 조건에 따라 [배포](conditional-resource-deployment.md)되는 리소스에 종속 된 리소스를 사용 하는 경우 모든 리소스를 사용 하는 것과 마찬가지로 종속성을 설정 합니다. 조건부 리소스가 배포 되지 않은 경우 Azure Resource Manager은 필요한 종속성에서 자동으로 제거 합니다.
 
@@ -572,7 +603,7 @@ Concat 함수를 사용 하 여 리소스 ID를 만들지 마세요. 다음 예�
 
 ## <a name="use-stable-vm-images"></a>안정적인 VM 이미지 사용
 
-테스트 이름: **가상 컴퓨터-미리 보기** 안 함
+테스트 이름: **Virtual Machines 미리 보기로 서는 안 됩니다** .
 
 가상 컴퓨터는 미리 보기 이미지를 사용 하지 않아야 합니다.
 

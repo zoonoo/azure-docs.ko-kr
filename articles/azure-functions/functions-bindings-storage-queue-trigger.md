@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 515e23fa318e8e77024dadefe9a13e795999f820
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761698"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376641"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Queue storage 트리거
 
@@ -388,7 +388,7 @@ public class QueueTriggerDemo {
 - 메시지가 발견 되 면 런타임은 2 초 동안 대기한 다음 다른 메시지를 확인 합니다.
 - 메시지를 찾을 수 없는 경우 다시 시도 하기 전에 4 초 정도 기다립니다.
 - 후속 시도로 큐 메시지를 가져오지 못하면 최대 대기 시간(기본값 1분)에 도달할 때까지 대기 시간이 계속 증가합니다.
-- 최대 대기 시간은 [host.json 파일](functions-host-json.md#queues)의 `maxPollingInterval` 속성을 통해 구성할 수 있습니다.
+- 최대 대기 시간은 [host.json 파일](functions-host-json-v1.md#queues)의 `maxPollingInterval` 속성을 통해 구성할 수 있습니다.
 
 로컬 개발의 경우 최대 폴링 간격의 기본값은 2 초입니다.
 

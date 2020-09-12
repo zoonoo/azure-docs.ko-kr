@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f13dc3e86b21a3f4113a7a7c6f477f239315a27
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2c642b2441d1f30c31e707a237732e028f548ac5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499095"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298184"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Azure Digital Twins CLI 사용
 
@@ -24,6 +24,8 @@ Azure digital Twins는 Azure Portal에서 Azure Digital Twins 인스턴스를 �
 * 엔드포인트 구성
 * [경로](concepts-route-events.md) 관리
 * RBAC (역할 기반 액세스 제어)를 통해 [보안](concepts-security.md) 구성
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="uses-deploy-and-validate"></a>사용 (배포 및 유효성 검사)
 

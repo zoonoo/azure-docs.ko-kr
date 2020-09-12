@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d8e6ed412a0e71e8c85827cfc8fc05cd744e3d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797103"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321092"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Azure Active Directory를 사용한 사용자 추가 또는 삭제
 
@@ -42,7 +42,7 @@ Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습
 
    - **이름**. 필수 요소. 새 사용자의 이름 및 성입니다. 예를 들어, *Mary Parker*입니다.
 
-   - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예들 들어 `mary@contoso.com`입니다.
+   - **사용자 이름**. 필수 요소. 새 사용자의 사용자 이름입니다. 예: `mary@contoso.com`.
 
      사용자 이름의 도메인 부분에는 초기 기본 도메인 이름 * \<yourdomainname> onmicrosoft.com*을 사용 하거나 사용자 지정 도메인 이름 (예: *contoso.com*)을 사용 해야 합니다. 사용자 지정 도메인 이름을 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 포털을 사용 하 여 사용자 지정 도메인 이름 추가](add-custom-domain.md)를 참조 하세요.
 
@@ -60,7 +60,7 @@ Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습
 
 ## <a name="add-a-new-guest-user"></a>새 게스트 사용자 추가
 
-새 **사용자** 페이지에서 **사용자 초대** 를 선택 하 여 새 게스트 사용자를 조직과 공동 작업 하도록 초대할 수도 있습니다. 회사의 외부 공동 작업 설정이 게스트 초대를 허용 하도록 구성 된 경우 사용자는 공동 작업을 시작 하는 데 동의 해야 하는 초대를 메일로 받게 됩니다. B2B 공동 작업 사용자를 초대 하는 방법에 대 한 자세한 내용은 [Azure Active Directory에 b2b 사용자 초대](../b2b/add-users-administrator.md) 를 참조 하세요.
+새 **사용자** 페이지에서 **사용자 초대** 를 선택 하 여 새 게스트 사용자를 조직과 공동 작업 하도록 초대할 수도 있습니다. 회사의 외부 공동 작업 설정이 게스트 초대를 허용 하도록 구성 된 경우 사용자는 공동 작업을 시작 하는 데 동의 해야 하는 초대를 메일로 받게 됩니다. B2B 공동 작업 사용자를 초대 하는 방법에 대 한 자세한 내용은 [Azure Active Directory에 b2b 사용자 초대](../external-identities/add-users-administrator.md) 를 참조 하세요.
 
 ## <a name="add-a-consumer-user"></a>소비자 사용자 추가
 
@@ -105,4 +105,4 @@ Azure Active Directory 포털을 사용하여 기존 사용자를 삭제할 수 
 
 - [동적 그룹 및 사용자와 함께 작업](../users-groups-roles/groups-create-rule.md)
 
-또는 [다른 디렉터리에서 게스트 사용자를 추가](../b2b/what-is-b2b.md) 하거나 [삭제 된 사용자를 복원](active-directory-users-restore.md)하는 등의 다른 사용자 관리 작업을 수행할 수 있습니다. 사용 가능한 다른 작업에 대한 자세한 내용은 [Azure Active Directory 사용자 관리 설명서](../users-groups-roles/index.yml)를 참조하세요.
+또는 [다른 디렉터리에서 게스트 사용자를 추가](../external-identities/what-is-b2b.md) 하거나 [삭제 된 사용자를 복원](active-directory-users-restore.md)하는 등의 다른 사용자 관리 작업을 수행할 수 있습니다. 사용 가능한 다른 작업에 대한 자세한 내용은 [Azure Active Directory 사용자 관리 설명서](../users-groups-roles/index.yml)를 참조하세요.

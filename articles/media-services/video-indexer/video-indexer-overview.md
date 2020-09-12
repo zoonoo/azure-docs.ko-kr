@@ -10,14 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: b4d629351ae7b6154b332a1b1f99374de1187518
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: bff99cdd44763c0df6bb5b2dd863b27728c23fcd
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267873"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318689"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Azure Media Services Video Indexer란?
+
+[!INCLUDE [regulation](./includes/regulation.md)]
 
 VI(Video Indexer)는 Azure Media Services AI 솔루션이며 Azure Cognitive Services 브랜드의 일부입니다. Video Indexer는 여러 채널(음성, 발성, 시각적 개체)을 기반으로 하는 기계 학습 모델을 사용하여 깊이 있는 인사이트를 추출하는 기능을 제공합니다(데이터 분석 또는 코딩 기술이 필요 없음). 모델을 추가로 사용자 지정하고 학습할 수 있습니다. 이 서비스는 딥 서치를 가능하게 하고, 운영 비용을 절감하고, 새로운 수익 창출 기회를 가능하게 하고, 대규모 비디오 보관에 대한 새로운 사용자 환경을 만듭니다(진입 장벽이 낮음).
 

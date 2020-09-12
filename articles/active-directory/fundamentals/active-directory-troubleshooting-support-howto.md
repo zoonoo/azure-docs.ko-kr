@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e4d1490c4900c957a7dce7e632415823723f81b
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797290"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322537"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Azure Active Directory에 대한 도움말 찾기 및 지원 티켓 열기
 Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술, 사전 판매, 대금 청구 및 구독 지원을 제공합니다. 온라인 및 전화로 Microsoft Azure 유료 및 평가판 구독에 대한 지원이 제공됩니다. 전화 지원과 온라인 대금 청구 지원은 추가 언어로 제공됩니다. 
@@ -29,7 +29,7 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 
 지원 티켓을 만들기 전에 대답과 정보에 대한 다음 리소스를 확인하세요. 
 
-* IT 전문가 및 개발자를 위한 방법 정보 또는 코드 샘플 같은 콘텐츠는 [docs.microsoft.com의 기술 문서](https://docs.microsoft.com/azure/active-directory/)를 참조하세요.
+* IT 전문가 및 개발자를 위한 방법 정보 또는 코드 샘플 같은 콘텐츠는 [docs.microsoft.com의 기술 문서](../index.yml)를 참조하세요.
 
 * [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/) 는 IT 전문가 파트너와 고객이 공동 작업 하 고, 공유 하 고, 학습할 수 있는 장소입니다. [Microsoft 기술 커뮤니티 정보 센터](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) 는 공지, 블로그 게시물, 내게 필요한 항목 (AMA)과 전문가와의 상호 작용 등에 사용 됩니다. 또한 [커뮤니티에 참여하여 아이디어를 제출](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities)할 수도 있습니다.
 
@@ -64,7 +64,7 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 
 1. **세부 정보** 블레이드에서 필요한 세부 정보를 입력 하 고 [심각도](https://azure.microsoft.com/support/plans/response/)를 선택 합니다. 
  
-    ![image](https://user-images.githubusercontent.com/13383753/76565580-1c284900-6468-11ea-8c0f-85af98097b6f.png)
+    ![이미지](https://user-images.githubusercontent.com/13383753/76565580-1c284900-6468-11ea-8c0f-85af98097b6f.png)
  
 1. 연락처 정보를 입력 하 고 **다음**을 선택 합니다. 
 
@@ -98,6 +98,6 @@ Microsoft는 Azure AD(Azure Active Directory)에 대한 전 세계적인 기술,
 
 ##  <a name="next-steps"></a>다음 단계
 
-* [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/)
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/)
 
-* [Docs.microsoft.com의 기술 문서](https://docs.microsoft.com/azure/active-directory/)
+* [Docs.microsoft.com의 기술 문서](../index.yml)

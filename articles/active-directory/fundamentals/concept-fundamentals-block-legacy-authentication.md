@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1e17421b27082a079d078f53c38d0c942db7ae71
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200552"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320956"
 ---
 # <a name="blocking-legacy-authentication"></a>레거시 인증 차단
  
@@ -50,7 +50,7 @@ ms.locfileid: "86200552"
 
 최신 인증을 사용 하도록 설정 하는 첫 번째 단계는 디렉터리에서 최신 인증을 지원 하는지 확인 하는 것입니다. 최신 인증은 2017 년 8 월 1 일 이후에 생성 되는 디렉터리에 대해 기본적으로 사용 하도록 설정 됩니다. 이 날짜 이전에 디렉터리가 만들어진 경우 다음 단계를 사용 하 여 디렉터리에 대 한 최신 인증을 수동으로 사용 하도록 설정 해야 합니다.
 
-1.  `Get-CsOAuthConfiguration`    [비즈니스용 Skype Online PowerShell 모듈](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell)에서를 실행 하 여 디렉터리에서 최신 인증을 이미 지원 하는지 확인 합니다.
+1.  `Get-CsOAuthConfiguration`    [비즈니스용 Skype Online PowerShell 모듈](/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell)에서를 실행 하 여 디렉터리에서 최신 인증을 이미 지원 하는지 확인 합니다.
 1. 명령에서 빈  `OAuthServers`   속성을 반환 하는 경우 최신 인증을 사용할 수 없습니다. 을 사용 하 여 최신 인증을 사용 하도록 설정을 업데이트  `Set-CsOAuthConfiguration` 합니다. 속성에  `OAuthServers`   항목이 포함 되어 있으면 이동 하는 것이 좋습니다.
 
 앞으로 이동 하기 전에이 단계를 완료 해야 합니다. 모든 Office 클라이언트에서 사용할 프로토콜을 결정 하기 때문에 디렉터리 구성이 먼저 변경 되는 것이 중요 합니다. 최신 인증을 지 원하는 Office 클라이언트를 사용 하는 경우에도 디렉터리에서 최신 인증을 사용 하지 않도록 설정 하면 기존 프로토콜을 사용 하는 것이 기본적으로 사용 됩니다.
@@ -59,7 +59,7 @@ ms.locfileid: "86200552"
 
 디렉터리에서 최신 인증을 사용 하도록 설정한 후에는 Office 클라이언트에 대 한 최신 인증을 사용 하도록 설정 하 여 응용 프로그램 업데이트를 시작할 수 있습니다. Office 2016 이상 클라이언트는 기본적으로 최신 인증을 지원 합니다. 추가 단계가 필요 하지 않습니다.
 
-Office 2013 Windows 클라이언트 또는 이전 버전을 사용 하는 경우 Office 2016 이상으로 업그레이드 하는 것이 좋습니다. 디렉터리에서 최신 인증을 사용 하도록 설정 하는 이전 단계를 완료 한 후에도 이전 Office 응용 프로그램은 계속 레거시 인증 프로토콜을 사용 합니다. Office 2013 클라이언트를 사용 하 고 Office 2016 이상으로 즉시 업그레이드할 수 없는 경우 [Windows 장치에서 office 2013에 대 한 최신 인증을 사용 하도록 설정](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication)하려면 다음 문서의 단계를 수행 합니다. 레거시 인증을 사용 하는 동안 계정을 보호 하려면 디렉터리에서 강력한 암호를 사용 하는 것이 좋습니다. 디렉터리에서 weak 암호를 금지 하려면 [AZURE AD 암호 보호](../authentication/concept-password-ban-bad.md)   를 확인 하세요.
+Office 2013 Windows 클라이언트 또는 이전 버전을 사용 하는 경우 Office 2016 이상으로 업그레이드 하는 것이 좋습니다. 디렉터리에서 최신 인증을 사용 하도록 설정 하는 이전 단계를 완료 한 후에도 이전 Office 응용 프로그램은 계속 레거시 인증 프로토콜을 사용 합니다. Office 2013 클라이언트를 사용 하 고 Office 2016 이상으로 즉시 업그레이드할 수 없는 경우 [Windows 장치에서 office 2013에 대 한 최신 인증을 사용 하도록 설정](/office365/admin/security-and-compliance/enable-modern-authentication)하려면 다음 문서의 단계를 수행 합니다. 레거시 인증을 사용 하는 동안 계정을 보호 하려면 디렉터리에서 강력한 암호를 사용 하는 것이 좋습니다. 디렉터리에서 weak 암호를 금지 하려면 [AZURE AD 암호 보호](../authentication/concept-password-ban-bad.md)   를 확인 하세요.
 
 Office 2010은 최신 인증을 지원 하지 않습니다. Office 2010를 사용 하는 모든 사용자를 최신 버전의 Office로 업그레이드 해야 합니다. 기본적으로 레거시 인증을 차단 하므로 Office 2016 이상으로 업그레이드 하는 것이 좋습니다.
 
@@ -69,13 +69,13 @@ MacOS를 사용 하는 경우 Mac 2016 이상용 Office로 업그레이드 하�
 
 Windows 기반 Outlook 클라이언트에서 최신 인증을 사용 하려면 Exchange Online도 최신 인증을 사용 하도록 설정 해야 합니다. Exchange Online에 대해 최신 인증을 사용 하지 않도록 설정한 경우 최신 인증 (Outlook 2013 이상)을 지 원하는 Windows 기반 Outlook 클라이언트는 기본 인증을 사용 하 여 Exchange Online 사서함에 연결 합니다.
 
-최신 인증 기본값에 대해 SharePoint Online을 사용 하도록 설정 합니다. 2017 년 8 월 1 일 이후에 생성 된 디렉터리의 경우 최신 인증은 Exchange Online에서 기본적으로 사용 하도록 설정 됩니다. 그러나 이전에 최신 인증을 사용 하지 않도록 설정 했거나이 날짜 이전에 만든 디렉터리를 사용 하는 경우 [Exchange Online에서 최신 인증을 사용 하도록 설정](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)하려면 다음 문서의 단계를 따르세요.
+최신 인증 기본값에 대해 SharePoint Online을 사용 하도록 설정 합니다. 2017 년 8 월 1 일 이후에 생성 된 디렉터리의 경우 최신 인증은 Exchange Online에서 기본적으로 사용 하도록 설정 됩니다. 그러나 이전에 최신 인증을 사용 하지 않도록 설정 했거나이 날짜 이전에 만든 디렉터리를 사용 하는 경우 [Exchange Online에서 최신 인증을 사용 하도록 설정](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)하려면 다음 문서의 단계를 따르세요.
 
 ### <a name="step-4-skype-for-business"></a>4 단계: 비즈니스용 Skype
 
 비즈니스용 Skype에서 수행 하는 레거시 인증 요청을 방지 하려면 비즈니스용 Skype Online에 대 한 최신 인증을 사용 하도록 설정 해야 합니다. 2017 년 8 월 1 일 이후에 만들어진 디렉터리의 경우 비즈니스용 Skype에 대 한 최신 인증을 기본적으로 사용할 수 있습니다.
 
-최신 인증을 기본적으로 지 원하는 Microsoft 팀으로 전환 하는 것이 좋습니다. 그러나 지금은 마이그레이션할 수 없는 경우 비즈니스용 skype Online에 대 한 최신 인증을 사용 하도록 설정 하 여 비즈니스용 Skype 클라이언트에서 최신 인증을 사용 하기 시작 해야 합니다.  [최신 인증을 사용 하 여 지원 되는 비즈니스용 skype 토폴로지에 대 한](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported)이 문서의 단계에 따라 비즈니스용 skype에 대 한 최신 인증을 사용 하도록 설정 합니다.
+최신 인증을 기본적으로 지 원하는 Microsoft 팀으로 전환 하는 것이 좋습니다. 그러나 지금은 마이그레이션할 수 없는 경우 비즈니스용 skype Online에 대 한 최신 인증을 사용 하도록 설정 하 여 비즈니스용 Skype 클라이언트에서 최신 인증을 사용 하기 시작 해야 합니다.  [최신 인증을 사용 하 여 지원 되는 비즈니스용 skype 토폴로지에 대 한](/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported)이 문서의 단계에 따라 비즈니스용 skype에 대 한 최신 인증을 사용 하도록 설정 합니다.
 
 비즈니스용 skype Online에 대 한 최신 인증을 사용 하도록 설정 하는 것 외에도 비즈니스용 Skype에 최신 인증을 사용 하도록 설정 하는 경우 Exchange Online에 대 한 최신 인증을 사용 하도록 설정 이 프로세스는 Exchange Online 및 비즈니스용 Skype online에서 최신 인증의 상태를 동기화 하는 데 도움이 되며 비즈니스용 Skype 클라이언트에 대 한 여러 로그인 프롬프트를 방지 합니다.
 
@@ -93,11 +93,11 @@ Windows 기반 Outlook 클라이언트에서 최신 인증을 사용 하려면 E
 
 최신 인증을 사용 하도록 설정 하는 단계는 다음 문서에서 찾을 수 있습니다.
 
-* [하이브리드 최신 인증을 사용 하도록 Exchange Server 온-프레미스를 구성 하는 방법](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-* [비즈니스용 Skype에서 최신 인증 (ADAL)을 사용 하는 방법](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+* [하이브리드 최신 인증을 사용 하도록 Exchange Server 온-프레미스를 구성 하는 방법](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+* [비즈니스용 Skype에서 최신 인증 (ADAL)을 사용 하는 방법](/skypeforbusiness/manage/authentication/use-adal)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [하이브리드 최신 인증을 사용 하도록 Exchange Server 온-프레미스를 구성 하는 방법](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-- [비즈니스용 Skype에서 최신 인증 (ADAL)을 사용 하는 방법](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+- [하이브리드 최신 인증을 사용 하도록 Exchange Server 온-프레미스를 구성 하는 방법](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+- [비즈니스용 Skype에서 최신 인증 (ADAL)을 사용 하는 방법](/skypeforbusiness/manage/authentication/use-adal)
 - [레거시 인증 차단](../conditional-access/block-legacy-authentication.md)

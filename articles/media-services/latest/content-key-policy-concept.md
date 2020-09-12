@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: b6d907e987cb57836997cab43e9bfa9e919bf67d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: dd19d0730b25685b008af16d1c1eac6537750612
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268291"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297272"
 ---
 # <a name="content-key-policies"></a>콘텐츠 키 정책
 
@@ -47,7 +47,7 @@ Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Micr
 
    일반적으로 수명이 긴 키를 사용 하 고 [Get](/rest/api/media/contentkeypolicies/get)을 사용 하 여 콘텐츠 키 정책이 있는지 확인 합니다. 키를 가져오려면 별도의 동작 메서드를 호출하여 비밀 또는 자격 증명을 가져와야 합니다. 아래 예제를 참조하세요.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 키를 가져오려면 `GetPolicyPropertiesWithSecretsAsync` [기존 정책에서 서명 키 가져오기](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) 예제에 표시 된 대로를 사용 합니다.
 
@@ -55,7 +55,7 @@ Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Micr
 
 [Media Services 엔터티 필터링, 순서 지정, 페이징](entities-overview.md)을 참조하세요.
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
 
 * 형식에 해당 하는 콘텐츠 키 정책의 속성 `Datetime` 은 항상 UTC 형식입니다.
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.

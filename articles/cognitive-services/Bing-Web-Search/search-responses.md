@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202239"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297793"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
 
@@ -290,17 +290,17 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 수학 표현식은 다음과 같은 기호를 포함할 수 있습니다.
 
-|기호|설명|
+|기호|Description|
 |------------|-----------------|
 |+|더하기|
 |-|빼기|
 |/|사업부|
 |*|곱하기|
-|^|전원|
-|!|계승값|
+|^|전력|
+|!|계승|
 |.|Decimal|
 |()|우선 순위 그룹화|
-|[]|함수|
+|[]|기능|
 
 수학 표현식은 다음과 같은 상수를 포함할 수 있습니다.
 
@@ -445,7 +445,7 @@ Bing Web Search API의 응답에 다음 헤더가 포함될 수 있습니다.
 
 그러나 JavaScript에서 Bing Web Search API를 호출하면 브라우저의 기본 제공 보안 기능(CORS)이 이러한 헤더 값으로의 액세스를 차단할 수 있습니다.
 
-헤더에 액세스하기 위해 CORS 프록시를 통해 Bing Web Search API 요청을 만들 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
+헤더에 액세스하기 위해 CORS 프록시를 통해 Bing Web Search API 요청을 만들 수 있습니다. 이러한 프록시의 응답에는 `Access-Control-Expose-Headers` 응답 헤더를 필터링 하 고 JavaScript에서 사용할 수 있도록 하는 헤더가 있습니다.
 
 [자습서 앱](tutorial-bing-web-search-single-page-app.md)이 선택적 클라이언트 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 프롬프트에서 다음 명령을 입력합니다.
 

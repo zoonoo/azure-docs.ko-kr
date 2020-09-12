@@ -10,12 +10,12 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 72597d445be41ede47d043d11653df139bc52d0d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 2e3cfd27d36558587ca35cc1c573999a48092b0d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226266"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297673"
 ---
 # <a name="blob-versioning"></a>Blob 버전 관리
 
@@ -83,7 +83,7 @@ Blob을 삭제 하면 현재 blob 버전이 이전 버전이 되 고 기본 blob
 
 새 데이터를 blob에 쓰면 blob의 새 버전이 만들어집니다. 다음 다이어그램에 표시 된 것 처럼 기존 버전은 영향을 받지 않습니다.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="삭제 후 버전이 지정 된 blob의 다시 생성을 보여 주는 다이어그램":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="삭제 후 버전이 지정 된 blob의 다시 생성을 보여 주는 다이어그램입니다.":::
 
 ### <a name="blob-types"></a>Blob 형식
 
@@ -138,7 +138,7 @@ Blob 버전 관리 및 blob 일시 삭제는 함께 작동 하 여 최적의 데
 
 다음 다이어그램에서는 blob 또는 blob 버전을 삭제할 때 발생 하는 상황을 보여 줍니다.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="일시 삭제를 사용 하는 버전 삭제를 보여 주는 다이어그램":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="일시 삭제를 사용 하도록 설정한 버전의 삭제를 보여 주는 다이어그램":::
 
 저장소 계정에서 버전 관리와 일시 삭제를 모두 사용 하는 경우 blob 또는 blob 버전이 수정 되거나 삭제 될 때 일시 삭제 된 스냅숏은 생성 되지 않습니다.
 
@@ -150,7 +150,7 @@ Blob 버전 관리 및 blob 일시 삭제는 함께 작동 하 여 최적의 데
 
 다음 다이어그램 **에서는 blob 삭제** 작업을 사용 하 여 일시 삭제 된 blob 버전을 복원 하는 방법과 blob **복사** 작업을 사용 하 여 blob의 현재 버전을 복원 하는 방법을 보여 줍니다.
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="일시 삭제 된 버전을 복원 하는 방법을 보여 주는 다이어그램":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="일시 삭제 된 버전을 복원 하는 방법을 보여 주는 다이어그램입니다.":::
 
 일시 삭제 보존 기간이 경과한 후에는 일시 삭제 된 blob 버전이 영구적으로 삭제 됩니다.
 
@@ -169,7 +169,7 @@ Blob 스냅숏은 특정 시점에서 수행 되는 blob의 읽기 전용 복사
 
 다음 다이어그램에서는 버전이 지정 된 blob의 스냅숏을 만들 때 발생 하는 상황을 보여 줍니다. 다이어그램에서 버전 ID가 2 및 3 인 blob 버전 및 스냅숏에는 동일한 데이터가 포함 되어 있습니다.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="버전이 지정 된 blob의 스냅숏을 보여 주는 다이어그램 ":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="버전이 지정 된 blob의 스냅숏을 보여 주는 다이어그램":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Blob 버전에 대 한 작업 권한 부여
 
@@ -185,7 +185,7 @@ Blob 버전 관리는 실수로 인 한 삭제 또는 악의적인 삭제 로부
 
 다음 표에서는 blob 또는 blob 버전 삭제를 지 원하는 RBAC 동작을 보여 줍니다.
 
-| Description | Blob service 작업 | RBAC 데이터 작업 필요 | RBAC 기본 제공 역할 지원 |
+| 설명 | Blob service 작업 | RBAC 데이터 작업 필요 | RBAC 기본 제공 역할 지원 |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Blob의 현재 버전을 삭제 하는 중 | Blob 삭제 | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob 데이터 기여자 |
 | 버전 삭제 | Blob 삭제 | **Microsoft. Storage/storageAccounts/blobServices/컨테이너/b l o b/Deleteblob 버전/작업** | Storage Blob 데이터 소유자 |
@@ -231,25 +231,25 @@ Blob 버전 관리를 사용 하는 경우 블록 blob에 대 한 업데이트 �
 
 시나리오 1에서 blob에는 이전 버전이 있습니다. 버전이 만들어진 이후에 blob가 업데이트 되지 않았으므로 고유한 블록 1, 2, 3에 대해서만 요금이 부과 됩니다.
 
-![기본 blob 및 이전 버전의 고유 블록에 대 한 청구를 보여 주는 다이어그램 1](./media/versioning-overview/versions-billing-scenario-1.png)
+![다이어그램 1 기본 blob 및 이전 버전의 고유 블록에 대 한 청구를 보여 줍니다.](./media/versioning-overview/versions-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>시나리오 2
 
 시나리오 2에서는 blob의 한 블록 (다이어그램의 블록 3)이 업데이트 되었습니다. 업데이트 된 블록에 동일한 데이터와 동일한 ID가 포함 된 경우에도 이전 버전의 블록 3과는 다릅니다. 따라서 4개 블록에 대한 요금이 계정에 청구됩니다.
 
-![다이어그램 2 기본 blob 및 이전 버전의 고유 블록에 대 한 요금 청구 표시](./media/versioning-overview/versions-billing-scenario-2.png)
+![다이어그램 2 기본 blob 및 이전 버전의 고유 블록에 대 한 청구를 보여 줍니다.](./media/versioning-overview/versions-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>시나리오 3
 
 시나리오 3에서 blob은 업데이트 되었지만 버전은 업데이트 되지 않았습니다. 기본 blob에서 블록 3이 블록 4로 대체 되었지만 이전 버전은 여전히 블록 3을 반영 합니다. 따라서 4개 블록에 대한 요금이 계정에 청구됩니다.
 
-![기본 blob 및 이전 버전의 고유 블록에 대 한 청구를 보여 주는 다이어그램 3](./media/versioning-overview/versions-billing-scenario-3.png)
+![다이어그램 3 기본 blob 및 이전 버전의 고유 블록에 대 한 청구를 보여 줍니다.](./media/versioning-overview/versions-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>시나리오 4
 
 시나리오 4에서는 기본 Blob이 완전히 업데이트되었으며 원래 블록을 하나도 포함하지 않습니다. 따라서 기본 blob에서 4 개의 고유 블록 &mdash; 4 개와 이전 버전 4 개에 대 한 요금이 계정에 청구 됩니다. 이 시나리오는 blob [배치](/rest/api/storageservices/put-blob) 작업을 사용 하 여 blob에 쓰는 경우에 발생할 수 있습니다 .이 경우 기본 blob의 전체 콘텐츠가 대체 되기 때문입니다.
 
-![다이어그램 4 기본 blob 및 이전 버전의 고유 블록에 대 한 요금 청구 표시](./media/versioning-overview/versions-billing-scenario-4.png)
+![다이어그램 4 기본 blob 및 이전 버전의 고유 블록에 대 한 청구를 보여 줍니다.](./media/versioning-overview/versions-billing-scenario-4.png)
 
 ### <a name="billing-when-the-blob-tier-has-been-explicitly-set"></a>Blob 계층이 명시적으로 설정 된 경우 요금 청구
 
@@ -266,6 +266,10 @@ Blob 또는 버전 (또는 스냅숏)에 대 한 blob 계층을 명시적으로 
 | 이전 버전 | 새 계층의 버전과 원래 계층의 기본 blob에는 다른 버전의 모든 고유 블록이 추가 됩니다. <sup>1</sup> |
 
 <sup>1</sup> 원본 계층에서 이동 되지 않은 다른 이전 버전 또는 스냅숏이 있는 경우 해당 버전 또는 스냅숏은 [blob 계층이 명시적으로 설정 되지 않은 경우 청구](#billing-when-the-blob-tier-has-not-been-explicitly-set)에 설명 된 대로 포함 된 고유 블록 수에 따라 요금이 청구 됩니다.
+
+다음 다이어그램에서는 버전이 지정 된 blob을 다른 계층으로 이동할 때 개체의 요금을 청구 하는 방법을 보여 줍니다.
+
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="버전이 지정 된 blob이 명시적으로 계층화 된 경우 개체의 요금을 청구 하는 방법을 보여 주는 다이어그램입니다.":::
 
 Blob, 버전 또는 스냅숏에 대 한 계층을 명시적으로 설정 하는 작업은 취소할 수 없습니다. 새 계층으로 blob을 이동한 다음 원래 계층으로 다시 이동 하는 경우 원본 계층의 다른 개체와 블록을 공유 하는 경우에도 개체의 전체 콘텐츠 길이에 대 한 요금이 청구 됩니다.
 

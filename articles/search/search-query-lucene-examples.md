@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9d3f8208af9d5997f5a9e025a54b54b5b035fb85
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8e8c32f5596e469de5402a1f712d234a806a69e4
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934976"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297997"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>"Full" Lucene 검색 구문 사용 (Azure Cognitive Search의 고급 쿼리)
 
@@ -40,13 +40,13 @@ Lucene 파서는 필드 범위 쿼리, 유사 항목 검색, 중 위 및 접미�
 
 요청 헤더를 지정한 후 **search=** 문자열만 교환하여 이 문서의 모든 쿼리에 다시 사용할 수 있습니다. 
 
-  ![Postman 요청 헤더](media/search-query-lucene-examples/postman-header.png)
+  ![Postman 요청 헤더 집합 매개 변수](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>요청 URL 설정
 
 Request는 Azure Cognitive Search 끝점 및 검색 문자열을 포함 하는 URL과 쌍을 이루는 GET 명령입니다.
 
-  ![Postman 요청 헤더](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![Postman 요청 헤더 가져오기](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 URL 구성에는 다음 요소가 있습니다.
 
@@ -111,7 +111,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 이 쿼리에 대한 응답은 다음 스크린샷과 비슷하게 표시됩니다.
 
-  ![Postman 샘플 응답](media/search-query-lucene-examples/postman-sample-results.png)
+  ![점수를 사용 하는 postman 샘플 응답](media/search-query-lucene-examples/postman-sample-results.png)
 
 응답에서 검색 점수를 보았을 수 있습니다. 순위가 없으면 검색이 전체 텍스트 검색이 아니거나 어떤 조건도 적용되지 않기 때문에 균일하게 점수 1이 지정됩니다. 조건 없는 Null 검색의 경우 행은 임의의 순서로 반환됩니다. 실제 검색 조건을 포함 하는 경우 검색 점수가 의미 있는 값으로 증가 하는 것을 볼 수 있습니다.
 
@@ -137,7 +137,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  ![Postman 샘플 응답](media/search-query-lucene-examples/intrafieldfilter.png)
+  ![Postman 샘플 응답 검색 식](media/search-query-lucene-examples/intrafieldfilter.png)
 
 **FieldName: searchexpression** 구문을 사용 하 여 필드 지정 search 작업을 정의할 수 있습니다. 여기서 검색 식은 단일 단어나 구 또는 괄호 안의 보다 복잡 한 식입니다. 선택적으로 부울 연산자를 사용할 수 있습니다. 몇 가지 예는 다음과 같습니다.
 

@@ -3,12 +3,12 @@ title: Windows Server에 시스템 상태 복원
 description: Azure의 백업에서 Windows Server 시스템 상태를 복원 하는 방법에 대 한 단계별 설명입니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d3fb88ddbb02327db4388de18d2645519e13d2ec
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178589"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377440"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -56,7 +56,7 @@ ms.locfileid: "89178589"
 
 8. **확인** 창에서 복구의 세부 정보를 확인 하 고 **복구**를 선택 합니다.
 
-   ![복구를 클릭하여 복구 작업 승인](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![복구를 선택 하 여 복구 작업을 승인 합니다.](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 9. 복구 대상에서 *WindowsImageBackup* 디렉터리를 서버의 중요하지 않은 볼륨에 복사합니다. 일반적으로 Windows OS 볼륨은 중요한 볼륨입니다.
 
@@ -104,7 +104,7 @@ Windows Server가 손상되었거나 액세스할 수 없고 Windows Server 시�
 
 11. 확인 창에서 복구의 세부 정보를 확인 하 고 **복구**를 선택 합니다.
 
-    ![복구 단추를 클릭하여 복구 프로세스 확인](./media/backup-azure-restore-system-state/confirm-recovery.png)
+    ![복구 단추를 선택 하 여 복구 프로세스를 확인 합니다.](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. *WindowsImageBackup* 디렉터리를 서버의 중요하지 않은 볼륨에 복사합니다(예: d:\). 일반적으로 Windows OS 볼륨은 중요한 볼륨입니다.
 

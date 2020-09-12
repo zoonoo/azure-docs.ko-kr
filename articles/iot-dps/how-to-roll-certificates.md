@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2bbfcb4832adba767750256a25c378356cf4c23
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974890"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299269"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>X.509 디바이스 인증서 배포 방법
 
@@ -51,7 +51,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 새 리프 인증서가 디바이스에 배포되면 새 인증서를 사용하여 연결하므로 더 이상 IoT Hub에 연결할 수 없습니다. IoT Hub는 이전 인증서가 있는 디바이스만 인식합니다. 디바이스의 연결 시도 결과는 "권한 없음" 연결 오류입니다. 이 오류를 해결하려면 디바이스의 새 리프 인증서에 부합하게 디바이스에 대한 등록 항목을 업데이트해야 합니다. 그러면 디바이스가 다시 프로비전될 때 프로비전 서비스가 IoT Hub 디바이스 레지스트리 정보를 필요에 따라 업데이트할 수 있습니다. 
 
-이 연결 실패의 가능한 예외 하나는 프로비전서비스에서 디바이스에 대해 [등록 그룹](concepts-service.md#enrollment-group)을 만드는 시나리오입니다. 이 상황에서는 디바이스의 인증서 신뢰 체인에 루트 또는 중간 인증서를 배포하지 않는 경우, 새 인증서가 등록 그룹에 정의된 신뢰 체인의 일부일 때 디바이스가 인식됩니다. 이 시나리오는 보안 위반에 대한 조치로 발생하며 최소한 위반된 것으로 간주되는 그룹의 특정 디바이스 인증서를 블랙리스트 처리해야 합니다. 자세한 내용은 [등록 그룹의 특정 디바이스 블랙리스트 처리](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group)를 참조하세요.
+이 연결 실패의 가능한 예외 하나는 프로비전서비스에서 디바이스에 대해 [등록 그룹](concepts-service.md#enrollment-group)을 만드는 시나리오입니다. 이 상황에서는 디바이스의 인증서 신뢰 체인에 루트 또는 중간 인증서를 배포하지 않는 경우, 새 인증서가 등록 그룹에 정의된 신뢰 체인의 일부일 때 디바이스가 인식됩니다. 이 시나리오가 보안 위반에 대 한 반응으로 발생 하는 경우, 그룹에서 위반으로 간주 되는 특정 장치 인증서를 최소한으로 허용 하지 않아야 합니다. 자세한 내용은 [등록 그룹에서 특정 장치 허용 안 함](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group)을 참조 하세요.
 
 등록된 인증서에 대한 등록 항목 업데이트는 **등록 관리** 페이지에서 수행됩니다. 이 페이지에 액세스하려면 다음 단계를 따르세요.
 
@@ -197,9 +197,9 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 다시 프로비전이 완료되면 디바이스가 새 인증서를 사용하여 IoT Hub에 연결할 수 있습니다.
 
 
-## <a name="blacklist-certificates"></a>인증서 블랙리스트 처리
+## <a name="disallow-certificates"></a>인증서 허용 안 함
 
-보안 위반에 대한 대처로 디바이스 인증서를 블랙리스트 처리해야 할 수 있습니다. 디바이스 인증서를 블랙리스트 처리하려면 대상 디바이스/인증서에 대한 등록 항목을 사용하지 않게 설정합니다. 자세한 내용은 [등록 취소 관리](how-to-revoke-device-access-portal.md) 문서의 디바이스 블랙리스트 처리를 참조하세요.
+보안 위반에 대 한 응답으로 장치 인증서를 허용 하지 않도록 해야 할 수 있습니다. 장치 인증서를 허용 하지 않으려면 대상 장치/인증서에 대 한 등록 항목을 사용 하지 않도록 설정 합니다. 자세한 내용은 [이기도 관리](how-to-revoke-device-access-portal.md) 문서에서 장치 허용 안 함을 참조 하세요.
 
 인증서가 사용하지 않는 등록 항목의 일부가 되면 다른 등록 항목의 일부로 사용하게 설정되었다 하더라도 해당 인증서를 사용하는 IoT Hub를 통한 모든 등록 시도가 실패합니다.
  
@@ -211,13 +211,3 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 - Device Provisioning Service의 X.509 인증서에 대한 자세한 내용은 [보안](concepts-security.md)을 참조하세요. 
 - Azure IoT Hub Device Provisioning Service를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법은 [인증서 확인 방법](how-to-verify-certificates.md)을 참조하세요.
 - 포털을 사용하여 등록 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 디바이스 등록 관리](how-to-manage-enrollments.md)를 참조하세요.
-
-
-
-
-
-
-
-
-
-

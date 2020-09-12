@@ -1,6 +1,6 @@
 ---
-title: Azure에서 가상 하드 드라이브의 스냅숏 만들기
-description: 백업 또는 문제 해결을 위해 사용할 Azure VM의 복사본을 만드는 방법을 알아봅니다.
+title: 포털 또는 PowerShell을 사용 하 여 가상 하드 드라이브의 스냅숏 만들기
+description: 포털 또는 PowerShell을 사용 하 여 백업으로 사용 하거나 문제를 해결 하기 위해 Azure VM의 복사본을 만드는 방법에 대해 알아봅니다.
 author: roygara
 manager: twooley
 ms.service: virtual-machines-windows
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e5ecb99c7f64d81d57c5d6d2cb25967913a752b4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0fddca70ca09f0a3abb3c84672e20a42551ecd5
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074127"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322316"
 ---
-# <a name="create-a-snapshot"></a>스냅샷 만들기
+# <a name="create-a-snapshot-using-the-portal-or-powershell"></a>포털 또는 PowerShell을 사용 하 여 스냅숏 만들기
 
 스냅샷은 VHD(가상 하드 드라이브)의 전체 읽기 전용 복사본입니다. 백업으로 사용 또는 VM(가상 머신) 문제 해결을 위해 OS 또는 데이터 디스크 VHD의 스냅샷을 만들 수 있습니다.
 

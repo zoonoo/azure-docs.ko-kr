@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfc60eacd70576d9cfa79dbc03368c8e8c4a8636
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f47ae9b087615a77f6bd4d3f14f1b0052037cba6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797396"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321976"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Azure Active Directory를 사용하여 조직의 개인 정보 추가
 이 문서에서는 테 넌 트 관리자가 Azure Portal를 통해 조직의 Azure Active Directory (Azure AD) 테 넌 트에 개인 정보 관련 정보를 추가할 수 있는 방법을 설명 합니다.
@@ -56,5 +56,5 @@ Azure AD의 **속성** 영역에 조직의 개인 정보를 추가합니다.
 4. **저장**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure Active Directory B2B 협업 초대 상환](../b2b/redemption-experience.md)
+- [Azure Active Directory B2B 협업 초대 상환](../external-identities/redemption-experience.md)
 - [Azure Active Directory에서 사용자에 대한 프로필 정보 추가 또는 변경](active-directory-users-profile-azure-portal.md)

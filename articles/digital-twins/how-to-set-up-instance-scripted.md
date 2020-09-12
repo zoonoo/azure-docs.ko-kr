@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5d41a9b638ab023d045060e14488e91dca07b10f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 63bc46f679b71f6965cda8f9db800a125683c093
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181377"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298741"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 (스크립팅된) 설정
 
@@ -58,6 +58,13 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
     * 앱 등록의 경우: Azure AD 응용 프로그램에 대 한 *AZURE ad 응용 프로그램 회신 URL* 입니다. `http://localhost`을 사용합니다. 이 스크립트는 *공용 클라이언트/네이티브 (모바일 & 데스크톱)* URI를 설정 합니다.
 
 이 스크립트는 azure Digital Twins 인스턴스를 만들고, azure 사용자에 게 인스턴스에 대 한 azure *Digital Twins 소유자 (미리 보기)* 역할을 할당 하 고, 사용할 클라이언트 앱에 대 한 azure AD 앱 등록을 설정 합니다.
+
+>[!NOTE]
+>현재 스크립팅된 설치에는 **알려진 문제가** 있습니다. 일부 사용자 (특히 [msas (개인 Microsoft 계정](https://account.microsoft.com/account))의 사용자)가 ** _Azure 디지털 쌍 소유자 (미리 보기)_ 에 대 한 역할 할당**을 찾을 수 없습니다.
+>
+>이 문서의 뒷부분에 나오는 [*사용자 역할 할당 확인*](#verify-user-role-assignment) 섹션을 사용 하 여 역할 할당을 확인 하 고 필요한 경우 [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) 또는 [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions)를 사용 하 여 역할 할당을 수동으로 설정할 수 있습니다.
+>
+>이 문제에 대 한 자세한 내용은 [*문제 해결: Azure Digital Twins의 알려진 문제*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup)를 참조 하세요.
 
 다음은 스크립트에서 출력 로그를 발췌 한 것입니다.
 
@@ -127,5 +134,9 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
 
 ## <a name="next-steps"></a>다음 단계
 
-클라이언트 앱의 인증 코드를 작성 하 여 클라이언트 응용 프로그램을 인스턴스에 연결 하는 방법을 참조 하세요.
+Azure Digital Twins CLI 명령을 사용 하 여 인스턴스에서 개별 REST API 호출을 테스트 합니다. 
+* [az dt reference](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)
+
+또는 클라이언트 앱의 인증 코드를 작성 하 여 클라이언트 응용 프로그램을 인스턴스에 연결 하는 방법을 참조 하세요.
 * [*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)

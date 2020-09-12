@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: cf0fec1f081a232abc88941e3dd785fb7617fb57
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04a3499da15bc226fe2cada2283d7a115036a48c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387118"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318297"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용한 Azure SQL 투명한 데이터 암호화
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -132,6 +132,11 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 - 키 액세스를 8 시간 이내에 복원 하는 경우 데이터베이스는 다음 시간 내에 자동으로 치료 됩니다.
 
 - 키 액세스 복원이 8시간을 초과하면 자동 복구가 가능하지 않으며, 데이터베이스를 복구하려면 포털에서 추가적인 단계가 필요하고 데이터베이스 크기에 따라 상당한 시간이 걸릴 수 있습니다. 데이터베이스가 다시 온라인 상태가 되 면 [장애 조치 (failover) 그룹](auto-failover-group-overview.md) 구성, 지정 시간 복원 기록 및 태그와 같은 이전에 구성 된 서버 수준 설정이 **손실**됩니다. 따라서 8 시간 이내에 기본 키 액세스 문제를 식별 하 고 해결할 수 있는 알림 시스템을 구현 하는 것이 좋습니다.
+
+다음은 액세스할 수 없는 데이터베이스를 다시 온라인으로 전환 하기 위해 포털에서 필요한 추가 단계를 보여 주는 뷰입니다.
+
+![TDE BYOK 데이터베이스에 액세스할 수 없음](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
+
 
 ### <a name="accidental-tde-protector-access-revocation"></a>우발적 TDE 보호기 액세스 해지
 
