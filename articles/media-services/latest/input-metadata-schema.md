@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a9b8fec7e69b6ede15f99cae01e89c962996e280
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269151"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295567"
 ---
 # <a name="input-metadata"></a>입력 메타데이터
 
@@ -56,7 +56,7 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 | **이름**<br />필수 |자산 파일의 이름입니다. <br /><br />예: `"Name": "Ignite-short.mp4"` |
 | **Uri**<br />필수 |입력 자산이 있는 URL입니다. 출력 자산이 속한 입력 자산을 식별 하려면 `Uri` ID 대신 필드를 사용 합니다.|
 | **크기**<br />필수 |자산 파일의 크기(바이트)입니다.  <br /><br />예: `"Size": 75739259`|
-| **Duration**<br />필수 |콘텐츠 재생 시간입니다. <br /><br />예: `"Duration": "PT1M10.304S"`. |
+| **기간**<br />필수 |콘텐츠 재생 시간입니다. <br /><br />예: `"Duration": "PT1M10.304S"`. |
 | **NumberOfStreams**<br />필수 |자산 파일의 스트림 수입니다.  <br /><br />예: `"NumberOfStreams": 2`|
 | **FormatNames**<br />필수 |형식 이름입니다.  <br /><br />예: `"FormatNames": "mov,mp4,m4a,3gp,3g2,mj2"`|
 | **FormatVerboseName**<br /> 필수 |자세한 형식 이름입니다. <br /><br />예: `"FormatVerboseName": "QuickTime / MOV"` |
@@ -68,8 +68,8 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 | Name |  | 설명 |
 | --- | --- |
 | **FourCC**<br />필수 |비디오 코덱은 ffmpeg에서 보고 하는 코드를 FourCC 합니다.<br /><br />예: `"FourCC": "avc1"` |
-| **프로필** |비디오 트랙의 프로필입니다. <br /><br />예: `"Profile": "Main"`|
-| **Level** |비디오 트랙의 수준입니다. <br /><br />예: `"Level": "3.2"`|
+| **Profile** |비디오 트랙의 프로필입니다. <br /><br />예: `"Profile": "Main"`|
+| **수준** |비디오 트랙의 수준입니다. <br /><br />예: `"Level": "3.2"`|
 | **PixelFormat** |비디오 트랙의 픽셀 형식입니다. <br /><br />예: `"PixelFormat": "yuv420p"`|
 | **Width**<br />필수 |인코딩된 비디오 너비(픽셀)입니다. <br /><br />예: `"Width": "1280"`|
 | **높이**<br />필수 |인코딩된 비디오 높이(픽셀)입니다.<br /><br />예: `"Height": "720"` |
@@ -88,7 +88,7 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 | **TimeBase**<br />필수 |시간 기준입니다.<br /><br />예: `"TimeBase": "1/30000"`|
 | **NumberOfFrames** |프레임 수입니다(비디오 트랙의 경우). <br /><br />예: `"NumberOfFrames": 2107`|
 | **StartTime** |트랙 시작 시간입니다.<br /><br />예: `"StartTime": "PT0.033S"` |
-| **Duration** |트랙 지속 시간입니다. <br /><br />예: `"Duration": "PT1M10.304S"`|
+| **기간** |트랙 지속 시간입니다. <br /><br />예: `"Duration": "PT1M10.304S"`|
 
 ## <a name="audiotracks"></a>AudioTracks
 
@@ -106,7 +106,7 @@ JSON 스키마 예제는이 문서의 끝 부분에서 찾을 수 있습니다.
 | **TimeBase**<br />필수 |시간 기준입니다.<br /><br />예: `"TimeBase": "1/48000"` |
 | **NumberOfFrames** |프레임 수입니다(비디오 트랙의 경우). <br /><br />예: `"NumberOfFrames": 3294`|
 | **StartTime** |트랙 시작 시간입니다. 자세한 내용은 [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html)를 참조 하세요. <br /><br />예: `"StartTime": "PT0S"` |
-| **Duration** |트랙 지속 시간입니다. <br /><br />예: `"Duration": "PT1M10.272S"` |
+| **기간** |트랙 지속 시간입니다. <br /><br />예: `"Duration": "PT1M10.272S"` |
 
 ## <a name="metadata"></a>메타데이터
 

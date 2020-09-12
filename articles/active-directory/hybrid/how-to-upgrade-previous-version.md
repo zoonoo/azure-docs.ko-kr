@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a14249f28da15f04a214c2a1cb4bd415fb59ce9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69373e039320cd733fb859bb84e03e5493e05403
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356630"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277207"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
 이 항목에서는 Azure Active Directory(Azure AD) Connect 설치를 최신 릴리스로 업그레이드하는 데 사용할 수 있는 여러 가지 방법을 설명합니다. Azure AD Connect 릴리스를 최신 상태로 유지하는 것이 좋습니다. [스윙 마이그레이션](#swing-migration) 섹션에 설명된 단계는 상당한 구성 변경을 수행하는 경우에도 사용할 수 있습니다.
@@ -44,17 +44,17 @@ Azure AD Connect를 업그레이드하는 데 사용할 수 있는 몇 가지 �
 > [!NOTE]
 > 새 Azure AD Connect 서버를 사용 하도록 설정 하 여 Azure AD에 대 한 변경 내용 동기화를 시작한 후 DirSync 또는 Azure AD Sync를 사용 하 여 롤백하지 않아야 합니다. DirSync 및 Azure AD Sync를 포함 하 여 Azure AD Connect를 레거시 클라이언트로 다운 그레이드 하는 것은 지원 되지 않으며 Azure AD에서 데이터 손실 등의 문제가 발생할 수 있습니다.
 
-## <a name="in-place-upgrade"></a>전체 업그레이드
+## <a name="in-place-upgrade"></a>현재 위치 업그레이드
 전체 업그레이드는 Azure AD Sync 또는 Azure AD Connect에서 이동하는 경우에 작동합니다. FIM(Forefront Identity Manager) + Azure AD 커넥터를 사용하는 솔루션이거나 DirSync에서 이동하는 경우에는 작동하지 않습니다.
 
 이 방법은 단일 서버가 있고 개체 수가 100,000개 미만인 경우에 사용하는 것이 좋습니다. 기본 동기화 규칙이 변경된 경우, 업그레이드 후에 전체 가져오기 및 전체 동기화가 발생합니다. 이 방법을 통해 시스템의 모든 기존 개체에 새 구성이 적용됩니다. 이 실행은 동기화 엔진 범위에 속하는 개체 수에 따라 몇 시간이 걸릴 수 있습니다. 기본적으로 30분마다 동기화되는 일반 델타 동기화 스케줄러는 일시 중단되지만 암호 동기화는 계속됩니다. 따라서 주말 동안 전체 업그레이드를 수행하는 것이 좋습니다. 새 Azure AD Connect 릴리스를 포함한 기본 구성이 변경되지 않은 경우 대신 일반 델타 가져오기/동기화가 시작됩니다.  
-![전체 업그레이드](./media/how-to-upgrade-previous-version/inplaceupgrade.png)
+![현재 위치 업그레이드](./media/how-to-upgrade-previous-version/inplaceupgrade.png)
 
 기본 동기화 규칙을 변경한 경우 업그레이드 시 해당 규칙이 기본 구성으로 다시 설정됩니다. 업그레이드 간에 구성을 유지하려면 [기본 구성 변경에 대한 모범 사례](how-to-connect-sync-best-practices-changing-default-configuration.md)에 설명된 대로 변경해야 합니다.
 
 현재 위치 업그레이드 중 도입된 변경 내용으로 인해 업그레이드가 완료된 후 특정 동기화 작업(전체 가져오기 단계 및 전체 동기화 단계 포함)이 실행되어야 할 수도 있습니다. 이러한 작업을 연기하려면 [업그레이드 후 전체 동기화를 연기하는 방법](#how-to-defer-full-synchronization-after-upgrade) 섹션을 참조하세요.
 
-Azure AD Connect를 비표준 커넥터(예: 일반 LDAP 커넥터 및 일반 SQL 커넥터)와 함께 사용하는 경우 현재 위치 업그레이드 후 [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors)에서 해당 커넥터 구성을 새로 고쳐야 합니다. 커넥터 구성을 새로 고치는 방법에 대한 자세한 내용은 [커넥터 버전 릴리스 내역 - 문제 해결](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting) 문서 섹션을 참조하세요. 구성을 새로 고치지 않으면 커넥터에 대해 가져오기 및 내보내기 실행 단계가 올바르게 작동하지 않습니다. 애플리케이션 이벤트 로그에 *"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"*("AAD 커넥터 구성의 어셈블리 버전("XXXXX.X")이 C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll의 실제 버전("X.X.XXX.X")보다 이전 버전입니다")라는 오류 메시지가 표시됩니다.
+Azure AD Connect를 비표준 커넥터(예: 일반 LDAP 커넥터 및 일반 SQL 커넥터)와 함께 사용하는 경우 현재 위치 업그레이드 후 [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md)에서 해당 커넥터 구성을 새로 고쳐야 합니다. 커넥터 구성을 새로 고치는 방법에 대한 자세한 내용은 [커넥터 버전 릴리스 내역 - 문제 해결](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting) 문서 섹션을 참조하세요. 구성을 새로 고치지 않으면 커넥터에 대해 가져오기 및 내보내기 실행 단계가 올바르게 작동하지 않습니다. 애플리케이션 이벤트 로그에 *"Assembly version in AAD Connector configuration ("X.X.XXX.X") is earlier than the actual version ("X.X.XXX.X") of "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"*("AAD 커넥터 구성의 어셈블리 버전("XXXXX.X")이 C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll의 실제 버전("X.X.XXX.X")보다 이전 버전입니다")라는 오류 메시지가 표시됩니다.
 
 ## <a name="swing-migration"></a>스윙 마이그레이션
 배포가 복잡하거나 개체가 많은 경우에는 라이브 시스템에서 전체 업그레이드를 수행하는 것이 적절하지 않을 수 있습니다. 일부 고객의 경우 처리하는 데 며칠이 걸리고 이 시간 동안 델타 변경이 처리되지 않습니다. 이 방법은 구성을 크게 변경하고 클라우드로 푸시하기 전에 시도하려는 경우에도 사용할 수 있습니다.
@@ -93,7 +93,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 사용자 지정 동기화 규칙을 이동하려면 다음을 수행합니다.
 
 1. 활성 서버에서 **동기화 규칙 편집기** 를 엽니다.
-2. 사용자 지정 규칙을 선택합니다. 클릭 **내보내기**합니다. 그러면 메모장 창이 열립니다. PS1 확장명으로 임시 파일을 저장합니다. 이렇게하면 PowerShell 스크립트가 됩니다. PS1 파일을 스테이징 서버에 복사합니다.  
+2. 사용자 지정 규칙을 선택합니다. **내보내기**를 클릭합니다. 그러면 메모장 창이 열립니다. PS1 확장명으로 임시 파일을 저장합니다. 이렇게하면 PowerShell 스크립트가 됩니다. PS1 파일을 스테이징 서버에 복사합니다.  
    ![동기화 규칙 내보내기](./media/how-to-upgrade-previous-version/exportrule.png)
 3. 스테이징 서버에서는 커넥터 GUID가 다르므로 변경해야 합니다. GUID를 가져오려면 **동기화 규칙 편집기**를 시작하여 동일한 연결된 시스템을 나타내는 기본 규칙 중 하나를 선택하고 **내보내기**를 클릭합니다. PS1 파일의 GUID를 스테이징 서버의 GUID로 바꿉니다.
 4. PowerShell 프롬프트에서 PS1 파일을 실행합니다. 스테이징 서버에 사용자 지정 동기화 규칙이 만들어집니다.

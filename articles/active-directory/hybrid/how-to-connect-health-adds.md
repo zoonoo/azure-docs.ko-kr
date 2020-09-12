@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc7e8e3219cc2b11ed123889973c375edd22664d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d75b439c2753db17cffecdc97b6389a7b31b833e
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359401"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279876"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>AD DS와 함께 Azure AD Connect Health 사용
 다음 문서는 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 중점을 둡니다. 지원되는 AD DS 버전은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016입니다.
@@ -57,11 +57,10 @@ AD DS용 Azure AD Connect Health 내의 경고 섹션은 도메인 컨트롤러�
 기본적으로 미리 선택한 네 개의 성능 카운터가 있습니다. 그러나 필터 명령을 클릭하고 원하는 성능 카운터를 선택하거나 선택을 취소하여 다른 성능 카운터를 포함할 수 있습니다. 또한, 성능 카운터 그래프를 두 번 클릭하면 새 블레이드가 열리며, 여기에는 모니터링되는 각각의 도메인 컨트롤러에 대한 데이터 요소가 포함됩니다.
 
 ## <a name="related-links"></a>관련 링크
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent 설치](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health 작업](how-to-connect-health-operations.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)
 * [동기화에 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
 * [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
 * [Azure AD Connect Health 버전 기록](reference-connect-health-version-history.md)
-

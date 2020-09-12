@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33d946c47a17bb537c7644937547ad479b4637e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b52830e7cddb01c129df2344e26ac1684a88872
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077936"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292727"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 액세스를 검토 합니다.
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 액세스 검토를 수행 하는 첫 번째 단계는 액세스 검토를 찾아서 여는 것입니다.
 
 >[!IMPORTANT]
-> 전자 메일을 받을 때 지연이 발생할 수 있으며, 일부 경우에는 최대 24 시간이 걸릴 수 있습니다. 허용 목록 azure-noreply@microsoft.com 모든 전자 메일을 받고 있는지 확인 합니다.
+> 전자 메일을 받을 때 지연이 발생할 수 있으며, 일부 경우에는 최대 24 시간이 걸릴 수 있습니다. 받는 azure-noreply@microsoft.com 사람 목록에를 추가 하 여 모든 전자 메일을 수신 하 고 있는지 확인 합니다.
 
 1. Microsoft에서 액세스를 검토 하도록 요청 하는 전자 메일을 찾습니다. 그룹에 대 한 액세스를 검토 하는 예제 메일은 다음과 같습니다.
 
@@ -106,7 +106,7 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 ### <a name="email"></a>메일
 
 >[!IMPORTANT]
-> 전자 메일을 받을 때 지연이 발생할 수 있으며, 일부 경우에는 최대 24 시간이 걸릴 수 있습니다. 허용 목록 azure-noreply@microsoft.com 모든 전자 메일을 받고 있는지 확인 합니다.
+> 전자 메일을 받을 때 지연이 발생할 수 있으며, 일부 경우에는 최대 24 시간이 걸릴 수 있습니다. 받는 azure-noreply@microsoft.com 사람 목록에를 추가 하 여 모든 전자 메일을 수신 하 고 있는지 확인 합니다.
 
 1. Microsoft에서 액세스를 검토 하도록 요청 하는 전자 메일을 찾습니다. 아래 예제 메일 메시지를 확인할 수 있습니다.
 
@@ -123,7 +123,7 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 
 브라우저를 사용 하 여 내 액세스를 열어 보류 중인 액세스 검토를 볼 수도 있습니다.
 
-1. 에서 내 액세스에 로그인https://myaccess.microsoft.com/
+1. 에서 내 액세스에 로그인 https://myaccess.microsoft.com/
 
 2. 왼쪽 막대의 메뉴에서 **액세스 검토** 를 선택 하 여 사용자에 게 할당 된 보류 중인 액세스 검토 목록을 표시 합니다.
 

@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a16e989a6da8daa4a290c7eaa4363eef09c9749
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1111b56a08343f1e12c3b2d582e350907ab37b46
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356341"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276034"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Azure AD Connect에서 동기화되지 않는 특성 문제 해결
 
@@ -80,13 +80,13 @@ ms.locfileid: "85356341"
 * 마찬가지로, **Azure Active Directory 커넥터 공간** 개체를 볼 수 있으며, **메타버스**에서 **커넥터 공간**으로 그리고 그 반대로 흐르는 특성 흐름을 보는 **미리 보기**를 만들 수 있습니다. 이러한 방식으로 특성이 동기화되지 않는 이유를 조사할 수 있습니다.
 
 ## <a name="recommended-documents"></a>**권장되는 문서**
-* [Azure AD Connect 동기화: 기술 개념](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-technical-concepts)
-* [Azure AD Connect 동기화: 아키텍처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)
-* [Azure AD Connect 동기화: 선언적 프로비전 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning)
-* [Azure AD Connect 동기화: 선언적 프로 비전 식 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
-* [Azure AD Connect 동기화: 기본 구성 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration)
-* [Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts)
-* [Azure AD Connect 동기화: 섀도 특성](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes)
+* [Azure AD Connect 동기화: 기술 개념](./how-to-connect-sync-technical-concepts.md)
+* [Azure AD Connect 동기화: 아키텍처 이해](./concept-azure-ad-connect-sync-architecture.md)
+* [Azure AD Connect 동기화: 선언적 프로비전 이해](./concept-azure-ad-connect-sync-declarative-provisioning.md)
+* [Azure AD Connect 동기화: 선언적 프로 비전 식 이해](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
+* [Azure AD Connect 동기화: 기본 구성 이해](./concept-azure-ad-connect-sync-default-configuration.md)
+* [Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해](./concept-azure-ad-connect-sync-user-and-contacts.md)
+* [Azure AD Connect 동기화: 섀도 특성](./how-to-connect-syncservice-shadow-attributes.md)
 
 ## <a name="next-steps"></a>다음 단계
 

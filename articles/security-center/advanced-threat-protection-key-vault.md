@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 449096590df6145c9f80dcf2c97726931909a2ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7025b091b83a56b7b3df18c3f42cb84b163560bb
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77914809"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277768"
 ---
 # <a name="threat-protection-for-azure-key-vault-preview"></a>Azure Key Vault에 대 한 위협 방지 (미리 보기)
 
@@ -21,7 +21,7 @@ Azure Key Vault에 대 한 Advanced threat protection은 보안 인텔리전스�
 
 Security Center은 비정상적인 활동을 검색할 때 경고를 표시 합니다. 또한 구독 관리자에 게 의심 스러운 활동에 대 한 세부 정보 및 식별 된 위협을 조사 하 고 수정 하는 방법에 대 한 권장 사항을 전자 메일로 보냅니다.
 
-## <a name="configuring-threat-protection-from-security-center"></a>Security Center에서 위협 방지 구성
+## <a name="configure-threat-protection-from-security-center"></a>Security Center에서 위협 방지 구성
 
 기본적으로 Security Center의 표준 가격 책정 계층을 구독할 때 모든 Key Vault 계정에 대해 advanced threat protection이 사용 되도록 설정 됩니다. 자세한 내용은 [가격 책정](security-center-pricing.md)을 참조하세요.
 

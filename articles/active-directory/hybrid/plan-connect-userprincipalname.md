@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e105d4909705622a931c51bcb7cf0a9db4179525
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680034"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279604"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD userPrincipalName 채우기
 
@@ -25,7 +25,7 @@ UserPrincipalName 특성 값은 사용자 계정에 대한 Azure AD 사용자 �
 ## <a name="upn-terminology"></a>UPN 용어
 이 문서에서는 다음과 같은 용어가 사용됩니다.
 
-|용어|Description|
+|용어|설명|
 |-----|-----|
 |초기 도메인|Azure AD 테넌트의 기본 도메인(onmicrosoft.com)입니다. 예: contoso.onmicrosoft.com.|
 |MOERA(Microsoft 온라인 전자 메일 라우팅 주소)|Azure AD에서는 Azure AD MailNickName 특성 및 Azure AD 초기 도메인의 MOERA를 &lt;MailNickName&gt;&#64;&lt; 초기 도메인&gt;으로 계산합니다.|
@@ -56,7 +56,7 @@ Azure AD에서 대체 로그인 ID를 사용하도록 설정하기 위해 Azure 
 
 ![확인되지 않은 도메인](./media/plan-connect-userprincipalname/altloginid.png)  
 
-자세한 내용은 [대체 로그인 ID 구성](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) 및 [Azure AD 로그인 구성](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)을 참조하세요.
+자세한 내용은 [대체 로그인 ID 구성](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) 및 [Azure AD 로그인 구성](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)을 참조하세요.
 
 ## <a name="non-verified-upn-suffix"></a>확인되지 않은 UPN 접미사
 온-프레미스 UserPrincipalName 특성/대체 로그인 ID 접미사가 Azure AD 테넌트에서 확인되지 않을 경우 Azure AD UserPrincipalName 특성 값은 MOERA로 설정됩니다. Azure AD에서는 Azure AD MailNickName 특성 및 Azure AD 초기 도메인의 MOERA를 &lt;MailNickName&gt;&#64;&lt; 초기 도메인&gt;으로 계산합니다.

@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6efff54d2c28659af27161ab4cd4753302210006
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e9c4489f59f72e4d0b5c7a0b911da188eb0828c
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358415"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280199"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 통과 인증: 현재 제한 사항
 
@@ -43,9 +43,9 @@ ms.locfileid: "85358415"
 
 지원 _되지 않는_ 시나리오는 다음과 같습니다.
 
-- [자격 증명이 손실된](../reports-monitoring/concept-risk-events.md#leaked-credentials) 사용자 검색
+- [자격 증명이 손실된](../identity-protection/overview-identity-protection.md) 사용자 검색
 - Azure AD Domain Services를 사용하려면 테넌트에서 암호 해시 동기화를 사용하도록 설정해야 합니다. 따라서 통과 인증_만_ 사용하는 테넌트는 Azure AD Domain Services가 필요한 시나리오에서 사용할 수 없습니다.
-- 통과 인증은 [Azure AD Connect Health](whatis-hybrid-identity-health.md)와 통합되지 않습니다.
+- 통과 인증은 [Azure AD Connect Health](./whatis-azure-ad-connect.md)와 통합되지 않습니다.
 
 > [!IMPORTANT]
 > (Azure AD Connect Health 통합을 제외한) 지원되지 않는 시나리오에_만_ 해당하는 해결 방법으로, Azure AD Connect 마법사의 [선택적 기능](how-to-connect-install-custom.md#optional-features) 페이지에서 암호 해시 동기화를 사용하도록 설정합니다.

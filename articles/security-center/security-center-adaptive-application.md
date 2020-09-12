@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691482"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276765"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
 
@@ -76,7 +76,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
     - **권장** -동일한 응용 프로그램을 일관 되 게 실행 하 고 허용 목록이 구성 되지 않은 컴퓨터 그룹입니다. 이러한 그룹에 대해 적응 응용 프로그램 컨트롤을 사용 하는 것이 좋습니다.
     
       > [!TIP]
-      > 접두사가 "REVIEWGROUP" 인 그룹 이름이 표시 되는 경우에는 부분적으로 일관 된 응용 프로그램 목록이 있는 컴퓨터가 포함 됩니다. 패턴을 볼 수 없지만이 그룹을 검토 하 여 [그룹의 적응 응용 프로그램 제어 규칙 편집](#editing-a-groups-adaptive-application-controls-rule)에 설명 된 대로 일부 적응 응용 프로그램 제어 규칙을 수동으로 _정의할 수 있는지 여부를 확인_ 하는 것이 좋습니다. Security Center
+      > 접두사가 "REVIEWGROUP" 인 그룹 이름이 표시 되는 경우에는 부분적으로 일관 된 응용 프로그램 목록이 있는 컴퓨터가 포함 됩니다. 패턴을 볼 수 없지만이 그룹을 검토 하 여 [그룹의 적응 응용 프로그램 제어 규칙 편집](#edit-a-groups-adaptive-application-controls-rule)에 설명 된 대로 일부 적응 응용 프로그램 제어 규칙을 수동으로 _정의할 수 있는지 여부를 확인_ 하는 것이 좋습니다. Security Center
       >
       > [컴퓨터를 한 그룹에서 다른 그룹으로 이동](#move-a-machine-from-one-group-to-another)에 설명 된 대로이 그룹에서 다른 그룹으로 컴퓨터를 이동할 수도 있습니다.
 
@@ -115,7 +115,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 
 
-## <a name="editing-a-groups-adaptive-application-controls-rule"></a>그룹의 적응 응용 프로그램 제어 규칙 편집
+## <a name="edit-a-groups-adaptive-application-controls-rule"></a>그룹의 적응 응용 프로그램 제어 규칙 편집
 
 조직의 알려진 변경 내용으로 인해 컴퓨터 그룹에 대 한 허용 목록을 편집 하도록 결정할 수 있습니다. 
 
@@ -150,7 +150,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 
 
-## <a name="responding-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>"적응 응용 프로그램 제어 정책의 Allowlist 규칙을 업데이트 해야 합니다." 권장 사항
+## <a name="respond-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>"적응 응용 프로그램 제어 정책의 Allowlist 규칙 업데이트" 권장 사항에 응답 합니다.
 
 이 권장 사항은 이전에는 허용 되지 않은 잠재적으로 합법적인 동작을 Security Center의 machine learning에서 식별 하는 경우에 나타납니다. 권장 사항은 거짓 긍정 경고 수를 줄이기 위해 기존 정의에 대 한 새 규칙을 제안 합니다.
 
@@ -167,7 +167,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 
 
-## <a name="auditing-alerts-and-violations"></a>경고 및 위반 감사
+## <a name="audit-alerts-and-violations"></a>감사 경고 및 위반
 
 1. Security Center의 메뉴에서 **적응 응용 프로그램 컨트롤**을 선택 합니다.
 
@@ -199,7 +199,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 
 
-## <a name="managing-application-controls-via-the-rest-api"></a>REST API를 통해 응용 프로그램 컨트롤 관리 
+## <a name="manage-application-controls-via-the-rest-api"></a>REST API를 통해 응용 프로그램 제어 관리 
 
 적응 응용 프로그램 컨트롤을 프로그래밍 방식으로 관리 하려면 REST API을 사용 합니다. 
 

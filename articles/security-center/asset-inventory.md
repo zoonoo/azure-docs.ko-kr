@@ -40,7 +40,7 @@ Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 �
 |릴리스 상태:|미리 보기|
 |결정|Free|
 |필요한 역할 및 사용 권한:|모든 사용자가 액세스할 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
 |||
 
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/19/2020
 ms.author: alkohli
-ms.openlocfilehash: 22f0c63c2b60b6c72ad297492045df17e10dd06c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 92b82631ca78826dd927c6773c47072038eb4ab1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268325"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290126"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에서 문제 해결 
 
@@ -167,7 +167,7 @@ ms.locfileid: "89268325"
 
 2. [여기](azure-stack-edge-j-series-connect-resource-manager.md#step-4-set-up-azure-powershell-on-the-client)에 설명 된 대로 올바른 PowerShell 모듈이 설치 되어 있는지 확인 합니다.
 
-3. Azure Resource Manager 및 로그인 끝점에 연결할 수 있는지 확인 합니다. 끝점에 대 한 ping을 시도할 수 있습니다. 예를 들면 다음과 같습니다.
+3. Azure Resource Manager 및 로그인 끝점에 연결할 수 있는지 확인 합니다. 끝점에 대 한 ping을 시도할 수 있습니다. 다음은 그 예입니다. 
 
    `ping management.28bmdw2-bb9.microsoftdatabox.com`
    `ping login.28bmdw2-bb9.microsoftdatabox.com`
@@ -189,14 +189,14 @@ Azure Stack Edge/Data Box Gateway 장치의 blob 저장소와 관련 된 오류�
 |자식 리소스를 검색할 수 없습니다. HTTP 헤더 중 하나에 대한 값 형식이 올바르지 않습니다.| **편집** 메뉴에서 **대상 Azure Stack api**를 선택 합니다. 그런 다음 Azure Storage 탐색기를 다시 시작 합니다.|
 |getaddrinfo ENOTFOUND <accountname> . <serialnumber> microsoftdatabox.com|끝점 이름이 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 이 경로 ( `C:\Windows\System32\drivers\etc\hosts` Windows 또는 Linux)의 호스트 파일에 추가 되었는지 확인 합니다. `/etc/hosts`|
 |자식 리소스를 검색할 수 없습니다.<br> 세부 정보: 자체 서명 된 인증서 |장치에 대 한 SSL 인증서를 Azure Storage 탐색기으로 가져옵니다. <ol><li>Azure Portal에서 인증서를 다운로드 합니다. 자세한 내용은 [인증서 다운로드](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)를 참조 하세요.</li><li>**편집** 메뉴에서 SSL 인증서를 선택한 다음 **인증서 가져오기**를 선택 합니다.</li></ol>|
-|이 오류를 표시 하기 전에 AzCopy 명령이 1 분 동안 중단 된 것으로 나타납니다.<br>`Failed to enumerate directory https://… The remote name could not be resolved <accountname>.blob.<serialnumber>.microsoftdatabox.com`|끝점 이름이의 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 호스트 파일에 추가 되었는지 확인 `C:\Windows\System32\drivers\etc\hosts` 합니다.|
-|이 오류를 표시 하기 전에 AzCopy 명령이 1 분 동안 중단 된 것으로 나타납니다.<br>`Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`. |장치의 SSL 인증서를 시스템의 인증서 저장소로 가져옵니다. 자세한 내용은 [인증서 다운로드](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)를 참조 하세요.|
-|이 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 중단 되는 것으로 나타납니다.<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`. |끝점 이름이의 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 호스트 파일에 추가 되었는지 확인 `/etc/hosts` 합니다.|
-|이 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 중단 되는 것으로 나타납니다.<br>`Error parsing source location… The SSL connection could not be established`. |장치의 SSL 인증서를 시스템의 인증서 저장소로 가져옵니다. 자세한 내용은 [인증서 다운로드](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)를 참조 하세요.|
-|이 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 중단 되는 것으로 나타납니다.<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|끝점 이름이의 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 호스트 파일에 추가 되었는지 확인 `/etc/hosts` 합니다.|
-|이 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 중단 되는 것으로 `Error parsing source location… The SSL connection could not be established` 나타납니다.|장치의 SSL 인증서를 시스템의 인증서 저장소로 가져옵니다. 자세한 내용은 [인증서 다운로드](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)를 참조 하세요.|
+|이 오류를 표시 하기 전에 AzCopy 명령이 1 분 동안 응답을 중지 하는 것으로 나타납니다.<br>`Failed to enumerate directory https://… The remote name could not be resolved <accountname>.blob.<serialnumber>.microsoftdatabox.com`|끝점 이름이의 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 호스트 파일에 추가 되었는지 확인 `C:\Windows\System32\drivers\etc\hosts` 합니다.|
+|이 오류를 표시 하기 전에 AzCopy 명령이 1 분 동안 응답을 중지 하는 것으로 나타납니다.<br>`Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`. |장치의 SSL 인증서를 시스템의 인증서 저장소로 가져옵니다. 자세한 내용은 [인증서 다운로드](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)를 참조 하세요.|
+|이 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 응답 하지 않는 것으로 나타납니다.<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`. |끝점 이름이의 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 호스트 파일에 추가 되었는지 확인 `/etc/hosts` 합니다.|
+|이 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 응답 하지 않는 것으로 나타납니다.<br>`Error parsing source location… The SSL connection could not be established`. |장치의 SSL 인증서를 시스템의 인증서 저장소로 가져옵니다. 자세한 내용은 [인증서 다운로드](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)를 참조 하세요.|
+|이 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 응답 하지 않는 것으로 나타납니다.<br>`Error parsing source location https://<accountname>.blob.<serialnumber>.microsoftdatabox.com/<cntnr>. No such device or address`|끝점 이름이의 `<accountname>.blob.<serialnumber>.microsoftdatabox.com` 호스트 파일에 추가 되었는지 확인 `/etc/hosts` 합니다.|
+|다음 오류를 표시 하기 전에 AzCopy 명령이 20 분 동안 응답 하지 않는 것으로 나타납니다 `Error parsing source location… The SSL connection could not be established` .|장치의 SSL 인증서를 시스템의 인증서 저장소로 가져옵니다. 자세한 내용은 [인증서 다운로드](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)를 참조 하세요.|
 |HTTP 헤더 중 하나에 대한 값 형식이 올바르지 않습니다.|Data Box에서 Python 용 Microsoft Azure Storage 라이브러리의 설치 된 버전이 지원 되지 않습니다. 지원 되는 버전에 대 한 Azure Data Box Blob 저장소 요구 사항을 참조 하세요.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED] ...| Python을 실행 하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 b a s e 64로 인코딩된 SSL 인증서 파일의 경로로 설정 합니다. [인증서를 다운로드](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)하는 방법을 참조 하세요. 예를 들면 다음과 같습니다.<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>또는 시스템의 인증서 저장소에 인증서를 추가한 다음이 환경 변수를 해당 저장소의 경로로 설정 합니다. 예를 들어 Ubuntu에서 <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
+|… [SSL: CERTIFICATE_VERIFY_FAILED] ...| Python을 실행 하기 전에 REQUESTS_CA_BUNDLE 환경 변수를 b a s e 64로 인코딩된 SSL 인증서 파일의 경로로 설정 합니다. [인증서를 다운로드](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate)하는 방법을 참조 하세요. 다음은 그 예입니다. <br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>또는 시스템의 인증서 저장소에 인증서를 추가한 다음이 환경 변수를 해당 저장소의 경로로 설정 합니다. 예를 들어 Ubuntu에서 <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
 |연결 시간이 초과 되었습니다.|Azure Stack Edge에 로그인 한 후 잠금이 해제 되었는지 확인 합니다. 장치가 다시 시작 될 때마다 사용자가 로그인 할 때까지 잠긴 상태로 유지 됩니다.|
 
 

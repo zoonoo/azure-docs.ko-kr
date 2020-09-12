@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: 25b5569c123a4c7376aecd01b8e36f68b0a8e9b5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519610"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278142"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
@@ -23,7 +23,7 @@ Azure Security Center에는 다양한 리소스 유형에 대한 광범위한 �
 
 보안 경고는 고급 검색에 의해 트리거되고 Azure Security Center 표준 계층 에서만 사용할 수 있습니다. 평가판을 사용할 수 있습니다. **가격 책정 & 설정** 페이지에서 업그레이드할 수 있습니다. [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 대해 자세히 알아보세요.
 
-## <a name="responding-to-todays-threats"></a>오늘날의 위협에 대처<a name="respond-threats"> </a>
+## <a name="respond-to-todays-threats"></a>오늘 위협 <a name="respond-threats"> </a> 에 대응
 
 지난 20년 동안 위협 환경에 중요한 변경 내용이 있었습니다. 과거에 회사는 일반적으로 "자신의 능력"을 확인하는 데 주로 관심이 있던 개별 공격자에 의한 웹 사이트 파손에 대해서만 걱정했습니다. 오늘날의 공격자는 훨씬 더 정교하며 조직적입니다. 특정 금융 및 전략적 목표가 있는 경우가 많습니다. 또한 국가 또는 조직 범죄로 자금 지원을 받으므로 더 많은 사용 가능한 리소스가 있습니다.
 

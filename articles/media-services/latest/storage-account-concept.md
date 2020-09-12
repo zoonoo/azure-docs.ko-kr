@@ -9,15 +9,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 120bd403d84f9912bd309f965f3b69306fabcc24
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f37b453a294a0d0a7b9a99bfebe8f3eff09e8956
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267074"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291197"
 ---
 # <a name="azure-storage-accounts"></a>Azure Storage 계정
 
@@ -51,7 +51,7 @@ Media Services v 3에서 저장소 Api를 사용 하 여 자산에 파일을 업
 |---|---|---|
 |저장소 암호화 Media Services| AES-256 암호화, Media Services에서 관리 하는 키입니다. |지원 되지 않습니다. <sup>(1)</sup>|
 |[휴지 상태의 데이터에 대 한 Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨.|
-|[저장소 클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원 안 됨|
+|[저장소 클라이언트 쪽 암호화](../../storage/common/storage-client-side-encryption.md)|Azure storage에서 제공 하는 클라이언트 쪽 암호화는 Key Vault에서 고객이 관리 하는 키입니다.|지원되지 않습니다.|
 
 <sup>1</sup> Media Services v3에서 저장소 암호화 (AES-256 암호화)는 이전 버전과의 호환성을 위해서만 지원 됩니다. 즉, v 2를 Media Services 사용 하 여 자산을 만든 경우에만 v3에서 기존 저장소 암호화 된 자산을 사용할 수 있지만 새로 만들 수는 없습니다.
 

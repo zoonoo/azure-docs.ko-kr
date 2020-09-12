@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053226"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278584"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>단계적 롤아웃을 사용하여 클라우드 인증으로 마이그레이션(미리 보기)
 
@@ -25,7 +25,7 @@ ms.locfileid: "88053226"
 -  인증에 스마트 카드를 사용하고 있습니다. 
 -  현재 서버는 특정 페더레이션 전용 기능을 제공합니다.
 
-이 기능을 시도하기 전에, 적절한 인증 방법 선택에 대한 가이드를 검토하는 것이 좋습니다. 자세한 내용은 [Azure Active Directory 하이브리드 ID 솔루션용으로 올바른 인증 방법 선택](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods)의 "방법 비교" 표를 참조하세요.
+이 기능을 시도하기 전에, 적절한 인증 방법 선택에 대한 가이드를 검토하는 것이 좋습니다. 자세한 내용은 [Azure Active Directory 하이브리드 ID 솔루션용으로 올바른 인증 방법 선택](./choose-ad-authn.md#comparing-methods)의 "방법 비교" 표를 참조하세요.
 
 기능 개요는 이 "Azure Active Directory: 단계적 롤아웃이란?" 비디오를 시청하세요.
 
@@ -91,7 +91,7 @@ ms.locfileid: "88053226"
 
 단계적 롤아웃을 사용하여 *암호 해시 동기화* 로그인을 테스트하려면 다음 섹션의 사전 작업 지침을 따릅니다.
 
-사용할 PowerShell cmdlet에 대한 자세한 내용은 [Azure AD 2.0 미리 보기](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)를 참조하세요.
+사용할 PowerShell cmdlet에 대한 자세한 내용은 [Azure AD 2.0 미리 보기](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)를 참조하세요.
 
 ## <a name="pre-work-for-password-hash-sync"></a>암호 해시 동기화를 위한 사전 작업
 
@@ -225,7 +225,7 @@ PowerShell을 사용하여 Active Directory 포리스트에서 *Seamless SSO* 
 
 1. UserPrincipalName으로 필터링하여 [Azure AD 로그인 활동 보고서](../reports-monitoring/concept-sign-ins.md)에 로그인이 성공적으로 나타나는지 확인합니다.
 
-   선택한 단계적 롤아웃 사용자에 대해 AD FS(Active Directory Federation Services)에서 여전히 발생하는 사용자 로그인을 추적하려면 [AD FS 문제 해결: 이벤트 및 로깅](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events)의 지침을 따릅니다. 타사 페더레이션 공급자에서 이를 확인하는 방법은 공급자 설명서를 참조하세요.
+   선택한 단계적 롤아웃 사용자에 대해 AD FS(Active Directory Federation Services)에서 여전히 발생하는 사용자 로그인을 추적하려면 [AD FS 문제 해결: 이벤트 및 로깅](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events)의 지침을 따릅니다. 타사 페더레이션 공급자에서 이를 확인하는 방법은 공급자 설명서를 참조하세요.
 
 ## <a name="remove-a-user-from-staged-rollout"></a>단계적 롤아웃에서 사용자 제거
 
@@ -243,7 +243,7 @@ A: 아니요, 이 기능은 페더레이션 인증에서 클라우드 인증으�
 
 **Q: PowerShell을 사용하여 단계적 롤아웃을 수행할 수 있나요?**
 
-A: 예. PowerShell을 사용하여 단계적 롤아웃을 수행하는 방법을 알아보려면 [Azure AD Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)를 참조하세요.
+A: 예. PowerShell을 사용하여 단계적 롤아웃을 수행하는 방법을 알아보려면 [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure AD 2.0 미리 보기](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Azure AD 2.0 미리 보기](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

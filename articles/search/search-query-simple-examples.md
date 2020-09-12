@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: afc9f8e29cf27734787da9cab3e3456e5414d9ac
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918029"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294869"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Azure Cognitive Search에서 간단한 쿼리 만들기
 
@@ -37,13 +37,13 @@ Azure Cognitive Search에서는 [단순 쿼리 구문이](query-simple-syntax.md
 
 요청 헤더를 지정한 후 **search=** 문자열만 교환하여 이 문서의 모든 쿼리에 다시 사용할 수 있습니다. 
 
-  ![Postman 요청 헤더](media/search-query-lucene-examples/postman-header.png)
+  ![Postman 요청 헤더 집합 매개 변수](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>요청 URL 설정
 
 Request는 Azure Cognitive Search 끝점 및 검색 문자열을 포함 하는 URL과 쌍을 이루는 GET 명령입니다.
 
-  ![Postman 요청 헤더](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![Postman 요청 헤더 가져오기](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 URL 구성에는 다음 요소가 있습니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 94a0c0af5071397ee4deb859f8f58f2ed1c73a77
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519357"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277666"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -40,7 +40,7 @@ Security Center은 보안 정책을 사용 하기 위한 다음과 같은 옵션
 * **규정 준수 정책 추가** -Security Center의 규정 준수 대시보드는 특정 표준 또는 규정 (예: Azure CIS, NIST SP 800-53 4, SWIFT CSP CSCF-v2020)의 컨텍스트에서 환경 내의 모든 평가 상태를 표시 합니다. 자세한 내용은 [규정 준수 향상](security-center-compliance-dashboard.md)을 참조 하세요.
 
 
-## <a name="managing-your-security-policies"></a>보안 정책 관리
+## <a name="manage-your-security-policies"></a>보안 정책 관리
 
 Security Center에서 보안 정책을 보려면
 
@@ -54,7 +54,7 @@ Security Center에서 보안 정책을 보려면
 
 1. 해당 구독 또는 관리 그룹에 대 한 보안 정책 페이지가 나타납니다. 사용 가능한 정책과 할당 된 정책을 표시 합니다.
 
-   ![정책 화면](./media/tutorial-security-policy/security-policy-page.png)
+   ![정책 페이지](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
     > 기본 정책과 함께 "MG 상속" 이라는 레이블이 있으면 정책이 관리 그룹에 할당 되 고 사용자가 보고 있는 구독에서 상속 된 것입니다.
@@ -111,11 +111,11 @@ Security Center는 Azure 사용자, 그룹 및 서비스에 할당할 수 있는
 
 1. **유효 정책 보기**를 선택 합니다.
 
-   ![정책 사용 안 함](./media/tutorial-security-policy/view-effective-policy.png)
+   ![정책 보기](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. 할당 된 정책을 선택 합니다.
 
-   ![정책 사용 안 함](./media/tutorial-security-policy/security-policy.png)
+   ![정책 선택](./media/tutorial-security-policy/security-policy.png)
 
 1. **매개 변수** 섹션에서 사용 하지 않도록 설정할 권장 사항을 호출 하는 정책을 검색 하 고 드롭다운 목록에서 **사용 안 함** 을 선택 합니다.
 

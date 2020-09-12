@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 53a84bd970d564411ec9a56b54159e5a96717a6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8ec151c813bfb0b9777e583a4ea5144e3b2079a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558756"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297062"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>단일 페이지 응용 프로그램: 로그인 및 로그 아웃
 
@@ -42,7 +42,8 @@ ms.locfileid: "84558756"
 
 ## <a name="sign-in-with-a-pop-up-window"></a>팝업 창으로 로그인
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2.x)](#tab/javascript2)
 
 ```javascript
 
@@ -58,12 +59,52 @@ const loginRequest = {
     scopes: ["User.ReadWrite"]
 }
 
-const myMsal = new userAgentApplication(config);
+let username = "";
+
+const myMsal = new PublicClientApplication(config);
 
 myMsal.loginPopup(loginRequest)
     .then(function (loginResponse) {
         //login success
-        let idToken = loginResponse.idToken;
+
+        // In case multiple accounts exist, you can select
+        const currentAccounts = myMsal.getAllAccounts();
+    
+        if (currentAccounts === null) {
+            // no accounts detected
+        } else if (currentAccounts.length > 1) {
+            // Add choose account code here
+        } else if (currentAccounts.length === 1) {
+            username = currentAccounts[0].username;
+        }
+    
+    }).catch(function (error) {
+        //login failure
+        console.log(error);
+    });
+```
+
+# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1.x)](#tab/javascript1)
+
+```javascript
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+const myMsal = new UserAgentApplication(config);
+
+myMsal.loginPopup(loginRequest)
+    .then(function (loginResponse) {
+        //login success
     }).catch(function (error) {
         //login failure
         console.log(error);
@@ -124,7 +165,47 @@ export class AppRoutingModule { }
 
 ## <a name="sign-in-with-redirect"></a>리디렉션으로 로그인
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2.x)](#tab/javascript2)
+
+```javascript
+
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const loginRequest = {
+    scopes: ["User.ReadWrite"]
+}
+
+let username = "";
+
+const myMsal = new PublicClientApplication(config);
+
+function handleResponse(response) {
+    //handle redirect response
+
+    // In case multiple accounts exist, you can select
+    const currentAccounts = myMsal.getAllAccounts();
+
+    if (currentAccounts === null) {
+        // no accounts detected
+    } else if (currentAccounts.length > 1) {
+        // Add choose account code here
+    } else if (currentAccounts.length === 1) {
+        username = currentAccounts[0].username;
+    }
+}
+
+myMsal.handleRedirectPromise(handleResponse);
+
+myMsal.loginRedirect(loginRequest);
+```
+
+# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1.x)](#tab/javascript1)
 
 리디렉션 메서드는 주 앱에서 벗어나 이동 하기 때문에 약속을 반환 하지 않습니다. 반환 된 토큰을 처리 하 고 액세스 하려면 리디렉션 메서드를 호출 하기 전에 성공 및 오류 콜백을 등록 해야 합니다.
 
@@ -142,7 +223,7 @@ const loginRequest = {
     scopes: ["User.ReadWrite"]
 }
 
-const myMsal = new userAgentApplication(config);
+const myMsal = new UserAgentApplication(config);
 
 function authCallback(error, response) {
     //handle redirect response
@@ -157,9 +238,6 @@ myMsal.loginRedirect(loginRequest);
 
 여기에서 코드는 팝업 창을 사용한 로그인에 대 한 섹션의 앞부분에서 설명한 것과 같습니다. 기본 흐름은 리디렉션입니다.
 
-> [!NOTE]
-> ID 토큰은 동의한 범위를 포함 하지 않으며 인증 된 사용자만 나타냅니다. 동의한 범위는 다음 단계에서 얻을 수 있는 액세스 토큰으로 반환 됩니다.
-
 ---
 
 ## <a name="sign-out"></a>로그아웃
@@ -168,7 +246,28 @@ MSAL 라이브러리는 `logout` 브라우저 저장소에서 캐시를 지우�
 
 을 설정 하 여 로그 아웃 한 후 리디렉션해야 하는 URI를 구성할 수 있습니다 `postLogoutRedirectUri` . 또한이 URI는 응용 프로그램 등록에서 로그 아웃 URI로 등록 되어야 합니다.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript-msaljs-2x"></a>[JavaScript (MSAL.js 2.x)](#tab/javascript2)
+
+```javascript
+const config = {
+    auth: {
+        clientId: 'your_app_id',
+        redirectUri: "your_app_redirect_uri", //defaults to application start page
+        postLogoutRedirectUri: "your_app_logout_redirect_uri"
+    }
+}
+
+const myMsal = new PublicClientApplication(config);
+
+// you can select which account application should sign out
+const logoutRequest = {
+    account: myMsal.getAccountByUsername(username)
+}
+
+myMsal.logout(logoutRequest);
+```
+
+# <a name="javascript-msaljs-1x"></a>[JavaScript (MSAL.js 1.x)](#tab/javascript1)
 
 ```javascript
 const config = {

@@ -18,12 +18,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9401532964e984147436f664b366fd613f3f919f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aa7be140b47d389bea0e7468d1a5ac7e58c3b1b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359384"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276289"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
 다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health에서 Azure AD Connect (동기화)를 모니터링 하는 방법에 대 한 자세한 내용은 [동기화에 Azure AD Connect Health 사용](how-to-connect-health-sync.md)을 참조 하세요. 또한 Azure AD Connect Health Active Directory Domain Services 모니터링에 대 한 자세한 내용은 AD DS에서 [Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조 하세요.
@@ -119,7 +119,6 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 > 이 보고서는 12시간마다 자동으로 업데이트되어 해당 시간 내에 수집된 새 정보가 포함됩니다. 따라서 마지막 12시간 내에 발생하는 로그인 시도가 보고서에 포함되지 않을 수 있습니다.
 
 ## <a name="related-links"></a>관련 링크
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Azure AD Connect Health Agent 설치](how-to-connect-health-agent-install.md)
 * [위험한 IP 보고서](how-to-connect-health-adfs-risky-ip.md)
-

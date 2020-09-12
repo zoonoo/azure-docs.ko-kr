@@ -17,19 +17,19 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce4c64f0be61c2fe28a102674929333235ee29c8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 31c76b78d4ab7a3f305b52526b7e4ce14f3b1ede
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385095"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278040"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>ADSync 서비스 계정 암호 변경
 ADSync 서비스 계정 암호를 변경 하는 경우 암호화 키를 중단 하 고 ADSync 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다. 
 
 Azure AD Connect 동기화 서비스의 일부로 암호화 키를 사용 하 여 AD DS 커넥터 계정 및 ADSync 서비스 계정의 암호를 저장 합니다.  이러한 계정은 데이터베이스에 저장되기 전에 암호화됩니다. 
 
-사용된 암호화 키는 [Windows 데이터 보호(DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx)를 사용하여 보호됩니다. DPAPI는 **Adsync 서비스 계정을**사용 하 여 암호화 키를 보호 합니다. 
+사용된 암호화 키는 [Windows 데이터 보호(DPAPI)](/previous-versions/ms995355(v=msdn.10))를 사용하여 보호됩니다. DPAPI는 **Adsync 서비스 계정을**사용 하 여 암호화 키를 보호 합니다. 
 
 서비스 계정 암호를 변경 해야 하는 경우 [ADSync 서비스 계정 암호화 키를 포기](#abandoning-the-adsync-service-account-encryption-key) 하는 절차를 사용 하 여이를 수행할 수 있습니다.  이러한 절차는 어떤 이유로든 암호화 키를 제거해야 하는 경우에 사용되어야 합니다.
 

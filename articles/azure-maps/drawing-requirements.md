@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 4a57719ec9e7b22ed81ee6f07a568a993846de42
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: af7238ca4229bac678061c742f13953299a96ba4
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374323"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290024"
 ---
 # <a name="drawing-package-requirements"></a>그리기 패키지 요구 사항
 
@@ -187,7 +187,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### <a name="directoryinfo"></a>directoryInfo
 
-| 속성  | type | 필수 | 설명 |
+| 속성  | type | 필수 | Description |
 |-----------|------|----------|-------------|
 | name      | 문자열 | true   |  건물의 이름입니다. |
 | streetAddress|    문자열 |    false    | 건물의 주소입니다. |
@@ -218,7 +218,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### <a name="georeference"></a>georeference
 
-| 속성  | Type | 필수 | 설명 |
+| 속성  | Type | 필수 | Description |
 |-----------|------|----------|-------------|
 |lat    | numeric |    true |    시설 그리기의 원점에 대한 위도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다.|
 |lon    |numeric|    true|    시설 그리기의 원점에 대한 경도의 10진수 표현입니다. 원점 좌표는 WGS84 Web Mercator(`EPSG:3857`)에 있어야 합니다. |
@@ -226,7 +226,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 
 ### <a name="dwglayers"></a>dwgLayers
 
-| 속성  | Type | 필수 | 설명 |
+| 속성  | Type | 필수 | Description |
 |-----------|------|----------|-------------|
 |exterior    |문자열 배열|    true|    외부 건물 프로필을 정의하는 레이어의 이름입니다.|
 |단위|    문자열 배열|    true|    단위를 정의하는 레이어의 이름입니다.|
@@ -251,7 +251,7 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
 |nameSubtitle|    문자열    |false|    단위의 부제목입니다. |
 |addressRoomNumber|    문자열|    false|    단위의 방/단위/콘도/스위트룸 번호입니다.|
 |verticalPenetrationCategory|    문자열|    false| 이 속성을 정의하면 결과 기능이 단위가 아닌 VRT(수직 침투)가 됩니다. VRT를 사용하여 위 또는 아래 수준의 다른 VRT 기능으로 이동할 수 있습니다. 수직 침투는 [범주](https://aka.ms/pa-indoor-spacecategories) 이름입니다. 이 속성을 정의하면 categoryName 속성이 verticalPenetrationCategory로 재정의됩니다. |
-|verticalPenetrationDirection|    문자열|    false    |`verticalPenetrationCategory`가 정의되면 필요에 따라 유효한 이동 방향을 정의합니다. 허용되는 값은 `lowToHigh`, `highToLow`, `both` 및 `closed`입니다. 기본값은 `both`여야 합니다.|
+|verticalPenetrationDirection|    문자열|    false    |`verticalPenetrationCategory`가 정의되면 필요에 따라 유효한 이동 방향을 정의합니다. 허용되는 값은 `lowToHigh`, `highToLow`, `both` 및 `closed`입니다. 기본값은 `both`입니다.|
 | nonPublic | bool | false | 단위가 대중에게 공개되는지 여부를 나타냅니다. |
 | isRoutable | bool | false | `false`로 설정되면 단위를 이동하거나 탐색할 수 없습니다. 기본값은 `true`입니다. |
 | isOpenArea | bool | false | 단위에 연결 된 열을 요구 하지 않고 탐색 에이전트가 단위를 입력할 수 있습니다. 기본적으로이 값은 여가 `true` 없는 단위의 경우로 설정 되 고, 여는 단위에 대해로 설정 됩니다 `false` .  `isOpenArea`을 (를) 시작 `false` 하지 않고 단위에서 수동으로로 설정 하면 경고가 발생 합니다. 그 이유는 탐색 에이전트가 결과 단위에 연결할 수 없기 때문입니다.|
@@ -359,7 +359,6 @@ zip 폴더는 디렉터리의 루트 수준에 있는 매니페스트 파일을 
             "nameAlt": "Basement01", 
             "nameSubtitle": "01", 
             "addressRoomNumber": "B01", 
-            "nonWheelchairAccessible": false, 
             "nonPublic": true, 
             "isRoutable": true, 
             "isOpenArea": true 

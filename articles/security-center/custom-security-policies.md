@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6f11de7f38ff97b1141afa48c26788a171727cb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 065c6661ffc9f618a5dfd32a9f45d26569a56003
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559559"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278176"
 ---
 # <a name="using-custom-security-policies"></a>사용자 지정 보안 정책 사용
 
@@ -69,7 +69,7 @@ ms.locfileid: "85559559"
 
     [![사용자 지정 권장 사항](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
-## <a name="enhancing-your-custom-recommendations-with-detailed-information"></a>세부 정보를 사용하여 사용자 지정 권장 사항 향상
+## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>세부 정보를 사용 하 여 사용자 지정 권장 사항 향상
 
 Azure Security Center에서 제공하는 기본 제공 권장 사항에는 심각도 수준과 수정 지침 등의 세부 정보가 포함됩니다. Microsoft Azure Portal이나 권장 사항에 액세스하는 모든 위치에 표시되도록 이러한 유형의 정보를 사용자 지정 권장 사항에 추가하려면 REST API를 사용해야 합니다. 
 

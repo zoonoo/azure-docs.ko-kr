@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abc0417fc6f97501566f03d7eae0e4274d1dbced
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e7653f850edc910fc78b14a628b87dcb22aeb903
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182346"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279417"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.  
@@ -30,7 +30,7 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 > 새 버전이 출시 되 면 Connect Health agent가 자동으로 업데이트 됩니다. Azure Portal에서 자동 업그레이드 설정을 사용 하도록 설정 했는지 확인 하세요.
 >
 
-동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)에 대해 자세히 알아보고 기능 피드백의 경우 [Connect Health 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)에서 투표하세요.
+동기화용 Azure AD Connect Health는 Azure AD Connect 설치와 통합됩니다. [Azure AD Connect 릴리스 기록](./reference-connect-version-history.md)에 대해 자세히 알아보고 기능 피드백의 경우 [Connect Health 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)에서 투표하세요.
 
 ## <a name="april-2020"></a>2020년 4월
 **에이전트 업데이트**
@@ -260,4 +260,4 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 * Azure AD 전역 관리자 자격 증명을 사용하여 간단한 에이전트 배포.  
 
 ## <a name="next-steps"></a>다음 단계
-[온-프레미스 ID 인프라 및 클라우드 동기화 서비스 모니터링](whatis-hybrid-identity-health.md)에 대해 자세히 알아봅니다.
+[온-프레미스 ID 인프라 및 클라우드 동기화 서비스 모니터링](./whatis-azure-ad-connect.md)에 대해 자세히 알아봅니다.

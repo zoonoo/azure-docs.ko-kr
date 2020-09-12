@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 262a6612c50148232e814befc76707989befb18b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 72f12ece3c939ee8fbaecbec377d18c5bb3b0a49
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212138"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294614"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Service Bus 트리거
 
@@ -162,6 +162,7 @@ def main(msg: func.ServiceBusMessage):
         'time_to_live': msg.time_to_live,
         'to': msg.to,
         'user_properties': msg.user_properties,
+        'metadata' : msg.metadata
     })
 
     logging.info(result)
@@ -358,7 +359,7 @@ Functions 런타임은 [PeekLock 모드](../service-bus-messaging/service-bus-pe
 
 Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. 이러한 속성은 [Message](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet) 클래스의 멤버입니다.
 
-|속성|형식|설명|
+|속성|Type|설명|
 |--------|----|-----------|
 |`ContentType`|`string`|응용 프로그램 관련 논리에 대해 보낸 사람 및 수신자가 사용한 콘텐츠 형식 식별자입니다.|
 |`CorrelationId`|`string`|상관관계 ID입니다.|

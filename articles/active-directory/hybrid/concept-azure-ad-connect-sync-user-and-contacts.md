@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9470e9af38fdd814f5059538656e6a3dbb8e3a7
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60245487"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279315"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect 동기화: 사용자, 그룹 및 연락처 이해
 여러 Active Directory 포리스트를 가져야 하는 이유와 배포 토폴로지는 여러 가지가 있습니다. 일반적인 모델에는 합병 & 인수 후 계정 리소스 배포 및 GAL 동기화 포리스트가 포함됩니다. 하지만 순수 모델이 있어도 하이브리드 모델도 일반적입니다. Azure AD Connect 동기화의 기본 구성은 어느 특정 모델을 가정하지는 않지만 설치 가이드에서 사용자 일치가 어떻게 선택되어 있는지에 따라 다양한 동작을 관찰할 수 있습니다.
@@ -39,15 +39,15 @@ Active Directory에서 Azure AD로 그룹을 동기화할 때 다음에 유의�
 
 * Azure AD Connect는 기본 제공 보안 그룹을 디렉터리 동기화에서 제외합니다.
 
-* Azure AD Connect는 [주 그룹 구성원 자격](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx)에서 Azure AD로의 동기화를 지원하지 않습니다.
+* Azure AD Connect는 [주 그룹 구성원 자격](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771489(v=ws.11))에서 Azure AD로의 동기화를 지원하지 않습니다.
 
-* Azure AD Connect는 [동적 배포 그룹 구성원 자격](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx)에서 Azure AD로의 동기화를 지원하지 않습니다.
+* Azure AD Connect는 [동적 배포 그룹 구성원 자격](/Exchange/recipients/dynamic-distribution-groups/dynamic-distribution-groups?view=exchserver-2019)에서 Azure AD로의 동기화를 지원하지 않습니다.
 
 * Active Directory 그룹을 Azure AD에 메일 사용이 가능한 그룹으로 동기화하려면
 
     * 그룹의 *proxyAddress* 속성이 비어 있는 경우 *mail* 속성에 값이 있어야 합니다.
 
-    * 그룹의 *proxyAddress* 특성이 비어 있지 않은 경우 SMTP 프록시 주소 값이 하나 이상 포함되어야 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
+    * 그룹의 *proxyAddress* 특성이 비어 있지 않은 경우 SMTP 프록시 주소 값이 하나 이상 포함되어야 합니다. 몇 가지 예제는 다음과 같습니다.
     
       * proxyAddress 속성의 값이 *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* 인 Active Directory 그룹은 Azure AD에서 메일을 사용할 수 없습니다. SMTP 주소가 없습니다.
       
@@ -76,4 +76,3 @@ Azure AD에 개체를 프로비전하는 경우에는 메타버스 특성 **sour
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure AD Connect 동기화: 동기화 옵션 사용자 지정](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
-

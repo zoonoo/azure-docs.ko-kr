@@ -16,19 +16,19 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02490839a9e35695ae2e8b3f750e139ad7413aa4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60245513"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280216"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 동기화: 선언적 프로비전 식 이해
 Azure AD Connect 동기화는 Forefront Identity Manager 2010에 처음 도입된 선언적 프로비전을 기반으로 합니다. 컴파일된 코드를 작성할 필요 없이 전체 ID 통합 비즈니스 논리를 구현할 수 있습니다.
 
 선언적 프로비전의 핵심적인 부분은 특성 흐름에 사용되는 표현 언어입니다. 사용 되는 언어는 VBA(Microsoft® Visual Basic® for Applications)의 하위 집합입니다. 이 언어는 Microsoft Office에서 사용되며, VBScript 경험이 있는 사용자 또한 이 언어를 인식합니다. 선언적 프로비전 표현 언어는 함수만 사용하며 구조적 언어는 아닙니다. 메서드 또는 문이 없습니다. 대신, 빠른 프로그램 흐름에 함수가 중첩됩니다.
 
-자세한 내용은 [Office 2013용 Visual Basic for Applications 언어 참조 시작](https://msdn.microsoft.com/library/gg264383.aspx)을 참조하세요.
+자세한 내용은 [Office 2013용 Visual Basic for Applications 언어 참조 시작](/office/vba/api/overview/language-reference)을 참조하세요.
 
 특성은 강력한 형식입니다. 함수는 올바른 형식의 특성만 허용합니다. 대/소문자를 구분하기도 합니다. 함수 이름과 특성 이름은 모두 적절한 대/소문자를 가지고 있어야 하며 그렇지 않으면 오류가 발생합니다.
 
@@ -82,7 +82,7 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 ## <a name="multi-valued-attributes"></a>다중값 특성
 함수는 단일 값 및 다중값 특성에서 작동할 수 있습니다. 다중값 특성의 경우 함수는 모든 값에 대해 작동하고 각 값에 동일한 함수를 적용합니다.
 
-예:  
+다음은 그 예입니다.   
 `Trim([proxyAddresses])` proxyAddress 특성의 모든 값에 Trim을 수행합니다.  
 `Word([proxyAddresses],1,"@") & "@contoso.com"`@-sign이 있는 모든 값의 경우 도메인을 @contoso.com으로 바꿉니다.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` SIP 주소를 찾아서 값을 제거합니다.
@@ -100,4 +100,3 @@ Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매
 **참조 항목**
 
 * [Azure AD 동기화 연결: 함수 참조](reference-connect-sync-functions-reference.md)
-

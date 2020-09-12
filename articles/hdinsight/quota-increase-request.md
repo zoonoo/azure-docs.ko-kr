@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 4de32bad763c0bbf0e143a7ce639efec8c9c41ae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f8411176e0979bdb894983bcf866abd0e1109e21
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079618"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291672"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Azure HDInsight의 할당량 증가 요청
 
@@ -65,7 +65,7 @@ CPU 코어 할당량은 특정 Azure 지역의 모든 고객 간에 리소스 �
 1. **검토 + 만들기** 탭에서 **만들기**를 선택합니다.
 
 > [!NOTE]  
-> 프라이빗 영역에서 HDInsight 코어 할당량을 늘려야 하는 경우 [허용 목록에 추가 요청을 제출합니다](https://aka.ms/canaryintwhitelist).
+> 개인 지역에서 HDInsight 코어 할당량을 늘려야 하는 경우 [승인 된 목록 요청을 제출](https://aka.ms/canaryintwhitelist)합니다.
 
 [지원 서비스에 문의하여 할당량 증가를 요청](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request)할 수 있습니다.
 

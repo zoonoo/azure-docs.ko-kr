@@ -17,15 +17,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b5e37c29e4b3df3f171f683266b5d0a3e0c95d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c68be4e46693621f77cb25dd8f34f8e0b7d75dd
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109286"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278414"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 인시던트 대응 요구 사항 확인
-대규모 또는 중간 규모 조직에서는 대개 [보안 인시던트 대응](https://technet.microsoft.com/library/cc700825.aspx) 을 준비하여 IT가 인시던트의 수준에 따라 동작을 취합니다. ID 관리 시스템은 대상에 대해 특정 동작을 수행한 사용자를 식별하는 데 사용될 수 있기 때문에 인시던트 대응 프로세스에서 중요한 구성 요소입니다. 하이브리드 ID 솔루션은 IT에서 활용할 수 있는 모니터링 및 보고 기능을 제공하여 잠재적인 위협을 식별하고 완화하는 작업을 수행해야 합니다. 일반적인 인시던트 대응 계획에서 계획의 일부를 다음과 같은 단계로 해야 합니다.
+대규모 또는 중간 규모 조직에서는 대개 [보안 인시던트 대응](/previous-versions/tn-archive/cc700825(v=technet.10)) 을 준비하여 IT가 인시던트의 수준에 따라 동작을 취합니다. ID 관리 시스템은 대상에 대해 특정 동작을 수행한 사용자를 식별하는 데 사용될 수 있기 때문에 인시던트 대응 프로세스에서 중요한 구성 요소입니다. 하이브리드 ID 솔루션은 IT에서 활용할 수 있는 모니터링 및 보고 기능을 제공하여 잠재적인 위협을 식별하고 완화하는 작업을 수행해야 합니다. 일반적인 인시던트 대응 계획에서 계획의 일부를 다음과 같은 단계로 해야 합니다.
 
 1. 초기 평가.
 2. 인시던트 통신.
@@ -67,6 +67,5 @@ ID서 관리 시스템은 IT 관리자를 도와 해당하는 의심스러운 �
 ## <a name="next-steps"></a>다음 단계
 [데이터 보호 전략 정의](plan-hybrid-identity-design-considerations-data-protection-strategy.md)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 [설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)
-

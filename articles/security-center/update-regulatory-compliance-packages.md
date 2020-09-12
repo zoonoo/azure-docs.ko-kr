@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 28b6a70297efb8d8237f085e1f5b08dbb6a09072
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32ee0135d4d991a9afe229747f8cb66916a12e7f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522609"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277445"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>규정 준수 대시보드의 표준 세트 사용자 지정
 
@@ -46,7 +46,7 @@ NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, 영국 공식 및 영국 NHS, 캐나다
 추가 표준은 사용할 수 있게 되면 대시보드에서 지원됩니다. 
 
 
-## <a name="adding-a-regulatory-standard-to-your-dashboard"></a>대시보드에 규정 표준 추가
+## <a name="add-a-regulatory-standard-to-your-dashboard"></a>대시보드에 규정 표준 추가
 
 다음 단계에서는 패키지를 추가하여 지원되는 규정 표준 중 하나를 준수하는지 모니터링하는 방법을 설명합니다.
 

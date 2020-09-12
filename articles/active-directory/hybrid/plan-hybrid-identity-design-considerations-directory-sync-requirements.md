@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21558c4eccf0cd1f4e9e1d630f0e89dbb6f01c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 500d226fcb60646becc49144f206dcb0dee49bd8
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60381164"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278397"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>디렉터리 동기화 요구 사항 결정
 동기화는 해당 온-프레미스 ID에 기반하여 클라우드에서 사용자에게 ID를 제공하는 모든 작업입니다. 인증에 대해 동기화된 계정 또는 페더레이션된 인증을 사용하는지와 무관하게 사용자는 클라우드에서 ID가 필요합니다.  이 ID는 정기적으로 유지 관리하고 업데이트해야 합니다.  업데이트는 제목 변경에서 암호 변경까지 다양한 형태일 수 있습니다.  
@@ -64,7 +64,7 @@ ms.locfileid: "60381164"
   * 동기화를 지원하기 위해 필요한 방화벽 포트를 열 수 있습니까?
 * 동기화 서버에 대한 재해 복구 계획이 있습니까?
 * 동기화하려는 모든 포리스트에 대한 올바른 사용 권한이 있는 계정이 있습니까?
-  * 회사가 이 질문에 대한 대답을 모르는 경우 [Azure Active Directory 동기화 서비스 설치](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) 문서에서 "암호 동기화에 대한 사용 권한" 섹션을 검토하고 이러한 사용 권한이 있는 계정이 이미 있는지 혹은 하나를 만들어야 할지를 결정합니다.
+  * 회사가 이 질문에 대한 대답을 모르는 경우 [Azure Active Directory 동기화 서비스 설치](/previous-versions/azure/azure-services/dn757602(v=azure.100)#BKMK_CreateAnADAccountForTheSyncService) 문서에서 "암호 동기화에 대한 사용 권한" 섹션을 검토하고 이러한 사용 권한이 있는 계정이 이미 있는지 혹은 하나를 만들어야 할지를 결정합니다.
 * 다중 포리스트 동기화가 있는 경우 동기화 서버가 각 포리스트에 도달할 수 있습니까?
 
 > [!NOTE]
@@ -77,4 +77,3 @@ ms.locfileid: "60381164"
 
 ## <a name="see-also"></a>참고 항목
 [설계 고려 사항 개요](plan-hybrid-identity-design-considerations-overview.md)
-

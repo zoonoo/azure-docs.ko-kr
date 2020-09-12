@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 496d99b3d871c66e2557e1f384bb4480cd8b0831
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 13b3d483e271ac220ae254891fe362e932746e87
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423153"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279502"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 Azure에서 데이터, 응용 프로그램 및 기타 자산을 보호 하는 일련의 작업 모범 사례를 제공 합니다.
@@ -53,7 +53,7 @@ Azure 운영 보안은 사용자가 Azure에서 자신의 데이터, 애플리�
 Azure 등록 포털에서 보안 작업에 알리는 세부 정보를 관리 담당자 정보에 포함할 수 있습니다. 연락처 정보는 전자 메일 주소 및 전화 번호입니다.
 
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Azure 구독을 관리 그룹으로 구성
-조직에 구독이 많은 경우 해당 구독에 대한 액세스, 정책 및 규정 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](/azure/governance/management-groups/create) 은 구독을 초과 하는 범위 수준을 제공 합니다. 구독을 관리 그룹 이라고 하는 컨테이너에 구성 하 고 관리 되는 조건을 관리 그룹에 적용 합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 조건을 자동으로 상속합니다.
+조직에 구독이 많은 경우 해당 구독에 대한 액세스, 정책 및 규정 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](/azure/governance/management-groups/create) 은 구독을 초과 하는 범위 수준을 제공 합니다. 구독을 관리 그룹 이라고 하는 컨테이너에 구성 하 고 관리 되는 조건을 관리 그룹에 적용 합니다. 관리 그룹에 속한 모든 구독은 관리 그룹에 적용되는 조건을 자동으로 상속합니다.
 
 관리 그룹 및 구독의 유연한 구조를 디렉터리에 빌드할 수 있습니다. 각 디렉터리에는 루트 관리 그룹 이라는 단일 최상위 관리 그룹이 제공 됩니다. 이 루트 관리 그룹은 모든 관리 그룹과 구독이 루트 관리 그룹까지 접히도록 만들어집니다. 루트 관리 그룹을 사용 하면 글로벌 정책과 Azure 역할 할당을 디렉터리 수준에서 적용할 수 있습니다.
 
@@ -116,7 +116,7 @@ Security Center를 사용 하 여 모든 Azure 리소스의 보안 상태를 중
 **세부 정보**: 우선 순위가 가장 높은 항목을 사용 하 여 Security Center 시작의 [보안 권장 사항을](../../security-center/security-center-recommendations.md) 따릅니다.
 
 **모범 사례**: siem (보안 정보 및 이벤트 관리) 솔루션에 Security Center 경고를 통합 합니다.   
-**세부 정보**: siem을 사용 하는 대부분의 조직에서는이를 분석가 응답이 필요한 보안 경고에 대 한 중앙 clearinghouse로 사용 합니다. Security Center에서 생성 된 처리 된 이벤트는 Azure Monitor를 통해 사용할 수 있는 로그 중 하나인 Azure 활동 로그에 게시 됩니다. Azure Monitor는 모니터링 데이터를 SIEM 도구에 라우팅하는 것에 대한 통합된 파이프라인을 제공합니다. 자세한 내용은 [보안 경고 및 권장 사항 내보내기](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) 를 참조 하세요. Azure 센티널를 사용 하는 경우 [연결 Azure Security Center](../../sentinel/connect-azure-security-center.md)을 참조 하세요.
+**세부 정보**: siem을 사용 하는 대부분의 조직에서는이를 분석가 응답이 필요한 보안 경고에 대 한 중앙 clearinghouse로 사용 합니다. Security Center에서 생성 된 처리 된 이벤트는 Azure Monitor를 통해 사용할 수 있는 로그 중 하나인 Azure 활동 로그에 게시 됩니다. Azure Monitor는 모니터링 데이터를 SIEM 도구에 라우팅하는 것에 대한 통합된 파이프라인을 제공합니다. 자세한 내용은 [보안 경고 및 권장 사항 내보내기](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs) 를 참조 하세요. Azure 센티널를 사용 하는 경우 [연결 Azure Security Center](../../sentinel/connect-azure-security-center.md)을 참조 하세요.
 
 **모범 사례**: Azure 로그를 siem과 통합 합니다.   
 **세부 정보**: [Azure Monitor을 사용 하 여 데이터를 수집 하 고 내보냅니다](/azure/azure-monitor/overview#integrate-and-export-data). 이 방법은 보안 인시던트 조사를 사용 하도록 설정 하는 데 중요 하며 온라인 로그 보존은 제한적입니다. Azure 센티널를 사용 하는 경우 [연결 데이터 원본](../../sentinel/connect-data-sources.md)을 참조 하세요.
@@ -149,7 +149,7 @@ Security Center를 사용 하 여 모든 Azure 리소스의 보안 상태를 중
 [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/)를 사용하면 선언적 템플릿을 통해 애플리케이션을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 애플리케이션 수명 주기의 각 단계에서 애플리케이션을 반복 배포합니다.
 
 **모범 사례**: 자동으로 Azure Web Apps 또는 Azure Cloud Services에 빌드 및 배포합니다.  
-**세부 정보**: Azure 웹 앱 또는 클라우드 서비스에 [자동으로 빌드 및 배포](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) 하도록 Azure DevOps Projects를 구성할 수 있습니다. Azure DevOps는 모든 코드 체크 인 후에 Azure에 빌드를 수행한 후에 이진 파일을 자동으로 배포 합니다. 패키지 빌드 프로세스는 Visual Studio의 Package 명령과 동일하며 게시 단계는 Visual Studio의 Publish 명령과 동일합니다.
+**세부 정보**: Azure 웹 앱 또는 클라우드 서비스에  [자동으로 빌드 및 배포](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) 하도록 Azure DevOps Projects를 구성할 수 있습니다. Azure DevOps는 모든 코드 체크 인 후에 Azure에 빌드를 수행한 후에 이진 파일을 자동으로 배포 합니다. 패키지 빌드 프로세스는 Visual Studio의 Package 명령과 동일하며 게시 단계는 Visual Studio의 Publish 명령과 동일합니다.
 
 **모범 사례**: 릴리스 관리를 자동화합니다.  
 **세부 정보**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops)는 다단계 배포 자동화 및 릴리스 프로세스 관리를 위한 솔루션입니다. 관리되는 지속적인 배포 파이프라인을 만들어 빠르고 쉽게 자주 릴리스합니다. Azure Pipelines를 통해 릴리스 프로세스를 자동화하고, 미리 정의된 승인 워크플로를 적용할 수 있습니다. 필요에 맞게 온-프레미스 및 클라우드에 배포하고 확장하며 사용자 지정합니다.

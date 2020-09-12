@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f5d3125b7b77e8ce7a943f640c44615049ab160
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f1d1bf35d03f0f7c4d11e4cc7e9b6f98f38d8ab
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60455787"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279570"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>사용자 개인 정보 및 Azure AD Connect 
 
@@ -43,7 +43,7 @@ Azure AD Connect 동기화 서버는 다음 사용자 개인 정보 데이터를
 
 사용자 데이터를 제거할 때 Azure AD Connect 고객은 다음 지침을 사용해야 합니다.
 1.  적어도 48시간마다 Azure AD Connect 설치 로그 파일이 들어있는 폴더의 내용을 정기적으로 삭제하세요.
-2.  이 제품은 이벤트 로그를 생성할 수도 있습니다.  이벤트 로그에 대한 자세한 내용은 [문서 여기](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx)를 참조하세요.
+2.  이 제품은 이벤트 로그를 생성할 수도 있습니다.  이벤트 로그에 대한 자세한 내용은 [문서 여기](/windows/win32/wes/windows-event-log)를 참조하세요.
 
 사람에 관한 데이터는 그 사람의 데이터가 처음 생성된 원본 시스템에서 제거되면 Azure AD Connect 데이터베이스에서 자동으로 제거됩니다. GDPR을 준수하기 위해 관리자의 특정 조치가 필요하지 않습니다.  그러나 Azure AD Connect 데이터는 적어도 2일마다 데이터 원본과 동기화되어야 합니다.
 

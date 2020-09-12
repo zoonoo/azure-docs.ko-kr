@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 6f09a0ab88273aa10bb5f3cb55f89d014897df12
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8cfbe26458de630aaf411aade4a31cb4e9c72b17
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268454"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295430"
 ---
 # <a name="diagnostic-logs-schemas"></a>진단 로그 스키마
 
@@ -48,7 +48,7 @@ ms.locfileid: "89268454"
 |tokenType|토큰 유형입니다.|
 |statusMessage|상태 메시지입니다.|
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 키 배달 요청 스키마의 속성입니다.
 

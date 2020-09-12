@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0b641cb05b25486bd1b11c2d313898d694f8c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e2c09bcd43b08778324a32cc052fad5b85714c4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253497"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279587"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Azure AD Connect의 성능에 영향을 주는 요인
 
@@ -43,7 +43,7 @@ Azure AD Connect는 Active Directory를 Azure AD에 동기화합니다. 이 서�
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-프로비전 엔진은 각 Active Directory 포리스트와 Azure AD에 연결되어 있습니다. 각 디렉터리에서 정보를 읽는 프로세스를 가져오기라고 합니다. 내보내기는 프로비전 엔진에서 디렉터리를 업데이트하는 것을 가리킵니다. 동기화는 프로비전 엔진 내에서 개체가 흐르는 방식의 규칙을 평가합니다. 더 자세한 내용은 [Azure AD Connect 동기화: 아키텍처 이해](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture)를 참조하세요.
+프로비전 엔진은 각 Active Directory 포리스트와 Azure AD에 연결되어 있습니다. 각 디렉터리에서 정보를 읽는 프로세스를 가져오기라고 합니다. 내보내기는 프로비전 엔진에서 디렉터리를 업데이트하는 것을 가리킵니다. 동기화는 프로비전 엔진 내에서 개체가 흐르는 방식의 규칙을 평가합니다. 더 자세한 내용은 [Azure AD Connect 동기화: 아키텍처 이해](./concept-azure-ad-connect-sync-architecture.md)를 참조하세요.
 
 Azure AD Connect는 Active Directory를 Azure AD에 동기화할 수 있도록 다음 준비 영역, 규칙 및 프로세스를 사용합니다.
 
@@ -52,7 +52,7 @@ Azure AD Connect는 Active Directory를 Azure AD에 동기화할 수 있도록 �
 * **동기화 규칙** - MV에서 개체에 연결(조인)하거나 생성(프로젝트)할 개체를 결정합니다. 또한 동기화 규칙은 다른 곳에서 디렉터리로 또는 그 반대로 복사하거나 변환할 특성 값을 결정합니다.
 * **실행 프로필** - 준비 영역과 연결된 디렉터리 간의 동기화 규칙에 따라 개체 및 해당 특성 값을 복사하는 프로세스 단계를 묶습니다.
 
-프로비전 엔진의 성능을 최적화하기 위한 다양한 실행 프로필이 있습니다. 대부분의 조직에서는 일반 작업에 대해 기본 일정 및 실행 프로필을 사용하지만, 일부 조직에서는 일반적이지 않은 상황에 대처하기 위해 [일정을 변경](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler)하거나 다른 실행 프로필을 트리거해야 할 수도 있습니다. 사용할 수 있는 실행 프로필은 다음과 같습니다.
+프로비전 엔진의 성능을 최적화하기 위한 다양한 실행 프로필이 있습니다. 대부분의 조직에서는 일반 작업에 대해 기본 일정 및 실행 프로필을 사용하지만, 일부 조직에서는 일반적이지 않은 상황에 대처하기 위해 [일정을 변경](./how-to-connect-sync-feature-scheduler.md)하거나 다른 실행 프로필을 트리거해야 할 수도 있습니다. 사용할 수 있는 실행 프로필은 다음과 같습니다.
 
 ### <a name="initial-sync-profile"></a>초기 동기화 프로필
 
@@ -105,11 +105,11 @@ Azure AD Connect는 Active Directory를 Azure AD에 동기화할 수 있도록 �
 * 내보내기도 선형입니다.
 * 동기화는 다른 개체에 대한 참조를 사용한 개체의 수에 따라 기하급수적으로 증가합니다. 그룹 멤버 자격 및 중첩된 그룹에는 주요 성능 영향이 있습니다. 해당 멤버는 사용자 개체 또는 다른 그룹을 참조하기 때문입니다. 동기화 주기를 완료하려면 MV에서 이러한 참조를 발견하고 실제 개체에 참조해야 합니다.
 
-### <a name="filtering"></a>필터링
+### <a name="filtering"></a>Filtering
 
 가져오려는 Active Directory 토폴로지의 크기는 프로비전 엔진의 내부 구성 요소가 사용하는 전체 시간 및 성능에 영향을 미치는 최고 요소입니다.
 
-[필터링](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering)은 동기화할 개체를 줄이는 데 사용해야 합니다. 불필요한 개체가 처리되어 Azure AD로 내보내지 않도록 방지합니다. 우선 순위로 필터링의 다음 기술을 사용할 수 있습니다.
+[필터링](./how-to-connect-sync-configure-filtering.md)은 동기화할 개체를 줄이는 데 사용해야 합니다. 불필요한 개체가 처리되어 Azure AD로 내보내지 않도록 방지합니다. 우선 순위로 필터링의 다음 기술을 사용할 수 있습니다.
 
 
 
@@ -130,7 +130,7 @@ Active Directory CS의 여러 영구적인 [디스커넥터 개체](concept-azur
 
 ### <a name="attribute-flows"></a>특성 흐름
 
-특성 흐름은 개체의 특성 값을 연결된 디렉터리에서 다른 연결된 디렉터리로 복사 또는 변환하기 위한 프로세스입니다. 동기화 규칙의 일부로 정의됩니다. 예를 들어, Active Directory에서 사용자의 전화 번호가 변경되면 Azure AD의 전화 번호도 업데이트됩니다. 조직은 다양한 요구 사항에 적합하도록 [특성 흐름을 수정](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-change-the-configuration)할 수 있습니다. 변경하기 전에 기존 특성 흐름을 복사하는 것이 좋습니다.
+특성 흐름은 개체의 특성 값을 연결된 디렉터리에서 다른 연결된 디렉터리로 복사 또는 변환하기 위한 프로세스입니다. 동기화 규칙의 일부로 정의됩니다. 예를 들어, Active Directory에서 사용자의 전화 번호가 변경되면 Azure AD의 전화 번호도 업데이트됩니다. 조직은 다양한 요구 사항에 적합하도록 [특성 흐름을 수정](./how-to-connect-sync-change-the-configuration.md)할 수 있습니다. 변경하기 전에 기존 특성 흐름을 복사하는 것이 좋습니다.
 
 특성 값을 다른 특성으로 전달하는 것 같이 간단한 리디렉션은 자재 성능에 영향을 미치지 않습니다. 리디렉션의 예로는 Active Directory의 휴대폰 번호를 Azure AD의 사무실 전화 번호로 전달하는 것이 있습니다.
 
@@ -181,7 +181,7 @@ Azure AD Connect 구현의 성능을 최적화하려면 다음 권장 사항을 
 
 
 - Azure AD Connect 서버에 대한 구현 크기에 따라 [권장되는 하드웨어 구성](how-to-connect-install-prerequisites.md)을 사용합니다.
-- 대규모 배포에서 Azure AD Connect를 업그레이드하는 경우 최소한의 가동 중지 시간 및 최고의 안정성을 보장하기 위해 [스윙 마이그레이션 방법](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration)을 사용하는 것을 고려합니다. 
+- 대규모 배포에서 Azure AD Connect를 업그레이드하는 경우 최소한의 가동 중지 시간 및 최고의 안정성을 보장하기 위해 [스윙 마이그레이션 방법](./how-to-upgrade-previous-version.md#swing-migration)을 사용하는 것을 고려합니다. 
 - 최상의 쓰기 성능을 위해 SQL Database에 SSD를 사용합니다.
 - 도메인, OU 또는 특성 필터링을 사용하여 Azure AD에서 프로비전해야 하는 개체만 포함하도록 Active Directory 범위를 필터링합니다.
 - 기본 특성 흐름 규칙을 변경해야 하는 경우 먼저 규칙을 복사한 다음, 복사본을 변경하고 원래 규칙을 사용하지 않도록 설정합니다. 전체 동기화를 다시 실행해야 합니다.

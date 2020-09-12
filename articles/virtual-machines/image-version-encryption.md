@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 91f485d03717ab80bac26abd16da165d7b0dead7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816493"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291928"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>미리 보기: 이미지 암호화를 위해 고객 관리형 키 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "88816493"
 
 고객 관리형 키를 사용한 서버 쪽 암호화는 Azure Key Vault를 사용합니다. [사용자의 RSA 키](../key-vault/keys/hsm-protected-keys.md)를 Key Vault로 가져오거나 Azure Key Vault에서 새 RSA 키를 생성할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 이미지에 사용할 디스크 암호화가 이미 설정 되어 있어야 합니다.
 
@@ -149,7 +149,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-이미지 버전에 대해 디스크 암호화를 지정하려면 [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create)을 `--target-region-encryption` 매개 변수와 함께 사용합니다. `--target-region-encryption`의 형식은 OS 및 데이터 디스크를 암호화하기 위한 공백으로 구분된 키 목록입니다. `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`와 비슷한 형식이어야 합니다. 
+이미지 버전에 대해 디스크 암호화를 지정하려면 [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create)을 `--target-region-encryption` 매개 변수와 함께 사용합니다. 의 형식은 `--target-region-encryption` OS 및 데이터 디스크를 암호화 하기 위한 쉼표로 구분 된 키 목록입니다. `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`와 비슷한 형식이어야 합니다. 
 
 OS 디스크의 원본이 관리 디스크 또는 VM인 경우 `--managed-image`를 사용하여 이미지 버전의 원본을 지정합니다. 이 예제에서 원본은 OS 디스크 및 LUN 0 수준 데이터 디스크를 포함하는 관리형 이미지입니다. OS 디스크는 DiskEncryptionSet1을 사용하여 암호화되고 데이터 디스크는 DiskEncryptionSet2를 사용하여 암호화됩니다.
 

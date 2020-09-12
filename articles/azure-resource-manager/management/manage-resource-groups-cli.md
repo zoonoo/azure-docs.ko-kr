@@ -3,15 +3,15 @@ title: 리소스 그룹 관리-Azure CLI
 description: Azure CLI를 사용 하 여 Azure Resource Manager를 통해 리소스 그룹을 관리할 수 있습니다. 리소스 그룹을 만들고, 나열 하 고, 삭제 하는 방법을 보여 줍니다.
 author: mumian
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 09/01/2020
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2b6abcaf7f774b576a4850cd523bca27adfec488
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c64e7166d154d8f37af7a64777e2c36181b7195b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827115"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290500"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -32,14 +32,10 @@ ms.locfileid: "87827115"
 
 ## <a name="create-resource-groups"></a>리소스 그룹 만들기
 
-다음 CLI 스크립트는 리소스 그룹을 만든 다음 리소스 그룹을 표시 합니다.
+다음 CLI 명령은 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-echo "Enter the location (i.e. centralus):" &&
-read location &&
-az group create --name $resourceGroupName --location $location
+az group create --name demoResourceGroup --location westus
 ```
 
 ## <a name="list-resource-groups"></a>리소스 그룹 나열

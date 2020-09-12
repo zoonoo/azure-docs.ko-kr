@@ -16,19 +16,19 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f480118aaabf24bd7c5ca472bf04b12ee1405010
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446993"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275926"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 
 이 문서에서는 Azure AD 통과 인증과 관련된 일반적인 문제에 대한 문제 해결 정보를 찾을 수 있습니다.
 
 >[!IMPORTANT]
->통과 인증에서 사용자 로그인 문제가 발생하는 경우 클라우드 전용 전역 관리자 계정을 다시 사용하지 않고 해당 기능을 사용하지 않도록 설정하거나 통과 인증 에이전트를 제거하지 마세요. [클라우드 전용 전역 관리자 계정을 추가 하는](../active-directory-users-create-azure-portal.md)방법에 대해 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
+>통과 인증에서 사용자 로그인 문제가 발생하는 경우 클라우드 전용 전역 관리자 계정을 다시 사용하지 않고 해당 기능을 사용하지 않도록 설정하거나 통과 인증 에이전트를 제거하지 마세요. [클라우드 전용 전역 관리자 계정을 추가 하는](../fundamentals/add-users-azure-active-directory.md)방법에 대해 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
 
 ## <a name="general-issues"></a>일반적인 문제
 
@@ -72,10 +72,10 @@ ms.locfileid: "87446993"
  ``` 
 4. 자격 증명을 입력 하 라는 메시지가 표시 되 면에 로그인 하는 데 사용 되는 것과 동일한 사용자 이름 및 암호를 입력 https://login.microsoftonline.com) 합니다.
 
-동일한 사용자 이름/암호 오류가 표시 되 면 통과 인증 에이전트가 제대로 작동 하 고 온-프레미스 UPN을 라우팅할 수 없는 문제일 수 있습니다. 자세한 내용은 [대체 로그인 ID 구성]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More)을 참조 하세요.
+동일한 사용자 이름/암호 오류가 표시 되 면 통과 인증 에이전트가 제대로 작동 하 고 온-프레미스 UPN을 라우팅할 수 없는 문제일 수 있습니다. 자세한 내용은 [대체 로그인 ID 구성]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More)을 참조 하세요.
 
 > [!IMPORTANT]
-> Azure AD Connect 서버가 도메인에 가입 되지 않은 경우 [Azure AD Connect: 필수 조건](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#installation-prerequisites)에 설명 된 요구 사항으로 인해 잘못 된 사용자 이름/암호 문제가 발생 합니다.
+> Azure AD Connect 서버가 도메인에 가입 되지 않은 경우 [Azure AD Connect: 필수 조건](./how-to-connect-install-prerequisites.md#installation-prerequisites)에 설명 된 요구 사항으로 인해 잘못 된 사용자 이름/암호 문제가 발생 합니다.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Azure Active Directory 관리 센터에서 로그인이 실패한 이유(프리미엄 라이선스 필요)
 
@@ -98,7 +98,7 @@ ms.locfileid: "87446993"
 | 80011 | 인증 에이전트에서 암호 해독 키를 검색할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다.
 
 >[!IMPORTANT]
->통과 인증 에이전트는 [Win32 LOGONUSER API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)를 호출 하 여 Active Directory에 대 한 사용자 이름 및 암호의 유효성을 검사 하 여 Azure AD 사용자를 인증 합니다. 따라서 워크스테이션 로그온 액세스를 제한 하기 위해 Active Directory에 "로그온" 설정을 구성한 경우 통과 인증 에이전트를 호스트 하는 서버를 "로그온" 서버 목록에도 추가 해야 합니다. 이 작업을 수행 하지 못하면 사용자가 Azure AD에 로그인 하지 못하도록 차단 됩니다.
+>통과 인증 에이전트는 [Win32 LOGONUSER API](/windows/win32/api/winbase/nf-winbase-logonusera)를 호출 하 여 Active Directory에 대 한 사용자 이름 및 암호의 유효성을 검사 하 여 Azure AD 사용자를 인증 합니다. 따라서 워크스테이션 로그온 액세스를 제한 하기 위해 Active Directory에 "로그온" 설정을 구성한 경우 통과 인증 에이전트를 호스트 하는 서버를 "로그온" 서버 목록에도 추가 해야 합니다. 이 작업을 수행 하지 못하면 사용자가 Azure AD에 로그인 하지 못하도록 차단 됩니다.
 
 ## <a name="authentication-agent-installation-issues"></a>인증 에이전트 설치 문제
 

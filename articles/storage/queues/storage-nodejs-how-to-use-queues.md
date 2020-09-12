@@ -1,79 +1,96 @@
 ---
-title: Node.js에서 Azure Queue storage 사용-Azure Storage
-description: Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다.
+title: Node.js에서 Azure Queue storage를 사용 하는 방법-Azure Storage
+description: Azure 큐 서비스을 사용 하 여 큐를 만들고 삭제 하는 방법을 알아봅니다. Node.js를 사용 하 여 메시지를 삽입 하 고 가져오고 삭제 하는 방법을 알아봅니다.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 12/08/2016
+ms.date: 08/31/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: 53bd4905cf4b8829d65ce2b10c85260ff3f8926c
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 18e184ed126aab8d03867db7b6b7d28c88644366
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210524"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89288817"
 ---
-# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Azure 큐 서비스를 사용 하 여 Node.js에서 큐 만들기 및 삭제
+# <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Node.js에서 Azure Queue storage를 사용 하는 방법
+
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-[!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
-
 ## <a name="overview"></a>개요
-이 가이드에서는 Microsoft Azure 큐 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 Node.js API를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 **큐 만들기 및 삭제**뿐만 아니라 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**가 포함됩니다.
 
-> [!IMPORTANT]
-> 이 문서에서는 JavaScript 용 Azure Storage 클라이언트 라이브러리의 레거시 버전을 참조 합니다. 최신 버전을 시작 하려면 [빠른 시작: JavaScript 용 Azure Queue storage 클라이언트 라이브러리](storage-quickstart-queues-nodejs.md) 를 참조 하세요.
+이 가이드에서는 Microsoft Azure 큐 서비스를 사용 하 여 일반적인 시나리오를 수행 하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 큐 메시지 삽입, 보기, 가져오기 및 삭제가 포함 됩니다. 큐를 만들고 삭제 하는 방법에 대해서도 알아봅니다.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Node.js 애플리케이션 만들기
-빈 Node.js 애플리케이션을 만듭니다. Node.js 애플리케이션을 만드는 방법에 대한 지침은 [Azure App Service에서 Node.js 웹앱 만들기](../../app-service/quickstart-nodejs.md), [Azure Cloud Service에 Node.js 애플리케이션 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)(Windows PowerShell 사용) 또는 [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)를 참조하세요.
+
+빈 Node.js 응용 프로그램을 만들려면 [Azure App Service에서 Node.js 웹 앱 만들기][Create a Node.js web app in Azure App Service]및 Windows PowerShell을 사용 하 여 [Azure 클라우드 서비스에 Node.js 응용 프로그램 빌드 및 배포][Build and deploy a Node.js application to an Azure Cloud Service] 또는 [Visual Studio Code][Visual Studio Code]을 참조 하세요.
 
 ## <a name="configure-your-application-to-access-storage"></a>스토리지에 액세스하도록 애플리케이션 구성
-Azure Storage를 사용하려면 스토리지 REST 서비스와 통신하는 편리한 라이브러리 집합이 포함되어 있는 Node.js용 Azure Storage SDK가 필요합니다.
+
+[JavaScript 용 Azure Storage 클라이언트 라이브러리][Azure Storage client library for JavaScript] 에는 저장소 REST 서비스와 통신 하는 편리한 라이브러리 집합이 포함 되어 있습니다.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>NPM(Node Package Manager)을 사용하여 패키지 가져오기
-1. **PowerShell**(Windows), **Terminal**(Mac) 또는 **Bash** (Unix)과 같은 명령줄 인터페이스를 사용하여 샘플 애플리케이션을 만든 폴더로 이동합니다.
-2. 명령 창에 **npm install azure-storage** 를 입력합니다. 명령 출력은 다음 예제와 비슷합니다.
- 
-    ```bash
-    azure-storage@0.5.0 node_modules\azure-storage
-    +-- extend@1.2.1
-    +-- xmlbuilder@0.4.3
-    +-- mime@1.2.11
-    +-- node-uuid@1.4.3
-    +-- validator@3.22.2
-    +-- underscore@1.4.4
-    +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
-    +-- xml2js@0.2.7 (sax@0.5.2)
-    +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-    ```
 
-3. **ls** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 스토리지에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
+1. PowerShell (Windows), 터미널 (Mac) 또는 Bash (Unix)와 같은 명령줄 인터페이스를 사용 하 여 샘플 응용 프로그램을 만든 폴더로 이동 합니다.
+
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+
+1. 명령 창에 **npm install \@ azure/storage-queue** 를 입력 합니다.
+
+1. **Node \_ modules** 폴더가 만들어졌는지 확인 합니다. 이 폴더 내에서 저장소에 액세스 하는 데 필요한 클라이언트 라이브러리가 포함 된 ** \@ azure/storage 큐** 패키지를 찾을 수 있습니다.
+
+# <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
+
+1. 명령 창에 **npm install azure-storage** 를 입력합니다.
+
+1. **Node \_ modules** 폴더가 만들어졌는지 확인 합니다. 이 폴더 내에서 저장소에 액세스 하는 데 필요한 라이브러리가 포함 된 **azure 저장소** 패키지를 찾을 수 있습니다.
+
+---
 
 ### <a name="import-the-package"></a>패키지 가져오기
-메모장 또는 다른 텍스트 편집기를 사용하여 스토리지를 사용할 애플리케이션의 **server.js** 파일 맨 위에 다음을 추가합니다.
+
+코드 편집기를 사용 하 여 큐를 사용 하려는 JavaScript 파일의 맨 위에 다음을 추가 합니다.
+
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_ImportStatements":::
+
+# <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
 ```javascript
 var azure = require('azure-storage');
 ```
 
-## <a name="setup-an-azure-storage-connection"></a>Azure Storage 연결 설정
-Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않은 경우 **createQueueService**를 호출할 때 계정 정보를 지정해야 합니다.
+---
 
 ## <a name="how-to-create-a-queue"></a>큐를 만드는 방법
+
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+
+다음 코드는 호출 된 환경 변수의 값을 가져오고 `AZURE_STORAGE_CONNECTION_STRING` 이를 사용 하 여 [QueueServiceClient](/javascript/api/@azure/storage-queue/queueserviceclient) 개체를 만듭니다. 그런 다음 **QueueServiceClient** 개체를 사용 하 여 [QueueClient](/javascript/api/@azure/storage-queue/queueclient) 개체를 만듭니다. **QueueClient** 개체를 사용 하면 특정 큐로 작업할 수 있습니다.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_CreateQueue":::
+
+큐가 이미 있는 경우 예외가 throw 됩니다.
+
+# <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
+
+Azure 모듈은 환경 변수 `AZURE_STORAGE_ACCOUNT` 및 `AZURE_STORAGE_ACCESS_KEY` 를 읽고 `AZURE_STORAGE_CONNECTION_STRING` azure storage 계정에 연결 하는 데 필요한 정보를 확인 합니다. 이러한 환경 변수가 설정 되지 않은 경우 **createQueueService**를 호출할 때 계정 정보를 지정 해야 합니다.
+
 다음 코드는 **QueueService** 개체를 만들어 큐 작업을 수행할 수 있게 해 줍니다.
 
 ```javascript
 var queueSvc = azure.createQueueService();
 ```
 
-**createQueueIfNotExists** 메서드를 사용합니다. 이 메서드는 지정된 큐가 이미 있으면 해당 큐를 반환하고 지정된 큐가 아직 없으면 지정한 이름으로 새 큐를 만듭니다.
+**CreateQueueIfNotExists** 메서드를 호출 하 여 지정 된 이름의 새 큐를 만들거나 이미 있는 경우 큐를 반환 합니다.
 
 ```javascript
 queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
@@ -85,30 +102,19 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, results, response){
 
 큐가 만들어지면 `result.created` 는 true가 됩니다. 큐가 있을 경우 `result.created` 는 false가 됩니다.
 
-### <a name="filters"></a>필터
-**QueueService**를 사용하여 수행되는 작업에 선택적 필터링 작업을 적용할 수 있습니다. 필터링 작업은 로깅, 자동 재시도 등을 포함할 수 있습니다. 필터는 시그니쳐가 있는 메서드를 구현하는 개체입니다.
-
-```javascript
-function handle (requestOptions, next)
-```
-
-요청 옵션에 대한 전처리를 수행한 후 메서드는 다음 서명을 사용하여 콜백을 전달하는 "next"를 호출해야 합니다.
-
-```javascript
-function (returnObject, finalCallback, next)
-```
-
-이 콜백에서 returnObject(서버에 요청 응답 반환)를 처리한 후 콜백은 next(있는 경우)를 호출하여 다른 필터를 계속 처리하거나 finalCallback을 호출하여 서비스 호출을 종료해야 합니다.
-
-Node.js용 Azure SDK에는 재시도 논리를 구현하는 두 필터 **ExponentialRetryPolicyFilter** 및 **LinearRetryPolicyFilter**가 포함되어 있습니다. 다음은 **ExponentialRetryPolicyFilter**를 사용하는 **QueueService** 개체를 만듭니다.
-
-```javascript
-var retryOperations = new azure.ExponentialRetryPolicyFilter();
-var queueSvc = azure.createQueueService().withFilter(retryOperations);
-```
+---
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>큐에 메시지를 삽입하는 방법
-큐에 메시지를 삽입 하려면 **createMessage** 메서드를 사용 하 여 새 메시지를 만들고 큐에 추가 합니다.
+
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+
+큐에 메시지를 추가 하려면 [sendMessage](/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) 메서드를 호출 합니다.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_AddMessage":::
+
+# <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
+
+큐에 메시지를 삽입 하려면 **createMessage** 메서드를 호출 하 여 새 메시지를 만들고 큐에 추가 합니다.
 
 ```javascript
 queueSvc.createMessage('myqueue', "Hello world!", function(error, results, response){
@@ -118,8 +124,21 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
 });
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>다음 메시지를 보는 방법
-큐에서 메시지를 제거 하지 않고도 **peekMessages** 메서드를 호출 하 여 큐의 맨 앞에 있는 메시지를 볼 수 있습니다. 기본적으로 **peekMessages** 는 단일 메시지를 볼 수 있게 해 줍니다.
+---
+
+## <a name="how-to-peek-at-the-next-message"></a>다음 메시지를 피킹 (peeking) 하는 방법
+
+**PeekMessages** 메서드를 호출 하 여 큐에서 메시지를 제거 하지 않고 큐에서 메시지를 피킹할 수 있습니다.
+
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+
+기본적으로 [peekMessages](/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) 는 단일 메시지를 볼 수 있게 해 줍니다. 다음 예에서는 큐의 처음 5 개 메시지를 피킹합니다. 5 개 미만의 메시지가 표시 되 면 표시 되는 메시지만 반환 됩니다.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_PeekMessage":::
+
+# <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
+
+기본적으로 **peekMessages** 는 단일 메시지를 볼 수 있게 해 줍니다.
 
 ```javascript
 queueSvc.peekMessages('myqueue', function(error, results, response){
@@ -131,43 +150,23 @@ queueSvc.peekMessages('myqueue', function(error, results, response){
 
 `result` 에 메시지가 포함됩니다.
 
-> [!NOTE]
-> 큐에 메시지가 없을 때 **peekMessages** 를 사용하면 오류가 반환되지 않지만 메시지도 반환되지 않습니다.
-> 
-> 
+---
 
-## <a name="how-to-dequeue-the-next-message"></a>큐에서 다음 메시지를 제거하는 방법
-메시지 처리는 2단계 프로세스입니다.
+큐에 메시지가 없을 때 **peekMessages** 를 호출 하면 오류가 반환 되지 않습니다. 그러나 메시지는 반환 되지 않습니다.
 
-1. 메시지를 큐에서 제거합니다.
-2. 메시지를 삭제합니다.
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>대기 중인 메시지의 콘텐츠를 변경 하는 방법
 
-메시지를 큐에서 제거하려면 **getMessage**를 사용합니다. 그러면 큐에서 메시지가 보이지 않으므로 다른 클라이언트에서 처리할 수 없습니다. 애플리케이션에서 메시지를 처리하고 나면 **deleteMessage**를 호출하여 큐에서 삭제합니다. 다음 예제에서는 메시지를 가져온 후 삭제합니다.
+다음 예에서는 메시지의 텍스트를 업데이트 합니다.
 
-```javascript
-queueSvc.getMessages('myqueue', function(error, results, response){
-  if(!error){
-    // Message text is in results[0].messageText
-    var message = results[0];
-    queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
-      if(!error){
-        //message deleted
-      }
-    });
-  }
-});
-```
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-> [!NOTE]
-> 기본적으로 메시지는 30초 동안만 숨겨져 있다가 다른 클라이언트에 표시됩니다. `options.visibilityTimeout` 와 **getMessages**를 사용하여 다른 값을 지정할 수 있습니다.
-> 
-> [!NOTE]
-> 큐에 메시지가 없을 때 **getMessages** 를 사용하면 오류가 반환되지 않지만 메시지도 반환되지 않습니다.
-> 
-> 
+[UpdateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-)를 호출 하 여 큐에 있는 메시지의 내용을 변경 합니다. 
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>대기 중인 메시지의 콘텐츠 변경 방법
-**updateMessage**를 사용하면 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 다음 예제에서는 메시지의 텍스트를 업데이트합니다.
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
+
+# <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
+
+**UpdateMessage**를 호출 하 여 큐에 있는 메시지의 내용을 변경 합니다. 
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -183,13 +182,73 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 });
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>dequeuing 메시지의 추가옵션을 설정하는 방법
+---
+
+## <a name="how-to-dequeue-a-message"></a>메시지를 큐에서 제거 하는 방법
+
+큐에서 메시지 큐를 제거 하는 과정은 다음 두 단계로 진행 됩니다.
+
+1. 메시지를 가져옵니다.
+
+1. 메시지를 삭제합니다.
+
+다음 예에서는 메시지를 가져온 다음 삭제 합니다.
+
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+
+메시지를 가져오려면 [receiveMessages](/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) 메서드를 호출 합니다. 이 호출을 수행 하면 메시지가 큐에 표시 되지 않으므로 다른 클라이언트에서 메시지를 처리할 수 없습니다. 애플리케이션에서 메시지를 처리하고 나면 [deleteMessage](/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-)를 호출하여 큐에서 삭제합니다.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DequeueMessage":::
+
+기본적으로 메시지는 30 초 동안만 숨겨집니다. 30 초 후에는 다른 클라이언트에 표시 됩니다. **ReceiveMessages**를 호출할 때 [visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) 를 설정 하 여 다른 값을 지정할 수 있습니다.
+
+큐에 메시지가 없을 때 **receiveMessages** 를 호출 하면 오류가 반환 되지 않습니다. 그러나 메시지는 반환 되지 않습니다.
+
+# <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
+
+메시지를 가져오려면 **Getmessages** 메서드를 호출 합니다. 이 호출을 수행 하면 메시지가 큐에 표시 되지 않으므로 다른 클라이언트에서 메시지를 처리할 수 없습니다. 애플리케이션에서 메시지를 처리하고 나면 **deleteMessage**를 호출하여 큐에서 삭제합니다.
+
+```javascript
+queueSvc.getMessages('myqueue', function(error, results, response){
+  if(!error){
+    // Message text is in results[0].messageText
+    var message = results[0];
+    queueSvc.deleteMessage('myqueue', message.messageId, message.popReceipt, function(error, response){
+      if(!error){
+        //message deleted
+      }
+    });
+  }
+});
+```
+
+기본적으로 메시지는 30 초 동안만 숨겨집니다. 30 초 후에는 다른 클라이언트에 표시 됩니다. `options.visibilityTimeout` 와 **getMessages**를 사용하여 다른 값을 지정할 수 있습니다.
+
+큐에 메시지가 없을 때 **Getmessages** 를 사용 하면 오류가 반환 되지 않습니다. 그러나 메시지는 반환 되지 않습니다.
+
+---
+
+## <a name="additional-options-for-dequeuing-messages"></a>큐에서 메시지를 제거하는 추가 옵션
+
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+
+큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다.
+
+* [옵션. numberofmessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) -메시지 일괄 처리를 검색 합니다 (최대 32).
+* [visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) -더 길거나 짧은 표시 안 함 제한 시간을 설정 합니다.
+
+다음 예제에서는 **receiveMessages** 메서드를 사용 하 여 한 번의 호출로 5 개의 메시지를 가져옵니다. 그런 다음에 `for` 루프를 사용하여 각 메시지를 처리합니다. 또한 이 메서드에서 반환되는 모든 메시지의 표시하지 않는 시간 제한을 5분으로 설정합니다.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DequeueMessages":::
+
+# <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
+
 큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다.
 
 * `options.numOfMessages` - 메시지 배치를 검색합니다(최대 32개).
 * `options.visibilityTimeout` - 표시하지 않는 시간 제한을 더 길거나 짧게 설정합니다.
 
-다음 예에서는 **getMessages** 메서드를 사용하여 한 번 호출에 15개의 메시지를 가져옵니다. 그런 다음에 for 루프를 사용하여 각 메시지를 처리합니다. 또한 이 메서드에서 반환되는 모든 메시지의 표시하지 않는 시간 제한을 5분으로 설정합니다.
+다음 예에서는 **getMessages** 메서드를 사용하여 한 번 호출에 15개의 메시지를 가져옵니다. 그런 다음에 `for` 루프를 사용하여 각 메시지를 처리합니다. 또한 이 메서드에서 반환되는 모든 메시지의 표시하지 않는 시간 제한을 5분으로 설정합니다.
 
 ```javascript
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, results, getResponse){
@@ -208,8 +267,19 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 });
 ```
 
-## <a name="how-to-get-the-queue-length"></a>방법: 큐 길이 가져오기
-**getQueueMetadata** 에서는 큐에서 대기 중인 메시지의 대략적인 수와 같이 큐에 관련된 메타데이터를 반환합니다.
+---
+
+## <a name="how-to-get-the-queue-length"></a>큐 길이를 가져오는 방법
+
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+
+[GetProperties](/javascript/api/@azure/storage-queue/queueclient#getproperties-queuegetpropertiesoptions-) 메서드는 큐에서 대기 중인 메시지의 대략적인 수를 포함 하 여 큐에 대 한 메타 데이터를 반환 합니다.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_QueueLength":::
+
+# <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
+
+**GetQueueMetadata** 메서드는 큐에서 대기 중인 메시지의 대략적인 수를 포함 하 여 큐에 대 한 메타 데이터를 반환 합니다.
 
 ```javascript
 queueSvc.getQueueMetadata('myqueue', function(error, results, response){
@@ -219,7 +289,18 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 });
 ```
 
-## <a name="how-to-list-queues"></a>큐 나열하는 방법
+---
+
+## <a name="how-to-list-queues"></a>큐를 나열 하는 방법
+
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+
+큐 목록을 검색 하려면 [QueueServiceClient 큐]()를 호출 합니다. 특정 접두사로 필터링 된 목록을 검색 하려면 **Listqueues**에 대 한 호출에서 [options. prefix](/javascript/api/@azure/storage-queue/servicelistqueuesoptions#prefix) 를 설정 합니다.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_ListQueues":::
+
+# <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
+
 큐 목록을 검색하려면 **listQueuesSegmented**를 사용합니다. 특정 접두사를 기준으로 필터링된 목록을 검색하려면 **listQueuesSegmentedWithPrefix**를 사용합니다.
 
 ```javascript
@@ -230,9 +311,22 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 });
 ```
 
-큐를 모두 반환할 수 없는 경우에는 `result.continuationToken`을 **listQueuesSegmented**의 첫 번째 매개 변수나 **listQueuesSegmentedWithPrefix**의 두 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다.
+모든 큐를 반환할 수 없는 경우 `result.continuationToken` **listQueuesSegmented** 의 첫 번째 매개 변수로 전달 하거나 **listQueuesSegmentedWithPrefix** 의 두 번째 매개 변수를 전달 하 여 더 많은 결과를 검색 합니다.
 
-## <a name="how-to-delete-a-queue"></a>방법: 큐 삭제
+---
+
+## <a name="how-to-delete-a-queue"></a>큐를 삭제 하는 방법
+
+# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+
+큐 및 해당 큐에 포함 된 모든 메시지를 삭제 하려면 **QueueClient** 개체에서 [deleteQueue](/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) 메서드를 호출 합니다.
+
+:::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_DeleteQueue":::
+
+큐에서 메시지를 삭제 하지 않고 모든 메시지를 지우려면 [Clearmessages](/javascript/api/@azure/storage-queue/queueclient#clearmessages-queueclearmessagesoptions-)를 호출 합니다.
+
+# <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
+
 큐 및 해당 큐에 포함 된 모든 메시지를 삭제 하려면 큐 개체의 **deleteQueue** 메서드를 호출 합니다.
 
 ```javascript
@@ -243,108 +337,21 @@ queueSvc.deleteQueue(queueName, function(error, response){
 });
 ```
 
-큐를 삭제하지 않고 모든 메시지를 지우려면 **clearMessages**를 사용합니다.
+큐에서 메시지를 삭제 하지 않고 모든 메시지를 지우려면 **Clearmessages**를 호출 합니다.
 
-## <a name="how-to-work-with-shared-access-signatures"></a>공유 액세스 서명 작업 방법
-SAS(공유 액세스 서명)는 스토리지 계정 이름이나 키를 제공하지 않으면서 큐에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 메시지를 제출하도록 허용하는 경우와 같이 큐에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
+---
 
-클라우드 기반 서비스와 같이 신뢰할 수 있는 애플리케이션에서는 **QueueService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고 신뢰할 수 없거나 신뢰가 약한 애플리케이션에 제공합니다. 예를 들면 모바일 앱이 여기에 해당됩니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
-
-다음 예에서는 SAS 소유자가 큐에 메시지를 추가할 수 있도록 허용하며 만든 후 100분이 지나면 만료되는 새 공유 액세스 정책을 생성합니다.
-
-```javascript
-var startDate = new Date();
-var expiryDate = new Date(startDate);
-expiryDate.setMinutes(startDate.getMinutes() + 100);
-startDate.setMinutes(startDate.getMinutes() - 100);
-
-var sharedAccessPolicy = {
-  AccessPolicy: {
-    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
-    Start: startDate,
-    Expiry: expiryDate
-  }
-};
-
-var queueSAS = queueSvc.generateSharedAccessSignature('myqueue', sharedAccessPolicy);
-var host = queueSvc.host;
-```
-
-SAS 소유자가 큐에 액세스할 때 필요하므로 호스트 정보도 제공해야 합니다.
-
-그런 다음, 클라이언트 애플리케이션은 **QueueServiceWithSAS**에서 SAS를 사용하여 큐에 대한 작업을 수행합니다. 다음 예에서는 큐를 연결하고 메시지를 만듭니다.
-
-```javascript
-var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
-sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(error, result, response){
-  if(!error){
-    //message added
-  }
-});
-```
-
-SAS가 추가 액세스만으로 생성되었기 때문에 메시지를 읽거나 업데이트, 삭제하려고 하면 오류가 반환됩니다.
-
-### <a name="access-control-lists"></a>액세스 제어 목록
-ACL(Access Control 목록)을 사용하여 SAS에 액세스 정책을 설정할 수도 있습니다. 이 방법은 여러 클라이언트에서 큐에 액세스하게 하면서 각 클라이언트에 서로 다른 액세스 정책을 제공하려는 경우에 유용합니다.
-
-ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구현됩니다. 다음 예에서는 'user1'과 'user2'에 대해 하나씩, 두 개의 정책을 정의합니다.
-
-```javascript
-var sharedAccessPolicy = {
-  user1: {
-    Permissions: azure.QueueUtilities.SharedAccessPermissions.PROCESS,
-    Start: startDate,
-    Expiry: expiryDate
-  },
-  user2: {
-    Permissions: azure.QueueUtilities.SharedAccessPermissions.ADD,
-    Start: startDate,
-    Expiry: expiryDate
-  }
-};
-```
-
-다음 예에서는 **myqueue**에 대한 현재 ACL을 가져온 다음 **setQueueAcl**을 사용하여 새 정책을 추가합니다. 이 접근 방식을 통해 다음을 수행할 수 있습니다.
-
-```javascript
-var extend = require('extend');
-queueSvc.getQueueAcl('myqueue', function(error, result, response) {
-  if(!error){
-    var newSignedIdentifiers = extend(true, result.signedIdentifiers, sharedAccessPolicy);
-    queueSvc.setQueueAcl('myqueue', newSignedIdentifiers, function(error, result, response){
-      if(!error){
-        // ACL set
-      }
-    });
-  }
-});
-```
-
-ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습니다. 다음 예에서는 'user2'에 대해 새 SAS를 만듭니다.
-
-```javascript
-queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
-```
+[!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="next-steps"></a>다음 단계
+
 이제 Queue Storage의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 스토리지 작업에 대해 알아보세요.
 
-* [Azure Storage 팀 블로그][Azure Storage Team Blog]를 방문 하세요.
-* GitHub에서 [Azure Storage SDK for Node][Azure Storage SDK for Node] 리포지토리를 방문하세요.
+* [Azure Storage 팀 블로그][Azure Storage Team Blog] 를 방문 하 여 새로운 기능에 대해 알아보세요.
+* GitHub에서 [JavaScript 리포지토리의 Azure Storage 클라이언트 라이브러리][Azure Storage client library for JavaScript] 방문
 
-
-
-[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-
-[using the REST API]: https://msdn.microsoft.com/library/azure/hh264518.aspx
-
-[Azure Portal]: https://portal.azure.com
-
-[Azure App Service에서 Node.js 웹앱 만들기](../../app-service/quickstart-nodejs.md)
-
-[Azure Cloud Service에서 Node.js 애플리케이션 빌드 및 배포](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
-
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-
-[Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/
+[Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
+[Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog
+[Build and deploy a Node.js application to an Azure Cloud Service]: ../../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Create a Node.js web app in Azure App Service]: ../../app-service/quickstart-nodejs.md
+[Visual Studio Code]: https://code.visualstudio.com/docs/nodejs/nodejs-tutorial

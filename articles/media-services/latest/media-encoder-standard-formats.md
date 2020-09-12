@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: c8c111d046bfaefac11df576e455162d20acecd0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f6e9c0a3d9100bc447314f5874107363c6bf5d8a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266564"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289446"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>표준 인코더 형식 및 코덱
 
@@ -64,7 +64,7 @@ ms.locfileid: "89266564"
 | MPEG-2(최대 422 프로필 및 높은 수준, XDCAM, XDCAM HD, XDCAM IMX, CableLabs® 및 D10과 같은 변형 포함) |최대 422 프로필 |
 | MPEG-1 |예 |
 | VC-1/WMV9 |예 |
-| Canopus HQ/HQX |예 |
+| Canopus HQ/HQX |아니요 |
 | Mpeg-4 2부 |예 |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |예 |
 | 압축되지 않은 YUV420 또는 mezzanine |예 |
@@ -88,10 +88,10 @@ ms.locfileid: "89266564"
 | [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |예 |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |예 |
 | AMR(Adaptive Multi-Rate) |예 |
-| AES(SMPTE 331M 및 302M, AES3-2003) |예 |
-| Dolby® E |예 |
-| Dolby® Digital(AC3) |예 |
-| Dolby® Digital Plus(E-AC3) |예 |
+| AES(SMPTE 331M 및 302M, AES3-2003) |아니요 |
+| Dolby® E |아니요 |
+| Dolby® Digital(AC3) |아니요 |
+| Dolby® Digital Plus(E-AC3) |아니요 |
 
 ## <a name="output-formats-and-codecs"></a>출력 형식 및 코덱
 다음 표에는 내보내기에 지원되는 코덱 및 파일 형식이 나열되어 있습니다.

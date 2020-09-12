@@ -9,15 +9,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa54bc6b8b0912158a5dcd369b12801d51ca7141
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9f17e8a09715ce9ff51715f17a449ec0a5b3f770
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256500"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297198"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Azure Media Services의 스트리밍 끝점 (원본)
 
@@ -51,7 +51,7 @@ Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트�
 
 다음 표에 해당 유형이 설명되어 있습니다.
 
-|유형|배율 단위|설명|
+|Type|배율 단위|설명|
 |--------|--------|--------|  
 |**Standard**|0|기본 스트리밍 끝점은 **표준** 유형이 며를 조정 하 여 프리미엄 유형으로 변경할 수 있습니다 `scaleUnits` .|
 |**Premium**|>0|**프리미엄** 스트리밍 끝점은 고급 워크 로드에 적합 하며, 확장 가능한 전용 대역폭 용량을 제공 합니다. (스트리밍 단위)를 조정 하 여 **프리미엄** 유형으로 이동 `scaleUnits` 합니다. `scaleUnits`는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. **프리미엄** 유형을 사용 하는 경우 사용 하도록 설정 된 각 단위는 앱에 추가 대역폭 용량을 제공 합니다. |

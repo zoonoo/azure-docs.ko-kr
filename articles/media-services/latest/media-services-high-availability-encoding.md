@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.subservice: ''
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2b20668ea08186f42eed89f82fb1ae8d85cf090d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c3aaba6939f9e5e3f5d7c169cd3a199cc93f527d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267703"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296778"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Media Services 및 VOD (주문형 비디오)를 통한 고가용성
 
@@ -55,7 +55,7 @@ Media Services 및 VOD (주문형 비디오)를 사용 하 여 고가용성을 �
 
 [![VOD (주문형 비디오) 개략적인 아키텍처 다이어그램 ](media/media-services-high-availability-encoding/high-availability-architecture.svg)](media/media-services-high-availability-encoding/high-availability-architecture.svg#lightbox)
 
-## <a name="best-practices"></a>최선의 구현 방법
+## <a name="best-practices"></a>모범 사례
 
 ### <a name="regions"></a>영역
 

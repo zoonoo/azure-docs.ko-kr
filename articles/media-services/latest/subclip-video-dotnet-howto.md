@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/09/2019
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 827fa21fd7f0a3179fb1ed3cd01a461a785829b5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1725fab30ddb4d40e0bf5345683588c878658052
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89257401"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296569"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Media Services-.NET을 사용 하 여 인코딩할 경우 비디오 하위 클립
 
@@ -27,7 +27,7 @@ ms.locfileid: "89257401"
 
 다음 c # 예제에서는 인코딩 작업을 전송할 때 자산에 비디오를 트리밍하는 작업을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "89257401"
 - 변환과 입력 및 출력 자산을 만듭니다. .NET 자습서를 [사용 하 여 비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md) 에서 변환 및 입력 및 출력 자산을 만드는 방법을 확인할 수 있습니다.
 - [인코딩 개념](encoding-concept.md) 항목을 검토 합니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 ```csharp
 /// <summary>

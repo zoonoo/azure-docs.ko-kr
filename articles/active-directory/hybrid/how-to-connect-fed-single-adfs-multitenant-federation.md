@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d0e8301fe5443e548dd35a6b6058e8c7a409d0
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 956428b6f197912e2ab7c3a94133ed9d59f37749
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849890"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279927"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>AD FS의 단일 인스턴스를 사용하여 Azure AD의 여러 인스턴스를 페더레이션
 
@@ -42,7 +42,7 @@ contoso.onmicrosoft.com Azure Active Directory의 contoso.com 도메인은 이�
 
 ## <a name="step-1-establish-a-two-way-trust"></a>1단계: 양방향 트러스트 설정
  
-contoso.com의 AD FS가 fabrikam.com에서 사용자를 인증하려면 contoso.com과 fabrikam.com 간에 양방향 트러스트 관계가 필요합니다. 이 [문서](https://technet.microsoft.com/library/cc816590.aspx)의 지침에 따라 양방향 트러스트를 만듭니다.
+contoso.com의 AD FS가 fabrikam.com에서 사용자를 인증하려면 contoso.com과 fabrikam.com 간에 양방향 트러스트 관계가 필요합니다. 이 [문서](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816590(v=ws.10))의 지침에 따라 양방향 트러스트를 만듭니다.
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>2단계: contoso.com 페더레이션 설정 수정 
  

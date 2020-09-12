@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: ef202bb3ba82b48aca75c7f934aecb3f5fbe0a0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
+ms.openlocfilehash: 0287bc8a11c359acce5fbf12d3a51e99a9f5420e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070769"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297147"
 ---
 # <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩 
 
@@ -24,7 +24,7 @@ Azure Spring Cloud를 사용하면 Spring Boot 애플리케이션을 수동으�
 * Azure Database for MySQL 계정
 * Azure CLI
 
-Azure Spring Cloud 인스턴스를 아직 배포하지 않은 경우 [빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud 애플리케이션 시작](spring-cloud-quickstart-launch-app-portal.md)의 지침에 따라 첫 번째 Spring Cloud 앱을 배포합니다.
+Azure Spring Cloud 인스턴스를 아직 배포하지 않은 경우 [빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud 애플리케이션 시작](spring-cloud-quickstart.md)의 지침에 따라 첫 번째 Spring Cloud 앱을 배포합니다.
 
 ## <a name="bind-your-app-to-your-azure-database-for-mysql-instance"></a>Azure Database for MySQL 인스턴스에 앱 바인딩
 

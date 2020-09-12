@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d336c58971b16875d9861f85dde9529de8c734e2
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73664403"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278088"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>FIM(파일 무결성 모니터링)을 사용하여 기준 비교
 
@@ -41,7 +41,7 @@ FIM 레지스트리 hive 기본값은 일반적인 보안 영역 내에서 재�
 >[!NOTE]
 > 재귀 확인은 권장 되는 보안 하이브에만 적용 되 고 사용자 지정 레지스트리 경로에는 적용 되지 않습니다.  
 
-## <a name="adding-a-custom-registry-check"></a>사용자 지정 레지스트리 검사 추가
+## <a name="add-a-custom-registry-check"></a>사용자 지정 레지스트리 검사 추가
 
 FIM 기준은 운영 체제 및 지원 응용 프로그램에 대해 알려진 정상 상태의 특성을 식별 하 여 시작 합니다.  이 예에서는 Windows Server 2008 이상에 대 한 암호 정책 구성에 초점을 둡니다.
 
@@ -57,7 +57,7 @@ FIM 기준은 운영 체제 및 지원 응용 프로그램에 대해 알려진 �
 |도메인 구성원: 고급 세션 키 요청(Windows 2000 이상)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireStrongKey|
 |네트워크 보안: NTLM 제한:이 도메인에서 NTLM 인증|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
 |네트워크 보안: NTLM 제한: 이 도메인에서 서버 예외 추가|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DCAllowedNTLMServers|
-|네트워크 보안: NTLM 제한:이 도메인에서 NTLM 인증 감사|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
+|네트워크 보안: NTLM 제한: 이 도메인에서 NTLM 인증 감사|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
 > 다양 한 운영 체제 버전에서 지원 되는 레지스트리 설정에 대 한 자세한 내용은 [그룹 정책 설정 참조 스프레드시트](https://www.microsoft.com/download/confirmation.aspx?id=25250)를 참조 하세요.
@@ -73,14 +73,14 @@ FIM 기준은 운영 체제 및 지원 응용 프로그램에 대해 알려진 �
 
       ![레지스트리에서 FIM 사용](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>Windows 파일 변경 내용 추적
+## <a name="track-changes-to-windows-files"></a>Windows 파일 변경 내용 추적
 
 1. **변경 내용 추적에 대 한 Windows 파일 추가** 창의 **경로 입력** 텍스트 상자에 추적 하려는 파일이 들어 있는 폴더를 입력 합니다. 다음 그림의 예제에서는 **Contoso 웹 앱** 이 D:\에 있습니다. **ContosWebApp** 폴더 구조 내에 있는 드라이브입니다.  
 1. 설정 클래스의 이름을 제공 하 고, 재귀를 사용 하도록 설정 하 고, 와일드 카드 (*) 접미사를 사용 하 여 최상위 폴더를 지정 하 여 사용자 지정 Windows 파일 항목을 만듭니다.
 
     ![파일에서 FIM 사용](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
-## <a name="retrieving-change-data"></a>변경 데이터 검색
+## <a name="retrieve-change-data"></a>변경 데이터 검색
 
 파일 무결성 모니터링 데이터는 Azure Log Analytics/ConfigurationChange 테이블 집합 내에 상주 합니다.  
 

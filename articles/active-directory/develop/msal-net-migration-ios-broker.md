@@ -25,7 +25,7 @@ Azure Active Directory Authentication Library for .NET (ADAL.NET) 및 iOS broker
 
 어디서 시작해야 합니까? 이 문서는 ADAL에서 MSAL으로 Xamarin iOS 앱을 마이그레이션하는 데 도움이 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이 문서에서는 iOS broker와 통합 된 Xamarin iOS 앱이 이미 있다고 가정 합니다. 그렇지 않으면 MSAL.NET로 직접 이동 하 여 해당 위치에서 broker 구현을 시작 합니다. 새 응용 프로그램을 사용 하 여 MSAL.NET에서 iOS broker를 호출 하는 방법에 대 한 자세한 내용은 [이 설명서](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications)를 참조 하세요.
 
 ## <a name="background"></a>배경
@@ -119,7 +119,7 @@ MSAL.NET에서 iOS에 대 한 개체 창을 설정 하는 두 가지 작업을 �
 이 할당을 통해 broker에 대 한 호출을 사용 하 여 UIViewController가 있는지 확인할 수 있습니다. 올바르게 설정 되지 않은 경우 다음 오류가 발생할 수 있습니다. `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 1. AcquireTokenInteractive 호출에서를 사용 하 여 `.WithParentActivityOrWindow(App.RootViewController)` 사용할 개체 창에 대 한 참조를 전달 합니다.
 
-**예:**
+**다음은 그 예입니다. **
 
 `App.cs`의 경우
 ```csharp
@@ -225,14 +225,14 @@ ADAL.NET 및 MSAL.NET 모두 broker를 대상으로 하는 경우 리디렉션 U
 
 `"<app-scheme>://<your.bundle.id>"`
 
-예제:
+예:
 
 `mytestiosapp://com.mycompany.myapp`
 </td><td>
 
 `$"msauth.{BundleId}://auth"`
 
-예제:
+예:
 
 `public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; `
 

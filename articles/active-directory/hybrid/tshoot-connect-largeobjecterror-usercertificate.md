@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c66231bcbdcaeb5371838291f1e6998f9f8bd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2eb656e46ce5e26fca5ae5c094f9b8bb85819caa
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356171"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275779"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect 동기화: userCertificate 특성으로 인한 LargeObject 오류 처리
 
@@ -30,28 +30,28 @@ Azure AD는 **userCertificate** 특성에서 인증서 값에 대해 최대 **15
 
 >*"프로 비전 된 개체가 너무 깁니다. 이 개체의 특성 값 수를 자릅니다. 다음 동기화 주기 ...에서 작업을 다시 시도 합니다.*
 
-다른 AD 특성에 의해 LargeObject 오류가 발생할 수 있습니다. 실제로 userCertificate 특성으로 인한 것인지 확인하려면 온-프레미스 AD 또는 [Synchronization Service Manager Metaverse Search](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch)에서 개체에 대해 확인해야 합니다.
+다른 AD 특성에 의해 LargeObject 오류가 발생할 수 있습니다. 실제로 userCertificate 특성으로 인한 것인지 확인하려면 온-프레미스 AD 또는 [Synchronization Service Manager Metaverse Search](./how-to-connect-sync-service-manager-ui-mvsearch.md)에서 개체에 대해 확인해야 합니다.
 
 LargeObject 오류가 있는 테넌트에서 개체 목록을 얻으려면 다음 방법 중 하나를 사용합니다.
 
- * 테넌트가 Azure AD Connect Health에서 동기화되도록 설정되어 있는 경우 제공된 [동기화 오류 보고서](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-sync)를 참조할 수 있습니다.
+ * 테넌트가 Azure AD Connect Health에서 동기화되도록 설정되어 있는 경우 제공된 [동기화 오류 보고서](./how-to-connect-health-sync.md)를 참조할 수 있습니다.
  
  * 각 동기화 주기가 끝날 때 전송되는 디렉터리 동기화 오류에 대한 알림 메일에는 LargeObject 오류가 있는 개체 목록이 포함됩니다. 
- * Azure AD에 마지막으로 내보내기 작업을 클릭하면 [Synchronization Service Manager Operations 탭](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations)에 LargeObject 오류가 있는 개체 목록이 표시됩니다.
+ * Azure AD에 마지막으로 내보내기 작업을 클릭하면 [Synchronization Service Manager Operations 탭](./how-to-connect-sync-service-manager-ui-operations.md)에 LargeObject 오류가 있는 개체 목록이 표시됩니다.
  
 ## <a name="mitigation-options"></a>해결 방법 옵션
 LargeObject 오류가 해결될 때까지 동일한 개체에 대한 다른 특성 변경 사항을 Azure AD로 내보낼 수 없습니다. 오류를 해결하기 위해 다음 옵션을 고려할 수 있습니다.
 
- * Azure AD Connect를 빌드 1.1.524.0 이상으로 업그레이드합니다. Azure AD Connect 빌드 1.1.524.0에서는 15개 이상의 값이 특성에 있는 경우 기본 동기화 규칙에서 userCertificate 및 userSMIMECertificate 특성을 내보내지 않도록 업데이트되었습니다. Azure AD Connect를 업그레이드하는 방법에 대한 자세한 내용은 [Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version) 문서를 참조하세요.
+ * Azure AD Connect를 빌드 1.1.524.0 이상으로 업그레이드합니다. Azure AD Connect 빌드 1.1.524.0에서는 15개 이상의 값이 특성에 있는 경우 기본 동기화 규칙에서 userCertificate 및 userSMIMECertificate 특성을 내보내지 않도록 업데이트되었습니다. Azure AD Connect를 업그레이드하는 방법에 대한 자세한 내용은 [Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드](./how-to-upgrade-previous-version.md) 문서를 참조하세요.
 
  * Azure AD Connect에서 **15개 이상의 인증서 값을 포함하는 개체의 실제 값 대신 null 값**을 내보내는 **아웃바운드 동기화 규칙**을 구현합니다. 이 옵션은 값이 15개 이상인 개체에 대해 Azure AD로 내보낼 인증서 값이 필요하지 않은 경우에 적합합니다. 이 동기화 규칙을 구현하는 방법에 대한 자세한 내용은 다음 섹션 [userCertificate 특성의 내보내기를 제한하는 동기화 규칙 구현](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute)을 참조하세요.
 
  * 조직에서 더 이상 사용하지 않는 값을 제거하여 온-프레미스 AD 개체의 인증서 값 수(15개 이하)를 줄입니다. 만료되거나 사용하지 않는 인증서로 특성 블로트가 발생한 경우 적합합니다. [여기에서 제공되는 PowerShell 스크립트](https://gallery.technet.microsoft.com/Remove-Expired-Certificates-0517e34f)를 사용하여 온-프레미스 AD에서 만료된 인증서를 찾고 백업하며 삭제할 수 있습니다. 인증서를 삭제하기 전에 조직의 공개 키 인프라(Public-Key-Infrastructure) 관리자와 확인하는 것이 좋습니다
 
  * Azure AD Connect를 구성하여 userCertificate 특성이 Azure AD로 내보내지지 않도록 제외하십시오. 일반적으로 특정 시나리오를 사용하기 위해 Microsoft Online Services에서 특성을 사용할 수 있으므로 이 옵션을 사용하지 않는 것이 좋습니다. 특히 다음 사항에 주의하십시오.
-    * User 개체의 userCertificate 특성은 Exchange Online 및 Outlook 클라이언트에서 메시지 서명 및 암호화에 사용됩니다. 이 기능에 대해 자세히 알아보려면 [메시지 서명 및 암호화를 위한 S/MIME](https://technet.microsoft.com/library/dn626158(v=exchg.150).aspx) 문서를 참조하세요.
+    * User 개체의 userCertificate 특성은 Exchange Online 및 Outlook 클라이언트에서 메시지 서명 및 암호화에 사용됩니다. 이 기능에 대해 자세히 알아보려면 [메시지 서명 및 암호화를 위한 S/MIME](/microsoft-365/security/office-365-security/s-mime-for-message-signing-and-encryption?view=o365-worldwide) 문서를 참조하세요.
 
-    * Computer 개체의 userCertificate 특성은 Windows 10 온-프레미스 도메인에 조인된 디바이스가 Azure AD에 연결할 수 있도록 하기 위해 Azure AD에서 사용됩니다. 이 기능에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 조인된 디바이스 연결](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy)을 참조하세요.
+    * Computer 개체의 userCertificate 특성은 Windows 10 온-프레미스 도메인에 조인된 디바이스가 Azure AD에 연결할 수 있도록 하기 위해 Azure AD에서 사용됩니다. 이 기능에 대한 자세한 내용은 [Windows 10 환경용 Azure AD에 도메인 조인된 디바이스 연결](../devices/hybrid-azuread-join-plan.md)을 참조하세요.
 
 ## <a name="implementing-sync-rule-to-limit-export-of-usercertificate-attribute"></a>userCertificate 특성의 내보내기를 제한하는 동기화 규칙 구현
 userCertificate 특성으로 인해 발생한 LargeObject 오류를 해결하기 위해 Azure AD Connect에서 **15개 이상의 인증서 값을 포함하는 개체의 실제 값 대신 null 값**을 내보내는 아웃바운드 동기화 규칙을 구현할 수 있습니다. 이 섹션에서는 **User** 개체에 대한 동기화 규칙을 구현하는 데 필요한 단계를 설명합니다. 이 단계는 **Contact** 및 **Computer** 개체에 대해 적용할 수 있습니다.
@@ -90,9 +90,9 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
 
 2. 다음 값을 사용하여 검색 필터를 구성합니다.
 
-    | 특성 | 값 |
+    | attribute | 값 |
     | --- | --- |
-    | Direction |**아웃바운드** |
+    | 방향 |**아웃바운드** |
     | MV 개체 유형 |**Person** |
     | 커넥터 |*Azure AD 커넥터의 이름* |
     | 커넥터 개체 유형 |**user** |
@@ -110,12 +110,12 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
     | sourceObjectType | EQUAL | 사용자 |
     | cloudMastered | NOTEQUAL | True |
 
-### <a name="step-3-create-the-outbound-sync-rule-required"></a>3단계: 필요한 아웃바운드 동기화 규칙을 만듭니다.
+### <a name="step-3-create-the-outbound-sync-rule-required"></a>3단계. 필요한 아웃바운드 동기화 규칙을 만듭니다.
 새로운 동기화 규칙은 기존 동기화 규칙과 동일한 **범위 지정 필터**와 **높은 우선 순위**를 포함해야 합니다. 이렇게 하면 새 동기화 규칙이 기존 동기화 규칙과 동일한 개체 집합에 적용되고 userCertificate 특성에 대한 기존 동기화 규칙을 재정의합니다. 동기화 규칙을 만들려면
 1. 동기화 규칙 편집기에서 **새 규칙 추가** 단추를 클릭합니다.
 2. **설명 탭**아래에서 다음 구성을 제공 합니다.
 
-    | 특성 | 값 | 세부 정보 |
+    | attribute | 값 | 세부 정보 |
     | --- | --- | --- |
     | 속성 | *이름 제공* | 예: *“Out to AAD – userCertificate에 대한 사용자 지정 재정의”* |
     | Description | *설명 제공* | 예: *“userCertificate 특성에 15개 이상의 값이 있는 경우 NULL을 내보냅니다.”* |
@@ -129,11 +129,11 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
 4. **조인 규칙** 탭을 건너뜁니다.
 5. **변환** 탭으로 이동하고 다음 구성을 사용하여 새 변환을 추가합니다.
 
-    | 특성 | 값 |
+    | attribute | 값 |
     | --- | --- |
     | 흐름 형식 |**식** |
     | 대상 특성 |**userCertificate** |
-    | 원본 특성 |*다음 식을 사용 합니다*.`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
+    | 원본 특성 |*다음 식을 사용 합니다*. `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. **추가** 단추를 클릭하여 동기화 규칙을 만듭니다.
 
@@ -183,4 +183,3 @@ User 개체에 대한 userCertificate 특성을 Azure AD로 내보내기 위해 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.
-

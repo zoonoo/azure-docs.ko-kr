@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 8/11/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 47e4bb291d031c41c89c88435a795004490e20a1
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8d720d77773e506a13f176723ab4583613f1e625
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505328"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291758"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins에 IoT Hub 원격 분석 수집
 
@@ -22,7 +22,7 @@ Azure digital 쌍로 데이터를 수집 하는 프로세스는 [azure function]
 
 이 방법 문서에서는 IoT Hub에서 원격 분석을 수집할 수 있는 Azure 함수를 작성 하는 프로세스를 안내 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 예를 계속 하기 전에 다음 리소스를 필수 조건으로 설정 해야 합니다.
 * **IoT hub**. 지침은 [이 IoT Hub 빠른](../iot-hub/quickstart-send-telemetry-cli.md)시작의 *IoT Hub 만들기* 섹션을 참조 하세요.
@@ -63,14 +63,20 @@ IoT hub 정보로 업데이트 하려면 쌍이 필요 합니다.
 ```
 
 **이 모델을 쌍 인스턴스에 업로드**하려면 Azure CLI을 열고 다음 명령을 실행 합니다.
+
 ```azurecli-interactive
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 그런 다음 **이 모델을 사용 하 여 하나의**쌍을 만들어야 합니다. 다음 명령을 사용 하 여 쌍을 만들고 0.0을 초기 온도 값으로 설정 합니다.
+
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 성공한 쌍 만들기 명령의 출력은 다음과 같습니다.
 ```json
@@ -212,6 +218,8 @@ namespace IotHubtoTwins
 ## <a name="validate-your-results"></a>결과 유효성 검사
 
 위의 장치 시뮬레이터를 실행 하는 동안 디지털 쌍의 온도 값이 변경 됩니다. Azure CLI에서 다음 명령을 실행 하 여 온도 값을 확인 합니다.
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ```azurecli-interactive
 az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name}

@@ -2,13 +2,13 @@
 title: 매개 변수 파일 만들기
 description: Azure Resource Manager 템플릿을 배포하는 동안 값을 전달하기 위한 매개 변수 파일 만들기
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: ff5fa74f8b4b7f0ce7dfe2164a369cfd5eedb4d9
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.date: 09/01/2020
+ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179626"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276663"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Resource Manager 매개 변수 파일 만들기
 
@@ -147,6 +147,8 @@ ms.locfileid: "89179626"
   }
 }
 ```
+
+매개 변수 파일에는 템플릿에 정의 된 매개 변수에 대 한 값만 포함 될 수 있습니다. 매개 변수 파일에 템플릿의 매개 변수와 일치 하지 않는 추가 매개 변수가 포함 된 경우 오류가 발생 합니다.
 
 ## <a name="parameter-type-formats"></a>매개 변수 유형 형식
 

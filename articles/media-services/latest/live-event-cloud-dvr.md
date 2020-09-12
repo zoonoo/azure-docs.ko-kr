@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f188d959bf702a2907fe34805b41fa62cae7ee40
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 11485ebac449cbde0a4f31e2a099a153476577b6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265391"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289514"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>시간 이동 및 라이브 출력을 사용 하 여 주문형 비디오 재생 만들기
 
@@ -47,7 +47,7 @@ Azure Media Services [라이브 출력](/rest/api/media/liveoutputs) 개체는 �
 
 스트리밍 로케이터를 사용 하 여 라이브 출력의 자산을 게시 한 경우 라이브 이벤트 (DVR 창 길이까지)는 스트리밍 로케이터가 만료 또는 삭제 될 때까지 계속 해 서 볼 수 있습니다.
 
-자세한 내용은 다음을 참조하십시오.
+자세한 내용은 다음을 참조하세요.
 
 - [라이브 스트리밍 개요](live-streaming-overview.md)
 - [라이브 스트리밍 자습서](stream-live-tutorial-with-api.md)

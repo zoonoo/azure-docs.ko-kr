@@ -10,17 +10,17 @@ tags: ''
 keywords: Azure Media Services, 스트림, 브로드캐스트, 라이브, 오프라인
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 26e6e56d7c14cfa0ab54776003ae4489bb254094
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 65459dbdf8eaa92525fa20eda158f4beacf58780
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265850"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294376"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Azure Portal을 사용하여 Event Grid에서 Media Services 이벤트 만들기 및 모니터링
 
@@ -32,7 +32,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 서
 
 작업을 완료하면 이벤트 데이터가 웹앱에 보내진 것을 확인할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>전제 조건 
 
 * 활성 Azure 구독.
 * [이 빠른 시작](./create-account-howto.md)에서 설명된 대로 새로운 Azure Media Services 계정을 만듭니다.

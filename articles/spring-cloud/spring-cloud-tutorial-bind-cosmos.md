@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 881005c2597eadc3b3b0be9a01fbf9d82d35d050
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
+ms.openlocfilehash: 7fb1f88ab5eaf22047f5a696ec9cb021981cdd5e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070779"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297181"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Azure Cosmos DB 데이터베이스를 Azure Spring Cloud 애플리케이션에 바인딩
 
@@ -20,7 +20,7 @@ Spring Boot 애플리케이션을 수동으로 구성하는 대신 Azure Spring 
 
 필수 조건:
 
-* 배포된 Azure Spring Cloud 인스턴스. [Azure CLI를 통해 배포에 대한 빠른 시작](spring-cloud-quickstart-launch-app-cli.md)을 수행하여 시작하세요.
+* 배포된 Azure Spring Cloud 인스턴스. [Azure CLI를 통해 배포에 대한 빠른 시작](spring-cloud-quickstart.md)을 수행하여 시작하세요.
 * 최소 수준의 기여자 권한이 있는 Azure Cosmos DB 계정
 
 ## <a name="bind-azure-cosmos-db"></a>Azure Cosmos DB 바인딩

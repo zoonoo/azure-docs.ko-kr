@@ -1,7 +1,7 @@
 ---
 title: 트랜잭션 복제
 titleSuffix: Azure SQL Managed Instance
-description: Azure SQL Managed Instance에서 SQL Server 트랜잭션 복제를 사용 하는 방법에 대해 알아봅니다.
+description: Azure SQL Managed Instance (미리 보기)에서 SQL Server 트랜잭션 복제를 사용 하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -12,19 +12,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: ec1dfa3edea5364151c543889d974944a1a1cd5a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 95fc877636fe1d3dac466dc32fc49cee56f35185
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920129"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290517"
 ---
-# <a name="transactional-replication-with-azure-sql-managed-instance"></a>Azure SQL Managed Instance를 사용 하 여 트랜잭션 복제
+# <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Azure SQL Managed Instance를 사용 하 여 트랜잭션 복제 (미리 보기)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 트랜잭션 복제는 azure sql Managed Instance 및 SQL Server의 기능으로, Azure SQL Managed Instance의 테이블 또는 SQL Server 인스턴스의 데이터를 원격 데이터베이스에 배치 된 테이블로 복제할 수 있습니다. 이 기능을 사용하면 서로 다른 데이터베이스의 여러 테이블을 동기화할 수 있습니다. 
 
-트랜잭션 복제는 현재 SQL Managed Instance에 대 한 공개 미리 보기로 제공 됩니다. 
+트랜잭션 복제는 현재 SQL Managed Instance에 대한 공개 미리 보기로 제공됩니다. 
 
 ## <a name="overview"></a>개요
 

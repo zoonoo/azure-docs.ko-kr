@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183636"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294716"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
 이 문서에서는 Centos 6.6 호스트 서버에서 다중 경로 IO(MPIO)를 구성하는 데 필요한 단계를 설명합니다. 호스트 서버는 iSCSI 초기자를 통해 고가용성용 Microsoft Azure StorSimple 디바이스에 연결됩니다. StorSimple 볼륨에 대한 다중 경로 디바이스 및 특정 설치의 자동 검색을 자세히 설명합니다.
@@ -352,12 +352,12 @@ A. 일반적으로 다중 경로인 경로를 표시 하지 않는 것은 다중
 
 * 다음 명령을 사용하여 SCSI 버스를 다시 스캔합니다.
   
-    `$ rescan-scsi-bus.sh`(sg3_utils 패키지의 일부)
+    `$ rescan-scsi-bus.sh` (sg3_utils 패키지의 일부)
 * 다음 명령을 입력합니다.
   
     `$ dmesg | grep sd*`
      
-     또는
+     Or
   
     `$ fdisk -l`
   
@@ -377,9 +377,9 @@ StorSimple 디바이스인 iSCSI 대상에서 연결된 모든 네트워크 인�
 `iscsiadm -m node --login -T <TARGET_IQN>`
 
 
-17. 디바이스를 허용 목록에 추가되었는지 잘 모릅니다.
+17. 장치가 허용 되는지 확실 하지 않습니다.
 
-A. 디바이스를 허용 목록에 추가되었는지를 확인하려면 다음 문제 해결 대화형 명령을 사용합니다.
+A. 장치가 허용 되는지 여부를 확인 하려면 다음과 같은 대화형 문제 해결 명령을 사용 합니다.
 
 ```console
 multipathd -k
@@ -423,7 +423,7 @@ dm-3 devnode blacklisted, unmonitored
 자세한 내용은 [다중 경로 문제 해결](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot)을 참조 하세요.
 
 ## <a name="list-of-useful-commands"></a>유용한 명령 목록
-| 형식 | 명령 | 설명 |
+| Type | 명령 | 설명 |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |iSCSI 서비스 시작 |
 | &nbsp; |`service iscsid stop` |iSCSI 서비스 중지 |
@@ -449,4 +449,3 @@ dm-3 devnode blacklisted, unmonitored
 
 * [CentOS에 MPIO 설정](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Linux 교육 가이드](http://linux-training.be/linuxsys.pdf)
-

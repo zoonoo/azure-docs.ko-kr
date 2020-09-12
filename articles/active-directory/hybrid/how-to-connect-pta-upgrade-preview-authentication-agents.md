@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d27018a19db85e8544029db4f1b638ef7cae448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d0507f7751305af5e626cbd7dd6e0dfd1a63a74
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358143"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279485"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory 통과 인증: 미리 보기 인증 에이전트 업그레이드
 
@@ -60,7 +60,7 @@ ms.locfileid: "85358143"
 
 업그레이드하기 전에 다음 항목이 준비되었는지 확인합니다.
 
-1. **클라우드 전용 전역 관리자 계정 만들기**: 통과 인증 에이전트가 제대로 작동하지 않는 비상 상황에서는 사용할 클라우드 전용 전역 관리자 계정이 없다면 업그레이드하지 마세요. [클라우드 전용 전역 관리자 계정을 추가 하는](../active-directory-users-create-azure-portal.md)방법에 대해 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
+1. **클라우드 전용 전역 관리자 계정 만들기**: 통과 인증 에이전트가 제대로 작동하지 않는 비상 상황에서는 사용할 클라우드 전용 전역 관리자 계정이 없다면 업그레이드하지 마세요. [클라우드 전용 전역 관리자 계정을 추가 하는](../fundamentals/add-users-azure-active-directory.md)방법에 대해 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
 2.  **고가용성 보장**: 이전에 완료되지 않은 경우, 로그인 요청에 대해 고가용성을 제공하기 위해 [지침](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 따라 두 번째 독립 실행형 인증 에이전트를 설치합니다.
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Azure AD Connect 서버에서 인증 에이전트 업그레이드

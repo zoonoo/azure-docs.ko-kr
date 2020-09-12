@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac36650e285c371457b89f7a362b51fa74d7d47c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071434"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280165"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -29,7 +29,7 @@ ms.locfileid: "89071434"
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Azure AD에 로그인하려면 통과 인증, 암호 해시 동기화 및 AD FS(Active Directory Federation Services) 중에서 어떤 방법을 선택해야 하나요?
 
-다양한 Azure AD 로그인 방법을 비교한 결과와 조직에 적합한 로그인 방법을 선택하는 방법을 보려면 [이 가이드](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)를 검토하세요.
+다양한 Azure AD 로그인 방법을 비교한 결과와 조직에 적합한 로그인 방법을 선택하는 방법을 보려면 [이 가이드](./choose-ad-authn.md)를 검토하세요.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>통과 인증은 무료 기능인가요?
 
@@ -37,9 +37,9 @@ ms.locfileid: "89071434"
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloud-and-the-microsoft-azure-government-cloud"></a>통과 인증은 [Microsoft Azure 독일 클라우드](https://www.microsoft.de/cloud-deutschland) 및 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서 사용할 수 있나요?
 
-아니요. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
+아닙니다. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
 
-## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[조건부 액세스](../active-directory-conditional-access-azure-portal.md)는 통과 인증에서 작동하나요?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[조건부 액세스](../conditional-access/overview.md)는 통과 인증에서 작동하나요?
 
 예. Azure Multi-Factor Authentication을 비롯 한 모든 조건부 액세스 기능이 통과 인증을 사용 합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "89071434"
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 
-아니요. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. 사용자 로그인 오류를 방지하려면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
+아닙니다. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. 사용자 로그인 오류를 방지하려면 [고가용성](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
 
 ## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>암호 해시 동기화에서 통과 인증으로 전환 하면 어떻게 되나요?
 
@@ -148,7 +148,7 @@ AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그�
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>통과 인증을 사용하도록 설정하기 위해 클라우드 전용 글로벌 관리자 계정이 필요한 이유는 무엇인가요?
 
-클라우드 전용 글로벌 관리자 계정을 사용하여 통과 인증을 사용하도록 설정하거나 사용하지 않도록 설정하는 것이 좋습니다. [클라우드 전용 전역 관리자 계정을 추가 하는](../active-directory-users-create-azure-portal.md)방법에 대해 알아봅니다. 이 단계는 테넌트가 잠기지 않도록 합니다.
+클라우드 전용 글로벌 관리자 계정을 사용하여 통과 인증을 사용하도록 설정하거나 사용하지 않도록 설정하는 것이 좋습니다. [클라우드 전용 전역 관리자 계정을 추가 하는](../fundamentals/add-users-azure-active-directory.md)방법에 대해 알아봅니다. 이 단계는 테넌트가 잠기지 않도록 합니다.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>통과 인증을 사용하지 않도록 설정하려면 어떻게 하나요?
 
@@ -184,4 +184,3 @@ A: 다음과 같은 경우에 온-프레미스 UPN 변경 내용을 동기화할
 - [보안 심층 분석](how-to-connect-pta-security-deep-dive.md) - 통과 인증 기능에 대한 자세한 기술 정보를 가져옵니다.
 - [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.
-

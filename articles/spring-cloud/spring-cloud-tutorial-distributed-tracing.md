@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1e3579f79f9daa80c3d3f2206be7a76cc5505e80
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
+ms.openlocfilehash: 1ff76c38031ac367bf81f6d152642a4d9a209bb7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037022"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294002"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Azure Spring Cloud에서 분산 추적
 
@@ -28,7 +28,7 @@ Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 �
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-다음 절차를 수행하려면 이미 프로비저닝되어 실행 중인 Azure Spring Cloud 서비스가 필요합니다. [Azure CLI를 통해 앱을 배포하는 빠른 시작](spring-cloud-quickstart-launch-app-cli.md)을 완료하면 Azure Spring Cloud 서비스를 프로비저닝하고 실행할 수 있습니다.
+다음 절차를 수행하려면 이미 프로비저닝되어 실행 중인 Azure Spring Cloud 서비스가 필요합니다. [Azure CLI를 통해 앱을 배포하는 빠른 시작](spring-cloud-quickstart.md)을 완료하면 Azure Spring Cloud 서비스를 프로비저닝하고 실행할 수 있습니다.
     
 ## <a name="add-dependencies"></a>종속성 추가
 

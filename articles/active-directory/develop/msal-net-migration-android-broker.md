@@ -23,7 +23,7 @@ ms.locfileid: "89183634"
 
 현재 .NET 용 Azure Active Directory 인증 라이브러리 (ADAL.NET) 및 [authentication broker](brokered-auth.md)를 사용 하는 Xamarin Android 앱이 있는 경우 MSAL.NET ( [Microsoft authentication library for .net ](msal-overview.md) )로 마이그레이션해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Xamarin Android 앱은 이미 broker ([Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) 또는 [Intune 회사 포털](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal))와 통합 되었으며 MSAL.NET로 마이그레이션해야 하는 ADAL.NET 있습니다.
 
@@ -113,7 +113,7 @@ MSAL.NET에서 다음 두 가지 작업을 수행 하 여 Android에 대 한 작
 
 1. AcquireTokenInteractive 호출에서를 사용 하 `.WithParentActivityOrWindow(App.RootViewController)` 고 사용할 활동에 대 한 참조를 전달 합니다. 이 예에서는 MainActivity를 사용 합니다.
 
-**예:**
+**다음은 그 예입니다. **
 
 *App.cs*:
 

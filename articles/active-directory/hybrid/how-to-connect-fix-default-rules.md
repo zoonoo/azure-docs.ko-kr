@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359758"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279944"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Azure AD Connect에서 수정 된 기본 규칙 수정
 
@@ -89,7 +89,7 @@ Azure AD Connect 버전 1.3.7.0부터 수정 된 기본 규칙을 쉽게 식별�
 
 **조인 규칙** 을 비워 둡니다. 즉,이 규칙은 표준 기본 규칙에 정의 된 join 조건을 사용 합니다. 이는 표준 기본 규칙을 사용 하지 않도록 설정 하거나 삭제 하지 않는 또 다른 이유입니다. 조인 조건이 없는 경우 특성은 전달 되지 않습니다. 
 
-특성에 대 한 적절 한 변환을 추가 합니다. 상수를 할당 하 여 상수 값을 대상 특성으로 흐르게 할 수 있습니다. 원본 또는 대상 특성 간의 직접 매핑을 사용할 수 있습니다. 또는 특성에 식을 사용할 수 있습니다. 사용할 수 있는 다양 한 [식 함수](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) 는 다음과 같습니다.
+특성에 대 한 적절 한 변환을 추가 합니다. 상수를 할당 하 여 상수 값을 대상 특성으로 흐르게 할 수 있습니다. 원본 또는 대상 특성 간의 직접 매핑을 사용할 수 있습니다. 또는 특성에 식을 사용할 수 있습니다. 사용할 수 있는 다양 한 [식 함수](./reference-connect-sync-functions-reference.md) 는 다음과 같습니다.
 
 #### <a name="add-an-outbound-sync-rule"></a>아웃 바운드 동기화 규칙 추가
 특성을 대상 디렉터리에 연결 하려면 아웃 바운드 규칙을 만들어야 합니다. 이는 원본이 메타 버스이 고 대상이 연결 된 시스템 임을 의미 합니다. 아웃 바운드 규칙을 만들려면 **동기화 규칙 편집기**를 시작 하 고, **방향을** **아웃 바운드**로 변경 하 고, **새 규칙 추가**를 선택 합니다. 
@@ -102,7 +102,7 @@ Azure AD Connect 버전 1.3.7.0부터 수정 된 기본 규칙을 쉽게 식별�
 
 **범위 지정 필터** 및 **조인 규칙** 을 비워 둡니다. 상수, 직접 또는 식으로 변환을 채웁니다. 
 
-이제 Active Directory에서 Azure Active Directory으로 사용자 개체 흐름에 대 한 새 특성을 만드는 방법을 알고 있습니다. 이러한 단계를 사용 하 여 모든 개체의 특성을 원본 및 대상에 매핑할 수 있습니다. 자세한 내용은 사용자 [지정 동기화 규칙 만들기](how-to-connect-create-custom-sync-rule.md) 및 [사용자 프로 비전 준비를](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization)참조 하세요.
+이제 Active Directory에서 Azure Active Directory으로 사용자 개체 흐름에 대 한 새 특성을 만드는 방법을 알고 있습니다. 이러한 단계를 사용 하 여 모든 개체의 특성을 원본 및 대상에 매핑할 수 있습니다. 자세한 내용은 사용자 [지정 동기화 규칙 만들기](how-to-connect-create-custom-sync-rule.md) 및 [사용자 프로 비전 준비를](/office365/enterprise/prepare-for-directory-synchronization)참조 하세요.
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>기존 특성의 값을 재정의 합니다.
 이미 매핑된 특성의 값을 재정의할 수 있습니다. 예를 들어 항상 Azure AD의 특성에 null 값을 설정 하려면 인바운드 규칙만 만들면 됩니다. 상수 값을 `AuthoritativeNull` 대상 특성으로 이동 합니다. 
@@ -194,6 +194,3 @@ Azure AD Connect으로 구성 된 기본 조인 조건을 사용 합니다. 기�
 - [하드웨어 및 필수 구성 요소](how-to-connect-install-prerequisites.md) 
 - [Express 설정](how-to-connect-install-express.md)
 - [사용자 지정된 설정](how-to-connect-install-custom.md)
-
-
-

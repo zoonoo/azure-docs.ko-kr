@@ -9,15 +9,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: cd2b9848ef1358c1aeaaed43e55d9914ac701564
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e1ea0a43783fb7abdc17655e3a3431d125d426f8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267108"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291282"
 ---
 # <a name="stream-content-with-cdn-integration"></a>CDN 통합을 사용 하 여 콘텐츠 스트리밍
 
@@ -78,7 +78,7 @@ CDN 캐싱은 사후 프로세스입니다. CDN에서 다음 개체를 요청 �
 - CDN에서 프리페치 할 다음 개체를 CDN에 알리기 위해 Media Services 원본에는 "인텔리전스" (원본 지원)가 있어야 합니다.
 - CDN은 프리페치 및 캐싱 (CDN 프리페치 파트)을 수행 합니다. CDN에는 프리페치 또는 일반 인출 인지 여부, 404 응답 처리, 무한 프리페치 루프를 방지 하는 방법 등을 원본에 알리기 위한 "인텔리전스"도 있어야 합니다.
 
-### <a name="benefits"></a>혜택
+### <a name="benefits"></a>이점
 
 *원본 지원 CDN 프리페치* 기능의 이점에는 다음이 포함 됩니다.
 

@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 467b9b2e613e43b95007142a120d39be1272de93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aa1a30c548ef60cd9b596031f4115297dd20844
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357837"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278601"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>사용자 개인 정보 및 Azure AD 원활한 Single Sign-On
 
@@ -64,7 +64,7 @@ Foreach ($file in $Files) {
 
 ### <a name="note-about-domain-controller-logs"></a>도메인 컨트롤러 로그에 대한 참고 사항
 
-감사 로깅이 설정된 경우 해당 제품은 도메인 컨트롤러에 대한 보안 로그를 생성할 수 있습니다. 감사 정책 구성에 대한 자세한 내용은 이 [문서](https://technet.microsoft.com/library/dd277403.aspx)를 참조하세요.
+감사 로깅이 설정된 경우 해당 제품은 도메인 컨트롤러에 대한 보안 로그를 생성할 수 있습니다. 감사 정책 구성에 대한 자세한 내용은 이 [문서](/previous-versions/tn-archive/dd277403(v=technet.10))를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

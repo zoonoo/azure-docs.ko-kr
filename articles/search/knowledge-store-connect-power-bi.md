@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5be97414a2e4270870d976a9922415b227c66e27
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 91e75b60f5324288c9f1adac59e31b9c1a1b0e9e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924353"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289174"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Power BI를 사용하여 지식 저장소 연결
 
@@ -68,7 +68,7 @@ ms.locfileid: "88924353"
 
 1. 테이블의 오른쪽 위에서 반대 방향 화살표가 있는 아이콘을 클릭하여 *콘텐츠*를 확장합니다. 열 목록이 표시되면 모든 열을 선택한 다음, 'metadata'로 시작하는 열을 선택 취소합니다. **확인**을 클릭하여 선택한 열을 표시합니다.
 
-   ![테이블 편집](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "콘텐츠 확장")
+   ![콘텐츠 확장](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "콘텐츠 확장")
 
 1. 열의 왼쪽 위에 있는 ABC-123 아이콘을 클릭하여 다음 열의 데이터 형식을 변경합니다.
 

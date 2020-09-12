@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa763c875b06bd7e22be0e814838f2e79b24e283
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b8f613cb7c75d9dd6af1fcf62f9d484398072c6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358024"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279468"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증으로 사용자 로그인
 
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-이 기능은 조직에 클라우드 인증과 동일한 혜택을 제공하는 [Azure AD 암호 해시 동기화](how-to-connect-password-hash-synchronization.md)에 대한 대안입니다. 그러나 해당 온-프레미스 Active Directory 보안 및 암호 정책을 적용하려는 특정 조직은 대신 통과 인증을 사용하도록 선택할 수 있습니다. 다양한 Azure AD 로그인 방법을 비교한 결과와 조직에 적합한 로그인 방법을 선택하는 방법을 보려면 [이 가이드](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)를 검토하세요.
+이 기능은 조직에 클라우드 인증과 동일한 혜택을 제공하는 [Azure AD 암호 해시 동기화](how-to-connect-password-hash-synchronization.md)에 대한 대안입니다. 그러나 해당 온-프레미스 Active Directory 보안 및 암호 정책을 적용하려는 특정 조직은 대신 통과 인증을 사용하도록 선택할 수 있습니다. 다양한 Azure AD 로그인 방법을 비교한 결과와 조직에 적합한 로그인 방법을 선택하는 방법을 보려면 [이 가이드](./choose-ad-authn.md)를 검토하세요.
 
 ![Azure AD 통과 인증](./media/how-to-connect-pta/pta1.png)
 
@@ -42,25 +42,25 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 - *멋진 사용자 환경*
   - 사용자는 온-프레미스와 클라우드 기반 애플리케이션에 로그인하는 데 동일한 암호를 사용합니다.
   - 사용자는 암호 관련 문제를 해결하기 위해 IT 기술 지원팀과 소통하는 데 더 적은 시간을 보냅니다.
-  - 사용자는 클라우드에서 [셀프 서비스 암호 관리](../authentication/active-directory-passwords-overview.md) 작업을 완료할 수 있습니다.
+  - 사용자는 클라우드에서 [셀프 서비스 암호 관리](../authentication/concept-sspr-howitworks.md) 작업을 완료할 수 있습니다.
 - *손쉬운 배포 및 관리*
   - 복잡한 온-프레미스 배포 또는 네트워크 구성에 대한 필요가 없습니다.
   - 온-프레미스에 설치되는 간단한 에이전트만 필요합니다.
   - 관리 오버헤드 없음 에이전트는 향상된 기능 및 버그 수정을 자동으로 받습니다.
 - *보안*
   - 온-프레미스 암호가 어떤 형태로든 클라우드에 저장되지 않습니다.
-  - MFA(Multi-Factor Authentication)를 포함하는 [Azure AD 조건부 액세스 정책](../active-directory-conditional-access-azure-portal.md)을 사용하여 원활하게 작동하고, [레거시 인증을 차단](../conditional-access/concept-conditional-access-conditions.md)하고, [무차별 암호 대입 공격을 필터링](../authentication/howto-password-smart-lockout.md)하여 사용자 계정을 보호합니다.
+  - MFA(Multi-Factor Authentication)를 포함하는 [Azure AD 조건부 액세스 정책](../conditional-access/overview.md)을 사용하여 원활하게 작동하고, [레거시 인증을 차단](../conditional-access/concept-conditional-access-conditions.md)하고, [무차별 암호 대입 공격을 필터링](../authentication/howto-password-smart-lockout.md)하여 사용자 계정을 보호합니다.
   - 에이전트는 네트워크 내에서만 아웃바운드 연결을 만듭니다. 따라서 DMZ라고도 하는 경계 네트워크에 에이전트를 설치할 필요가 없습니다.
   - 에이전트와 Azure AD 간의 통신은 인증서 기반 인증을 사용하여 보호됩니다. 이러한 인증서는 Azure AD에서 몇 개월마다 자동으로 갱신됩니다.
-- *항상 사용 가능*
+- *고가용성*
   - 로그인 요청의 고가용성을 제공하기 위해 여러 온-프레미스 서버에 에이전트를 추가로 설치할 수 있습니다.
 
 ## <a name="feature-highlights"></a>주요 기능
 
 - 모든 웹 브라우저 기반 애플리케이션 및 [최신 인증](https://aka.ms/modernauthga)을 사용하는 Microsoft Office 클라이언트 애플리케이션에 사용자 로그인을 지원합니다.
 - 로그인 사용자 이름은 온-프레미스 기본 사용자 이름(`userPrincipalName`) 또는 Azure AD Connect에 구성된 다른 특성(`Alternate ID`라고 함) 중 하나일 수 있습니다.
-- 이 기능은 Multi-Factor Authentication (MFA)와 같은 [조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능을 사용 하 여 원활 하 게 작동 하 여 사용자의 보안을 유지 합니다.
-- 온-프레미스 Active Directory에 대한 암호 쓰기 저장 및 일반적으로 사용되는 암호 금지에 의한 암호 보호를 포함하여 클라우드 기반 [셀프 서비스 암호 관리](../authentication/active-directory-passwords-overview.md)와 통합되었습니다.
+- 이 기능은 Multi-Factor Authentication (MFA)와 같은 [조건부 액세스](../conditional-access/overview.md) 기능을 사용 하 여 원활 하 게 작동 하 여 사용자의 보안을 유지 합니다.
+- 온-프레미스 Active Directory에 대한 암호 쓰기 저장 및 일반적으로 사용되는 암호 금지에 의한 암호 보호를 포함하여 클라우드 기반 [셀프 서비스 암호 관리](../authentication/concept-sspr-howitworks.md)와 통합되었습니다.
 - AD 포리스트 간에 포리스트 트러스트가 있고 이름 접미사 라우팅이 제대로 구성된 경우 다중 포리스트 환경이 지원됩니다.
 - 무료 기능이며 이 기능을 사용하는 데는 Azure AD 유료 버전이 필요하지 않습니다.
 - [Azure AD Connect](whatis-hybrid-identity.md)를 통해 사용 하도록 설정할 수 있습니다.

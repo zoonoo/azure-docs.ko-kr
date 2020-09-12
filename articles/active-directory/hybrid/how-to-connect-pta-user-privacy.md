@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c915898d3eec4494b6a300e88ffde216f21d5d68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 396344ba90aa3850d7d23dc40d6df95f6d1f6c3f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358126"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279519"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>사용자 개인 정보 및 Azure Active Directory 통과 인증
 
@@ -67,7 +67,7 @@ Foreach ($file in $Files) {
 
 ### <a name="delete-authentication-agent-event-logs"></a>인증 에이전트 이벤트 로그 삭제
 
-이 제품은 **Windows 이벤트 로그**를 생성할 수도 있습니다. 자세한 내용은 [이 문서](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx)를 참조하세요.
+이 제품은 **Windows 이벤트 로그**를 생성할 수도 있습니다. 자세한 내용은 [이 문서](/windows/win32/wes/windows-event-log)를 참조하세요.
 
 통과 인증 에이전트와 관련된 로그를 보려면 서버에서 **이벤트 뷰어** 애플리케이션을 열고 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**에서 확인합니다.
 
@@ -103,7 +103,7 @@ Foreach ($file in $files) {
  
 ### <a name="note-about-domain-controller-logs"></a>도메인 컨트롤러 로그에 대한 참고 사항
 
-감사 로깅이 설정된 경우 해당 제품은 도메인 컨트롤러에 대한 보안 로그를 생성할 수 있습니다. 감사 정책 구성에 대한 자세한 내용은 이 [문서](https://technet.microsoft.com/library/dd277403.aspx)를 참조하세요.
+감사 로깅이 설정된 경우 해당 제품은 도메인 컨트롤러에 대한 보안 로그를 생성할 수 있습니다. 감사 정책 구성에 대한 자세한 내용은 이 [문서](/previous-versions/tn-archive/dd277403(v=technet.10))를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [보안 센터에서 Microsoft 개인 정보 취급 방침을 검토합니다.](https://www.microsoft.com/trustcenter)

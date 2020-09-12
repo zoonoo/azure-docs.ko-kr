@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3aad90a3894d3abc1a850ae21946e8895619a188
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849886"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280182"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -33,7 +33,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 >AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 경우 [여기](https://aka.ms/adfstoPTADPDownload)에 게시된 자세한 배포 가이드를 따르는 것이 좋습니다.
 
 >[!NOTE]
->Azure Government 클라우드에서 통과 인증을 배포 하는 경우 [Azure Government에 대 한 하이브리드 Id 고려 사항을](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud)확인 하세요.
+>Azure Government 클라우드에서 통과 인증을 배포 하는 경우 [Azure Government에 대 한 하이브리드 Id 고려 사항을](./reference-connect-government-cloud.md)확인 하세요.
 
 통과 인증을 테넌트에 배포하려면 다음 지침을 따릅니다.
 
@@ -42,12 +42,12 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 다음 필수 조건이 충족되는지 확인합니다.
 
 >[!IMPORTANT]
->보안 관점에서 관리자는 PTA 에이전트를 실행 하는 서버를 도메인 컨트롤러인 것 처럼 처리 해야 합니다.  PTA 에이전트 서버는 [공격 으로부터 도메인 컨트롤러를 보호](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack) 하는 방법에 설명 된 것과 같은 줄을 따라 확정 되어야 합니다.
+>보안 관점에서 관리자는 PTA 에이전트를 실행 하는 서버를 도메인 컨트롤러인 것 처럼 처리 해야 합니다.  PTA 에이전트 서버는 [공격 으로부터 도메인 컨트롤러를 보호](/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack) 하는 방법에 설명 된 것과 같은 줄을 따라 확정 되어야 합니다.
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>Azure Active Directory 관리 센터에서
 
-1. Azure AD 테넌트에서 클라우드 전용 전역 관리자 계정을 만듭니다. 이러한 방식으로 온-프레미스 서비스가 실패하거나 사용할 수 없게 될 때 테넌트의 구성을 관리할 수 있습니다. [클라우드 전용 전역 관리자 계정 추가](../active-directory-users-create-azure-portal.md)에 대해 자세히 알아봅니다. 테넌트에 잠기지 않도록 이 단계를 완료하는 것이 중요합니다.
-2. Azure AD 테넌트에 [사용자 지정 도메인 이름](../active-directory-domains-add-azure-portal.md)을 하나 이상 추가합니다. 사용자는 이러한 도메인 이름 중 하나로 로그인할 수 있습니다.
+1. Azure AD 테넌트에서 클라우드 전용 전역 관리자 계정을 만듭니다. 이러한 방식으로 온-프레미스 서비스가 실패하거나 사용할 수 없게 될 때 테넌트의 구성을 관리할 수 있습니다. [클라우드 전용 전역 관리자 계정 추가](../fundamentals/add-users-azure-active-directory.md)에 대해 자세히 알아봅니다. 테넌트에 잠기지 않도록 이 단계를 완료하는 것이 중요합니다.
+2. Azure AD 테넌트에 [사용자 지정 도메인 이름](../fundamentals/add-custom-domain.md)을 하나 이상 추가합니다. 사용자는 이러한 도메인 이름 중 하나로 로그인할 수 있습니다.
 
 ### <a name="in-your-on-premises-environment"></a>온-프레미스 환경에서
 
@@ -55,12 +55,12 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 2. 이전 단계에서 찾은 서버에 [최신 버전의 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)를 설치합니다. Azure AD Connect가 이미 실행되고 있는 경우 버전이 1.1.750.0 이상인지 확인합니다.
 
     >[!NOTE]
-    >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 [Azure AD Connect 릴리스 정보](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470)를 참조하세요.
+    >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 [Azure AD Connect 릴리스 정보](./reference-connect-version-history.md)를 참조하세요.
 
 3. 독립 실행형 인증 에이전트를 실행할 수 있도록 TLS 1.2를 사용하도록 설정한 Windows Server 2012 R2 이상을 실행 중인 하나 이상의 추가 서버를 찾습니다. 이러한 추가 서버는 로그인 요청의 고가용성을 보장하기 위해 필요합니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다.
 
     >[!IMPORTANT]
-    >프로덕션 환경의 테넌트에서 실행되는 최소 3개의 인증 에이전트를 확보하는 것이 좋습니다. 테넌트당 인증 에이전트 40개라는 시스템 제한이 있습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
+    >프로덕션 환경의 테넌트에서 실행되는 최소 3개의 인증 에이전트를 확보하는 것이 좋습니다. 테넌트당 인증 에이전트 40개라는 시스템 제한이 있습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
 
 4. 서버와 Azure AD 사이에 방화벽이 있는 경우 다음 항목을 구성합니다.
    - 인증 에이전트가 다음 포트를 통해 Azure AD에 대한 *아웃바운드* 요청을 만들 수 있는지 확인합니다.
@@ -120,7 +120,7 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 프로덕션 환경에 통과 인증을 배포하려는 경우 독립 실행형 인증 에이전트를 추가 설치해야 합니다. 이러한 인증 에이전트를 Azure AD Connect를 실행하는 서버 _이외의_ 서버에 설치합니다. 이렇게 설치하면 사용자 로그인 요청에 대해 고가용성이 제공됩니다.
 
 >[!IMPORTANT]
->프로덕션 환경의 테넌트에서 실행되는 최소 3개의 인증 에이전트를 확보하는 것이 좋습니다. 테넌트당 인증 에이전트 40개라는 시스템 제한이 있습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
+>프로덕션 환경의 테넌트에서 실행되는 최소 3개의 인증 에이전트를 확보하는 것이 좋습니다. 테넌트당 인증 에이전트 40개라는 시스템 제한이 있습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
 
 여러 통과 인증 에이전트를 설치 하면 고가용성이 보장 되지만 인증 에이전트 간의 결정적 부하 분산은 보장 되지 않습니다. 테 넌 트에 대해 필요한 인증 에이전트 수를 결정 하려면 테 넌 트에 표시 될 것으로 생각 되는 로그인 요청의 최대 및 평균 부하를 고려 합니다. 벤치마크의 경우, 단일 인증 에이전트는 표준 4코어 CPU, 16GB RAM 서버에서 초당 300~400건의 인증을 처리할 수 있습니다.
 

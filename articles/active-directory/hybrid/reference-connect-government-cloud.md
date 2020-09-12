@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39acc0373f5748f57f4fef5a5cee5fb038071523
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080184"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276187"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Azure Government 클라우드에 대한 하이브리드 ID 고려 사항
 
@@ -25,7 +25,7 @@ ms.locfileid: "88080184"
 > [!NOTE]
 > 온-프레미스 Microsoft Azure AD(Azure Active Directory) 환경을 Azure Government 클라우드와 통합하려면 [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)의 최신 릴리스로 업그레이드해야 합니다.
 
-미국 Department of Defense(국방부) 엔드포인트의 전체 목록은 [설명서](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints)를 참조하세요.
+미국 Department of Defense(국방부) 엔드포인트의 전체 목록은 [설명서](/office365/enterprise/office-365-u-s-government-dod-endpoints)를 참조하세요.
 
 ## <a name="azure-ad-pass-through-authentication"></a>Azure AD 통과 인증
 

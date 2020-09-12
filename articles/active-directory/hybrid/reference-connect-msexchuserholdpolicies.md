@@ -14,18 +14,18 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4c637a01825616334cda8faa594efd08f29de8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4950906e016b9e1915d18ecacc1edcfda8b4d09
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74213084"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279400"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect-msExchUserHoldPolicies 및 cloudMsExchUserHoldPolicies
 다음 참조 문서에서는 Exchange에서 사용 되는 이러한 특성과 기본 동기화 규칙을 편집 하는 적절 한 방법을 설명 합니다.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>MsExchUserHoldPolicies 및 cloudMsExchUserHoldPolicies 이란?
-Exchange 서버에 사용할 수 있는 두 가지 유형으로는 소송 보류 및 내부 유지 [가 있습니다.](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) 소송 보류를 사용 하는 경우 모든 사서함 모든 항목이 보류 중으로 배치 됩니다.  내부 보류는 내부 eDiscovery 도구를 사용 하 여 정의한 검색 쿼리 조건을 충족 하는 항목만 보존 하는 데 사용 됩니다.
+Exchange 서버에 사용할 수 있는 두 가지 유형으로는 소송 보류 및 내부 유지 [가 있습니다.](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) 소송 보류를 사용 하는 경우 모든 사서함 모든 항목이 보류 중으로 배치 됩니다.  내부 보류는 내부 eDiscovery 도구를 사용 하 여 정의한 검색 쿼리 조건을 충족 하는 항목만 보존 하는 데 사용 됩니다.
 
 MsExchUserHoldPolcies 및 cloudMsExchUserHoldPolicies 특성을 사용 하면 온-프레미스 AD 및 Azure AD에서 온-프레미스 Exchange를 사용 하는지 아니면 Exchange 온라인에서 사용 되는지에 따라 보유 중인 사용자를 확인할 수 있습니다.
 

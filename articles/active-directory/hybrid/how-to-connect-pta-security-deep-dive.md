@@ -15,12 +15,12 @@ ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce5f47fe662092219180064f7ea49f5573b27818
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08a73c2b1be4b17136ba19e7efb71c2b21359fdf
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358245"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280148"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
 
@@ -38,14 +38,14 @@ ms.locfileid: "85358245"
 다음은 이 기능의 주요 보안 측면입니다.
 - 테넌트 간의 로그인 요청을 격리하는 안전한 멀티 테넌트 아키텍처를 기반으로 합니다.
 - 온-프레미스 암호가 어떤 형태로든 클라우드에 저장되지 않습니다.
-- 온-프레미스 인증 에이전트는 네트워크 내에서만 아웃바운드 연결을 설정한 암호 유효성 검사 요청만 수신 대기하고 응답합니다. DMZ(경계 네트워크)에 이러한 인증 에이전트를 설치해야 할 필요는 없습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
+- 온-프레미스 인증 에이전트는 네트워크 내에서만 아웃바운드 연결을 설정한 암호 유효성 검사 요청만 수신 대기하고 응답합니다. DMZ(경계 네트워크)에 이러한 인증 에이전트를 설치해야 할 필요는 없습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
 - 인증 에이전트에서 Azure AD로의 아웃바운드 통신에는 표준 포트(80 및 443)만 사용됩니다. 방화벽에서 인바운드 포트를 열지 않아도 됩니다. 
   - 인증된 모든 아웃바운드 통신에는 포트 443이 사용됩니다.
   - 포트 80은 통과 인증에서 해지된 인증서가 사용되지 않도록 CRL(인증서 해지 목록)을 다운로드하는 데만 사용됩니다.
   - 네트워크 요구 사항의 전체 목록은 [Azure Active Directory 통과 인증: 빠른](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)시작을 참조 하세요.
 - 사용자가 로그인 시 입력하는 암호는 먼저 클라우드에서 암호화된 뒤에 Active Directory에 대한 유효성 검사를 위해 온-프레미스 인증 에이전트에서 수신됩니다.
 - Azure AD 및 온-프레미스 인증 에이전트 간의 HTTPS 채널은 상호 인증으로 보호됩니다.
-- MFA(Multi-Factor Authentication)를 포함하는 [Azure AD 조건부 액세스 정책](../active-directory-conditional-access-azure-portal.md)을 사용하여 원활하게 작동하고, [레거시 인증을 차단](../conditional-access/concept-conditional-access-conditions.md)하고, [무차별 암호 대입 공격을 필터링](../authentication/howto-password-smart-lockout.md)하여 사용자 계정을 보호합니다.
+- MFA(Multi-Factor Authentication)를 포함하는 [Azure AD 조건부 액세스 정책](../conditional-access/overview.md)을 사용하여 원활하게 작동하고, [레거시 인증을 차단](../conditional-access/concept-conditional-access-conditions.md)하고, [무차별 암호 대입 공격을 필터링](../authentication/howto-password-smart-lockout.md)하여 사용자 계정을 보호합니다.
 
 ## <a name="components-involved"></a>관련 구성 요소
 
@@ -59,8 +59,8 @@ Azure AD 운영, 서비스 및 데이터 보안에 대 한 일반적인 정보�
 ## <a name="installation-and-registration-of-the-authentication-agents"></a>인증 에이전트의 설치 및 등록
 
 인증 에이전트는 다음과 같은 경우에 Azure AD에 설치 및 등록됩니다.
-   - [Azure AD Connect를 통해 통과 인증 사용](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-2-enable-the-feature)
-   - [로그인 요청의 고가용성을 보장하기 위해 더 많은 인증 에이전트를 추가하는 경우](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-4-ensure-high-availability) 
+   - [Azure AD Connect를 통해 통과 인증 사용](./how-to-connect-pta-quick-start.md#step-2-enable-the-feature)
+   - [로그인 요청의 고가용성을 보장하기 위해 더 많은 인증 에이전트를 추가하는 경우](./how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) 
    
 인증 에이전트 작업은 세 가지 주요 단계로 구성되어 있습니다.
 
@@ -73,11 +73,11 @@ Azure AD 운영, 서비스 및 데이터 보안에 대 한 일반적인 정보�
 ### <a name="authentication-agent-installation"></a>인증 에이전트 설치
 
 오직 전역 관리자만 Azure AD Connect 또는 독립 실행형을 사용하여 온-프레미스 서버에 인증 에이전트를 설치할 수 있습니다. 설치 하면 **제어판**  >  **프로그램**  >  **프로그램 및 기능** 목록에 두 개의 새 항목이 추가 됩니다.
-- 인증 에이전트 애플리케이션 자체. 인증 에이전트 애플리케이션은 [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx) 권한으로 실행됩니다.
-- 인증 에이전트를 자동으로 업데이트하는 업데이트 애플리케이션. 업데이트 애플리케이션은 [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) 권한으로 실행됩니다.
+- 인증 에이전트 애플리케이션 자체. 인증 에이전트 애플리케이션은 [NetworkService](/windows/win32/services/networkservice-account) 권한으로 실행됩니다.
+- 인증 에이전트를 자동으로 업데이트하는 업데이트 애플리케이션. 업데이트 애플리케이션은 [LocalSystem](/windows/win32/services/localsystem-account) 권한으로 실행됩니다.
 
 >[!IMPORTANT]
->보안 관점에서 관리자는 PTA 에이전트를 실행 하는 서버를 도메인 컨트롤러인 것 처럼 처리 해야 합니다.  PTA 에이전트 서버는 [공격 으로부터 도메인 컨트롤러를 보호](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack) 하는 방법에 설명 된 것과 같은 줄을 따라 확정 되어야 합니다.
+>보안 관점에서 관리자는 PTA 에이전트를 실행 하는 서버를 도메인 컨트롤러인 것 처럼 처리 해야 합니다.  PTA 에이전트 서버는 [공격 으로부터 도메인 컨트롤러를 보호](/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack) 하는 방법에 설명 된 것과 같은 줄을 따라 확정 되어야 합니다.
 
 ### <a name="authentication-agent-registration"></a>인증 에이전트 등록
 
@@ -107,7 +107,7 @@ Azure AD 운영, 서비스 및 데이터 보안에 대 한 일반적인 정보�
     -  다른 Azure AD 서비스는 이 CA를 사용하지 않습니다.
     - 인증서의 제목(고유 이름 또는 DN)은 테넌트 ID로 설정됩니다. DN은 테넌트를 고유하게 식별하는 GUID입니다. DN은 인증서가 해당 테넌트에만 사용되도록 범위를 지정합니다.
 6. Azure AD는 인증 에이전트의 공개 키를 Azure AD만 액세스할 수 있는 Azure SQL Database의 데이터베이스에 저장 합니다.
-7. 5단계에서 발급된 인증서가 Windows 인증서 저장소([CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE) 위치)의 온-프레미스 서버에 저장됩니다. 저장소는 인증 에이전트와 업데이트 애플리케이션이 모두 사용합니다.
+7. 5단계에서 발급된 인증서가 Windows 인증서 저장소([CERT_SYSTEM_STORE_LOCAL_MACHINE](/windows/win32/seccrypto/system-store-locations#CERT_SYSTEM_STORE_LOCAL_MACHINE) 위치)의 온-프레미스 서버에 저장됩니다. 저장소는 인증 에이전트와 업데이트 애플리케이션이 모두 사용합니다.
 
 ### <a name="authentication-agent-initialization"></a>인증 에이전트 초기화
 
@@ -144,7 +144,7 @@ Azure AD 운영, 서비스 및 데이터 보안에 대 한 일반적인 정보�
 8. Azure AD STS가 사용자 이름과 암호화된 암호 값으로 구성된 암호 유효성 검사 요청을 해당 테넌트의 Service Bus 큐에 배치합니다.
 9. 초기화된 인증 에이전트는 Service Bus 큐에 영구적으로 연결되므로 사용 가능한 인증 에이전트 중 하나가 암호 유효성 검사 요청을 가져옵니다.
 10. 인증 에이전트가 식별자를 사용하여 자신의 공개 키에 고유한 암호화된 암호 값을 찾고 자신의 프라이빗 키를 사용하여 암호를 해독합니다.
-11. 인증 에이전트가 **dwLogonType** 매개 변수가 **LOGON32_LOGON_NETWORK**로 설정된 [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)를 사용하여 온-프레미스 Active Directory에 대해 사용자 이름 및 암호의 유효성을 검사합니다. 
+11. 인증 에이전트가 **dwLogonType** 매개 변수가 **LOGON32_LOGON_NETWORK**로 설정된 [Win32 LogonUser API](/windows/win32/api/winbase/nf-winbase-logonusera)를 사용하여 온-프레미스 Active Directory에 대해 사용자 이름 및 암호의 유효성을 검사합니다. 
     - Win32 LogonUser API는 AD FS(Active Directory Federation Service)가 페더레이션 로그인 시나리오에서 사용자 로그인에 사용하는 API이기도 합니다.
     - Win32 LogonUser API는 Windows Server의 표준 확인 프로세스를 사용하여 도메인 컨트롤러를 찾습니다.
 12. 인증 에이전트가 Active Directory로부터 성공, 사용자 이름 또는 암호 불일치, 암호 만료와 같은 결과를 수신합니다.
@@ -179,7 +179,7 @@ Azure AD에서 인증 에이전트의 신뢰를 갱신하기 위해:
     - Azure AD 루트 CA를 사용하여 인증서에 서명합니다.
     - 인증서의 제목(고유 이름 또는 DN)을 해당 테넌트를 고유하게 식별하는 GUID인 테넌트 ID로 설정합니다. DN은 인증서가 해당 테넌트에만 사용되도록 범위를 지정합니다.
 6. Azure AD는 인증 에이전트의 새 공개 키를 데이터베이스에 저장 하 여 액세스할 수 있는 Azure SQL Database 합니다. 인증 에이전트에 연결되었던 이전 공개 키를 무효화합니다.
-7. 5단계에서 발급된 새 인증서가 Windows 인증서 저장소([CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER) 위치)의 서버에 저장됩니다.
+7. 5단계에서 발급된 새 인증서가 Windows 인증서 저장소([CERT_SYSTEM_STORE_CURRENT_USER](/windows/win32/seccrypto/system-store-locations#CERT_SYSTEM_STORE_CURRENT_USER) 위치)의 서버에 저장됩니다.
     - 신뢰 갱신 절차는 전역 관리자의 개입 없이 비대화형으로 이루어지기 때문에 인증 에이전트는 더 이상 CERT_SYSTEM_STORE_LOCAL_MACHINE 위치에 있는 기존 인증서를 업데이트할 액세스 권한이 없습니다. 
     
    > [!NOTE]
@@ -190,7 +190,7 @@ Azure AD에서 인증 에이전트의 신뢰를 갱신하기 위해:
 
 업데이트 프로그램 응용 프로그램은 새 버전 (버그 수정 또는 성능 향상이 포함 됨)이 릴리스되면 인증 에이전트를 자동으로 업데이트 합니다. 업데이트 프로그램 응용 프로그램은 테 넌 트에 대 한 암호 유효성 검사 요청을 처리 하지 않습니다.
 
-Azure AD는 새 버전의 소프트웨어를 서명 된 **MSI (Windows Installer 패키지)** 로 호스팅합니다. MSI는 [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx)를 사용하여 서명됩니다. 이때 SHA256이 다이제스트 알고리즘으로 사용됩니다. 
+Azure AD는 새 버전의 소프트웨어를 서명 된 **MSI (Windows Installer 패키지)** 로 호스팅합니다. MSI는 [Microsoft Authenticode](/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms537359(v=vs.85))를 사용하여 서명됩니다. 이때 SHA256이 다이제스트 알고리즘으로 사용됩니다. 
 
 ![자동 업데이트](./media/how-to-connect-pta-security-deep-dive/pta5.png)
 
@@ -203,7 +203,7 @@ Azure AD는 새 버전의 소프트웨어를 서명 된 **MSI (Windows Installer
 4. 업데이트 프로그램은 MSI를 실행합니다. 이때 다음과 같은 단계가 수행됩니다.
 
    > [!NOTE]
-   > 업데이트 프로그램은 [로컬 시스템](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx) 권한으로 실행됩니다.
+   > 업데이트 프로그램은 [로컬 시스템](/windows/win32/services/localsystem-account) 권한으로 실행됩니다.
 
     - 인증 에이전트 서비스를 중지합니다.
     - 서버에 새 인증 에이전트 버전을 설치합니다.

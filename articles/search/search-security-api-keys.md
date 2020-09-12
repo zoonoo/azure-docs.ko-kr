@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7cd6e61b8614e4c8ff5d54232972865c81cbb3ff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1fa464eca69f50fba7fa125212b85e0f7f63bcc9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928873"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294784"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Azure Cognitive Search 서비스에 대 한 api 키 만들기 및 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "88928873"
 
 키는 서비스를 프로비전하는 동안 검색 서비스를 사용하여 생성됩니다. [Azure Portal](https://portal.azure.com)에서 키 값을 살펴보고 얻을 수 있습니다.
 
-![포털 페이지, 설정, 키 섹션](media/search-manage/azure-search-view-keys.png)
+![포털 페이지, 설정 검색, 키 섹션](media/search-manage/azure-search-view-keys.png)
 
 ## <a name="what-is-an-api-key"></a>api-key란?
 
@@ -47,7 +47,7 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 2. 구독에 대한 [검색 서비스](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)를 나열합니다.
 3. 서비스를 선택 하 고 개요 페이지에서 **설정**  > **키** 를 클릭 하 여 관리자 및 쿼리 키를 봅니다.
 
-   ![포털 페이지, 설정, 키 섹션](media/search-security-overview/settings-keys.png)
+   ![포털 페이지, 설정 보기, 키 섹션](media/search-security-overview/settings-keys.png)
 
 ## <a name="create-query-keys"></a>쿼리 키 만들기
 
@@ -93,7 +93,7 @@ api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다
 > [!Note]
 > 검색 결과에 대한 ID 기반 액세스의 경우 보안 필터를 만들어서 ID를 기준으로 결과를 잘라 요청자에게 액세스 권한이 없어야 하는 문서를 제거할 수 있습니다. 자세한 내용은 [보안 필터](search-security-trimming-for-azure-search.md) 및 [Active Directory로 보안](search-security-trimming-for-azure-search-with-aad.md)을 참조하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 + [Azure Cognitive Search의 역할 기반 액세스 제어](search-security-rbac.md)
 + [Powershell을 사용하여 관리](search-manage-powershell.md) 

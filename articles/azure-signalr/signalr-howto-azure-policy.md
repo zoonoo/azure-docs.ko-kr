@@ -6,16 +6,16 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: jixin
-ms.openlocfilehash: 1e0b6fbcacf13296d1d219da82d1b6f4c74ad7fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 018033d3a6123948191a7261f5a1ee2ae526e25a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85131982"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295025"
 ---
 # <a name="audit-compliance-of-azure-signalr-service-resources-using-azure-policy"></a>Azure Policy를 사용 하 여 Azure SignalR Service 리소스의 준수 감사
 
-[Azure Policy](../governance/policy/overview.md) 는 정책을 만들고 할당 하 고 관리 하는 데 사용 하는 Azure의 서비스입니다. 이러한 정책은 리소스에 대해 다양한 규칙과 효과를 적용하여 리소스를 회사 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다.
+[Azure Policy](../governance/policy/overview.md) 는 정책을 만들고 할당 하 고 관리 하는 데 사용 하는 Azure의 서비스입니다. 정책은 리소스에 대해 다양한 규칙과 효과를 적용하여 리소스가 회사 표준 및 서비스 수준 약정을 준수하도록 유지합니다.
 
 이 문서에서는 Azure SignalR Service에 대 한 기본 제공 정책 (미리 보기)을 소개 합니다. 이러한 정책을 사용 하 여 신규 및 기존 SignalR 리소스의 준수를 감사 합니다.
 
@@ -25,7 +25,7 @@ Azure Policy 사용에 대 한 요금은 없습니다.
 
 다음 기본 제공 정책 정의는 Azure SignalR Service에만 적용 됩니다.
 
-[!INCLUDE [azure-policy-samples-policies-signalr](../../includes/policy/samples/bycat/policies-signalr.md)]
+[!INCLUDE [azure-policy-reference-policies-signalr](../../includes/policy/reference/bycat/policies-signalr.md)]
 
 ## <a name="assign-policy-definitions"></a>정책 정의 할당
 

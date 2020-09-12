@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a725831efe6b92ba522900fac67b317e42bc959
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d15b12b758adbf99ddabc88eb06be9daba1ece3e
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182380"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276204"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
@@ -37,9 +37,9 @@ ms.locfileid: "89182380"
 
 |역할| 운영 체제/버전|
 |--|--|
-|AD FS(Active Directory Federation Services)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+|AD FS(Active Directory Federation Services)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> 시작  </li> </ul>|
 |Azure AD Connect | 버전 1.0.9125 이상|
-|AD DS(Active Directory Domain Services)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+|AD DS(Active Directory Domain Services)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> 시작  </li> </ul>|
 
 Windows Server Core 설치는 지원 되지 않습니다.
 
@@ -54,7 +54,7 @@ Windows Server Core 설치는 지원 되지 않습니다.
 
 라이선스 정보는 [Azure AD 가격 책정 페이지](https://aka.ms/aadpricing)에서 찾을 수 있습니다.
 
-예제:
+예:
 
 | 등록된 에이전트 | 필요한 라이선스 | 모니터링 구성 예제 |
 | ------ | --------------- | --- |
@@ -70,10 +70,10 @@ Windows Server Core 설치는 지원 되지 않습니다.
 
 | 역할 | 기능 | 독일 클라우드에서 지원됨 |
 | ------ | --------------- | --- |
-| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
+| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
 |  | 동기화 오류 보고서 | 예 |
-| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
-| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
+| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
+| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
 
 동기화용 Connect Health의 에이전트 연결을 보장하려면 그에 따라 [설치 요구 사항](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)을 구성하세요.
 
@@ -98,7 +98,7 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 애플리케이션 �
 
 **Q: Azure AD Connect Health Agent를 설치하는 동안 내 서버를 재부팅해야 하나요?**
 
-아니요. 에이전트를 설치하는 데 서버를 재부팅할 필요는 없습니다. 그러나 일부 필수 구성 요소 설치 단계에서 서버를 재부팅해야 할 수 있습니다.
+아닙니다. 에이전트를 설치하는 데 서버를 재부팅할 필요는 없습니다. 그러나 일부 필수 구성 요소 설치 단계에서 서버를 재부팅해야 할 수 있습니다.
 
 예를 들어 Windows Server 2008 R2에 .NET 4.5 Framework를 설치하는 경우 서버를 재부팅해야 합니다.
 
@@ -115,7 +115,7 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 애플리케이션 �
 
 **Q: Azure AD Connect Health는 HTTP 프록시에 연결할 때 기본 인증을 지원하나요?**
 
-아니요. 기본 인증에 필요한 임의 사용자 이름/암호를 지정하는 메커니즘은 현재 지원되지 않습니다.
+아닙니다. 기본 인증에 필요한 임의 사용자 이름/암호를 지정하는 메커니즘은 현재 지원되지 않습니다.
 
 **Q: Azure AD Connect Health Agent가 작동하도록 하기 위해 열어야 하는 방화벽 포트는 무엇인가요?**
 
@@ -190,18 +190,18 @@ CheckForMS17-010
 
 **Q: PowerShell cmdlet <i>Get-MsolDirSyncProvisioningError</i>가 결과에서 동기화 오류를 적게 표시하는 이유는 무엇인가요?**
 
-<i>Get-MsolDirSyncProvisioningError</i>는 DirSync 프로비전 오류를 반환합니다. 뿐만 아니라 Connect Health 포털에는 내보내기 오류와 같은 다른 동기화 오류 형식이 표시됩니다. Azure AD Connect 델타 결과와 일치합니다. [Azure AD Connect 동기화 오류](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors)에 대해 자세히 알아봅니다.
+<i>Get-MsolDirSyncProvisioningError</i>는 DirSync 프로비전 오류를 반환합니다. 뿐만 아니라 Connect Health 포털에는 내보내기 오류와 같은 다른 동기화 오류 형식이 표시됩니다. Azure AD Connect 델타 결과와 일치합니다. [Azure AD Connect 동기화 오류](./tshoot-connect-sync-errors.md)에 대해 자세히 알아봅니다.
 
 **Q: ADFS 감사가 생성되지 않는 이유는 무엇인가요?**
 
-PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i>을 사용하여 감사 로그가 사용하지 않음 상태가 되도록 합니다. [ADFS 감사 로그](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)에 대해 자세히 알아보세요. ADFS 서버에 푸시된 고급 감사 설정이 있을 경우 auditpol.exe 관련 변경 내용이 덮어써진다는 점을 참고하세요(애플리케이션 생성됨이 구성되지 않은 경우의 이벤트). 이 경우 애플리케이션 생성됨 실패 및 성공을 기록하도록 로컬 보안 정책을 설정하세요.
+PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i>을 사용하여 감사 로그가 사용하지 않음 상태가 되도록 합니다. [ADFS 감사 로그](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)에 대해 자세히 알아보세요. ADFS 서버에 푸시된 고급 감사 설정이 있을 경우 auditpol.exe 관련 변경 내용이 덮어써진다는 점을 참고하세요(애플리케이션 생성됨이 구성되지 않은 경우의 이벤트). 이 경우 애플리케이션 생성됨 실패 및 성공을 기록하도록 로컬 보안 정책을 설정하세요.
 
 **Q: 에이전트 인증서가 만료 되기 전에 자동으로 갱신 되는 경우는 언제 인가요?**
 에이전트 인증은 만료 날짜 로부터 **6 개월** 전에 자동으로 갱신 됩니다. 갱신 되지 않은 경우 에이전트의 네트워크 연결이 안정적인 지 확인 하세요. 에이전트 서비스를 다시 시작 하거나 최신 버전으로 업데이트 하면 문제가 해결 될 수도 있습니다.
 
 
 ## <a name="related-links"></a>관련 링크
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [에이전트 설치 Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health 작업](how-to-connect-health-operations.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)

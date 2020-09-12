@@ -16,12 +16,12 @@ ms.date: 09/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedf1419a763fe0b0f528bee6e1b48e435ec0e2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90d8cc39174f6392b0c532948305fa713535f0c9
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360030"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279230"
 ---
 # <a name="azure-ad-connect-device-options"></a>Azure AD Connect: 디바이스 옵션
 
@@ -45,6 +45,5 @@ ms.locfileid: "85360030"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [하이브리드 Azure AD 조인 구성](../device-management-hybrid-azuread-joined-devices-setup.md)
+* [하이브리드 Azure AD 조인 구성](../devices/hybrid-azuread-join-plan.md)
 * [디바이스 쓰기 저장 구성/해제](how-to-connect-device-writeback.md)
-

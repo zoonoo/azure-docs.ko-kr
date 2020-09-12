@@ -3,12 +3,12 @@ title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537183"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89288970"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -70,8 +70,8 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9093 | [Kafka 애플리케이션에서 Event Hubs 사용](event-hubs-for-kafka-ecosystem-overview.md)을 참조하세요.
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>허용 목록에 추가할 IP 주소는 무엇인가요?
-연결의 허용 목록에 추가할 적절한 IP 주소를 찾으려면 다음 단계를 수행합니다.
+### <a name="what-ip-addresses-do-i-need-to-allow"></a>허용 해야 하는 IP 주소는 무엇 인가요?
+연결에 대해 허용 된 목록에 추가할 올바른 IP 주소를 찾으려면 다음 단계를 수행 합니다.
 
 1. 명령 프롬프트에서 다음 명령을 실행합니다. 
 

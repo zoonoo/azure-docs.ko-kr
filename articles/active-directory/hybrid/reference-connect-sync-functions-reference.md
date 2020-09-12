@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550188"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279774"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD 동기화 연결: 함수 참조
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다.  
@@ -98,7 +98,7 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
   * [DNComponent](#dncomponent)
   * [DNComponentRev](#dncomponentrev)
   * [EscapeDNComponent](#escapedncomponent)
-* **조건**
+* **Evaluation**
   * [IsBitSet](#isbitset)
   * [IsDate](#isdate)
   * [IsEmpty](#isempty)
@@ -114,20 +114,20 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
   * [RandomNum](#randomnum)
 * **다중값 * 값**
   * [포함](#contains)
-  * [개수](#count)
+  * [Count](#count)
   * [Item](#item)
   * [ItemOrNull](#itemornull)
   * [Join](#join)
   * [RemoveDuplicates](#removeduplicates)
-  * [분리할](#split)
+  * [Split](#split)
 * **Program Flow**
   * [오류](#error)
   * [IIF](#iif)
   * [Select](#select)
   * [스위치](#switch)
-  * [위치](#where)
+  * [Where](#where)
   * [는](#with)
-* **텍스트**
+* **Text**
   * [GUID](#guid)
   * [InStr](#instr)
   * [InStrRev](#instrrev)
@@ -139,7 +139,7 @@ Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 
   * [PadLeft](#padleft)
   * [PadRight](#padright)
   * [PCase](#pcase)
-  * [바꾸십시오](#replace)
+  * [바꾸기](#replace)
   * [ReplaceChars](#replacechars)
   * [오른쪽](#right)
   * [RTrim](#rtrim)
@@ -660,7 +660,7 @@ FormatDateTime 함수는 날짜/시간을 지정된 형식의 문자열로 구�
 * 형식: 변환할 형식을 나타내는 문자열입니다.
 
 **설명**  
-형식에 사용할 수 있는 값은 [format 함수의 사용자 지정 날짜 및 시간 형식](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function)에서 찾을 수 있습니다.
+형식에 사용할 수 있는 값은 [format 함수의 사용자 지정 날짜 및 시간 형식](/dax/custom-date-and-time-formats-for-the-format-function)에서 찾을 수 있습니다.
 
 **예제:**  
 
@@ -671,7 +671,7 @@ FormatDateTime 함수는 날짜/시간을 지정된 형식의 문자열로 구�
 "20140905081453.0Z"를 반환할 수 있습니다.
 
 ---
-### <a name="guid"></a>Guid
+### <a name="guid"></a>GUID
 **설명:**  
 함수 Guid는 임의의 GUID를 새로 생성합니다.
 
@@ -1130,7 +1130,7 @@ RemoveDuplicates 함수는 다중값 문자열을 사용하여 개별 값을 고
 모든 중복 값을 제거한 삭제된 proxyAddress 특성을 반환합니다.
 
 ---
-### <a name="replace"></a>Replace
+### <a name="replace"></a>바꾸기
 **설명:**  
 Replace 함수는 한 문자열이 나오는 모든 경우를 다른 문자열로 바꿉니다.
 
@@ -1367,7 +1367,7 @@ userCertificate 특성에서 만료되지 않은 인증서 값만 반환합니�
 
 
 ---
-### <a name="word"></a>단어
+### <a name="word"></a>Word
 **설명:**  
 Word 함수는 사용할 구분 기호를 설명하는 매개 변수에 따라 문자열 내에 포함된 단어와 반환할 단어 수를 반환합니다.
 

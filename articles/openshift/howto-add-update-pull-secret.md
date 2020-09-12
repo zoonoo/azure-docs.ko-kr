@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/21/2020
 keywords: pull 비밀, aro, openshift, red hat
-ms.openlocfilehash: 3351052db63f095bfca5f0b91f26e1013319c582
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 769b7589fb6496fc2f4123665ad1f6fe61d0cce2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098895"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294750"
 ---
 # <a name="add-or-update-your-red-hat-pull-secret-on-an-azure-red-hat-openshift-4-cluster"></a>Azure Red Hat OpenShift 4 클러스터에서 Red Hat pull 비밀 추가 또는 업데이트
 
-이 가이드에서는 기존 Azure Red Hat OpenShift 4.x 클러스터에 대 한 Red Hat pull 비밀을 추가 하거나 업데이트 하는 방법을 설명 합니다.
+이 가이드에서는 기존 Azure Red Hat OpenShift (ARO) 4.x 클러스터에 대 한 Red Hat pull 비밀을 추가 하거나 업데이트 하는 방법을 설명 합니다.
 
 처음으로 클러스터를 만드는 경우 클러스터를 만들 때 끌어오기 암호를 추가할 수 있습니다. Red Hat pull 암호를 사용 하 여 ARO 클러스터를 만드는 방법에 대 한 자세한 내용은 [Azure Red Hat OpenShift 4 클러스터 만들기](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional)를 참조 하세요.
 
@@ -29,13 +29,13 @@ Red Hat pull 비밀을 추가 하지 않고 ARO 클러스터를 만드는 경우
 
 이 섹션에서는 Red Hat pull 암호의 추가 값을 사용 하 여 해당 끌어오기 암호를 업데이트 하는 과정을 안내 합니다.
 
-1. `pull-secret`Openshift-config 네임 스페이스에서 라는 암호를 인출 하 고 다음 명령을 실행 하 여 별도의 파일에 저장 합니다. 
+1. `pull-secret` `openshift-config` 다음 명령을 실행 하 여 네임 스페이스에서 라는 암호를 인출 하 고 별도의 파일에 저장 합니다. 
 
     ```console
     oc get secrets pull-secret -n openshift-config -o template='{{index .data ".dockerconfigjson"}}' | base64 -d > pull-secret.json
     ```
 
-    출력은 다음과 유사 해야 합니다 (실제 비밀 값이 제거 됨).
+    출력은 다음과 유사 합니다. 실제 비밀 값은 제거 되었습니다.
 
     ```json
     {
@@ -47,7 +47,7 @@ Red Hat pull 비밀을 추가 하지 않고 ARO 클러스터를 만드는 경우
     }
     ```
 
-2. [Red Hat OpenShift 클러스터 관리자 포털로](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) 이동 하 고, **끌어오기 비밀 다운로드를 클릭 합니다.** Red Hat pull 비밀은 다음과 같이 표시 됩니다 (실제 비밀 값이 제거 됨).
+2. [Red Hat OpenShift 클러스터 관리자 포털로](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) 이동 하 여 **pull 비밀 다운로드**를 선택 합니다. Red Hat pull 비밀은 다음과 같습니다. 실제 비밀 값은 제거 되었습니다.
 
     ```json
     {
@@ -75,7 +75,7 @@ Red Hat pull 비밀을 추가 하지 않고 ARO 클러스터를 만드는 경우
 3. Red Hat pull 비밀에 있는 항목을 추가 하 여 클러스터에서 가져온 끌어오기 비밀 파일을 편집 합니다. 
 
     > [!IMPORTANT]
-    > `cloud.openshift.com`Red hat pull 비밀의 항목을 포함 하면 클러스터에서 원격 분석 데이터를 Red hat로 보내기 시작 합니다. 원격 분석 데이터를 전송 하려는 경우에만이 섹션을 포함 합니다. 그렇지 않으면 다음 섹션을 종료 합니다.
+    > `cloud.openshift.com`Red hat pull 비밀에서 항목을 포함 하면 클러스터에서 원격 분석 데이터를 Red hat로 보내기 시작 합니다. 원격 분석 데이터를 전송 하려는 경우에만이 섹션을 포함 합니다. 그렇지 않으면 다음 섹션을 종료 합니다.    
     > ```json
     > {
     >         "cloud.openshift.com": {
@@ -86,13 +86,14 @@ Red Hat pull 비밀을 추가 하지 않고 ARO 클러스터를 만드는 경우
 
     > [!CAUTION]
     > 사용자를 제거 하거나 변경 하지 마십시오 `arosvc.azurecr.io` . 이 섹션은 클러스터가 제대로 작동 하는 데 필요 합니다.
+
     ```json
     "arosvc.azurecr.io": {
                 "auth": "<my-aroscv.azurecr.io-secret>"
             }
     ```
 
-    최종 파일이 다음과 같이 표시 됩니다 (실제 비밀 값이 제거 됨).
+    최종 파일은 다음과 같습니다. 실제 비밀 값은 제거 되었습니다.
 
     ```json
     {
@@ -120,13 +121,14 @@ Red Hat pull 비밀을 추가 하지 않고 ARO 클러스터를 만드는 경우
     }
     ```
 
-4. 파일이 유효한 json 인지 확인 합니다. Json의 유효성을 검사 하는 방법에는 여러 가지가 있습니다. 다음 예제에서는 jq를 사용 합니다.
+4. 파일이 유효한 JSON 인지 확인 합니다. JSON의 유효성을 검사 하는 방법에는 여러 가지가 있습니다. 다음 예제에서는 jq를 사용 합니다.
+
     ```json
     cat pull-secret.json | jq
     ```
 
     > [!NOTE]
-    > 파일에 오류가 있는 경우 볼 수 있습니다 `parse error` .
+    > 파일에 오류가 있는 경우로 표시 됩니다 `parse error` .
 
 ## <a name="add-your-pull-secret-to-your-cluster"></a>클러스터에 끌어오기 비밀 추가
 
@@ -151,7 +153,7 @@ Red Hat 연산자를 사용 하려면 다음 개체를 수정 합니다.
 oc edit configs.samples.operator.openshift.io/cluster -o yaml
 ```
 
-`spec.architectures.managementState`및 `status.architecture.managementState` 값을에서로 변경 `Removed` 합니다 `Managed` . 
+`spec.architectures.managementState`및 값을 `status.architecture.managementState` 에서 `Removed` 로 변경 `Managed` 합니다. 
 
 다음 YAML 코드 조각은 편집 된 YAML 파일의 관련 섹션만 표시 합니다.
 
@@ -226,7 +228,7 @@ openshift-marketplace   redhat-operators      Red Hat Operators     grpc   Red H
 
 인증 된 연산자와 Red Hat 연산자가 표시 되지 않으면 몇 분 정도 기다린 후 다시 시도 합니다.
 
-끌어오기 암호가 업데이트 되어 제대로 작동 하는지 확인 하려면 OperatorHub를 열고 Red Hat 확인 된 운영자를 확인 합니다. 예를 들어 OpenShift Container Storage 연산자를 사용할 수 있는지 확인 하 고, 설치할 권한이 있는지 확인 합니다.
+끌어오기 암호를 업데이트 하 고 올바르게 작동 하는지 확인 하려면 OperatorHub를 열고 Red Hat 확인 된 운영자를 확인 합니다. 예를 들어 OpenShift Container Storage 연산자를 사용할 수 있는지 확인 하 고, 설치할 권한이 있는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Red Hat pull 비밀에 대해 자세히 알아보려면 [이미지 끌어오기 비밀 사용](https://docs.openshift.com/container-platform/4.5/openshift_images/managing_images/using-image-pull-secrets.html)을 참조 하세요.

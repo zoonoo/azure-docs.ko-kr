@@ -5,15 +5,15 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 8/26/2019
+ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 783e48139cf057bb17278d98e3683cb2b4cbad89
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522859"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279553"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Azure Data Factory 문제 해결
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -1053,6 +1053,11 @@ ms.locfileid: "86522859"
 1. 다음으로 이동합니다. **파일** > **저장** > **모든 세션**
 
 자세한 내용은 [Fiddler 시작](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)을 참조하세요.
+
+## <a name="general"></a>일반
+
+### <a name="activity-stuck-issue"></a>활동 중단 문제
+활동이 거의 진행 되지 않는 정상적인 실행 보다 훨씬 더 오래 실행 되는 것을 확인 하면 문제가 발생 한 것일 수 있습니다. 취소 하 고 도움이 되는지 다시 시도할 수 있습니다. 복사 작업 인 경우 [복사 작업 성능 문제 해결](copy-activity-performance-troubleshooting.md)에서 성능 모니터링 및 문제 해결에 대해 알아볼 수 있습니다. 데이터 흐름의 경우 [데이터 흐름 매핑 성능](concepts-data-flow-performance.md) 및 튜닝 가이드에서 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

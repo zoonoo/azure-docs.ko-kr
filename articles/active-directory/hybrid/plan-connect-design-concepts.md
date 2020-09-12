@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698600"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279655"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
 이 문서에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야 할 영역을 설명합니다. 이 문서는 특정 영역을 심층 분석하고 이 개념을 다른 문서에서처럼 간단히 설명합니다.
@@ -119,7 +119,7 @@ Azure AD Connect를 사용자 지정 모드로 설치하는 경우 Azure AD Conn
 
 ![사용자 지정 설치 - sourceAnchor 구성](./media/plan-connect-design-concepts/consistencyGuid-02.png)
 
-| Setting | Description |
+| 설정 | Description |
 | --- | --- |
 | Let Azure manage the source anchor for me(Azure에서 원본 앵커를 대신 관리) | Azure AD에서 이 특성을 선택하게 하려면 이 옵션을 선택합니다. 이 옵션을 선택하면 Azure AD Connect 마법사에서 [기본 설치에서 사용된 것과 동일한 sourceAnchor 특성 선택 논리](#express-installation)를 적용합니다. 기본 설치와 마찬가지로 사용자 정의 설치가 완료되면 마법사에서 원본 앵커 특성으로 선택된 특성을 사용자에게 알려줍니다. |
 | 특정 특성 | 기존 AD 특성을 sourceAnchor 특성으로 지정하려면 이 옵션을 선택합니다. |
@@ -165,7 +165,7 @@ Source Anchor 특성으로 objectGUID에서 ConsistencyGuid로 전환하려면:
 ### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>AD FS 또는 타사 페더레이션 구성에 미치는 영향
 Azure AD Connect를 사용하여 온-프레미스 AD FS 배포를 관리하는 경우, Azure AD Connect에서 클레임 규칙을 자동으로 업데이트하여 sourceAnchor와 동일한 AD 특성을 사용합니다. 이렇게 하면 AD FS에서 생성된 ImmutableID 클레임이 Azure AD로 내보낸 sourceAnchor 값과 일치하게 됩니다.
 
-Azure AD Connect 외부에서 AD FS를 관리하거나 타사 페더레이션 서버를 사용하여 인증하는 경우, [AD FS 클레임 규칙 수정](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims) 문서 섹션에서 설명한 대로 Azure AD로 내보낸 sourceAnchor 값과 일치하도록 ImmutableID 클레임에 대한 클레임 규칙을 수동으로 업데이트해야 합니다. 설치가 완료되면 마법사에서 다음과 같은 경고를 반환합니다.
+Azure AD Connect 외부에서 AD FS를 관리하거나 타사 페더레이션 서버를 사용하여 인증하는 경우, [AD FS 클레임 규칙 수정](./how-to-connect-fed-management.md#modclaims) 문서 섹션에서 설명한 대로 Azure AD로 내보낸 sourceAnchor 값과 일치하도록 ImmutableID 클레임에 대한 클레임 규칙을 수동으로 업데이트해야 합니다. 설치가 완료되면 마법사에서 다음과 같은 경고를 반환합니다.
 
 ![타사 페더레이션 구성](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
@@ -193,7 +193,7 @@ John은 contoso.com의 사용자입니다. 사용자를 Azure AD 디렉터리 co
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>라우팅할 수 있는 온-프레미스가 아닌 도메인 및 Azure AD에 대한 UPN
 일부 조직에는 라우팅할 수 없는 도메인(예: contoso.local) 또는 간단한 단일 레이블 도메인(예: contoso)이 있습니다. Azure AD에서 라우팅할 수 없는 도메인을 확인할 수 없습니다. Azure AD Connect는 Azure AD에서 확인된 도메인에 동기화할 수 있습니다. Azure AD 디렉터리를 만들면 라우팅 가능한 도메인을 만들고 다시 Azure AD에 대한 기본 도메인(예: contoso.onmicrosoft.com)이 됩니다. 따라서 기본 도메인(onmicrosoft.com)에 동기화하지 않으려는 경우 이 시나리오에서 라우팅할 수 있는 다른 도메인을 확인하는 데 필요하게 됩니다.
 
-도메인을 추가하고 확인하는 방법에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](../active-directory-domains-add-azure-portal.md) 를 참조하세요.
+도메인을 추가하고 확인하는 방법에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md) 를 참조하세요.
 
 Azure AD Connect는 라우팅할 수 없는 도메인 환경에서 실행하는지를 검색하고 Express 설정을 계속 진행하는 경우 적절하게 경고합니다. 라우팅할 수 없는 도메인에서 작업하는 경우 사용자의 UPN이 라우팅할 수 없는 접미사를 포함할 가능성이 있습니다. 예를 들어 contoso.local에서 실행하는 경우 Azure AD Connect는 Express 설정을 사용하지 않고 사용자 지정 설정을 사용하는 것이 좋습니다. 사용자 지정 설정을 사용하면 사용자가 Azure AD에 동기화된 후에 Azure에 로그인하기 위해 UPN으로 사용해야 하는 특성을 지정할 수 있습니다.
 

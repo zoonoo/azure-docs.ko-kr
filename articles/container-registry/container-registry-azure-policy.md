@@ -3,16 +3,16 @@ title: Azure Policy 사용 준수
 description: Azure Policy의 기본 제공 정책을 할당 하 여 Azure container registry의 준수 감사
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 6101db865749f98f50e04f1fec3b8009089b7908
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 26c56616bcc411063d0ebfda28ba1e6fdf44c7fb
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791897"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291021"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Azure Policy를 사용 하 여 Azure container registry의 준수 감사
 
-[Azure Policy](../governance/policy/overview.md) 는 정책을 만들고 할당 하 고 관리 하는 데 사용 하는 Azure의 서비스입니다. 이러한 정책은 리소스에 대해 다양한 규칙과 효과를 적용하여 리소스를 회사 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다.
+[Azure Policy](../governance/policy/overview.md) 는 정책을 만들고 할당 하 고 관리 하는 데 사용 하는 Azure의 서비스입니다. 정책은 리소스에 대해 다양한 규칙과 효과를 적용하여 리소스가 회사 표준 및 서비스 수준 약정을 준수하도록 유지합니다.
 
 이 문서에서는 Azure Container Registry에 대 한 기본 제공 정책을 소개 합니다. 이러한 정책을 사용 하 여 새로운 및 기존 레지스트리를 준수 하도록 감사 합니다.
 
@@ -22,7 +22,7 @@ Azure Policy 사용에 대 한 요금은 없습니다.
 
 다음 기본 제공 정책 정의는 Azure Container Registry에만 적용 됩니다.
 
-[!INCLUDE [azure-policy-samples-policies-container-registry](../../includes/policy/samples/bycat/policies-container-registry.md)]
+[!INCLUDE [azure-policy-reference-policies-container-registry](../../includes/policy/reference/bycat/policies-container-registry.md)]
 
 또한 기본 제공 네트워크 정책 정의를 참조 하세요. [Container Registry는 가상 네트워크 서비스 끝점을 사용 해야](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78)합니다.
 

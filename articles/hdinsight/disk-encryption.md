@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: a78b56de537cfac0da48814afe9b07d911a61af1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020769"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290840"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 Azure HDInsight 이중 암호화
 
@@ -36,7 +36,7 @@ HDInsight는 두 가지 계층에서 여러 유형의 암호화를 지원 합니
 |클러스터 유형 |OS 디스크 (관리 디스크) |데이터 디스크 (관리 디스크) |임시 데이터 디스크 (로컬 SSD) |
 |---|---|---|---|
 |Kafka, 가속화 된 쓰기를 사용 하는 HBase|Layer1: 기본적으로 [SSE 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|Layer1: 기본적으로 [SSE 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) , Layer2: cmk를 사용 하 여 휴지 상태의 선택적 암호화|Layer1: PMK를 사용 하는 호스트의 선택적인 암호화, Layer2: CMK를 사용 하 여 휴지 상태의 선택적 암호화|
-|다른 모든 클러스터 (Spark, 대화형, Hadoop, 가속 없는 쓰기 없는 HBase)|Layer1: 기본적으로 [SSE 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|N/A|Layer1: PMK를 사용 하는 호스트의 선택적인 암호화, Layer2: CMK를 사용 하 여 휴지 상태의 선택적 암호화|
+|다른 모든 클러스터 (Spark, 대화형, Hadoop, 가속 없는 쓰기 없는 HBase)|Layer1: 기본적으로 [SSE 암호화](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption)|해당 없음|Layer1: PMK를 사용 하는 호스트의 선택적인 암호화, Layer2: CMK를 사용 하 여 휴지 상태의 선택적 암호화|
 
 ## <a name="encryption-at-rest-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 미사용 암호화
 
@@ -121,7 +121,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 #### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자**를 제공 합니다. 예들 들어 `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`입니다. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
+클러스터를 만드는 동안 키 버전을 포함 하 여 전체 **키 식별자**를 제공 합니다. 예: `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
 
 ![새 클러스터 만들기](./media/disk-encryption/create-cluster-portal.png)
 
@@ -463,7 +463,7 @@ New-AzHDInsightCluster `
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \\
--p "HttpPassword1234!" \\
+-p "yourpass" \\
 --storage-account MyStorageAccount --encryption-at-host true
 ```
 

@@ -17,24 +17,24 @@ ms.date: 12/17/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed71e53a8cedc2907ac06dd75f11f9c762a78772
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12073a75cd248c9226c7ce5ecc21b64617823b32
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357208"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279638"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect 동기화: AD 휴지통 사용
 Azure AD와 동기화되는 온-프레미스 Active Directory에 대해 AD 휴지통 기능을 사용하도록 설정하는 것이 좋습니다. 
 
-온-프레미스 AD 사용자 개체를 실수로 삭제하고 이 기능을 사용하여 복원하면 Azure AD가 해당 Azure AD 사용자 개체를 복원합니다.  AD 휴지통 기능에 대한 자세한 내용은 [삭제된 Active Directory 개체 복원 시나리오 개요](https://technet.microsoft.com/library/dd379542.aspx) 문서를 참조하세요.
+온-프레미스 AD 사용자 개체를 실수로 삭제하고 이 기능을 사용하여 복원하면 Azure AD가 해당 Azure AD 사용자 개체를 복원합니다.  AD 휴지통 기능에 대한 자세한 내용은 [삭제된 Active Directory 개체 복원 시나리오 개요](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd379542(v=ws.10)) 문서를 참조하세요.
 
 ## <a name="benefits-of-enabling-the-ad-recycle-bin"></a>AD 휴지통 사용의 이점
 이 기능은 다음을 수행하여 Azure AD 사용자 개체를 복원하는 데 도움을 줍니다.
 
 * 온-프레미스 AD 사용자 개체를 실수로 삭제한 경우 해당 Azure AD 사용자 개체는 다음 동기화 주기에서 삭제됩니다. 기본적으로 Azure AD는 삭제된 Azure AD 사용자 개체를 30일 동안 일시 삭제 상태로 유지합니다.
 
-* 온-프레미스 AD 휴지통 기능을 사용하도록 설정한 경우 원본 앵커 값을 변경하지 않고 삭제된 온-프레미스 AD 사용자 개체를 복원할 수 있습니다. 복구된 온-프레미스 AD 사용자 개체가 Azure AD와 동기화되면 Azure AD는 일시 삭제된 해당 Azure AD 사용자 개체를 복원합니다. 원본 앵커 특성에 대한 자세한 내용은 [Azure AD Connect: 설계 개념](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#sourceanchor)을 참조하세요.
+* 온-프레미스 AD 휴지통 기능을 사용하도록 설정한 경우 원본 앵커 값을 변경하지 않고 삭제된 온-프레미스 AD 사용자 개체를 복원할 수 있습니다. 복구된 온-프레미스 AD 사용자 개체가 Azure AD와 동기화되면 Azure AD는 일시 삭제된 해당 Azure AD 사용자 개체를 복원합니다. 원본 앵커 특성에 대한 자세한 내용은 [Azure AD Connect: 설계 개념](./plan-connect-design-concepts.md#sourceanchor)을 참조하세요.
 
 * 온-프레미스 AD 휴지통 기능을 사용하도록 설정하지 않은 경우 삭제된 개체를 대신할 AD 사용자 개체를 만들어야 할 수 있습니다. Azure AD Connect 동기화 서비스가 원본 앵커 특성에 대한 시스템 생성 AD 특성(예: ObjectGuid)을 사용하도록 구성된 경우 새로 만든 AD 사용자 개체는 삭제된 AD 사용자 개체와 같은 원본 앵커 값을 갖지 않습니다. 새로 만든 AD 사용자 개체가 Azure AD와 동기화되면 Azure AD는 일시 삭제된 Azure AD 사용자 개체를 복원하지 않고 새 Azure AD 사용자 개체를 만듭니다.
 

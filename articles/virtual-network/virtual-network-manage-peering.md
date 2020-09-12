@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: 4f94c3e643e372d96a6e9d100773ccd8929e4c8b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 41cc2bfa39160d26b5c5f09687ddf1fef9ec5803
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416505"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290194"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>가상 네트워크 피어링 만들기, 변경 또는 삭제
 
@@ -126,11 +126,12 @@ ms.locfileid: "87416505"
   - *시작 됨:* 첫 번째 가상 네트워크에서 두 번째 가상 네트워크로의 피어 링을 만들면 피어 링 상태가 *시작*됨입니다. 
   - *연결 됨:* 두 번째 가상 네트워크에서 첫 번째 가상 네트워크로의 피어 링을 만들면 피어 링 상태가 *연결*됨으로 표시 됩니다. 첫 번째 가상 네트워크의 피어 링 상태를 보면 해당 상태가 *시작* 됨에서 *연결*됨으로 변경 된 것을 볼 수 있습니다. 두 가상 네트워크 피어 링의 피어 링 상태가 *연결*됨이 될 때까지 피어 링이 성공적으로 설정 되지 않습니다.
 - Resource Manager를 통해 만든 가상 네트워크를 클래식 배포 모델을 통해 만든 가상 네트워크와 피어링하는 경우 Resource Manager를 통해 배포된 가상 네트워크에 대한 피어링만 구성합니다. 가상 네트워크(클래식)에 대해서나 클래식 배포 모델을 통해 배포된 두 가상 네트워크 간에는 피어링을 구성할 수 없습니다. 가상 네트워크(Resource Manager)에서 가상 네트워크(클래식)로의 피어링을 만들면 피어링 상태가 *업데이트 중*이 되었다가 곧 *연결됨*으로 변경됩니다.
-- 두 가상 네트워크 간에 피어링이 설정됩니다. 피어링은 전이적이지 않습니다. 다음 사이에 피어링을 만들면:
-  - VirtualNetwork1 및 VirtualNetwork2
-  - VirtualNetwork2 및 VirtualNetwork3
+- 두 가상 네트워크 간에 피어링이 설정됩니다. 피어 링은 전이적이 지 않습니다. 다음 사이에 피어링을 만들면:
+  - VirtualNetwork1 & VirtualNetwork2-VirtualNetwork1 & VirtualNetwork2
+  - VirtualNetwork2 & VirtualNetwork3-VirtualNetwork2 & VirtualNetwork3
 
-  VirtualNetwork2를 통한 VirtualNetwork1과 VirtualNetwork3 사이의 피어링은 없습니다. VirtualNetwork1과 VirtualNetwork3 사이에 가상 네트워크 피어링을 만들려는 경우 VirtualNetwork1과 VirtualNetwork3 사이에 피어링을 만들어야 합니다.
+
+  VirtualNetwork2를 통한 VirtualNetwork1과 VirtualNetwork3 사이의 피어링은 없습니다. VirtualNetwork1과 VirtualNetwork3 사이에 가상 네트워크 피어링을 만들려는 경우 VirtualNetwork1과 VirtualNetwork3 사이에 피어링을 만들어야 합니다. VirtualNetwork2를 통한 VirtualNetwork1과 VirtualNetwork3 사이의 피어링은 없습니다. VirtualNetwork1 및 VirtualNetwork3가 직접 통신 하도록 하려면 VirtualNetwork1와 VirtualNetwork3 간에 명시적 피어 링을 만들거나 허브 네트워크에서 NVA를 통과 해야 합니다.  
 - 기본 Azure 이름 확인을 사용하여 피어링된 가상 네트워크에서 이름을 확인할 수 없습니다. 다른 가상 네트워크에서 이름을 확인하려면 [프라이빗 도메인용 Azure DNS](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 사용자 지정 DNS 서버를 사용해야 합니다. 자체 DNS 서버를 설정하는 방법을 알아보려면 [자체 DNS 서버를 이용한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조하세요.
 - 동일한 지역의 피어링된 가상 네트워크에 있는 리소스는 같은 가상 네트워크에 있는 것처럼 같은 대역폭 및 대기 시간으로 서로 통신할 수 있습니다. 그러나 각 가상 머신 크기에는 고유한 최대 네트워크 대역폭이 있습니다. 다양한 가상 머신 크기의 최대 네트워크 대역폭에 대한 자세한 내용을 알아보려면 [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신 크기를 참조하세요.
 - 가상 네트워크를 다른 가상 네트워크에 피어링할 수 있으며, Azure Virtual Network 게이트웨이를 통해 다른 가상 네트워크에 연결할 수도 있습니다. 가상 네트워크가 피어링 및 게이트웨이를 통해 연결된 경우 가상 네트워크 간 트래픽은 게이트웨이가 아니라 피어링 구성을 통해 흐릅니다.

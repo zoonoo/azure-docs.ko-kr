@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7d16b0755fae91979802e50cb2ebbf4324ce2c45
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 3aa8d691eb62b94c5784d8a6efc35b53a3762d7f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921137"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294121"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Bing Autosuggest API에 요청 보내기
 
@@ -64,7 +64,7 @@ Autosuggest API를 사용하는 기본 요청의 예는 [Autosuggest 빠른 시�
 > [!NOTE]
 > JavaScript에서 Bing Autosuggest API를 호출하는 경우 브라우저의 기본 제공 보안 기능으로 인해 이러한 헤더 값에 액세스하지 못할 수 있습니다.
 
-이 문제를 해결하려면 CORS 프록시를 통해 Bing Autosuggest API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 허용 목록에 추가하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
+이 문제를 해결하려면 CORS 프록시를 통해 Bing Autosuggest API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 `Access-Control-Expose-Headers` 응답 헤더를 필터링 하 고 JavaScript에서 사용할 수 있도록 하는 헤더가 있습니다.
 
 [자습서 앱](../tutorials/autosuggest.md)이 선택적 클라이언트 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 프롬프트에서 다음 명령을 입력합니다.
 

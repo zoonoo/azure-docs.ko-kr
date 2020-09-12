@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8a1c61b77ab799cead319bfaf6cfa7ebd6af431b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ab4c152f30ab96fe5e221a605a2339c773e32547
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230336"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295406"
 ---
 # <a name="blob-snapshots"></a>Blob 스냅숏
 
@@ -90,25 +90,25 @@ Blob에 스냅숏이 있으면 블록 blob에 대 한 업데이트 작업을 호
 
 시나리오 1에서는 스냅샷을 생성한 후 기본 Blob을 업데이트하지 않았으므로 고유 블록 1, 2, 3에 대해서만 비용이 청구됩니다.
 
-![기본 blob 및 스냅숏의 고유 블록에 대 한 청구를 보여 주는 다이어그램 1](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
+![다이어그램 1 기본 blob 및 스냅숏의 고유 블록에 대 한 청구를 보여 줍니다.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>시나리오 2
 
 시나리오 2에서는 기본 Blob은 업데이트되었지만 스냅샷은 업데이트되지 않았습니다. 블록 3이 업데이트되고 동일한 데이터와 동일한 ID를 가지고 있지만 스냅샷의 블록 3과 같지는 않습니다. 따라서 4개 블록에 대한 요금이 계정에 청구됩니다.
 
-![다이어그램 2 기본 blob 및 스냅숏의 고유 블록에 대 한 요금 청구 표시](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
+![다이어그램 2 기본 blob 및 스냅숏의 고유 블록에 대 한 청구를 보여 줍니다.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>시나리오 3
 
 시나리오 3에서는 기본 Blob은 업데이트되었지만 스냅샷은 업데이트되지 않았습니다. 기본 Blob에서 블록 3이 블록 4로 바뀌었지만 스냅샷은 계속 블록 3을 반영합니다. 따라서 4개 블록에 대한 요금이 계정에 청구됩니다.
 
-![기본 blob 및 스냅숏의 고유 블록에 대 한 청구를 보여 주는 다이어그램 3](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
+![다이어그램 3 기본 blob 및 스냅숏의 고유 블록에 대 한 청구를 보여 줍니다.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>시나리오 4
 
 시나리오 4에서는 기본 Blob이 완전히 업데이트되었으며 원래 블록을 하나도 포함하지 않습니다. 따라서 8개 고유 블록 모두에 대한 요금이 계정에 청구됩니다.
 
-![다이어그램 4 기본 blob 및 스냅숏의 고유 블록에 대 한 청구 표시](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+![다이어그램 4 기본 blob 및 스냅숏의 고유 블록에 대 한 청구를 보여 줍니다.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
 
 > [!TIP]
 > 전체 blob을 덮어쓰는 메서드를 호출 하지 않고 비용을 낮게 유지 하기 위해 개별 블록을 업데이트 합니다.
@@ -128,6 +128,10 @@ Blob 또는 스냅숏 (또는 버전)에 대 한 blob 계층을 명시적으로 
 | 스냅숏 | 새 계층의 스냅숏과 원래 계층의 기본 blob에는 다른 스냅숏의 모든 고유 블록이 추가 됩니다. <sup>1</sup> |
 
 <sup>1</sup> 원본 계층에서 이동 되지 않은 다른 이전 버전 또는 스냅숏이 있는 경우 해당 버전 또는 스냅숏은 [blob 계층이 명시적으로 설정 되지 않은 경우 청구](#billing-when-the-blob-tier-has-not-been-explicitly-set)에 설명 된 대로 포함 된 고유 블록 수에 따라 요금이 청구 됩니다.
+
+다음 다이어그램은 스냅숏이 있는 blob을 다른 계층으로 이동할 때 개체에 대 한 요금이 청구 되는 방법을 보여 줍니다.
+
+:::image type="content" source="media/snapshots-overview/snapshot-billing-tiers.png" alt-text="스냅숏이 포함 된 blob이 명시적으로 계층화 될 때 개체에 대 한 요금이 청구 되는 방법을 보여 주는 다이어그램입니다.":::
 
 Blob, 버전 또는 스냅숏에 대 한 계층을 명시적으로 설정 하는 작업은 취소할 수 없습니다. 새 계층으로 blob을 이동한 다음 원래 계층으로 다시 이동 하는 경우 원본 계층의 다른 개체와 블록을 공유 하는 경우에도 개체의 전체 콘텐츠 길이에 대 한 요금이 청구 됩니다.
 

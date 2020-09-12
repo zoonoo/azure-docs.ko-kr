@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d75d6ecf73dece6dad43367a7f869a1b8ec3d86b
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: f9f68d3734cd7de83a2ddd376caefa410c619d61
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135864"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291112"
 ---
 # <a name="safe-url-list"></a>안전 URL 목록
 
@@ -60,7 +60,7 @@ Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL�
 >
 >1. Windows Virtual Desktop 호스트 풀에 가상 머신을 등록합니다.
 >2. **이벤트 뷰어**를 열고 **Windows 로그**  >  **응용 프로그램**  >  **wvd-에이전트로** 이동 하 여 이벤트 ID 3701을 찾습니다.
->3. 허용 목록는 이벤트 ID 3701 아래에 있는 Url을 검색 합니다. 이벤트 ID 3701 아래의 Url은 지역에 따라 다릅니다. 가상 컴퓨터를 배포 하려는 각 지역에 대 한 관련 Url을 사용 하 여 차단 해제 프로세스를 반복 해야 합니다.
+>3. 이벤트 ID 3701에서 찾은 Url의 차단을 해제 합니다. 이벤트 ID 3701 아래의 Url은 지역에 따라 다릅니다. 가상 컴퓨터를 배포 하려는 각 지역에 대 한 관련 Url을 사용 하 여 차단 해제 프로세스를 반복 해야 합니다.
 
 ## <a name="remote-desktop-clients"></a>원격 데스크톱 클라이언트
 
@@ -72,7 +72,7 @@ Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL�
 |\*.servicebus.windows.net|443|데이터 문제 해결|모두|
 |go.microsoft.com|443|Microsoft FWLinks|모두|
 |aka.ms|443|Microsoft URL 단축기|모두|
-|docs.microsoft.com|443|문서화|모두|
+|docs.microsoft.com|443|설명서|모두|
 |privacy.microsoft.com|443|개인정보처리방침|모두|
 |query.prod.cms.rt.microsoft.com|443|클라이언트 업데이트|Windows Desktop|
 

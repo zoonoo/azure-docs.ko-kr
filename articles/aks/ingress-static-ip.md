@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에서 고정 공용 IP �
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: dbab9df3acf7de801a4e75502863fff698232458
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: be4856beac69d11de12ec764f313fa59f3b24e9f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852568"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290551"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 고정 공용 IP 주소를 사용하여 수신 컨트롤러 만들기
 
@@ -18,7 +18,7 @@ ms.locfileid: "88852568"
 
 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에 [NGINX 수신 컨트롤러][nginx-ingress]를 배포하는 방법을 보여 줍니다. 고정 공용 IP 주소를 사용하여 수신 컨트롤러를 구성합니다. [cert-manager][cert-manager] 프로젝트는 [Let's Encrypt][lets-encrypt] 인증서를 자동으로 생성하고 구성하는 데 사용됩니다. 마지막으로, 두 애플리케이션이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 애플리케이션에 액세스할 수 있습니다.
 
-다음도 가능합니다.
+또한 다음을 수행할 수 있습니다.
 
 - [외부 네트워크 연결을 사용하여 기본적인 수신 컨트롤러 만들기][aks-ingress-basic]
 - [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> 위의 명령은 AKS 클러스터를 삭제 하는 경우 삭제 되는 IP 주소를 만듭니다. 또는 AKS 클러스터와 별도로 관리할 수 있는 다른 리소스 그룹에 IP 주소를 만들 수 있습니다. 다른 리소스 그룹에 IP 주소를 만드는 경우 AKS 클러스터에서 사용 하는 서비스 주체에 게 *네트워크 참가자*와 같은 다른 리소스 그룹에 대 한 위임 된 권한이 있는지 확인 합니다.
+> 위의 명령은 AKS 클러스터를 삭제 하는 경우 삭제 되는 IP 주소를 만듭니다. 또는 AKS 클러스터와 별도로 관리할 수 있는 다른 리소스 그룹에 IP 주소를 만들 수 있습니다. 다른 리소스 그룹에 IP 주소를 만드는 경우 AKS 클러스터에서 사용 하는 서비스 주체에 게 *네트워크 참가자*와 같은 다른 리소스 그룹에 대 한 위임 된 권한이 있는지 확인 합니다. 자세한 내용은 [AKS 부하 분산 장치에 고정 공용 IP 주소 및 DNS 레이블 사용][aks-static-ip]을 참조 하세요.
 
 이제 Helm을 사용하여 *nginx-ingress* 차트를 배포합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
 
@@ -449,7 +449,7 @@ az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eas
 - [NGINX 수신 컨트롤러][nginx-ingress]
 - [인증서 관리자][cert-manager]
 
-다음도 가능합니다.
+또한 다음을 수행할 수 있습니다.
 
 - [외부 네트워크 연결을 사용하여 기본적인 수신 컨트롤러 만들기][aks-ingress-basic]
 - [HTTP 애플리케이션 라우팅 추가 기능 사용][aks-http-app-routing]
@@ -483,3 +483,4 @@ az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eas
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-static-ip]: static-ip.md
