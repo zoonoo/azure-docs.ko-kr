@@ -1,20 +1,20 @@
 ---
-title: Azure 방화벽 로그 분석 샘플
+title: Azure 방화벽에 대 한 Azure Monitor 로그
 description: Azure Monitor 로그를 사용 하 여 Azure 방화벽을 분석할 수 있습니다. 샘플 파일은 Azure Monitor의 뷰 디자이너에서 빌드됩니다.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 01/23/2020
+ms.topic: how-to
+ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76705991"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023876"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Azure 방화벽 로그 분석 샘플
+# <a name="azure-monitor-logs-for-azure-firewall"></a>Azure 방화벽에 대 한 Azure Monitor 로그
 
 다음 Azure Monitor 로그 예제를 사용 하 여 Azure 방화벽 로그를 분석할 수 있습니다. 이 샘플 파일은 Azure Monitor의 뷰 디자이너에서 작성 되었으며 [Azure Monitor의 뷰 디자이너](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) 에는 뷰 디자인 개념에 대 한 자세한 정보가 있습니다.
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 다음 로그 예제는 로그 항목에 포함 된 데이터를 보여 줍니다.
 
-![로그 항목](media/log-analytics-samples/log1.png)
+![로그 항목 1](media/log-analytics-samples/log1.png)
 
-![로그 항목](media/log-analytics-samples/log2.png)
+![로그 항목 2 ](media/log-analytics-samples/log2.png)
 
-![로그 항목](media/log-analytics-samples/log3.png)
+![로그 항목 3](media/log-analytics-samples/log3.png)
 ## <a name="next-steps"></a>다음 단계
 
 Azure Firewall 모니터링 및 진단에 대한 자세한 내용은 [자습서: Azure Firewall 로그 및 메트릭 모니터링](tutorial-diagnostics.md)을 참조하세요.

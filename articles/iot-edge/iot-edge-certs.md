@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: 9d7caf332239d364b5bc47b5d58a808ead70395d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d1d4abbcc0768915d7d2e693cfc76a699ed21a91
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210584"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669618"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Azure IoT Edge에서 인증서를 사용하는 방법 이해
 
@@ -34,7 +34,7 @@ IoT Edge 장치에서 인증서를 설정 하는 일반적인 시나리오에는
 ![일반적인 인증서 관계의 다이어그램](./media/iot-edge-certs/edgeCerts-general.png)
 
 > [!NOTE]
-> 현재 libiothsm의 제한으로 인해 2050 년 1 월 1 일 이후에 만료 되는 인증서를 사용할 수 없습니다. 이러한 제한 사항은 장치 CA 인증서, 신뢰 번들의 인증서 및 x.509 프로비저닝 방법에 사용 되는 장치 ID 인증서에 적용 됩니다.
+> 현재 libiothsm의 제한으로 인해 2038 년 1 월 1 일 이후에 만료 되는 인증서를 사용할 수 없습니다. 이러한 제한 사항은 장치 CA 인증서, 신뢰 번들의 인증서 및 x.509 프로비저닝 방법에 사용 되는 장치 ID 인증서에 적용 됩니다.
 
 ### <a name="certificate-authority"></a>인증 기관
 

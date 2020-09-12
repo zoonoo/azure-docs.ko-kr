@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9fd18195c0276999f445e0990838e293a5081131
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e9c8c4a1209b8bb5be7af87ef22aeab0ffd90b79
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021887"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023774"
 ---
 # <a name="models"></a>모델
 
@@ -28,7 +28,6 @@ Azure Remote Rendering의 ‘모델’은 [엔터티](entities.md) 및 [구성 �
 FBX 및 GLTF와 같은 파일 형식의 [입력 모델을 변환](../how-tos/conversion/model-conversion.md)하여 런타임용 모델을 만들 수 있습니다. 변환 프로세스는 질감, 재질 및 메시와 같은 모든 리소스를 추출하고 최적화된 런타임 형식으로 변환합니다. 또한 구조적 정보를 추출하고 이를 ARR의 엔터티/구성 요소 그래프 구조로 변환합니다.
 
 > [!IMPORTANT]
->
 > [모델 변환](../how-tos/conversion/model-conversion.md)은 [메시](meshes.md)를 만드는 유일한 방법입니다. 메시는 런타임에 엔터티 간에 공유될 수 있지만 모델을 로드하는 것 외에는 다른 방법으로 메시를 런타임에 가져올 수 없습니다.
 
 ## <a name="loading-models"></a>모델 로드
@@ -118,6 +117,13 @@ ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<E
 
 > [!CAUTION]
 > ARR의 모든 *Async* 함수는 비동기 작업 개체를 반환합니다. 작업이 완료될 때까지 해당 개체에 대한 참조를 저장해야 합니다. 그렇지 않으면 C# 가비지 수집기가 작업을 일찍 삭제하여 작업을 완료할 수 없습니다. 위 샘플 코드에서 *await*를 사용하면 모델 로드가 완료될 때까지 지역 변수 ‘loadOp’에 참조가 포함되도록 보장됩니다. 그러나 *Completed* 이벤트를 대신 사용하는 경우에는 비동기 작업을 멤버 변수에 저장해야 합니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # RemoteManager ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
+* [C # RemoteManager ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
+* [C + + RemoteManager:: LoadModelAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelasync)
+* [C + + RemoteManager:: Loadmodel Msasasync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
 
 ## <a name="next-steps"></a>다음 단계
 

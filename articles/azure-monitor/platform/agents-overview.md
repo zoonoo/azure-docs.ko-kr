@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/21/2020
-ms.openlocfilehash: 6eb4aee1cfe62b09210f62d016028485594a9474
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 09/02/2020
+ms.openlocfilehash: 2a0c95e45dc529d779d6b06e1e5bdb32ba80b241
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000790"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007539"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -142,13 +142,13 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 
 | 운영 체제 | Azure Monitor 에이전트 | Log Analytics 에이전트 | 종속성 에이전트 | 진단 확장 | 
 |:---|:---:|:---:|:---:|:---:|
-| Windows Server 2019                                      | X | X | X | X |
+| 시작                                      | X | X | X | X |
 | Windows Server 2016                                      | X | X | X | X |
 | Windows Server 2016 Core                                 |   |   |   | X |
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
-| Windows 10 Enterprise<br>(다중 세션 포함) 및 Pro  |   | X | X | X |
+| Windows 10 Enterprise<br>(다중 세션 포함) 및 Pro  | X | X | X | X |
 | Windows 8 Enterprise 및 Pro                             |   | X | X |   |
 | Windows 7 SP1                                            |   | X | X |   |
 
@@ -159,6 +159,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                     |   | X |   |   |
 | CentOS Linux 7                                           | X | X |   | X |
+| CentOS Linux 7.8                                         | X | X | X | X |
 | CentOS Linux 7.6                                         | X | X | X | X |
 | CentOS Linux 6                                           | X | X |   |   |
 | CentOS Linux 6.5 이상                                        | X | X |   | X |
@@ -170,11 +171,11 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 | Oracle Linux 7                                           | X | X |   | X |
 | Oracle Linux 6                                           | X | X |   |   |
 | Oracle Linux 6.4 이상                                        | X | X |   | X |
-| Red Hat Enterprise Linux Server 8                        | X | X |   |   |
+| Red Hat Enterprise Linux Server 8                        |   | X |   |   |
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        | X | X | X |   |
 | Red Hat Enterprise Linux Server 6.7 이상                     | X | X | X | X |
-| SUSE Linux Enterprise Server 15                          | X | X | X |   |
+| SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 18.04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
@@ -184,7 +185,7 @@ Azure 진단 확장의 제한 사항은 다음과 같습니다.
 #### <a name="dependency-agent-linux-kernel-support"></a>종속성 에이전트 Linux 커널 지원
 종속성 에이전트는 커널 수준에서 작동 하므로 커널 버전에도 종속 됩니다. 다음 표에는 종속성 에이전트에 대 한 주 및 부 Linux OS 릴리스와 지원 되는 커널 버전이 나와 있습니다.
 
-| 분포 | OS 버전 | 커널 버전 |
+| 배포 | OS 버전 | 커널 버전 |
 |:---|:---|:---|
 |  Red Hat Linux 7   | 7.6     | 3.10.0-957  |
 |                    | 7.5     | 3.10.0-862  |

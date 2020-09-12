@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 09/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 40672ac958e84d816d4b582472ae04502a910c6a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521266"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023791"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -138,7 +138,7 @@ ms.locfileid: "88521266"
 | --------- | -------- | ----------- |
 | TelemetryEngine | 예 | 값은 `ApplicationInsights`여야 합니다. |
 | InstrumentationKey | 예 | Application Insights 요소의 계측 키를 포함하는 문자열입니다. |
-| DeveloperMode | 예 | 가능한 값은 `true` 또는 `false`입니다. 값이 `true`인 경우 Application Insights는 처리 파이프라인을 통해 원격 분석을 빠르게 수행합니다. 이 설정은 개발 시에는 유용하지만 정보의 양이 많은 경우에는 제약이 있습니다. 세부 활동 로그는 사용자 정의 정책 개발 시에만 도움이 되기 때문입니다. 프로덕션에서 개발 모드를 사용하지 않습니다. 로그는 개발 중에 ID 공급자 간에 전송된 모든 클레임을 수집합니다. 프로덕션에서 사용하는 경우 개발자는 소유한 App Insights 로그에서 수집된 PII(개인적으로 식별 가능한 정보)에 대한 책임이 있다고 가정합니다. 이 값이 `true`로 설정되어 있을 때만 이와 같은 자세한 로그가 수집됩니다.|
+| DeveloperMode | 예 | 가능한 값은 `true` 또는 `false`입니다. 값이 `true`인 경우 Application Insights는 처리 파이프라인을 통해 원격 분석을 빠르게 수행합니다. 이 설정은 개발에 적합 하지만 많은 볼륨에서 제한 됩니다. 자세한 활동 로그는 사용자 지정 정책 개발에 도움이 되도록 설계 되었습니다. 프로덕션에서 개발 모드를 사용하지 않습니다. 로그는 개발 중에 ID 공급자 간에 전송된 모든 클레임을 수집합니다. 프로덕션에서 사용하는 경우 개발자는 소유한 App Insights 로그에서 수집된 PII(개인적으로 식별 가능한 정보)에 대한 책임이 있다고 가정합니다. 이 값이 `true`로 설정되어 있을 때만 이와 같은 자세한 로그가 수집됩니다.|
 | ClientEnabled | 예 | 가능한 값은 `true` 또는 `false`입니다. 값이 `true`인 경우 페이지 보기 및 클라이언트 쪽 오류 추적용으로 Application Insights 클라이언트 쪽 스크립트를 전송합니다. |
 | ServerEnabled | 예 | 가능한 값은 `true` 또는 `false`입니다. 값이 `true`인 경우 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 Application Insights에 전송합니다. |
 | TelemetryVersion | 예 | 값은 `1.0.0`여야 합니다. |
@@ -198,7 +198,12 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| XmlSignatureAlgorithm | 예 | Azure AD B2C에서 SAML 응답에 서명 하는 데 사용 하는 메서드입니다. 가능한 값은 `Sha256`, `Sha384`, `Sha512` 또는 `Sha1`입니다. 양쪽의 서명 알고리즘을 같은 값으로 구성해야 합니다. 인증서가 지원하는 알고리즘만 사용하세요. SAML 어설션을 구성 하려면 [saml 발급자 기술 프로필 메타 데이터](saml-issuer-technical-profile.md#metadata)를 참조 하세요. |
+| IdpInitiatedProfileEnabled | 아니요 | IDP 시작 흐름이 지원 되는지 여부를 나타냅니다. 가능한 값: `true` 또는 `false` (기본값) | 
+| XmlSignatureAlgorithm | 아니요 | Azure AD B2C에서 SAML 응답에 서명 하는 데 사용 하는 메서드입니다. 가능한 값은 `Sha256`, `Sha384`, `Sha512` 또는 `Sha1`입니다. 양쪽의 서명 알고리즘을 같은 값으로 구성해야 합니다. 인증서가 지원하는 알고리즘만 사용하세요. SAML 어설션을 구성 하려면 [saml 발급자 기술 프로필 메타 데이터](saml-issuer-technical-profile.md#metadata)를 참조 하세요. |
+| DataEncryptionMethod | 아니요 | AES (AES(Advanced Encryption Standard)) 알고리즘을 사용 하 여 데이터를 암호화 하는 데 사용 하 Azure AD B2C 방법을 나타냅니다. 메타 데이터는 `<EncryptedData>` SAML 응답의 요소 값을 제어 합니다. 가능한 값은 `Aes256`(기본값), `Aes192`, `Sha512` 또는 ` Aes128`입니다. |
+| KeyEncryptionMethod| 아니요 | Azure AD B2C에서 데이터를 암호화 하는 데 사용 된 키의 복사본을 암호화 하는 데 사용 하는 메서드를 나타냅니다. 메타 데이터는  `<EncryptedKey>` SAML 응답의 요소 값을 제어 합니다. 가능한 값: ` Rsa15` (기본값)-RSA PKCS (공개 키 암호화 표준) 버전 1.5 알고리즘, ` RsaOaep` -RSA 최적 OAEP (비대칭 암호화 패딩) 암호화 알고리즘입니다. |
+| UseDetachedKeys | 아니요 |  가능한 값은 `true` 또는 `false`(기본값)입니다. 값을로 설정 하면 `true` Azure AD B2C는 암호화 된 어설션의 형식을 변경 합니다. 분리 된 키를 사용 하면 EncryptedData와는 달리 암호화 된 어설션을 EncrytedAssertion의 자식으로 추가 합니다. |
+| WantsSignedResponses| 아니요 | Azure AD B2C SAML 응답의 섹션에 서명할지 여부를 나타냅니다 `Response` . 가능한 값은 `true` (기본값) 또는 `false` 입니다.  |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -213,7 +218,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | 예 | 정책 파일의 **ClaimsSchema** 섹션에 이미 정의되어 있는 **ClaimType**에 대한 참조입니다. |
-| DefaultValue | 예 | 클레임 값이 비어 있는 경우 사용할 수 있는 기본값입니다. |
+| DefaultValue | 아니요 | 클레임 값이 비어 있는 경우 사용할 수 있는 기본값입니다. |
 | PartnerClaimType | 아니요 | ClaimType 정의에 구성되어 있는 다른 이름으로 클레임을 보냅니다. |
 
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
@@ -227,7 +232,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | ClaimType | 예 | 출력 클레임의 **PartnerClaimType**에 대한 참조입니다. 신뢰 당사자 정책 **OutputClaims** 컬렉션에서 출력 클레임을 정의해야 합니다. |
-| 서식 | 예 | Saml 어설션에 반환 된 **NameId 형식을** 설정 하는 saml 신뢰 당사자에 사용 됩니다. |
+| 서식 | 아니요 | Saml 어설션에 반환 된 **NameId 형식을** 설정 하는 saml 신뢰 당사자에 사용 됩니다. |
 
 다음 예제에서는 Openid connect Connect 신뢰 당사자를 정의 하는 방법을 보여 줍니다. 주체 이름 정보는 `objectId`로 구성됩니다.
 

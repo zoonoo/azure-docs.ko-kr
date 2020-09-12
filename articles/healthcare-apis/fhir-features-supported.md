@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: bdf328222fef1f763776bd26c47f5cd4d65e487e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000008"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007573"
 ---
 # <a name="features"></a>기능
 
@@ -39,7 +39,7 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | delete (조건부)           | 아니요        | 아니요        | 예        |                                                     |
 | create                         | 예       | 예       | 예       | POST/PUT 모두 지원                               |
 | create (조건부)           | 예       | 예       | 예       |                                                     |
-| 검색                         | Partial   | Partial   | Partial   | 아래 참조                                           |
+| search                         | Partial   | Partial   | Partial   | 아래 참조                                           |
 | 연결 된 검색                 | 아니요        | 예       | 아니요        |                                           |
 | 역방향 연결 된 검색         | 아니요        | 아니요        | 아니요        |                                            |
 | capabilities                   | 예       | 예       | 예       |                                                     |
@@ -98,14 +98,24 @@ FHIR 용 azure API는 Azure 용 Microsoft FHIR 서버를 완전히 관리 하는
 | 검색 작업       | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | 아니요        | 아니요        | 아니요        |         |
-| `_sort`                 | 아니요        | Partial   | Partial        |   `_sort=_lastUpdated`가 지원됨       |
+| `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated`가 지원됨       |
 | `_score`                | 아니요        | 아니요        | 아니요        |         |
 | `_count`                | 예       | 예       | 예       |         |
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count`가 지원됨 |
 | `_include`              | 아니요        | 예       | 아니요        |         |
 | `_revinclude`           | 아니요        | 예       | 아니요        | 포함 된 항목은 100 개로 제한 됩니다. |
 | `_contained`            | 아니요        | 아니요        | 아니요        |         |
-| `_elements`             | 아니요        | 아니요        | 아니요        |         |
+| `_elements`             | 예        | 예        | 예        |         |
+
+## <a name="extended-operations"></a>확장 된 작업
+
+RESTful API를 확장 하는 지원 되는 모든 작업입니다.
+
+| 검색 매개 변수 유형 | 지원 됨-PaaS | 지원 됨-OSS (SQL) | 지원 됨-OSS (Cosmos DB) | 의견 |
+|-----------------------|-----------|-----------|-----------|---------|
+| $export (전체 시스템)                | 예       | 예       | 예       |         |
+| 환자/$export         | 예       | 예       | 예       |         |
+| 그룹/$export               | 예       | 예       | 예       |         |
 
 ## <a name="persistence"></a>지속성
 

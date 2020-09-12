@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 9edf348c856de5c75c95d8a8f1957dcf73fc8ec1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030489"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017237"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -123,7 +123,7 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 다음 표에서는 저장소 계정에서 특정 작업을 수행 하는 데 필요한 사용 권한을 이해 하는 데 도움이 되는 몇 가지 일반적인 시나리오를 보여 줍니다.
 
-|    연산             |    /    | Oregon/ | Portland/ | Data.txt     |
+|    작업(Operation)             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
 | Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
@@ -256,7 +256,7 @@ Azure Data Lake Storage Gen2에 대한 umask는 007로 설정된 상수 값입�
 | umask.owning_group  |    0         |   `---`      | 소유 그룹의 경우 부모 항목의 기본 ACL을 자식 항목의 액세스 ACL에 복사합니다. | 
 | umask.other         |    7         |   `RWX`      | 기타의 경우 자식 항목의 액세스 ACL에 있는 모든 권한을 제거합니다. |
 
-Azure Data Lake Storage Gen2에서 효과적으로 사용되는 umask 값은 기본 ACL에서 나타내는 것과 관계없이 **기타**에 대한 값이 기본적으로 새 자식 항목에 전송되지 않는다는 것을 의미합니다. 
+Azure Data Lake Storage Gen2에서 사용 하는 umask 값은 기본 ACL이 부모 디렉터리에 정의 되어 있지 않는 한, **다른** 값이 기본적으로 새 자식에 대해 전송 되지 않음을 의미 합니다. 이 경우 umask는 사실상 무시 되 고 기본 ACL에서 정의한 권한은 자식 항목에 적용 됩니다. 
 
 다음 의사 코드는 하위 항목의 ACL을 만들 때 umask가 적용되는 방식을 보여 줍니다.
 
@@ -280,7 +280,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>ACL에 대한 지원을 사용하도록 설정해야 하나요?
 
-아니요. 저장소 계정에 대 한 액세스 제어는 HNS (계층적 네임 스페이스) 기능이 설정 되어 있는 한 저장소 계정에 대해 사용 하도록 설정 됩니다.
+아닙니다. 저장소 계정에 대 한 액세스 제어는 HNS (계층적 네임 스페이스) 기능이 설정 되어 있는 한 저장소 계정에 대해 사용 하도록 설정 됩니다.
 
 HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적용됩니다.
 
@@ -292,7 +292,7 @@ HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적�
 
 - 호출자에 게 ' 슈퍼 사용자 ' 권한이 있습니다.
 
-또는
+Or
 
 - 부모 디렉터리에 쓰기 + 실행 권한이 있어야 합니다.
 - 삭제할 디렉터리와 그 안의 모든 디렉터리에 읽기 + 쓰기 + 실행 권한이 필요합니다.
@@ -328,7 +328,7 @@ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 
 OID가 표시 됩니다.
 
-서비스 사용자에 대 한 올바른 OID가 있는 경우 **액세스 관리** Storage 탐색기 페이지로 이동 하 여 oid를 추가 하 고 oid에 대 한 적절 한 사용 권한을 할당 합니다. **저장**을 선택 했는지 확인 합니다.
+서비스 사용자에 대 한 올바른 OID가 있는 경우 **액세스 관리** Storage 탐색기 페이지로 이동 하 여 oid를 추가 하 고 oid에 대 한 적절 한 사용 권한을 할당 합니다. **저장**을 선택해야 합니다.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2에서 ACL의 상속을 지원하나요?
 
@@ -347,6 +347,6 @@ ACL은 상속되지 않습니다. 그러나 기본 ACL을 사용하여 부모 �
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [Linux에서 액세스 제어 목록을 사용 하는 ACL](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure Data Lake Storage Gen2 개요](../blobs/data-lake-storage-introduction.md)

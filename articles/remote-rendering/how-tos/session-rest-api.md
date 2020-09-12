@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: c27c5fae45f7cde57f2db12c05107d2b77b90a2c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012384"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023757"
 ---
 # <a name="use-the-session-management-rest-api"></a>세션 관리 REST API 사용
 
@@ -65,7 +65,7 @@ $token = $response.AccessToken;
 
 이 명령은 세션을 만듭니다. 새 세션의 ID를 반환 합니다. 다른 모든 명령에 대 한 세션 ID가 필요 합니다.
 
-| URI | 방법 |
+| URI | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/*accountId*/sessions/create | POST |
 
@@ -77,9 +77,9 @@ $token = $response.AccessToken;
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 주석 |
+| 상태 코드 | JSON 페이로드 | 의견 |
 |-----------|:-----------|:-----------|
-| 202 | -sessionId: GUID | 성공 |
+| 202 | -sessionId: GUID | Success |
 
 ### <a name="example-script-create-a-session"></a>예제 스크립트: 세션 만들기
 
@@ -122,7 +122,7 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 기존 세션의 매개 변수를 쿼리하거나 수정 하는 몇 가지 명령이 있습니다.
 
 > [!CAUTION]
-모든 REST 호출의 경우와 마찬가지로, 이러한 명령을 너무 자주 보내면 서버가 제한을 초과 하 여 결국 오류가 반환 됩니다. 이 경우 상태 코드는 429 ("요청이 너무 많음")입니다. 이에 대 한 규칙에 따라 **이후 호출 사이에 5-10 초의**지연이 발생 합니다.
+> 모든 REST 호출의 경우와 마찬가지로, 이러한 명령을 너무 자주 보내면 서버가 제한을 초과 하 여 결국 오류가 반환 됩니다. 이 경우 상태 코드는 429 ("요청이 너무 많음")입니다. 일반적으로 **후속 호출 간에 5~10초** 지연이 발생합니다.
 
 ### <a name="update-session-parameters"></a>세션 매개 변수 업데이트
 
@@ -131,7 +131,7 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 > [!IMPORTANT]
 > 임대 시간은 항상 세션의 시작 이후 총 시간으로 제공 됩니다. 즉, 임대 시간이 1 시간인 세션을 만들고 다른 시간에 대 한 임대 시간을 연장 하려면 해당 maxLeaseTime를 2 시간으로 업데이트 해야 합니다.
 
-| URI | 방법 |
+| URI | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/*accountID*/sessions/*sessionId* | 패치 |
 
@@ -141,7 +141,7 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 주석 |
+| 상태 코드 | JSON 페이로드 | 의견 |
 |-----------|:-----------|:-----------|
 | 200 | | Success |
 
@@ -171,13 +171,13 @@ RawContentLength  : 0
 
 이 명령은 활성 세션 목록을 반환 합니다.
 
-| URI | 방법 |
+| URI | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/*accountId*/sessions | GET |
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 주석 |
+| 상태 코드 | JSON 페이로드 | 의견 |
 |-----------|:-----------|:-----------|
 | 200 | -sessions: 세션 속성의 배열입니다. | 세션 속성에 대 한 설명은 "세션 속성 가져오기" 섹션을 참조 하세요. |
 
@@ -214,13 +214,13 @@ RawContentLength  : 2
 
 이 명령은 VM 호스트 이름 등의 세션에 대 한 정보를 반환 합니다.
 
-| URI | 방법 |
+| URI | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/*accountId*/sessions/*sessionId*/properties | GET |
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 주석 |
+| 상태 코드 | JSON 페이로드 | 의견 |
 |-----------|:-----------|:-----------|
 | 200 | -message: 문자열<br/>-sessionElapsedTime: timespan<br/>-sessionHostname: 문자열<br/>-sessionId: string<br/>-sessionMaxLeaseTime: timespan<br/>-sessionSize: enum<br/>-sessionStatus: enum | enum sessionStatus {시작, 준비, 중지, 중지, 만료, 오류}<br/>상태가 ' 오류 ' 또는 ' 만료 됨 ' 이면 메시지에 추가 정보가 포함 됩니다. |
 
@@ -257,15 +257,15 @@ RawContentLength  : 60
 
 이 명령은 세션을 중지 합니다. 할당 된 VM은 즉시 회수 됩니다.
 
-| URI | 방법 |
+| URI | 메서드 |
 |-----------|:-----------|
 | /v1/accounts/*accountId*/sessions/*sessionId* | Delete |
 
 **보낸**
 
-| 상태 코드 | JSON 페이로드 | 주석 |
+| 상태 코드 | JSON 페이로드 | 의견 |
 |-----------|:-----------|:-----------|
-| 204 | | 성공 |
+| 204 | | Success |
 
 ### <a name="example-script-stop-a-session"></a>예제 스크립트: 세션 중지
 

@@ -1,6 +1,6 @@
 ---
 title: 게시자 확인 문제 해결 - Microsoft ID 플랫폼 | Azure
-description: Microsoft Graph API를 호출하여 Microsoft ID 플랫폼에 대한 게시자 확인(미리 보기) 문제를 해결하는 방법을 설명합니다.
+description: Microsoft Graph Api를 호출 하 여 Microsoft id 플랫폼에 대 한 게시자 확인 문제를 해결 하는 방법을 설명 합니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,15 +12,15 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 3069e3caf81d9bb2f809b21c88383c419e3b90b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c332b960caf7707953069c5252219ca6c51761a8
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282979"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007556"
 ---
-# <a name="troubleshoot-publisher-verification-preview"></a>게시자 확인 문제 해결(미리 보기)
-[게시자 확인(미리 보기)](publisher-verification-overview.md)을 사용하여 프로세스를 완료할 수 없거나 예기치 않은 동작이 발생하는 경우 오류를 수신하거나 예기치 않은 동작이 표시되면 먼저 다음을 수행해야 합니다. 
+# <a name="troubleshoot-publisher-verification"></a>게시자 확인 문제 해결
+프로세스를 완료할 수 없거나 예기치 않은 동작이 [게시자 확인](publisher-verification-overview.md)에 발생 하는 경우 오류를 수신 하거나 예기치 않은 동작을 볼 수 있는 경우 다음을 수행 하 여 시작 해야 합니다. 
 
 1. [요구 사항](publisher-verification-overview.md#requirements)을 검토하고 모두 충족되었는지 확인합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "87282979"
 
 ## <a name="making-microsoft-graph-api-calls"></a>Microsoft Graph API 호출 
 
-문제가 있지만 UI에 표시되는 내용에 따라 이유를 이해할 수 없는 경우 Microsoft Graph 호출을 통해 앱 등록 포털에서 수행할 수 있는 것과 동일한 작업을 수행하여 문제 해결을 추가로 수행하는 것이 유용할 수 있습니다. 미리 보기 단계 중에는 이러한 API를 Microsoft Graph의 /beta 엔드포인트에서만 사용할 수 있습니다.  
+문제가 있지만 UI에 표시되는 내용에 따라 이유를 이해할 수 없는 경우 Microsoft Graph 호출을 통해 앱 등록 포털에서 수행할 수 있는 것과 동일한 작업을 수행하여 문제 해결을 추가로 수행하는 것이 유용할 수 있습니다.
 
 이러한 요청을 수행하는 가장 쉬운 방법은 [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 사용하는 것입니다. [Postman](https://www.postman.com/) 또는 PowerShell을 사용하여 [웹 요청을 호출](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7)하는 것과 같은 다른 옵션을 고려할 수도 있습니다.  
 

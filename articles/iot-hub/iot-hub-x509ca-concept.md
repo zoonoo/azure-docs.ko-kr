@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub X.509 보안의 개념 | Microsoft Docs
-description: 개념 - IoT 디바이스 제조 및 인증에서 X.509 인증 기관 인증서의 가치를 이해합니다.
+description: 개념-IoT 장치 제조의 x.509 인증 기관 인증서 및 인증 값을 이해 합니다.
 author: eustacea
 manager: arjmands
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61320516"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019906"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>IoT 업계의 X.509 CA 인증서에 대한 개념적 이해
 
@@ -28,6 +28,8 @@ ms.locfileid: "61320516"
 * X.509 CA 기반 인증서의 제조 공급망을 설정하는 방법
 
 * X.509 CA로 서명한 디바이스를 IoT Hub에 연결하는 방법
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="overview"></a>개요
 
@@ -63,13 +65,13 @@ Company-X는 공용 루트 인증 기관에서 X.509 CA 인증서를 구입하�
 
 ### <a name="purchasing-an-x509-ca-certificate"></a>X.509 CA 인증서 구입
 
-CA 인증서를 구입하면 디바이스가 연결될 때 잘 알려진 루트 CA를 신뢰할 수 있는 타사로 사용하여 IoT 디바이스의 적법성을 보증할 수 있다는 장점이 있습니다. IoT Hub에 처음 연결한 후 Smart-X-Widget이 타사 제품 또는 서비스와 상호 작용해야 하는 경우 Company-X는 이 옵션을 선택합니다.
+CA 인증서를 구입하면 디바이스가 연결될 때 잘 알려진 루트 CA를 신뢰할 수 있는 타사로 사용하여 IoT 디바이스의 적법성을 보증할 수 있다는 장점이 있습니다. 회사에서 IoT Hub에 대 한 초기 연결 후에 스마트 X 위젯이 타사 제품 또는 서비스와 상호 작용 하도록 하려는 경우이 옵션을 선택 합니다.
 
 X.509 CA 인증서를 구입하기 위해 Company-X는 루트 인증서 서비스 공급자를 선택합니다. '루트 CA'라는 문구를 인터넷으로 검색하면 좋은 단서를 얻을 수 있습니다. 루트 CA는 Company-X에 퍼블릭/프라이빗 키 쌍을 만드는 방법과 서비스에 대한 CSR(인증서 서명 요청)을 생성하는 방법을 안내합니다. CSR은 인증 기관의 인증서를 신청하는 공식적인 프로세스입니다. 이러한 구입의 결과물은 기관 인증서로 사용하기 위한 인증서입니다. X.509 인증서의 보편성을 감안할 때 이 인증서는 IETF의 RFC 5280 표준에 맞는 올바른 형식을 갖추었을 가능성이 높습니다.
 
 ### <a name="creating-a-self-signed-x509-ca-certificate"></a>자체 서명된 X.509 CA 인증서 만들기
 
-자체 서명된 X.509 CA 인증서를 만드는 프로세스는 루트 인증 기관과 같은 타사 서명자를 필요로 하는 것을 제외하면 구입 프로세스와 유사합니다. 이 예제에서 Company-X는 루트 인증 기관 대신 자체 기관 인증서에 서명합니다. Company-X는 기관 인증서를 구입할 준비가 될 때까지 이 옵션을 테스트용으로 선택할 수 있습니다. Smart-X-Widget이 IoT Hub 외부의 타사 서비스에 연결할 필요가 없는 경우 Company-X는 프로덕션 환경에서 자체 서명된 X.509 CA 인증서를 사용할 수도 있습니다.
+자체 서명 된 x.509 CA 인증서를 만드는 프로세스는 루트 인증 기관과 같은 타사 서명자를 포함 하는 것을 제외 하 고는 구매와 비슷합니다. 이 예제에서 Company-X는 루트 인증 기관 대신 자체 기관 인증서에 서명합니다. Company-X는 기관 인증서를 구입할 준비가 될 때까지 이 옵션을 테스트용으로 선택할 수 있습니다. X.509 IoT Hub 외부의 타사 서비스에 연결할 수 없는 경우에도 회사 X는 프로덕션에서 자체 서명 된 CA 인증서를 사용할 수 있습니다.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>IoT Hub에 X.509 인증서 등록
 
