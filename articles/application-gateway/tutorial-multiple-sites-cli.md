@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 40761b8b187d864c7b93b8aa4ee49233683fcad7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502762"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595850"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Azure CLI를 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
 
@@ -22,13 +22,12 @@ Azure CLI를 사용하여 [애플리케이션 게이트웨이](multiple-site-ove
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 네트워크 설정
-> * 애플리케이션 게이트웨이 만들기
-> * 백 엔드 수신기 만들기
-> * 라우팅 규칙 만들기
-> * 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
-> * 도메인에서 CNAME 레코드 만들기
+* 네트워크 설정
+* 애플리케이션 게이트웨이 만들기
+* 백 엔드 수신기 만들기
+* 라우팅 규칙 만들기
+* 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
+* 도메인에서 CNAME 레코드 만들기
 
 :::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="다중 사이트 Application Gateway":::
 

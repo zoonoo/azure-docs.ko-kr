@@ -4,21 +4,21 @@ description: Azure Portal 또는 Azure CLI를 통해 Azure SignalR 서비스 인
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 9/9/2020
 ms.author: zhshang
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd112526c7b36d5636d5d85c66b25b6310d35d1e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bb01f2f96e5db4c94e759b114818360e6084255f
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500490"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595770"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Azure SignalR 서비스 인스턴스의 크기를 조정 하는 방법
 이 문서에서는 Azure SignalR 서비스의 인스턴스 크기를 조정 하는 방법을 보여 줍니다. 크기 조정, 강화 및 규모 확장에 대 한 두 가지 시나리오가 있습니다.
 
 * 강화: 더 많은 단위, 연결, 메시지 등을 [가져옵니다.](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling) 가격 책정 계층을 무료에서 표준으로 변경 하 여 확장 합니다.
-* [규모 확장](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): SignalR 단위 수를 늘립니다. 최대 100 단위까지 확장할 수 있습니다.
+* [규모 확장](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): SignalR 단위 수를 늘립니다. 최대 100 단위까지 확장할 수 있습니다. 단일 SignalR 서비스 인스턴스의 크기 조정에는 1, 2, 5, 10, 20, 50 및 100 단위를 선택할 수 있는 제한 된 단위 옵션이 있습니다.
 
 크기 조정 설정을 적용 하는 데 몇 분 정도 걸립니다. 드문 경우 지만 적용 하는 데 약 30 분이 걸릴 수 있습니다. 코드를 변경 하거나 서버 응용 프로그램을 다시 배포할 필요는 없습니다.
 

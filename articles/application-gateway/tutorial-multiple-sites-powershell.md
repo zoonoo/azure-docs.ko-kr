@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f6c6dd18ba57d83aa235f66285e7cb2ed42c1703
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524984"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595863"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Azure PowerShell을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
 
@@ -22,13 +22,12 @@ Azure Powershell을 사용하여 [애플리케이션 게이트웨이](multiple-s
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 네트워크 설정
-> * 애플리케이션 게이트웨이 만들기
-> * 백 엔드 수신기 만들기
-> * 라우팅 규칙 만들기
-> * 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
-> * 도메인에서 CNAME 레코드 만들기
+* 네트워크 설정
+* 애플리케이션 게이트웨이 만들기
+* 백 엔드 수신기 만들기
+* 라우팅 규칙 만들기
+* 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
+* 도메인에서 CNAME 레코드 만들기
 
 :::image type="content" source="./media/tutorial-multiple-sites-powershell/scenario.png" alt-text="다중 사이트 Application Gateway":::
 

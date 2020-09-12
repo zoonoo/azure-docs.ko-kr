@@ -3,12 +3,12 @@ title: 리소스 잠금 이해
 description: 청사진을 할당할 때 리소스를 보호 하기 위해 Azure 청사진의 잠금 옵션에 대해 알아봅니다.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5e60724a276bce94770c5fdc33ee0c8b4e7712fe
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 9d400abce5d428c01b43cdda38a5c6f0df2d4db8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051505"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651930"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 
@@ -24,10 +24,10 @@ ms.locfileid: "89051505"
 
 청사진 할당에서 아티팩트에 의해 생성 된 리소스에는 **잠김 안 함**, **읽기 전용**, **편집/삭제**또는 **삭제할 수**없음의 네 가지 상태가 있습니다. 각 아티팩트 형식은 **잠겨있지 않음** 상태일 수 있습니다. 다음 표를 사용하여 리소스의 상태를 확인할 수 있습니다.
 
-|Mode|아티팩트 리소스 형식|시스템 상태|Description|
+|Mode|아티팩트 리소스 형식|시스템 상태|설명|
 |-|-|-|-|
 |잠그지 않음|*|잠겨있지 않음|리소스는 Azure 청사진에 의해 보호 되지 않습니다. 이 상태는 또한 청사진 할당 외부에서 **읽기 전용** 또는 **삭제 안 함** 리소스 그룹 아티팩트에 추가된 리소스에 사용됩니다.|
-|읽기 전용|Resource group|편집/삭제할 수 없음|리소스 그룹이 읽기 전용이며 리소스 그룹의 태그를 수정할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|
+|읽기 전용|리소스 그룹|편집/삭제할 수 없음|리소스 그룹이 읽기 전용이며 리소스 그룹의 태그를 수정할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|
 |읽기 전용|리소스 그룹이 아님|읽기 전용|리소스는 어떤 방식으로든 변경할 수 없습니다. 변경 내용 및 삭제할 수 없습니다.|
 |삭제 안 함|*|삭제할 수 없음|리소스를 변경할 수 있지만 삭제할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|
 
@@ -103,7 +103,7 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 
 할당에서 **읽기 전용** 또는 **삭제 안 함** 옵션을 선택한 경우 RBAC [거부 할당](../../../role-based-access-control/deny-assignments.md) 거부 동작이 청사진 할당 중에 아티팩트 리소스에 적용됩니다. 거부 동작은 청사진 할당의 관리 ID를 통해 추가되며 같은 관리 ID를 통해서만 아티팩트 리소스에서 제거할 수 있습니다. 이 보안 조치로 인해 잠금 메커니즘이 적용 되며 Azure 청사진 외부에서 청사진 잠금이 제거 되지 않습니다.
 
-:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="리소스 그룹에 대 한 청사진 거부 할당" border="false":::
+:::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="리소스 그룹에 대 한 액세스 제어 (I A M) 페이지 및 거부 할당 탭의 스크린샷" border="false":::
 
 각 모드의 [거부 할당 속성](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) 은 다음과 같습니다.
 

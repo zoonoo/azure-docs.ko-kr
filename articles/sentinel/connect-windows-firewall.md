@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: b2cf984e629d6b86beef9292dac819b554f49749
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 5804dcc840eb666c1d43ea7d7ed7640b8f7ff371
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850698"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657435"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>고급 보안이 포함 된 Windows Defender 방화벽을 Azure 센티널에 연결
 
@@ -31,13 +31,13 @@ ms.locfileid: "87850698"
 > [!NOTE]
 > - 데이터는 Azure 센티널을 실행 하는 작업 영역의 지리적 위치에 저장 됩니다.
 >
-> - Azure 센티널 및 Azure Security Center 같은 작업 영역으로 수집 되는 경우이 커넥터를 통해 Windows 방화벽 솔루션을 사용 하도록 설정할 필요가 없습니다. 그래도 사용 하도록 설정 하면 중복 된 데이터가 발생 하지 않습니다. 
+> - Azure 센티널 및 Azure Defender (이전의 Azure Security Center)가 동일한 작업 영역으로 수집 되는 경우이 커넥터를 통해 Windows 방화벽 솔루션을 사용 하도록 설정할 필요가 없습니다. 그래도 사용 하도록 설정 하면 중복 된 데이터가 발생 하지 않습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - 모니터링할 컴퓨터가 연결 된 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 
-- **Azure 센티널** 역할 외에도 해당 작업 영역에서 securityinsights 솔루션에 대 한 **Log Analytics 참가자** 역할을 할당 받아야 합니다. [자세한 정보](../role-based-access-control/built-in-roles.md#log-analytics-contributor)
+- **Azure 센티널** 역할 외에도 해당 작업 영역에서 securityinsights 솔루션에 대 한 **Log Analytics 참가자** 역할을 할당 받아야 합니다. [자세히 알아보기](../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
 ## <a name="enable-the-connector"></a>커넥터 사용 
 
@@ -47,37 +47,40 @@ ms.locfileid: "87850698"
 
 ### <a name="instructions-tab"></a>명령 탭
 
-- **Windows 컴퓨터가 Azure에 있는 경우:**
+**지침** 탭에서 다음 단계를 완료 합니다.
 
-    1. **Azure Windows 가상 머신에서 에이전트 설치를**선택 합니다.
+- **Windows 컴퓨터가 Azure에 있는 경우 다음 단계를 완료 합니다.**
 
-    1. **다운로드 & Azure Windows Virtual machines 용 에이전트 설치 >** 링크를 클릭 합니다.
+   1. **Azure Windows 가상 머신에서 에이전트 설치를**선택 합니다.
+   
+   1. **다운로드 & Azure Windows Virtual machines 용 에이전트 설치 >** 링크를 클릭 합니다.
+   
+   1. **Virtual machines** 목록에서 Azure 센티널로 스트리밍할 Windows 컴퓨터를 선택 합니다. Windows Vm만 표시 되도록 OS 열 필터에서 **windows** 를 선택할 수 있습니다.
+   
+   1. 해당 VM에 대해 열리는 창에서 **연결**을 클릭 합니다.
+   
+   1. **Virtual Machines** 창으로 돌아가서 연결 하려는 다른 vm에 대해 이전 두 단계를 반복 합니다. 완료 되 면 **Windows 방화벽** 창으로 돌아갑니다.
 
-    1. **Virtual machines** 목록에서 Azure 센티널로 스트리밍할 Windows 컴퓨터를 선택 합니다. Windows Vm만 표시 되도록 OS 열 필터에서 **windows** 를 선택할 수 있습니다.
+- **Windows 컴퓨터가 Azure VM이 아닌 경우 다음 단계를 완료 합니다.**
+   
+   1. **비 Azure Windows 컴퓨터에 에이전트 설치를**선택 합니다.
+   
+   1. 다운로드를 클릭 하 **& Azure가 아닌 Windows 컴퓨터에 대 한 에이전트 설치 >** 링크를 클릭 합니다.
+   
+   1. **에이전트 관리** 창에서 필요에 따라 **windows 에이전트 다운로드 (64 비트)** 를 선택 하거나 **windows 에이전트 (32 비트)를 다운로드**합니다.
+   
+   1. **작업 영역 ID**, **기본 키**및 **보조 키** 문자열을 텍스트 파일에 복사 합니다. 해당 파일과 다운로드 한 설치 파일을 Windows 컴퓨터에 복사 합니다. 설치 파일을 실행 하 고 메시지가 표시 되 면 설치 하는 동안 텍스트 파일에 ID 및 키 문자열을 입력 합니다.
+   
+   1. **Windows 방화벽** 창으로 돌아갑니다.
 
-    1. 해당 VM에 대해 열리는 창에서 **연결**을 클릭 합니다.
-
-    1. **Virtual Machines** 창으로 돌아가서 연결 하려는 다른 vm에 대해 이전 두 단계를 반복 합니다. 완료 되 면 **Windows 방화벽** 창으로 돌아갑니다.
-
-- **Windows 컴퓨터가 Azure VM이 아닌 경우:**
-
-    1. **비 Azure Windows 컴퓨터에 에이전트 설치를**선택 합니다.
-
-    1. 다운로드를 클릭 하 **& Azure가 아닌 Windows 컴퓨터에 대 한 에이전트 설치 >** 링크를 클릭 합니다.
-
-    1. **에이전트 관리** 창에서 필요에 따라 **windows 에이전트 다운로드 (64 비트)** 를 선택 하거나 **windows 에이전트 (32 비트)를 다운로드**합니다.
-
-    1. **작업 영역 ID**, **기본 키**및 **보조 키** 문자열을 텍스트 파일에 복사 합니다. 해당 파일과 다운로드 한 설치 파일을 Windows 컴퓨터에 복사 합니다. 설치 파일을 실행 하 고 메시지가 표시 되 면 설치 하는 동안 텍스트 파일에 ID 및 키 문자열을 입력 합니다.
-
-    1. **Windows 방화벽** 창으로 돌아갑니다.
-
-1. **솔루션 설치**를 클릭 합니다.
+**지침** 탭의 단계를 완료 한 후 **솔루션 설치**를 클릭 합니다.
 
 ### <a name="next-steps-tab"></a>다음 단계 탭
 
-- Windows 방화벽 로그 데이터에 대 한 정보를 얻으려면 windows **방화벽** 데이터 커넥터와 함께 제공 되는 권장 통합 문서 및 쿼리 샘플을 참조 하세요.
+- Windows 방화벽 로그 데이터에 대 한 정보를 얻으려면 **Windows 방화벽** 데이터 커넥터와 함께 제공 되는 권장 통합 문서 및 쿼리 샘플을 참조 하세요.
 
 - **로그**에서 Windows 방화벽 데이터를 쿼리하려면 쿼리 창에 **windowsfirewall** 을 입력 합니다.
+
 
 ## <a name="validate-connectivity"></a>연결 유효성 검사
  

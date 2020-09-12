@@ -3,12 +3,12 @@ title: 매개 변수를 사용하여 동적 청사진 만들기
 description: 정적 및 동적 매개 변수와이를 사용 하 여 보안 및 동적 청사진을 만드는 방법에 대해 알아봅니다.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051562"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651954"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
@@ -61,11 +61,11 @@ Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-va
 
 1. 청사진에 추가되고 매개 변수 옵션이 있는 아티팩트는 **매개 변수** 열에 **X/Y 매개 변수 채워짐**으로 표시됩니다. 아티팩트 행을 선택 하 여 아티팩트 매개 변수를 편집 합니다.
 
-   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="청사진 정의의 청사진 매개 변수" border="false":::
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="청사진 정의의 스크린샷 및 ' X Y 매개 변수의 X '가 강조 표시 됩니다." border="false":::
 
-1. **아티팩트 편집** 페이지에는 클릭한 아티팩트에 적절한 값 옵션이 표시됩니다. 아티팩트의 각 매개 변수에는 제목, 값 상자 및 확인란이 있습니다. **정적 매개 변수**로 만들려면 확인란을 선택 취소하도록 상자를 설정합니다. 아래 예제에서는 _위치_가 선택 취소되고 _리소스 그룹 이름_이 선택되었기 때문에 위치만이 **정적 매개 변수**입니다.
+1. **아티팩트 편집** 페이지에는 선택한 아티팩트에 적절 한 값 옵션이 표시 됩니다. 아티팩트의 각 매개 변수에는 제목, 값 상자 및 확인란이 있습니다. **정적 매개 변수**로 만들려면 확인란을 선택 취소하도록 상자를 설정합니다. 아래 예제에서는 _위치_가 선택 취소되고 _리소스 그룹 이름_이 선택되었기 때문에 위치만이 **정적 매개 변수**입니다.
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="청사진 아티팩트의 청사진 정적 매개 변수" border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="청사진 아티팩트에 대 한 정적 매개 변수의 스크린샷" border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>REST API에서 정적 매개 변수 설정
 
@@ -176,7 +176,7 @@ REST API를 통해 청사진을 만들 때 [청사진 매개 변수](#blueprint-
 
 1. **청사진 할당** 페이지에서 **아티팩트 매개 변수** 섹션을 찾습니다. **동적 매개 변수**가 하나 이상 있는 아티팩트는 아티팩트 및 구성 옵션을 표시합니다. 매개 변수에 필요한 값을 제공한 후 청사진을 할당합니다. 아래 예제에서 _이름_은 청사진을 완료하려면 정의해야 하는 **동적 매개 변수**입니다.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="청사진을 할당 하는 동안 청사진 동적 매개 변수" border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="청사진 할당 중 동적 매개 변수 설정의 스크린샷" border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>REST API에서 정적 매개 변수 설정
 

@@ -1,21 +1,21 @@
 ---
-title: Azure Blob Storage (미리 보기)에서 피드 변경 | Microsoft Docs
+title: Azure Blob Storage에서 피드 변경 Microsoft Docs
 description: Azure Blob Storage의 변경 피드 로그 및 사용 방법에 대해 알아봅니다.
 author: normesta
 ms.author: normesta
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 09a97897ca7e3984c7003c1dbbca65cddaec1ee6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c3348356561ea74bb5e0b5bc46fccee1ada82755
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055428"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568237"
 ---
-# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob 스토리지의 변경 피드 지원(미리 보기)
+# <a name="change-feed-support-in-azure-blob-storage"></a>Azure Blob Storage의 변경 피드 지원
 
 변경 피드의 목적은 저장소 계정의 blob 및 blob 메타 데이터에 발생 하는 모든 변경 내용에 대 한 트랜잭션 로그를 제공 하는 것입니다. 변경 피드는 이러한 변경 내용에 대 한 **순서**, **보장**, **내구성**, 변경 **불가능**, **읽기 전용** 로그를 제공 합니다. 클라이언트 응용 프로그램은 스트리밍 또는 일괄 처리 모드에서 언제 든 지 이러한 로그를 읽을 수 있습니다. 변경 피드를 사용 하면 Blob Storage 계정에서 발생 하는 변경 이벤트를 저렴 한 비용으로 처리 하는 효율적이 고 확장 가능한 솔루션을 빌드할 수 있습니다.
 
@@ -27,11 +27,11 @@ ms.locfileid: "88055428"
 
 변경 피드 지원은 변경 된 개체를 기반으로 데이터를 처리 하는 시나리오에 적합 합니다. 예를 들어 응용 프로그램에서 다음을 수행할 수 있습니다.
 
-  - 보조 인덱스를 업데이트 하 고, 캐시, 검색 엔진 또는 기타 모든 콘텐츠 관리 시나리오와 동기화 합니다.
+  - 보조 인덱스를 업데이트하고, 캐시, 검색 엔진 또는 기타 콘텐츠 관리 시나리오와 동기화합니다.
   
-  - 스트리밍 방식 또는 일괄 처리 모드에서 개체에 발생 하는 변경 내용을 기반으로 비즈니스 분석 정보 및 메트릭을 추출 합니다.
+  - 스트리밍 방식 또는 일괄 처리 모드로 개체에 발생하는 변경 내용을 기반으로 비즈니스 분석 정보와 메트릭을 추출합니다.
   
-  - 엔터프라이즈 데이터 관리에 대 한 보안, 규정 준수 또는 인텔리전스를 위해 일정 기간 동안 개체에 대 한 변경 내용을 저장, 감사 및 분석 합니다.
+  - 엔터프라이즈 데이터 관리를 위한 보안, 규정 준수 또는 인텔리전스를 위해 일정 기간 동안 개체에 대한 변경 내용을 저장, 감사, 분석합니다.
 
   - 재해 관리 또는 규정 준수를 위해 계정의 개체 상태를 백업, 미러링 또는 복제 하는 솔루션을 빌드 하세요.
 
@@ -55,9 +55,6 @@ ms.locfileid: "88055428"
 - 변경 피드는 계정에서 발생 하는 모든 사용 가능한 이벤트의 *모든* 변경 내용을 캡처합니다. 클라이언트 응용 프로그램은 필요에 따라 이벤트 유형을 필터링 할 수 있습니다. 현재 릴리스의 [조건을](#conditions) 참조 하세요.
 
 - GPv2 및 Blob 저장소 계정만 변경 피드를 사용 하도록 설정할 수 있습니다. Premium BlockBlobStorage 계정 및 계층적 네임 스페이스 사용 계정은 현재 지원 되지 않습니다. GPv1 저장소 계정은 지원 되지 않지만 가동 중지 시간 없이 GPv2로 업그레이드할 수 있습니다. 자세한 내용은 [GPv2 storage 계정으로 업그레이드](../common/storage-account-upgrade.md) 를 참조 하세요.
-
-> [!IMPORTANT]
-> 변경 피드는 공개 미리 보기로 제공 되며 미국 **중부**, 미국 **서 부 2**, **프랑스 중부**, **프랑스 남부**, **캐나다 중부**및 **캐나다 동부** 지역에서 사용할 수 있습니다. 이 문서의 [조건](#conditions) 섹션을 참조 하세요. 미리 보기에 등록 하려면이 문서의 [구독 등록](#register) 단원을 참조 하세요. 저장소 계정에서 변경 피드를 사용 하도록 설정 하려면 먼저 구독을 등록 해야 합니다.
 
 ### <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -85,10 +82,10 @@ PowerShell을 사용 하 여 변경 피드를 사용 하도록 설정 합니다.
 
 2. PowerShell 콘솔을 닫았다가 다시 엽니다.
 
-3. **Az. Storage** preview 모듈을 설치 합니다.
+3. **Az. Storage** 모듈의 2.5.0 이상 버전을 설치 합니다.
 
    ```powershell
-   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
+   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
    ```
 
 4. `Connect-AzAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시에 따라 인증합니다.
@@ -289,43 +286,18 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 ```
 
-<a id="register"></a>
-
-## <a name="register-your-subscription-preview"></a>구독 등록 (미리 보기)
-
-변경 피드는 공개 미리 보기 상태 이므로 기능을 사용 하려면 구독을 등록 해야 합니다.
-
-### <a name="register-by-using-powershell"></a>PowerShell을 사용 하 여 등록
-
-PowerShell 콘솔에서 다음 명령을 실행 합니다.
-
-```powershell
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-   
-### <a name="register-by-using-azure-cli"></a>Azure CLI를 사용 하 여 등록
-
-Azure Cloud Shell에서 다음 명령을 실행 합니다.
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Changefeed
-az provider register --namespace 'Microsoft.Storage'
-```
-
 <a id="conditions"></a>
 
-## <a name="conditions-and-known-issues-preview"></a>조건 및 알려진 문제 (미리 보기)
+## <a name="conditions-and-known-issues"></a>조건 및 알려진 문제
 
-이 섹션에서는 변경 피드의 현재 공개 미리 보기의 알려진 문제 및 조건을 설명 합니다. 
-- 미리 보기의 경우 미국 서 부, 미국 서 부 2, 프랑스 중부, 프랑스 남부, 캐나다 중부 및 캐나다 동부 지역에서 저장소 계정에 대 한 변경 피드를 사용 하도록 설정 하기 전에 먼저 [구독을 등록](#register) 해야 합니다. 
-- 변경 피드는 만들기, 업데이트, 삭제 및 복사 작업만 캡처합니다. Blob 속성 및 메타 데이터 변경도 캡처됩니다. 그러나 액세스 계층 속성은 현재 캡처되지 않습니다. 
+이 섹션에서는 현재 릴리스의 변경 피드에 대 한 알려진 문제 및 조건을 설명 합니다. 
+
 - 단일 변경에 대 한 이벤트 레코드 변경 내용은 변경 피드에서 두 번 이상 나타날 수 있습니다.
 - 시간 기반 보존 정책을 설정 하 여 변경 피드 로그 파일의 수명을 관리할 수 없으며 blob을 삭제할 수 없습니다.
 - `url`로그 파일의 속성은 현재 항상 비어 있습니다.
 - `LastConsumable`파일에 segments.js의 속성에는 변경 피드가 마무리 하는 첫 번째 세그먼트가 나열 되지 않습니다. 이 문제는 첫 번째 세그먼트가 완료 된 후에만 발생 합니다. 첫 번째 시간 이후의 모든 후속 세그먼트는 속성에서 정확 하 게 캡처됩니다 `LastConsumable` .
 - 현재 ListContainers API를 호출할 때 **$blobchangefeed** 컨테이너가 표시 되지 않으며 컨테이너가 Azure Portal 또는 Storage 탐색기에 표시 되지 않습니다. $Blobchangefeed 컨테이너에서 ListBlobs API를 직접 호출 하 여 콘텐츠를 볼 수 있습니다.
-- 이전에 [계정 장애 조치 (failover)](../common/storage-disaster-recovery-guidance.md) 를 시작한 저장소 계정은 로그 파일에 문제가 있을 수 있습니다. 이후 모든 계정 장애 조치 (failover)는 미리 보기 중에 로그 파일에 영향을 줄 수도 있습니다.
+- 이전에 [계정 장애 조치 (failover)](../common/storage-disaster-recovery-guidance.md) 를 시작한 저장소 계정은 로그 파일에 문제가 있을 수 있습니다. 이후 모든 계정 장애 조치 (failover)는 로그 파일에도 영향을 줄 수 있습니다.
 
 ## <a name="faq"></a>FAQ
 

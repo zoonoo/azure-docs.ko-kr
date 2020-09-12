@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cb45f4a19cf36fe291ffe7299a46a44a245fbb8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f29b31b09c2532c336ef2a2d574fab5e000b3e4b
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806200"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595889"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Azure PowerShell을 사용하여 애플리케이션 게이트웨이로 웹 트래픽 관리
 
@@ -21,10 +21,9 @@ ms.locfileid: "84806200"
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 네트워크 설정
-> * 애플리케이션 게이트웨이 만들기
-> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
+* 네트워크 설정
+* 애플리케이션 게이트웨이 만들기
+* 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
 원하는 경우 [Azure CLI](tutorial-manage-web-traffic-cli.md)를 사용하여 이 절차를 완료할 수 있습니다.
 

@@ -3,12 +3,12 @@ title: 코드 제공 정책 워크플로 설계
 description: Azure Policy 정의를 코드로 배포하고 리소스의 유효성을 자동으로 검사하는 워크플로를 설계하는 방법을 알아봅니다.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047329"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651883"
 ---
 # <a name="design-policy-as-code-workflows"></a>코드 제공 정책 워크플로 설계
 
@@ -43,7 +43,9 @@ Cloud Governance 여정을 진행하면서 Azure Portal이나 다양한 SDK를 �
 
 코드 제공 정책에 권장되는 일반적인 워크플로는 다음 다이어그램과 같습니다.
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="코드 제공 정책 워크플로 개요" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="만들 테스트에서 배포할 테스트에 대 한 코드 워크플로 상자로 정책을 표시 하는 다이어그램입니다." border="false":::
+   정책을 코드 워크플로 상자로 표시 하는 다이어그램입니다. 정책 및 이니셔티브 정의를 만드는 과정을 만듭니다. 적용 모드를 사용 하지 않도록 설정 된 테스트 커버 할당입니다. 준수 상태에 대 한 게이트웨이 확인 다음에 할당 M S 사용 권한 및 수정 리소스를 부여 합니다.  적용 모드를 사용 하도록 설정 하 여 할당을 업데이트 하는 커버를 배포 합니다.
+:::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>정책 정의 만들기 및 관리
 

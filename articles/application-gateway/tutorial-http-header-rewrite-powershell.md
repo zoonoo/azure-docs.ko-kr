@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: f8aec788e5370bd0c6f0e2f1b6ff032ca68cac87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e18288dbc2a09c7e9dd5b0c0e96dfd04ec192596
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806431"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595906"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>애플리케이션 게이트웨이를 만들고 HTTP 헤더 다시 쓰기
 
@@ -20,15 +20,13 @@ ms.locfileid: "84806431"
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
->
-> * 자동 크기 조정 가상 네트워크 만들기
-> * 예약된 공용 IP 만들기
-> * 애플리케이션 게이트웨이 인프라 설정
-> * Http 헤더 다시 쓰기 규칙 구성 지정
-> * 자동 크기 조정 지정
-> * Application Gateway 만들기
-> * 애플리케이션 게이트웨이 테스트
+* 자동 크기 조정 가상 네트워크 만들기
+* 예약된 공용 IP 만들기
+* 애플리케이션 게이트웨이 인프라 설정
+* Http 헤더 다시 쓰기 규칙 구성 지정
+* 자동 크기 조정 지정
+* Application Gateway 만들기
+* 애플리케이션 게이트웨이 테스트
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 

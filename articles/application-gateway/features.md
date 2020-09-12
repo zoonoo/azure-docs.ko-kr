@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbb78fd879bc5c6bb8c2624329a23d7137b11660
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067968"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651995"
 ---
 # <a name="azure-application-gateway-features"></a>Azure 애플리케이션 게이트웨이 기능
 
-[Azure Application Gateway](overview.md)는 웹 애플리케이션에 대한 트래픽을 관리할 수 있도록 하는 웹 트래픽 부하 분산 장치입니다.
+[Azure 애플리케이션 게이트웨이](overview.md) 는 웹 응용 프로그램에 대 한 트래픽을 관리할 수 있는 웹 트래픽 부하 분산 장치입니다.
 
 ![개념적 Application Gateway](media/overview/figure1-720.png)
 
@@ -35,7 +35,7 @@ Application Gateway에는 다음과 같은 기능이 포함 되어 있습니다.
 - [Websocket 및 HTTP/2 트래픽](#websocket-and-http2-traffic)
 - [연결 드레이닝](#connection-draining)
 - [사용자 지정 오류 페이지](#custom-error-pages)
-- [HTTP 헤더 및 URL 다시 작성](#rewrite-http-headers-and-url)
+- [HTTP 헤더 및 URL 다시 쓰기](#rewrite-http-headers-and-url)
 - [크기 조정](#sizing)
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>SSL(Secure Sockets Layer)/TLS 종료
@@ -83,13 +83,13 @@ URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트�
 
 ## <a name="multiple-site-hosting"></a>다중 사이트 호스팅
 
-Application Gateway를 사용 하면 동일한 응용 프로그램 게이트웨이에서 둘 이상의 웹 응용 프로그램에 대 한 호스트 이름 또는 도메인 이름을 기반으로 하는 라우팅을 구성할 수 있습니다. 이를 통해 하나의 응용 프로그램 게이트웨이에 최대 100 개 이상의 웹 사이트를 추가 하 여 배포에 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어, contoso.com, fabrikam.com 및 adatum.com 라는 세 개의 도메인은 응용 프로그램 게이트웨이의 IP 주소를 가리킵니다. 3 개의 다중 사이트 수신기를 만들고 각 포트 및 프로토콜 설정에 대해 각 수신기를 구성 합니다. 
+Application Gateway를 사용 하면 동일한 응용 프로그램 게이트웨이에서 둘 이상의 웹 응용 프로그램에 대 한 호스트 이름 또는 도메인 이름을 기반으로 하는 라우팅을 구성할 수 있습니다. 이 기능을 사용하면 최대 100개의 웹 사이트를 하나의 애플리케이션 게이트웨이에 추가하여 배포에 대해 보다 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어 contoso.com, fabrikam.com 및 adatum.com이라는 세 개의 도메인이 애플리케이션 게이트웨이의 IP 주소를 가리킵니다. 3개의 다중 사이트 수신기를 만들고 각 포트 및 프로토콜 설정에 대해 각각의 수신기를 구성합니다. 
 
 에 대 한 요청 `http://contoso.com` 은 ContosoServerPool로 라우팅되고 `http://fabrikam.com` FabrikamServerPool로 라우팅됩니다.
 
 마찬가지로 같은 부모 도메인의 하위 도메인 두 개를 동일한 애플리케이션 게이트웨이 배포에서 호스트할 수 있습니다. 하위 도메인을 사용하는 예제에는 단일 Application Gateway 배포에 호스팅되는 `http://blog.contoso.com` 및 `http://app.contoso.com`이 포함됩니다. 자세한 내용은 [여러 사이트 호스팅 Application Gateway](multiple-site-overview.md)를 참조 하세요.
 
-다중 사이트 수신기에서 와일드 카드 호스트 이름을 정의 하 고 수신기 당 최대 5 개의 호스트 이름을 정의할 수도 있습니다. 자세한 내용은 [수신기의 와일드 카드 호스트 이름 (미리 보기)](multiple-site-overview.md#wildcard-host-names-in-listener-preview)을 참조 하세요.
+또한 다중 사이트 수신기에서 와일드카드 호스트 이름을 정의하고 수신기당 최대 5개의 호스트 이름을 정의할 수 있습니다. 자세한 내용은 [수신기의 와일드 카드 호스트 이름 (미리 보기)](multiple-site-overview.md#wildcard-host-names-in-listener-preview)을 참조 하세요.
 
 ## <a name="redirection"></a>리디렉션
 
@@ -117,13 +117,13 @@ Application Gateway는 WebSocket 및 HTTP/2 프로토콜에 대한 네이티브 
 
 WebSocket 및 HTTP/2 프로토콜을 사용하면 장기 실행 TCP 연결을 통해 서버와 클라이언트 간의 전이중 통신을 수행할 수 있습니다. 이를 사용하면 웹 서버와 클라이언트 간의 대화형 통신이 가능하며, HTTP 기반 구현에서 필요에 따라 폴링하지 않고도 양방향 통신을 수행할 수 있습니다. 이러한 프로토콜은 HTTP와 달리 오버 헤드가 낮고 여러 요청/응답에 동일한 TCP 연결을 다시 사용 하 여 리소스를 보다 효율적으로 활용할 수 있습니다. 이러한 프로토콜은 기존의 HTTP 포트 80 및 443을 통해 작동하도록 디자인되었습니다.
 
-자세한 내용은 [WebSocket 지원](application-gateway-websocket.md) 및 [HTTP/2 지원](configuration-overview.md#http2-support)을 참조하세요.
+자세한 내용은 [WebSocket 지원](application-gateway-websocket.md) 및 [HTTP/2 지원](configuration-listeners.md#http2-support)을 참조하세요.
 
 ## <a name="connection-draining"></a>연결 드레이닝
 
 연결 드레이닝은 예정된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거하는 데 도움이 됩니다. 이 설정은 백 엔드 http 설정을 통해 사용이 가능하며 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에 적용할 수 있습니다. 사용 하도록 설정 하면 기존 요청이 구성 된 시간 제한 내에 완료 되도록 허용 하는 동안 백 엔드 풀의 모든 있음이 인스턴스가 새 요청 Application Gateway을 수신 하지 않도록 합니다. 이는 사용자 구성 변경에 의해 백엔드 풀에서 명시적으로 제거된 백 엔드 인스턴스와 상태 프로브에 의해 확인된 대로 비정상 상태로 보고된 백엔드 인스턴스에 모두 적용됩니다. 이에 대 한 유일한 예외는 있음이 인스턴스에 대해 바인딩되는 요청이 며,이는 게이트웨이 관리 세션 선호도로 인해 명시적으로 등록 취소 되 고 있음이 인스턴스로 계속 프록시 되기 때문입니다.
 
-자세한 내용은 [Application Gateway 구성 개요](configuration-overview.md#connection-draining)를 참조 하세요.
+자세한 내용은 [Application Gateway 구성 개요](configuration-http-settings.md#connection-draining)를 참조 하세요.
 
 ## <a name="custom-error-pages"></a>사용자 지정 오류 페이지
 
@@ -131,7 +131,7 @@ Application Gateway를 사용하면 기본 오류 페이지를 표시하는 대�
 
 자세한 내용은 [사용자 지정 오류](custom-error.md)를 참조하세요.
 
-## <a name="rewrite-http-headers-and-url"></a>HTTP 헤더 및 URL 다시 작성
+## <a name="rewrite-http-headers-and-url"></a>HTTP 헤더 및 URL 다시 쓰기
 
 HTTP 헤더를 통해 클라이언트와 서버는 요청 또는 응답을 사용하여 추가 정보를 전달할 수 있습니다. 이러한 HTTP 헤더 다시 쓰기는 다음과 같은 몇 가지 중요한 시나리오를 수행하는 데 유용합니다.
 
@@ -139,15 +139,15 @@ HTTP 헤더를 통해 클라이언트와 서버는 요청 또는 응답을 사�
 - 중요한 정보를 표시할 수 있는 응답 헤더 필드를 제거합니다.
 - X-Forwarded-For 헤더에서 포트 정보를 제거합니다.
 
-Application Gateway 및 WAF v2 SKU는 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트 하는 기능을 지원 하지만, 요청 및 응답 패킷은 클라이언트와 백 엔드 풀 간에 이동 합니다. Url, 쿼리 문자열 매개 변수 및 호스트 이름을 다시 작성할 수도 있습니다. URL 다시 쓰기 및 URL 경로 기반 라우팅을 사용 하 여 경로 맵 다시 평가 옵션을 사용 하 여 원본 경로 또는 다시 작성 된 경로에 따라 백 엔드 풀 중 하나로 요청을 라우팅하도록 선택할 수 있습니다. 
+Application Gateway 및 WAF v2 SKU는 요청 및 응답 패킷이 클라이언트와 백 엔드 풀 사이를 이동하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트하는 기능을 지원합니다. URL, 쿼리 문자열 매개 변수 및 호스트 이름을 다시 쓸 수도 있습니다. URL 다시 쓰기 및 URL 경로 기반 라우팅을 사용하면 경로 맵 다시 평가 옵션을 사용하여 원본 경로 또는 다시 작성된 경로에 따라 백 엔드 풀 중 하나로 요청을 라우팅하도록 선택할 수 있습니다. 
 
-또한 특정 조건이 충족 되는 경우에만 지정 된 헤더 또는 URL이 다시 작성 되도록 조건을 추가 하는 기능을 제공 합니다. 이러한 조건은 요청 및 응답 정보를 기반으로 합니다.
+또한 특정 조건이 충족될 경우에만 지정된 헤더 또는 URL을 다시 쓸 수 있도록 조건을 추가하는 기능을 제공합니다. 이러한 조건은 요청 및 응답 정보를 기반으로 합니다.
 
 자세한 내용은 [HTTP 헤더 및 URL 다시 작성](rewrite-http-headers-url.md)을 참조 하세요.
 
 ## <a name="sizing"></a>크기 조정
 
-자동 크기 조정 또는 고정 크기 배포를 위해 Application Gateway Standard_v2를 구성할 수 있습니다. 이 SKU는 다른 인스턴스 크기를 제공 하지 않습니다. v2 성능 및 가격 책정에 대한 자세한 내용은 [v2 SKU 자동 크기 조정](application-gateway-autoscaling-zone-redundant.md#pricing)을 참조하세요.
+자동 크기 조정 또는 고정 크기 배포를 위해 Application Gateway Standard_v2를 구성할 수 있습니다. 이 SKU는 다른 인스턴스 크기를 제공 하지 않습니다. V2 성능 및 가격 책정에 대 한 자세한 내용은 [v2](application-gateway-autoscaling-zone-redundant.md) 자동 크기 조정 및 [가격 책정 이해](understanding-pricing.md)를 참조 하세요.
 
 Application Gateway 표준은 **Small**, **Medium**, **Large**의 세 가지 크기로 제공 됩니다. 소규모 인스턴스 크기는 개발 및 테스트 시나리오를 위해 사용 됩니다.
 
@@ -155,7 +155,7 @@ Application Gateway의 전체 목록은 [Application Gateway 서비스 제한](.
 
 다음 표에서는 활성화된 SSL 오프로드로 각 애플리케이션 게이트웨이 v1 인스턴스의 평균 성능 처리량을 보여줍니다.
 
-| 평균 백 엔드 페이지 응답 크기 | 소형 | 중간 | 대형 |
+| 평균 백 엔드 페이지 응답 크기 | 작음 | 중간 | 큼 |
 | --- | --- | --- | --- |
 | 6KB |7.5Mbps |13Mbps |50Mbps |
 | 100KB |35Mbps |100Mbps |200Mbps |

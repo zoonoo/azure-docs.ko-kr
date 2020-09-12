@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf6cfdc00d38b72f292f2b3ed41a633fb9cf989d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502735"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595821"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Azure CLI를 사용 하 여 TLS 종료로 응용 프로그램 게이트웨이 만들기
 
@@ -21,11 +21,10 @@ Azure CLI를 사용 하 여 [TLS 종료](ssl-overview.md)를 위한 인증서로
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 자체 서명된 인증서 만들기
-> * 네트워크 설정
-> * 인증서가 있는 애플리케이션 게이트웨이 만들기
-> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
+* 자체 서명된 인증서 만들기
+* 네트워크 설정
+* 인증서가 있는 애플리케이션 게이트웨이 만들기
+* 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
 원하는 경우 [Azure PowerShell](tutorial-ssl-powershell.md)을 사용하여 이 절차를 완료할 수 있습니다.
 
