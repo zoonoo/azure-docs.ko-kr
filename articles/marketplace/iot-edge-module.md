@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/18/2020
-ms.openlocfilehash: c475e548cc8e29a83f2d440df43fb8ac31dc1c1e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6eeb27f6382585e883fbebc40a9f70feb33adb4f
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816255"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420611"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -30,7 +30,7 @@ ms.locfileid: "88816255"
 
 ## <a name="what-is-an-iot-edge-module"></a>IoT Edge 모듈 소개
 
-Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 모듈 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 최소 계산 단위이며 Microsoft 서비스(예: Azure Stream Analytics), 타사 서비스 또는 고유한 솔루션별 코드를 포함할 수 있습니다. IoT Edge 모듈에 대한 자세한 내용은 [Azure IoT Edge 모듈 이해](../iot-edge/iot-edge-modules.md)를 참조하세요.
+Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 모듈 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge에서 관리 되는 가장 작은 계산 단위 이며 Microsoft 서비스 (예: Azure Stream Analytics), 타사 서비스 또는 고유한 솔루션 관련 코드를 포함할 수 있습니다. IoT Edge 모듈에 대한 자세한 내용은 [Azure IoT Edge 모듈 이해](../iot-edge/iot-edge-modules.md)를 참조하세요.
 
 **컨테이너 제품 유형과 IoT Edge 모듈 제품 유형 간의 차이점**
 
@@ -40,7 +40,7 @@ IoT Edge 모듈 제품 유형은 IoT Edge 디바이스에서 실행되는 특정
 
 **올바른 온라인 저장소 선택**
 
-IoT Edge 모듈은 Azure Marketplace에만 게시 됩니다. AppSource는 적용 되지 않습니다. 온라인 상점에서의 차이점과 대상 사용자에 대 한 자세한 내용은 [게시 옵션 결정](determine-your-listing-type.md)을 참조 하세요.
+IoT Edge 모듈은 Azure Marketplace에만 게시 됩니다. AppSource는 적용 되지 않습니다. 온라인 상점 간의 차이점에 대 한 자세한 내용은 [게시 옵션 결정](determine-your-listing-type.md)을 참조 하세요.
 
 **청구 옵션**
 
@@ -54,7 +54,7 @@ Marketplace는 현재 IoT Edge 모듈에 대해 **무료** 하 고 **BYOL(Bring 
 
 IoT Edge 모듈 제품에는 Microsoft Azure Marketplace 계약 및 정책의 모든 약관이 적용됩니다.  또한 IoT Edge 모듈 관련 필수 구성 요소와 기술 요구 사항도 적용됩니다.  
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요소를 갖춰야 합니다.
 
@@ -75,6 +75,5 @@ IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위
 
 ## <a name="next-steps"></a>다음 단계
 
-- 상업적 marketplace에 [대해 알아보세요](https://azuremarketplace.microsoft.com/sell) .
 - 제품을 만들거나 완성할 수 있도록 [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다.
 - 파트너 센터에서 [IoT Edge 모듈 제품을 만듭니다](./partner-center-portal/azure-iot-edge-module-creation.md) .

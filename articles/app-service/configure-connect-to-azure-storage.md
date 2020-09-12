@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 8ca3688ad11bc7a694327990be22b8eccd8f8161
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962862"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435612"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>App Service의 컨테이너에서 네트워크 공유로 Azure Storage 액세스
 
@@ -27,7 +27,7 @@ ms.locfileid: "88962862"
 
 ::: zone-end
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 ::: zone pivot="container-windows"
 
@@ -57,7 +57,7 @@ ms.locfileid: "88962862"
 - App Service Azure Storage는 현재 고유한 코드 시나리오 (비 컨테이너 화 된 Windows 앱)를 사용할 **수 없습니다** .
 - App Service Azure Storage는 인프라 제한으로 인해 **저장소 방화벽** 구성 사용을 **지원 하지 않습니다** .
 - App Service Azure Storage를 사용 하면 앱 당 **최대 5 개의** 탑재 지점이 지정 됩니다.
-- App Service FTP/FTPs 끝점을 통해 앱에 탑재 된 Azure Storage에 액세스할 수 없습니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용 합니다.
+- App Service FTP/FTPs 끝점을 통해 앱에 탑재 된 Azure Storage에 액세스할 수 없습니다. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용합니다.
 
 ::: zone-end
 
@@ -67,7 +67,7 @@ ms.locfileid: "88962862"
 - App Service에서 Azure Storage는 컨테이너 (읽기/쓰기) 및 **Azure Blob 컨테이너** (읽기 전용)를 **Azure Files** 탑재 하는 것을 지원 합니다.
 - App Service Azure Storage는 인프라 제한으로 인해 **저장소 방화벽** 구성 사용을 **지원 하지 않습니다** .
 - App Service에서 Azure Storage를 사용 하 여 앱 당 **최대 5 개의** 탑재 시점을 지정할 수 있습니다.
-- App Service FTP/FTPs 끝점을 통해 앱에 탑재 된 Azure Storage에 액세스할 수 없습니다. [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용 합니다.
+- App Service FTP/FTPs 끝점을 통해 앱에 탑재 된 Azure Storage에 액세스할 수 없습니다. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용합니다.
 
 ::: zone-end
 

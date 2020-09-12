@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5f16a902980b8cf88fb3e8a7f888a0f58ed34355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35631c8a0b66ade1457228ba16150f94f761f7b3
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986550"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419914"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS 인증용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -45,7 +45,7 @@ Active Directory를 사용하거나 Active Directory를 사용하지 않도록 �
 
 사용자 이름/암호 인증을 구성할 때 EAP-MSCHAPv2 사용자 이름/암호 인증 프로토콜용 구성만 만들 수 있습니다. 명령에서 `-AuthenticationMethod`는 `EapMSChapv2`입니다.
 
-### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a>1. VPN 클라이언트 구성 파일 생성
+### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a> 1. VPN 클라이언트 구성 파일 생성
 
 Azure Portal 또는 Azure PowerShell를 사용 하 여 VPN 클라이언트 구성 파일을 생성할 수 있습니다.
 
@@ -80,7 +80,7 @@ New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -Authen
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
-### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a>2. VPN 클라이언트 구성
+### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a> 2. VPN 클라이언트 구성
 
 다음 VPN 클라이언트를 구성할 수 있습니다.
 
@@ -211,7 +211,7 @@ New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -Authen
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
-### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a>2. VPN 클라이언트 구성
+### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a> 2. VPN 클라이언트 구성
 
 다음 VPN 클라이언트를 구성할 수 있습니다.
 

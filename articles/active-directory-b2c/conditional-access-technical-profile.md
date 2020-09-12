@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 080b5a224f3d4a720d8009933ddd9161f56dba0a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d2a62b55ce7f8cd408afeb2f10fd40f42b36d53d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270107"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393941"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 조건부 액세스 기술 프로필 정의
 
@@ -47,7 +47,7 @@ Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=
 
 ## <a name="conditional-access-evaluation"></a>조건부 액세스 평가
 
-모든 로그인에 대해 Azure AD B2C 모든 정책을 평가 하 고 사용자 액세스 권한을 부여 하기 전에 모든 요구 사항을 충족 하는지 확인 합니다. "액세스 차단"은 다른 모든 구성 설정을 재정의 합니다. 조건부 액세스 기술 프로필의 **평가** 모드는 로컬 계정으로 로그인 하는 동안 Azure AD B2C에 의해 수집 된 신호를 평가 합니다. 조건부 액세스 기술 프로필의 결과는 조건부 액세스 평가의 결과로 생성 되는 클레임 집합입니다. Azure AD B2C 정책은 다음 오케스트레이션 단계에서 이러한 클레임을 사용 하 여 사용자를 차단 하거나 multi-factor authentication에서 사용을 시도 하는 등의 작업을 수행 합니다. 이 모드에 대해 다음과 같은 옵션을 구성할 수 있습니다.
+모든 로그인에 대해 Azure AD B2C 모든 정책을 평가 하 고 사용자 액세스 권한을 부여 하기 전에 모든 요구 사항을 충족 하는지 확인 합니다. "액세스 차단"은 다른 모든 구성 설정을 재정의 합니다. 조건부 액세스 기술 프로필의 **평가** 모드는 로컬 계정으로 로그인 하는 동안 Azure AD B2C에 의해 수집 된 신호를 평가 합니다. 조건부 액세스 기술 프로필의 결과는 조건부 액세스 평가의 결과로 생성 되는 클레임 집합입니다. Azure AD B2C 정책은 다음 오케스트레이션 단계에서 이러한 클레임을 사용 하 여 사용자를 차단 하거나 multi-factor authentication을 사용 하 여 사용자를 시도 하는 등의 작업을 수행 합니다. 이 모드에 대해 다음과 같은 옵션을 구성할 수 있습니다.
 
 ### <a name="metadata"></a>메타데이터
 

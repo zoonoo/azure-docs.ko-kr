@@ -2,17 +2,17 @@
 title: Azure VPN Gateway 메트릭 보기
 description: VPN Gateway 메트릭을 확인 하는 단계
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/12/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: b3a79b8101a55eaf401c20cb118be3b0796b7aca
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4b33af3e64726e124373f57920836bce145cd891
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531617"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443180"
 ---
 # <a name="view-vpn-gateway-metrics"></a>VPN Gateway 메트릭 보기
 

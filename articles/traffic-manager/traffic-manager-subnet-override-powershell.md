@@ -3,17 +3,17 @@ title: Azure PowerShell를 사용 하 여 Azure Traffic Manager 서브넷 재정
 description: 이 문서는 Traffic Manager 서브넷 재정의를 사용 하 여 Traffic Manager 프로필의 라우팅 방법을 재정의 하는 방법을 이해 하는 데 도움이 됩니다. Azure PowerShell를 사용 하 여 미리 정의 된 IP 범위에서 끝점 매핑을 통해 최종 사용자 IP 주소에 기반 하 여 끝점으로 트래픽을 전달 합니다.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
-ms.author: rohink
-ms.openlocfilehash: 3b58a0aef4df71649e657c04b44c31b6bbfe019c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 01bd3b1e945ee7c9ac16af7048536c0a9e2d731a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689574"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401591"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Azure Powershell을 사용 하 여 서브넷 재정의 Traffic Manager
 

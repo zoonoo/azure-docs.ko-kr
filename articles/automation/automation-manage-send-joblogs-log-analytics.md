@@ -3,14 +3,14 @@ title: Azure Monitor 로그에 Azure Automation 작업 데이터 전달
 description: 이 문서에서는 작업 상태 및 Runbook 작업 스트림을 Azure Monitor 로그에 보내는 방법을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/22/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2fe6cbdbcb0cf5b5c28d34f2059a2b070b059566
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6dcd2005971927de30ca96173cb2bdb063e46663
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004752"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397436"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Azure Monitor 로그에 Azure Automation 작업 데이터 전달
 
@@ -22,37 +22,57 @@ Azure Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상�
 * Automation 계정 간에 작업 상호 연결
 * 사용자 지정 보기와 검색 쿼리를 사용하여 runbook 결과, runbook 작업 상태 및 기타 관련된 핵심 지표 또는 메트릭을 시각화합니다.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="prerequisites-and-deployment-considerations"></a>필수 구성 요소 및 배포 고려 사항
+## <a name="prerequisites"></a>사전 요구 사항
 
 Automation 로그를 Azure Monitor 로그로 보내려면 다음이 필요합니다.
 
 * 최신 버전의 [Azure PowerShell](/powershell/azure/).
-* Log Analytics 작업 영역. 자세한 내용은 [Azure Monitor 로그 시작](../azure-monitor/overview.md)을 참조하세요.
-* Azure Automation 계정에 대한 리소스 ID
 
-다음 명령을 사용하여 Azure Automation 계정에 대한 리소스 ID를 찾습니다.
+* Log Analytics 작업 영역 및 해당 리소스 ID입니다. 자세한 내용은 [Azure Monitor 로그 시작](../azure-monitor/overview.md)을 참조하세요.
 
-```powershell-interactive
-# Find the ResourceId for the Automation account
-Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
-```
+* Azure Automation 계정의 리소스 ID입니다.
 
-Log Analytics 작업 영역에 대한 리소스 ID를 찾으려면 다음 PowerShell 명령을 실행합니다.
+## <a name="how-to-find-resource-ids"></a>리소스 Id를 찾는 방법
 
-```powershell-interactive
-# Find the ResourceId for the Log Analytics workspace
-Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
-```
+1. 다음 명령을 사용하여 Azure Automation 계정에 대한 리소스 ID를 찾습니다.
+
+    ```powershell-interactive
+    # Find the ResourceId for the Automation account
+    Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
+    ```
+
+2. **ResourceID**값을 복사 합니다.
+
+3. 다음 명령을 사용 하 여 Log Analytics 작업 영역의 리소스 ID를 찾습니다.
+
+    ```powershell-interactive
+    # Find the ResourceId for the Log Analytics workspace
+    Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+    ```
+
+4. **ResourceID**값을 복사 합니다.
+
+특정 리소스 그룹에서 결과를 반환 하려면 `-ResourceGroupName` 매개 변수를 포함 합니다. 자세한 내용은 [AzResource](/powershell/module/az.resources/get-azresource)를 참조 하세요.
 
 이전 명령의 출력에 둘 이상의 Automation 계정 또는 작업 영역이 있는 경우 다음을 수행하여 Automation 계정의 전체 리소스 ID에 포함된 이름 및 기타 관련 속성을 확인할 수 있습니다.
 
-1. Azure Portal의 **Automation 계정** 페이지에서 Automation 계정을 선택합니다. 
-2. 선택한 Automation 계정 페이지의 **계정 설정**에서 **속성**을 선택합니다.  
-3. **속성** 페이지에서 아래에 표시된 세부 정보를 확인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure Portal의 **Automation 계정** 페이지에서 Automation 계정을 선택합니다.
+1. 선택한 Automation 계정 페이지의 **계정 설정**에서 **속성**을 선택합니다.
+1. **속성** 페이지에서 아래에 표시된 세부 정보를 확인합니다.
 
     ![Automation 계정 속성](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
+
+## <a name="configure-diagnostic-settings"></a>진단 설정 구성
+
+Automation 진단 설정은 다음 플랫폼 로그 및 메트릭 데이터 전달을 지원 합니다.
+
+* JobLogs
+* JobStreams
+* DSCNodeStatus
+* 메트릭-총 작업, 총 업데이트 배포 컴퓨터 실행, 총 업데이트 배포 실행
+
+Azure Monitor 로그에 Automation 로그를 보내기 시작 하려면 [진단 설정 만들기](../azure-monitor/platform/diagnostic-settings.md) 를 검토 하 여 플랫폼 로그를 전송 하는 진단 설정을 구성 하는 데 사용할 수 있는 기능 및 방법을 이해 하십시오.
 
 ## <a name="azure-monitor-log-records"></a>Azure Monitor 로그 레코드
 
@@ -102,38 +122,9 @@ Azure Automation 진단은 Azure Monitor 로그에 `AzureDiagnostics`로 태그�
 | ResourceProvider | 리소스 공급자입니다. 값은 MICROSOFT.AUTOMATION입니다. |
 | ResourceType | 리소스 종류입니다. 값은 AUTOMATIONACCOUNTS입니다. |
 
-## <a name="set-up-integration-with-azure-monitor-logs"></a>Azure Monitor 로그와 통합 설정
-
-1. 컴퓨터의 **시작** 화면에서 Windows PowerShell을 시작합니다.
-2. 다음 PowerShell 명령을 실행하고 이전 섹션의 값을 사용하여 `$automationAccountId` 및 `$workspaceId`의 값을 편집합니다.
-
-   ```powershell-interactive
-   $workspaceId = "resource ID of the log analytics workspace"
-   $automationAccountId = "resource ID of your Automation account"
-
-   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
-   ```
-
-이 스크립트를 실행한 후 작성 중인 새 `JobLogs` 또는 `JobStreams`의 Azure Monitor 로그에 레코드가 표시될 때까지 1시간 정도 걸릴 수 있습니다.
-
-로그를 보려면 Log Analytics 로그 검색에서 다음 쿼리를 실행합니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
-
-### <a name="verify-configuration"></a>구성 확인
-
-Automation 계정이 Log Analytics 작업 영역으로 로그를 보내는지 확인하려면 다음 PowerShell 명령을 사용하여 Automation 계정에서 진단이 올바르게 구성되었는지 확인합니다.
-
-```powershell-interactive
-Get-AzDiagnosticSetting -ResourceId $automationAccountId
-```
-
-출력에서 다음을 확인합니다.
-
-* `Logs`에서 `Enabled`의 값은 True입니다.
-* `WorkspaceId`는 Log Analytics 작업 영역에 대한 `ResourceId` 값으로 설정됩니다.
-
 ## <a name="view-automation-logs-in-azure-monitor-logs"></a>Azure Monitor 로그에서 Automation 로그 보기
 
-Automation 작업 로그를 Azure Monitor 로그로 보내기 시작했으므로 Azure Monitor 로그 내에서 이러한 로그로 수행할 수 있는 작업을 살펴보겠습니다.
+Automation 작업 스트림과 로그를 Azure Monitor 로그로 보내기 시작 했으므로 Azure Monitor 로그 내에서 이러한 로그로 수행할 수 있는 작업을 살펴보겠습니다.
 
 로그를 보려면 다음 쿼리를 실행합니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
@@ -163,26 +154,41 @@ Automation 작업 로그를 Azure Monitor 로그로 보내기 시작했으므로
 
 ### <a name="view-job-streams-for-a-job"></a>작업에 대한 작업 스트림 보기
 
-작업을 디버깅할 때 작업 스트림을 살펴볼 수도 있습니다. 다음 쿼리는 GUID가 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0인 단일 작업의 모든 스트림을 보여 줍니다.
+작업을 디버깅할 때 작업 스트림을 살펴볼 수도 있습니다. 다음 쿼리는 GUID를 사용 하 여 단일 작업에 대 한 모든 스트림을 보여 줍니다 `2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0` .
 
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0" | sort by TimeGenerated asc | project ResultDescription`
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and JobId_g == "2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0"
+| sort by TimeGenerated asc
+| project ResultDescription
+```
 
 ### <a name="view-historical-job-status"></a>기록 작업 상태 보기
 
 마지막으로 시간별 작업 기록을 시각화할 수 있습니다. 이 쿼리를 사용하여 시간이 지남에 따른 작업 상태를 검색할 수 있습니다.
 
-`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`
-<br> ![Log Analytics 기록 작업 상태 차트](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
-
-## <a name="remove-diagnostic-settings"></a>진단 설정 제거
-
-Automation 계정에서 진단 설정을 제거하려면 다음 명령을 실행합니다.
-
-```powershell-interactive
-$automationAccountId = "[resource ID of your Automation account]"
-
-Remove-AzDiagnosticSetting -ResourceId $automationAccountId
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started"
+| summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)
 ```
+
+![Log Analytics 기록 작업 상태 차트](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)
+
+### <a name="filter-job-status-output-converted-into-a-json-object"></a>JSON 개체로 변환 된 작업 상태 출력 필터링
+
+최근 Log Analytics 서비스의 테이블에 자동화 로그 데이터를 쓰는 방법의 동작을 변경 했습니다 `AzureDiagnostics` .이 동작은 JSON 속성을 더 이상 별도의 필드로 분할 하지 않습니다. JSON 형식의 출력 스트림에 있는 개체를 별도의 열로 서식 지정 하도록 runbook을 구성한 경우 해당 속성에 액세스 하기 위해 해당 필드를 JSON 개체로 구문 분석 하도록 쿼리를 다시 구성 해야 합니다. 이를 위해 [parsejson](../azure-monitor/log-query/json-data-structures.md#parsejson) 을 사용 하 여 알려진 경로의 특정 JSON 요소에 액세스 합니다.
+
+예를 들어 runbook은 여러 필드를 사용 하 여 JSON 형식의 출력 스트림에 *Resultdescription* 속성의 형식을 지정 합니다. **상태**라는 필드에 지정 된 대로 실패 한 상태의 작업 상태를 검색 하려면 다음 쿼리 예제를 사용 하 여 상태가 **Failed**인 *resultdescription* 을 검색 합니다.
+
+```kusto
+AzureDiagnostics
+| where Category == 'JobStreams'
+| extend jsonResourceDescription = parse_json(ResultDescription)
+| where jsonResourceDescription.Status == 'Failed'
+```
+
+![Log Analytics 기록 작업 스트림 JSON 형식](media/automation-manage-send-joblogs-log-analytics/job-status-format-json.png)
 
 ## <a name="next-steps"></a>다음 단계
 

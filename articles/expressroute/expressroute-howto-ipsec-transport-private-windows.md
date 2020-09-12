@@ -2,18 +2,18 @@
 title: 'Azure Express 경로 개인 피어 링: IPsec 전송 모드 구성-Windows 호스트'
 description: GPO 및 OU를 사용하는 ExpressRoute 프라이빗 피어링을 통해 Azure Windows VM과 온-프레미스 Windows 호스트 간에 IPsec 전송 모드를 사용하도록 설정하는 방법입니다.
 services: expressroute
-author: fabferri
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/17/2018
-ms.author: fabferri
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 32ad4f643ff0b217460403245cbb4e99f139aef9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 026b7ee6cf8061c7cff25b4f9f8d46b6ec3e6a8d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737260"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396491"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>ExpressRoute 프라이빗 피어링을 위한 IPsec 전송 모드 구성
 
@@ -57,7 +57,7 @@ IPsec 정책을 구성할 때는 다음 IPsec 정책 용어를 이해하는 것�
   * IP 필터 작업
   * 인증 방법
   * IP 터널 설정
-  * 연결 형식
+  * 연결 유형
 
 [![5]][5]
 
@@ -161,7 +161,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 2. **이름:** 필드에 IP 필터 목록의 이름을 입력합니다. 예: **azure-onpremises-HTTP8080** 그런 다음 **추가**를 클릭 합니다.
 
    [![25]][25]
-3. **IP Filter Description and Mirrored property**(IP 필터 설명 및 미러된 속성) 페이지에서 **Mirrored**(미러됨)을 선택합니다. 미러됨 설정은 양방향으로 이동하는 패킷을 일치시키며 양방향 통신을 허용합니다. **다음**을 클릭합니다.
+3. **IP Filter Description and Mirrored property**(IP 필터 설명 및 미러된 속성) 페이지에서 **Mirrored**(미러됨)을 선택합니다. 미러됨 설정은 양방향으로 이동하는 패킷을 일치시키며 양방향 통신을 허용합니다. 그런 다음 **다음**을 클릭합니다.
 
    [![26]][26]
 4. **IP 트래픽 원본** 페이지의 **원본 주소:** 드롭다운에서 **특정 IP 주소 또는 서브넷**을 선택합니다. 
@@ -231,7 +231,7 @@ GPO를 OU에 적용하려면 GPO를 OU에만 연결한 후 반드시 링크를 �
 1. HTTP 정책 속성 **규칙** 탭에서 **추가**를 클릭합니다.
 
    [![41]][41]
-2. Welcome 페이지에서 **다음**을 클릭합니다.
+2. 시작 페이지에서 **다음**을 클릭합니다.
 
    [![42]][42]
 3. 규칙은 IPsec 모드, 즉 터널 모드 또는 전송 모드를 정의하기 위한 옵션을 제공합니다.

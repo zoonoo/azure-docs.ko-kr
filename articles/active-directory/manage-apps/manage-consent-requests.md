@@ -1,6 +1,6 @@
 ---
-title: 응용 프로그램에 대 한 동의 관리 및 동의 요청 평가-Azure AD
-description: 사용자 동의가 사용 하지 않도록 설정 되거나 제한 되는 경우 동의 요청을 관리 하는 방법 및 응용 프로그램에 대 한 테 넌 트 전체 관리자 동의에 대 한 요청을 평가 하는 방법을 알아봅니다.
+title: Azure Active Directory에서 응용 프로그램에 대 한 동의 관리 및 승인 요청 평가
+description: 사용자 동의가 사용 하지 않도록 설정 되거나 제한 되는 경우 동의 요청을 관리 하는 방법 및 Azure Active Directory 응용 프로그램에 대 한 테 넌 트 전체 관리자 동의에 대 한 요청을 평가 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,13 +11,12 @@ ms.topic: how-to
 ms.date: 12/27/2019
 ms.author: kenwith
 ms.reviewer: phsignor
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a725eefd678720f2d9b8763277b02452819155b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d95d2551f8e078f4252a19dc850345793c040d8
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763196"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420458"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>응용 프로그램에 대 한 동의 관리 및 승인 요청 평가
 
@@ -76,7 +75,7 @@ ms.locfileid: "84763196"
 
 * **요청 된 사용 권한을 이해 합니다.**
 
-   응용 프로그램에서 요청 하는 권한은 [동의 프롬프트](../develop/application-consent-experience.md)에 나열 됩니다. 권한 제목을 확장 하면 사용 권한의 설명이 표시 됩니다. 응용 프로그램 사용 권한에 대 한 설명은 일반적으로 "로그인 한 사용자가 없는" 상태로 종료 됩니다. 위임 된 권한에 대 한 설명은 일반적으로 "로그인 한 사용자를 대신 하 여"로 끝납니다. Microsoft Graph API에 대 한 권한은 [Microsoft Graph 권한 참조]에 설명 되어 있습니다. 다른 Api에 대 한 설명서를 참조 하 여 노출 하는 사용 권한을 이해 하세요.
+   응용 프로그램에서 요청 하는 권한은 [동의 프롬프트](../develop/application-consent-experience.md)에 나열 됩니다. 권한 제목을 확장 하면 사용 권한의 설명이 표시 됩니다. 응용 프로그램 사용 권한에 대 한 설명은 일반적으로 "로그인 한 사용자가 없는" 상태로 종료 됩니다. 위임 된 권한에 대 한 설명은 일반적으로 "로그인 한 사용자를 대신 하 여"로 끝납니다. Microsoft Graph API에 대 한 권한은 [Microsoft Graph 사용 권한 참조](https://docs.microsoft.com/graph/permissions-reference) 에 설명 되어 있습니다. 다른 api에 대 한 설명서를 참조 하 여 노출 된 사용 권한을 이해 합니다.
 
    요청 된 사용 권한을 이해 하지 못하는 경우 동의를 *부여 하지 마십시오*.
 
@@ -95,27 +94,29 @@ ms.locfileid: "84763196"
 ## <a name="granting-consent-as-an-administrator"></a>관리자 권한 부여
 
 ### <a name="granting-tenant-wide-admin-consent"></a>테 넌 트 전체 관리자 동의 부여
-
 Azure Portal에서 테 넌 트 전체 관리자 동의를 부여 하는 단계별 지침은 Azure AD PowerShell을 사용 하거나 동의 프롬프트 자체에서 [응용 프로그램에 대 한 테 넌 트 전체 관리자 동의 부여](grant-admin-consent.md) 를 참조 하세요.
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>특정 사용자를 대신 하 여 동의 부여
-
-전체 조직에 대 한 동의를 부여 하는 대신 관리자는 [마이크로 sft Graph API](https://docs.microsoft.com/graph/use-the-api) 를 사용 하 여 단일 사용자 대신 위임 된 권한에 대 한 동의를 부여할 수도 있습니다. 자세한 내용은 [사용자를 대신 하 여 액세스 권한 가져오기](https://docs.microsoft.com/graph/auth-v2-user)를 참조 하세요.
+관리자는 전체 조직에 대 한 동의를 부여 하는 대신 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/use-the-api) 를 사용 하 여 단일 사용자를 대신 하 여 위임 된 권한에 대 한 동의를 부여할 수도 있습니다. 자세한 내용은 [사용자를 대신 하 여 액세스 권한 가져오기](https://docs.microsoft.com/graph/auth-v2-user)를 참조 하세요.
 
 ## <a name="limiting-user-access-to-applications"></a>응용 프로그램에 대 한 사용자 액세스 제한
-
 테 넌 트 전체 관리자 동의가 부여 된 경우에도 응용 프로그램에 대 한 사용자 액세스는 계속 제한 될 수 있습니다. 응용 프로그램에 사용자 할당을 요구 하는 방법에 대 한 자세한 내용은 [사용자 및 그룹을 할당](methods-for-assigning-users-and-groups.md)하는 방법을 참조 하세요.
 
 추가 복잡 한 시나리오를 처리 하는 방법을 비롯 한 광범위 한 개요는 [응용 프로그램 액세스 관리에 AZURE AD 사용](what-is-access-management.md)을 참조 하세요.
 
+## <a name="disable-all-future-user-consent-operations-to-any-application"></a>모든 응용 프로그램에 대 한 모든 이후 사용자 동의 작업을 사용 하지 않도록 설정
+전체 디렉터리에 대한 사용자 동의를 비활성화하면 모든 애플리케이션에 대한 최종 사용자 동의를 방지합니다. 관리자는 사용자를 대신 하 여 동의할 수 있습니다. 애플리케이션 동의 및 동의하거나 동의하지 않을 수 있는 이유에 대해 자세히 알아보려면 [사용자 및 관리자 동의 이해하기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)를 참조하세요.
+
+전체 디렉터리에서 모든 이후 사용자 동의 작업을 비활성화하려면 다음 단계를 따릅니다.
+1.  [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 권한으로 로그인합니다.
+2.  왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
+3.  필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+4.  탐색 메뉴에서 **사용자 및 그룹을** 선택 합니다.
+5.  **사용자 설정**을 선택 합니다.
+6.  **사용자가 앱이 데이터에 액세스하도록 허용할 수 있음** 토글을 **아니요**로 설정하고 **저장** 단추를 클릭하여 모든 이후 사용자 동의 작업을 비활성화합니다.
+
 ## <a name="next-steps"></a>다음 단계
-
-[ID 인프라를 보호하기 위한 5단계](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
-
-[관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
-
-[최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)
-
-[Microsoft ID 플랫폼의 권한 및 동의](../develop/active-directory-v2-scopes.md)
-
-[StackOverflow의 Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [ID 인프라를 보호하기 위한 5단계](https://docs.microsoft.com/azure/security/fundamentals/steps-secure-identity#before-you-begin-protect-privileged-accounts-with-mfa)
+* [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
+* [최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)
+* [Microsoft ID 플랫폼의 권한 및 동의](../develop/active-directory-v2-scopes.md)

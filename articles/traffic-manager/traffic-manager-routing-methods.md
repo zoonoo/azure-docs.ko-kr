@@ -2,20 +2,20 @@
 title: Azure Traffic Manager - 트래픽 라우팅 방법
 description: 이 문서는 Traffic Manager에서 사용하는 다양한 트래픽 라우팅 방법을 이해하는 데 도움이 됩니다.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: rohink
-ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 3cf493beab6dfe1767ae35ea36732dc364e29736
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689659"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401659"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager 라우팅 방법
 
@@ -39,7 +39,7 @@ Traffic Manager에서 다음과 같은 트래픽 라우팅 방법을 사용할 �
 
 ![Azure Traffic Manager '우선 순위' 트래픽 라우팅 메서드](media/traffic-manager-routing-methods/priority.png)
 
-Traffic Manager 프로필은 우선 순위로 정렬된 서비스 엔드포인트 목록을 포함합니다. 기본적으로 Traffic Manager는 모든 트래픽을 기본(가장 높은 우선 순위) 엔드포인트로 전송합니다. 기본 엔드포인트를 사용할 수 없는 경우 Traffic Manager는 두 번째 엔드포인트에 트래픽을 라우팅합니다. 목록의 기본 엔드포인트 및 보조 엔드포인트를 모두 사용할 수 없는 경우 트래픽이 세 번째 엔드포인트 등으로 전송됩니다. 엔드포인트의 가용성은 구성된 상태(사용 또는 사용 안 함) 및 지속적인 엔드포인트 모니터링을 기반으로 합니다.
+Traffic Manager 프로필은 우선순위로 정렬된 서비스 엔드포인트 목록을 포함합니다. 기본적으로 Traffic Manager는 모든 트래픽을 기본(가장 높은 우선 순위) 엔드포인트로 전송합니다. 기본 엔드포인트를 사용할 수 없는 경우 Traffic Manager는 두 번째 엔드포인트에 트래픽을 라우팅합니다. 목록의 기본 엔드포인트 및 보조 엔드포인트를 모두 사용할 수 없는 경우 트래픽이 세 번째 엔드포인트 등으로 전송됩니다. 엔드포인트의 가용성은 구성된 상태(사용 또는 사용 안 함) 및 지속적인 엔드포인트 모니터링을 기반으로 합니다.
 
 ### <a name="configuring-endpoints"></a>엔드포인트 구성
 

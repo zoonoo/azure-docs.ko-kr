@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2f90ba0bb732930b4cf3b1c832c6954683119f5f
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585868"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394757"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -67,7 +67,7 @@ Key Vault에서 키, 암호 또는 인증서를 사용하기 전에 다음 문�
 - [CLI를 사용 하 여 인증서 설정 및 검색](../certificates/quick-create-cli.md)
 - [PowerShell을 사용 하 여 인증서 설정 및 검색](../certificates/quick-create-powershell.md)
 - [Azure Portal를 사용 하 여 인증서 설정 및 검색](../certificates/quick-create-portal.md)
-- [REST를 사용한 키 작업](/rest/api/keyvault/#certificate-operations)
+- [REST를 사용 하는 인증서 작업](/rest/api/keyvault/#certificate-operations)
 - [Python을 사용 하 여 인증서 설정 및 검색](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>주요 자격 증명 모음을 사용한 코딩
@@ -125,7 +125,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 - [확장 가능 키 관리를 위해 SQL Server에서 키 자격 증명을 사용하는 방법](https://msdn.microsoft.com/library/dn198405.aspx) - Azure Key Vault용 SQL Server 커넥터를 사용하면 SQL Server 및 SQL-in-a-VM에서 Azure Key Vault를 EKM(확장 가능 키 관리) 공급자로 활용하여 애플리케이션 링크에 대한 암호화 키를 보호할 수 있습니다(투명한 데이터 암호화, 백업 암호화 및 열 수준 암호화).
 - [주요 자격 증명 모음에서 VM에 인증서를 배포하는 방법](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Azure의 VM에서 실행 중인 클라우드 애플리케이션에는 인증서가 필요합니다. 지금 이 VM으로 인증서를 가져오려면 어떻게 하나요?
 - [Key Vault를 통한 Azure Web App Certificate 배포]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)는 [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) 제품의 일부로 Key Vault에 저장된 인증서를 배포하기 위한 단계별 지침을 제공합니다.
-- [여러 애플리케이션에 Key Vault 액세스 권한 부여](group-permissions-for-apps.md) Key Vault 액세스 제어 정책은 최대 1,024개의 항목을 지원합니다. 그러나 Azure Active Directory 보안 그룹을 만들 수 있습니다. 관련된 모든 서비스 주체를 이 보안 그룹에 추가한 다음 Key Vault에 이 보안 그룹에 대한 액세스를 허용합니다.
+- 액세스 정책 할당 ([CLI](assign-access-policy-cli.md)  |  [PowerShell](assign-access-policy-powershell.md)  |  [포털](assign-access-policy-portal.md))을 선택 합니다. Key Vault은 최대 1024 액세스 정책 항목을 지원 합니다. 이 한도 내에서 사용자로 유지 하려면 Azure Active Directory 보안 그룹을 만들고, 연결 된 서비스 주체를 모두 해당 그룹에 추가한 후 Key Vault에 대 한 액세스 권한을 그룹에 부여 합니다.
 - Azure에서 Key Vault를 통합 및 사용하는 방법에 대한 작업별 지침은 [Key Vault에 대한 Ryan Jones Azure Resource Manager 템플릿 예제](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples)를 참조하세요.
 - [CLI로 Key Vault 일시 삭제를 사용하는 방법](soft-delete-cli.md)에서는 활성화된 일시 삭제를 사용하는 Key Vault 및 다양한 Key Vault 개체의 사용 및 수명 주기에 대해 설명합니다.
 - [PowerShell로 Key Vault 일시 삭제를 사용하는 방법](soft-delete-powershell.md)에서는 활성화된 일시 삭제를 사용하는 Key Vault 및 다양한 Key Vault 개체의 사용 및 수명 주기에 대해 설명합니다.

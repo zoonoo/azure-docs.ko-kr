@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 27c284ff7e806c9f194005ed26c05e99c4697083
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4dfaa329dd0472b52de2d3306e6a3b61f660e666
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757645"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443061"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 계산 집약적 워크로드에 GPU 사용
 
@@ -162,7 +162,7 @@ az extension update --name aks-preview
 
 클러스터를 만들 때 AKS 특수 GPU 이미지를 사용 하도록 클러스터를 구성 합니다. `--aks-custom-headers`새 클러스터의 gpu 에이전트 노드에 대 한 플래그를 사용 하 여 AKS 특수 gpu 이미지를 사용 합니다.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
@@ -173,7 +173,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-siz
 
 AKS 특수 GPU 이미지를 사용 하도록 새 노드 풀을 구성 합니다. `--aks-custom-headers`새 노드 풀의 gpu 에이전트 노드에 대 한 플래그 플래그를 사용 하 여 AKS 특수 gpu 이미지를 사용 합니다.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
@@ -181,7 +181,7 @@ az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myRe
 
 > [!NOTE]
 > GPU sku가 2 세대 가상 컴퓨터를 필요로 하는 경우 다음을 만들 수 있습니다.
-> ```azure-cli
+> ```azurecli
 > az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
 > ```
 

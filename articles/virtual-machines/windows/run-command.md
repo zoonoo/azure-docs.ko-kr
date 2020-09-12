@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: dd1e20504d96b55d6a450512ea287b9352fb043a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3393cb66735ffb881520a11bf9d1680c35d3d374
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496936"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424806"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>실행 명령을 사용하여 Windows VM에서 PowerShell 스크립트 실행
 
@@ -40,6 +40,7 @@ ms.locfileid: "87496936"
 * 실행 중인 스크립트는 취소할 수 없습니다.
 * 스크립트를 실행할 수 있는 최대 시간은 90분입니다. 그 후에는 시간이 초과됩니다.
 * 스크립트의 결과를 반환하려면 VM에서의 아웃바운드 연결이 필요합니다.
+* VM 에이전트를 중지 하거나 업데이트 하는 스크립트를 실행 하는 것은 권장 되지 않습니다. 이를 통해 전환 상태에서 확장이 시간 초과로 전환 될 수 있습니다.
 
 > [!NOTE]
 > 제대로 작동하려면 실행 명령이 Azure 공용 IP 주소에 연결(포트 443)되어야 합니다. 확장이 이러한 엔드포인트에 대해 액세스 권한이 없는 경우 스크립트는 성공적으로 실행되지만 결과를 반환하지는 않습니다. 가상 머신에서 트래픽을 차단하는 경우 `AzureCloud` 태그를 사용하여 Azure 공용 IP 주소로 트래픽을 허용하도록 [서비스 태그](../../virtual-network/security-overview.md#service-tags)를 사용할 수 있습니다.

@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 167cfe6b8fb1394291866e51ec14ec91bf9035a1
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 05a2869152def0fc9a44defaa21f0643d9fdbb08
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89183644"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504879"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Azure 방화벽에서 데이터 연결
 
@@ -28,7 +28,7 @@ Azure 방화벽 로그를 Azure 센티널에 연결 하 여 통합 문서에서 
 
 [Azure 방화벽 로그 모니터링](https://docs.microsoft.com/azure/firewall/tutorial-diagnostics)에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 
@@ -40,7 +40,7 @@ Azure 방화벽 로그를 Azure 센티널에 연결 하 여 통합 문서에서 
 
 1. 연결 하려는 로그가 있는 모든 방화벽에서 **진단 로그** 를 사용 하도록 설정 합니다.
 
-    1. [Azure 방화벽 리소스 >열기](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FazureFirewalls) 링크를 선택 합니다.
+    1. **Azure 방화벽 리소스 >열기** 링크를 선택 합니다.
 
     1. **방화벽** 탐색 메뉴에서 **진단 설정**을 선택 합니다.
 

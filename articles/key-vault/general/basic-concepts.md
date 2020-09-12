@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault란? | Microsoft 문서
+title: Azure Key Vault란? | Microsoft Docs
 description: 클라우드 응용 프로그램 및 서비스에서 사용 하는 암호화 키 및 암호를 보호 Azure Key Vault 하는 방법에 대해 알아봅니다.
 services: key-vault
 author: msmbaldwin
@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c64835ced558727718690138c3e7a7666cf0809
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb1ca4fc8f550c8ed6955adaca9082f0b6b79e6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167301"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89379004"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault 기본 개념
 
-Azure Key Vault는 비밀을 안전하게 저장하고 액세스하기 위한 도구입니다. 비밀은 API 키, 암호 또는 인증서 등에 대한 액세스를 엄격하게 제어하려는 항목입니다. 자격 증명 모음은 암호의 논리적 그룹입니다.
+Azure Key Vault는 비밀을 안전하게 저장하고 액세스하기 위한 도구입니다. 비밀은 API 키, 암호 또는 인증서와 같이 액세스를 엄격하게 제어하려는 모든 항목입니다. 자격 증명 모음은 암호의 논리적 그룹입니다.
 
 다음은 다른 중요 한 용어입니다.
 
@@ -33,7 +33,7 @@ Azure Key Vault는 비밀을 안전하게 저장하고 액세스하기 위한 �
 
 - **리소스 그룹**: Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 리소스 그룹에는 솔루션에 대한 모든 리소스 또는 그룹으로 관리하려는 해당 리소스만 포함될 수 있습니다. 사용자의 조직에 가장 적합한 내용에 따라 리소스 그룹에 리소스를 어떻게 할당할지 결정합니다.
 
-- **서비스 사용자**: azure 서비스 주체는 사용자가 만든 앱, 서비스 및 자동화 도구가 특정 Azure 리소스에 액세스 하는 데 사용 하는 보안 id입니다. 특정 역할을 가진 "사용자 id" (사용자 이름 및 암호 또는 인증서)와 긴밀 하 게 제어 된 사용 권한을 고려해 야 합니다. 일반 사용자 ID와 달리 서비스 주체는 특정 작업만 수행하면 됩니다. 관리 작업을 수행 하는 데 필요한 최소 권한 수준만 부여 하면 보안이 향상 됩니다.
+- **보안 주체**: azure 보안 주체는 사용자가 만든 앱, 서비스 및 자동화 도구가 특정 Azure 리소스에 액세스 하는 데 사용 하는 보안 id입니다. 특정 역할을 가진 "사용자 id" (사용자 이름 및 암호 또는 인증서)와 긴밀 하 게 제어 된 사용 권한을 고려해 야 합니다. 보안 주체는 일반 사용자 id와 달리 특정 작업을 수행 해야 합니다. 관리 작업을 수행 하는 데 필요한 최소 권한 수준만 부여 하면 보안이 향상 됩니다. 응용 프로그램 또는 서비스에 사용 되는 보안 주체를 **서비스 주체**라고 합니다.
 
 - [Azure AD(Azure Active Directory)](../../active-directory/active-directory-whatis.md): 테넌트용 Active Directory 서비스입니다. 각 디렉터리에는 하나 이상의 도메인이 있습니다. 디렉터리는 연결된 여러 구독을 가질 수 있지만 오직 하나의 테넌트만을 가질 수 있습니다.
 

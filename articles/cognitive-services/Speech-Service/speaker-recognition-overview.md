@@ -1,25 +1,27 @@
 ---
-title: Azure Speaker Recognition 서비스
+title: Speaker Recognition 개요-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Speaker Recognition는 고유한 음성 특성에 따라 스피커를 확인 하 고 식별 하는 알고리즘을 제공 합니다. Speaker Recognition는 "누가 말하고 있나요?" 질문에 대답 하는 데 사용 됩니다.
+description: Speaker Recognition는 음성 biometry을 사용 하 여 고유한 음성 특성에 따라 스피커를 확인 하 고 식별 하는 알고리즘을 제공 합니다. 화자 인식은 "누가 말하고 있나요?"라는 질문에 대답하는 데 사용됩니다. 이 문서는 Speaker Recognition 서비스의 이점 및 기능에 대 한 개요입니다.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/02/2020
 ms.author: trbye
-ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.custom: cog-serv-seo-aug-2020
+keywords: 스피커 인식, 음성 biometry
+ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780888"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397262"
 ---
-# <a name="what-is-the-azure-speaker-recognition-service"></a>Azure Speaker Recognition 서비스는 무엇 인가요?
+# <a name="what-is-speaker-recognition"></a>Speaker Recognition이란?
 
-Speaker Recognition 서비스는 고유한 음성 특성에 따라 스피커를 확인 하 고 식별 하는 알고리즘을 제공 합니다. Speaker Recognition는 "누가 말하고 있나요?" 질문에 대답 하는 데 사용 됩니다. 스피커 음성의 고유한 특성을 기반으로 등록 프로필을 만드는 단일 스피커에 대 한 오디오 학습 데이터를 제공 합니다. 그런 다음이 프로필에 대 한 오디오 음성 샘플을 교차 확인 하 여 스피커가 동일한 사람 (스피커 확인) 인지 확인 하거나 등록 된 스피커 프로필 *그룹* 에 대 한 오디오 음성 샘플을 교차 확인 하 여 그룹의 프로필 (스피커 식별)과 일치 하는지 확인할 수 있습니다. 반면, [스피커 Diarization](batch-transcription.md#speaker-separation-diarization) 는 일괄 처리 작업에서 스피커로 오디오 세그먼트를 그룹화 합니다.
+Speaker Recognition 서비스는 음성 biometry을 사용 하 여 고유한 음성 특성에 따라 스피커를 확인 하 고 식별 하는 알고리즘을 제공 합니다. 화자 인식은 "누가 말하고 있나요?"라는 질문에 대답하는 데 사용됩니다. 스피커 음성의 고유한 특성을 기반으로 등록 프로필을 만드는 단일 스피커에 대 한 오디오 학습 데이터를 제공 합니다. 그런 다음이 프로필에 대 한 오디오 음성 샘플을 교차 확인 하 여 스피커가 동일한 사람 (스피커 확인) 인지 확인 하거나 등록 된 스피커 프로필 *그룹* 에 대 한 오디오 음성 샘플을 교차 확인 하 여 그룹의 프로필 (스피커 식별)과 일치 하는지 확인할 수 있습니다. 반면, [스피커 Diarization](batch-transcription.md#speaker-separation-diarization) 는 일괄 처리 작업에서 스피커로 오디오 세그먼트를 그룹화 합니다.
 
 ## <a name="speaker-verification"></a>화자 검증
 

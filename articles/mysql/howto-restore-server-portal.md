@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 1a10d61c5dc35a19a8b02769a517d9f1c7aac601
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c6a35d9ba2d2f1c762f44b3792792401565c4804
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119228"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421087"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
 
 ## <a name="backup-happens-automatically"></a>자동으로 수행되는 백업
 Azure Database for MySQL 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 - [Azure Database for MySQL 서버 및 데이터베이스](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -73,12 +73,18 @@ Azure Database for MySQL을 사용하면 특정 시점의 서버를 서버의 �
 
 특정 시점 복원으로 만든 새 서버에는 선택한 특정 시점 당시의 기존 서버에 유효한 동일한 서버 관리자 로그인 이름과 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
 
+또한 복원 작업이 완료 된 후 복원 작업 후 기본값으로 다시 설정 되 고 주 서버에서 복사 되지 않는 두 개의 서버 매개 변수가 있습니다.
+*   time_zone-기본값 **시스템** 으로 설정 하려면이 값을 설정 합니다.
+*   event_scheduler-복원 된 서버에서 event_scheduler **OFF** 로 설정 됩니다.
+
+[서버 매개 변수](howto-server-parameters.md) 를 다시 구성 하 여 주 서버에서 값을 복사 하 고 복원 된 서버에서 설정 해야 합니다.
+
 복원 중에 만든 새 서버에는 원래 서버에 존재했던 VNet 서비스 엔드포인트가 없습니다. 이러한 규칙은 새 서버에 대해 개별적으로 설정돼야 합니다. 원본 서버의 방화벽 규칙이 복원됩니다.
 
 ## <a name="geo-restore"></a>지역 복원
 서버를 지리적으로 중복된 백업으로 구성한 경우 기존 서버의 백업에서 새 서버를 만들 수 있습니다. 이 새 서버는 Azure Database for MySQL을 사용할 수 있는 모든 지역에서 만들 수 있습니다.  
 
-1. 포털의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추 (+)를 선택 합니다. **데이터베이스** > **Azure Database for MySQL**을 차례로 선택합니다.
+1. 포털의 왼쪽 상단 모서리에서 **리소스 만들기** 단추(+)를 선택합니다. **데이터베이스** > **Azure Database for MySQL**을 차례로 선택합니다.
 
    :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Azure Database for MySQL로 이동 합니다.":::
  

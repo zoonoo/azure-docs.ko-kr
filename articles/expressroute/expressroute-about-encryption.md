@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: 암호화 정보'
 description: Express 경로 암호화에 대해 알아봅니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.author: cherylmc
-ms.openlocfilehash: 77755ab6bdbb3c1e6416475f5066b5dd463eb7f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 46f0a0e86c5db612f440bcf631329d2800251dab
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838759"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397800"
 ---
 # <a name="expressroute-encryption"></a>Express 경로 암호화
  
@@ -21,13 +21,13 @@ Express 경로는 네트워크와 Microsoft 네트워크 사이에서 데이터�
 ## <a name="point-to-point-encryption-by-macsec-faq"></a>MACsec 별 지점 및 지점 간 암호화 FAQ
 MACsec는 [IEEE 표준](https://1.ieee802.org/security/802-1ae/)입니다. MAC (미디어 액세스 제어) 수준 또는 네트워크 계층 2에서 데이터를 암호화 합니다. [Express 경로 직접](expressroute-erdirect-about.md)를 통해 microsoft에 연결 하는 경우 macsec를 사용 하 여 네트워크 장치와 microsoft 네트워크 장치 간의 실제 링크를 암호화할 수 있습니다. MACsec은 기본적으로 Express 경로 직접 포트에서 사용 하지 않도록 설정 됩니다. 암호화에 대 한 사용자 고유의 MACsec 키를 가져와서 [Azure Key Vault](../key-vault/general/overview.md)에 저장 합니다. 키를 회전 하는 시기를 결정 합니다. 아래 Faq를 참조 하세요.
 ### <a name="can-i-enable-macsec-on-my-expressroute-circuit-provisioned-by-an-expressroute-provider"></a>Express 경로 공급자가 프로 비전 하는 Express 경로 회로에서 MACsec를 사용 하도록 설정할 수 있나요?
-아니요. MACsec는 단일 엔터티 (예: 고객)가 소유한 키를 사용 하 여 실제 링크의 모든 트래픽을 암호화 합니다. 따라서 Express 경로 직접 에서만 사용할 수 있습니다.
+아닙니다. MACsec는 단일 엔터티 (예: 고객)가 소유한 키를 사용 하 여 실제 링크의 모든 트래픽을 암호화 합니다. 따라서 Express 경로 직접 에서만 사용할 수 있습니다.
 ### <a name="can-i-encrypt-some-of-the-expressroute-circuits-on-my-expressroute-direct-ports-and-leave-other-circuits-on-the-same-ports-unencrypted"></a>Express 경로 직접 포트에서 일부 Express 경로 회로를 암호화 하 고 암호화 되지 않은 동일한 포트에서 다른 회로를 그대로 둘 수 있나요? 
-아니요. MACsec를 사용 하도록 설정 하면 모든 네트워크 제어 트래픽 (예: BGP 데이터 트래픽 및 고객 데이터 트래픽)이 암호화 됩니다. 
+아닙니다. MACsec를 사용 하도록 설정 하면 모든 네트워크 제어 트래픽 (예: BGP 데이터 트래픽 및 고객 데이터 트래픽)이 암호화 됩니다. 
 ### <a name="when-i-enabledisable-macsec-or-update-macsec-key-will-my-on-premises-network-lose-connectivity-to-microsoft-over-expressroute"></a>MACsec를 사용/사용 하지 않도록 설정 하거나 MACsec 키를 업데이트 하면 온-프레미스 네트워크는 Express 경로를 통해 Microsoft에 연결 되지 않습니다.
 예. MACsec 구성의 경우 미리 공유한 키 모드만 지원 합니다. 즉, 장치 및 Microsoft의 (API를 통해)에서 키를 업데이트 해야 합니다. 이 변경은 원자성이 아니므로 두 면 간에 키가 일치 하지 않는 경우 연결이 손실 됩니다. 구성 변경에 대 한 유지 관리 기간을 예약 하는 것이 좋습니다. 가동 중지 시간을 최소화 하려면 네트워크 트래픽을 다른 링크로 전환한 후 한 번에 하나의 Express 경로 직접 연결에서 구성을 업데이트 하는 것이 좋습니다.  
 ### <a name="will-traffic-continue-to-flow-if-theres-a-mismatch-in-macsec-key-between-my-devices-and-microsofts"></a>내 장치와 Microsoft에서 MACsec 키가 일치 하지 않는 경우 트래픽이 계속 진행 되나요?
-아니요. MACsec를 구성 하 고 키 불일치가 발생 하면 Microsoft에 대 한 연결이 끊어집니다. 즉, 데이터를 노출 하는 암호화 되지 않은 연결로 대체 되지 않습니다. 
+아닙니다. MACsec를 구성 하 고 키 불일치가 발생 하면 Microsoft에 대 한 연결이 끊어집니다. 즉, 데이터를 노출 하는 암호화 되지 않은 연결로 대체 되지 않습니다. 
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>Express 경로에서 MACsec를 사용 하도록 설정 하면 네트워크 성능이 저하 되나요?
 MACsec 암호화 및 암호 해독은 사용 하는 라우터의 하드웨어에서 발생 합니다. 그 쪽에는 성능에 영향을 주지 않습니다. 그러나 사용 하는 장치에 대 한 네트워크 공급 업체에 문의 하 여 MACsec에 성능에 영향을 주는 것이 있는지 확인 해야 합니다.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>암호화에 대해 지원 되는 암호 그룹은 무엇 인가요?

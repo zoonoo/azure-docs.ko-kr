@@ -3,7 +3,7 @@ title: Azure Front 도어에서 사용자 지정 HTTPS를 사용 하도록 허�
 description: 고유의 인증서를 사용하여 사용자 지정 도메인에서 HTTPS를 사용하도록 설정하려면 허용되는 CA(인증 기관)를 사용하여 인증서를 만들어야 합니다.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.assetid: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2018
-ms.author: sharadag
-ms.openlocfilehash: 611f5730afed4c3a84b81d6acfd33b633c532bbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 7bdef37561687b49b030d8237472c0d35f945c13
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80874673"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399126"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door"></a>Azure 전면 도어에서 사용자 지정 HTTPS를 사용 하기 위해 허용 된 인증 기관
 

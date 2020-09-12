@@ -3,15 +3,15 @@ title: Azure Monitor에서 모니터링하는 항목
 description: Azure Monitor에서 모니터링하는 모든 서비스 및 기타 리소스에 대한 참조입니다.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/15/2020
-ms.openlocfilehash: 48eb8674a7d3f0fbeb8cc012debfc8a08752d5ff
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+author: rboucher
+ms.author: robb
+ms.date: 08/15/2020
+ms.openlocfilehash: 1841c4eb8975c865c5f15a0e8fe3a6b5f0522820
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080867"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435408"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링하는 항목
 이 문서에서는 Azure Monitor에서 모니터링하는 다양한 애플리케이션 및 서비스에 대해 설명합니다. 
@@ -120,7 +120,7 @@ ms.locfileid: "88080867"
 |IoT Hub | 예 | 예 | 예 |  |
 |Key Vault | 예 | 예 | [예](./insights/key-vault-insights-overview.md) |  |
 |AKS(Azure Kubernetes Service) | 예 | 예 | [예](insights/container-insights-overview.md)  |  |
-|Load Balancer | 예 | 예 | 예 |  |
+|Load Balancer | 예 | 아니요 | 예 |  |
 |Logic Apps | 예 | 예 | 예 |  |
 |Machine Learning Service | 예 | 예 | 예 |  |
 |Managed Applications  | 예 | 예 | 예 |  |
@@ -151,7 +151,7 @@ ms.locfileid: "88080867"
 |등록 포털 | 예 | 예 | 예 |  |
 |Site Recovery | 예 | 예 | 예 |  |
 |Spring Cloud Service | 예 | 아니요 | 예 |  |
-|SQL Data Warehouse | 예 | 예 | 예 |  |
+|Azure Synapse Analytics | 예 | 예 | 예 |  |
 |SQL Database | 예 | 예 | 예 |  |
 |SQL Server Stretch Database | 예 | 예 | 예 |  |
 |스택 | 예 | 아니요 | 예 |  |

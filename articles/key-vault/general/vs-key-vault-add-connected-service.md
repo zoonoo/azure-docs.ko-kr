@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 3d39ad2016da1525658944f4f13185e9df9855af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d0d0465e2e60945649958911c508e06aee877ac9
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007097"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378868"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 애플리케이션에 Key Vault 추가
 
@@ -22,7 +22,7 @@ ms.locfileid: "89007097"
 
 Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 서비스에서 수행하는 변경 내용에 대한 자세한 내용은 [Key Vault 연결된 서비스 - 내 ASP.NET 4.7.1 프로젝트에서 변경된 내용](#how-your-aspnet-framework-project-is-modified) 또는 [Key Vault 연결된 서비스 - 내 ASP.NET Core 프로젝트에서 변경된 내용](#how-your-aspnet-core-project-is-modified)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - **Azure 구독**. 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록 합니다.
 - **Visual Studio 2019 버전 16.3** 이상 [다운로드](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)
@@ -201,6 +201,6 @@ Key Vault Visual studio에 로그인 하는 것과 다른 Microsoft 계정에서
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서를 수행 하면 사용자의 Azure 구독을 사용 하 여 실행 하도록 Key Vault 권한이 설정 되지만 프로덕션 시나리오에는 바람직하지 않을 수 있습니다. 관리 id를 만들어 앱에 대 한 Key Vault 액세스를 관리할 수 있습니다. [관리 id를 사용 하 여 Key Vault 인증 제공](/azure/key-vault/managed-identity)을 참조 하세요.
+이 자습서를 수행 하면 사용자의 Azure 구독을 사용 하 여 실행 하도록 Key Vault 권한이 설정 되지만 프로덕션 시나리오에는 바람직하지 않을 수 있습니다. 관리 id를 만들어 앱에 대 한 Key Vault 액세스를 관리할 수 있습니다. [Key Vault에 인증](/azure/key-vault/general/authentication) 하 고 [Key Vault 액세스 정책을 할당](/azure/key-vault/general/assign-access-policy-portal)하는 방법을 참조 하세요.
 
 [Key Vault 개발자 가이드](developers-guide.md)를 읽어 Key Vault 개발에 대해 자세히 알아보세요.

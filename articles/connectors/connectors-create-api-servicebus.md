@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 09/03/2020
 tags: connectors
-ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 68b81fa8cf110b47581e482e7e546821d40aef62
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853299"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435153"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Azure Logic Apps 및 Azure Service Bus를 사용 하 여 클라우드의 메시지 교환
 
@@ -167,7 +167,7 @@ ms.locfileid: "88853299"
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-Service Bus 커넥터는 Service Bus에서 커넥터 캐시로 최대 1500 개의 고유 세션을 저장할 수 있습니다. 세션 수가이 한도를 초과 하면 이전 세션이 캐시에서 제거 됩니다. 자세한 내용은 [메시지 세션](../service-bus-messaging/message-sessions.md)을 참조 하세요.
+Service bus에서 Service Bus 커넥터는 [구독 또는 항목과 같은 Service Bus 메시징 엔터티](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)마다 커넥터 캐시에 최대 1500 개의 고유 세션을 저장할 수 있습니다. 세션 수가이 한도를 초과 하면 이전 세션이 캐시에서 제거 됩니다. 자세한 내용은 [메시지 세션](../service-bus-messaging/message-sessions.md)을 참조 하세요.
 
 커넥터의 Swagger 설명에서 설명 하는 트리거, 작업 및 제한에 대 한 기타 기술 세부 정보는 [커넥터 참조 페이지를 참조](/connectors/servicebus/)하세요. Azure Service Bus 메시징에 대 한 자세한 내용은 [Azure Service Bus 정의](../service-bus-messaging/service-bus-messaging-overview.md)를 참조 하세요.
 

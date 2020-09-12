@@ -2,17 +2,17 @@
 title: 'Express 경로: 보급 경로에 대 한 사용자 지정 경고를 구성 하는 방법'
 description: 이 문서에서는 Azure Automation 및 Logic Apps를 사용 하 여 200 경로 제한에 도달 하지 않도록 하기 위해 Express 경로 게이트웨이에서 온-프레미스 네트워크로 보급 된 경로 수를 모니터링 하는 방법을 보여 줍니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.author: cherylmc
-ms.openlocfilehash: 42f416cf6f297eb54298a10162e7ba28f7acd1bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: f29f43234f1541abeb448e722d0b72ef7c0221c9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738484"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401727"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>보급 경로를 모니터링하기 위해 사용자 지정 경고 구성
 
@@ -235,7 +235,7 @@ Write-Output  $jsonResults
 
 PowerShell 스크립트를 실행 하면 값 목록이 수집 됩니다.
  
-* Resource group
+* 리소스 그룹
 
 * Express 경로 게이트웨이 이름
 
@@ -257,7 +257,7 @@ PowerShell 스크립트를 실행 하면 값 목록이 수집 됩니다.
 
 * 상태에 대 한 자세한 설명 (확인, 경고, 경고)에 대 한 경고 메시지
 
-PowerShell 스크립트는 수집 된 정보를 JSON 출력으로 변환 합니다. Runbook은 출력 스트림으로 PowerShell cmdlet [쓰기 출력](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?) 을 사용 하 여 정보를 클라이언트에 전달 합니다.
+PowerShell 스크립트는 수집 된 정보를 JSON 출력으로 변환 합니다. Runbook은 출력 스트림으로 PowerShell cmdlet [쓰기 출력](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  을 사용 하 여 정보를 클라이언트에 전달 합니다.
 
 ### <a name="4-validate-the-runbook"></a><a name="validate"></a>4. runbook의 유효성을 검사 합니다.
 
@@ -399,7 +399,7 @@ JSON이 구문 분석 되 면 **Json 데이터 구문 분석** 작업은 *본문
 
 6. **조건** 동작의 루트에서 논리 작업을 **또는**로 변경 합니다.
 
-   :::image type="content" source="./media/custom-route-alert-portal/condition-or.png" alt-text="디스크나" lightbox="./media/custom-route-alert-portal/condition-or-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/condition-or.png" alt-text="Or" lightbox="./media/custom-route-alert-portal/condition-or-expand.png":::
 
 7. Express 경로 게이트웨이가 두 BGP 피어에 알리는 네트워크 접두사의 수 값을 확인 합니다. 경로 수는 **동적 콘텐츠에서**"numRoutePeer1" 및 "numRoutePeer2"에서 사용할 수 있습니다. 값 상자에 **numRoutePeer1**에 대 한 값을 입력 합니다.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710153"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443027"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Amazon Redshift에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -34,7 +34,7 @@ Data Factory는 현재 Amazon Redshift에서 [지원되는 싱크 데이터 저�
 > [!TIP]
 > Amazon Redshift에서 많은 양의 데이터를 복사할 때 최상의 성능을 위해 Amazon S3(Amazon Simple Storage Service)를 통해 기본 제공 Redshift **UNLOAD**를 사용하는 것이 좋습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 * 온-프레미스 데이터 저장소로 데이터를 이동하는 경우 온-프레미스 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 설치합니다. 온-프레미스 컴퓨터 IP 주소를 사용하여 게이트웨이에 대한 액세스 권한을 Amazon Redshift에 부여합니다. 자세한 지침은 [클러스터에 대한 액세스 권한 부여](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html)를 참조하세요.
 * Azure 데이터 저장소로 데이터를 이동하려면 [Microsoft Azure 데이터 센터에서 사용되는 컴퓨팅 IP 주소 및 SQL 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.
 
@@ -65,7 +65,7 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 | **server** |Amazon Redshift 서버의 IP 주소 또는 호스트 이름입니다. |예 |
 | **port** |Amazon Redshift 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트 수입니다. |아니요(기본값: 5439) |
 | **database** |Amazon Redshift 데이터베이스의 이름입니다. |예 |
-| **사용자 이름** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
+| **이름** |데이터베이스에 대한 액세스 권한이 있는 사용자의 이름입니다. |예 |
 | **password** |사용자 계정의 암호입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -74,7 +74,7 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 
 **typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식(Amazon Redshift 데이터 세트를 포함)의 데이터 세트에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | **tableName** |연결된 서비스가 참조하는 Amazon Redshift 데이터베이스에서 테이블의 이름입니다. |아니요(**RelationalSource** 형식 복사 활동의 **query** 속성이 지정된 경우) |
 
@@ -84,7 +84,7 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 
 복사 활동의 경우 원본이 **AmazonRedshiftSource** 형식인 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | **쿼리** | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
 | **redshiftUnloadSettings** | Redshift **UNLOAD** 명령을 사용하는 경우 속성 그룹을 포함합니다. | 아니요 |
@@ -93,7 +93,7 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 
 또는 **typeProperties** 섹션의 다음 속성과 함께 **RelationalSource**(Amazon Redshift 포함) 형식도 사용할 수 있습니다. 이 원본 유형은 Redshift **UNLOAD** 명령을 지원하지 않습니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | **쿼리** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | 아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
 
@@ -101,13 +101,13 @@ Visual Studio, Azure PowerShell 또는 기타 도구를 사용 하 여 파이프
 
 Amazon Redshift [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) 명령은 Amazon S3에서 하나 이상의 파일에 대한 쿼리 결과를 언로드합니다. 이 명령은 Redshift에서 큰 데이터 세트를 복사하기 위해 Amazon에서 권장하는 방법입니다.
 
-**예제: Amazon Redshift에서 Azure SQL Data Warehouse로 데이터 복사**
+**예: Amazon Redshift에서 Azure Synapse Analytics로 데이터 복사 (이전에 SQL Data Warehouse)**
 
-이 예제에서는 Amazon Redshift에서 Azure SQL Data Warehouse로 데이터를 복사합니다. 이 예제에서는 Redshift **UNLOAD** 명령, 준비된 복사 데이터 및 Microsoft PolyBase를 사용합니다.
+이 예에서는 Amazon Redshift에서 Azure Synapse Analytics로 데이터를 복사 합니다. 이 예제에서는 Redshift **UNLOAD** 명령, 준비된 복사 데이터 및 Microsoft PolyBase를 사용합니다.
 
-이 샘플 사용 사례의 경우 먼저 복사 작업이 **redshiftUnloadSettings** 옵션에 구성된 대로 Amazon Redshift에서 Amazon S3로 데이터를 언로드합니다. 다음으로, **stagingSettings** 옵션에 지정된 대로 데이터가 Amazon S3에서 Azure Blob Storage로 복사됩니다. 마지막으로 PolyBase는 SQL Data Warehouse에 데이터를 로드합니다. 모든 중간 형식은 복사 작업에서 처리됩니다.
+이 샘플 사용 사례의 경우 먼저 복사 작업이 **redshiftUnloadSettings** 옵션에 구성된 대로 Amazon Redshift에서 Amazon S3로 데이터를 언로드합니다. 다음으로, **stagingSettings** 옵션에 지정된 대로 데이터가 Amazon S3에서 Azure Blob Storage로 복사됩니다. 마지막으로 PolyBase는 데이터를 Azure Synapse Analytics로 로드 합니다. 모든 중간 형식은 복사 작업에서 처리됩니다.
 
-![Amazon Redshift에서 SQL Data Warehouse로 워크플로 복사](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
+![Amazon Redshift에서 Azure Synapse Analytics로 워크플로 복사](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {

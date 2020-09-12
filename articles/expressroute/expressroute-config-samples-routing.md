@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: 라우터 구성 샘플'
 description: Azure Express 경로를 사용 하는 예제로 Cisco IOS-XE 및 곱 향나무 MX 시리즈 라우터 용 인터페이스 및 라우팅 구성 샘플을 사용 합니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 03/26/2020
-ms.author: osamaz
-ms.openlocfilehash: fdf50dc6b4c0976a713a1d436ac9af7c1bd9701b
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 3bc850f02884ae0547c2ecf56a46a57a4e66a752
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190791"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397409"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>라우팅 설정 및 관리를 위한 라우터 구성 샘플
 이 페이지에서는 Azure ExpressRoute를 사용하여 작업할 때 Cisco IOS-XE 및 Juniper MX 시리즈 라우터에 대한 인터페이스 및 라우팅 구성 샘플을 제공합니다.

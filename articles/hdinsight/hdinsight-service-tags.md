@@ -6,19 +6,21 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/15/2020
-ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/11/2020
+ms.openlocfilehash: 112f915f533627ccdc0ac6efe38caacc80b254bc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81410865"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399959"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Azure HDInsight에 대 한 NSG 서비스 태그
 
 NSGs (네트워크 보안 그룹)에 대 한 Azure HDInsight 서비스 태그는 상태 및 관리 서비스에 대 한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 생성의 복잡성을 최소화 하는 데 도움이 됩니다. [서비스 태그](../virtual-network/security-overview.md#service-tags) 를 사용 하 여 nsgs에 각 [관리 IP 주소](hdinsight-management-ip-addresses.md) 를 입력 하지 않고도 특정 ip에서 인바운드 트래픽을 허용 합니다.
 
 HDInsight 서비스는 이러한 서비스 태그를 관리 합니다. 사용자 고유의 서비스 태그를 만들거나 기존 태그를 수정할 수 없습니다. Microsoft는 서비스 태그와 일치 하는 주소 접두사를 관리 하 고 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 합니다.
+
+특정 지역을 사용 하 고 서비스 태그가이 페이지에 아직 문서화 되지 않은 경우 서비스 태그 [검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) 를 사용 하 여 서비스 태그를 찾을 수 있습니다. [서비스 태그 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) 을 다운로드 하 고 원하는 지역을 검색할 수도 있습니다.
 
 ## <a name="get-started-with-service-tags"></a>서비스 태그 시작
 
@@ -106,7 +108,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 | 유럽 | 북유럽 | NorthEurope |
 | &nbsp; | 서유럽| WestEurope |
 | 아시아 | 동아시아 | HDInsight. E한글 |
-| &nbsp; | 동남아시아 | SoutheastAsia |
+| &nbsp; | 동남 아시아 | SoutheastAsia |
 | 오스트레일리아 | 오스트레일리아 동부 | AustraliaEast |
 
 #### <a name="group-2"></a>그룹 2

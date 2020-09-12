@@ -3,20 +3,20 @@ title: Azure 전면 도어-URL 리디렉션 | Microsoft Docs
 description: 이 문서는 Azure Front 도어가 구성 된 경우 해당 경로에 대 한 URL 리디렉션을 지 원하는 방법을 이해 하는 데 도움이 됩니다.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: sharadag
-ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 41cb2343cb86d2ec756bb0a2fb690b7df886024f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295470"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399041"
 ---
 # <a name="url-redirect"></a>URL 리디렉션
 Azure Front 도어를 사용 하 여 트래픽을 리디렉션할 수 있습니다. 여러 수준 (프로토콜, 호스트 이름, 경로, 쿼리 문자열)에서 트래픽을 리디렉션할 수 있으며 리디렉션이 경로 기반 이므로 개별 마이크로 서비스에 대 한 모든 기능을 구성할 수 있습니다. 이를 통해 애플리케이션 구성이 간소화되고, 리소스 사용이 최적화되고, 전역 및 경로 기반 리디렉션을 비롯한 새로운 리디렉션 시나리오가 지원됩니다.
@@ -43,7 +43,7 @@ Azure Front 도어를 사용 하 여 트래픽을 리디렉션할 수 있습니�
 리디렉션 라우팅을 구성 하는 과정에서 리디렉션 요청에 대 한 호스트 이름 또는 도메인을 변경할 수도 있습니다. 이 필드를 설정 하 여 리디렉션의 URL의 호스트 이름을 변경 하거나, 들어오는 요청에서 호스트 이름을 유지할 수 있습니다. 따라서이 필드를 사용 하 여에 전송 되는 모든 요청을로 리디렉션할 수 있습니다 `https://www.contoso.com/*` `https://www.fabrikam.com/*` .
 
 ## <a name="destination-path"></a>대상 경로
-URL의 경로 세그먼트를 리디렉션의 일부로 바꾸려는 경우이 필드를 새 경로 값으로 설정할 수 있습니다. 그렇지 않으면 경로의 일부로 경로 값을 유지 하도록 선택할 수 있습니다. 따라서이 필드를 사용 하 여로 전송 되는 모든 요청을로 리디렉션할 수 있습니다 `https://www.contoso.com/\*` `https://www.contoso.com/redirected-site` .
+URL의 경로 세그먼트를 리디렉션의 일부로 바꾸려는 경우이 필드를 새 경로 값으로 설정할 수 있습니다. 그렇지 않으면 경로의 일부로 경로 값을 유지 하도록 선택할 수 있습니다. 따라서이 필드를 사용 하 여로 전송 되는 모든 요청을로 리디렉션할 수 있습니다 `https://www.contoso.com/\*`  `https://www.contoso.com/redirected-site` .
 
 ## <a name="query-string-parameters"></a>쿼리 문자열 매개 변수
 리디렉션된 URL의 쿼리 문자열 매개 변수를 대체할 수도 있습니다. 들어오는 요청 URL에서 기존 쿼리 문자열을 바꾸려면이 필드를 ' Replace '로 설정한 다음 적절 한 값을 설정 합니다. 그렇지 않으면 필드를 ' 유지 '로 설정 하 여 원래 쿼리 문자열 집합을 유지할 수 있습니다. 예를 들어이 필드를 사용 하 여로 전송 된 모든 트래픽을로 리디렉션할 수 있습니다 `https://www.contoso.com/foo/bar` `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F` . 

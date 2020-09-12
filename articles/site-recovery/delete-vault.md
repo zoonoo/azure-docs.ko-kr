@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery 자격 증명 모음 삭제
 description: Azure Site Recovery에 대해 구성된 Recovery Services 자격 증명 모음을 삭제하는 방법에 대한 자세한 정보
-author: rajani-janaki-ram
+author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: rajanaki
-ms.openlocfilehash: 8237888d46e1f1ad48e678234cf1edce3558876a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sideeksh
+ms.openlocfilehash: a33e04a24013d5450c98b91048fa418958d16886
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089586"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426387"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Site Recovery Services 자격 증명 모음 삭제
 
@@ -21,7 +21,7 @@ ms.locfileid: "87089586"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 자격 증명 모음을 삭제 하려면 먼저 등록 된 서버 및 자격 증명 모음에 있는 항목을 제거 해야 합니다. 제거 해야 하는 항목은 배포한 복제 시나리오에 따라 달라 집니다. 
 

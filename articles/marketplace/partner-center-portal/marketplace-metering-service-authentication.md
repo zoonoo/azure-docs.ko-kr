@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 42a76a2cf583a57ae5b38fe051ee48d16d705dd2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e8f9a8e1d10e39e37480e06a25fcc0e203a104ec
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319969"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378732"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Marketplace 계량 서비스 인증 전략
 
@@ -68,10 +68,10 @@ SaaS 제품의 경우 유일 하 게 사용할 수 있는 옵션입니다. Saas 
 
 |  **속성 이름**  |  **필수**  |  **설명**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   True         | 권한 부여 유형입니다. 대신 `client_credentials`를 |
+|  `Grant_type`       |   True         | 권한 부여 유형입니다. `client_credentials`을 사용합니다. |
 |  `Client_id`        |   True         | Azure AD 앱과 연결된 클라이언트/앱 식별자입니다.|
 |  `client_secret`    |   True         | Azure AD 앱과 연결 된 암호입니다.  |
-|  `Resource`         |   True         | 토큰이 요청된 대상 리소스입니다. 대신 `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`를 |
+|  `Resource`         |   True         | 토큰이 요청된 대상 리소스입니다. `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`을 사용합니다. |
 | | | |
 
 #### <a name="response"></a>*응답*
@@ -145,7 +145,7 @@ SaaS 제품의 경우 유일 하 게 사용할 수 있는 옵션입니다. Saas 
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
@@ -156,4 +156,4 @@ SaaS 제품의 경우 유일 하 게 사용할 수 있는 옵션입니다. Saas 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure 애플리케이션 제품 만들기](./create-new-azure-apps-offer.md)
-* [불가능 SaaS 제안 만들기](./offer-creation-checklist.md)
+* [SaaS 제품 계획](../plan-saas-offer.md)

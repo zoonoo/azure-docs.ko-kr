@@ -3,17 +3,17 @@ title: Azure CLI를 사용 하 여 Azure Traffic Manager 서브넷 재정의 | M
 description: 이 문서는 Traffic Manager 서브넷 재정의를 사용 하 여 Traffic Manager 프로필의 라우팅 메서드를 재정의 하는 방법을 이해 하 고, 미리 정의 된 IP 범위에서 끝점 매핑을 통해 최종 사용자 IP 주소를 기반으로 끝점에 트래픽을 전달 하는 방법을 이해 하는 데 도움이 됩니다.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
-ms.author: rohink
-ms.openlocfilehash: 33fdc2875d8d766f212301ddfecf9dbb734b876a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: b66f1f0061f697349afae21f5f9c63a4089c2794
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689693"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401710"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Azure CLI를 사용 하 여 서브넷 재정의 Traffic Manager
 

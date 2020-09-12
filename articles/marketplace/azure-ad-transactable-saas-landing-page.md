@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/02/2020
+ms.openlocfilehash: 9db013d13098fc6aa4552459a2189e0ad8fc3ea6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921269"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378800"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>상업적 marketplace에서 불가능 SaaS 제품에 대 한 방문 페이지 빌드
 
@@ -38,15 +38,15 @@ ms.locfileid: "87921269"
 다음 섹션에서는 방문 페이지를 빌드하는 과정을 안내 합니다.
 
 1. 방문 페이지에 대 한 [AZURE AD 앱 등록을 만듭니다](#create-an-azure-ad-app-registration) .
-2. [코드 샘플을 앱의 시작 지점으로 사용](#use-a-code-sample-as-a-starting-point) 합니다.
-3. 상용 marketplace에서 URL에 추가한 [marketplace 구매 식별 토큰을 확인](#resolve-the-marketplace-purchase-identification-token) 합니다.
-4. 로그인 후 Azure AD에서 받은 [ID 토큰으로 인코딩된 클레임에서](#read-information-from-claims-encoded-in-the-id-token)요청을 통해 보낸 정보를 읽습니다.
-5. [MICROSOFT GRAPH API를 사용](#use-the-microsoft-graph-api) 하 여 필요에 따라 추가 정보를 수집 합니다.
-6. [두 AZURE AD 앱을 사용 하 여 프로덕션의 보안을 향상 시킵니다](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [코드 샘플을 앱의 시작 지점으로 사용](#use-a-code-sample-as-a-starting-point) 합니다.
+1. [두 AZURE AD 앱을 사용 하 여 프로덕션의 보안을 향상 시킵니다](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. 상용 marketplace에서 URL에 추가한 [marketplace 구매 식별 토큰을 확인](#resolve-the-marketplace-purchase-identification-token) 합니다.
+1. 요청과 함께 전송 된, 로그인 후에 Azure AD에서 받은 [ID 토큰으로 인코딩된 클레임에서 정보를 읽습니다](#read-information-from-claims-encoded-in-the-id-token).
+1. [MICROSOFT GRAPH API를 사용](#use-the-microsoft-graph-api) 하 여 필요에 따라 추가 정보를 수집 합니다.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Azure AD 앱 등록 만들기
 
-상업적 marketplace는 Azure AD와 완전히 통합 됩니다. 구매자는 [AZURE AD 계정 또는 Microsoft 계정 (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology)로 인증 된 marketplace에 도착 합니다. 구매 후 구매자는 상업적 marketplace에서 방문 페이지 URL로 이동 하 여 SaaS 응용 프로그램의 구독을 활성화 하 고 관리 합니다. 구매자가 Azure AD SSO를 사용 하 여 응용 프로그램에 로그인 하도록 허용 해야 합니다. 방문 페이지 URL은 제품의 [기술 구성](partner-center-portal/offer-creation-checklist.md#technical-configuration-page) 페이지에 지정 되어 있습니다.
+상업적 marketplace는 Azure AD와 완전히 통합 됩니다. 구매자는 [AZURE AD 계정 또는 Microsoft 계정 (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology)로 인증 된 marketplace에 도착 합니다. 구매 후 구매자는 상업적 marketplace에서 방문 페이지 URL로 이동 하 여 SaaS 응용 프로그램의 구독을 활성화 하 고 관리 합니다. 구매자가 Azure AD SSO를 사용 하 여 응용 프로그램에 로그인 하도록 허용 해야 합니다. 방문 페이지 URL은 제품의 [기술 구성](plan-saas-offer.md#technical-information) 페이지에 지정 되어 있습니다.
 
 Id를 사용 하는 첫 번째 단계는 방문 페이지가 Azure AD 응용 프로그램으로 등록 되었는지 확인 하는 것입니다. 응용 프로그램을 등록 하면 Azure AD를 사용 하 여 사용자를 인증 하 고 사용자 리소스에 대 한 액세스를 요청할 수 있습니다. 응용 프로그램의 정의로 간주할 수 있으며,이를 통해 서비스는 앱의 설정에 따라 응용 프로그램에 토큰을 발급 하는 방법을 알 수 있습니다.
 
@@ -82,7 +82,7 @@ Azure AD 로그인을 사용 하는 간단한 웹 사이트를 구현 하는 몇
 구매자가 방문 페이지로 보내지면 URL 매개 변수에 토큰이 추가 됩니다. 이 토큰은 Azure AD에서 발급 한 토큰 및 서비스 간 인증에 사용 되는 액세스 토큰과 다르며 [SaaS 처리 api](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) 를 확인 하 여 구독의 세부 정보를 가져오는 입력으로 사용 됩니다. SaaS 처리 Api에 대 한 모든 호출과 마찬가지로 서비스 간 요청은 서비스 간 인증에 대 한 앱의 Azure AD 응용 프로그램 ID 사용자를 기반으로 하는 액세스 토큰으로 인증 됩니다.
 
 > [!NOTE]
-> 대부분의 경우 두 번째 단일 테 넌 트 응용 프로그램에서이 호출을 수행 하는 것이 좋습니다. 이 문서의 뒷부분에서 [두 AZURE AD 앱을 사용 하 여 프로덕션 환경에서 보안 강화를](#use-two-azure-ad-apps-to-improve-security-in-production) 참조 하세요.
+> 대부분의 경우 두 번째 단일 테 넌 트 응용 프로그램에서이 호출을 수행 하는 것이 좋습니다. 이 문서 앞부분의 [프로덕션 환경에서는 두 개의 AZURE AD 앱을 사용 하 여 보안 강화를](#use-two-azure-ad-apps-to-improve-security-in-production) 참조 하세요.
 
 ### <a name="request-an-access-token"></a>액세스 토큰 요청
 
@@ -131,4 +131,4 @@ Azure AD에 등록 된 대부분의 앱은 회사의 Azure AD 테 넌 트에서 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [상업적 marketplace에서 SaaS 제품 만들기](./partner-center-portal/create-new-saas-offer.md)
+- [상업적 marketplace에서 SaaS 제품을 만드는 방법](create-new-saas-offer.md)

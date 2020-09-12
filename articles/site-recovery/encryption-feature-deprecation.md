@@ -2,18 +2,18 @@
 title: Azure Site Recovery 데이터 암호화 기능 사용 중단 | Microsoft Docs
 description: Regarig Azure Site Recovery 데이터 암호화 기능에 대 한 세부 정보
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
-ms.author: rajanaki
-ms.openlocfilehash: 79c129fee6d0339eed752abe94059fa566859bc0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sharrai
+ms.openlocfilehash: 5860928d71c0e7431190908d5df5d7496e8ffb17
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086186"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426319"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Site Recovery 데이터 암호화 기능 사용 중단
 

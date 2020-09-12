@@ -1,18 +1,18 @@
 ---
 title: Site Recovery 복구 계획에 Azure Automation runbook 추가
 description: Azure Site Recovery를 사용 하 여 재해 복구에 대 한 Azure Automation 복구 계획을 확장 하는 방법을 알아봅니다.
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: rajanaki
-ms.openlocfilehash: 1df17ccb41c974c8939710850b5bb71ee3a5ef1b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: ramamill
+ms.openlocfilehash: a141280338632fdad7053cbbe76c8bdf2797443d
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021582"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424874"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>복구 계획에 Azure Automation Runbook 추가
 
@@ -98,7 +98,7 @@ $vmMap = $RecoveryPlanContext.VmMap
 
 
 
-## <a name="before-you-start"></a>시작하기 전 확인 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 - Azure Automation를 처음 접하는 경우 [등록](https://azure.microsoft.com/services/automation/) 하 고 [샘플 스크립트를 다운로드할](https://azure.microsoft.com/documentation/scripts/)수 있습니다.
 - Automation 계정에 다음 모듈이 있는지 확인합니다.

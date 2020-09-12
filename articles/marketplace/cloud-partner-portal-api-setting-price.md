@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: d49f9df9fdc7dd8d2fb53b9ad6eb6eae64965fb7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 09/02/2020
+ms.openlocfilehash: fe8024c60e204a4ec72002c878f7753ae35aa00d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87271725"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393822"
 ---
 # <a name="pricing-for-virtual-machine-offers"></a>가상 머신 제품 가격 책정
 
@@ -98,13 +98,13 @@ ms.locfileid: "87271725"
 
 ## <a name="new-core-sizes-added-on-722019"></a>7/2/2019에 추가 된 새 코어 크기
 
-VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 수 기반)을 추가 하는 2019 년 7 월 2 일에 통보 받았습니다.  새 가격은 10, 44, 48, 60, 120, 208 및 416의 핵심 크기에 해당 합니다.  기존 VM의 경우 이러한 코어 크기에 대 한 새로운 가격은 현재 가격에 따라 자동으로 계산 됩니다.  게시자는 2019 년 8 월 1 일까 지 추가 가격을 검토 하 고 원하는 대로 변경할 수 있습니다.  이 날짜 이후에는 아직 게시자가 다시 게시 하지 않은 경우 이러한 새 코어 크기에 대해 자동으로 계산 된 가격이 적용 됩니다.
+VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 수 기반)을 추가 하는 2019 년 7 월 2 일에 통보 받았습니다.  새 가격은 10, 44, 48, 60, 120, 208 및 416의 핵심 크기에 해당 합니다.  기존 VM의 경우 이러한 코어 크기에 대 한 새로운 가격은 현재 가격에 따라 자동으로 계산 됩니다. 게시자는 2019 년 8 월 1 일까 지 추가 가격을 검토 하 고 원하는 대로 변경할 수 있습니다.  이 날짜 이후에는 아직 게시자가 다시 게시 하지 않은 경우 이러한 새 코어 크기에 대해 자동으로 계산 된 가격이 적용 됩니다.
 
 ## <a name="regions"></a>영역
 
 다음 표에는 사용자 지정 코어 가격을 지정할 수 있는 지역 및 해당하는 통화 코드가 나와 있습니다.
 
-| **지역** | **Name**             | **통화 코드** |
+| **지역** | **이름**             | **통화 코드** |
 |------------|----------------------|-------------------|
 | DZ         | 알제리              | DZD               |
 | AR         | 아르헨티나            | ARS               |
@@ -151,7 +151,6 @@ VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 �
 | LI         | 리히텐슈타인        | CHF               |
 | LT         | 리투아니아            | EUR               |
 | LU         | 룩셈부르크           | EUR               |
-| MK         | 북마케도니아      | MKD               |
 | MY         | 말레이시아             | MYR               |
 | MT         | 몰타                | EUR               |
 | MX         | 멕시코               | MXN               |
@@ -160,6 +159,7 @@ VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 �
 | NL         | 네덜란드          | EUR               |
 | NZ         | 뉴질랜드          | NZD               |
 | NG         | 나이지리아              | NGN               |
+| MK         | 북마케도니아      | MKD               |
 | 아니요         | 노르웨이               | NOK               |
 | OM         | 오만                 | OMR               |
 | PK         | 파키스탄             | PKR               |

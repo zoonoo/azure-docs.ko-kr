@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: d917bc1d52cc2a43e87affcc9c5e3c2ab533da07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17a9339fff27a0fbd7fa389933d21ef85e29248b
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984876"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420781"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -199,7 +199,7 @@ Ubuntu 18.0.4에서 다음 지침이 생성 되었습니다. Ubuntu 16.0.10은 s
    : P12 client.p12 'password' # key filename inside /etc/ipsec.d/private directory
    ```
 
-7. 다음 명령을 실행합니다.
+7. 다음 명령을 실행 합니다.
 
    ```
    # ipsec restart

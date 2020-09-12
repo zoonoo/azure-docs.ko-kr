@@ -1,7 +1,7 @@
 ---
 title: 네트워크 액세스 컨트롤
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Azure SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)에 대 한 네트워크 액세스를 관리 하 고 제어 하는 방법에 대 한 개요입니다.
+description: Azure SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대 한 네트워크 액세스를 관리 하 고 제어 하는 방법에 대 한 개요입니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 435a5fe6f5900ffe742d4459e8e402d2e698ca9f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: caad78bf61c9ad470464d69c7320aa1d08dcee09
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085466"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435374"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database 및 Azure Synapse Analytics 네트워크 액세스 제어
 
@@ -102,7 +102,7 @@ start          end
 13.86.216.192  13.86.216.223
 ```
 
-이제 이러한 규칙을 별도의 방화벽 규칙으로 추가한 다음 **Azure 서비스에서 서버에 액세스 하도록 허용** 을 OFF로 설정할 수 있습니다.
+이제 이러한 규칙을 별도의 방화벽 규칙으로 추가한 다음 **Azure 서비스에서 서버에 액세스 하도록 허용**  을 OFF로 설정할 수 있습니다.
 
 ## <a name="ip-firewall-rules"></a>IP 방화벽 규칙
 

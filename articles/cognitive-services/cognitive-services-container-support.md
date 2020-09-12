@@ -8,27 +8,30 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 9/01/2020
 ms.author: aahi
-ms.openlocfilehash: 69984f9dbd94bcdca2e272a5bdebbb7fc1464dae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 141b82467f2b437cfd4a8125d86618b85e48a6ef
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104414"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424647"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 지원
+
+> [!WARNING]
+> 2020년 6월 11일, Microsoft는 인권에 기반한 강력한 규정이 적용될 때까지 미국 경찰 당국에 얼굴 인식 기술을 판매하지 않겠다고 발표했습니다. 따라서 고객은 얼굴 또는 Video Indexer와 같은 Azure 서비스에 포함 된 얼굴 인식 기능이 나 기능을 사용 하지 않거나, 고객이 또는에 이러한 서비스를 사용할 수 있도록 하거나 미국에서 경찰 부서를 사용할 수 있습니다.
 
 Azure Cognitive Services의 컨테이너 지원을 통해 개발자는 Azure에서 제공 되는 것과 동일한 풍부한 Api를 사용할 수 있으며, [Docker 컨테이너](https://www.docker.com/what-container)와 함께 제공 되는 서비스를 배포 하 고 호스트 하는 유연성을 발휘할 수 있습니다. 컨테이너 지원은 현재 다음 부분을 포함 하 여 Azure Cognitive Services의 하위 집합에 대해 사용할 수 있습니다.
 
 > [!div class="checklist"]
 > * [Anomaly Detector][ad-containers]
 > * [Computer Vision][cv-containers]
-> * [Face][fa-containers]
+> * [얼굴][fa-containers]
 > * [Form Recognizer][fr-containers]
-> * [언어 이해(LUIS)][lu-containers]
+> * [Language Understanding (LUIS)][lu-containers]
 > * [Speech Service API][sp-containers]
-> * [텍스트 분석][ta-containers]
+> * [Text Analytics][ta-containers]
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
@@ -53,17 +56,18 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 |--|--|--|--|
 | [변칙 탐지기][ad-containers] | F0, S0 | **변칙-탐지기** | Anomaly Detector API를 사용하면 기계 학습을 통해 시계열 데이터에서 변칙을 검색하고 모니터링할 수 있습니다.<br>[액세스 요청][request-access] |
 | [Computer Vision][cv-containers] | F0, S1 | **읽기** | 영수증, 포스터, 명함과 같은 여러 가지 표면과 배경이 있는 다양한 개체의 이미지에서 인쇄된 텍스트를 추출합니다. 또한 읽기 컨테이너는 이미지에서 *필기 텍스트* 를 검색 하 고 PDF/TIFF/다중 페이지 지원을 제공 합니다.<br/><br/>**중요:** 읽기 컨테이너는 현재 영어로만 작동 합니다. |
-| [Face][fa-containers] | F0, S0 | **Face** | 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.<br>[액세스 요청][request-access] |
+| [얼굴][fa-containers] | F0, S0 | **얼굴** | 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.<br>[액세스 요청][request-access] |
 | [폼 인식기][fr-containers] | F0, S0 | **Form Recognizer** | 양식 이해는 기계 학습 기술을 적용 하 여 양식에서 키-값 쌍 및 테이블을 식별 하 고 추출 합니다.<br>[액세스 요청][request-access] |
 | [LUIS][lu-containers] | F0, S0 | **LUIS**([이미지](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | LUIS 앱으로 알려진 학습된 또는 게시된 Language Understanding 모델을 Docker 컨테이너로 로드하고, 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다. 컨테이너에서 쿼리 로그를 수집하고 [LUIS 포털](https://www.luis.ai)에 다시 업로드하여 앱의 예측 정확도를 개선할 수 있습니다. |
 | [Speech Service API][sp-containers-stt] | F0, S0 | **음성 텍스트 변환** | 연속적인 실시간 음성을 텍스트로 변환합니다. |
 | [Speech Service API][sp-containers-cstt] | F0, S0 | **Custom Speech 텍스트** | 사용자 지정 모델을 사용 하 여 연속 실시간 음성을 텍스트로 speech. |
 | [Speech Service API][sp-containers-tts] | F0, S0 | **텍스트 음성 변환** | 텍스트를 자연스럽게 들리는 음성으로 변환합니다. |
 | [Speech Service API][sp-containers-ctts] | F0, S0 | **사용자 지정 텍스트 음성 변환** | 사용자 지정 모델을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. |
-| [텍스트 분석][ta-containers-keyphrase] | F0, S | **핵심 구 추출**([이미지](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | 핵심 구를 추출하여 주요 요소를 식별합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 주요 논점을 반환합니다. |
-| [텍스트 분석][ta-containers-language] | F0, S | **언어 감지**([이미지](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | 최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. |
-| [텍스트 분석][ta-containers-sentiment] | F0, S | **감정 분석 v3** ([이미지](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | 원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 버전의 감정 분석에서는 각 문서와 문장에 대해 감정 레이블 (예: *긍정* 또는 *음수*)을 반환 합니다. |
-| [텍스트 분석][ta-containers-health] | F0, S | **상태 Text Analytics** | 비구조적 임상 텍스트에서 의료 정보를 추출 하 고 레이블을 기록 합니다. |
+| [Speech Service API][sp-containers-ntts] | F0, S0 | **신경망 음성 변환** | 심층 신경망 기술을 사용 하 여 텍스트를 자연 스런 음성으로 변환 하 여 보다 자연스럽 게 합성 되는 음성을 사용할 수 있도록 합니다. |
+| [Text Analytics][ta-containers-keyphrase] | F0, S | **핵심 구 추출**([이미지](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | 핵심 구를 추출하여 주요 요소를 식별합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 주요 논점을 반환합니다. |
+| [Text Analytics][ta-containers-language] | F0, S | **언어 감지**([이미지](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | 최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. |
+| [Text Analytics][ta-containers-sentiment] | F0, S | **감정 분석 v3** ([이미지](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | 원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 버전의 감정 분석에서는 각 문서와 문장에 대해 감정 레이블 (예: *긍정* 또는 *음수*)을 반환 합니다. |
+| [Text Analytics][ta-containers-health] | F0, S | **상태 Text Analytics** | 비구조적 임상 텍스트에서 의료 정보를 추출 하 고 레이블을 기록 합니다. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -74,7 +78,7 @@ Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 �
 * Computer Vision
 * Face
 * LUIS
-* Text Analytics
+* 텍스트 분석
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너 가용성
 
@@ -82,7 +86,7 @@ Azure Cognitive Services 컨테이너는 Azure 구독을 통해 공개적으로 
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure Cognitive Services 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 
@@ -127,6 +131,7 @@ Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하�
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
+[sp-containers-ntts]: speech-service/speech-container-howto.md?tabs=ntts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
 [ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language

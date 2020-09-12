@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: ad007514e48ea751257884ba6e9ccb3965442d36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a02bd5519b776a063646c11be2a34366fe429f99
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987579"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392394"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>P2S VPN 클라이언트에 대 한 사용자 지정 경로 보급
 
@@ -24,7 +24,7 @@ ms.locfileid: "84987579"
 
 사용자 지정 경로를 보급 하려면를 사용 `Set-AzVirtualNetworkGateway cmdlet` 합니다. 다음 예에서는 [Contoso 저장소 계정 테이블](https://contoso.table.core.windows.net)의 IP를 보급 하는 방법을 보여 줍니다.
 
-1. *Contoso.table.core.windows.net* 를 Ping 하 고 IP 주소를 적어둡니다. 예를 들어:
+1. *Contoso.table.core.windows.net* 를 Ping 하 고 IP 주소를 적어둡니다. 다음은 그 예입니다. 
 
     ```cmd
     C:\>ping contoso.table.core.windows.net
@@ -38,7 +38,7 @@ ms.locfileid: "84987579"
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 13.88.144.250/32
     ```
 
-3. 여러 사용자 지정 경로를 추가 하려면 쉼표와 공백을 사용 하 여 주소를 구분 합니다. 예를 들어:
+3. 여러 사용자 지정 경로를 추가 하려면 쉼표와 공백을 사용 하 여 주소를 구분 합니다. 다음은 그 예입니다. 
 
     ```azurepowershell-interactive
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute x.x.x.x/xx , y.y.y.y/yy

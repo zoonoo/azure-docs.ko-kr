@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: c6f7355b4505324c562ae39b05155a2902da2790
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e79e5e16b300fd02b9c9124f9677747834f22813
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523454"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443146"
 ---
 # <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Azure Data Catalog에서 빅 데이터를 카탈로그로 만드는 방법
 
@@ -19,7 +19,7 @@ ms.locfileid: "86523454"
 
 **Microsoft Azure 데이터 카탈로그**는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 데이터 카탈로그는 사람들이 데이터 원본을 검색하고 이해하고 사용하도록 도우면서 빅 데이터를 포함하여 조직의 기존 데이터 원본으로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다.
 
-**Azure 데이터 카탈로그**는 Azure 블로그 스토리지 BLOB 및 디렉터리뿐만 아니라 Hadoop HDFS 파일 및 디렉터리의 등록을 지원합니다. 이러한 데이터 원본의 반 구조화된 특성은 뛰어난 유연성을 제공합니다. 그러나 **Azure Data Catalog**를 사용하여 등록에서 가치를 극대화하려면 사용자는 데이터 원본이 구성되는 방법을 고려해야 합니다.
+**Azure Data Catalog** 은 Azure Storage blob 및 디렉터리 뿐만 아니라 Hadoop HDFS 파일 및 디렉터리 등록을 지원 합니다. 이러한 데이터 원본의 반 구조화된 특성은 뛰어난 유연성을 제공합니다. 그러나 **Azure Data Catalog**를 사용하여 등록에서 가치를 극대화하려면 사용자는 데이터 원본이 구성되는 방법을 고려해야 합니다.
 
 ## <a name="directories-as-logical-data-sets"></a>논리적 데이터 집합으로 디렉터리 처리
 

@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: fd44c07ea44e7487a22b0de67737dcc135c813b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: ce4c44ef17f456a776fde3addc5ec4ed29c8ebbd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038041"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434455"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
 
 서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft에서는 서비스 태그에서 압축한 주소 접두사를 관리하고 주소를 변경하는 대로 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다.
 
-서비스 태그를 사용하여 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) 또는 [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags)에 대한 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 규칙의 적절한 *원본* 또는 *대상* 필드에 서비스 태그 이름(예: **ApiManagement**)을 지정하면 해당 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다.
+서비스 태그를 사용하여 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) 또는 [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags)에 대한 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 규칙의 적절 한 *원본*또는 대상 필드에 **microsoft.apimanagement**와 같은 서비스 태그 이름을 지정 하 여    *destination*   해당 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다.
 
 퍼블릭 엔드포인트가 있는 Azure 서비스에 액세스하면서, 서비스 태그를 사용하여 네트워크 격리를 수행하고 일반 인터넷에서 Azure 리소스를 보호할 수 있습니다. 인바운드/아웃바운드 네트워크 보안 그룹 규칙을 만들어 **인터넷**에서 들어오고 나가는 트래픽을 거부하고 **AzureCloud** 또는 특정 Azure 서비스의 다른 [사용 가능한 서비스 태그](#available-service-tags)에서 들어오고 나가는 트래픽을 허용합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "86038041"
 | **AzureBackup** |Azure Backup<br/><br/>*참고:* 이 태그는 **Storage** 및 **AzureActiveDirectory** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureBotService** | Azure Bot Service | 아웃바운드 | 예 | 예 |
 | **AzureCloud** | 모든 [데이터 센터 퍼블릭 IP 주소](https://www.microsoft.com/download/details.aspx?id=56519)입니다. | 아웃바운드 | 예 | 예 |
-| **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>이 태그 또는 이 태그가 적용되는 IP 주소를 사용하여 데이터 원본에 대한 보안 액세스 권한을 인덱서에 부여할 수 있습니다. 자세한 내용은 [인덱서 연결 설명서](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors)를 참조하세요. <br/><br/> *참고*: 검색 서비스의 IP는 이 서비스 태그의 IP 범위 목록에 포함되지 않으므로 데이터 원본의 IP 방화벽에**도 추가해야 합니다**. | 인바운드 | 예 | 예 |
+| **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>이 태그 또는 이 태그가 적용되는 IP 주소를 사용하여 데이터 원본에 대한 보안 액세스 권한을 인덱서에 부여할 수 있습니다. 자세한 내용은 [인덱서 연결 설명서](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) 를 참조 하세요. <br/><br/> *참고*: 검색 서비스의 IP는 이 서비스 태그의 IP 범위 목록에 포함되지 않으므로 데이터 원본의 IP 방화벽에**도 추가해야 합니다**. | 인바운드 | 예 | 예 |
 | **AzureConnectors** | 프로브/백 엔드 연결용 Azure Logic Apps 커넥터입니다. | 인바운드 | 예 | 예 |
 | **AzureContainerRegistry** | Azure Container Registry입니다. | 아웃바운드 | 예 | 예 |
 | **AzureCosmosDB** | Azure Cosmos DB | 아웃바운드 | 예 | 예 |
@@ -96,7 +96,7 @@ ms.locfileid: "86038041"
 | **PowerQueryOnline** | 파워 쿼리 온라인입니다. | 모두 | 예 | 예 |
 | **Service Bus** | 프리미엄 서비스 계층을 사용하는 Azure Service Bus 트래픽입니다. | 아웃바운드 | 예 | 예 |
 | **ServiceFabric** | Azure Service Fabric입니다.<br/><br/>*참고:* 이 태그는 지역별 제어 평면에 대한 Service Fabric 서비스 엔드포인트를 나타냅니다. 이를 통해 고객은 자신의 VNET에서 Service Fabric 클러스터에 대한 관리 작업을 수행할 수 있습니다(엔드포인트 예: https://westus.servicefabric.azure.com). | 모두 | 예 | 예 |
-| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure SQL Data Warehouse입니다.<br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 SQL Managed Instance에는 적용 되지 않습니다. | 아웃바운드 | 예 | 예 |
+| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure Synapse Analytics가 있습니다.<br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. 이 태그는 SQL Managed Instance에 적용되지 않습니다. | 아웃바운드 | 예 | 예 |
 | **SqlManagement** | SQL 전용 배포에 대한 관리 트래픽입니다. | 모두 | 예 | 예 |
 | **스토리지** | Azure Storage. <br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. | 아웃바운드 | 예 | 예 |
 | **StorageSyncService** | 스토리지 동기화 서비스입니다. | 모두 | 예 | 예 |

@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 0ddfb0c9b10d96acd511b7bfaee4c6ef85d04812
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 921132947fbf52fbd187941b96d8b75197763387
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306420"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419115"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretability: 자동화 된 machine learning (미리 보기)의 모델 설명
 
@@ -39,6 +39,14 @@ ms.locfileid: "87306420"
 ## <a name="interpretability-during-training-for-the-best-model"></a>최상의 모델을 위한 학습 중에 Interpretability
 
 에서 설명 하는 설명을 검색 합니다 `best_run` . 여기에는 엔지니어링 된 기능에 대 한 설명이 포함 됩니다.
+
+> [!Warning]
+> Interpretability, 최상의 모델 설명은 자동 ML 예측 실험에서 사용할 수 없습니다. 
+> * ForecastTCN
+> * 평균 
+> * Naive
+> * 계절 평균 
+> * 계절 Naive
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>아티팩트 저장소에서 엔지니어링 된 기능 중요도 다운로드
 
@@ -112,7 +120,7 @@ engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=au
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-### <a name="interpretability-during-inference"></a>유추 중 Interpretability
+## <a name="interpretability-during-inference"></a>유추 중 Interpretability
 
 이 섹션에서는 이전 섹션에서 설명을 계산 하는 데 사용 된 설명으로 자동화 된 ML 모델을 운영 하는 방법에 대해 알아봅니다.
 

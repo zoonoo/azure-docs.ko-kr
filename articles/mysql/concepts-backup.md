@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 3f24e3538f05ca3b6a27907e0b794705402fce7c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a6f6a052269bbfef6cafb359626031692a7d9c6
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285444"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418588"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
 
@@ -36,7 +36,7 @@ Azure Database for MySQL는 데이터 파일과 트랜잭션 로그의 백업을
 
 트랜잭션 로그 백업은 5 분 마다 발생 합니다. 
 
-### <a name="backup-retention"></a>Backup 보존
+### <a name="backup-retention"></a>백업 보존
 
 백업은 서버의 백업 보존 기간 설정에 따라 보존 됩니다. 7 일에서 35 일의 보존 기간을 선택할 수 있습니다. 기본 보존 기간은 7 일입니다. [Azure Portal](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal#set-backup-configuration) 또는 [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-restore-server-cli#set-backup-configuration)를 사용 하 여 백업 구성을 업데이트 하 여 서버를 만드는 동안 또는 나중에 보존 기간을 설정할 수 있습니다. 
 
@@ -77,11 +77,18 @@ Azure Database for MySQL 복원 작업을 수행 하면 원래 서버의 백업�
 
 백업 중복 옵션과는 별도로 백업 보존 기간 내의 특정 시점으로 복원을 수행할 수 있습니다. 새 서버가 원본 서버와 동일한 Azure 지역에 만들어집니다. 이 경우 가격 책정 계층, 컴퓨팅 세대, vCore 수, 스토리지 크기, 백업 보존 기간 및 백업 중복 옵션에 대한 원래 서버의 구성으로 만들어집니다.
 
+> [!NOTE]
+> 복원 작업 후 기본 값으로 다시 설정 되 고 주 서버에서 복사 되지 않는 두 개의 서버 매개 변수가 있습니다.
+> * time_zone-기본값 **시스템** 으로 설정 하려면이 값을 설정 합니다.
+> * event_scheduler-복원 된 서버에서 event_scheduler **OFF** 로 설정 됩니다.
+>
+> [서버 매개 변수](howto-server-parameters.md) 를 다시 구성 하 여 이러한 서버 매개 변수를 설정 해야 합니다.
+
 특정 시점 복원은 여러 시나리오에서 유용합니다. 예를 들어 사용자가 실수로 데이터를 삭제하거나 중요한 테이블 또는 데이터베이스를 삭제하는 경우, 또는 애플리케이션의 결함으로 인해 우연히 적절한 데이터를 잘못된 데이터로 덮어쓰는 경우가 있습니다.
 
 마지막 5분 내의 특정 시점으로 복원하려면, 다음 트랜잭션 로그 백업이 완료될 때까지 기다려야 할 수도 있습니다.
 
-### <a name="geo-restore"></a>지리적 복원
+### <a name="geo-restore"></a>지역 복원
 
 지역 중복 백업을 위해 서버를 구성한 경우 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. 최대 4tb의 저장소를 지 원하는 서버는 지리적으로 쌍을 이루는 지역 또는 최대 16TB의 저장소를 지 원하는 지역으로 복원할 수 있습니다. 최대 16tb의 저장소를 지 원하는 서버의 경우 16 TB 서버를 지 원하는 모든 지역에서 지역 백업을 복원할 수 있습니다. 지원 되는 지역 목록에 대 한 [Azure Database for MySQL 가격 책정 계층](concepts-pricing-tiers.md) 을 검토 합니다.
 

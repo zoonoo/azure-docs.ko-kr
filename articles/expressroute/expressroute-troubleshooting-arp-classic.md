@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: ARP 테이블-문제 해결: 클래식'
 description: 이 페이지에서는 ExpressRoute 회로 - 클래식 배포 모델의 ARP 테이블을 가져오기 위한 지침을 제공합니다.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 01/30/2017
-ms.author: charwen
-ms.openlocfilehash: f381c25edae566f2dc9f864beda47e65df5c21e1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.author: duau
+ms.openlocfilehash: 7c83b6d25936e184c70d4bf0a51636a3986bf4b2
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985393"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394842"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>클래식 배포 모델에서 ARP 테이블 가져오기
 > [!div class="op_single_selector"]

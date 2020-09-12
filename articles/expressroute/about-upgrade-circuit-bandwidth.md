@@ -2,17 +2,17 @@
 title: 회로 대역폭 업그레이드 정보 | Azure Express 경로
 description: 이 문서에서는 Express 경로 회로 대역폭을 업그레이드 하기 위한 모범 사례를 알아봅니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.author: cherylmc
-ms.openlocfilehash: a8f5aaa7b2a054aa31198779414387cebf0f0fbd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: duau
+ms.openlocfilehash: 7831e7944321e074c312853e1534c47970ebdfdb
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537040"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397953"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>Express 경로 회로 대역폭 업그레이드 정보
 

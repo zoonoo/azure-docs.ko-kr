@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f1e95c1244d327478862c3919481394d974ea42
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9b7abc39bf50a61b7b52bc4027c6d845728c3874
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270347"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419268"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Azure 역할 기반 액세스 제어 (미리 보기)를 사용 하 여 Key Vault 키, 인증서 및 암호에 대 한 액세스 제공
 
@@ -61,6 +61,10 @@ Azure 기본 제공 역할 정의에 대 한 자세한 내용은 [azure 기본 �
 키 자격 증명 모음에 대 한 새 Azure RBAC 권한 모델은 자격 증명 모음 액세스 정책 권한 모델에 대 한 대안을 제공 합니다. 
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Key Vault에 대 한 Azure RBAC 사용 권한 설정
+
+미리 보기 중에는 Azure RBAC 기능 태그 (Microsoft_Azure_KeyVault_RBACEnabled = true)를 사용 하 여 새 권한 모델 옵션을 확인 해야 합니다.
+
+https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
 
 > [!IMPORTANT]
 > Azure RBAC 권한 모델을 설정 하면 모든 액세스 정책 권한이 무효화 됩니다. 동일한 Azure 역할이 할당 되지 않은 경우 중단 될 수 있습니다.
@@ -205,8 +209,6 @@ az role definition create --role-definition '{ \
 사용자 지정 역할을 만드는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
 [Azure 사용자 지정 역할](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
-
-사용 가능한 작업에 대해 부록: **사용 가능한 작업** 을 확인 합니다.
 
 ## <a name="known-limits-and-performance"></a>알려진 제한 및 성능
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 99985ba8540a347977b9eaf2e733a308fa777b97
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 051f6e6ef15cc94e2b607c74e666bae9c91c1160
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231404"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401625"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Cosmos DB에 대 한 Azure 보안 기준
 
@@ -890,9 +890,11 @@ Azure Policy를 구성하고 관리하는 방법: https://docs.microsoft.com/azu
 
 Azure 관리 ID와 통합하는 방법: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Key Vault를 만드는 방법: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Key Vault를 만드는 방법: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-관리 ID를 사용하여 Key Vault 인증을 제공하는 방법: https://docs.microsoft.com/azure/key-vault/managed-identity
+Key Vault에 인증 하는 방법: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Key Vault 액세스 정책을 할당 하는 방법: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Azure Security Center 모니터링**: 예
 

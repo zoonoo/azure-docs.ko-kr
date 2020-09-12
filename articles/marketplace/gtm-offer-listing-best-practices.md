@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816272"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420934"
 ---
 # <a name="offer-listing-best-practices"></a>목록에 제품 추가 모범 사례
 
@@ -20,7 +20,7 @@ ms.locfileid: "88816272"
 
 ## <a name="online-store-offer-details"></a>온라인 스토어 제품 세부 정보
 
-| Setting | 모범 사례 |
+| 설정 | 모범 사례 |
 |:--- |:--- |  
 | Offer name | 앱의 경우 고객이 제품을 검색 하는 데 도움이 되는 검색 키워드를 포함 하는 명확한 제목을 제공 합니다. <br> <br> 컨설팅 서비스의 경우 [제품 이름: [기간] [제안 유형] (예: Contoso: 2 주 구현) 형식을 따릅니다. |
 | 제품 설명 | 처음 몇 개의 문장에서 제안 값 제안을 설명 하는 명확한 설명을 제공 합니다.  이러한 문장은 검색 엔진 결과에 사용 될 수 있다는 점에 유의 하세요. 가치 제안의 핵심 구성 요소에는 다음이 포함 되어야 합니다. <ul> <li>제품 또는 솔루션에 대 한 설명입니다. </li> <li> 제품 또는 솔루션을 활용 하는 사용자의 가상 사용자입니다. </li> <li> 고객이 제품 또는 솔루션 주소를 요구 하거나 불만을가지고 있습니다. </li> </ul> <br> 가능 하면 업계 표준 어휘 또는 혜택 기반 단어를 사용 합니다.  제품을 판매하는 특징과 기능에 의존하지 않습니다.  대신, 전달하는 가치에 중점을 둡니다. <br> <br> 컨설팅 서비스 목록의 경우 제공 하는 전문 서비스를 명확 하 게 명시 합니다. |
@@ -34,7 +34,7 @@ ms.locfileid: "88816272"
 
 | 온라인 스토어 | 범주 <br>온라인 스토어 | 범주 <br>온라인 스토어 | 산업 <br> AppSource의 경우 |
 | :------------------- |:----------------:|:------:|:-------------:|
-| **제안 유형**   |  **Azure Marketplace**  | **AppSource**  |
+| **제품 유형**   |  **Azure Marketplace**  | **AppSource**  |
 | Azure 앱 | X | |
 | 컨테이너 | X | |
 | 컨설팅 서비스 | | | X |
@@ -48,11 +48,11 @@ ms.locfileid: "88816272"
 
 ### <a name="categories"></a>범주
 
-Microsoft AppSource 및 Azure Marketplace는 고유한 고객 요구 사항을 충족 하는 두 가지 다른 온라인 상점입니다. Azure Marketplace는 Azure에서 솔루션을 구축 하는 IT 전문가 및 개발자를 대상으로 합니다.  Microsoft AppSource은 비즈니스 및/또는 업계 SaaS 응용 프로그램, Dynamics 365 추가 기능, Microsoft 365 추가 기능 및 파워 플랫폼 앱을 찾고 있는 비즈니스 사용자를 대상으로 합니다.
+Microsoft AppSource 및 Azure Marketplace는 다른 솔루션 유형을 제공 하는 온라인 상점입니다. Azure Marketplace는 또는 Azure에 대해 구축 된 IT 솔루션을 제공 합니다.  Microsoft AppSource 업계 SaaS 응용 프로그램, Dynamics 365 추가 기능, Microsoft 365 추가 기능, 강력한 플랫폼 앱 등의 비즈니스 솔루션을 제공 합니다.
 
-범주와 하위 범주는 대상 그룹에 따라 각 온라인 저장소에 매핑됩니다. 제품은 제품 유형, 제품의 트랜잭션 기능 및 범주/하위 범주 선택에 따라 Microsoft AppSource 또는 Azure Marketplace에 게시 됩니다. 
+범주 및 하위 범주는 솔루션 유형에 따라 각 온라인 저장소에 매핑됩니다. 제품은 제품 유형, 제품의 트랜잭션 기능 및 범주/하위 범주 선택에 따라 Microsoft AppSource 또는 Azure Marketplace에 게시 됩니다. 
 
-제품 및 원하는 대상에 가장 적합 한 범주 및 하위 범주를 선택 합니다. 선택 옵션:
+솔루션 유형과 가장 잘 맞는 범주 및 하위 범주를 선택 합니다. 선택 옵션:
 
 * 기본 및 보조 범주를 포함 하 여 최대 두 개의 범주 (선택 사항)
 * 각 주 및/또는 보조 범주에 대해 최대 두 개의 하위 범주 하위 범주를 선택 하지 않은 경우에는 선택한 범주 에서만 계속 검색할 수 있습니다.
@@ -118,7 +118,7 @@ Microsoft AppSource에 대 한 산업:
 키워드는 고객이 검색 시 제품을 찾을 수 있도록 도와줍니다. 제품의 최상위 검색 키워드를 식별하고 제품 요약 및 설명 뿐만 아니라 제품 목록 세부 정보 섹션의 키워드 섹션에 포함합니다.
 
 ## <a name="online-store-marketing-details"></a>온라인 스토어 마케팅 정보
-| Setting | 모범 사례 |
+| 설정 | 모범 사례 |
 |:--- |:--- |  
 | 제공 로고 (216 × 216에서 350 x 350 px로 제공 되는 PNG 형식): 앱 세부 정보 페이지 | 로고는 디지털 매체에 맞게 설계하고 최적화합니다.<br>제품의 앱 세부 정보 목록 페이지에 PNG 형식의 로고를 업로드합니다. 파트너 센터는 필요한 로고 크기로 크기를 조정 합니다. |
 | 제품 로고 (PNG 형식, 48 x 48 픽셀): 검색 페이지 | 파트너 센터는 업로드 한 긴 로고에서이 로고를 생성 합니다. 필요에 따라 나중에 다른 이미지로이를 바꿀 수 있습니다. |

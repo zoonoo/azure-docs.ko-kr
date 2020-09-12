@@ -2,17 +2,17 @@
 title: SSTP에서 OpenVPN 또는 IKEv2로 전환 | Azure VPN Gateway
 description: 이 문서에서는 SSTP의 128 동시 연결 제한을 극복 하는 방법을 이해 하는 데 도움을 줍니다.
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 03/30/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 1531bca6c56c159b7535536fb31a577f0d7253ef
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aec5a08bf56cd9a9ba18159ffc28a129163571b0
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064685"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426285"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환
 
@@ -116,7 +116,7 @@ Windows 10을 사용 하는 경우 [windows 용 AZURE VPN 클라이언트](https
 |AES256     |   SHA256        | SHA256    | GROUP_ECP256 |
 |AES256     |   SHA256        | SHA256    | GROUP_2 |
 
-**Ip**
+**IPsec**
 
 |**암호** | **무결성** | **PFS 그룹** |
 |---        | ---            | ---        |

@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: 재해 복구를 위한 디자인'
 description: 이 페이지에서는 Azure Express 경로를 사용 하는 동안 재해 복구에 대 한 아키텍처 권장 사항을 제공 합니다.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
-ms.author: rambala
-ms.openlocfilehash: 8adfb0ef0d9aa79d1b14127453f76223f035d62a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 0c85272989a362da77b01af7bb1fe968516e53b6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081171"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398004"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Express 경로 개인 피어 링을 사용 하 여 재해 복구를 위한 디자인
 
@@ -80,7 +80,7 @@ Express 경로는 Microsoft 리소스에 대 한 반송파 등급 개인 네트�
 
 다음 다이어그램에서는 연결 가중치를 사용 하는 Express 경로 선택 경로 선택에 대해 설명 합니다. 기본 연결 가중치는 0입니다. 아래 예제에서는 Express 경로 1에 대 한 연결의 가중치가 100로 구성 됩니다. VNet은 둘 이상의 Express 경로 회로를 통해 보급 된 경로 접두사를 받을 때 가장 높은 가중치가 있는 연결을 선호 합니다.
 
-[![3-4]][4]
+[![4]][4]
 
 Express 경로 1의 연결이 중단 되 면 VNet은 Express 경로 2를 통해서만 10.1.11.0/24 경로 알림을 볼 수 있습니다. 따라서이 오류 상태에서 대기 회로가 사용 됩니다.
 
@@ -114,11 +114,11 @@ Azure에 영향을 주는 방법 중 하나를 사용 하 여 다른 사용자�
 
 시나리오 1은 다음 다이어그램에 설명 되어 있습니다. 다이어그램에서 녹색 선은 VNet1와 온-프레미스 네트워크 간의 트래픽 흐름 경로를 표시 합니다. 파란색 선은 VNet2와 온-프레미스 네트워크 간의 트래픽 흐름 경로를 표시 합니다. 실선은 안정적인 상태에서 원하는 경로를 나타내고 파선은 안정적인 상태 트래픽 흐름을 전달 하는 해당 하는 Express 경로 회로 오류의 트래픽 경로를 표시 합니다. 
 
-[![7]][7]
+[![일]][7]
 
 Vnet에 영향을 주는 연결 가중치를 사용 하 여 온-프레미스 네트워크 바운드 트래픽에 대 한 로컬 피어 링 위치에 대 한 연결을 선호 하는 시나리오를 설계할 수 있습니다. 이 솔루션을 완료 하려면 대칭 역방향 트래픽 흐름을 확인 해야 합니다. BGP 라우터 (온-프레미스 쪽에서 Express 경로 회로가 종료 됨) 간의 iBGP 세션에서 로컬 기본 설정을 사용 하 여 Express 경로 회로를 선호 합니다. 이 솔루션은 다음 다이어그램에 설명 되어 있습니다. 
 
-[![20cm(8]][8]
+[![8]][8]
 
 ### <a name="scenario-2"></a>시나리오 2
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 5b69d10bc2f3c5ec737e026059c82c3efac681b5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4f5fb02239fa48d96b0b779af7c970fc67fbcb99
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268162"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419829"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>템플릿을 통해 Azure Stack Edge GPU 장치에 Vm 배포
 
@@ -139,7 +139,7 @@ key1 GsCm7QriXurqfqx211oKdfQ1C9Hyu5ZutP6Xl0dqlNNhxLxDesDej591M8y7ykSPN4fY9vmVpgc
 key2 7vnVMJUwJXlxkXXOyVO4NfqbW5e/5hZ+VOs+C/h/ReeoszeV+qoyuBitgnWjiDPNdH4+lSm1/ZjvoBWsQ1klqQ== ll
 ```
 
-### <a name="add-blob-uri-to-hosts-file"></a>호스트 파일에 blob URI 추가
+### <a name="add-blob-uri-to-hosts-file"></a>호스트 파일에 Blob URI 추가
 
 Blob storage에 연결 하는 데 사용 하는 클라이언트의 호스트 파일에 blob URI를 이미 추가 했는지 확인 합니다. **관리자 권한으로 메모장을 실행** 하 고에 blob URI에 대 한 다음 항목을 추가 합니다 `C:\windows\system32\drivers\etc\hosts` .
 
@@ -245,11 +245,14 @@ VM에 대 한 이미지 및 가상 네트워크를 만들려면 `CreateImageAndV
 
 ```json
 "parameters": {
+        "osType": {
+              "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
+        },
         "imageName": {
             "value": "<Name for the VM iamge>"
         },
         "imageUri": {
-      "value": "<Path to the VHD that you uploaded in the Storage account>"
+              "value": "<Path to the VHD that you uploaded in the Storage account>"
         },
         "vnetName": {
             "value": "<Name for the virtual network where you will deploy the VM>"
@@ -501,7 +504,7 @@ VM 만들기 템플릿을 배포 `CreateVM.json` 합니다. 이 템플릿은 기
         
         $templateFile = "<Path to CreateVM.json>"
         $templateParameterFile = "<Path to CreateVM.parameters.json>"
-        $RGName = "RG1"
+        $RGName = "<Resource group name>"
              
         New-AzureRmResourceGroupDeployment `
             -ResourceGroupName $RGName `
@@ -547,7 +550,27 @@ VM 만들기 템플릿을 배포 `CreateVM.json` 합니다. 이 템플릿은 기
         
         PS C:\07-30-2020>
     ```   
- 
+`New-AzureRmResourceGroupDeployment`매개 변수를 사용 하 여 비동기적으로 명령을 실행할 수도 있습니다 `–AsJob` . 다음은 cmdlet이 백그라운드에서 실행 될 때의 샘플 출력입니다. 그런 다음 cmdlet을 사용 하 여 만든 작업의 상태를 쿼리할 수 있습니다 `Get-Job` .
+
+    ```powershell   
+    PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
+    >>     -ResourceGroupName $RGName `
+    >>     -TemplateFile $templateFile `
+    >>     -TemplateParameterFile $templateParameterFile `
+    >>     -Name "Deployment2" `
+    >>     -AsJob
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
+     
+    PS C:\WINDOWS\system32> Get-Job -Id 2
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
+    ```
+
 7. VM이 성공적으로 프로 비전 되었는지 확인 합니다. 다음 명령을 실행합니다.
 
     `Get-AzureRmVm`
@@ -555,7 +578,19 @@ VM 만들기 템플릿을 배포 `CreateVM.json` 합니다. 이 템플릿은 기
 
 ## <a name="connect-to-a-vm"></a>VM에 연결
 
+Windows 또는 Linux VM을 만들었는지 여부에 따라 연결 단계가 다를 수 있습니다.
+
+### <a name="connect-to-windows-vm"></a>Windows VM에 연결
+
+Windows VM에 연결 하려면 다음 단계를 수행 합니다.
+
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+### <a name="connect-to-linux-vm"></a>Linux VM에 연결
+
+Linux VM에 연결 하려면 다음 단계를 수행 합니다.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
 <!--## Manage VM
 

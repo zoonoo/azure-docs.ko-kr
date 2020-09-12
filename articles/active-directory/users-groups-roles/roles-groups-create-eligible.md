@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f816c95b5e210e86e2215cadf8407f442d69ebe
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 1c5efbbd5f9f5dfe701deb50b51605ab324c081a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476116"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401676"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Azure Active Directory에서 역할 할당 가능 그룹 만들기
 
-' IsAssignableToRole ' 속성을 True로 설정 하 여 만든 그룹에만 역할을 할당할 수 있으며, azure ad 역할을 사용 하 여 azure ad 포털에서 만든 그룹에는 설정 된 **그룹** 에 역할을 할당할 수 있습니다. 이 그룹 특성은 Azure Active Directory (Azure AD)에서 역할에 할당 될 수 있는 그룹을 만듭니다. 이 문서에서는 이러한 특수 한 종류의 그룹을 만드는 방법을 설명 합니다.
+' IsAssignableToRole ' 속성을 True로 설정 하 여 만든 그룹에만 역할을 할당할 수 있으며, azure ad 역할을 사용 하 여 azure ad 포털에서 만든 그룹에는 설정 된 **그룹** 에 역할을 할당할 수 있습니다. 이 그룹 특성은 Azure Active Directory (Azure AD)에서 역할에 할당 될 수 있는 그룹을 만듭니다. 이 문서에서는 이러한 특수 한 종류의 그룹을 만드는 방법을 설명 합니다. **참고:** IsAssignableToRole 속성이 true로 설정 된 그룹은 동적 멤버 자격 형식일 수 없습니다. 자세한 내용은 [그룹을 사용 하 여 AZURE AD 역할 할당 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept)를 참조 하세요.
 
 ## <a name="using-azure-ad-admin-center"></a>Azure AD 관리 센터 사용
 
@@ -128,4 +128,4 @@ POST https://graph.microsoft.com/beta/groups
 
 - [클라우드 그룹에 역할 할당](roles-groups-assign-role.md)
 - [클라우드 그룹을 사용 하 여 역할 할당 관리](roles-groups-concept.md)
-- [클라우드 그룹에 할당 된 역할 문제 해결](roles-groups-faq-troubleshooting.md)
+- [클라우드 그룹에 할당된 역할 문제 해결](roles-groups-faq-troubleshooting.md)

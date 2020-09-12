@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: Express 경로 직접 구성'
 description: Azure PowerShell를 사용 하 여 전 세계에서 피어 링 위치에 있는 Microsoft 글로벌 네트워크에 직접 연결 하도록 Azure Express 경로 다이렉트를 구성 하는 방법을 알아봅니다.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/22/2020
-ms.author: jaredro
-ms.openlocfilehash: 42803cbc7901be01c88145e2d98f2982434710a1
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: c4ce764f50f85ef9979d5a14235759c16228f6b7
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192755"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396032"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Express 경로 다이렉트를 구성 하는 방법
 

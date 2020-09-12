@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: a7cc135555db2673225d857bf6a21e57de3e3f6b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: ad5b4245cc445ecf8fae22c39db3365d71730a56
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386166"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400146"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>고객 관리 키를 설정 하 여 ISEs (integration service environment)에 대 한 미사용 데이터를 암호화 Azure Logic Apps
 
@@ -33,7 +33,7 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
 
 * ISE를 만드는 HTTPS PUT 요청을 보낸 후 *30 분* 이내에 [ise의 시스템 할당 id에 대 한 key vault 액세스 권한을 부여](#identity-access-to-key-vault)해야 합니다. 그렇지 않으면 ISE 만들기가 실패 하 고 권한 오류가 throw 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure Portal ISE를 만들 때 [ise에 대 한 액세스를 가능 하 게 하](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) 는 동일한 [필수 구성 요소](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) 및 요구 사항
 
@@ -47,7 +47,7 @@ Azure Logic Apps은 Azure Storage를 사용 하 여 [미사용 데이터](../sto
   |----------|-------|
   | **키 유형** | RSA |
   | **RSA 키 크기** | 2048 |
-  | **사용** | 예 |
+  | **Enabled** | 예 |
   |||
 
   ![고객이 관리 하는 암호화 키 만들기](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -225,7 +225,7 @@ ISE를 만들기 위해 HTTP PUT 요청을 보낸 후 *30 분* 이내에 ise의 
 
    1. **액세스 정책** 창에서 완료 되 면 **저장**을 선택 합니다.
 
-자세한 내용은 [관리 되는 id를 사용 하 여 Key Vault 인증 제공](../key-vault/general/managed-identity.md#grant-your-app-access-to-key-vault)을 참조 하세요.
+자세한 내용은 [Key Vault에 인증 하는 방법](/azure/key-vault/general/authentication) 및 [Key Vault 액세스 정책 할당](/azure/key-vault/general/assign-access-policy-portal)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

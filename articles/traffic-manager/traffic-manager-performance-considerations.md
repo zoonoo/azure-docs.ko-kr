@@ -3,20 +3,20 @@ title: Azure Traffic Manager 성능 고려 사항 | Microsoft Docs
 description: Traffic Manager의 성능 및 Traffic Manager 사용 시 웹 사이트의 성능을 테스트 하는 방법에 대한 이
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: rohink
-ms.openlocfilehash: 84367a00643c48e7fe2fb7f907bab64589193b2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: b72126933c5454b8fabe19dda08ad5eb66edd1ba
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76938534"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392673"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사
 

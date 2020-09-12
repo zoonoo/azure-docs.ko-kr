@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.custom: devx-track-python
-ms.openlocfilehash: 7025d042fa021c6ee5311566d66bfd090dbd06cd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 503e37d0e339cacc9c21a2b2f3ad739e1385c955
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851582"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443197"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python Tools for Visual Studio의 Python 웹 및 작업자 역할
 
 이 문서에서는 [Visual Studio용 Python Tools][Python Tools for Visual Studio]를 사용하여 Python 웹 및 작업자 역할을 사용하는 방법을 간략하게 설명합니다. Visual Studio를 사용하여 Python을 사용하는 기본 Cloud Service를 만들고 배포하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 * [Visual Studio 2013, 2015 또는 2017](https://www.visualstudio.com/)
 * [Visual Studio용 Python Tools][Python Tools for Visual Studio](PTVS)
 * [VS 2013용 Azure SDK Tools][Azure SDK Tools for VS 2013] 또는  
@@ -288,7 +288,7 @@ else
 #### <a name="pscmd"></a>ps.cmd
 Visual Studio 템플릿은 **./bin** 폴더에 **ps.cmd** 파일을 만들었어야 합니다. 이 셸 스크립트는 위의 PowerShell 래퍼 스크립트를 호출하고 호출된 PowerShell 래퍼의 이름을 기반으로 하는 로깅을 제공합니다. 이 파일이 생성되지 않은 경우 포함되어야 하는 내용은 다음과 같습니다. 
 
-```bat
+```cmd
 @echo off
 
 cd /D %~dp0
@@ -337,7 +337,7 @@ Azure Storage 또는 Service Bus를 사용하는 등 웹 및 작업자 역할에
 * [테이블 서비스][Table Service]
 * [큐 서비스][Queue Service]
 * [Service Bus 큐][Service Bus Queues]
-* [Service Bus 토픽][Service Bus Topics]
+* [Service Bus 항목][Service Bus Topics]
 
 <!--Link references-->
 

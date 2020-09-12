@@ -3,12 +3,12 @@ title: 보안 컨트롤
 description: Azure Backup 서비스에서 사용 되는 보안 컨트롤에 대해 알아봅니다. 이러한 컨트롤은 서비스에서 보안 취약성을 방지, 감지 및 대응 하는 데 도움이 됩니다.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: ce1ca0a79476e4985569c677b58892fad91866a5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 7ff3ff5c1b024a228778b0214e67239d3c8ab721
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892965"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418758"
 ---
 # <a name="security-controls-for-azure-backup"></a>Azure Backup에 대 한 보안 제어
 
@@ -22,8 +22,9 @@ ms.locfileid: "88892965"
 |---|---|--|--|
 | 서비스 엔드포인트 지원| 예 |  |  |
 | VNet 삽입 지원| 예 |  |  |
-| 네트워크 격리 및 방화벽 지원| 예 | VM 백업에 대해 강제 터널링이 지원됩니다. 강제 터널링은 Vm 내에서 실행 되는 워크 로드에 대해 지원 되지 않습니다. |  |
-| 강제 터널링 지원| 아니요 |  |  |
+| 네트워크 격리 및 방화벽 지원| 예 | |  |
+| Azure Vm에 대 한 강제 터널링 지원 | 예  |  |  |
+| Azure Vm 내에서 실행 중인 응용 프로그램에 대 한 강제 터널링 지원| 아니요  |  |  |
 
 ## <a name="monitoring--logging"></a>모니터링 및 로깅
 

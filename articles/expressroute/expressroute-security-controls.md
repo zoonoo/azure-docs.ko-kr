@@ -3,16 +3,16 @@ title: 'Azure Express 경로: 보안 제어'
 description: 보안 취약성을 예방, 감지 및 대응 하는 데 도움이 되는 품질 또는 기능인 Azure Express 경로의 보안 제어에 대해 알아봅니다.
 services: expressroute
 ms.service: expressroute
-author: msmbaldwin
+author: duongau
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 6a4589d1aa768548f2ae9ffa01f289c823c0b2e5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 24057de44f3d28df96bcb93e89af9c3afa6fa3c6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192419"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394910"
 ---
 # <a name="security-controls-for-azure-expressroute"></a>Azure Express 경로에 대 한 보안 제어
 
@@ -24,8 +24,8 @@ ms.locfileid: "88192419"
 
 | 보안 컨트롤 | 예/아니요 | 메모 |
 |---|---|--|
-| 서비스 엔드포인트 지원| N/A |  |
-| VNet 삽입 지원| N/A | |
+| 서비스 엔드포인트 지원| 해당 없음 |  |
+| VNet 삽입 지원| 해당 없음 | |
 | 네트워크 격리 및 방화벽 지원| 예 | 각 고객은 자체 라우팅 도메인에 포함 되 고 자체 VNet으로 터널링 됩니다. |
 | 강제 터널링 지원| 해당 없음 | Via Border Gateway Protocol (BGP). |
 
@@ -49,7 +49,7 @@ ms.locfileid: "88192419"
 | 보안 컨트롤 | 예/아니요 | 메모 |
 |---|---|--|
 | 미사용 서버 쪽 암호화: Microsoft 관리형 키 |  해당 없음 | Express 경로는 고객 데이터를 저장 하지 않습니다. |
-| 미사용 서버 쪽 암호화: 고객 관리형 키(BYOK) | N/A |  |
+| 미사용 서버 쪽 암호화: 고객 관리형 키(BYOK) | 해당 없음 |  |
 | 열 수준 암호화(Azure Data Services)| 해당 없음 | |
 | 전송 중 암호화(예: ExpressRoute 암호화, VNet 암호화 및 VNet-VNet 암호화)| 아니요 | |
 | API 호출 암호화| 예 | [Azure Resource Manager](../azure-resource-manager/index.yml) 및 HTTPS를 통해 |

@@ -7,20 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/03/2020
-ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/11/2020
+ms.openlocfilehash: 4f7db88da646c9787c70d04ff7e3478a27a09275
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82778263"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401642"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>HDInsight 관리 IP 주소
 
+이 문서에서는 Azure HDInsight 상태 및 관리 서비스에서 사용 하는 IP 주소를 나열 합니다. NSGs (네트워크 보안 그룹) 또는 UDRs (사용자 정의 경로)를 사용 하는 경우 인바운드 네트워크 트래픽에 대 한 허용 목록에 이러한 IP 주소 중 일부를 추가 해야 할 수 있습니다.
+
+## <a name="introduction"></a>소개
+ 
 > [!Important]
-> 대부분의 경우 이제 IP 주소를 수동으로 추가 하는 대신 네트워크 보안 그룹에 대 한 [서비스 태그](hdinsight-service-tags.md) 기능을 사용할 수 있습니다. 새 지역은 서비스 태그에 대해서만 추가 되 고 고정 IP 주소는 결국 사용 되지 않습니다.
+> 대부분의 경우 이제 IP 주소를 수동으로 추가 하는 대신 네트워크 보안 그룹에 대 한 [서비스 태그](hdinsight-service-tags.md) 를 사용할 수 있습니다. 새 Azure 지역에 대 한 IP 주소는 게시 되지 않으며 서비스 태그만 게시 됩니다. 관리 IP 주소에 대 한 고정 IP 주소는 결국 사용 되지 않습니다.
 
 NSGs (네트워크 보안 그룹) 또는 UDRs (사용자 정의 경로)를 사용 하 여 HDInsight 클러스터에 대 한 인바운드 트래픽을 제어 하는 경우 클러스터가 중요 한 Azure 상태 및 관리 서비스와 통신할 수 있는지 확인 해야 합니다.  이러한 서비스의 일부 IP 주소는 지역에 따라 달라 지 며 일부는 모든 Azure 지역에 적용 됩니다. 사용자 지정 DNS를 사용하지 않는 경우에도 Azure DNS 서비스의 트래픽을 허용해야 할 수도 있습니다.
+
+여기에 나열 되지 않은 지역에 대 한 IP 주소가 필요한 경우 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) 를 사용 하 여 해당 지역에 대 한 ip 주소를 찾을 수 있습니다. API를 사용할 수 없는 경우 [서비스 태그 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) 을 다운로드 하 고 원하는 지역을 검색 합니다.
 
 다음 섹션에서는 허용 해야 하는 특정 IP 주소에 대해 설명 합니다.
 
@@ -32,7 +38,7 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 
 
 모든 Azure 지역에 적용 되는 Azure HDInsight 상태 및 관리 서비스에 대 한 다음 IP 주소의 트래픽을 허용 합니다.
 
-| 원본 IP 주소 | 대상  | Direction |
+| 원본 IP 주소 | 대상  | 방향 |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*: 443 | 인바운드 |
 | 23.99.5.239 | \*: 443 | 인바운드 |
@@ -46,10 +52,10 @@ Azure에서 제공 하는 DNS 서비스를 사용 하는 경우 포트 53에서 
 > [!IMPORTANT]  
 > 사용 중인 Azure 지역이 나열 되지 않은 경우 네트워크 보안 그룹에 대 한 [서비스 태그](hdinsight-service-tags.md) 기능을 사용 합니다.
 
-| 국가 | 지역 | 허용된 원본 IP 주소 | 허용 된 대상 | Direction |
+| 국가 | 지역 | 허용된 원본 IP 주소 | 허용 된 대상 | 방향 |
 | ---- | ---- | ---- | ---- | ----- |
 | 아시아 | 동아시아 | 23.102.235.122</br>52.175.38.134 | \*: 443 | 인바운드 |
-| &nbsp; | 동남아시아 | 13.76.245.160</br>13.76.136.249 | \*: 443 | 인바운드 |
+| &nbsp; | 동남 아시아 | 13.76.245.160</br>13.76.136.249 | \*: 443 | 인바운드 |
 | 오스트레일리아 | 오스트레일리아 동부 | 104.210.84.115</br>13.75.152.195 | \*: 443 | 인바운드 |
 | &nbsp; | 오스트레일리아 남동부 | 13.77.2.56</br>13.77.2.94 | \*: 443 | 인바운드 |
 | 브라질 | 브라질 남부 | 191.235.84.104</br>191.235.87.113 | \*: 443 | 인바운드 |

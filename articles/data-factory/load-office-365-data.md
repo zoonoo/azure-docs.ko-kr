@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 170716804a5bc3133e070ee67f2aac71acad7b0b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415807"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435562"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Office 365에서 데이터 로드
 
@@ -63,7 +63,7 @@ ms.locfileid: "81415807"
 
 2. 새 데이터 집합 창에서 **Office 365**을 선택 하 고 **계속**을 선택 합니다.
  
-3. 이제 복사 작업 구성 탭에서 Office 365 데이터 집합 옆의 **편집** 단추를 클릭 하 여 데이터 구성을 계속 합니다.
+3. 이제 복사 작업 구성 탭에 있습니다. Office 365 데이터 집합 옆의 **편집** 단추를 클릭 하 여 데이터 구성을 계속 합니다.
 
     ![Office 365 데이터 세트 일반 정보 구성](./media/load-office-365-data/transition-to-edit-dataset.png)
  
@@ -147,7 +147,7 @@ _데이터 추출 중 상태:_
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure SQL Data Warehouse 지원에 대한 자세한 내용은 다음 문서를 참조하세요. 
+Azure Synapse Analytics (이전의 SQL Data Warehouse) 지원에 대해 알아보려면 다음 문서로 이동 합니다. 
 
 > [!div class="nextstepaction"]
 >[Office 365 커넥터](connector-office-365.md)

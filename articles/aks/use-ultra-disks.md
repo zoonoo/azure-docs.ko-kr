@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 Ultra Disks를 �
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 6ad739a128839eac4d664ffb6f9e3b2fcd07f2d9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650182"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420866"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Azure Kubernetes Service에서 Azure ultra disks 사용 (미리 보기)
 
@@ -21,11 +21,6 @@ ms.locfileid: "88650182"
 
 > [!IMPORTANT]
 > Azure ultra disks에는 특정 VM 시리즈 뿐만 아니라 해당 디스크를 지 원하는 가용성 영역 및 지역에 배포 된 nodepools 필요 합니다. [**Ultra DISKS GA 범위 및 제한 사항**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)을 참조 하세요.
-
-### <a name="prerequisites"></a>전제 조건
-
-- `EnableUltraSSD`기능 플래그를 사용 하도록 설정 했는지 확인 합니다.
-- 최신 `aks-preview` [CLI 확장이][az-extension-add] 설치 되어 있는지 확인 합니다.
 
 ### <a name="register-the-enableultrassd-preview-feature"></a>`EnableUltraSSD`미리 보기 기능 등록
 
@@ -78,7 +73,7 @@ Azure 리소스 그룹을 만듭니다.
 az group create --name myResourceGroup --location westus2
 ```
 
-Kubernetes 권한 부여를 위해 관리 되는 Azure AD 통합 및 Azure RBAC를 사용 하 여 AKS 클러스터를 만듭니다.
+Ultra Disks를 지 원하는 AKS 클러스터를 만듭니다.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
@@ -133,7 +128,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 ## <a name="create-a-persistent-volume-claim"></a>영구적 볼륨 클레임 만들기
 
-PVC(영구적 볼륨 클레임)을 사용하여 스토리지 클래스를 기반으로 하는 스토리지를 자동으로 프로비전합니다. 이 경우에 PVC는 미리 생성된 스토리지 클래스 중 하나를 사용하여 표준 또는 프리미엄 Azure 관리 디스크를 만들 수 있습니다.
+PVC(영구적 볼륨 클레임)을 사용하여 스토리지 클래스를 기반으로 하는 스토리지를 자동으로 프로비전합니다. 이 경우 PVC는 이전에 만든 저장소 클래스를 사용 하 여 울트라 디스크를 만들 수 있습니다.
 
 파일 `azure-ultra-disk-pvc.yaml`을 만들고 다음 매니페스트에 복사합니다. 클레임은 `ultra-disk` 액세스 *한 후 readwriteonce* 사용 하 여 크기가 *1000* 인 디스크를 요청 합니다. *Ultra disk-sc* 저장소 클래스는 저장소 클래스로 지정 됩니다.
 

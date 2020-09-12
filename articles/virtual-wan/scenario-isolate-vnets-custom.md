@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 84c7b72e3ac7a5726dea38b21b14b5bd83b42340
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0a3665f1719c7a5f8ed9bd6acf518b642e06320d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831025"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400061"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>시나리오: Vnet에 대 한 사용자 지정 격리
 
@@ -29,7 +29,7 @@ ms.locfileid: "87831025"
 | **레드 Vnet**  |   &#8594;|              |       X       |       X      |
 | **분기**   |   &#8594;|     X        |       X       |       X      |
 
-위의 표에 나와 있는 각 셀은 가상 WAN 연결 (흐름의 "From" 측, 테이블의 행 머리글)이 특정 트래픽 흐름에 대 한 대상 접두사 (흐름의 "대상" 쪽, 테이블의 기울임꼴 열 머리글)를 학습 하는지 여부를 설명 합니다.
+위의 표에 나와 있는 각 셀은 가상 wan 연결 (흐름의 "From" 쪽, 테이블의 행 머리글)이 특정 트래픽 흐름에 대 한 대상 접두사를 학습 하는지 여부를 설명 합니다. 여기서 "X"는 가상 WAN에서 연결이 제공 됨을 의미 합니다.
 
 다른 행 패턴의 수는이 시나리오에서 필요한 경로 테이블 수입니다. 이 경우 가상 네트워크에 대 한 **RT_BLUE** 및 **RT_RED** 를 호출 하는 세 개의 경로 경로 테이블과 분기에 대 한 **기본값이** 제공 됩니다. 분기는 항상 기본 라우팅 테이블에 연결 되어야 합니다.
 

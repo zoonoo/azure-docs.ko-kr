@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 3c2fef4ebd7db076a502f63101c80c4e08683b39
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145368"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394740"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>다른 구독으로 Azure Key Vault 이동
 
@@ -97,11 +97,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 이제 자격 증명 모음이 올바른 테넌트 ID와 연결되고 이전 액세스 정책 항목이 제거되었으므로 Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) cmdlet 또는 Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령을 사용하여 새 액세스 정책 항목을 설정합니다.
 
-Azure 리소스에 관리 ID를 사용하는 경우 새 Azure AD 테넌트로도 업데이트해야 합니다. 관리 ID에 대한 자세한 내용은 [관리 ID를 사용하여 Key Vault 인증 제공](managed-identity.md)을 참조하세요.
+Azure 리소스에 관리 되는 id를 사용 하는 경우 새 Azure Active Directory 테 넌 트로도 업데이트 해야 합니다. 관리 id에 대 한 자세한 내용은 [관리 id 개요](/azure/active-directory/managed-identities-azure-resources/overview)를 확인 하세요.
 
-MSI를 사용하는 경우 이전 ID가 더 이상 올바른 AAD 테넌트에 있지 않으므로 MSI ID도 업데이트해야 합니다. 이 문제를 해결 하려면 다음 문서를 참조 하세요. 
+관리 id를 사용 하는 경우 이전 id가 더 이상 올바른 Azure Active Directory 테 넌 트에 없으므로 id도 업데이트 해야 합니다. 이 문제를 해결 하려면 다음 문서를 참조 하세요. 
 
 * [MSI 업데이트](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
 * [새 디렉터리로 구독 전송](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
-
-
