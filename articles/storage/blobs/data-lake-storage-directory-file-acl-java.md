@@ -3,26 +3,26 @@ title: Acl & 파일에 대 한 Java SDK Azure Data Lake Storage Gen2
 description: Java 용 Azure Storage 라이브러리를 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정의 디렉터리 및 파일 및 디렉터리 ACL (액세스 제어 목록)을 관리 합니다.
 author: normesta
 ms.service: storage
-ms.date: 03/20/2020
+ms.date: 09/10/2020
 ms.custom: devx-track-java
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 0f7dfda46c7a4af8143c33b1b45001a88d3bed88
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ac0f885a370269a87e45b5e31ec1de6ac397080a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319391"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017216"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Java를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
 이 문서에서는 Java를 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리 하는 방법을 보여 줍니다. 
 
-[패키지 (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)  |  [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)  |  [API 참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)  |  [Gen1 To Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
+[패키지 (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)  |  [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)  |  [API 참조](/java/api/overview/azure/storage-file-datalake-readme)  |  [Gen1 To Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -395,8 +395,8 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 
 ## <a name="see-also"></a>참고 항목
 
-* [API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)
-* [패키지 (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
+* [API 참조 설명서](/java/api/overview/azure/storage-file-datalake-readme)
+* [패키지(Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
 * [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
 * [Gen1과 Gen2 매핑](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 * [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)

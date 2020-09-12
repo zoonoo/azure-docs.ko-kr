@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08120b98c7a08bca50453df59df313b1645c5c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd198a132f64c26f775a8212c22b77201d579260
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80331263"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657159"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
 Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 암호를 사용하여 온-프레미스 및 클라우드 리소스 모두에 로그인할 수 있습니다. 이 문서에서는 Azure AD에 로그인할 때 사용하려는 ID 선택에 도움이 되도록 모든 ID 모델의 주요 개념에 대해 설명합니다.
@@ -47,9 +47,9 @@ Azure AD에서는 다음과 같은 인증 방법을 지원합니다.
    * **PTA(통과 인증)** - 이 옵션은 암호 해시 동기화와 유사하지만 강력한 보안 및 준수 정책을 통해 조직의 온-프레미스 소프트웨어 에이전트를 사용하여 간단한 암호 검증을 제공합니다.
 * **페더레이션 인증** - 이 인증 방법을 선택하면 Azure AD가 인증 프로세스를 별도의 신뢰할 수 있는 인증 시스템(예: AD FS 또는 타사 페더레이션 시스템)으로 넘겨서 사용자의 로그인이 확인됩니다. 
 
-Office 365, SaaS 애플리케이션 및 기타 Azure AD 기반 리소스에 사용자가 로그인할 수 있도록 하려는 대부분의 조직의 경우, 기본 암호 해시 동기화 옵션이 좋습니다.
+Microsoft 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사용자 로그인을 사용 하도록 설정 하려는 대부분의 조직에서는 기본 암호 해시 동기화 옵션을 사용 하는 것이 좋습니다.
  
-인증 방법을 선택하는 방법에 대한 자세한 내용은 [Azure Active Directory 하이브리드 ID 솔루션에 대한 올바른 인증 방법 선택](../../security/fundamentals/choose-ad-authn.md)을 참조하세요.
+인증 방법을 선택하는 방법에 대한 자세한 내용은 [Azure Active Directory 하이브리드 ID 솔루션에 대한 올바른 인증 방법 선택](./choose-ad-authn.md)을 참조하세요.
 
 ### <a name="password-hash-synchronization"></a>암호 해시 동기화
 암호 해시 동기화를 수행하면 사용자 암호의 해시는 온-프레미스 Active Directory에서 Azure AD로까지 동기화됩니다. 암호를 변경하거나 온-프레미스에서 다시 설정하면, 새 암호 해시가 Azure AD와 즉시 동기화되므로 사용자는 클라우드 리소스와 온-프레미스 리소스에 항상 동일한 암호를 사용할 수 있습니다. 암호는 Azure AD로 전송되거나 일반 텍스트로 Azure AD에 저장되지 않습니다. 암호 해시 동기화를 암호 쓰기 저장과 함께 사용하여 Azure AD에서 재설정한 자체 서비스 암호를 사용할 수 있습니다.
@@ -126,7 +126,7 @@ Azure AD 로그인 환경은 Azure AD를 Azure AD 디렉터리에서 확인된 �
 Azure AD Connect는 도메인에 대해 정의된 UPN 접미사를 나열하며 Azure AD의 사용자 지정 도메인과 매칭하려고 합니다. 그러면 적절한 조치를 취하는 데 도움이 됩니다.
 Azure AD 로그인 페이지는 온-프레미스 Active Directory에 대해 정의된 UPN 접미사를 나열하고 각 접미사에 해당하는 상태를 표시합니다. 상태 값은 다음 중 하나가 될 수 있습니다.
 
-| 시스템 상태 | Description | 작업 필요 |
+| 시스템 상태 | 설명 | 작업 필요 |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect가 Azure AD에서 확인된 일치하는 도메인을 찾았습니다. 이 도메인에 대한 모든 사용자는 온-프레미스 자격 증명을 사용하여 로그인할 수 있습니다. |어떤 조치가 필요하지 않습니다. |
 | 확인되지 않음 |Azure AD Connect는 Azure AD에서 사용자 지정 도메인을 찾을 수 있지만 확인되지 않습니다. 이 도메인의 사용자의 UPN 접미사는 도메인이 확인되지 않으면 동기화 후에 기본값 .onmicrosoft.com 접미사로 변경됩니다. | [Azure AD에서 사용자 지정 도메인 확인](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) |
@@ -139,12 +139,12 @@ Azure AD 로그인 페이지는 현재 확인 상태를 사용하여 Azure AD에
 새로 고침 단추를 클릭하여 Azure AD에서 사용자 지정 도메인의 최신 상태를 다시 가져올 수 있습니다.
 
 ### <a name="selecting-the-attribute-for-the-user-principal-name-in-azure-ad"></a>Azure AD에서 사용자 계정 이름에 특성 선택
-특성 userPrincipalName은 사용자가 Azure AD 및 Office 365에 로그인할 때 사용하는 특성입니다. Azure AD에서 사용된 도메인(또는 UPN 접미사)은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다.
+UserPrincipalName 특성은 사용자가 Azure AD에 로그인 하 고 Microsoft 365 때 사용 하는 특성입니다. Azure AD에서 사용된 도메인(또는 UPN 접미사)은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다.
 
 기본 특성 userPrincipalName을 유지하는 것이 좋습니다. 이 특성은 라우팅할 수 없고 확인할 수 없는 경우 다른 특성(전자 메일 등)을 로그인 ID를 보유하는 특성으로 선택할 수 있습니다. 대체 ID로도 알려져 있습니다. 대체 ID 특성 값은 RFC 822 표준을 따라야 합니다. 암호 SSO 및 페더레이션 SSO 모두에 대체 ID를 로그인 솔루션으로 사용할 수 있습니다.
 
 > [!NOTE]
-> 대체 ID를 사용하면 일부 Office 365 워크로드와 호환되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](https://technet.microsoft.com/library/dn659436.aspx)을 참조하세요.
+> 대체 ID를 사용 하는 작업은 모든 Microsoft 365 작업과 호환 되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)을 참조하세요.
 >
 >
 

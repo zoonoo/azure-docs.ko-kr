@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07c1405482f107e370327ffbc049c77f483c29bd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357871"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662573"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 변경
 이 문서의 목적은 Azure AD(Active Directory) Connect 동기화에서 기본 구성 변경 방법을 안내하는 것입니다. 몇 가지 일반적인 시나리오를 위한 단계를 제공합니다. 이러한 지식을 바탕으로 사용자의 고유한 비즈니스 규칙에 따라 자체 구성에 대해 간단한 내용을 변경할 수 있습니다.
@@ -113,7 +113,7 @@ ms.locfileid: "85357871"
 이전 섹션에서는 특성 흐름을 변경하는 방법을 설명하였습니다. 이 섹션에서는 몇 가지 추가 예제가 제공됩니다. 동기화 규칙을 만드는 방법에 대한 단계가 간략하게 설명되어 있지만 이전 섹션에서 전체 단계를 찾아볼 수 있습니다.
 
 ### <a name="use-an-attribute-other-than-the-default"></a>기본값이 아닌 특성 사용
-이 Fabrikam 시나리오에는 지정된 이름, 성 및 표시 이름에 로컬 알파벳이 사용된 포리스트가 있습니다. 이러한 특성의 라틴 문자 표현은 확장 특성에서 찾을 수 있습니다. Azure AD 및 Office 365에서 전역 주소 목록을 빌드하기 위해 조직에서는 이러한 특성을 대신 사용하려 합니다.
+이 Fabrikam 시나리오에는 지정된 이름, 성 및 표시 이름에 로컬 알파벳이 사용된 포리스트가 있습니다. 이러한 특성의 라틴 문자 표현은 확장 특성에서 찾을 수 있습니다. Azure AD에서 전체 주소 목록을 작성 하 고 Microsoft 365 하는 경우 조직에서는 이러한 특성을 대신 사용 하려고 합니다.
 
 기본 구성을 사용하면 로컬 포리스트의 개체는 다음과 같이 나타납니다.  
 ![특성 흐름 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
@@ -200,7 +200,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **UserT
 
 - Azure AD는 UserType 특성에 대해 **멤버** 및 **게스트** 두 값만 허용합니다.
 - Azure AD Connect에서 UserType 특성이 동기화에 대해 사용하도록 설정되어 있지 않은 경우 디렉터리 동기화를 통해 만든 Azure AD 사용자는 UserType 특성이 **멤버**로 설정되었을 것입니다.
-- 버전 1.5.30.0 이전에 Azure AD에서는 Azure AD Connect에 의해 변경될 기존 Azure AD 사용자에 대해 UserType 특성을 허용하지 않았습니다. 이전 버전에서는 Azure AD 사용자를 만드는 동안에만 설정하고 [ 변경](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0)할 수 있었습니다.
+- 버전 1.5.30.0 이전에 Azure AD에서는 Azure AD Connect에 의해 변경될 기존 Azure AD 사용자에 대해 UserType 특성을 허용하지 않았습니다. 이전 버전에서는 Azure AD 사용자를 만들고 [PowerShell을 통해 변경](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0)하는 동안에만 설정할 수 있었습니다.
 
 UserType 특성의 동기화를 사용하도록 설정하기 전에 먼저 이 특성이 온-프레미스 Active Directory에서 파생되는 방법을 결정해야 합니다. 다음은 가장 일반적인 방식입니다.
 

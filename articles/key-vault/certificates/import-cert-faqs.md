@@ -10,18 +10,18 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: b7a2c78238de58ee8851462aa7193121b35f72a9
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588824"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651843"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Azure Key Vault 인증서 가져오기 FAQ
 
 이 문서에서는 Azure Key Vault 인증서 가져오기에 대 한 자주 묻는 질문에 답변 합니다.
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-can-i-import-a-certificate-in-azure-key-vault"></a>Azure Key Vault에서 인증서를 가져오려면 어떻게 해야 하나요?
 
@@ -54,7 +54,7 @@ Key Vault에서 인증서를 가져오고 보호 한 후에는 연결 된 암호
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>"오류 유형: 인증서를 만들 때 충돌"을 해결 하려면 어떻게 해야 하나요?
     
-각 인증서 이름은 고유 해야 합니다. 다른 이름과 같은 이름을 가진 인증서는 일시 삭제 된 상태에 있을 수 있습니다. 또한 Azure Key Vault [인증서의 조합](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) 에 따라, 인증서에 지정 하려는 것과 같은 이름의 키 자격 증명 모음에 다른 키 또는 암호가 있으면 인증서 만들기가 실패 하 고 해당 키 또는 비밀을 제거 하거나 인증서에 다른 이름을 사용 해야 합니다. 
+각 인증서 이름은 고유 해야 합니다. 이름이 같은 인증서가 일시 삭제 된 상태에 있을 수 있습니다. 또한 [인증서의 컴포지션에](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate)따라, 새 인증서를 만들 때 동일한 이름의 주소 지정 가능 암호를 만듭니다. 그러면 인증서에 지정 하려는 것과 이름이 같은 키 자격 증명 모음에 다른 키 또는 암호가 있으면 인증서 만들기가 실패 하 고 해당 키 또는 비밀을 제거 하거나 인증서에 다른 이름을 사용 해야 합니다. 
 
 자세한 내용은 [삭제 된 인증서 가져오기 작업](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate)을 참조 하세요.
 

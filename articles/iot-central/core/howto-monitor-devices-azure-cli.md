@@ -6,15 +6,15 @@ ms.author: viviali
 ms.date: 03/27/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, device-developer
 services: iot-central
 manager: corywink
-ms.openlocfilehash: b9cf8b862f77af833016d6aabb0ccae7bea8e24a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 276513e41b1595180acb0a596b236428032d87a6
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497429"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015979"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Azure CLI를 사용하여 디바이스 연결 모니터링
 
@@ -24,9 +24,9 @@ Azure CLI IoT 확장을 사용 하 여 장치가 IoT Central으로 전송 하는
 
 [자세한 내용은 Azure CLI 확장 참조를 참조 하세요.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/central?view=azure-cli-latest)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-+ Azure CLI 설치 되어 있으며 버전 2.0.7 이상입니다. 을 실행 하 여 Azure CLI 버전을 확인 `az --version` 합니다. [Azure CLI 문서](https://docs.microsoft.com/cli/azure/install-azure-cli) 에서 설치 및 업데이트 하는 방법을 알아봅니다.
++ Azure CLI 설치 되어 있으며 버전 합니다 이상입니다. 을 실행 하 여 Azure CLI 버전을 확인 `az --version` 합니다. [Azure CLI 문서](https://docs.microsoft.com/cli/azure/install-azure-cli) 에서 설치 및 업데이트 하는 방법을 알아봅니다.
 + IoT Central 응용 프로그램에서 사용자로 추가 된 Azure의 회사 또는 학교 계정
 
 ## <a name="install-the-iot-central-extension"></a>IoT Central 확장 설치
@@ -43,7 +43,7 @@ az extension add --name azure-iot
 az --version
 ```
 
-Azure-iot 확장이 0.8.1 이상 인지 확인 해야 합니다. 그렇지 않은 경우 다음을 실행 합니다.
+Azure-iot 확장이 0.9.9 이상 인지 확인 해야 합니다. 그렇지 않은 경우 다음을 실행 합니다.
 
 ```azurecli
 az extension update --name azure-iot
@@ -68,14 +68,14 @@ az login
 장치에서 IoT Central 앱에 전송 되는 메시지를 모니터링 합니다. 출력에는 모든 헤더 및 주석이 포함 됩니다.
 
 ```azurecli
-az iot central app monitor-events --app-id <app-id> --properties all
+az iot central diagnostics monitor-events --app-id <app-id> --properties all
 ```
 
 ### <a name="view-device-properties"></a>디바이스 속성 보기
 지정 된 장치에 대 한 현재 읽기 및 읽기/쓰기 장치 속성을 봅니다.
 
 ```azurecli
-az iot central device-twin show --app-id <app-id> --device-id <device-id>
+az iot central device twin show --app-id <app-id> --device-id <device-id>
 ```
 
 ## <a name="next-steps"></a>다음 단계

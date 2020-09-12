@@ -6,19 +6,19 @@ ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0488f467a036957bf2341aab63919a105f383bdf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 420ff7ed838bc9fa14c1276ae0a70220fc7e11a9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003527"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024063"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>인증을 위해 Azure Frontend API 사용
 
 이 섹션에서는 인증 및 세션 관리를 위해 API를 사용 하는 방법을 설명 합니다.
 
 > [!CAUTION]
-이 장에서 설명 하는 함수는 내부적으로 서버에서 REST 호출을 실행 합니다. 모든 REST 호출의 경우와 마찬가지로, 이러한 명령을 너무 자주 보내면 서버가 제한을 초과 하 여 결국 오류가 반환 됩니다. `SessionGeneralContext.HttpResponseCode`이 경우 멤버의 값은 429 ("요청이 너무 많음")입니다. 이에 대 한 규칙에 따라 **이후 호출 사이에 5-10 초의**지연이 발생 합니다.
+> 이 장에서 설명 하는 함수는 내부적으로 서버에서 REST 호출을 실행 합니다. 모든 REST 호출의 경우와 마찬가지로, 이러한 명령을 너무 자주 보내면 서버가 제한을 초과 하 여 결국 오류가 반환 됩니다. `SessionGeneralContext.HttpResponseCode`이 경우 멤버의 값은 429 ("요청이 너무 많음")입니다. 일반적으로 **후속 호출 간에 5~10초** 지연이 발생합니다.
 
 
 ## <a name="azurefrontendaccountinfo"></a>AzureFrontendAccountInfo

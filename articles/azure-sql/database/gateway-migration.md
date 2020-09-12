@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: af5486630eb89de198b6ed2975a919b04b01a902
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507521"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004275"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,14 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 ## <a name="status-updates"></a>상태 업데이트
 
 # <a name="in-progress"></a>[진행 중](#tab/in-progress-ip)
+### <a name="october-2020"></a>10 월 2020
+
+새 SQL 게이트웨이가 다음 지역에 추가 됩니다.
+
+- 독일 중서부: 51.116.240.0, 51.116.248.0
+
+이러한 SQL 게이트웨이는 12 2020 월 12 일에 고객 트래픽 수락을 시작 합니다. 
+
 ### <a name="september-2020"></a>2020년 9월
 새 SQL 게이트웨이가 다음 지역에 추가 되 고 있습니다. 이러한 SQL 게이트웨이는 **2020 년 9 월 15**일에 고객 트래픽 수락을 시작 합니다.
 

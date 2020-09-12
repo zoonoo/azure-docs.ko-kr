@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cd9b891212010d7e61c4a4eb64d8bf0660bbd69a
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167643"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661646"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -155,7 +155,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 * `--pe-vnet-name`: 개인 끝점을 만들 기존 가상 네트워크입니다.
 * `--pe-subnet-name`: 개인 끝점을 만들 서브넷의 이름입니다. 기본값은 `default`입니다.
 
-작업 영역에서 개인 끝점 및 가상 네트워크를 사용 하는 방법에 대 한 자세한 내용은 [네트워크 격리 및 개인 정보](how-to-enable-virtual-network.md)를 참조 하세요.
+작업 영역에서 개인 끝점 및 가상 네트워크를 사용 하는 방법에 대 한 자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조 하세요.
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>고객 관리 키 및 높은 비즈니스 영향 작업 영역
 

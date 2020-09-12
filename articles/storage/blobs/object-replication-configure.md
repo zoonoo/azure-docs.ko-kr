@@ -1,25 +1,25 @@
 ---
-title: 개체 복제(미리 보기) 구성
+title: 개체 복제 구성
 titleSuffix: Azure Storage
 description: 한 스토리지 계정의 컨테이너에 있는 블록 blob을 다른 스토리지 계정과 비동기식으로 복사하도록 개체 복제를 구성하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c28e869bff1d0e921a1e5a952dbfcb21ee97d16b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4fb616860cb1e85c6249329f3679de0d29b72e61
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228327"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018835"
 ---
-# <a name="configure-object-replication-for-block-blobs-preview"></a>블록 blob에 대한 개체 복제(미리 보기) 구성
+# <a name="configure-object-replication-for-block-blobs"></a>블록 blob에 대 한 개체 복제 구성
 
-개체 복제(미리 보기)는 원본 스토리지 계정과 대상 계정 간에 블록 Blob을 비동기적으로 복사합니다. 개체 복제에 대 한 자세한 내용은 [개체 복제(미리 보기)](object-replication-overview.md)를 참조하세요.
+개체 복제는 원본 저장소 계정과 대상 계정 사이에서 블록 blob을 비동기적으로 복사 합니다. 개체 복제에 대 한 자세한 내용은 [개체 복제](object-replication-overview.md)를 참조 하세요.
 
 개체 복제를 구성하는 경우 원본 스토리지 계정 및 대상 계정을 지정하는 복제 정책을 만듭니다. 복제 정책에는 원본 컨테이너와 대상 컨테이너를 지정하고 원본 컨테이너에서 복제할 블록 Blob을 나타내는 하나 이상의 규칙이 포함되어 있습니다.
 
@@ -31,17 +31,23 @@ ms.locfileid: "89228327"
 
 개체 복제를 구성하기 전에 원본 및 대상 스토리지 계정이 아직 없는 경우 만듭니다. 두 계정 모두 범용 v2 스토리지 계정이어야 합니다. 자세한 내용은 [Azure Storage 계정 만들기](../common/storage-account-create.md)를 참조하세요.
 
-스토리지 계정은 최대 두 개의 대상 계정에 대한 원본 계정으로 사용할 수 있습니다. 그리고 대상 계정에는 세 개 이상의 원본 계정이 있을 수 있습니다. 원본 및 대상 계정이 모두 다른 지역에 있을 수 있습니다. 각 대상 계정에 데이터를 복제하도록 별도의 복제 정책을 구성할 수 있습니다.
+개체를 복제 하려면 원본 및 대상 계정 모두에 대해 blob 버전 관리를 사용 하도록 설정 하 고 원본 계정에 대해 blob 변경 피드가 사용 하도록 설정 되어 있어야 합니다. Blob 버전 관리에 대해 자세히 알아보려면 [blob 버전 관리](versioning-overview.md)를 참조 하세요. 변경 피드에 대 한 자세한 내용은 [Azure Blob Storage에서 변경 피드 지원](storage-blob-change-feed.md)을 참조 하세요. 이러한 기능을 사용 하도록 설정 하면 추가 비용이 발생할 수 있습니다.
 
-시작 하기 전에 다음 기능 미리 보기에 등록 했는지 확인 합니다.
+스토리지 계정은 최대 두 개의 대상 계정에 대한 원본 계정으로 사용할 수 있습니다. 원본 및 대상 계정이 동일한 지역 또는 다른 지역에 있을 수 있습니다. 또한 서로 다른 구독 및 다른 Azure Active Directory (Azure AD) 테 넌 트에 상주할 수 있습니다. 각 계정 쌍에 대해 하나의 복제 정책만 만들 수 있습니다.
 
-- [개체 복제(미리 보기)](object-replication-overview.md)
-- [Blob 버전 관리](versioning-overview.md)
-- [Azure Blob 스토리지의 변경 피드 지원(미리 보기)](storage-blob-change-feed.md)
+개체 복제를 구성 하는 경우 Azure Storage 리소스 공급자를 통해 대상 계정에 대 한 복제 정책을 만듭니다. 복제 정책을 만든 후에는 Azure Storage에 정책 ID를 할당 합니다. 그런 다음 정책 ID를 사용 하 여 해당 복제 정책을 원본 계정과 연결 해야 합니다. 복제를 수행 하려면 원본 및 대상 계정의 정책 ID가 동일 해야 합니다.
+
+저장소 계정에 대 한 개체 복제 정책을 구성 하려면 저장소 계정 수준으로 범위가 지정 된 Azure Resource Manager **참여자** 역할을 할당 받아야 합니다. 자세한 내용은 Azure 역할 기반 Access Control (RBAC) 설명서의 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 참조 하세요.
+
+### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>두 저장소 계정 모두에 액세스할 수 있는 경우 개체 복제 구성
+
+원본 및 대상 저장소 계정에 대 한 액세스 권한이 있는 경우 두 계정 모두에서 개체 복제 정책을 구성할 수 있습니다.
+
+Azure Portal에서 개체 복제를 구성하기 전에 해당 스토리지 계정에 원본 및 대상 컨테이너가 아직 없는 경우 새로 만듭니다. 또한 원본 계정에서 blob 버전 관리 및 변경 피드를 사용 하도록 설정 하 고 대상 계정에서 blob 버전 관리를 사용 하도록 설정 합니다.
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
-Azure Portal에서 개체 복제를 구성하기 전에 해당 스토리지 계정에 원본 및 대상 컨테이너가 아직 없는 경우 새로 만듭니다. 또한 원본 계정에서 blob 버전 관리 및 변경 피드를 사용하도록 설정하고 대상 계정에서 blob 버전 관리를 사용하도록 설정합니다.
+Azure Portal는 대상 계정에 대해 구성한 후 원본 계정에 정책을 자동으로 만듭니다.
 
 Azure Portal에서 복제 정책을 만들려면 다음 단계를 수행합니다.
 
@@ -63,39 +69,19 @@ Azure Portal에서 복제 정책을 만들려면 다음 단계를 수행합니�
 
 1. 기본적으로 복사 범위는 새 개체만 복사하도록 설정됩니다. 컨테이너의 모든 개체를 복사하거나 사용자 지정 날짜 및 시간에 시작된 개체를 복사하려면 **변경** 링크를 선택하고 컨테이너 쌍의 복사 범위를 구성합니다.
 
-    다음 그림은 사용자 지정 복사 범위를 보여 줍니다.
+    다음 이미지는 지정 된 날짜와 시간 이후 개체를 복사 하는 사용자 지정 복사 범위를 보여 줍니다.
 
     :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="개체 복제에 대한 사용자 지정 복사 범위를 보여 주는 스크린샷":::
 
 1. **저장 및 적용**을 선택하여 복제 정책을 만들고 데이터 복제를 시작합니다.
 
+개체 복제를 구성한 후에는 다음 그림에 표시 된 것 처럼 Azure Portal에 복제 정책 및 규칙이 표시 됩니다.
+
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Azure Portal의 개체 복제 정책을 보여 주는 스크린샷":::
+
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell을 사용 하 여 복제 정책을 만들려면 먼저 Az. Storage PowerShell 모듈의 버전 [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) 이상을 설치 합니다. 다음 단계에 따라 미리 보기 모듈을 설치합니다.
-
-1. **설정**에 있는 **앱 및 기능** 설정을 사용하여 이전에 설치한 Azure PowerShell이 있으면 Windows에서 제거합니다.
-
-1. 최신 버전의 PowerShellGet이 설치되어 있는지 확인합니다. Windows PowerShell 창을 열고 다음 명령을 실행하여 최신 버전을 설치합니다.
-
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-
-    PowerShellGet을 설치한 후 PowerShell 창을 닫았다가 다시 엽니다.
-
-1. Azure PowerShell의 최신 버전을 설치합니다.
-
-    ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
-    ```
-
-1. Az.Storage 미리 보기 모듈 설치
-
-    ```powershell
-    Install-Module Az.Storage -Repository PSGallery -RequiredVersion 2.0.1-preview -AllowPrerelease -AllowClobber -Force
-    ```
-
-Azure PowerShell을 설치하는 방법에 대한 자세한 내용은 [PowerShellGet을 사용하여 Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
+PowerShell을 사용 하 여 복제 정책을 만들려면 먼저 Az. Storage PowerShell 모듈의 버전 [2.5.0](https://www.powershellgallery.com/packages/Az.Storage/2.5.0) 이상을 설치 합니다. Azure PowerShell을 설치하는 방법에 대한 자세한 내용은 [PowerShellGet을 사용하여 Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 다음 예제에서는 원본 및 대상 계정에 대한 복제 정책을 만드는 방법을 보여 줍니다. 꺾쇠 괄호로 묶인 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -162,32 +148,22 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 복제 정책을 만들려면 먼저 Azure Storage에 대한 미리 보기 확장을 설치합니다.
+Azure CLI를 사용 하 여 복제 정책을 만들려면 먼저 Azure CLI 버전 2.11.1 이상을 설치 합니다. 자세한 내용은 [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)을 참조 하세요.
+
+그런 다음 원본 및 대상 저장소 계정에서 blob 버전 관리를 사용 하도록 설정 하 고 원본 계정에서 변경 피드를 사용 하도록 설정 합니다. 꺾쇠 괄호로 묶인 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
-az extension add -n storage-or-preview
-```
-
-다음으로, Azure 자격 증명을 사용하여 로그인합니다.
-
-```azurecli
-az login
-```
-
-원본 및 대상 스토리지 계정에서 blob 버전 관리를 사용하도록 설정하고 원본 계정에서 변경 피드를 사용하도록 설정합니다. 꺾쇠 괄호로 묶인 값을 사용자 고유의 값으로 바꿔야 합니다.
-
-```azurecli
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-versioning
 
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-change-feed
 
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <dest-storage-account> \
     --enable-versioning
@@ -242,12 +218,110 @@ az storage account or-policy rule add \
 ```azurecli
 az storage account or-policy show \
     --resource-group <resource-group> \
-    --name <dest-storage-account> \
+    --account-name <dest-storage-account> \
     --policy-id <policy-id> |
-    --az storage account or-policy create --resource-group <resource-group> \
-    --name <source-storage-account> \
+    az storage account or-policy create --resource-group <resource-group> \
+    --account-name <source-storage-account> \
     --policy "@-"
 ```
+
+---
+
+### <a name="configure-object-replication-when-you-have-access-only-to-the-destination-account"></a>대상 계정에만 액세스할 수 있는 경우 개체 복제 구성
+
+원본 저장소 계정에 대 한 권한이 없는 경우 대상 계정에 대 한 개체 복제를 구성 하 고 다른 사용자에 게 정책 정의가 포함 된 JSON 파일을 제공 하 여 원본 계정에 동일한 정책을 만들 수 있습니다. 예를 들어 원본 계정이 대상 계정과 다른 Azure AD 테 넌 트에 있는 경우이 방법을 사용 하 여 개체 복제를 구성 합니다. 
+
+정책을 만들려면 대상 저장소 계정 이상의 수준으로 범위가 지정 된 Azure Resource Manager **참가자** 역할을 할당 해야 합니다. 자세한 내용은 Azure 역할 기반 Access Control (RBAC) 설명서의 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 참조 하세요.
+
+다음 표에는 각 시나리오에서 JSON 파일의 정책 ID에 사용할 값이 요약 되어 있습니다.
+
+| 이 계정에 대 한 JSON 파일을 만드는 중 ... | 정책 ID를이 값으로 설정 ... |
+|-|-|
+| 대상 계정 | 문자열 값의 *기본값*입니다. Azure Storage에서 정책 ID를 만듭니다. |
+| 원본 계정 | 대상 계정에 정의 된 규칙을 포함 하는 JSON 파일을 다운로드할 때 반환 되는 정책 ID입니다. |
+
+다음 예에서는 접두사 *b* 와 일치 하는 단일 규칙을 사용 하 여 대상 계정에 대 한 복제 정책을 정의 하 고 복제할 blob에 대 한 최소 생성 시간을 설정 합니다. 꺾쇠 괄호로 묶인 값을 사용자 고유의 값으로 바꿔야 합니다.
+
+```json
+{
+  "properties": {
+    "policyId": "default",
+    "sourceAccount": "<source-account>",
+    "destinationAccount": "<dest-account>",
+    "rules": [
+      {
+        "ruleId": "default",
+        "sourceContainer": "<source-container>",
+        "destinationContainer": "<destination-container>",
+        "filters": {
+          "prefixMatch": [
+            "b"
+          ],
+          "minCreationTime": "2020-08-028T00:00:00Z"
+        }
+      }
+    ]
+  }
+}
+```
+
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+Azure Portal의 JSON 파일을 사용 하 여 대상 계정에서 개체 복제를 구성 하려면 다음 단계를 수행 합니다.
+
+1. 대상 계정에 대 한 복제 정책을 정의 하는 로컬 JSON 파일을 만듭니다. Azure Storage에서 정책 ID를 정의 하도록 **Policyid** 필드를 **default** 로 설정 합니다.
+
+    복제 정책을 정의 하는 JSON 파일을 만드는 쉬운 방법은 먼저 Azure Portal의 두 저장소 계정 간에 테스트 복제 정책을 만드는 것입니다. 그런 다음 필요에 따라 복제 규칙을 다운로드 하 고 JSON 파일을 수정할 수 있습니다.
+
+1. Azure Portal에서 대상 계정에 대 한 **개체 복제** 설정으로 이동 합니다.
+1. **복제 규칙 업로드**를 선택 합니다.
+1. JSON 파일을 업로드 합니다. Azure Portal는 다음 이미지와 같이 생성 될 정책 및 규칙을 표시 합니다.
+
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="JSON 파일을 업로드 하 여 복제 정책을 정의 하는 방법을 보여 주는 스크린샷":::
+
+1. **업로드** 를 선택 하 여 대상 계정에 대 한 복제 정책을 만듭니다.
+
+그런 다음 다른 사용자에 게 제공할 수 있는 정책 정의가 포함 된 JSON 파일을 다운로드 하 여 원본 계정을 구성할 수 있습니다. 이 JSON 파일을 다운로드 하려면 다음 단계를 수행 합니다.
+
+1. Azure Portal에서 대상 계정에 대 한 **개체 복제** 설정으로 이동 합니다.
+1. 다음 그림에 표시 된 것 처럼 다운로드 하려는 정책 옆에 있는 **자세히** 단추를 선택 하 고 **규칙 다운로드**를 선택 합니다.
+
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="JSON 파일에 복제 규칙을 다운로드 하는 방법을 보여 주는 스크린샷":::
+
+1. 로컬 컴퓨터에 JSON 파일을 저장 하 여 다른 사용자와 공유 하 여 원본 계정에 정책을 구성 합니다.
+
+다운로드 한 JSON 파일에는 대상 계정의 정책에 대해 만들어진 Azure Storage 정책 ID가 포함 되어 있습니다. 원본 계정에서 개체 복제를 구성 하려면 동일한 정책 ID를 사용 해야 합니다.
+
+Azure Portal를 통해 대상 계정에 대 한 복제 정책을 만들기 위해 JSON 파일을 업로드 하면 원본 계정에 동일한 정책이 자동으로 생성 되지 않습니다. Azure Storage 개체 복제를 시작 하기 전에 다른 사용자가 원본 계정에 정책을 만들어야 합니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+PowerShell에서 대상 계정에 대 한 복제 정책 정의를 포함 하는 JSON 파일을 다운로드 하려면 [AzStorageObjectReplicationPolicy](/powershell/module/az.storage/get-azstorageobjectreplicationpolicy) 명령을 호출 하 여 정책을 반환 합니다. 그런 다음 정책을 JSON으로 변환 하 고 다음 예제와 같이 로컬 파일로 저장 합니다. 꺾쇠 괄호의 값과 파일 경로를 고유한 값으로 바꿔야 합니다.
+
+```powershell
+$rgName = "<resource-group>"
+$destAccountName = "<destination-storage-account>"
+
+$destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName
+$destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
+```
+
+JSON 파일을 사용 하 여 PowerShell에서 원본 계정에 대 한 복제 정책을 정의 하려면 로컬 파일을 검색 하 고 JSON에서 개체로 변환 합니다. 그런 다음 [AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) 명령을 호출 하 여 다음 예제와 같이 원본 계정에 정책을 구성 합니다. 꺾쇠 괄호의 값과 파일 경로를 고유한 값으로 바꿔야 합니다.
+
+```powershell
+$object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
+Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName `
+    -PolicyId $object.PolicyId `
+    -SourceAccount $object.SourceAccount `
+    -DestinationAccount $object.DestinationAccount `
+    -Rule $object.Rules
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+해당 없음
 
 ---
 
@@ -300,4 +374,6 @@ az storage account or-policy delete \
 
 ## <a name="next-steps"></a>다음 단계
 
-- [개체 복제 개요(미리 보기)](object-replication-overview.md)
+- [개체 복제 개요](object-replication-overview.md)
+- [Blob 버전 관리 설정 및 관리](versioning-enable.md)
+- [Azure Blob storage에서 변경 피드 처리](storage-blob-change-feed-how-to.md)

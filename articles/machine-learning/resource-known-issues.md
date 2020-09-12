@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 4dced0e0597e4df2fe215c9f4b85e3e8defd92c3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1524e51fff64b00a798f15425973145feee730fe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230384"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651655"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Azure Machine Learning의 알려진 문제 및 문제 해결
 
@@ -173,7 +173,9 @@ ms.locfileid: "89230384"
 > [!WARNING]
 > Azure Machine Learning 작업 영역을 다른 구독으로 이동하거나 소유하는 구독을 새 테넌트로 이동하는 것은 지원되지 않습니다. 이렇게 하면 오류가 발생할 수 있습니다.
 
-* **Azure Portal**: SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인 하는 경우 확장에서 구독 정보가 포함 된 일반 **개요** 페이지를 볼 수 없습니다. 다른 작업 영역으로 전환할 수 없습니다. 다른 작업 영역을 확인 해야 하는 경우 [Azure Machine Learning studio](https://ml.azure.com) 로 직접 이동 하 여 작업 영역 이름을 검색 합니다.
+* **Azure Portal**: 
+  * SDK 또는 Azure Portal에서 공유 링크를 통해 작업 영역으로 직접 이동 하는 경우 확장에 구독 정보가 포함 된 표준 **개요** 페이지를 볼 수 없습니다. 또한이 시나리오에서는 다른 작업 영역으로 전환할 수 없습니다. 다른 작업 영역을 보려면 [Azure Machine Learning studio](https://ml.azure.com) 로 직접 이동 하 여 작업 영역 이름을 검색 합니다.
+  * 모든 자산 (데이터 집합, 실험, 계산 등)은 [Azure Machine Learning studio](https://ml.azure.com)에서만 사용할 수 있습니다. Azure Portal에서 사용할 수 *없습니다* .
 
 * **Azure Machine Learning studio 웹 포털에서 지원 되는 브라우저**: 운영 체제와 호환 되는 최신 브라우저를 사용 하는 것이 좋습니다. 다음과 같은 브라우저가 지원됩니다.
   * Microsoft Edge (새로운 Microsoft Edge, 최신 버전) Microsoft Edge 레거시 아님)
@@ -239,7 +241,7 @@ ms.locfileid: "89230384"
     1. **데이터 집합 모니터** 탭에서 실험 링크를 선택 하 여 실행 상태를 확인 합니다.  이 링크는 테이블의 오른쪽 끝에 있습니다.
     1. 실행이 성공적으로 완료 되 면 드라이버 로그를 확인 하 여 생성 된 메트릭 수 또는 경고 메시지가 있는지 확인 합니다.  실험을 클릭 한 후 **출력 + 로그** 탭에서 드라이버 로그를 찾습니다.
 
-* SDK 함수에서 `backfill()` 예상 되는 출력을 생성 하지 않는 경우 인증 문제가 원인일 수 있습니다.  이 함수에 전달할 계산을 만들 때는을 사용 하지 마십시오 `Run.get_context().experiment.workspace.compute_targets` .  대신, 다음과 같이 [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) 를 사용 하 여 해당 함수에 전달 하는 계산을 만듭니다 `backfill()` . 
+* SDK 함수에서 `backfill()` 예상 되는 출력을 생성 하지 않는 경우 인증 문제가 원인일 수 있습니다.  이 함수에 전달할 계산을 만들 때는을 사용 하지 마십시오 `Run.get_context().experiment.workspace.compute_targets` .  대신, 다음과 같이 [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) 를 사용 하 여 해당 함수에 전달 하는 계산을 만듭니다 `backfill()` . 
 
   ```python
    auth = ServicePrincipalAuthentication(
@@ -294,7 +296,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     또한 Azure ML은 TensorFlow, PyTorch, 체 이너 및 추정에 대 한 프레임 워크 관련 제공 합니다. 이러한 추정을 사용 하 여 학습에 사용 되는 환경에서 핵심 프레임 워크 종속성을 대신 설치 하도록 합니다. 위에서 설명한 대로 추가 종속성을 지정 하는 옵션이 있습니다. 
  
     Azure ML에서 관리 하는 docker 이미지와 해당 콘텐츠는 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 볼 수 있습니다.
-    프레임 워크 관련 종속성은 해당 프레임 워크 설명서- [체](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), 고 지 사항 [배우기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks)에 나열 되어 있습니다.
+    프레임 워크 관련 종속성은 해당 프레임 워크 설명서- [체](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#&preserve-view=trueremarks), 고 지 사항 [배우기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#&preserve-view=trueremarks)에 나열 되어 있습니다.
 
     > [!Note]
     > 특정 패키지가 Azure 기계 학습에서 유지 관리 되는 이미지 및 환경에 추가할 수 있는 것으로 생각 되는 경우 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 GitHub 문제를 제기 하세요. 
@@ -303,7 +305,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Horovod 종료**됨: 대부분의 경우 "AbortedError: Horovod가 종료 되었습니다."이 예외는 Horovod 종료를 일으킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs` 입니다. 분산 교육의 경우 로그를 쉽게 구분할 수 있도록 로그 이름의 접미사가 지정 됩니다 `_rank` . Horovod가 종료 되는 정확한 오류를 찾으려면 모든 로그 파일을 확인 하 고 `Traceback` driver_log 파일의 끝에 있는을 찾습니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
 
-* **실행 또는 실험 삭제**: 실험을 사용 하 [여 보관 하거나](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) "실험 보관" 단추를 통해 Azure Machine Learning studio 클라이언트의 실험 탭 보기에서 보관할 수 있습니다. 이 동작을 수행 하면 쿼리 및 뷰 목록에서 실험을 숨길 수 있지만 삭제 하지는 않습니다.
+* **실행 또는 실험 삭제**: 실험을 사용 하 [여 보관 하거나](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truearchive--) "실험 보관" 단추를 통해 Azure Machine Learning studio 클라이언트의 실험 탭 보기에서 보관할 수 있습니다. 이 동작을 수행 하면 쿼리 및 뷰 목록에서 실험을 숨길 수 있지만 삭제 하지는 않습니다.
 
     개별 실험 또는 실행을 영구적으로 삭제 하는 것은 현재 지원 되지 않습니다. 작업 영역 자산을 삭제 하는 방법에 대 한 자세한 내용은 [Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제](how-to-export-delete-data.md)를 참조 하세요.
 
@@ -337,6 +339,8 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade pandas==0.23.4
     pip install --upgrade scikit-learn==0.20.3
   ```
+ 
+* **예측 R2 점수는 항상 0입니다**. 제공 된 학습 데이터에 마지막 `n_cv_splits`  +  데이터 요소에 대해 동일한 값을 포함 하는 시계열이 있는 경우이 문제가 발생 `forecasting_horizon` 합니다. 시계열에이 패턴이 필요한 경우 기본 메트릭을 정규화 된 평균 제곱 오차로 전환할 수 있습니다.
  
 * **TensorFlow**: SDK 버전 1.5.0을 기준으로 자동화 된 machine learning은 기본적으로 TensorFlow 모델을 설치 하지 않습니다. TensorFlow를 설치 하 고 자동 ML 실험에서 사용 하려면 TensorFlow = = 1.12.0 via CondaDependecies를 설치 합니다. 
  
@@ -403,7 +407,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 다음 오류에 대해이 작업을 수행 합니다.
 
-|오류  | 해결 방법  |
+|Error  | 해결 방법  |
 |---------|---------|
 |웹 서비스 배포 시 이미지 작성 오류     |  이미지 구성을 위해 "pConda acl = = 1.2.1"을 파일에 대 한 pip 종속성으로 추가 합니다.       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   배포에 사용 되는 Vm의 SKU를 메모리를 더 많이 포함 하는 Vm으로 변경 합니다. |

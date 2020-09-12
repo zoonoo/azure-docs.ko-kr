@@ -3,12 +3,12 @@ title: 스트리밍 이벤트 캡처 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs를 통해 스트리밍 이벤트를 캡처할 수 있도록 캡처 기능 개요를 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 201fde24e50fc9403d5e9faf314550520fb7b865
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2302f31130b6179b187c17e2f44c5fa7cc50648b
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522128"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667456"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처
 Azure Event Hubs를 사용하면 시간 또는 크기 간격을 유연하게 지정하여 Event Hubs의 스트리밍 데이터를 선택한 [Azure Blob 스토리지](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Storage Gen 1 또는 Gen 2](https://azure.microsoft.com/services/data-lake-store/) 계정에 자동으로 캡처할 수 있습니다. 캡처는 빠르게 설정할 수 있으며 실행을 위한 관리 비용이 없고 Event Hubs [처리량 단위](event-hubs-scalability.md#throughput-units)에 따라 크기가 자동으로 조정됩니다. Event Hubs 캡처는 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다 데이터 처리에 집중할 수 있게 해줍니다.
@@ -132,7 +132,7 @@ Event Hubs 캡처는 처리량 단위와 유사하게 시간당 요금으로 측
 
 ## <a name="integration-with-event-grid"></a>Event Grid와 통합 
 
-원본으로 Event Hubs 네임스페이스를 사용하여 Azure Event Grid 구독을 만들 수 있습니다. 다음 자습서는 원본으로 이벤트 허브 및 싱크로 Azure Functions 앱을 사용하여 Event Grid 구독을 만드는 방법을 보여줍니다. [Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 처리하고 SQL Data Warehouse로 마이그레이션](store-captured-data-data-warehouse.md)
+원본으로 Event Hubs 네임스페이스를 사용하여 Azure Event Grid 구독을 만들 수 있습니다. 다음 자습서에서는 이벤트 허브를 원본으로 사용 하 고 Azure Functions 앱을 싱크로 사용 하 여 Event Grid 구독을 만드는 방법을 보여 줍니다. [Event Grid 및 Azure Functions를 사용 하 여 캡처된 Event Hubs 데이터를 Azure Synapse Analytics로 처리 하 고 마이그레이션합니다](store-captured-data-data-warehouse.md).
 
 ## <a name="next-steps"></a>다음 단계
 Event Hubs 캡처는 데이터를 Azure로 가져오는 가장 쉬운 방법입니다. Azure Data Lake, Azure Data Factory 및 Azure HDInsight를 통해 규모에 관계없이 선택한 도구 및 플랫폼을 사용하여 선택한 일괄 처리 및 기타 분석을 수행할 수 있습니다.
@@ -147,7 +147,7 @@ Azure Portal 및 Azure Resource Manager 템플릿을 사용하여 이 기능을 
 [Apache Drill]: https://drill.apache.org/
 [Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
+[Azure Storage Explorer]: https://github.com/microsoft/AzureStorageExplorer/releases
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
 [Avro Tools]: https://downloads.apache.org/avro/stable/java/
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html

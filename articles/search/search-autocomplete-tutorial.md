@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/08/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: c0031b09dbb3335113cb52c9b3ec5e4fd4fa2758
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8be53838f6262eaafc643bc78fd08b6f02d9bac6
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011582"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660266"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>클라이언트 앱에 자동 완성 및 제안 추가
 
@@ -67,7 +67,7 @@ REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
 
 제안 사항을 위해 중복을 방지 하기 위해 응답을 구체화 하거나 관련 되지 않은 결과를 표시 하는 것이 좋습니다. 결과를 제어 하려면 요청에 추가 매개 변수를 포함 합니다. 다음 매개 변수는 자동 완성 및 제안에 모두 적용 되지만 특히 확인 기에 여러 필드가 포함 된 경우 제안에 더 필요할 수 있습니다.
 
-| 매개 변수 | 사용 |
+| 매개 변수 | 사용량 |
 |-----------|-------|
 | **$select** | 확인 기에 여러 **sourcefields** 가 있는 경우 **$select** 를 사용 하 여 값을 제공 하는 필드를 선택 `$select=GameTitle` 합니다 (). |
 | **searchFields** | 특정 필드에 대 한 쿼리를 제한 합니다. |
@@ -139,9 +139,11 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>제안 함수
 
-C # 및 MVC 응용 프로그램을 사용 하는 경우 Controller 디렉터리 아래의 **HomeController.cs** 파일은 제안 된 결과에 대 한 클래스를 만들 수 있습니다. .NET에서 제안 함수는 [DocumentsOperationsExtensions 메서드](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet)를 기반으로 합니다.
+C # 및 MVC 응용 프로그램을 사용 하는 경우 Controller 디렉터리 아래의 **HomeController.cs** 파일은 제안 된 결과에 대 한 클래스를 만들 수 있습니다. .NET에서 제안 함수는 [DocumentsOperationsExtensions 메서드](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet)를 기반으로 합니다. .NET SDK에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](./search-howto-dotnet-sdk.md)을 참조 하세요.
 
-`InitSearch`메서드는 Azure Cognitive Search 서비스에 대 한 인증 된 HTTP 인덱스 클라이언트를 만듭니다. .NET SDK에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](./search-howto-dotnet-sdk.md)을 참조 하세요.
+`InitSearch`메서드는 Azure Cognitive Search 서비스에 대 한 인증 된 HTTP 인덱스 클라이언트를 만듭니다. [SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters) 클래스의 속성은 결과에서 검색 되 고 반환 되는 필드, 일치 항목 수 및 유사 항목 일치가 사용 되는지 여부를 결정 합니다. 
+
+자동 완성의 경우 유사 항목 일치는 단일 편집 거리 (생략 되거나 잘못 된 문자 하나)로 제한 됩니다. 자동 완성 쿼리의 유사 항목 일치는 인덱스 크기 및 분할 된 방식에 따라 예기치 않은 결과를 생성 하는 경우도 있습니다. 자세한 내용은 [partition and 분할 개념](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards)을 참조 하세요.
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -250,5 +252,5 @@ Autocomplete 함수는 검색 용어 입력을 사용합니다. 이 메서드는
 다음 링크를 따라 포괄적인 검색 환경을 보여 주는 종단 간 지침 또는 코드를 참조 하세요. 두 코드 예제 모두에는 제안 및 자동 완성의 하이브리드 구현이 포함 됩니다.
 
 + [자습서: c #에서 첫 번째 앱 만들기 (3 단원)](tutorial-csharp-type-ahead-and-suggestions.md)
-+ [C # 코드 샘플: azure-검색-dotnet-samples/create-first-app/3-추가 형식 미리/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead)
++ [C # 코드 샘플: azure-검색-dotnet-samples/create-first-app/3-추가 형식 미리/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
 + [REST side-by-side 코드 샘플을 사용 하는 c # 및 JavaScript](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

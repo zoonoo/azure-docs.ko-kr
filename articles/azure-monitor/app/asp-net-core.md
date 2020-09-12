@@ -4,12 +4,12 @@ description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 719bf997254c98c5790d6d6733982fea08541967
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ac742aae88b3e3c62ffca857dcb690fa71434482
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936523"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006762"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -31,7 +31,7 @@ ms.locfileid: "88936523"
 > [!NOTE]
 > ASP.NET Core 3.x에는 [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) 이상이 필요 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - 작동 하는 ASP.NET Core 응용 프로그램입니다. ASP.NET Core 응용 프로그램을 만들어야 하는 경우이 [ASP.NET Core 자습서](/aspnet/core/getting-started/)를 따르세요.
 - 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](./create-new-resource.md)를 참조 하세요.
@@ -106,7 +106,7 @@ Mac용 Visual Studio [수동 지침](#enable-application-insights-server-side-te
 
     * `ApplicationInsights:InstrumentationKey`
 
-    예를 들면
+    다음은 그 예입니다. 
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -121,7 +121,8 @@ Mac용 Visual Studio [수동 지침](#enable-application-insights-server-side-te
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>사용자 암호 및 기타 구성 공급자
 
-계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예: `services.AddApplicationInsightsTelemetry(Configuration);`
+계측 키를 ASP.NET Core 사용자 암호에 저장 하거나 다른 구성 공급자에서 검색 하려면 매개 변수와 함께 오버 로드를 사용할 수 있습니다 `Microsoft.Extensions.Configuration.IConfiguration` . 예: `services.AddApplicationInsightsTelemetry(Configuration);`.
+AspNetCore 버전 [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)부터를 호출 `services.AddApplicationInsightsTelemetry()` 하면 응용 프로그램에서 계측 키가 자동으로 읽힙니다 `Microsoft.Extensions.Configuration.IConfiguration` . 를 명시적으로 제공할 필요는 없습니다 `IConfiguration` .
 
 ## <a name="run-your-application"></a>애플리케이션 실행
 
@@ -158,17 +159,17 @@ ASP.NET Core의 [성능 카운터](./web-monitor-performance.md) 에 대 한 지
 
 1. 에서 `_ViewImports.cshtml` 삽입을 추가 합니다.
 
-    ```cshtml
-        @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
-    ```
+```cshtml
+    @inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+```
 
 2. 에서 `_Layout.cshtml` `HtmlHelper` 섹션의 끝에, `<head>` 다른 스크립트 앞에를 삽입 합니다. 페이지에서 사용자 지정 JavaScript 원격 분석을 보고 하려는 경우이 코드 조각 뒤에 삽입 합니다.
 
-    ```cshtml
-        @Html.Raw(JavaScriptSnippet.FullScript)
-        </head>
-    ```
-    
+```cshtml
+    @Html.Raw(JavaScriptSnippet.FullScript)
+    </head>
+```
+
 `FullScript`SDK v 2.14부터를 사용 하 여를 사용할 수도 있습니다 `ScriptBody` . 콘텐츠 보안 정책을 설정 하는 태그를 제어 해야 하는 경우 다음을 사용 합니다 `<script>` .
 
 ```cshtml
@@ -183,7 +184,7 @@ ASP.NET Core의 [성능 카운터](./web-monitor-performance.md) 에 대 한 지
 
 ## <a name="configure-the-application-insights-sdk"></a>Application Insights SDK 구성
 
-ASP.NET Core에 대 한 Application Insights SDK를 사용자 지정 하 여 기본 구성을 변경할 수 있습니다. Application Insights ASP.NET SDK의 사용자는 또는을 (를) 사용 하 여 구성을 변경 하는 방법을 익힐 수 있습니다 `ApplicationInsights.config` `TelemetryConfiguration.Active` . ASP.NET Core에 대 한 구성을 다르게 변경 합니다. ASP.NET Core SDK를 응용 프로그램에 추가 하 고 ASP.NET Core 기본 제공 [종속성 주입](/aspnet/core/fundamentals/dependency-injection)을 사용 하 여 구성 합니다. `ConfigureServices()`달리 지정 하지 않는 한 클래스의 메서드에서 거의 모든 구성 변경을 수행 `Startup.cs` 합니다. 다음 섹션에서는 자세한 정보를 제공 합니다.
+ASP.NET Core에 대 한 Application Insights SDK를 사용자 지정 하 여 기본 구성을 변경할 수 있습니다. Application Insights ASP.NET SDK의 사용자는 또는을 (를) 사용 하 여 구성을 변경 하는 방법을 익힐 수 있습니다 `ApplicationInsights.config` `TelemetryConfiguration.Active` . ASP.NET Core의 경우 거의 모든 구성 변경 내용은 클래스의 메서드에서 수행 되며, 그렇지 않은 경우에는 지정 되지 않습니다 `ConfigureServices()` `Startup.cs` . 다음 섹션에서는 자세한 정보를 제공 합니다.
 
 > [!NOTE]
 > ASP.NET Core 응용 프로그램에서는를 수정 하 여 구성을 변경 하는 것이 `TelemetryConfiguration.Active` 지원 되지 않습니다.
@@ -208,7 +209,7 @@ public void ConfigureServices(IServiceCollection services)
 
 의 전체 설정 목록 `ApplicationInsightsServiceOptions`
 
-|설정 | Description | 기본값
+|설정 | 설명 | 기본값
 |---------------|-------|-------
 |EnablePerformanceCounterCollectionModule  | 사용/사용 안 함 `PerformanceCounterCollectionModule` | true
 |EnableRequestTrackingTelemetryModule   | 사용/사용 안 함 `RequestTrackingTelemetryModule` | true
@@ -221,8 +222,25 @@ public void ConfigureServices(IServiceCollection services)
 |EnableHeartbeat 비트 | 하트 비트 기능 사용/사용 안 함-주기적 (15 분 기본값)은 ' HeartbeatState ' 라는 사용자 지정 메트릭을 .NET 버전, Azure 환경 정보 (해당 하는 경우) 등의 런타임에 대 한 정보로 보냅니다. | true
 |AddAutoCollectedMetricExtractor | 샘플링을 수행 하기 전에 요청/종속성에 대 한 미리 집계 된 메트릭을 전송 하는 TelemetryProcessor AutoCollectedMetrics 추출기를 사용/사용 안 함으로 설정 합니다. | true
 |RequestCollectionOptions. 사이 예외 | 요청 수집 모듈에서 처리 되지 않은 예외 추적의 보고를 사용 하거나 사용 하지 않도록 설정 합니다. | ApplicationInsightsLoggerProvider를 사용 하 여 예외를 추적 하므로 NETSTANDARD 2.0의 경우 false이 고, 그렇지 않으면 true입니다.
+|EnableDiagnosticsTelemetryModule | 사용/사용 안 함 `DiagnosticsTelemetryModule` . 이를 사용 하지 않도록 설정 하면 다음 설정이 무시 됩니다. `EnableHeartbeat`, `EnableAzureInstanceMetadataTelemetryModule`, `EnableAppServicesHeartbeatTelemetryModule` | true
 
 최신 목록에 대해서는 [의 `ApplicationInsightsServiceOptions` 구성 가능한 설정을](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) 참조 하세요.
+
+### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150-beta3--above"></a>위의 AspNetCore SDK 2.15.0-beta3 &에 대 한 구성 권장 사항
+
+AspNetCore SDK 버전 [2.15.0-beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0-beta3) `ApplicationInsightsServiceOptions` 응용 프로그램 인스턴스를 사용 하 여 instrumentationkey를 포함 하 여에서 사용할 수 있는 모든 설정을 구성 하는 것이 좋습니다. `IConfiguration` 아래 예제와 같이 설정은 "ApplicationInsights" 섹션 아래에 있어야 합니다. 에서 appsettings.js의 다음 섹션에서는 계측 키를 구성 하 고 적응 샘플링 및 성능 카운터 수집도 사용 하지 않도록 설정 합니다.
+
+```json
+{
+    "ApplicationInsights": {
+    "InstrumentationKey": "putinstrumentationkeyhere",
+    "EnableAdaptiveSampling": false,
+    "EnablePerformanceCounterCollectionModule": false
+    }
+}
+```
+
+를 `services.AddApplicationInsightsTelemetry(aiOptions)` 사용 하면에서 설정을 재정의 `Microsoft.Extensions.Configuration.IConfiguration` 합니다.
 
 ### <a name="sampling"></a>샘플링
 
@@ -427,7 +445,7 @@ Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 �
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>상태 모니터 같은 도구를 사용 하 여 Application Insights 모니터링을 사용 하도록 설정할 수 있나요?
 
-아니요. [상태 모니터](./monitor-performance-live-website-now.md) 및 [상태 모니터 v2](./status-monitor-v2-overview.md) 는 현재 ASP.NET 4.x만 지원 합니다.
+아닙니다. [상태 모니터](./monitor-performance-live-website-now.md) 및 [상태 모니터 v2](./status-monitor-v2-overview.md) 는 현재 ASP.NET 4.x만 지원 합니다.
 
 ### <a name="is-application-insights-automatically-enabled-for-my-aspnet-core-20-application"></a>Application Insights ASP.NET Core 2.0 응용 프로그램에 대해 자동으로 사용 하도록 설정 되어 있습니까?
 
@@ -473,4 +491,3 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 * [API를 사용](./api-custom-events-metrics.md) 하 여 앱의 성능 및 사용 현황에 대 한 자세한 보기에 대 한 사용자 고유의 이벤트 및 메트릭을 보냅니다.
 * [가용성 테스트](./monitor-web-app-availability.md)를 사용하여 전 세계에서 사용자 앱을 지속적으로 확인합니다.
 * [ASP.NET Core의 종속성 주입](/aspnet/core/fundamentals/dependency-injection)
-

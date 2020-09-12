@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d57122ee98eb6612f43d09ecff4797038ceaf5f2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fe56427e93650fbaca397bbbb27d32f730b1f7f3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654092"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651763"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>실험의 버전 및 트랙 데이터 집합
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "88654092"
 
 이 자습서에서는 다음이 필요합니다.
 
-- [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)있습니다. 이 SDK는 [azureml 데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py) 패키지를 포함 합니다.
+- [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)있습니다. 이 SDK는 [azureml 데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py&preserve-view=true) 패키지를 포함 합니다.
     
 - [Azure Machine Learning 작업 영역](concept-workspace.md)입니다. 다음 코드를 실행 하 여 기존 항목을 검색 하거나 [새 작업 영역을 만듭니다](how-to-manage-workspace.md).
 
@@ -63,7 +63,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### <a name="retrieve-a-dataset-by-name"></a>이름을 기준으로 데이터 집합 검색
 
-기본적으로 클래스의 [get_by_name ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다. 
+기본적으로 클래스의 [get_by_name ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다. 
 
 다음 코드는 데이터 집합의 버전 1을 가져옵니다 `titanic_ds` .
 
@@ -158,7 +158,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 각 Machine Learning 실험의 경우 실험 개체를 통해 입력으로 사용 되는 데이터 집합을 쉽게 추적할 수 있습니다 `Run` .
 
-다음 코드에서는 메서드를 사용 하 여 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
+다음 코드에서는 메서드를 사용 하 여 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueget-details--) 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
 
 ```Python
 # get input datasets

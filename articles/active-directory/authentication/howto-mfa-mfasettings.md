@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6a5ec4644eaed8d525c278c4fc464b4dbc683596
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179406"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023842"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -25,7 +25,7 @@ Azure Multi-Factor Authentication에 대 한 최종 사용자 환경을 사용�
 
 Azure Portal에서 사용할 수 있는 Azure Multi-Factor Authentication 설정은 다음과 같습니다.
 
-| 기능 | Description |
+| 기능 | 설명 |
 | ------- | ----------- |
 | [계정 잠금](#account-lockout) | 한 행에 거부 된 인증 시도가 너무 많으면 Azure Multi-Factor Authentication를 사용 하지 못하도록 일시적으로 계정을 잠급니다. 이 기능은 인증을 위해 PIN을 입력하는 사용자에게만 적용됩니다. (MFA 서버) |
 | [사용자 차단/차단 해제](#block-and-unblock-users) | 특정 사용자가 Azure Multi-Factor Authentication 요청을 받을 수 없도록 차단 합니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단 된 시간부터 90 일 동안 차단 된 상태로 유지 되거나 수동으로 차단 해제 됩니다. |
@@ -242,7 +242,10 @@ Azure Multi-Factor Authentication의 _신뢰할 수_ 있는 ip 기능은 정의 
 
 조직에서 온-프레미스 애플리케이션 참고에 MFA를 제공하도록 NPS 확장을 배포하면 원본 IP 주소는 인증 시도가 통과하는 NPS 서버를 항상 나타냅니다.
 
-| Azure AD 테 넌 트 유형 | 신뢰할 수 있는 IP 기능 옵션 | |:---|:---| 2 단계 | 관리 | **특정 범위의 ip 주소**: 관리자는 회사 인트라넷에서 로그인 하는 사용자에 대해 multi-factor authentication을 무시할 수 있는 ip 주소 범위를 지정 합니다. 최대 50의 신뢰할 수 있는 IP 범위를 구성할 수 있습니다. | | 페더레이션된 | **모든 페더레이션된 사용자**: 조직 내에서 로그인 하는 모든 페더레이션된 사용자는 multi-factor authentication을 무시할 수 있습니다. 사용자는 AD FS(Active Directory Federation Services)에서 발급된 클레임을 사용하여 인증을 바이패스합니다.<br/>**특정 범위의 ip 주소**: 관리자는 회사 인트라넷에서 로그인 하는 사용자에 대해 multi-factor authentication을 무시할 수 있는 ip 주소 범위를 지정 합니다. |
+| Microsoft Azure Active Directory 테넌트 유형 | 신뢰할 수 있는 IP 기능 옵션 |
+|:--- |:--- |
+| 관리 대상 |**특정 범위의 ip 주소**: 관리자는 회사 인트라넷에서 로그인 하는 사용자에 대해 multi-factor authentication을 무시할 수 있는 ip 주소 범위를 지정 합니다. 최대 50의 신뢰할 수 있는 IP 범위를 구성할 수 있습니다.|
+| 페더레이션 |**모든 페더레이션된 사용자**: 조직 내에서 로그인 하는 모든 페더레이션된 사용자는 multi-factor authentication을 무시할 수 있습니다. 사용자는 AD FS(Active Directory Federation Services)에서 발급된 클레임을 사용하여 인증을 바이패스합니다.<br/>**특정 범위의 ip 주소**: 관리자는 회사 인트라넷에서 로그인 하는 사용자에 대해 multi-factor authentication을 무시할 수 있는 ip 주소 범위를 지정 합니다. |
 
 신뢰할 수 있는 IP 바이패스는 회사 인트라넷 내부 에서만 작동 합니다. **모든 페더레이션된 사용자** 옵션을 선택 하 고 사용자가 회사 인트라넷 외부에서 로그인 하는 경우 사용자는 multi-factor authentication을 사용 하 여 인증 해야 합니다. 이 프로세스는 사용자가 AD FS 클레임을 제시하는 경우에도 동일합니다.
 

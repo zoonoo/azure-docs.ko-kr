@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a098d4bab4ea8cb083658b205dcb73da619fdbde
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 2fd0269744c7ee49c72806e3cb0e1227035de4f0
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035708"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019175"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -79,7 +79,7 @@ Blob 또는 큐 데이터에 액세스 하려고 하면 Azure Portal는 먼저 *
 
 Azure AD 계정을 사용 하 여 Azure Portal에서 blob 또는 큐 데이터에 액세스 하려면 blob 및 큐 데이터에 액세스할 수 있는 권한이 필요 하며, Azure Portal 저장소 계정 리소스를 탐색할 수 있는 권한도 필요 합니다. Azure Storage에서 제공 하는 기본 제공 역할은 blob 및 큐 리소스에 대 한 액세스 권한을 부여 하지만 저장소 계정 리소스에 대 한 사용 권한은 부여 하지 않습니다. 이러한 이유로 포털에 대 한 액세스에는 저장소 계정 수준으로 범위가 지정 된 [판독기](../../role-based-access-control/built-in-roles.md#reader) 역할과 같은 Azure Resource Manager 역할의 할당도 필요 합니다. **읽기 권한자** 역할은 가장 제한 된 권한을 부여 하지만 저장소 계정 관리 리소스에 대 한 액세스 권한을 부여 하는 다른 Azure Resource Manager 역할도 허용 됩니다. Azure AD 계정으로 Azure Portal에서 데이터 액세스를 위해 사용자에 게 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](storage-auth-aad-rbac-portal.md)에 추가를 참조 하세요.
 
-Azure Portal는 컨테이너 또는 큐로 이동할 때 사용 중인 권한 부여 체계를 나타냅니다. 포털의 데이터 액세스에 대 한 자세한 내용은 Azure Portal를 [사용 하 여 blob 또는 큐 데이터에 액세스를](storage-access-blobs-queues-portal.md)참조 하세요.
+Azure Portal는 컨테이너 또는 큐로 이동할 때 사용 중인 권한 부여 체계를 나타냅니다. 포털의 데이터 액세스에 대 한 자세한 내용은 [Azure Portal에서 blob 데이터에 대 한 액세스 권한을 부여 하는 방법 선택](../blobs/authorize-blob-access-portal.md) 및 [Azure Portal에서 큐 데이터에 대 한 액세스 권한을 부여 하는 방법 선택](../queues/authorize-queue-access-portal.md)을 참조 하세요.
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>PowerShell 또는 Azure CLI에서 데이터 액세스
 

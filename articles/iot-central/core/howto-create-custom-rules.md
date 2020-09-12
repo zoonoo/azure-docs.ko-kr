@@ -9,16 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 572b5328a433839dafbfe23eb7207dfaeb9ea309
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 288fb5b552eab2029ea72f73a835fc73d97244b9
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017858"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018196"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Stream Analytics, Azure Functions 및 SendGrid를 사용하여 사용자 지정 규칙으로 Azure IoT Central 확장
-
-
 
 이 방법 가이드에서는 솔루션 개발자 인 사용자 지정 규칙 및 알림을 사용 하 여 IoT Central 응용 프로그램을 확장 하는 방법을 보여 줍니다. 이 예에서는 장치가 원격 분석 전송을 중지할 때 운영자에 게 알림을 보내는 방법을 보여 줍니다. 솔루션은 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) 쿼리를 사용 하 여 장치에서 원격 분석 보내기가 중지 된 시기를 검색 합니다. Stream Analytics 작업은 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) 를 사용 하 여 [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/)를 사용 하 여 알림 전자 메일을 보냅니다.
 
@@ -30,7 +28,7 @@ ms.locfileid: "89017858"
 * 장치에서 데이터 전송을 중지 한 경우를 검색 하는 Stream Analytics 쿼리를 만듭니다.
 * Azure Functions 및 SendGrid 서비스를 사용 하 여 전자 메일 알림을 보냅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
@@ -42,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 | 설정 | 값 |
 | ------- | ----- |
-| 요금제 | 표준 |
+| 요금제 | Standard |
 | 애플리케이션 템플릿 | 저장소 내 분석-조건 모니터링 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
@@ -54,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 응용 프로그램 템플릿에는 원격 분석을 전송 하는 두 개의 시뮬레이션 된 자동 온도 조절기 장치가 포함 되어 있습니다.
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>리소스 그룹
 
 Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **DetectStoppedDevices** 라는 [리소스 그룹을 만듭니다](https://portal.azure.com/#create/Microsoft.ResourceGroup) . IoT Central 응용 프로그램과 동일한 위치에 Azure 리소스를 만듭니다.
 
@@ -65,7 +63,7 @@ Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이�
 | 설정 | 값 |
 | ------- | ----- |
 | Name    | 네임 스페이스 이름 선택 |
-| 가격 책정 계층 | 기본 |
+| 가격 책정 계층 | Basic |
 | Subscription | 사용자의 구독 |
 | Resource group | DetectStoppedDevices |
 | 위치 | 미국 동부 |
@@ -259,7 +257,7 @@ test-device-3    2019-05-02T14:24:28.919Z
     | 출력 별칭 | emailnotification |
     | Subscription | 사용자의 구독 |
     | 함수 앱 | 함수 앱 |
-    | 함수  | HttpTrigger1 |
+    | 기능  | HttpTrigger1 |
 
 1. **작업 토폴로지**에서 **쿼리** 를 선택 하 고 기존 쿼리를 다음 SQL로 바꿉니다.
 

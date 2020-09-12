@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b7b3236fe1e4052689657316df851753de7edbe5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b34bd51e9d84629682565592c733b23a320597aa
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083687"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669764"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>일반적인 Azure 스프링 클라우드 문제 해결
 
@@ -48,18 +48,23 @@ ms.locfileid: "87083687"
 * 검색 상태가 _UP_인 경우 메트릭으로 이동하여 애플리케이션의 상태를 확인합니다. 다음 메트릭을 검사합니다.
 
 
-  - `TomcatErrorCount`(_tomcat_): 모든 스프링 응용 프로그램 예외는 여기에 계산 됩니다. 이 수가 크면 Azure Log Analytics로 이동하여 애플리케이션 로그를 검사합니다.
+  - `TomcatErrorCount` (_tomcat_): 모든 스프링 응용 프로그램 예외는 여기에 계산 됩니다. 이 수가 크면 Azure Log Analytics로 이동하여 애플리케이션 로그를 검사합니다.
 
-  - `AppMemoryMax`(_jvm. max_): 응용 프로그램에 사용할 수 있는 최대 메모리 양입니다. 크기는 정의 되지 않은 것일 수도 있고, 정의 된 경우 시간이 지남에 따라 변경 될 수도 있습니다. 정의 된 경우 사용 된 메모리와 커밋된 메모리의 양은 항상 max 보다 작거나 같습니다. 그러나 `OutOfMemoryError` *사용 된 <= max* 가 여전히 true 인 경우에도 할당에서 사용 되는 *> 커밋된*메모리를 늘려야 하는 경우 메시지와 함께 메모리 할당이 실패할 수 있습니다. 이러한 상황에서 매개 변수를 사용 하 여 최대 힙 크기를 늘립니다 `-Xmx` .
+  - `AppMemoryMax` (_jvm. max_): 응용 프로그램에 사용할 수 있는 최대 메모리 양입니다. 크기는 정의 되지 않은 것일 수도 있고, 정의 된 경우 시간이 지남에 따라 변경 될 수도 있습니다. 정의 된 경우 사용 된 메모리와 커밋된 메모리의 양은 항상 max 보다 작거나 같습니다. 그러나 `OutOfMemoryError` *사용 된 <= max* 가 여전히 true 인 경우에도 할당에서 사용 되는 *> 커밋된*메모리를 늘려야 하는 경우 메시지와 함께 메모리 할당이 실패할 수 있습니다. 이러한 상황에서 매개 변수를 사용 하 여 최대 힙 크기를 늘립니다 `-Xmx` .
 
-  - `AppMemoryUsed`(_jvm. memory. used_): 응용 프로그램에서 현재 사용 하는 메모리의 양 (바이트)입니다. 일반적인 로드 Java 응용 프로그램의 경우이 메트릭 시리즈는 *패턴이 톱니 모양* 패턴을 형성 합니다 .이 패턴을 사용 하면 메모리 사용이 조금씩 증가 하 고 감소 하 여 급격 하 게 감소 하 고 그 후에도 패턴이 되풀이 됩니다. 이 메트릭 계열은 컬렉션 작업이 패턴이 톱니 모양 패턴에 대 한 삭제를 나타내는 Java 가상 머신 내부의 가비지 수집 때문에 발생 합니다.
+  - `AppMemoryUsed` (_jvm. memory. used_): 응용 프로그램에서 현재 사용 하는 메모리의 양 (바이트)입니다. 일반적인 로드 Java 응용 프로그램의 경우이 메트릭 시리즈는 *패턴이 톱니 모양* 패턴을 형성 합니다 .이 패턴을 사용 하면 메모리 사용이 조금씩 증가 하 고 감소 하 여 급격 하 게 감소 하 고 그 후에도 패턴이 되풀이 됩니다. 이 메트릭 계열은 컬렉션 작업이 패턴이 톱니 모양 패턴에 대 한 삭제를 나타내는 Java 가상 머신 내부의 가비지 수집 때문에 발생 합니다.
     
     이 메트릭은 다음과 같은 메모리 문제를 식별 하는 데 중요 합니다.
     * 메모리 급증이 시작 됩니다.
     * 특정 논리 경로에 대 한 서 지 메모리 할당입니다.
     * 메모리 누수가 점진적으로 발생 합니다.
-
   자세한 내용은 [메트릭](spring-cloud-concept-metrics.md)을 참조 하세요.
+  
+* 응용 프로그램이 시작 되지 않으면 응용 프로그램에 유효한 jvm 매개 변수가 있는지 확인 합니다. Jvm 메모리가 너무 높게 설정 된 경우 로그에 다음과 같은 오류 메시지가 나타날 수 있습니다.
+
+  >"필수 메모리 2728741K은 할당에 사용할 수 있는 2000M 보다 큽니다."
+
+
 
 Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)을 참조 하세요.
 
@@ -138,7 +143,7 @@ Azure Portal 또는 리소스 관리자 템플릿을 사용 하 여 JAR/원본 �
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-그러나 한 번에 하나의 Azure 스프링 클라우드 서비스 인스턴스에서 하나의 원본 패키지에 대해 하나의 빌드 작업만 트리거할 수 있습니다. 자세한 내용은 Azure 스프링 클라우드에서 [응용 프로그램 배포](spring-cloud-quickstart-launch-app-portal.md) 및 [스테이징 환경 설정](spring-cloud-howto-staging-environment.md)을 참조 하세요.
+그러나 한 번에 하나의 Azure 스프링 클라우드 서비스 인스턴스에서 하나의 원본 패키지에 대해 하나의 빌드 작업만 트리거할 수 있습니다. 자세한 내용은 Azure 스프링 클라우드에서 [응용 프로그램 배포](spring-cloud-quickstart.md) 및 [스테이징 환경 설정](spring-cloud-howto-staging-environment.md)을 참조 하세요.
 
 ### <a name="my-application-cant-be-registered"></a>응용 프로그램을 등록할 수 없습니다.
 
@@ -159,7 +164,7 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 > [!WARNING]
 > 이 프로시저는 테스트 끝점을 사용 하 여 환경 변수를 노출 합니다.  테스트 엔드포인트에 공개적으로 액세스할 수 있거나 애플리케이션에 도메인 이름을 할당한 경우에는 더이상 진행하지 마십시오.
 
-1. `https://<your application test endpoint>/actuator/health`로 이동합니다.  
+1. `https://<your application test endpoint>/actuator/health` 으로 이동합니다.  
     - `{"status":"UP"}`과 유사한 응답은 엔드포인트가 사용하도록 설정되었음을 나타냅니다.
     - 응답이 음수 이면 *POM.xml* 파일에 다음 종속성을 포함 합니다.
 
@@ -193,7 +198,7 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 이라는 자식 노드를 찾습니다 `systemEnvironment` .  이 노드에는 애플리케이션의 환경 변수가 포함됩니다.
 
 > [!IMPORTANT]
-> 애플리케이션에 대한 공용 액세스를 가능하게 하려면 환경 변수의 노출을 역방향으로 바꾸어야 합니다.  Azure Portal로 이동 하 고, 응용 프로그램의 구성 페이지를 검색 하 고,이 환경 변수를 삭제 `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` 합니다.
+> 애플리케이션에 대한 공용 액세스를 가능하게 하려면 환경 변수의 노출을 역방향으로 바꾸어야 합니다.  Azure Portal로 이동 하 고, 응용 프로그램의 구성 페이지를 검색 하 고,이 환경 변수를 삭제  `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` 합니다.
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>응용 프로그램에 대 한 메트릭 또는 로그를 찾을 수 없습니다.
 

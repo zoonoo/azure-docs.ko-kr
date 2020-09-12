@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 1110199a8c02b29d70f0c12e1ed1a6341c44e403
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 39601da6cc8e10ba8f4a24eeddb97cfe677c031f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037255"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651725"
 ---
 # <a name="azure-networking-services-overview"></a>Azure 네트워킹 서비스 개요
 
@@ -38,7 +38,7 @@ Azure의 네트워킹 서비스는 함께 또는 별도로 사용할 수 있는 
 |[Azure DNS](#dns)|Microsoft Azure 인프라를 사용 하 여 이름 확인을 제공 하는 DNS 도메인을 호스팅합니다.|<p>[Azure DNS에서 도메인 호스트](../dns/dns-delegate-domain-azure-dns.md)</p><p>[웹 앱에 대 한 DNS 레코드 만들기](../dns/dns-web-sites-custom-domain.md)</p> <p>[Traffic Manager에 대 한 별칭 레코드 만들기](../dns/tutorial-alias-tm.md)</p> <p>[공용 IP 주소에 대 한 별칭 레코드 만들기](../dns/tutorial-alias-pip.md)</p> <p>[영역 리소스 레코드에 대 한 별칭 레코드 만들기](../dns/tutorial-alias-rr.md)</p>|
 |[Azure Bastion](#bastion)|TLS를 통해 Azure Portal에서 직접 가상 머신에 안전 하 고 원활한 RDP/SSH 연결을 구성 합니다. Azure 방호를 통해 연결 하는 경우 가상 머신에 공용 IP 주소가 필요 하지 않습니다.|<p>[Azure Bastion 호스트 만들기](../bastion/bastion-create-host-portal.md)</p><p>[Linux VM에 SSH를 사용 하 여 연결](../bastion/bastion-connect-vm-ssh.md)</p><p>[RDP를 사용 하 여 Windows VM에 연결](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[가상 네트워크 NAT 게이트웨이](#nat)|가상 컴퓨터에 대 한 아웃 바운드 연결을 제공 하는 NAT 게이트웨이를 만듭니다.|<p>[NAT 게이트웨이 만들기](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
-|[Azure 피어 링 서비스 (미리 보기)](#azurepeeringservice)|공용 네트워크를 통해 Microsoft 클라우드로 가장 안정적이 고 안정적인 라우팅을 위해 서비스 공급자와 공동 작업 합니다.|<p>[Azure 피어 링 서비스 등록](../peering-service/azure-portal.md)</p>|
+|[Azure Peering Service](#azurepeeringservice)|공용 네트워크를 통해 Microsoft 클라우드로 가장 안정적이 고 안정적인 라우팅을 위해 서비스 공급자와 공동 작업 합니다.|<p>[Azure 피어 링 서비스 등록](../peering-service/azure-portal.md)</p>|
 ||||
 
 
@@ -71,7 +71,7 @@ Azure Virtual WAN은 Azure를 통해 최적화된 자동 분기 연결을 제공
 ![Virtual WAN 다이어그램](./media/networking-overview/virtualwan1.png)
 
 ### <a name="azure-dns"></a><a name="dns"></a>Azure DNS
-Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인용 호스팅 서비스입니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다. 자세한 내용은 [Azure DNS 란?](../dns/dns-overview.md)을 참조 하세요.
+Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. Azure에 도메인을 호스트하면 다른 Azure 서비스와 동일한 자격 증명, API, 도구 및 대금 청구를 사용하여 DNS 레코드를 관리할 수 있습니다. 자세한 내용은 [Azure DNS 란?](../dns/dns-overview.md)을 참조 하세요.
 
 ### <a name="azure-bastion"></a><a name="bastion"></a>Azure Bastion
 Azure Bastion 서비스는 가상 네트워크 내에서 프로비저닝하는 새로운 완전 플랫폼 관리형 PaaS 서비스입니다. TLS를 통해 Azure Portal에서 직접 가상 머신에 안전하고 원활한 RDP/SSH 연결을 제공합니다. Azure Bastion을 통해 연결하는 경우에는 가상 머신에 공용 IP 주소가 필요하지 않습니다. 자세한 내용은 [Azure 방호 이란?](../bastion/bastion-overview.md)을 참조 하세요.
@@ -83,7 +83,7 @@ Virtual Network NAT(Network Address Translation)는 가상 네트워크에 대�
 
 ![가상 네트워크 NAT 게이트웨이](./media/networking-overview/flow-map.png)
 
-### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a>Azure 피어 링 서비스
+### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a> Azure 피어 링 서비스
 Azure 피어 링 서비스는 Office 365, Dynamics 365, SaaS (software as a service) 서비스, Azure 또는 공용 인터넷을 통해 액세스할 수 있는 Microsoft 서비스와 같은 Microsoft 클라우드 서비스에 대 한 고객의 연결을 향상 시킵니다. 자세한 내용은 [Azure 피어 링 서비스 란?](../peering-service/about.md)을 참조 하세요.
 
 ## <a name="application-protection-services"></a><a name="protect"></a>응용 프로그램 보호 서비스
@@ -97,7 +97,7 @@ Azure 피어 링 서비스는 Office 365, Dynamics 365, SaaS (software as a serv
 |[Azure Firewall](#firewall)|Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다. 고가용성 및 무제한 클라우드 확장성이 내장되어 있는 서비스 형태의 완전한 상태 저장 방화벽입니다.|<p>[Vnet에서 Azure 방화벽 배포](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[-하이브리드 네트워크에서 Azure 방화벽 배포](../firewall/tutorial-hybrid-ps.md)</p> <p>[Azure 방화벽 DNAT를 사용 하 여 인바운드 트래픽 필터링](../firewall/tutorial-firewall-dnat.md)</p>|
 |[네트워크 보안 그룹](#nsg)|모든 네트워크 트래픽 흐름에 대 한 v m/서브넷의 완전 한 분산 끝 노드 컨트롤|[네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/tutorial-filter-network-traffic.md)|
 |[가상 네트워크 서비스 엔드포인트](#serviceendpoints)|일부 Azure 서비스 리소스에 대 한 네트워크 액세스를 가상 네트워크 서브넷으로 제한할 수 있습니다.|[PaaS 리소스에 대한 네트워크 액세스 제한](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
-[Private Link](#privatelink)|를 사용 하면 가상 네트워크의 개인 끝점을 통해 Azure PaaS 서비스 (예: Azure Storage 및 SQL Database)와 Azure에서 호스트 되는 고객 소유/파트너 서비스에 액세스할 수 있습니다.|<p>[프라이빗 엔드포인트 만들기](../private-link/create-private-endpoint-portal.md)</p><p>[개인 링크 서비스 만들기](../private-link/create-private-link-service-portal.md)</p>|
+[Private Link](#privatelink)|를 사용 하면 가상 네트워크의 개인 끝점을 통해 Azure PaaS 서비스 (예: Azure Storage 및 SQL Database)와 Azure에서 호스트 되는 고객 소유/파트너 서비스에 액세스할 수 있습니다.|<p>[프라이빗 엔드포인트 만들기](../private-link/create-private-endpoint-portal.md)</p><p>[Private Link 서비스 만들기](../private-link/create-private-link-service-portal.md)</p>|
 |||
 ### <a name="ddos-protection"></a><a name="ddosprotection"></a>DDoS Protection 
 [Azure DDoS Protection](../virtual-network/manage-ddos-protection.md) 은 가장 정교한 DDoS 위협에 대 한 대책을 제공 합니다. 이 서비스는 응용 프로그램 및 가상 네트워크에 배포 된 리소스에 대 한 향상 된 DDoS 완화 기능을 제공 합니다. 또한 Azure DDoS Protection를 사용 하는 고객은 활성 공격 동안 DDoS 전문가에 게 대응할 수 있도록 신속한 응답 지원을 DDoS 수 있습니다.
@@ -123,7 +123,7 @@ Azure 방화벽에 대 한 자세한 내용은 [Azure 방화벽 설명서](../fi
 ### <a name="network-security-groups"></a><a name="nsg"></a>네트워크 보안 그룹
 Azure 가상 네트워크의 Azure 리소스와 네트워크 보안 그룹이 주고 받는 네트워크 트래픽을 필터링할 수 있습니다. 자세한 내용은 [보안 개요](../virtual-network/security-overview.md)를 참조하세요.
 
-### <a name="service-endpoints"></a><a name="serviceendpoints"></a>서비스 끝점
+### <a name="service-endpoints"></a><a name="serviceendpoints"></a>서비스 엔드포인트
 VNet(Virtual Network) 서비스 엔드포인트는 직접 연결을 통해 가상 네트워크 프라이빗 주소 공간 및 Azure 서비스에 대한 VNet의 ID를 확장합니다. 엔드포인트를 사용하면 가상 네트워크에 대해 중요한 Azure 서비스 리소스를 보호할 수 있습니다. VNet에서 Azure 서비스에 대한 트래픽은 Microsoft Azure 백본 네트워크에 항상 유지됩니다. 자세한 내용은 [가상 네트워크 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)를 참조하세요.
 
 ![가상 네트워크 서비스 엔드포인트](./media/networking-overview/vnet-service-endpoints-overview.png)

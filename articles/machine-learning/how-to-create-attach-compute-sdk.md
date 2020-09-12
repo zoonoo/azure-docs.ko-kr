@@ -1,5 +1,5 @@
 ---
-title: Python SDK를 사용 하 여 계산 리소스 만들기
+title: 학습 & 배포 계산 (Python) 만들기
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning Python SDK를 사용 하 여 기계 학습을 위한 교육 및 배포 계산 리소스 (계산 대상) 만들기
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 96aa6839fe51bb8a8c26f411c1a1f9df6b8c5a7f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c25ee5d9c626ba95d28f2247e6771d9fa1ada0f7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147500"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662538"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Python SDK를 사용 하 여 모델 학습 및 배포를 위한 계산 대상 만들기
 
@@ -28,11 +28,15 @@ ms.locfileid: "89147500"
 * Azure Machine Learning [VS Code 확장](how-to-manage-resources-vscode.md#compute-clusters) 입니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
-* [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
+
+## <a name="limitations"></a>제한 사항
+
+이 문서에 나열 된 일부 시나리오는 __미리 보기로__표시 되어 있습니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="whats-a-compute-target"></a>계산 대상 이란?
 
@@ -55,16 +59,33 @@ Azure Machine Learning에는 다양한 컴퓨팅 대상에 대한 다양한 지�
 * [원격 가상 머신](#vm)
 * [Azure HDInsight](#hdinsight)
 
+## <a name="compute-targets-for-inference"></a>유추를 위한 계산 대상
+
+유추를 수행 하는 경우 Azure Machine Learning 사용 하는 데 필요한 모델 및 관련 리소스를 호스팅하는 Docker 컨테이너를 만듭니다. 이 컨테이너는 다음 배포 시나리오 중 하나에서 사용 됩니다.
+
+* 실시간 유추에 사용 되는 __웹 서비스__ 입니다. 웹 서비스 배포는 다음 계산 대상 중 하나를 사용 합니다.
+
+    * [로컬 컴퓨터](#local)
+    * [Azure Machine Learning 컴퓨팅 인스턴스](#instance)
+    * [Azure Container Instances](#aci)
+    * [Azure Kubernetes Services](how-to-create-attach-kubernetes.md)
+    * Azure Functions (미리 보기). Azure Functions에 배포 하는 경우에만 Docker 컨테이너를 빌드하는 Azure Machine Learning에 의존 합니다. 여기에서 Azure Functions를 사용 하 여 배포 됩니다. 자세한 내용은 [Azure Functions에 machine learning 모델 배포 (미리 보기)](how-to-deploy-functions.md)를 참조 하세요.
+
+* 데이터 일괄 처리를 주기적으로 처리 하는 데 사용 되는 __일괄 처리 유추__ 끝점입니다. Batch 추론는 [Azure Machine Learning 계산 클러스터](#amlcompute)를 사용 합니다.
+
+* __IoT 장치로__ (미리 보기). IoT 장치에 배포 하는 Azure Machine Learning에만 Docker 컨테이너를 빌드하는 데 사용 됩니다. 여기에서 Azure IoT Edge를 사용 하 여 배포 됩니다. 자세한 내용은 [IoT Edge 모듈로 배포 (미리 보기)](/azure/iot-edge/tutorial-deploy-machine-learning)를 참조 하세요.
 
 ## <a name="local-computer"></a><a id="local"></a>로컬 컴퓨터
 
-로컬 컴퓨터를 학습에 사용 하는 경우 계산 대상을 만들 필요가 없습니다.  로컬 컴퓨터에서 [학습 실행을 제출](how-to-set-up-training-targets.md) 하면 됩니다.
+로컬 컴퓨터를 **학습**에 사용 하는 경우 계산 대상을 만들 필요가 없습니다.  로컬 컴퓨터에서 [학습 실행을 제출](how-to-set-up-training-targets.md) 하면 됩니다.
+
+**유추**를 위해 로컬 컴퓨터를 사용 하는 경우 Docker가 설치 되어 있어야 합니다. 배포를 수행 하려면 [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) 를 사용 하 여 웹 서비스에서 사용할 포트를 정의 합니다. 그런 다음 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)에 설명 된 대로 일반적인 배포 프로세스를 사용 합니다.
 
 ## <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Azure Machine Learning 계산 클러스터
 
 Azure Machine Learning 계산 클러스터는 단일 또는 다중 노드 계산을 쉽게 만들 수 있는 관리 되는 계산 인프라입니다. 작업 영역 지역 내에서 컴퓨팅은 작업 영역에서 다른 사용자와 공유할 수 있는 리소스로 만들어집니다. 작업이 제출될 때 컴퓨팅이 자동으로 확장되어 Azure Virtual Network에 배치될 수 있습니다. 컴퓨팅은 컨테이너화된 환경에서 실행되며 모델 종속성을 [Docker 컨테이너](https://www.docker.com/why-docker)로 패키지합니다.
 
-Azure Machine Learning 컴퓨팅을 사용하여 클라우드의 CPU 또는 GPU 컴퓨팅 노드 클러스터에 학습 프로세스를 배포할 수 있습니다. GPU를 포함하는 VM 크기에 대한 자세한 내용은 [GPU 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)를 참조하세요. 
+Azure Machine Learning Compute를 사용 하 여 클라우드의 CPU 또는 GPU 계산 노드 클러스터에 대해 학습 또는 일괄 처리 유추 프로세스를 배포할 수 있습니다. GPU를 포함하는 VM 크기에 대한 자세한 내용은 [GPU 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)를 참조하세요. 
 
 Azure Machine Learning 컴퓨팅에는 할당할 수 있는 코어 수와 같은 기본적인 제한이 있습니다. 자세한 내용은 [Azure 리소스에 대한 할당량 관리 및 요청](how-to-manage-quotas.md)을 참조하세요.
 
@@ -87,7 +108,7 @@ Azure Machine Learning 컴퓨팅은 실행 전반에서 다시 사용할 수 있
 
     또는 [Azure Machine Learning 스튜디오](how-to-create-attach-compute-studio.md#portal-create)에서 영구적 Azure Machine Learning 컴퓨팅 리소스를 만들고 연결할 수 있습니다.
 
-이제 계산을 연결 했으므로 다음 단계는 [학습 실행을 제출](how-to-set-up-training-targets.md)하는 것입니다.
+이제 계산을 연결 했으므로 다음 단계는 [학습 실행을 제출](how-to-set-up-training-targets.md) 하거나 [일괄 처리 유추를 실행](how-to-use-parallel-run-step.md)하는 것입니다.
 
  ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> 계산 클러스터 비용 낮추기
 
@@ -201,8 +222,15 @@ Azure Machine Learning 컴퓨팅은 실행 전반에서 다시 사용할 수 있
         instance.wait_for_completion(show_output=True)
     ```
 
-계산을 연결 하 고 실행을 구성 했으므로 다음 단계는 [학습 실행을 제출](how-to-set-up-training-targets.md) 하는 것입니다.
+계산을 연결 하 고 실행을 구성 했으므로 다음 단계는 [학습 실행을 제출](how-to-set-up-training-targets.md) 하거나 [유추를 위해 모델을 배포](how-to-deploy-local-container-notebook-vm.md)하는 것입니다.
 
+## <a name="azure-container-instance"></a><a id="aci"></a>Azure Container Instance
+
+ACI (Azure Container Instances)는 모델을 배포할 때 동적으로 생성 됩니다. 다른 방법으로는 ACI를 만들거나 작업 영역에 연결할 수 없습니다. 자세한 내용은 [Azure Container Instances에 모델 배포](how-to-deploy-azure-container-instance.md)를 참조 하세요.
+
+## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+AKS (Azure Kubernetes Service)를 사용 하면 Azure Machine Learning와 함께 사용 하는 경우 다양 한 구성 옵션을 사용할 수 있습니다. 자세한 내용은 [Azure Kubernetes Service를 만들고 연결 하는 방법](how-to-create-attach-kubernetes.md)을 참조 하세요.
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>원격 가상 머신
 
@@ -437,7 +465,7 @@ except ComputeTargetException:
 자세한 예제는 GitHub의 [예제 노트북](https://aka.ms/pl-adla) 을 참조 하세요.
 
 > [!TIP]
-> Azure Machine Learning 파이프라인은 Data Lake Analytics 계정의 기본 데이터 저장소에 저장된 데이터에만 작동할 수 있습니다. 작업 해야 하는 데이터가 기본이 아닌 저장소에 있는 경우를 사용 [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) 하 여 학습 전에 데이터를 복사할 수 있습니다.
+> Azure Machine Learning 파이프라인은 Data Lake Analytics 계정의 기본 데이터 저장소에 저장된 데이터에만 작동할 수 있습니다. 작업 해야 하는 데이터가 기본이 아닌 저장소에 있는 경우를 사용 [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) 하 여 학습 전에 데이터를 복사할 수 있습니다.
 
 ## <a name="notebook-examples"></a>Notebook 예제
 

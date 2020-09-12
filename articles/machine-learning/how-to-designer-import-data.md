@@ -5,17 +5,17 @@ description: 다양 한 데이터 원본에서 Azure Machine Learning designer (
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 01/16/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a7d0a1604b3bea1f11532639dbbc5102f4a243a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495374"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006987"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Azure Machine Learning designer로 데이터 가져오기 (미리 보기)
 
@@ -38,19 +38,28 @@ ms.locfileid: "87495374"
 
 1. 등록하려는 데이터를 출력하는 모듈을 선택합니다.
 
-1. 속성 창에서 **출력** > **데이터 세트 등록**을 차례로 선택합니다.
+1. 속성 창에서 **출력 + 로그**  >  **레지스터 데이터 집합**을 선택 합니다.
 
     ![데이터 세트 등록 옵션으로 이동하는 방법을 보여주는 스크린샷](media/how-to-designer-import-data/register-dataset-designer.png)
 
+모듈 출력 데이터가 테이블 형식인 경우 출력을 **파일 데이터 집합** 또는 **테이블 형식 데이터 집합**으로 등록 하도록 선택 해야 합니다.
+
+ - **파일 데이터 집합** 은 모듈의 출력 폴더를 파일 데이터 집합으로 등록 합니다. 출력 폴더에는 디자이너에서 내부적으로 사용 하는 데이터 파일 및 메타 파일이 포함 되어 있습니다. 디자이너에서 등록 된 데이터 집합을 계속 사용 하려는 경우이 옵션을 선택 합니다. 
+
+ - **테이블 형식 데이터 집합** 은 모듈의 출력 데이터 파일만 표 형식 데이터 집합으로 등록 합니다. 이 형식은 자동 Machine Learning 또는 Python SDK와 같은 다른 도구에서 쉽게 사용할 수 있습니다. 디자이너 외부에서 등록 된 데이터 집합을 사용할 계획인 경우이 옵션을 선택 합니다.  
+
+
+
 ### <a name="use-a-dataset"></a>데이터 세트 사용
 
-등록된 데이터 세트는 **데이터 세트** > **내 데이터 세트**에 있는 모듈 색상표에서 찾을 수 있습니다. 데이터 세트를 사용하려면 파이프라인 캔버스로 끌어서 놓습니다. 그런 다음, 데이터 세트의 출력 포트를 색상표의 다른 모듈에 연결합니다.
+등록 된 데이터 집합은 모듈 팔레트의 **데이터 집합**에서 찾을 수 있습니다. 데이터 세트를 사용하려면 파이프라인 캔버스로 끌어서 놓습니다. 그런 다음 데이터 집합의 출력 포트를 캔버스의 다른 모듈에 연결 합니다. 
 
 ![디자이너 색상표에서 저장된 데이터 세트의 위치를 보여 주는 스크린샷](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
 > [!NOTE]
-> 현재 디자이너는 [테이블 형식 데이터 세트](how-to-create-register-datasets.md#dataset-types) 처리만 지원합니다. [파일 데이터 세트](how-to-create-register-datasets.md#dataset-types)를 사용하려면 Python 및 R에 사용할 수 있는 Azure Machine Learning SDK를 사용합니다.
+> 디자이너는 [데이터 집합 버전 관리](how-to-version-track-datasets.md)를 지원 합니다. 데이터 집합 모듈의 속성 패널에서 데이터 집합 버전을 지정 합니다.
+
 
 ## <a name="import-data-using-the-import-data-module"></a>데이터 가져오기 모듈을 사용하여 데이터 가져오기
 
@@ -94,7 +103,7 @@ ms.locfileid: "87495374"
 
 ## <a name="access-data-in-a-virtual-network"></a>가상 네트워크의 데이터에 액세스
 
-작업 영역이 가상 네트워크에 있는 경우에는 디자이너에서 데이터를 시각화 하기 위해 추가 구성 단계를 수행 해야 합니다. 가상 네트워크에서 데이터 저장소 및 데이터 집합을 사용 하는 방법에 대 한 자세한 내용은 [개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리](how-to-enable-virtual-network.md#machine-learning-studio)를 참조 하세요.
+작업 영역이 가상 네트워크에 있는 경우에는 디자이너에서 데이터를 시각화 하기 위해 추가 구성 단계를 수행 해야 합니다. 가상 네트워크에서 데이터 저장소 및 데이터 집합을 사용 하는 방법에 대 한 자세한 내용은 [Azure 가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

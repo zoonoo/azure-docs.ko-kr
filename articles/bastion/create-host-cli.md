@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mialdrid
-ms.openlocfilehash: e7f80bb7f9be2e01aa24090d7305b1a5d882da04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ee90d80230f9115946525ede325e874e98e358e
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255517"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024335"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 방호 호스트 만들기
 
@@ -30,23 +30,25 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 이 섹션은 Azure CLI를 사용 하 여 새 Azure 방호 리소스를 만드는 데 도움이 됩니다.
 
+> [!NOTE]
+> 예제에 표시 된 것 처럼 `--location` 모든 명령에 대해 매개 변수를 사용 하 여 `--resource-group` 리소스를 함께 배포 하는지 확인 합니다.
+
 1. 가상 네트워크 및 Azure 방호 서브넷을 만듭니다. 이름 값 **AzureBastionSubnet**을 사용 하 여 Azure 방호 서브넷을 만들어야 합니다. 이 값을 통해 Azure에서 Bastion 리소스를 배포할 서브넷을 인식할 수 있습니다. 이는 게이트웨이 서브넷과는 다릅니다. 최소/27 이상의 서브넷 (/27,/26 등)의 서브넷을 사용 해야 합니다. 경로 테이블 또는 위임 없이 **AzureBastionSubnet** 를 만듭니다. **AzureBastionSubnet**의 네트워크 보안 그룹을 사용 하는 경우 [nsgs 작업](bastion-nsg.md) 문서를 참조 하세요.
 
    ```azurecli-interactive
-   az network vnet create -g MyResourceGroup -n MyVnet --address-prefix 10.0.0.0/16 --subnet-name AzureBastionSubnet  --subnet-prefix 10.0.0.0/24
+   az network vnet create --resource-group MyResourceGroup --name MyVnet --address-prefix 10.0.0.0/16 --subnet-name AzureBastionSubnet --subnet-prefix 10.0.0.0/24 --location northeurope
    ```
 
 2. Azure 방호에 대 한 공용 IP 주소를 만듭니다. 공용 IP는 RDP/SSH를 액세스할 수 있는 방호 리소스 (443 포트)에 대 한 공용 IP 주소입니다. 공용 IP 주소는 만들려는 Bastion 리소스와 동일한 지역에 있어야 합니다.
 
    ```azurecli-interactive
-   az network public-ip create -g MyResourceGroup -n MyIp --sku Standard
+   az network public-ip create --resource-group MyResourceGroup --name MyIp --sku Standard --location northeurope
    ```
 
 3. 가상 네트워크의 AzureBastionSubnet에서 새 Azure 방호 리소스를 만드세요. 요새 리소스를 만들고 배포 하는 데 약 5 분이 걸립니다.
 
    ```azurecli-interactive
-   az network bastion create --name $name--public-ip-address $publicip--resource-group $RgName --vnet-name $VNetName --location $location
-                           
+   az network bastion create --name MyBastion --public-ip-address MyIp --resource-group MyResourceGroup --vnet-name MyVnet --location northeurope
    ```
 
 ## <a name="next-steps"></a>다음 단계

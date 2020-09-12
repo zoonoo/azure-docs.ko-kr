@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/24/2020
-ms.openlocfilehash: 71846b8e26efb3853705fabff78831e746727191
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/10/2020
+ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926952"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007046"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Azure Cognitive Search 서비스를 다른 Azure 지역으로 이동
 
@@ -23,7 +23,13 @@ ms.locfileid: "88926952"
 > [!NOTE]
 > Azure Portal 모든 서비스에는 **내보내기 템플릿** 명령이 있습니다. Azure Cognitive Search의 경우이 명령은 서비스의 기본 정의 (이름, 위치, 계층, 복제본 및 파티션 수)를 생성 하지만 서비스의 콘텐츠를 인식 하지 않으며 키, 역할 또는 로그를 전달 하지 않습니다. 명령이 존재 하지만 검색 서비스를 이동 하는 데 사용 하지 않는 것이 좋습니다.
 
-## <a name="guidance-for-moving-a-service"></a>서비스 이동에 대 한 지침
+## <a name="prerequisites"></a>전제 조건
+
++ 계정에서 사용하는 서비스 및 기능이 대상 지역에서 지원되는지 확인합니다.
+
++ 미리 보기 기능의 경우 구독이 대상 지역에 대한 허용 목록에 추가되었는지 확인합니다.
+
+## <a name="prepare-and-move"></a>준비 및 이동
 
 1. Azure Cognitive Search을 초과 하 여 이동 해야 하는 경우 서비스를 재배치할 경우의 모든 영향을 이해 하려면 종속성 및 관련 서비스를 식별 합니다.
 
@@ -41,7 +47,9 @@ ms.locfileid: "88926952"
 
 1. 새 서비스 이름 및 API 키를 사용 하 고 모든 응용 프로그램을 테스트 하도록 클라이언트 응용 프로그램 및 테스트 도구 모음을 업데이트 합니다.
 
-1. 새 서비스가 완전히 테스트 되 고 작동 하면 이전 서비스를 삭제 합니다.
+## <a name="discard-or-clean-up"></a>삭제 또는 정리
+
+새 서비스가 완전히 테스트 되 고 작동 하면 이전 서비스를 삭제 합니다. 서비스를 삭제 하면 서비스와 연결 된 모든 콘텐츠가 자동으로 삭제 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

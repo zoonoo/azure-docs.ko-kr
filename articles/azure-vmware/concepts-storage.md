@@ -3,12 +3,12 @@ title: 개념-저장소
 description: Azure VMware Solution Preview 사설 클라우드의 키 저장소 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 91484c1baae9801684bc49b931fa2080db676a00
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8afd58c61f2f78eec2a92354be6d88178340912e
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752219"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024318"
 ---
 # <a name="azure-vmware-solution-preview-storage-concepts"></a>Azure VMware Solution Preview 저장소 개념
 
@@ -28,7 +28,7 @@ Azure VMware 솔루션 사설 클라우드는 VMware vSAN을 사용 하 여 클�
 
 ## <a name="data-at-rest-encryption"></a>휴지 상태의 데이터 암호화
 
-vSAN 데이터 저장소는 기본적으로 미사용 데이터 암호화를 사용 합니다. 암호화 솔루션은 KMS 기반 이며 키 관리를 위한 vCenter 작업을 지원 합니다. 키는 암호화 되어 HSM 기반 Azure Key Vault 마스터 키로 래핑됩니다. 어떤 이유로 든 클러스터에서 호스트를 제거 하면 Ssd의 데이터가 즉시 무효화 됩니다.
+vSAN 데이터 저장소는 기본적으로 미사용 데이터 암호화를 사용 합니다. 암호화 솔루션은 KMS 기반 이며 키 관리를 위한 vCenter 작업을 지원 합니다. 키 암호화 키는 Azure Key Vault 저장 되며, 어떤 이유로 든 클러스터에서 호스트를 제거 하면 Ssd의 데이터가 즉시 무효화 됩니다.
 
 ## <a name="scaling"></a>확장
 

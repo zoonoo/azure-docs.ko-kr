@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8725a822c575ce80b9810d56bfd072241ded4c86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee9552b251cbc8cca1891de043ee79682e7b2d6c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157945"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017101"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 디바이스 관리
 
-
-
-이 문서에서는 운영자로서 Azure IoT Central 애플리케이션에서 디바이스를 관리하는 방법을 설명합니다. 운영자로서 다음과 같은 일을 할 수 있습니다.
+이 문서에서는 Azure IoT Central 응용 프로그램에서 장치를 관리 하는 방법을 설명 합니다. 운영자로서 다음과 같은 일을 할 수 있습니다.
 
 - **장치** 페이지를 사용 하 여 Azure IoT Central 응용 프로그램에 연결 된 장치를 확인, 추가 및 삭제할 수 있습니다.
 - 디바이스 인벤토리를 최신 상태로 유지합니다.

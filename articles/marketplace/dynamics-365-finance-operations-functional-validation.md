@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: 1b5c756fed5d172593b23c2a157c280caa614940
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e512c233ccfd793b87f203f837b11e97966d8102
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098696"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016251"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 재무 및 운영 기능 유효성 검사
 
@@ -35,7 +35,7 @@ Microsoft 인증 팀은 비디오와 파일을 검토 한 후 다음 단계에 �
 
 ### <a name="option-1-30-minute-conference-call"></a>옵션 1:30-분 회의 통화
 
-최종 검토 호출을 예약 하려면 [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) 제품 이름 및 오전 8 시 사이의 몇 가지 잠재적인 시간 슬롯에 문의 하세요. 오후 5 시 태평양 표준시.
+최종 검토 호출을 예약 하려면 [appsourceCRM@microsoft.com](mailto:appsourceCRM@microsoft.com) 제품의 이름과 오전 8 시와 오후 5 시 사이의 몇 가지 잠재적인 시간 슬롯에 문의 하세요.
 
 ### <a name="option-2-upload-a-demo-video-and-lcs-screenshots"></a>옵션 2: 데모 비디오 및 LCS 스크린샷 업로드
 

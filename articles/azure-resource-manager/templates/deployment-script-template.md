@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291798"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667505"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용(미리 보기)
 
@@ -143,11 +143,11 @@ Azure Resource 템플릿에서 배포 스크립트를 사용하는 방법에 대
 - **azPowerShellVersion**/**azCliVersion**: 사용할 모듈 버전을 지정합니다. 지원되는 PowerShell 및 CLI 버전 목록은 [필수 구성 요소](#prerequisites)를 참조하세요.
 - **arguments**: 매개 변수의 값을 지정합니다. 값은 공백으로 구분됩니다.
 
-    배포 스크립트는 [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) 시스템 호출을 호출 하 여 인수를 문자열 배열로 분할 합니다. 인수가 [명령 속성](/rest/api/container-instances/containergroups/createorupdate#containerexec) 으로 Azure Container Instance에 전달 되 고 command 속성이 문자열 배열인 경우이 작업이 필요 합니다.
+    배포 스크립트는 [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) 시스템 호출을 호출 하 여 인수를 문자열 배열로 분할 합니다. 인수가 [명령 속성](/rest/api/container-instances/containergroups/createorupdate#containerexec) 으로 Azure Container Instance에 전달 되 고 command 속성이 문자열 배열인 경우이 작업이 필요 합니다.
 
     인수에 이스케이프 된 문자가 포함 된 경우 [JsonEscaper](https://www.jsonescaper.com/) 를 사용 하 여 문자를 두 번 이스케이프 합니다. 원래 이스케이프 된 문자열을 도구에 붙여넣은 다음, **이스케이프**를 선택 합니다.  이 도구는 이중 이스케이프 된 문자열을 출력 합니다. 예를 들어 이전 샘플 템플릿에서 인수는 **-name \\ "John dole \\ "** 입니다.  이스케이프 된 문자열은 **-name \\ \\ \\ "John dole \\ \\ \\ "** 입니다.
 
-    Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 ** \\ "** into ** \\ \\ \\ "** 를 바꿉니다. 예를 들면 다음과 같습니다.
+    Object 형식의 ARM 템플릿 매개 변수를 인수로 전달 하려면 [string ()](./template-functions-string.md#string) 함수를 사용 하 여 개체를 문자열로 변환한 다음 [replace ()](./template-functions-string.md#replace) 함수를 사용 하 여 ** \\ "** into ** \\ \\ \\ "** 를 바꿉니다. 다음은 그 예입니다. 
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -217,7 +217,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="use-supporting-scripts"></a>지원 스크립트 사용
 
-복잡한 논리를 하나 이상의 지원 스크립트 파일로 분리할 수 있습니다. `supportingScriptURI` 속성을 사용하면 필요한 경우 지원 스크립트 파일에 URI 배열을 제공할 수 있습니다.
+복잡한 논리를 하나 이상의 지원 스크립트 파일로 분리할 수 있습니다. `supportingScriptUris` 속성을 사용하면 필요한 경우 지원 스크립트 파일에 URI 배열을 제공할 수 있습니다.
 
 ```json
 "scriptContent": "

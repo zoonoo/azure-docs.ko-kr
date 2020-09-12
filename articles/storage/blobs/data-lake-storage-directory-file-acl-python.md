@@ -3,26 +3,26 @@ title: Acl & 파일에 대 한 Python SDK Azure Data Lake Storage Gen2
 description: Python을 사용 하 여, HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리 및 파일 및 디렉터리 ACL (액세스 제어 목록)을 관리 합니다.
 author: normesta
 ms.service: storage
-ms.date: 08/26/2020
+ms.date: 09/10/2020
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: 3056e167a7482cb2967a68bbf1cd40e4bad49093
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fc99bc645b48739d6d6339111780047496c1984d
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923843"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017118"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Python을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리
 
 이 문서에서는 Python을 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리 하는 방법을 보여 줍니다. 
 
-[패키지 (Python 패키지 인덱스)](https://pypi.org/project/azure-storage-file-datalake/)  |  [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)  |  [API 참조](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0/azure.storage.filedatalake.html)  |  [Gen1 To Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-python/issues)
+[패키지 (Python 패키지 인덱스)](https://pypi.org/project/azure-storage-file-datalake/)  |  [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)  |  [API 참조](/python/api/azure-storage-file-datalake/azure.storage.filedatalake)  |  [Gen1 To Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-python/issues)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -213,7 +213,7 @@ def upload_file_to_directory():
         directory_client = file_system_client.get_directory_client("my-directory")
         
         file_client = directory_client.create_file("uploaded-file.txt")
-        local_file = open("C:\\file-to-upload.txt",'r')
+        local_file = open("C:\\file-to-upload.txt",'rb')
 
         file_contents = local_file.read()
 
@@ -242,7 +242,7 @@ def upload_file_to_directory_bulk():
         
         file_client = directory_client.get_file_client("uploaded-file.txt")
 
-        local_file = open("C:\\file-to-upload.txt",'r')
+        local_file = open("C:\\file-to-upload.txt",'rb')
 
         file_contents = local_file.read()
 
@@ -337,9 +337,9 @@ def list_directory_contents():
 
 각 자식 항목에 대해 개별적으로 변경할 필요 없이 부모 디렉터리의 기존 자식 항목에서 Acl을 재귀적으로 추가, 업데이트 및 제거할 수 있습니다. 자세한 내용은 [Azure Data Lake Storage Gen2에 대해 재귀적으로 acl (액세스 제어 목록) 설정](recursive-access-control-lists.md)을 참조 하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-* [API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
+* [API 참조 설명서](/python/api/azure-storage-file-datalake/azure.storage.filedatalake)
 * [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-storage-file-datalake/)
 * [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 * [Gen1과 Gen2 매핑](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)

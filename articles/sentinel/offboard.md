@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: yelevin
-ms.openlocfilehash: 4042f7b9d0f6fdf293f338c89d5783fe266c4edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d918de4669e1b4bac6c1775a813eb1d224f39cf
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77581687"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662012"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>작업 영역에서 Azure 센티널 제거
 
@@ -48,13 +48,13 @@ Azure 센티널을 더 이상 사용 하지 않으려는 경우이 문서에서�
 
 -   AWS
 
--   Microsoft 서비스 보안 경고 (Cloud Discovery 섀도 IT 보고, Azure AD ID 보호, Microsoft Defender ATP, Azure Security Center)를 포함 한 Microsoft Cloud App Security Azure ATP
+-   Microsoft 서비스 보안 경고: Id 용 Microsoft Defender (*이전의 AZURE ATP*), Microsoft Cloud App Security CLOUD DISCOVERY 섀도 IT 보고 기능, Azure AD ID 보호, microsoft Defender for Endpoint (*이전의 microsoft defender ATP*), Azure defender (*이전의 Azure Security Center*)
 
 -   위협 인텔리전스
 
--   일반적인 보안 로그 (CEF 기반 로그, Barracuda 및 Syslog 포함) (Azure Security Center 경우 이러한 로그는 계속 수집 됩니다.)
+-   일반적인 보안 로그 (CEF 기반 로그, Barracuda 및 Syslog 포함). Azure Defender가 있는 경우 이러한 로그는 계속 수집 됩니다.
 
--   Windows 보안 이벤트 (Azure Security Center 경우 이러한 로그는 계속 수집 됩니다.)
+-   Windows 보안 이벤트 (Azure Defender가 있는 경우 이러한 로그는 계속 수집 됩니다.)
 
 처음 48 시간 이내에 데이터 및 분석 규칙 (실시간 자동화 구성 포함)은 더 이상 Azure 센티널에서 액세스 하거나 쿼리할 수 없습니다.
 

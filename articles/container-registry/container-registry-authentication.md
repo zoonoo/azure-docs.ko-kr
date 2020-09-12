@@ -3,12 +3,12 @@ title: 레지스트리 인증 옵션
 description: Azure Active Directory id를 사용 하 여 로그인 하 고, 서비스 주체를 사용 하 고, 선택적 관리 자격 증명을 사용 하는 등 개인 Azure container registry에 대 한 인증 옵션입니다.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 3d2379b2b2384342fb84ba1b610caa609300aa0c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7c8176d0cdca5d74ed3201071f83ed1181d94b8d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926323"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657085"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Azure Container Registry로 인증
 
@@ -37,7 +37,7 @@ Azure Container Registry로 인증하는 방법은 여러 가지가 있으며 �
 az acr login --name <acrName>
 ```
 
-`az acr login`을 사용하여 로그인하는 경우 CLI는 [az login](/cli/azure/reference-index#az-login)을 실행할 때 만든 토큰을 사용하여 원활하게 레지스트리로 세션을 인증합니다. 인증 흐름을 완료 하려면 사용자 환경에 Docker CLI 및 Docker 데몬이 설치 되어 실행 되 고 있어야 합니다. `az acr login`Docker 클라이언트를 사용 하 여 파일에 Azure Active Directory 토큰을 설정 `docker.config` 합니다. 이러한 방식으로 로그인하고 나면 자격 증명이 캐시되고 세션의 후속 `docker` 명령에 사용자 이름 또는 암호가 필요하지 않습니다.
+`az acr login`을 사용하여 로그인하는 경우 CLI는 [az login](/cli/azure/reference-index#az-login)을 실행할 때 만든 토큰을 사용하여 원활하게 레지스트리로 세션을 인증합니다. 인증 흐름을 완료 하려면 사용자 환경에 Docker CLI 및 Docker 데몬이 설치 되어 실행 되 고 있어야 합니다. `az acr login` Docker 클라이언트를 사용 하 여 파일에 Azure Active Directory 토큰을 설정 `docker.config` 합니다. 이러한 방식으로 로그인하고 나면 자격 증명이 캐시되고 세션의 후속 `docker` 명령에 사용자 이름 또는 암호가 필요하지 않습니다.
 
 > [!TIP]
 > `az acr login`Docker [아티팩트와](container-registry-oci-artifacts.md)같이 Docker 이미지 이외의 아티팩트를 레지스트리에 푸시 하거나 풀 하려는 경우에도를 사용 하 여 개별 id를 인증 합니다.  
@@ -53,7 +53,7 @@ Azure id를 사용 하 여 azure `az acr login` [역할 기반 액세스 제어 
 이 시나리오의 경우 `az acr login` 매개 변수를 사용 하 여 먼저를 실행 `--expose-token` 합니다. 이 옵션은 Docker CLI를 통해 로그인 하는 대신 액세스 토큰을 노출 합니다.
 
 ```azurecli
-az acr login -name <acrName> --expose-token
+az acr login --name <acrName> --expose-token
 ```
 
 출력에서 액세스 토큰을 표시 합니다.
@@ -97,7 +97,7 @@ Azure container registry를 사용 하 여 인증 하기 위한 서비스 주체
 > 관리자 계정은 주로 테스트 용도로 단일 사용자가 레지스트리에 액세스하도록 설계되었습니다. 관리자 계정 자격 증명을 여러 사용자 간에 공유 하지 않는 것이 좋습니다. 관리자 계정으로 인증하는 모든 사용자는 레지스트리에 대한 푸시 및 풀 액세스 권한이 있는 단일 사용자로 나타납니다. 이 계정을 변경하거나 사용하지 않도록 설정하면 해당 자격 증명을 사용하는 모든 사용자의 레지스트리 액세스는 허용되지 않습니다. 헤드리스 시나리오의 경우 사용자 및 서비스 주체는 개별 ID를 사용하는 것이 좋습니다.
 >
 
-관리자 계정은 두 개의 암호가 제공되며, 둘 다 다시 생성할 수 있습니다. 두 개의 암호를 사용하면 다른 암호를 다시 생성하는 동안에 하나의 암호를 사용하여 레지스트리에 대한 연결을 유지할 수 있습니다. 관리자 계정을 사용할 수 있으면 레지스트리에 대한 기본 인증 메시지가 표시될 때 사용자 이름과 둘 중 한 가지 암호를 `docker login` 명령에 전달할 수 있습니다. 예:
+관리자 계정은 두 개의 암호가 제공되며, 둘 다 다시 생성할 수 있습니다. 두 개의 암호를 사용하면 다른 암호를 다시 생성하는 동안에 하나의 암호를 사용하여 레지스트리에 대한 연결을 유지할 수 있습니다. 관리자 계정을 사용할 수 있으면 레지스트리에 대한 기본 인증 메시지가 표시될 때 사용자 이름과 둘 중 한 가지 암호를 `docker login` 명령에 전달할 수 있습니다. 다음은 그 예입니다. 
 
 ```
 docker login myregistry.azurecr.io 

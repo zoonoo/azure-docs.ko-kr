@@ -4,20 +4,19 @@ description: Azure container registry에서 컨테이너 이미지를 당겨 Azu
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927439"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657002"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
 [Azure Container Registry](../container-registry/container-registry-intro.md)는 프라이빗 Docker 컨테이너 이미지를 저장하는 데 사용되는 Azure 기반의 관리형 컨테이너 레지스트리 서비스입니다. 이 문서에서는 Azure Container Instances에 배포할 때 Azure container registry에 저장 된 컨테이너 이미지를 가져오는 방법을 설명 합니다. 레지스트리 액세스를 구성 하는 권장 방법은 Azure Active Directory 서비스 주체와 암호를 만들고 Azure key vault에 로그인 자격 증명을 저장 하는 것입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 **Azure container registry**:이 문서의 단계를 완료 하려면 azure container registry 및 레지스트리에 컨테이너 이미지가 하나 이상 필요 합니다. 레지스트리가 필요한 경우 [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
 
@@ -31,6 +30,9 @@ Azure Container Registry는 추가 [인증 옵션](../container-registry/contain
 
 > [!NOTE]
 > 컨테이너 그룹 배포 중에 동일한 컨테이너 그룹에 구성 된 [관리 id](container-instances-managed-identity.md) 를 사용 하 여 이미지를 가져오기 위해 Azure Container Registry를 인증할 수 없습니다.
+
+> [!NOTE]
+> 지금은 Azure Virtual Network에 배포 된 [Azure Container Registry](../container-registry/container-registry-vnet.md) 에서 이미지를 끌어올 수 없습니다.
 
 다음 섹션에서는 Azure Key Vault 및 서비스 주체를 만들고, 자격 증명 모음에 서비스 주체의 자격 증명을 저장합니다. 
 

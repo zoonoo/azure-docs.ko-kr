@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: 7b89add55a060c7ba0ef9488f1f6438090b8d3d2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, fasttrack-edit
+ms.openlocfilehash: f8906c5fb934546ac8b1a95f817874f91f6c3b95
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121173"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015809"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 애플리케이션 유형
 
@@ -42,9 +42,9 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>단일 페이지 앱(JavaScript)
 
-대다수의 최신 앱에는 주로 Angular, React 또는 Vue 같은 프레임워크를 사용하여 JavaScript로 작성된 단일 페이지 앱 프런트 엔드가 있습니다. Microsoft ID 플랫폼 엔드포인트는 [OAuth 2.0 권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md)를 사용하여 이러한 앱을 지원합니다.
+대다수의 최신 앱에는 주로 Angular, React 또는 Vue 같은 프레임워크를 사용하여 JavaScript로 작성된 단일 페이지 앱 프런트 엔드가 있습니다. Microsoft id 플랫폼 끝점은 인증을 위해 [Openid connect Connect](v2-protocols-oidc.md) 프로토콜을 사용 하 고 [oauth 2.0 암시적 권한 부여 흐름](v2-oauth2-implicit-grant-flow.md) 또는 권한 부여에 대 한 최신 [oauth 2.0 권한 부여 코드 + pkce flow](v2-oauth2-auth-code-flow.md) 를 사용 하 여 이러한 앱을 지원 합니다 (아래 참조).
 
-이 흐름에서 앱은 Microsoft ID 플랫폼 `authorize` 엔드포인트에서 코드를 수신하고 교차 사이트 웹 요청을 사용하여 이를 토큰 및 새로 고침 토큰으로 교환합니다. 새로 고침 토큰은 24시간마다 만료되며 앱은 다른 코드를 요청해야 합니다.
+아래 흐름 다이어그램에서는 응용 프로그램이 Microsoft id 플랫폼 끝점에서 코드를 수신 하 고 `authorize` 교차 사이트 웹 요청을 사용 하 여 토큰 및 새로 고침 토큰에 대 한 교환 OAuth 2.0 권한 부여 코드 부여를 보여 줍니다. 새로 고침 토큰은 24시간마다 만료되며 앱은 다른 코드를 요청해야 합니다. 액세스 토큰 외에 `id_token` 도 클라이언트 응용 프로그램에 대 한 로그인 한 사용자를 나타내는은 일반적으로 동일한 흐름과/또는 별도의 Openid connect Connect 요청을 통해 요청 됩니다 (여기에 표시 되지 않음).
 
 ![SPA 앱의 코드 흐름](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 

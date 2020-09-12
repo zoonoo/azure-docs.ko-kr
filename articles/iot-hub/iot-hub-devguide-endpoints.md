@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 7e59229f6664dc8966aa491e9d2ded1abbd5536f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9ae21b2a6d470b959f5e869e8a9edda9c56bec73
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323046"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019566"
 ---
 # <a name="reference---iot-hub-endpoints"></a>참조 - IoT Hub 엔드포인트
 
@@ -55,6 +55,8 @@ Azure IoT Hub는 다중 테넌트 서비스이며 다양한 행위자에게 기�
   * *디바이스 쌍 속성 검색 및 업데이트*. 디바이스에서 이 엔드포인트를 사용하여 [디바이스 쌍](iot-hub-devguide-device-twins.md) 속성에 액세스합니다. HTTPS는 지원되지 않습니다.
 
   * *직접 메서드 요청 수신*. 디바이스에서 이 엔드포인트를 사용하여 [직접 메서드](iot-hub-devguide-direct-methods.md) 요청을 수신합니다. HTTPS는 지원되지 않습니다.
+
+  [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 * **서비스 끝점**. 각 IoT Hub는 솔루션 백 엔드에서 디바이스와 통신하기 위한 엔드포인트 집합을 노출합니다. 한 가지 예외를 제외 하 고 이러한 끝점은 Websocket 프로토콜을 통해 [amqp](https://www.amqp.org/) 및 amqp를 사용 하 여 노출 됩니다. 직접 메서드 호출 끝점은 HTTPS 프로토콜을 통해 노출 됩니다.
   

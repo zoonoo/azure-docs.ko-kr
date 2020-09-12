@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386132"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660474"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -33,7 +33,7 @@ ms.locfileid: "87386132"
   * Azure 계정은 회사 계정 또는 학교 계정 이어야 하며 다음과 같습니다 `username@contoso.com` . Azure B2B(게스트) 계정 또는 개인 Microsoft 계정(예: @hotmail.com 또는 @outlook.com)은 사용할 수 없습니다.
 
     > [!NOTE]
-    > Office 365 제품에 가입했지만 회사 이메일 주소를 제공하지 않은 경우 주소는 `username@domain.onmicrosoft.com`과 같을 수 있습니다. 계정이 Azure AD 테 넌 트에 저장 됩니다. 대부분의 경우 Azure 계정에 대 한 UPN (사용자 계정 이름)은 전자 메일 주소와 동일 합니다.
+    > Microsoft 365 제품에 등록 하 고 회사 메일 주소를 제공 하지 않은 경우 주소는와 같을 수 있습니다 `username@domain.onmicrosoft.com` . 계정이 Azure AD 테 넌 트에 저장 됩니다. 대부분의 경우 Azure 계정에 대 한 UPN (사용자 계정 이름)은 전자 메일 주소와 동일 합니다.
 
     Microsoft 계정와 연결 된 [Visual Studio 표준 구독](https://visualstudio.microsoft.com/vs/pricing/) 을 사용 하려면 먼저 [Azure AD 테 넌 트를 만들거나](../active-directory/develop/quickstart-create-new-tenant.md) 기본 디렉터리를 사용 합니다. 암호가 있는 사용자를 디렉터리에 추가한 다음, 해당 사용자에게 Azure 구독에 대한 액세스 권한을 부여합니다. 그런 다음 이 사용자 이름 및 암호를 사용하여 게이트웨이 설치 중에 로그인할 수 있습니다.
 

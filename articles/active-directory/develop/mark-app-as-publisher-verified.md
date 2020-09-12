@@ -12,21 +12,21 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d25a3831897ff8ad2e7dfb0c69910fee246aec21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3c3bed20b5fd60b9323dada617fb1302efc41d2
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477688"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006947"
 ---
-# <a name="mark-your-app-as-publisher-verified-preview"></a>앱을 게시자 확인으로 표시(미리 보기)
+# <a name="mark-your-app-as-publisher-verified"></a>앱을 게시자 확인으로 표시
 
 애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 Microsoft 파트너 네트워크(MPN) 계정을 사용하여 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다. 이 문서에서는 [게시자 확인(미리 보기)](publisher-verification-overview.md) 프로세스를 완료하는 방법을 설명합니다.
 
 ## <a name="quickstart"></a>빠른 시작
 이미 Microsoft 파트너 네트워크 (MPN)에 등록되어 있고 [필수 조건](publisher-verification-overview.md#requirements)을 충족한 경우 바로 시작할 수 있습니다. 
 
-1. [앱 등록 포털](https://aka.ms/PublisherVerificationPreview) 미리 보기에 있는 Microsoft 앱 등록 포털로 이동합니다.
+1. [앱 등록 포털로](https://aka.ms/PublisherVerificationPreview)이동 합니다.
 
 1. 앱을 선택하고 **브랜딩**을 클릭합니다. 
 
@@ -46,7 +46,7 @@ ms.locfileid: "85477688"
 
     - 파트너 센터에서 이 사용자는 MPN 관리자, 계정 관리자 또는 글로벌 관리자(Azure AD의 공유 역할)역할 중 하나가 할당되어 있어야 합니다. 
 
-1. 다음과 같이 앱 등록 포털 미리 보기 버전으로 이동합니다.  
+1. 앱 등록 포털로 이동 합니다.  
 
 1. 게시자 확인으로 표시하고자 하는 앱을 클릭하고 브랜딩 블레이드를 엽니다. 
 

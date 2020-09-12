@@ -3,12 +3,12 @@ title: VM 설정에서 Azure VM 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 단일 Azure VM 또는 여러 Azure vm을 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: a8d1c29c894663da76b5882ef7ba249356ba3e6d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 55b71d2a2901cdde984df3ebfd68a2a643b78b74
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531849"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667509"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>VM 설정에서 Azure VM 백업
 
@@ -76,7 +76,7 @@ Azure Vm을 백업 하기 위해 Azure Backup는 컴퓨터에서 실행 되는 V
 
 ## <a name="back-up-from-the-recovery-services-vault"></a>Recovery Services 자격 증명 모음에서 백업
 
-이 문서의 지침에 따라 Azure Backup Recovery Services 자격 증명 모음을 설정하고 자격 증명 모음에서 백업을 사용하도록 설정하여 Azure VM에 대해 백업을 설정합니다.
+[이 문서의](backup-azure-arm-vms-prepare.md) 지침에 따라 Azure Backup Recovery Services 자격 증명 모음을 설정 하 고 자격 증명 모음에서 백업을 사용 하도록 설정 하 여 Azure vm에 대 한 백업을 사용 하도록 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

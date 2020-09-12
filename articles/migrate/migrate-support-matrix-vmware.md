@@ -3,12 +3,12 @@ title: Azure Migrate의 VMware 평가 지원
 description: Azure Migrate:Server Assessment 도구를 사용하여 VM을 평가하기 위한 VMware에 대한 지원을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4f724297f216267dadda31be4bd548eb241b9845
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6716bea08347783d8c5728a4e346ffab8ea60a07
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266972"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660279"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가에 대한 지원 매트릭스 
 
@@ -33,7 +33,7 @@ VMware VM을 Azure로 마이그레이션하려면 [마이그레이션 지원 매
 
 **VMware** | **세부 정보**
 --- | ---
-**vCenter Server** | 검색 하 고 평가 하려는 컴퓨터는 vCenter Server 버전 5.5, 6.0, 6.5 또는 6.7에서 관리 해야 합니다.
+**vCenter Server** | 검색 하 고 평가 하려는 컴퓨터는 vCenter Server 버전 5.5, 6.0, 6.5, 6.7 또는 7.0에서 관리 해야 합니다.<br/><br/> 어플라이언스에서 ESXi 호스트 세부 정보를 제공 하 여 VMware Vm을 검색 하는 기능은 현재 지원 되지 않습니다.
 **권한** | 서버 평가에는 검색 및 평가를 위한 vCenter Server 읽기 전용 계정이 필요 합니다.<br/><br/> 응용 프로그램 검색 또는 종속성 시각화를 수행 하려면 계정에 **Virtual Machines**  >  **게스트 작업**에 대 한 사용 권한이 있어야 합니다.
 
 ## <a name="vm-requirements"></a>VM 요구 사항
@@ -89,7 +89,7 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 **vCenter Server 자격 증명** | 종속성 시각화에는 읽기 전용 액세스 권한이 있는 vCenter Server 계정과 가상 머신 > 게스트 작업에 대해 사용하도록 설정된 권한이 필요합니다.
 **Windows VM 권한** |  종속성 분석의 경우 Azure Migrate 어플라이언스에는 도메인 관리자 계정 또는 로컬 관리자 계정이 있어야 Windows VM에 액세스할 수 있습니다.
 **Linux VM** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7
-**Linux 계정** | 종속성 분석의 경우 Linux 머신에서 Azure Migrate 어플라이언스는 루트 권한이 있는 사용자 계정이 필요합니다.<br/><br/> 또는 사용자 계정에 /bin/netstat 및 /bin/ls 파일에 대한 CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE 권한이 필요합니다.
+**Linux 계정** | 종속성 분석의 경우 Linux 머신에서 Azure Migrate 어플라이언스는 루트 권한이 있는 사용자 계정이 필요합니다.<br/><br/> 또는 사용자 계정에 /bin/netstat 및 /bin/ls 파일에 대한 CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE 권한이 필요합니다. 다음 명령을 사용 하 여 이러한 기능을 설정 합니다. <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = ep/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = ep/bin/netstat
 **필요한 에이전트** | 분석하려는 머신에 에이전트가 필요하지 않습니다.
 **VMware 도구** | 분석하려는 각 VM에 VMware 도구(10.2 이상)를 설치하고 실행해야 합니다.
 

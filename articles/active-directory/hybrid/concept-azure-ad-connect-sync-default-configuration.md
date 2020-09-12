@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76548869"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661861"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 이해
 이 문서는 기본 구성 규칙을 설명합니다. 규칙 및 해당 규칙이 구성에 어떤 영향을 주는지를 문서화합니다. 또한 Azure AD Connect sync의 기본 구성을 안내 합니다. 이러한 목표는 독자가 선언적 프로 비전 이라는 구성 모델이 실제 예제에서 작동 하는 방식을 이해 하는 것입니다. 이 문서에서는 설치 마법사를 사용하여 Azure AD Connect 동기화를 설치한 뒤 구성하는 상황을 가정합니다.
@@ -142,7 +142,7 @@ SRE는 리소스 키트 도구 이며 Azure AD Connect 동기화와 함께 설�
 
 한 예로 동기화 규칙 **AD에서 들어오기 – 사용자 AccountEnabled**를 살펴보겠습니다. SRE에서 이 줄을 표시하고 **편집**을 선택합니다.
 
-이 규칙이 기본 규칙이므로 규칙을 열 때 경고를 받게 됩니다. [기본 규칙을 변경](how-to-connect-sync-best-practices-changing-default-configuration.md)하지 않아야 하므로 사용자의 의도를 묻습니다. 이 경우 단순히 규칙을 확인하려고 합니다. **아니요**를 선택합니다.
+이 규칙이 기본 규칙이므로 규칙을 열 때 경고를 받게 됩니다. [기본 규칙을 변경](how-to-connect-sync-best-practices-changing-default-configuration.md)하지 않아야 하므로 사용자의 의도를 묻습니다. 이 경우 단순히 규칙을 확인하려고 합니다. **아니오**를 선택합니다.
 
 ![동기화 규칙 경고](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
 
@@ -223,7 +223,7 @@ NULL
 | 이름 | 설명 |
 |:--- |:--- |
 | AD에서 들어오기 – 사용자 조인 |메타버스를 사용하여 커넥터 공간 개체에 조인시키기 위한 규칙. |
-| AD에서 들어오기 – 사용하도록 설정된 UserAccount |Azure AD 및 Office 365에 로그인하는 데 필요한 속성. 사용된 계정에서 이러한 특성이 필요합니다. |
+| AD에서 들어오기 – 사용하도록 설정된 UserAccount |Azure AD에 로그인 하 고 Microsoft 365 하는 데 필요한 특성입니다. 사용된 계정에서 이러한 특성이 필요합니다. |
 | AD에서 들어오기 – Exchange에서 사용자 공통 |전체 주소 목록에 있는 특성. 사용자의 사서함이 위치한 포리스트에서 데이터 품질이 가장 훌륭하다고 가정합니다. |
 | AD에서 들어오기 – 사용자 공통 |전체 주소 목록에 있는 특성. 사서함을 찾지 못한 경우에 다른 조인된 개체가 특성 값을 제공할 수 있습니다. |
 | AD에서 들어오기 – 사용자 Exchange |Exchange가 감지되는 경우에만 존재합니다. 인프라 Exchange 특성을 전송합니다. |

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 69f439e102edc53207e44d63cb29396f64f59e0e
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: e2f72cc0ea6851caaf5d0db2f17f8e16473d420e
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272504"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667551"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>위협 보호 및 Azure Security Center
 
@@ -25,7 +25,7 @@ Azure Security Center의 위협 방지는 사용자 환경에 대한 포괄적�
 
 * **Azure 컴퓨팅 리소스에 대한 위협 방지**: Windows 컴퓨터, Linux 컴퓨터, Azure App Service 및 Azure 컨테이너
 
-* **Azure 데이터 리소스에 대한 위협 방지**: SQL Database/SQL Data Warehouse, Azure Storage 및 Azure Cosmos DB
+* **Azure 데이터 리소스에 대 한 위협 방지**: SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse), Azure Storage 및 Azure Cosmos DB
 
 * **Azure 서비스 계층에 대한 위협 방지**: Azure 네트워크 계층, Azure 관리 계층(Azure Resource Manager)(미리 보기) 및 Azure Key Vault(미리 보기)
 
@@ -119,7 +119,7 @@ App Service 계획에 대한 자세한 내용은 [App Service 계획](https://az
 |릴리스 상태:|일반 공급|
 |결정|표준 계층|
 |필요한 역할 및 사용 권한:|**보안 관리자** 는 경고를 해제할 수 있습니다.<br>**보안 읽기 권한자**는 발견 사항을 볼 수 있습니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
 |||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
@@ -131,19 +131,19 @@ App Service 계획에 대한 자세한 내용은 [App Service 계획](https://az
 
 
 
-## <a name="threat-protection-for-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에 대한 위협 방지 <a name="data-sql"></a>
+## <a name="threat-protection-for-sql-database-and-azure-synapse-analytics-formerly-sql-data-warehouse"></a>SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대 한 위협 방지 <a name="data-sql"></a>
 
 Azure SQL Database용 Advanced Threat Protection은 비정상적이며 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상 활동을 탐지합니다.
 
 의심스러운 데이터베이스 활동, 잠재적 취약성 또는 SQL 삽입 공격, 비정상 데이터베이스 액세스 및 쿼리 패턴이 있으면 경고가 표시됩니다.
 
-Azure SQL Database 및 SQL에 대 한 advanced Threat Protection은 Azure Virtual Machines에서 Azure SQL Database, Azure SQL 관리 되는 인스턴스, Azure SQL Data Warehouse 데이터베이스 및 SQL server를 포함 하는 고급 SQL 보안 기능을 위한 [광고 (Advanced Data Security)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) 통합 패키지의 일부입니다.
+Azure SQL Database 및 SQL에 대 한 고급 위협 방지는 Azure SQL Database, Azure SQL 관리 되는 인스턴스, Azure Synapse 분석 (이전의 SQL Data Warehouse) 데이터베이스 및 Azure Virtual Machines의 SQL server를 포함 하는 고급 SQL 보안 기능을 위한 [광고 (Advanced Data Security)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) 통합 패키지의 일부입니다.
 
 자세한 내용은 다음을 참조하세요.
 
 * [Azure SQL Database용 Advanced Threat Protection을 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 * [Azure Virtual Machines에서 SQL 서버용 Advanced Threat Protection을 사용하도록 설정하는 방법](security-center-iaas-advanced-data.md)
-* [SQL Database 및 SQL Data Warehouse에 대한 위협 방지 경고 목록](alerts-reference.md#alerts-sql-db-and-warehouse)
+* [SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대 한 위협 방지 경고 목록](alerts-reference.md#alerts-sql-db-and-warehouse)
 
 
 
@@ -155,7 +155,7 @@ Azure SQL Database 및 SQL에 대 한 advanced Threat Protection은 Azure Virtua
 |----|:----|
 |릴리스 상태:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (일반 공급)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (미리 보기)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (미리 보기)|
 |결정|표준 계층|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
 |||
 
 
@@ -164,8 +164,6 @@ Azure SQL Database 및 SQL에 대 한 advanced Threat Protection은 Azure Virtua
 Azure Storage에 대 한 위협 방지는 Azure Storage 계정에서 잠재적으로 유해한 작업을 검색 합니다. Blob 컨테이너, 파일 공유 또는 데이터 레이크 저장 되어 있는지에 관계 없이 데이터를 보호할 수 있습니다.
 
 이 보호 계층을 사용 하면 보안 전문가가 아니어도 *위협을 해결* 하 고 보안 모니터링 시스템을 관리할 수 있습니다.
-
-저장소 계정이 보호 되어 있습니다. 
 
 ### <a name="what-kind-of-alerts-does-threat-protection-for-azure-storage-provide"></a>위협 방지 Azure Storage에서 제공 하는 경고의 종류는 무엇 인가요?
 
@@ -204,7 +202,7 @@ Azure Storage에 대 한 위협 방지는 Azure Storage 계정에서 잠재적�
 
 
 
-## <a name="threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 위협 방지 <a name="cosmos-db"></a>
+## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB에 대 한 위협 방지 (미리 보기) <a name="cosmos-db"></a>
 
 Azure Cosmos DB 경고는 Azure Cosmos DB 계정에 액세스하거나 이를 악용하려는 비정상적이고 잠재적으로 유해한 시도로 인해 생성됩니다.
 

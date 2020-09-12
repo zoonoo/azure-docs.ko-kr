@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 437c2b8e42ed5128cc716eee23b8702ec012b481
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: e765422ebfce1a4328bac9a17edb8b581f87e6f7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890917"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661700"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역이란?
 
@@ -54,7 +54,7 @@ ms.locfileid: "88890917"
 + 웹에서:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer (미리 보기)](concept-designer.md) - [Enterprise edition](overview-what-is-azure-ml.md#sku) 작업 영역 에서만 사용할 수 있습니다.
-+ [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하는 모든 python 환경에서
++ [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용 하는 모든 python 환경에서
 + [R (미리 보기)에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용 하는 모든 r 환경
 + Azure Machine Learning [CLI 확장](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) 을 사용 하 여 명령줄에서
 + [Azure Machine Learning VS Code 확장](how-to-manage-resources-vscode.md#workspaces)
@@ -94,7 +94,7 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 작업 영역을 만드는 방법에는 여러 가지가 있습니다.  
 
 * 지점 및 클릭 인터페이스에 대 한 [Azure Portal](how-to-manage-workspace.md) 를 사용 하 여 각 단계를 안내 합니다.
-* [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) 를 사용 하 여 python 스크립트 또는 Jupiter 노트북에서 즉시 작업 영역 만들기
+* [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#&preserve-view=trueworkspace) 를 사용 하 여 python 스크립트 또는 Jupiter 노트북에서 즉시 작업 영역 만들기
 * 회사 보안 표준을 사용 하 여 만들기를 자동화 하거나 사용자 지정 해야 하는 경우 [Azure Resource Manager 템플릿](how-to-create-workspace-template.md) 또는 [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) 를 사용 합니다.
 * Visual Studio Code에서 작업 하는 경우 [VS Code 확장](how-to-manage-resources-vscode.md#create-a-workspace)을 사용 합니다.
 

@@ -11,35 +11,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: af10ec10a1622f32dbc34a607b1200cb4cff8b59
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 90dbc0b888c6d6eeed97a676024abc9cc0dca6fe
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168051"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017169"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection 표준 개요
 
 DDoS(배포된 서비스 거부) 공격은 고객이 애플리케이션을 클라우드로 전환하게 만드는 가장 큰 가용성 및 보안 문제 중 일부입니다. DDoS 공격은 애플리케이션의 리소스를 소진시켜서 정상적인 사용자가 애플리케이션을 사용할 수 없게 만듭니다. 인터넷을 통해 공개적으로 도달 가능한 모든 엔드포인트는 DDoS 공격의 대상이 될 수 있습니다.
 
-애플리케이션 설계 모범 사례와 결합된 Azure DDoS Protection은 DDoS 공격에 대한 방어 기능을 제공합니다. Azure DDoS 보호는 다음과 같은 서비스 계층을 제공합니다.
+애플리케이션 설계 모범 사례와 결합된 Azure DDoS Protection은 DDoS 공격에 대한 방어 기능을 제공합니다. Azure의 모든 속성은 Azure 인프라 DDoS (기본) 보호를 통해 보호 됩니다.Azure DDoS protection 표준은 Azure Virtual Network 리소스에 맞게 특별히 조정 된 기본 서비스 계층에 대 한 추가 완화 기능을 제공 합니다. 
 
-- **기본**: 자동으로 Azure 플랫폼의 일부로 사용하도록 설정됩니다. 상시 트래픽 모니터링과 일반적인 네트워크 수준 공격에 대 한 실시간 완화는 Microsoft의 온라인 서비스에서 사용 하는 것과 동일한 방어 기능을 제공 합니다.Azure 글로벌 네트워크의 전체 규모를 사용 하 여 지역 간 공격 트래픽을 분산 하 고 완화할 수 있습니다.IPv4 및 IPv6 Azure [공용 IP 주소](virtual-network-public-ip-address.md)에 대해 보호가 제공됩니다.
-- **표준**: 기본 서비스 계층에 대해 Azure Virtual Network 리소스에 맞게 특별히 조정된 추가적인 완화 기능을 제공합니다. DDoS Protection 표준은 간단히 사용하도록 설정할 수 있고 애플리케이션을 변경할 필요가 없습니다. 보호 정책은 전용 트래픽 모니터링 및 기계 학습 알고리즘을 통해 조정됩니다. 정책은 Azure Load Balancer, Azure Application Gateway 및 Azure Service Fabric 인스턴스 같은 가상 네트워크에 배포된 리소스에 연결된 공용 IP 주소에 적용되지만, 이 보호는 App Service 환경에 적용되지 않습니다.공격을 받고 있을 때 기록을 위해 Azure Monitor 뷰를 통해 실시간 원격 분석을 사용할 수 있습니다. 진단 설정을 통해 다양한 공격 완화 분석을 사용할 수 있습니다. [Azure Application Gateway 웹 애플리케이션 방화벽](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 통해 또는 Azure Marketplace에서 타사 방화벽을 설치하여 애플리케이션 계층 보호를 추가할 수 있습니다. IPv4 및 IPv6 Azure [공용 IP 주소](virtual-network-public-ip-address.md)에 대해 보호가 제공됩니다.
+DDoS Protection 표준은 간단히 사용하도록 설정할 수 있고 애플리케이션을 변경할 필요가 없습니다. 보호 정책은 전용 트래픽 모니터링 및 기계 학습 알고리즘을 통해 조정됩니다. 정책은 Azure Load Balancer, Azure Application Gateway 및 Azure Service Fabric 인스턴스 같은 가상 네트워크에 배포된 리소스에 연결된 공용 IP 주소에 적용되지만, 이 보호는 App Service 환경에 적용되지 않습니다.공격을 받고 있을 때 기록을 위해 Azure Monitor 뷰를 통해 실시간 원격 분석을 사용할 수 있습니다. 진단 설정을 통해 다양한 공격 완화 분석을 사용할 수 있습니다. [Azure Application Gateway 웹 애플리케이션 방화벽](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 통해 또는 Azure Marketplace에서 타사 방화벽을 설치하여 애플리케이션 계층 보호를 추가할 수 있습니다. IPv4 및 IPv6 Azure [공용 IP 주소](virtual-network-public-ip-address.md)에 대해 보호가 제공됩니다.
 
-|기능                                         |DDoS Protection 기본                 |DDoS Protection 표준                      |
-|------------------------------------------------|--------------------------------------|----------------------------------------------|
-|Always on 검색 & 활성 트래픽 모니터링 |예                                   |예                                           |
-|자동 공격 완화                    |예                                   |예                                           |
-|가용성 보장                          |Azure 지역                          |애플리케이션                                   |
-|완화 정책                             |Azure 트래픽 영역 볼륨에 맞게 조정 |응용 프로그램 트래픽 볼륨에 맞게 조정          |
-|메트릭 & 경고                                |예                                    |Azure Monitor를 통해 리소스 로그 & 실시간 공격 메트릭                                 |
-|완화 보고서                              |예                                    |사후 공격 완화 보고서                |
-|완화 흐름 로그                            |예                                    |SIEM 통합을 위한 NRT 로그 스트림           |
-|완화 정책 사용자 지정                 |예                                    |DDoS 전문가 참여                           |
-|고객 지원팀                                         |최상의 노력                           |활성 공격 중 DDoS 전문가에 대 한 액세스|
-|SLA                                             |Azure 지역                          |응용 프로그램 보장 & 비용 보호       |
-|가격 책정                                         |무료                                  |매월 & 사용량 기반                         |
+![DDoS Protection Basic vs Standard](./media/ddos-protection-overview/ddoscomparison.png)
+
+Azure DDoS protection은 고객 데이터를 저장 하지 않습니다.
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>DDoS Protection 표준으로 완화되는 DDoS 공격의 유형
 
@@ -63,7 +52,7 @@ DDoS Protection 표준 기능에는 다음이 포함됩니다.
 - **적응 조정:** 지능형 트래픽 프로 파일링은 시간에 따른 응용 프로그램의 트래픽을 학습 하 고 서비스에 가장 적합 한 프로필을 선택 하 여 업데이트 합니다. 트래픽이 시간이 지남에 따라 변경되면서 프로필이 조정됩니다.
 - **다중 계층 보호:** 웹 애플리케이션 방화벽과 함께 사용될 경우 전체 스택 DDoS 보호를 제공합니다.
 - **광범위한 완화 규모:** 가장 큰 규모로 알려진 DDoS 공격으로부터 시스템을 보호할 수 있는 글로벌 역량으로 60가지 공격을 완화할 수 있습니다.
-- **공격 분석:** 공격 진행 중에 5분 단위로 세부 보고서를 가져오고, 공격이 종료된 후에는 전체 요약을 가져옵니다. 스트림 완화 흐름은 공격 진행 중에 거의 실시간 모니터링을 위해 오프라인 SIEM(보안 정보 및 이벤트) 시스템에 기록됩니다.
+- **공격 분석:** 공격 진행 중에 5분 단위로 세부 보고서를 가져오고, 공격이 종료된 후에는 전체 요약을 가져옵니다. 공격을 거의 실시간으로 모니터링 하기 위해 [Azure 센티널](https://docs.microsoft.com/azure/sentinel/connect-azure-ddos-protection) 또는 오프 라인 siem (보안 정보 및 이벤트 관리) 시스템으로 마이그레이션 완화 흐름 로그
 - **공격 메트릭:** Azure Monitor를 통해 각 공격으로부터 요약된 메트릭에 액세스할 수 있습니다.
 - **공격 경고:** 경고는 공격 시작 및 중지 시, 그리고 공격이 진행 되는 동안 기본 제공 공격 메트릭을 사용 하 여 구성할 수 있습니다. 경고는 Microsoft Azure 모니터 로그, Splunk, Azure Storage, 전자 메일 및 Azure Portal와 같은 운영 소프트웨어에 통합 됩니다.
 - **비용 보장:** 문서화된 DDoS 공격에 대한 데이터 전송 및 애플리케이션 확장 서비스 크레딧이 제공됩니다.

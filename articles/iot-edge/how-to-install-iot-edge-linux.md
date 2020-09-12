@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 09/04/2020
 ms.author: kgremban
-ms.openlocfilehash: 4078d7e6c20571db2387cfd138ecb325fc3469e7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 21fde76dc5791030a7afa280e00642119cbe464c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022091"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660037"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치
 
@@ -25,7 +25,7 @@ Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍�
 > [!NOTE]
 > Linux 소프트웨어 저장소의 패키지는 각 패키지에 있는 사용 조건에 따릅니다(/usr/share/doc/*package-name*). 패키지를 사용하기 전에 사용 조건을 읽어보세요. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
 
-## <a name="install-iot-edge-and-container-runtimes"></a>IoT Edge 및 컨테이너 런타임 설치
+## <a name="install-container-runtime-and-iot-edge"></a>컨테이너 런타임 및 IoT Edge 설치
 
 다음 섹션을 사용 하 여 최신 버전의 Azure IoT Edge runtime을 장치에 설치 합니다.
 
@@ -166,7 +166,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>옵션 2: 자동 프로비전
 
-IoT Edge 장치는 [DPS (Azure IoT Hub 장치 프로 비전 서비스)](../iot-dps/index.yml)를 사용 하 여 자동으로 프로 비전 할 수 있습니다. 현재 IoT Edge는 자동 프로 비전을 사용할 때 세 가지 증명 메커니즘을 지원 하지만, 사용자의 하드웨어 요구 사항에 영향을 줄 수 있습니다. 예를 들어 Raspberry Pi 장치는 기본적으로 TPM (신뢰할 수 있는 플랫폼 모듈) 칩과 함께 제공 되지 않습니다. 자세한 내용은 다음 아티클을 참조하세요.
+IoT Edge 장치는 [DPS (Azure IoT Hub 장치 프로 비전 서비스)](../iot-dps/index.yml)를 사용 하 여 자동으로 프로 비전 할 수 있습니다. 현재 IoT Edge는 자동 프로 비전을 사용할 때 세 가지 증명 메커니즘을 지원 하지만, 사용자의 하드웨어 요구 사항에 영향을 줄 수 있습니다. 예를 들어 Raspberry Pi 장치는 기본적으로 TPM (신뢰할 수 있는 플랫폼 모듈) 칩과 함께 제공 되지 않습니다. 자세한 내용은 다음 항목을 참조하세요.
 
 * [Linux VM에서 가상 TPM을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전](how-to-auto-provision-simulated-device-linux.md)
 * [X.509 인증서를 사용 하 여 IoT Edge 장치 만들기 및 프로 비전](how-to-auto-provision-x509-certs.md)
@@ -272,7 +272,7 @@ sudo iotedge list
 
 리소스 제한이 있는 디바이스에서는 [문제 해결 가이드](troubleshoot.md)의 지침에 따라 *OptimizeForPerformance* 환경 변수를 *false*로 설정하는 것이 좋습니다.
 
-프록시 서버가 있는 네트워크의 경우 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)의 단계를 수행합니다.
+장치가 IoT Hub에 연결할 수 없고 네트워크에 프록시 서버가 있는 경우 [프록시 서버를 통해 통신 하도록 IoT Edge 장치 구성](how-to-configure-proxy-support.md)의 단계를 수행 합니다.
 
 ### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Moby 호환성을 위한 Linux 커널 확인
 
@@ -290,13 +290,15 @@ sudo iotedge list
 
 에서 제공 하지 않는 특정 버전의 Azure IoT Edge 런타임을 설치 하려는 경우이 섹션의 단계를 사용 `apt-get install` 합니다. Microsoft 패키지 목록에는 제한 된 최신 버전과 해당 하위 버전 집합만 포함 되어 있으므로 이러한 단계는 이전 버전 또는 릴리스 후보 버전을 설치 하려는 모든 사용자를 위한 것입니다.
 
-말아 넘기기 명령을 사용 하면 IoT Edge GitHub 리포지토리에서 직접 구성 요소 파일을 대상으로 지정할 수 있습니다. 다음 단계를 사용 하 여 libiothsm 및 IoT Edge 보안 디먼을 설치 합니다. [컨테이너 런타임 설치](#install-a-container-runtime) 섹션의 단계를 사용 하 여 MOBY 엔진과 CLI를 설치 합니다.
+말아 넘기기 명령을 사용 하면 IoT Edge GitHub 리포지토리에서 직접 구성 요소 파일을 대상으로 지정할 수 있습니다. 다음 단계를 사용 하 여 libiothsm 및 IoT Edge 보안 디먼을 설치 합니다.
 
-1. [Azure IoT Edge 릴리스로](https://github.com/Azure/azure-iotedge/releases)이동 하 고 대상으로 지정할 릴리스 버전을 찾습니다.
+1. 컨테이너 엔진을 설치 하 여 장치를 준비 합니다. 컨테이너 엔진이 없는 경우 Microsoft 리포지토리를 등록 하는 단계에 따라이 문서의 [컨테이너 런타임 및 IoT Edge 설치](#install-container-runtime-and-iot-edge) 섹션에 Moby를 설치 합니다.
 
-2. 해당 버전에 대 한 **자산** 섹션을 확장 합니다.
+2. [Azure IoT Edge 릴리스로](https://github.com/Azure/azure-iotedge/releases)이동 하 고 대상으로 지정할 릴리스 버전을 찾습니다.
 
-3. 모든 릴리스에는 IoT Edge 보안 디먼 및 hsmlib에 대 한 새 파일이 있어야 합니다. 다음 명령을 사용 하 여 해당 구성 요소를 업데이트 합니다.
+3. 해당 버전에 대 한 **자산** 섹션을 확장 합니다.
+
+4. 모든 릴리스에는 IoT Edge 보안 디먼 및 hsmlib에 대 한 새 파일이 있어야 합니다. 다음 명령을 사용 하 여 해당 구성 요소를 업데이트 합니다.
 
    1. IoT Edge 장치의 아키텍처와 일치 하는 **libiothsm** 파일을 찾습니다. 파일 링크를 마우스 오른쪽 단추로 클릭 하 고 링크 주소를 복사 합니다.
 

@@ -10,17 +10,17 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: 0f051e5b5711cec9fd8e72ec2b84c18f80430a0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cad1c8b7250ddf1e675145e764abcc90b4db9d86
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018062"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661723"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>기계 학습 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 및 [Azure Machine Learning designer (미리 보기)](https://docs.microsoft.com/azure/machine-learning/concept-designer)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 의 문제를 해결 하 고 디버그 하는 방법에 대해 알아봅니다. 
+이 문서에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 및 [Azure Machine Learning designer (미리 보기)](https://docs.microsoft.com/azure/machine-learning/concept-designer)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 의 문제를 해결 하 고 디버그 하는 방법에 대해 알아봅니다. 
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 
@@ -33,7 +33,7 @@ ms.locfileid: "89018062"
 | 계산 대상의 모호한 오류 | 계산 대상을 삭제 하 고 다시 만들어 보세요. 계산 대상을 다시 만드는 과정은 빠르게 수행할 수 있으며 일부 일시적인 문제를 해결할 수 있습니다. |
 | 파이프라인이 단계를 다시 사용 하지 않음 | 단계 다시 사용은 기본적으로 사용 되지만 파이프라인 단계에서 사용 하지 않도록 설정 하지 않았는지 확인 합니다. 다시 사용 하지 않도록 설정 된 경우 `allow_reuse` 단계의 매개 변수는로 설정 됩니다 `False` . |
 | 파이프라인이 불필요 하 게 다시 실행 되 고 있습니다. | 기본 데이터 또는 스크립트가 변경 될 때만 단계가 다시 실행 되도록 하려면 각 단계에 대 한 소스 코드 디렉터리를 분리 합니다. 여러 단계에 동일한 원본 디렉터리를 사용 하는 경우 불필요 한 다시 실행이 발생할 수 있습니다. `source_directory`파이프라인 단계 개체에서 매개 변수를 사용 하 여 해당 단계에 대 한 격리 된 디렉터리를 가리키고 여러 단계에 대해 동일한 경로를 사용 하지 않는지 확인 `source_directory` 합니다. |
-
+| 학습 epoch 또는 기타 루핑 동작을 초과 하는 단계 속도 저하 | 로깅을 비롯 한 파일 쓰기를에서로 전환 해 `as_mount()` 보세요 `as_upload()` . **탑재** 모드는 원격 가상화 된 파일 시스템을 사용 하 고 추가 될 때마다 전체 파일을 업로드 합니다. |
 
 ## <a name="debugging-techniques"></a>디버깅 기술
 
@@ -148,7 +148,7 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 1. 모듈의 오른쪽 창에서  **출력 + 로그** 탭으로 이동 합니다.
 1. 오른쪽 창을 확장 하 고 **70_driver_log.txt** 를 선택 하 여 브라우저에서 파일을 봅니다. 로그를 로컬로 다운로드할 수도 있습니다.
 
-    ![디자이너의 확장 된 출력 창](./media/how-to-debug-pipelines/designer-logs.png)
+    ![디자이너의 확장 된 출력 창](./media/how-to-debug-pipelines/designer-logs.png)? view = azure-ml-py&preserve-view = true)? view = azure-ml-py&preserve-view = true)
 
 ### <a name="get-logs-from-pipeline-runs"></a>파이프라인 실행에서 로그 가져오기
 
@@ -174,6 +174,6 @@ ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azureml-파이프라인-코어](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) 패키지 및 [azureml 파이프라인 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요.
+* [Azureml-파이프라인-코어](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) 패키지 및 [azureml 파이프라인 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요.
 
 * [디자이너 예외 및 오류 코드](algorithm-module-reference/designer-error-codes.md)의 목록을 참조 하세요.

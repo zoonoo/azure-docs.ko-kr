@@ -10,16 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758251"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016846"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Rigado Cascade 500 게이트웨이 장치를 Azure IoT Central 응용 프로그램에 연결
 
-*이 문서는 솔루션 빌더 및 디바이스 개발자에게 적용됩니다.*
+이 문서는 솔루션 빌더에 적용됩니다.
 
 이 문서에서는 솔루션 빌더를 통해 Microsoft Azure IoT Central 응용 프로그램에 Rigado Cascade 500 게이트웨이 장치를 연결할 수 있는 방법을 설명 합니다. 
 
@@ -29,13 +29,13 @@ Cascade 500 IoT gateway는 Rigado에서 제공 하는 하드웨어 제품으로,
 
 Cascade 500은 솔루션 빌더가 종단 간 솔루션에 장치를 쉽게 등록할 수 있도록 Azure IoT 플러그 앤 플레이 (미리 보기)를 미리 인증 합니다. Cascade gateway를 사용 하면 게이트웨이 장치와 근접 한 다양 한 조건 모니터링 센서에 무선으로 연결할 수 있습니다. 이러한 센서는 게이트웨이 장치를 통해 IoT Central에 등록 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 방법 가이드를 단계별로 실행 하려면 다음 리소스가 필요 합니다.
 
 * Rigado Cascade 500 장치입니다. 자세한 내용은 [Rigado](https://www.rigado.com/)를 참조 하세요.
 * Azure IoT Central 애플리케이션. 자세한 내용은 [새 응용 프로그램 만들기](./quick-deploy-iot-central.md)를 참조 하세요.
 
-## <a name="add-a-device-template"></a>디바이스 템플릿 추가
+## <a name="add-a-device-template"></a>디바이스 템플릿 추가하기
 
 캐스케이드 500 게이트웨이 장치를 Azure IoT Central 응용 프로그램 인스턴스에 등록 하려면 응용 프로그램 내에서 해당 하는 장치 템플릿을 구성 해야 합니다.
 
@@ -51,7 +51,7 @@ Cascade 500은 솔루션 빌더가 종단 간 솔루션에 장치를 쉽게 등�
 
 이제 캐스케이드 500 장치를 연결 하기 위해 Azure IoT Central 응용 프로그램에 대 한 **범위 ID** 및 **기본 키** 를 검색 해야 합니다. 
 
-1. 왼쪽 창에서 **관리** 로 이동 하 여 **장치 연결**을 클릭 합니다. 
+1. 왼쪽 창에서 **관리**  로 이동 하 여 **장치 연결**을 클릭 합니다. 
 2. IoT Central 응용 프로그램의 **범위 ID** 를 적어 둡니다.
 ![앱 범위 ID](./media/howto-connect-rigado-cascade-500/app-scope-id.png)
 3. 이제 **키 보기** 를 클릭 하 고 **기본 키** 
@@ -65,7 +65,7 @@ Cascade 500 장치를 IoT Central 응용 프로그램에 연결 하려면 Rigado
 
 이 업데이트는 캐스케이드 500 장치에 IoT Central 연결 정보를 적용 하 고 장치 목록에 표시 됩니다. 
 
-![기본 키](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
+![디바이스 목록](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
 
 이제 IoT Central 응용 프로그램에서 C500 장치를 사용할 준비가 되었습니다.
 

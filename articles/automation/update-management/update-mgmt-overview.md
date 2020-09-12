@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: c95bd7523a57c2de02686d3cd06190e60550de0a
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660911"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024143"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -18,8 +18,8 @@ Azure Automation의 업데이트 관리를 사용하면 Azure, 온-프레미스 
 
 VM용 업데이트 관리는 다음과 같은 방법으로 사용하도록 설정할 수 있습니다.
 
-* 하나 이상의 Azure 머신의 경우 [Azure Automation 계정](update-mgmt-enable-automation-account.md)에서.
-* 비 Azure 머신의 경우 수동으로.
+* 하나 이상의 Azure 및 비 Azure 컴퓨터에 대 한 [Azure Automation 계정](update-mgmt-enable-automation-account.md) 에서
+* [Azure Arc 사용 서버](../../azure-arc/servers/overview.md) (미리 보기)에 등록 된 컴퓨터 또는 서버를 포함 하 여 비 Azure 컴퓨터에 대해 수동으로
 * 단일 Azure VM의 경우 Azure Portal의 가상 머신 페이지에서. 이 시나리오는 [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) VM과 [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VM에서 지원됩니다.
 * [여러 Azure VM](update-mgmt-enable-portal.md)의 경우 Azure Portal의 가상 머신 페이지에서 해당 VM을 선택.
 
@@ -40,21 +40,17 @@ VM용 업데이트 관리는 다음과 같은 방법으로 사용하도록 설�
 * Automation Hybrid Runbook Worker
 * Windows 머신용 Microsoft Update 또는 WSUS(Windows Server Update Services)
 
-다음 다이어그램에서는 업데이트 관리가 보안 업데이트를 평가하고 작업 영역에 있는 연결된 모든 Windows Server 및 Linux 머신에 이를 적용하는 방법을 보여 줍니다.
+다음 다이어그램은 업데이트 관리 작업 영역에서 연결 된 모든 Windows Server 및 Linux 서버에 보안 업데이트를 평가 하 고 적용 하는 방법을 보여 줍니다.
 
 ![업데이트 관리 워크플로](./media/update-mgmt-overview/update-mgmt-updateworkflow.png)
 
-업데이트 관리는 동일한 테넌트의 여러 구독에 있는 머신을 네이티브로 배포하는 데 사용할 수 있습니다.
+업데이트 관리는 동일한 테 넌 트의 여러 구독에 있는 컴퓨터에 기본적으로 배포 하는 데 사용할 수 있습니다.
 
-패키지가 릴리스되면 평가를 위해 Linux 머신의 패치가 나타날 때까지 2~3시간이 걸립니다. Windows 머신의 경우 릴리스된 후 평가를 위해 패치가 나타날 때까지 12~15시간이 걸립니다.
-
-머신에서 업데이트 준수 검사를 완료하면 에이전트가 Azure Monitor 로그에 정보를 대량으로 전달합니다. Windows 머신에서는 기본적으로 12시간마다 준수 검사가 실행됩니다.
+패키지가 릴리스되면 평가를 위해 Linux 머신의 패치가 나타날 때까지 2~3시간이 걸립니다. Windows 머신의 경우 릴리스된 후 평가를 위해 패치가 나타날 때까지 12~15시간이 걸립니다. 컴퓨터가 업데이트 준수에 대 한 검색을 완료 하면 에이전트는 Azure Monitor 로그에 정보를 대량으로 전달 합니다. Windows 머신에서는 기본적으로 12시간마다 준수 검사가 실행됩니다. Linux 머신에서는 기본적으로 1시간마다 준수 검사가 이루어집니다. Log Analytics 에이전트가 다시 시작되면 15분 이내에 준수 검사가 시작됩니다.
 
 검사 일정 외에도, Log Analytics 에이전트가 다시 시작된 지 15분 이내에, 업데이트 설치 전에, 그리고 업데이트 설치 후에 업데이트 준수 검사가 시작됩니다.
 
-Linux 머신에서는 기본적으로 1시간마다 준수 검사가 이루어집니다. Log Analytics 에이전트가 다시 시작되면 15분 이내에 준수 검사가 시작됩니다.
-
-업데이트 관리는 동기화하도록 구성된 원본을 기반으로 머신이 얼마나 최신 상태인지를 보고합니다. Windows 머신이 WSUS에 보고하도록 구성된 경우 WSUS가 Microsoft 업데이트와 마지막으로 동기화된 시기에 따라 그 결과는 Microsoft 업데이트가 표시하는 내용과 다를 수 있습니다. 이 동작은 공용 리포지토리 대신 로컬 리포지토리에 보고하도록 구성된 Linux 머신에서도 동일합니다.
+업데이트 관리는 동기화하도록 구성된 원본을 기반으로 머신이 얼마나 최신 상태인지를 보고합니다. Windows 컴퓨터가 wsus ( [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) 에 보고 하도록 구성 된 경우 wsus가 Microsoft 업데이트와 마지막으로 동기화 된 시기에 따라 결과가 Microsoft 업데이트 표시 되는 내용과 다를 수 있습니다. 이 동작은 공용 리포지토리 대신 로컬 리포지토리에 보고하도록 구성된 Linux 머신에서도 동일합니다.
 
 > [!NOTE]
 > 서비스에 제대로 보고하려면 업데이트 관리를 수행할 때 특정 URL 및 포트가 사용되도록 설정되어야 합니다. 이러한 요구 사항에 대한 자세한 내용은 [네트워크 구성](../automation-hybrid-runbook-worker.md#network-planning)을 참조하세요.
@@ -176,7 +172,7 @@ Operations Manager 관리 그룹이 [Log Analytics 작업 영역에 연결되면
 
 업데이트 관리는 다음 규칙을 사용하여 관리형 머신에서 데이터를 검사합니다. 관리형 머신의 업데이트된 데이터가 대시보드에 표시되기까지 30분에서 6시간이 걸릴 수 있습니다.
 
-* 각 Windows 머신 - 업데이트 관리가 각 머신에 대해 하루에 두 번 검사를 수행합니다. 15분에 한 번씩 Windows API에 마지막 업데이트 시간을 쿼리하고 상태가 변경되었는지 확인합니다. 상태가 변경된 경우 업데이트 관리가 준수 검사를 시작합니다.
+* 각 Windows 머신 - 업데이트 관리가 각 머신에 대해 하루에 두 번 검사를 수행합니다.
 
 * 각 Linux 머신 - 업데이트 관리가 한 시간에 한 번씩 검사를 수행합니다.
 
@@ -256,9 +252,10 @@ PC, 서버 및 모바일 디바이스를 관리하기 위해 Microsoft Endpoint 
 
 다음은 업데이트 관리를 사용하도록 설정하고 관리할 머신을 선택하는 방법입니다.
 
-* [가상 머신에서 등록](update-mgmt-enable-vm.md)
-* [여러 컴퓨터에서 찾아보기](update-mgmt-enable-portal.md)
+* [Azure 가상 컴퓨터에서](update-mgmt-enable-vm.md)
+* [여러 Azure 가상 머신 검색에서](update-mgmt-enable-portal.md)
 * [Azure Automation 계정에서](update-mgmt-enable-automation-account.md)
+* Arc 사용 서버 (미리 보기) 또는 비 Azure 컴퓨터의 경우 [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 를 설치한 다음 [작업 영역에서 컴퓨터](update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace) 를 업데이트 관리 하도록 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

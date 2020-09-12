@@ -5,17 +5,17 @@ description: 디자이너를 사용하여 모델을 학습하고 일괄 처리 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: peterlu
-author: peterclu
-ms.date: 02/24/2020
+ms.author: keli19
+author: likebupt
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 61465210c9ad476c6d8d2987330498aa0efa39d4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e4ca191e50f4ca8aa5a11a36ec44e737cc2ef6bc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319612"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661478"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너를 사용하여 일괄 처리 예측 실행(미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -71,7 +71,10 @@ SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대
    
     매개 변수에 대한 이름을 입력하거나 기본값을 수락합니다.
 
-## <a name="publish-your-batch-inferencing-pipeline"></a>일괄 처리 유추 파이프라인 게시
+    > [!div class="mx-imgBorder"]
+    > ![데이터 집합을 파이프라인 매개 변수로 설정](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
+
+## <a name="publish-your-batch-inference-pipeline"></a>일괄 처리 유추 파이프라인 게시
 
 이제 유추 파이프라인을 배포할 준비가 되었습니다. 이로써 파이프라인을 배포하고 다른 사용자가 사용할 수 있도록 합니다.
 
@@ -126,9 +129,7 @@ SDK를 사용하여 일괄 처리 채점 서비스를 설정하는 방법에 대
 
 파이프라인 엔드포인트의 REST 엔드포인트는 실행 개요 패널에서 찾을 수 있습니다. 엔드포인트를 호출하여 기본 게시된 파이프라인을 사용 중입니다.
 
-**게시된 파이프라인** 페이지에서 게시된 파이프라인을 사용할 수도 있습니다. 게시된 파이프라인을 선택하고 REST 엔드포인트를 찾습니다. 
-
-![REST 엔드포인트 세부 정보](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+**게시된 파이프라인** 페이지에서 게시된 파이프라인을 사용할 수도 있습니다. 게시 된 파이프라인을 선택 하 고 그래프의 오른쪽에 있는 **게시 된 파이프라인 개요** 패널에서 해당 파이프라인의 REST 끝점을 찾을 수 있습니다. 
 
 REST 호출을 수행하려면 OAuth 2.0 전달자 유형 인증 헤더가 필요합니다. 작업 영역에 대한 인증을 설정하고 매개 변수가 있는 REST 호출을 수행하는 방법에 대한 자세한 내용은 다음 [자습서 섹션](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint)을 참조하세요.
 
@@ -142,7 +143,7 @@ REST 호출을 수행하려면 OAuth 2.0 전달자 유형 인증 헤더가 필�
 
 엔드포인트의 **게시된 파이프라인** 탭에서 새 기본 파이프라인을 설정할 수도 있습니다.
 
-![기본 파이프라인 설정](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+![게시 된 파이프라인 페이지에서 기본 파이프라인 설정](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="next-steps"></a>다음 단계
 

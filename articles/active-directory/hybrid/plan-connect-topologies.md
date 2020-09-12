@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47973a8444de64dc5c2bb75b5f0d65d1e6d35f6e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509089"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658514"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 이 문서에서는 주요 통합 솔루션으로 Azure AD Connect Sync를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성과 지원되지 않는 구성이 포함되어 있습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "88509089"
 
 다음은 문서의 그림에 대한 범례입니다.
 
-| 설명 | 기호 |
+| Description | 기호 |
 | --- | --- |
 | 온-프레미스 Active Directory 포리스트 |![온-프레미스 Active Directory 포리스트](./media/plan-connect-topologies/LegendAD1.png) |
 | 필터링된 가져오기를 사용한 온-프레미스 Active Directory |![필터링된 가져오기를 사용한 Active Directory](./media/plan-connect-topologies/LegendAD2.png) |
@@ -117,15 +117,15 @@ Azure AD Connect 동기화의 기본 구성에서 다음 사항을 가정합니�
 
 이 시나리오에서는 하나 이상의 리소스 포리스트가 모든 계정 포리스트를 신뢰합니다. 리소스 포리스트에는 일반적으로 Exchange 및 Lync와 확장된 Active Directory 스키마가 있습니다. 다른 공유 서비스는 물론이고 모든 Exchange 및 Lync 서비스도 이 포리스트에 배치됩니다. 사용자는 이 포리스트에 비활성화된 계정을 가지며 사서함이 계정 포리스트에 연결됩니다.
 
-## <a name="office-365-and-topology-considerations"></a>Office 365 및 토폴로지 고려 사항
-일부 Office 365 워크로드의 경우 지원되는 토폴로지에 약간의 제한이 있습니다.
+## <a name="microsoft-365-and-topology-considerations"></a>Microsoft 365 및 토폴로지 고려 사항
+일부 Microsoft 365 작업에는 지원 되는 토폴로지에 대 한 몇 가지 제한이 있습니다.
 
-| 워크로드 | 제한 |
+| 작업 | 제한 |
 | --------- | --------- |
-| Exchange Online | Exchange Online에서 지원하는 하이브리드 토폴로지에 대한 자세한 내용은 [여러 Active Directory 포리스트를 사용한 하이브리드 배포](https://technet.microsoft.com/library/jj873754.aspx)를 참조하세요. |
-| 비즈니스용 Skype | 다중 포리스트 온-프레미스를 사용하는 경우 계정 리소스 포리스트 토폴로지만 지원됩니다. 자세한 내용은 [Business Server 2015용 Skype에 대한 환경 요구 사항](https://technet.microsoft.com/library/dn933910.aspx)을 참조하세요. |
+| Exchange Online | Exchange Online에서 지원하는 하이브리드 토폴로지에 대한 자세한 내용은 [여러 Active Directory 포리스트를 사용한 하이브리드 배포](/Exchange/hybrid-deployment/hybrid-with-multiple-forests)를 참조하세요. |
+| 비즈니스용 Skype | 다중 포리스트 온-프레미스를 사용하는 경우 계정 리소스 포리스트 토폴로지만 지원됩니다. 자세한 내용은 [Business Server 2015용 Skype에 대한 환경 요구 사항](/skypeforbusiness/plan-your-deployment/requirements-for-your-environment/environmental-requirements)을 참조하세요. |
 
-조직의 규모가 큰 경우에는 [Office 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) 기능을 사용하는 것이 좋습니다. 사용자의 리소스가 배치되는 데이터 센터 지역을 정의할 수 있습니다.
+규모가 큰 조직인 경우 [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) 기능을 사용 하는 것이 좋습니다. 사용자의 리소스가 배치되는 데이터 센터 지역을 정의할 수 있습니다.
 
 ## <a name="staging-server"></a>스테이징 서버
 ![토폴로지의 준비 서버](./media/plan-connect-topologies/MultiForestStaging.png)
@@ -165,7 +165,7 @@ DNS 도메인은 단일 Azure AD 테넌트에만 등록할 수 있습니다. 온
 * Windows 10 디바이스는 하나의 Azure AD 테넌트에만 연결할 수 있습니다.
 * 암호 해시 동기화 및 통과 인증에 대한 SSO(Single Sign-On) 옵션은 하나의 Azure AD 테넌트에만 사용할 수 있습니다.
 
-상호 배타적인 집합 개체에 대한 요구 사항은 쓰기 저장에도 적용됩니다. 이 토폴로지는 단일 온-프레미스 구성을 전제로 하기 때문에 일부 쓰기 저장 기능이 지원되지 않습니다. 이러한 기능으로는 다음이 포함됩니다.
+상호 배타적인 집합 개체에 대한 요구 사항은 쓰기 저장에도 적용됩니다. 이 토폴로지는 단일 온-프레미스 구성을 전제로 하기 때문에 일부 쓰기 저장 기능이 지원되지 않습니다. 이러한 기능에는 다음이 포함됩니다.
 
 * 기본 구성으로 쓰기 저장 그룹화.
 * 디바이스 쓰기 저장.
