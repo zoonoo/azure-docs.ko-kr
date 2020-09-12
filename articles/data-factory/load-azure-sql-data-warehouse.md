@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
-ms.openlocfilehash: 8891c65707822abeb2bcca52280d9b56dc725e4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c90590ac4c47f6ac8d51273fecfb653dfe056b1d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252001"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485773"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics에 데이터 로드
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[Azure Synapse Analytics (이전의 SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 는 관계형 데이터와 비관계형 데이터를 모두 처리할 수 있는 클라우드 기반 규모 확장 데이터베이스입니다. Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우스 워크 로드에 최적화 된 MPP (대규모 parallel processing) 아키텍처를 기반으로 합니다. 스토리지를 확장하고 개별적으로 계산할 수 있는 클라우드 탄력성을 유연하게 제공합니다.
+[Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 는 관계형 데이터와 비관계형 데이터를 모두 처리할 수 있는 클라우드 기반 규모 확장 데이터베이스입니다. Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우스 워크 로드에 최적화 된 MPP (대규모 parallel processing) 아키텍처를 기반으로 합니다. 스토리지를 확장하고 개별적으로 계산할 수 있는 클라우드 탄력성을 유연하게 제공합니다.
 
 이제 Azure Data Factory를 사용 하는 경우 보다 쉽게 Azure Synapse Analytics를 시작할 수 있습니다. Azure Data Factory는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 서비스를 사용 하 여 Azure Synapse Analytics를 기존 시스템의 데이터로 채우고 분석 솔루션을 빌드할 때 시간을 절약할 수 있습니다.
 
@@ -102,13 +102,13 @@ Azure Data Factory는 Azure Synapse Analytics로 데이터를 로드 하는 다�
 
     a. **+ 새 연결 만들기**를 클릭하여 연결을 추가합니다.
 
-    b. 갤러리에서 **Azure Synapse Analytics (이전의 SQL DW)** 를 선택 하 고 **계속**을 선택 합니다. 검색 상자에 "SQL"을 입력하여 커넥터를 필터링할 수 있습니다.
+    b. 갤러리에서 **Azure Synapse Analytics (이전의 SQL Data Warehouse)** 를 선택 하 고 **계속**을 선택 합니다. 검색 상자에 "SQL"을 입력하여 커넥터를 필터링할 수 있습니다.
 
-    ![Azure SQL DW 선택](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
+    ![Azure Synapse Analytics 선택](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
     다. **새 연결 된 서비스** 페이지의 드롭다운 목록에서 서버 이름과 DB 이름을 선택 하 고 사용자 이름 및 암호를 지정 합니다. **연결 테스트** 를 클릭 하 여 설정의 유효성을 검사 한 다음, **만들기**를 선택 합니다.
 
-    ![Azure SQL DW 구성](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
+    ![Azure Synapse Analytics 구성](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
     d. 새로 만든 연결된 서비스를 싱크로 선택하고 **다음**을 클릭합니다.
 

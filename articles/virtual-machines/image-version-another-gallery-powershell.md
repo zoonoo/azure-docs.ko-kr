@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 48f0a247ed023583c8489994439a790944b90fdc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2f26716a4d04b574bf393f502758a725948419da
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082599"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299952"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>PowerShell을 사용 하 여 다른 갤러리에서 이미지 복사
 
@@ -70,7 +70,7 @@ Get-AzGalleryImageDefinition `
 ```
 
 
-출력은 다음과 비슷할 것입니다.
+출력은 다음과 같이 표시됩니다.
 
 ```output
 {
@@ -114,7 +114,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
    -Name 'myDestinationImgDef' `
    -OsState specialized `
    -OsType Windows `
-   -HyperVGeneration v1
+   -HyperVGeneration v1 `
    -Publisher 'myPublisher' `
    -Offer 'myOffer' `
    -Sku 'mySKU'
@@ -125,7 +125,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 [AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion)를 사용 하 여 이미지 버전을 만듭니다. `--managed-image`대상 갤러리에서 이미지 버전을 만들기 위해 매개 변수에서 원본 이미지의 ID를 전달 해야 합니다. 
 
-이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*입니다.
+이미지 버전에 허용되는 문자는 숫자 및 마침표입니다. 숫자는 32비트 정수 범위 내에 포함되어야 합니다. 형식: *MajorVersion*.*MinorVersion*.*Patch*.
 
 이 예에서는 *Mydestinationgallery* 리소스 그룹 *West US* 의 *mydestinationgallery*로 대상 갤러리의 이름이 지정 됩니다. 이 이미지의 버전은 *1.0.0* *이며 미국* *서 부* 지역에 2 개의 복제본과 2 개의 복제본을 만듭니다. 
 

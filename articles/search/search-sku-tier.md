@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: ac08f2cee19b2d8860323c48d89205d5ca939157
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c09c5b33f7960ffebfdfc8005537e75a249b8d99
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922806"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661101"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -39,7 +39,7 @@ Azure Cognitive Search 서비스를 만들면 서비스 수명 동안 고정 된
 
 계층은 다음과 같이 구분 됩니다.
 
-+ 만들 수 있는 인덱스 및 인덱서 수량
++ 인덱스 및 인덱서 수량 (최대 제한)
 + 파티션(실제 스토리지)의 크기와 속도
 
 선택한 계층에 따라 청구 요금이 결정 됩니다. Azure Portal의 다음 스크린샷은 사용 가능한 계층, 가격 책정 (포털 및 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)에서 찾을 수 있음)을 보여 줍니다. 가장 일반적인 계층은 **무료**, **기본**및 **표준** 입니다.

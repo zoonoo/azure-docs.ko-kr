@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스 FAQ
 description: Azure Migrate 어플라이언스에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: de34bba40b9200c198f3c07262bd6b7a00b62060
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aa15a3451b990d3c3cec3535fdc14315ff149aef
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050678"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514546"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -21,7 +21,7 @@ ms.locfileid: "89050678"
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 란 무엇 인가요?
 
-Azure Migrate 어플라이언스는 Azure Migrate: 서버 평가 도구에서 온-프레미스 서버를 검색 하 고 평가 하는 데 사용 하는 경량 어플라이언스입니다. Azure Migrate: 서버 마이그레이션 도구는 또한 온-프레미스 VMware Vm의 에이전트 없는 마이그레이션에 어플라이언스를 사용 합니다.
+Azure Migrate 어플라이언스는 Azure Migrate: 서버 평가 도구에서 온-프레미스 또는 클라우드에서 실제 또는 가상 서버를 검색 하 고 평가 하는 데 사용 하는 경량 어플라이언스입니다. Azure Migrate: 서버 마이그레이션 도구는 또한 온-프레미스 VMware Vm의 에이전트 없는 마이그레이션에 어플라이언스를 사용 합니다.
 
 Azure Migrate 어플라이언스에 대 한 자세한 내용은 다음과 같습니다.
 
@@ -35,13 +35,14 @@ Azure Migrate 어플라이언스에 대 한 자세한 내용은 다음과 같습
 
 다음과 같이 어플라이언스를 배포할 수 있습니다.
 
-- VMware Vm 및 Hyper-v Vm에 대 한 템플릿 사용 (VMware의 경우 OVA 템플릿, hyper-v의 경우 VHD).
-- 템플릿을 사용 하지 않으려는 경우 또는 Azure Government 중인 경우 PowerShell 스크립트를 사용 하 여 VMware 또는 Hyper-v에 대 한 어플라이언스를 배포할 수 있습니다.
-- 물리적 서버의 경우 항상 스크립트를 사용하여 어플라이언스를 배포합니다.
+- VMware Vm의 검색을 위한 템플릿 사용 (. OVA 파일) 및 Hyper-v Vm (. VHD 파일)을 통해 어플라이언스를 호스트 하는 새 VM을 만들 수 있습니다.
+- 템플릿을 사용 하지 않으려는 경우 포털의 zip 파일에서 다운로드할 수 있는 PowerShell 설치 관리자 스크립트를 사용 하 여 VMware Vm 또는 Hyper-v Vm을 검색 하기 위해 기존 물리적 또는 가상 머신에 어플라이언스를 배포할 수 있습니다.
+- 온-프레미스 또는 클라우드에서 실제 또는 가상 서버의 경우 항상 기존 서버에서 스크립트를 사용 하 여 어플라이언스를 배포 합니다.
+- Azure Government의 경우 세 어플라이언스 모두 PowerShell 설치 관리자 스크립트를 사용 하 여 배포할 수 있습니다.
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>어플라이언스는 Azure에 어떻게 연결 되나요?
 
-어플라이언스는 인터넷을 통해 또는 Azure Express 경로를 사용 하 여 연결할 수 있습니다.
+어플라이언스는 인터넷을 통해 또는 Azure Express 경로를 사용 하 여 연결할 수 있습니다. 어플라이언스에서 Azure에 연결 하기 위해 이러한 [url](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) 이 허용 목록 확인 합니다.
 
 - Azure Migrate 복제 트래픽에 대해 Azure Express 경로를 사용 하려면 Microsoft 피어 링 또는 기존 공용 피어 링이 필요 합니다 (공용 피어 링은 새 ER 생성에 사용 되지 않음).
 - (만 해당) 개인 피어 링을 사용 하는 Azure Express 경로를 통한 복제는 지원 되지 않습니다.
@@ -66,6 +67,7 @@ Azure Migrate 어플라이언스에서 Vm에 대해 수집 하는 데이터에 �
 
 - **VMWARE VM**: 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---vmware) 합니다.
 - **HYPER-V VM**: 수집 된 데이터를 [검토](migrate-appliance.md#collected-data---hyper-v) 합니다.
+- **실제 또는 가상 서버**: 수집 된 데이터를[검토](migrate-appliance.md#collected-data---physical) 합니다.
 
 ## <a name="how-is-data-stored"></a>데이터가 어떻게 저장되나요?
 
@@ -99,7 +101,7 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 
 ## <a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>Azure Migrate 어플라이언스를 여러 vCenter 서버에 연결할 수 있나요?
 
-아니요. [Azure Migrate 어플라이언스](migrate-appliance.md) 와 vCenter Server 사이에 일 대 일 매핑이 있습니다. 여러 vCenter Server 인스턴스에서 Vm을 검색 하려면 여러 어플라이언스를 배포 해야 합니다. 
+아닙니다. [Azure Migrate 어플라이언스](migrate-appliance.md) 와 vCenter Server 사이에 일 대 일 매핑이 있습니다. 여러 vCenter Server 인스턴스에서 Vm을 검색 하려면 여러 어플라이언스를 배포 해야 합니다. 
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Azure Migrate 프로젝트에 여러 개의 어플라이언스를 사용할 수 있나요?
 
@@ -107,8 +109,7 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Azure Migrate 어플라이언스/복제 어플라이언스는 동일한 vCenter에 연결할 수 있나요?
 
-예. Azure Migrate 어플라이언스 (평가 및 에이전트 없는 VMware 마이그레이션에 사용 됨) 및 복제 어플라이언스 (VMware Vm의 에이전트 기반 마이그레이션에 사용 됨)를 동일한 vCenter server에 추가할 수 있습니다.
-
+예. Azure Migrate 어플라이언스 (평가 및 에이전트 없는 VMware 마이그레이션에 사용 됨) 및 복제 어플라이언스 (VMware Vm의 에이전트 기반 마이그레이션에 사용 됨)를 동일한 vCenter server에 추가할 수 있습니다. 그러나 두 어플라이언스를 동일한 VM에 설정 하지 않고 현재 지원 되지 않는지 확인 합니다.
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>어플라이언스로 검색할 수 있는 Vm 또는 서버는 몇 개입니까?
 
@@ -124,15 +125,17 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 
 ## <a name="can-i-use-the-appliance-with-a-different-subscription-or-project"></a>다른 구독 또는 프로젝트에서 어플라이언스를 사용할 수 있나요?
 
-어플라이언스를 사용 하 여 검색을 시작한 후에는 다른 Azure 구독에서 사용 하도록 어플라이언스를 다시 구성 하 고 다른 Azure Migrate 프로젝트에서 사용할 수 없습니다. 또한 vCenter Server의 다른 인스턴스에서 Vm을 검색할 수 없습니다. 이러한 작업에 대 한 새 어플라이언스를 설정 합니다.
+다른 구독 또는 프로젝트에서 어플라이언스를 사용 하려면 어플라이언스 컴퓨터의 특정 시나리오 (VMware/Hyper-v/물리적)에 대해 PowerShell 설치 관리자 스크립트를 실행 하 여 기존 어플라이언스를 다시 구성 해야 합니다. 이 스크립트는 기존 어플라이언스 구성 요소 및 설정을 정리 하 여 새 어플라이언스를 배포 합니다. 새로 배포 된 어플라이언스 구성 관리자를 사용 하 여 시작 하기 전에 브라우저 캐시를 지워야 합니다.
+
+또한 다시 구성 된 어플라이언스에서 기존 Azure Migrate 프로젝트 키를 다시 사용할 수 없습니다. 원하는 구독/프로젝트에서 새 키를 생성 하 여 어플라이언스 등록을 완료 해야 합니다.
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Azure VM에서 어플라이언스를 설정할 수 있나요?
 
-아니요. 현재이 옵션은 지원 되지 않습니다. 
+아닙니다. 현재이 옵션은 지원 되지 않습니다. 
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>ESXi 호스트에서 검색할 수 있나요?
 
-아니요. VMware Vm을 검색 하려면 vCenter Server 있어야 합니다.
+아닙니다. VMware Vm을 검색 하려면 vCenter Server 있어야 합니다.
 
 ## <a name="how-do-i-update-the-appliance"></a>어플라이언스를 업데이트 어떻게 할까요??
 

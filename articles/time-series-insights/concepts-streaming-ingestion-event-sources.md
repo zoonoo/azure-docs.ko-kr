@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: a16a83408587a1b99485140174c45e457ac820f8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 08/31/2020
+ms.openlocfilehash: 9564611ee37c2aa2f104bbb14096a3b2f45fb7cd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855093"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485372"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights Gen2 이벤트 원본
 
@@ -64,7 +64,7 @@ ms.locfileid: "88855093"
 
 ## <a name="event-source-timestamp"></a>이벤트 원본 타임 스탬프
 
-이벤트 원본을 구성할 때 타임 스탬프 ID 속성을 제공 하 라는 메시지가 표시 됩니다. Timestamp 속성은 시간이 지남에 따라 이벤트를 추적 하는 데 사용 됩니다 .이 시간은 $event로 사용 됩니다. [쿼리 api](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) 및 Azure Time Series Insights Tsi 탐색기의 그리기 시리즈에서 $ts. 만든 시간에 속성이 제공 되지 않거나 타임 스탬프 속성이 이벤트에 없는 경우 이벤트의 IoT Hub 또는 이벤트 허브 큐에 넣은 시간이 기본값으로 사용 됩니다. Timestamp 속성 값은 UTC로 저장 됩니다.
+이벤트 원본을 구성할 때 타임 스탬프 ID 속성을 제공 하 라는 메시지가 표시 됩니다. Timestamp 속성은 시간이 지남에 따라 이벤트를 추적 하는 데 사용 됩니다 .이 시간은 $event로 사용 됩니다. [쿼리 api](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute) 및 Azure Time Series Insights 탐색기의 그리기 시리즈에서 $ts. 만든 시간에 속성이 제공 되지 않거나 타임 스탬프 속성이 이벤트에 없는 경우 이벤트의 IoT Hub 또는 이벤트 허브 큐에 넣은 시간이 기본값으로 사용 됩니다. Timestamp 속성 값은 UTC로 저장 됩니다.
 
 일반적으로 사용자는 타임 스탬프 속성을 사용자 지정 하도록 선택 하 고, 센서 또는 태그가 기본 허브 큐에 대기 시간을 사용 하는 대신 읽기를 생성 한 시간을 사용 합니다. 이는 장치가 간헐적으로 연결 손실이 발생 하 고 지연 된 메시지의 일괄 처리가 Azure Time Series Insights Gen2 전달 되는 경우에 특히 필요 합니다.
 

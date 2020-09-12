@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: cbf1c678307d76361e6083f4e2231fb9e48a112f
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 0fb50e01e86c00ac863352118eb36f7470251435
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855149"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489156"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2에서 데이터 쿼리
 
@@ -73,4 +73,4 @@ Azure Time Series Insights Gen2는 시계열 [변수](./concepts-variables.md)�
 ## <a name="next-steps"></a>다음 단계
 
 * [시계열 모델](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm)에서 정의할 수 있는 다양 한 변수에 대해 자세히 알아보세요.
-* [Azure Time Series Insights TSI 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer)에서 데이터를 쿼리 하는 방법에 대해 자세히 알아보세요.
+* 자세한 내용은 [Azure Time Series Insights 탐색기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer)에서 데이터를 쿼리 하는 방법을 참조 하세요.

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c7212157bb7ef541ac1eb1753f46ea6ad434c2ca
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cd255896d57d6bda60ec8874430fa994eae69f40
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013370"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613627"
 ---
 # <a name="server-side-performance-queries"></a>서버 쪽 성능 쿼리
 
@@ -172,6 +172,11 @@ void Update()
 `GetStatsString` API는 모든 값의 문자열 형식을 지정하지만, 각 문자열 값은 `ARRServiceStats` 인스턴스에서 프로그래밍 방식으로 쿼리될 수 있습니다.
 
 또한 시간에 따라 값을 집계하는 멤버의 변형도 있습니다. `*Avg`, `*Max` 또는 `*Total` 접미사가 포함된 멤버를 참조하세요. `FramesUsedForAverage` 멤버는 이 집계에 사용된 프레임 수를 나타냅니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # RemoteManager QueryServerPerformanceAssessmentAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.queryserverperformanceassessmentasync)
+* [C + + RemoteManager:: QueryServerPerformanceAssessmentAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#queryserverperformanceassessmentasync)
 
 ## <a name="next-steps"></a>다음 단계
 

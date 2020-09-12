@@ -3,14 +3,14 @@ title: 경제적이며 우선 순위가 낮은 VM에서 워크로드 실행
 description: 우선 순위가 낮은 VM을 프로비전하여 Azure Batch 워크로드의 비용을 줄이는 방법을 알아봅니다.
 author: mscurrell
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: e33119213d4ae28347334e60923d5ba222cd3a66
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bd5b73cf55110985a2e7eecbc161c77ca6d645cb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816697"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568458"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Batch에서 낮은 우선 순위 VM 사용
 
@@ -18,7 +18,7 @@ Azure Batch는 낮은 우선 순위 VM(가상 머신)을 사용하여 Batch 워�
 
 우선 순위가 낮은 VM은 Azure에서 남는 용량을 활용합니다. 풀에서 우선 순위가 낮은 VM을 지정하면 Azure Batch는 가능한 경우 이러한 남는 용량을 사용할 수 있습니다.
 
-우선 순위가 낮은 VM은 할당이 가능하지 않거나, 사용 가능한 용량에 따라, 언제든지 선점될 수 있다는 단점이 있습니다. 이러한 이유로 우선 순위가 낮은 VM이 특정 유형의 워크로드에 가장 적절합니다. 작업 완료 시간이 유연하고 작업이 여러 VM 간에 분산되는 Batch 및 비동기 처리 워크로드에 우선 순위가 낮은 BM을 사용합니다.
+우선 순위가 낮은 Vm을 사용 하는 경우의 단점은 사용 가능한 용량에 따라 이러한 Vm을 항상 할당 하지 못할 수도 있고 언제 든 지 선점 될 수도 있다는 것입니다. 이러한 이유로 우선 순위가 낮은 VM이 특정 유형의 워크로드에 가장 적절합니다. 작업 완료 시간이 유연하고 작업이 여러 VM 간에 분산되는 Batch 및 비동기 처리 워크로드에 우선 순위가 낮은 BM을 사용합니다.
 
 우선 순위가 낮은 VM은 전용 VM에 비해 상당히 저렴한 가격으로 제공됩니다. 가격 책정 세부 정보에 대해서는 [Batch 가격 책정](https://azure.microsoft.com/pricing/details/batch/)을 참조하세요.
 
@@ -123,7 +123,7 @@ int? numLowPri = pool1.CurrentLowPriorityComputeNodes;
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
-풀에서 하나 이상의 노드가 선점되어도 풀의 목록 노드 작업은 여전히 해당 노드를 반환합니다. 우선 순위가 낮은 노드의 현재 수는 변경되지 않지만 해당 노드의 상태는 **선점됨** 상태로 설정됩니다. Batch는 대체 VM을 찾으려고 하고, 성공하면 노드는 새 노드처럼 **만드는 중**, **시작 중** 상태를 차례로 거쳐 태스크 실행에 사용할 수 있게 됩니다.
+가상 컴퓨터 구성 풀의 경우 하나 이상의 노드가 선점 될 때 풀에 대 한 노드 목록 작업은 해당 노드를 계속 반환 합니다. 우선 순위가 낮은 노드의 현재 수는 변경되지 않지만 해당 노드의 상태는 **선점됨** 상태로 설정됩니다. Batch는 대체 VM을 찾으려고 하고, 성공하면 노드는 새 노드처럼 **만드는 중**, **시작 중** 상태를 차례로 거쳐 태스크 실행에 사용할 수 있게 됩니다.
 
 ## <a name="scale-a-pool-containing-low-priority-vms"></a>우선 순위가 낮은 VM을 포함하는 풀 크기 조정
 
@@ -155,10 +155,11 @@ pool.Resize(targetDedicatedComputeNodes: 0, targetLowPriorityComputeNodes: 25);
 
 ## <a name="handling-preemption"></a>선점 처리
 
-VM은 경우에 따라 선점될 수 있습니다. 선점될 경우 Batch는 다음을 수행합니다.
+Vm을 종종 선점할 수 있습니다. 이 경우 선점 된 노드 Vm에서 실행 중인 작업이 다시 큐에 대기 되 고 다시 실행 됩니다.
+
+가상 컴퓨터 구성 풀의 경우 Batch는 다음 작업도 수행 합니다.
 
 -   선점된 VM의 상태는 **선점됨**으로 업데이트됩니다.
--   작업이 선점된 노드 VM에서 실행되면 해당 작업이 요청되고 다시 실행됩니다.
 -   VM은 효과적으로 삭제되므로 VM에 로컬로 저장된 모든 데이터는 손실됩니다.
 -   풀은 계속해서 우선 순위가 낮은 노드의 목표 개수가 사용 가능해지도록 하려고 합니다. 대체 용량이 발견되면 노드는 해당 ID를 유지하지만 다시 초기화되며, 작업 예약에 사용되기 전에 먼저 **만드는 중** 및 **시작 중** 상태를 거치게 됩니다.
 -   선점 수는 Azure Portal에서 메트릭으로 사용할 수 있습니다.
@@ -168,7 +169,7 @@ VM은 경우에 따라 선점될 수 있습니다. 선점될 경우 Batch는 다
 우선 순위가 낮은 노드의 경우 [Azure Portal](https://portal.azure.com)에서 새 메트릭을 사용할 수 있습니다. 이러한 메트릭은 다음과 같습니다.
 
 - 우선 순위가 낮은 노드 수
-- 우선 순위가 낮은 코어 수 
+- 우선 순위가 낮은 코어 수
 - 선점된 노드 수
 
 Azure Portal에서 메트릭을 확인하려면 다음을 수행합니다.
@@ -177,10 +178,10 @@ Azure Portal에서 메트릭을 확인하려면 다음을 수행합니다.
 2. **모니터링** 섹션에서 **메트릭**을 선택합니다.
 3. **사용 가능한 메트릭** 목록에서 원하는 메트릭을 선택합니다.
 
-![우선 순위가 낮은 노드의 메트릭](media/batch-low-pri-vms/low-pri-metrics.png)
+![우선 순위가 낮은 노드에 대 한 메트릭 선택을 보여 주는 스크린샷](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-* 풀, 노드 및 작업과 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
-* Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
-* 우선 순위가 낮은 VM에서 스폿 VM으로 이동하도록 계획합니다. **클라우드 서비스 구성** 풀에서 우선 순위가 낮은 VM을 사용하는 경우 **가상 머신 구성** 풀로 이동합니다.
+- 풀, 노드 및 작업과 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
+- Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
+- 우선 순위가 낮은 VM에서 스폿 VM으로 이동하도록 계획합니다. **클라우드 서비스 구성** 풀에서 우선 순위가 낮은 VM을 사용하는 경우 **가상 머신 구성** 풀로 이동합니다.

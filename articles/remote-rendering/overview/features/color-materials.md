@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: af33a777d2d6ef53965c2168ac0abee00f59bc50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cda4aa9a811bac0ccf20caec32ee38da9b46b6c7
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021384"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613766"
 ---
 # <a name="color-materials"></a>색 재질
 
@@ -50,6 +50,13 @@ ms.locfileid: "84021384"
   1. **AlphaBlended:** 이 모드는 .PBR 재질의 투명도 모드와 비슷합니다. 유리와 같은 보기 자료에 사용 해야 합니다.
 
   1. **덧셈:** 이 모드는 가장 간단 하 고 가장 효율적인 투명도 모드입니다. 재질의 기여는 렌더링 된 이미지에 추가 됩니다. 이 모드는 중요 한 개체를 강조 표시 하는 데 사용 되는 표식과 같이 투명 한 개체 (투명 한 개체)를 시뮬레이트하는 데 사용할 수 있습니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # Colormaterial 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [C # RemoteManager CreateMaterial ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C + + ColorMaterial 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterial)
+* [C + + RemoteManager:: CreateMaterial ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>다음 단계
 

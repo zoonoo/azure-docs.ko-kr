@@ -8,16 +8,18 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: 73d583cb371876cefc10c982dbe66f6e15bddf03
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: af9f7eb21d533bc5fb365e7cbf1fb8fc18184fa7
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932613"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375230"
 ---
-# <a name="ncast4_v3-series"></a>NCasT4_v3 시리즈 
+# <a name="ncast4_v3-series-in-preview"></a>NCasT4_v3 시리즈 (미리 보기) 
 
 NCasT4_v3 시리즈 가상 머신은 [Nvidia Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPU 및 AMD Epyc 7V12 (로마) cpu로 구동 됩니다. Vm은 각각 16gb의 메모리를 포함 하는 최대 4 개의 NVIDIA T4 Gpu를 포함 하 고 있으며,이는 최대 64 비 다중 스레드 AMD EPYC 7V12 (로마) 프로세서 코어 및 440 GiB의 시스템 메모리입니다. 이러한 가상 머신은 TensorFlow, Pytorch, Caffe 및 기타 프레임 워크를 활용 하는 ML 및 AI 워크 로드를 실행 하는 데 적합 하며 NVIDIA GRID 기술을 사용 하는 그래픽 워크 로드입니다. NCasT4_v3 시리즈는 유추 워크 로드를 실행 하는 데 적합 합니다.
+
+미리 보기 프로그램의 일부로 [요청을 제출할](https://aka.ms/NCT4v3Preview) 수 있습니다.
 
 <br>
 

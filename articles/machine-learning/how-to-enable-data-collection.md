@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3ece750ab63c2c8e33fbfb46739eec55de4f5d07
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 72706a67e1798662ea0f40fa7843c32d8267e0d0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320190"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646068"
 ---
 # <a name="collect-data-from-models-in-production"></a>프로덕션 환경에서 모델의 데이터 수집
 
@@ -67,11 +67,11 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 
 - AKS 클러스터가 필요 합니다. 하나를 만들어 배포 하는 방법에 대 한 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
-- [환경을 설정](how-to-configure-environment.md) 하 고 [Azure Machine Learning 모니터링 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)를 설치 합니다.
+- [환경을 설정](how-to-configure-environment.md) 하 고 [Azure Machine Learning 모니터링 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)를 설치 합니다.
 
-## <a name="enable-data-collection"></a>데이터 컬렉션 활성화
+## <a name="enable-data-collection"></a>데이터 수집 사용
 
-Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 관계 없이 [데이터 수집](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py) 을 사용 하도록 설정할 수 있습니다.
+Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 관계 없이 [데이터 수집](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true) 을 사용 하도록 설정할 수 있습니다.
 
 데이터 수집을 사용 하도록 설정 하려면 다음을 수행 해야 합니다.
 
@@ -149,7 +149,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
    # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
    ```
 
-### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a>Power BI를 사용 하 여 모델 데이터 분석
+### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a> Power BI를 사용 하 여 모델 데이터 분석
 
 1. [Power BI Desktop](https://www.powerbi.com)를 다운로드 하 여 엽니다.
 
@@ -185,7 +185,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 1. 모델 데이터에 대한 사용자 지정 보고서 빌드를 시작합니다.
 
-### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a>Azure Databricks를 사용 하 여 모델 데이터 분석
+### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a> Azure Databricks를 사용 하 여 모델 데이터 분석
 
 1. [Azure Databricks 작업 영역](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)을 만듭니다.
 
@@ -199,7 +199,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
     [![Databricks 테이블 만들기](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. 데이터의 위치를 업데이트 합니다. 다음은 예제입니다.
+1. 데이터의 위치를 업데이트 합니다. 예를 들면 다음과 같습니다.
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

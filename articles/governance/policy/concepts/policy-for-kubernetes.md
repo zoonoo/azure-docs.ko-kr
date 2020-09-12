@@ -3,12 +3,12 @@ title: 미리 보기 - Kubernetes용 Azure Policy 알아보기
 description: Azure Policy에서 Rego 및 Open Policy Agent를 사용하여 Azure 또는 온-프레미스에서 Kubernetes를 실행하는 클러스터를 관리하는 방법을 알아봅니다. 이 기능은 미리 보기 기능입니다.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9da5caf13994e1c198345958feec43867c0b5f5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a824548cb45f886bcf82bedad6e5d5c216bb7fea
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509878"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645590"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Kubernetes용 Azure Policy 클러스터 이해(미리 보기)
 
@@ -57,13 +57,13 @@ Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도�
 
      1. **Microsoft.ContainerService** 및 **Microsoft.PolicyInsights** 리소스 공급자를 등록합니다. 단계는 [리소스 공급자 및 형식](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요.
 
-     1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
+     1. **모든 서비스**를 선택한 다음, **정책을**검색 하 고 선택 하 여 Azure Portal에서 Azure Policy 서비스를 시작 합니다.
 
-        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="모든 서비스에서 정책 검색" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="모든 서비스에서 정책 검색의 스크린샷" border="false":::
 
      1. Azure Policy 페이지의 왼쪽에서 **미리 보기에 조인**을 선택합니다.
 
-        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="AKS용 Policy 미리 보기에 조인" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="정책 페이지에서 ' 조인 미리 보기 ' 노드의 스크린샷" border="false":::
 
      1. 미리 보기에 추가하려는 구독의 행을 선택합니다.
 
@@ -120,17 +120,17 @@ Azure Policy 추가 기능을 설치하거나 서비스 기능을 사용하도�
 
 - Azure portal
 
-  1. **모든 서비스**를 클릭한 후 **Kubernetes 서비스를** 을 검색하고 선택하여 Azure Portal에서 AKS 서비스를 시작합니다.
+  1. **모든 서비스**를 선택한 다음 **Kubernetes services**를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
 
   1. AKS 클러스터 중 하나를 선택합니다.
 
   1. Kubernetes 서비스 페이지의 왼쪽에서 **정책(미리 보기)** 을 선택합니다.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="AKS 클러스터의 정책 정의" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Kubernetes service 페이지의 ' 정책 (미리 보기) ' 노드 스크린샷" border="false":::
 
   1. 기본 페이지에서 **추가 기능 사용** 단추를 선택합니다.
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="AKS용 Azure Policy 추가 기능 사용":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="' Azure Kubernetes 서비스에 대 한 Azure Policy에 등록 (K S) 페이지에서 ' 추가 기능 사용 ' 단추의 스크린샷":::
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -460,17 +460,17 @@ AKS 클러스터에서 Azure Policy 추가 기능을 제거하려면 Azure Porta
 
 - Azure portal
 
-  1. **모든 서비스**를 클릭한 후 **Kubernetes 서비스를** 을 검색하고 선택하여 Azure Portal에서 AKS 서비스를 시작합니다.
+  1. **모든 서비스**를 선택한 다음 **Kubernetes services**를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
 
   1. Azure Policy 추가 기능을 사용하지 않으려는 AKS 클러스터를 선택합니다.
 
   1. Kubernetes 서비스 페이지의 왼쪽에서 **정책(미리 보기)** 을 선택합니다.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="AKS 클러스터의 정책 정의" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Kubernetes service 페이지의 ' 정책 (미리 보기) ' 노드 스크린샷" border="false":::
 
   1. 기본 페이지에서 **추가 기능 사용 안 함** 단추를 선택합니다.
 
-     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="AKS용 Azure Policy 추가 기능 사용 안 함" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="' Azure Kubernetes 서비스에 대 한 Azure Policy에 등록 (K S) 페이지에서 ' 추가 기능 사용 안 함 ' 단추의 스크린샷" border="false":::
 
 - Azure CLI
 
