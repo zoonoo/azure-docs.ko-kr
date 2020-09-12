@@ -2,20 +2,20 @@
 title: Azure Traffic Manager 엔드포인트 모니터링 | Microsoft Docs
 description: 이 문서는 Traffic Manager가 엔드포인트 모니터링 및 자동 엔드포인트 장애 조치를 사용하여 Azure 고객이 고가용성 애플리케이션을 어떻게 배포할 수 있도록 하는지 이해하는 데 도움이 됩니다.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: rohink
-ms.openlocfilehash: 61aafbe8cb12e93d72f5efd01155f06fb3ec0c28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 78a1681c743f65081b30657f4fd747ff8aaef5f5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80757270"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392836"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager 엔드포인트 모니터링
 

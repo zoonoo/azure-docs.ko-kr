@@ -3,20 +3,20 @@ title: Azure Front 도어-백 엔드 상태 모니터링 | Microsoft Docs
 description: 이 문서는 Azure Front 도어가 백 엔드의 상태를 모니터링 하는 방법을 이해 하는 데 도움이 됩니다.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e2e656c395f1a31c1f5ebbd46d5a18a046f854f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: c96dac55df2cdc15b7d3699e947c851a9fe69b02
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471577"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399636"
 ---
 # <a name="health-probes"></a>상태 프로브
 

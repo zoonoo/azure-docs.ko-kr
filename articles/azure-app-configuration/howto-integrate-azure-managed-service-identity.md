@@ -1,5 +1,5 @@
 ---
-title: 관리 되는 id를 사용 하 여 앱 구성에 액세스
+title: 관리 ID를 사용하여 App Configuration 액세스
 titleSuffix: Azure App Configuration
 description: 관리 id를 사용 하 여 Azure 앱 구성에 인증
 author: lisaguthrie
@@ -8,14 +8,14 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: b1efeeef09e7c228eb8fc14de52a6beb2e9ffffe
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 0525f305e130247fd88ee2858c79cbfd0a15283e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206830"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400826"
 ---
-# <a name="use-managed-identities-to-access-app-configuration"></a>관리 되는 id를 사용 하 여 앱 구성에 액세스
+# <a name="use-managed-identities-to-access-app-configuration"></a>관리 ID를 사용하여 App Configuration 액세스
 
 Azure Active Directory [관리 되는 id는](../active-directory/managed-identities-azure-resources/overview.md) 클라우드 응용 프로그램에 대 한 비밀 관리를 간소화 합니다. 관리 되는 id를 사용 하 여 코드는 실행 되는 Azure 서비스에 대해 만든 서비스 주체를 사용할 수 있습니다. Azure Key Vault 또는 로컬 연결 문자열에 저장된 별도의 자격 증명 대신 관리 ID를 사용합니다.
 
@@ -73,7 +73,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 
     ![관리형 ID 추가](./media/add-managed-identity.png)
 
-1. 선택 사항: Key Vault에 대 한 액세스 권한을 부여 하려는 경우 [관리 id를 사용 하 여 Key Vault 인증 제공](https://docs.microsoft.com/azure/key-vault/managed-identity)의 지침을 따르세요.
+1. 선택 사항: Key Vault에 대 한 액세스 권한을 부여 하려는 경우 [Key Vault 액세스 정책 할당](/azure/key-vault/assign-access-policy-portal)의 지시를 따릅니다.
 
 ## <a name="use-a-managed-identity"></a>관리 ID 사용
 

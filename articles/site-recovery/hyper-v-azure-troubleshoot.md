@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용 하 여 Hyper-v 재해 복구 문제 해결
 description: Azure Site Recovery를 사용하여 Hyper-V와 Azure 간 복제의 재해 복구 문제를 해결하는 방법을 설명합니다.
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
-ms.author: rajanaki
-ms.openlocfilehash: 1b3fdd93902709541f4a22e652c34973158ad9c7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: sharrai
+ms.openlocfilehash: 9e8a1246a2e48c3c569b82845c713ba25ee2467a
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132434"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426125"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 
@@ -28,12 +28,12 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 3. Hyper-V 호스트에서 Hyper-V Virtual Machine Management 서비스가 실행되고 있는지 확인합니다.
 4. VM의 Hyper-V-VMMS\Admin 로그인에 표시되는 문제를 확인합니다. 이 로그는 **응용 프로그램 및 서비스 로그**  >  **Microsoft**  >  **Windows**에 있습니다.
 5. 게스트 VM에서 WMI가 사용되도록 설정되어 있고 액세스 가능한지 확인합니다.
-   - 기본 WMI 테스트에 대해 [자세히 알아봅니다](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf).
-   - WMI [문제를 해결합니다](https://aka.ms/WMiTshooting).
+   - 기본 WMI 테스트 [에 대해 알아봅니다](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) .
+   - [문제 해결](https://aka.ms/WMiTshooting) Wim.
    - WMI 스크립트 및 서비스 문제를 [해결](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) 합니다.
 6. 게스트 VM에 최신 버전의 Integration Services가 실행되고 있는지 확인합니다.
     - 최신 버전이 있는지 [확인합니다](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-    - Integration Services를 최신 상태로 [유지합니다](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date).
+    - [유지](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) 최신 상태를 Integration Services 합니다.
     
 ## <a name="replication-issues"></a>복제 문제
 
@@ -43,7 +43,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 2. 복제가 일시 중지되었는지 여부를 확인합니다.
    - Hyper-V 관리자 콘솔에서 VM 상태를 확인합니다.
    - 중요 한 경우 VM을 마우스 오른쪽 단추로 클릭 > **복제**  >  **상태 보기**를 클릭 합니다.
-   - 복제가 일시 중지되면 **복제 다시 시작**을 클릭합니다.
+   - 복제가 일시 중지 된 경우 **복제 다시 시작**을 클릭 합니다.
 3. 필요한 서비스가 실행되고 있는지 확인합니다. 그렇지 않은 경우 다시 시작합니다.
     - VMM을 사용하지 않고 Hyper-V를 복제하는 경우 다음 서비스가 Hyper-V 호스트에서 실행되고 있는지 확인합니다.
         - Virtual Machine Management 서비스
@@ -114,9 +114,9 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
         - 범주: &quot;Hyper-V 가상 스토리지 디바이스&quot;
         - 카운터: "Write Bytes / Sec"</br>
         - 이 데이터 변동률은 VM 및 해당 앱의 작업량에 따라 증가하거나 높은 수준을 유지합니다.
-        - 평균 원본 디스크 데이터 변동은 Site Recovery용 표준 스토리지에 대해 2MB/s입니다. [자세한 정보](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
+        - 평균 원본 디스크 데이터 변동은 Site Recovery용 표준 스토리지에 대해 2MB/s입니다. [자세히 알아보기](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - 또한 [스토리지 확장성 목표를 확인](../storage/common/scalability-targets-standard-account.md)할 수 있습니다.
-8. Linux 기반 서버를 사용 하는 경우 앱에서 일관성을 사용 하도록 설정 했는지 확인 합니다. [자세한 정보](./site-recovery-faq.md#replication)
+8. Linux 기반 서버를 사용 하는 경우 앱에서 일관성을 사용 하도록 설정 했는지 확인 합니다. [자세히 알아보기](./site-recovery-faq.md#replication)
 9. [Deployment Planner](hyper-v-deployment-planner-run.md)를 실행합니다.
 10. [네트워크](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [스토리지](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input)에 대한 권장 사항을 검토합니다.
 
@@ -130,12 +130,12 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 
 2. VM에 대한 VSS 스냅샷을 생성하려면 VM에서 Hyper-V Integration Services가 설치되어 있는지와 Backup(VSS) Integration Services가 사용되도록 설정되어 있는지 확인합니다.
     - Integration Services VSS 서비스/디먼이 게스트에서 실행되고 있는지와 **정상** 상태인지 확인합니다.
-    - **Enable-vmintegrationservice-VMName \<VMName> -Name VSS** 명령을 사용 하 여 hyper-v 호스트의 관리자 권한 PowerShell 세션에서이를 확인할 수 있습니다. 게스트 VM에 로그인 하 여이 정보를 가져올 수도 있습니다. [자세히 알아보기](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - **Enable-vmintegrationservice-VMName \<VMName> -Name VSS** 명령을 사용 하 여 hyper-v 호스트의 관리자 권한 PowerShell 세션에서이를 확인할 수 있습니다. 게스트 VM에 로그인 하 여이 정보를 가져올 수도 있습니다. [자세한 정보를 알아보세요](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - VM에서 Backup/VSS Integration Services가 실행되고 있는지와 정상 상태인지 확인합니다. 그렇지 않은 경우, 이러한 서비스와 Hyper-V 호스트 서버의 Hyper-V 볼륨 섀도 복사본 요청자 서비스를 다시 시작합니다.
 
-### <a name="common-errors"></a>일반적인 오류
+### <a name="common-errors"></a>일반 오류
 
-**오류 코드** | **메시지** | **세부 정보**
+**오류 코드** | **Message** | **세부 정보**
 --- | --- | ---
 **0x800700EA** | "Hyper-V가 가상 머신에 대한 VSS 스냅샷 집합을 생성하지 못했습니다. 추가 데이터를 사용할 수 있습니다. (0x800700EA). 백업 작업이 진행 중인 경우 VSS 스냅샷 집합 생성이 실패할 수 있습니다.<br/><br/> 가상 머신에 대한 복제 작업이 실패했습니다. 추가 데이터를 사용할 수 있습니다.” | VM의 동적 디스크가 사용되도록 설정되어 있는지 확인합니다. 지원되지 않습니다.
 **0x80070032** | Hyper-V 볼륨 섀도 복사본 요청자가 해당 버전이 Hyper-V에서 요구하는 버전과 일치하지 않으므로 가상 머신 <./VMname>에 연결하지 못했습니다. | 최신 Windows 업데이트가 설치되어 있는지 확인합니다.<br/><br/> 최신 버전의 Integration Services로 [업그레이드](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)합니다.

@@ -2,21 +2,21 @@
 title: 연속 창 트리거 종속성 만들기
 description: Azure Data Factory에서 연속 창 트리거에 대한 종속성을 만드는 방법을 알아봅니다.
 services: data-factory
-ms.author: daperlov
-author: djpmsft
-manager: anandsub
+ms.author: chez
+author: chez-charlie
+manager: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2019
-ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 4a99865e13e029dcea478cf6085d71c465918b14
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82870044"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421856"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>연속 창 트리거 종속성 만들기
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "82870044"
 
 트리거에 대한 종속성을 만들려면 **트리거 > 고급 > 새로 만들기**를 선택한 다음, 적절한 오프셋 및 크기의 종속 대상 트리거를 선택합니다. **마침**을 선택하고 데이터 팩터리 변경 내용을 게시하여 종속성을 적용합니다.
 
-![종속성 만들기](media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "종속성 만들기")
+![종속성 만들기](media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png "종속성 만들기")
 
 ## <a name="tumbling-window-dependency-properties"></a>연속 창 종속성 속성
 
@@ -133,41 +133,53 @@ ms.locfileid: "82870044"
 
 ### <a name="dependency-offset"></a>종속성 오프셋
 
-![Offset 예](media/tumbling-window-trigger-dependency/tumbling-window-dependency02.png "Offset 예")
+![Offset 예](media/tumbling-window-trigger-dependency/tumbling-window-dependency-02.png "Offset 예")
 
 ### <a name="dependency-size"></a>종속성 크기
 
-![크기 예](media/tumbling-window-trigger-dependency/tumbling-window-dependency03.png "크기 예")
+![크기 예](media/tumbling-window-trigger-dependency/tumbling-window-dependency-03.png "크기 예")
 
 ### <a name="self-dependency"></a>자체 종속성
 
-![자체 종속성](media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png "자체 종속성")
+![자체 종속성](media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png "자체 종속성")
 
 ### <a name="dependency-on-another-tumbling-window-trigger"></a>다른 연속 창 트리거에 대한 종속성
 
 지난 7 일간의 출력을 집계 하는 다른 일별 작업에 따라 매일 원격 분석 처리 작업을 수행 하면
 
-![종속성 예제](media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png "종속성 예제")
+![종속성 예제](media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png "종속성 예제")
 
 ### <a name="dependency-on-itself"></a>자체 종속성
 
 작업의 출력 스트림에 간격이 없는 일일 작업입니다.
 
-![자체 종속성 예제](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "자체 종속성 예제")
+![자체 종속성 예제](media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png "자체 종속성 예제")
 
 ## <a name="monitor-dependencies"></a>종속성 모니터링
 
-트리거 모니터링 실행 페이지에서 종속성 체인 및 해당 windows를 모니터링할 수 있습니다. **모니터링 > 트리거 실행**으로 이동합니다. 작업 열에서 트리거를 다시 실행 하거나 해당 종속성을 볼 수 있습니다.
+트리거 모니터링 실행 페이지에서 종속성 체인 및 해당 windows를 모니터링할 수 있습니다. **모니터링 > 트리거 실행**으로 이동합니다. 연속 창 트리거에서 종속성이 있는 경우 트리거 이름에 종속성 모니터링 보기에 대 한 하이퍼링크가 포함 됩니다.  
 
-![트리거 실행 모니터링](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "트리거 실행 모니터링")
+![트리거 실행 모니터링](media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png "트리거 실행 모니터링-연속 창 종속성 보기")
 
-' 트리거 종속성 보기 '를 클릭 하면 종속성의 상태를 볼 수 있습니다. 종속성 트리거 중 하나에 오류가 발생 하는 경우 종속 트리거를 실행 하려면 성공적으로 다시 실행 해야 합니다. 연속 창 트리거는 제한 시간이 초과 될 때까지 7 일 동안 종속성을 기다립니다.
+트리거 종속성을 보려면 트리거 이름을 클릭 합니다. 오른쪽 패널에는 RunID, window time, status 등의 자세한 트리거 실행 정보가 표시 됩니다.
 
-![종속성 모니터링](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "종속성 모니터링")
+![모니터 종속성 목록 보기](media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png "모니터 종속성 목록 보기")
+
+종속성의 상태와 각 종속 트리거의 windows를 확인할 수 있습니다. 종속성 트리거 중 하나에 오류가 발생 하면 종속 트리거를 실행 하기 위해 성공적으로 다시 실행 해야 합니다.
+
+연속 창 트리거는 제한 시간이 초과 될 때까지 _7 일_ 동안 종속성을 기다립니다. 7 일 후에는 트리거가 실행 되지 않습니다.
 
 보다 시각적으로 트리거 종속성 일정을 확인 하려면 Gantt 보기를 선택 합니다.
 
-![종속성 모니터링](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "종속성 모니터링")
+![종속성 모니터링 gantt 차트](media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png "종속성 모니터링 Gantt 차트 보기")
+
+투명 상자에는 각 다운 스트림 종속 트리거에 대 한 종속성 창이 표시 되 고 위의 단색 상자에는 개별 창 실행이 표시 됩니다. Gantt 차트 보기를 해석 하기 위한 몇 가지 팁은 다음과 같습니다.
+
+* 종속 창이 보류 중이거나 실행 중인 상태에 있으면 투명 상자는 파란색으로 렌더링 됩니다.
+* 종속 트리거에 대 한 모든 windows가 성공한 후 투명 상자는 녹색으로 바뀝니다.
+* 일부 종속 창이 실패할 경우 투명 상자는 빨간색으로 렌더링 됩니다. 빨간색 상자를 찾아 오류 창이 실행 되는지 확인 합니다.
+
+Gantt 차트 뷰에서 창을 다시 실행 하려면 창의 단색 상자를 선택 하면 작업 패널에 세부 정보 및 다시 실행 옵션이 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

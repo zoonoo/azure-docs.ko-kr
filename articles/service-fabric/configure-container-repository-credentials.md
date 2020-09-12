@@ -4,12 +4,12 @@ description: 컨테이너 레지스트리에서 이미지를 다운로드 하기
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 142ede6fcc59063d83854712a966a90c7472923b
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76934986"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421427"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>컨테이너 이미지를 다운로드 하기 위해 응용 프로그램에 대 한 리포지토리 자격 증명 구성
 
@@ -83,6 +83,10 @@ Service Fabric를 사용 하면 응용 프로그램에서 기본 리포지토리
           {
             "name": "DefaultContainerRepositoryPasswordType",
             "value": "PlainText"
+          },
+          {
+        "name": "DefaultMSIEndpointForTokenAuthentication",
+        "value": "URI"
           }
         ]
       },
@@ -117,6 +121,25 @@ Service Fabric에서는 토큰을 자격 증명으로 사용 하 여 컨테이�
 
     > [!NOTE]
     > True로 설정 된 플래그를 true `UseDefaultRepositoryCredentials` 로 설정 하면 `UseTokenAuthenticationCredentials` 배포 중에 오류가 발생 합니다.
+
+### <a name="using-token-credentials-outside-of-azure-global-cloud"></a>Azure 글로벌 클라우드 외부에서 토큰 자격 증명 사용
+
+토큰 기반 레지스트리 자격 증명을 사용 하는 경우 Service Fabric는 가상 머신을 대신 하 여 ACR에 제공할 토큰을 페치합니다. 기본적으로 Service Fabric은 대상이 글로벌 Azure 클라우드 끝점 인 토큰을 요청 합니다. Azure 독일 또는 Azure Government 같은 다른 클라우드 인스턴스에 배포 하는 경우 매개 변수의 기본값을 재정의 해야 `DefaultMSIEndpointForTokenAuthentication` 합니다. 특수 환경에 배포 하지 않는 경우에는이 매개 변수를 재정의 하지 마십시오. 사용자가 있는 경우 기본값을 바꿉니다.
+
+```
+http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.windows.net/
+```
+
+사용자 환경에 적합 한 리소스 끝점을 사용 합니다. 예를 들어 [Azure 독일](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)의 경우 재정의는 
+
+```json
+{
+    "name": "DefaultMSIEndpointForTokenAuthentication",
+    "value": "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/"
+}
+```
+
+[자세한 내용은 가상 머신 확장 집합 토큰 가져오기를 참조](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token)하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

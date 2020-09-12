@@ -3,20 +3,20 @@ title: Azure 전면 도어-URL 재작성 | Microsoft Docs
 description: 이 문서는 Azure Front 도어가 구성 된 경우 경로에 대 한 URL 재작성을 수행 하는 방법을 이해 하는 데 도움이 됩니다.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 1e5bd565be7a1cabf08ddf33c65eb12b5294249f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 8f4a6283f762d9792f50651b9caee17795df6d55
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471475"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398940"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>URL 다시 쓰기(사용자 지정 전달 경로)
 Azure 전면 도어는 백 엔드로 전달 되는 요청을 생성할 때 사용할 선택적 **사용자 지정 전달 경로** 를 구성할 수 있도록 하 여 URL 다시 쓰기를 지원 합니다. 기본적으로 사용자 지정 전달 경로를 제공하지 않으면 Front Door는 들어오는 URL 경로를 전달된 요청에 사용되는 URL로 복사합니다. 전달된 요청의 호스트 헤더는 선택한 백 엔드에 맞게 구성됩니다. 호스트 헤더의 역할 및 구성 방법은 [백 엔드 호스트 헤더](front-door-backend-pool.md#hostheader)를 참조하세요.

@@ -3,7 +3,7 @@ title: Azure에서 부하 분산 서비스 사용 | Microsoft Docs
 description: 이 자습서에서는 Azure 부하 분산 포트폴리오인 Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 시나리오를 만드는 방법을 보여줍니다.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: rohink
-ms.openlocfilehash: c5667a03d127441a9a911ff4b8daba0b3b138e3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711751"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393070"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure에서 부하 분산 서비스 사용
 
@@ -39,7 +39,7 @@ Microsoft Azure는 네트워크 트래픽을 분산하고 부하를 분산하는
 
   클라이언트는 Traffic Manager가 반환하는 엔드포인트에 직접 연결합니다. Azure Traffic Manager는 엔드포인트가 비정상임을 감지한 다음 클라이언트를 다른 정상적인 인스턴스로 리디렉션합니다. 서비스에 대 한 자세한 내용은 [Azure Traffic Manager 설명서](traffic-manager-overview.md) 를 참조 하세요.
 * **Application Gateway** 는 ADC (응용 프로그램 배달 컨트롤러)를 서비스로 제공 하 여 응용 프로그램에 대 한 다양 한 계층 7 부하 분산 기능을 제공 합니다. 이를 통해 고객은 응용 프로그램 게이트웨이에 CPU 집약적 TLS 종료를 오프 로드 하 여 웹 팜 생산성을 최적화할 수 있습니다. Layer 7의 기타 라우팅 기능으로 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 패스 기반 라우팅 및 단일 Application Gateway 뒤에 여러 웹 사이트를 호스트할 수 있는 기능 등을 포함합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성될 수 있습니다. Application Gateway는 전적으로 Azure에 의해 관리되고, 확장성 및 고가용성을 제공합니다. 관리 효율성을 향상시키기 위한 풍부한 진단 및 로깅 기능을 제공합니다.
-* **Load Balancer** 은 Azure SDN 스택의 필수적인 부분으로, 모든 UDP 및 TCP 프로토콜에 대 한 고성능, 낮은 대기 시간 계층 4 부하 분산 서비스를 제공 합니다. 인바운드 및 아웃 바운드 연결을 관리합니다. 서비스 가용성 관리 옵션을 검색하는 TCP 및 HTTP 상태를 사용하여 공용 및 내부 부하 분산된 엔드포인트를 구성하고 백 엔드 풀 대상에 인바운드 연결을 매핑하는 규칙을 정의할 수 있습니다.
+* **Load Balancer** 은 Azure SDN 스택의 필수적인 부분으로, 모든 UDP 및 TCP 프로토콜에 대 한 고성능, 낮은 대기 시간 계층 4 부하 분산 서비스를 제공 합니다. 인바운드 및 아웃 바운드 연결을 관리합니다. 서비스 가용성을 관리하는 TCP 및 HTTP 상태 확인 옵션을 사용하여 공용 및 내부 부하가 분산된 엔드포인트를 구성하고 백 엔드 풀 대상에 인바운드 연결을 매핑하는 규칙을 정의할 수 있습니다.
 
 ## <a name="scenario"></a>시나리오
 

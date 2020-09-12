@@ -1,39 +1,41 @@
 ---
-title: Route Service Azure Maps에 대 한 모범 사례 | Microsoft Azure 맵
+title: Microsoft Azure Maps의 Azure Maps Route Service에 대 한 모범 사례
 description: Microsoft Azure 맵에서 Route Service를 사용 하 여 차량을 라우팅하는 방법을 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 03/11/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 79e9096030aada9fa368bb2e78af323139c0586c
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b957453758b9b8e34989877516a9083f06a85ed8
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132214"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400786"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>경로 서비스 Azure Maps에 대 한 모범 사례
 
-Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) 의 경로 방향 및 경로 행렬 api는 요청 된 각 경로에 대 한 etas (예상 도착 시간)를 계산 하는 데 사용할 수 있습니다. 경로 Api는 요청 된 요일 및 시간에 대 한 일반적인 이동 속도와 같이 실시간 트래픽 정보 및 기록 트래픽 데이터와 같은 요인을 고려 합니다. Api는 시간이 나 거리를 기준으로 시퀀스 또는 최적화 된 순서로 한 번에 여러 대상에서 사용할 수 있는 최단 경로 또는 가장 빠른 경로를 반환 합니다. 또한 사용자는 워커, bicyclists 및 상업용 차량 (예: 트럭)에 대 한 특수 경로 및 세부 정보를 요청할 수 있습니다. 이 문서에서는 Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route)를 호출 하는 모범 사례를 공유 하 고 방법에 대해 알아봅니다.
+Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) 의 경로 방향 및 경로 행렬 api는 요청 된 각 경로에 대 한 etas (예상 도착 시간)를 계산 하는 데 사용할 수 있습니다. 경로 Api는 요청 된 요일 및 시간에 대 한 일반적인 이동 속도와 같이 실시간 트래픽 정보 및 기록 트래픽 데이터와 같은 요인을 고려 합니다. 이 API는 시간 또는 거리를 기준으로 차례대로 또는 최적화된 순서대로 한 번에 여러 대상에서 사용할 수 있는 최단 경로 또는 가장 빠른 경로를 반환합니다. 또한 사용자는 워커, bicyclists 및 상업용 차량 (예: 트럭)에 대 한 특수 경로 및 세부 정보를 요청할 수 있습니다. 이 문서에서는 Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route)를 호출 하는 모범 사례를 공유 하 고 방법에 대해 알아봅니다.
 
-* 경로 방향 Api와 Matrix 라우팅 API 중에서 선택
-* 실시간 및 과거 트래픽 데이터를 기반으로 기록 및 예측 된 이동 시간을 요청 합니다.
-* 경로의 전체 경로 및 각 레그에 대 한 시간 및 거리와 같은 경로 세부 정보를 요청 합니다.
-* 트럭과 같은 상업 차량에 대 한 경로 요청
-* 용지를 통한 트래픽 정보 (예: 용지 걸림 및 요금 정보) 요청
-* 하나 이상의 중지 (waypoints)로 구성 된 경로 요청
-* 하나 이상의 중지 경로를 최적화 하 여 각 중지 (이동 경로)를 방문 하는 가장 좋은 순서 가져오기
-* 지원 점수를 사용 하 여 대체 경로를 최적화 합니다. 예를 들어, 전기 차량 청구 스테이션을 통과 하는 대체 경로를 제공 합니다.
-* Azure Maps 웹 SDK를 사용 하 여 [Route Service](https://docs.microsoft.com/rest/api/maps/route) 사용
+> [!div class="checklist"]
+> * 경로 방향 Api와 Matrix 라우팅 API 중에서 선택
+> * 실시간 및 과거 트래픽 데이터를 기반으로 기록 및 예측 된 이동 시간을 요청 합니다.
+> * 경로의 전체 경로 및 각 레그에 대 한 시간 및 거리와 같은 경로 세부 정보를 요청 합니다.
+> * 트럭과 같은 상업 차량에 대 한 경로 요청
+> * 용지를 통한 트래픽 정보 (예: 용지 걸림 및 요금 정보) 요청
+> * 하나 이상의 중지 (waypoints)로 구성 된 경로 요청
+> * 하나 이상의 중지 경로를 최적화 하 여 각 중지 (이동 경로)를 방문 하는 가장 좋은 순서 가져오기
+> * 지원 점수를 사용 하 여 대체 경로를 최적화 합니다. 예를 들어, 전기 차량 청구 스테이션을 통과 하는 대체 경로를 제공 합니다.
+> * Azure Maps 웹 SDK를 사용 하 여 [Route Service](https://docs.microsoft.com/rest/api/maps/route) 사용
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Maps Api를 호출 하려면 Azure Maps 계정 및 키가 필요 합니다. 자세한 내용은 [계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account) 및 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)를 참조하세요. 기본 키를 기본 구독 키 또는 구독 키 라고도 합니다.
+1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
+2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요. Route Service의 적용 범위에 대 한 자세한 내용은 [라우팅 검사](routing-coverage.md)를 참조 하십시오.
+Route Service의 적용 범위에 대 한 자세한 내용은 [라우팅 검사](routing-coverage.md)를 참조 하십시오.
 
 이 문서에서는 [Postman 앱](https://www.postman.com/downloads/) 을 사용 하 여 REST 호출을 빌드 하지만 모든 API 개발 환경을 선택할 수 있습니다.
 
@@ -133,43 +135,23 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 다음 이미지는 요소를 보여 줍니다 `points` .
 
-<center>
-
-![점 목록](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
-
-</center>
+![요소 요소](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
 
 요소를 확장 `point` 하 여 경로에 대 한 좌표 목록을 표시 합니다.
 
-<center>
-
-![점 목록](media/how-to-use-best-practices-for-routing/points-list-img.png)
-
-</center>
+![확장 된 요소 요소](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
 경로 방향 Api는 **instructionsType** 매개 변수를 지정 하 여 사용할 수 있는 다양 한 형식의 명령을 지원 합니다. 컴퓨터를 쉽게 처리할 수 있도록 지침을 지정 하려면 **instructionsType = 코딩**을 사용 합니다. **InstructionsType = 태그** 를 사용 하 여 사용자에 게 지침을 텍스트로 표시 합니다. 또한 지침의 일부 요소가 표시 되는 텍스트로 표시 되 고 명령이 특수 한 서식으로 표시 될 수 있습니다. 자세한 내용은 [지원 되는 명령 유형 목록을](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype)참조 하세요.
 
 지침이 요청 되 면 응답은 라는 새 요소를 반환 합니다 `guidance` . `guidance`요소는 두 가지 정보, 즉 단계별 지침과 요약 된 지침을 포함 합니다.
 
-<center>
-
 ![명령 유형](media/how-to-use-best-practices-for-routing/instructions-type-img.png)
-
-</center>
 
 `instructions`요소는 여행에 대 한 턴을 설정 하 고에 요약 된 지침을 포함 합니다 `instructionGroups` . 각 명령 요약은 여러 면을 처리할 수 있는 왕복 세그먼트를 포함 합니다. Api는 경로의 섹션에 대 한 세부 정보를 반환할 수 있습니다. 예를 들어 신호등의 좌표 범위 또는 현재 트래픽 속도입니다.
 
-<center>
-
 ![명령 설정](media/how-to-use-best-practices-for-routing/instructions-turn-by-turn-img.png)
 
-</center>
-
-<center>
-
 ![요약 된 지침](media/how-to-use-best-practices-for-routing/instructions-summary-img.png)
-
-</center>
 
 ## <a name="request-a-route-for-a-commercial-vehicle"></a>상업 차량에 대 한 경로 요청
 
@@ -185,11 +167,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 경로 API는 트럭 및 위험한 폐기물의 크기를 수용 하는 방향을 반환 합니다. 요소를 확장 하 여 경로 지침을 읽을 수 있습니다 `guidance` .
 
-<center>
-
 ![클래스 1 hazwaste를 사용 하는 트럭](media/how-to-use-best-practices-for-routing/truck-with-hazwaste-img.png)
-
-</center>
 
 ### <a name="sample-query"></a>샘플 쿼리
 
@@ -201,11 +179,11 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 아래 응답은 클래스 9 유해 자료를 운반 하는 트럭에 대 한 것입니다 .이는 클래스 1의 위험 재질 보다 위험 수준이 낮습니다. 요소를 확장 `guidance` 하 여 방향을 읽으면 방향이 동일 하지 않습니다. 트럭 운반 클래스 1 유해 자료에 대 한 경로 지침이 더 있습니다.
 
-<center>
+
 
 ![클래스 9를 사용 하는 트럭 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste9-img.png)
 
-</center>
+
 
 ## <a name="request-traffic-information-along-a-route"></a>경로를 따라 트래픽 정보 요청
 
@@ -221,19 +199,11 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 응답에는 지정 된 좌표를 따라 트래픽에 적합 한 섹션이 포함 되어 있습니다.
 
-<center>
-
 ![트래픽 섹션](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
-
-</center>
 
 이 옵션은 아래 이미지와 같이 지도를 렌더링할 때 섹션의 색을 지정할 때 사용할 수 있습니다. 
 
-<center>
-
-![트래픽 섹션](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
-
-</center>
+![지도에 렌더링 된 색이 지정 된 섹션](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
 ## <a name="calculate-and-optimize-a-multi-stop-route"></a>다중 중지 경로 계산 및 최적화
 
@@ -257,19 +227,13 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 응답은 140851 미터의 경로 길이를 설명 하 고 해당 경로를 이동 하는 데 9991 초가 소요 될 수 있습니다.
 
-<center>
-
 ![최적화 되지 않은 응답](media/how-to-use-best-practices-for-routing/non-optimized-response-img.png)
-
-</center>
 
 아래 이미지는이 쿼리에서 생성 된 경로를 보여 줍니다. 이 경로는 가능한 한 경로입니다. 시간이 나 거리를 기준으로 하는 최적의 경로가 아닙니다.
 
-<center>
-
 ![최적화 되지 않은 이미지](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
 
-</center>
+
 
 이 경로 중간 경로 순서는 0, 1, 2, 3, 4, 5 및 6입니다.
 
@@ -283,19 +247,11 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 응답은 91814 미터의 경로 길이를 설명 하 고 해당 경로를 이동 하는 데 7797 초가 소요 될 수 있습니다. API가 최적화 된 경로를 반환 하기 때문에 이동 거리와 이동 시간은 둘 다 더 낮습니다.
 
-<center>
-
-![최적화 되지 않은 응답](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
-
-</center>
+![최적화 된 응답](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
 
 아래 이미지는이 쿼리에서 생성 된 경로를 보여 줍니다.
 
-<center>
-
-![최적화 되지 않은 이미지](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
-
-</center>
+![최적화 된 이미지](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
 
 최적의 경로에는 0, 5, 1, 2, 4, 3, 6의 중간 경로 순서가 있습니다.
 
@@ -315,11 +271,7 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 다음 이미지는 시간 및 거리에 대해 지정 된 편차 제한을 사용 하 여 대체 경로를 렌더링 하는 예입니다.
 
-<center>
-
 ![대체 경로](media/how-to-use-best-practices-for-routing/alternative-routes-img.png)
-
-</center>
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>웹 앱에서 라우팅 서비스 사용
 

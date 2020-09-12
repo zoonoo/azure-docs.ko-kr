@@ -2,17 +2,17 @@
 title: Azure Express 경로 개인 피어 링에 대 한 백업으로 S2S VPN 사용 | Microsoft Docs
 description: 이 페이지에서는 S2S VPN을 사용 하 여 Azure Express 경로 개인 피어 링을 백업 하기 위한 아키텍처 권장 사항을 제공 합니다.
 services: networking
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
-ms.author: rambala
-ms.openlocfilehash: 68596b881ef1b62187bdb7194b364c9477b4e04d
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.author: duau
+ms.openlocfilehash: 0ab74a14c16b7ea1d587cfcc82eea689e2f98c83
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244774"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393023"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Express 경로 개인 피어 링에 대 한 백업으로 S2S VPN 사용
 

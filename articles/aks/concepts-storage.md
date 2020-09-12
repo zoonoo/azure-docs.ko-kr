@@ -3,13 +3,13 @@ title: 개념 - AKS(Azure Kubernetes Service)의 스토리지
 description: 볼륨, 영구적 볼륨, 스토리지 클래스 및 클레임을 포함하여 AKS(Azure Kubernetes Service)의 스토리지에 대해 알아봅니다.
 services: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.openlocfilehash: 5cf52cb608061498c8e613a3bf1064997acaa128
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.date: 08/17/2020
+ms.openlocfilehash: 00dee485c7b07ec19bb1399aab9d55b286830871
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406965"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421155"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 스토리지 옵션
 
@@ -32,8 +32,6 @@ AKS(Azure Kubernetes Service)에서 실행되는 애플리케이션은 데이터
 
 - *Azure Disks*를 사용하여 *DataDisk* Kubernetes 리소스를 만들 수 있습니다. 디스크는 고성능 SSD를 통해 지원되는 Azure Premium 스토리지 또는 일반 HDD를 통해 지원되는 Azure Standard 스토리지를 사용할 수 있습니다. 대부분의 프로덕션 및 개발 워크로드의 경우 Premium 스토리지를 사용합니다. Azure 디스크는 *Readwriteonce 번*탑재 되므로 단일 pod 에서만 사용할 수 있습니다. 여러 pod에서 동시에 액세스할 수 있는 저장소 볼륨의 경우 Azure Files를 사용 합니다.
 - *Azure Files*를 사용하여 Azure Storage 계정을 통해 지원되는 SMB 3.0 공유를 Pod에 탑재할 수 있습니다. Files를 사용하면 여러 노드 및 Pod 간에 데이터를 공유할 수 있습니다. 파일은 고성능 Ssd에서 지원 되는 regular Hdd 또는 Azure Premium storage에서 지 원하는 Azure Standard storage를 사용할 수 있습니다.
-> [!NOTE] 
-> Azure Files Kubernetes 1.13 이상을 실행 하는 AKS 클러스터의 premium storage를 지원 합니다.
 
 Kubernetes에서 볼륨은 단순히 정보를 저장하고 검색할 수 있는 기존 디스크 이상의 것을 나타낼 수 있습니다. 또한 Kubernetes 볼륨은 컨테이너에서 사용할 수 있도록 데이터를 Pod에 삽입하는 방법으로도 사용할 수 있습니다. Kubernetes의 일반적인 추가 볼륨 유형은 다음과 같습니다.
 
@@ -55,12 +53,18 @@ PersistentVolume은 클러스터 관리자에서 *정적으로* 만들거나 Kub
 
 Premium 및 Standard와 같은 다른 계층의 스토리지를 정의하기 위해 *StorageClass*를 만들 수 있습니다. StorageClass는 *reclaimPolicy*도 정의합니다. 이 reclaimPolicy는 Pod가 삭제되고 영구적 볼륨이 더 이상 필요하지 않을 때 기본 Azure Storage 리소스의 동작을 제어합니다. 기본 스토리지 리소스는 삭제하거나 나중에 Pod에서 사용할 수 있도록 유지할 수 있습니다.
 
-AKS에서 4 개의 초기 StorageClasses 생성 됩니다.
+AKS에서는 `StorageClasses` 트리 내 저장소 플러그 인을 사용 하 여 클러스터에 대 한 4 개의 초기를 만듭니다.
 
-- *기본값* -Azure standardssd 저장소를 사용 하 여 관리 디스크를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 됨을 나타냅니다.
-- *managed-premium* - Azure Premium 스토리지를 사용하여 Managed Disk를 만듭니다. 회수 정책은 다시 사용 하는 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 됨을 나타냅니다.
-- *azurefile* -azure Standard storage를 사용 하 여 Azure 파일 공유를 만듭니다. 회수 정책은 원본 Azure 파일 공유가 삭제 되 면이를 사용 하는 영구 볼륨이 삭제 됨을 나타냅니다.
-- *azurefile-premium* -azure premium storage를 사용 하 여 Azure 파일 공유를 만듭니다. 회수 정책은 원본 Azure 파일 공유가 삭제 되 면이를 사용 하는 영구 볼륨이 삭제 됨을 나타냅니다.
+- `default` -Azure StandardSSD 저장소를 사용 하 여 관리 디스크를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 되도록 합니다.
+- `managed-premium` -Azure Premium storage를 사용 하 여 관리 디스크를 만듭니다. 회수 정책은 다시 사용 하는 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 되도록 합니다.
+- `azurefile` -Azure Standard storage를 사용 하 여 Azure 파일 공유를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 파일 공유가 삭제 되도록 합니다.
+- `azurefile-premium` -Azure Premium storage를 사용 하 여 Azure 파일 공유를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 파일 공유가 삭제 되도록 합니다.
+
+새 CSI (Container Storage Interface) 외부 플러그 인 (미리 보기)을 사용 하는 클러스터의 경우 다음 `StorageClasses` 사항이 추가로 생성 됩니다.
+- `managed-csi` -Azure StandardSSD LRS (로컬 중복 저장소)를 사용 하 여 관리 디스크를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 되도록 합니다. 또한 저장소 클래스는 영구적 볼륨을 확장 가능 하도록 구성 합니다. 새 크기의 영구적 볼륨 클레임을 편집 하기만 하면 됩니다.
+- `managed-csi-premium` -Azure Premium LRS (로컬 중복 저장소)를 사용 하 여 관리 디스크를 만듭니다. 회수 정책은 다시 사용 하는 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 되도록 합니다. 마찬가지로이 저장소 클래스는 영구적 볼륨을 확장할 수 있도록 합니다.
+- `azurefile-csi` -Azure Standard storage를 사용 하 여 Azure 파일 공유를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 파일 공유가 삭제 되도록 합니다.
+- `azurefile-csi-premium` -Azure Premium storage를 사용 하 여 Azure 파일 공유를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 파일 공유가 삭제 되도록 합니다.
 
 영구적 볼륨에 대해 지정된 StorageClass가 없는 경우 기본 StorageClass가 사용됩니다. 영구적 볼륨을 요청하는 경우 필요한 스토리지를 적절하게 사용하도록 주의해야 합니다. `kubectl`을 사용하여 추가로 필요한 StorageClass를 만들 수 있습니다. 다음 예제에서는 Premium Managed Disks를 사용하고, Pod가 삭제되면 기본 Azure Disk를 *유지*해야 한다고 지정합니다.
 

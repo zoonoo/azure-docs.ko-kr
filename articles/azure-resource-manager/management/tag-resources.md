@@ -4,12 +4,12 @@ description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: daedb5dcd660ec2637557fe5af75db2939318495
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1eaf9b735e65811b242fa7198b3545c9c68a4d46
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499996"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425996"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용 하 여 Azure 리소스 및 관리 계층 구조 구성
 
@@ -579,7 +579,7 @@ Azure REST API를 통해 태그 작업을 수행 하려면 다음을 사용 합�
 
 태그를 사용하여 청구 데이터를 그룹화할 수 있습니다. 예를 들어 다양한 구성에 여러 VM을 실행하는 경우 태그를 사용하여 비용 센터별로 사용량을 그룹화할 수 있습니다. 또한 프로덕션 환경에서 실행 중인 VM에 대한 청구 사용량과 같이 런타임 환경별로 비용을 분류하는 데 태그를 사용할 수도 있습니다.
 
-태그에 대 한 정보는 [Azure 리소스 사용량 및 요금 카드 api](../../cost-management-billing/manage/usage-rate-card-overview.md) 또는 사용 쉼표로 구분 된 값 (CSV) 파일을 통해 검색할 수 있습니다. [Azure 계정 센터](https://account.azure.com/Subscriptions) 또는 Azure Portal에서 사용량 파일을 다운로드할 수 있습니다. 자세한 내용은 [Azure 청구서 및 일간 사용량 데이터 다운로드 또는 보기](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)를 참조하세요. Azure 계정 센터에서 사용량 파일을 다운로드하는 경우 **버전 2**를 선택합니다. 대금 청구에 태그를 지원하는 서비스의 경우 **태그** 열에 태그가 나타납니다.
+태그에 대 한 정보는 [Azure 리소스 사용량 및 요금 카드 api](../../cost-management-billing/manage/usage-rate-card-overview.md) 또는 사용 쉼표로 구분 된 값 (CSV) 파일을 통해 검색할 수 있습니다. Azure Portal에서 사용 파일을 다운로드 합니다. 자세한 내용은 [Azure 청구서 및 일간 사용량 데이터 다운로드 또는 보기](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)를 참조하세요. Azure 계정 센터에서 사용량 파일을 다운로드하는 경우 **버전 2**를 선택합니다. 대금 청구에 태그를 지원하는 서비스의 경우 **태그** 열에 태그가 나타납니다.
 
 REST API 작업에 대한 내용은 [Azure 청구 REST API 참조](/rest/api/billing/)를 참조하세요.
 

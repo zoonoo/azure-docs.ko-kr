@@ -10,22 +10,25 @@ ms.topic: conceptual
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: carlrab
-ms.date: 09/25/2018
-ms.openlocfilehash: cb7fb7f6c44f9e1c4a9b073c666543a2e892582a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 09/02/2020
+ms.openlocfilehash: 22a9bec09652b6cbce02fe5a54a319694aaa6911
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985502"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421308"
 ---
-# <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Spark 커넥터를 사용 하 여 실시간 빅 데이터 분석 가속화 
+# <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Spark 커넥터를 사용 하 여 실시간 빅 데이터 분석 가속화
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+
+> [!NOTE]
+> 9 월 2020 현재이 커넥터는 적극적으로 유지 관리 되지 않습니다. 그러나 이제는 [SQL Server 및 AZURE SQL 용 Apache Spark 커넥터](https://docs.microsoft.com/sql/connect/spark/connector) 를 사용할 수 있으며, Python 및 R 바인딩을 지원 하 고, 사용 하기 쉬운 인터페이스를 사용 하 여 데이터를 대량으로 삽입 하 고, 기타 여러 가지 기능을 향상 시킬 수 있습니다. 이 대신 새 커넥터를 평가 하 고 사용 하는 것이 좋습니다. 이전 커넥터 (이 페이지)에 대 한 정보는 보관 목적 으로만 유지 됩니다.
 
 Spark 커넥터를 사용 하면 Azure SQL Database, Azure SQL Managed Instance 및 SQL Server의 데이터베이스가 Spark 작업에 대 한 입력 데이터 원본 또는 출력 데이터 싱크로 작동할 수 있습니다. 빅 데이터 분석에서 실시간 트랜잭션 데이터를 활용 하 고 임시 쿼리 또는 보고에 대 한 결과를 유지할 수 있습니다. 기본 제공 JDBC 커넥터와 비교할 때이 커넥터는 데이터베이스에 데이터를 대량으로 삽입 하는 기능을 제공 합니다. 10 배를 사용 하 여 행 단위 삽입을 내지만 더 빠른 성능을 20x 수 있습니다. Spark 커넥터 Azure Active Directory (Azure AD) 인증을 지원 하 여 azure AD 계정을 사용 하 여 Azure Databricks에서 데이터베이스를 연결할 수 있도록 Azure SQL Database 및 Azure SQL Managed Instance에 연결 합니다. 기본 제공 JDBC 커넥터와 유사한 인터페이스를 제공합니다. 기존의 Spark 작업을 이 새로운 커넥터를 사용하도록 쉽게 마이그레이션할 수 있습니다.
 
 ## <a name="download-and-build-a-spark-connector"></a>Spark 커넥터 다운로드 및 빌드
 
-시작 하려면 GitHub의 [azure-sqldb-spark 리포지토리에서](https://github.com/Azure/azure-sqldb-spark) spark 커넥터를 다운로드 하세요.
+이전에이 페이지에서 연결 했던 이전 커넥터의 GitHub 리포지토리는 적극적으로 유지 관리 되지 않습니다. 대신 [새 커넥터](https://github.com/microsoft/sql-spark-connector)를 평가 하 고 사용 하는 것이 좋습니다.
 
 ### <a name="official-supported-versions"></a>지원 되는 공식 버전
 

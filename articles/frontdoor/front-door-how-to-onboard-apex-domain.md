@@ -2,17 +2,17 @@
 title: 루트 또는 apex 도메인을 기존 전방 도어에 등록-Azure Portal
 description: Azure Portal를 사용 하 여 기존 Front 문에 root 또는 apex 도메인을 등록 하는 방법에 대해 알아봅니다.
 services: front-door
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 5/21/2019
-ms.author: sharadag
-ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 05267ad43f6e7f89ec50b1765d2475a02fae1702
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743595"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399584"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Front Door에서 루트 또는 Apex 도메인 온보드
 Azure 전면 도어는 CNAME 레코드를 사용 하 여 사용자 지정 도메인의 등록을 위한 도메인 소유권의 유효성을 검사 합니다. 또한 Front 도어는 프런트 도어 프로필에 연결 된 프런트 엔드 IP 주소를 노출 하지 않으므로 apex 도메인을 IP 주소에 매핑할 수 없습니다 .이를 Azure Front 도어에 등록 하는 것입니다.

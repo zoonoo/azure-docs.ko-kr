@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552835"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421461"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임 사용자 지정
 
@@ -88,11 +88,11 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 
 1. 조직에 따라 **원본 특성**에 따옴표 없이 상수 값을 입력하고 **저장**을 클릭합니다.
 
-    ![Azure Portal의 사용자 특성 및 클레임 섹션 열기](./media/active-directory-saml-claims-customization/organization-attribute.png)
+    ![조직 특성 & Azure Portal에서 클레임 섹션](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
 1. 상수 값은 아래와 같이 표시됩니다.
 
-    ![Azure Portal의 사용자 특성 및 클레임 섹션 열기](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+    ![Azure Portal에서 특성 & 클레임 섹션 편집](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>특스 클레임 - 변환
 
@@ -121,7 +121,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 2. 변환 드롭다운에서 함수를 선택합니다. 선택한 함수에 따라 변환에서 평가할 상수 값과 매개 변수를 제공해야 합니다. 사용 가능한 함수에 대한 자세한 내용은 아래 표를 참조하세요.
 3. 여러 변환을 적용하려면 **변환 추가**를 클릭합니다. 한 클레임에 최대 2개의 변환을 적용할 수 있습니다. 예를 들어 `user.mail`의 메일 접두사를 먼저 추출할 수 있습니다. 그런 다음 문자열을 대문자로 만듭니다.
 
-   ![NameID(이름 식별자) 값 편집](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+   ![다중 클레임 변환](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
 다음 함수를 사용하여 클레임을 변환할 수 있습니다.
 
@@ -129,8 +129,8 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Mic
 |----------|-------------|
 | **ExtractMailPrefix()** | 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
 | **Join()** | 두 특성을 조인하여 새 값을 만듭니다. 필요에 따라 두 특성 사이에 구분 기호를 사용할 수 있습니다. NameID 클레임 변환의 경우 조인은 확인된 도메인으로 제한됩니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |
-| **ToLower()** | 선택한 특성의 문자를 소문자로 변환합니다. |
-| **ToUpper()** | 선택한 특성의 문자를 대문자로 변환합니다. |
+| **ToLowercase ()** | 선택한 특성의 문자를 소문자로 변환합니다. |
+| **ToUppercase ()** | 선택한 특성의 문자를 대문자로 변환합니다. |
 | **Contains()** | 입력이 지정된 값과 일치하는 경우 특성 또는 상수를 출력합니다. 그렇지 않고 일치하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 "@contoso.com" 도메인을 포함하는 경우 값이 사용자의 메일 주소에 해당하는 클레임을 내보내려고 하고, 그렇지 않으면 사용자 계정 이름을 출력하려고 합니다. 이렇게 하려면 다음 값을 구성합니다.<br/>*매개 변수 1(입력)* : user.email<br/>*값*: "@contoso.com"<br/>매개 변수 2(출력): user.email<br/>매개 변수 3(일치 항목이 없는 경우 출력): user.userprincipalname |
 | **EndWith()** | 입력이 지정된 값으로 끝나는 경우 특성 또는 상수를 출력합니다. 그렇지 않고 일치하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 직원 ID가 "000"으로 끝나는 경우 값이 사용자의 직원 ID에 해당하는 클레임을 내보내려고 하고, 그렇지 않으면 확장 특성을 출력하려고 합니다. 이렇게 하려면 다음 값을 구성합니다.<br/>*매개 변수 1(입력)* : user.employeeid<br/>*값*: "000"<br/>매개 변수 2(출력): user.employeeid<br/>매개 변수 3(일치 항목이 없는 경우 출력): user.extensionattribute1 |
 | **StartWith()** | 입력이 지정된 값으로 끝나는 경우 특성 또는 상수를 출력합니다. 그렇지 않고 일치하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 국가/지역이 "US"로 끝나는 경우 값이 사용자의 직원 ID에 해당하는 클레임을 내보내려고 하고, 그렇지 않으면 확장 특성을 출력하려고 합니다. 이렇게 하려면 다음 값을 구성합니다.<br/>*매개 변수 1(입력)* : user.country<br/>*값*: "US"<br/>매개 변수 2(출력): user.employeeid<br/>매개 변수 3(일치 항목이 없는 경우 출력): user.extensionattribute1 |

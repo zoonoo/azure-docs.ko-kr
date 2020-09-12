@@ -3,41 +3,39 @@ title: Azure Maps 검색 서비스에 대한 모범 사례 | Microsoft Azure Map
 description: Microsoft Azure Maps의 Search Service를 사용할 때 모범 사례를 적용하는 방법에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5e98763a3a1c8273cdeec5e945dd324ae43e773f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6565d8056ae8106bd93b7dd096bc709010ec5c3f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064275"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400707"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Azure Maps Search Service에 대한 모범 사례
 
 Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) 에는 개발자가 주소, 위치, 비즈니스 목록을 이름 또는 범주별로 검색 하는 데 도움이 되는 다양 한 기능을 제공 하는 api와 기타 지리적 정보가 포함 되어 있습니다. 예를 들어[유사 항목 검색 API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) 를 사용 하면 사용자가 주소 또는 관심 지점 (poi)을 검색할 수 있습니다.
 
 이 문서에서는 Azure Maps Search Service에서 데이터를 호출할 때 올바른 사례를 적용하는 방법을 설명합니다. 이 문서에서 배울 내용은 다음과 같습니다.
-
-* 관련 일치 항목을 반환 하는 쿼리 작성
-* 검색 결과 제한
-* 결과 형식 간의 차이점 알아보기
-* 주소 검색-응답 구조 읽기
+> [!div class="checklist"]
+> * 관련 일치 항목을 반환 하는 쿼리 작성
+> * 검색 결과 제한
+> * 결과 형식 간의 차이점 알아보기
+> * 주소 검색-응답 구조 읽기
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Maps 서비스 API를 호출하려면 Azure Maps 계정과 키가 필요합니다. 자세한 내용은 [계정 만들기](quick-demo-map-app.md#create-an-azure-maps-account) 및 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)를 참조하세요. 
+1. [Azure Maps 계정을 만듭니다](quick-demo-map-app.md#create-an-azure-maps-account).
+2. 기본 키 또는 구독 키라고도 하는 [기본 구독 키를 가져옵니다](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
-Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
-
-> [!TIP]
-> Search Service를 쿼리하려면 [Postman 앱](https://www.getpostman.com/apps) 을 사용 하 여 REST API 호출을 빌드할 수 있습니다. 또는 선호하는 API 개발 환경을 사용할 수 있습니다.
+이 문서에서는 [Postman 앱](https://www.postman.com/downloads/) 을 사용 하 여 REST 호출을 빌드 하지만 모든 API 개발 환경을 선택할 수 있습니다.
 
 ## <a name="best-practices-to-geocode-addresses"></a>지역 코드 주소에 대한 모범 사례
 
-Azure Maps Search Service를 사용하여 전체 또는 부분 주소를 검색하면 API가 검색 쿼리에서 키워드를 읽습니다. 그런 다음, 주소의 경도 및 위도 좌표를 반환합니다. 이 프로세스를 *지오코딩*이라고 합니다. 
+Azure Maps Search Service를 사용하여 전체 또는 부분 주소를 검색하면 API가 검색 쿼리에서 키워드를 읽습니다. 그런 다음, 주소의 경도 및 위도 좌표를 반환합니다. 이 프로세스를 *지오코딩*이라고 합니다.
 
 국가/지역의 지역 코드 기능은 도로 데이터의 가용성과 지오코딩 서비스의 정밀도에 따라 달라집니다. 국가 또는 지역별 Azure Maps 지오코딩 기능에 대한 자세한 내용은 [지오코딩 검사](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage)를 참조하세요.
 

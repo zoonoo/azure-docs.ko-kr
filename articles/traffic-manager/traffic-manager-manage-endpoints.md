@@ -3,20 +3,20 @@ title: Azure Traffic Manager에서 엔드포인트 관리 | Microsoft Docs
 description: 이 문서는 Azure Traffic Manager에서 엔드포인트를 추가, 제거 및 사용하거나 사용하지 않도록 설정하는 데 도움이 됩니다.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
-ms.author: rohink
-ms.openlocfilehash: 9f779910460ec19f0efb02fb1a65f39bb100050c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: fc6e8bcda17f9d788a430ed763bd9f8702eaf250
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711615"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392921"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>엔드포인트 추가, 사용 안 함, 사용 또는 삭제
 

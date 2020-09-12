@@ -3,7 +3,7 @@ title: Azure Front Door용 도메인에 지역 필터링 | Microsoft Docs
 description: 이 문서에서는 Azure Front Door에 대한 지역 필터링 정책에 대해 알아봅니다.
 services: frontdoor
 documentationcenter: ''
-author: KumudD
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
-ms.author: kumud
+ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 48e2697cb4793f10e7694aa26e29c48a397fe3a5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 558d1c098f07f8e09a6a68a065cac9b7b38cfbf3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521601"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399653"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Azure 전면 도어의 도메인에 대 한 지역 필터링
 

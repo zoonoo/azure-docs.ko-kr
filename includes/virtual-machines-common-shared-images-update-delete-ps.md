@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: cynthn
@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e0612a017650f0c6e4c9f63d9a5fd097b0b92c4
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67182166"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303993"
 ---
 ## <a name="update-resources"></a>리소스 업데이트
 
 업데이트할 수 있는 항목에 대 한 몇 가지 제한 사항이 있습니다. 다음 항목을 업데이트할 수 있습니다. 
 
 공유 이미지 갤러리:
-- 설명
+- Description
 
 이미지 정의:
 - 권장 vCPU
@@ -65,6 +65,16 @@ Update-AzGalleryImageVersion `
    -PublishingProfileExcludeFromLatest
 ```
 
+이 예제에서는 [AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) 를 사용 하 여이 이미지 버전을 *최신* 이미지를 고려 하는 것으로 포함 하는 방법을 보여 줍니다.
+
+```azurepowershell-interactive
+Update-AzGalleryImageVersion `
+   -GalleryImageDefinitionName $galleryImage.Name `
+   -GalleryName $gallery.Name `
+   -Name $galleryVersion.Name `
+   -ResourceGroupName $resourceGroup.Name `
+   -PublishingProfileExcludeFromLatest:$false
+```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

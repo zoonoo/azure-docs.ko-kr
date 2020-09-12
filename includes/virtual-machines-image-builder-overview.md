@@ -5,12 +5,12 @@ ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: daberry
-ms.openlocfilehash: 6024dd595166afe24a75720d8c7593afd451b610
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: a5a201a9f993db2be00645d8d60a11c5be9cdbe0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554892"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89304047"
 ---
 조직에서는 표준화된 VM(가상 머신) 이미지를 사용하여 클라우드로 마이그레이션하고 배포의 일관성을 유지할 수 있습니다. 이미지에는 일반적으로 미리 정의된 보안 및 구성 설정과 필수 소프트웨어가 포함되어 있습니다. 사용자 고유의 이미징 파이프라인을 설정하려면 시간, 인프라 및 설정이 필요하지만, Azure VM Image Builder를 사용하면 이미지를 설명하는 간단한 구성을 제공하고, 서비스에 제출하고, 이미지를 빌드하고 배포하기만 하면 됩니다.
  
@@ -100,7 +100,7 @@ Image Builder는 VM에 필요한 D1v2 VM 크기, 스토리지 및 네트워킹�
 Azure Image Builder에서는 선택한 지역에 이미지를 배포하므로 네트워크 송신 요금이 발생할 수 있습니다.
 
 ## <a name="hyper-v-generation"></a>Hyper-V 세대
-현재에서 이미지 작성기는 Hyper-v 세대 1 이미지 및 Vm을 지원 합니다.
+이미지 작성기는 현재 Azure 공유 이미지 갤러리 (SIG) 또는 관리 되는 이미지에 대 한 Gen1 (Hyper-v 생성) 1 이미지 만들기만 기본적으로 지원 합니다. Gen2 이미지를 만들려는 경우 원본 Gen2 이미지를 사용 하 고 VHD에 배포 해야 합니다. 그런 다음 VHD에서 관리 되는 이미지를 만들고이를 Gen2 이미지로 SIG에 삽입 해야 합니다.
  
 ## <a name="next-steps"></a>다음 단계 
  

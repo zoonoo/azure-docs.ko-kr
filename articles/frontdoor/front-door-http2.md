@@ -3,20 +3,20 @@ title: Azure 전면 도어-HTTP2 지원 | Microsoft Docs
 description: 이 문서는 Azure Front 도어의 HTTP/2 지원에 대해 학습 하는 데 도움이 됩니다.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 8a3ae8065553b34a72528cb0f2681e327dc90097
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 7cdcef80ef2433d34b32589d2539089fb9801eb1
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80985187"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399432"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Azure 전면 도어의 HTTP/2 지원
 

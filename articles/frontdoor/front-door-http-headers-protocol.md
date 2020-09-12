@@ -3,20 +3,20 @@ title: Azure Front 도어에서 HTTP 헤더에 대 한 프로토콜 지원 | Mic
 description: 이 문서에서는 Front 도어가 지 원하는 HTTP 헤더 프로토콜에 대해 설명 합니다.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: a1060cbf1b2204c3feba413b8c8ce0cba58941c6
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.author: duau
+ms.openlocfilehash: 6864a854215d899043607b3d01cffbd343ee7751
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799126"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399517"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Azure 전면 도어의 HTTP 헤더에 대 한 프로토콜 지원
 이 문서에서는 프런트 도어가 호출 경로의 일부를 사용 하 여 지 원하는 프로토콜에 대해 간략하게 설명 합니다 (이미지 참조). 다음 섹션에서는 Front 도어가 지 원하는 HTTP 헤더에 대 한 자세한 정보를 제공 합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "87799126"
 
 앞 도어에는 제한으로 인해 제거 되지 않는 한 들어오는 요청의 헤더가 포함 됩니다. 또한 앞 도어는 다음 헤더를 추가 합니다.
 
-| header  | 예제 및 설명 |
+| 헤더  | 예제 및 설명 |
 | ------------- | ------------- |
 | Via |  Via: 1.1 Azure </br> 프런트 도어는 클라이언트의 HTTP 버전을 Via 헤더에 대 한 *값으로 추가* 합니다. 이 헤더는 클라이언트의 HTTP 버전을 나타내며 Front 도어가 클라이언트와 백 엔드 간의 요청을 위한 중간 수신자 였습니다.  |
 | X-Azure-ClientIP | X-y: 127.0.0.1 </br> 처리 중인 요청과 연결 된 클라이언트 IP 주소를 나타냅니다. 예를 들어 프록시에서 들어오는 요청은 원본 호출자의 IP 주소를 나타내기 위해 X로 전달 된 헤더를 추가할 수 있습니다. |
@@ -50,7 +50,7 @@ ms.locfileid: "87799126"
 
 백 엔드에서 프런트 도어로 전송 되는 모든 헤더도 클라이언트에 전달 됩니다. 다음은 프런트 도어에서 클라이언트로 전송 되는 헤더입니다.
 
-| header  | 예제 |
+| 헤더  | 예제 |
 | ------------- | ------------- |
 | X-Azure-참조 |  *X-y-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz* </br> Front Door에서 제공하는 요청을 참조하는 고유한 참조 문자열입니다. 액세스 로그를 검색 하는 데 사용 되므로 문제를 해결 하는 데 중요 합니다.|
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 381aad5d0a56362d9966ed54b931a8478f2f6bf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ad0ad7b1ff2f0b706595daf8b8c93f480f0e00b
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80410494"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421716"
 ---
 # <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 연결 정보
 
@@ -122,7 +122,7 @@ RADIUS 서버는 AD 인증서 서비스와 통합할 수도 있습니다. 이렇
 |AES256     |   SHA256      | SHA256    | GROUP_ECP256 |
 |AES256     |   SHA256      | SHA256    | GROUP_2 |
 
-**Ip**
+**IPsec**
 
 |**암호** | **무결성** | **PFS 그룹** |
 |---        | ---           | ---       |

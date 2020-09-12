@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 3c0b0f9f39620996245614b53c7ec274ec965d5b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 14ecb30af11bf750c90e45c3fb6b443d861a1445
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921201"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400758"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Azure Storage에 대 한 가상 네트워크 서비스 끝점 정책
 
@@ -58,7 +58,7 @@ VNet (Virtual Network) 서비스 끝점 정책을 사용 하면 서비스 끝점
 ]
 ```
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 -   특정 Azure Storage 계정에 대 한 가상 네트워크 트래픽을 제한 하도록 끝점 정책을 구성할 수 있습니다.
 -   엔드포인트 정책은 가상 네트워크의 서브넷에 구성됩니다. 정책을 적용 하려면 서브넷에서 Azure Storage에 대 한 서비스 끝점을 사용 하도록 설정 해야 합니다.
@@ -110,7 +110,7 @@ VNet (Virtual Network) 서비스 끝점 정책을 사용 하면 서비스 끝점
 - 서브넷을 통해 서비스 끝점 정책을 적용 한 후 관리 되는 Azure 서비스의 작동이 중지 됨
   - 지금은 서비스 끝점 정책에서 관리 서비스를 지원 하지 않습니다. *업데이트에 대 한이 공간을 시청*하세요.
 
-## <a name="provisioning"></a>프로비전
+## <a name="provisioning"></a>프로비저닝
 
 가상 네트워크에 대한 쓰기 액세스 권한이 있는 사용자는 서브넷에서 서비스 엔드포인트 정책을 구성할 수 있습니다. Azure [기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 특정 권한 할당에 대해 자세히 알아보세요.
 
@@ -122,7 +122,7 @@ VNet (Virtual Network) 서비스 끝점 정책을 사용 하면 서비스 끝점
 - 가상 네트워크는 서비스 엔드포인트 정책은 동일한 지역에 있어야 합니다.
 - 서비스 엔드포인트가 정책에 나열된 Azure 서비스에 대해 구성된 경우에만 서브넷에 서비스 엔드포인트 정책을 적용할 수 있습니다.
 - 온-프레미스 네트워크에서 Azure 서비스로 가는 트래픽에는 서비스 엔드포인트 정책을 사용할 수 없습니다.
-- Azure 관리 서비스는 현재 끝점 정책을 지원 하지 않습니다. 여기에는 공유 서브넷에 배포 된 관리 되는 서비스 (예: *Azure HDInsight, Azure Batch, AZURE 추가, Azure APplication Gateway, AZURE VPN Gateway, Azure 방화벽*) 또는 전용 서브넷 (예: *Azure App Service Environment, Azure Redis Cache, Azure API MANAGEMENT, azure SQL MI, 클래식 관리 서비스*)이 포함 됩니다.
+- Azure 관리 서비스는 현재 끝점 정책을 지원 하지 않습니다. 여기에는 공유 서브넷에 배포 된 관리 되는 서비스 (예: *Azure HDInsight, Azure Batch, AZURE 추가, Azure 애플리케이션 게이트웨이, azure VPN Gateway, Azure 방화벽*) 또는 전용 서브넷 (예: *Azure App Service Environment, Azure Redis Cache, Azure API MANAGEMENT, azure SQL MI, 클래식 관리 서비스*)이 포함 됩니다.
 
  > [!WARNING]
  > 인프라 요구 사항에 따라 가상 네트워크(예: Azure HDInsight), Azure 서비스(예: Azure Storage)에 배포된 Azure 서비스. 엔드포인트 정책을 특정 리소스로 제한하면 가상 네트워크에 배포된 Azure 서비스에 대해 해당 인프라 리소스 액세스가 끊길 수 있습니다.

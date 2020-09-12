@@ -3,20 +3,20 @@ title: Azure Front 도어-질문과 대답
 description: 이 페이지에서는 Azure Front 문에 대해 자주 묻는 질문에 대 한 답변을 제공 합니다.
 services: frontdoor
 documentationcenter: ''
-author: sohamnchatterjee
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
-ms.author: sohamnc
-ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.author: duau
+ms.openlocfilehash: 995b8ab77779f0d3b9e2260ea18aa13aa242db36
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760416"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399738"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure Front 문에 대 한 질문과 대답
 
@@ -92,8 +92,8 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 - 백 엔드에 대 한 IP ACLing를 구성 하 여 Azure 전면 도어의 백 엔드 IP 주소 공간 및 Azure 인프라 서비스의 트래픽을 허용 합니다. 백 엔드를 ACLing 아래 IP 세부 정보를 참조 하세요.
  
     - 프런트 도어의 IPv4 백 엔드 IP 주소 범위에 대 한 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 의 *AzureFrontDoor* 섹션을 참조 하거나 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)에서 서비스 태그 *AzureFrontDoor* 를 사용할 수도 있습니다.
-    - 서비스 태그에 포함 된 프론트 도어의 **IPv6** 백 엔드 IP 공간은 Azure IP 범위 JSON 파일에 나열 되지 않습니다. 명시적 IPv6 주소 범위를 찾고 있는 경우 현재 다음으로 제한 됩니다.`2a01:111:2050::/44`
-    - 가상화 된 호스트 IP 주소를 통한 Azure의 [기본 인프라 서비스](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) : `168.63.129.16` 및`169.254.169.254`
+    - 서비스 태그에 포함 된 프론트 도어의 **IPv6** 백 엔드 IP 공간은 Azure IP 범위 JSON 파일에 나열 되지 않습니다. 명시적 IPv6 주소 범위를 찾고 있는 경우 현재 다음으로 제한 됩니다. `2a01:111:2050::/44`
+    - 가상화 된 호스트 IP 주소를 통한 Azure의 [기본 인프라 서비스](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) : `168.63.129.16` 및 `169.254.169.254`
 
     > [!WARNING]
     > 앞 도어의 백 엔드 IP 공간은 나중에 변경 될 수 있지만,이를 위해 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)와 통합 될 예정입니다. 변경 또는 업데이트에 대 한 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 를 구독 하는 것이 좋습니다.
@@ -123,7 +123,7 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 경로 또는 백 엔드 풀 등의 모든 업데이트는 원활 하 게 작동 하며 가동 중지 시간 (새 구성이 올바른 경우)을 발생 시킵니다. ' AFD 관리 '에서 ' 자신의 인증서 사용 '으로 전환 하거나 그 반대로 전환 하지 않는 한 인증서 업데이트도 원자성 이며 중단 되지 않습니다.
 
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Azure Front 도어는 가상 네트워크 내에서 트래픽 부하를 분산 하거나 라우팅할 수 있나요?
 

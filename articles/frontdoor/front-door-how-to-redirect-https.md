@@ -2,17 +2,17 @@
 title: Azure Portal를 사용 하 여 HTTP에서 HTTPS로 리디렉션하는 프런트 도어 만들기
 description: Azure Portal를 사용 하 여 HTTP에서 HTTPS로 리디렉션된 트래픽으로 프런트 도어를 만드는 방법에 대해 알아봅니다.
 services: front-door
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 5/21/2019
-ms.author: sharadag
-ms.openlocfilehash: 05699c827af251b890de4c6f195df5872bfbe364
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: fe2159f0eeb9d01081e6a25e7a88ceff4f1e361c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743612"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399693"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal를 사용 하 여 HTTP에서 HTTPS로 리디렉션하는 프런트 도어 만들기
 

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd095939009c39c48456d330f975303f06a841a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8ddca4bc684646854ae8d308043b3de56ec65924
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267533"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426098"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가
 
@@ -26,18 +26,18 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 
 여러 구독은 동일한 Azure AD 디렉터리를 신뢰할 수 있습니다. 각 구독은 단일 디렉터리만 신뢰할 수 있습니다.
 
-구독이 만료되면 구독과 연결된 기타 모든 리소스에 대한 액세스 권한도 손실됩니다. 그러나 azure AD 디렉터리는 Azure에 남아 있습니다. 다른 Azure 구독을 사용 하 여 디렉터리를 연결 하 고 관리할 수 있습니다.
+하나 이상의 Azure 구독은 azure 서비스에 대 한 보안 주체 및 장치를 인증 하 고 권한을 부여 하기 위해 azure AD (Azure Active Directory 인스턴스)와의 트러스트 관계를 설정할 수 있습니다.  구독이 만료 되 면 Azure AD 서비스의 신뢰할 수 있는 인스턴스는 그대로 유지 되지만 보안 주체는 Azure 리소스에 대 한 액세스 권한을 잃게 됩니다.
 
-기본적으로 사용자가 Microsoft 클라우드 서비스에 등록할 때 Azure AD 테 넌 트가 만들어지고 사용자는 전역 관리자 역할의 구성원이 됩니다. 기존 디렉터리에 구독을 추가 하면 전역 관리자 역할에 할당 되지 않습니다.
+사용자가 Microsoft 클라우드 서비스에 등록할 때 새 Azure AD 테 넌 트가 만들어지고 사용자는 전역 관리자 역할의 구성원이 됩니다. 그러나 구독의 소유자가 기존 테 넌 트에 구독을 조인 하는 경우 소유자는 전역 관리자 역할에 할당 되지 않습니다.
 
 모든 사용자에 게는 인증을 위한 단일 *홈* 디렉터리가 있습니다. 사용자는 다른 디렉터리의 게스트가 될 수도 있습니다. Azure AD에서 각 사용자의 홈 디렉터리와 게스트 디렉터리를 모두 확인할 수 있습니다.
 
 > [!Important]
-> 구독을 다른 디렉터리에 연결 하는 경우 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md) 를 사용 하 여 역할이 할당 된 사용자는 액세스 권한을 잃게 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다.
+> 구독을 다른 디렉터리와 연결 하는 경우 [Azure 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md) 를 사용 하 여 역할이 할당 된 사용자는 액세스 권한을 잃게 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다.
 >
 > 구독을 다른 디렉터리와 연결하는 경우에도 구독에서 정책 할당이 제거됩니다.
 >
-> AKS (Azure Kubernetes Service) 클러스터를 다른 구독으로 이동 하거나 클러스터 소유 구독을 새 테 넌 트로 이동 하면 손실 된 역할 할당 및 서비스 주체 권한으로 인해 클러스터가 기능을 잃게 됩니다. AKS에 대 한 자세한 내용은 [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/)를 참조 하세요.
+> AKS (Azure Kubernetes Service) 클러스터를 다른 구독으로 이동 하거나 클러스터 소유 구독을 새 테 넌 트로 이동 하면 손실 된 역할 할당 및 서비스 주체 권한으로 인해 클러스터가 기능을 잃게 됩니다. AKS에 대 한 자세한 내용은 [Azure Kubernetes Service (AKS)](../../aks/index.yml)를 참조 하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -55,7 +55,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 - 다음 조건을 충족하는 계정을 사용하여 로그인해야 합니다.
 
   - 구독에 대 한 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할 할당을 포함 합니다. 소유자 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
-  - 는 현재 디렉터리와 새 디렉터리에 모두 있습니다. 현재 디렉터리는 구독과 연결 되어 있습니다. 새 디렉터리를 구독과 연결 합니다. 다른 디렉터리에 대 한 액세스 권한을 얻는 방법에 대 한 자세한 내용은 [Azure Portal에서 B2B 공동 작업 사용자 추가 Azure Active Directory](../b2b/add-users-administrator.md)를 참조 하세요.
+  - 는 현재 디렉터리와 새 디렉터리에 모두 있습니다. 현재 디렉터리는 구독과 연결 되어 있습니다. 새 디렉터리를 구독과 연결 합니다. 다른 디렉터리에 대 한 액세스 권한을 얻는 방법에 대 한 자세한 내용은 [Azure Portal에서 B2B 공동 작업 사용자 추가 Azure Active Directory](../external-identities/add-users-administrator.md)를 참조 하세요.
 
 - Azure CSP(클라우드 서비스 공급자) 구독(MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), Microsoft 내부 구독(MS-AZR-0015P) 또는 Microsoft Imagine 구독(MS-AZR-0144P)을 사용하고 있지 않은지 확인합니다.
 
@@ -81,7 +81,7 @@ Azure 구독에는 Azure Active Directory (Azure AD)와의 트러스트 관계�
 
    모든 것이 제대로 표시 되려면 몇 시간이 걸릴 수 있습니다. 너무 오래 걸리면 **전역 구독 필터**를 확인 합니다. 이동 된 구독이 숨겨지지 않았는지 확인 합니다. Azure Portal 로그 아웃 했다가 다시 로그인 하 여 새 디렉터리를 확인 해야 할 수 있습니다.
 
-구독 디렉터리 변경은 서비스 수준 작업이므로 구독 청구 소유권에 영향을 주지 않습니다. 계정 관리자는 [계정 센터](https://account.azure.com/subscriptions)에서 서비스 관리자를 계속 변경할 수 있습니다. 원본 디렉터리를 삭제 하려면 구독 청구 소유권을 새 계정 관리자에 게 양도 해야 합니다. 청구 소유권을 전송 하는 방법에 대해 자세히 알아보려면 [Azure 구독의 소유권을 다른 계정으로 이전](../../cost-management-billing/manage/billing-subscription-transfer.md)을 참조 하세요.
+구독 디렉터리 변경은 서비스 수준 작업이므로 구독 청구 소유권에 영향을 주지 않습니다. 원본 디렉터리를 삭제 하려면 구독 청구 소유권을 새 계정 관리자에 게 양도 해야 합니다. 청구 소유권을 전송 하는 방법에 대해 자세히 알아보려면 [Azure 구독의 소유권을 다른 계정으로 이전](../../cost-management-billing/manage/billing-subscription-transfer.md)을 참조 하세요.
 
 ## <a name="post-association-steps"></a>연결 후 단계
 

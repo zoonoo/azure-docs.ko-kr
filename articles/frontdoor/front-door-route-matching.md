@@ -3,20 +3,20 @@ title: Azure 전면 도어-라우팅 규칙 일치 모니터링 | Microsoft Docs
 description: 이 문서는 Azure Front 도어가 들어오는 요청에 사용할 라우팅 규칙과 일치 하는 방식을 이해 하는 데 도움이 됩니다.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 9593a6c4fa45d9810aabb2bbb3123428930c5891
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80878598"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401574"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Front Door에서 회람 규칙에 요청을 매칭하는 방법
 
