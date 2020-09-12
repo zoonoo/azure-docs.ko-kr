@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 95fa7a8c6abd0ad65b367cacef15b8faa16da640
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: f8127b485d8fea5aedccd472e209a448e3076b5b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553431"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400078"
 ---
 # <a name="scenario-any-to-any"></a>시나리오: 임의의 위치
 
@@ -29,7 +29,7 @@ ms.locfileid: "87553431"
 | VNet     | &#8594;|      X     |     X    |
 | 분기   | &#8594;|    X     |     X    |
 
-위의 표에 나와 있는 각 셀은 가상 WAN 연결 (흐름의 "From" 측, 테이블의 행 머리글)이 특정 트래픽 흐름에 대 한 대상 접두사 (흐름의 "대상" 쪽, 테이블의 기울임꼴 열 머리글)를 학습 하는지 여부를 설명 합니다.
+위의 표에 나와 있는 각 셀은 가상 wan 연결 (흐름의 "From" 쪽, 테이블의 행 머리글)이 특정 트래픽 흐름에 대 한 대상 접두사를 학습 하는지 여부를 설명 합니다. 여기서 "X"는 가상 WAN에서 연결이 제공 됨을 의미 합니다.
 
 Vnet 및 분기 (VPN, Express 경로 및 사용자 VPN)의 모든 연결에는 동일한 연결 요구 사항이 있으므로 단일 경로 테이블이 필요 합니다. 결과적으로 모든 연결이 연결 되 고 동일한 경로 테이블인 기본 경로 테이블로 전파 됩니다.
 

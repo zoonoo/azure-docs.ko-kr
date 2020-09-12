@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d939c03aef8d155d83d20c7d8211e04fae26c228
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230282"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400469"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Key Vault에 대한 Azure 보안 기준
 
@@ -411,7 +411,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: 관리 계정의 의심스러운 활동에 대한 로그 및 경고
 
-**지침**: 환경에서 의심 스러운 작업이 나 안전 하지 않은 활동이 발생 하는 경우 로그 및 경고를 생성 하기 위해 AZURE ACTIVE DIRECTORY (AAD) PRIVILEGED IDENTITY MANAGEMENT (PIM)를 사용 합니다. AAD 위험 검색을 사용 하 여 위험한 사용자 동작에 대 한 경고 및 보고서를 확인 합니다. 추가 로깅을 수행 하려면 Azure Security Center 위험 검색 경고를 Azure Monitor에 보내고 작업 그룹을 사용 하 여 사용자 지정 경고/알림을 구성 합니다.
+**지침**: 환경에서 의심 스러운 작업이 나 안전 하지 않은 활동이 발생 하는 경우 로그 및 경고를 생성 하는 데 Azure Active Directory (Azure AD) PRIVILEGED IDENTITY MANAGEMENT (PIM)를 사용 합니다. Azure AD 위험 감지를 사용 하 여 위험한 사용자 동작에 대 한 경고 및 보고서를 봅니다. 추가 로깅을 수행 하려면 Azure Security Center 위험 검색 경고를 Azure Monitor에 보내고 작업 그룹을 사용 하 여 사용자 지정 경고/알림을 구성 합니다.
 
 Azure Key Vault에 대해 ATP (advanced threat protection)를 사용 하 여 의심 스러운 활동에 대 한 경고를 생성 합니다.
 
@@ -445,7 +445,7 @@ Azure Active Directory 조건부 액세스의 위치 조건은 무엇입니까?:
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 
-**지침**: Key Vault와 같은 Azure 리소스에 대 한 중앙 인증 및 권한 부여 시스템으로 AAD (Azure Active Directory)를 사용 합니다. 이를 통해 RBAC (역할 기반 액세스 제어)가 중요 한 리소스를 관리할 수 있습니다.
+**지침**: Key Vault와 같은 azure 리소스에 대 한 중앙 인증 및 권한 부여 시스템으로 Azure Active Directory (azure AD)를 사용 합니다. 이를 통해 RBAC (역할 기반 액세스 제어)가 중요 한 리소스를 관리할 수 있습니다.
 
  
 
@@ -460,7 +460,7 @@ https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: 정기적으로 사용자 액세스 검토 및 조정
 
-**지침**: Azure Key Vault 관리 역할이 있는 부실 계정을 검색 하는 데 도움이 되는 AAD (Azure Active Directory) 로그를 검토 합니다. 또한 AAD 액세스 검토를 사용 하 여 그룹 멤버 자격, Azure Key Vault 액세스 하는 데 사용할 수 있는 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자 액세스는 90 일 마다 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 해야 합니다.
+**지침**: Azure Key Vault 관리 역할이 있는 부실 계정을 검색 하는 데 도움이 되는 Azure Active Directory (Azure AD) 로그를 검토 합니다. 또한 Azure AD 액세스 검토를 사용 하 여 그룹 멤버 자격, Azure Key Vault 액세스 하는 데 사용할 수 있는 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자 액세스는 90 일 마다 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 해야 합니다.
 
 Azure Active Directory 보고서 및 모니터링 설명서:
 
@@ -1009,11 +1009,15 @@ https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-m
 
 Key Vault를 만드는 방법: 
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-관리 ID를 사용하여 Key Vault 인증을 제공하는 방법:  
+Key Vault에 인증 하는 방법:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Key Vault 액세스 정책을 할당 하는 방법:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Azure Security Center 모니터링**: 예
 
@@ -1025,16 +1029,13 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
   
 
-Azure 관리 ID와 통합하는 방법:  
+* [Azure 관리 Id와 통합 하는 방법](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
 
-https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity  
+* [Key Vault를 만드는 방법](quick-create-portal.md)
 
-Key Vault를 만드는 방법:  
+* [Key Vault에 인증 하는 방법](authentication.md)
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal    
-
-관리 ID를 사용하여 Key Vault 인증을 제공하는 방법:   
-https://docs.microsoft.com/azure/key-vault/managed-identity
+* [Key Vault 액세스 정책을 할당 하는 방법](assign-access-policy-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

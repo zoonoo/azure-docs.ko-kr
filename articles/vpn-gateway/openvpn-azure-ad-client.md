@@ -2,17 +2,17 @@
 title: 'VPN Gateway: P2S OpenVPN 프로토콜 연결용 VPN 클라이언트: Azure AD 인증'
 description: Azure AD 인증을 사용 하 여 VNet에 연결 하는 데 P2S VPN을 사용할 수 있습니다.
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: c14d300e2c09316e0665ece3f3e15f7036d5b9a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 781d3aeea6a5568aec065ec4b1cbcfacb74836a6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525078"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434676"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Azure Active Directory 인증: P2S OpenVPN 프로토콜 연결에 대 한 VPN 클라이언트 구성
 
@@ -20,6 +20,8 @@ ms.locfileid: "86525078"
 
 > [!NOTE]
 > Azure AD 인증은 OpenVPN® 프로토콜 연결에만 지원됩니다.
+>
+> Azure AD 인증에는 Windows 10 에서만 사용할 수 있는 Azure VPN 클라이언트가 필요 합니다.
 >
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>클라이언트 프로필 작업
@@ -88,11 +90,11 @@ ms.locfileid: "86525078"
 
 1. 삭제할 클라이언트 프로필 옆에 있는 줄임표를 선택 합니다. 그런 다음, **제거**를 선택합니다.
 
-    ![삭제](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. **제거**를 선택하여 삭제합니다.
 
-    ![삭제](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>연결 만들기
 

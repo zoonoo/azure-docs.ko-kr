@@ -1,28 +1,29 @@
 ---
-title: 음성 서비스를 사용한 음성 변환
+title: 음성 번역 개요-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: Speech service를 사용 하면 응용 프로그램, 도구 및 장치에 음성의 종단 간 실시간 다중 언어 번역을 추가할 수 있습니다. 같은 API를 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다.
+description: 음성 번역을 사용 하면 응용 프로그램, 도구 및 장치에 음성의 종단 간 실시간 다중 언어 번역을 추가할 수 있습니다. 같은 API를 음성 대 음성 및 음성 대 텍스트 번역 모두에 사용될 수 있습니다. 이 문서는 음성 번역 서비스의 이점과 기능을 개략적으로 설명 합니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/01/2020
 ms.author: erhopf
-ms.custom: devx-track-csharp
-ms.openlocfilehash: cef6ff109607455881970aeb95eaf0859f6f4f05
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
+keywords: 음성 번역
+ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055535"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401217"
 ---
 # <a name="what-is-speech-translation"></a>음성 번역이란?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-음성 서비스에서 음성 번역을 사용 하면 오디오 스트림의 실시간 다중 언어 음성-음성-음성-텍스트 변환이 가능 합니다. 음성 SDK를 사용 하 여 응용 프로그램, 도구 및 장치는 제공 된 오디오에 대 한 소스에 액세스할 수 있습니다. 음성이 감지 되 면 임시 기록 및 번역 결과가 반환 되 고 결승전 결과가 합성 음성으로 변환 될 수 있습니다.
+이 개요에서는 음성 변환 서비스의 이점과 기능에 대해 알아보고, 오디오 스트림에 대 한 실시간 다중 언어 음성-음성-음성-텍스트 변환을 가능 하 게 합니다. 음성 SDK를 사용 하 여 응용 프로그램, 도구 및 장치는 제공 된 오디오에 대 한 소스에 액세스할 수 있습니다. 음성이 감지 되 면 임시 기록 및 번역 결과가 반환 되 고 최종 결과는 합성 된 음성으로 변환 될 수 있습니다.
 
 Microsoft의 변환 엔진은 SMT (통계적 기계 번역) 및 NMT (신경망 변환)의 두 가지 방법으로 구동 됩니다. SMT는 고급 통계 분석을 사용 하 여 몇 가지 단어의 컨텍스트에서 가능한 최상의 번역을 추정 합니다. NMT를 사용 하면 전체 문장 컨텍스트를 사용 하 여 단어를 번역 하 여 보다 정확 하 고 자연 스러운 변환을 제공 하는 신경망을 사용 합니다.
 
@@ -35,7 +36,7 @@ Microsoft의 변환 엔진은 SMT (통계적 기계 번역) 및 NMT (신경망 �
 * 여러 대상 언어로의 변환을 지원 합니다.
 * 중간 인식 및 번역 결과.
 
-## <a name="get-started"></a>시작 
+## <a name="get-started"></a>시작하기 
 
 음성 번역을 시작 하려면 [빠른](get-started-speech-translation.md) 시작을 참조 하세요. 음성 번역 서비스는 [음성 SDK](speech-sdk.md) 및 [음성 CLI](spx-overview.md)를 통해 사용할 수 있습니다.
 

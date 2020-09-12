@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab4e9f7410954292290b6acf0895197ff013b1d8
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79298617"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321670"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Azure Active Directory Id 및 액세스 관리 작업 참조 가이드
 
@@ -45,14 +45,14 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 될 
 
 #### <a name="assigning-owners-recommended-reading"></a>소유자 할당 권장 읽기
 
-- [Azure Active Directory에서 관리자 역할 할당](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Azure에서 거버넌스](https://docs.microsoft.com/azure/security/governance-in-azure)
+- [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure에서 거버넌스](../../governance/index.yml)
 
 ## <a name="on-premises-identity-synchronization"></a>온-프레미스 id 동기화
 
 ### <a name="identify-and-resolve-synchronization-issues"></a>동기화 문제 식별 및 해결
 
-온-프레미스 환경에서 클라우드로의 동기화 문제를 일으킬 수 있는 문제를 파악 하 고 이해 하는 것이 좋습니다. [Idfix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) 및 [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect#why-use-azure-ad-connect-health) 와 같은 자동화 된 도구는 많은 양의 가양성을 생성할 수 있으므로 오류가 발생 한 개체를 정리 하 여 100 일 넘게 남아 있는 동기화 오류를 식별 하는 것이 좋습니다. 해결 되지 않은 장기 동기화 오류로 인해 지원 인시던트가 생성 될 수 있습니다. [동기화 하는 동안 발생 하는 오류 문제 해결](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sync-errors) 에서는 서로 다른 유형의 동기화 오류에 대 한 개요를 제공 하며, 이러한 오류를 야기 하는 가능한 몇 가지 시나리오와 오류 해결 방법을 제공 합니다.
+온-프레미스 환경에서 클라우드로의 동기화 문제를 일으킬 수 있는 문제를 파악 하 고 이해 하는 것이 좋습니다. [Idfix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) 및 [Azure AD Connect Health](../hybrid/whatis-azure-ad-connect.md#why-use-azure-ad-connect-health) 와 같은 자동화 된 도구는 많은 양의 가양성을 생성할 수 있으므로 오류가 발생 한 개체를 정리 하 여 100 일 넘게 남아 있는 동기화 오류를 식별 하는 것이 좋습니다. 해결 되지 않은 장기 동기화 오류로 인해 지원 인시던트가 생성 될 수 있습니다. [동기화 하는 동안 발생 하는 오류 문제 해결](../hybrid/tshoot-connect-sync-errors.md) 에서는 서로 다른 유형의 동기화 오류에 대 한 개요를 제공 하며, 이러한 오류를 야기 하는 가능한 몇 가지 시나리오와 오류 해결 방법을 제공 합니다.
 
 ### <a name="azure-ad-connect-sync-configuration"></a>Azure AD Connect 동기화 구성
 
@@ -81,7 +81,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 될 
 > [!NOTE]
 > 단일 사용자 id에 레거시 도메인 마이그레이션, 병합기 또는 획득과 같은 항목에서 프로 비전 된 계정이 여러 개 있는 경우 사용자가 컴퓨터에 로그인 하는 데 사용 하는 것과 같이 일상적인 계정을 매일 동기화 해야 합니다.
 
-이상적으로는 동기화 할 개체 수와 규칙의 복잡성을 줄이는 것 사이의 균형을 유지 해야 합니다. 일반적으로 OU/컨테이너 [필터링](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering) 과 cloudfiltered 된 특성에 대 한 단순 특성 매핑의 조합은 효과적인 필터링 조합입니다.
+이상적으로는 동기화 할 개체 수와 규칙의 복잡성을 줄이는 것 사이의 균형을 유지 해야 합니다. 일반적으로 OU/컨테이너 [필터링](../hybrid/how-to-connect-sync-configure-filtering.md) 과 cloudfiltered 된 특성에 대 한 단순 특성 매핑의 조합은 효과적인 필터링 조합입니다.
 
 > [!IMPORTANT]
 > 프로덕션에서 그룹 필터링을 사용 하는 경우 다른 필터링 방법으로 전환 해야 합니다.
@@ -105,7 +105,7 @@ Azure AD Connect 버전이 6 개월 이상 지난 경우 최신 버전으로 업
 
 #### <a name="source-anchor"></a>원본 앵커
 
-[원본 앵커](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-design-concepts) 로 **msds-consistencyguid** 를 사용 하면 AD 도메인 통합/정리, 인수, 인수 및 divestitures에서 공통적으로 사용 되는 포리스트와 도메인에서 개체를 더 쉽게 마이그레이션할 수 있습니다.
+[원본 앵커](../hybrid/plan-connect-design-concepts.md) 로 **msds-consistencyguid** 를 사용 하면 AD 도메인 통합/정리, 인수, 인수 및 divestitures에서 공통적으로 사용 되는 포리스트와 도메인에서 개체를 더 쉽게 마이그레이션할 수 있습니다.
 
 현재 **ObjectGuid** 를 원본 앵커로 사용 하 고 있는 경우 **msds-consistencyguid**를 사용 하도록 전환 하는 것이 좋습니다.
 
@@ -138,7 +138,7 @@ Azure AD Connect 사용자 지정 규칙은 온-프레미스 개체와 클라우
 
 ### <a name="group-based-licensing-for-microsoft-cloud-services"></a>Microsoft 클라우드 서비스에 대 한 그룹 기반 라이선스
 
-Azure Active Directory Microsoft 클라우드 서비스에 대 한 [그룹 기반 라이선스](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal) 를 통해 라이선스 관리를 간소화 합니다. 이러한 방식으로 IAM은 그룹 인프라를 제공 하 고 해당 그룹의 위임 된 관리를 조직의 적절 한 팀에 제공 합니다. Azure AD에서 그룹의 멤버 자격을 설정 하는 방법에는 다음을 비롯 한 여러 가지가 있습니다.
+Azure Active Directory Microsoft 클라우드 서비스에 대 한 [그룹 기반 라이선스](./active-directory-licensing-whatis-azure-portal.md) 를 통해 라이선스 관리를 간소화 합니다. 이러한 방식으로 IAM은 그룹 인프라를 제공 하 고 해당 그룹의 위임 된 관리를 조직의 적절 한 팀에 제공 합니다. Azure AD에서 그룹의 멤버 자격을 설정 하는 방법에는 다음을 비롯 한 여러 가지가 있습니다.
 
 - 온 **-프레미스에서 동기화** -그룹은 온-프레미스 디렉터리에서 가져올 수 있으며,이는 office 365에서 라이선스를 할당 하도록 확장할 수 있는 그룹 관리 프로세스를 설정한 조직에 적합 합니다.
 
@@ -157,26 +157,26 @@ Azure Active Directory Microsoft 클라우드 서비스에 대 한 [그룹 기�
 - 필요에 따라 특성을 정의 하 여 사용자에 대 한 패키지를 저장할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure AD의 그룹 기반 라이선스에는 라이선스 오류 상태의 사용자에 대 한 개념이 도입 되었습니다. 라이선스 오류가 발생 하는 경우에는 즉시 라이선스 할당 문제를 [식별 하 고 해결](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-resolve-problems) 해야 합니다.
+> Azure AD의 그룹 기반 라이선스에는 라이선스 오류 상태의 사용자에 대 한 개념이 도입 되었습니다. 라이선스 오류가 발생 하는 경우에는 즉시 라이선스 할당 문제를 [식별 하 고 해결](../users-groups-roles/licensing-groups-resolve-problems.md) 해야 합니다.
 
 ![자동으로 생성 된 컴퓨터 화면 설명의 스크린샷](./media/active-directory-ops-guide/active-directory-ops-img2.png)
 
 #### <a name="lifecycle-management"></a>수명 주기 관리
 
-현재 온-프레미스 인프라에 의존 하는 [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/) 또는 타사 시스템과 같은 도구를 사용 하 고 있는 경우 기존 도구에서 할당을 오프 로드 하 고 그룹 기반 라이선스를 구현 하며 [그룹을 기반](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-group-advanced#use-group-based-licensing-with-dynamic-groups)으로 그룹 수명 주기 관리를 정의 하는 것이 좋습니다. 마찬가지로 기존 프로세스에서 조직을 떠나는 새 직원 또는 직원을 고려 하지 않는 경우 동적 그룹을 기반으로 그룹 기반 라이선스를 배포 하 고 그룹 멤버 자격 수명 주기를 정의 해야 합니다. 마지막으로, 그룹 기반 라이선스가 수명 주기 관리가 없는 온-프레미스 그룹에 대해 배포 된 경우 클라우드 그룹을 사용 하 여 위임 된 소유권 또는 특성 기반 동적 멤버 자격과 같은 기능을 사용 하도록 설정 하는 것이 좋습니다.
+현재 온-프레미스 인프라에 의존 하는 [Microsoft Identity Manager](/microsoft-identity-manager/) 또는 타사 시스템과 같은 도구를 사용 하 고 있는 경우 기존 도구에서 할당을 오프 로드 하 고 그룹 기반 라이선스를 구현 하며 [그룹을 기반](../users-groups-roles/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups)으로 그룹 수명 주기 관리를 정의 하는 것이 좋습니다. 마찬가지로 기존 프로세스에서 조직을 떠나는 새 직원 또는 직원을 고려 하지 않는 경우 동적 그룹을 기반으로 그룹 기반 라이선스를 배포 하 고 그룹 멤버 자격 수명 주기를 정의 해야 합니다. 마지막으로, 그룹 기반 라이선스가 수명 주기 관리가 없는 온-프레미스 그룹에 대해 배포 된 경우 클라우드 그룹을 사용 하 여 위임 된 소유권 또는 특성 기반 동적 멤버 자격과 같은 기능을 사용 하도록 설정 하는 것이 좋습니다.
 
 ### <a name="assignment-of-apps-with-all-users-group"></a>"모든 사용자" 그룹을 사용 하 여 앱 할당
 
 리소스 소유자는 **Enterprise 직원과** **게스트가**실제로 모두 포함 될 수 있는 경우 **모든 사용자** 그룹에 **엔터프라이즈 직원만** 포함 되어 있다고 생각할 수 있습니다. 따라서 응용 프로그램 할당을 위해 **모든 사용자** 그룹을 사용 하 고 SharePoint 콘텐츠 또는 응용 프로그램과 같은 리소스에 대 한 액세스 권한을 부여 하는 경우 특별 한 주의가 필요 합니다.
 
 > [!IMPORTANT]
-> **모든 사용자** 그룹을 사용 하도록 설정 하 고 조건부 액세스 정책, 앱 또는 리소스 할당에 사용 하는 경우 게스트 사용자를 포함 하지 않으려는 경우 [그룹을 보호](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups) 해야 합니다. 또한 **Enterprise 직원만** 포함 된 그룹을 만들고 할당 하 여 라이선스 할당을 수정 해야 합니다. 반면에 **모든 사용자** 그룹을 사용 하도록 설정 하 고 리소스에 대 한 액세스 권한을 부여 하는 데 사용 하지 않는 경우 조직의 운영 지침이 해당 그룹 ( **Enterprise 직원과** **게스트**모두 포함)을 의도적으로 사용 하 고 있는지 확인 해야 합니다.
+> **모든 사용자** 그룹을 사용 하도록 설정 하 고 조건부 액세스 정책, 앱 또는 리소스 할당에 사용 하는 경우 게스트 사용자를 포함 하지 않으려는 경우 [그룹을 보호](../external-identities/use-dynamic-groups.md) 해야 합니다. 또한 **Enterprise 직원만** 포함 된 그룹을 만들고 할당 하 여 라이선스 할당을 수정 해야 합니다. 반면에 **모든 사용자** 그룹을 사용 하도록 설정 하 고 리소스에 대 한 액세스 권한을 부여 하는 데 사용 하지 않는 경우 조직의 운영 지침이 해당 그룹 ( **Enterprise 직원과** **게스트**모두 포함)을 의도적으로 사용 하 고 있는지 확인 해야 합니다.
 
 ### <a name="automated-user-provisioning-to-apps"></a>앱에 대 한 자동화 된 사용자 프로비저닝
 
-응용 프로그램에 대 한 [자동화 된 사용자 프로 비전은](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 일관 된 프로 비전, 프로 비전 해제 및 여러 시스템에서 id 수명 주기를 만드는 가장 좋은 방법입니다.
+응용 프로그램에 대 한 [자동화 된 사용자 프로 비전은](../app-provisioning/user-provisioning.md) 일관 된 프로 비전, 프로 비전 해제 및 여러 시스템에서 id 수명 주기를 만드는 가장 좋은 방법입니다.
 
-현재 임시 방식으로 앱을 프로 비전 하거나, 수명 주기 관리를 처리 하지 않는 CSV 파일, JIT 또는 온-프레미스 솔루션과 같은 항목을 사용 하는 경우, 지원 되는 응용 프로그램에 대해 Azure AD를 사용 하 여 [응용 프로그램 프로 비전을 구현](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#how-do-i-set-up-automatic-provisioning-to-an-application) 하 고 azure ad에서 아직 지원 되지 않는 응용 프로그램에 대해 일관적인 패턴을 정의 하는 것이 좋습니다.
+현재 임시 방식으로 앱을 프로 비전 하거나, 수명 주기 관리를 처리 하지 않는 CSV 파일, JIT 또는 온-프레미스 솔루션과 같은 항목을 사용 하는 경우, 지원 되는 응용 프로그램에 대해 Azure AD를 사용 하 여 [응용 프로그램 프로 비전을 구현](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) 하 고 azure ad에서 아직 지원 되지 않는 응용 프로그램에 대해 일관적인 패턴을 정의 하는 것이 좋습니다.
 
 ![Azure AD 프로 비전 서비스](./media/active-directory-ops-guide/active-directory-ops-img3.png)
 
@@ -184,12 +184,12 @@ Azure Active Directory Microsoft 클라우드 서비스에 대 한 [그룹 기�
 
 조직의 변화에 대 한 변화를 이해 하 고 동기화 시간을 예측 하는 데 시간이 너무 오래 걸리는 지 확인 하는 것이 중요 합니다.
 
-[기본 델타 동기화](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler) 빈도는 30 분입니다. 델타 동기화가 30 분 이상 지속 되는 경우 또는 스테이징 및 프로덕션의 델타 동기화 성능 간에 상당한 차이가 있는 경우 [Azure AD Connect의 성능에 영향](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors)을 주는 요인을 조사 하 고 검토 해야 합니다.
+[기본 델타 동기화](../hybrid/how-to-connect-sync-feature-scheduler.md) 빈도는 30 분입니다. 델타 동기화가 30 분 이상 지속 되는 경우 또는 스테이징 및 프로덕션의 델타 동기화 성능 간에 상당한 차이가 있는 경우 [Azure AD Connect의 성능에 영향](../hybrid/plan-connect-performance-factors.md)을 주는 요인을 조사 하 고 검토 해야 합니다.
 
 #### <a name="azure-ad-connect-troubleshooting-recommended-reading"></a>Azure AD Connect 문제 해결 권장 사항
 
-- [IdFix 도구를 사용 하 여 Office 365와 동기화 하기 위한 디렉터리 특성 준비-Office 365](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
-- [Azure AD Connect: 동기화 중 오류 문제 해결](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors)
+- [IdFix 도구를 사용 하 여 Office 365와 동기화 하기 위한 디렉터리 특성 준비-Office 365](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
+- [Azure AD Connect: 동기화 중 오류 문제 해결](../hybrid/tshoot-connect-sync-errors.md)
 
 ## <a name="summary"></a>요약
 

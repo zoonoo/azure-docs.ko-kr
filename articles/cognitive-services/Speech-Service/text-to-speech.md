@@ -1,27 +1,29 @@
 ---
-title: 텍스트 음성 변환-음성 서비스
+title: 텍스트 음성 변환 개요-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 음성 서비스의 텍스트 음성 변환 기능을 사용 하면 응용 프로그램, 도구 또는 장치에서 텍스트를 자연 스러운 사람이 아닌 합성 음성으로 변환할 수 있습니다. 미리 설정 된 음성을 선택 하거나 고유한 사용자 지정 음성을 만듭니다.
+description: 음성 서비스의 텍스트 음성 변환 기능을 사용 하면 응용 프로그램, 도구 또는 장치에서 텍스트를 자연 스러운 사람이 아닌 합성 음성으로 변환할 수 있습니다. 이 문서는 텍스트 음성 변환 서비스의 이점 및 기능에 대 한 개요입니다.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: cog-serv-seo-aug-2020
+keywords: 텍스트 음성 변환
+ms.openlocfilehash: 8b8430135ffd15e8331b654628236a315f10cce3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167711"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401183"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환이란?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-음성 서비스에서 음성 텍스트를 음성으로 변환 하면 응용 프로그램, 도구 또는 장치에서 텍스트를 사람이 비슷한 합성 음성으로 변환할 수 있습니다. 표준 및 신경망에서 선택 하거나 제품 또는 브랜드에 고유한 사용자 지정 음성을 만드세요. 75 + standard 음성은 45 개 이상의 언어 및 로캘에서 사용할 수 있으며, 5 개의 신경망은 선택 된 수의 언어 및 로캘로 사용할 수 있습니다. 지원 되는 음성, 언어 및 로캘의 전체 목록은 [지원 되는 언어](language-support.md#text-to-speech)를 참조 하세요.
+이 개요에서는 텍스트 음성 변환 서비스의 이점과 기능에 대해 알아봅니다 .이를 통해 응용 프로그램, 도구 또는 장치에서 텍스트를 사람이 나 합성 된 음성으로 변환할 수 있습니다. 표준 및 신경망에서 선택 하거나 제품 또는 브랜드에 고유한 사용자 지정 음성을 만드세요. 75 + standard 음성은 45 개 이상의 언어 및 로캘에서 사용할 수 있으며, 5 개의 신경망은 선택 된 수의 언어 및 로캘로 사용할 수 있습니다. 지원 되는 음성, 언어 및 로캘의 전체 목록은 [지원 되는 언어](language-support.md#text-to-speech)를 참조 하세요.
 
 > [!NOTE]
 > Bing Speech는 2019 년 10 월 15 일에 서비스 해제 되었습니다. 응용 프로그램, 도구 또는 제품이 Bing Speech Api 또는 Custom Speech를 사용 하는 경우 음성 서비스로 마이그레이션하는 데 도움이 되는 가이드를 만들었습니다.

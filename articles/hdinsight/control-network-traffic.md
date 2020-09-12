@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 54a55789cf867c97cf2384b48f1e5545ee54dafc
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.date: 09/02/2020
+ms.openlocfilehash: a33bc5816ded7cdca75737b02add0a6ca8821700
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773409"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400197"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Azure HDInsight에서 네트워크 트래픽 제어
 
@@ -32,7 +32,11 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
 
 1. HDInsight에 대해 사용할 Azure 지역을 식별합니다.
 
-2. 해당 지역에서 HDInsight에 필요한 서비스 태그를 확인합니다. 자세한 내용은 [Azure HDInsight용 NSG(네트워크 보안 그룹) 서비스 태그](hdinsight-service-tags.md)를 참조하세요.
+2. 해당 지역에서 HDInsight에 필요한 서비스 태그를 확인합니다. 이러한 서비스 태그를 가져오는 방법에는 여러 가지가 있습니다.
+    1. [Azure HDInsight에 대 한 NSG (네트워크 보안 그룹) 서비스 태그](hdinsight-service-tags.md)에서 게시 된 서비스 태그의 목록을 참조 하세요. 
+    2. 지역이 목록에 없는 경우 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) 를 사용 하 여 해당 지역에 대 한 서비스 태그를 찾습니다.
+    3. API를 사용할 수 없는 경우 [서비스 태그 JSON 파일](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) 을 다운로드 하 고 원하는 지역을 검색 합니다.
+
 
 3. HDInsight를 설치하려는 서브넷에 대한 네트워크 보안 그룹을 만들거나 수정합니다.
 
@@ -51,10 +55,6 @@ HDInsight 클러스터에서 아웃바운드 트래픽을 제어하는 방법에
 강제 터널링을 설정하려는 고객은 [사용자 지정 메타스토어](./hdinsight-use-external-metadata-stores.md)를 사용하고 클러스터 서브넷 또는 온-프레미스 네트워크에서 이러한 사용자 지정 메타스토어에 적절한 연결을 설정해야 합니다.
 
 Azure Firewall을 사용한 UDR 설정의 예를 보려면 [Azure HDInsight 클러스터에 대한 아웃바운드 네트워크 트래픽 제한 구성](hdinsight-restrict-outbound-traffic.md)을 참조하세요.
-
-## <a name="required-ip-addresses"></a>필수 IP 주소
-
-트래픽을 제어하는 네트워크 보안 그룹 또는 사용자 정의 경로를 사용하는 경우 [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)를 참조하세요.
 
 ## <a name="required-ports"></a>필수 포트
 

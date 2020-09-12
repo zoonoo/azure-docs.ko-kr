@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: fb252ac0b4863138fb2a9c3008dc6475bc988e5f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 18cc42c3447de733447c27db52a9a6d664539464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723948"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400361"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -47,7 +47,7 @@ Azure Portal, PowerShell cmdlet 또는 REST API를 사용하여 서비스를 변
 
 ## <a name="access-git-configuration-in-your-service"></a>서비스의 Git 구성에 액세스
 
-Git 구성 설정을 확인하고 구성하려면 **보안** 메뉴를 클릭하고 **구성 리포지토리** 탭으로 이동하면 됩니다.
+Git 구성 설정을 보고 구성 하려면 **배포 및 인프라** 메뉴를 클릭 하 고 **리포지토리** 탭으로 이동 하면 됩니다.
 
 ![GIT 사용][api-management-enable-git]
 
@@ -62,7 +62,7 @@ REST API를 사용하여 Git 액세스를 사용 또는 사용하지 않도록 �
 
 리포지토리를 복제하기 전에 수행할 첫 번째 단계는 서비스 구성의 현재 상태를 리포지토리에 저장하는 것입니다. **리포지토리에 저장**을 클릭합니다.
 
-확인 화면에서 원하는 대로 변경하고 **확인** 을 클릭하여 저장합니다.
+확인 화면에서 원하는 변경을 수행 하 **고 저장을 클릭 하** 여 저장 합니다.
 
 몇 분 후에 구성이 저장되며, 마지막 구성 변경 및 서비스 구성과 리포지토리 간 마지막 동기화의 날짜 및 시간을 비롯하여 리포지토리의 구성 상태가 표시됩니다.
 
@@ -112,7 +112,7 @@ git clone https://username:url encoded password@{name}.scm.azure-api.net/
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>최근 서비스 인스턴스 구성으로 로컬 리포지토리를 업데이트하려면
 
-Azure Portal에서 또는 REST API를 사용하여 API Management 서비스 인스턴스를 변경하는 경우 변경 내용을 리포지토리에 저장해야 로컬 리포지토리를 최신 변경 내용으로 업데이트할 수 있습니다. 이 작업을 수행하려면 Azure Portal의 **구성 리포지토리** 탭에서 **리포지토리에 구성 저장**을 클릭한 다음, 로컬 리포지토리에서 다음 명령을 실행합니다.
+Azure Portal에서 또는 REST API를 사용하여 API Management 서비스 인스턴스를 변경하는 경우 변경 내용을 리포지토리에 저장해야 로컬 리포지토리를 최신 변경 내용으로 업데이트할 수 있습니다. 이렇게 하려면 Azure Portal의 **리포지토리** 탭에서 **리포지토리에 저장** 을 클릭 한 다음 로컬 리포지토리에서 다음 명령을 실행 합니다.
 
 ```
 git pull
@@ -198,7 +198,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 }
 ```
 
-처음 네 설정(`RegistrationEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsEnabled` 및 `UserRegistrationTermsConsentRequired`)은 **보안** 섹션의 **ID** 탭에 있는 다음과 같은 설정에 매핑됩니다.
+처음 네 설정 ( `RegistrationEnabled` , `UserRegistrationTerms` , `UserRegistrationTermsEnabled` 및)은 `UserRegistrationTermsConsentRequired` **개발자 포털** 섹션의 **id** 탭에 있는 다음 설정에 매핑됩니다.
 
 | Id 설정 | 매핑 대상 |
 | --- | --- |
@@ -208,7 +208,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 | UserRegistrationTermsConsentRequired |**동의 필요** 확인란 |
 | RequireUserSigninEnabled |**로그인 페이지로 익명 사용자 리디렉션** 확인란 |
 
-처음 네 설정(`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` 및 `DelegationValidationKey`)은 **보안** 섹션의 **위임** 탭에 있는 다음과 같은 설정에 매핑됩니다.
+다음 네 가지 설정 ( `DelegationEnabled` , `DelegationUrl` , `DelegatedSubscriptionEnabled` 및 `DelegationValidationKey` )은 **개발자 포털** 섹션의 **위임** 탭에 있는 다음 설정에 매핑됩니다.
 
 | 위임 설정 | 매핑 대상 |
 | --- | --- |

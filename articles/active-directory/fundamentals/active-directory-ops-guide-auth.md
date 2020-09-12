@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b45a0608d78330eafd6afc3656f8a4addbdffd3b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80876295"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321721"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
 
@@ -48,8 +48,8 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 #### <a name="owner-recommended-reading"></a>소유자 권장 읽기
 
-- [Azure Active Directory에서 관리자 역할 할당](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Azure에서 거버넌스](https://docs.microsoft.com/azure/security/governance-in-azure)
+- [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)
+- [Azure에서 거버넌스](../../governance/index.yml)
 
 ## <a name="credentials-management"></a>자격 증명 관리
 
@@ -59,15 +59,15 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 아래 표를 사용 하 여 해결 해야 하는 문제를 완화 하기 위한 권장 솔루션을 찾을 수 있습니다.
 
-| 문제점 | 권장 |
+| 문제 | 권장 |
 | :- | :- |
-| 약한 암호 로부터 보호 하는 메커니즘이 없습니다. | Azure AD [SSPR (셀프 서비스 암호 재설정)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) 및 [암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) 를 사용 하도록 설정 |
-| 누출 암호를 검색 하는 메커니즘이 없습니다. | 정보를 얻기 위해 phs ( [암호 해시 동기화](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ) 사용 |
-| AD FS를 사용 하 여 관리 되는 인증으로 이동할 수 없음 | [AD FS 엑스트라넷 스마트 잠금](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) 및/또는 [Azure AD 스마트 잠금](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout) 사용 |
-| 암호 정책에서는 길이, 다중 문자 집합 또는 만료와 같은 복잡성 기반 규칙을 사용 합니다. | [Microsoft 권장 사례](https://www.microsoft.com/research/publication/password-guidance/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F265143%2Fmicrosoft_password_guidance.pdf) 를 고려 하 고 암호 관리에 대 한 접근 방식을 전환 하 고 [Azure AD 암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad)를 배포 합니다. |
-| 사용자가 MFA (multi-factor authentication)를 사용 하도록 등록 되지 않음 | 암호와 함께 사용자의 id를 확인 하는 메커니즘으로 사용할 수 있도록 [모든 사용자의 보안 정보를 등록](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-mfa-policy) 합니다. |
-| 사용자 위험에 따라 암호를 해지 하지 않습니다. | SSPR를 사용 하 여 누출 자격 증명에 대 한 암호 변경을 강제로 적용 하도록 Azure AD [Id 보호 사용자 위험 정책](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy) 배포 |
-| 식별 된 IP 주소에서 들어오는 잘못 된 행위자 로부터 악성 인증을 보호 하는 스마트 잠금 메커니즘이 없습니다. | 암호 해시 동기화 또는 pta ( [통과 인증](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) )를 사용 하 여 클라우드 관리 인증 배포 |
+| 약한 암호 로부터 보호 하는 메커니즘이 없습니다. | Azure AD [SSPR (셀프 서비스 암호 재설정)](../authentication/concept-sspr-howitworks.md) 및 [암호 보호](../authentication/concept-password-ban-bad-on-premises.md) 를 사용 하도록 설정 |
+| 누출 암호를 검색 하는 메커니즘이 없습니다. | 정보를 얻기 위해 phs ( [암호 해시 동기화](../hybrid/how-to-connect-password-hash-synchronization.md) ) 사용 |
+| AD FS를 사용 하 여 관리 되는 인증으로 이동할 수 없음 | [AD FS 엑스트라넷 스마트 잠금](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) 및/또는 [Azure AD 스마트 잠금](../authentication/howto-password-smart-lockout.md) 사용 |
+| 암호 정책에서는 길이, 다중 문자 집합 또는 만료와 같은 복잡성 기반 규칙을 사용 합니다. | [Microsoft 권장 사례](https://www.microsoft.com/research/publication/password-guidance/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F265143%2Fmicrosoft_password_guidance.pdf) 를 고려 하 고 암호 관리에 대 한 접근 방식을 전환 하 고 [Azure AD 암호 보호](../authentication/concept-password-ban-bad.md)를 배포 합니다. |
+| 사용자가 MFA (multi-factor authentication)를 사용 하도록 등록 되지 않음 | 암호와 함께 사용자의 id를 확인 하는 메커니즘으로 사용할 수 있도록 [모든 사용자의 보안 정보를 등록](../identity-protection/howto-identity-protection-configure-mfa-policy.md) 합니다. |
+| 사용자 위험에 따라 암호를 해지 하지 않습니다. | SSPR를 사용 하 여 누출 자격 증명에 대 한 암호 변경을 강제로 적용 하도록 Azure AD [Id 보호 사용자 위험 정책](../identity-protection/howto-identity-protection-configure-risk-policies.md) 배포 |
+| 식별 된 IP 주소에서 들어오는 잘못 된 행위자 로부터 악성 인증을 보호 하는 스마트 잠금 메커니즘이 없습니다. | 암호 해시 동기화 또는 pta ( [통과 인증](../hybrid/how-to-connect-pta-quick-start.md) )를 사용 하 여 클라우드 관리 인증 배포 |
 
 #### <a name="password-policies-recommended-reading"></a>암호 정책 권장 읽기
 
@@ -77,19 +77,19 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 암호를 변경 하거나 다시 설정 해야 하는 사용자는 볼륨의 가장 큰 출처와 지원 센터 통화 비용 중 하나입니다. 비용 외에도 사용자 위험을 완화 하기 위한 도구로 암호를 변경 하는 것은 조직의 보안 상태를 개선 하는 기본 단계입니다.
 
-최소한 Azure AD SSPR ( [셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) ) 및 온-프레미스 [암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) 를 배포 하 여 다음을 수행 하는 것이 좋습니다.
+최소한 Azure AD SSPR ( [셀프 서비스 암호 재설정](../authentication/concept-sspr-howitworks.md) ) 및 온-프레미스 [암호 보호](../authentication/howto-password-ban-bad-on-premises-deploy.md) 를 배포 하 여 다음을 수행 하는 것이 좋습니다.
 
 - Deflect 지원 센터에 전화를 겁니다.
 - 임시 암호 사용을 대체 합니다.
 - 온-프레미스 솔루션을 사용 하는 기존 셀프 서비스 암호 관리 솔루션을 대체 합니다.
-- 조직에서 [약한 암호를 제거](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) 합니다.
+- 조직에서 [약한 암호를 제거](../authentication/concept-password-ban-bad.md) 합니다.
 
 > [!NOTE]
-> Azure AD Premium P2 구독이 있는 조직의 경우 SSPR를 배포 하 고 [Id 보호 사용자 위험 정책의](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)일부로 사용 하는 것이 좋습니다.
+> Azure AD Premium P2 구독이 있는 조직의 경우 SSPR를 배포 하 고 [Id 보호 사용자 위험 정책의](../identity-protection/howto-identity-protection-configure-risk-policies.md)일부로 사용 하는 것이 좋습니다.
 
 ### <a name="strong-credential-management"></a>강력한 자격 증명 관리
 
-암호 자체는 잘못 된 행위자가 사용자 환경에 액세스 하지 못하도록 하는 데 충분히 안전 하지 않습니다. 최소한 MFA (multi-factor authentication)에 대해 권한 있는 계정을 사용 하는 모든 사용자를 사용 하도록 설정 해야 합니다. 이상적으로는 결합 된 [등록](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined) 을 사용 하도록 설정 하 고 모든 사용자가 [결합 된 등록 환경을](https://docs.microsoft.com/azure/active-directory/user-help/user-help-security-info-overview)사용 하 여 MFA 및 SSPR에 등록 해야 합니다. 결국 예상치 못한 상황으로 인해 잠금의 위험을 줄이기 위해 [복원 력을 제공](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls) 하는 전략을 채택 하는 것이 좋습니다.
+암호 자체는 잘못 된 행위자가 사용자 환경에 액세스 하지 못하도록 하는 데 충분히 안전 하지 않습니다. 최소한 MFA (multi-factor authentication)에 대해 권한 있는 계정을 사용 하는 모든 사용자를 사용 하도록 설정 해야 합니다. 이상적으로는 결합 된 [등록](../authentication/concept-registration-mfa-sspr-combined.md) 을 사용 하도록 설정 하 고 모든 사용자가 [결합 된 등록 환경을](../user-help/security-info-setup-signin.md)사용 하 여 MFA 및 SSPR에 등록 해야 합니다. 결국 예상치 못한 상황으로 인해 잠금의 위험을 줄이기 위해 [복원 력을 제공](../authentication/concept-resilient-controls.md) 하는 전략을 채택 하는 것이 좋습니다.
 
 ![결합 된 사용자 환경 흐름](./media/active-directory-ops-guide/active-directory-ops-img4.png)
 
@@ -127,7 +127,7 @@ PowerShell 또는 Microsoft Graph API를 사용 하는 응용 프로그램을 �
 
 다음 방법 중 하나를 사용 하 여 장치 id를 가져오고 Azure AD에서 관리 하 여이 목표를 수행할 수 있습니다.
 
-- 조직에서는 [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) 를 사용 하 여 장치를 관리 하 고 규정 준수 정책을 적용 하며 장치 상태를 증명 하 고, 장치가 규격 인지 여부에 따라 조건부 액세스 정책을 설정할 수 있습니다. IOS 장치, Mac 데스크톱 (JAMF 통합을 통해), Windows 데스크톱 (Windows 10의 경우 기본적으로 모바일 장치 관리를 사용 하 고, Microsoft 엔드포인트 Configuration Manager로 공동 관리) 및 Android 모바일 장치를 관리할 수 Microsoft Intune.
+- 조직에서는 [Microsoft Intune](/intune/what-is-intune) 를 사용 하 여 장치를 관리 하 고 규정 준수 정책을 적용 하며 장치 상태를 증명 하 고, 장치가 규격 인지 여부에 따라 조건부 액세스 정책을 설정할 수 있습니다. IOS 장치, Mac 데스크톱 (JAMF 통합을 통해), Windows 데스크톱 (Windows 10의 경우 기본적으로 모바일 장치 관리를 사용 하 고, Microsoft 엔드포인트 Configuration Manager로 공동 관리) 및 Android 모바일 장치를 관리할 수 Microsoft Intune.
 - [하이브리드 AZURE AD 조인은](../devices/hybrid-azuread-join-managed-domains.md) Active Directory 도메인에 가입 된 컴퓨터 장치를 사용 하는 환경에서 그룹 정책 또는 Microsoft 끝점 Configuration Manager에 대 한 관리를 제공 합니다. 조직은 원활한 SSO를 사용 하 여 PHS 또는 PTA를 통해 관리 되는 환경을 배포할 수 있습니다. 장치를 Azure AD로 가져오면 클라우드 및 온-프레미스 리소스에서 SSO를 통해 사용자 생산성을 극대화 하 고, 동시에 [조건부 액세스](../conditional-access/overview.md)를 사용 하 여 클라우드 및 온-프레미스 리소스에 안전 하 게 액세스할 수 있습니다   .
 
 클라우드에 등록 되지 않은 도메인 가입 windows 장치 또는 클라우드에 등록 되어 있고 조건부 액세스 정책을 사용 하지 않는 도메인에 가입 된 windows 장치를 사용 하는 경우 등록 되지 않은 장치를 등록 하 고 두 경우 모두 조건부 액세스 정책에서 [컨트롤로 하이브리드 AZURE AD 조인을 사용](../conditional-access/require-managed-devices.md) 합니다.
@@ -141,11 +141,11 @@ MDM 또는 Microsoft Intune를 사용 하 여 장치를 관리 하지만 조건�
 #### <a name="device-trust-access-policies-recommended-reading"></a>장치 신뢰 액세스 정책 권장 읽기
 
 - [방법: 하이브리드 Azure Active Directory 조인 구현 계획](../devices/hybrid-azuread-join-plan.md)
-- [ID 및 디바이스 액세스 구성](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [ID 및 디바이스 액세스 구성](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>비즈니스용 Windows Hello
 
-Windows 10에서 [비즈니스용 Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) 는 pc에서 강력한 2 단계 인증으로 암호를 바꿉니다. 비즈니스용 Windows Hello를 사용 하면 사용자에 게 보다 간소화 된 MFA 환경을 사용 하 여 암호에 대 한 종속성을 줄일 수 있습니다. Windows 10 장치를 롤아웃 하지 않았거나 일부만 배포 된 경우 Windows 10으로 업그레이드 하 고 모든 장치에서 [비즈니스용 Windows Hello를 사용 하도록 설정](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) 하는 것이 좋습니다.
+Windows 10에서 [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-identity-verification) 는 pc에서 강력한 2 단계 인증으로 암호를 바꿉니다. 비즈니스용 Windows Hello를 사용 하면 사용자에 게 보다 간소화 된 MFA 환경을 사용 하 여 암호에 대 한 종속성을 줄일 수 있습니다. Windows 10 장치를 롤아웃 하지 않았거나 일부만 배포 된 경우 Windows 10으로 업그레이드 하 고 모든 장치에서 [비즈니스용 Windows Hello를 사용 하도록 설정](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) 하는 것이 좋습니다.
 
 암호 없는 인증에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 암호가 없는 전 세계를](../authentication/concept-authentication-passwordless.md)참조 하세요.
 
@@ -184,28 +184,28 @@ Windows 10에서 [비즈니스용 Windows Hello](https://docs.microsoft.com/wind
 - 사용자 특성이 응용 프로그램에 대 한 액세스를 일관 되 게 결정할 수 있는 경우 동적 그룹을 정의 합니다.
 - [AZURE AD 액세스 검토](../governance/access-reviews-overview.md)를 사용 하 여 응용 프로그램 액세스에 사용 되는 그룹에 증명을 구현 합니다.
 
-반면, 개별 사용자에 게 할당 된 응용 프로그램을 찾은 경우에는 해당 응용 프로그램에 대 한 [관리](https://docs.microsoft.com/azure/active-directory/governance/index) 를 구현 해야 합니다.
+반면, 개별 사용자에 게 할당 된 응용 프로그램을 찾은 경우에는 해당 응용 프로그램에 대 한 [관리](../governance/index.yml) 를 구현 해야 합니다.
 
 #### <a name="assign-users-to-applications-recommended-reading"></a>응용 프로그램에 사용자 할당 권장 읽기
 
-- [Azure Active Directory에서 애플리케이션에 사용자 및 그룹 할당](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups)
-- [Azure Active Directory에서 앱 등록 권한 위임](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-delegate-app-roles)
-- [Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)
+- [Azure Active Directory에서 애플리케이션에 사용자 및 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md)
+- [Azure Active Directory에서 앱 등록 권한 위임](../users-groups-roles/roles-delegate-app-roles.md)
+- [Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙](../users-groups-roles/groups-dynamic-membership.md)
 
 ## <a name="access-policies"></a>액세스 정책
 
 ### <a name="named-locations"></a>명명된 위치
 
-Azure AD의 [명명 된 위치](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) 를 사용 하 여 조직에서 신뢰할 수 있는 IP 주소 범위에 레이블을 지정할 수 있습니다. Azure AD는 명명된 위치를 사용하여 다음 작업을 수행합니다.
+Azure AD의 [명명 된 위치](../reports-monitoring/quickstart-configure-named-locations.md) 를 사용 하 여 조직에서 신뢰할 수 있는 IP 주소 범위에 레이블을 지정할 수 있습니다. Azure AD는 명명된 위치를 사용하여 다음 작업을 수행합니다.
 
 - 위험 이벤트의 가양성을 방지 합니다. 신뢰할 수 있는 네트워크 위치에서 로그인 하면 사용자의 로그인 위험이 줄어듭니다.
-- [위치 기반 조건부 액세스](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)를 구성합니다.
+- [위치 기반 조건부 액세스](../reports-monitoring/quickstart-configure-named-locations.md)를 구성합니다.
 
 ![명명된 위치](./media/active-directory-ops-guide/active-directory-ops-img10.png)
 
 우선 순위에 따라 아래 표를 사용 하 여 조직의 요구 사항에 가장 부합 하는 권장 솔루션을 찾습니다.
 
-| **Priority** | **시나리오** | **추천 사항** |
+| **우선 순위** | **시나리오** | **권장** |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | PHS 또는 PTA를 사용 하 고 명명 된 위치가 정의 되지 않은 경우 | 위험 이벤트 검색을 향상 시키기 위해 명명 된 위치 정의 |
 | 2 | 페더레이션 하 고 "insideCorporateNetwork" 클레임을 사용 하지 않고 명명 된 위치가 정의 되지 않은 경우 | 위험 이벤트 검색을 향상 시키기 위해 명명 된 위치 정의 |
@@ -255,10 +255,10 @@ MAM (Microsoft Intune 응용 프로그램 관리)은 저장소 암호화, PIN, �
 
 #### <a name="conditional-access-recommended-reading"></a>조건부 액세스 권장 읽기
 
-- [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
-- [ID 및 디바이스 액세스 구성](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Azure Active Directory 조건부 액세스 설정 참조](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
-- [일반 조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
+- [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](../conditional-access/best-practices.md)
+- [ID 및 디바이스 액세스 구성](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Azure Active Directory 조건부 액세스 설정 참조](../conditional-access/concept-conditional-access-conditions.md)
+- [일반 조건부 액세스 정책](../conditional-access/concept-conditional-access-policy-common.md)
 
 ## <a name="access-surface-area"></a>액세스 노출 영역
 
@@ -273,9 +273,9 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 
 공격자는 이러한 프로토콜을 매우 선호 합니다. 실제로 [암호 스프레이 공격의 거의 100%는](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984) 레거시 인증 프로토콜을 사용 합니다. 해커가 레거시 인증 프로토콜을 사용 하는 것은 multi-factor authentication 및 장치 인증과 같은 추가 보안 문제에 필요한 대화형 로그인을 지원 하지 않기 때문입니다.
 
-레거시 인증이 환경에서 널리 사용 되는 경우 가능한 한 빨리 [최신 인증](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 을 지 원하는 클라이언트로 레거시 클라이언트를 마이그레이션할 계획을 세워야 합니다. 동일한 토큰에서 기존 인증을 사용 하는 사용자가 이미 있지만 레거시 인증을 사용 하는 사용자가 있는 경우 다음 단계를 수행 하 여 레거시 인증 클라이언트를 잠가야 합니다.
+레거시 인증이 환경에서 널리 사용 되는 경우 가능한 한 빨리 [최신 인증](/office365/enterprise/modern-auth-for-office-2013-and-2016) 을 지 원하는 클라이언트로 레거시 클라이언트를 마이그레이션할 계획을 세워야 합니다. 동일한 토큰에서 기존 인증을 사용 하는 사용자가 이미 있지만 레거시 인증을 사용 하는 사용자가 있는 경우 다음 단계를 수행 하 여 레거시 인증 클라이언트를 잠가야 합니다.
 
-1. [로그인 활동 보고서](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) 를 사용 하 여 레거시 인증 및 계획 수정을 계속 사용 하는 사용자를 식별 합니다.
+1. [로그인 활동 보고서](../reports-monitoring/concept-sign-ins.md) 를 사용 하 여 레거시 인증 및 계획 수정을 계속 사용 하는 사용자를 식별 합니다.
 
    a. 영향을 받는 사용자에 게 최신 인증 지원 클라이언트를 업그레이드 합니다.
    
@@ -288,7 +288,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 
 #### <a name="legacy-authentication-recommended-reading"></a>레거시 인증 권장 읽기
 
-- [Exchange Server의 사서함에 POP3 또는 IMAP4 액세스를 사용 하거나 사용 하지 않도록 설정](https://docs.microsoft.com/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Exchange Server의 사서함에 POP3 또는 IMAP4 액세스를 사용 하거나 사용 하지 않도록 설정](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
 
 ### <a name="consent-grants"></a>승인 허가
 
@@ -309,18 +309,18 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들어:
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 다음은 그 예입니다. 
 
 |리소스 | 사용 권한 |
 | :- | :- |
 | Microsoft Graph API| Directory.AccessAsUser.All |
 | Azure REST API | user_impersonation |
 
-이 시나리오를 방지 하기 위해 [Office 365의 불법 승인 허용을 검색](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) 하 고 수정 하 여 필요한 것 보다 더 많은 권한이 부여 된 응용 프로그램 또는 응용 프로그램을 식별 하 고 수정 하는 것을 참조 해야 합니다. 그런 다음 [셀프 서비스를 완전히 제거](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) 하 고 [거 버 넌 스 절차를 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow)합니다. 마지막으로, 앱 사용 권한 정기 검토를 예약 하 고 필요 하지 않은 경우 제거 합니다.
+이 시나리오를 방지 하기 위해 [Office 365의 불법 승인 허용을 검색](/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) 하 고 수정 하 여 필요한 것 보다 더 많은 권한이 부여 된 응용 프로그램 또는 응용 프로그램을 식별 하 고 수정 하는 것을 참조 해야 합니다. 그런 다음 [셀프 서비스를 완전히 제거](../manage-apps/configure-user-consent.md) 하 고 [거 버 넌 스 절차를 설정](../manage-apps/configure-admin-consent-workflow.md)합니다. 마지막으로, 앱 사용 권한 정기 검토를 예약 하 고 필요 하지 않은 경우 제거 합니다.
 
 #### <a name="consent-grants-recommended-reading"></a>동의 부여 권장 읽기
 
-- [Microsoft Graph API 사용 권한](https://docs.microsoft.com/graph/permissions-reference)
+- [Microsoft Graph API 사용 권한](/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>사용자 및 그룹 설정
 
@@ -328,7 +328,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 
 #### <a name="user-settings"></a>사용자 설정
 
-- **외부 사용자** -외부 공동 작업은 팀, Power BI, Sharepoint Online 및 Azure Information Protection와 같은 서비스를 통해 엔터프라이즈에서 유기적으 발생할 수 있습니다. 사용자가 시작한 외부 공동 작업을 제어 하기 위한 명시적인 제약 조건이 있는 경우 [AZURE AD 자격 관리](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) 또는 지원 센터 등의 제어 된 작업을 사용 하 여 외부 사용자를 사용 하도록 설정 하는 것이 좋습니다. 서비스에 대 한 유기적 외부 공동 작업을 허용 하지 않으려면 [구성원이 외부 사용자를 완전히 초대](https://docs.microsoft.com/azure/active-directory/b2b/delegate-invitations)하지 못하도록 차단할 수 있습니다. 또는 외부 사용자 초대의 [특정 도메인을 허용 하거나 차단할](https://docs.microsoft.com/azure/active-directory/b2b/allow-deny-list) 수도 있습니다.
+- **외부 사용자** -외부 공동 작업은 팀, Power BI, Sharepoint Online 및 Azure Information Protection와 같은 서비스를 통해 엔터프라이즈에서 유기적으 발생할 수 있습니다. 사용자가 시작한 외부 공동 작업을 제어 하기 위한 명시적인 제약 조건이 있는 경우 [AZURE AD 자격 관리](../governance/entitlement-management-overview.md) 또는 지원 센터 등의 제어 된 작업을 사용 하 여 외부 사용자를 사용 하도록 설정 하는 것이 좋습니다. 서비스에 대 한 유기적 외부 공동 작업을 허용 하지 않으려면 [구성원이 외부 사용자를 완전히 초대](../external-identities/delegate-invitations.md)하지 못하도록 차단할 수 있습니다. 또는 외부 사용자 초대의 [특정 도메인을 허용 하거나 차단할](../external-identities/allow-deny-list.md) 수도 있습니다.
 - **앱 등록** -앱 등록 사용 하도록 설정 하면 최종 사용자가 응용 프로그램 자체를 등록 하 고 해당 데이터에 대 한 액세스 권한을 부여할 수 있습니다. 앱 등록의 일반적인 예는 Outlook 플러그 인을 사용 하도록 설정 하는 사용자 또는 Alexa 및 Siri와 같은 음성 도우미가 전자 메일 및 일정을 읽거나 사용자를 대신 하 여 전자 메일을 보내는 것입니다. 고객이 앱 등록을 해제 하기로 결정 한 경우 InfoSec 및 IAM 팀은 예외 (비즈니스 요구 사항에 따라 필요한 앱 등록) 관리에 참여 해야 하며,이는 응용 프로그램을 관리자 계정에 등록 해야 하 고 프로세스를 운영 프로세스를 디자인 해야 할 수 있기 때문입니다.
 - **관리 포털** -조직에서 Azure Portal의 azure ad 블레이드를 잠가 관리자가 아닌 관리자가 Azure Portal에서 azure ad 관리에 액세스할 수 없어 혼동을 받을 수 있습니다. Azure AD 관리 포털의 사용자 설정으로 이동 하 여 액세스를 제한 합니다.
 
@@ -343,33 +343,33 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 
 #### <a name="groups-recommended-reading"></a>그룹 권장 읽기
 
-- [Azure Active Directory B2B 협업이란?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
-- [Azure Active Directory와 애플리케이션 통합](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
-- [Azure Active Directory에서 앱, 사용 권한 및 동의 합니다.](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
-- [그룹을 사용 하 여 Azure Active Directory 리소스에 대 한 액세스 관리](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-- [Azure Active Directory에서 셀프 서비스 응용 프로그램 액세스 관리 설정](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)
+- [Azure Active Directory B2B 협업이란?](../external-identities/what-is-b2b.md)
+- [Azure Active Directory와 애플리케이션 통합](../develop/quickstart-register-app.md)
+- [Azure Active Directory에서 앱, 사용 권한 및 동의 합니다.](../develop/quickstart-register-app.md)
+- [그룹을 사용 하 여 Azure Active Directory 리소스에 대 한 액세스 관리](./active-directory-manage-groups.md)
+- [Azure Active Directory에서 셀프 서비스 응용 프로그램 액세스 관리 설정](../users-groups-roles/groups-self-service-management.md)
 
 ### <a name="traffic-from-unexpected-locations"></a>예기치 않은 위치에서의 트래픽
 
-공격자는 전 세계의 다양 한 부분에서 시작 됩니다. 위치를 조건으로 사용 하 여 조건부 액세스 정책을 사용 하 여이 위험을 관리 합니다. 조건부 액세스 정책의 [위치 조건을](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) 사용 하 여에서 로그인 할 비즈니스 이유가 없는 위치에 대 한 액세스를 차단할 수 있습니다.
+공격자는 전 세계의 다양 한 부분에서 시작 됩니다. 위치를 조건으로 사용 하 여 조건부 액세스 정책을 사용 하 여이 위험을 관리 합니다. 조건부 액세스 정책의 [위치 조건을](../conditional-access/location-condition.md) 사용 하 여에서 로그인 할 비즈니스 이유가 없는 위치에 대 한 액세스를 차단할 수 있습니다.
 
 ![새 명명 된 위치 만들기](./media/active-directory-ops-guide/active-directory-ops-img14.png)
 
-사용할 수 있는 경우 SIEM (보안 정보 및 이벤트 관리) 솔루션을 사용 하 여 지역 간 액세스 패턴을 분석 하 고 찾습니다. SIEM 제품을 사용 하지 않거나 Azure AD에서 인증 정보를 수집 않는 경우 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) 를 사용 하 여 지역 간 액세스 패턴을 식별 하는 것이 좋습니다.
+사용할 수 있는 경우 SIEM (보안 정보 및 이벤트 관리) 솔루션을 사용 하 여 지역 간 액세스 패턴을 분석 하 고 찾습니다. SIEM 제품을 사용 하지 않거나 Azure AD에서 인증 정보를 수집 않는 경우 [Azure Monitor](../../azure-monitor/overview.md) 를 사용 하 여 지역 간 액세스 패턴을 식별 하는 것이 좋습니다.
 
 ## <a name="access-usage"></a>액세스 사용
 
 ### <a name="azure-ad-logs-archived-and-integrated-with-incident-response-plans"></a>인시던트 대응 계획에 보관 및 통합 된 Azure AD 로그
 
-로그인 활동에 대 한 액세스 권한이 있는 Azure AD에 대 한 감사 및 위험 이벤트는 문제 해결, 사용 분석 및 등록 분석에 중요 합니다. Azure AD는 보존 기간이 제한 된 REST Api를 통해 이러한 소스에 대 한 액세스를 제공 합니다. SIEM (보안 정보 및 이벤트 관리) 시스템 또는 이와 동등한 보관 기술은 감사 및 지원 가능성의 장기 저장소에 대 한 키입니다. Azure AD 로그의 장기 저장소를 사용 하도록 설정 하려면 기존 SIEM 솔루션에 해당 로그를 추가 하거나 [Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor)를 사용 해야 합니다. 인시던트 대응 계획 및 조사의 일부로 사용할 수 있는 보관 로그
+로그인 활동에 대 한 액세스 권한이 있는 Azure AD에 대 한 감사 및 위험 이벤트는 문제 해결, 사용 분석 및 등록 분석에 중요 합니다. Azure AD는 보존 기간이 제한 된 REST Api를 통해 이러한 소스에 대 한 액세스를 제공 합니다. SIEM (보안 정보 및 이벤트 관리) 시스템 또는 이와 동등한 보관 기술은 감사 및 지원 가능성의 장기 저장소에 대 한 키입니다. Azure AD 로그의 장기 저장소를 사용 하도록 설정 하려면 기존 SIEM 솔루션에 해당 로그를 추가 하거나 [Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md)를 사용 해야 합니다. 인시던트 대응 계획 및 조사의 일부로 사용할 수 있는 보관 로그
 
 #### <a name="logs-recommended-reading"></a>로그 권장 읽기
 
-- [Azure Active Directory 감사 API 참조](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference)
-- [Azure Active Directory 로그인 활동 보고서 API 참조](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-sign-in-activity-reference)
-- [인증서와 함께 Azure AD Reporting API를 사용하여 데이터 가져오기](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
-- [Azure Active Directory Identity Protection에 대 한 Microsoft Graph](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
-- [Office 365 관리 활동 API 참조](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
+- [Azure Active Directory 감사 API 참조](/graph/api/resources/directoryaudit?view=graph-rest-beta%3fview%3dgraph-rest-beta)
+- [Azure Active Directory 로그인 활동 보고서 API 참조](/graph/api/resources/signin?view=graph-rest-beta%3fview%3dgraph-rest-beta)
+- [인증서와 함께 Azure AD Reporting API를 사용하여 데이터 가져오기](../reports-monitoring/tutorial-access-api-with-certificates.md)
+- [Azure Active Directory Identity Protection에 대 한 Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md)
+- [Office 365 관리 활동 API 참조](/office/office-365-management-api/office-365-management-activity-api-reference)
 - [Azure Active Directory Power BI 콘텐츠 팩을 사용 하는 방법](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
 ## <a name="summary"></a>요약

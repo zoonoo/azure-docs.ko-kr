@@ -5,40 +5,38 @@ services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2020
+ms.date: 08/14/2020
 ms.author: jmprieur
-ms.custom: include file
-ms.openlocfilehash: a3acdbb93dd20f0b89e4f99d64f5f7a30ce40623
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42102f38959911388cefcc141d949e59f24a2c31
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102837"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436473"
 ---
-## <a name="register-secrets-or-certificates"></a>비밀 또는 인증서 등록
+## <a name="add-a-client-secret-or-certificate"></a>클라이언트 암호 또는 인증서 추가
 
-모든 기밀 클라이언트 응용 프로그램의 경우에는 비밀 또는 인증서를 등록 해야 합니다. [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) 의 대화형 경험을 통해 또는 명령줄 도구 (예: PowerShell)를 사용 하 여 응용 프로그램 암호를 등록할 수 있습니다.
+모든 기밀 클라이언트 응용 프로그램에서와 마찬가지로 사용자 상호 작용 없이 자신으로 인증할 수 있도록 해당 응용 프로그램의 *자격 증명* 으로 사용할 비밀 또는 인증서를 추가 해야 합니다.
 
-### <a name="register-client-secrets-by-using-the-application-registration-portal"></a>응용 프로그램 등록 포털을 사용 하 여 클라이언트 암호 등록
+[Azure Portal](#add-client-credentials-by-using-the-azure-portal) 또는 [PowerShell](#add-client-credentials-by-using-powershell)과 같은 명령줄 도구를 사용 하 여 클라이언트 앱의 등록에 자격 증명을 추가할 수 있습니다.
 
-클라이언트 자격 증명의 관리는 응용 프로그램의 **인증서 & 암호** 페이지에서 발생 합니다.
+### <a name="add-client-credentials-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 클라이언트 자격 증명 추가
 
-![인증서 & 암호 페이지](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
+기밀 클라이언트 응용 프로그램의 앱 등록에 자격 증명을 추가 하려면 빠른 시작: 추가 하려는 자격 증명 형식에 대 한 [Microsoft id 플랫폼을 사용 하 여 응용 프로그램 등록](../articles/active-directory/develop/quickstart-register-app.md) 의 단계를 따르세요.
 
-- Azure Portal의 앱 등록에서 **새 클라이언트 암호** 를 선택 하 여 *클라이언트 암호* 를 만듭니다. 클라이언트 암호를 만들 때 **인증서 & 암호** 창에서 이동 하기 전에 암호의 문자열을 기록해 _야_ 합니다. 비밀의 문자열은 다시 표시 되지 않습니다.
-- 응용 프로그램을 등록 하는 동안 **인증서 업로드** 단추를 사용 하 여 인증서를 업로드 합니다. Azure AD는 응용 프로그램에 직접 등록 된 인증서만 지원 하며 인증서 체인을 따르지 않습니다.
+* [클라이언트 암호 추가](../articles/active-directory/develop/quickstart-register-app.md#add-a-client-secret)
+* [인증서 추가](../articles/active-directory/develop/quickstart-register-app.md#add-a-certificate)
 
-자세한 내용은 빠른 시작 [: 웹 api에 액세스 하는 클라이언트 응용 프로그램 구성 | 응용 프로그램에 자격 증명을 추가](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application)합니다.
+### <a name="add-client-credentials-by-using-powershell"></a>PowerShell을 사용 하 여 클라이언트 자격 증명 추가
 
-### <a name="register-client-secrets-by-using-powershell"></a>PowerShell을 사용 하 여 클라이언트 암호 등록
+또는 PowerShell을 사용 하 여 Microsoft id 플랫폼에 응용 프로그램을 등록할 때 자격 증명을 추가할 수 있습니다.
 
-또는 명령줄 도구를 사용 하 여 Azure AD에 응용 프로그램을 등록할 수 있습니다. [Dotnetcore-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 샘플은 Azure AD 응용 프로그램을 사용 하 여 응용 프로그램 비밀 또는 인증서를 등록 하는 방법을 보여 줍니다.
+GitHub의 [dotnetcore](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 코드 샘플에서는 응용 프로그램을 등록할 때 응용 프로그램 비밀 또는 인증서를 추가 하는 방법을 보여 줍니다.
 
-- 응용 프로그램 암호를 등록 하는 방법에 대 한 자세한 내용은 [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190)를 참조 하세요.
-- 응용 프로그램에 인증서를 등록 하는 방법에 대 한 자세한 내용은 [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178)를 참조 하세요.
+- PowerShell을 사용 하 여 **클라이언트 암호** 를 추가 하는 방법에 대 한 자세한 내용은 [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190)를 참조 하세요.
+- PowerShell을 사용 하 여 **인증서** 를 추가 하는 방법에 대 한 자세한 내용은 [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178)를 참조 하세요.

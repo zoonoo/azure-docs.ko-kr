@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 08/03/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 7b98d3c1febd68a7ee73cf3064f4d8e108ea81fa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3a17e73c66c2296cc36b24e3b0a8abfcab00e46a
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89084887"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419408"
 ---
 Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 통해 Azure Resource Manager를 통해 장치에 연결 하도록 클라이언트를 구성 해야 합니다. 자세한 단계는 [Azure Stack Edge 장치에서 Azure Resource Manager에 연결](../articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md)로 이동 합니다.
 
@@ -19,7 +19,7 @@ Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 
 1. Azure Resource Manager 통신이 작동 하는지 확인 합니다. 유형:     
 
     ```powershell
-    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>:30005/
+    Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
     ```
 
 1. 로컬 장치 Api를 호출 하 여 인증 합니다. 유형: 
@@ -28,11 +28,11 @@ Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 
 
     Azure Resource Manager를 통해 연결할 사용자 이름- *EdgeARMuser* 및 암호를 제공 합니다.
 
-1. Kubernetes에 대 한 **계산** 을 구성한 경우이 단계를 건너뛸 수 있습니다. 계산을 위한 네트워크 인터페이스를 사용 하도록 설정 했는지 확인 합니다. 로컬 UI에서 **계산** 설정으로 이동 합니다. 가상 스위치를 만드는 데 사용할 네트워크 인터페이스를 선택 합니다. 만든 Vm은이 포트 및 연결 된 네트워크에 연결 된 가상 스위치에 연결 됩니다. VM에 사용 하는 고정 IP 주소와 일치 하는 네트워크를 선택 해야 합니다.  
+1. Kubernetes에 대 한 **계산** 을 구성한 경우이 단계를 건너뛸 수 있습니다. 계산을 위한 네트워크 인터페이스를 사용 하도록 설정 했는지 확인 합니다. 로컬 UI에서 **계산** 설정으로 이동 합니다. 가상 스위치를 만드는 데 사용할 네트워크 인터페이스를 선택합니다. 만든 Vm은이 포트 및 연결 된 네트워크에 연결 된 가상 스위치에 연결 됩니다. VM에 사용할 IP 주소와 일치 하는 네트워크를 선택 해야 합니다.  
 
     ![계산 설정 1 사용](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-templates/enable-compute-setting.png)
 
-    네트워크 인터페이스에서 계산을 사용 하도록 설정 합니다. Azure Stack Edge는 해당 네트워크 인터페이스에 해당 하는 가상 스위치를 만들고 관리 합니다. 현재 Kubernetes에 대 한 특정 Ip를 입력 하지 마세요. 계산을 사용 하도록 설정 하는 데 몇 분 정도 걸릴 수 있습니다.
+    네트워크 인터페이스에서 컴퓨팅을 사용하도록 설정합니다. Azure Stack Edge는 해당 네트워크 인터페이스에 해당 하는 가상 스위치를 만들고 관리 합니다. 현재 Kubernetes에 대 한 특정 Ip를 입력 하지 마세요. 계산을 사용 하도록 설정 하는 데 몇 분 정도 걸릴 수 있습니다.
 
     <!--If you decide to use another network interface for compute, make sure that you:
     

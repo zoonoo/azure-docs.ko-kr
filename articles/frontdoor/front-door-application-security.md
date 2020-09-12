@@ -3,20 +3,20 @@ title: Azure 전면 도어-응용 프로그램 계층 보안 | Microsoft Docs
 description: 이 문서는 Azure 프런트 도어를 통해 응용 프로그램 백 엔드를 보호 하 고 보호 하는 방법을 이해 하는 데 도움이 됩니다.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 4ee50b4c7da27df3630c1b4d263f076da44189bc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471798"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399942"
 ---
 # <a name="application-layer-security-with-front-door"></a>Front Door와 애플리케이션 계층 보안
 Azure 전면 도어는 웹 응용 프로그램을 보호 하는 웹 응용 프로그램 보호 기능을 제공 합니다 .이 기능을 통해 웹 응용 프로그램을 네트워크 공격 으로부터 보호 하 고 SQL 삽입 또는 XSS (교차 사이트 스크립팅) 같은 http(s) 프런트 엔드를 사용할 수 있게 설정된 Front Door의 애플리케이션 계층 보안은 전역적으로 배포되며, 항상 켜져 있으므로 백 엔드와 멀리 떨어진 Azure의 네트워크 에지에서 악의적인 공격을 막아줍니다. 보안 및 성능이 더욱 최적화된 Front Door는 최종 사용자에게 빠르고 안전한 웹 환경을 제공합니다.

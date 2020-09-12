@@ -3,20 +3,20 @@ title: Traffic Manager 엔드포인트 유형 | Microsoft Docs
 description: 이 문서에서는 Azure Traffic Manager와 함께 사용할 수 있는 다양한 유형의 엔드포인트를 설명합니다.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
-ms.author: rohink
-ms.openlocfilehash: cd5c6968425c64bd670e56bbe7ae016c59662169
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 692c63849bc9e92ded43db3bf22ce14384f2b68d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698668"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401285"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager 엔드포인트
 
@@ -26,9 +26,9 @@ Traffic Manager에서 지원되는 엔드포인트에는 세 가지 종류가 �
 
 * **Azure 엔드포인트** 는 Azure에서 호스팅되는 서비스에 사용됩니다.
 * **외부 엔드포인트**는 IPv4/IPv6 주소나 FQDNs 또는 Azure 외부에서 호스팅되는 서비스(온-프레미스 또는 다른 호스팅 공급자의 서비스일 수 있음)에 사용됩니다.
-* **중첩 끝점** 은 더 크고 복잡 한 배포의 요구를 지원 하기 위해 Traffic Manager 프로필을 결합 하 여 보다 유연한 트래픽 라우팅 체계를 만드는 데 사용 됩니다.
+* **중첩 엔드포인트**는 더 크고 복잡한 배포에 대한 요구 사항을 지원하는 더 유연한 트래픽 라우팅 체계를 만들도록 Traffic Manager 프로필을 결합하는 데 사용됩니다.
 
-단일 Traffic Manager 프로필에서 서로 다른 유형의 엔드포인트를 결합하는 방법에는 제한이 없습니다. 각 프로필은 모든 엔드포인트 유형의 혼합을 포함할 수 있습니다.
+여러 가지 형식의 엔드포인트를 단일 Traffic Manager 프로필로 결합하는 방법에는 제한 사항이 없습니다. 각 프로필은 모든 엔드포인트 유형의 혼합을 포함할 수 있습니다.
 
 다음 섹션에서는 각 엔드포인트 유형을 자세히 설명합니다.
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: ac8e49c85147576e489b16a3a421c75d60ad4aee
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ff039d6d5879e036aecc63b46359d84673f84a0e
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104415"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424646"
 ---
 ### <a name="container-repositories-and-images"></a>컨테이너 리포지토리 및 이미지
 
@@ -31,7 +31,7 @@ MCR (Microsoft Container Registry)은 Cognitive Services에 대해 일반적으�
 
 자세한 내용은 [LUIS 컨테이너를 실행 하 고 설치 하는 방법](../../LUIS/luis-container-howto.md) 을 참조 하세요.
 
-#### <a name="text-analytics"></a>[텍스트 분석](#tab/text-analytics)
+#### <a name="text-analytics"></a>[Text Analytics](#tab/text-analytics)
 
 | Text Analytics 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |--|--|
@@ -56,8 +56,8 @@ MCR (Microsoft Container Registry)은 Cognitive Services에 대해 일반적으�
 
 | 서비스 | 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |--|--|--|
-| [텍스트 분석](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 핵심 문구 추출 | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-| [텍스트 분석](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 언어 검색 | `mcr.microsoft.com/azure-cognitive-services/language` |
+| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 핵심 문구 추출 | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
+| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | 언어 검색 | `mcr.microsoft.com/azure-cognitive-services/language` |
 | [변칙 탐지기](../../anomaly-detector/anomaly-detector-container-howto.md) | Anomaly Detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>공용 "제어 된" 미리 보기 (컨테이너 레지스트리: `containerpreview.azurecr.io` )
@@ -67,10 +67,11 @@ MCR (Microsoft Container Registry)은 Cognitive Services에 대해 일반적으�
 | 서비스 | 컨테이너 | Container Registry/리포지토리/이미지 이름 |
 |--|--|--|
 | [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | 읽기 | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
-| [Face](../../face/face-how-to-install-containers.md) | Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
+| [얼굴](../../face/face-how-to-install-containers.md) | Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [폼 인식기](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=stt) | 음성 텍스트 변환 | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=cstt) | Custom Speech 텍스트 | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=tts) | 텍스트 음성 변환 | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
 | [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | 사용자 지정 텍스트 음성 변환 | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
-| [상태 Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | 상태 Text Analytics | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ntts) | 신경망 음성 변환 | `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech` |
+| [상태 Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | 의료 분야 Text Analytics | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |

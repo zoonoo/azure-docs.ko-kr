@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 0ebd3d97c3d7a2218bcfd821e1cc81c6bd74adf6
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.date: 09/02/2020
+ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605761"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400316"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -118,6 +118,7 @@ Cosmos DB는 자동으로 데이터를 정기적으로 백업합니다. 백업 �
 | 인덱싱 정책의 최대 경로 수| 100 <sup>*</sup>|
 | 컨테이너당 최대 고유 키 수|10 <sup>*</sup>|
 | 고유 키 제약 조건당 최대 경로 수|16 <sup>*</sup>|
+| 최대 TTL 값 |2147483647|
 
 <sup>*</sup> Azure 지원에 문의하여 이러한 컨테이너당 제한을 늘릴 수 있습니다.
 
@@ -136,6 +137,7 @@ Cosmos DB는 자동으로 데이터를 정기적으로 백업합니다. 백업 �
 | 속성 값의 최대 길이 | 실질적인 제한 없음 |
 | 문자열 속성 값의 최대 길이 | 실질적인 제한 없음 |
 | 숫자 속성 값의 최대 길이 | IEEE754 이중 정밀도 64비트 |
+| 최대 TTL 값 |2147483647|
 
 파티션 키와 ID 값의 길이 제한 및 전체 크기 2MB 제한을 제외하고, 속성 수나 중첩 깊이와 같은 항목 페이로드에 대한 제한은 없습니다. RU 사용을 줄이기 위해 항목 구조가 거대하거나 복잡한 컨테이너의 인덱싱 정책을 구성해야 할 수도 있습니다. 실제 예제와 대형 항목을 관리하는 패턴은 [Cosmos DB의 항목 모델링](how-to-model-partition-example.md)을 참조하세요.
 

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 04/01/2020
-ms.openlocfilehash: 7dd28ab23894988a1ee193f2f8d72cb83b7aafe8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/02/2020
+ms.openlocfilehash: 44f06773eec965fad610da1a4286bdf224e3a88b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120520"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321483"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Azure Marketplace에서 시/도 코드 공동 판매
 
@@ -78,7 +78,7 @@ ms.locfileid: "86120520"
 | 북마리아나제도            | US-MP     |
 | 푸에르토리코                         | US-PR     |
 | 미국령 해외 제도 | US-UM    |
-| 미국령 버진 아일랜드                 | 미국-VI    |
+| 미국 버진 아일랜드                 | 미국-VI    |
 
 ## <a name="canadian-provinces-and-territories"></a>캐나다 지방 및 지역
 
