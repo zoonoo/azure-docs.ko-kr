@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 8547c07214e94176babe4909504b9292d45c06f9
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: af4353e5b0991f7ce2f6fe8ff940e916717b0579
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759617"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650484"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Azure SQL Edge 사용량 및 진단 데이터 구성
 
@@ -72,7 +72,7 @@ Azure SQL Edge에서 사용 및 진단 데이터 수집을 사용 하지 않도�
 
 ### <a name="disable-usage-and-diagnostics-using-mssqlconf-file"></a>Mssql 파일을 사용 하 여 사용 및 진단 사용 안 함
 
-Azure SQL Edge에서 사용 및 진단 데이터 수집을 사용 하지 않도록 설정 하려면 SQL Edge 모듈의/var/opt/mssql/폴더에 매핑되는 영구 저장소 드라이브의 mssql 파일에 다음 파일을 추가 합니다. Mssql 파일을 사용 하 여 Azure SQL Edge를 구성 하는 방법에 대 한 자세한 내용은 [mssql 파일을 사용 하 여 구성](configure.md#configure-by-using-an-mssqlconf-file)을 참조 하세요.
+Azure SQL Edge에서 사용 및 진단 데이터 수집을 사용 하지 않도록 설정 하려면 SQL Edge 모듈의/var/opt/mssql/폴더에 매핑되는 영구 저장소 드라이브의 mssql 파일에 다음 줄을 추가 합니다. Mssql 파일을 사용 하 여 Azure SQL Edge를 구성 하는 방법에 대 한 자세한 내용은 [mssql 파일을 사용 하 여 구성](configure.md#configure-by-using-an-mssqlconf-file)을 참조 하세요.
 
 ```ini
 [telemetry]

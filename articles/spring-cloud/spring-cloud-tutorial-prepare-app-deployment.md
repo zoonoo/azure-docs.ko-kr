@@ -7,22 +7,22 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 79d3829eaea15c8e7909b98b83d1327cd90e4544
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 59318cca33ba1607498546161764aa3aaaaea13e
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260326"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014942"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비
 
 이 항목에서는 Azure Spring Cloud에 배포하기 위해 기존 Java Spring 애플리케이션을 준비하는 방법을 보여줍니다. 제대로 구성된 경우, Azure Spring Cloud는 Java Spring Cloud 애플리케이션을 모니터링하고, 크기를 조정하고, 업데이트할 수 있는 강력한 서비스를 제공합니다.
 
-이 예를 실행 하기 전에 [기본 빠른](spring-cloud-quickstart.md)시작을 사용해 볼 수 있습니다.
+이 예제를 실행하기 전에 [기본 빠른 시작](spring-cloud-quickstart.md)을 시도해 볼 수 있습니다.
 
 다른 예제에서는 POM 파일이 구성된 경우 Azure Spring Cloud에 애플리케이션을 배포하는 방법을 설명합니다. 
 * [첫 번째 앱 시작](spring-cloud-quickstart.md)
-* [마이크로서비스 빌드 및 실행](spring-cloud-quickstart-sample-app-introduction.md)
+* [마이크로 서비스 빌드 및 실행](spring-cloud-quickstart-sample-app-introduction.md)
 
 이 문서에서는 필요한 종속성과 이것을 POM 파일에 추가하는 방법을 설명합니다.
 
@@ -128,9 +128,9 @@ Azure Spring Cloud는 Spring Cloud 구성 요소를 호스트하고 관리합니
 
 Spring Boot 버전 | Spring Cloud 버전 | Azure 스프링 클라우드 클라이언트 스타터 버전
 ---|---|---
-2.1 | Greenwich.RELEASE | 2.1.2
-2.2 | Hoxton | 필요하지 않음
-2.3 | Hoxton | 필요하지 않음
+2.1.x | Greenwich.RELEASE | 2.1.2
+2.2. x | Hoxton | 필요하지 않음
+2.3. x | Hoxton | 필요하지 않음
 
 스프링 부트 2.1를 사용 하는 경우 pom.xml 파일에 다음 dependenciy를 포함 합니다.
 

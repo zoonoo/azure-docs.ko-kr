@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-javascript
 - devx-track-csharp
-ms.openlocfilehash: f8971faec53830746c76d09a6cf7f22d2c80c45a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3e1de8b5c35c2f62c65b2bdd4751df86127010ad
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017688"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015129"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -361,7 +361,12 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 디바이스는 인증을 위해 X.509 인증서 또는 보안 토큰 중 하나만 사용할 수 있습니다.
 
-인증 기관을 사용한 인증에 대한 자세한 내용은 [X.509 CA 인증서를 사용한 디바이스 인증](iot-hub-x509ca-overview.md)을 참조하세요.
+X.509 CA 인증을 사용 하는 장치에 대해서는 다음 기능이 지원 되지 않습니다.
+
+* HTTPS, Websocket을 통한 MQTT 및 Websocket 프로토콜을 통한 AMQP
+* 파일 업로드 (모든 프로토콜)
+
+인증 기관을 사용한 인증에 대한 자세한 내용은 [X.509 CA 인증서를 사용한 디바이스 인증](iot-hub-x509ca-overview.md)을 참조하세요. IoT hub를 사용 하 여 인증 기관을 업로드 하 고 확인 하는 방법에 대 한 자세한 내용은 [Azure iot hub에서 x.509 보안 설정](iot-hub-security-x509-get-started.md)을 참조 하세요.
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>디바이스에 대해 X.509 인증서 등록
 

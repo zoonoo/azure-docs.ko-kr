@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: ac9ff084476f37348b72bdb42b9b74660132b762
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7d29408c126844615666a4ab217027b6ae1d037d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254637"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659954"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-gpu-device"></a>Azure Stack에 지 GPU 장치의 Azure Marketplace에서 GPU 사용 IoT 모듈 배포
 
@@ -28,14 +28,12 @@ ms.locfileid: "89254637"
 
 이 문서의 GPU 샘플 모듈에는 GPU에 대 한 CPU에 대 한 PyTorch 및 TensorFlow 벤치마킹 샘플 코드가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 다음을 확인합니다.
 
 - GPU 사용 1 노드 Azure Stack Edge 장치에 액세스할 수 있습니다. 이 장치는 Azure의 리소스를 사용 하 여 활성화 됩니다. 
-- 이 장치에서 계산을 구성 했습니다. 
-    - [자습서: Azure Stack Edge 장치에서 계산 구성](azure-stack-edge-gpu-deploy-configure-compute.md)의 단계를 따릅니다.
-    - 다음을 확인 하세요. 
+- 이 장치에서 계산을 구성 했습니다. [자습서: Azure Stack Edge 장치에서 계산 구성](azure-stack-edge-gpu-deploy-configure-compute.md)의 단계를 따릅니다.
 - Windows 클라이언트에서 다음과 같은 개발 리소스가 있습니다.
     - [Visual Studio Code](https://code.visualstudio.com/)  
     - [Visual Studio Code에 대 한 Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)입니다.   

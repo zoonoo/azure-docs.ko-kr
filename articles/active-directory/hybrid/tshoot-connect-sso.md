@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b35815e42b6c9fa5cbd874c0a58f5285c99539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355916"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016268"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "85355916"
 - 경우에 따라 Seamless SSO를 활성화하는 데 최대 30분이 소요될 수 있습니다.
 - 테넌트에서 Seamless SSO를 사용하지 않도록 설정했다가 다시 사용하도록 설정하면, 일반적으로 10시간 동안 유효한 캐시된 Kerberos 티켓이 만료될 때까지 Single Sign-On 환경을 사용할 수 없게 됩니다.
 - Seamless SSO가 성공하면 사용자에게 **로그인 유지**를 선택하는 기회가 제공되지 않습니다. 이 동작으로 인해 [SharePoint 및 OneDrive 매핑 시나리오가](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) 작동 하지 않습니다.
-- 버전 16.0.8730.xxxx 이상의 Office 365 Win32 클라이언트(Outlook, Word, Excel 등)는 비대화형 흐름을 사용하여 지원됩니다. 다른 버전이 지원되지 않습니다. 해당 버전에서 사용자는 암호가 아닌 해당 사용자 이름을 입력하여 로그인합니다. OneDrive의 경우 자동 로그온 환경에 대해 [OneDrive 자동 구성 기능](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894)을 활성화해야 합니다.
+- 16.0.8730 이상 버전을 사용 하는 Win32 클라이언트 (Outlook, Word, Excel 및 기타)는 비 대화형 흐름을 사용 하 여 지원 됩니다. Microsoft 365 다른 버전이 지원되지 않습니다. 해당 버전에서 사용자는 암호가 아닌 해당 사용자 이름을 입력하여 로그인합니다. OneDrive의 경우 자동 로그온 환경에 대해 [OneDrive 자동 구성 기능](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894)을 활성화해야 합니다.
 - Firefox의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다.
 - [향상된 보호] 모드가 설정되어 있는 경우 Internet Explorer에서 Seamless SSO가 작동하지 않습니다.
 - iOS 및 Android의 모바일 브라우저에서는 Seamless SSO가 작동하지 않습니다.
@@ -74,9 +74,9 @@ ms.locfileid: "85355916"
 다음 검사 목록을 사용하여 Seamless SSO 문제를 해결합니다.
 
 - Azure AD Connect에서 Seamless SSO 기능을 사용할 수 있는지 확인합니다. 차단 된 포트로 인해 기능을 사용 하도록 설정할 수 없는 경우 모든 [필수 구성 요소](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) 를 준비 했는지 확인 합니다.
-- 테넌트에서 [Azure AD Join](../active-directory-azureadjoin-overview.md) 및 Seamless SSO를 둘 다 사용하도록 설정한 경우에는 Azure AD Join의 문제는 아닌지 확인합니다. 디바이스가 Azure AD에 등록되고 도메인에 가입된 경우 Azure AD Join의 SSO가 Seamless SSO보다 우선합니다. Azure AD Join의 SSO를 사용하면 "Windows에 연결됨"이라는 로그인 타일이 표시됩니다.
+- 테넌트에서 [Azure AD Join](../devices/overview.md) 및 Seamless SSO를 둘 다 사용하도록 설정한 경우에는 Azure AD Join의 문제는 아닌지 확인합니다. 디바이스가 Azure AD에 등록되고 도메인에 가입된 경우 Azure AD Join의 SSO가 Seamless SSO보다 우선합니다. Azure AD Join의 SSO를 사용하면 "Windows에 연결됨"이라는 로그인 타일이 표시됩니다.
 - Azure AD URL ( `https://autologon.microsoftazuread-sso.com` )이 사용자의 인트라넷 영역 설정의 일부 인지 확인 합니다.
-- 회사 디바이스가 Active Directory 도메인에 조인되어 있는지 확인합니다. Seamless SSO가 작동하려면 디바이스가 [Azure AD에 조인](../active-directory-azureadjoin-overview.md)될 필요는 _없습니다_.
+- 회사 디바이스가 Active Directory 도메인에 조인되어 있는지 확인합니다. Seamless SSO가 작동하려면 디바이스가 [Azure AD에 조인](../devices/overview.md)될 필요는 _없습니다_.
 - 사용자가 Active Directory 도메인 계정을 통해 디바이스에 로그온되어 있는지 확인합니다.
 - Seamless SSO가 설정된 Active Directory 포리스트에 사용자의 계정이 있는지 확인합니다.
 - 디바이스가 회사 네트워크에 연결되어 있는지 확인합니다.
@@ -106,7 +106,7 @@ ms.locfileid: "85355916"
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>1단계: Seamless SSO PowerShell 모듈 가져오기
 
-1. 먼저 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
+1. 먼저 [Azure AD PowerShell](/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
 2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
 3. `Import-Module .\AzureADSSO.psd1` 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다.
 

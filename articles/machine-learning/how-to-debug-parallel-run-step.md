@@ -11,17 +11,17 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 07/16/2020
-ms.openlocfilehash: 0b914059567e9a513b605ce733407465b625a909
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 8d357cea7ce809c2df6b35e08ac7da7e9d3795e9
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950020"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650427"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>ParallelRunStep 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)에서 [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) 클래스의 디버그 및 문제 해결 방법에 대해 알아봅니다.
+이 문서에서는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)에서 [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) 클래스의 디버그 및 문제 해결 방법에 대해 알아봅니다.
 
 ## <a name="testing-scripts-locally"></a>로컬에서 스크립트 테스트
 
@@ -90,7 +90,7 @@ def run(mini_batch):
 
 사용자는 ParalleRunStep의 side_inputs 매개 변수를 사용 하 여 스크립트에 참조 데이터를 전달할 수 있습니다. Side_inputs로 제공 되는 모든 데이터 집합은 각 작업자 노드에 탑재 됩니다. 사용자는 인수를 전달 하 여 탑재 위치를 가져올 수 있습니다.
 
-참조 데이터를 포함 하는 데이터 [집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) 을 생성 하 고 작업 영역에 등록 합니다. `ParallelRunStep`의 `side_inputs` 매개 변수에 전달합니다. 또한 섹션에 해당 경로를 추가 하 여 `arguments` 탑재 된 경로에 쉽게 액세스할 수 있습니다.
+참조 데이터를 포함 하는 데이터 [집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) 을 생성 하 고 작업 영역에 등록 합니다. `ParallelRunStep`의 `side_inputs` 매개 변수에 전달합니다. 또한 섹션에 해당 경로를 추가 하 여 `arguments` 탑재 된 경로에 쉽게 액세스할 수 있습니다.
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -116,6 +116,6 @@ labels_path = args.labels_dir
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azureml-파이프라인 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요. ParallelRunStep 클래스에 대 한 참조 [설명서](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py) 를 봅니다.
+* [Azureml-파이프라인 단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) 패키지에 대 한 도움말은 SDK 참조를 참조 하세요. ParallelRunStep 클래스에 대 한 참조 [설명서](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true) 를 봅니다.
 
 * ParallelRunStep와 함께 파이프라인 사용에 대 한 [고급 자습서](tutorial-pipeline-batch-scoring-classification.md) 를 따르세요. 이 자습서에서는 다른 파일을 측면 입력으로 전달 하는 방법을 보여 줍니다. 

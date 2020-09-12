@@ -1,6 +1,6 @@
 ---
 title: 내 계정 포털에서 조직 관리 - Azure AD
-description: 내 계정 포털의 조직 페이지에서 회사 또는 학교 계정에 연결된 조직을 확인하고 나가는 방법입니다.
+description: 내 계정 포털의 조직 페이지에서 액세스할 수 있는 조직을 확인 하 고 유지 하는 방법입니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798179"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005074"
 ---
-# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>조직 페이지에서 연결된 조직 관리
+# <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>내 계정 포털에서 액세스할 수 있는 조직 관리
 
-**내 계정** 포털의 **조직** 페이지를 통해 회사 또는 학교 계정에 연결된 조직(일반적으로 조직 이름)을 관리할 수 있습니다. **조직** 페이지에는 두 가지 유형의 조직이 표시됩니다.
+**내 계정** 포털의 **조직** 페이지에서는 액세스 권한이 있는 조직 (일반적으로 조직의 이름)을 관리할 수 있습니다. **조직** 페이지에는 두 가지 유형의 조직이 표시됩니다.
 
 - **홈 조직.** 홈 조직은 회사 또는 학교 계정을 소유하는 조직입니다. 홈 조직을 나갈 수 없습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "88798179"
 - **기타 조직.** 기타 조직은 이전에 회사 또는 학교 계정을 사용하여 로그인한 임의의 그룹입니다. 언제든지 이러한 조직 중 어느 곳도 나갈 수 있습니다.
 
 >[!Important]
->이 문서는 회사 또는 학교 계정에 연결된 조직 정보를 업데이트하려는 사용자를 위해 작성되었습니다. 직원용 및 기타 용도의 그룹 및 사용자 관리에 관한 정보를 찾는 관리자는 [엔터프라이즈 사용자 관리 문서](../users-groups-roles/index.yml)를 참조하세요.
+>이 문서는 회사 또는 학교 계정에서 액세스 하는 조직 정보를 업데이트 하려는 사용자를 위해 작성 되었습니다. 직원용 및 기타 용도의 그룹 및 사용자 관리에 관한 정보를 찾는 관리자는 [엔터프라이즈 사용자 관리 문서](../users-groups-roles/index.yml)를 참조하세요.
 
 ## <a name="view-your-organizations"></a>조직 보기
 
@@ -44,7 +44,7 @@ ms.locfileid: "88798179"
 
     ![조직 페이지](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. 다른 관련 조직을 검토하여 계정에 연결된 모든 조직을 인식하는지 확인합니다.
+4. 액세스 권한이 있는 모든 조직을 인식할 수 있도록 다른 조직을 검토 합니다.
 
 ## <a name="leave-an-organization"></a>조직 나가기
 

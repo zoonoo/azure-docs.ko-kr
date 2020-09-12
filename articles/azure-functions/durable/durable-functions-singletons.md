@@ -3,14 +3,14 @@ title: 지속성 함수의 단일 항목 - Azure
 description: Azure Functions의 Durable Functions 확장에서 싱글톤을 사용하는 방법을 설명합니다.
 author: cgillum
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 09/10/2020
 ms.author: azfuncdf
-ms.openlocfilehash: deb64cf8128fd548cb74c064ab9fd6f169db5300
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 954b322536c5430608597c2e67c474fefeb5fb25
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041927"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004938"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>지속성 함수의 단일 항목 오케스트레이터(Azure Functions)
 
@@ -44,9 +44,10 @@ public static async Task<HttpResponseMessage> RunSingle(
     else
     {
         // An instance with the specified ID exists, don't create one.
-        return req.CreateErrorResponse(
-            HttpStatusCode.Conflict,
-            $"An instance with ID '{instanceId}' already exists.");
+        return new HttpResponseMessage(HttpStatusCode.Conflict)
+        {
+            Content = new StringContent($"An instance with ID '{instanceId}' already exists."),
+        };
     }
 }
 ```
@@ -141,7 +142,7 @@ module.exports = async function(context, req) {
 }
 ```
 
-**__init__py**
+**__init__.py**
 
 ```python
 import logging

@@ -7,12 +7,13 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: device-developer
+ms.openlocfilehash: cdc85029ec004060abf69b111d8a0ebca42147a4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337112"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015095"
 ---
 # <a name="what-are-device-templates"></a>디바이스 템플릿이란?
 
@@ -160,10 +161,10 @@ DTDL을 사용 하면 장치의 기능을 설명할 수 있습니다. 관련 기
 
 이 예제에서는 두 개의 속성, 원격 분석 유형 및 두 개의 명령을 보여 줍니다. 최소 필드 설명에는 다음이 포함 됩니다.
 
-- `@type`기능 유형을 지정 하려면, `Telemetry` `Property` 또는 `Command` 입니다.  일부 경우에는 IoT Central에서 값을 처리 하는 방법에 대 한 몇 가지 가정을 수행할 수 있도록 의미 체계 형식이 포함 되어 있습니다.
-- `name`원격 분석 값의 경우
-- `schema`원격 분석 또는 속성의 데이터 형식을 지정 합니다. 이 값은 double, integer, boolean 또는 string과 같은 기본 형식일 수 있습니다. 복합 개체 형식, 배열 및 맵도 지원 됩니다.
-- `commandType`명령을 처리 하는 방법을 지정 합니다.
+- `@type` 기능 유형을 지정 하려면, `Telemetry` `Property` 또는 `Command` 입니다.  일부 경우에는 IoT Central에서 값을 처리 하는 방법에 대 한 몇 가지 가정을 수행할 수 있도록 의미 체계 형식이 포함 되어 있습니다.
+- `name` 원격 분석 값의 경우
+- `schema` 원격 분석 또는 속성의 데이터 형식을 지정 합니다. 이 값은 double, integer, boolean 또는 string과 같은 기본 형식일 수 있습니다. 복합 개체 형식, 배열 및 맵도 지원 됩니다.
+- `commandType` 명령을 처리 하는 방법을 지정 합니다.
 
 표시 이름, 설명 등의 선택적 필드를 사용 하면 인터페이스 및 기능에 더 많은 세부 정보를 추가할 수 있습니다.
 

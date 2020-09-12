@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b0684735b32e03abe525b19dce6d9d887afe513b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cfeda0d06c1e6956c7bbc953f1082a3510e8712
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194075"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005023"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Azure Active Directory의 암호 정책 및 계정 제한
 
@@ -43,13 +43,13 @@ Azure AD에 로그인 하는 모든 계정에는 계정과 연결 된 고유한 
 
 Azure AD에서 직접 만들고 관리 하는 모든 사용자 계정에 암호 정책이 적용 됩니다. [AZURE AD 암호 보호에 대 한 사용자 지정 금지 된 암호를 구성할](tutorial-configure-custom-password-protection.md)수 있지만이 암호 정책은 수정할 수 없습니다.
 
-암호 정책은 Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 동기화 된 사용자 계정에 적용 되지 않습니다.
+EnforceCloudPasswordPolicyForPasswordSyncedUsers를 사용 하도록 설정 하지 않으면 Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 동기화 된 사용자 계정에 암호 정책이 적용 되지 않습니다.
 
 정의 되는 암호 정책 옵션은 다음과 같습니다.
 
 | 속성 | 요구 사항 |
 | --- | --- |
-| 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [] {} &#124; \: ',. ? / \`~ " ( ) ;</li> <li>공백</li></ul> |
+| 허용되는 문자 |<ul><li>A-Z</li><li>a-z</li><li>0-9</li> <li>@ # $ % ^ & * - _ ! + = [] {} &#124; \: ',. ? / \` ~ " ( ) ;</li> <li>공백</li></ul> |
 | 허용되지 않는 문자 | 유니코드 문자 |
 | 암호 제한 |<ul><li>최소 8 자에서 최대 256 자까지 입력할 수가 있습니다.</li><li>다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
 | 암호 만료 기간 (최대 암호 사용 기간) |<ul><li>기본값: **90**일</li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |

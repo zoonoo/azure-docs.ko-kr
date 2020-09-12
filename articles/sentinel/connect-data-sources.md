@@ -1,10 +1,10 @@
 ---
 title: Azure Sentinel에 데이터 원본 연결 | Microsoft Docs
-description: Microsoft Threat Protection, Microsoft 365, Office 365, Azure AD, ATP 및 Cloud App Security 같은 데이터 원본을 Azure 센티널에 연결 하는 방법을 알아봅니다.
+description: Microsoft 365 Defender (이전의 Microsoft 위협 방지), Microsoft 365 및 Office 365, Azure AD, ATP 및 Cloud App Security와 같은 데이터 원본을 Azure 센티널에 연결 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
-manager: angrobe
+manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -13,32 +13,31 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: a2b9c1602ead56b35c46508ef4d414145eb07432
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4618bb4ba65c48808bc738b51c90a6fd04f0eca3
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555510"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659630"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
 
-Azure 센티널을 사용 하도록 설정 하 고 나면 먼저 데이터 원본에 연결 해야 합니다. Azure 센티널은 microsoft 솔루션에 대 한 다양 한 커넥터와 함께 제공 되며, Microsoft 위협 방지 솔루션, Microsoft 365 원본 (Office 365 포함), Azure AD, Azure ATP, Microsoft Cloud App Security 등을 비롯 하 여 실시간 통합을 제공 합니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. CEF (일반 이벤트 형식), Syslog 또는 REST API를 사용 하 여 데이터 소스를 Azure 센티널에 연결할 수도 있습니다.
+Azure 센티널을 사용 하도록 설정 하 고 나면 먼저 데이터 원본에 연결 해야 합니다. Azure 센티널은 Microsoft 솔루션에 대 한 다양 한 커넥터와 함께 제공 되며, 기본적으로 제공 되며, Microsoft 365 Defender (이전의 Microsoft 위협 방지) 솔루션, Microsoft 365 원본 (Office 365 포함), Azure AD, Id 용 Microsoft Defender (이전의 Azure ATP), Microsoft Cloud App Security 등의 실시간 통합을 제공 합니다. 또한 타사 솔루션에 대한 광범위한 보안 에코시스템에 기본 제공 커넥터도 제공됩니다. CEF(Common Event Format), Syslog 또는 REST API를 사용하여 Azure Sentinel에 데이터 원본을 연결할 수도 있습니다.
 
 1. 메뉴에서 **데이터 커넥터**를 선택합니다. 이 페이지를 통해 Azure Sentinel에서 제공하는 커넥터의 전체 목록 및 해당 상태를 확인할 수 있습니다. 연결하려는 커넥터를 선택하고 **커넥터 페이지 열기**를 선택합니다. 
 
-   ![데이터 수집기](./media/collect-data/collect-data-page.png)
+   ![데이터 연결선 갤러리](./media/collect-data/collect-data-page.png)
 
 1. 특정 커넥터 페이지에서 모든 필수 구성 요소를 충족했는지 확인하고 지침을 따라 Azure Sentinel에 데이터를 연결합니다. 로그와 Azure Sentinel의 동기화를 시작하는 데 약간의 시간이 걸릴 수 있습니다. 연결한 후 **받은 데이터**에 데이터의 요약 및 데이터 형식의 연결 상태가 표시됩니다.
 
-   ![수집기 연결](./media/collect-data/opened-connector-page.png)
+   ![데이터 커넥터 구성](./media/collect-data/opened-connector-page.png)
   
 1. **다음 단계** 탭을 클릭하여 특정 데이터 형식에 대해 Azure Sentinel에서 제공하는 기본 제공 콘텐츠의 목록을 가져옵니다.
 
-   ![데이터 수집기](./media/collect-data/data-insights.png)
+   ![커넥터에 대 한 다음 단계](./media/collect-data/data-insights.png)
  
-
 ## <a name="data-connection-methods"></a>데이터 연결 메서드
 
 Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
@@ -48,13 +47,13 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
     - [Azure 활동](connect-azure-activity.md)
     - [Azure Active Directory](connect-azure-active-directory.md) -감사 로그 및 로그인 로그
     - [Azure AD ID 보호](connect-azure-ad-Identity-protection.md)
-    - [Azure Advanced Threat Protection](connect-azure-atp.md)
+    - [Microsoft Defender For Identity](connect-azure-atp.md) (이전의 Azure Advanced Threat Protection)
     - [Azure Information Protection](connect-azure-information-protection.md)
-    - [Azure Security Center](connect-azure-security-center.md)
+    - [Azure Defender](connect-azure-security-center.md) (이전의 Azure Security Center)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [도메인 이름 서버](connect-dns.md)
     - [Office 365](connect-office-365.md)
-    - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
+    - [Microsoft defender For Endpoint](connect-microsoft-defender-advanced-threat-protection.md) (이전의 Microsoft Defender Advanced Threat Protection)
     - [Microsoft 웹 애플리케이션 방화벽](connect-microsoft-waf.md)
     - [Windows 방화벽](connect-windows-firewall.md)
     - [Windows 보안 이벤트](connect-windows-security-events.md)
@@ -135,8 +134,8 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 | WireData | [실시간 데이터 연결](../azure-monitor/insights/wire-data.md) | &#10007; | |
 | WindowsFirewall | [Windows 방화벽 연결](connect-windows-firewall.md) | &#10003; | |
 | AADIP SecurityAlert  | [Azure AD ID 보호 연결](connect-azure-ad-identity-protection.md)  | &#10003; | |
-| AATP SecurityAlert  | [Azure ATP 연결](connect-azure-atp.md) | &#10003; | |
-| ASC SecurityAlert  | [Azure Security Center 연결](connect-azure-security-center.md)  | &#10003; | |
+| AATP SecurityAlert  | [Id에 대해 Microsoft Defender 연결](connect-azure-atp.md) (이전 Azure ATP) | &#10003; | |
+| ASC SecurityAlert  | [Azure Defender 연결](connect-azure-security-center.md) (이전에 Azure Security Center)  | &#10003; | |
 | MCAS SecurityAlert  | [Microsoft Cloud App Security 연결](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
 | Sysmon(이벤트) | [Sysmon 연결](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Windows 이벤트 연결](../azure-monitor/platform/data-sources-windows-events.md) <br> [Sysmon Parser 가져오기](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon 컬렉션은 가상 머신에 기본적으로 설치되지 않습니다. Sysmon 에이전트를 설치하는 방법에 대한 자세한 내용은 [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon)을 참조하세요. |

@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 1e6abeff8998e55eb7cbf450d1c3cc32f233e382
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065967"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659921"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 온-프레미스 파일 시스템에 연결
 
@@ -35,7 +35,7 @@ Azure Logic Apps 및 파일 시스템 커넥터를 사용 하 여 온-프레미�
 
 * 사용 하려는 파일 시스템이 있는 컴퓨터에 액세스 합니다. 예를 들어 파일 시스템과 동일한 컴퓨터에 데이터 게이트웨이를 설치 하는 경우 해당 컴퓨터에 대 한 계정 자격 증명이 필요 합니다.
 
-* Office 365 Outlook, Outlook.com, Gmail 등 Logic Apps에서 지원되는 공급자의 이메일 계정. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](/connectors/). 이 논리 앱은 Office 365 Outlook 계정을 사용합니다. 다른 이메일 계정을 사용하는 경우 전체 단계는 동일하지만 UI가 약간 다를 수 있습니다.
+* Office 365 Outlook, Outlook.com, Gmail 등 Logic Apps에서 지원되는 공급자의 이메일 계정. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](/connectors/). 이 논리 앱은 회사 또는 학교 계정을 사용 합니다. 다른 이메일 계정을 사용하는 경우 전체 단계는 동일하지만 UI가 약간 다를 수 있습니다.
 
   > [!IMPORTANT]
   > Gmail 커넥터를 사용하려는 경우 G Suite 비즈니스 계정만 논리 앱에서 제한 없이 이 커넥터를 사용할 수 있습니다. Gmail 소비자 계정이 있는 경우 특정 Google 승인 서비스에서만 이 커넥터를 사용하거나 [Gmail 커넥터 인증에 사용할 Google 클라이언트 앱을 만들](/connectors/gmail/#authentication-and-bring-your-own-application) 수 있습니다. 자세한 내용은 [Azure Logic Apps의 Google 커넥터에 대한 데이터 보안 및 개인정보처리방침](../connectors/connectors-google-data-security-privacy-policy.md)을 참조하세요.
@@ -68,14 +68,14 @@ Azure Logic Apps 및 파일 시스템 커넥터를 사용 하 여 온-프레미�
 
    ![연결 만들기](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | 속성 | 필수 | 값 | Description |
+   | 속성 | 필수 | 값 | 설명 |
    | -------- | -------- | ----- | ----------- |
    | **연결 이름** | 예 | <*연결-이름*> | 연결에 사용하려는 이름 |
-   | **루트 폴더** | 예 | <*루트 폴더-이름*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더나 컴퓨터가 액세스할 수 있는 네트워크 공유용 폴더 등의 위치에 온-프레미스 데이터 게이트웨이를 설치한 경우 파일 시스템용 루트 폴더입니다. <p>예를 들면 다음과 같습니다. `\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. |
+   | **루트 폴더** | 예 | <*루트 폴더-이름*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더나 컴퓨터가 액세스할 수 있는 네트워크 공유용 폴더 등의 위치에 온-프레미스 데이터 게이트웨이를 설치한 경우 파일 시스템용 루트 폴더입니다. <p>예: `\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. |
    | **인증 유형** | 아니요 | <*인증 유형*> | 파일 시스템에서 사용 하는 인증 유형: **Windows** |
    | **사용자 이름** | 예 | <*domain* > \\ 도메인 < *사용자 이름*> <p>또는 <p><*로컬* > \\ 컴퓨터 < *사용자 이름*> | 파일 시스템 폴더가 있는 컴퓨터의 사용자 이름입니다. <p>파일 시스템 폴더가 온-프레미스 데이터 게이트웨이와 동일한 컴퓨터에 있는 경우 <*로컬 컴퓨터* > \\ < *사용자 이름*>를 사용할 수 있습니다. |
    | **암호** | 예 | <*암호*> | 파일 시스템이 있는 컴퓨터의 암호 |
-   | **관문** | 예 | <*설치 된 게이트웨이-이름*> | 이전에 설치된 게이트웨이의 이름 |
+   | **gateway** | 예 | <*설치 된 게이트웨이-이름*> | 이전에 설치된 게이트웨이의 이름 |
    |||||
 
 1. 작업을 완료하면 **만들기**를 선택합니다.

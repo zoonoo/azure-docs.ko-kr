@@ -10,16 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf0d31895eaeaa41c23f9f07664b27bed1d3126
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758946"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016761"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 RuuviTag 센서 연결
 
-*이 문서는 솔루션 빌더 및 디바이스 개발자에게 적용됩니다.*
+이 문서는 솔루션 빌더에 적용됩니다.
 
 이 문서에서는 RuuviTag 센서를 Microsoft Azure IoT Central 응용 프로그램에 연결할 수 있는 방법에 대해 설명 합니다.
 
@@ -31,7 +31,7 @@ RuuviTag는 매우 심한 (Bluetooth 저 에너지)를 통해 통신 하며, Azu
 
 Rigado Cascade 500 게이트웨이 장치를 설정 하려면 [여기의 지침](./howto-connect-rigado-cascade-500.md) 을 따르세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 RuuviTag 센서를 연결 하려면 다음 리소스가 필요 합니다.
 
@@ -46,7 +46,7 @@ RuuviTag 센서를 Azure IoT Central 응용 프로그램 인스턴스에 등록 
 RuuviTag 장치 템플릿을 추가 하려면:
 
 1. 왼쪽 창에서 ***장치 템플릿*** 탭으로 이동 하 고 **+ 새로**만들기를 선택 ![ 합니다. 새 장치 템플릿 만들기 ](./media/howto-connect-ruuvi/devicetemplate-new.png) 페이지에서 ***사용자 지정 템플릿을 만들거나*** ***미리 구성 된 장치 템플릿을 사용할*** 수 있는 옵션을 제공 합니다.
-1. 아래와 같이 미리 구성 된 장치 템플릿 목록에서 RuuviTag 장치 템플릿을 선택 합니다. ![ RuuviTag 장치 템플릿 선택](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
+1. 아래와 같이 미리 구성 된 장치 템플릿 목록에서 RuuviTag 장치 템플릿을 선택 합니다.  ![ RuuviTag 장치 템플릿 선택](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
 1. 다음 ***: 사용자 지정*** 을 선택 하 여 다음 단계를 계속 합니다.
 1. 다음 화면에서 ***만들기*** 를 선택 하 여 IoT Central 응용 프로그램에 C500 장치 템플릿을 등록 합니다.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d00b0558f85e18dfb53736d89fead953cc01ee60
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 957e827e621d07ed9b5533a1607f955f05985d9b
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053170"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004785"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 [SMB 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 이 문서에서는 Azure 파일 공유를 탑재하는 두 가지 방법을 보여 줍니다. 하나는 요청 시 `mount` 명령을 사용하여 탑재하고, 다른 하나는 `/etc/fstab`에 항목을 만들어 부팅 시 탑재하는 방법입니다.
@@ -24,7 +24,7 @@ Linux에서 Azure 파일 공유를 탑재 하는 권장 방법은 SMB 3.0을 사
 | Ubuntu | 14.04+ | 16.04+ |
 | RHEL(Red Hat Enterprise Linux) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ | 10개 이상 |
+| Debian | 8+ | 10+ |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12+ | 12 SP2+ |
 
@@ -34,7 +34,7 @@ Linux에서 Azure 파일 공유를 탑재 하는 권장 방법은 SMB 3.0을 사
 uname -r
 ```
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Cifs-유틸리티 패키지가 설치 되어 있는지 확인 합니다.**  
@@ -69,7 +69,7 @@ uname -r
 
 * **최신 버전의 Azure CLI (명령줄 인터페이스)입니다.** Azure CLI를 설치 하는 방법에 대 한 자세한 내용은 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 를 참조 하 고 운영 체제를 선택 하십시오. PowerShell 6 +에서 Azure PowerShell 모듈을 사용 하려는 경우에는 Azure CLI에 대 한 지침이 제공 될 수 있습니다.
 
-* **445 포트가 열려 있는지 확인합니다**. SMB는 445 TCP 포트를 통해 통신합니다. 방화벽이 클라이언트 컴퓨터에서 445 TCP 포트를 차단하고 있지 않은지 확인합니다.  **-리소스 그룹><** 을 바꾸고 **저장소 계정<>**
+* **445 포트가 열려 있는지 확인합니다**. SMB는 445 TCP 포트를 통해 통신합니다. 방화벽이 클라이언트 컴퓨터에서 445 TCP 포트를 차단하고 있지 않은지 확인합니다.  `<your-resource-group>`을 바꾸고 `<your-storage-account>` 다음 스크립트를 실행 합니다.
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -114,6 +114,7 @@ Linux 배포에 Azure 파일 공유를 사용 하려면 Azure 파일 공유의 �
 1. **Mount 명령을 사용 하 여 Azure 파일 공유를 탑재**합니다. 아래 예제에서는 로컬 Linux 파일 및 폴더 사용 권한 기본 0755를 사용 합니다 .이는 소유자 (파일/디렉터리 Linux 소유자 기반)에 대 한 읽기, 쓰기 및 실행, 소유자 그룹의 사용자에 대 한 읽기 및 실행, 시스템에서 다른 사용자에 대 한 읽기 및 실행을 의미 합니다. `uid`및 `gid` 탑재 옵션을 사용 하 여 탑재의 사용자 id 및 그룹 id를 설정할 수 있습니다. `dir_mode`및를 사용 하 여 `file_mode` 원하는 대로 사용자 지정 권한을 설정할 수도 있습니다. 사용 권한을 설정 하는 방법에 대 한 자세한 내용은 위키백과의 [UNIX 숫자 표기법](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) 을 참조 하세요. 
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
@@ -176,6 +177,7 @@ Azure 파일 공유를 사용하여 작업을 완료하면 `sudo umount $mntPath
 1. 다음 **명령을 사용 하 여에 `/etc/fstab` 다음 줄을 추가 **합니다. 아래 예제에서는 소유자 (파일/디렉터리 Linux 소유자 기반)에 대 한 읽기, 쓰기 및 실행을 의미 하 고, 소유자 그룹의 사용자에 대해 읽기 및 실행 하 고, 시스템에서 다른 사용자에 대해 읽기 및 실행을 의미 하는 로컬 Linux 파일 및 폴더 사용 권한 기본 0755 `uid`및 `gid` 탑재 옵션을 사용 하 여 탑재의 사용자 id 및 그룹 id를 설정할 수 있습니다. `dir_mode`및를 사용 하 여 `file_mode` 원하는 대로 사용자 지정 권한을 설정할 수도 있습니다. 사용 권한을 설정 하는 방법에 대 한 자세한 내용은 위키백과의 [UNIX 숫자 표기법](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) 을 참조 하세요.
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
@@ -248,22 +250,22 @@ Linux 커널 4.18부터 레거시 이유로 호출 되는 SMB 커널 모듈은 `
 
 | 배포 | SMB를 사용 하지 않도록 설정할 수 있음 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | 예 |
+| Ubuntu 14.04-16.04 | 아니요 |
 | Ubuntu 18.04 | 예 |
 | Ubuntu 19.04 + | 예 |
-| Debian 8-9 | 예 |
+| Debian 8-9 | 아니요 |
 | Debian 10 이상 | 예 |
 | Fedora 29 이상 | 예 |
-| CentOS 7 | 예 | 
+| CentOS 7 | 아니요 | 
 | CentOS 8 이상 | 예 |
-| Red Hat Enterprise Linux 6.x-7.x | 예 |
+| Red Hat Enterprise Linux 6.x-7.x | 아니요 |
 | Red Hat Enterprise Linux 8 이상 | 예 |
-| openSUSE Leap 15.0 | 예 |
+| openSUSE Leap 15.0 | 아니요 |
 | openSUSE Leap 15.1 + | 예 |
 | openSUSE Tumbleweed | 예 |
-| SUSE Linux Enterprise 11.x-12. x | 예 |
-| SUSE Linux Enterprise 15 | 예 |
-| SUSE Linux Enterprise 15.1 | 예 |
+| SUSE Linux Enterprise 11.x-12. x | 아니요 |
+| SUSE Linux Enterprise 15 | 아니요 |
+| SUSE Linux Enterprise 15.1 | 아니요 |
 
 Linux 배포판에서 `disable_legacy_dialects` 다음 명령을 통해 module 매개 변수를 지원 하는지 확인할 수 있습니다.
 

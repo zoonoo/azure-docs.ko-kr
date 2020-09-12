@@ -2,19 +2,15 @@
 title: Azure Automation의 변수 관리
 description: 이 문서에서는 Runbook 및 DSC 구성에서 변수를 사용하는 방법을 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/14/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ee49ae905622b4b76d782f6a31e0c2333b6d54be
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 300bfa2ed801b810bcaaeb5bc4d04775d590015b
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055295"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004566"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Azure Automation의 변수 관리
 
@@ -30,7 +26,7 @@ Automation 변수는 다음과 같은 시나리오에 유용합니다.
 
 Azure Automation은 변수를 유지하고 Runbook 또는 DSC 구성이 실패한 경우에도 변수를 사용할 수 있도록 합니다. 이 동작 덕분에 하나의 Runbook 또는 DSC 구성이 설정한 값을 다른 Runbook이 사용하거나 동일한 Runbook이나 DSC 구성이 다음에 실행될 때 다시 사용할 수 있습니다.
 
-Azure Automation은 암호화된 각 변수를 안전하게 저장합니다. 변수를 만들 때 보안 자산으로 Azure Automation 여 해당 암호화 및 저장소를 지정할 수 있습니다. 변수를 만든 후에는 변수를 다시 만들지 않고 암호화 상태를 변경할 수 없습니다. Azure Security Center [Automation 계정 변수에 설명 된](../../security-center/recommendations-reference.md#recs-computeapp)대로 모든 Azure Automation 변수를 암호화 하는 것이 좋습니다. 
+Azure Automation은 암호화된 각 변수를 안전하게 저장합니다. 변수를 만들 때 보안 자산으로 Azure Automation 여 해당 암호화 및 저장소를 지정할 수 있습니다. 변수를 만든 후에는 변수를 다시 만들지 않고 암호화 상태를 변경할 수 없습니다. Azure Security Center [Automation 계정 변수에 설명 된](../../security-center/recommendations-reference.md#recs-computeapp)대로 모든 Azure Automation 변수를 암호화 하는 것이 좋습니다.
 
 >[!NOTE]
 >Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. Azure Automation은 시스템 관리 키 자격 증명 모음에 키를 저장합니다. 보안 자산을 저장하기 전에 Automation이 Key Vault에서 키를 로드한 다음, 자산을 암호화하는 데 사용합니다. 
@@ -45,7 +41,7 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 * 부울
 * Null
 
-변수가 지정된 데이터 형식으로 제한되지 않습니다. 다른 형식의 값을 지정하려면 Windows PowerShell을 사용하여 변수를 설정해야 합니다. `Not defined`를 지정하면 변수 값이 Null로 설정됩니다. [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) cmdlet 또는 내부 `Set-AutomationVariable` cmdlet을 사용하여 값을 설정해야 합니다.
+변수가 지정된 데이터 형식으로 제한되지 않습니다. 다른 형식의 값을 지정하려면 Windows PowerShell을 사용하여 변수를 설정해야 합니다. `Not defined`를 지정하면 변수 값이 Null로 설정됩니다. [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) cmdlet 또는 내부 `Set-AutomationVariable` cmdlet을 사용하여 값을 설정해야 합니다.
 
 Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변경할 수 없습니다. 그러나 Windows PowerShell을 사용하여 모든 형식의 값을 제공할 수 있습니다. 복잡한 형식은 [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject)로 검색됩니다.
 
@@ -60,10 +56,10 @@ Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변�
 
 | Cmdlet | Description |
 |:---|:---|
-|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | 기존 변수의 값을 검색합니다. 값이 단순 형식이면 동일한 해당 형식이 검색되고, 복합 형식이면 `PSCustomObject` 형식이 검색됩니다. <br>**참고:**  이 cmdlet을 사용하여 암호화된 변수의 값을 검색할 수는 없습니다. 이 작업을 수행하는 유일한 방법은 Runbook 또는 DSC 구성에서 내부 `Get-AutomationVariable` cmdlet을 사용하는 것입니다. [변수에 액세스하는 데 사용되는 내부 cmdlet](#internal-cmdlets-to-access-variables)을 참조하세요. |
-|[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | 새 변수를 만들고 해당 값을 설정합니다.|
-|[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| 기존 변수를 제거합니다.|
-|[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| 기존 변수의 값을 설정합니다. |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | 기존 변수의 값을 검색합니다. 값이 단순 형식이면 동일한 해당 형식이 검색되고, 복합 형식이면 `PSCustomObject` 형식이 검색됩니다. <br>**참고:**  이 cmdlet을 사용하여 암호화된 변수의 값을 검색할 수는 없습니다. 이 작업을 수행하는 유일한 방법은 Runbook 또는 DSC 구성에서 내부 `Get-AutomationVariable` cmdlet을 사용하는 것입니다. [변수에 액세스하는 데 사용되는 내부 cmdlet](#internal-cmdlets-to-access-variables)을 참조하세요. |
+|[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable) | 새 변수를 만들고 해당 값을 설정합니다.|
+|[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable)| 기존 변수를 제거합니다.|
+|[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable)| 기존 변수의 값을 설정합니다. |
 
 ## <a name="internal-cmdlets-to-access-variables"></a>변수에 액세스하는 데 사용되는 내부 cmdlet
 
@@ -103,16 +99,16 @@ Write-output "The encrypted value of the variable is: $mytestencryptvar"
 
 ### <a name="create-and-get-a-variable-using-the-azure-portal"></a>Azure Portal을 사용하여 변수를 만들고 가져오기
 
-1. Automation 계정에서 **자산** 타일을 클릭한 후 **자산** 블레이드에서 **변수**를 선택합니다.
-2. **변수** 타일에서 **변수 추가**를 선택합니다.
-3. **새 변수** 블레이드에서 옵션을 완료한 후 **만들기**를 클릭하여 새 변수를 저장합니다.
+1. Automation 계정의 왼쪽 창에서 **공유 리소스**아래에 있는 **변수** 를 선택 합니다.
+2. **변수** 페이지에서 **변수 추가**를 선택 합니다.
+3. **새** 변수 페이지에서 옵션을 완료 하 고 **만들기** 를 선택 하 여 새 변수를 저장 합니다.
 
 > [!NOTE]
 > 암호화된 변수를 저장하면 포털에서 해당 변수를 볼 수 없습니다. 업데이트할 수만 있습니다.
 
 ### <a name="create-and-get-a-variable-in-windows-powershell"></a>Windows PowerShell에서 변수를 만들고 가져오기
 
-Runbook 또는 DSC 구성은 `New-AzAutomationVariable` cmdlet을 사용하여 새 변수를 만들고 초기 값을 설정합니다. 변수가 암호화되면 호출에서 `Encrypted` 매개 변수를 사용해야 합니다. 스크립트는 `Get-AzAutomationVariable`을 사용하여 변수 값을 검색할 수 있습니다. 
+Runbook 또는 DSC 구성은 `New-AzAutomationVariable` cmdlet을 사용하여 새 변수를 만들고 초기 값을 설정합니다. 변수가 암호화되면 호출에서 `Encrypted` 매개 변수를 사용해야 합니다. 스크립트는 `Get-AzAutomationVariable`을 사용하여 변수 값을 검색할 수 있습니다.
 
 >[!NOTE]
 >PowerShell 스크립트는 암호화된 값을 검색할 수 없습니다. 이 작업을 수행하는 유일한 방법은 내부 `Get-AutomationVariable` cmdlet을 사용하는 것입니다.
@@ -127,7 +123,7 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-다음 예제에서는 복잡한 형식의 변수를 만들고 해당 속성을 검색하는 방법을 보여 줍니다. 이 예제에서는 [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0)의 가상 머신 개체가 사용되었습니다.
+다음 예제에서는 복잡한 형식의 변수를 만들고 해당 속성을 검색하는 방법을 보여 줍니다. 이 예제에서는 [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM)의 가상 머신 개체가 사용되었습니다.
 
 ```powershell
 $vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"

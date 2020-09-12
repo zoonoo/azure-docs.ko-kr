@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: c80823513dd65d68d74be62ca1194f843623d2dc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323029"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019532"
 ---
 # <a name="upload-files-with-iot-hub"></a>IoT Hub를 사용하여 파일 업로드
 
@@ -28,6 +28,8 @@ IoT Hub 자체를 통한 브로커 메시지 대신 IoT Hub는 연결된 Azure S
 디바이스에서 IoT Hub로 파일을 업로드하려면 먼저 [Azure Storage 계정을 연결](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub)하여 허브를 구성해야 합니다.
 
 그런 다음, 디바이스에서 [업로드를 초기화](iot-hub-devguide-file-upload.md#initialize-a-file-upload)한 다음, 업로드가 완료되면 [IoT Hub에 알릴](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) 수 있습니다. 필요에 따라 디바이스에서 IoT Hub에 업로드가 완료되었음을 알리면 서비스에서 [알림 메시지](iot-hub-devguide-file-upload.md#file-upload-notifications)를 생성할 수 있습니다.
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ### <a name="when-to-use"></a>사용 시기
 

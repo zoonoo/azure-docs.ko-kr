@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: b9e33ba8d9610067cb9e844477ec273391fbdb0b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1dcc345260c6a0844344bb33dec94c40d1dd9a54
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751731"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650864"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Azure HDInsight에서 네트워크 가상 어플라이언스 구성
 
@@ -55,6 +55,7 @@ Azure 방화벽은 몇 가지 일반적인 중요 시나리오에 대 한 트래
 | security.ubuntu.com:80                                                |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
+| microsoft.com:80                                                      |
 
 ## <a name="next-steps"></a>다음 단계
 

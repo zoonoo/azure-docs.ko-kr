@@ -5,16 +5,16 @@ author: sideeksh
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/28/2020
+ms.date: 04/28/2019
 ms.author: sideeksh
-ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021650"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007794"
 ---
-# <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Azure virtual machines에 대해 영역에 영역 재해 복구를 사용 하도록 설정
+# <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>가용성 영역 간에 Azure VM 재해 복구 사용
 
 이 문서에서는 동일한 Azure 지역 내의 한 가용성 영역에서 다른 가용성 영역으로 Azure 가상 머신을 복제, 장애 조치 (failover) 및 장애 복구 (failback) 하는 방법을 설명 합니다.
 
@@ -27,6 +27,8 @@ Site Recovery 서비스는 계획 되거나 계획 되지 않은 중단 중에 �
 
 가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역에는 하나 이상의 데이터 센터가 있습니다. 
 
+다른 지역의 가용성 영역으로 Vm을 이동 하려면 [이 문서를 검토](../resource-mover/move-region-availability-zone.md)하세요.
+
 ## <a name="using-availability-zones-for-disaster-recovery"></a>재해 복구를 위해 가용성 영역 사용 
 
 일반적으로 가용성 영역는 고가용성 구성으로 Vm을 배포 하는 데 사용 됩니다. 자연 재해 발생 시 재해 복구 솔루션을 제공 하기 위해 서로 너무 가까이 있을 수 있습니다.
@@ -37,7 +39,7 @@ Site Recovery 서비스는 계획 되거나 계획 되지 않은 중단 중에 �
 
 - 다른 많은 고객 들이 복잡 한 네트워킹 인프라를가지고 있으며, 관련 비용 및 복잡성 때문에 보조 지역에서 다시 만들지 않으려고 합니다. 영역 간 재해 복구는 구성을 훨씬 간소화 하는 가용성 영역에서 중복 네트워킹 개념을 활용 하므로 복잡성이 줄어듭니다. 이러한 고객은 간소화를 선호 하며 재해 복구를 위해 가용성 영역를 사용할 수도 있습니다.
 
-- 동일한 법률 관할 지역 내에 쌍을 이루는 지역이 없는 일부 지역 (예: 동남 아시아)에서 영역 및 영역 재해 복구는 응용 프로그램 및 데이터가 국가 간 경계를 갖지 않으므로 법적 규정 준수를 보장 하는 데 도움이 되는 사실상 재해 복구 솔루션으로 사용할 수 있습니다. 
+- 동일한 법률 법률 내에 쌍을 이루는 지역이 없는 일부 지역 (예: 동남 아시아)에서 영역 및 영역 재해 복구는 응용 프로그램 및 데이터가 국가 경계를 넘어 이동 하지 않으므로 법적 준수를 보장 하는 데 도움이 되는 사실상 재해 복구 솔루션으로 사용할 수 있습니다. 
 
 - 영역에 대 한 영역 재해 복구는 Azure에서 Azure로의 재해 복구와 비교 하 여 더 짧은 시간에 데이터를 복제 하는 것을 의미 하므로 더 짧은 대기 시간을 표시 하 고 RPO를 낮출 수 있습니다.
 
@@ -68,13 +70,13 @@ Vm에 대 한 영역 재해 복구 영역에 영역을 배포 하기 전에 VM�
 |기능  | 지원 정책  |
 |---------|---------|
 |클래식 VM   |     지원되지 않음    |
-|ARM Vm    |    지원 여부    |
-|Azure Disk Encryption v1 (AAD를 사용 하는 이중 패스)     |     지원 여부 |
-|Azure Disk Encryption v2 (AAD 없이 단일 패스)    |    지원 여부    |
+|ARM Vm    |    지원됨    |
+|Azure Disk Encryption v1 (이중 pass, Azure Active Directory (Azure AD))     |     지원됨   |
+|Azure Disk Encryption v2 (Azure AD 없이 단일 pass)    |    지원됨    |
 |비관리 디스크    |    지원되지 않음    |
-|관리 디스크    |    지원 여부    |
-|고객 관리 키    |    지원 여부    |
-|근접 배치 그룹    |    지원 여부    |
+|관리 디스크    |    지원됨    |
+|고객 관리형 키    |    지원됨    |
+|근접 배치 그룹    |    지원됨    |
 |백업 상호 운용성    |    파일 수준 백업 및 복원이 지원 됩니다. 디스크 및 VM 수준 백업 및 복원이 지원 되지 않습니다.    |
 |핫 추가/제거    |    영역을 영역 복제를 사용 하도록 설정한 후 디스크를 추가할 수 있습니다. 영역에 영역 복제를 사용 하도록 설정한 후에는 디스크를 제거할 수 없습니다.    | 
 
@@ -82,7 +84,7 @@ Vm에 대 한 영역 재해 복구 영역에 영역을 배포 하기 전에 VM�
 
 ### <a name="log-in"></a>로그인
 
-Azure Portal 로그인 합니다.
+Azure 포털에 로그인합니다.
 
 ### <a name="enable-replication-for-the-zonal-azure-virtual-machine"></a>영역 Azure 가상 컴퓨터에 대 한 복제를 사용 하도록 설정
 

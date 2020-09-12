@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 18e757ccac56d2165a1b46bb73a698ac754177b7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799568"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657945"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor 통합 문서
 
@@ -43,12 +43,13 @@ ms.locfileid: "87799568"
 
 통합 문서는 데이터를 시각화 하기 위한 풍부한 기능 집합을 제공 합니다. 각 시각화 유형의 자세한 예는 아래 예제 링크를 참조할 수 있습니다.
 
-* [텍스트](workbooks-visualizations.md#text)
-* [차트](workbooks-visualizations.md#charts)
-* [배경](workbooks-visualizations.md#grids)
-* [Tile](workbooks-visualizations.md#tiles)
-* [Trees](workbooks-visualizations.md#trees)
-* [그래프](workbooks-visualizations.md#graphs)
+* [Text](workbooks-text-visualizations.md)
+* [차트](workbooks-chart-visualizations.md)
+* [배경](workbooks-grid-visualizations.md)
+* [Tile](workbooks-tile-visualizations.md)
+* [Trees](workbooks-tree-visualizations.md)
+* [그래프](workbooks-graph-visualizations.md)
+* [복합 막대](workbooks-composite-bar.md)
 
 ![예제 통합 문서 시각화](./media/workbooks-overview/visualizations.png)
 
@@ -86,9 +87,9 @@ ms.locfileid: "87799568"
 
 ### <a name="editing-mode"></a>편집 모드
 
-이 통합 문서 템플릿이 어떻게 배치 되는지 이해 하려면 **편집**을 선택 하 여 편집 모드로 전환 해야 합니다. 
+이 통합 문서 템플릿이 어떻게 배치 되는지 이해 하려면 **편집**을 선택 하 여 편집 모드로 전환 해야 합니다.
 
-![응용 프로그램 오류 분석 템플릿의 스크린샷](./media/workbooks-overview/edit.png)
+![통합 문서에 있는 편집 단추의 스크린샷](./media/workbooks-overview/edit.png)
 
 편집 모드로 전환 하면 통합 문서의 각 개별 요소에 해당 하는 여러 개의 **편집** 상자가 오른쪽에 표시 됩니다.
 

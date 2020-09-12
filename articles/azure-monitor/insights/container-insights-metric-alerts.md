@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor의 메트릭 경고 | Microsoft Doc
 description: 이 문서에서는 공개 미리 보기로 제공 되는 컨테이너에 대 한 Azure Monitor에서 사용할 수 있는 권장 메트릭 경고를 검토 합니다.
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: aace260ff22d63211424f2ce4a7319bf577436f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563367"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019889"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 권장 메트릭 경고 (미리 보기)
 
@@ -18,7 +18,7 @@ ms.locfileid: "87563367"
 
 Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md) 를 참조 하세요. 메트릭 경고에 대해 자세히 알아보려면 [Azure Monitor에서 메트릭 경고](../platform/alerts-metric-overview.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 시작 하기 전에 다음을 확인 합니다.
 
@@ -39,7 +39,7 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 
 중요 한 사항에 대해 경고 하기 위해 컨테이너에 대 한 Azure Monitor는 AKS 클러스터에 대해 다음과 같은 메트릭 경고를 포함 합니다.
 
-|이름| Description |기본 임계값 |
+|Name| 설명 |기본 임계값 |
 |----|-------------|------------------|
 |평균 컨테이너 CPU (%) |컨테이너 당 사용 되는 평균 CPU를 계산 합니다.|컨테이너 당 평균 CPU 사용량이 95% 보다 큰 경우| 
 |평균 컨테이너 작업 집합 메모리% |컨테이너 당 사용 되는 평균 작업 집합 메모리를 계산 합니다.|컨테이너 당 평균 작업 집합 메모리 사용량이 95% 보다 큰 경우 |
@@ -79,7 +79,7 @@ Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microso
 
 이 기능의 일부로 달리 지정 되지 않은 경우 다음과 같은 메트릭이 활성화 되 고 수집 됩니다.
 
-|메트릭 네임스페이스 |메트릭 |Description |
+|메트릭 네임스페이스 |메트릭 |설명 |
 |---------|----|------------|
 |정보. 컨테이너/노드 |cpuUsageMillicores |Millicores에서 호스트에의 한 CPU 사용률입니다.|
 |정보. 컨테이너/노드 |cpuUsagePercentage |노드당 CPU 사용량 백분율입니다.|
@@ -144,7 +144,7 @@ Azure Resource Manager 템플릿 및 매개 변수 파일을 사용 하 여 Azur
 
 2. 포털을 통해 사용자 지정 된 템플릿을 배포 하려면 [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택 합니다.
 
-3. **템플릿**을 검색 하 고 **템플릿**을 선택 합니다. 배포가.
+3. **템플릿을**검색 한 다음 **템플릿 배포**를 선택 합니다.
 
 4. **만들기**를 선택합니다.
 

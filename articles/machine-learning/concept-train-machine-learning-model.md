@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d0341e5a4d5dc036a4c3f90b2a25003137602694
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 6b40130fb1d965abf76ba9ed1f6ebd45d94c8e01
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144841"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651026"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -42,13 +42,13 @@ Azure Machine Learning은 SDK를 사용하는 코드 중심 솔루션부터 자�
 
 Python용 Azure Machine Learning SDK를 사용하여 Azure Machine Learning에서 기계 학습 워크플로를 빌드하고 실행할 수 있습니다. 대화형 Python 세션, Jupyter Notebook, Visual Studio Code 또는 다른 IDE에서 서비스와 상호 작용할 수 있습니다.
 
-* [Python용 Azure Machine Learning SDK란?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [SDK 설치/업데이트](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [Python용 Azure Machine Learning SDK란?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
+* [SDK 설치/업데이트](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Azure Machine Learning용 개발 환경 구성](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>실행 구성
 
-Azure Machine Learning을 사용하는 일반적인 학습 작업은 [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py)을 사용하여 정의할 수 있습니다. 그런 다음, 실행 구성을 학습 스크립트와 함께 사용하여 컴퓨팅 대상의 모델을 학습시킵니다.
+Azure Machine Learning을 사용하는 일반적인 학습 작업은 [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true)을 사용하여 정의할 수 있습니다. 그런 다음, 실행 구성을 학습 스크립트와 함께 사용하여 컴퓨팅 대상의 모델을 학습시킵니다.
 
 로컬 컴퓨터에 대해 실행 구성을 시작한 다음, 필요에 따라 클라우드 기반 컴퓨팅 대상의 실행 구성으로 전환할 수 있습니다. 컴퓨팅 대상을 변경할 때 사용하는 실행 구성만 변경하면 됩니다. 실행은 입력, 출력 및 로그처럼 학습 작업에 대한 정보를 기록합니다.
 

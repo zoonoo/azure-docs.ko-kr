@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ca2600101c302cee1da4d22a3f098436ecb71e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bd779c26cd523bbf33fa1be6c87f21b4415c152
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355899"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016421"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
 ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure Active Directory)로 동기화되는 중에 오류가 발생할 수 있습니다. 이 문서에서는 여러 동기화 오류 유형, 오류가 발생할 수 있는 몇 가지 상황, 오류를 해결할 수 있는 가능한 방법에 대한 개요를 제공합니다. 이 문서는 일반적인 오류 유형을 다루며 가능한 모든 오류를 포괄하지 못할 수 있습니다.
@@ -106,17 +106,17 @@ InvalidSoftMatch 오류가 발생하는 가장 일반적인 원인은 SourceAnch
 >
 
 #### <a name="related-articles"></a>관련 문서
-* [Office 365에서 디렉터리 동기화를 방해하는 중복 또는 잘못된 특성](https://support.microsoft.com/kb/2647098)
+* [중복 되거나 잘못 된 특성으로 인해 Microsoft 365에서 디렉터리를 동기화 할 수 없습니다.](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
 #### <a name="description"></a>설명
 Azure AD가 두 개체의 소프트 일치를 시도할 때 "개체 유형"(예: 사용자, 그룹, 연락처 등)이 다른 두 개체가 소프트 일치 수행에 사용된 특성에 대해 동일한 값을 가질 수 있습니다. 이러한 특성의 중복은 Azure AD에서 허용되지 않으므로 이 작업에서 "ObjectTypeMismatch" 동기화 오류가 발생합니다.
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>ObjectTypeMismatch 오류의 예제 시나리오
-* Office 365에서 메일을 지원하는 보안 그룹이 만들어집니다. 관리자가 온-프레미스 AD(아직 Azure AD와 동기화되지 않음)에 Office 365 그룹과 ProxyAddresses 특성 값이 같은 새 사용자나 연락처를 추가합니다.
+* Microsoft 365에서 메일 사용이 가능한 보안 그룹이 만들어집니다. 관리자가 Microsoft 365 그룹의 ProxyAddresses 특성에 대해 동일한 값을 사용 하 여 온-프레미스 AD (Azure AD에 아직 동기화 되지 않음)의 새 사용자 또는 연락처를 추가 합니다.
 
 #### <a name="example-case"></a>예제 사례
-1. 관리자가 Office 365에서 Tax 부서에 대해 새 메일 지원 보안 그룹을 만들고 이메일 주소를 tax@contoso.com으로 제공합니다. 이 그룹에는 **smtp: 세금 \@ Contoso.com** 의 ProxyAddresses 특성 값이 할당 됩니다.
+1. 관리자는 세금에 대 한 Microsoft 365에 새 메일 사용 가능 보안 그룹을 만들고 전자 메일 주소를으로 제공 tax@contoso.com 합니다. 이 그룹에는 **smtp: 세금 \@ Contoso.com** 의 ProxyAddresses 특성 값이 할당 됩니다.
 2. 새 사용자가 Contoso.com를 조인 하 고 사용자에 대 한 계정이 **smtp: 세금 \@ Contoso.com** 로 proxyaddress를 사용 하 여 온-프레미스에 생성 됩니다.
 3. Azure AD Connect가 새 사용자 계정을 동기화하면 "ObjectTypeMismatch" 오류가 발생합니다.
 
@@ -164,7 +164,7 @@ AttributeValueMustBeUnique 오류가 발생하는 가장 일반적인 원인은 
 4. 온-프레미스 AD에서 변경할 경우 Azure AD Connect가 오류 수정을 위해 변경을 동기화하게 합니다.
 
 #### <a name="related-articles"></a>관련 문서
--[Office 365에서 디렉터리 동기화를 방해하는 중복 또는 잘못된 특성](https://support.microsoft.com/kb/2647098)
+-[중복 되거나 잘못 된 특성으로 인해 Microsoft 365에서 디렉터리를 동기화 할 수 없습니다.](https://support.microsoft.com/kb/2647098)
 
 ## <a name="data-validation-failures"></a>데이터 유효성 검사 실패
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
@@ -179,7 +179,7 @@ b. UserPrincipalName 특성이 필요한 형식을 따르지 않습니다.
 a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르는지 확인합니다.
 
 #### <a name="related-articles"></a>관련 문서
-* [Office 365 디렉터리 동기화를 통한 사용자 프로비전 준비](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+* [Microsoft 365에 대 한 디렉터리 동기화를 통해 사용자 프로 비전 준비](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>설명
@@ -190,11 +190,11 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 
 #### <a name="example"></a>예제
 1. Contoso.com 계정인 Bob Smith가 Active Directory에서 UserPrincipalName bob@contoso.com으로 새 사용자로 추가되었습니다.
-2. Bob은 Fabrikam.com 라는 Contoso.com의 다른 나누기로 이동 하 고 UserPrincipalName는로 변경 됩니다.bob@fabrikam.com
+2. Bob은 Fabrikam.com 라는 Contoso.com의 다른 나누기로 이동 하 고 UserPrincipalName는로 변경 됩니다. bob@fabrikam.com
 3. Contoso.com과 fabrikam.com 도메인은 모두 Azure Active Directory와 페더레이션된 도메인입니다.
 4. Bob의 userPrincipalName이 업데이트되지 않아 “FederatedDomainChangeError” 동기화 오류가 발생합니다.
 
-#### <a name="how-to-fix"></a>해결 방법
+#### <a name="how-to-fix"></a>수정 방법
 사용자의 UserPrincipalName 접미사가 bob@**contoso.com** 에서 bob fabrikam.com로 업데이트 된 경우 \@ **fabrikam.com** **contoso.com** 와 **fabrikam.com** 모두 **페더레이션된 도메인**인 경우 다음 단계에 따라 동기화 오류를 수정 합니다.
 
 1. Azure AD에 있는 사용자의 UserPrincipalName을 bob@contoso.com에서 bob@contoso.onmicrosoft.com으로 업데이트합니다. 다음 PowerShell 명령을 Azure AD PowerShell 모듈과 함께 사용할 수 있습니다. `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
@@ -218,7 +218,7 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 3. Active Directory에서 설정한 Bob의 thmubnailPhoto가 너무 커 Azure AD에서 동기화할 수 없습니다.
 4. Active Directory의 ProxyAddresses 특성 자동 입력 중에 개체에 너무 많은 ProxyAddresses가 할당되었습니다.
 
-### <a name="how-to-fix"></a>해결 방법
+### <a name="how-to-fix"></a>수정 방법
 1. 오류를 초래하는 특성이 허용 범위 안에 있는지 확인합니다.
 
 ## <a name="existing-admin-role-conflict"></a>기존 관리자 역할 충돌
@@ -234,7 +234,7 @@ Azure AD Connect는 온-프레미스 AD의 사용자 개체를 관리자 역할�
 ![기존 관리자](media/tshoot-connect-sync-errors/existingadmin.png)
 
 
-### <a name="how-to-fix"></a>해결 방법
+### <a name="how-to-fix"></a>수정 방법
 이 문제를 해결하려면 다음을 수행합니다.
 
 1. 모든 관리자 역할에서 Azure AD 계정 (소유자)을 제거 합니다. 
@@ -246,5 +246,5 @@ Azure AD Connect는 온-프레미스 AD의 사용자 개체를 관리자 역할�
 >온-프레미스 사용자 개체와 Azure AD 사용자 개체 간의 소프트 일치가 완료된 후 기존 사용자 개체에 관리자 역할을 다시 할당할 수 있습니다.
 
 ## <a name="related-links"></a>관련 링크
-* [Active Directory 관리 센터에서 Active Directory 개체 찾기](https://technet.microsoft.com/library/dd560661.aspx)
-* [Azure Active Directory PowerShell을 사용하여 개체에 대해 Azure Active Directory를 쿼리하는 방법](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+* [Active Directory 관리 센터에서 Active Directory 개체 찾기](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560661(v=ws.10))
+* [Azure Active Directory PowerShell을 사용하여 개체에 대해 Azure Active Directory를 쿼리하는 방법](/previous-versions/azure/jj151815(v=azure.100))

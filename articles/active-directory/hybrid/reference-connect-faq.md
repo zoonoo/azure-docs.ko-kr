@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4956014e3a950a729ef3993e10ca455ab8aae6f4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256682"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014636"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -34,13 +34,13 @@ IT 환경의 이 중요한 구성 요소에 대한 보안 공격 노출 영역�
 
 자세한 내용은 다음을 참조하세요. 
 
-* [관리자 그룹 보안](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+* [관리자 그룹 보안](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [기본 제공 관리자 계정 보안](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [기본 제공 관리자 계정 보안](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [공격 노출 영역을 줄임으로써 보안 향상 및 유지](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [공격 노출 영역을 줄임으로써 보안 향상 및 유지](/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [Active Directory 공격 노출 영역 축소](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Active Directory 공격 노출 영역 축소](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 **Q: Azure AD(Azure Active Directory) 글로벌 관리자가 2FA(2단계 인증)를 사용하도록 설정한 경우 설치가 작동하나요?**  
 이 시나리오는 2016년 2월 빌드부터 지원됩니다.
@@ -139,10 +139,10 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 아니요. NAT를 통한 Azure AD Connect 사용은 지원되지 않습니다. 
 
 ## <a name="federation"></a>페더레이션
-**Q: 내 Office 365 인증서를 갱신하도록 요청하는 이메일을 받으면 어떻게 해야 하나요?**  
+**Q: Microsoft 365 인증서를 갱신 하도록 요청 하는 전자 메일을 받으면 어떻게 해야 하나요?**  
 인증서 갱신에 대한 지침은 [인증서 갱신](how-to-connect-fed-o365-certs.md)을 참조하세요.
 
-**Q: Office 365 신뢰 당사자에 대해 "신뢰 당사자 자동 업데이트"를 설정했습니다. 토큰 서명 인증서가 자동으로 롤오버될 때 어떤 조치를 취해야 하나요?**  
+**Q: Microsoft 365 신뢰 당사자에 대해 "신뢰 당사자 자동 업데이트"를 설정 했습니다. 토큰 서명 인증서가 자동으로 롤오버 될 때 어떤 조치를 취해야 하나요?**  
 [인증서 갱신](how-to-connect-fed-o365-certs.md) 문서에 설명된 지침을 사용하세요.
 
 ## <a name="environment"></a>Environment
@@ -155,14 +155,14 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 **Q. Azure Portal에서 동기화된 디바이스를 사용하지 않도록 설정한 경우(예: HAADJ) 다시 사용하도록 설정되는 이유는 무엇인가요?**<br>
 동기화된 디바이스는 온-프레미스에서 작성 또는 마스터될 수 있습니다. 동기화된 디바이스가 온-프레미스에서 사용하도록 설정된 경우 이전에 관리자가 사용하지 않도록 설정한 경우에도 Azure Portal에서 다시 사용하도록 설정될 수 있습니다. 동기화된 디바이스를 사용하지 않도록 설정하려면 온-프레미스 Active Directory를 사용하여 컴퓨터 계정을 사용하지 않도록 설정합니다.
 
-**Q. 동기화된 사용자를 위해 Office 365 또는 Azure AD 포털에서 사용자 로그인을 차단하는 경우 다시 로그인할 때 차단이 해제되는 이유는 무엇인가요?**<br>
+**대답. 동기화 된 사용자에 대 한 Microsoft 365 또는 Azure AD 포털에서 사용자 로그인을 차단 하는 경우 다시 로그인 할 때 차단이 해제 되는 이유는 무엇 인가요?**<br>
 동기화된 사용자는 온-프레미스에서 작성 또는 마스터될 수 있습니다. 계정이 온-프레미스에서 사용하도록 설정된 경우 관리자가 설정한 로그인 블록의 차단을 해제할 수 있습니다.
 
 ## <a name="identity-data"></a>ID 데이터
 **Q: Azure AD의 userPrincipalName(UPN) 특성이 온-프레미스 UPN과 일치하지 않는 이유는 무엇인가요?**  
 자세한 내용은 다음 문서를 참조하세요.
 
-* [Office 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않습니다.](https://support.microsoft.com/kb/2523192)
+* [Microsoft 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치 하지 않습니다.](https://support.microsoft.com/kb/2523192)
 * [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 내용이 동기화되지 않습니다.](https://support.microsoft.com/kb/2669550)
 
 [Azure AD Connect 동기화 서비스 기능](how-to-connect-syncservice-features.md)에서 설명한 대로 동기화 엔진에서 UPN을 업그레이드할 수 있도록 Azure AD를 구성할 수도 있습니다.
@@ -253,19 +253,19 @@ Office 팀은 Office 포털 업데이트에서 현재 제품 이름을 반영하
 예, 준비 모드인 Azure AD Connect 서버를 자동 업그레이드할 수 있습니다.
 
 **Q: 자동 업그레이드가 실패하고 Azure AD Connect 서버가 시작되지 않으면 어떻게 해야 하나요?**  
-드문 경우이지만 업그레이드를 수행한 후에 Azure AD Connect 서비스가 시작되지 않습니다. 이러한 경우 일반적으로 서버를 다시 부팅하면 문제가 해결됩니다. 그래도 Azure AD Connect 서비스가 시작되지 않으면 지원 티켓을 여세요. 자세한 내용은 [Office 365 고객 지원팀에 문의할 서비스 요청 만들기](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/)를 참조하세요. 
+드문 경우이지만 업그레이드를 수행한 후에 Azure AD Connect 서비스가 시작되지 않습니다. 이러한 경우 일반적으로 서버를 다시 부팅하면 문제가 해결됩니다. 그래도 Azure AD Connect 서비스가 시작되지 않으면 지원 티켓을 여세요. 자세한 내용은 [Microsoft 365 지원 담당자에 게 문의 하는 서비스 요청 만들기](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support)를 참조 하세요. 
 
 **Q: 최신 버전의 Azure AD Connect로 업그레이드할 때 어떤 위험이 있는지 확신할 수 없습니다. 업그레이드에서 도움을 받기 위해 통화할 수 있나요?**  
-최신 버전의 Azure AD Connect로 업그레이드하는 데 도움이 필요한 경우 [Office 365 고객 지원팀에 문의할 서비스 요청 만들기](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/)에서 지원 티켓을 여세요.
+최신 버전의 Azure AD Connect로 업그레이드 하는 데 도움이 필요한 경우 서비스 만들기 요청에서 지원 티켓을 열어 [Microsoft 365 지원 담당자에 게 문의 하세요](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support).
 
 ## <a name="operational-best-practice"></a>운영 모범 사례    
 다음은 Windows Server Active Directory와 Azure Active Directory 간에 동기화 할 때 구현 해야 하는 몇 가지 모범 사례입니다.
 
-**동기화 된 모든 계정에 대 한 Multi-Factor Authentication 적용** Azure Multi-Factor Authentication는 사용자의 편의를 유지 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 합니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 사용하기 쉬운 다양한 인증 방법을 통해 강력한 인증을 제공합니다. 관리자가 결정한 구성에 따라 사용자에게 MFA 챌린지가 표시될 수도 있고 그렇지 않을 수도 있습니다. MFA에 대 한 자세한 내용은 다음을 참조 하세요.https://www.microsoft.com/security/business/identity/mfa?rtc=1
+**동기화 된 모든 계정에 대 한 Multi-Factor Authentication 적용** Azure Multi-Factor Authentication는 사용자의 편의를 유지 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 합니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 사용하기 쉬운 다양한 인증 방법을 통해 강력한 인증을 제공합니다. 관리자가 결정한 구성에 따라 사용자에게 MFA 챌린지가 표시될 수도 있고 그렇지 않을 수도 있습니다. MFA에 대 한 자세한 내용은 다음을 참조 하세요. https://www.microsoft.com/security/business/identity/mfa?rtc=1
 
-**Azure AD Connect 서버 보안 지침을 따릅니다** . Azure AD Connect 서버는 중요 한 id 데이터를 포함 하며, [Active Directory 관리 계층 모델](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)에 설명 된 대로 계층 0 구성 요소로 처리 되어야 합니다. 또한 [AADConnect 서버를 보호 하기 위한 지침](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#azure-ad-connect-server)을 참조 하세요.
+**Azure AD Connect 서버 보안 지침을 따릅니다** . Azure AD Connect 서버는 중요 한 id 데이터를 포함 하며, [Active Directory 관리 계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)에 설명 된 대로 계층 0 구성 요소로 처리 되어야 합니다. 또한 [AADConnect 서버를 보호 하기 위한 지침](./how-to-connect-install-prerequisites.md#azure-ad-connect-server)을 참조 하세요.
 
-**누출 된 자격 증명 검색에 대해 Phs** 암호 해시 동기화를 사용 하면 하이브리드 계정에 대해 유출 되는 [자격 증명 검색](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-risks) 도 가능 합니다. Microsoft는 진한 웹 연구원 및 법률 집행 기관과 함께 작동 하 여 공개적으로 사용 가능한 사용자 이름/암호 쌍을 찾습니다. 이러한 쌍 중 사용자와 일치 하는 쌍이 있으면 연결 된 계정이 높은 위험으로 이동 됩니다. 
+**누출 된 자격 증명 검색에 대해 Phs** 암호 해시 동기화를 사용 하면 하이브리드 계정에 대해 유출 되는 [자격 증명 검색](../identity-protection/concept-identity-protection-risks.md) 도 가능 합니다. Microsoft는 다크 웹 연구원 및 법 집행 기관과 협력하여 공개적으로 사용 가능한 사용자 이름/암호 쌍을 찾습니다. 이러한 쌍 중 사용자와 일치 하는 쌍이 있으면 연결 된 계정이 높은 위험으로 이동 됩니다. 
 
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -275,11 +275,11 @@ Office 팀은 Office 포털 업데이트에서 현재 제품 이름을 반영하
 
 * KB(기술 자료)에서 Azure AD Connect 지원에 대한 일반적인 고장 수리 문제에 대한 기술 솔루션을 검색하세요.
 
-[Azure Active Directory에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[Azure Active Directory에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-active-directory.html)
 
-* [Azure AD 커뮤니티](https://docs.microsoft.com/answers/topics/azure-active-directory.html)로 이동하여 기술 관련 질문 및 대답을 검색하거나 직접 질문하세요.
+* [Azure AD 커뮤니티](/answers/topics/azure-active-directory.html)로 이동하여 기술 관련 질문 및 대답을 검색하거나 직접 질문하세요.
 
-[Azure AD에 대한 지원 받기](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+[Azure AD에 대한 지원 받기](../fundamentals/active-directory-troubleshooting-support-howto.md)
 
 **Q: 동기화 단계 오류가 발생한 후 이벤트 6311 및 6401이 표시되는 이유는 무엇인가요?**
 

@@ -3,13 +3,13 @@ title: 일반 배포 오류 문제 해결
 description: Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생하는 일반적인 오류를 해결하는 방법을 설명합니다.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 08/07/2020
-ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/09/2020
+ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008171"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650956"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -19,13 +19,13 @@ ms.locfileid: "88008171"
 
 ## <a name="error-codes"></a>오류 코드
 
-| 오류 코드 | 완화 방법 | 추가 정보 |
+| 오류 코드 | 완화 방법 | 자세한 정보 |
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | 스토리지 계정에 대한 명명 제한 사항을 따릅니다. | [스토리지 계정 이름 오류 해결](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | 사용 가능한 스토리지 계정 속성을 확인합니다. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | 클러스터나 지역에 사용할 수 있는 리소스가 없거나 요청한 VM 크기를 지원할 수 없습니다. 나중에 요청을 다시 시도하거나 다른 VM 크기를 요청합니다. | [Linux의 프로비전 및 할당 문제](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Windows의 프로비전 및 할당 문제](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) 및 [할당 문제 해결](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | 동시 작업이 완료될 때까지 기다립니다. | |
-| AuthorizationFailed | 계정 또는 서비스 주체가 배포를 완료하는 데 충분한 권한이 없습니다. 계정이 속한 역할 및 배포 범위에 대한 액세스 권한을 확인합니다.<br><br>필요한 리소스 공급자가 등록 되지 않은 경우이 오류가 나타날 수 있습니다. | [Azure 역할 기반 access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[등록 오류 해결](error-register-resource-provider.md) |
+| AuthorizationFailed | 계정 또는 서비스 주체가 배포를 완료하는 데 충분한 권한이 없습니다. 계정이 속한 역할 및 배포 범위에 대한 액세스 권한을 확인합니다.<br><br>필요한 리소스 공급자가 등록 되지 않은 경우이 오류가 나타날 수 있습니다. | [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)<br><br>[등록 오류 해결](error-register-resource-provider.md) |
 | BadRequest | Resource Manager에서 예상한 것과 일치하지 않는 배포 값을 보냈습니다. 문제 해결에 도움이 되는 내부 상태 메시지를 확인합니다. | [템플릿 참조](/azure/templates/) 및 [지원되는 위치](resource-location.md) |
 | 충돌 | 리소스의 현재 상태에서 허용되지 않는 작업을 요청하고 있습니다. 예를 들어 디스크 크기 조정은 VM을 만들거나 VM의 할당을 취소할 때만 허용됩니다. | |
 | DeploymentActiveAndUneditable 때 | 이 리소스 그룹에 대한 동시 배포가 완료될 때까지 기다립니다. | |
@@ -75,7 +75,7 @@ ms.locfileid: "88008171"
 | StorageAccountNotFound | 사용 하려는 저장소 계정의 구독, 리소스 그룹 및 이름을 확인 합니다. | |
 | SubnetsNotInSameVnet | 가상 머신에는 하나의 가상 네트워크만 있을 수 있습니다. 여러 NIC를 배포할 때는 모두 동일한 가상 네트워크에 속해야 합니다. | [여러 NIC](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotFound | 배포에 대해 지정 된 구독에 액세스할 수 없습니다. 구독 ID가 잘못 되었거나, 템플릿을 배포 하는 사용자에 게 구독에 배포할 수 있는 적절 한 권한이 없거나, 구독 ID의 형식이 잘못 된 것일 수 있습니다. 중첩 배포를 사용 하 여 [범위에 배포](cross-scope-deployment.md)하는 경우 구독에 대 한 GUID를 제공 합니다. | |
-| SubscriptionNotRegistered 됨 | 네트워크 리소스를 배포할 때 Microsoft. 네트워크 리소스 공급자가 구독에 자동으로 등록 됩니다. 자동 등록이 시간 내에 완료 되지 않는 경우가 있습니다. 이 일시적인 오류를 방지 하려면 배포 전에 Microsoft 네트워크 리소스 공급자를 등록 합니다. | [등록 오류 해결](error-register-resource-provider.md) |
+| SubscriptionNotRegistered 됨 | 리소스를 배포 하는 경우 구독에 대 한 리소스 공급자를 등록 해야 합니다. 배포에 Azure Resource Manager 템플릿을 사용 하면 리소스 공급자가 구독에 자동으로 등록 됩니다. 자동 등록이 시간 내에 완료 되지 않는 경우가 있습니다. 이 일시적인 오류를 방지 하려면 배포 전에 리소스 공급자를 등록 합니다. | [등록 오류 해결](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | 불필요한 종속성을 제거합니다. | [순환 종속성 해결](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | 단일 배포에 대한 리소스 그룹의 수를 줄입니다. | [범위 간 배포](cross-scope-deployment.md) |
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cbd15819fc03eb80b3647f6ffede93f851e295d4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273204"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649748"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
@@ -47,87 +47,7 @@ v2 SKU를 사용하는 경우 가격 책정 모델은 사용량에 따라 결정
 
 각 용량 단위는 1 개의 compute 단위, 2500 영구 연결 및 2.22 Mbps 처리량으로 구성 됩니다.
 
-컴퓨팅 단위 지침:
-
-- **Standard_v2** - 각 컴퓨팅 단위는 RSA 2048비트 키 TLS 인증서를 사용하여 초당 약 50개의 연결을 사용할 수 있습니다.
-- **WAF_v2** - 각 컴퓨팅 단위는 70% 요청은 2 KB GET/POST보다 작고 나머지는 더 높은 70-30%의 트래픽 혼합에서 초당 약 10개의 동시 요청을 지원할 수 있습니다. WAF 성능은 현재 응답 크기의 영향을 받지 않습니다.
-
-> [!NOTE]
-> 각 인스턴스는 현재 약 10개의 용량 단위를 지원할 수 있습니다.
-> 컴퓨팅 단위에서 처리할 수 있는 요청 수는 TLS 인증서 키 크기, 키 교환 알고리즘, 헤더 다시 쓰기 및 WAF 들어오는 요청 크기의 경우와 같은 다양한 조건에 따라 달라집니다. 컴퓨팅 단위당 요청 비율을 확인하려면 애플리케이션 테스트를 수행하는 것이 좋습니다. 청구를 시작하기 전에 용량 단위와 컴퓨팅 단위를 메트릭으로 사용할 수 있습니다.
-
-다음 표에서는 예제 가격을 보여 주며 설명 목적으로만 사용됩니다.
-
-**미국 동부 가격**:
-
-|              SKU 이름                             | 고정 가격($/시)  | 용량 단가($/CU-시)   |
-| ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0.20             | 0.0080                          |
-| WAF_v2                                            |    0.36             | 0.0144                          |
-
-가격 책정에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/application-gateway/)를 참조하세요. 
-
-**예제 1**
-
-Application Gateway Standard_v2는 고정 용량이 5개의 인스턴스인 수동 크기 조정 모드에서 자동 크기 조정 없이 프로비저닝됩니다.
-
-고정 가격 = 744(시간) * $0.20 = $148.8 <br>
-용량 단위 = 744(시간) * 인스턴스당 10개의 용량 단위 * 5개 인스턴스 * 용량 단위 시간당 $0.008 = $297.6
-
-총 가격 = $148.8 + $297.6 = $446.4
-
-**예제 2**
-
-Application Gateway standard_v2는 1개월 동안 0개의 최소 인스턴스로 프로비저닝되고, 이 기간 동안 평균 8.88Mbps의 데이터 전송 속도로 25개의 새 TLS 연결/초를 수신합니다. 연결 수명이 짧은 경우 가격은 다음과 같습니다.
-
-고정 가격 = 744(시간) * $0.20 = $148.8
-
-용량 단가 = 744(시) * Max(초당 연결에 대해 25/50 컴퓨팅 단위, 처리량에 대해 8.88/2.22 용량 단위) * $0.008 = 744 * 4 * 0.008 = $23.81
-
-총 가격 = $148.8+23.81 = $172.61
-
-여기에서 볼 수 있듯이 전체 인스턴스가 아닌 4개의 용량 단위에 대해서만 요금이 청구됩니다. 
-
-> [!NOTE]
-> Max 함수는 값 쌍 중에서 가장 큰 값을 반환합니다.
-
-
-**예 3**
-
-Application Gateway standard_v2는 최소 5개 인스턴스를 사용하여 1달 동안 프로비저닝됩니다. 트래픽이 없고 연결 수명이 짧은 경우 가격은 다음과 같습니다.
-
-고정 가격 = 744(시간) * $0.20 = $148.8
-
-용량 단가 = 744(시) * Max(초당 연결에 대해 0/50 컴퓨팅 단위, 처리량에 대해 0/2.22 용량 단위) * $0.008 = 744 * 50 * 0.008 = $297.60
-
-총 가격 = $148.80+297.60 = $446.4
-
-이 경우 트래픽이 없더라도 5개의 인스턴스 전체에 대해 요금이 청구됩니다.
-
-**예제 4**
-
-Application Gateway standard_v2는 1개월 동안 5개의 최소 인스턴스로 프로비저닝되고, 이 기간 동안 평균 125Mbps의 데이터 전송 속도, 25개의 TLS 연결/초가 유지됩니다. 트래픽이 없고 연결 수명이 짧은 경우 가격은 다음과 같습니다.
-
-고정 가격 = 744(시간) * $0.20 = $148.8
-
-용량 단가 = 744(시) * Max(초당 연결에 대해 25/50 컴퓨팅 단위, 처리량에 대해 125/2.22 용량 단위) * $0.008 = 744 * 57 * 0.008 = $339.26
-
-총 가격 = $148.80+339.26 = $488.06
-
-이 경우 전체 5개의 전체 인스턴스와 7개의 추가 용량 단위(인스턴스의 7/10)에 대해 요금이 청구됩니다.  
-
-**예제 5**
-
-Application Gateway WAF_v2는 1개월 동안 프로비저닝됩니다. 이 기간 동안 평균 8.88Mbps의 데이터 전송 속도로 25개의 새 TLS 연결/초가 수신되고 초당 80개 요청이 수행됩니다. 연결 수명이 짧고 애플리케이션에 대한 컴퓨팅 단위 계산이 컴퓨팅 단위당 10RPS를 지원하는 경우 가격은 다음과 같습니다.
-
-고정 가격 = 744(시간) * $0.36 = $267.84
-
-용량 단가 = 744(시) * Max(컴퓨팅 단위 Max(초당 연결에 대해 25/50, 80/10 WAF RPS), 처리량에 대해 8.88/2.22 용량 단위) * $0.0144 = 744 * 8 * 0.0144 = $85.71
-
-총 가격 = $267.84 + $85.71 = $353.55
-
-> [!NOTE]
-> Max 함수는 값 쌍 중에서 가장 큰 값을 반환합니다.
+자세히 알아보려면 [가격 책정 이해](understanding-pricing.md)를 참조 하세요.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Application Gateway 및 WAF v2 크기 조정
 
@@ -178,11 +98,11 @@ Azure Application Gateway는 고가용성이 유지되는 방식으로 배포됩
 
 |차이점|세부 정보|
 |--|--|
-|인증 인증서|지원 안 됨<br>자세한 내용은 [Application Gateway의 엔드투엔드 TLS 개요](ssl-overview.md#end-to-end-tls-with-the-v2-sku)를 참조하세요.|
+|인증 인증서|지원되지 않습니다.<br>자세한 내용은 [Application Gateway의 엔드투엔드 TLS 개요](ssl-overview.md#end-to-end-tls-with-the-v2-sku)를 참조하세요.|
 |동일한 서브넷에서 Standard_v2와 표준 애플리케이션 게이트웨이 혼합|지원되지 않음|
-|Application Gateway 서브넷의 UDR(사용자 정의 경로)|지원됨(특정 시나리오). 미리 보기 상태.<br> 지원되는 시나리오에 대한 자세한 내용은 [Application Gateway 구성 개요](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet)를 참조하세요.|
+|Application Gateway 서브넷의 UDR(사용자 정의 경로)|지원됨(특정 시나리오). 미리 보기 상태.<br> 지원되는 시나리오에 대한 자세한 내용은 [Application Gateway 구성 개요](configuration-infrastructure.md#supported-user-defined-routes)를 참조하세요.|
 |인바운드 포트 범위에 대한 NSG| - 65200 ~ 65535(Standard_v2 SKU)<br>- 65503 ~ 65534(Standard SKU)<br>자세한 내용은 [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)을 참조하세요.|
-|Azure 진단의 성능 로그|지원 안 됨<br>Azure 메트릭을 사용해야 합니다.|
+|Azure 진단의 성능 로그|지원되지 않습니다.<br>Azure 메트릭을 사용해야 합니다.|
 |결제|청구는 2019년 7월 1일에 시작하도록 예약됩니다.|
 |FIPS 모드|현재는 지원되지 않습니다.|
 |ILB 전용 모드|현재는 지원되지 않습니다. 공용 및 ILB 모드가 함께 지원됩니다.|

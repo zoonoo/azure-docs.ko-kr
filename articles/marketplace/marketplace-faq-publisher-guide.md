@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 82a6b2674fe73bd448bb7ccbd230e837bd1cbb2a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 28f8dd4be9e03af9f0b155d6e79949fe522cd7c2
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607327"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007760"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 일반적인 질문
 
@@ -46,7 +46,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에 대한 등록 수수료가 있나요?
 
-아니요. 상업용 마켓플레이스에 제품을 게시하는 데 드는 비용은 없습니다. Microsoft는 판매의 작은 비율을 거래 수수료로 유지하고 마켓플레이스 보상 프로그램, 플랫폼 혁신 및 상업용 마켓플레이스 운영에 투자합니다. [AZURE IP 공동 판매](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) incentivized 제품에 대 한이 트랜잭션 요금은 줄어듭니다.
+아니요. 상업용 마켓플레이스에 제품을 게시하는 데 드는 비용은 없습니다. Microsoft는 판매의 작은 비율을 거래 수수료로 유지하고 마켓플레이스 보상 프로그램, 플랫폼 혁신 및 상업용 마켓플레이스 운영에 투자합니다. 이 트랜잭션 요금은 [AZURE IP 공동 판매](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) incentivized 제품 및 하나의 Microsoft 팀 앱 또는 두 Microsoft 365 개 이상의 추가 기능 (Excel, PowerPoint, Word, Outlook 및 SharePoint)과 연결 된 appsource의 유료 SaaS 제품에 대해 줄어듭니다.
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에서 게시자로 가입하려면 어떻게 해야 하나요?
 
@@ -320,7 +320,7 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 다음 리소스를 참조하는 것이 좋습니다.
 
 - Microsoft 파트너 커뮤니티에 참여하려면 [Microsoft AppSource 및 Azure Marketplace](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222)를 참조하세요.
-- [Microsoft 상업용 마켓플레이스 참가자 프로그램](https://crmnamvoc1runtime.crm.dynamics.com/cbdbd59b-ab3d-47bf-8a1c-7452f8e49970/marketplaceinsiders)에 대해 알아보고 참여하세요.
+- [Microsoft 상업용 마켓플레이스 참가자 프로그램](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/Commercial-Marketplace-Insiders-Program/td-p/13743)에 대해 알아보고 참여하세요.
 
 ### <a name="where-can-i-learn-more-about-partner-center"></a>파트너 센터에 대한 자세한 내용은 어디서 확인할 수 있나요?
 

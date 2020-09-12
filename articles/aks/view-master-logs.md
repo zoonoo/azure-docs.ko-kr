@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드에 
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: 721ef4f60d263602b01b5957bfb9bc3b5682a2df
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a0207ebbb1596e41ad65e21a769d7041a239f767
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048281"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004870"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Kubernetes 마스터 노드 로그 활성화 및 검토
 
@@ -69,46 +69,47 @@ pod/nginx created
 
 진단 로그를 사용 하도록 설정 하 고 표시 하는 데 몇 분 정도 걸릴 수 있습니다. Azure Portal에서 AKS 클러스터로 이동 하 고 왼쪽에 있는 **로그** 를 선택 합니다. *예제 쿼리* 창이 나타나면 닫습니다.
 
-
 왼쪽에서 **로그**를 선택합니다. *Kube-감사* 로그를 보려면 텍스트 상자에 다음 쿼리를 입력 합니다.
 
 ```
-AzureDiagnostics
-| where Category == "kube-audit"
-| project log_s
+KubePodInventory
+| where TimeGenerated > ago(1d)
 ```
 
 많은 로그가 반환 될 가능성이 높습니다. 이전 단계에서 만든 NGINX pod에 대 한 로그를 볼 수 있도록 쿼리 범위를 좁히려면 다음 예제 쿼리와 같이 *NGINX* 를 검색 하는 또 다른 *where* 문을 추가 합니다.
 
 ```
-AzureDiagnostics
-| where Category == "kube-audit"
-| where log_s contains "nginx"
-| project log_s
+KubePodInventory
+| where TimeGenerated > ago(1d)
+| where Name contains "nginx"
 ```
-
-추가 로그를 보려면 사용하도록 설정할 추가 로그에 따라 쿼리에서 *Category* 이름을 *kube-controller-manager* 또는 *kube-scheduler*로 업데이트하면 됩니다. 이때 검색하려는 이벤트를 구체화하기 위해 추가적인 *where* 문을 사용할 수 있습니다.
 
 로그 데이터를 쿼리하고 필터링 하는 방법에 대 한 자세한 내용은 [log analytics 로그 검색을 사용 하 여 수집한 데이터 보기 또는 분석][analyze-log-analytics]을 참조 하세요.
 
 ## <a name="log-event-schema"></a>로그 이벤트 스키마
 
-다음 표에는 로그 데이터 분석에 도움이 되도록 각 이벤트에 사용되는 스키마가 자세히 설명되어 있습니다.
+AKS는 다음 이벤트를 로깅합니다.
 
-| 필드 이름               | Description |
-|--------------------------|-------------|
-| *resourceId*             | 로그를 생성한 Azure 리소스 |
-| *time*                   | 로그가 업로드된 시간의 타임스탬프 |
-| *category*               | 로그를 생성하는 컨테이너/로그의 이름 |
-| *operationName*          | Always *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
-| *properties.log*         | 구성 요소 로그의 전체 텍스트 |
-| *properties.stream*      | *stderr* 또는 *stdout* |
-| *properties.pod*         | 로그를 가져온 Pod 이름 |
-| *properties.containerID* | 이 로그를 가져온 docker 컨테이너의 ID입니다. |
+* [AzureActivity][log-schema-azureactivity]
+* [AzureMetrics][log-schema-azuremetrics]
+* [ContainerImageInventory][log-schema-containerimageinventory]
+* [ContainerInventory][log-schema-containerinventory]
+* [ContainerLog][log-schema-containerlog]
+* [ContainerNodeInventory][log-schema-containernodeinventory]
+* [ContainerServiceLog][log-schema-containerservicelog]
+* [하트비트][log-schema-heartbeat]
+* [InsightsMetrics][log-schema-insightsmetrics]
+* [KubeEvents][log-schema-kubeevents]
+* [KubeHealth][log-schema-kubehealth]
+* [KubeMonAgentEvents][log-schema-kubemonagentevents]
+* [KubeNodeInventory][log-schema-kubenodeinventory]
+* [KubePodInventory][log-schema-kubepodinventory]
+* [KubeServices][log-schema-kubeservices]
+* [Perf][log-schema-perf]
 
 ## <a name="log-roles"></a>로그 역할
 
-| 역할                     | Description |
+| 역할                     | 설명 |
 |--------------------------|-------------|
 | *aksService*             | HcpService의 제어 평면 작업에 대 한 감사 로그의 표시 이름입니다. |
 | *masterclient*           | MasterClientCertificate에 대 한 감사 로그의 표시 이름, az aks get 자격 증명에서 가져온 인증서 |
@@ -131,3 +132,19 @@ AzureDiagnostics
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[log-schema-azureactivity]: /azure/azure-monitor/reference/tables/azureactivity
+[log-schema-azuremetrics]: /azure/azure-monitor/reference/tables/azuremetrics
+[log-schema-containerimageinventory]: /azure/azure-monitor/reference/tables/containerimageinventory
+[log-schema-containerinventory]: /azure/azure-monitor/reference/tables/containerinventory
+[log-schema-containerlog]: /azure/azure-monitor/reference/tables/containerlog
+[log-schema-containernodeinventory]: /azure/azure-monitor/reference/tables/containernodeinventory
+[log-schema-containerservicelog]: /azure/azure-monitor/reference/tables/containerservicelog
+[log-schema-heartbeat]: /azure/azure-monitor/reference/tables/heartbeat
+[log-schema-insightsmetrics]: /azure/azure-monitor/reference/tables/insightsmetrics
+[log-schema-kubeevents]: /azure/azure-monitor/reference/tables/kubeevents
+[log-schema-kubehealth]: /azure/azure-monitor/reference/tables/kubehealth
+[log-schema-kubemonagentevents]: /azure/azure-monitor/reference/tables/kubemonagentevents
+[log-schema-kubenodeinventory]: /azure/azure-monitor/reference/tables/kubenodeinventory
+[log-schema-kubepodinventory]: /azure/azure-monitor/reference/tables/kubepodinventory
+[log-schema-kubeservices]: /azure/azure-monitor/reference/tables/kubeservices
+[log-schema-perf]: /azure/azure-monitor/reference/tables/perf

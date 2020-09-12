@@ -1,6 +1,6 @@
 ---
 title: 작업 영역 및 테 넌 트 간에 Azure 센티널 확장 | Microsoft Docs
-description: MSSP 서비스 공급자에 대해 여러 테 넌 트를 Azure 센티널로 작업 하는 방법입니다.
+description: 작업 영역 및 테 넌 트에서 Azure 센티널의 분석 기능을 확장 하는 방법입니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9e0fe46e0a7382c0adcfa1f1f781f282e9e77942
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519016"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019328"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장
 
@@ -29,12 +29,12 @@ Azure 센티널은 Log Analytics 작업 영역을 기반으로 빌드됩니다. 
 
 단일 작업 영역을 사용 하는 경우 Azure 센티널 환경의 모든 이점을 얻을 수 있습니다. 하지만 여러 작업 영역을 포함 해야 하는 경우도 있습니다. 다음 표에서는 이러한 상황 중 일부를 나열 하 고 가능한 경우 단일 작업 영역을 사용 하 여 요구 사항을 충족 하는 방법을 제안 합니다.
 
-| 요구 사항 | 설명 | 작업 영역 수를 줄이는 방법 |
+| 요구 사항 | Description | 작업 영역 수를 줄이는 방법 |
 |-------------|-------------|--------------------------------|
 | 주권 및 규정 준수 | 작업 영역은 특정 영역에 연결 됩니다. 규정 요구 사항을 충족 하기 위해 데이터를 다른 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/) 에 유지 해야 하는 경우 별도의 작업 영역으로 분할 해야 합니다. |  |
 | 데이터 소유권 | 자회사 또는 관련 회사 등의 데이터 소유권 경계는 개별 작업 영역을 사용 하 여 더 잘 구분 됩니다. |  |
 | 여러 Azure 테 넌 트 | Azure 센티널은 자체 Azure Active Directory (Azure AD) 테 넌 트 경계 내 에서만 Microsoft 및 Azure SaaS 리소스의 데이터 수집을 지원 합니다. 따라서 각 Azure AD 테 넌 트는 별도의 작업 영역이 필요 합니다. |  |
-| 세부적인 데이터 액세스 제어 | 조직에서 조직의 내부 또는 외부에 있는 다른 그룹을 허용 하 여 Azure 센티널에서 수집 된 데이터에 액세스 해야 할 수 있습니다. 예를 들면 다음과 같습니다.<br><ul><li>리소스 소유자의 리소스에 관련 된 데이터 액세스</li><li>지역 또는 자회사 Soc ' 조직의 부분과 관련 된 데이터에 대 한 액세스</li></ul> | [리소스 rbac](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) 또는 [테이블 수준 RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) 사용 |
+| 세부적인 데이터 액세스 제어 | 조직에서 조직의 내부 또는 외부에 있는 다른 그룹을 허용 하 여 Azure 센티널에서 수집 된 데이터에 액세스 해야 할 수 있습니다. 다음은 그 예입니다. <br><ul><li>리소스 소유자의 리소스에 관련 된 데이터 액세스</li><li>지역 또는 자회사 Soc ' 조직의 부분과 관련 된 데이터에 대 한 액세스</li></ul> | [리소스 rbac](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) 또는 [테이블 수준 RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) 사용 |
 | 세분화 된 보존 설정 | 지금까지 여러 작업 영역이 여러 데이터 형식에 대해 서로 다른 보존 기간을 설정 하는 유일한 방법 이었습니다. 이는 테이블 수준 보존 설정의 도입으로 인해 더 이상 필요 하지 않습니다. | [테이블 수준 보존 설정](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) 사용 또는 [데이터 삭제](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) 자동화 |
 | 분할 청구 | 별도의 구독에 작업 영역을 배치 하면 다른 당사자에 게 요금이 청구 될 수 있습니다. | 사용 보고 및 교차 요금 |
 | 레거시 아키텍처 | 여러 작업 영역을 사용 하는 것은 더 이상 적용 되지 않는 제한 사항 또는 모범 사례를 고려 하는 과거 디자인에서 기인 합니다. 또한 Azure 센티널에 맞게 수정할 수 있는 임의 디자인 선택이 될 수 있습니다.<br><br>다음은 이러한 템플릿의 예입니다.<br><ul><li>Azure Security Center 배포할 때 구독 당 기본 작업 영역 사용</li><li>비교적 새로운 솔루션에 대 한 세분화 된 액세스 제어 또는 보존 설정의 필요성</li></ul> | 작업 영역 다시 설계 |
@@ -94,6 +94,13 @@ Azure 센티널은 단일 쿼리에서 [여러 작업 영역](../azure-monitor/l
 
 그런 다음부터 시작 하 여 두 작업 영역에 걸쳐 쿼리를 작성할 수 있습니다 `unionSecurityEvent | where ...` .
 
+#### <a name="scheduled-alerts"></a>예약 된 경고
+
+이제 작업 영역 간 쿼리를 분석 규칙의 예약 된 경고에 포함할 수 있으며, 다음과 같은 제한 사항이 적용 됩니다.
+
+- 단일 쿼리에 최대 10 개의 작업 영역을 포함할 수 있습니다.
+- Azure 센티널은 쿼리에서 참조 되는 모든 작업 영역에 배포 되어야 합니다.
+
 > [!NOTE] 
 > 동일한 쿼리에서 여러 작업 영역을 쿼리하면 성능에 영향을 줄 수 있으므로 논리에이 기능이 필요한 경우에만 권장 됩니다.
 
@@ -121,13 +128,6 @@ Azure 센티널은 사용자를 시작 하기 위해 설계 된 미리 로드 �
 여러 Azure 센티널 작업 영역을 구성 하 고 관리 하려면 Azure 센티널 관리 API의 사용을 자동화 해야 합니다. 경고 규칙, 구하기 쿼리, 통합 문서 및 플레이 북을 비롯 한 Azure 센티널 리소스의 배포를 자동화 하는 방법에 대 한 자세한 내용은 [Azure 센티널 확장: api, 통합 및 관리 자동화](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885)를 참조 하세요.
 
 Azure 센티널을 코드로 배포 하 고 관리 하 고 개인 GitHub 리포지토리에서 리소스를 배포 및 구성 하는 데 사용할 수 있는 통합 된 커뮤니티 제공 방법론에 대해 azure [Lighthouse](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) 를 [코드로 배포 및 관리](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) (영문)를 참조 하세요. 
-
-
-## <a name="whats-not-supported-across-workspaces"></a>작업 영역에서 지원 되지 않는 항목
-
-다음 기능은 작업 영역에서 지원 되지 않습니다.
-
-- 예약 된 경고 규칙은 작업 영역 간 쿼리를 사용 하 여 작업 영역에서 실행할 수 없습니다.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Azure Lighthouse를 사용 하 여 테 넌 트 간 작업 영역 관리
 

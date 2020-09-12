@@ -1,28 +1,25 @@
 ---
-title: 쿼리 가속 SQL 언어 참조 (미리 보기)
+title: 쿼리 가속 SQL 언어 참조
 titleSuffix: Azure Storage
 description: 쿼리 가속 sql 구문을 사용 하는 방법에 대해 알아봅니다.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: 3408970bcf5e34ce9f0f0afe9e723b4877dcd694
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193400"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659566"
 ---
-# <a name="query-acceleration-sql-language-reference-preview"></a>쿼리 가속 SQL 언어 참조 (미리 보기)
+# <a name="query-acceleration-sql-language-reference"></a>쿼리 가속 SQL 언어 참조
 
 쿼리 가속은 blob 내용에 대해 쿼리를 표현 하기 위해 ANSI SQL과 같은 언어를 지원 합니다.  쿼리 가속 SQL 언어는 ANSI SQL의 하위 집합이 며 지원 되는 데이터 형식, 연산자 등의 제한 된 집합을 포함 하지만, ANSI SQL에서 확장 되어 JSON과 같은 계층적 반구조적 데이터 형식에 대 한 쿼리를 지원 합니다. 
-
-> [!NOTE]
-> 쿼리 가속 기능은 공개 미리 보기로 제공 되며 캐나다 중부 및 프랑스 중부 지역에서 사용할 수 있습니다. 제한 사항을 검토 하려면 [알려진 문제](data-lake-storage-known-issues.md) 문서를 참조 하세요. 미리 보기에 등록 하려면 [이 양식을](https://aka.ms/adls/qa-preview-signup)참조 하세요. 
 
 ## <a name="select-syntax"></a>SELECT 구문
 
@@ -58,7 +55,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 
 ## <a name="data-types"></a>데이터 형식
 
-|데이터 형식|Description|
+|데이터 형식|설명|
 |---------|-------------------------------------------|
 |INT      |부호 있는 64비트 정수.                     |
 |FLOAT    |64 비트 ("배정밀도") 부동 소수점입니다.|
@@ -66,9 +63,9 @@ SELECT sys.split(split_size)FROM BlobStorage
 |timestamp|지정 시간입니다.                           |
 |BOOLEAN  |True 또는 False입니다.                             |
 
-CSV 형식 데이터에서 값을 읽는 경우 모든 값을 문자열로 읽습니다.  캐스트 식을 사용 하 여 문자열 값을 다른 형식으로 변환할 수 있습니다.  컨텍스트에 따라 값이 암시적으로 다른 형식으로 캐스팅 될 수 있습니다. 자세한 내용은 [데이터 형식 우선 순위 (transact-sql)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017)를 참조 하세요.
+CSV 형식 데이터에서 값을 읽는 경우 모든 값을 문자열로 읽습니다.  캐스트 식을 사용 하 여 문자열 값을 다른 형식으로 변환할 수 있습니다.  컨텍스트에 따라 값이 암시적으로 다른 형식으로 캐스팅 될 수 있습니다. 자세한 내용은 [데이터 형식 우선 순위 (transact-sql)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql)를 참조 하세요.
 
-## <a name="expressions"></a>식
+## <a name="expressions"></a>표현식
 
 ### <a name="referencing-fields"></a>참조 필드
 
@@ -80,15 +77,36 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 
 지원 되는 표준 SQL 연산자는 다음과 같습니다.
 
-``=``, ``!=``, ``<>``, ``<``, ``<=``, ``>``, ``>=``, ``+``, ``-``, ``/``, ``*``, ``%``, ``AND``, ``OR``, ``NOT``, ``CAST``, ``BETWEEN``, ``IN``, ``NULLIF``, ``COALESCE``
+|연산자|설명|
+|--|--|
+|[=](https://docs.microsoft.com/sql/t-sql/language-elements/equals-transact-sql)    |두 식이 같은지 비교합니다(비교 연산자).|
+|[!=](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |식이 다른 식과 같지 않은지 테스트합니다(비교 연산자).|
+|[<>](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |같지 않음의 두 식 (비교 연산자)을 비교 합니다.|
+|[<](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-transact-sql)    |두 식이 보다 작은 지 비교 합니다 (비교 연산자).|
+|[<=](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |두 식이 보다 작거나 같은지 비교 합니다 (비교 연산자).|
+|[>](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-transact-sql)    |두 식이 보다 큰지 비교 합니다 (비교 연산자). |
+|[>=](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |한 식이 다른 한 식보다 크거나 같은지 비교합니다(비교 연산자).|
+|[+](https://docs.microsoft.com/sql/t-sql/language-elements/add-transact-sql)    |두 숫자를 더합니다. 이 더하기 산술 연산자를 사용하여 날짜에 일 수를 더할 수도 있습니다.|
+|[-](https://docs.microsoft.com/sql/t-sql/language-elements/subtract-transact-sql)    |두 숫자를 빼는 빼기 산술 연산자입니다. |
+|[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |숫자를 다른 숫자로 나눕니다(산술 나누기 연산자).|
+|[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |두 식을 곱합니다(산술 곱하기 연산자).|
+|[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |한 숫자를 다른 숫자로 나눈 나머지를 반환합니다.|
+|[및](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |두 정수 값 간에 비트 논리 AND 연산을 수행합니다.|
+|[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Transact-sql 문 내의 이진 식으로 변환 되는 두 개의 지정 된 정수 값 간에 비트 논리적 OR 연산을 수행 합니다.|
+|[다음이 아님](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |부울 입력을 부정합니다.|
+|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |데이터 형식의 식을 다른 형식의 식으로 변환합니다.|
+|[BETWEEN](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |테스트할 범위를 지정합니다.|
+|[IN](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |지정된 값과 일치하는 값이 하위 쿼리 또는 목록 내에 있는지 확인합니다.|
+|[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |지정된 두 식이 같으면 Null 값을 반환합니다.|
+|[COALESCE](https://docs.microsoft.com/sql/t-sql/language-elements/coalesce-transact-sql)    |인수를 순서 대로 평가 하 고 처음에 NULL로 계산 되지 않는 첫 번째 식의 현재 값을 반환 합니다.|
 
-연산자의 왼쪽과 오른쪽에 있는 데이터 형식이 다른 경우 자동 변환은 [데이터 형식 우선 순위 (transact-sql)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017)에 지정 된 규칙에 따라 수행 됩니다.
+연산자의 왼쪽과 오른쪽에 있는 데이터 형식이 다른 경우 자동 변환은 [데이터 형식 우선 순위 (transact-sql)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql)에 지정 된 규칙에 따라 수행 됩니다.
 
 쿼리 가속 SQL 언어는 해당 문서에서 설명 하는 데이터 형식의 매우 작은 하위 집합만 지원 합니다.  이 문서의 [데이터 형식](#data-types) 섹션을 참조 하세요.
 
 ### <a name="casts"></a>캐스팅
 
-쿼리 가속 SQL 언어는 [데이터 형식 변환 (데이터베이스 엔진)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine?view=sql-server-2017)의 규칙에 따라 CAST 연산자를 지원 합니다.  
+쿼리 가속 SQL 언어는 [데이터 형식 변환 (데이터베이스 엔진)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine)의 규칙에 따라 CAST 연산자를 지원 합니다.  
 
 쿼리 가속 SQL 언어는 해당 문서에서 설명 하는 데이터 형식의 작은 하위 집합만 지원 합니다.  이 문서의 [데이터 형식](#data-types) 섹션을 참조 하세요.
 
@@ -96,7 +114,16 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 
 쿼리 가속 SQL 언어는 다음과 같은 표준 SQL 문자열 함수를 지원 합니다.
 
-``LIKE``, ``CHAR_LENGTH``, ``CHARACTER_LENGTH``, ``LOWER``, ``UPPER``, ``SUBSTRING``, ``TRIM``, ``LEADING``, ``TRAILING``.
+|기능|설명|
+|--|--|
+|CHAR_LENGTH    | 문자열 식이 문자 데이터 형식이 면 문자열 식의 문자 길이를 반환 합니다. 그렇지 않으면 문자열 식의 길이 (바이트)를 반환 합니다 (비트 수를 8로 나눈 값 보다 작은 정수). 이 함수는 CHARACTER_LENGTH 함수와 동일 합니다.|
+|CHARACTER_LENGTH    |문자열 식이 문자 데이터 형식이 면 문자열 식의 문자 길이를 반환 합니다. 그렇지 않으면 문자열 식의 길이 (바이트)를 반환 합니다 (비트 수를 8로 나눈 값 보다 작은 정수). 이 함수는 CHAR_LENGTH 함수와 동일 합니다.|
+|[LOWER](https://docs.microsoft.com/sql/t-sql/functions/lower-transact-sql)    |대문자 데이터를 소문자 데이터로 변환한 후에 문자 식을 반환합니다.|
+|[UPPER](https://docs.microsoft.com/sql/t-sql/functions/upper-transact-sql)    |소문자 데이터를 대문자로 변환한 문자 식을 반환합니다.|
+|[SUBSTRING](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql)    |SQL Server에서 문자, 이진, 텍스트 또는 이미지 식의 일부를 반환 합니다.|
+|[TRIM](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |문자열의 시작과 끝에서 공백 문자 char (32) 또는 기타 지정 된 문자를 제거 합니다.|
+|LEADING    |설명|
+|TRAILING    |설명|
 
 다음은 몇 가지 예입니다.
 
@@ -108,16 +135,6 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 |UPPER|``SELECT UPPER('AbCdEfG') from BlobStorage``|``ABCDEFG``|
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
-
-[LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) 함수를 사용 하면 패턴을 검색할 수 있습니다. 다음은 [LIKE](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) 함수를 사용 하 여 데이터 문자열을 검색 하는 몇 가지 예입니다 ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i `` .
-
-|쿼리|예제|
-|--|--|
-|``SELECT _1, _2, _3 from BlobStorage where _2 LIKE 'a%'``|``abc,abd,cd\n``|
-|``SELECT * from BlobStorage where _1 LIKE 'a[bcd]c``|``abc,abd,cd\n``|
-|``SELECT _1 from BlobStorage where _2 LIKE '[^xyz]%'``|``abc\ntest\n``|
-|``SELECT * from BlobStorage where _1 LIKE 'a_``|``abc,abd,cd\n``|
-|``SELECT _2,_3 from BlobStorage where _3 LIKE '[g-h]_![[a-j]' Escape '!'``|``xc%d^e,gh[i\n``|
 
 ### <a name="date-functions"></a>날짜 함수
 
@@ -131,16 +148,14 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 
 쿼리 가속 SQL 언어는 함수에 대해 연도, 월, 일, 시, 분, 초를 지원 ``DATE_ADD`` 합니다.
 
-예:
+예제:
 
-```sql
-DATE_ADD(datepart, quantity, timestamp)
-DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
+' ' sql DATE_ADD (datepart, quantity, timestamp) DATE_ADD (' minute ', 1, CAST (' 2017-01-02T03:04:05.006 Z ' 타임 스탬프)
 ```
 
-#### <a name="date_diff-function"></a>DATE_DIFF 함수
+#### DATE_DIFF function
 
-쿼리 가속 SQL 언어는 함수에 대해 연도, 월, 일, 시, 분, 초를 지원 ``DATE_DIFF`` 합니다.
+The query acceleration SQL language supports year, month, day, hour, minute, second for the ``DATE_DIFF`` function.
 
 ```sql
 DATE_DIFF(datepart, timestamp, timestamp)
@@ -151,7 +166,7 @@ DATE_DIFF('hour','2018-11-09T00:00+05:30','2018-11-09T01:00:23-08:00')
 
 함수에 대해 지원 되는 날짜 부분이 아닌 추출의 경우 ``DATE_ADD`` 쿼리 가속 SQL 언어는 날짜 부분으로 timezone_hour 및 timezone_minute를 지원 합니다.
 
-예:
+예제:
 
 ```sql
 EXTRACT(datepart FROM timestampstring)
@@ -160,7 +175,7 @@ EXTRACT(YEAR FROM '2010-01-01T')
 
 #### <a name="to_string-function"></a>TO_STRING 함수
 
-예:
+예제:
 
 ```sql
 TO_STRING(TimeStamp , format)
@@ -187,7 +202,7 @@ TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 |HH               |0으로 채워진 시간 (00-23)      |
 |분                |시간의 분 (0-59)                |
 |MM               |0으로 채워진 분 (00-59)           |
-|s                |분의 초 (0-59)             |
+|초                |분의 초 (0-59)             |
 |ss               |0으로 채워진 초 (00-59)          |
 |S                |초의 비율 (0.1-0.9)        |
 |SS               |초의 소수 부분 (0.01-0.99)      |
@@ -203,7 +218,7 @@ TO_STRING(CAST('1969-07-20T20:18Z' AS TIMESTAMP),  'MMMM d, y')
 
 IS08601 형식만 지원 됩니다.
 
-예:
+예제:
 
 ```sql
 TO_TIMESTAMP(string)
@@ -220,12 +235,12 @@ SELECT 문에는 하나 이상의 프로젝션 식 또는 단일 집계 식이 �
 
 |식|설명|
 |--|--|
-|[COUNT ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |조건자 식과 일치 하는 레코드 수를 반환 합니다.|
-|[COUNT (식)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |식이 null이 아닌 레코드 수를 반환 합니다.|
-|[AVERAGE (expression)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |식의 null이 아닌 값에 대 한 평균을 반환 합니다.|
-|[MIN (expression)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |식의 null이 아닌 최소 값을 반환 합니다.|
-|[MAX (expression](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql?view=sql-server-ver15))    |Expression의 null이 아닌 최대 값을 반환 합니다.|
-|[합계 (식)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql?view=sql-server-ver15)    |식에서 null이 아닌 모든 값의 합을 반환 합니다.|
+|[COUNT ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |조건자 식과 일치 하는 레코드 수를 반환 합니다.|
+|[COUNT (식)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |식이 null이 아닌 레코드 수를 반환 합니다.|
+|[AVERAGE (expression)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql)    |식의 null이 아닌 값에 대 한 평균을 반환 합니다.|
+|[MIN (expression)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql)    |식의 null이 아닌 최소 값을 반환 합니다.|
+|[MAX (식](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql)    |Expression의 null이 아닌 최대 값을 반환 합니다.|
+|[합계 (식)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql)    |식에서 null이 아닌 모든 값의 합을 반환 합니다.|
 
 ### <a name="missing"></a>누락
 
@@ -235,7 +250,7 @@ SELECT 문에는 하나 이상의 프로젝션 식 또는 단일 집계 식이 �
 
 ## <a name="table-descriptors"></a>테이블 설명자
 
-CSV 데이터의 경우 테이블 이름은 항상 `BlobStorage` 입니다.  예를 들어:
+CSV 데이터의 경우 테이블 이름은 항상 `BlobStorage` 입니다.  다음은 그 예입니다. 
 
 ```sql
 SELECT * FROM BlobStorage
@@ -287,7 +302,7 @@ SELECT latitude FROM BlobStorage[*].warehouses[*]
 
 쿼리가 모든 필드를 가져오지만 위도만 선택 합니다.
 
-JSON 개체 값에만 액세스 하려는 경우 `dimensions` 쿼리에서 해당 개체에 대 한 참조를 사용할 수 있습니다. 예를 들어:
+JSON 개체 값에만 액세스 하려는 경우 `dimensions` 쿼리에서 해당 개체에 대 한 참조를 사용할 수 있습니다. 다음은 그 예입니다. 
 
 ```sql
 SELECT length FROM BlobStorage[*].dimensions
@@ -321,8 +336,8 @@ CSV 데이터 레코드를 다운로드 한 다음 일괄 처리로 처리 하�
 >[!NOTE]
 > Split_size는 10mb (10485760) 이상 이어야 합니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
-- [Azure Data Lake Storage 쿼리 가속 (미리 보기)](data-lake-storage-query-acceleration.md)
-- [Azure Data Lake Storage 쿼리 가속 (미리 보기)을 사용 하 여 데이터 필터링](data-lake-storage-query-acceleration-how-to.md)
+- [Azure Data Lake Storage 쿼리 가속](data-lake-storage-query-acceleration.md)
+- [Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링](data-lake-storage-query-acceleration-how-to.md)
 

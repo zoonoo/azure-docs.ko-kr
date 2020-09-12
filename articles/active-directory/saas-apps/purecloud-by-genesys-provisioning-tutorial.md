@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1397aa350ccc3114954902a6bfd02826cdff965f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4983a4a637ae636c6a3ef4a485c1777fc9b8a77a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553285"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015177"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위해 PureCloud를 사용 하 여 구성
 
@@ -111,6 +111,8 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
      |phoneNumbers[type eq "work"].value|String|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|참조|
+     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+     
 
 10. **매핑** 섹션에서 **Azure Active Directory 그룹을 PureCloud에 동기화를**선택 합니다.
 
@@ -144,6 +146,10 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 * [프로비저닝 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs)를 사용하여 어떤 사용자가 성공적으로 프로비저닝되었는지 확인합니다.
 * [진행률 표시줄](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)을 통해 프로비저닝 주기 상태와 완료 정도를 확인합니다.
 * 프로비저닝 구성이 비정상 상태로 보이면 애플리케이션이 격리됩니다. 격리 상태에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)를 참조하세요.
+
+## <a name="change-log"></a>로그 변경
+
+09/10-엔터프라이즈 특성 "예제"에 대 한 지원이 추가 되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

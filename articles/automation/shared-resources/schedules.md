@@ -2,19 +2,15 @@
 title: Azure Automation의 일정 관리
 description: 이 문서에서는 Azure Automation에서 일정을 만들고 사용하는 방법을 설명합니다.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/04/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8bd988029b8d78a29de38e995c36ee1860d8cda9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187356"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004615"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Azure Automation의 일정 관리
 
@@ -28,17 +24,17 @@ Azure Automation에서 Runbook이 지정된 시간에 시작되도록 예약하�
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>일정에 액세스하는 데 사용되는 PowerShell cmdlet
 
-다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 일정을 만들고 관리합니다. [Az 모듈](modules.md#az-modules)의 일부로 제공됩니다. 
+다음 표에 나와 있는 cmdlet은 PowerShell을 사용하여 Automation 일정을 만들고 관리합니다. [Az 모듈](modules.md#az-modules)의 일부로 제공됩니다.
 
 | Cmdlet | Description |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |일정을 검색합니다. |
-| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |예약된 Runbook을 검색합니다. |
-| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |새 일정을 만듭니다. |
-| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Runbook을 일정에 연결합니다. |
-| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |일정을 제거합니다. |
-| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |기존 일정에 대한 속성을 설정합니다. |
-| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |일정에서 Runbook을 분리합니다. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule) |일정을 검색합니다. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook) |예약된 Runbook을 검색합니다. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) |새 일정을 만듭니다. |
+| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) |Runbook을 일정에 연결합니다. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule) |일정을 제거합니다. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) |기존 일정에 대한 속성을 설정합니다. |
+| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook) |일정에서 Runbook을 분리합니다. |
 
 ## <a name="create-a-schedule"></a>일정 만들기
 
@@ -49,23 +45,33 @@ Azure Portal에서 또는 PowerShell을 사용하여 Runbook에 대한 새 일�
 
 ### <a name="create-a-new-schedule-in-the-azure-portal"></a>Azure Portal에서 새 일정 만들기
 
-1. Azure Portal의 Automation 계정에서 왼쪽의 **공유 리소스** 섹션 아래에 있는 **일정**을 선택합니다.
-1. 페이지 맨 위에서 **일정 추가**를 선택합니다.
-1. **새 일정** 창에서 이름을 입력하고, 선택적으로 새 일정에 대한 설명을 입력합니다.
-1. **한 번** 또는 **되풀이**를 선택하여 일정을 한 번 실행할지 또는 되풀이 일정에 따라 실행할지 선택합니다. **한 번**을 선택하는 경우 시작 시간을 지정한 다음, **만들기**를 선택합니다. **되풀이**를 선택할 경우에는 시작 시간을 지정합니다. **되풀이 간격**에서 Runbook을 반복할 빈도를 선택합니다. 시간, 일, 주 또는 월별로 선택합니다.
-    1. **주**를 선택하는 경우 선택 가능한 요일이 제공됩니다. 요일을 원하는 수만큼 선택합니다. 첫 번째 일정은 시작 시간 이후에 선택한 첫 번째 요일에 실행됩니다. 예를 들어 주말 일정을 선택하려면 토요일과 일요일을 선택합니다.
-    
-       ![주말 되풀이 일정 설정](../media/schedules/week-end-weekly-recurrence.png)
+1. Automation 계정의 왼쪽 창에서 **공유 리소스**아래에 있는 **일정** 을 선택 합니다.
+2. **일정 페이지에서** **일정 추가**를 선택 합니다.
+3. **새 일정** 페이지에서 이름을 입력 하 고 선택적으로 새 일정에 대 한 설명을 입력 합니다.
 
-    2. **월**을 선택하는 경우에는 다른 옵션이 제공됩니다. **월별 발생 빈도** 옵션에서는 **일(월 중)** 또는 **평일** 중 하나를 선택합니다. **일(월 중)** 을 선택하는 경우 원하는 일수를 선택할 수 있도록 달력이 표시됩니다. 현재 달은 30일까지인데 31일을 선택하는 등의 경우에는 일정이 실행되지 않습니다. 일정이 해당 월의 말일에 실행되도록 하려면 **매월 말일 실행** 아래에서 **예**를 선택합니다. **평일**을 선택하는 경우에는 **되풀이 간격** 옵션이 표시됩니다. **첫 번째**, **두 번째**, **세 번째**, **네 번째** 또는 **마지막** 중 하나를 선택하고, 마지막으로 반복할 요일을 선택합니다.
+    >[!NOTE]
+    >Automation 일정은 현재 일정 이름에 특수 문자를 사용 하는 것을 지원 하지 않습니다.
+    >
 
-       ![매월 첫날, 15일 및 말일에 대한 월별 일정](../media/schedules/monthly-first-fifteenth-last.png)
+4. 일정 **을 한 번** 실행할지 아니면 **되풀이**일정으로 실행할지를 선택 합니다. **한 번**을 선택하는 경우 시작 시간을 지정한 다음, **만들기**를 선택합니다. **되풀이**를 선택할 경우에는 시작 시간을 지정합니다. **되풀이 간격**에서 Runbook을 반복할 빈도를 선택합니다. 시간, 일, 주 또는 월별로 선택합니다.
 
-1. 작업이 완료되면 **만들기**를 선택합니다.
+    * **주**를 선택하는 경우 선택 가능한 요일이 제공됩니다. 요일을 원하는 수만큼 선택합니다. 첫 번째 일정은 시작 시간 이후에 선택한 첫 번째 요일에 실행됩니다. 예를 들어 주말 일정을 선택하려면 토요일과 일요일을 선택합니다.
+
+    ![주말 되풀이 일정 설정](../media/schedules/week-end-weekly-recurrence.png)
+
+    * **월**을 선택하는 경우에는 다른 옵션이 제공됩니다. **월별 발생 빈도** 옵션에서는 **일(월 중)** 또는 **평일** 중 하나를 선택합니다. **일(월 중)** 을 선택하는 경우 원하는 일수를 선택할 수 있도록 달력이 표시됩니다. 현재 달은 30일까지인데 31일을 선택하는 등의 경우에는 일정이 실행되지 않습니다. 일정이 해당 월의 말일에 실행되도록 하려면 **매월 말일 실행** 아래에서 **예**를 선택합니다. **평일**을 선택하는 경우에는 **되풀이 간격** 옵션이 표시됩니다. **첫 번째**, **두 번째**, **세 번째**, **네 번째** 또는 **마지막** 중 하나를 선택하고, 마지막으로 반복할 요일을 선택합니다.
+
+    ![매월 첫날, 15일 및 말일에 대한 월별 일정](../media/schedules/monthly-first-fifteenth-last.png)
+
+5. 작업이 완료되면 **만들기**를 선택합니다.
 
 ### <a name="create-a-new-schedule-with-powershell"></a>PowerShell을 사용하여 새 일정 만들기
 
-[New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) cmdlet을 사용하여 일정을 만듭니다. 일정의 시작 시간 및 실행 빈도를 지정합니다. 다음 예에서는 다양한 일정 시나리오를 만드는 방법을 보여 줍니다.
+[New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) cmdlet을 사용하여 일정을 만듭니다. 일정의 시작 시간 및 실행 빈도를 지정합니다. 다음 예에서는 다양한 일정 시나리오를 만드는 방법을 보여 줍니다.
+
+>[!NOTE]
+>Automation 일정은 현재 일정 이름에 특수 문자를 사용 하는 것을 지원 하지 않습니다.
+>
 
 #### <a name="create-a-one-time-schedule"></a>일회성 일정 만들기
 
@@ -128,7 +134,7 @@ Runbook을 여러 일정에 연결할 수 있으며, 하나의 일정에 여러 
 
 ### <a name="link-a-schedule-to-a-runbook-with-powershell"></a>Windows PowerShell을 사용하여 Runbook에 일정 연결
 
-일정을 연결하려면 [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) cmdlet을 사용합니다. Parameters 매개 변수를 사용하여 Runbook의 매개 변수 값을 지정할 수 있습니다. 매개 변수 값을 지정하는 방법에 대한 자세한 내용은 [Azure Automation에서 Runbook 시작](../start-runbooks.md)을 참조하세요.
+일정을 연결하려면 [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) cmdlet을 사용합니다. Parameters 매개 변수를 사용하여 Runbook의 매개 변수 값을 지정할 수 있습니다. 매개 변수 값을 지정하는 방법에 대한 자세한 내용은 [Azure Automation에서 Runbook 시작](../start-runbooks.md)을 참조하세요.
 다음 예제에서는 매개 변수를 포함하는 Azure Resource Manager cmdlet을 사용하여 runbook에 일정을 연결하는 방법을 보여 줍니다.
 
 ```azurepowershell-interactive
@@ -155,7 +161,7 @@ Azure Automation에서 일정에 구성할 수 있는 가장 빈번한 간격은
 
 ### <a name="disable-a-schedule-from-the-azure-portal"></a>Azure Portal에서 일정 해제
 
-1. Automation 계정의 **공유 리소스**에서 **일정**을 선택합니다.
+1. Automation 계정의 왼쪽 창에서 **공유 리소스**아래에 있는 **일정** 을 선택 합니다.
 1. 일정 이름을 선택하여 해당 세부 정보 창을 엽니다.
 1. **사용**을 **아니오**로 변경합니다.
 
@@ -164,7 +170,7 @@ Azure Automation에서 일정에 구성할 수 있는 가장 빈번한 간격은
 
 ### <a name="disable-a-schedule-with-powershell"></a>PowerShell을 사용하여 일정 해제
 
-[Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) cmdlet을 사용하여 기존 일정의 속성을 변경할 수 있습니다. 일정을 사용하지 않도록 설정하려면 `IsEnabled` 매개 변수에 False를 지정합니다.
+[Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) cmdlet을 사용하여 기존 일정의 속성을 변경할 수 있습니다. 일정을 사용하지 않도록 설정하려면 `IsEnabled` 매개 변수에 False를 지정합니다.
 
 다음 예제에서는 Azure Resource Manager cmdlet을 사용하여 Runbook 일정을 사용하지 않도록 설정하는 방법을 보여 줍니다.
 
@@ -181,13 +187,13 @@ Set-AzAutomationSchedule –AutomationAccountName $automationAccountName `
 
 ### <a name="remove-a-schedule-using-the-azure-portal"></a>Azure Portal을 사용하여 일정 제거
 
-1. Automation 계정의 **공유 리소스**에서 **일정**을 선택합니다.
-2. 일정 이름을 클릭하여 해당 세부 정보 창을 엽니다.
+1. Automation 계정의 왼쪽 창에서 **공유 리소스**아래에 있는 **일정** 을 선택 합니다.
+2. 일정 이름을 선택하여 해당 세부 정보 창을 엽니다.
 3. **삭제**를 클릭합니다.
 
 ### <a name="remove-a-schedule-with-powershell"></a>PowerShell을 사용하여 일정 제거
 
-아래와 같이 `Remove-AzAutomationSchedule` cmdlet을 사용하여 기존 일정을 삭제할 수 있습니다. 
+아래와 같이 `Remove-AzAutomationSchedule` cmdlet을 사용하여 기존 일정을 삭제할 수 있습니다.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"

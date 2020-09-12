@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: 2ff8d962479188ddf324dc5ff75d22eac4fed3d6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826772"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650991"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>상업용 마켓플레이스의 지리적 가용성 및 통화 지원
 
@@ -99,7 +99,6 @@ ms.locfileid: "88826772"
 | 리투아니아                           | LT        | EUR          |
 | 룩셈부르크                          | LU        | EUR          |
 | 마카오                           | MO        | USD          |
-| 북마케도니아                     | MK        | USD          |
 | 말레이시아                            | MY        | USD          |
 | 몰타                               | MT        | EUR          |
 | 모리셔스                           | MU        | USD          |
@@ -115,6 +114,7 @@ ms.locfileid: "88826772"
 | 뉴질랜드                         | NZ        | NZD          |
 | 니카라과                           | NI        | USD          |
 | 나이지리아                             | NG        | USD          |
+| 북마케도니아                     | MK        | USD          |
 | 노르웨이                              | 아니요        | NOK          |
 | 오만                                | OM        | USD          |
 | 파키스탄                            | PK        | USD          |
@@ -166,7 +166,7 @@ ms.locfileid: "88826772"
 | 짐바브웨                            | ZW        | USD          |
 |   |   |   |
 
-\* 브라질 고객의 경우 CSP(클라우드 솔루션 공급자)를 통한 Marketplace에서는 USD를 사용합니다.
+\* 브라질에 있는 고객의 경우, CSP (클라우드 솔루션 공급자)를 통한 통신에는 USD가 사용 됩니다.
 
 \** 무료 및 BYOL VM 이미지만 해당합니다.
 
@@ -177,7 +177,7 @@ ms.locfileid: "88826772"
 게시 하기 전에 가격을 조정 하려면 가격 책정 스프레드시트를 내보내고 수정한 다음 변경 내용으로 업로드 하면 됩니다.
 
 > [!NOTE]
-> 플랜의 시장 가격이 게시된 후에는 나중에 변경할 수 없습니다. 가격을 게시하기 직전에 가격이 적절한지 확인하려면 가격 책정 스프레드시트를 내보내고 각 시장의 가격을 검토합니다.
+> 요금제의 시장 가격은 게시 된 후에는 변경할 수 없습니다. 가격을 게시하기 직전에 가격이 적절한지 확인하려면 가격 책정 스프레드시트를 내보내고 각 시장의 가격을 검토합니다.
 
 제품 가격은 항상 현지 통화로 고객에 게 표시 됩니다. 파트너 센터에서 선택한 가격은 파트너 센터에 가격을 저장할 때의 환율에 따라 고객의 현지 통화로 변환 됩니다. 제품을 다시 게시 하지 않는 한 온라인 상점에서 고객에 게 표시 되는 가격은 변경 되지 않습니다.
 
@@ -185,6 +185,8 @@ Microsoft는 현지 통화로 고객의 지불을 받고 현지 통화로 사용
 
 > [!NOTE]
 > Microsoft는 Microsoft 국채 요금을 사용 하 여 제품 가격을 변환 합니다.
+
+[![통화 변환 흐름입니다.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
 
 ## <a name="retrieving-currency-information-by-api"></a>API로 통화 정보 검색
 
