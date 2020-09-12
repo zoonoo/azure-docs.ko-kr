@@ -1,6 +1,6 @@
 ---
-title: SQL Data Warehouse로 tb의 데이터 로드
-description: Azure Data Factory를 통해 15분 내에 Azure SQL Data Warehouse에 1TB 데이터를 로드하는 방법을 보여 줍니다.
+title: Azure Synapse Analytics로 tb의 데이터 로드
+description: Azure Data Factory를 사용 하 여 15 분 이내에 Azure Synapse Analytics에 1TB의 데이터를 로드 하는 방법을 보여 줍니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,39 +12,39 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3b5ce0cba68d4374d6a0403af28ec3f03920acf6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a5bf53597c0706a5ef435d6ab8cc06e14726db8a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537601"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442482"
 ---
-# <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Data Factory를 통해 15분 내에 Azure SQL Data Warehouse에 1TB 로드
+# <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Data Factory를 사용 하 여 15 분 이내에 Azure Synapse Analytics에 1TB를 로드 합니다.
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory를 사용하여 Azure SQL Data Warehouse 간에 데이터 복사](../connector-azure-sql-data-warehouse.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 최신 버전의 Data Factory 서비스를 사용 하는 경우 [Data Factory를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse) 간에 데이터 복사](../connector-azure-sql-data-warehouse.md)를 참조 하세요.
 
 
-[Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 는 관계형 데이터와 비관계형 데이터를 모두 처리할 수 있는 클라우드 기반 스케일 아웃 데이터베이스입니다.  대규모 병렬 처리(MPP) 아키텍처를 기반으로 하는 SQL Data Warehouse는 엔터프라이즈 데이터 웨어하우스 워크로드에 최적화됩니다.  스토리지를 확장하고 개별적으로 계산할 수 있는 클라우드 탄력성을 유연하게 제공합니다.
+[Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 는 관계형 데이터와 비관계형 데이터를 모두 처리할 수 있는 클라우드 기반 스케일 아웃 데이터베이스입니다.  MPP (대규모 parallel processing) 아키텍처를 기반으로 하는 Azure Synapse Analytics는 엔터프라이즈 데이터 웨어하우스 워크 로드에 최적화 되어 있습니다.  스토리지를 확장하고 개별적으로 계산할 수 있는 클라우드 탄력성을 유연하게 제공합니다.
 
-이제는 Azure SQL Data Warehouse를 시작하는 것이 **Azure Data Factory**를 사용하는 것보다 더 쉽습니다.  Azure Data Factory는 완벽하게 관리되는 클라우드 기반 데이터 통합 서비스이며, SQL Data Warehouse를 기존 시스템에서 나온 데이터로 채우는 데 사용되므로 SQL Data Warehouse를 평가하고 분석 솔루션을 빌드하는 동안 소중한 시간을 절약할 수 있습니다. Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로드하는 방법의 주요 이점은 다음과 같습니다.
+이제 **Azure Data Factory**를 사용 하 여 Azure Synapse Analytics를 시작 하는 것이 더 쉬워졌습니다.  Azure Data Factory는 완전히 관리 되는 클라우드 기반 데이터 통합 서비스로 서 Azure Synapse Analytics를 기존 시스템의 데이터로 채우는 데 사용할 수 있으며 Azure Synapse Analytics를 평가 하 고 분석 솔루션을 구축 하는 동안 귀중 한 시간을 절약할 수 있습니다. Azure Data Factory를 사용 하 여 Azure Synapse Analytics로 데이터를 로드 하는 경우의 주요 이점은 다음과 같습니다.
 
 * **간편한 설정**: 스크립팅이 필요하지 않은 직관적인 5단계 마법사.
 * **다양 한 데이터 저장소 지원**: 다양 한 온-프레미스 및 클라우드 기반 데이터 저장소 집합을 기본으로 지원 합니다.
 * **보안 및 호환**: 데이터가 HTTPS 또는 ExpressRoute를 통해 전송되고 글로벌 서비스를 제공하므로 데이터가 지리적 경계를 벗어나지 않음
-* **PolyBase를 통해 제공되는 뛰어난 성능** – 데이터를 Azure SQL Data Warehouse로 이동하는 가장 효율적인 방법은 Polybase를 사용하는 것입니다. 스테이징 Blob 기능을 사용하면 Polybase가 기본적으로 지원하는 Azure Blob Storage를 제외한 모든 유형의 데이터 저장소에서 높은 로드 속도를 얻을 수 있습니다.
+* **Polybase를 사용 하는 뛰어난 성능** – polybase를 사용 하는 것은 Azure Synapse Analytics로 데이터를 이동 하는 가장 효율적인 방법입니다. 스테이징 Blob 기능을 사용하면 Polybase가 기본적으로 지원하는 Azure Blob Storage를 제외한 모든 유형의 데이터 저장소에서 높은 로드 속도를 얻을 수 있습니다.
 
-이 문서에서는 Data Factory 복사 마법사를 사용하여 Azure Blob Storage에서 나온 1TB 데이터를 15분 내에 1.2GBps 이상의 처리량 속도로 Azure SQL Data Warehouse로 로드하는 방법을 보여 줍니다.
+이 문서에서는 Data Factory 복사 마법사를 사용 하 여 Azure Blob Storage의 1TB 데이터를 15 분 내에 1.2 GBps 이상의 처리량으로 Azure Synapse Analytics로 로드 하는 방법을 보여 줍니다.
 
-또한 복사 마법사를 사용하여 Azure SQL Data Warehouse로 데이터를 이동하기 위한 단계별 지침을 제공합니다.
+이 문서에서는 복사 마법사를 사용 하 여 Azure Synapse Analytics로 데이터를 이동 하는 방법에 대 한 단계별 지침을 제공 합니다.
 
 > [!NOTE]
->  Azure SQL Data Warehouse 간에 데이터를 이동하는 Data Factory 기능에 대한 일반적인 내용은 [Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 이동](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조하세요.
+>  Azure Synapse Analytics 간에 데이터를 이동 하는 Data Factory 기능에 대 한 일반적인 내용은 Azure Data Factory를 [사용 하 여 Azure Synapse analytics 간 데이터 이동](data-factory-azure-sql-data-warehouse-connector.md) 을 참조 하세요.
 >
 > Visual Studio, PowerShell 등을 사용 하 여 파이프라인을 빌드할 수도 있습니다. Azure Data Factory에서 복사 작업을 사용 하는 방법에 대 한 단계별 지침을 보려면 [자습서: Azure Blob에서 데이터 복사를 Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 합니다.  
 >
 >
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>전제 조건
 * Azure Blob Storage: 이 실험에서는 Azure Blob Storage(GRS)를 사용하여 TPC-H 테스트 데이터 세트를 저장합니다.  Azure Storage 계정이 없을 경우 [스토리지 계정을 만드는 방법](../../storage/common/storage-account-create.md)을 참조하세요.
 * [TPC-H](http://www.tpc.org/tpch/) 데이터: 테스트 집합으로는 TPC-H를 사용할 것입니다.  이렇게 하려면 데이터 세트를 생성하도록 도와주는 TPC-H 도구 키트의 `dbgen`을 사용해야 합니다.  [TPC 도구](http://www.tpc.org/tpc_documents_current_versions/current_specifications5.asp)에서 `dbgen`에 대한 원본 코드를 다운로드하여 직접 컴파일하거나, [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools)에서 컴파일된 이진 파일을 다운로드할 수 있습니다.  dbgen.exe를 다음 명령과 함께 실행하여 10개 파일에 분산되어 있는 `lineitem` 표에 대한 1TB의 플랫 파일을 생성합니다.
 
@@ -54,18 +54,18 @@ ms.locfileid: "86537601"
   * `Dbgen -s 1000 -S **10** -C 10 -T L -v`
 
     이제 생성된 파일을 Azure Blob에 복사합니다.  ADF 복사를 사용하여 이 작업을 하는 방법에 대한 자세한 내용은 [Azure Data Factory를 사용하여 온-프레미스 파일 시스템 간 데이터 이동](data-factory-onprem-file-system-connector.md)을 참조하세요.    
-* Azure SQL Data Warehouse: 이 실험에서는 6,000개 DWU를 사용하여 만들어진 Azure SQL Data Warehouse로 데이터를 로드합니다.
+* Azure Synapse Analytics:이 실험은 6000 DWUs를 사용 하 여 만든 Azure Synapse Analytics로 데이터를 로드 합니다.
 
-    SQL Data Warehouse 데이터베이스를 만드는 방법에 대한 자세한 내용은 [Azure SQL Data Warehouse 만들기](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)를 참조하세요.  Polybase를 사용하여 SQL Data Warehouse에 대한 최상의 로드 성능을 얻기 위해 성능 설정에서 허용되는 최대 DWU(데이터 웨어하우스 단위) 수(6,000 DWU)를 선택합니다.
+    Azure Synapse Analytics 데이터베이스를 만드는 방법에 대 한 자세한 지침은 [Azure Synapse 분석 만들기](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) 를 참조 하세요.  Polybase를 사용 하 여 Azure Synapse Analytics에 가장 적합 한 부하 성능을 얻으려면 성능 설정에서 허용 되는 최대 DWUs (데이터 웨어하우스 단위) 수 (6000 DWUs)를 선택 합니다.
 
   > [!NOTE]
-  > Azure Blob에서 로드할 때 데이터 로드 성능은 SQL Data Warehouse에서 구성하는 DWU 수에 정비례합니다.
+  > Azure Blob에서 로드 하는 경우 데이터 로드 성능은 Azure Synapse Analytics에 대해 구성 하는 DWUs의 수에 비례 합니다.
   >
-  > 1TB를 1,000 DWU SQL Data Warehouse에 로드하는 데는 87분(~200MBps 처리량)이 걸리고, 1TB를 2,000 DWU SQL Data Warehouse에 로드하는 데는 46분(~380MBps 처리량)이 걸리고, 1TB를 6,000 DWU SQL Data Warehouse에 로드하는 데는 14분(~1.2GBps 처리량)이 걸립니다.
+  > 1000 DWU로 1tb를 로드 하는 Azure Synapse Analytics는 87 분 (~ 200 MBps 처리량)으로 1tb를 로드 합니다. 2000 DWU Azure Synapse Analytics는 분 (~ 46 MBps 처리량)으로 1tb를 로드 합니다.
   >
   >
 
-    6,000 DWU가 포함된 SQL Data Warehouse를 만들려면 성능 슬라이더를 완전히 오른쪽으로 이동합니다.
+    6000 DWUs를 사용 하 여 Synapse SQL 풀을 만들려면 성능 슬라이더를 오른쪽으로 이동 합니다.
 
     ![성능 슬라이더](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
@@ -77,10 +77,10 @@ ms.locfileid: "86537601"
 
     ![크기 조정 대화 상자](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
 
-    이 실험에서는 `xlargerc` 리소스 클래스를 사용하여 Azure SQL Data Warehouse로 데이터를 로드합니다.
+    이 실험은 리소스 클래스를 사용 하 여 Azure Synapse Analytics로 데이터를 로드 `xlargerc` 합니다.
 
-    최상의 처리량을 얻으려면 `xlargerc` 리소스 클래스에 속한 SQL Data Warehouse 사용자를 사용하여 복사해야 합니다.  [사용자 리소스 클래스 변경 예제](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md)에 따라 이 작업을 하는 방법을 알아보세요.  
-* 다음 DDL 문을 실행하여 Azure SQL Data Warehouse 데이터베이스에서 대상 테이블 스키마를 만듭니다.
+    가능한 최상의 처리량을 얻으려면 리소스 클래스에 속한 Azure Synapse Analytics 사용자를 사용 하 여 복사를 수행 해야 `xlargerc` 합니다.  [사용자 리소스 클래스 변경 예제](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md)에 따라 이 작업을 하는 방법을 알아보세요.  
+* 다음 DDL 문을 실행 하 여 Azure Synapse Analytics 데이터베이스에서 대상 테이블 스키마를 만듭니다.
 
     ```SQL  
     CREATE TABLE [dbo].[lineitem]
@@ -165,13 +165,13 @@ ms.locfileid: "86537601"
     ![복사 마법사 - 파일 형식 설정](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
 ## <a name="step-3-configure-destination"></a>3단계: 대상 구성
-이 섹션에서는 대상: Azure SQL Data Warehouse 데이터베이스의 `lineitem` 테이블을 구성하는 방법을 보여 줍니다.
+이 섹션에서는 `lineitem` Azure Synapse Analytics 데이터베이스에서 대상: 테이블을 구성 하는 방법을 보여 줍니다.
 
-1. 대상 저장소로 **Azure SQL Data Warehouse**를 선택하고 **다음**을 클릭합니다.
+1. **Azure Synapse Analytics** 를 대상 저장소로 선택 하 고 **다음**을 클릭 합니다.
 
     ![복사 마법사 - 대상 데이터 저장소 선택](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-2. Azure SQL Data Warehouse의 연결 정보를 입력합니다.  `xlargerc` 역할(자세한 내용은 **필수 구성 요소** 섹션 참조)의 구성원인 사용자를 지정하는지 확인하고 **다음**을 클릭합니다.
+2. Azure Synapse Analytics에 대 한 연결 정보를 입력 합니다.  `xlargerc` 역할(자세한 내용은 **필수 구성 요소** 섹션 참조)의 구성원인 사용자를 지정하는지 확인하고 **다음**을 클릭합니다.
 
     ![복사 마법사 - 대상 연결 정보](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
@@ -190,27 +190,27 @@ ms.locfileid: "86537601"
 ## <a name="step-5-deploy-and-monitor-load-results"></a>5단계: 로드 결과 배포 및 모니터링
 1. **마침** 단추를 클릭하여 배포합니다.
 
-    ![복사 마법사 - 요약 페이지](media/data-factory-load-sql-data-warehouse/summary-page.png)
+    ![복사 마법사-요약 페이지 1](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
 2. 배포가 완료된 후 `Click here to monitor copy pipeline`을 클릭하여 복사 실행 진행률을 모니터링합니다. **Activity Windows**(활동 기간) 목록에서 직접 만든 복사 파이프라인을 선택합니다.
 
-    ![복사 마법사 - 요약 페이지](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+    ![복사 마법사-요약 페이지 2](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
     오른쪽 패널의 **Activity Window Explorer**(활동 기간 탐색기)에서는 원본에서 읽고 대상에 쓴 데이터 볼륨, 기간, 평균 실행 처리량을 비롯한 복사 실행 세부 정보를 확인할 수 있습니다.
 
-    다음 스크린샷에서 볼 수 있듯이 1TB를 Azure Blob Storage에서 SQL Data Warehouse로 복사 하는 데 14 분이 걸리며 1.22 g b 처리량을 효과적으로 달성 했습니다.
+    다음 스크린샷에서 볼 수 있듯이 Azure Blob Storage 1TB를 Azure Synapse Analytics로 복사 하는 데 14 분이 걸리며 1.22 g b 처리량을 효과적으로 달성 했습니다.
 
     ![복사 마법사 - 성공 대화 상자](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
 ## <a name="best-practices"></a>모범 사례
-Azure SQL Data Warehouse 데이터베이스 실행에 대한 몇 가지 모범 사례는 다음과 같습니다.
+Azure Synapse Analytics 데이터베이스를 실행 하는 몇 가지 모범 사례는 다음과 같습니다.
 
 * 클러스터형 COLUMNSTORE 인덱스로 로드될 경우 더 큰 리소스 클래스를 사용합니다.
 * 더 효율적으로 조인하려면 기본 라운드 로빈 배포가 아닌 열 선택에 의한 해시 배포를 사용하는 것이 좋습니다.
 * 로드 속도를 높이려면 임시 데이터에 힙을 사용하는 것이 좋습니다.
-* Azure SQL Data Warehouse 로드를 완료한 후 통계를 만듭니다.
+* Azure Synapse Analytics에 대 한 로드를 완료 한 후에 통계를 만듭니다.
 
-자세한 내용은 [Azure SQL Data Warehouse에 대한 모범 사례](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md)를 참조하세요.
+자세한 내용은 [Azure Synapse Analytics 모범 사례](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Data Factory 복사 마법사](data-factory-copy-wizard.md) - 이 문서에서는 복사 마법사에 대해 자세히 설명합니다.

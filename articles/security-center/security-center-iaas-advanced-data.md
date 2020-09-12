@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: e0085ef5213853a1577ec039d5e360114aa7c64e
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: de5346387336acb5a4b13457d3a163f529c51b89
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566270"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438690"
 ---
 # <a name="advanced-data-security-for-sql-machines-preview"></a>SQL 컴퓨터에 대 한 고급 데이터 보안 (미리 보기)
 
@@ -109,7 +109,7 @@ Security Center에서 직접 취약성 평가 결과를 볼 수 있습니다.
     각 보기에서 보안 검사는 **심각도**를 기준으로 정렬 됩니다. 특정 보안 검사를 클릭 하 여 세부 정보 창에 **설명** **,이를 수정 하는** 방법 및 **영향** 또는 **벤치 마크**와 같은 기타 관련 정보를 표시 합니다.
 
 ## <a name="advanced-threat-protection-for-sql-servers-on-machines-alerts"></a>컴퓨터의 SQL server에 대 한 Advanced threat protection 경고
-경고는 비정상적이 고 잠재적으로 위험한 SQL 컴퓨터 액세스 또는 악용 시도에 의해 생성 됩니다. 이러한 이벤트는 경고 [참조 페이지의 SQL Database 및 SQL Data Warehouse에 대 한 경고 섹션](alerts-reference.md#alerts-sql-db-and-warehouse)에 표시 된 경고를 트리거할 수 있습니다.
+경고는 비정상적이 고 잠재적으로 위험한 SQL 컴퓨터 액세스 또는 악용 시도에 의해 생성 됩니다. 이러한 이벤트는 [경고 참조 페이지의 SQL Database에 대 한 경고 및 Azure Synapse Analytics (이전의 SQL Data Warehouse) 섹션](alerts-reference.md#alerts-sql-db-and-warehouse)에 표시 된 경고를 트리거할 수 있습니다.
 
 
 
@@ -131,7 +131,7 @@ Security Center에서 직접 취약성 평가 결과를 볼 수 있습니다.
 
 관련 자료는 다음 문서를 참조 하세요.
 
-- [SQL Database 및 SQL Data Warehouse에 대 한 보안 경고](alerts-reference.md#alerts-sql-db-and-warehouse)
+- [SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대 한 보안 경고](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [보안 경고에 대 한 전자 메일 알림 설정](security-center-provide-security-contact-details.md)
 - [Azure 센티널에 대해 자세히 알아보기](https://docs.microsoft.com/azure/sentinel/)
 - [Azure Security Center의 고급 데이터 보안 패키지](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

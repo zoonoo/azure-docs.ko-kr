@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: b14eba63d848b5f583e16b39f3ade6bd7e7ba83f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 75cd86bd1587a9294caef00efdf973fe8a26c150
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031203"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612024"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버를 사용한 비즈니스 연속성 개요
 
@@ -19,7 +19,7 @@ ms.locfileid: "88031203"
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>비즈니스 연속성을 제공하는 데 사용할 수 있는 기능
 
-Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 복원을 시작할 수 있는 기능을 포함하는 비즈니스 연속성 기능이 제공됩니다. 이러한 기능은 ERT(예상 복구 시간) 및 잠재적 데이터 손실에 대해 각기 다른 특성이 있습니다. 이러한 옵션을 이해하면 적절한 옵션을 선택하여 다양한 시나리오에 함께 사용할 수 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트 후 애플리케이션이 완벽하게 복구되기까지 허용되는 최대 시간 즉, RTO(복구 시간 목표)를 이해해야 합니다. 중단 이벤트 후 복구될 때 애플리케이션이 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 크기(시간 간격)인 RPO(복구 지점 목표)도 이해해야 합니다.
+Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 복원을 시작할 수 있는 기능을 포함하는 비즈니스 연속성 기능이 제공됩니다. 이러한 기능은 ERT(예상 복구 시간) 및 잠재적 데이터 손실에 대해 각기 다른 특성이 있습니다. ERT (예상 복구 시간)는 복원/장애 조치 (failover) 요청 후 데이터베이스가 완전 하 게 작동 하는 데 예상 되는 기간입니다. 이러한 옵션을 이해하면 적절한 옵션을 선택하여 다양한 시나리오에 함께 사용할 수 있습니다. 비즈니스 연속성 계획을 개발할 때는 중단 이벤트 후 애플리케이션이 완벽하게 복구되기까지 허용되는 최대 시간 즉, RTO(복구 시간 목표)를 이해해야 합니다. 중단 이벤트 후 복구될 때 애플리케이션이 손실을 허용할 수 있는 최근 데이터 업데이트의 최대 크기(시간 간격)인 RPO(복구 지점 목표)도 이해해야 합니다.
 
 다음 표에서는 ERT와 RPO에서 사용 가능한 기능을 비교합니다.
 
@@ -45,7 +45,7 @@ Azure Database for PostgreSQL에는 자동화된 백업 및 사용자가 지역 
 
 한 가지 옵션은 데이터 센터 중단이 끝날 때 서버가 온라인 상태가 되기까지 기다리는 것입니다. 이것은 개발 환경처럼 일정 기간 동안 서버를 오프라인 상태로 유지할 수 있는 애플리케이션에 적합합니다. 데이터 센터의 작동이 중단 되 면 중단이 얼마나 지속 될 지 알 수 없으므로이 옵션은 잠시 동안 서버가 필요 하지 않은 경우에만 작동 합니다.
 
-## <a name="geo-restore"></a>지리적 복원
+## <a name="geo-restore"></a>지역 복원
 
 지역 복원 기능은 지역 중복 백업을 사용 하 여 서버를 복원 합니다. 백업은 서버의 [페어링된 지역](../best-practices-availability-paired-regions.md)에서 호스팅됩니다. 이러한 백업에서 다른 지역으로 복원할 수 있습니다. 지역 복원에서는 백업의 데이터를 사용 하 여 새 서버를 만듭니다. [백업 및 복원 개념 문서](concepts-backup.md)에서 지역 복원에 대해 자세히 알아보세요.
 

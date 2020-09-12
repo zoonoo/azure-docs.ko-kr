@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 22b00b41c7fce0af57fd9f92b0f42bbd9412afda
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 2ea607b22bfa1eebdf6b63adcd14a5d1bb1ca9d0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87771122"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304028"
 ---
 ### <a name="functional-limits"></a>기능 제한
 
@@ -42,7 +42,7 @@ ms.locfileid: "87771122"
 | 모델 API | 초당 요청 수 | 100 | 예 |
 | Digital Twins API | 초당 요청 수 | 1,000 | 예 |
 | 쿼리 API | 초당 요청 수 | 500 | 예 |
-| 쿼리 API | 초당 쿼리 단위 | 4,000 | 예 |
+| 쿼리 API | 초당 [쿼리 단위](../articles/digital-twins/concepts-query-units.md) | 4,000 | 예 |
 | 이벤트 경로 API | 초당 요청 수 | 100 | 예 |
 
 ### <a name="other-limits"></a>기타 제한

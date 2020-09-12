@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a9528b31bfd1be40b478f3c47fd0a16047a7f6ff
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028125"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440000"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>데이터 과학 프로젝트용 플랫폼 및 도구
 
@@ -63,11 +63,11 @@ HDInsight에서 Spark 클러스터를 만들 때는 설치 및 구성된 Spark�
 Microsoft의 TDSP 팀은 Azure HDInsight Spark Clusters를 사용하여 Python과 다른 Scala를 사용하여 데이터 과학 솔루션을 빌드하는 방법에 대한 두 가지 엔드투엔드 연습을 게시했습니다. Azure HDInsight **Spark 클러스터**에 대한 자세한 내용은 [개요: HDInsight Linux의 Apache Spark](../../hdinsight/spark/apache-spark-overview.md)를 참조하세요. Azure HDInsight Spark 클러스터에서 **Python**을 사용하여 데이터 과학 솔루션을 빌드하는 방법은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](spark-overview.md)를 참조하세요. Azure HDInsight Spark 클러스터에서 **Scala**를 사용하여 데이터 과학 솔루션을 빌드하는 방법은 [Azure에서 Scala 및 Spark를 사용하는 데이터 과학](scala-walkthrough.md)을 참조하세요. 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure SQL Data Warehouse를 사용하면 과도하게 프로비전하거나 요금을 과도하게 지급하지 않고 컴퓨팅 리소스를 몇 초 만에 쉽게 크기 조정할 수 있습니다. 또한 컴퓨팅 리소스의 사용을 일시 중지하는 고유한 옵션을 제공하므로 클라우드 비용을 자유롭게 더 효율적으로 관리할 수 있습니다. 확장 가능한 컴퓨팅 리소스를 배포하는 기능을 사용하면 모든 데이터를 Azure SQL Data Warehouse로 가져올 수 있습니다. 스토리지 비용은 최소화되며, 분석하려는 데이터 세트 부분에 대해서만 컴퓨팅을 실행할 수 있습니다. 
+Azure Synapse Analytics를 사용 하면 과도 하 게 프로 비전 하거나 과도 하 게 지불 하지 않고도 계산 리소스를 몇 초 내에 쉽게 확장할 수 있습니다. 또한 컴퓨팅 리소스의 사용을 일시 중지하는 고유한 옵션을 제공하므로 클라우드 비용을 자유롭게 더 효율적으로 관리할 수 있습니다. 확장 가능한 계산 리소스를 배포 하는 기능을 사용 하면 모든 데이터를 Azure Synapse Analytics로 가져올 수 있습니다. 스토리지 비용은 최소화되며, 분석하려는 데이터 세트 부분에 대해서만 컴퓨팅을 실행할 수 있습니다. 
 
-Azure SQL Data Warehouse에 대한 자세한 내용은 [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse) 웹 사이트를 참조하세요. SQL Data Warehouse를 사용하여 엔드투엔드 고급 분석 솔루션을 빌드하는 방법은 [실행 중인 Team Data Science Process: SQL Data Warehouse 사용](sqldw-walkthrough.md)을 참조하세요.
+Azure Synapse Analytics에 대 한 자세한 내용은 [Azure Synapse analytics](https://azure.microsoft.com/services/sql-data-warehouse) 웹 사이트를 참조 하세요. Azure Synapse Analytics를 사용 하 여 종단 간 고급 분석 솔루션을 빌드하는 방법에 대 한 자세한 내용은 [Azure Synapse analytics를 사용 하 여 실행 중인 팀 데이터 과학 프로세스](sqldw-walkthrough.md)를 참조 하세요.
 
 
 ## <a name="azure-data-lake"></a>Azure 데이터 레이크

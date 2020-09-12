@@ -6,22 +6,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: b2a621a23a81e4fb4f47e7c99d780211973e30a0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 50926074c09ef8f438b0abb53a4eb5f1813871b3
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81274971"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321045"
 ---
 컨테이너는 [REST 기반 끝점 api](../rest-text-to-speech.md)를 제공 합니다. 플랫폼, 프레임 워크 및 언어 변형을 사용할 수 있는 [샘플 소스 코드 프로젝트](https://github.com/Azure-Samples/Cognitive-Speech-TTS) 는 여러 가지가 있습니다.
 
-*표준 텍스트 음성 변환* 컨테이너를 사용 하 여 다운로드 한 이미지 태그의 로캘과 음성을 사용 해야 합니다. 예를 들어 태그를 다운로드 한 경우 `latest` 기본 로캘은 `en-US` 및 `JessaRUS` 음성입니다. `{VOICE_NAME}`인수는 [`en-US-JessaRUS`](../language-support.md#standard-voices) 입니다. 아래 예제 SSML를 참조 하세요.
+표준 또는 신경망 텍스트 음성 변환 컨테이너를 사용 하 여 다운로드 한 이미지 태그의 로캘과 음성을 사용 해야 합니다. 예를 들어 태그를 다운로드 한 경우 `latest` 기본 로캘은 `en-US` 및 `AriaRUS` 음성입니다. `{VOICE_NAME}`인수는 [`en-US-AriaRUS`](../language-support.md#standard-voices) 입니다. 아래 예제 SSML를 참조 하세요.
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
-    <voice name="en-US-JessaRUS">
+    <voice name="en-US-AriaRUS">
         This text will get converted into synthesized speech.
     </voice>
 </speak>

@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d8ae8c5e3218959a483e78f70a6502bf7a5a47
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 874df2cc17e291cb6811ca07d01237f01b523860
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799108"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565041"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory에서 유럽 고객에 대한 ID 데이터 스토리지
-Id 데이터는 Office 365 및 Azure와 같은 Microsoft 온라인 서비스를 구독할 때 조직에서 제공 하는 주소에 따라 지리적 위치에 Azure AD에 저장 됩니다. Id 데이터가 저장 되는 위치에 대 한 자세한 내용은 Microsoft 보안 센터의 [어디에 있는 데이터가 어디에 있나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 사용할 수 있습니다.
+Id 데이터는 Microsoft 365 및 Azure와 같은 Microsoft 온라인 서비스를 구독할 때 조직에서 제공 하는 주소에 따라 지리적 위치에 Azure AD에 저장 됩니다. Id 데이터가 저장 되는 위치에 대 한 자세한 내용은 Microsoft 보안 센터의 [어디에 있는 데이터가 어디에 있나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 사용할 수 있습니다.
 
 유럽에서 주소를 제공한 고객의 경우 Azure AD는 유럽 데이터 센터 내에서 대부분의 id 데이터를 유지 합니다. 이 문서에서는 Azure AD 서비스에 의해 유럽 외부에 저장 된 모든 데이터에 대 한 정보를 제공 합니다.
 
@@ -30,11 +30,11 @@ Id 데이터는 Office 365 및 Azure와 같은 Microsoft 온라인 서비스를 
 - Microsoft Authenticator 앱을 사용한 푸시 알림은 미국 데이터 센터에서 발생합니다. 또한 장치 공급 업체의 특정 서비스를 재생할 수 있으며 이러한 서비스는 유럽 외부에서 제공 될 수도 있습니다.
 - OATH 코드는 미국에서 항상 유효성이 검사됩니다. 
 
-Azure Multi-Factor Authentication 서버 (MFA 서버) 및 클라우드 기반 Azure MFA에서 수집 하는 사용자 정보에 대 한 자세한 내용은 [azure Multi-Factor Authentication 사용자 데이터 컬렉션](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection)을 참조 하세요.
+Azure Multi-Factor Authentication 서버 (MFA 서버) 및 클라우드 기반 Azure MFA에서 수집 하는 사용자 정보에 대 한 자세한 내용은 [azure Multi-Factor Authentication 사용자 데이터 컬렉션](../authentication/howto-mfa-reporting-datacollection.md)을 참조 하세요.
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure AD B2C(Azure Active Directory B2C)
 
-Azure AD B2C 정책 구성 데이터 및 키 컨테이너는 미국 데이터 센터에 저장 됩니다. 여기에는 사용자 개인 데이터가 포함 되지 않습니다. 정책 구성에 대한 자세한 내용은 [Azure Active Directory B2C: 기본 제공 정책](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) 아티클을 참조하세요.
+Azure AD B2C 정책 구성 데이터 및 키 컨테이너는 미국 데이터 센터에 저장 됩니다. 여기에는 사용자 개인 데이터가 포함 되지 않습니다. 정책 구성에 대한 자세한 내용은 [Azure Active Directory B2C: 기본 제공 정책](../../active-directory-b2c/user-flow-overview.md) 아티클을 참조하세요.
 
 ## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure AD B2B(Azure Active Directory B2B) 
     
@@ -50,7 +50,7 @@ Azure AD DS는 고객이 선택한 Azure Virtual Network와 동일한 위치에 
 - 응용 프로그램에 대해 승인 된 페더레이션된 도메인 목록
 - 응용 프로그램의 토큰 서명 공개 키 
 
-Microsoft Exchange server의 페더레이션에 대 한 자세한 내용은 [페더레이션: Exchange 2013 도움말](https://docs.microsoft.com/exchange/federation-exchange-2013-help) 문서를 참조 하세요.
+Microsoft Exchange server의 페더레이션에 대 한 자세한 내용은 [페더레이션: Exchange 2013 도움말](/exchange/federation-exchange-2013-help) 문서를 참조 하세요.
 
 
 ## <a name="other-considerations"></a>기타 고려 사항
@@ -61,12 +61,12 @@ Microsoft 서비스의 데이터 상주에 대한 자세한 내용은 Microsoft 
 
 ## <a name="next-steps"></a>다음 단계
 위에서 설명한 특징 및 기능에 대한 자세한 내용은 다음과 같은 문서를 참조하세요.
-- [Multi-Factor Authentication이란?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
+- [Multi-Factor Authentication이란?](../authentication/concept-mfa-howitworks.md)
 
-- [Azure AD 셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
+- [Azure AD 셀프 서비스 암호 재설정](../authentication/concept-sspr-howitworks.md)
 
-- [Azure Active Directory B2C란?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+- [Azure Active Directory B2C란?](../../active-directory-b2c/overview.md)
 
-- [Azure AD B2B 협업이란?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+- [Azure AD B2B 협업이란?](../external-identities/what-is-b2b.md)
 
-- [Azure AD(Active Directory) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)
+- [Azure AD(Active Directory) Domain Services](../../active-directory-domain-services/overview.md)

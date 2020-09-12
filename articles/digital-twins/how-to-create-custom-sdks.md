@@ -8,16 +8,16 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3cf14ce3e8ef9b1d783191fe6c01c5e311d57786
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c562708dcf554afc8dfe4acf6b525db1db677f40
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855945"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89564905"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>AutoRest를 사용 하 여 Azure Digital Twins에 대 한 사용자 지정 Sdk 만들기
 
-현재 Azure Digital Twins Api와 상호 작용 하기 위해 게시 된 데이터 평면 SDK만 .NET (c #) 용입니다. .NET SDK 및 일반적인 Api에 대 한 자세한 내용은 [*방법: Azure Digital Twins api 및 Sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요. 다른 언어로 작업 하는 경우이 문서에서는 AutoRest를 사용 하 여 원하는 언어로 고유한 데이터 평면 SDK를 생성 하는 방법을 보여 줍니다.
+현재 Azure Digital Twins Api와 상호 작용 하기 위해 게시 된 데이터 평면 Sdk만 .NET (c #) 및 JavaScript 용입니다. 이러한 Sdk 및 일반적인 Api에 대 한 자세한 내용은 [*방법: Azure Digital Twins api 및 Sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요. 다른 언어로 작업 하는 경우이 문서에서는 AutoRest를 사용 하 여 원하는 언어로 고유한 데이터 평면 SDK를 생성 하는 방법을 보여 줍니다.
 
 >[!NOTE]
 > 원하는 경우 AutoRest를 사용 하 여 제어 평면 SDK를 생성할 수도 있습니다. 이렇게 하려면 데이터 평면 1 대신 [제어 평면 Swagger (OpenAPI) 파일](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) 을 사용 하 여이 문서의 단계를 완료 합니다.

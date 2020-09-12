@@ -12,19 +12,19 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b20612756050ae2e9d39f59d049b8c097e3b8010
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1db62b77f3b9b1bcfc524a68b52c4aef5c16d851
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651219"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648179"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 학습 실험에서 [Azure Machine Learning 데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) 을 사용 하는 방법에 대해 알아봅니다.  연결 문자열 또는 데이터 경로에 대 한 걱정 없이 로컬 또는 원격 계산 대상에서 데이터 집합을 사용할 수 있습니다.
+이 문서에서는 학습 실험에서 [Azure Machine Learning 데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true) 을 사용 하는 방법에 대해 알아봅니다.  연결 문자열 또는 데이터 경로에 대 한 걱정 없이 로컬 또는 원격 계산 대상에서 데이터 집합을 사용할 수 있습니다.
 
-Azure Machine Learning 데이터 집합은 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), 하이퍼 [드라이브](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) 및 [Azure Machine Learning 파이프라인과](how-to-create-your-first-pipeline.md) [같은 Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py)교육 제품과 원활한 통합을 제공 합니다.
+Azure Machine Learning 데이터 집합은 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true), 하이퍼 [드라이브](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true) 및 [Azure Machine Learning 파이프라인과](how-to-create-your-first-pipeline.md) [같은 Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py&preserve-view=true)교육 제품과 원활한 통합을 제공 합니다.
 
 ## <a name="prerequisites"></a>전제 조건
 
@@ -34,16 +34,16 @@ Azure Machine Learning 데이터 집합은 [평가기](https://docs.microsoft.co
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
 
-* Azureml 데이터 집합 패키지가 포함 된 [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)있습니다.
+* Azureml 데이터 집합 패키지가 포함 된 [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)있습니다.
 
 > [!Note]
-> 일부 데이터 집합 클래스에는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS 배포판 에서만 지원 됩니다.
+> 일부 데이터 집합 클래스에는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS 배포판 에서만 지원 됩니다.
 
 ## <a name="access-and-explore-input-datasets"></a>입력 데이터 집합 액세스 및 탐색
 
 작업 영역에서 실험의 학습 스크립트를 사용 하 여 기존 TabularDataset에 액세스 하 고 로컬 환경에서 추가 탐색을 위해 해당 데이터 집합을 pandas 데이터 프레임에 로드할 수 있습니다.
 
-다음 코드에서는 클래스의 메서드를 사용 하 여 [`get_context()`]() [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) 학습 스크립트의 기존 입력 TabularDataset에 액세스 합니다 `titanic` . 그런 다음 메서드를 사용 하 여 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 학습 전에 추가 데이터 탐색 및 준비를 위해 해당 데이터 집합을 pandas 데이터 프레임에 로드 합니다.
+다음 코드에서는 클래스의 메서드를 사용 하 여 [`get_context()`]() [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true) 학습 스크립트의 기존 입력 TabularDataset에 액세스 합니다 `titanic` . 그런 다음 메서드를 사용 하 여 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 학습 전에 추가 데이터 탐색 및 준비를 위해 해당 데이터 집합을 pandas 데이터 프레임에 로드 합니다.
 
 > [!Note]
 > 원래 데이터 원본에 NaN, 빈 문자열 또는 빈 값이 포함 된 경우 to_pandas_dataframe ()를 사용 하면 해당 값이 *Null* 값으로 대체 됩니다. 
@@ -67,7 +67,7 @@ df = dataset.to_pandas_dataframe()
 
 구조화 된 데이터를 데이터 집합으로 아직 등록 하지 않은 경우 TabularDataset를 만들어 로컬 또는 원격 실험을 위한 학습 스크립트에서 직접 사용 합니다.
 
-이 예제에서는 등록 되지 않은 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 을 만들고이를 학습을 위한 개체에 대 한 직접 입력으로 사용 `estimator` 합니다. 작업 영역의 다른 실험에서이 TabularDataset를 다시 사용 하려면 [작업 영역에 데이터 집합을 등록 하는 방법](how-to-create-register-datasets.md#register-datasets)을 참조 하세요.
+이 예제에서는 등록 되지 않은 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) 을 만들고이를 학습을 위한 개체에 대 한 직접 입력으로 사용 `estimator` 합니다. 작업 영역의 다른 실험에서이 TabularDataset를 다시 사용 하려면 [작업 영역에 데이터 집합을 등록 하는 방법](how-to-create-register-datasets.md#register-datasets)을 참조 하세요.
 
 ### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
 
@@ -84,7 +84,7 @@ TabularDataset 개체는 TabularDataset의 데이터를 pandas 또는 Spark 데�
 
 ### <a name="configure-the-estimator"></a>평가기 구성
 
-[평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 개체는 실험 실행을 제출 하는 데 사용 됩니다. Azure Machine Learning 일반적인 기계 학습 프레임 워크에 대 한 사전 구성 된 추정 및 일반 평가기 있습니다.
+[평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py&preserve-view=true) 개체는 실험 실행을 제출 하는 데 사용 됩니다. Azure Machine Learning 일반적인 기계 학습 프레임 워크에 대 한 사전 구성 된 추정 및 일반 평가기 있습니다.
 
 이 코드는 `est` 를 지정 하는 제네릭 평가기 개체를 만듭니다.
 
@@ -109,9 +109,12 @@ experiment_run.wait_for_completion(show_output=True)
 
 ## <a name="mount-files-to-remote-compute-targets"></a>원격 계산 대상에 파일 탑재
 
-구조화 되지 않은 데이터가 있는 경우 [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) 을 만들고 데이터 파일을 탑재 하거나 다운로드 하 여 교육을 위해 원격 계산 대상에서 사용할 수 있도록 합니다. 원격 학습 실험을 위해 [탑재 및 다운로드](#mount-vs-download) 를 사용 하는 경우에 대해 알아봅니다. 
+구조화 되지 않은 데이터가 있는 경우 [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) 을 만들고 데이터 파일을 탑재 하거나 다운로드 하 여 교육을 위해 원격 계산 대상에서 사용할 수 있도록 합니다. 원격 학습 실험을 위해 [탑재 및 다운로드](#mount-vs-download) 를 사용 하는 경우에 대해 알아봅니다. 
 
 다음 예에서는 FileDataset을 만들고 학습을 위해 평가기에 인수로 전달 하 여 계산 대상에 데이터 집합을 탑재 합니다. 
+
+> [!Note]
+> 사용자 지정 Docker 기본 이미지를 사용 하는 경우 `apt-get install -y fuse` 작업을 수행 하려면 데이터 집합 탑재에 대 한 종속성으로를 통해 퓨즈를 설치 해야 합니다. [사용자 지정 빌드 이미지를 빌드하](how-to-deploy-custom-docker-image.md#build-a-custom-base-image)는 방법에 대해 알아봅니다.
 
 ### <a name="create-a-filedataset"></a>FileDataset 만들기
 
@@ -133,7 +136,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 탑재할 때 데이터 집합을 인수로 전달 하는 것이 좋습니다. 평가기의 매개 변수를 통해 데이터 집합을 전달 하는 것 외에 `inputs` 도 데이터 집합을 통해 데이터 집합을 전달 `script_params` 하 고 인수를 통해 학습 스크립트의 데이터 경로 (탑재 지점)를 가져올 수 있습니다. 이러한 방식으로 모든 클라우드 플랫폼에서 로컬 디버깅 및 원격 교육에 대해 동일한 학습 스크립트를 사용할 수 있습니다.
 
-Scikit [학습](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 평가기 개체는에 대 한 실행을 제출 하는 데 사용 됩니다. 실행을 제출한 후에는 데이터 집합에서 참조 하는 데이터 파일이 `mnist` 계산 대상으로 탑재 됩니다. [평가기](how-to-train-scikit-learn.md)학습을 사용한 학습에 대해 자세히 알아보세요.
+Scikit [학습](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py&preserve-view=true) 평가기 개체는에 대 한 실행을 제출 하는 데 사용 됩니다. 실행을 제출한 후에는 데이터 집합에서 참조 하는 데이터 파일이 `mnist` 계산 대상으로 탑재 됩니다. [평가기](how-to-train-scikit-learn.md)학습을 사용한 학습에 대해 자세히 알아보세요.
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -219,7 +222,7 @@ print (mounted_path)
 
 ## <a name="access-datasets-in-your-script"></a>스크립트의 데이터 집합에 액세스
 
-등록 된 데이터 집합은 Azure Machine Learning 계산 등의 계산 클러스터에서 로컬로 또는 원격으로 액세스할 수 있습니다. 실험에서 등록 된 데이터 집합에 액세스 하려면 다음 코드를 사용 하 여 작업 영역에 액세스 하 고 이름으로 등록 된 데이터 집합에 액세스 합니다. 기본적으로 [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) 클래스의 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다.
+등록 된 데이터 집합은 Azure Machine Learning 계산 등의 계산 클러스터에서 로컬로 또는 원격으로 액세스할 수 있습니다. 실험에서 등록 된 데이터 집합에 액세스 하려면 다음 코드를 사용 하 여 작업 영역에 액세스 하 고 이름으로 등록 된 데이터 집합에 액세스 합니다. 기본적으로 [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) 클래스의 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다.
 
 ```Python
 %%writefile $script_folder/train.py

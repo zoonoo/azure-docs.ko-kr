@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e0f1cc446b6b957b17153dd538922d2b9acd891f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047676"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442737"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>웹 Api를 호출 하는 모바일 앱 등록
 
@@ -30,7 +30,7 @@ ms.locfileid: "89047676"
 
 ### <a name="audience-for-interactive-token-acquisition"></a>대화형 토큰 획득을 위한 대상 그룹
 
-대부분의 모바일 응용 프로그램은 대화형 인증을 사용 합니다. 앱이이 형식의 인증을 사용 하는 경우 모든 [계정 유형에](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)서 사용자에 게 로그인 할 수 있습니다.
+대부분의 모바일 응용 프로그램은 대화형 인증을 사용 합니다. 앱이이 형식의 인증을 사용 하는 경우 모든 [계정 유형에](quickstart-register-app.md)서 사용자에 게 로그인 할 수 있습니다.
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Windows 통합 인증, 사용자 이름-암호 및 B2C에 대 한 대상
 

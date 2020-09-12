@@ -1,6 +1,6 @@
 ---
 title: 리소스 클래스를 작업 그룹으로 변환
-description: Azure SQL Data Warehouse에서 리소스 클래스와 유사한 작업 그룹을 만드는 방법에 대해 알아봅니다.
+description: Azure Synapse Analytics에서 리소스 클래스와 유사한 작업 그룹을 만드는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c61e8df05c4bc199c0d91b8ed0cbd73fa6f196cf
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: fe65aa8c69bc4bd3837ea68bc48ffdbbeed87e0e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192324"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461377"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>리소스 클래스를 작업 그룹으로 변환
 

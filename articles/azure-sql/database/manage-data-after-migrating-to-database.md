@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249281"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439778"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>클라우드의 새로운 DBA – 마이그레이션 후 Azure SQL Database 관리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Azure SQL Database에서 백업을 만들지 않습니다 .이는 필요 하지 
 |서비스 계층|보존 기간(일)|
 |---|:---:|
 |Basic|7|
-|표준|35|
+|Standard|35|
 |Premium|35|
 |||
 
@@ -104,9 +104,11 @@ SQL Database에서 두 가지 사용자 인증 방법이 제공됩니다.
 - [Azure Active Directory 인증](authentication-aad-overview.md)
 - [SQL 인증](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-기존 Windows 인증은 지원되지 않습니다. Azure Active Directory (Azure AD)는 중앙 집중식 id 및 액세스 관리 서비스입니다. 이 서비스를 사용하면 조직의 모든 인원에게 SSO(Single Sign-On)를 아주 편리하게 제공할 수 있습니다. 즉, 더 간단한 인증을 위해 자격 증명이 모든 Azure 서비스에 걸쳐 공유됩니다. Azure AD는 azure [Multi-Factor Authentication](authentication-mfa-ssms-overview.md) 을 지원 하 고 몇 번의 [클릭](../../active-directory/hybrid/how-to-connect-install-express.md) 으로 Azure ad를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 사용자 이름/암호를 제공 하 고 지정 된 서버의 모든 데이터베이스에 대해 사용자를 인증할 수 있습니다. 또한 SQL Database 및 SQL Data Warehouse를 통해 Azure AD 도메인 내에서 Multi-Factor Authentication 및 게스트 사용자 계정을 제공할 수 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
+기존 Windows 인증은 지원되지 않습니다. Azure Active Directory (Azure AD)는 중앙 집중식 id 및 액세스 관리 서비스입니다. 이 서비스를 사용하면 조직의 모든 인원에게 SSO(Single Sign-On)를 아주 편리하게 제공할 수 있습니다. 즉, 더 간단한 인증을 위해 자격 증명이 모든 Azure 서비스에 걸쳐 공유됩니다. 
 
-|**...**|**SQL Database / SQL Data Warehouse**|
+Azure AD는 azure [Multi-Factor Authentication](authentication-mfa-ssms-overview.md) 을 지원 하 고 몇 번의 [클릭](../../active-directory/hybrid/how-to-connect-install-express.md) 으로 Azure ad를 Windows Server Active Directory와 통합할 수 있습니다. SQL 인증은 과거에 사용하던 것과 똑같이 작동합니다. 사용자 이름/암호를 제공 하 고 지정 된 서버의 모든 데이터베이스에 대해 사용자를 인증할 수 있습니다. 이를 통해 SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)가 Azure AD 도메인 내에서 Multi-Factor Authentication 및 게스트 사용자 계정을 제공할 수도 있습니다. 이미 Active Directory 온-프레미스가 있는 경우, Azure Active Directory로 디렉터리를 페더레이션하여 디렉터리를 Azure로 확장할 수 있습니다.
+
+|**...**|**SQL Database/Azure Synapse 분석**|
 |---|---|
 |Azure에서 Azure Active Directory (Azure AD)를 사용 하지 않는 것이 좋습니다.|[SQL 인증](security-overview.md) 사용|
 |AD를 SQL Server 온-프레미스에 사용함|[AD를 Microsoft Azure Active Directory와 페더레이션](../../active-directory/hybrid/whatis-hybrid-identity.md)하고, Azure AD 인증을 사용합니다. 이런 경우에 Single Sign-On을 사용할 수 있습니다.|
@@ -114,7 +116,7 @@ SQL Database에서 두 가지 사용자 인증 방법이 제공됩니다.
 |Microsoft 계정(live.com, outlook.com) 또는 다른 도메인(gmail.com)의 게스트 계정이 있습니다.|Microsoft Azure SQL Database/Data Warehouse에서 [Azure AD Universal 인증](authentication-mfa-ssms-overview.md)을 사용하며, 이는 [Azure AD B2B Collaboration](../../active-directory/b2b/what-is-b2b.md)을 활용합니다.|
 |페더레이션된 도메인에서 Microsoft Azure Active Directory 자격 증명을 사용하여 Windows에 로그인|[Azure AD 통합 인증](authentication-aad-configure.md)을 사용합니다.|
 |Azure와 페더레이션되지 않은 도메인에서 자격 증명을 사용하여 Windows에 로그인|[Azure AD 통합 인증](authentication-aad-configure.md)을 사용합니다.|
-|SQL Database 또는 SQL Data Warehouse에 연결해야 하는 중간 계층 서비스 포함|[Azure AD 통합 인증](authentication-aad-configure.md)을 사용합니다.|
+|SQL Database 또는 Azure Synapse Analytics에 연결 해야 하는 중간 계층 서비스 포함|[Azure AD 통합 인증](authentication-aad-configure.md)을 사용합니다.|
 |||
 
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>내 데이터베이스에 대한 연결 액세스를 제한 또는 제어하려면 어떻게 할까요?
@@ -153,7 +155,7 @@ SQL Database에서 두 가지 사용자 인증 방법이 제공됩니다.
 
 SQL Database를 사용하면 감사를 켜서 데이터베이스 이벤트를 추적할 수 있습니다. [QL Database 감사](../../azure-sql/database/auditing-overview.md)는 데이터베이스 이벤트를 기록하고 Azure Storage 계정의 감사 로그 파일에 이를 기록합니다. 감사는 잠재적 보안 및 정책 위반에 대 한 통찰력을 확보 하 고 규정 준수를 유지 하려는 경우에 특히 유용 합니다. 감사를 필요로 하는 이벤트의 특정 범주를 정의 및 구성 하 고, 미리 구성 된 보고서 및 대시보드를 사용 하 여 데이터베이스에서 발생 하는 이벤트의 개요를 파악할 수 있습니다. 이러한 감사 정책을 데이터베이스 수준 또는 서버 수준에서 적용할 수 있습니다. 서버/데이터베이스에 대해 감사를 켜는 방법에 대한 지침은 [SQL Database 감사 사용](secure-database-tutorial.md#enable-security-features)을 참조하세요.
 
-#### <a name="threat-detection"></a>위협 감지
+#### <a name="threat-detection"></a>위협 탐지
 
 [위협 감지](threat-detection-configure.md)를 사용하여 감사에 의해 감지된 보안 또는 정책 위반에 대해 매우 쉽게 행동하는 기능을 얻습니다. 시스템의 잠재적 위협 또는 위반을 해결하기 위해 보안 전문가가 될 필요가 없습니다. 위협 감지는 SQL 삽입 감지 같은 몇 가지 기본 제공 기능도 포함합니다. SQL 삽입은 데이터 변경 또는 훼손 시도이며 일반적으로 데이터베이스 애플리케이션을 공격할 때 아주 많이 사용되는 방법입니다. 위협 탐지는 잠재적인 취약점 및 SQL 삽입 공격뿐만 아니라 비정상 데이터베이스 액세스 패턴(예: 비정상적인 위치에서나 알 수 없는 보안 주체의 액세스)을 탐지하는 여러 알고리즘 세트를 실행합니다. 보안 책임자 또는 지정된 다른 관리자는 데이터베이스에서 위협이 감지되면 전자 메일 알림을 받게 됩니다. 각 알림에서는 의심스러운 활동에 대한 세부 정보와 해당 위협을 자세히 조사하고 완화하는 방법에 대한 권장 사항을 제공합니다. 위협 감지를 설정 하는 방법을 알아보려면 [위협 감지 사용](secure-database-tutorial.md#enable-security-features)을 참조 하세요.
 
@@ -220,7 +222,7 @@ TDE에는 두 키 계층이 있습니다 – 각 사용자 데이터베이스의
 Express 경로를 사용 하면 추가 요금 없이 구입할 대역폭 제한을 2 배까지 버스트 할 수도 있습니다. Express 경로를 사용 하 여 지역 간 연결을 구성할 수도 있습니다. Express 경로 연결 공급자 목록을 보려면 [express 경로 파트너 및 피어 링 위치](../../expressroute/expressroute-locations.md)를 참조 하세요. 다음 문서에서 Express Route를 자세히 설명합니다.
 
 - [기본 경로 소개](../../expressroute/expressroute-introduction.md)
-- [전제 조건](../../expressroute/expressroute-prerequisites.md)
+- [필수 구성 요소](../../expressroute/expressroute-prerequisites.md)
 - [워크플로](../../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database가 규정 요구 사항을 준수하나요? 그리고 이것이 조직의 규정 준수에 어떤 도움이 되나요?

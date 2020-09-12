@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2e637392328c7a09fb23adeca61a352707f05e0e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5a22bd9508feac1348bcd8042fa6ac791864c261
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267508"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425639"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -38,13 +38,25 @@ ms.locfileid: "89267508"
 >
 > 자세한 내용은 [Media Services v3에 대 한 Azure Portal 제한 사항](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3)을 참조 하세요.
 
+
+## <a name="august-2020"></a>2020년 8월
+
+### <a name="dynamic-encryption"></a>동적 암호화
+레거시 PlayReady 보호 된 파일 형식 (PIFF 1.1) 암호화에 대 한 지원은 이제 동적 패키지 작성 도구에서 사용할 수 있습니다. Microsoft에서 게시 한 CENC (Common Encryption standard)의 초기 초안을 구현한 Samsung 및 LG에서 레거시 스마트 TV 집합을 지원 합니다.  PIFF 1.1 형식은 이전에 Silverlight 클라이언트 라이브러리에서 지 원하는 암호화 형식으로도 알려져 있습니다. 현재이 암호화 형식에 대 한 유일한 사용 사례 시나리오는 PIFF 1.1 암호화를 사용 하는 부드러운 스트리밍만 지 원하는 일부 지역에서 특수 한 수의 스마트 TV가 남아 있는 레거시 스마트 TV 시장을 대상으로 하는 것입니다. 
+
+새 PIFF 1.1 암호화 지원을 사용 하려면 스트리밍 로케이터의 URL 경로에서 암호화 값을 ' piff '로 변경 합니다. 자세한 내용은 [Content Protection 개요](content-protection-overview.md) 를 참조 하세요.
+예를 들어: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
+
+> [!NOTE]
+> PIFF 1.1 지원은 Common Encryption의 초기 "Silverlight" 버전을 구현 하는 스마트 TV (Samsung, LG)에 대 한 이전 버전과 호환 되는 솔루션으로 제공 됩니다. PlayReady 암호화의 PIFF 1.1 버전을 지 원하는 2009-2015 간에 제공 되는 레거시 Samsung 또는 LG 스마트 Tv를 지 원하는 데 필요한 경우 PIFF 형식만 사용 하는 것이 좋습니다. 
+
 ## <a name="july-2020"></a>2020년 7월
 
 ### <a name="live-transcriptions"></a>라이브
 
 이제 Live a는 19 개의 언어와 8 개 지역을 지원 합니다.
 
-## <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Media Services 및 Azure AD를 사용 하 여 콘텐츠 보호
+### <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Media Services 및 Azure AD를 사용 하 여 콘텐츠 보호
 
 [AZURE AD를 사용 하 여 종단 간 콘텐츠 보호](./azure-ad-content-protection.md)라는 자습서를 게시 했습니다.
 

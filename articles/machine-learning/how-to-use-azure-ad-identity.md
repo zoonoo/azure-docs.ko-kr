@@ -11,20 +11,20 @@ ms.subservice: core
 ms.date: 02/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f76e149339e80ddeba8431afffbd677a4b595ec3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ac7420e47077e4e2b5bcfce0f33766554cd5c76d
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319476"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647326"
 ---
-# <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 machine learning 웹 서비스와 함께 Azure AD id 사용
+# <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 Machine Learning 웹 서비스와 함께 Azure AD ID 사용
 
 이 방법에서는 Azure Kubernetes Service에서 배포 된 machine learning 모델에 AAD (Azure Active Directory) id를 할당 하는 방법에 대해 알아봅니다. [Aad Pod identity](https://github.com/Azure/aad-pod-identity) 프로젝트를 사용 하면 응용 프로그램에서 [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 및 Kubernetes 기본 형식을 사용 하 여 aad로 안전 하 게 클라우드 리소스에 액세스할 수 있습니다. 이렇게 하면 웹 서비스가 스크립트 내에서 직접 자격 증명을 포함 하거나 토큰을 관리할 필요 없이 Azure 리소스에 안전 하 게 액세스할 수 있습니다 `score.py` . 이 문서에서는 azure Kubernetes Service 클러스터에서 Azure Id를 만들고 설치 하 고 배포 된 웹 서비스에 id를 할당 하는 단계를 설명 합니다.
 
 ## <a name="prerequisites"></a>전제 조건
 
-- [Machine Learning 서비스에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md), [PYTHON 용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md)입니다.
+- [Machine Learning 서비스에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md), [PYTHON 용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md)입니다.
 
 - 명령을 사용 하 여 AKS 클러스터에 액세스 `kubectl` 합니다. 자세한 내용은 [클러스터에 연결](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster) 을 참조 하세요.
 
@@ -153,7 +153,7 @@ secret = secret_client.get_secret(my_secret_name)
 ```
 
 > [!IMPORTANT]
-> 이 예에서는 DefaultAzureCredential를 사용 합니다. 특정 액세스 정책을 사용 하 여 id 액세스 권한을 부여 하려면 [4 부: Azure Key Vault에서 비밀 검색](../key-vault/general/authentication.md#part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python)을 참조 하세요.
+> 이 예에서는 DefaultAzureCredential를 사용 합니다. 특정 액세스 정책을 사용 하 여 id 액세스 권한을 부여 하려면 [Azure CLI를 사용 하 여 Key Vault 액세스 정책 할당](/azure/key-vault/general/assign-access-policy-cli)을 참조 하세요.
 
 ### <a name="access-blob-from-your-web-service"></a>웹 서비스에서 Blob 액세스
 

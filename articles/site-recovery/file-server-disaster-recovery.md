@@ -1,19 +1,19 @@
 ---
 title: Azure Site Recovery를 사용하여 파일 서버 보호
 description: 이 문서는 Azure Site Recovery를 사용하여 파일 서버를 보호하는 방법에 대해 설명합니다.
-author: rajani-janaki-ram
-manager: gauravd
+author: Sharmistha-Rai
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: rajanaki
+ms.author: sharrai
 ms.custom: mvc
-ms.openlocfilehash: c4b6d583c2dd3d54c6201917a40fa6165efac18f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1c88a7e78d37556f0f1f89e16154dc1808f24323
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131265"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425520"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
 
@@ -54,7 +54,7 @@ DFSR은 RDC(원격 차등 압축)라는 압축 알고리즘을 사용합니다. 
 
 ### <a name="factors-to-consider-in-your-decisions-about-disaster-recovery-to-azure"></a>Azure로 재해 복구에 대한 결정 사항에 고려해야 할 요소
 
-|환경  |권장  |고려할 항목 |
+|Environment  |권장  |고려할 항목 |
 |---------|---------|---------|
 |DFSR 포함 또는 제외 파일 서버 환경|   [복제를 위해 Site Recovery 사용](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery는 공유 디스크 클러스터 또는 NAS(Network Attached Storage)를 지원하지 않습니다. 환경에서 이러한 구성을 사용하는 경우 적절한 다른 인증 방법 중 하나를 사용합니다. <br> Site Recovery는 SMB 3.0을 지원하지 않습니다. 복제된 VM은 파일에 대한 변경 내용이 파일의 원래 위치에서 업데이트되는 경우에만 변경 내용을 통합합니다.<br>  Site Recovery은 거의 동기 데이터 복제 프로세스를 제공 하므로 계획 되지 않은 장애 조치 (failover) 시나리오의 경우 데이터가 손실 될 수 있으며 USN 불일치 문제가 발생할 수 있습니다.
 |DFSR 포함 파일 서버 환경     |  [Azure IaaS 가상 머신으로 확장된 DFSR](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |    DFSR은 대역폭 환경에서 잘 작동합니다. 이 방법에서는 Azure VM을 항상 실행해야 합니다. 계획에서 VM의 비용을 고려해야 합니다.         |
@@ -67,9 +67,9 @@ Site Recovery 복제는 애플리케이션을 제한하지 않으므로 권장 �
 | 원본  |보조 사이트 대상  |Azure 대상
 |---------|---------|---------|
 |Azure|  -|예|
-|Hyper-V|  예  |Yes
-|VMware  |Yes|  Yes
-|물리적 서버|  Yes  |Yes
+|Hyper-V|  예  |예
+|VMware  |예|  예
+|실제 서버|  예  |예
  
 
 > [!IMPORTANT]
@@ -123,7 +123,7 @@ IaaS 파일 서버 가상 머신에 액세스하는 온-프레미스 클라이�
 1. 온-프레미스 컴퓨터를 복제 하기 위해 [Azure 리소스를 준비](tutorial-prepare-azure.md) 합니다.
 2. 온-프레미스 사이트와 Azure 네트워크 간에 사이트 간 VPN 연결을 설정합니다. 
 3. 온-프레미스 Active Directory를 확장합니다.
-4. [온-프레미스 VMware 서버를 준비합니다](./vmware-azure-tutorial-prepare-on-premises.md).
+4. [온-프레미스 VMware 서버를 준비](./vmware-azure-tutorial-prepare-on-premises.md)합니다.
 5. Azure에 온-프레미스 VM에 대한 [재해 복구를 설정합니다](./vmware-azure-tutorial.md).
 
 ## <a name="extend-dfsr-to-an-azure-iaas-virtual-machine"></a>Azure IaaS 가상 머신으로 DFSR 확장

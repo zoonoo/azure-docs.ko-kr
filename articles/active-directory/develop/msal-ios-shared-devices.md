@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 5abb6852e267fa7d7277e0e0674a4099343e14ca
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0354010297942c3b9e18dc6f556cb0afa075ff5f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114917"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649095"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>iOS 디바이스의 공유 디바이스 모드
 
@@ -61,11 +61,11 @@ ms.locfileid: "88114917"
     - **유형**: 리디렉션
     - **확장 ID**: com ssoextension
     - **팀 ID**: SGGM6D27TK
-    - **Url**:https://login.microsoftonline.com
+    - **Url**: https://login.microsoftonline.com
     - 구성할 추가 데이터:
       - 키: sharedDeviceMode
       - 형식: Boolean
-      - 값: True
+      - 값: true
 
     Intune을 사용 하 여를 구성 하는 방법에 대 한 자세한 내용은 [intune 구성 설명서](/intune/configuration/ios-device-features-settings)를 참조 하세요.
 
@@ -76,7 +76,7 @@ ms.locfileid: "88114917"
     - 구성 1:
       - 키: sharedDeviceMode
       - 형식: Boolean
-      - 값: True
+      - 값: true
 
 ## <a name="modify-your-ios-application-to-support-shared-device-mode"></a>공유 장치 모드를 지원 하도록 iOS 응용 프로그램 수정
 

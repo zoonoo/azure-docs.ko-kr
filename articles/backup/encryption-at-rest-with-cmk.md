@@ -3,12 +3,12 @@ title: 고객 관리 키를 사용 하 여 백업 데이터 암호화
 description: Azure Backup를 사용 하 여 고객 관리 키 (CMK)를 사용 하 여 백업 데이터를 암호화 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 989b06b62f2db8df5504107eee8ed26710d13a57
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022414"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378290"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>고객 관리 키를 사용 하 여 백업 데이터 암호화
 
@@ -66,7 +66,7 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
     ![Id 설정](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. **상태** 를 **설정** 으로 변경 하 고 **저장**을 클릭 합니다.
+1. **상태** 를 **켜기** 로 변경 하 고 **저장**을 선택 합니다.
 
 1. 자격 증명 모음의 시스템 할당 관리 id 인 개체 ID가 생성 됩니다.
 
@@ -82,13 +82,13 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
     ![키 사용 권한 할당](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
-1. **보안 주체 선택** 으로 이동 하 여 해당 이름 또는 관리 id를 사용 하 여 검색 상자에서 자격 증명 모음을 검색 합니다. 표시 되 면 자격 증명 모음을 선택 하 고 창의 맨 아래에서 **선택** 을 클릭 합니다.
+1. **보안 주체 선택** 으로 이동 하 여 해당 이름 또는 관리 id를 사용 하 여 검색 상자에서 자격 증명 모음을 검색 합니다. 표시 되 면 자격 증명 모음을 선택 하 고 창의 맨 아래에서 **선택** 을 선택 합니다.
 
     ![보안 주체 선택](./media/encryption-at-rest-with-cmk/select-principal.png)
 
-1. 작업이 완료 되 면 **추가** 를 클릭 하 여 새 액세스 정책을 추가 합니다.
+1. 완료 되 면 **추가** 를 선택 하 여 새 액세스 정책을 추가 합니다.
 
-1. **저장** 을 클릭 하 여 Azure Key Vault의 액세스 정책에 대 한 변경 내용을 저장 합니다.
+1. **저장** 을 선택 하 여 Azure Key Vault의 액세스 정책에 대 한 변경 내용을 저장 합니다.
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Azure Key Vault에서 일시 삭제 및 보호 제거 사용
 
@@ -148,7 +148,7 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
     ![암호화 설정](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. **암호화 설정**에서 **업데이트** 를 클릭 합니다.
+1. **암호화 설정**에서 **업데이트** 를 선택 합니다.
 
 1. 암호화 설정 창에서 다음 방법 중 하나를 사용 하 여 **사용자 고유의 키를 사용** 하 고 계속 키를 지정 합니다 .를 선택 합니다. **사용할 키가 사용 상태에 있는 RSA 2048 키 인지 확인 합니다.**
 
@@ -160,7 +160,7 @@ Azure Backup는 시스템 할당 관리 id를 사용 하 여 Azure Key Vault에 
 
         ![키 자격 증명 모음에서 키 선택](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. **저장**을 클릭합니다.
+1. **저장**을 선택합니다.
 
 1. **암호화 키 업데이트 진행률 추적:** Recovery Services 자격 증명 모음의 **활동 로그** 를 사용 하 여 키 할당의 진행률을 추적할 수 있습니다. 상태는 곧 **성공**으로 변경 됩니다. 이제 자격 증명 모음에서 지정 된 키를 사용 하 여 모든 데이터를 KEK로 암호화 합니다.
 

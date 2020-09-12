@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 05ecce2d6ef0f8a3f241570ba9364c5e38682f3e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1293534849c98cee51349bbefd3073cc8b94f876
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319442"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647214"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>레이블이 있는 Azure Machine Learning 데이터 세트 만들기 및 탐색
 
@@ -22,13 +22,13 @@ ms.locfileid: "87319442"
 
 ## <a name="what-are-datasets-with-labels"></a>레이블이 있는 데이터 세트란? 
 
-레이블이 있는 Azure Machine Learning 데이터 세트는 레이블 속성이 있는 [TabularDatasets](how-to-create-register-datasets.md#dataset-types)이며, 레이블이 지정된 데이터 세트로 지칭됩니다. 이러한 특정 형식의 TabularDatasets는 Azure Machine Learning 데이터 레이블 지정 프로젝트의 출력으로만 생성됩니다. [이러한 단계](how-to-create-labeling-projects.md)를 사용하여 데이터 레이블 지정 프로젝트를 만듭니다. Machine Learning은 이미지 분류(다중 레이블 또는 다중 클래스) 및 경계 상자와 함께 개체 식별을 위한 데이터 레이블 지정 프로젝트를 지원합니다.
+레이블이 지정 된 데이터 집합으로 레이블이 있는 Azure Machine Learning 데이터 집합을 참조 합니다. 레이블이 지정 된 데이터 집합의 이러한 특정 데이터 집합 형식은 Azure Machine Learning 데이터 레이블 지정 프로젝트의 출력 으로만 생성 됩니다. [이러한 단계](how-to-create-labeling-projects.md)를 사용하여 데이터 레이블 지정 프로젝트를 만듭니다. Machine Learning은 이미지 분류(다중 레이블 또는 다중 클래스) 및 경계 상자와 함께 개체 식별을 위한 데이터 레이블 지정 프로젝트를 지원합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
-* [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 또는 [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 액세스합니다.
-    * [azure-contrib-dataset](https://docs.microsoft.com/python/api/azureml-contrib-dataset/?view=azure-ml-py) 패키지 설치
+* [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 또는 [Azure Machine Learning 스튜디오](https://ml.azure.com/)에 액세스합니다.
+    * [azure-contrib-dataset](https://docs.microsoft.com/python/api/azureml-contrib-dataset/?view=azure-ml-py&preserve-view=true) 패키지 설치
 * Machine Learning 작업 영역. [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
 * Azure Machine Learning 데이터 레이블 지정 프로젝트에 액세스합니다. 레이블 지정 프로젝트가 없는 경우[이러한 단계](how-to-create-labeling-projects.md)를 사용하여 만듭니다.
 
@@ -52,7 +52,7 @@ Azure Machine Learning 스튜디오의 **데이터 세트** 섹션에서 내보�
 
 ### <a name="pandas-dataframe"></a>pandas 데이터 프레임
 
-`azureml-contrib-dataset` 클래스에서 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 메서드를 사용하여 레이블이 지정된 데이터 세트를 pandas 데이터 프레임에 로드할 수 있습니다. 다음 shell 명령을 사용하여 클래스를 설치합니다. 
+`azureml-contrib-dataset` 클래스에서 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) 메서드를 사용하여 레이블이 지정된 데이터 세트를 pandas 데이터 프레임에 로드할 수 있습니다. 다음 shell 명령을 사용하여 클래스를 설치합니다. 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -80,7 +80,7 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Torchvision 데이터 세트
 
-`azureml-contrib-dataset` 클래스에서도 [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py#to-torchvision--) 메서드를 사용하여 레이블이 지정된 데이터 세트를 Torchvision 데이터 세트에 로드할 수 있습니다. 이 방법을 사용하려면 [PyTorch](https://pytorch.org/)가 설치되어 있어야 합니다. 
+`azureml-contrib-dataset` 클래스에서도 [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py#&preserve-view=trueto-torchvision--) 메서드를 사용하여 레이블이 지정된 데이터 세트를 Torchvision 데이터 세트에 로드할 수 있습니다. 이 방법을 사용하려면 [PyTorch](https://pytorch.org/)가 설치되어 있어야 합니다. 
 
 ```python
 from torchvision.transforms import functional as F

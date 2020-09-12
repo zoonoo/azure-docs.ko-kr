@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: d5210a3788f7bb054492c2d83c595c26fa3c4f42
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: aa35111a2fa26b3e4fd5e80a8227b7c244f30e9f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265714"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461717"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge GPU 장치에 Vm 배포
 
@@ -23,11 +23,11 @@ ms.locfileid: "89265714"
 
 ## <a name="vm-deployment-workflow"></a>VM 배포 워크플로
 
-배포 워크플로는 다음 다이어그램에 설명 되어 있습니다.
+다음 다이어그램에 배포 워크플로가 나와 있습니다.
 
 ![VM 배포 워크플로](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
@@ -178,7 +178,7 @@ key1 /IjVJN+sSf7FMKiiPLlDm8mc9P4wtcmhhbnCa7...
 key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 ```
 
-## <a name="add-blob-uri-to-hosts-file"></a>호스트 파일에 blob URI 추가
+## <a name="add-blob-uri-to-hosts-file"></a>호스트 파일에 Blob URI 추가
 
 [끝점 이름 확인에 대 한 호스트 파일 수정](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution)섹션에서 blob 저장소에 연결 하는 데 사용 하는 클라이언트의 호스트 파일에 blob URI를 이미 추가 했습니다. Blob URI에 대 한 항목입니다.
 
@@ -220,8 +220,8 @@ AzCopy /Source:\\hcsfs\scratch\vm_vhds\linux\ /Dest:http://sa191113014333.blob.d
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
 ```
 샘플 출력은 다음과 같습니다. 
-
-$DiskConfig = New-azurermdiskconfig-Location DBELocal-CreateOption Import – SourceUri http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd 
+<code>
+$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://</code><code>sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd</code> 
 
 ```powershell
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
@@ -283,7 +283,7 @@ Location             : dbelocal
 Tags                 : {}
 ```
 
-## <a name="create-vm-with-previously-created-resources"></a>이전에 만든 리소스를 사용 하 여 VM 만들기
+## <a name="create-vm-with-previously-created-resources"></a>이전에 만든 리소스로 VM 만들기
 
 VM을 만들고 배포 하기 전에 가상 네트워크를 하나 만들고 가상 네트워크 인터페이스를 연결 해야 합니다.
 
@@ -408,24 +408,39 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 ## <a name="connect-to-a-vm"></a>VM에 연결
 
-VM을 만드는 동안 전달 된 개인 IP를 사용 하 여 VM에 연결 합니다.
+Windows 또는 Linux VM을 만들었는지 여부에 따라 연결 단계가 다를 수 있습니다.
 
-SSH 세션을 열어 IP 주소와 연결 합니다.
+### <a name="connect-to-linux-vm"></a>Linux VM에 연결
+
+Linux VM에 연결 하려면 다음 단계를 수행 합니다.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
+
+### <a name="connect-to-windows-vm"></a>Windows VM에 연결
+
+Windows VM에 연결 하려면 다음 단계를 수행 합니다.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+
+<!--Connect to the VM using the private IP that you passed during the VM creation.
+
+Open an SSH session to connect with the IP address.
 
 `ssh -l <username> <ip address>`
 
-메시지가 표시 되 면 VM을 만들 때 사용한 암호를 제공 합니다.
+When prompted, provide the password that you used when creating the VM.
 
-SSH 키를 제공 해야 하는 경우이 명령을 사용 합니다.
+If you need to provide the SSH key, use this command.
 
-ssh-i c:/users/Administrator/. s t a/id_rsa Administrator@5.5.41.236
+ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236
 
-VM을 만들 때 공용 IP 주소를 사용한 경우 해당 IP를 사용 하 여 VM에 연결할 수 있습니다. 공용 IP를 가져오려면: 
+If you used a public IP address during VM creation, you can use that IP to connect to the VM. To get the public IP: 
 
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-이 경우 공용 IP는 가상 네트워크 인터페이스를 만드는 동안 전달 된 개인 IP와 동일 합니다.
+The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.-->
 
 
 ## <a name="manage-vm"></a>VM 관리
@@ -490,7 +505,7 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 다음 표준 Dv2 시리즈 Vm은 Azure Stack Edge 장치에서 만들 수 있도록 지원 됩니다.
 
 ### <a name="dv2-series"></a>Dv2 시리즈
-|Size     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
+|크기     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
 |-------------------|----|----|-----|----|------|------------|---------|
 |**Standard_D1_v2** |1   |3.5 |50   |500 |3000  |4 / 4x500   |2 |
 |**Standard_D2_v2** |2   |7   |100  |500 |6000  |8 / 8x500   |2 |
@@ -499,7 +514,7 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 |**Standard_D5_v2** |16  |56  |800  |500 |48000 |64 / 64x500 |8 |
 
 ### <a name="dsv2-series"></a>DSv2 시리즈
-|Size     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
+|크기     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
 |--------------------|----|----|----|-----|------|-------------|---------|
 |**Standard_DS1_v2** |1   |3.5 |7   |1000 |4000  |4/4x2300   |2 |
 |**Standard_DS2_v2** |2   |7   |14  |1000 |8000  |8/8x2300   |2 |
@@ -508,7 +523,7 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 |**Standard_DS5_v2** |16  |56  |112 |1000 |64000 |64/64x2300 |8 |
 
 ### <a name="dv2-series"></a>Dv2 시리즈
-|Size     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
+|크기     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8 / 8x500    |2 |
 |**Standard_D12_v2** |4   |28  |200  |500 |12000  |16 / 16x500  |4 |
@@ -517,7 +532,7 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 
 
 ### <a name="dsv2-series"></a>DSv2 시리즈
-|Size     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
+|크기     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4/4x2300    |2 |
 |**Standard_DS12_v2** |4   |28  |56   |1000 |16000  |8/8x2300    |4 |

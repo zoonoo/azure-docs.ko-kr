@@ -3,19 +3,19 @@ title: Azure Kubernetes Service에서 지원되는 Kubernetes 버전
 description: AKS(Azure Kubernetes Service)의 Kubernetes 버전 지원 정책 및 클러스터 수명 주기에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 45c60069c27a2bb9b34cc53eb394bd44a04bd0ba
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: fb5b9c446ea5574970b14c683fac258c17199fef
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144620"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565377"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
-Kubernetes 커뮤니티에서는 대략 3개월마다 부 버전을 릴리스합니다. 이러한 릴리스에는 새로운 기능과 향상된 기능이 포함됩니다. 패치는 더 자주 릴리스되며(매주 릴리스되기도 함), 부 버전의 중요한 버그 수정용으로만 제공됩니다. 이러한 패치 릴리스에는 보안 취약점 또는 주요 버그에 대 한 수정이 포함 되어 있습니다.
+Kubernetes 커뮤니티에서는 대략 3개월마다 부 버전을 릴리스합니다. 최근 Kubernetes 커뮤니티는 1.19 버전부터 [12 개월까지 각 버전에 대 한 지원 윈도를 개선](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/)했습니다. 이러한 릴리스에는 새로운 기능과 향상된 기능이 포함됩니다. 패치 릴리스는 자주 발생 하 고 (종종 매주) 부 버전 내에서 중요 한 버그 수정을 위한 것입니다. 이러한 패치 릴리스에는 보안 취약점 또는 주요 버그에 대 한 수정이 포함 되어 있습니다.
 
 ## <a name="kubernetes-versions"></a>Kubernetes 버전
 
@@ -41,8 +41,8 @@ Example:
 
 AKS은 모든 SLO 또는 SLA 측정에서 사용 하도록 설정 된 버전 및 모든 지역에서 사용할 수 있는 경우 일반 공급 버전을 정의 합니다. AKS는 Kubernetes의 GA 부 버전 3 개를 지원 합니다.
 
-* AKS에서 릴리스된 최신 GA 부 버전입니다 (N 이라고 함). 
-* 이전 두 부 버전 
+* AKS에서 릴리스된 최신 GA 부 버전입니다 (N 이라고 함).
+* 이전 두 부 버전
 * 지원 되는 각 부 버전은 최대 2 개의 안정 된 패치를 지원 합니다.
 * AKS는 미리 보기 사용 [약관][preview-terms]에 따라 명시적으로 레이블이 지정 된 미리 보기 버전을 지원할 수도 있습니다.
 
@@ -144,9 +144,13 @@ az aks get-versions --location eastus --output table
 
 ## <a name="faq"></a>FAQ
 
+**지원 하기 위해 Kubernetes 버전을 얼마나 자주 업그레이드 해야 하나요?**
+
+Kubernetes 1.19를 사용 하는 경우 [오픈 소스 커뮤니티는 1 년에 대 한 지원을 확장 했습니다](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS 커밋은 업스트림 약정 일치와 일치 하는 패치 및 지원을 사용 하도록 설정 합니다. 이는 1.19에서 AKS 클러스터부터 시작 하 여 지원 되는 버전을 유지 하기 위해 1 년에 한 번 이상 업그레이드할 수 있음을 의미 합니다. 1.18이 하 버전의 경우 지원 되는 창은 9 개월에 유지 되며, 지원 되는 버전을 유지 하기 위해 9 개월 마다 한 번 업그레이드 해야 합니다. 새 버전을 정기적으로 테스트 하 고 최신 버전으로 업그레이드 하 여 Kubernetes 내에서 안정적인 최신 기능을 캡처하기 위해 준비 하는 것이 좋습니다.
+
 **사용자가 지원 되지 않는 부 버전으로 Kubernetes 클러스터를 업그레이드 하는 경우 어떻게 되나요?**
 
-이상 버전을 사용 하는 경우이는 지원 되지 않으며 업그레이드를 요청 하는 것을 *의미 합니다.* 버전 n-3에서 n-2로 업그레이드 하는 경우 지원 정책 내에 다시 로그인 됩니다. 예를 들면 다음과 같습니다.
+이상 버전을 사용 하는 경우이는 지원 되지 않으며 업그레이드를 요청 하는 것을 *의미 합니다.* 버전 n-3에서 n-2로 업그레이드 하는 경우 지원 정책 내에 다시 로그인 됩니다. 다음은 그 예입니다. 
 
 - 가장 오래 된 지원 되는 AKS 버전이 *1.15입니다. a* 와 *1.14* 에 있는 경우에는 지원 되지 않습니다.
 - *1.14* 에서 1.15로 업그레이드 하는 경우 *에는* 지원 정책 내에 다시 로그인 합니다.

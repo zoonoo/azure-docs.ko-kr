@@ -1,7 +1,7 @@
 ---
-title: '대화형 디버그: ML 계산 인스턴스 & VS Code (미리 보기)'
+title: Visual Studio Code에서 계산 인스턴스에 연결 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning를 사용 하 여 코드를 대화형으로 디버깅 하려면 VS Code 원격을 설정 합니다.
+description: 에서 Azure Machine Learning 계산 인스턴스에 연결 하는 방법에 대해 알아봅니다 Visual Studio Code
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,34 +9,73 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.author: jmartens
 author: j-martens
-ms.date: 08/06/2020
-ms.openlocfilehash: 37d0ec0295d76f740b2e8bf70ae72f0c95e68d14
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.date: 09/03/2020
+ms.openlocfilehash: 2c7ff633705d3db327c563b41ce199a5342dda82
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904482"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461564"
 ---
-# <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote-preview"></a>VS Code 원격 (미리 보기)을 사용 하 여 Azure Machine Learning 계산 인스턴스에서 대화형으로 디버그
+# <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Visual Studio Code에서 Azure Machine Learning 계산 인스턴스에 연결 (미리 보기)
 
-이 문서에서는 VS Code에서 **코드를 대화형으로 디버그할** 수 있도록 Azure Machine Learning 계산 인스턴스에서 Visual Studio Code 원격 확장을 설정 하는 방법을 알아봅니다.
+이 문서에서는 Visual Studio Code를 사용 하 여 Azure Machine Learning 계산 인스턴스에 연결 하는 방법을 알아봅니다.
 
-* [Azure Machine Learning 계산 인스턴스](concept-compute-instance.md) 는 데이터 과학자 완전히 관리 되는 클라우드 기반 워크스테이션 이며 IT 관리자에 게 관리 및 엔터프라이즈 준비 기능을 제공 합니다. 
+[Azure Machine Learning 계산 인스턴스](concept-compute-instance.md) 는 데이터 과학자 완전히 관리 되는 클라우드 기반 워크스테이션 이며 IT 관리자에 게 관리 및 엔터프라이즈 준비 기능을 제공 합니다.
 
-* [원격 Visual Studio Code](https://code.visualstudio.com/docs/remote/remote-overview) 개발을 통해 컨테이너, 원격 컴퓨터 또는 WSL (Linux 용 Windows 하위 시스템)을 모든 기능을 갖춘 개발 환경으로 사용할 수 있습니다. 
+Visual Studio Code에서 계산 인스턴스에 연결 하는 방법에는 두 가지가 있습니다.
 
-## <a name="prerequisite"></a>필수 요소  
+* 원격 Jupyter Notebook 서버. 이 옵션을 사용 하 여 계산 인스턴스를 원격 Jupyter Notebook 서버로 설정할 수 있습니다.
+* [원격 개발을 Visual Studio Code](https://code.visualstudio.com/docs/remote/remote-overview)합니다. Visual Studio Code 원격 개발을 사용 하면 컨테이너, 원격 컴퓨터 또는 WSL (Linux 용 Windows 하위 시스템)을 완전 한 기능을 갖춘 개발 환경으로 사용할 수 있습니다.
 
-* SSH 사용 계산 인스턴스입니다. 자세한 내용은 [compute 인스턴스 만들기 가이드를 참조 하세요.](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#create)
-* Windows 플랫폼에서 아직 없는 경우 [OpenSSH 호환 SSH 클라이언트를 설치](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) 해야 합니다. 
+## <a name="configure-compute-instance-as-remote-notebook-server"></a>계산 인스턴스를 원격 노트북 서버로 구성
 
-> [!Note]
-> Ssh 명령이 경로에 있어야 하므로 PuTTY는 Windows에서 지원 되지 않습니다. 
+계산 인스턴스를 원격 Jupyter Notebook 서버로 구성 하려면 몇 가지 필수 구성 요소가 필요 합니다.
 
-## <a name="get-the-ip-and-ssh-port-for-your-compute-instance"></a>계산 인스턴스에 대 한 IP 및 SSH 포트 가져오기
+* Visual Studio Code 확장을 Azure Machine Learning 합니다. 자세한 내용은 [Azure Machine Learning Visual Studio Code 확장 설정 가이드](tutorial-setup-vscode-extension.md)를 참조 하세요.
+* Azure Machine Learning 작업 영역입니다. 아직 없는 경우 [Azure Machine Learning Visual Studio Code 확장을 사용 하 여 새 작업 영역을 만듭니다](how-to-manage-resources-vscode.md#create-a-workspace) .
+
+계산 인스턴스에 연결 하려면 다음을 수행 합니다.
+
+1. Visual Studio Code에서 Jupyter Notebook를 엽니다.
+1. 통합 된 노트북 환경이 로드 되 면 **Jupyter 서버**를 선택 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![원격 Jupyter 노트북 서버 드롭다운 Azure Machine Learning 시작](media/how-to-set-up-vs-code-remote/launch-server-selection-dropdown.png)
+
+    또는 명령 팔레트를 사용할 수도 있습니다.
+
+    1. 메뉴 모음에서 **보기 > 명령 팔레트**를 차례로 선택하여 명령 팔레트를 엽니다.
+    1. 텍스트 상자에을 입력 `Azure ML: Connect to Compute instance Jupyter server` 합니다.
+
+1. `Azure ML Compute Instances`Jupyter 서버 옵션 목록에서 선택 합니다.
+1. 구독 목록에서 구독을 선택 합니다. 이전에 기본 Azure Machine Learning 작업 영역을 구성한 경우이 단계를 건너뜁니다.
+1. 작업 영역을 선택합니다.
+1. 목록에서 계산 인스턴스를 선택 합니다. 없는 경우 **새 Azure ML 컴퓨팅 인스턴스 만들기** 를 선택 하 고 표시 되는 메시지에 따라 하나를 만듭니다.
+1. 변경 내용을 적용 하려면 Visual Studio Code을 다시 로드 해야 합니다.
+1. Jupyter Notebook를 열고 셀을 실행 합니다.
+
+> [!IMPORTANT]
+> 연결을 설정 하려면 셀을 실행 **해야** 합니다.
+
+이 시점에서 Jupyter 노트북의 셀을 계속 실행할 수 있습니다.
+
+> [!TIP]
+> Jupyter 코드 셀을 포함 하는 Python 스크립트 파일 (. py)로 작업할 수도 있습니다. 자세한 내용은 [Visual Studio Code Python 대화형 설명서](https://code.visualstudio.com/docs/python/jupyter-support-py)를 참조 하세요.
+
+## <a name="configure-compute-instance-remote-development"></a>계산 인스턴스 원격 개발 구성
+
+모든 기능을 갖춘 원격 개발 환경을 구현 하려면 몇 가지 필수 구성 요소가 필요 합니다.
+
+* [원격 SSH 확장을 Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)합니다.
+* SSH 사용 계산 인스턴스입니다. 자세한 내용은 [compute 인스턴스 만들기 가이드를 참조](concept-compute-instance.md#create)하세요.
+
+> [!NOTE]
+> Windows 플랫폼에서 아직 없는 경우 [OpenSSH 호환 SSH 클라이언트를 설치](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) 해야 합니다. Ssh 명령이 경로에 있어야 하므로 PuTTY는 Windows에서 지원 되지 않습니다.
+
+### <a name="get-the-ip-and-ssh-port-for-your-compute-instance"></a>계산 인스턴스에 대 한 IP 및 SSH 포트 가져오기
 
 1. Azure Machine Learning studio ()로 이동 https://ml.azure.com/ 합니다.
-
 2. [작업 영역](concept-workspace.md)을 선택 합니다.
 1. **계산 인스턴스** 탭을 클릭 합니다.
 1. **응용 프로그램 URI** 열에서 원격 계산으로 사용 하려는 계산 인스턴스의 **SSH** 링크를 클릭 합니다. 
@@ -73,9 +112,9 @@ ms.locfileid: "87904482"
    chmod 600 ~/.ssh/id_azmlcitest_rsa
    ```
 
-## <a name="add-instance-as-a-host"></a>인스턴스를 호스트로 추가
+### <a name="add-instance-as-a-host"></a>인스턴스를 호스트로 추가
 
-`~/.ssh/config`편집기에서 파일 (Linux) 또는 `C:\Users<username>.ssh\config` (Windows)를 열고 다음과 같은 새 항목을 추가 합니다.
+`~/.ssh/config`편집기에서 파일 (Linux) 또는 `C:\Users<username>.ssh\config` (Windows)를 열고 아래 내용과 비슷한 새 항목을 추가 합니다.
 
 ```
 Host azmlci1 
@@ -101,13 +140,9 @@ Host azmlci1
 
 이제 위에서 사용한 약어를 사용 하 여 계산 인스턴스로 ssh를 실행할 수 있습니다 `ssh azmlci1` .
 
-## <a name="connect-vs-code-to-the-instance"></a>인스턴스에 VS Code 연결
+### <a name="connect-vs-code-to-the-instance"></a>인스턴스에 VS Code 연결
 
-1. [Visual Studio Code를 설치](https://code.visualstudio.com/)합니다.
-
-1. [원격 SSH 확장을 설치](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)합니다.
-
-1. 왼쪽에 있는 원격-SSH 아이콘을 클릭 하 여 SSH 구성을 표시 합니다.
+1. Visual Studio Code 활동 표시줄에서 원격-SSH 아이콘을 클릭 하 여 SSH 구성을 표시 합니다.
 
 1. 방금 만든 SSH 호스트 구성을 마우스 오른쪽 단추로 클릭 합니다.
 

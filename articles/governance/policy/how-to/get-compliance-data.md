@@ -3,12 +3,12 @@ title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 규정 준수 세부 정보를 가져오는 방법을 알아봅니다.
 ms.date: 08/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 7795bba9fec79ee13600d9c72f68e9c763b169e4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 57e508048b5e628911db90b0b6835f88b5ebd8fb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054655"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648348"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 규정 준수 데이터 가져오기
 
@@ -142,11 +142,15 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 예를 들어, 공용 네트워크에 노출되는 일부 스토리지 계정(빨간색으로 강조 표시됨)이 있는 리소스 그룹이 ContosoRG라고 가정해 보겠습니다.
 
-:::image type="content" source="../media/getting-compliance-data/resource-group01.png" alt-text="공용 네트워크에 노출된 스토리지 계정" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Contoso R G 리소스 그룹의 공용 네트워크에 노출 되는 저장소 계정의 다이어그램" border="false":::
+   Contoso R G 리소스 그룹의 5 개 저장소 계정에 대 한 이미지를 보여 주는 다이어그램  저장소 계정 1과 3은 파란색이 고 저장소 계정은 2, 4, 5는 빨강입니다.
+:::image-end:::
 
 이 예에서는 보안 위험에 주의해야 합니다. 정책 할당을 만들었으므로 ContosoRG 리소스 그룹에서 모든 스토리지 계정에 대해 평가합니다. 이 정책 할당은 비준수 스토리지 계정 3개를 감사하여 해당 상태를 **비준수**로 변경합니다.
 
-:::image type="content" source="../media/getting-compliance-data/resource-group03.png" alt-text="감사된 비준수 스토리지 계정" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Contoso R G 리소스 그룹의 저장소 계정 준수 다이어그램" border="false":::
+   Contoso R G 리소스 그룹의 5 개 저장소 계정에 대 한 이미지를 보여 주는 다이어그램 이제 저장소 계정 1과 3에는 아래 녹색의 체크 표시가 있으며, 저장소 계정 2, 4, 5에는 이제 아래에 빨간 경고 기호가 있습니다.
+:::image-end:::
 
 정책과 리소스에는 **준수** 및 **비준수** 외에도 다음의 세 가지 상태 중 하나일 수 있습니다.
 
@@ -159,7 +163,7 @@ Azure Policy는 정의의 **type** 및 **name** 필드를 사용하여 리소스
 **준수** 상태의 리소스를 _총 리소스 수_로 나누는 방법을 통해 규정 준수 비율이 결정됩니다.
 _총 리소스 수_는 **준수**, **비준수** 및 **충돌** 상태의 리소스 수를 합한 값으로 정의됩니다. 전체 규정 준수 리소스 수는 **준수** 상태인 고유 리소스의 합을 모든 고유 리소스의 합으로 나눈 결과입니다. 아래 그림의 경우 정책을 적용할 수 있는 고유 리소스 20개 중 **비준수** 리소스는 1개뿐입니다. 전체 리소스 규정 준수 비율은 95%(20개 중 19)입니다.
 
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="규정 준수 페이지에서 정책 준수의 예" border="false":::
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="규정 준수 페이지의 정책 준수 세부 정보 스크린샷" border="false":::
 
 > [!NOTE]
 > Azure Policy의 규정 준수는 미리 보기 기능입니다. SDK 및 포털의 페이지에서 준수 속성은 사용 하도록 설정 된 이니셔티브와 다릅니다. 자세한 내용은 [규정 준수](../concepts/regulatory-compliance.md) 를 참조 하세요.
@@ -168,11 +172,11 @@ _총 리소스 수_는 **준수**, **비준수** 및 **충돌** 상태의 리소
 
 Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는 그래픽 환경을 보여줍니다. **정책** 페이지에서 **개요** 옵션은 정책 및 이니셔티브 모두에 사용할 수 있는 준수 범위에 대한 세부 정보를 제공합니다. 준수 상태 및 할당별 개수뿐만 아니라 지난 7일 동안의 준수를 표시하는 차트가 포함됩니다. **준수** 페이지에는 차트를 제외하고 이 동일한 정보 대부분이 포함되지만 추가 필터링 및 정렬 옵션을 제공합니다.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Azure Policy 규정 준수 페이지의 예" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="준수 페이지의 스크린샷, 필터링 옵션 및 세부 정보입니다." border="false":::
 
-정책 또는 이니셔티브가 서로 다른 범위에 할당될 수 있으므로 테이블에는 각 할당의 범위 및 할당된 정의의 형식이 포함됩니다. 각 할당의 비준수 리소스 및 비준수 정책 수도 제공됩니다. 테이블에서 정책 또는 이니셔티브를 클릭하면 해당하는 특정 배포에 대한 준수를 자세히 살펴봅니다.
+정책 또는 이니셔티브가 서로 다른 범위에 할당될 수 있으므로 테이블에는 각 할당의 범위 및 할당된 정의의 형식이 포함됩니다. 각 할당의 비준수 리소스 및 비준수 정책 수도 제공됩니다. 테이블의 정책 또는 이니셔티브를 선택 하면 해당 특정 할당에 대 한 준수를 자세히 확인할 있습니다.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Azure Policy 규정 준수 세부 정보 페이지의 예" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="개수 및 리소스 규격 세부 정보를 포함 하는 준수 정보 페이지의 스크린샷" border="false":::
 
 **리소스 준수** 탭의 리소스 목록에는 현재 할당에 대한 기존 리소스의 평가 상태가 표시됩니다. 탭에는 기본적으로 **비준수**로 표시되지만 필터링할 수 있습니다.
 리소스 생성 요청에 의해 트리거되는 이벤트(추가, 감사, 거부, 배포)는 **이벤트** 탭에 표시됩니다.
@@ -180,15 +184,15 @@ Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는
 > [!NOTE]
 > AKS Engine 정책의 경우 표시된 리소스는 리소스 그룹입니다.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Azure Policy 규정 준수 이벤트의 예" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="호환성 정보 페이지에 있는 이벤트 탭의 스크린샷" border="false":::
 
 [리소스 공급자 모드](../concepts/definition-structure.md#resource-provider-modes) 리소스의 경우 **리소스 규정 준수** 탭에서 리소스를 선택하거나 행을 마우스 오른쪽 단추로 클릭하고 **규정 준수 세부 정보 보기**를 선택하면 구성 요소 규정 준수 세부 정보가 열립니다. 이 페이지에는 이 리소스, 이벤트, 구성 요소 이벤트 및 변경 기록에 할당된 정책을 보기 위한 탭도 있습니다.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Azure Policy 구성 요소 준수 세부 정보의 예" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="리소스 공급자 모드 할당에 대 한 구성 요소 호환성 탭의 스크린샷 및 호환성 세부 정보입니다." border="false":::
 
 자세한 세부 정보를 수집하려는 이벤트의 행을 마우스 오른쪽 단추로 클릭하고 **활동 로그 표시**를 선택합니다. 활동 로그 페이지가 열리고 할당 및 이벤트에 대한 세부 정보를 보여주는 검색에 대해 미리 필터링됩니다. 활동 로그는 해당 이벤트에 대한 추가 컨텍스트 및 정보를 제공합니다.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Azure Policy 규정 준수 활동 로그의 예" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Azure Policy 작업 및 평가에 대 한 활동 로그의 스크린샷" border="false":::
 
 ### <a name="understand-non-compliance"></a>규정 비준수 이해
 
@@ -639,7 +643,7 @@ Trent Baker
 
 [활동 로그 분석 솔루션](../../../azure-monitor/platform/activity-log.md)에서 `AzureActivity`가 있는 [Log Analytics 작업 영역](../../../azure-monitor/log-query/log-query-overview.md)이 구독에 연결된 경우 간단한 Kusto 쿼리 및 `AzureActivity` 테이블을 사용하여 평가 주기에서 비준수 결과를 볼 수도 있습니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Azure Monitor 로그를 사용한 Azure Policy준수" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="AzureActivity 테이블의 Azure Policy 작업을 보여 주는 Azure Monitor 로그의 스크린샷" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
 

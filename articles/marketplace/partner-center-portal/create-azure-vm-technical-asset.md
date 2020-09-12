@@ -3,16 +3,16 @@ title: Azure 가상 머신 기술 자산 만들기
 description: Azure Marketplace에 대한 VM(가상 머신) 제품에 대한 기술 자산을 만들고 구성하는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 496cd4aeb96ca1849e950331658014d91dc6d6ba
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 07c8de2a9d94b51f7183829466bd68d56e19efba
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89143941"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646805"
 ---
 # <a name="create-azure-virtual-machine-technical-assets"></a>Azure 가상 머신 기술 자산 만들기
 
@@ -96,7 +96,7 @@ Azure에서 승인된 Linux 배포판을 다양하게 제공합니다. 현재 �
 
 3. 왼쪽 탐색 창에서 **virtual machines** 를 선택 하 여 가상 머신 세부 정보 페이지를 표시 합니다.
 4. **+ 추가**를 선택하여 **가상 머신 환경 만들기**를 엽니다.
-5. 드롭다운 목록에서 이미지를 선택 하거나 **모든 공용 및 개인 이미지 찾아보기** 를 선택 하 여 사용 가능한 모든 가상 머신 이미지를 검색 하거나 검색 합니다. 예제:
+5. 드롭다운 목록에서 이미지를 선택 하거나 **모든 공용 및 개인 이미지 찾아보기** 를 선택 하 여 사용 가능한 모든 가상 머신 이미지를 검색 하거나 검색 합니다. 예:
 
     :::image type="content" source="media/vm/create-resource-group-example.png" alt-text="샘플 VM 이미지를 표시 합니다.":::
 

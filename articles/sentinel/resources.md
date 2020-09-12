@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
-ms.openlocfilehash: 2110d3319cebf693ef06deec26a29fa655e35035
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54c10d7941e053bec928f8f43310218d89124f9a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77585274"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461734"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
 
@@ -28,7 +28,7 @@ ms.locfileid: "77585274"
 
 이 문서에는 Azure 센티널 사용에 대 한 자세한 정보를 얻는 데 도움이 되는 리소스가 나열 되어 있습니다.
 
-Azure Logic Apps 커넥터:<https://docs.microsoft.com/connectors/>
+Azure Logic Apps 커넥터: <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>감사 및 보고
@@ -36,7 +36,7 @@ Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platf
 
 다음과 같은 지원 되는 작업을 감사할 수 있습니다.
 
-|작업 이름|    리소스 유형|
+|작업 이름|    리소스 종류|
 |----|----|
 |통합 문서 만들기 또는 업데이트  |Microsoft Insights/통합 문서|
 |통합 문서 삭제    |Microsoft Insights/통합 문서|
@@ -82,4 +82,4 @@ Azure 센티널의 [TechCommunity 공간](https://techcommunity.microsoft.com/t5
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure 센티널로 작업 하는 경우 유용한 리소스 목록을 얻었습니다. Azure 보안 및 규정 준수에 대 한 추가 정보는 [Microsoft Azure 보안 및 규정 준수 블로그](https://blogs.msdn.com/b/azuresecurity/)에서 확인할 수 있습니다.
+이 문서에서는 Azure 센티널로 작업 하는 경우 유용한 리소스 목록을 얻었습니다. Azure 보안 및 규정 준수에 대 한 추가 정보는 [Microsoft Azure 보안 및 규정 준수 블로그](https://docs.microsoft.com/archive/blogs/azuresecurity/)에서 확인할 수 있습니다.

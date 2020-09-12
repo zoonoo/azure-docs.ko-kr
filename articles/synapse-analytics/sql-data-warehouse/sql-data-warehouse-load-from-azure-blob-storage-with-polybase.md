@@ -1,5 +1,5 @@
 ---
-title: Synapse SQL data warehouse에 Contoso 소매 데이터 로드
+title: Synapse SQL에 Contoso retail 데이터 로드
 description: PolyBase 및 T-sql 명령을 사용 하 여 Contoso retail 데이터에서 Synapse SQL로 두 개의 테이블을 로드 합니다.
 services: synapse-analytics
 author: kevinvngo
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 90da35b76bbe6ec933b3a1fd200f0f5bad643759
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213315"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461700"
 ---
 # <a name="load-contoso-retail-data-to-synapse-sql"></a>Synapse SQL에 Contoso retail 데이터 로드 
 
-이 자습서에서는 PolyBase 및 T-sql 명령을 사용 하 여 Contoso retail 데이터에서 Synapse SQL data warehouse로 두 개의 테이블을 로드 하는 방법에 대해 알아봅니다.
+이 자습서에서는 PolyBase 및 T-sql 명령을 사용 하 여 Contoso retail 데이터의 두 테이블을 Synapse SQL로 로드 하는 방법을 알아봅니다.
 
 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -30,11 +30,11 @@ ms.locfileid: "85213315"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서를 실행 하려면 Synapse SQL data warehouse가 이미 있는 Azure 계정이 필요 합니다. 프로 비전 된 데이터 웨어하우스가 없는 경우 [데이터 웨어하우스 만들기 및 서버 수준 방화벽 규칙 설정](create-data-warehouse-portal.md)을 참조 하세요.
+이 자습서를 실행 하려면 Synapse SQL이 이미 있는 Azure 계정이 필요 합니다. 프로 비전 된 데이터 웨어하우스가 없는 경우 [데이터 웨어하우스 만들기 및 서버 수준 방화벽 규칙 설정](create-data-warehouse-portal.md)을 참조 하세요.
 
 ## <a name="configure-the-data-source"></a>데이터 원본 구성
 
-PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 특성을 정의합니다. 외부 개체 정의는 Synapse SQL data warehouse에 저장 됩니다. 데이터는 외부에 저장 됩니다.
+PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 특성을 정의합니다. 외부 개체 정의는 Synapse SQL에 저장 됩니다. 데이터는 외부에 저장 됩니다.
 
 ## <a name="create-a-credential"></a>자격 증명 만들기
 
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Columnstore 압축을 최적화합니다.
 
-기본적으로 Synapse SQL data warehouse는 클러스터형 columnstore 인덱스로 테이블을 저장 합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  이 문제가 발생 하는 이유는 여러 가지가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
+기본적으로 Synapse SQL은 클러스터형 columnstore 인덱스로 테이블을 저장 합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  이 문제가 발생 하는 이유는 여러 가지가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
 
 로드 후 쿼리 성능과 columnstore 압축을 최적화하려면 모든 행을 압축하기 위해 columnstore 인덱스를 강제 적용할 테이블을 다시 빌드합니다.
 
@@ -340,7 +340,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 
 ## <a name="achievement-unlocked"></a>목표를 달성했습니다!
 
-데이터 웨어하우스에 공용 데이터를 성공적으로 로드 했습니다. 잘 하셨습니다!
+데이터 웨어하우스에 공용 데이터를 성공적으로 로드 했습니다. 잘하셨습니다!
 
 이제 테이블 쿼리를 시작 하 여 데이터를 탐색할 수 있습니다. 다음 쿼리를 실행 하 여 브랜드 별 총 판매량을 확인할 수 있습니다.
 

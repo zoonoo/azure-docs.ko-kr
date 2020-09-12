@@ -3,12 +3,12 @@ title: 쿼리 언어 이해
 description: Resource Graph 테이블과 Azure Resource Graph와 함께 사용 가능한 Kusto 데이터 형식, 연산자 및 함수를 설명합니다.
 ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 65304ca1241b2c8a1f9541580e7ee8434dd5b6eb
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798553"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426404"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -32,6 +32,7 @@ Azure Resource Graph 쿼리 언어는 다양한 연산자 및 함수를 지원�
 |ResourceContainers |subscription(미리 보기에서는 --`Microsoft.Resources/subscriptions`) 및 resource group(`Microsoft.Resources/subscriptions/resourcegroups`) 리소스 종류 및 데이터를 포함합니다. |
 |AdvisorResources |`Microsoft.Advisor` _관련_ 리소스를 포함합니다. |
 |AlertsManagementResources |`Microsoft.AlertsManagement` _관련_ 리소스를 포함합니다. |
+|GuestConfigurationResources |`Microsoft.GuestConfiguration` _관련_ 리소스를 포함합니다. |
 |HealthResources |`Microsoft.ResourceHealth` _관련_ 리소스를 포함합니다. |
 |MaintenanceResources |`Microsoft.Maintenance` _관련_ 리소스를 포함합니다. |
 |SecurityResources |`Microsoft.Security` _관련_ 리소스를 포함합니다. |
@@ -142,7 +143,7 @@ Resource Graph에서 지원하는 KQL 테이블 형식 연산자와 특정 샘�
 쿼리가 반환 하는 리소스의 구독의 범위는 리소스 그래프에 액세스 하는 방법에 따라 달라 집니다. 권한 있는 사용자의 컨텍스트를 기반으로 요청에 포함할 구독 목록을 Azure CLI 하 고 Azure PowerShell 채웁니다. **구독 및** **구독** 매개 변수를 사용 하 여 각각에 대해 구독 목록을 수동으로 정의할 수 있습니다.
 REST API 및 기타 모든 Sdk에서 리소스를 포함 하는 구독 목록은 요청의 일부로 명시적으로 정의 되어야 합니다.
 
-**미리 보기로**REST API 버전은 `2020-04-01-preview` [관리 그룹](../../management-groups/overview.md)에 대 한 쿼리의 범위를 관리 하는 속성을 추가 합니다. 또한이 미리 보기 API는 subscription 속성을 선택 사항으로 만듭니다. 관리 그룹 또는 구독 목록이 정의 되어 있지 않은 경우에는 인증 된 사용자가 액세스할 수 있는 모든 리소스가 쿼리 범위에 표시 됩니다. 새 속성은 관리 그룹 `managementGroupId` 의 이름과 다른 관리 그룹 ID를 사용 합니다. `managementGroupId`을 지정 하면 지정 된 관리 그룹 계층의 처음 5000 구독에 있는 리소스가 포함 됩니다. `managementGroupId` 는와 동시에 사용할 수 없습니다 `subscriptions` .
+**미리 보기로**REST API 버전은 `2020-04-01-preview` [관리 그룹](../../management-groups/overview.md)에 대 한 쿼리의 범위를 관리 하는 속성을 추가 합니다. 또한이 미리 보기 API는 subscription 속성을 선택 사항으로 만듭니다. 관리 그룹 또는 구독 목록이 정의 되어 있지 않으면 쿼리 범위는 [Azure Lighthouse](../../../lighthouse/concepts/azure-delegated-resource-management.md) 위임 된 리소스를 포함 하 여 인증 된 사용자가 액세스할 수 있는 모든 리소스입니다. 새 속성은 관리 그룹 `managementGroupId` 의 이름과 다른 관리 그룹 ID를 사용 합니다. `managementGroupId`을 지정 하면 지정 된 관리 그룹 계층의 처음 5000 구독에 있는 리소스가 포함 됩니다. `managementGroupId` 는와 동시에 사용할 수 없습니다 `subscriptions` .
 
 예: ID가 ' myMG ' 인 ' My Management Group ' 이라는 관리 그룹의 계층 내에 있는 모든 리소스를 쿼리 합니다.
 

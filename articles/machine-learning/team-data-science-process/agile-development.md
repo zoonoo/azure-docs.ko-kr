@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722104"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440289"
 ---
 # <a name="agile-development-of-data-science-projects"></a>데이터 과학 프로젝트의 Agile 개발
 
@@ -51,7 +51,7 @@ TDSP 스 프린트 계획 프레임 워크에는 *기능*, *사용자 스토리*
   
 - **작업**: 태스크는 특정 사용자 스토리를 완료 하기 위해 수행 해야 하는 할당 가능한 작업 항목입니다. 예를 들어 *데이터를 가져오는* 사용자 스토리의 작업은 다음과 같을 수 있습니다.
   - SQL Server 자격 증명 가져오기
-  - SQL Data Warehouse에 데이터 업로드
+  - Azure Synapse Analytics에 데이터 업로드
   
 - **버그**: 버그는 태스크를 완료 하기 위해 수정 해야 하는 기존 코드 또는 문서에서 발생 하는 문제입니다. 작업 항목이 누락 되어 버그가 발생 하는 경우 사용자 스토리 또는 작업으로 에스컬레이션 될 수 있습니다. 
 

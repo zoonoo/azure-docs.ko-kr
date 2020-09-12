@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 04d86b0ef8202c1c544524dd2a7331d521245f12
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043959"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612151"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>포털에서 Azure Stream Analytics 작업 테스트
 
@@ -96,6 +96,21 @@ Azure Stream Analytics은 스트리밍 입력에서 이벤트를 자동으로 �
    ![선택한 출력 Azure Stream Analytics](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
 10. 브라우저에 표시 된 결과를 확인 한 후 작업을 **시작할** 수 있습니다.
+
+## <a name="limitations"></a>제한 사항
+
+1.  시간 정책은 포털 테스트에서 지원 되지 않습니다.
+
+   * 순서가 잘못 됨: 들어오는 모든 이벤트가 정렬 됩니다.
+   * 지연 도착: Stream Analytics는 테스트용 으로만 기존 데이터를 사용할 수 있으므로 지연 도착 이벤트가 발생 하지 않습니다.
+   
+2.  C # UDF는 지원 되지 않습니다.
+
+3.  모든 테스트는 하나의 스트리밍 단위가 있는 작업으로 실행 됩니다.
+
+4.  제한 시간 크기는 1 분입니다. 따라서 창 크기가 1 분 보다 큰 쿼리는 데이터를 가져올 수 없습니다.
+
+5.  Machine learning은 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Stream Analytics를 사용 하 여 IoT 솔루션 빌드](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics):이 자습서에서는 유료 집에서 트래픽을 시뮬레이트하는 데이터 생성기를 사용 하 여 종단 간 솔루션을 구축 하는 방법을 안내 합니다.

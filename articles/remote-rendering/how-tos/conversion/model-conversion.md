@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: db05c7a5a45221485ecb62c2c90d56be52d5ef48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49d3fd953d069f4368d28e26265114e574e8100a
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808618"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506664"
 ---
 # <a name="convert-models"></a>모델 변환
 
@@ -21,9 +21,9 @@ Azure 원격 렌더링을 사용 하면 매우 복잡 한 모델을 렌더링할
 
 변환 서비스는 다음과 같은 형식을 지원 합니다.
 
-- **FBX** (버전 2011 이상)
+- **FBX**  (버전 2011 이상)
 - **글 tf** (버전 2.x)
-- **글** 2 (버전 2.x)
+- **글**  2 (버전 2.x)
 
 [모델 형식의 재질 매핑](../../reference/material-mapping.md)에 나열 된 것 처럼 재질 속성 변환과 관련 된 형식 간에는 약간의 차이가 있습니다.
 
@@ -48,7 +48,7 @@ Azure 원격 렌더링을 사용 하면 매우 복잡 한 모델을 렌더링할
 
 다양 한 변환 옵션에 대 한 자세한 내용은 [이 챕터](configure-model-conversion.md)를 참조 하십시오.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 - [빠른 시작: 렌더링을 위해 모델 변환](../../quickstarts/convert-model.md) 은 모델을 변환 하는 방법에 대 한 단계별 소개입니다.
 - 변환 서비스의 사용을 보여 주는 [예제 PowerShell 스크립트](../../samples/powershell-example-scripts.md)는 *스크립트* 폴더의 [ARR 샘플 리포지토리](https://github.com/Azure/azure-remote-rendering) 에서 찾을 수 있습니다.
@@ -58,4 +58,5 @@ Azure 원격 렌더링을 사용 하면 매우 복잡 한 모델을 렌더링할
 - [모델 변환에 Azure Blob Storage 사용](blob-storage.md)
 - [모델 변환 REST API](conversion-rest-api.md)
 - [모델 변환 구성](configure-model-conversion.md)
+- [변환용 파일 레이아웃](layout-files-for-conversion.md)
 - [모델 형식에 대한 재질 매핑](../../reference/material-mapping.md)

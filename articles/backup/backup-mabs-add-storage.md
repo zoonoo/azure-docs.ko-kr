@@ -3,12 +3,12 @@ title: Azure Backup Server에서 Modern Backup Storage 사용
 description: Azure Backup Server의 새로운 기능에 대해 알아봅니다. 이 문서에서는 Backup Server 설치를 업그레이드하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: b8620f6999c1fcb1a1e70c73fb71fcaac008d930
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 997b2052751473d095b6534ef0bcbe3ed6a099ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825871"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378239"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Azure Backup Server에 스토리지 추가
 
@@ -105,7 +105,7 @@ Modern Backup Storage를 사용하도록 보호 그룹을 업데이트하는 것
 
    ![구성원 보호 중지](/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. **그룹에서 제거** 대화 상자에서 스토리지 풀의 사용된 디스크 공간 및 사용 가능한 공간을 검토합니다. 기본값은 디스크에서 복구 지점을 유지하고 관련 보존 정책에 따라 만료되도록 허용하는 것입니다. **확인**을 클릭합니다.
+2. **그룹에서 제거** 대화 상자에서 스토리지 풀의 사용된 디스크 공간 및 사용 가능한 공간을 검토합니다. 기본값은 디스크에서 복구 지점을 유지하고 관련 보존 정책에 따라 만료되도록 허용하는 것입니다. **확인**을 선택합니다.
 
    사용된 디스크 공간을 사용 가능한 스토리지 풀로 즉시 반환하려면 **디스크의 복제본 삭제** 확인란을 선택하여 해당 구성원과 연결된 백업 데이터(및 복구 지점)를 삭제합니다.
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 85e95dc4138fd638c8db9f5c98a7064153c7ef17
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b58c38dd0257a65bad6021b6152c14a37f905e0a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181649"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461836"
 ---
 # <a name="manage-an-azure-stack-edge-gpu-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge GPU 장치 관리
 
@@ -22,7 +22,7 @@ Azure Stack Edge 솔루션을 사용 하면 데이터를 처리 하 고 네트�
 이 문서에서는 장치의 PowerShell 인터페이스와이 인터페이스를 사용 하 여 수행할 수 있는 작업에 연결 하는 방법을 중점적으로 설명 합니다. 
 
 
-## <a name="connect-to-the-powershell-interface"></a>PowerShell 인터페이스에 연결
+## <a name="connect-to-the-powershell-interface"></a>PowerShell 인터페이스에 연결합니다.
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
 
@@ -30,24 +30,24 @@ Azure Stack Edge 솔루션을 사용 하면 데이터를 처리 하 고 네트�
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
-## <a name="upload-certificate"></a>인증서 업로드
+<!--## Upload certificate
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-IoT Edge 인증서를 업로드 하 여 IoT Edge 장치와이 장치에 연결할 수 있는 다운스트림 장치 간에 보안 연결을 설정할 수도 있습니다. 설치 해야 하는 다음과 같은 세 가지 IoT Edge 인증서 (*pem* 형식)가 있습니다.
+You can also upload IoT Edge certificates to enable a secure connection between your IoT Edge device and the downstream devices that may connect to it. There are three IoT Edge certificates (*.pem* format) that you need to install:
 
-- 루트 CA 인증서 또는 소유자 CA
-- 디바이스 CA 인증서
-- 장치 키 인증서
+- Root CA certificate or the owner CA
+- Device CA certificate
+- Device key certificate
 
-다음 예에서는이 cmdlet을 사용 하 여 IoT Edge 인증서를 설치 하는 방법을 보여 줍니다.
+The following example shows the usage of this cmdlet to install IoT Edge certificates:
 
 ```
 Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
-이 cmdlet을 실행 하면 네트워크 공유에 대 한 암호를 제공 하 라는 메시지가 표시 됩니다.
+When you run this cmdlet, you will be prompted to provide the password for the network share.
 
-인증서에 대 한 자세한 내용은 인증서 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) 또는 [게이트웨이에서 인증서 설치](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway)를 참조 하세요.
+For more information on certificates, go to [Azure IoT Edge certificates](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) or [Install certificates on a gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).-->
 
 ## <a name="view-device-information"></a>장치 정보 보기
  
@@ -121,18 +121,45 @@ Nvidia Gpu의 MP (다중 프로세스 서비스)는 여러 작업에서 Gpu를 �
     - `FullLogCollection`:이 매개 변수를 사용 하면 로그 패키지에 모든 계산 로그가 포함 됩니다. 기본적으로 로그 패키지에는 로그 하위 집합만 포함 되어 있습니다.
 
 
+## <a name="change-kubernetes-pod-and-service-subnets"></a>Kubernetes pod 및 서비스 서브넷 변경
+
+기본적으로 Azure Stack Edge 장치의 Kubernetes는 172.27.0.0/16 및 172.28.0.0/16의 서브넷을 각각 pod와 service에 사용 합니다. 이러한 서브넷을 네트워크에서 이미 사용 중인 경우에는 cmdlet을 실행 하 여 `Set-HcsKubeClusterNetworkInfo` 이러한 서브넷을 변경할 수 있습니다.
+
+이 단계에서 Kubernetes 클러스터를 만들 때 Azure Portal에서 compute를 구성 하기 전에이 구성을 수행 하려고 합니다.
+
+1. 장치의 PowerShell 인터페이스에 연결 합니다.
+1. 장치의 PowerShell 인터페이스에서 다음을 실행 합니다.
+
+    `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
+
+    을 <subnet details> 사용 하려는 서브넷 범위로 바꿉니다. 
+
+1. 이 명령을 실행 한 후에는 명령을 사용 하 여 `Get-HcsKubeClusterNetworkInfo` pod 및 서비스 서브넷이 변경 되었는지 확인할 수 있습니다.
+
+다음은이 명령에 대 한 샘플 출력입니다.
+
+```powershell
+[10.100.10.10]: PS>Set-HcsKubeClusterNetworkInfo -PodSubnet 10.96.0.1/16 -ServiceSubnet 10.97.0.1/16
+[10.100.10.10]: PS>Get-HcsKubeClusterNetworkInfo
+
+Id                                   PodSubnet    ServiceSubnet
+--                                   ---------    -------------
+6dbf23c3-f146-4d57-bdfc-76cad714cfd1 10.96.0.1/16 10.97.0.1/16
+[10.100.10.10]: PS>
+```
+
 
 ## <a name="debug-kubernetes-issues-related-to-iot-edge"></a>IoT Edge와 관련 된 Kubernetes 문제를 디버그 합니다.
 
-Kubernetes 클러스터가 만들어지면 `aseuser` 시스템 네임 스페이스와 연결 된 기본 사용자 `iotedge` 도 만들어집니다. IoT Edge와 관련 된 문제를 디버깅 하기 위해이 사용자 및 시스템 네임 스페이스를 사용할 수 있습니다.  
+<!--When the Kubernetes cluster is created, there are two system namespaces created: `iotedge` and `azure-arc`. --> 
 
-### <a name="create-config-file-for-system-namespace"></a>System 네임 스페이스에 대 한 구성 파일 만들기
+<!--### Create config file for system namespace
 
-문제를 해결 하려면 먼저를 `config` 사용 하 여 네임 스페이스에 해당 하는 파일을 만듭니다 `iotedge` `aseuser` .
+To troubleshoot, first create the `config` file corresponding to the `iotedge` namespace with `aseuser`.
 
-명령을 실행 `Get-HcsKubernetesUserConfig -AseUser` 하 고 출력을 파일로 저장 `config` 합니다 (파일 확장명 없음). `.kube`로컬 컴퓨터에 있는 사용자 프로필의 폴더에 파일을 저장 합니다.
+Run the `Get-HcsKubernetesUserConfig -AseUser` command and save the output as `config` file (no file extension). Save the file in the `.kube` folder of your user profile on the local machine.
 
-다음은 명령의 샘플 출력입니다 `Get-HcsKubernetesUserConfig` .
+Following is the sample output of the `Get-HcsKubernetesUserConfig` command.
 
 ```PowerShell
 [10.100.10.10]: PS>Get-HcsKubernetesUserConfig -AseUser
@@ -158,11 +185,67 @@ users:
 
 [10.100.10.10]: PS>
 ```
+-->
+
+계산 역할이 구성 된 Azure Stack Edge 장치에서 두 가지 명령 집합을 사용 하 여 장치를 문제를 해결 하거나 모니터링할 수 있습니다.
+
+- `iotedge`명령을 사용 합니다. 이러한 명령은 장치에 대 한 기본 작업에 사용할 수 있습니다.
+- `kubectl`명령을 사용 합니다. 이러한 명령은 장치에 대 한 광범위 한 작업 집합에서 사용할 수 있습니다.
+
+위의 명령 집합 중 하나를 실행 하려면 [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)해야 합니다.
+
+### <a name="use-iotedge-commands"></a>`iotedge`명령 사용
+
+사용 가능한 명령 목록을 보려면 [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface) 하 고 함수를 사용 `iotedge` 합니다.
+
+```powershell
+[10.100.10.10]: PS>iotedge -?                                                                                                                           
+Usage: iotedge COMMAND
+
+Commands:
+   list
+   logs
+   restart
+
+[10.100.10.10]: PS>
+```
+
+다음 표에는에서 사용할 수 있는 명령에 대 한 간략 한 설명이 나와 있습니다 `iotedge` .
+
+|명령을 사용합니다.  |설명 |
+|---------|---------|
+|`list`     | 모듈 목록 표시         |
+|`logs`     | 모듈의 로그 가져오기        |
+|`restart`     | 모듈을 중지 했다가 다시 시작 합니다.         |
+
+
+장치에서 실행 되는 모든 모듈을 나열 하려면 명령을 사용 `iotedge list` 합니다.
+
+이 명령의 샘플 출력은 다음과 같습니다. 이 명령은 모듈과 연결 된 모든 모듈, 연결 된 구성 및 외부 Ip를 나열 합니다. 예를 **들어에서 웹 서버 앱에** 액세스할 수 있습니다 `https://10.128.44.244` . 
+
+
+```powershell
+[10.100.10.10]: PS>iotedge list
+
+NAME                   STATUS  DESCRIPTION CONFIG                                             EXTERNAL-IP
+----                   ------  ----------- ------                                             -----
+gettingstartedwithgpus Running Up 10 days  mcr.microsoft.com/intelligentedge/solutions:latest
+iotedged               Running Up 10 days  azureiotedge/azureiotedge-iotedged:0.1.0-beta10    <none>
+edgehub                Running Up 10 days  mcr.microsoft.com/azureiotedge-hub:1.0             10.128.44.243
+edgeagent              Running Up 10 days  azureiotedge/azureiotedge-agent:0.1.0-beta10
+webserverapp           Running Up 10 days  nginx:stable                                       10.128.44.244
+
+[10.100.10.10]: PS>
+```
+
+
+### <a name="use-kubectl-commands"></a>Kubectl 명령 사용
 
 계산 역할이 구성 된 Azure Stack Edge 장치에서 모든 `kubectl` 명령을 사용 하 여 모듈을 모니터링 하거나 문제를 해결할 수 있습니다. 사용 가능한 명령 목록을 보려면 `kubectl --help` 명령 창에서를 실행 합니다.
 
 ```PowerShell
 C:\Users\myuser>kubectl --help
+
 kubectl controls the Kubernetes cluster manager.
 
 Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
@@ -187,7 +270,7 @@ C:\Users\myuser>
 전체 `kubectl` 명령 목록은 [ `kubectl` 참고 자료](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)로 이동 합니다.
 
 
-### <a name="to-get-ip-of-service-or-module-exposed-outside-of-kubernetes-cluster"></a>Kubernetes 클러스터 외부에 노출 되는 서비스 또는 모듈의 IP를 가져오려면
+#### <a name="to-get-ip-of-service-or-module-exposed-outside-of-kubernetes-cluster"></a>Kubernetes 클러스터 외부에 노출 되는 서비스 또는 모듈의 IP를 가져오려면
 
 Kubernetes 외부에 노출 된 부하 분산 서비스 또는 모듈의 IP를 가져오려면 다음 명령을 실행 합니다.
 
@@ -197,39 +280,53 @@ Kubernetes 외부에 노출 된 부하 분산 서비스 또는 모듈의 IP를 �
 
 
 ```powershell
-C:\Users\user>kubectl get svc -n iotedge
+[10.100.10.10]: PS>kubectl get svc -n iotedge
 NAME           TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                                       AGE
 edgehub        LoadBalancer   10.103.52.225   10.128.44.243   443:31987/TCP,5671:32336/TCP,8883:30618/TCP   34h
 iotedged       ClusterIP      10.107.236.20   <none>          35000/TCP,35001/TCP                           3d8h
 webserverapp   LoadBalancer   10.105.186.35   10.128.44.244   8080:30976/TCP                                16h
 
-C:\Users\user>
+[10.100.10.10]: PS>
 ```
 외부 IP 열의 IP 주소는 서비스 또는 모듈의 외부 끝점에 해당 합니다. [Kubernetes 대시보드에서 외부 IP를 가져올](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#get-ip-address-for-services-or-modules)수도 있습니다.
 
 
-### <a name="to-check-if-module-deployed-successfully"></a>모듈이 성공적으로 배포 되었는지 확인 하려면
+#### <a name="to-check-if-module-deployed-successfully"></a>모듈이 성공적으로 배포 되었는지 확인 하려면
 
-계산 모듈은 비즈니스 논리를 구현 하는 컨테이너입니다. Kubernetes pod는 여러 컨테이너를 실행할 수 있습니다. 계산 모듈이 성공적으로 배포 되었는지 확인 하려면 명령을 실행 하 `get pods` 고 컨테이너 (계산 모듈에 해당)가 실행 중인지 확인 합니다.
+계산 모듈은 비즈니스 논리를 구현 하는 컨테이너입니다. Kubernetes pod는 여러 컨테이너를 실행할 수 있습니다. 
+
+계산 모듈이 성공적으로 배포 되었는지 확인 하려면 장치의 PowerShell 인터페이스에 연결 합니다.
+명령을 실행 `get pods` 하 고 컨테이너 (계산 모듈에 해당)가 실행 중인지 확인 합니다.
 
 특정 네임 스페이스에서 실행 중인 모든 pod 목록을 가져오려면 다음 명령을 실행 합니다.
 
 `get pods -n <namespace>`
 
+IoT Edge를 통해 배포 된 모듈을 확인 하려면 다음 명령을 실행 합니다.
+
+`get pods -n iotedge`
+
 다음은 네임 스페이스에서 실행 중인 모든 pod의 샘플 출력입니다 `iotedge` .
 
 ```
-C:\Users\myuser>kubectl get pods -n iotedge
+[10.100.10.10]: PS>kubectl get pods -n iotedge
 NAME                        READY   STATUS    RESTARTS   AGE
 edgeagent-cf6d4ffd4-q5l2k   2/2     Running   0          20h
 edgehub-8c9dc8788-2mvwv     2/2     Running   0          56m
 filemove-66c49984b7-h8lxc   2/2     Running   0          56m
 iotedged-675d7f4b5f-9nml4   1/1     Running   0          20h
 
-C:\Users\myuser>
+[10.100.10.10]: PS>
 ```
 
 상태 **상태** 는 네임 스페이스의 모든 pod이 실행 중이 고 **준비** 된는 pod에 배포 된 컨테이너 수를 나타냅니다. 위의 샘플에서는 모든 pod가 실행 되 고 있으며 각 pod에 배포 된 모든 모듈이 실행 중입니다. 
+
+Azure Arc를 통해 배포 된 모듈을 확인 하려면 다음 명령을 실행 합니다.
+
+`get pods -n azure-arc`
+
+또는 [Kubernetes 대시보드에 연결 하 IoT Edge 또는 Azure Arc 배포를 볼](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#view-module-status)수 있습니다.
+
 
 지정 된 네임 스페이스에 대 한 특정 pod의 자세한 출력을 보려면 다음 명령을 실행 하면 됩니다.
 
@@ -238,7 +335,7 @@ C:\Users\myuser>
 샘플 출력은 다음과 같습니다.
 
 ```
-C:\Users\myuser>kubectl describe pod filemove-66c49984b7 -n iotedge
+[10.100.10.10]: PS>kubectl describe pod filemove-66c49984b7 -n iotedge
 Name:           filemove-66c49984b7-h8lxc
 Namespace:      iotedge
 Priority:       0
@@ -295,12 +392,12 @@ Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
 Events:          <none>
 
 
-C:\Users\myuser>
+[10.100.10.10]: PS>
 ```
 
-### <a name="to-get-container-logs"></a>컨테이너 로그를 가져오려면
+#### <a name="to-get-container-logs"></a>컨테이너 로그를 가져오려면
 
-모듈에 대 한 로그를 가져오려면 다음 명령을 실행 합니다.
+모듈에 대 한 로그를 가져오려면 장치의 PowerShell 인터페이스에서 다음 명령을 실행 합니다.
 
 `kubectl logs <pod_name> -n <namespace> --all-containers` 
 
@@ -309,7 +406,7 @@ C:\Users\myuser>
 다음은 샘플 출력입니다. 
 
 ```
-C:\Users\myuser>kubectl logs filemove-66c49984b7-h8lxc -n iotedge --all-containers --tail 10
+[10.100.10.10]: PS>kubectl logs filemove-66c49984b7-h8lxc -n iotedge --all-containers --tail 10
 DEBUG 2020-05-14T20:40:42Z: loop process - 0 events, 0.000s
 DEBUG 2020-05-14T20:40:44Z: loop process - 0 events, 0.000s
 DEBUG 2020-05-14T20:40:44Z: loop process - 0 events, 0.000s
@@ -325,8 +422,10 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 05/14/2020 19:46:45: Info: Initializing with input: /home/input, output: /home/output, protocol: Amqp.
 05/14/2020 19:46:45: Info: IoT Hub module client initialized.
 
-C:\Users\myuser>
+[10.100.10.10]: PS>
 ```
+
+
 
 ## <a name="exit-the-remote-session"></a>원격 세션 종료
 
@@ -334,4 +433,4 @@ C:\Users\myuser>
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Portal에 [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md) 를 배포 합니다.
+- Azure Portal에서 [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md)를 배포합니다.

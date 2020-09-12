@@ -3,12 +3,12 @@ title: 테이프 인프라를 교체 하는 방법
 description: Azure에서 데이터를 백업 및 복원할 수 있는 테이프와 유사한 의미 체계 Azure Backup 제공 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: 4174868d391eda70ce4921deee63b8bacf672b4c
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 695cc2644521384527ecd871f3613a078e987aa7
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757237"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378443"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>장기 스토리지를 테이프에서 Azure 클라우드로 이동
 
@@ -62,7 +62,7 @@ Azure Backup 및 System Center Data Protection Manager 고객은 다음을 수�
 
 ## <a name="advanced-configuration"></a>고급 구성
 
-앞의 화면에서 **수정** 을 클릭하면 보존 일정을 더 유연하게 지정할 수 있습니다.
+이전 화면에서 **수정** 을 선택 하 여 고객은 보존 일정을 보다 유연 하 게 지정할 수 있습니다.
 
 ![정책 수정 창](./media/backup-azure-backup-cloud-as-tape/modify.png)
 

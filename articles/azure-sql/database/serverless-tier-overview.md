@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 8/7/2020
-ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 9/8/2020
+ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121360"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565092"
 ---
 # <a name="azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하�
 - **최소 vcores** 및 **최대 vcores** 는 데이터베이스에 사용할 수 있는 계산 용량의 범위를 정의 하는 구성 가능한 매개 변수입니다. 메모리 및 IO 제한은 지정된 vCore 범위에 비례합니다.  
 - **Autopause delay** 는 데이터베이스를 자동으로 일시 중지 하기 전에 비활성 상태로 유지 해야 하는 기간을 정의 하는 구성 가능한 매개 변수입니다. 데이터베이스는 다음 로그인 또는 다른 작업이 발생할 때 자동으로 다시 시작 됩니다.  또는 autopausing를 사용 하지 않도록 설정할 수 있습니다.
 
-### <a name="cost"></a>비용
+### <a name="cost"></a>Cost
 
 - 서버를 사용 하지 않는 데이터베이스에 대 한 비용은 계산 비용 및 저장소 비용의 합계입니다.
 - 계산 사용법이 구성 된 최소 및 최대 한도 사이에 있는 경우 계산 비용은 vCore 및 사용 되는 메모리를 기반으로 합니다.
@@ -68,8 +68,8 @@ Azure SQL Database의 단일 데이터베이스에 대 한 서버를 사용 하�
 |:---|:---|:---|
 |**데이터베이스 사용 패턴**| 시간이 지남에 따라 평균 계산 사용률이 낮은 간헐적이 고 예측할 수 없는 사용 | 시간이 지남에 따라 더 높은 평균 계산 사용률 또는 탄력적 풀을 사용 하는 여러 데이터베이스를 사용 하는 보다 일반적인 사용 패턴.|
 | **성능 관리 작업** |더 낮음|더 높음|
-|**컴퓨팅 크기 조정**|자동|Manual|
-|**컴퓨팅 응답성**|비활성 기간 후 낮음|직접 실행|
+|**컴퓨팅 크기 조정**|자동|설명서|
+|**컴퓨팅 응답성**|비활성 기간 후 낮음|즉시|
 |**청구 세분성**|초당|시간당|
 
 ## <a name="purchasing-model-and-service-tier"></a>구매 모델 및 서비스 계층
@@ -114,11 +114,12 @@ Autopause 지연 기간 동안 다음 조건이 모두 true 인 경우 Autopausi
 
 원하는 경우 autopausing를 사용 하지 않도록 설정 하는 옵션이 제공 됩니다.
 
-다음 기능은 autopausing을 지원 하지 않지만 자동 크기 조정을 지원 합니다.  즉, 다음 기능 중 하나를 사용 하는 경우 데이터베이스 비활성 기간에 관계 없이 데이터베이스가 온라인 상태로 유지 됩니다.
+다음 기능은 autopausing을 지원 하지 않지만 자동 크기 조정을 지원 합니다.  다음 기능 중 하나를 사용 하는 경우 autopausing를 사용 하지 않도록 설정 해야 하며 데이터베이스 비활성 기간에 관계 없이 데이터베이스가 온라인 상태로 유지 됩니다.
 
 - 지역에서 복제 (활성 지역 복제 및 자동 장애 조치 그룹)
 - 장기 백업 보존 (LTR).
 - SQL 데이터 동기화에 사용 되는 동기화 데이터베이스입니다.  동기화 데이터베이스와 달리 허브 및 멤버 데이터베이스는 autopausing을 지원 합니다.
+- DNS 별칭
 - 탄력적 작업 (미리 보기)에 사용 되는 작업 데이터베이스입니다.
 
 Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일부 서비스 업데이트를 배포 하는 동안 일시적으로 차단 됩니다.  이러한 경우 서비스 업데이트가 완료 되 면 autopausing가 다시 허용 됩니다.
@@ -274,7 +275,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 응용 프로그램 패키지의 리소스 사용 및 서버를 사용 하지 않는 데이터베이스의 사용자 풀 모니터링에 대 한 메트릭은 다음 표에 나와 있습니다.
 
-|엔터티|메트릭|Description|단위|
+|엔터티|메트릭|설명|단위|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다.청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.|vCore 시간(초)|

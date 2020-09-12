@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 3e1cfa13a3fd568ab2f1253c015880c57f99ce7e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012488"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440357"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 지원되는 데이터 플랫폼
 
@@ -53,7 +53,7 @@ SQL Server Management Studio를 실행 하려면 프로그램 목록에서 "SQL 
 
 기본적으로 기본 데이터베이스 인스턴스를 포함 하는 데이터베이스 서버는 자동으로 실행 됩니다. Microsoft SQL Server 데이터베이스에 로컬로 액세스하려면 VM에서 SQL Server Management Studio와 같은 도구를 사용할 수 있습니다. 로컬 관리자 계정에는 데이터베이스에 대 한 관리자 액세스 권한이 있습니다.
 
-또한 DSVM에는 ODBC 및 JDBC 드라이버와 함께 제공 되어 SQL Server, Azure SQL database 및 Python 및 Machine Learning Server를 비롯 한 여러 언어로 작성 된 응용 프로그램의 Azure SQL Data Warehouse에 대 한 통신을 제공 합니다.
+또한 DSVM은 Python 및 Machine Learning Server를 비롯 하 여 여러 언어로 작성 된 응용 프로그램에서 SQL Server, Azure SQL database 및 Azure Synapse Analytics와 통신 하기 위해 ODBC 및 JDBC 드라이버와 함께 제공 됩니다.
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>DSVM에 구성 및 설치 하는 방법 
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 869def6b3187e10727a170377f2635fb3652f98b
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 800c1742b49fce7e1adf8c3ca22181cfb7d0a085
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797596"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565510"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 삭제
 여러 가지 이유로 Azure AD(Azure Active Directory)그룹을 삭제할 수 있지만, 일반적으로 이유는 다음과 같습니다.
@@ -48,4 +48,4 @@ ms.locfileid: "87797596"
 
 - 그룹을 실수로 삭제한 경우에는 다시 만들 수 있습니다. 자세한 내용은 [기본 그룹을 만들고 멤버를 추가하는 방법](active-directory-groups-create-azure-portal.md)을 참조하세요.
 
-- Office 365 그룹을 실수로 삭제한 경우에는 복원할 수 있습니다. 자세한 내용은 [삭제된 Office 365 그룹 복원](../users-groups-roles/groups-restore-deleted.md)을 참조하세요.
+- 실수로 Microsoft 365 그룹을 삭제 하면 해당 그룹을 복원할 수 있습니다. 자세한 내용은 [삭제된 Office 365 그룹 복원](../users-groups-roles/groups-restore-deleted.md)을 참조하세요.

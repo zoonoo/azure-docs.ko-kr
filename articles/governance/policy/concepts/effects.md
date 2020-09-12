@@ -3,12 +3,12 @@ title: 효과 작동 방식 이해
 description: Azure Policy 정의는 규정 준수가 관리되고 보고되는 방법을 결정하는 다양한 효과가 있습니다.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079662"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425537"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -156,7 +156,8 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
   - **details.type**이 **if** 조건 리소스 아래에 있는 리소스 유형이면 정책은 평가된 리소스 범위 내에서 **type**의 리소스를 쿼리합니다. 그렇지 않으면, 평가된 리소스와 동일한 리소스 그룹 내에서 정책 쿼리가 수행됩니다.
 - **Name**(옵션)
   - 일치하는 리소스의 정확한 이름을 지정하고 정책에서 지정된 형식의 모든 리소스 대신 하나의 특정 리소스를 인출하도록 합니다.
-  - **if.field.type**과 **then.details.type**의 조건 값이 일치하면 **Name**은 _required_(필수)가 되고 `[field('name')]`이 되어야 합니다. 하지만 [audit](#audit) 효과를 대신 고려해야 합니다.
+  - **If. field. 형식** 및 **. details. 형식** 에 대 한 조건 값이 일치 하는 경우에는 **이름이** _필수_ `[field('name')]` 로, 또는 `[field('fullName')]` 자식 리소스의 경우 여야 합니다.
+    하지만 [audit](#audit) 효과를 대신 고려해야 합니다.
 - **ResourceGroupName**(옵션)
   - 다른 리소스 그룹에서 오는 관련된 리소스의 일치를 허용합니다.
   - **type**이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.
@@ -277,7 +278,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
   - **if** 조건 리소스 아래의 리소스를 인출하려는 시도로 시작한 다음, **if** 리소스 조건와 동일한 리소스 그룹 내에서 쿼리합니다.
 - **Name**(옵션)
   - 일치하는 리소스의 정확한 이름을 지정하고 정책에서 지정된 형식의 모든 리소스 대신 하나의 특정 리소스를 인출하도록 합니다.
-  - **if.field.type**과 **then.details.type**의 조건 값이 일치하면 **Name**은 _required_(필수)가 되고 `[field('name')]`이 되어야 합니다.
+  - **If. field. 형식** 및 **. details. 형식** 에 대 한 조건 값이 일치 하는 경우에는 **이름이** _필수_ `[field('name')]` 로, 또는 `[field('fullName')]` 자식 리소스의 경우 여야 합니다.
 - **ResourceGroupName**(옵션)
   - 다른 리소스 그룹에서 오는 관련된 리소스의 일치를 허용합니다.
   - **type**이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.

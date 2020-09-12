@@ -4,18 +4,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/29/2020
+ms.date: 08/18/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: debd1eda050e75ea2b9baed45e6e5af0f5a95c46
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 54ccaebd84c6af308ddcfa956add7f84b6e55832
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88944463"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321046"
 ---
-### <a name="speech-to-text-or-custom-speech-to-text"></a>음성 텍스트 또는 Custom Speech 텍스트
-
 컨테이너는 [Speech SDK](../index.yml)를 통해 액세스되는 Websocket 기반 쿼리 끝점 API를 제공합니다. 기본적으로 Speech SDK는 온라인 음성 서비스를 사용합니다. 컨테이너를 사용하려면 초기화 메서드를 변경해야 합니다.
 
 > [!TIP]

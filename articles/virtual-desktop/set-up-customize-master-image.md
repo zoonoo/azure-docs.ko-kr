@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2a10a32a98a240f740f48f7b25e6fa6ac3f2e873
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009514"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433707"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
@@ -93,7 +93,7 @@ Windows Server에서 Windows Defender를 구성 하는 방법에 대 한 자세�
 
 명령 프롬프트에서 다음 명령을 실행 하 여 자동 업데이트를 사용 하지 않도록 설정할 수도 있습니다.
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
@@ -101,7 +101,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpd
 
 Windows 10 Pc에 대 한 시작 레이아웃을 지정 하려면이 명령을 실행 합니다.
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
@@ -119,7 +119,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoam
 
 마스터 이미지에서이 명령을 실행 하 여 표준 시간대를 리디렉션할 수도 있습니다.
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableTimeZoneRedirection /t REG_DWORD /d 1 /f
 ```
 
@@ -132,13 +132,13 @@ Windows 10 Enterprise 또는 Windows 10 Enterprise 다중 세션을 사용 하�
 
 다음 명령을 실행 하 여 레지스트리를 사용 하 여 설정을 변경할 수도 있습니다.
 
-```batch
+```cmd
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v 01 /t REG_DWORD /d 0 /f
 ```
 
 ### <a name="include-additional-language-support"></a>추가 언어 지원 포함
 
-이 문서에서는 언어 및 국가별 지원을 구성 하는 방법에 대해 다루지 않습니다. 자세한 내용은 다음 아티클을 참조하세요.
+이 문서에서는 언어 및 국가별 지원을 구성 하는 방법에 대해 다루지 않습니다. 자세한 내용은 다음 항목을 참조하세요.
 
 - [Windows 이미지에 언어 추가](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
 - [주문형 기능](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)
@@ -153,19 +153,19 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 Windows 10 Enterprise 다중 세션에서 원격 분석 데이터의 피드백 허브 컬렉션을 보려면 다음 명령을 실행 합니다.
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 3 /f
 ```
 
 다음 명령을 실행 하 여 Watson 충돌을 해결 합니다.
 
-```batch
+```cmd
 remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting
 ```
 
 레지스트리 편집기에서 다음 명령을 입력 하 여 5k resolution 지원을 수정 합니다. Side-by-side 스택을 사용 하도록 설정 하려면 먼저 명령을 실행 해야 합니다.
 
-```batch
+```cmd
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxMonitors /t REG_DWORD /d 4 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxXResolution /t REG_DWORD /d 5120 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxYResolution /t REG_DWORD /d 2880 /f

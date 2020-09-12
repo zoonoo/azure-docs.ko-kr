@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: b613e89fbe29074160d83a96d2cd13505244994a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f0e5a153efe26640e54f386600f07c7b3d4711d0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186720"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649059"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway 상태 모니터링 개요
 
@@ -39,7 +39,7 @@ Application Gateway에서 상태 프로브에 사용하는 원본 IP 주소는 �
 
 ### <a name="default-health-probe-settings"></a>기본 상태 프로브 설정
 
-| 프로브 속성 | 값 | 설명 |
+| 프로브 속성 | 값 | Description |
 | --- | --- | --- |
 | 프로브 URL |\<protocol\>://127.0.0.1:\<port\>/ |프로토콜과 포트는 프로브가 연결 된 백 엔드 HTTP 설정에서 상속 됩니다. |
 | 간격 |30 |다음 상태 프로브가 전송되기 전에 대기할 시간의 양(초)입니다.|
@@ -62,7 +62,7 @@ Application Gateway의 모든 인스턴스는 서로 독립적으로 백 엔드�
 
 다음 표에는 사용자 지정 상태 프로브의 속성을 위한 정의가 나와 있습니다.
 
-| 프로브 속성 | 설명 |
+| 프로브 속성 | Description |
 | --- | --- |
 | 속성 |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 식별 하 고 참조 하는 데 사용 됩니다. |
 | 프로토콜 |프로브를 보내는 데 사용하는 프로토콜입니다. 이는 연결 된 백 엔드 HTTP 설정에 정의 된 프로토콜과 일치 해야 합니다.|
@@ -98,7 +98,7 @@ $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 
 또한 아웃바운드 인터넷 연결은 차단할 수 없으며, **AzureLoadBalancer** 태그에서 들어오는 인바운드 트래픽은 허용해야 합니다.
 
-자세한 내용은 [Application Gateway 구성 개요](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet)를 참조하세요.
+자세한 내용은 [Application Gateway 구성 개요](configuration-infrastructure.md#network-security-groups)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Application Gateway 상태 모니터링에 대해 알아본 후에 PowerShell 및 Azure Resource Manager 배포 모델을 사용하여 Azure Portal의 [사용자 지정 상태 프로브](application-gateway-create-probe-portal.md) 또는 [사용자 지정 상태 프로브](application-gateway-create-probe-ps.md)를 구성할 수 있습니다.

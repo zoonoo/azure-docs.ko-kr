@@ -14,16 +14,16 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ce0d543f11a1dcc61616d8a386176272ab44aee
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9bb0c1773a08bc934eebc4f110cec43e4b07e49e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797273"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565058"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Azure Active Directory의 그룹 기반 라이선스란?
 
-Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 제품과 같은 Microsoft 유료 클라우드 서비스에는 라이선스가 필요합니다. 이러한 라이선스는 해당 서비스에 액세스해야 하는 각 사용자에게 할당됩니다. 라이선스를 관리하기 위해 관리자는 관리 포털(Office 또는 Azure) 및 PowerShell cmdlet 중 하나를 사용합니다. Azure AD(Azure Active Directory)는 모든 Microsoft 클라우드 서비스에 대한 ID 관리를 지원하는 기본 인프라입니다. Azure AD는 사용자에 대한 라이선스 할당 상태에 대한 정보를 저장합니다.
+Microsoft 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 제품과 같은 Microsoft 유료 클라우드 서비스에는 라이선스가 필요 합니다. 이러한 라이선스는 해당 서비스에 액세스해야 하는 각 사용자에게 할당됩니다. 라이선스를 관리하기 위해 관리자는 관리 포털(Office 또는 Azure) 및 PowerShell cmdlet 중 하나를 사용합니다. Azure AD(Azure Active Directory)는 모든 Microsoft 클라우드 서비스에 대한 ID 관리를 지원하는 기본 인프라입니다. Azure AD는 사용자에 대한 라이선스 할당 상태에 대한 정보를 저장합니다.
 
 지금까지 개별 사용자 수준에서만 라이선스를 할당할 수 있었기 때문에 대규모 관리가 어려워질 수 있습니다. 예를 들어 조직이나 부서에 가입하거나 탈퇴하는 사용자와 같이 조직의 변경 내용에 따라 사용자 라이선스를 추가하거나 제거하려면 관리자는 종종 복잡한 PowerShell 스크립트를 작성해야 합니다. 이 스크립트는 클라우드 서비스를 개별적으로 호출합니다.
 
@@ -45,9 +45,9 @@ Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 �
 
 - Azure AD의 보안 그룹에 라이선스를 할당할 수 있습니다. Azure AD Connect를 사용하여 보안 그룹을 온-프레미스에서 동기화할 수 있습니다. 또한 Azure AD(클라우드 전용 그룹이라고도 함)에서 보안 그룹을 직접 만들거나 Azure AD 동적 그룹 기능을 통해 자동으로 만들 수 있습니다.
 
-- 그룹에 제품 라이선스를 할당하면 관리자는 제품에서 서비스 계획을 하나 이상 사용하지 않도록 설정할 수 있습니다. 일반적으로 조직이 제품에 포함된 서비스를 사용할 준비가 아직 되지 않은 경우에 이 할당이 수행됩니다. 예를 들어 관리자는 Office 365를 부서에 할당할 수 있지만 Yammer 서비스를 일시적으로 사용하지 않도록 설정할 수 있습니다.
+- 그룹에 제품 라이선스를 할당하면 관리자는 제품에서 서비스 계획을 하나 이상 사용하지 않도록 설정할 수 있습니다. 일반적으로 조직이 제품에 포함된 서비스를 사용할 준비가 아직 되지 않은 경우에 이 할당이 수행됩니다. 예를 들어 관리자가 부서에 Microsoft 365 할당 하지만 Yammer 서비스를 일시적으로 사용 하지 않도록 설정할 수 있습니다.
 
-- 사용자 수준 라이선스를 필요로 하는 모든 Microsoft Clouds Services는 지원됩니다. 이 지원에는 모든 Office 365 제품, Enterprise Mobility + Security 및 Dynamics 365가 포함됩니다.
+- 사용자 수준 라이선스를 필요로 하는 모든 Microsoft Clouds Services는 지원됩니다. 이 지원에는 모든 Microsoft 365 제품, Enterprise Mobility + Security 및 Dynamics 365이 포함 됩니다.
 
 - 그룹 기반 라이선스는 현재 [Azure Portal](https://portal.azure.com)통해서만 사용할 수 있습니다. [Microsoft 365 관리 센터](https://admin.microsoft.com)와 같이 주로 사용자 및 그룹 관리를 위해 다른 관리 포털을 사용 하는 경우이 작업을 계속할 수 있습니다. 그러나 그룹 수준에서 라이선스를 관리하려면 Azure Portal을 사용해야 합니다.
 

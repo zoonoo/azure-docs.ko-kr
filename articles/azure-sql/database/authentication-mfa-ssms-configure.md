@@ -12,20 +12,20 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 791402f5d9648c8d235f8853de1b6c41f8082e1b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b1dbd66e34790599020233c5b1249593a4c0472d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018310"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442652"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio 및 Azure AD에 대한 Multi-factor Authentication(MFA) 구성
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-이 문서에서는 SSMS (SQL Server Management Studio)에서 Azure Active Directory (Azure AD) multi-factor authentication (MFA)을 사용 하는 방법을 보여 줍니다. Azure AD MFA는 SSMS 또는 SqlPackage.exe을 [Azure SQL Database](sql-database-paas-overview.md), [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 및 [azure Synapse Analytics (이전의 Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결할 때 사용할 수 있습니다. Multi-factor authentication에 대 한 개요는 [SQL Database, SQL Managed Instance 및 Azure Synapse를 사용 하는 유니버설 인증 (MFA에 대 한 SSMS 지원)](../database/authentication-mfa-ssms-overview.md)을 참조 하세요.
+이 문서에서는 SSMS (SQL Server Management Studio)에서 Azure Active Directory (Azure AD) multi-factor authentication (MFA)을 사용 하는 방법을 보여 줍니다. Azure AD MFA는 SSMS 또는 SqlPackage.exe을 [Azure SQL Database](sql-database-paas-overview.md), [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 및 [azure Synapse Analytics (이전의 SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결할 때 사용할 수 있습니다. Multi-factor authentication에 대 한 개요는 [SQL Database, SQL Managed Instance 및 Azure Synapse를 사용 하는 유니버설 인증 (MFA에 대 한 SSMS 지원)](../database/authentication-mfa-ssms-overview.md)을 참조 하세요.
 
 > [!IMPORTANT]
-> Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse (이전의 Azure SQL Data Warehouse)의 데이터베이스는이 문서의 나머지 부분에서 전체적으로 참조 되며 서버는 Azure SQL Database 및 Azure Synapse 용 데이터베이스를 호스트 하는 [서버](logical-servers.md) 를 참조 합니다.
+> Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse (이전의 SQL Data Warehouse)의 데이터베이스는이 문서의 나머지 부분에서 전체적으로 참조 되며 서버는 Azure SQL Database 및 Azure Synapse 용 데이터베이스를 호스트 하는 [서버](logical-servers.md) 를 참조 합니다.
 
 ## <a name="configuration-steps"></a>구성 단계
 
@@ -52,7 +52,7 @@ ms.locfileid: "89018310"
 
    ![mfa-tenant-ssms](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
 
-4. 옵션 **을 선택 하** 고 **옵션** 대화 상자에서 데이터베이스를 지정 합니다. 연결 된 사용자가 게스트 사용자 (예:) 인 경우 joe@outlook.com 상자를 선택 하 고 옵션의 일부로 현재 AD 도메인 이름 또는 테 넌 트 ID를 추가 해야 합니다. [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증(MFA에 대한 SSMS 지원)](../database/authentication-mfa-ssms-overview.md)을 참조하세요. 그런 다음 **연결**을 클릭합니다.  
+4. 옵션 **을 선택 하** 고 **옵션** 대화 상자에서 데이터베이스를 지정 합니다. 연결 된 사용자가 게스트 사용자 (예:) 인 경우 joe@outlook.com 상자를 선택 하 고 옵션의 일부로 현재 AD 도메인 이름 또는 테 넌 트 ID를 추가 해야 합니다. [SQL Database 및 Azure Synapse Analytics를 통한 유니버설 인증 (MFA에 대 한 SSMS 지원)](../database/authentication-mfa-ssms-overview.md)을 참조 하세요. 그런 다음 **연결**을 클릭합니다.  
 5. **사용자 계정 로그인** 대화 상자가 나타나면 Azure Active Directory ID의 계정 및 암호를 제공합니다. 사용자가 Azure AD와 페더레이션된 도메인에 속할 경우 암호가 필요하지 않습니다.
 
    ![2mfa-sign-in](./media/authentication-mfa-ssms-configure/2mfa-sign-in.png)  

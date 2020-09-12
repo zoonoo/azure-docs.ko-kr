@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 50546a3efc008e074f4e7831d2cc657539b2f98b
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285631"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612322"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>클러스터 구성 모범 사례 (Azure Vm의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,26 +35,23 @@ ms.locfileid: "87285631"
 
 [쿼럼 리소스](/windows-server/storage/storage-spaces/understand-quorum)없이 두 노드 클러스터가 작동 하지만, 고객은 프로덕션 지원을 보유 하기 위해 반드시 쿼럼 리소스를 사용 해야 합니다. 클러스터 유효성 검사는 쿼럼 리소스가 없는 클러스터를 통과 하지 않습니다. 
 
-기술적으로 3 개 노드 클러스터는 쿼럼 리소스가 없는 단일 노드 손실 (아래쪽에서 두 개 노드)로 존속 될 수 있습니다. 하지만 클러스터가 두 개의 노드로 다운 된 후에 실행 될 수 있는 위험이 있습니다. 
+기술적으로 3 개 노드 클러스터는 쿼럼 리소스가 없는 단일 노드 손실 (아래쪽에서 두 개 노드)로 존속 될 수 있습니다. 하지만 클러스터가 두 개의 노드로 다운 된 후에는 노드 손실이 나 통신 오류가 발생 하 여 분할 인 요소 시나리오를 방지 하기 위해 클러스터 된 리소스가 오프 라인으로 전환 될 수 있습니다.
 
-- **공간** 분할 (두뇌): 서버, NIC 또는 스위치 문제로 인해 클러스터 노드가 네트워크에서 분리 됩니다. 
-- **파티션 시간** (amnesia): 노드가 클러스터에 조인 또는 다시 가입 하 고 클러스터 그룹 또는 클러스터 역할의 소유권을 부적절 하 게 주장 하려고 합니다. 
-
-쿼럼 리소스는 이러한 문제 중 하나에 대해 클러스터를 보호 합니다. 
+쿼럼 리소스를 구성 하면 클러스터를 온라인으로 한 노드만 온라인으로 계속할 수 있습니다.
 
 다음 표에서는 Azure VM과 함께 사용 하기 위해 권장 되는 순서 대로 사용 가능한 쿼럼 옵션을 보여 줍니다. 여기에는 디스크 감시를 선호 하는 옵션이 있습니다. 
 
 
 ||[디스크 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[클라우드 감시](/windows-server/failover-clustering/deploy-cloud-witness)  |[파일 공유 감시](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**지원되는 OS**| 모두 |Windows Server 2016+| Windows Server 2012 이상|
+|**지원되는 OS**| 모두 |Windows Server 2016+| 모두|
 
 
 
 
 ### <a name="disk-witness"></a>디스크 감시
 
-디스크 감시는 클러스터에서 사용 가능한 저장소 그룹의 작은 클러스터 된 디스크입니다. 이 디스크는 항상 사용 가능 하며 노드 간에 장애 조치 (failover) 할 수 있습니다. 이 파일에는 클러스터 데이터베이스의 복사본이 포함 되며, 기본 크기는 일반적으로 1gb 보다 낮습니다. 디스크 감시는 클라우드 감시와 파일 공유 감시와는 달리, 파티션 시간 문제를 해결할 수 있으므로 Azure VM에 대 한 기본 쿼럼 옵션입니다. 
+디스크 감시는 클러스터에서 사용 가능한 저장소 그룹의 작은 클러스터 된 디스크입니다. 이 디스크는 항상 사용 가능 하며 노드 간에 장애 조치 (failover) 할 수 있습니다. 이 파일에는 클러스터 데이터베이스의 복사본이 포함 되며, 기본 크기는 일반적으로 1gb 보다 낮습니다. 디스크 감시는 Azure 공유 디스크 (또는 공유 SCSI, iSCSI 또는 파이버 채널 SAN과 같은 공유 디스크 솔루션)를 사용 하는 모든 클러스터에 대 한 기본 쿼럼 옵션입니다.  클러스터 된 공유 볼륨은 디스크 감시로 사용할 수 없습니다.
 
 Azure 공유 디스크를 디스크 감시로 구성 합니다. 
 
@@ -95,8 +92,8 @@ Azure Load Balancer 또는 분산 네트워크 이름 (DNN)과 함께 VNN을 사
 
 | |**VNN(가상 네트워크 이름)**  |**DNN(분산 네트워크 이름)**  |
 |---------|---------|---------|
-|**최소 OS 버전**| Windows Server 2012 | Windows Server 2016|
-|**최소 SQL Server 버전** |SQL Server 2012 |SQL Server 2019 CU2|
+|**최소 OS 버전**| 모두 | 모두 |
+|**최소 SQL Server 버전** |모두 |SQL Server 2019 CU2|
 |**지원 되는 HADR 솔루션** | 장애 조치(Failover) 클러스터 인스턴스 <br/> 가용성 그룹 | 장애 조치(Failover) 클러스터 인스턴스|
 
 
@@ -108,9 +105,9 @@ Azure Load Balancer 또는 분산 네트워크 이름 (DNN)과 함께 VNN을 사
 
 시작 하려면 [FCI에 대 한 Azure Load Balancer를 구성](hadr-vnn-azure-load-balancer-configure.md)하는 방법을 알아봅니다. 
 
-**지원 되는 OS**: Windows Server 2012 이상   
-**지원 되는 SQL 버전**: SQL Server 2012 이상   
-**지원 되는 HADR 솔루션**: 장애 조치 (Failover) 클러스터 인스턴스 및 가용성 그룹 
+**지원 되는 OS**: 모두   
+**지원 되는 SQL 버전**: 모두   
+**지원 되는 HADR 솔루션**: 장애 조치 (Failover) 클러스터 인스턴스 및 가용성 그룹   
 
 
 ### <a name="distributed-network-name-dnn"></a>DNN(분산 네트워크 이름)
@@ -138,9 +135,10 @@ DNN 리소스가 생성 되 면 클러스터는 클러스터에 있는 모든 �
 FCI 또는 가용성 그룹을 사용 하 고 Azure Virtual Machines에서 SQL Server 하는 경우 다음 제한 사항을 고려 하세요. 
 
 ### <a name="msdtc"></a>MSDTC 
-Azure Virtual Machines는 CSV (클러스터 공유 볼륨) 및 [azure 표준 Load Balancer](../../../load-balancer/load-balancer-standard-overview.md)의 저장소를 사용 하 여 Windows Server 2019에 대 한 Microsoft DTC(DISTRIBUTED TRANSACTION COORDINATOR) (MSDTC)를 지원 합니다.
 
-Azure Virtual Machines에서 MSDTC는 Windows Server 2016 이전 버전에서는 지원 되지 않습니다.
+Azure Virtual Machines는 azure 공유 디스크를 사용 하는 SQL Server Vm 또는 [표준 LOAD BALANCER](../../../load-balancer/load-balancer-standard-overview.md) CSV (클러스터 공유 볼륨)의 저장소를 사용 하 여 Windows Server 2019에서 Microsoft DTC(DISTRIBUTED TRANSACTION COORDINATOR) (MSDTC)를 지원 합니다. 
+
+Azure Virtual Machines에서 MSDTC는 클러스터 된 공유 볼륨이 있는 Windows Server 2016 이전 버전에서는 지원 되지 않습니다. 이유는 다음과 같습니다.
 
 - 클러스터형 MSDTC 리소스는 공유 스토리지를 사용하도록 구성할 수 없습니다. Windows Server 2016에서 MSDTC 리소스를 만드는 경우 스토리지가 사용 가능하더라도 사용 가능한 공유 스토리지가 표시되지 않습니다. 이 문제는 Windows Server 2019에서 수정되었습니다.
 - 기본 부하 분산 장치는 RPC 포트를 처리하지 않습니다.

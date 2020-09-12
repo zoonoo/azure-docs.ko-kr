@@ -12,12 +12,12 @@ ms.date: 08/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1ce8f376d3264a06618cb7321c75142dcf92d9ea
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891864"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439747"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Azure AD 앱 갤러리에 앱 게시
 
@@ -278,5 +278,5 @@ Microsoft 파트너 네트워크는 전용 리소스, 프로그램, 도구 및 �
 
 
 ## <a name="next-steps"></a>다음 단계
-
-Azure AD 로그인을 지원하는 애플리케이션 구축에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](authentication-flows-app-scenarios.md)를 참조하세요.
+* [SCIM 엔드포인트를 빌드하고 사용자 프로비저닝 구성](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+* [Azure AD에 대 한 인증 시나리오](authentication-flows-app-scenarios.md)

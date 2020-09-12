@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: c919e8abc55dd5cb36325ae060340c1ee147a1a0
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d356bd43e5e09dfce96a801732e79d2efe8c08bd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816306"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440340"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>참조: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -232,7 +232,7 @@ SQL Server용 ODBC 드라이버 패키지에서는 다음의 두 가지 명령�
 * **Azure Storage 탐색기**: Azure Storage 탐색기는 azure Storage 계정에 저장 된 개체를 검색 하 고 azure blob 간에 데이터를 업로드 및 다운로드 하는 데 사용할 수 있는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. 셸 프롬프트에서 **StorageExplorer**를 입력하여 열 수도 있습니다. X2Go 클라이언트에서 로그인하거나 X11 전달이 설정되어 있어야 합니다.
 * **Azure 라이브러리**: 다음은 미리 설치 된 라이브러리 중 일부입니다.
   
-  * **Python**: Python의 azure 관련 라이브러리는 *azure*, *azureml*, *pydocumentdb*및 *pyodbc*입니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
+  * **Python**: Python의 azure 관련 라이브러리는 *azure*, *azureml*, *pydocumentdb*및 *pyodbc*입니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc (Microsoft ODBC driver for SQL Server와 함께)를 사용 하면 ODBC 인터페이스를 사용 하 여 Python에서 SQL Server, Azure SQL Database 및 Azure Synapse Analytics에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
   * **R**: r의 Azure 관련 라이브러리는 AZUREML 및 RODBC입니다.
   * **Java**: VM의 /dsvm/sdk/AzureSDKJava 디렉터리에서 Azure Java 라이브러리 목록을 찾을 수 있습니다. 핵심 라이브러리는 Azure Storage 및 관리 API, Azure Cosmos DB, SQL Server용 JDBC 드라이버입니다.  
 

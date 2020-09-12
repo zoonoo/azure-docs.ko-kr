@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 53db148eac0d56e53bb96e0597ad53d3183d86e9
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192519"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433673"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN 파일 압축 문제 해결
 이 문서는 [CDN 파일 압축](cdn-improve-performance.md)관련 문제를 해결하는 데 도움이 됩니다.
@@ -111,8 +111,8 @@ ms.locfileid: "88192519"
 
 압축을 적용할 수 있으려면, 파일은 다음과 같은 크기 요건을 충족해야 합니다.
 
-* 128바이트 초과.
-* 1MB 미만.
+* 128 바이트 보다 큼 (Content-length: 128)
+* 3mb 보다 작음
 
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>원본 서버의 요청에서 **Via** 헤더 확인
 **Via** HTTP 헤더는 요청이 프록시 서버에 의해 전달되고 있음을 웹 서버에 알립니다.  기본적으로 Microsoft IIS 웹 서버는 요청에 **Via** 헤더가 들어 있으면 응답을 압축하지 않습니다.  이 동작을 재정의하려면 다음 단계를 수행합니다.

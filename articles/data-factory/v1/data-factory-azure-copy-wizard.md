@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fa9786f31e1cf9ee15afdc03d289a04198836133
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2dfb5876922fd53c372afe82ecdfa843179fb135
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086843"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439013"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사
 > [!NOTE]
@@ -49,7 +49,7 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 입력 데이터의 스키마는 경우에 따라 출력 데이터의 스키마와 일치하지 않을 수 있습니다. 이 시나리오에서는 원본 스키마의 열을 대상 스키마의 열에 매핑해야 합니다.
 
 > [!TIP]
-> SQL Server 또는 Azure SQL Database에서 Azure SQL Data Warehouse로 데이터를 복사할 때 테이블이 대상 저장소에 없을 경우 Data Factory는 원본의 스키마를 사용하여 자동 테이블 만들기를 지원합니다. [Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 이동](./data-factory-azure-sql-data-warehouse-connector.md)에서 자세히 알아 보십시오.
+> SQL Server 또는 Azure SQL Database에서 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 데이터를 복사 하는 경우 대상 저장소에 테이블이 없는 경우 원본 스키마를 사용 하 여 자동 테이블 만들기를 지원 Data Factory. [Azure Data Factory를 사용 하 여 Azure Synapse Analytics 간 데이터 이동](./data-factory-azure-sql-data-warehouse-connector.md)에서 자세히 알아보세요.
 >
 
 드롭다운 목록을 사용하여 원본 스키마에서 대상 스키마의 열에 매핑할 열을 선택합니다. 복사 마법사는 열 매핑에 대한 패턴을 파악하려고 시도합니다. 나머지 열에도 동일한 패턴을 적용하므로 스키마 매핑을 완료하기 위해 각 열을 개별적으로 선택할 필요가 없습니다. 원하는 경우 드롭다운 목록을 사용하여 열을 하나씩 매핑하면 이러한 매핑을 무시할 수 있습니다. 열을 더 많이 매핑할수록 패턴이 더 정확하게 됩니다. 복사 마법사는 패턴을 지속적으로 업데이트하고, 궁극적으로는 도달하려는 열 매핑의 올바른 패턴에 도달합니다.     

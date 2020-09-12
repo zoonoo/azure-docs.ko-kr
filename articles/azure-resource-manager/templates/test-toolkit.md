@@ -2,19 +2,19 @@
 title: ARM 템플릿 테스트 도구 키트
 description: 템플릿에서 ARM 템플릿 테스트 도구 키트를 실행 하는 방법을 설명 합니다. 도구 키트를 사용 하 여 권장 사례를 구현 했는지 확인할 수 있습니다.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 7b88096dfdd1c7fb3e2671a369132e75a8885b8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73f6db8cbd5e4d7a0670c394f6af338aae8e9e79
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255837"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439563"
 ---
 # <a name="use-arm-template-test-toolkit"></a>ARM 템플릿 테스트 도구 키트 사용
 
-[ARM 템플릿 테스트 도구 키트](https://aka.ms/arm-ttk) 는 템플릿에서 권장 사례를 사용 하는지 여부를 확인 합니다. 템플릿이 권장 사례를 준수 하지 않는 경우 제안 된 변경 내용과 함께 경고 목록을 반환 합니다. 테스트 도구 키트를 사용 하 여 템플릿 개발에서 일반적인 문제를 방지 하는 방법을 배울 수 있습니다.
+[ARM (Azure Resource Manager) 템플릿 테스트 도구 키트](https://aka.ms/arm-ttk) 는 템플릿에서 권장 사례를 사용 하는지 여부를 확인 합니다. 템플릿이 권장 사례를 준수 하지 않는 경우 제안 된 변경 내용과 함께 경고 목록을 반환 합니다. 테스트 도구 키트를 사용 하 여 템플릿 개발에서 일반적인 문제를 방지 하는 방법을 배울 수 있습니다.
 
 테스트 도구 키트는 [일련의 기본 테스트](test-cases.md)를 제공 합니다. 이러한 테스트는 권장 사항 이지만 요구 사항은 아닙니다. 목표와 관련 된 테스트를 결정 하 고 실행 되는 테스트를 사용자 지정할 수 있습니다.
 
@@ -22,53 +22,103 @@ ms.locfileid: "85255837"
 
 Toolkit은 PowerShell 또는 CLI의 명령에서 실행할 수 있는 PowerShell 스크립트 집합입니다.
 
-## <a name="download-test-toolkit"></a>테스트 도구 키트 다운로드
+## <a name="install-on-windows"></a>Windows에 설치
 
-테스트 도구 키트를 사용 하려면 스크립트를 포함 하는 [리포지토리](https://aka.ms/arm-ttk) 를 포크 및 복제 하거나 [최신 .zip 파일을 다운로드할](https://aka.ms/arm-ttk-latest)수 있습니다.
+1. PowerShell이 아직 없는 경우 [Windows에 powershell을 설치](/powershell/scripting/install/installing-powershell-core-on-windows)합니다.
 
-스크립트를 실행 하는 컴퓨터의 실행 정책에 따라 인터넷에서 스크립트를 실행 하는 것에 대 한 오류가 발생할 수 있습니다. [실행 정책을](/powershell/module/microsoft.powershell.core/about/about_execution_policies) 변경 하거나 [스크립트 파일의 차단을 해제](/powershell/module/microsoft.powershell.utility/unblock-file)해야 합니다.
+1. 테스트 도구 키트에 대 한 [최신 .zip 파일을 다운로드](https://aka.ms/arm-ttk-latest) 하 고 압축을 풉니다.
 
-## <a name="run-on-powershell"></a>PowerShell에서 실행
+1. PowerShell을 시작합니다.
 
-테스트를 실행 하기 전에 모듈을 가져옵니다.
+1. 테스트 도구 키트를 추출한 폴더로 이동 합니다. 해당 폴더 내에서 **arm-ttk** 폴더로 이동 합니다.
 
-```powershell
-Import-Module .\arm-ttk.psd1 # from the same directory as .\arm-ttk.psd1
-```
+1. [실행 정책이](/powershell/module/microsoft.powershell.core/about/about_execution_policies) 인터넷에서 스크립트를 차단 하는 경우 스크립트 파일의 차단을 해제 해야 합니다. **Arm-ttk** 폴더에 있는지 확인 하세요.
 
-**PowerShell**에서 테스트를 실행 하려면 다음 명령을 사용 합니다.
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
 
-```powershell
-Test-AzTemplate -TemplatePath $TemplateFolder
-```
+1. 모듈을 가져옵니다.
 
-## <a name="run-on-linux"></a>Linux에서 실행
+   ```powershell
+   Import-Module .\arm-ttk.psd1
+   ```
 
-테스트를 실행 하기 전에 [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-linux)를 설치 합니다.
+1. 테스트를 실행 하려면 다음 명령을 사용 합니다.
 
-Bash에서 **Linux** 에 대 한 테스트를 실행 하려면 다음 명령을 사용 합니다.
+   ```powershell
+   Test-AzTemplate -TemplatePath \path\to\template
+   ```
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+## <a name="install-on-linux"></a>Linux에 설치
 
-pwsh.exe에서 테스트를 실행할 수도 있습니다.
+1. PowerShell이 아직 없는 경우 [Linux에 powershell을 설치](/powershell/scripting/install/installing-powershell-core-on-linux)합니다.
 
-## <a name="run-on-macos"></a>MacOS에서 실행
+1. 테스트 도구 키트에 대 한 [최신 .zip 파일을 다운로드](https://aka.ms/arm-ttk-latest) 하 고 압축을 풉니다.
 
-테스트를 실행 하기 전에 [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-macos)를 설치 합니다. 
+1. PowerShell을 시작합니다.
 
-`coreutils` 설치:
+   ```bash
+   pwsh
+   ```
 
-```bash
-brew install coreutils
-```
+1. 테스트 도구 키트를 추출한 폴더로 이동 합니다. 해당 폴더 내에서 **arm-ttk** 폴더로 이동 합니다.
 
-**Macos**에서 테스트를 실행 하려면 다음 명령을 사용 합니다.
+1. [실행 정책이](/powershell/module/microsoft.powershell.core/about/about_execution_policies) 인터넷에서 스크립트를 차단 하는 경우 스크립트 파일의 차단을 해제 해야 합니다. **Arm-ttk** 폴더에 있는지 확인 하세요.
 
-```bash
-Test-AzTemplate.sh -TemplatePath $TemplateFolder
-```
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. 모듈을 가져옵니다.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. 테스트를 실행 하려면 다음 명령을 사용 합니다.
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
+
+## <a name="install-on-macos"></a>macOS에 설치
+
+1. PowerShell이 아직 없는 경우 [macOS에 powershell을 설치](/powershell/scripting/install/installing-powershell-core-on-macos)합니다.
+
+1. `coreutils` 설치:
+
+   ```bash
+   brew install coreutils
+   ```
+
+1. 테스트 도구 키트에 대 한 [최신 .zip 파일을 다운로드](https://aka.ms/arm-ttk-latest) 하 고 압축을 풉니다.
+
+1. PowerShell을 시작합니다.
+
+   ```bash
+   pwsh
+   ```
+
+1. 테스트 도구 키트를 추출한 폴더로 이동 합니다. 해당 폴더 내에서 **arm-ttk** 폴더로 이동 합니다.
+
+1. [실행 정책이](/powershell/module/microsoft.powershell.core/about/about_execution_policies) 인터넷에서 스크립트를 차단 하는 경우 스크립트 파일의 차단을 해제 해야 합니다. **Arm-ttk** 폴더에 있는지 확인 하세요.
+
+   ```powershell
+   Get-ChildItem *.ps1, *.psd1, *.ps1xml, *.psm1 -Recurse | Unblock-File
+   ```
+
+1. 모듈을 가져옵니다.
+
+   ```powershell
+   Import-Module ./arm-ttk.psd1
+   ```
+
+1. 테스트를 실행 하려면 다음 명령을 사용 합니다.
+
+   ```powershell
+   Test-AzTemplate -TemplatePath /path/to/template
+   ```
 
 ## <a name="result-format"></a>결과 형식
 

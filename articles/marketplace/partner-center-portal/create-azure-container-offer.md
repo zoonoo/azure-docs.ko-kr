@@ -3,16 +3,16 @@ title: Azure Container 제품 만들기 - Azure Marketplace
 description: 컨테이너 제품을 만들고 Azure Marketplace에 게시하는 방법을 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 055db043f4e695001b2ee90a47a2531284466314
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 12987ae687e9af59fdd71b3aa846612c947b9a90
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815637"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649265"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Azure Marketplace에서 Azure Container 제품 만들기
 

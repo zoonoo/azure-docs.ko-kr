@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bd3cc6c5220e2e84cbbd30b29b8034f53c813f1e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 04ea73825d6ffe2282a8d5564bfb6bb965a8190e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008698"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649163"
 ---
 # <a name="linux-support"></a>Linux 지원
 
-Linux 씬 클라이언트 파트너에서 제공 하는 다음과 같은 지원 되는 클라이언트를 사용 하 여 Linux 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다. 많은 Linux 기반 운영 체제 및 장치에서 지원 되는 Windows 가상 데스크톱 클라이언트를 사용 하도록 설정 하기 위해 많은 파트너와 협력 하 고 있습니다. 여기에 나열 되지 않은 Linux 플랫폼에서 Windows 가상 데스크톱을 지원 하려는 경우 [UserVoice 페이지](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux)를 통해 알려주세요.
+Linux 씬 클라이언트 파트너에서 제공 하는 다음과 같은 지원 되는 클라이언트를 사용 하 여 Linux 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다. 많은 Linux 기반 운영 체제 및 장치에서 지원 되는 Windows 가상 데스크톱 클라이언트를 사용 하도록 설정 하기 위해 많은 파트너와 협력 하 고 있습니다. 여기에 나열 되지 않은 Linux 플랫폼에 Windows 가상 데스크톱 지원이 필요한 경우 [UserVoice 페이지](https://remotedesktop.uservoice.com/forums/923035-remote-desktop-support-on-linux)를 통해 알려주세요.
 
 ## <a name="connect-with-your-linux-device"></a>Linux 장치에 연결
 
@@ -24,30 +24,7 @@ Linux 씬 클라이언트 파트너에서 제공 하는 다음과 같은 지원 
 |파트너|파트너 설명서|파트너 지원|
 |:------|:--------------------|:--------------|
 |![IGEL 로고](./media/partners/igel.png)|[IGEL 클라이언트 설명서](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL 지원](https://www.igel.com/support/)|
-
-## <a name="what-is-the-linux-sdk"></a>Linux SDK 란 무엇 인가요?
-
-Linux 씬 클라이언트 파트너는 Windows 가상 데스크톱 Linux SDK Api를 사용 하 여 리소스 피드를 검색 하 고, 데스크톱 또는 원격 응용 프로그램 세션에 연결 하 고, 자사 클라이언트에서 지 원하는 대부분의 리디렉션을 사용할 수 있습니다. SDK는 Ubuntu 18.04 이상을 기반으로 하는 대부분의 운영 체제와 호환 됩니다.
-
-### <a name="feature-support"></a>기능 지원
-
-SDK는 데스크톱 및 원격 응용 프로그램 세션에 대 한 여러 연결을 지원 합니다. 다음 리디렉션이 지원 됩니다.
-
-| 리디렉션       | 지원됨 |
-| :---------------- | :-------: |
-| Keyboard          | &#10004;  |
-| 마우스             | &#10004;  |
-| 오디오의          | &#10004;  |
-| 오디오 출력         | &#10004;  |
-| 클립보드 (텍스트)  | &#10004;  |
-| 클립보드 (이미지) | &#10004;  |
-| 클립보드 (파일)  | &#10004;  |
-| 스마트 카드         | &#10004;  |
-| 드라이브/폴더      | &#10004;  |
-
-또한 SDK는 세션에 대해 선택 하는 모니터가 연속적으로 여러 모니터 표시 구성을 지원 합니다.
-
-새 기능 및 리디렉션에 대 한 지원을 추가할 때이 문서를 업데이트 합니다. 새 기능 및 기타 향상 된 기능을 제안 하려면 [UserVoice 페이지](https://go.microsoft.com/fwlink/?linkid=2116523)를 방문 하세요.
+|![Stratodesk 로고](./media/partners/stratodesk.png)|[Stratodesk 클라이언트 설명서](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk 지원](https://www.stratodesk.com/support-3/)|
 
 ## <a name="next-steps"></a>다음 단계
 

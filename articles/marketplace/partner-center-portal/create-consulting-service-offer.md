@@ -5,14 +5,14 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 03fa302d2e8aa173419912b99d60734c7a4e0356
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6ca03e56d49d26fcd34a25ce1e3734db65b19b65
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814267"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646829"
 ---
 # <a name="create-a-consulting-service-offer"></a>컨설팅 서비스 제품 만들기
 
@@ -101,7 +101,7 @@ ms.locfileid: "88814267"
     - 분석
     - 앱 현대화
     - 보관
-    - AI + 기계 학습
+    - AI + Machine Learning
     - Backup
     - 빅 데이터
     - 데이터 플랫폼
@@ -113,7 +113,7 @@ ms.locfileid: "88814267"
     - 마이그레이션
     - 네트워킹
     - 보안
-    - Storage
+    - 스토리지
 
 1. **Azure** 를 기본 제품으로 선택한 경우 최대 6 개의 **산업**을 선택할 수 있습니다. 이렇게 하면 Azure Marketplace 고객이 제품을 보다 쉽게 찾을 수 있습니다. [제품 목록 모범 사례](../gtm-offer-listing-best-practices.md)를 참조 하세요. Azure를 선택 하지 않은 경우이 단계를 건너뜁니다.
 1. 기본 제품에 Azure가 아닌 *기타*를 선택한 경우 최대 3개의 **적용 가능한 제품**을 선택합니다. 이렇게 하면 AppSource 고객이 제품을 보다 쉽게 찾을 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409)(PDF)을 참조하세요.
@@ -141,7 +141,7 @@ ms.locfileid: "88814267"
 4. 산업
 5. Offer name
 6. 요약
-7. Description
+7. 설명
 8. 스크린샷/비디오
 
 <br>다음은 Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하지는 않습니다.
@@ -156,9 +156,9 @@ ms.locfileid: "88814267"
 4. 산업
 5. Offer name
 6. 요약
-7. Description
+7. 설명
 8. 스크린샷/비디오
-9. 문서
+9. Documents
 
 ### <a name="name"></a>속성
 

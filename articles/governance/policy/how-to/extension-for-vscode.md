@@ -3,12 +3,12 @@ title: Visual Studio Code용 Azure Policy 확장
 description: Visual Studio Code Azure Policy 확장을 사용 하 여 Azure Resource Manager 별칭을 조회 하는 방법에 대해 알아봅니다.
 ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: c91d39414a376b410e52c2ba60ce15ed0c5054f6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970759"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648333"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Visual Studio Code Azure Policy 확장 사용
 
@@ -21,7 +21,7 @@ Visual Studio Code에 대 한 Azure Policy 확장은 Visual Studio Code에서 �
 > [!NOTE]
 > Visual Studio Code에 대 한 Azure Policy 확장에 표시 된 정책에서 로컬로 변경한 내용은 Azure와 동기화 되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 단계를 완료하려면 다음 항목이 필요합니다.
 
@@ -52,7 +52,7 @@ Visual Studio Code에 대 한 Azure Policy 확장은 Visual Studio Code에서 �
 
 1. 목록에서 국가 클라우드를 선택 합니다.
 
-   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Visual Studio Code에 대 한 기본 Azure 클라우드 로그인 설정" border="false":::
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Visual Studio Code에 대 한 Azure cloud 로그인 국가를 선택 하는 스크린샷" border="false":::
 
 ## <a name="connect-to-an-azure-account"></a>Azure 계정에 연결
 
@@ -64,13 +64,13 @@ Visual Studio Code에 대 한 Azure Policy 확장은 Visual Studio Code에서 �
 
      Azure Policy 확장에서 **Azure에 로그인**을 선택 합니다.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Azure Policy 확장의 Visual Studio Code에 대 한 Azure cloud 로그인" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Visual Studio Code의 스크린샷 및 Azure Policy 확장에 대 한 아이콘입니다." border="false":::
 
    - 명령 팔레트
 
      메뉴 모음에서 **보기**  >  **명령 팔레트**로 이동 하 고 **Azure: 로그인**을 입력 합니다.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="명령 팔레트의 Visual Studio Code에 대 한 Azure cloud 로그인" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="명령 팔레트의 Visual Studio Code에 대 한 Azure cloud 로그인 옵션의 스크린샷" border="false":::
 
 1. 로그인 지침에 따라 Azure에 로그인 합니다. 연결 되 면 Azure 계정 이름이 Visual Studio Code 창의 아래쪽에 있는 상태 표시줄에 표시 됩니다.
 
@@ -125,7 +125,7 @@ Azure Policy 확장에는 리소스 공급자 및 리소스 그룹에서 선택�
 
 리소스가 열리면 리소스 관리자 속성 이름 또는 값을 마우스로 가리키면 Azure Policy 별칭이 표시 됩니다 (있는 경우). 이 예제에서 리소스는 `Microsoft.Compute/virtualMachines` 리소스 형식이 고 **imageReference** 속성은 가리킴 속성입니다. 가리키기는 일치 하는 별칭을 표시 합니다.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy 확장 가리키기 리소스 관리자 속성 별칭을 표시 합니다." border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="별칭 이름을 표시 하는 속성을 Visual Studio Code 가리키기 위한 Azure Policy 확장의 스크린샷" border="false":::
 
 > [!NOTE]
 > VS Code 확장은 Resource Manager 모드 속성만 노출하고 [리소스 공급자 모드](../concepts/definition-structure.md#mode) 속성은 표시하지 않습니다.

@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d5343e6c21da4c30dc18c8692b41dd66eb9566a4
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8c97ee9782f728e39175ed2517b64020ca4169f4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846703"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649403"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>REST를 사용 하 여 Azure ML 리소스 만들기, 실행 및 삭제
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. [포털](https://portal.azure.com/), [명령줄 인터페이스](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)또는 [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용할 수 있습니다. 또는 REST API를 선택할 수 있습니다. REST API는 표준 방식으로 HTTP 동사를 사용 하 여 리소스를 만들고, 검색 하 고, 업데이트 하 고, 삭제 합니다. REST API는 HTTP 요청을 수행할 수 있는 모든 언어 또는 도구와 함께 작동 합니다. REST의 간단한 구조를 사용 하면 스크립팅 환경 및 MLOps 자동화에 적합 합니다. 
+Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. [포털](https://portal.azure.com/), [명령줄 인터페이스](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)또는 [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용할 수 있습니다. 또는 REST API를 선택할 수 있습니다. REST API는 표준 방식으로 HTTP 동사를 사용 하 여 리소스를 만들고, 검색 하 고, 업데이트 하 고, 삭제 합니다. REST API는 HTTP 요청을 수행할 수 있는 모든 언어 또는 도구와 함께 작동 합니다. REST의 간단한 구조를 사용 하면 스크립팅 환경 및 MLOps 자동화에 적합 합니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -33,7 +33,7 @@ Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. 
 > * DELETE 요청을 사용 하 여 리소스 정리 
 > * 키 기반 권한 부여를 사용 하 여 배포 된 모델 점수 매기기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - 관리 권한이 있는 **Azure 구독** . 이러한 구독이 없는 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree) 을 사용해 보세요.
 - [Azure Machine Learning 작업 영역](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
@@ -202,7 +202,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 
 모델을 나열 하는 동안 경로가로 시작 하는 실험을 나열 `history/v1.0` 합니다. 경로는로 시작 `modelmanagement/v1.0` 합니다. REST API는 각각 고유한 경로를 가진 여러 작업 그룹으로 구분 됩니다. 
 
-|Area|경로|
+|영역|경로|
 |-|-|
 |Artifacts|/rest/api/azureml|
 |데이터 저장소|/azure/machine-learning/how-to-access-data|

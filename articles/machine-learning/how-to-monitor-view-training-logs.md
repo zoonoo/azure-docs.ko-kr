@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d06186b2ce4d8bb9143663d41f03b9508e4bd00e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 642186ef4af43127ba0d6eb6950f09e069eb79ca
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005958"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649289"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>ML 실행 로그 및 메트릭 모니터링 및 보기
 
@@ -58,7 +58,7 @@ ms.locfileid: "89005958"
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Jupyter 노트북 위젯을 사용 하 여 실행 모니터링
 
-**ScriptRunConfig** 메서드를 사용 하 여 실행을 제출 하는 경우 [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)사용 하 여 실행 진행률을 볼 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기적이며 작업이 완료될 때까지 10~15초 간격으로 라이브 업데이트를 제공합니다.
+**ScriptRunConfig** 메서드를 사용 하 여 실행을 제출 하는 경우 [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true)사용 하 여 실행 진행률을 볼 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기적이며 작업이 완료될 때까지 10~15초 간격으로 라이브 업데이트를 제공합니다.
 
 실행이 완료될 때까지 기다리는 동안 Jupyter 위젯을 봅니다.
     

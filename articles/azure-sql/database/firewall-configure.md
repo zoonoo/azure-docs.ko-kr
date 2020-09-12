@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 06/17/2020
-ms.openlocfilehash: e18c0470a2d1be8323c2fe1c0780bfd47f3f64cb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ef46a0040ba767197028d170372a4a9edca9feee
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085109"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442705"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database 및 Azure Synapse IP 방화벽 규칙
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-예를 들어 이름이 *mysqlserver*인 Azure Synapse Analytics Azure SQL Database에서 새 서버를 만들 경우 서버 수준 방화벽은 서버에 대 한 공용 끝점 ( *mysqlserver.database.windows.net*에서 액세스할 수 있음)에 대 한 모든 액세스를 차단 합니다. 간단히 하기 위해 *SQL Database* 를 사용 하 여 SQL Database 및 Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)를 모두 참조 합니다.
+예를 들어 이름이 *mysqlserver*인 Azure Synapse Analytics Azure SQL Database에서 새 서버를 만들 경우 서버 수준 방화벽은 서버에 대 한 공용 끝점 ( *mysqlserver.database.windows.net*에서 액세스할 수 있음)에 대 한 모든 액세스를 차단 합니다. 간단히 하기 위해 *SQL Database* 를 사용 하 여 SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)를 모두 참조 합니다.
 
 > [!IMPORTANT]
 > 이 문서는 *Azure SQL Managed Instance*에 적용되지 *않습니다*. 네트워크 구성에 대 한 자세한 내용은 [AZURE SQL Managed Instance에 응용 프로그램 연결](../managed-instance/connect-application-instance.md)을 참조 하세요.
@@ -186,7 +186,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 이제 Az. Sql 모듈에 대 한 모든 개발이 지원 됩니다. 이러한 cmdlet은 [AzureRM.Sql](/powershell/module/AzureRM.Sql/)을 참조하세요. Az 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
 
-| Cmdlet | Level | Description |
+| cmdlet | Level | Description |
 | --- | --- | --- |
 | [AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |서버 |현재 서버 수준 방화벽 규칙 반환 |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |서버 |새 서버 수준 방화벽 규칙 만들기 |
@@ -208,7 +208,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>CLI를 사용 하 여 서버 수준 IP 방화벽 규칙 관리
 
-| Cmdlet | Level | Description |
+| cmdlet | Level | Description |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|서버|서버 IP 방화벽 규칙을 만듭니다.|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|서버|서버의 IP 방화벽 규칙을 나열합니다.|

@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: dba0f22f1dfece7edd92a80ae1c3a91616a4236c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b570968a66a0cfd60ac4d6ce6dd7dc31a1003240
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815932"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440459"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Windows Data Science Virtual Machine를 사용 하는 데이터 과학
 
@@ -40,7 +40,7 @@ DSVM은 Azure 서비스와 긴밀 하 게 연동 됩니다. Azure Synapse (이�
 > 
 > 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독이 필요합니다. [무료 평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 * Azure Portal에서 Data Science Virtual Machine를 프로 비전 하는 방법에 대 한 지침은 [가상 컴퓨터를 만들](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)때 제공 됩니다.
@@ -156,7 +156,7 @@ Git을 사용 하 여 github.com에서 사용할 수 있는 리소스에서 GitH
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 Azure Blob storage는 크고 작은 데이터를 위한 안정적이 고 경제적인 클라우드 저장소 서비스입니다. 이 섹션에서는 Blob 저장소로 데이터를 이동 하 고 Azure blob에 저장 된 데이터에 액세스 하는 방법을 설명 합니다.
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>전제 조건
 
 * [Azure Portal](https://portal.azure.com)에서 Azure Blob storage 계정을 만듭니다.
 
@@ -255,7 +255,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 ### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics (이전의 SQL DW) 및 데이터베이스
 Azure Synapse Analytics (이전의 SQL DW)는 엔터프라이즈급 SQL Server 환경을 갖춘 탄력적 데이터 웨어하우스 서비스로 서,
 
-[이 문서의](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)지침에 따라 Azure Synapse Analytics를 프로 비전 할 수 있습니다. SQL data warehouse를 프로 비전 한 후 [이 연습](../team-data-science-process/sqldw-walkthrough.md) 을 사용 하 여 sql data warehouse 내의 데이터를 사용 하 여 데이터 업로드, 탐색 및 모델링을 수행할 수 있습니다.
+[이 문서의](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)지침에 따라 Azure Synapse Analytics를 프로 비전 할 수 있습니다. Azure Synapse Analytics를 프로 비전 한 후 [이 연습](../team-data-science-process/sqldw-walkthrough.md) 을 사용 하 여 Azure Synapse analytics 내에서 데이터를 사용 하 여 데이터 업로드, 탐색 및 모델링을 수행할 수 있습니다.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 Azure Cosmos DB는 클라우드의 NoSQL 데이터베이스입니다. JSON과 같은 문서를 사용 하 고 문서를 저장 및 쿼리 하는 데 사용할 수 있습니다.

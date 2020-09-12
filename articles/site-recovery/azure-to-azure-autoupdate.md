@@ -2,18 +2,18 @@
 title: Azure Site Recovery에서 모바일 서비스의 자동 업데이트
 description: Azure Site Recovery를 사용 하 여 Azure Vm을 복제 하는 경우 모바일 서비스의 자동 업데이트 개요입니다.
 services: site-recovery
-author: rajani-janaki-ram
+author: sideeksh
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/02/2020
-ms.author: rajanaki
-ms.openlocfilehash: 43b74db0059c003d64558f5b61f1c5cc2bf52759
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: sideeksh
+ms.openlocfilehash: 53c5dc4920b6c50ee3c900db9626f4d283f7b846
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038055"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426421"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure 간 복제에서 모바일 서비스의 자동 업데이트
 

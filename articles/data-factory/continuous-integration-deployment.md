@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 582a9eb4c98e89602e35e2ee424a00adc54a88e3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3621d0c22aa6f35fc845f449d07bce8dcf0ba1fa
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229551"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461887"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory의 지속적인 통합 및 지속적인 업데이트
 
@@ -638,6 +638,8 @@ Data Factory를 통해 Git 통합을 사용할 때 개발에서 테스트, 프�
 -   **통합 런타임 및 공유**. 통합 런타임은 자주 변경되지 않으며 CI/CD의 모든 단계에서 유사합니다. 따라서 Data Factory에서는 CI/CD의 모든 단계에서 동일한 이름 및 유형의 통합 런타임을 사용해야 합니다. 모든 단계에서 통합 런타임을 공유하려면 공유 통합 런타임을 포함하기 위해 3개로 구성된 팩터리를 사용하는 것이 좋습니다. 모든 환경에서 이 공유 팩터리를 연결된 통합 런타임 형식으로 사용할 수 있습니다.
 
 -   **Key Vault**. 연결 정보가 Azure Key Vault에 저장되어 있는 연결된 서비스를 사용하는 경우 다른 환경에 대해 별도의 키 자격 증명 모음을 유지하는 것이 좋습니다. 또한 각각의 키 자격 증명 모음에 대해 개별 권한 수준을 구성할 수도 있습니다. 예를 들어 팀 멤버에게 프로덕션 비밀에 대한 사용 권한을 부여하지 않을 수 있습니다. 이 접근 방식을 따를 경우 모든 단계에서 동일한 비밀 이름을 유지하는 것이 좋습니다. 동일한 비밀 이름을 유지하는 경우, 별도의 매개 변수인 키 자격 증명 모음 이름이 유일하게 변경되므로 CI/CD 환경에서 각 연결 문자열을 매개 변수화할 필요가 없습니다.
+
+-  **리소스 이름 지정** ARM 템플릿 제약 조건으로 인해 리소스의 이름에 공백이 포함 된 경우 배포 문제가 발생할 수 있습니다. Azure Data Factory 팀은 리소스에 대해 공백 대신 ' _ ' 또는 '-' 문자를 사용 하는 것을 권장 합니다. 예를 들어 ' Pipeline_1 '은 ' 파이프라인 1 ' 보다 더 적합 한 이름입니다.
 
 ## <a name="unsupported-features"></a>지원되지 않는 기능
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: 738b54d9fcd86313c2581c5d0f055a7cca8230b8
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 4368a025ecc158afa1ee78b8abd86bd6db42ba75
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706067"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438668"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -44,7 +44,7 @@ Azure Load Balancer는 다른 메커니즘을 통해 아웃 바운드 연결을 
 
 Azure는 PAT를 사용할 때 백 엔드 풀의 크기에 따라 사용 가능한 미리 할당 된 SNAT 포트 수를 결정 하는 알고리즘을 사용 합니다. 부하 분산 장치와 연결된 각 공용 IP 주소에는 각 IP 전송 프로토콜에 대한 SNAT 포트로 사용할 수 있는 64,000개의 포트가 있습니다. 동일한 수의 SNAT 포트가 UDP 및 TCP에 대해 각각 미리 할당되고 IP 전송 프로토콜별로 독립적으로 사용됩니다.  그러나 SNAT 포트 사용은 흐름이 UDP인지 아니면 TCP인지에 따라 다릅니다. 아웃 바운드 흐름이 생성 되 면 이러한 포트는 동적으로 (최대 미리 할당 된 제한) 사용 되 고 흐름이 닫히거나 [유휴 시간 초과가](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) 발생할 때 릴리스됩니다. 포트는 흐름을 고유하게 만드는 데 필요한 경우에만 사용됩니다.
 
-#### <a name="default-snat-ports-allocated"></a><a name="snatporttable"></a> 할당 된 기본 SNAT 포트
+#### <a name="dynamic-snat-ports-allocated"></a><a name="snatporttable"></a> 동적 SNAT 포트 할당 됨
 
 다음 표는 백 엔드 풀 크기 계층의 SNAT 포트 미리 할당을 보여줍니다.
 

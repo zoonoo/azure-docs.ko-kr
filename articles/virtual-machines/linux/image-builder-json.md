@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 6ed95f87d2b2a5f811531a5ff258ebe97a9b892a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 3c2dbf8c98901d5a4147939c42e289abf25f7d21
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869204"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378375"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
 
@@ -142,7 +142,7 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
 
 ## <a name="properties-source"></a>속성: source
 
-이미지 작성기는 현재 HyperV 1 이미지 및 Vm만 지원 하며,이 섹션에는 `source` 이미지 작성기에서 사용 되는 원본 이미지에 대 한 정보가 포함 되어 있습니다.
+`source` 섹션에는 Image Builder에서 사용되는 원본 이미지에 대한 정보가 포함되어 있습니다. 이미지 작성기는 현재 Azure 공유 이미지 갤러리 (SIG) 또는 관리 되는 이미지에 대 한 Gen1 (Hyper-v 생성) 1 이미지 만들기만 기본적으로 지원 합니다. Gen2 이미지를 만들려는 경우 원본 Gen2 이미지를 사용 하 고 VHD에 배포 해야 합니다. 그런 다음 VHD에서 관리 되는 이미지를 만들고이를 Gen2 이미지로 SIG에 삽입 해야 합니다.
 
 API에는 이미지 빌드에 대한 소스를 정의하는 'SourceType'이 필요합니다. 현재 세 가지 유형이 있습니다.
 - PlatformImage - 원본 이미지가 Marketplace 이미지 임을 나타냅니다.
@@ -571,7 +571,7 @@ Shared Image Gallery의 구성 요소는 다음과 같습니다.
 
 ```json
 {
-    "type": "sharedImage",
+    "type": "SharedImage",
     "galleryImageId": "<resource ID>",
     "runOutputName": "<name>",
     "artifactTags": {

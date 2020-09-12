@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Technical Support'
 - devx-track-csharp
-ms.openlocfilehash: c7b2055494d61ba348ae6226e6fc0ad9ce5775bb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022142"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438404"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IoT Hub 상태 모니터링 및 신속한 문제 진단
 
@@ -61,7 +61,7 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
             "operationName": "deviceConnect",
             "category": "Connections",
             "level": "Information",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
             "location": "Resource location"
         }
     ]
@@ -388,8 +388,8 @@ IoT Hub는 유효한 추적 속성이 포함된 메시지가 내부 또는 기�
 
 | 속성 | Type | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | 문자열 | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
-| **parentSpanId** | 문자열 | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
+| **isRoutingEnabled** | String | true 또는 false이며, IoT Hub에서 메시지 라우팅이 사용되는지 여부를 나타냅니다. |
+| **parentSpanId** | String | 부모 메시지(이 경우 D2C 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
 
 ##### <a name="iot-hub-egress-logs"></a>IoT Hub 송신 로그
 
@@ -420,9 +420,9 @@ IoT Hub는 [라우팅](iot-hub-devguide-messages-d2c.md)이 사용되고 메시�
 
 | 속성 | Type | 설명 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | 문자열 | 라우팅 엔드포인트의 이름입니다. |
-| **endpointType** | 문자열 | 라우팅 엔드포인트의 유형입니다. |
-| **parentSpanId** | 문자열 | 부모 메시지(이 경우 IoT Hub 수신 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
+| **endpointName** | String | 라우팅 엔드포인트의 이름입니다. |
+| **endpointType** | String | 라우팅 엔드포인트의 유형입니다. |
+| **parentSpanId** | String | 부모 메시지(이 경우 IoT Hub 수신 메시지 추적)의 [span-id](https://w3c.github.io/trace-context/#parent-id)입니다. |
 
 #### <a name="configurations"></a>구성
 
@@ -470,6 +470,42 @@ IoT Hub 구성 로그는 자동 장치 관리 기능 집합에 대 한 이벤트
          }
     ]
 }
+```
+
+### <a name="sdk-version"></a>SDK 버전
+
+일부 작업 `sdkVersion` 은 개체의 속성을 반환 `properties` 합니다. 이러한 작업의 경우 장치 또는 백 엔드 앱이 Azure IoT Sdk 중 하나를 사용 하는 경우이 속성에는 사용 되는 SDK, SDK 버전 및 SDK가 실행 되는 플랫폼에 대 한 정보가 포함 됩니다. 다음 예제에서는 `sdkVersion` `deviceConnect` Node.js 장치 SDK를 사용 하는 경우 작업에 대해 내보내는 속성을 보여 줍니다 `"azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)"` . 다음은 .NET (c #) SDK에 대해 내보내는 값의 예입니다. `".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)"`
+
+다음 표에서는 다양 한 Azure IoT Sdk에 사용 되는 SDK 이름을 보여 줍니다.
+
+| SdkVersion 속성의 SDK 이름 | 언어 |
+|----------|----------|
+| .NET | .NET (C#) |
+| microsoft. azure. 장치 | .NET (c #) 서비스 SDK |
+| microsoft. azure. 클라이언트 | .NET (c #) 장치 SDK |
+| iothubclient | C 또는 Python v1 (사용 되지 않음) 장치 SDK |
+| iothubserviceclient | C 또는 Python v1 (사용 되지 않음) 서비스 SDK |
+| iothub-py | Python 장치 SDK |
+| azure-iot-device | Node.js 장치 SDK |
+| azure-iothub | Node.js 서비스 SDK |
+| iothub-클라이언트입니다. | Java 장치 SDK |
+| iothub. c a c. | Java 서비스 SDK |
+| com.. c a t. a c c. | Java 장치 SDK |
+| .com.. c a t. a c. | Java 서비스 SDK |
+| C | 임베디드 C |
+| C + (OSSimplified = Azure RTOS) | Azure RTOS |
+
+진단 로그에 대해 쿼리를 수행할 때 SDK 버전 속성을 추출할 수 있습니다. 다음 쿼리는 연결 이벤트에서 반환 된 속성에서 SDK 버전 속성 및 장치 ID를 추출 합니다. 이러한 두 속성은 이벤트 시간 및 장치가 연결 되는 IoT hub의 리소스 ID와 함께 결과에 기록 됩니다.
+
+```kusto
+// SDK version of devices
+// List of devices and their SDK versions that connect to IoT Hub
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections"
+| extend parsed_json = parse_json(properties_s) 
+| extend SDKVersion = tostring(parsed_json.sdkVersion) , DeviceId = tostring(parsed_json.deviceId)
+| distinct DeviceId, SDKVersion, TimeGenerated, _ResourceId
 ```
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Azure Event Hubs의 로그 읽기

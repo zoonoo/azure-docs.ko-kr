@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: 533ecbaebc5d36f8a6660ce22e5cab3630e3655f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d30fe5f8adccba81baf8bfe1070f95a890d1dc7a
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306403"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649441"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Azure Machine Learning 모델 interpretability (미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,7 +39,7 @@ Interpretability는 회사 정책, 산업 표준 및 정부 규정 준수를 보
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Azure Machine Learning Interpretability
 
-Interpretability 클래스는 여러 SDK 패키지를 통해 사용할 수 있습니다 ( [Azure Machine Learning에 대 한 sdk 패키지를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)하는 방법 알아보기).
+Interpretability 클래스는 여러 SDK 패키지를 통해 사용할 수 있습니다 ( [Azure Machine Learning에 대 한 sdk 패키지를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)하는 방법 알아보기).
 
 * `azureml.interpret`Microsoft에서 지 원하는 기능을 포함 하는 기본 패키지입니다.
 
@@ -69,7 +69,7 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 
 ## <a name="supported-interpretability-techniques"></a>지원 되는 interpretability 기술
 
- `azureml-interpret`에서는 해석 된 모델을 학습 하 고 블랙 박스 AI 시스템을 설명 하는 데 도움이 되는 오픈 소스 python 패키지인 [해석 커뮤니티](https://github.com/interpretml/interpret-community/)에서 개발한 interpretability 기술을 사용 합니다. [해석-커뮤니티](https://github.com/interpretml/interpret-community/) 는이 SDK의 지원 되는 explainers 호스트 역할을 하며 현재 다음 interpretability 기술을 지원 합니다.
+ `azureml-interpret` 에서는 해석 된 모델을 학습 하 고 블랙 박스 AI 시스템을 설명 하는 데 도움이 되는 오픈 소스 python 패키지인 [해석 커뮤니티](https://github.com/interpretml/interpret-community/)에서 개발한 interpretability 기술을 사용 합니다. [해석-커뮤니티](https://github.com/interpretml/interpret-community/) 는이 SDK의 지원 되는 explainers 호스트 역할을 하며 현재 다음 interpretability 기술을 지원 합니다.
 
 |Interpretability 기술|설명|Type|
 |--|--|--------------------|
@@ -90,7 +90,7 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 * 선형 모델에 대 한 LinearExplainer
 * 다른 모든 모델에 대 한 KernelExplainer
 
-`TabularExplainer`는 또한 직접 SHAP Explainers에서 중요 한 기능 및 성능 향상을 만들었습니다.
+`TabularExplainer` 는 또한 직접 SHAP Explainers에서 중요 한 기능 및 성능 향상을 만들었습니다.
 
 * **초기화 데이터 집합의 요약**입니다. 설명의 속도가 가장 중요 한 경우 초기화 데이터 집합을 요약 하 고 몇 가지 대표적인 샘플 집합을 생성 하 여 전체 및 개별 기능 중요도 값의 생성 속도를 향상 시킵니다.
 * **평가 데이터 집합을 샘플링**합니다. 사용자가 많은 수의 평가 샘플을 통과 하지만 실제로 평가할 필요가 없는 경우에는 샘플링 매개 변수를 true로 설정 하 여 전체 모델 설명의 계산 속도를 높일 수 있습니다.
@@ -121,4 +121,4 @@ Azure Machine Learning 계산에 대 한 설명을 원격으로 실행 하 고 �
 
 - 로컬 및 Azure Machine Learning 원격 계산 리소스 모두에 대 한 모델 학습에 대해 interpretability를 사용 하도록 설정 [하는 방법을](how-to-machine-learning-interpretability-aml.md) 참조 하세요. 
 - 추가 시나리오는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) 을 참조 하세요. 
-- Interpretability for text 시나리오에 관심이 있는 경우 NLP에 대 한 interpretability 기술에 대 한 소개- [텍스트 해석](https://github.com/interpretml/interpret-text) [-커뮤니티에서 해석](https://github.com/interpretml/interpret-community/)하는 관련 오픈 소스 리포지토리를 참조 하세요. `azureml.interpret`패키지는 현재 이러한 기술을 지원 하지 않지만 [텍스트 분류의 예제 전자 필기장](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb)을 사용 하 여 시작할 수 있습니다.
+- Interpretability for text 시나리오에 관심이 있는 경우 NLP에 대 한 interpretability 기술에 대 한 소개- [텍스트 해석](https://github.com/interpretml/interpret-text) [-커뮤니티에서 해석](https://github.com/interpretml/interpret-community/)하는 관련 오픈 소스 리포지토리를 참조 하세요. `azureml.interpret` 패키지는 현재 이러한 기술을 지원 하지 않지만 [텍스트 분류의 예제 전자 필기장](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb)을 사용 하 여 시작할 수 있습니다.

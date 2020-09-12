@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 07/09/2020
-ms.openlocfilehash: 5ec6af894f434f8d1f7df34b2ed0c2514ab88cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/03/2020
+ms.openlocfilehash: 06fc929e0149c48aa75aa87a12e3747ef1df1bf2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306148"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440121"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>VS Code 확장을 사용 하 여 Azure Machine Learning 리소스 관리 (미리 보기)
 
@@ -48,6 +48,7 @@ VS Code 확장을 사용 하 여 Azure Machine Learning 리소스를 관리 하�
 
 작업 영역을 만드는 다른 방법은 다음과 같습니다.
 
+- 명령 팔레트 **>** 명령 팔레트를 열고 **Azure ML: 작업 영역 만들기**텍스트 상자에을 입력 합니다.
 - `+`Azure Machine Learning 보기의 맨 위에 있는 아이콘을 클릭 합니다.
 - 다른 리소스를 프로 비전 하는 동안 작업 영역을 선택 하 라는 메시지가 표시 되 면 새 작업 영역을 만듭니다.
 
@@ -242,6 +243,39 @@ Azure Machine Learning Studio에서 실험을 보려면 다음을 수행 합니�
 ### <a name="view-run-metadata"></a>실행 메타 데이터 보기
 
 확장에서 실행에 사용 되는 실행 구성 및 실행 세부 정보 등의 메타 데이터를 검사할 수 있습니다.
+
+## <a name="compute-instances"></a>컴퓨팅 인스턴스
+
+자세한 내용은 [compute instances](concept-compute-instance.md)을 참조 하세요.
+
+### <a name="create-compute-instance"></a>계산 인스턴스 만들기
+
+1. 작업 영역을 포함 하는 구독 노드를 확장 합니다.
+1. 계산 인스턴스를 만들려는 작업 영역 노드를 확장 합니다.
+1. **계산** 인스턴스 노드를 마우스 오른쪽 단추로 클릭 하 고 **계산 인스턴스 만들기**를 선택 합니다.
+1. 프롬프트에서 다음을 수행 합니다.
+    1. 계산 인스턴스의 이름을 제공 합니다.
+    1. 목록에서 VM 크기를 선택 합니다.
+    1. SSH 액세스를 사용 하도록 설정할지 여부를 선택 합니다.
+        1. SSH 액세스를 사용 하도록 설정 하는 경우 공개 SSH 키 또는 키를 포함 하는 파일도 제공 해야 합니다. 자세한 내용은 [Azure에서 SSH 키 만들기 및 사용 가이드](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)를 참조 하세요.
+
+### <a name="stop-or-restart-compute-instance"></a>계산 인스턴스 중지 또는 다시 시작
+
+1. 작업 영역을 포함 하는 구독 노드를 확장 합니다.
+1. 작업 영역 내에서 **계산 인스턴스** 노드를 확장 합니다.
+1. 중지 하거나 다시 시작 하려는 계산 인스턴스를 마우스 오른쪽 단추로 클릭 하 고 **계산 인스턴스 중지** 또는 각각 **계산 인스턴스 다시 시작** 을 선택 합니다.
+
+### <a name="view-compute-instance-configuration"></a>계산 인스턴스 구성 보기
+
+1. 작업 영역을 포함 하는 구독 노드를 확장 합니다.
+1. 작업 영역 내에서 **계산 인스턴스** 노드를 확장 합니다.
+1. 검사 하려는 계산 인스턴스를 마우스 오른쪽 단추로 클릭 하 고 **계산 인스턴스 속성 보기**를 선택 합니다.
+
+### <a name="delete-compute-instance"></a>계산 인스턴스 삭제
+
+1. 작업 영역을 포함 하는 구독 노드를 확장 합니다.
+1. 작업 영역 내에서 **계산 인스턴스** 노드를 확장 합니다.
+1. 삭제 하려는 계산 인스턴스를 마우스 오른쪽 단추로 클릭 하 고 **계산 인스턴스 삭제**를 선택 합니다.
 
 ## <a name="compute-clusters"></a>컴퓨팅 클러스터
 

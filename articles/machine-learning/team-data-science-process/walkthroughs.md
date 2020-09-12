@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76027275d6f0b838ed6fbb7275086f190701d286
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864080"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439830"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Azure에서 Team Data Science Process 실행 연습
 
@@ -32,7 +32,7 @@ ms.locfileid: "75864080"
 - [Hive를 사용하여 HDInsight Hadoop 연습](walkthroughs-hdinsight-hadoop.md) 이 연습에서는 HDInsight Hadoop 클러스터와 Hive를 사용하여 예측 분석을 수행합니다.
 - [U-SQL을 사용하여 Azure Data Lake 연습](walkthroughs-azure-data-lake.md) 이러한 연습은 예측 분석을 수행하는 데 Azure Data Lake와 함께 U-SQL을 사용합니다.
 - [SQL Server](walkthroughs-sql-server.md) 이 연습에서는 SQL Server, SQL Server R Services 및 SQL Server Python Services를 사용하여 예측 분석을 수행합니다.
-- [SQL Data Warehouse](walkthroughs-sql-data-warehouse.md) 이러한 연습은 예측 분석을 수행하는 데 SQL Data Warehouse를 사용합니다. 
+- [Azure Synapse 분석](walkthroughs-sql-data-warehouse.md) 이러한 연습은 예측 분석을 수행 하기 위해 Azure Synapse Analytics를 사용 합니다. 
 
 
 

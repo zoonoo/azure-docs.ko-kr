@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 048f7d41bd9d106121859e6b1fc013258067af9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0b009d6d53a117aa11d0629fb649b2dd55559af
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885126"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438197"
 ---
 # <a name="a-web-api-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 웹 API: 앱 등록
 
@@ -28,7 +28,7 @@ ms.locfileid: "80885126"
 
 ## <a name="api-permissions"></a>API 사용 권한
 
-웹 앱은 전달자 토큰을 받은 사용자를 대신 하 여 Api를 호출 합니다. 웹 앱은 위임 된 권한을 요청 해야 합니다. 자세한 내용은 [웹 API 액세스 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)를 참조하세요.
+웹 앱은 전달자 토큰을 받은 사용자를 대신 하 여 Api를 호출 합니다. 웹 앱은 위임 된 권한을 요청 해야 합니다. 자세한 내용은 [웹 API에 액세스할 수 있는 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
