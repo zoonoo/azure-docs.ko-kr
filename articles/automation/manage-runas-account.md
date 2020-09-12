@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2d6e026f87211260a2cf45c0623806cc024b44e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: cb804b21d6f5312c13bfdbf7b0fc0404961ba1e3
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530669"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005737"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Azure Automation 실행 계정 관리
 
@@ -26,16 +26,16 @@ Azure Automation은 다음과 같은 두 가지 실행 계정을 사용합니다
 >[!NOTE]
 >Azure CSP(클라우드 솔루션 공급자) 구독은 Azure Resource Manager 모델만 지원합니다. Azure Resource Manager 기반이 아닌 서비스는 프로그램에서 사용할 수 없습니다. CSP 구독을 사용하는 경우 Azure 클래식 실행 계정이 생성되지 않지만 Azure 실행 계정은 생성됩니다. CSP 구독에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](/azure/cloud-solution-provider/overview/azure-csp-available-services)를 참조하세요.
 
-실행 계정의 서비스 주체에는 기본적으로 Azure AD를 읽을 권한이 없습니다. Azure AD를 읽거나 관리할 권한을 추가하려면 **API 권한**에서 서비스 주체에 권한을 부여해야 합니다. 자세히 알아보려면 [웹 API 액세스 권한 추가](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)를 참조하세요.
+실행 계정의 서비스 주체에는 기본적으로 Azure AD를 읽을 권한이 없습니다. Azure AD를 읽거나 관리할 권한을 추가하려면 **API 권한**에서 서비스 주체에 권한을 부여해야 합니다. 자세한 내용은 [웹 API에 액세스할 수 있는 권한 추가](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)를 참조 하세요.
 
 ### <a name="run-as-account"></a>실행 계정
 
 실행 계정은 [Resource Manager 배포 모델](../azure-resource-manager/management/deployment-models.md) 리소스를 관리합니다. 이 계정은 다음 작업을 수행합니다.
 
 * 자체 서명된 인증서로 Azure AD 애플리케이션을 만들고, Azure AD에 애플리케이션의 서비스 주체 계정을 만들며, 현재 구독에 있는 계정에 대해 기여자 역할을 할당합니다. 인증서 설정을 소유자 또는 다른 어떤 역할로든 변경할 수 있습니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
-  
+
 * 지정된 Automation 계정에서 `AzureRunAsCertificate`라는 Automation 인증서 자산을 만듭니다. 인증서 자산은 Azure AD 애플리케이션에서 사용하는 인증서 프라이빗 키를 보유합니다.
-  
+
 * 지정된 Automation 계정에서 `AzureRunAsConnection`이라는 Automation 연결 자산을 만듭니다. 이 연결 자산은 애플리케이션 ID, 테넌트 ID, 구독 ID 및 인증서 지문을 보유합니다.
 
 ### <a name="azure-classic-run-as-account"></a>Azure 클래식 실행 계정
@@ -80,7 +80,7 @@ Azure 클래식 실행 계정은 다음 작업을 수행합니다.
 
 1. Azure Portal의 Azure Active Directory 창에서 **사용자 및 그룹**을 선택합니다.
 2. **모든 사용자**를 선택합니다.
-3. 이름을 선택하고 **프로필**을 선택합니다. 
+3. 이름을 선택하고 **프로필**을 선택합니다.
 4. 사용자의 프로필에 있는 **사용자 유형** 특성의 값이 **게스트**로 설정되지 않았는지 확인합니다.
 
 ### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>클래식 실행 계정을 구성할 권한 얻기
@@ -99,7 +99,7 @@ Azure 클래식 실행 계정은 다음 작업을 수행합니다.
 
 4. 왼쪽 창의 계정 설정 섹션에서 **실행 계정**을 선택합니다.
 
-5. 필요한 계정에 따라 **Azure 실행 계정** 또는 **Azure 클래식 실행 계정**을 선택합니다. 
+5. 필요한 계정에 따라 **Azure 실행 계정** 또는 **Azure 클래식 실행 계정**을 선택합니다.
 
 6. 원하는 계정에 따라 **Azure 실행 계정 추가** 또는 **Azure 클래식 실행 계정 추가** 창을 사용합니다. 개요 정보를 검토한 후 **만들기**를 클릭합니다.
 
@@ -113,7 +113,7 @@ Azure 클래식 실행 계정은 다음 작업을 수행합니다.
 
 2. 왼쪽 창의 계정 설정 섹션에서 **실행 계정**을 선택합니다.
 
-3. 실행 계정 속성 페이지에서 삭제하려는 실행 계정 또는 클래식 실행 계정을 선택합니다. 
+3. 실행 계정 속성 페이지에서 삭제하려는 실행 계정 또는 클래식 실행 계정을 선택합니다.
 
 4. 그런 다음, 선택한 계정의 속성 창에서 **삭제**를 클릭합니다.
 
@@ -127,7 +127,7 @@ Azure 클래식 실행 계정은 다음 작업을 수행합니다.
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>자체 서명된 인증서 갱신
 
-실행 계정용으로 만든 자체 서명된 인증서는 생성 날짜로부터 1년이 되는 날에 만료됩니다. 실행 계정 만료되기 전인 어떤 시점에서 인증서를 갱신해야 합니다. 만료되기 전에 언제든지 갱신할 수 있습니다. 
+실행 계정용으로 만든 자체 서명된 인증서는 생성 날짜로부터 1년이 되는 날에 만료됩니다. 실행 계정 만료되기 전인 어떤 시점에서 인증서를 갱신해야 합니다. 만료되기 전에 언제든지 갱신할 수 있습니다.
 
 자체 서명된 인증서를 갱신하면 큐에 대기하거나 활발하게 실행 중이며 실행 계정으로 인증되는 모든 Runbook이 부정적인 영향을 받지 않도록 현재 유효한 인증서가 보존됩니다. 인증서는 만료 날짜까지 유효합니다.
 
@@ -168,10 +168,10 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzRoleDefinition
 ```
 
-실행 계정에서 사용하는 서비스 주체가 기여자 역할 정의 또는 사용자 지정 역할 정의에 있는지 확인할 수 있습니다. 
+실행 계정에서 사용하는 서비스 주체가 기여자 역할 정의 또는 사용자 지정 역할 정의에 있는지 확인할 수 있습니다.
 
 1. Automation 계정으로 이동하고 계정 설정 섹션에서 **실행 계정**을 선택합니다.
-2. **Azure 실행 계정**을 선택합니다. 
+2. **Azure 실행 계정**을 선택합니다.
 3. **역할**을 선택하여 사용 중인 역할 정의를 찾습니다.
 
 :::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="실행 계정 역할을 확인 합니다." lightbox="media/manage-runas-account/verify-role-expanded.png":::
@@ -186,7 +186,7 @@ Azure Automation을 통해 Key Vault 및 실행 계정 서비스 주체가 사�
 * Key Vault에 대한 권한을 부여합니다.
 * 액세스 정책을 설정합니다.
 
-PowerShell 갤러리에서 [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) 스크립트를 사용하여 Key Vault에 대한 실행 계정 권한을 부여할 수 있습니다. Key Vault에서 권한을 설정하는 방법에 관한 자세한 내용은 [애플리케이션에 키 자격 증명 모음에 대한 액세스 권한 부여](../key-vault/general/group-permissions-for-apps.md)를 참조하세요.
+PowerShell 갤러리에서 [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) 스크립트를 사용하여 Key Vault에 대한 실행 계정 권한을 부여할 수 있습니다. Key Vault에 대 한 사용 권한 설정에 대 한 자세한 내용은 [Key Vault 액세스 정책 할당](/azure/key-vault/general/assign-access-policy-powershell) 을 참조 하세요.
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>실행 계정의 잘못된 구성 문제 해결
 
@@ -207,7 +207,7 @@ PowerShell 갤러리에서 [Extend-AutomationRunAsAccountRoleAssignmentToKeyVaul
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-계정을 삭제하고 다시 만들어서 이러한 실행 계정 문제를 신속하게 해결할 수 있습니다.
+실행 계정을 삭제 하 고 다시 만들어 이러한 실행 계정 문제를 신속 하 게 해결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

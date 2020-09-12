@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 324d3a21e1694d243f03beca28ac8376bedffa4d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526833"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017475"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>자습서: Azure AD에서 Workday로 특성 쓰기 저장 구성
 이 자습서에서는 Azure AD에서 Workday로 쓰기 저장 특성을 수행 하는 데 필요한 단계를 보여 줍니다. Workday 쓰기 저장 프로 비전 앱은 다음과 같은 Workday 특성에 값을 할당 하도록 지원 합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "88526833"
 
 이 Workday 쓰기 저장 사용자 프로 비전 솔루션은 다음과 같은 경우에 가장 적합 합니다.
 
-* 전자 메일 주소, 사용자 이름 및 전화 번호와 같이 관리 되는 신뢰할 수 있는 특성을 Workday로 다시 쓰기 저장 하려는 Office 365를 사용 하는 조직
+* Microsoft 365를 사용 하는 조직 (예: 전자 메일 주소, 사용자 이름 및 전화 번호)에서 관리 하는 신뢰할 수 있는 특성을 Workday로 다시 쓰기 저장 하는 조직
 
 ## <a name="configure-integration-system-user-in-workday"></a>Workday에서 통합 시스템 사용자 구성
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ea5a7a0cd89b9aad78ce789517aa8f75767955d8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4b4953cbca4d08e911fd043413387a1602bd8e08
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526401"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006094"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
@@ -125,8 +125,16 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |phoneNumbers[type eq "fax"].value|String|
    |externalId|String|
    |preferredLanguage|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn: scim: 스키마: 확장: enterprise: 1.0. 관리자|String|
+   |urn: scim: 스키마: 확장: enterprise: 1.0 학과|String|
+   |urn: scim: 스키마: 확장: enterprise: 1.0. 나누기|String|
+   |urn: scim: 스키마: 확장: enterprise: 1.0. 조직|String|
+   |urn: scim: 스키마: 확장: enterprise: 1.0. costCenter|String|
+   |urn: scim: 스키마: 확장: enterprise: 1.0. 예제|String|
+   |urn: scim: 스키마: 확장: facebook: auth_method: 1.0: auth_method|String|
+   |urn: scim: 스키마: 확장: facebook: frontline: 1.0. is_frontline|부울|
+   |urn: scim: 스키마: 확장: facebook: starttermdates: 1.0.|정수|
+
 
 10. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
@@ -153,6 +161,10 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 *  사용자가 성공적으로 생성 되지 않은 것을 확인 하 고 코드가 "1789003" 인 감사 로그 이벤트가 있는 경우 사용자가 확인 되지 않은 도메인에서 온 것임을 의미 합니다.
+
+## <a name="change-log"></a>로그 변경
+
+* 09/10/2020-엔터프라이즈 특성 "나누기", "조직", "costCenter" 및 "예제"에 대 한 지원이 추가 되었습니다. 사용자 지정 특성 "frontline", "auth_method" 및 ""에 대 한 지원이 추가 되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -1,6 +1,6 @@
 ---
 title: 게시자 확인 개요 - Microsoft ID 플랫폼 | Azure
-description: Microsoft ID 플랫폼의 게시자 확인 프로그램(미리 보기)에 대한 개요를 제공합니다. 이점, 프로그램 요구 사항 및 질문과 대답을 나열합니다. 애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 Microsoft 파트너 네트워크 계정을 사용하여 확인 프로세스를 완료했으며 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다.
+description: Microsoft id 플랫폼에 대 한 게시자 확인 프로그램의 개요를 제공 합니다. 이점, 프로그램 요구 사항 및 질문과 대답을 나열합니다. 애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 Microsoft 파트너 네트워크 계정을 사용하여 확인 프로세스를 완료했으며 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 07e8f1d0cf173a8ab41f8feb105743a7559cdd2f
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068476"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005794"
 ---
-# <a name="publisher-verification-preview"></a>게시자 확인(미리 보기)
+# <a name="publisher-verification"></a>게시자 확인
 
-Microsoft ID 플랫폼과 통합하는 애플리케이션 개발자의 신뢰성을 관리자와 최종 사용자가 알 수 있도록 도와주는 것이 게시자 확인(미리 보기)입니다. 애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership) 계정을 사용하여 [확인](/partner-center/verification-responses) 프로세스를 완료했으며 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다. 
+게시자 확인은 관리자와 최종 사용자가 Microsoft id 플랫폼과 통합 되는 응용 프로그램 개발자의 신뢰성을 이해 하는 데 도움이 됩니다. 애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 [Microsoft 파트너 네트워크](https://partner.microsoft.com/membership) 계정을 사용하여 [확인](/partner-center/verification-responses) 프로세스를 완료했으며 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다. 
 
 다음과 같이 파란색 "확인" 배지가 Azure AD 동의 확인 프롬프트 및 다른 화면에 표시됩니다. ![동의 확인 프롬프트](./media/publisher-verification-overview/consent-prompt.png)
 

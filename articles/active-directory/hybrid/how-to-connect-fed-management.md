@@ -1,7 +1,7 @@
 ---
 title: Azure AD Connect - AD FS 관리 및 사용자 지정 | Microsoft Docs
 description: Azure AD Connect를 사용한 AD FS 관리 및 Azure AD Connect와 PowerShell을 사용한 사용자 AD FS 로그인 환경의 사용자 지정입니다.
-keywords: AD FS, ADFS, AD FS 관리, AAD Connect, 연결, 로그인, AD FS 사용자 지정, 트러스트 복구, O365, 페더레이션, 신뢰 당사자
+keywords: AD FS, ADFS, AD FS 관리, AAD Connect, 연결, 로그인, AD FS 사용자 지정, 트러스트 복구, M365, 페더레이션, 신뢰 당사자
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58bc154f4ffb234df52faf3c02b5ed7ecaf77c2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dadffd6fe3e6b438b21900f957f0d4ef71bb23cb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830930"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661269"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
 이 문서에서는 Azure AD(Azure Active Directory) Connect를 사용하여 AD FS(Active Directory Federation Services)를 관리 및 사용자 지정하는 방법을 설명합니다. 또한 AD FS 팜의 완벽한 구성을 위해 수행해야 할 수 있는 다른 일반적인 AD FS 작업을 포함합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "85830930"
 | 항목 | 포함된 내용 |
 |:--- |:--- |
 | **AD FS 관리** | |
-| [트러스트 복구](#repairthetrust) |Office 365를 사용하여 페더레이션 트러스트를 복구하는 방법입니다. |
+| [트러스트 복구](#repairthetrust) |Microsoft 365를 사용 하 여 페더레이션 트러스트를 복구 하는 방법입니다. |
 | [대체 로그인 ID를 사용 하 여 Azure AD와 페더레이션](#alternateid) | 대체 로그인 ID를 사용하여 페더레이션 구성  |
 | [AD FS 서버 추가](#addadfsserver) |추가 AD FS 서버를 사용하여 AD FS 팜을 확장하는 방법입니다. |
 | [AD FS 웹 애플리케이션 프록시 서버 추가](#addwapserver) |추가 WAP(웹 애플리케이션 프록시) 서버를 사용하여 AD FS 팜을 확장하는 방법입니다. |
@@ -85,7 +85,7 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
     KB가 누락된 경우 구성 문제를 수정하려면 필요한 [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590)를 설치한 다음 [AAD 및 AD FS 트러스트 복구](#repairthetrust)를 사용하여 트러스트를 복구합니다.
 
 > [!NOTE]
-> alternateID 및 수동 구성 단계에 대한 자세한 내용은 [대체 로그인 ID 구성](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)을 참조하세요.
+> alternateID 및 수동 구성 단계에 대한 자세한 내용은 [대체 로그인 ID 구성](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)을 참조하세요.
 
 ## <a name="add-an-ad-fs-server"></a><a name="addadfsserver"></a>AD FS 서버 추가 
 
@@ -174,7 +174,7 @@ Azure AD Connect를 사용하면 Azure AD와 페더레이션될 도메인을 쉽
 
    ![Azure AD 도메인](./media/how-to-connect-fed-management/AdditionalDomain4.PNG)
 
-    도메인을 선택하면 마법사는 마법사가 수행할 추가 작업 및 구성의 영향에 대한 적절한 정보를 제공합니다. 경우에 따라 Azure AD에서 아직 확인되지 않은 도메인을 선택하는 경우 마법사는 도메인을 확인하는 데 유용한 정보를 제공합니다. 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](../active-directory-domains-add-azure-portal.md) 를 참조하세요.
+    도메인을 선택하면 마법사는 마법사가 수행할 추가 작업 및 구성의 영향에 대한 적절한 정보를 제공합니다. 경우에 따라 Azure AD에서 아직 확인되지 않은 도메인을 선택하는 경우 마법사는 도메인을 확인하는 데 유용한 정보를 제공합니다. 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md) 를 참조하세요.
 
 5. **다음**을 클릭합니다. **구성 준비** 페이지에 Azure AD Connect가 수행할 작업 목록이 표시됩니다. **설치** 를 클릭하여 구성을 완료합니다.
 
@@ -207,7 +207,7 @@ Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requi
 ```
 
 ## <a name="modify-ad-fs-claim-rules"></a><a name="modclaims"></a>AD FS 클레임 규칙 수정 
-AD FS는 사용자 지정 클레임 규칙을 만드는 데 사용할 수 있는 다양한 클레임 언어를 지원합니다. 자세한 내용은 [클레임 규칙 언어의 역할](https://technet.microsoft.com/library/dd807118.aspx)을 참조하세요.
+AD FS는 사용자 지정 클레임 규칙을 만드는 데 사용할 수 있는 다양한 클레임 언어를 지원합니다. 자세한 내용은 [클레임 규칙 언어의 역할](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dd807118(v=ws.11))을 참조하세요.
 
 다음 섹션에서는 Azure AD 및 AD FS 페더레이션에 관련된 몇 가지 시나리오에 대한 사용자 지정 규칙을 작성할 수 있는 방법에 대해 자세히 설명합니다.
 
