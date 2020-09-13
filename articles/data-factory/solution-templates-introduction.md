@@ -11,12 +11,12 @@ author: djpmsft
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 515de0fed987f412adb060a3ba58978f0400ae0d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628949"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441955"
 ---
 # <a name="templates"></a>템플릿
 
@@ -56,7 +56,7 @@ Data Factory는 데이터 팩터리 파이프라인 템플릿을 저장하기 �
 
     -   [데이터베이스에서 델타 복사](solution-template-delta-copy-with-control-table.md)
 
-    -   에서 \<source\> 로 복사\<destination\>
+    -   에서 \<source\> 로 복사 \<destination\>
 
         -   [Amazon S3에서 Azure Data Lake Store Gen 2로 복사](solution-template-migration-s3-azure.md)
 
@@ -68,9 +68,9 @@ Data Factory는 데이터 팩터리 파이프라인 템플릿을 저장하기 �
 
         -   온-프레미스 SQL Server에서 Azure SQL Database로 복사
 
-        -   온-프레미스 SQL Server에서 Azure SQL Data Warehouse로 복사
+        -   SQL Server 온-프레미스에서 Azure Synapse Analytics로 (이전의 SQL Data Warehouse)
 
-        -   온-프레미스 Oracle에서 Azure SQL Data Warehouse로 복사
+        -   Oracle 온-프레미스에서 Azure Synapse Analytics로 (이전에 SQL Data Warehouse)
 
 -   SSIS 템플릿
 

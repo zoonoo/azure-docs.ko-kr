@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 4da54318bea21daf9ec363be61bea18adaa2ce63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 255e4085e24ee7520c603f8a00b3e46c23367a77
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82629034"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442006"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블이 있는 데이터베이스에서 델타 복사
 
@@ -140,7 +140,7 @@ ms.locfileid: "82629034"
 
     새 행만 대상으로 복사 된 것을 볼 수 있습니다.
 
-15. 필드 Azure Synapse Analytics (이전의 SQL DW)를 데이터 대상으로 선택 하는 경우에는 Polybase를 SQL Data Warehouse 하는 데 필요한 Azure Blob storage에 대 한 연결도 준비 해야 합니다. 템플릿이 컨테이너 경로를 생성 합니다. 파이프라인이 실행 된 후 컨테이너를 Blob 저장소에서 만들었는지 확인 합니다.
+15. 필드 Azure Synapse Analytics (이전의 SQL DW)를 데이터 대상으로 선택 하는 경우 azure Synapse Analytics (이전의 SQL Data Warehouse) Polybase에 필요한 스테이징을 위해 Azure Blob 저장소에 대 한 연결도 제공 해야 합니다. 템플릿이 컨테이너 경로를 생성 합니다. 파이프라인이 실행 된 후 컨테이너를 Blob 저장소에서 만들었는지 확인 합니다.
     
     ![PolyBase 구성](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     

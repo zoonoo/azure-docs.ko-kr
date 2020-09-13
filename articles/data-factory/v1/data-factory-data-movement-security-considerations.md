@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c22168aade11bbba66682efea0e2f5a1fcc2ac1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19b37472d7decb46825da4760511f1761493c246
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021503"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441938"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 
@@ -26,7 +26,7 @@ ms.locfileid: "84021503"
 ## <a name="introduction"></a>소개
 이 문서에서는 Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명합니다. Azure Data Factory 관리 리소스는 Azure 보안 인프라를 기반으로 하며 Azure가 제공하는 모든 가능한 보안 수단을 사용합니다.
 
-Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](data-factory-create-pipelines.md)를 만듭니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 이 파이프라인은 데이터 팩터리가 작성된 지역에 상주합니다. 
+Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](data-factory-create-pipelines.md)를 만듭니다. 파이프라인은 한데 모여 작업을 수행하는 작업의 논리적 그룹화입니다. 이 파이프라인은 데이터 팩터리가 작성된 지역에 상주합니다. 
 
 Data Factory는 **미국 서부**, **미국 동부** 및 **북유럽** 지역에서만 사용할 수 있지만, 데이터 이동 서비스는 [여러 지역에서 전역적으로](data-factory-data-movement-activities.md#global) 사용할 수 있습니다. Data Factory 서비스는 데이터 이동 서비스가 아직 해당 지역에 배포되지 않은 경우 서비스가 대체 지역을 사용하도록 명시적으로 지시하지 않는 한 데이터가 지리적 영역/지역을 벗어나지 않도록 합니다. 
 
@@ -42,7 +42,7 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 
-- **클라우드 시나리오** - 이 시나리오에서는 출처와 목적지 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 클라우드 스토리지 서비스가 포함됩니다. 지원되는 데이터 원본 목록은 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 있습니다.
+- **클라우드 시나리오** - 이 시나리오에서는 출처와 목적지 모두 인터넷을 통해 공개적으로 액세스할 수 있습니다. 여기에는 Azure Storage, Azure Synapse Analytics (이전의 SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, Salesforce와 같은 SaaS 서비스, FTP 및 OData와 같은 웹 프로토콜과 같은 관리 되는 클라우드 저장소 서비스가 포함 됩니다. 지원되는 데이터 원본 목록은 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 있습니다.
 - **하이브리드 시나리오** - 이 시나리오에서는 원본 또는 대상이 방화벽 뒤에 있거나 회사 내 회사 네트워크 내에 있거나 데이터 저장소가 프라이빗 네트워크/가상 네트워크(주로 원본)에 있으며 공개적으로 액세스할 수 없습니다. 가상 머신에서 호스팅되는 데이터베이스 서버도 이 시나리오에 해당합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -55,13 +55,13 @@ Azure Data Factory는 **Microsoft에서 관리하는 인증서**를 사용하여
 클라우드 데이터 저장소가 HTTPS 또는 TLS를 지원하는 경우 Data Factory의 데이터 이동 서비스와 클라우드 데이터 저장소 간의 모든 데이터 전송은 보안 채널 HTTPS 또는 TLS를 통해 이루어집니다.
 
 > [!NOTE]
-> **Azure SQL Database**와 **Azure SQL Data Warehouse**에 대한 모든 연결은 항상 데이터를 데이터베이스로/에서 전송하는 중에 암호화(SSL/TLS)가 필요합니다. JSON 편집기를 사용하여 파이프라인을 작성하는 동안 **encryption** 속성을 추가하고 **연결 문자열**에서 **true**로 설정합니다. [복사 마법사](data-factory-azure-copy-wizard.md)를 사용하면 마법사가 기본적으로 이 속성을 설정합니다. **Azure Storage**의 경우 연결 문자열에 **HTTPS**를 사용할 수 있습니다.
+> **Azure SQL Database** 및 **Azure Synapse Analytics** 에 대 한 모든 연결은 데이터를 데이터베이스에 전송 하는 동안 항상 암호화 (SSL/TLS)가 필요 합니다. JSON 편집기를 사용하여 파이프라인을 작성하는 동안 **encryption** 속성을 추가하고 **연결 문자열**에서 **true**로 설정합니다. [복사 마법사](data-factory-azure-copy-wizard.md)를 사용하면 마법사가 기본적으로 이 속성을 설정합니다. **Azure Storage**의 경우 연결 문자열에 **HTTPS**를 사용할 수 있습니다.
 
 ### <a name="data-encryption-at-rest"></a>휴지 상태의 암호화
 일부 데이터 저장소가 미사용 데이터 암호화를 지원합니다. 이러한 데이터 저장소에 데이터 암호화 메커니즘을 사용하는 것이 좋습니다. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-Azure SQL Data Warehouse의 TDE(투명한 데이터 암호화)는 미사용 데이터에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 데 도움을 줍니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [SQL Data Warehouse에서 데이터베이스 보호](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)를 참조하세요.
+#### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+Azure Synapse Analytics의 TDE (투명한 데이터 암호화)는 미사용 데이터에 대 한 실시간 암호화 및 암호 해독을 수행 하 여 악의적인 활동의 위협 으로부터 보호 하는 데 도움이 됩니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [Synapse Analytics에서 데이터베이스 보안](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)설정을 참조 하세요.
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database는 애플리케이션을 변경할 필요 없이 실시간으로 데이터 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호하는 TDE(투명한 데이터 암호화)도 지원합니다. 이 동작은 클라이언트에 대해 투명합니다. 자세한 내용은 [Azure SQL Database를 사용한 투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)를 참조하세요. 
@@ -149,20 +149,20 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 다음 표는 **아웃바운드 포트** 및 **회사 방화벽**에 대한 도메인 요구 사항을 제공합니다.
 
-| 도메인 이름 | 아웃바운드 포트 | 설명 |
+| 도메인 이름 | 아웃바운드 포트 | Description |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Data Factory에서 데이터 이동 서비스에 연결하기 위해 게이트웨이가 필요합니다. |
 | `*.core.windows.net` | 443 | [복사 준비](data-factory-copy-activity-performance.md#staged-copy) 기능을 사용할 때 게이트웨이가 Azure Storage 계정에 연결하는 데 사용합니다. | 
 | `*.frontend.clouddatahub.net` | 443 | Azure Data Factory 서비스에 연결하기 위해 게이트웨이가 필요합니다. | 
-| `*.database.windows.net` | 1433   | (선택 사항) 목적지가 Azure SQL Database/Azure SQL Data Warehouse인 경우 필요합니다. 단계적 복사 기능을 사용하여 포트 1433을 열지 않고 Azure SQL Database/Azure SQL Data Warehouse에 데이터를 복사합니다. | 
+| `*.database.windows.net` | 1433   | (선택 사항) 대상이 Azure SQL Database/Azure Synapse Analytics 인 경우에 필요 합니다. 1433 포트를 열지 않고 준비 된 복사 기능을 사용 하 여 Azure SQL Database/Azure Synapse Analytics로 데이터를 복사 합니다. | 
 | `*.azuredatalakestore.net` | 443 | (선택 사항) 목적지가 Azure Data Lake 매장인 경우 필요 | 
 
 > [!NOTE] 
-> 각 데이터 원본에서 요구하는대로 회사 방화벽 수준에서 포트/허용 도메인을 관리해야 할 수 있습니다. 이 표는 Azure SQL Database, Azure SQL Data Warehouse, Azure Data Lake Store만을 예제로 사용합니다.   
+> 각 데이터 원본에서 요구하는대로 회사 방화벽 수준에서 포트/허용 도메인을 관리해야 할 수 있습니다. 이 표에서는 Azure SQL Database Azure Synapse Analytics Azure Data Lake Store 예제로만 사용 합니다.   
 
 다음 표에서는 **Windows 방화벽**에 대한 **인바운드 포트** 요구 사항을 제공합니다.
 
-| 인바운드 포트 | 설명 | 
+| 인바운드 포트 | Description | 
 | ------------- | ----------- | 
 | 8050(TCP) | 게이트웨이의 온-프레미스 데이터 저장소에 대한 신임을 안전하게 설정하기 위해 신임 관리자 애플리케이션에서 필요합니다. | 
 
@@ -174,18 +174,18 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 다음 클라우드 데이터 저장소에는 게이트웨이 시스템의 IP 주소를 허용 목록에 추가해야 합니다. 이러한 데이터 저장소 중 일부는 기본적으로 IP 주소의 허용 목록을 요구하지 않을 수 있습니다. 
 
 - [Azure SQL Database](../../azure-sql/database/firewall-configure.md) 
-- [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
-- [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
+- [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Data Lake Storage](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 **질문:** 게이트웨이를 다른 데이터 팩터리에서 공유할 수 있습니까?
 **대답:** 이 기능은 아직 지원하지 않습니다. 적극적으로 노력하고 있습니다.
 
 **질문:** 게이트웨이가 작동하는 데 필요한 포트 요구 사항은 무엇입니까?
-**대답:** 게이트웨이는 인터넷을 열 수 있는 HTTP 기반 연결을 만듭니다. 이 연결을 만들기 위해 게이트웨이에서 **443 및 80 아웃바운드 포트**를 열어야 합니다. Credential Manager 애플리케이션의 경우(회사 방화벽 수준이 아닌) 시스템 수준에서만 **8050 인바운드 포트**를 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본/대상으로 사용되는 경우 **1433** 포트도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of gateway) 섹션을 참조하세요. 
+**대답:** 게이트웨이는 인터넷을 열 수 있는 HTTP 기반 연결을 만듭니다. 이 연결을 만들기 위해 게이트웨이에서 **443 및 80 아웃바운드 포트**를 열어야 합니다. Credential Manager 애플리케이션의 경우(회사 방화벽 수준이 아닌) 시스템 수준에서만 **8050 인바운드 포트**를 엽니다. Azure SQL Database 또는 Azure Synapse Analytics를 원본/대상으로 사용 하는 경우 **1433** 포트도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of gateway) 섹션을 참조하세요. 
 
 **질문:** 게이트웨이의 인증서 요구 사항은 무엇입니까?
 **대답:** 현재 게이트웨이에는 데이터 저장소 자격 증명을 안전하게 설정하기 위해 자격 증명 관리자 애플리케이션에서 사용하는 인증서가 필요합니다. 이 인증서는 게이트웨이 설정에 의해 생성되고 구성된 자체 서명된 인증서입니다. 대신 자체 TLS/SSL 인증서를 사용할 수 있습니다. 자세한 정보는 [클릭 한번 자격 증명 관리자 애플리케이션](#click-once-credentials-manager-app) 섹션을 참조하세요. 

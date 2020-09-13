@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b506d56f8aff2204c705ae8685f475654c1b1705
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 827afbf811042acb2bf01f3e863408d5a6e9732f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640483"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441921"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>SAML 기반 Single Sign-On 구성
 
@@ -51,7 +51,6 @@ IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 설정 
 | **로그온 URL** | 필수 | 지정하지 않음 | 사용자가 이 URL을 열면 서비스 공급자가 Azure AD를 리디렉션하여 사용자를 인증하고 로그온하도록 합니다. Azure AD는 URL을 사용 하 여 Office 365 또는 Azure AD 내 앱에서 응용 프로그램을 시작 합니다. 비어 있는 경우 Azure AD는 사용자가 Office 365, Azure AD 내 앱 또는 Azure AD SSO URL에서 응용 프로그램을 시작할 때 IdP 시작 로그온을 수행 합니다.|
 | **릴레이 상태** | 옵션 | 옵션 | 인증이 완료되면 사용자를 리디렉션할 위치를 애플리케이션에 지정합니다. 일반적으로 이 값은 애플리케이션에 대한 올바른 URL입니다. 그러나 일부 애플리케이션에서는 이 필드를 다르게 사용합니다. 자세한 내용은 애플리케이션 공급 업체에 요청하세요.
 | **로그아웃 URL** | 옵션 | 옵션 | SAML 로그아웃 응답을 애플리케이션에 다시 보내는 데 사용됩니다.
-
 
 ## <a name="user-attributes-and-claims"></a>사용자 특성 및 클레임 
 
@@ -112,7 +111,7 @@ Azure AD를 SAML 기반 ID 공급자로 사용하도록 애플리케이션을 �
 
 **테스트** 를 선택한 다음 현재 로그인 한 사용자 또는 다른 사용자로 테스트를 선택 합니다. 
 
-로그온에 성공하면 사용자 및 그룹을 SAML 애플리케이션에 할당할 준비가 된 것입니다. 축하합니다.
+로그온에 성공하면 사용자 및 그룹을 SAML 애플리케이션에 할당할 준비가 된 것입니다. 지금까지
 
 오류 메시지가 표시되면 다음 단계를 수행합니다.
 
