@@ -2,13 +2,13 @@
 title: Azure CLI 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 Azure CLI를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: da865d3b425da6b5969e540a424b513d9a58bd9a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: 7e8ae7e8c568f5f0ebb85f434e33f142b5fe94e8
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040815"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566163"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포
 
@@ -26,13 +26,13 @@ Azure CLI가 설치되어 있지 않으면 [Cloud Shell](#deploy-template-from-c
 
 배포의 범위에 따라 다른 명령을 사용합니다.
 
-* **리소스 그룹**에 배포 하려면 [az deployment group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create)를 사용 합니다.
+* **리소스 그룹**에 배포 하려면 [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)를 사용 합니다.
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* **구독**에 배포 하려면 [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create)를 사용 합니다.
+* **구독**에 배포 하려면 [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)를 사용 합니다.
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -40,7 +40,7 @@ Azure CLI가 설치되어 있지 않으면 [Cloud Shell](#deploy-template-from-c
 
   구독 수준 배포에 대한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조하세요.
 
-* **관리 그룹**에 배포 하려면 [az deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create)를 사용 합니다.
+* **관리 그룹**에 배포 하려면 [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)를 사용 합니다.
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -48,7 +48,7 @@ Azure CLI가 설치되어 있지 않으면 [Cloud Shell](#deploy-template-from-c
 
   관리 그룹 수준 배포에 대한 자세한 내용은 [관리 그룹 수준에서 리소스 만들기](deploy-to-management-group.md)를 참조하세요.
 
-* **테 넌 트**에 배포 하려면 [az deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create)를 사용 합니다.
+* **테 넌 트**에 배포 하려면 [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)를 사용 합니다.
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -128,6 +128,35 @@ az deployment group create \
 
 앞의 예제에서는 템플릿에 중요한 데이터가 포함되어 있지 않으므로 대부분의 시나리오에 적합한 이 템플릿에 대해 공개적으로 액세스할 수 있는 URI가 필요합니다. 중요한 데이터(예: 관리자 암호)를 지정해야 하는 경우 해당 값을 안전한 매개 변수로 전달합니다. 그러나 템플릿에 공개적으로 액세스할 수 있도록 하지 않으려면 프라이빗 스토리지 컨테이너에 저장하여 보호할 수 있습니다. SAS(공유 액세스 서명) 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 프라이빗 템플릿 배포](secure-template-with-sas-token.md)를 참조하세요.
 
+## <a name="deploy-template-spec"></a>템플릿 사양 배포
+
+로컬 또는 원격 템플릿을 배포 하는 대신 [템플릿 사양을](template-specs.md)만들 수 있습니다. 템플릿 사양은 ARM 템플릿을 포함 하는 Azure 구독에 있는 리소스입니다. 이를 통해 조직의 사용자와 쉽게 템플릿을 안전 하 게 공유할 수 있습니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 템플릿 사양에 대 한 액세스 권한을 부여 합니다. 이 기능은 현재 미리 보기 상태입니다.
+
+다음 예에서는 템플릿 사양을 만들고 배포 하는 방법을 보여 줍니다. 이러한 명령은 [미리 보기에 등록 한 경우에](https://aka.ms/templateSpecOnboarding)만 사용할 수 있습니다.
+
+먼저 ARM 템플릿을 제공 하 여 템플릿 사양을 만듭니다.
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json"
+```
+
+그런 다음 템플릿 사양의 ID를 가져와서 배포 합니다.
+
+```azurecli
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id
+```
+
+자세한 내용은 [Azure Resource Manager 템플릿 사양 (미리 보기)](template-specs.md)을 참조 하세요.
+
 ## <a name="preview-changes"></a>변경 내용 미리 보기
 
 템플릿을 배포 하기 전에 템플릿이 사용자 환경에 적용 되는 변경 내용을 미리 볼 수 있습니다. [가상 작업](template-deploy-what-if.md) 을 사용 하 여 템플릿이 필요한 변경을 수행 하는지 확인 합니다. 이 경우에서 템플릿의 오류도 확인 합니다.
@@ -179,6 +208,28 @@ arrayContent.json 형식은 다음과 같습니다.
     "value2"
 ]
 ```
+
+예를 들어 태그를 설정 하기 위해 개체를 전달 하려면 JSON을 사용 합니다. 예를 들어 템플릿에 다음과 같은 매개 변수가 포함 될 수 있습니다.
+
+```json
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Cost Center": "IT Department"
+      }
+    }
+```
+
+이 경우 다음 Bash 스크립트와 같이 JSON 문자열을 전달 하 여 매개 변수를 설정할 수 있습니다.
+
+```bash
+tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
+az deployment group create --name addstorage  --resource-group myResourceGroup \
+--template-file $templateFile \
+--parameters resourceName=abcdef4556 resourceTags="$tags"
+```
+
+개체에 전달 하려는 JSON 주위에 큰따옴표를 사용 합니다.
 
 ### <a name="parameter-files"></a>매개 변수 파일
 

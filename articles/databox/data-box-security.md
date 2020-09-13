@@ -106,7 +106,7 @@ Azure Data Box는 서비스의 다음 주요 인스턴스에서 개인 정보를
 
 Data Box에서 구현되는 보안 지침은 다음과 같습니다. 
 
-|지침   |설명   |
+|지침   |Description   |
 |---------|---------|
 |[IEC 60529 IP52](https://www.iec.ch/)    | 방수/방진         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | 배송 중의 부적절한 취급으로부터 장치 보호          |

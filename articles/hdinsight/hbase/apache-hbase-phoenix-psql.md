@@ -1,19 +1,19 @@
 ---
 title: psql을 사용하여 Apache Phoenix로 대량 로드 - Azure HDInsight
 description: Psql 도구를 사용 하 여 Azure HDInsight에서 대량 로드 데이터를 Apache Phoenix 테이블로 로드
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: c46b15c6744ba9d3f83260ffaac24c4ee1cdd776
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 513d48114d73b2c91ebecf06f9492a6ebf0ba1cf
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079482"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504709"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>psql을 사용하여 Apache Phoenix로 데이터 대량 로드
 
@@ -33,7 +33,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
 
 ### <a name="use-psql-to-bulk-load-tables"></a>`psql`을 사용하여 테이블 대량 로드
 
-1. 이라는 파일을 만들고 `createCustomersTable.sql` 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
+1. 이라는 파일을 만들고 `createCustomersTable.sql` 아래 코드를 파일에 복사 합니다. 그런 다음, 파일을 저장하고 닫습니다.
 
     ```sql
     CREATE TABLE Customers (
@@ -44,13 +44,13 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
         Country varchar);
     ```
 
-1. 이라는 파일을 만들고 `listCustomers.sql` 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
+1. 이라는 파일을 만들고 `listCustomers.sql` 아래 코드를 파일에 복사 합니다. 그런 다음, 파일을 저장하고 닫습니다.
 
     ```sql
     SELECT * from Customers;
     ```
 
-1. 이라는 파일을 만들고 `customers.csv` 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
+1. 이라는 파일을 만들고 `customers.csv` 아래 코드를 파일에 복사 합니다. 그런 다음, 파일을 저장하고 닫습니다.
 
     ```txt
     1,Samantha,260000.0,18,US
@@ -58,7 +58,7 @@ MapReduce는 여러 스레드를 사용하므로, 일반적으로 프로덕션 �
     3,Anton,550150.0,42,Norway
     ```
 
-1. 이라는 파일을 만들고 `customers2.csv` 아래 코드를 파일에 복사 합니다. 그런 다음 파일을 저장하고 닫습니다.
+1. 이라는 파일을 만들고 `customers2.csv` 아래 코드를 파일에 복사 합니다. 그런 다음, 파일을 저장하고 닫습니다.
 
     ```txt
     4,Nicolle,180000.0,22,US

@@ -71,7 +71,7 @@ Azure SQL Edge (미리 보기)에서 확장 이벤트 (Xevent)를 사용 하 여
 
 다음 6 개의 확장 이벤트는 정리 작업의 상태를 추적 하는 데 도움이 됩니다. 
 
-| Name | 설명 |
+| Name | Description |
 |------| ------------|
 | data_retention_task_started  | 보존 정책이 있는 테이블의 정리를 위한 백그라운드 작업이 시작 될 때 발생 합니다. |
 | data_retention_task_completed  | 보존 정책이 있는 테이블의 정리를 위한 백그라운드 작업이 종료 될 때 발생 합니다. |

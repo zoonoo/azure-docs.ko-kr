@@ -2,18 +2,18 @@
 title: 'Express 경로 회로 만들기 및 수정: Azure CLI'
 description: 이 문서에서는 CLI를 사용하여 ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 보여줍니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2d8ad6b90f533161835ab12a43865b177c24c14e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5f3270bbed5042ef89d5818523005dfc31589945
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503585"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566146"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 ExpressRoute 회로 만들기 및 수정
 
@@ -26,7 +26,7 @@ ms.locfileid: "87503585"
 > * [Azure CLI](howto-circuit-cli.md)
 > * [Azure Resource Manager 템플릿](expressroute-howto-circuit-resource-manager-template.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell (클래식)](expressroute-howto-circuit-classic.md)
+> * [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
 >
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -119,7 +119,7 @@ az network express-route list-service-providers
 
 연결 공급자가 나열되었는지 확인하려면 응답을 확인합니다. 나중에 회로를 만들 때 필요한 다음 정보를 적어 둡니다.
 
-* 이름
+* Name
 * PeeringLocations
 * BandwidthsOffered
 
@@ -142,7 +142,7 @@ az group create -n ExpressRouteResourceGroup -l "West US"
 
 올바른 SKU 계층과 SKU 제품군을 지정하는지 확인합니다.
 
-* SKU 계층은 Express 경로 회로가 [로컬](expressroute-faqs.md#expressroute-local), 표준 또는 [프리미엄](expressroute-faqs.md#expressroute-premium)인지 여부를 결정 합니다. *Local*, *Standard* 또는 *Premium*을 지정할 수 있습니다.
+* SKU 계층은 Express 경로 회로가 [로컬](expressroute-faqs.md#expressroute-local), 표준 또는 [프리미엄](expressroute-faqs.md#expressroute-premium)인지 여부를 결정 합니다. *Local*, *Standard* 또는 *Premium*을 지정할 수 있습니다. *Standard/Premium* 에서 *Local*로 SKU를 변경할 수 없습니다.
 * SKU 제품군은 청구서 유형을 결정합니다. 데이터 요금제에 대해 *unlimiteddata* 를 지정 하 고 무제한 데이터 요금제의 경우 *unlimiteddata로* 을 지정할 수 있습니다. 청구서 유형을 *Metereddata*에서 *Unlimiteddata*로 변경할 수 있지만, *Unlimiteddata*에서 *Metereddata*로는 변경할 수 없습니다. *로컬* 회로는 *unlimiteddata로* 뿐입니다.
 
 
@@ -280,7 +280,7 @@ az network express-route show --resource-group ExpressRouteResourceGroup --name 
 
 연결에 미치는 영향 없이 ExpressRoute 회로의 특정 속성을 수정할 수 있습니다. 중단 시간 없이 다음과 같이 변경할 수 있습니다.
 
-* ExpressRoute 회로에 대해 ExpressRoute Premium 추가 기능을 사용하거나 사용하지 않을 수 있습니다.
+* ExpressRoute 회로에 대해 ExpressRoute Premium 추가 기능을 사용하거나 사용하지 않을 수 있습니다. SKU를 *표준/프리미엄* 에서 *지역* 으로 변경 하는 것은 지원 되지 않습니다.
 * 포트에 사용 가능한 수용작업량이 있는 경우 ExpressRoute 회로의 대역폭을 증가시킬 수 있습니다. 그러나, 회로의 대역폭 다운그레이드는 지원되지 않습니다.
 * 요금제를 데이터 요금에서 무제한 데이터 요금으로 변경할 수 있습니다. 그러나 요금제를 무제한 데이터 요금에서 데이터 요금으로 변경하는 것은 지원되지 않습니다.
 * *Allow Classic Operations*을 활성화하거나 비활성화할 수 있습니다.

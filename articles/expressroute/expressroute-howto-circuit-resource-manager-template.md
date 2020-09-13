@@ -2,17 +2,17 @@
 title: 'Azure Express 경로 템플릿: Express 경로 회로 만들기'
 description: Azure PowerShell를 사용 하 여 Azure Resource Manager 템플릿을 배포 하 여 Azure Express 경로 회로를 만드는 방법에 대해 알아봅니다.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: charwen
-ms.openlocfilehash: 78318726a658b6e0dc966288f386c65ee4c6f0e4
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 3428f092c4b2356e9ea6afa54d1a03fc8b4f9f05
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190456"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566180"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Express 경로 회로 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "88190456"
 > * [Azure CLI](howto-circuit-cli.md)
 > * [Azure Resource Manager 템플릿](expressroute-howto-circuit-resource-manager-template.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell (클래식)](expressroute-howto-circuit-classic.md)
+> * [PowerShell(클래식)](expressroute-howto-circuit-classic.md)
 >
 
 Azure PowerShell를 사용 하 여 Azure Resource Manager 템플릿을 배포 하 여 Express 경로 회로를 만드는 방법에 대해 알아봅니다. Resource Manager 탬플릿 개발에 대한 자세한 내용은 [Resource Manager 설명서](/azure/azure-resource-manager/) 및 [템플릿 참조](/azure/templates/microsoft.network/expressroutecircuits)를 참조하세요.
@@ -63,7 +63,7 @@ Azure PowerShell를 사용 하 여 Azure Resource Manager 템플릿을 배포 �
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   * **SKU 계층** 은 express 경로 회로가 [로컬](expressroute-faqs.md#expressroute-local), 표준 또는 [프리미엄](expressroute-faqs.md#expressroute-premium)인지 여부를 결정 합니다. *Local*, * Standard 또는 *Premium*을 지정할 수 있습니다.
+   * **SKU 계층** 은 express 경로 회로가 [로컬](expressroute-faqs.md#expressroute-local), 표준 또는 [프리미엄](expressroute-faqs.md#expressroute-premium)인지 여부를 결정 합니다. *Local*, * Standard 또는 *Premium*을 지정할 수 있습니다. *Standard/Premium* 에서 *Local*로 SKU를 변경할 수 없습니다.
    * **SKU 제품군** 은 청구 유형을 결정 합니다. 데이터 요금제에 대해 *unlimiteddata* 를 지정 하 고 무제한 데이터 요금제의 경우 *unlimiteddata로* 을 지정할 수 있습니다. 청구서 유형을 *Metereddata*에서 *Unlimiteddata*로 변경할 수 있지만, *Unlimiteddata*에서 *Metereddata*로는 변경할 수 없습니다. *로컬* 회로는 *unlimiteddata로* 뿐입니다.
    * **피어링 위치**는 Microsoft와 피어링하는 물리적 위치입니다.
 
@@ -88,8 +88,8 @@ Azure PowerShell를 사용 하 여 Azure Resource Manager 템플릿을 배포 �
 **삭제** 아이콘을 선택 하 여 express 경로 회로를 삭제할 수 있습니다. 다음 정보에 유의하세요.
 
 * 모든 가상 네트워크를 ExpressRoute 회로에서 연결 해제해야 합니다. 이 작업에 실패한 경우 회로에 연결된 가상 네트워크가 있는지 확인하세요.
-* Express 경로 회로 서비스 공급자 프로 비전 상태가 **프로 비전** 또는 **프로 비전** 된 경우 서비스 공급자와 협력 하 여 회로를 프로 비전 해제 해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
-* 서비스 공급자가 회로를 프로 비전 해제 (서비스 공급자 프로 비전 상태가 **프로 비전 되지 않음**으로 설정 된 경우) 회로를 삭제할 수 있습니다. 그러면 회로에 대한 요금 청구가 중지됩니다.
+* ExpressRoute 회로 서비스 공급자 프로비전 상태가 **프로비전 중** 또는 **프로비전됨**인 경우에는 서비스 공급자에게 회로 프로비전 해제를 요청해야 합니다. 서비스 공급자가 회로의 프로비전을 해제한 다음 통지를 보낼 때까지 리소스가 계속 예약되며 요금이 청구됩니다.
+* 서비스 공급자가 회로 프로비전을 해제하여 서비스 공급자 프로비전 상태가 **프로비전되지 않음**이 되면 회로를 삭제할 수 있습니다. 그러면 회로에 대한 요금 청구가 중지됩니다.
 
 다음 PowerShell 명령을 실행 하 여 Express 경로 회로를 삭제할 수 있습니다.
 

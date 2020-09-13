@@ -34,7 +34,7 @@ ms.locfileid: "89514240"
 
 URL을 매개 변수화 하 여 다양 한 패턴을 지원할 수 있습니다. 세 가지 미리 정의 된 매개 변수가 있습니다.
 
-|미리 정의 된 매개 변수|설명|
+|미리 정의 된 매개 변수|Description|
 |---------|---------|
 |hub-and-spoke| 허브는 Azure SignalR 서비스의 개념입니다. 허브는 격리 단위입니다. 사용자의 범위와 메시지 배달은 허브로 제한 됩니다.|
 |범주| 범주는 다음 값 중 하나일 수 있습니다. <ul><li>**연결**: 연결 수명 이벤트입니다. 클라이언트 연결이 연결 되거나 연결이 끊어진 경우에 발생 합니다. 연결 된 이벤트와 연결이 끊어진 이벤트를 포함 합니다.</li><li>**메시지**: 클라이언트에서 허브 메서드를 호출할 때 발생 합니다. **연결** 범주에 있는 이벤트를 제외 하 고 다른 모든 이벤트를 포함 합니다.</li></ul>|
@@ -123,7 +123,7 @@ POST
 
 ### <a name="request-header"></a>요청 헤더
 
-|Name |설명|
+|Name |Description|
 |---------|---------|
 |X ASRS-연결 Id |클라이언트 연결에 대 한 연결 ID입니다.|
 |X ASRS-허브 |클라이언트 연결이 속한 허브입니다.|
@@ -145,7 +145,7 @@ Content-Type: application/json
 
 콘텐츠 형식: `application/json`
 
-|Name  |Type  |설명  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |Error |문자열 |닫힌 연결의 오류 메시지입니다. 연결이 오류 없이 닫힐 때 비어 있습니다.|
 
@@ -153,7 +153,7 @@ Content-Type: application/json
 
 콘텐츠 형식: `application/json` 또는 `application/x-msgpack`
 
-|Name  |Type  |설명  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |InvocationId |문자열 | 호출 메시지를 나타내는 선택적 문자열입니다. [호출](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations)에서 세부 정보를 찾습니다.|
 |Target |문자열 | 이벤트와 동일 하며 [호출 메시지](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)의 대상과 동일 합니다. |
