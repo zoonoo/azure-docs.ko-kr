@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 07/05/2020
-ms.openlocfilehash: eec056cbe246f129fb78e15faa0027846c271181
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 09/09/2020
+ms.openlocfilehash: 5d44758ebf94c7487935ef47a17ad810dc5cf9f8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382953"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657299"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor 고객 관리형 키 
 
@@ -21,17 +21,15 @@ ms.locfileid: "87382953"
 
 ## <a name="customer-managed-key-cmk-overview"></a>CMK(고객 관리형 키) 개요
 
-[저장 데이터 암호화](../../security/fundamentals/encryption-atrest.md)는 조직의 일반적인 개인 정보 및 보안 요구 사항입니다. Azure에서 저장 데이터 암호화를 완전하게 관리할 수 있으며, 암호화 또는 암호화 키를 긴밀하게 관리하기 위한 다양한 옵션이 있습니다.
+[미사용 암호화](../../security/fundamentals/encryption-atrest.md) 는 조직의 일반적인 개인 정보 및 보안 요구 사항입니다.  Azure에서 저장 데이터 암호화를 완전하게 관리할 수 있으며, 암호화 또는 암호화 키를 긴밀하게 관리하기 위한 다양한 옵션이 있습니다.
 
-Azure Monitor를 사용 하면 모든 데이터 및 저장 된 쿼리가 Microsoft 관리 키 (MMK)를 사용 하 여 미사용 상태로 암호화 됩니다. 또한 Azure Monitor은 [Azure Key Vault](../../key-vault/general/overview.md) 에 저장 되 고 시스템 할당 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 인증을 사용 하 여 저장소에서 액세스 하는 고유한 키를 사용 하 여 암호화 옵션을 제공 합니다. 이 키 (CMK)는 [소프트웨어 또는 하드웨어 HSM으로 보호](../../key-vault/general/overview.md)될 수 있습니다.
+Azure Monitor를 사용 하면 모든 데이터 및 저장 된 쿼리가 Microsoft 관리 키 (MMK)를 사용 하 여 미사용 상태로 암호화 됩니다. 또한 Azure Monitor은 [Azure Key Vault](../../key-vault/general/overview.md) 에 저장 되 고 시스템 할당 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 인증을 사용 하 여 저장소에서 액세스 하는 고유한 키를 사용 하 여 암호화 옵션을 제공 합니다. 이 키 (CMK)는 [소프트웨어 또는 하드웨어 HSM으로 보호](../../key-vault/general/overview.md)될 수 있습니다. 암호화 사용 Azure Monitor는 암호화가 작동 하는 [Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) 방식과 동일 합니다.
 
-Azure Monitor의 암호화 사용은  [Azure Storage 암호화](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption)의  작동 방식과 동일합니다.
+CMK 기능은 전용 Log Analytics 클러스터에서 제공 되며 언제 든 지 데이터에 대 한 액세스를 취소 하 고 [Lockbox](#customer-lockbox-preview) 제어를 사용 하 여 보호할 수 있는 컨트롤을 제공 합니다. 지역에서 전용 클러스터에 필요한 용량이 있는지 확인 하려면 구독이 미리 허용 되어야 합니다. CMK 구성을 시작 하기 전에 Microsoft 연락처를 사용 하 여 구독을 허용 하세요.
 
-CMK를 사용하면 언제든지 데이터에 대한 액세스를 제어하고 철회할 수 있습니다. Azure Monitor 스토리지는 키 권한의 변경 내용을 항상 1시간 이내에 적용합니다. 또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. 이 데이터는 CMK 구성에 관계없이 Microsoft 키로 암호화된 상태로 유지되지만 SSD 데이터에 대한 제어는  [키 해지](#cmk-kek-revocation)를 준수합니다. 2020년 하반기에는 CMK를 사용하여 SSD 데이터를 암호화하기 위해 노력하고 있습니다.
+[Log Analytics 클러스터 가격 책정 모델](./manage-cost-storage.md#log-analytics-dedicated-clusters) 은 1000 g b/일 수준부터 용량 예약을 사용 합니다.
 
-CMK 기능은 전용 Log Analytics 클러스터에서 제공됩니다. 사용자의 지역에 필요한 용량이 있는지 확인 하려면 구독이 미리 허용 되어야 합니다. CMK 구성을 시작 하기 전에 Microsoft 연락처를 사용 하 여 구독을 허용 하세요.
-
- [Log Analytics 클러스터 가격 책정 모델](./manage-cost-storage.md#log-analytics-dedicated-clusters)에서는 1,000GB/일 수준에서 시작하는 용량 예약을 사용합니다.
+또한 쿼리 엔진이 효율적으로 작동할 수 있도록 지난 14일 동안 수집된 데이터도 핫 캐시(SSD 지원)로 유지됩니다. CMK 구성에 관계 없이이 데이터는 Microsoft 키를 사용 하 여 암호화 된 상태로 유지 되지만 SSD 데이터에 대 한 제어는 [키 해지](#cmk-kek-revocation)를 따릅니다. 2020년 하반기에는 CMK를 사용하여 SSD 데이터를 암호화하기 위해 노력하고 있습니다.
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Azure Monitor에서 CMK가 작동하는 방식
 
@@ -83,7 +81,7 @@ CMK가 구성되면 *클러스터* 리소스와 연결된 작업 영역으로 �
 다음은 그 예입니다.
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-08-01
 Authorization: Bearer eyJ0eXAiO....
 ```
 
@@ -102,12 +100,12 @@ Authorization: Bearer eyJ0eXAiO....
 
 이 구성 절차의 작업 중 일부는 빨리 완료할 수 없으므로 비동기적으로 실행됩니다. 구성에서 REST 요청을 사용 하는 경우 응답은 처음에 허용 되는 경우 *Azure-AsyncOperation* 속성을 사용 하 여 HTTP 상태 코드 200 (OK) 및 헤더를 반환 합니다.
 ```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-03-01-preview"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
 그런 다음 GET 요청을 *Azure AsyncOperation* 헤더 값에 보내서 비동기 작업의 상태를 확인할 수 있습니다.
 ```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
@@ -215,7 +213,7 @@ New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Clust
 ```
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -236,7 +234,7 @@ Content-type: application/json
 
 ID는 만들 때 *클러스터* 리소스에 할당됩니다.
 
-**Response**
+**응답**
 
 200 OK 및 헤더입니다.
 
@@ -246,11 +244,11 @@ Log Analytics 클러스터 프로비저닝을 완료하는 데 시간이 걸리�
 2. GET 요청을 *클러스터* 리소스에 보내고 *provisioningState* 값을 확인합니다. 프로비저닝 중이면 *ProvisioningAccount*이고, 완료되면 *Succeeded*입니다.
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-**Response**
+**응답**
 
 ```json
 {
@@ -309,7 +307,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 > PATCH를 사용 하 여 *클러스터* 리소스 *sku*, *keyVaultProperties* 또는 *billingType* 를 업데이트할 수 있습니다.
 
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -335,7 +333,7 @@ Content-type: application/json
 
 "KeyVaultProperties"에는 Key Vault 키 식별자 세부 정보가 포함됩니다.
 
-**Response**
+**응답**
 
 200 OK 및 헤더입니다.
 키 식별자의 전파를 완료하는 데 몇 분 정도 걸립니다. 업데이트 상태는 다음 두 가지 방법으로 확인할 수 있습니다.
@@ -391,7 +389,7 @@ Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" 
 ```
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -412,7 +410,7 @@ Content-type: application/json
 2. [작업 영역 – 가져오기](/rest/api/loganalytics/workspaces/get) 요청을 보내고 응답을 관찰합니다. 연결된 작업 영역의 "features" 아래에 clusterResourceId가 있습니다.
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
@@ -490,7 +488,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 ```
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-03-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -517,7 +515,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 ```
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-03-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -534,6 +532,13 @@ Content-type: application/json
 
 구성 후에는 새 경고 쿼리가 저장소에 저장 됩니다.
 
+## <a name="customer-lockbox-preview"></a>고객 Lockbox (미리 보기)
+Lockbox는 지원 요청 중에 데이터에 액세스 하는 Microsoft 엔지니어 요청을 승인 하거나 거부할 수 있는 컨트롤을 제공 합니다.
+
+Azure Monitor에서는 Log Analytics 전용 클러스터에 연결 된 작업 영역의 데이터에 대해이 컨트롤을 사용할 수 있습니다. Lockbox 컨트롤은 Log Analytics 전용 클러스터에 저장 된 데이터에 적용 되며,이는 Lockbox로 보호 되는 구독에서 클러스터의 저장소 계정에 격리 된 상태를 유지 합니다.  
+
+[Microsoft Azure 고객 Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) 에 대 한 자세한 정보
+
 ## <a name="cmk-management"></a>CMK 관리
 
 - **리소스 그룹에 대한 모든 *클러스터* 리소스 가져오기**
@@ -543,11 +548,11 @@ Content-type: application/json
   ```
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
-  **Response**
+  **응답**
   
   ```json
   {
@@ -589,7 +594,7 @@ Content-type: application/json
   ```
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
     
@@ -606,7 +611,7 @@ Content-type: application/json
   ```
 
   ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   Content-type: application/json
 
@@ -627,7 +632,7 @@ Content-type: application/json
   [*클러스터* 리소스 업데이트](#update-cluster-resource-with-key-identifier-details)에 따라 새 billingType 값을 제공합니다. 전체 REST 요청 본문을 제공할 필요는 없으며 *billingType*을 포함해야 합니다.
 
   ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   Content-type: application/json
 
@@ -649,11 +654,11 @@ Content-type: application/json
   ```
 
   ```rest
-  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
-  **Response**
+  **응답**
 
   200 OK 및 헤더입니다.
 
@@ -681,7 +686,7 @@ Content-type: application/json
   ```
 
   ```rst
-  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495610"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657481"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "87495610"
 
 이 예제의 논리 앱은 웹 사이트 RSS 피드에 대한 일별 요약을 보냅니다. 앱은 각각의 새 항목에 대한 이메일을 보내는 "Foreach" 루프를 사용합니다.
 
-1. Outlook.com 또는 Office 365 Outlook 계정으로 [이 샘플 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. Outlook.com 계정 또는 회사 또는 학교 계정을 사용 하 여 [이 샘플 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md) .
 
 2. RSS 트리거와 이메일 보내기 작업 사이에 "Foreach" 루프를 추가합니다. 
 
@@ -189,7 +189,7 @@ ms.locfileid: "87495610"
 
    ![변수 속성 설정](./media/logic-apps-control-flow-loops/do-until-loop-set-variable-properties.png)
 
-   | 속성 | Value | Description |
+   | 속성 | 값 | Description |
    | -------- | ----- | ----------- |
    | **이름** | 제한 | 변수의 이름 | 
    | **형식** | 정수 | 변수의 데이터 형식 | 

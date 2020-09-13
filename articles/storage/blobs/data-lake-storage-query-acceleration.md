@@ -1,26 +1,23 @@
 ---
-title: Azure Data Lake Storage 쿼리 가속 (미리 보기)
-description: 쿼리 가속 (미리 보기)은 응용 프로그램 및 분석 프레임 워크에서 처리 작업에 필요한 데이터만 검색 하 여 데이터 처리를 현저 하 게 최적화할 수 있도록 하는 Azure Data Lake Storage에 대 한 새로운 기능입니다.
+title: Azure Data Lake Storage 쿼리 가속
+description: 쿼리 가속을 사용 하면 응용 프로그램 및 분석 프레임 워크에서 처리 작업에 필요한 데이터만 검색 하 여 데이터 처리를 현저 하 게 최적화할 수 있습니다.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82176705"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657640"
 ---
-# <a name="azure-data-lake-storage-query-acceleration-preview"></a>Azure Data Lake Storage 쿼리 가속 (미리 보기)
+# <a name="azure-data-lake-storage-query-acceleration"></a>Azure Data Lake Storage 쿼리 가속
 
-쿼리 가속 (미리 보기)은 응용 프로그램 및 분석 프레임 워크에서 지정 된 작업을 수행 하는 데 필요한 데이터만 검색 하 여 데이터 처리를 현저 하 게 최적화할 수 있도록 하는 Azure Data Lake Storage에 대 한 새로운 기능입니다. 이렇게 하면 저장 된 데이터에 대 한 중요 한 정보를 얻는 데 필요한 시간 및 처리 능력이 줄어듭니다.
-
-> [!NOTE]
-> 쿼리 가속 기능은 공개 미리 보기로 제공 되며 캐나다 중부 및 프랑스 중부 지역에서 사용할 수 있습니다. 제한 사항을 검토 하려면 [알려진 문제](data-lake-storage-known-issues.md) 문서를 참조 하세요. 미리 보기에 등록 하려면 [이 양식을](https://aka.ms/adls/qa-preview-signup)참조 하세요.  
+쿼리 가속을 사용 하면 응용 프로그램 및 분석 프레임 워크에서 지정 된 작업을 수행 하는 데 필요한 데이터만 검색 하 여 데이터 처리를 현저 하 게 최적화할 수 있습니다. 이렇게 하면 저장 된 데이터에 대 한 중요 한 정보를 얻는 데 필요한 시간 및 처리 능력이 줄어듭니다.
 
 ## <a name="overview"></a>개요
 
@@ -57,7 +54,7 @@ SQL을 사용 하 여 쿼리 가속 요청에서 행 필터 조건자 및 열 �
 
 Azure가 업계 최고의 네트워크를 사용 하는 경우에도 처리량과 대기 시간 측면에서 네트워크를 통해 불필요 하 게 데이터를 전송 하는 것은 응용 프로그램 성능에 비용이 많이 듭니다. 저장소 요청 중 원치 않는 데이터를 필터링 하면 쿼리 가속이이 비용을 제거 합니다.
 
-또한 불필요 한 데이터를 구문 분석 하 고 필터링 하는 데 필요한 CPU 로드는 응용 프로그램이 작업을 수행 하기 위해 더 많은 수와 더 큰 Vm을 프로 비전 해야 합니다. 이 계산 부하를 쿼리 가속으로 전송 하면 응용 프로그램에서 상당한 비용 절감을 실현할 수 있습니다.
+또한 불필요 한 데이터를 구문 분석 하 고 필터링 하는 데 필요한 CPU 로드는 응용 프로그램이 작업을 수행 하기 위해 더 크고 더 큰 Vm을 프로 비전 해야 합니다. 이 계산 부하를 쿼리 가속으로 전송 하면 응용 프로그램에서 상당한 비용 절감을 실현할 수 있습니다.
 
 ## <a name="applications-that-can-benefit-from-query-acceleration"></a>쿼리 가속의 이점을 누릴 수 있는 응용 프로그램
 
@@ -77,8 +74,7 @@ Azure Data Lake Storage 서비스 내에서 계산 부하가 증가 함에 따�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [쿼리 가속 등록 양식](https://aka.ms/adls/qa-preview-signup)    
-- [Azure Data Lake Storage 쿼리 가속 (미리 보기)을 사용 하 여 데이터 필터링](data-lake-storage-query-acceleration-how-to.md)
-- [쿼리 가속 SQL 언어 참조 (미리 보기)](query-acceleration-sql-reference.md)
+- [Azure Data Lake Storage 쿼리 가속을 사용 하 여 데이터 필터링](data-lake-storage-query-acceleration-how-to.md)
+- [쿼리 가속 SQL 언어 참조](query-acceleration-sql-reference.md)
 
 

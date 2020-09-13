@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e47cb1180bbc6eaaaffd79b78563ab1b1d5e016a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68bf47f370a57fe277d4ab9679af0b920a0d81ec
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611818"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658117"
 ---
 # <a name="import-data-module"></a>데이터 가져오기 모듈
 
@@ -33,7 +33,7 @@ ms.locfileid: "85611818"
 - [**Datastores**](../how-to-access-data.md)를 통한 Azure 클라우드 저장소)
     - Azure Blob 컨테이너
     - Azure 파일 공유
-    - Azure 데이터 레이크
+    - Azure Data Lake
     - Azure Data Lake Gen2
     - Azure SQL Database
     - Azure PostgreSQL    
@@ -45,7 +45,7 @@ ms.locfileid: "85611818"
 원본 데이터가 변경 되 면 데이터 집합을 새로 고치고 [데이터 가져오기](./import-data.md)를 다시 실행 하 여 새 데이터를 추가할 수 있습니다.
 
 > [!WARNING]
-> 작업 영역이 가상 네트워크에 있는 경우 디자이너의 데이터 시각화 기능을 사용 하도록 데이터 저장소를 구성 해야 합니다. 가상 네트워크에서 데이터 저장소 및 데이터 집합을 사용 하는 방법에 대 한 자세한 내용은 [개인 가상 네트워크를 사용 하 여 &를 학습 하는 동안 네트워크 격리](../how-to-enable-virtual-network.md#machine-learning-studio)를 참조 하세요.
+> 작업 영역이 가상 네트워크에 있는 경우 디자이너의 데이터 시각화 기능을 사용 하도록 데이터 저장소를 구성 해야 합니다. 가상 네트워크에서 데이터 저장소 및 데이터 집합을 사용 하는 방법에 대 한 자세한 내용은 [Azure 가상 네트워크에서 Azure Machine Learning Studio 사용](../how-to-enable-studio-virtual-network.md)을 참조 하세요.
 
 
 ## <a name="how-to-configure-import-data"></a>데이터 가져오기를 구성 하는 방법

@@ -129,7 +129,7 @@ ms.locfileid: "89658163"
 
 이 테이블에는 다음 하위 속성에 대 한 자세한 내용이 포함 되어 있습니다.
 
-| 속성 | Type | 설명 |
+| 속성 | Type | Description |
 |----------|------|-------|
 | `actions` | 개체 컬렉션 | 코드 조각이 실행 되기 전에 실행 되는 작업의 결과 개체입니다. 각 개체에는 키가 동작 이름인 *키-값* 쌍이 있으며이 값은를 사용 하 여 [actions () 함수](../logic-apps/workflow-definition-language-functions-reference.md#actions) 를 호출 하는 것과 같습니다 `@actions('<action-name>')` . 작업 이름은 기본 워크플로 정의에 사용 되는 것과 동일한 동작 이름을 사용 합니다 .이 이름은 작업 이름의 공백 ("")을 밑줄 (_)로 대체 합니다. 이 개체는 현재 워크플로 인스턴스 실행에서 작업 속성 값에 대 한 액세스를 제공 합니다. |
 | `trigger` | Object | 트리거의 결과 개체 이며 [trigger () 함수](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 호출 하는 것과 동일 합니다. 이 개체는 현재 워크플로 인스턴스 실행의 트리거 속성 값에 대 한 액세스를 제공 합니다. |
@@ -219,7 +219,7 @@ ms.locfileid: "89658163"
 
    ![매개 변수 추가](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
-   | 매개 변수 | 설명 |
+   | 매개 변수 | Description |
    |-----------|-------------|
    | **actions** | 이전 작업의 결과를 포함 합니다. [작업 결과 포함](#action-results)을 참조 하세요. |
    | **트리거** | 트리거의 결과를 포함 합니다. [트리거 결과 포함](#trigger-results)을 참조 하세요. |

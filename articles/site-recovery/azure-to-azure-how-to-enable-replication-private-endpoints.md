@@ -1,25 +1,22 @@
 ---
 title: Azure Site Recovery에서 전용 끝점에 대 한 복제를 사용 하도록 설정
 description: 이 문서에서는 Site Recovery를 사용 하 여 한 Azure 지역에서 다른 Azure 지역으로 개인 끝점이 있는 Vm에 대 한 복제를 구성 하는 방법을 설명 합니다.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 16cde1cf43c6463cbbe640d9e0a80a9ea88f1f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 37784c4a294ccf296818f2afb1a8a345cb9d813e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097896"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658260"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>개인 끝점을 사용 하 여 컴퓨터 복제
 
-Azure Site Recovery를 사용 하면 격리 된 가상 네트워크 내에서 컴퓨터를 복제 하기 위해 [Azure 개인 링크](../private-link/private-endpoint-overview.md) 개인 끝점을 사용할 수 있습니다. 복구 자격 증명 모음에 대 한 개인 끝점 액세스 지원은 다음 지역에서 지원 됩니다.
-
-- Azure 상용: 미국 동부, 미국 서 부 2, 미국 동부
-- Azure Government: US Gov 버지니아, US Gov 애리조나, US Gov 텍사스, US DoD 동부, US DoD 중부
+Azure Site Recovery를 사용 하면 격리 된 가상 네트워크 내에서 컴퓨터를 복제 하기 위해 [Azure 개인 링크](../private-link/private-endpoint-overview.md) 개인 끝점을 사용할 수 있습니다. 복구 자격 증명 모음에 대 한 개인 끝점 액세스는 모든 Azure 상용 & 정부 지역에서 지원 됩니다.
 
 이 문서에서는 다음 단계를 수행 하는 데 필요한 지침을 제공 합니다.
 
@@ -209,7 +206,7 @@ Azure Storage에 대 한 개인 끝점을 사용할 수 있습니다. Azure Site
 
    1. 열리는 "레코드 집합 추가" 페이지에서 각 정규화 _된_ 도메인 이름 및 개인 IP에 대 한 항목을 유형 레코드로 추가 합니다. 정규화 된 도메인 이름 및 Ip 목록은 **개요**의 "개인 끝점" 페이지에서 가져올 수 있습니다. 아래 예제에 표시 된 것 처럼 개인 끝점의 정규화 된 첫 번째 도메인 이름이 개인 DNS 영역의 레코드 집합에 추가 됩니다.
 
-      이러한 정규화 된 도메인 이름은 패턴과 일치 합니다.`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      이러한 정규화 된 도메인 이름은 패턴과 일치 합니다. `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="정규화 된 도메인 이름에 대 한 DNS A 형식 레코드를 Azure Portal의 개인 끝점에 추가 하는 페이지를 표시 합니다.":::
 
@@ -220,5 +217,5 @@ Azure Storage에 대 한 개인 끝점을 사용할 수 있습니다. Azure Site
 
 가상 컴퓨터 복제를 위한 개인 끝점을 사용 하도록 설정 했으므로 다음과 같은 다른 페이지에서 추가 및 관련 정보를 참조 하세요.
 
-- [Azure Vm을 다른 Azure 지역에 복제](./azure-to-azure-how-to-enable-replication.md)
+- [Azure VM을 다른 Azure 지역에 복제](./azure-to-azure-how-to-enable-replication.md)
 - [자습서: Azure Vm에 대 한 재해 복구 설정](./azure-to-azure-tutorial-enable-replication.md)

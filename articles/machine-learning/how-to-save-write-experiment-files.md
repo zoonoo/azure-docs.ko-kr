@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 526a4f9f5542074107700b54dcf3d2a591b08b70
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: df254e0766a755754aabcfb8c98a8c140b43cb20
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144042"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650841"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Azure Machine Learning 실험을 위해 파일을 저장 하 고 작성 하는 위치
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,13 +30,13 @@ ms.locfileid: "89144042"
 
 계산 대상 또는 로컬 컴퓨터에서 실험을 시작 하려면 먼저 코드를 실행 해야 하는 종속성 파일 및 데이터 파일과 같이 해당 계산 대상에서 필요한 파일을 사용할 수 있는지 확인 해야 합니다.
 
-Azure Machine Learning는 전체 원본 디렉터리를 복사 하 여 학습 스크립트를 실행 합니다. 업로드 하지 않으려는 중요 한 데이터가 있는 경우 [무시 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) 을 사용 하거나 원본 디렉터리에이 파일을 포함 하지 마세요. 대신 데이터 [저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)를 사용 하 여 데이터에 액세스 합니다.
+Azure Machine Learning는 전체 원본 디렉터리를 복사 하 여 학습 스크립트를 실행 합니다. 업로드 하지 않으려는 중요 한 데이터가 있는 경우 [무시 파일](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) 을 사용 하거나 원본 디렉터리에이 파일을 포함 하지 마세요. 대신 데이터 [저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)를 사용 하 여 데이터에 액세스 합니다.
 
 실험 스냅샷의 스토리지 용량 한도는 300MB 및/또는 2000개 파일입니다.
 
 이러한 이유로 다음을 수행 하는 것이 좋습니다.
 
-* **Azure Machine Learning [데이터 저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)에 파일을 저장 합니다.** 이로 인해 실험 대기 시간 문제가 발생 하지 않으며 원격 계산 대상에서 데이터에 액세스 하는 이점이 있습니다. 즉, 인증 및 탑재는 Azure Machine Learning에서 관리 됩니다. 데이터 저장소를 원본 디렉터리로 지정 하 고 [데이터를 데이터 저장소에서 데이터 액세스 문서의 데이터](how-to-access-data.md) 저장소에 업로드 하는 방법에 대해 자세히 알아보세요.
+* **Azure Machine Learning [데이터 저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)에 파일을 저장 합니다.** 이로 인해 실험 대기 시간 문제가 발생 하지 않으며 원격 계산 대상에서 데이터에 액세스 하는 이점이 있습니다. 즉, 인증 및 탑재는 Azure Machine Learning에서 관리 됩니다. 데이터 저장소를 원본 디렉터리로 지정 하 고 [데이터를 데이터 저장소에서 데이터 액세스 문서의 데이터](how-to-access-data.md) 저장소에 업로드 하는 방법에 대해 자세히 알아보세요.
 
 * **데이터 파일 및 종속성 스크립트가 몇 개만 필요 하 고 데이터 저장소를 사용할 수 없는 경우** 학습 스크립트와 동일한 폴더 디렉터리에 파일을 저장 합니다. 이 폴더 `source_directory` 를 학습 스크립트나 학습 스크립트를 호출 하는 코드에서 직접 지정 합니다.
 

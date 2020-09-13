@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 168aec49dc9b14af57df98ebc4c997f8dfb27c9e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ffd374f650140b5b65988578756b25f5d0fb21cc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228361"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657355"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Azure 보안 기준
 
@@ -28,7 +28,7 @@ Microsoft Azure Machine Learning에 대 한 Azure 보안 기준에는 배포의 
 
 Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 대 한 액세스를 제어 하는 데 사용할 수 있습니다.
 
-- [격리 된 가상 네트워크에서 안전 하 게 실험 및 유추를 실행 하는 방법](how-to-enable-virtual-network.md)
+- [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)
 
 - [Azure Machine Learning 용 Azure 방화벽 뒤에 작업 영역 사용](how-to-access-azureml-behind-firewall.md)
 
@@ -58,7 +58,7 @@ Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 
 
 - [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](how-to-secure-web-service.md)
 
-- [&amp;개인 가상 네트워크를 사용한 학습 유추 중 네트워크 격리](how-to-enable-virtual-network.md)
+- [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -94,7 +94,7 @@ Azure 방화벽은 Azure Machine Learning 작업 영역 및 공용 인터넷에 
 
 **지침**: 악의적인 트래픽을 검색 하 고 차단 하기 위해 각 조직의 네트워크 경계에서 원하는 방화벽 솔루션을 배포 합니다.
 
-페이로드 검사 기능을 사용 하 여 IDS/IPS 기능을 지 원하는 Azure Marketplace의 제안을 선택 합니다.  페이로드 검사가 필요 하지 않은 경우 Azure 방화벽 위협 인텔리전스를 사용할 수 있습니다. Azure 방화벽 위협 인텔리전스 기반 필터링은 알려진 악성 IP 주소 및 도메인과의 트래픽을 경고 및/또는 차단 하는 데 사용 됩니다. IP 주소 및 도메인은 Microsoft 위협 인텔리전스 피드에서 제공됩니다.
+페이로드 검사 기능을 사용 하 여 IDS/IPS 기능을 지 원하는 Azure Marketplace에서 제공 하는 제품을 선택 합니다.  페이로드 검사가 필요 하지 않은 경우 Azure 방화벽 위협 인텔리전스를 사용할 수 있습니다. Azure 방화벽 위협 인텔리전스 기반 필터링은 알려진 악성 IP 주소 및 도메인과의 트래픽을 경고 및/또는 차단 하는 데 사용 됩니다. IP 주소 및 도메인은 Microsoft 위협 인텔리전스 피드에서 제공됩니다.
 
 - [Azure 방화벽을 배포 하는 방법](../firewall/tutorial-firewall-deploy-portal.md)
 
@@ -122,7 +122,7 @@ Azure Machine Learning 서비스는 복잡성을 최소화 하는 데 도움이 
 
 - [서비스 태그를 사용 하는 방법에 대 한 자세한 내용](../virtual-network/service-tags-overview.md)
 
-- [Azure Machine Learning 가상 네트워크](how-to-enable-virtual-network.md)
+- [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -326,7 +326,7 @@ Azure Machine Learning은 Azure Machine Learning의 일반적인 관리 시나�
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: 전용 관리 계정 사용
 
-**지침**: 새 작업 영역을 만들 때 3 개의 기본 역할과 함께 제공 되며, 소유자 계정 사용과 관련 하 여 표준 운영 절차를 만들 Azure Machine Learning.
+**지침**Azure Machine Learning: 새 작업 영역을 만들 때 3 개의 기본 역할과 함께 제공 되며, 소유자 계정 사용에 대 한 표준 운영 절차를 만들 수 있습니다.
 
 Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하 여 관리 계정에 just-in-time 액세스를 사용 하도록 설정할 수도 있습니다. 
 
@@ -402,7 +402,7 @@ Azure AD Privileged Identity Management 및 Azure Resource Manager를 사용 하
  
 Azure에서 역할 액세스의 범위를 여러 수준으로 지정할 수 있습니다. Machine Learning 작업 영역 수준에서 역할을 관리할 수 있습니다. 예를 들어 작업 영역에 대 한 소유자 액세스 권한이 있는 경우 작업 영역을 포함 하는 리소스 그룹에 대 한 소유자 액세스 권한이 없을 수 있습니다. 이를 통해 동일한 리소스 그룹 내에서 역할을 분리 하는 보다 세부적인 액세스 제어를 제공 합니다. 
 
-- [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md) 
+- [Azure Machine Learning 작업 영역에 대한 액세스 관리](how-to-assign-roles.md) 
  
 - [Azure AD 인스턴스를 만들고 구성 하는 방법](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
@@ -527,7 +527,7 @@ Microsoft에서 관리 하는 기본 플랫폼의 경우 Microsoft는 모든 고
 
 **지침**: Azure Machine Learning에서는 Azure Active Directory (Azure AD)를 사용 하 여 Machine Learning 리소스에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD를 사용 하면 Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다.
 
-- [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)
+- [Azure Machine Learning 작업 영역에 대한 액세스 관리](how-to-assign-roles.md)
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -979,7 +979,9 @@ Azure Key Vault를 사용 하 여 학습 스크립트에서 일반 텍스트 대
 
 - [Key Vault를 만드는 방법](/azure/key-vault/quick-create-portal)
 
-- [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](/azure/key-vault/managed-identity)
+- [Key Vault에 인증 하는 방법](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+- [Key Vault 액세스 정책을 할당 하는 방법](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Azure Security Center 모니터링**: 예
 
@@ -990,7 +992,7 @@ Azure Key Vault를 사용 하 여 학습 스크립트에서 일반 텍스트 대
 **지침**: Azure Machine Learning 기본 제공 역할 및 사용자 지정 역할을 만드는 기능을 모두 지원 합니다. 관리 되는 id를 사용 하 여 azure AD에서 자동으로 관리 되는 id를 Azure 서비스에 제공 합니다. 관리 id를 사용 하면 코드에 자격 증명 없이 Key Vault를 포함 하 여 Azure AD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다.
 
  
-- [Azure Machine Learning 작업 영역에 대 한 액세스 관리](how-to-assign-roles.md)
+- [Azure Machine Learning 작업 영역에 대한 액세스 관리](how-to-assign-roles.md)
 
 - [Azure 리소스에 대 한 관리 id를 구성 하는 방법](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 

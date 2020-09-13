@@ -16,12 +16,12 @@ ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a859a10e02a5738ee023db5d653ea14403b9bcad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d6689b4b67b8462e983ae9b111e0fbc60c422b7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358449"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657121"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>다음 단계 및 Azure AD Connect 관리 방법
 이 문서의 운영 절차를 사용하여 조직 요구 사항 및 요건에 부합하도록 Azure Active Directory(Azure AD) Connect를 사용자 지정합니다.  
@@ -30,7 +30,7 @@ ms.locfileid: "85358449"
 기본적으로 설치를 수행한 사용자와 로컬 관리자만 설치된 동기화 엔진을 관리할 수 있습니다. 추가 사용자가 동기화 엔진에 액세스하여 관리할 수 있도록 로컬 서버에서 그룹 이름으로 ADSyncAdmins를 찾아 이 그룹에 추가합니다.
 
 ## <a name="assign-licenses-to-azure-ad-premium-and-enterprise-mobility-suite-users"></a>Azure AD Premium 및 Enterprise Mobility Suite 사용자에게 라이선스 할당
-이제 사용자가 클라우드로 동기화되었으므로, Office 365와 같은 클라우드 앱으로 작업할 수 있도록 라이선스를 할당해야 합니다.
+이제 사용자가 클라우드로 동기화 되었으므로 Microsoft 365와 같은 클라우드 앱으로 이동할 수 있도록 라이선스를 할당 해야 합니다.
 
 ### <a name="to-assign-an-azure-ad-premium-or-enterprise-mobility-suite-license"></a>Azure AD Premium 또는 엔터프라이즈 이동성 제품군 라이선스를 할당하려면
 
@@ -72,7 +72,7 @@ Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 
 
 ![추가 작업 목록](./media/how-to-connect-post-installation/addtasks2.png)
 
-| 추가 작업 | 설명 |
+| 추가 작업 | Description |
 | --- | --- |
 |**개인 정보 설정**|Microsoft와 공유 되는 원격 분석 데이터를 확인 합니다.|
 |**현재 구성 보기**|현재 Azure AD Connect 솔루션을 봅니다.  일반 설정, 동기화된 디렉토리 및 동기화 설정을 포함합니다. |

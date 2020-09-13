@@ -3,12 +3,12 @@ title: Azure Service Fabric에서 지원 되는 클러스터 버전
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 9a2278769d75de19a3006e3a9f39b424dbc02b1f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d6e9bbe3a1a99a8e4ee726cb88796dccb6f6ccbd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205895"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89652057"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -47,6 +47,7 @@ ms.locfileid: "88205895"
 | 7.1.417.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
 | 7.1.428.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
 | 7.1.456.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
+| 7.1.458.* | 7.0.466.* |버전 4.1 보다 작거나 같음 |현재 버전 이므로 종료 날짜 없음 |
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -59,7 +60,7 @@ ms.locfileid: "88205895"
 | Windows Server 1709 | 6.0 |
 | Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
-| Windows Server 2019 | 6.4.654.9590 |
+| 시작 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |
 | Linux Ubuntu 18.04 | 7.1 |
 
@@ -119,4 +120,5 @@ ms.locfileid: "88205895"
 | 7.1 CU1 | 7.1.417.9590 | 7.1.418.1 |
 | 7.1 CU2 | 7.1.428.9590 | 7.1.428.1 |
 | 7.1 CU3 | 7.1.456.9590 | 7.1.452.1 |
+| 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 

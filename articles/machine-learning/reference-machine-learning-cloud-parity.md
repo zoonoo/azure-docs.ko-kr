@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: c899d14b6e0eea8135b996aadfe2a7388a8fcb89
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 886e45e92fb3a882de167b5c59a9b5ee09a9c430
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88861201"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657574"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning 소 버린 클라우드 패리티
 
@@ -85,7 +85,7 @@ ms.locfileid: "88861201"
 | Visual Studio Code 통합                                             | 공개 미리 보기       | 아니요                 | 아니요          |
 | Event Grid 통합                                                     | 공개 미리 보기       | 아니요                 | 아니요          |
 | Azure Machine Learning과 Azure Stream Analytics 통합               | 공개 미리 보기       | 아니요                 | 아니요          |
-| **원인은** |   | | |
+| **레이블 지정** |   | | |
 | 프로젝트 관리 포털 레이블 지정                                        | GA                   | YES                | YES         |
 | Labeler 포털                                                            | GA                   | YES                | YES         |
 | 개인 인력을 사용 하 여 레이블 지정                                          | GA                   | YES                | YES         |
@@ -96,7 +96,7 @@ ms.locfileid: "88861201"
 | 데이터 시트를 구현 하 Azure Machine Learning의 사용자 지정 태그              | GA                   | 아니요                 | 아니요          |
 | 공평 AzureML 통합                                               | 공개 미리 보기       | 아니요                 | 아니요          |
 | Interpretability SDK                                                      | GA                   | YES                | YES         |
-| **교육이** |   | | |
+| **학습** |   | | |
 | 실험 로그 스트리밍                                              | GA                   | YES                | YES         |
 | 보충 학습                                                     | 공개 미리 보기       | 아니요                 | 아니요          |
 | 실험 UI                                                         | GA                   | YES                | YES         |
@@ -136,7 +136,7 @@ ms.locfileid: "88861201"
 * Azure Machine Learning 계산 인스턴스의 경우 24 시간 이상 지속 되는 토큰을 새로 고치는 기능은 Azure Government에서 사용할 수 없습니다.
 * 모델 프로 파일링은 미국 애리조나 지역에서 4 개의 Cpu를 지원 하지 않습니다.   
 * 샘플 노트북은 공용 데이터에 액세스 해야 하는 경우 Azure Government에서 작동 하지 않을 수 있습니다.
-* IP 주소: [VNet 및 강제 터널링](how-to-enable-virtual-network.md#forced-tunneling) 명령에 사용 된 CLI 명령은 ip 범위를 반환 하지 않습니다. 대신 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=57063) 를 사용 하 여 Azure Government 합니다.
+* IP 주소: [VNet 및 강제 터널링](how-to-secure-training-vnet.md#forced-tunneling) 명령에 사용 된 CLI 명령은 ip 범위를 반환 하지 않습니다. 대신 [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=57063) 를 사용 하 여 Azure Government 합니다.
 * 또한 예약 된 파이프라인의 경우 blob 기반 트리거 메커니즘도 제공 합니다. CMK 작업 영역에 대해서는이 메커니즘이 지원 되지 않습니다. CMK 작업 영역에 대 한 blob 기반 트리거를 사용 하도록 설정 하려면 추가 설치를 수행 해야 합니다. 자세한 내용은 [논리 앱에서 기계 학습 파이프라인 실행 트리거](how-to-trigger-published-pipeline.md)를 참조 하세요.
 * 방화벽: Azure Government 영역을 사용 하는 경우 방화벽 설정에 다음과 같은 추가 호스트를 추가 합니다.
 
@@ -198,7 +198,7 @@ ms.locfileid: "88861201"
 | Visual Studio Code 통합                                             | 공개 미리 보기   | 아니요        | 해당 없음        |
 | Event Grid 통합                                                     | 공개 미리 보기   | YES       | 해당 없음        |
 | Azure Machine Learning과 Azure Stream Analytics 통합               | 공개 미리 보기   | 아니요        | 해당 없음        |
-| **원인은** |    | | |
+| **레이블 지정** |    | | |
 | 프로젝트 관리 포털 레이블 지정                                        | GA               | YES       | 해당 없음        |
 | Labeler 포털                                                            | GA               | YES       | 해당 없음        |
 | 개인 인력을 사용 하 여 레이블 지정                                          | GA               | YES       | 해당 없음        |
@@ -209,7 +209,7 @@ ms.locfileid: "88861201"
 | 데이터 시트를 구현 하 Azure Machine Learning의 사용자 지정 태그              | GA               | 아니요        | 해당 없음        |
 | 공평 AzureML 통합                                               | 공개 미리 보기   | 아니요        | 해당 없음        |
 | Interpretability SDK                                                      | GA               | YES       | 해당 없음        |
-| **교육이** |    | | |
+| **학습** |    | | |
 | 실험 로그 스트리밍                                              | GA               | YES       | 해당 없음        |
 | 보충 학습                                                     | 공개 미리 보기   | 아니요        | 해당 없음        |
 | 실험 UI                                                         | GA               | YES       | 해당 없음        |
@@ -236,7 +236,7 @@ ms.locfileid: "88861201"
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * 공용 데이터에 액세스 해야 하는 경우 샘플 노트북이 작동 하지 않을 수 있습니다.
-* IP 주소 범위: [VNet 강제 터널링](how-to-enable-virtual-network.md#forced-tunneling) 명령에 사용 된 CLI 명령은 ip 범위를 반환 하지 않습니다. 대신 azure [중국의 AZURE IP 범위 및 서비스 태그](https://www.microsoft.com//download/details.aspx?id=57062) 를 사용 하세요.
+* IP 주소 범위: [VNet 강제 터널링](how-to-secure-training-vnet.md#forced-tunneling) 명령에 사용 된 CLI 명령은 ip 범위를 반환 하지 않습니다. 대신 azure [중국의 AZURE IP 범위 및 서비스 태그](https://www.microsoft.com//download/details.aspx?id=57062) 를 사용 하세요.
 * 현재는 개인 링크가 사용 하도록 설정 된 작업 영역에서는 계산 인스턴스 미리 보기가 지원 되지 않지만, CI는 모든 AML 지역으로의 서비스 확장을 위한 다음 배포에서 지원 됩니다. Azure Machine Learning
 
 ## <a name="next-steps"></a>다음 단계
