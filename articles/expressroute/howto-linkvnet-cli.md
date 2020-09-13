@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: 회로에 VNet 연결: CLI'
 description: 이 문서는 Resource Manager 배포 모델 및 CLI를 사용하여 VNet(가상 네트워크)을 ExpressRoute 회로에 연결하는 방법을 보여줍니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.author: cherylmc
-ms.openlocfilehash: 3d51409baf9d5ca6ce90f1367ac128d7d47a9757
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.author: duau
+ms.openlocfilehash: ac36e303cbeaf5167b5bbec3cea503c37b276058
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325256"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393210"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 가상 네트워크를 ExpressRoute 회로에 연결
 
@@ -23,7 +23,7 @@ ms.locfileid: "87325256"
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [비디오 - Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> * [PowerShell (클래식)](expressroute-howto-linkvnet-classic.md)
+> * [PowerShell(클래식)](expressroute-howto-linkvnet-classic.md)
 > 
 
 ## <a name="configuration-prerequisites"></a>필수 구성 요소

@@ -2,18 +2,18 @@
 title: 'Azure Express 경로: Microsoft 피어 링을 통해 S2S VPN 구성'
 description: 사이트 간 VPN Gateway를 사용하여 ExpressRoute Microsoft 피어링 회로를 통해 Azure에 대한 IPsec/IKE 연결을 구성합니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 571ed0201fea11f6770ec3aa7e72db10d49e7b01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 366f27a0e2a22e9aa10dda20e105bf644255bdd4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738161"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393142"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5609df554e78996e50dcc57e200bb1dc1282cfb0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230503"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394094"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azure Functions에 대 한 Azure 보안 기준
 
@@ -960,7 +960,9 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 - [App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법](../app-service/overview-managed-identity.md)
 
-- [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](../key-vault/general/managed-identity.md)
+* [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
+
+* [Key Vault 액세스 정책을 할당 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
 - [App Service 및 Azure Functions에 대 한 Key Vault 참조를 사용 합니다.](../app-service/app-service-key-vault-references.md)
 

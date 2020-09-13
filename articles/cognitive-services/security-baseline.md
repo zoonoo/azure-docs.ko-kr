@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3633afa3ed7d3dc9ba3d85bd7542ef9838881c5b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 796ef0b82c15940ce9200e0b50916ca657f10b99
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89225651"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393896"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Cognitive Services에 대 한 Azure 보안 기준
 
@@ -872,7 +872,9 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 * [Key Vault를 만드는 방법](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Key Vault에 인증 하는 방법](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [Key Vault 액세스 정책을 할당 하는 방법](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Azure Security Center 모니터링**: 예
 
@@ -906,7 +908,7 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장할 수도 있습�
 
 *자세한 내용은 [보안 제어: 맬웨어 방어](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense)를 참조하세요.*
 
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙 관리형 맬웨어 방지 소프트웨어 사용
+### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: 중앙 관리 맬웨어 방지 소프트웨어 사용
 
 **지침**: 해당 없음. 이 추천 사항은 컴퓨팅 리소스를 위한 것입니다.
 

@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: 회로에 대 한 NPM 구성'
 description: Azure ExpressRoute 회로에 대해 클라우드 기반 NPM(네트워크 모니터링)을 구성합니다. 여기서는 ExpressRoute 프라이빗 피어링 및 Microsoft 피어링에 대한 모니터링을 다룹니다.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
-ms.author: cherylmc
-ms.openlocfilehash: 05c21f4f3f0af0de524db75ce9e6feb38d98c24e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 0783675450bb6ddf2de7d012a6870f5e4c90408d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738382"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393681"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "84738382"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-다음을 할 수 있습니다.
+다음 작업을 수행할 수 있습니다.
 
 * 다양한 VNet에서 손실 및 지연 모니터링, 경고 설정
 
@@ -96,7 +96,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
   >
 
 1. **설치**를 실행하여 ExpressRoute 모니터링에 사용하려는 각 서버에 에이전트를 설치합니다. 모니터링에 사용하는 서버는 VM 또는 온-프레미스일 수 있으며 인터넷에 액세스할 수 있어야 합니다. 온-프레미스에 하나 이상의 에이전트를 설치하고, Azure에서 모니터링하려는 각 네트워크 세그먼트에 하나의 에이전트를 설치해야 합니다.
-2. **Welcome** 페이지에서 **다음**을 클릭합니다.
+2. **시작** 페이지에서 **다음**을 클릭합니다.
 3. **사용 조건** 페이지에서 라이선스를 읽고 **동의 함**을 클릭 합니다.
 4. **대상 폴더** 페이지에서 기본 설치 폴더를 변경 또는 유지 하 **고 다음을 클릭 합니다.**
 5. **에이전트 설치 옵션** 페이지에서 에이전트를 Azure Monitor 로그 또는 Operations Manager에 연결 하도록 선택할 수 있습니다. 또는 에이전트를 나중에 구성하려는 경우 선택 항목을 비워 둘 수 있습니다. 선택한 후 **다음**을 클릭합니다.

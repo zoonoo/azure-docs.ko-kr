@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 132a6d9a6f5ca702b13e84402ee9bb71eca57d7c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 581e30508b508d5a36f2d5695043ac7bd782a2d5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229704"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394383"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Event Grid에 대 한 Azure 보안 기준
 
@@ -70,7 +70,7 @@ Microsoft Azure Event Grid의 Azure 보안 기준에는 배포의 보안 상태�
 
 선택한 가상 네트워크 에서만 액세스를 제한 하도록 개인 끝점을 구성할 수 있습니다.
 
-DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러한 가상 네트워크에 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다. 자세한 내용은 다음 아티클을 참조하세요. 
+DDoS (분산 서비스 거부) 공격 으로부터 보호 하기 위해 이러한 가상 네트워크에 DDoS Protection 표준을 사용 하도록 설정 합니다. Azure Security Center 통합 위협 인텔리전스를 사용하여 알려진 악성 인터넷 IP 주소 또는 사용하지 않는 인터넷 IP 주소와의 통신을 거부합니다. 자세한 내용은 다음 항목을 참조하세요. 
 
 - [Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점을 구성 하는 방법](configure-private-endpoints.md)
 
@@ -804,7 +804,9 @@ Azure Key Vault와 함께 관리 되는 id를 사용 하 여 클라우드 응용
 
 - [Key Vault를 만드는 방법](/azure/key-vault/quick-create-portal)
 
-- [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](/azure/key-vault/managed-identity)
+- [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
+
+- [Key Vault 액세스 정책을 할당 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center 모니터링**: 예
 

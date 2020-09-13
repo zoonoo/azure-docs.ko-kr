@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87421509326ef8837a9787ed01a70915c7c5aafa
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230741"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393431"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Container Instances에 대 한 Azure 보안 기준
 
@@ -988,7 +988,9 @@ Azure Policy를 사용 하 여 구독에 만들 수 있는 리소스 유형에 �
 
 * [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md)
 
-* [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](../key-vault/general/managed-identity.md)
+* [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
+
+* [Key Vault 액세스 정책을 할당 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
 * [Azure Container Instances에서 관리 ID를 사용하는 방법](./container-instances-managed-identity.md)
 
