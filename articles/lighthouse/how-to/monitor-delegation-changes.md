@@ -1,14 +1,14 @@
 ---
 title: 관리 테 넌 트의 위임 변경 내용 모니터링
 description: 고객 테 넌 트의 위임 작업을 관리 하는 테 넌 트로 모니터링 하는 방법에 대해 알아봅니다.
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 4d9d8b18634f94c355ea7fc0b5c125d631ec419c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19c8cd4fa2b43961c46640a736a91e3fed3ac79d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589744"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567608"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>관리 테 넌 트의 위임 변경 내용 모니터링
 
@@ -48,6 +48,9 @@ ms.locfileid: "88589744"
 - 이 서비스 주체에 게 위임 된 고객 리소스에 대 한 액세스 권한이 없어야 합니다.
 - [인증서를 사용 하 여 인증](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) 하 고 [Azure Key Vault에 안전](../../key-vault/general/best-practices.md)하 게 저장 합니다.
 - 서비스 사용자를 대신 하 여 작업할 수 있는 액세스 권한이 있는 사용자를 제한 합니다.
+
+> [!NOTE]
+> 또한 루트 범위에 있는 모니터링 판독기 Azure 기본 제공 역할을 개별 사용자 또는 사용자 그룹에 할당할 수 있습니다. 사용자가 [Azure Portal에서 직접 위임 정보를 볼](#view-delegation-changes-in-the-azure-portal)수 있도록 하려는 경우에 유용할 수 있습니다. 이 작업을 수행 하는 경우 가능한 사용자 수로 제한 해야 하는 광범위 한 액세스 권한이 있어야 합니다.
 
 다음 방법 중 하나를 사용 하 여 루트 범위를 할당 합니다.
 
@@ -164,6 +167,15 @@ else {
 
 > [!TIP]
 > 이 항목의 서비스 공급자 및 고객을 참조 하지만 [여러 테 넌 트를 관리](../concepts/enterprise.md) 하는 기업은 동일한 프로세스를 사용할 수 있습니다.
+
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Azure Portal에서 위임 변경 내용 보기
+
+루트 범위에서 모니터링 판독기 Azure 기본 제공 역할이 할당 된 사용자는 Azure Portal에서 직접 위임 변경 내용을 볼 수 있습니다.
+
+1. **내 고객** 페이지로 이동한 다음 왼쪽 탐색 메뉴에서 **활동 로그** 를 선택 합니다.
+1. 화면 위쪽의 필터에서 **디렉터리 작업** 이 선택 되어 있는지 확인 합니다.
+
+위임 변경의 목록이 표시 됩니다. **열 편집** 을 선택 하 여 **상태**, **이벤트 범주**, 시간, **타임 스탬프**, **구독**, **이벤트 시작** **시간**, **리소스 그룹**, 리소스 **종류**및 **리소스** 값을 표시 하거나 숨길 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

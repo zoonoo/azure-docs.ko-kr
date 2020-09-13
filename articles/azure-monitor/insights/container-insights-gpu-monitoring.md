@@ -27,7 +27,7 @@ ms.locfileid: "89569699"
 >[!NOTE]
 >Gpu 노드를 사용 하 여 클러스터를 프로 비전 한 후 gpu 작업을 실행 하기 위해 AKS에서 요구 하는 [gpu 드라이버가](../../aks/gpu-cluster.md) 설치 되어 있는지 확인 합니다. 컨테이너 Azure Monitor는 노드에서 실행 되는 GPU 드라이버 pod를 통해 GPU 메트릭을 수집 합니다. 
 
-|메트릭 이름 |메트릭 차원 (태그) |설명 |
+|메트릭 이름 |메트릭 차원 (태그) |Description |
 |------------|------------------------|------------|
 |containerGpuDutyCycle |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName, gpuId, gpuModel, gpuVendor|GPU가 사용 중이 고 컨테이너에 대해 적극적으로 처리 되는 과거 샘플 기간 (60 초) 동안의 시간 비율입니다. 업무 주기는 1에서 100 사이의 숫자입니다. |
 |containerGpuLimits |container.azm.ms/clusterId, container.azm.ms/clusterName, containerName |각 컨테이너는 한 개 이상의 Gpu로 한도를 지정할 수 있습니다. GPU의 일부를 요청 하거나 제한할 수 없습니다. |

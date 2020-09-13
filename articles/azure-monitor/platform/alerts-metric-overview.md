@@ -4,12 +4,12 @@ description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에
 ms.date: 08/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 035b68afed7383956beb13e367aa7a1f6dfcd070
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258429"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595566"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -137,13 +137,15 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 | 서비스 | 공용 Azure | 정부 | 중국 |
 |:--------|:--------|:--------|:--------|
-| 가상 머신  | **예** | 아니요 | 아니요 |
+| 가상 컴퓨터<sup>1</sup>  | **예** | 아니요 | 아니요 |
 | SQL server 데이터베이스 | **예** | **예** | **예** |
 | SQL server 탄력적 풀 | **예** | **예** | **예** |
 | NetApp 파일 용량 풀 | **예** | **예** | **예** |
 | NetApp 파일 볼륨 | **예** | **예** | **예** |
 | Key Vault | **예** | **예** | **예** |
 | Data box edge 장치 | **예** | **예** | **예** |
+
+<sup>1</sup> 가상 컴퓨터 네트워크 메트릭에 대해 지원 되지 않음 (총 네트워크, 총 네트워크, 인바운드 흐름, 아웃 바운드 흐름, 인바운드 흐름 최대 생성 비율, 아웃 바운드 흐름 최대 생성 비율).
 
 세 가지 방법 중 하나로 단일 메트릭 경고 규칙에 따라 모니터링 범위를 지정할 수 있습니다. 예를 들어 virtual machines를 사용 하 여 범위를 다음과 같이 지정할 수 있습니다.  
 

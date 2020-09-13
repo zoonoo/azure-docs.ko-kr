@@ -1,29 +1,26 @@
 ---
-title: Azure Blob Storage에서 변경 피드 처리 (미리 보기) | Microsoft Docs
+title: Azure Blob Storage에서 변경 피드 처리 | Microsoft Docs
 description: .NET 클라이언트 응용 프로그램에서 변경 피드 로그를 처리 하는 방법을 알아봅니다.
 author: normesta
 ms.author: normesta
-ms.date: 06/18/2020
+ms.date: 09/08/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cc70204a56c3a853c6c6c7f0e1573c71854c0f19
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f0e89fdfba852fc056cf48efd1b92daabb272cf0
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018963"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568254"
 ---
-# <a name="process-change-feed-in-azure-blob-storage-preview"></a>Azure Blob Storage에서 변경 피드 처리 (미리 보기)
+# <a name="process-change-feed-in-azure-blob-storage"></a>Azure Blob Storage에서 변경 피드 처리
 
 변경 피드는 저장소 계정의 blob 및 blob 메타 데이터에 발생 하는 모든 변경 내용에 대 한 트랜잭션 로그를 제공 합니다. 이 문서에서는 blob 변경 피드 프로세서 라이브러리를 사용 하 여 변경 피드 레코드를 읽는 방법을 보여 줍니다.
 
-변경 피드에 대 한 자세한 내용은 [Azure Blob Storage에서 피드 변경 (미리 보기)](storage-blob-change-feed.md)을 참조 하세요.
-
-> [!NOTE]
-> 변경 피드는 공개 미리 보기 상태 이며 제한 된 지역에서 사용할 수 있습니다. 알려진 문제 및 제한과 함께이 기능에 대 한 자세한 내용은 [Azure Blob Storage에서 변경 피드 지원](storage-blob-change-feed.md)을 참조 하세요. 변경 피드 프로세서 라이브러리는 현재까지 변경 될 수 있으며,이 라이브러리가 일반 공급 될 때 변경 될 수 있습니다.
+변경 피드에 대 한 자세한 내용은 [Azure Blob Storage 변경 피드](storage-blob-change-feed.md)를 참조 하세요.
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Blob 변경 피드 프로세서 라이브러리 가져오기
 
@@ -219,4 +216,4 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
 
 ## <a name="next-steps"></a>다음 단계
 
-변경 피드 로그에 대해 자세히 알아보세요. [Azure Blob Storage에서 피드 변경 (미리 보기)을](storage-blob-change-feed.md) 참조 하세요.
+변경 피드 로그에 대해 자세히 알아보세요. [Azure Blob Storage에서 변경 피드를](storage-blob-change-feed.md) 참조 하세요.

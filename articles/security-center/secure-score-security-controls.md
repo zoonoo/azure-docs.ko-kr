@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 9594e1ed14b017591ea2c4ddda59ba61feb81b0c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 91935e8c052a9130d0a40ed292ca466bc1ab5427
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272283"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567627"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수 향상
 
@@ -45,17 +45,17 @@ Security Center의 보안 점수 페이지에는 다음이 포함됩니다.
 > 권장 사항 수준에서 이전 버전의 Security Center 제안 사항: 단일 리소스에 대 한 권장 사항에 따라 수정하면 보안 점수가 향상됩니다. 현재, 점수는 컨트롤 내의 단일 리소스에 대한 *모든* 권장 사항에 따라 수정해야만 향상됩니다. 따라서 리소스의 보안이 향상된 경우에만 점수가 향상됩니다.
 
 
-## <a name="accessing-your-secure-score"></a>보안 점수 액세스
+## <a name="access-your-secure-score"></a>보안 점수 액세스
 
 Azure Portal 또는 Azure Security Center REST API를 사용 하 여 프로그래밍 방식으로 전체 보안 점수 뿐만 아니라 구독 당 점수를 확인할 수 있습니다.
 
-### <a name="getting-your-secure-score-from-the-portal"></a>포털에서 보안 점수 얻기
+### <a name="get-your-secure-score-from-the-portal"></a>포털에서 보안 점수 얻기
 
 Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개요 페이지에 표시 되는 첫 번째 항목입니다. 전용 보안 점수 페이지를 클릭하면 구독별로 분석된 점수를 볼 수 있습니다. 단일 구독을 클릭하여 우선 순위가 지정된 권장 사항의 세부 목록과 이러한 권장 사항에 따라 수정할 때 구독의 점수에 미치는 영향을 확인할 수 있습니다.
 
 ![포털에 표시 된 전체 보안 점수](media/secure-score-security-controls/single-secure-score-via-ui.png)
 
-### <a name="getting-your-secure-score-from-the-rest-api"></a>REST API에서 보안 점수 얻기
+### <a name="get-your-secure-score-from-the-rest-api"></a>REST API에서 보안 점수 얻기
 
 [보안 점수 API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (현재 미리 보기 상태)를 통해 점수에 액세스할 수 있습니다. API 메서드는 데이터를 쿼리할 수 있는 유연성을 제공 하 고 시간에 따른 보안 점수에 대 한 자체 보고 메커니즘을 작성 합니다. 예를 들어 **보안 점수** API를 사용 하 여 특정 구독에 대 한 점수를 가져올 수 있습니다. 또한 보안 **점수 컨트롤** API를 사용 하 여 보안 제어 및 구독의 현재 점수를 나열할 수 있습니다.
 
@@ -91,13 +91,22 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
 |**보안 점수**<br>여러 구독|<br>모든 구독에서 모든 리소스에 대한 현재 점수가 추가되고 단일 구독의 경우와 동일한 계산이 수행됩니다.<br><br>여러 구독을 볼 때 보안 점수는 설정된 모든 정책 내의 모든 리소스를 평가하고, 각 보안 컨트롤의 최대 점수에 미치는 조합된 영향을 그룹화합니다.<br>![모든 컨트롤이 사용하도록 설정된 여러 구독의 보안 점수](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>조합된 점수는 평균이 **아니며**, 모든 구독에서 모든 리소스의 상태를 평가한 것입니다.<br>여기서도 권장 사항 페이지로 이동하여 사용할 수 있는 잠재적 포인트를 추가하면 현재 점수(24)와 사용 가능한 최대 점수(60) 간에 차이가 있다는 것을 알 수 있습니다.|
 ||||
 
-## <a name="improving-your-secure-score"></a>보안 점수 향상
+### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>보안 점수 계산에 포함 되는 권장 사항은 무엇입니까?
+
+기본 제공 권장 사항만 보안 점수에 영향을 줍니다.
+
+또한 **미리 보기** 로 플래그가 지정 된 권장 사항은 보안 점수 계산에 포함 되지 않습니다. 가능 하면 항상 재구성 해야 하므로 미리 보기 기간이 종료 되 면 점수를 매길 수 있습니다.
+
+미리 보기 권장 사항의 예는 다음과 같습니다.
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그를 사용 하는 권장 사항":::
+
+
+## <a name="improve-your-secure-score"></a>보안 점수 향상
 
 보안 점수를 향상시키려면 권장 사항 목록에서 보안 권장 사항을 수정하세요. 각 리소스에 대해 각 권장 사항을 수동으로 수정하거나 **빠른 수정!** 옵션(사용 가능한 경우)을 사용하여 권장 사항의 수정 작업을 리소스 그룹에 빠르게 적용할 수 있습니다. 자세한 내용은 [권장 사항에 따라 수정](security-center-remediate-recommendations.md)을 참조하세요.
 
->[!IMPORTANT]
-> 기본 제공 권장 사항만 보안 점수에 영향을 줍니다.
-
+점수를 개선 하 고 사용자가 점수에 부정적인 영향을 주는 리소스를 만들지 않도록 하는 또 다른 방법은 관련 권장 사항에 대해 적용 및 거부 옵션을 구성 하는 것입니다. [권장 사항 적용/거부 권장 사항](prevent-misconfigurations.md)에 대 한 자세한 정보.
 
 ## <a name="security-controls-and-their-recommendations"></a>보안 제어 및 해당 권장 사항
 
@@ -144,7 +153,7 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">보안 구성 수정(최대 점수 4)</p></strong>잘못 구성된 IT 자산은 공격 당할 위험이 높습니다. 자산을 배포하고 마감일을 충족해야 할 때는 기본 강화 작업을 잊는 경우가 많습니다. 보안 구성 오류는 운영 체제 및 네트워크 어플라이언스에서 클라우드 리소스에 이르는 인프라의 모든 수준에서 나타날 수 있습니다.<br>Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마크의 요구 사항과 지속적으로 비교합니다. 조직에 중요한 관련 "규정 준수 패키지"(표준 및 기준)를 구성할 때 나타나는 간격을 토대로 CCEID와 잠재적 보안 영향에 대한 설명을 포함 하는 보안 권장 사항이 제공됩니다.<br>일반적으로 사용되는 패키지는 <a href="https://docs.microsoft.com/azure/security/benchmarks/introduction">Azure Security 벤치마크</a> 및 <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations 벤치마크 버전 1.1.0</a>입니다.</td>
-    <td class="tg-lboi"; width=55%>- Kubernetes 서비스에 Pod 보안 정책을 정의해야 합니다.<br>- 컨테이너 보안 구성의 취약성을 수정해야 합니다.<br>- 머신 보안 구성의 취약성을 수정해야 합니다.<br>- 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>- Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다.<br>- Linux 기반 Azure Arc 컴퓨터 (미리 보기)에 Log Analytics 에이전트를 설치 해야 합니다.<br>- 가상 머신 확장 집합에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- 컨테이너 보안 구성의 취약성을 수정해야 합니다.<br>- 머신 보안 구성의 취약성을 수정해야 합니다.<br>- 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>- Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다.<br>- Linux 기반 Azure Arc 컴퓨터 (미리 보기)에 Log Analytics 에이전트를 설치 해야 합니다.<br>- 가상 머신 확장 집합에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">무단 네트워크 액세스 제한(최대 점수 4)</p></strong>조직 내의 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공합니다. 서브넷의 가상 머신은 모든 리소스와 통신할 수 있습니다. 서브넷 내의 리소스 간에 통신을 제한하려면 네트워크 보안 그룹을 만들고, 서브넷에 연결합니다. 조직은 인바운드 및 아웃바운드 규칙을 만들어 권한이 없는 트래픽을 제한하고 보호할 수 있습니다.</td>
@@ -196,7 +205,7 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
 아니요. 단일 리소스에 대한 모든 권장 사항을 수정할 때까지 변경되지 않습니다. 컨트롤에 대해 최대 점수를 얻으려면 모든 리소스에 대해 모든 권장 사항을 수정해야 합니다.
 
 ### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>이전 보안 점수 환경을 계속 사용할 수 있나요? 
-아니요. 에 대해 나란히 실행 되는 동안에는 쉽게 전환할 수 있습니다. 이전 모델은 이제 사용 되지 않습니다. 
+아닙니다. 에 대해 나란히 실행 되는 동안에는 쉽게 전환할 수 있습니다. 이전 모델은 이제 사용 되지 않습니다. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>권장 사항이 나에게 적용되지 않는 경우 정책에서 사용하지 않도록 설정해도 보안 컨트롤이 이행되고 보안 점수가 업데이트되나요?
 예. 사용자 환경에 적용할 수 없는 경우 권장 사항을 사용하지 않도록 설정하는 것이 좋습니다. 특정 권장 사항을 사용하지 않도록 설정하는 방법에 대한 지침은 [보안 정책 사용 안 함](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies)을 참조하세요.

@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: virtual-machines
 author: cynthn
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81422123"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89570209"
 ---
 Vm을 단일 지역에 배치 하면 인스턴스 간의 물리적인 거리가 줄어듭니다. 단일 가용성 영역에 배치 하는 경우에도 물리적으로 긴밀 하 게 통합 됩니다. 그러나 Azure 공간이 증가 함에 따라 단일 가용성 영역은 여러 물리적 데이터 센터에 걸쳐 있을 수 있으며이로 인해 응용 프로그램에 영향을 주는 네트워크 대기 시간이 발생할 수 있습니다. 
 
@@ -34,7 +34,7 @@ Vm을 단일 지역에 배치 하면 인스턴스 간의 물리적인 거리가 
 
 근접 배치 그룹은 Azure의 새로운 리소스 종류입니다. 다른 리소스와 함께 사용 하기 전에 만들어야 합니다. 만든 후에는 가상 머신, 가용성 집합 또는 가상 머신 확장 집합에 사용할 수 있습니다. 근접 배치 그룹 ID를 제공 하는 계산 리소스를 만들 때 근접 배치 그룹을 지정 합니다. 
 
-기존 리소스를 근접 배치 그룹으로 이동할 수도 있습니다. 리소스를 근접 배치 그룹으로 이동할 때 먼저 자산을 중지 (할당 취소) 하 여 해당 지역에서 다른 데이터 센터로 잠재적으로 다시 배포 되므로 공동 위치 제약 조건을 충족 해야 합니다. 
+기존 리소스를 근접 배치 그룹으로 이동할 수도 있습니다. 리소스를 근접 배치 그룹으로 이동 하는 경우 공동 배치 제약 조건을 충족 하기 위해 지역에서 다른 데이터 센터로 잠재적으로 다시 배포 되므로 먼저 자산을 중지 (할당 취소) 해야 합니다. 
 
 가용성 집합 및 가상 머신 확장 집합의 경우 개별 가상 머신 대신 리소스 수준에서 근접 배치 그룹을 설정 해야 합니다. 
 

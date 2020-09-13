@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/08/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 84a5b1cd7b2229defd4e38a227f75cfbf9ebdd95
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8d1e2454dc4b9a9fbc85d2e5edc5ba3ede33f9c0
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933667"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595654"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 사용량 및 비용 관리    
 
@@ -160,13 +160,16 @@ Log Analytics [제거 API](https://docs.microsoft.com/rest/api/loganalytics/work
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
 
-데이터 형식(테이블)은 대/소문자를 구분합니다.  특정 데이터 형식의 현재 데이터 형식당 보존 기간 설정(이 예제에서는 SecurityEvent)을 가져오려면 다음을 사용합니다.
+데이터 형식(테이블)은 대/소문자를 구분합니다.  특정 데이터 형식의 현재 유형별 보존 설정 (이 예제에서는 SecurityEvent)을 가져오려면 다음을 사용 합니다.
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
 ```
 
-작업 영역에 있는 모든 데이터 형식에 대한 현재 데이터 형식당 보존 기간 설정을 가져오려면 특정 데이터 형식을 생략합니다. 예를 들면 다음과 같습니다.
+> [!NOTE]
+> 보존이 명시적으로 설정 된 경우에만 데이터 형식에 대 한 보존이 반환 됩니다.  보존을 명시적으로 설정 하지 않은 (따라서 작업 영역 보존을 상속 하는) 데이터 형식은이 호출에서 아무것도 반환 하지 않습니다. 
+
+작업 영역에서 데이터 유형별 보존 집합이 있는 모든 데이터 형식에 대 한 현재 유형별 보존 설정을 가져오려면 특정 데이터 형식을 생략 합니다. 예를 들면 다음과 같습니다.
 
 ```JSON
     GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2017-04-26-preview
@@ -575,9 +578,9 @@ union *
 - **경고 조건 정의**는 리소스 대상으로 Log Analytics 작업 영역을 지정합니다.
 - **경고 조건**은 다음을 지정합니다.
    - **신호 이름**은 **로그 검색 사용자 지정**을 선택합니다.
-   - **쿼리** 를 검색 `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` 합니다. 
+   - **쿼리** 를 검색 `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` 합니다. 다른을 원하는 경우 
    - **경고 논리**는 결과 수에 **기반**하고 **조건**은 *0*의 **임계값**을 초과합니다.
-   - 하루에 한 번 실행 **하는 데** *1440* 분 마다 *1440* 분 및 **경고 빈도** 의 기간입니다.
+   - *1440* 분의 **시간** 및 모든 *1440* minutesto에 대 한 **경고 빈도** 는 하루에 한 번 실행 됩니다.
 - **경고 세부 정보 정의**는 다음을 지정합니다.
    - *24 시간 동안 청구 가능한 데이터 볼륨 50 GB 보다 큰* **이름**
    - **심각도**를 *경고*로
@@ -604,7 +607,7 @@ Operation | where OperationCategory == 'Data Collection Status'
 |수집 중지 이유| 해결 방법| 
 |-----------------------|---------|
 |작업 영역의 일일 상한에 도달함|수집이 자동으로 다시 시작될 때까지 대기하거나, 최대 일일 데이터 볼륨 관리의 설명처럼 일일 데이터 볼륨 한도를 늘립니다. 일일 상한 다시 설정 시간은 **일일 상한** 페이지에 표시 됩니다. |
-| 작업 영역에서 데이터 수집 [볼륨 요금](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) 에 도달 했습니다. | 작업 영역에 적용되는 기본 수집 볼륨 속도 임계값은 압축된 경우 500MB이고, 압축되지 않은 경우에는 약 **6GB/분**입니다. 실제 크기는 로그 길이와 압축률에 따라 데이터 형식별로 다를 수 있습니다. 이 임계값은 [진단 설정](diagnostic-settings.md) [데이터 수집기 API](data-collector-api.md) 또는 에이전트를 사용하여 Azure 리소스에서 전송되었는지 여부에 관계없이 모든 수집 데이터에 적용됩니다. 작업 영역에 전송되는 데이터의 볼륨 속도가 작업 영역에 구성된 임계값의 80%를 초과할 경우 임계값을 계속 초과하는 동안 6시간마다 작업 영역의 *Operation* 테이블에 이벤트가 계속 전송됩니다. 수집 볼륨 속도가 임계값을 초과할 경우 일부 데이터가 삭제되고, 임계값을 계속 초과하는 동안 6시간마다 작업 영역의 *Operation* 테이블로 이벤트가 전송됩니다. 수집 볼륨 속도가 임계값을 계속 초과하거나 곧 도달할 것으로 예상되는 경우 지원 요청을 열어 작업 영역에 대한 임계값 상향 조정을 요청할 수 있습니다. 작업 영역에서 이러한 이벤트에 대해 알리려면 0 보다 큰 결과 수, 5 분의 평가 기간 및 5 분의 빈도를 기준으로 경고 논리를 사용 하 여 [로그 경고 규칙](alerts-log.md) 을 만듭니다. 수집 볼륨 비율이 임계값의 80%에 도달 `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` 했습니다. 수집 볼륨 비율이 임계값에 도달 `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` 했습니다. |
+| 작업 영역에서 데이터 수집 [볼륨 요금](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) 에 도달 했습니다. | 진단 설정을 사용하여 Azure 리소스에서 전송된 데이터에 대한 기본 수집 볼륨 속도 제한은 대략 작업 영역당 6GB/분입니다. 실제 크기는 로그 길이와 압축 비율에 따라 데이터 형식마다 달라질 수 있으므로 이 값은 근사값입니다. 이 제한은 에이전트 또는 데이터 수집기 API에서 전송된 데이터에는 적용되지 않습니다. 데이터를 더 높은 속도로 단일 작업 영역으로 보내는 경우 일부 데이터가 삭제되고, 임계값을 계속 초과하는 동안 6시간마다 이벤트가 작업 영역에서 Operation 테이블로 전송됩니다. 수집 볼륨이 계속해서 속도 제한을 초과하거나 곧 도달할 것으로 예상되는 경우 LAIngestionRate@microsoft.com으로 이메일을 보내거나 지원 요청을 열어 작업 영역에 대한 증가를 요청할 수 있습니다. 쿼리 `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"`를 통해 데이터 수집 속도 제한을 나타내는 이벤트를 찾을 수 있습니다. |
 |레거시 무료 가격 책정 계층의 일일 한도에 도달함 |수집이 다음 날에 자동으로 다시 시작될 때까지 대기 또는 유료 가격 책정 계층으로 변경합니다.|
 |Azure 구독이 다음으로 인해 일시 중단된 상태:<br> 평가판 종료<br> Azure 암호 만료<br> 월별 지출 한도 도달(예: MSDN 또는 Visual Studio 구독에서)|유료 구독으로 전환<br> 한도 제거 또는 한도가 재설정될 때까지 대기|
 

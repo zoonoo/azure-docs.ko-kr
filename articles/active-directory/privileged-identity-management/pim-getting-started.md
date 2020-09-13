@@ -14,20 +14,20 @@ ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bad5b0256ee445767689ea2752e918a1fbf5fae
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ea8bf2407fb533870495dc501a2d740bff9ee968
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816000"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567353"
 ---
 # <a name="start-using-privileged-identity-management"></a>Privileged Identity Management 사용 시작
 
 이 문서에서는 PIM (Privileged Identity Management)을 사용 하도록 설정 하 고 사용을 시작 하는 방법을 설명 합니다.
 
-PIM (Privileged Identity Management)을 사용 하 여 Azure Active Directory (Azure AD) 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. PIM을 사용 하면 Azure 리소스, Azure AD 리소스 및 기타 Microsoft 온라인 서비스 (예: Office 365 또는 Microsoft Intune)에 대 한 필요 시 액세스 및 just-in-time 액세스를 제공할 수 있습니다.
+PIM (Privileged Identity Management)을 사용 하 여 Azure Active Directory (Azure AD) 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. PIM을 사용 하면 Azure 리소스, Azure AD 리소스 및 Microsoft 365 또는 Microsoft Intune와 같은 기타 Microsoft 온라인 서비스에 필요에 따라 액세스를 제공할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 Privileged Identity Management를 사용 하려면 다음 라이선스 중 하나가 있어야 합니다.
 

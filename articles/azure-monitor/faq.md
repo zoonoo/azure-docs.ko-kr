@@ -7,16 +7,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 8ace82147f17e6ee7e888553c58f32ec6e5ba271
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782943"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569206"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
-이 Microsoft FAQ는 Azure Monitor에 대한 일반적인 질문과 대답 목록입니다.
+이 Microsoft FAQ는 Azure Monitor에 대한 일반적인 질문과 대답 목록입니다. 추가 질문이 있으면 [토론 포럼](https://docs.microsoft.com/answers/questions/topics/single/24223.html) 으로 이동 하 여 질문을 게시 합니다. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
+
 
 ## <a name="general"></a>일반
 
@@ -98,7 +99,7 @@ Azure Monitor에서 수집된 모든 로그 데이터는 Log Analytics 작업 �
 ### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>VM에서 Log Analytics를 열면 "이 구독에 대한 'Microsoft.Insights' 리소스 공급자를 등록하여 이 쿼리를 사용하도록 설정하세요."라는 오류가 표시되는 이유는 무엇인가요? 
 대부분 리소스 공급자는 자동으로 등록되지만 일부 리소스 공급자는 수동으로 등록해야 할 수도 있습니다. 등록 범위는 항상 해당 구독입니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요.
 
-### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>VM에서 Log Analytics를 열면 '액세스 권한 없음' 오류 메시지가 표시되는 이유는 무엇인가요? 
+### <a name="why-am-i-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>VM에서 Log Analytics를 열 때 액세스 권한 없음 오류 메시지가 표시 되는 이유는 무엇 인가요? 
 VM 로그를 보려면 VM 로그를 저장하는 작업 영역에 대한 읽기 권한을 부여 받아야 합니다. 이런 경우 관리자가 Azure에서 내게 권한을 부여해 줘야 합니다.
 
 ## <a name="metrics"></a>메트릭
@@ -523,9 +524,54 @@ Azure 경고는 메트릭에 대해서만 설정됩니다. 이벤트가 발생�
 
 이 시나리오에서는 역방향 프록시 계층에서 문제가 발생 하 여 502 또는 503 응답이 클라이언트에 반환 될 수 있으며이는 Application Insights 하 여 기본으로 캡처되지 않습니다. 이 계층에서 문제를 검색 하려면 역방향 프록시에서 Log Analytics로 로그를 전달 하 고 502/503 응답을 확인 하는 사용자 지정 규칙을 만들어야 할 수 있습니다. 502 및 503 오류의 일반적인 원인에 대해 자세히 알아보려면 ["502 잘못 된 게이트웨이" 및 "503 Service를 사용할 수 없음"에 대 한 Azure App Service 문제 해결 문서](../app-service/troubleshoot-http-502-http-503.md)를 참조 하세요.     
 
-## <a name="azure-monitor-for-containers"></a>컨테이너용 Azure Monitor
 
-Microsoft FAQ는 컨테이너용 Azure Monitor에 대한 질문과 대답 목록입니다. 솔루션에 대한 추가 질문이 있으면 [토론 포럼](https://feedback.azure.com/forums/34192--general-feedback)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
+## <a name="opentelemetry"></a>OpenTelemetry
+
+### <a name="what-is-opentelemetry"></a>OpenTelemetry 정의
+
+관찰성에 대 한 새로운 오픈 소스 표준입니다. [https://opentelemetry.io/](https://opentelemetry.io/)에서 자세히 알아보세요.
+
+### <a name="why-is-microsoft--azure-monitor-investing-in-opentelemetry"></a>Microsoft/Azure Monitor OpenTelemetry에 투자 하는 이유는 무엇 인가요?
+
+Microsoft는 다음과 같은 세 가지 이유로 고객에 게 더 나은 서비스를 제공 합니다.
+   1. 더 많은 고객 시나리오에 대 한 지원을 사용 하도록 설정 합니다.
+   2. 공급 업체 잠금에 대 한 걱정 없이 계측 합니다.
+   3. 고객 투명성 및 참여를 향상 시킵니다.
+
+또한 [오픈 소스를 수용](https://opensource.microsoft.com/)하기 위해 Microsoft의 전략에 부합 합니다.
+
+### <a name="what-additional-value-does-opentelemetry-give-me"></a>어떤 추가 값이 OpenTelemetry 제공 하나요?
+
+위의 이유 외에도, OpenTelemetry는 규모에 따라 효율적 이며 다양 한 언어에서 일관 된 디자인/구성을 제공 합니다.
+
+### <a name="how-can-i-test-out-opentelemetry"></a>OpenTelemetry를 테스트 하려면 어떻게 해야 하나요?
+
+에 등록 하 여 Azure Monitor Application Insights 초기 도입자 커뮤니티에 참여 하세요 [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) .
+
+### <a name="what-does-ga-mean-in-the-context-of-opentelemetry"></a>OpenTelemetry의 컨텍스트에서 GA는 무엇을 의미 하나요?
+
+OpenTelemetry 커뮤니티는 [여기](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302)에서 일반적으로 사용 가능한 (GA)를 정의 합니다. 그러나 OpenTelemetry "GA"는 기존 Application Insights Sdk의 기능 패리티를 의미 하지 않습니다. Azure Monitor는 OpenTelemetry Sdk가 기능 완성도에 도달할 때까지 [사전 집계 된 메트릭](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics), [라이브 메트릭](app/live-stream.md), [적응 샘플링](app/sampling.md#adaptive-sampling), [프로파일러](app/profiler-overview.md)및 [스냅숏 디버거와](app/snapshot-debugger.md) 같은 기능을 필요로 하는 고객을 위해 현재 Application Insights sdk를 계속 권장 합니다.
+
+### <a name="can-i-use-preview-builds-in-production-environments"></a>프로덕션 환경에서 Preview 빌드를 사용할 수 있나요?
+
+권장 되지 않습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 을 참조 하세요.
+
+### <a name="whats-the-difference-between-opentelemetry-sdk-and-auto-instrumentation"></a>OpenTelemetry SDK와 자동 계측의 차이점은 무엇 인가요?
+
+OpenTelemetry 사양은 [SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk)를 정의 합니다. 간단히 말해서 "SDK"는 응용 프로그램의 다양 한 구성 요소에서 원격 분석 데이터를 수집 하 고 내보내기를 통해 Azure Monitor 데이터를 전송 하는 언어 관련 패키지입니다.
+
+자동 계측 (바이트 코드 삽입, 코드 없는 또는 에이전트 기반)의 개념은 코드를 변경 하지 않고 응용 프로그램을 계측 하는 기능을 의미 합니다. 예를 들어 자세한 내용은 [OpenTelemetry Java 자동 계측 추가](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/master/README.md) 정보를 확인 하세요.
+
+### <a name="whats-the-opentelemetry-collector"></a>OpenTelemetry 수집기는 무엇 인가요?
+
+OpenTelemetry 수집기는 [GitHub 추가 정보](https://github.com/open-telemetry/opentelemetry-collector#opentelemetry-collector)에 설명 되어 있습니다. 현재 Microsoft는 OpenTelemetry 수집기를 활용 하지 않으며 Azure Monitor의 Application Insights에 보내는 직접 내보내기에 의존 합니다.
+
+### <a name="whats-the-difference-between-opencensus-and-opentelemetry"></a>OpenCensus와 OpenTelemetry의 차이점은 무엇 인가요?
+
+[OpenCensus](https://opencensus.io/) 은 [OpenTelemetry](https://opentelemetry.io/)의 기반이입니다. Microsoft에서는 [OpenTracing](https://opentracing.io/) 및 OpenCensus를 통합 하 여 전 세계에 단일 관찰성 표준으로 OpenTelemetry를 만듭니다. Azure Monitor의 현재 [프로덕션-권장 되는 PYTHON SDK](app/opencensus-python.md) 는 OpenCensus을 기반으로 하지만 결국 모든 Azure Monitor의 Sdk는 OpenTelemetry를 기반으로 합니다.
+
+
+## <a name="azure-monitor-for-containers"></a>컨테이너용 Azure Monitor
 
 ### <a name="health-feature-is-in-private-preview"></a>상태 기능이 공개 미리 보기에 있음
 
@@ -533,7 +579,7 @@ Microsoft FAQ는 컨테이너용 Azure Monitor에 대한 질문과 대답 목록
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>[노드] 보기 아래의 *기타 프로세스*에서 나타내는 것은 무엇인가요?
 
-**기타 프로세스**는 노드의 리소스 사용량이 많은 근본 원인을 명확히 이해하는 데 도움을 주기 위한 것입니다. 이렇게 하면 컨테이너화된 프로세스와 컨테이너화되지 않은 프로세스 간의 사용량을 구분할 수 있습니다.
+**다른 프로세스** 는 노드의 리소스 사용량이 많은 근본 원인을 명확 하 게 이해 하는 데 도움을 주기 위한 것입니다. 이렇게 하면 컨테이너화된 프로세스와 컨테이너화되지 않은 프로세스 간의 사용량을 구분할 수 있습니다.
 
 이러한 **기타 프로세스**는 무엇일까요? 
 
@@ -563,7 +609,7 @@ ciprod12042019 버전 이상의 에이전트에서는 수집된 로그 데이터
 
 다른 테이블을 조인하여 이러한 속성 값을 결과에 포함시킵니다.
 
-ContainerID 속성에 조인하여 ```ContainerInventory``` 테이블의 Image 및 ImageTag 속성을 포함하도록 쿼리를 수정합니다. ContainerID 속성에 조인하여 KubepodInventory 테이블의 ContaineName 필드에서 Name 속성(이전에는 ```ContainerLog``` 테이블에 표시됨)을 포함할 수 있습니다. 이는 추천되는 옵션입니다.
+ContainerID 속성에 조인하여 ```ContainerInventory``` 테이블의 Image 및 ImageTag 속성을 포함하도록 쿼리를 수정합니다. ```ContainerLog```ContainerID 속성에 조인 하 여 KubepodInventory 테이블의 ContaineName 필드에서 이름 속성 (이전에 테이블에 표시 된 대로)을 포함할 수 있습니다. 이 옵션이 권장 옵션입니다.
 
 다음 예제는 조인을 사용하여 이러한 필드 값을 가져오는 방법을 설명하는 자세한 쿼리 샘플입니다.
 
@@ -660,12 +706,12 @@ LogEntry : ({"Hello": "This example has multiple lines:","Docker/Moby": "will no
 
 컨테이너용 Azure Monitor를 AKS 클러스터에 사용하도록 설정한 후에 클러스터를 업그레이드하려고 할 때 클러스터에서 해당 데이터를 보낸 Log Analytics 작업 영역을 삭제하면 업그레이드 작업이 실패합니다. 이 문제를 해결하려면 모니터링을 사용하지 않도록 설정한 다음, 구독의 다른 유효한 작업 영역을 참조하여 사용하도록 다시 설정해야 합니다. 클러스터 업그레이드를 다시 수행하려고 하면 성공적으로 처리되고 완료됩니다.  
 
-### <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>에이전트에 대해 열고 허용 목록에 추가해야 하는 포트와 도메인은 무엇인가요?
+### <a name="which-ports-and-domains-do-i-need-to-openallow-for-the-agent"></a>에이전트를 열고 허용 해야 하는 포트 및 도메인은 무엇 인가요?
 
 Azure, Azure US Government 및 Azure 중국 21Vianet 클라우드를 사용하여 컨테이너화된 에이전트에 필요한 프록시 및 방화벽 구성 정보는 [네트워크 방화벽 요구 사항](insights/container-insights-onboard.md#network-firewall-requirements)을 참조하세요.
 
+
 ## <a name="azure-monitor-for-vms"></a>VM용 Azure Monitor
-Microsoft FAQ는 VM용 Azure Monitor에 대한 질문과 대답 목록입니다. 솔루션에 대한 추가 질문이 있으면 [토론 포럼](https://feedback.azure.com/forums/34192--general-feedback)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>기존 작업 영역에 온보딩할 수 있나요?
 가상 컴퓨터가 이미 Log Analytics 작업 영역에 연결 되어 있는 경우 지원 되는 [지역](insights/vminsights-configure-workspace.md#supported-regions)중 하나에 있는 경우 VM용 Azure Monitor에 등록할 때 해당 작업 영역을 계속 사용할 수 있습니다.

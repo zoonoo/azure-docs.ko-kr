@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/08/2020
 ms.author: b-juche
-ms.openlocfilehash: e7bdf6ce35e2649a068de234b4b52e13efe72c44
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ca17dccd8b17a2e0ff7e9b960c74b4c5a36018f5
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690547"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567322"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Azure NetApp Files를 사용하는 솔루션 아키텍처
 이 문서에서는 Azure NetApp Files 사용을 위한 솔루션 아키텍처를 이해 하는 데 도움이 되는 모범 사례에 대 한 참조를 제공 합니다.  
@@ -50,8 +50,8 @@ ms.locfileid: "88690547"
 ### <a name="sql-server"></a>SQL Server
 
 * [Azure NetApp Files를 사용 하 여 SMB를 통해 SQL Server 배포](https://www.youtube.com/watch?v=x7udfcYbibs)
-* [Azure NetApp Files를 사용 하 여 SMB를 통해 SQL Server Always On 장애 조치 (Failover) 클러스터 배포](https://www.youtube.com/watch?v=zuNJ5E07e8Q)
-* [Azure NetApp Files를 사용 하 여 Always On 가용성 그룹 배포](https://www.youtube.com/watch?v=y3VQmzzeyvc)
+<!-- * [Deploy SQL Server Always-On Failover Cluster over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q) --> 
+<!-- * [Deploy Always-On Availability Groups with Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc) --> 
 
 ## <a name="sap-on-azure-solutions"></a>Azure의 SAP 솔루션
 
@@ -89,7 +89,7 @@ ms.locfileid: "88690547"
 * [Windows Virtual Desktop에서 Azure NetApp Files를 사용할 경우의 이점](solutions-windows-virtual-desktop.md)
 * [Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
-* [엔터프라이즈 규모의 Windows 가상 데스크톱](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+* [엔터프라이즈 규모의 Windows Virtual Desktop](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 
 ## <a name="hpc-solutions"></a>HPC 솔루션
 

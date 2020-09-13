@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 8/20/2020
 ms.subservice: alerts
-ms.openlocfilehash: 05586f95de03b09b95eb589812935970126b12f2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 8a608e43ef41abfb7002811df5629eb789c3ae22
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661319"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595583"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor의 메트릭 경고에 대해 지원되는 리소스
 
@@ -81,7 +81,7 @@ ms.locfileid: "88661319"
 |Microsoft.NetApp/netAppAccounts/capacityPools | 예 | 예 | [Azure NetApp 용량 풀](./metrics-supported.md#microsoftnetappnetappaccountscapacitypools) |
 |Microsoft.NetApp/netAppAccounts/capacityPools/volumes | 예 | 예 | [Azure NetApp 볼륨](./metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) |
 |Microsoft.Network/applicationGateways | 예 | 아니요 | [응용 프로그램 게이트웨이](./metrics-supported.md#microsoftnetworkapplicationgateways) |
-|Microsoft.Network/azurefirewalls | 예 | 아니요 | [시계](./metrics-supported.md#microsoftnetworkazurefirewalls) |
+|Microsoft.Network/azurefirewalls | 예 | 아니요 | [방화벽](./metrics-supported.md#microsoftnetworkazurefirewalls) |
 |Microsoft.Network/dnsZones | 아니요 | 아니요 | [DNS 영역](./metrics-supported.md#microsoftnetworkdnszones) |
 |Microsoft.Network/expressRouteCircuits | 해당 없음 | 아니요 |[ExpressRoute 회로](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/loadBalancers (표준 SKU 전용)| 예| 아니요 | [부하 분산 장치](./metrics-supported.md#microsoftnetworkloadbalancers) |
@@ -112,7 +112,7 @@ ms.locfileid: "88661319"
 |Microsoft.Web/sites | 예 | 아니요 | [App Services](./metrics-supported.md#microsoftwebsites-excluding-functions) 및 [Functions](./metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | 예 | 아니요 | [App Service 슬롯](./metrics-supported.md#microsoftwebsitesslots)|
 
-<sup>1</sup> 플랫폼 메트릭에만 지원 됩니다 (사용자 지정 메트릭은 아님).
+<sup>1</sup> 가상 컴퓨터 네트워크 메트릭 (총 네트워크, 총 네트워크, 인바운드 흐름, 아웃 바운드 흐름, 인바운드 흐름 최대 생성 비율, 아웃 바운드 흐름 최대 생성 비율) 및 사용자 지정 메트릭은 지원 되지 않습니다.
 
 ## <a name="payload-schema"></a>페이로드 스키마
 
