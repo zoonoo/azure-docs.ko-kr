@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: f05804785435824970d90410d9a1c9490a3d6c06
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 191ea575ed8ce84d2d96227bf93cc4890edd00de
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654721"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400486"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 OS 디스크를 복구 VM에 연결하는 방식으로 Linux VM 문제 해결
 Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목으로 인해 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Linux VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure CLI를 사용하는 방법을 자세히 설명합니다. 
@@ -76,28 +76,25 @@ az snapshot create --resource-group myResourceGroupDisk --source "$osdiskid" --n
 
 ```azurecli
 #Provide the name of your resource group
-$resourceGroup=myResourceGroup
+$resourceGroup="myResourceGroup"
 
 #Provide the name of the snapshot that will be used to create Managed Disks
-$snapshot=mySnapshot
+$snapshot="mySnapshot"
 
 #Provide the name of the Managed Disk
-$osDisk=myNewOSDisk
+$osDisk="myNewOSDisk"
 
 #Provide the size of the disks in GB. It should be greater than the VHD file size.
 $diskSize=128
 
 #Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
-$storageType=Premium_LRS
+$storageType="Premium_LRS"
 
 #Provide the OS type
-$osType=linux
-
-#Provide the name of the virtual machine
-$virtualMachine=myVM
+$osType="linux"
 
 #Get the snapshot Id 
-$snapshotId=(az snapshot show --name $snapshot --resource-group $resourceGroup --query [id] -o tsv)
+$snapshotId=(az snapshot show --name $snapshot --resource-group $resourceGroup --query id -o tsv)
 
 # Create a new Managed Disks using the snapshot Id.
 
@@ -116,10 +113,10 @@ az disk create --resource-group $resourceGroup --name $osDisk --sku $storageType
 
 ```azurecli
 # Get ID of the OS disk that you just created.
-$myNewOSDiskid=(az vm show -g myResourceGroupDisk -n myNewOSDisk --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+$myNewOSDiskid=(az disk show -g $resourceGroup -n $osDisk --query id -o tsv)
 
 # Attach the disk to the troubleshooting VM
-az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 --sku Standard_LRS --vm-name MyTroubleshootVM
+az vm disk attach --disk $myNewOSDiskid --resource-group $resourceGroup --size-gb $diskSize --sku $storageType --vm-name MyTroubleshootVM
 ```
 ## <a name="mount-the-attached-data-disk"></a>연결된 데이터 디스크 탑재
 
@@ -196,7 +193,7 @@ Azure CLI를 사용 하 여 OS 디스크를 교환할 수 있습니다. VM을 �
 az vm stop -n myVM -g myResourceGroup
 
 # Get ID of the OS disk that is repaired.
-$myNewOSDiskid=(az vm show -g myResourceGroupDisk -n myNewOSDisk --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+$myNewOSDiskid=(az vm show -g $resourceGroup -n $osDisk --query id -o tsv)
 
 # Change the OS disk of the affected VM to "myNewOSDisk"
 az vm update -g myResourceGroup -n myVM --os-disk $myNewOSDiskid

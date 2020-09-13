@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 6bf82e85bfe36466010ce1cc8914bbd1221fe51a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7a0b2afa8b566ec82fc638291c43f3e0419f654c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267856"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400690"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -70,7 +70,7 @@ Debian 7과 같이 주 버전만 나와 있는 배포는 모든 부 버전에 �
 * **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](./update-linux-agent.md)에 따라 업데이트합니다.
 * **Azure CLI** 머신에 [Azure CLI 환경을 설치](/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
-* 데이터를 저장할 기존 Azure 구독 및 기존 스토리지 계정
+* 기존 Azure 구독 및 데이터를 저장할 기존 범용 저장소 계정.  범용 저장소 계정은 필요한 테이블 저장소를 지원 합니다.  Blob 저장소 계정이 작동 하지 않습니다.
 
 ### <a name="sample-installation"></a>샘플 설치
 

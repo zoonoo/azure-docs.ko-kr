@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: abc8ee3b79b43676ce114094af5614b1a2d945bf
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a57473a26d5fe809274f14c8767356914e0d4962
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230996"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400520"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Automation의 Azure 보안 기준
 
@@ -1042,7 +1042,9 @@ Hybrid Runbook Worker 기능을 사용 하는 경우 클라우드 또는 온-프
 
 * [Key Vault를 만드는 방법](../key-vault/secrets/quick-create-portal.md)
 
-* [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](../key-vault/general/managed-identity.md)
+* [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
+
+* [Key Vault 액세스 정책을 할당 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

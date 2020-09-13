@@ -5,18 +5,18 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 5407c38f33d167ff5114cd55878e3470e7248d71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 976cb096ca654c38d7c4c2534bc6938026be5771
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77188710"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397035"
 ---
-# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB의 TTL(Time to Live) 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB의 TTL(Time to Live)
 
-TTL ( **time To Live** ) 또는 TTL을 사용 하 Azure Cosmos DB는 특정 기간이 끝난 후 컨테이너에서 항목을 자동으로 삭제 하는 기능을 제공 합니다. 기본적으로 컨테이너 수준에서 TTL(Time to Live)을 설정하거나 항목별 기준으로 값을 재정의할 수 있습니다. 컨테이너 또는 항목 수준에서 TTL을 설정하면 Azure Cosmos DB는 마지막으로 수정한 시간으로부터 해당 시간이 지나면 이러한 항목이 자동으로 제거합니다. TTL(Time to Live) 값은 초 단위로 구성됩니다. TTL을 구성할 때 시스템은 클라이언트 응용 프로그램에서 명시적으로 실행 되는 삭제 작업이 없어도 TTL 값을 기준으로 만료 된 항목을 자동으로 삭제 합니다.
+TTL ( **time To Live** ) 또는 TTL을 사용 하 Azure Cosmos DB는 특정 기간이 끝난 후 컨테이너에서 항목을 자동으로 삭제 하는 기능을 제공 합니다. 기본적으로 컨테이너 수준에서 TTL(Time to Live)을 설정하거나 항목별 기준으로 값을 재정의할 수 있습니다. 컨테이너 또는 항목 수준에서 TTL을 설정하면 Azure Cosmos DB는 마지막으로 수정한 시간으로부터 해당 시간이 지나면 이러한 항목이 자동으로 제거합니다. TTL(Time to Live) 값은 초 단위로 구성됩니다. TTL을 구성할 때 시스템은 클라이언트 응용 프로그램에서 명시적으로 실행 되는 삭제 작업이 없어도 TTL 값을 기준으로 만료 된 항목을 자동으로 삭제 합니다. TTL의 최대값은 2147483647입니다.
 
 만료 된 항목 삭제는 사용자 요청에서 사용 되지 않은 요청 단위 인 왼쪽 위에 있는 [요청 단위](request-units.md)를 사용 하는 백그라운드 작업입니다. TTL이 만료 된 후에도 컨테이너가 요청으로 오버 로드 되 고 충분 한 사용 가능 공간이 없는 경우 데이터 삭제가 지연 됩니다. 삭제 작업을 수행 하는 데 사용할 수 있는 충분 한 RUs가 있는 경우 데이터가 삭제 됩니다. 데이터 삭제는 지연 되지만 TTL이 만료 된 후에는 모든 API에 의해 데이터가 반환 되지 않습니다.
 
@@ -46,7 +46,7 @@ Time to live 값은 초 단위로 설정 되며 항목이 마지막으로 수정
 
 * 컨테이너에서 TTL이 -1로 설정된 경우 TTL(Time to Live)이 n으로 설정된 이 컨테이너의 항목은 n초 후에 만료되고 나머지 항목은 만료되지 않습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 이 섹션에서는 컨테이너와 항목에 할당 된 ttl (time to live) 값이 다른 몇 가지 예를 보여 줍니다.
 

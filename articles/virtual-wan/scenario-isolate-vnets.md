@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 763a13cf2ecbe845619101bc9e325cc51564260a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: b8a0a8093ab5f4d6c5e528bce592d5c029de30a7
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553396"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400044"
 ---
 # <a name="scenario-isolating-vnets"></a>시나리오: Vnet 격리
 
@@ -29,7 +29,7 @@ ms.locfileid: "87553396"
 | VNet     | &#8594;|           |     X    |
 | 분기   | &#8594;|    X     |     X    |
 
-위의 표에 나와 있는 각 셀은 특정 트래픽 흐름에 대 한 가상 WAN 연결 (흐름의 "From" 쪽, 행 머리글)이 대상 접두사 (흐름의 "대상" 쪽, 기울임꼴 열 머리글)를 학습 하는지 여부를 설명 합니다.
+위의 표에 나와 있는 각 셀은 특정 트래픽 흐름에 대 한 대상 접두사 (흐름의 "보낸 사람" 쪽, 행 머리글)가 대상 접두사 (흐름의 "대상" 쪽, 기울임꼴 열 머리글)를 학습 하는지 여부를 설명 합니다. 여기서 "X"는 가상 WAN에서 연결이 제공 됨을 의미 합니다.
 
 이 연결 매트릭스는 두 개의 서로 다른 행 패턴을 제공 하며 두 개의 경로 테이블로 변환 됩니다. 가상 WAN에는 이미 기본 경로 테이블이 있으므로 다른 경로 테이블이 필요 합니다. 이 예에서는 경로 테이블의 이름을 **RT_VNET**로 합니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ea7460b3f997e0432ea0b987849eafccbe57b3b9
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3fcbc386c60611493912fdfb17226490549cdc53
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229177"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396814"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Azure Container Registry에 대 한 Azure 보안 기준
 
@@ -970,9 +970,11 @@ Azure Policy를 사용 하 여 Azure container registry의 준수 감사:  https
 
 Azure 관리 되는 Id와 통합 하는 방법:  https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Key Vault를 만드는 방법:  https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Key Vault를 만드는 방법: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법:  https://docs.microsoft.com/azure/key-vault/managed-identity
+Key Vault에 인증 하는 방법: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Key Vault 액세스 정책을 할당 하는 방법: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 Azure Container Registry 작업에서 Azure 관리 id를 사용 합니다.  https://docs.microsoft.com/azure/container-registry/container-registry-tasks-authentication-managed-identity
 

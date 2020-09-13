@@ -4,22 +4,22 @@ description: Resource Manager 배포 모델에서 Azure Portal을 사용하여 �
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.date: 10/23/2018
+ms.date: 09/02/2020
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 68856a4c5218232943ac657bbd67759d5ab4b804
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a7eb87f57676b469203e45e48b6f863cdf894c0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983158"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400656"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>포털을 사용하여 가상 네트워크 게이트웨이 삭제
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-> * [PowerShell (클래식)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+> * [PowerShell(클래식)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 
 이 문서에서는 Resource Manager 배포 모델을 사용하여 배포된 Azure VPN 게이트웨이를 삭제하는 방법에 대해 설명합니다. VPN 게이트웨이 구성에 대한 가상 네트워크 게이트웨이 삭제하려는 경우에 몇 가지 다른 접근 방법을 사용할 수 있습니다.
 

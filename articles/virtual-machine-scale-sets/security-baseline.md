@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b027e44a2ee31b0168ec3b6af717df23dd560abd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: d55e53ba455a4b91b4f57ea08b250320a5467c2b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89225590"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398447"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets에 대 한 Azure 보안 기준
 
@@ -976,7 +976,9 @@ Microsoft는 TLS (전송 계층 보안) 프로토콜을 사용 하 여 클라우
 
 * [Key Vault를 만드는 방법](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Key Vault에 인증 하는 방법](../key-vault/general/authentication.md)
+
+* [Key Vault 액세스 정책을 할당 하는 방법](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center 모니터링**: 해당 없음
 

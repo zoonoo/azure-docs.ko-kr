@@ -1,21 +1,21 @@
 ---
 title: Microsoft Azure Virtual Network에 대 한 VPN 처리량 확인
-description: 이 문서의 목적은 사용자가 온-프레미스 리소스에서 Azure 가상 머신으로의 네트워크 처리량을 유효성 검사하도록 돕는 것입니다.
+description: 이 문서에서는 온-프레미스 리소스에서 Azure 가상 머신으로 네트워크 처리량의 유효성을 검사 하는 방법을 설명 합니다.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 05/29/2019
+ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 7d19cc4a474324ff3e88ec0c5353a47c157ec715
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998479"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398510"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
 
@@ -127,7 +127,7 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 
 최신 버전의 [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b) 다운로드
 
-Latte.exe와 같이 별도의 폴더에 배치 하는 것이 좋습니다.`c:\tools`
+Latte.exe와 같이 별도의 폴더에 배치 하는 것이 좋습니다. `c:\tools`
 
 ### <a name="allow-latteexe-through-the-windows-firewall"></a>Windows 방화벽을 통해 Latte.exe 허용
 
@@ -217,7 +217,7 @@ Bash 명령줄에서 (git가 설치 된 것으로 가정)
 
 > [!Note]
 > VM과 게이트웨이 간의 처리량 테스트 중에 중간 홉 (예: 가상 어플라이언스)이 없는지 확인 합니다.
-> 위의 iPERF/NTTTCP 테스트에서 발생 하는 결과가 나쁜 경우 (전체 처리량을 기준으로) 다음 문서를 참조 하 여 문제의 가능한 근본 원인에 대 한 주요 요인을 파악 하십시오.https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
+> 위의 iPERF/NTTTCP 테스트에서 발생 하는 결과가 나쁜 경우 (전체 처리량을 기준으로) 다음 문서를 참조 하 여 문제의 가능한 근본 원인에 대 한 주요 요인을 파악 하십시오. https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
 
 특히, 이러한 테스트를 수행 하는 동안 클라이언트와 서버에서 병렬로 수집 된 Wireshark/네트워크 모니터 (패킷 캡처 추적)의 분석은 잘못 된 성능을 평가 하는 데 도움이 됩니다. 이러한 추적에는 패킷 손실, 긴 대기 시간, MTU 크기 등이 포함 될 수 있습니다. 조각화, TCP 0 창, 순서가 잘못 된 조각 등이 있습니다.
 

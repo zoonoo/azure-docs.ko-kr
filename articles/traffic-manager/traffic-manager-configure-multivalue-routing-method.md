@@ -3,20 +3,20 @@ title: 다중값 트래픽 라우팅 구성-Azure Traffic Manager
 description: 이 문서에서는 A/AAAA 엔드포인트로 트래픽을 라우팅하도록 Traffic Manager를 구성하는 방법을 설명합니다.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: rohink
-ms.openlocfilehash: 3ac6d20acf32be9678818483e5929dee225501b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706820"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401047"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Traffic Manager에서 다중값 라우팅 방법 구성
 
@@ -40,7 +40,7 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
 1. 화면 왼쪽 상단에서 **리소스 만들기**  >  **네트워킹**  >  **Traffic Manager 프로필**  >  **만들기**를 선택 합니다.
 2. **Traffic Manager 프로필 만들기**에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
     
-    | Setting                 | 값                                              |
+    | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | Name                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
     | 라우팅 방법          | **다중값** 라우팅 방법을 선택합니다.                                       |
@@ -61,8 +61,8 @@ Traffic Manager 프로필에 대한 리소스 그룹을 만듭니다.
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | 형식                    | 외부 엔드포인트                                   |
-    | 이름           | myEndpoint1                                        |
+    | Type                    | 외부 엔드포인트                                   |
+    | Name           | myEndpoint1                                        |
     | FQDN(정규화된 도메인 이름) 또는 IP           | 이 Traffic Manager 프로필에 추가하려는 엔드포인트의 공용 IP 주소를 입력합니다.                         |
     |        |           |
 

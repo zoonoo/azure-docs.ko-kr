@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/21/2020
-ms.openlocfilehash: 383c64c585f05869e1d01b5c99693fcf560cdedc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/02/2020
+ms.openlocfilehash: b30a7822511dc6b4c3ae7e852cba49ebff6e24ad
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006674"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400860"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>스크립트 동작을 사용하여 Azure HDInsight 클러스터 사용자 지정
 
@@ -66,13 +66,15 @@ Azure 구독에 대 한 참가자 이상의 액세스 권한이 있는 사용자
 
     지속형 스크립트 작업은 고유한 이름이 있어야 합니다. 지속형 스크립트는 크기 조정 작업을 통해 클러스터에 추가되는 새 작업자 노드를 사용자 지정하는 데 사용됩니다. 또한 크기 조정 작업이 수행되면 지속형 스크립트에서 다른 노드 유형에도 변경 내용을 적용할 수 있습니다. 예를 들어 헤드 노드가 있습니다.
 
-    `Ad hoc`스크립트는 지속 되지 않습니다. 클러스터를 만들 때 사용되는 스크립트 작업은 자동으로 보존됩니다. 이 스크립트가 실행되더라도 클러스터에 추가된 작업자 노드에는 적용되지 않습니다. 그런 다음 `ad hoc` 스크립트를 지속형 스크립트로 승격 하거나 지속형 스크립트의 수준을 스크립트로 내릴 수 있습니다 `ad hoc` . 사용자가 특별히 유지해야 한다고 지정하더라도 실패한 스크립트는 유지되지 않습니다.
+    `Ad hoc` 스크립트는 지속 되지 않습니다. 클러스터를 만들 때 사용되는 스크립트 작업은 자동으로 보존됩니다. 이 스크립트가 실행되더라도 클러스터에 추가된 작업자 노드에는 적용되지 않습니다. 그런 다음 `ad hoc` 스크립트를 지속형 스크립트로 승격 하거나 지속형 스크립트의 수준을 스크립트로 내릴 수 있습니다 `ad hoc` . 사용자가 특별히 유지해야 한다고 지정하더라도 실패한 스크립트는 유지되지 않습니다.
 
 * 실행 중에 스크립트에서 사용하는 매개 변수를 수락할 수 있습니다.
 
 * 클러스터 노드에서 루트 수준 권한으로 실행합니다.
 
 * Azure Portal, Azure PowerShell, Azure CLI 또는 HDInsight .NET SDK를 통해 사용할 수 있습니다.
+
+* VM에서 서비스 파일을 제거 하거나 수정 하는 스크립트 작업은 서비스 상태 및 가용성에 영향을 줄 수 있습니다.
 
 클러스터에서 실행된 모든 스크립트에 대한 기록을 보관합니다. 이 기록은 승격 또는 강등 작업에 사용할 스크립트 ID를 찾아야 할 때 도움이 됩니다.
 
@@ -306,7 +308,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-| Cmdlet | 함수 |
+| Cmdlet | 기능 |
 | --- | --- |
 | `Get-AzHDInsightPersistedScriptAction` |지속형 스크립트 동작에 대한 정보를 검색합니다. 이 cmdlet은 스크립트에 의해 수행 된 작업을 실행 취소 하지 않으며 지속형 플래그만 제거 합니다.|
 | `Get-AzHDInsightScriptActionHistory` |클러스터에 적용된 스크립트 동작의 기록 또는 특정 스크립트에 대한 세부 정보를 검색합니다. |

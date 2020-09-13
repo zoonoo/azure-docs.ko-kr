@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852086"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400027"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>시나리오: NVA를 통해 트래픽 라우팅
 
@@ -39,14 +39,14 @@ ms.locfileid: "88852086"
 
 **연결 매트릭스**
 
-| 보낸 사람             | 아래와 같이 변경합니다.|   *NVA 스포크*|*NVA Vnet*|*NVA Vnet*|*분기*|
+| 시작             | 대상:|   *NVA 스포크*|*NVA Vnet*|*NVA Vnet*|*분기*|
 |---|---|---|---|---|---|
 | **NVA 스포크**   | &#8594; | 0/0 UDR  |  피어링 |   0/0 UDR    |  0/0 UDR  |
 | **NVA Vnet**    | &#8594; |   정적 |      X   |        X     |      X    |
 | **NVA Vnet**| &#8594; |   정적 |      X   |        X     |      X    |
 | **분기**     | &#8594; |   정적 |      X   |        X     |      X    |
 
-연결 매트릭스의 각 셀은 가상 WAN 연결 (흐름의 "From" 쪽, 테이블의 행 머리글)이 특정 트래픽 흐름에 대 한 대상 접두사 (흐름의 "대상" 쪽, 테이블의 기울임꼴 열 머리글)를 학습 하는지 여부를 설명 합니다. 다음을 살펴보세요.
+연결 매트릭스의 각 셀은 가상 WAN 연결 (흐름의 "From" 쪽, 테이블의 행 머리글)이 특정 트래픽 흐름에 대 한 대상 접두사 (흐름의 "대상" 쪽, 테이블의 기울임꼴 열 머리글)를 학습 하는지 여부를 설명 합니다. "X"는 가상 WAN에 의해 기본적으로 연결이 제공 됨을 의미 하 고, "정적"은 고정 경로를 사용 하 여 가상 WAN에서 연결이 제공 됨을 의미 합니다. 다음을 살펴보세요.
 
 * NVA 스포크는 가상 WAN에서 관리 되지 않습니다. 그 결과, 다른 Vnet 또는 분기와 통신 하는 메커니즘이 사용자에 의해 유지 관리 됩니다. NVA VNet에 연결 하는 것은 VNet 피어 링에서 제공 되며 NVA를 가리키는 기본 경로 (NVA는 다음 홉에서 인터넷에 대 한 연결, 다른 스포크 및 분기)를 포함 해야 합니다.
 * NVA Vnet는 고유한 NVA 스포크를 알 수 있지만 다른 NVA Vnet에 연결 된 NVA 스포크는 인식 하지 못합니다. 예를 들어 표 1에서 VNet 2는 vnet 5와 VNet 6에 대해 알고 있지만 VNet 7 및 VNet 8과 같은 다른 스포크는 인식 하지 못합니다. 정적 경로는 NVA Vnet에 다른 스포크 접두사를 삽입 하는 데 필요 합니다.
@@ -69,14 +69,14 @@ NVA 스포크가 가상 WAN에 의해 관리 되지 않는 것을 고려 하 여
 
 이를 통해 NVA VNet 뒤에 NVA 스포크로 트래픽을 전송 하기 위해 기본 테이블에 필요한 고정 경로는 다음과 같습니다.
 
-| 설명 | 경로 테이블 | 고정 경로              |
+| Description | 경로 테이블 | 고정 경로              |
 | ----------- | ----------- | ------------------------- |
 | VNet 2       | 기본값     | 10.2.0.0/16-> e usconn |
 | VNet 4       | 기본값     | 10.4.0.0/16-> weconn     |
 
 이제 가상 WAN에서 패킷을 보낼 연결을 알고 있지만 연결에서 이러한 패킷을 받을 때 수행할 작업을 알고 있어야 합니다. 연결 경로 테이블이 사용 됩니다. 여기서는 더 짧은 접두사 (/16이 아닌/24 대신)를 사용 하 여 이러한 경로가 NVA Vnet (VNet 2 및 VNet 4)에서 가져온 경로 보다 우선적으로 적용 되도록 합니다.
 
-| 설명 | 연결 | 고정 경로            |
+| Description | 연결 | 고정 경로            |
 | ----------- | ---------- | ----------------------- |
 | VNet 5       | eastusconn | 10.2.1.0/24-> 10.2.0.5 |
 | VNet 6       | eastusconn | 10.2.2.0/24-> 10.2.0.5 |

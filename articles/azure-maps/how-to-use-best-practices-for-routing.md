@@ -75,7 +75,7 @@ Route Service의 적용 범위에 대 한 자세한 내용은 [라우팅 검사]
 
 요청에 **computeTravelTimeFor = all** 매개 변수를 포함 하는 경우 응답의 요약 요소에는 기록 트래픽 상태를 포함 하 여 다음과 같은 추가 필드가 포함 됩니다.
 
-| 요소 | 설명|
+| 요소 | Description|
 | :--- | :--- |
 | noTrafficTravelTimeInSeconds | 트래픽 조건으로 인해 경로에 지연이 발생 하지 않는 경우 처럼 계산 된 예상 이동 시간 (예: 정체 때문) |
 | historicTrafficTravelTimeInSeconds | 시간 종속 기록 트래픽 데이터를 사용 하 여 계산 된 예상 이동 시간 |

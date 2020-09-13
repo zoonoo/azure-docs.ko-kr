@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 9873bd8f94c80caccd75033e2a8a4bc2cffcde03
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227035"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400547"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Azure 구독을 다른 Azure AD 디렉터리 (미리 보기)에 전송
 
@@ -87,7 +87,7 @@ ms.locfileid: "89227035"
 > [!WARNING]
 > 전송 중인 동일한 구독에 **없는** key vault에 대 한 종속성이 있는 리소스 (예: 저장소 계정 또는 SQL 데이터베이스)에 미사용 암호화를 사용 하는 경우 복구할 수 없는 시나리오가 발생할 수 있습니다. 이러한 상황이 발생 하는 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여이 복구할 수 없는 시나리오를 방지 해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이러한 단계를 완료 하려면 다음이 필요 합니다.
 
@@ -224,7 +224,7 @@ ms.locfileid: "89227035"
 > [!WARNING]
 > 전송 중인 동일한 구독에 **없는** key vault에 대 한 종속성이 있는 리소스 (예: 저장소 계정 또는 SQL 데이터베이스)에 미사용 암호화를 사용 하는 경우 복구할 수 없는 시나리오가 발생할 수 있습니다. 이러한 상황이 발생 하는 경우 다른 키 자격 증명 모음을 사용 하거나 고객이 관리 하는 키를 일시적으로 사용 하지 않도록 설정 하 여이 복구할 수 없는 시나리오를 방지 해야 합니다.
 
-- 키 자격 증명 모음을 사용 하는 경우 [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) 를 사용 하 여 액세스 정책을 나열 합니다. 자세한 내용은 [액세스 제어 정책을 사용 하 여 Key Vault 인증 제공](../key-vault/key-vault-group-permissions-for-apps.md)을 참조 하세요.
+- 키 자격 증명 모음을 사용 하는 경우 [az keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) 를 사용 하 여 액세스 정책을 나열 합니다. 자세한 내용은 [Key Vault 액세스 정책 할당](../key-vault/general/assign-access-policy-cli.md)을 참조 하세요.
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -318,7 +318,7 @@ ms.locfileid: "89227035"
 
 1. 시스템 할당 관리 id를 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 합니다.
 
-    | Azure 서비스 | 추가 정보 | 
+    | Azure 서비스 | 자세한 정보 | 
     | --- | --- |
     | 가상 머신 | [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#system-assigned-managed-identity) |
     | 가상 머신 크기 집합 | [Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
@@ -334,7 +334,7 @@ ms.locfileid: "89227035"
 
 1. 사용자 할당 관리 id를 삭제 하 고, 다시 만들고, 연결 합니다.
 
-    | Azure 서비스 | 추가 정보 | 
+    | Azure 서비스 | 자세한 정보 | 
     | --- | --- |
     | 가상 머신 | [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | 가상 머신 크기 집합 | [Azure CLI를 사용하여 가상 머신 확장 집합에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |

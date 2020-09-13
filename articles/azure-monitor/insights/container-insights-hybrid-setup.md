@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 K
 description: 이 문서에서는 Azure Stack 또는 기타 환경에서 호스트 되는 Kubernetes 클러스터를 모니터링 하도록 컨테이너에 Azure Monitor를 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498902"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398384"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 하이브리드 Kubernetes 클러스터 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "86498902"
 
 - 지원 되는 액세스 제어: Kubernetes RBAC 및 비 RBAC
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
@@ -71,9 +71,11 @@ ms.locfileid: "86498902"
 
 하이브리드 Kubernetes 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정 하는 것은 다음 단계를 순서 대로 수행 하는 것입니다.
 
-1. Container Insights 솔루션을 사용 하 여 Log Analytics 작업 영역을 구성 합니다.
+1. Container Insights 솔루션을 사용 하 여 Log Analytics 작업 영역을 구성 합니다.   
 
 2. Log Analytics 작업 영역을 사용 하 여 컨테이너 투구 차트에 Azure Monitor을 사용 하도록 설정 합니다.
+
+Azure Monitor의 모니터링 솔루션에 대 한 자세한 내용은 [여기](../../azure-monitor/insights/solutions.md)를 참조 하세요.
 
 ### <a name="how-to-add-the-azure-monitor-containers-solution"></a>Azure Monitor 컨테이너 솔루션을 추가 하는 방법
 
@@ -334,7 +336,7 @@ Azure Stack 허브 클러스터에 대해 지원 되는 API 정의는이 예제�
 
 차트 버전 2.7.1 부터는 차트 매개 변수를 사용 하 여 프록시 끝점을 지정 하는 것이 지원 됩니다 `omsagent.proxy` . 이렇게 하면 프록시 서버를 통해 통신할 수 있습니다. 컨테이너 에이전트 및 Azure Monitor에 대 한 Azure Monitor 간의 통신은 HTTP 또는 HTTPS 프록시 서버가 될 수 있으며 익명 및 기본 인증 (사용자 이름/암호)이 모두 지원 됩니다.
 
-프록시 구성 값의 구문은 다음과 같습니다.`[protocol://][user:password@]proxyhost[:port]`
+프록시 구성 값의 구문은 다음과 같습니다. `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >프록시 서버에 인증이 필요 하지 않은 경우에도 유사 사용자 이름/암호를 지정 해야 합니다. 이는 사용자 이름 또는 암호일 수 있습니다.

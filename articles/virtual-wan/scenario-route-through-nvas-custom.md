@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5546fc63b01d1da6b4033e071ac071574ab9699a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: f233aedf8b51967264994f5a4081f8f4cd99df01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987211"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400010"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>시나리오: Nva를 통해 트래픽 라우팅-사용자 지정 (미리 보기)
 
@@ -40,7 +40,7 @@ ms.locfileid: "87987211"
 | **DMZ VNet** | &#8594;|       X |            X |      X    |      X       |
 | **분기** | &#8594;|  정적 |            X |      X    |      X       |
 
-연결 행렬의 각 셀은 특정 트래픽 흐름에 대해 가상 WAN 연결 (흐름의 "From" 쪽에서 행 머리글)이 대상 접두사 (흐름의 "대상" 쪽, 기울임꼴 열 머리글)를 학습 하는지 여부를 설명 합니다. 여러 행에 대해 자세히 살펴보겠습니다.
+연결 행렬의 각 셀은 특정 트래픽 흐름에 대해 가상 WAN 연결 (흐름의 "From" 쪽에서 행 머리글)이 대상 접두사 (흐름의 "대상" 쪽, 기울임꼴 열 머리글)를 학습 하는지 여부를 설명 합니다. "X"는 가상 WAN에 의해 기본적으로 연결이 제공 됨을 의미 하 고, "정적"은 고정 경로를 사용 하 여 가상 WAN에서 연결이 제공 됨을 의미 합니다. 여러 행에 대해 자세히 살펴보겠습니다.
 
 * NVA 스포크:
   * 스포크는 가상 WAN 허브를 통해 직접 다른 스포크에 도달 합니다.
@@ -65,10 +65,10 @@ ms.locfileid: "87987211"
 
 이러한 정적 경로를 사용 하 여 VNet 간 및 분기 간 트래픽이 서비스 VNet (VNet 4)에서 NVA를 통과 하는지 확인 해야 합니다.
 
-| 설명 | 경로 테이블 | 고정 경로              |
+| Description | 경로 테이블 | 고정 경로              |
 | ----------- | ----------- | ------------------------- |
 | 분기    | RT_V2B      | 10.2.0.0/16-> vnet4conn  |
-| NVA 스포크  | Default     | 10.1.0.0/16-> vnet4conn  |
+| NVA 스포크  | 기본값     | 10.1.0.0/16-> vnet4conn  |
 
 이제 가상 WAN에서 패킷을 보낼 연결을 알고 있지만 연결에서 이러한 패킷을 받을 때 수행할 작업을 알고 있어야 합니다. 연결 경로 테이블이 사용 됩니다.
 

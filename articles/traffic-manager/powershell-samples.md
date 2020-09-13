@@ -23,7 +23,7 @@ ms.locfileid: "89400248"
 
 다음 테이블은 Azure PowerShell을 사용하여 빌드된 Traffic Manager 스크립트에 대한 링크를 포함합니다.
 
-|제목  |설명 |
+|제목  |Description |
 |---------|---------|
 |[높은 애플리케이션 가용성을 위해 여러 지역 간에 트래픽 전송](./scripts/traffic-manager-powershell-websites-high-availability.md)   |    두 개의 App Service 계획, 두 개의 웹앱, Traffic Manager 프로필 및 두 개의 Traffic Manager 엔드포인트를 만듭니다.     |
 |    |         |

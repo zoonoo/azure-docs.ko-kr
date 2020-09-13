@@ -1,6 +1,6 @@
 ---
 title: Azure AD 앱 프록시를 사용하여 원격 데스크톱 게시 | Microsoft 문서
-description: Azure AD 애플리케이션 프록시 커넥터에 대한 기본 사항을 제공합니다.
+description: RDS를 사용 하 여 앱 프록시를 구성 하는 방법을 설명 합니다.
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cba74c773e1f141db14e06cf0cda8b31d06ba4f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ffdccf9cf3b6de4ba15d6076d7a5b9e0a93f464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019525"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396763"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시
 
@@ -101,7 +101,7 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **예를 들어:**
+   **다음은 그 예입니다. **
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```
@@ -135,7 +135,7 @@ Windows 7 또는 10 컴퓨터에서 Internet Explorer를 사용하여 시나리�
 
 | 인증 방법 | 지원되는 클라이언트 구성 |
 | --------------------- | ------------------------------ |
-| 사전 인증    | RD 웹-Internet Explorer + RDS ActiveX 추가 기능을 사용 하는 Windows 7/10 |
+| 사전 인증    | RD 웹-Internet Explorer 또는 [Edge CHROMIUM IE mode](https://docs.microsoft.com/deployedge/edge-ie-mode) + RDS ActiveX 추가 기능을 사용 하는 Windows 7/10 |
 | 사전 인증    | RD 웹 클라이언트-Microsoft Edge, Internet Explorer 11, Google Chrome, Safari 또는 Mozilla Firefox (v 55.0 이상)와 같은 HTML5 호환 웹 브라우저 |
 | 통과 | Microsoft 원격 데스크톱 애플리케이션을 지원하는 다른 운영 체제 |
 
