@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 3d9caabe3dfde34964f662dbf01316b2cbb0bcab
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: af4797d7d7d7cb866674747ea8871bebb059207d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543013"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031248"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Microsoft 보안 코드 분석 정보
 
@@ -73,7 +73,7 @@ BinSkim는 이진 파일의 컴파일러 설정, 링커 설정 및 기타 보안
 
 ### <a name="roslyn-analyzers"></a>Roslyn 분석기
 
-Roslyn 분석기는 관리 되는 c # 및 Visual Basic 코드를 정적으로 분석 하기 위한 Microsoft의 컴파일러 통합 도구입니다. 자세한 내용은 [Roslyn 기반 분석기](https://docs.microsoft.com/dotnet/standard/analyzers/)를 참조 하세요.
+Roslyn 분석기는 관리 되는 c # 및 Visual Basic 코드를 정적으로 분석 하기 위한 Microsoft의 컴파일러 통합 도구입니다. 자세한 내용은 [Roslyn 기반 분석기](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer)를 참조 하세요.
 
 ### <a name="tslint"></a>TSLint
 

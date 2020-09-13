@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/20/2020
-ms.openlocfilehash: 5c5f690fd5fefbd67180ea04d5ca1d269676f7b7
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6ea96f23f6d8c6a2e95a6217522f23545d49e9df
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180816"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032846"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Microsoft AppSource에서 소프트웨어를 구매하는 방법
 
@@ -59,9 +59,9 @@ SaaS 제품을 구매하려면 다음이 필요합니다.
 
 ## <a name="contact-support"></a>지원에 문의
 
-Microsoft 365 관리 센터를 통해 [지원 티켓을 제출](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage)할 수 있습니다.
+Microsoft 365 관리 센터를 통해 [지원 티켓을 제출할](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage) 수 있습니다.
 
-비즈니스 제품의 경우 [여기에서 지원 담당자에게 문의하세요](https://docs.microsoft.com/office365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=phone).
+비즈니스 제품의 경우 [여기에서 지원 담당자에게 문의하세요](/office365/admin/contact-support-for-business-products?tabs=phone).
 
 ## <a name="next-steps"></a>다음 단계
 

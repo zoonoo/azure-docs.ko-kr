@@ -1,14 +1,14 @@
 ---
 title: 청사진 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
-ms.date: 07/10/2020
+ms.date: 09/11/2020
 ms.topic: sample
-ms.openlocfilehash: cf8109dc8446fe1e3625e4f7c6fd0b5493c352d6
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 7ac95dee88cb244ecb4b60738daae26bb0d8831a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488357"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031877"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -18,7 +18,7 @@ ms.locfileid: "89488357"
 
 | 샘플 | Description |
 |---------|---------|
-| [오스트레일리아 정부 ISM PROTECTED](./ism-protected/control-mapping.md) | 오스트레일리아 정부 ISM PROTECTED 규정 준수에 대한 보호책을 제공합니다. |
+| [오스트레일리아 정부 ISM PROTECTED](./ism-protected/index.md) | 오스트레일리아 정부 ISM PROTECTED 규정 준수에 대한 보호책을 제공합니다. |
 | [Azure Security Benchmark](./azure-security-benchmark.md) | [Azure Security Benchmark](../../../security/benchmarks/overview.md) 규정을 준수하기 위한 가드 레일을 제공합니다. |
 | [캐나다 연방 PBMM](./canada-federal-pbmm/index.md) | Canada Federal Protected B, 중간 무결성, 중간 가용성(PBMM) 규정 준수를 위한 가드레일을 제공합니다. |
 | [CIS Microsoft Azure Foundations 벤치마크](./cis-azure-1-1-0.md)| CIS Microsoft Azure Foundations 벤치마크 권장 사항을 준수하는 데 도움이 되는 일련의 정책을 제공합니다. |

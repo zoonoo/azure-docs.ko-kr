@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 7acfd5e1a1b1c44a9a109bb2b8bc38c7fcc57593
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484870"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032387"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 
@@ -45,7 +45,7 @@ ms.locfileid: "89484870"
 
 &#42; Microsoft AppSource의 SaaS 앱 거래 제품은 현재 신용 카드로만 제공합니다.
 
-&#42;&#42; Microsoft 365 제품은 무료로 설치할 수 있으며 라이선스 서비스로 SaaS 제품을 통해 수익화할 수 있습니다. 자세한 내용은 [Microsoft 상업용 Marketplace를 통해 Office 365 추가 기능으로 수익 창출](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조하세요.
+&#42;&#42; Microsoft 365 제품은 무료로 설치할 수 있으며 라이선스 서비스로 SaaS 제품을 통해 수익화할 수 있습니다. 자세한 내용은 [Microsoft 상업적 marketplace를 통해 수익 창출 your Microsoft 365 추가 기능](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조 하세요.
 
 ## <a name="choose-a-listing-option"></a>목록 옵션 선택
 

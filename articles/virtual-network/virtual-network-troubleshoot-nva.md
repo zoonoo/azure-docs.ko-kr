@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 112792d4ccee2be7f85e6a5a6c0caf64df9a019e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7046062b1c2e42f47d650df6d616d6fb73c8d1ca
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286073"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033067"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure의 네트워크 가상 어플라이언스 문제
 
@@ -140,7 +140,7 @@ VM 네트워크 사용량이 급증하거나 특정 기간에 사용량이 많�
    sudo tcpdump-s0-i eth0-X-w vmtrace. 캡
 
 2. 원본 VM에서 대상 VM으로 **PsPing** 또는 **Nmap**을 사용합니다(예: `PsPing 10.0.0.4:80` 또는 `Nmap -p 80 10.0.0.4`).
-3. [네트워크 모니터](https://www.microsoft.com/download/details.aspx?id=4865) 또는 tcpdump를 사용하여 대상 VM에서 네트워크 추적을 엽니다. `IPv4.address==10.0.0.4 (Windows netmon)` 또는 `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4`처럼(Linux인 경우) **PsPing** 또는 **Nmap**을 실행한 원본 VM의 IP에 대한 디스플레이 필터를 적용합니다.
+3. [네트워크 모니터](https://cnet-downloads.com/network-monitor) 또는 tcpdump를 사용하여 대상 VM에서 네트워크 추적을 엽니다. `IPv4.address==10.0.0.4 (Windows netmon)` 또는 `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4`처럼(Linux인 경우) **PsPing** 또는 **Nmap**을 실행한 원본 VM의 IP에 대한 디스플레이 필터를 적용합니다.
 
 ### <a name="analyze-traces"></a>추적 분석
 

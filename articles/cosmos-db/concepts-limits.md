@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: deda5b9dab416258f9db1c76e9b41f781101e2fd
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400316"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033016"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -163,7 +163,17 @@ Cosmos DB는 권한 부여에 HMAC를 사용합니다. 마스터 키 또는 [리
 | 최대 리소스 토큰 만료 시간 | 기본값은 24시간입니다. [Azure 지원 티켓을 작성](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)하여 늘릴 수 있습니다.|
 | 토큰 권한 부여의 최대 클럭 스큐| 15분 |
 
-Cosmos DB는 쓰기 중에 트리거 실행을 지원합니다. 이 서비스는 쓰기 작업당 최대 하나의 사전 트리거 및 하나의 사후 트리거를 지원합니다. 
+Cosmos DB는 쓰기 중에 트리거 실행을 지원합니다. 이 서비스는 쓰기 작업당 최대 하나의 사전 트리거 및 하나의 사후 트리거를 지원합니다.
+
+## <a name="metadata-request-limits"></a>메타 데이터 요청 제한
+
+Azure Cosmos DB는 각 계정에 대 한 시스템 메타 데이터를 유지 관리 합니다. 이 메타 데이터를 사용 하면 컬렉션, 데이터베이스, 기타 Azure Cosmos DB 리소스 및 해당 구성을 무료로 열거할 수 있습니다.
+
+| 리소스 | 기본 제한 |
+| --- | --- |
+|최대 컬렉션 만들기 빈도 rer 분| 5|
+|분당 최대 데이터베이스 생성 율|   5|
+|분당 프로 비전 된 최대 처리량 업데이트 속도| 5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>자동 스케일링 프로비저닝 처리량 제한
 

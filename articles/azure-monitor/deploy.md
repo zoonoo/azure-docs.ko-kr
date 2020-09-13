@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 34a048c702b62caeecaf21e710a9dcd9156e4aea
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87801777"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033475"
 ---
 # <a name="deploy-azure-monitor"></a>Azure Monitor 배포
 모든 Azure 리소스의 모니터링에 Azure Monitor를 사용 하도록 설정 하는 것은 Azure Monitor 구성 요소를 구성 하 고 Azure 리소스를 구성 하 여 Azure Monitor 수집할 모니터링 데이터를 생성 하는 것입니다. 이 문서에서는 Azure 구독의 모든 리소스를 모니터링 하기 위해 일반적인 구성을 사용 하 Azure Monitor의 전체 구현을 수행 하는 데 필요한 여러 단계를 설명 합니다. 각 단계에 대 한 기본 설명은 자세한 구성 요구 사항에 대 한 다른 설명서에 대 한 링크와 함께 제공 됩니다.
@@ -48,7 +48,7 @@ Azure 구독을 만들 때 구성 없이 Azure Monitor의 다음 기능이 사�
 
 
 ### <a name="create-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기
-Azure 리소스의 로그와 같은 데이터를 수집 하 고, Azure virtual machines의 게스트 운영 체제에서 데이터를 수집 하 고, 대부분의 Azure Monitor 정보를 수집 하는 데 필요한 [Azure Monitor 로그](platform/data-platform-logs.md)를 사용 하려면 하나 이상의 Log Analytics 작업 영역이 필요 합니다. Azure 센티널 및 Azure Security Center와 같은 다른 서비스는 Log Analytics 작업 영역을 사용 하 고 Azure Monitor 하는 데 사용 하는 것과 동일한 서비스를 공유할 수 있습니다. 단일 작업 영역에서 시작 하 여이 모니터링을 지원할 수 있지만 여러 작업 영역을 사용 하는 경우에 대 한 지침은 [Azure Monitor 로그 배포 디자인](platform/design-logs-deployment.md) 을 참조 하세요.
+Azure 리소스의 로그와 같은 데이터를 수집 하 고, Azure virtual machines의 게스트 운영 체제에서 데이터를 수집 하 고, 대부분의 Azure Monitor 정보를 수집 하는 데 필요한 [Azure Monitor 로그](platform/data-platform-logs.md)를 사용 하려면 하나 이상의 Log Analytics 작업 영역이 필요 합니다. Azure 센티널 및 Azure Security Center와 같은 다른 서비스는 Log Analytics 작업 영역을 사용 하 고 Azure Monitor 하는 데 사용 하는 것과 동일한 서비스를 공유할 수 있습니다. 단일 작업 영역에서 시작 하 여이 모니터링을 지원할 수 있지만 여러 작업 영역을 사용 하는 경우에 대 한 지침은  [Azure Monitor 로그 배포 디자인](platform/design-logs-deployment.md) 을 참조 하세요.
 
 Log Analytics 작업 영역을 만드는 데 드는 비용은 없지만 데이터를 수집 하도록 구성한 후에는 잠재적으로 요금이 부과 될 수 있습니다. 자세한 내용은 [Azure Monitor 로그를 사용하여 사용량 및 비용 관리](platform/manage-cost-storage.md)를 참조하세요.  
 
@@ -118,9 +118,9 @@ VM용 Azure Monitor는 Log Analytics 작업 영역으로 성능 데이터를 전
 Azure Monitor는 모니터링 하려는 각 응용 프로그램에 대해 구성 해야 하는 [Application Insights](app/app-insights-overview.md)를 사용 하 여 사용자 지정 응용 프로그램을 모니터링 합니다. 구성 프로세스는 모니터링 되는 응용 프로그램의 유형과 수행 하려는 모니터링 유형에 따라 달라 집니다. Application Insights에 의해 수집 된 데이터는 기능에 따라 Azure Monitor 메트릭, Azure Monitor 로그 및 Azure blob 저장소에 저장 됩니다. 성능 데이터는 추가 구성이 필요 없는 Azure Monitor 메트릭과 Azure Monitor 로그에 저장 됩니다.
 
 ### <a name="create-an-application-resource"></a>응용 프로그램 리소스 만들기
-모니터링할 각 응용 프로그램에 대해 Application Insights에서 리소스를 만들어야 합니다. Application Insights에 의해 수집 된 로그 데이터는 Azure Monitor 로그에 저장 되지만 [Azure Monitor 로그의 데이터를 구조화 하는 방법](platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured)에 설명 된 대로 Log Analytics 작업 영역과는 다릅니다. 현재 미리 보기 상태는 응용 프로그램 데이터를 다른 데이터와 함께 Log Analytics 작업 영역에 직접 저장 하는 기능입니다. 이렇게 하면 구성이 간소화 되 고 응용 프로그램에서 Log Analytics 작업 영역의 모든 기능을 활용할 수 있습니다.
+모니터링할 각 응용 프로그램에 대해 Application Insights에서 리소스를 만들어야 합니다. Application Insights에 의해 수집 된 로그 데이터는 작업 영역 기반 응용 프로그램에 대 한 Azure Monitor 로그에 저장 됩니다. 클래식 응용 프로그램의 로그 데이터는 [데이터 구조](platform/data-platform-logs.md#structure-of-data)에 설명 된 대로 Log Analytics 작업 영역과 별도로 저장 됩니다.
 
- 응용 프로그램을 만들 때 클래식 또는 작업 영역 기반 (미리 보기)을 사용할지 여부를 선택 해야 합니다. 클래식 응용 프로그램을 만들려면 [Application Insights 리소스 만들기](app/create-new-resource.md) 를 참조 하세요. 작업 영역 기반 응용 프로그램을 만들려면 [작업 영역 기반 Application Insights 리소스 (미리 보기)](app/create-workspace-resource.md) 를 참조 하세요.
+ 응용 프로그램을 만들 때 클래식 또는 작업 영역 기반을 사용할지 여부를 선택 해야 합니다. 클래식 응용 프로그램을 만들려면 [Application Insights 리소스 만들기](app/create-new-resource.md) 를 참조 하세요. 작업 영역 기반 응용 프로그램을 만들려면 [작업 영역 기반 Application Insights 리소스 (미리 보기)](app/create-workspace-resource.md) 를 참조 하세요.
 
 ### <a name="configure-codeless-or-code-based-monitoring"></a>코드 없는 또는 코드 기반 모니터링 구성
 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하려면 코드 없는 또는 코드 기반 모니터링을 사용할지 여부를 결정 해야 합니다. 구성 프로세스는이 결정 및 모니터링할 응용 프로그램 유형에 따라 달라 집니다.

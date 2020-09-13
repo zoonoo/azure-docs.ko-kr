@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: 57830ae14c5d6653f6a2225924160fcb75646c12
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: d4df4ea96f8dafa2f0eb26e27fcc08ab4ec89003
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590763"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033577"
 ---
 # <a name="run-experiments-using-azure-automated-ml-and-apache-spark"></a>Azure 자동화 된 ML 및 Apache Spark를 사용 하 여 실험 실행
 
@@ -28,7 +28,7 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
 - 자동화된 기계 학습 회귀 모델 학습
 - 모델 정확도 계산
 
-### <a name="before-you-begin"></a>시작하기 전 주의 사항
+### <a name="before-you-begin"></a>시작하기 전에
 - [Apache Spark 풀 만들기 자습서](../quickstart-create-apache-spark-pool-studio.md)에 따라 Apache Spark 풀을 만듭니다.
 - 기존 Azure Machine Learning 작업 영역이 없는 경우 [Azure Machine Learning 작업 영역 설치 자습서](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) 를 완료 합니다. 
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
-ms.openlocfilehash: 817c17b0e05180f5c7a616320a25c2bc3c21c5f8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cd2f8ce45ef9270866941cdedb7c768529c3175f
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651408"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033305"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Azure Logic Apps에서 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -114,6 +114,10 @@ SFTP 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 
 ### <a name="sftp-action-get-content"></a>SFTP 작업: 콘텐츠 가져오기
 
 이 작업은 SFTP 서버의 파일에서 콘텐츠를 가져옵니다. 따라서 예를 들어 이전 예제의 트리거와 파일의 콘텐츠가 충족해야 하는 조건을 추가할 수 있습니다. 조건이 true인 경우 콘텐츠를 가져오는 작업을 실행할 수 있습니다.
+
+## <a name="connector-reference"></a>커넥터 참조
+
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/azure/data-factory/connector-sftp)를 검토하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

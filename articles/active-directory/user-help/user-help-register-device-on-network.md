@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/04/2019
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: b59ebe0bdab66a5ce6bdb1eefe6d9ae4b47bba0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0435b99525c34eb72d7cc5315ccb4359859cd528
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799403"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033050"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>조직의 네트워크에 개인 디바이스 등록
 개인 디바이스(일반적으로 휴대폰이나 태블릿)를 조직의 네트워크에 등록합니다. 디바이스가 등록되면 조직의 제한된 리소스에 액세스할 수 있게 됩니다.
@@ -31,7 +31,7 @@ ms.locfileid: "88799403"
 
 - Windows에서 조직의 네트워크에 디바이스를 등록합니다.
 
-- 조직의 선택에 따라, [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보](./security-info-setup-signin.md)를 통해 2단계 인증을 설정하도록 요구될 수 있습니다.
+- 필요에 따라 조직의 선택 항목에 따라 [2 단계 인증](multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보](./security-info-setup-signin.md)를 통해 2 단계 인증을 설정 하 라는 메시지가 표시 될 수 있습니다.
 
 - 조직의 선택에 따라, Microsoft Intune과 같은 모바일 디바이스 관리 기능에 자동으로 등록될 수도 있습니다. Microsoft Intune에 등록하는 방법에 대한 자세한 내용은 [Intune에서 디바이스 등록](/intune-user-help/enroll-your-device-in-intune-all)을 참조하세요.
 

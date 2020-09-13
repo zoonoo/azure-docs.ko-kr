@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
-ms.openlocfilehash: 28f8dd4be9e03af9f0b155d6e79949fe522cd7c2
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.date: 09/11/2020
+ms.openlocfilehash: fa8ee205952d1bd39e932ca6c91e3cffe608bf95
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007760"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032115"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 일반적인 질문
 
@@ -22,7 +22,7 @@ ms.locfileid: "90007760"
 
 ### <a name="what-is-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace 란 무엇 인가요?
 
-상업용 마켓플레이스는 파트너가 빌드한 솔루션과 기업 및 정부 기관을 연결합니다. 파트너는 파트너 센터에서 제품을 만들고 관리하며 고객은 Microsoft AppSource, Azure Marketplace, 클라우드 솔루션 공급자 프로그램의 재판매인 및 공동 판매 프로그램을 통한 영업 팀과 같은 제품 내 경험을 통해 솔루션을 찾고 구매할 수 있습니다.
+상업용 마켓플레이스는 파트너가 빌드한 솔루션과 기업 및 정부 기관을 연결합니다. 파트너 센터에서 제공 하는 파트너는 파트너 센터에서 제품을 만들고 관리 하며, 고객은 Microsoft AppSource, Azure Marketplace, 클라우드 솔루션 공급자 프로그램의 대리점, 공동 판매 프로그램을 통해 판매 팀과 같은 제품 내 환경을 통해 솔루션을 검색 하 고 구매할 수 있습니다.
 
 자세한 내용은 [Microsoft 상업용 마케플레이스 허브](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)를 참조하세요.
 
@@ -42,7 +42,7 @@ Azure Marketplace에는 Azure를 기반으로 하거나 Azure 구독 내에서 �
 
 Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매인의 글로벌 채널 네트워크에 대한 액세스 권한을 제공합니다. 고객의 Microsoft 고객 계약 또는 기업 계약을 사용하여 새로운 구매 관계를 만들지 않고도 조직에 판매할 수 있습니다.
 
-자세히 알아보려면 [마켓플레이스를 통해 판매하는 이유](https://partner.microsoft.com/asset/detail/why-sell-through-marketplace)의 비디오를 확인하세요.
+자세한 내용은 [Microsoft 상업적 marketplace 허브](https://aka.ms/commercialmarketplacehub)를 참조 하세요.
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업용 마켓플레이스에 대한 등록 수수료가 있나요?
 
@@ -67,7 +67,7 @@ Microsoft는 많은 국가/지역에서 세금 납부를 관리하고 재판매�
 
 게시자 계약에 가입하고 동의하면 파트너 센터의 상업용 마켓플레이스 페이지에 액세스할 수 있습니다. 여기에서 제품을 만들고 관리하며 분석 보고서를 볼 수 있습니다. Microsoft 365 앱의 경우 파트너 센터 내에서 Office 스토어 프로그램을 활성화해야 합니다.
 
-자세한 내용은 [상업용 마켓플레이스 시작](index.yml) 및 [Microsoft 상업용 마켓플레이스를 통해 Office 365 추가 기능으로 수익 창출](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조하세요.
+자세한 내용은 [상용 Marketplace 시작](index.yml) 및 [Microsoft 상업적 marketplace를 통해 Microsoft 365 추가 기능 수익 창출](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace)을 참조 하세요.
 
 ### <a name="how-do-i-get-support-assistance-for-the-commercial-marketplace"></a>상업용 마켓플레이스에 대한 지원을 받으려면 어떻게 해야 하나요?
 
@@ -329,7 +329,7 @@ Azure Marketplace의 경우 고객은 활성 Azure 구독 및 해당 구독에 �
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Microsoft 관리 센터에 대한 자세한 내용은 어디서 확인할 수 있나요?
 
-Microsoft 관리 센터에 대한 자세한 내용은 [조직의 타사 앱 구독 관리](https://docs.microsoft.com/microsoft-365/commerce/manage-saas-apps?view=o365-worldwide)를 참조하세요.
+Microsoft 관리 센터에 대한 자세한 내용은 [조직의 타사 앱 구독 관리](/microsoft-365/commerce/manage-saas-apps)를 참조하세요.
 
 ### <a name="where-can-i-learn-more-about-azure-billing"></a>Azure 청구에 대한 자세한 내용은 어디서 확인할 수 있나요?
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b14dd4aa44620f2b13891a18fc473acbcb0f3245
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086514"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033033"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Azure Advisor 권장 사항을 해결 하는 방법
 
@@ -34,7 +34,7 @@ ms.locfileid: "89086514"
 
 2. 그런 다음 프로덕션 환경에서 유효성 검사 환경으로 변경 하려는 호스트 풀을 선택 합니다.
 
-3. 호스트 풀에서 화면 오른쪽에 있는 열의 **속성** 탭을 선택 합니다. 그런 다음 "유효성 검사 환경"이 표시 될 때까지 아래로 스크롤합니다. **예**를 선택 하 고 **적용**을 선택 합니다.
+3. 호스트 풀의 왼쪽 열에서 **속성** 을 선택 합니다. 그런 다음 "유효성 검사 환경"이 표시 될 때까지 아래로 스크롤합니다. **예**를 선택 하 고 **적용**을 선택 합니다.
 
 >[!div class="mx-imgBorder"]
 >![속성 메뉴의 스크린샷 "유효성 검사 환경"이 빨간색으로 강조 표시 되 고 "예" 거품이 선택 됩니다.](media/validation-yes.png)

@@ -106,8 +106,6 @@
   items:
     - name: 로그인하여 내 앱 포털 사용
       href: my-apps-portal-end-user-access.md
-    - name: 프로필 및 계정 정보 업데이트
-      href: my-apps-portal-end-user-update-profile.md
     - name: 그룹 정보 업데이트
       href: my-apps-portal-end-user-groups.md
     - name: 컬렉션을 사용하여 앱 구성

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a4b0cb9b53adbf6362d79766fcd7bce57f5441ac
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fd68f720f372ee61f7c441ea83bd365bc2a6f36a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322933"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032744"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Azure Monitor에 대 한 Azure 보안 기준
 
@@ -80,7 +80,7 @@ Log Analytics gateway를 사용 하 여 인터넷에 직접 연결할 수 없는
 
 - [에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor](platform/gateway.md) 
 
-- [Application Insights 시작을 참조 하세요.](//azure/azure-monitor/app/app-insights-overview#get-started)
+- [Application Insights 시작을 참조 하세요.](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#get-started)
 
 - [가용성 웹 테스트를 설정 하는 방법](app/monitor-web-app-availability.md)
 

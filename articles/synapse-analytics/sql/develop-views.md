@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 84cd5c2de0b1a6d0909a31071506d98627966775
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: fafa0c2e1b02cc49bfb852ed7770b0927b0e9334
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500745"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032727"
 ---
 # <a name="t-sql-views-using-synapse-sql"></a>Synapse SQL을 사용 하는 t-sql 뷰
 이 문서에서는 T-sql 뷰를 사용 하 고 Synapse SQL을 사용 하 여 솔루션을 개발 하기 위한 팁을 찾을 수 있습니다. 

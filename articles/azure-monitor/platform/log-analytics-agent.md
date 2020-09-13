@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: fb58728e005ad70ac5392aa9e3e6a254ed317276
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8a086830398555d962bb13d1d9b0fea3554f7924
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016338"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032523"
 ---
 # <a name="log-analytics-agent-overview"></a>Log Analytics 에이전트 개요
 Azure Log Analytics 에이전트는 모든 클라우드 및 온-프레미스 컴퓨터의 Windows 및 Linux 가상 컴퓨터 및 [System Center Operations Manager](/system-center/scom/) 에서 모니터링 하는 원격 분석을 수집 하 고 Azure Monitor의 Log Analytics 작업 영역에 수집 된 데이터를 보냅니다. Log Analytics 에이전트는 [VM용 Azure Monitor](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml), [Azure Automation](../../automation/automation-intro.md) 등의 Azure Monitor 내 기타 서비스와 인사이트도 지원합니다. 이 문서에서는 에이전트, 시스템 및 네트워크 요구 사항 및 배포 방법에 대 한 자세한 개요를 제공 합니다.
@@ -63,7 +63,7 @@ Operations Manager 관리 그룹에 에이전트를 연결 하는 방법에 대 
 
 ## <a name="security-limitations"></a>보안 제한 사항
 
-* Windows 에이전트는 [FIPS 140 표준](/windows/security/threat-protection/fips-140-validation)을 지원하지만 Linux 에이전트는 이를 지원하지 않습니다.  
+* Windows 및 Linux 에이전트는 [FIPS 140 표준을](/windows/security/threat-protection/fips-140-validation)지원 하지만 [다른 유형의 보안 강화는 지원 되지 않을 수 있습니다](agent-linux.md#supported-linux-hardening).
 
 
 ## <a name="installation-options"></a>설치 옵션

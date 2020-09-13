@@ -6,16 +6,16 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f4c61b43855e4a845956a937d9d9cfe738d6f47a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070057"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032948"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse SQL 기능을 위한 디자인 결정 및 코딩 기술
 이 문서에서는 sql 풀 및 Synapse sql의 SQL 주문형 (미리 보기) 함수에 대 한 리소스 목록을 찾을 수 있습니다. 권장 되는 문서는 주요 디자인 결정 및 개발 및 코딩 기술의 두 섹션으로 나뉘어 있습니다.
@@ -48,7 +48,7 @@ ms.locfileid: "87070057"
 | ------- | -------- | ------------- |
 | [저장 프로시저](develop-stored-procedures.md)  | 예                | 아니요                      |
 | [레이블](develop-label.md)                           | 예                | 아니요                      |
-| [뷰](develop-views.md)                             | 예                | 예                     |
+| [Views](develop-views.md)                             | 예                | 예                     |
 | [임시 테이블](develop-tables-temporary.md)       | 예                | 예                     |
 | [동적 SQL](develop-dynamic-sql.md)                 | 예                | 예                     |
 | [반복](develop-loops.md)                         | 예                | 예                     |

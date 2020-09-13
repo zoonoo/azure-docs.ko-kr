@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: ca1a1bd1f07bf30fd7e5cd57b617a823120e85ea
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017373"
+ms.locfileid: "90033254"
 ---
 # <a name="co-sell-option-in-partner-center"></a>파트너 센터의 공동 판매 옵션
 
@@ -66,7 +66,7 @@ Microsoft에서 제품에 대 한 자세한 정보를 확인 하 고 고객의 �
 
 | **문서**    | **설명**  |
 | :------------------- | :-------------------|
-| *고객 1-호출기* | 제품에 대 한 고객 지원 설명입니다. Microsoft 영업 팀은이 정보를 고객과 공유 하 여 제품이 적절 한지 여부를 확인 하 고 고객의 준비를 보장할 수 있습니다. <br> <br> 파트너 센터에서 사용할 수 있는 관련 템플릿 중 하나를 사용 합니다. <br> <ul> <li> Microsoft Azure one 페이저 템플릿 </li> <li> Microsoft Dynamics 365 1-페이저 템플릿 </li> <li> Office 365 1-페이저 템플릿 </li> <li> Windows 10 1-페이저 템플릿 </li> </ul> |
+| *고객 1-호출기* | 제품에 대 한 고객 지원 설명입니다. Microsoft 영업 팀은이 정보를 고객과 공유 하 여 제품이 적절 한지 여부를 확인 하 고 고객의 준비를 보장할 수 있습니다. <br> <br> 파트너 센터에서 사용할 수 있는 관련 템플릿 중 하나를 사용 합니다. <br> <ul> <li> Microsoft Azure one 페이저 템플릿 </li> <li> Microsoft Dynamics 365 1-페이저 템플릿 </li> <li> Microsoft 365 1-페이저 템플릿 </li> <li> Windows 10 1-페이저 템플릿 </li> </ul> |
 | *고객 프레젠테이션* | 슬라이드 데크를 통해 솔루션 및 가치 제안을 피치 합니다. 제품을 고객에 게 제공 하는 것을 확인 한 후 Microsoft 영업 팀은 고객과 프레젠테이션을 공유 하 여 공동 솔루션을 배포할 때 두 회사가 가져오는 가치를 분명히 할 수 있습니다. 프레젠테이션은 솔루션이 수행 하는 작업, 고객이 지원 하는 방법, 솔루션의 대상 산업 및 경쟁 솔루션과 비교 하는 방법을 설명 해야 합니다. <br> <br> 파트너 센터에서 사용할 수 있는 템플릿을 사용 합니다.|
 | *고객 사례 연구* | 이 정보는 잠재적 고객 및 Microsoft가 이전 사례에서이 솔루션을 성공적으로 배포한 방법을 보여 줍니다. <br> <br> 파트너 센터에서 사용할 수 있는 템플릿을 사용 합니다. |
 | *안정형 고객 승리 (옵션)* | 솔루션이 배포 된 후 고객 성공의 구체적인 예입니다. |

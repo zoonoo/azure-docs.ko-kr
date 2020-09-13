@@ -6,17 +6,17 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 47b476cbc6997ca5ec63968bdc269e2273662100
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 596b18332fc490f72ad185699fc59bf4521eca69
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430033"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032183"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Synapse SQL에서 쿼리 레이블 사용
 이 문서에는 Synapse SQL에서 쿼리 레이블을 사용 하기 위한 필수 팁이 포함 되어 있습니다.

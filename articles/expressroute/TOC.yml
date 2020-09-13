@@ -8,6 +8,7 @@
   items:
     - name: ExpressRoute 회로 만들기 - ARM 템플릿
       href: quickstart-create-expressroute-vnet-template.md
+  expanded: true
 - name: 자습서
   items:
     - name: 회로 만들기 및 수정

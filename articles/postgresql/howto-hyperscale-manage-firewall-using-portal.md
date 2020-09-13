@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 9/12/2019
-ms.openlocfilehash: c84616e8a9b9ff9722f5a104175c80c37dbcbcc3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 9/11/2020
+ms.openlocfilehash: 35d5b101f4ad5fe4498c0566227c5f0a9d102b60
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116916"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032570"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL의 방화벽 규칙 관리 - 하이퍼스케일(Citus)
 서버 수준 방화벽 규칙은 지정된 IP 주소 또는 IP 주소 범위에서 하이퍼스케일(Citus) 코디네이터 노드에 대한 액세스를 관리하는 데 사용할 수 있습니다.
@@ -24,14 +24,14 @@ ms.locfileid: "86116916"
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
 
 > [!NOTE]
-> 이러한 설정은 Azure Database for PostgreSQL – 하이퍼스케일(Citus) 서버 그룹을 만드는 동안에도 액세스할 수 있습니다. **네트워킹** 탭에서 **퍼블릭 엔드포인트**를 클릭합니다.
+> 이러한 설정은 Azure Database for PostgreSQL – 하이퍼스케일(Citus) 서버 그룹을 만드는 동안에도 액세스할 수 있습니다. **네트워킹** 탭에서 **공용 액세스**를 클릭 합니다.
 > ![Azure Portal - 네트워킹 탭](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
 
 1. PostgreSQL 서버 그룹 페이지의 보안 머리글 아래에서 **네트워킹**을 클릭하여 방화벽 규칙을 엽니다.
 
    ![Azure Portal - 네트워킹 클릭](./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png)
 
-2. 도구 모음(아래의 옵션 A)이나 링크(옵션 B)에서 **클라이언트 IP 추가**를 클릭합니다. 이렇게 하면 Azure 시스템에서 감지한 컴퓨터의 퍼블릭 IP 주소를 사용하는 방화벽 규칙이 자동으로 만들어집니다.
+2. **현재 클라이언트 IP 주소 추가** 를 클릭 하 여 Azure 시스템에서 인식 하는 대로 컴퓨터의 공용 IP 주소를 사용 하 여 방화벽 규칙을 만듭니다.
 
    ![Azure Portal - 클라이언트 IP 추가 클릭](./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -55,7 +55,7 @@ Azure에서 호스트되는 애플리케이션(예: Azure Web Apps 애플리케�
 
 ## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Azure 포털을 통해 기존 서버 수준 방화벽 규칙 관리
 방화벽 규칙을 관리하는 단계를 반복합니다.
-* 현재 컴퓨터를 추가하려면 **+ 클라이언트 IP 추가** 단추를 클릭합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
+* 현재 컴퓨터를 추가 하려면 단추를 클릭 하 여 **현재 클라이언트 IP 주소 추가**를 클릭 합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 * 추가 IP 주소를 추가 하려면 규칙 이름, 시작 IP 주소 및 끝 IP 주소를 입력 합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 * 기존 규칙을 수정 하려면 규칙의 필드 중 하나를 클릭 후 변경 합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 * 기존 규칙을 삭제하려면 줄임표 [...]를 클릭하고 **삭제**를 클릭하여 규칙을 제거합니다. **저장**을 클릭하여 변경 내용을 저장합니다.

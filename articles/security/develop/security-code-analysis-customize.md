@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c4c7f82b729355e59ff05d5513e22fa143d53a5e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e36485b54f209b10f9a4e6b4e6a26248955b2275
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206847"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031401"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>빌드 작업 구성 및 사용자 지정
 
@@ -143,7 +143,7 @@ BinSkim 명령줄 인수, ID 별 규칙 또는 종료 코드에 대 한 자세�
 >
 >   새 태스크가 원래 작업과 동일한 에이전트에서 실행 되는 경우 새 작업의 출력은 *s* sources 폴더에 있는 원래 작업의 출력을 덮어씁니다. 빌드 출력이 동일 하더라도 MSBuild를 실행 하 고 출력을 아티팩트 스테이징 디렉터리에 복사한 다음 Roslyn 분석기를 실행 하는 것이 좋습니다.
 
-Roslyn 분석기 태스크에 대 한 추가 리소스는 Microsoft Docs의 [Roslyn 기반 분석기](https://docs.microsoft.com/dotnet/standard/analyzers/) 를 확인 하세요.
+Roslyn 분석기 태스크에 대 한 추가 리소스는 Microsoft Docs의 [Roslyn 기반 분석기](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) 를 확인 하세요.
 
 이 빌드 작업에서 설치 하 고 사용 하는 분석기 패키지는 NuGet 페이지 [FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers)에서 찾을 수 있습니다.
 

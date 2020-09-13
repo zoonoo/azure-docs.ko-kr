@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 7e8e2015e7d0798542ff0c80d8eb39461918ad67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a47de51a90d926b47f6b465d6c10111407da9c6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539604"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033169"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Azure Monitor의 로그 쿼리 개요
 로그 쿼리를 통해 [Azure Monitor 로그](../platform/data-platform-logs.md)에 수집 된 데이터의 값을 완벽 하 게 활용할 수 있습니다. 강력한 쿼리 언어를 사용 하면 여러 테이블의 데이터를 조인 하 고, 큰 데이터 집합을 집계 하 고, 최소한의 코드로 복잡 한 작업을 수행할 수 있습니다. 실제로 모든 질문에 대 한 답변 및 분석은 지원 데이터가 수집 되는 동안 수행 되며, 올바른 쿼리를 구성 하는 방법을 이해할 수 있습니다.
@@ -38,10 +38,7 @@ Azure Monitor 로그의 데이터를 사용 하는 언어에 대 한 간략 한 
 Azure Monitor에서 사용 하는 KQL 버전의 사소한 차이점은 [Azure Monitor 로그 쿼리 언어 차이점](data-explorer-difference.md) 을 참조 하세요.
 
 ## <a name="what-data-is-available-to-log-queries"></a>로그 쿼리에 사용할 수 있는 데이터는 무엇 인가요?
-Azure Monitor 로그에 수집 된 모든 데이터는 로그 쿼리를 검색 하 고 분석 하는 데 사용할 수 있습니다. 데이터 원본이 서로 다른 테이블에 데이터를 기록 하지만 여러 원본에서 데이터를 분석 하는 여러 테이블을 단일 쿼리에 포함할 수 있습니다. 쿼리를 작성 하는 경우에는 원하는 데이터가 있는 테이블을 결정 하는 것부터 시작 하므로 Azure Monitor 로그의 데이터를 구성 하는 방법에 대 한 기본 지식이 있어야 합니다.
-
-Azure Monitor 로그를 채우는 다른 데이터 원본의 목록은 [Azure Monitor 로그의 원본](../platform/data-platform-logs.md#sources-of-azure-monitor-logs)을 참조 하세요.<br>
-데이터의 구성 방법에 대 한 설명은 [Azure Monitor 로그의 구조](logs-structure.md) 를 참조 하세요.
+Azure Monitor 로그에 수집 된 모든 데이터는 로그 쿼리를 검색 하 고 분석 하는 데 사용할 수 있습니다. 데이터 원본이 서로 다른 테이블에 데이터를 기록 하지만 여러 원본에서 데이터를 분석 하는 여러 테이블을 단일 쿼리에 포함할 수 있습니다. 쿼리를 작성하는 경우 원하는 데이터가 있는 테이블이 무엇인지 확인하는 것으로 시작합니다. 데이터의 구성 방법에 대 한 설명은 [Azure Monitor 로그의 구조](logs-structure.md) 를 참조 하세요.
 
 ## <a name="what-does-a-log-query-look-like"></a>로그 쿼리의 모양은 무엇입니까?
 쿼리는 해당 테이블의 모든 레코드를 검색 하기 위한 단일 테이블 이름 처럼 간단할 수 있습니다.

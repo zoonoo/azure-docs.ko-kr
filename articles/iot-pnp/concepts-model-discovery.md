@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4cdd6f63c9e5e717a533b88702b2886387fe3e39
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 9752589c8863cc911369225d268035d9f61c0273
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475246"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032030"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Iot 솔루션에서 IoT 플러그 앤 플레이 모델 사용
 
@@ -40,7 +40,7 @@ IoT Hub 장치 연결 흐름의 일부로 장치 모델 ID를 사용 하 여 솔
 
 ### <a name="get-device-twin-api"></a>장치 쌍 API 가져오기
 
-솔루션은 [장치 쌍 가져오기](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin) API를 사용 하 여 IoT 플러그 앤 플레이 장치의 모델 ID를 검색할 수 있습니다.
+솔루션은 [장치 쌍 가져오기](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclient.getdevicetwin?view=azure-java-stable) API를 사용 하 여 IoT 플러그 앤 플레이 장치의 모델 ID를 검색할 수 있습니다.
 
 다음 장치 쌍 응답 코드 조각에는 `modelId` IoT 플러그 앤 플레이 장치의 모델 ID가 포함 되어 있습니다.
 
@@ -140,6 +140,6 @@ content-encoding:utf-8
 
 Iot 솔루션에서 IoT 플러그 앤 플레이 모델을 통합 하는 방법을 배웠으므로 이제 몇 가지 제안 된 다음 단계를 수행 합니다.
 
-- [솔루션에서 장치와 상호 작용](quickstart-service-node.md)
+- [솔루션에서 디바이스와 상호 작용](quickstart-service-node.md)
 - [IoT 디지털 쌍 REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
 - [Azure IoT 탐색기](howto-use-iot-explorer.md)

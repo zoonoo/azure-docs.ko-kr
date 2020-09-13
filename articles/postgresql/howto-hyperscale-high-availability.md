@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/04/2019
-ms.openlocfilehash: 0c7702c8832e22d889a5d785dad845430bfb7d17
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/27/2020
+ms.openlocfilehash: f08fb01cf26ddf73d31b575242b27d7d8b4017d9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116882"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033281"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Citus (Hyperscale) 고가용성 구성
 
@@ -21,7 +21,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 데이터베이스 가동 �
 > [!IMPORTANT]
 > HA는 그룹에 있는 서버 수를 두 배로 증가 하기 때문에 비용을 두 배로 증가 시킬 수 있습니다.
 
-HA를 사용 하도록 설정 하는 작업은 서버 그룹을 만들 때 또는 나중에 Azure Portal의 서버 그룹에 대 한 **구성** 탭에서 수행할 수 있습니다. 사용자 인터페이스는 두 경우 모두 유사 하 게 보입니다. **고가용성** 을 위해 슬라이더를 예로 끕니다.
+HA를 사용 하도록 설정 하는 작업은 서버 그룹을 만들 때 또는 나중에 Azure Portal 서버 그룹의 **Compute + storage** 탭에서 수행할 수 있습니다. 사용자 인터페이스는 두 경우 모두 유사 하 게 보입니다. **높은 가용성** 을 위해 슬라이더를 아니요에서 예로 끕니다.
 
 ![ha 슬라이더](./media/howto-hyperscale-high-availability/01-ha-slider.png)
 

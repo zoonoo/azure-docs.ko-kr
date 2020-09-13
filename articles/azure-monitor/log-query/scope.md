@@ -1,17 +1,17 @@
 ---
-title: Azure Monitor Log Analytics의 로그 쿼리 범위 Microsoft Docs
+title: Azure Monitor Log Analytics의 로그 쿼리 범위
 description: Azure Monitor Log Analytics에서 로그 쿼리의 범위 및 시간 범위를 설명 합니다.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/01/2020
-ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/09/2020
+ms.openlocfilehash: 2036505dea134a59e7dc0c75a030175b15dac0b5
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83199023"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031945"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위
 [Azure Portal에서 Log Analytics](get-started-portal.md)에 [로그 쿼리](log-query-overview.md) 를 실행 하는 경우 쿼리에 의해 평가 되는 데이터 집합은 선택한 범위와 시간 범위에 따라 달라 집니다. 이 문서에서는 범위 및 시간 범위와 요구 사항에 따라 각 범위를 설정 하는 방법을 설명 합니다. 또한 다양 한 유형의 범위 동작을 설명 합니다.
@@ -22,18 +22,18 @@ ms.locfileid: "83199023"
 
 범위는 항상 Log Analytics 창의 왼쪽 위에 표시 됩니다. 아이콘은 범위가 Log Analytics 작업 영역 인지 또는 Application Insights 응용 프로그램 인지를 나타냅니다. 다른 Azure 리소스를 나타내는 아이콘이 없습니다.
 
-![Scope](media/scope/scope.png)
+![포털에 표시 되는 범위](media/scope/scope.png)
 
 범위는 Log Analytics를 시작 하는 데 사용 하는 방법에 따라 결정 되며, 경우에 따라 범위를 클릭 하 여 변경할 수 있습니다. 다음 표에서는 사용 되는 다양 한 종류의 범위와 각각에 대 한 다양 한 세부 정보를 나열 합니다.
 
 > [!IMPORTANT]
-> APM 2.1을 사용 하는 경우 Application Insights 응용 프로그램은 다른 모든 로그 데이터가 포함 된 Log Analytics 작업 영역에 저장 되며 Application Insights 범위를 사용할 수 없습니다. Application Insights 메뉴에서 **로그** 를 선택 하는 경우 **다른 Azure 리소스** 범위와 동일 하 게 작동 하며, Application Insights 테이블의 해당 응용 프로그램에 대 한 가져오면 데이터를 사용할 수 있습니다.
+> Application Insights에서 작업 영역 기반 응용 프로그램을 사용 하는 경우 해당 데이터는 다른 모든 로그 데이터가 포함 된 Log Analytics 작업 영역에 저장 됩니다. 이전 버전과의 호환성을 위해 응용 프로그램을 범위로 선택할 때 클래식 Application Insights 환경을 이용할 수 있습니다. Log Analytics 작업 영역에서이 데이터를 보려면 범위를 작업 영역으로 설정 합니다.
 
 | 쿼리 범위 | 범위 내의 레코드 | 선택 방법 | 범위 변경 |
 |:---|:---|:---|:---|
 | Log Analytics 작업 영역 | Log Analytics 작업 영역에 있는 모든 레코드 | **Azure Monitor** 메뉴 또는 **Log Analytics 작업 영역** 메뉴에서 **로그** 를 선택 합니다.  | 범위를 다른 리소스 유형으로 변경할 수 있습니다. |
-| Application Insights 애플리케이션 | Application Insights 응용 프로그램의 모든 레코드 | Application Insights의 **개요** 페이지에서 **분석** 을 선택 합니다. | 범위만 다른 Application Insights 응용 프로그램으로 변경할 수 있습니다. |
-| Resource group | 리소스 그룹의 모든 리소스에 의해 생성 된 레코드입니다. 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다. | 리소스 그룹 메뉴에서 **로그** 를 선택 합니다. | 범위를 변경할 수 없습니다.|
+| Application Insights 애플리케이션 | Application Insights 응용 프로그램의 모든 레코드 | 응용 프로그램에 대 한 **Application Insights** 메뉴에서 **로그** 를 선택 합니다. | 범위만 다른 Application Insights 응용 프로그램으로 변경할 수 있습니다. |
+| 리소스 그룹 | 리소스 그룹의 모든 리소스에 의해 생성 된 레코드입니다. 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다. | 리소스 그룹 메뉴에서 **로그** 를 선택 합니다. | 범위를 변경할 수 없습니다.|
 | Subscription | 구독의 모든 리소스에서 만든 레코드 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다. | 구독 메뉴에서 **로그** 를 선택 합니다.   | 범위를 변경할 수 없습니다. |
 | 기타 Azure 리소스 | 리소스에서 만든 레코드입니다. 여러 Log Analytics 작업 영역의 데이터를 포함할 수 있습니다.  | 리소스 메뉴에서 **로그** 를 선택 합니다.<br>또는<br>**Azure Monitor** 메뉴에서 **로그** 를 선택 하 고 새 범위를 선택 합니다. | 범위만 동일한 리소스 유형으로 변경할 수 있습니다. |
 
@@ -66,9 +66,9 @@ Log Analytics를 사용 하면 특정 개수의 지역이 사용 되는 경우 �
 
 
 ## <a name="time-range"></a>시간 범위
-시간 범위는 레코드를 만든 시간을 기준으로 쿼리를 평가 하는 레코드 집합을 지정 합니다. 이는 다음 표에 지정 된 대로 작업 영역 또는 응용 프로그램의 모든 레코드에 대 한 표준 속성에 의해 정의 됩니다.
+시간 범위는 레코드를 만든 시간을 기준으로 쿼리를 평가 하는 레코드 집합을 지정 합니다. 이는 다음 표에 지정 된 대로 작업 영역 또는 응용 프로그램의 모든 레코드에 대 한 표준 열에 의해 정의 됩니다.
 
-| 위치 | 속성 |
+| 위치 | 열 |
 |:---|:---|
 | Log Analytics 작업 영역          | TimeGenerated |
 | Application Insights 애플리케이션 | timestamp     |
@@ -77,17 +77,17 @@ Log Analytics 창의 맨 위에 있는 시간 선택에서 시간 범위를 선�
 
 ![시간 선택기](media/scope/time-picker.png)
 
-위의 표에 표시 된 것 처럼 표준 시간 속성을 사용 하는 쿼리에 필터를 설정 하면 시간 선택이 **쿼리에서 설정**으로 변경 되 고 시간 선택은 사용 하지 않도록 설정 됩니다. 이 경우 쿼리 맨 위에 필터를 배치 하는 것이 가장 효율적입니다. 그러면 모든 후속 처리에서 필터링 된 레코드만 사용 해야 합니다.
+위의 테이블에 표시 된 것 처럼 표준 시간 열을 사용 하는 쿼리에 필터를 설정 하면 시간 선택이 **쿼리에서 설정**으로 변경 되 고 시간 선택은 사용 하지 않도록 설정 됩니다. 이 경우 쿼리 맨 위에 필터를 배치 하는 것이 가장 효율적입니다. 그러면 모든 후속 처리에서 필터링 된 레코드만 사용 해야 합니다.
 
 ![필터링 된 쿼리](media/scope/query-filtered.png)
 
-[작업 영역](workspace-expression.md) 또는 [앱](app-expression.md) 명령을 사용 하 여 다른 작업 영역 또는 응용 프로그램에서 데이터를 검색 하는 경우 시간 선택이 다르게 동작할 수 있습니다. 범위가 Log Analytics 작업 영역이 고 **앱**을 사용 하는 경우 또는 범위가 Application Insights 응용 프로그램이 고 **작업 영역**을 사용 하는 경우 필터에 사용 된 속성이 시간 필터를 결정 하는 것을 Log Analytics 수 없습니다.
+[작업 영역](workspace-expression.md) 또는 [앱](app-expression.md) 명령을 사용 하 여 다른 작업 영역 또는 응용 프로그램에서 데이터를 검색 하는 경우 시간 선택이 다르게 동작할 수 있습니다. 범위가 Log Analytics 작업 영역 일 때 **앱**을 사용 하는 경우 또는 범위가 Application Insights 응용 프로그램이 고 **작업 영역**Log Analytics을 사용 하는 경우에는 필터에 사용 된 열이 시간 필터를 결정 하는 것을 알 수 없습니다.
 
-다음 예에서는 범위가 Log Analytics 작업 영역으로 설정 되어 있습니다.  쿼리는 **작업 영역** 을 사용 하 여 다른 Log Analytics 작업 영역에서 데이터를 검색 합니다. 시간 선택은 예상 **Timegenerated** 속성을 사용 하는 필터를 표시 하기 때문에 **쿼리에서 설정** 하도록 변경 됩니다.
+다음 예에서는 범위가 Log Analytics 작업 영역으로 설정 되어 있습니다.  쿼리는 **작업 영역** 을 사용 하 여 다른 Log Analytics 작업 영역에서 데이터를 검색 합니다. 시간 선택은 예상 **Timegenerated** 열을 사용 하는 필터를 표시 하기 때문에 **쿼리에서 설정** 하도록 변경 됩니다.
 
 ![작업 영역으로 쿼리](media/scope/query-workspace.png)
 
-쿼리가 응용 프로그램을 **사용 하** 여 Application Insights 응용 프로그램에서 데이터를 검색 하는 경우에는 Log Analytics에서 필터의 **timestamp** 속성을 인식 하지 못하며 시간 선택이 변경 되지 않은 상태로 유지 됩니다. 이 경우 두 필터가 모두 적용 됩니다. 이 예제에서는 지난 24 시간 동안 생성 된 레코드만 **where** 절에서 7 일을 지정 하더라도 쿼리에 포함 됩니다.
+쿼리가 응용 프로그램을 **사용 하** 여 Application Insights 응용 프로그램에서 데이터를 검색 하는 경우 Log Analytics는 필터의 **타임 스탬프** 열을 인식 하지 않으며 시간 선택은 변경 되지 않습니다. 이 경우 두 필터가 모두 적용 됩니다. 이 예제에서는 지난 24 시간 동안 생성 된 레코드만 **where** 절에서 7 일을 지정 하더라도 쿼리에 포함 됩니다.
 
 ![앱을 사용 하 여 쿼리](media/scope/query-app.png)
 
