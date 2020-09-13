@@ -3,12 +3,12 @@ title: 공용 레지스트리 액세스 구성
 description: 선택한 공용 IP 주소나 주소 범위에서 Azure 컨테이너 레지스트리에 대한 액세스를 사용하기 위한 IP 규칙을 구성합니다.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 0fbca1ec2734bf8275e12249f63ab134837fea12
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 4e4ee817e2534bcca09cba89daafd379ff3f03f0
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660928"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488765"
 ---
 # <a name="configure-public-ip-network-rules"></a>공용 IP 네트워크 규칙 구성
 
@@ -17,6 +17,8 @@ ms.locfileid: "88660928"
 IP 네트워크 규칙은 공용 레지스트리 엔드포인트에 구성됩니다. IP 네트워크 규칙은 [프라이빗 링크](container-registry-private-link.md)로 구성된 프라이빗 엔드포인트에는 적용되지 않음
 
 IP 액세스 규칙 구성은 **프리미엄** 컨테이너 레지스트리 서비스 계층에서 사용할 수 있습니다. 레지스트리 서비스 계층 및 제한에 대한 자세한 내용은 [Azure Container Registry 계층](container-registry-skus.md)을 참조하세요.
+
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## <a name="access-from-selected-public-network---cli"></a>선택한 공용 네트워크에서 액세스 - CLI
 

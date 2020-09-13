@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 18212bf92304e75c702c51ff12628cd670755bb0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 53db53f60166c3b5afa117a60a99e3429a14576d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855201"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488561"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 시계열 모델
 
@@ -24,7 +24,7 @@ ms.locfileid: "88855201"
 > [!TIP]
 >
 > * 라이브 시계열 모델 예제는 [Contoso 바람 팜 데모](https://insights.timeseries.azure.com/preview/samples) 환경으로 이동 합니다.
-> * Azure Time Series Insights TSI 탐색기를 사용 하 여 [시계열 모델을 사용 하는 방법](/azure/time-series-insights/how-to-edit-your-model) 에 대해 알아봅니다.
+> * Azure Time Series Insights 탐색기를 사용 하 여 [시계열 모델을 사용 하는 방법](/azure/time-series-insights/how-to-edit-your-model) 에 대해 알아봅니다.
 
 ## <a name="summary"></a>요약
 
@@ -75,7 +75,7 @@ Contoso가 초기 데이터 및 시각화 솔루션에 만족 하는 동안 다�
 
 [![시계열 모델 개요 차트](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-[Azure Time Series Insights TSI 탐색기](/azure/time-series-insights/concepts-model-overview)를 통해 시계열 모델을 만들고 관리할 수 있습니다. 시계열 모델 설정은 [모델 설정 API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis)를 통해 관리할 수 있습니다.
+시계열 모델은 [Azure Time Series Insights 탐색기](/azure/time-series-insights/concepts-model-overview)를 통해 만들고 관리할 수 있습니다. 시계열 모델 설정은 [모델 설정 API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis)를 통해 관리할 수 있습니다.
 
 ## <a name="time-series-model-instances"></a>시계열 모델 인스턴스
 
@@ -87,7 +87,7 @@ Contoso가 초기 데이터 및 시각화 솔루션에 만족 하는 동안 다�
 
 *인스턴스 필드* 는 계층 수준에 대 한 값 뿐만 아니라 제조업체, 연산자 등을 포함할 수 있는 설명 정보의 모음입니다.
 
-Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된 후 인스턴스는 시계열 모델에서 자동으로 검색 되 고 생성 됩니다. 인스턴스는 시계열 모델 쿼리를 사용 하 여 Azure Time Series Insights TSI 탐색기를 통해 만들거나 업데이트할 수 있습니다.
+Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된 후 인스턴스는 시계열 모델에서 자동으로 검색 되 고 생성 됩니다. 인스턴스는 시계열 모델 쿼리를 사용 하 여 Azure Time Series Insights 탐색기를 통해 만들거나 업데이트할 수 있습니다.
 
 [Contoso 바람 팜 데모](https://insights.timeseries.azure.com/preview/samples) 에서는 몇 가지 라이브 인스턴스 예제를 제공 합니다.
 
@@ -97,7 +97,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 
 인스턴스는 **Timeseriesid**, **typeId**, **name**, **description**, **계층 id**및 **instancefields**에 의해 정의 됩니다. 각 인스턴스는 한 가지 *유형*및 하나 이상의 *계층*에 매핑됩니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | ---|
 | timeSeriesId | 인스턴스가 연결 된 시계열의 고유 ID입니다. 대부분의 경우 인스턴스는 deviceId 또는 assetId와 같은 속성으로 고유 하 게 식별 됩니다. 경우에 따라 최대 3 개의 속성을 결합 하는 보다 구체적인 복합 ID를 사용할 수 있습니다. |
 | typeId | 인스턴스가 연결 된 시계열 모델 유형의 고유 문자열 ID (대/소문자 구분)입니다. 기본적으로 검색 되는 새 인스턴스는 모두 기본 형식에 연결 됩니다.
@@ -216,7 +216,7 @@ Azure Time Series Insights Gen2 환경에 대 한 이벤트 원본이 구성 된
 | ID4 | "빌딩" = "1000", "floor" = "10"  |
 | ID5 | "건물", "층" 또는 "방"은 설정 되지 않았습니다. |
 
-시계열 **ID1** 및 **ID4** 는 완전히 정의 되 고 올바르게 정렬 된 *빌딩*, *floor*및 *대화방* 매개 변수를 포함 하므로 [Azure Time Series Insights tsi 탐색기](time-series-insights-update-explorer.md) 에서 계층 **H1** 의 일부로 표시 됩니다.
+시계열 **ID1** 및 **ID4** 는 완전히 정의 되 고 올바르게 정렬 된 *건물*, *층*및 *방* 매개 변수를 포함 하므로 [Azure Time Series Insights 탐색기](time-series-insights-update-explorer.md) 에서 계층 **H1** 의 일부로 표시 됩니다.
 
 다른 항목은 지정 된 데이터 계층 구조를 준수 하지 않기 때문에 *Unparented 인스턴스로* 분류 됩니다.
 

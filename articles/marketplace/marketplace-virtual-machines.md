@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/15/2020
-ms.openlocfilehash: 9f408174b9a8dff925a9c834ea75bf725ec6f913
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 09/04/2020
+ms.openlocfilehash: cc6b040731cbeb7271d7a7c0de1c32fa2d007013
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837347"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484191"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>가상 컴퓨터 제품 게시 가이드
 
 VM (가상 컴퓨터) 이미지 게시는 Azure Marketplace에 솔루션을 게시 하는 주요 방법 중 하나입니다. 이 가이드를 사용 하 여이 제품 유형에 대 한 요구 사항을 이해 합니다. 
 
-가상 컴퓨터 제공은 Azure Marketplace를 통해 배포 되 고 청구 되는 트랜잭션 제품입니다. 사용자에 게 표시 되는 동작에 대 한 호출은 *지금 가져옵니다*.
+가상 컴퓨터 제공은 Azure Marketplace를 통해 배포 되 고 청구 되는 트랜잭션 제품입니다. 사용자에 게 표시 되는 목록 옵션은 *지금 가져옵니다*.
 
 ## <a name="free-trial"></a>평가판 
 

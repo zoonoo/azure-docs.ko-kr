@@ -10,12 +10,12 @@ ms.reviewer: ''
 ms.custom: sqldbrb=1
 ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0ba510d87764fde824b3fc7c594c230b880d05c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cceeef7e41e8fc5c48b4e67cdb1adf3aa4f02a1
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170327"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483867"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Azure SQL Database를 사용하여 다중 테넌트 SaaS 앱에 대해 인덱싱되고 주석이 지정된 동영상
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -77,7 +77,7 @@ ms.locfileid: "84170327"
 - [32. 테 넌 트 데이터베이스 간 분산 쿼리, 1:12:21](#anchor-image-wtip-min11221)
 - [33. 티켓 생성 데모, 1:12:32](#anchor-image-wtip-min11232)
 - [34. SSMS 임시 분석, 1:12:46](#anchor-image-wtip-min11246)
-- [35. SQL DW로 테 넌 트 데이터 추출, 1:16:32](#anchor-image-wtip-min11632)
+- [35. Azure Synapse Analytics로 테 넌 트 데이터 추출, 1:16:32](#anchor-image-wtip-min11632)
 - [36. 일일 판매 분포 그래프, 1:16:48](#anchor-image-wtip-min11648)
 - [37. 래핑 및 호출 작업, 1:19:52](#anchor-image-wtip-min11952)
 - [38. 자세한 내용은 1:20:42](#anchor-image-wtip-min12042)
@@ -273,8 +273,8 @@ ms.locfileid: "84170327"
 
 
 &nbsp; <a name="anchor-image-wtip-min11632"></a>
-#### <a name="35-extract-tenant-data-into-sql-dw-11546"></a>35. SQL DW로 테 넌 트 데이터 추출, 1:15:46
-[![SQL DW로 테 넌 트 데이터 추출][image-wtip-min11632-extract-tenant-data-sql-dw]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4546)
+#### <a name="35-extract-tenant-data-into-azure-synapse-analytics-11546"></a>35. Azure Synapse Analytics로 테 넌 트 데이터 추출, 1:15:46
+[![Azure Synapse Analytics로 테 넌 트 데이터 추출][image-wtip-min11632-extract-tenant-data-sql-dw]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4546)
 
 
 &nbsp; <a name="anchor-image-wtip-min11648"></a>
@@ -383,7 +383,7 @@ ms.locfileid: "84170327"
 
 [image-wtip-min11246-ssms-adhoc-analytics]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11246-tsql-adhoc-analystics-db-elastic-query.png "SSMS 임시 분석"
 
-[image-wtip-min11632-extract-tenant-data-sql-dw]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11632-extract-tenant-data-analytics-db-dw.png "SQL DW로 테넌트 데이터 추출"
+[image-wtip-min11632-extract-tenant-data-sql-dw]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11632-extract-tenant-data-analytics-db-dw.png "Azure Synapse Analytics로 테 넌 트 데이터 추출"
 
 [image-wtip-min11648-graph-daily-sale-distribution]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min11648-graph-daily-sale-contoso-concert-hall.png "일일 판매 분포 그래프"
 

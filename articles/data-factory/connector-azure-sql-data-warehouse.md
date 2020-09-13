@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: cd14a183ae1434af83c96b7f8d6575186412b534
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 01e2a2db3757e8d13749faf53b47300c8188915e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051222"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484479"
 ---
-# <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)에서 데이터 복사 및 변환
+# <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)에서 데이터 복사 및 변환
 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 >
@@ -42,7 +42,7 @@ ms.locfileid: "89051222"
 
 - 서비스 주체 또는 Azure 리소스에 대한 관리 ID를 통해 SQL 인증 및 Azure AD(Azure Active Directory) 애플리케이션 토큰 인증을 사용하여 데이터를 복사합니다.
 - 원본으로 SQL 쿼리 또는 저장 프로시저를 사용하여 데이터를 검색합니다. Azure Synapse Analytics 원본에서 병렬 복사를 선택할 수도 있습니다. 자세한 내용은 [Synapse analytics에서 병렬 복사](#parallel-copy-from-synapse-analytics) 섹션을 참조 하세요.
-- 싱크로 [PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse)나 [COPY 문](#use-copy-statement)(미리 보기) 또는 대량 삽입을 사용하여 데이터를 로드합니다. 더 나은 복사 성능을 위해 PolyBase 또는 COPY 문(미리 보기)을 권장합니다. 원본 스키마에 따라 존재 하지 않는 경우 커넥터는 대상 테이블을 자동으로 만들도록 지원 합니다.
+- 싱크로 [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics)나 [COPY 문](#use-copy-statement)(미리 보기) 또는 대량 삽입을 사용하여 데이터를 로드합니다. 더 나은 복사 성능을 위해 PolyBase 또는 COPY 문(미리 보기)을 권장합니다. 원본 스키마에 따라 존재 하지 않는 경우 커넥터는 대상 테이블을 자동으로 만들도록 지원 합니다.
 
 > [!IMPORTANT]
 > Azure Data Factory Integration Runtime를 사용 하 여 데이터를 복사 하는 경우 Azure 서비스에서 [논리 SQL server](../azure-sql/database/logical-servers.md)에 액세스할 수 있도록 [서버 수준 방화벽 규칙](../azure-sql/database/firewall-configure.md) 을 구성 합니다.
@@ -51,7 +51,7 @@ ms.locfileid: "89051222"
 ## <a name="get-started"></a>시작하기
 
 > [!TIP]
-> 최상의 성능을 얻으려면 PolyBase를 사용하여 Azure Synapse Analytics에 데이터를 로드합니다. 자세한 내용은 [PolyBase를 사용하여 Azure Synapse Analytics에 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](load-azure-sql-data-warehouse.md)를 참조하세요.
+> 최상의 성능을 얻으려면 PolyBase를 사용하여 Azure Synapse Analytics에 데이터를 로드합니다. 자세한 내용은 [PolyBase를 사용하여 Azure Synapse Analytics에 데이터 로드](#use-polybase-to-load-data-into-azure-synapse-analytics) 섹션을 참조하세요. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](load-azure-sql-data-warehouse.md)를 참조하세요.
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -269,7 +269,7 @@ Azure Synapse Analytics에서 데이터를 복사하려면 복사 작업 원본�
 | storedProcedureParameters    | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 예       |
 | isolationLevel | SQL 원본에 대한 트랜잭션 잠금 동작을 지정합니다. 허용 되는 값은 **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**입니다. 지정 하지 않으면 데이터베이스의 기본 격리 수준이 사용 됩니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel)를 참조하세요. | 예 |
 | partitionOptions | Azure Synapse Analytics에서 데이터를 로드 하는 데 사용 되는 데이터 분할 옵션을 지정 합니다. <br>허용 되는 값은 **None** (기본값), **PhysicalPartitionsOfTable**및 **dynamicrange**입니다.<br>파티션 옵션을 사용 하도록 설정 하는 경우 (즉,이 아님 `None` ) Azure Synapse Analytics에서 데이터를 동시에 로드 하는 병렬 처리 수준은 [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) 복사 작업의 설정에 의해 제어 됩니다. | 예 |
-| partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | 예 |
+| partitionSettings | 데이터 분할에 대한 설정 그룹을 지정합니다. <br>Partition 옵션을 사용할 수 없는 경우에 적용 `None` 됩니다. | 아니요 |
 | ***에서 `partitionSettings` 다음을 수행 합니다.*** | | |
 | partitionColumnName | 병렬 복사를 위해 범위 분할에서 사용 되는 **정수 또는 날짜/시간 형식으로** 원본 열의 이름을 지정 합니다. 지정 하지 않으면 테이블의 인덱스 또는 기본 키가 자동으로 검색 되어 파티션 열로 사용 됩니다.<br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 쿼리를 사용 하 여 원본 데이터를 검색 하는 경우  `?AdfDynamicRangePartitionCondition ` WHERE 절에 후크 합니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-synapse-analytics) 섹션을 참조 하세요. | 예 |
 | partitionUpperBound | 파티션 범위 분할에 대 한 파티션 열의 최대값입니다. 이 값은 테이블의 행을 필터링 하는 것이 아니라 파티션 stride를 결정 하는 데 사용 됩니다. 테이블이 나 쿼리 결과의 모든 행이 분할 되 고 복사 됩니다. 지정 하지 않으면 복사 작업에서 값을 자동으로 검색 합니다.  <br>파티션 옵션이 `DynamicRange`인 경우에 적용됩니다. 예를 들어 [SQL 데이터베이스에서 병렬 복사](#parallel-copy-from-synapse-analytics) 섹션을 참조 하세요. | 예 |
@@ -284,7 +284,7 @@ Azure Synapse Analytics에서 데이터를 복사하려면 복사 작업 원본�
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Azure SQL DW input dataset name>",
+                "referenceName": "<Azure Synapse Analytics input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -316,7 +316,7 @@ Azure Synapse Analytics에서 데이터를 복사하려면 복사 작업 원본�
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<Azure SQL DW input dataset name>",
+                "referenceName": "<Azure Synapse Analytics input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -364,32 +364,32 @@ GO
 
 ### <a name="azure-synapse-analytics-as-sink"></a><a name="azure-sql-data-warehouse-as-sink"></a> 싱크로 Azure Synapse Analytics
 
-Azure Data Factory는 SQL Data Warehouse에 데이터를 로드하는 세 가지 방법을 지원합니다.
+Azure Data Factory는 Azure Synapse Analytics로 데이터를 로드 하는 세 가지 방법을 지원 합니다.
 
-![SQL DW 싱크 복사 옵션](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
+![Azure Synapse Analytics 싱크 복사 옵션](./media/connector-azure-sql-data-warehouse/sql-dw-sink-copy-options.png)
 
-- [PolyBase 사용](#use-polybase-to-load-data-into-azure-sql-data-warehouse)
+- [PolyBase 사용](#use-polybase-to-load-data-into-azure-synapse-analytics)
 - [COPY 문 사용(미리 보기)](#use-copy-statement)
 - 대량 삽입 사용
 
 데이터를 로드하는 가장 빠르고 확장성 있는 방법은 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) 또는 [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)(미리 보기)를 통하는 것입니다.
 
-Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크 형식을 **SqlDWSink**로 설정합니다. 복사 작업 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
+Azure Synapse Analytics로 데이터를 복사 하려면 복사 작업의 싱크 형식을 **SqlDWSink**로 설정 합니다. 복사 작업 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
 
 | 속성          | Description                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | 복사 작업 싱크의 **type** 속성은 **SqlDWSink**로 설정해야 합니다. | 예                                           |
-| allowPolyBase     | PolyBase를 사용하여 데이터를 SQL Data Warehouse에 로드할지 여부를 나타냅니다. `allowCopyCommand` 및 `allowPolyBase` 모두 true일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse로 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요.<br/>PolyBase를 사용하는 경우 적용합니다.     |
+| allowPolyBase     | PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드할지 여부를 나타냅니다. `allowCopyCommand` 및 `allowPolyBase` 모두 true일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터 로드 섹션을](#use-polybase-to-load-data-into-azure-synapse-analytics) 참조 하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요.<br/>PolyBase를 사용하는 경우 적용합니다.     |
 | polyBaseSettings  | `allowPolybase` 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. | 아니요.<br/>PolyBase를 사용하는 경우 적용합니다. |
-| allowCopyCommand | [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)(미리 보기)를 사용하여 데이터를 SQL Data Warehouse에 로드할지 여부를 나타냅니다. `allowCopyCommand` 및 `allowPolyBase` 모두 true일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [COPY 문을 사용하여 Azure SQL Data Warehouse로 데이터 로드](#use-copy-statement) 섹션을 참조하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요.<br>COPY를 사용하는 경우 적용합니다. |
+| allowCopyCommand | [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (미리 보기)을 사용 하 여 Azure Synapse Analytics로 데이터를 로드할지 여부를 나타냅니다. `allowCopyCommand` 및 `allowPolyBase` 모두 true일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [COPY 문을 사용 하 여 Azure Synapse Analytics로 데이터 로드 섹션을](#use-copy-statement) 참조 하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요.<br>COPY를 사용하는 경우 적용합니다. |
 | copyCommandSettings | `allowCopyCommand` 속성이 TRUE로 설정된 경우 지정될 수 있는 속성의 그룹입니다. | 아니요.<br/>COPY를 사용하는 경우 적용합니다. |
 | writeBatchSize    | **일괄 처리당** SQL 테이블에 삽입할 행 수입니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. 기본적으로 Data Factory는 행 크기에 따라 적절한 일괄 처리 크기를 동적으로 결정합니다. | 아니요.<br/>대량 삽입을 사용하는 경우 적용합니다.     |
 | writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예제: "00:30:00"(30분). | 아니요.<br/>대량 삽입을 사용하는 경우 적용합니다.        |
-| preCopyScript     | 각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
+| preCopyScript     | 각 실행에서 Azure Synapse Analytics로 데이터를 쓰기 전에 실행할 복사 작업에 대 한 SQL 쿼리를 지정 합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
 | tableOption | 원본 스키마에 따라 존재 하지 않는 경우 [싱크 테이블을 자동으로 만들지](copy-activity-overview.md#auto-create-sink-tables) 여부를 지정 합니다. 허용되는 값은 `none`(기본값) 또는 `autoCreate`입니다. |예 |
-| disableMetricsCollection | Data Factory는 복사 성능 최적화 및 권장 사항에 대한 SQL Data Warehouse DWU와 같은 메트릭을 수집합니다. 이 동작에 관심이 있는 경우 `true`를 지정하여 해제합니다. | 아니요(기본값: `false`) |
+| disableMetricsCollection | Data Factory 복사 성능 최적화 및 권장 사항에 대 한 Azure Synapse Analytics DWUs와 같은 메트릭을 수집 합니다. 이 동작에 관심이 있는 경우 `true`를 지정하여 해제합니다. | 아니요(기본값: `false`) |
 
-#### <a name="sql-data-warehouse-sink-example"></a>SQL Data Warehouse 싱크 예제
+#### <a name="azure-synapse-analytics-sink-example"></a>Azure Synapse Analytics 싱크 예제
 
 ```json
 "sink": {
@@ -453,12 +453,12 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 }
 ```
 
-## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드
+## <a name="use-polybase-to-load-data-into-azure-synapse-analytics"></a>PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터 로드
 
 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 사용하면 높은 처리량으로 대량 데이터를 Azure Synapse Analytics에 효율적으로 로드할 수 있습니다. 기본 BULKINSERT 메커니즘 대신 PolyBase를 사용하면 처리량이 훨씬 증가합니다. 사용 사례가 있는 연습은 [Azure Synapse Analytics에 1TB 로드](v1/data-factory-load-sql-data-warehouse.md)를 참조하세요.
 
-- 원본 데이터가 **Azure Blob, Azure Data Lake Storage Gen1 또는 Azure Data Lake Storage Gen2**에 있고 **형식이 PolyBase 호환**이면 SQL Data Warehouse가 원본에서 데이터를 끌어오도록 복사 작업을 사용하여 PolyBase를 직접 호출할 수 있습니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-by-using-polybase)** 를 참조하세요.
-- 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 데이터를 PolyBase 호환 형식으로 자동으로 변환 하 고, Azure Blob storage에 데이터를 저장 한 다음, PolyBase를 호출 하 여 데이터를 SQL Data Warehouse으로 로드 합니다.
+- 원본 데이터가 **Azure Blob, Azure Data Lake Storage Gen1 또는 Azure Data Lake Storage Gen2**에 있고 **형식이 polybase 호환**인 경우 복사 작업을 사용 하 여 azure Synapse Analytics에서 원본 으로부터 데이터를 끌어올 수 있도록 polybase를 직접 호출할 수 있습니다. 자세한 내용은 **[PolyBase를 사용하여 직접 복사](#direct-copy-by-using-polybase)** 를 참조하세요.
+- 원본 데이터 저장소와 형식이 PolyBase에서 원래 지원되지 않는 경우, 대신 **[PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)** 기능을 사용합니다. 준비된 복사 기능을 사용할 경우, 처리량도 향상됩니다. 데이터를 PolyBase 호환 형식으로 자동으로 변환 하 고, Azure Blob storage에 데이터를 저장 한 다음, PolyBase를 호출 하 여 Azure Synapse Analytics로 데이터를 로드 합니다.
 
 > [!TIP]
 > [PolyBase 사용에 대한 모범 사례](#best-practices-for-using-polybase)에 대해 자세히 알아봅니다.
@@ -474,10 +474,10 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 
 ### <a name="direct-copy-by-using-polybase"></a>PolyBase를 사용한 직접 복사
 
-SQL Data Warehouse PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및 Azure Data Lake Storage Gen2를 직접 지원합니다. 원본 데이터가 이 섹션에 설명된 조건을 충족하는 경우, PolyBase를 사용하여 원본 데이터 저장소에서 Azure Synapse Analytics로 직접 복사합니다. 조건을 충족하지 않는 경우, [PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)를 사용합니다.
+Azure Synapse Analytics PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및 Azure Data Lake Storage Gen2를 직접 지원 합니다. 원본 데이터가 이 섹션에 설명된 조건을 충족하는 경우, PolyBase를 사용하여 원본 데이터 저장소에서 Azure Synapse Analytics로 직접 복사합니다. 조건을 충족하지 않는 경우, [PolyBase를 사용한 준비된 복사](#staged-copy-by-using-polybase)를 사용합니다.
 
 > [!TIP]
-> SQL Data Warehouse로 데이터를 효율적으로 복사하려면 [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/)(SQL Data Warehouse와 함께 Data Lake Store를 사용할 경우, Azure Data Factory에서 데이터의 인사이트를 쉽고 편리하게 얻을 수 있음)에서 자세한 내용을 참조하세요.
+> Azure Synapse Analytics로 데이터를 효율적으로 복사 하려면 [Azure Synapse analytics에서 Data Lake Store를 사용할 때 Azure Data Factory에서 더 쉽고 편리](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/)하 게 데이터에 대 한 정보를 얻는 것이 좋습니다.
 
 조건을 충족하지 않는 경우, Azure Data Factory는 설정을 확인한 후 데이터 이동을 위해 BULKINSERT 메커니즘으로 자동으로 대체됩니다.
 
@@ -545,7 +545,7 @@ SQL Data Warehouse PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및 Azur
 
 ### <a name="staged-copy-by-using-polybase"></a>PolyBase를 사용한 준비된 복사
 
-원본 데이터가 PolyBase와 기본적으로 호환되지 않는 경우 중간 준비 Azure Blob Storage 인스턴스(Azure Premium Storage일 수 없음)를 통해 데이터 복사를 사용하도록 설정합니다. 이 경우, Azure Data Factory는 PolyBase의 데이터 형식 요구 사항을 충족하도록 데이터를 자동으로 변환합니다. 그런 다음 PolyBase를 호출하여 데이터를 SQL Data Warehouse에 로드합니다. 마지막으로, Blob Storage에서 임시 데이터를 정리합니다. 준비 Azure Blob Storage 인스턴스를 통해 데이터를 복사하는 방법에 대한 자세한 내용은 [준비된 복사](copy-activity-performance-features.md#staged-copy)를 참조하세요.
+원본 데이터가 PolyBase와 기본적으로 호환되지 않는 경우 중간 준비 Azure Blob Storage 인스턴스(Azure Premium Storage일 수 없음)를 통해 데이터 복사를 사용하도록 설정합니다. 이 경우, Azure Data Factory는 PolyBase의 데이터 형식 요구 사항을 충족하도록 데이터를 자동으로 변환합니다. 그런 다음 PolyBase를 호출 하 여 Azure Synapse Analytics로 데이터를 로드 합니다. 마지막으로, Blob Storage에서 임시 데이터를 정리합니다. 준비 Azure Blob Storage 인스턴스를 통해 데이터를 복사하는 방법에 대한 자세한 내용은 [준비된 복사](copy-activity-performance-features.md#staged-copy)를 참조하세요.
 
 이 기능을 사용하려면 중간 Blob Storage가 있는 Azure Storage 계정을 참조하는 [Azure Blob Storage 연결된 서비스](connector-azure-blob-storage.md#linked-service-properties)를 만듭니다. 그런 다음, 복사 작업의 `enableStaging` 및 `stagingSettings` 속성을 다음 코드에 표시된 대로 지정합니다.
 
@@ -595,25 +595,25 @@ SQL Data Warehouse PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및 Azur
 
 #### <a name="required-database-permission"></a>필수 데이터베이스 권한
 
-PolyBase를 사용하려면 SQL Data Warehouse에 데이터를 로드하는 사용자에게 대상 데이터베이스에 대한 [“CONTROL” 권한](https://msdn.microsoft.com/library/ms191291.aspx)이 있어야 합니다. 한 가지 방법은 해당 사용자를 **db_owner** 역할의 구성원으로 추가하는 것입니다. [SQL Data Warehouse 개요](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization)에서 작업 방법을 알아보세요.
+PolyBase를 사용 하려면 Azure Synapse Analytics로 데이터를 로드 하는 사용자에 게 대상 데이터베이스에 대 한 ["CONTROL" 권한이](https://msdn.microsoft.com/library/ms191291.aspx) 있어야 합니다. 한 가지 방법은 해당 사용자를 **db_owner** 역할의 구성원으로 추가하는 것입니다. [Azure Synapse Analytics 개요](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization)에서이 작업을 수행 하는 방법에 대해 알아봅니다.
 
 #### <a name="row-size-and-data-type-limits"></a>행 크기 및 데이터 형식 한도
 
-PolyBase는 1MB보다 작은 행으로 제한됩니다. VARCHR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)에 로드하는 데 사용할 수 없습니다. 자세한 내용은 [SQL Data Warehouse 서비스 용량 한도](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads)를 참조하세요.
+PolyBase는 1MB보다 작은 행으로 제한됩니다. VARCHR(MAX), NVARCHAR(MAX) 또는 VARBINARY(MAX)에 로드하는 데 사용할 수 없습니다. 자세한 내용은 [Azure Synapse Analytics 서비스 용량 제한](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads)을 참조 하세요.
 
 원본 데이터에 1MB보다 큰 행이 있는 경우, 원본 테이블을 여러 개의 작은 테이블로 수직 분할하는 것이 좋습니다. 각 행의 최대 크기가 한도를 초과하지 않는지 확인합니다. 더 작은 테이블은 PolyBase를 사용하여 로드하고 Azure Synapse Analytics에 병합할 수 있습니다.
 
 또는 이러한 광범위한 열이 포함된 데이터의 경우 "PolyBase 허용" 설정을 해제하여 비 PolyBase를 사용하고 ADF를 사용하여 데이터를 로드할 수 있습니다.
 
-#### <a name="sql-data-warehouse-resource-class"></a>SQL Data Warehouse 리소스 클래스
+#### <a name="azure-synapse-analytics-resource-class"></a>Azure Synapse Analytics 리소스 클래스
 
-가능한 최고 수준까지 처리량을 높이려면 PolyBase를 통해 SQL Data Warehouse에 데이터를 로드하는 사용자에게 더 큰 리소스 클래스를 할당합니다.
+가능한 최상의 처리량을 얻으려면 PolyBase를 통해 Azure Synapse Analytics로 데이터를 로드 하는 사용자에 게 더 큰 리소스 클래스를 할당 합니다.
 
 #### <a name="polybase-troubleshooting"></a>PolyBase 문제 해결
 
 **Decimal 열에 로드**
 
-원본 데이터가 텍스트 형식이나 기타 PolyBase 호환 저장소(준비된 복사 및 PolyBase 사용)에 있고 SQL Data Warehouse Decimal 열에 로드할 빈 값을 포함하는 경우 다음 오류가 발생할 수 있습니다.
+원본 데이터가 텍스트 형식이 나 기타 PolyBase 호환 저장소 (준비 된 복사 및 PolyBase 사용)에 있는 경우 Azure Synapse Analytics Decimal 열에 로드할 빈 값을 포함 하는 경우 다음 오류가 발생할 수 있습니다.
 
 ```
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
@@ -649,9 +649,9 @@ All columns of the table must be specified in the INSERT BULK statement.
 
 NULL 값은 특별한 형태의 기본값입니다. 열이 Null을 허용하는 경우, 해당 열에 대한 Blob의 입력 데이터가 비어 있을 수 있습니다. 그러나 입력 데이터 세트에서는 누락할 수 없습니다. PolyBase는 Azure Synapse Analytics에서 누락된 값에 대해 NULL을 삽입합니다.
 
-## <a name="use-copy-statement-to-load-data-into-azure-sql-data-warehouse-preview"></a><a name="use-copy-statement"></a> COPY 문을 사용하여 Azure SQL Data Warehouse(미리 보기)에 데이터 로드
+## <a name="use-copy-statement-to-load-data-into-azure-synapse-analytics-preview"></a><a name="use-copy-statement"></a> COPY 문을 사용 하 여 Azure Synapse Analytics (미리 보기)에 데이터 로드
 
-SQL Data Warehouse [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)(미리 보기)은 **Azure Blob 및 Azure Data Lake Storage Gen2**에서 데이터 로드를 직접 지원합니다. 원본 데이터가 이 섹션에 설명된 조건을 충족하는 경우 ADF에서 COPY 문을 사용하도록 선택하여 Azure SQL Data Warehouse로 데이터를 로드할 수 있습니다. Azure Data Factory는 설정을 확인하고 조건이 충족되지 않으면 복사 작업 실행에 실패합니다.
+Azure Synapse Analytics [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (preview)은 azure Blob에서 데이터 로드 **및 Azure Data Lake Storage Gen2**을 직접 지원 합니다. 원본 데이터가이 섹션에 설명 된 조건을 충족 하는 경우 ADF에서 COPY 문을 사용 하 여 Azure Synapse Analytics로 데이터를 로드 하도록 선택할 수 있습니다. Azure Data Factory는 설정을 확인하고 조건이 충족되지 않으면 복사 작업 실행에 실패합니다.
 
 >[!NOTE]
 >현재 Data Factory는 아래에 설명된 COPY 문 호환 원본의 복사만 지원합니다.
@@ -690,8 +690,8 @@ COPY 문을 사용하면 다음 구성이 지원됩니다.
 
 | 속성          | Description                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| defaultValues | SQL DW의 각 대상 열에 대한 기본값을 지정합니다.  속성의 기본값은 데이터 웨어하우스의 기본 제약 조건 집합을 덮어쓰고 ID 열에는 기본값을 사용할 수 없습니다. | 예 |
-| additionalOptions | [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)의 "With" 절에서 직접 SQL DW COPY 문에 전달되는 추가 옵션입니다. COPY 문 요구 사항에 맞게 조정하는 데 필요한 값을 따옴표로 묶습니다. | 예 |
+| defaultValues | Azure Synapse Analytics의 각 대상 열에 대 한 기본값을 지정 합니다.  속성의 기본값은 데이터 웨어하우스의 기본 제약 조건 집합을 덮어쓰고 ID 열에는 기본값을 사용할 수 없습니다. | 예 |
+| additionalOptions | [Copy 문의](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest)"With" 절에서 직접 Azure SYNAPSE Analytics 복사 문에 전달 되는 추가 옵션입니다. COPY 문 요구 사항에 맞게 조정하는 데 필요한 값을 따옴표로 묶습니다. | 예 |
 
 ```json
 "activities":[
@@ -800,7 +800,7 @@ Azure Synapse Analytics에 특정한 설정은 싱크 변환의 **설정** 탭�
 Azure Synapse Analytics에서/로 데이터를 복사하는 경우, Azure Synapse Analytics 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
 >[!TIP]
->SQL DW 지원 데이터 형식 및 지원되지 않는 데이터 형식에 대한 해결 방법에 관한 자세한 내용은 [Azure Synapse Analytics의 테이블 데이터 형식](../synapse-analytics/sql/develop-tables-data-types.md) 문서를 참조하세요.
+>Azure Synapse Analytics에서 지원 되는 데이터 형식 및 지원 되지 않는 데이터 형식에 대 한 자세한 내용은 [Azure Synapse analytics의 테이블 데이터 형식](../synapse-analytics/sql/develop-tables-data-types.md) 문서를 참조 하세요.
 
 | Azure Synapse Analytics 데이터 형식    | Data Factory 중간 데이터 형식 |
 | :------------------------------------ | :----------------------------- |

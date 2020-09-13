@@ -3,27 +3,23 @@ title: 프라이빗 링크 설정
 description: 컨테이너 레지스트리에서 개인 끝점을 설정 하 고 로컬 가상 네트워크에서 개인 링크를 통해 액세스를 사용 하도록 설정 합니다. 개인 링크 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 713b19e4a60e5dcad6cfd92d65f97af2e921c0e9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: da07d35ad944db8e9b8a7bac0602fff23cd222d8
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523845"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488748"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Azure 개인 링크를 사용 하 여 Azure container registry에 비공개로 연결
 
 
-[Azure 개인 링크](../private-link/private-link-overview.md)를 사용 하 여 가상 네트워크 개인 IP 주소를 레지스트리 끝점에 할당 하 여 레지스트리에 대 한 액세스를 제한 합니다. 가상 네트워크의 클라이언트와 레지스트리의 개인 끝점 간의 네트워크 트래픽은 Microsoft 백본 네트워크에서 가상 네트워크와 개인 링크를 순회 하 여 공용 인터넷의 노출을 제거 합니다. 또한 개인 링크를 사용 하면 [Azure express](../expressroute/expressroute-introduction.MD) 경로 개인 피어 링 또는 [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 통해 온-프레미스에서 개인 레지스트리 액세스를 사용할 수 있습니다.
+[Azure 개인 링크](../private-link/private-link-overview.md)를 사용 하 여 가상 네트워크 개인 IP 주소를 레지스트리 끝점에 할당 하 여 레지스트리에 대 한 액세스를 제한 합니다. 가상 네트워크의 클라이언트와 레지스트리의 개인 끝점 간의 네트워크 트래픽은 Microsoft 백본 네트워크에서 가상 네트워크와 개인 링크를 순회 하 여 공용 인터넷의 노출을 제거 합니다. 또한 개인 링크를 통해 [Azure express](../expressroute/expressroute-introduction.MD) 경로 개인 피어 링 또는 [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 통해 온-프레미스에서 개인 레지스트리 액세스를 사용할 수 있습니다.
 
 레지스트리의 전용 끝점에 대 한 [DNS 설정을 구성할](../private-link/private-endpoint-overview.md#dns-configuration) 수 있습니다. 그러면 설정이 레지스트리의 할당 된 개인 IP 주소로 확인 됩니다. DNS 구성을 사용하는 경우, 네트워크의 클라이언트 및 서비스는 *myregistry.azurecr.io*와 같은 레지스트리의 정규화된 도메인 이름(FQDN)에서 레지스트리에 계속 액세스할 수 있습니다. 
 
-이 기능은 **프리미엄** 컨테이너 레지스트리 서비스 계층에서 사용할 수 있습니다. 레지스트리 서비스 계층 및 제한에 대한 자세한 내용은 [Azure Container Registry 계층](container-registry-skus.md)을 참조하세요.
+이 기능은 **프리미엄** 컨테이너 레지스트리 서비스 계층에서 사용할 수 있습니다. 현재 레지스트리에 대해 최대 10 개의 개인 끝점을 설정할 수 있습니다. 레지스트리 서비스 계층 및 제한에 대한 자세한 내용은 [Azure Container Registry 계층](container-registry-skus.md)을 참조하세요.
 
-
-## <a name="things-to-know"></a>알아야 할 사항
-
-* 현재 Azure Security Center를 사용하는 이미지 검색은 프라이빗 엔드포인트를 통해 구성된 레지스트리에서 사용할 수 없습니다.
-* 현재 레지스트리에 대해 최대 10 개의 개인 끝점을 설정할 수 있습니다.
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

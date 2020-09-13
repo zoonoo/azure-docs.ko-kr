@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: ce63da745fb84ebccd57b246fc934f595dd7cda1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a756a3cec5702570751e0bea09a4f59152accafc
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418255"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484547"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon Redshift에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -42,7 +42,7 @@ Amazon Redshift에서 지원되는 모든 싱크 데이터 저장소로 데이�
 > [!TIP]
 > Redshift에서 많은 양의 데이터를 복사할 때 최상의 성능을 위해 Amazon S3을 통해 기본 제공 Redshift UNLOAD를 사용하는 것이 좋습니다. 자세한 내용은 [UNLOAD를 사용하여 Amazon Redshift에서 데이터 복사](#use-unload-to-copy-data-from-amazon-redshift)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md)을 사용하여 데이터를 온-프레미스 데이터 저장소로 복사하는 경우 통합 런타임에(컴퓨터의 IP 주소 사용) Amazon Redshift 클러스터에 대한 액세스 권한을 부여합니다. 자세한 내용은 [클러스터에 대한 액세스 권한 부여](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 를 참조하세요.
 * Azure 데이터 저장소에 데이터를 복사하는 경우, Azure 데이터 센터에서 사용하는 IP 주소 및 SQL 범위를 계산하기 위해 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 참조하세요.
@@ -164,11 +164,11 @@ Amazon Redshift에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 [UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html)는 쿼리의 결과를 Amazon S3(Amazon Simple Storage Service)의 하나 이상의 파일에 언로드할 수 있는 Amazon Redshift에서 제공하는 메커니즘입니다. Redshift에서 큰 데이터 집합을 복사하기 위해 Amazon에서 권장하는 방법입니다.
 
-**예: UNLOAD, 단계적 복사 및 PolyBase를 사용하여 Amazon Redshift에서 Azure SQL Data Warehouse로 데이터 복사**
+**예: UNLOAD, 준비 된 복사 및 PolyBase를 사용 하 여 Amazon Redshift에서 Azure Synapse Analytics로 데이터 복사 (이전의 SQL Data Warehouse)**
 
-이 샘플 사용 사례의 경우 복사 작업은 "redshiftUnloadSettings"에 구성된 대로 Amazon Redshift에서 Amazon S3으로 데이터를 언로드한 다음 "stagingSettings"에 지정된 대로 Amazon S3에서 Azure Blob으로 데이터를 복사하고, 마지막으로 PolyBase를 사용하여 SQL Data Warehouse로 데이터를 로드합니다. 모든 중간 형식은 복사 작업에서 제대로 처리됩니다.
+이 샘플 사용 사례의 경우 복사 작업은 "redshiftUnloadSettings"에 구성 된 대로 amazon Redshift에서 Amazon s 3으로 데이터를 언로드한 다음 "stagingSettings"에 지정 된 대로 Amazon s 3에서 Azure Blob으로 데이터를 복사 하 고, 마지막으로 PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드 합니다 (이전에 SQL Data Warehouse). 모든 중간 형식은 복사 작업에서 제대로 처리됩니다.
 
-![Redshift에서 SQL DW로 복사 워크플로](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
+![Redshift to Azure Synapse Analytics 복사 워크플로](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[

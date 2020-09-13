@@ -1,19 +1,19 @@
 ---
 title: 딥 다이브 분석 - 고급 분석 - Azure HDInsight
 description: 고급 분석에서 알고리즘을 사용 하 여 Azure HDInsight에서 빅 데이터를 처리 하는 방법을 알아봅니다.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: fa2909055259d7832942f9f47434963f7bbb2aa1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079363"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504352"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -42,13 +42,13 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 * 자율-알고리즘이 학습 데이터를 요구 하지 않습니다.
 * 보충 - 알고리즘에서 소프트웨어 에이전트를 사용하여 특정 컨텍스트 내에서 이상적인 동작을 결정합니다(종종 로봇 공학에서 사용됨)
 
-| 알고리즘 범주| Windows Server Update Services와 함께 | 학습 유형 | 알고리즘 |
+| 알고리즘 범주| 기능 | 학습 유형 | 알고리즘 |
 | --- | --- | --- | -- |
 | 분류 | 사람 또는 사물을 그룹으로 분류합니다. | 감독됨 | 의사 결정 트리, 로지스틱 회귀, 신경망 |
 | Clustering | 일단의 예제를 동일 그룹으로 분할합니다. | 자율 | K-평균 클러스터링 |
 | 패턴 검색 | 데이터에서 빈번한 연결을 확인합니다. | 자율 | 연결 규칙 |
 | 회귀 | 숫자 결과를 예측합니다. | 감독됨 | 선형 회귀, 신경망 |
-| 보충 | 최적의 로봇 동작을 결정합니다. | 보충 | 몬테카를로 시뮬레이션, 딥 마인드 |
+| 강화 | 최적의 로봇 동작을 결정합니다. | 강화 | 몬테카를로 시뮬레이션, 딥 마인드 |
 
 ## <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
 

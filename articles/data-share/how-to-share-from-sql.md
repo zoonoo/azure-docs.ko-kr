@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 08/28/2020
-ms.openlocfilehash: 2cb06b6802fdc4cebd04f687266f5ac08dde82c0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e813921727ee08bf9a76c0a2dbfe15f45fe4db79
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270131"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490074"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL Database 및 Azure Synapse Analytics에서 데이터 공유 및 받기
 
@@ -34,7 +34,7 @@ Azure Data Lake Store Gen2 또는 Azure Blob Storage에 데이터를 수락 하�
 
 ### <a name="prerequisites-for-sql-source"></a>SQL 원본에 대 한 필수 구성 요소
 
-* 공유하려는 테이블 및 보기를 포함하는 Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)
+* 공유 하려는 테이블 및 뷰를 포함 하는 Azure SQL Database 또는 Azure Synapse 분석 (이전의 SQL Data Warehouse).
 * SQL 서버에 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write*에 있습니다. 이 권한은 기여자 역할에 있습니다.
 * 데이터 웨어하우스에 액세스할 수 있는 데이터 공유에 대한 권한. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. 자신을 SQL 서버에 대한 Azure Active Directory 관리자로 설정합니다.
@@ -45,7 +45,7 @@ Azure Data Lake Store Gen2 또는 Azure Blob Storage에 데이터를 수락 하�
         create user "<share_acct_name>" from external provider;     
         exec sp_addrolemember db_datareader, "<share_acct_name>"; 
         ```                   
-       *<share_acc_name>* 은 Data Share 리소스의 이름입니다. Data Share 리소스를 아직 만들지 않은 경우 나중에 이 필수 조건으로 다시 돌아올 수 있습니다.  
+       *<share_acc_name>* 은 Data Share 리소스의 이름입니다. 아직 Data Share 리소스를 만들지 않은 경우 나중에 이 필수 조건으로 돌아갈 수 있습니다.  
 
 * 공유하려는 테이블 및/또는 보기를 탐색하고 선택할 수 있는 ‘db_datareader’가 포함된 Azure SQL Database 사용자입니다. 
 
@@ -62,7 +62,7 @@ Azure Data Lake Store Gen2 또는 Azure Blob Storage에 데이터를 수락 하�
 
 Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
-1. 포털의 왼쪽 위 모서리에 있는 메뉴 단추를 선택한 다음 **리소스 만들기** (+)를 선택 합니다.
+1. 포털의 왼쪽 상단 모서리에 있는 메뉴 단추를 선택한 다음, **리소스 만들기**(+)를 선택합니다.
 
 1. *Data Share*를 검색합니다.
 
@@ -92,15 +92,15 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
 1. **만들기**를 선택합니다.   
 
-1. 공유에 대 한 세부 정보를 입력 합니다. 이름, 공유 유형, 공유 콘텐츠의 설명 및 사용 약관(선택 사항)을 지정합니다. 
+1. 공유에 대한 세부 정보를 입력합니다. 이름, 공유 유형, 공유 콘텐츠의 설명 및 사용 약관(선택 사항)을 지정합니다. 
 
     ![EnterShareDetails](./media/enter-share-details.png "공유 세부 정보 입력") 
 
 1. **계속**을 선택합니다.
 
-1. 공유에 데이터 집합을 추가 하려면 **데이터 집합 추가**를 선택 합니다. 
+1. 공유에 데이터 세트를 추가하려면 **데이터 세트 추가**를 선택합니다. 
 
-    ![공유에 데이터 집합 추가](./media/datasets.png "데이터 세트")
+    ![공유에 데이터 세트 추가](./media/datasets.png "데이터 세트")
 
 1. 추가하려는 데이터 세트 형식을 선택합니다. 이전 단계에서 선택한 공유 유형(스냅샷 또는 내부)에 따라 다른 데이터 세트 유형 목록이 표시됩니다. 
 
@@ -150,7 +150,7 @@ Azure Storage 데이터를 수신 하도록 선택 하는 경우 다음은 필�
 Azure SQL Database으로 데이터를 받도록 선택 하는 경우 Azure Synapse Analytics는 필수 구성 요소 목록입니다.
 
 * SQL 서버의 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write*에 있습니다. 이 권한은 기여자 역할에 있습니다. 
-* 데이터 공유 리소스의 관리 ID가 Azure SQL Database 또는 Azure SQL Data Warehouse에 액세스할 수 있는 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
+* Azure SQL Database 또는 Azure Synapse Analytics에 액세스 하기 위한 데이터 공유 리소스의 관리 되는 id에 대 한 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. 자신을 SQL 서버에 대한 Azure Active Directory 관리자로 설정합니다.
     1. Azure Active Directory를 사용하여 Azure SQL Database/Data Warehouse에 연결합니다.
     1. 쿼리 편집기(미리 보기)를 사용하여 다음 스크립트를 실행하여 Data Share 관리 ID를 'db_datareader, db_datawriter, db_ddladmin'으로 추가합니다. SQL Server 인증이 아닌 Active Directory를 사용하여 연결해야 합니다. 

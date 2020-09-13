@@ -3,12 +3,12 @@ title: 서비스 엔드포인트를 사용한 액세스 제한
 description: Azure 가상 네트워크의 서비스 끝점을 사용 하 여 Azure container registry에 대 한 액세스를 제한 합니다. 서비스 끝점 액세스는 프리미엄 서비스 계층의 기능입니다.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: a6a0702019cd11f26ea9fcdba8a74bf3e71df94b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1fc8d54d677112a9c934f9079e953a7389939bde
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371433"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488673"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Azure Virtual Network의 서비스 엔드포인트를 사용하여 컨테이너 레지스트리에 대한 액세스 제한
 
@@ -29,13 +29,15 @@ ms.locfileid: "87371433"
 * 각 레지스트리는 최대 100개의 네트워크 액세스 규칙을 지원합니다.
 * Azure Container Registry에 대 한 서비스 끝점은 Azure 미국 정부 클라우드 또는 Azure 중국 클라우드에서 지원 되지 않습니다.
 
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 문서의 Azure CLI 단계를 사용하려면 Azure CLI 버전 2.0.58 이상이 필요합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
 * 컨테이너 레지스트리가 아직 없는 경우, 하나(프리미엄 계층 필요)를 만들고 Docker Hub에서 `hello-world`와 같은 샘플 이미지를 밀어넣습니다. 예를 들어 [Azure Portal][quickstart-portal] 또는 [Azure CLI][quickstart-cli]를 사용하여 레지스트리를 만듭니다. 
 
-* 다른 Azure 구독에서 서비스 엔드포인트를 사용하여 레지스트리 액세스를 제한하려면 해당 구독에서 Azure Container Registry에 대한 리소스 공급자를 등록합니다. 예를 들면 다음과 같습니다.
+* 다른 Azure 구독에서 서비스 엔드포인트를 사용하여 레지스트리 액세스를 제한하려면 해당 구독에서 Azure Container Registry에 대한 리소스 공급자를 등록합니다. 다음은 그 예입니다.
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of virtual network>
@@ -101,7 +103,7 @@ az network vnet subnet show \
 
 #### <a name="change-default-network-access-to-registry"></a>레지스트리에 대한 기본 네트워크 액세스 변경
 
-기본적으로 Azure Container Registry는 모든 네트워크에 있는 호스트로부터의 연결을 허용합니다. 선택한 네트워크로 액세스를 제한하려면 기본 작업을 액세스 거부로 변경합니다. 다음 [az acr update][az-acr-update] 명령에서 레지스트리 이름을 대체합니다.
+기본적으로 Azure Container Registry는 모든 네트워크에 있는 호스트로부터의 연결을 허용합니다. 선택한 네트워크로 액세스를 제한하려면 기본 작업을 액세스 거부로 변경합니다. 다음 [az acr update][az-acr-update] 명령에서 레지스트리 이름을 바꿉니다.
 
 ```azurecli
 az acr update --name myContainerRegistry --default-action Deny

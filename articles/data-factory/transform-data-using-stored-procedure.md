@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: 8543276a338b523a290fb131a8f1b7a55affbd98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdab4f33852be6bfc2621e2cbecff76778567b1a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85248975"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484734"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 SQL Server 저장 프로시저 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -33,13 +33,13 @@ Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 �
 저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM(Virtual Machine)의 다음 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다. 
 
 - Azure SQL Database
-- Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)
+- Azure Synapse Analytics(이전의 SQL Data Warehouse)
 - SQL Server 데이터베이스.  SQL Server를 사용 중인 경우 데이터베이스를 호스트하는 동일한 컴퓨터 또는 데이터베이스에 대한 액세스 권한이 있는 별도 컴퓨터에서 자체 호스팅 통합 런타임을 설치합니다. 자체 호스팅 통합 런타임은 온-프레미스/Azure VM에서 데이터 원본을 클라우드 서비스에 안전하고 관리되는 방식으로 연결하는 구성 요소입니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 문서를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink**를 구성할 수 있습니다. 이 속성에 대한 자세한 내용은 커넥터 문서 [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md)를 참조하세요. 복사 작업을 사용 하 여 Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)로 데이터를 복사 하는 동안 저장 프로시저를 호출 하는 것은 지원 되지 않습니다. 그러나 저장 프로시저 작업을 사용하여 SQL Data Warehouse의 저장 프로시저를 호출할 수 있습니다. 
+> Azure SQL Database 또는 SQL Server로 데이터를 복사할 때 **sqlWriterStoredProcedureName** 속성을 사용하여 복사 작업에 저장 프로시저를 호출하도록 **SqlSink**를 구성할 수 있습니다. 이 속성에 대한 자세한 내용은 커넥터 문서 [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md)를 참조하세요. 복사 작업을 사용 하 여 Azure Synapse Analytics로 데이터를 복사 하는 동안 저장 프로시저를 호출 하는 것은 지원 되지 않습니다. 그러나 저장 프로시저 작업을 사용 하 여 Azure Synapse Analytics에서 저장 프로시저를 호출할 수 있습니다. 
 >
-> Azure SQL Database 또는 SQL Server 또는 Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)에서 데이터를 복사 하는 경우 복사 작업에서 **Sqlsource** 를 구성 하 여 **sqlReaderStoredProcedureName** 속성을 사용 하 여 원본 데이터베이스에서 데이터를 읽는 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 다음 커넥터 문서를 참조 하세요. [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)          
+> Azure SQL Database 또는 SQL Server 또는 Azure Synapse Analytics에서 데이터를 복사 하는 경우 복사 작업에서 **Sqlsource** 를 구성 하 여 **sqlReaderStoredProcedureName** 속성을 사용 하 여 원본 데이터베이스에서 데이터를 읽을 수 있도록 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 다음 커넥터 문서 [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) 를 참조 하세요.          
 
  
 
@@ -68,12 +68,12 @@ Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 �
 
 다음 표에서는 이러한 JSON 속성에 대해 설명합니다.
 
-| 속성                  | 설명                              | 필수 |
+| 속성                  | Description                              | 필수 |
 | ------------------------- | ---------------------------------------- | -------- |
 | name                      | 작업의 이름                     | 예      |
 | description               | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 예       |
 | type                      | 저장 프로시저 작업의 경우 활동 형식은 **SqlServerStoredProcedure**입니다. | 예      |
-| linkedServiceName         | **Azure SQL Database** 또는 **Azure Synapse Analytics (이전의 Azure SQL Data Warehouse)** 또는 Data Factory에서 연결 된 서비스로 등록 된 **SQL Server** 에 대 한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
+| linkedServiceName         | Data Factory에서 연결 된 서비스로 등록 된 **Azure SQL Database** 또는 **Azure Synapse 분석** 또는 **SQL Server** 에 대 한 참조입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
 | storedProcedureName       | 호출할 저장 프로시저의 이름을 지정합니다. | 예      |
 | storedProcedureParameters | 저장 프로시저 매개 변수의 값을 지정합니다. 매개 변수 값 및 데이터 원본에서 지원하는 해당 형식을 전달하기 위해 `"param1": { "value": "param1Value","type":"param1Type" }`를 사용합니다. 매개 변수에 null을 전달해야 하는 경우 `"param1": { "value": null }`(모두 소문자)을 사용합니다. | 아니요       |
 
@@ -82,7 +82,7 @@ Data Factory [파이프라인](concepts-pipelines-activities.md)의 데이터 �
 
 | 데이터 원본          | 데이터 형식 매핑 |
 | ---------------------|-------------------|
-| Azure Synapse Analytics(이전의 Azure SQL Data Warehouse) | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure Synapse Analytics | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
 | Azure SQL Database   | https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
 | Oracle               | https://docs.microsoft.com/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
 | SQL Server           | https://docs.microsoft.com/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |

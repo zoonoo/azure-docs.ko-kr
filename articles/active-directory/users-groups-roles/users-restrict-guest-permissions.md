@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6fb7a6654f5917c0651ffba6e672b41d14fdbe20
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798434"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489649"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Azure Active Directory에서 게스트 액세스 권한 (미리 보기) 제한
 
@@ -40,10 +40,7 @@ Azure ad (Azure Active Directory)를 사용 하면 외부 게스트 사용자가
 
 게스트 사용자 권한을 위해 기존 Azure Portal 컨트롤을 변경 했습니다.
 
-> [!IMPORTANT]
-> 잠시 동안 게스트 사용자 권한에 대 한 새 포털 컨트롤은 URL을 사용 하는 경우에만 표시 됩니다 [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess) . PowerShell 및 Microsoft Graph는 아직 컨트롤을 설정 하는 데 사용할 수 있으며, 변경 내용은 포털에서 적용 됩니다.
-
-1. 전역 관리자 권한으로 [AZURE AD 관리 센터](https://aka.ms/AADRestrictedGuestAccess) 에 로그인 합니다.
+1. 전역 관리자 권한으로 [AZURE AD 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
 1. 조직의 **Azure Active Directory** 개요 페이지에서 **사용자 설정**을 선택 합니다.
 1. **외부 사용자**에서 **외부 공동 작업 설정 관리**를 선택 합니다.
 1. **외부 공동 작업 설정** 페이지에서 **게스트 사용자 액세스는 고유한 디렉터리 개체의 속성 및 멤버 자격으로 제한 됨** 옵션을 선택 합니다.
@@ -108,7 +105,7 @@ GET https://graph.microsoft.com/beta/policies/authorizationPolicy/authorizationP
 
 ### <a name="get-command-get-azureadmsauthorizationpolicy"></a>Get 명령: AzureADMSAuthorizationPolicy
 
-예제:
+예:
 
 ````PowerShell
 PS C:\WINDOWS\system32> Get-AzureADMSAuthorizationPolicy
@@ -124,7 +121,7 @@ PermissionGrantPolicyIdsAssignedToDefaultUserRole : {user-default-legacy}
 
 ### <a name="set-command-set-azureadmsauthorizationpolicy"></a>Set 명령: AzureADMSAuthorizationPolicy
 
-예제:
+예:
 
 ````PowerShell
 PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84b1e-32c8-42b7-82bc-daa82404023b'
@@ -150,7 +147,7 @@ PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84
 - 양식
 - 팀의 플래너
 - Planner 앱
-- 프로젝트
+- Project
 - Yammer
 
 ## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
@@ -159,10 +156,10 @@ PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84
 -------- | ------
 이러한 사용 권한은 어디에 적용 되나요? | 이러한 디렉터리 수준 권한은 Microsoft Graph, PowerShell v2, Azure Portal 및 My Apps 포털을 포함 하 여 Azure AD 서비스 및 포털 전체에 적용 됩니다. 공동 작업 시나리오를 위해 Office 365 그룹을 활용 하는 Microsoft 365 서비스는 특히 Outlook, Microsoft 팀 및 SharePoint에도 영향을 줍니다.
 이 기능에 영향을 주는 내 앱 포털의 부분은 무엇입니까? | 내 앱 포털의 그룹 기능에는 이러한 새 사용 권한이 적용 됩니다. 여기에는 내 앱의 그룹 목록 및 그룹 멤버 자격을 볼 수 있는 모든 경로가 포함 됩니다. 그룹 타일 가용성이 변경 되지 않았습니다. 그룹 타일 가용성은 여전히 Azure 관리 포털의 기존 그룹 설정에 의해 제어 됩니다.
-이러한 권한은 SharePoint 또는 Microsoft 팀 게스트 설정 보다 우선 합니다. | 아니요. 이러한 기존 설정은 여전히 이러한 응용 프로그램의 경험과 액세스를 제어 합니다. 예를 들어 SharePoint에서 문제가 표시 되는 경우 외부 공유 설정을 다시 확인 합니다.
+이러한 권한은 SharePoint 또는 Microsoft 팀 게스트 설정 보다 우선 합니다. | 아닙니다. 이러한 기존 설정은 여전히 이러한 응용 프로그램의 경험과 액세스를 제어 합니다. 예를 들어 SharePoint에서 문제가 표시 되는 경우 외부 공유 설정을 다시 확인 합니다.
 Planner 및 Yammer에서 알려진 호환성 문제는 무엇 인가요? | <li>사용 권한이 ' 제한 됨 '으로 설정 되 면 Planner 앱에 로그인 하거나 Microsoft 팀의 Planner에 액세스 하면 해당 계획 또는 작업에 액세스할 수 없습니다.<li>사용 권한이 ' 제한 됨 '으로 설정 된 경우 Yammer에 로그인 한 게스트는 그룹을 벗어날 수 없습니다.
 내 테 넌 트에서 기존 게스트 권한이 변경 됩니까? | 현재 설정이 변경 되지 않았습니다. 기존 설정과의 호환성을 유지 합니다. 변경 하려는 경우를 결정 합니다.
-이러한 사용 권한은 기본적으로 설정 됩니까? | 아니요. 기존 기본 사용 권한은 변경 되지 않은 상태로 유지 됩니다. 필요에 따라 사용 권한을 더 제한적인 것으로 설정할 수 있습니다.
+이러한 사용 권한은 기본적으로 설정 됩니까? | 아닙니다. 기존 기본 사용 권한은 변경 되지 않은 상태로 유지 됩니다. 필요에 따라 사용 권한을 더 제한적인 것으로 설정할 수 있습니다.
 이 기능에 대 한 라이선스 요구 사항이 있나요? | 아니요,이 기능을 사용 하는 새로운 라이선스 요구 사항은 없습니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,21 +1,21 @@
 ---
-title: Azure CDN 끝점 다중 원본
+title: Azure CDN 끝점 다중 원본 (미리 보기)
 description: Azure CDN 끝점의 여러 원본을 시작 합니다.
 services: cdn
 author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 8/20/2020
+ms.date: 9/06/2020
 ms.author: allensu
-ms.openlocfilehash: c7e6733079dbd867255e604f6f8d4459f647cc93
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f9293206526778f8c3de8a368a1916a2cb3f88c2
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870465"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504676"
 ---
-# <a name="azure-cdn-endpoint-multi-origin"></a>Azure CDN 끝점 다중 원본
+# <a name="azure-cdn-endpoint-multi-origin-preview"></a>Azure CDN 끝점 다중 원본 (미리 보기)
 
 다중 원본 지원은 가동 중지 시간을 제거 하 고 전역 중복성을 설정 합니다. 
 
@@ -25,6 +25,10 @@ Azure CDN 끝점 내에서 여러 원본을 선택 하 여 제공 되는 중복�
 
 > [!NOTE]
 > 현재이 기능은 Microsoft의 Azure CDN 에서만 사용할 수 있습니다. 
+
+> [!IMPORTANT]
+> Azure CDN 끝점 다중 원본은 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="create-the-origin-group"></a>원본 그룹 만들기
 
@@ -66,7 +70,7 @@ Azure CDN 끝점 내에서 여러 원본을 선택 하 여 제공 되는 중복�
 
    | 설정           | 값                                                                 |
    |-------------------|-----------------------------------------------------------------------|
-   | 이름        | 원본 이름을 입력 합니다.        |
+   | Name        | 원본 이름을 입력 합니다.        |
    | 원본 형식 | **저장소**, **클라우드 서비스**, **웹 앱**또는 **사용자 지정 원본을**선택 합니다.                                   |
    | 원본 호스트 이름        | 원본 호스트 이름을 선택 하거나 입력 합니다.  드롭다운은 이전 설정에서 지정한 형식의 사용 가능한 모든 원본을 나열 합니다. 원본 유형으로 **사용자 지정 원본** 을 선택한 경우 고객 원본 서버의 도메인을 입력 합니다. |
    | 원본 호스트 헤더    | 각 요청과 함께 보내려는 Azure CDN 호스트 헤더를 입력 하거나 기본값을 그대로 사용 합니다.                        |

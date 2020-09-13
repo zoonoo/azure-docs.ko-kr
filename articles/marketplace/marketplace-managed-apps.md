@@ -6,17 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
-ms.date: 04/22/2020
-ms.openlocfilehash: 70922b80139015226445ca62026ec6f5a59b751c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/04/2020
+ms.openlocfilehash: 10ca7602dd3cf5a80e371ceda845977bcd8f218a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119823"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484242"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Azure 관리 되는 응용 프로그램 게시 가이드
 
-Azure 관리 되는 *응용* 프로그램 제품은 Azure Marketplace에 azure 응용 프로그램을 게시 하는 한 가지 방법입니다. 관리 되는 응용 프로그램은 Azure Marketplace를 통해 배포 되 고 청구 되는 transact-sql 제품입니다. 사용자에 게 표시 되는 동작에 대 한 호출은 *지금 가져옵니다*.
+Azure 관리 되는 *응용* 프로그램 제품은 Azure Marketplace에 azure 응용 프로그램을 게시 하는 한 가지 방법입니다. 관리 되는 응용 프로그램은 Azure Marketplace를 통해 배포 되 고 청구 되는 transact-sql 제품입니다. 사용자에 게 표시 되는 목록 옵션은 *지금 가져옵니다*.
 
 이 문서에서는 관리 되는 응용 프로그램 제공 형식에 대 한 요구 사항을 설명 합니다.
 

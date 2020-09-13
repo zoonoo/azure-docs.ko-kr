@@ -68,7 +68,7 @@ Azure Synapse Analytics 간에 데이터를 복사 하는 파이프라인을 만
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 Azure Synapse Analytics 연결 된 서비스에 특정 된 JSON 요소에 대 한 설명을 제공 합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type |Type 속성은 **AzureSqlDW** 로 설정 해야 합니다. |예 |
 | connectionString |ConnectionString 속성에 대 한 Azure Synapse Analytics 인스턴스에 연결 하는 데 필요한 정보를 지정 합니다. 기본 인증만 지원됩니다. |예 |
@@ -81,7 +81,7 @@ Azure Synapse Analytics 간에 데이터를 복사 하는 파이프라인을 만
 
 typeProperties 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **AzureSqlDWTable** 형식의 데이터 집합에 대 한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | tableName |연결 된 서비스가 참조 하는 Azure Synapse Analytics 데이터베이스에 있는 테이블 또는 뷰의 이름입니다. |예 |
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: e4f9fa554a7c0e45abe1e9686605c95bb79d1739
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/04/2020
+ms.openlocfilehash: c8bc9e844687c85255be972011eba03e9c38de48
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932953"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488306"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Azure Logic Apps 및 Power Automate용 식의 함수 사용에 대한 참조 가이드
 
@@ -85,6 +85,7 @@ ms.locfileid: "88932953"
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | 전역적으로 고유한 식별자(GUID)를 문자열로 생성합니다. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | 하위 문자열에 대한 시작 위치를 반환합니다. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | 마지막으로 나오는 부분 문자열의 시작 위치를 반환합니다. |
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | 문자열 또는 배열에서 항목 수를 반환합니다. |
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | 하위 문자열을 지정된 문자열로 바꾸고 업데이트된 문자열을 반환합니다. |
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | 원래 문자열에 지정된 구분 기호 문자를 기준으로 하여 더 큰 문자열의 하위 문자열을 포함하는 배열(쉼표로 구분됨)을 반환합니다. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | 문자열이 특정 하위 문자열로 시작하는지 검사합니다. |
@@ -3914,8 +3915,7 @@ sub(10.3, .3)
 
 ### <a name="substring"></a>substring
 
-지정한 위치 또는 인덱스에서 시작하여 문자열에서 문자를 반환합니다.
-인덱스 값은 숫자 0으로 시작합니다.
+지정한 위치 또는 인덱스에서 시작하여 문자열에서 문자를 반환합니다. 인덱스 값은 숫자 0으로 시작합니다.
 
 ```
 substring('<text>', <startIndex>, <length>)
@@ -3927,6 +3927,10 @@ substring('<text>', <startIndex>, <length>)
 | <*startIndex*> | 예 | 정수 | 시작 위치 또는 인덱스 값으로 사용하려는 0 이상의 양수 |
 | <*length*> | 예 | 정수 | 하위 문자열에 원하는 문자의 양수 |
 |||||
+
+> [!NOTE]
+> *StartIndex* 및 *length* 매개 변수 값을 추가 하는 합계가 *텍스트* 매개 변수에 제공 하는 문자열의 길이 보다 적은지 확인 합니다.
+> 그렇지 않으면 다른 언어의 유사 함수와 달리 오류가 발생 합니다 .이는 결과가 *startIndex* 에서 문자열 끝 까지의 하위 문자열입니다.
 
 | 반환 값 | Type | Description |
 | ------------ | ---- | ----------- |

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/06/2020
-ms.openlocfilehash: 96e23c22568229ec5f5ba2365747e261b7e471ad
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/04/2020
+ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921387"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488612"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>상용 marketplace에서 무료 또는 평가판 SaaS 제품에 대 한 방문 페이지 빌드
 
@@ -21,13 +21,13 @@ ms.locfileid: "87921387"
 
 ## <a name="overview"></a>개요
 
-방문 페이지는 SaaS (software as a service) 제품에 대 한 "로비"로 생각할 수 있습니다. 고객이 앱을 가져오도록 선택한 후에는 상업적 marketplace에서 방문 페이지로 이동 하 여 SaaS 응용 프로그램에 대 한 구독을 활성화 하 고 구성 합니다. SaaS (software as a service) 제품을 만들 때 파트너 센터에서 [Microsoft를 통해 판매할](partner-center-portal/create-new-saas-offer.md)지 여부를 선택할 수 있습니다. Microsoft에서 판매 하지 않고 Microsoft 상업적 marketplace 에서만 제품을 나열 하려는 경우 잠재 고객이 제품을 조작할 수 있는 방법을 지정할 수 있습니다. **지금 가져오기 (무료)** 또는 **무료 평가판** 목록 옵션을 사용 하도록 설정 하면 사용자가 무료 구독 또는 평가판에 액세스할 수 있는 방문 페이지 URL을 지정 해야 합니다.
+방문 페이지는 SaaS (software as a service) 제품에 대 한 "로비"로 생각할 수 있습니다. 고객이 앱을 가져오도록 선택한 후에는 상업적 marketplace에서 방문 페이지로 이동 하 여 SaaS 응용 프로그램에 대 한 구독을 활성화 하 고 구성 합니다. SaaS (software as a service) 제품을 만들 때 파트너 센터에서 [Microsoft를 통해 판매할](plan-saas-offer.md#listing-options)지 여부를 선택할 수 있습니다. Microsoft에서 판매 하지 않고 Microsoft 상업적 marketplace 에서만 제품을 나열 하려는 경우 잠재 고객이 제품을 조작할 수 있는 방법을 지정할 수 있습니다. **지금 가져오기 (무료)** 또는 **무료 평가판** 목록 옵션을 사용 하도록 설정 하면 사용자가 무료 구독 또는 평가판에 액세스할 수 있는 방문 페이지 URL을 지정 해야 합니다.
 
 방문 페이지의 목적은 사용자가 무료 평가판 또는 무료 구독을 활성화할 수 있도록 사용자를 수신 하는 것입니다. Azure Active Directory (Azure AD) 및 Microsoft Graph를 사용 하 여 사용자에 대해 SSO (Single Sign-On)를 사용 하도록 설정 하 고 이름, 전자 메일 주소 및 조직을 포함 하 여 무료 평가판 또는 무료 구독을 활성화 하는 데 사용할 수 있는 사용자에 대 한 중요 한 세부 정보를 얻을 수 있습니다.
 
 구독을 활성화 하는 데 필요한 정보는 Azure AD 및 Microsoft Graph에서 제한적이 고 제공 되므로, 기본 동의가 필요한 정보를 요청할 필요가 없습니다. 응용 프로그램에 대 한 추가 동의가 필요한 사용자 세부 정보가 필요한 경우 구독 활성화가 완료 된 후이 정보를 요청 해야 합니다. 이렇게 하면 사용자에 대해 원활한을 활성화 하 고 중단 위험을 줄일 수 있습니다.
 
-방문 페이지는 일반적으로 다음 정보 및 동작에 대 한 호출을 포함 합니다.
+방문 페이지는 일반적으로 다음 정보 및 목록 옵션을 포함 합니다.
 
 - 무료 평가판 또는 무료 구독의 이름 및 세부 정보를 표시 합니다. 예를 들어 평가판의 사용 제한 또는 기간을 지정 합니다.
 - 성과 이름, 조직 및 전자 메일을 포함 하 여 사용자의 계정 세부 정보를 표시 합니다.
@@ -38,12 +38,12 @@ ms.locfileid: "87921387"
 
 1. 방문 페이지에 대 한 [AZURE AD 앱 등록을 만듭니다](#create-an-azure-ad-app-registration) .
 2. [코드 샘플을 앱의 시작 지점으로 사용](#use-a-code-sample-as-a-starting-point) 합니다.
-3. 로그온 후 Azure AD에서 받은 [ID 토큰에서 인코딩된 클레임에서](#read-information-from-claims-encoded-in-the-id-token)요청을 통해 보낸 정보를 읽습니다.
+3. 요청과 함께 전송 된, 로그인 후에 Azure AD에서 받은 [ID 토큰으로 인코딩된 클레임에서 정보를 읽습니다](#read-information-from-claims-encoded-in-the-id-token).
 4. [MICROSOFT GRAPH API를 사용](#use-the-microsoft-graph-api) 하 여 필요에 따라 추가 정보를 수집 합니다.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Azure AD 앱 등록 만들기
 
-상업적 marketplace는 Azure AD와 완전히 통합 됩니다. 사용자는 [AZURE AD 계정 또는 Microsoft 계정 (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology)로 인증 된 marketplace에 도착 합니다. 목록 전용 제안을 통해 무료 평가판 구독을 확보 한 후 사용자는 상업적 marketplace에서 방문 페이지 URL로 이동 하 여 SaaS 응용 프로그램에 대 한 구독을 활성화 하 고 관리 합니다. 사용자가 Azure AD SSO를 사용 하 여 응용 프로그램에 로그인 하도록 허용 해야 합니다. 방문 페이지 URL은 제품의 [기술 구성 페이지](partner-center-portal/offer-creation-checklist.md#technical-configuration-page)에 지정 되어 있습니다.
+상업적 marketplace는 Azure AD와 완전히 통합 됩니다. 사용자는 [AZURE AD 계정 또는 Microsoft 계정 (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology)로 인증 된 marketplace에 도착 합니다. 목록 전용 제안을 통해 무료 평가판 구독을 확보 한 후 사용자는 상업적 marketplace에서 방문 페이지 URL로 이동 하 여 SaaS 응용 프로그램에 대 한 구독을 활성화 하 고 관리 합니다. 사용자가 Azure AD SSO를 사용 하 여 응용 프로그램에 로그인 하도록 허용 해야 합니다. 방문 페이지 URL은 제품의 [기술 구성](plan-saas-offer.md#technical-information) 페이지에 지정 되어 있습니다.
 
 Id를 사용 하는 첫 번째 단계는 방문 페이지가 Azure AD 응용 프로그램으로 등록 되었는지 확인 하는 것입니다. 응용 프로그램을 등록 하면 Azure AD를 사용 하 여 사용자를 인증 하 고 사용자 리소스에 대 한 액세스를 요청할 수 있습니다. 응용 프로그램의 정의로 간주할 수 있으며,이를 통해 서비스는 앱의 설정에 따라 응용 프로그램에 토큰을 발급 하는 방법을 알 수 있습니다.
 
@@ -69,7 +69,7 @@ Microsoft는 Azure AD 로그인을 사용 하는 간단한 웹 사이트를 구�
 
 [Openid connect Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) 흐름의 일부로 Azure AD는 사용자가 방문 페이지로 전송 될 때 요청에 [ID 토큰](https://docs.microsoft.com/azure/active-directory/develop/id-tokens) 을 추가 합니다. 이 토큰에는이 표에 표시 된 정보를 비롯 하 여 활성화 프로세스에 유용할 수 있는 여러 가지 기본 정보가 포함 되어 있습니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | ------------ | ------------- |
 | aud | 이 토큰의 대상입니다. 이 경우 응용 프로그램 ID와 일치 하 고 유효성을 검사 해야 합니다. |
 | preferred_username | 방문 사용자의 기본 사용자 이름입니다. 전자 메일 주소, 전화 번호 또는 기타 식별자 일 수 있습니다. |
@@ -84,7 +84,7 @@ Microsoft는 Azure AD 로그인을 사용 하는 간단한 웹 사이트를 구�
 
 ID 토큰에는 사용자를 식별 하기 위한 기본 정보가 포함 되어 있지만 활성화 프로세스에는 온 보 딩 프로세스를 완료 하는 데 필요한 추가 정보 (예: 사용자 회사)가 필요할 수 있습니다. [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/use-the-api) 를 사용 하 여이 정보를 요청 하면 사용자가이 정보를 다시 입력 하지 않도록 방지할 수 있습니다. 표준 **사용자. 읽기** 권한에는 기본적으로 다음 정보가 포함 됩니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | ------------ | ------------- |
 | displayName | 사용자의 주소록에 표시 되는 이름입니다. |
 | givenName | 사용자의 이름입니다. |
@@ -103,4 +103,4 @@ Azure AD에 등록 된 대부분의 앱은 회사의 Azure AD 테 넌 트에서 
 > MSA 테 넌 트의 계정 (테 넌 트 ID `9188040d-6c67-4c5b-b112-36a304b66dad` )은 ID 토큰을 사용 하 여 이미 수집 된 것 보다 많은 정보를 반환 하지 않습니다. 따라서 이러한 계정에 대 한 Graph API 호출을 건너뛸 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [상업적 marketplace에서 SaaS 제품 만들기](./partner-center-portal/create-new-saas-offer.md)
+- [상업적 marketplace에서 SaaS 제품을 만드는 방법](create-new-saas-offer.md)
