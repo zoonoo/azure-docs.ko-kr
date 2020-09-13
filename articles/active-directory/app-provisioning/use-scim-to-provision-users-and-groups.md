@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/07/2020
+ms.date: 09/10/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8fa409a8ee66cd69016b7978f0d5f0194b338c4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: d0f67f9052467e5d1a89fc4c520bd39821403bbe
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959156"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015452"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성
 
@@ -147,7 +147,7 @@ SCIM 2.0 사용자 관리 API를 지원하는 애플리케이션을 빌드하는
 [SCIM 2.0 프로토콜 사양](http://www.simplecloud.info/#Specification) 내에서 애플리케이션은 다음의 요구 사항을 충족해야 합니다.
 
 * [SCIM 프로토콜의 섹션 3.3](https://tools.ietf.org/html/rfc7644#section-3.3)에 따라 사용자 또는 필요에 따라 그룹 만들기를 지원합니다.  
-* [SCIM 프로토콜의 섹션 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2)에 따라 PATCH 요청을 사용하여 사용자 또는 그룹 수정을 지원합니다.  
+* [SCIM 프로토콜의 섹션 3.5.2](https://tools.ietf.org/html/rfc7644#section-3.5.2)에 따라 PATCH 요청을 사용하여 사용자 또는 그룹 수정을 지원합니다. 을 지원 하면 그룹 및 사용자가 성능에 따라 프로 비전 됩니다. 
 * [SCIM 프로토콜의 섹션 3.4.1](https://tools.ietf.org/html/rfc7644#section-3.4.1)에 따라 앞에서 만든 사용자나 그룹에 대해 알려진 리소스 검색을 지원합니다.  
 * [SCIM 프로토콜의 섹션 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2)에 따라 사용자 또는 그룹 쿼리를 지원합니다.  기본적으로 사용자는 `id`로 검색되고 `username` 및 `externalId`에 의해 쿼리되며 그룹은 `displayName`에 의해 쿼리됩니다.  
 * SCIM 프로토콜의 섹션 3.4.2에 따라 ID 및 관리자에 의한 사용자 쿼리를 지원합니다.  
@@ -746,7 +746,7 @@ TLS 1.2 암호 도구 모음 최소 막대:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>IP 범위
-Azure AD 프로 비전 서비스는 현재 [여기](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all)에 나열 된 대로 AzureActiveDirectory 및 AzureActiveDirectoryDomainServices에 대 한 IP 범위에서 작동 합니다. AzureActiveDirectory 아래에 있는 IP 범위에만 통합 하는 작업이 진행 중입니다. 
+Azure AD 프로 비전 서비스는 현재 [여기](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all)에 나열 된 대로 AZUREACTIVEDIRECTORY의 IP 범위에서 작동 합니다. AzureActiveDirectory 태그 아래에 나열 된 IP 범위를 추가 하 여 Azure AD 프로 비전 서비스에서 응용 프로그램으로의 트래픽을 허용할 수 있습니다. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>3단계: SCIM 엔드포인트 빌드
 
@@ -1175,7 +1175,7 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 아래의 검사 목록에 따라 애플리케이션이 빠르게 온보드되고 고객이 원활한 배포 환경을 갖추도록 하세요. 갤러리에 온보딩하면 해당 정보가 수집됩니다. 
 > [!div class="checklist"]
 > * [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) 사용자 및 그룹 엔드포인트 지원(하나만 필요하지만 둘 다 권장됨)
-> * 테넌트당 25개 이상의 요청 지원(필수)
+> * 사용자 및 그룹이 지연 없이 프로 비전 되 고 프로 비전 해제 확인 하기 위해 테 넌 트 당 최소 25 개의 요청을 지원 합니다 (필수).
 > * 고객이 갤러리 온보딩을 게시할 수 있도록 엔지니어링 및 지원 연락처 설정(필수)
 > * 3 애플리케이션에 대해 만료되지 않은 테스트 자격 증명(필수)
 > * 아래 설명된 대로 OAuth 인증 코드 부여 또는 수명이 긴 토큰 지원(필수)

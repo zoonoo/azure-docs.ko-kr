@@ -5,18 +5,18 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 23f99dc5c648948ce07f1b40106667d24906328a
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236797"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018972"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Cosmos DB 변경 피드 읽기
 
-푸시 모델 또는 풀 모델 중 하나를 사용하여 Azure Cosmos DB 변경 피드로 작업할 수 있습니다. 밀어넣기 모델을 사용 하면 서버 (변경 피드)가이 작업을 처리 하는 비즈니스 논리가 있는 클라이언트에 작업을 푸시합니다. 그러나 작업을 확인 하 고 마지막으로 처리 된 작업의 상태를 저장 하는 것은 서버에서 처리 됩니다.
+푸시 모델 또는 풀 모델 중 하나를 사용하여 Azure Cosmos DB 변경 피드로 작업할 수 있습니다. 밀어넣기 모델을 사용 하면 서버 (변경 피드 프로세서)가이 작업을 처리 하는 비즈니스 논리가 있는 클라이언트에 작업을 푸시합니다. 그러나 작업을 확인 하 고 마지막으로 처리 된 작업의 상태를 저장 하는 것은 서버에서 처리 됩니다.
 
 끌어오기 모델을 사용 하는 경우 클라이언트는 서버에서 작업을 가져와야 합니다. 이 경우 클라이언트는 작업 처리를 위한 비즈니스 논리 뿐만 아니라 마지막으로 처리 된 작업의 상태를 저장 하 고, 여러 클라이언트에서 동시에 작업을 처리 하는 부하 분산을 처리 하 고, 오류를 처리 합니다.
 
@@ -68,7 +68,7 @@ Azure Functions와 마찬가지로 변경 피드 프로세서 라이브러리를
 풀 모델을 사용하는 “최소 한 번” 배달 보장은 제공되지 않습니다. 풀 모델은 오류를 처리하는 방법을 결정하는 낮은 수준의 제어를 제공합니다.
 
 > [!NOTE]
-> 변경 피드 끌어오기 모델은 현재 [Azure Cosmos DB .NET SDK에서만 미리 보기](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.0-preview)로 제공됩니다. 다른 SDK 버전에서는 아직 미리 보기를 사용할 수 없습니다.
+> 변경 피드 끌어오기 모델은 현재 [Azure Cosmos DB .NET SDK에서만 미리 보기](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview)로 제공됩니다. 다른 SDK 버전에서는 아직 미리 보기를 사용할 수 없습니다.
 
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Cassandra 및 MongoDB에 대한 API의 변경 피드
 

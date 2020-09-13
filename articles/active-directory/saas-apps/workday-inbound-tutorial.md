@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 51ab05a995ba5b620b759f419fb5b4594873d2f5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a025ad7857594b3117b1703a0e19ae47407d0fd
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527811"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018104"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workday 구성
 
@@ -31,13 +31,13 @@ ms.locfileid: "88527811"
 
 [Azure Active Directory 사용자 프로비전 서비스](../app-provisioning/user-provisioning.md)는 사용자 계정을 프로비전하기 위해 [Workday 인적 자원 API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)와 통합됩니다. Azure AD 사용자 프로비전 서비스에서 지원되는 Workday 사용자 프로비전 워크플로는 다음과 같은 인적 자원 및 ID 수명 주기 관리 시나리오의 자동화를 지원합니다.
 
-* **신규 직원 고용** -신규 직원이 workday에 추가 되 면 Active Directory, Azure Active Directory 및 [Azure AD에서 지원 되는 Office 365 및 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)에서 사용자 계정이 자동으로 생성 되며,이를 통해 IT 관리 연락처 정보를 workday에 다시 쓸 수 있습니다.
+* **신규 직원 고용** -신규 직원이 workday에 추가 되 면 Active Directory, Azure Active Directory 및 [Azure AD에서 지원 되는 Microsoft 365 선택적 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)에서 사용자 계정이 자동으로 생성 되며,이를 통해 IT에서 관리 하는 연락처 정보를 workday에 다시 쓸 수 있습니다.
 
-* **직원 특성 및 프로필 업데이트** - Workday에서 이름, 직함, 관리자 등의 직원 레코드가 업데이트되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 애플리케이션](../app-provisioning/user-provisioning.md)에서 해당 사용자 계정이 자동으로 업데이트됩니다.
+* **직원 특성 및 프로필 업데이트** -Workday에서 직원 레코드가 업데이트 되는 경우 (예: 이름, 제목 또는 관리자) 해당 사용자 계정이 Active Directory, Azure Active Directory 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)Microsoft 365 자동으로 업데이트 됩니다.
 
-* **직원 퇴사** - Workday에서 직원이 퇴사하면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 애플리케이션](../app-provisioning/user-provisioning.md)에서 해당 사용자 계정이 자동으로 비활성화됩니다.
+* **직원 종료** -직원이 Workday에서 종료 되는 경우 Active Directory, Azure Active Directory Microsoft 365 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)에서 해당 사용자 계정이 자동으로 사용 하지 않도록 설정 됩니다.
 
-* **직원 다시 채용** - Workday에서 직원이 다시 채용되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 애플리케이션](../app-provisioning/user-provisioning.md)에서 해당 직원의 기존 계정이 자동으로 다시 활성화되거나 다시 프로비전됩니다(기본 설정에 따라).
+* **직원 재할당** -Workday에서 직원이 다시 고용 될 때 이전 계정은 자동으로 다시 활성화 되거나 다시 프로 비전 될 수 있습니다 (기본 설정에 따라) Active Directory, Azure Active Directory Microsoft 365 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)에 자동으로 다시 활성화 되거나 다시 프로 비전 될 수 있습니다.
 
 ### <a name="whats-new"></a>새로운 기능
 이 섹션에서는 최신 Workday 통합 기능 향상을 캡처합니다. 포괄적인 업데이트, 계획 된 변경 내용 및 보관에 대 한 목록은 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md) 페이지를 참조 하세요. 
@@ -60,7 +60,7 @@ ms.locfileid: "88527811"
 
 * Workday HCM 모듈에서 감지된 변경 내용 정보에 따라서만 하나 이상의 Active Directory 포리스트, 도메인 및 OU를 동기화하도록 사용자를 조인하고, 이동시키고, 유지해야 하는 조직([Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) 참조)
 
-* 이메일에 Office 365를 사용하는 조직
+* 전자 메일에 Microsoft 365를 사용 하는 조직
 
 ## <a name="solution-architecture"></a>솔루션 아키텍처
 
@@ -373,7 +373,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
 1. 에이전트 설치를 확인하고 "서비스" 스냅인을 열고 "Microsoft Azure AD Connect Provisioning Agent"라는 서비스를 찾아 해당 에이전트가 실행 중인지 확인합니다.
 
    >[!div class="mx-imgBorder"]
-   >![Services](./media/workday-inbound-tutorial/services.png)
+   >![서비스에서 실행 되는 Microsoft Azure AD 연결 프로 비전 에이전트의 스크린샷](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>3부: 프로비저닝 앱에서 Workday 및 Active Directory에 대한 연결 구성
 이 단계에서는 Azure Portal에서 Workday 및 Active Directory와의 연결을 설정합니다. 
@@ -390,8 +390,8 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
    
      | URL 형식 | 사용 되는 WWS API 버전 | XPATH 변경 필요 |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v 21.1 | 예 |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v 21.1 | 예 |
+     | https://####.workday.com/ccx/service/tenantName | v 21.1 | 아니요 |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v 21.1 | 아니요 |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # # # | 예 |
 
       > [!NOTE]

@@ -16,12 +16,12 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352b4d46e1693580c386f11f7f4d949740f90cc6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1984e2f0bb55115c7d700b91f564d9f01c145151
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231047"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015333"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Azure Active Directory 보고서 관련 자주 묻는 질문
 
@@ -37,7 +37,7 @@ ms.locfileid: "89231047"
 
 **Q: 현재는 `https://graph.windows.net/<tenant-name>/reports/` 끝점 api를 사용 하 여 AZURE AD 보안 보고서 (특정 유형의 검색 (예: 누출 된 자격 증명 또는 익명 IP 주소에서의 로그인)를 프로그래밍 방식으로 보고 시스템으로 끌어옵니다. 어떻게 전환 해야 하나요?**
 
-**A:**  [Id 보호 위험 검색 API](../identity-protection/howto-identity-protection-graph-api.md)   를 사용 하 여 Microsoft Graph 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식을 사용 하면 고급 필터링, 필드 선택 등을 통해 데이터를 쿼리 하는 방법에 더 많은 유연성을 제공 하 고, SIEMs 및 기타 데이터 수집 도구와 쉽게 통합 하기 위해 위험 검색을 한 가지 유형으로 표준화할 수 있습니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새로운 API는 Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta)를 사용합니다. 이것은 O365 또는 Azure AD와 같은 API에 대한 Microsoft 표준입니다. 따라서 필요한 작업을 통해 현재 Microsoft Graph 투자를 연장 하거나이 새로운 표준 플랫폼으로의 전환을 시작할 수 있습니다.
+**A:**  [Id 보호 위험 검색 API](../identity-protection/howto-identity-protection-graph-api.md)   를 사용 하 여 Microsoft Graph 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식을 사용 하면 고급 필터링, 필드 선택 등을 통해 데이터를 쿼리 하는 방법에 더 많은 유연성을 제공 하 고, SIEMs 및 기타 데이터 수집 도구와 쉽게 통합 하기 위해 위험 검색을 한 가지 유형으로 표준화할 수 있습니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새 api는](/graph/api/resources/identityriskevent?view=graph-rest-beta)Microsoft 365 또는 Azure AD와 같은 api에 대 한 Microsoft 표준인 Microsoft Graph를 사용 합니다. 따라서 필요한 작업을 통해 현재 Microsoft Graph 투자를 연장 하거나이 새로운 표준 플랫폼으로의 전환을 시작할 수 있습니다.
 
 ---
 
@@ -81,15 +81,15 @@ ms.locfileid: "89231047"
 
 ---
 
-**Q: Azure Portal을 통해 Office 365 활동 로그 정보를 얻을 수 있습니까?**
+**Q: Azure Portal를 통해 Microsoft 365 활동 로그 정보를 얻을 수 있나요?**
 
-**A:** Office 365 활동 및 Azure AD 활동 로그가 많은 디렉터리 리소스를 공유 하는 경우에도 Office 365 활동 로그를 전체적으로 확인 하려면 [Microsoft 365 관리 센터](https://admin.microsoft.com) 로 이동 하 여 Office 365 활동 로그 정보를 얻어야 합니다.
+**A:** Microsoft 365 활동 및 Azure AD 활동 로그가 많은 디렉터리 리소스를 공유 하지만 Microsoft 365 활동 로그를 전체적으로 보려면 [Microsoft 365 관리 센터로](https://admin.microsoft.com) 이동 하 여 Office 365 활동 로그 정보를 얻어야 합니다.
 
 ---
 
-**Q: Office 365 활동 로그에 대한 정보를 얻기 위해 어떤 API를 사용해야 합니까?**
+**Q: Microsoft 365 활동 로그에 대 한 정보를 얻기 위해 어떤 Api를 사용 하나요?**
 
-**A:** [Office 365 관리 api](/office/office-365-management-api/office-365-management-apis-overview) 를 사용 하 여 api를 통해 Office 365 활동 로그에 액세스 합니다.
+**A:** [Microsoft 365 관리 api](/office/office-365-management-api/office-365-management-apis-overview) 를 사용 하 여 api를 통해 Microsoft 365 활동 로그에 액세스 합니다.
 
 ---
 

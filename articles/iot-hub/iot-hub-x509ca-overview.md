@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 33c878b2af64a72212a8aac060e9ccac83b79a53
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2289ff37a0e524bc765163047608eb604c02372e
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326514"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019804"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA 인증서를 사용하여 디바이스 인증
 
@@ -28,11 +28,13 @@ ms.locfileid: "87326514"
 * X.509 CA 인증서를 사용하여 디바이스를 서명하는 방법
 * X.509 CA로 서명된 디바이스를 인증하는 방법
 
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
+
 ## <a name="overview"></a>개요
 
 X.509 CA 기능에서는 CA(인증 기관)를 사용하여 IoT Hub에 대한 디바이스 인증을 허용합니다. 이 경우 초기 디바이스 등록 프로세스와 디바이스 제조 동안의 공급망 물류 처리가 간편해집니다. 디바이스 인증에 [X.509 CA 인증서를 사용할 때 얻을 수 있는 가치에 대해서는 이 시나리오 문서를 참조하세요](iot-hub-x509ca-concept.md).  이 시나리오의 문서는 이어지는 단계의 필요성을 잘 설명하므로 먼저 읽는 것이 좋습니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 X.509 CA 기능을 사용하려면 IoT Hub 계정이 필요합니다.  IoT Hub 인스턴스가 아직 없는 경우 [IoT Hub 인스턴스를 만드는 방법을 알아봅니다](quickstart-send-telemetry-dotnet.md).
 

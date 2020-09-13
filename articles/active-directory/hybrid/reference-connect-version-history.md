@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: 버전 릴리스 내역 | Microsoft Docs'
-description: 이 문서에는 Azure AD Connect 및 Azure AD Sync의 모든 릴리스가 나열되어 있습니다.
+description: 이 문서에서는 Azure AD Connect 및 Azure AD Sync의 모든 릴리스를 나열 합니다.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b0b0a98e80fb7f343411b49ff2ccd11046bcdc5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 1570f4a8c4fb23b885c1de68c2c8d2440c4f6aae
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88052932"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018444"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -48,7 +48,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >
 >Azure AD Connect에서 동기화를 사용하도록 설정하면 이전 버전을 실행하는 경우 예정된 사용 중단에 대해 경고하는 상태 알림을 자동으로 받게 됩니다.
 >
->Azure AD Connect를 최신 버전으로 업그레이드하는 방법에 대한 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version)를 참조하세요.
+>Azure AD Connect를 최신 버전으로 업그레이드하는 방법에 대한 자세한 내용은 [이 문서](./how-to-upgrade-previous-version.md)를 참조하세요.
 >
 >사용 되지 않는 버전에 대 한 버전 기록 정보는 [Azure AD Connect 버전 릴리스 기록 보관](reference-connect-version-history-archive.md) 을 참조 하세요.
 
@@ -74,7 +74,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 ### <a name="functional-changes"></a>기능 변경 내용
 이 릴리스에는 기존 Azure AD Connect 서버의 구성을로 내보내는 기능의 공개 미리 보기가 포함 되어 있습니다. 새 Azure AD Connect 서버를 설치 하 여 원본 서버의 복사본을 만들 때 사용할 수 있는 JSON 파일입니다.
 
-이 새로운 기능에 대 한 자세한 설명은 [이 문서](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-import-export-config) 에서 찾을 수 있습니다.
+이 새로운 기능에 대 한 자세한 설명은 [이 문서](./how-to-connect-import-export-config.md) 에서 찾을 수 있습니다.
 
 ### <a name="fixed-issues"></a>해결된 문제
 - 업그레이드 하는 동안 지역화 된 빌드의 로컬 DB 크기에 대 한 거짓 경고가 발생 하는 버그를 수정 했습니다.
@@ -244,7 +244,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 ## <a name="13210"></a>1.3.21.0
 >[!IMPORTANT]
->Azure AD Connect를 이전 버전에서 1.3.21.0으로 업그레이드하는 경우 알려진 문제가 있습니다. Azure AD Connect가 성공적으로 업그레이드되어도 O365 포털에 업데이트된 버전이 반영되지 않는 문제입니다.
+>이전 버전에서 1.3.21.0로 Azure AD Connect 업그레이드 하는 것과 관련 된 알려진 문제가 있습니다. 이러한 문제는 Microsoft 365 포털에서 성공적으로 업그레이드 Azure AD Connect 경우에도 업데이트 된 버전을 반영 하지 않습니다.
 >
 > 이 문제를 해결하려면 **AdSync** 모듈을 가져온 다음, Azure AD Connect 서버에서 `Set-ADSyncDirSyncConfiguration` PowerShell cmdlet을 실행해야 합니다.  다음 단계를 사용할 수 있습니다.
 >

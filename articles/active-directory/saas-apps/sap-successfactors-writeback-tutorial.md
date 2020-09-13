@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 4b048053a553176f73b5bd199bcb6e28bc74cc6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b185f29cea61b9c366714a1af72648aeee35b61c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533999"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017934"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>자습서: Azure AD에서 SAP SuccessFactors로 특성 쓰기 다시 구성
 이 자습서에서는 Azure AD에서 SAP SuccessFactors Employee Central으로 특성을 다시 작성 하는 단계를 보여 줍니다. 
@@ -40,7 +40,7 @@ Azure Active Directory의 특정 특성을 SAP SuccessFactors Employee Central�
 
 이 SuccessFactors 쓰기 저장 (Writeback) 사용자 프로 비전 솔루션은 다음과 같은 경우에 가장 적합 합니다.
 
-* Office 365를 사용 하는 조직에서는이를 통해 관리 되는 신뢰할 수 있는 특성 (예: 전자 메일 주소, 전화, 사용자 이름)을 다시 SuccessFactors Employee Central으로 다시 쓰기를 원합니다.
+* Microsoft 365를 사용 하는 조직에서는 IT에서 관리 하는 신뢰할 수 있는 특성 (예: 전자 메일 주소, 전화, 사용자 이름)을 다시 SuccessFactors Employee Central으로 다시 쓰기를 원합니다.
 
 ## <a name="configuring-successfactors-for-the-integration"></a>통합을 위한 SuccessFactors 구성
 
@@ -181,7 +181,7 @@ SuccessFactors 쓰기 저장 (Writeback) 프로 비전 앱은 특정 *코드* �
 
 1. "권한 부여" 탭은 컬렉션에 대해 구성 된 인증을 상속 합니다. 
 1. "송신"을 클릭 하 여 API 호출을 호출 합니다. 
-1. 응답 본문에서 JSON 결과 집합을 보고 및에 해당 하는 *id* 를 찾습니다 `externalCode = B` `externalCode = C` . 
+1. 응답 본문에서 JSON 결과 집합을 보고 및에 해당 하는 *ID* 를 찾습니다 `externalCode = B` `externalCode = C` . 
 
    > [!div class="mx-imgBorder"]
    > ![Postman-휴대폰](./media/sap-successfactors-inbound-provisioning/postman-phone-type-response.png)
@@ -253,7 +253,7 @@ SuccessFactors 쓰기 저장 (Writeback) 프로 비전 앱은 특정 *코드* �
    | 3 | 8448 | emailType | 이 상수 값은 비즈니스 전자 메일과 연결 된 SuccessFactors ID 값입니다. SuccessFactors 환경과 일치 하도록이 값을 업데이트 합니다. 이 값을 설정 하는 단계는 [emailType의 상수 값 검색](#retrieve-constant-value-for-emailtype) 섹션을 참조 하세요. |
    | 4 | true | emailIsPrimary | 이 특성을 사용 하 여 SuccessFactors에서 비즈니스 전자 메일을 기본으로 설정 합니다. 비즈니스 전자 메일이 기본이 아니면이 플래그를 false로 설정 합니다. |
    | 5 | userPrincipalName | [custom01 – custom15] | **새 매핑 추가**를 사용 하 여 필요에 따라 SuccessFactors User 개체에서 사용 가능한 사용자 지정 특성에 UserPrincipalName 또는 Azure AD 특성을 쓸 수 있습니다.  |
-   | 6 | 온-프레미스-samAccountName | username | **새 매핑 추가**를 사용 하 여 필요에 따라 온-프레미스 SamAccountName을 SuccessFactors username 특성에 매핑할 수 있습니다. |
+   | 6 | 온-프레미스-samAccountName | 사용자 이름 | **새 매핑 추가**를 사용 하 여 필요에 따라 온-프레미스 SamAccountName을 SuccessFactors username 특성에 매핑할 수 있습니다. |
    | 7 | SSO | loginMethod | SuccessFactors 테 넌 트가 [부분 SSO](https://apps.support.sap.com/sap/support/knowledge/en/2320766)에 대해 설정 된 경우 새 매핑 추가를 사용 하 여 필요에 따라 loginMethod를 "SSO" 또는 "PWD"의 상수 값으로 설정할 수 있습니다. |
    | 8 | telephoneNumber | businessPhoneNumber | 이 매핑을 사용 하 여 Azure AD에서 SuccessFactors business/직장 전화 번호로 *telephoneNumber* 를 전달 합니다. |
    | 9 | 10605 | businessPhoneType | 이 상수 값은 회사 전화와 연결 된 SuccessFactors ID 값입니다. SuccessFactors 환경과 일치 하도록이 값을 업데이트 합니다. 이 값을 설정 하는 단계는 [phoneType 상수 값 검색](#retrieve-constant-value-for-phonetype) 섹션을 참조 하세요. |

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d266583a2bd73c92a58fad1882a1c572ed4f3769
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056264"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018597"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -1257,23 +1257,7 @@ $orphanFiles.OrphanedTieredFiles > OrphanTieredFiles.txt
 
 문제가 해결되지 않으면 AFSDiag 도구를 실행하고 추가 진단을 위해 해당 사례에 할당된 지원 엔지니어에게 .zip 파일 출력을 보냅니다.
 
-에이전트 버전 v11 이상의 경우:
-
-1. 관리자 권한으로 PowerShell 창을 열고 다음 명령을 실행합니다(각 명령 후 Enter 키 누름).
-
-    > [!NOTE]
-    >AFSDiag는 로그를 수집하기 전에 출력 디렉터리를 만든 후 그 안에 임시 폴더를 만들고 실행 후에 임시 폴더를 삭제합니다. 데이터를 포함하지 않는 출력 위치를 지정하세요.
-    
-    ```powershell
-    cd "c:\Program Files\Azure\StorageSyncAgent"
-    Import-Module .\afsdiag.ps1
-    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
-    ```
-
-2. 이슈를 재현합니다. 작업을 완료하면 **D** 키를 입력합니다.
-3. 로그 및 추적 파일을 포함하는 .zip 파일은 사용자가 지정한 출력 디렉터리에 저장됩니다. 
-
-에이전트 버전 v10 및 이전의 경우:
+AFSDiag를 실행 하려면 다음 단계를 수행 합니다.
 1. AFSDiag 출력이 저장될 디렉터리를 만듭니다(예: C:\output).
     > [!NOTE]
     >AFSDiag는 로그를 수집하기 전에 출력 디렉터리의 모든 내용을 삭제합니다. 데이터를 포함하지 않는 출력 위치를 지정하세요.

@@ -3,12 +3,12 @@ title: 대규모로 Azure 센티널 작업 영역 관리
 description: 위임 된 고객 리소스에서 Azure 센티널을 효과적으로 관리 하는 방법을 알아봅니다.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050814"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019736"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>대규모로 Azure 센티널 작업 영역 관리
 
@@ -65,7 +65,7 @@ MSSP에서 관리 하는 각 고객 구독은 [Azure Lighthouse로 등록](onboa
 
 [Azure 센티널의 통합 문서를 Azure Monitor](../../sentinel/overview.md#workbooks) 하 여 연결 된 데이터 원본의 데이터를 시각화 하 고 모니터링 하 여 통찰력을 얻을 수 있습니다. Azure 센티널에서 기본 제공 통합 문서 템플릿을 사용 하거나 시나리오에 대 한 사용자 지정 통합 문서를 만들 수 있습니다.
 
-관리 테 넌 트에 통합 문서를 배포 하 고 고객 테 넌 트 간에 데이터를 모니터링 하 고 쿼리 하는 규모에 맞는 대시보드를 만들 수 있습니다. 자세한 내용은 [작업 영역 간 모니터링](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks)을 참조 하세요. 일부 기능은 [여러 작업 영역에서 지원 되지 않습니다](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+관리 테 넌 트에 통합 문서를 배포 하 고 고객 테 넌 트 간에 데이터를 모니터링 하 고 쿼리 하는 규모에 맞는 대시보드를 만들 수 있습니다. 자세한 내용은 [작업 영역 간 모니터링](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks)을 참조 하세요. 
 
 해당 고객과 관련 된 시나리오에 대해 관리 하는 개별 테 넌 트에 직접 통합 문서를 배포할 수도 있습니다.
 
@@ -76,8 +76,6 @@ MSSP에서 관리 하는 각 고객 구독은 [Azure Lighthouse로 등록](onboa
 ## <a name="use-automation-for-cross-workspace-management"></a>작업 영역 간 관리를 위한 자동화 사용
 
 자동화를 사용 하 여 여러 Azure 센티널 작업 영역을 관리 하 고, [구하기 쿼리](../../sentinel/hunting.md), playbooks 및 통합 문서를 구성할 수 있습니다. 자세한 내용은 [자동화를 사용 하 여 작업 영역 간 관리](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation)를 참조 하세요.
-
-일부 기능은 [현재 여러 작업 영역에서 지원 되지 않습니다](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
 
 ## <a name="manage-security-of-office-365-environments"></a>Office 365 환경 보안 관리
 

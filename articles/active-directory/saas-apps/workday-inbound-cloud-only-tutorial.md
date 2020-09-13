@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 69c3246c910a83d889151d6ad749e1be86340e8c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d47c21da1279271b12933a2e4642abcce622600
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540969"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015486"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>자습서: Workday에서 Azure AD 사용자 프로 비전 구성
 이 자습서에서는 Workday의 작업자 데이터를 Azure Active Directory에 프로 비전 하기 위해 수행 해야 하는 단계를 보여 줍니다. 
@@ -27,13 +27,13 @@ ms.locfileid: "88540969"
 
 [Azure Active Directory 사용자 프로비전 서비스](../app-provisioning/user-provisioning.md)는 사용자 계정을 프로비전하기 위해 [Workday 인적 자원 API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)와 통합됩니다. Azure AD 사용자 프로비전 서비스에서 지원되는 Workday 사용자 프로비전 워크플로는 다음과 같은 인적 자원 및 ID 수명 주기 관리 시나리오의 자동화를 지원합니다.
 
-* **신규 직원 고용** -신규 직원이 workday에 추가 되 면 Azure Active Directory에 자동으로 생성 되 고, 선택적으로 Office 365 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)은 workday에 전자 메일 주소를 다시 쓸 수 있습니다.
+* **신규 직원 고용** -신규 직원이 workday에 추가 되 면 Azure Active Directory에서 사용자 계정이 자동으로 생성 되 고, 필요에 따라 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)을 Microsoft 365 하 여 workday에 이메일 주소를 다시 씁니다.
 
-* **직원 특성 및 프로필 업데이트** -Workday에서 직원 레코드를 업데이트 하는 경우 (예: 이름, 제목 또는 관리자) 해당 사용자 계정이 자동으로 업데이트 되 고, 선택적으로 Office 365 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)을 Azure Active Directory 자동으로 업데이트 됩니다.
+* **직원 특성 및 프로필 업데이트** -Workday에서 직원 레코드가 업데이트 되는 경우 (예: 이름, 제목 또는 관리자) 해당 사용자 계정이 자동으로 업데이트 되 고, 필요에 따라 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)Microsoft 365 Azure Active Directory 됩니다.
 
-* **직원 종료** -Workday에서 직원이 종료 되 면 해당 사용자 계정은 Azure Active Directory에서 자동으로 사용 하지 않도록 설정 되며, 선택적으로 Office 365 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)입니다.
+* **직원 종료** -Workday에서 직원이 종료 되 면 Azure Active Directory에서 해당 사용자 계정이 자동으로 사용 하지 않도록 설정 되 고, 선택적으로 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램이](../app-provisioning/user-provisioning.md)Microsoft 365 됩니다.
 
-* **직원 재할당** -Workday에서 직원이 다시 고용 될 때 기존 계정은 Azure Active Directory 및 선택적으로 Office 365 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)에 대해 자동으로 다시 활성화 되거나 다시 프로 비전 될 수 있습니다 (기본 설정에 따라).
+* **직원 재할당** -Workday에서 직원을 다시 고용 하는 경우에는 사용자의 기본 설정에 따라 자동으로 다시 활성화 하거나 다시 프로 비전 하 여 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)을 Azure Active Directory 하 고 선택적으로 Microsoft 365 수 있습니다.
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>이 사용자 프로비전 솔루션에 가장 적합한 사용자
 
@@ -45,7 +45,7 @@ ms.locfileid: "88540969"
 
 * Workday에서 얻은 데이터를 사용 하 여 사용자를 프로 비전 해야 하는 조직
 
-* 이메일에 Office 365를 사용하는 조직
+* 전자 메일에 Microsoft 365를 사용 하는 조직
 
 ## <a name="solution-architecture"></a>솔루션 아키텍처
 
@@ -115,7 +115,7 @@ Workday에서 Azure AD로 클라우드 HR 구동 사용자 프로 비전을 구�
    
      | URL 형식 | 사용 되는 WWS API 버전 | XPATH 변경 필요 |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v 21.1 | 예 |
+     | https://####.workday.com/ccx/service/tenantName | v 21.1 | 아니요 |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources | v 21.1 | 아니요 |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # # # | 예 |
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755911"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018580"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>저장소 계정에 대 한 요청에 필요한 최소 버전의 TLS (Transport Layer Security)를 적용 합니다.
 
@@ -92,11 +92,13 @@ StorageBlobLogs
 저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 계정에 대 한 **최소 버전을** 설정 합니다. 이 속성은 Azure Resource Manager 배포 모델을 사용 하 여 만든 모든 저장소 계정에 사용할 수 있습니다. Azure Resource Manager 배포 모델에 대 한 자세한 내용은 [Storage 계정 개요](storage-account-overview.md)를 참조 하세요.
 
 > [!NOTE]
-> 이 **속성은** 기본적으로 설정 되지 않으며 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정에서는 속성 값이 **null**인 경우 TLS 버전 1.0 이상으로 전송 된 요청을 허용 합니다.
+> 현재 **버전** 속성은 Azure 공용 클라우드의 저장소 계정에 대해서만 사용할 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/portal)
 
-Azure Portal를 사용 하 여 저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 다음 단계를 수행 합니다.
+Azure Portal를 사용 하 여 저장소 계정을 만드는 경우 최소 TLS 버전은 기본적으로 1.2로 설정 됩니다.
+
+Azure Portal를 사용 하 여 기존 저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal의 스토리지 계정으로 이동합니다.
 1. **구성** 설정을 선택 합니다.
@@ -108,6 +110,8 @@ Azure Portal를 사용 하 여 저장소 계정에 대 한 최소 TLS 버전을 
 
 PowerShell을 사용 하 여 저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 [Azure PowerShell 버전 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) 이상을 설치 합니다. 다음으로 새 또는 기존 저장소 계정에 대 한 이상 **버전** 속성을 구성 합니다. 이상 값에 **대 한** 유효한 값은 `TLS1_0` , `TLS1_1` 및 `TLS1_2` 입니다.
 
+PowerShell을 사용 하 여 저장소 계정을 만들 때에는 기본적으로 이상 **버전** 속성이 설정 되지 않습니다. 이 속성은 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정에서는 속성 값이 **null**인 경우 TLS 버전 1.0 이상으로 전송 된 요청을 허용 합니다.
+
 다음 예에서는 저장소 계정을 만들고, **이를 tls 1.1로 설정** 하 고, 계정을 업데이트 하 고, 다음 **버전** 을 tls 1.2로 설정 합니다. 또한이 예제에서는 각 사례에서 속성 값을 검색 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 
 ```powershell
@@ -116,18 +120,18 @@ $accountName = "<storage-account>"
 $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
-New-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
-    -Location $location \
-    -SkuName Standard_GRS \
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -Location $location `
+    -SkuName Standard_GRS `
     -MinimumTlsVersion TLS1_1
 
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
-Set-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
     -MinimumTlsVersion TLS1_2
 
 # Read the MinimumTlsVersion property.
@@ -137,6 +141,8 @@ Set-AzStorageAccount -ResourceGroupName $rgName \
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure CLI를 사용 하 여 저장소 계정에 대 한 최소 TLS 버전을 구성 하려면 Azure CLI 버전 2.9.0 이상을 설치 합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 다음으로 새 또는 기존 저장소 계정에 대 한 이상 **버전** 속성을 구성 합니다. 이상 값에 **대 한** 유효한 값은 `TLS1_0` , `TLS1_1` 및 `TLS1_2` 입니다.
+
+Azure CLI를 사용 하 여 저장소 계정을 만들 때에는 기본적으로 이상 **버전** 속성이 설정 되지 않습니다. 이 속성은 명시적으로 설정할 때까지 값을 반환 하지 않습니다. 저장소 계정에서는 속성 값이 **null**인 경우 TLS 버전 1.0 이상으로 전송 된 요청을 허용 합니다.
 
 다음 예제에서는 저장소 계정을 만들고, 이상 **버전** 을 TLS 1.1으로 설정 합니다. 그런 다음 계정을 업데이트 하 고, **버전** 속성을 TLS 1.2로 설정 합니다. 또한이 예제에서는 각 사례에서 속성 값을 검색 합니다. 대괄호 안의 자리 표시자 값을 고유한 값으로 바꾸어야 합니다.
 

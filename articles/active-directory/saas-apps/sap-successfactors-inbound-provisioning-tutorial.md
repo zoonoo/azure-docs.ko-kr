@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: c03459a86f521cafd792b9bf86b2b6b46bf3da9c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62716d5061d7c5e6ed8c64a0ce00a780f35c10be
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534108"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018002"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>자습서: 사용자 프로 비전 Active Directory SAP SuccessFactors 구성 
 이 자습서는 SuccessFactors Employee Central에서 Active Directory (AD) 및 Azure AD로 사용자를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있도록 합니다. 
@@ -30,13 +30,13 @@ ms.locfileid: "88534108"
 
 Azure AD 사용자 프로 비전 서비스에서 지 원하는 SuccessFactors 사용자 프로 비전 워크플로는 다음과 같은 인적 자원 및 id 수명 주기 관리 시나리오를 자동화할 수 있도록 합니다.
 
-* **신규 직원 고용** -SuccessFactors에 새 직원을 추가 하면 사용자 계정이 자동으로 Azure AD에서 지원 되는 Active Directory, Azure Active Directory 365 및 [기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)에서 생성 되 고 전자 메일 주소를 SuccessFactors에 다시 쓸 수 있습니다.
+* **신규 직원 고용** -SuccessFactors에 새 직원을 추가 하면 사용자 계정이 자동으로 [Azure AD에서 지원 되는 Microsoft 365 및 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)Azure Active Directory Active Directory에서 생성 되 고, SuccessFactors에 전자 메일 주소를 다시 쓸 수 있습니다.
 
-* **직원 특성 및 프로필 업데이트** -SuccessFactors에서 직원 레코드를 업데이트 하는 경우 (예: 이름, 제목 또는 관리자) 해당 사용자 계정이 Active Directory, Azure Active Directory 및 [Azure AD에서 지 원하는 선택적 Office 365 및 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)에서 자동으로 업데이트 됩니다.
+* **직원 특성 및 프로필 업데이트** -SuccessFactors에서 직원 레코드가 업데이트 되는 경우 (예: 이름, 제목 또는 관리자) 해당 사용자 계정이 Active Directory, Azure Active Directory 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)Microsoft 365 자동으로 업데이트 됩니다.
 
-* **직원 종료** -SuccessFactors에서 직원이 종료 되 면 해당 사용자 계정은 Active Directory, Azure Active Directory 및 선택적으로 Office 365 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)에서 자동으로 사용 하지 않도록 설정 됩니다.
+* **직원 종료** -SuccessFactors에서 직원이 종료 되 면 해당 사용자 계정은 Active Directory, Azure Active Directory 및 [Azure AD에서 지원 되는 선택적 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)Microsoft 365에서 자동으로 사용 하지 않도록 설정 됩니다.
 
-* **직원 재할당** -SuccessFactors에서 직원이 다시 고용 될 때 이전 계정은 자동으로 다시 활성화 되거나 다시 프로 비전 될 수 있습니다 (기본 설정에 따라) Active Directory, Azure Active Directory 365 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)에 자동으로 다시 활성화 되거나 다시 프로 비전 될 수 있습니다.
+* **직원 재할당** -SuccessFactors에서 직원이 다시 고용 될 때 이전 계정은 자동으로 다시 활성화 되거나 다시 프로 비전 될 수 있습니다 (기본 설정에 따라) Active Directory, Azure Active Directory 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)Microsoft 365.
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>이 사용자 프로비전 솔루션에 가장 적합한 사용자
 
@@ -50,7 +50,7 @@ Azure AD 사용자 프로 비전 서비스에서 지 원하는 SuccessFactors �
 
 * [EC (SuccessFactors Employee Central)](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) 에서 검색 된 변경 정보만 기반으로 하는 하나 이상의 Active Directory 포리스트, 도메인 및 ou로 사용자를 연결 하 고, 이동 하 고, 유지 해야 하는 조직
 
-* 이메일에 Office 365를 사용하는 조직
+* 전자 메일에 Microsoft 365를 사용 하는 조직
 
 ## <a name="solution-architecture"></a>솔루션 아키텍처
 
@@ -234,7 +234,7 @@ Active Directory 온-프레미스로 프로비저닝하려면 .NET Framework 4.7
    
 1. 에이전트 설치를 확인하고 "서비스" 스냅인을 열고 "Microsoft Azure AD Connect Provisioning Agent"라는 서비스를 찾아 해당 에이전트가 실행 중인지 확인합니다.
   
-   ![Services](./media/workday-inbound-tutorial/services.png)
+   ![서비스에서 실행 되는 Microsoft Azure AD 연결 프로 비전 에이전트의 스크린샷](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>3 부: 프로 비전 앱에서 SuccessFactors 및 Active Directory에 대 한 연결 구성
 이 단계에서는 Azure Portal에서 SuccessFactors 및 Active Directory와의 연결을 설정 합니다. 

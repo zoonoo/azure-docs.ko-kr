@@ -2,14 +2,14 @@
 title: 컨테이너 워크로드
 description: Azure Batch의 컨테이너 이미지에서 앱을 실행하고 크기를 조정하는 방법을 알아봅니다. 컨테이너 작업 실행을 지원하는 컴퓨팅 노드 풀을 만듭니다.
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 09/10/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: a26582572302f670010f3038147687b47feef84a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0efc63258295ec7a7db20ec97e0ac81bd4c382f7
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933548"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018512"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 애플리케이션 실행
 
@@ -23,26 +23,26 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* **SDK 버전**: Batch SDK에서 지원하는 컨테이너 이미지의 버전은 다음과 같습니다.
-    * Batch REST API 버전 2017-09-01.6.0
-    * Batch .NET SDK 버전 8.0.0
-    * Batch Python SDK 버전 4.0
-    * Batch Java SDK 버전 3.0
-    * Batch Node.js SDK 버전 3.0
+- **SDK 버전**: Batch SDK에서 지원하는 컨테이너 이미지의 버전은 다음과 같습니다.
+  - Batch REST API 버전 2017-09-01.6.0
+  - Batch .NET SDK 버전 8.0.0
+  - Batch Python SDK 버전 4.0
+  - Batch Java SDK 버전 3.0
+  - Batch Node.js SDK 버전 3.0
 
-* **계정**: Azure 구독에서 배치 계정을 만들고, 필요에 따라 Azure Storage 계정도 만들어야 합니다.
+- **계정**: Azure 구독에서 배치 계정을 만들고, 필요에 따라 Azure Storage 계정도 만들어야 합니다.
 
-* **지원되는 VM 이미지**: 컨테이너는 다음 섹션, “지원되는 가상 머신 이미지”에 자세히 설명된 이미지의 Virtual Machine 구성으로 만든 풀에서만 지원됩니다. 사용자 지정 이미지를 제공하는 경우 다음 섹션의 고려 사항 및 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 요구 사항을 참조하세요.
+- **지원되는 VM 이미지**: 컨테이너는 다음 섹션, “지원되는 가상 머신 이미지”에 자세히 설명된 이미지의 Virtual Machine 구성으로 만든 풀에서만 지원됩니다. 사용자 지정 이미지를 제공하는 경우 다음 섹션의 고려 사항 및 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 요구 사항을 참조하세요.
 
-### <a name="limitations"></a>제한 사항
+다음 제한 사항에 유의 하세요.
 
-* Batch는 Linux 풀에서 실행되는 컨테이너에 대한 RDMA 지원만 제공합니다.
+- Batch는 Linux 풀에서 실행되는 컨테이너에 대해서만 RDMA 지원을 제공합니다.
 
-* Windows 컨테이너 워크로드의 경우, 풀에 대한 멀티 코어 VM 크기를 선택하는 것이 좋습니다.
+- Windows 컨테이너 워크 로드의 경우 풀에 대 한 다중 코어 VM 크기를 선택 하는 것이 좋습니다.
 
 ## <a name="supported-virtual-machine-images"></a>지원되는 가상 머신 이미지
 
-컨테이너 워크로드에 대한 VM 컴퓨팅 노드 풀을 만들려면 다음 지원되는 Windows 또는 Linux 이미지 중 하나를 사용합니다. Batch와 호환되는 Marketplace 이미지에 대한 자세한 내용은 [가상 머신 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)을 참조하세요.
+컨테이너 워크로드에 대한 VM 컴퓨팅 노드 풀을 만들려면 다음 지원되는 Windows 또는 Linux 이미지 중 하나를 사용합니다. Batch와 호환 되는 Marketplace 이미지에 대 한 자세한 내용은 [가상 머신 이미지 목록](batch-linux-nodes.md#list-of-virtual-machine-images)을 참조 하세요.
 
 ### <a name="windows-support"></a>Windows 지원
 
@@ -68,11 +68,11 @@ Linux 컨테이너 워크로드의 경우 현재 Batch는 사용자 지정 이�
 
 이러한 이미지는 Azure Batch 풀에서만 사용할 수 있으며 Docker 컨테이너 실행에 적합합니다. 특징은 다음과 같습니다.
 
-* 사전 설치된 Docker 호환 [Moby](https://github.com/moby/moby) 컨테이너 런타임
+- 사전 설치된 Docker 호환 [Moby](https://github.com/moby/moby) 컨테이너 런타임
 
-* Azure N 시리즈 VM의 배포를 간소화하기 위해 사전 설치된 NVIDIA GPU 드라이버 및 NVIDIA 컨테이너
+- Azure N 시리즈 VM의 배포를 간소화하기 위해 사전 설치된 NVIDIA GPU 드라이버 및 NVIDIA 컨테이너
 
-* 접미사가 `-rdma`인 이미지의 Infiniband RDMA VM 크기를 지원하는 사전 설치/사전 구성된 이미지입니다. 현재 이러한 이미지는 SR-IOV IB/RDMA VM 크기를 지원하지 않습니다.
+- 접미사가 `-rdma`인 이미지의 Infiniband RDMA VM 크기를 지원하는 사전 설치/사전 구성된 이미지입니다. 현재 이러한 이미지는 SR-IOV IB/RDMA VM 크기를 지원하지 않습니다.
 
 Batch와 호환되는 Linux 배포판 중 하나에서 Docker를 실행하는 VM에서 사용자 지정 이미지를 만들 수도 있습니다. 자체 사용자 지정 Linux 이미지를 제공하려는 경우 [관리되는 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)의 지침을 참조하세요.
 
@@ -80,10 +80,9 @@ Batch와 호환되는 Linux 배포판 중 하나에서 Docker를 실행하는 VM
 
 사용자 지정 Linux 이미지를 사용하기 위한 추가 고려 사항:
 
-* 사용자 지정 이미지 사용 시 Azure N-시리즈 크기의 GPU 성능을 활용하려면 NVIDIA 드라이버를 사전 설치합니다. 또한 NVIDIA GPU용 Docker 엔진 유틸리티인 [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker)를 설치해야 합니다.
+- 사용자 지정 이미지 사용 시 Azure N-시리즈 크기의 GPU 성능을 활용하려면 NVIDIA 드라이버를 사전 설치합니다. 또한 NVIDIA GPU용 Docker 엔진 유틸리티인 [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker)를 설치해야 합니다.
 
-* Azure RDMA 네트워크에 액세스하려면 RDMA 가능 VM 크기를 사용합니다. 필수 RDMA 드라이버는 Batch에서 지원되는 CentOS HPC 및 Ubuntu 이미지에 설치됩니다. MPI 워크로드를 실행하기 위한 추가 구성이 필요할 수 있습니다. [Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용](batch-pool-compute-intensive-sizes.md)을 참조하세요.
-
+- Azure RDMA 네트워크에 액세스하려면 RDMA 가능 VM 크기를 사용합니다. 필수 RDMA 드라이버는 Batch에서 지원되는 CentOS HPC 및 Ubuntu 이미지에 설치됩니다. MPI 워크로드를 실행하기 위한 추가 구성이 필요할 수 있습니다. [Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용](batch-pool-compute-intensive-sizes.md)을 참조하세요.
 
 ## <a name="container-configuration-for-batch-pool"></a>Batch 풀에 대한 컨테이너 구성
 
@@ -93,11 +92,9 @@ Batch 풀을 사용하여 컨테이너 워크로드를 실행하려면 해당 �
 
 컨테이너 이미지를 프리페치할 때의 장점은 작업을 처음 실행하기 시작할 때 컨테이너 이미지가 다운로드될 때까지 기다릴 필요가 없다는 것입니다. 컨테이너 구성은 풀이 생성될 때 컨테이너 이미지를 VM으로 끌어옵니다. 그러면 풀에서 실행되는 작업은 컨테이너 이미지 및 컨테이너 실행 옵션 목록을 참조할 수 있습니다.
 
-
 ### <a name="pool-without-prefetched-container-images"></a>프리페치된 컨테이너 이미지 없는 풀
 
-프리페치된 컨테이너 이미지 없이 컨테이너 지원 풀을 구성하려면 다음 Python 예제와 같이 `ContainerConfiguration` 및 `VirtualMachineConfiguration` 개체를 정의합니다. 이 예제에서는 Marketplace에서 Azure Batch 컨테이너 풀 이미지의 Ubuntu Server를 사용합니다.
-
+프리페치된 컨테이너 이미지 없이 컨테이너 사용 가능 풀을 구성 하려면 `ContainerConfiguration` 다음 예제와 같이 및 개체를 정의 `VirtualMachineConfiguration` 합니다. 이러한 예제에서는 Marketplace의 Azure Batch 컨테이너 풀 이미지에 Ubuntu 서버를 사용 합니다.
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
@@ -123,6 +120,29 @@ new_pool = batch.models.PoolAddParameter(
 ...
 ```
 
+```csharp
+ImageReference imageReference = new ImageReference(
+    publisher: "microsoft-azure-batch",
+    offer: "ubuntu-server-container",
+    sku: "16-04-lts",
+    version: "latest");
+
+// Specify container configuration. This is required even though there are no prefetched images.
+ContainerConfiguration containerConfig = new ContainerConfiguration();
+
+// VM configuration
+VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
+    imageReference: imageReference,
+    nodeAgentSkuId: "batch.node.ubuntu 16.04");
+virtualMachineConfiguration.ContainerConfiguration = containerConfig;
+
+// Create pool
+CloudPool pool = batchClient.PoolOperations.CreatePool(
+    poolId: poolId,
+    targetDedicatedComputeNodes: 1,
+    virtualMachineSize: "STANDARD_D1_V2",
+    virtualMachineConfiguration: virtualMachineConfiguration);
+```
 
 ### <a name="prefetch-images-for-container-configuration"></a>컨테이너 구성을 위해 이미지 프리페치
 
@@ -154,7 +174,6 @@ new_pool = batch.models.PoolAddParameter(
     target_dedicated_nodes=1)
 ...
 ```
-
 
 다음 C# 예제에서는 [Docker 허브](https://hub.docker.com)에서 TensorFlow 이미지를 프리페치한다고 가정합니다. 이 예에는 풀 노드의 VM 호스트에서 실행되는 시작 작업이 포함되어 있습니다. 예를 들어 컨테이너에서 액세스할 수 있는 파일 서버를 탑재하려는 경우 호스트에서 시작 작업을 실행할 수 있습니다.
 
@@ -196,10 +215,37 @@ pool.StartTask = startTaskContainer;
 ...
 ```
 
-
 ### <a name="prefetch-images-from-a-private-container-registry"></a>프라이빗 컨테이너 레지스트리에서 이미지 프리페치
 
-프라이빗 컨테이너 레지스트리 서버에서 인증을 받아 컨테이너 이미지를 프리페치할 수도 있습니다. 다음 예제에서는 `ContainerConfiguration` 및 `VirtualMachineConfiguration` 개체가 프라이빗 Azure Container Registry에서 프라이빗 TensorFlow 이미지를 프리페치한다고 가정합니다. 이미지 참조는 앞의 예와 동일합니다.
+프라이빗 컨테이너 레지스트리 서버에서 인증을 받아 컨테이너 이미지를 프리페치할 수도 있습니다. 다음 예제에서는 `ContainerConfiguration` 및 `VirtualMachineConfiguration` 개체가 개인 Azure container registry에서 개인 TensorFlow 이미지를 프리페치 합니다. 이미지 참조는 앞의 예와 동일합니다.
+
+```python
+image_ref_to_use = batch.models.ImageReference(
+        publisher='microsoft-azure-batch',
+        offer='ubuntu-server-container',
+        sku='16-04-lts',
+        version='latest')
+
+# Specify a container registry
+container_registry = batch.models.ContainerRegistry(
+        registry_server="myRegistry.azurecr.io",
+        user_name="myUsername",
+        password="myPassword")
+
+# Create container configuration, prefetching Docker images from the container registry
+container_conf = batch.models.ContainerConfiguration(
+        container_image_names = ["myRegistry.azurecr.io/samples/myImage"],
+        container_registries =[container_registry])
+
+new_pool = batch.models.PoolAddParameter(
+            id="myPool",
+            virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+                image_reference=image_ref_to_use,
+                container_configuration=container_conf,
+                node_agent_sku_id='batch.node.ubuntu 16.04'),
+            vm_size='STANDARD_D1_V2',
+            target_dedicated_nodes=1)
+```
 
 ```csharp
 // Specify a container registry
@@ -233,9 +279,9 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 컨테이너 사용 풀에서 컨테이너 작업을 실행하려면 컨테이너별 설정을 지정합니다. 설정에는 사용할 이미지, 레지스트리 및 컨테이너 실행 옵션이 포함됩니다.
 
-* 작업 클래스의 `ContainerSettings` 속성을 사용하여 컨테이너별 설정을 구성합니다. 이러한 설정은 [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) 클래스에 의해 정의됩니다. `--rm` 컨테이너 옵션은 Batch에 의해 처리되므로 추가 `--runtime` 옵션이 필요하지 않습니다.
+- 작업 클래스의 `ContainerSettings` 속성을 사용하여 컨테이너별 설정을 구성합니다. 이러한 설정은 [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) 클래스에 의해 정의됩니다. `--rm` 컨테이너 옵션은 Batch에 의해 처리되므로 추가 `--runtime` 옵션이 필요하지 않습니다.
 
-* 컨테이너 이미지에 대해 작업(task)를 실행하는 경우 [클라우드 작업(task)](/dotnet/api/microsoft.azure.batch.cloudtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)에 컨테이너 설정이 필요합니다. 그러나 [시작 태스크](/dotnet/api/microsoft.azure.batch.starttask), [작업(Job) 준비 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)에는 컨테이너 설정이 필요하지 않습니다(즉, 컨테이너 컨텍스트 내에서 또는 노드에서 직접 실행될 수 있음).
+- 컨테이너 이미지에 대해 작업(task)를 실행하는 경우 [클라우드 작업(task)](/dotnet/api/microsoft.azure.batch.cloudtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)에 컨테이너 설정이 필요합니다. 그러나 [시작 태스크](/dotnet/api/microsoft.azure.batch.starttask), [작업(Job) 준비 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) 및 [작업(Job) 관리자 작업(task)](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)에는 컨테이너 설정이 필요하지 않습니다(즉, 컨테이너 컨텍스트 내에서 또는 노드에서 직접 실행될 수 있음).
 
 ### <a name="container-task-command-line"></a>컨테이너 작업 명령줄
 
@@ -245,9 +291,9 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Batch 작업에 대한 컨테이너 이미지가 [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example) 스크립트를 통해 구성되면 기본 ENTRYPOINT를 사용하거나 재정의하도록 명령줄을 설정할 수 있습니다.
 
-* 컨테이너 이미지의 기본 ENTRYPOINT를 사용하려면 작업 명령줄을 빈 문자열 `""`로 설정합니다.
+- 컨테이너 이미지의 기본 ENTRYPOINT를 사용하려면 작업 명령줄을 빈 문자열 `""`로 설정합니다.
 
-* 기본 ENTRYPOINT를 재정의하려는 경우 또는 이미지에 ENTRYPOINT가 없는 경우 컨테이너에 적절한 명령줄을 설정합니다(예: `/app/myapp` 또는 `/bin/sh -c python myscript.py`).
+- 기본 ENTRYPOINT를 재정의하려는 경우 또는 이미지에 ENTRYPOINT가 없는 경우 컨테이너에 적절한 명령줄을 설정합니다(예: `/app/myapp` 또는 `/bin/sh -c python myscript.py`).
 
 선택적 [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions)는 Batch가 컨테이너를 만들고 실행하는 데 사용하는 `docker create` 명령에 제공하는 추가 인수입니다. 예를 들어 컨테이너에 대한 작업 디렉터리를 설정하려면 `--workdir <directory>` 옵션을 설정합니다. 추가 옵션에 대한 [docker create](https://docs.docker.com/engine/reference/commandline/create/) 참조를 확인하세요.
 
@@ -257,9 +303,9 @@ Batch 컨테이너 작업은 Batch가 일반(컨테이너 아님) 작업에 대�
 
 Batch 컨테이너 작업의 경우:
 
-* 호스트 노드의 `AZ_BATCH_NODE_ROOT_DIR`(Azure Batch 디렉터리의 루트)의 모든 하위 디렉터리는 컨테이너에 매핑됩니다.
-* 모든 작업 환경 변수는 컨테이너에 매핑됩니다.
-* 노드의 작업 디렉터리 `AZ_BATCH_TASK_WORKING_DIR`은 일반 작업과 동일하게 설정되며 컨테이너에 매핑됩니다.
+- 호스트 노드의 `AZ_BATCH_NODE_ROOT_DIR`(Azure Batch 디렉터리의 루트)의 모든 하위 디렉터리는 컨테이너에 매핑됩니다.
+- 모든 작업 환경 변수는 컨테이너에 매핑됩니다.
+- 노드의 작업 디렉터리 `AZ_BATCH_TASK_WORKING_DIR`은 일반 작업과 동일하게 설정되며 컨테이너에 매핑됩니다.
 
 이러한 매핑을 통해 컨테이너 작업이 아닌 작업과 동일한 방식으로 작업할 수 있습니다. 예를 들어, 애플리케이션 패키지를 사용하여 애플리케이션을 설치하고, Azure Storage에서 리소스 파일에 액세스하고, 작업 환경 설정을 사용하고, 컨테이너를 중지한 후 작업 출력 파일을 유지할 수 있습니다.
 
@@ -269,9 +315,8 @@ Batch 컨테이너 작업의 경우:
 
 필요한 경우에 이미지를 기반으로 하는 컨테이너 작업의 설정을 조정합니다.
 
-* 작업 명령줄의 절대 경로를 지정합니다. 이미지의 기본 ENTRYPOINT가 작업 명령줄에 사용되는 경우 절대 경로가 설정되어 있는지 확인합니다.
-
-* 작업의 컨테이너 실행 옵션에서 이미지의 WORKDIR에 일치하도록 작업 디렉터리를 변경합니다. 예를 들어 `--workdir /app`으로 설정합니다.
+- 작업 명령줄의 절대 경로를 지정합니다. 이미지의 기본 ENTRYPOINT가 작업 명령줄에 사용되는 경우 절대 경로가 설정되어 있는지 확인합니다.
+- 작업의 컨테이너 실행 옵션에서 이미지의 WORKDIR에 일치하도록 작업 디렉터리를 변경합니다. 예를 들어 `--workdir /app`으로 설정합니다.
 
 ## <a name="container-task-examples"></a>컨테이너 작업 예제
 
@@ -308,10 +353,7 @@ containerTask.ContainerSettings = cmdContainerSettings;
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes)를 통해 Azure Batch에 컨테이너 작업을 쉽게 배포할 수 있는 [Batch Shipyard](https://github.com/Azure/batch-shipyard) 도구 키트도 참조하세요.
-
-* Linux에서 Docker CE를 설치 및 사용하는 방법에 대한 자세한 내용은 [Docker](https://docs.docker.com/engine/installation/) 설명서를 참조하세요.
-
-* 사용자 지정 이미지 사용에 대한 자세한 내용은 [관리형 사용자 지정 이미지를 사용하여 가상 머신 풀 만들기](batch-custom-images.md)를 참조하세요.
-
-* 컨테이너 기반 시스템을 만들기 위한 프레임워크인 [Moby 프로젝트](https://mobyproject.org/)에 대해 자세히 알아봅니다.
+- [Shipyard 조리법](https://github.com/Azure/batch-shipyard/tree/master/recipes)을 통해 Azure Batch에서 컨테이너 워크 로드를 쉽게 배포 하려면 [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit을 참조 하세요.
+- Linux에서 Docker CE를 설치 하 고 사용 하는 방법에 대 한 자세한 내용은 [docker](https://docs.docker.com/engine/installation/) 설명서를 참조 하세요.
+- [관리 되는 사용자 지정 이미지를 사용 하 여 가상 머신 풀을 만드는](batch-custom-images.md)방법을 알아봅니다.
+- 컨테이너 기반 시스템을 만들기 위한 프레임워크인 [Moby 프로젝트](https://mobyproject.org/)에 대해 자세히 알아봅니다.
