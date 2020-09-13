@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7f91285b393734bce83785dde62fd573e94ac0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254517"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438537"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -31,7 +31,7 @@ ms.locfileid: "85254517"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Blob Storage 사이에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 제공 하는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
 ## <a name="overview"></a>개요
-모든 지원되는 원본 데이터 저장소에서 Azure Blob Storage로 또는 Azure Blob Storage에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 다음 표에서는 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소 목록을 제공합니다. 예를 들어 SQL Server 데이터베이스 또는 Azure SQL Database의 데이터베이스 **에서** Azure blob 저장소 **로** 데이터를 이동할 수 있습니다. 그리고 데이터를 Azure Blob Storage 스토리지**에서** Azure SQL Data Warehouse 또는 Azure Cosmos DB 컬렉션**으로** 복사할 수 있습니다.
+모든 지원되는 원본 데이터 저장소에서 Azure Blob Storage로 또는 Azure Blob Storage에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 다음 표에서는 복사 활동에서 원본 및 싱크로 지원되는 데이터 저장소 목록을 제공합니다. 예를 들어 SQL Server 데이터베이스 또는 Azure SQL Database의 데이터베이스 **에서** Azure blob 저장소 **로** 데이터를 이동할 수 있습니다. 그리고 azure blob storage **에서** Azure Synapse Analytics (이전의 SQL Data Warehouse) 또는 Azure Cosmos DB 컬렉션 **으로 데이터를** 복사할 수 있습니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -81,7 +81,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 
 **TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치, 형식 등에 대 한 정보를 제공 합니다. **AzureBlob** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필요한 공간 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | folderPath |Blob Storage에서 컨테이너 및 폴더에 대한 경로입니다. 예제: myblobcontainer\myblobfolder\ |예 |
 | fileName |Blob의 이름입니다. fileName은 선택 사항이며 대/소문자를 구분합니다.<br/><br/>filename을 지정하는 경우 활동(복사 포함)은 특정 Blob에서 작동합니다.<br/><br/>fileName을 지정하지 않으면 복사는 입력 데이터 세트에 대한 folderPath에 모든 Blob을 포함합니다.<br/><br/>**FileName** 이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 생성 된 파일의 이름은 다음과 같은 형식으로 지정 됩니다 `Data.<Guid>.txt` (예:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
@@ -173,7 +173,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 ## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>연습: 복사 마법사를 사용하여 Blob Storage 간 데이터 복사
 이 스토리지를 만든 후에 쉽게 탑재 및 공유할 수 있도록 하려면 Azure File Storage 정보를 텍스트 파일에 저장하고 해당 위치에 대한 경로를 기록합니다. 이 연습에 나오는 원본 및 대상 데이터 저장소의 유형은 모두 Azure Blob Storage입니다. 이 연습의 파이프라인은 한 폴더의 데이터를 동일한 Blob 컨테이너의 다른 폴더로 복사합니다. 이 연습에서는 Blob Storage를 원본 또는 싱크로 사용할 때 설정 또는 속성을 표시하는 것이 간단합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 1. 아직 만들지 않은 경우 범용 **Azure Storage 계정**을 만듭니다. 이 연습에서는 Blob Storage를 **원본** 및 **대상** 데이터 스토리지로 사용합니다. Azure storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조 하세요.
 2. 스토리지 계정에 **adfblobconnector**라는 Blob 컨테이너를 만듭니다.
 4. **adfblobconnector** 컨테이너에 **input**이라는 폴더를 만듭니다.
@@ -193,7 +193,7 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
     4. Data Factory의 **위치**를 선택합니다.
     5. 블레이드 하단에서 **대시보드에 고정** 확인란을 선택합니다.
     6. **만들기**를 클릭합니다.
-3. 만들기가 완료 되 면 다음 이미지와 같이 **Data Factory** 블레이드가 표시 됩니다. ![ 데이터 팩터리 홈 페이지](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+3. 만들기가 완료 되 면 다음 이미지와 같이 **Data Factory** 블레이드가 표시 됩니다.  ![ 데이터 팩터리 홈 페이지](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>복사 마법사
 1. 데이터 팩터리 홈 페이지에서 **데이터 복사** 타일을 클릭하여 **데이터 복사 마법사**를 별도의 탭에서 시작합니다.  
@@ -221,14 +221,14 @@ Azure Blob Storage에서 입력 또는 출력 데이터를 표시할 데이터 �
 5. **입력 파일 또는 폴더 선택** 페이지에서 다음을 수행합니다.
     1. **adfblobcontainer**를 두 번 클릭합니다.
     2. **input**을 선택하고 **선택**을 클릭합니다. 이 연습에서는 입력 폴더를 선택합니다. 대신 폴더에서 emp.txt 파일을 선택할 수도 있습니다.
-        ![복사 도구 - 입력 파일 또는 폴더 선택](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+        ![복사 도구-입력 파일 또는 폴더를 선택 합니다. 1](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
 6. **입력 파일 또는 폴더 선택** 페이지에서 다음을 수행합니다.
     1. **파일 또는 폴더**가 **adfblobconnector/input**으로 설정되었는지 확인합니다. 파일이 하위 폴더(예: 2017/04/01, 2017/04/02)에 있는 경우 파일 또는 폴더에 대해 adfblobconnector/input/{year}/{month}/{day}를 입력합니다. 텍스트 상자 밖으로 TAB을 누르면 연도(yyyy), 월(MM) 및 일(dd)의 형식을 선택하는 세 개의 드롭다운 목록이 나타납니다.
     2. **파일을 재귀적으로 복사**는 설정하지 마십시오. 대상에 복사할 파일의 폴더를 반복적으로 탐색하려면 이 옵션을 선택합니다.
     3. **이진 복사** 옵션을 사용하지 마십시오. 원본 파일을 대상으로 이진 복사본을 수행하려면 이 옵션을 선택합니다. 이 연습을 선택하지 마십시오. 다음 페이지에서 더 많은 옵션을 볼 수 있습니다.
     4. **압축 유형**이 **없음**으로 설정되었는지 확인합니다. 소스 파일이 지원되는 형식 중 하나로 압축된 경우 이 옵션의 값을 선택합니다.
     5. **다음**을 클릭합니다.
-    ![복사 도구 - 입력 파일 또는 폴더 선택](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
+    ![복사 도구-입력 파일 또는 폴더 선택 2](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. **파일 형식 설정** 페이지에 파일을 구문 분석하여 마법사에 의해 자동으로 감지되는 구분 기호와 스키마가 표시됩니다.
     1. 다음 옵션을 확인합니다.  
         a. **파일 형식**이 **텍스트 형식**으로 설정되었습니다. 드롭다운 목록에서 지원되는 모든 형식을 볼 수 있습니다. 예: JSON, Avro, ORC, Parquet.

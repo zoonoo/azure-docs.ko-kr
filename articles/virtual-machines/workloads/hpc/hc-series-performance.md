@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: cea772f03d5e2838b44d50f3cf5e926d740be5f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b8e66ad2c907815b8395ab47059db92e57ad4cf
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67707691"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438060"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>HC 시리즈 가상 머신 크기
 
@@ -35,7 +35,7 @@ ms.locfileid: "67707691"
 
 Mellanox Perftest.
 
-```azure-cli
+```bash
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
@@ -58,7 +58,7 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 OSU MPI 대기 시간 테스트 v 5.4.3.
 
-```azure-cli
+```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
@@ -81,7 +81,7 @@ OSU MPI 대기 시간 테스트 v 5.4.3.
 
 OSU MPI 대역폭 테스트 v 5.4.3.
 
-```azure-cli
+```bash
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 

@@ -13,12 +13,12 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13242a41e1d10b0df031bf10fd646d9ec3cf47c3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478164"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437771"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>새 Azure Portal 앱 등록 환경
 
@@ -77,12 +77,12 @@ Azure Portal의 새로운 환경은 이러한 기능을 별도의 페이지에 �
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>플랫폼/인증: 회신 Url/리디렉션 Uri
 이전 환경에서 앱은 웹, 네이티브 및 웹 API에 대 한 플랫폼 섹션을 포함 하 여 리디렉션 Url, 로그 아웃 URL 및 암시적 흐름을 구성 했습니다.
 
-새 환경에서는 앱 인증 섹션에서 회신 Url을 찾을 수 있습니다 \' . 또한 리디렉션 Uri로 참조 되 고 리디렉션 Uri에 대 한 형식이 변경 되었습니다. 앱 유형 (웹 또는 공용 클라이언트-모바일 및 데스크톱)에 연결 해야 합니다. [자세한 정보](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+새 환경에서는 앱 인증 섹션에서 회신 Url을 찾을 수 있습니다 \' . 또한 리디렉션 Uri로 참조 되 고 리디렉션 Uri에 대 한 형식이 변경 되었습니다. 앱 유형 (웹 또는 공용 클라이언트-모바일 및 데스크톱)에 연결 해야 합니다. [자세히 알아보기](quickstart-register-app.md#add-a-redirect-uri)
 
 웹 Api는 API 페이지 노출에서 구성 됩니다.
 
 > [!NOTE]
-> 대상으로 지정하려는 플랫폼 또는 디바이스에 따라 애플리케이션에 대한 설정을 구성할 수 있는 새 인증 설정 환경을 사용해 보세요. [자세한 정보](quickstart-configure-app-access-web-apis.md#configure-platform-settings-for-your-application)
+> 대상으로 지정하려는 플랫폼 또는 디바이스에 따라 애플리케이션에 대한 설정을 구성할 수 있는 새 인증 설정 환경을 사용해 보세요. [자세히 알아보기](quickstart-register-app.md#configure-platform-settings)
 
 ## <a name="microsoft-graph-permissionsapi-permissions"></a>Microsoft Graph 사용 권한/a p i 권한
 

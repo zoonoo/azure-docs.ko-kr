@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 57786aa343fd2ea863b17f65253e5d4a4a6b88ce
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226831"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437941"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 보안 기준
 
@@ -578,7 +578,7 @@ Azure SQL Database 데이터 검색 및 분류 기능을 사용 합니다. 데�
 
 **지침**: 클라우드 데이터 저장소가 HTTPS 또는 tls를 지 원하는 경우 Data Factory의 데이터 이동 서비스와 클라우드 데이터 저장소 간의 모든 데이터 전송은 보안 채널 HTTPS 또는 tls를 통해 수행 됩니다. 사용된 TLS 버전은 1.2입니다.
 
-Azure SQL Database와 Azure SQL Data Warehouse에 대한 모든 연결은 항상 데이터를 데이터베이스로/에서 전송하는 중에 암호화(SSL/TLS)가 필요합니다. JSON을 사용하여 파이프라인을 작성하는 동안 암호화 속성을 추가하고 연결 문자열에서 true로 설정합니다. Azure Storage의 경우 연결 문자열에 HTTPS를 사용할 수 있습니다.
+Azure SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대 한 모든 연결은 데이터를 데이터베이스에 전송 하는 동안 암호화 (SSL/TLS)가 필요 합니다. JSON을 사용하여 파이프라인을 작성하는 동안 암호화 속성을 추가하고 연결 문자열에서 true로 설정합니다. Azure Storage의 경우 연결 문자열에 HTTPS를 사용할 수 있습니다.
 
 * [Azure Data Factory에서 전송 암호화 이해](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 
@@ -896,11 +896,11 @@ Azure Resource Graph를 사용하여 구독 내에서 리소스를 쿼리/검색
 
 * [Azure Firewall이란?](https://docs.microsoft.com/azure/firewall/overview)
 
-* [Azure 웹 애플리케이션 방화벽이란?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [Azure 웹 응용 프로그램 방화벽 이란?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
 * [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
-* [Azure Virtual Network란?](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+* [Azure Virtual Network 이란?](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 
 * [Azure 관리 그룹으로 리소스 구성](https://docs.microsoft.com/azure/governance/management-groups/overview)
 
@@ -1050,7 +1050,9 @@ Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프�
 
 * [Key Vault를 만드는 방법](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [관리 id를 사용 하 여 Key Vault 인증을 제공 하는 방법](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Key Vault에 인증 하는 방법](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [Key Vault 액세스 정책을 할당 하는 방법](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 * [파이프라인 작업에서 Azure Key Vault 비밀 사용](https://docs.microsoft.com/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 

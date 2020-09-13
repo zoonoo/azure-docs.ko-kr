@@ -1,20 +1,20 @@
 ---
-title: Azure 방화벽을 사용 하 여 AKS (Azure Kubernetes Service) 배포 보호
+title: Azure Firewall을 사용하여 AKS(Azure Kubernetes Service) 배포 보호
 description: Azure 방화벽을 사용 하 여 AKS (Azure Kubernetes Service) 배포를 보호 하는 방법을 알아봅니다.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/03/2020
 ms.author: victorh
-ms.openlocfilehash: 602671f1052de2d9446f32946271cea2f9995044
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 43755b312a64c429b38a07c8c4fad8c85b08342a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87412952"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437856"
 ---
-# <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Azure 방화벽을 사용 하 여 AKS (Azure Kubernetes Service) 배포 보호
+# <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Azure Firewall을 사용하여 AKS(Azure Kubernetes Service) 배포 보호
 
 AKS (azure Kubernetes Service)는 Azure에서 관리 되는 Kubernetes 클러스터를 제공 합니다. Azure에 대 한 대부분의 책임을 오프 로드 하 여 Kubernetes을 관리 하는 복잡성 및 운영 오버 헤드를 줄입니다. AKS는 상태 모니터링 및 유지 관리와 같은 중요 한 작업을 처리 하 고, 촉진 된 거 버 넌 스를 통해 엔터프라이즈급의 보안 클러스터를 제공 합니다.
 
@@ -24,7 +24,7 @@ Kubernetes는 사용 가능한 계산 리소스 및 각 컨테이너의 리소�
 
 이 문서의 지침에 따라 azure 방화벽을 사용 하 여 Azure Kubernetes 클러스터에 대 한 추가 보호를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 응용 프로그램을 실행 하는 배포 된 Azure Kubernetes 클러스터.
 
@@ -47,7 +47,13 @@ Azure 방화벽은 구성을 간소화 하는 AKS FQDN 태그를 제공 합니�
    - API 서버와 통신 해야 하는 앱이 있는 경우 TCP [*IPAddrOfYourAPIServer*]: 443가 필요 합니다. 이 변경 내용은 클러스터를 만든 후에 설정할 수 있습니다.
    - 터널 전면 pod가 API 서버의 터널 끝과 통신할 수 있도록 TCP 포트 9000 및 UDP 포트 1194
 
-      보다 구체적인 정보를 보려면 **. <location> azmk8s.io* 및 주소를 다음 표에 나와 있습니다.
+      보다 구체적인 정보를 보려면 **. <location> * 다음 표의 azmk8s.io 및 addresses:
+
+   | 대상 끝점                                                             | 프로토콜 | 포트    | 사용  |
+   |----------------------------------------------------------------------------------|----------|---------|------|
+   | **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+   | **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [지역 CIDRs](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | 노드와 제어 평면 간의 터널링 된 보안 통신의 경우 |
+
    - UDP 포트 123은 NTP(Network Time Protocol) 시간 동기화(Linux 노드)에 필요합니다.
    - API 서버에 직접 액세스하는 포드가 있으면 DNS용 UDP 포트 53도 필요합니다.
 

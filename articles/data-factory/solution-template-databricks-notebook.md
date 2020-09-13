@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857650"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438452"
 ---
 # <a name="transformation-with-azure-databricks"></a>Azure Databricks를 통한 변환
 
@@ -28,13 +28,13 @@ ms.locfileid: "82857650"
 
 - **데이터 복사** 는 Azure Databricks 노트북에서 dbfs로 탑재 된 싱크 저장소로 원본 데이터 집합을 복제 합니다. 이러한 방식으로 Spark에서 데이터 집합을 직접 사용할 수 있습니다.
 
-- **노트북** 은 데이터 집합을 변환 하는 Databricks 노트북을 트리거합니다. 또한 처리 된 폴더 또는 Azure SQL Data Warehouse에 데이터 집합을 추가 합니다.
+- **노트북** 은 데이터 집합을 변환 하는 Databricks 노트북을 트리거합니다. 또한 처리 된 폴더 또는 Azure Azure Synapse Analytics (이전의 SQL Data Warehouse)에 데이터 집합을 추가 합니다.
 
 간단히 하기 위해이 자습서의 템플릿은 예약 된 트리거를 만들지 않습니다. 필요한 경우 하나를 추가할 수 있습니다.
 
 ![파이프라인 다이어그램](media/solution-template-Databricks-notebook/pipeline-example.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - 싱크로 사용 하기 위해 라는 컨테이너가 있는 Azure Blob storage 계정 `sinkdata` .
 
