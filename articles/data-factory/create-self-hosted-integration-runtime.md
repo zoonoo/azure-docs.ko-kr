@@ -107,7 +107,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 응용 프로그램의 매개 변수 및 속성에 대 한 자세한 내용은 다음과 같습니다. 
 
-| 속성                                                    | 설명                                                  | 필수 |
+| 속성                                                    | Description                                                  | 필수 |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | 지정 된 인증 키를 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다. | 아니요       |
 | **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | 지정 된 인증 키와 노드 이름을 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다. | 아니요       |

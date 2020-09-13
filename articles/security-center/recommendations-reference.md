@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8a0ead681c8b6cfbfbf820b546f1bcb320871c70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: c3351931013fb9b4d4de25d12e358fbe27f05472
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587364"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613519"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>보안 권장 사항 - 참조 가이드
 
@@ -57,7 +57,6 @@ Security Center 권장 사항은 모범 사례를 기반으로 합니다. 일부
 |----|----|----|----|----|
 |**Azure Kubernetes Service 클러스터에서 지능형 위협 방지를 사용하도록 설정해야 함**|Security Center는 실시간 위협 방지를 컨테이너화된 환경에 제공하고 의심스러운 활동에 대한 경고를 생성합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.<br>중요:이 권장 사항을 수정 AKS 클러스터를 보호 하는 데 비용이 부과 됩니다. 이 구독에 AKS 클러스터가 없으면 요금이 발생 하지 않습니다. 나중에이 구독에 AKS 클러스터를 만드는 경우 자동으로 보호 되 고 해당 시간에 요금이 청구 됩니다.<br>(관련 정책: [Azure Kubernetes Service 클러스터에서 Advanced threat protection을 사용 하도록 설정 해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a))|높음|**예**|Subscription|
 |**권한 있는 IP 범위는 Kubernetes Services에 정의되어야 함**|특정 범위의 IP 주소에만 API 액세스 권한을 부여하여 Kubernetes 서비스 관리 API에 대한 액세스를 제한합니다. 허용된 네트워크의 애플리케이션만 클러스터에 액세스할 수 있도록 권한 있는 IP 범위를 구성하는 것이 좋습니다.<br>(관련 정책: [미리 보기]: Kubernetes Services에서 권한 있는 IP 범위를 정의해야 함)|높음|N|컴퓨팅 리소스(컨테이너)|
-|**불필요한 애플리케이션 권한을 제거하여 공격 벡터를 줄이는 Pod 보안 정책을 정의해야 함(미리 보기)**|Pod 보안 정책을 정의하여 불필요한 애플리케이션 권한을 제거함으로써 공격 벡터를 줄일 수 있습니다. Pod가 액세스 권한이 부여된 리소스에만 액세스할 수 있도록 Pod 보안 정책을 구성하는 것이 좋습니다.<br>(관련 정책: [미리 보기]: Kubernetes 서비스에서 Pod 보안 정책을 정의해야 함)|중간|N|컴퓨팅 리소스(컨테이너)|
 |**역할 기반 액세스 제어를 사용하여 Kubernetes Service 클러스터에 대한 액세스를 제한해야 함**|사용자가 수행할 수 있는 작업의 세부적인 필터링을 제공하려면 RBAC(역할 기반 액세스 제어)를 사용하여 Kubernetes Service 클러스터에서 권한을 관리하고 관련 권한 부여 정책을 구성하세요. 자세한 내용은 [Azure 역할 기반 액세스 제어](https://docs.microsoft.com/azure/aks/concepts-identity#role-based-access-controls-rbac)를 참조하세요.<br>(관련 정책: [미리 보기]: Kubernetes Services에서 RBAC(역할 기반 액세스 제어)를 사용해야 함)|중간|N|컴퓨팅 리소스(컨테이너)|
 |**Kubernetes Service를 최신 Kubernetes 버전으로 업그레이드해야 함**|최신 취약점 패치를 활용할 수 있도록 Azure Kubernetes Service 클러스터를 최신 Kubernetes 버전으로 업그레이드합니다. Kubernetes 취약성에 대한 자세한 내용은 [Kubernetes CVE](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kubernetes)를 참조하세요.<br>(관련 정책: [미리 보기]: Kubernetes Services를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 함)|높음|N|컴퓨팅 리소스(컨테이너)|
 |**Azure Container Registry 레지스트리에서 지능형 위협 방지를 사용하도록 설정해야 함**|안전한 컨테이너 화 된 워크 로드를 빌드하기 위해 기반으로 하는 이미지에 알려진 취약성이 없는지 확인 합니다. Security Center은 푸시 되는 각 컨테이너 이미지의 보안 취약점에 대 한 레지스트리를 검색 하 고 이미지 당 자세한 결과를 노출 합니다.<br>중요:이 권장 사항을 수정 ACR 레지스트리를 보호 하는 요금이 부과 됩니다. 이 구독에 ACR 레지스트리가 없으면 요금이 발생 하지 않습니다. 나중에이 구독에서 ACR 레지스트리를 만들면 자동으로 보호 되 고 해당 시간에 요금이 청구 됩니다.<br>(관련 정책: [Azure Container Registry 레지스트리에서 고급 위협 방지를 사용 하도록 설정 해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4))|높음|**예**|Subscription|
@@ -181,7 +180,7 @@ Security Center 권장 사항은 모범 사례를 기반으로 합니다. 일부
 |**구독에 최대 3명의 소유자를 지정해야 합니다.**|보안이 침해된 소유자의 위반 가능성을 줄이려면 구독 소유자를 3명 미만으로 지정합니다.<br>(관련 정책: 구독 소유자를 3명 이하로 지정해야 함)|높음|N|Subscription|
 |**Azure Key Vault 자격 증명 모음에서 지능형 위협 방지를 사용하도록 설정해야 함**|Azure Security Center에는 Azure Key Vault에 대한 Azure 네이티브 고급 위협 방지 기능이 포함되어 있으며, 추가 보안 인텔리전스를 계층에 제공합니다.<br>중요:이 권장 사항을 수정 AKV 자격 증명 모음을 보호 하는 요금이 부과 됩니다. 이 구독에 AKV 자격 증명 모음이 없으면 요금이 발생 하지 않습니다. 나중에이 구독에서 AKV 자격 증명 모음을 만드는 경우 자동으로 보호 되 고 해당 시간에 요금이 청구 됩니다.<br>(관련 정책: [Azure Key Vault 자격 증명 모음에서 Advanced threat protection을 사용 하도록 설정 해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047))|높음|**예**|Subscription|
 |**Key Vault의 진단 로그를 사용하도록 설정해야 함**|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다.<br>(관련 정책: Key Vault에서 진단 로그를 사용하도록 설정해야 함)|낮음|**예**|Key Vault|
-|**관리 인증서 대신 서비스 주체를 사용 하 여 구독을 보호 해야 합니다.**|관리 인증서를 사용 하 여 인증 하는 모든 사용자가 연결 된 구독을 관리할 수 있습니다. 보다 안전 하 게 구독을 관리 하려면 인증서가 손상 되는 경우에는 리소스 관리자에서 서비스 주체를 사용 하 여 폭발 한 반경을 제한 하는 것이 좋습니다. 또한 리소스 관리를 자동화 합니다.|중간|예|Subscription|
+|**관리 인증서 대신 서비스 주체를 사용 하 여 구독을 보호 해야 합니다.**|관리 인증서를 사용 하 여 인증 하는 모든 사용자가 연결 된 구독을 관리할 수 있습니다. 보다 안전 하 게 구독을 관리 하려면 인증서가 손상 되는 경우에는 리소스 관리자에서 서비스 주체를 사용 하 여 폭발 한 반경을 제한 하는 것이 좋습니다. 또한 리소스 관리를 자동화 합니다.|중간|아니요|Subscription|
 ||||||
 
 
@@ -191,7 +190,9 @@ Security Center 권장 사항은 모범 사례를 기반으로 합니다. 일부
 |----|----|----|----|----|
 |**App Services에 대한 액세스를 제한해야 함**|너무 넓은 범위의 인바운드 트래픽을 거부하도록 네트워킹 구성을 변경하여 App Services 액세스를 제한합니다.<br>(관련 정책: [미리 보기]: App Services 액세스를 제한해야 함)|높음|N|App Service|
 |**IaaS NSG의 웹 애플리케이션에 대한 규칙을 강화해야 함**|웹 애플리케이션을 실행하고, 웹 애플리케이션 포트와 관련하여 과도한 권한이 부여된 NSG 규칙을 사용하는 가상 머신의 NSG(네트워크 보안 그룹)를 강화합니다.<br>(관련 정책: IaaS에서 웹 애플리케이션에 대한 NSG 규칙을 강화해야 함)|높음|N|가상 머신|
-
+|**불필요한 애플리케이션 권한을 제거하여 공격 벡터를 줄이는 Pod 보안 정책을 정의해야 함(미리 보기)**|Pod 보안 정책을 정의하여 불필요한 애플리케이션 권한을 제거함으로써 공격 벡터를 줄일 수 있습니다. Pod가 액세스 권한이 부여된 리소스에만 액세스할 수 있도록 Pod 보안 정책을 구성하는 것이 좋습니다.<br>(관련 정책: [미리 보기]: Kubernetes 서비스에서 Pod 보안 정책을 정의해야 함)|중간|N|컴퓨팅 리소스(컨테이너)|
+|**Iot 장치를 더 쉽게 볼 수 있도록 IoT 보안 모듈에 대 한 Azure Security Center를 설치 합니다.**|Iot 장치에 대 한 자세한 가시성을 얻기 위해 IoT 보안 모듈에 대 한 Azure Security Center를 설치 합니다.|낮음|N|IoT 디바이스|
+||||
 
 
 ## <a name="next-steps"></a>다음 단계

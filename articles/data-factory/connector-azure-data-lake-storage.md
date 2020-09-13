@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 62c4813caa1d35f20824223c77fb3a652b0cc6b8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.date: 09/09/2020
+ms.openlocfilehash: 06c09144fc112d6f095271c510fa33b816e8f906
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182584"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612653"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에서 데이터 복사 및 변환
 
@@ -68,7 +68,7 @@ Azure Data Lake Storage Gen2 커넥터는 다음과 같은 인증 유형을 지�
 - [Azure 리소스 인증용 관리 ID](#managed-identity)
 
 >[!NOTE]
->PolyBase를 사용하여 데이터를 SQL Data Warehouse에 로드하는 경우 원본 Data Lake Storage Gen2가 Virtual Network 엔트포인트로 구성되어 있으면 PolyBase에서 요구하는 대로 관리 ID 인증을 사용해야 합니다. 추가 구성 필수 구성 요소가 있는 [관리 ID 인증](#managed-identity) 섹션을 참조하세요.
+>PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드 하는 경우 (이전에 SQL Data Warehouse) 원본 Data Lake Storage Gen2 Virtual Network 끝점으로 구성 된 경우 PolyBase에서 요구 하는 대로 관리 되는 id 인증을 사용 해야 합니다. 추가 구성 필수 구성 요소가 있는 [관리 ID 인증](#managed-identity) 섹션을 참조하세요.
 
 ### <a name="account-key-authentication"></a>계정 키 인증
 
@@ -131,12 +131,16 @@ Azure Data Lake Storage Gen2 커넥터는 다음과 같은 인증 유형을 지�
 | type | 형식 속성은 **AzureBlobFS**로 설정되어야 합니다. |예 |
 | url | `https://<accountname>.dfs.core.windows.net`의 패턴을 포함한 Data Lake Storage Gen2의 엔드포인트입니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예 |
-| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 `SecureString`으로 표시하여 Data Factory에서 안전하게 저장합니다. 또는 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수 있습니다. | 예 |
+| servicePrincipalCredentialType | 서비스 사용자 인증에 사용할 자격 증명 형식입니다. 허용 되는 값은 **ServicePrincipalKey** 및 **ServicePrincipalCert**입니다. | 예 |
+| servicePrincipalCredential | 서비스 주체 자격 증명입니다. <br/> **ServicePrincipalKey** 을 자격 증명 유형으로 사용 하는 경우 응용 프로그램의 키를 지정 합니다. 이 필드를 **SecureString** 으로 표시 하 여 Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. <br/> **ServicePrincipalCert** 를 자격 증명으로 사용 하는 경우 Azure Key Vault에서 인증서를 참조 합니다. | 예 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시 하 여 Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. <br/> 이 속성은에 대해 그대로 계속 지원 됩니다 `servicePrincipalId`  +  `servicePrincipalKey` . ADF는 새 서비스 주체 인증서 인증을 추가 하 고, 서비스 주체 인증에 대 한 새 모델은 `servicePrincipalId`  +  `servicePrincipalCredentialType`  +  `servicePrincipalCredential` 입니다. | 예 |
 | tenant | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure 포털의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 예 |
 | azureCloudType | 서비스 주체 인증의 경우 Azure Active Directory 응용 프로그램이 등록 된 Azure 클라우드 환경의 유형을 지정 합니다. <br/> 허용 되는 값은 **Azurepublic**, **azurepublic**, **azureus정부**및 **AzureGermany**입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용 됩니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure 통합 런타임 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure 통합 런타임이 사용됩니다. |예 |
 
-**예:**
+**예제: 서비스 주체 키 인증 사용**
+
+Azure Key Vault에 서비스 사용자 키를 저장할 수도 있습니다.
 
 ```json
 {
@@ -146,9 +150,38 @@ Azure Data Lake Storage Gen2 커넥터는 다음과 같은 인증 유형을 지�
         "typeProperties": {
             "url": "https://<accountname>.dfs.core.windows.net", 
             "servicePrincipalId": "<service principal id>",
-            "servicePrincipalKey": {
+            "servicePrincipalCredentialType": "ServicePrincipalKey",
+            "servicePrincipalCredential": {
                 "type": "SecureString",
                 "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**예제: 서비스 주체 인증서 인증 사용**
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalCredential": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<AKV reference>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<certificate name in AKV>" 
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
         },
@@ -177,7 +210,7 @@ Azure 리소스 인증에 관리 ID를 사용하려면 다음 단계를 수행�
 >Data Factory UI를 사용하여 작성하고 관리 ID를 IAM의 "Storage Blob 데이터 읽기 권한자/기여자" 역할로 설정하지 않은 경우, 연결을 테스트하거나 폴더를 검색/탐색할 때 "파일 경로에 대한 연결 테스트" 또는 "지정된 경로에서 찾아보기"를 선택하고 **읽기 + 실행** 권한이 있는 경로를 지정하여 계속 진행합니다.
 
 >[!IMPORTANT]
->PolyBase를 사용 하 여 Data Lake Storage Gen2에서 SQL Data Warehouse로 데이터를 로드 하는 경우 Data Lake Storage Gen2에 대해 관리 id 인증을 사용 하는 경우 [이 가이드](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 의 1 단계와 2 단계를 수행 해야 합니다. 또한 Azure Active Directory (Azure AD)를 사용 하 여 등록 하 고 2) 저장소 Blob 데이터 참가자 역할을 서버에 할당 합니다. 나머지는 Data Factory에 의해 처리 됩니다. Data Lake Storage Gen2가 Azure Virtual Network 엔드포인트로 구성되어 있어 PolyBase를 사용하여 데이터를 로드하는 경우 PolyBase에서 요구하는 대로 관리 ID 인증을 사용해야 합니다.
+>PolyBase를 사용 하 여 Data Lake Storage Gen2에서 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 데이터를 로드 하는 경우 Data Lake Storage Gen2에 대해 관리 id 인증을 사용 하는 경우 [이 가이드](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 의 1 단계와 2 단계를 수행 해야 합니다. (Azure AD)를 사용 하 여 Azure Active Directory 등록 하 고 2) 저장소 Blob 데이터 참가자 역할을 서버에 할당 합니다. 나머지는 Data Factory에 의해 처리 됩니다. Data Lake Storage Gen2가 Azure Virtual Network 엔드포인트로 구성되어 있어 PolyBase를 사용하여 데이터를 로드하는 경우 PolyBase에서 요구하는 대로 관리 ID 인증을 사용해야 합니다.
 
 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
@@ -276,7 +309,7 @@ ADLS Gen2에서 데이터를 복사할 수 있는 옵션이 몇 가지 있습니
 | deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 소스 저장소에서 이진 파일을 삭제할지 여부를 나타냅니다. 파일 삭제는 파일 단위 이므로 복사 작업에 실패 하면 일부 파일이 이미 대상에 복사 되 고 원본에서 삭제 된 것을 확인할 수 있습니다. 반면 다른 파일은 원본 저장소에 남아 있습니다. <br/>이 속성은 이진 복사 시나리오 에서만 유효 합니다. 여기에서 데이터 원본 저장소는 Blob, ADLS Gen1, ADLS Gen2, S3, Google 클라우드 저장소, 파일, Azure 파일, SFTP 또는 FTP입니다. 기본값은 false입니다. |예 |
 | modifiedDatetimeStart    | 특성에 기반한 파일 필터링: 마지막으로 수정한 날짜 <br>마지막 수정 시간이 `modifiedDatetimeStart`와 `modifiedDatetimeEnd` 사이의 시간 범위 내에 있으면 파일이 선택됩니다. 시간은 UTC 표준 시간대에 "2018-12-01T05:00:00Z" 형식으로 적용됩니다. <br> 속성은 NULL 일 수 있습니다. 즉, 파일 특성 필터가 데이터 집합에 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 크거나 같은 파일이 선택됩니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart`가 NULL이면, 마지막으로 수정된 특성이 datetime 값보다 작은 파일이 선택됩니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 예                                            |
 | modifiedDatetimeEnd      | 위와 동일합니다.                                               | 예                                            |
-| Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true**입니다. | 예                                            |
+| Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true**입니다. | 아니요                                            |
 | 파티션 (partitionRootPath) | 파티션 검색을 사용 하는 경우 분할 된 폴더를 데이터 열로 읽도록 절대 루트 경로를 지정 합니다.<br/><br/>지정 되지 않은 경우 기본적으로<br/>-원본에 있는 파일 또는 데이터 집합의 파일 경로를 사용 하는 경우 파티션 루트 경로는 데이터 집합에서 구성 된 경로입니다.<br/>-와일드 카드 폴더 필터를 사용 하는 경우 파티션 루트 경로는 첫 번째 와일드 카드 앞의 하위 경로입니다.<br/><br/>예를 들어 데이터 집합의 경로를 "root/folder/year = 2020/month = 08/day = 27"로 구성 한다고 가정 합니다.<br/>-파티션 루트 경로를 "root/folder/year = 2020"으로 지정 하는 경우 복사 작업은 파일 내의 열 외에도 각각 두 개의 열을 생성 하 `month` 고 `day` 값을 "08" 및 "27"로 생성 합니다.<br/>-파티션 루트 경로를 지정 하지 않으면 추가 열이 생성 되지 않습니다. | 예                                            |
 | maxConcurrentConnections | 스토리지 저장소에 동시에 연결할 수 있는 연결 수입니다. 데이터 저장소에 대한 동시 연결 수를 제한하려는 경우에만 지정합니다. | 예                                            |
 

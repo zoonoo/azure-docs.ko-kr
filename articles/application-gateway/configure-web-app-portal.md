@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daf4c4ab56e23a212256c2629b7d0ae52a09e7c4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808100"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595713"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Application Gateway를 사용하여 App Service 구성
 
@@ -23,12 +23,10 @@ Application Gateway는 요청이 `Pick host name from backend address` Applicati
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
->
-> - 백 엔드 풀을 만들고 여기에 App Service 추가
-> - "호스트 선택" 스위치를 사용 하 여 HTTP 설정 및 사용자 지정 프로브 만들기
+- 백 엔드 풀을 만들고 여기에 App Service 추가
+- "호스트 선택" 스위치를 사용 하 여 HTTP 설정 및 사용자 지정 프로브 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - Application gateway: 기존 application gateway가 없는 경우 [응용 프로그램 게이트웨이를 만드는](https://docs.microsoft.com/azure/application-gateway/quick-create-portal) 방법을 참조 하세요.
 - App service: 기존 App service가 없는 경우 [app service 설명서](https://docs.microsoft.com/azure/app-service/)를 참조 하세요.
@@ -61,9 +59,9 @@ Application Gateway는 요청이 `Pick host name from backend address` Applicati
    > [!NOTE]
    > HTTPS를 선택 하는 경우 app service가 신뢰할 수 있는 Azure 서비스 이므로 app service 백 엔드를 허용 하기 위해 인증 인증서 또는 신뢰할 수 있는 루트 인증서를 업로드할 필요가 없습니다.
 
-4. **App Service에 사용할** 확인란을 선택 합니다. 스위치 `Create a probe with pick host name from backend address` 및는 `Pick host name from backend address` 자동으로 사용 하도록 설정 됩니다.`Pick host name from backend address` 는 요청이 Application Gateway에서 백 엔드로 전달 될 때 백 엔드의 호스트 이름을 사용 하 여 요청의 호스트 헤더를 재정의 합니다.  
+4. **App Service에 사용할** 확인란을 선택 합니다. 스위치  `Create a probe with pick host name from backend address` 및는 `Pick host name from backend address` 자동으로 사용 하도록 설정 됩니다.`Pick host name from backend address` 는 요청이 Application Gateway에서 백 엔드로 전달 될 때 백 엔드의 호스트 이름을 사용 하 여 요청의 호스트 헤더를 재정의 합니다.  
 
-   `Create a probe with pick host name from backend address`에서 자동으로 상태 프로브를 만들고이를이 HTTP 설정에 연결 합니다. 이 HTTP 설정에 대해 다른 상태 프로브를 만들 필요가 없습니다. <HTTP Setting name> <Unique GUID> 상태 프로브 목록에 이름이 인 새 프로브가 추가 되었으며 이미 스위치가 있는지 확인할 수 있습니다 `Pick host name from backend http settings enabled` .
+   `Create a probe with pick host name from backend address` 에서 자동으로 상태 프로브를 만들고이를이 HTTP 설정에 연결 합니다. 이 HTTP 설정에 대해 다른 상태 프로브를 만들 필요가 없습니다. <HTTP Setting name> <Unique GUID> 상태 프로브 목록에 이름이 인 새 프로브가 추가 되었으며 이미 스위치가 있는지 확인할 수 있습니다 `Pick host name from backend http settings enabled` .
 
    이미 하나 이상의 HTTP 설정이 App service에 사용 되 고 있는 경우 해당 HTTP 설정이 사용자가 만드는 항목에서 사용 하는 것과 동일한 프로토콜을 사용 하는 경우 `Create a probe with pick host name from backend address` 스위치 대신 사용자 지정 프로브 중 하나를 선택할 수 있는 드롭다운이 표시 됩니다. 이는 app service를 사용 하 여 HTTP 설정이 이미 있으므로 스위치를 포함 하는 상태 프로브도 존재 하기 때문입니다 `Pick host name from backend http settings enabled` . 드롭다운에서 해당 사용자 지정 프로브를 선택 합니다.
 

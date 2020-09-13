@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 21e242d0a6a5aa2efa011289200654e71bd58662
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 67d22535f44d4d1b39b6c305fa0670d2d08be0c3
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071451"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595804"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 TLS 종료로 응용 프로그램 게이트웨이 만들기
 
@@ -22,13 +22,12 @@ Azure PowerShell를 사용 하 여 백 엔드 서버에 대 한 [가상 머신 �
 
 이 문서에서는 다음 방법을 설명합니다.
 
-> [!div class="checklist"]
-> * 자체 서명된 인증서 만들기
-> * 네트워크 설정
-> * 인증서가 있는 애플리케이션 게이트웨이 만들기
-> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
+* 자체 서명된 인증서 만들기
+* 네트워크 설정
+* 인증서가 있는 애플리케이션 게이트웨이 만들기
+* 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

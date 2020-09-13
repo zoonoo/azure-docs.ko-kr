@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2a871e409761116182f67eb877f3727038fe0dc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 39e3b41d49ad06e5dbe5164809a6743da8dedae5
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013642"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613758"
 ---
 # <a name="sky-reflections"></a>하늘 반사
 
@@ -28,8 +28,8 @@ Azure Remote Rendering은 실제 조명 계산을 위해 *PBR(물리 기반 렌�
 
 | 거칠기  | 0                                        | 0.25                                          | 0.5                                          | 0.75                                          | 1                                          |
 |:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
-| 비금속  | ![Dielectric0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
-| 금속      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
+| 비금속  | ![Dielectric, 황삭 = 0](media/dielectric-0.png)   | ![Dielectric, 황삭 = 0.25](media/dielectric-0.25.png)  | ![Dielectric, 황삭 = 0.5](media/dielectric-0.5.png)  | ![Dielectric, 황삭 = 0.75](media/dielectric-0.75.png)  | ![Dielectric, 황삭 = 1](media/dielectric-1.png)  |
+| 금속      | ![금속, 황삭 = 0](media/metallic-0.png)  | ![금속, 황삭 = 0.25](media/metallic-0.25.png)    | ![금속, 황삭 = 0.5](media/metallic-0.5.png)    | ![금속, 황삭 = 0.75](media/metallic-0.75.png)    | ![금속, 황삭 = 1](media/metallic-1.png)    |
 
 조명 모델에 대한 자세한 내용은 [재질](../../concepts/materials.md) 장을 참조하세요.
 
@@ -84,7 +84,7 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
             }
             else
             {
-                printf("Texture loading failed!");
+                printf("Texture loading failed!\n");
             }
         });
 }
@@ -121,20 +121,25 @@ Azure Remote Rendering은 항상 사용할 수 있는 몇 가지 기본 제공 �
 
 |ID                         | Description                                              | 그림                                                      |
 |-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
-|builtin://Autoshop                 | 다양한 줄무늬 조명, 밝은 실내 기본 조명    | ![Autoshop](media/autoshop.png)
-|builtin://BoilerRoom               | 밝은 실내 조명 설정, 여러 창 조명      | ![BoilerRoom](media/boiler-room.png)
-|builtin://ColorfulStudio           | 중간 조명 실내 설정에서 다양한 색상의 조명  | ![ColorfulStudio](media/colorful-studio.png)
-|builtin://Hangar                   | 적당히 밝은 주변 홀 조명                     | ![SmallHangar](media/hangar.png)
-|builtin://IndustrialPipeAndValve   | 밝게-어둡게 대비를 사용하는 어두운 실내 설정              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
-|builtin://Lebombo                  | 주간 주변 실내 조명, 밝은 창 영역 조명     | ![Lebombo](media/lebombo.png)
-|builtin://SataraNight              | 주변 조명이 많은 어두운 밤 하늘 및 지면   | ![SataraNight](media/satara-night.png)
-|builtin://SunnyVondelpark          | 밝은 햇빛 및 그림자 대비                      | ![SunnyVondelpark](media/sunny-vondelpark.png)
-|builtin://Syferfontein             | 적당한 지면 조명이 있는 맑은 하늘 조명            | ![Syferfontein](media/syferfontein.png)
-|builtin://TearsOfSteelBridge       | 적당히 변화하는 태양 및 그늘                         | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
-|builtin://VeniceSunset             | 황혼에 근접한 저녁 일몰 조명                    | ![VeniceSunset](media/venice-sunset.png)
-|builtin://WhippleCreekRegionalPark | 밝고, 푸르스름한 녹색 및 흰색 광채, 흐릿한 지면 | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
-|builtin://WinterRiver              | 밝은 주변광 조명이 있는 주간                 | ![WinterRiver](media/winter-river.png)
-|builtin://DefaultSky               | TearsOfSteelBridge와 동일                               | ![DefaultSky](media/tears-of-steel-bridge.png)
+|builtin://Autoshop                 | 다양한 줄무늬 조명, 밝은 실내 기본 조명    | ![개체를 밝게 하는 데 사용 되는 autoshop skybox](media/autoshop.png)
+|builtin://BoilerRoom               | 밝은 실내 조명 설정, 여러 창 조명      | ![개체를 밝게 하는 데 사용 되는 BoilerRoom skybox](media/boiler-room.png)
+|builtin://ColorfulStudio           | 중간 조명 실내 설정에서 다양한 색상의 조명  | ![개체를 밝게 하는 데 사용 되는 ColorfulStudio skybox](media/colorful-studio.png)
+|builtin://Hangar                   | 적당히 밝은 주변 홀 조명                     | ![개체를 밝게 하는 데 사용 되는 SmallHangar skybox](media/hangar.png)
+|builtin://IndustrialPipeAndValve   | 밝게-어둡게 대비를 사용하는 어두운 실내 설정              | ![개체를 밝게 하는 데 사용 되는 IndustrialPipeAndValve skybox](media/industrial-pipe-and-valve.png)
+|builtin://Lebombo                  | 주간 주변 실내 조명, 밝은 창 영역 조명     | ![개체를 밝게 하는 데 사용 되는 Lebombo skybox](media/lebombo.png)
+|builtin://SataraNight              | 주변 조명이 많은 어두운 밤 하늘 및 지면   | ![개체를 밝게 하는 데 사용 되는 SataraNight skybox](media/satara-night.png)
+|builtin://SunnyVondelpark          | 밝은 햇빛 및 그림자 대비                      | ![개체를 밝게 하는 데 사용 되는 SunnyVondelpark skybox](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | 적당한 지면 조명이 있는 맑은 하늘 조명            | ![개체를 밝게 하는 데 사용 되는 Syferfontein skybox](media/syferfontein.png)
+|builtin://TearsOfSteelBridge       | 적당히 변화하는 태양 및 그늘                         | ![개체를 밝게 하는 데 사용 되는 TearsOfSteelBridge skybox](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | 황혼에 근접한 저녁 일몰 조명                    | ![VeniceSunset를 사용 하 여 개체를 밝게 합니다.](media/venice-sunset.png)
+|builtin://WhippleCreekRegionalPark | 밝고, 푸르스름한 녹색 및 흰색 광채, 흐릿한 지면 | ![개체를 밝게 하는 데 사용 되는 WhippleCreekRegionalPark skybox](media/whipple-creek-regional-park.png)
+|builtin://WinterRiver              | 밝은 주변광 조명이 있는 주간                 | ![개체를 밝게 하는 데 사용 되는 WinterRiver skybox](media/winter-river.png)
+|builtin://DefaultSky               | TearsOfSteelBridge와 동일                               | ![개체를 밝게 하는 데 사용 되는 DefaultSky skybox](media/tears-of-steel-bridge.png)
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # RemoteManager SkyReflectionSettings 속성](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
+* [C + + RemoteManager:: SkyReflectionSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
 
 ## <a name="next-steps"></a>다음 단계
 

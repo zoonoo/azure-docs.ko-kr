@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: b800272a538243d39a89e4eed64bc5cbc2d53ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eea43f48abef5e2b258251d46eca1061a2263519
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681767"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613838"
 ---
 # <a name="meshes"></a>메시
 
@@ -37,6 +37,13 @@ ms.locfileid: "80681767"
 * **자료:** 메시 구성 요소 자체에 지정 된 재질의 배열입니다. 배열의 길이는 항상 메시 리소스의 *재질* 배열과 동일 합니다. 메시 기본값에서 재정의 되지 않아야 하는 자료는이 배열에서 *null* 로 설정 됩니다.
 
 * **UsedMaterials:** 각 하위 메시에 대해에 실제로 사용 되는 자료의 배열입니다. 는 null이 아닌 값에 대 한 *재질* 배열의 데이터와 동일 합니다. 그렇지 않으면 메시 인스턴스의 *재질* 배열 값을 포함 합니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # 메시 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.mesh)
+* [C # MeshComponent 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.meshcomponent)
+* [C + + 메시 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/mesh)
+* [C + + MeshComponent 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/meshcomponent)
 
 ## <a name="next-steps"></a>다음 단계
 

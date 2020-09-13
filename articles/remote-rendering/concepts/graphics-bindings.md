@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f769036ac9e5a6945e7ecad30e021d377cabd358
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d8dc4a3efb034c9428de32f0f975869e1044327
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020272"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613882"
 ---
 # <a name="graphics-binding"></a>그래픽 바인딩
 
@@ -115,7 +115,6 @@ if (*wmrBinding->UpdateUserCoordinateSystem(ptr) == Result::Success)
     //...
 }
 ```
-
 
 위의 `ptr`은 API의 좌표가 표시되는 세계 좌표 시스템을 정의하는 네이티브 `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` 개체에 대한 포인터여야 합니다.
 
@@ -231,6 +230,17 @@ else
     ...
 }
 ```
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # RemoteManagerStatic StartupRemoteRendering ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanagerstatic.startupremoterendering)
+* [C # GraphicsBinding 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbinding)
+* [C # GraphicsBindingWmrD3d11 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingwmrd3d11)
+* [C # GraphicsBindingSimD3d11 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingsimd3d11)
+* [C + + RemoteRenderingInitialization 구조체](https://docs.microsoft.com/cpp/api/remote-rendering/remoterenderinginitialization)
+* [C + + GraphicsBinding 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbinding)
+* [C + + GraphicsBindingWmrD3d11 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingwmrd3d11)
+* [C + + GraphicsBindingSimD3d11 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingsimd3d11)
 
 ## <a name="next-steps"></a>다음 단계
 

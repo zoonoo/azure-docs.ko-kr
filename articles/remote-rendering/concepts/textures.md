@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20c2951b601690beb9ec64040cf650bb5208d0e4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: dc38b53705c24cb12a001237a9a80ec66ec33e14
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997713"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613788"
 ---
 # <a name="textures"></a>질감
 
@@ -82,11 +82,19 @@ void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
 }
 ```
 
-
 텍스처가 사용될 것으로 예상되는 항목에 따라 텍스처 형식 및 콘텐츠에 제한이 있을 수 있습니다. 예를 들어 [PBR 재질](../overview/features/pbr-materials.md)의 초고 맵은 회색조여야 합니다.
 
 > [!CAUTION]
 > ARR의 모든 *Async* 함수는 비동기 작업 개체를 반환합니다. 작업이 완료될 때까지 해당 개체에 대한 참조를 저장해야 합니다. 그렇지 않으면 C# 가비지 수집기가 작업을 일찍 삭제하여 작업을 완료할 수 없습니다. 위의 샘플 코드에서 멤버 변수 '_textureLoad'는 *완료* 이벤트가 도착할 때까지 참조를 보유하는 데 사용됩니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # 질감 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.texture)
+* [C # RemoteManager LoadTextureAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtextureasync)
+* [C # RemoteManager LoadTextureFromSASAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtexturefromsasasync)
+* [C + + 질감 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/texture)
+* [C + + RemoteManager:: LoadTextureAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadtextureasync)
+* [C + + RemoteManager:: LoadTextureFromSASAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadtexturefromsasasync)
 
 ## <a name="next-steps"></a>다음 단계
 

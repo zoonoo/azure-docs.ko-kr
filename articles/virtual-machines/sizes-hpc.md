@@ -6,21 +6,23 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/01/2020
+ms.date: 09/08/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 8870c83506b1d962b94cd4d671bd3acd3e96c17c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 2a06c182f1f37942ac0921db254bf63bf177fec2
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905366"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595736"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 
 Azure H 시리즈 Vm (가상 머신)은 다양 한 실제 HPC 워크 로드에 대 한 리더십 클래스 성능, MPI 확장성 및 비용 효율성을 제공 하도록 설계 되었습니다.
 
-[HBv2 시리즈](hbv2-series.md) Vm 기능 200 g b/초 Mellanox HDR InfiniBand가 있지만 HB 및 HC 시리즈 Vm은 100 g b/초 Mellanox EDR InfiniBand입니다. 이러한 각 VM 유형은 최적화 되 고 일관 된 RDMA 성능을 위해 차단 되지 않는 fat 트리에 연결 됩니다. HBv2 Vm은 적응 라우팅 및 DCT (표준 RC 및 UD 전송에 대 한 추가)를 지원 합니다. 이러한 기능은 응용 프로그램의 성능, 확장성 및 일관성을 향상 시키고 이러한 기능을 사용 하는 것이 좋습니다.
+[HBv2 시리즈](hbv2-series.md) Vm은 유체 dynamics, 유한 요소 분석 및 저수지 시뮬레이션 등 메모리 대역폭을 기반으로 하는 응용 프로그램에 최적화 되어 있습니다. HBv2 Vm 기능 120 AMD EPYC 7742 프로세서 코어, CPU 코어 당 4gb RAM 및 동시 다중 스레딩은 없습니다. 각 HBv2 VM은 최대 340 g b/초 메모리 대역폭을 제공 하 고 최대 4 테라플롭 FP64 compute를 제공 합니다.
+
+HBv2 Vm 기능 200 g b/초 Mellanox HDR InfiniBand이 고, HB 및 HC 시리즈 Vm은 100 g b/초 Mellanox EDR InfiniBand 기능을 모두가지고 있습니다. 이러한 각 VM 유형은 최적화 되 고 일관 된 RDMA 성능을 위해 차단 되지 않는 fat 트리에 연결 됩니다. HBv2 Vm은 적응 라우팅 및 DCT (표준 RC 및 UD 전송에 대 한 추가)를 지원 합니다. 이러한 기능은 응용 프로그램의 성능, 확장성 및 일관성을 향상 시키고 이러한 기능을 사용 하는 것이 좋습니다.
 
 [Hb-시리즈](hb-series.md) Vm은 유체 dynamics, 명시적 유한 요소 분석, 날씨 모델링 등 메모리 대역폭을 기반으로 하는 응용 프로그램에 최적화 되어 있습니다. HB Vm 기능 60 AMD EPYC 7551 프로세서 코어, CPU 코어 당 4gb RAM, 하이퍼스레딩을 없음 AMD EPYC 플랫폼은 260 g b/초 이상의 메모리 대역폭을 제공 합니다.
 
@@ -35,7 +37,7 @@ Azure H 시리즈 Vm (가상 머신)은 다양 한 실제 HPC 워크 로드에 �
 
 대부분의 HPC VM 크기 (HBv2, HB, HC, H16r, H16mr, A8 및 A9)는 RDMA (원격 직접 메모리 액세스) 연결을 위한 네트워크 인터페이스를 지원 합니다. ' R ' (ND40rs_v2, ND24rs, NC24rs_v3, NC24rs_v2 및 NC24r)로 지정 된 [N 시리즈](./nc-series.md) 크기를 선택 하면 RDMA도 가능 합니다. 이 인터페이스는 다른 VM 크기에서 사용할 수 있는 표준 Azure 네트워크 인터페이스에 추가 됩니다.
 
-이 인터페이스를 사용 하면 RDMA 지원 인스턴스가 InfiniBand (IB) 네트워크를 통해 통신할 수 있으며, HBv2에 대 한 HDR 요금에서 작동 하 고, HB, HC, NDv2, H16r, H16mr 및 기타 RDMA 지원 N 시리즈 가상 컴퓨터에 대 한 EDR 요금 및 A8 및 A9 Vm에 대 한 QDR 요금을 확인할 수 있습니다. 이러한 RDMA 기능은 특정 MPI(Message Passing Interface) 애플리케이션의 확장성 및 성능을 향상시킬 수 있습니다. 속도에 대 한 자세한 내용은이 페이지의 테이블에 있는 세부 정보를 참조 하세요.
+이 인터페이스를 사용 하면 RDMA 지원 인스턴스가 InfiniBand (IB) 네트워크를 통해 통신할 수 있으며, HBv2에 대 한 HDR 요금에서 작동 하 고, HB, HC, NDv2, H16r, H16mr 및 기타 RDMA 지원 N 시리즈 가상 컴퓨터에 대 한 EDR 요금 및 A8 및 A9 Vm에 대 한 QDR 요금을 확인할 수 있습니다. 이러한 RDMA 기능은 특정 MPI(Message Passing Interface) 애플리케이션의 확장성 및 성능을 향상시킬 수 있습니다.
 
 > [!NOTE]
 > Azure HPC에는 InfiniBand에 대해 SR-IOV를 사용 하도록 설정 되었는지 여부에 따라 Vm의 두 가지 클래스가 있습니다. 현재 InfiniBand 사용 Vm에 대 한 SR-IOV는 HBv2, HB, HC, NCv3 및 NDv2입니다. InfiniBand 사용 Vm의 나머지는 현재 SR-IOV를 사용 하도록 설정 되어 있지 않습니다.
@@ -60,7 +62,7 @@ Azure H 시리즈 Vm (가상 머신)은 다양 한 실제 HPC 워크 로드에 �
 
 Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 수 있는 Windows HPC VM의 클러스터를 만드는 몇 가지 옵션을 제공합니다. 
 
-- **가상 컴퓨터** -RDMA 가능 HPC vm을 동일한 확장 집합 또는 가용성 집합 (Azure Resource Manager 배포 모델을 사용 하는 경우)에 배포 합니다. 클래식 배포 모델을 사용하는 경우 동일한 클라우드 서비스에서 VM을 배포합니다.
+- **가상 컴퓨터**  -RDMA 가능 HPC vm을 동일한 확장 집합 또는 가용성 집합 (Azure Resource Manager 배포 모델을 사용 하는 경우)에 배포 합니다. 클래식 배포 모델을 사용하는 경우 동일한 클라우드 서비스에서 VM을 배포합니다.
 
 - **Virtual machine scale sets** -가상 머신 확장 집합에서 확장 집합 내에서 InfiniBand 통신을 위한 단일 배치 그룹으로 배포를 제한 해야 합니다. 예를 들어, Resource Manager 템플릿에서 `singlePlacementGroup` 속성을 `true`로 설정합니다. 속성으로 분리 수 있는 최대 확장 집합 크기는 `singlePlacementGroup` `true` 기본적으로 100 vm에 있습니다. HPC 작업 확장 요구가 단일 테 넌 트의 100 Vm 보다 높은 경우 무료로 요청을 받을 수 있습니다. 무료로 [온라인 고객 지원 요청을 열](../azure-portal/supportability/how-to-create-azure-support-request.md) 수 있습니다. 단일 확장 집합의 Vm 수에 대 한 제한을 300로 늘릴 수 있습니다. 가용성 집합을 사용 하 여 Vm을 배포 하는 경우 최대 제한은 가용성 집합 당 Vm 200에 있습니다.
 
@@ -100,5 +102,5 @@ Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Hpc 워크 로드](./workloads/hpc/overview.md)에서 [vm을 구성](./workloads/hpc/configure.md)하 고, [InfiniBand를 사용 하도록](./workloads/hpc/enable-infiniband.md)설정 하 고, [MPI를 설정](./workloads/hpc/setup-mpi.md) 하 고, Azure 용 hpc 응용 프로그램을 최적화 하는 방법
-- [Azure Compute 기술 커뮤니티 블로그의](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)최신 공지 사항 및 일부 HPC 예제 및 결과에 대해 읽어 보세요.
-- 실행 중인 HPC 워크 로드에 대 한 높은 수준의 아키텍처 보기는 [Azure의 hpc (고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조 하세요.
+- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항과 HPC 예제 및 결과를 읽어 보세요.
+- HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

@@ -53,7 +53,7 @@ SQL Managed Instance Azure SQL Database와 SQL Server 데이터베이스 엔진 
 
 다음 표에서는 SQL Managed Instance의 주요 기능을 보여 줍니다.
 
-|기능 | 설명|
+|기능 | Description|
 |---|---|
 | SQL Server 버전/빌드 | SQL Server 데이터베이스 엔진 (안정적인 최신) |
 | 관리되는 자동 백업 | 예 |

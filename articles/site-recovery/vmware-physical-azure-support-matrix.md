@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 288cebc4d4097ff40b618e2f1976039359458ecf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 98f9bf02b910749a98ae8cd6e409ee733c2e2dcc
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719022"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595753"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -29,11 +29,10 @@ VMware Vm의 재해 복구 | 온-프레미스 VMware VM을 Azure로 복제. Azur
 
 ## <a name="on-premises-virtualization-servers"></a>온-프레미스 가상화 서버
 
-**Server** | **요구 사항** | **설명**
+**Server** | **요구 사항** | **세부 정보**
 --- | --- | ---
-vCenter Server | 버전 7.0, 6.7, 6.5, 6.0 또는 5.5 | 재해 복구 배포에 vCenter 서버를 사용 하는 것이 좋습니다.
-vSphere 호스트 | 버전 7.0, 6.7, 6.5, 6.0 또는 5.5 | vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버는 구성 서버에서 실행됩니다. [자세히 알아보기](vmware-physical-azure-config-process-server-overview.md).
-
+vCenter Server | 버전 7.0 &이 버전, 6.7, 6.5, 6.0 또는 5.5의 후속 업데이트 | 재해 복구 배포에 vCenter 서버를 사용 하는 것이 좋습니다.
+vSphere 호스트 | 버전 7.0 &이 버전, 6.7, 6.5, 6.0 또는 5.5의 후속 업데이트 | vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버는 구성 서버에서 실행됩니다. [자세한 정보를 알아보세요](vmware-physical-azure-config-process-server-overview.md).
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery 구성 서버
 
@@ -63,10 +62,10 @@ IP 주소 유형 | 정적
 
 Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다.
 
-**구성 요소** | **설명**
+**구성 요소** | **세부 정보**
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
-머신 워크로드 | Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다. [자세히 알아보기](https://aka.ms/asr_workload).
+머신 워크로드 | Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다. [자세한 정보를 알아보세요](https://aka.ms/asr_workload).
 머신 이름 | 컴퓨터의 표시 이름이 [Azure 예약 리소스 이름](../azure-resource-manager/templates/error-reserved-resource-name.md) 에 포함 되지 않는지 확인 합니다.<br/><br/> 논리적 볼륨 이름은 대/소문자를 구분 하지 않습니다. 장치의 두 볼륨 이름이 동일 하지 않은지 확인 합니다. Ex: 이름이 "voLUME1", "voLUME1" 인 볼륨은 Azure Site Recovery를 통해 보호할 수 없습니다.
 
 ### <a name="for-windows"></a>Windows의 경우
@@ -77,7 +76,7 @@ Windows Server 2019 | [업데이트 롤업 34](https://support.microsoft.com/hel
 Windows Server 2016 64 비트 | Server Core, 데스크톱 경험 포함 Server에 대해 지원됩니다.
 Windows Server 2012 R2/Windows Server 2012 | 지원됨.
 Windows Server 2008 R2 SP1 이상 | 지원됨.<br/><br/> 모바일 서비스 에이전트의 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 에서 Windows 2008 R2 SP1 이상을 실행 하는 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다. SHA-1은 2019년 9월부터 지원되지 않으며, SHA-2 코드 서명이 사용 설정되지 않은 경우 에이전트 확장이 예상대로 설치/업그레이드되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
-Windows Server 2008 SP2 이상 (64 비트/32 비트) |  마이그레이션에만 지원 됩니다. [자세히 알아보기](migrate-tutorial-windows-server-2008.md).<br/><br/> 모바일 서비스 에이전트 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 에서는 WINDOWS 2008 SP2 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4493730) ) 및 [SHA-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다. ISHA-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)에 대해 자세히 알아보세요.
+Windows Server 2008 SP2 이상 (64 비트/32 비트) |  마이그레이션에만 지원 됩니다. [자세한 정보를 알아보세요](migrate-tutorial-windows-server-2008.md).<br/><br/> 모바일 서비스 에이전트 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 에서는 WINDOWS 2008 SP2 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4493730) ) 및 [SHA-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다. ISHA-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)에 대해 자세히 알아보세요.
 Windows 10, Windows 8.1, Windows 8 | 지원됨.
 Windows 7 SP1 64 비트 | [업데이트 롤업 36](https://support.microsoft.com/help/4503156) (모바일 서비스 버전 9.22)부터 지원 됩니다. </br></br> 모바일 서비스 에이전트의 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 부터 WINDOWS 7 SP1 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [s h a-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다.  SHA-1은 2019년 9월부터 지원되지 않으며, SHA-2 코드 서명이 사용 설정되지 않은 경우 에이전트 확장이 예상대로 설치/업그레이드되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://support.microsoft.com/en-us/help/4472027/2019-sha-2-code-signing-support-requirement-for-windows-and-wsus)에 대해 자세히 알아보세요.
 
@@ -172,21 +171,21 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 > [!NOTE]
 > 디스크 id를 변경 하는 것은 지원 되지 않습니다. 예를 들어 디스크 분할이 GPT에서 MBR로 또는 그 반대로 변경 된 경우 디스크 id가 변경 됩니다. 이러한 시나리오에서는 복제가 중단 되 고 새로 설치가 필요 합니다. 
 
-## <a name="network"></a>Network (네트워크)
+## <a name="network"></a>네트워크
 
 **구성 요소** | **지원됨**
 --- | ---
 호스트 네트워크 NIC 팀 | VMware VM에서 지원됩니다. <br/><br/>물리적 컴퓨터 복제에 지원되지 않습니다.
 호스트 네트워크 VLAN | 예.
 호스트 네트워크 IPv4 | 예.
-호스트 네트워크 IPv6 | 아니요.
-게스트/서버 네트워크 NIC 팀 | 아니요.
+호스트 네트워크 IPv6 | 아닙니다.
+게스트/서버 네트워크 NIC 팀 | 아닙니다.
 게스트/서버 네트워크 IPv4 | 예.
-게스트/서버 네트워크 IPv6 | 아니요.
+게스트/서버 네트워크 IPv6 | 아닙니다.
 게스트/서버 네트워크 정적 IP(Windows) | 예.
 게스트/서버 네트워크 정적 IP(Linux) | 예. <br/><br/>VM이 장애 복구(Failback) 시 DHCP를 사용하도록 구성되어 있습니다.
 게스트/서버 네트워크 다중 NIC | 예.
-Site Recovery 서비스에 대 한 개인 링크 액세스 | 예. [자세히 알아보기](hybrid-how-to-enable-replication-private-endpoints.md).
+Site Recovery 서비스에 대 한 개인 링크 액세스 | 예. [자세한 정보를 알아보세요](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 ## <a name="azure-vm-network-after-failover"></a>Azure VM 네트워크(장애 조치(failover) 후)
@@ -274,12 +273,12 @@ HUB | 예
 
 Azure로 복제 된 온-프레미스 Vm은이 표에 요약 된 Azure VM 요구 사항을 충족 해야 합니다. Site Recovery에서 복제에 대 한 필수 구성 요소 확인을 실행 하면 일부 요구 사항이 충족 되지 않은 경우 검사가 실패 합니다.
 
-**구성 요소** | **요구 사항** | **설명**
+**구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
 게스트 운영 체제 | 복제된 컴퓨터에 대해 [지원되는 운영 체제](#replicated-machines)를 확인합니다. | 지원되지 않는 경우 확인이 실패합니다.
 게스트 운영 체제 아키텍처 | 64비트. | 지원되지 않는 경우 확인이 실패합니다.
 운영 체제 디스크 크기 | 최대 2,048GB. | 지원되지 않는 경우 확인이 실패합니다.
-운영 체제 디스크 수 | 1 | 지원되지 않는 경우 확인이 실패합니다.
+운영 체제 디스크 수 | 1 </br> 서로 다른 디스크의 부팅 및 시스템 파티션이 지원 되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
 데이터 디스크 수 | 64개 이하. | 지원되지 않는 경우 확인이 실패합니다.
 데이터 디스크 크기 | 관리 디스크 (9.26 버전 이상)에 복제 하는 경우 최대 8192 GB<br></br>저장소 계정으로 복제 하는 경우 최대 4095 GB| 지원되지 않는 경우 확인이 실패합니다.
 네트워크 어댑터 | 여러 어댑터가 지원됩니다. |
@@ -320,7 +319,7 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 ## <a name="vault-tasks"></a>자격 증명 모음 작업
 
-**작업** | **지원됨**
+**동작** | **지원됨**
 --- | ---
 리소스 그룹 간 자격 증명 모음 이동 | 아니요
 구독 내 및 구독 간에 자격 증명 모음 이동 | 아니요
@@ -330,7 +329,7 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 ## <a name="obtain-latest-components"></a>최신 구성 요소 가져오기
 
-**이름** | **설명** | **설명**
+**이름** | **설명** | **세부 정보**
 --- | --- | ---
 구성 서버 | 온-프레미스에 설치 됩니다.<br/> 온-프레미스 VMware 서버 또는 물리적 컴퓨터와 Azure 간의 통신을 조정 합니다. | - 구성 서버 [에 대해 알아봅니다](vmware-physical-azure-config-process-server-overview.md) .<br/> - 최신 버전으로 업그레이드 하는 방법 [에 대해 알아봅니다](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) .<br/> - 구성 서버를 설정 하는 [방법에 대해 알아봅니다](vmware-azure-deploy-configuration-server.md) .
 프로세스 서버 | 기본적으로 구성 서버에 설치합니다.<br/> 복제 데이터를 수신 하 고, 캐싱, 압축 및 암호화를 사용 하 여 최적화 하 고, Azure로 전송 합니다.<br/> 배포가 커지면 추가 프로세스 서버를 추가 하 여 더 많은 볼륨의 복제 트래픽을 처리할 수 있습니다. | - 프로세스 서버 [에 대해 알아봅니다](vmware-physical-azure-config-process-server-overview.md) .<br/> - 최신 버전으로 업그레이드 하는 방법 [에 대해 알아봅니다](vmware-azure-manage-process-server.md#upgrade-a-process-server) .<br/> - 스케일 아웃 프로세스 서버를 설정 하는 [방법에 대해 알아봅니다](vmware-physical-large-deployment.md#set-up-a-process-server) .

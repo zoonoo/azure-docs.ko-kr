@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: f6e0009a1e1df57298884097cac076ef3a344714
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ef1f8966497492f5a4969aca594c43abdf80945c
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135830"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612896"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>NAT 게이트웨이 리소스를 사용하여 가상 네트워크 설계
 
@@ -217,7 +217,7 @@ NAT 게이트웨이 리소스를 사용하는 가상 머신 인스턴스가 NAT 
 
 가상 머신 인스턴스가 동일한 서브넷 내의 여러 영역에 배포된 경우에는 NAT 게이트웨이 리소스를 사용하여 영역 프라미스를 달성할 수 없습니다.   여러 영역 NAT 게이트웨이가 서브넷에 연결된 경우에도 가상 머신 인스턴스는 어떤 NAT 게이트웨이 리소스를 선택해야 하는지 알 수 없습니다.
 
-영역 프라미스는 a) 가상 머신 인스턴스의 영역과 영역 NAT 게이트웨이의 영역이 맞춰지지 않았거나, b) 지역 NAT 게이트웨이 리소스가 영역 가상 머신 인스턴스와 함께 사용되는 경우에는 존재하지 않습니다.
+영역 약속 does't는 (a) 가상 머신 인스턴스 영역 및 영역 NAT 게이트웨이의 영역에 맞춰지지 않거나 b) 지역 NAT 게이트웨이 리소스가 영역 가상 머신 인스턴스와 함께 사용 되는 경우 존재 합니다.
 
 시나리오가 작동하는 것처럼 보이지만, 상태 모델 및 오류 모드는 가용성 영역 관점에서 정의되지 않습니다. 그 대신 영역 스택 또는 모든 지역을 사용하는 방법을 고려해야 합니다.
 

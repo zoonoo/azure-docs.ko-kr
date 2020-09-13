@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/13/2020
+ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 51d7cb32ef2d1d7750a0bb53cfa3ccc111bd1302
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 836e01d3cd8fb25dda1616803d8b6f3e9ff4e06f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89143736"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645748"
 ---
 # <a name="data-encryption-models"></a>데이터 암호화 모델
 
@@ -60,7 +60,7 @@ Azure에서 지원 되는 암호화 모델은 앞에서 설명한 대로 "클라
 
 클라이언트 쪽 암호화 모델은 서비스 또는 호출 애플리케이션이 리소스 공급자 또는 Azure 외부에서 수행되는 암호화를 나타냅니다. 이 암호화는 Azure의 서비스 애플리케이션이나 고객 데이터 센터에서 실행되는 애플리케이션에서 수행할 수 있습니다. 두 경우 모두 Azure 리소스 공급자에서 이 암호화 모델을 활용할 때 어떤 방식으로든 데이터의 암호를 해독할 수 없거나 암호화 키에 대한 액세스 권한이 없는 데이터의 암호화된 Blob을 받습니다. 이 모델에서는 키 관리가 호출 서비스/애플리케이션에서 수행되며 Azure 서비스에 대해 불투명합니다.
 
-![클라이언트](./media/encryption-models/azure-security-encryption-atrest-fig2.png)
+![Client](./media/encryption-models/azure-security-encryption-atrest-fig2.png)
 
 ## <a name="server-side-encryption-using-service-managed-keys"></a>서비스 관리 키를 사용하여 서버 쪽 암호화
 
@@ -157,7 +157,7 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | QnA Maker                        | 예                | 예                | -                  |
 | Speech Services                  | 예                | 예                | -                  |
 | Translator Text                  | 예                | 예                | -                  |
-| Power BI                         | 예                | 미리 보기, RSA 2048비트 | -                  |
+| Power BI                         | 예                | 예, RSA 4096 비트  | -                  |
 | **분석**                    |                    |                    |                    |
 | Azure Stream Analytics           | 예                | 해당 없음\*              | -                  |
 | Event Hubs                       | 예                | 예                | -                  |
@@ -181,7 +181,7 @@ Azure Key Vault에서 고객 관리 키를 사용하는 서버 쪽 암호화 모
 | App Service                      | 예                | 예\*\*            | -                  |
 | Automation                       | 예                | 예\*\*            | -                  |
 | Azure 기능                  | 예                | 예\*\*            | -                  |
-| Azure Portal                     | 예                | 예\*\*            | -                  |
+| Azure portal                     | 예                | 예\*\*            | -                  |
 | Logic Apps                       | 예                | 예                | -                  |
 | Azure 관리 되는 응용 프로그램       | 예                | 예\*\*            | -                  |
 | Service Bus                      | 예                | 예                | -                  |

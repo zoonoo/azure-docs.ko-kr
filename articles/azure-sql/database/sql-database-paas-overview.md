@@ -193,7 +193,7 @@ SQL Database를 사용하면 [Azure Active Directory 통합](authentication-aad-
 
 SQL Database로 애플리케이션을 빌드하고 관리하는 작업의 편의성과 생산성을 높이세요. SQL Database를 사용하면 멋진 앱을 만드는 데만 집중할 수 있습니다. 이미 보유 하 고 있는 도구와 기술을 사용 하 여 SQL Database에서 관리 하 고 개발할 수 있습니다.
 
-|도구|설명|
+|도구|Description|
 |:---|:---|
 |[Azure Portal](https://portal.azure.com/)|모든 Azure 서비스를 관리 하기 위한 웹 기반 응용 프로그램입니다.|
 |[Azure Data Studio](/sql/azure-data-studio/)|Windows, MacOS 및 Linux에서 실행 되는 플랫폼 간 데이터베이스 도구입니다.|

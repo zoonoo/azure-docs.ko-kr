@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74fae6a8aa0c59043db0ab816e09b16affb63580
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2e7f441a727bea8d1a5d401fb5e9757dee1044fc
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021836"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613799"
 ---
 # <a name="remote-rendering-sessions"></a>Remote Rendering 세션
 
@@ -31,7 +31,7 @@ Azure Remote Rendering은 복잡한 렌더링 작업을 클라우드로 오프�
 
 ### <a name="managing-multiple-sessions-simultaneously"></a>동시에 여러 세션 관리
 
-한 디바이스에서 여러 세션에 완전히 *연결*하는 것은 불가능합니다. 그러나 단일 애플리케이션에서 원하는 만큼 세션을 만들고, 관찰하고, 종료할 수 있습니다. 앱이 세션에 연결되지 않는 한 HoloLens 2와 같은 디바이스에서 실행할 필요가 없습니다. 이러한 구현의 사용 사례로 중앙 메커니즘을 통해 세션을 제어하려는 경우가 있습니다. 예를 들어 여러 태블릿과 HoloLens가 로그인할 수 있는 웹 앱을 빌드할 수 있습니다. 그러면 앱은 표시할 CAD 모델과 같은 옵션을 태블릿에 표시할 수 있습니다. 사용자가 선택하면 이 정보는 공유 환경을 만들기 위해 모든 HoloLens에 전달됩니다.
+한 디바이스에서 여러 세션에 완전히 *연결*하는 것은 불가능합니다. 그러나 단일 애플리케이션에서 원하는 만큼 세션을 만들고, 관찰하고, 종료할 수 있습니다. 앱이 세션에 연결되지 않는 한 HoloLens 2와 같은 디바이스에서 실행할 필요가 없습니다. 이러한 구현의 사용 사례로 중앙 메커니즘을 통해 세션을 제어하려는 경우가 있습니다. 예를 들어 여러 태블릿 및 HoloLens 장치에 로그인 할 수 있는 웹 앱을 빌드할 수 있습니다. 그러면 앱은 표시할 CAD 모델과 같은 옵션을 태블릿에 표시할 수 있습니다. 사용자가 선택 하는 경우이 정보는 모든 HoloLens 장치에 전달 되어 공유 환경을 만듭니다.
 
 ## <a name="session-phases"></a>세션 단계
 
@@ -146,6 +146,15 @@ RemoteManagerStatic.ShutdownRemoteRendering();
 `AzureSession.SessionUUID()`를 통해 지속적 세션 ID를 쿼리하고 로컬에 캐시할 수 있습니다. 이 ID로 애플리케이션은 해당 세션에 바인딩할 `AzureFrontend.OpenSession`을 호출할 수 있습니다.
 
 `AzureSession.IsConnected`가 true이면 `AzureSession.Actions`는 [모델을 로드](models.md)하고, [엔터티](entities.md)를 조작하고, 렌더링된 장면에 대한 [정보를 쿼리](../overview/features/spatial-queries.md)하는 기능이 포함된 `RemoteManager`의 인스턴스를 반환합니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # Azuresession 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azuresession)
+* [C # AzureFrontend CreateNewRenderingSessionAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.createnewrenderingsessionasync)
+* [C # AzureFrontend OpenRenderingSession ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.openrenderingsession)
+* [C + + AzureSession 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/azuresession)
+* [C + + AzureFrontend:: CreateNewRenderingSessionAsync](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#createnewrenderingsessionasync)
+* [C + + AzureFrontend:: OpenRenderingSession](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#openrenderingsession)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 09/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 9fbf4062304dda7112e89ecd4abd5288533f28ff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 16f7a1481b15f280995bb71fa9e30ed3a129ab6d
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635789"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612639"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MySQL에서 데이터 복사
+
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-onprem-mysql-connector.md)
 > * [현재 버전](connector-mysql.md)
@@ -66,7 +67,9 @@ MySQL 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | Description | 옵션 | 필수 |
 |:--- |:--- |:--- |:--- |
-| SSLMode | 이 옵션은 MySQL에 연결할 때 드라이버에서 TLS 암호화 및 확인을 사용하는지 여부를 지정합니다. 예: `SSLMode=<0/1/2/3/4>`| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 예 |
+| SSLMode | 이 옵션은 MySQL에 연결할 때 드라이버에서 TLS 암호화 및 확인을 사용하는지 여부를 지정합니다. `SSLMode=<0/1/2/3/4>`예:,.| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 예 |
+| SSLCert | 클라이언트의 id를 증명 하는 데 사용 되는 SSL 인증서를 포함 하는 pem 파일의 전체 경로와 이름입니다. <br/> 이 인증서를 서버로 보내기 전에 암호화 하기 위한 개인 키를 지정 하려면 속성을 사용 `SSLKey` 합니다.| | 예, 양방향 SSL 확인을 사용 하는 경우입니다. |
+| SSLKey | 양방향 SSL 확인 중에 클라이언트 쪽 인증서를 암호화 하는 데 사용 되는 개인 키를 포함 하는 파일의 전체 경로 및 이름입니다.|  | 예, 양방향 SSL 확인을 사용 하는 경우입니다. |
 | UseSystemTrustStore | 이 옵션은 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 예를 들어 `UseSystemTrustStore=<0/1>;`| 사용(1) / 사용 안 함(0) **(기본값)** | 예 |
 
 **예:**

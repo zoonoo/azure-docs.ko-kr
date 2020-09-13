@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 641ac1f6a2cc98e48694c42ec1531f679621640d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: dadfd3abfad0c588f53d47cb7ab1eb138d4f90ac
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869221"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612512"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
@@ -89,11 +89,11 @@ EUS(확장 업데이트 지원) 리포지토리는 VM을 프로비저닝한 후�
 * RHEL 7.6 EUS 지원은 2021 년 5 월 31 일에 종료 됩니다.
 * RHEL 7.7 EUS 지원이 2021년 8월 30일에 종료됩니다.
 
-### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>RHEL VM을 EUS로 전환(특정 부 버전으로 버전 잠금)
-다음 지침에 따라 특정 부 릴리스로 RHEL VM을 잠급니다(루트로 실행).
+### <a name="switch-a-rhel-vm-7x-to-eus-version-lock-to-a-specific-minor-version"></a>RHEL VM 4.x를 EUS (버전-특정 부 버전으로 잠금)로 전환 합니다.
+다음 지침을 사용 하 여 RHEL 4.x VM을 특정 부 릴리스 (루트로 실행)에 잠급니다.
 
 >[!NOTE]
-> 이는 EUS를 사용할 수 있는 RHEL 버전에만 적용됩니다. 이 문서 작성 당시 여기에는 RHEL 7.2-7.7이 포함됩니다. 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 제공됩니다.
+> 이는 EUS를 사용할 수 있는 RHEL 4.x 버전에만 적용 됩니다. 이 문서 작성 당시 여기에는 RHEL 7.2-7.7이 포함됩니다. 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 제공됩니다.
 
 1. 비 EUS 리포지토리를 비활성화합니다.
     ```bash
@@ -111,14 +111,52 @@ EUS(확장 업데이트 지원) 리포지토리는 VM을 프로비저닝한 후�
     ```
 
     >[!NOTE]
-    > 위의 명령을 사용하여 현재 부 릴리스로 RHEL 부 릴리스를 잠급니다. 최신 릴리스가 아닌 추후 부 릴리스로 업그레이드하고 잠그려는 경우 특정 부 릴리스를 입력합니다. 예를 들어 `echo 7.5 > /etc/yum/vars/releasever`는 RHEL 7.5로 RHEL 버전을 잠급니다.
+    > 위의 명령을 사용하여 현재 부 릴리스로 RHEL 부 릴리스를 잠급니다. 최신 릴리스가 아닌 추후 부 릴리스로 업그레이드하고 잠그려는 경우 특정 부 릴리스를 입력합니다. 예를 들어 `echo 7.5 > /etc/yum/vars/releasever` 는 RHEL 버전을 RHEL 7.5으로 잠급니다.
 
 1. RHEL VM 업데이트
     ```bash
     sudo yum update
     ```
 
-### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>RHEL VM을 EUS로 다시 전환(버전 잠금 제거)
+### <a name="switch-a-rhel-vm-8x-to-eus-version-lock-to-a-specific-minor-version"></a>RHEL VM 4.x를 EUS (버전-특정 부 버전으로 잠금)로 전환 합니다.
+다음 지침을 사용 하 여 RHEL .x VM을 특정 부 릴리스 (루트로 실행)에 잠급니다.
+
+>[!NOTE]
+> 이는 EUS를 사용할 수 있는 RHEL .x 버전에만 적용 됩니다. 이 문서를 작성할 당시에는 RHEL 8.1-8.2가 포함 됩니다. 자세한 내용은 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 제공됩니다.
+
+1. 비 EUS 리포지토리를 비활성화합니다.
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel8'
+    ```
+
+1. EUS 리포지토리 구성 파일을 가져옵니다.
+    ```bash
+    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
+    ```
+
+1. EUS 리포지토리를 추가 합니다.
+    ```bash
+    yum --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
+    ```
+
+1. `releasever` 변수를 잠급니다(루트로 실행).
+    ```bash
+    echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
+    ```
+
+    >[!NOTE]
+    > 위의 명령을 사용하여 현재 부 릴리스로 RHEL 부 릴리스를 잠급니다. 최신 릴리스가 아닌 추후 부 릴리스로 업그레이드하고 잠그려는 경우 특정 부 릴리스를 입력합니다. 예를 들어 `echo 8.1 > /etc/yum/vars/releasever` 는 RHEL 버전을 RHEL 8.1으로 잠급니다.
+
+    >[!NOTE]
+    > Releasever에 액세스할 수 있는 권한 문제가 있는 경우 ' nano/etc/yum/vars/releaseve '를 사용 하 여 파일을 편집 하 고 이미지 버전 정보를 추가한 다음 (' Ctrl + o '를 누르고 enter 키를 누른 다음 ' Ctrl + x ').  
+
+1. RHEL VM 업데이트
+    ```bash
+    sudo yum update
+    ```
+
+
+### <a name="switch-a-rhel-7x-vm-back-to-non-eus-remove-a-version-lock"></a>RHEL 7.x VM을 EUS (버전 잠금 제거)로 다시 전환 합니다.
 다음을 루트로 실행합니다.
 1. `releasever` 파일 제거:
     ```bash
@@ -135,6 +173,33 @@ EUS(확장 업데이트 지원) 리포지토리는 VM을 프로비저닝한 후�
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
     ```
 
+1. RHEL VM 업데이트
+    ```bash
+    sudo yum update
+    ```
+
+### <a name="switch-a-rhel-8x-vm-back-to-non-eus-remove-a-version-lock"></a>RHEL .x VM을 EUS (버전 잠금 제거)로 다시 전환 합니다.
+다음을 루트로 실행합니다.
+1. `releasever` 파일 제거:
+    ```bash
+    rm /etc/yum/vars/releasever
+     ```
+
+1. EUS 리포지토리 사용 안 함:
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel8-eus'
+   ```
+
+1. 일반 리포지토리 구성 파일을 가져옵니다.
+    ```bash
+    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
+    ```
+
+1. EUS 리포지토리를 추가 합니다.
+    ```bash
+    yum --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
+    ```
+    
 1. RHEL VM 업데이트
     ```bash
     sudo yum update
