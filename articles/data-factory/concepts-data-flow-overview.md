@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 08/12/2020
-ms.openlocfilehash: ad3fa9db5a15f68f0538b5de29d9a89858c472e9
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/02/2020
+ms.openlocfilehash: b5042eb86f5d534655fd831147a9ab4ebb094e9b
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212077"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419967"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Azure Data Factory에서 데이터 흐름 매핑
 
@@ -41,7 +41,7 @@ ms.locfileid: "88212077"
 
 ### <a name="graph"></a>그래프
 
-그래프는 변환 스트림을 표시 합니다. 하나 이상의 싱크로 전달 되는 원본 데이터의 계보를 보여 줍니다. 새 원본을 추가 하려면 **원본 추가**를 선택 합니다. 새 변환을 추가 하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택 합니다.
+그래프는 변환 스트림을 표시 합니다. 하나 이상의 싱크로 전달 되는 원본 데이터의 계보를 보여 줍니다. 새 원본을 추가 하려면 **원본 추가**를 선택 합니다. 새 변환을 추가 하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택 합니다. [데이터 흐름 그래프를 관리](concepts-data-flow-manage-graph.md)하는 방법에 대해 자세히 알아보세요.
 
 ![캔버스](media/data-flow/canvas2.png "캔버스")
 
@@ -138,7 +138,7 @@ Azure Data Factory 팀은 비즈니스 논리를 구축한 후 데이터 흐름�
 | 남아프리카 공화국 서부 |  |    |
 | 미국 중남부  | | ✓ |
 | 인도 남부 | | |
-| 동남 아시아    | ✓ | ✓ |
+| 동남아시아    | ✓ | ✓ |
 | 스위스 북부 |   |  |
 | 스위스 서부 | | |
 | 아랍에미리트 중부 | | |

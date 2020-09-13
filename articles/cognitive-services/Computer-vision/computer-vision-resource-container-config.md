@@ -60,7 +60,7 @@ ms.locfileid: "89433690"
 
 `vision/v1.0`다음 표와 같이 끝점 URI에 라우팅을 추가 해야 합니다. 
 
-|필수| Name | 데이터 형식 | 설명 |
+|필수| Name | 데이터 형식 | Description |
 |--|------|-----------|-------------|
 |예| `Billing` | String | 청구 엔드포인트 URI입니다.<br><br>예:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
