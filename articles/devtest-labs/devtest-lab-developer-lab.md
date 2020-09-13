@@ -3,12 +3,12 @@ title: 개발자를 위한 Azure DevTest Labs 사용 | Microsoft Docs
 description: 개발자 요구 사항을 충족 하는 데 사용할 수 있는 Azure DevTest Labs 기능과 랩을 설정 하기 위해 수행할 수 있는 자세한 단계에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 3fd8ae93c873d1450d4b09496dca3ad9014baa6d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b4f195f843e30ad1a56bad7d5b9ca9e73888783b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293023"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296246"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>개발자를 위한 Azure DevTest Labs 사용
 Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 있지만 기본 시나리오 중 하나는 DevTest Labs를 사용하여 개발자를 위한 개발 컴퓨터를 호스트하는 것입니다. 이 시나리오에서 DevTest Labs는 다음과 같은 이점을 제공합니다.
@@ -43,7 +43,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
    
    | Task | 학습 내용 |
    | --- | --- |
-   | [Azure Marketplace 이미지 구성](devtest-lab-configure-marketplace-images.md) |개발자용으로 원하는 이미지만 선택할 수 있도록 Azure Marketplace 이미지를 허용 목록에 추가할 수 있는 방법을 알아봅니다.|
+   | [Azure Marketplace 이미지 구성](devtest-lab-configure-marketplace-images.md) |Azure Marketplace 이미지를 허용할 수 있는 방법에 대해 알아보고 개발자에 게 필요한 이미지만 선택할 수 있도록 합니다.|
    | [사용자 지정 이미지 만들기](devtest-lab-create-template.md) |개발자가 사용자 지정 이미지를 사용하여 신속하게 VM을 만들 수 있도록 필요한 소프트웨어를 미리 설치하여 사용자 지정 이미지를 만듭니다.|
    | [이미지 팩터리에 대한 자세한 정보](./devtest-lab-faq.md#blog-post) |이미지 팩터리를 설정 및 사용하는 방법을 설명하는 비디오를 시청하세요.|
 
