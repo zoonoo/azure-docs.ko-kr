@@ -8,16 +8,16 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f7b1f7a858c465629e075bcdb6d32bec29863f0a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c61ac8c7cf85b1fae4c9b531f16b951dd2b80876
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267890"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295788"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>사용자 지정 변환-Azure CLI를 사용 하 여 인코딩하는 방법
 

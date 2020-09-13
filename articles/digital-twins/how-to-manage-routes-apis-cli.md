@@ -7,24 +7,24 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6ae3e72dc6e79b252c79c78fd5fac27bff8d4740
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 27b745353521a44733c46170a5f5952c194c2343
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905230"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293509"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Azure Digital Twins (Api 및 CLI)에서 끝점 및 경로 관리
 
 [!INCLUDE [digital-twins-route-selector.md](../../includes/digital-twins-route-selector.md)]
 
-Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 다운스트림 서비스 또는 연결 된 계산 리소스로 라우팅할 수 있습니다. 이 작업을 수행 하려면 먼저 이벤트를 받을 수 있는 **끝점** 을 설정 합니다. 그런 다음 Azure Digital Twins에 의해 생성 되는 이벤트를 지정 하는 [**이벤트 경로**](concepts-route-events.md) 를 끝점으로 전달할 수 있습니다.
+Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 다운스트림 서비스 또는 연결 된 계산 리소스로 라우팅할 수 있습니다. 이 작업을 수행 하려면 먼저 이벤트를 받을 수 있는 **끝점** 을 설정 합니다. 그런 다음 Azure Digital Twins에 의해 생성 되는 이벤트를 지정 하는  [**이벤트 경로**](concepts-route-events.md) 를 끝점으로 전달할 수 있습니다.
 
 끝점 및 경로는 [Eventroutes api](how-to-use-apis-sdks.md), [.net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 관리할 수 있습니다. 이 문서에서는 이러한 메커니즘을 통해 끝점과 경로를 만드는 과정을 안내 합니다.
 
 [Azure Portal](https://portal.azure.com)를 통해 관리할 수도 있습니다. 포털을 대신 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (포털)*](how-to-manage-routes-portal.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
 * Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-scripted.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
@@ -112,7 +112,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 하나의 경로에서 여러 알림과 이벤트 유형을 선택할 수 있어야 합니다. 
 
-`CreateEventRoute`는 이벤트 경로를 추가 하는 데 사용 되는 SDK 호출입니다. 사용법의 예는 다음과 같습니다.
+`CreateEventRoute` 는 이벤트 경로를 추가 하는 데 사용 되는 SDK 호출입니다. 사용법의 예는 다음과 같습니다.
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
@@ -179,6 +179,8 @@ catch (RequestFailedException e)
 ## <a name="manage-endpoints-and-routes-with-cli"></a>CLI를 사용 하 여 끝점 및 경로 관리
 
 Azure Digital Twins CLI를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. CLI 사용 방법과 사용할 수 있는 명령에 대 한 자세한 내용은 [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)을 참조 하세요.
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

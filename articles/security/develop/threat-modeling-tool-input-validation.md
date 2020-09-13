@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a10dec01757fd344c9fa2bc92082082d2af085e9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3bb944badfbdffd703672f9e78619c70a148aae2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000569"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293356"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>보안 프레임: 입력 유효성 검사 | 완화 
 | 제품/서비스 | 아티클 |
@@ -397,7 +397,7 @@ myCommand.Fill(userDataset);
 | **적용 가능한 기술** | 일반, MVC5, MVC6 |
 | **특성**              | 해당 없음  |
 | **참조**              | [유효성 검사 추가](https://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [MVC 애플리케이션에서 모델 데이터 유효성 검사](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx)(영문), [ASP.NET MVC 애플리케이션을 위한 기본 원칙](https://msdn.microsoft.com/magazine/dd942822.aspx)(영문) |
-| **단계** | <p>악의적인 사용자 입력으로부터 애플리케이션을 보호하려면 애플리케이션에서 사용하기 전에 모든 입력 매개 변수의 유효성을 검사해야 합니다. 허용 목록 유효성 검사 전략으로 서버 쪽에서 정규식 유효성 검사를 사용하여 입력 값의 유효성을 검사합니다. 삭제되지 않은 사용자 입력/매개 변수가 메서드에 전달되면 코드 삽입 취약성이 발생할 수 있습니다.</p><p>웹 애플리케이션의 경우 양식 필드, QueryStrings, 쿠키, HTTP 헤더 및 웹 서비스 매개 변수가 진입점에 포함될 수도 있습니다.</p><p>모델 바인딩 시 다음과 같이 입력 유효성 검사를 수행해야 합니다.</p><ul><li>모델 속성에는 허용되는 문자 및 최대 허용 길이를 받아들이기 위해 RegularExpression 주석으로 주석을 추가해야 합니다.</li><li>컨트롤러 메서드에서 ModelState 유효성 검사를 수행해야 합니다.</li></ul>|
+| **단계** | <p>악의적인 사용자 입력으로부터 애플리케이션을 보호하려면 애플리케이션에서 사용하기 전에 모든 입력 매개 변수의 유효성을 검사해야 합니다. 서버 쪽에서 정규식 유효성 검사를 허용 목록 유효성 검사 전략과 함께 사용 하 여 입력 값의 유효성을 검사 합니다. 삭제되지 않은 사용자 입력/매개 변수가 메서드에 전달되면 코드 삽입 취약성이 발생할 수 있습니다.</p><p>웹 애플리케이션의 경우 양식 필드, QueryStrings, 쿠키, HTTP 헤더 및 웹 서비스 매개 변수가 진입점에 포함될 수도 있습니다.</p><p>모델 바인딩 시 다음과 같이 입력 유효성 검사를 수행해야 합니다.</p><ul><li>모델 속성에는 허용되는 문자 및 최대 허용 길이를 받아들이기 위해 RegularExpression 주석으로 주석을 추가해야 합니다.</li><li>컨트롤러 메서드에서 ModelState 유효성 검사를 수행해야 합니다.</li></ul>|
 
 ## <a name="sanitization-should-be-applied-on-form-fields-that-accept-all-characters-eg-rich-text-editor"></a><a id="richtext"></a>모든 문자를 허용하는 양식 필드(예: 서식 있는 텍스트 편집기)에서 삭제 적용
 
@@ -441,7 +441,7 @@ $('body').append(resHTML);
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [OAuth 2.0 권한 부여 프레임워크 - 오픈 리디렉터](https://tools.ietf.org/html/rfc6749#section-10.15) |
-| **단계** | <p>사용자가 제공한 위치로 리디렉션해야 하는 애플리케이션 디자인은 가능한 리디렉션 대상을 사이트 또는 도메인의 미리 정의된 "안전한" 목록으로 제한해야 합니다. 애플리케이션의 모든 리디렉션은 폐쇄되어 있거나 안전해야 합니다.</p><p>다음을 수행합니다.</p><ul><li>모든 리디렉션을 식별합니다.</li><li>리디렉션마다 적절한 완화를 구현합니다. 적절한 완화에는 리디렉션 허용 목록 또는 사용자 확인이 포함됩니다. 오픈 리디렉션 취약성이 있는 웹 사이트 또는 서비스에서 Facebook/OAuth/OpenID ID 공급자를 사용하는 경우 공격자가 사용자의 로그온 토큰을 도용하여 해당 사용자를 가장할 수 있습니다. 이는 RFC 6749 "OAuth 2.0 인증 프레임워크", 10.15 섹션 "오픈 리디렉션"에서 설명하는 OAuth를 사용할 때 내재된 위험입니다. 마찬가지로 오픈 리디렉션을 사용하는 스피어 피싱 공격으로 인해 사용자의 자격 증명이 손상될 수 있습니다.</li></ul>|
+| **단계** | <p>사용자가 제공한 위치로 리디렉션해야 하는 애플리케이션 디자인은 가능한 리디렉션 대상을 사이트 또는 도메인의 미리 정의된 "안전한" 목록으로 제한해야 합니다. 애플리케이션의 모든 리디렉션은 폐쇄되어 있거나 안전해야 합니다.</p><p>다음을 수행합니다.</p><ul><li>모든 리디렉션을 식별합니다.</li><li>리디렉션마다 적절한 완화를 구현합니다. 적절 한 완화에는 리디렉션 허용 목록 또는 사용자 확인이 포함 됩니다. 오픈 리디렉션 취약성이 있는 웹 사이트 또는 서비스에서 Facebook/OAuth/OpenID ID 공급자를 사용하는 경우 공격자가 사용자의 로그온 토큰을 도용하여 해당 사용자를 가장할 수 있습니다. 이는 RFC 6749 "OAuth 2.0 인증 프레임워크", 10.15 섹션 "오픈 리디렉션"에서 설명하는 OAuth를 사용할 때 내재된 위험입니다. 마찬가지로 오픈 리디렉션을 사용하는 스피어 피싱 공격으로 인해 사용자의 자격 증명이 손상될 수 있습니다.</li></ul>|
 
 ## <a name="implement-input-validation-on-all-string-type-parameters-accepted-by-controller-methods"></a><a id="string-method"></a>컨트롤러 메서드에서 허용하는 모든 문자열 형식 매개 변수에 대한 입력 유효성 검사 구현
 

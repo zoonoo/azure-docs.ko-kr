@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 99d16407d1cfadcb7d3a79968fae4436e7c631e3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ff92f66d4d7b96660fe83b79273f65ca50eb22f9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115648"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292898"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>인증 흐름 및 애플리케이션 시나리오
 
@@ -93,13 +93,13 @@ Microsoft id 플랫폼 끝점은 이러한 앱 아키텍처에 대 한 인증을
 
 ### <a name="single-page-application"></a>단일 페이지 애플리케이션
 
-많은 최신 웹 앱은 클라이언트 쪽 단일 페이지 응용 프로그램으로 빌드됩니다. 이러한 응용 프로그램은 각도, Vue.js 및 React.js 같은 JavaScript 또는 프레임 워크를 사용 합니다. 이러한 애플리케이션은 웹 브라우저에서 실행됩니다.
+많은 최신 웹 앱은 클라이언트 쪽 단일 페이지 응용 프로그램으로 빌드됩니다. 이러한 응용 프로그램은 각도, Vue 및 반응과 같은 JavaScript 또는 프레임 워크를 사용 합니다. 이러한 애플리케이션은 웹 브라우저에서 실행됩니다.
 
-단일 페이지 응용 프로그램은 인증 특성 측면에서 기존의 서버 쪽 웹 앱과 다릅니다. Microsoft ID 플랫폼을 사용하면 단일 페이지 애플리케이션에서 사용자를 로그인하고 토큰을 가져와서 백 엔드 서비스 또는 웹 API에 액세스할 수 있습니다.
+단일 페이지 응용 프로그램은 인증 특성 측면에서 기존의 서버 쪽 웹 앱과 다릅니다. Microsoft ID 플랫폼을 사용하면 단일 페이지 애플리케이션에서 사용자를 로그인하고 토큰을 가져와서 백 엔드 서비스 또는 웹 API에 액세스할 수 있습니다. Microsoft id 플랫폼은 JavaScript 응용 프로그램에 대 한 두 가지 권한 부여 유형을 제공 합니다. 
 
-![단일 페이지 애플리케이션](media/scenarios/spa-app.svg)
-
-자세한 내용은 [단일 페이지 애플리케이션](scenario-spa-overview.md)을 참조하세요.
+| MSAL.js (2.x) | MSAL.js (1.x) |
+|---|---|
+| ![단일 페이지 응용 프로그램 인증](media/scenarios/spa-app-auth.svg) | ![단일 페이지 응용 프로그램 암시적](media/scenarios/spa-app.svg) |
 
 ### <a name="web-app-that-signs-in-a-user"></a>사용자가 로그인 하는 웹 앱
 
@@ -109,7 +109,7 @@ Microsoft id 플랫폼 끝점은 이러한 앱 아키텍처에 대 한 인증을
 
 - .NET에서 개발 하는 경우 ASP.NET Openid connect Connect 미들웨어와 함께 ASP.NET 또는 ASP.NET Core를 사용 합니다. 리소스를 보호 하기 위해 보안 토큰의 유효성을 검사 하는 작업이 포함 됩니다. 보안 토큰은 MSAL 라이브러리가 아닌 [.net 용 system.identitymodel 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) 에 의해 수행 됩니다.
 
-- Node.js에서 개발하는 경우 Passport.js를 사용합니다.
+- Node.js에서 개발 하는 경우 [Passport.js](https://github.com/AzureAD/passport-azure-ad)를 사용 합니다.
 
 자세한 내용은 [사용자를 로그인하는 웹앱](scenario-web-app-sign-user-overview.md)을 참조하세요.
 
@@ -196,7 +196,14 @@ MSAL의 [클라이언트 자격 증명](scenario-daemon-acquire-token.md#acquire
  </thead>
  <tbody>
   <tr>
-   <td><a href="scenario-spa-overview.md"><img alt="Single-Page App" src="media/scenarios/spa-app.svg"></a></td>
+   <td><a href="scenario-spa-overview.md"><img alt="Single-Page App with Auth code" src="media/scenarios/spa-app-auth.svg"></a></td>
+   <td><a href="scenario-spa-overview.md">단일 페이지 앱</a></td>
+   <td>PKCE를 사용 하는 <a href="v2-oauth2-auth-code-flow.md">인증 코드</a></td>
+   <td>회사 또는 학교 계정, 개인 계정 및 Azure Active Directory B2C (Azure AD B2C)</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-spa-overview.md"><img alt="Single-Page App with Implicit" src="media/scenarios/spa-app.svg"></a></td>
    <td><a href="scenario-spa-overview.md">단일 페이지 앱</a></td>
    <td><a href="v2-oauth2-implicit-grant-flow.md">암시적</a></td>
    <td>회사 또는 학교 계정, 개인 계정 및 Azure Active Directory B2C (Azure AD B2C)</td>
@@ -261,7 +268,7 @@ MSAL의 [클라이언트 자격 증명](scenario-daemon-acquire-token.md#acquire
   <tr>
    <td><a href="scenario-web-api-call-api-overview.md"><img alt="Web API that calls web APIs" src="media/scenarios/web-api.svg"></a></td>
    <td><a href="scenario-web-api-call-api-overview.md">웹 API를 호출하는 웹 API</a></td>
-   <td><a href="v2-oauth2-on-behalf-of-flow.md">On-behalf-of</a></td>
+   <td><a href="v2-oauth2-on-behalf-of-flow.md">On-Behalf-Of</a></td>
    <td>회사/학교 계정 및 개인 계정</td>
  </tr>
 
@@ -293,9 +300,10 @@ Microsoft 인증 라이브러리는 여러 플랫폼을 지원 합니다.
 
 |시나리오  | Windows | Linux | Mac | iOS | Android
 |--|--|--|--|--|--|--|
-| [단일 페이지 앱](scenario-spa-overview.md) <br/>[![단일 페이지 앱](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
+| [단일 페이지 앱](scenario-spa-overview.md) <br/>[![단일 페이지 앱 인증](media/scenarios/spa-app-auth.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
+| [단일 페이지 앱](scenario-spa-overview.md) <br/>[![단일 페이지 앱 암시적](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
 | [사용자가 로그인하는 웹앱](scenario-web-app-sign-user-overview.md) <br/>[![사용자를 로그인 하는 웹 앱](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
-| [Web API를 호출하는 웹앱](scenario-web-app-call-api-overview.md) <br/> <br/>[![웹 API를 호출하는 웹앱](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python
+| [Web API를 호출하는 웹앱](scenario-web-app-call-api-overview.md) <br/> <br/>[![Web API를 호출하는 웹앱](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python
 | [Web API를 호출하는 데스크톱 앱](scenario-desktop-overview.md) <br/> <br/>[ ![ 웹 api를 호출 하는 데스크톱 앱](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![ 장치 코드 흐름](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python <br/> ![iOS/Objective C 또는 swift](media/sample-v2-code/small_logo_iOS.png) MSAL.objc |
 | [Web API를 호출하는 모바일 앱](scenario-mobile-overview.md) <br/> [![Web API를 호출하는 모바일 앱](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/small_logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/small_logo_xamarin.png) MSAL.NET | | | ![iOS/Objective C 또는 swift](media/sample-v2-code/small_logo_iOS.png) MSAL.objc | ![Android](media/sample-v2-code/small_logo_Android.png) MSAL.Android
 | [디먼 앱](scenario-daemon-overview.md) <br/> [![디먼 앱](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python

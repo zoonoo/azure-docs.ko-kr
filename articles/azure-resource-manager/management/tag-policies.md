@@ -3,12 +3,12 @@ title: 리소스 태그 지정에 대 한 정책
 description: 태그 준수를 보장 하기 위해 할당할 수 있는 Azure 정책에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 03/20/2020
-ms.openlocfilehash: e3eeb28ea23b18c3492f68d2fac294fc014420c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6867bc01306ac3c08a9797ece0567a45e060af2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82147863"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293741"
 ---
 # <a name="assign-policies-for-tag-compliance"></a>태그 준수에 대 한 정책 할당
 
@@ -16,7 +16,7 @@ ms.locfileid: "82147863"
 
 ## <a name="policies"></a>정책
 
-[!INCLUDE [Tag policies](../../../includes/policy/samples/bycat/policies-tags.md)]
+[!INCLUDE [Tag policies](../../../includes/policy/reference/bycat/policies-tags.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

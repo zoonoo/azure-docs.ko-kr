@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714783"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293645"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Windows 10 용 디자인 도우미 환경
 
@@ -118,9 +118,9 @@ Windows 10은 장치 컨텍스트를 기준으로 고객 컨텍스트에 대 한
 
 따라서 도우미는이 섹션의 지침에 따라 환경을 안전 하 게 유지 해야 합니다. 위의 상호 작용 잠금은 Windows 사용자가 인증 되지 않은 경우에 발생 합니다. 즉, 일반적으로 **도우미에 대 한 입력도 인증 되지 않은 것으로 처리**되어야 합니다.
 
-- 도우미는 **스킬 허용 목록을 구현 하 여** 잠금 보다 안전 하 고 안전 하 게 액세스할 수 있는 기술을 파악 해야 합니다.
+- 도우미는 보안을 확인 하 고 안전 하 게 안전 하 게 액세스할 수 **있는 기술을 식별 하는 데 사용할 수 있는 기술 허용 목록을 구현** 해야 합니다.
 - 스피커 ID 기술은 일부 위험을 완화 하는 역할을 수행할 수 있지만, 스피커 ID는 Windows 인증에 적합 한 대체가 아닙니다.
-- 기술 허용 목록는 다음과 같은 세 가지 종류의 작업 또는 기술을 고려해 야 합니다.
+- 사용할 수 있는 기술 목록은 다음과 같은 세 가지 종류의 동작 또는 기술을 고려해 야 합니다.
 
 | **Action 클래스** | **설명** | **예 (전체 목록 아님)** |
 | --- | --- | --- |
@@ -130,7 +130,7 @@ Windows 10은 장치 컨텍스트를 기준으로 고객 컨텍스트에 대 한
 
 Contoso의 경우 공개 주식 정보에 대 한 일반 정보는 인증 없이 안전 합니다. 소유 하 고 있는 공유 수와 같은 고객 관련 정보는 발표자 ID로 안전 합니다. 그러나 Windows 인증 없이는 주식 구매 또는 판매를 허용 해서는 안 됩니다.
 
-환경을 더욱 안전 하 게 보호 하기 위해 **고객이 로그인 할 때까지 weblinks 또는 기타 앱 간 시작은 항상 Windows에서 차단 됩니다.** 최후의 수단으로, Microsoft는 심각한 보안 문제가 적시에 해결 되지 않은 경우 허용 목록 사용 도우미에서 응용 프로그램을 제거할 권리를 보유 합니다.
+환경을 더욱 안전 하 게 보호 하기 위해 **고객이 로그인 할 때까지 weblinks 또는 기타 앱 간 시작은 항상 Windows에서 차단 됩니다.** 최후의 수단으로, Microsoft는 심각한 보안 문제가 적시에 해결 되지 않은 경우 허용 되는 길잡이 목록에서 응용 프로그램을 제거할 권리를 보유 합니다.
 
 ## <a name="design-guidance-for-voice-activation-preview"></a>음성 활성화 미리 보기에 대 한 디자인 지침
 
