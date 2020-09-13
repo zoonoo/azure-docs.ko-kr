@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 07/20/2020
+ms.date: 09/10/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: c8edb36345de4516077b3c857cff33389062cc7f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62a5f3b18d4b8329c4a15086bc23d09805b786ab
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044549"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89668895"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
@@ -22,7 +22,6 @@ ms.locfileid: "87044549"
 
 이 문서에서는 Azure Data Factory의 커넥터에 대한 일반적인 문제 해결 방법을 살펴봅니다.
   
-
 ## <a name="azure-blob-storage"></a>Azure Blob Storage
 
 ### <a name="error-code--azurebloboperationfailed"></a>오류 코드:  AzureBlobOperationFailed
@@ -174,8 +173,7 @@ ms.locfileid: "87044549"
 
 - **원인**: TLS 핸드셰이크 중 인증서 유효성 검사에 실패 했습니다.
 
-- **해결**방법: 해결 방법: 준비 된 복사를 사용 하 여 ADLS Gen1에 대 한 TLS 유효성 검사를 건너뜁니다. 이 문제를 재현 하 고 netmon 추적을 수집한 다음 네트워크 팀과 협력 하 여 [이 문서](self-hosted-integration-runtime-troubleshoot-guide.md#how-to-collect-netmon-trace)다음에 나오는 로컬 네트워크 구성을 확인 해야 합니다.
-
+- **해결**방법: 해결 방법: 준비 된 복사를 사용 하 여 ADLS Gen1에 대 한 TLS 유효성 검사를 건너뜁니다. 이 문제를 재현 하 고 netmon 추적을 수집한 다음 네트워크 팀과 협력 하 여 로컬 네트워크 구성을 확인 해야 합니다.
 
     ![문제 해결 ADLS Gen1](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
 
@@ -207,7 +205,7 @@ ms.locfileid: "87044549"
 - **해결 방법**: 몇 분 후에 복사 작업을 다시 실행합니다.
                   
 
-## <a name="azure-sql-data-warehouseazure-sql-databasesql-server"></a>Azure SQL Data Warehouse/Azure SQL Database/SQL Server
+## <a name="azure-synapse-analytics-formerly-sql-data-warehouseazure-sql-databasesql-server"></a>Azure Synapse Analytics (이전의 SQL Data Warehouse)/azure SQL Database/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>오류 코드:  SqlFailedToConnect
 
@@ -215,7 +213,7 @@ ms.locfileid: "87044549"
 
 - **원인**: 오류 메시지에 "SqlException"이 포함되어 있으면 SQL Database는 특정 작업이 실패했음을 나타내는 오류를 throw합니다.
 
-- **권장 사항**:  자세한 내용은 참조 문서 https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 에서 SQL 오류 코드로 검색하세요. 추가 도움이 필요하면 Azure SQL 지원 서비스에 문의하세요.
+- **권장 사항**: 자세한 내용은이 참조 문서에서 SQL 오류 코드를 검색 https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 합니다. 추가 도움이 필요하면 Azure SQL 지원 서비스에 문의하세요.
 
 - **원인**: Azure SQL Database에 연결하려고 할 경우 오류 메시지로 "IP 주소가 '...'인 클라이언트가 서버에 액세스할 수 없습니다."가 표시되면 일반적으로 Azure SQL Database 방화벽 문제 때문인 것입니다.
 
@@ -228,8 +226,9 @@ ms.locfileid: "87044549"
 
 - **원인**: 오류 메시지에 "SqlException"이 포함되어 있으면 SQL Database는 특정 작업이 실패했음을 나타내는 오류를 throw합니다.
 
-- **권장 사항**:  SQL 오류가 명확하지 않은 경우 데이터베이스를 최신 호환성 수준 '150'으로 변경하세요. 최신 버전의 SQL 오류를 throw할 수 있습니다. 자세한 문서 https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat 를 참조하세요.
-        SQL 문제를 해결하려는 경우 참조 문서 https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 에서 SQL 오류 코드로 검색하여 자세한 내용을 참조하세요. 추가 도움이 필요하면 Azure SQL 지원 서비스에 문의하세요.
+- **권장 사항**:  SQL 오류가 명확하지 않은 경우 데이터베이스를 최신 호환성 수준 '150'으로 변경하세요. 최신 버전의 SQL 오류를 throw할 수 있습니다. [세부 정보 문서](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat)를 참조 하세요.
+
+    SQL 문제를 해결하려는 경우 참조 문서 https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors 에서 SQL 오류 코드로 검색하여 자세한 내용을 참조하세요. 추가 도움이 필요하면 Azure SQL 지원 서비스에 문의하세요.
 
 - **원인**: 오류 메시지에 "PdwManagedToNativeInteropException"이 포함된 경우 일반적으로 원본 및 싱크 열 크기의 불일치로 인해 발생합니다.
 
@@ -256,7 +255,7 @@ ms.locfileid: "87044549"
 
 - **원인**: 일시적인 SQL Database 오류일 수 있습니다.
 
-- **권장 사항**:  연결된 서비스 연결 문자열을 더 큰 연결 시간 제한 값으로 업데이트해 보세요.
+- **권장 사항**: 더 큰 연결 시간 제한 값을 사용 하 여 연결 된 서비스 연결 문자열 업데이트를 다시 시도 합니다.
 
 
 ### <a name="error-code--sqlautocreatetabletypemapfailed"></a>오류 코드:  SqlAutoCreateTableTypeMapFailed
@@ -319,7 +318,7 @@ ms.locfileid: "87044549"
 
 - **원인**: 일시적인 SQL Database 오류일 수 있습니다.
 
-- **권장 사항**:  다시 시도하세요. 문제가 재현되면 Azure SQL 지원 서비스에 문의하세요.
+- **권장 사항**: 다시 시도. 문제가 재현되면 Azure SQL 지원 서비스에 문의하세요.
 
 
 ### <a name="error-code--sqlbatchwritetransactionfailed"></a>오류 코드:  SqlBatchWriteTransactionFailed
@@ -332,7 +331,7 @@ ms.locfileid: "87044549"
 
 - **원인**: 예외 세부 정보가 일시적으로 sqlconnection 중단을 알릴 경우 일시적인 네트워크 오류 또는 SQL Database 부작용일 수 있습니다.
 
-- **권장 사항**:  작업을 다시 시도하고 SQL Database 쪽 메트릭을 검토하세요.
+- **권장 사항**: 작업을 다시 시도 하 고 SQL Database 측면 메트릭을 검토 합니다.
 
 
 ### <a name="error-code--sqlbulkcopyinvalidcolumnlength"></a>오류 코드:  SqlBulkCopyInvalidColumnLength
@@ -350,7 +349,7 @@ ms.locfileid: "87044549"
 
 - **원인**: SQL 연결은 높은 동시 실행 서버가 연결을 종료할 때 SQL Database에 의해 닫힙니다.
 
-- **권장 사항**:  원격 서버에서 SQL 연결을 닫았습니다. 다시 시도하세요. 문제가 재현되면 Azure SQL 지원 서비스에 문의하세요.
+- **권장 사항**:  원격 서버에서 SQL 연결을 닫았습니다. 다시 시도 문제가 재현되면 Azure SQL 지원 서비스에 문의하세요.
 
 
 ### <a name="error-code--sqlcreatetablefailedunsupportedtype"></a>오류 코드:  SqlCreateTableFailedUnsupportedType
@@ -360,38 +359,38 @@ ms.locfileid: "87044549"
 
 ### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>오류 메시지: 문자열을 uniqueIDentifier로 변환하지 못했습니다.
 
-- **증상**: 준비된 복사본 및 PolyBase를 사용하여 표 형식 데이터 원본(예: SQL Server)에서 Azure SQL Data Warehouse로 데이터를 복사하는 경우 다음 오류가 발생합니다.
+- **증상**: 준비 된 복사 및 PolyBase를 사용 하 여 테이블 형식 데이터 원본 (예: SQL Server)에서 Azure Synapse Analytics로 데이터를 복사 하는 경우 다음 오류가 발생 합니다.
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
+    Message=Error happened when loading data into Azure Synapse Analytics.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
     Message=Conversion failed when converting from a character string to uniqueidentifier...
     ```
 
-- **원인**: Azure SQL Data Warehouse PolyBase에서 빈 문자열을 GUID로 변환할 수 없습니다.
+- **원인**: Azure Synapse Analytics PolyBase에서 빈 문자열을 GUID로 변환할 수 없습니다.
 
 - **해결 방법**: 복사 작업 싱크의 Polybase 설정에서 "**형식 기본값 사용**" 옵션을 false로 설정합니다.
 
 ### <a name="error-message-expected-data-type-decimalxx-offending-value"></a>오류 메시지: 필요한 데이터 형식: DECIMAL(x,x), 잘못된 값
 
-- **증상**: 준비된 복사본 및 PolyBase를 사용하여 표 형식 데이터 원본(예: SQL Server)에서 SQL DW로 데이터를 복사하는 경우 다음 오류가 발생합니다.
+- **증상**: 준비 된 복사 및 PolyBase를 사용 하 여 테이블 형식 데이터 원본 (예: SQL Server)에서 Azure Synapse Analytics로 데이터를 복사 하는 경우 다음 오류가 발생 합니다.
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
+    Message=Error happened when loading data into Azure Synapse Analytics.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
     Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt) 
     Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
     ```
 
-- **원인**: Azure SQL Data Warehouse Polybase에서 빈 문자열(null 값)을 10진수 열에 삽입할 수 없습니다.
+- **원인**: Azure Synapse Analytics Polybase에서 10 진수 열에 빈 문자열 (null 값)을 삽입할 수 없습니다.
 
 - **해결 방법**: 복사 작업 싱크의 Polybase 설정에서 "**형식 기본값 사용**" 옵션을 false로 설정합니다.
 
 ### <a name="error-message-java-exception-message-hdfsbridgecreaterecordreader"></a>오류 메시지: Java 예외 메시지: HdfsBridge:: CreateRecordReader
 
-- **증상**: PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터를 복사하면 다음 오류가 발생합니다.
+- **증상**: PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 복사 하 고 다음 오류를 발생 합니다.
 
     ```
     Message=110802;An internal DMS error occurred that caused this operation to fail. 
@@ -400,7 +399,7 @@ ms.locfileid: "87044549"
     Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
     ```
 
-- **원인**: 가능한 원인은 스키마(총 열 너비)가 너무 크기 때문입니다(1MB 초과). 모든 열의 크기를 추가하여 대상 SQL DW 테이블의 스키마를 확인합니다.
+- **원인**: 가능한 원인은 스키마(총 열 너비)가 너무 크기 때문입니다(1MB 초과). 모든 열의 크기를 추가 하 여 대상 Azure Synapse Analytics 테이블의 스키마를 확인 합니다.
 
     - Int -> 4바이트
     - Bigint -> 8바이트
@@ -424,15 +423,15 @@ ms.locfileid: "87044549"
 
 ### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>오류 메시지: HTTP 조건부 헤더를 사용하여 지정한 조건이 충족되지 않습니다.
 
-- **증상**: SQL 쿼리를 사용하여 Azure SQL Data Warehouse에서 데이터를 가져오면 다음 오류가 발생합니다.
+- **증상**: SQL 쿼리를 사용 하 여 Azure Synapse Analytics에서 데이터를 가져오고 다음 오류를 적중 합니다.
 
     ```
     ...StorageException: The condition specified using HTTP conditional header(s) is not met...
     ```
 
-- **원인**: Azure Storage에서 외부 테이블을 쿼리하는 중 Azure SQL Data Warehouse에 문제가 발생했기 때문입니다.
+- **원인**: Azure Storage에서 외부 테이블을 쿼리 하는 동안 Azure Synapse Analytics 적중 문제가 발생 했습니다.
 
-- **해결 방법**: SSMS에서 동일한 쿼리를 실행하고 동일한 결과가 표시되는지 확인합니다. 동일한 결과가 표시된다면 Azure SQL Data Warehouse에 대한 지원 티켓을 열고 SQL DW 서버와 데이터베이스 이름을 제공하여 추가로 문제를 해결합니다.
+- **해결 방법**: SSMS에서 동일한 쿼리를 실행하고 동일한 결과가 표시되는지 확인합니다. 그렇다면 Azure Synapse Analytics에 대 한 지원 티켓을 열고 Azure Synapse 분석 서버 및 데이터베이스 이름을 제공 하 여 추가로 문제를 해결 합니다.
             
 
 ## <a name="delimited-text-format"></a>구분된 텍스트 형식
@@ -452,7 +451,7 @@ ms.locfileid: "87044549"
 
 - **원인**: 문제가 있는 행의 열 개수가 첫 번째 행의 열 개수보다 큽니다. 데이터 문제 또는 잘못된 열 구분 기호/따옴표 문자 설정으로 인한 것일 수 있습니다.
 
-- **권장 사항**:  오류 메시지에서 행 개수를 확인하고 행의 열을 확인한 후 데이터를 수정합니다.
+- **권장 사항**: 오류 메시지에서 행 개수를 가져오고 행의 열을 확인 하 고 데이터를 수정 합니다.
 
 - **원인**: 예상 열 개수가 오류 메시지에 "1"로 표시되면 잘못된 압축 또는 형식 설정을 지정했기 때문에 ADF에서 파일을 잘못 구문 분석하게 되는 것일 수 있습니다.
 
@@ -537,7 +536,7 @@ ms.locfileid: "87044549"
 
 - **원인**: 오류 메시지에 'java.lang.OutOfMemory', 'Java 힙 공간' 및 'doubleCapacity'가 포함된 경우 일반적으로 이전 버전의 Integration Runtime에 메모리 관리 문제가 있는 것입니다.
 
-- **권장 사항**:  자체 호스팅 Integration Runtime를 사용하고 있으며 버전이 3.20.7159.1 이전 버전인 경우 최신 버전으로 업그레이드하는 것이 좋습니다.
+- **권장 사항**: 자체 호스팅 Integration Runtime를 사용 중이 고 버전이 3.20.7159.1 이전 버전인 경우 최신 버전으로 업그레이드 하는 것이 좋습니다.
 
 - **원인**: 오류 메시지에 'java.lang.OutOfMemory'가 포함된 경우 Integration Runtime에 파일을 처리할 수 있는 충분한 리소스가 없는 것입니다.
 
@@ -545,7 +544,7 @@ ms.locfileid: "87044549"
 
 - **원인**: 오류 메시지에 'NullPointerReference'가 포함된 경우 일시적인 오류일 수 있습니다.
 
-- **권장 사항**:  다시 시도하세요. 문제가 계속되면 지원 사이트에 문의하세요.
+- **권장 사항**: 다시 시도. 문제가 계속되면 지원 사이트에 문의하세요.
 
 
 ### <a name="error-code--parquetinvalidfile"></a>오류 코드:  ParquetInvalidFile
@@ -617,7 +616,7 @@ ms.locfileid: "87044549"
 
 - **원인**: 원본의 데이터를 싱크에 정의된 형식으로 변환할 수 없습니다.
 
-- **권장 사항**:  mapping.sink에서 올바른 형식을 지정하세요.
+- **권장 사항**: 매핑 싱크에서 올바른 형식을 지정 하십시오.
 
 
 ### <a name="error-code--parquetbridgeinvaliddata"></a>오류 코드:  ParquetBridgeInvalidData
@@ -626,7 +625,7 @@ ms.locfileid: "87044549"
 
 - **원인**: 제한 초과 데이터 값
 
-- **권장 사항**:  다시 시도하세요. 문제가 계속되면 지원 팀에 문의하세요.
+- **권장 사항**: 다시 시도. 문제가 계속되면 지원 팀에 문의하세요.
 
 
 ### <a name="error-code--parquetunsupportedinterpretation"></a>오류 코드:  ParquetUnsupportedInterpretation

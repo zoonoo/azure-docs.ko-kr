@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Office 365 리소스에 대 한 기본 데이터 위치 구성'
-description: Azure Active Directory Connect 동기화를 사용하여 Office 365 사용자 리소스를 사용자에게 가깝게 배치하는 방법을 설명합니다.
+title: 'Azure AD Connect: Microsoft 365 리소스에 대 한 기본 데이터 위치 구성'
+description: Azure Active Directory Connect 동기화를 사용 하 여 사용자에 게 가까운 Microsoft 365 사용자 리소스를 배치 하는 방법을 설명 합니다.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,29 +16,29 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 597e322536703560fad8a0ba562cc70ce3aa1775
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357412"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662510"
 ---
-# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 데이터 위치 구성
-이 항목의 목적은 Azure Active Directory (Azure AD) Connect 동기화에서 기본 데이터 위치에 대 한 특성을 구성 하는 방법을 안내 하는 것입니다. 누군가가 Office 365에서 다중 지역 기능을 사용 하는 경우이 특성을 사용 하 여 사용자의 Office 365 데이터의 지리적 위치를 지정 합니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
+# <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect 동기화: Microsoft 365 리소스에 대 한 기본 데이터 위치 구성
+이 항목의 목적은 Azure Active Directory (Azure AD) Connect 동기화에서 기본 데이터 위치에 대 한 특성을 구성 하는 방법을 안내 하는 것입니다. 사용자가 Microsoft 365에서 다중 지역 기능을 사용 하는 경우이 특성을 사용 하 여 사용자의 Microsoft 365 데이터의 지리적 위치를 지정 합니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
 
 ## <a name="enable-synchronization-of-preferred-data-location"></a>기본 데이터 위치의 동기화 사용
-기본적으로 사용자를 위한 Office 365 리소스는 Azure AD 테넌트와 같은 지역에 있습니다. 예를 들어 테넌트가 북아메리카에 있는 경우 사용자의 Exchange 사서함도 북아메리카에 있습니다. 다국적 조직의 경우 이 상황은 최적이 아닐 수 있습니다.
+기본적으로 사용자에 대 한 Microsoft 365 리소스는 Azure AD 테 넌 트와 동일한 지역에 있습니다. 예를 들어 테넌트가 북아메리카에 있는 경우 사용자의 Exchange 사서함도 북아메리카에 있습니다. 다국적 조직의 경우 이 상황은 최적이 아닐 수 있습니다.
 
-**preferredDataLocation** 특성을 설정하여 사용자의 지역을 정의할 수 있습니다. 사서함 및 OneDrive와 같은 사용자의 Office 365 리소스를 사용자와 동일한 지역에 두고, 전체 조직에 대해 하나의 테넌트만 유지할 수 있습니다.
+**preferredDataLocation** 특성을 설정하여 사용자의 지역을 정의할 수 있습니다. 사용자와 동일한 지역에 사서함 및 OneDrive와 같은 사용자의 Microsoft 365 리소스를 가질 수 있으며, 전체 조직에 대 한 테 넌 트가 하나 있습니다.
 
 > [!IMPORTANT]
-> 다중 지역은 현재 활성 기업계약 및 최소 500 Office 365 서비스 구독을 사용 하는 고객에 게 제공 됩니다. 자세한 내용은 Microsoft 담당자에게 문의하세요.
+> 다중 지역은 현재 활성 기업계약 및 최소 250 Microsoft 365 서비스 구독이 있는 고객에 게 제공 됩니다. 자세한 내용은 Microsoft 담당자에게 문의하세요.
 >
 >
 
-Office 365의 모든 지역에 대 한 목록은 [데이터가 어디에 있나요?](https://aka.ms/datamaps)에서 찾을 수 있습니다.
+Microsoft 365의 모든 지역에 대 한 목록은 [데이터가 어디에 있나요?](https://aka.ms/datamaps)에서 찾을 수 있습니다.
 
-다중 지역 기능을 사용할 수 있는 Office 365의 지역은 다음과 같습니다.
+다중 지역에서 사용할 수 있는 Microsoft 365의 지역는 다음과 같습니다.
 
 | 지역 | preferredDataLocation value |
 | --- | --- |
@@ -58,7 +58,7 @@ Office 365의 모든 지역에 대 한 목록은 [데이터가 어디에 있나�
 
 * 지역이 이 표에 없는 경우(예: 남아메리카) 다중 지역에 사용할 수 없습니다.
 
-* 일부 Office 365 워크로드는 사용자의 지역 설정 사용을 지원하지 않습니다.
+* 일부 Microsoft 365 워크 로드는 사용자의 지역 설정 사용을 지원 하지 않습니다.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect 동기화 지원
 
@@ -67,7 +67,7 @@ Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **prefe
 * Azure AD Connector의 **User** 개체 형식의 스키마가 **preferredDataLocation** 특성을 포함하도록 확장되었습니다. 특성의 형식은 단일 값 문자열입니다.
 * 메타버스의 **Person** 개체 형식의 스키마가 **preferredDataLocation** 특성을 포함하도록 확장되었습니다. 특성의 형식은 단일 값 문자열입니다.
 
-기본적으로 **preferredDataLocation**은 동기화가 허용되지 않습니다. 이 기능은 대규모 조직을 대상으로 합니다. Windows Server 2019의 Active Directory 스키마에는이를 위해 사용 해야 하는 **의 msds-primary-computer preferredDataLocation** 특성이 있습니다. Active Directory 스키마를 업데이트 하지 않고이를 수행할 수 없는 경우 사용자에 게 Office 365 지역을 저장할 특성을 식별 해야 합니다. 이러한 특성은 각 조직마다 다를 수 있습니다.
+기본적으로 **preferredDataLocation**은 동기화가 허용되지 않습니다. 이 기능은 대규모 조직을 대상으로 합니다. Windows Server 2019의 Active Directory 스키마에는이를 위해 사용 해야 하는 **의 msds-primary-computer preferredDataLocation** 특성이 있습니다. Active Directory 스키마를 업데이트 하지 않은 경우이를 수행할 수 없는 경우 사용자에 대 한 Microsoft 365 지역을 보유할 특성을 식별 해야 합니다. 이러한 특성은 각 조직마다 다를 수 있습니다.
 
 > [!IMPORTANT]
 > Azure AD를 사용하면 Azure AD PowerShell을 사용하여 **클라우드 User 개체**의 **preferredDataLocation** 특성을 직접 구성할 수 있습니다. **동기화된 User 개체**에 이 특성을 구성하려면 Azure AD Connect를 사용해야 합니다.
@@ -140,10 +140,10 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 3. 새 인바운드 규칙을 만들려면 **새 규칙 추가**를 선택합니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
-    | 특성 | 값 | 세부 정보 |
+    | attribute | 값 | 세부 정보 |
     | --- | --- | --- |
     | 속성 | *이름 제공* | 예: "AD - User preferredDataLocation에서 인바운드" |
-    | 설명 | *사용자 지정 설명 제공* |  |
+    | Description | *사용자 지정 설명 제공* |  |
     | 연결된 시스템 | *온-프레미스 Active Directory Connector 선택* |  |
     | 연결된 시스템 개체 유형 | **사용자** |  |
     | 메타버스 개체 유형 | **Person** |  |
@@ -169,7 +169,7 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 3. **새 규칙 추가**를 선택합니다.
 4. **설명 탭** 아래에서 다음 구성을 제공합니다.
 
-    | 특성 | 값 | 세부 정보 |
+    | attribute | 값 | 세부 정보 |
     | ----- | ------ | --- |
     | 속성 | *이름 제공* | 예: "Azure AD - User preferredDataLocation로 아웃바운드" |
     | Description | *설명 제공* ||
@@ -264,7 +264,7 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 
 ## <a name="next-steps"></a>다음 단계
 
-Office 365의 다중 지역에 대한 자세한 정보:
+Microsoft 365의 다중 지역에 대해 자세히 알아보세요.
 
 * [Ignite의 다중 지역 세션](https://aka.ms/MultiGeoIgnite)
 * [OneDrive의 다중 지역](https://aka.ms/OneDriveMultiGeo)

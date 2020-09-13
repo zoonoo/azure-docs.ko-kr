@@ -45,7 +45,7 @@ Azure 상태는 광범위 한 Azure 고객 집합에 영향을 주는 문제에 
 역할 인스턴스는 기본적으로 Vm이 고 Vm에 대 한 상태 검사는 역할 인스턴스에 재사용 되므로 VM 용어는 역할 인스턴스를 나타내는 데 사용 됩니다. 
 
 ## <a name="cloud-services-deployment-level-annotations--their-meanings"></a>해당 의미를 & Cloud Services (배포 수준) 주석
-| 주석 | 설명 | 
+| 주석 | Description | 
 | --- | --- | 
 | 사용 가능| 이 클라우드 서비스 배포에 영향을 미치는 알려진 Azure 플랫폼 문제가 없습니다. |
 | Unknown | 현재이 클라우드 서비스 배포의 상태를 확인할 수 없습니다. | 
@@ -58,7 +58,7 @@ Azure 상태는 광범위 한 Azure 고객 집합에 영향을 주는 문제에 
 | 알 수 없음 및 영향을 받을 수 있음 | 현재이 클라우드 서비스 배포의 상태를 확인할 수 없습니다. 이는이 가상 머신에 영향을 줄 수 있는 진행 중인 Azure 서비스 중단으로 인해 발생할 수 있으며,이는 중단이 해결 될 때 자동으로 복구 됩니다. |
 
 ## <a name="cloud-services-role-instance-level-annotations--their-meanings"></a>Cloud Services (역할 인스턴스 수준) 주석 & 의미
-| 주석 | 설명 | 
+| 주석 | Description | 
 | --- | --- | 
 | 사용 가능 | 이 가상 컴퓨터에 영향을 미치는 알려진 Azure 플랫폼 문제가 없습니다. | 
 | Unknown | 현재이 가상 컴퓨터의 상태를 확인할 수 없습니다. |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 55a86eeee4f819955e3f8adfcc0f55f24d58bed0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420314"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669176"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
@@ -67,7 +67,7 @@ Azure 표준 Load Balancer는 가용성 영역 시나리오를 지원 합니다.
   <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="Virtual Network NAT">
 </p>
 
-*그림: 영역 중복 부하 분산 장치*
+*그림: 영역 부하 분산 장치*
 
 이러한 개념(동일한 백 엔드에 대한 영역 중복 및 영역)을 혼합하려면 [Azure Load Balancer의 다중 프런트 엔드](load-balancer-multivip-overview.md)를 검토하세요.
 
@@ -101,7 +101,7 @@ SNAT 포트 미리 할당 알고리즘은 가용성 영역을 사용 하거나 �
 
 이 VM에 연결할 수 있는 다른 영역은 해당 프런트 엔드에서 VM을 계속 처리할 수 있습니다. 오류 이벤트가 발생 하는 동안 각 영역에는 서비스의 전반적인 상태를 보호 하는 동안 새 흐름의 여러 배포가 있을 수 있습니다.
 
-## <a name="design-considerations"></a><a name="design"></a>디자인 고려 사항
+## <a name="design-considerations"></a><a name="design"></a> 디자인 고려 사항
 
 부하 분산 장치는 가용성 영역의 맥락에서 유연 합니다. 영역에 맞추거나 각 규칙에 대해 영역 중복으로 선택할 수 있습니다. 가용성 증가는 복잡성이 증가 하는 가격으로 제공 될 수 있습니다. 최적 성능을 위한 가용성을 설계 합니다.
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 8c18a4d2fa6e5bdb211b77d4d7bb28af7e5b1c1a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 608d9511b14ef8dd3815d6f9b45cda31e6b38b94
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948116"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004309"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>지역 간 Azure 리소스 이동에 대 한 지원
 
@@ -363,9 +363,9 @@ ms.locfileid: "88948116"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | availabilitysets | 예 | 
+> | availabilitysets | 예 <br/><br/> [Azure 리소스](../../resource-mover/tutorial-move-region-virtual-machines.md) 이동 기를 사용 하 여 가용성 집합을 이동 합니다. | 
 > | diskencryptionsets | 예 | 
-> | disks | 예 | 
+> | disks | 예 <br/><br/> Azure [리소스](../../resource-mover/tutorial-move-region-virtual-machines.md) 이동 기를 사용 하 여 azure vm 및 관련 디스크를 이동 합니다. | 
 > | galleries | 예 | 
 > | galleries / images | 예 | 
 > | galleries / images / versions | 예 | 
@@ -377,7 +377,7 @@ ms.locfileid: "88948116"
 > | sharedvmimages | 예 | 
 > | sharedvmimages / versions | 예 | 
 > | 스냅샷 | 예 | 
-> | virtualmachines | 예 | 
+> | virtualmachines | 예 <br/><br/> Azure [리소스](../../resource-mover/tutorial-move-region-virtual-machines.md) 이동 기를 사용 하 여 azure vm을 이동 합니다. | 
 > | virtualmachines / extensions | 예 | 
 > | virtualmachinescalesets | 예 | 
 
@@ -411,7 +411,7 @@ ms.locfileid: "88948116"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | containerservices | 아니요.<br/><br/> 서비스가 사용 [중지](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/)되었습니다.
+> | containerservices | 아닙니다.<br/><br/> 서비스가 사용 [중지](https://azure.microsoft.com/updates/azure-container-service-will-retire-on-january-31-2020/)되었습니다.
 > | managedclusters | 예 | 
 > | openshiftmanagedclusters | 예 | 
 
@@ -544,14 +544,14 @@ ms.locfileid: "88948116"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | servers | 지역 간 읽기 복제본을 사용 하 여 기존 서버를 이동할 수 있습니다. [자세히 알아보기](../../postgresql/howto-move-regions-portal.md).<br/><br/> 지역 중복 백업 저장소를 사용 하 여 서비스를 프로 비전 하는 경우 지역 복원을 사용 하 여 다른 지역에서 복원할 수 있습니다. [자세히 알아보기](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
+> | servers | 지역 간 읽기 복제본을 사용 하 여 기존 서버를 이동할 수 있습니다. [자세한 정보를 알아보세요](../../postgresql/howto-move-regions-portal.md).<br/><br/> 지역 중복 백업 저장소를 사용 하 여 서비스를 프로 비전 하는 경우 지역 복원을 사용 하 여 다른 지역에서 복원할 수 있습니다. [자세한 정보를 알아보세요](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | servers | 지역 간 읽기 복제본을 사용 하 여 기존 서버를 이동할 수 있습니다. [자세히 알아보기](../../mysql/howto-move-regions-portal.md).
+> | servers | 지역 간 읽기 복제본을 사용 하 여 기존 서버를 이동할 수 있습니다. [자세한 정보를 알아보세요](../../mysql/howto-move-regions-portal.md).
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
@@ -579,9 +579,9 @@ ms.locfileid: "88948116"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | elasticpools | 아니요. 리소스가 노출 되지 않습니다.
-> | elasticpools / iothubtenants | 아니요. 리소스가 노출 되지 않습니다.
-> | iothubs | 예. [자세한 정보](../../iot-hub/iot-hub-how-to-clone.md)
+> | elasticpools | 아닙니다. 리소스가 노출 되지 않습니다.
+> | elasticpools / iothubtenants | 아닙니다. 리소스가 노출 되지 않습니다.
+> | iothubs | 예. [자세히 알아보기](../../iot-hub/iot-hub-how-to-clone.md)
 > | provisioningservices | 아니요 | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
@@ -716,7 +716,7 @@ ms.locfileid: "88948116"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | checknameavailability |  아니요.<br/><br/> IoT Central는 지역이 아닌 지역에서 작동 합니다.
+> | checknameavailability |  아닙니다.<br/><br/> IoT Central는 지역이 아닌 지역에서 작동 합니다.
 > | graph | 아니요
 
 ## <a name="microsoftiothub"></a>Microsoft.IoTHub
@@ -908,13 +908,13 @@ ms.locfileid: "88948116"
 > | expressrouteports | 예 | 
 > | frontdoors | 예 | 
 > | frontdoorwebapplicationfirewallpolicies | 예 | 
-> | loadbalancers | 예 <br/><br/> 기존 구성을 템플릿으로 내보내고 새 지역에 템플릿을 배포할 수 있습니다. [외부](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) 또는 [내부](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) 부하 분산 장치를 이동 하는 방법을 알아봅니다. |
+> | loadbalancers | 예 <br/><br/> [Azure 리소스](../../resource-mover/tutorial-move-region-virtual-machines.md) 이동 기를 사용 하 여 내부 및 외부 부하 분산 장치를 이동 합니다. |
 > | localnetworkgateways |  예 | 
 > | natgateways |  예 | 
 > | networkintentpolicies |  아니요 | 
-> | networkinterfaces | 예 | 
+> | networkinterfaces | 예 <br/><br/> [Azure 리소스](../../resource-mover/tutorial-move-region-virtual-machines.md) 이동 기를 사용 하 여 nic를 이동 합니다. | 
 > | networkprofiles | 예 | 
-> | networksecuritygroups | 예 | 
+> | networksecuritygroups | 예 <br/><br/> [Azure 리소스](../../resource-mover/tutorial-move-region-virtual-machines.md) 이동 기를 사용 하 여 네트워크 보안 그룹 (ngss)을 이동 합니다. | 
 > | networkwatchers |  예 |  
 > | networkwatchers / connectionmonitors |  아니요 | 
 > | networkwatchers/lenses |  예 | 
@@ -924,7 +924,7 @@ ms.locfileid: "88948116"
 > | privatednszones / virtualnetworklinks |  예 |  
 > | privateendpoints | 아니요 | 
 > | privatelinkservices | 예 | 
-> | publicipaddresses | 예<br/><br/> 기존 공용 IP 주소 구성을 템플릿으로 내보내고 새 지역에 템플릿을 배포할 수 있습니다. 공용 IP 주소 이동에 [대해 자세히 알아보세요](../../virtual-network/move-across-regions-publicip-portal.md) . |
+> | publicipaddresses | 예<br/><br/> [Azure 리소스](../../resource-mover/tutorial-move-region-virtual-machines.md) 이동 기를 사용 하 여 공용 IP 주소를 이동 합니다. |
 > | publicipprefixes | 아니요 | 
 > | routefilters | 예 | 
 > | routetables |  아니요 | 
@@ -1012,7 +1012,7 @@ ms.locfileid: "88948116"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | vaults | 아니요.<br/><br/> Azure 지역에서 Azure Backup에 대 한 Recovery Services 자격 증명 모음 이동은 지원 되지 않습니다.<br/><br/> Azure Site Recovery에 대 한 Recovery Services 자격 증명 모음에서 대상 지역에 [자격 증명 모음을 사용 하지 않도록 설정 하 고 다시 만들](../../site-recovery/move-vaults-across-regions.md) 수 있습니다. | 
+> | vaults | 아닙니다.<br/><br/> Azure 지역에서 Azure Backup에 대 한 Recovery Services 자격 증명 모음 이동은 지원 되지 않습니다.<br/><br/> Azure Site Recovery에 대 한 Recovery Services 자격 증명 모음에서 대상 지역에 [자격 증명 모음을 사용 하지 않도록 설정 하 고 다시 만들](../../site-recovery/move-vaults-across-regions.md) 수 있습니다. | 
 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
@@ -1134,11 +1134,11 @@ ms.locfileid: "88948116"
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
 > | instancepools | 예 | 
-> | managedinstances | 예 | 
+> | managedinstances | 예 <br/><br/> 여러 지역에서 관리 되는 인스턴스를 이동 하는 방법에 [대해 자세히 알아보세요](/azure/azure-sql/database/move-resources-across-regions) . | 
 > | managedinstances / databases | 예 | 
 > | servers | 예 | 
-> | servers / databases | 예 | 
-> | servers / elasticpools | 예 | 
+> | servers / databases | 예 <br/><br/> 여러 지역에서 데이터베이스를 이동 하는 방법에 [대해 자세히 알아보세요](/azure/azure-sql/database/move-resources-across-regions) .<br/><br/> Azure 리소스 이동 기를 사용 하 여 Azure SQL database를 이동 하는 방법에 [대해 자세히 알아보세요](../../resource-mover/tutorial-move-region-sql.md) .  | 
+> | servers / elasticpools | 예 <br/><br/> 여러 지역에서 탄력적 풀을 이동 하는 방법에 [대해 자세히 알아보세요](/azure/azure-sql/database/move-resources-across-regions) .<br/><br/> Azure 리소스 이동 기를 사용 하 여 Azure SQL 탄력적 풀을 이동 하는 방법에 [대해 자세히 알아보세요](../../resource-mover/tutorial-move-region-sql.md) .  | 
 > | virtualclusters | 예 | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

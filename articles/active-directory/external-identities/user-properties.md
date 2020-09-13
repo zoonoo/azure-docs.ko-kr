@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a61a298b3b1d9e129b0ef3bbfff12f34d0ba09a8
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87908920"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89668964"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 협업 사용자 속성
 
@@ -108,7 +108,7 @@ PowerShell을 사용하여 UserType을 Member에서 Guest로 또는 그 반대�
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>게스트 사용자의 전자 메일 주소를 업데이트할 수 있나요?
 
-게스트 사용자가 초대를 수락 하 고 이후에 메일 주소를 변경 하는 경우 새 메일은 디렉터리의 게스트 사용자 개체와 자동으로 동기화 되지 않습니다. 메일 속성은 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)를 통해 생성 됩니다. Exchange 관리 센터 또는 [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps)을 통해 메일 속성을 업데이트할 수 있으며 변경 내용은 Azure AD 게스트 사용자 개체에 반영 됩니다.
+게스트 사용자가 초대를 수락 하 고 이후에 메일 주소를 변경 하는 경우 새 메일은 디렉터리의 게스트 사용자 개체와 자동으로 동기화 되지 않습니다. 메일 속성은 [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)를 통해 생성 됩니다. Microsoft Graph API, Exchange 관리 센터 또는 [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps)을 통해 메일 속성을 업데이트할 수 있습니다. 변경 내용은 Azure AD 게스트 사용자 개체에 반영 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

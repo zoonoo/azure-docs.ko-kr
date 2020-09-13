@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a2e8bb6da4cf126a9dbd955b082d77965772f6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f4eba1b48b651c8efe9e9d737e226727cb244fb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357582"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662474"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect 동기화 V2 엔드포인트 API(공개 미리 보기) 
 Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여 Azure Active Directory에 대한 동기화 서비스 작업의 성능을 향상시켰습니다. 새 V2 엔드포인트를 활용하면 Azure AD로 내보내기 및 가져오기에 대한 성능이 크게 향상됩니다. 이 새 엔드포인트는 다음을 지원합니다.
@@ -26,14 +26,14 @@ Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여
  - Azure AD로 내보내기 및 가져오기 성능 향상
  
 > [!NOTE]
-> 현재 새 엔드포인트에는 다시 작성되는 O365 그룹에 대한 그룹 크기 제한이 구성되어 있지 않습니다. 이는 Active Directory 및 동기화 주기 대기 시간에 영향을 미칠 수 있습니다.  그룹 크기를 점진적으로 늘리는 것이 좋습니다.  
+> 현재 새 끝점에는 다시 작성 된 Microsoft 365 그룹에 대 한 그룹 크기 제한이 구성 되어 있지 않습니다. 이는 Active Directory 및 동기화 주기 대기 시간에 영향을 미칠 수 있습니다. 그룹 크기를 점진적으로 늘리는 것이 좋습니다.  
 
 
 ## <a name="pre-requisites"></a>필수 구성 요소  
 새 V2 엔드포인트를 사용하려면 [Azure AD Connect 버전 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) 이상을 사용하고 아래 제공되는 배포 단계에 따라 Azure AD Connect 서버에 대해 V2 엔드포인트를 사용하도록 설정해야 합니다.   
 
 >[!NOTE]
->현재 이 공개 미리 보기는 Azure 글로벌 클라우드에서만 사용할 수 있으며 [국가별 클라우드](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud)에는 사용할 수 없습니다.
+>현재 이 공개 미리 보기는 Azure 글로벌 클라우드에서만 사용할 수 있으며 [국가별 클라우드](../develop/authentication-national-cloud.md)에는 사용할 수 없습니다.
 
 ### <a name="public-preview-limitations"></a>공용 미리 보기 제한 사항  
 이 릴리스는 광범위한 테스트를 거쳤지만 여전히 문제가 발생할 수 있습니다. 이 공개 미리 보기 릴리스의 목표 중 하나는 이러한 문제를 찾아서 수정하는 것입니다.  
@@ -44,14 +44,14 @@ Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여
 ## <a name="deployment-guidance"></a>배포 지침 
 V2 엔드포인트를 사용하려면 [Azure AD Connect 버전 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) 이상을 배포해야 합니다. 제공된 링크를 사용하여 다운로드합니다. 
 
-환경에 새 엔드포인트를 롤아웃하려면 [스윙 마이그레이션](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration) 방법을 따르는 것이 좋습니다. 이렇게 하면 중요한 롤백이 필요한 상황에 대비한 명확한 대체 계획을 확보할 수 있습니다. 다음 예에서는 이 시나리오에서 스윙 마이그레이션을 사용하는 방법을 보여 줍니다. 스윙 마이그레이션 배포 방법에 대한 자세한 내용은 제공된 링크를 참조하세요. 
+환경에 새 엔드포인트를 롤아웃하려면 [스윙 마이그레이션](./how-to-upgrade-previous-version.md#swing-migration) 방법을 따르는 것이 좋습니다. 이렇게 하면 중요한 롤백이 필요한 상황에 대비한 명확한 대체 계획을 확보할 수 있습니다. 다음 예에서는 이 시나리오에서 스윙 마이그레이션을 사용하는 방법을 보여 줍니다. 스윙 마이그레이션 배포 방법에 대한 자세한 내용은 제공된 링크를 참조하세요. 
 
 ### <a name="swing-migration-for-deploying-v2-endpoint"></a>V2 엔드포인트 배포를 위한 스윙 마이그레이션
 다음 단계는 스윙 방법을 사용하여 v2 엔드포인트를 배포하는 과정을 안내 합니다.
 
 1. 현재 준비 서버에 V2 엔드포인트를 배포합니다. 이 서버는 다음 단계에서 **V2 서버** 라고 합니다. 현재 활성 서버는 V1 엔드포인트를 사용하여 계속해서 프로덕션 워크로드를 처리합니다. 이 엔드포인트는 아래에서 **V1 서버**로 지칭됩니다.
 1. **V2 서버**가 예상한 대로 가져오기를 계속 처리하고 있는지 확인합니다. 이 단계에서 큰 그룹은 Azure AD 또는 온-프레미스 AD에 프로비저닝되지 않지만 업그레이드로 인해 기존 동기화 프로세스에 예기치 않은 다른 영향이 발생하지 않았음을 확인할 수 있습니다. 
-2. 유효성 검사가 완료되면 **V2 서버**를 활성 서버로, **V1 서버**를 준비 서버로 전환합니다. 이 시점에서 동기화 되는 범위에 있는 큰 그룹은 Azure AD에 프로비저닝되고, 그룹 쓰기 저장이 사용 설정된 경우 큰 O365 통합 그룹도 AD에 프로비저닝됩니다.
+2. 유효성 검사가 완료되면 **V2 서버**를 활성 서버로, **V1 서버**를 준비 서버로 전환합니다. 이 시점에서 동기화 되는 범위에 있는 규모가 많은 그룹은 Azure AD에 프로 비전 되 고, 그룹 쓰기 저장을 사용 하도록 설정 된 경우 대량 Microsoft 365 통합 그룹이 AD에 프로 비전 됩니다.
 3. **V2 서버**가 정상 작동하면서 큰 그룹을 성공적으로 처리하고 있는지 확인합니다. 일정 기간 동안 이 단계에 머물면서 동기화 프로세스를 모니터링하는 것이 좋습니다.
   >[!NOTE]
   > 이전 구성으로 다시 전환해야 하는 경우 **V2 서버**에서 **V1 서버**로 다시 스윙 마이그레이션을 수행할 수 있습니다. V1 엔드포인트는 멤버가 50k를 초과하는 그룹을 지원하지 않으므로 Azure AD 또는 온-프레미스 AD에서 Azure AD Connect에 의해 프로비저닝된 모든 큰 그룹은 이후 삭제됩니다. 
@@ -153,7 +153,7 @@ V2 엔드포인트로 전환하려면 다음 단계를 사용합니다.
  `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
  
 >[!NOTE]
-> 멤버 수가 50K를 초과하는 O365 통합 그룹이 있는 경우 그룹을 Azure AD Connect로 읽어오고, 그룹 쓰기 저장이 사용 설정된 경우 온-프레미스 AD에 기록됩니다. 
+> 구성원이 50k 이상인 통합 그룹 Microsoft 365 있는 경우 그룹을 Azure AD Connect으로 읽어 그룹 쓰기 저장을 사용 하도록 설정 하면 온-프레미스 AD에 기록 됩니다. 
 
 ## <a name="rollback"></a>롤백 
 V2 엔드포인트를 사용 설정한 상황에서 롤백해야 하는 경우 다음 단계에 따릅니다. 
@@ -181,7 +181,7 @@ V2 엔드포인트를 사용 설정한 상황에서 롤백해야 하는 경우 �
  `Set-ADSyncScheduler -SyncCycleEnabled $true`
  
 >[!NOTE]
-> V2에서 V1 엔드포인트로 되돌리는 경우 50k를 초과하는 멤버와 동기화된 그룹은 전체 동기화를 실행한 후에 Azure AD에 프로비저닝된 AD 그룹과 AD에 프로비저닝된 O365 통합 그룹 모두에 대해 삭제됩니다. 
+> V 2에서 V1 끝점으로 다시 전환 하는 경우, Azure Microsoft 365 AD에 프로 비전 된 AD 그룹과 AD에 프로 비전 된 통합 그룹 모두에 대해 전체 동기화를 실행 한 후에는 전체 동기화를 실행 한 후에 50 개 이상의 구성원과 동기화 된 그룹이 삭제 됩니다. 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답  
 **Q: 고객이 프로덕션에서 이 기능을 사용할 수 있나요?**   

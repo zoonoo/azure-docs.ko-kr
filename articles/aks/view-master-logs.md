@@ -109,7 +109,7 @@ AKS는 다음 이벤트를 로깅합니다.
 
 ## <a name="log-roles"></a>로그 역할
 
-| 역할                     | 설명 |
+| 역할                     | Description |
 |--------------------------|-------------|
 | *aksService*             | HcpService의 제어 평면 작업에 대 한 감사 로그의 표시 이름입니다. |
 | *masterclient*           | MasterClientCertificate에 대 한 감사 로그의 표시 이름, az aks get 자격 증명에서 가져온 인증서 |

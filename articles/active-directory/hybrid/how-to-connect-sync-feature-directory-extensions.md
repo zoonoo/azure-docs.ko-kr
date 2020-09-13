@@ -16,18 +16,18 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d64bfe66f5fb871ff9f85a5d58d128ac44643846
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a0765f5279eb41324691c431c5973bb55a8b52d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019764"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662489"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 동기화: 디렉터리 확장
-디렉터리 확장을 사용하면 온-프레미스 Active Directory의 사용자 고유 특성을 사용하여 Azure AD(Active Directory)에서 스키마를 확장할 수 있습니다. 이 기능을 통해 온-프레미스를 계속 관리하는 특성을 이용하는 LOB 앱을 빌드할 수 있습니다. 이러한 특성은 [확장](https://docs.microsoft.com/graph/extensibility-overview
+디렉터리 확장을 사용하면 온-프레미스 Active Directory의 사용자 고유 특성을 사용하여 Azure AD(Active Directory)에서 스키마를 확장할 수 있습니다. 이 기능을 통해 온-프레미스를 계속 관리하는 특성을 이용하는 LOB 앱을 빌드할 수 있습니다. 이러한 특성은 [확장](/graph/extensibility-overview
 )을 통해 사용 될 수 있습니다. [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)를 사용 하 여 사용 가능한 특성을 볼 수 있습니다. 또한이 기능을 사용 하 여 Azure AD에 동적 그룹을 만들 수 있습니다.
 
-현재 이 특성을 이용하는 Office 365 워크로드가 없습니다.
+현재는 Microsoft 365 작업에서 이러한 특성을 사용 하지 않습니다.
 
 ## <a name="customize-which-attributes-to-synchronize-with-azure-ad"></a>Azure AD와 동기화 할 특성 사용자 지정
 
@@ -69,11 +69,11 @@ Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는
 >[!NOTE]
 > Microsoft Graph API에서 반환할 특성을 요청 해야 합니다. 다음과 같은 특성을 명시적으로 선택 `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division` 합니다..
 >
-> 자세한 내용은 [Microsoft Graph: 쿼리 매개 변수 사용](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter)을 참조하세요.
+> 자세한 내용은 [Microsoft Graph: 쿼리 매개 변수 사용](/graph/query-parameters#select-parameter)을 참조하세요.
 
 ## <a name="use-the-attributes-in-dynamic-groups"></a>동적 그룹의 특성 사용
 
-보다 유용한 시나리오 중 하나는 dynamic security 또는 Office 365 그룹에서 이러한 특성을 사용 하는 것입니다.
+보다 유용한 시나리오 중 하나는 dynamic security 또는 Microsoft 365 그룹에서 이러한 특성을 사용 하는 것입니다.
 
 1. Azure AD에서 새 그룹을 만듭니다. 적절 한 이름을 지정 하 고 **멤버 자격 유형이** **동적 사용자**인지 확인 합니다.
 
