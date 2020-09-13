@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0bb7b91cd31761b801ad469b8ce556b29e09fd3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ebc73c75d9a23a53ac94f28208251dcff83e684a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074709"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030704"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Azure IoT Hub 장치에 대 한 고객 데이터 요청 기능
 
@@ -36,13 +36,13 @@ Azure IoT Hub 서비스의 Azure Monitor 통합 기능을 사용하여 진단 �
 
 테넌트 관리자는 Azure Portal에서 Azure IoT Hub 확장의 IoT 디바이스 블레이드를 사용하여 디바이스를 삭제할 수 있습니다. 그러면 해당 디바이스와 연결된 데이터가 삭제됩니다.
 
-또한 REST API를 사용하여 디바이스에 대한 삭제 작업을 수행할 수 있습니다. 자세한 내용은 [서비스 - 디바이스 삭제](/rest/api/iothub/service/registrymanager/deletedevice)를 참조하세요.
+또한 REST API를 사용하여 디바이스에 대한 삭제 작업을 수행할 수 있습니다. 자세한 내용은 [서비스 - 디바이스 삭제](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice)를 참조하세요.
 
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기
 
 테 넌 트 관리자는 Azure Portal에서 Azure IoT Hub 확장의 IoT 장치 창 내에서 복사 및 붙여넣기를 활용 하 여 장치와 연결 된 데이터를 내보낼 수 있습니다.
 
-또한 REST API를 사용하여 디바이스에 대한 내보내기 작업을 수행할 수 있습니다. 자세한 내용은 [서비스 - 디바이스 가져오기](/rest/api/iothub/service/registrymanager/getdevice)를 참조하세요.
+또한 REST API를 사용하여 디바이스에 대한 내보내기 작업을 수행할 수 있습니다. 자세한 내용은 [서비스 - 디바이스 가져오기](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice)를 참조하세요.
 
 > [!NOTE]
 > Microsoft 엔터프라이즈 서비스를 사용하는 경우 Microsoft는 시스템 생성 로그라는 일부 정보를 생성합니다. 일부 Azure IoT Hub 시스템 생성 로그는 테넌트 관리자가 액세스하거나 내보낼 수 없습니다. 이러한 로그는 서비스 내에서 수행된 실제 작업 및 개별 디바이스와 관련된 진단 데이터로 구성됩니다.

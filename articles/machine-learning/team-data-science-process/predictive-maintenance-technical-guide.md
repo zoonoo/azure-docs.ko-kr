@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 9520369861623e60a0118baa20a7871437433a4b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6677f9275d3b6f0569216eb16046d096c574beab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290717"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030904"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>항공 우주에서 예측 유지 관리를 위한 솔루션 템플릿에 대한 기술 가이드
 
@@ -182,7 +182,7 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
    * 다음 팝 아웃 창에서 왼쪽 창에 두 가지 옵션이 표시됩니다(**Windows** 및 **데이터베이스**). **‘데이터베이스’** 를 클릭하고 **‘사용자 이름’** 및 **‘암호’** 를 입력합니다(처음으로 솔루션을 배포하고 Azure SQL Database를 만들 때 입력한 사용자 이름 및 암호). ***이러한 설정을 적용할 수준 선택***에서 데이터베이스 수준 옵션을 선택합니다. 그런 다음 **'연결'** 을 클릭합니다.
    * 두 번째 테이블 **PMResult**를 클릭하고 오른쪽 **'쿼리 설정'** 패널의 **'적용된 단계'** 아래 **'원본'** 옆에 있는 ![탐색 아이콘](./media/predictive-maintenance-technical-guide/icon-navigation.png)을 클릭한 다음 위 단계와 마찬가지로 서버 및 데이터베이스 이름을 업데이트하고 확인을 클릭합니다.
    * 이전 페이지로 안내된 후 창을 닫습니다. 메시지가 표시되면 **적용**을 클릭합니다. 마지막으로 **저장** 단추를 클릭하여 변경 내용을 저장합니다. Power BI 파일은 이제 서버에 대한 연결을 설정합니다. 시각화가 비어 있는 경우 범례의 오른쪽 위 모퉁이의 지우개 아이콘을 클릭하여 모든 데이터를 시각화하도록 시각화의 선택 항목을 해제해야 합니다. 새로 고침 단추를 사용하여 시각화에 새 데이터를 반영합니다. 처음에 데이터 팩터리는 3시간마다 새로 고치도록 예약되어 있으므로 시각화에는 시드 데이터만 나타납니다. 3시간 후 데이터를 새로 고치면 시각화에 적용된 새 예측이 표시됩니다.
-3. (선택 사항) 콜드 경로 대시보드를 [Power BI 온라인](https://www.powerbi.com/)에 게시합니다. 이 단계에는 Power BI 계정(또는 Office 365 계정)이 필요합니다.
+3. (선택 사항) 콜드 경로 대시보드를 [Power BI 온라인](https://www.powerbi.com/)에 게시합니다. 이 단계에는 Power BI 계정 (또는 회사 또는 학교 계정)이 필요 합니다.
    
    * **‘게시’** 를 클릭하고 몇 초 후 녹색 확인 표시로 "Power BI에 게시 성공!"을 표시하는 창이 나타납니다. 아래 링크 "Power BI에서 PredictiveMaintenanceAerospace.pbix 열기"를 클릭합니다. 자세한 지침을 찾으려면 [Power BI 데스크톱에서 게시](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop)를 참조하세요.
    * 새 대시보드를 만들려면 왼쪽 창의 **대시보드** 섹션 옆의 **+** 기호를 클릭합니다. 이 새 대시보드에 대해 이름 "예측 유지 관리 데모"를 입력합니다.

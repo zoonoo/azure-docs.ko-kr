@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f57c212dfc44d84640224b1526ab770fe97230
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a3f032ca973a188bf294155c73de3ca84f6ee30f
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009460"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024403"
 ---
 # <a name="hierarchical-state-override"></a>계층 상태 재정의
 
-대부분의 경우에는 하위 그래프를 숨기거나 투명한 렌더링으로 파트를 전환하는 등, [모델](../../concepts/models.md)의 파트에 대한 모양을 동적으로 변경해야 합니다. 관련된 각 파트의 재질을 변경하는 것은 전체 장면 그래프를 반복하고 각 노드에서 재질 복제 및 할당을 관리해야 하므로 실용적이지 않습니다.
+대부분의 경우에는 [모델](../../concepts/models.md)의 일부에 대 한 모양을 동적으로 변경 해야 합니다. 예를 들어 하위 그래프를 숨기 거 나 부분을 투명 렌더링으로 전환할 수 있습니다. 관련된 각 파트의 재질을 변경하는 것은 전체 장면 그래프를 반복하고 각 노드에서 재질 복제 및 할당을 관리해야 하므로 실용적이지 않습니다.
 
 최소한의 오버 헤드로 이 사용 사례를 수행하려면 `HierarchicalStateOverrideComponent`를 사용합니다. 이 구성 요소는 장면 그래프의 임의 분기에서 계층 상태 업데이트를 구현합니다. 즉, 상태는 장면 그래프의 모든 수준에서 정의될 수 있으며 새 상태로 재정의되거나 리프 개체에 적용될 때까지 계층 구조로 공급됩니다.
 
@@ -31,20 +31,23 @@ ms.locfileid: "89009460"
 * **`Hidden`**: 장면 그래프의 각 망상이 숨겨지거나 표시 됩니다.
 * **`Tint color`**: 렌더링 된 개체는 개별 색조 색 및 색조 가중치를 사용 하 여 색 색조가 될 수 있습니다. 아래 이미지는 휠 테두리를 색칠한 모습을 보여줍니다.
   
-  ![색칠하기](./media/color-tint.png)
+  ![개체를 녹색으로 전환 하는 데 사용 되는 색조 색입니다.](./media/color-tint.png)
 
 * **`See-through`**: 개체의 내부 부분을 표시 하는 등의 방법으로 기 하 도형을 약간 투명 하 게 렌더링 합니다. 다음 이미지는 빨간색 브레이크 캘리퍼를 제외하고, 투명 모드에서 렌더링되는 전체 자동차를 보여줍니다.
 
-  ![투명](./media/see-through.png)
+  ![선택한 개체를 투명 하 게 만드는 데 사용 되는 보기 모드](./media/see-through.png)
 
   > [!IMPORTANT]
   > *TileBasedComposition* [렌더링 모드](../../concepts/rendering-modes.md)가 사용될 때만 투명 효과가 나타납니다.
 
 * **`Selected`**: Geometry는 [선택 윤곽](outlines.md)을 사용 하 여 렌더링 됩니다.
 
-  ![윤곽 선택](./media/selection-outline.png)
+  ![선택한 파트를 강조 표시 하는 데 사용 되는 윤곽선 옵션](./media/selection-outline.png)
 
 * **`DisableCollision`**: 기 하 도형은 [공간 쿼리에서](spatial-queries.md)제외 됩니다. **`Hidden`** 플래그는 충돌 상태 플래그에 영향을 주지 않으므로 이러한 두 플래그는 자주 함께 설정 됩니다.
+
+> [!TIP]
+> 전체 하위 그래프의 표시 유형 및 공간 쿼리를 해제 하는 대신 `enabled` 게임 개체의 상태를 설정/해제할 수 있습니다. 계층을 사용 하지 않도록 설정 하는 경우이에 대 한 우선 순위가 지정 됩니다 `HierarchicalStateOverrideComponent` .
 
 ## <a name="hierarchical-overrides"></a>계층 재정의
 
@@ -95,6 +98,11 @@ component->SetState(
 `HierarchicalStateOverrideComponent` 자체의 인스턴스는 런타임 오버헤드를 많이 추가하지는 않습니다. 그러나 활성 구성 요소의 수를 낮게 유지하는 것은 언제나 바람직합니다. 예를 들어 선택한 개체를 강조 표시하는 선택 시스템을 구현하는 경우 강조 표시가 제거될 때 구성 요소를 삭제하는 것이 좋습니다. 중립 기능을 중심으로 구성 요소를 유지하면 신속하게 추가할 수 있습니다.
 
 투명 렌더링은 표준 렌더링보다 서버의 GPU에 더 많은 작업을 배치합니다. 장면 그래프의 큰 파트를 *see-through*로 전환하고 많은 레이어의 기하 도형을 표시하는 경우, 성능 병목 상태가 발생할 수 있습니다. [윤곽 선택](../../overview/features/outlines.md#performance)이 있는 개체에도 동일하게 사용할 수 있습니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # HierarchicalStateOverrideComponent 클래스](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [C + + HierarchicalStateOverrideComponent 클래스](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
 ## <a name="next-steps"></a>다음 단계
 

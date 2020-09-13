@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: fc3c4055feedeb7c1c41a53dc26ac7c29a2cb4fe
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: b9bb3691901d551f63592bee60adec913ee437ca
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007505"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029650"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
@@ -52,7 +52,7 @@ Azure 네트워킹 MSP 파트너가 제공하는 관리형 클라우드 네트�
 |[SoftBank]( https://www.softbank.jp/biz/nw/nwp/cloud_access/direct_access_for_az/)|[Azure 네트워크 컨설팅 서비스: 1주 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_nw_msp_service_azure), [Azure 평가 서비스: 1주](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_msp_service_azure_01?tab=Overview&pub_source=email&pub_status=success)|||||
 |[TCTS](https://www.tatacommunications-ts.com/index.php)|[Azure 마이그레이션: 3주 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/tcs.azure_migration_assessment)|||||
 |[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)||[관리형 Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_expressroute?tab=Overview)|[관리형 Virtual WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_azure_vwan_for_sdwan?tab=Overview)|||
-|[Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)|[E2E 관리 네트워크 솔루션](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.techm-network-transformstrategy?tab=Overview)|||[Azure 개인 LTE MSP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.techm-networking-azureprivate5g?tab=Overview)|
+|[Tech Mahindra](https://www.techmahindra.com/en-in/network-services/)|[E2E 관리 네트워크 솔루션](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.techm-network-transformstrategy?tab=Overview)|||[Azure 개인 LTE MSP](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/techm.techm-networking-azureprivate5g?tab=Overview)|
 |[Vigilant IT](https://vigilant.it/manage-cloud-service/)|[Azure 상태 확인: 5일 평가](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: 5일 구현](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis 관리 ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Fortinet에서 제공하는 Vandis 관리 VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Palo Alto Networks에서 제공하는 Vandis 관리 VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 

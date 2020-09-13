@@ -6,16 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c6c0e86bc372790cda2de4ff4c1274f414a01ab0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4559c72481dfa0cefb2ce84cab56a50d0bf182ef
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503211"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030330"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Synapse SQL의 임시 테이블
 
@@ -99,7 +99,7 @@ GROUP BY
 > 
 
 ### <a name="drop-temporary-tables"></a>임시 테이블 삭제
-새 세션이 만들어지면 임시 테이블이 존재하지 않습니다.  그러나 이름이 같은 임시를 만드는 동일한 저장 프로시저를 호출 하는 경우 `CREATE TABLE` 문이 성공적으로 실행 되도록 하려면 다음과 같이 간단한 사전 존재 검사를 사용 합니다 `DROP` . 
+새 세션이 만들어지면 임시 테이블이 존재하지 않습니다.  그러나 이름이 같은 임시를 만드는 동일한 저장 프로시저를 호출 하는 경우 `CREATE TABLE` 문이 성공적으로 실행 되도록 하려면 다음과 같이 간단한 사전 존재 검사를 사용 합니다  `DROP` . 
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL

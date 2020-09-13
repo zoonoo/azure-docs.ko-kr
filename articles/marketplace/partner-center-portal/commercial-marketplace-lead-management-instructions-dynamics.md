@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: 92f4bde31af2a7bb4c658141964f238a8c077eef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 31dba5489db3778d738fc2856cf6aacfd6987711
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120381"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030755"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Dynamics 365 Customer Engagement에 대해 잠재 고객 관리 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "86120381"
 
 * Dynamics 365 Customer Engagement 인스턴스에 대한 관리자 권한 - 솔루션을 설치하는 데 필요.
 * 테넌트 관리자 권한 - 상업용 마켓플레이스 제품에서 잠재 고객을 보내는 데 사용되는 잠재 고객 서비스의 신규 서비스 계정을 만드는 데 필요.
-* Office 365 관리 포털에 대한 액세스 권한.
+* 관리 포털에 액세스 합니다.
 * Azure Portal에 대한 액세스 권한.
 
 ## <a name="install-the-solution"></a>솔루션 설치

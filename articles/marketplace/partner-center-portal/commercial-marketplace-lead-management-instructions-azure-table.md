@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
-ms.openlocfilehash: db2bae9d9e1c9658937e725a04d919743ff9999e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855742"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030800"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Azure Table 스토리지를 사용하여 상업용 Marketplace 잠재 고객 관리
 
@@ -135,7 +135,7 @@ CRM(고객 관계 관리) 시스템이 Microsoft AppSource 및 Azure Marketplace
    이어지는 단계에서는 조건의 결과에 따라 수행할 작업을 설정합니다.
 
    * 조건이 **아니요인 경우**로 확인되면 아무것도 수행하지 않습니다.
-   * 조건이 **예인 경우**를 확인하면 Office 365 계정에 연결하는 작업을 트리거하여 이메일을 전송합니다.
+   * **이 경우 조건이 이면**회사 또는 학교 계정을 연결 하는 작업을 트리거하여 전자 메일을 보냅니다. 
 
 1. **예인 경우** 아래에서 **작업 추가**를 선택합니다.
 

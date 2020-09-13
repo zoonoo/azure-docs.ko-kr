@@ -1,6 +1,6 @@
 ---
 title: 계획 보고서 & 배포 모니터링-Azure AD
-description: 보고 및 모니터링의 implmentation을 계획 하 고 실행 하는 방법을 설명 합니다.
+description: 보고 및 모니터링 구현을 계획 하 고 실행 하는 방법을 설명 합니다.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b83291dc37c6248761214654f99d3ce214b551
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a75cc77b45d41d7fd63eadce34265ca54b663e14
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229755"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030993"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Azure Active Directory 보고 및 모니터링 배포 계획
 
@@ -97,7 +97,7 @@ Azure AD 모니터링 및 보고를 배포 하려면 Azure AD 테 넌 트의 전
 
 * 비즈니스 요구를 충족 하는 솔루션에 필요 합니다.
 * 비즈니스 요구를 충족 하는 데 유용 합니다.
-* 해당 사항 없음
+* 해당 없음
 
 |영역 |Description |
 |-|-|
@@ -133,7 +133,7 @@ Azure AD 활동 로그에 대해 미리 작성 된 보기를 설치 하 여 로�
 
 로그를 Azure 이벤트 허브로 라우팅하는 경우 타사 SIEM 도구와 통합할 수 있습니다. 이 통합을 통해 Azure AD 활동 로그 데이터를 SIEM에서 관리하는 다른 데이터와 결합하여 환경에 보다 풍부한 인사이트를 얻을 수 있습니다. 
 
-[로그를 이벤트 허브로 스트리밍](//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)하는 방법을 알아보세요.
+[로그를 이벤트 허브로 스트리밍](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)하는 방법을 알아보세요.
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Azure AD 보고 및 모니터링을 위한 계획 작업 및 보안
 

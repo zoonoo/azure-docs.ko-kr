@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8f76f143b6c6a26b88b78e20d8d5d8ae1ae48553
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 660f6dfae23331455408ae7127274550a3a4cc3a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80158017"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019838"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Azure IoT Central UI 사용자 지정
 
 이 문서에서는 관리자가 사용자 지정 테마를 적용 하 고 사용자 지정 도움말 리소스를 가리키도록 도움말 링크를 수정 하 여 응용 프로그램의 UI를 사용자 지정할 수 있는 방법을 설명 합니다. 
-
-
 
 다음 스크린샷은 표준 테마를 사용 하는 페이지를 보여 줍니다.
 

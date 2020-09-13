@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 8be13a299de0fc3de0acaf0001722d8c96a460e6
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: bd6f88db2b55a5f0f445659e4b5ef609d3e146e9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205936"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030313"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>리디렉션 URI (회신 URL) 제한 사항 및 제한 사항
 
@@ -65,6 +65,8 @@ Azure Active Directory (Azure AD) 응용 프로그램 모델은 현재 조직의
 * 포트가 서로 다른 경우에는 여러 리디렉션 Uri를 등록 하지 마십시오. 로그인 서버는 임의의 항목을 임의로 선택 하 고 해당 리디렉션 URI와 연결 된 동작을 사용 합니다 (예: `web` -, `native` -또는 `spa` -type 리디렉션).
 * 호스트에서 여러 리디렉션 Uri를 등록 하 여 개발 중에 서로 다른 흐름을 테스트 해야 하는 경우에는 URI의 *경로* 구성 요소를 사용 하 여 구분 합니다. 예를 들어,는 `http://127.0.0.1/MyWebApp` 와 일치 하지 않습니다 `http://127.0.0.1/MyNativeApp` .
 * RFC 지침에 따라 리디렉션 URI에서를 사용 하면 안 `localhost` 됩니다. 대신 실제 루프백 IP 주소를 사용 `127.0.0.1` 합니다. 이렇게 하면 잘못 구성 된 방화벽 또는 이름이 바뀐 네트워크 인터페이스로 인해 앱이 중단 되지 않습니다.
+
+    `http`Localhost 대신 루프백 주소 (127.0.0.1)를 사용 하 여 스키마를 사용 하려면 [응용 프로그램 매니페스트](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute)를 편집 해야 합니다. 
 
     IPv6 루프백 주소 ( `[::1]` )는 현재 지원 되지 않습니다.
 

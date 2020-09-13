@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 0fc9139e9456a62bf3586fb358046e7c868b834a
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: ea2fae483da495bce9551899b9646868251f0454
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005227"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030830"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Azure Monitor 에이전트 개요 (미리 보기)
 Azure Monitor 에이전트 (AMA)는 가상 컴퓨터의 게스트 운영 체제에서 모니터링 데이터를 수집 하 여 Azure Monitor에 전달 합니다. 이 문서에서는 Azure Monitor 에이전트를 설치 하는 방법 및 데이터 수집을 구성 하는 방법을 비롯 하 여 에이전트에 대 한 개요를 제공 합니다.
@@ -68,7 +68,7 @@ Azure Monitor 에이전트에 대 한 비용은 없지만 데이터 수집에 �
 
 Azure Monitor 에이전트는 Azure Monitor 메트릭 또는 Azure Monitor 로그를 지 원하는 Log Analytics 작업 영역에 데이터를 보냅니다.
 
-| 데이터 원본 | Destinations | 설명 |
+| 데이터 원본 | Destinations | Description |
 |:---|:---|:---|
 | 성능        | Azure Monitor 메트릭<br>Log Analytics 작업 영역 | 운영 체제 및 워크로드의 여러 측면에서 성능을 측정하는 숫자 값입니다. |
 | Windows 이벤트 로그 | Log Analytics 작업 영역 | Windows 이벤트 로깅 시스템으로 전송되는 정보입니다. |
@@ -99,6 +99,8 @@ Azure Monitor 에이전트는 Azure Monitor 메트릭 또는 Azure Monitor 로�
 ## <a name="security"></a>보안
 Azure Monitor 에이전트에는 키가 필요 하지 않지만 대신 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity)가 필요 합니다. 에이전트를 배포 하기 전에 각 가상 머신에서 시스템 할당 관리 id를 사용 하도록 설정 해야 합니다.
 
+## <a name="networking"></a>네트워킹
+Azure Monitor 에이전트는 Azure 서비스 태그 (AzureMonitor 및 AzureResourceManager 태그가 모두 필요 함)를 지원 하지만 Azure Monitor 개인 링크 범위 또는 직접 프록시는 아직 작동 하지 않습니다.
 
 ## <a name="install-the-azure-monitor-agent"></a>Azure Monitor 에이전트 설치
 Azure Monitor 에이전트는 다음 표의 세부 정보를 사용 하 여 [AZURE VM 확장](../../virtual-machines/extensions/overview.md) 으로 구현 됩니다. 

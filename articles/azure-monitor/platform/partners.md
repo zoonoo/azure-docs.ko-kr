@@ -4,12 +4,12 @@ description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 2e3fae1b942083d78798fccebd7a7f2c58f7659a
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: d5f239540a74c431e381c581f00514a1f7acd5e3
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142413"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030383"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -77,6 +77,8 @@ CloudMonix는 Microsoft Azure 플랫폼을 위한 모니터링, 자동화 및 �
 Datadog는 클라우드 규모 응용 프로그램을 위한 세계 최고의 모니터링 서비스입니다. 서버, 데이터베이스, 도구 및 서비스의 데이터를 하나로 모아 전체 스택에 대한 통합 보기를 제시합니다. 이러한 기능은 SaaS 기반 데이터 분석 플랫폼에서 제공됩니다. 이 서비스를 통해 개발 및 운영 팀이 협업하여 중단 시간을 방지하고, 성능 문제를 해결하며, 개발 및 개발 주기가 제 때에 끝날 수 있게 할 수 있습니다. Datadog 및 Azure를 통합하면 전체 인프라에서 메트릭을 수집하고 볼 수 있습니다. VM 메트릭과 애플리케이션 수준 메트릭의 상관 관계를 지정합니다. 속성 및 사용자 지정 태그의 조합을 통해 메트릭을 분리 및 분할합니다.
 
 [설명서로 이동합니다.][datadog-doc]
+
+Datadog의 새로운 Azure marketplace 통합은 2020 년 10 월에 출시 예정입니다. 릴리스 시 여기에 링크가 추가 됩니다. 
 
 ## <a name="dynatrace"></a>Dynatrace
 

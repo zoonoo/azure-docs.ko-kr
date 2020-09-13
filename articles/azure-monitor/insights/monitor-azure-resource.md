@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 70ab387018fc54b4dad9ee911d4c7557e1e7805c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326174"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030347"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 리소스 모니터링
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있는 경우 이와 같은 리소스의 가용성, 성능 및 작업을 모니터링할 수 있습니다. 이 문서에서는 Azure 리소스에서 생성되는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이 데이터에 대해 분석하고 경고하는 방법을 설명합니다.
@@ -20,10 +20,7 @@ Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 �
 > 이 문서는 Azure Monitor를 사용하는 Azure의 모든 서비스에 적용됩니다. VM 및 App Service를 포함한 컴퓨팅 리소스는 여기에 설명된 것과 동일한 모니터링 데이터를 생성하지만, 로그 및 메트릭을 생성할 수 있는 게스트 운영 체제도 있습니다. 이 데이터를 수집하고 분석하는 방법에 대한 자세한 내용은 이와 같은 서비스에 대한 모니터링 설명서를 참조하세요.
 
 ## <a name="what-is-azure-monitor"></a>Azure Monitor란 무엇인가요?
-Azure의 전체 스택 모니터링 서비스인 Azure Monitor는 다른 클라우드 및 온-프레미스의 리소스 외에도 Azure 리소스를 모니터링하는 전체 기능 세트를 제공합니다. [Azure Monitor 데이터 플랫폼](../platform/data-platform.md)은 다음 섹션에 설명된 것처럼 데이터를 [로그](../platform/data-platform-logs.md) 및 [메트릭](../platform/data-platform-metrics.md)에 수집하여 전체 모니터링 도구 세트로 이와 같은 데이터를 함께 분석할 수 있습니다.
-
-- [Azure Monitor 메트릭으로 무엇을 할 수 있나요?](../platform/data-platform-metrics.md#what-can-you-do-with-azure-monitor-metrics)
-- [Azure Monitor 로그로 무엇을 할 수 있나요?](../platform/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs)
+Azure의 전체 스택 모니터링 서비스인 Azure Monitor는 다른 클라우드 및 온-프레미스의 리소스 외에도 Azure 리소스를 모니터링하는 전체 기능 세트를 제공합니다. [Azure Monitor 데이터 플랫폼](../platform/data-platform.md) 은 전체 모니터링 도구 집합을 사용 하 여 함께 분석할 수 있는 [로그](../platform/data-platform-logs.md) 및 [메트릭](../platform/data-platform-metrics.md) 으로 데이터를 수집 합니다. [Azure Monitor에서 모니터링할](../monitor-reference.md)수 있는 기능을 Azure Monitor 하 여 모니터링할 수 있는 응용 프로그램 및 서비스의 전체 목록을 참조 하세요.
 
 Azure 리소스를 만들자마자 Azure Monitor가 사용하도록 설정되며, [Azure Portal에서 보고 분석](#monitoring-in-the-azure-portal)할 수 있는 메트릭 및 활동 로그를 수집하기 시작합니다. 일부 구성에서는 추가 모니터링 데이터를 수집하고 추가 기능을 사용하도록 설정할 수 있습니다. 구성 요구 사항에 대한 자세한 내용은 아래의 [모니터링 데이터](#monitoring-data)를 참조하세요.
 
@@ -100,7 +97,7 @@ Azure Monitor 로그에 데이터를 수집하려면 Log Analytics 작업 영역
 
 서비스에 Azure Monitor 인사이트가 있는 경우에는 각 리소스 메뉴의 **모니터링**에서 액세스할 수 있습니다. **Azure Monitor** 메뉴에서 모든 인사이트 및 솔루션에 액세스할 수 있습니다.
 
-![자세한 정보](media/monitor-azure-resource/insights.png)
+![Azure Portal의 정보](media/monitor-azure-resource/insights.png)
 
 ### <a name="metrics"></a>메트릭
 대부분의 서비스에 대한 **메트릭** 메뉴 항목에서 제공되는 [메트릭 탐색기](../platform/metrics-getting-started.md)를 사용하여 Azure Portal의 메트릭을 분석합니다. 이 도구를 사용하면 개별 메트릭에 대해 작업하거나 여러 메트릭을 결합하여 상관 관계 및 추세를 식별할 수 있습니다. 
@@ -108,7 +105,7 @@ Azure Monitor 로그에 데이터를 수집하려면 Log Analytics 작업 영역
 - 메트릭 탐색기 사용에 대한 기본 사항은 [Azure 메트릭 탐색기 시작](../platform/metrics-getting-started.md)을 참조하세요.
 - 여러 메트릭을 사용하고 필터 및 분할을 적용하는 것과 같은 메트릭 탐색기의 고급 기능에 대해서는 [Azure 메트릭 탐색기의 고급 기능](../platform/metrics-charts.md)을 참조하세요.
 
-![메트릭](media/monitor-azure-resource/metrics.png)
+![Azure Portal의 메트릭 탐색기](media/monitor-azure-resource/metrics.png)
 
 
 ### <a name="activity-log"></a>활동 로그 
@@ -129,7 +126,7 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용하여 분석을 위해
 - Azure Monitor 로그에서 리소스 로그 데이터를 구성하는 방법에 대한 설명은 [컬렉션 모드](../platform/resource-logs.md#send-to-log-analytics-workspace)를 참조하세요.
 - Azure Monitor 로그의 해당 테이블에 대한 자세한 내용은 각 Azure 서비스에 대한 설명서를 참조하세요.
 
-![로그](media/monitor-azure-resource/logs.png)
+![Azure Portal의 Log Analytics](media/monitor-azure-resource/logs.png)
 
 ## <a name="monitoring-from-command-line"></a>명령줄에서 모니터링
 명령줄에서 리소스에서 수집한 모니터링 데이터에 액세스하거나, [Azure PowerShell](/powershell/azure/) 또는 [Azure 명령줄 인터페이스](/cli/azure/)를 사용하여 스크립트에 포함할 수 있습니다. 

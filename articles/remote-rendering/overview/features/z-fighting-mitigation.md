@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbe3af30963791891f0ceee4e18c34e078c0ac7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0e217676f5e1f4dcba24917cb140d9d4d8fcc422
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013183"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024369"
 ---
 # <a name="z-fighting-mitigation"></a>Z-fighting 완화
 
@@ -21,9 +21,9 @@ ms.locfileid: "89013183"
 
 |상황                        | 결과                               |
 |---------------------------------|:-------------------------------------|
-|일반 z-fighting               |![z-fighting](./media/zfighting-0.png)|
-|z-fighting 완화 사용    |![z-fighting](./media/zfighting-1.png)|
-|바둑판 무늬 강조 표시 사용|![z-fighting](./media/zfighting-2.png)|
+|일반 z-fighting               |![Red와 green quads의 결정적 우선 순위 없음](./media/zfighting-0.png)|
+|z-fighting 완화 사용    |![빨간색 쿼드의 우선 순위](./media/zfighting-1.png)|
+|바둑판 무늬 강조 표시 사용|![바둑판 패턴의 빨강 및 녹색 쿼드 전환 기본 설정](./media/zfighting-2.png)|
 
 다음 코드는 z-fighting 완화를 사용합니다.
 
@@ -53,7 +53,6 @@ void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 }
 ```
 
-
 > [!NOTE]
 > z-fighting 완화는 렌더링된 모든 메시에 영향을 주는 전역 설정입니다.
 
@@ -76,6 +75,11 @@ z-fighting은 주로 다음과 같은 두 가지 이유로 발생합니다.
 
 * z-fighting을 사용하면 성능 오버헤드가 거의 발생하지 않습니다.
 * 추가로 z-fighting 오버레이를 사용하면 사소한 성능 오버헤드가 발생하지만 장면에 따라 달라질 수 있습니다.
+
+## <a name="api-documentation"></a>API 설명서
+
+* [C # RemoteManager ZFightingMitigationSettings 속성](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
+* [C + + RemoteManager:: ZFightingMitigationSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
 
 ## <a name="next-steps"></a>다음 단계
 

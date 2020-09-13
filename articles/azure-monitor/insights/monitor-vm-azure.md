@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 294c93242a3fee5db14f5919ebb367aebcca3a80
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326191"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029464"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Azure Monitor를 사용하여 Azure 가상 머신 모니터링
 이 문서에서는 Azure Monitor를 사용하여 Azure 가상 머신에서 모니터링 데이터를 수집 및 분석하면서 상태를 유지하는 방법을 설명합니다. 가상 머신은 [다른 Azure 리소스](monitor-azure-resource.md)와 같이 Azure Monitor를 사용하여 가용성과 성능을 모니터링할 수 있지만 게스트 운영 체제와 여기에서 실행되는 워크로드를 모니터링해야 하기 때문에 다른 리소스와는 다릅니다. 
@@ -59,7 +59,7 @@ Azure의 가상 머신은 [모니터링 데이터](monitor-azure-resource.md#mon
 | [VM용 Azure Monitor 사용](#enable-azure-monitor-for-vms) | - Log Analytics 에이전트가 설치됨<br>- 종속성 에이전트가 설치됨<br>- 게스트 성능 데이터가 로그에 수집됨<br>- 프로세스 및 종속성 세부 정보가 로그에 수집됨 | - 게스트 성능 데이터에 대한 성능 차트 및 통합 문서<br>- 게스트 성능 데이터에 대한 로그 쿼리<br>- 게스트 성능 데이터에 대한 로그 경고<br>- 종속성 맵 |
 | [진단 확장 및 telegraf 에이전트 설치](#enable-diagnostics-extension-and-telegraf-agent) | - 게스트 성능 데이터가 메트릭에 수집됨 | - 게스트의 메트릭 탐색기<br>- 게스트에 대한 메트릭 경고  |
 | [Log Analytics 작업 영역 구성](#configure-log-analytics-workspace) | - 게스트에서 이벤트가 수집됨 | - 게스트 이벤트에 대한 로그 쿼리<br>- 게스트 이벤트에 대한 로그 경고 |
-| [가상 머신에 대한 진단 설정 만들기](#collect-platform-metrics-and-activity-log) | - 로그에 플랫폼 메트릭이 수집됨<br>- 로그에 활동 로그가 수집됨 | - 호스트에 대한 로그 쿼리<br>- 호스트 메트릭에 대한 로그 경고<br>- 활동 로그에 대한 로그 쿼리
+| [가상 머신에 대한 진단 설정 만들기](#collect-platform-metrics-and-activity-log) | - 로그에 플랫폼 메트릭이 수집됨<br>- 로그에 활동 로그가 수집됨 | -호스트 메트릭에 대 한 로그 쿼리<br>- 호스트 메트릭에 대한 로그 경고<br>- 활동 로그에 대한 로그 쿼리
 
 이러한 각 구성 단계는 다음 섹션에 설명되어 있습니다.
 
@@ -70,9 +70,9 @@ Azure의 가상 머신은 [모니터링 데이터](monitor-azure-resource.md#mon
 - 가상 머신의 게스트 운영 체제에서 핵심 성능 메트릭을 분석할 수 있는 미리 정의된 추세 성능 차트 및 통합 문서
 - 각 가상 머신에서 실행 중인 프로세스와 다른 머신 및 외부 원본과 상호 연결된 구성 요소를 표시하는 종속성 맵
 
-![VM용 Azure Monitor](media/monitor-vm-azure/vminsights-01.png)
+![VM용 Azure Monitor 성능 보기](media/monitor-vm-azure/vminsights-01.png)
 
-![VM용 Azure Monitor](media/monitor-vm-azure/vminsights-02.png)
+![지도 보기 VM용 Azure Monitor](media/monitor-vm-azure/vminsights-02.png)
 
 
 Azure Portal의 가상 머신 메뉴에 있는 **인사이트** 옵션에서 VM용 Azure Monitor을 사용하도록 설정합니다. 세부 정보 및 기타 구성 방법에 대한 자세한 내용은 [VM용 Azure Monitor 사용 개요](vminsights-enable-overview.md)를 참조하세요.
@@ -80,7 +80,7 @@ Azure Portal의 가상 머신 메뉴에 있는 **인사이트** 옵션에서 VM�
 ![VM용 Azure Monitor 사용](media/monitor-vm-azure/enable-vminsights.png)
 
 ### <a name="configure-log-analytics-workspace"></a>Log Analytics 작업 영역 구성
-VM용 Azure Monitor에서 사용하는 Log Analytics 에이전트는 [Log Analytics 작업 영역](../platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured)으로 데이터를 보냅니다. Log Analytics 작업 영역을 구성하여 에이전트에서 추가 성능 데이터, 이벤트 및 기타 모니터링 데이터의 수집을 사용하도록 설정할 수 있습니다. 작업 영역에 연결하는 에이전트가 자동으로 구성을 다운로드하고 정의된 데이터 수집을 즉시 시작하므로 한 번만 구성하면 됩니다. 
+VM용 Azure Monitor에서 사용하는 Log Analytics 에이전트는 [Log Analytics 작업 영역](../platform/data-platform-logs.md)으로 데이터를 보냅니다. Log Analytics 작업 영역을 구성하여 에이전트에서 추가 성능 데이터, 이벤트 및 기타 모니터링 데이터의 수집을 사용하도록 설정할 수 있습니다. 작업 영역에 연결하는 에이전트가 자동으로 구성을 다운로드하고 정의된 데이터 수집을 즉시 시작하므로 한 번만 구성하면 됩니다. 
 
 **시작**에서 **작업 영역 구성**을 선택하여 VM용 Azure Monitor에서 직접 작업 영역에 대한 구성에 액세스할 수 있습니다. 작업 영역 이름을 클릭하여 해당 메뉴를 엽니다.
 
@@ -96,7 +96,7 @@ VM용 Azure Monitor에서 사용하는 Log Analytics 에이전트는 [Log Analyt
 
 
 ### <a name="enable-diagnostics-extension-and-telegraf-agent"></a>진단 확장 및 Telegraf 에이전트 사용
-VM용 Azure Monitor는 Log Analytics 작업 영역으로 데이터를 수집하는 Log Analytics 에이전트를 기준으로 합니다. 이 기능은 [로그 쿼리](../log-query/log-query-overview.md)[로그 경고](../platform/alerts-log.md), [통합 문서](../platform/workbooks-overview.md) 등, [Azure Monitor의 여러 기능](../platform/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs)을 지원합니다. [진단 확장](../platform/diagnostics-extension-overview.md)은 Windows 가상 머신의 게스트 운영 체제에서 Azure Storage로 성능 데이터를 수집하고, 필요에 따라 성능 데이터를 [Azure Monitor 메트릭](../platform/data-platform-metrics.md)으로 보냅니다. Linux 가상 머신의 경우 Azure 메트릭에 데이터를 전송하기 위해 [Telegraf 에이전트](../platform/collect-custom-metrics-linux-telegraf.md)가 필요합니다.  이를 통해 [메트릭 탐색기](../platform/metrics-getting-started.md) 및 [메트릭 경고](../platform/alerts-metric.md) 등의 다른 Azure Monitor 기능을 사용할 수 있습니다. Azure Event Hubs를 사용하여 Azure Monitor 외부에서 이벤트 및 성능 데이터를 보내도록 진단 확장을 구성할 수도 있습니다.
+VM용 Azure Monitor는 Log Analytics 작업 영역으로 데이터를 전송 하는 Log Analytics 에이전트를 기반으로 합니다. 이 기능은 로그 쿼리[로그 경고](../platform/alerts-log.md), [통합 문서](../platform/workbooks-overview.md) 등, [Azure Monitor의 여러 기능](../log-query/log-query-overview.md)을 지원합니다. [진단 확장](../platform/diagnostics-extension-overview.md)은 Windows 가상 머신의 게스트 운영 체제에서 Azure Storage로 성능 데이터를 수집하고, 필요에 따라 성능 데이터를 [Azure Monitor 메트릭](../platform/data-platform-metrics.md)으로 보냅니다. Linux 가상 머신의 경우 Azure 메트릭에 데이터를 전송하기 위해 [Telegraf 에이전트](../platform/collect-custom-metrics-linux-telegraf.md)가 필요합니다.  이를 통해 [메트릭 탐색기](../platform/metrics-getting-started.md) 및 [메트릭 경고](../platform/alerts-metric.md) 등의 다른 Azure Monitor 기능을 사용할 수 있습니다. Azure Event Hubs를 사용하여 Azure Monitor 외부에서 이벤트 및 성능 데이터를 보내도록 진단 확장을 구성할 수도 있습니다.
 
 VM 메뉴의 **진단 설정** 옵션에서 Azure Portal에 단일 Windows 가상 머신에 대한 진단 확장을 설치합니다. **싱크** 탭에서 **Azure Monitor**를 사용하도록 설정하는 옵션을 선택합니다. 여러 가상 머신에 대한 템플릿 또는 명령줄에서 확장을 사용하도록 설정하려면 [설치 및 구성](../platform/diagnostics-extension-overview.md#installation-and-configuration)을 참조하세요. Log Analytics 에이전트와 달리, 수집할 데이터는 각 가상 머신의 확장 구성에 정의됩니다.
 
@@ -154,7 +154,7 @@ az monitor diagnostic-settings create \
 | 게스트(클래식) | 제한된 게스트 운영 체제 및 애플리케이션 성능 데이터 세트입니다. 메트릭 탐색기에서 사용할 수 있지만 메트릭 알림과 같은 다른 Azure Monitor 기능에서는 사용할 수 없습니다.  | [진단 확장](../platform/diagnostics-extension-overview.md)이 설치되었습니다. Azure Storage에서 데이터를 읽습니다.  |
 | 가상 머신 게스트 | 메트릭을 사용하는 모든 Azure Monitor 기능에 사용할 수 있는 게스트 운영 체제 및 애플리케이션 성능 데이터입니다. | Windows의 경우 Azure Monitor 싱크가 사용하도록 설정된 상태로 [진단 확장이 설치](../platform/diagnostics-extension-overview.md)되어 있습니다. Linux의 경우 [Telegraf 에이전트가 설치](../platform/collect-custom-metrics-linux-telegraf.md)되어 있습니다. |
 
-![메트릭](media/monitor-vm-azure/metrics.png)
+![Azure Portal의 메트릭 탐색기](media/monitor-vm-azure/metrics.png)
 
 ## <a name="analyzing-log-data"></a>로그 데이터 분석
 Azure Virtual Machines는 Azure Monitor 로그에 다음 데이터를 수집합니다. 
@@ -212,7 +212,7 @@ Heartbeat
 | summarize max(TimeGenerated) by Computer
 ```
 
-![로그 경고](media/monitor-vm-azure/log-alert-01.png)
+![누락 된 하트 비트에 대 한 로그 경고](media/monitor-vm-azure/log-alert-01.png)
 
 구독의 모든 Windows 가상 머신에서 과도한 횟수의 로그온 실패가 발생할 경우 경고를 만들려면 지난 1시간 동안 실패한 각 로그온 이벤트에 대한 레코드를 반환하는 다음 쿼리를 사용합니다. 허용되는 실패한 로그온 횟수로 설정된 임계값을 사용합니다. 
 
@@ -222,20 +222,20 @@ Event
 | where EventID == 4625
 ```
 
-![로그 경고](media/monitor-vm-azure/log-alert-02.png)
+![실패 한 로그온에 대 한 로그 경고](media/monitor-vm-azure/log-alert-02.png)
 
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-SCOM(System Center Operations Manager)은 가상 머신의 워크로드에 대한 세분화된 모니터링을 제공합니다. 모니터링 플랫폼과 다양한 구현 전략을 비교하려면 [클라우드 모니터링 가이드](/azure/cloud-adoption-framework/manage/monitor/)를 참조하세요.
+System Center Operations Manager는 가상 컴퓨터의 워크 로드에 대 한 세부적인 모니터링을 제공 합니다. 모니터링 플랫폼과 다양한 구현 전략을 비교하려면 [클라우드 모니터링 가이드](/azure/cloud-adoption-framework/manage/monitor/)를 참조하세요.
 
-계속 사용하려는 기존 SCOM 환경이 있는 경우 Azure Monitor와 연결하여 추가 기능을 제공할 수 있습니다. Azure Monitor에서 사용하는 Log Analytics 에이전트는 SCOM에 사용되는 것과 동일하므로, 모니터링되는 가상 머신이 둘 모두로 데이터를 전송하도록 합니다. VM용 Azure Monitor에 에이전트를 추가하고 위에 지정된 대로 추가 데이터를 수집하도록 작업 영역을 구성해야 하지만 가상 머신은 수정 없이도 SCOM 환경에서 기존 관리 팩을 계속 실행할 수 있습니다.
+기존 Operations Manager 환경을 계속 사용 하려는 경우 Azure Monitor와 통합 하 여 추가 기능을 제공할 수 있습니다. Azure Monitor에서 사용 하는 Log Analytics 에이전트는 Operations Manager에 사용 되는 것과 동일 하 게 모니터링 하 여 가상 컴퓨터에서 두 데이터를 모두 보냅니다. VM용 Azure Monitor에 에이전트를 추가 하 고 위에 지정 된 대로 추가 데이터를 수집 하도록 작업 영역을 구성 해야 하지만 가상 컴퓨터는 수정 없이 Operations Manager 환경에서 기존 관리 팩을 계속 실행할 수 있습니다.
 
-기존 SCOM 기능을 보완하는 Azure Monitor 기능은 다음과 같습니다.
+기존 Operations Manager 기능을 보강 하는 Azure Monitor 기능은 다음과 같습니다.
 
 - Log Analytics를 사용하여 로그 및 성능 데이터를 대화형으로 분석할 수 있습니다.
-- 로그 경고를 사용하여 여러 가상 머신에서 경고 조건을 정의하고 SCOM에서 경고를 사용할 수 없게 되는 장기적인 추세를 파악합니다.   
+- 로그 경고를 사용 하 여 여러 가상 컴퓨터에 대 한 경고 조건을 정의 하 고 Operations Manager 경고를 사용할 수 없는 장기적인 추세를 사용 합니다.   
 
-기존 SCOM 관리 그룹을 Log Analytics 작업 영역에 연결하는 방법에 대한 자세한 내용은 [Azure Monitor에 Operations Manager 연결](../platform/om-agents.md)을 참조하세요.
+Log Analytics 작업 영역에 기존 Operations Manager 관리 그룹을 연결 하는 방법에 대 한 자세한 내용은 [Azure Monitor에 연결 Operations Manager을](../platform/om-agents.md) 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

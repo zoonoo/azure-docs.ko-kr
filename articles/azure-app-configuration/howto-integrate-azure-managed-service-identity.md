@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: 0525f305e130247fd88ee2858c79cbfd0a15283e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 02d9407766930f02c70d580112136b50b6036e11
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400826"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029866"
 ---
 # <a name="use-managed-identities-to-access-app-configuration"></a>관리 ID를 사용하여 App Configuration 액세스
 
@@ -73,7 +73,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 
     ![관리형 ID 추가](./media/add-managed-identity.png)
 
-1. 선택 사항: Key Vault에 대 한 액세스 권한을 부여 하려는 경우 [Key Vault 액세스 정책 할당](/azure/key-vault/assign-access-policy-portal)의 지시를 따릅니다.
+1. 선택 사항: Key Vault에 대 한 액세스 권한을 부여 하려는 경우 [Key Vault 액세스 정책 할당](/azure/key-vault/general/assign-access-policy-portal)의 지시를 따릅니다.
 
 ## <a name="use-a-managed-identity"></a>관리 ID 사용
 

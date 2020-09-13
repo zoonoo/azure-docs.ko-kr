@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 8507a53959e7d28cbcec2dec6783b2470696d59b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798111"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031095"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>내 앱 포털에서 애플리케이션 사용 권한 편집 또는 해지
 
@@ -28,9 +28,9 @@ ms.locfileid: "88798111"
 >[!Important]
 >이 콘텐츠는 사용자를 위한 것입니다. 관리자인 경우 [애플리케이션 관리 설명서](../manage-apps/access-panel-collections.md)에서 클라우드 기반 앱을 설정 및 관리하는 방법에 대한 더 자세한 정보를 확인할 수 있습니다.
 
-## <a name="manage-app-permissions"></a>애플리케이션 사용 권한 관리
+## <a name="manage-app-accounts"></a>앱 계정 관리
 
-사용자 또는 관리자가 동의한 권한을 확인하려면 마우스가 **내 앱** 포털의 앱을 가리키면 **...** 를 선택하고 **애플리케이션 관리**를 선택합니다.
+사용자 또는 관리자가 동의한 앱을 보려면 **내 앱** 포털에서 앱을 마우스로 가리킬 때 ...를 선택 하 고 **응용 프로그램 관리**를 **선택 합니다.**
 
 ![내 앱 포털에서 애플리케이션 관리](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
 

@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 5cc8bae0f0245f5c4b45ca0cd446582b04788c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fc5029f26e5d615502925c4def4e2973c118f38d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758761"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029990"
 ---
 # <a name="403004-devicemaximumqueuedepthexceeded"></a>403004 DeviceMaximumQueueDepthExceeded
 
@@ -38,4 +38,4 @@ HTTPS에서 클라우드-디바이스 메시지에 대해 지원되는 패턴은
 
 또는 큐에 대기 중인 메시지를 신속 하 게 완료, 거부 또는 포기 하도록 장치 측 논리를 개선 하 고, 라이브 시간을 단축 하거나, 더 짧은 메시지를 전송 하는 것이 좋습니다. [C2D 메시지 TTL(Time to Live)](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live)을 참조하세요.
 
-마지막으로, 한도에 도달 하기 전에 [제거 큐 API](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) 를 사용 하 여 보류 중인 메시지를 정기적으로 정리 하는 것이 좋습니다.
+마지막으로, 한도에 도달 하기 전에 [제거 큐 API](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) 를 사용 하 여 보류 중인 메시지를 정기적으로 정리 하는 것이 좋습니다.

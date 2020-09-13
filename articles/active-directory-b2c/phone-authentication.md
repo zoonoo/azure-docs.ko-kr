@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 (미리 보기)
+title: 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 응용 프로그램 사용자의 휴대폰으로 문자 메시지의 OTP (일회성 암호)를 보냅니다.
 services: active-directory-b2c
@@ -8,27 +8,85 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/25/2020
+ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d432912cb0442744061500fc01bdd86a4c5d97ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a429314d4a992ea93f4c068203371cda769a4ff
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385351"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029165"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Azure AD B2C (미리 보기)에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정
+# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Azure AD B2C에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정
 
 Azure Active Directory B2C (Azure AD B2C)의 전화 등록 및 로그인을 사용 하면 문자 메시지에서 휴대폰으로 전송 되는 OTP (일회용 암호)를 사용 하 여 사용자가 응용 프로그램에 등록 하 고 로그인 할 수 있습니다. 일회용 암호를 통해 사용자가 암호를 잊어버리거나 암호를 손상 시킬 수 있는 위험을 최소화할 수 있습니다.
 
 사용자 지정 정책을 사용 하 여 고객이 휴대폰으로 전송 된 일회용 암호를 사용 하 여 응용 프로그램에 등록 하 고 로그인 할 수 있도록 하려면이 문서의 단계를 수행 합니다.
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="pricing"></a>가격 책정
 
 SMS 문자 메시지를 사용 하 여 사용자에 게 일회용 암호를 보내고, 전송 된 각 메시지에 대해 요금이 청구 될 수 있습니다. 가격 책정 정보는 [Azure Active Directory B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)의 **별도 요금** 섹션을 참조 하세요.
+
+## <a name="user-experience-for-phone-sign-up-and-sign-in"></a>전화 등록 및 로그인에 대 한 사용자 환경
+
+전화 등록 및 로그인을 사용 하 여 사용자는 전화 번호를 기본 식별자로 사용 하 여 앱에 등록할 수 있습니다. 등록 및 로그인 중 최종 사용자의 경험은 아래에 설명 되어 있습니다.
+
+> [!NOTE]
+> 아래 샘플 텍스트와 비슷한 등록 및 로그인 환경에 동의 정보를 포함 하는 것이 좋습니다. 이 샘플 텍스트는 참조용 으로만 사용 됩니다. 사용자의 규정 준수 요구 사항을 충족 하기 위해 최종 텍스트 및 기능 구성에 대 한 지침은 [CTIA 웹 사이트](https://www.ctia.org/programs) 의 간단한 코드 모니터링 안내서를 참조 하 고 자신의 법률 또는 규정 준수 전문가에 게 문의 하세요.
+>
+> *전화 번호를 제공 하 여 텍스트 메시지에 의해 전송 된 일회용 암호를 받고 사용자의 * &lt; 응용 프로그램 이름 &gt; *에 로그인 하 여 삽입 하는 데 도움을 받을 수 있습니다. 표준 메시지 및 데이터 요금이 적용 될 수 있습니다.*
+>
+> *&lt;삽입: 개인 정보 취급 방침에 대 한 링크&gt;*<br/>*&lt;삽입: 서비스 약관에 대 한 링크&gt;*
+
+사용자 고유의 동의 정보를 추가 하려면 다음 샘플을 사용자 지정 하 고 디스플레이 컨트롤 (전화 등록 & 로그인 시작 팩의 Phone-Email-Base.xml 파일)과 함께 자체 어설션된 페이지에서 사용 하는 ContentDefinition에 LocalizedResources에 포함 합니다.
+
+```xml
+<LocalizedResources Id="phoneSignUp.en">        
+    <LocalizedStrings>
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_url">{insert your terms and conditions URL}</LocalizedString>          
+    <LocalizedString ElementType="UxElement" StringId="initial_intro">Please verify your country code and phone number</LocalizedString>        
+    </LocalizedStrings>      
+</LocalizedResources>
+   ```
+
+### <a name="phone-sign-up-experience"></a>전화 등록 환경
+
+사용자에 게 응용 프로그램에 대 한 계정이 아직 없는 경우 **지금 등록** 링크를 선택 하 여 만들 수 있습니다. 등록 페이지가 표시 되 고 사용자가 해당 **국가**를 선택 하 고 전화 번호를 입력 하 고 **코드 보내기**를 선택 합니다.
+
+![사용자가 휴대폰 등록 시작](media/phone-authentication/phone-signup-start.png)
+
+일회성 확인 코드가 사용자의 전화 번호로 전송 됩니다. 사용자가 등록 페이지에 **확인 코드** 를 입력 하 고 **코드 확인**을 선택 합니다. 사용자가 코드를 검색할 수 없는 경우 **새 코드 보내기**를 선택할 수 있습니다.
+
+![사용자가 전화를 등록 하는 동안 코드 확인](media/phone-authentication/phone-signup-verify-code.png)
+
+ 사용자는 등록 페이지에서 요청 된 다른 정보 (예: **표시 이름**, **지정 된 이름**및 **성** (국가 및 전화 번호는 계속 입력 됨))를 입력 합니다. 사용자가 다른 전화 번호를 사용 하려는 경우 **번호 변경** 을 선택 하 여 등록을 다시 시작할 수 있습니다. 완료 되 면 사용자는 **계속**을 선택 합니다.
+
+![사용자가 추가 정보를 제공 합니다.](media/phone-authentication/phone-signup-additional-info.png)
+
+그런 다음 사용자에 게 복구 전자 메일을 제공 하 라는 메시지가 표시 됩니다. 사용자가 전자 메일 주소를 입력 하 고 **확인 코드 보내기**를 선택 합니다. 사용자의 전자 메일 받은 편지함에 코드가 전송 되 고,이를 검색 하 여 **확인 코드** 상자에 입력할 수 있습니다. 그런 다음 사용자가 **코드 확인**을 선택 합니다. 
+
+코드를 확인 한 후 사용자는 **만들기** 를 선택 하 여 계정을 만듭니다. 또는 사용자가 다른 전자 메일 주소를 사용 하려는 경우 **전자 메일 변경**을 선택할 수 있습니다.
+
+![사용자가 계정 만들기](media/phone-authentication/email-verification.png)
+
+### <a name="phone-sign-in-experience"></a>휴대폰 로그인 환경
+
+사용자에 게 해당 id로 전화 번호가 있는 기존 계정이 있는 경우 사용자는 전화 번호를 입력 하 고 **계속**을 선택 합니다. 사용자는 **계속**을 선택 하 여 국가 및 전화 번호를 확인 하 고, 한 번의 확인 코드를 휴대폰으로 보냅니다. 사용자가 확인 코드를 입력 하 고 **계속** 로그인을 선택 합니다.
+
+![휴대폰 로그인 사용자 환경](media/phone-authentication/phone-signin-screens.png)
+
+## <a name="deleting-a-user-account"></a>사용자 계정 삭제
+
+경우에 따라 Azure AD B2C 디렉터리에서 사용자 및 연결 된 데이터를 삭제 해야 할 수도 있습니다. Azure Portal를 통해 사용자 계정을 삭제 하는 방법에 대 한 자세한 내용은 [다음 지침](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete)을 참조 하세요. 
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
+
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -94,12 +152,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 
 ## <a name="next-steps"></a>다음 단계
 
-GitHub에서 전화 등록 및 로그인 사용자 지정 정책 시작 팩 (및 기타 스타터 팩)을 찾을 수 있습니다.
-
-[Azure-Samples/b2c-starterpack/시나리오/전화 번호-암호 less][starter-pack-phone]
-
-시작 팩 정책 파일은 multi-factor authentication 기술 프로필 및 전화 번호 클레임 변환을 사용 합니다.
-
+GitHub에서 전화 등록 및 로그인 사용자 지정 정책 시작 팩 (및 기타 시작 팩)을 찾을 수 있습니다. [Azure-Samples/b2c-사용자 지정 정책-starterpack/시나리오/전화 번호-암호][starter-pack-phone] 없는 시작 팩 정책 파일은 multi-factor authentication 기술 프로필 및 전화 번호 클레임 변환을 사용 합니다.
 * [Azure Multi-Factor Authentication 기술 프로필 정의](multi-factor-auth-technical-profile.md)
 * [전화 번호 클레임 변환 정의](phone-number-claims-transformations.md)
 

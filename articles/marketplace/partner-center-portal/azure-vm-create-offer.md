@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b9bacb352b3559c33a4a2ef92dc0c3af6ebbc7d6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816527"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029705"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 Azure 가상 머신 제품 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "88816527"
 제품을 Azure Marketplace에 게시하는 경우 다음을 수행할 수 있습니다.
 
 - Microsoft 브랜드의 도움으로 회사를 홍보합니다.
-- 1억 명 이상의 Office 365 및 Dynamics 365 사용자 및 20만 개 이상의 조직에 영향을 줍니다.
+- 1억 Microsoft 365 및 Dynamics 365 사용자 및 20만 이상의 조직에 도달 하세요.
 - 이러한 마켓플레이스에서 고품격의 잠재 고객을 확보합니다.
 - Microsoft 현장 판매 및 통신 판매 팀에서 서비스를 홍보합니다.
 
@@ -162,7 +162,7 @@ ms.locfileid: "88816527"
 
        a. **사용자 지정 수정 약관** 상자에서 사용자 고유의 수정안 사용 약관을 입력합니다. 문자는 무제한으로 입력할 수 있습니다. 이러한 사용자 지정 사용 약관에 대해 지정한 테넌트 ID의 고객만 Azure Portal의 제품 구매 흐름에서 이러한 약관을 확인할 수 있습니다.
 
-       b. (필수) **테넌트 ID**를 제공합니다. 각 사용자 지정 수정안은 최대 20개의 테넌트 ID를 대상으로 할 수 있습니다. 사용자 지정 수정안을 추가하는 경우 Azure에서 고객을 식별할 수 있는 하나 이상의 테넌트 ID를 제공해야 합니다. 고객은 Azure에서 **Azure Active Directory** > **속성**을 차례로 선택하여 이를 확인할 수 있습니다. 디렉터리 ID 값은 테넌트 ID입니다(예: 50c464d3-4930-494c-963c-1e951d15360e). 또한 [내 Microsoft Azure 및 Office 365 테넌트 ID는 무엇인가요?](https://www.whatismytenantid.com/)에서 도메인 이름 웹 주소를 사용하여 조직의 테넌트 ID를 확인할 수도 있습니다.
+       b. (필수) **테넌트 ID**를 제공합니다. 각 사용자 지정 수정안은 최대 20개의 테넌트 ID를 대상으로 할 수 있습니다. 사용자 지정 수정안을 추가하는 경우 Azure에서 고객을 식별할 수 있는 하나 이상의 테넌트 ID를 제공해야 합니다. 고객은 Azure에서 **Azure Active Directory** > **속성**을 차례로 선택하여 이를 확인할 수 있습니다. 디렉터리 ID 값은 테넌트 ID입니다(예: 50c464d3-4930-494c-963c-1e951d15360e). 도메인 이름 웹 주소를 사용 하 여 고객의 테 넌 트 id를 찾을 수도 있습니다. [이는 내 Microsoft Azure 및 Microsoft 365 테 넌 트 id?](https://www.whatismytenantid.com/)입니다.
 
        다. (선택 사항) 테넌트 ID에 대해 친숙한 **설명**을 제공합니다. 이는 수정안이 적용되는 대상 고객을 식별하는 데 도움이 됩니다.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 05/28/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799046"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029548"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>보안 정보를 사용하여 회사 또는 학교 암호 재설정
 
@@ -107,7 +107,7 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
 ## <a name="how-to-change-your-password"></a>암호를 변경하는 방법
 
-단순히 암호를 변경하려는 경우 Office 365 포털, Azure 액세스 패널 또는 Windows 10 로그인 페이지를 통해 변경할 수 있습니다.
+암호를 변경 하려는 경우에는 Office 365 포털, 내 앱 포털 또는 Windows 10 로그인 페이지를 통해 암호를 변경할 수 있습니다.
 
 ### <a name="to-change-your-password-using-the-office-365-portal"></a>Office 365 포털을 사용하여 암호를 변경하려면
 
@@ -121,11 +121,11 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
 4. 이전 암호를 입력하고, 새 암호를 만들고 확인한 후 **제출**을 선택합니다.
 
-### <a name="to-change-your-password-from-the-azure-access-panel"></a>Azure 액세스 패널에서 암호를 변경하려면
+### <a name="to-change-your-password-from-the-my-apps-portal"></a>내 앱 포털에서 암호를 변경 하려면
 
-주로 Azure 액세스 패널(MyApps)에서 앱에 액세스하는 경우 이 방법을 사용하세요.
+일반적으로 내 앱 포털에서 앱에 액세스 하는 경우이 방법을 사용 합니다.
 
-1. 기존 암호를 사용하여 [Azure 액세스 패널](https://myapps.microsoft.com/)에 로그인합니다.
+1. 기존 암호를 사용 하 여 [My Apps 포털](https://myapps.microsoft.com/)에 로그인 합니다.
 
 2. 오른쪽 위에서 자신의 프로필을 선택한 다음 **프로필**을 선택합니다.
 

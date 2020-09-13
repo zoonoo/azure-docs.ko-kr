@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, 펌웨어, 업데이트, 복구
-ms.openlocfilehash: eb60003a4233110cb33208bcb8e9784737bb2a8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecfa4a18592d3bc70e3b7cdd66ff6464a54e560d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85277004"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030687"
 ---
 # <a name="update-azure-kinect-dk-firmware"></a>Azure Kinect 진한 펌웨어 업데이트
 
@@ -57,15 +57,15 @@ Azure Kinect는 펌웨어를 자동으로 업데이트 하지 않습니다. [Azu
 
     ```console
        >AzureKinectFirmwareTool.exe -q
- == Azure Kinect DK Firmware Tool ==
-Device Serial Number: 000805192412
-Current Firmware Versions:
-  RGB camera firmware:      1.6.102
-  Depth camera firmware:    1.6.75
-  Depth config file:        6109.7
-  Audio firmware:           1.6.14
-  Build Config:             Production
-  Certificate Type:         Microsoft
+       == Azure Kinect DK Firmware Tool ==
+        Device Serial Number: 000805192412
+        Current Firmware Versions:
+        RGB camera firmware:      1.6.102
+        Depth camera firmware:    1.6.75
+        Depth config file:        6109.7
+        Audio firmware:           1.6.14
+        Build Config:             Production
+        Certificate Type:         Microsoft
     ```
 
 3. 위의 출력이 표시 되 면 펌웨어가 업데이트 됩니다.

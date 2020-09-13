@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/19/2020
-ms.openlocfilehash: ed95cf0b98edd8a6775c980876a6092c00e3a68d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/09/2020
+ms.openlocfilehash: a89115d69943ff63d403edff942677b134e7f2a8
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918590"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024386"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대한 엔터프라이즈 보안
 
@@ -75,7 +75,7 @@ Azure Machine Learning은 웹 서비스에 두 가지 형태의 인증(키 및 �
 | 모델/이미지 보기 | ✓ | ✓ | ✓ |
 | 웹 서비스 호출 | ✓ | ✓ | ✓ |
 
-기본 제공 역할이 요구에 맞지 않으면 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할은 계산을 만들거나, 실행을 제출 하거나, 데이터 저장소를 등록 하거나, 모델을 배포 하는 등 작업 영역 내의 모든 작업을 제어 하는 데 사용할 수 있습니다. 사용자 지정 역할에는 클러스터, 데이터 저장소, 모델, 끝점과 같은 작업 영역의 다양 한 리소스에 대 한 읽기, 쓰기 또는 삭제 권한이 있을 수 있습니다. 특정 작업 영역 수준, 특정 리소스 그룹 수준 또는 특정 구독 수준에서 역할을 사용하도록 설정할 수 있습니다. 자세한 내용은 [Azure Machine Learning 작업 영역에서 사용자 및 역할 관리](how-to-assign-roles.md)를 참조하세요.
+기본 제공 역할이 요구에 맞지 않으면 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할은 계산을 만들거나, 실행을 제출 하거나, 데이터 저장소를 등록 하거나, 모델을 배포 하는 등 작업 영역 내의 모든 작업을 제어 하는 데 사용할 수 있습니다. 사용자 지정 역할에는 클러스터, 데이터 저장소, 모델 및 끝점과 같은 작업 영역의 다양 한 리소스에 대 한 읽기, 쓰기 또는 삭제 권한이 있을 수 있습니다. 특정 작업 영역 수준, 특정 리소스 그룹 수준 또는 특정 구독 수준에서 역할을 사용하도록 설정할 수 있습니다. 자세한 내용은 [Azure Machine Learning 작업 영역에서 사용자 및 역할 관리](how-to-assign-roles.md)를 참조하세요.
 
 > [!WARNING]
 > Azure Machine Learning은 Azure Active Directory B2B(Business-to-Business) 협업에서 지원되지만 현재 Azure Active Directory B2C(Business-to-Consumer) 협업에서는 지원되지 않습니다.
@@ -105,7 +105,7 @@ Azure Machine Learning은 모든 작업 영역 지역에 대한 구독에서 기
 
 Azure Machine Learning은 다른 Azure 서비스에 의존하여 컴퓨팅 리소스를 얻습니다. 컴퓨팅 리소스(컴퓨팅 대상)는 모델을 학습 및 배포하는 데 사용합니다. 가상 네트워크 컴퓨팅 대상을 만들 수 있습니다. 예를 들어, Azure Data Science Virtual Machine을 사용하여 모델을 학습한 다음, AKS에 모델을 배포할 수 있습니다.  
 
-자세한 내용은 [격리된 가상 네트워크에서 실험을 안전하게 실행하고 유추하는 방법](how-to-enable-virtual-network.md)을 참조하세요.
+자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조 하세요.
 
 작업 영역에 대해 Azure Private Link를 사용하도록 설정할 수도 있습니다. Private Link를 사용하면 Azure Virtual Network에서 작업 영역으로의 통신을 제한할 수 있습니다. 자세한 내용은 [Private Link를 구성하는 방법](how-to-configure-private-link.md)을 참조하세요.
 
@@ -119,7 +119,7 @@ Azure Machine Learning은 다른 Azure 서비스에 의존하여 컴퓨팅 리�
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
 > [!IMPORTANT]
-> 작업 영역에 중요한 데이터가 포함된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 설정하는 것이 좋습니다. `hbi_workspace`작업 영역을 만들 때만 플래그를 설정할 수 있습니다. 기존 작업 영역에 대해서는 변경할 수 없습니다.
+> 작업 영역에 중요한 데이터가 포함된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 설정하는 것이 좋습니다. `hbi_workspace`작업 영역을 만들 때만 플래그를 설정할 수 있습니다. 기존 작업 영역에 대해서는 변경할 수 없습니다.
 
 `hbi_workspace`플래그는 [microsoft에서 진단 목적으로 수집](#microsoft-collected-data) 하 고 [microsoft에서 관리 하는 환경에서 추가 암호화](../security/fundamentals/encryption-atrest.md)를 사용 하도록 설정 하는 데이터의 양을 제어 합니다. 또한 다음 작업을 수행할 수 있습니다.
 
@@ -157,13 +157,14 @@ Azure Machine Learning은 Azure Cosmos DB 인스턴스에 메트릭과 메타데
     * `cmk_keyvault`: 이 매개 변수는 구독에 있는 키 자격 증명 모음의 리소스 ID입니다. 이 키 자격 증명 모음은 Azure Machine Learning 작업 영역에 사용할 동일한 지역 및 구독에 있어야 합니다. 
     
         > [!NOTE]
-        > 이 키 자격 증명 모음 인스턴스는 작업 영역을 프로비저닝할 때 Azure Machine Learning에서 생성된 키 자격 증명 모음과 다를 수 있습니다. 작업 영역에 동일한 키 자격 증명 모음 인스턴스를 사용하려면 [key_vault parameter](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 사용하여 작업 영역을 프로비저닝하는 동안 동일한 키 자격 증명 모음을 전달합니다. 
+        > 이 키 자격 증명 모음 인스턴스는 작업 영역을 프로비저닝할 때 Azure Machine Learning에서 생성된 키 자격 증명 모음과 다를 수 있습니다. 작업 영역에 동일한 키 자격 증명 모음 인스턴스를 사용하려면 [key_vault parameter](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-)를 사용하여 작업 영역을 프로비저닝하는 동안 동일한 키 자격 증명 모음을 전달합니다. 
 
-이 Cosmos DB 인스턴스는 구독의 Microsoft 관리형 리소스 그룹에 생성됩니다. 관리형 리소스 그룹의 이름은 `<AML Workspace Resource Group Name><GUID>` 형식으로 지정됩니다.
+이 Cosmos DB 인스턴스는 구독에서 필요한 리소스와 함께 Microsoft에서 관리 하는 리소스 그룹에 만들어집니다. 관리형 리소스 그룹의 이름은 `<AML Workspace Resource Group Name><GUID>` 형식으로 지정됩니다. Azure Machine Learning 작업 영역에서 개인 끝점을 사용 하는 경우 Cosmos DB 인스턴스에 대해 가상 네트워크도 생성 됩니다. 이 VNet은 Cosmos DB와 Azure Machine Learning 간의 통신을 보호 하는 데 사용 됩니다.
 
 > [!IMPORTANT]
-> * Cosmos DB 인스턴스를 삭제해야 하는 경우에는 이 인스턴스를 사용하는 Azure Machine Learning 작업 영역을 삭제해야 합니다. 
-> * Cosmos DB 계정의 기본 [__요청 단위__](../cosmos-db/request-units.md)는 __8000__으로 설정되어 있습니다. 이 값을 변경하는 것은 지원되지 않습니다. 
+> * 이 Cosmos DB 인스턴스 또는이 그룹에 자동으로 생성 된 리소스를 포함 하는 리소스 그룹을 삭제 하지 마십시오. 리소스 그룹, Cosmos DB 인스턴스 등을 삭제 해야 하는 경우이를 사용 하는 Azure Machine Learning 작업 영역을 삭제 해야 합니다. 연결 된 작업 영역을 삭제 하면 리소스 그룹, Cosmos DB 인스턴스 및 자동으로 만들어진 기타 리소스가 삭제 됩니다.
+> * Cosmos DB 계정의 기본 [__요청 단위__](../cosmos-db/request-units.md)는 __8000__으로 설정되어 있습니다. 이 값을 변경하는 것은 지원되지 않습니다.
+> * 만든 Cosmos DB 인스턴스에 사용할 사용자 고유의 VNet을 제공할 수 없습니다. 가상 네트워크를 수정할 수도 없습니다. 예를 들어 사용 하는 IP 주소 범위를 변경할 수 없습니다.
 
 키를 __순환 또는 철회__해야 하는 경우 언제든지 그렇게 할 수 있습니다. 키를 순환하면 Cosmos DB는 새 키(최신 버전)를 사용하여 미사용 데이터를 암호화하기 시작합니다. 키를 철회(비활성화)하면 Cosmos DB가 실패한 요청을 처리합니다. 순환 또는 철회가 적용되려면 대개 1시간이 걸립니다.
 
@@ -197,7 +198,7 @@ Azure Container Instance에 모델을 배포할 때 키를 사용하려면 `AciW
 
 배포 구성을 만들고 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) 참조
+* [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) 참조
 * [배포 위치 및 방법](how-to-deploy-and-where.md)
 * [Azure Container Instances에 모델 배포](how-to-deploy-azure-container-instance.md)
 
@@ -246,7 +247,7 @@ Azure HDInsight 및 VM과 같은 컴퓨팅 대상에 대한 SSH 암호 및 키�
 
 Microsoft는 진단을 목적으로 리소스 이름(예: 데이터 세트 이름 또는 기계 학습 실험 이름)이나 작업 환경 변수와 같은 비 사용자 식별 정보를 수집할 수 있습니다. 이러한 모든 데이터는 Microsoft 소유 구독에서 호스트되는 스토리지에 Microsoft 관리형 키를 사용하여 저장되며 [Microsoft의 표준 개인 정보 취급 방침 및 데이터 처리 표준](https://privacy.microsoft.com/privacystatement)을 따릅니다.
 
-또한 환경 변수에 중요한 정보(예: 계정 키 비밀)를 저장하지 않는 것이 좋습니다. 환경 변수는 당사가 기록, 암호화 및 저장합니다. 마찬가지로 [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) 이름을 지정할 때 사용자 이름 또는 비밀 프로젝트 이름과 같은 민감한 정보를 포함하지 마십시오. Microsoft 지원 엔지니어가 액세스할 수 있는 원격 분석 로그에 이런 정보가 나타날 수 있습니다.
+또한 환경 변수에 중요한 정보(예: 계정 키 비밀)를 저장하지 않는 것이 좋습니다. 환경 변수는 당사가 기록, 암호화 및 저장합니다. 마찬가지로 [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) 이름을 지정할 때 사용자 이름 또는 비밀 프로젝트 이름과 같은 민감한 정보를 포함하지 마십시오. Microsoft 지원 엔지니어가 액세스할 수 있는 원격 분석 로그에 이런 정보가 나타날 수 있습니다.
 
 작업 영역을 프로비저닝하는 동안 `hbi_workspace` 매개 변수를 `TRUE`로 설정하면 진단 데이터가 수집되지 않도록 옵트아웃할 수 있습니다. 이 기능은 AzureML Python SDK, CLI, REST API 또는 Azure Resource Manager 템플릿을 사용할 때 지원됩니다.
 
@@ -367,6 +368,6 @@ Machine Learning 컴퓨팅은 관리되는 컴퓨팅 대상(즉, Microsoft에서
 * [TLS를 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
 * [웹 서비스로 배포된 Machine Learning 모델 사용](how-to-consume-web-service.md)
 * [Azure Firewall과 함께 Azure Machine Learning 사용](how-to-access-azureml-behind-firewall.md)
-* [Azure Virtual Network에서 Azure Machine Learning 사용](how-to-enable-virtual-network.md)
+* [Azure Virtual Network에서 Azure Machine Learning 사용](how-to-network-security-overview.md)
 * [추천 시스템 빌드 모범 사례](https://github.com/Microsoft/Recommenders)
 * [Azure에서 실시간 추천 API 빌드](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 85a1f0dcc2e778a09cf0d19b2a85d6faf371f032
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 10d253b3e470ea009944d4ccd756d4bbbe3766e7
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134526"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029820"
 ---
 # <a name="server-group-size"></a>서버 그룹 크기
 
@@ -40,7 +40,7 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 늘어난 부하를 처리 �
 
 ### <a name="add-worker-nodes"></a>작업자 노드 추가
 
-노드를 추가 하려면 Citus (Hyperscale) 서버 그룹의 **구성** 탭으로 이동 합니다.  **작업자 노드 수** 에 대 한 슬라이더를 끌면 값이 변경 됩니다.
+노드를 추가 하려면 Citus (Hyperscale) 서버 그룹의 **Compute + storage** 탭으로 이동 합니다.  **작업자 노드 수** 에 대 한 슬라이더를 끌면 값이 변경 됩니다.
 
 ![리소스 슬라이더](./media/howto-hyperscale-scaling/01-sliders-workers.png)
 

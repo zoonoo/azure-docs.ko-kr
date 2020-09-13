@@ -12,19 +12,74 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 5e5bcef36bb283b8b3f2b67578e0f3118302d936
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: bb2b9da291bf75542c942d785d995018b597f742
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510167"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024301"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
 
-## <a name="august-2020-guest-os"></a>2020 년 8 월 게스트 OS
+## <a name="september-2020-guest-os"></a>2020 년 9 월 게스트 OS
 >[!NOTE]
->8 월 게스트 OS가 자동 업데이트를 위해 구성 된 클라우드 서비스 Vm에 현재 롤아웃 되 고 있습니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 8 월 게스트 OS에는 다음 패치가 포함 되어 있습니다. 이 목록은 변경될 수 있습니다.
+>9 월 게스트 OS는 현재 자동 업데이트를 위해 구성 된 클라우드 서비스 Vm에 출시 됩니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 9 월 게스트 OS에는 다음 패치가 포함 되어 있습니다. 이 목록은 변경될 수 있습니다.
+
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | 2.102, 3.89, 4.82 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4561600]  |  플래시 업데이트 | 3.89, 4.82, 5.47, 6.23 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4577015]  |  LCU(최신 누적 업데이트) | 5.47 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4570333]  |  LCU(최신 누적 업데이트) | 6.23 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4570673]  |  서비스 스택 업데이트 | 2.102 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4577051]  |  월간 롤업 | 2.102 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4569767]  |  .NET Framework 3.5 보안 및 품질 롤업 | 2.102 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4569780]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 2.102 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4566426]  |  서비스 스택 업데이트 | 3.89 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4577038]  |  월간 롤업 | 3.89 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4569765]  |  .NET Framework 3.5 보안 및 품질 롤업 | 3.89 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4569779]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 3.89 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4566425]  |  서비스 스택 업데이트 | 2.102 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4577066]  |  월간 롤업 | 2.102 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4569768]  |  .NET Framework 3.5 보안 및 품질 롤업 | 2.102 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4569778]  |  .NET Framework 4.5.2 보안 및 품질 롤업 | 2.102 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4578013]  |  보안 업데이트 | 2.102 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4576750]  |  서비스 스택 업데이트 | 5.47 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4576479]  |  .NET Framework 4.8 보안 및 품질 롤업 | 5.47 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4494175]  |  마이크로코드 | 5.47 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4570332]  |  서비스 스택 업데이트 | 6.23 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4570720]  |  .NET Framework 3.5 및 4.7.2 누적 업데이트 | 6.23 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4576483]  |  .NET Framework 4.8 보안 및 품질 롤업 | 6.23 | 9 월 8 일, 2020 |
+|  Rel 20-09 |  [4494174]  |  마이크로코드 | 6.23 | 9 월 8 일, 2020 |
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4561600]: https://support.microsoft.com/kb/4561600
+[4577015]: https://support.microsoft.com/kb/4577015
+[4570333]: https://support.microsoft.com/kb/4570333
+[4570673]: https://support.microsoft.com/kb/4570673
+[4577051]: https://support.microsoft.com/kb/4577051
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4566426]: https://support.microsoft.com/kb/4566426
+[4577038]: https://support.microsoft.com/kb/4577038
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566425]: https://support.microsoft.com/kb/4566425
+[4577066]: https://support.microsoft.com/kb/4577066
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4576479]: https://support.microsoft.com/kb/4576479
+[4494175]: https://support.microsoft.com/kb/4494175
+[4570332]: https://support.microsoft.com/kb/4570332
+[4570720]: https://support.microsoft.com/kb/4570720
+[4576483]: https://support.microsoft.com/kb/4576483
+[4494174]: https://support.microsoft.com/kb/4494174
+
+## <a name="august-2020-guest-os"></a>2020 년 8 월 게스트 OS
 
 
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -145,7 +200,7 @@ ms.locfileid: "88510167"
 |  Rel 20-06  |  [4561643]  |  월간 롤업  |  [2.99]  |  6 월 9 일, 2020  |
 |  Rel 20-06  |  [4562252]  |  서비스 스택 업데이트  |  [3.86]  |  6 월 9 일, 2020  |
 |  Rel 20-06  |  [4561612]  |  월간 롤업  |  [3.86]  |  6 월 9 일, 2020  |
-|  Rel 20-06  |  [4561600]  |  깜박임  |  [3.86], [4.79], [5.44], [6.20]  |  6 월 9 일, 2020  |
+|  Rel 20-06  |  [4561600]  |  Flash  |  [3.86], [4.79], [5.44], [6.20]  |  6 월 9 일, 2020  |
 |  Rel 20-06  |  [4562253]  |  서비스 스택 업데이트  |  [4.79]  |  6 월 9 일, 2020  |
 |  Rel 20-06  |  [4561666]  |  월간 롤업  |  [4.79]  |  6 월 9 일, 2020  |
 |  Rel 20-06  |  [4562561]  |  서비스 스택 업데이트  |  [5.44]  |  6 월 9 일, 2020  |

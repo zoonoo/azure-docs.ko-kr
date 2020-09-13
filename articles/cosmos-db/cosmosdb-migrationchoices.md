@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: a08c6abe52801e1fbafd517adcb8fd9a8b8b4aee
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4de6d4ba019af75b0f6179b2794ddb6c1e35e0c1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462295"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030075"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>온-프레미스 또는 클라우드 데이터를 Azure Cosmos DB으로 마이그레이션하는 옵션
 
@@ -47,7 +47,7 @@ ms.locfileid: "89462295"
 |오프라인|[Azure Cosmos DB Spark 커넥터](spark-connector.md)|SQL API를 Azure Cosmos DB 합니다. <br/><br/>Spark 에코 시스템의 추가 커넥터에서 다른 원본을 사용할 수 있습니다.| SQL API를 Azure Cosmos DB 합니다. <br/><br/>Spark 에코 시스템의 추가 커넥터에서 다른 대상을 사용할 수 있습니다.| &bull; Azure Cosmos DB 대량 실행자 라이브러리를 사용 합니다. <br/>&bull; 대량 데이터 집합에 적합 합니다. <br/>&bull; 사용자 지정 Spark 설정이 필요 합니다. <br/>&bull; Spark는 스키마 불일치로 인식 되며 마이그레이션 중에 문제가 될 수 있습니다. |
 |오프라인|[Cosmos DB 대량 실행자 라이브러리를 사용 하는 사용자 지정 도구](migrate-cosmosdb-data.md)| 소스는 사용자 지정 코드에 따라 달라 집니다. | Azure Cosmos DB SQL API| &bull; 마이그레이션 복원 력을 향상 시키는 검사점, 배달 못 한 편지 처리 기능을 제공 합니다. <br/>&bull; 매우 큰 데이터 집합에 적합 합니다 (10TB 이상).  <br/>&bull; App Service 실행 되는이 도구의 사용자 지정 설정이 필요 합니다. |
 |온라인|[Cosmos DB 함수 + ChangeFeed API](change-feed-functions.md)| Azure Cosmos DB SQL API | Azure Cosmos DB SQL API| &bull; 설정 하기 쉽습니다. <br/>&bull; 소스가 Azure Cosmos DB 컨테이너인 경우에만 작동 합니다. <br/>&bull; 대량 데이터 세트에 적합하지 않습니다. <br/>&bull; 원본 컨테이너에서 삭제를 캡처하지 않습니다. |
-|온라인|[ChangeFeed를 사용 하는 사용자 지정 마이그레이션 서비스](https://github.com/nomiero/CosmosDBLiveETLSample)| Azure Cosmos DB SQL API | Azure Cosmos DB SQL API| &bull; 진행률 추적을 제공 합니다. <br/>&bull; 소스가 Azure Cosmos DB 컨테이너인 경우에만 작동 합니다. <br/>&bull; 큰 데이터 집합에 대해서도 작동 합니다.<br/>&bull; 사용자가 변경 피드 프로세서를 호스팅하도록 App Service를 설정 해야 합니다. <br/>&bull; 원본 컨테이너에서 삭제를 캡처하지 않습니다.|
+|온라인|[ChangeFeed를 사용 하는 사용자 지정 마이그레이션 서비스](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator)| Azure Cosmos DB SQL API | Azure Cosmos DB SQL API| &bull; 진행률 추적을 제공 합니다. <br/>&bull; 소스가 Azure Cosmos DB 컨테이너인 경우에만 작동 합니다. <br/>&bull; 큰 데이터 집합에 대해서도 작동 합니다.<br/>&bull; 사용자가 변경 피드 프로세서를 호스팅하도록 App Service를 설정 해야 합니다. <br/>&bull; 원본 컨테이너에서 삭제를 캡처하지 않습니다.|
 |온라인|[Striim](cosmosdb-sql-api-migrate-data-striim.md)| &bull;Oracle <br/>&bull;Apache Cassandra<br/><br/> 지원 되는 다른 소스는 [Striim 웹 사이트](https://www.striim.com/sources-and-targets/) 를 참조 하세요. |&bull;Azure Cosmos DB SQL API <br/>&bull; Azure Cosmos DB Cassandra API<br/><br/> 지원 되는 다른 대상에 대해서는 [Striim 웹 사이트](https://www.striim.com/sources-and-targets/) 를 참조 하세요. | &bull; 는 Oracle, DB2, SQL Server 등의 다양 한 소스에서 작동 합니다.<br/>&bull; ETL 파이프라인을 쉽게 작성 하 고 모니터링을 위한 대시보드를 제공 합니다. <br/>&bull; 더 큰 데이터 집합을 지원 합니다. <br/>&bull; 타사 도구 이므로 marketplace에서 구매 하 고 사용자 환경에 설치 해야 합니다.|
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure Cosmos DB Mongo API
