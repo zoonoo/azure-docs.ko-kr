@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 0d8e2ee684bc08ec23e052229d50b7e9d62c0ecb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/04/2020
+ms.openlocfilehash: 5a09105dac89f3dc241140f16f3d4be72cc97493
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328500"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483629"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>상업적 marketplace의 Azure AD 및 불가능 SaaS 제품
 
@@ -25,9 +25,9 @@ Microsoft 클라우드 기반 id 및 액세스 관리 서비스인 Azure AD ( [A
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-파트너 센터에서 [SaaS 제안을 만들](./partner-center-portal/create-new-saas-offer.md) 때 제품 목록에 표시 되는 작업 옵션에 대 한 특정 호출 집합에서 선택 합니다. 선택한 항목은 상업적 marketplace에서 제품이 트랜잭션 되는 방법을 결정 합니다. Microsoft를 통해 판매 되는 제품을 불가능 제품 이라고 합니다. 모든 불가능 제품을 대신 하 여 고객에 게 요금을 청구 합니다. Microsoft를 통해 판매 하도록 선택 하 고 사용자를 대신 하 여 트랜잭션을 호스트 하는 경우 ( **예** 옵션) 불가능 제품을 만들도록 선택 하 고이 문서는 사용자를 위한 것입니다. 전체적으로 읽는 것이 좋습니다.
+파트너 센터에서 [SaaS 제품을 만들](./partner-center-portal/create-new-saas-offer.md) 때 제품 목록에 표시 되는 특정 목록 옵션 집합에서 선택 합니다. 선택한 항목은 상업적 marketplace에서 제품이 트랜잭션 되는 방법을 결정 합니다. Microsoft를 통해 판매 되는 제품을 불가능 제품 이라고 합니다. 모든 불가능 제품을 대신 하 여 고객에 게 요금을 청구 합니다. Microsoft를 통해 판매 하도록 선택 하 고 사용자를 대신 하 여 트랜잭션을 호스트 하는 경우 ( **예** 옵션) 불가능 제품을 만들도록 선택 하 고이 문서는 사용자를 위한 것입니다. 전체적으로 읽는 것이 좋습니다.
 
-상업적 마켓플레이스를 사용 하 여 제품을 나열 하 고 트랜잭션을 독립적으로 (옵션 **없음** ) 선택 하는 경우 잠재 고객이 제품에 액세스 하는 방법에 대 한 세 가지 옵션을 사용할 수 있습니다. (무료), 무료 평가판 및 담당자에 게 문의 하세요. **지금 받기 (무료)** 또는 **무료 평가판**을 선택 하는 경우에는이 문서를 사용할 수 없습니다. 대신, 자세한 내용은 [상용 marketplace에서 무료 또는 평가판 SaaS 제품에 대 한 방문 페이지 빌드](./azure-ad-free-or-trial-landing-page.md) 를 참조 하세요. **연락처**를 선택 하는 경우 직접 게시자 책임은 없습니다. 파트너 센터에서 제품 만들기를 계속 합니다.
+상업적 marketplace를 통해 제품을 나열 하 고 트랜잭션을 독립적으로 (옵션 **없음** ) 선택 하는 경우 잠재 고객이 귀하의 제품에 액세스 하는 방법에 대 한 세 가지 옵션을 사용할 수 있습니다. (무료), 무료 평가판 및 담당자에 게 문의 하세요. **지금 받기 (무료)** 또는 **무료 평가판**을 선택 하는 경우에는이 문서를 사용할 수 없습니다. 대신, 자세한 내용은 [상용 marketplace에서 무료 또는 평가판 SaaS 제품에 대 한 방문 페이지 빌드](./azure-ad-free-or-trial-landing-page.md) 를 참조 하세요. **연락처**를 선택 하는 경우 직접 게시자 책임은 없습니다. 파트너 센터에서 제품 만들기를 계속 합니다.
 
 ## <a name="how-azure-ad-works-with-the-commercial-marketplace-for-saas-offers"></a>Azure AD가 SaaS 제품에 대해 상업적 marketplace에서 작동 하는 방식
 
@@ -88,5 +88,6 @@ Azure AD는 상업적 marketplace 솔루션의 원활한 구매, 처리 및 관�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [상업적 marketplace에서 SaaS 제품 만들기](./partner-center-portal/create-new-saas-offer.md)
-- [상업적 marketplace에서 불가능 SaaS 제품에 대 한 방문 페이지 빌드](./azure-ad-transactable-saas-landing-page.md)
+- [상업적 marketplace에서 불가능 SaaS 제품에 대 한 방문 페이지 빌드](azure-ad-transactable-saas-landing-page.md)
+- [상용 marketplace에서 무료 또는 평가판 SaaS 제품에 대 한 방문 페이지 빌드](azure-ad-free-or-trial-landing-page.md)
+- [상업적 marketplace에서 SaaS 제품을 만드는 방법](create-new-saas-offer.md)

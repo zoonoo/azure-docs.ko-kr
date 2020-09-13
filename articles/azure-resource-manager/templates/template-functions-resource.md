@@ -2,13 +2,13 @@
 title: 템플릿 함수 - 리소스
 description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 7f485d258074959c4a0a17449c65c38fa9648502
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 09/03/2020
+ms.openlocfilehash: 3f916be4431aa6b2b100967465450447ecc1d626
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661404"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468677"
 ---
 # <a name="resource-functions-for-arm-templates"></a>ARM 템플릿의 리소스 함수
 
@@ -16,6 +16,7 @@ Resource Manager는 ARM(Azure Resource Manager) 템플릿에서 리소스 값을
 
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
+* [pickZones](#pickzones)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -101,6 +102,12 @@ Resource Manager는 ARM(Azure Resource Manager) 템플릿에서 리소스 값을
 }
 ```
 
+관리 그룹에 배포 된 사용자 지정 정책 정의는 확장 리소스로 구현 됩니다. 정책을 만들고 할당 하려면 관리 그룹에 다음 템플릿을 배포 합니다.
+
+:::code language="json" source="~/quickstart-templates/managementgroup-deployments/mg-policy/azuredeploy.json":::
+
+기본 제공 정책 정의는 테 넌 트 수준 리소스입니다. 기본 제공 정책 정의를 배포 하는 예제는 [Tenantresourceid](#tenantresourceid)를 참조 하세요.
+
 <a id="listkeys"></a>
 <a id="list"></a>
 
@@ -130,9 +137,16 @@ Resource Manager는 ARM(Azure Resource Manager) 템플릿에서 리소스 값을
 
 | 리소스 유형 | 함수 이름 |
 | ------------- | ------------- |
+| Addons/supportProviders | listsupport계획 정보 |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft.apimanagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2019-12-01/authorizationserver/listsecrets) |
+| Microsoft.apimanagement/서비스/게이트웨이 | [listKeys](/rest/api/apimanagement/2019-12-01/gateway/listkeys) |
+| Microsoft.apimanagement/서비스/identityProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
+| Microsoft.apimanagement/service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
+| Microsoft.apimanagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
 | Microsoft.AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
-| Microsoft.AppConfiguration/configurationStores | ListKeys |
+| Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
+| Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringclould/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
@@ -144,10 +158,15 @@ Resource Manager는 ARM(Azure Resource Manager) 템플릿에서 리소스 값을
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
+| Microsoft.containerregistry/registry/agentpools | listQueueStatus |
+| Microsoft.containerregistry/레지스트리/buildTasks | listSourceRepositoryProperties |
+| Microsoft.containerregistry/registry/buildTasks/단계 | listBuildArguments |
+| Microsoft.containerregistry/레지스트리/taskruns | listDetails |
 | Microsoft.ContainerRegistry/registries/webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
 | Microsoft.ContainerRegistry/registries/runs | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
 | Microsoft.ContainerRegistry/registries/tasks | [listDetails](/rest/api/containerregistry/tasks/getdetails) |
 | Microsoft.ContainerService/managedClusters | [listClusterAdminCredential](/rest/api/aks/managedclusters/listclusteradmincredentials) |
+| Microsoft.ContainerService/managedClusters | [listClusterMonitoringUserCredential](/rest/api/aks/managedclusters/listclustermonitoringusercredentials) |
 | Microsoft.ContainerService/managedClusters | [listClusterUserCredential](/rest/api/aks/managedclusters/listclusterusercredentials) |
 | Microsoft.ContainerService/managedClusters/accessProfiles | [listCredential](/rest/api/aks/managedclusters/getaccessprofile) |
 | Microsoft.DataBox/jobs | listCredentials |
@@ -168,6 +187,7 @@ Resource Manager는 ARM(Azure Resource Manager) 템플릿에서 리소스 값을
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
 | Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2020-04-01/notebookworkspaces/listconnectioninfo) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -206,7 +226,9 @@ Resource Manager는 ARM(Azure Resource Manager) 템플릿에서 리소스 값을
 | Microsoft.NotificationHubs/Namespaces/authorizationRules | [listkeys](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
 | Microsoft.OperationalInsights/workspaces | [list](/rest/api/loganalytics/workspaces/list) |
+| Microsoft.OperationalInsights/workspaces | listKeys |
 | Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
+| Microsoft. RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/openshiftclusters/listcredentials) |
 | Microsoft.Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
 | Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
@@ -225,6 +247,7 @@ Resource Manager는 ARM(Azure Resource Manager) 템플릿에서 리소스 값을
 | Microsoft.StorSimple/managers/devices | [listFailoverTargets](/rest/api/storsimple/devices/listfailovertargets) |
 | Microsoft.StorSimple/managers | [listActivationKey](/rest/api/storsimple/managers/getactivationkey) |
 | Microsoft.StorSimple/managers | [listPublicEncryptionKey](/rest/api/storsimple/managers/getpublicencryptionkey) |
+| Synapse/작업 영역/integrationRuntimes | [listAuthKeys](/rest/api/synapse/integrationruntimeauthkeys/list) |
 | Microsoft.Web/connectionGateways | ListStatus |
 | microsoft.web/connections | listconsentlinks |
 | Microsoft.Web/customApis | listWsdlInterfaces |
@@ -315,6 +338,94 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 ```
 
 listKeyValue 예제는 [빠른 시작: Azure App Configuration 및 Resource Manager 템플릿을 사용하여 자동화된 VM 배포](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values)를 참조하세요.
+
+## <a name="pickzones"></a>pickZones
+
+`pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
+
+리소스 형식이 영역에 대 한 영역을 지원 하는지 여부를 확인 합니다.
+
+### <a name="parameters"></a>매개 변수
+
+| 매개 변수 | 필수 | Type | Description |
+|:--- |:--- |:--- |:--- |
+| providerNamespace | 예 | 문자열 | 영역 지원을 확인할 리소스 형식에 대 한 리소스 공급자 네임 스페이스입니다. |
+| resourceType | 예 | 문자열 | 영역 지원을 확인할 리소스 형식입니다. |
+| 위치 | 예 | 문자열 | 영역 지원을 확인할 지역입니다. |
+| numberOfZones | 예 | integer | 반환할 논리 영역 수입니다. 기본값은 1입니다. 숫자는 1에서 3 사이의 양의 정수 여야 합니다.  단일 배열로 영역 설정 리소스에 대해 1을 사용 합니다. 멀티 배열로 영역 설정 리소스의 경우이 값은 지원 되는 영역 수보다 작거나 같아야 합니다. |
+| offset | 예 | integer | 시작 논리 영역에서의 오프셋입니다. 오프셋과 numberOfZones가 지원 되는 영역 수를 초과 하는 경우 함수는 오류를 반환 합니다. |
+
+### <a name="return-value"></a>반환 값
+
+지원 되는 영역을 포함 하는 배열입니다. 오프셋 및 numberOfZones의 기본값을 사용 하는 경우 영역을 지 원하는 리소스 유형 및 지역은 다음 배열을 반환 합니다.
+
+```json
+[
+    "1"
+]
+```
+
+`numberOfZones`매개 변수가 3으로 설정 되 면 다음을 반환 합니다.
+
+```json
+[
+    "1",
+    "2",
+    "3"
+]
+```
+
+리소스 유형 또는 지역이 영역을 지원 하지 않는 경우 빈 배열이 반환 됩니다.
+
+```json
+[
+]
+```
+
+### <a name="pickzones-example"></a>pickZones 예제
+
+다음 템플릿은 pickZones 함수를 사용 하기 위한 세 가지 결과를 보여 줍니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "functions": [],
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "supported": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
+        },
+        "notSupportedRegion": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
+        },
+        "notSupportedType": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
+        }
+    }
+}
+```
+
+이전 예제의 출력은 세 개의 배열을 반환 합니다.
+
+| Name | Type | 값 |
+| ---- | ---- | ----- |
+| 지원됨 | array | ["1"] |
+| notSupportedRegion | array | [] |
+| notSupportedType | array | [] |
+
+PickZones의 응답을 사용 하 여 영역에 null을 제공할지 아니면 가상 컴퓨터를 다른 영역에 할당할지 여부를 결정할 수 있습니다. 다음 예에서는 영역 가용성에 따라 영역에 대 한 값을 설정 합니다.
+
+```json
+"zones": {
+    "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
+},
+```
 
 ## <a name="providers"></a>providers
 
@@ -740,23 +851,27 @@ resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-[구독 수준 배포](deploy-to-subscription.md)에서 사용되는 경우 리소스 ID는 다음 형식으로 반환됩니다.
+다른 배포 범위에 대해 resourceId 함수를 사용할 수 있지만 ID 형식이 변경 됩니다.
+
+구독에 배포 하는 동안 resourceId를 사용 하는 경우 리소스 ID는 다음 형식으로 반환 됩니다.
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-[관리 그룹 수준 배포](deploy-to-management-group.md) 또는 테넌트 수준 배포에 사용되는 경우 리소스 ID는 다음 형식으로 반환됩니다.
+관리 그룹 또는 테 넌 트에 배포 하는 동안 resourceId를 사용 하는 경우 리소스 ID는 다음 형식으로 반환 됩니다.
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-ID를 다른 형식으로 가져오려면 다음을 참조하세요.
+혼동을 피하려면 구독, 관리 그룹 또는 테 넌 트에 배포 된 리소스로 작업 하는 경우 resourceId를 사용 하지 않는 것이 좋습니다. 대신 범위에 대해 디자인 된 ID 함수를 사용 합니다.
 
-* [extensionResourceId](#extensionresourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+[구독 수준 리소스](deploy-to-subscription.md)의 경우 [subscriptionresourceid](#subscriptionresourceid) 함수를 사용 합니다.
+
+[관리 그룹 수준 리소스](deploy-to-management-group.md)의 경우 [extensionresourceid](#extensionresourceid) 함수를 사용 하 여 관리 그룹의 확장으로 구현 된 리소스를 참조 합니다. 예를 들어 관리 그룹에 배포 되는 사용자 지정 정책 정의는 관리 그룹의 확장입니다. [Tenantresourceid](#tenantresourceid) 함수를 사용 하 여 테 넌 트에 배포 되었지만 관리 그룹에서 사용할 수 있는 리소스를 참조 합니다. 예를 들어 기본 제공 정책 정의는 테 넌 트 수준 리소스로 구현 됩니다.
+
+[테 넌 트 수준 리소스](deploy-to-tenant.md)의 경우 [tenantresourceid](#tenantresourceid) 함수를 사용 합니다. 기본 제공 정책 정의에는 tenantResourceId를 사용 합니다 .이는 테 넌 트 수준에서 구현 되기 때문입니다.
 
 ### <a name="remarks"></a>설명
 
@@ -862,7 +977,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
@@ -1019,6 +1134,44 @@ ID를 다른 형식으로 가져오려면 다음을 참조하세요.
 ### <a name="remarks"></a>설명
 
 이 함수를 사용하여 테넌트에 배포된 리소스의 리소스 ID를 가져옵니다. 반환되는 ID는 리소스 그룹 또는 구독 값을 포함하지 않으므로 다른 리소스 ID 함수에서 반환하는 값과 다릅니다.
+
+### <a name="tenantresourceid-example"></a>tenantResourceId 예
+
+기본 제공 정책 정의는 테 넌 트 수준 리소스입니다. 기본 제공 정책 정의를 참조 하는 정책 할당을 배포 하려면 tenantResourceId 함수를 사용 합니다.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyAssignmentName": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+      "metadata": {
+        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
+      }
+    },
+    "policyDefinitionID": {
+      "type": "string",
+      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
+      "metadata": {
+        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "[parameters('policyAssignmentName')]",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+      }
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

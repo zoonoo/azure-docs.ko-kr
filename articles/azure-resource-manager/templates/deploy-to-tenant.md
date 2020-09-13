@@ -2,13 +2,13 @@
 title: 테넌트에 리소스 배포
 description: Azure Resource Manager 템플릿의 테넌트 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: 9b653f3fd4ed66f23521ea3ec8f9972e3b6cc09c
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002762"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468558"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>테넌트 수준에서 리소스 만들기
 
@@ -151,7 +151,7 @@ REST API의 경우 [배포 - 테넌트 범위에서 만들기 또는 업데이�
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resources-in-mg
                 }
             }
         }
@@ -167,9 +167,11 @@ REST API의 경우 [배포 - 테넌트 범위에서 만들기 또는 업데이�
 * [resourceGroup()](template-functions-resource.md#resourcegroup) 함수는 지원되지 **않습니다**.
 * [subscription()](template-functions-resource.md#subscription) 함수는 지원되지 **않습니다**.
 * [reference()](template-functions-resource.md#reference) 및 [list()](template-functions-resource.md#list) 함수는 지원됩니다.
-* [tenantResourceId()](template-functions-resource.md#tenantresourceid) 함수를 사용하여 테넌트 수준에서 배포된 리소스에 대한 리소스 ID를 가져옵니다.
+* ' [ResourceId ()](template-functions-resource.md#resourceid) '를 사용 하 여 테 넌 트 수준에서 배포 된 리소스에 대 한 리소스 ID를 가져올 수 없습니다.
 
-  예를 들어 정책 정의에 대한 리소스 ID를 가져오려면 다음을 사용합니다.
+  대신 [Tenantresourceid ()](template-functions-resource.md#tenantresourceid) 함수를 사용 합니다.
+
+  예를 들어 기본 제공 정책 정의에 대 한 리소스 ID를 가져오려면 다음을 사용 합니다.
 
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))

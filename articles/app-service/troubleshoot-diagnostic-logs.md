@@ -166,7 +166,7 @@ Linux/컨테이너 앱의 경우 ZIP 파일에는 docker 호스트와 docker 컨
 
 Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\LogFiles* 디렉터리 내용이 포함 되어 있습니다. 구조는 다음과 같습니다.
 
-| 로그 형식 | 디렉터리 | 설명 |
+| 로그 형식 | 디렉터리 | Description |
 |-|-|-|
 | **애플리케이션 로그 전송 사용** |*/LogFiles/Application/* | 하나 이상의 텍스트 파일을 포함 합니다. 로그 메시지의 형식은 사용 하는 로깅 공급자에 따라 달라 집니다. |
 | **실패 한 요청 추적** | */LogFiles/W3SVC # # # # # # # # #/* | XML 파일 및 XSL 파일을 포함 합니다. 브라우저에서 형식이 지정 된 XML 파일을 볼 수 있습니다. |
@@ -185,7 +185,7 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 
 다음 표에서는 지원 되는 로그 유형 및 설명을 보여 줍니다. 
 
-| 로그 형식 | Windows 지원 | Linux (Docker) 지원 | 설명 |
+| 로그 형식 | Windows 지원 | Linux (Docker) 지원 | Description |
 |-|-|-|
 | AppServiceConsoleLogs | TBA | 예 | 표준 출력 및 표준 오류 |
 | AppServiceHTTPLogs | 예 | 예 | 웹 서버 로그 |

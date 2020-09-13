@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory에서 지원하는 컴퓨팅 환경
-description: '데이터의 변환 또는 처리를 위해 Azure Data Factory 파이프라인(예: Azure HDInsight)에서 사용할 수 있는 컴퓨팅 환경을 알아봅니다.'
+description: '데이터를 변환 하거나 처리 하기 위해 Azure Data Factory 파이프라인 (예: Azure HDInsight)과 함께 사용할 수 있는 계산 환경입니다.'
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 98f3c96fe1d1e8dd0f73d0441db8319fc2241cd7
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 3d8e667cd96cc6d7091682a4530633588591d3a4
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563741"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483192"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 컴퓨팅 환경
 
@@ -33,7 +33,7 @@ ms.locfileid: "87563741"
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning 실행 파이프라인](transform-data-machine-learning-service.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning 실행 파이프라인](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [저장 프로시저](transform-data-using-stored-procedure.md) |
+| [AZURE SQL](#azure-sql-database-linked-service), [azure Synapse Analytics (이전의 SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [저장 프로시저](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 | [Azure Function](#azure-function-linked-service)         | [Azure 함수 작업](control-flow-azure-function-activity.md)
 >  
@@ -109,7 +109,7 @@ Azure Data Factory 서비스는 데이터를 처리하는 주문형 HDInsight �
 > [!IMPORTANT]
 > HDInsight 클러스터는 JSON(**linkedServiceName**)에서 지정한 Blob Storage에 **기본 컨테이너**를 만듭니다. HDInsight는 클러스터가 삭제될 때 이 컨테이너를 삭제하지 않습니다. 이 동작은 의도된 것입니다. 주문형 HDInsight 연결된 서비스에서는 기존 라이브 클러스터(**timeToLive**)가 없는 한 슬라이스를 처리해야 할 때마다 HDInsight 클러스터가 만들어지며 처리가 완료되면 삭제됩니다. 
 >
-> 더 많은 작업이 실행될수록 Azure Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft Azure Storage 탐색기](https://storageexplorer.com/) 와 같은 도구를 사용 하 여 Azure blob Storage에서 컨테이너를 삭제 합니다.
+> 더 많은 작업이 실행될수록 Azure Blob Storage에 컨테이너가 많아집니다. 작업의 문제 해결을 위해 이 항목들이 필요하지 않다면 스토리지 비용을 줄이기 위해 삭제할 수 있습니다. 이러한 컨테이너의 이름은 `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp` 패턴을 따릅니다. [Microsoft Azure Storage Explorer](https://storageexplorer.com/) 같은 도구를 사용하여 Azure Blob 스토리지에서 컨테이너를 삭제합니다.
 
 #### <a name="properties"></a>속성
 
@@ -265,7 +265,7 @@ D4 크기의 헤드 노드 및 작업자 노드를 만들려는 경우 headNodeS
 * Azure Batch
 * Azure Machine Learning
 * Azure 데이터 레이크 분석
-* Azure SQL DB, Azure SQL DW, SQL Server
+* Azure SQL DB, Azure Synapse Analytics, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Azure HDInsight 연결된 서비스
 Azure HDInsight 연결된 서비스를 만들어서 데이터 팩터리를 사용하는 사용자 고유의 HDInsight 클러스터를 등록할 수 있습니다.
@@ -562,9 +562,9 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](transform-data-using-stored-procedure.md) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](connector-azure-sql-database.md#linked-service-properties) 문서를 참조하세요.
 
-## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL Data Warehouse 연결된 서비스
+## <a name="azure-synapse-analytics-linked-service"></a>Azure Synapse Analytics 연결 된 서비스
 
-Azure SQL Data Warehouse 연결된 서비스를 만들고 [저장 프로시저 활동](transform-data-using-stored-procedure.md) 에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL Data Warehouse 커넥터](connector-azure-sql-data-warehouse.md#linked-service-properties) 문서를 참조하세요.
+Azure Synapse Analytics (이전의 SQL Data Warehouse) 연결 된 서비스를 만들고 [저장 프로시저 작업과](transform-data-using-stored-procedure.md) 함께 사용 하 여 Data Factory 파이프라인에서 저장 프로시저를 호출 합니다. 이 연결 된 서비스에 대 한 자세한 내용은 [Azure Synapse Analytics (이전의 SQL Data Warehouse) 커넥터](connector-azure-sql-data-warehouse.md#linked-service-properties) 문서를 참조 하세요.
 
 ## <a name="sql-server-linked-service"></a>SQL Server 연결된 서비스
 

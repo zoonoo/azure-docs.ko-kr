@@ -35,7 +35,7 @@ $Export 명령을 사용 하 여 FHIR 서버에서 식별 되지 않은 데이�
 
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 
-|쿼리 매개 변수            | 예제 |옵션| 설명|
+|쿼리 매개 변수            | 예제 |옵션| Description|
 |---------------------------|---------|-----------|------------|
 | _\_anonymizationConfig_   |DemoConfig.js|식별 되지 않은 내보내기에 필요 |구성 파일의 이름입니다. [여기](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format)에서 구성 파일 형식을 참조 하세요. 이 파일은 내보내기 위치로 구성 된 동일한 Azure storage 계정 내의 **익명화** 이라는 컨테이너 내에 보관 되어야 합니다. |
 | _\_anonymizationConfigEtag_|"0x8D8494A069489EC"|식별 되지 않은 내보내기의 경우 선택 사항|이는 구성 파일의 Etag입니다. Blob 속성에서 Azure Storage 탐색기를 사용 하 여 Etag를 가져올 수 있습니다.|

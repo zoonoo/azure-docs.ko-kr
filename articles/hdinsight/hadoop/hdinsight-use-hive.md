@@ -23,7 +23,7 @@ Hive를 사용하면 크게 구조가 없는 데이터에 구조를 투영할 �
 
 HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형식을 제공합니다. 다음과 같은 클러스터 형식이 Hive 쿼리에 가장 자주 사용됩니다.
 
-|클러스터 유형 |설명|
+|클러스터 유형 |Description|
 |---|---|
 |대화형 쿼리|[LLAP(낮은 대기 시간 분석 처리)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 기능을 제공하여 대화형 쿼리에 대한 응답 시간을 개선하는 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Interactive Query로 시작](../interactive-query/apache-interactive-query-get-started.md) 문서를 참조하세요.|
 |Hadoop은|일괄 처리 프로세싱 워크로드에 대해 조정된 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Apache Hadoop으로 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md) 문서를 참조하세요.|

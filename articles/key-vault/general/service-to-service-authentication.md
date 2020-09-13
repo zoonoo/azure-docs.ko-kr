@@ -5,16 +5,16 @@ keywords: Azure Key Vault 인증 로컬 자격 증명
 author: msmbaldwin
 services: key-vault
 ms.author: mbaldwin
-ms.date: 08/08/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 860f9b0e49423b5d144d56ecd965153f7a362d87
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 00799f7c5239bfd744268f7353e1bac6cb038294
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180918"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483340"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -27,7 +27,7 @@ Azure Key Vault에 인증 하려면 공유 암호 또는 인증서 인 Azure Act
 
 `Microsoft.Azure.Services.AppAuthentication`라이브러리는 자동으로 인증을 관리 하므로 자격 증명이 아닌 솔루션에 집중할 수 있습니다. Microsoft Visual Studio, Azure CLI 또는 Azure AD 통합 인증을 사용 하 여 로컬 개발을 지원 합니다. 관리 ID를 지원하는 Azure 리소스에 배포된 라이브러리는 [Azure 리소스용 관리 ID](../../active-directory/msi-overview.md)를 자동으로 사용합니다. 코드 또는 구성을 변경할 필요가 없습니다. 또한 라이브러리는 관리 되는 id를 사용할 수 없는 경우 또는 로컬 개발 중에 개발자의 보안 컨텍스트를 확인할 수 없는 경우 Azure AD [클라이언트 자격 증명](../../azure-resource-manager/resource-group-authenticate-service-principal.md) 을 직접 사용 하도록 지원 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - [Visual studio 2019](https://www.visualstudio.com/downloads/) 또는 [visual studio 2017 v 15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 
@@ -54,7 +54,7 @@ Azure Key Vault에 인증 하려면 공유 암호 또는 인증서 인 Azure Act
     string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
-는 `GetAccessTokenAsync` `AzureServiceTokenProvider` 토큰을 메모리에 캐시 하 고 만료 직전에 Azure AD에서 검색 하기 때문에 메서드를 호출 하기 전에 토큰의 만료를 확인할 필요가 없습니다. 
+스레드로부터 안전한 클래스는 `AzureServiceTokenProvider` 토큰을 메모리에 캐시 하 고 만료 직전에 AZURE AD에서 검색 합니다. 즉, 메서드를 호출 하기 전에 토큰의 만료를 확인할 필요가 없습니다 `GetAccessTokenAsync` . 
 
 `GetAccessTokenAsync` 메서드는 리소스 식별자가 필요합니다. Microsoft Azure services에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 Id 란?](../../active-directory/msi-overview.md)을 참조 하세요.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure에서 PaaS 데이터베이스 보안 유지 | Microsoft Docs
-description: 'PaaS 웹 및 모바일 애플리케이션 보안을 위한 Azure SQL Database 및 SQL Data Warehouse 보안 모범 사례에 대해 자세히 알아봅니다. '
+description: 'PaaS 웹 및 모바일 응용 프로그램을 보호 하기 위한 Azure SQL Database 및 Azure Synapse Analytics 보안 모범 사례에 대해 알아봅니다. '
 services: security
 documentationcenter: na
 author: techlake
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 9c821a8898b61517dd5d6c872c8516bad6db6968
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a02b2157209b5f47ac7ffbde4e15f3e7df1c258b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84012962"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462533"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Azure에서 PaaS 데이터베이스 보안을 유지하기 위한 모범 사례
 
-이 문서에서는 PaaS(Platform as a Service) 웹 및 모바일 애플리케이션 보안을 위한 [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) 및 [SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 보안 모범 사례에 대해 설명합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
+이 문서에서는 PaaS (platform as a service) 웹 및 모바일 응용 프로그램을 보호 하기 위한 [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) 및 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 보안 모범 사례 모음에 대해 설명 합니다. 이러한 모범 사례는 Azure에 대한 Microsoft와 고객의 경험에서 비롯된 것입니다.
 
-Azure SQL Database 및 SQL Data Warehouse는 인터넷 기반 애플리케이션용 관계형 데이터베이스 서비스를 제공합니다. PaaS 배포에서 Azure SQL Database 및 SQL Data Warehouse를 사용할 때 애플리케이션과 데이터를 보호하는 데 도움이 되는 서비스를 살펴보겠습니다.
+Azure SQL Database 및 Azure Synapse Analytics는 인터넷 기반 응용 프로그램에 대 한 관계형 데이터베이스 서비스를 제공 합니다. PaaS 배포에서 Azure SQL Database 및 Azure Synapse Analytics를 사용할 때 응용 프로그램 및 데이터를 보호 하는 데 도움이 되는 서비스를 살펴보겠습니다.
 
 - Azure Active Directory 인증(SQL Server 인증 대신)
 - Azure SQL 방화벽
@@ -40,7 +40,7 @@ Azure SQL Database는 두 가지 인증 유형 중 하나를 사용 하도록 �
 
 - **Azure Active Directory 인증은** Azure Active Directory에서 관리 되는 id를 사용 하며, 관리 되는 도메인 및 통합 된 도메인에 대해 지원 됩니다. Azure Active Directory 인증을 사용하려면 Azure AD 사용자와 그룹을 관리할 수 있는 "Azure AD 관리자"라는 다른 서버 관리자를 만들어야 합니다. 이 관리자는 일반 서버 관리자가 할 수 있는 모든 작업을 수행할 수도 있습니다.
 
-[Azure Active Directory 인증](../../active-directory/develop/authentication-scenarios.md)은 Azure AD(Azure Active Directory)의 ID를 사용하여 Azure SQL Database 및 SQL Data Warehouse에 연결하는 메커니즘입니다. Azure AD는 SQL Server 인증에 대한 대안을 제공하므로 데이터베이스 서버에서 사용자 ID의 확산을 중지할 수 있습니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.  
+[Azure Active Directory 인증은](../../active-directory/develop/authentication-scenarios.md) AD (Azure Active Directory)에서 id를 사용 하 여 Azure SQL Database 및 Azure Synapse Analytics에 연결 하는 메커니즘입니다. Azure AD는 SQL Server 인증에 대한 대안을 제공하므로 데이터베이스 서버에서 사용자 ID의 확산을 중지할 수 있습니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>SQL 인증 대신 Azure AD를 사용하는 경우의 이점
 
@@ -50,12 +50,12 @@ Azure SQL Database는 두 가지 인증 유형 중 하나를 사용 하도록 �
 - 포함된 데이터베이스 사용자를 통해 데이터베이스 수준에서 ID를 인증합니다.
 - SQL Database에 연결되는 애플리케이션에 대한 토큰 기반 인증을 지원합니다.
 - 도메인 동기화 없이 로컬 Azure AD에 대해 ADFS(Active Directory Federation Services)를 사용하는 도메인 페더레이션 또는 기본 사용자/암호 인증을 지원합니다.
-- Azure AD는 [MFA(Multi-Factor Authentication)](/azure/active-directory/authentication/multi-factor-authentication)를 포함하는 Active Directory 유니버설 인증을 사용하는 SQL Server Management Studio를 통해 연결하도록 지원합니다. MFA는 전화 통화, 문자 메시지, 모바일 앱 알림 등의 여러 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. 자세한 내용은 [SQL Database 및 SQL Data Warehouse에 대한 유니버설 인증](../../azure-sql/database/authentication-mfa-ssms-overview.md)을 참조하세요.
+- Azure AD는 [MFA(Multi-Factor Authentication)](/azure/active-directory/authentication/multi-factor-authentication)를 포함하는 Active Directory 유니버설 인증을 사용하는 SQL Server Management Studio를 통해 연결하도록 지원합니다. MFA는 전화 통화, 문자 메시지, 모바일 앱 알림 등의 여러 가지 간편한 검증 옵션을 제공하는 강력한 인증을 포함합니다. 자세한 내용은 [SQL Database 및 Azure Synapse Analytics를 사용한 유니버설 인증](../../azure-sql/database/authentication-mfa-ssms-overview.md)을 참조 하세요.
 
 Azure AD 인증에 대한 자세한 내용은 다음을 참조하세요.
 
-- [SQL Database, Managed Instance 및 SQL Data Warehouse에서 인증을 위해 Azure Active Directory 인증 사용](../../azure-sql/database/authentication-aad-overview.md)
-- [Azure SQL Data Warehouse에 대한 인증](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
+- [SQL Database, Managed Instance 또는 Azure Synapse Analytics를 사용 하 여 인증에 Azure Active Directory 인증 사용](../../azure-sql/database/authentication-aad-overview.md)
+- [Azure Synapse Analytics에 대 한 인증](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-authentication.md)
 - [Azure AD 인증을 사용 하는 Azure SQL Database에 대 한 토큰 기반 인증 지원](../../azure-sql/database/authentication-aad-overview.md)
 
 > [!NOTE]
@@ -69,12 +69,12 @@ SQL Database의 기본 원본 IP 주소를 제한하면 Azure 주소(다른 구�
 
 Azure SQL 방화벽 및 IP 제한에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure SQL Database 및 SQL Data Warehouse 액세스 제어](../../azure-sql/database/logins-create-manage.md)
-- [Azure SQL Database 및 SQL Data Warehouse 방화벽 규칙](../../azure-sql/database/firewall-configure.md)
+- [Azure SQL Database 및 Azure Synapse Analytics 액세스 제어](../../azure-sql/database/logins-create-manage.md)
+- [Azure SQL Database 및 Azure Synapse Analytics 방화벽 규칙](../../azure-sql/database/firewall-configure.md)
 
-## <a name="encrypt-data-at-rest"></a>미사용 암호화 데이터
+## <a name="encrypt-data-at-rest"></a>저장 데이터 암호화
 
-[TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption)는 기본적으로 사용되도록 설정됩니다. TDE는 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse 데이터 및 로그 파일을 암호화합니다. TDE는 파일 또는 해당 백업에 대한 직접 액세스에 따른 손상으로부터 보호합니다. 이를 통해 기존 애플리케이션을 변경하지 않고 미사용 데이터를 암호화할 수 있습니다. TDE는 항상 사용하도록 설정하는 것이 좋습니다. 그렇지만 이렇게 하더라도 정상적인 액세스 경로를 사용하는 공격자는 막을 수 없습니다. TDE는 다양한 산업 분야에서 제정된 많은 법률, 규정 및 지침을 준수하는 기능을 제공합니다.
+[TDE(투명한 데이터 암호화)](/sql/relational-databases/security/encryption/transparent-data-encryption)는 기본적으로 사용되도록 설정됩니다. TDE는 SQL Server, Azure SQL Database 및 Azure Synapse 분석 데이터와 로그 파일을 투명 하 게 암호화 합니다. TDE는 파일 또는 해당 백업에 대한 직접 액세스에 따른 손상으로부터 보호합니다. 이를 통해 기존 애플리케이션을 변경하지 않고 미사용 데이터를 암호화할 수 있습니다. TDE는 항상 사용하도록 설정하는 것이 좋습니다. 그렇지만 이렇게 하더라도 정상적인 액세스 경로를 사용하는 공격자는 막을 수 없습니다. TDE는 다양한 산업 분야에서 제정된 많은 법률, 규정 및 지침을 준수하는 기능을 제공합니다.
 
 Azure SQL은 TDE와 관련된 주요 문제를 관리합니다. TDE를 사용할 경우 데이터베이스를 이동할 때 복구 가능성을 보장하기 위해 온-프레미스에서 특별히 주의해야 합니다. 좀 더 복잡한 시나리오에서 확장 가능한 키 관리를 통해 Azure Key Vault에서 키를 명시적으로 관리할 수 있습니다. [EKM을 통해 SQL Server에서 TDE 사용](/sql/relational-databases/security/encryption/enable-tde-on-sql-server-using-ekm)을 참조하세요. 이 경우 Azure Key Vault를 통한 BYOK(Bring Your Own Key)도 허용됩니다.
 
@@ -86,7 +86,7 @@ Azure SQL은 [Always Encrypted](/sql/relational-databases/security/encryption/al
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 PaaS 웹 및 모바일 애플리케이션 보안을 위한 Azure SQL Database 및 SQL Data Warehouse 보안 모범 사례 모음을 소개했습니다. PaaS 배포 보안 유지에 대한 자세한 내용은 다음을 참조하세요.
+이 문서에서는 PaaS 웹 및 모바일 응용 프로그램을 보호 하기 위한 SQL Database 및 Azure Synapse Analytics 보안 모범 사례 모음을 소개 했습니다. PaaS 배포 보안 유지에 대한 자세한 내용은 다음을 참조하세요.
 
 - [PaaS 배포 보안](paas-deployments.md)
 - [Azure App Services를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안](paas-applications-using-app-services.md)

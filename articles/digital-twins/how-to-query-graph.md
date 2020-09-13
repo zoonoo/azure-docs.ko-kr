@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e6236d9ed5ed75b6b5e10914e668de545c48fc2c
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055637"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468711"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -174,6 +174,42 @@ AND Room.$dtId IN ['room1', 'room2']
 | *공간 123* 가 있는 장치에서 운영자 역할을 하는 MxChip 장치를 반환 합니다. | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | ID가 *id1* 인 다른 쌍이 *포함* 된 relationship 이라는 관계가 있는 쌍을 가져옵니다. | `SELECT Room`<br>`FROM DIGITIALTWINS Room`<br>`JOIN Thermostat ON Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
 | *Floor11* 에 포함 된이 대화방 모델의 모든 대화방 가져오기 | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')` |
+
+## <a name="reference-expressions-and-conditions"></a>참조: 식 및 조건
+
+이 섹션에는 Azure Digital Twins 쿼리를 작성할 때 사용할 수 있는 연산자 및 함수에 대 한 참조가 포함 되어 있습니다.
+
+### <a name="operators"></a>연산자
+
+다음과 같은 연산자가 지원됩니다.
+
+| 패밀리 | 연산자 |
+| --- | --- |
+| 논리 |AND, OR, NOT |
+| 비교 |=,! =, <, >, <=, >= |
+| 포함 | 에서 NIN |
+
+### <a name="functions"></a>Functions
+
+지원 되는 형식 검사 및 캐스팅 함수는 다음과 같습니다.
+
+| 기능 | Description |
+| -------- | ----------- |
+| IS_DEFINED | 속성이 값을 할당할지를 나타내는 부울 값을 반환합니다. 이는 값이 기본 형식인 경우에만 지원 됩니다. 기본 형식에는 문자열, 부울, 숫자 또는가 포함 됩니다 `null` . DateTime, 개체 형식 및 배열은 지원 되지 않습니다. |
+| IS_OF_MODEL | 지정 된 쌍이 지정 된 모델 형식과 일치 하는지 여부를 나타내는 부울 값을 반환 합니다. |
+| IS_BOOL | 지정한 식의 형식이 부울인지 여부를 나타내는 부울 값을 반환합니다. |
+| IS_NUMBER | 지정한 식의 형식이 숫자인지 여부를 나타내는 부울 값을 반환합니다. |
+| IS_STRING | 지정한 식의 형식이 문자열인지 여부를 나타내는 부울 값을 반환합니다. |
+| IS_NULL | 지정한 식의 형식이 널인지 여부를 나타내는 부울 값을 반환합니다. |
+| IS_PRIMITIVE | 지정한 식의 형식이 기본 형식(문자열, 부울, 숫자 또는 `null`)인지 여부를 나타내는 부울 값을 반환합니다. |
+| IS_OBJECT | 지정한 식의 형식이 JSON 개체인지 여부를 나타내는 부울 값을 반환합니다. |
+
+지원 되는 문자열 함수는 다음과 같습니다.
+
+| 기능 | Description |
+| -------- | ----------- |
+| STARTS_WITH(x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
+| ENDS_WITH(x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다. |
 
 ## <a name="run-queries-with-an-api-call"></a>API 호출을 사용 하 여 쿼리 실행
 

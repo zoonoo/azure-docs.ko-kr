@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926867"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462516"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 제한
 
@@ -96,10 +96,26 @@ ms.locfileid: "88926867"
 
 <sup>4</sup> 기술 집합당 최대 30개의 기술입니다.
 
-<sup>5</sup> AI 보강 및 이미지 분석은 계산 집약적이며 사용 가능한 처리 능력을 과도하게 많이 소비합니다. 이러한 워크로드에 대한 실행 시간이 단축되어 큐의 다른 작업을 실행하는 데 더 많은 기회를 제공합니다.  
+<sup>5</sup> AI 보강 및 이미지 분석은 계산 집약적이며 사용 가능한 처리 능력을 과도하게 많이 소비합니다. 이러한 워크로드에 대한 실행 시간이 단축되어 큐의 다른 작업을 실행하는 데 더 많은 기회를 제공합니다.
 
 > [!NOTE]
 > [인덱스 제한](#index-limits)에 설명된 것처럼 인덱서는 복합 형식(`2019-05-06`)을 지원하는 최신 GA API 버전부터 문서당 모든 복합 컬렉션에 대해 3000 요소의 상한을 적용합니다. 즉, 이전 API 버전을 사용하여 인덱서를 만든 경우에는 이 제한이 적용되지 않습니다. 최대 호환성을 유지하려면 이전 API 버전을 사용하여 만든 다음, `2019-05-06` 이상의 API 버전으로 업데이트된 인덱서는 여전히 제한에서 **제외**됩니다. 고객은 앞에서 설명한 것처럼 매우 큰 복합 컬렉션을 사용하는 경우 부정적인 영향에 대해 알고 있어야 하며 최신 GA API 버전을 사용하여 새 인덱서를 만드는 것이 좋습니다.
+
+### <a name="shared-private-link-resource-limits"></a>공유 개인 링크 리소스 제한
+
+> [!NOTE]
+> 인덱서 [는이 방법 가이드](search-indexer-howto-access-private.md) 에 설명 된 대로 [공유 개인 링크 리소스 API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) 를 통해 관리 되는 전용 끝점을 통해 안전 하 게 리소스에 액세스할 수 있습니다.
+
+| 리소스 | 무료 | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 전용 끝점 인덱서 지원 | 아니요 | 예 | 예 | 예 | 예 | 아니요 | 예 | 예 |
+| 기술<sup>1</sup> 을 사용 하는 인덱서를 위한 개인 끝점 지원 | 아니요 | 아니요 | 아니요 | 예 | 예 | 아니요 | 예 | 예 |
+| 최대 개인 끝점 | 해당 없음 | 10 또는 30 | 100 | 400 | 400 | 해당 없음 | 20 | 20 |
+| 최대 고유 리소스 유형<sup>2</sup> | 해당 없음 | 4 | 7 | 15 | 15 | 해당 없음 | 4 | 4 |
+
+<sup>1</sup> AI 보강 및 이미지 분석은 계산 집약적 이며 사용 가능한 처리 능력의 불균형을 사용 합니다. 따라서 낮은 검색 서비스 계층에서 개인 환경에서 실행 되도록 설정 하면 검색 서비스의 성능 및 안정성에 부정적인 영향을 줄 수 있습니다.
+
+<sup>2</sup> 고유 리소스 형식 수는 `groupId` 리소스의 상태에 관계 없이 지정 된 검색 서비스에 대 한 모든 공유 개인 링크 리소스에서 사용 되는 고유한 값의 수로 계산 됩니다.
 
 ## <a name="synonym-limits"></a>동의어 제한
 
@@ -116,7 +132,7 @@ QPS 예상 값은 모든 고객에 의해 독립적으로 개발되어야 합니
 
 예측 값은 전용 리소스(기본 계층 및 표준 계층)에서 실행 중인 서비스에 대해 계산되는 경우 더 예측 가능해 집니다. 매개 변수를 더 잘 제어할 수 있기 때문에 QPS를 더 근접하게 예상할 수 있습니다. 예측 값에 접근하는 방법에 대한 지침은 [Azure Cognitive Search 성능 및 최적화](search-performance-optimization.md)를 참조하세요.
 
-스토리지 최적화 계층(L1 및 L2)의 경우 표준 계층보다 낮은 쿼리 처리량과 더 많은 대기 시간이 소요됩니다. 
+스토리지 최적화 계층(L1 및 L2)의 경우 표준 계층보다 낮은 쿼리 처리량과 더 많은 대기 시간이 소요됩니다.
 
 ## <a name="data-limits-ai-enrichment"></a>데이터 제한(AI 보강)
 

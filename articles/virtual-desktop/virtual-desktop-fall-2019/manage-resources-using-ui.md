@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c261ea174f37de51a8fbd5b36aeb40c26d44e6a9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 09e0b3bbac0bdc1d268aa7f24741aeb12a7d366d
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691397"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462584"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 데스크톱 (클래식) 관리 도구 배포
 
@@ -20,7 +20,7 @@ ms.locfileid: "88691397"
 
 이 문서의 지침은 Azure Resource Manager 템플릿을 사용하여 UI를 배포하는 방법을 설명합니다.
 
-## <a name="important-considerations"></a>중요 고려 사항
+## <a name="important-considerations"></a>중요한 고려 사항
 
 앱을 사용하려면 Windows Virtual Desktop과 상호 작용하도록 동의가 필요하므로 이 도구는 B2B 시나리오를 지원하지 않습니다. AAD(Azure Active Directory) 테넌트의 구독마다 별도의 관리 도구를 배포해야 합니다.
 
@@ -98,7 +98,7 @@ GitHub Azure Resource Manager 템플릿을 완료하면 두 개의 앱 서비스
 
 다음 지침에 따라 도구를 시작합니다.
 
-1. 템플릿에서 제공한 이름을 가진(예: Apr3UX) Azure App Services 리소스를 선택하고, 해당 리소스와 연결된 URL(예: <https://rdmimgmtweb-210520190304.azurewebsites.net>)로 이동합니다.
+1. 템플릿에서 제공한 이름을 가진(예: Apr3UX) Azure App Services 리소스를 선택하고, 해당 리소스와 연결된 URL(예: `https://rdmimgmtweb-210520190304.azurewebsites.net`)로 이동합니다.
 2. Windows Virtual Desktop 자격 증명을 사용하여 로그인합니다.
 3. 테 넌 트 그룹을 선택 하 라는 메시지가 표시 되 면 드롭다운 목록에서 **기본 테 넌 트 그룹** 을 선택 합니다.
 4. **기본 테넌트 그룹**을 선택하면 창의 왼쪽에 메뉴가 나타납니다. 이 메뉴에서 테넌트 그룹의 이름을 찾아서 선택합니다.

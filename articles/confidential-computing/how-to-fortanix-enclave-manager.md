@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: b5b0f9acc45dba81bb7653c844bb8c78a8bd29ba
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826296"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462431"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>방법: Fortanix Enclave Manager를 사용 하 여 응용 프로그램 실행 
 
@@ -24,7 +24,7 @@ ms.locfileid: "88826296"
 Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 포함 하는 타사 소프트웨어 공급 업체입니다. Azure에서 유사한 기밀 컴퓨팅 서비스를 제공 하는 다른 타사 공급자가 있습니다.
 
 > [!Note] 
- > 이 문서에서 참조 하는 제품은 MICROSOFT에서 제어 하 고 있지 않습니다. MICROSOFT는 편의를 위해서만이 정보를 제공 하 고, 이러한 타사 제품에 대 한 참조는 MICROSOFT의 보증을 암시 하지 않습니다.
+ > 이 문서에서 참조 하는 제품은 Microsoft에서 제어 하 고 있지 않습니다. Microsoft는 편의를 위해서만이 정보를 제공 하 고, 이러한 타사 제품에 대 한 참조는 Microsoft의 보증을 암시 하지 않습니다.
 
 
 
@@ -33,7 +33,7 @@ Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 �
  Fortanix에 대 한 지원은 [Fortanix 여유 커뮤니티](https://fortanix.com/community/) 에 가입 하 고 채널 #enclavemanager를 사용 합니다.
 
 
-## <a name="prerequisites"></a>사전 준비 사항
+## <a name="prerequisites"></a>전제 조건
 
 1. Fortanix Enclave Manager 계정이 없는 경우 시작 하기 전에 [등록](https://em.fortanix.com/auth/sign-up) 합니다.
 1. 변환 된 응용 프로그램 이미지를 푸시하는 개인 [Docker](https://docs.docker.com/) 레지스트리
@@ -43,7 +43,7 @@ Fortanix는 Azure 인프라를 기반으로 구축 된 제품 및 서비스를 �
 > 평가판 계정은 이 자습서에서 사용되는 가상 머신에 액세스할 수 없습니다. 종량제 구독으로 업그레이드하세요.
 
 ## <a name="add-an-application-to-fortanix-enclave-manager"></a>Fortanix Enclave Manager에 응용 프로그램 추가
-1. [FORTANIX EM](https://fortanix.com) 에 로그인 합니다.
+1. [FORTANIX EM (Fortanix Enclave Manager)](https://em.fortanix.com) 에 로그인 합니다.
 1. **계정 페이지로 이동** 하 고 **계정 추가** 를 선택 하 여 새 계정을 만듭니다. 
     
 ![계정 만들기](media/how-to-fortanix-enclave-manager/create-account.png)
@@ -120,7 +120,7 @@ Fortanix 노드 에이전트를 만들면 가상 컴퓨터, 네트워크 인터�
 1. 이 페이지에서 가상 머신을 배포 하기 위한 정보를 입력 합니다. 특히이 VM은 Azure에서 Fortanix Node Agent 소프트웨어가 설치 된 DCsv2 시리즈 Intel SGX 지원 가상 머신입니다. 노드 에이전트는 변환 된 이미지가 Azure의 Intel SGX 노드에서 안전 하 게 실행 될 수 있도록 합니다.  가상 컴퓨터 및 관련 리소스를 배포 하려는 **구독** 및 **리소스 그룹** 을 선택 합니다. 
  
     > [!NOTE]
-    > Azure에서 DCsv2 시리즈 가상 머신을 배포 하는 경우 제약 조건이 있습니다. 추가 코어에 대 한 할당량을 요청 해야 할 수도 있습니다. 자세한 내용은 [Azure vm의 기밀 컴퓨팅 솔루션](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solution) 을 참조 하세요. 
+    > Azure에서 DCsv2 시리즈 가상 머신을 배포 하는 경우 제약 조건이 있습니다. 추가 코어에 대 한 할당량을 요청 해야 할 수도 있습니다. 자세한 내용은 [Azure vm의 기밀 컴퓨팅 솔루션](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) 을 참조 하세요. 
 
 1. 사용 가능한 지역을 선택합니다.
 1. **노드 이름** 필드에 가상 컴퓨터의 이름을 입력 합니다. 

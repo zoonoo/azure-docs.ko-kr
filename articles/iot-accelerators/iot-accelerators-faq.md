@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abab80f8c790a170ec30fa228dd86576079a73a0
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75647716"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462550"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
@@ -101,7 +101,7 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 
 ### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Azure AD 테넌트를 삭제하려면 어떻게 하나요?
 
-Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx)을 참조하세요.
+Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](https://docs.microsoft.com/archive/blogs/ericgolpe/walkthrough-of-deleting-an-azure-ad-tenant)을 참조하세요.
 
 ### <a name="next-steps"></a>다음 단계
 
