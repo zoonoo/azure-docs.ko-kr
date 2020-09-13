@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/05/2020
+ms.date: 09/10/2020
 ms.author: abnarain
-ms.openlocfilehash: 49d173e0d0f2b96c385b4325335483d25e9a7c2d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: a6a0a62bd857dff575e17f47f1e2394375b08c45
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800716"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033662"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -113,14 +113,14 @@ SSL/TLS 핸드셰이크와 관련 된 사례를 처리 하는 경우 인증서 �
         Certutil -verify -urlfetch    <certificate path>   >     <output txt file path> 
         ```
 
-        예를 들면 다음과 같습니다.
+        다음은 그 예입니다. 
 
         ```
         Certutil -verify -urlfetch c:\users\test\desktop\servercert02.cer > c:\users\test\desktop\Certinfo.txt
         ```
     4. 출력 txt 파일에 오류가 있는지 확인 합니다. Txt 파일의 끝에서 오류 요약을 찾을 수 있습니다.
 
-        예를 들면 다음과 같습니다. 
+        다음은 그 예입니다.  
 
         ![오류 요약](media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png)
 
@@ -152,7 +152,7 @@ SSL/TLS 핸드셰이크와 관련 된 사례를 처리 하는 경우 인증서 �
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-예를 들면 다음과 같습니다. 
+다음은 그 예입니다.  
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -190,7 +190,7 @@ GAC에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/dotne
 
 #### <a name="symptoms"></a>증상
 
-자체 호스팅 통합 런타임은 키 없이 갑자기 오프 라인으로 전환 되며, 아래 오류 메시지는 이벤트 로그에 표시 됩니다.`Authentication Key is not assigned yet`
+자체 호스팅 통합 런타임은 키 없이 갑자기 오프 라인으로 전환 되며, 아래 오류 메시지는 이벤트 로그에 표시 됩니다. `Authentication Key is not assigned yet`
 
 ![인증 키가 없습니다.](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
 
@@ -351,7 +351,7 @@ Integration Runtime 이벤트 로그로 이동 하 여 오류를 확인 합니�
 
 #### <a name="cause"></a>원인
 
-*3.0 Integration Runtime*릴리스 이후에는 기존 Integration Runtime 노드의 **등록** 단추가 제거 되어 더 깔끔하고 안전 하 게 환경을 사용할 수 있습니다. 노드가 온라인 상태 인지 여부에 관계 없이 Integration Runtime에 등록 되어 있는 경우 다른 Integration Runtime에 다시 등록 하려면 이전 노드를 제거한 다음 노드를 설치 하 고 등록 해야 합니다.
+*3.0 Integration Runtime*릴리스 이후에는 기존 Integration Runtime 노드의 **등록** 단추가 제거 되어 더 깔끔하고 안전 하 게 환경을 사용할 수 있습니다. 노드가 온라인 상태인지 여부에 관계없이 Integration Runtime에 등록되어 있는 경우 다른 Integration Runtime에 다시 등록하려면 이전 노드를 제거한 다음 노드를 설치하고 등록해야 합니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -366,7 +366,7 @@ Integration Runtime 이벤트 로그로 이동 하 여 오류를 확인 합니�
 1. MSI를 설치 하 고 Integration Runtime 등록 합니다.
 
 
-### <a name="unable-to-register-the-self-hosted-ir-due-to-localhost"></a>Localhost로 인해 자체 호스팅 IR을 등록할 수 없습니다.    
+### <a name="unable-to-register-the-self-hosted-ir-due-to-localhost"></a>localhost로 인해 자체 호스팅 IR을 등록할 수 없음    
 
 #### <a name="symptoms"></a>증상
 
@@ -519,7 +519,7 @@ Localhost 127.0.0.1을 사용 하 여 파일을 호스트 하 고 이러한 문�
 
 ### <a name="connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>자체 호스팅 IR과 Data Factory 또는 자체 호스팅 IR 및 데이터 원본/싱크에 대 한 연결 문제
 
-네트워크 연결 문제를 해결 하려면 [네트워크 추적을 수집](#how-to-collect-netmon-trace)하 고,이를 사용 하는 방법을 이해 하 고, 실제 사례에서 netmon 도구를 자체 호스팅 IR에서 적용 하기 전에 [netmon 추적을 분석](#how-to-analyze-netmon-trace) 하는 방법을 알고 있어야 합니다.
+네트워크 연결 문제를 해결 하려면 네트워크 추적을 수집 하 고,이를 사용 하는 방법을 이해 하 고, 실제 사례에서 Netmon 도구를 자체 호스팅 IR에서 적용 하기 전에 [netmon 추적을 분석](#how-to-analyze-netmon-trace) 하는 방법을 알고 있어야 합니다.
 
 #### <a name="symptoms"></a>증상
 
@@ -577,7 +577,7 @@ Netmon 추적을 사용 하 고 추가로 분석 합니다.
 
 ### <a name="how-to-collect-netmon-trace"></a>Netmon 추적을 수집 하는 방법
 
-1.  [이 웹 사이트](https://www.microsoft.com/en-sg/download/details.aspx?id=4865)에서 Netmon 도구를 다운로드 하 고 서버 컴퓨터 (문제가 있는 서버) 및 클라이언트 (예: 자체 호스팅 IR)에 설치 합니다.
+1.  [이 웹 사이트](https://cnet-downloads.com/network-monitor)에서 Netmon 도구를 다운로드 하 고 서버 컴퓨터 (문제가 있는 서버) 및 클라이언트 (예: 자체 호스팅 IR)에 설치 합니다.
 
 2.  다음 경로에서 폴더를 만듭니다. *D:\netmon*. 로그를 저장 하는 데 충분 한 공간이 있는지 확인 합니다.
 
@@ -621,7 +621,10 @@ Netmon 추적을 사용 하 고 추가로 분석 합니다.
 
 ### <a name="how-to-analyze-netmon-trace"></a>Netmon 추적을 분석 하는 방법
 
-위의 netmon 추적을 수집 하 여 **8.8.8.8 888** 를 텔넷 하려고 하면 아래 추적을 볼 수 있습니다.
+> [!NOTE] 
+> 아래 지침은 netmon 추적에 적용 됩니다. Netmon 추적이 현재 지원 되지 않으므로 wireshark를 동일한 것으로 활용할 수 있습니다.
+
+Netmon 추적을 수집 하 여 **8.8.8.8 888** 를 텔넷 하려고 하면 아래 추적을 확인할 수 있습니다.
 
 ![netmon 추적 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
 

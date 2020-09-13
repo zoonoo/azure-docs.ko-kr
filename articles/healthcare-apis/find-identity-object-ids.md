@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 5b42d61d59a3c816c3b664297470cfbf91f17439
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 706d7e081743f2bab1f593e00dc792f218a000ea
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851769"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033628"
 ---
 # <a name="find-identity-object-ids-for-authentication-configuration"></a>인증 구성에 대 한 id 개체 Id 찾기
 
@@ -21,16 +21,16 @@ ms.locfileid: "87851769"
 
 ## <a name="find-user-object-id"></a>사용자 개체 ID 찾기
 
-사용자 이름을 가진 사용자가 있는 경우 `myuser@consoso.com` `ObjectId` 다음 PowerShell 명령을 사용 하 여 사용자를 찾을 수 있습니다.
+사용자 이름을 가진 사용자가 있는 경우 `myuser@contoso.com` `ObjectId` 다음 PowerShell 명령을 사용 하 여 사용자를 찾을 수 있습니다.
 
 ```azurepowershell-interactive
-$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@consoso.com'").ObjectId
+$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@contoso.com'").ObjectId
 ```
 
 또는 Azure CLI를 사용할 수 있습니다.
 
 ```azurecli-interactive
-az ad user show --id myuser@consoso.com --query objectId --out tsv
+az ad user show --id myuser@contoso.com --query objectId --out tsv
 ```
 
 ## <a name="find-service-principal-object-id"></a>서비스 사용자 개체 ID 찾기
