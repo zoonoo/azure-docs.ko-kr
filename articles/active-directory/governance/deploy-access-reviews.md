@@ -419,7 +419,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 관리자는 부실 액세스의 위험을 줄이기 위해 액세스 패키지에 대 한 활성 할당을 가진 사용자를 정기적으로 검토할 수 있습니다. 아래 링크의 지침을 따르세요.
 
-| 방법 문서| 설명 |
+| 방법 문서| Description |
 | - | - |
 | [액세스 검토 만들기](entitlement-management-access-reviews-create.md)| 액세스 패키지의 검토를 사용 하도록 설정 합니다. |
 | [액세스 검토 수행](entitlement-management-access-reviews-review-access.md)| 액세스 패키지에 할당 된 다른 사용자에 대 한 액세스 검토를 수행 합니다. |
@@ -433,7 +433,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 직원 및 게스트의 그룹 및 응용 프로그램에 대 한 액세스는 시간이 지남에 따라 변경 될 수 있습니다. 오래 된 액세스 할당과 관련 된 위험을 줄이기 위해 관리자는 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 만들 수 있습니다. 아래 링크의 지침을 따르세요.
 
-| 방법 문서| 설명 |
+| 방법 문서| Description |
 | - | - |
 | [액세스 검토 만들기](create-access-review.md)| 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 하나 이상 만듭니다. |
 | [액세스 검토 수행](perform-access-review.md)| 응용 프로그램에 대 한 액세스 권한이 있는 그룹 구성원 또는 사용자에 대 한 액세스 검토를 수행 합니다. |
@@ -450,7 +450,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 아래 링크의 지침을 따르세요.
 
-| 방법 문서 | 설명 |
+| 방법 문서 | Description |
 | - | - |
  [액세스 검토 만들기](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM의 권한 있는 Azure AD 역할에 대 한 액세스 검토 만들기 |
 | [액세스 권한 자체 검토](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당 된 경우 역할에 대 한 액세스를 승인 하거나 거부 합니다. |
@@ -465,7 +465,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 아래 링크의 지침을 따르세요.
 
-| 방법 문서| 설명 |
+| 방법 문서| Description |
 | - | -|
 | [액세스 검토 만들기](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| PIM의 권한 있는 Azure 리소스 역할에 대 한 액세스 검토 만들기 |
 | [액세스 권한 자체 검토](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| 관리 역할에 할당 된 경우 역할에 대 한 액세스를 승인 하거나 거부 합니다. |

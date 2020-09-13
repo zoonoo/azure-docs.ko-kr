@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: d681c79cb3c7874cbcd75d03db08721dd4b25f4d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6fc0add55caccd7721f3ee2c72db68fbcf6bc0dc
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835462"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458504"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에서 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
@@ -112,7 +112,7 @@ Azure Database for MariaDB의 경우 가상 네트워크 규칙 기능에는 다
 
 - 가상 네트워크 규칙은 Azure Resource Manager 가상 네트워크에만 적용되고 [클래식 배포 모델][resource-manager-deployment-model-568f] 네트워크에는 적용되지 않습니다.
 
-- **Microsoft.Sql** 서비스 태그를 사용하여 Azure Database for MariaDB에 가상 네트워크 서비스 엔드포인트를 설정하면, 모든 Azure 데이터베이스 서비스(Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database 및 Azure SQL Data Warehouse)에 대한 엔드포인트도 사용하도록 설정할 수 있습니다.
+- **Microsoft .sql** 서비스 태그를 사용 하 여 가상 네트워크 서비스 끝점을 Azure Database for MariaDB로 설정 하면 모든 azure 데이터베이스 서비스에 대 한 끝점 (Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database 및 Azure Synapse Analytics (이전의 SQL Data Warehouse)도 사용할 수 있습니다.
 
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 
@@ -134,7 +134,7 @@ Azure Database for MariaDB의 경우 가상 네트워크 규칙 기능에는 다
 
 Azure CLI 또는 Azure Portal을 사용하여 **IgnoreMissingServiceEndpoint** 플래그를 설정할 수 있습니다.
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 - [Azure 가상 네트워크][vm-virtual-network-overview]
 - [Azure 가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]
 

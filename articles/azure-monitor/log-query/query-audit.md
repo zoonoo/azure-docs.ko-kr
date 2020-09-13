@@ -5,21 +5,16 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/25/2020
-ms.openlocfilehash: cb38dcba2f61a432decb56164b816688ad3192d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.date: 09/03/2020
+ms.openlocfilehash: bfaa9d8908d9401441d8811c3edcd087781b1d89
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893752"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458640"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Azure Monitor 로그의 감사 쿼리 (미리 보기)
 로그 쿼리 감사 로그는 Azure Monitor에서 실행 되는 로그 쿼리에 대 한 원격 분석을 제공 합니다. 여기에는 쿼리가 실행 된 시간, 실행 한 사람, 사용 된 도구, 쿼리 텍스트, 쿼리 실행을 설명 하는 성능 통계 등의 정보가 포함 됩니다.
-
-## <a name="current-limitations"></a>현재 제한 사항
-공개 미리 보기 중에는 다음과 같은 제한 사항이 적용 됩니다.
-
-- 작업 영역 중심 쿼리만 기록 됩니다. 쿼리는 리소스 중심 모드로 실행 되거나 작업 영역 기반으로 구성 되지 않은 Application Insights에 대해 실행 됩니다.
 
 
 ## <a name="configure-query-auditing"></a>쿼리 감사 구성
@@ -55,10 +50,11 @@ ms.locfileid: "88893752"
 | QueryTimeRangeEnd     | 쿼리에 대해 선택한 시간 범위의 끝입니다. 이는 쿼리가 Log Analytics에서 시작 되는 경우와 같은 특정 시나리오에서 채워지지 않을 수 있으며 시간 범위는 시간 선택이 아닌 쿼리 내부에 지정 됩니다.  |
 | QueryText             | 실행된 쿼리의 텍스트입니다. |
 | RequestTarget         | API URL을 사용 하 여 쿼리를 전송 했습니다.  |
-| RequestContext        | 쿼리가 실행 되도록 요청한 리소스 목록입니다. 에는 작업 영역, 응용 프로그램 및 리소스의 세 가지 문자열 배열이 포함 되어 있습니다. 구독 또는 리소스 그룹-대상 쿼리는 *리소스로*표시 됩니다. RequestTarget으로 암시 된 대상을 포함 합니다. |
+| RequestContext        | 쿼리가 실행 되도록 요청한 리소스 목록입니다. 에는 작업 영역, 응용 프로그램 및 리소스의 세 가지 문자열 배열이 포함 되어 있습니다. 구독 또는 리소스 그룹-대상 쿼리는 *리소스로*표시 됩니다. RequestTarget으로 암시 된 대상을 포함 합니다.<br>확인할 수 있는 경우 각 리소스의 리소스 ID가 포함 됩니다. 리소스에 액세스 하는 동안 오류가 반환 되 면이를 해결 하지 못할 수 있습니다. 이 경우 쿼리에서 특정 텍스트가 사용 됩니다.<br>쿼리에서 여러 구독에 존재 하는 작업 영역 이름과 같이 모호한 이름을 사용 하는 경우이 모호한 이름이 사용 됩니다. |
 | RequestContextFilters | 쿼리 호출의 일부로 지정 된 필터 집합입니다. 최대 3 개의 가능한 문자열 배열을 포함 합니다.<br>-ResourceTypes-쿼리의 범위를 제한 하는 리소스의 유형입니다.<br>-작업 영역-쿼리를 제한 하는 작업 영역 목록<br>-WorkspaceRegions-쿼리를 제한 하는 작업 영역 영역 목록 |
 | ResponseCode          | 쿼리가 제출 될 때 반환 되는 HTTP 응답 코드입니다. |
 | ResponseDurationMs    | 응답이 반환 되는 시간입니다.  |
+| ResponseRowCount     | 쿼리에서 반환한 총 이벤트 수입니다. |
 | StatsCPUTimeMs       | 계산, 구문 분석 및 데이터 인출에 사용 되는 총 계산 시간입니다. 쿼리가 상태 코드 200와 함께 반환 되는 경우에만 채워집니다. |
 | StatsDataProcessedKB | 쿼리를 처리 하기 위해 액세스 한 데이터의 양입니다. 대상 테이블 크기, 사용 된 시간 범위, 적용 된 필터 및 참조 되는 열 수의 영향을 받습니다. 쿼리가 상태 코드 200와 함께 반환 되는 경우에만 채워집니다. |
 | StatsDataProcessedStart | 쿼리를 처리 하기 위해 액세스 한 가장 오래 된 데이터의 시간입니다. 쿼리 명시적 시간 범위 및 적용 된 필터의 영향을 받습니다. 데이터 분할으로 인해 명시적 시간 범위 보다 클 수 있습니다. 쿼리가 상태 코드 200와 함께 반환 되는 경우에만 채워집니다. |
@@ -66,7 +62,11 @@ ms.locfileid: "88893752"
 | StatsWorkspaceCount | 쿼리에서 액세스 하는 작업 영역 수입니다. 쿼리가 상태 코드 200와 함께 반환 되는 경우에만 채워집니다. |
 | Stats지역 수 | 쿼리에서 액세스 하는 영역 수입니다. 쿼리가 상태 코드 200와 함께 반환 되는 경우에만 채워집니다. |
 
+## <a name="considerations"></a>고려 사항
 
+- Azure 데이터 탐색기 프록시에서 들어오는 쿼리에는 성능 통계를 사용할 수 없습니다. 이러한 쿼리에 대 한 다른 모든 데이터는 계속 채워집니다.
+- [문자열 리터럴을 난독 처리](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) 는 문자열에 대 한 *h* 힌트는 쿼리 감사 로그에 영향을 주지 않습니다. 쿼리는 난독 처리 되는 문자열 없이 전송 된 그대로 캡처됩니다. 이 데이터를 볼 수 있는 규정 준수 권한이 있는 사용자만 Log Analytics 작업 영역에서 사용 가능한 다양 한 RBAC 모드를 사용 하 여이 작업을 수행할 수 있도록 해야 합니다.
+- 여러 작업 영역의 데이터를 포함 하는 쿼리의 경우에는 사용자가 액세스할 수 있는 작업 영역 에서만 쿼리를 캡처할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
