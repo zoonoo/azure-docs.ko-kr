@@ -3,12 +3,12 @@ title: 규정 비준수의 원인 확인
 description: 리소스가 규정 비준수인 경우 여러 가지 원인이 있을 수 있습니다. 규정 비준수를 일으킨 원인을 확인하는 방법을 알아보세요.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: ee027ff0f2936dc3eb7153869c52d4e70c83918b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512030"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648574"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -30,17 +30,17 @@ Azure 리소스가 정책 규칙을 준수하지 않는 것으로 확인되면 �
 
 준수 세부 정보를 보려면 다음 단계를 수행합니다.
 
-1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
+1. **모든 서비스**를 선택한 다음, **정책을**검색 하 고 선택 하 여 Azure Portal에서 Azure Policy 서비스를 시작 합니다.
 
 1. **개요** 또는 **준수** 페이지에서 _규정 비준수_인 **준수 상태**에서 정책을 선택합니다.
 
 1. **정책 준수** 페이지의 **리소스 준수** 탭에서 _규정 비준수_인 **준수 상태**에서 리소스의 줄임표를 마우스 오른쪽 단추로 클릭하거나 선택합니다. 그런 다음, **준수 세부 정보 보기**를 선택합니다.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="준수 세부 정보 보기 옵션" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="리소스 호환성 탭의 ' 준수 세부 정보 보기 ' 링크 스크린샷" border="false":::
 
 1. **준수 세부 정보** 창에는 현재 정책 할당에 대한 리소스의 최신 평가 정보가 표시됩니다. 이 예제에서 **Microsoft.Sql/servers/version** 필드는 _12.0_으로 확인되며 정책 정의는 _14.0_으로 예상됩니다. 여러 가지 이유로 리소스가 규정 비준수인 경우 각각이 이 창에 나열됩니다.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="준수 세부 정보 창 및 규정 비준수에 대한 이유" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="준수 정보 창의 스크린샷 및 현재 값이 12이 고 대상 값이 14입니다." border="false":::
 
    **auditIfNotExists** 또는 **deployIfNotExists** 정책 정의의 경우 세부 정보는 **details.type** 속성 및 선택적 속성을 포함합니다. 목록은 [auditIfNotExists 속성](../concepts/effects.md#auditifnotexists-properties) 및 [deployIfNotExists 속성](../concepts/effects.md#deployifnotexists-properties)을 참조하세요. **마지막으로 평가된 리소스**는 정의의 **세부 정보** 섹션에서 관련된 리소스입니다.
 
@@ -69,7 +69,7 @@ Azure 리소스가 정책 규칙을 준수하지 않는 것으로 확인되면 �
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="준수 세부 정보 창 - *ifNotExists" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="평가 된 리소스 수를 포함 하 여 ifNotExists에 대 한 준수 정보 창의 스크린샷" border="false":::
 
 > [!NOTE]
 > 데이터를 보호하기 위해 속성 값이 _비밀_이면 현재 값이 별표를 표시합니다.
@@ -114,13 +114,13 @@ _게스트 구성_ 범주의 _auditIfNotExists_ 정책의 경우 VM 내에서 �
 
 정책 준수 세부 정보를 보기 위해 위의 섹션에서 설명한 것과 동일한 단계를 수행하여 시작합니다.
 
-준수 세부 정보 창 보기에서 **마지막으로 평가된 리소스** 링크를 클릭합니다.
+준수 정보 창 보기에서 **마지막 평가 리소스**링크를 선택 합니다.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="auditIfNotExists 정의 세부 정보 보기" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="AuditIfNotExists 정의 준수 세부 정보를 보는 스크린샷" border="false":::
 
 **게스트 할당** 페이지에는 사용 가능한 모든 준수 세부 정보가 표시됩니다. 뷰의 각 행은 머신 내에서 수행된 평가를 나타냅니다. **Reason** 열에서 게스트 할당이 _규정 비준수_인 이유를 설명하는 구가 표시됩니다. 예를 들어 암호 정책을 감사하는 경우 **Reason** 열에 각 설정에 대한 현재 값을 포함한 텍스트가 표시됩니다.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="준수 세부 정보 보기" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="게스트 할당 호환성 정보의 스크린샷" border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -191,7 +191,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 새 **공개 미리 보기**의 일부로, [전체 모드 삭제](../../../azure-resource-manager/templates/complete-mode-deletion.md)를 지원하는 모든 Azure 리소스에 대해 지난 14일 간의 변경 기록을 사용할 수 있습니다. 변경 기록은 변경이 검색된 시간 및 각 변경의 _시각적 차이_에 대한 세부 정보를 제공합니다. 변경 내용 검색은 Azure Resource Manager 속성이 추가, 제거 또는 변경 될 때 트리거됩니다.
 
-1. **모든 서비스**를 클릭한 후 **정책**을 검색하고 선택하여 Azure Portal에서 Azure Policy 서비스를 시작합니다.
+1. **모든 서비스**를 선택한 다음, **정책을**검색 하 고 선택 하 여 Azure Portal에서 Azure Policy 서비스를 시작 합니다.
 
 1. **개요** 또는 **준수** 페이지에서 **준수 상태**에 있는 정책을 선택합니다.
 
@@ -199,11 +199,11 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 1. **리소스 준수** 페이지에서 **변경 기록(미리 보기)** 탭을 선택합니다. 검색된 변경 목록이 표시됩니다(있는 경우).
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="리소스 준수 페이지의 Azure Policy 변경 기록 탭" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="변경 기록 탭의 스크린샷 및 리소스 호환성 페이지에서 검색 된 변경 시간입니다." border="false":::
 
 1. 검색된 변경 중 하나를 선택합니다. 리소스의 _시각적 차이_는 **변경 기록** 페이지에 표시됩니다.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="변경 기록 페이지의 Azure Policy 변경 기록 시각적 차이" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="변경 기록 페이지에서 속성의 이전 및 이후 상태에 대 한 변경 기록 시각적 Diff의 스크린샷" border="false":::
 
 _시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩니다. 검색된 변경 내용이 리소스의 현재 호환 상태와 관련되어 있지 않을 수 있습니다.
 

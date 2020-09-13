@@ -134,7 +134,7 @@ Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예는 다음
 7. 개인 정보 보호 정책
 8. Offer name
 9. 스크린샷/비디오
-10. 설명
+10. Description
 
 ### <a name="name"></a>속성
 

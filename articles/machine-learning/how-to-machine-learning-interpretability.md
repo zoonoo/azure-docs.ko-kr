@@ -71,7 +71,7 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 
  `azureml-interpret` 에서는 해석 된 모델을 학습 하 고 블랙 박스 AI 시스템을 설명 하는 데 도움이 되는 오픈 소스 python 패키지인 [해석 커뮤니티](https://github.com/interpretml/interpret-community/)에서 개발한 interpretability 기술을 사용 합니다. [해석-커뮤니티](https://github.com/interpretml/interpret-community/) 는이 SDK의 지원 되는 explainers 호스트 역할을 하며 현재 다음 interpretability 기술을 지원 합니다.
 
-|Interpretability 기술|설명|Type|
+|Interpretability 기술|Description|Type|
 |--|--|--------------------|
 |SHAP 트리 설명| [Shap](https://github.com/slundberg/shap)의 tree 설명는 트리의 트리와 관련 된 다항식 TIME FAST shap 값 예측 알고리즘을 **중심으로 합니다.**|모델 관련|
 |SHAP 심층 설명| SHAP의 설명에 따라 Deep 설명 "는 [SHAP NIPS 용지](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions)에 설명 된 DeepLIFT와의 연결을 기반으로 하는 심층 학습 모델의 shap 값에 대 한 고속 근사값 알고리즘입니다. TensorFlow 백 엔드를 사용 하는 **TensorFlow** 모델 및 **keras** 모델이 지원 됩니다 (PyTorch에 대 한 예비 지원도 있습니다.).|모델 관련|

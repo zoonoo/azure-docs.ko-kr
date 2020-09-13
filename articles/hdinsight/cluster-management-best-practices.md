@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 3010c1d597907e7d5c7f82c8b42721dc1f934f6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd79568944d81e267a45287104bd0fa9698df2fb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74782022"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648698"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>HDInsight 클러스터 관리 모범 사례
 
@@ -21,7 +21,7 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 
 ## <a name="how-do-i-create-hdinsight-clusters"></a>HDInsight 클러스터를 만들 어떻게 할까요? 있나요?
 
-| 옵션 | 문서 |
+| 옵션 | Documents |
 |---|---|
 | Azure 데이터 팩터리 | [Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | 사용자 지정 리소스 관리자 템플릿 | [Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
@@ -38,7 +38,7 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 
 ## <a name="how-do-i-customize-hdinsight-clusters"></a>HDInsight 클러스터를 사용자 지정 어떻게 할까요??
 
-| 옵션 | 문서 |
+| 옵션 | Documents |
 |---|---|
 | 스크립트 작업 | [스크립트 동작을 사용하여 Azure HDInsight 클러스터 사용자 지정](./hdinsight-hadoop-customize-cluster-linux.md) |
 | 부트스트랩 | [부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정](./hdinsight-hadoop-customize-cluster-bootstrap.md) |
@@ -47,7 +47,7 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 
 ## <a name="what-are-some-errors-i-might-face-when-creating-clusters"></a>클러스터를 만들 때 발생할 수 있는 몇 가지 오류는 무엇 인가요?
 
-| Error | 추가 정보 |
+| Error | 자세한 정보 |
 |---|---|
 | 할당량 없음 | 각 지역에서 구독에 만들 수 있는 할당량 수에 대 한 할당량이 있습니다. 자세한 내용은 [용량 계획: 할당량](./hdinsight-capacity-planning.md)을 참조 하세요. |
 | 사용 가능한 IP 주소가 더 이상 없습니다. | 각 VNet에는 제한 된 수의 IP 주소가 있습니다. HDInsight 클러스터를 만들 때 각 노드 (사육 아웃 및 게이트웨이 노드 포함)는 할당 된 IP 주소 중 일부를 사용 합니다. 모든 IP 주소를 사용 중인 경우에는이 오류가 발생 합니다.  |
@@ -56,12 +56,14 @@ HDInsight 클러스터 관리에 대 한 모범 사례를 알아봅니다.
 
 ## <a name="how-do-i-manage-running-hdinsight-clusters"></a>실행 중인 HDInsight 클러스터를 관리 어떻게 할까요??
 
-| 옵션 | 문서 |
+| 옵션 | Documents |
 |---|---|
 | 자동 크기 조정 | [Azure HDInsight 클러스터 자동 크기 조정](./hdinsight-autoscale-clusters.md) |
 | 수동 크기 조정 | [Azure HDInsight 클러스터 크기 조정](./hdinsight-scaling-best-practices.md) |
 | Ambari를 사용 하 여 모니터링| [Azure HDInsight에서 클러스터 성능 모니터링](./hdinsight-key-scenarios-to-monitor.md) |
 | Azure Monitor 로그를 사용 하 여 모니터링 | [Azure Monitor Logs를 사용하여 HDInsight 클러스터 모니터링](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
+| 서비스 문제, 계획 된 유지 관리, 상태 & 보안 권고 | [구독 특정 서비스 상태 경고 구독](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>삭제 된 HDInsight 클러스터를 확인 어떻게 할까요? 시겠습니까?
 

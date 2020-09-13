@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 076493fa8fd54e9585d09a3dd352eabdee652f18
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 81e08e07236d445a4ca351a7d93e7851cad69ace
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079033"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648726"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -17,7 +17,7 @@ Azure Policy는 리소스에 대한 규칙을 설정합니다. 정책 정의는 
 
 규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 머신만 허용되게 지정할 수 있습니다. 또는 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책 할당은 자식 리소스에 의해 상속 됩니다. 정책 할당이 리소스 그룹에 적용 되는 경우 해당 리소스 그룹의 모든 리소스에 적용 됩니다.
 
-정책 정의 스키마는 다음 위치에서 찾을 수 있습니다. [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+정책 정의 _Policyrule_ 스키마는 다음 위치에서 찾을 수 있습니다. [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 
@@ -77,7 +77,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 > [!NOTE]
 > 정책 정의를 만들거나 업데이트하는 동안 **id**, **type**, **name**이 JSON 외부의 속성으로 정의되며 JSON 파일에는 필요하지 않습니다. SDK를 통해 정책 정의를 가져오면 **id**, **type**, **name** 속성이 JSON의 일부로 반환되지만 각각은 정책 정의와 관련된 읽기 전용 정보입니다.
 
-## <a name="type"></a>형식
+## <a name="type"></a>Type
 
 **Type** 속성을 설정할 수 없는 경우 SDK에서 반환 되 고 포털에 표시 되는 세 가지 값이 있습니다.
 
@@ -186,7 +186,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="strongtype"></a>strongType
 
-`metadata` 속성 안에 **strongType**을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType**은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType**에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>` 입니다. 예들 들어 `Microsoft.Network/virtualNetworks/subnets`입니다.
+`metadata` 속성 안에 **strongType**을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType**은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType**에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>` 입니다. 예: `Microsoft.Network/virtualNetworks/subnets`.
 
 **Get-AzResourceProvider**에서 반환하지 않는 일부 리소스 유형이 지원됩니다. 이러한 형식은 다음과 같습니다.
 
@@ -619,7 +619,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 
   [Visual Studio Code용 Azure Policy 확장](../how-to/extension-for-vscode.md)을 사용하여 리소스 속성에 대한 별칭을 보고 검색할 수 있습니다.
 
-  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Visual Studio Code용 Azure Policy 확장" border="false":::
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="별칭 이름을 표시 하는 속성을 Visual Studio Code 가리키기 위한 Azure Policy 확장의 스크린샷" border="false":::
 
 - Azure Resource Graph
 

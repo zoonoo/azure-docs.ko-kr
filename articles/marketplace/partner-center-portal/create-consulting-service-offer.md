@@ -141,7 +141,7 @@ ms.locfileid: "89646829"
 4. 산업
 5. Offer name
 6. 요약
-7. 설명
+7. Description
 8. 스크린샷/비디오
 
 <br>다음은 Microsoft AppSource에서 제공 정보를 표시 하는 방법의 예입니다. 나열 된 가격은 예를 들기 위한 것 이며 실제 비용을 반영 하지는 않습니다.
@@ -156,7 +156,7 @@ ms.locfileid: "89646829"
 4. 산업
 5. Offer name
 6. 요약
-7. 설명
+7. Description
 8. 스크린샷/비디오
 9. Documents
 

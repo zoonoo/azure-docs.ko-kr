@@ -186,7 +186,7 @@ ISE가 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
    ![환경 세부 정보 제공](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **구독** | 예 | <*Azure-subscription-name*> | 환경에 사용할 Azure 구독 |
    | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 환경을 만들려는 신규 또는 기존 Azure 리소스 그룹 |

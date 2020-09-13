@@ -1,7 +1,7 @@
 ---
-title: Azure AD 토큰 & 클레임 유형
-description: AAD(Azure Active Directory)에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰)를 이해하고 평가하기 위한 가이드입니다.
-documentationcenter: na
+title: SAML 2.0 토큰 클레임 참조 | Microsoft
+titleSuffix: Microsoft identity platform
+description: Microsoft id 플랫폼에서 발급 한 SAML 2.0 토큰에 포함 된 클레임에 대 한 세부 정보를 포함 하는 클레임 참조로, 해당 JWT를 포함 합니다.
 author: kenwith
 services: active-directory
 manager: CelesteDG
@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
-ms.date: 06/22/2018
+ms.date: 09/09/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: bab21bfc6dba6e9cd35c8053e943cb76339e2254
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 254fa03310bac9c5c478d9297145f88773c1a7b0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114968"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648615"
 ---
-# <a name="azure-ad-saml-token-reference"></a>Azure AD SAML 토큰 참조
+# <a name="saml-token-claims-reference"></a>SAML 토큰 클레임 참조
 
-Azure AD(Azure Active Directory)는 각 인증 흐름의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. 이 문서에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다.
+Microsoft id 플랫폼은 각 인증 흐름의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. 이 문서에서는 SAML 2.0 토큰의 형식, 보안 특성 및 내용을 설명 합니다.
 
 ## <a name="claims-in-saml-tokens"></a>SAML 토큰의 클레임
 
@@ -30,11 +30,11 @@ Azure AD(Azure Active Directory)는 각 인증 흐름의 처리 과정에서 여
 > | Name | 동등한 JWT 클레임 | Description | 예제 |
 > | --- | --- | --- | ------------|
 > |사용자 | `aud` |토큰의 의도한 수신자입니다. 토큰을 받는 애플리케이션에서는 대상 값이 올바른지 확인하여 대상이 다른 모든 토큰을 거부해야 합니다. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
-> | 인증 인스턴트 | |인증이 발생한 날짜 및 시간을 기록합니다. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
+> | 인증 인스턴트 | |인증이 발생한 날짜 및 시간을 기록합니다. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` |
 > |인증 방법 | `amr` |토큰의 주체가 인증된 방법을 식별합니다. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |이름 | `given_name` |Azure AD 사용자 개체에 설정된 대로 사용자의 이름 또는 "지정된 이름"을 제공합니다. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
 > |그룹 | `groups` |주체의 그룹 멤버 자격을 나타내는 개체 ID를 제공합니다. 이러한 값은 고유하며(개체 ID 참조) 리소스 액세스 시 강제로 인증하게 하는 경우처럼 액세스 관리에 안전하게 사용할 수 있습니다. 그룹 클레임에 포함된 그룹은 애플리케이션 매니페스트의 "groupMembershipClaims" 속성을 통해 애플리케이션별로 구성됩니다. Null 값은 모든 그룹을 제외하고, "SecurityGroup" 값은 Active Directory 보안 그룹 멤버 자격만 포함하고, "All" 값은 보안 그룹과 Office 365 메일 그룹을 모두 포함합니다. <br><br> **참고**: <br> 그룹 수가 한도(SAML은 150, JWT는 200)를 넘어설 경우 초과 클레임은 해당 사용자에 대한 그룹 목록을 포함하는 Graph 엔드포인트를 가리키는 클레임 원본에 추가됩니다. ( | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
-> | 그룹 초과 지표 | `groups:src1` | 길이는 제한되지 않으나(위의 `hasgroups` 참조) 토큰에게는 너무 큰 토큰 요청의 경우 사용자의 전체 그룹 목록에 대한 링크가 포함됩니다. SAML의 경우 `groups` 클레임 대신 새 클레임으로 추가됩니다. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
+> | 그룹 초과 지표 | `groups:src1` | 길이가 제한 되지 않지만 토큰에 대해 너무 많은 토큰 요청의 경우 사용자의 전체 그룹 목록에 대 한 링크가 포함 됩니다. SAML의 경우 `groups` 클레임 대신 새 클레임으로 추가됩니다. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |ID 공급자 | `idp` |토큰의 주체를 인증한 ID 공급자를 기록합니다. 이 값은 사용자 계정이 발급자가 아닌 다른 테넌트에 있는 경우를 제외하고 발급자 클레임의 값과 동일합니다. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |토큰이 발급된 시간을 저장합니다. 토큰 만료 전 시간을 측정하는 데 주로 사용됩니다. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |
 > |발급자 | `iss` |토큰을 생성하고 반환하는 STS(보안 토큰 서비스)를 식별합니다. Azure AD가 반환하는 토큰에서 발급자는 sts.windows.net입니다. 발급자 클레임 값의 GUID는 Azure AD 디렉터리의 테넌트 ID입니다. 테넌트 ID는 디렉터리의 변경 불가능하고 안정적인 식별자입니다. | `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` |
@@ -42,7 +42,7 @@ Azure AD(Azure Active Directory)는 각 인증 흐름의 처리 과정에서 여
 > |Name | `unique_name` |토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. 이 값은 테넌트 내에서 반드시 고유한 것은 아니며 표시 용도로만 사용하도록 디자인되었습니다. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |개체 ID입니다. | `oid` |Azure AD 개체의 고유 식별자를 포함합니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. Azure AD에 대한 쿼리의 개체를 식별할 개체 ID를 사용하세요. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |역할 | `roles` |주체가 그룹 멤버 자격을 통해 직간접적으로 부여받은 모든 애플리케이션 역할을 나타내며 역할 기반 액세스 제어를 적용하는 데 사용됩니다. 애플리케이션 역할은 애플리케이션 매니페스트의 `appRoles` 속성을 통해 애플리케이션별로 정의됩니다. 각 애플리케이션 역할의 `value` 속성은 역할 클레임에 표시되는 값입니다. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
-> |제목 | `sub` |애플리케이션 사용자 등 토큰에서 정보를 어설션하는 보안 주체를 나타냅니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 따라서 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. <br> `SubjectConfirmation` 클레임이 아닙니다. SubjectConfirmation은 토큰의 주체를 확인하는 방법을 설명합니다. `Bearer` 주체가 소유한 토큰을 통해 주체를 확인한다는 뜻입니다. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
+> |주체 | `sub` |애플리케이션 사용자 등 토큰에서 정보를 어설션하는 보안 주체를 나타냅니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 따라서 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. <br> `SubjectConfirmation` 클레임이 아닙니다. SubjectConfirmation은 토큰의 주체를 확인하는 방법을 설명합니다. `Bearer` 주체가 소유한 토큰을 통해 주체를 확인한다는 뜻입니다. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
 > |테넌트 ID | `tid` |토큰을 발급한 디렉터리 테넌트를 식별하는 변경할 수 없고 다시 사용할 수 없는 식별자입니다. 이 값을 사용하여 다중 테넌트 애플리케이션의 테넌트별 디렉터리 리소스에 액세스할 수 있습니다. 예를 들어 이 값을 사용하여 Graph API 호출의 테넌트를 식별할 수 있습니다. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
 > |토큰 수명 | `nbf`, `exp` |토큰이 유효한 시간 간격을 정의합니다. 토큰의 유효성을 검사하는 서비스에서는 현재 날짜가 토큰 수명 내에 있는지 확인하고 수명 내에 없으면 토큰을 거부합니다. Azure AD와 서비스 간의 시계 시간 차이("시간차")를 고려하여 서비스에서 토큰 수명 범위를 벗어나 최대 5분까지 여유 시간을 허용 할 수 있습니다. | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
 
@@ -152,10 +152,9 @@ Azure AD(Azure Active Directory)는 각 인증 흐름의 처리 과정에서 여
 </t:RequestSecurityTokenResponse>
 ```
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="next-steps"></a>다음 단계
 
-* Microsoft Graph API를 사용 하 여 토큰 수명 정책을 관리 하는 방법에 대해 자세히 알아보려면 [정책 리소스](/graph/api/resources/policy?view=graph-rest-beta)를 참조 하세요.
-* 자세한 내용과 예제를 포함하여, PowerShell cmdlet를 통한 정책 관리 방법에 대한 샘플은 [Azure AD에서 구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)을 참조하십시오. 
-* [사용자 지정 및 선택적 클레임](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)을 애플리케이션의 토큰에 추가합니다.
-* [SAML로 SSO(Single Sign-On)](single-sign-on-saml-protocol.md)를 사용합니다.
-* [Azure Single Sign Out SAML 프로토콜](single-sign-out-saml-protocol.md)을 사용합니다.
+* Microsoft Graph API를 사용 하 여 토큰 수명 정책을 관리 하는 방법에 대해 자세히 알아보려면 [AZURE AD 정책 리소스 개요](/graph/api/resources/policy)를 참조 하세요.
+* [사용자 지정 및 선택적 클레임](active-directory-optional-claims.md)을 애플리케이션의 토큰에 추가합니다.
+* [SAML을 사용 하 여 sso (Single sign-on)](single-sign-on-saml-protocol.md)를 사용 합니다.
+* [Azure Single Sign OUT SAML 프로토콜](single-sign-out-saml-protocol.md) 사용

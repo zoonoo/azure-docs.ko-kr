@@ -143,7 +143,7 @@ ms.locfileid: "89646676"
 7. 개인 정보 보호 정책
 8. Offer name
 9. 요약
-10. 설명
+10. Description
 11. 스크린샷/비디오
 
 ### <a name="name"></a>속성
