@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 5c5326310887cd5756ae264a35aafe7e771a7863
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 34f781db2a731cc6eb38c8241d0e1897517f2c9a
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226797"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661815"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스란?
 
@@ -30,10 +30,10 @@ Azure Machine Learning 계산 인스턴스는 데이터 과학자을 위한 관�
 
 컴퓨팅 인스턴스는 기계 학습 개발 환경에 최적화된 완전 관리형 클라우드 기반 워크스테이션입니다. 다음과 같은 이점을 제공합니다.
 
-|주요 이점|Description|
+|주요 이점|설명|
 |----|----|
 |생산성|Azure Machine Learning studio에서 통합 된 노트북 및 다음 도구를 사용 하 여 모델을 빌드 및 배포할 수 있습니다.<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (미리 보기)<br/>계산 인스턴스는 Azure Machine Learning 작업 영역 및 스튜디오와 완전히 통합 됩니다. 작업 영역의 다른 데이터 과학자와 전자 필기장 및 데이터를 공유할 수 있습니다. [SSH](how-to-set-up-vs-code-remote.md) 를 사용 하 여 원격 개발 VS Code를 설정할 수도 있습니다. |
-|관리 및 보안|보안 공간을 줄이고 엔터프라이즈 보안 요구 사항에 따라 규정 준수를 추가합니다. 컴퓨팅 인스턴스는 다음과 같은 강력한 관리 정책과 보안 네트워킹 구성을 제공합니다.<br/><br/>- Resource Manager 템플릿 또는 Azure Machine Learning SDK에서 자동 프로비저닝<br/>- [Azure 역할 기반 access control (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [가상 네트워크 지원](how-to-enable-virtual-network.md#compute-instance)<br/>- SSH 액세스를 사용하거나 사용하지 않도록 설정하는 SSH 정책<br/>TLS 1.2 사용 |
+|관리 및 보안|보안 공간을 줄이고 엔터프라이즈 보안 요구 사항에 따라 규정 준수를 추가합니다. 컴퓨팅 인스턴스는 다음과 같은 강력한 관리 정책과 보안 네트워킹 구성을 제공합니다.<br/><br/>- Resource Manager 템플릿 또는 Azure Machine Learning SDK에서 자동 프로비저닝<br/>- [Azure 역할 기반 access control (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [가상 네트워크 지원](how-to-secure-training-vnet.md#compute-instance)<br/>- SSH 액세스를 사용하거나 사용하지 않도록 설정하는 SSH 정책<br/>TLS 1.2 사용 |
 |&nbsp;ML 용으로 미리 구성 된 &nbsp;|사전 구성된 최신 ML 패키지, 딥 러닝 프레임워크 및 GPU 드라이버를 통해 설치 작업에 드는 시간을 절약할 수 있습니다.|
 |완전한 사용자 지정 기능|GPU를 비롯한 Azure VM 형식에 대한 광범위한 지원과 패키지 및 드라이버 설치와 같은 지속형의 하위 수준 사용자 지정을 통해 고급 시나리오를 간편하게 만들 수 있습니다. |
 
@@ -69,7 +69,7 @@ Azure Machine Learning 컴퓨팅 인스턴스를 사용하면 작업 영역의 �
 |Anaconda Python||
 |Jupyter 및 확장||
 |Jupyterlab 및 확장||
-[Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>PyPI에서|대부분의 azureml 추가 패키지가 포함됩니다.  전체 목록을 보려면 [컴퓨팅 인스턴스에서 터미널 창을 열고](how-to-run-jupyter-notebooks.md#terminal) 다음을 실행합니다. <br/> `conda list -n azureml_py36 azureml*` |
+[Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>PyPI에서|대부분의 azureml 추가 패키지가 포함됩니다.  전체 목록을 보려면 [컴퓨팅 인스턴스에서 터미널 창을 열고](how-to-run-jupyter-notebooks.md#terminal) 다음을 실행합니다. <br/> `conda list -n azureml_py36 azureml*` |
 |기타 PyPI 패키지|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda 패키지|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |딥 러닝 패키지|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -135,6 +135,9 @@ Azure Machine Learning Studio의 작업 영역에서 **컴퓨팅**을 선택한 
 * *MachineLearningServices/작업 영역/계산/시작/작업*
 * *MachineLearningServices/작업 영역/계산/중지/작업*
 * *MachineLearningServices/작업 영역/계산/다시 시작/작업*
+
+계산 인스턴스의 작성자가 계산 인스턴스에서 Jupyter/JupyterLab/RStudio에 액세스할 수 있으려면 아래 (또는 그 이상) RBAC 권한이 필요 합니다.
+* *MachineLearningServices/작업 영역/계산/applicationaccess*
 
 ### <a name="create-a-compute-instance"></a><a name="create"></a>계산 인스턴스 만들기
 

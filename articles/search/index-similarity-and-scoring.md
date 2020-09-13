@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 300da87ecff13fc160ec08684cf1d032f9a19f71
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/08/2020
+ms.openlocfilehash: d980764b7151183b61657434afa6c472e5058d18
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924489"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662275"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Azure Cognitive Search의 유사성 및 점수 매기기
 
@@ -40,7 +40,7 @@ ms.locfileid: "88924489"
 
 ## <a name="scoring-statistics-and-sticky-sessions"></a>통계 및 고정 세션 점수 매기기
 
-확장성을 위해 Azure Cognitive Search는 분할 프로세스를 통해 각 인덱스를 수평으로 분산합니다. 즉, 인덱스 부분이 물리적으로 분리됩니다.
+확장성을 위해 Azure Cognitive Search는 분할 프로세스를 통해 각 인덱스를 가로로 분산 합니다. 즉, [인덱스의 일부가 물리적으로 분리 되어](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards)있습니다.
 
 기본적으로 문서 점수는 *분할된 데이터베이스 내* 데이터의 통계 속성에 따라 계산됩니다. 이 방법은 일반적으로 많은 양의 데이터 모음이 있을 때는 문제가 되지 않으며, 모든 분할된 데이터베이스의 정보를 기준으로 점수를 계산해야 하는 경우보다 더 나은 성능을 제공합니다. 즉, 이러한 성능 최적화를 사용하면 매우 유사한 두 개의 문서(또는 동일한 문서)가 서로 다른 분할된 데이터베이스에 속하게 될 때 서로 다른 관련성 점수를 갖게 될 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: 6ef76f3dafc02e89008ae164e3d868c628291766
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3b2807ccd6d83511dd0c9a32a177ea9fe2c4b642
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075310"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662103"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>자격 증명 관리에 ID Broker (미리 보기) 사용
 
@@ -111,7 +111,7 @@ ID broker 설정에서 게이트웨이에 연결 하는 사용자 지정 앱 및
 OAuth 토큰을 획득 한 후 클러스터 게이트웨이에 대 한 HTTP 요청에 대 한 인증 헤더 (예: <clustername> -int.azurehdinsight.net)에이 토큰을 사용할 수 있습니다. 예를 들어 livy API에 대 한 샘플 말아 명령은 다음과 같이 표시 될 수 있습니다.
     
 ```bash
-curl -k -v -H "Authorization: TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By: UPN"
+curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"
 ``` 
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,5 +1,5 @@
 ---
-title: Studio에서 계산 리소스 만들기
+title: 학습 & 배포 계산 만들기 (studio)
 titleSuffix: Azure Machine Learning
 description: Studio를 사용 하 여 기계 학습을 위한 교육 및 배포 계산 리소스 (계산 대상) 만들기
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 2e32eb9a2a13b8e247388e8da80dd5f5967fdc6d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 37253ccfb249eb8b510af5e314c3167ddd979a87
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147481"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661967"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Azure Machine Learning studio에서 모델 학습 및 배포를 위한 계산 대상 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "89147481"
 * Azure Machine Learning [VS Code 확장](how-to-manage-resources-vscode.md#compute-clusters) 입니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -66,7 +66,7 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 
 1. 계산 형식에 대 한 양식을 작성 합니다.
 
-  * [계산 인스턴스](#compute-instance)
+  * [컴퓨팅 인스턴스](#compute-instance)
   * [컴퓨팅 클러스터](#amlcompute)
   * [유추 클러스터](#inference-clusters)
   * [연결 된 계산](#attached-compute)
@@ -119,6 +119,9 @@ Azure Machine Learning을 사용하여 다양한 리소스 또는 환경(총체�
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
 ### <a name="inference-clusters"></a>유추 클러스터
+
+> [!IMPORTANT]
+> Azure Machine Learning와 함께 Azure Kubernetes Service를 사용 하는 경우 구성 옵션이 여러 개 있습니다. 네트워킹 등의 일부 시나리오에는 추가 설치 및 구성이 필요 합니다. Azure ML과 함께 AKS를 사용 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes Service 클러스터 만들기 및 연결](how-to-create-attach-kubernetes.md)을 참조 하세요.
 
 대규모 추론에 대 한 AKS (Azure Kubernetes Service) 클러스터를 만들거나 연결 합니다. [위의 단계](#portal-create) 를 사용 하 여 AKS 클러스터를 만듭니다.  그런 다음 양식을 다음과 같이 입력 합니다.
 

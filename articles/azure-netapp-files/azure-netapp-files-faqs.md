@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/18/2020
+ms.date: 09/09/2020
 ms.author: b-juche
-ms.openlocfilehash: eeb22672829dca9ba342079183dcc5ed7c35393c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 9822d7bd769ea161ddcf195d695f27024351ca4b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590373"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662450"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -29,7 +29,7 @@ ms.locfileid: "88590373"
 
 ### <a name="does-the-nfs-data-path-go-over-the-internet"></a>NFS 데이터 경로는 인터넷을 통해 이동 하나요?  
 
-아니요. NFS 데이터 경로는 인터넷을 통해 이동 하지 않습니다. Azure NetApp Files은 서비스를 사용할 수 있는 Azure Virtual Network (VNet)에 배포 되는 Azure native service입니다. Azure NetApp Files는 위임 된 서브넷을 사용 하 고 VNet에서 직접 네트워크 인터페이스를 프로 비전 합니다. 
+아닙니다. NFS 데이터 경로는 인터넷을 통해 이동 하지 않습니다. Azure NetApp Files은 서비스를 사용할 수 있는 Azure Virtual Network (VNet)에 배포 되는 Azure native service입니다. Azure NetApp Files는 위임 된 서브넷을 사용 하 고 VNet에서 직접 네트워크 인터페이스를 프로 비전 합니다. 
 
 자세한 내용은 [Azure NetApp Files 네트워크 계획에 대 한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) 을 참조 하세요.  
 
@@ -48,7 +48,11 @@ ms.locfileid: "88590373"
 
 ### <a name="can-i-set-or-select-my-own-ip-address-for-an-azure-netapp-files-volume"></a>Azure NetApp Files 볼륨에 대해 자체 IP 주소를 설정 하거나 선택할 수 있나요?  
 
-아니요. Azure NetApp Files 볼륨에 대 한 IP 할당은 동적입니다. 고정 IP 할당은 지원 되지 않습니다. 
+아닙니다. Azure NetApp Files 볼륨에 대 한 IP 할당은 동적입니다. 고정 IP 할당은 지원 되지 않습니다. 
+
+### <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>이중 스택 (IPv4 및 IPv6) VNet을 지원 Azure NetApp Files?
+
+아니요, Azure NetApp Files는 현재 이중 스택 (IPv4 및 IPv6) VNet을 지원 하지 않습니다.  
  
 ## <a name="security-faqs"></a>보안 FAQ
 
@@ -66,10 +70,9 @@ NFSv3 또는 SMBv3 클라이언트 간의 데이터 트래픽이 Azure NetApp Fi
 
 Azure NetApp Files에 대 한 키 관리는 서비스에 의해 처리 됩니다. 각 볼륨에 대해 고유한 XTS-256 데이터 암호화 키가 생성 됩니다. 암호화 키 계층은 모든 볼륨 키를 암호화 하 고 보호 하는 데 사용 됩니다. 이러한 암호화 키는 암호화 되지 않은 형식으로 표시 되거나 보고 되지 않습니다. 볼륨을 삭제 하면 암호화 키가 즉시 삭제 됩니다.
 
-Azure 전용 HSM을 사용 하 여 사용자 관리 키 (사용자 고유 키 사용)에 대 한 지원은 미국 동부, 미국 West2 및 미국 남부 중부 지역에서 제어 되는 기준으로 제공 됩니다.  에서 액세스를 요청할 수 있습니다 **anffeedback@microsoft.com** . 용량을 사용할 수 있으므로 요청이 승인 됩니다.
+Azure 전용 HSM을 사용 하 여 고객 관리 키 (Bring Your Own Key)에 대 한 지원은 미국 동부, 미국 동부, 미국 서 부 2 및 US Gov 버지니아 지역에서 제어 되는 기준으로 제공 됩니다. 에서 액세스를 요청할 수 있습니다 [anffeedback@microsoft.com](mailto:anffeedback@microsoft.com) . 용량을 사용할 수 있게 되 면 요청이 승인 됩니다.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Azure NetApp Files service mount 대상에 대 한 액세스를 제어 하도록 NFS 내보내기 정책 규칙을 구성할 수 있나요?
-
 
 예, 단일 NFS 내보내기 정책에서 최대 5 개의 규칙을 구성할 수 있습니다.
 
@@ -193,7 +196,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Azure Storage 탐색기를 통해 Azure NetApp Files를 관리할 수 있나요?
 
-아니요. Azure Storage 탐색기에서 Azure NetApp Files 지원 되지 않습니다.
+아닙니다. Azure Storage 탐색기에서 Azure NetApp Files 지원 되지 않습니다.
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>디렉터리가 제한 크기에 근접 하 고 있는지 확인 어떻게 할까요??
 
@@ -250,11 +253,11 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제 하기 위한 요�
 
 ### <a name="is-migration-with-azure-data-box-supported"></a>마이그레이션이 Azure Data Box 지원 되나요?
 
-아니요. Azure Data Box은 현재 Azure NetApp Files를 지원 하지 않습니다. 
+아닙니다. Azure Data Box은 현재 Azure NetApp Files를 지원 하지 않습니다. 
 
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>Azure Import/Export 서비스를 사용 하 여 마이그레이션이 지원 되나요?
 
-아니요. Azure Import/Export 서비스는 현재 Azure NetApp Files을 지원 하지 않습니다.
+아닙니다. Azure Import/Export 서비스는 현재 Azure NetApp Files을 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계  
 

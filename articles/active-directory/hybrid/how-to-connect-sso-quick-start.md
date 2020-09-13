@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc955fe64ae68cb1248b0e616357bccf82f5f036
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115756"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658740"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>원활한 Single Sign-on Azure Active Directory: 빠른 시작
 
@@ -40,7 +40,7 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
    - 방화벽 또는 프록시에서 허용 하는 경우 포트 443을 통해 ** \* msappproxy.net** url에 대해 허용 된 목록에 대 한 연결을 추가 합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다. 이 필수 조건은 해당 기능을 사용하도록 설정한 경우에만 적용할 수 있습니다. 실제 사용자 로그인에서는 필요하지 않습니다.
 
     >[!NOTE]
-    >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 자세한 내용은 [Azure AD Connect 릴리스 정보](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)를 참조하세요.
+    >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 자세한 내용은 [Azure AD Connect 릴리스 정보](./reference-connect-version-history.md)를 참조하세요.
 
 * **지원되는 Azure AD Connect 토폴로지 사용**: [여기](plan-connect-topologies.md)에서 설명한 Azure AD Connect의 지원되는 토폴로지 중 하나를 사용하는지 확인합니다.
 
@@ -51,9 +51,9 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
     * Azure AD Connect를 통해 Azure AD에 동기화합니다.
     * Seamless SSO를 사용하도록 설정할 사용자를 포함합니다.
     
-* **최신 인증 사용하도록 설정**: 이 기능에 대한 테넌트에서 [최신 인증](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016)을 사용하도록 설정해야 합니다.
+* **최신 인증 사용하도록 설정**: 이 기능에 대한 테넌트에서 [최신 인증](/office365/enterprise/modern-auth-for-office-2013-and-2016)을 사용하도록 설정해야 합니다.
 
-* **최신 버전의 Office 365 클라이언트 사용**: Office 365 클라이언트(Outlook, Word, Excel 등)를 사용하여 자동 로그온 환경을 가져오려면 버전 16.0.8730.xxxx 이상을 사용해야 합니다.
+* **최신 버전의 Microsoft 365 클라이언트 사용**: Microsoft 365 클라이언트 (Outlook, Word, Excel 등)를 사용 하 여 자동 로그온 환경을 가져오려면 사용자가 16.0.8730 이상의 버전을 사용 해야 합니다.
 
 ## <a name="step-2-enable-the-feature"></a>2단계: 기능 활성화
 
@@ -142,15 +142,15 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 5. **확인**을 선택한 후 **만들기**를 선택합니다.
 
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. **사용자 구성**  >  **정책**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **internet Explorer**  >  **인터넷 제어판**  >  **보안 페이지**  >  **인트라넷 영역**으로 이동 합니다. 그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**을 선택합니다.
 
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. 정책 설정을 활성화한 다음, **확인**을 선택합니다.
 
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>"그룹 정책 기본 설정" 옵션 - 자세한 단계
 
@@ -158,7 +158,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책**은 다음과 같습니다.
 3. **사용자 구성**  >  **기본 설정**  >  **Windows 설정**  >  **레지스트리**  >  **새**  >  **레지스트리 항목**으로 이동 합니다.
 
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. 적절한 필드에서 다음 값을 입력하고 **확인**을 클릭합니다.
    - **키 경로**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
@@ -166,9 +166,9 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
    - **값 형식**: ***REG_DWORD***
    - **값 데이터**: ***00000001***
  
-     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso16.png)
  
-     ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>브라우저 고려 사항
 
@@ -187,11 +187,11 @@ macOS를 실행하는 머신이 AD에 가입되어 있는지 확인합니다. ma
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Chromium 기반 Microsoft Edge(모든 플랫폼)
 
-사용자 환경에서 [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) 또는 [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) 정책 설정을 재정의 한 경우 Azure AD의 URL ()도 추가 해야 `https://autologon.microsoftazuread-sso.com` 합니다.
+사용자 환경에서 [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) 또는 [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) 정책 설정을 재정의 한 경우 Azure AD의 URL ()도 추가 해야 `https://autologon.microsoftazuread-sso.com` 합니다.
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Chromium 기반 Microsoft Edge (macOS 및 기타 Windows 이외의 플랫폼)
 
-MacOS 및 기타 비 Windows 플랫폼의 Chromium을 기반으로 하는 Microsoft edge의 경우 허용 목록에 통합 인증을 위해 Azure AD URL을 추가 하는 방법에 대 한 자세한 내용은 [Microsoft edge 기반 Chromium 정책 목록을](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) 참조 하세요.
+MacOS 및 기타 비 Windows 플랫폼의 Chromium을 기반으로 하는 Microsoft edge의 경우 허용 목록에 통합 인증을 위해 Azure AD URL을 추가 하는 방법에 대 한 자세한 내용은 [Microsoft edge 기반 Chromium 정책 목록을](/DeployEdge/microsoft-edge-policies#authserverallowlist) 참조 하세요.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
 
@@ -211,7 +211,7 @@ Firefox 및 Microsoft Edge 브라우저의 프라이빗 검색 모드에서는 S
 
 특정 사용자에 대한 기능을 테스트하려면 다음 조건이 제대로 갖추어져 있는지 확인합니다.
   - 사용자가 회사 디바이스에 로그인합니다.
-  - 디바이스가 Active Directory 도메인에 가입되어 있습니다. 디바이스가 [Azure AD 조인](../active-directory-azureadjoin-overview.md)될 필요는 _없습니다_.
+  - 디바이스가 Active Directory 도메인에 가입되어 있습니다. 디바이스가 [Azure AD 조인](../devices/overview.md)될 필요는 _없습니다_.
   - 디바이스가 회사의 유선/무선 네트워크 또는 원격 액세스 연결(예: VPN 연결)을 통해 DC(도메인 컨트롤러)에 직접 연결되어 있습니다.
   - 그룹 정책을 통해 해당 사용자에게 [기능을 롤아웃](#step-3-roll-out-the-feature)했습니다.
 

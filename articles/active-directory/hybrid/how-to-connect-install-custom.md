@@ -14,12 +14,12 @@ ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84b5635d934b15c7ddd289e3a9deb014361d3c94
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 39eb45f4488c0ddc63ab8e7357a122b47777feee
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850165"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662351"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
 설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](how-to-connect-install-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
@@ -50,10 +50,10 @@ Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드
 
 | SSO(Single Sign-On) 옵션 | Description |
 | --- | --- |
-| 암호 해시 동기화 |사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다. 사용자 암호는 암호 해시로 Azure AD에 동기화되며 클라우드에서 인증이 이루어집니다. 자세한 내용은 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 참조하세요. |
-|통과 인증|사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자 암호는 유효성을 검사하기 위해 온-프레미스 Active Directory 도메인 컨트롤러로 전달됩니다.
-| AD FS로 페더레이션 |사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자는 로그인하기 위해 자신의 온-프레미스 AD FS 인스턴스로 리디렉션되며 온-프레미스로 인증이 이루어집니다. |
-| PingFederate을 사용한 페더레이션|사용자는 자신의 온-프레미스 네트워크에서 사용하는 것과 동일한 암호를 사용하여 Office 365와 같은 Microsoft 클라우드 서비스에 로그인할 수 있습니다.  사용자는 로그인하기 위해 자신의 온-프레미스 PingFederate 인스턴스로 리디렉션되며 온-프레미스로 인증이 이루어집니다. |
+| 암호 해시 동기화 |사용자는 온-프레미스 네트워크에서 사용 하는 것과 동일한 암호를 사용 하 여 Microsoft 365 같은 Microsoft 클라우드 서비스에 로그인 할 수 있습니다. 사용자 암호는 암호 해시로 Azure AD에 동기화되며 클라우드에서 인증이 이루어집니다. 자세한 내용은 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 참조하세요. |
+|통과 인증|사용자는 온-프레미스 네트워크에서 사용 하는 것과 동일한 암호를 사용 하 여 Microsoft 365 같은 Microsoft 클라우드 서비스에 로그인 할 수 있습니다.  사용자 암호는 유효성을 검사하기 위해 온-프레미스 Active Directory 도메인 컨트롤러로 전달됩니다.
+| AD FS로 페더레이션 |사용자는 온-프레미스 네트워크에서 사용 하는 것과 동일한 암호를 사용 하 여 Microsoft 365 같은 Microsoft 클라우드 서비스에 로그인 할 수 있습니다.  사용자는 로그인하기 위해 자신의 온-프레미스 AD FS 인스턴스로 리디렉션되며 온-프레미스로 인증이 이루어집니다. |
+| PingFederate을 사용한 페더레이션|사용자는 온-프레미스 네트워크에서 사용 하는 것과 동일한 암호를 사용 하 여 Microsoft 365 같은 Microsoft 클라우드 서비스에 로그인 할 수 있습니다.  사용자는 로그인하기 위해 자신의 온-프레미스 PingFederate 인스턴스로 리디렉션되며 온-프레미스로 인증이 이루어집니다. |
 | 구성하지 않음 |사용자 로그인 기능이 설치 및 구성되지 않습니다. 이미 타사 페더레이션 서버 또는 다른 기존 솔루션이 있는 경우 이 옵션을 선택합니다. |
 |Single Sign-On을 사용하도록 설정|이 옵션은 암호 해시 동기화 및 통과 인증 모두에서 사용할 수 있으며, 회사 네트워크에서 데스크톱 사용자를 위한 Single Sign-On 환경을 제공합니다. 자세한 내용은 [Single sign-on](how-to-connect-sso.md)을 참조하세요. </br>AD FS 고객의 경우 AD FS에서 동일한 수준의 single sign on을 이미 제공하므로 이 옵션을 사용할 수 없습니다.</br>
 
@@ -95,15 +95,15 @@ Active Directory 도메인 서비스에 연결하려면 Azure AD Connect에 충�
 이 페이지를 사용하면 온-프레미스 AD DS에 있는 UPN 도메인을 검토하고 이는 Azure AD에서 확인됩니다. 또한 이 페이지를 사용하면 userPrincipalName에 사용할 특성을 구성할 수 있습니다.
 
 ![확인되지 않은 도메인](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
-**추가되지 않음** 및 **확인되지 않음**으로 표시된 모든 도메인을 검토합니다. 사용한 해당 도메인을 Azure AD에서 확인하도록 합니다. 도메인을 확인한 경우 새로 고침 기호를 클릭합니다. 자세한 내용은 [도메인 추가 및 확인](../active-directory-domains-add-azure-portal.md)을 참조하세요.
+**추가되지 않음** 및 **확인되지 않음**으로 표시된 모든 도메인을 검토합니다. 사용한 해당 도메인을 Azure AD에서 확인하도록 합니다. 도메인을 확인한 경우 새로 고침 기호를 클릭합니다. 자세한 내용은 [도메인 추가 및 확인](../fundamentals/add-custom-domain.md)을 참조하세요.
 
-**UserPrincipalName** - 특성 userPrincipalName은 사용자가 Azure AD 및 Office 365에 로그인할 때 사용하는 특성입니다. UPN-접미사로 알려진 사용된 도메인은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다. Microsoft에서는 기본 특성 userPrincipalName을 유지하는 것을 권장합니다. 이 특성이 라우팅할 수 없고 확인할 수 없는 경우 다른 특성을 선택할 수 있습니다. 예를 들어 로그인 ID를 보관하는 특성으로 전자 메일을 선택할 수 있습니다. userPrincipalName 이외의 다른 특성을 사용하는 것을 **대체 ID**라고 합니다. 대체 ID 특성 값은 RFC822 표준을 따라야 합니다. 대체 ID는 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용할 수 있습니다. 특성의 값이 하나뿐이어도 Active Directory에 다중 값으로 정의하면 안 됩니다. 대체 ID에 대한 자세한 내용은 [질문과 대답](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname) 토픽을 참조하세요.
+**UserPrincipalName** -UserPrincipalName 특성은 사용자가 Azure AD에 로그인 하 고 Microsoft 365 때 사용 하는 특성입니다. UPN-접미사로 알려진 사용된 도메인은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다. Microsoft에서는 기본 특성 userPrincipalName을 유지하는 것을 권장합니다. 이 특성이 라우팅할 수 없고 확인할 수 없는 경우 다른 특성을 선택할 수 있습니다. 예를 들어 로그인 ID를 보관하는 특성으로 전자 메일을 선택할 수 있습니다. userPrincipalName 이외의 다른 특성을 사용하는 것을 **대체 ID**라고 합니다. 대체 ID 특성 값은 RFC822 표준을 따라야 합니다. 대체 ID는 암호 해시 동기화, 통과 인증 및 페더레이션에서 사용할 수 있습니다. 특성의 값이 하나뿐이어도 Active Directory에 다중 값으로 정의하면 안 됩니다. 대체 ID에 대한 자세한 내용은 [질문과 대답](./how-to-connect-pta-faq.md#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname) 토픽을 참조하세요.
 
 >[!NOTE]
 > 통과 인증을 사용하도록 설정한 경우 마법사를 진행하려면 하나 이상의 검증된 도메인이 있어야 합니다.
 
 > [!WARNING]
-> 대체 ID를 사용하면 모든 Office 365 워크로드 부하와 호환되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)을 참조하세요.
+> 대체 ID를 사용 하는 작업은 모든 Microsoft 365 작업과 호환 되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)을 참조하세요.
 >
 >
 
@@ -138,7 +138,7 @@ Azure AD Connect 버전 1.1.524.0 미만에서 OU 기반 필터링을 사용하�
 #### <a name="select-how-users-should-be-identified-with-azure-ad---source-anchor"></a>Azure AD로 사용자를 식별하는 방법 선택 - 원본 앵커
 sourceAnchor 특성은 사용자 개체의 수명 동안 변경할 수 없는 특성입니다. Azure AD에서 사용자와 온-프레미스 사용자를 연결하는 기본 키입니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 | --- | --- |
 | Let Azure manage the source anchor for me(Azure에서 원본 앵커를 대신 관리) | Azure AD에서 이 특성을 선택하게 하려면 이 옵션을 선택합니다. 이 옵션을 선택하면 Azure AD Connect 마법사에서 sourceAnchor 특성 선택 논리를 적용합니다. 해당 내용은 [Azure AD Connect: 설계 개념 - ms-DS-ConsistencyGuid를 sourceAnchor로 사용](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) 문서 섹션을 참조하세요. 마법사에서 사용자 지정 설치가 완료된 후 원본 앵커 특성으로 선택된 속성을 알려줍니다. |
 | 특정 특성 | 기존 AD 특성을 sourceAnchor 특성으로 지정하려면 이 옵션을 선택합니다. |
@@ -176,12 +176,12 @@ sourceAnchor 특성은 사용자 개체의 수명 동안 변경할 수 없는 �
 
 | 선택적 기능 | Description |
 | --- | --- |
-| Exchange 하이브리드 배포 |Exchange 하이브리드 배포 기능을 통해 온-프레미스 및 Office 365에서 모두 Exchange 사서함을 동시에 존재하게 할 수 있습니다. Azure AD Connect에서는 [특성](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) 의 특정 집합을 Azure AD에서 온-프레미스 디렉터리로 다시 동기화합니다. |
+| Exchange 하이브리드 배포 |Exchange 하이브리드 배포 기능을 사용 하면 온-프레미스와 Microsoft 365 모두 Exchange 사서함을 동시에 사용할 수 있습니다. Azure AD Connect에서는 [특성](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) 의 특정 집합을 Azure AD에서 온-프레미스 디렉터리로 다시 동기화합니다. |
 | Exchange 메일 공용 폴더 | Exchange 메일 공용 폴더 기능을 사용하면 온-프레미스 Active Directory의 메일 사용이 가능한 공용 폴더 개체를 Azure AD로 동기화할 수 있습니다. |
 | Azure AD 앱 및 특성 필터링 |Azure AD 앱 및 특성 필터링을 사용하여 동기화된 특성 집합을 사용자 지정할 수 있습니다. 이 옵션은 마법사에 구성 페이지를 두 개 더 추가합니다. 자세한 내용은 [Azure AD 앱 및 특성 필터링](#azure-ad-app-and-attribute-filtering)을 참조하세요. |
 | 암호 해시 동기화 |페더레이션을 로그인 솔루션으로 선택한 경우 이 옵션을 사용하도록 설정할 수 있습니다. 그럼 다음, 암호 해시 동기화는 백업 옵션으로 사용할 수 있습니다. 자세한 내용은 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 참조하세요. </br></br>통과 인증을 선택한 경우 이 옵션을 또한 백업 옵션으로 레거시 클라이언트 지원을 보장하도록 사용할 수 있습니다. 자세한 내용은 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md)를 참조하세요.|
-| 비밀번호 쓰기 저장 |비밀번호 쓰기 저장을 사용하도록 설정하면 Azure AD에서 이루어지는 암호 변경 사항이 온-프레미스 디렉터리에 다시 기록됩니다. 자세한 내용은 [암호 관리 시작](../authentication/quickstart-sspr.md)을 참조하세요. |
-| 그룹 쓰기 저장 |**Office 365 그룹** 기능을 사용하는 경우 이 그룹을 온-프레미스 Active Directory에 표시할 수 있습니다. 이 옵션은 Exchange가 온-프레미스 Active Directory에 있는 경우 사용할 수 있습니다. 자세한 내용은 [Azure AD Connect 그룹 쓰기 저장](how-to-connect-group-writeback.md) 을 참조 하세요.|
+| 비밀번호 쓰기 저장 |비밀번호 쓰기 저장을 사용하도록 설정하면 Azure AD에서 이루어지는 암호 변경 사항이 온-프레미스 디렉터리에 다시 기록됩니다. 자세한 내용은 [암호 관리 시작](../authentication/tutorial-enable-sspr.md)을 참조하세요. |
+| 그룹 쓰기 저장 |**Microsoft 365 그룹** 기능을 사용 하는 경우 이러한 그룹이 온-프레미스 Active Directory에 표시 되도록 할 수 있습니다. 이 옵션은 Exchange가 온-프레미스 Active Directory에 있는 경우 사용할 수 있습니다. 자세한 내용은 [Azure AD Connect 그룹 쓰기 저장](how-to-connect-group-writeback.md) 을 참조 하세요.|
 | 디바이스 쓰기 저장 |Azure AD의 디바이스 개체를 조건부 액세스 시나리오에 대한 온-프레미스 Active Directory에 쓰기 저장할 수 있습니다. 자세한 내용은 [Azure AD Connect에서 디바이스 쓰기 저장 사용](how-to-connect-device-writeback.md)을 참조하세요. |
 | 디렉터리 확장 특성 동기화 |디렉터리 확장 특성 동기화를 사용하도록 설정하면 지정된 특성이 Azure AD에 동기화됩니다. 자세한 내용은 [디렉터리 확장](how-to-connect-sync-feature-directory-extensions.md)을 참조하세요. |
 
@@ -303,7 +303,7 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 ![Azure AD 도메인](./media/how-to-connect-install-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>페더레이션에 선택한 Azure AD 도메인 확인
-페더레이션할 도메인을 선택하면 Azure AD Connect가 확인되지 않은 도메인을 확인하는 데 필요한 정보를 제공합니다. 이 정보를 사용하는 방법은 [도메인 추가 및 확인](../active-directory-domains-add-azure-portal.md)을 참조하세요.
+페더레이션할 도메인을 선택하면 Azure AD Connect가 확인되지 않은 도메인을 확인하는 데 필요한 정보를 제공합니다. 이 정보를 사용하는 방법은 [도메인 추가 및 확인](../fundamentals/add-custom-domain.md)을 참조하세요.
 
 ![Azure AD 도메인](./media/how-to-connect-install-custom/verifyfeddomain.png)
 
@@ -314,7 +314,7 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 
 ## <a name="configuring-federation-with-pingfederate"></a>PingFederate로 페더레이션 구성
 Azure AD Connect에서 PingFederate를 구성하는 것은 간단히 몇 번의 클릭으로 가능합니다. 하지만 다음과 같은 필수 구성 요소가 필요합니다.
-- PingFederate 8.4 이상.  자세한 내용은 [Azure Active Directory 및 Office 365와 PingFederate 통합](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)을 참조하세요.
+- PingFederate 8.4 이상.  자세한 내용은 [Azure Active Directory와 통합 통합 및 Microsoft 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html) 을 참조 하세요.
 - 사용할 페더레이션 서비스 이름에 대한 TLS/SSL 인증서(예: sts.contoso.com)
 
 ### <a name="verify-the-domain"></a>도메인 확인

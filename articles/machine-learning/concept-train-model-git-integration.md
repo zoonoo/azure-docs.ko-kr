@@ -41,7 +41,7 @@ Git CLI를 사용 하는 방법에 대 한 가이드는 [여기](https://guides.
 
 Python SDK 또는 Machine Learning CLI에서 학습 실행을 제출 하면 모델을 학습 하는 데 필요한 파일이 작업 영역에 업로드 됩니다. `git`개발 환경에서이 명령을 사용할 수 있는 경우 업로드 프로세스에서이 명령을 사용 하 여 파일이 git 리포지토리에 저장 되었는지 확인 합니다. 그렇다면 git 리포지토리의 정보는 학습 실행의 일부로도 업로드 됩니다. 이 정보는 학습 실행을 위해 다음 속성에 저장 됩니다.
 
-| 속성 | 값을 가져오는 데 사용 되는 Git 명령입니다. | 설명 |
+| 속성 | 값을 가져오는 데 사용 되는 Git 명령입니다. | Description |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | 리포지토리가 복제 된 URI입니다. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | 리포지토리가 복제 된 URI입니다. |

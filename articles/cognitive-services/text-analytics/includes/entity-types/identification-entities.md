@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 6271cb449b6bbc80269dd325bd5acd7edd2e0a6d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8e0798f75aaa79031ca7cc03814282daa049fbfe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88011048"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662723"
 ---
 이 엔터티 범주에는 재무 정보 및 id의 공식 형식이 포함 되어 있습니다. 모델 버전부터 사용 가능 `2019-10-01` 합니다. 하위 유형은 아래에 나열 되어 있습니다. 
 
 ### <a name="financial-account-identification"></a>금융 계정 식별
 
-| 하위 형식 이름               | 설명                                                                |
+| 하위 형식 이름               | Description                                                                |
 |----------------------------|----------------------------------------------------------------------------|
 | ABA 라우팅 번호        | ABA (미국식 은행원 Association) 전송 라우팅 번호입니다.                  |
 | SWIFT 코드                 | 지불 지침 정보에 대 한 코드를 SWIFT.                           |
@@ -34,7 +34,7 @@ ms.locfileid: "88011048"
 > * 여권 번호
 > * 세금 Id
 
-아래 엔터티는 country로 그룹화 되 고 나열 됩니다.
+다음 엔터티는 country로 그룹화 되 고 나열 됩니다.
 
 아르헨티나
 * DNI (아르헨티나 국내 Id) 번호
@@ -116,7 +116,7 @@ EU (유럽 연합)
 * 프랑스 국가 ID 카드 (CNI)
 * 프랑스 여권 번호
 * 프랑스 주민 등록 번호 (INSEE)
-* 프랑스 세금 식별 번호 (numéro SPI)
+* 프랑스 세금 식별 번호 (Numéro SPI)
 * 프랑스 값 부가 세금 번호
 
 독일

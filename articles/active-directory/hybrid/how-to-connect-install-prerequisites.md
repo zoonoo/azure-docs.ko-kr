@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1f77d6189e5b32ca771d17ae9902341bcaa1871
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1fa96d6bd0032f675ffaeabc58c62c13312039dc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688133"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662159"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 문서에서는 Azure AD (Azure Active Directory) 연결에 대 한 필수 구성 요소 및 하드웨어 요구 사항을 설명 합니다.
@@ -33,11 +33,11 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * Azure AD 테 넌 트가 필요 합니다. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)에서 사용할 수 있습니다. 다음 포털 중 하나를 사용하여 Azure AD Connect를 관리할 수 있습니다.
   * [Azure Portal](https://portal.azure.com)입니다.
   * [Office 포털](https://portal.office.com)
-* [도메인을 추가하고 확인합니다](../active-directory-domains-add-azure-portal.md) . 예를 들어 사용자에 대해 contoso.com를 사용 하려는 경우이 도메인이 확인 되 고 contoso.onmicrosoft.com 기본 도메인만 사용 하 고 있지 않은지 확인 합니다.
-* Azure AD 테 넌 트는 기본적으로 5만 개체를 허용 합니다. 도메인을 확인 하면 30만 개체로 제한 됩니다. Azure AD에서 더 많은 개체가 필요한 경우 제한을 더 증가 시키려면 지원 사례를 여세요. 50만 개 이상의 개체가 필요한 경우 Office 365, Azure AD Premium 또는 Enterprise Mobility + Security와 같은 라이선스가 필요 합니다.
+* [도메인을 추가하고 확인합니다](../fundamentals/add-custom-domain.md) . 예를 들어 사용자에 대해 contoso.com를 사용 하려는 경우이 도메인이 확인 되 고 contoso.onmicrosoft.com 기본 도메인만 사용 하 고 있지 않은지 확인 합니다.
+* Azure AD 테 넌 트는 기본적으로 5만 개체를 허용 합니다. 도메인을 확인 하면 30만 개체로 제한 됩니다. Azure AD에서 더 많은 개체가 필요한 경우 제한을 더 증가 시키려면 지원 사례를 여세요. 50만 개 이상의 개체가 필요한 경우 Microsoft 365, Azure AD Premium 또는 Enterprise Mobility + Security와 같은 라이선스가 필요 합니다.
 
 ### <a name="prepare-your-on-premises-data"></a>온-프레미스 데이터 준비
-* Azure AD 및 Office 365로 동기화하기 전에 [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac)를 사용하여 디렉터리의 중복 및 서식 문제 등의 오류가 있는지 식별합니다.
+* Azure AD로 동기화 하 고 Microsoft 365 하기 전에 [Idfix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) 를 사용 하 여 디렉터리의 중복 및 형식 지정 문제와 같은 오류를 식별 합니다.
 * [AZURE AD에서 사용 하도록 설정할 수 있는 선택적 동기화 기능](how-to-connect-syncservice-features.md)을 검토 하 고 사용 하도록 설정 해야 하는 기능을 평가 합니다.
 
 ### <a name="on-premises-active-directory"></a>온-프레미스 Active Directory
@@ -48,11 +48,11 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * [Active Directory 휴지통을 사용 하도록 설정](how-to-connect-sync-recycle-bin.md)하는 것이 좋습니다.
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect 서버
-Azure AD Connect 서버에는 중요 한 id 데이터가 포함 되어 있습니다. 이 서버에 대 한 관리자 액세스 권한이 적절 하 게 보호 되는 것이 중요 합니다. [권한 있는 액세스 보안에 대](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access)한 지침을 따릅니다. 
+Azure AD Connect 서버에는 중요 한 id 데이터가 포함 되어 있습니다. 이 서버에 대 한 관리자 액세스 권한이 적절 하 게 보호 되는 것이 중요 합니다. [권한 있는 액세스 보안에 대](/windows-server/identity/securing-privileged-access/securing-privileged-access)한 지침을 따릅니다. 
 
-[Active Directory 관리 계층 모델](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 에 설명 된 대로 Azure AD Connect 서버는 계층 0 구성 요소로 처리 되어야 합니다. 
+[Active Directory 관리 계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 에 설명 된 대로 Azure AD Connect 서버는 계층 0 구성 요소로 처리 되어야 합니다. 
 
-Active Directory 환경을 보호 하는 방법에 대 한 자세한 내용은 [Active Directory 보안 설정에 대 한 모범 사례](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)를 참조 하세요.
+Active Directory 환경을 보호 하는 방법에 대 한 자세한 내용은 [Active Directory 보안 설정에 대 한 모범 사례](/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)를 참조 하세요.
 
 #### <a name="installation-prerequisites"></a>설치 필수 구성 요소
 
@@ -62,25 +62,25 @@ Active Directory 환경을 보호 하는 방법에 대 한 자세한 내용은 [
 - Azure AD Connect 마법사를 사용 하 여 Active Directory Federation Services (AD FS) 구성을 관리 하는 경우에는 Azure AD Connect 서버에서 PowerShell 기록을 사용 하도록 설정 그룹 정책 하지 않아야 합니다. Azure AD Connect 마법사를 사용 하 여 동기화 구성을 관리 하는 경우 PowerShell 기록을 사용 하도록 설정할 수 있습니다. 
 - AD FS 배포 되는 경우: 
     - AD FS 또는 웹 응용 프로그램 프록시가 설치 되는 서버는 Windows Server 2012 R2 이상 이어야 합니다. Windows 원격 관리 를 사용할 수 있어야 합니다. 
-    - TLS/SSL 인증서를 구성 해야 합니다. 자세한 내용은 AD FS 및 [AD FS에서 ssl 인증서 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap)를 [위한 ssl/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 를 참조 하세요.
+    - TLS/SSL 인증서를 구성 해야 합니다. 자세한 내용은 AD FS 및 [AD FS에서 ssl 인증서 관리](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap)를 [위한 ssl/TLS 프로토콜 및 암호 그룹 관리](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 를 참조 하세요.
     - 이름 확인을 구성 해야 합니다. 
 - 전역 관리자가 MFA를 사용 하도록 설정한 경우 URL은 신뢰할 수 있는 https://secure.aadcdn.microsoftonline-p.com 사이트 목록에 *있어야* 합니다. MFA 챌린지를 묻는 메시지가 표시 되 고 이전에 추가 되지 않은 경우 신뢰할 수 있는 사이트 목록에이 사이트를 추가 하 라는 메시지가 표시 됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
 
 #### <a name="harden-your-azure-ad-connect-server"></a>Azure AD Connect 서버 강화 
 IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역을 줄이기 위해 Azure AD Connect 서버를 강화 하는 것이 좋습니다. 이러한 권장 사항을 따르면 조직에 대 한 몇 가지 보안 위험을 완화 하는 데 도움이 됩니다.
 
-- Azure AD Connect 도메인 컨트롤러 및 다른 계층 0 리소스와 동일 하 게 처리 합니다. 자세한 내용은 [Active Directory 관리 계층 모델](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)을 참조 하세요.
+- Azure AD Connect 도메인 컨트롤러 및 다른 계층 0 리소스와 동일 하 게 처리 합니다. 자세한 내용은 [Active Directory 관리 계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)을 참조 하세요.
 - Azure AD Connect 서버에 대 한 관리 액세스를 도메인 관리자 또는 긴밀 하 게 제어 되는 다른 보안 그룹 으로만 제한 합니다.
-- [권한 있는 액세스 권한이 있는 모든 직원에 대 한 전용 계정을](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access)만듭니다. 관리자는 웹을 탐색 하 고, 전자 메일을 확인 하 고, 높은 권한의 계정을 사용 하 여 일상적인 생산성 작업을 수행 하지 않아야 합니다.
-- [권한 있는 액세스 보안](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access)에 제공 된 지침을 따릅니다. 
-- AADConnect 서버에서 NTLM 인증 사용을 거부 합니다. 이 작업을 수행 하는 몇 가지 방법은 다음과 같습니다. [AADConnect 서버에서 ntlm을 제한](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) 하 고 [도메인에서 ntlm을 제한](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain) 합니다.
-- 모든 컴퓨터에 고유한 로컬 관리자 암호가 있는지 확인 합니다. 자세한 내용은 [LAPS (로컬 관리자 암호 솔루션)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) 에서 각 워크스테이션에 고유한 임의의 암호를 구성 하 고 ACL로 보호 되 Active Directory에 저장할 수 있습니다. 권한 있는 적격 사용자만이 이러한 로컬 관리자 계정 암호를 읽거나 재설정을 요청할 수 있습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.)에서 워크스테이션 및 서버에 사용할 LAPS를 가져올 수 있습니다. LAPS 및 Paw (권한 있는 액세스 워크스테이션)를 사용 하 여 환경을 운영 하는 방법에 대 한 추가 지침은 [클린 소스 원칙을 기반으로 하는 운영 표준](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle)에서 찾을 수 있습니다. 
-- 조직의 정보 시스템에 대 한 권한 있는 액세스 권한이 있는 모든 직원에 대 한 전용 [권한 있는 액세스 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) 을 구현 합니다. 
-- 이러한 [추가 지침](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) 에 따라 Active Directory 환경의 공격 노출 영역을 줄입니다.
+- [권한 있는 액세스 권한이 있는 모든 직원에 대 한 전용 계정을](/windows-server/identity/securing-privileged-access/securing-privileged-access)만듭니다. 관리자는 웹을 탐색 하 고, 전자 메일을 확인 하 고, 높은 권한의 계정을 사용 하 여 일상적인 생산성 작업을 수행 하지 않아야 합니다.
+- [권한 있는 액세스 보안](/windows-server/identity/securing-privileged-access/securing-privileged-access)에 제공 된 지침을 따릅니다. 
+- AADConnect 서버에서 NTLM 인증 사용을 거부 합니다. 이 작업을 수행 하는 몇 가지 방법은 다음과 같습니다. [AADConnect 서버에서 ntlm을 제한](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) 하 고 [도메인에서 ntlm을 제한](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain) 합니다.
+- 모든 컴퓨터에 고유한 로컬 관리자 암호가 있는지 확인 합니다. 자세한 내용은 [LAPS (로컬 관리자 암호 솔루션)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) 에서 각 워크스테이션에 고유한 임의의 암호를 구성 하 고 ACL로 보호 되 Active Directory에 저장할 수 있습니다. 권한 있는 적격 사용자만이 이러한 로컬 관리자 계정 암호를 읽거나 재설정을 요청할 수 있습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.)에서 워크스테이션 및 서버에 사용할 LAPS를 가져올 수 있습니다. LAPS 및 Paw (권한 있는 액세스 워크스테이션)를 사용 하 여 환경을 운영 하는 방법에 대 한 추가 지침은 [클린 소스 원칙을 기반으로 하는 운영 표준](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle)에서 찾을 수 있습니다. 
+- 조직의 정보 시스템에 대 한 권한 있는 액세스 권한이 있는 모든 직원에 대 한 전용 [권한 있는 액세스 워크스테이션](/windows-server/identity/securing-privileged-access/privileged-access-workstations) 을 구현 합니다. 
+- 이러한 [추가 지침](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) 에 따라 Active Directory 환경의 공격 노출 영역을 줄입니다.
 
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect에서 사용하는 SQL Server
-* Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB (SQL Server Express의 라이트 버전)가 설치 되어 있습니다. SQL Server Express은 약 10만 개체를 관리할 수 있도록 10gb 크기 제한이 있습니다. 더 큰 볼륨의 디렉터리 개체를 관리 해야 하는 경우 설치 마법사에서 다른 SQL Server 설치를 가리키도록 합니다. SQL Server 설치의 유형은 [Azure AD Connect의 성능](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors)에 영향을 줄 수 있습니다.
+* Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB (SQL Server Express의 라이트 버전)가 설치 되어 있습니다. SQL Server Express은 약 10만 개체를 관리할 수 있도록 10gb 크기 제한이 있습니다. 더 큰 볼륨의 디렉터리 개체를 관리 해야 하는 경우 설치 마법사에서 다른 SQL Server 설치를 가리키도록 합니다. SQL Server 설치의 유형은 [Azure AD Connect의 성능](./plan-connect-performance-factors.md#sql-database-factors)에 영향을 줄 수 있습니다.
 * 다른 SQL Server 설치를 사용 하는 경우 다음 요구 사항이 적용 됩니다.
   * Azure AD Connect는 2012 (최신 Service Pack)의 모든 버전 SQL Server를 SQL Server 2019으로 지원 합니다. Azure SQL Database는 데이터베이스로 *지원 되지 않습니다* .
   * 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이러한 데이터 정렬은 이름에 \_CI_를 사용하여 식별됩니다. 이름에 CS_으로 식별 되는 대/소문자 구분 데이터 정렬을 사용 하는 것은 \_ *지원 되지 않습니다*.
@@ -126,10 +126,10 @@ IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역�
         </system.net>
     ```
 
-* 프록시 구성이 기존 설정에서 수행 되는 경우 Azure AD Connect에서 프록시 구성을 읽고 behviour을 업데이트 하려면 **Microsoft Azure AD 동기화 서비스** 를 한 번 다시 시작 해야 합니다. 
+* 프록시 구성이 기존 설정에서 수행 되는 경우 Azure AD Connect에서 프록시 구성을 읽고 동작을 업데이트 하려면 **Microsoft Azure AD 동기화 서비스** 를 한 번 다시 시작 해야 합니다. 
 * Azure AD Connect에서 디렉터리 동기화의 일부로 웹 요청을 Azure AD로 보내면 Azure AD에서 응답하는 데 최대 5분이 걸릴 수 있습니다. 프록시 서버에서 연결 유휴 시간 제한 구성을 설정 하는 것이 일반적입니다. 구성이 6 분 이상으로 설정 되어 있는지 확인 합니다.
 
-자세한 내용은 MSDN의 [기본 프록시 요소](https://msdn.microsoft.com/library/kd3cf2ex.aspx)에 대 한 정보를 참조 하세요.
+자세한 내용은 MSDN의 [기본 프록시 요소](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings)에 대 한 정보를 참조 하세요.
 연결에 문제가 있는 경우 [연결 문제 해결](tshoot-connect-connectivity.md)을 참조하세요.
 
 ### <a name="other"></a>기타
@@ -148,9 +148,9 @@ Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다�
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Azure AD Connect에 TLS 1.2 사용
-1.1.614.0 버전 이전의 Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 동기화 엔진 서버와 Azure AD 간의 통신을 암호화합니다. 서버에서 기본적으로 TLS 1.2를 사용 하도록 .NET 응용 프로그램을 구성할 수 있습니다. TLS 1.2에 대 한 자세한 내용은 [Microsoft 보안 공지 2960358](https://technet.microsoft.com/security/advisory/2960358)를 참조 하세요.
+1.1.614.0 버전 이전의 Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 동기화 엔진 서버와 Azure AD 간의 통신을 암호화합니다. 서버에서 기본적으로 TLS 1.2를 사용 하도록 .NET 응용 프로그램을 구성할 수 있습니다. TLS 1.2에 대 한 자세한 내용은 [Microsoft 보안 공지 2960358](/security-updates/SecurityAdvisories/2015/2960358)를 참조 하세요.
 
-1. 운영 체제에 대해 .NET 4.5.1 핫픽스를 설치 했는지 확인 합니다. 자세한 내용은 [Microsoft 보안 공지 2960358](https://technet.microsoft.com/security/advisory/2960358)을 참조 하세요. 이 핫픽스 또는 이후 릴리스를 서버에 이미 설치했을 수 있습니다.
+1. 운영 체제에 대해 .NET 4.5.1 핫픽스를 설치 했는지 확인 합니다. 자세한 내용은 [Microsoft 보안 공지 2960358](/security-updates/SecurityAdvisories/2015/2960358)을 참조 하세요. 이 핫픽스 또는 이후 릴리스를 서버에 이미 설치했을 수 있습니다.
 
 1. 모든 운영 체제에 대해 이 레지스트리 키를 설정하고 서버를 다시 시작합니다.
     ```

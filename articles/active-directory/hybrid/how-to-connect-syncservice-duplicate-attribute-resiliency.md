@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82632fb104438e1b5279b1525fbce2b6d8e7ceeb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 268cf61596366d451057861db1fa5ac2d35e87d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356885"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662411"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>ID 동기화 및 중복 특성 복원력
 중복 특성 복원 력은 Microsoft의 동기화 도구 중 하나를 실행할 때 **UserPrincipalName** 및 SMTP **proxyaddress** 충돌로 인 한 마찰을 제거 하는 Azure Active Directory의 기능입니다.
@@ -101,7 +101,7 @@ _** \<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName UserPrincipalName`
 
-또는
+Or
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -PropertyName ProxyAddresses`
 
@@ -126,7 +126,7 @@ Microsoft 365 관리 센터에서 디렉터리 동기화 오류를 볼 수 있�
 
 ![활성 사용자](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "활성 사용자")
 
-Microsoft 365 관리 센터에서 디렉터리 동기화 오류를 확인 하는 방법에 대 한 지침은 [Office 365에서 디렉터리 동기화 오류 확인](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)을 참조 하세요.
+Microsoft 365 관리 센터에서 디렉터리 동기화 오류를 확인 하는 방법에 대 한 지침은 [Microsoft 365에서 디렉터리 동기화 오류 확인](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)을 참조 하세요.
 
 ### <a name="identity-synchronization-error-report"></a>ID 동기화 오류 보고서
 중복 특성 충돌이 있는 개체가 이 새 동작으로 처리되는 경우 알림은 테넌트에 대한 기술 알림 문의로 전송되는 표준 ID 동기화 오류 보고서 전자 메일에 포함됩니다. 그러나 이 동작에서 중요한 변경 사항이 있습니다. 이전에 중복 특성 충돌에 대한 정보는 충돌이 해결될 때까지 모든 후속 오류 보고서에 포함됩니다. 이 새 동작으로 지정된 충돌에 대한 오류 알림이 충돌 특성이 격리되는 시간에 한 번만 나타납니다.
@@ -145,7 +145,7 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 **핵심 동작:**
 
 1. 특정 특성 구성이 있는 개체는 격리되는 중복 특성과 달리 내보내기 오류가 계속 수신됩니다.  
-   예를 들어:
+   다음은 그 예입니다. 
    
     a. 새 사용자는 **joe \@ Contoso.com** 및 proxyaddress **smtp: Joe \@ contoso.com** 의 UPN을 사용 하 여 AD에서 만들어집니다.
    
@@ -157,7 +157,7 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 **Office 포털 보고서**:
 
 1. UPN 충돌 집합에서 두 개체에 대한 자세한 오류 메시지는 같습니다. 이는 실제로 하나에만 변경된 데이터가 있는 경우 둘 모두 해당 UPN을 변경 / 격리했음을 나타냅니다.
-2. UPN 충돌에 대한 자세한 오류 메시지는 해당 UPN을 변경하고 격리한 사용자에 대한 잘못된 displayName을 보여 줍니다. 예를 들어:
+2. UPN 충돌에 대한 자세한 오류 메시지는 해당 UPN을 변경하고 격리한 사용자에 대한 잘못된 displayName을 보여 줍니다. 다음은 그 예입니다. 
    
     a. **사용자 A는** 먼저 **UPN = User \@ contoso.com**를 사용 하 여 동기화 됩니다.
    
@@ -177,5 +177,5 @@ ProxyAddress 충돌에 대한 메일 알림의 예제는 다음과 같습니다.
 ## <a name="see-also"></a>참고 항목
 * [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)
-* [Office 365에서 디렉터리 동기화 오류 확인](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+* [Microsoft 365에서 디렉터리 동기화 오류 확인](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 

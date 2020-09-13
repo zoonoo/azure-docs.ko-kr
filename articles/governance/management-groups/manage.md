@@ -3,12 +3,12 @@ title: 관리 그룹을 사용하는 방법 - Azure 거버넌스
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
 ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 43837dcaed9b9628573ee92244ede542107155f9
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 765a3853bbd3ee21bfc2a4aca5d5adb03f413e30
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055142"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658771"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -37,11 +37,11 @@ ms.locfileid: "88055142"
 
 1. 페이지 맨 위에서 **그룹 이름 바꾸기** 옵션을 선택합니다.
 
-   :::image type="content" source="./media/detail_action_small.png" alt-text="관리 그룹 페이지의 그룹 이름 바꾸기 옵션" border="false":::
+   :::image type="content" source="./media/detail_action_small.png" alt-text="관리 그룹 페이지의 ' 그룹 이름 바꾸기 ' 단추 및 작업 모음의 스크린샷" border="false":::
 
 1. 메뉴가 열릴 때 표시하려는 새 이름을 입력합니다.
 
-   :::image type="content" source="./media/rename_context.png" alt-text="관리 그룹 이름을 바꾸는 그룹 이름 바꾸기 창" border="false":::
+   :::image type="content" source="./media/rename_context.png" alt-text="그룹 이름 바꾸기 창의 스크린샷 및 관리 그룹의 이름을 바꾸는 옵션입니다." border="false":::
 
 1. **저장**을 선택합니다.
 
@@ -82,14 +82,14 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 1. **삭제** 선택
 
-   :::image type="content" source="./media/delete.png" alt-text="그룹 삭제 옵션" border="false":::
+   :::image type="content" source="./media/delete.png" alt-text="' 삭제 ' 단추가 강조 표시 된 관리 그룹 페이지의 스크린샷" border="false":::
 
    > [!TIP]
    > 아이콘이 사용되지 않도록 설정되면 아이콘 위로 마우스 선택기를 가져가면 이유가 표시됩니다.
 
 1. 관리 그룹을 삭제할 것인지 확인하는 창이 열립니다.
 
-   :::image type="content" source="./media/delete_confirm.png" alt-text="그룹 삭제 확인 창" border="false":::
+   :::image type="content" source="./media/delete_confirm.png" alt-text="관리 그룹을 삭제 하는 ' 그룹 삭제 ' 확인 대화 상자의 스크린샷" border="false":::
 
 1. **예**를 선택합니다.
 
@@ -123,7 +123,7 @@ az account management-group delete --name 'Contoso'
 
 1. 관리 그룹의 세부 정보를 보려면 관리 그룹의 제목 옆에 있는 **(세부 정보)** 링크를 선택합니다. 이 링크를 사용할 수 없으면 해당 관리 그룹을 볼 수 있는 권한이 없습니다.
 
-   :::image type="content" source="./media/main.png" alt-text="기본" border="false":::
+   :::image type="content" source="./media/main.png" alt-text="자식 관리 그룹 및 구독을 표시 하는 관리 그룹 페이지의 스크린샷" border="false":::
 
 ### <a name="view-in-powershell"></a>PowerShell에서 보기
 
@@ -229,7 +229,7 @@ Azure Portal에서 보유하고 있는 권한을 보려면 관리 그룹을 선�
 
 1. 올바른 ID를 사용해서 목록의 구독을 선택합니다.
 
-   :::image type="content" source="./media/add_context_sub.png" alt-text="관리 그룹에 추가할 수 있는 구독" border="false":::
+   :::image type="content" source="./media/add_context_sub.png" alt-text="관리 그룹에 추가할 기존 구독을 선택 하기 위한 ' 구독 추가 ' 옵션의 스크린샷" border="false":::
 
 1. “저장”을 선택합니다.
 
@@ -243,13 +243,13 @@ Azure Portal에서 보유하고 있는 권한을 보려면 관리 그룹을 선�
 
 1. 이동하려는 목록의 구독에 대해 행 끝에 있는 줄임표를 선택합니다.
 
-   :::image type="content" source="./media/move_small.png" alt-text="관리 그룹의 이동 옵션" border="false":::
+   :::image type="content" source="./media/move_small.png" alt-text="' 이동 ' 옵션을 선택 하는 구독에 대 한 대체 메뉴의 스크린샷" border="false":::
 
 1. **이동**을 선택합니다.
 
 1. 열리는 메뉴에서 **부모 관리 그룹**을 선택합니다.
 
-   :::image type="content" source="./media/move_small_context.png" alt-text="부모 그룹을 변경하는 이동 창" border="false":::
+   :::image type="content" source="./media/move_small_context.png" alt-text="다른 관리 그룹으로 구독을 이동 하기 위한 옵션 및 ' 이동 ' 창의 스크린샷" border="false":::
 
 1. **저장**을 선택합니다.
 
@@ -298,7 +298,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
    - 새 관리 그룹을 선택하면 새 관리 그룹이 생성됩니다.
    - 기존 관리 그룹을 선택하면 이 관리 그룹으로 이동할 수 있는 모든 관리 그룹의 드롭다운이 표시됩니다.  
 
-   :::image type="content" source="./media/add_context_MG.png" alt-text="새 그룹 또는 기존 그룹으로 관리 그룹 이동" border="false":::
+   :::image type="content" source="./media/add_context_MG.png" alt-text="새 관리 그룹을 만들기 위한 ' 관리 그룹 추가 ' 옵션의 스크린샷" border="false":::
 
 1. **저장**을 선택합니다.
 
@@ -323,7 +323,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 관리 그룹은 [Azure 활동 로그](../../azure-monitor/platform/platform-logs-overview.md) 내에서 지원됩니다. 다른 Azure 리소스와 동일한 중앙 위치에서 관리 그룹에 발생하는 모든 이벤트를 쿼리할 수 있습니다. 예를 들어, 특정 관리 그룹에 이루어진 모든 역할 할당 또는 정책 할당 변경 내용을 볼 수 있습니다.
 
-:::image type="content" source="./media/al-mg.png" alt-text="관리 그룹을 사용하는 활동 로그" border="false":::
+:::image type="content" source="./media/al-mg.png" alt-text="선택한 관리 그룹과 관련 된 작업 로그 및 작업의 스크린샷" border="false":::
 
 Azure Portal 외부에서 관리 그룹의 쿼리를 살펴보면 관리 그룹에 대한 대상 범위가 **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** 와 같이 표시됩니다.
 

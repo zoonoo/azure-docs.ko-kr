@@ -1,6 +1,6 @@
 ---
 title: Azure의 하이브리드 ID 디자인 - 채택 전략 | Microsoft Docs
-description: 조건부 액세스 제어를 사용 하 Azure Active Directory에서는 사용자를 인증할 때 및 응용 프로그램에 대 한 액세스를 허용 하기 전에 선택한 특정 조건을 확인 합니다. 이러한 조건이 충족되면 사용자가 인증되고 애플리케이션에 대한 액세스가 허용됩니다.
+description: 조건부 액세스 제어를 통해 Azure AD는 사용자를 인증할 때 및 응용 프로그램에 대 한 액세스를 허용 하기 전에 선택한 특정 조건을 확인 합니다.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555373"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659529"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 하이브리드 ID 채택 전략을 정의하여 다음에서 설명한 비즈니스 요구 사항을 충족합니다.
@@ -32,7 +32,7 @@ ms.locfileid: "85555373"
 * [Multi-Factor Authentication 요구 사항 결정](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>비즈니스 요구 사항 전략 정의
-첫 번째 작업은 조직 비즈니스 필요를 다룹니다.  신중하지 않으면 매우 광범위한 범위 변형이 발생할 수 있습니다.  처음에 단순하게 유지하지만 나중에 변화를 수용하고 촉진하는 설계에 대한 계획을 항상 기억합니다.  간단한 설계 또는 매우 복잡한 설계에 관계 없이 Azure Active Directory는 Office 365, Microsoft 온라인 서비스 및 클라우드 인식 애플리케이션을 지원하는 Microsoft ID 플랫폼입니다.
+첫 번째 작업은 조직 비즈니스 필요를 다룹니다.  신중하지 않으면 매우 광범위한 범위 변형이 발생할 수 있습니다.  처음에 단순하게 유지하지만 나중에 변화를 수용하고 촉진하는 설계에 대한 계획을 항상 기억합니다.  간단한 디자인 또는 매우 복잡 한 디자인 인지에 관계 없이, Azure Active Directory Microsoft 365, Microsoft Online Services 및 클라우드 인식 응용 프로그램을 지 원하는 Microsoft Id 플랫폼입니다.
 
 ## <a name="define-an-integration-strategy"></a>통합 전략 정의
 Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3개의 주요 통합 시나리오가 있습니다.  이러한 통합 전략 중 하나를 채택하도록 계획해야 합니다.  어떤 사용자 환경을 제공할 것인지, 기존 인프라가 있는지, 가장 비용 효과적인 방법은 무엇인지에 따라 선택하는 전략이 달라질 수 있습니다.  
@@ -55,7 +55,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 | 전략 | 장점 | 단점 |
 | --- | --- | --- |
 | **클라우드 ID** |소규모 조직을 관리하기가 쉬워집니다. <br> 온-프레미스에 아무 것도 설치하지 않습니다. 추가 하드웨어가 필요 없습니다.<br>사용자가 퇴사하는 경우 쉽게 사용 불가능해 집니다. |사용자는 클라우드의 워크로드에 액세스할 때 로그인해야 합니다 <br>  암호는 클라우드 및 온-프레미스 ID에 대해 동일할 수도 있고 않을 수도 있습니다 |
-| **됨** |온-프레미스 암호는 온-프레미스 및 클라우드 디렉터리를 인증합니다 <br>소규모, 중규모 또는 대규모 조직을 관리하기가 쉬워집니다. <br>사용자는 일부 리소스에 대한 SSO(Single Sign-On)를 가질 수 있습니다 <br> 동기화에 대한 Microsoft의 기본 메서드 <br>  관리가 쉬워집니다 |일부 고객은 특정 회사의 경찰 때문에 클라우드를 사용하여 해당 디렉터리를 동기화하는 것을 꺼릴 수 있습니다. |
+| **동기화됨** |온-프레미스 암호는 온-프레미스 및 클라우드 디렉터리를 인증합니다 <br>소규모, 중규모 또는 대규모 조직을 관리하기가 쉬워집니다. <br>사용자는 일부 리소스에 대한 SSO(Single Sign-On)를 가질 수 있습니다 <br> 동기화에 대한 Microsoft의 기본 메서드 <br>  관리가 쉬워집니다 |일부 고객은 특정 회사의 경찰 때문에 클라우드를 사용하여 해당 디렉터리를 동기화하는 것을 꺼릴 수 있습니다. |
 | **페더레이션** |사용자는 Single Sign-On(SSO)을 가질 수 있습니다 <br>사용자를 종료하거나 사용자가 나가는 경우, 계정을 즉시 사용할 수 없게 하고 액세스를 해지할 수 있습니다.<br> 동기화되어 수행할 수 없는 고급 시나리오를 지원합니다 |설정 및 구성의 추가 단계 <br> 더 높은 유지 관리 <br> STS 인프라에 대한 추가 하드웨어가 필요할 수 있습니다. <br> 페더레이션 서버를 설치하는 데 추가적인 하드웨어가 필요할 수 있습니다. AD FS를 사용할 경우 추가적인 소프트웨어가 필요합니다. <br> SSO에 대한 광범위한 설정이 필요 <br> 중요 장애점, 페더레이션 서버가 다운된 경우 사용자는 인증할 수 없습니다. |
 
 ### <a name="client-experience"></a>클라이언트 환경
@@ -68,7 +68,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 | 웹 브라우저 |양식 기반 인증 |때때로 조직 ID를 제공하는 데 필요한 Single Sign On |
 | Outlook |자격 증명 확인 |자격 증명 확인 |
 | 비즈니스용 Skype(Lync) |자격 증명 확인 |Exchange에 대한 자격 증명을 확인하는 Lync용 Single Sign-On |
-| OneDrive for Business |자격 증명 확인 |Single Sign-On |
+| 비즈니스용 OneDrive |자격 증명 확인 |Single Sign-On |
 | Office Pro Plus 구독 |자격 증명 확인 |Single Sign-On |
 
 **외부 또는 신뢰할 수 없는 원본**:
@@ -171,7 +171,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 * Azure AD 디렉터리는 설계상 격리되어 있습니다. 디렉터리 간에 일반적이고 통합된 GAL을 구축하기 위한 시도로 다른 Azure AD Directory에서 데이터를 읽도록 Azure AD Connect Sync의 구성을 변경하는 것은 지원되지 않습니다. 또한 Azure AD Connect Sync를 사용하여 사용자를 온-프레미스 AD에 연락처로 내보내는 것도 지원되지 않습니다.
 
 > [!NOTE]
-> 조직이 네트워크의 컴퓨터를 인터넷에 연결할 수 없도록 제한하는 경우 이 문서는 클라이언트 컴퓨터의 아웃바운드 허용 목록 및 Internet Explorer 신뢰할 수 있는 사이트 영역에서 포함해야 하는 엔드포인트 (FQDN, IPv4 및 IPv6 주소 범위)을 나열하여 컴퓨터가 Office 365를 성공적으로 사용할 수 있도록 합니다. 자세한 내용은 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US)를 읽습니다.
+> 조직에서 네트워크의 컴퓨터가 인터넷에 연결 되지 않도록 제한 하는 경우이 문서에서는 클라이언트 컴퓨터의 아웃 바운드 허용 목록 및 Internet Explorer의 신뢰할 수 있는 사이트 영역에 포함 해야 하는 끝점 (Fqdn, IPv4 및 IPv6 주소 범위)을 나열 하 여 컴퓨터에서 Microsoft 365를 성공적으로 사용할 수 있도록 합니다. 자세한 내용은 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US)를 읽습니다.
 > 
 > 
 

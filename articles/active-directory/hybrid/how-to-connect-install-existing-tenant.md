@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 582ec01a7a843358bef749aec693a59f88a1d655
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640653"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662249"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: 기존 테 넌 트가 있는 경우
 Azure AD Connect를 사용하는 방법에 대한 항목 중 대부분은 새 Azure AD 테넌트로 시작하고 여기에는 사용자 또는 다른 개체가 없다고 가정하고 있습니다. 그러나 이미 Azure AD 테넌트로 시작하여 사용자와 다른 개체를 제공한 후에 Connect를 사용하려는 경우 이 문서가 도움이 됩니다.
@@ -41,7 +41,7 @@ Azure AD Connect를 설치 하 고 동기화를 시작 하면 azure ad의 Azure 
 Azure AD가 Connect에서 나오는 개체의 특성 값과 동일하고 Azure AD에 이미 있는 개체를 찾으면 Connect에서 Azure AD의 개체를 받습니다. 이전에 클라우드에서 관리된 개체는 온-프레미스 관리 대상으로 플래그가 지정됩니다. 온 프레미스 AD의 값이 있는 Azure AD의 모든 특성은 온-프레미스 값으로 덮어씁니다. 예외는 특성에 **NULL** 온-프레미스 값이 있는 경우입니다. 이 경우 Azure AD의 값은 그대로 유지되지만 온-프레미스에서 다른 값으로만 변경할 수 있습니다.
 
 > [!WARNING]
-> Azure AD의 모든 특성은 온-프레미스 값으로 덮어쓰게 되므로 온-프레미스 데이터가 양호한지 확인해야 합니다. 예를 들어 Office 365에서만 전자 메일 주소를 관리하고 온-프레미스 AD DS에서 전자 메일 주소를 업데이트하지 않은 경우 AD DS에 없는 Azure AD/Office 365의 값을 잃게 됩니다.
+> Azure AD의 모든 특성은 온-프레미스 값으로 덮어쓰게 되므로 온-프레미스 데이터가 양호한지 확인해야 합니다. 예를 들어 Microsoft 365에 관리 되는 전자 메일 주소만 있고 온-프레미스 AD DS에 업데이트 된 상태로 유지 되지 않는 경우 Azure AD/Microsoft 365 AD DS에 없는 값이 손실 됩니다.
 
 > [!IMPORTANT]
 > 항상 기본 설정으로 사용되는 암호 동기화를 사용하는 경우 Azure AD의 암호는 온-프레미스 AD의 암호로 덮어씁니다. 사용자가 다른 암호를 관리하는 데 사용되는 경우 Connect를 설치할 때 온-프레미스 암호를 사용해야 한다고 사용자에게 알려야 합니다.

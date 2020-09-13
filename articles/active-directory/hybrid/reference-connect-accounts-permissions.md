@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f84724285dee6dfff4913b067daa651837787d4e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255781"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662340"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 
@@ -55,7 +55,7 @@ Azure AD Connect를 실행하는 데 사용되는 이러한 세 가지 계정 �
 > [!NOTE]
 > ESAE 관리 포리스트("빨간색 포리스트" 라고도 함)에서 Azure AD Connect에 사용되는 관리 계정을 관리할 수 있습니다.
 > 조직은 전용 관리 포리스트를 사용하여 프로덕션 환경보다 더 강력한 보안 제어를 사용하는 환경에서 관리 계정, 워크스테이션 및 그룹을 호스팅할 수 있습니다.
-> 전용 관리 포리스트에 대해 자세히 알아보려면 [ESAE 관리 포리스트 설계 방법](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)을 참조하세요.
+> 전용 관리 포리스트에 대해 자세히 알아보려면 [ESAE 관리 포리스트 설계 방법](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)을 참조하세요.
 
 > [!NOTE]
 > 초기 설치 후에는 전역 관리자 역할이 필요하지 않으며 **디렉터리 동기화 계정** 역할 계정만 필요합니다. 그렇다고 해서 전역 관리자 역할이 부여된 계정을 반드시 제거해야 하는 것은 아닙니다. 계정을 완전히 제거하면 마법사를 다시 실행해야 하는 경우에 문제가 발생할 수 있으므로 역할을 덜 강력한 권한을 가진 역할로 변경하는 것이 좋습니다. Azure AD Connect 마법사를 다시 사용해야 하는 경우 역할의 권한을 축소하면 항상 권한을 다시 승격할 수 있습니다. 
@@ -147,9 +147,9 @@ AD DS Connector 계정은 Windows Server AD에서 읽고 쓰기 위해 만들어
 | 암호 해시 동기화 |<li>디렉터리 변경 내용 복제</li>  <li>모든 디렉터리 변경 내용 복제 |
 | Exchange 하이브리드 배포 |사용자, 그룹 및 연락처에 대한 [Exchange 하이브리드 쓰기 저장](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback)에 설명된 특성에 사용 권한을 작성합니다. |
 | Exchange 메일 공용 폴더 |공용 폴더의 [Exchange Mail 공용 폴더](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder)에서 설명하는 특성에 대한 읽기 권한 | 
-| 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../authentication/howto-sspr-writeback.md)에 설명된 특성에 사용 권한을 작성합니다. |
+| 비밀번호 쓰기 저장 |사용자에 대한 [암호 관리 시작](../authentication/tutorial-enable-sspr-writeback.md)에 설명된 특성에 사용 권한을 작성합니다. |
 | 디바이스 쓰기 저장 |[디바이스 쓰기 저장](how-to-connect-device-writeback.md)에 설명한 대로 PowerShell 스크립트에 부여된 사용 권한입니다. |
-| 그룹 쓰기 저장 |설치된 Exchange로 포리스트에 **Office 365 그룹**을 쓰기 저장할 수 있습니다.|
+| 그룹 쓰기 저장 |Exchange가 설치 된 포리스트에 **Microsoft 365 그룹** 을 쓰기 저장 (writeback) 할 수 있습니다.|
 
 ## <a name="upgrade"></a>업그레이드
 Azure AD Connect의 한 버전에서 새 릴리스로 업그레이드하는 경우 다음 권한이 필요합니다.
@@ -197,8 +197,8 @@ Connect의 2017년 3월 이전 빌드를 사용하는 경우에는 서비스 계
 - 굵지 않은 글꼴 - 지원되는 옵션
 - 로컬 계정 - 서버의 로컬 사용자 계정
 - 도메인 계정 - 도메인 사용자 계정
-- sMSA - [독립 실행형 관리 서비스 계정](https://technet.microsoft.com/library/dd548356.aspx)
-- gMSA - [그룹 관리 서비스 계정](https://technet.microsoft.com/library/hh831782.aspx)
+- sMSA - [독립 실행형 관리 서비스 계정](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA - [그룹 관리 서비스 계정](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>사용자 지정 | 원격 SQL</br>사용자 지정 |
 | --- | --- | --- | --- |
@@ -215,11 +215,11 @@ VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 
 이 기능을 사용하려면 Windows Server 2008 R2 이상이 필요합니다. Windows Server 2008에 Azure AD Connect를 설치하는 경우에는 설치가 [사용자 계정](#user-account)을 대신 사용하도록 대체됩니다.
 
 #### <a name="group-managed-service-account"></a>그룹 관리 서비스 계정
-원격 SQL Server를 사용하는 경우에는 **그룹 관리 서비스 계정**을 사용하는 것이 좋습니다. 그룹 관리 서비스 계정에 대해 Active Directory를 준비하는 방법에 대한 자세한 내용은 [그룹 관리 서비스 계정 개요](https://technet.microsoft.com/library/hh831782.aspx)를 참조하세요.
+원격 SQL Server를 사용하는 경우에는 **그룹 관리 서비스 계정**을 사용하는 것이 좋습니다. 그룹 관리 서비스 계정에 대해 Active Directory를 준비하는 방법에 대한 자세한 내용은 [그룹 관리 서비스 계정 개요](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))를 참조하세요.
 
 이 옵션을 사용하려면 [필수 구성 요소 설치](how-to-connect-install-custom.md#install-required-components) 페이지에서 **기존 서비스 계정 사용**을 선택하고 **관리 서비스 계정**을 선택합니다.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
-[독립 실행형 관리 서비스 계정](https://technet.microsoft.com/library/dd548356.aspx)을 사용하는 것도 지원됩니다. 하지만 이 계정은 로컬 컴퓨터에서만 사용할 수 있기 때문에 기본 가상 서비스 계정 대신 이 계정을 사용할만한 장점이 없습니다.
+[독립 실행형 관리 서비스 계정](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))을 사용하는 것도 지원됩니다. 하지만 이 계정은 로컬 컴퓨터에서만 사용할 수 있기 때문에 기본 가상 서비스 계정 대신 이 계정을 사용할만한 장점이 없습니다.
 
 이 기능을 사용하려면 Windows Server 2012 이상이 필요합니다. 이전 운영 체제를 사용해야 하고 원격 SQL을 사용하는 경우에는 [사용자 계정](#user-account)을 사용해야 합니다.
 
@@ -252,7 +252,7 @@ Azure AD에서 동기화 서비스 계정은 20개로 제한됩니다. Azure AD�
 사용하지 않는 Azure AD 서비스 계정을 제거하려면 다음 Azure AD PowerShell cmdlet을 실행합니다. `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->위의 PowerShell 명령을 사용하려면 먼저 [Azure Active Directory PowerShell for Graph 모듈](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module)을 설치하고 [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)를 사용하여 Azure AD의 인스턴스에 연결해야 합니다.
+>위의 PowerShell 명령을 사용하려면 먼저 [Azure Active Directory PowerShell for Graph 모듈](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module)을 설치하고 [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)를 사용하여 Azure AD의 인스턴스에 연결해야 합니다.
 
 Azure AD Connector 계정의 암호를 관리하거나 다시 설정하는 방법에 대한 자세한 내용은 [Azure AD Connect 계정 관리](how-to-connect-azureadaccount.md)를 참조하세요.
 

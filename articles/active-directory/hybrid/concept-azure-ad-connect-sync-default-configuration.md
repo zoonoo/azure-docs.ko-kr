@@ -148,7 +148,7 @@ SRE는 리소스 키트 도구 이며 Azure AD Connect 동기화와 함께 설�
 
 동기화 규칙에는 설명, 범위 지정 필터, 조인 규칙 및 변환의 네 가지 구성 섹션이 있습니다.
 
-#### <a name="description"></a>설명
+#### <a name="description"></a>Description
 첫 번째 섹션은 이름 및 설명과 같은 기본 정보를 제공합니다.
 
 ![동기화 규칙 편집기의 설명 탭](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)

@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 626bc12b01428b90de1cbafe28bd7493e7ed1743
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e5a5b06bc95d022cfad66118db4b55e9369b5bd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356647"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661889"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 통과 인증으로 마이그레이션
 
@@ -40,13 +40,13 @@ AD FS 사용에서 통과 인증 사용으로 마이그레이션하는 데 필�
 > [!IMPORTANT]
 > 도메인을 페더레이션 ID에서 관리 ID로 변환할 때 사용자 변환이 필요한 오래된 문서, 도구 및 블로그에서 읽을 수 있습니다. *사용자 변환*은 더 이상 필요하지 않습니다. Microsoft는 이러한 변경을 반영하기 위해 설명서와 도구를 업데이트하려고 노력하고 있습니다.
 
-Azure AD Connect를 업데이트 하려면 [Azure AD Connect: 최신 버전으로 업그레이드](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version)의 단계를 완료 합니다.
+Azure AD Connect를 업데이트 하려면 [Azure AD Connect: 최신 버전으로 업그레이드](./how-to-upgrade-previous-version.md)의 단계를 완료 합니다.
 
 ### <a name="plan-authentication-agent-number-and-placement"></a>인증 에이전트 번호 및 배치 계획
 
 통과 인증을 사용하려면 Azure AD Connect 서버와 Windows 서버를 실행하는 온-프레미스 컴퓨터에 경량 에이전트를 배포해야 합니다. 대기 시간을 줄이려면 Active Directory 도메인 컨트롤러에 최대한 가깝게 에이전트를 설치합니다.
 
-대부분의 고객의 경우 고가용성과 필요한 용량을 제공하는 데 2~3개의 인증 에이전트로 충분합니다. 테넌트는 최대 12개의 에이전트를 등록할 수 있습니다. 첫 번째 에이전트는 항상 Azure AD Connect 서버 자체에 설치됩니다. 에이전트 제한 사항 및 에이전트 배포 옵션에 대 한 자세한 내용은 [AZURE AD 통과 인증: 현재 제한 사항](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-current-limitations)을 참조 하세요.
+대부분의 고객의 경우 고가용성과 필요한 용량을 제공하는 데 2~3개의 인증 에이전트로 충분합니다. 테넌트는 최대 12개의 에이전트를 등록할 수 있습니다. 첫 번째 에이전트는 항상 Azure AD Connect 서버 자체에 설치됩니다. 에이전트 제한 사항 및 에이전트 배포 옵션에 대 한 자세한 내용은 [AZURE AD 통과 인증: 현재 제한 사항](./how-to-connect-pta-current-limitations.md)을 참조 하세요.
 
 ### <a name="plan-the-migration-method"></a>마이그레이션 방법 계획
 
@@ -102,8 +102,8 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 
 자세한 내용은 다음 문서를 참조하세요.
 
-* [AD FS 프롬프트에서 로그인 매개 변수 지원](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
-* [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+* [AD FS 프롬프트에서 로그인 매개 변수 지원](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
+* [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
 > **SupportsMfa**가 **True**로 설정되어 있으면 온-프레미스 다단계 인증 솔루션을 사용하여 사용자 인증 흐름에 2단계 챌린지를 삽입합니다. 이 설정은 Azure AD 인증 시나리오에서 더 이상 작동하지 않습니다. 
@@ -112,9 +112,9 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 
 #### <a name="back-up-federation-settings"></a>페더레이션 설정 백업
 
-이 문서에서 설명하는 프로세스 중에 AD FS 팜의 다른 신뢰 당사자는 변경되지 않지만 복원할 수 있는 AD FS 팜에 대한 현재 유효한 백업이 있는 것이 좋습니다. Microsoft [AD FS 신속 복원 도구](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool) 평가판을 사용하여 현재 유효한 백업을 만들 수 있습니다. 이 도구를 사용하여 AD FS를 백업하고 기존 팜을 복원하거나 새 팜을 만들 수 있습니다.
+이 문서에서 설명하는 프로세스 중에 AD FS 팜의 다른 신뢰 당사자는 변경되지 않지만 복원할 수 있는 AD FS 팜에 대한 현재 유효한 백업이 있는 것이 좋습니다. Microsoft [AD FS 신속 복원 도구](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool) 평가판을 사용하여 현재 유효한 백업을 만들 수 있습니다. 이 도구를 사용하여 AD FS를 백업하고 기존 팜을 복원하거나 새 팜을 만들 수 있습니다.
 
-AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 추가한 Microsoft Office 365 ID 플랫폼 신뢰 당사자 트러스트와 연결된 모든 사용자 지정 클레임 규칙을 내보내야 합니다. 다음 PowerShell 예제를 사용하여 신뢰 당사자 트러스트와 연결된 클레임 규칙을 내보낼 수 있습니다.
+AD FS 빠른 복원 도구를 사용 하지 않도록 선택 하는 경우 최소한 Microsoft 365 Id 플랫폼 신뢰 당사자 트러스트 및 추가한 관련 사용자 지정 클레임 규칙을 내보내야 합니다. 다음 PowerShell 예제를 사용하여 신뢰 당사자 트러스트와 연결된 클레임 규칙을 내보낼 수 있습니다.
 
 ``` PowerShell
 (Get-AdfsRelyingPartyTrust -Name "Microsoft Office 365 Identity Platform") | Export-CliXML "C:\temp\O365-RelyingPartyTrust.xml"
@@ -126,15 +126,15 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 
 ### <a name="current-ad-fs-use"></a>현재 AD FS 사용
 
-페더레이션 ID에서 관리 ID로 변환하기 전에 현재 AD FS를 Azure AD, Office 365 및 다른 애플리케이션(신뢰 당사자 트러스트)에 사용하는 방법을 자세히 살펴봅니다. 특히 다음 표에서 설명하는 시나리오를 고려해야 합니다.
+페더레이션된 id에서 관리 되는 id로 변환 하기 전에 현재 Azure AD, Microsoft 365 및 기타 응용 프로그램 (신뢰 당사자 트러스트)에 대 한 AD FS를 사용 하는 방법을 자세히 살펴보세요. 특히 다음 표에서 설명하는 시나리오를 고려해야 합니다.
 
 | 조건 | 결과 |
 |-|-|
-| AD FS를 Azure AD 및 Office 365 이외의 다른 애플리케이션에서 계속 사용하려고 합니다. | 도메인이 변환되면 AD FS와 Azure AD를 모두 사용할 수 있습니다. 사용자 환경을 고려합니다. 일부 시나리오에서는 사용자가 두 번 인증해야 할 수도 있습니다. 즉 한번은 Azure AD(사용자가 Office 365와 같은 다른 애플리케이션에 SSO 액세스 권한을 얻은 경우), 또 한번은 아직도 AD FS에 바인딩된 애플리케이션에 대해 인증해야 합니다. |
+| 다른 응용 프로그램 (Azure AD 및 Microsoft 365 이외의 다른 응용 프로그램)과 AD FS를 계속 사용 하도록 계획 합니다. | 도메인이 변환되면 AD FS와 Azure AD를 모두 사용할 수 있습니다. 사용자 환경을 고려합니다. 일부 시나리오에서는 사용자가 Azure AD에 한 번, (예: 사용자가 Microsoft 365 같은 다른 응용 프로그램에 대 한 SSO 액세스를 받는 경우), 신뢰 당사자 트러스트로 AD FS에 계속 바인딩되어 있는 모든 응용 프로그램에 대해 두 번 인증 해야 할 수 있습니다. |
 | AD FS 인스턴스는 상당히 많이 사용자 지정되고 onload.js 파일의 특정 사용자 지정 설정에 종속됩니다(예: 사용자가 UPN(사용자 계정 이름) 대신 **SamAccountName** 형식만 사용자 이름에 사용하도록 로그인 환경을 변경한 경우 또는 조직에서 로그인 환경의 브랜드를 많이 지정한 경우). onload.js 파일은 Azure AD에서 중복될 수 없습니다. | 계속하기 전에 Azure AD에서 현재 사용자 지정 요구 사항을 충족할 수 있는지 확인해야 합니다. 자세한 내용과 지침은 AD FS 브랜딩 및 AD FS 사용자 지정 섹션을 참조하세요.|
-| AD FS를 사용하여 이전 버전의 인증 클라이언트를 차단합니다.| [조건부 액세스 제어](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) 와 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)의 조합을 사용 하 여 이전 버전의 인증 클라이언트를 차단 하는 AD FS 컨트롤을 대체 하는 것이 좋습니다. |
+| AD FS를 사용하여 이전 버전의 인증 클라이언트를 차단합니다.| [조건부 액세스 제어](../conditional-access/concept-conditional-access-conditions.md) 와 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)의 조합을 사용 하 여 이전 버전의 인증 클라이언트를 차단 하는 AD FS 컨트롤을 대체 하는 것이 좋습니다. |
 | 사용자가 AD FS에 대해 인증할 때 온-프레미스 다단계 인증 서버 솔루션에 대해 다단계 인증을 수행해야 합니다.| 관리 ID 도메인에서는 온-프레미스 다단계 인증 솔루션을 통해 인증 흐름에 다단계 인증 챌린지를 삽입할 수 없습니다. 그러나 도메인이 변환되면 다단계 인증에 Azure Multi-Factor Authentication 서비스를 사용할 수 있습니다.<br /><br /> 사용자가 현재 Azure Multi-Factor Authentication을 사용하지 않는 경우 일회성 사용자 등록 단계를 수행해야 합니다. 계획된 등록을 준비하고 사용자에게 전달해야 합니다. |
-| 현재 AD FS에서 액세스 제어 정책(AuthZ 규칙)을 사용하여 Office 365에 대한 액세스를 제어합니다.| 정책을 해당 하는 Azure AD [조건부 액세스 정책](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) 및 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)으로 바꾸는 것이 좋습니다.|
+| 현재 AD FS에서 액세스 제어 정책 (인증 규칙)을 사용 하 여 Microsoft 365에 대 한 액세스를 제어 합니다.| 정책을 해당 하는 Azure AD [조건부 액세스 정책](../conditional-access/overview.md) 및 [Exchange Online 클라이언트 액세스 규칙](https://aka.ms/EXOCAR)으로 바꾸는 것이 좋습니다.|
 
 ### <a name="common-ad-fs-customizations"></a>일반적인 AD FS 사용자 지정
 
@@ -142,13 +142,13 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 
 #### <a name="insidecorporatenetwork-claim"></a>InsideCorporateNetwork 클레임
 
-인증하는 사용자가 회사 네트워크 내부에 있는 경우 AD FS는 **InsideCorporateNetwork** 클레임을 발급합니다. 그러면 이 클레임이 Azure AD에 전달될 수 있습니다. 클레임은 사용자의 네트워크 위치에 따라 다단계 인증을 무시하는 데 사용됩니다. 이 기능이 현재 AD FS에서 사용할 수 있는지 확인하는 방법을 알아보려면 [페더레이션 사용자를 위한 신뢰할 수 있는 IP](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud)를 참조하세요.
+인증하는 사용자가 회사 네트워크 내부에 있는 경우 AD FS는 **InsideCorporateNetwork** 클레임을 발급합니다. 그러면 이 클레임이 Azure AD에 전달될 수 있습니다. 클레임은 사용자의 네트워크 위치에 따라 다단계 인증을 무시하는 데 사용됩니다. 이 기능이 현재 AD FS에서 사용할 수 있는지 확인하는 방법을 알아보려면 [페더레이션 사용자를 위한 신뢰할 수 있는 IP](../authentication/howto-mfa-adfs.md)를 참조하세요.
 
-도메인이 통과 인증으로 변환되면 **InsideCorporateNetwork** 클레임을 사용할 수 없습니다. 이 기능은 [Azure AD에서 명명된 위치](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations)를 사용하여 대체할 수 있습니다.
+도메인이 통과 인증으로 변환되면 **InsideCorporateNetwork** 클레임을 사용할 수 없습니다. 이 기능은 [Azure AD에서 명명된 위치](../reports-monitoring/quickstart-configure-named-locations.md)를 사용하여 대체할 수 있습니다.
 
 명명 된 위치를 구성한 후에는 네트워크를 포함 하거나 제외 하도록 구성 된 모든 조건부 액세스 정책을 업데이트 해야 합니다. 여기에는 새 명명 된 위치를 반영 하는 **모든 신뢰할 수 있는 위치** 또는 **MFA 신뢰할 수 있는 ip** 값이 포함 됩니다.
 
-조건부 액세스의 **위치** 조건에 대 한 자세한 내용은 [Active Directory 조건부 액세스 위치](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations)를 참조 하세요.
+조건부 액세스의 **위치** 조건에 대 한 자세한 내용은 [Active Directory 조건부 액세스 위치](../conditional-access/location-condition.md)를 참조 하세요.
 
 #### <a name="hybrid-azure-ad-joined-devices"></a>하이브리드 Azure AD 조인 디바이스
 
@@ -158,22 +158,22 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 
 Windows 8 및 Windows 7 컴퓨터 계정의 경우 하이브리드 조인은 Seamless SSO를 사용하여 Azure AD에서 컴퓨터를 등록합니다. Windows 10 디바이스처럼 Windows 8 및 Windows 7 컴퓨터 계정을 동기화할 필요는 없습니다. 그러나 업데이트된 workplacejoin.exe 파일(.msi 파일을 통해)을 Windows 8 및 Windows 7 클라이언트에 배포해야 Seamless SSO를 사용하여 직접 등록할 수 있습니다. [.msi 파일을 다운로드하세요](https://www.microsoft.com/download/details.aspx?id=53554).
 
-자세한 내용은 [하이브리드 Azure AD 조인 디바이스 구성](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup)을 참조하세요.
+자세한 내용은 [하이브리드 Azure AD 조인 디바이스 구성](../devices/hybrid-azuread-join-plan.md)을 참조하세요.
 
 #### <a name="branding"></a>브랜딩
 
-조직에 더 적합한 정보를 표시하도록 조직에서 [AD FS 로그인 페이지를 사용자 지정](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization)한 경우 [Azure AD 로그인 페이지에도 비슷하게 사용자 지정](https://docs.microsoft.com/azure/active-directory/customize-branding)하는 것이 좋습니다.
+조직에 더 적합한 정보를 표시하도록 조직에서 [AD FS 로그인 페이지를 사용자 지정](/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization)한 경우 [Azure AD 로그인 페이지에도 비슷하게 사용자 지정](../fundamentals/customize-branding.md)하는 것이 좋습니다.
 
 비슷한 사용자 지정을 사용할 수 있지만 변환 후에 로그인 페이지 중 일부를 시각적으로 변경할 필요가 있습니다. 사용자와의 통신에 필요한 변경에 대한 정보를 제공할 수 있습니다.
 
 > [!NOTE]
-> Azure Active Directory에 대한 프리미엄 또는 기본 라이선스를 구입한 경우 또는 Office 365 라이선스가 있는 경우에만 조직 브랜딩을 사용할 수 있습니다.
+> 조직 브랜드는 Azure Active Directory에 대 한 프리미엄 또는 기본 라이선스를 구매 하거나 Microsoft 365 라이선스가 있는 경우에만 사용할 수 있습니다.
 
 ## <a name="plan-for-smart-lockout"></a>스마트 잠금 계획
 
 Azure AD 스마트 잠금은 무차별 암호 대입 공격으로부터 보호합니다. 통과 인증이 사용되고 계정 잠금 그룹 정책이 Active Directory에 설정된 경우 스마트 잠금은 온-프레미스 Active Directory 계정이 잠기지 않도록 방지합니다.
 
-자세한 내용은 [Azure Active Directory 스마트 잠금](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)을 참조하세요.
+자세한 내용은 [Azure Active Directory 스마트 잠금](../authentication/howto-password-smart-lockout.md)을 참조하세요.
 
 ## <a name="plan-deployment-and-support"></a>배포 및 지원 계획
 
@@ -188,7 +188,7 @@ Azure AD 스마트 잠금은 무차별 암호 대입 공격으로부터 보호�
 최신 인증 클라이언트(Office 2016 및 Office 2013, iOS 및 Android 앱)는 유효한 새로 고침 토큰을 사용하여 AD FS로 돌아가는 대신 리소스에 계속 액세스할 수 있는 새 액세스 토큰을 얻습니다. 이러한 클라이언트는 도메인 변환 프로세스에서 발생하는 모든 암호 프롬프트에 영향을 받지 않습니다. 클라이언트는 추가 구성 없이 계속 작동합니다.
 
 > [!IMPORTANT]
-> 모든 사용자가 클라우드 인증을 사용하여 성공적으로 인증할 수 있다고 확인할 때까지 AD FS 환경을 종료하거나 Office 365 신뢰 당사자 트러스트를 제거하지 마세요.
+> 모든 사용자가 클라우드 인증을 사용 하 여 성공적으로 인증할 수 있는지 확인할 때까지 AD FS 환경을 종료 하거나 Microsoft 365 신뢰 당사자 트러스트를 제거 하지 마세요.
 
 ### <a name="plan-for-rollback"></a>롤백 계획
 
@@ -205,7 +205,7 @@ Azure AD 스마트 잠금은 무차별 암호 대입 공격으로부터 보호�
 
 배포 및 지원을 계획하는 데 있어 중요한 부분은 사용자가 향후 변경에 대해 사전에 알 수 있도록 하는 것입니다. 사용자는 자신이 경험할 수 있는 것과 필요한 것을 미리 알고 있어야 합니다.
 
-통과 인증과 Seamless SSO가 모두 배포되면 Azure AD를 통해 인증된 Office 365 및 다른 리소스에 액세스하기 위한 최종 사용자 로그인 환경이 변경됩니다. 네트워크 외부에 있는 사용자는 Azure AD 로그인 페이지만 볼 수 있습니다. 이러한 사용자는 외부 웹 애플리케이션 프록시 서버에서 제공하는 양식 기반 페이지로 리디렉션되지 않습니다.
+통과 인증과 원활한 SSO가 배포 된 후에는 Azure AD 변경을 통해 인증 된 Microsoft 365 및 기타 리소스에 액세스 하기 위한 사용자 로그인 환경이 제공 됩니다. 네트워크 외부에 있는 사용자는 Azure AD 로그인 페이지만 볼 수 있습니다. 이러한 사용자는 외부 웹 애플리케이션 프록시 서버에서 제공하는 양식 기반 페이지로 리디렉션되지 않습니다.
 
 통신 전략에 포함되는 요소는 다음과 같습니다.
 
@@ -228,7 +228,7 @@ Azure AD 스마트 잠금은 무차별 암호 대입 공격으로부터 보호�
 
 기본적으로 웹 브라우저는 URL에서 올바른 영역(인터넷 또는 인트라넷)을 자동으로 계산합니다. 예를 들어 **http: \/ \/ contoso/** 는 인트라넷 영역에 매핑되고 **http: \/ \/ INTRANET.CONTOSO.COM** 은 인터넷 영역에 매핑됩니다 (URL에 마침표가 포함 되어 있기 때문). URL을 브라우저의 인트라넷 영역에 명시적으로 추가하는 경우에만 브라우저에서 Kerberos 티켓을 클라우드 엔드포인트(예: Azure AD URL)에 보냅니다.
 
-필요한 변경을 디바이스에 [롤아웃](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start)하는 단계를 수행합니다.
+필요한 변경을 디바이스에 [롤아웃](./how-to-connect-sso-quick-start.md)하는 단계를 수행합니다.
 
 > [!IMPORTANT]
 > 이렇게 변경하더라도 사용자가 Azure AD에 로그인하는 방법이 수정되지 않습니다. 그러나 계속 진행하기 전에 이 구성을 모든 디바이스에 적용해야 합니다. 또한 이 구성을 받지 않은 디바이스에 로그인하는 사용자는 Azure AD에 로그인하기 위해 사용자 이름과 암호만 입력하면 됩니다.
@@ -330,7 +330,7 @@ Azure AD 스마트 잠금은 무차별 암호 대입 공격으로부터 보호�
    ![사용자 로그인 섹션의 설정을 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
 8. **통과 인증** 을 선택 하 고 상태가 **활성**인지 확인 합니다.<br />
    
-   인증 에이전트가 활성 상태가 아닌 경우 다음 단계에서 도메인 변환 프로세스를 계속 진행하기 전에 몇 가지 [문제 해결 단계](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)를 수행합니다. 통과 인증 에이전트가 성공적으로 설치되었는지와 Azure Portal에서 해당 상태가 **활성**인지를 확인하기 전에 도메인을 변환하면 인증이 중단될 위험이 있습니다.
+   인증 에이전트가 활성 상태가 아닌 경우 다음 단계에서 도메인 변환 프로세스를 계속 진행하기 전에 몇 가지 [문제 해결 단계](./tshoot-connect-pass-through-authentication.md)를 수행합니다. 통과 인증 에이전트가 성공적으로 설치되었는지와 Azure Portal에서 해당 상태가 **활성**인지를 확인하기 전에 도메인을 변환하면 인증이 중단될 위험이 있습니다.
 
 다음으로, 추가 인증 에이전트를 배포합니다.
 
@@ -408,14 +408,14 @@ Seamless SSO를 테스트하려면,
 3. 사용자가 리디렉션되고 액세스 패널에 성공적으로 로그인됩니다.
 
    > [!NOTE]
-   > Seamless SSO는 도메인 힌트(예: myapps.microsoft.com/contoso.com)를 지원하는 Office 365 서비스에서 작동합니다. 현재 Office 365 포털(portal.office.com)에서는 도메인 힌트를 지원하지 않습니다. 사용자가 UPN을 입력해야 합니다. UPN이 입력되면 Seamless SSO에서 사용자를 대신하여 Kerberos 티켓을 검색합니다. 사용자가 암호를 입력하지 않고 로그인됩니다.
+   > 원활한 SSO는 도메인 힌트 (예: myapps.microsoft.com/contoso.com)를 지 원하는 Microsoft 365 서비스에서 작동 합니다. 현재 Microsoft 365 포털 (portal.office.com)은 도메인 힌트를 지원 하지 않습니다. 사용자가 UPN을 입력해야 합니다. UPN이 입력되면 Seamless SSO에서 사용자를 대신하여 Kerberos 티켓을 검색합니다. 사용자가 암호를 입력하지 않고 로그인됩니다.
 
    > [!TIP]
-   > 향상된 SSO 환경을 위해 [Windows 10에서 Azure AD 하이브리드 조인](https://docs.microsoft.com/azure/active-directory/device-management-introduction)을 배포하는 것이 좋습니다.
+   > 향상된 SSO 환경을 위해 [Windows 10에서 Azure AD 하이브리드 조인](../devices/overview.md)을 배포하는 것이 좋습니다.
 
 ### <a name="remove-the-relying-party-trust"></a>신뢰 당사자 트러스트 제거
 
-모든 사용자와 클라이언트가 Azure AD를 통해 성공적으로 인증되었다고 확인되면 Office 365 신뢰 당사자 트러스트를 제거해도 안전합니다.
+모든 사용자 및 클라이언트가 Azure AD를 통해 성공적으로 인증 되는지 확인 한 후에는 Microsoft 365 신뢰 당사자 트러스트를 제거 하는 것이 안전 합니다.
 
 AD FS를 다른 용도(즉, 다른 신뢰 당사자 트러스트)로 사용하지 않는 경우 이 시점에서 AD FS 서비스를 해제하는 것이 안전합니다.
 
@@ -435,7 +435,7 @@ AD FS를 다른 용도(즉, 다른 신뢰 당사자 트러스트)로 사용하�
 * 사용자가 관리(페더레이션되지 않음) ID 도메인에 있습니다.
 * 사용자에게 라이선스가 할당되지 않았습니다.
 
-이 기능을 확인하거나 설정하는 방법을 알아보려면 [userPrincipalName 업데이트 동기화](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features)를 참조하세요.
+이 기능을 확인하거나 설정하는 방법을 알아보려면 [userPrincipalName 업데이트 동기화](./how-to-connect-syncservice-features.md)를 참조하세요.
 
 ## <a name="roll-over-the-seamless-sso-kerberos-decryption-key"></a>Seamless SSO Kerberos 암호 해독 키 롤오버
 
@@ -443,7 +443,7 @@ AZUREADSSOACC 컴퓨터 계정(Azure AD를 나타냄)의 Kerberos 암호 해독 
 
 Azure AD Connect를 실행하는 온-프레미스 서버에서 Seamless SSO Kerberos 암호 해독 키의 롤오버를 시작합니다.
 
-자세한 내용은 [AZUREADSSOACC 컴퓨터 계정의 Kerberos 암호 해독 키를 롤오버하려면 어떻게 하나요?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq)를 참조하세요.
+자세한 내용은 [AZUREADSSOACC 컴퓨터 계정의 Kerberos 암호 해독 키를 롤오버하려면 어떻게 하나요?](./how-to-connect-sso-faq.md)를 참조하세요.
 
 ## <a name="monitoring-and-logging"></a>모니터링 및 로깅
 
@@ -453,10 +453,10 @@ Azure AD Connect를 실행하는 온-프레미스 서버에서 Seamless SSO Kerb
 
 또한 문제 해결을 위해 로깅을 설정할 수도 있습니다.
 
-자세한 내용은[Azure Active Directory 통과 인증 문제 해결](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-Pass-through-authentication)을 참조하세요.
+자세한 내용은[Azure Active Directory 통과 인증 문제 해결](./tshoot-connect-pass-through-authentication.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure AD Connect 설계 개념](plan-connect-design-concepts.md)에 대해 알아봅니다.
-* 적절 한 [인증](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)을 선택 합니다.
+* 적절 한 [인증](./choose-ad-authn.md)을 선택 합니다.
 * [지원되는 토폴로지](plan-connect-design-concepts.md)에 대해 알아봅니다.

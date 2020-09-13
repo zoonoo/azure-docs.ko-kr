@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect 복수 도메인
-description: 이 문서에는 O365 및 Azure AD를 사용하여 여러 최상위 도메인을 설정하고 구성하는 방법이 설명되어 있습니다.
+description: 이 문서에서는 Microsoft 365 및 Azure AD를 사용 하 여 여러 최상위 도메인을 설정 하 고 구성 하는 방법을 설명 합니다.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,15 +16,15 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a49abdea9d5b80687c53fbaa3d41480825ed504
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f913199e0c0ed438d4b95b879d4defc072c615aa
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849954"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662440"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD로 페더레이션에 대한 여러 도메인 지원
-다음 설명서에서는 Office 365 또는 Azure AD 도메인으로 페더레이션하는 경우 여러 최상위 도메인 및 하위 도메인을 사용하는 방법에 대한 지침을 제공합니다.
+다음 설명서에서는 Microsoft 365 또는 Azure AD 도메인을 페더레이션 할 때 여러 개의 최상위 도메인 및 하위 도메인을 사용 하는 방법에 대 한 지침을 제공 합니다.
 
 ## <a name="multiple-top-level-domain-support"></a>여러 최상위 도메인 지원
 Azure AD로 여러 최상위 도메인을 페더레이션하려면 하나의 최상위 도메인으로 페더레이션하는 경우 필요하지 않은 몇 가지 추가 구성이 필요합니다.
@@ -42,7 +42,7 @@ Azure AD로 여러 최상위 도메인을 페더레이션하려면 하나의 최
 
 두 개 이상의 최상위 도메인을 추가하는 경우에 문제가 발생합니다.  예를 들어 Azure AD와 온-프레미스 환경 간 페더레이션을 설정했다고 가정합니다.  이 문서의 경우 도메인, bmcontoso.com이 사용 중입니다.  두 번째 최상위 도메인 bmfabrikam.com이 추가되었습니다.
 
-![도메인](./media/how-to-connect-install-multiple-domains/domains.png)
+![여러 최상위 도메인을 보여 주는 스크린샷](./media/how-to-connect-install-multiple-domains/domains.png)
 
 bmfabrikam.com 도메인을 페더레이션되도록 변환할 때 오류가 발생합니다.  Azure AD가 IssuerUri 속성에서 둘 이상의 도메인에 같은 값을 허용하지 않는 제약 조건을 갖는 것이 이유입니다.  
 
@@ -67,7 +67,7 @@ bmfabrikam.com 도메인의 설정을 보면 다음을 확인할 수 있습니�
 
 `-SupportMultipleDomain` 이(가) 수행하는 다른 작업은 AD FS 시스템이 Azure AD에 대해 발급된 토큰에 적절한 발급자 값을 포함하도록 하는 것입니다. 사용자 UPN의 도메인 부분을 가져오거나 IssuerUri 즉, https://{upn suffix}/adfs/services/trust의 도메인으로 이를 설정하여 이 값을 설정합니다.
 
-따라서 Azure AD 또는 Office 365에 인증하는 동안 사용자 토큰의 IssuerUri 요소는 Azure AD에서 도메인을 찾는 데 사용됩니다.  일치하는 항목이 없는 경우 인증이 실패합니다.
+따라서 Azure AD 또는 Microsoft 365 인증 하는 동안 사용자 토큰의 IssuerUri 요소를 사용 하 여 Azure AD에서 도메인을 찾습니다. 일치하는 항목이 없는 경우 인증이 실패합니다.
 
 예를 들어 사용자의 UPN이 bsimon@bmcontoso.com인 경우 토큰 AD FS 이슈의 IssuerUri 요소는 `http://bmcontoso.com/adfs/services/trust`로 설정됩니다. 이 요소는 Azure AD 구성에 일치하며 인증이 성공합니다.
 
@@ -106,14 +106,14 @@ Azure AD 포털에 새 도메인을 성공적으로 추가한 다음, `Convert-M
 2. 왼쪽에서 **트러스트 관계** 및 **신뢰 당사자 트러스트**를 확장합니다.
 3. 오른쪽에서 **Microsoft Office 365 ID 플랫폼** 항목을 삭제합니다.
    ![Microsoft 온라인 제거](./media/how-to-connect-install-multiple-domains/trust4.png)
-4. [Windows PowerShell용 Azure Active Directory 모듈](https://msdn.microsoft.com/library/azure/jj151815.aspx)이 설치된 컴퓨터에서 `$cred=Get-Credential`을(를) 실행합니다.  
+4. [Windows PowerShell용 Azure Active Directory 모듈](/previous-versions/azure/jj151815(v=azure.100))이 설치된 컴퓨터에서 `$cred=Get-Credential`을(를) 실행합니다.  
 5. 페더레이션하는 Azure AD 도메인에 대한 전역 관리자의 사용자 이름 및 암호를 입력합니다.
 6. PowerShell에서 `Connect-MsolService -Credential $cred`을 입력합니다.
 7. PowerShell에서 `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`을 입력합니다.  이 업데이트는 원본 도메인에 대한 것입니다.  따라서 위의 도메인을 사용하는 것은 `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`입니다.
 
 PowerShell을 사용하여 새 최상위 도메인을 추가하려면 다음 단계를 사용합니다.
 
-1. [Windows PowerShell용 Azure Active Directory 모듈](https://msdn.microsoft.com/library/azure/jj151815.aspx)이 설치된 컴퓨터에서 `$cred=Get-Credential`을(를) 실행합니다.  
+1. [Windows PowerShell용 Azure Active Directory 모듈](/previous-versions/azure/jj151815(v=azure.100))이 설치된 컴퓨터에서 `$cred=Get-Credential`을(를) 실행합니다.  
 2. 페더레이션하는 Azure AD 도메인에 대한 전역 관리자의 사용자 이름 및 암호를 입력합니다.
 3. PowerShell에서 `Connect-MsolService -Credential $cred`을 입력합니다.
 4. PowerShell에서 `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`을 입력합니다.
@@ -163,7 +163,7 @@ c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://sche
    ```
    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
    ```
-    다음 문자열로 바꾸세요.
+    다음과 같이 바꿉니다.
 
    ```
    c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^.*@([^.]+\.)*?(?<domain>([^.]+\.?){2})$", "http://${domain}/adfs/services/trust/"));

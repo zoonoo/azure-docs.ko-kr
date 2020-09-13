@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 074c203a0a5688855d4f7607a877b25ce6ee6ad7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "65950904"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660562"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 ID 요구 사항 확인
 하이브리드 ID 솔루션을 설계하는 첫 번째 단계는 이 솔루션을 활용하는 비즈니스 조직에 대한 요구 사항을 결정하는 것입니다.  하이브리드 ID는 지원 역할(인증을 제공하여 다른 모든 클라우드 솔루션을 지원)로 시작하고 사용자에 대한 새 워크로드의 잠금을 해제하는 새롭고 흥미로운 기능을 계속하여 제공합니다.  사용자에 대해 채택하려는 이러한 워크로드 또는 서비스는 하이브리드 ID 설계에 대한 요구 사항을 결정합니다.  이러한 서비스와 워크로드는 온-프레미스 및 클라우드에서 하이브리드 ID를 활용해야 합니다.  
@@ -72,10 +72,10 @@ ms.locfileid: "65950904"
   * 회사에는 SAML 또는 유사한 페더레이션 기능을 사용하는 온-프레미스 애플리케이션이 있습니다(기본 제공 또는 타사 제공 중 하나).
   * 스마트 카드를 통한 MFA. RSA SecurID 등.
   * 아래 질문을 해결하는 클라이언트 액세스 규칙:
-    1. 클라이언트의 IP 주소에 기반하여 Office 365에 대한 모든 외부 액세스를 차단할 수 있습니까?
-    2. Exchange ActiveSync를 제외하고 Office 365에 대한 모든 외부 액세스를 차단할 수 있습니까?
-    3. 브라우저 기반 앱(OWA, SPO)을 제외한 Office 365에 모든 외부 액세스를 차단할 수 있습니까?
-    4. 지정된 AD 그룹의 멤버에 대한 Office 365의 모든 외부 액세스를 차단할 수 있습니까?
+    1. 클라이언트의 IP 주소에 기반 하 여 Microsoft 365에 대 한 모든 외부 액세스를 차단할 수 있나요?
+    2. Exchange ActiveSync를 제외 하 고 Microsoft 365에 대 한 모든 외부 액세스를 차단할 수 있나요?
+    3. 브라우저 기반 앱 (OWA, SPO)을 제외 하 고 Microsoft 365에 대 한 모든 외부 액세스를 차단할 수 있나요?
+    4. 지정 된 AD 그룹의 구성원에 대 한 Microsoft 365에 대 한 모든 외부 액세스를 차단할 수 있습니까?
 * 보안/감사 문제
 * 페더레이션된 인증에서 기존 투자
 * 회사는 클라우드의 도메인에 어떤 이름을 사용합니까?

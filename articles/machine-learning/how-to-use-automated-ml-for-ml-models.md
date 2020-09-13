@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 09dd444d0d7409ca86955d2854aec82f07db0c4d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 429471c2a24b90f14241bf54197c4baecb27e5c0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185403"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660435"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -69,7 +69,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
     1. **다음**을 선택하여 **데이터 저장소 및 파일 선택 양식**을 엽니다. 이 양식에서 데이터 세트를 업로드할 위치 또는 작업 영역에서 자동으로 만들어지는 기본 스토리지 컨테이너를 선택하거나 실험에 사용하려는 스토리지 컨테이너를 선택합니다. 
     
-        1. 데이터가 가상 네트워크 뒤에 있는 경우 **유효성 검사 함수 건너뛰기** 를 사용 하도록 설정 하 여 작업 영역에서 데이터에 액세스할 수 있도록 해야 합니다. [네트워크 격리 및 개인 정보](how-to-enable-virtual-network.md#machine-learning-studio)에 대해 자세히 알아보세요. 
+        1. 데이터가 가상 네트워크 뒤에 있는 경우 **유효성 검사 함수 건너뛰기** 를 사용 하도록 설정 하 여 작업 영역에서 데이터에 액세스할 수 있도록 해야 합니다. 자세한 내용은 [Azure 가상 네트워크에서 Azure Machine Learning Studio 사용](how-to-enable-studio-virtual-network.md)을 참조 하세요. 
     
     1. **찾아보기** 를 선택 하 여 데이터 집합에 대 한 데이터 파일을 업로드 합니다. 
 
@@ -120,11 +120,14 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 1. **작업 유형 및 설정** 양식에서 작업 유형(분류, 회귀 또는 예측)을 선택합니다. 자세한 내용은 [지원 되는 작업 형식](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) 을 참조 하세요.
 
-    1. **분류**의 경우 텍스트 featurizations 사용 되는 심층 학습을 사용 하도록 설정할 수도 있습니다.
+    1. **분류**의 경우 심층 학습을 사용 하도록 설정할 수도 있습니다.
+    
+        심층 학습을 사용 하는 경우 유효성 검사는 _train_validation 분할_으로 제한 됩니다. [유효성 검사 옵션에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md).
+
 
     1. **예측** 을 위해 다음을 수행할 수 있습니다. 
     
-        1. 심층 학습 사용
+        1. 심층 학습을 사용 합니다.
     
         1. *시간 열*선택:이 열은 사용할 시간 데이터를 포함 합니다.
 
@@ -135,10 +138,10 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
     추가 구성|Description
     ------|------
     기본 메트릭| 모델의 점수를 매기는 데 사용되는 기본 메트릭입니다. [모델 메트릭에 대해 자세히 알아보세요](how-to-configure-auto-train.md#primary-metric).
-    최상의 모델에 대한 설명 | 권장 되는 최상의 모델의 explainability을 표시 하려면 선택 합니다.
-    차단된 알고리즘| 학습 작업에서 제외하려는 알고리즘을 선택합니다.
+    최상의 모델에 대한 설명 | 권장 되는 최상의 모델에 대 한 설명을 표시 하려면 선택 합니다. <br> 이 기능은 현재 [특정 예측 알고리즘](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model)에 사용할 수 없습니다. 
+    차단된 알고리즘| 학습 작업에서 제외하려는 알고리즘을 선택합니다. <br><br> 알고리즘을 허용 하는 것은 [SDK 실험](how-to-configure-auto-train.md#supported-models)에만 사용할 수 있습니다. <br> [각 작업 형식에 대해 지원 되는 모델](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true)을 참조 하세요.
     종료 조건| 다음 조건 중 하나가 충족되면 학습 작업이 중지됩니다. <br> *학습 작업 시간(시간)* : 학습 작업을 실행할 수 있는 기간입니다. <br> *메트릭 점수 임계값*:  모든 파이프라인에 대한 최소 메트릭 점수입니다. 이렇게 하면 도달하려는 목표 메트릭이 정의되어 있는 경우 학습 작업에 필요한 시간보다 더 많은 시간을 소비하지 않습니다.
-    유효성 검사| 학습 작업에 사용할 교차 유효성 검사 옵션 중 하나를 선택합니다. [교차 유효성 검사에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md#prerequisites).
+    유효성 검사| 학습 작업에 사용할 교차 유효성 검사 옵션 중 하나를 선택합니다. <br> [교차 유효성 검사에 대해 자세히 알아보세요](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>예측은 k 접기 교차 유효성 검사만 지원 합니다.
     동시성| *최대 동시 반복 횟수*: 학습 작업에서 테스트할 최대 파이프라인(반복) 수입니다. 작업이 지정된 반복 횟수를 초과하여 실행되지 않습니다.
 
 1. 필드 기능화 설정 보기: **추가 구성 설정** 양식에서 **자동 기능화** 를 사용 하도록 선택 하는 경우 기본 기능화 기술이 적용 됩니다. **기능화 설정 보기** 에서 이러한 기본값을 변경 하 고 적절 하 게 사용자 지정할 수 있습니다. [Featurizations를 사용자 지정](#customize-featurization)하는 방법을 알아봅니다. 
@@ -179,7 +182,7 @@ Variance| 이 열의 데이터가 평균 값에서 분산된 정도를 측정한
 
 열| 사용자 지정
 ---|---
-Included | 학습에 포함할 열을 지정 합니다.
+포함 | 학습에 포함할 열을 지정 합니다.
 기능 유형| 선택한 열에 대 한 값 유형을 변경 합니다.
 돌립니다| 데이터에서 누락 된 값을 돌립니다 값을 선택 합니다.
 
@@ -217,7 +220,7 @@ Included | 학습에 포함할 열을 지정 합니다.
         1. 창의 왼쪽 위에서 **배포** 를 선택 합니다. 
 
     + 옵션 2:이 실험에서 특정 모델 반복을 배포 합니다.
-        1. **모델** 탭에서 원하는 모델을 선택 합니다.
+        1. **모델** 탭에서 원하는 모델을 선택합니다.
         1. 창의 왼쪽 위에서 **배포** 를 선택 합니다.
 
 1. **모델 배포** 창을 채웁니다.
@@ -237,7 +240,7 @@ Included | 학습에 포함할 열을 지정 합니다.
     *고급* 메뉴에서는 [데이터 수집](how-to-enable-app-insights.md) 및 리소스 사용률 설정과 같은 기본 배포 기능을 제공합니다. 이러한 기본값을 재정의하려면 이 메뉴에서 해당 작업을 수행합니다.
 
 1. **배포**를 선택합니다. 배포가 완료되는 데 약 20분 정도 걸릴 수 있습니다.
-    배포가 시작 되 면 **모델 요약** 탭이 나타납니다. 배포 **상태** 섹션에서 배포 진행률을 확인 하세요. 
+    배포가 시작되면 **모델 요약** 탭이 나타납니다. **배포 상태** 섹션에서 배포 진행률을 확인하세요. 
 
 이제 예측을 생성하는 운영 웹 서비스가 있습니다! [Power BI의 기본 제공 Azure Machine Learning 지원](how-to-consume-web-service.md#consume-the-service-from-power-bi)에서 서비스를 쿼리하여 예측을 테스트할 수 있습니다.
 

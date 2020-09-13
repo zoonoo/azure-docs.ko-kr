@@ -55,7 +55,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 
 ## <a name="data-types"></a>데이터 형식
 
-|데이터 형식|설명|
+|데이터 형식|Description|
 |---------|-------------------------------------------|
 |INT      |부호 있는 64비트 정수.                     |
 |FLOAT    |64 비트 ("배정밀도") 부동 소수점입니다.|
@@ -77,7 +77,7 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 
 지원 되는 표준 SQL 연산자는 다음과 같습니다.
 
-|연산자|설명|
+|연산자|Description|
 |--|--|
 |[=](https://docs.microsoft.com/sql/t-sql/language-elements/equals-transact-sql)    |두 식이 같은지 비교합니다(비교 연산자).|
 |[!=](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |식이 다른 식과 같지 않은지 테스트합니다(비교 연산자).|
@@ -114,7 +114,7 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 
 쿼리 가속 SQL 언어는 다음과 같은 표준 SQL 문자열 함수를 지원 합니다.
 
-|기능|설명|
+|기능|Description|
 |--|--|
 |CHAR_LENGTH    | 문자열 식이 문자 데이터 형식이 면 문자열 식의 문자 길이를 반환 합니다. 그렇지 않으면 문자열 식의 길이 (바이트)를 반환 합니다 (비트 수를 8로 나눈 값 보다 작은 정수). 이 함수는 CHARACTER_LENGTH 함수와 동일 합니다.|
 |CHARACTER_LENGTH    |문자열 식이 문자 데이터 형식이 면 문자열 식의 문자 길이를 반환 합니다. 그렇지 않으면 문자열 식의 길이 (바이트)를 반환 합니다 (비트 수를 8로 나눈 값 보다 작은 정수). 이 함수는 CHAR_LENGTH 함수와 동일 합니다.|
@@ -122,8 +122,8 @@ CSV 형식 데이터의 경우 필드를 서 수로 참조 하 고, 앞에 밑�
 |[UPPER](https://docs.microsoft.com/sql/t-sql/functions/upper-transact-sql)    |소문자 데이터를 대문자로 변환한 문자 식을 반환합니다.|
 |[SUBSTRING](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql)    |SQL Server에서 문자, 이진, 텍스트 또는 이미지 식의 일부를 반환 합니다.|
 |[TRIM](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |문자열의 시작과 끝에서 공백 문자 char (32) 또는 기타 지정 된 문자를 제거 합니다.|
-|LEADING    |설명|
-|TRAILING    |설명|
+|LEADING    |Description|
+|TRAILING    |Description|
 
 다음은 몇 가지 예입니다.
 
@@ -233,7 +233,7 @@ TO_TIMESTAMP('2007T')
 
 SELECT 문에는 하나 이상의 프로젝션 식 또는 단일 집계 식이 포함 될 수 있습니다.  다음 집계 식이 지원 됩니다.
 
-|식|설명|
+|식|Description|
 |--|--|
 |[COUNT ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |조건자 식과 일치 하는 레코드 수를 반환 합니다.|
 |[COUNT (식)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |식이 null이 아닌 레코드 수를 반환 합니다.|
