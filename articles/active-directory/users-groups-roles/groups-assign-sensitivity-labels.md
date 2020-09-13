@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d692b81d24b6c5088ffc42644ed1dd7f45b2d2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f056b34df0a70374e8bae909f210bfabf107ed4a
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795319"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005941"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory의 Microsoft 365 그룹에 민감도 레이블 할당
 
@@ -68,7 +68,7 @@ Azure Active Directory (Azure AD)는 [Microsoft 365 준수 센터](https://sip.p
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-이것으로 끝입니다. 기능을 사용 하도록 설정 했으며 게시 된 레이블을 그룹에 적용할 수 있습니다.
+또한 민감도 레이블을 Azure AD와 동기화 해야 합니다. 자세한 지침은 [컨테이너의 민감도 레이블을 사용 하도록 설정 하 고 레이블 동기화를](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels)참조 하세요.
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Azure Portal에서 새 그룹에 레이블 할당
 
@@ -113,7 +113,8 @@ Azure Active Directory (Azure AD)는 [Microsoft 365 준수 센터](https://sip.p
 민감도 레이블 옵션은 다음 조건이 모두 충족 될 경우에만 그룹에 대해 표시 됩니다.
 
 1. 레이블은이 Azure AD 조직에 대 한 Microsoft 365 준수 센터에 게시 됩니다.
-1. 이 기능을 사용 하도록 설정 하면 PowerShell에서 EnableMIPLabels가 True로 설정 됩니다.
+1. 이 기능을 사용 하도록 설정 하면 Azure AD PowerShell 모듈에서 EnableMIPLabels가 True로 설정 됩니다.
+1. 레이블에는 보안 & 준수 PowerShell 모듈의 AzureAdLabelSync cmdlet을 사용 하 여 Azure AD와 동기화 됩니다.
 1. 그룹이 Microsoft 365 그룹입니다.
 1. 조직에 활성 Azure Active Directory Premium P1 라이선스가 있습니다.
 1. 현재 로그인 한 사용자에 게는 레이블을 할당할 수 있는 충분 한 권한이 있습니다. 사용자는 전역 관리자, 그룹 관리자 또는 그룹 소유자 여야 합니다.

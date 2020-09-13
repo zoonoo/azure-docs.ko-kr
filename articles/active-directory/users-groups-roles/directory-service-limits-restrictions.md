@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: reference
 ms.workload: identity
-ms.date: 02/21/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ee40748b8b23295ccca276012cd0a35c965da03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de0047c46864e20947e4e0dd14441f640d48e334
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728795"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005985"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Azure AD 서비스 제한 및 제한 사항
 
@@ -29,5 +29,6 @@ ms.locfileid: "84728795"
 [!INCLUDE [AAD-service-limits](../../../includes/active-directory-service-limits-include.md)]
 
 ## <a name="next-steps"></a>다음 단계
+
 * [조직으로 Azure 등록](../fundamentals/sign-up-organization.md)
 * [Azure 구독과 Azure AD의 연관 관계](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

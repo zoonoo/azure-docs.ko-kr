@@ -352,7 +352,7 @@ Worker 서비스 SDK에서 사용 하는 기본값은 `TelemetryConfiguration` A
 
 에서 일반적으로 사용 되는 설정 `ApplicationInsightsServiceOptions`
 
-|설정 | 설명 | 기본값
+|설정 | Description | 기본값
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | LiveMetrics 기능 사용/사용 안 함 | true
 |EnableAdaptiveSampling | 적응 샘플링 사용/사용 안 함 | true

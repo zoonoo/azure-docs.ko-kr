@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: d086f8f3a2f4939012691d5bd03cc92a50ac4613
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078319"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006400"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
@@ -146,7 +146,7 @@ BYOL의 비용 구조는 다음과 같습니다.
 
 ### <a name="reduced-service-fee"></a>서비스 요금 절감
 
-상업적 marketplace에 게시 하는 특정 제품의 경우 Microsoft는 [Microsoft 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)에 설명 된 대로 20%에서 10%까지 Marketplace 서비스 요금을 절감 합니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 최소 5 영업일 동안 자격을 충족 해야 합니다. 줄어든 Marketplace 서비스 요금은 Azure IP 공동 판매 incentivized SaaS, Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에 적용 됩니다.
+상업적 marketplace에 게시 하는 특정 제품의 경우 Microsoft는 [Microsoft 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)에 설명 된 대로 20%에서 10%까지 Marketplace 서비스 요금을 절감 합니다. 제품을 자격이 있는 경우 Microsoft에서 귀하의 제품을 Azure IP 공동 판매 incentivized로 지정 해야 합니다. 해당 월의 Marketplace 서비스 요금을 절감 하려면 각 월이 끝날 때까지 최소 5 영업일 동안 자격을 충족 해야 합니다. 줄어든 Marketplace 서비스 요금은 Azure IP 공동 판매 incentivized SaaS, Vm, 관리 되는 앱 및 상업적 Marketplace를 통해 제공 되는 기타 정규화 된 불가능 IaaS 제품에 적용 됩니다. Microsoft 팀 앱 하나 또는 두 개 이상의 Microsoft 365 추가 기능 (Excel, PowerPoint, Word, Outlook 및 SharePoint)과 관련 된 유료 SaaS 제품을 제공 하 고 AppSource에 게시 하 여이 할인을 받을 수도 있습니다.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>고객 송장 처리, 지불, 청구 및 수금
 
@@ -185,6 +185,7 @@ Microsoft가 에이전트로서 수금한 모든 소프트웨어 라이선스 �
 
 - 제품의 가격 책정 모델과 관계 없이 Microsoft 계정 및 금융 정보는 거래 게시 옵션에 필요합니다.
 - 필수 금융 정보에는 지급 계정 및 세금 프로필이 포함됩니다.
+- 게시자는 [지원 되는 국가 또는 지역](sell-from-countries.md)에 있어야 합니다.
 
 이러한 계정을 설정 하는 방법에 대 한 자세한 내용은 [파트너 센터에서 상용 마켓플레이스 계정 관리](partner-center-portal/manage-account.md)를 참조 하세요.
 
