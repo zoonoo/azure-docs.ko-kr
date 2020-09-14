@@ -1,18 +1,18 @@
 ---
 title: StorSimple 8000 시리즈 업데이트 5.1 릴리스 정보
 description: StorSimple 8000 시리즈 업데이트 5.1에 대 한 새로운 기능, 문제 및 해결 방법을 설명 합니다.
-author: twooley
+author: alkohli
 ms.assetid: ''
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.author: twooley
-ms.openlocfilehash: b706d702ad496d0526d02c4158123cc883505ddf
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: a6a359888e782751892f2a034a8d92a014fd3a81
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782348"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055846"
 ---
 # <a name="storsimple-8000-series-update-51-release-notes"></a>StorSimple 8000 시리즈 업데이트 5.1 릴리스 정보
 

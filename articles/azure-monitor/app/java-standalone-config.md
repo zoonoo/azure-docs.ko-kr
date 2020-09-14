@@ -4,12 +4,12 @@ description: 앱을 계측 하지 않고 모든 환경에서 실행 중인 Java 
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ca3094197deb7c74ba9b51422a78ee0f5d3687d2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 561a6405a49d8f15affbf6d8d4de1a7f4886826a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374289"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056101"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>구성 옵션-Azure Monitor Application Insights 용 Java 독립 실행형 에이전트
 
@@ -38,8 +38,8 @@ ms.locfileid: "87374289"
 
 다음 중 하나를 사용 하 여 사용자 고유의 구성 파일 경로를 지정할 수 있습니다.
 
-* `APPLICATIONINSIGHTS_CONFIGURATION_FILE`환경 변수 또는
-* `applicationinsights.configurationFile`Java 시스템 속성
+* `APPLICATIONINSIGHTS_CONFIGURATION_FILE` 환경 변수 또는
+* `applicationinsights.configurationFile` Java 시스템 속성
 
 상대 경로를 지정 하면가 있는 디렉터리를 기준으로 확인 됩니다 `applicationinsights-agent-3.0.0-PREVIEW.5.jar` .
 
@@ -113,18 +113,18 @@ Application Insights Java 3.0 미리 보기는 Log4j, Logback 및 java를 통해
 
 이러한 `threshold` 값은 파일에 지정할 수 있는 유효한 값 `ApplicationInsights.json` 이며, 여러 로깅 프레임 워크에서 로깅 수준에 해당 하는 방법입니다.
 
-| `threshold`  | Log4j  | Logback | 7월     |
-|--------------|--------|---------|---------|
-| OFF          | OFF    | OFF     | OFF     |
-| 심각한        | 심각한  | 오류   | SEVERE  |
-| 오류/심각 | 오류  | 오류   | SEVERE  |
-| 경고/경고 | 게   | 게    | 경고 |
-| 정보         | INFO   | INFO    | INFO    |
-| CONFIG       | DEBUG  | DEBUG   | CONFIG  |
-| 디버그/자세히   | DEBUG  | DEBUG   | FINE    |
-| FINER        | DEBUG  | DEBUG   | FINER   |
-| 추적/가장 | TRACE  | TRACE   | FINEST  |
-| ALL          | ALL    | ALL     | ALL     |
+| 임계값   | Log4j  | Logback | 7월     |
+|-------------------|--------|---------|---------|
+| OFF               | OFF    | OFF     | OFF     |
+| 심각한             | 심각한  | 오류   | SEVERE  |
+| 오류 (또는 심각한) | 오류  | 오류   | SEVERE  |
+| 경고 (또는 경고) | 게   | 게    | 경고 |
+| 정보              | INFO   | INFO    | INFO    |
+| CONFIG            | DEBUG  | DEBUG   | CONFIG  |
+| 디버그 (또는 자세히)   | DEBUG  | DEBUG   | FINE    |
+| FINER             | DEBUG  | DEBUG   | FINER   |
+| 추적 (또는 가장) | TRACE  | TRACE   | FINEST  |
+| ALL               | ALL    | ALL     | ALL     |
 
 ## <a name="jmx-metrics"></a>JMX 메트릭
 
@@ -134,7 +134,7 @@ JMX 메트릭이 있다면 다음과 같이 캡처할 수 있습니다.
 {
   "instrumentationSettings": {
     "preview": {
-        "jmxMetrics": [
+      "jmxMetrics": [
         {
           "objectName": "java.lang:type=ClassLoading",
           "attribute": "LoadedClassCount",
@@ -181,9 +181,9 @@ JMX 메트릭이 있다면 다음과 같이 캡처할 수 있습니다.
 {
   "instrumentationSettings": {
     "preview": {
-        "heartbeat": {
-            "intervalSeconds": 60
-        }
+      "heartbeat": {
+        "intervalSeconds": 60
+      }
     }
   }
 }
@@ -205,13 +205,13 @@ JMX 메트릭이 있다면 다음과 같이 캡처할 수 있습니다.
 {
   "instrumentationSettings": {
     "preview": {
-        "sampling": {
-            "fixedRate": {
-                "percentage": 10
-            }
-          }
+      "sampling": {
+        "fixedRate": {
+          "percentage": 10
         }
+      }
     }
+  }
 }
 ```
 
@@ -244,10 +244,10 @@ Application Insights 자체와 관련 된 문제를 발견 하 고 진단 하는
 {
   "instrumentationSettings": {
     "preview": {
-        "selfDiagnostics": {
-            "destination": "console",
-            "level": "WARN"
-        }
+      "selfDiagnostics": {
+        "destination": "console",
+        "level": "WARN"
+      }
     }
   }
 }
@@ -261,12 +261,12 @@ Application Insights 자체와 관련 된 문제를 발견 하 고 진단 하는
 {
   "instrumentationSettings": {
     "preview": {
-        "selfDiagnostics": {
-            "destination": "file",
-            "directory": "/var/log/applicationinsights",
-            "level": "WARN",
-            "maxSizeMB": 10
-        }    
+      "selfDiagnostics": {
+        "destination": "file",
+        "directory": "/var/log/applicationinsights",
+        "level": "WARN",
+        "maxSizeMB": 10
+      }
     }
   }
 }

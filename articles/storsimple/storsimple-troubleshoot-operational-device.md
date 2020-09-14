@@ -3,7 +3,7 @@ title: 배포된 StorSimple 디바이스 문제 해결 | Microsoft Docs
 description: 현재 배포되어 작동하는 StorSimple 디바이스에서 발생하는 오류를 진단하고 수정하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: ea5d89ae-e379-423f-b68b-53785941d9d0
@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
-ms.author: twooley
-ms.openlocfilehash: e2e68c7016a37824f1bf307a676c39281d4d41d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: eaf6b1825a258b11a2e345c771909822de73dfcf
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85507823"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056492"
 ---
 # <a name="troubleshoot-an-operational-storsimple-device"></a>작동 StorSimple 디바이스 문제 해결
 > [!NOTE]
@@ -45,7 +45,7 @@ ms.locfileid: "85507823"
 ## <a name="errors-that-occur-during-subsequent-runs-of-the-setup-wizard"></a>설치 마법사를 후속 실행하는 동안 발생하는 오류
 다음 표에서 운영 디바이스에서 설치 마법사를 실행할 때 발생할 수 있는 오류, 해당 오류에 대한 가능한 원인 및 해결하기 위한 권장 작업을 설명합니다. 
 
-| 아니요. | 오류 메시지 또는 조건 | 가능한 원인 | 권장 조치 |
+| 아닙니다. | 오류 메시지 또는 조건 | 가능한 원인 | 권장 조치 |
 |:--- |:--- |:--- |:--- |
 | 1 |오류 350032: 이 디바이스는 이미 비활성화되었습니다. |비활성화된 디바이스에서 설치 마법사를 실행하는 경우 이 오류가 나타납니다. |[Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. 비활성화된 디바이스를 제공할 수 없습니다. 디바이스를 다시 활성화하기 전에 공장 재설정이 필요할 수 있습니다. |
 | 2 |Invoke-HcsSetupWizard : ERROR_INVALID_FUNCTION(HRESULT: 0x80070001에서 예외 발생) |DNS 서버 업데이트에 실패했습니다. DNS 설정은 전역 설정이며 사용할 수 있는 모든 네트워크 인터페이스를 통해 적용됩니다. |인터페이스를 사용하고 DNS 설정을 다시 적용합니다. 전역 설정 때문에 사용되는 다른 인터페이스에 대한 네트워크에 방해가 될 수 있습니다. |

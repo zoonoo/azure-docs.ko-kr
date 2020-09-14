@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱 파트너 통합-Azure
 description: Windows 가상 데스크톱의 파트너에 대해 알아보고 통합 하는 방법에 대 한 설명서를 참조 하세요.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 94da428862e1af66ee58e739b3ad3b5b95be3310
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 9e5b9017854465724724638bfe5d32783a031030
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612370"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056460"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -46,7 +46,8 @@ Windows 가상 데스크톱 승인 공급자 인 VMware는 통합 및 사용 하
 
 가상 데스크톱의 씬 및 제로 클라이언트 끝점 장치 및 관리 소프트웨어에 대 한 10ZiG's 세계 시장 리더십은 고객에 게 어떻게 작동 하는지 예시 합니다. 씬 클라이언트 하드웨어는 고객이 각자의 요구에 따라 적절 한 클라이언트 장치를 받을 수 있도록 설계 된 신중의 혜택 기능 및 옵션을 제공 합니다. 10ZiG는 Windows 기반 및 Linux 기반 클라이언트를 사용 하 여 고객 환경에 맞게 장치를 사용자 지정 하 여 클라우드 내부 및 외부 모두에서 가상 데스크톱에 최대한의 성능을 제공 합니다.
 
-- [파트너 웹 사이트로 이동](https://www.10zig.com/about/microsoft-wvd)합니다.
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeR)하세요.
+- [파트너 웹 사이트로 이동](https://www.10zig.com/about/microsoft-windows-virtual-desktop)합니다.
 
 ## <a name="automai"></a>Automai
 
@@ -101,7 +102,7 @@ Windows 가상 데스크톱과 함께 사용 하는 경우 제어 기능을 통�
 
 Dell 기술 씬 클라이언트는 Microsoft Azure 및 Windows 가상 데스크톱 서비스에 액세스 하도록 최적화 되어 있습니다. Wyse 씬 클라이언트는 점점 더 많은 앱 및 콘텐츠를 최대한 활용할 수 있는 고품질 컴퓨팅 환경을 제공 하 여, 그래픽 집약적 고급 사용자까지 공동 작업 지식 근로자의 요구 사항을 충족 시킬 수 있습니다. 공간이 제한 된 환경에 이상적 이며, Wyse 씬 클라이언트는 사용자가 다양 한 양식 팩터를 사용 하는 방법 및 다양 한 탑재 옵션을 선택 하는 방식에 맞게 조정 됩니다.
 
-Wyse 씬 클라이언트는 공격에 취약 한 영역, 보안 준수 표준 지원 및 고급 multi-factor authentication 솔루션에 대 한 보안을 염두에 두어야 합니다. Dell 독점 Wyse ThinOS를 사용 하 여 매우 안전한 씬 클라이언트를 배포 하거나, Dell에서 추가 된 보안 기능을 사용 하 여 상업적으로 검증 된 디자인 및 Windows 10 IoT Enterprise를 통해 강화 된 Wyse ThinLinux에서 클라우드 응용 프로그램 및 가상 작업 영역에 안전 하 게 액세스할 수 있습니다. 보안, HTTPS 기반 통신 및 역할 기반 관리에 대 한 active directory 인증을 사용 하 여 Wyse Management Suite는 항상 최신 상태를 유지 하 고, WMS Pro 용 모바일 앱을 사용 하 여 중요 한 경고를 보고 언제 든 한 번의 탭으로 실시간 명령을 보낼 수 있습니다.
+Wyse 씬 클라이언트는 제한 된 공격 노출, 보안 규정 준수 표준에 대 한 지원 및 고급 multi-factor authentication 솔루션에 대 한 보안을 고려 하 여 설계 되었습니다. Windows 10 IoT Enterprise 및 Dell에 추가 된 보안 기능을 사용 하 여 매우 안전한 씬 클라이언트를 배포 합니다. 역할 기반 관리에 대 한 보안, HTTPS 기반 통신 및 active directory 인증을 제공 하는 경우 Wyse Management Suite는 항상 최신 상태를 유지 하 고, WMS Pro 용 모바일 앱을 사용 하면 언제 든 지 한 번의 탭으로 중요 한 경고를 보고 실시간 명령을 보낼 수 있습니다.
 
 - [파트너 웹 사이트로 이동](https://www.delltechnologies.com/en-us/wyse/index.htm#scroll=off&overlay=//www.dellemc.com/en-us/collaterals/unauth/brochures/products/thin-clients/Wyse_Windows_Embedded_Standard_thin_clients_brochure.pdf)합니다.
 
@@ -190,6 +191,15 @@ Lakeside 소프트웨어의 디지털 환경 모니터링 솔루션인 SysTrack�
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q)하세요.
 - [파트너 웹 사이트로 이동](https://www.lakesidesoftware.com/assessments/wvd)합니다.
 
+## <a name="lenovo"></a>Lenovo
+
+![Lenovo 로고](./media/partners/lenovo.png)
+
+Lenovo 씬 클라이언트는 네트워크에 서버에서 실행 되는 클라이언트 컴퓨터의 유연성을 제공 하지만 기본 PC 기능과 성능을 제공 합니다. Lenovo 씬 클라이언트는 성능 및 직관적인 관리 효율성을 매우 Windows 가상 데스크톱 배포를 제공 하 고, 회사의 네트워크를 다음 수준의 안정성으로 상승 시킬 수 있습니다. 각 씬 클라이언트는 조직에 원활 하 고 비용 효율적인 하드웨어 관리 및 배포 옵션을 제공 하는 추가 비용 없이 Lenovo Terminal Manager 라이선스를 제공 합니다. 또한 이러한 항목은 작고 다양 하므로 기존 Lenovo 배포에 쉽게 추가할 수 있습니다.
+
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FnaB)하세요.
+- [파트너 웹 사이트로 이동](https://www.lenovo.com/us/en/desktops-and-all-in-ones/thinkcentre/m-series-thin-clients/c/M-Series-Thin-Clients)합니다.
+
 ## <a name="liquidware"></a>Liquidware
 
 ![Liquidware 로고](./media/partners/liquidware.png)
@@ -220,6 +230,17 @@ Liquit 응용 프로그램 집계 및 배달 소프트웨어를 사용 하 여 �
 
 - [파트너 웹 사이트로 이동](https://www.loginvsi.com/use-cases-initiatives/windows-virtual-desktop)합니다.
 
+## <a name="nasuni"></a>Nasuni
+
+![Nasuni 로고](./media/partners/nasuni.png)
+
+Nasuni Corp. 클라우드 파일 서비스 및 상위 Azure 전역 ISV 파트너의 선두 공급자는 최신 가상 데스크톱에 대 한 최신 파일 저장소 솔루션인 Nasuni software as a service 플랫폼을 제공 합니다. Nasuni와 Azure Blob Storage 함께 사용 하는 경우는 NAS (주 파일 저장소), 파일 백업, 재해 복구 및 지역 간 파일 동기화를 하나의 통합 된 솔루션으로 통합 합니다. Nasuni를 통해 기업은 더 많은 사용 사례와 더 많은 Azure 지역에서 Windows 가상 데스크톱을 배포 하 고, 관리를 간소화 하 고, 비즈니스 연속성을 보장할 수 있습니다. 
+
+최신 클라우드 VDI 솔루션인 Windows 가상 데스크톱에는 최신 클라우드 파일 저장소가 필요 합니다. 일반적으로 VDI 파일 저장소는 온-프레미스에 있는 NAS (네트워크 연결 저장소) 및 파일 서버 하드웨어와 파일 백업, 복원 및 재해 복구를 제공 하는 데 필요한 기술을 기반으로 합니다. 이러한 기존 방법은 비용이 많이 들고, 유지 관리 및 관리가 복잡 하며, 쉽게 확장할 수 없습니다. 또한 Azure 기반 데스크톱 및 온-프레미스 기반 파일 저장소 간의 실제 거리와 느린 WAN 연결로 인해 Windows 가상 데스크톱과 같은 최신 클라우드 VDI 솔루션과 함께 사용 하는 경우 대기 시간이 발생 합니다. Azure 용으로 특별히 빌드된 파일 서비스 플랫폼인 Nasuni는 무제한 파일 저장소 용량 및 고성능 파일 액세스를 제공 합니다. Nasuni는 단일 전역 네임 스페이스에 대 한 경제적이 고 고성능 파일 액세스를 제공 하기 위해 동일한 Azure 지역에 Windows 가상 데스크톱과 함께 배치할 수 있습니다. Nasuni는 기존 NAS와 Windows 파일 서버의 비용을 줄이고 Windows 가상 데스크톱 파일 저장소를 제공 하며, 비용을 더 줄이고 IT 리소스를 확보 하기 위한 기본 제공 백업 및 재해 복구를 포함 합니다.
+
+- [파트너 웹 사이트로 이동](https://www.nasuni.com/partner/microsoft/#wvd)합니다.
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeS)하세요.
+
 ## <a name="nerdio"></a>Nerdio
 
 ![Nerdio 로고](./media/partners/nerdio.png)
@@ -230,6 +251,17 @@ Nerdio는 Azure 리소스를 쉽게 프로 비전 하 고 배포를 간소화할
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh)하세요.
 - [파트너 웹 사이트로 이동](https://getnerdio.com/windows-virtual-desktop/)합니다.
+
+## <a name="nexthink"></a>Nexthink
+
+![Nexthink 로고](./media/partners/nexthink.png)
+
+Nexthink는 조직이 직원의 디지털 환경 및 생산성을 확실 하 게 측정 하 고 관리 하 고 향상 시키는 데 도움이 되는 Windows 가상 데스크톱 값 추가 공급자입니다. 디지털 직원 환경의 펄스를 통해 지속적으로 읽을 수 있는 것은 작업의 위치에 관계 없이 사람들을 참여 하 고 능력을 즐거움 수 있는 기술을 지속적으로 향상 시킬 수 있습니다. 
+
+Nexthink는 표시 되는 작업 공간 리소스를 사용 하 여 솔루션을 제공 함으로써 사용자 기반에 대 한 컨텍스트 및 통찰력을 제공 합니다. Nexthink의 강력한 환경 관리 플랫폼을 사용 하 여 IT 팀은 Windows 가상 데스크톱에 대 한 마이그레이션이 계획 되 고 적시에 성공한 방식으로 작동 하도록 할 수 있습니다.
+
+- [파트너 웹 사이트로 이동](https://www.nexthink.com/initiative/desktop-virtualization/)합니다.
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeT)하세요.
 
 ## <a name="numecent"></a>Numecent
 
@@ -287,12 +319,16 @@ RDPSoft의 원격 데스크톱 회사 솔루션은 Windows 가상 데스크톱 �
 
 ![Rimo3 로고](./media/partners/rimo3.png)
 
-Rimo3 배포를 가속화 하 고 지속적인 변경 관리를 개선 하 여 Windows 가상 데스크톱 환경을 향상 시킵니다. Rimo3 뛰어난 IT 팀은 응용 프로그램 작업의 Azure 마이그레이션 준비를 위해 응용 프로그램 포트폴리오를 지 원하는 데 필요한 정보를 제공 합니다. 사용자는 응용 프로그램을 등록 하 고 대상 Windows 가상 데스크톱 작업 영역에서 신속 하 고 어려움 없이 테스트할 수 있습니다. 또한 사용자는 조직에서 새로운 응용 프로그램 및 업데이트를 사용할 때 변경 사항의 영향을 사전에 이해할 수 있습니다. 마지막으로 IT 관리자는 Rimo3's Intelligent 스모크 테스트 기능을 활용 하 고 사용자 세션을 중단 하지 않고 기능 테스트를 자동화할 수 있습니다.
+Rimo3는 사용 하기 쉽고 확장 가능한 클라우드 기반 응용 프로그램 현대화 플랫폼을 사용 하 여 Windows 가상 데스크톱 환경을 강화 합니다.
 
-Rimo3는 사용 하기 쉽고 확장 가능한 자동화 된 응용 프로그램 테스트 플랫폼을 제공 합니다. 이 플랫폼에는 세 가지 응용 프로그램 테스트 기본 사항 (호환성, 기능 및 성능)을 위한 기능이 포함 되어 있습니다. 이를 통해 조직, 리더 및 팀이 비즈니스 연속성을 개선 하 고, 변경 내용을 더 빠르게 도입 하 고, 사용자 환경을 최적화할 수 있습니다.
+IT 팀의 경우 Rimo3는 Windows 가상 데스크톱으로 이동에 대 한 응용 프로그램 워크 로드를 검색, 현대화 및 관리 하는 데 도움이 됩니다. 사용자는 응용 프로그램 포트폴리오를 자동으로 검사 하 여 Windows 가상 데스크톱 또는 현대화에 등록 하는 데 적합 한 후보를 검색할 수 있습니다.  
+
+사용자는 응용 프로그램을 미리 테스트 하 고, 앱을 MSIX으로 변환 하 고, 앱이 제대로 변환 되지 않는 경우 자동 재구성을 적용 하는 동안 변환 후 테스트를 자동화할 수 있습니다. 그 결과 현대화 배포 준비 된 MSIX 패키지가 생성 됩니다. 각 Windows 가상 데스크톱 기능 릴리스와 업데이트를 사용 하 여 사용자는 배포 전에 자동으로 앱을 완벽 하 게 테스트 하 고 완전 한 신뢰 및 지속적인 관리를 제공 합니다.
+
+관리 서비스 공급자의 경우 Rimo3는 관리 되는 서비스 기능을 확장 하 여 여백을 개선 하 고, 프로젝트 기반 수익을 구독 기반 되풀이 수익에 연결 하 고, 현대화 하 고 Windows 가상 데스크톱으로 이동 하 여 데스크톱 작업 영역에서 정기 업데이트를 관리 해야 하는 고객에 게 가치를 추가할 수 있도록 지원 합니다.
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B)하세요.
-- [파트너 웹 사이트로 이동](https://rimo3.com/outcomes/)합니다.
+- [파트너 웹 사이트로 이동](https://rimo3.com/windows-virtual-desktop/)합니다.
 
 ## <a name="sepago"></a>sepago
 
@@ -304,6 +340,17 @@ sepago의 혁신 및 개발 랩은 빅 데이터 및 AI 기술을 사용 하 여
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm)하세요.
 - [파트너 웹 사이트로 이동](https://www.sepago.de/en/)합니다.
+
+## <a name="ssh2"></a>SSH2
+
+![SSH2 로고](./media/partners/ssh2.png)
+
+SSH2는 IT 팀이 소프트웨어를 사용 하 여 현재 플랫폼에서 Windows 가상 데스크톱으로의 응용 프로그램 배달 속도를 높이는 Windows 가상 데스크톱 부가 가치 서비스 공급자입니다. SSH2를 통해 응용 프로그램 캡처를 가속화 하 여 마이그레이션 프로세스를 간소화할 수 있습니다. SSH2's appCURE는 끝점에서 실행 되는 응용 프로그램을 캡처하여 업데이트 및 수정 기능을 사용 하 여 최종 사용자 환경을 실행 하는 속도에서 포괄적인 단계 변경을 만들 수 있습니다. 
+
+appCURE은 최종 사용자의 응용 프로그램에 영향을 줄 수 있는 모든 요소가 인식 되도록 실행 중인 응용 프로그램에서 응용 프로그램 세부 정보를 캡처합니다. 그런 다음 appCURE를 업데이트 하 고 새 Windows 가상 데스크톱에 전달 합니다. AppCURE는 현재 환경에 있는 모든 응용 프로그램 통합 요소를 캡처하여 IT 리소스를 최적화 하 고 이전 보다 더 빠르게 마이그레이션을 계획 하는 속도를 제공 하므로 조직에서 더 빠르게 프로덕션에 사용할 수 있습니다.
+
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38)하세요.
+- [파트너 페이지로 이동](https://www.ssh2.xyz/windows-virtual-desktop/)합니다.
 
 ## <a name="thinprint"></a>ThinPrint
 
@@ -334,6 +381,7 @@ uberAgent 회사에서 제공 하는 방대한 제한은 Windows 가상 데스�
 
 uberAgent는 데이터를 수집 하지 않는 최종 사용자 컴퓨팅을 위해 설계 된 모니터링 및 분석 제품으로, 고객에 게 중요 한 정보를 제공 합니다. uberAgent에는 사용자 환경, 응용 프로그램 성능 및 끝점 보안의 주요 측면을 포함 하 여 시스템의 사용자 밀도에 영향을 주지 않고 Windows 가상 데스크톱 Vm에 대해 알고 있어야 하는 모든 것을 설명 하는 고유한 메트릭이 있습니다. uberAgent는 문제 해결을 간소화 하 고 크기 조정에 도움이 되며 정보 보안을 위해 중요 한 정보를 제공 합니다.
 
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs39)하세요.
 - [파트너 웹 사이트로 이동](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop)합니다.
 
 ## <a name="workspace-365"></a>작업 영역 365

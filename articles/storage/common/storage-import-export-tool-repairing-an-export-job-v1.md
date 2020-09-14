@@ -1,19 +1,19 @@
 ---
 title: Azure Import/Export 내보내기 작업 복구 - v1 | Microsoft Docs
 description: Azure Import/Export 서비스를 사용하여 생성 및 실행된 내보내기 작업을 복구하는 방법을 알아봅니다.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/23/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0731848e1ff187afb6e9f607516dd74b6c16de9b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 67d1979ccbfbffc17ba450600e605a96911c8331
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520484"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056342"
 ---
 # <a name="repairing-an-export-job"></a>내보내기 작업 복구
 내보내기 작업이 완료된 후에 온-프레미스에서 Microsoft Azure Import/Export 도구를 실행하여 다음을 수행할 수 있습니다.  
@@ -30,16 +30,16 @@ ms.locfileid: "88520484"
 
 **RepairExport**와 함께 다음 매개 변수를 지정할 수 있습니다.  
   
-|매개 변수|설명|  
+|매개 변수|Description|  
 |---------------|-----------------|  
-|**/r:<RepairFile\>**|필수 사항입니다. 복구의 진행 상황을 추적하고 중단된 복구를 다시 시작할 수 있도록 하는 복구 파일의 경로입니다. 각 드라이브에는 하나의 복구 파일만 있어야 합니다. 지정 된 드라이브에 대 한 복구를 시작할 때 복구 파일에 경로를 전달 합니다 .이 파일은 아직 존재 하지 않습니다. 중단된 복구를 다시 시작하려면 기존 복구 파일의 이름을 제공해야 합니다. 대상 드라이브에 해당 하는 복구 파일을 항상 지정 합니다.|  
+|**/r:<RepairFile\>**|필수 요소. 복구의 진행 상황을 추적하고 중단된 복구를 다시 시작할 수 있도록 하는 복구 파일의 경로입니다. 각 드라이브에는 하나의 복구 파일만 있어야 합니다. 지정 된 드라이브에 대 한 복구를 시작할 때 복구 파일에 경로를 전달 합니다 .이 파일은 아직 존재 하지 않습니다. 중단된 복구를 다시 시작하려면 기존 복구 파일의 이름을 제공해야 합니다. 대상 드라이브에 해당 하는 복구 파일을 항상 지정 합니다.|  
 |**/logdir:<LogDirectory\>**|선택 사항입니다. 로그 디렉터리입니다. 이 디렉터리에 자세한 로그 파일이 기록됩니다. 로그 디렉터리를 지정하지 않는 경우 현재 디렉터리가 로그 디렉터리로 사용됩니다.|  
-|**/d:<TargetDirectory\>**|필수 사항입니다. 유효성을 검사하고 복구할 디렉터리입니다. 이 디렉터리는 일반적으로 내보내기 드라이브의 루트 디렉터리 이지만 내보낸 파일의 복사본이 포함 된 네트워크 파일 공유 일 수도 있습니다.|  
+|**/d:<TargetDirectory\>**|필수 요소. 유효성을 검사하고 복구할 디렉터리입니다. 이 디렉터리는 일반적으로 내보내기 드라이브의 루트 디렉터리 이지만 내보낸 파일의 복사본이 포함 된 네트워크 파일 공유 일 수도 있습니다.|  
 |**/bk:<BitLockerKey\>**|선택 사항입니다. 내보낸 파일이 저장 되는 암호화 된의 잠금을 해제 하려는 경우 BitLocker 키를 지정 합니다.|  
-|**/wsn: <StorageAccountName\>**|필수 사항입니다. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|  
+|**/wsn: <StorageAccountName\>**|필수 요소. 내보내기 작업에 대한 스토리지 계정의 이름입니다.|  
 |**/StorageAccountKey: <\>**|컨테이너 SAS가 지정 되지 않은 경우에만 **필수** 입니다. 내보내기 작업에 대한 스토리지 계정의 계정 키입니다.|  
 |**/csas: <S a s\>**|저장소 계정 키가 지정 되지 않은 경우에만 **필요** 합니다. 내보내기 작업과 연결된 blob에 액세스하기 위한 컨테이너 SAS입니다.|  
-|**/CopyLogFile:<DriveCopyLogFile\>**|필수 사항입니다. 드라이브 복사 로그 파일의 경로입니다. 이 파일은 Microsoft Azure Import/Export 서비스에 의해 생성되고 작업과 연결된 Blob Storage에서 다운로드할 수 있습니다. 복사 로그 파일에는 복구 해야 하는 실패 한 blob 또는 파일에 대 한 정보가 포함 되어 있습니다.|  
+|**/CopyLogFile:<DriveCopyLogFile\>**|필수 요소. 드라이브 복사 로그 파일의 경로입니다. 이 파일은 Microsoft Azure Import/Export 서비스에 의해 생성되고 작업과 연결된 Blob Storage에서 다운로드할 수 있습니다. 복사 로그 파일에는 복구 해야 하는 실패 한 blob 또는 파일에 대 한 정보가 포함 되어 있습니다.|  
 |**/ManifestFile:<DriveManifestFile\>**|선택 사항입니다. 내보내기 드라이브의 매니페스트 파일 경로입니다. 이 파일은 Microsoft Azure Import/Export 서비스에 의해 생성 되 고 내보내기 드라이브에 저장 됩니다. 필요에 따라 작업과 연결 된 저장소 계정의 blob에서<br /><br /> 내보내기 드라이브에 있는 파일의 내용은 이 파일에 포함된 MD5 해시를 사용해서 확인됩니다. 손상 된 파일이 다운로드 되 고 대상 디렉터리에 다시 작성 됩니다.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>RepairExport 모드를 사용하여 실패한 내보내기 수정  

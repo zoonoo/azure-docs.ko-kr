@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: a9f2568bc35552e299e7bc33137666c1a23891a5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: dd01b8e85be52de898e6b22fb4da810e9184482d
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999447"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055829"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>MySQL용 Azure Database에 안전하게 연결하기 위한 사용자 애플리케이션의 SSL 연결 구성
 
@@ -22,6 +22,9 @@ MySQL용 Azure Database는 SSL(Secure Sockets Layer)을 사용한 MySQL용 Azure
 
 에서 Azure Database for MySQL 서버와 SSL을 통해 통신 하는 데 필요한 인증서를 다운로드 하 [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) 고 인증서 파일을 로컬 드라이브에 저장 합니다 (이 자습서에서는 c:\ssal을 사용 하는 경우).
 **Microsoft Internet Explorer 및 Microsoft Edge:** 다운로드가 완료된 후 인증서 이름을 BaltimoreCyberTrustRoot.crt.pem으로 변경합니다.
+
+> [!IMPORTANT] 
+> SSL 루트 인증서가 10 월 26 일 2020 (10/26/2020)부터 만료 되도록 설정 되어 있습니다. [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 사용 하도록 응용 프로그램을 업데이트 하십시오. 자세히 알아보려면 [계획 된 인증서 업데이트](concepts-certificate-rotation.md) 를 참조 하세요.
 
 소 버린 클라우드의 서버 인증서에 대 한 다음 링크 ( [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure 중국](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)및 [azure 독일](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt))를 참조 하세요.
 

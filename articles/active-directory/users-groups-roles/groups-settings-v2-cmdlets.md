@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2da67b9996156f136aa2eddb8aa3d2b1777a554
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c00c89e5f81bcb142c50e5f3438c1af2d72a9de5
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794556"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056220"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>그룹 관리를 위한 Azure Active Directory 버전 2 cmdlet
 
@@ -53,7 +53,7 @@ Azure AD PowerShell 모듈을 설치하려면 다음 명령을 사용합니다.
 이제 모듈에서 cmdlet 사용을 시작할 수 있습니다. Azure AD 모듈의 cmdlet에 대한 자세한 내용은 [Azure Active Directory PowerShell 버전 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)에 대한 온라인 참조 문서를 참조하세요.
 
 > [!NOTE]
-> Azure AD PowerShell cmdlet은 .net Core를 기반으로 하기 때문에 새로운 Powershell 7에서 작동 하지 않습니다. Microsoft는이 사실을 알고 있으며 업데이트 하는 중입니다. 이제 Azure AD powershell 작업에 사용할 Windows Powershell 5.x 모듈을 사용 하는 것이 좋습니다. 
+> Azure AD PowerShell cmdlet은 .net Core를 기반으로 하기 때문에 새로운 Powershell 7에서 작동 하지 않습니다. Microsoft는이 사실을 알고 있으며 업데이트 하는 중입니다. 이제 Azure AD powershell 작업에 사용할 Windows PowerShell 5.x 모듈을 사용 하는 것이 좋습니다. 
 
 
 ## <a name="connect-to-the-directory"></a>디렉터리에 연결
@@ -320,21 +320,21 @@ Cmdlet은 지정 된 그룹에 대 한 소유자 (사용자 및 서비스 사용
 * hostmaster
 * majordomo
 * postmaster
-* root
+* 루트
 * secure
-* security
+* 보안
 * ssl-admin
 * webmaster
 
 ## <a name="group-writeback-to-on-premises-preview"></a>쓰기 저장을 온-프레미스로 그룹화 (미리 보기)
 
-오늘날 대부분의 그룹은 온-프레미스 Active Directory에서 계속 관리 됩니다. 클라우드 그룹을 온-프레미스로 다시 동기화 하도록 요청에 응답 하기 위해 Azure AD에 대 한 Office 365 그룹 쓰기 저장 기능을 이제 미리 볼 수 있습니다.
+오늘날 대부분의 그룹은 온-프레미스 Active Directory에서 계속 관리 됩니다. 클라우드 그룹을 온-프레미스로 다시 동기화 하도록 요청에 응답 하기 위해 Azure AD에 대 한 쓰기 저장 Microsoft 365 (writeback) 기능을 미리 볼 수 있습니다.
 
-Office 365 그룹은 클라우드에서 만들어지고 관리 됩니다. 쓰기 저장 기능을 사용 하면 Exchange가 설치 된 Active Directory 포리스트에 Office 365 그룹을 메일 그룹으로 다시 작성할 수 있습니다. 그러면 온-프레미스 Exchange 사서함이 있는 사용자가 이러한 그룹에서 전자 메일을 보내고 받을 수 있습니다. 그룹 쓰기 저장 기능은 Azure AD 보안 그룹 또는 배포 그룹을 지원 하지 않습니다.
+Microsoft 365 그룹은 클라우드에서 만들어지고 관리 됩니다. 쓰기 저장 기능을 사용 하면 Exchange가 설치 된 Active Directory 포리스트에 Microsoft 365 그룹을 메일 그룹으로 다시 쓸 수 있습니다. 그러면 온-프레미스 Exchange 사서함이 있는 사용자가 이러한 그룹에서 전자 메일을 보내고 받을 수 있습니다. 그룹 쓰기 저장 기능은 Azure AD 보안 그룹 또는 배포 그룹을 지원 하지 않습니다.
 
 자세한 내용은 [Azure AD Connect sync 서비스](../hybrid/how-to-connect-syncservice-features.md)에 대 한 설명서를 참조 하세요.
 
-Office 365 그룹 쓰기 저장은 Azure Active Directory (Azure AD)의 공개 미리 보기 기능으로, 유료 Azure AD 라이선스 계획과 함께 사용할 수 있습니다. 미리 보기에 대 한 몇 가지 법적 정보는 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
+Microsoft 365 그룹 쓰기 저장은 Azure Active Directory (Azure AD)의 공개 미리 보기 기능으로, 유료 Azure AD 라이선스 계획과 함께 사용할 수 있습니다. 미리 보기에 대 한 몇 가지 법적 정보는 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

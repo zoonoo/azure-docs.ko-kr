@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 57a981f4967bc58ca39067f94abdcf64d764ab87
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 9d037fa0faa1419e4cd1b600eea1b3b3eb0a29c0
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536194"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058770"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](./itsmc-overview.md)를 참조하세요.
@@ -25,7 +25,8 @@ ms.locfileid: "89536194"
 
 > [!NOTE]
 > 
-> ITSM 커넥터는 클라우드 기반 ServiceNow 인스턴스에만 연결할 수 있습니다. 온-프레미스 ServiceNow 인스턴스는 현재 지원되지 않습니다.
+> 1-10 월-2020 Cherwell 및 Azure 경고와 Provance ITSM 통합은 더 이상 새 고객에 대해 사용 하도록 설정 되지 않습니다. 새 ITSM 연결은 지원 되지 않습니다. 
+> 기존 ITSM 연결이 지원 됩니다.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>System Center Service Manager를 Azure의 IT 서비스 관리 커넥터에 연결
 
@@ -40,6 +41,10 @@ ms.locfileid: "89536194"
 - 하이브리드 연결이 생성 및 구성되어 있습니다. 추가 정보: [하이브리드 연결 구성](#configure-the-hybrid-connection).
 - 지원되는 Service Manager 버전:  2012 R2 또는 2016.
 - 사용자 역할:  [고급 운영자](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+
+> [!NOTE]
+> 
+> ITSM 커넥터는 클라우드 기반 ServiceNow 인스턴스에만 연결할 수 있습니다. 온-프레미스 ServiceNow 인스턴스는 현재 지원되지 않습니다.
 
 ### <a name="connection-procedure"></a>연결 절차
 

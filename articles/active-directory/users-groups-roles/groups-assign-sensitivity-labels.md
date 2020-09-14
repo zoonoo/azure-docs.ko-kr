@@ -1,6 +1,6 @@
 ---
 title: 그룹에 민감도 레이블 할당-Azure AD | Microsoft Docs
-description: 그룹을 자동으로 채우는 멤버 자격 규칙과 규칙 참조를 만드는 방법입니다.
+description: 그룹에 민감도 레이블을 할당 하는 방법을 알아봅니다. 문제 해결 정보를 참조 하 고 사용 가능한 추가 리소스를 확인 하세요.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f056b34df0a70374e8bae909f210bfabf107ed4a
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 3179bb294678ee030218e67dafa1c69dcf5d77a0
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005941"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056271"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory의 Microsoft 365 그룹에 민감도 레이블 할당
 
-Azure Active Directory (Azure AD)는 [Microsoft 365 준수 센터](https://sip.protection.office.com/homepage) 에서 게시 한 민감도 레이블을 Microsoft 365 그룹에 적용 하도록 지원 합니다. 민감도 레이블은 Outlook, Microsoft 팀, SharePoint 등의 서비스에서 그룹에 적용 됩니다. 이 기능은 현재 공개 GA에 있습니다. Office 365 앱 지원에 대 한 자세한 내용은 [민감도 레이블에 대 한 office 365 지원](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels)을 참조 하세요.
+Azure Active Directory (Azure AD)는 [Microsoft 365 준수 센터](https://sip.protection.office.com/homepage) 에서 게시 한 민감도 레이블을 Microsoft 365 그룹에 적용 하도록 지원 합니다. 민감도 레이블은 Outlook, Microsoft 팀, SharePoint 등의 서비스에서 그룹에 적용 됩니다. 이 기능은 현재 공개 GA에 있습니다. Microsoft 365 apps 지원에 대 한 자세한 내용은 [민감도 레이블 지원 Microsoft 365](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels)을 참조 하세요.
 
 > [!IMPORTANT]
 > 이 기능을 구성 하려면 Azure AD 조직에 활성 Azure Active Directory Premium P1 라이선스가 하나 이상 있어야 합니다.

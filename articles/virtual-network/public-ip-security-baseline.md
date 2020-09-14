@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dd02f2dbb7666ba9f2134ffba4cf683e1e9ac67b
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: d90384644c58938bfc8a37ec1231b0d12fd60057
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90039062"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058703"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Azure 공용 IP에 대 한 azure 보안 기준
 
-이 보안 기준은 [Azure Security 벤치 마크 버전 1.0](../security/benchmarks/overview.md) 의 지침을 AZURE 공용 IP에 적용 합니다. Azure Security Benchmark는 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 권장 사항을 제공합니다. 콘텐츠는 azure 보안 벤치 마크에 정의 된 **보안 컨트롤** 및 AZURE 공용 IP에 적용 되는 관련 지침에 따라 그룹화 됩니다. Azure 공용 IP에 적용 되지 않는 **컨트롤** 은 제외 되었습니다.
+이 보안 기준은 [Azure Security 벤치 마크 버전 1.0](../security/benchmarks/overview.md) 의 지침을 AZURE 공용 IP에 적용 합니다. Azure Security Benchmark는 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 권장 사항을 제공합니다. 콘텐츠는 azure 보안 벤치 마크에 정의 된 **보안 컨트롤** 및 AZURE 공용 IP에 적용 되는 관련 지침에 따라 그룹화 됩니다. Azure 공용 IP에 적용 되지 않는 **컨트롤** 은 제외 되었습니다.  참고 Azure 공용 Ip는 고객 데이터를 저장 하지 않습니다.
 
 Azure 공용 IP가 Azure 보안 벤치 마크에 완전히 매핑되는 방식을 보려면 [전체 Azure 공용 ip 보안 기준 매핑 파일](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)을 참조 하세요.
 
@@ -46,7 +46,7 @@ Azure PowerShell 또는 Azure CLI를 사용 하 여 태그를 기준으로 리�
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: 중앙 보안 로그 관리 구성
 
-**지침**: Azure 활동 로그를 사용 하 여 구성을 모니터링 하 고 공용 IP 인스턴스의 변경 내용을 검색 합니다. 제어 평면 (예: Azure Portal) 외에도 공용 IP 자체는 네트워크 트래픽과 관련 된 로그를 생성 하지 않습니다. 
+**지침**: Azure 활동 로그를 사용 하 여 구성을 모니터링 하 고 공용 IP 인스턴스의 변경 내용을 검색 합니다. 제어 평면 (예: Azure Portal) 외에도 공용 IP 자체는 네트워크 트래픽과 관련 된 로그를 생성 하지 않습니다.
 
 공용 IP는 Azure 가상 네트워크에서 리소스에 대 한 로그를 모니터링 하 고, 진단 하 고, 보고, 사용 하거나 사용 하지 않도록 설정 하는 도구를 제공 합니다.
 

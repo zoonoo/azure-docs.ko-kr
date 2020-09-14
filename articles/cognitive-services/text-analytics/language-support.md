@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/12/2020
 ms.author: aahi
-ms.openlocfilehash: e2c6fc739fa81e6eb7c98073e3575e4143d317b2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 185a6a26350f7803d109e26d8985510380b8cc16
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932970"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056594"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>텍스트 분석 API v3 언어 지원 
 
@@ -88,6 +88,9 @@ ms.locfileid: "88932970"
 
 #### <a name="key-phrase-extraction"></a>[핵심 구 추출](#tab/key-phrase-extraction)
 
+> [!NOTE]
+> 2020-07-01 이전의 핵심 구 추출 모델 버전에는 64 문자 제한이 있습니다. 이 제한은 이후 모델 버전에서 제공 되지 않습니다.
+
 | 언어              | 언어 코드 | v2 지원 | v3 지원 | V3 모델 버전부터 사용 가능: |       참고        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | 네덜란드어                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -123,6 +126,6 @@ ms.locfileid: "88932970"
 
 ---
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [텍스트 분석 API 이란?](overview.md)   

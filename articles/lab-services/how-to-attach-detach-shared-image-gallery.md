@@ -2,13 +2,13 @@
 title: Azure Lab Services에서 공유 이미지 갤러리 연결 또는 분리 | Microsoft Docs
 description: 이 문서에서는 Azure Lab Services의 클래스룸 랩에 공유 이미지 갤러리를 연결하는 방법을 설명합니다.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: e0b29bcabe1cfb234b422982c0f8faab49c30796
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/11/2020
+ms.openlocfilehash: 08d2a97138633a43e9acd69575c4b44e245d4faa
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445358"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056475"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Azure Lab Services에서 공유 이미지 갤러리 연결 또는 분리
 이 문서에서는 공유 이미지 갤러리를 랩 계정에 연결하거나 분리하는 방법을 보여줍니다. 
@@ -25,6 +25,9 @@ ms.locfileid: "85445358"
 - 랩 계정 관리자는 공유 이미지 갤러리를 랩 계정에 연결합니다. 랩 작성자(교육자)는 자체 랩의 사용자 지정된 이미지를 공유 이미지 갤러리에 저장합니다. 그런 다음, 다른 랩 작성자가 공유 이미지 갤러리에서 이 이미지를 선택하여 자신의 랩에 대한 템플릿을 만들 수 있습니다. 
 
     이미지가 공유 이미지 갤러리에 저장되는 경우 Azure Lab Services는 저장된 이미지를 동일한 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)에서 사용할 수 있는 다른 지역에 복제합니다. 그러면 해당 이미지를 동일한 지리의 다른 지역에서 만든 랩에서 사용할 수 있습니다. 공유 이미지 갤러리에 이미지를 저장하면 복제된 모든 이미지에 대한 비용을 포함하는 추가 비용이 발생합니다. 이 비용은 Azure Lab Services 사용 비용과는 별개입니다. Shared Image Gallery 가격 책정에 대한 자세한 내용은 [Shared Image Gallery – 청구](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing)를 참조하세요.
+
+> [!IMPORTANT]
+> 공유 이미지 갤러리를 사용 하는 동안 Azure Lab Services는 128 GB 미만의 OS 디스크 공간이 있는 이미지만 지원 합니다. 128 GB 이상의 디스크 공간이 있는 이미지 또는 여러 디스크는 랩 생성 중 가상 머신 이미지 목록에 표시 되지 않습니다.
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>랩 계정 생성 시 구성
 랩 계정을 만들 때 공유 이미지 갤러리를 랩 계정에 연결할 수 있습니다. 기존 공유 이미지 갤러리를 드롭다운 목록에서 선택하거나 공유 이미지 갤러리를 새로 만들 수 있습니다. 공유 이미지 갤러리를 만들어서 랩 계정에 연결하려면 **새로 만들기**를 선택하고 갤러리 이름을 입력한 다음, **확인**을 입력합니다. 

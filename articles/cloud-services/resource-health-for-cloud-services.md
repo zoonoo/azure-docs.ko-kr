@@ -3,17 +3,16 @@ title: Cloud Services에 대 한 Resource Health (클래식)
 description: 이 문서에서는 Microsoft Azure Cloud Services (클래식)에 대 한 RHC (Resource Health Check) 지원에 대해 설명 합니다.
 services: cloud-services
 author: tanmaygore
-manager: vashan
 ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: 969390b0988c59940cb210c14821cbee42edfa7a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664544"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056060"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Azure Cloud Services (클래식)에 대 한 Resource Health Check (RHC) 지원
 이 문서에서는 [Microsoft Azure Cloud Services (클래식)](https://azure.microsoft.com/services/cloud-services) 에 대 한 RHC (Resource Health Check) 지원에 대해 설명 합니다.
@@ -22,6 +21,7 @@ ms.locfileid: "89664544"
 
 Azure 상태는 광범위 한 Azure 고객 집합에 영향을 주는 문제에 대해 보고 합니다. Resource Health는 리소스의 상태에 대 한 개인 설정 된 대시보드를 제공 합니다. Resource Health는 Azure 서비스 문제로 인해 리소스를 사용할 수 없었던 모든 시간을 보여 줍니다. 이 데이터를 사용 하면 SLA를 위반 했는지 쉽게 확인할 수 있습니다.
 
+:::image type="content" source="media/cloud-services-allocation-failure/rhc-blade-cloud-services.png" alt-text="이미지 Azure Portal의 리소스 상태 검사 블레이드를 표시 합니다.":::
 
 ## <a name="how-health-is-checked-and-reported"></a>상태를 확인 하 고 보고 하는 방법
 리소스 상태는 배포 또는 역할 수준에서 보고 됩니다. 상태 검사는 역할 인스턴스 수준에서 발생 하며, 상태를 집계 하 고 역할 수준에 보고 합니다. 예를 들어 모든 역할 인스턴스를 사용할 수 있는 경우 역할 상태를 사용할 수 있습니다. 마찬가지로 모든 역할의 상태를 집계 하 여 배포 수준에 보고 합니다. 예를 들어 모든 역할을 사용할 수 있는 경우 배포 상태를 사용할 수 있게 됩니다. 

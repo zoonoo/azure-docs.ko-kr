@@ -3,7 +3,7 @@ title: StorSimple 8000 시리즈 업데이트 2 릴리스 정보 | Microsoft Doc
 description: StorSimple 8000 시리즈 업데이트 2의 새로운 기능, 문제 및 해결 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: e2c8bffd-7fc5-4b77-b632-a4f59edacc3a
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
-ms.author: twooley
-ms.openlocfilehash: 4e57fffd2f74ae1b14f51537c92299607f193ad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 53be638c46685dd46a5afb5ed56f9a76ed7b5fd6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75934052"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055863"
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>StorSimple 8000 시리즈 업데이트 2 릴리스 정보
 
@@ -64,7 +64,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 ## <a name="issues-fixed-in-update-2"></a>업데이트 2에서 해결된 문제
 다음 표에서는 업데이트 2에서 해결된 문제를 간략하게 설명합니다.    
 
-| 아니요. | 기능 | 문제점 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
+| 아닙니다. | 기능 | 문제 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
 | --- | --- | --- | --- | --- |
 | 1 |네트워크 인터페이스 |업데이트 1로 업그레이드 후에, StorSimple 관리자 서비스는 Data2 및 Data3 포트가 하나의 컨트롤러에서 실패한다고 보고하였습니다. 이 문제가 해결되었습니다. |예 |아니요 |
 | 2 |업데이트 |업데이트 1로 업그레이드 후에, 다수의 디바이스에서 Azure 클래식 포털의 가청 알람 경고가 발생했습니다. 이 문제가 해결되었습니다. |예 |아니요 |
@@ -73,7 +73,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 ## <a name="known-issues-in-update-2"></a>업데이트 2의 알려진 문제
 다음 표에서 이 릴리스의 알려진 문제를 간략하게 설명합니다.
 
-| 아니요. | 기능 | 문제점 | 주석/해결 방법 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
+| 아닙니다. | 기능 | 문제 | 주석/해결 방법 | 실제 디바이스에 적용 | 가상 디바이스에 적용 |
 | --- | --- | --- | --- | --- | --- |
 | 1 |디스크 쿼럼 |드문 경우에 8600 디바이스의 EBOD 인클로저에 있는 대부분의 디스크의 연결이 끊겨 디스크 쿼럼이 없는 경우, 스토리지 풀이 오프라인 상태가 됩니다. 디스크가 다시 연결되더라도 오프라인 상태로 유지됩니다. |디바이스를 다시 부팅해야 합니다. 문제가 지속되면 다음 단계에 대해 Microsoft 지원에 문의하세요. |예 |아니요 |
 | 2 |잘못된 컨트롤러 ID |컨트롤러가 교체되면 컨트롤러 0이 컨트롤러 1로 표시될 수 있습니다. 컨트롤러 교체 중, 이미지가 피어 노드에서 로드되면 컨트롤러 ID는 처음에 피어 컨트롤러의 ID로 표시될 수 있습니다. 드문 경우에 시스템을 다시 부팅한 후 이 동작이 나타날 수도 있습니다. |추가적인 조치가 필요하지 않습니다. 컨트롤러 교체를 완료 한 후 이 상황이 저절로 해결됩니다. |예 |아니요 |

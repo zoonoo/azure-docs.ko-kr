@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12193b469b6e1f014e6c948da7b2adb370e78d4b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 48f924cef12db974faae8fb8ed73f01ff8c9a3f8
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795337"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056254"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 도메인 이름 관리
 
@@ -55,7 +55,7 @@ Azure AD 테넌트에 contoso.com 도메인을 이미 추가한 경우 하위 �
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>사용자 지정 도메인 이름의 DNS 등록 기관을 변경하는 경우 수행할 작업
 
-DNS 등록 기관을 변경하는 경우 Azure AD에서 추가로 수행해야 하는 구성 작업은 없습니다. Azure AD에서 해당 도메인 이름을 중단 없이 계속 사용할 수 있습니다. Office 365, Intune 또는 Azure AD의 사용자 지정 도메인 이름을 사용하는 다른 서비스에서 사용자 지정 도메인 이름을 사용하는 경우 해당 서비스에 대한 설명서를 참조하세요.
+DNS 등록 기관을 변경하는 경우 Azure AD에서 추가로 수행해야 하는 구성 작업은 없습니다. Azure AD에서 해당 도메인 이름을 중단 없이 계속 사용할 수 있습니다. Azure AD에서 사용자 지정 도메인 이름을 사용 하는 Microsoft 365, Intune 또는 기타 서비스에서 사용자 지정 도메인 이름을 사용 하는 경우 해당 서비스에 대 한 설명서를 참조 하세요.
 
 ## <a name="delete-a-custom-domain-name"></a>사용자 지정 도메인 이름 삭제
 
@@ -75,7 +75,7 @@ DNS 등록 기관을 변경하는 경우 Azure AD에서 추가로 수행해야 �
 
 Azure Portal에서 **ForceDelete**를 호출하려면 도메인 이름에 대한 참조가 1,000개 미만인지 확인해야 합니다. 또한 프로비저닝 서비스가 Exchange인 모든 참조는 [ Exchange 관리 센터](https://outlook.office365.com/ecp/)에서 업데이트하거나 제거해야 합니다. 여기에는 Exchange 메일 사용이 가능한 보안 그룹 및 배포 목록이 포함됩니다. 자세한 내용은 [메일 사용이 가능한 보안 그룹 제거](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups)를 참조하세요. 또한 다음 중 하나에 해당하는 경우에는 **ForceDelete** 작업이 정상적으로 실행되지 않습니다.
 
-* Office 365 도메인 구독 서비스를 통해 도메인을 구매한 경우
+* Microsoft 365 도메인 구독 서비스를 통해 도메인을 구입 했습니다.
 * 다른 고객 조직을 대신하여 관리하는 파트너
 
 **ForceDelete** 작업의 일부분으로 수행되는 작업은 다음과 같습니다.

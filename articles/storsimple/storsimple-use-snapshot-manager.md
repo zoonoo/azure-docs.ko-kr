@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager 사용자 인터페이스 | Microsoft Docs
 description: StorSimple 스냅샷 관리자 사용자 인터페이스와, 해당 인터페이스를 백업 작업 및 백업 카탈로그 관리에 사용하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
+ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 1706ae4005c337fdffb45683133e5682a56a0de5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ead24b89dba889a4bb8f11d57eb687e7790aebfb
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513742"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055914"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>StorSimple Snapshot Manager 사용자 인터페이스를 사용하여 백업 작업 및 백업 카탈로그 관리
 
@@ -107,7 +107,7 @@ StorSimple 스냅샷 관리자 사용자 인터페이스는 Windows 운영 체�
 > 
 > 
 
-| 작업 | 탐색 | 설명 |
+| 작업 | 탐색 | Description |
 |:--- |:--- |:--- |
 | Authenticate |**디바이스** 노드를 클릭하고 **결과** 창에서 디바이스를 마우스 오른쪽 단추로 클릭합니다. |**인증** 을 클릭하여 해당 디바이스에 대해 구성한 암호를 입력합니다. |
 | 복제 |**백업 카탈로그**와 **클라우드 스냅숏**을 차례로 확장하고 날짜가 지정된 백업을 클릭한 후 **결과** 창에서 볼륨을 선택합니다. |**복제**를 클릭하면 클라우드 스냅숏의 복사본을 만들어 지정한 위치에 저장할 수 있습니다. |
@@ -115,7 +115,7 @@ StorSimple 스냅샷 관리자 사용자 인터페이스는 Windows 운영 체�
 | Backup 정책 만들기 |다음 중 하나를 수행합니다.<ul><li>**백업 정책**을 마우스 오른쪽 단추로 클릭합니다.</li><li>**볼륨 그룹**을 클릭하거나 확장한 후 볼륨 그룹을 마우스 오른쪽 단추로 클릭합니다.</li><li>**백업 카탈로그**를 클릭하거나 확장한 후 볼륨 그룹을 마우스 오른쪽 단추로 클릭합니다.</li></ul> |**백업 정책 만들기**를 클릭하면 볼륨 그룹에 대해 예약된 백업을 구성할 수 있습니다. |
 | 볼륨 그룹 만들기 |다음 중 하나를 수행합니다.<ul><li>**볼륨** 노드를 클릭한 후 **결과** 창에서 볼륨을 마우스 오른쪽 단추로 클릭합니다.</li><li>**볼륨 그룹** 노드를 마우스 오른쪽 단추로 클릭합니다.</li></ul> |**볼륨 그룹 만들기**를 클릭하면 볼륨 그룹에 볼륨을 할당할 수 있습니다. |
 | 삭제 |노드 또는 결과(여러 **작업** 메뉴 및 **작업** 창에 표시되는 항목)를 클릭합니다. |**삭제**를 클릭하면 선택한 노드 또는 결과를 삭제할 수 있습니다. 확인 대화 상자가 나타나면 삭제를 확인하거나 취소합니다. |
-| 설명 |**디바이스** 노드를 클릭한 다음 **결과** 창의 디바이스를 마우스 오른쪽 단추로 클릭합니다. |**세부 정보** 를 클릭하여 디바이스의 구성 세부 정보를 확인합니다. |
+| 세부 정보 |**디바이스** 노드를 클릭한 다음 **결과** 창의 디바이스를 마우스 오른쪽 단추로 클릭합니다. |**세부 정보** 를 클릭하여 디바이스의 구성 세부 정보를 확인합니다. |
 | 편집 |**백업 정책**을 클릭한 후 **결과** 창에서 정책을 마우스 오른쪽 단추로 클릭합니다. |**편집**을 클릭하면 볼륨 그룹에 대한 백업 일정을 변경할 수 있습니다. |
 | 목록 내보내기 |아무 노드 또는 결과를 클릭합니다(이 항목은 모든 **작업** 메뉴 및 **작업** 창에 표시됨). |**목록 내보내기**를 클릭하면 쉼표로 구분된 값(CSV) 파일에 목록을 저장할 수 있습니다. 그런 다음 분석을 위해 이 파일을 스프레드시트 애플리케이션으로 내보낼 수 있습니다. |
 | 도움말 |노드 또는 결과를 클릭합니다. 항목은 모든 **작업** 메뉴 및 **작업** 창에 표시됨). |**도움말**을 클릭하면 별도의 브라우저 창에서 온라인 도움말을 열 수 있습니다. |
@@ -204,7 +204,7 @@ StorSimple 스냅샷 관리자 사용자 인터페이스는 Windows 운영 체�
 ### <a name="icon-descriptions"></a>아이콘 설명
 다음 표에서는 도구 모음에 표시되는 아이콘을 설명합니다. 
 
-| 아이콘 | 설명 |
+| 아이콘 | Description |
 |:--- |:--- |
 | ![왼쪽 화살표](./media/storsimple-use-snapshot-manager/HCS_SSM_LeftArrow.png) |왼쪽 화살표 아이콘을 클릭하면 이전 페이지로 돌아갑니다. |
 | ![오른쪽 화살표](./media/storsimple-use-snapshot-manager/HCS_SSM_RightArrow.png) |오른쪽 화살표를 클릭하면 다음 페이지로 이동합니다(화살표가 회색으로 표시된 경우 이 작업을 사용할 수 없음). |
@@ -318,7 +318,7 @@ StorSimple 스냅샷 관리자 사용자 인터페이스는 Windows 운영 체�
 ## <a name="actions-pane"></a>작업 창
 **작업** 창은 StorSimple 스냅샷 관리자 UI의 오른쪽 창입니다. 이 창에는 **범위** 창이나 **결과** 창에서 선택한 노드, 뷰 또는 데이터에 대해 수행할 수 있는 작업의 메뉴가 포함되어 있습니다. **작업** 창에는 **범위** 창과 **결과** 창의 항목에 대해 사용 가능한 **작업** 메뉴의 명령과 같은 명령이 들어 있습니다. 각 동작에 대한 설명은 **동작** 메뉴의 섹션을 참조하세요.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 다음 예제를 확인하려면 **범위** 창에서 **작업** 노드를 확장하고 **예약됨**을 클릭합니다. 그러면 **작업** 창에 **예약됨** 노드에 대해 사용 가능한 작업이 표시됩니다.
 
 ![작업 창 예약 작업 예제](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png) 

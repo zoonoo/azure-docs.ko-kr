@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443e8c09ea46c0c20b557d77d6ed7bd63db00085
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80981854"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058753"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer의 IPv6에 대한 개요
 
@@ -58,7 +58,7 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 
 ## <a name="details-and-limitations"></a>세부 사항 및 제한 사항
 
-설명
+세부 정보
 
 * Azure DNS 서비스는 IPv4 및 IPv6 AAAA 이름 레코드를 모두 포함하며 부하 분산 장치에 대해 두 레코드와 반응합니다. 클라이언트는 어떤 주소(IPv4 또는 IPv6)와 통신할지 선택합니다.
 * VM이 공용 인터넷 IPv6 연결 디바이스에 연결을 시작할 경우 VM의 원본 IPv6 주소는 부하 분산 디바이스의 공용 IPv6 주소에 대한 NAT(네트워크 주소 변환)입니다.
@@ -79,7 +79,7 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 * VM의 IPv6 엔드포인트는 인터넷에 직접 노출되지 않습니다. 부하 분산 장치 뒤에.있습니다. 부하 분산 장치 규칙에 지정된 포트만 IPv6를 통해 액세스할 수 있습니다.
 * IPv6에 대한 IdleTimeout 매개 변수 변경은 **현재 지원되지 않습니다**. 기본 값은 4분입니다.
 * IPv6에 대한 loadDistributionMethod 매개 변수 변경은 **현재 지원되지 않습니다**.
-* 예약된 IPv6 IP(여기서 IPAllocationMethod = static)는 **현재 지원되지 않습니다**.
+* 기본 Load Balancer에 대 한 i p v 6은 **동적** SKU로 잠깁니다.  표준 Load Balancer에 대 한 i p v 6은 **정적** SKU로 잠깁니다.
 * NAT64(IPv4로의 IPv6 변환)가 지원되지 않습니다.
 * IPv6 서브넷을 참조 하는 보조 NIC를 백 엔드 풀에 연결 하는 것은 **현재 지원 되지 않습니다**.
 

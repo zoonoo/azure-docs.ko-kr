@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: a5707ef266f3d49bdcbff9793a0b90e6c3f4cb68
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c1dc3b5fe4eecea42baf7073b9c806eea1648cff
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327653"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056169"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -188,7 +188,7 @@ Event Grid를 통해 원격 분석 이벤트를 구독할 때 IoT Hub는 기본 
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대한 제한
 
-장치 연결 상태 이벤트를 수신 하려면 장치에서 Iot Hub를 사용 하 여 ' ' C2D Receive Message ' 작업 또는 '이 원격 분석 전송 ' 작업을 수행 해야 합니다. 그러나 장치에서 AMQP 프로토콜을 사용 하 여 Iot Hub에 연결 하는 경우에는 ' C2D Receive Message ' 작업을 수행 하는 것이 좋습니다. 그렇지 않으면 몇 분 동안 연결 상태 알림이 지연 될 수 있습니다. 디바이스가 MQTT 프로토콜을 사용하는 경우, IoT Hub는 C2D 링크를 열어둡니다. AMQP의 경우 C2D [비동기 API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)를 호출 하거나 (IoT Hub c # SDK의 경우) 또는 [amqp 용 장치 클라이언트](iot-hub-amqp-support.md#device-client)를 호출 하 여 링크를 열 수 있습니다.
+장치 연결 상태 이벤트를 수신 하려면 장치에서 Iot Hub를 사용 하 여 ' ' C2D Receive Message ' 작업 또는 '이 원격 분석 전송 ' 작업을 수행 해야 합니다. 그러나 장치에서 AMQP 프로토콜을 사용 하 여 Iot Hub에 연결 하는 경우에는 ' C2D Receive Message ' 작업을 수행 하는 것이 좋습니다. 그렇지 않으면 몇 분 동안 연결 상태 알림이 지연 될 수 있습니다. 디바이스가 MQTT 프로토콜을 사용하는 경우, IoT Hub는 C2D 링크를 열어둡니다. AMQP의 경우 IoT Hub c # SDK 용 비동기 API 수신 또는 [AMQP 용 장치 클라이언트](iot-hub-amqp-support.md#device-client)를 호출 하 여 C2D 링크를 열 수 있습니다.
 
 원격 분석 데이터를 보내는 경우 D2C 링크가 열려 있습니다. 
 
@@ -214,4 +214,4 @@ IoT Hub 이벤트를 처리하는 애플리케이션은 다음과 같은 권장 
 
 * [IoT Hub 이벤트 라우팅 및 메시지 간의 차이점 비교](iot-hub-event-grid-routing-comparison.md)
 
-* [IoT 원격 분석 이벤트를 사용 하 여 Azure Maps를 사용 하 여 IoT 공간 분석을 구현 하는 방법을 알아봅니다.](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)
+* [IoT 원격 분석 이벤트를 사용 하 여 Azure Maps를 사용 하 여 IoT 공간 분석을 구현 하는 방법을 알아봅니다.](../azure-maps/tutorial-iot-hub-maps.md)

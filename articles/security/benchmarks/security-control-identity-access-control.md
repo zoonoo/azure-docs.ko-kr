@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 473fe838f53df0a874a2c793792533e01b7c069a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2df534842c6f6a922579e1128757ee4b7f46e006
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81408523"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058600"
 ---
 # <a name="security-control-identity-and-access-control"></a>보안 제어: Id 및 Access Control
 
@@ -112,9 +112,9 @@ MFA가 구성 된 Paw (권한 있는 액세스 워크스테이션)를 사용 하
 |--|--|--|
 | 3.9 | 16.1, 16.2, 16.4, 16.5, 16.6 | Customer |
 
-Azure Active Directory (AAD)를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. AAD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 AAD는 사용자 자격 증명을 salts, 해시 및 안전 하 게 저장 합니다.
+Azure Active Directory를 중앙 인증 및 권한 부여 시스템으로 사용 합니다. Azure AD는 강력한 암호화를 저장 데이터 및 전송 중 데이터에 사용하여 데이터를 보호합니다. 또한 Azure AD는 사용자 자격 증명을 솔트하고, 해시하고, 안전하게 저장합니다.
 
-- [AAD 인스턴스를 만들고 구성하는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Azure AD 인스턴스를 만들고 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 ## <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: 정기적으로 사용자 액세스 검토 및 조정
 

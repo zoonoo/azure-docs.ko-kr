@@ -13,12 +13,12 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8c6a9304927f5d4bcad895b725955c522b60207a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266239"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056084"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>2단계 인증을 위한 앱 암호 관리
 
@@ -44,7 +44,7 @@ ms.locfileid: "84266239"
 
 - **조직이 2단계 인증 및 추가 보안 인증 페이지를 사용합니다.** 조직에서 2단계 인증으로 회사 또는 학교 계정(예: alain@contoso.com)을 사용하는 경우 [추가 보안 인증 페이지](https://account.activedirectory.windowsazure.com/Proofup.aspx)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은 이 문서에서 [추가 보안 인증 페이지를 사용하여 앱 암호 만들기 및 삭제](#create-and-delete-app-passwords-from-the-additional-security-verification-page)를 참조하세요.
 
-- **조직이 2단계 인증 및 Office 365 포털을 사용합니다.** 조직에서 회사 또는 학교 계정(예: alain@contoso.com), 2단계 확인 및 Office 365 앱을 사용하는 경우 [Office 365 포털 페이지](https://www.office.com)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은 이 문서에서 [Office 365 포털을 사용하여 앱 암호 만들기 및 삭제](#create-and-delete-app-passwords-using-the-office-365-portal)를 참조하세요.
+- **조직이 2단계 인증 및 Office 365 포털을 사용합니다.** 조직에서 회사 또는 학교 계정 (예:, alain@contoso.com ), 2 단계 인증 및 Microsoft 365 앱을 사용 하는 경우 [Office 365 포털 페이지](https://www.office.com)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은 이 문서에서 [Office 365 포털을 사용하여 앱 암호 만들기 및 삭제](#create-and-delete-app-passwords-using-the-office-365-portal)를 참조하세요.
 
 - **개인 Microsoft 계정을 사용하여 2단계 인증을 사용하고 있습니다.** 2단계 인증으로 개인 Microsoft 계정(예: alain@outlook.com)을 사용하는 경우 [보안 기본 사항 페이지](https://account.microsoft.com/security/)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은 [2단계 인증을 지원하지 않는 앱에서 앱 암호 사용](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification)을 참조하세요.
 
@@ -82,11 +82,11 @@ ms.locfileid: "84266239"
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Office 365 포털을 사용하여 앱 암호 만들기 및 삭제
 
-회사 또는 학교 계정 및 Office 365 앱에서 2단계 인증을 사용하는 경우 Office 365 포털을 사용하여 앱 암호를 만들고 삭제할 수 있습니다.
+회사 또는 학교 계정 및 Microsoft 365 앱에서 2 단계 인증을 사용 하는 경우 Office 365 포털을 사용 하 여 앱 암호를 만들고 삭제할 수 있습니다.
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Office 365 포털을 사용하여 앱 암호를 삭제하려면
 
-1. Office 365에 로그인한 후 [내 계정](https://portal.office.com) 페이지로 이동하고 **보안 및 개인 정보 보호**를 선택한 후 **추가 보안 인증**을 확장합니다.
+1. 회사 또는 학교 계정에 로그인 하 고 [내 계정 페이지로](https://portal.office.com)이동한 다음 **보안 & 개인 정보**를 선택 하 고 **추가 보안 확인**을 확장 합니다.
 
     ![확장된 추가 보안 확인 영역을 보여 주는 Office 포털](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
 

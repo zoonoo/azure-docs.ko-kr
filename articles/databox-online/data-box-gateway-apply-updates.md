@@ -2,17 +2,17 @@
 title: Azure Data Box Gateway 시리즈 장치에 업데이트 설치 | Microsoft Docs
 description: Azure Data Box Gateway 시리즈 장치에 대 한 Azure Portal 및 로컬 웹 UI를 사용 하 여 업데이트를 적용 하는 방법을 설명 합니다.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.topic: article
 ms.date: 06/30/2020
-ms.author: twooley
-ms.openlocfilehash: 3972aecf70a664980e8279152eb001915ae1bb53
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 1b3f0faa2b5f67a23317935f0ad868e3872cf86e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783878"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055966"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Azure Data Box Gateway 업데이트
 
@@ -22,7 +22,7 @@ ms.locfileid: "88783878"
 >
 > - 업데이트 **1911** 은 장치의 **1.6.1049.786** 소프트웨어 버전에 해당 합니다. 이 업데이트에 대 한 자세한 내용은 [릴리스 정보](data-box-gateway-1911-release-notes.md)를 참조 하세요.
 >
-> - 업데이트 또는 핫픽스를 설치하면 디바이스가 다시 시작됩니다. Data Box Gateway 단일 노드 장치인 경우 진행 중인 모든 i/o가 중단 되 고 장치 소프트웨어 업데이트에 대해 최대 30 분의 가동 중지 시간이 발생 합니다.
+> - 업데이트 또는 핫픽스를 설치하면 디바이스가 다시 시작됩니다. Data Box Gateway가 단일 노드 디바이스인 경우 진행 중인 모든 I/O가 중단되고 디바이스 소프트웨어 업데이트에 대해 최대 30분의 가동 중지 시간이 발생합니다.
 
 이러한 각 단계는 다음 섹션에 설명되어 있습니다.
 
@@ -39,7 +39,7 @@ Azure Portal를 통해 업데이트를 설치 하는 것이 좋습니다. 장치
 
 2. **장치 업데이트** 블레이드에서 릴리스 정보의 새 기능과 관련 된 사용 조건을 검토 했는지 확인 합니다.
 
-    업데이트를 다운로드 하 여 **설치** 하거나 업데이트를 **다운로드** 하도록 선택할 수 있습니다. 그런 다음 나중에 이러한 업데이트를 설치 하도록 선택할 수 있습니다.
+    업데이트를 다운로드 하 여 **설치** 하거나 업데이트를 **다운로드** 하도록 선택할 수 있습니다. 그런 다음 나중에 이러한 업데이트를 설치하도록 선택할 수 있습니다.
 
     ![업데이트 후 소프트웨어 버전](./media/data-box-gateway-apply-updates/portal-apply-update-02.png)
 

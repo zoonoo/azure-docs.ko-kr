@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f5116b3dfd53c5272ef7bb11d1719b7ee62416c4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762320"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055795"
 ---
 # <a name="about-virtual-hub-routing"></a>가상 허브 라우팅 정보
 
@@ -87,6 +87,7 @@ Azure Portal에서 허브에 대 한 라우팅 섹션에 기존 경로를 설치
 * 여러 지역에서 Azure 방화벽을 사용 하는 경우 모든 스포크 가상 네트워크를 동일한 경로 테이블에 연결 해야 합니다. 예를 들어 Vnet 하위 집합이 Azure 방화벽을 통과 하는 반면, 다른 Vnet는 동일한 가상 허브에서 Azure 방화벽을 우회 하는 것은 불가능 합니다.
 * VNet 연결당 하나의 다음 홉 IP를 구성할 수 있습니다.
 * 가상 허브는 0.0.0.0/0 및 다음 홉 Virtual Network 연결 (또는 VNet 연결의 어플라이언스 IP)에 대 한 고정 경로를 지원 하지 않습니다.
+* 0.0.0.0/0 경로와 관련 된 모든 정보는 로컬 허브의 경로 테이블에만 국한 됩니다. 이 경로는 허브 간에 전파 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

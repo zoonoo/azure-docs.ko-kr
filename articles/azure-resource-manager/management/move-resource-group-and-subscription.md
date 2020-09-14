@@ -2,24 +2,22 @@
 title: 새 구독 또는 리소스 그룹으로 리소스 이동
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 09/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e5b3e27110d5bd7941aad0209681d13f45fa66fa
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2b278dae956ec0bd17773badbeaa880b7bf901a5
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498874"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056670"
 ---
-# <a name="move-resources-to-a-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
+# <a name="move-resources-to-a-new-resource-group-or-subscription"></a>리소스를 새 리소스 그룹 또는 구독으로 이동
 
 이 문서에서는 Azure 리소스를 다른 Azure 구독 또는 동일한 구독의 다른 리소스 그룹으로 이동하는 방법을 보여 줍니다. Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용하여 리소스를 이동할 수 있습니다.
 
 이동 작업 동안 원본 그룹과 대상 그룹 모두 잠겨 있습니다. 쓰기 및 삭제 작업은 이동이 완료될 때까지 리소스 그룹에서 차단됩니다. 이 잠금은 리소스 그룹에서 리소스를 추가, 업데이트 또는 삭제할 수 없음을 의미 합니다. 리소스가 고정 된 것은 아닙니다. 예를 들어, SQL Server와 해당 데이터베이스를 새 리소스 그룹으로 이동하는 경우 해당 데이터베이스를 사용하는 애플리케이션에는 가동 중지 시간이 발생하지 않습니다. 데이터베이스에 계속해서 읽고 쓸 수 있습니다. 잠금은 최대 4 시간 동안 지속 될 수 있지만 대부분의 시간이 훨씬 더 짧습니다.
 
 리소스를 이동할 때는 새 리소스 그룹 또는 구독으로만 이동됩니다. 리소스의 위치는 변경하지 않습니다.
-
-Azure Stack 허브를 사용 하는 경우 그룹 간에 리소스를 이동할 수 없습니다.
 
 ## <a name="checklist-before-moving-resources"></a>리소스를 이동하기 전의 검사 목록
 
@@ -29,6 +27,7 @@ Azure Stack 허브를 사용 하는 경우 그룹 간에 리소스를 이동할 
 
 1. 일부 서비스에는 리소스를 이동할 때 특정 제한 사항이 나 요구 사항이 있습니다. 다음 서비스를 이동 하는 경우 이동 하기 전에 지침을 확인 합니다.
 
+   * Azure Stack 허브를 사용 하는 경우 그룹 간에 리소스를 이동할 수 없습니다.
    * [App Services 이동 지침](./move-limitations/app-service-move-limitations.md)
    * [Azure DevOps Services 이동 지침](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
    * [클래식 배포 모델 이동 지침](./move-limitations/classic-model-move-limitations.md) -클래식 계산, 클래식 저장소, 클래식 가상 네트워크 및 Cloud Services
@@ -96,7 +95,7 @@ Azure Stack 허브를 사용 하는 경우 그룹 간에 리소스를 이동할 
 
 1. **구독 간 이동의 경우 리소스와 해당 종속 리소스는 동일한 리소스 그룹에 위치 해야 하며 함께 이동 해야 합니다.** 예를 들어 관리 디스크가 있는 VM은 다른 종속 리소스와 함께 VM 및 관리 디스크를 함께 이동 해야 합니다.
 
-   리소스를 새 구독으로 이동 하는 경우 리소스에 종속 리소스가 있는지와 동일한 리소스 그룹에 있는지 여부를 확인 합니다. 리소스가 동일한 리소스 그룹에 없는 경우 리소스를 동일한 리소스 그룹으로 통합할 수 있는지 확인 합니다. 그렇다면 리소스 그룹 간에 이동 작업을 사용 하 여 이러한 모든 리소스를 동일한 리소스 그룹으로 가져옵니다.
+   리소스를 새 구독으로 이동 하는 경우 리소스에 종속 리소스가 있는지와 동일한 리소스 그룹에 있는지 여부를 확인 합니다. 리소스가 동일한 리소스 그룹에 없는 경우 리소스를 동일한 리소스 그룹으로 결합할 수 있는지 여부를 확인 합니다. 그렇다면 리소스 그룹 간에 이동 작업을 사용 하 여 이러한 모든 리소스를 동일한 리소스 그룹으로 가져옵니다.
 
    자세한 내용은 [구독 간 이동 시나리오](#scenario-for-move-across-subscriptions)를 참조 하십시오.
 
@@ -167,27 +166,41 @@ Authorization: Bearer <access-token>
 
 ## <a name="use-the-portal"></a>포털 사용
 
-리소스를 이동하려면 해당 리소스가 포함된 리소스 그룹을 선택한 후 **이동** 단추를 선택합니다.
+리소스를 이동 하려면 해당 리소스를 포함 하는 리소스 그룹을 선택 합니다.
 
-![리소스 이동](./media/move-resource-group-and-subscription/select-move.png)
+리소스 그룹을 볼 때 이동 옵션은 사용할 수 없습니다.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="move 옵션 사용 안 함":::
+
+이동 옵션을 사용 하도록 설정 하려면 이동 하려는 리소스를 선택 합니다. 모든 리소스를 선택 하려면 목록의 맨 위에 있는 확인란을 선택 합니다. 또는 리소스를 개별적으로 선택 합니다.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="리소스 선택":::
+
+**이동** 단추를 선택 합니다.
+
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="이동 옵션":::
+
+이 단추는 세 가지 옵션을 제공 합니다.
+
+* 새 리소스 그룹으로 이동 합니다.
+* 새 구독으로 이동 합니다.
+* 새 영역으로 이동 합니다. 지역을 변경 하려면 [리소스 그룹에서 지역 간 리소스 이동](../../resource-mover/move-region-within-resource-group.md?toc=/azure/azure-resource-manager/management/toc.json)을 참조 하세요.
 
 리소스를 새 리소스 그룹으로 이동할지 또는 새 구독으로 이동할지를 선택합니다.
 
-이동할 리소스와 대상 리소스 그룹을 선택합니다. 이러한 리소스에 대해 스크립트를 업데이트해야 함을 승인하고 **확인**을 선택합니다. 이전 단계에서 구독 편집 아이콘을 선택한 경우 대상 구독도 선택해야 합니다.
+대상 리소스 그룹을 선택 합니다. 이러한 리소스에 대해 스크립트를 업데이트해야 함을 승인하고 **확인**을 선택합니다. 새 구독으로 이동 하도록 선택한 경우에도 대상 구독을 선택 해야 합니다.
 
-![대상 선택](./media/move-resource-group-and-subscription/select-destination.png)
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="대상 선택":::
 
-**알림**에서 이동 작업이 실행 중임을 볼 수 있습니다.
+리소스를 이동할 수 있는지 확인 한 후 이동 작업이 실행 중임을 확인할 수 있습니다.
 
-![이동 상태 표시](./media/move-resource-group-and-subscription/show-status.png)
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="알림":::
 
 완료되면 결과를 알려 줍니다.
 
-![이동 결과 표시](./media/move-resource-group-and-subscription/show-result.png)
-
 오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
-## <a name="use-azure-powershell"></a>Azure PowerShell 사용
+## <a name="use-azure-powershell"></a>Azure Powershell 사용
 
 다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 [Move-AzResource](/powershell/module/az.resources/move-azresource) 명령을 사용합니다. 다음 예제에서는 여러 리소스를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다.
 
@@ -203,7 +216,7 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 
 ## <a name="use-azure-cli"></a>Azure CLI 사용
 
-기존 리소스를 다른 리소스 그룹 또는 구독으로 이동하려면 [az resource move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) 명령을 사용합니다. 이동할 리소스에 대한 리소스 ID를 제공합니다. 다음 예제에서는 여러 리소스를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다. `--ids` 매개 변수에서 이동할 리소스 ID를 쉼표로 구분한 목록을 제공합니다.
+기존 리소스를 다른 리소스 그룹 또는 구독으로 이동하려면 [az resource move](/cli/azure/resource#az-resource-move) 명령을 사용합니다. 이동할 리소스에 대한 리소스 ID를 제공합니다. 다음 예제에서는 여러 리소스를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다. `--ids` 매개 변수에서 이동할 리소스 ID를 쉼표로 구분한 목록을 제공합니다.
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
@@ -238,15 +251,15 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 **질문: 일반적으로 몇 분 정도 걸리는 내 리소스 이동 작업은 거의 1 시간 동안 실행 되었습니다. 문제가 있나요?**
 
-리소스 이동은 단계가 서로 다른 복잡 한 작업입니다. 이동 하려는 리소스의 리소스 공급자 보다 더 많은 관련이 있을 수 있습니다. 리소스 공급자 간의 종속성 때문에 Azure Resource Manager 작업을 완료 하는 데 4 시간을 허용 합니다. 이 기간을 사용 하면 리소스 공급자에 게 일시적인 문제를 복구할 수 있는 기회가 제공 됩니다. 이동 요청이 4 시간 내에 있는 경우 작업을 완료 하는 동안 계속 시도 하 고 성공할 수 있습니다. 이 시간 동안에는 일관성 문제를 방지 하기 위해 원본 및 대상 리소스 그룹이 잠깁니다.
+리소스 이동은 단계가 서로 다른 복잡 한 작업입니다. 이동 하려는 리소스의 리소스 공급자 보다 더 많은 관련이 있을 수 있습니다. 리소스 공급자 간의 종속성 때문에 Azure Resource Manager 작업을 완료 하는 데 4 시간을 허용 합니다. 이 기간을 사용 하면 리소스 공급자에 게 일시적인 문제를 복구할 수 있는 기회가 제공 됩니다. 이동 요청이 4 시간 이내에 있으면 작업을 완료 하는 동안 계속 시도 하 고 성공할 수 있습니다. 이 시간 동안에는 일관성 문제를 방지 하기 위해 원본 및 대상 리소스 그룹이 잠깁니다.
 
 **질문: 리소스 이동 중에 리소스 그룹이 4 시간 동안 잠겨 있는 이유는 무엇 인가요?**
 
-4 시간 창은 리소스 이동에 허용 되는 최대 시간입니다. 이동 되는 리소스에 대 한 수정을 방지 하기 위해 원본 및 대상 리소스 그룹은 리소스 이동 기간 동안 잠깁니다.
+이동 요청은 완료 하는 데 최대 4 시간까지 허용 됩니다. 이동 되는 리소스에 대 한 수정을 방지 하기 위해 원본 및 대상 리소스 그룹은 리소스 이동 기간 동안 잠깁니다.
 
-이동 요청에는 두 단계가 있습니다. 첫 번째 단계에서 리소스를 이동 합니다. 두 번째 단계에서는 이동 하는 리소스에 종속 된 다른 리소스 공급자에 게 알림이 전송 됩니다. 리소스 공급자가 한 단계를 실패할 경우 전체 4 시간 기간 동안 리소스 그룹을 잠글 수 있습니다. 허용 되는 시간 동안 리소스 관리자는 실패 한 단계를 다시 시도 합니다.
+이동 요청에는 두 단계가 있습니다. 첫 번째 단계에서 리소스를 이동 합니다. 두 번째 단계에서는 이동 하는 리소스에 종속 된 다른 리소스 공급자에 게 알림이 전송 됩니다. 리소스 공급자가 두 단계 모두를 실패할 때 전체 4 시간 동안 리소스 그룹을 잠글 수 있습니다. 허용 되는 시간 동안 리소스 관리자는 실패 한 단계를 다시 시도 합니다.
 
-4 시간 기간 내에 리소스를 이동할 수 없는 경우 리소스 관리자는 두 리소스 그룹의 잠금을 해제 합니다. 성공적으로 이동 된 리소스는 대상 리소스 그룹에 있습니다. 이동 하지 못한 리소스는 소스 리소스 그룹에 남아 있습니다.
+4 시간 이내에 리소스를 이동할 수 없는 경우 리소스 관리자 두 리소스 그룹의 잠금을 해제 합니다. 성공적으로 이동 된 리소스는 대상 리소스 그룹에 있습니다. 이동 하지 못한 리소스는 소스 리소스 그룹에 남아 있습니다.
 
 **질문: 리소스 이동 중에 잠겨 있는 원본 및 대상 리소스 그룹의 의미는 무엇 인가요?**
 

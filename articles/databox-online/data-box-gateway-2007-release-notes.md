@@ -2,18 +2,18 @@
 title: Azure Stack Edge & Azure Data Box Gateway 2007 릴리스 정보 | Microsoft Docs
 description: Azure Stack Edge 및 2007 릴리스를 실행 하는 Data Box Gateway에 대 한 중요 한 미해결 문제 및 해결 방법을 설명 합니다.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
 ms.date: 07/14/2020
-ms.author: twooley
-ms.openlocfilehash: f9a08cda1466dbe284a0ac3c0e34b109be236883
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 85614ab6455e149d64b7d1b9774c37c764bb600f
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783929"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055880"
 ---
 # <a name="azure-stack-edge-and-azure-data-box-gateway-2007-release-notes"></a>Azure Stack Edge 및 Azure Data Box Gateway 2007 릴리스 정보
 

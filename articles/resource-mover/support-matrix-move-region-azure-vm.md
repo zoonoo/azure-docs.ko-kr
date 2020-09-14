@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: 4462ea0277193f0f8a4112cad5991d1e12c5f600
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ddb1c68ab417390987ac4873a16b89757ec24789
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653007"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058736"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure Vm 이동에 대 한 지원
 
@@ -80,7 +80,7 @@ Debian 8 |  3.16.0-4-amd64에서 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.
 
 **릴리스** | **커널 버전** 
 --- |  --- 
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  모든 [STOCK SUSE 12 SP1, SP2, SP3, SP4 커널을](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) 지원 합니다.</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure</br>4.12.14-6.3-azure에서 4.12.14-6.34-azure  
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  모든 [STOCK SUSE 12 SP1, SP2, SP3, SP4 커널을](https://www.suse.com/support/kb/doc/?id=000019587) 지원 합니다.</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure</br>4.12.14-6.3-azure에서 4.12.14-6.34-azure  
 
 
 ### <a name="supported-suse-linux-enterprise-server-15-kernel-versions"></a>지원 되는 SUSE Linux Enterprise Server 15 커널 버전
@@ -100,7 +100,7 @@ SUSE Linux Enterprise Server 15 및 15 SP1 |  모든 stock SUSE 15 및 15 커널
 
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
-크기 | CPU 코어가 2 개 이상이 고 1GB RAM이 있는 모든 Azure VM 크기 | [Azure Virtual Machine 크기](https://docs.microsoft.com/azure/virtual-machines/sizes-general)를 확인합니다.
+크기 | CPU 코어가 2 개 이상이 고 1GB RAM이 있는 모든 Azure VM 크기 | [Azure Virtual Machine 크기](../virtual-machines/sizes-general.md)를 확인합니다.
 가용성 집합 | 현재 지원되지 않음 | 가용성 집합이 있는 Azure VM을 기본 옵션을 사용 하 여 이동 컬렉션에 추가 하면 준비 프로세스가 실패 합니다. VM을 가용성 영역으로 이동 하거나 단일 인스턴스 VM으로 이동 하도록 선택할 수 있습니다. 대상 속성 편집 페이지에서 이러한 설정을 수정할 수 있습니다.
 가용성 영역 | 지원됨 | 대상 지역 지원에 따라 지원 됩니다.
 Azure 갤러리 이미지 (Microsoft에서 게시) | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
@@ -113,15 +113,15 @@ RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 
 
 ## <a name="supported-vm-storage-settings"></a>지원 되는 VM 저장소 설정
 
-이 표에서는 Azure VM OS 디스크, 데이터 디스크 및 임시 디스크에 대한 지원을 요약해서 표시합니다. 성능 문제를 방지하려면 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-scalability-targets) 및 [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets) VM의 VM 디스크 제한 및 목표를 확인하는 것이 중요합니다.
+이 표에서는 Azure VM OS 디스크, 데이터 디스크 및 임시 디스크에 대한 지원을 요약해서 표시합니다. 성능 문제를 방지하려면 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 및 [Windows](../virtual-machines/windows/disk-scalability-targets.md) VM의 VM 디스크 제한 및 목표를 확인하는 것이 중요합니다.
 
 **구성 요소** | **지원** | **세부 정보**
 --- | --- | ---
-OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
-임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 준비 프로세스에서 제외 됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#temporary-disk).
+OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/windows/managed-disks-overview.md).
+임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 준비 프로세스에서 제외 됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/windows/managed-disks-overview.md#temporary-disk).
 데이터 디스크 최대 크기 | 관리 디스크의 경우 8,192GB
 데이터 디스크 최소 크기 |  관리 디스크의 경우 2GB |
-데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/virtual-machines/windows/sizesd).
+데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/windows/sizes.md).
 데이터 디스크 변경 비율 | Premium Storage는 디스크당 최대 10MBps입니다. Standard Storage는 디스크당 최대 2MBps입니다. | 디스크의 평균 데이터 변경률이 지속적으로 최대값 보다 높으면 준비가 되지 않습니다.<br/><br/>  그러나 최대값이 산발적으로 초과 되 면 준비를 수행할 수 있지만 약간 지연 된 복구 지점이 표시 될 수도 있습니다.
 데이터 디스크 (표준 저장소 계정) | 지원되지 않습니다. | 저장소 유형을 managed disk로 변경한 다음, VM을 이동 해 보세요.
 데이터 디스크 (Premium storage 계정) | 지원되지 않음 | 저장소 유형을 managed disk로 변경한 다음, VM을 이동 해 보세요.

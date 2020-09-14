@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 033752eed30e898f5306154f73a9ca6741c1f81c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d845c1fbefd5c9a6119d089824eba6cc35228a3e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179575"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055812"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -114,7 +114,7 @@ Azure AD Privileged Identity Management가 설정되면 다음 Azure AD 역할�
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>다단계 인증 설정 및 권한이 높고 페더레이션되지 않은 다른 모든 단일 사용자 관리자 계정 등록
 
-Azure AD 관리자 역할 (전역 관리자, 권한 있는 역할 관리자, Exchange 관리자 및 SharePoint 관리자) 중 하나 이상에 영구적으로 할당 된 모든 개별 사용자에 대해 로그인 시 Azure Multi-Factor Authentication (MFA)를 요구 합니다. 이 가이드를 사용하여 [관리자 계정에 대해 MFA(Multi-Factor Authentication)](../authentication/howto-mfa-userstates.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Office 365에서 데이터 및 서비스에 대한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 가이드의 2단계 및 3단계에서 찾을 수 있습니다. 
+Azure AD 관리자 역할 (전역 관리자, 권한 있는 역할 관리자, Exchange 관리자 및 SharePoint 관리자) 중 하나 이상에 영구적으로 할당 된 모든 개별 사용자에 대해 로그인 시 Azure Multi-Factor Authentication (MFA)를 요구 합니다. 이 가이드를 사용하여 [관리자 계정에 대해 MFA(Multi-Factor Authentication)](../authentication/howto-mfa-userstates.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Microsoft 365의 데이터 및 서비스에 대 한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e)가이드의 2 단계 및 3 단계에서 찾을 수 있습니다. 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>2단계: 자주 사용되는 공격 완화
 
@@ -130,7 +130,7 @@ Azure AD 관리자 역할 (전역 관리자, 권한 있는 역할 관리자, Exc
 
 * 관리 역할과 관리할 수 있는 서비스가 있는 사용자를 식별합니다.
 * Azure AD PIM을 사용하여 Azure AD에 대한 관리자 액세스 권한이 있는 조직의 사용자를 확인합니다.
-* Azure AD에 정의된 역할 외에도, Office 365에는 조직의 사용자에게 할당할 수 있는 일단의 관리자 역할이 제공됩니다. 각 관리자 역할은 일반적인 비즈니스 기능에 매핑되며, [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 조직의 사용자에게 특정 작업을 수행할 수 있는 권한을 부여합니다. Microsoft 365 관리 센터를 사용하여 Azure AD에서 관리되지 않는 역할을 포함하여 Office 365에 대한 관리자 액세스 권한이 있는 조직의 사용자를 확인합니다. 자세한 내용은 [Office 365 관리자 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) 및 [Office 365 보안 모범 사례](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center)를 참조하세요.
+* Azure AD에 정의 된 역할 외에도 Microsoft 365는 조직의 사용자에 게 할당할 수 있는 관리자 역할 집합과 함께 제공 됩니다. 각 관리자 역할은 일반적인 비즈니스 기능에 매핑되며, [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 조직의 사용자에게 특정 작업을 수행할 수 있는 권한을 부여합니다. Microsoft 365 관리 센터를 사용 하 여 Azure AD에서 관리 되지 않는 역할을 비롯 하 여 Microsoft 365에 대 한 관리자 액세스 권한이 있는 조직의 사용자를 확인 합니다. 자세한 내용은 [Office 365에 대 한](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center) [Microsoft 365 관리자 역할](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) 및 보안 방법 정보를 참조 하세요.
 * Azure, Intune 또는 Dynamics 365와 같이 조직에서 사용하는 서비스의 인벤토리를 수행합니다.
 * 다음과 같은 관리 목적으로 사용되는 계정을 확인합니다.
 
@@ -175,17 +175,17 @@ Azure AD에서 모든 사용자에 대해 MFA(다단계 인증)를 요구하는 
 
 Azure AD ID 보호은 조직의 id에 영향을 주는 잠재적 취약성을 검색 하는 알고리즘 기반 모니터링 및 보고 도구입니다. 검색된 의심스러운 활동에 대해 자동화된 대응을 구성하고 이를 해결하기 위한 적절한 조치를 수행할 수 있습니다. 자세한 내용은 [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)을 참조하세요.
 
-#### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Office 365 보안 점수 가져오기(Office 365를 사용하는 경우)
+#### <a name="obtain-your-microsoft-365-secure-score-if-using-microsoft-365"></a>Microsoft 365 보안 점수 얻기 (Microsoft 365를 사용 하는 경우)
 
-보안 점수는 사용 중인 Office 365 서비스의 설정 및 활동을 살펴보고 Microsoft에서 설정한 기준과 비교 합니다. 보안 방법에 따라 정렬 된 방법에 따라 점수를 얻을 수 있습니다. Office 365 Business Premium 또는 Enterprise 구독에 대한 관리자 권한이 있는 사용자는 [https://securescore.office.com](https://securescore.office.com/)에서 보안 점수에 액세스할 수 있습니다.
+보안 점수는 사용 중인 Microsoft 365 서비스에 대 한 설정 및 활동을 살펴보고 Microsoft에서 설정한 기준과 비교 합니다. 보안 방법에 따라 정렬 된 방법에 따라 점수를 얻을 수 있습니다. Microsoft 365 Business Standard 또는 Enterprise 구독에 대 한 관리자 권한이 있는 사용자는의 보안 점수에 액세스할 수 있습니다 [https://securescore.office.com](https://securescore.office.com/) .
 
-#### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Office 365 보안 및 규정 준수 지침 검토(Office 365를 사용하는 경우)
+#### <a name="review-the-microsoft-365-security-and-compliance-guidance-if-using-microsoft-365"></a>Microsoft 365 보안 및 규정 준수 지침 검토 (Microsoft 365를 사용 하는 경우)
 
-[보안 및 규정 준수 계획](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57)에서는 Office 365 고객이 Office 365를 구성하고 다른 EMS 기능을 사용하도록 설정하는 방법에 대해 간략히 설명합니다. 그런 다음, [Office 365에서 데이터 및 서비스에 대한 액세스를 보호하는 방법](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e)의 3~6단계 및 [Office 365에서 보안 및 규정 준수를 모니터링하는 방법](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6) 가이드를 검토합니다.
+[보안 및 규정 준수 계획](https://support.office.com/article/Plan-for-security-and-compliance-in-Office-365-dc4f704c-6fcc-4cab-9a02-95a824e4fb57)에서는 Office 365 고객이 Office 365를 구성하고 다른 EMS 기능을 사용하도록 설정하는 방법에 대해 간략히 설명합니다. 그런 다음 [Microsoft 365에서 데이터 및 서비스에](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 대 한 액세스를 보호 하는 방법의 3-6 단계 및 [Microsoft 365에서 보안 및 규정 준수를 모니터링](https://support.office.com/article/Monitor-security-and-compliance-in-Office-365-b62f1722-fd39-44eb-8361-da61d21509b6)하는 방법에 대 한 가이드를 검토 합니다.
 
-#### <a name="configure-office-365-activity-monitoring-if-using-office-365"></a>Office 365 활동 모니터링 구성(Office365를 사용하는 경우)
+#### <a name="configure-microsoft-365-activity-monitoring-if-using-microsoft-365"></a>Microsoft 365 작업 모니터링 구성 (Microsoft 365를 사용 하는 경우)
 
-Office 365를 사용하는 사용자가 관리자 계정을 가지고 있지만 포털에 로그인하지 않아 Office 365 액세스가 필요하지 않을 수 있는 직원을 식별할 수 있도록 조직을 모니터링합니다. 자세한 내용은 [Microsoft 365 관리 센터의 활동 보고서](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263)를 참조하세요.
+Microsoft 365를 사용 하는 사용자가 관리자 계정을가지고 있지만 해당 포털에 로그인 하지 않아 Microsoft 365 액세스할 필요가 없는 사용자를 위해 조직을 모니터링 합니다. 자세한 내용은 [Microsoft 365 관리 센터의 활동 보고서](https://support.office.com/article/Activity-Reports-in-the-Office-365-admin-center-0d6dfb17-8582-4172-a9a9-aed798150263)를 참조하세요.
 
 #### <a name="establish-incidentemergency-response-plan-owners"></a>인시던트/비상 대응 계획 소유자 설정
 
@@ -229,7 +229,7 @@ Azure 활동 로그는 Azure에서 구독 수준 이벤트 기록을 제공합�
 
 #### <a name="complete-an-access-review-of-users-in-administrator-roles"></a>관리자 역할의 사용자에 대한 액세스 검토 수행
 
-더 많은 회사 사용자가 클라우드 서비스를 통해 권한 있는 액세스 권한을 획득하므로 관리되지 않는 액세스가 발생할 수 있습니다. 오늘날 사용자는 Office 365 또는 Azure 구독 관리자의 전역 관리자가 되거나 VM 또는 SaaS 앱을 통해 관리자 권한을 가질 수 있습니다.
+더 많은 회사 사용자가 클라우드 서비스를 통해 권한 있는 액세스 권한을 획득 하 여 관리 되지 않는 액세스를 유발할 수 있습니다. 현재 사용자는 Microsoft 365, Azure 구독 관리자에 대 한 전역 관리자가 되거나 Vm 또는 SaaS 앱을 통해 관리자 액세스 권한이 있는 사용자가 될 수 있습니다.
 
 조직에서 모든 직원이 권한 없는 사용자로 일반 비즈니스 트랜잭션을 처리하도록 한 다음, 필요한 경우에만 관리자 권한을 부여해야 합니다. 액세스 검토를 완료하여 관리자 권한을 활성화할 수 있는 사용자를 식별하고 확인합니다.
 
@@ -281,13 +281,13 @@ Azure Active Directory의 경우 [Azure AD Privileged Identity Management](../pr
 
 자격 증명이 손상된 경우 조직에 치명적일 수 있는 모든 잠재적 사용자를 식별하는 것이 좋습니다. 이러한 사용자의 경우 강력한 인증 요구 사항을 적용하고, Azure AD 조건부 액세스를 통해 사용자 이름과 암호를 사용하여 이메일에 로그인하지 못하도록 합니다. [조건부 액세스를 사용하여 레거시 인증을 차단](../conditional-access/block-legacy-authentication.md)할 수 있으며, Exchange Online을 통해 [기본 인증을 차단](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online)할 수 있습니다.
 
-#### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Office 365 역할에 대한 역할 검토 평가 수행(Office 365를 사용하는 경우)
+#### <a name="complete-a-roles-review-assessment-for-microsoft-365-roles-if-using-microsoft-365"></a>Microsoft 365 역할에 대 한 역할 검토 평가 완료 (Microsoft 365를 사용 하는 경우)
 
 모든 관리자 사용자가 올바른 역할에 있는지 여부를 평가합니다(이 평가에 따라 삭제 및 다시 할당).
 
-#### <a name="review-the-security-incident-management-approach-used-in-office-365-and-compare-with-your-own-organization"></a>Office 365에서 사용되는 보안 인시던트 관리 방법을 검토하고 자신의 조직과 비교합니다.
+#### <a name="review-the-security-incident-management-approach-used-in-microsoft-365-and-compare-with-your-own-organization"></a>Microsoft 365에서 사용 되는 보안 인시던트 관리 방법을 검토 하 고 사용자 고유의 조직과 비교
 
-이 보고서는 [Microsoft Office 365의 보안 인시던트 관리](https://www.microsoft.com/download/details.aspx?id=54302)에서 다운로드할 수 있습니다.
+[Microsoft 365의 보안 인시던트 관리](https://www.microsoft.com/download/details.aspx?id=54302)에서이 보고서를 다운로드할 수 있습니다.
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>권한 있는 온-프레미스 관리 계정 보안 유지
 
@@ -348,7 +348,7 @@ Microsoft Cloud App Security를 사용하면 Azure Information Protection 분류
 * 데이터 유출 방지
 * 위험 방지, 자동화된 위협 방지 및 정책 적용 최소화
 
-Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통합하여 Office 365 경고 및 활동을 중앙 집중식으로 모니터링할 수 있도록 합니다. 서버에서 실행되고 Cloud App Security에서 경고 및 활동을 가져와서 SIEM 서버로 스트리밍합니다. 자세한 내용은 [SIEM 통합](/cloud-app-security/siem)을 참조하세요.
+Cloud App Security SIEM 에이전트는 SIEM 서버와 Cloud App Security를 통합 하 여 Microsoft 365 경고와 활동을 중앙 집중식으로 모니터링할 수 있도록 합니다. 서버에서 실행되고 Cloud App Security에서 경고 및 활동을 가져와서 SIEM 서버로 스트리밍합니다. 자세한 내용은 [SIEM 통합](/cloud-app-security/siem)을 참조하세요.
 
 ## <a name="stage-4-continue-building-defenses"></a>4단계: 지속적인 방어 구축
 
@@ -387,8 +387,8 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 
 자세한 내용은 [하이브리드 Azure Active Directory 가입 디바이스를 구성하는 방법](../devices/hybrid-azuread-join-plan.md)을 참조하세요.
 
-#### <a name="review-members-of-built-in-office-365-admin-roles"></a>[기본 제공 Office 365 관리자 역할](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)의 멤버 검토
-Office 365를 사용하지 않는 경우 이 단계를 건너뜁니다.
+#### <a name="review-members-of-built-in-microsoft-365-admin-roles"></a>[기본 제공 Microsoft 365 관리자 역할](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) 의 구성원 검토
+Microsoft 365 사용 하지 않는 경우이 단계를 건너뜁니다.
 ‎
 #### <a name="validate-incident-response-plan"></a>인시던트 대응 계획의 유효성 검사
 
