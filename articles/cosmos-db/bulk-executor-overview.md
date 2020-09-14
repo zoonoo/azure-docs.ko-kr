@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: b2ebe07f5ae2846f48bc5762a49ad018610af73a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d1251813486d4b7406f89ac9c09c49f985fa205
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260613"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055285"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 대량 실행기 라이브러리 개요
  
@@ -25,6 +25,9 @@ Bulk Executor 라이브러리를 사용하면 이 대규모 처리량 및 스토
 
 > [!NOTE] 
 > 현재, Bulk Executor 라이브러리는 가져오기 및 업데이트 작업을 지원하며, 이 라이브러리는 Azure Cosmos DB SQL API 및 Gremlin API 계정에서만 지원됩니다.
+
+> [!IMPORTANT]
+> 대량 실행자 라이브러리는 현재 [서버](serverless.md) 를 사용 하지 않는 계정에서 지원 되지 않습니다. .NET에서는 V3 버전의 SDK에서 사용할 수 있는 [대량 지원을](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/) 사용 하는 것이 좋습니다.
  
 ## <a name="key-features-of-the-bulk-executor-library"></a>대량 실행기 라이브러리의 주요 기능  
  

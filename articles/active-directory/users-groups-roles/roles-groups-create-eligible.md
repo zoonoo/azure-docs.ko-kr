@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory에서 역할을 할당 하기 위한 그룹 만들기 Microsoft Docs
-description: ID 관리를 위임하기 위한 사용자 지정 Azure AD 역할을 미리 봅니다. Azure Portal, PowerShell 또는 Graph API에서 Azure 역할을 관리합니다.
+description: Azure AD에서 역할 할당 가능 그룹을 만드는 방법에 대해 알아봅니다. Azure Portal, PowerShell 또는 Graph API에서 Azure 역할을 관리합니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c5efbbd5f9f5dfe701deb50b51605ab324c081a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 07dc11877b38e830d90f544f1d7524b378bf5902
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401676"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053755"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Azure Active Directory에서 역할 할당 가능 그룹 만들기
 
@@ -88,7 +88,7 @@ $groupName = "Contoso_Bellevue_Admins"
 $groupDescription = "This group is assigned to Helpdesk Administrator built-in role in Azure AD."
 $mailNickname = "contosobellevueadmins"
 
-#Create new security group which is a role assignable group. For creating O365 group, set GroupTypes="Unified" and MailEnabled=$true
+#Create new security group which is a role assignable group. For creating a Microsoft 365 group, set GroupTypes="Unified" and MailEnabled=$true
 $roleAssignablegroup = New-AzureADMSGroup -DisplayName $groupName -Description $groupDescription -MailEnabled $false -MailNickname $mailNickname -SecurityEnabled $true -IsAssignableToRole $true
 
 #Get details of existing group

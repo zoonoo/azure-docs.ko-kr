@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 690dead3cb0059dd1b20ff042a93c36d674e62d2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717441"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052684"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 쓰기 저장의 작동 방식
 
@@ -37,7 +37,7 @@ Azure Active Directory(Azure AD) 셀프 서비스 암호 재설정(SSPR)을 통�
 
 * **온-프레미스 Active Directory Domain Services(AD DS) 암호 정책의 적용**: 사용자가 암호를 재설정하는 경우 해당 디렉터리에 커밋하기 전에 온-프레미스 AD DS 정책을 준수하는지 확인합니다. 이 검토 작업에는 기록, 복잡성, 나이, 암호 필터 및 AD DS에 정의한 기타 암호 제한 사항을 확인하는 일이 포함됩니다.
 * **지연 피드백 없음**:  암호 쓰기 저장은 동기식 작업입니다. 사용자의 암호가 정책을 준수하지 않거나 어떠한 이유로든 재설정 또는 변경할 수 없는 경우 즉시 사용자에게 알려줍니다.
-* **액세스 패널 및 Office 365에서 암호 변경 지원**: 페더레이션 또는 암호 해시 동기화된 사용자가 만료되었거나 만료되지 않은 암호를 변경하면 해당 암호는 AD DS에 쓰기 저장됩니다.
+* **는 액세스 패널 및 Microsoft 365에서 암호 변경을 지원 합니다**. 페더레이션 또는 암호 해시 동기화 된 사용자가 만료 되었거나 만료 되지 않은 암호를 변경 하는 경우 해당 암호는 AD DS에 다시 기록 됩니다.
 * **Azure Portal에서 관리자가 암호를 재설정할 때 비밀번호 쓰기 저장 지원**: 사용자가 페더레이션 또는 암호 해시 동기화된 경우 관리자가 [Azure Portal](https://portal.azure.com)에서 해당 사용자의 암호를 재설정하면 암호가 온-프레미스에 쓰기 저장됩니다. 이 기능은 현재 Office 관리자 포털에서 지원되지 않습니다.
 * **인바운드 방화벽 규칙이 필요하지 않음**: 비밀번호 쓰기 저장은 Azure Service Bus Relay를 기본 통신 채널로 사용합니다. 모든 통신은 포트 443을 통해 아웃바운드됩니다.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: 98bb4cb54b9e26de9f38efdb554461f265f69aa9
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: a0d095c22de28368edc11fe9ab8e658c0d3ae7f6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036898"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053806"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>범용 가상 머신 크기
 
@@ -29,15 +29,15 @@ ms.locfileid: "88036898"
 
 - [Dav4 및 Dasv4 시리즈](dav4-dasv4-series.md)는 최대 256MB L3 캐시의 다중 스레드 구성으로 AMD의 2.35Ghz EPYC<sup>TM</sup> 7452 프로세서를 활용하는 새로운 크기로, 코어 8개 모두에 해당 L3 캐시 중 8MB를 전용으로 지정하여 범용 워크로드 실행을 위한 고객 옵션을 늘립니다. Dav4 시리즈와 Dasv4 시리즈는 D 및 Dsv3 시리즈와 동일한 메모리 및 디스크 구성을 가집니다.
 
-- [DCv2 시리즈](dcv2-series.md)는 퍼블릭 클라우드에서 처리되는 동안 데이터 및 코드의 기밀성 및 무결성을 보호할 수 있습니다. 이러한 머신은 SGX 기술이 적용된 최신 세대의 Intel XEON E-2288G 프로세서로 지원됩니다. Intel Turbo Boost 기술을 사용하면 이 머신은 최대 5.0GHz까지 작동할 수 있습니다. DCv2 시리즈 인스턴스를 사용하면 고객은 사용 중인 고객의 코드와 데이터를 보호할 수 있는 보안 Enclave 기반 애플리케이션을 빌드할 수 있습니다.
-
-- 원래 D 시리즈의 후속인 [Dv2 및 Dsv2 시리즈](dv2-dsv2-series.md) VM은 더 강력한 CPU와 최적의 CPU-메모리 구성을 갖추고 있어 대부분 프로덕션 워크로드에 적합합니다. Dv2 시리즈는 D 시리즈보다 약 35% 빠릅니다. Dv2 시리즈 2.0는 차세대 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 됩니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
-
-- [Dv3 및 Dsv3 시리즈](dv3-dsv3-series.md) 두 번째 세대 Intel® Xeon® 플래티넘 827272CL (Cascade Lake)에서 실행 되는 Vm Intel® Xeon® 8171M (Skylake), Intel® Xeon® E5-2673 v4 2.3 g h z (Broadwell) 또는 하이퍼 스레드 구성의 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서를 제공 하므로 대부분의 범용 워크 로드에 대해 더 나은 가치를 제공 합니다. 하이퍼 스레딩으로 이동하기 위해 디스크 및 네트워크 제한이 코어 단위로 조정되는 동안 메모리가 확장되었습니다(~ 3.5GiB/vCPU에서 4GiB/vCPU로). Dv3 시리즈는 더 이상 D/Dv2 시리즈의 높은 메모리 VM 크기를 갖지 않으며, 메모리 최적화 [Ev3 및 Esv3 시리즈](ev3-esv3-series.md)로 이동되었습니다.
-
 - [Dv4 및 Dsv4 시리즈](dv4-dsv4-series.md) Dv4 및 Dsv4 시리즈는 하이퍼 스레드 구성에서 Intel® Xeon® 플래티넘 827272CL (캐스케이드 Lake) 프로세서에서 실행 되므로 대부분의 범용 작업에 대해 더 나은 가치를 제공 합니다. 3.4 GHz의 모든 코어 터보 클록 속도를 제공 합니다.
 
 - [Ddv4 및 Ddsv4 시리즈](ddv4-ddsv4-series.md) Ddv4 및 Ddsv4 시리즈는 &reg; &reg; 하이퍼 스레드 구성의 Intel Xeon Platinum 8272CL Cl (캐스케이드 Lake) 프로세서에서 실행 되므로 대부분의 범용 작업에 대해 더 나은 가치를 제공 합니다. 모든 코어가 3.4GHz의 터보 클록 속도로 유지되며 [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)를 갖추고 있습니다. 또한 [Intel &reg; 심층 학습 부스트](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html)를 지원 합니다. 이 새로운 VM 크기는 [2세대 VM](./linux/generation-2.md)이 포함된 [Dv3/Dsv3](./dv3-dsv3-series.md)에 비해 로컬 스토리지가 50% 확장되고, 읽기 쓰기 로컬 디스크 IOPS가 향상됩니다.
+
+- [Dv3 및 Dsv3 시리즈](dv3-dsv3-series.md) 두 번째 세대 Intel® Xeon® 플래티넘 827272CL (Cascade Lake)에서 실행 되는 Vm Intel® Xeon® 8171M (Skylake), Intel® Xeon® E5-2673 v4 2.3 g h z (Broadwell) 또는 하이퍼 스레드 구성의 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서를 제공 하므로 대부분의 범용 워크 로드에 대해 더 나은 가치를 제공 합니다. 하이퍼 스레딩으로 이동하기 위해 디스크 및 네트워크 제한이 코어 단위로 조정되는 동안 메모리가 확장되었습니다(~ 3.5GiB/vCPU에서 4GiB/vCPU로). Dv3 시리즈는 더 이상 D/Dv2 시리즈의 높은 메모리 VM 크기를 갖지 않으며, 메모리 최적화 [Ev3 및 Esv3 시리즈](ev3-esv3-series.md)로 이동되었습니다.
+
+- 원래 D 시리즈의 후속인 [Dv2 및 Dsv2 시리즈](dv2-dsv2-series.md) VM은 더 강력한 CPU와 최적의 CPU-메모리 구성을 갖추고 있어 대부분 프로덕션 워크로드에 적합합니다. Dv2 시리즈는 D 시리즈보다 약 35% 빠릅니다. Dv2 시리즈 2.0는 차세대 Intel® Xeon® 플래티넘 8272CL (케스케이드 Lake), Intel® Xeon® 8171M (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 됩니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
+
+- [DCv2 시리즈](dcv2-series.md)는 퍼블릭 클라우드에서 처리되는 동안 데이터 및 코드의 기밀성 및 무결성을 보호할 수 있습니다. 이러한 머신은 SGX 기술이 적용된 최신 세대의 Intel XEON E-2288G 프로세서로 지원됩니다. Intel Turbo Boost 기술을 사용하면 이 머신은 최대 5.0GHz까지 작동할 수 있습니다. DCv2 시리즈 인스턴스를 사용하면 고객은 사용 중인 고객의 코드와 데이터를 보호할 수 있는 보안 Enclave 기반 애플리케이션을 빌드할 수 있습니다.
 
 ## <a name="other-sizes"></a>기타 크기
 

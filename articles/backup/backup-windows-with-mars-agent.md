@@ -3,12 +3,12 @@ title: MARS 에이전트를 사용 하 여 Windows 컴퓨터 백업
 description: MARS (Microsoft Azure Recovery Services) 에이전트를 사용 하 여 Windows 컴퓨터를 백업 합니다.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 55eb8bdf069fd1b5793468ae52f764eb4288f261
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182091"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052225"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Azure에 Windows Server 파일 및 폴더 백업
 
@@ -70,7 +70,7 @@ Azure Backup는 DST (일광 절약 시간)를 자동으로 고려 하지 않습�
     * 보존 설정은 저장할 복구 지점과 저장 기간을 지정 합니다.
     * 매일 보존 설정의 경우 매일 보존에 지정 된 시간에 최신 복구 지점이 지정 된 기간 (일) 동안 보존 됨을 표시 합니다. 또는 매월 30 일에 생성 된 복구 지점을 12 개월 동안 저장 하도록 지정할 수 있습니다.
     * 매일 및 매주 복구 지점의 보존은 일반적으로 백업 일정과 일치 합니다. 따라서 일정에서 백업을 트리거할 때 백업이 만드는 복구 지점은 매일 또는 매주 보존 정책이 지정 하는 기간 동안 저장 됩니다.
-    * 다음 예제에서는
+    * 다음 예제에서,
 
         * 자정 및 오후 6:00에 매일 백업은 7 일 동안 유지 됩니다.
         * 토요일 자정 및 오후 6:00에 수행 된 백업은 4 주 동안 유지 됩니다.
@@ -125,7 +125,7 @@ Azure Backup의 네트워크 제한은 로컬 운영 체제의 [QoS (서비스 �
 1. **제한** 탭에서 **백업 작업에 인터넷 대역폭 사용 제한 사용**을 선택 합니다.
 
     ![백업 작업에 대 한 네트워크 제한 설정](./media/backup-configure-vault/throttling-dialog.png)
-1. 근무 시간 및 근무 외 시간에 허용 되는 대역폭을 지정 합니다. 대역폭 값은 512 Kbps에서 시작 하 여 1023 MBps로 이동 합니다. 그런 다음, **확인**을 선택합니다.
+1. 근무 시간 및 근무 외 시간에 허용 되는 대역폭을 지정 합니다. 대역폭 값은 512 Kbps에서 시작 하 여 1023 Mbps로 이동 합니다. 그런 다음, **확인**을 선택합니다.
 
 ## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
 

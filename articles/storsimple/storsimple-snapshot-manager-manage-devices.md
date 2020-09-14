@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager에서 디바이스 관리 | Microsoft Docs
 description: StorSimple 스냅샷 관리자 MMC 스냅인을 사용하여 StorSimple 디바이스를 연결하고 관리하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: ''
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: ab9f34995cea0dee39fa002f0472298a31b9a48e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: dbb7e835d110bcb6cb81fd5425a2aafbb578e692
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513983"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054853"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>StorSimple Snapshot Manager를 사용하여 StorSimple 디바이스 연결 및 관리
 ## <a name="overview"></a>개요
@@ -31,9 +31,9 @@ StorSimple Snapshot Manager의 **범위** 창에서 노드를 사용하여 가�
 
 **뷰** 선택 항목에 따라 **결과** 창에 각 장치에 대해 다음과 같은 정보를 표시합니다. (보기 구성에 대한 자세한 내용은 [보기 메뉴](storsimple-use-snapshot-manager.md#view-menu)를 참조하세요.)
 
-| 결과 열 | 설명 |
+| 결과 열 | Description |
 |:--- |:--- |
-| 이름 |디바이스의 이름은 Azure 클래식 포털에서 구성된 이름을 따릅니다. |
+| Name |디바이스의 이름은 Azure 클래식 포털에서 구성된 이름을 따릅니다. |
 | 모델 |디바이스의 모델 번호 |
 | 버전 |디바이스에 설치된 소프트웨어 버전 |
 | 상태 |디바이스를 사용할 수 있는지 여부 |

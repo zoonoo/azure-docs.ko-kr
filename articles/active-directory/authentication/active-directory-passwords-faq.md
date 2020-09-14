@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: c1927cc103ba14b4b9b545eca82aee28cd32eeb2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716336"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052388"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>셀프 서비스 암호 재설정 질문과 대답
 
@@ -104,7 +104,7 @@ ms.locfileid: "88716336"
   > * 디렉터리의 인증 데이터 형식이 정확한지 확인합니다(예: +1 4255551234 또는 *user\@contoso.com*). 
 * **Q:  암호 재설정에서 지원되는 언어는 무엇인가요?**
 
-  > **A:** 암호 재설정 UI, SMS 메시지 및 음성 통화는 Office 365에서 지원되는 동일한 언어로 지역화됩니다.
+  > **A:** 암호 재설정 UI, SMS 메시지 및 음성 통화는 Microsoft 365에서 지원 되는 것과 동일한 언어로 지역화 됩니다.
   >
   >
 * **Q:  내 디렉터리의 구성 탭에서 조직 브랜드 항목을 설정하는 경우 암호 재설정 중 어느 부분에 브랜드가 적용되나요?**

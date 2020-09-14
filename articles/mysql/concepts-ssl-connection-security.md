@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: ad255b2e03cdecd9a87f1af3ce780ae64535bfa2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 641ff13ec440bb8267e546c54b684ab4453f91a7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495083"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052939"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Azure Database for MySQL의 SSL/TLS 연결
 
@@ -19,6 +19,9 @@ MySQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용하여 �
 
 > [!NOTE]
 > `require_secure_transport`서버 매개 변수 값을 업데이트 해도 MySQL 서비스의 동작에는 영향을 주지 않습니다. 이 문서에 설명 된 SSL 및 TLS 적용 기능을 사용 하 여 데이터베이스에 대 한 연결을 보호 합니다.
+
+> [!IMPORTANT] 
+> SSL 루트 인증서가 10 월 26 일 2020 (10/26/2020)부터 만료 되도록 설정 되어 있습니다. [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 사용 하도록 응용 프로그램을 업데이트 하십시오. 자세히 알아보려면 [계획 된 인증서 업데이트](concepts-certificate-rotation.md) 를 참조 하세요.
 
 ## <a name="ssl-default-settings"></a>SSL 기본 설정
 

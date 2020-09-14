@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14d5b458aeccd2587f24b30548c4b5e76912bce1
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6060bc286024183661024abd56567eeefed76430
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798281"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053551"
 ---
 # <a name="administrator-roles-for-microsoft-365-services"></a>Microsoft 365 services에 대 한 관리자 역할
 
@@ -29,10 +29,10 @@ Azure AD의 관리 역할을 사용해 Microsoft 365의 모든 제품을 관리�
 
 Microsoft 365 서비스 | 역할 콘텐츠 | API 콘텐츠
 ---------------------- | ------------------ | -----------------
-Office 365 및 Microsoft 365 비즈니스 플랜의 관리자 역할 | [Office 365 관리자 역할](/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | 사용할 수 없음
+Office 365 및 Microsoft 365 비즈니스 플랜의 관리자 역할 | [Microsoft 365 관리자 역할](/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | 사용할 수 없음
 Azure AD(Azure Active Directory) 및 Azure AD ID 보호| [Azure AD 관리자 역할](directory-assign-admin-roles.md) | [그래프 API](/graph/api/overview?view=graph-rest-1.0)<br>[역할 할당 가져오기](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Exchange Online| [Exchange 역할 기반 액세스 제어](/exchange/understanding-role-based-access-control-exchange-2013-help) |  [Exchange용 PowerShell](/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps)<br>[역할 할당 가져오기](/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps)
-SharePoint Online | [Azure AD 관리자 역할](directory-assign-admin-roles.md)<br>[Office 365의 SharePoint 관리자 역할 정보](/sharepoint/sharepoint-admin-role) | [그래프 API](/graph/api/overview?view=graph-rest-1.0)<br>[역할 할당 가져오기](/graph/api/directoryrole-list?view=graph-rest-1.0)
+SharePoint Online | [Azure AD 관리자 역할](directory-assign-admin-roles.md)<br>또한 [Microsoft 365의 SharePoint 관리자 역할에 대 한 정보](/sharepoint/sharepoint-admin-role) | [그래프 API](/graph/api/overview?view=graph-rest-1.0)<br>[역할 할당 가져오기](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Teams/비즈니스용 Skype | [Azure AD 관리자 역할](directory-assign-admin-roles.md) | [그래프 API](/graph/api/overview?view=graph-rest-1.0)<br>[역할 할당 가져오기](/graph/api/directoryrole-list?view=graph-rest-1.0)
 보안 및 준수 센터(Office 365 Advanced Threat Protection, Exchange Online Protection, Information Protection) | [Office 365 관리자 역할](/office365/SecurityCompliance/permissions-in-the-security-and-compliance-center) | [Exchange PowerShell](/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps)<br>[역할 할당 가져오기](/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps)
 보안 점수 | [Azure AD 관리자 역할](directory-assign-admin-roles.md) | [그래프 API](/graph/api/overview?view=graph-rest-1.0)<br>[역할 할당 가져오기](/graph/api/directoryrole-list?view=graph-rest-1.0)

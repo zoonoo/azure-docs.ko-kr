@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08d6b12f897b8b7efb150b11ae4b3f5e2440f7c8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d27cd30d6543d967cca2648597854a06f8ea4eb7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797992"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053976"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Azure Active Directory에서 LinkedIn 계정 연결 통합
 
@@ -29,7 +29,7 @@ ms.locfileid: "88797992"
 >
 > 예외:
 >
-> * Microsoft Cloud for US Government, Microsoft Cloud Germany 또는 중국에서 21Vianet이 운영하는 Azure 및 Office 365를 사용하는 고객은 이 설정을 사용할 수 없습니다.
+> * 이 설정은 미국 정부, Microsoft 클라우드 독일 또는 Azure와 중국의 21Vianet에서 운영 Microsoft 클라우드 하는 Microsoft 365를 사용 하는 고객에 게는 사용할 수 없습니다.
 > * 이 설정은 독일에서 프로 비전 된 Azure AD 조직에 대해 기본적으로 해제 되어 있습니다. Microsoft Cloud Germany를 사용하는 고객은 이 설정을 사용할 수 없습니다.
 > * 이 설정은 프랑스에서 프로 비전 된 조직에 대해 기본적으로 해제 되어 있습니다.
 >
@@ -94,12 +94,12 @@ Azure AD 관리 센터의 LinkedIn 계정 연결 설정에서 2 단계에서 선
 1. 다음 설정을 사용 하 여 그룹 정책 개체 만들기: **사용자 구성**  >  **관리 템플릿**  >  **Microsoft Office 2016**  >  **기타**  >  **Office 응용 프로그램에서 LinkedIn 기능 표시**
 1. **사용** 또는 **사용 안 함**을 선택합니다.
   
-   시스템 상태 | 영향
+   시스템 상태 | 효과
    ------ | ------
    **Enabled** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용으로 설정됩니다. 조직의 사용자는 Office 2016 응용 프로그램에서 LinkedIn 기능을 사용할 수 있습니다.
-   **사용 안 함** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용 안 함으로 설정되며, 최종 사용자가 이 설정을 변경할 수 없습니다. 조직 내 사용자가 Office 2016 애플리케이션에서 LinkedIn 기능을 사용할 수 있습니다.
+   **Disabled** | Office 2016 옵션의 **Office 애플리케이션에 LinkedIn 기능 표시** 설정이 사용 안 함으로 설정되며, 최종 사용자가 이 설정을 변경할 수 없습니다. 조직 내 사용자가 Office 2016 애플리케이션에서 LinkedIn 기능을 사용할 수 있습니다.
 
-이 그룹 정책은 로컬 컴퓨터용 Office 2016 앱에만 영향을 줍니다. 사용자가 Office 2016 앱에서 LinkedIn을 사용 하지 않도록 설정 하는 경우 Office 365의 LinkedIn 기능이 계속 표시 될 수 있습니다.
+이 그룹 정책은 로컬 컴퓨터용 Office 2016 앱에만 영향을 줍니다. 사용자가 Office 2016 앱에서 LinkedIn을 사용 하지 않도록 설정 하는 경우에도 Microsoft 365에서 LinkedIn 기능이 표시 될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

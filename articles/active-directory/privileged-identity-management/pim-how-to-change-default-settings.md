@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a42cdfbf251e24ed2b59adca1a73b4dfe427a7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cedd6d019005a4c55bbabf6070c6d864da90f40a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420008"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055489"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 설정 구성
 
@@ -123,7 +123,7 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 # <a name="previous-version"></a>[이전 버전](#tab/previous)
 
-## <a name="open-role-settings"></a>역할 설정 열기
+## <a name="open-role-settings-previous-version"></a>역할 설정 열기 (이전 버전)
 
 다음 단계에 따라 Azure AD 역할에 대한 설정을 엽니다.
 
@@ -147,7 +147,7 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 **활성화** 슬라이더를 사용하여 역할이 만료되기 전에 활성 상태로 지속되는 최대 시간(시간 단위)을 설정합니다. 이 값은 1 ~ 72시간 사이가 될 수 있습니다.
 
-## <a name="notifications"></a>알림
+## <a name="notifications"></a>공지
 
 **알림** 스위치를 사용하여 역할이 활성화될 때 관리자가 이메일 알림을 받을지 여부를 지정합니다. 이 알림은 무단 또는 불법 활성화를 검색 하는 데 유용할 수 있습니다.
 
@@ -168,10 +168,10 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 **Multi-Factor Authentication** 스위치를 사용하여 사용자가 자신의 역할을 활성화하기 전에 MFA로 신원을 확인하도록 요구할지 여부를 지정할 수 있습니다. 세션 마다 한 번만 id를 확인 하면 되므로 역할을 활성화할 때마다 해당 id를 확인 해야 합니다. MFA를 사용할 때 염두에 두어야 할 두 가지가 있습니다.
 
 - 전자 메일 주소에 대 한 Microsoft 계정을 가진 사용자 (일반적으로는 @outlook.com 항상 그렇지는 않지만 항상 그렇지는 않음)는 Azure Multi-Factor Authentication에 등록할 수 없습니다. Microsoft 계정을 사용 하는 사용자에 게 역할을 할당 하려면 해당 역할에 대해 영구 관리자를 설정 하거나 multi-factor authentication을 사용 하지 않도록 설정 해야 합니다.
-- Azure AD 및 Office 365에 대 한 높은 권한이 있는 역할에 대해서는 Azure Multi-Factor Authentication를 사용 하지 않도록 설정할 수 없습니다. 이 보안 기능은 다음 역할을 보호 하는 데 도움이 됩니다.  
+- Azure AD 및 Microsoft 365에 대 한 높은 권한이 있는 역할에 대해서는 Azure Multi-Factor Authentication를 사용 하지 않도록 설정할 수 없습니다. 이 보안 기능은 다음 역할을 보호 하는 데 도움이 됩니다.  
   
   - Azure Information Protection 관리자
-  - 청구 관리자
+  - 대금 청구 관리자
   - 클라우드 애플리케이션 관리자
   - 규정 준수 관리자
   - 조건부 액세스 관리자

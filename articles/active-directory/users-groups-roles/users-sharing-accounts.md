@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eb637ae3da9c6a0a3ea066ad741845bad36d5d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 019327436eaf2186e23068a5b0a1ac4b21b9fbe7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489632"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055166"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD와 계정 공유
 
@@ -29,7 +29,7 @@ ms.locfileid: "89489632"
 경우에 따라 조직에서는 여러 사용자에 단일 사용자 이름 및 암호를 사용해야 합니다. 보통은 다음 두 경우입니다.
 
 * 온-프레미스 앱이나 소비자 클라우드 서비스 등, 각 사용자에 대한 고유의 로그인과 암호가 필요한 애플리케이션을 액세스할 때(예: 기업 소셜 미디어 계정)
-* 다중 사용자 환경을 만들 때. 상승된 권한이 있고 핵심 설정, 관리 및 복구 작업에 사용되는 단일 로컬 계정을 가지고 있습니다. Salesforce의 루트 계정이나 Office 365에 대한 로컬 "전역 관리자" 계정을 예로 들 수 있습니다.
+* 다중 사용자 환경을 만들 때. 상승된 권한이 있고 핵심 설정, 관리 및 복구 작업에 사용되는 단일 로컬 계정을 가지고 있습니다. 예를 들어 Microsoft 365에 대 한 로컬 "전역 관리자" 계정 또는 Salesforce의 루트 계정입니다.
 
 일반적으로 이러한 계정은 자격 증명(사용자 이름/암호)을 적합한 개인에게 배포하거나 신뢰할 수 있는 여러 에이전트가 액세스할 수 있는 공유 위치에 저장하여 공유합니다.
 

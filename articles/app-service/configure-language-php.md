@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: c510d6f1cc2aa4a7e71f64e0c296e14a9896614e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717985"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055302"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Azure App Service에 대 한 PHP 앱 구성
 
@@ -119,7 +119,7 @@ fi
 
 Grunt, Bower 또는 Gulp와 같이 배포 시 인기 있는 자동화 도구를 실행 하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 제공 해야 합니다. App Service App Service는 Git를 사용 하 여 배포 하거나 빌드 자동화를 사용 하는 [Zip 배포](deploy-zip.md) 를 사용 하는 경우이 스크립트를 실행 합니다. 
 
-이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 * 합니다.* 예를 들면 다음과 같습니다.
+이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 * 합니다.* 다음은 그 예입니다. 
 
 ```json
 "dependencies": {
@@ -262,7 +262,7 @@ App Service용 기본 PHP 이미지는 Apache를 사용하며 앱에 맞게 사�
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine on
-    RewriteCond %{REQUEST_URI} ^/$
+    RewriteCond %{REQUEST_URI} ^(.*)
     RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```

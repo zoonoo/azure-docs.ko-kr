@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fb7a6654f5917c0651ffba6e672b41d14fdbe20
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 418be35cb7996acaa7f11f37627d065451c9c7c6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489649"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055217"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Azure Active Directory에서 게스트 액세스 권한 (미리 보기) 제한
 
@@ -154,7 +154,7 @@ PS C:\WINDOWS\system32> Set-AzureADMSAuthorizationPolicy -GuestUserRoleId '2af84
 
 질문 | Answer
 -------- | ------
-이러한 사용 권한은 어디에 적용 되나요? | 이러한 디렉터리 수준 권한은 Microsoft Graph, PowerShell v2, Azure Portal 및 My Apps 포털을 포함 하 여 Azure AD 서비스 및 포털 전체에 적용 됩니다. 공동 작업 시나리오를 위해 Office 365 그룹을 활용 하는 Microsoft 365 서비스는 특히 Outlook, Microsoft 팀 및 SharePoint에도 영향을 줍니다.
+이러한 사용 권한은 어디에 적용 되나요? | 이러한 디렉터리 수준 권한은 Microsoft Graph, PowerShell v2, Azure Portal 및 My Apps 포털을 포함 하 여 Azure AD 서비스 및 포털 전체에 적용 됩니다. 공동 작업 시나리오에 대 한 Microsoft 365 그룹을 활용 하는 Microsoft 365 서비스는 특히 Outlook, Microsoft 팀 및 SharePoint에도 영향을 줍니다.
 이 기능에 영향을 주는 내 앱 포털의 부분은 무엇입니까? | 내 앱 포털의 그룹 기능에는 이러한 새 사용 권한이 적용 됩니다. 여기에는 내 앱의 그룹 목록 및 그룹 멤버 자격을 볼 수 있는 모든 경로가 포함 됩니다. 그룹 타일 가용성이 변경 되지 않았습니다. 그룹 타일 가용성은 여전히 Azure 관리 포털의 기존 그룹 설정에 의해 제어 됩니다.
 이러한 권한은 SharePoint 또는 Microsoft 팀 게스트 설정 보다 우선 합니다. | 아닙니다. 이러한 기존 설정은 여전히 이러한 응용 프로그램의 경험과 액세스를 제어 합니다. 예를 들어 SharePoint에서 문제가 표시 되는 경우 외부 공유 설정을 다시 확인 합니다.
 Planner 및 Yammer에서 알려진 호환성 문제는 무엇 인가요? | <li>사용 권한이 ' 제한 됨 '으로 설정 되 면 Planner 앱에 로그인 하거나 Microsoft 팀의 Planner에 액세스 하면 해당 계획 또는 작업에 액세스할 수 없습니다.<li>사용 권한이 ' 제한 됨 '으로 설정 된 경우 Yammer에 로그인 한 게스트는 그룹을 벗어날 수 없습니다.

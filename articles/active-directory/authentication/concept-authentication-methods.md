@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 40ea8c3d070d8895a6da063789279895f52189e3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 08f3a3c17a5f6ea519eea04c4b8c5e7025adcbac
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116770"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052361"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Azure Active Directory에서 사용할 수 있는 인증 및 확인 방법은 무엇인가요?
 
@@ -212,7 +212,7 @@ Azure AD에 관한 전화 인증에 문제가 있는 경우 다음 문제 해결
 
 ### <a name="predefined-questions"></a>미리 정의된 질문
 
-다음의 미리 정의된 본인 확인 질문은 SSPR에서 확인 방법으로 사용할 수 있습니다. 해당 본인 확인 질문은 모두 사용자의 브라우저 로캘을 기반으로 하여 Office 365 언어의 전체 집합으로 번역 및 지역화됩니다.
+다음의 미리 정의된 본인 확인 질문은 SSPR에서 확인 방법으로 사용할 수 있습니다. 이러한 모든 보안 질문은 사용자의 브라우저 로캘을 기반으로 하는 Microsoft 365 언어의 전체 집합으로 변환 되 고 지역화 됩니다.
 
 * 배우자/파트너를 처음 만난 도시는 어디인가요?
 * 부모님이 처음 만난 도시는 어디인가요?

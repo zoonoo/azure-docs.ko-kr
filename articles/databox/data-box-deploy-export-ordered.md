@@ -2,18 +2,18 @@
 title: Azure Data Box에서 데이터를 내보내는 자습서 | Microsoft Docs
 description: 배포 필수 구성 요소 및 Azure Data Box에서 데이터를 내보내는 방법에 대해 알아봅니다.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.author: twooley
-ms.openlocfilehash: 0ddadd8d2bddda0fdff6a126fe6c09d863139b44
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.author: alkohli
+ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783623"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053057"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>자습서: Azure Data Box (미리 보기)에 대 한 내보내기 순서 만들기
 
@@ -70,7 +70,7 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
     |---------|---------|
     |전송 형식     | **Azure로 내보내기를**선택 합니다.        |
     |Subscription     | Data Box 서비스에 대한 EA, CSP 또는 Azure 스폰서쉽 구독을 선택합니다. <br> 구독은 대금 청구 계정에 연결됩니다.       |
-    |Resource group     |    기존 리소스 그룹을 선택합니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
+    |리소스 그룹     |    기존 리소스 그룹을 선택합니다. <br> 리소스 그룹은 함께 관리하거나 배포할 수 있는 리소스에 대한 논리 컨테이너입니다.         |
     |원본 Azure 지역    |    현재 데이터가 있는 Azure 지역을 선택 합니다.         |
     |대상 국가     |     장치를 배송 하려는 국가를 선택 합니다.        |
 
@@ -115,9 +115,20 @@ Azure Data Box은 Azure에서 사용자의 위치로 데이터를 이동할 수 
 
    Xml 입력의 예를 보려면 [샘플 xml 입력](data-box-deploy-export-ordered.md#sample-xml-file) 을 참조 하세요.
 
-9. **데이터 선택**에서 설정을 검토 하 고 **다음: 연락처 세부 정보>** 를 선택 합니다.
+9. **데이터 선택**에서 설정을 검토 하 고 **다음: 보안>** 을 선택 합니다.
 
    ![연락처 세부 정보](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
+
+1. **보안**에서 소프트웨어 기반 이중 암호화를 사용 하도록 설정 하려면 **순서에 이중 암호화 사용**을 선택 합니다. 
+
+   소프트웨어 기반 암호화는 Data Box 데이터의 AES-256 비트 암호화와 함께 수행 됩니다.
+
+   > [!NOTE]
+   > 이 옵션을 사용 하도록 설정 하면 주문 처리 및 데이터 복사 시간이 길어질 수 있습니다. 주문을 만든 후에는이 옵션을 변경할 수 없습니다.
+
+   ![데이터 상자 가져오기, 이중 암호화를 위한 보안 화면](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+
+   완료되면 **다음: 연락처 정보**를 선택하여 계속 진행합니다.
 
 10. **연락처 세부 정보**에서 **+ 배송 주소 추가** 를 선택 하 여 배송 정보를 입력 합니다.
 
@@ -245,13 +256,13 @@ Xml 파일에 대 한 몇 가지 중요 한 사항은 다음과 같습니다.
 
 다음 표에는 유효한 Blob 경로의 예가 있습니다.
 
-   | 선택기 | Blob 경로 | 설명 |
+   | 선택기 | Blob 경로 | Description |
    | --- | --- | --- |
-   | 시작 문자 |/ |스토리지 계정의 모든 Blob을 내보냄 |
-   | 시작 문자 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |
-   | 시작 문자 |/컨테이너 |접두사 **컨테이너로** 시작 하는 모든 컨테이너의 모든 blob을 내보냅니다. |
-   | 시작 문자 |/container-name/ |컨테이너 **컨테이너 이름** 에 있는 모든 blob을 내보냅니다. |
-   | 시작 문자 |/container-name/prefix |접두사 **접두사로** 시작 하는 컨테이너 **컨테이너 이름** 에 있는 모든 blob을 내보냅니다. |
+   | 다음으로 시작 |/ |스토리지 계정의 모든 Blob을 내보냄 |
+   | 다음으로 시작 |/$root/ |루트 컨테이너의 모든 Blob을 내보냄 |
+   | 다음으로 시작 |/컨테이너 |접두사 **컨테이너로** 시작 하는 모든 컨테이너의 모든 blob을 내보냅니다. |
+   | 다음으로 시작 |/container-name/ |컨테이너 **컨테이너 이름** 에 있는 모든 blob을 내보냅니다. |
+   | 다음으로 시작 |/container-name/prefix |접두사 **접두사로** 시작 하는 컨테이너 **컨테이너 이름** 에 있는 모든 blob을 내보냅니다. |
    | 같음 |$root/logo.bmp |루트 컨테이너의 Blob **logo.bmp** 를 내보냄 |
    | 같음 |8tbpageblob/mydata.txt |컨테이너 **8tbpageblob** blob **mydata.txt** 를 내보냅니다. |
 

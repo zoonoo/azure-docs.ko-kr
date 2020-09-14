@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 39a4cbd5ffd04aa3346b1ce4f3b73576b92c4d3b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 7f400d6959a40361ea3beff8bd21c2fa9ef2996a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065491"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052633"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -50,7 +50,7 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="이후 동작에 대 한 SCIM 플래그입니다.":::
 
-* 다음 URL을 사용 하 여 패치 동작을 업데이트 하 고 SCIM 준수를 보장 합니다 (예:를 부울로 활성화 하 고 적절 한 그룹 멤버 자격 제거). 이 동작은 현재 플래그를 사용 하는 경우에만 사용할 수 있지만 다음 몇 달 동안 기본 동작이 됩니다.
+* 다음 URL을 사용 하 여 패치 동작을 업데이트 하 고 SCIM 준수를 보장 합니다 (예:를 부울로 활성화 하 고 적절 한 그룹 멤버 자격 제거). 이 동작은 현재 플래그를 사용 하는 경우에만 사용할 수 있지만 다음 몇 달 동안 기본 동작이 됩니다. 참고이 미리 보기 플래그는 현재 주문형 프로 비전에서 작동 하지 않습니다. 
   * **URL (SCIM 규격):** AzureAdScimPatch062020
   * **SCIM RFC 참조:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2

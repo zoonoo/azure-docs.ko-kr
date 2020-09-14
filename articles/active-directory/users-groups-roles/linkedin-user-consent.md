@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4eaf0ab6cc412b7f5a02f898682e90fdde9de3a1
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 5d90391dd5512b08ee6995a32bcd0b0f111b0f2b
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542364"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053939"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>LinkedIn 계정 연결 데이터 공유 및 동의
 
@@ -73,7 +73,7 @@ Microsoft 및 LinkedIn 계정을 연결하면 Microsoft에서 LinkedIn에 다음
 * 프로필 데이터 - 이름, 성, 프로필 사진, 이메일 주소, 관리자 및 관리하는 사용자와 같은 정보가 포함됩니다.
 * 일정 데이터 - 일정에서 회의, 해당 시간, 위치 및 참석자의 연락처 정보가 포함됩니다. 어젠더, 콘텐츠 또는 회의 제목 등 회의에 대한 정보는 일정 데이터에 포함되지 않습니다.
 * 관심 데이터 - 비지니스용 Cortana 및 Bing와 같이 사용하는 Microsoft 서비스에 따라 계정과 연결된 관심 사항이 포함됩니다.
-* 구독 데이터 - Office 365와 같은 Microsoft 앱 및 서비스에 대해 조직에서 제공하는 구독이 포함됩니다.
+* 구독 데이터-조직에서 Microsoft 앱 및 서비스 (예: Microsoft 365)에 제공 하는 구독을 포함 합니다.
 * 연락처 데이터 - 자주 통신하거나 공동 작업하는 사용자의 연락처 정보 등 Outlook, Skype 및 다른 Microsoft 계정 서비스의 연락처 목록이 포함됩니다. 예를 들어 연락처는 연결을 제안하고, 연락처를 구성하고, 연락처에 대한 업데이트를 보여주기 위해 LinkedIn에서 주기적으로 가져오고, 저장되고, 사용됩니다.
 
 연락처를 제외하고 Microsoft에서 액세스되는 데이터는 LinkedIn에서 영구적으로 저장되지 않습니다. 사용자가 제거할 때까지 Microsoft 연락처는 LinkedIn에 저장됩니다. [LinkedIn에서 가져온 연락처 삭제](https://www.linkedin.com/help/linkedin/answer/43377)에 대해 자세히 알아봅니다.

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377202"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052777"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
 
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 
 사용자가 응용 프로그램 또는 페이지에서 **계정에 액세스할 수 없음** 링크를 선택 하거나 직접로 이동 하는 경우 [https://aka.ms/sspr](https://passwordreset.microsoftonline.com) SSPR 포털에서 사용 되는 언어는 다음 옵션을 기반으로 합니다.
 
-* 기본적으로 브라우저 로캘은 적절 한 언어로 SSPR을 표시 하는 데 사용 됩니다. 암호 재설정 환경은 [Office 365에서 지 원하는](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec)것과 동일한 언어로 지역화 됩니다.
+* 기본적으로 브라우저 로캘은 적절 한 언어로 SSPR을 표시 하는 데 사용 됩니다. 암호 재설정 환경은 [Microsoft 365에서 지 원하는](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec)것과 동일한 언어로 지역화 됩니다.
 * 특정 지역화 된 언어로 SSPR에 연결 하려면 `?mkt=` 필요한 로캘과 함께 암호 재설정 URL의 끝에를 추가 합니다.
     * 예를 들어 스페인어 *es* 로캘을 지정 하려면를 사용 `?mkt=es-us`  -  [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us) 합니다.
 
@@ -77,7 +77,7 @@ SSPR을 시작 하려면 다음 자습서를 완료 하세요.
 
 Azure AD를 사용 하 여 응용 프로그램에 로그인 하는 경우 사용자가 SSPR 등록을 완료 하도록 요구 하는 옵션을 사용 하도록 설정할 수 있습니다. 이 워크플로에는 다음 애플리케이션이 포함됩니다.
 
-* Office 365
+* Microsoft 365
 * Azure portal
 * 액세스 패널
 * 페더레이션된 애플리케이션
@@ -226,7 +226,7 @@ SSPR은 Active Directory에서 관리자가 시작한 암호 재설정에 해당
 
 암호 재설정 및 변경은 모든 B2B(기업 간 전자 상거래) 구성에서 완전히 지원됩니다. B2B 사용자 암호 재설정은 다음 세 가지 경우에 지원됩니다.
 
-* **기존 AZURE ad 테 넌 트를 사용 하는 파트너 조직의 사용자**: 파트너를 사용 하는 조직에 기존 azure ad 테 넌 트가 있는 경우 해당 테 넌 트에서 사용 하도록 설정 된 모든 암호 재설정 정책을 적용 합니다. 암호 재설정이 작동하려면 파트너 조직에서 Azure AD SSPR을 사용하도록 설정되어 있는지 확인해야 합니다. Office 365 고객에 게는 추가 요금이 부과 되지 않습니다.
+* **기존 AZURE ad 테 넌 트를 사용 하는 파트너 조직의 사용자**: 파트너를 사용 하는 조직에 기존 azure ad 테 넌 트가 있는 경우 해당 테 넌 트에서 사용 하도록 설정 된 모든 암호 재설정 정책을 적용 합니다. 암호 재설정이 작동하려면 파트너 조직에서 Azure AD SSPR을 사용하도록 설정되어 있는지 확인해야 합니다. Microsoft 365 고객에 게는 추가 요금이 부과 되지 않습니다.
 * 셀프 서비스 등록을 **통해 등록** 하는 사용자: 파트너가 파트너에 게 제공 하는 [셀프 서비스 등록](../users-groups-roles/directory-self-service-signup.md) 기능을 사용 하 여 테 넌 트에 등록 하는 경우 등록 한 전자 메일을 사용 하 여 암호를 다시 설정할 수 있습니다.
 * **B2B 사용자**: 새 [Azure AD B2B 기능](../external-identities/what-is-b2b.md) 을 사용 하 여 만든 모든 새 b2b 사용자는 초대 프로세스 중에 등록 한 전자 메일을 사용 하 여 암호를 재설정할 수도 있습니다.
 

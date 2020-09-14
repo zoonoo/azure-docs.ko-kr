@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e294aa2580dd9f0cceb539a2696e7ebbf08c4afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 829a82cb94e5c2a7e7cbc9190047c368299612cd
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051007"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052752"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication의 기능 및 라이선스
 
@@ -41,7 +41,7 @@ Azure Multi-Factor Authentication은 조직의 필요에 따라 몇 가지 방�
 
 다음 표에서 다양한 버전의 Azure Multi-Factor Authentication에서 사용 가능한 기능의 목록을 제공합니다. 사용자 인증을 보호하기 위한 요구 사항을 계획하고 해당 요구 사항을 충족하는 방법을 결정합니다. 예를 들어 Azure AD Free는 Azure Multi-Factor Authentication을 제공하는 보안 기본값을 제공하지만 인증 프롬프트에 전화 통화 또는 SMS가 아닌 모바일 인증자 앱만 사용할 수 있습니다. 이 방법은 사용자의 개인 디바이스에 모바일 인증 앱이 설치되어 있는지 확인할 수 없는 경우에 제한이 있을 수 있습니다.
 
-| 기능 | Azure AD Free - 보안 기본값 | Azure AD Free - Azure AD 전역 관리자 | Office 365 앱 | Azure AD Premium P1 또는 P2 |
+| 기능 | Azure AD Free - 보안 기본값 | Azure AD Free - Azure AD 전역 관리자 | Microsoft 365 앱 | Azure AD Premium P1 또는 P2 |
 | --- |:---:|:---:|:---:|:---:|
 | MFA를 사용하여 Azure AD 테넌트 계정 보호 | ● | ● (Azure AD 전역 관리자 계정에만 해당) | ● | ● |
 | 두 번째 단계로 모바일 앱 | ● | ● | ● | ● |
@@ -58,11 +58,11 @@ Azure Multi-Factor Authentication은 조직의 필요에 따라 몇 가지 방�
 
 ## <a name="purchase-and-enable-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 구매 및 사용
 
-Azure Multi-Factor Authentication을 사용하려면 적격 Azure AD 계층에 등록하거나 구매합니다. Azure AD는 무료, Office 365 앱, 프리미엄 P1 및 Premium P2의 네 가지 버전으로 제공 됩니다.
+Azure Multi-Factor Authentication을 사용하려면 적격 Azure AD 계층에 등록하거나 구매합니다. Azure AD는 Free, Microsoft 365 apps, Premium P1 및 Premium P2의 네 가지 버전으로 제공 됩니다.
 
 Free 버전은 Azure 구독에 포함되어 있습니다. 보안 기본값을 사용하는 방법에 대한 자세한 내용 또는 Azure AD 전역 관리자 역할로 계정을 보호하는 방법에 대한 자세한 내용은 [아래 섹션](#azure-ad-free-tier)을 참조하세요.
 
-Azure AD Premium 버전은 Microsoft 담당자, [오픈 볼륨 라이선스 프로그램](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx) 및 [클라우드 솔루션 공급자 프로그램](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409)을 통해 사용할 수 있습니다. Azure 및 Microsoft 365 구독자는 Azure Active Directory Premium P1 및 P2를 온라인으로 구매할 수도 있습니다. 구매하려면 [로그인](https://portal.office.com/Commerce/Catalog.aspx)하세요.
+Azure AD Premium 버전은 Microsoft 담당자, [오픈 볼륨 라이선스 프로그램](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx) 및 [클라우드 솔루션 공급자 프로그램](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409)을 통해 사용할 수 있습니다. Azure 및 Microsoft 365 구독자는 온라인에서 Azure Active Directory Premium P1 및 P2를 구입할 수도 있습니다. 구매하려면 [로그인](https://portal.office.com/Commerce/Catalog.aspx)하세요.
 
 필요한 Azure AD 계층을 구매한 후 [Azure Multi-Factor Authentication을 계획 및 배포](howto-mfa-getstarted.md)합니다.
 

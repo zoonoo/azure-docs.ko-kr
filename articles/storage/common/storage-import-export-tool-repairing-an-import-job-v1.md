@@ -1,19 +1,19 @@
 ---
 title: Azure Import/Export 가져오기 작업 복구 - v1 | Microsoft Docs
 description: Azure Import/Export 서비스를 사용하여 생성 및 실행된 가져오기 작업을 복구하는 방법을 알아봅니다.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/23/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: b3ba9844bf8412e169322fd4953cbc259a94e174
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d67046f799e60db3101dfeb27dee10f92f9aad79
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525778"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052429"
 ---
 # <a name="repairing-an-import-job"></a>가져오기 작업 복구
 Microsoft Azure Import/Export 서비스는 Microsoft Azure Blob service에 파일 또는 파일의 일부를 복사하지 못할 수 있습니다. 이 오류의 몇 가지 원인은 다음과 같습니다.  

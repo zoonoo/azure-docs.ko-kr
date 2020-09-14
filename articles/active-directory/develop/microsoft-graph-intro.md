@@ -11,19 +11,19 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: fb6f5c4840f127ac174b6b60359dd52a4797b3ec
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 13cbeca909b445d75fcbcf7b3751183421479d42
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119677"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052565"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 Microsoft Graph API는 Microsoft 클라우드 서비스 리소스에 액세스할 수 있도록 하는 RESTful 웹 API입니다. 앱을 등록 하 고 사용자 또는 서비스에 대 한 인증 토큰을 가져온 후 Microsoft Graph API에 대 한 요청을 수행할 수 있습니다. 자세한 내용은 [Microsoft Graph 개요](/graph/overview)를 참조 하세요.
 
 Microsoft Graph는 REST Api 및 클라이언트 라이브러리를 노출 하 여 다음 Microsoft 365 서비스의 데이터에 액세스 합니다.
-- Office 365 서비스: Delve, Excel, Microsoft 예약, Microsoft 팀, OneDrive, OneNote, Outlook/Exchange, Planner 및 SharePoint
+- Microsoft 365 services: Delve, Excel, Microsoft 예약, Microsoft 팀, OneDrive, OneNote, Outlook/Exchange, Planner 및 SharePoint
 - Enterprise Mobility and Security services: Advanced Threat Analytics, Advanced Threat Protection, Azure Active Directory, Identity Manager 및 Intune
 - Windows 10 서비스: 활동, 장치, 알림
 - Dynamics 365 Business Central
@@ -36,7 +36,7 @@ Microsoft Graph는 REST Api 및 클라이언트 라이브러리를 노출 하 �
 
 V1.0 Api 사용을 시작 하려면 [Microsoft Graph REST API v1.0 참조](/graph/api/overview?view=graph-rest-1.0) 를 참조 하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 사용자 또는 전자 메일 메시지와 같은 리소스를 읽거나 쓰려면 다음과 같은 요청을 생성 합니다.
 

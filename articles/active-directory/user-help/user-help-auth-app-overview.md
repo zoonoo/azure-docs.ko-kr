@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7f4c09a32794e13b0e0041ee916401b714d8509e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799437"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055234"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱이란?
 
@@ -41,8 +41,8 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 | ----|-----------|
 | 2단계 인증 | 암호 및 PIN 같은 두 가지 인증 정보만 사용해야 하는 인증 프로세스입니다. Microsoft Authenticator 앱은 표준 2단계 인증 및 암호 없는 로그인을 지원합니다. |
 | MFA(Multi-Factor authentication) | 모든 2단계 인증은 다단계 인증이며, 조직의 요구 사항에 따라 *최소한* 두 가지 인증 정보를 사용해야 합니다. |
-| Microsoft 계정(MSA라고도 함) | 사용자가 고유한 개인 계정을 만들어서 Outlook, OneDrive, Xbox LIVE 또는 Office 365 같은 소비자 지향 Microsoft 제품 및 클라우드 서비스에 액세스합니다. Microsoft 계정은 Microsoft에서 실행하는 Microsoft 소비자 ID 계정 시스템에 생성되고 저장됩니다. |
-| 회사 또는 학교 계정 | 사용자가 Microsoft Azure, Windows Intune 및 Office 365 같은 내부의 제한된 리소스에 액세스할 수 있도록 조직에서 회사 또는 학교 계정(예: alain@contoso.com)을 만듭니다. |
+| Microsoft 계정(MSA라고도 함) | 사용자 고유의 개인 계정을 만들어 Outlook, OneDrive, Xbox LIVE, Microsoft 365 등의 소비자 지향 Microsoft 제품 및 클라우드 서비스에 액세스할 수 있습니다. Microsoft 계정은 Microsoft에서 실행하는 Microsoft 소비자 ID 계정 시스템에 생성되고 저장됩니다. |
+| 회사 또는 학교 계정 | 조직에서는 회사 또는 학교 계정 (예:)을 만들어 alain@contoso.com Microsoft Azure, Windows Intune, Microsoft 365 등의 제한 된 내부 리소스에 액세스할 수 있습니다. |
 | 확인 코드 | 추가된 각 계정 아래의 인증 앱에 표시되는 6자리 코드입니다. 확인 코드는 30초마다 변경되므로 코드 하나를 여러 번 사용할 수 없습니다. 이것을 OTP(일회성 암호)라고도 합니다. |
 
 ## <a name="how-two-factor-verification-works-with-the-app"></a>2단계 인증이 앱에서 작동하는 원리

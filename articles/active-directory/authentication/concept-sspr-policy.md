@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4cfeda0d06c1e6956c7bbc953f1082a3510e8712
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005023"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052718"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Azure Active Directory의 암호 정책 및 계정 제한
 
@@ -108,7 +108,7 @@ Microsoft는 모든 Azure 관리자 역할에 대해 강력한 기본 *두 게�
 
 PowerShell cmdlet을 사용 하 여 만료 되지 않는 구성을 제거 하거나 어떤 사용자 암호가 만료 되지 않도록 설정 되어 있는지 확인할 수도 있습니다.
 
-이 지침은 ID 및 디렉터리 서비스로 Azure AD를 사용하는 Intune, Office 365와 같은 다른 공급자에 제공됩니다. 암호 만료는 정책에서 변경할 수 있는 유일한 부분입니다.
+이 지침은 id 및 디렉터리 서비스에 Azure AD를 사용 하는 Intune 및 Microsoft 365 같은 다른 공급자에 적용 됩니다. 암호 만료는 정책에서 변경할 수 있는 유일한 부분입니다.
 
 > [!NOTE]
 > Azure AD Connect를 통해 동기화 되지 않는 사용자 계정의 암호만 만료 되지 않도록 구성할 수 있습니다. 디렉터리 동기화에 대한 자세한 내용은 [Azure AD와 AD 연결](../hybrid/whatis-hybrid-identity.md)을 참조하세요.

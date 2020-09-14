@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7fe5072042553d676c798a32e0ca6fc28e92332d
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213744"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054469"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft 365 그룹에 명명 정책 적용
 
@@ -229,14 +229,14 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="experience-across-office-365-apps"></a>Office 365 앱에서 환경
+## <a name="experience-across-microsoft-365-apps"></a>Microsoft 365 앱에서 환경
 
-Azure AD에서 그룹 명명 정책을 설정한 후 사용자가 Office 365 앱에서 그룹을 만들면 다음 항목이 표시됩니다.
+Azure AD에서 그룹 명명 정책을 설정한 후 사용자가 Microsoft 365 앱에서 그룹을 만들 때 다음을 확인할 수 있습니다.
 
 - 사용자가 그룹 이름을 입력하면 바로 명명 정책에 따라 (접두사 및 접미사와 함께) 이름 미리 보기가 표시됩니다.
 - 사용자가 차단된 단어를 입력하면 차단된 단어를 제거할 수 있도록 오류 메시지가 표시됩니다.
 
-워크로드 | 규정 준수
+작업 | 규정 준수
 ----------- | -------------------------------
 Azure Active Directory 포털 | Azure AD 포털 및 액세스 패널 포털에는 그룹을 작성하거나 편집할 때 사용자가 그룹 이름을 입력하면 명명 정책이 적용된 이름이 표시됩니다. 사용자 정의 차단 단어를 입력하면 사용자가 이를 제거할 수 있도록 차단된 단어와 함께 오류 메시지가 표시됩니다.
 OWA(Outlook Web Access) | Outlook Web Access는 사용자가 그룹 이름 또는 그룹 별칭을 입력할 때 명명 정책이 적용된 이름을 표시합니다. 사용자 정의 차단 단어를 입력하면 사용자가 이를 제거할 수 있도록 차단된 단어와 함께 UI에 오류 메시지가 표시됩니다.
@@ -252,7 +252,7 @@ SDS(학교 데이터 동기화) | SDS를 통해 만든 그룹은 명명 정책�
 OCM(Outlook Customer Manager) | Outlook Customer Manager는 Outlook Customer Manager에서 생성된 그룹에 자동으로 적용되는 이름 명명 정책을 준수합니다. 사용자 정의 차단 단어가 검색되면 OCM에서 그룹 생성이 차단되고 사용자의 OCM 애플리케이션 앱 사용이 차단됩니다.
 교실 앱 | 교실 앱에서 만든 그룹은 명명 정책을 준수하지만 명명 정책은 자동으로 적용되지 않으며 교실 그룹 이름을 입력하는 동안 명명 정책 미리 보기가 사용자에게 표시되지 않습니다. 사용자는 접두사 및 접미사와 함께 적용된 교실 그룹 이름을 입력해야 합니다. 그렇지 않으면 교실 그룹 생성 또는 편집 작업에 실패하고 오류가 발생합니다.
 Power BI | Power BI 작업 공간은 명명 정책을 준수합니다.    
-Yammer | Azure Active Directory 계정을 사용하여 Yammer에 로그인한 사용자가 그룹을 만들거나 그룹 이름을 편집할 때는 그룹 이름이 이름 지정 정책을 준수해야 합니다. 이것은 Office 365 연결 그룹 및 다른 모든 Yammer 그룹에 적용됩니다.<br>Office 365 연결 그룹이 이름 지정 정책이 적용되기 이전에 생성된 경우 이 그룹 이름은 자동으로 이름 지정 규칙을 따르지 않습니다. 사용자가 해당 그룹 이름을 편집할 때 접두사와 접미사를 추가하라는 메시지가 표시됩니다.
+Yammer | Azure Active Directory 계정을 사용하여 Yammer에 로그인한 사용자가 그룹을 만들거나 그룹 이름을 편집할 때는 그룹 이름이 이름 지정 정책을 준수해야 합니다. 이는 Microsoft 365 연결 된 그룹 및 다른 모든 Yammer 그룹에 적용 됩니다.<br>명명 정책을 적용 하기 전에 Microsoft 365 연결 그룹이 만들어진 경우 그룹 이름이 명명 정책을 자동으로 따르지 않습니다. 사용자가 해당 그룹 이름을 편집할 때 접두사와 접미사를 추가하라는 메시지가 표시됩니다.
 StaffHub  | StaffHub 팀은 명명 정책을 따르지 않지만 기본 Microsoft 365 그룹은 그렇지 않습니다. StaffHub 팀 이름은 접두사 및 접미사를 적용하지 않으며 사용자 정의 차단 단어를 확인하지 않습니다. 그러나 StaffHub는 접두사 및 접미사를 적용 하 고 기본 Microsoft 365 그룹에서 차단 된 단어를 제거 합니다.
 Exchange PowerShell | Exchange PowerShell cmdlet은 명명 정책을 준수합니다. 그룹 이름 및 그룹 별칭(mailNickname)의 명명 정책을 따르지 않는 경우 제안되는 접두사 및 접미사와 함께 사용자 정의 차단 단어에 해당하는 오류 메시지가 표시됩니다.
 Azure Active Directory PowerShell cmdlet | Azure Active Directory PowerShell cmdlet은 명명 정책을 준수합니다. 그룹 이름 및 그룹 별칭의 명명 정책을 따르지 않는 경우 제안되는 접두사 및 접미사와 함께 사용자 정의 차단 단어에 해당하는 오류 메시지가 표시됩니다.

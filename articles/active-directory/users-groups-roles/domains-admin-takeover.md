@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ccf986f81ec3abed54c85640b8afb1c5cf7172
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015887"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054707"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Microsoft Azure Active Directory에서 관리자로서 관리되지 않는 디렉터리 인수
 
@@ -34,7 +34,7 @@ ms.locfileid: "87015887"
 
 ## <a name="internal-admin-takeover"></a>내부 관리자 인수
 
-Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 외부 인수를 지원하지 않습니다. 사용자의 시나리오 이거나 관리자 이며 셀프 서비스 등록을 사용 하는 사용자가 만든 관리 되지 않거나 "섀도" Azure AD 조직을 사용 하려는 경우에는 내부 관리자 인수을 사용 하 여이 작업을 수행할 수 있습니다.
+Microsoft 365와 같이 SharePoint 및 OneDrive를 포함 하는 일부 제품은 외부 인수을 지원 하지 않습니다. 사용자의 시나리오 이거나 관리자 이며 셀프 서비스 등록을 사용 하는 사용자가 만든 관리 되지 않거나 "섀도" Azure AD 조직을 사용 하려는 경우에는 내부 관리자 인수을 사용 하 여이 작업을 수행할 수 있습니다.
 
 1. Power BI에 등록 하 여 관리 되지 않는 조직에서 사용자 컨텍스트를 만듭니다. 예제의 편의를 위해 이러한 단계는 해당 경로를 가정합니다.
 
@@ -52,7 +52,7 @@ Office 365와 같이 SharePoint 및 OneDrive를 포함하는 일부 제품은 �
 
 DNS TXT 레코드를 도메인 이름 등록 기관에서 확인 하는 경우 Azure AD 조직을 관리할 수 있습니다.
 
-위의 단계를 완료 하면 이제 Office 365의 네 번째 커피 조직의 전역 관리자가 됩니다. 도메인 이름을 다른 Azure 서비스와 통합 하려면 Office 365에서 해당 이름을 제거 하 고 Azure의 다른 관리 되는 조직에 추가 하면 됩니다.
+앞의 단계를 완료 하면 Microsoft 365에서 네 번째 커피 조직의 전역 관리자가 됩니다. 도메인 이름을 다른 Azure 서비스와 통합 하려면 Microsoft 365에서 제거 하 여 Azure의 다른 관리 되는 조직에 추가 합니다.
 
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Azure AD에서 관리 되는 조직에 도메인 이름 추가
 
@@ -61,9 +61,9 @@ DNS TXT 레코드를 도메인 이름 등록 기관에서 확인 하는 경우 A
 3. 새 사용자 계정에 Azure AD 조직에 대 한 전역 관리자 권한이 있는지 확인 합니다.
 4. Microsoft 365 관리 센터에서 **도메인** 탭을 열고 도메인 이름을 선택한 다음 **제거**를 선택 합니다. 
   
-   ![Office 365에서 도메인 이름 제거](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![Microsoft 365에서 도메인 이름 제거](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. 제거된 도메인 이름을 참조하는 Office 365에 사용자 또는 그룹이 있다면 이러한 이름은 onmicrosoft.com 도메인으로 이름이 변경되어야 합니다. 강제로 도메인 이름을 삭제 하면이 예제에서 *사용자 \@ fourthcoffeexyz.onmicrosoft.com*에 모든 사용자의 이름이 자동으로 바뀝니다.
+5. 제거 된 도메인 이름을 참조 하는 Microsoft 365의 사용자 또는 그룹이 있는 경우 해당 이름을 onmicrosoft.com 도메인으로 변경 해야 합니다. 강제로 도메인 이름을 삭제 하면이 예제에서 *사용자 \@ fourthcoffeexyz.onmicrosoft.com*에 모든 사용자의 이름이 자동으로 바뀝니다.
   
 6. Azure ad 조직에 대 한 전역 관리자 인 계정으로 [AZURE ad 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 에 로그인 합니다.
   
@@ -72,11 +72,11 @@ DNS TXT 레코드를 도메인 이름 등록 기관에서 확인 하는 경우 A
    ![Azure AD에 추가 된 것으로 확인 된 도메인](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Office 365 조직에 할당 된 라이선스가 있는 Power BI 또는 Azure Rights Management 서비스의 사용자는 도메인 이름이 제거 되 면 대시보드를 저장 해야 합니다. 사용자 * \@ fourthcoffee*대신 사용자 * \@ fourthcoffeexyz.onmicrosoft.com* 같은 사용자 이름으로 로그인 해야 합니다.
+> Microsoft 365 조직에 할당 된 라이선스가 있는 Power BI 또는 Azure Rights Management 서비스의 사용자는 도메인 이름을 제거 하는 경우 해당 대시보드를 저장 해야 합니다. 사용자 * \@ fourthcoffee*대신 사용자 * \@ fourthcoffeexyz.onmicrosoft.com* 같은 사용자 이름으로 로그인 해야 합니다.
 
 ## <a name="external-admin-takeover"></a>외부 관리자 인수
 
-이미 Azure 서비스 또는 Office 365를 사용 하 여 조직을 관리 하는 경우 다른 Azure AD 조직에서 이미 확인 된 사용자 지정 도메인 이름을 추가할 수 없습니다. 그러나 Azure AD의 관리 되는 조직에서는 외부 관리자 인수 관리 되지 않는 조직을 사용할 수 있습니다. 일반적인 절차는 [Microsoft Azure AD에 사용자 지정 도메인 추가](../fundamentals/add-custom-domain.md) 문서를 따릅니다.
+이미 Azure 서비스 또는 Microsoft 365를 사용 하 여 조직을 관리 하는 경우 다른 Azure AD 조직에서 이미 확인 된 경우 사용자 지정 도메인 이름을 추가할 수 없습니다. 그러나 Azure AD의 관리 되는 조직에서는 외부 관리자 인수 관리 되지 않는 조직을 사용할 수 있습니다. 일반적인 절차는 [Microsoft Azure AD에 사용자 지정 도메인 추가](../fundamentals/add-custom-domain.md) 문서를 따릅니다.
 
 도메인 이름의 소유권을 확인 하는 경우 Azure AD는 관리 되지 않는 조직에서 도메인 이름을 제거 하 고 기존 조직으로 이동 합니다. 관리되지 않는 디렉터리의 외부 관리자 인수를 하려면 내부 관리자 인수와 동일한 DNS TXT 유효성 검사 프로세스를 필요로 합니다. 차이점은 또한 다음을 도메인 이름과 함께 이동할 수 있습니다.
 
@@ -113,14 +113,14 @@ SharePoint, OneDrive 또는 비즈니스용 Skype를 포함 하는 서비스 계
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>ForceTakeover 옵션에 대한 Microsoft Azure AD PowerShell cmdlets
 [PowerShell 예](#powershell-example)에서 사용되는 이러한 cmdlet을 참조할 수 있습니다.
 
-Cmdlet | 사용
+Cmdlet | 사용량
 ------- | -------
 `connect-msolservice` | 메시지가 표시 되 면 관리 되는 조직에 로그인 합니다.
 `get-msoldomain` | 현재 조직과 연결 된 도메인 이름을 표시 합니다.
 `new-msoldomain –name <domainname>` | 조직에 도메인 이름을 확인 되지 않음으로 추가 합니다 (DNS 확인이 아직 수행 되지 않음).
 `get-msoldomain` | 이제 도메인 이름이 관리 되는 조직과 연결 된 도메인 이름 목록에 포함 되어 있지만 확인 되지 **않음으로 표시 됩니다.**
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | 도메인에 대해 새 DNS TXT 레코드를 저장할 정보 제공 (MS = xxxxx). TXT 레코드가 전파되는 데 약간의 시간이 걸리므로 확인이 즉시 이뤄지지 않을 수도 있습니다. 따라서 **-ForceTakeover** 옵션을 고려하기 전에 몇 분 정도 기다리십시오. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>여전히 도메인 이름이 확인되지 않는 경우 **-ForceTakeover** 옵션을 사용하여 진행할 수 있습니다. TXT 레코드가 만들어졌는지 확인하고 인수 프로세스를 시작합니다.<li>**ForceTakeover** 옵션은 관리 되지 않는 조직에 인수를 차단 하는 Office 365 서비스가 있는 경우와 같이 외부 관리자 인수을 적용 하는 경우에만 cmdlet에 추가 해야 합니다.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>여전히 도메인 이름이 확인되지 않는 경우 **-ForceTakeover** 옵션을 사용하여 진행할 수 있습니다. TXT 레코드가 만들어졌는지 확인하고 인수 프로세스를 시작합니다.<li>**ForceTakeover** 옵션은 관리 되지 않는 조직에 인수를 차단 하는 Microsoft 365 서비스가 있는 경우와 같이 외부 관리자 인수을 적용 하는 경우에만 cmdlet에 추가 해야 합니다.
 `get-msoldomain` | 이제 도메인 목록은 도메인 이름을 **확인됨**으로 표시합니다.
 
 > [!NOTE]
@@ -144,12 +144,12 @@ Cmdlet | 사용
    ```powershell
    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
    ```
-    예를 들어:
+    다음은 그 예입니다. 
    ```
    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 예를 들어:
+4. 이 명령에서 반환되는 값(챌린지)을 복사합니다. 다음은 그 예입니다. 
    ```powershell
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -160,7 +160,7 @@ Cmdlet | 사용
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   예를 들어:
+   다음은 그 예입니다. 
   
    ```powershell
    Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force

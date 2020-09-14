@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ed286cf2b11429d5f0f56b3a85f173c2a39bc81
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799301"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054554"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Microsoft 365 그룹에 대 한 만료 정책 구성
 
@@ -42,7 +42,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 
 ## <a name="activity-based-automatic-renewal"></a>활동 기준 자동 갱신
 
-이제 Azure AD intelligence를 사용 하 여 그룹이 최근에 사용 되었는지 여부에 따라 자동으로 갱신 됩니다. 이 기능은 Outlook, SharePoint 또는 팀과 같은 Office 365 서비스에서 그룹의 사용자 작업을 기반으로 하기 때문에 그룹 소유자가 수동 작업을 수행할 필요가 없습니다. 예를 들어 소유자 또는 그룹 구성원이 SharePoint에서 문서를 업로드 하거나 팀 채널을 방문 하거나 Outlook의 그룹으로 전자 메일을 보내면 그룹이 자동으로 갱신 되 고 소유자에 게 갱신 알림이 수신 되지 않습니다.
+이제 Azure AD intelligence를 사용 하 여 그룹이 최근에 사용 되었는지 여부에 따라 자동으로 갱신 됩니다. 이 기능을 사용 하면 그룹 소유자가 Outlook, SharePoint 또는 팀과 같은 Microsoft 365 서비스에서 그룹의 사용자 활동을 기반으로 하므로 수동 작업을 수행할 필요가 없습니다. 예를 들어 소유자 또는 그룹 구성원이 SharePoint에서 문서를 업로드 하거나 팀 채널을 방문 하거나 Outlook의 그룹으로 전자 메일을 보내면 그룹이 자동으로 갱신 되 고 소유자에 게 갱신 알림이 수신 되지 않습니다.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>그룹 만료를 자동으로 갱신 하는 작업
 

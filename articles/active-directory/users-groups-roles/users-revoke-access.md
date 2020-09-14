@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76a2e4cb170ca5bee41c0ae8f3e0557eab19562e
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: a8d1b6d912cadb073251d72ee327f4b19950ab1b
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147136"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055188"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Azure Active Directory에서 사용자 액세스 취소
 
@@ -38,7 +38,7 @@ ms.locfileid: "89147136"
 
 그런 다음 Azure AD는 해당 권한 부여 정책을 다시 평가 합니다. 사용자에 게 계속 권한이 부여 된 경우 Azure AD는 새 액세스 토큰과 새로 고침 토큰을 발급 합니다.
 
-액세스 토큰은 토큰의 수명 보다 짧은 시간 내에 액세스를 취소 해야 하는 경우에 보안 문제가 될 수 있습니다. 일반적으로 약 1 시간입니다. 이러한 이유로 Microsoft는 거의 실시간으로 액세스 토큰을 무효화 하는 데 도움이 되는 Office 365 응용 프로그램에 [지속적으로 액세스를 평가](../conditional-access/concept-continuous-access-evaluation.md) 하는 데 적극적으로 노력 하 고 있습니다.  
+액세스 토큰은 토큰의 수명 보다 짧은 시간 내에 액세스를 취소 해야 하는 경우에 보안 문제가 될 수 있습니다. 일반적으로 약 1 시간입니다. 이러한 이유로 Microsoft는 거의 실시간으로 액세스 토큰을 무효화 하는 데 도움이 되는 Microsoft 365 응용 프로그램에 [지속적으로 액세스를 평가](../conditional-access/concept-continuous-access-evaluation.md) 하는 데 적극적으로 노력 하 고 있습니다.  
 
 ## <a name="session-tokens-cookies"></a>세션 토큰 (쿠키)
 

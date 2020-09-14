@@ -3,7 +3,7 @@ title: SharePoint용 StorSimple 어댑터 설치 | Microsoft Docs
 description: SharePoint 서버 팜에서 SharePoint용 StorSimple 어댑터를 설치 및 구성하거나 제거하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: 36c20b75-f2e5-4184-a6b5-9c5e618f79b2
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
-ms.author: twooley
-ms.openlocfilehash: a841ce8b664389ccd8fdf55de9965f09412fecf5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: a33e01d68a31585e216faa51ac8af193d86c6123
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75930218"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053279"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터 설치 및 구성
 ## <a name="overview"></a>개요

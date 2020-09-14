@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0019f7d8195dc39127b992a31ebd8c33e55452f6
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9d5ffaf996f51348334f4adeeae150db9eb0defa
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179354"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052667"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>재인증 프롬프트를 최적화 하 고 Azure Multi-Factor Authentication의 세션 수명 이해
 
@@ -36,7 +36,7 @@ IT 정책 위반으로 인해 세션이 취소 되는 경우 사용자에 게 �
     * [관리 장치](../devices/overview.md) 또는 [원활한 SSO](../hybrid/how-to-connect-sso.md)를 사용 하 여 응용 프로그램에서 sso (Single Sign-On)를 사용 하도록 설정 합니다.
     * 재인증이 필요한 경우 조건부 액세스 [로그인 빈도 정책을](../conditional-access/howto-conditional-access-session-lifetime.md)사용 합니다.
     * 관리 되지 않는 장치 또는 모바일 장치 시나리오에서 로그인 하는 사용자의 경우 조건부 액세스를 사용 하 여 영구 브라우저 세션 및 로그인 빈도 정책을 사용 하도록 설정 합니다.
-* Office 365 앱 라이선스 또는 무료 Azure AD 계층이 있는 경우:
+* Microsoft 365 apps 라이선스 또는 무료 Azure AD 계층이 있는 경우:
     * [관리 장치](../devices/overview.md) 또는 [원활한 SSO](../hybrid/how-to-connect-sso.md)를 사용 하 여 응용 프로그램에서 sso (Single Sign-On)를 사용 하도록 설정 합니다.
     * 로그인 된 *상태로 유지* 옵션을 사용 하도록 설정 하 고 사용자에 게 동의 하도록 안내 합니다.
 * 모바일 장치 시나리오의 경우 사용자가 Microsoft Authenticator 앱을 사용 하는지 확인 합니다. 이 앱은 다른 Azure AD 페더레이션된 앱에 대 한 브로커로 사용 되며, 장치에서 인증 프롬프트가 줄어듭니다.
@@ -123,13 +123,13 @@ Multi-factor authentication 설정을 기억을 하려면 다음 단계를 완�
 
 토큰 수명을 검토 하려면 [AZURE Ad PowerShell을 사용 하 여 AZURE ad 정책을 쿼리](../develop/active-directory-configurable-token-lifetimes.md#prerequisites)합니다. 현재 보유 하 고 있는 모든 정책을 사용 하지 않도록 설정 합니다.
 
-테 넌 트에서 둘 이상의 설정을 사용 하는 경우 사용 가능한 라이선스에 따라 설정을 업데이트 하는 것이 좋습니다. 예를 들어 Azure AD premium 라이선스가 있는 경우 *로그인 빈도* 및 *영구 브라우저 세션*의 조건부 액세스 정책만 사용 해야 합니다. Office 365 앱 또는 Azure AD 무료 라이선스를 사용 하는 경우 *로그인 상태 유지?* 구성을 사용 해야 합니다.
+테 넌 트에서 둘 이상의 설정을 사용 하는 경우 사용 가능한 라이선스에 따라 설정을 업데이트 하는 것이 좋습니다. 예를 들어 Azure AD premium 라이선스가 있는 경우 *로그인 빈도* 및 *영구 브라우저 세션*의 조건부 액세스 정책만 사용 해야 합니다. Microsoft 365 앱 또는 Azure AD 무료 라이선스를 사용 하는 경우 *로그인 상태 유지?* 구성을 사용 해야 합니다.
 
 구성 가능한 토큰 수명을 사용 하는 경우이 기능은 곧 제거 될 예정입니다. 조건부 액세스 정책으로의 마이그레이션을 계획 합니다.
 
 다음 표에는 라이선스에 따른 권장 사항이 요약 되어 있습니다.
 
-|              | Azure AD Free 및 Office 365 앱 | Azure AD Premium |
+|              | Azure AD Free 및 Microsoft 365 앱 | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
 | **SSO**                      | [AZURE ad 조인](../devices/concept-azure-ad-join.md) 또는 [하이브리드 azure ad 조인](../devices/concept-azure-ad-join-hybrid.md)또는 관리 되지 않는 장치에 대 한 [원활한 SSO](../hybrid/how-to-connect-sso.md) . | Azure AD 조인<br />하이브리드 Azure AD 조인 |
 | **재인증 설정** | 로그인 상태 유지                  | 로그인 빈도 및 영구 브라우저 세션에 대 한 조건부 액세스 정책 사용 |

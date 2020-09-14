@@ -14,18 +14,18 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1041cb5fc4aa7503f5ae9de6ffc74ba72052b8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421402"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055455"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>PIM에서 내 Azure AD 역할 활성화
 
-Azure AD(Azure Active Directory) PIM(Privileged Identity Management)을 사용하면 기업이 Azure AD 및 기타 Microsoft Online Services(Office 365 또는 Microsoft Intune 등)에서 권한 있는 리소스에 대한 액세스를 관리하는 방법을 간소화합니다.  
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM)는 기업에서 Azure AD 리소스에 대 한 권한 있는 액세스를 관리 하는 방법과 Microsoft 365 또는 Microsoft Intune 같은 기타 Microsoft 온라인 서비스를 간소화 합니다.  
 
-관리 역할에 적격 한 경우 권한 있는 작업을 수행 해야 할 때 역할 할당을 활성화 해야 합니다. 예를 들어 경우에 따라 Office 365 기능을 관리하는 경우 조직의 권한 있는 역할 관리자는 해당 역할이 다른 서비스에도 또한 영향을 주므로 사용자를 영구적인 전역 관리자로 만들지 못할 수 있습니다. 대신 Exchange Online 관리자와 같은 Azure AD 역할에 대한 자격을 줍니다. 이러한 권한이 필요한 경우 해당 역할을 활성화하도록 요청하고 미리 결정된 기간 동안 제어할 수 있는 관리자 권한을 부여받습니다.
+관리 역할에 적격 한 경우 권한 있는 작업을 수행 해야 할 때 역할 할당을 활성화 해야 합니다. 예를 들어 Microsoft 365 기능을 관리 하는 경우 조직의 권한 있는 역할 관리자는 다른 서비스에도 영향을 주므로 영구 전역 관리자를 만들지 못할 수 있습니다. 대신 Exchange Online 관리자와 같은 Azure AD 역할에 대한 자격을 줍니다. 이러한 권한이 필요한 경우 해당 역할을 활성화하도록 요청하고 미리 결정된 기간 동안 제어할 수 있는 관리자 권한을 부여받습니다.
 
 이 문서는 Privileged Identity Management에서 Azure AD 역할을 활성화 해야 하는 관리자를 위한 것입니다.
 
@@ -118,7 +118,7 @@ Privileged Identity Management에서 역할을 활성화할 때 활성화는 권
 
 # <a name="previous-version"></a>[이전 버전](#tab/previous)
 
-## <a name="activate-a-role"></a>역할 활성화
+## <a name="activate-a-role-previous-version"></a>역할 활성화 (이전 버전)
 
 Azure AD 역할을 수행 해야 하는 경우 Privileged Identity Management의 **내 역할** 탐색 옵션을 사용 하 여 활성화를 요청할 수 있습니다.
 
@@ -168,7 +168,7 @@ Azure AD 역할을 수행 해야 하는 경우 Privileged Identity Management의
 
     역할을 활성화 하는 데 [승인이 필요한](./azure-ad-pim-approval-workflow.md) 경우 요청이 승인 보류 중임을 알리는 Azure 알림이 브라우저의 오른쪽 위 모서리에 표시 됩니다.
 
-## <a name="view-the-status-of-your-requests"></a>요청 상태 보기
+## <a name="view-the-status-of-your-requests-previous-version"></a>요청 상태 보기 (이전 버전)
 
 보류 중인 요청의 상태를 보고 활성화할 수 있습니다.
 
@@ -180,7 +180,7 @@ Azure AD 역할을 수행 해야 하는 경우 Privileged Identity Management의
 
     ![Azure AD 역할-내 요청 목록](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
-## <a name="deactivate-a-role"></a>역할 비활성화
+## <a name="deactivate-a-role-previous-version"></a>역할 비활성화 (이전 버전)
 
 역할이 활성화된 후 시간 제한(적격 기간)에 도달하면 자동으로 비활성화됩니다.
 
@@ -196,7 +196,7 @@ Azure AD 역할을 수행 해야 하는 경우 Privileged Identity Management의
 
 1. 사용하고 있는 역할을 찾은 다음, **비활성화**를 클릭합니다.
 
-## <a name="cancel-a-pending-request"></a>보류 중인 요청 취소
+## <a name="cancel-a-pending-request-previous-version"></a>보류 중인 요청 취소 (이전 버전)
 
 승인이 필요한 역할을 활성화할 필요가 없으면 언제든지 보류 중인 요청을 취소할 수 있습니다.
 
@@ -212,7 +212,7 @@ Azure AD 역할을 수행 해야 하는 경우 Privileged Identity Management의
 
    ![취소 단추가 강조 표시 된 내 요청 목록](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
-## <a name="troubleshoot"></a>문제 해결
+## <a name="troubleshoot-previous-version"></a>문제 해결 (이전 버전)
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>역할을 활성화한 후 권한이 부여되지 않음
 

@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee4b15311dfefecd9a533add9c5a028a9b7b22fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8bed0f6cc32c25563d322da77193c5a3b6072902
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051166"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052282"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 데이터 보존 및 고객 데이터
 
-고객 데이터는 Office 365 및 Azure와 같은 Microsoft 온라인 서비스를 구독할 때 조직에서 제공하는 주소에 따라 지리적 위치에서 Azure AD에 의해 저장됩니다. 고객 데이터를 저장하는 위치에 대한 정보는 Microsoft 보안 센터의 [데이터를 어디에 배치하나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 사용할 수 있습니다.
+고객 데이터는 Microsoft 365 및 Azure와 같은 Microsoft 온라인 서비스를 구독할 때 조직에서 제공 하는 주소에 따라 지리적 위치에 Azure AD에 저장 됩니다. 고객 데이터를 저장하는 위치에 대한 정보는 Microsoft 보안 센터의 [데이터를 어디에 배치하나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 섹션을 사용할 수 있습니다.
 
 클라우드 기반 Azure Multi-Factor Authentication 및 Azure Multi-Factor Authentication 서버는 일부 개인 데이터와 조직 데이터를 처리하고 저장합니다. 이 문서에서는 저장되는 데이터 및 위치를 간략하게 설명합니다.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/08/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a632e753426def52bb260d7bf01875ec24e2ea9e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2a40e908677a173862ad715f7024865ff728d0b9
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200134"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053456"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 및 Azure Data Box Heavy 관련 된 문제 해결
 
@@ -25,7 +25,7 @@ ms.locfileid: "86200134"
 
 Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
 
-| 오류 범주 *        | 설명        | 권장 조치    |
+| 오류 범주 *        | Description        | 권장 조치    |
 |----------------------------------------------|---------|--------------------------------------|
 | 컨테이너 또는 공유 이름 | 컨테이너 또는 공유 이름은 Azure 명명 규칙을 따르지 않습니다.  |오류 목록을 다운로드 합니다. <br> 컨테이너 또는 공유의 이름을 바꿉니다. [자세한 정보를 알아보세요](#container-or-share-name-errors).  |
 | 컨테이너 또는 공유 크기 제한 | 컨테이너 또는 공유의 총 데이터가 Azure 제한을 초과 합니다.   |오류 목록을 다운로드 합니다. <br> 컨테이너 또는 공유의 전체 데이터를 줄입니다. [자세한 정보를 알아보세요](#container-or-share-size-limit-errors).|
@@ -33,7 +33,7 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
 | 데이터 또는 파일 형식 | 데이터 형식 또는 파일 형식은 지원 되지 않습니다. |오류 목록을 다운로드 합니다. <br> 페이지 blob 또는 managed disks의 경우 데이터의 512 바이트를 정렬 하 고 미리 만든 폴더에 복사 해야 합니다. [자세한 정보를 알아보세요](#data-or-file-type-errors). |
 | 중요 하지 않은 blob 또는 파일 오류  | Blob 또는 파일 이름이 Azure 명명 규칙을 따르지 않거나 파일 형식이 지원 되지 않습니다. | 이러한 blob 또는 파일은 복사 되지 않거나 이름이 변경 될 수 있습니다. [이러한 오류를 해결 하는 방법을 알아봅니다](#non-critical-blob-or-file-errors). |
 
-\*처음 네 개의 오류 범주는 심각한 오류 이며 제공 준비를 진행 하기 전에 수정 해야 합니다.
+\* 처음 네 개의 오류 범주는 심각한 오류 이며 제공 준비를 진행 하기 전에 수정 해야 합니다.
 
 
 ## <a name="container-or-share-name-errors"></a>컨테이너 또는 공유 이름 오류
@@ -53,8 +53,8 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
     - 이름에는 문자, 숫자 및 하이픈만 사용할 수 있습니다.
     - 이름은 하이픈으로 시작 하거나 끝날 수 없습니다.
     - 이름에는 하이픈을 연속 해 서 사용할 수 없습니다.
-    - 유효한 이름 예: `my-folder-1` ,`my-really-extra-long-folder-111`
-    - 잘못 된 이름의 예:,, `my-folder_1` `my` `--myfolder` , `myfolder--` ,`myfolder!`
+    - 유효한 이름 예: `my-folder-1` , `my-really-extra-long-folder-111`
+    - 잘못 된 이름의 예:,, `my-folder_1` `my` `--myfolder` , `myfolder--` , `myfolder!`
 
     자세한 내용은 [컨테이너 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) 및 [공유 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)에 대 한 Azure 명명 규칙을 참조 하세요.
 
@@ -72,8 +72,8 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
     - 이름에는 문자, 숫자 및 하이픈만 사용할 수 있습니다.
     - 이름은 하이픈으로 시작 하거나 끝날 수 없습니다.
     - 이름에는 하이픈을 연속 해 서 사용할 수 없습니다.
-    - 유효한 이름 예: `my-folder-1` ,`my-really-extra-long-folder-111`
-    - 잘못 된 이름의 예:,, `my-folder_1` `my` `--myfolder` , `myfolder--` ,`myfolder!`
+    - 유효한 이름 예: `my-folder-1` , `my-really-extra-long-folder-111`
+    - 잘못 된 이름의 예:,, `my-folder_1` `my` `--myfolder` , `myfolder--` , `myfolder!`
 
     자세한 내용은 [컨테이너 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) 및 [공유 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)에 대 한 Azure 명명 규칙을 참조 하세요.
 
@@ -90,8 +90,8 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
     - 이름에는 문자, 숫자 및 하이픈만 사용할 수 있습니다.
     - 이름은 하이픈으로 시작 하거나 끝날 수 없습니다.
     - 이름에는 하이픈을 연속 해 서 사용할 수 없습니다.
-    - 유효한 이름 예: `my-folder-1` ,`my-really-extra-long-folder-111`
-    - 잘못 된 이름의 예:,, `my-folder_1` `my` `--myfolder` , `myfolder--` ,`myfolder!`
+    - 유효한 이름 예: `my-folder-1` , `my-really-extra-long-folder-111`
+    - 잘못 된 이름의 예:,, `my-folder_1` `my` `--myfolder` , `myfolder--` , `myfolder!`
 
     자세한 내용은 [컨테이너 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) 및 [공유 이름](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names)에 대 한 Azure 명명 규칙을 참조 하세요.
     
@@ -112,13 +112,17 @@ Data Box 및 Data Box Heavy의 오류는 다음과 같이 요약 됩니다.
 
 ### <a name="error_container_or_share_capacity_exceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**오류 설명:** Azure 파일 공유는 공유를 5TB의 데이터로 제한 합니다. 일부 공유에 대해이 제한을 초과 했습니다.
+**오류 설명:** Azure 파일 공유는 TiB의 데이터를 5 개까지 제한 하 고 저장소 계정에는 파일 공유를 사용할 수 없습니다. 일부 공유에 대해이 제한을 초과 했습니다.
 
 **권장 해결 방법:** 로컬 웹 UI의 **연결 및 복사** 페이지에서 오류 파일을 다운로드 하 고 검토 합니다.
 
-오류 로그에서이 문제가 있는 폴더를 확인 하 고 해당 폴더의 파일이 5TB 미만 인지 확인 합니다.
-
-
+- 오류 로그에서이 문제가 있는 폴더를 확인 하 고 해당 폴더의 파일이 5 TiB 아래에 있는지 확인 합니다.
+- 5 TiB 제한은 대량 파일 공유를 허용 하는 저장소 계정에는 적용 되지 않습니다. 그러나 주문을 할 때 많은 파일 공유를 구성 해야 합니다. 
+  - [Microsoft 지원](data-box-disk-contact-microsoft-support.md) 에 문의 하 고 새 배송 레이블을 요청 합니다.
+  - [저장소 계정에서 대량 파일 공유를 사용 하도록 설정 합니다.](../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-files-shares-on-an-existing-account)
+  - [저장소 계정에서 파일 공유를 확장](../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares) 하 고 할당량을 100 TiB 설정 합니다.
+  
+  
 ## <a name="object-or-file-size-limit-errors"></a>개체 또는 파일 크기 제한 오류
 
 이러한 오류는 개체의 최대 크기 또는 Azure에서 허용 되는 파일을 초과 하는 데이터와 관련 된 오류입니다. 

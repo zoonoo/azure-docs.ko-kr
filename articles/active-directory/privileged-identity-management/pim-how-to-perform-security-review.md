@@ -14,16 +14,16 @@ ms.date: 04/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4096c65fa4375152f44891d4a0a5aac4b9077cf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dd0b63e08f44167b89b6e2d491722f3708b4036
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743850"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055438"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 액세스 검토
 
-PIM (Privileged Identity Management)은 기업에서 AD (Azure Active Directory) 및 기타 Microsoft 온라인 서비스 (예: Office 365 또는 Microsoft Intune)의 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다. 이 문서의 단계에 따라 할당 된 역할을 직접 검토 합니다.
+PIM (Privileged Identity Management)은 기업에서 AD (Azure Active Directory) 및 기타 Microsoft 온라인 서비스 (예: Microsoft 365 또는 Microsoft Intune)에서 리소스에 대 한 권한 있는 액세스를 관리 하는 방법을 간소화 합니다 이 문서의 단계에 따라 할당 된 역할을 직접 검토 합니다.
 
 관리 역할에 할당된 경우 조직의 권한 있는 역할 관리자가 작업에 해당 역할이 여전히 필요한지 정기적으로 확인하도록 요청할 수 있습니다. 링크를 포함 하는 전자 메일을 받을 수도 있고, [Azure Portal](https://portal.azure.com) 로 바로 이동 하 여 시작할 수도 있습니다.
 

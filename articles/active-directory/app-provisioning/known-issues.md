@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/12/2020
+ms.date: 09/11/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2f83679a39f919e5e9932303731560aedd796233
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271008"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052389"
 ---
 # <a name="known-issues-application-provisioning"></a>알려진 문제: 응용 프로그램 프로 비전
 앱 프로 비전을 사용 하는 경우 알고 있어야 하는 알려진 문제입니다. UserVoice의 응용 프로그램 프로 비전 서비스에 대 한 피드백을 제공할 수 있습니다. [AZURE AD 응용 프로그램 프로 비전 uservoice](https://aka.ms/appprovisioningfeaturerequest)를 참조 하세요. 서비스를 개선할 수 있도록 UserVoice를 면밀 하 게 감시 합니다. 
@@ -66,7 +66,13 @@ Azure AD는 현재 null 특성을 프로 비전 할 수 없습니다. 사용자 
 - 중첩 그룹 프로 비전은 지원 되지 않습니다. 
 - 테 넌 트의 크기 때문에 B2C 테 넌 트에 프로 비전이 지원 되지 않습니다. 
 
-**프로 비전 간격이 고정 되어 있습니다** . 프로 비전 주기 사이의 [시간은](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) 현재 구성할 수 없습니다. 
+**내 OIDC 기반 응용 프로그램에서 자동 프로비저닝을 사용할 수 없음**
+
+앱 등록을 만드는 경우 enterprise apps의 해당 서비스 주체는 자동 사용자 프로 비전을 사용 하도록 설정 되지 않습니다. 여러 조직에서 사용 하려는 경우 갤러리에 앱을 추가 하도록 요청 하거나 프로 비전을 위해 두 번째 비 갤러리 앱을 만들어야 합니다. 
+
+**프로 비전 간격이 고정 되어 있습니다.**
+
+프로 비전 주기 사이의 [시간은](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) 현재 구성할 수 없습니다. 
 
 **대상 앱에서 Azure AD로 이동 하지 않는 변경 내용**
 

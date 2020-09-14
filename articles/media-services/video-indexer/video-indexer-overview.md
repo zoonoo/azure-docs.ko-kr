@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: bff99cdd44763c0df6bb5b2dd863b27728c23fcd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: b327facc2ac9ad64cf5237ecddc3e4024f75daa6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318689"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052140"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Azure Media Services Video Indexer란?
 
@@ -81,7 +81,7 @@ Video Indexer의 인사이트는 다음과 같은 다양한 시나리오에 적�
 * **두 채널 처리**: 개별 대본을 자동 검색하고 단일 타임라인으로 병합합니다.
 * **노이즈 감소**: 전화 통신 오디오 또는 노이즈가 많은 녹음을 지웁니다(Skype 필터 기준).
 * **전사 사용자 지정**(CRIS): 사용자 지정 음성 텍스트 변환 모델을 학습하여 산업별 대본을 만듭니다. 자세한 내용은 [Video Indexer 웹 사이트에서 언어 모델 사용자 지정](customize-language-model-with-website.md) 및 [Video Indexer API를 사용하여 언어 모델 사용자 지정](customize-language-model-with-api.md)을 참조하세요.
-* **화자 열거**: 어떤 화자가 어떤 단어를 언제 말했는지 매핑하고 파악합니다.
+* **화자 열거**: 어떤 화자가 어떤 단어를 언제 말했는지 매핑하고 파악합니다. 단일 오디오 파일에서 16 개의 스피커를 검색할 수 있습니다.
 * **화자 통계**: 화자 음성 비율에 대한 통계를 제공합니다.
 * **텍스트 콘텐츠 조정**: 오디오 전사에서 명시적 텍스트를 검색합니다.
 * **오디오 효과**: 박수, 음성 및 묵음과 같은 오디오 효과를 식별합니다.

@@ -13,12 +13,12 @@ ms.date: 08/24/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 3054180f65a7d65300067edadee5e9507bb92414
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 9aa5eb54d79d98627697c51ee7dcb16a44fccb60
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796173"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053211"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft ID 플랫폼 액세스 토큰
 
@@ -101,10 +101,10 @@ JWT(JSON Web Token)는 세 부분으로 분할됩니다.
 | `scp` | 문자열, 공백으로 구분된 범위 목록 | 클라이언트 애플리케이션이 동의를 요청(및 수신)한 애플리케이션에 의해 노출된 범위 집합입니다. 앱은 이러한 범위가 앱에 의해 노출된 유효한 범위인지 확인하고 이러한 범위의 값을 기반으로 권한 부여 결정을 해야 합니다. [사용자 토큰](#user-and-application-tokens)에 대해서만 포함됩니다. |
 | `roles` | 문자열 배열, 권한 목록 | 요청 애플리케이션 또는 사용자가 호출할 수 있는 권한을 받은 사용자 애플리케이션에 의해 노출된 권한 집합입니다. [애플리케이션 토큰](#user-and-application-tokens)의 경우 클라이언트 자격 증명 흐름([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) 중에 사용자 범위 대신 사용됩니다.  [사용자 토큰](#user-and-application-tokens)의 경우 대상 애플리케이션에서 사용자에게 할당된 역할로 채워집니다. |
 | `wids` | [RoleTemplateID](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids) GUID의 배열 | [관리자 역할 페이지](../users-groups-roles/directory-assign-admin-roles.md#role-template-ids)에 있는 역할 섹션에서 이 사용자에게 할당된 테넌트 전체 역할을 나타냅니다.  이 클레임은 [애플리케이션 매니페스트](reference-app-manifest.md)의 `groupMembershipClaims` 속성을 통해 애플리케이션별로 구성됩니다.  "All" 또는 "DirectoryRole"로 설정해야 합니다.  암시적 흐름을 통해 가져온 토큰에는 토큰 길이 문제로 인해 없을 수 있습니다. |
-| `groups` | GUID의 JSON 배열 | 주체의 그룹 멤버 자격을 나타내는 개체 ID를 제공합니다. 이러한 값은 고유하며(개체 ID 참조) 리소스 액세스 시 강제로 인증하게 하는 경우처럼 액세스 관리에 안전하게 사용할 수 있습니다. 그룹 클레임에 포함된 그룹은 [애플리케이션 매니페스트](reference-app-manifest.md)의 `groupMembershipClaims` 속성을 통해 애플리케이션별로 구성됩니다. Null 값은 모든 그룹을 제외하고, "SecurityGroup" 값은 Active Directory 보안 그룹 멤버 자격만 포함하고, "All" 값은 보안 그룹과 Office 365 메일 그룹을 모두 포함합니다. <br><br>암시적 권한 부여가 있는 `groups` 클레임 사용에 대한 자세한 내용은 아래 `hasgroups` 클레임을 참조하세요. <br>다른 흐름에서 그룹 수가 한도(SAML은 150, JWT는 200)를 넘어설 경우 초과분 클레임은 해당 사용자에 대한 그룹 목록을 포함하는 Microsoft Graph 엔드포인트를 가리키는 클레임 원본에 추가됩니다. |
+| `groups` | GUID의 JSON 배열 | 주체의 그룹 멤버 자격을 나타내는 개체 ID를 제공합니다. 이러한 값은 고유하며(개체 ID 참조) 리소스 액세스 시 강제로 인증하게 하는 경우처럼 액세스 관리에 안전하게 사용할 수 있습니다. 그룹 클레임에 포함된 그룹은 [애플리케이션 매니페스트](reference-app-manifest.md)의 `groupMembershipClaims` 속성을 통해 애플리케이션별로 구성됩니다. 값이 null 이면 모든 그룹이 제외 되 고, 값이 "SecurityGroup" 이면 Active Directory 보안 그룹 멤버 자격만 포함 되 고, 값이 "All" 이면 보안 그룹과 Microsoft 365 메일 그룹이 모두 포함 됩니다. <br><br>암시적 권한 부여가 있는 `groups` 클레임 사용에 대한 자세한 내용은 아래 `hasgroups` 클레임을 참조하세요. <br>다른 흐름에서 그룹 수가 한도(SAML은 150, JWT는 200)를 넘어설 경우 초과분 클레임은 해당 사용자에 대한 그룹 목록을 포함하는 Microsoft Graph 엔드포인트를 가리키는 클레임 원본에 추가됩니다. |
 | `hasgroups` | 부울 | 있는 경우 항상 `true`로, 사용자 하나 이상의 그룹에 있음을 나타냅니다. 전체 그룹 클레임이 URI 조각을 URL 길이 한도(현재 6개 이상 그룹)를 초과하여 확장할 경우 암시적 권한 부여 흐름에서 JWT에 대해 `groups` 클레임 대신 사용됩니다. 클라이언트가 Microsoft Graph API를 사용하여 사용자 그룹(`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`)을 결정해야 함을 표시합니다. |
 | `groups:src1` | JSON 개체 | 길이는 제한되지 않으나(위의 `hasgroups` 참조) 토큰에게는 너무 큰 토큰 요청의 경우 사용자의 전체 그룹 목록에 대한 링크가 포함됩니다. 분산된 클레임으로서의 JWT인 경우 SAML이 `groups` 클레임 대신에 새 클레임이 됩니다. <br><br>**JWT 값 예제**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }` |
-| `sub` | 문자열 | 앱 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어, 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행하고 데이터베이스 테이블에서 키로 사용할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. 그러나 주체는 쌍으로 된 식별자이며 특정 애플리케이션 ID에 고유합니다. 따라서 단일 사용자가 두 개의 다른 클라이언트 ID를 사용하여 두 개의 다른 앱에 로그인하는 경우 해당 앱은 주체 클레임에 두 개의 다른 값을 받게 됩니다. 아키텍처 및 개인 정보 보호 요구 사항에 따라 적합할 수도 있고 적합하지 않을 수도 있습니다. `oid` 클레임도 참조하세요(테넌트 내의 여러 앱에서 동일하게 유지됨). |
+| `sub` | String | 앱 사용자 등 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어, 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행하고 데이터베이스 테이블에서 키로 사용할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다. 그러나 주체는 쌍으로 된 식별자이며 특정 애플리케이션 ID에 고유합니다. 따라서 단일 사용자가 두 개의 다른 클라이언트 ID를 사용하여 두 개의 다른 앱에 로그인하는 경우 해당 앱은 주체 클레임에 두 개의 다른 값을 받게 됩니다. 아키텍처 및 개인 정보 보호 요구 사항에 따라 적합할 수도 있고 적합하지 않을 수도 있습니다. `oid` 클레임도 참조하세요(테넌트 내의 여러 앱에서 동일하게 유지됨). |
 | `oid` | 문자열, GUID | Microsoft ID 플랫폼에 있는 개체의 변경할 수 없는 식별자로, 이 경우 사용자 계정입니다. 데이터베이스 테이블의 키로써 안전하게 권한 부여 검사를 수행하는 데 사용할 수도 있습니다. 이 ID는 애플리케이션에서 사용자를 고유하게 식별합니다. 동일한 사용자가 로그인한 두 개의 다른 애플리케이션은 `oid` 클레임에서 동일한 값을 받습니다. 즉, Microsoft Graph와 같은 Microsoft 온라인 서비스에 대한 쿼리를 수행할 때 `oid`를 사용할 수 있습니다. Microsoft Graph는 이 ID를 지정된 [사용자 계정](/graph/api/resources/user)에 대한 `id` 속성으로 반환합니다. `oid`를 사용하면 여러 앱에서 사용자의 상관 관계를 지정하기 때문에 이 클레임을 수신하기 위해 `profile` 범위가 필요합니다. 단일 사용자가 여러 테넌트에 존재하는 경우 사용자는 각 테넌트에서 다른 개체 ID를 포함합니다. 사용자가 동일한 자격 증명으로 각 계정에 로그인하더라도 서로 다른 계정으로 간주됩니다. |
 | `tid` | 문자열, GUID | 사용자가 속해 있는 Azure AD 테넌트를 나타냅니다. 회사 및 학교 계정의 경우 GUID는 사용자가 속해 있는 조직의 변경이 불가능한 테넌트 ID입니다. 개인 계정의 경우 이 값은 `9188040d-6c67-4c5b-b112-36a304b66dad`입니다. `profile` 범위는 이 클레임을 받기 위해 필요합니다. |
 | `unique_name` | String | v1.0 토큰에만 제공됩니다. 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. 이 값은 테넌트 내에서 반드시 고유한 것은 아니며 표시 용도로만 사용해야 합니다. |
