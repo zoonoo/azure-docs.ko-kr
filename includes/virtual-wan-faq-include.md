@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89304135"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570083"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Azure Virtual WAN을 사용하려면 사용자에게 SD-WAN/VPN 디바이스를 사용하는 허브 및 스포크가 있어야 하나요?
 
@@ -83,7 +83,7 @@ P2S 클라이언트용 DNS 서버를 추가하는 두 가지 옵션이 있습니
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>사용자 VPN(지점 및 사이트 간)의 경우 지원되는 클라이언트 수는 어떻게 되나요?
 
-각 사용자 VPN P2S 게이트웨이에는 두 개의 인스턴스가 있으며, 각 인스턴스는 배율 단위가 변경될 때 특정 사용자를 지원합니다. 1-3 배율 단위는 500개, 4-6 배율 단위는 1000개, 7-12 배율 단위는 5000개, 13-20 배율 단위는 최대 10,000개의 연결을 지원합니다. 
+각 사용자 VPN P2S 게이트웨이에는 두 개의 인스턴스가 있으며, 각 인스턴스는 배율 단위가 변경될 때 특정 사용자를 지원합니다. 1-3 배율 단위는 500개, 4-6 배율 단위는 1000개, 7-12 배율 단위는 5000개, 13-18 배율 단위는 최대 10,000개의 연결을 지원합니다. 
 
 예를 들어 사용자가 1 배율 단위를 선택한다고 가정해 보겠습니다. 각 배율 단위는 배포된 활성-활성 게이트웨이를 의미하며, 각 인스턴스(이 경우 2)에서 최대 500개의 연결을 지원합니다. 게이트웨이당 500 * 2개 연결이 가능하므로, 이 배율 단위에 대해 500개 대신 1000개를 계획하는 것이 아닙니다. 권장 연결 수를 초과할 경우 추가 500개 연결이 중단될 수 있는 기간 동안 인스턴스를 처리해야 할 수도 있습니다. 또한 배율 단위를 확장 또는 축소하거나 VPN 게이트웨이에서 지점 및 사이트 간 구성을 변경하려는 경우에는 가동 중지 시간을 계획해야 합니다.
 

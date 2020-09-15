@@ -6,14 +6,14 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 08/04/2020
+ms.date: 09/08/2020
 ms.author: punagpal
-ms.openlocfilehash: 55d072492a1d90c6964935f2a79f73aacdceff21
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3b6db74d637ac17ef5d09e1d9c5d3dac30ba8ba9
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826775"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594376"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure IoT Connector for FHIR(미리 보기) 배포
 
@@ -169,7 +169,10 @@ Azure는 IoT 디바이스를 연결하고 관리할 수 있는 광범위한 IoT 
 > 실제 디바이스가 준비되면 언제든지 동일한 IoT Central 애플리케이션을 사용하여 [디바이스를 온보딩](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template)하고 디바이스 시뮬레이터를 바꿀 수 있습니다. 디바이스 데이터는 자동으로 FHIR에 전달되기 시작합니다. 
 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector for FHIR(미리 보기)과 IoT 데이터 연결
-IoT Central 애플리케이션을 배포한 후에는 두 개의 기본 시뮬레이션 디바이스가 원격 분석 데이터를 생성하기 시작합니다. 이 자습서에서는 Azure IoT Connector for FHIR을 통해 *Smart Vitals Patch* 시뮬레이터에서 FHIR로 원격 분석 데이터를 수집합니다. IoT 데이터를 Azure IoT Connector for FHIR로 내보내려면 [IoT Central 내에서 연속 데이터 내보내기를 설정](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#set-up-data-export)합니다. 연속 데이터 내보내기 페이지에서 다음을 수행합니다.
+> [!WARNING]
+> 이 가이드에서 제공하는 디바이스 매핑 템플릿은 IoT Central 내에서 데이터 내보내기(레거시)를 사용하도록 설계되었습니다.
+
+IoT Central 애플리케이션을 배포한 후에는 두 개의 기본 시뮬레이션 디바이스가 원격 분석 데이터를 생성하기 시작합니다. 이 자습서에서는 Azure IoT Connector for FHIR을 통해 *Smart Vitals Patch* 시뮬레이터에서 FHIR로 원격 분석 데이터를 수집합니다. IoT 데이터를 Azure IoT Connector for FHIR로 내보내려면 [IoT Central 내에서 연속 데이터 내보내기를 설정](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-legacy)합니다. 연속 데이터 내보내기 페이지에서 다음을 수행합니다.
 - 내보내기 대상으로 *Azure Event Hubs*를 선택합니다.
 - **Event Hubs 네임스페이스**에 대해 *연결 문자열 사용* 값을 선택합니다.
 - 이전 단계에서 얻은 Azure IoT Connector for FHIR의 연결 문자열을 **연결 문자열** 필드에 입력합니다.

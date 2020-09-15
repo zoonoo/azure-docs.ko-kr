@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: duau
-ms.openlocfilehash: 58c35b094d21dc562e61b4819c0d8e063908392d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e0ba14cd5db47c12435b2de35d0753b402c947ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322144"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566265"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>자습서: ExpressRoute 회로 만들기 및 수정
 
@@ -75,7 +75,10 @@ ms.locfileid: "89322144"
     > [!IMPORTANT]
     > 피어링 위치는 Microsoft와 피어링하는 [물리적 위치](expressroute-locations.md)를 나타냅니다. 이 위치는 Azure Network Resource Provider가 있는 지리적 위치를 참조하는 "Location" 속성에 **연결되지 않습니다** . 이 속성에 연결되지 않는 대신 회로의 피어링 위치와 지리적으로 가까운 네트워크 리소스 공급자를 선택 하는 것이 좋습니다.
 
-    * **SKU**는 ExpressRoute 로컬, ExpressRoute 표준 또는 ExpressRoute 프리미엄 추가 기능이 사용되는지 여부를 결정합니다. **로컬**을 지정하여 로컬 SKU를 가져오거나, **표준**을 지정하여 표준 SKU를 가져오거나 프리미엄 추가 기능을 위해 **프리미엄**을 지정할 수 있습니다.
+    * **SKU**는 ExpressRoute 로컬, ExpressRoute 표준 또는 ExpressRoute 프리미엄 추가 기능이 사용되는지 여부를 결정합니다. **로컬**을 지정하여 로컬 SKU를 가져오거나, **표준**을 지정하여 표준 SKU를 가져오거나, 프리미엄 추가 기능을 위해 **프리미엄**을 지정할 수 있습니다. SKU를 변경하여 프리미엄 추가 기능을 사용하도록 설정할 수 있습니다.
+    > [!IMPORTANT]
+    > SKU를 **표준/프리미엄**에서 **로컬**로 변경할 수 없습니다.
+    
     * **청구 모델**은 청구서 유형을 결정합니다. 데이터 요금제의 경우 **Metered**를 선택하고 무제한 데이터 요금제의 경우 **Unlimited**를 선택할 수 있습니다. 청구 유형을 **Metered**에서 **Unlimited**로 변경할 수 있습니다.
 
     > [!IMPORTANT]
@@ -150,6 +153,10 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 가동 중지 시간 없이 다음 작업을 수행할 수 있습니다.
 
 * ExpressRoute 회로에 대해 ExpressRoute 프리미엄 추가 기능을 사용하거나 사용하지 않을 수 있습니다.
+
+> [!IMPORTANT]
+  > SKU를 **표준/프리미엄**에서 **로컬**로 변경하는 것은 지원되지 않습니다.
+
 * 포트에 사용 가능한 용량이 있는 경우 ExpressRoute 회로의 대역폭을 증가시킵니다.
 
   > [!IMPORTANT]

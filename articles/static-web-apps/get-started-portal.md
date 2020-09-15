@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: e0b78c5e053c5668fbebd8ebaac91a90aa2b364f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 7818754ca335f503c5afdc47d410cfe1d1029ab4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752862"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434793"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 정적 웹앱 빌드
 
@@ -56,38 +56,39 @@ GitHub로 로그인한 후 리포지토리 정보를 입력합니다.
 1. 원하는 _조직_을 선택합니다.
 1. _리포지토리_ 드롭다운에서 **my-first-web-static-app**을 선택합니다.
 1. _분기_ 드롭다운에서 **마스터**를 선택합니다.
-1. 페이지 맨 아래에서 **다음: 빌드 >** 단추를 클릭하여 빌드 구성을 편집합니다.
-
-:::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="다음 빌드 단추":::
 
 > [!NOTE]
 > 리포지토리가 표시되지 않는 경우 GitHub에서 Azure Static Web Apps에 권한을 부여해야 할 수 있습니다. GitHub 리포지토리로 이동하여 **설정 > 애플리케이션 > 권한 부여된 OAuth 앱**으로 이동하고 **Azure Static Web Apps**를 선택한 다음 **권한 부여**를 선택합니다. 조직 리포지토리의 경우 사용 권한을 부여하려면 조직의 소유자여야 합니다.
 
-1. _빌드_ 탭에서 선호하는 프런트 엔드 프레임워크와 관련된 구성 세부 정보를 추가합니다.
+1. _빌드 세부 정보_ 섹션에서 선호하는 프런트 엔드 프레임워크와 관련된 구성 세부 정보를 추가합니다.
 
     # <a name="no-framework"></a>[프레임워크 없음](#tab/vanilla-javascript)
 
-    - _앱 위치_ 상자에서 기본값을 선택 취소합니다.
-    - _Api 위치_ 상자에서 기본값을 선택 취소합니다.
-    - _앱 아티팩트 위치_ 상자에서 기본값을 선택 취소합니다.
+    1. _빌드 사전 설정_ 드롭다운에서 **사용자 지정**을 선택합니다.
+    1. _앱 위치_ 상자에서 기본값을 선택 취소합니다.
+    1. _Api 위치_ 상자에서 기본값을 선택 취소합니다.
+    1. _앱 아티팩트 위치_ 상자를 비워 둡니다.
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    - _앱 위치_ 상자에서 기본값을 선택 취소합니다.
-    - _Api 위치_ 상자에서 기본값을 선택 취소합니다.
-    - _앱 아티팩트 위치_ 상자에 **dist/angular-basic**을 입력합니다.
+    1. _빌드 사전 설정_ 드롭다운에서 **Angular**를 선택합니다.
+    1. _앱 위치_ 상자에서 기본값을 유지합니다.
+    1. _Api 위치_ 상자에서 기본값을 선택 취소합니다.
+    1. _앱 아티팩트 위치_ 상자에 **dist/angular-basic**을 입력합니다.
 
     # <a name="react"></a>[React](#tab/react)
 
-    - _앱 위치_ 상자에서 기본값을 선택 취소합니다.
-    - _Api 위치_ 상자에서 기본값을 선택 취소합니다.
-    - _앱 아티팩트 위치_ 상자에 **빌드**를 입력합니다.
+    1. _빌드 사전 설정_ 드롭다운에서 **React**를 선택합니다.
+    1. _앱 위치_ 상자에서 기본값을 유지합니다.
+    1. _Api 위치_ 상자에서 기본값을 선택 취소합니다.
+    1. _앱 아티팩트 위치_ 상자에 **빌드**를 입력합니다.
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    - _앱 위치_ 상자에서 기본값을 선택 취소합니다.
-    - _Api 위치_ 상자에서 기본값을 선택 취소합니다.
-    - _앱 아티팩트 위치_ 상자에 **dist**를 입력합니다.
+    1. _빌드 사전 설정_ 드롭다운에서 **Vue.js**를 선택합니다.
+    1. _앱 위치_ 상자에서 기본값을 유지합니다.
+    1. _Api 위치_ 상자에서 기본값을 선택 취소합니다.
+    1. _앱 아티팩트 위치_ 상자에서 기본값을 유지합니다.
 
     ---
 

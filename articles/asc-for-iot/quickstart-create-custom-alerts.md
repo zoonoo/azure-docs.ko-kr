@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2020
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 8ba81b669c25d91efa8ad1f07b1a7835b42c5cf4
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7638ad070e8ac8bd99cbfb49b99bbb347a243a21
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310843"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505440"
 ---
 # <a name="quickstart-create-custom-alerts"></a>빠른 시작: 사용자 지정 경고 만들기
 
@@ -67,8 +67,8 @@ ms.locfileid: "81310843"
 
 ## <a name="customize-an-alert"></a>경고 사용자 지정
 
-1. IoT Hub를 엽니다.
-1. **보안** 섹션에서 **사용자 지정 경고**를 클릭합니다.
+1. IoT Hub를 열고 **보안** 메뉴에서 **설정**을 선택합니다. 
+1. **사용자 지정 경고**를 클릭합니다.
 1. 사용자 지정을 적용하려는 보안 그룹을 선택합니다.
 1. **사용자 지정 경고 추가**를 클릭합니다.
 1. 드롭다운 목록에서 사용자 지정 경고를 선택합니다.

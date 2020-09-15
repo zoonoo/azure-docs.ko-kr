@@ -1,77 +1,133 @@
 ---
-title: '빠른 시작: Microsoft ID 플랫폼을 사용하여 앱 등록 | Azure'
-description: 이 빠른 시작에서는 Microsoft ID 플랫폼을 사용하여 애플리케이션을 추가 및 등록하는 방법을 알아봅니다.
+title: '빠른 시작: Microsoft ID 플랫폼에 앱 등록 | Azure'
+description: 이 빠른 시작에서는 애플리케이션을 Microsoft ID 플랫폼에 등록하는 방법을 알아봅니다.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 03/12/2020
-ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40
+ms.date: 09/03/2020
+ms.author: marsma
+ms.custom: aaddev, identityplatformtop40, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 65fff06b4a2d28bbc276920ccbaba90d814d03f3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5f34215d57bd5dae8c9a5e6e8f4630b7ed0c827e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115359"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436757"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
-이 빠른 시작에서는 Azure Portal에서 **앱 등록**을 사용하여 애플리케이션을 등록합니다. 
+이 빠른 시작에서는 Microsoft ID 플랫폼에서 애플리케이션과 해당 사용자에게 인증 및 권한 부여 서비스를 제공할 수 있도록 Azure Portal에서 앱을 등록합니다.
 
-앱은 Azure Active Directory 테넌트에 등록하여 Microsoft ID 플랫폼과 통합됩니다. 엔터프라이즈 개발자 및 소프트웨어 SaaS(software-as-a-service) 공급자는 Microsoft ID 플랫폼에 통합될 수 있는 상용 클라우드 서비스 또는 업무용 애플리케이션 제품군을 개발할 수 있습니다. 통합은 이러한 서비스에 대한 보안 로그인 및 권한 부여를 제공합니다.
+Microsoft ID 플랫폼에서 IAM(ID 및 액세스 관리)을 수행하도록 하려는 각 애플리케이션을 등록해야 합니다. 웹 또는 모바일 앱과 같은 클라이언트 애플리케이션이든, 클라이언트 앱을 지원하는 웹 API이든 간에 등록하는 경우 애플리케이션 및 ID 공급자인 Microsoft ID 플랫폼 간에 신뢰 관계가 설정됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* [Azure AD 테넌트](quickstart-create-new-tenant.md).
+* 활성 구독이 있는 Azure 계정 - [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [빠른 시작: 테넌트 설정](quickstart-create-new-tenant.md) 완료
 
-## <a name="register-a-new-application-using-the-azure-portal"></a>Azure Portal을 사용하여 새 애플리케이션 등록
+## <a name="register-an-application"></a>애플리케이션 등록
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-1. 사용자의 계정으로 둘 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위 모서리에서 계정을 선택합니다. 포털 세션을 원하는 Azure AD 테넌트로 설정합니다.
-1. **Azure Active Directory**를 검색하고 선택합니다. **관리** 아래에서 **앱 등록**을 선택합니다.
-1. **새 등록**을 선택합니다.
-1. **애플리케이션 등록**에서 사용자에게 표시할 의미 있는 애플리케이션 이름을 입력합니다.
-1. 애플리케이션을 사용할 수 있는 사용자를 다음과 같이 지정합니다.
+애플리케이션을 등록하면 앱과 Microsoft ID 플랫폼 간에 신뢰 관계가 설정됩니다. 신뢰는 단방향입니다. 즉, 앱은 Microsoft ID 플랫폼을 신뢰하지만, 반대로는 신뢰하지 않습니다.
+
+다음 단계에 따라 앱 등록을 만듭니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/quickstart-register-app/portal-01-directory-subscription-filter.png" border="false":::를 사용하여 애플리케이션을 등록하려는 테넌트를 선택합니다.
+1. **Azure Active Directory**를 검색하고 선택합니다.
+1. **관리** 아래에서 **앱 등록**, **새 등록**을 차례로 선택합니다.
+1. 애플리케이션의 **이름**을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
+1. 애플리케이션을 사용할 수 있는 사용자(*로그인 대상*이라고도 함)를 지정합니다.
 
     | 지원되는 계정 유형 | Description |
     |-------------------------|-------------|
-    | **이 조직 디렉터리의 계정만** | 업무용(LOB) 애플리케이션을 빌드하는 경우 이 옵션을 선택합니다. 애플리케이션이 디렉터리에 등록되지 않은 경우에는 이 옵션을 사용할 수 없습니다.<br><br>이 옵션은 Azure AD 단일 테넌트에 매핑됩니다.<br><br>디렉터리 외부에 앱을 등록하지 않은 한 이 옵션은 기본값입니다. 디렉터리 외부에 앱을 등록할 경우 기본값은 Azure AD 다중 테넌트 및 개인 Microsoft 계정입니다. |
-    | **모든 조직 디렉터리의 계정** | 모든 비즈니스 및 교육용 고객을 대상으로 하려는 경우 이 옵션을 선택합니다.<br><br>이 옵션은 Azure AD 전용 다중 테넌트에 매핑됩니다.<br><br>Azure AD 전용 단일 테넌트로 앱을 등록한 경우 **인증** 페이지에서 Azure AD 다중 테넌트로 업데이트할 수 있고 다시 단일 테넌트로 되돌릴 수 있습니다. |
-    | **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** | 가장 폭넓은 고객을 대상으로 하려면 이 옵션을 사용합니다.<br><br>이 옵션은 Azure AD 다중 테넌트 및 개인 Microsoft 계정에 매핑됩니다.<br><br>Azure AD 다중 테넌트 및 개인 Microsoft 계정으로 앱을 등록한 경우 UI에서 이 설정을 변경할 수 없습니다. 대신 애플리케이션 매니페스트 편집기를 사용하여 지원되는 계정 유형을 변경해야 합니다. |
+    | **이 조직 디렉터리의 계정만** | *사용자*의 테넌트에 있는 사용자(또는 게스트)만 사용할 수 있도록 애플리케이션을 빌드하는 경우 이 옵션을 선택합니다.<br><br>이는 *LOB(기간 업무)* 애플리케이션이라고 하는 경우가 많으며, Microsoft ID 플랫폼의 **단일 테넌트** 애플리케이션입니다. |
+    | **모든 조직 디렉터리의 계정** | *모든* Azure AD 테넌트에 있는 사용자가 애플리케이션을 사용할 수 있도록 하려면 이 옵션을 선택합니다. 예를 들어 여러 조직에 제공하려는 SaaS(Software-as-a-Service) 애플리케이션을 빌드하는 경우에 이 옵션이 적합합니다.<br><br>이는 Microsoft ID 플랫폼에서 **다중 테넌트** 애플리케이션이라고 합니다. |
+    | **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정** | 가장 폭넓은 고객을 대상으로 하려면 이 옵션을 사용합니다.<br><br>이 옵션을 선택하면 개인 **MSA(Microsoft 계정)** 가 있는 사용자도 지원할 수 있는 **다중 테넌트** 애플리케이션을 등록하게 됩니다. |
+    | **개인 Microsoft 계정** | 개인 Microsoft 계정이 있는 사용자만 사용할 수 있도록 애플리케이션을 빌드하는 경우 이 옵션을 선택합니다. 개인 Microsoft 계정에는 Skype, Xbox, Live 및 Hotmail 계정이 포함됩니다. |
 
-1. **리디렉션 URI(선택 사항)** 에서 빌드 중인 앱의 유형을 선택합니다. **웹** 또는 **퍼블릭 클라이언트(모바일 및 데스크톱)** 그런 다음, 애플리케이션의 리디렉션 URI 또는 회신 URL을 입력합니다.
+1. **리디렉션 URI(선택 사항)** 에 대해 아무것도 입력하지 않습니다. 이 URI는 다음 섹션에서 구성합니다.
+1. **등록**을 선택하여 초기 앱 등록을 완료합니다.
 
-    * 웹 애플리케이션의 경우 앱의 기준 URL을 제공합니다. 예를 들어 `https://localhost:31544`은 로컬 컴퓨터에서 실행 중인 웹앱의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
-    * 공용 클라이언트 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션에 고유하게 해당되는 값을 입력합니다(예: `myapp://auth`).
+    :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="애플리케이션 등록 창을 보여 주는 웹 브라우저의 Azure Portal에 대한 스크린샷":::
 
-    웹 애플리케이션 또는 네이티브 애플리케이션에 대한 예제는 [Microsoft ID 플랫폼](./index.yml)의 빠른 시작을 참조하세요.
+등록이 완료되면 Azure Portal에 앱 등록의 **개요** 창이 표시됩니다. 여기에는 **애플리케이션(클라이언트) ID**가 포함되어 있습니다. *클라이언트 ID*라고도 하는 이 값은 Microsoft ID 플랫폼에서 애플리케이션을 고유하게 식별합니다.
 
-1. 작업을 마쳤으면 **등록**을 선택합니다.
+애플리케이션의 코드 또는 더 일반적으로 애플리케이션에서 사용되는 인증 라이브러리는 ID 플랫폼에서 받는 보안 토큰의 유효성을 검사할 때 클라이언트 ID를 한 가지 측면으로 사용합니다.
 
-    ![Azure Portal에서 새 애플리케이션을 등록하는 화면 표시](./media/quickstart-add-azure-ad-app-preview/new-app-registration.png)
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="앱 등록의 개요 창을 보여 주는 웹 브라우저의 Azure Portal에 대한 스크린샷":::
 
-Azure AD는 앱에 고유한 애플리케이션 또는 클라이언트, ID를 할당합니다. 포털에서 애플리케이션의 **개요** 페이지가 열립니다. 애플리케이션에 기능을 추가하려면 브랜드, 인증서, 비밀, API 권한 등을 비롯한 다른 구성 옵션을 선택할 수 있습니다.
+## <a name="add-a-redirect-uri"></a>리디렉션 URI 추가
 
-![새로 등록된 앱의 개요 페이지의 예제](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)
+리디렉션 URI는 Microsoft ID 플랫폼에서 사용자의 클라이언트를 리디렉션하고 인증 후에 보안 토큰을 보내는 위치입니다.
+
+예를 들어 프로덕션 웹 애플리케이션에서 리디렉션 URI는 `https://contoso.com/auth-response`와 같이 앱이 실행되는 퍼블릭 엔드포인트인 경우가 많습니다. 일반적으로 개발 중에 앱을 로컬로 실행하는 엔드포인트(예: `https://127.0.0.1/auth-response`)를 추가합니다.
+
+[플랫폼 설정](#configure-platform-settings)을 구성하여 등록된 애플리케이션에 대한 리디렉션 URI를 추가하고 수정합니다.
+
+### <a name="configure-platform-settings"></a>플랫폼 설정 구성
+
+리디렉션 URI를 포함하여 각 애플리케이션 유형에 대한 설정은 Azure Portal의 **플랫폼 구성**에서 구성됩니다. **웹** 및 **단일 페이지 애플리케이션**과 같은 일부 플랫폼에서는 리디렉션 URI를 수동으로 지정해야 합니다. 모바일 및 데스크톱과 같은 다른 플랫폼의 경우 다른 설정을 구성할 때 생성된 리디렉션 URI 중에서 선택할 수 있습니다.
+
+대상으로 하는 플랫폼 또는 디바이스에 따라 애플리케이션 설정을 구성하려면 다음을 수행합니다.
+
+1. Azure Portal의 **앱 등록**에서 애플리케이션을 선택합니다.
+1. **관리**에서 **인증**을 선택합니다.
+1. **플랫폼 구성**에서 **플랫폼 추가**를 선택합니다.
+1. **플랫폼 구성**에서 애플리케이션 유형(플랫폼)에 대한 타일을 선택하여 설정을 구성합니다.
+
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Azure Portal의 플랫폼 구성 창에 대한 스크린샷" border="false":::
+
+    | 플랫폼 | 구성 설정 |
+    | -------- | ---------------------- |
+    | **Web** | Microsoft ID 플랫폼에서 사용자의 클라이언트를 리디렉션하고 인증 후에 보안 토큰을 보내는 위치인 앱에 대한 **리디렉션 URI**를 입력합니다.<br/><br/>서버에서 실행되는 표준 웹 애플리케이션의 경우 이 플랫폼을 선택합니다. |
+    | **단일 페이지 애플리케이션** | Microsoft ID 플랫폼에서 사용자의 클라이언트를 리디렉션하고 인증 후에 보안 토큰을 보내는 위치인 앱에 대한 **리디렉션 URI**를 입력합니다.<br/><br/>JavaScript 또는 프레임워크(예: Angular, Vue.js, React.js 또는 Blazor WebAssembly)를 사용하여 클라이언트 쪽 웹앱을 빌드하는 경우 이 플랫폼을 선택합니다. |
+    | **iOS/macOS** | *Info.plist* 또는 [빌드 설정]의 XCode에 있는 앱 **번들 ID**를 입력합니다.<br/><br/>번들 ID를 지정하면 리디렉션 URI가 생성됩니다. |
+    | **Android** | *AndroidManifest.xml* 파일에서 찾을 수 있는 앱 **패키지 이름**을 입력하고, **서명 해시**를 생성하고 입력합니다.<br/><br/>이러한 설정을 지정하면 리디렉션 URI가 생성됩니다. |
+    | **모바일 및 데스크톱 애플리케이션** | **제안된 리디렉션 URI** 중 하나를 선택하거나 **사용자 지정 리디렉션 URI**를 지정합니다.<br/>데스크톱 애플리케이션의 경우 다음을 수행하는 것이 좋습니다.<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>최신 MSAL(Microsoft 인증 라이브러리)을 사용하지 않거나 broker를 사용하지 않는 모바일 애플리케이션의 경우 이 플랫폼을 선택합니다. 데스크톱 애플리케이션의 경우에도 이 플랫폼을 선택합니다. |
+1. **구성**을 선택하여 플랫폼 구성을 완료합니다.
+
+### <a name="redirect-uri-restrictions"></a>리디렉션 URI에 대한 제한 사항
+
+앱 등록에 추가하는 리디렉션 URI 형식에는 특정 제한 사항이 있습니다. 이러한 제한 사항에 대한 자세한 내용은 [리디렉션 URI(회신 URL) 제한 사항](reply-url.md)을 참조하세요.
+
+## <a name="add-credentials"></a>자격 증명 추가
+
+자격 증명은 웹 API에 액세스하는 기밀 클라이언트 애플리케이션에서 사용됩니다. 기밀 클라이언트의 예로 웹앱, 다른 웹 API 또는 서비스 및 디먼 유형 애플리케이션이 있습니다. 자격 증명을 사용하면 애플리케이션에서 자체적으로 인증할 수 있으므로 런타임에 사용자의 상호 작용이 필요하지 않습니다.
+
+인증서와 클라이언트 암호(문자열)를 모두 자격 증명으로 기밀 클라이언트 앱 등록에 추가할 수 있습니다.
+
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="앱 등록의 인증서 및 비밀 창을 보여 주는 Azure Portal에 대한 스크린샷":::
+
+### <a name="add-a-certificate"></a>인증서 추가
+
+*공개 키*라고도 하는 인증서는 클라이언트 암호보다 높은 수준의 보안을 제공하므로 추천되는 자격 증명 유형입니다.
+
+1. Azure Portal의 **앱 등록**에서 애플리케이션을 선택합니다.
+1. **인증서 및 비밀** > **인증서 업로드**를 차례로 선택합니다.
+1. 업로드할 파일을 선택합니다. cer, .pem, .crt 중 한 가지 파일 형식이어야 합니다.
+1. **추가**를 선택합니다.
+
+### <a name="add-a-client-secret"></a>클라이언트 암호 추가
+
+*애플리케이션 암호*라고도 하는 클라이언트 암호는 앱에서 ID 자체에 대한 인증서 대신 사용할 수 있는 문자열 값입니다. 두 가지 자격 증명 유형 중 사용하기 쉽고 개발 중에 자주 사용되지만 인증서보다 안전하지 않은 것으로 간주됩니다. 인증서는 프로덕션 환경에서 실행되는 애플리케이션에서 사용해야 합니다.
+
+1. Azure Portal의 **앱 등록**에서 애플리케이션을 선택합니다.
+1. **인증서 및 비밀** >  **새 클라이언트 암호**를 차례로 선택합니다.
+1. 클라이언트 비밀에 대한 설명을 추가합니다.
+1. 기간을 선택합니다.
+1. **추가**를 선택합니다.
+1. 클라이언트 애플리케이션 코드에서 사용할 수 있도록 **비밀의 값을 적어 둡니다**. 이 페이지에서 나가면 *다시 표시되지 않습니다*.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 웹 API에 액세스하려면 [빠른 시작: 웹 API에 액세스하는 클라이언트 애플리케이션 구성](quickstart-configure-app-access-web-apis.md)
+클라이언트 애플리케이션은 일반적으로 웹 API의 리소스에 액세스해야 합니다. Microsoft ID 플랫폼을 사용하여 클라이언트 애플리케이션을 보호할 뿐만 아니라 이 플랫폼을 사용하여 웹 API에 대해 범위가 지정된 권한 기반 액세스 권한을 부여할 수도 있습니다.
 
-* 사용 권한에 대한 자세한 내용은 [Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](v2-permissions-and-consent.md)를 참조하세요.
+웹 API에 대한 다른 앱 등록을 만들고 해당 범위를 공개하려면 시리즈의 다음 빠른 시작으로 이동합니다.
 
-* 웹 API를 공개하려면 [빠른 시작: 웹 API를 공개하는 애플리케이션 구성](quickstart-configure-app-expose-web-apis.md)을 참조하세요.
-
-* 지원되는 계정을 관리하려면 [빠른 시작: 애플리케이션에서 지원되는 계정 수정](quickstart-modify-supported-accounts.md)을 참조하세요.
-
-* 앱을 빌드하고 기능을 추가하려면 [Microsoft ID 플랫폼](./index.yml)의 빠른 시작을 참조하세요.
-
-* 등록된 애플리케이션 및 이들 간의 관계를 나타내는 두 개의 Azure AD 개체에 대한 자세한 내용은 [애플리케이션 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
-
-* 앱을 개발할 때 사용해야 하는 브랜딩 지침에 대한 자세한 내용은 [애플리케이션에 대한 브랜딩 지침](howto-add-branding-in-azure-ad-apps.md)을 참조하세요.
+> [!div class="nextstepaction"]
+> [웹 API를 공개하도록 애플리케이션 구성](quickstart-configure-app-expose-web-apis.md)

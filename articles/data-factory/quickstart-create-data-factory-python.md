@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Python을 사용하여 Azure Data Factory 만들기'
-description: Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사하는 Azure 데이터 팩터리를 만듭니다.
+description: 데이터 팩터리를 사용하여 Azure Blob 스토리지의 한 위치에서 다른 위치로 데이터를 복사합니다.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 7fd82e83c97c933173f168b7d79d5b6d6a3243b9
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e511b8b5505f1fa8713d81d0ce959df32ef28503
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873299"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439115"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>빠른 시작: Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "87873299"
 
 Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위한 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하여 파이프라인이라는 데이터 기반 워크플로를 만들고 예약할 수 있습니다.
 
-파이프라인은 서로 다른 데이터 저장소에서 데이터를 수집할 수 있습니다. 파이프라인은 Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 컴퓨팅 서비스를 사용하여 데이터를 처리하거나 변환합니다. 파이프라인은 BI(비즈니스 인텔리전스) 애플리케이션용 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시합니다.
+파이프라인은 서로 다른 데이터 저장소에서 데이터를 수집할 수 있습니다. 파이프라인은 Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 컴퓨팅 서비스를 사용하여 데이터를 처리하거나 변환합니다. 파이프라인은 BI(비즈니스 인텔리전스) 애플리케이션용 Azure Synapse Analytics(이전의 SQL Data Warehouse)와 같은 데이터 저장소에 출력 데이터를 게시합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

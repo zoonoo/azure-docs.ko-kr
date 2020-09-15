@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: b257063e46a978ac61a3425151940b5c74c2da62
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5113695dd4a6bfdea28a4044945b1ee4145ebf37
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374431"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484795"
 ---
 ## <a name="azure-security-benchmark"></a>Azure 보안 벤치마크
 
@@ -21,6 +21,21 @@ ms.locfileid: "87374431"
 |도메인 |컨트롤 ID |컨트롤 제목 |정책<br /><sub>(Azure Portal)</sub> |정책 버전<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |데이터 보호 |4.4. |전송 중인 모든 중요한 정보 암호화 |[Azure Cache for Redis에 보안 연결만 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+
+## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
+
+모든 Azure 서비스에 사용 가능한 Azure Policy 기본 제공이 이 규정 준수 표준에 매핑되는 방식을 검토하려면 [Azure Policy 규정 준수 - HIPAA HITRUST 9.2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md)를 참조하세요.
+이 규정 준수 표준에 대한 자세한 내용은 [HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)를 참조하세요.
+
+|도메인 |컨트롤 ID |컨트롤 제목 |정책<br /><sub>(Azure Portal)</sub> |정책 버전<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|네트워크 연결 제어 |0809.01n2Organizational.1234 - 01.n |네트워크 트래픽은 조직의 액세스 제어 정책에 따라 방화벽 및 각 네트워크 액세스 지점 또는 외부 통신 서비스의 관리형 인터페이스에 대한 기타 네트워크 관련 제한 사항을 통해 제어됩니다. |[Azure Cache for Redis에 보안 연결만 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+|네트워크 연결 제어 |0810.01n2Organizational.5 - 01.n |전송된 정보는 보안이 유지되고 최소한 오픈 공용 네트워크를 통해 암호화됩니다. |[Azure Cache for Redis에 보안 연결만 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+|네트워크 연결 제어 |0811.01n2Organizational.6 - 01.n |트래픽 흐름 정책에 대한 예외는 지원 업무/비즈니스 요구 사항, 예외 기간과 함께 문서화되어 최소 매년 검토됩니다. 트래픽 흐름 정책 예외는 명시적 업무/비즈니스 요구에 따라 더 이상 지원되지 않는 경우 제거됩니다. |[Azure Cache for Redis에 보안 연결만 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+|네트워크 연결 제어 |0812.01n2Organizational.8 - 01.n |비원격 연결을 설정하는 원격 디바이스는 외부(원격) 리소스와 통신할 수 없습니다. |[Azure Cache for Redis에 보안 연결만 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+|네트워크 연결 제어 |0814.01n1Organizational.12 - 01.n |사용자가 내부 네트워크에 연결하는 기능은 액세스 제어 정책과 임상 및 비즈니스 애플리케이션의 요구 사항에 따라 관리형 인터페이스에서 기본적으로 거부 및 예외 허용 정책을 사용하여 제한됩니다. |[Azure Cache for Redis에 보안 연결만 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+|외부 당사자와 관련된 위험 식별 |1451.05iCSPOrganizational.2 - 05.i |클라우드 서비스 공급자는 적절한 업무 분리, 역할 기반 액세스 및 공급망 내의 모든 직원에 대한 최소 권한 액세스를 통해 데이터 보안 위험을 완화하고 억제하기 위한 컨트롤을 설계하고 구현합니다. |[Azure Cache for Redis에 보안 연결만 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+|온라인 트랜잭션 |0946.09y2Organizational.14 - 09.y |조직은 트랜잭션에 관련된 각 당사자 간의 암호화와 전자 서명을 사용해야 합니다. |[Azure Cache for Redis에 보안 연결만 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
 
 ## <a name="nist-sp-800-171-r2"></a>NIST SP 800-171 R2
 

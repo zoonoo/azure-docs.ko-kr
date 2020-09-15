@@ -4,16 +4,18 @@ description: Azure Migrate 서비스의 새로운 기능 및 최신 업데이트
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: e32c7433649cc6716a57a6aa2384c1e2d266e102
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 019c04c5820a82b7910b6755ff69e5dfbe7eb66c
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927174"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421614"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
+## <a name="update-september-2020"></a>업데이트(2020년 9월)
+- 이제 Azure Migrate를 사용하여 서버를 가용성 영역으로 마이그레이션할 수 있습니다.
 
 ## <a name="update-august-2020"></a>업데이트(2020년 8월)
 

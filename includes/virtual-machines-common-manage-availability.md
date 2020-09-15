@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d7f7b0eb2c49e4abba9e12e09d70e321cc6c06f4
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 965da18c265fad1686473d5d6dcf8ba4a7a53b33
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88760572"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89324350"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
@@ -33,7 +33,7 @@ Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 
 * [중복성을 위해 가용성 집합에서 여러 가상 머신 구성]
 * [가용성 집합의 VM에 Managed Disks 사용]
 * [예약된 이벤트를 사용하여 VM에 영향을 주는 이벤트에 사전 응답](../articles/virtual-machines/linux/scheduled-events.md)
-* [각 애플리케이션 계층을 별도의 가용성 집합으로 구성]
+* [각 애플리케이션 계층을 별도의 가용성 집합으로 구성](../articles/virtual-machines/windows/tutorial-availability-sets.md)
 * [가용성 영역 또는 집합과 부하 분산 장치 결합]
 * [가용성 영역을 사용하여 데이터 센터 수준 오류로부터 사용자 보호]
 
@@ -82,12 +82,12 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 ```
 
 > [!NOTE]
-> 특정 상황에서는 동일한 AvailabilitySet의 두 VM이 같은 FaultDomain을 공유할 수 있습니다. 가용성 집합으로 이동하고 **장애 도메인** 열을 확인하여 이 내용을 확인할 수 있습니다.
-> 이것은 VM을 배포할 때의 다음 순서 때문일 수 있습니다.
-> - 첫 번째 VM 배포
-> - 첫 번째 VM 중지/할당 취소
-> - 이 상황에서 두 번째 VM을 배포하면 두 번째 VM의 OS 디스크가 첫 번째 VM과 동일한 장애 도메인에 만들어질 수 있고 이 때문에 두 번째 VM도 같은 FaultDomain에 연결됩니다. 
-> 이 문제를 방지하려면 배포 사이에 VM을 중지/할당 취소하지 않는 것이 좋습니다.
+> 특정 상황에서는 동일한 가용성 집합에 있는 두 VM에서 장애 도메인을 공유할 수 있습니다. 가용성 집합으로 이동하고 **장애 도메인** 열을 확인하여 공유 장애 도메인을 확인할 수 있습니다. VM을 배포할 때 다음 순서를 완료하면 공유 장애 도메인이 발생할 수 있습니다.
+> 1. 첫 번째 VM을 배포합니다.
+> 1. 첫 번째 VM을 중지/할당 취소합니다.
+> 1. 두 번째 VM을 배포합니다.
+>
+> 이러한 경우 두 번째 VM의 OS 디스크가 첫 번째 VM과 동일한 장애 도메인에 만들어질 수 있으므로 두 VM이 동일한 장애 도메인에 있게 됩니다. 이 문제를 방지하려면 배포 간에 VM을 중지/할당 취소하지 않는 것이 좋습니다.
 
 비관리 디스크에서 VM을 사용하려는 경우 VM의 VHD(가상 하드 디스크)를 [페이지 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)으로 저장하는 스토리지 계정에 대한 아래의 모범 사례를 따릅니다.
 

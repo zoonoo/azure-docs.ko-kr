@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6884062bc5107ecb1e31fc6826a9d847e4d31e89
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400435"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595991"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Azure 키 자격 증명 모음 액세스 정책 문제 해결
 
@@ -25,6 +25,14 @@ ms.locfileid: "89400435"
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>키 자격 증명 모음에 대한 자격 증명 모음 가용성, 서비스 대기 시간 기간 또는 기타 성능 메트릭을 어떻게 모니터링할 수 있나요?
 
 서비스의 크기를 조정하기 시작하면 키 자격 증명 모음으로 전송되는 요청 수가 증가합니다. 이러한 수요로 인해 요청 대기 시간이 길어질 수 있으며 극단적인 경우에는 서비스의 성능에 영향을 줄 수 있는 요청이 제한됩니다. 키 자격 증명 모음 성능 메트릭을 모니터링하고 특정 임계값에 대한 경고를 받을 수 있습니다. 모니터링을 구성하는 단계별 가이드는 [자세히 알아보세요](https://docs.microsoft.com/azure/key-vault/general/alert).
+
+### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>액세스 정책을 수정할 수 없습니다. 사용하도록 설정하려면 어떻게 해야 하나요?
+액세스 정책을 수정하려면 사용자에게 충분한 AAD 권한이 있어야 합니다. 이 경우 사용자에게 더 높은 기여자 역할이 있어야 합니다.
+
+### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>'알 수 없는 정책' 오류가 표시됩니다. 어떤 의미인가요?
+알 수 없는 섹션에서 액세스 정책을 볼 수 있는 두 가지 다른 가능성이 있습니다.
+* 액세스 권한이 있는 이전 사용자가 있을 수 있으며, 어떤 이유로 인해 사용자가 존재하지 않을 수 있습니다.
+* Powershell을 통해 액세스 정책이 추가되고 서비스 priciple 대신 애플리케이션 objectid에 대한 액세스 정책이 추가된 경우
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>키 자격 증명 모음 개체별로 액세스 제어를 할당하려면 어떻게 해야 하나요? 
 

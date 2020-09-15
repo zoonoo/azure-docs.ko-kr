@@ -3,12 +3,12 @@ title: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에
 description: 이 자습서에서는 Azure Live Video Analytics on IoT Edge를 사용하여 클라우드에 지속적으로 비디오를 녹화하고, Azure Media Services를 사용하여 비디오에서 원하는 부분을 스트리밍하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 60b93aac3a0da4bbc49f83c5cbd43191693cae50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043471"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566802"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에서 재생
 
@@ -61,7 +61,8 @@ ms.locfileid: "87043471"
  
  CVR을 수행하려면 RTSP 가능 카메라에서 비디오를 캡처하고, [Azure Media Services 자산](terminology.md#asset)에 연속 녹화해야 합니다. 아래 다이어그램은 해당 미디어 그래프의 그래픽 표현을 보여줍니다.
 
-![미디어 그래프](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="미디어 그래프":::
 
 이 자습서에서는 [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)를 사용하여 빌드된 에지 모듈을 하나 사용하여 RTSP 카메라를 시뮬레이션합니다. 미디어 그래프 내에서 [RTSP 원본](media-graph-concept.md#rtsp-source) 노드를 사용하여 라이브 피드를 가져온 다음, 해당 비디오를 자산에 기록할 [자산 싱크 노드](media-graph-concept.md#asset-sink)로 보냅니다.
 
@@ -352,7 +353,7 @@ Azure Portal에 로그인하여 비디오를 살펴보면 미디어 그래프에
 1. 구독에 있는 리소스 중에서 Media Services 계정을 찾아 계정 창을 엽니다.
 1. **Media Services** 목록에서 **자산**을 선택합니다.
 
-    ![자산](./media/continuous-video-recording-tutorial/assets.png)
+    ![Media Services 자산](./media/continuous-video-recording-tutorial/assets.png)
 1. sampleAsset-CVRToAMSAsset-Sample-Graph-1라는 이름으로 나열된 자산을 찾을 수 있습니다. 그래프 토폴로지 파일에서 선택한 명명 패턴입니다.
 1. 자산을 선택합니다.
 1. 자산 세부 정보 페이지의 **스트리밍 URL** 텍스트 상자 아래에서 **새로 만들기**를 선택합니다.

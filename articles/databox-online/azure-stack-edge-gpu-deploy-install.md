@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/29/2020
+ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5682d511b20f7b6f4dbfbd7487e39f345b660fa
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 25bdf2fba67b3a2b42a24416a9de692cf3e992dd
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262858"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421376"
 ---
 # <a name="tutorial-install-azure-stack-edge-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge 설치
 
@@ -221,6 +221,10 @@ Azure Stack Edge 디바이스에서:
 4. 전원 코드를 랙 PDU(전원 분배 장치)에 연결합니다. 두 PSU에서 별도의 전원을 사용하는지 확인합니다.
 5. 전원 단추를 눌러 디바이스를 켭니다.
 6. 1-GbE 네트워크 인터페이스 PORT 1을 물리적 디바이스 구성에 사용되는 컴퓨터에 연결합니다. PORT 1은 관리 인터페이스 역할을 합니다.
+    
+    > [!NOTE]
+    > 컴퓨터를 디바이스에 직접 연결하는 경우(스위치를 통하지 않고) 크로스오버 케이블 또는 USB 이더넷 어댑터를 사용합니다.
+
 7. 하나 이상의 PORT 2, PORT 3, PORT 4, PORT 5 또는 PORT 6을 데이터 센터 네트워크/인터넷에 연결합니다.
 
     - PORT 2를 연결하는 경우 1-GbE RJ-45 네트워크 케이블을 사용합니다.
@@ -235,7 +239,7 @@ Azure Stack Edge 디바이스에서:
 > * 랙에 디바이스 탑재
 > * 디바이스에 케이블 연결
 
-디바이스를 연결하고, 설정하고, 활성화하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
+다음 자습서로 이동하여 디바이스에 연결하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [Azure Stack Edge 연결](./azure-stack-edge-gpu-deploy-connect.md)

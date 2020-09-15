@@ -9,12 +9,12 @@ ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: b86b569b1b14b943cdc6dcc805a7b7a208d03447
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 5503a4734ca687ba89d7d40270ae9157deb0ca91
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475122"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489989"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>Azure Data Lake Analytics이란?
 
@@ -49,7 +49,7 @@ Data Lake Analytics은 빅 데이터 작업을 실행하기 위한 경제적인 
 
 ## <a name="works-with-all-your-azure-data"></a>모든 Azure 데이터를 사용하여 작업
   
-Data Lake Analytics는 최고의 성능, 처리량 및 병렬 처리를 위해 Azure Data Lake Storage와 함께 작동하며 Azure Storage Blob, Azure SQL Database, Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)와 함께 작동합니다.
+Data Lake Analytics는 최고의 성능, 처리량 및 병렬 처리를 위해 Azure Data Lake Storage와 함께 작동하며, Azure Storage Blob, Azure SQL Database, Azure Synapse Analytics(이전의 SQL Data Warehouse)와 함께 작동합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

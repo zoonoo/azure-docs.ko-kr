@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 464c0fee31f86ba6ffa1dbecc7b2dd659cd86685
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c633cc973cb9e4d4f0375dec638e278c48c6709c
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255531"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500235"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Azure CLI 및 Python을 사용하여 Azure Stack Edge GPU 디바이스에 VM 배포
 
@@ -60,13 +60,13 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge 디바이스에서 VM 만�
 
     2. 네트워크 인터페이스에서 컴퓨팅을 사용하도록 설정합니다. 이 네트워크 인터페이스에 해당하는 가상 스위치를 Azure Stack Edge가 만들고 관리합니다.
 
-    컴퓨팅에 다른 네트워크 인터페이스를 사용하려면, 다음을 수행해야 합니다.
+    <!--If you decide to use another network interface for compute, make sure that you:
 
-    - Azure Resource Manager를 사용하여 배포한 모든 VM을 삭제합니다.
+    - Delete all the VMs that you have deployed using Azure Resource Manager.
 
-    - 가상 네트워크 인터페이스 및 이 네트워크 인터페이스와 연결된 가상 네트워크를 모두 삭제합니다.
+    - Delete all virtual network interfaces and the virtual network associated with this network interface.
 
-    - 이제 컴퓨팅에 다른 네트워크 인터페이스를 사용하도록 설정할 수 있습니다.
+    - You can now enable another network interface for compute.-->
 
 3. Azure Stack Edge 디바이스와 클라이언트의 신뢰할 수 있는 저장소에 모든 인증서를 만들고 설치했습니다. [2단계: 인증서 만들기 및 설치](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates)에 설명된 절차를 따릅니다.
 
@@ -278,7 +278,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge 디바이스에서 VM 만�
 
 3. 환경을 등록합니다. az cloud register를 실행하는 경우 다음 매개 변수를 사용합니다.
 
-    | Value | 설명 | 예 |
+    | Value | Description | 예 |
     | --- | --- | --- |
     | 환경 이름 | 연결하려는 환경의 이름 | 이름 제공(예: `aze-environ`) |
     | Resource Manager 엔드포인트 | URL은 `https://Management.<appliancename><dnsdomain>`입니다. <br> 이 URL을 얻으려면 디바이스의 로컬 웹 UI에서 **디바이스** 페이지로 이동합니다. |예: `https://management.team3device.teatraining1.com`  |
@@ -342,7 +342,8 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge 디바이스에서 VM 만�
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-
+   `id` 및 `tenantId` 값은 각각 Azure Resource Manager 구독 ID와 Azure Resource Manager 테넌트 ID에 해당하며 이후 단계에서 사용되므로 기록해 둡니다.
+       
    서비스 주체로 작업하려면 다음 환경 변수를 설정해야 합니다.
 
    ```
@@ -352,7 +353,7 @@ Azure CLI와 Python을 사용하여 Azure Stack Edge 디바이스에서 VM 만�
    $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
    ```
 
-   Azure Resource Manager 테넌트 ID, Azure Resource Manager 클라이언트 ID 및 Azure Resource Manager 구독 ID는 모두 하드코딩되며, 모든 Azure Stack Edge 디바이스에서 동일한 값을 갖습니다. Azure Resource Manager 클라이언트 암호는 내가 설정한 Azure Resource Manager 암호입니다.
+   Azure Resource Manager 클라이언트 ID는 하드 코딩됩니다. Azure Resource Manager 테넌트 ID와 Azure Resource Manager 구독 ID는 모두 이전에 실행한 `az login` 명령의 출력에 표시됩니다. Azure Resource Manager 클라이언트 암호는 내가 설정한 Azure Resource Manager 암호입니다.
 
    자세한 내용은 [Azure Resource Manager 암호](azure-stack-edge-j-series-set-azure-resource-manager-password.md)를 참조하세요.
 
@@ -379,7 +380,7 @@ VM을 생성하도록 Python 스크립트가 제공됩니다. 사용자로 로�
 
 2. 스크립트를 실행하면 VHD를 업로드하는 데 20~30분이 걸립니다. 업로드 작업의 진행률을 보려면 Azure Storage Explorer 또는 AzCopy를 사용하면 됩니다.
 
-    다음은 스크립트 실행에 성공한 출력의 샘플입니다. 스크립트는 리소스 그룹 내의 모든 리소스를 만들고, 이러한 리소스를 사용하여 VM을 만든 다음, 마지막으로 생성된 모든 리소스를 포함한 리소스 그룹을 삭제합니다.
+    다음은 스크립트 실행에 성공한 출력의 샘플입니다. 스크립트는 리소스 그룹 내의 모든 리소스를 만들고, 해당 리소스를 사용하여 VM을 만든 다음, 마지막으로 생성된 모든 리소스를 포함한 리소스 그룹을 삭제합니다.
 
     
     ```powershell

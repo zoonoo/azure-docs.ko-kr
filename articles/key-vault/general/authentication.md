@@ -7,18 +7,18 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1ef5b2229aadc4be46361a7319351a1f27b28b63
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378980"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481378"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Azure Key Vault에 인증
 
 Azure Key Vault를 사용하면 비밀을 저장하고 중앙 집중식 보안 클라우드 리포지토리에서 배포를 제어할 수 있으므로 애플리케이션에 자격 증명을 저장할 필요가 없습니다. 애플리케이션은 런타임 시 Key Vault로만 인증하여 해당 비밀에 액세스해야 합니다.
 
-## <a name="app-identity-and-service-principals"></a>앱 ID 및 서비스 주체
+## <a name="app-identity-and-security-principals"></a>앱 ID 및 보안 주체
 
 Key Vault를 사용한 인증은 [Azure AD(Azure Active Directory)](/azure/active-directory/fundamentals/active-directory-whatis)와 함께 작동하며, 이는 지정된 **보안 주체**의 ID를 인증하는 역할을 담당합니다.
 
@@ -40,7 +40,7 @@ Key Vault를 사용한 인증은 [Azure AD(Azure Active Directory)](/azure/activ
 
 * 관리 ID를 사용할 수 없는 경우 대신 Azure AD 테넌트를 사용하여 애플리케이션에 **등록**합니다([빠른 시작: Azure ID 플랫폼에 애플리케이션 등록](/azure/active-directory/develop/quickstart-register-app) 참조). 또한 등록은 모든 테넌트에서 앱을 식별하는 두 번째 애플리케이션 개체를 만듭니다.
 
-## <a name="authorize-a-service-principal-to-access-key-vault"></a>서비스 주체에게 Key Vault에 대한 액세스 권한 부여
+## <a name="authorize-a-security-principal-to-access-key-vault"></a>보안 주체에게 Key Vault에 대한 액세스 권한 부여
 
 Key Vault는 두 가지 개별 권한 부여 수준으로 작동합니다.
 

@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 70e86e01a9d37a27620d451bcd5d035dfcb4573d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 538aa29ab66fce48da944dbdf9ea79d5c8f7f330
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237123"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421291"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Attestation 설정
 
@@ -159,26 +159,27 @@ TagsTable:
 
 증명 공급자는 Remove-AzAttestation cmdlet을 사용하여 삭제할 수 있습니다.  
 
-``azurepowershell Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
+```powershell
+Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
 ```
 
-## Policy management
+## <a name="policy-management"></a>정책 관리
 
-In order to manage policies, an Azure AD user requires the following permissions for "Actions":
+정책을 관리하려면 Azure AD 사용자에게 "작업"에 대한 다음 권한이 필요합니다.
 - Microsoft.Attestation/attestationProviders/attestation/read
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-These permissions can be assigned to an AD user through a role such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) or "Attestation Contributor" (specific permissions for Azure Attestation only).  
+이러한 권한은 "소유자"(와일드카드 권한), "기여자"(와일드카드 권한) 또는 "증명 기여자"(Azure Attestation의 특정 권한만 해당)와 같은 역할을 통해 AD 사용자에게 할당할 수 있습니다.  
 
-In order to read policies, an Azure AD user requires the following permission for "Actions":
+정책을 읽으려면 Azure AD 사용자에게 "작업"에 대한 다음 권한이 필요합니다.
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-This permission can be assigned to an AD user through a role such as "Reader" (wildcard permissions) or "Attestation Reader" (specific permissions for Azure Attestation only).
+이 권한은 "Reader"(와일드카드 권한) 또는 "Attestation Reader"(Azure Attestation에 대한 특정 권한만 해당)와 같은 역할을 통해 AD 사용자에게 할당할 수 있습니다.
 
-Below PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
+아래의 PowerShell cmdlet은 증명 공급자에 대한 정책 관리를 제공합니다(한 번에 하나의 TEE).
 
-Get-AzAttestationPolicy returns the current policy for the specified TEE. The cmdlet displays policy in both text and JWT format of the policy.
+Get-AzAttestationPolicy는 지정된 TEE에 대한 현재 정책을 반환합니다. Cmdlet은 정책의 텍스트 및 JWT 형식 모두에 정책을 표시합니다.
 
 ```powershell
 $teeType = "<tee Type>"

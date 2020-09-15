@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ecca67cab486c8f3524c8c8d4c221d52689cf62a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dedf0795e72c4bdace430ba2dd07ade9d792f13c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070099"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459542"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse 관리형 프라이빗 엔드포인트(미리 보기)
 
@@ -23,7 +23,7 @@ ms.locfileid: "87070099"
 
 관리형 프라이빗 엔드포인트는 Azure 리소스에 대한 프라이빗 링크를 설정하는 관리형 작업 영역 Microsoft Azure Virtual Network에서 생성된 프라이빗 엔드포인트입니다. Azure Synapse는 사용자 대신 이러한 프라이빗 엔드포인트를 관리합니다.
 
-Azure Synapse는 프라이빗 링크를 지원합니다. 프라이빗 링크를 사용하면 Azure Virtual Network에서 Azure 서비스(예: Azure Storage, Azure Cosmos DB, Azure SQL Data Warehouse) 및 Azure에 호스트되는 고객/파트너 서비스에 안전하게 액세스할 수 있습니다.
+Azure Synapse는 프라이빗 링크를 지원합니다. 프라이빗 링크를 사용하면 Azure Virtual Network에서 Azure 서비스(예: Azure Storage, Azure Cosmos DB) 및 Azure에 호스트되는 고객/파트너 서비스에 안전하게 액세스할 수 있습니다.
 
 프라이빗 링크를 사용하는 경우 Virtual Network와 작업 영역 간의 트래픽은 전적으로 Microsoft 백본 네트워크를 통해 트래버스됩니다. Private Link는 데이터 반출 위험을 방지합니다. 프라이빗 엔드포인트를 만들어 리소스에 대한 프라이빗 링크를 설정합니다.
 

@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: afe5ec179826b6d8dbef54ef773948bf9cbaea2f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: db0e3bf102feeab6272ac96198d486b51e144d05
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684189"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570151"
 ---
-
-![개요](../../../media/quickstarts/overview-qs5.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="../../../media/quickstarts/overview-qs5.svg" alt-text="신호 흐름":::
 
 이 다이어그램에서는 이 빠른 시작의 신호 흐름을 보여 줍니다. [에지 모듈](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)은 RTSP(Real-Time Streaming Protocol) 서버를 호스팅하는 IP 카메라를 시뮬레이션합니다. [RTSP 원본](../../../media-graph-concept.md#rtsp-source) 노드는 이 서버에서 비디오 피드를 가져와서 비디오 프레임을 [프레임 속도 필터 프로세서](../../../media-graph-concept.md#frame-rate-filter-processor) 노드로 보냅니다. 이 프로세서는 [HTTP 확장 프로세서](../../../media-graph-concept.md#http-extension-processor) 노드에 도달하는 비디오 스트림의 프레임 속도를 제한합니다. 
 

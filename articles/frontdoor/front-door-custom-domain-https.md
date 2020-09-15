@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/05/2018
+ms.date: 09/09/2020
 ms.author: duau
-ms.openlocfilehash: 3956a843e67dba82486f350fc4380d4c8f6065f1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: bbd45a4190cfa1199568c23cc346b9ccacc20ac5
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399823"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648876"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -219,7 +219,27 @@ postmaster@&lt;your-domain-name.com&gt;
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
+## <a name="frequently-asked-questions"></a>질문과 대답
 
+1. *인증서 공급자는 누구이며 어떤 유형의 인증서가 사용되나요?*
+
+    Digicert에서 제공한 전용/단일 인증서가 사용자 지정 도메인에 사용됩니다. 
+
+2. *IP 기반 또는 SNI TLS/SSL을 사용하나요?*
+
+    Azure Front Door는 SNI TLS/SSL을 사용합니다.
+
+3. *DigiCert로부터 도메인 확인 메일을 받지 못한 경우 어떻게 하나요?*
+
+    엔드포인트 호스트 이름을 직접 가리키는 사용자 지정 도메인에 대한 CNAME 항목이 있고 afdverify 하위 도메인 이름을 사용하지 않는 경우에는 도메인 확인 메일이 수신되지 않습니다. 유효성 검사가 자동으로 수행됩니다. 그렇지 않은 경우 CNAME 항목이 없고 24시간 내에 이메일을 받지 못했으면 Microsoft 지원에 문의하세요.
+
+4. *SAN 인증서를 사용하는 것보다 전용 인증서를 사용하는 것이 더 안전한가요?*
+    
+    SAN 인증서는 전용 인증서와 동일한 암호화 및 보안 표준을 따릅니다. 발급된 모든 TLS/SSL 인증서는 향상된 서버 보안을 위해 SHA-256을 사용합니다.
+
+5. *내 DNS 공급자에게 CAA(Certificate Authority Authorization) 레코드가 필요합니까?*
+
+    아니요, CAA 레코드는 현재 필요하지 않습니다. 그러나 이 레코드가 있으면 DigiCert가 유효한 CA로 포함되어야 합니다.
 
 ## <a name="clean-up-resources---disable-https"></a>리소스 정리 - HTTPS를 사용하지 않도록 설정
 
@@ -247,30 +267,15 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 | 2 인증서 프로비전 해제 | 인증서 삭제 |
 | 3 완료 | 인증서 삭제됨 |
 
-## <a name="frequently-asked-questions"></a>질문과 대답
-
-1. *인증서 공급자는 누구이며 어떤 유형의 인증서가 사용되나요?*
-
-    Digicert에서 제공한 전용/단일 인증서가 사용자 지정 도메인에 사용됩니다. 
-
-2. *IP 기반 또는 SNI TLS/SSL을 사용하나요?*
-
-    Azure Front Door는 SNI TLS/SSL을 사용합니다.
-
-3. *DigiCert로부터 도메인 확인 메일을 받지 못한 경우 어떻게 하나요?*
-
-    엔드포인트 호스트 이름을 직접 가리키는 사용자 지정 도메인에 대한 CNAME 항목이 있고 afdverify 하위 도메인 이름을 사용하지 않는 경우에는 도메인 확인 메일이 수신되지 않습니다. 유효성 검사가 자동으로 수행됩니다. 그렇지 않은 경우 CNAME 항목이 없고 24시간 내에 이메일을 받지 못했으면 Microsoft 지원에 문의하세요.
-
-4. *SAN 인증서를 사용하는 것보다 전용 인증서를 사용하는 것이 더 안전한가요?*
-    
-    SAN 인증서는 전용 인증서와 동일한 암호화 및 보안 표준을 따릅니다. 발급된 모든 TLS/SSL 인증서는 향상된 서버 보안을 위해 SHA-256을 사용합니다.
-
-5. *내 DNS 공급자에게 CAA(Certificate Authority Authorization) 레코드가 필요합니까?*
-
-    아니요, CAA 레코드는 현재 필요하지 않습니다. 그러나 이 레코드가 있으면 DigiCert가 유효한 CA로 포함되어야 합니다.
-
-
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
-- [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
+
+* Key Vault에 인증서를 업로드합니다.
+* 도메인의 유효성을 검사합니다.
+* 사용자 지정 도메인에 HTTPS를 활성화합니다.
+
+Front Door에 대한 지역 필터링 정책을 설정하는 방법을 알아보려면 다음 자습서를 계속 진행합니다.
+
+> [!div class="nextstepaction"]
+> [지역 필터링 정책 설정](front-door-geo-filtering.md)

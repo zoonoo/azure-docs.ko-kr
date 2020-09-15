@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 44d77c36b9aacb8a2f06fd7a0f167cffa06ae4eb
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ad3dd64bb55ccd657b74bacff3e4441ce63f0cf7
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716115"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569376"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Key Vault에서 CSR 만들기 및 병합
 
@@ -102,6 +102,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - **오류 유형 '지정된 X.509 인증서 콘텐츠에 있는 최종 엔터티 인증서의 공개 키와 지정된 프라이빗 키의 공개 부분이 일치하지 않습니다. 인증서가 유효한지 확인하십시오'** 이 오류는 동일한 CSR 요청이 시작된 상태에서 CSR을 병합하지 않을 경우 발생할 수 있습니다. CSR은 CSR을 생성할 때마다 서명된 요청을 병합할 때 일치해야 하는 프라이빗 키를 만듭니다.
     
+- CSR이 병합되면 전체 체인이 병합되나요?
+    예, 사용자가 병합하기 위해 p7b 파일을 다시 가져오면 전체 체인이 병합됩니다.
+
 - 발급된 인증서가 Azure Portal의 '사용 안 함' 상태이면 **인증서 작업** 보기를 계속 진행하여 해당 인증서에 대한 오류 메시지를 검토합니다.
 
 자세한 내용은 [Key Vault REST API 참조에서 인증서 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.

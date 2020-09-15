@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 4973c12b8594026351b47ab31ba65e51a97fa3ab
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f2724a0ea0aa5f609be5847652973cfa03658c24
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687294"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421532"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>샘플 파일 검사 및 편집
 
@@ -30,6 +30,49 @@ ms.locfileid: "88687294"
     * `"topologyName"` : `"InferencingWithGrpcExtension"`
     * GraphTopologyDelete에서 이름을 편집합니다.
     * `"name"` : `"InferencingWithGrpcExtension"`
+
+> [!NOTE]
+> <p>
+> <details>
+> <summary>이를 확장하고 토폴로지에서 MediaGraphGrpcExtension 노드가 구현되는 방식을 확인합니다.</summary>
+> <pre><code>
+> {
+>   "@type": "#Microsoft.Media.MediaGraphGrpcExtension",
+>   "name": "grpcExtension",
+>   "endpoint": {
+>       "@type": "#Microsoft.Media.MediaGraphUnsecuredEndpoint",
+>       "url": "${grpcExtensionAddress}",
+>       "credentials": {
+>           "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+>           "username": "${grpcExtensionUserName}",
+>           "password": "${grpcExtensionPassword}"
+>       }
+>   },
+>   "dataTransfer": {
+>       "mode": "sharedMemory",
+>       "SharedMemorySizeMiB": "5"
+>   },
+>   "image": {
+>       "scale": {
+>           "mode": "${imageScaleMode}",
+>           "width": "${frameWidth}",
+>           "height": "${frameHeight}"
+>       },
+>       "format": {
+>           "@type": "#Microsoft.Media.MediaGraphImageFormatEncoded",
+>           "encoding": "${imageEncoding}",
+>           "quality": "${imageQuality}"
+>       }
+>   },
+>   "inputs": [
+>       {
+>           "nodeName": "motionDetection"
+>       }
+>   ]
+> }          
+> </code></pre>
+> </details>    
+> </p>
     
 ### <a name="generate-and-deploy-the-iot-edge-deployment-manifest"></a>IoT Edge 배포 매니페스트 생성 및 배포
 

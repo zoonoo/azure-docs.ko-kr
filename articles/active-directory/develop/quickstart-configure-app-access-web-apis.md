@@ -1,202 +1,148 @@
 ---
 title: '빠른 시작: 웹 API에 액세스하도록 앱 구성 | Azure'
 titleSuffix: Microsoft identity platform
-description: 이 빠른 시작에서는 리디렉션 URI, 자격 증명 또는 웹 API에 대한 액세스 권한을 포함하도록 Microsoft 플랫폼에 등록된 앱을 구성합니다.
+description: 이 빠른 시작에서는 Microsoft ID 플랫폼에서 웹 API를 나타내는 앱 등록을 구성하여 클라이언트 애플리케이션에 대한 범위가 지정된 리소스 액세스(권한)를 사용하도록 설정합니다.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/05/2020
-ms.author: ryanwi
-ms.custom: aaddev
+ms.date: 09/03/2020
+ms.author: marsma
+ms.custom: aaddev, contperfq1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 87c21587567ffe3462e4b702985114ac10454886
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88140805"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442318"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>빠른 시작: 웹 API에 액세스하도록 클라이언트 애플리케이션 구성
 
-이 빠른 시작에서는 리디렉션 URI, 자격 증명 또는 애플리케이션의 웹 API에 대한 액세스 권한을 추가합니다. 웹 또는 기밀 클라이언트 애플리케이션은 인증이 필요한 권한 부여 흐름에 참가하려면 보안 자격 증명을 설정해야 합니다. Azure Portal에서 지원하는 기본 인증 방법은 클라이언트 ID + 비밀 키입니다. 앱은 이 프로세스 중에 액세스 토큰을 얻습니다.
+이 빠른 시작에서는 사용자 고유의 웹 API에 대한 범위가 지정된 권한 기반 액세스를 Microsoft ID 플랫폼에 등록된 클라이언트 앱에 제공합니다. Microsoft Graph에 대한 클라이언트 앱 액세스도 제공합니다.
 
-클라이언트가 리소스 애플리케이션(예: Microsoft Graph API)에서 공개한 웹 API에 액세스할 수 있도록, 동의 프레임워크는 클라이언트에서 요청한 권한에 필요한 권한 부여를 제공합니다. 기본적으로 모든 애플리케이션은 Microsoft Graph API에서 권한을 요청할 수 있습니다.
+웹 API의 범위를 클라이언트 앱의 등록에 지정하면 클라이언트 앱이 Microsoft ID 플랫폼에서 해당 범위가 포함된 액세스 토큰을 가져올 수 있습니다. 그런 다음, 해당 코드 내에서 웹 API는 액세스 토큰에 있는 범위를 기준으로 리소스에 대한 권한 기반 액세스를 제공할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [빠른 시작: 웹 API를 공개하는 애플리케이션 구성](quickstart-configure-app-expose-web-apis.md)을 완료합니다.
+* 활성 구독이 있는 Azure 계정 - [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [빠른 시작: 애플리케이션 등록](quickstart-register-app.md) 완료
+* [빠른 시작: 웹 API를 공개하도록 애플리케이션 구성](quickstart-configure-app-expose-web-apis.md) 완료
 
-## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Azure Portal에 로그인하고 앱 선택
+## <a name="add-permissions-to-access-your-web-api"></a>웹 API에 액세스할 수 있는 권한 추가
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
-1. 사용자의 계정으로 둘 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위 모서리에서 계정을 선택합니다. 포털 세션을 원하는 Azure AD 테넌트로 설정합니다.
-1. **Azure Active Directory**를 검색하고 선택합니다. **관리** 아래에서 **앱 등록**을 선택합니다.
-1. 구성하려는 애플리케이션을 찾아 선택합니다. 앱을 선택하면 애플리케이션의 **개요** 또는 기본 등록 페이지가 나타납니다.
+첫 번째 시나리오에서는 클라이언트 앱 액세스 권한을 사용자 고유의 웹 API에 부여합니다. 이 두 가지 모두는 필수 구성 요소의 일부로 등록해야 합니다. 클라이언트 앱과 웹 API 모두를 아직 등록하지 않은 경우 이 문서의 두 가지 [필수 구성 요소](#prerequisites) 단계를 완료합니다.
 
-다음 절차에 따라 웹 API에 액세스하도록 애플리케이션을 구성합니다.
+이 다이어그램에서는 두 가지 앱 등록이 서로 관련되는 방법을 보여 줍니다. 이 섹션에서는 권한을 클라이언트 앱의 등록에 추가합니다.
 
-## <a name="add-redirect-uris-to-your-application"></a>애플리케이션에 리디렉션 URI 추가
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/diagram-01-app-permission-to-api-scopes.svg" alt-text="오른쪽에서 범위가 공개된 웹 API를 보여 주고, 왼쪽에서 이러한 범위가 권한으로 선택된 클라이언트 앱을 보여 주는 선 다이어그램" border="false":::
 
-사용자 지정 리디렉션 URI 및 제안된 리디렉션 URI를 애플리케이션에 추가할 수 있습니다. 웹 및 퍼블릭 클라이언트 애플리케이션의 사용자 지정 리디렉션 URI를 추가하는 방법은 다음과 같습니다.
+클라이언트 앱과 웹 API를 모두 등록하고 범위를 만들어 API를 공개한 후에는 다음 단계를 수행하여 API에 대한 클라이언트의 권한을 구성할 수 있습니다.
 
-1. 앱의 **개요** 페이지에서 **인증**을 선택합니다.
-1. **리디렉션 URI**를 찾습니다. **이전 환경으로 전환**을 선택해야 할 수도 있습니다.
-1. 빌드하려는 애플리케이션 유형을 **웹** 또는 **퍼블릭 클라이언트/네이티브(모바일 및 데스크톱)** 중에 선택합니다.
-1. 애플리케이션의 리디렉션 URI를 입력합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false":::를 사용하여 클라이언트 앱의 등록이 포함된 테넌트를 선택합니다.
+1. **Azure Active Directory** > **앱 등록**을 차례로 선택한 다음, 클라이언트 애플리케이션(웹 API가 *아님*)을 선택합니다.
+1. **API 사용 권한** > **사용 권한 추가** > **내 API**를 선택합니다.
+1. 필수 구성 요소의 일부로 등록한 웹 API를 선택합니다.
 
-   * 웹 애플리케이션의 경우 애플리케이션의 기준 URL을 제공합니다. 예를 들어 `http://localhost:31544`은 로컬 머신에서 실행 중인 웹 애플리케이션의 URL일 수 있습니다. 사용자는 이 URL을 사용하여 웹 클라이언트 애플리케이션에 로그인합니다.
-   * 공용 애플리케이션의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용하는 URI를 제공합니다. 애플리케이션 고유의 값을 입력합니다(예: `https://MyFirstApp`).
-1. **저장**을 선택합니다.
+    **위임된 권한**이 기본적으로 선택되어 있습니다. 위임된 권한은 로그인한 사용자로 웹 API에 액세스하고 다음 단계에서 선택하는 권한으로 액세스를 제한해야 하는 클라이언트 앱에 적합합니다. 이 예에서는 **위임된 권한**이 선택된 상태로 둡니다.
 
-퍼블릭 클라이언트에 대해 제안된 리디렉션 URI 중에 선택하려면 다음 단계를 따릅니다.
+    **애플리케이션 권한**은 로그인 또는 동의를 위한 사용자 상호 작용 없이 웹 API에 자체적으로 액세스해야 하는 서비스 또는 디먼 유형의 애플리케이션에 대한 권한입니다. 웹 API에 대한 애플리케이션 역할을 정의하지 않은 경우 이 옵션은 사용하지 않도록 설정됩니다.
+1. **권한 선택** 아래에서 웹 API에 대해 정의한 범위에 해당하는 리소스를 펼치고, 로그인한 사용자를 대신하여 클라이언트 앱에서 보유해야 하는 권한을 선택합니다.
 
-1. 앱의 **개요** 페이지에서 **인증**을 선택합니다.
-1. **퍼블릭 클라이언트(모바일, 데스크톱)에 제안된 리디렉션 URI**를 찾습니다. **이전 환경으로 전환**을 선택해야 할 수도 있습니다.
-1. 애플리케이션의 리디렉션 URI를 하나 이상 선택합니다. 사용자 지정 리디렉션 URI를 입력할 수 있습니다. 무엇을 사용해야 하는지 확실하지 않으면 라이브러리 설명서를 확인하세요.
-1. **저장**을 선택합니다.
+    이전 빠른 시작에서 지정한 범위 이름 예제를 사용한 경우 **Employees.Read.All** 및 **Employees.Write.All**이 표시됩니다.
+    **Employees.Read.All** 또는 필수 구성 요소를 완료할 때 만들었을 수도 있는 다른 권한을 선택합니다.
+1. **권한 추가**를 선택하여 프로세스를 완료합니다.
 
-리디렉션 URI에 적용되는 제한 사항이 있습니다. 자세한 내용은 [리디렉션 URI/회신 URL 제한 및 제한 사항](./reply-url.md)을 참조하세요.
+권한이 API에 추가되면 **구성된 권한** 아래에 선택한 권한이 표시됩니다. 다음 이미지에서는 클라이언트 앱의 등록에 추가된 *Employees.Read.All* 위임된 권한 예제를 보여 줍니다.
 
-> [!NOTE]
-> 대상으로 지정하려는 플랫폼 또는 디바이스에 따라 애플리케이션에 대한 설정을 구성할 수 있는 새 **인증** 설정 환경을 사용해 보세요.
->
-> 이 보기를 표시하려면 기본 **인증** 페이지에서 **새 환경을 체험해 보세요.** 를 선택합니다.
->
-> !["새 환경을 체험해 보세요"를 클릭하여 플랫폼 구성 보기 표시](./media/quickstart-update-azure-ad-app-preview/authentication-try-new-experience-cropped.png)
->
-> 그러면 [새 **플랫폼 구성** 페이지](#configure-platform-settings-for-your-application)로 이동합니다.
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="새로 추가된 권한을 보여 주는 Azure Portal의 구성된 권한 창":::
 
-### <a name="configure-advanced-settings-for-your-application"></a>애플리케이션에 대한 고급 설정 구성
+Microsoft Graph API에 대한 *User.Read* 권한도 확인할 수 있습니다. 이 권한은 Azure Portal에서 앱을 등록할 때 자동으로 추가됩니다.
 
-등록하는 애플리케이션에 따라 구성해야 하는 몇 가지 추가 설정은 다음과 같습니다.
+## <a name="add-permissions-to-access-microsoft-graph"></a>Microsoft Graph에 액세스할 수 있는 권한 추가
 
-* **로그아웃 URL**
-* 단일 페이지 앱의 경우 **암시적 허용**을 사용하도록 설정하고 권한 부여 엔드포인트에서 발급하려는 토큰을 선택할 수 있습니다.
-* **기본 클라이언트 유형** 섹션에서 Windows 통합 인증, 디바이스 코드 흐름 또는 사용자 이름/암호를 사용하여 토큰을 획득하는 데스크톱 앱의 경우 **애플리케이션을 퍼블릭 클라이언트로 처리합니다.** 설정을 **예**로 설정합니다.
-* Live SDK를 사용하여 Microsoft 계정 서비스와 통합한 기존 앱의 경우 **Live SDK 지원**을 구성합니다. 새 앱에는 이 설정이 필요하지 않습니다.
-* **기본 클라이언트 유형**
-* **지원되는 계정 유형**
+애플리케이션에서 로그인한 사용자를 대신하여 사용자 고유의 웹 API에 액세스할 수 있을 뿐 아니라 Microsoft Graph에 저장된 사용자(또는 기타) 데이터에 액세스하거나 수정해야 할 수도 있습니다. 또는 사용자 상호 작용 없이 Microsoft Graph에 자체적으로 액세스하여 작업을 수행해야 하는 서비스 또는 디먼 앱이 있을 수 있습니다.
 
-### <a name="modify-supported-account-types"></a>지원되는 계정 유형 수정
+### <a name="delegated-permission-to-microsoft-graph"></a>Microsoft Graph에 대한 위임된 권한
 
-**지원되는 계정 유형**은 애플리케이션을 사용하거나 API에 액세스할 수 있는 사용자를 지정합니다.
+클라이언트 애플리케이션에서 로그인한 사용자를 대신하여 작업(예: 이메일 읽기 또는 프로필 수정)을 수행할 수 있도록 Microsoft Graph에 대한 위임된 권한을 구성합니다. 기본적으로 로그인할 때 클라이언트 앱의 사용자에게 구성한 위임된 권한에 동의하라는 메시지가 표시됩니다.
 
-애플리케이션을 등록할 때 지원되는 계정 유형을 구성한 경우 다음과 같은 경우에만 애플리케이션 매니페스트 편집기를 사용하여 이 설정을 변경할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false":::를 사용하여 클라이언트 앱의 등록이 포함된 테넌트를 선택합니다.
+1. **Azure Active Directory** > **앱 등록**을 차례로 선택한 다음, 클라이언트 애플리케이션을 선택합니다.
+1. **API 권한** > **권한 추가** > **Microsoft Graph**를 차례로 선택합니다.
+1. **위임된 권한**을 선택합니다. Microsoft Graph에서 가장 일반적으로 사용되는 권한(목록의 위쪽에 표시)을 포함하여 많은 권한을 공개합니다.
+1. **권한 선택** 아래에서 다음 권한을 선택합니다.
 
-* 계정 유형을 **AzureADMyOrg** 또는 **AzureADMultipleOrgs**에서 **AzureADandPersonalMicrosoftAccount**로 변경하거나 그 반대로 변경합니다.
-* 계정 유형을 **AzureADMyOrg** 에서 **AzureADMultipleOrgs**로 변경하거나 그 반대로 변경합니다.
+    | 사용 권한       | Description                                         |
+    |------------------|-----------------------------------------------------|
+    | `email`          | 사용자의 이메일 주소 보기                           |
+    | `offline_access` | 액세스 권한이 부여된 데이터에 대한 액세스 유지 |
+    | `openid`         | 사용자 로그인                                       |
+    | `profile`        | 사용자의 기본 프로필 보기기                           |
+1. **권한 추가**를 선택하여 프로세스를 완료합니다.
 
-기존 앱 등록에 지원되는 계정 유형을 변경하려면 `signInAudience` 키를 업데이트합니다. 자세한 내용은 [애플리케이션 매니페스트 구성](reference-app-manifest.md#configure-the-app-manifest)을 참조하세요.
+권한을 구성할 때마다 로그인하는 경우 앱 사용자에게 앱에서 사용자를 대신하여 리소스 API에 액세스할 수 있도록 허용하는 데 동의하라는 메시지가 표시됩니다.
 
-## <a name="configure-platform-settings-for-your-application"></a>애플리케이션에 대한 플랫폼 설정 구성
+관리자는 사용자에게 메시지가 표시되지 않도록 *모든* 사용자를 대신하여 동의를 부여할 수도 있습니다. 관리자 동의는 이 문서의 뒷부분에 있는 [API 권한 및 관리자 동의에 대한 추가 정보](#more-on-api-permissions-and-admin-consent) 섹션에서 설명합니다.
 
-![플랫폼 또는 디바이스에 따른 앱 설정 구성](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations.png)
+### <a name="application-permission-to-microsoft-graph"></a>Microsoft Graph에 대한 애플리케이션 권한
 
-플랫폼 또는 디바이스에 따라 애플리케이션 설정을 구성하려면 다음을 목표로 합니다.
+사용자 상호 작용 또는 동의 없이 자체적으로 인증해야 하는 애플리케이션에 대한 애플리케이션 권한을 구성합니다. 애플리케이션 권한은 일반적으로 API에 "헤드리스" 방식으로 액세스하는 백그라운드 서비스 또는 디먼 앱 및 다른(다운스트림) API에 액세스하는 웹 API에서 사용됩니다.
 
-1. **플랫폼 구성** 페이지에서 **플랫폼 추가**를 선택하고 사용 가능한 옵션 중에서 선택합니다.
+예를 들어 다음 단계에서는 권한을 Microsoft Graph의 *Files.Read.All* 권한에 부여합니다.
 
-   ![플랫폼 구성 페이지 표시](./media/quickstart-update-azure-ad-app-preview/authentication-platform-configurations-configure-platforms.png)
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 여러 테넌트에 액세스할 수 있는 경우 위쪽 메뉴의 **디렉터리 + 구독** 필터 :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false":::를 사용하여 클라이언트 앱의 등록이 포함된 테넌트를 선택합니다.
+1. **Azure Active Directory** > **앱 등록**을 차례로 선택한 다음, 클라이언트 애플리케이션을 선택합니다.
+1. **API 권한** > **권한 추가** > **Microsoft Graph** > **애플리케이션 권한**을 차례로 선택합니다.
+1. **권한 선택** 아래에 Microsoft Graph에서 공개하는 모든 권한이 표시됩니다.
+1. 애플리케이션에 부여하려는 하나 이상의 권한을 선택합니다. 예를 들어 조직의 파일을 검사하여 특정 파일 형식 또는 이름에 대해 경고하는 디먼 앱이 있을 수 있습니다.
 
-1. 선택한 플랫폼에 따라 설정 정보를 입력합니다.
+    **권한 선택** 아래에서 **파일**을 펼친 다음, *Files.Read.All* 권한을 선택합니다.
+1. **권한 추가**를 선택합니다.
 
-   | 플랫폼                | 구성 설정            |
-   |-------------------------|-----------------------------------|
-   | **Web**              | 애플리케이션의 **리디렉션 URI**를 입력합니다. |
-   | **iOS/macOS**              | Info.plist의 XCode 또는 [빌드 설정]에서 찾을 수 있는 앱 **번들 ID**를 입력합니다. 번들 ID를 추가하면 애플리케이션의 리디렉션 URI가 자동으로 만들어집니다. |
-   | **Android**          | AndroidManifest.xml 파일에서 찾을 수 있는 앱 **패키지 이름**을 입력합니다.<br/>**서명 해시**를 생성하여 입력합니다. 서명 해시를 추가하면 애플리케이션의 리디렉션 URI가 자동으로 만들어집니다.  |
-   | **모바일 및 데스크톱 애플리케이션**  | (선택 사항) 데스크톱 및 디바이스용 애플리케이션을 빌드하는 경우 추천되는 **제안된 리디렉션 URI** 중 하나를 선택합니다.<br/>(선택 사항) Azure AD에서 인증 요청에 대한 응답으로 사용자를 리디렉션하는 위치로 사용되는 **사용자 지정 리디렉션 URI**를 입력합니다. 예를 들어 상호 작용을 원하는 .NET Core 애플리케이션의 경우 `http://localhost`를 사용합니다. |
+Microsoft Graph의 *Files.Read.All* 권한과 같은 일부 권한에는 관리자 동의가 필요합니다. 나중에 [관리자 동의 단추](#admin-consent-button) 섹션에서 설명하는 **관리자 동의 허용** 단추를 선택하여 관리자 동의를 부여합니다.
 
-   > [!NOTE]
-   > AD FS(Active Directory Federation Services) 및 Azure AD B2C에서 포트 번호도 지정해야 합니다.  예: `http://localhost:1234`
+### <a name="configure-client-credentials"></a>클라이언트 자격 증명 구성
 
-   > [!IMPORTANT]
-   > 최신 MSAL(Microsoft 인증 라이브러리) 또는 broker를 사용하지 않는 모바일 애플리케이션의 경우 **데스크톱 + 디바이스**에서 이러한 애플리케이션의 리디렉션 URI를 구성해야 합니다.
+애플리케이션 권한을 사용하는 앱은 사용자 상호 작용 없이 자체의 자격 증명을 사용하여 자체적으로 인증합니다. 애플리케이션(또는 API)에서 애플리케이션 권한을 사용하여 Microsoft Graph, 사용자 고유의 웹 API 또는 다른 API에 액세스하려면 먼저 해당 클라이언트 앱의 자격 증명을 구성해야 합니다.
 
-선택한 플랫폼에 따라 구성할 수 있는 추가 설정이 있을 수 있습니다. **웹앱**의 경우 다음을 수행할 수 있습니다.
+앱의 자격 증명을 구성하는 방법에 대한 자세한 내용은 [빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록](quickstart-register-app.md)의 [자격 증명 추가](quickstart-register-app.md#add-credentials) 섹션을 참조하세요.
 
-* 리디렉션 URI를 추가합니다.
-* 권한 부여 엔드포인트에서 발급하려는 토큰을 선택하도록 **암시적 허용**을 구성합니다.
+## <a name="more-on-api-permissions-and-admin-consent"></a>API 권한 및 관리자 동의에 대한 추가 정보
 
-  * 단일 페이지 앱의 경우 **토큰 액세스** 및 **ID 토큰**을 모두 선택합니다.
-  * 웹앱의 경우 **ID 토큰**을 선택합니다.
-
-## <a name="add-credentials-to-your-web-application"></a>웹 애플리케이션에 자격 증명 추가
-
-웹 애플리케이션에 자격 증명을 추가하려면 인증서를 추가하거나 클라이언트 암호를 만듭니다. 인증서를 추가하려면:
-
-1. 앱의 **개요** 페이지에서 **인증서 및 비밀** 섹션을 선택합니다.
-1. **인증서 업로드**를 선택합니다.
-1. 업로드할 파일을 선택합니다. cer, .pem, .crt 중 한 가지 파일 형식이어야 합니다.
-1. **추가**를 선택합니다.
-
-클라이언트 암호를 추가하려면 다음을 수행합니다.
-
-1. 앱의 **개요** 페이지에서 **인증서 및 비밀** 섹션을 선택합니다.
-1. **새 클라이언트 비밀**을 선택합니다.
-1. 클라이언트 비밀에 대한 설명을 추가합니다.
-1. 기간을 선택합니다.
-1. **추가**를 선택합니다.
-
-> [!NOTE]
-> 구성 변경 사항을 저장하면 맨 오른쪽 열에 클라이언트 비밀 값이 포함됩니다. 이 페이지를 벗어나면 액세스할 수 없으므로 클라이언트 애플리케이션 코드에서 사용할 **값을 복사해야 합니다**.
-
-## <a name="add-permissions-to-access-web-apis"></a>웹 API 액세스 권한 추가
-
-[Graph API 로그인 및 읽기 사용자 프로필 권한](/graph/permissions-reference#user-permissions)은 기본적으로 선택됩니다. 각 웹 API에서 다음과 같은 [두 가지 권한 형식](developer-glossary.md#permissions) 중에 선택할 수 있습니다.
-
-* **애플리케이션 권한**. 클라이언트 애플리케이션이 직접 웹 API에 액세스해야 합니다(사용자 컨텍스트 없음). 이 유형의 권한은 관리자의 동의가 필요합니다. 이 권한은 데스크톱 및 모바일 클라이언트 애플리케이션에 사용할 수 없습니다.
-* **위임된 권한**. 클라이언트 애플리케이션이 로그인된 사용자로 웹 API에 액세스해야 하지만 이 액세스는 선택한 권한에 따라 제한됩니다. 이 형식의 사용 권한은 관리자의 동의를 필요로 하지 않는 한 사용자가 부여할 수 있습니다.
-
-  > [!NOTE]
-  > 위임된 권한을 애플리케이션에 추가할 경우 테넌트 내의 사용자에게 자동으로 동의를 부여하지 않습니다. 관리자가 모든 사용자를 대신하여 동의를 허락하지 않는 한 사용자는 런타임에 추가로 위임된 사용 권한에 대해 수동으로 동의해야 합니다.
-
-클라이언트에서 리소스 API에 액세스하는 권한을 추가하려면 다음을 수행합니다.
-
-1. 앱 **개요** 페이지에서 **API 권한**을 선택합니다.
-1. **구성된 사용 권한** 아래에서 **권한 추가**를 선택합니다.
-1. 기본적으로 보기에서는 **Microsoft API**로부터 선택할 수 있습니다. 관심 있는 API 섹션을 선택합니다.
-
-    * **Microsoft API**. Microsoft Graph 등의 Microsoft API에 대한 권한을 선택할 수 있습니다.
-    * **내 조직에서 사용하는 API**. 조직에서 공개한 API 또는 조직에서 통합한 API에 대한 권한을 선택할 수 있습니다.
-    * **내 API**. 내가 공개한 API에 대한 권한을 선택할 수 있습니다.
-
-1. API를 선택한 후에는 **요청된 API 권한** 페이지가 표시됩니다. API가 위임된 권한과 애플리케이션 권한 모두를 공개할 경우 애플리케이션에 필요한 권한 유형을 선택합니다.
-1. 완료되면 **권한 추가**를 선택합니다.
-
-**API 권한** 페이지로 이동됩니다. 권한이 저장되어 테이블에 추가되었습니다.
-
-## <a name="understanding-api-permissions-and-admin-consent-ui"></a>API 권한 및 관리자 동의 UI 이해
+앱 등록의 **API 권한** 창에는 [구성된 권한](#configured-permissions) 테이블이 포함되어 있으며, [부여된 기타 권한](#other-permissions-granted) 테이블도 포함될 수 있습니다. 다음 섹션에서는 테이블 및 [관리자 동의 단추](#admin-consent-button) 모두에 대해 설명합니다.
 
 ### <a name="configured-permissions"></a>구성된 사용 권한
 
-이 섹션에서는 애플리케이션 개체에서 명시적으로 구성된 권한을 보여줍니다. 이러한 권한은 앱의 필수 리소스 액세스 목록에 포함됩니다. 이 표에서 사용 권한을 추가하거나 제거할 수 있습니다. 관리자는 API 권한 또는 개별 권한 세트에 대해 관리자 동의를 부여 또는 철회할 수도 있습니다.
+**API 권한** 창의 **구성된 권한** 테이블에는 애플리케이션에서 기본 작업에 필요한 권한 목록인 *RRA(필요한 리소스 액세스)* 목록이 표시됩니다. 사용자 또는 해당 관리자는 앱을 사용하기 전에 이러한 권한에 동의해야 합니다. 기타 선택적 권한은 나중에 동적 동의를 사용하여 런타임에 요청할 수 있습니다.
+
+이는 사용자가 앱에 대해 동의해야 하는 최소 권한 목록입니다. 더 많이 있을 수 있지만, 이러한 권한은 항상 필요합니다. 보안을 위해 그리고 사용자와 관리자가 앱을 더 편안하게 사용할 수 있도록 지원하기 위해 필요하지 않은 권한은 요청하지 마세요.
+
+위에서 설명하는 단계를 사용하거나 [부여된 기타 권한](#other-permissions-granted)에서 설명하는 단계(다음 섹션 참조)를 사용하여 이 테이블에 표시되는 권한을 추가하거나 제거할 수 있습니다. 관리자는 테이블에 표시되는 API 권한의 전체 세트에 대해 관리자 동의를 부여하고, 개별 권한에 대한 동의를 철회할 수 있습니다.
 
 ### <a name="other-permissions-granted"></a>부여된 기타 권한
 
-애플리케이션이 테넌트에 등록되어 있는 경우 **테넌트에 부여된 다른 권한**이라는 추가 섹션이 표시될 수 있습니다. 이 섹션에서는 테넌트에 부여되었지만 애플리케이션 개체에서 명시적으로 구성되지 않은 권한을 보여줍니다. 이러한 권한은 동적으로 요청 및 동의됩니다. 이 섹션은 적용되는 사용 권한이 하나 이상 있는 경우에만 표시됩니다.
+**API 권한** 창에서 **{사용자의 테넌트}에 대해 부여된 기타 권한**이 표시될 수도 있습니다. **{사용자의 테넌트}에 대해 부여된 기타 권한** 테이블에는 애플리케이션 개체에 명시적으로 구성되지 않은 테넌트에 부여된 권한이 표시됩니다. 이러한 권한은 동적으로 요청되고 동의되었습니다. 적용되는 권한이 하나 이상 있는 경우에만 이 섹션이 표시됩니다.
 
-이 섹션에 표시되는 API의 사용 권한 또는 개별 권한 세트를 **구성된 사용 권한** 섹션에 추가할 수 있습니다. 관리자는 이 섹션에서 개별 API 또는 사용 권한에 대한 관리자 동의를 해지할 수도 있습니다.
+이 테이블에 표시되는 API 권한 또는 개별 권한의 전체 세트를 **구성된 권한** 테이블에 추가할 수 있습니다. 관리자는 이 섹션에서 API 또는 개별 권한에 대한 관리자 동의를 철회할 수 있습니다.
 
 ### <a name="admin-consent-button"></a>관리자 동의 단추
 
-애플리케이션이 테넌트에 등록된 경우 **테넌트에 대한 관리자 동의 허용** 단추가 표시됩니다. 관리자가 아니거나 애플리케이션에 대해 권한이 구성되지 않은 경우에는 이 단추를 사용할 수 없습니다.
-이 단추를 사용하여 관리자는 애플리케이션에 대해 구성된 권한에 대한 관리자 동의를 허용할 수 있습니다. 관리자 동의 단추를 클릭하면 구성된 사용 권한을 모두 보여 주는 동의 프롬프트가 포함된 새 창이 시작됩니다.
+**{사용자의 테넌트}에 대한 관리자 동의 허용** 단추를 사용하면 관리자가 애플리케이션에 대해 구성된 권한에 대한 관리자 동의를 부여할 수 있습니다. 단추를 선택하면 동의 작업을 확인하도록 요청하는 대화 상자가 표시됩니다.
 
-> [!NOTE]
-> 애플리케이션에 대해 권한이 구성되는 시간과 동의 프롬프트에 해당 권한이 표시되는 시간 사이에 지연이 발생합니다. 동의 프롬프트에 구성된 사용 권한이 일부만 표시되면 닫았다가 다시 시작합니다.
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Azure Portal의 구성된 권한 창에서 강조 표시된 관리자 동의 허용 단추":::
 
-권한이 허용되었으나 구성되지 않은 경우 관리자 동의 단추는 이러한 권한을 처리하라는 메시지를 표시합니다. 사용 권한을 구성된 사용 권한에 추가하거나 제거할 수 있습니다.
+동의가 부여되면 관리자 동의가 필요한 권한이 동의가 부여된 것으로 표시됩니다.
 
-동의 프롬프트는 **수락** 또는 **취소** 옵션을 제공합니다. **수락** 을 선택하여 관리자 동의를 부여합니다. **취소**를 선택하면 관리자 동의가 부여되지 않습니다. 동의가 거부되었음을 나타내는 오류 메시지가 표시됩니다.
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Files.Read.All 권한에 대해 부여된 관리자 동의를 보여 주는 Azure Portal의 권한 구성 테이블":::
 
-> [!NOTE]
-> 동의 프롬프트에서 **수락**을 선택하여 관리자 동의를 부여하는 시점과 관리자 동의 상태가 포털에 반영되는 시점 사이에 약간의 시차가 있습니다.
+관리자가 아니거나 애플리케이션에 대한 권한이 구성되지 않은 경우 **관리자 동의** 단추는 *사용하지 않도록 설정*됩니다. 부여되었지만 아직 구성되지 않은 권한이 있는 경우 관리자 동의 단추는 이러한 권한을 처리하라는 메시지를 표시합니다. 이러한 권한은 구성된 권한에서 추가하거나 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

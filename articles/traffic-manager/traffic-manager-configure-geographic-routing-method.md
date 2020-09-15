@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: duau
-ms.openlocfilehash: 71219eea1c7cdeeefbf63e5a5715fb10fcf68682
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 53773d7c616edec067e1ed1778b7ce6b500ee936
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401081"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462618"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>자습서: Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성
 
@@ -39,8 +39,7 @@ ms.locfileid: "89401081"
 
 1. 포털의 검색 창에서 직접 만든 Traffic Manager 프로필 이름을 검색하고 결과가 표시되면 클릭합니다.
 2. Traffic Manager에서 **설정** -> **엔드포인트**으로 이동합니다.
-3. **추가**를 클릭하여 **엔드포인트 추가**를 표시합니다.
-3. **추가**를 클릭하고 표시되는 **엔드포인트 추가**에서 다음과 같이 정보를 입력합니다.
+3. **추가**를 클릭하고 표시되는 **엔드포인트 추가** 창에서 다음과 같이 완료합니다.
 4. 추가하려는 엔드포인트의 형식에 따라 **형식**을 선택합니다. 프로덕션에 사용되는 지리적 라우팅 프로필의 경우 둘 이상의 엔드포인트가 있는 자식 프로필을 포함하는 중첩 엔드포인트 형식을 사용하는 것이 좋습니다. 자세한 내용은 [지리적 트래픽 라우팅 방법에 대한 FAQ](traffic-manager-FAQs.md)를 참조하세요.
 5. 이 엔드포인트를 인식하는 기준으로 사용할 **이름**을 제공합니다.
 6. 이 페이지의 특정 필드는 사용자가 추가하는 엔드포인트의 형식에 따라 달라집니다.

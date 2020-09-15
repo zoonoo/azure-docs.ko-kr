@@ -2,20 +2,20 @@
 title: 'Azure ExpressRoute 개요: 프라이빗 연결을 통해 연결'
 description: ExpressRoute 기술 개요에서는 프라이빗 연결을 통해 온-프레미스 네트워크를 Azure로 확장하기 위해 ExpressRoute 연결이 작동하는 방식에 대해 설명합니다.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: overview
 ms.date: 08/25/2020
-ms.author: mialdrid
-ms.openlocfilehash: 6621a9778025d67046722b7cd60e32a62b574ee5
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.author: duau
+ms.openlocfilehash: 40d84a4196a3cc104a29b4b9511bd627f3f8d40e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852937"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566877"
 ---
 # <a name="what-is-azure-expressroute"></a>Azure ExpressRoute란?
-ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure 및 Office 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
+ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure 및 Microsoft 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.
 
 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다. ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 일관되고 보안성이 높습니다. ExpressRoute를 사용하여 네트워크를 Microsoft에 연결하는 방법에 대한 내용은 [ExpressRoute 연결 모델](expressroute-connectivity-models.md)을 참조하세요.
 
@@ -44,7 +44,7 @@ Microsoft에서는 업계 표준 동적 라우팅 프로토콜인 BGP를 사용�
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Microsoft 클라우드 서비스에 연결
 ExpressRoute 연결을 사용하면 다음 서비스에 액세스할 수 있습니다.
 * Microsoft Azure 서비스
-* Microsoft Office 365 서비스
+* Microsoft 365 서비스
 
 > [!NOTE]
 > [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]

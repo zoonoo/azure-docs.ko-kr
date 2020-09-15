@@ -8,18 +8,18 @@ ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 8f3e4762b0c0286a47b407595cf73b66bef8d750
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682844"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487354"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
-Microsoft 파트너는 고객이 Microsoft 제품을 사용하여 비즈니스 및 업무 목표를 달성할 수 있도록 하는 서비스를 제공합니다. 고객을 대신하여 Azure 서비스를 관리, 구성 및 지원하는 경우 파트너 사용자는 고객 환경에 액세스할 수 있어야 합니다. 파트너는 파트너 관리 링크(PAL)를 사용하여 파트너 네트워크 ID를 서비스 배달에 사용되는 자격 증명과 연결할 수 있습니다.
+Microsoft 파트너는 고객이 Microsoft 제품을 사용하여 비즈니스 및 업무 목표를 달성할 수 있도록 하는 서비스를 제공합니다. 고객을 대신하여 Azure 서비스를 관리, 구성 및 지원하는 경우 파트너 사용자는 고객 환경에 액세스할 수 있어야 합니다. 파트너는 PAL(파트너 관리 링크)을 사용하여 파트너 네트워크 ID를 서비스 전달에 사용되는 자격 증명과 연결할 수 있습니다.
 
-PAL을 통해 Microsoft는 Azure 고객 성공을 주도하는 파트너를 식별하고 인식할 수 있습니다. Microsoft는 계정의 권한(Azure 역할) 및 범위(구독, 리소스 그룹, 리소스)를 기반으로 영향과 Azure 사용 수익을 귀하 조직에 귀속시킬 수 있습니다.
+PAL을 통해 Microsoft는 Azure 고객의 성공을 유도하는 파트너를 식별하고 인식할 수 있습니다. Microsoft는 계정의 권한(Azure 역할) 및 범위(구독, 리소스 그룹, 리소스)를 기반으로 영향과 Azure 사용 수익을 조직에 귀속시킬 수 있습니다.
 
 ## <a name="get-access-from-your-customer"></a>고객의 액세스 권한 가져오기
 
@@ -133,10 +133,11 @@ C:\ az managementpartner delete --partner-id 12345
 
 파트너 ID와 계정 간의 연결은 고객 테넌트 각각에 수행됩니다. 각 고객 테넌트에서 파트너 ID를 연결합니다.
 
+그러나 Azure Lighthouse를 통해 고객 리소스를 관리하는 경우 고객 리소스에 대한 액세스 권한이 있는 계정을 사용하여 서비스 공급자 테넌트에서 링크를 만들어야 합니다. 자세한 내용은 [위임된 리소스에서 파트너 획득 크레딧을 사용하도록 파트너 ID 연결](../../lighthouse/how-to/partner-earned-credit.md)을 참조하세요.
+
 **다른 파트너 또는 고객이 파트너 ID에 대한 연결을 편집하거나 제거할 수 있나요?**
 
 링크는 사용자 계정 수준에서 연결됩니다. 사용자만이 파트너 ID에 대한 연결을 편집하고 제거할 수 있습니다. 고객 및 다른 파트너는 파트너 ID에 대한 연결을 변경할 수 없습니다.
-
 
 **회사에 여러 개의 MPN ID가 있는 경우 어떤 MPN ID를 사용해야 하나요?**
 
@@ -158,10 +159,11 @@ C:\ az managementpartner delete --partner-id 12345
 
 예, Azure Stack에 대한 파트너 ID를 연결할 수 있습니다.
 
-**회사에서 [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview)를 사용하여 고객 리소스에 액세스하는 경우 내 파트너 ID를 어떻게 연결하나요?**
+**회사에서 [Azure Lighthouse](../../lighthouse/overview.md)를 사용하여 고객 리소스에 액세스하는 경우 내 파트너 ID를 어떻게 연결하나요?**
 
-[관리형 서비스 제품을 Azure Marketplace에 게시](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)하여 고객을 Azure 위임 리소스 관리에 온보딩하면 MPN ID가 자동으로 연결됩니다. [Azure Resource Manager 템플릿을 배포하여 고객을 온보딩](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer)하는 경우 MPN(Microsoft 파트너 네트워크) ID를 각 온보딩된 각 구독에 액세스할 수 있는 하나 이상의 사용자 계정과 연결해야 합니다. 이 작업은 서비스 공급자 테넌트에서 수행해야 합니다. 간단히 하기 위해, 테넌트에서 MPN ID와 연결된 서비스 주체 계정을 만들고 온보딩한 모든 고객에 대한 읽기 권한자 액세스 권한을 이 계정에 부여하는 것이 좋습니다. 이 예제에서는 RBAC 판독기 역할이 사용되며 파트너 획득 크레딧을 사용할 수 없는 역할 중 하나입니다. 역할에 대한 자세한 내용 [파트너 획득 크레딧에 대한 역할 및 권한](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2)을 참조하세요.
+[관리형 서비스 제품을 Azure Marketplace에 게시](../../lighthouse/how-to/publish-managed-services-offers.md)하여 고객을 Azure 위임 리소스 관리에 온보딩하면 MPN ID가 자동으로 연결됩니다.
 
+[Azure Resource Manager 템플릿을 배포하여 고객을 온보딩](../../lighthouse/how-to/onboard-customer.md)하는 경우 MPN ID를 각 온보딩된 구독에 액세스할 수 있는 하나 이상의 사용자 계정과 연결해야 합니다. 각 고객 테넌트가 아닌 서비스 공급자 테넌트에서 이 작업을 수행해야 합니다. 간단히 하기 위해 테넌트에 서비스 주체 계정을 만들고, MPN ID와 연결하고, [파트너 획득 크레딧을 받을 수 있는 Azure 기본 제공 역할](/partner-center/azure-roles-perms-pec)을 사용하여 등록한 모든 고객에게 액세스 권한을 부여하는 것이 좋습니다. 자세한 내용은 [위임된 리소스에서 파트너 획득 크레딧을 사용하도록 파트너 ID 연결](../../lighthouse/how-to/partner-earned-credit.md)을 참조하세요.
 
 **고객에게 PAL(파트너 관리자 링크)을 어떻게 설명하나요?**
 
@@ -173,4 +175,4 @@ PAL(파트너 관리자 링크)을 통해 Microsoft는 고객이 비즈니스 �
 
 **이는 고객의 Azure 환경 보안에 영향을 주나요?**
 
-PAL 연결은 이미 프로비저닝된 자격 증명에 파트너의 MPN ID만 추가하고, 권한(Azure 역할)을 변경하거나 파트너 또는 Microsoft에 추가 Azure 서비스 데이터를 제공하지 않습니다. 
+PAL 연결은 이미 프로비저닝된 자격 증명에 파트너의 MPN ID만 추가하고, 권한(Azure 역할)을 변경하거나 파트너 또는 Microsoft에 추가 Azure 서비스 데이터를 제공하지 않습니다.

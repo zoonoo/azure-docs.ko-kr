@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 83332c3bfa0b2b99d7333fa679fb8d398aecf8bd
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: fd87cbef4c667d9da1f93b448a2a67e6e90307b7
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268913"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500286"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-device"></a>Azure Stack Edge 디바이스용 사용자 지정 VM 이미지 만들기
 
@@ -52,7 +52,22 @@ Azure Stack Edge 디바이스에 VM을 배포하려면 VM을 만드는 데 사�
 
 1. Linux Virtual Machine 만들기. 자세한 내용은 [자습서: Azure CLI로 Linux VM 만들기 및 관리](../virtual-machines/linux/tutorial-manage-vm.md)를 참조하세요.
 
-2. [기존 OS 디스크를 다운로드합니다](../virtual-machines/linux/download-vhd.md).
+1. VM의 프로비전을 해제합니다. Azure VM 에이전트를 사용하여 머신별 파일 및 데이터를 삭제합니다. 원본 Linux VM에서 `-deprovision+user` 매개 변수와 함께 `waagent` 명령을 사용합니다. 자세한 내용은 [Azure Linux 에이전트 이해 및 사용](../virtual-machines/extensions/agent-linux.md)을 참조하세요.
+
+    1. SSH 클라이언트를 사용하여 Linux VM에 연결합니다.
+    2. SSH 창에서 다음 명령을 입력합니다.
+       
+        ```bash
+        sudo waagent -deprovision+user
+        ```
+       > [!NOTE]
+       > 이미지로 캡처하려는 VM에서만 이 명령을 실행합니다. 이 명령이 이미지에서 중요한 정보가 모두 지워졌다거나 재배포에 적합하다는 것을 보장하지는 않습니다. 또한 `+user` 매개 변수는 마지막 프로비전된 사용자 계정을 제거합니다. VM에 사용자 계정 자격 증명을 유지하려면 `-deprovision`만 사용합니다.
+     
+    3. 계속하려면 **y**를 입력합니다. `-force` 매개 변수를 추가하여 이 확인 단계를 피할 수 있습니다.
+    4. 명령이 완료되면 **종료**를 입력하여 SSH 클라이언트를 닫습니다.  이 시점에서 VM은 계속 실행되고 있습니다.
+
+
+1. [기존 OS 디스크를 다운로드합니다](../virtual-machines/linux/download-vhd.md).
 
 이제 이 VHD를 사용하여 Azure Stack Edge 디바이스에서 VM을 만들고 배포합니다. 다음과 같은 두 가지 Azure Marketplace 이미지를 사용하여 Linux 사용자 지정 이미지를 만들 수 있습니다.
 

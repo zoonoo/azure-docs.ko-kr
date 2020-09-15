@@ -1,18 +1,18 @@
 ---
 title: '자습서: 데이터 웨어하우스로 Event Hubs 데이터 보내기 - Event Grid'
-description: '자습서: Azure Event Grid 및 Event Hubs를 사용하여 SQL Data Warehouse로 데이터를 마이그레이션하는 방법을 설명합니다. 캡처 파일을 검색하는 Azure 함수를 사용합니다.'
+description: '자습서: Azure Event Grid 및 Event Hubs를 사용하여 Azure Synapse Analytics로 데이터를 마이그레이션하는 방법을 설명합니다. 캡처 파일을 검색하는 Azure 함수를 사용합니다.'
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1c4a1943981fc3e9f1df0fafff540e24ee3631e9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d45fcedb570e384b851a7ac815ca175c67cc00a0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007454"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435034"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>자습서: 데이터 웨어하우스로 빅 데이터 스트림
-Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응답하는 데 사용할 수 있는 인텔리전트 이벤트 라우팅 서비스입니다. 예를 들어 Azure Blob Storage 또는 Azure Data Lake Store로 캡처된 Event Hubs 데이터를 처리하도록 Azure Function을 트리거하고, 다른 데이터 리포지토리에 데이터를 마이그레이션할 수 있습니다. 이 [Event Hubs 및 Event Grid 통합 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)은 Event Grid와 함께 Event Hubs를 사용하여 캡처된 Event Hubs 데이터를 BLOB 스토리지에서 SQL Data Warehouse로 원활하게 마이그레이션하는 방법을 보여줍니다.
+Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응답하는 데 사용할 수 있는 인텔리전트 이벤트 라우팅 서비스입니다. 예를 들어 Azure Blob Storage 또는 Azure Data Lake Store로 캡처된 Event Hubs 데이터를 처리하도록 Azure Function을 트리거하고, 다른 데이터 리포지토리에 데이터를 마이그레이션할 수 있습니다. 이 [Event Hubs 및 Event Grid 통합 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)은 Event Grid와 함께 Event Hubs를 사용하여 캡처된 Event Hubs 데이터를 Blob 스토리지에서 Azure Synapse Analytics(이전의 SQL Data Warehouse)로 원활하게 마이그레이션하는 방법을 보여줍니다.
 
 ![애플리케이션 개요](media/event-grid-event-hubs-integration/overview.png)
 
@@ -22,12 +22,12 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 2. 데이터 캡처가 완료되면 이벤트가 생성되어 Azure Event Grid로 전송됩니다. 
 3. Event Grid는 이 이벤트 데이터를 Azure 함수 앱에 전달합니다.
 4. 함수 앱은 이벤트 데이터의 BLOB URL을 사용하여 스토리지에서 BLOB을 검색합니다. 
-5. 함수 앱은 Azure SQL Data Warehouse로 BLOB 데이터를 마이그레이션합니다. 
+5. 함수 앱은 Blob 데이터를 Azure Synapse Analytics로 마이그레이션합니다. 
 
 이 문서에서는 다음 단계를 수행합니다.
 
 > [!div class="checklist"]
-> * Azure Resource Manager 템플릿을 사용하여 이벤트 허브, 스토리지 계정, 함수 앱, SQL 데이터 웨어하우스 등의 인프라를 배포합니다.
+> * Azure Resource Manager 템플릿을 사용하여 이벤트 허브, 스토리지 계정, 함수 앱, Synapse Analytics 등의 인프라를 배포합니다.
 > * 데이터 웨어하우스에 테이블을 만듭니다.
 > * 함수 앱에 코드를 추가합니다.
 > * 이벤트를 구독합니다. 
@@ -52,7 +52,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 * 함수 앱 호스팅용 앱 서비스 플랜
 * 이벤트 처리용 함수 앱
 * 데이터 웨어하우스 호스팅용 SQL Server
-* 마이그레이션된 데이터 저장용 SQL Data Warehouse
+* 마이그레이션된 데이터를 저장하기 위한 Azure Synapse Analytics
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Azure Portal에서 Azure Cloud Shell 시작
 
@@ -97,7 +97,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
           "tags": null
         }
         ```
-2. 다음 CLI 명령을 실행하여 이전 섹션에서 언급한 모든 리소스(이벤트 허브, 스토리지 계정, 함수 앱, SQL 데이터 웨어하우스)를 배포합니다. 
+2. 다음 CLI 명령을 실행하여 이전 섹션에서 언급한 모든 리소스(이벤트 허브, 스토리지 계정, 함수 앱, Azure Synapse Analytics)를 배포합니다. 
     1. 명령을 복사하여 Cloud Shell 창에 붙여넣습니다. 또는 원하는 편집기에 복사/붙여넣고, 값을 설정하고, Cloud Shell에 명령을 복사합니다. 
 
         ```azurecli
@@ -112,7 +112,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
         3. 이벤트 허브 이름. 현재 값(hubdatamigration)을 그대로 유지해도 됩니다.
         4. SQL 서버 이름
         5. SQL 사용자 이름 및 암호 
-        6. SQL 데이터 웨어하우스 이름
+        6. Azure Synapse Analytics의 이름
         7. 스토리지 계정 이름 
         8. 함수 앱 이름 
     3.  Cloud Shell 창에서 **ENTER**를 눌러 명령을 실행합니다. 여러 리소스를 만들기 때문에 이 프로세스에 다소 시간이 걸릴 수 있습니다. 명령 결과에 오류가 없는지 확인합니다. 
@@ -131,7 +131,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
         ```
     2. **리소스 그룹**의 이름을 지정합니다.
     3. Enter 키를 누릅니다. 
-3. 다음 명령을 실행하여 이전 섹션에서 언급한 모든 리소스(이벤트 허브, 스토리지 계정, 함수 앱, SQL 데이터 웨어하우스)를 배포합니다.
+3. 다음 명령을 실행하여 이전 섹션에서 언급한 모든 리소스(이벤트 허브, 스토리지 계정, 함수 앱, Azure Synapse Analytics)를 배포합니다.
     1. 명령을 복사하여 Cloud Shell 창에 붙여넣습니다. 또는 원하는 편집기에 복사/붙여넣고, 값을 설정하고, Cloud Shell에 명령을 복사합니다. 
 
         ```powershell
@@ -143,7 +143,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
         3. 이벤트 허브 이름. 현재 값(hubdatamigration)을 그대로 유지해도 됩니다.
         4. SQL 서버 이름
         5. SQL 사용자 이름 및 암호 
-        6. SQL 데이터 웨어하우스 이름
+        6. Azure Synapse Analytics의 이름
         7. 스토리지 계정 이름 
         8. 함수 앱 이름 
     3.  Cloud Shell 창에서 **ENTER**를 눌러 명령을 실행합니다. 여러 리소스를 만들기 때문에 이 프로세스에 다소 시간이 걸릴 수 있습니다. 명령 결과에 오류가 없는지 확인합니다. 
@@ -162,13 +162,13 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
 
     ![리소스 그룹의 리소스](media/event-grid-event-hubs-integration/resources-in-resource-group.png)
 
-### <a name="create-a-table-in-sql-data-warehouse"></a>SQL Data Warehouse에서 테이블 만들기
+### <a name="create-a-table-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 테이블 만들기
 [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) 스크립트를 실행하여 데이터 웨어하우스에 테이블을 만듭니다. 스크립트를 실행하려면 Visual Studio 또는 포털의 쿼리 편집기를 사용합니다. 다음 단계는 쿼리 편집기 사용 방법을 보여줍니다. 
 
 1. 리소스 그룹의 리소스 목록에서 **시냅스 SQL 풀(데이터 웨어하우스)** 를 선택합니다. 
-2. SQL 데이터 웨어하우스 페이지의 왼쪽 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다. 
+2. Azure Synapse Analytics 페이지의 왼쪽 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다. 
 
-    ![SQL 데이터 웨어하우스 페이지](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
+    ![Azure Synapse Analytics 페이지](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
 2. SQL 서버의 **사용자** 이름 및 **암호**를 입력하고, **확인**을 선택합니다. SQL 서버에 성공적으로 로그인하려면 방화벽에 클라이언트 IP 주소를 추가해야 할 수도 있습니다. 
 
     ![SQL 서버 인증](media/event-grid-event-hubs-integration/sql-server-authentication.png)
@@ -258,7 +258,7 @@ Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응�
         ![Event Grid 구독 만들기](media/event-grid-event-hubs-integration/create-event-subscription.png)
 
 ## <a name="run-the-app-to-generate-data"></a>앱을 실행하여 데이터 생성
-이벤트 허브, SQL 데이터 웨어하우스, Azure 함수 앱 및 이벤트 구독 설정이 완료되었습니다. 이벤트 허브에 대한 데이터를 생성하는 애플리케이션을 실행하기 전에 몇 가지 값을 구성해야 합니다.
+이벤트 허브, Azure Synapse Analytics, Azure 함수 앱 및 이벤트 구독 설정을 완료했습니다. 이벤트 허브에 대한 데이터를 생성하는 애플리케이션을 실행하기 전에 몇 가지 값을 구성해야 합니다.
 
 1. Azure Portal에서 이전에 만든 리소스 그룹으로 이동합니다. 
 2. Event Hubs 네임스페이스를 선택합니다.

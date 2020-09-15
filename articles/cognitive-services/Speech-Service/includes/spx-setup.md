@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c92d6569e3c92d3bad3575599283c7796bd78225
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2a0cb34c23ebee5ae16a8c0a272055880ceed388
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068610"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494329"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -22,9 +22,8 @@ ms.locfileid: "88068610"
 
 Windows에 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 
-1. [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471) 또는 [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)을 설치합니다.
-2. Speech CLI [zip 보관 파일](https://aka.ms/speech/spx-zips.zip)을 다운로드한 다음, 압축을 풉니다.
-3. 다운로드에서 추출한 루트 디렉터리 `spx-zips`로 이동하여 필요한 하위 디렉터리(.NET Framework 4.7에 대해 `spx-net471` 또는 x64 CPU에서 .NET Core 3.0에 대해 `spx-netcore-win-x64`)를 추출합니다.
+1. Speech CLI [zip 보관 파일](https://aka.ms/speech/spx-zips.zip)을 다운로드한 다음, 압축을 풉니다.
+2. 다운로드에서 추출한 루트 디렉터리 `spx-zips`로 이동하여 필요한 하위 디렉터리(.NET Framework 4.7에 대해 `spx-net471` 또는 x64 CPU에서 .NET Core 3.0에 대해 `spx-netcore-win-x64`)를 추출합니다.
 
 명령 프롬프트에서 디렉터리를 이 위치로 변경한 다음, `spx`를 입력하여 Speech CLI에 대한 도움말을 표시합니다.
 
@@ -53,11 +52,13 @@ x64 CPU에서 Linux에 Speech CLI를 설치하려면 다음 단계를 수행합�
 
 #### <a name="docker-install"></a>[Docker 설치](#tab/dockerinstall)
 
+> [!NOTE]
+> <a href="https://www.docker.com/get-started" target="_blank">플랫폼에 대한 Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a>이 설치되어 있어야 합니다.
+
 Docker 컨테이너 내에서 Speech CLI를 설치하려면 다음 단계를 수행합니다.
 
-1. [플랫폼에 대한 Docker Desktop](https://www.docker.com/get-started)을 설치하고 실행합니다.
 1. 새 명령 프롬프트 또는 터미널에서 다음 명령을 입력합니다. `docker pull msftspeech/spx`
-1. 다음 명령을 입력합니다. Speech CLI에 대한 도움말 정보가 표시되어야 합니다. `docker run -it --rm msftspeech/spx help`
+2. 다음 명령을 입력합니다. Speech CLI에 대한 도움말 정보가 표시되어야 합니다. `docker run -it --rm msftspeech/spx help`
 
 ### <a name="mount-a-directory-in-the-container"></a>컨테이너에 디렉터리 탑재
 

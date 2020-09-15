@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: f67cbb70d7064b894b9042bba42f48e4fb6a6b5e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684782"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400129"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -73,7 +73,7 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>단일 예약을 두 개의 예약으로 분할
 
- 한 예약 내에서 둘 이상의 리소스 인스턴스를 구입한 후에는 예약 내의 인스턴스를 다른 구독에 할당하는 것이 좋습니다. 기본적으로 모든 인스턴스에는 단일 구독 또는 공유 중 하나의 범위가 지정됩니다. 예를 들어 10개의 예약 인스턴스를 구입하고, 범위를 구독 A로 지정했습니다. 이제 7개의 예약 범위를 구독 A로 변경하고 남은 3개를 구독 B로 변경하려고 합니다. 예약을 분할하면 세분화된 범위 관리를 위해 인스턴스를 배포할 수 있습니다. 공유 범위를 선택하여 구독에 대한 할당을 간소화할 수 있습니다. 하지만 비용 관리 또는 예산 목적으로 인해 특정 구독에 수량을 할당할 수 있습니다.
+ 한 예약 내에서 둘 이상의 리소스 인스턴스를 구입한 후에는 예약 내의 인스턴스를 다른 구독에 할당하는 것이 좋습니다. 기본적으로 모든 인스턴스에는 단일 구독, 리소스 그룹 또는 공유 중 하나의 범위가 지정됩니다. 10개의 VM 인스턴스에 대한 예약을 구입하고, 범위를 구독 A로 지정했다고 가정해 보겠습니다. 이제 7개의 VM 인스턴스에 대한 범위를 구독 A로 변경하고 남은 3개를 구독 B로 변경하려고 합니다. 예약을 분할하면 이 작업을 수행할 수 있습니다. 예약을 분할하면 원래 ReservationID가 취소되고 두 개의 새로운 예약이 생성됩니다. 분할은 예약 순서에 영향을 주지 않습니다. 분할된 새 상업적 트랜잭션이 없으며 새 예약의 종료 날짜는 분할된 예약과 동일합니다.
 
  PowerShell, CLI 또는 API를 통해 예약을 두 개로 분할할 수 있습니다.
 

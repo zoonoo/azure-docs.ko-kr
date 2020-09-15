@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 3d67361ecd4e06fdf006e836011d2cab59e340b6
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ff171dfce0bcbb04ec017a8d5e3310cf3162e8e2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82587811"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89564996"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -47,31 +47,27 @@ auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourService
 
 [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)를 만든 후에 수행할 단계는 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) 초기화입니다. [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)를 초기화할 때 `speech_config`를 전달해야 합니다. 그러면 음성 서비스에서 요청을 확인하는 데 필요한 자격 증명이 제공됩니다.
 
-디바이스의 기본 마이크를 사용하여 음성을 인식하는 경우 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)가 다음과 같이 생겼습니다.
-
 ```cpp
 auto recognizer = SpeechRecognizer::FromConfig(config);
 ```
 
-오디오 입력 디바이스를 지정하려면 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig)를 만들고 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)를 초기화할 때 `audioConfig` 매개 변수를 제공해야 합니다.
+## <a name="recognize-from-microphone-or-file"></a>마이크 또는 파일에서 인식
 
-> [!TIP]
-> [오디오 입력 디바이스의 디바이스 ID를 가져오는 방법을 알아봅니다](../../../how-to-select-audio-input-devices.md).
+오디오 입력 디바이스를 지정하려면 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig)를 만들고 [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)를 초기화할 때 매개 변수로 전달해야 합니다.
 
-먼저 `#include` 정의 뒤에 다음 `using namespace` 문을 추가합니다.
+디바이스 마이크를 통해 음성을 인식하려면 `FromDefaultMicrophoneInput()`을 사용하여 `AudioConfig`를 만든 다음, `SpeechRecognizer` 개체를 만들 때 오디오 구성을 전달합니다.
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
-```
 
-그리고 다음과 같이 `AudioConfig` 개체를 참조할 수 있습니다.
-
-```cpp
 auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
 ```
 
-마이크를 사용하는 대신 오디오 파일을 제공하려는 경우에도 `audioConfig`를 제공해야 합니다. 그러나 `FromDefaultMicrophoneInput`을 호출하는 대신 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig)를 만드는 경우 `FromWavFileOutput`을 호출하고 `filename` 매개 변수를 전달합니다.
+> [!TIP]
+> [오디오 입력 디바이스의 디바이스 ID를 가져오는 방법을 알아봅니다](../../../how-to-select-audio-input-devices.md).
+
+마이크를 사용하는 대신 오디오 파일에서 음성을 인식하려는 경우에도 `AudioConfig`를 만들어야 합니다. 그러나 `FromDefaultMicrophoneInput()`을 호출하는 대신 [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig)를 만드는 경우 `FromWavFileInput()`을 호출하고 `filename` 매개 변수를 전달합니다.
 
 ```cpp
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");

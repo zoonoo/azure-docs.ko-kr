@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ce47bc5e880f15eaa1bbf07477673d2475e5a10a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268896"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489921"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 수락 및 받기  
 
@@ -41,7 +41,7 @@ ms.locfileid: "89268896"
 ### <a name="receive-data-into-a-sql-based-target"></a>SQL 기반 대상으로 데이터를 받습니다.
 
 * SQL 서버의 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write*에 있습니다. 이 권한은 기여자 역할에 있습니다. 
-* 데이터 공유 리소스의 관리 ID가 Azure SQL Database 또는 Azure SQL Data Warehouse에 액세스할 수 있는 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
+* 데이터 공유 리소스의 관리 ID가 Azure SQL Database 또는 Azure Synapse Analytics에 액세스할 수 있는 권한입니다. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. 자신을 SQL 서버에 대한 Azure Active Directory 관리자로 설정합니다.
     1. Azure Active Directory를 사용하여 Azure SQL Database/Data Warehouse에 연결합니다.
     1. 쿼리 편집기(미리 보기)를 사용하여 다음 스크립트를 실행하여 Data Share 관리 ID를 'db_datareader, db_datawriter, db_ddladmin'으로 추가합니다. SQL Server 인증이 아닌 Active Directory를 사용하여 연결해야 합니다. 

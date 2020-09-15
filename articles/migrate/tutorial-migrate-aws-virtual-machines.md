@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Migrate를 사용하여 AWS VM을 Azure�
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 72579c103102196e641244600ce9add64d6e20a4
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 6c4b53e3c3673b913e4afbfb65801d83f0640bd3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419013"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651827"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services) VM 검색, 평가 및 Azure로 마이그레이션
 
@@ -43,12 +43,17 @@ Azure로 마이그레이션하기 전에 VM 검색 및 마이그레이션 평가
 1. 이 [자습서](./tutorial-prepare-physical.md)에 따라 Azure를 설정하고 평가를 위해 AWS VM을 준비합니다. 다음 사항에 유의하세요.
 
     - Azure Migrate는 AWS 인스턴스를 검색할 때 암호 인증을 사용합니다. AWS 인스턴스는 기본적으로 암호 인증을 지원하지 않습니다. 인스턴스를 검색하려면 먼저 암호 인증을 사용하도록 설정해야 합니다.
-        - Windows 컴퓨터의 경우 WinRM 포트 5986(HTTPS) 및 5985(HTTP)를 허용합니다. 이렇게 하면 원격 WMI 호출을 수행할 수 있습니다. 다음을 설정하는 경우 
+        - Windows 머신의 경우 WinRM 포트 5985(HTTP)를 허용합니다. 이렇게 하면 원격 WMI 호출을 수행할 수 있습니다.
         - Linux 컴퓨터의 경우:
             1. 각 Linux 머신에 로그인합니다.
             2. sshd_config file : vi /etc/ssh/sshd_config 열기
             3. 파일에서 **PasswordAuthentication** 줄을 찾아 값을 **예**로 변경합니다.
             4. 파일을 저장하고 닫습니다. ssh 서비스를 다시 시작합니다.
+    - 루트 사용자를 사용하여 Linux VM을 검색하는 경우 VM에서 루트 로그인이 허용되는지 확인합니다.
+        1. 각 Linux 머신에 로그인
+        2. sshd_config file : vi /etc/ssh/sshd_config 열기
+        3. 파일에서 **PermitRootLogin** 줄을 찾아 값을 **예**로 변경합니다.
+        4. 파일을 저장하고 닫습니다. ssh 서비스를 다시 시작합니다.
 
 2. 그런 다음, 이 [자습서](./tutorial-assess-physical.md)에 따라 Azure Migrate 프로젝트 및 어플라이언스를 설정하여 AWS VM을 검색하고 평가합니다.
 

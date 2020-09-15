@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 3ee78560818d3651d5822c551ba2e0ccee3376e6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 13ab7fc5b4461559fc54b5643d22ca309c752a37
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204649"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565000"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -60,29 +60,30 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_r
 
 ## <a name="initialize-a-recognizer"></a>인식기 초기화
 
-[`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)를 만든 후에 수행할 단계는 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python) 초기화입니다. [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python)를 초기화할 때 `speech_config`를 전달해야 합니다. 그러면 음성 서비스에서 요청을 확인하는 데 필요한 자격 증명이 제공됩니다.
-
-디바이스의 기본 마이크를 사용하여 음성을 인식하는 경우 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python)가 다음과 같이 생겼습니다.
+[`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python)를 만든 후에 수행할 단계는 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python) 초기화입니다. [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python)를 초기화할 때 `speech_config`를 전달합니다. 그러면 음성 서비스에서 요청을 확인하는 데 필요한 자격 증명이 제공됩니다.
 
 ```Python
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
 ```
 
-오디오 입력 디바이스를 지정하려면 [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python)를 만들고 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python)를 초기화할 때 `audio_config` 매개 변수를 제공해야 합니다.
+## <a name="recognize-from-microphone-or-file"></a>마이크 또는 파일에서 인식
 
-> [!TIP]
-> [오디오 입력 디바이스의 디바이스 ID를 가져오는 방법을 알아봅니다](../../../how-to-select-audio-input-devices.md).
+오디오 입력 디바이스를 지정하려면 [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python)를 만들고 [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python)를 초기화할 때 매개 변수로 전달해야 합니다.
+
+디바이스 마이크를 사용하여 음성을 인식하려면 `AudioConfig`를 전달하지 않고 `SpeechRecognizer`를 만듭니다.
 
 ```Python
-audio_config = AudioConfig(device_name="<device id>");
-speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
+speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
 ```
 
-마이크를 사용하는 대신 오디오 파일을 제공하려는 경우에도 `audio_config`를 제공해야 합니다. 그러나 `device_name`을 제공하는 대신 [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python)를 만드는 경우 `filename` 매개 변수를 사용합니다.
+> [!TIP]
+> ID로 디바이스를 참조하려면 `AudioConfig(device_name="<device id>")`
+> [오디오 입력 디바이스에 대한 디바이스 ID를 가져오는 방법 알아보기](../../../how-to-select-audio-input-devices.md)를 사용하여 `AudioConfig`를 만듭니다.
+
+마이크 대신 오디오 파일에서 음성을 인식하려면 [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python)을 만들고 `filename` 매개 변수를 사용합니다.
 
 ```Python
-audio_filename = "whatstheweatherlike.wav"
-audio_input = speechsdk.AudioConfig(filename=audio_filename)
+audio_input = speechsdk.AudioConfig(filename="your_file_name.wav")
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
 ```
 

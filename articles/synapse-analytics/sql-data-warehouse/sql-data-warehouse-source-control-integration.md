@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: afb1108bacadd16007e1f53186107ea8458d96e9
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205121"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441324"
 ---
 # <a name="source-control-integration-for-sql-pool"></a>SQL 풀에 대한 원본 제어 통합
 
@@ -33,15 +33,23 @@ ms.locfileid: "85205121"
 
    ![프로젝트 만들기](./media/sql-data-warehouse-source-control-integration/1-create-project-azure-devops.png "프로젝트 만들기")
 
-2. Visual Studio를 열고 "연결 관리"를 선택하여 1단계에서 Azure DevOps 조직 및 프로젝트에 연결합니다.
+2. Visual Studio를 열고 **연결 관리**를 선택하여 1단계에서 Azure DevOps 조직 및 프로젝트에 연결합니다.
 
    ![연결 관리](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "연결 관리")
 
-   ![연결](./media/sql-data-warehouse-source-control-integration/3-connect.png "연결")
+3. **연결 관리**를 선택한 다음, 프**프로젝트에 연결**을 선택하여 프로젝트에 연결합니다.
+ ![Connect1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "연결")
 
-3. 프로젝트의 Azure Repo 리포지토리를 로컬 머신에 복제
+
+4. 1단계에서 만든 프로젝트를 찾고 **연결**을 선택합니다.
+![Connect2](./media/sql-data-warehouse-source-control-integration/3.5-connect.png "연결")
+
+
+3. 프로젝트에서 로컬 머신으로 Azure DevOps 리포지토리를 복제합니다.
 
    ![리포지토리 복제](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "리포지토리 복제")
+
+Visual Studio를 사용하여 프로젝트를 연결하는 방법에 대한 자세한 내용은 [팀 탐색기에서 프로젝트에 연결](https://docs.microsoft.com/visualstudio/ide/connect-team-project?view=vs-2019)을 참조하세요. Visual Studio를 사용하여 리포지토리를 복제하는 방법에 대한 지침은 [기존 Git 리포지토리 복제](https://docs.microsoft.com/azure/devops/repos/git/clone?view=azure-devops&tabs=visual-studio) 문서를 검토하세요. 
 
 ## <a name="create-and-connect-your-project"></a>프로젝트 생성 및 연결
 
@@ -53,7 +61,7 @@ ms.locfileid: "85205121"
 
    ![프로젝트 가져오기](./media/sql-data-warehouse-source-control-integration/6-import-new-project.png "프로젝트 가져오기")  
 
-3. Visual Studio의 팀 탐색기에서 로컬 Git 리포지토리에 대한 모든 변경 내용을 커밋합니다.
+3. Visual Studio의 팀 탐색기에서 로컬 Git 리포지토리에 대한 변경 내용을 커밋합니다.
 
    ![커밋](./media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Commit")  
 
@@ -69,7 +77,7 @@ ms.locfileid: "85205121"
 
    ![업데이트 열 유효성 검사](./media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "업데이트 열 유효성 검사")
 
-2. 로컬 리포지토리에서 Azure Repo로 변경 내용 커밋 및 푸시
+2. 변경 내용을 로컬 리포지토리에서 Azure Repo로 커밋하고 푸시합니다.
 
    ![변경 내용 푸시](./media/sql-data-warehouse-source-control-integration/9-push-column-change.png "변경 내용 푸시")
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 09/03/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6e7dbc2b96a53d220554e07228a5e30857d12d9c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: cc111f0df889efd1d3720e2ec0e4aaa452efd801
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262978"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461870"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge에 대한 네트워크 구성
 
@@ -104,7 +104,11 @@ GPU가 있는 Azure Stack Edge 디바이스를 구성하고 설정하기 전에 
     
 3. **Kubernetes 노드 IP**를 할당합니다. 이러한 고정 IP 주소는 컴퓨팅 VM에 대한 것입니다. 
 
-    *n*-노드 디바이스의 경우 시작 및 종료 IP 주소를 사용하여 컴퓨팅 VM에 대한 최소 *n+1* IPv4 주소의 연속 범위가 제공됩니다. Azure Stack Edge가 1-노드 디바이스인 경우에는 최소 2개의 연속 IPv4 주소가 제공됩니다. 
+    *n*-노드 디바이스의 경우 시작 및 종료 IP 주소를 사용하여 컴퓨팅 VM에 대한 최소 *n+1* IPv4 주소의 연속 범위가 제공됩니다. Azure Stack Edge가 1-노드 디바이스인 경우에는 최소 2개의 연속 IPv4 주소가 제공됩니다.
+
+    > [!IMPORTANT]
+    > Azure Stack Edge의 Kubernetes는 pod에 172.27.0.0/16 서브넷을 사용하고 서비스에 172.28.0.0/16 서브넷을 사용합니다. 네트워크에서 사용 중이 아닌지 확인합니다. 이러한 서브넷이 네트워크에서 이미 사용 중인 경우에는 디바이스의 PowerShell 인터페이스에서 `Set-HcsKubeClusterNetworkInfo` cmdlet을 실행하여 이러한 서브넷을 변경할 수 있습니다. 자세한 내용은 [Kubernetes pod 및 서비스 서브넷](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets)을 참조하세요.
+
 
 4. **Kubernetes 외부 서비스 IP**를 할당합니다. 이는 부하 분산 IP 주소이기도 합니다. 이러한 연속 IP 주소는 Kubernetes 클러스터 외부에 노출하려는 서비스에 대한 것이며, 노출되는 서비스의 수에 따라 고정 IP 범위를 지정합니다. 
     

@@ -2,20 +2,21 @@
 title: '빠른 시작: Python 앱 만들기'
 description: 첫 번째 Python 앱을 App Service의 Linux 컨테이너에 배포하여 Azure App Service를 시작하세요.
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/08/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
-ms.openlocfilehash: 3bfe927b2c9dc16de8712f6c1793e850df92c201
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 77aafb53c1346c6723d055a8ae1c96297fdfbd52
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078455"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568917"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
 이 빠른 시작에서는 확장성이 뛰어난 자체 패치 웹 호스팅 서비스인 [App Service on Linux](overview.md#app-service-on-linux)에 Python 앱을 배포합니다. Mac, Linux 또는 Windows 컴퓨터에서 로컬 [Azure CLI(명령줄 인터페이스)](/cli/azure/install-azure-cli)를 사용합니다. 구성하는 웹앱은 무료 App Service 계층을 사용하기 때문에 이 문서를 진행하는 동안 비용이 발생하지 않습니다.
 
-IDE를 통한 앱 배포를 선호하는 경우에는 [Visual Studio Code에서 App Service에 Python 앱 배포](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)를 참조하세요.
+> [!NOTE]
+> IDE를 통한 앱 배포를 선호하는 경우에는 **[Visual Studio Code에서 App Service에 Python 앱 배포](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** 를 참조하세요.
 
 ## <a name="set-up-your-initial-environment"></a>초기 환경 설정
 
@@ -67,15 +68,10 @@ az login
 
 ## <a name="clone-the-sample"></a>샘플 복제
 
-다음 명령을 사용하여 샘플 리포지토리를 복제합니다. (git를 아직 설치하지 않은 경우 [git를 설치](https://git-scm.com/downloads)합니다.)
+다음 명령을 사용하여 샘플 리포지토리를 복제한 다음, 폴더로 이동합니다. (git를 아직 설치하지 않은 경우 [git를 설치](https://git-scm.com/downloads)합니다.)
 
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
-```
-
-그런 다음, 해당 폴더로 이동합니다.
-
-```terminal
 cd python-docs-hello-world
 ```
 
@@ -157,7 +153,7 @@ az webapp up --sku F1 -n <app-name>
 - `az` 명령을 인식할 수 없는 경우 [초기 환경 설정](#set-up-your-initial-environment)에 설명된 대로 Azure CLI가 설치되어 있어야 합니다.
 - `<app_name>`을 모든 Azure에서 고유한 이름으로 바꿉니다(*유효한 문자는 `a-z`, `0-9` 및 `-`* ). 좋은 패턴은 회사 이름과 앱 식별자의 조합을 사용하는 것입니다.
 - `--sku F1` 인수는 무료 가격 책정 계층에 웹앱을 만듭니다. 이 인수를 생략하여 더 빠른 프리미엄 계층을 사용합니다. 이 경우 시간당 비용이 발생합니다.
-- `<location_name>`이 **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia** 등과 같은 Azure 지역인 `-l <location-name>` 인수를 필요에 따라 포함할 수 있습니다. Azure 계정에 허용되는 지역 목록은 [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 명령을 실행하여 검색할 수 있습니다.
+- `<location_name>`이 **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia** 등과 같은 Azure 지역인 `-l <location-name>` 인수를 필요에 따라 포함할 수 있습니다. Azure 계정에 허용되는 지역 목록은 [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations) 명령을 실행하여 검색할 수 있습니다.
 - "앱의 런타임 스택을 자동으로 검색할 수 없습니다."라는 오류가 표시되면 *requirements.txt* 파일이 포함된 *python-docs-hello-world* 폴더에서 명령을 실행하고 있는지 확인합니다. ([az webapp up으로 자동 검색 문제 해결](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)(GitHub)을 참조하세요.)
 
 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 실행되는 동안 리소스 그룹, App Service 계획 및 호스팅 앱을 만들고, 로깅을 구성한 다음, ZIP 배포 수행에 대한 메시지를 제공합니다. 그런 다음, "http://&lt;app-name&gt;.azurewebsites.net에서 앱을 시작할 수 있습니다."라는 메시지를 제공합니다. 이 메시지는 Azure에서 앱의 URL입니다.

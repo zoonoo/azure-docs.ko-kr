@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 57d74bb9f74dae69c0067703cb09e97d74845430
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 37b119590fe9184e8f05940a022f1fec32f9fb83
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293636"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484421"
 ---
 ## <a name="azure-security-benchmark"></a>Azure 보안 벤치마크
 
@@ -21,4 +21,13 @@ ms.locfileid: "87293636"
 |도메인 |컨트롤 ID |컨트롤 제목 |정책<br /><sub>(Azure Portal)</sub> |정책 버전<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |로깅 및 모니터링 |2.3 |Azure 리소스에 대한 감사 로깅 사용 |[Logic Apps의 진단 로그를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34f95f76-5386-4de7-b824-0d8478470c9d) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Logic%20Apps/LogicApps_AuditDiagnosticLog_Audit.json) |
+
+## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
+
+모든 Azure 서비스에 사용 가능한 Azure Policy 기본 제공이 이 규정 준수 표준에 매핑되는 방식을 검토하려면 [Azure Policy 규정 준수 - HIPAA HITRUST 9.2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md)를 참조하세요.
+이 규정 준수 표준에 대한 자세한 내용은 [HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)를 참조하세요.
+
+|도메인 |컨트롤 ID |컨트롤 제목 |정책<br /><sub>(Azure Portal)</sub> |정책 버전<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|감사 로깅 |1203.09aa1System.2 - 09.aa |감사 레코드에는 고유한 사용자 ID, 고유한 데이터 주체 ID, 수행된 함수 및 이벤트가 수행된 날짜/시간이 포함됩니다. |[Logic Apps의 진단 로그를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34f95f76-5386-4de7-b824-0d8478470c9d) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Logic%20Apps/LogicApps_AuditDiagnosticLog_Audit.json) |
 

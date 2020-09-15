@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: 4f3c9d739f959670700182baf80c4a08e53d8587
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5aa760c661fd596c55693edd537ca7820c7d7f58
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259067"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489904"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 공유  
 
@@ -40,7 +40,7 @@ ms.locfileid: "89259067"
 
 ### <a name="share-from-a-sql-based-source"></a>SQL 기반 소스에서 공유:
 
-* 공유하려는 테이블 및 보기를 포함하는 Azure SQL Database 또는 Azure Synapse Analytics(이전의 Azure SQL Data Warehouse)
+* 공유하려는 테이블 및 보기를 포함하는 Azure SQL Database 또는 Azure Synapse Analytics(이전의 SQL Data Warehouse).
 * SQL 서버에 데이터베이스를 쓸 수 있는 권한으로, *Microsoft.Sql/servers/databases/write*에 있습니다. 이 권한은 기여자 역할에 있습니다.
 * 데이터 웨어하우스에 액세스할 수 있는 데이터 공유에 대한 권한. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. 자신을 SQL 서버에 대한 Azure Active Directory 관리자로 설정합니다.
@@ -113,7 +113,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
     ![공유에 데이터 세트 추가](./media/datasets.png "데이터 세트")
 
-1. 추가하려는 데이터 세트 형식을 선택합니다. 이전 단계에서 선택한 공유 유형(스냅샷 또는 내부)에 따라 다른 데이터 세트 유형 목록이 표시됩니다. Azure SQL Database 또는 Azure SQL Data Warehouse에서 공유하는 경우 일부 SQL 자격 증명을 입력하라는 메시지가 표시됩니다. 필수 구성 요소의 일부로 만든 사용자를 사용하여 인증합니다.
+1. 추가하려는 데이터 세트 형식을 선택합니다. 이전 단계에서 선택한 공유 유형(스냅샷 또는 내부)에 따라 다른 데이터 세트 유형 목록이 표시됩니다. Azure SQL Database 또는 Azure Synapse Analytics에서 공유하는 경우 일부 SQL 자격 증명을 입력하라는 메시지가 표시됩니다. 필수 구성 요소의 일부로 만든 사용자를 사용하여 인증합니다.
 
     ![AddDatasets](./media/add-datasets.png "데이터 세트 추가")    
 

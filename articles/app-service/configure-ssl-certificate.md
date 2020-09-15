@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d45852326a7f771b2cf79e20c784e2c441fef0d6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401489"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420883"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 인증서 추가
 
@@ -188,6 +188,13 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 Azure Key Vault를 사용하여 인증서를 관리하는 경우 Key Vault의 [요구 사항을 충족](#private-certificate-requirements)하는 PKCS12 인증서를 App Service으로 가져올 수 있습니다.
 
+### <a name="authorize-app-service-to-read-from-the-vault"></a>자격 증명 모음에서 읽을 App Service 권한 부여
+기본적으로 App Service 리소스 공급자는 Key Vault에 대한 액세스 권한이 없습니다. 인증서 배포에 Key Vault를 사용하려면 [KeyVault에 대한 읽기 액세스 권한을 부여](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault)해야 합니다. 
+
+`abfa0a7c-a6b6-4736-8310-5855508787cd`는 App Service의 리소스 공급자 서비스 주체 이름으로, 모든 Azure 구독에 대해 동일합니다. Azure Government 클라우드 환경의 경우 리소스 공급자 서비스 주체 이름으로 대신 `6a02c803-dafd-4136-b4c3-5a6f318b4714`를 사용합니다.
+
+### <a name="import-a-certificate-from-your-vault-to-your-app"></a>자격 증명 모음에서 앱으로 인증서 가져오기
+
 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 를 선택합니다.
 
 앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정** > **프라이빗 키 인증서(.pfx)**  > **Key Vault 인증서 가져오기**를 선택합니다.
@@ -205,6 +212,9 @@ Azure Key Vault를 사용하여 인증서를 관리하는 경우 Key Vault의 [�
 작업이 완료되면 **프라이빗 키 인증서** 목록에 인증서가 표시됩니다. 오류가 발생하여 가져오기에 실패하는 경우 인증서가 [App Service에 대한 요구 사항](#private-certificate-requirements)을 충족하지 않는 것입니다.
 
 ![Key Vault 인증서 가져오기 완료](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
+
+> [!NOTE]
+> Key Vault의 인증서를 새 인증서로 업데이트하면 App Service는 48시간 이내에 인증서를 자동으로 동기화합니다.
 
 > [!IMPORTANT] 
 > 이 인증서를 사용하여 사용자 지정 도메인을 보호하려면 여전히 인증서 바인딩을 만들어야 합니다. [바인딩 만들기](configure-ssl-bindings.md#create-binding)의 단계를 따릅니다.

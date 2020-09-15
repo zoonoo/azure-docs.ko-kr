@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/25/2020
 ms.author: pafarley
-ms.openlocfilehash: 6118f8109f44081c797cb09a6157abaf4044965e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377815"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418962"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -225,7 +225,9 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 > [!NOTE]
 > 날짜 형식 지정은 다음 규칙을 참조하세요.
 > 
-> 다음(`, - / . \`) 문자를 DMY 날짜 구분 기호로 사용할 수 있습니다. 공백은 구분 기호로 사용할 수 없습니다. 예를 들면 다음과 같습니다.
+> 날짜 서식을 지정하려면 서식(`dmy`, `mdy`, `ymd`)을 지정해야 합니다.
+>
+> 다음(`, - / . \`) 문자를 날짜 구분 기호로 사용할 수 있습니다. 공백은 구분 기호로 사용할 수 없습니다. 예를 들면 다음과 같습니다.
 > * 2020,01,01
 > * 2020-01-01
 > * 2020/01/01
@@ -234,11 +236,11 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 > * 2020-1-1
 > * 20-1-01
 >
-> DMY 날짜 문자열에 8자리 숫자가 있는 경우 구분 기호는 선택 사항입니다.
+> 날짜 문자열에 8자리 숫자가 있는 경우 구분 기호는 선택 사항입니다.
 > * 20200101
 > * 2020 01 01
 >
-> 월은 전체 또는 짧은 이름으로 작성할 수도 있습니다. 이름을 사용하는 경우 구분 기호 문자는 선택 사항입니다.
+> 월은 전체 또는 짧은 이름으로 작성할 수도 있습니다. 이름을 사용하는 경우 구분 기호 문자는 선택 사항입니다. 그러나 이 형식은 다른 형식보다 덜 정확하게 인식될 수 있습니다.
 > * 2020/Jan/01
 > * 2020Jan01
 > * 2020 Jan 01

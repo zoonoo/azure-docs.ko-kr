@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/10/2020
+ms.date: 09/04/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a1df804681f0066fda025a60e0baddedc51f7a78
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 212e9b1826d0245675b066ded00b03e8cff1fb96
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298165"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487105"
 ---
 |Name |Description |정책 |버전 |
 |---|---|---|---|
@@ -30,10 +30,9 @@ ms.locfileid: "89298165"
 |[지정한 기간(일) 내에 만료되는 인증서가 포함된 Windows VM 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_CertificateExpiration.json) |이 이니셔티브는 정책 요구 사항을 배포하고 지정된 기간(일) 이내에 만료되는 인증서가 포함된 Windows 가상 머신을 감사합니다. 게스트 구성 정책에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |2 |1.0.0 |
 |[신뢰할 수 있는 루트에 지정한 인증서가 포함되지 않은 Windows VM 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_WindowsCertificateInTrustedRoot.json) |이 이니셔티브는 정책 요구 사항을 적용하고 Windows 가상 머신의 신뢰할 수 있는 루트 인증 기관 인증서 저장소(Cert:\LocalMachine\Root)에 지정한 인증서가 포함되지 않은 Windows VM을 감사합니다. 게스트 구성 정책에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |2 |1.0.0 |
 |[지정된 애플리케이션이 설치되지 않은 Windows VM 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_InstalledApp.json) |이 이니셔티브는 정책 요구 사항을 배포하고 지정된 애플리케이션이 설치되지 않은 Windows 가상 머신을 감사합니다. 게스트 구성 정책에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |2 |1.0.0 |
-|[지정한 Windows PowerShell 실행 정책이 없는 Windows VM 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPowerShellExecutionPolicy.json) |이 이니셔티브는 정책 요구 사항을 적용하고 Windows PowerShell이 지정한 PowerShell 실행 정책을 사용하도록 구성되지 않은 Windows 가상 머신을 감사합니다. 게스트 구성 정책에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |2 |1.0.0 |
-|[지정한 Windows PowerShell 모듈이 설치되지 않은 Windows VM 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPowerShellModules.json) |이 이니셔티브는 정책 요구 사항을 배포하고 지정된 Windows PowerShell 모듈이 설치되지 않은 Windows 가상 머신을 감사합니다. 게스트 구성 정책에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |2 |1.0.0 |
-|[Azure 보안 기준 설정과 일치하지 않는 Windows VM 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_AzureBaseline.json) |이 이니셔티브는 정책 요구 사항을 적용하고 비규격 Azure 보안 기준 구성이 있는 Windows 가상 머신을 감사합니다. 게스트 구성 정책에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |58 |1.0.0 |
 |[지정한 기간(일) 내에 다시 시작되지 않은 Windows VM 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_MachineLastBootUpTime.json) |이 이니셔티브는 정책 요구 사항을 배포하고 지정된 기간(일) 이내에 만료되는 인증서가 포함된 Windows 가상 머신을 감사합니다. 게스트 구성 정책에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |2 |1.0.0 |
 |[지정된 애플리케이션이 설치된 Windows VM 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_NotInstalledApp.json) |이 이니셔티브는 정책 요구 사항을 배포하고 지정된 애플리케이션이 설치된 Windows 가상 머신을 감사합니다. 게스트 구성 정책에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |2 |1.0.0 |
 |[재부팅을 대기 중인 Windows VM 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPendingReboot.json) |이 이니셔티브는 정책 요구 사항을 배포하고 재부팅을 대기 중인 Windows 가상 머신을 감사합니다. 게스트 구성 정책에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |2 |1.0.0 |
 |[보안 통신 프로토콜을 사용하지 않는 Windows 웹 서버 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_TLS.json) |이 이니셔티브는 정책 요구 사항을 적용하고 보안 통신 프로토콜(TLS 1.1 또는 TLS 1.2)을 사용하지 않는 Windows 웹 서버를 감사합니다. 게스트 구성 정책에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |2 |1.0.0 |
+|[필수 구성 요소를 배포하여 가상 머신에서 게스트 구성 정책을 사용하도록 설정](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json) |이 이니셔티브는 시스템 할당 관리 ID를 추가하고 게스트 구성 정책에서 모니터링할 수 있는 가상 머신에 플랫폼에 적합한 게스트 구성 확장을 배포합니다. 이는 모든 게스트 구성 정책의 필수 구성 요소이며 게스트 구성 정책을 사용하기 전에 정책 할당 범위에 할당해야 합니다. 게스트 구성에 대한 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. |4 |1.0.0-preview |
+|[Windows 머신은 Azure 보안 기준에 대한 요구 사항을 충족해야 함](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_AzureBaseline.json) |이 이니셔티브는 Azure 보안 기준을 충족하지 않는 설정으로 Windows 머신을 감사합니다. 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 참조하세요. |29 |2.0.0-preview |

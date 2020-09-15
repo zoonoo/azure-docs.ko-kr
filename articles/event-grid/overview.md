@@ -3,12 +3,12 @@ title: Azure Event Grid란?
 description: Azure Event Grid를 사용하여 원본에서 처리기로 이벤트 데이터를 보냅니다. 이벤트 기반 애플리케이션을 빌드하고 Azure 서비스와 통합합니다.
 ms.topic: overview
 ms.date: 07/07/2020
-ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 87ac29c2324c63977c57d60b11b3b930c23a4dd9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116134"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436870"
 ---
 # <a name="what-is-azure-event-grid"></a>Azure Event Grid란?
 
@@ -118,6 +118,6 @@ Azure Event Grid는 이벤트별 요금 가격 책정 모델을 사용하므로 
 * [Logic Apps를 이벤트 처리기로 사용](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Event Grid에서 푸시된 이벤트에 응답하기 위해 Logic Apps를 사용하여 앱을 빌드하는 방법을 설명하는 자습서입니다.
 * [데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md)  
-  Azure Functions를 사용하여 Event Hubs의 데이터를 SQL Data Warehouse로 스트리밍하는 방법을 설명하는 자습서입니다.
+  Azure Functions를 사용하여 Event Hubs에서 Azure Synapse Analytics로 데이터를 스트리밍하는 방법을 설명하는 자습서입니다.
 * [Event Grid REST API 참조](/rest/api/eventgrid)  
   이벤트 구독, 라우팅 및 필터링 관리에 대한 참조 콘텐츠를 제공합니다.

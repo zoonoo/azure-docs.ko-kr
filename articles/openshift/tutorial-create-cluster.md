@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: a581678fdd05dade336f7ca9fcbcf5ad4c92d49a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f4b43129db5288275434253545861f3eae218e82
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300173"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89503791"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 만들기
 
@@ -22,9 +22,9 @@ ms.locfileid: "89300173"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택한 경우 이 자습서에서는 Azure CLI 버전 2.6.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 
-Azure Red Hat OpenShift에는 OpenShift 클러스터를 만들고 실행하는 데 최소 40개의 코어가 필요합니다. 새 Azure 구독에 대한 기본 Azure 리소스 할당량은 이 요구 사항을 충족하지 않습니다. 리소스 제한 늘리기를 요청하려면 [표준 할당량: VM 시리즈별 제한 늘리기](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)를 참조하세요.
+Azure Red Hat OpenShift에는 OpenShift 클러스터를 만들고 실행하는 데 최소 40개의 코어가 필요합니다. 새 Azure 구독에 대한 기본 Azure 리소스 할당량은 이 요구 사항을 충족하지 않습니다. 리소스 제한 늘리기를 요청하려면 [표준 할당량: VM 시리즈별 제한 늘리기](../azure-portal/supportability/per-vm-quota-requests.md)를 참조하세요.
 
 ### <a name="verify-your-permissions"></a>권한 확인
 
@@ -35,13 +35,31 @@ Azure Red Hat OpenShift 클러스터를 만들려면 Azure 구독, Azure Active 
 |**사용자 액세스 관리자**|X|X| |
 |**기여자**|X|X|X|
 
-### <a name="register-the-resource-provider"></a>리소스 공급자 등록
+### <a name="register-the-resource-providers"></a>리소스 공급자 등록
 
-다음으로, `Microsoft.RedHatOpenShift` 리소스 공급자를 구독에 등록해야 합니다.
+1. 여러 Azure 구독이 있는 경우 관련 구독 ID를 지정합니다.
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. `Microsoft.RedHatOpenShift` 리소스 공급자를 등록합니다.
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+    
+1. `Microsoft.Compute` 리소스 공급자를 등록합니다.
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+    
+1. `Microsoft.Storage` 리소스 공급자를 등록합니다.
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Red Hat 풀 비밀 가져오기(선택 사항)
 
@@ -88,7 +106,7 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
 
 1. **리소스 그룹을 만듭니다.**
 
-    Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치입니다. [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다.
+    Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치입니다. [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다.
     
 > [!NOTE]
 > Azure 리소스 그룹을 만들 수 있는 일부 지역에서는 Azure Red Hat OpenShift를 사용할 수 없습니다. Azure Red Hat OpenShift가 지원되는 위치에 대한 정보는 [사용 가능한 지역](https://docs.openshift.com/aro/4/welcome/index.html#available-regions)을 참조하세요.
@@ -167,7 +185,7 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **마스터 서브넷에서 [서브넷 프라이빗 엔드포인트 정책을 사용하지 않도록 설정](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy)합니다.** 클러스터에 연결하고 관리하는 데 필요합니다.
+5. **마스터 서브넷에서 [서브넷 프라이빗 엔드포인트 정책을 사용하지 않도록 설정](../private-link/disable-private-link-service-network-policy.md)합니다.** 클러스터에 연결하고 관리하는 데 필요합니다.
 
     ```azurecli-interactive
     az network vnet subnet update \

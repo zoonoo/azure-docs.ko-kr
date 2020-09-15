@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c1b640fa5104ceb0f330c9aee9813ed8b3914d33
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4972e843394cac3b4a4f7c08a27f9d1a9e19cee5
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166045"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459388"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Synapse SQL 풀 만들기 및 쿼리
 
@@ -155,7 +155,7 @@ Azure Portal에서 서버의 정규화된 서버 이름을 확인합니다. 나�
 
 [제한된 리소스 클래스](resource-classes-for-workload-management.md)를 사용하므로 서버 관리자로 기록되는 동안에는 많은 쿼리를 실행하지 않는 것이 좋습니다. 대신 [자습서에 설명된](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data) 대로 [워크로드 격리](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql)를 구성합니다.
 
-SQL Data Warehouse는 쿼리 언어로 T-SQL을 사용합니다. 쿼리 창을 열고 T-SQL 쿼리 몇 개를 실행하려면 다음 단계를 수행합니다.
+Azure Synapse Analytics는 T-SQL을 쿼리 언어로 사용합니다. 쿼리 창을 열고 T-SQL 쿼리 몇 개를 실행하려면 다음 단계를 수행합니다.
 
 1. 마우스 오른쪽 단추로 **mySampleDataWarehouse**를 선택하고 **새 쿼리**를 선택합니다. 새 쿼리 창이 열립니다.
 

@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501964"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494319"
 ---
-공유 이미지 갤러리는 이미지에 대 한 구조와 조직을 구축 하는 데 도움이 되는 서비스입니다. Shared Image Galleries는 다음을 제공합니다.
+Shared Image Gallery는 이미지를 기준으로 구조와 조직을 빌드하는 데 도움이 되는 서비스입니다. Shared Image Galleries는 다음을 제공합니다.
 
 - 글로벌 이미지 복제
 - 보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화
@@ -33,7 +33,7 @@ ms.locfileid: "86501964"
 
 | 리소스 | Description|
 |----------|------------|
-| **이미지 원본** | 이는 이미지 갤러리에서 **이미지 버전**을 만드는 데 사용할 수 있는 리소스입니다. 이미지 원본은 [일반화 되거나 특수화](#generalized-and-specialized-images)된 기존 Azure VM이 될 수 있습니다. 즉, 다른 이미지 갤러리의 관리 되는 이미지, 스냅숏, VHD 또는 이미지 버전을 사용할 수 있습니다. |
+| **이미지 원본** | 이는 이미지 갤러리에서 **이미지 버전**을 만드는 데 사용할 수 있는 리소스입니다. 이미지 소스는 [일반화 또는 특수화](#generalized-and-specialized-images)된 기존 Azure VM, 관리형 이미지, 스냅샷, VHD 또는 다른 이미지 갤러리의 이미지 버전일 수 있습니다. |
 | **이미지 갤러리** | Azure Marketplace와 마찬가지로 **이미지 갤러리**는 이미지를 관리하고 공유하는 데 사용되는 리포지토리이지만 액세스할 수 있는 사람을 제어할 수 있습니다. |
 | **이미지 정의** | 이미지 정의는 갤러리 내에 생성되고, 내부적으로 사용하기 위해 충족해야 할 요구 사항과 이미지에 대한 정보를 전달합니다. 여기에는 이미지가 Windows인지, Linux인지 여부, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함됩니다. 이미지의 형식 정의입니다. |
 | **이미지 버전** | **이미지 버전**은 갤러리를 사용하는 경우 VM을 만들 때 사용합니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. 관리되는 이미지와 마찬가지로 **이미지 버전**을 사용하여 VM을 만들 때는 이미지 버전을 사용하여 VM의 새 디스크를 만듭니다. 이미지 버전은 여러 번 사용할 수 있습니다. |
@@ -68,7 +68,7 @@ ms.locfileid: "86501964"
 * 최소/최대 vCPU 및 메모리 권장 사항 - 이미지에 대한 vCPU 및 메모리 권장 사항이 있는 경우 해당 정보를 이미지 정의에 연결할 수 있습니다.
 * 허용되지 않는 디스크 유형 - VM의 스토리지 요구 사항에 대한 정보를 제공할 수 있습니다. 예를 들어 이미지가 표준 HDD 디스크에 적합하지 않은 경우 허용되지 않는 유형 목록에 추가합니다.
 * Hyper-V 생성 - 이미지가 1세대 또는 2세대 Hyper-V VHD 중 무엇으로 만들었는지 지정할 수 있습니다.
-* Marketplace 이미지 (, 및)에 대 한 계획 정보 `-PurchasePlanPublisher ` 를 구입 `-PurchasePlanName` `-PurchasePlanProduct` 합니다. 구매 계획 정보에 대 한 자세한 내용은 [Azure Marketplace에서 이미지 찾기](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) 및 이미지를 [만들 때 Azure Marketplace 구매 계획 정보 제공](../articles/virtual-machines/marketplace-images.md)을 참조 하세요.
+* Marketplace 이미지(`-PurchasePlanPublisher `, `-PurchasePlanName` 및 `-PurchasePlanProduct`)에 대한 구매 계획 정보입니다. 구매 계획 정보에 대한 자세한 내용은 [Azure Marketplace에서 이미지 찾기](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) 및 [이미지를 만들 때 Azure Marketplace 구매 계획 정보 제공](../articles/virtual-machines/marketplace-images.md)을 참조하세요.
 
 ## <a name="generalized-and-specialized-images"></a>일반화 이미지와 특수화 이미지
 
@@ -83,7 +83,7 @@ Shared Image Gallery는 두 가지 운영 체제 상태를 지원합니다. 일�
 
 ## <a name="regional-support"></a>국가별 지원
 
-모든 공용 지역은 대상 지역이 될 수 있지만 오스트레일리아 중부 및 오스트레일리아 중부 2로 복제 하려면 구독을 허용 목록에 추가 해야 합니다. 구독이 허용 목록에 추가 되도록 요청 하려면 다음으로 이동 합니다.https://azure.microsoft.com/global-infrastructure/australia/contact/
+모든 공용 지역은 대상 지역이 될 수 있지만, 오스트레일리아 중부 및 오스트레일리아 중부 2에 복제하려면 구독을 허용 목록에 추가해야 합니다. 구독이 허용 목록에 추가되도록 요청하려면 https://azure.microsoft.com/global-infrastructure/australia/contact/ 로 이동합니다.
 
 ## <a name="limits"></a>제한 
 
@@ -146,7 +146,7 @@ Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스�
 이미지 갤러리 리소스를 만든 후 변경할 수 있습니다. 다음과 같은 제한이 있습니다.
  
 공유 이미지 갤러리:
-- 설명
+- Description
 
 이미지 정의:
 - 권장 vCPU
@@ -196,7 +196,7 @@ Shared Image Gallery, 이미지 정의 및 이미지 버전은 모두 리소스�
 * [Shared Image Gallery 사용 요금은 얼마인가요?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [Shared Image Gallery와 이미지 정의 및 이미지 버전을 만들려면 어떤 API 버전을 사용해야 하나요?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [이미지 버전으로 공유 VM 또는 Virtual Machine Scale Set를 만들려면 어떤 API 버전을 사용해야 하나요?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [관리형 이미지를 사용하여 만든 Virtual Machine Scale Set가 Shared Image Gallery 이미지를 사용하도록 업데이트할 수 있나요?]
+* [관리형 이미지를 사용하여 만든 Virtual Machine Scale Set가 Shared Image Gallery 이미지를 사용하도록 업데이트할 수 있나요?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images)
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>구독 간에 모든 공유 이미지 갤러리 리소스를 나열하는 방법은 무엇인가요?
 
@@ -230,7 +230,7 @@ Azure Portal에서 액세스할 수 있는 구독 간에 Shared Image Gallery �
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>특수한 디스크에서 이미지 버전을 만들 수 있나요?
 
-예,는 [CLI](../articles/virtual-machines/vm-specialized-image-version-cli.md), [PowerShell](../articles/virtual-machines/vm-specialized-image-version-powershell.md)또는 API를 사용 하 여 특수화 된 이미지에서 VM을 만들 수 있습니다. 
+예, [CLI](../articles/virtual-machines/vm-specialized-image-version-cli.md), [PowerShell](../articles/virtual-machines/vm-specialized-image-version-powershell.md) 또는 API를 사용하여 특수화된 이미지에서 VM을 만들 수 있습니다. 
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Shared Image Gallery 리소스를 만든 후 다른 구독으로 이동할 수 있나요?
 

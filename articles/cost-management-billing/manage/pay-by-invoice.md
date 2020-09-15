@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d55916539f64fc70560565bd5caf6254aac5a908
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 30fa6e0489c1f2c33e02286280e7508239c1c1d2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684867"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567914"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용 지불
 
@@ -67,7 +67,7 @@ ms.locfileid: "88684867"
      특정 지역 및 일련의 구독:<br>
 
     - **회사 이름**과 **회사 주소**는 Azure 계정에 대해 제공한 정보와 일치해야 합니다. 정보를 보거나 업데이트하려면 [Azure 계정 프로필 정보 변경](change-azure-account-profile.md)을 참조하세요.
-    - Azure Portal에서 청구 연락처 정보를 추가해야 크레딧 한도를 승인받을 수 있습니다. 연락처 세부 정보는 회사의 지급 계정 또는 재무 부서와 관련되어 있어야 합니다. 청구 연락처 정보를 업데이트하려면 [Azure 계정 센터](https://account.azure.com/Profile)로 이동합니다.
+    - Azure Portal에서 청구 연락처 정보를 추가해야 크레딧 한도를 승인받을 수 있습니다. 연락처 세부 정보는 회사의 지급 계정 또는 재무 부서와 관련되어 있어야 합니다. 청구 연락처 정보를 업데이트하려면 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
 6. 연락처 정보와 기본 연락 방법을 확인한 다음, **만들기**를 선택합니다.
 

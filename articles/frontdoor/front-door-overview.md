@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: duau
-ms.openlocfilehash: 003903a941b0d9ce36f28ce5e4d640e5746a7de3
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 5741e41e3c1474cef5cf49270fd40bbdf4fcaffb
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378188"
+ms.locfileid: "89399415"
 ---
 # <a name="what-is-azure-front-door"></a>Azure Front Door란?
 Azure Front Door를 사용하면 최적의 성능과 고가용성을 지원하는 빠른 글로벌 장애 조치(failover)를 최적으로 구현하여 웹 트래픽의 글로벌 라우팅을 정의, 관리, 모니터링할 수 있습니다. Front Door를 사용하면 글로벌(다중 지역) 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 견고한 고성능의 맞춤형 최신 애플리케이션, API 및 콘텐츠로 변환할 수 있습니다.
@@ -84,7 +84,7 @@ HTTP/2 프로토콜을 사용하면 장기 실행 TCP 연결을 통해 애플리
 
 ## <a name="whats-new"></a>새로운 기능
 
-RSS 피드를 구독하고 [Azure 업데이트](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) 페이지에서 최신 Azure Load Balancer 기능 업데이트를 확인합니다.
+RSS 피드를 구독하고 [Azure 업데이트](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door) 페이지에서 최신 Azure Front Door 기능 업데이트를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

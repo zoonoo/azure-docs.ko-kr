@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8c9bdb059008a3d9e33631c3101cb7b459660119
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984662"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436785"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>데이터베이스 작업을 사용하여 관리 작업 자동화
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ T-SQL(Transact-SQL) 쿼리를 실행하고 유지 관리 작업을 수행하도�
 - **SQL 에이전트 작업**은 Azure SQL Managed Instance에서 사용할 수 있는 클래식 및 입증된 SQL Server 작업 예약 구성 요소입니다. SQL 에이전트 작업은 Azure SQL Database에서 사용할 수 없습니다.
 - **탄력적 데이터베이스 작업(미리 보기)** 은 Azure SQL Database의 1개 또는 여러 데이터베이스에서 사용자 지정 작업을 실행하는 작업 예약 서비스입니다.
 
-SQL 에이전트(온-프레미스 및 SQL Managed Instance의 일부로 사용 가능)와 Database 탄력적 작업 에이전트(Azure SQL Database의 단일 데이터베이스 및 SQL Data Warehouse의 데이터베이스에서 사용 가능)의 몇 가지 차이점에 주목할 필요가 있습니다.
+SQL 에이전트(온-프레미스 및 SQL Managed Instance의 일부로 사용 가능)와 Database 탄력적 작업 에이전트(Azure SQL Database의 단일 데이터베이스 및 Azure Synapse Analytics의 데이터베이스에 사용 가능) 간의 몇 가지 차이점에 주목할 필요가 있습니다.
 
 | |탄력적 작업 |SQL 에이전트 |
 |---------|---------|---------|

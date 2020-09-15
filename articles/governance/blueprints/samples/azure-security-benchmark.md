@@ -3,12 +3,12 @@ title: Azure 보안 벤치마크 청사진 샘플 개요
 description: Azure 보안 벤치마크 청사진 샘플의 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 06/02/2020
 ms.topic: sample
-ms.openlocfilehash: 780d16cd52ef9ea8b5edd654d6c80b9db593ab6d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 4113f350c21087dbda5f69d9c3981e2d169ffc00
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739519"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651900"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Azure 보안 벤치마크 청사진 샘플
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **시작** 페이지 왼쪽에서 _청사진 만들기_ 아래의 **만들기** 단추를 선택합니다.
 
-1. _기타 샘플_에서 **Azure Security Benchmark** 청사진 샘플을 찾고 이름을 클릭하여 이 샘플을 선택합니다.
+1. _기타 샘플_에서 **Azure Security Benchmark** 청사진 샘플을 찾고 이름을 선택하여 이 샘플을 선택합니다.
 
 1. 청사진 샘플의 _기본 사항_을 입력합니다.
 

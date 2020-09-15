@@ -3,12 +3,12 @@ title: 미디어 그래프 확장이란? - Azure
 description: IoT Edge의 Live Video Analytics를 사용하면 그래프 확장 노드를 통해 미디어 그래프 처리 기능을 확장할 수 있습니다.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 2e1ca730a6736776425cd70b323147b58e8eacbf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 74929cc51a868d20952f1e25432f5343e4821d08
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716081"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569335"
 ---
 # <a name="media-graph-extension"></a>미디어 그래프 확장
 
@@ -49,13 +49,14 @@ gRPC 확장 프로세서는 유추 메시지 교환과 함께 미디어 속성�
 미디어 그래프 확장을 사용하면 사용자 고유의 Docker 컨테이너에 있는 ONNX, TensorFlow, PyTorch 등과 같은 사용 가능한 유추 런타임에서 원하는 유추 모델을 실행할 수 있습니다. 최상의 성능을 위해 유추 사용자 지정 확장을 Live Video Analytics 에지 모듈과 함께 배포해야 합니다. 그런 다음, 그래프 토폴로지에 포함된 HTTP 확장 프로세서 또는 gRPC 확장 프로세서를 통해 이 확장을 호출합니다. 또한 필요에 따라 [동작 탐지기 프로세서](media-graph-concept.md#motion-detection-processor) 및 [프레임 속도 필터 프로세서](media-graph-concept.md#frame-rate-filter-processor) 업스트림을 미디어 확장 프로세서에 추가하여 사용자 지정 확장에 대한 호출 빈도를 제한할 수 있습니다.
 
 아래 다이어그램에서는 개략적인 데이터 흐름을 보여 줍니다.
- 
-![데이터 흐름](./media/media-graph-extension/data-flow.png)
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph-extension/analyze-live-video-with-AI-inference-service.svg" alt-text="AI 유추 서비스":::
 
 ## <a name="samples"></a>샘플
 
-Live Video Analytics를 위한 [Jupyter Notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) 샘플 중 일부를 체크 아웃합니다. 이러한 Notebook에서는 다음 항목에 대한 단계별 지침을 제공합니다.
+Live Video Analytics를 위한 [Jupyter Notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) 샘플 중 일부를 체크 아웃합니다. 이러한 Notebooks에서는 **미디어 그래프 확장**에 대한 단계별 지침을 제공합니다.
 
 * 확장 서비스의 Docker 컨테이너 이미지를 만드는 방법
 * Live Video Analytics 컨테이너와 함께 확장 서비스를 컨테이너로 배포하는 방법
-* 확장 클라이언트에서 Live Video Analytics 미디어 그래프를 사용하고 이를 확장 gRPC 엔드포인트로 가리키는 방법
+* 확장 클라이언트에서 Live Video Analytics 미디어 그래프를 사용하고 이를 확장 엔드포인트(HTTP/gRPC)로 가리키는 방법

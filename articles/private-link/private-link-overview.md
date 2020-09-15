@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 06/18/2020
+ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 908d9386f08c5de863d1d435c54d65cb85feef7a
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 94d4a035c95b8eb2a567c71ec2172f55881e8099
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181666"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488425"
 ---
 # <a name="what-is-azure-private-link"></a>Azure Private Link란? 
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객 소유/파트너 서비스에 액세스할 수 있습니다.
@@ -43,10 +43,13 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 |지원되는 서비스  |사용 가능한 지역 | 기타 고려 사항 | 상태  |
 |:-------------------|:-----------------|:----------------|:--------|
 |표준 Azure Load Balancer 뒤에 있는 Private Link 서비스 | 모든 공용 지역<br/> Azure Government 지역  | 표준 Load Balancer에서 지원 | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-| Azure Storage       |  모든 공용 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
-| Azure Data Lake Storage Gen2        |  모든 공용 지역      |  계정 종류 범용 V2에서 지원 | GA <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
+| Azure Blob 스토리지(Data Lake Storage Gen2 포함)       |  모든 공용 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
+| Azure 파일 | 모든 공용 지역      | |   GA <br/> [자세히 알아보기](/azure/storage/files/storage-files-networking-endpoints)   |
+| Azure 파일 동기화 | 모든 공용 지역      | |   GA <br/> [자세히 알아보기](/azure/storage/files/storage-sync-files-networking-endpoints)   |
+| Azure Queue 스토리지       |  모든 공용 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
+| Azure Table Storage       |  모든 공용 지역       |  계정 종류 범용 V2에서 지원 | GA <br/> [자세히 알아보기](/azure/storage/common/storage-private-endpoints)  |
 |  Azure SQL Database         | 모든 공용 지역 <br/> Azure Government 지역      |  프록시 [연결 정책](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy)에 대해 지원됨 | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
-|Azure Synapse Analytics(SQL Data Warehouse)| 모든 공용 지역 <br/> Azure Government 지역 |  프록시 [연결 정책](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy)에 대해 지원됨 |GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+|Azure Synapse Analytics(이전의 SQL Data Warehouse)| 모든 공용 지역 <br/> Azure Government 지역 |  프록시 [연결 정책](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy)에 대해 지원됨 |GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
 |Azure Cosmos DB|  모든 공용 지역<br/> Azure Government 지역 | |GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
 |  Azure Database for PostgreSQL - 단일 서버         | 모든 공용 지역 <br/> Azure Government 지역     | 범용 및 메모리 최적화된 가격 책정 계층에 지원됨 | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  Azure Database for MySQL         | 모든 공용 지역<br/> Azure Government 지역      |  | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
@@ -67,7 +70,6 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 | Azure IoT Hub | 모든 공용 지역    |  | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | 미국 동부, 미국 서부 2, 미국 중남부      |  | 미리 보기   <br/> [자세히 알아보기](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics 및 Application Insights) | 모든 공용 지역      |  | GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure 파일 동기화 | 모든 공용 지역      | |   GA   <br/> [자세히 알아보기](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints?tabs=azure-portal)   |
 | Azure Batch | 미국 동부, 미국 서부 2, 미국 중남부, 미국 중서부, 프랑스 중부, 동아시아, 영국 남부, 미국 GOV 버지니아, 미국 GOV 애리조나  | | GA <br/> [자세히 알아보기](https://docs.microsoft.com/azure/batch/private-connectivity) |
 
 최신 알림은 [Azure Private Link 업데이트 페이지](https://azure.microsoft.com/updates/?product=private-link)를 확인하세요.

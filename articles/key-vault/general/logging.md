@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9507525dc2c52f584bd7883a12da401b5999f50
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585919"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485458"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
@@ -36,7 +36,7 @@ ms.locfileid: "88585919"
 > 이 문서에서는 진단 로깅을 업데이트하기 위한 Azure PowerShell 지침을 제공합니다. 또한 Azure Portal의 **진단 로그** 섹션에서 Azure Monitor를 사용하여 진단 로깅을 업데이트할 수도 있습니다. 
 >
 
-Key Vault에 대한 개요 정보는 [Azure Key Vault란?](overview.md)을 참조하세요). Key Vault를 사용할 수 있는 위치에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
+Key Vault에 대한 개요 정보는 [Azure Key Vault란?](overview.md)을 참조하세요). Key Vault를 사용할 수 있는 위치에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. [Key Vault에 대한 Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview) 사용에 대한 정보입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a9d9f8b137f02e647d1ea0edddd409ec3cdaf3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 1f2e4ddc2d2cfbbfb7f95e5ae6b1af7a76eece85
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079195"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426353"
 ---
 # <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>자습서: Terraform을 사용하여 Azure Spring Cloud 인스턴스 프로비저닝
 
@@ -94,7 +94,7 @@ ms.locfileid: "88079195"
     terraform apply plan.out
     ```
 
-1. Azure Portal 내에서 결과를 확인하려면 새 리소스 그룹으로 이동합니다. 새 **Azure Cosmos DB 인스턴스**는 새 리소스 그룹에 표시됩니다.
+1. Azure Portal 내에서 결과를 확인하려면 새 리소스 그룹으로 이동합니다. 새 **Azure Spring Cloud** 인스턴스는 새 리소스 그룹에 표시됩니다.
 
 ## <a name="update-configuration-to-config-logs-and-metrics"></a>구성 로그 및 메트릭으로 구성 업데이트
 

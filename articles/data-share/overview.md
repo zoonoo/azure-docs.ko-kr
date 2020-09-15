@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: 0dd0fbdd9bcf4d4fab2ffe9f420264ab737a700b
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e80ea37409f7b5beb48ba7b8e96aeeda9a5836e5
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511924"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433435"
 ---
 # <a name="what-is-azure-data-share"></a>Azure Data Share란?
 
@@ -45,7 +45,7 @@ Azure Data Share는 현재 스냅샷 기반 공유와 내부 공유를 제공합
 
 ![데이터 공유 흐름](media/data-share-flow.png)
 
-데이터 소비자가 데이터 공유를 수락하면 데이터를 자신이 선택한 데이터 저장소로 받을 수 있습니다. 예를 들어 데이터 공급자가 Azure Blob Storage를 사용하여 데이터를 공유하는 경우 데이터 소비자는 이 데이터를 Azure Data Lake Store에서 받을 수 있습니다. 마찬가지로 데이터 공급자가 Azure SQL Data Warehouse에서 데이터를 공유하는 경우 데이터 소비자는 데이터를 Azure Data Lake Store, Azure SQL Database 및 Azure SQL Data Warehouse 중 어느 것으로 받을지 선택할 수 있습니다. SQL 기반 소스에서 공유하는 경우 데이터 소비자는 parquet과 csv 중 어느 형식으로 데이터를 받을지도 선택할 수 있습니다. 
+데이터 소비자가 데이터 공유를 수락하면 데이터를 자신이 선택한 데이터 저장소로 받을 수 있습니다. 예를 들어 데이터 공급자가 Azure Blob Storage를 사용하여 데이터를 공유하는 경우 데이터 소비자는 이 데이터를 Azure Data Lake Store에서 받을 수 있습니다. 마찬가지로 데이터 공급자가 Azure Synapse Analytics(이전의 SQL Data Warehouse)에서 데이터를 공유하는 경우 데이터 소비자는 데이터를 Azure Data Lake Store, Azure SQL Database 또는 Azure Synapse Analytics 중 어느 것으로 받을지 선택할 수 있습니다. SQL 기반 소스에서 공유하는 경우 데이터 소비자는 parquet과 csv 중 어느 형식으로 데이터를 받을지도 선택할 수 있습니다. 
 
 내부 공유를 사용하는 경우 데이터 공급자는 데이터를 복사하지 않고 상주하는 데이터를 공유할 수 있습니다. 공유 관계가 초대 흐름을 통해 설정된 후에는 데이터 공급자의 원본 데이터 저장소와 데이터 소비자의 대상 데이터 저장소 간에 기호화된 링크가 만들어집니다. 데이터 소비자는 자체 데이터 저장소를 사용하여 실시간으로 데이터를 읽고 쿼리할 수 있습니다. 원본 데이터 저장소에 대한 변경 내용은 데이터 소비자에게 즉시 제공됩니다. 내부 공유는 현재 Azure Data Explorer의 미리 보기로 제공됩니다.
 

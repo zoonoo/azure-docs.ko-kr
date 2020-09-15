@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: ae9891edc80aab5d3223686547dfef4273f8a921
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: c768f6564884ade5d27199a64843437f5ce725f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514631"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019158"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Azure Key Vault의 인증서 내보내기
 
@@ -63,7 +63,7 @@ az keyvault certificate download --file
 
 자세한 내용은 [예제 및 매개 변수 정의](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download)를 보세요.
 
-전체 인증서(컴퍼지션의 공개 및 비공개 부분 모두)를 다운로드하려는 경우 인증서를 비밀로 다운로드합니다.
+인증서로 다운로드하는 것은 공개 부분을 가져오는 것을 의미합니다. 프라이빗 키와 퍼블릭 메타데이터가 모두 필요한 경우 이를 비밀로 다운로드할 수 있습니다.
 
 ```azurecli
 az keyvault secret download -–file {nameofcert.pfx}

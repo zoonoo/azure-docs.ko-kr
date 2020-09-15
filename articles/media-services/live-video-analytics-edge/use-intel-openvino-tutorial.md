@@ -2,14 +2,14 @@
 title: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브 비디오 분석
 description: 이 자습서에서는 Intel에서 제공하는 AI 모델 서버를 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드를 분석합니다.
 ms.topic: tutorial
-ms.date: 07/24/2020
+ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 102c54d8f738c3e8e62c7092d0df6ec7d12b8a0c
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 95dbf555cc6b8f8edb1bc9dca2e10d3ef72eb9db
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950258"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567585"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>자습서: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브 비디오 분석 
 
@@ -30,6 +30,7 @@ ms.locfileid: "88950258"
 > Azure IoT Tools를 설치하는 경우 Docker를 설치하라는 메시지가 표시될 수 있습니다. 이 메시지는 무시할 수 있습니다.
 
 ## <a name="review-the-sample-video"></a>샘플 비디오 검토
+
 Azure 리소스가 설치되면 주차장의 짧은 비디오가 IoT Edge 디바이스로 사용하는 Azure의 Linux VM에 복사됩니다. 이 빠른 시작에서는 비디오 파일을 사용하여 라이브 스트림을 시뮬레이션합니다.
 
 [VLC 미디어 플레이어](https://www.videolan.org/vlc/)와 같은 애플리케이션을 엽니다. Ctrl+N을 선택한 다음, [비디오](https://lvamedia.blob.core.windows.net/public/lots_015.mkv)에 대한 링크를 붙여넣어 재생을 시작합니다. 주차장에 있는 차량 영상이 보입니다. 대부분은 주차되어 있고 한 대는 움직이고 있습니다.
@@ -38,7 +39,8 @@ Azure 리소스가 설치되면 주차장의 짧은 비디오가 IoT Edge 디바
 
 ## <a name="overview"></a>개요
 
-![개요](./media/use-intel-openvino-tutorial/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/use-intel-openvino-tutorial/topology.png" alt-text="개요":::
 
 이 다이어그램에서는 이 빠른 시작의 신호 흐름을 보여 줍니다. [에지 모듈](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)은 RTSP(Real-Time Streaming Protocol) 서버를 호스팅하는 IP 카메라를 시뮬레이션합니다. [RTSP 원본](media-graph-concept.md#rtsp-source) 노드는 이 서버에서 비디오 피드를 가져와서 비디오 프레임을 [프레임 속도 필터 프로세서](media-graph-concept.md#frame-rate-filter-processor) 노드로 보냅니다. 이 프로세서는 [HTTP 확장 프로세서](media-graph-concept.md#http-extension-processor) 노드에 도달하는 비디오 스트림의 프레임 속도를 제한합니다. 
 
@@ -46,7 +48,7 @@ HTTP 확장 노드는 프록시 역할을 수행합니다. 비디오 프레임�
 
 이 자습서에서는 다음을 수행합니다.
 
-1. 미디어 그래프를 만들고 배포하고 수정합니다. 
+1. 미디어 그래프를 만들고, 배포하고, 수정합니다.
 1. 결과를 해석합니다.
 1. 리소스를 정리합니다.
 

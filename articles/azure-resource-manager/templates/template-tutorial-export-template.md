@@ -2,16 +2,16 @@
 title: 자습서 - Azure Portal에서 템플릿 내보내기
 description: 내보낸 템플릿을 사용하여 템플릿 개발을 완료하는 방법을 알아봅니다.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4042ed29b143ab160883ca46ecb1cc17d2e0c761
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7aaeb7af3876c2603208faaf46bead01199906cd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497157"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650071"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>자습서: Azure Portal에서 내보낸 템플릿 사용
 
@@ -62,7 +62,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
    템플릿 내보내기 기능은 리소스의 현재 상태를 가져와서 해당 리소스를 배포할 템플릿을 생성합니다. 템플릿을 내보내면 리소스를 배포하는 데 필요한 JSON을 신속하게 가져올 수 있습니다.
 
-1. **Microsoft.Web/serverfarms** 정의와 매개 변수 정의를 템플릿에 복사합니다.
+1. 내보낸 템플릿에서 **Microsoft.Web/serverfarms** 정의와 매개 변수 정의를 확인합니다. 이러한 섹션은 복사할 필요가 없습니다. 이 내보낸 템플릿은 템플릿에 이 리소스를 추가하는 방법의 예제로만 사용할 수 있습니다.
 
     ![Resource Manager 템플릿 내보내기 템플릿 내보낸 템플릿](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
@@ -73,7 +73,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 내보낸 템플릿에는 필요한 JSON이 대부분 제공되지만 템플릿에 맞게 사용자 지정해야 합니다. 사용자의 템플릿과 내보낸 템플릿 간에 매개 변수와 변수의 차이점에 특히 주의해야 합니다. 물론, 내보내기 프로세스는 템플릿에 이미 정의해 놓은 매개 변수와 변수를 알지 못합니다.
 
-다음 예제는 템플릿에 추가된 내용을 강조 표시합니다. 여기에는 내보낸 코드와 일부 변경 내용이 포함됩니다. 첫째, 매개 변수 이름을 명명 규칙과 일치하도록 변경합니다. 둘째, 위치 매개 변수를 App Service 계획의 위치에 사용합니다. 셋째, **properties** 개체 내부의 **name**을 제거합니다. 이 값은 리소스 수준의 **name** 속성과 중복되기 때문입니다.
+다음 예제는 템플릿에 추가된 내용을 강조 표시합니다. 여기에는 내보낸 코드와 일부 변경 내용이 포함됩니다. 첫째, 매개 변수 이름을 명명 규칙과 일치하도록 변경합니다. 둘째, 위치 매개 변수를 App Service 계획의 위치에 사용합니다. 셋째, 기본값이 적절한 속성 중 일부를 제거합니다.
 
 전체 파일을 복사하고 템플릿을 해당 콘텐츠로 바꿉니다.
 

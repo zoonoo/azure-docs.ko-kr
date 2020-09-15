@@ -6,16 +6,22 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 10d4cb8160d0bf9111903b193574e9e820ded221
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0269d870f55f7246529b9d98608e5a325b6cf468
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827744"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569529"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 
 이 문서에는 새롭거나 크게 업데이트된 Azure Monitor 문서가 나열되어 있습니다. 지난 달의 문서 업데이트가 포함되도록 매월 첫째 주에 새로 고쳐집니다.
+
+## <a name="august-2020"></a>2020년 8월
+
+### <a name="containers"></a>컨테이너
+
+- [컨테이너용 Azure Monitor를 사용한 배포 및 HPA 메트릭](insights/container-insights-deployment-hpa-metrics.md) - 새 문서.
 
 ## <a name="july-2020"></a>2020년 7월
 

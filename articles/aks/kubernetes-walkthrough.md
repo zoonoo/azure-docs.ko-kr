@@ -12,12 +12,13 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 - devx-track-azurecli
-ms.openlocfilehash: 863017797aa6872d7ac7a824e1d38f2dde4c6d1a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+- contperfq1
+ms.openlocfilehash: 975f32872cd5fcdf00fb9e394920a7a50ba898ce
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589949"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482826"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Kubernetes Service 클러스터 배포
 
@@ -68,7 +69,7 @@ az group create --name myResourceGroup --location eastus
 [az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster*라는 클러스터를 만듭니다. 이 작업을 완료하는 데는 몇 분 정도 걸립니다.
 
 > [!NOTE]
-> 컨테이너에 대한 Azure Monitor는 *--enable-addons monitoring* 매개 변수를 사용하여 설정되며, 구독에서 *Microsoft.OperationsManagement* 및 *Microsoft.OperationalInsights*를 등록해야 합니다. 등록 상태를 확인하는 방법은 다음과 같습니다.
+> [컨테이너에 대한 Azure Monitor][azure-monitor-containers]는 *--enable-addons monitoring* 매개 변수를 사용하여 설정되며, 구독에서 *Microsoft.OperationsManagement* 및 *Microsoft.OperationalInsights*를 등록해야 합니다. 등록 상태를 확인하는 방법은 다음과 같습니다.
 > 
 > ```azurecli
 > az provider show -n Microsoft.OperationsManagement -o table
@@ -106,7 +107,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 > [!NOTE]
-> 위의 명령은 Kubernetes 구성 파일의 기본 위치인 `~/.kube/config`를 사용합니다. *--file*을 사용하여 Kubernetes 구성 파일의 다른 위치를 지정할 수 있습니다.
+> 위의 명령은 [Kubernetes 구성 파일][kubeconfig-file]의 기본 위치인 `~/.kube/config`를 사용합니다. *--file*을 사용하여 Kubernetes 구성 파일의 다른 위치를 지정할 수 있습니다.
 
 클러스터에 대한 연결을 확인하려면 [kubectl get][kubectl-get] 명령을 사용하여 클러스터 노드 목록을 반환합니다.
 
@@ -123,7 +124,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 빠른 시작에서는 Azure Vote 애플리케이션을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 이 매니페스트는 샘플 Azure Vote Python 애플리케이션과 Redis 인스턴스 각각에 대한 두 개의 [Kubernetes 배포][kubernetes-deployment]를 포함합니다. 두 개의 [Kubernetes Services][kubernetes-service], Redis 인스턴스에 대한 내부 서비스, 인터넷에서 Azure Vote 애플리케이션에 액세스하기 위한 외부 서비스가 만들어집니다.
+[Kubernetes 매니페스트 파일][kubernetes-deployment]은 실행할 컨테이너 이미지와 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 빠른 시작에서는 [Azure Vote 애플리케이션][azure-vote-app]을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 이 매니페스트는 샘플 Azure Vote Python 애플리케이션과 Redis 인스턴스 각각에 대한 두 개의 [Kubernetes 배포][kubernetes-deployment]를 포함합니다. 두 개의 [Kubernetes Services][kubernetes-service], Redis 인스턴스에 대한 내부 서비스, 인터넷에서 Azure Vote 애플리케이션에 액세스하기 위한 외부 서비스가 만들어집니다.
 
 `azure-vote.yaml`이라는 파일을 만들고 다음 YAML 정의에 복사합니다. Azure Cloud Shell을 사용하는 경우 이 파일은 가상 또는 실제 시스템에서 작업하고 있는 것처럼 `code`, `vi` 또는 `nano`를 사용하여 만들 수 있습니다.
 
@@ -254,7 +255,7 @@ Azure Vote 앱이 실제로 작동하는 모습을 보려면 웹 브라우저를
 
 ![Azure Kubernetes Service에 배포된 투표 앱](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
-AKS 클러스터가 생성될 때 클러스터 노드와 Pod의 상태 메트릭을 캡처하기 위해 [컨테이너에 대한 Azure Monitor](../azure-monitor/insights/container-insights-overview.md)가 설정되었습니다. 이 상태 메트릭은 Azure Portal에서 사용할 수 있습니다.
+AKS 클러스터가 생성될 때 클러스터 노드와 Pod의 상태 메트릭을 캡처하기 위해 [컨테이너에 대한 Azure Monitor][azure-monitor-containers]가 설정되었습니다. 이 상태 메트릭은 Azure Portal에서 사용할 수 있습니다.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 
@@ -287,7 +288,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: ../dev-spaces/index.yml
+[kubeconfig-file]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md
@@ -300,6 +301,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
+[azure-monitor-containers]: ../azure-monitor/insights/container-insights-overview.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests

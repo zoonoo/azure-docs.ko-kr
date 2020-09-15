@@ -15,12 +15,12 @@ ms.date: 07/07/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 4c501368dfbeb95be1c5d2af9ff7aae3850257b3
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 8809b5fdce382b7c8f913823ca8e176226d5837b
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761147"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536177"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>클래식 구독 관리자 역할, Azure 역할 및 Azure AD 역할
 
@@ -44,7 +44,7 @@ Azure의 역할을 보다 정확하게 이해하려면 역사를 살펴보는 �
 
 | 클래식 구독 관리자 | 제한 | 사용 권한 | 메모 |
 | --- | --- | --- | --- |
-| 계정 관리자 | Azure 계정당 1개 | <ul><li>[Azure 계정 센터](https://account.azure.com/Subscriptions)에 액세스</li><li>계정의 모든 구독 관리</li><li>새 구독 만들기</li><li>구독 취소</li><li>구독 요금 청구 변경</li><li>서비스 관리자 변경</li></ul> | 개념적으로 구독의 청구 소유자입니다.<br>계정 관리자는 Azure Portal에 액세스할 수 없습니다. |
+| 계정 관리자 | Azure 계정당 1개 | <ul><li>[Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 청구 관리</li><li>계정의 모든 구독 관리</li><li>새 구독 만들기</li><li>구독 취소</li><li>구독 요금 청구 변경</li><li>서비스 관리자 변경</li></ul> | 개념적으로 구독의 청구 소유자입니다.<br>계정 관리자는 Azure Portal에 액세스할 수 없습니다. |
 | 서비스 관리자 | Azure 구독당 1개 | <ul><li>[Azure Portal](https://portal.azure.com)에서 서비스 관리</li><li>구독 취소</li><li>사용자를 공동 관리자 역할에 할당</li></ul> | 기본적으로 새 구독의 경우 계정 관리자가 서비스 관리자이기도 합니다.<br>서비스 관리자는 구독 범위에서 소유자 역할이 할당된 사용자와 동일한 액세스 권한을 갖습니다.<br>서비스 관리자는 Azure Portal에 대해 모든 권한을 갖습니다. |
 | 공동 관리자 | 구독당 200 | <ul><li>서비스 관리자와 동일한 액세스 권한을 갖지만, Azure 디렉터리에 대한 구독의 연결을 변경할 수 없습니다.</li><li>사용자를 공동 관리자 역할에 할당할 수 있지만, 서비스 관리자를 변경할 수 없습니다.</li></ul> | 공동 관리자는 구독 범위에서 소유자 역할이 할당된 사용자와 동일한 액세스 권한을 갖습니다. |
 
@@ -66,7 +66,7 @@ Azure 구독을 사용하여 Azure 리소스에 대한 액세스를 구성할 �
 
 각 구독은 Azure AD 디렉터리와 연결됩니다. 구독이 연결된 디렉터리를 찾으려면 Azure Portal에서 **구독**을 열고 구독을 선택하여 해당 디렉터리를 확인합니다.
 
-계정 및 구독은 [Azure 계정 센터](https://account.azure.com/Subscriptions)에서 관리합니다.
+계정 및 구독은 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 관리합니다.
 
 ## <a name="azure-roles"></a>Azure 역할
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 04505527428a6bb312c6fb7a12c116947fbd7cf6
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e6ab713715cacc799d2b980c2bce2a2a15b76887
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310850"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505457"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>빠른 시작: IoT 솔루션 구성
 
@@ -45,8 +45,8 @@ IoT Hub에서 사용하도록 설정되면 IoT용 Azure Security Center에서 Io
 새 리소스를 IoT 솔루션에 추가하려면 다음을 수행합니다.
 
 1. Azure Portal에서 **IoT Hub**를 엽니다.
-1. 왼쪽 메뉴의 **보안** 아래에서 **리소스**를 선택하고 엽니다.
-1. **편집**을 선택하고, IoT 솔루션에 속한 리소스 그룹을 선택합니다.
+1. 왼쪽 메뉴의 **보안** 섹션에서 **설정**을 선택하고 연 다음, **모니터링된 리소스**를 선택합니다.
+1. **편집**을 선택하고 IoT 솔루션에 속하는 모니터링된 리소스를 선택합니다.
 1. **추가**를 클릭합니다.
 
 축하합니다! 새 리소스 그룹을 IoT 솔루션에 추가했습니다.

@@ -7,14 +7,14 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: e28638e8daec5dcc283d61474d63ec41ec56ae63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d52dd19667da005de54bbf9b4d30207976511c7d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101130"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567812"
 ---
-# <a name="frequently-asked-questions-about-azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching에 대한 질문과 대답
+# <a name="frequently-asked-questions-about-the-education-hub"></a>Education Hub에 대한 질문과 대답
 
 이 문서에서는 Azure for Students, Azure for Students Starter 및 Azure Dev Tools for Teaching에 대한 질문과 대답을 다룹니다.
 
@@ -152,6 +152,11 @@ Azure 과정 크레딧은 Azure 스폰서쉽 제안을 활성화한 시점부터
 Azure Portal의 [구독] 블레이드에서 특정 구독을 살펴보면 **제안 이름**이 속성 중 하나로 표시됩니다. [제안 이름]이 과정 크레딧에 연결된 경우 **Azure 스폰서쉽**으로 표시됩니다. **Azure 스폰서쉽**이 표시되지 않으면 지원에 문의하여 변환하세요.
 
 ## <a name="azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching
+
+### <a name="who-is-eligible-to-purchase-microsoft-azure-dev-tools-for-teaching"></a>누가 Microsoft Azure Dev Tools for Teaching을 구매할 수 있나요?
+
+Microsoft와 VL(볼륨 라이선스) 계약을 구매한 교육 기관만 Azure Dev Tools for Teaching에 등록할 수 있습니다.  현재 VL 계약이 없는 Dev Tools for Teaching 고객인 경우 구독을 계속 갱신할 수 있습니다. 교육 기관의 VL 계약에 대한 자세한 내용은 https://aka.ms/ees 를 참조하세요. 
+
 
 ### <a name="what-products-are-included-in-the-azure-dev-tools-for-teaching-subscription"></a>Azure Dev Tools for Teaching 구독에 포함되는 제품은 무엇인가요?
 

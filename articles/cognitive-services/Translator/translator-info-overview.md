@@ -11,24 +11,22 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 5da9e5b38b88a5a148bd3d85664daa523153086b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 206e1bc86404fa41b84647c50482dbe63301c0af
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589454"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425962"
 ---
-# <a name="what-is-the-translator"></a>Translator란?
+# <a name="what-is-translator"></a>Translator란?
 
-Translator는 애플리케이션, 웹 사이트, 도구 및 솔루션에 쉽게 통합할 수 있습니다. [70개국 초과 언어](languages.md)로 제공되는 다국어 사용자 환경을 추가할 수 있게 해주며, 텍스트 간 언어 번역에 사용되는 운영 체제가 설치된 모든 하드웨어 플랫폼에서 사용할 수 있습니다.
-
-Translator는 클라우드의 AI 알고리즘 및 기계 학습의 [Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) 컬렉션에 포함되며, 사용자 개발 프로젝트에서 쉽게 사용할 수 있습니다.
+Azure Cognitive Services Translator는 클라우드 기반 기계 번역 서비스이며, 지능형 앱을 빌드하기 위한 [Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) 인지 API 제품군의 일부입니다. Translator는 애플리케이션, 웹 사이트, 도구 및 솔루션에 쉽게 통합할 수 있습니다. [70개국 초과 언어](languages.md)로 제공되는 다국어 사용자 환경을 추가할 수 있게 해주며, 텍스트 간 언어 번역에 사용되는 운영 체제가 설치된 모든 하드웨어 플랫폼에서 사용할 수 있습니다.
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator 정보
 
-Translator는 클라우드 기반 기계 번역 서비스입니다. 핵심 서비스는 다양한 Microsoft 제품 및 서비스를 제공하는 Translator이며, 전 세계 수천 개 기업에서 전 세계 잠재 고객에게 콘텐츠가 도달할 수 있도록 애플리케이션 및 워크플로에 사용하고 있습니다.
+Azure Cognitive Services Translator는 클라우드 기반 기계 번역 서비스입니다. Translator는 다양한 Microsoft 제품 및 서비스를 제공하며, 전 세계 수천 개 기업에서 전 세계 잠재 고객에게 콘텐츠가 도달할 수 있도록 애플리케이션 및 워크플로에 사용하고 있습니다.
 
-Translator에서 제공하는 음성 번역도 [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/)를 통해 사용할 수 있습니다. 이는 Translator Speech API 및 Custom Speech Service의 기능을 완전히 사용자 지정 가능한 통합 서비스에 결합합니다. Speech Service가 Translator Speech API를 대체함에 따라, Translator Speech API는 2019년 10월 15일부로 사용이 중단됩니다.
+Translator에서 제공하는 음성 번역도 [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/)를 통해 사용할 수 있습니다. 이는 Translator Speech API 및 Custom Speech Service의 기능을 완전히 사용자 지정 가능한 통합 서비스에 결합합니다. 
 
 ## <a name="language-support"></a>언어 지원
 
@@ -46,7 +44,7 @@ NMT 모델은 API의 핵심이며, 최종 사용자에게는 보이지 않습니
 
 ## <a name="language-customization"></a>언어 사용자 지정
 
-핵심 Microsoft Translator 서비스의 확장인 Custom Translator를 Translator와 함께 사용하여 인공 신경망 번역 시스템을 사용자 지정하고 특정 용어 및 스타일에 맞게 번역을 향상시킬 수 있습니다.
+Translator 서비스의 확장인 Custom Translator를 Translator와 함께 사용하여 인공신경망 번역 시스템을 사용자 지정하고 특정 용어 및 스타일에 맞게 번역을 향상시킬 수 있습니다.
 
 Custom Translator를 사용하면 고유한 비즈니스 및 업계에서 사용되는 용어를 처리하는 번역 시스템을 구축할 수 있습니다. 사용자 지정 번역 시스템은 범주 매개 변수를 사용하여 일반 Translator를 통해 여러 유형의 디바이스에서 기존 애플리케이션, 워크플로 및 웹 사이트에 쉽게 통합됩니다.
 

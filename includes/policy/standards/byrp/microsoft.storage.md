@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: dfbbf6ec79644da77dbccda83a31428c31f4fba9
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c10da6dfef533ca431ee33bec169c9cbaa816ebf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380263"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89486820"
 ---
 ## <a name="azure-security-benchmark"></a>Azure 보안 벤치마크
 
@@ -36,6 +36,26 @@ ms.locfileid: "89380263"
 |스토리지 계정 |3.7 |스토리지 계정에 대한 기본 네트워크 액세스 규칙이 거부로 설정되어 있는지 확인 |[스토리지 계정은 네트워크 액세스를 제한해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34c877ad-507e-4c82-993e-3452a6e0ad3c) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_NetworkAcls_Audit.json) |
 |스토리지 계정 |3.8 |'신뢰할 수 있는 Microsoft 서비스'에 스토리지 계정 액세스가 사용하도록 설정되어 있는지 확인 |[스토리지 계정은 신뢰할 수 있는 Microsoft 서비스의 액세스를 허용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9d007d0-c057-4772-b18c-01e546713bcd) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/StorageAccess_TrustedMicrosoftServices_Audit.json) |
 |로깅 및 모니터링 |5.1.6 |활동 로그가 있는 컨테이너를 포함하는 스토리지 계정이 BYOK(사용자 고유 키 사용)로 암호화되어 있는지 확인 |[활동 로그가 있는 컨테이너를 포함하는 스토리지 계정은 BYOK로 암호화해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
+
+## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
+
+모든 Azure 서비스에 사용 가능한 Azure Policy 기본 제공이 이 규정 준수 표준에 매핑되는 방식을 검토하려면 [Azure Policy 규정 준수 - HIPAA HITRUST 9.2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md)를 참조하세요.
+이 규정 준수 표준에 대한 자세한 내용은 [HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)를 참조하세요.
+
+|도메인 |컨트롤 ID |컨트롤 제목 |정책<br /><sub>(Azure Portal)</sub> |정책 버전<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|네트워크 분리 |0805.01m1Organizational.12 - 01.m |조직의 보안 게이트웨이(예: 방화벽)는 보안 정책을 적용하고, 도메인 간의 트래픽을 필터링하고 무단 액세스를 차단하도록 구성되며, DMZ를 포함하여 내부 유선, 내부 무선 및 외부 네트워크 세그먼트(예: 인터넷) 간의 분리를 유지하고 각 도메인에 대한 액세스 제어 정책을 적용하는 데 사용됩니다. |[스토리지 계정은 가상 네트워크 서비스 엔드포인트를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60d21c4f-21a3-4d94-85f4-b924e6aeeda4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_StorageAccount_Audit.json) |
+|네트워크 분리 |0806.01m2Organizational.12356 - 01.m |조직 네트워크는 조직 요구 사항에 따라 내부 네트워크와 논리적으로 분리된 공개적으로 액세스할 수 있는 시스템 구성 요소에 대한 하위 네트워크를 포함하여 정의된 보안 경계 및 분할된 컨트롤 세트를 사용하여 논리적 및 물리적으로 세분화됩니다. 그리고 트래픽은 필요한 기능과 위험 평가 및 해당 보안 요구 사항을 기반으로 하는 데이터/시스템의 분류에 따라 제어됩니다. |[스토리지 계정은 가상 네트워크 서비스 엔드포인트를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60d21c4f-21a3-4d94-85f4-b924e6aeeda4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_StorageAccount_Audit.json) |
+|네트워크 분리 |0894.01m2Organizational.7 - 01.m |네트워크는 물리적 서버, 애플리케이션 또는 데이터를 가상화된 서버로 마이그레이션할 때 프로덕션 수준 네트워크에서 분리됩니다. |[스토리지 계정은 가상 네트워크 서비스 엔드포인트를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60d21c4f-21a3-4d94-85f4-b924e6aeeda4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_StorageAccount_Audit.json) |
+|네트워크 연결 제어 |0809.01n2Organizational.1234 - 01.n |네트워크 트래픽은 조직의 액세스 제어 정책에 따라 방화벽 및 각 네트워크 액세스 지점 또는 외부 통신 서비스의 관리형 인터페이스에 대한 기타 네트워크 관련 제한 사항을 통해 제어됩니다. |[스토리지 계정에 보안 전송을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
+|네트워크 연결 제어 |0810.01n2Organizational.5 - 01.n |전송된 정보는 보안이 유지되고 최소한 오픈 공용 네트워크를 통해 암호화됩니다. |[스토리지 계정에 보안 전송을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
+|네트워크 연결 제어 |0811.01n2Organizational.6 - 01.n |트래픽 흐름 정책에 대한 예외는 지원 업무/비즈니스 요구 사항, 예외 기간과 함께 문서화되어 최소 매년 검토됩니다. 트래픽 흐름 정책 예외는 명시적 업무/비즈니스 요구에 따라 더 이상 지원되지 않는 경우 제거됩니다. |[스토리지 계정에 보안 전송을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
+|네트워크 연결 제어 |0812.01n2Organizational.8 - 01.n |비원격 연결을 설정하는 원격 디바이스는 외부(원격) 리소스와 통신할 수 없습니다. |[스토리지 계정에 보안 전송을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
+|네트워크 연결 제어 |0814.01n1Organizational.12 - 01.n |사용자가 내부 네트워크에 연결하는 기능은 액세스 제어 정책과 임상 및 비즈니스 애플리케이션의 요구 사항에 따라 관리형 인터페이스에서 기본적으로 거부 및 예외 허용 정책을 사용하여 제한됩니다. |[스토리지 계정에 보안 전송을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
+|외부 당사자와 관련된 위험 식별 |1401.05i1Organizational.1239 - 05.i |실사를 수행하고, 적절한 제어를 구현하고, 보안 요구 사항을 반영하는 계약에 서명하여 해당 의무를 이해하고 수락할 때까지 외부 파티가 조직 정보 및 시스템에 액세스할 수 없습니다. |[스토리지 계정에 보안 전송을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
+|네트워크 제어 |0866.09m3Organizational.1516 - 09.m |조직은 네트워크 구성 요소의 논리적 관리를 위한 그룹, 역할 및 책임을 설명하고 네트워크 인프라 요소의 조정 및 일관성을 보장합니다. |[스토리지 계정은 네트워크 액세스를 제한해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F34c877ad-507e-4c82-993e-3452a6e0ad3c) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_NetworkAcls_Audit.json) |
+|네트워크 제어 |0867.09m3Organizational.17 - 09.m |무선 액세스 지점은 보안 영역에 배치되고 사용하지 않을 때(예: 야간, 주말) 종료됩니다. |[스토리지 계정은 가상 네트워크 서비스 엔드포인트를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F60d21c4f-21a3-4d94-85f4-b924e6aeeda4) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetworkServiceEndpoint_StorageAccount_Audit.json) |
+|온라인 트랜잭션 |0943.09y1Organizational.1 - 09.y |전자 상거래 및 온라인 트랜잭션과 관련된 데이터를 확인하여 대상 정보가 포함되어 있는지 확인합니다. |[스토리지 계정에 보안 전송을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
 
 ## <a name="nist-sp-800-171-r2"></a>NIST SP 800-171 R2
 

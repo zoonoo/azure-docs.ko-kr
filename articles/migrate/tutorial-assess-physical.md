@@ -3,12 +3,12 @@ title: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션�
 description: Azure Migrate 서버 평가를 사용하여 Azure로 마이그레이션할 온-프레미스 물리적 서버를 평가하는 방법에 대해 설명합니다.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 21ffc425ff7d04bbb1bc0c3a550133ae5374b1e9
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 25bd5241700d5950eb032a6c932470871e79945f
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950105"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514121"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Azure Migrate:Server Assessment를 사용하여 물리적 서버 평가
 
@@ -115,13 +115,13 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
 
         **시나리오** | **다운로드*** | **해시 값**
         --- | --- | ---
-        물리적(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | 6de88e229c2b4836d16ce03fdfac93b5c27274945577bd8a359d598cf3777b24
+        물리적(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
 
     - Azure Government의 경우:
 
         **시나리오** | **다운로드*** | **해시 값**
         --- | --- | ---
-        물리적(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140338) | 5a4715a9d10e81a5f38192b7d1c6ac0919ae3998afbf2e933c99bafae6bef80e
+        물리적(85MB) | [최신 버전](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Azure Migrate 설치 프로그램 스크립트 실행
 

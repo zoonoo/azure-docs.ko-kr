@@ -1,25 +1,25 @@
 ---
-title: '빠른 시작: 오디오 파일을 사용하여 모델 테스트 - Speech Studio'
+title: 오디오 파일을 사용하여 모델 테스트 - Speech Studio
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 Speech Studio를 사용 하 여 오디오 파일의 음성 인식을 테스트 합니다.
+description: 이 방법에서는 Speech Studio를 사용하여 오디오 파일의 음성 인식을 테스트합니다.
 services: cognitive-services
 author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 76fb933893b624e9b289ddf51d2a0373b51e58d1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391539"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565806"
 ---
-# <a name="quickstart-test-a-model-using-an-audio-file-in-speech-studio"></a>빠른 시작: Speech Studio에서 오디오 파일을 사용하여 모델 테스트
+# <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Speech Studio에서 오디오 파일을 사용하여 모델 테스트
 
-이 빠른 시작에서는 Speech Studio를 사용하 여 음성을 오디오 파일에서 텍스트로 변환 합니다. Speech Studio를 사용하면 관련 텍스트, 사람이 레이블 지정된 기록과 오디오, 사용자가 제공하는 발음 지침을 사용하여 음성 인식 모델을 테스트하고, 비교하고, 향상시키고, 배포할 수 있습니다
+이 방법에서는 Speech Studio를 사용하여 음성을 오디오 파일에서 텍스트로 변환합니다. Speech Studio를 사용하면 관련 텍스트, 사람이 레이블 지정된 기록과 오디오, 사용자가 제공하는 발음 지침을 사용하여 음성 인식 모델을 테스트하고, 비교하고, 향상시키고, 배포할 수 있습니다
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

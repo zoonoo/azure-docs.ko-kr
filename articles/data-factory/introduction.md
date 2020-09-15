@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 937b836582cfcbf11564aa28b11cd8647afa835c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191115"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536315"
 ---
 # <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
 
@@ -28,11 +28,11 @@ ms.locfileid: "84191115"
 
 이러한 로그를 분석하려면 회사는 온-프레미스 데이터 저장소에 있는 고객 정보, 게임 정보 및 마케팅 캠페인 정보와 같은 참조 데이터를 사용해야 합니다. 회사는 온-프레미스 데이터 저장소에서 이 데이터를 이용하여 클라우드 데이터 저장소에 있는 추가 로그 데이터와 결합하기를 원합니다. 
 
-통찰력을 추출하기 위해 클라우드의 Spark 클러스터를 사용하여 조인한 데이터를 처리하고(Azure HDInsight), 변환된 데이터를 Azure SQL Data Warehouse 같은 클라우드 데이터 웨어하우스에 게시하여 이 데이터를 바탕으로 보고서를 쉽게 작성하려고 합니다. 이 워크플로를 자동화하고 일일 일정으로 모니터링 및 관리하려고 합니다. 또한 파일이 Blob 저장소 컨테이너에 배치될 때 실행하려고 합니다.
+인사이트를 추출하기 위해 클라우드의 Spark 클러스터를 사용하여 조인한 데이터를 처리하고(Azure HDInsight), 변환된 데이터를 Azure ynapse Analytics(이전의 SQL Data Warehouse)와 같은 클라우드 데이터 웨어하우스에 게시하여 이 데이터를 바탕으로 보고서를 쉽게 작성하려고 합니다. 이 워크플로를 자동화하고 일일 일정으로 모니터링 및 관리하려고 합니다. 또한 파일이 Blob 저장소 컨테이너에 배치될 때 실행하려고 합니다.
 
 Azure Data Factory는 그러한 데이터 시나리오를 해결하는 플랫폼입니다. 이는 *데이터 이동을 오케스트레이션하고 데이터를 규모에 맞게 변환하는 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 ETL 및 데이터 통합 서비스*입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소의 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 예약할 수 있습니다. 데이터 흐름을 사용하거나 컴퓨팅 서비스(예: Azure HDInsight Hadoop, Azure Databricks 및 Azure SQL Database)를 사용하여 데이터를 시각적으로 변환하는 복잡한 ETL 프로세스를 작성할 수 있습니다. 
 
-또한 변환된 데이터를 데이터 저장소(예: BI(비즈니스 인텔리전스) 애플리케이션용 Azure SQL Data Warehouse)에 게시하여 사용할 수 있습니다. 궁극적으로, Azure Data Factory를 통해 원시 데이터를 더 나은 비즈니스 결정에 의미 있는 데이터 저장소 및 데이터 레이크로 구성할 수 있습니다.
+또한 변환된 데이터를 BI(비즈니스 인텔리전스) 애플리케이션용 Azure Synapse Analytics와 같은 데이터 저장소에 게시하여 사용할 수 있습니다. 궁극적으로, Azure Data Factory를 통해 원시 데이터를 더 나은 비즈니스 결정에 의미 있는 데이터 저장소 및 데이터 레이크로 구성할 수 있습니다.
 
 ![데이터 팩터리의 최상위 수준 보기](media/data-flow/overview.png)
 
@@ -62,7 +62,15 @@ Data Factory는 Azure DevOps 및 GitHub를 사용하여 데이터 파이프라�
 데이터 통합 파이프라인을 성공적으로 만들고 배포하여 구체화된 데이터에서 비즈니스 가치를 제공한 후에는 성공 및 실패 비율에 맞게 일정 계획된 작업과 파이프라인을 모니터링합니다. Azure Data Factory는 Azure Monitor, API, PowerShell, Azure Monitor 로그 및 Azure Portal의 상태 패널을 통한 파이프라인 모니터링을 기본 제공합니다.
 
 ## <a name="top-level-concepts"></a>최상위 개념
-Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데이터 팩터리)가 있을 수 있습니다. Azure Data Factory는 네 가지 핵심 구성 요소로 구성됩니다. 이러한 구성 요소는 함께 작동하여 데이터를 이동하고 변환하는 단계를 사용하여 데이터 기반 워크플로를 작성할 수 있는 플랫폼을 제공합니다.
+Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데이터 팩터리)가 있을 수 있습니다. Azure Data Factory는 아래의 핵심 구성 요소로 구성됩니다.
+- 파이프라인
+- 활동
+- 데이터 세트
+- 연결된 서비스
+- 데이터 흐름
+- Integration Runtimes
+
+이러한 구성 요소는 함께 작동하여 데이터를 이동하고 변환하는 단계를 사용하여 데이터 기반 워크플로를 작성할 수 있는 플랫폼을 제공합니다.
 
 ### <a name="pipeline"></a>파이프라인
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 작업 단위를 수행하는 작업의 논리적 그룹입니다. 파이프라인의 활동이 모여 작업을 수행합니다. 예를 들어, Azure Blob에서 데이터를 수집한 다음 HDInsight 클러스터에서 Hive 쿼리를 실행하여 데이터를 분할하는 작업 그룹이 파이프라인에 포함될 수 있습니다. 

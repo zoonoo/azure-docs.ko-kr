@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 69265b17d5030d30bbb4d4be3e68c3d98fc90af0
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321093"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436259"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -35,7 +35,7 @@ ms.locfileid: "85321093"
 
 이러한 로그를 분석하려면 회사는 온-프레미스 데이터 저장소에 있는 고객 정보, 게임 정보 및 마케팅 캠페인 정보와 같은 참조 데이터를 사용해야 합니다. 따라서 회사는 클라우드 데이터 저장소에서 로그 데이터를 수집하고 온-프레미스 데이터 저장소에서 데이터를 참조하려고 합니다. 
 
-그런 다음 클라우드(Azure HDInsight)에서 Hadoop을 사용하여 데이터를 처리하려고 합니다. Azure SQL Data Warehouse와 같은 클라우드 데이터 웨어하우스 또는 SQL Server와 같은 온-프레미스 데이터 저장소에 결과 데이터를 게시하려고 합니다. 회사는 이 워크플로를 일주일에 한 번 실행하려고 합니다. 
+그런 다음 클라우드(Azure HDInsight)에서 Hadoop을 사용하여 데이터를 처리하려고 합니다. Azure Synapse Analytics(이전의 SQL Data Warehouse)와 같은 클라우드 데이터 웨어하우스 또는 SQL Server와 같은 온-프레미스 데이터 저장소에 결과 데이터를 게시하려고 합니다. 회사는 이 워크플로를 일주일에 한 번 실행하려고 합니다. 
 
 회사는 온-프레미스와 클라우드 데이터 저장소 모두에서 데이터를 수집할 수 있는 워크플로를 만들 수 있는 플랫폼이 필요합니다. 또한 회사는 Hadoop과 같은 기존 컴퓨팅 서비스를 사용하여 데이터를 변환 또는 처리하고 결과를 사용할 BI 애플리케이션용 온-프레미스 또는 클라우드 데이터 저장소에 게시할 수 있어야 합니다. 
 
@@ -47,7 +47,7 @@ Azure Data Factory는 이러한 종류의 시나리오에 대한 플랫폼입니
 
 - Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 컴퓨팅 서비스를 사용하여 데이터를 처리하고 변환합니다.
 
--  사용할 BI(비즈니스 인텔리전스) 애플리케이션용 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시합니다.  
+-  사용할 BI(비즈니스 인텔리전스) 애플리케이션용 Azure Synapse Analytics와 같은 데이터 저장소에 출력 데이터를 게시합니다.  
 
 기존의 ETL(추출 및 변환 및 로드) 플랫폼이 아닌 EL(추출 및 로드) 및 TL(변환 및 로드) 플랫폼이 지지를 얻고 있습니다. 변환은 파생된 열을 추가하고, 행의 수를 계산하고, 데이터를 정렬하는 등 대신 컴퓨팅 서비스를 사용하여 데이터를 처리합니다. 
 

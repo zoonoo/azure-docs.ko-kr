@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 09/08/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: dbcd8ab2f2825e18943436dcc1a9ca4ff38e2d8d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 2ce5f0c9b340e1b81fcf002ee70e7ec1cc74d38c
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871210"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594325"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 권한 관리란?
 
@@ -153,7 +153,7 @@ Azure AD Premium P2 라이선스가 필요하지 **않은** 작업은 다음과 
 - 카탈로그 작성자, 카탈로그 소유자 및 액세스 패키지 관리자와 같은 관리 작업을 위임받은 사용자에게는 라이선스가 필요하지 않습니다.
 - 액세스 패키지를 **요청할 수 있지만** 액세스 패키지를 요청하지 않는 게스트에게는 라이선스가 필요하지 **않습니다**.
 
-멤버 사용자(직원)를 위해 구매하는 각 유료 Azure AD Premium P2 라이선스의 경우 Azure AD B2B를 사용하여 최대 5명의 게스트 사용자를 초대할 수 있습니다. 이러한 게스트 사용자는 Azure AD Premium P2 기능도 사용할 수 있습니다. 자세한 내용은 [Azure AD B2B 협업 라이선스 지침](../external-identities/licensing-guidance.md)을 참조하세요.
+Azure AD 외부 ID(게스트 사용자) 가격은 MAU(월간 활성 사용자)를 기반으로 하며, 이는 한 달 내에 인증 활동이 있는 고유한 사용자의 수입니다. 이 모델은 테넌트의 각 Azure AD Premium 라이선스에 대해 최대 5명의 게스트 사용자를 허용하는 1:5 비율 청구 모델을 대체합니다. 테넌트가 구독에 연결되어 있고 외부 ID 기능을 사용하여 게스트 사용자와 협업하는 경우 MAU 기반 청구 모델을 사용하여 자동으로 청구됩니다. 자세한 내용은 [Azure AD 외부 ID](../external-identities/external-identities-pricing.md)에 대한 청구 모델을 참조하세요.
 
 라이선스에 대한 자세한 내용은 [Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조하세요.
 

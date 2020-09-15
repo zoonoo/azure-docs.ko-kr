@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 0d3e4ad63baf6883aa8fadaca5b1f2d28fa14881
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 1538143c33991c5dc91a096c7df4297bc18e5af5
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310746"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504046"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>빠른 시작: IoT Hub에서 IoT용 Azure Security Center 서비스 온보딩
 
@@ -52,8 +52,8 @@ IoT 솔루션의 보안을 유지하기 위해 IoT 디바이스, IoT Edge 및 Io
 
 IP 주소 데이터 수집을 설정 또는 해제하는 방법은 다음과 같습니다.
 
-1. IoT Hub를 열고 **보안** 메뉴에서 **개요**를 선택합니다.
-1. **설정** 화면을 선택하고, 지리적 위치 및/또는 IP 처리 설정을 원하는 대로 수정합니다.
+1. IoT Hub를 연 다음, **보안** 메뉴에서 **설정**을 선택합니다.
+1. **데이터 컬렉션** 화면을 선택하고 지리적 위치 및/또는 IP 처리 설정을 원하는 대로 수정합니다.
 
 ### <a name="log-analytics-creation"></a>Log Analytics 만들기
 
@@ -61,8 +61,8 @@ IoT용 Azure Security Center가 켜져 있으면 IoT 디바이스, IoT Edge 및 
 
 Log Analytics의 작업 영역 구성을 변경하는 방법은 다음과 같습니다.
 
-1. IoT Hub를 열고 **보안** 메뉴에서 **개요**를 선택합니다.
-1. **설정** 화면을 선택하고, Log Analytics 설정의 작업 영역 구성을 원하는 대로 수정합니다.
+1. IoT Hub를 연 다음, **보안** 메뉴에서 **설정**을 선택합니다.
+1. **데이터 컬렉션** 화면을 선택하고 Log Analytics 설정의 작업 영역 구성을 원하는 대로 수정합니다.
 
 ### <a name="customize-your-iot-security-solution"></a>IoT 보안 솔루션 사용자 지정
 
@@ -70,8 +70,8 @@ Log Analytics의 작업 영역 구성을 변경하는 방법은 다음과 같습
 
 특정 IoT Hub에서 IoT용 Azure Security Center 서비스를 켜거나 끄는 방법은 다음과 같습니다.
 
-1. IoT Hub를 열고 **보안** 메뉴에서 **개요**를 선택합니다.
-1. **설정** 화면을 선택하고, Azure 구독에서 IoT Hub의 보안 설정을 원하는 대로 수정합니다.
+1. IoT Hub를 연 다음, **보안** 메뉴에서 **설정**을 선택합니다.
+1. **데이터 컬렉션** 화면을 선택하고 Azure 구독에서 IoT 허브의 보안 설정을 원하는 대로 수정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

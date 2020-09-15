@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: 768e79c6a2471715b336f90748ad97ecfcc4bbc2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9c1b521a0f10da77295fd2457793566d787cb2cd
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682316"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570164"
 ---
-
-![개요](../../../media/quickstarts/overview-qs4.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="../../../media/quickstarts/overview-qs4.svg" alt-text="신호 흐름":::
 
 위의 다이어그램에서는 이 빠른 시작의 신호 흐름을 보여줍니다. [에지 모듈](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)은 RTSP(Real-Time Streaming Protocol) 서버를 호스트하는 IP 카메라를 시뮬레이션합니다. [RTSP 원본](../../../media-graph-concept.md#rtsp-source) 노드는 이 서버에서 비디오 피드를 가져와서 비디오 프레임을 [동작 감지 프로세서](../../../media-graph-concept.md#motion-detection-processor) 노드로 보냅니다. RTSP 원본은 이벤트에 의해 트리거될 때까지 닫힌 상태로 유지되는 [신호 게이트 프로세서](../../../media-graph-concept.md#signal-gate-processor) 노드로 동일한 비디오 프레임을 보냅니다.
 

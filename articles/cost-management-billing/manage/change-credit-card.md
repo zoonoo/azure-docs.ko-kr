@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: e5adf007294ea4be0f5716a4614e0639f840fa75
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c7622c4916b186a39aad9dafb54a1e2404458794
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684935"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569359"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Azure에 대한 신용 카드 추가, 업데이트 또는 제거
 
@@ -190,7 +190,7 @@ Microsoft 고객 계약의 경우 신용 카드가 청구 프로필과 연결됩
 
 ### <a name="how-do-i-change-the-tax-id"></a>세금 ID를 변경하려면 어떻게 할까요?
 
-세금 ID를 추가 또는 업데이트하려면 [Azure 계정 센터](https://account.azure.com/Profile)에서 프로필을 업데이트한 다음, **세금 레코드**를 선택합니다. 이 세금 ID는 면세 계산에 사용되며 청구서에 표시됩니다.
+세금 ID를 추가 또는 업데이트하려면 [Azure Portal](https://portal.azure.com)에서 프로필을 업데이트한 다음, **세금 레코드**를 선택합니다. 이 세금 ID는 면세 계산에 사용되며 청구서에 표시됩니다.
 
 ## <a name="check-the-type-of-your-account"></a>계정 유형 확인
 

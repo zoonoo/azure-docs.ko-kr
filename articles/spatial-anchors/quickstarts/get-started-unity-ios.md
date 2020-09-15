@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/31/2020
+ms.date: 08/14/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1fbd7138c393809b279d780004ff476cea4735fe
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 4d5ec2411b7b1a65da9a1f4262822cb85a3b386e
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810329"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536269"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Unity iOS 앱 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "87810329"
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
-- 최신 버전의 <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> 및 <a href="https://cocoapods.org" target="_blank">CocoaPods</a>가 설치된 macOS 머신(<a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4(LTS)</a> 포함)
+- 최신 버전의 <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a>가 설치된 macOS 머신(<a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4(LTS)</a> 포함).
 - HomeBrew를 통해 설치된 Git. 터미널의 한 줄에 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` 명령을 입력합니다. 그런 다음, `brew install git` 및 `brew install git-lfs`를 실행합니다.
 - 개발자가 사용 가능한 <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit 호환</a> iOS 디바이스
 
@@ -65,16 +65,6 @@ ms.locfileid: "87810329"
 ### <a name="rendering-issues"></a>렌더링 문제
 
 앱 실행 시 백그라운드로 카메라가 보이지 않으면(대신 공백, 파랑 또는 기타 질감 등이 보이면) Unity에서 자산을 다시 가져와야 할 가능성이 높습니다. 앱을 중지합니다. Unity의 맨 위 메뉴에서 **자산 -> 모두 다시 가져오기**를 선택합니다. 그런 다음, 앱을 다시 실행합니다.
-
-### <a name="cocoapods-issues-on-macos-catalina-1015"></a>macOS Catalina의 CocoaPods 문제(10.15)
-
-최근에 macOS Catalina(10.15)로 업데이트했으며 CocoaPods를 미리 설치한 경우 CocoaPods가 손상된 상태가 되며 pod 및 `.xcworkspace` 프로젝트 파일을 제대로 구성하지 못할 수 있습니다. 이 문제를 해결하려면 다음 명령을 실행하여 CocoaPods를 다시 설치해야 합니다.
-
-```shell
-brew update
-brew install cocoapods --build-from-source
-brew link --overwrite cocoapods
-```
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

@@ -2,14 +2,14 @@
 author: ramonarguelles
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 1/29/2019
+ms.date: 08/14/2020
 ms.author: rgarcia
-ms.openlocfilehash: b052772bbfe9d69e430d9f722d8db56b48db7610
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: b93243a537fafce6d865ec207b12dc2654cafd20
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "72933500"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536268"
 ---
 **빌드**를 선택합니다. 열리는 대화 상자에서 Xcode 프로젝트를 내보낼 폴더를 선택합니다.
 
@@ -18,22 +18,13 @@ ms.locfileid: "72933500"
 > [!NOTE]
 > 바꿀 것인지 아니면 추가할 것인지 물어보는 창이 표시되면 **추가**를 선택하는 것이 좋습니다. 추가가 더 빠르기 때문입니다. 장면의 자산을 변경하려는 경우에는 **바꾸기**를 선택해야 합니다. (예: 부모/자식 관계를 추가, 제거 또는 변경하거나 속성을 추가, 제거 또는 변경하는 경우) 소스 코드만 변경하려는 경우에는 **추가**를 선택하는 것으로 충분합니다.
 
-### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Xcode 프로젝트를 Azure Spatial Anchors 참조가 포함된 xcworkspace로 변환
+## <a name="open-the-xcode-project"></a>Xcode 프로젝트 열기
 
-내보낸 Xcode 프로젝트 폴더의 터미널에서 다음 명령을 실행하여 프로젝트에 필요한 CocoaPods를 설치합니다.
-
-```bash
-pod install --repo-update
-```
-
-이제 `Unity-iPhone.xcworkspace`를 열어서 Xcode에서 프로젝트를 열 수 있습니다.
+이제 Xcode에서 `Unity-iPhone.xcodeproj`를 열 수 있습니다. Xcode를 시작하고 내보낸 `Unity-iPhone.xcodeproj` 프로젝트를 열거나 프로젝트를 내보낸 위치에서 다음 명령을 실행하여 Xcode에서 프로젝트를 시작할 수 있습니다.
 
 ```bash
-open ./Unity-iPhone.xcworkspace
+open ./Unity-iPhone.xcodeproj
 ```
-
-> [!NOTE]
-> macOS Catalina(10.15)로 업그레이드한 후 CocoaPod 문제가 발생하는 경우 [여기에](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015) 문제 해결 단계를 참조하세요.
 
 루트 **Unity-iPhone** 노드를 선택하여 프로젝트 설정을 살펴본 다음, **일반** 탭을 선택합니다.
 
@@ -41,7 +32,7 @@ open ./Unity-iPhone.xcworkspace
 
 **배포 정보**에서 **배포 대상**이 `11.0`으로 설정되어 있는지 확인합니다.
 
-### <a name="deploy-the-app-to-your-ios-device"></a>iOS 디바이스에 앱 배포
+## <a name="deploy-the-app-to-your-ios-device"></a>iOS 디바이스에 앱 배포
 
 iOS 디바이스를 Mac에 연결하고 **활성 스키마**를 iOS 디바이스로 설정합니다.
 
@@ -50,6 +41,3 @@ iOS 디바이스를 Mac에 연결하고 **활성 스키마**를 iOS 디바이스
 **빌드를 선택한 다음, 현재 스키마를 실행**합니다.
 
 ![배포 및 실행](./media/spatial-anchors-unity/deploy-run.png)
-
-> [!NOTE]
-> `.xcworkspace` 파일 대신 `.xcodeproj` 파일을 열면 `library not found for -lPods-Unity-iPhone` 오류가 발생할 수 있습니다.

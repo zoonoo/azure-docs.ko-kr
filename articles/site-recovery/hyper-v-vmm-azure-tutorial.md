@@ -4,12 +4,12 @@ description: Site Recovery를 사용하여 System Center VMM 클라우드의 온
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
-ms.openlocfilehash: f32103adce184a67cec9e5a778ac1d1e6f330f4d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c806f968bc6530879f64ddbf6fd4c7d45aa7a8d3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86130233"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442823"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정
 
@@ -83,7 +83,11 @@ ms.locfileid: "86130233"
 Microsoft Azure Recovery Services 에이전트 설치 마법사에서 다음 설정을 구성합니다.
 
 1. **필수 구성 요소 확인**에서 **다음**을 선택합니다. 누락된 필수 구성 요소가 자동으로 설치됩니다.
-1. **설치 설정**에서 설치 위치 및 캐시 위치를 적용합니다. 캐시 드라이브에는 5GB 이상의 스토리지 공간이 필요합니다. 600GB 이상의 여유 공간이 있는 드라이브를 사용하는 것이 좋습니다. 그런 후 **설치**를 선택합니다.
+1. **설치 설정**에서 설치 위치를 수락합니다. 그런 후 **설치**를 선택합니다.
+
+    >[!NOTE]
+    >Azure Site Recovery의 경우 **캐시 위치**가 필요하지 않습니다.
+
 1. **설치**에서 설치가 완료되면 **닫기**를 선택하여 마법사를 완료합니다.
 
    ![에이전트 설치](./media/hyper-v-vmm-azure-tutorial/mars-install.png)

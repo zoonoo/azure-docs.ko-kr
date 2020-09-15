@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 711903b106bf6ff7d8f669e2b1d3489057e09fbc
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 5c100c1b65b2af1201dfc3b52a6d90b2ed26d454
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783300"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460817"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD Identity Governance란?
 
@@ -68,7 +68,7 @@ IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승�
 
 ![권한 있는 액세스 수명 주기](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-[PIM(Azure AD Privileged Identity Management)](../privileged-identity-management/pim-configure.md)에서는 Azure AD, Azure 및 기타 Microsoft 온라인 서비스에서 리소스에 대한 액세스 권한을 보호하기 위해 조정된 추가 컨트롤을 제공합니다.  다단계 인증 및 조건부 액세스 외에도, Just-In-Time 액세스 및 Azure AD PIM에서 제공된 역할 변경 내용 경고 기능은 포괄적인 거버넌스 제어 세트를 제공하여 회사의 리소스(디렉터리, Office 365 및 Azure 리소스 역할)를 보호하는 데 도움을 줍니다. 다른 양식의 액세스를 사용하는 경우와 마찬가지로 조직은 액세스 검토를 사용하여 관리자 역할의 모든 사용자에 대해 정기 액세스 재인증을 구성할 수 있습니다.
+[PIM(Azure AD Privileged Identity Management)](../privileged-identity-management/pim-configure.md)에서는 Azure AD, Azure 및 기타 Microsoft 온라인 서비스에서 리소스에 대한 액세스 권한을 보호하기 위해 조정된 추가 컨트롤을 제공합니다.  다단계 인증 및 조건부 액세스 외에도, Just-In-Time 액세스 및 Azure AD PIM에서 제공된 역할 변경 내용 경고 기능은 포괄적인 거버넌스 제어 세트를 제공하여 회사의 리소스(디렉터리, Microsoft 365 및 Azure 리소스 역할)를 보호하는 데 도움을 줍니다. 다른 양식의 액세스를 사용하는 경우와 마찬가지로 조직은 액세스 검토를 사용하여 관리자 역할의 모든 사용자에 대해 정기 액세스 재인증을 구성할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/21/2020
+ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 6736edd615f99ed987e7d1618c449ff7a819c497
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c91f9d38922cc1bddf252fde59291c2f233e1aa2
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536073"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650203"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>자습서: DocuSign과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -47,7 +47,7 @@ Azure AD와 SaaS(Software as a Service) 앱 연결에 대해 자세히 알아보
 * DocuSign에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 
 * DocuSign에서 [자동 사용자 프로비저닝](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial)을 지원합니다.
-* DocuSign을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* DocuSign이 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>갤러리에서 DocuSign 추가
 
@@ -61,7 +61,7 @@ DocuSign이 Azure AD에 통합되도록 구성하려면 갤러리에서 DocuSign
 1. 결과 패널에서 **DocuSign**을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-docusign"></a>DocuSign용 Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-docusign"></a>DocuSign에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 DocuSign에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 DocuSign의 해당 사용자 간에 연결 관계를 설정해야 합니다.
 
@@ -94,9 +94,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
 
-    다. **회신 URL** 텍스트 상자에서 다음 패턴을 사용하는 URL을 입력합니다.
+    다. **회신 URL** 텍스트 상자에 다음 URL 패턴 중 하나를 입력합니다.
     
-    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login`
+    | 회신 URL |
+    |-------------|
+    |`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>`|
+    |`https://<subdomain>.docusign.net/SAML/`|
 
     > [!NOTE]
     > 대괄호로 묶은 이러한 값은 자리 표시자입니다. 실제 로그온 URL, 식별자 및 회신 URL의 값으로 바꿉니다. 이러한 세부 정보는 이 자습서의 뒷부분에 나오는 "SAML 2.0 엔드포인트 보기" 섹션에 설명되어 있습니다.

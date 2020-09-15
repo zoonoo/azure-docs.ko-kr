@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 5ab742e7ce2d198a321e15118522e6866bd1d104
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: fced9206bfd7d33ab4d9e911f92f12ec4b2aa99c
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405870"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89564998"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -77,27 +77,30 @@ const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourS
 
 ## <a name="initialize-a-recognizer"></a>인식기 초기화
 
-[`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest)를 만든 후에 수행할 단계는 [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) 초기화입니다. [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)를 초기화할 때 `speechConfig`를 전달해야 합니다. 그러면 음성 서비스에서 요청을 확인하는 데 필요한 자격 증명이 제공됩니다.
-
-디바이스의 기본 마이크를 사용하여 음성을 인식하는 경우 [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)가 다음과 같이 생겼습니다.
+[`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest)를 만든 후에 수행할 단계는 [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) 초기화입니다. [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)를 초기화할 때 `speechConfig`를 전달합니다. 그러면 음성 서비스에서 요청을 확인하는 데 필요한 자격 증명이 제공됩니다.
 
 ```javascript
 const recognizer = new SpeechRecognizer(speechConfig);
 ```
 
-오디오 입력 디바이스를 지정하려면 [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest)를 만들고 [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)를 초기화할 때 `audioConfig` 매개 변수를 제공해야 합니다.
+## <a name="recognize-from-microphone-or-file"></a>마이크 또는 파일에서 인식
 
-> [!TIP]
-> [오디오 입력 디바이스의 디바이스 ID를 가져오는 방법을 알아봅니다](../../../how-to-select-audio-input-devices.md).
+오디오 입력 디바이스를 지정하려면 [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest)를 만들고 [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest)를 초기화할 때 매개 변수로 전달해야 합니다.
 
-다음과 같이 `AudioConfig` 개체를 참조하세요.
+디바이스 마이크를 통해 음성을 인식하려면 `fromDefaultMicrophoneInput()`을 사용하여 `AudioConfig`를 만든 다음, `SpeechRecognizer` 개체를 만들 때 오디오 구성을 전달합니다.
 
 ```javascript
 const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 const recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 ```
 
-마이크를 사용하는 대신 오디오 파일을 제공하려는 경우에도 `audioConfig`를 제공해야 합니다. 그러나 이 작업은 **Node.js**를 대상으로 지정하는 경우에만 수행할 수 있으며 `fromDefaultMicrophoneInput`을 호출하는 대신 [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest)를 만들면 `fromWavFileOutput`을 호출하여 `filename` 매개 변수를 전달합니다.
+> [!TIP]
+> [오디오 입력 디바이스의 디바이스 ID를 가져오는 방법을 알아봅니다](../../../how-to-select-audio-input-devices.md).
+
+마이크를 사용하는 대신 오디오 파일에서 음성을 인식하려는 경우에도 `AudioConfig`를 제공해야 합니다. 그러나 `fromDefaultMicrophoneInput()`을 호출하는 대신 [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest)를 만드는 경우 `fromWavFileInput()`을 호출하고 `filename` 매개 변수를 전달합니다.
+
+> [!IMPORTANT]
+> 파일에서 음성 인식은 **Node.js** SDK에서*만* 지원됩니다.
 
 ```javascript
 const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");

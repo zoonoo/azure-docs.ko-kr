@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용하여 Azure IaaS VM을 다른 지역으로 이동
 description: Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS VM을 이동합니다.
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: rajanaki
+ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 3cbf3eda97bd1ba6b71c4bc7910e942e39224e30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e8f14b86678f7d395f445438d7e869168b13e54b
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076108"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425928"
 ---
 # <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
 
@@ -88,7 +88,7 @@ ms.locfileid: "87076108"
 1. **이름**에서 **ContosoVMVault**라는 이름을 지정합니다. 구독이 두 개 이상인 경우 적절한 구독을 선택합니다.
 1. **ContosoRG** 리소스 그룹을 만듭니다.
 1. Azure 지역을 지정합니다. 지원되는 지역을 확인하려면 [Azure Site Recovery 가격 정보](https://azure.microsoft.com/pricing/details/site-recovery/)에서 지리적 가용성을 참조하세요.
-1. **Recovery Services 자격 증명 모음**에서 **개요** > **ContosoVMVault** >  **+복제**를 선택합니다.
+1. **Recovery Services 자격 증명 모음**에서 **개요** > **ContosoVMVault** > **복제된 항목** >  **+복제**를 선택합니다.
 1. **원본**에서 **Azure**를 선택합니다.
 1. **원본 위치**에서 VM이 현재 실행 중인 원본 Azure 지역을 선택합니다.
 1. 리소스 관리자 배포 모델을 선택합니다. 그런 다음, **원본 구독** 및 **원본 리소스 그룹**을 선택합니다.

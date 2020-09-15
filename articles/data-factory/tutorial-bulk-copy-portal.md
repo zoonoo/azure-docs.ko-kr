@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 데이터 대량 복사
-description: Azure Data Factory 및 복사 작업을 사용하여 원본 데이터 저장소에서 대상 데이터 저장소로 데이터를 대량으로 복사하는 방법을 알아봅니다.
+description: Azure Data Factory 및 복사 작업을 사용하여 원본 데이터 저장소에서 대상 데이터 저장소로 데이터를 대량으로 복사합니다.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/22/2020
-ms.openlocfilehash: 29bdedd5ae40db57809c11500af404d308366ca7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a047872f519de1873c03998fd1d3a9c273ce9fa1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86081641"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442857"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Azure Portal에서 Azure Data Factory를 사용하여 여러 테이블 대량 복사
 
@@ -45,7 +45,7 @@ ms.locfileid: "86081641"
 ![워크플로](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * 첫 번째 파이프라인은 싱크 데이터 저장소로 복사해야 하는 테이블의 목록을 찾습니다.  또는 싱크 데이터 저장소에 복사할 모든 테이블을 나열하는 메타데이터 테이블을 유지할 수 있습니다. 그런 다음 파이프라인에서 다른 파이프라인을 트리거하여 데이터베이스의 각 테이블을 반복하고 데이터 복사 작업을 수행합니다.
-* 두 번째 파이프라인은 실제 복사를 수행하며, 테이블 목록을 매개 변수로 사용합니다. 최상의 성능을 위해 목록의 각 테이블에 대해 [Blob 스토리지 및 PolyBase를 통해 스테이징되는 복사](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)를 사용하여 Azure SQL Database의 특정 테이블을 Azure Synapse Analytics(이전의 SQL DW)의 해당 테이블에 복사합니다. 이 예제에서 첫 번째 파이프라인은 테이블의 목록을 매개 변수의 값으로 전달합니다. 
+* 두 번째 파이프라인은 실제 복사를 수행하며, 테이블 목록을 매개 변수로 사용합니다. 최상의 성능을 위해 목록의 각 테이블에 대해 [Blob 스토리지 및 PolyBase를 통해 스테이징되는 복사](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics)를 사용하여 Azure SQL Database의 특정 테이블을 Azure Synapse Analytics(이전의 SQL DW)의 해당 테이블에 복사합니다. 이 예제에서 첫 번째 파이프라인은 테이블의 목록을 매개 변수의 값으로 전달합니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 **싱크 Azure Synapse Analytics(이전의 SQL DW) 준비**:
 
-1. Azure Synapse Analytics(이전의 SQL DW)가 아직 없는 경우 이를 만드는 단계는 [SQL Data Warehouse 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) 문서를 참조하세요.
+1. Azure Synapse Analytics(이전의 SQL DW) 작업 영역이 없는 경우 [Azure Synapse Analytics 시작](..\synapse-analytics\get-started.md) 문서에서 만드는 단계를 참조하세요.
 
 1. Azure Synapse Analytics(이전의 SQL DW)에서 해당 테이블 스키마를 만듭니다. Azure Data Factory를 사용하여 이후 단계에서 데이터를 마이그레이션/복사합니다.
 

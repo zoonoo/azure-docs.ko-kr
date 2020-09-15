@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 314617554abf8fee430e47eb4b0a0ca5db5bc75f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: db2f1a685e3413814878ee1a6a367bd790739d4f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375642"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89564997"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -45,34 +45,30 @@ SpeechConfig config = SpeechConfig.fromSubscription("YourSubscriptionKey", "Your
 
 ## <a name="initialize-a-recognizer"></a>인식기 초기화
 
-[`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable)를 만든 후에 수행할 단계는 [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) 초기화입니다. [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable)를 초기화할 때 `config`를 전달해야 합니다. 그러면 음성 서비스에서 요청을 확인하는 데 필요한 자격 증명이 제공됩니다.
-
-디바이스의 기본 마이크를 사용하여 음성을 인식하는 경우 [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable)가 다음과 같이 생겼습니다.
+[`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable)를 만든 후에 수행할 단계는 [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) 초기화입니다. [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable)를 초기화할 때 `SpeechConfig`를 전달합니다. 그러면 음성 서비스에서 요청을 확인하는 데 필요한 자격 증명이 제공됩니다.
 
 ```java
 SpeechRecognizer recognizer = new SpeechRecognizer(config);
 ```
 
-오디오 입력 디바이스를 지정하려면 [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable)를 만들고 [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable)를 초기화할 때 `audioConfig` 매개 변수를 제공해야 합니다.
+## <a name="recognize-from-microphone-or-file"></a>마이크 또는 파일에서 인식
 
-> [!TIP]
-> [오디오 입력 디바이스의 디바이스 ID를 가져오는 방법을 알아봅니다](../../../how-to-select-audio-input-devices.md).
+오디오 입력 디바이스를 지정하려면 [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable)를 만들고 [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable)를 초기화할 때 매개 변수로 전달해야 합니다.
 
-먼저 다음 `import` 문을 추가합니다.
+디바이스 마이크를 통해 음성을 인식하려면 `fromDefaultMicrophoneInput()`을 사용하여 `AudioConfig`를 만든 다음, `SpeechRecognizer` 개체를 만들 때 오디오 구성을 전달합니다.
 
 ```java
 import java.util.concurrent.Future;
 import com.microsoft.cognitiveservices.speech.*;
-```
 
-그리고 다음과 같이 `AudioConfig` 개체를 참조할 수 있습니다.
-
-```java
 AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
 ```
 
-마이크를 사용하는 대신 오디오 파일을 제공하려는 경우에도 `audioConfig`를 제공해야 합니다. 그러나 `fromDefaultMicrophoneInput`을 호출하는 대신 [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable)를 만드는 경우 `fromWavFileOutput`을 호출하고 `filename` 매개 변수를 전달합니다.
+> [!TIP]
+> [오디오 입력 디바이스의 디바이스 ID를 가져오는 방법을 알아봅니다](../../../how-to-select-audio-input-devices.md).
+
+마이크를 사용하는 대신 오디오 파일에서 음성을 인식하려는 경우에도 `AudioConfig`를 만들어야 합니다. 그러나 `fromDefaultMicrophoneInput()`을 호출하는 대신 [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable)을 만드는 경우 `fromWavFileInput()`을 호출하고 `filename` 매개 변수를 전달합니다.
 
 ```java
 AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");

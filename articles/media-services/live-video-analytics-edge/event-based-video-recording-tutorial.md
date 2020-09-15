@@ -3,12 +3,12 @@ title: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 
 description: 이 자습서에서는 Azure Live Video Analytics on Azure IoT Edge를 사용하여 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드에서 이를 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: cbd00bf5737e9833a860e154c629bb344416b6ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05ee34770cacdcda270afced13373a61ba83e13a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011789"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568570"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생
 
@@ -62,7 +62,8 @@ ms.locfileid: "87011789"
 
 또는 특정 이벤트가 발생한 것을 추론 서비스에서 감지하는 경우에만 녹화를 트리거할 수도 있습니다. 이 자습서에서는 고속도로에서 이동하는 차량의 비디오를 사용하고, 트럭이 감지될 때마다 비디오 클립을 녹화합니다.
 
-![미디어 그래프](./media/event-based-video-recording-tutorial/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/overview.svg" alt-text="미디어 그래프":::
 
 이 다이어그램은 [미디어 그래프](media-graph-concept.md) 및 원하는 시나리오를 수행하는 추가 모듈을 그림으로 표현한 것입니다. 다음 4개의 IoT Edge 모듈이 포함되어 있습니다.
 
@@ -80,7 +81,8 @@ ms.locfileid: "87011789"
 
 시작하기 전에 [필수 구성 요소](#prerequisites)의 세 번째 항목을 완료했는지 확인합니다. 리소스 설치 스크립트가 완료되면 중괄호를 선택하여 폴더 구조를 표시합니다. ~/clouddrive/lva-sample 디렉터리 아래에 만들어진 몇 개의 파일을 볼 수 있습니다.
 
-![앱 설정](./media/quickstarts/clouddrive.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/clouddrive.png" alt-text="앱 설정":::
 
 이 자습서에서 다루는 파일은 다음과 같습니다.
 
@@ -152,7 +154,8 @@ IoT Edge 배포 매니페스트에서 경로를 선언하는 방법은 [이 섹�
 
 Visual Studio Code를 사용하여 [이러한 지침](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution)에 따라 Docker에 로그인합니다. 그런 다음, **IoT Edge 솔루션 빌드 및 푸시**를 선택합니다. 이 단계에서는 src/edge/deployment.objectCounter.template.json을 사용합니다.
 
-![IoT Edge 솔루션 빌드 및 푸시](./media/event-based-video-recording-tutorial/build-push.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/build-push.png" alt-text="IoT Edge 솔루션 빌드 및 푸시":::
 
 이 작업은 개체 수를 계산하는 objectCounter 모듈을 빌드하고 이미지를 Azure Container Registry로 푸시합니다.
 
@@ -160,7 +163,8 @@ Visual Studio Code를 사용하여 [이러한 지침](../../iot-edge/tutorial-de
 
 이 단계에서는 IoT Edge 배포 매니페스트를 src/edge/config/deployment.objectCounter.amd64.json에 만듭니다. 마우스 오른쪽 단추로 해당 파일을 클릭하고 **단일 디바이스용 배포 만들기**를 선택합니다.
 
-![단일 디바이스용 배포 만들기](./media/quickstarts/create-deployment-single-device.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="단일 디바이스용 배포 만들기":::
 
 Live Video Analytics on IoT Edge와 관련된 첫 번째 자습서인 경우 Visual Studio Code에서 IoT Hub 연결 문자열을 입력하라는 메시지를 표시합니다. appsettings.json 파일에서 복사할 수 있습니다.
 
@@ -169,7 +173,8 @@ Live Video Analytics on IoT Edge와 관련된 첫 번째 자습서인 경우 Vis
 이 단계에서는 IoT Edge 디바이스에 에지 모듈을 배포하는 작업이 시작되었습니다.
 약 30초 후에 Visual Studio Code의 왼쪽 아래 섹션에서 Azure IoT Hub를 새로 고칩니다. lvaEdge, rtspsim, yolov3 및 objectCounter라는 4개의 모듈이 배포되어 있음을 알 수 있습니다.
 
-![배포된 4개 모듈](./media/event-based-video-recording-tutorial/iot-hub.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/iot-hub.png" alt-text="배포된 4개 모듈":::
 
 ## <a name="prepare-for-monitoring-events"></a>이벤트 모니터링 준비
 
@@ -179,9 +184,10 @@ objectCounter 모듈 및 Live Video Analytics on IoT Edge 모듈의 이벤트를
 1. **디바이스** 노드를 펼칩니다.
 1. 마우스 오른쪽 단추로 lva-sample-device 파일을 클릭하고, **기본 제공 이벤트 엔드포인트 모니터링 시작**을 선택합니다.
 
-   ![기본 제공 이벤트 엔드포인트 모니터링 시작](./media/quickstarts/start-monitoring-iothub-events.png)
-
-## <a name="run-the-program"></a>프로그램 실행
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="기본 제공 이벤트 엔드포인트 모니터링 시작":::
+    
+    ## <a name="run-the-program"></a>프로그램 실행
 
 1. Visual Studio Code에서 src/cloud-to-device-console-app/operations.json으로 이동합니다.
 
@@ -390,13 +396,14 @@ Azure Portal에 로그인하여 비디오를 보면 그래프에서 만든 Media
 1. 구독에 있는 리소스 중에서 Media Services 계정을 찾습니다. 계정 창을 엽니다.
 1. **Media Services** 목록에서 **자산**을 선택합니다.
 
-    ![자산](./media/continuous-video-recording-tutorial/assets.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/assets.png" alt-text="연속 비디오 녹화":::
 1. sampleAssetFromEVR-LVAEdge-{DateTime}이라는 이름으로 나열된 자산을 찾을 수 있습니다. 이는 RecordingStarted 이벤트의 outputLocation 속성에 제공된 이름입니다. 토폴로지의 assetNamePattern은 이름을 생성하는 방법을 결정합니다.
 1. 자산을 선택합니다.
 1. 자산 세부 정보 페이지의 **스트리밍 URL** 텍스트 상자 아래에서 **새로 만들기**를 선택합니다.
 
-    ![새 자산](./media/continuous-video-recording-tutorial/new-asset.png)
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/new-asset.png" alt-text="새 자산":::
 1. 열린 마법사에서 기본 옵션을 그대로 적용하고 **추가**를 선택합니다. 자세한 내용은 [비디오 재생](video-playback-concept.md)을 참조하세요.
 
     > [!TIP]

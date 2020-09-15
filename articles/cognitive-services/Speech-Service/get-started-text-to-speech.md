@@ -1,5 +1,5 @@
 ---
-title: 음성 합성 빠른 시작 - Speech Service
+title: 텍스트 음성 변환 빠른 시작 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용하여 텍스트를 음성으로 변환하는 방법을 알아봅니다. 이 빠른 시작에서는 개체 구성 및 디자인 패턴, 지원되는 오디오 출력 형식, Speech CLI, 음성 합성을 위한 사용자 지정 구성 옵션에 대해 알아봅니다.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 08/11/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: speech-full-stack
-ms.openlocfilehash: 12ee7fbbd7699d09deae85971ffe411e115609ec
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+keywords: 텍스트 음성 변환
+ms.openlocfilehash: 79409f95d698e015d15d9131dcf1f27b34b03343
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934698"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400915"
 ---
-# <a name="get-started-with-speech-synthesis"></a>음성 합성 시작
+# <a name="get-started-with-text-to-speech"></a>텍스트 음성 변환 시작
 
 이 빠른 시작에서는 Speech SDK를 사용하여 텍스트 음성 변환을 수행하기 위한 일반적인 디자인 패턴에 대해 알아봅니다. 먼저 기본 구성 및 합성을 수행하고 다음과 같은 사용자 지정 애플리케이션 개발을 위한 고급 예제로 이동합니다.
 

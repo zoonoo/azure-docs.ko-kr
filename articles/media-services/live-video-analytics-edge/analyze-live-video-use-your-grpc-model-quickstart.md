@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 컴퓨터 비전을 적용하여 시뮬�
 ms.topic: quickstart
 ms.date: 08/14/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: ac11ced68ab8463da26b9978a5b0b02c4cd1a402
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 907d402a4b0ef5d5e437322d02431a0ccd2d8da3
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687281"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421534"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-grpc-model"></a>빠른 시작: 사용자 고유의 gRPC 모델을 사용하여 라이브 비디오 분석
 
@@ -56,11 +56,11 @@ ms.locfileid: "88687281"
 ## <a name="create-and-deploy-the-media-graph"></a>미디어 그래프를 만들고 배포
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
+[!INCLUDE [create and deploy the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
+[!INCLUDE [create and deploy the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
 ::: zone-end
 
 ## <a name="interpret-results"></a>결과 해석
@@ -79,4 +79,9 @@ ms.locfileid: "88687281"
 
 ## <a name="next-steps"></a>다음 단계
 
-gRPC 프로토콜을 사용하여 다른 미디어 그래프 토폴로지를 실행해 보세요.
+* gRPC 프로토콜을 사용하여 다른 미디어 그래프 토폴로지를 실행해 보세요.
+* **샘플 LVA(Live Video Analytics) 확장 빌드 및 실행**
+<br/>LVA(Live Video Analytics) 확장으로 [ONNX](http://onnx.ai/) 기반 YOLO 모델을 빌드하고 실행할 수 있는 Jupyter 샘플 Notebooks를 사용해 보세요.
+    * [샘플 YOLOv3 모델](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/readme.md)
+    * [샘플 YOLOv4 모델](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov4/yolov4-grpc-icpu-onnx/readme.md)
+

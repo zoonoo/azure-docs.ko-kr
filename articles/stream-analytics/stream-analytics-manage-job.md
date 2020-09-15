@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 577a80f04ad186ab1575fa78db3fa59402d6058f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a265bc2ed131dc0bb69d89f767ab60225d30ee8e
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83697388"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612049"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>자습서: Stream Analytics를 사용하여 전화 통화 데이터 분석 및 Power BI 대시보드에서 결과 시각화
 
@@ -185,7 +185,7 @@ TelcoGenerator 앱을 시작하기 전에, 앞에서 만든 Azure Event Hubs로 
 
    ![Stream Analytics 출력 구성](media/stream-analytics-manage-job/configure-stream-analytics-output.png)
 
-4. **권한 부여**를 선택하면 팝업 창이 열리고, Power BI 계정에 인증하려면 자격 증명을 입력하라는 메시지가 표시됩니다. 권한 부여가 완료되면 설정을 **저장**합니다.
+4. **권한 부여**를 선택하면 팝업 창이 열리고, Power BI 계정에 인증하려면 자격 증명을 입력하라는 메시지가 표시됩니다. 권한 부여가 완료되면 설정을 **저장**합니다. 관리 ID를 사용하려면 [관리 ID를 사용하여 Power BI에 대한 Azure Stream Analytics 작업 인증](powerbi-output-managed-identity.md)을 참조하세요.
 
 ## <a name="define-a-query-to-analyze-input-data"></a>입력 데이터를 분석하는 쿼리 정의
 

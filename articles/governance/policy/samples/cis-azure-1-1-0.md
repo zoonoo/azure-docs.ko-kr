@@ -1,15 +1,15 @@
 ---
 title: CIS Microsoft Azure Foundations 벤치마크 규정 준수 세부 정보
 description: CIS Microsoft Azure Foundations 벤치마크 규정 준수 기본 제공 이니셔티브에 대한 세부 정보입니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
-ms.date: 07/10/2020
+ms.date: 09/04/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: c5a452ad00ff0126b3d768b4b3499dfbed0b33e1
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 9228a8395bcfd5618fdbe81630a9cafc36bdc969
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275464"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89486980"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>CIS Microsoft Azure Foundations 벤치마크 규정 준수 기본 제공 이니셔티브에 대한 세부 정보
 
@@ -102,7 +102,7 @@ ms.locfileid: "86275464"
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[가상 머신에서 디스크 암호화를 적용해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |디스크 암호화를 사용하도록 설정하지 않은 VM은 Azure Security Center에서 권장 사항으로 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[가상 머신에서 디스크 암호화를 적용해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |디스크 암호화가 사용하도록 설정되지 않은 가상 머신은 Azure Security Center에서 권장 사항으로 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-network-security-groups-is-not-disabled"></a>ASC 기본 정책 설정인 "네트워크 보안 그룹 모니터링"이 "사용 안 함"으로 설정되어 있지 않은지 확인
 
@@ -252,7 +252,7 @@ ms.locfileid: "86275464"
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[SQL Managed Instance에서 Advanced Data Security를 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb7388-5bf4-4ad7-ba99-2cd2f41cebb9) |Advanced Data Security를 사용하지 않고 각 SQL Managed Instance를 감사합니다. |AuditIfNotExists, 사용 안 함 |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_AdvancedDataSecurity_Audit.json) |
-|[SQL 서버에서 Advanced Data Security를 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb4388-5bf4-4ad7-ba82-2cd2f41ceae9) |Advanced Data Security 없이 SQL 서버 감사 |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurity_Audit.json) |
+|[SQL 서버에서 Advanced Data Security를 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fabfb4388-5bf4-4ad7-ba82-2cd2f41ceae9) |Advanced Data Security 없이 SQL 서버 감사 |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_AdvancedDataSecurity_Audit.json) |
 
 ### <a name="ensure-that-azure-active-directory-admin-is-configured"></a>Azure Active Directory 관리자가 구성되어 있는지 확인
 
@@ -318,14 +318,6 @@ ms.locfileid: "86275464"
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[PostgreSQL 데이터베이스 서버에 대한 연결 끊김을 기록해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb6f77b9-bd53-4e35-a23d-7f65d5f0e446) |이 정책은 log_disconnections를 사용하도록 설정하지 않고 사용자 환경에서 PostgreSQL 데이터베이스를 감사하는 데 도움이 됩니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableLogDisconnections_Audit.json) |
-
-### <a name="ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>PostgreSQL Database Server에 'log_duration' 서버 매개 변수가 'ON'으로 설정되어 있는지 확인
-
-**ID**: CIS Azure 4.16 **소유권**: Customer
-
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
-|---|---|---|---|
-|[PostgreSQL 데이터베이스 서버에 대해 로그 기간을 사용하도록 설정해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Feb6f77b9-bd53-4e35-a23d-7f65d5f0e8f3) |이 정책은 log_duration 설정을 사용하도록 설정하지 않고 사용자 환경에서 PostgreSQL 데이터베이스를 감사하는 데 도움이 됩니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/PostgreSQL_EnableLogDuration_Audit.json) |
 
 ### <a name="ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>PostgreSQL Database Server에 'connection_throtling' 서버 매개 변수가 'ON'으로 설정되어 있는지 확인
 
@@ -491,7 +483,7 @@ ms.locfileid: "86275464"
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[가상 머신에서 디스크 암호화를 적용해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |디스크 암호화를 사용하도록 설정하지 않은 VM은 Azure Security Center에서 권장 사항으로 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[가상 머신에서 디스크 암호화를 적용해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |디스크 암호화가 사용하도록 설정되지 않은 가상 머신은 Azure Security Center에서 권장 사항으로 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="ensure-that-data-disks-are-encrypted"></a>'데이터 디스크'가 암호화되어 있는지 확인
 
@@ -499,7 +491,7 @@ ms.locfileid: "86275464"
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[가상 머신에서 디스크 암호화를 적용해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |디스크 암호화를 사용하도록 설정하지 않은 VM은 Azure Security Center에서 권장 사항으로 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
+|[가상 머신에서 디스크 암호화를 적용해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0961003e-5a0a-4549-abde-af6a37f2724d) |디스크 암호화가 사용하도록 설정되지 않은 가상 머신은 Azure Security Center에서 권장 사항으로 모니터링됩니다. |AuditIfNotExists, 사용 안 함 |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UnencryptedVMDisks_Audit.json) |
 
 ### <a name="ensure-that-unattached-disks-are-encrypted"></a>'연결되지 않은 디스크'가 암호화되어 있는지 확인
 
@@ -549,7 +541,7 @@ ms.locfileid: "86275464"
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Kubernetes Services에서 RBAC(역할 기반 액세스 제어)를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac4a19c2-fa67-49b4-8ae5-0b2e78c49457) |사용자가 수행할 수 있는 작업에 대한 세부적인 필터링을 제공하려면 RBAC(역할 기반 액세스 제어)를 사용하여 Kubernetes Service 클러스터에서 권한을 관리하고 관련 권한 부여 정책을 구성합니다. |감사, 사용 안 함 |[1.0.1 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableRBAC_KubernetesService_Audit.json) |
+|[Kubernetes Services에서 RBAC(역할 기반 액세스 제어)를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac4a19c2-fa67-49b4-8ae5-0b2e78c49457) |사용자가 수행할 수 있는 작업에 대한 세부적인 필터링을 제공하려면 RBAC(역할 기반 액세스 제어)를 사용하여 Kubernetes Service 클러스터에서 권한을 관리하고 관련 권한 부여 정책을 구성합니다. |감사, 사용 안 함 |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableRBAC_KubernetesService_Audit.json) |
 
 ## <a name="appservice"></a>AppService
 
@@ -597,19 +589,9 @@ ms.locfileid: "86275464"
 
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[API 앱에서 [Azure Active Directory에 등록]을 사용하도록 설정되어 있는지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86d97760-d216-4d81-a3ad-163087b2b6c3) |App Service의 관리되는 서비스 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. App Service에서 Azure Active Directory에 등록하면 앱이 사용자 이름 및 암호 없이도 다른 Azure 서비스에 안전하게 연결됩니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_AD_Enabled.json) |
-|[함수 앱에서 [Azure Active Directory에 등록]을 사용하도록 설정되어 있는지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0473e7a-a1ba-4e86-afb2-e829e11b01d8) |App Service의 관리되는 서비스 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. App Service에서 Azure Active Directory에 등록하면 앱이 사용자 이름 및 암호 없이도 다른 Azure 서비스에 안전하게 연결됩니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_AD_Enabled.json) |
-|[웹앱에서 [Azure Active Directory에 등록]이 사용하도록 설정되어 있는지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faa81768c-cb87-4ce2-bfaa-00baa10d760c) |App Service의 관리되는 서비스 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. App Service에서 Azure Active Directory에 등록하면 앱이 사용자 이름 및 암호 없이도 다른 Azure 서비스에 안전하게 연결됩니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_AD_Enabled.json) |
-
-### <a name="ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>웹앱의 일부로 사용되는 경우 '.NET Framework' 버전이 최신 상태인지 확인
-
-**ID**: CIS Azure 9.6 **소유권**: Customer
-
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
-|---|---|---|---|
-|[API 앱의 일부로 사용되는 경우 최신의 '.NET Framework' 버전인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc2e7ca55-f62c-49b2-89a4-d41eb661d2f0) |보안 결함이 있거나 추가 기능을 포함하기 위해 .NET Framework 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 .NET Framework 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_NETFrameWork_Latest.json) |
-|[함수 앱의 일부로 사용되는 경우 최신의 '.NET Framework' 버전인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10c1859c-e1a7-4df3-ab97-a487fa8059f6) |보안 결함이 있거나 추가 기능을 포함하기 위해 .NET Framework 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 .NET Framework 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_NETFrameWork_Latest.json) |
-|[웹앱의 일부로 사용되는 경우 최신의 '.NET Framework' 버전인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F843664e0-7563-41ee-a9cb-7522c382d2c4) |보안 결함이 있거나 추가 기능을 포함하기 위해 .NET Framework 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 .NET Framework 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_NETFrameWork_Latest.json) |
+|[API 앱에서 관리 ID를 사용해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4d441f8-f9d9-4a9e-9cef-e82117cb3eef) |인증 보안 강화를 위해 관리 ID 사용 |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_ApiApp_Audit.json) |
+|[함수 앱에서 관리 ID를 사용해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0da106f2-4ca3-48e8-bc85-c638fe6aea8f) |인증 보안 강화를 위해 관리 ID 사용 |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_FunctionApp_Audit.json) |
+|[웹앱에서 관리 ID를 사용해야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2b9ad585-36bc-4615-b300-fd4435808332) |인증 보안 강화를 위해 관리 ID 사용 |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_UseManagedIdentity_WebApp_Audit.json) |
 
 ### <a name="ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>웹앱을 실행하는 데 사용되는 경우 최신 'PHP 버전'인지 확인
 
@@ -618,7 +600,6 @@ ms.locfileid: "86275464"
 |Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[API 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |보안 결함이 있거나 추가 기능을 포함하기 위해 PHP 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 API Apps에 최신 PHP 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
-|[함수 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fab965db2-d2bf-4b64-8b39-c38ec8179461) |보안 결함이 있거나 추가 기능을 포함하기 위해 PHP 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 함수 앱에 최신 PHP 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_PHP_Latest.json) |
 |[웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |보안 결함이 있거나 추가 기능을 포함하기 위해 PHP 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 PHP 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
 
 ### <a name="ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>웹앱을 실행하는 데 사용되는 경우 최신 'Python 버전'인지 확인
@@ -649,7 +630,7 @@ ms.locfileid: "86275464"
 |---|---|---|---|
 |[API 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F991310cd-e9f3-47bc-b7b6-f57b557d07db) |보안 결함이 있거나 추가 기능을 포함하기 위해 HTTP에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 HTTP 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_HTTP_Latest.json) |
 |[함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe2c1c086-2d84-4019-bff3-c44ccd95113c) |보안 결함이 있거나 추가 기능을 포함하기 위해 HTTP에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 HTTP 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_HTTP_Latest.json) |
-|[웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8c122334-9d20-4eb8-89ea-ac9a705b74ae) |App Service의 관리되는 서비스 ID는 연결 문자열의 자격 증명과 같은 비밀을 앱에서 제거하여 앱의 보안을 보다 강화합니다. App Service에서 Azure Active Directory에 등록하면 앱이 사용자 이름 및 암호 없이도 다른 Azure 서비스에 안전하게 연결됩니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_HTTP_Latest.json) |
+|[웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8c122334-9d20-4eb8-89ea-ac9a705b74ae) |보안 결함이 있거나 추가 기능을 포함하기 위해 HTTP에 대한 최신 버전이 주기적으로 릴리스됩니다. 최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 HTTP 버전을 사용하는 것이 좋습니다. |AuditIfNotExists, 사용 안 함 |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_HTTP_Latest.json) |
 
 > [!NOTE]
 > 특정 Azure Policy 정의의 가용성은 Azure Government 및 기타 국가 클라우드에 따라 다를 수 있습니다.

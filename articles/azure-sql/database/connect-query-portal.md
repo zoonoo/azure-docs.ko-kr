@@ -13,17 +13,17 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 05/29/2020
-ms.openlocfilehash: 4dbbf8267b4a7a1ea280d16ee787c8ae6cd652c9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: ec43ad0c83ea56af935b326a2b13aa3b3dc4fa13
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267361"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441783"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-an-azure-sql-database"></a>빠른 시작: Azure Portal의 쿼리 편집기를 사용하여 Azure SQL Database 쿼리
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-쿼리 편집기는 Azure SQL Database의 데이터베이스 또는 Azure SQL Data Warehouse의 데이터 웨어하우스에 대해 SQL 쿼리를 실행하는 데 사용되는 Azure Portal 도구입니다. 
+쿼리 편집기는 Azure SQL Database의 데이터베이스 또는 Azure Synapse Analytics의 데이터 웨어하우스에 대해 SQL 쿼리를 실행하는 데 사용되는 Azure Portal 도구입니다. 
 
 이 빠른 시작에서는 쿼리 편집기를 사용하여 데이터베이스에 대해 Transact-SQL(T-SQL) 쿼리를 실행합니다.
 

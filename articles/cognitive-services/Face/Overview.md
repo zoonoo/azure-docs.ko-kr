@@ -9,19 +9,17 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 9/01/2020
 ms.author: pafarley
-ms.openlocfilehash: e1b5ca8cfb9a6bc0fec7d85f609c411f38d1bbbc
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 1dc970a16c3b031b311c5b98ca43613d9ecf39d4
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280073"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421575"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
-<!--
-> [!IMPORTANT]
-> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or features included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
--->
-![Legal ](./media/overview/banner.png)
+
+> [!WARNING]
+> 2020년 6월 11일, Microsoft는 인권에 기반한 강력한 규정이 적용될 때까지 미국 경찰 당국에 얼굴 인식 기술을 판매하지 않겠다고 발표했습니다. 따라서 미국 경찰 당국에 의해 또는 미국 경찰 당국을 위해 이 서비스를 사용하거나 허용하는 경우 고객은 얼굴 인식 기능 또는 Face나 Video Indexer와 같은 Azure 서비스에 포함된 기능을 사용하지 않을 수도 있습니다.
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 

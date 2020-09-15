@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 713f9eeef87cbfe3d8cb3d9717ad703328b54fe3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3b500a7d93d19bcc0cd9c23d64ad079f0abfd353
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262722"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421359"
 ---
 # <a name="tutorial-connect-to-azure-stack-edge-with-gpu"></a>자습서: GPU를 사용하여 Azure Stack Edge에 연결
 
@@ -41,11 +41,11 @@ GPU가 있는 Azure Stack Edge 디바이스를 구성하고 설정하기 전에 
 
 1. 고정 IP 주소가 192.168.100.5이고 서브넷이 255.255.255.0인 Azure Stack Edge 디바이스에 연결하도록 컴퓨터의 이더넷 어댑터를 구성합니다.
 
-2. 디바이스의 포트 1에 컴퓨터를 연결합니다. 다음 일러스트레이션을 사용하여 디바이스의 포트 1을 찾습니다.
+2. 디바이스의 포트 1에 컴퓨터를 연결합니다. 컴퓨터를 디바이스에 직접 연결하는 경우(스위치 없이) 크로스오버 케이블 또는 USB 이더넷 어댑터를 사용합니다. 다음 일러스트레이션을 사용하여 디바이스의 포트 1을 찾습니다.
 
     ![케이블로 연결된 디바이스의 백플레인](./media/azure-stack-edge-gpu-deploy-install/ase-two-pci-slots.png)
 
-    디바이스의 백플레인은 사용자가 받은 정확한 모델에 따라 약간 다를 수 있습니다.
+    디바이스의 백플레인은 사용자가 받은 정확한 모델에 따라 약간 다를 수 있습니다. 자세한 내용은 [디바이스 케이블 연결](azure-stack-edge-gpu-deploy-install.md#cable-the-device)을 참조하세요.
 
 
 3. 브라우저 창을 열고 `https://192.168.100.10`에서 디바이스의 로컬 웹 UI에 액세스합니다.  

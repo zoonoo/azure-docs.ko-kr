@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: a86402fec698a299c7f233dcd8c7fde8270dd74d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 247f37a69cd8524339a3f5414230cca0f42fa22d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585664"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662049"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -58,7 +58,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### <a name="new-key-vault"></a>새로운 Key Vault
 
-일시 삭제는 기본적으로 모든 키 자격 증명 모음에서 자동으로 활성화됩니다. 2020년 12월 31일까지 일시 삭제가 활성화되지 않으면 더 이상 새 키 자격 증명 모음을 만들 수 없습니다.
+일시 삭제는 기본적으로 모든 키 자격 증명 모음에서 자동으로 활성화됩니다. 2020년 12월 31일부터 일시 삭제를 사용하도록 설정되지 않으면 새 키 자격 증명 모음을 더 이상 만들 수 없습니다.
 
 ### <a name="verify-soft-delete-enablement"></a>일시 삭제 사용 확인
 

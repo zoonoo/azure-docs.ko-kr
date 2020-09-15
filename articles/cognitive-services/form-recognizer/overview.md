@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 070796cd260e56bb51115a7ef33ced8455bfb6a9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723567"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394400"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -48,6 +48,7 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
 ## <a name="prebuilt-models"></a>미리 작성된 모델
 
 Form Recognizer에는 고유한 양식 유형을 위한 미리 빌드된 모델도 포함되어 있습니다.
+
 ### <a name="prebuilt-receipt-model"></a>미리 빌드된 영수증 모델
 미리 빌드된 영수증 모델은 오스트레일리아, 캐나다, 영국, 인도, 미국&mdash;(식당, 주유소, 소매점 등)에서 사용되는 유형의 영어 판매 영수증을 읽는 데 사용됩니다. 이 모델은 트랜잭션 시간 및 날짜, 판매자 정보, 세금의 합계, 줄 항목, 총액 등과 같은 주요 정보를 추출합니다. 또한 미리 작성된 영수증 모델은 영수증의 모든 텍스트를 인식하고 반환하도록 학습됩니다. 
 
@@ -74,9 +75,11 @@ Form Recognizer에는 고유한 양식 유형을 위한 미리 빌드된 모델�
     * [레이블 없이 학습 - cURL](quickstarts/curl-train-extract.md)
     * [레이블 없이 학습 - Python](quickstarts/python-train-extract.md)
     * [레이블을 사용하여 학습 - Python](quickstarts/python-labeled-data.md)
-  * USA 판매 영수증에서 데이터 추출
+  * 판매 영수증에서 데이터 추출
     * [영수증 데이터 추출 - cURL](quickstarts/curl-receipts.md)
     * [영수증 데이터 추출 - Python](quickstarts/python-receipts.md)
+  * 비즈니스 카드에서 데이터 추출
+    * [명함 데이터 추출 - Python](quickstarts/python-business-cards.md)
   * 양식에서 텍스트 및 테이블 구조 추출
     * [레이아웃 데이터 추출 - Python](quickstarts/python-layout.md)
 
@@ -90,6 +93,7 @@ Form Recognizer에는 고유한 양식 유형을 위한 미리 빌드된 모델�
 | **사용자 지정 모델 학습**| 동일한 형식의 5개 양식을 사용하여 양식을 분석하는 새 모델을 학습시킵니다. _useLabelFile_ 매개 변수를 `true`로 설정하여 수동 레이블 지정 데이터로 학습합니다. |
 | **양식 분석** |스트림으로 전달된 단일 문서를 분석하여 사용자 지정 모델을 통해 양식에서 텍스트, 키/값 쌍 및 테이블을 추출합니다.  |
 | **영수증 분석** |단일 영수증 문서를 분석하여 키 정보 및 다른 영수증 텍스트를 추출합니다.|
+| **명함 분석** |명함을 분석하여 주요 정보 및 텍스트를 추출합니다.|
 | **레이아웃 분석** |양식의 레이아웃을 분석하여 텍스트 및 테이블 구조를 추출합니다.|
 
 자세히 알아보려면 [REST API 참조 설명서](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)를 확인하세요. 이전 버전의 API에 대해 잘 알고 있는 경우에는 [새로운 기능](./whats-new.md) 문서를 읽고 최신 변경 내용에 대해 알아보세요.

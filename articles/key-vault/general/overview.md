@@ -11,12 +11,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 98f681494ca73bd2698cd3068441cf02cd6730ac
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 500648b3037a81b39f474538ec062ef922b6e2df
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190556"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421648"
 ---
 # <a name="about-azure-key-vault"></a>Azure Key Vault 정보
 
@@ -25,7 +25,7 @@ Azure Key Vault는 다음 문제를 해결하는 데 도움이 됩니다.
 - **비밀 관리** - Azure Key Vault를 사용하여 토큰, 암호, 인증서, API 키 및 기타 비밀에 대한 액세스를 안전하게 저장하고 엄격히 제어할 수 있습니다.
 - **키 관리** - Azure Key Vault를 키 관리 솔루션으로 사용할 수도 있습니다. Azure Key Vault를 사용하면 데이터를 암호화하는 데 사용되는 암호화 키를 쉽게 만들고 제어할 수 있습니다. 
 - **인증서 관리** - Azure Key Vault는 Azure 및 내부 연결 리소스와 함께 사용할 퍼블릭 및 프라이빗 SSL/TLS(Transport Layer Security/Secure Sockets Layer) 인증서를 쉽게 프로비전, 관리 및 배포할 수 있는 서비스이기도 합니다. 
-- **하드웨어 보안 모듈로 지원되는 비밀 저장** - 비밀과 키는 HSM의 유효성을 검사하는 소프트웨어 또는 FIPS 140-2 수준 2를 통해 보호할 수 있습니다.
+- **하드웨어 보안 모듈을 통해 지원되는 비밀 저장** - 스토어의 비밀, 키 및 인증서는 소프트웨어 키(표준 계층) 또는 FIPS 140-2 수준 2 인증 HSM 키(프리미엄 계층)로 암호화됩니다. 
 
 ## <a name="why-use-azure-key-vault"></a>Azure Key Vault를 사용하는 이유는?
 

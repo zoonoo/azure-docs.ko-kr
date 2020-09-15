@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 05173790d8efe05851d39121ecfa15186ccb6d3c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 65a77dfaab0bf99207fd27a35d67a12532056476
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212958"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442942"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>빠른 시작: T-SQL을 사용하여 워크로드 분류자 만들기
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작에서는 SQL Data Warehouse가 이미 있고 CONTROL DATABASE 권한이 있다고 가정합니다. 하나 만들어야 할 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 데이터 웨어하우스를 만듭니다.
+이 빠른 시작에서는 Azure Synapse Analytics에서 Synapse SQL 풀을 이미 프로비저닝했으며 CONTROL DATABASE 권한이 있다고 가정합니다. 하나 만들어야 할 경우 [만들기 및 연결 - 포털](create-data-warehouse-portal.md)을 사용하여 **mySampleDataWarehouse**라는 데이터 웨어하우스를 만듭니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

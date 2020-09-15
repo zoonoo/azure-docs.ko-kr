@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cf35b2c15c0d85c93e69ef4e3b6c76932cbd75d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0443dcb2bf3bd58f2474c507c9f9594fb6d8a7f0
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229381"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469187"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>자습서: Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍
 
@@ -60,8 +60,8 @@ ms.locfileid: "89229381"
 7. **확인**을 선택하여 이벤트 허브 구성을 종료합니다.
 
 8. 다음 중 하나 또는 둘 모두를 수행합니다.
-    * 스토리지 계정에 감사 로그를 보내려면 **AuditLogs** 확인란을 선택합니다. 
-    * 스토리지 계정에 로그인 로그를 보내려면 **SignInLogs** 확인란을 선택합니다.
+    * 이벤트 허브에 감사 로그를 보내려면 **AuditLogs** 확인란을 선택합니다. 
+    * 이벤트 허브에 로그인 로그를 보내려면 **SignInLogs** 확인란을 선택합니다.
 
 9. **저장**을 선택하여 설정을 저장합니다.
 
