@@ -2,26 +2,12 @@
   href: index.yml
 - name: 변환기
   items:
-    - name: 개요
-      items:
-        - name: Translator란?
-          href: translator-info-overview.md
-        - name: 언어 지원
-          href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
+    - name: Translator란?
+      href: translator-info-overview.md
     - name: 빠른 시작
-      items:
-        - name: 텍스트 번역
-          href: quickstart-translate.md
-        - name: 음역 텍스트
-          href: quickstart-transliterate.md
-        - name: 언어 검색
-          href: quickstart-detect.md
-        - name: 단어 번역 조회
-          href: quickstart-dictionary.md
-        - name: 지원되는 언어 가져오기
-          href: quickstart-languages.md
-        - name: 문장 길이 결정
-          href: quickstart-sentences.md
+      href: quickstart-translator.md
+    - name: 언어 지원
+      href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
     - name: 자습서
       items:
         - name: 'Translator용 WPF 앱 만들기, C#'
