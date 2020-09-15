@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 887017f60deb832bd5c53f28bde4b57a3d82bde5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd74bfca73323209012dfd1fda61bbaada84092f
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918046"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530695"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>자습서: Power Apps에서 Cognitive Search 인덱스 쿼리
 
@@ -31,7 +31,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [Power Apps 계정](http://make.powerapps.com)
+* [Power Apps 계정](https://make.powerapps.com)
 
 * [Hotels-sample 인덱스](search-get-started-portal.md)
 
@@ -41,7 +41,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 Power Apps의 커넥터는 데이터 원본 연결입니다. 이 단계에서는 클라우드의 검색 인덱스에 연결하는 사용자 지정 커넥터를 만듭니다.
 
-1. Power Apps에 [로그인](http://make.powerapps.com)합니다.
+1. Power Apps에 [로그인](https://make.powerapps.com)합니다.
 
 1. 왼쪽에서 **데이터** > **사용자 지정 커넥터**를 차례로 펼칩니다.
  

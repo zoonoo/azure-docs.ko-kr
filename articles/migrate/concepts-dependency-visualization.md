@@ -2,13 +2,13 @@
 title: Azure Migrate Server 평가에서 종속성 분석
 description: Azure Migrate Server 평가를 사용 하 여 평가에 대 한 종속성 분석을 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 06/14/2020
-ms.openlocfilehash: 386a8cefce722c4bff09e2a7fe6d25957630ff61
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/15/2020
+ms.openlocfilehash: a284d549f13595e0ce8a5d06cc017602e559b648
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118803"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530253"
 ---
 # <a name="dependency-analysis"></a>종속성 분석
 
@@ -28,7 +28,7 @@ ms.locfileid: "86118803"
 
 종속성 분석을 배포 하는 두 가지 옵션이 있습니다.
 
-**옵션** | **세부 정보** | **공용 클라우드** | **Azure Government**
+**옵션** | **세부 정보** | **퍼블릭 클라우드** | **Azure Government**
 ----  |---- | ---- 
 **에이전트 없음** | VSphere Api를 사용 하 여 VMware Vm에서 데이터를 폴링합니다.<br/><br/> Vm에 에이전트를 설치할 필요가 없습니다.<br/><br/> 이 옵션은 현재 미리 보기로 제공 되며 VMware Vm에만 해당 됩니다. | 지원됨. | 지원됨.
 **에이전트 기반 분석** | Azure Monitor에서 [서비스 맵 솔루션](../azure-monitor/insights/service-map.md) 을 사용 하 여 종속성 시각화 및 분석을 사용 하도록 설정 합니다.<br/><br/> 분석 하려는 각 온-프레미스 컴퓨터에 에이전트를 설치 해야 합니다. | 지원됨 | 지원되지 않습니다.
@@ -75,7 +75,7 @@ ms.locfileid: "86118803"
 --- | --- | ---
 **지원** | VMware Vm에 대해서만 미리 보기 상태입니다. 지원 되는 운영 체제를 [검토](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) 합니다. | GA (일반 공급)를 사용 합니다.
 **에이전트** | 분석 하려는 컴퓨터에서 에이전트가 필요 하지 않습니다. | 분석 하려는 각 온-프레미스 컴퓨터에서 에이전트가 필요 합니다.
-**Log Analytics** | 필수 아님. | Azure Migrate는 종속성 분석을 위해 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md) 의 [서비스 맵](../azure-monitor/insights/service-map.md) 솔루션을 사용 합니다. 
+**Log Analytics** | 필수 아님. | Azure Migrate는 종속성 분석을 위해 [Azure Monitor 로그](../azure-monitor/log-query/log-query-overview.md) 의 [서비스 맵](../azure-monitor/insights/service-map.md) 솔루션을 사용 합니다.<br/><br/> Log Analytics 작업 영역을 Azure Migrate 프로젝트와 연결 합니다. 작업 영역은 미국 동부, 동남 아시아 또는 서유럽 지역에 있어야 합니다. 작업 영역은 [서비스 맵 지원되는](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions) 지역에 있어야 합니다.
 **Process** | TCP 연결 데이터를 캡처합니다. 검색 후 5 분 간격으로 데이터를 수집 합니다. | 컴퓨터에 설치 된 에이전트 서비스 맵는 TCP 프로세스에 대 한 데이터 및 각 프로세스에 대 한 인바운드/아웃 바운드 연결을 수집 합니다.
 **Data** | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다. | 원본 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름입니다.<br/><br/> 대상 컴퓨터 서버 이름, 프로세스, 응용 프로그램 이름 및 포트입니다.<br/><br/> 연결 수, 대기 시간 및 데이터 전송 정보를 수집 하 고 Log Analytics 쿼리에 사용할 수 있습니다. 
 **시각화** | 단일 서버에 대 한 종속성 맵은 1 시간에서 30 일 동안 볼 수 있습니다. | 단일 서버의 종속성 맵입니다.<br/><br/> 서버 그룹의 종속성 맵입니다.<br/><br/>  지도는 한 시간에 한 해 볼 수 있습니다.<br/><br/> 지도 보기에서 그룹의 서버를 추가 하 고 제거 합니다.

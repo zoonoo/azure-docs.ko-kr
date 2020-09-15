@@ -1,18 +1,18 @@
 ---
 title: Azure 방화벽 위협 인텔리전스 구성
-description: 방화벽에서 알려진 악성 IP 주소 및 도메인과 주고받는 트래픽을 경고하고 거부할 수 있도록 하기 위해 위협 인텔리전스 기반 필터링을 사용하도록 설정할 수 있습니다.
+description: Azure 방화벽 정책에 대 한 위협 인텔리전스 기반 필터링을 구성 하 여 알려진 악성 IP 주소 및 도메인의 트래픽을 경고 및 거부 하는 방법에 대해 알아봅니다.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 136ceeb271bec29bdbfc4572626936ee67f05556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a663c5f3bcf3492c4a9bc74fe93c6ed6a86137ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568131"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530644"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Azure 방화벽 위협 인텔리전스 구성
 

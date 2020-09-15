@@ -1,25 +1,27 @@
 ---
-title: 대칭 키를 사용 하 여 레거시 장치 프로 비전-Azure IoT Hub 장치 프로 비전 서비스
-description: 장치 프로 비전 서비스 (DPS) 인스턴스로 대칭 키를 사용 하 여 레거시 장치를 프로 비전 하는 방법
+title: 대칭 키를 사용 하 여 장치 프로 비전-Azure IoT Hub 장치 프로 비전 서비스
+description: 장치 프로 비전 서비스 (DPS) 인스턴스로 대칭 키를 사용 하 여 장치를 프로 비전 하는 방법
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: eliotga
+ms.openlocfilehash: f67ed44fffe6bd690d6bd76fcefa19d9ee23e52b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434704"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529403"
 ---
-# <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>대칭 키를 사용하여 레거시 디바이스를 프로비전하는 방법
+# <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>대칭 키 등록 그룹을 사용 하 여 장치를 프로 비전 하는 방법
 
-많은 레거시 디바이스의 일반적인 문제는 종종 단일 정보 부분으로 구성된 ID가 있다는 것입니다. 이 ID 정보는 일반적으로 MAC 주소 또는 일련 번호입니다. 레거시 디바이스에는 디바이스를 안전하게 식별하는 데 사용할 수 있는 인증서, TPM 또는 다른 보안 기능이 없을 수 있습니다. IoT 허브에 대한 디바이스 프로비저닝 서비스는 대칭 키 증명을 포함합니다. MAC 주소 또는 일련 번호와 같은 정보 기반 디바이스를 식별하는 데 대칭 키 증명을 사용할 수 있습니다.
+이 문서에서는 등록 그룹을 사용 하 여 여러 대칭 키 장치를 단일 IoT Hub에 안전 하 게 프로 비전 하는 방법을 보여 줍니다.
 
-[HSM(하드웨어 보안 모듈)](concepts-security.md#hardware-security-module) 및 인증서를 쉽게 설치할 수 있는 경우 디바이스를 식별하고 프로비전하는 더 나은 방법이 될 수 있습니다. 해당 방법을 통해 모든 디바이스에 배포되는 코드를 업데이트하지 않을 수 있으므로 디바이스 이미지에 포함된 비밀 키가 없습니다.
+일부 장치에는 장치를 안전 하 게 식별 하는 데 사용할 수 있는 인증서, TPM 또는 기타 보안 기능이 없을 수 있습니다. 장치 프로 비전 서비스에는 [대칭 키 증명이](concepts-symmetric-key-attestation.md)포함 됩니다. 대칭 키 증명을 사용 하 여 MAC 주소 또는 일련 번호와 같은 고유한 정보를 기반으로 장치를 식별할 수 있습니다.
+
+[HSM(하드웨어 보안 모듈)](concepts-service.md#hardware-security-module) 및 인증서를 쉽게 설치할 수 있는 경우 디바이스를 식별하고 프로비전하는 더 나은 방법이 될 수 있습니다. 해당 방법을 통해 모든 디바이스에 배포되는 코드를 업데이트하지 않을 수 있으므로 디바이스 이미지에 포함된 비밀 키가 없습니다.
 
 이 문서에서는 HSM 또는 인증서가 모두 실행 가능한 옵션이 아니라고 가정합니다. 그러나 이러한 디바이스를 프로비전하는 디바이스 프로비저닝 서비스를 사용하기 위해 디바이스 코드를 업데이트하는 몇 가지 방법이 있다고 가정합니다. 
 
@@ -47,7 +49,7 @@ ms.locfileid: "75434704"
 
 다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
 
-* ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
+* ['C++를 사용한 데스크톱 개발'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
 
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
@@ -73,7 +75,7 @@ SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있�
 
     이 작업을 완료하는 데 몇 분 정도가 걸립니다.
 
-4. Git 리포지토리의 루트 디렉터리에서 `cmake` 하위 디렉터리를 만들고 해당 폴더로 이동합니다. `azure-iot-sdk-c` 디렉터리에서 다음 명령을 실행합니다.
+4. `cmake`Git 리포지토리의 루트 디렉터리에 하위 디렉터리를 만들고 해당 폴더로 이동 합니다. `azure-iot-sdk-c` 디렉터리에서 다음 명령을 실행합니다.
 
     ```cmd/sh
     mkdir cmake
@@ -147,7 +149,8 @@ sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 
 디바이스 키를 생성하려면 그룹 마스터 키를 사용하여 디바이스에 대한 고유한 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)을 계산하고 결과를 Base64 형식으로 변환합니다.
 
-디바이스 코드에 그룹 마스터 키는 포함하지 않습니다.
+> [!WARNING]
+> 장치 코드는 개별 장치에 대해 파생 된 장치 키만 포함 해야 합니다. 디바이스 코드에 그룹 마스터 키는 포함하지 않습니다. 손상 된 마스터 키로 인해 인증 되는 모든 장치의 보안이 손상 될 수 있습니다.
 
 
 #### <a name="linux-workstations"></a>Linux 워크스테이션

@@ -3,19 +3,19 @@ title: Video Indexer를 사용할 수 있는 지역 - Azure
 titleSuffix: Azure Media Services
 description: 이 문서에서는 Azure Media Services Video Indexer을 사용할 수 있는 Azure 지역에 대해 설명 합니다.
 services: media-services
-author: anikaz
-manager: johndeu
+author: Juliako
+manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/08/2020
-ms.author: kumud
-ms.openlocfilehash: dd95f022e40b9ae6fa60a6536a87146049c53b68
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.date: 09/14/2020
+ms.author: juliako
+ms.openlocfilehash: 6ebdb22f50efbefc695f9752c6e6fc333571828c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565330"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530943"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Video Indexer가 있는 Azure 지역
 
@@ -23,7 +23,18 @@ Video Indexer API에는 호출을 라우팅할 Azure 지역으로 설정해야 �
 
 ## <a name="locations"></a>위치
 
-`location`매개 변수에는 Azure 지역 코드 이름을 해당 값으로 지정 해야 합니다. 미리 보기 모드에서 Video Indexer를 사용 하는 경우 값으로을 입력 해야 합니다 `"trial"` . `trial``location`매개 변수의 기본값입니다. 그렇지 않으면, 계정이 있고 호출을 라우팅해야 하는 Azure 지역의 코드 이름을 가져오기 위해 [Azure CLI](/cli/azure)에서 다음 줄을 실행할 수 있습니다.
+`location`매개 변수에는 Azure 지역 코드 이름을 해당 값으로 지정 해야 합니다. 미리 보기 모드에서 Video Indexer를 사용 하는 경우 값으로을 입력 해야 합니다 `"trial"` . `trial``location`매개 변수의 기본값입니다. 그렇지 않고, 계정이 있는 Azure 지역의 코드 이름을 가져오고 호출을 라우팅해야 하는 경우 Azure Portal를 사용 하거나 [Azure CLI](/cli/azure) 명령을 실행할 수 있습니다.
+
+### <a name="azure-portal"></a>Azure portal
+
+1. [Video Indexer](https://www.videoindexer.ai/) 웹 사이트에서 로그인합니다.
+1. 페이지의 오른쪽 위 모서리에서 **사용자 계정** 을 선택 합니다.
+1. 오른쪽 위 모서리에서 계정의 위치를 찾습니다.  
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/location/location1.png" alt-text="위치":::
+    
+###  <a name="cli-command"></a>CLI 명령
 
 ```azurecli-interactive
 az account list-locations

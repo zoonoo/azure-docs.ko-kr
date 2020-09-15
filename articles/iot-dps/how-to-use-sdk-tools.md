@@ -1,21 +1,21 @@
 ---
 title: Azure IoT Hub 장치 프로 비전 서비스 Sdk 도구 사용
 description: 이 문서에서는 개발을 위해 Azure IoT Hub 장치 프로 비전 서비스 (DPS) Sdk에서 제공 되는 도구를 검토 합니다.
-author: robinsh
-ms.author: robinsh
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b817b3cfe47ed08cae9e7e0b1c2c24363f2ccfed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28d682a9ca698afb72d08b4d111562c725d46996
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691631"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530848"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>SDK에서 제공된 도구를 사용하여 프로비전할 개발을 간소화하는 방법
-IoT Hub Device Provisioning 서비스는 안전하고 확장 가능한 방식으로 Just-In-Time 무인 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 프로비전 프로세스를 간소화합니다.  X.509 인증서 또는 TPM(신뢰할 수 있는 플랫폼 모듈)의 형식인 보안 증명이 필요합니다.  Microsoft는 [다른 보안 하드웨어 파트너](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)와도 협력하여 IoT 배포를 보호하는 경우에 신뢰성을 향상시킵니다. 하드웨어 보안 요구 사항을 이해하는 것은 개발자에게 매우 어려울 수 있습니다. 개발자가 프로비전 서비스와 통신하는 클라이언트를 작성하는 편의 계층을 사용할 수 있도록 일련의 Azure IoT Provisioning SDK가 제공됩니다. 또한 SDK에서는 개발에서 보안 증명을 간소화하기 위한 도구 집합뿐만 아니라 일반적인 시나리오에 대한 샘플을 제공합니다.
+IoT Hub Device Provisioning Service는 안전 하 고 확장 가능한 방식으로 터치 (just-in-time) [프로 비전](about-iot-dps.md#provisioning-process) 을 사용 하 여 프로 비전 프로세스를 간소화 합니다.  X.509 인증서 또는 TPM(신뢰할 수 있는 플랫폼 모듈)의 형식인 보안 증명이 필요합니다.  Microsoft는 [다른 보안 하드웨어 파트너](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)와도 협력하여 IoT 배포를 보호하는 경우에 신뢰성을 향상시킵니다. 하드웨어 보안 요구 사항을 이해하는 것은 개발자에게 매우 어려울 수 있습니다. 개발자가 프로비전 서비스와 통신하는 클라이언트를 작성하는 편의 계층을 사용할 수 있도록 일련의 Azure IoT Provisioning SDK가 제공됩니다. 또한 SDK에서는 개발에서 보안 증명을 간소화하기 위한 도구 집합뿐만 아니라 일반적인 시나리오에 대한 샘플을 제공합니다.
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>TPM(신뢰할 수 있는 플랫폼 모듈) 시뮬레이터
 [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security)은 플랫폼을 인증하는 키를 안전하게 저장하기 위한 표준을 참조할 수 있거나 표준을 구현하는 모듈과 상호 작용하는 데 사용되는 I/O 인터페이스를 참조할 수 있습니다. TPM은 별도 하드웨어, 통합된 하드웨어, 펌웨어 기반 또는 소프트웨어 기반으로 존재할 수 있습니다.  프로덕션에서 TPM은 별도 하드웨어, 통합 하드웨어로 또는 펌웨어 기반인 디바이스에 위치합니다. 테스트 단계에서 소프트웨어 기반 TPM 시뮬레이터는 개발자에게 제공됩니다.  지금은 이 시뮬레이터를 Windows 플랫폼에서 개발하는 경우에만 사용할 수 있습니다.

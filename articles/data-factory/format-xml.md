@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: a11b72024188fa434374110d9ce9e8cc69b2c6f0
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 12e6ae9dd14ebafb1da6bfbcfef64e2d65e876d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060971"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531715"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Azure Data Factory의 XML 형식
 
@@ -28,14 +28,14 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure Bl
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 XML 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-| 속성         | Description                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 집합의 type 속성은 **Xml**로 설정 해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는의 고유한 위치 유형 및 지원 되는 속성이 있습니다 `location` . **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
 | encodingName     | 테스트 파일을 읽고 쓰는 데 사용 되는 인코딩 형식입니다. <br>허용 되는 값은 다음과 같습니다. "UTF-8", "UTF-16", "UTF-16 be", "32 UTF-8", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "조합", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| 아니요       |
 | nullValue | Null 값의 문자열 표현을 지정 합니다.<br/>기본값은 **빈 문자열**입니다. | 아니요 |
 | 압축 | 파일 압축을 구성 하는 속성의 그룹입니다. 작업 실행 중 압축/압축 해제를 수행 하려는 경우이 섹션을 구성 합니다. | 예 |
-| type<br>(*아래 `compression` *) | XML 파일을 읽고 쓰는 데 사용 되는 압축 코덱입니다. <br>허용 되는 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **snappy**또는 **lz4**입니다. 기본값은 압축 되지 않습니다.<br>**참고** 현재 복사 작업은 "snappy" & "lz4"을 지원 하지 않으며 매핑 데이터 흐름은 "ZipDeflate"를 지원 하지 않습니다.<br>**참고** 복사 작업을 사용 하 여 **ZipDeflate** / **TarGzip** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때 기본적으로 파일은 폴더로 추출 됩니다. 즉 `<path specified in dataset>/<folder named as source compressed file>/` , `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` [복사 작업 원본](#xml-as-source) 에서를 사용 하 여 zip 파일 이름을 폴더 구조로 유지할지 여부를 제어 합니다. | 아니요.  |
+| type<br>(*아래 `compression` *) | XML 파일을 읽고 쓰는 데 사용 되는 압축 코덱입니다. <br>허용 되는 값은 **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **snappy**또는 **lz4**입니다. 기본값은 압축 되지 않습니다.<br>**참고** 현재 복사 작업은 "snappy" & "lz4"을 지원 하지 않으며 매핑 데이터 흐름은 "ZipDeflate"를 지원 하지 않습니다.<br>**참고** 복사 작업을 사용 하 여 **ZipDeflate** / **TarGzip** 파일의 압축을 풀고 파일 기반 싱크 데이터 저장소에 쓸 때 기본적으로 파일은 폴더로 추출 됩니다. 즉 `<path specified in dataset>/<folder named as source compressed file>/` , `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` [복사 작업 원본](#xml-as-source) 에서를 사용 하 여 압축 된 파일의 이름을 폴더 구조로 유지할지 여부를 제어 합니다. | 아니요.  |
 | 수준<br/>(*아래 `compression` *) | 압축 비율입니다. <br>허용 되는 값은 **최적** 또는 **가장 빠릅니다**.<br>- **가장 빠름:** 압축 작업은 결과 파일이 최적으로 압축 되지 않은 경우에도 최대한 빨리 완료 되어야 합니다.<br>- **최적**: 작업을 완료 하는 데 시간이 더 오래 걸리는 경우에도 압축 작업을 최적으로 압축 해야 합니다. 자세한 내용은 [압축 수준](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) 항목을 참조하세요. | 아니요       |
 
 다음은 Azure Blob Storage에 대 한 XML 데이터 집합의 예입니다.
@@ -73,7 +73,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure Bl
 
 복사 작업 *** \* 원본 \* *** 섹션에서 지원 되는 속성은 다음과 같습니다. [XML 커넥터 동작](#xml-connector-behavior)에서 자세히 알아보세요.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성을 **Xmlsource**로 설정 해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **XML 읽기 설정** 표를 참조 하세요. | 아니요       |
@@ -81,7 +81,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure Bl
 
 에서 지원 되는 **XML 읽기 설정** `formatSettings` :
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | FormatSettings의 형식은 **Xmlreadsettings**로 설정 되어야 합니다. | 예      |
 | validationMode | XML 스키마의 유효성을 검사할지 여부를 지정 합니다.<br>허용 되는 값은 **none** (기본값, 유효성 검사 안 함), **xsd** (xsd 사용 유효성 검사), **dtd** (dtd를 사용 하 여 유효성 검사)입니다. | 아니요 |
@@ -98,7 +98,7 @@ XML 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure Bl
 
 다음 표에서는 XML 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다. [XML 커넥터 동작](#xml-connector-behavior)에서 자세히 알아보세요. 인라인 데이터 집합을 사용 하는 경우 [데이터 집합 속성](#dataset-properties) 섹션에 설명 된 속성과 동일한 추가 파일 설정이 표시 됩니다. 
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치 하는 모든 파일이 처리 됩니다. 데이터 집합에 설정 된 폴더 및 파일 경로를 재정의 합니다. | 아니요 | String[] | wildcardPaths |
 | 파티션 루트 경로 | 분할 된 파일 데이터의 경우 분할 된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | 예 | String | 파티션 (partitionRootPath) |

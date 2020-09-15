@@ -5,16 +5,16 @@ description: Visual Studio Code를 사용 하 여 Azure Machine Learning 코드,
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
+ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 1449114ad14ebbd064f95ad2853b516893ba4b12
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 08859eb87431b59e8be68369ce8f3876aa7d9f21
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661682"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530304"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
 
@@ -26,7 +26,7 @@ Visual Studio Code (VS Code) 및 [depugpy](https://github.com/microsoft/debugpy/
 
 ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버깅 해야 하는 경우도 있습니다. VS Code 및 debugpy를 사용 하 여 학습 환경에서 실행 되는 코드에 연결할 수 있습니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 * __Azure Virtual Network__를 사용 하도록 구성 된 __Azure Machine Learning 작업 영역__ 입니다.
 * 파이프라인 단계의 일부로 Python 스크립트를 사용 하는 __Azure Machine Learning 파이프라인__ 입니다. 예를 들면 PythonScriptStep입니다.

@@ -5,16 +5,16 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: b97b373936f9c485eaa96cdd34ed33c49e75ad9a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 09/14/2020
+ms.openlocfilehash: 3f7796dd565238eb853fcea431a6bcb7d18ee05a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242069"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530236"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 PostgreSQL 확장-단일 서버
-PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장은 단일 명령을 사용 하 여 데이터베이스에서 로드 하거나 제거할 수 있는 단일 패키지에서 여러 관련 SQL 개체를 함께 번들로 묶습니다. 데이터베이스에 로드 된 후 확장은 기본 제공 기능 처럼 작동 합니다.
+# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 PostgreSQL 확장
+PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장은 단일 명령을 사용하여 데이터베이스에서 로드하거나 제거할 수 있는 단일 패키지에서 여러 관련 SQL 개체를 함께 번들로 묶습니다. 데이터베이스에 로드한 확장은 기본 제공 기능처럼 작동합니다.
 
 ## <a name="how-to-use-postgresql-extensions"></a>PostgreSQL 확장을 사용하는 방법
 PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치 하려면 [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html)   psql 도구에서 CREATE extension 명령을 실행 하 여 패키지 된 개체를 데이터베이스에 로드 합니다.
@@ -26,7 +26,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 11이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다. 
 
 > [!div class="mx-tableFixed"]
-> | **확장**| **확장 버전** | **설명** |
+> | **내선 번호**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US 데이터 집합 예제|
@@ -71,7 +71,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 10이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | **확장**| **확장 버전** | **설명** |
+> | **내선 번호**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US 데이터 집합 예제|
@@ -117,7 +117,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 9.6이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | **확장**| **확장 버전** | **설명** |
+> | **내선 번호**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.2           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.2           | Address Standardizer US 데이터 집합 예제|
@@ -163,7 +163,7 @@ Azure Database for PostgreSQL은 아래에 나열 된 대로 키 확장의 하�
 다음 확장은 Postgres 버전 9.5이 있는 Azure Database for PostgreSQL 서버에서 사용할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
-> | **확장**| **확장 버전** | **설명** |
+> | **내선 번호**| **확장 버전** | **설명** |
 > |---|---|---|
 > |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.0           | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. |
 > |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.0           | Address Standardizer US 데이터 집합 예제|
@@ -228,7 +228,7 @@ Postgres 11 이상에서 사전 준비를 [자동으로](https://www.postgresql.
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB는 PostgreSQL에 대 한 확장으로 패키지 되는 시계열 데이터베이스입니다. TimescaleDB는 시계열 워크 로드에 대 한 시간 기반 분석 함수, 최적화 및 크기 조정 Postgres를 제공 합니다.
 
-[TimescaleDB에 대 한 자세한](https://docs.timescale.com/latest)정보, 시간 간격의 등록 상표 [, inc.](https://www.timescale.com/). Azure Database for PostgreSQL는 날짜 표시줄의 오픈 소스 버전을 제공 합니다. 이 버전에서 사용할 수 있는 날짜/시간 기능에 대 한 자세한 내용은 날짜/시간 [제품 비교](https://www.timescale.com/products/)를 참조 하세요.
+[TimescaleDB에 대 한 자세한](https://docs.timescale.com/latest)정보, 시간 간격의 등록 상표 [, inc.](https://www.timescale.com/). TimescaleDB는 [Apache-2 버전](https://www.timescale.com/legal/licenses)을 제공 합니다. Azure Database for PostgreSQL
 
 ### <a name="installing-timescaledb"></a>TimescaleDB 설치
 TimescaleDB를 설치 하려면 서버의 공유 프리 로드 라이브러리에 포함 해야 합니다. Postgres의 매개 변수를 변경 하려면 `shared_preload_libraries` **서버를 다시 시작** 해야 합니다. [Azure Portal](howto-configure-server-parameters-using-portal.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용 하 여 매개 변수를 변경할 수 있습니다.

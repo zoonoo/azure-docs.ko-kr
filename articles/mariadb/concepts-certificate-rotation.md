@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: ba5a1a0eb61ca086c3cd1ea66acddc18e950871d
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3c91da6a9bfc7bfa23255dbc1c0c76d2f59818f1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057249"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530559"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 루트 CA 변경의 변경 내용 이해
 
@@ -87,15 +87,15 @@ SSL/TLS를 사용 하지 않는 경우 아무 작업도 필요 하지 않습니�
 아니요, 새 인증서 사용을 시작 하기 위해 데이터베이스 서버를 다시 시작할 필요는 없습니다. 이는 클라이언트 쪽 변경 이며 들어오는 클라이언트 연결은 새 인증서를 사용 하 여 데이터베이스 서버에 연결할 수 있는지 확인 해야 합니다.
 
 ### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3.2020 (10/26/2020) 10 월 26 일 이전에 루트 인증서를 업데이트 하지 않으면 어떻게 되나요?
-2020 년 11 월 30 일 이전에 루트 인증서를 업데이트 하지 않은 경우 SSL/TLS를 통해 연결 하 고 루트 인증서를 확인 하는 응용 프로그램은 해당 응용 프로그램에서 Aadb 데이터베이스 서버와 통신할 수 없으며, 응용 프로그램에서이 데이터베이스 서버에 대 한 연결 문제가 발생 합니다.
+2020 년 10 월 26 일 이전에 루트 인증서를 업데이트 하지 않은 경우 SSL/TLS를 통해 연결 하 고 루트 인증서를 확인 하는 응용 프로그램은 해당 응용 프로그램에서 Aadb 데이터베이스 서버와 통신할 수 없으며, 응용 프로그램에서이 데이터베이스 서버에 대 한 연결 문제가 발생 합니다.
 
 ### <a name="4-do-i-need-to-plan-a-maintenance-downtime-for-this-changebr"></a>4. 이러한 변경에 대 한 유지 관리 가동 중지 시간을 계획 해야 하나요?<BR>
-아닙니다. 여기서 변경 내용은 데이터베이스 서버에 연결 하기 위한 클라이언트 쪽에만 해당 되므로이 변경에 대 한 유지 관리 가동 중지 시간은 없습니다.
+아니요. 여기서 변경 내용은 데이터베이스 서버에 연결 하기 위한 클라이언트 쪽에만 해당 되므로이 변경에 대 한 유지 관리 가동 중지 시간은 없습니다.
 
 ### <a name="5--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>5.2020 (10/26/2020)의 10 월 26 일 이전에이 변경에 대 한 예약 된 가동 중지 시간을 얻을 수 없는 경우 어떻게 하나요?
 서버에 연결 하는 데 사용 되는 클라이언트는 [여기](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)의 수정 섹션에 설명 된 대로 인증서 정보를 업데이트 해야 하므로이 경우 서버에 대 한 가동 중지 시간이 필요 하지 않습니다.
 
-###  <a name="6-if-i-create-a-new-server-after-nov-30th-will-i-be-impacted"></a>6.11 월 30 일 이후에 새 서버를 만드는 경우 영향을 받게 되나요?
+###  <a name="6-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>6.2020 년 10 월 26 일 이후에 새 서버를 만드는 경우 영향을 받게 되나요?
 2020 (10/26/2020) 10 월 26 일 이후에 만들어진 서버의 경우 새로 발급 된 인증서를 사용 하 여 응용 프로그램에서 SSL을 사용 하 여 연결할 수 있습니다.
 
 ### <a name="7-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>7. Microsoft에서 인증서를 업데이트 하는 빈도 또는 만료 정책 이란?

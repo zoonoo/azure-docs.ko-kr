@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 558a03cee4d3183debac2492d798e40d49d58881
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 7be92289d293798393ead3562c39721d46ce561b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061634"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531851"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Azure Data Factory의 Avro 형식
 
@@ -28,7 +28,7 @@ Avro 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure B
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Avro 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-| 속성         | Description                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 집합의 type 속성은 **Avro**로 설정 되어야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는의 고유한 위치 유형 및 지원 되는 속성이 있습니다 `location` . **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
@@ -69,7 +69,7 @@ Avro 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure B
 
 복사 작업 *** \* 원본 \* *** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **Avrosource**로 설정 해야 합니다. | 예      |
 | 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings` 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
@@ -78,7 +78,7 @@ Avro 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure B
 
 복사 작업 *** \* 싱크 \* *** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **Avrosink**로 설정 해야 합니다. | 예      |
 | formatSettings          | 속성 그룹입니다. 아래의 **Avro 쓰기 설정** 표를 참조 하세요.| 아니요      |
@@ -86,11 +86,11 @@ Avro 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure B
 
 지원 되는 **Avro 쓰기 설정은** `formatSettings` 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수                                              |
+| 속성      | 설명                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | FormatSettings의 형식을 **Avrowritesettings**로 설정 해야 합니다. | 예                                                   |
 | maxRowsPerFile | 폴더에 데이터를 쓸 때 여러 파일에 쓰도록 선택 하 고 파일당 최대 행 수를 지정할 수 있습니다.  | 아니요 |
-| fileNamePrefix | 여러 파일에 데이터를 쓸 때 파일 이름 접두사를 지정 합니다 .이 패턴은 `<fileNamePrefix>_00000.<fileExtension>` 입니다. 지정 하지 않으면 파일 이름 접두사가 자동으로 생성 됩니다. 원본이 파일 기반 저장소나 [파티션 옵션 사용 데이터 저장소](copy-activity-performance-features.md)인 경우에는이 속성이 적용 되지 않습니다.  | 아니요 |
+| fileNamePrefix | `maxRowsPerFile`이 구성 된 경우에 적용 됩니다.<br> 여러 파일에 데이터를 쓸 때 파일 이름 접두사를 지정 합니다 .이 패턴은 `<fileNamePrefix>_00000.<fileExtension>` 입니다. 지정 하지 않으면 파일 이름 접두사가 자동으로 생성 됩니다. 원본이 파일 기반 저장소나 [파티션 옵션 사용 데이터 저장소](copy-activity-performance-features.md)인 경우에는이 속성이 적용 되지 않습니다.  | 아니요 |
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
@@ -100,7 +100,7 @@ Avro 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure B
 
 다음 표에서는 avro 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치 하는 모든 파일이 처리 됩니다. 데이터 집합에 설정 된 폴더 및 파일 경로를 재정의 합니다. | no | String[] | wildcardPaths |
 | 파티션 루트 경로 | 분할 된 파일 데이터의 경우 분할 된 폴더를 열로 읽기 위해 파티션 루트 경로를 입력할 수 있습니다. | no | String | 파티션 (partitionRootPath) |
@@ -113,7 +113,7 @@ Avro 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure B
 
 다음 표에서는 avro 싱크에 의해 지원 되는 속성을 나열 합니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | no | `true` 또는 `false` | truncate |
 | 파일 이름 옵션 | 작성 된 데이터의 명명 형식입니다. 기본적으로 파티션 당 한 파일은 형식입니다. `part-#####-tid-<guid>` | no | 패턴: 문자열 <br> 파티션 당: String [] <br> Column: String의 데이터로 <br> 단일 파일로 출력: `['<fileName>']`  | filePattern <br> 파티션 파일 이름 <br> rowUrlColumn <br> 파티션 파일 이름 |

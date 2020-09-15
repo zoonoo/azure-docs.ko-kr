@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b24514ed477d1acd31dbc4ef0daa3aa89b8739f9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956375"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530831"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 여러 프런트 엔드
 
@@ -163,6 +163,7 @@ netsh interface ipv4 set interface “interfacename” weakhostsend=enabled
 
 * 다중 프런트 엔드 구성은 IaaS VM에서만 지원됩니다.
 * 부동 IP 규칙을 사용 하는 경우 응용 프로그램은 아웃 바운드 SNAT 흐름에 기본 IP 구성을 사용 해야 합니다. 응용 프로그램이 게스트 OS에서 루프백 인터페이스에 구성 된 프런트 엔드 IP 주소에 바인딩하는 경우 아웃 바운드 흐름을 다시 작성 하는 데 Azure의 아웃 바운드 SNAT를 사용할 수 없으며 흐름이 실패 합니다.  [아웃 바운드 시나리오](load-balancer-outbound-connections.md)를 검토 합니다.
+* 부동 IP는 현재 Load Balancing 시나리오의 보조 IP 구성에서 지원되지 않습니다.
 * 공용 IP 주소는 대금 청구에 영향을 미칩니다. 자세한 내용은 [IP 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * 구독 제한이 적용됩니다. 자세한 내용은 [서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) 을 참조하세요.
 

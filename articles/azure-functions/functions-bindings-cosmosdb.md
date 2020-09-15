@@ -1,17 +1,17 @@
 ---
 title: Functions 1.x에 대한 Azure Cosmos DB 바인딩
-description: Azure Functions에서 Azure Cosmos DB 트리거 및 바인딩을 사용하는 방법을 파악합니다.
+description: Azure Functions 1.x에서 Azure Cosmos DB 트리거와 바인딩을 사용 하는 방법을 이해 합니다.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 8ae7613eea4b952c079be90b05e615087ea80a32
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9ae3ef133fa1b246c09fe0a9aa4ec27b0f75fd19
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214161"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531579"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Functions 1.x의 Azure Cosmos DB 바인딩
 
@@ -1143,7 +1143,7 @@ JavaScript에서는 특성을 지원하지 않습니다.
 
 ---
 
-## <a name="output"></a>출력
+## <a name="output"></a>결과
 
 Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이스에 SQL API를 사용하여 새 문서를 작성할 수 있습니다.
 

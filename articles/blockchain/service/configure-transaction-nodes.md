@@ -4,12 +4,12 @@ description: Azure Blockchain 서비스 트랜잭션 노드를 구성 하는 방
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212567"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530389"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Azure Blockchain 서비스 트랜잭션 노드 구성
 
@@ -37,7 +37,7 @@ ms.locfileid: "85212567"
 
     | Setting | 설명 |
     |---------|-------------|
-    | 이름 | 트랜잭션 노드 이름입니다. 트랜잭션 노드 엔드포인트에 대한 DNS 주소를 만드는 데 사용됩니다. 예: `newnode-myblockchainmember.blockchain.azure.com`. 노드 이름을 만든 후에는 변경할 수 없습니다. |
+    | 이름 | 트랜잭션 노드 이름입니다. 트랜잭션 노드 엔드포인트에 대한 DNS 주소를 만드는 데 사용됩니다. 예들 들어 `newnode-myblockchainmember.blockchain.azure.com`입니다. 노드 이름을 만든 후에는 변경할 수 없습니다. |
     | 암호 | 강력한 암호를 설정 합니다. 기본 인증을 사용 하 여 트랜잭션 노드 끝점에 액세스 하려면 암호를 사용 합니다.
 
 1. **만들기**를 선택합니다.
@@ -52,7 +52,7 @@ ms.locfileid: "85212567"
 
 1. Azure Portal에서 Azure Blockchain 서비스 구성원 트랜잭션 노드 중 하나로 이동 하 고 **개요**를 선택 합니다.
 
-    ![엔드포인트](./media/configure-transaction-nodes/endpoints.png)
+    ![화면 캡처는 블록 체인 구성원의 트랜잭션 노드에 대 한 개요를 보여 줍니다.](./media/configure-transaction-nodes/endpoints.png)
 
 트랜잭션 노드 끝점은 안전 하며 인증을 요구 합니다. Azure AD 인증, HTTPS 기본 인증을 사용 하 고 HTTPS 또는 TLS를 통한 Websocket을 통해 액세스 키를 사용 하 여 트랜잭션 끝점에 연결할 수 있습니다.
 

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 871f2b49e2dce9d762ef8a54923da04b0f24e4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: 71f5488b1f689e8892155b013730bcbb3c8e0e35
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606528"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531929"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 집계 변환
 
@@ -29,17 +29,18 @@ ms.locfileid: "81606528"
 
 Group by 절은 집계 변환에서 선택 사항입니다.
 
-## <a name="aggregate-column"></a>집계 열 
+## <a name="aggregate-columns"></a>열 집계
 
-집계 **탭으로 이동 하 여 집계** 식을 작성 합니다. 기존 열을 집계로 덮어쓰거나 새 이름을 사용 하 여 새 필드를 만들 수 있습니다. 열 이름 선택기 옆의 오른쪽 상자에 집계 식이 입력 됩니다. 식을 편집 하려면 입력란을 클릭 하 여 식 작성기를 엽니다. 집계를 더 추가 하려면 기존 식 위로 마우스를 이동 하 고 더하기 아이콘을 클릭 하 여 새 집계 열 또는 [열 패턴](concepts-data-flow-column-pattern.md)을 만듭니다.
+집계 **탭으로 이동 하 여 집계** 식을 작성 합니다. 기존 열을 집계로 덮어쓰거나 새 이름을 사용 하 여 새 필드를 만들 수 있습니다. 열 이름 선택기 옆의 오른쪽 상자에 집계 식이 입력 됩니다. 식을 편집 하려면 입력란을 클릭 하 고 식 작성기를 엽니다. 더 많은 집계 열을 추가 하려면 열 목록 위에 있는 **추가** 를 클릭 하거나 기존 집계 열 옆에 있는 더하기 아이콘을 클릭 합니다. **열 추가** 또는 **열 패턴 추가**를 선택합니다. 각 집계 식에는 집계 함수가 하나 이상 포함 되어야 합니다.
 
-각 집계 식에는 집계 함수가 하나 이상 포함 되어야 합니다.
-
-![집계 변환 집계 설정](media/data-flow/agg2.png "집계 변환 집계 설정")
-
+![집계 설정](media/data-flow/aggregate-columns.png "집계 설정")
 
 > [!NOTE]
 > 디버그 모드에서 식 작성기는 집계 함수를 사용 하 여 데이터 미리 보기를 생성할 수 없습니다. 집계 변환에 대 한 데이터 미리 보기를 보려면 식 작성기를 닫고 ' 데이터 미리 보기 ' 탭을 통해 데이터를 확인 합니다.
+
+### <a name="column-patterns"></a>열 패턴
+
+열 [패턴](concepts-data-flow-column-pattern.md) 을 사용 하 여 열 집합에 동일한 집계를 적용할 수 있습니다. 이 기능은 입력 스키마가 기본적으로 삭제 될 때 많은 열을 유지 하려는 경우에 유용 합니다. 와 같은 추론을 사용 `first()` 하 여 집계를 통해 입력 열을 유지 합니다.
 
 ## <a name="reconnect-rows-and-columns"></a>행 및 열 다시 연결
 

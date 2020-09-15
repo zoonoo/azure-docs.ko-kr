@@ -1,6 +1,6 @@
 ---
 title: Synapse Studio에서 Apache Spark 응용 프로그램을 모니터링 하는 방법
-description: Synapse Studio를 사용 하 여 Apache Spark 응용 프로그램을 모니터링 합니다.
+description: Synapse Studio를 사용 하 여 Apache Spark 응용 프로그램을 모니터링 하는 방법을 알아봅니다.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: b5ad9e6a448747ac8f33829b1137b1af434e7a9c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 2b8dbd20e79b9a6f48ca2d39079ebb452a3b46b2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385588"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530814"
 ---
 # <a name="use-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Synapse Studio (미리 보기)를 사용 하 여 Apache Spark 응용 프로그램 모니터링
 

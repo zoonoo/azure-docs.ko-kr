@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba4f67f924455b911d76426231cc71b661faf4a0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 994c2c3124d6822f047af942268ad7a401d5a976
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020340"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531562"
 ---
 # <a name="symmetric-key-attestation"></a>대칭 키 증명
 
 이 문서에서는 Device Provisioning Service에서 대칭 키를 사용하는 경우 ID 증명 프로세스에 대해 설명합니다. 
 
-대칭 키 증명은 Device Provisioning Service 인스턴스로 디바이스를 인증하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](concepts-tpm-attestation.md) 또는 [X.509 인증서](concepts-security.md#x509-certificates)를 사용하는 디바이스 증명은 더욱 안전하며, 보다 엄격한 보안 요구 사항에 사용해야 합니다.
+대칭 키 증명은 Device Provisioning Service 인스턴스로 디바이스를 인증하는 간단한 방법입니다. 이 증명 방법은 디바이스 프로비저닝을 처음 사용하는 개발자나 엄격한 보안 요구 사항이 없는 개발자를 위한 "Hello World" 환경을 나타냅니다. [TPM](concepts-tpm-attestation.md) 또는 [X.509 인증서](concepts-x509-attestation.md)를 사용하는 디바이스 증명은 더욱 안전하며, 보다 엄격한 보안 요구 사항에 사용해야 합니다.
 
 대칭 키 등록은 레거시 디바이스에 대한 유용한 방법을 제공하며 Azure IoT를 통해 클라우드로 부트스트랩할 수 있는 보안 기능이 제한됩니다. 레거시 디바이스에서 대칭 키 증명에 대한 자세한 내용은 [레거시 디바이스에서 대칭 키를 사용하는 방법](how-to-legacy-device-symm-key.md)을 참조하세요.
 
@@ -109,12 +109,12 @@ String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(mas
 
 각 디바이스의 ID는 공장에서 설치된 등록 ID 및 파생 디바이스 키로 표시됩니다. 디바이스 키는 다른 위치로 절대 복사되지 않으며 그룹 키는 디바이스에 절대 저장되지 않습니다.
 
-디바이스 키가 공장에서 설치되지 않은 경우, [하드웨어 보안 모듈 HSM](concepts-security.md#hardware-security-module)을 사용하여 디바이스 ID를 안전하게 저장해야 합니다.
+디바이스 키가 공장에서 설치되지 않은 경우, [하드웨어 보안 모듈 HSM](concepts-service.md#hardware-security-module)을 사용하여 디바이스 ID를 안전하게 저장해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 대칭 키 증명에 대해 이해했으면, 다음 문서에서 자세한 내용을 확인해보십시오.
 
 * [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
-* [자동 프로비전의 개념에 대해 알아보기](./concepts-auto-provisioning.md)
+* [프로 비전의 개념에 대해 알아보기](about-iot-dps.md#provisioning-process)
 * [자동 프로비전 사용 시작](./quick-setup-auto-provision.md) 

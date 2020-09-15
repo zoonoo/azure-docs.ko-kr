@@ -1,24 +1,24 @@
 ---
 title: Azure HDInsight에서 서비스를 시작할 때의 포트 충돌
-description: Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법입니다.
+description: Azure HDInsight 클러스터와 상호 작용할 때 발생 하는 포트 충돌 문제에 대 한 문제 해결 단계 및 가능한 해결 방법입니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
-ms.openlocfilehash: 4cb0d464a82d8da0a09f5391eb1d06dfacd84290
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d39f31e9d52359d0c91317280a7f8db06c1c1b0
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76776223"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530967"
 ---
 # <a name="scenario-port-conflict-when-starting-services-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 서비스를 시작할 때 포트 충돌
 
 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
-## <a name="issue"></a>문제점
+## <a name="issue"></a>문제
 
 서비스를 시작 하지 못했습니다.
 

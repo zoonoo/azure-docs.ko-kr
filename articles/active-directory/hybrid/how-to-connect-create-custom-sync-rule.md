@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect에서 동기화 규칙을 사용자 지정하는 방법 | Microsoft Docs
-description: 이 토픽에서는 Azure AD Connect 설치 문제를 해결하는 단계를 안내합니다.
+description: 동기화 규칙 편집기를 사용 하 여 새 동기화 규칙을 편집 하거나 만드는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f33cbb8caaf81b862198d694b0562d461de8a74
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: e2bb86988454141dc692b4a9967997c4ff7574a2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279281"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530491"
 ---
 # <a name="how-to-customize-a-synchronization-rule"></a>동기화 규칙을 사용자 지정하는 방법
 

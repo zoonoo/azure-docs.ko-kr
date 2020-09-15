@@ -3,12 +3,12 @@ title: Azure Application Insights로 사용 분석 | Microsoft Docs
 description: 어떤 사용자가 앱으로 어떤 작업을 수행하는지 이해합니다.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4ace90b0893eed24227cadcb9a5b9fae7d502ff8
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800214"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532106"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -54,7 +54,7 @@ ms.locfileid: "87800214"
 
 사용자 및 세션 보고서는 페이지 또는 사용자 지정 이벤트를 기준으로 데이터를 필터링하고 위치, 환경 및 페이지 등의 속성으로 나눕니다. 필터를 직접 추가할 수도 있습니다.
 
-![사용자](./media/usage-overview/users.png)  
+![화면 캡처는 가상의 회사에 대 한 사용자 개요 페이지를 표시 합니다.](./media/usage-overview/users.png)  
 
 오른쪽의 자세한 정보에는 데이터 집합에서 주목할 만한 패턴이 나와 있습니다.  
 
@@ -71,7 +71,7 @@ ms.locfileid: "87800214"
 - 실제 사용자 데이터에 따라 가설 세우기 
 - 재방문 주기가 제품에서 문제가 되는지 여부 확인 
 
-![보존](./media/usage-overview/retention.png) 
+![화면 캡처는 사용자가 앱을 사용 하기 위해 반환 하는 빈도에 대 한 정보를 표시 하는 보존 개요 페이지를 표시 합니다.](./media/usage-overview/retention.png) 
 
 상단의 재방문 주기 컨트롤을 사용하여 재방문 주기를 계산할 특정 이벤트 및 시간 범위를 정의할 수 있습니다. 중간에 표시되는 그래프는 지정된 시간 범위별로 전반적인 재방문 주기 비율을 시각적으로 보여 줍니다. 하단의 그래프는 지정된 기간 내의 개별 재방문 주기를 나타냅니다. 이 수준의 세부 정보를 사용하면 사용자가 수행하는 작업과 다시 방문한 사용자에게 영향을 미칠 수 있는 요인을 좀 더 자세히 이해할 수 있습니다.  
 
@@ -110,7 +110,7 @@ ms.locfileid: "87800214"
 ### <a name="slice-and-dice-events"></a>이벤트 분석 및 분할
 
 사용자, 세션 및 이벤트 도구에서 사용자, 이벤트 이름 및 속성별로 사용자 지정 이벤트를 분석 및 분할할 수 있습니다.
-![사용자](./media/usage-overview/users.png)  
+![화면 캡처는 가상의 회사에 대 한 사용자 개요 페이지를 표시 합니다.](./media/usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>앱을 사용하여 원격 분석 디자인
 

@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 261d85c60473749719830c380d8a4866d7561874
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 3b1e71a5aadbe9e6a4fa89d4b3ec0fb6b1d9e6ce
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89438043"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530457"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -87,5 +87,5 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 
 ## <a name="next-steps"></a>다음 단계
 
-* [키 자격 증명 모음 보안](secure-your-key-vault.md))
+* [Key Vault 보안 설정](secure-your-key-vault.md)
 * [Azure Key Vault 방화벽 및 가상 네트워크 구성](network-security.md)

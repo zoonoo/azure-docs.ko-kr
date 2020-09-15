@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: c2bbfcb4832adba767750256a25c378356cf4c23
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299269"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531409"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>X.509 디바이스 인증서 배포 방법
 
@@ -20,14 +20,14 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 인증서 배포는 위반 발생 시 시스템을 보호할 수 있는 보안 모범 사례입니다. [보안 위험 가정 방법론](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf)의 일환으로 Microsoft는 예방 조치와 함께 사후 보안 프로세스의 필요성을 강조하고 있습니다. 디바이스 인증서 배포는 이러한 보안 프로세스의 일환으로 포함되어야 합니다. 인증서의 배포 빈도는 솔루션의 보안 요구 사항에 따라 달라집니다. 중요도 높은 데이터가 포함된 솔루션을 사용하는 고객은 매일 인증서를 배포하기도 하며 어떤 고객은 2년마다 인증서를 배포할 수도 있습니다.
 
-디바이스 인증서 배포에는 디바이스 및 IoT Hub에 저장된 인증서 업데이트가 포함됩니다. 이후 디바이스는 Device Provisioning Service를 통해 일반 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 IoT Hub로 스스로 다시 프로비전합니다.
+디바이스 인증서 배포에는 디바이스 및 IoT Hub에 저장된 인증서 업데이트가 포함됩니다. 그런 다음, 장치는 DPS (장치 프로 비전 서비스)를 사용 하는 정상적인 [프로 비전](about-iot-dps.md#provisioning-process) 을 사용 하 여 IoT hub를 통해 다시 구축 수 있습니다.
 
 
 ## <a name="obtain-new-certificates"></a>새 인증서 가져오기
 
 몇 가지 방법으로 IoT 디바이스에 대한 새 인증서를 가져올 수 있습니다. 여기에는 디바이스 팩토리에서 인증서 가져오기, 자체 인증서 생성, 타사가 인증서 만들기를 관리하게 지정이 포함됩니다. 
 
-인증서는 상호 서명을 통해 루트 CA 인증서에서 [리프 인증서](concepts-security.md#end-entity-leaf-certificate)까지 신뢰 체인을 형성합니다. 서명 인증서는 신뢰 체인의 끝에서 리프 인증서 서명에 사용되는 인증서입니다. 서명 인증서는 루트 CA 인증서이거나 신뢰 체인의 중간 인증서가 될 수 있습니다. 자세한 내용은 [X.509 인증서](concepts-security.md#x509-certificates)를 참조하세요.
+인증서는 상호 서명을 통해 루트 CA 인증서에서 [리프 인증서](concepts-x509-attestation.md#end-entity-leaf-certificate)까지 신뢰 체인을 형성합니다. 서명 인증서는 신뢰 체인의 끝에서 리프 인증서 서명에 사용되는 인증서입니다. 서명 인증서는 루트 CA 인증서이거나 신뢰 체인의 중간 인증서가 될 수 있습니다. 자세한 내용은 [X.509 인증서](concepts-x509-attestation.md#x509-certificates)를 참조하세요.
  
 두 가지 방법으로 서명 인증서를 가져올 수 있습니다. 첫 번째 방법은 프로덕션 시스템에 권장되는 방법으로, 루트 CA(인증 기관)에서 서명 인증서를 구매하는 것입니다. 이렇게 하면 보안이 신뢰할 수 있는 원본에 연결됩니다. 
 
@@ -36,7 +36,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 ## <a name="roll-the-certificate-on-the-device"></a>디바이스에 인증서 배포
 
-디바이스의 인증서는 항상 [HSM(하드웨어 보안 모듈)](concepts-device.md#hardware-security-module)처럼 안전한 곳에 저장되어야 합니다. 디바이스 인증서 배포 방법은 처음 디바이스에서 만들어 설치한 방법에 따라 달라집니다. 
+디바이스의 인증서는 항상 [HSM(하드웨어 보안 모듈)](concepts-service.md#hardware-security-module)처럼 안전한 곳에 저장되어야 합니다. 디바이스 인증서 배포 방법은 처음 디바이스에서 만들어 설치한 방법에 따라 달라집니다. 
 
 타사에서 인증서를 가져온 경우 해당하는 인증서 배포 방법을 살펴봐야 합니다. 준비된 프로세스가 포함되어 있거나 별도의 서비스를 제공할 수 있습니다. 
 
@@ -75,7 +75,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
     기본 인증서와 보조 인증서가 모두 손상된 경우 두 인증서 모두에 대해 이 단계를 완료해야 합니다.
 
-    ![개별 등록 관리](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
+    ![보안 위반으로 개별 등록 관리](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
 3. 손상된 인증서가 프로비전 서비스에서 제거된 후, IoT 허브에 대한 디바이스 등록이 존재하는 한 인증서를 계속 사용하여 IoT 허브에 디바이스를 연결할 수 있습니다. 이 문제는 두 가지 방법으로 해결할 수 있습니다. 
 
@@ -96,7 +96,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 2. **보조 인증서**를 클릭한 다음, 폴더 아이콘을 클릭하여 등록 항목에 대해 업로드할 새 인증서를 선택합니다. **저장**을 클릭합니다.
 
-    ![보조 인증서를 사용하여 개별 등록 관리](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
+    ![보조 인증서 만료를 사용 하 여 개별 등록 관리](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
 3. 나중에 기본 인증서가 만료되면 다시 돌아와 **현재 인증서 삭제** 단추를 클릭하여 기본 인증서를 삭제합니다.
 
@@ -118,7 +118,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 5. **CA 인증서**를 클릭하고 새 루트 CA 인증서를 선택합니다. 그런 다음 **Save**를 클릭합니다. 
 
-    ![새 루트 CA 인증서 선택](./media/how-to-roll-certificates/select-new-root-cert.png)
+    ![손상 된 인증서에 대 한 새 루트 CA 인증서를 선택 합니다.](./media/how-to-roll-certificates/select-new-root-cert.png)
 
 6. 손상된 인증서가 프로비전 서비스에서 제거된 후, IoT 허브에 대한 디바이스 등록이 존재하는 한 인증서를 계속 사용하여 IoT 허브에 디바이스를 연결할 수 있습니다. 이 문제는 두 가지 방법으로 해결할 수 있습니다. 
 
@@ -136,9 +136,9 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 2. **중간 인증서** 및 **현재 인증서 삭제**를 클릭합니다. 폴더 아이콘을 클릭하고 등록 그룹에 대해 업로드할 새 중간 인증서로 이동합니다. 완료하면 **저장**을 클릭합니다. 기본 인증서와 보조 인증서가 모두 손상된 경우 두 인증서 모두에 대해 이 단계를 완료해야 합니다.
 
-    이 새 중간 인증서는 이미 프로비전 서비스에 추가된 인증된 루트 CA 인증서로 서명해야 합니다. 자세한 내용은 [X.509 인증서](concepts-security.md#x509-certificates)를 참조하세요.
+    이 새 중간 인증서는 이미 프로비전 서비스에 추가된 인증된 루트 CA 인증서로 서명해야 합니다. 자세한 내용은 [X.509 인증서](concepts-x509-attestation.md#x509-certificates)를 참조하세요.
 
-    ![개별 등록 관리](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
+    ![손상 된 중간의 개별 등록 관리](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
 3. 손상된 인증서가 프로비전 서비스에서 제거된 후, IoT 허브에 대한 디바이스 등록이 존재하는 한 인증서를 계속 사용하여 IoT 허브에 디바이스를 연결할 수 있습니다. 이 문제는 두 가지 방법으로 해결할 수 있습니다. 
@@ -164,7 +164,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 3. **CA 인증서**를 클릭하고 **보조 인증서** 구성에서 새 루트 CA 인증서를 선택합니다. 그런 다음 **Save**를 클릭합니다. 
 
-    ![새 루트 CA 인증서 선택](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
+    ![만료에 대 한 새 루트 CA 인증서를 선택 합니다.](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
 4. 나중에 기본 인증서가 만료되면 디바이스 프로비저닝 서비스 인스턴스에 대한 **인증서** 탭을 클릭합니다. 목록에서 만료된 인증서를 클릭한 다음, **삭제** 단추를 클릭합니다. 인증서 이름을 입력하여 삭제를 확인하고 **확인**을 클릭합니다.
 
@@ -179,9 +179,9 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 2. **보조 인증서**를 클릭한 다음, 폴더 아이콘을 클릭하여 등록 항목에 대해 업로드할 새 인증서를 선택합니다. **저장**을 클릭합니다.
 
-    이 새 중간 인증서는 이미 프로비전 서비스에 추가된 인증된 루트 CA 인증서로 서명해야 합니다. 자세한 내용은 [X.509 인증서](concepts-security.md#x509-certificates)를 참조하세요.
+    이 새 중간 인증서는 이미 프로비전 서비스에 추가된 인증된 루트 CA 인증서로 서명해야 합니다. 자세한 내용은 [X.509 인증서](concepts-x509-attestation.md#x509-certificates)를 참조하세요.
 
-   ![보조 인증서를 사용하여 개별 등록 관리](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
+   ![보조 인증서 만료를 사용 하 여 등록 그룹 관리](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
 3. 나중에 기본 인증서가 만료되면 다시 돌아와 **현재 인증서 삭제** 단추를 클릭하여 기본 인증서를 삭제합니다.
 
@@ -208,6 +208,6 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Device Provisioning Service의 X.509 인증서에 대한 자세한 내용은 [보안](concepts-security.md)을 참조하세요. 
+- 장치 프로 비전 서비스에서 x.509 인증서에 대해 자세히 알아보려면 [x.509 인증서 증명](concepts-x509-attestation.md) 을 참조 하세요. 
 - Azure IoT Hub Device Provisioning Service를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법은 [인증서 확인 방법](how-to-verify-certificates.md)을 참조하세요.
 - 포털을 사용하여 등록 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 디바이스 등록 관리](how-to-manage-enrollments.md)를 참조하세요.

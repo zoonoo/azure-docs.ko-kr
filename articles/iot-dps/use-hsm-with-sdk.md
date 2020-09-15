@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Hub 장치 프로 비전 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘 사용
 description: Azure 방법-Azure에서 DPS (장치 프로 비전 서비스) 클라이언트 SDK를 사용 하는 다양 한 증명 메커니즘을 사용 하는 방법
-author: robinsh
-ms.author: robinsh
+author: wesmc7777
+ms.author: wesmc
 ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
@@ -10,16 +10,16 @@ services: iot-dps
 ms.custom:
 - mvc
 - amqp
-ms.openlocfilehash: c110e90f26f595bcbf181b72e13f12a6de2fa8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a32e2f055b2914fa0008e043e80092ac2da0814
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687218"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531511"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure에서 C용 Device Provisioning 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘을 사용하는 방법
 
-이 문서에서는 C용 Device Provisioning 서비스 클라이언트 SDK에서 다른 [증명 메커니즘](concepts-security.md#attestation-mechanism)을 사용하는 방법을 보여줍니다. 물리적 디바이스 또는 시뮬레이터를 사용할 수 있습니다. 프로비전 서비스는 X.509 및 TPM(신뢰할 수 있는 플랫폼 모듈)의 두 가지 증명 메커니즘에 대한 인증을 지원합니다.
+이 문서에서는 C용 Device Provisioning 서비스 클라이언트 SDK에서 다른 [증명 메커니즘](concepts-service.md#attestation-mechanism)을 사용하는 방법을 보여줍니다. 물리적 디바이스 또는 시뮬레이터를 사용할 수 있습니다. 프로비전 서비스는 X.509 및 TPM(신뢰할 수 있는 플랫폼 모듈)의 두 가지 증명 메커니즘에 대한 인증을 지원합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -29,11 +29,11 @@ ms.locfileid: "81687218"
 
 디바이스 제조자는 먼저 지원되는 형식 중 하나를 기반으로 하는 증명 메커니즘을 선택해야 합니다. 현재 [C용 Device Provisioning 서비스 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client)는 다음과 같은 증명 메커니즘을 지원합니다. 
 
-- [TPM(신뢰할 수 있는 플랫폼 모듈)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM은 몇 개의 Linux/Ubuntu 기반 디바이스뿐만 아니라 대부분의 Windows 기반 디바이스 플랫폼에 대해 설정된 표준입니다. 디바이스 제조자는 디바이스에서 이러한 OS 중 하나가 실행되는 경우 및 설정된 표준을 찾는 경우 이 증명 메커니즘을 선택할 수 있습니다. TPM 칩을 사용하면 Device Provisioning Service에 개별적으로 각 디바이스를 등록할 수 있습니다. 개발을 위해 Windows 또는 Linux 개발 컴퓨터에서 TPM 시뮬레이터를 사용할 수 있습니다.
+- [TPM(신뢰할 수 있는 플랫폼 모듈)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM은 몇 개의 Linux/Ubuntu 기반 디바이스뿐만 아니라 대부분의 Windows 기반 디바이스 플랫폼에 대해 설정된 표준입니다. 장치 제조업체는 이러한 운영 체제 중 하나를 장치에서 실행 중이 고 설정 된 표준을 찾는 경우이 증명 메커니즘을 선택할 수 있습니다. TPM 칩을 사용하면 Device Provisioning Service에 개별적으로 각 디바이스를 등록할 수 있습니다. 개발을 위해 Windows 또는 Linux 개발 컴퓨터에서 TPM 시뮬레이터를 사용할 수 있습니다.
 
-- [X.509](https://cryptography.io/en/latest/x509/): X.509 인증서를 [HSM(하드웨어 보안 모듈)](concepts-security.md#hardware-security-module)이라는 비교적 최신 칩에 저장할 수 있습니다. X.509 인증서를 구현하는 RIoT 또는 DICE에 대한 작업이 Microsoft 내에서 진행 중입니다. X.509 칩을 사용하면 포털에서 디바이스 등록을 대량으로 수행할 수 있습니다. 또한 임베디드 OS와 같은 특정 비Windows OS를 지원합니다. 개발 목적을 위해 Device Provisioning Service 클라이언트 SDK는 X.509 디바이스 시뮬레이터를 지원합니다. 
+- [X.509](https://cryptography.io/en/latest/x509/): X.509 인증서를 [HSM(하드웨어 보안 모듈)](concepts-service.md#hardware-security-module)이라는 비교적 최신 칩에 저장할 수 있습니다. X.509 인증서를 구현하는 RIoT 또는 DICE에 대한 작업이 Microsoft 내에서 진행 중입니다. X.509 칩을 사용하면 포털에서 디바이스 등록을 대량으로 수행할 수 있습니다. 또한 임베디드 OS와 같은 특정 비Windows OS를 지원합니다. 개발 목적을 위해 Device Provisioning Service 클라이언트 SDK는 X.509 디바이스 시뮬레이터를 지원합니다. 
 
-자세한 내용은 IoT Hub Device Provisioning 서비스 [보안 개념](concepts-security.md) 및 [자동 프로비전 개념](/azure/iot-dps/concepts-auto-provisioning)을 참조하세요.
+자세한 내용은 IoT Hub Device Provisioning Service [증명 메커니즘](concepts-service.md#attestation-mechanism)을 참조 하세요.
 
 ## <a name="enable-authentication-for-supported-attestation-mechanisms"></a>지원되는 증명 메커니즘에 인증을 사용하도록 설정
 

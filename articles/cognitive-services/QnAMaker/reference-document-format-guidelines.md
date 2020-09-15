@@ -1,14 +1,14 @@
 ---
 title: 문서 형식 가져오기 지침-QnA Maker
-description: Url 형식을 사용 하 여 QnA 쌍을 가져오고 만드는 방법을 이해 합니다.
+description: 문서 가져오기에 대 한 지침을 사용 하 여 콘텐츠에 대 한 최상의 결과를 얻을 수 있습니다.
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 799e85e2200d3caa29c9b76bc57a62fc883d246d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b94c8b3fd4d4c082e0bc49c6bd42d3b37e963988
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804336"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530780"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>가져온 문서와 Url에 대 한 형식 지침
 
@@ -16,7 +16,7 @@ ms.locfileid: "80804336"
 
 ## <a name="formatting-considerations"></a>서식 지정 고려 사항
 
-파일이 나 URL을 가져온 후 QnA Maker는 콘텐츠를 [markdown 형식](https://en.wikipedia.org/wiki/Markdown)으로 변환 하 고 저장 합니다. 변환 프로세스는와 `\n\n`같이 텍스트에 새 줄을 추가 합니다. Markdown 형식에 대 한 정보는 변환 된 콘텐츠를 이해 하 고 기술 자료 콘텐츠를 관리 하는 데 도움이 됩니다.
+파일이 나 URL을 가져온 후 QnA Maker는 콘텐츠를 [markdown 형식](https://en.wikipedia.org/wiki/Markdown)으로 변환 하 고 저장 합니다. 변환 프로세스는와 같이 텍스트에 새 줄을 추가 합니다 `\n\n` . Markdown 형식에 대 한 정보는 변환 된 콘텐츠를 이해 하 고 기술 자료 콘텐츠를 관리 하는 데 도움이 됩니다.
 
 기술 자료에서 직접 콘텐츠를 추가 하거나 편집 하는 경우 **markdown 서식 지정** 을 사용 하 여 서식 있는 텍스트 콘텐츠를 만들거나 답변에 이미 있는 markdown 서식 콘텐츠를 변경 합니다. QnA Maker는 풍부한 텍스트 기능을 콘텐츠에 제공 하는 많은 markdown 형식을 지원 합니다. 그러나 채팅 봇과 같은 클라이언트 응용 프로그램은 동일한 markdown 형식 집합을 지원 하지 않을 수 있습니다. 클라이언트 응용 프로그램의 답변 표시를 테스트 하는 것이 중요 합니다.
 
@@ -110,7 +110,7 @@ Answer2
 
 * 머리글 및 하위 머리글을 사용 하 여 계층을 나타냅니다. 예를 들어, 부모 QnA 및 h2를 표시 하 여 프롬프트로 사용 해야 하는 QnA를 나타낼 수 있습니다. 작은 머리글 크기를 사용 하 여 후속 계층을 나타냅니다. 문서에서 구조를 의미 하는 스타일, 색 또는 기타 메커니즘을 사용 하지 않습니다. QnA Maker는 다중 전환 프롬프트를 추출 하지 않습니다.
 * 제목의 첫 번째 문자는 대문자 여야 합니다.
-* 물음표, `?`로 제목을 끝에 표시 하지 않습니다.
+* 물음표,로 제목을 끝에 표시 하지 않습니다 `?` .
 
 **예제 문서**:<br>[.Docx (Surface Pro)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso 이점 (.docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso 이점 (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 

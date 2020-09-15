@@ -1,18 +1,18 @@
 ---
 title: Azure HDInsight에서 디스크 공간 관리
-description: Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법입니다.
+description: Azure HDInsight 클러스터와 상호 작용할 때 디스크 공간 문제를 관리 하기 위한 문제 해결 단계 및 가능한 해결 방법입니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/17/2020
-ms.openlocfilehash: 577bed7ce342be14a50077a3ffd841cd901b5b31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0628033ecf6f2e51cf18f61c6e5b36042557dc7b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77473013"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530164"
 ---
 # <a name="manage-disk-space-in-azure-hdinsight"></a>Azure HDInsight에서 디스크 공간 관리
 
@@ -42,7 +42,7 @@ ms.locfileid: "77473013"
 
 * 클러스터 크기가 워크로드에 적합한지 확인합니다. 작업이 최근에 변경 되었거나 클러스터의 크기가 조정 되었을 수 있습니다. 더 높은 워크 로드와 일치 하도록 클러스터를 [확장](../hdinsight-scaling-best-practices.md) 합니다.
 
-* `/mnt/resource`는 리소스 관리자를 다시 시작 하는 경우와 같이 분리 된 파일로 채워질 수 있습니다. 필요한 경우 수동으로 정리 `/mnt/resource/hadoop/yarn/log` 하 고 `/mnt/resource/hadoop/yarn/local` 합니다.
+* `/mnt/resource` 는 리소스 관리자를 다시 시작 하는 경우와 같이 분리 된 파일로 채워질 수 있습니다. 필요한 경우 수동으로 정리 `/mnt/resource/hadoop/yarn/log` 하 고 `/mnt/resource/hadoop/yarn/local` 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

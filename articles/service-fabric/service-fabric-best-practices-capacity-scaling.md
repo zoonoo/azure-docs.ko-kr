@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e6b6cebfd146ffe23bdc21751f86c71d14ea875e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002252"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531307"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Azure Service Fabric에 대 한 용량 계획 및 크기 조정
 
@@ -36,6 +36,9 @@ Azure Service Fabric 클러스터를 만들거나 클러스터를 호스트 하�
 
 > [!NOTE]
 > Service Fabric 상태 저장 서비스 패브릭:/System/InfastructureService/<> NODE_TYPE_NAME는 은색 이상의 내구성이 있는 모든 노드 형식에서 실행 됩니다. 클러스터 노드 형식의 Azure에서 실행 하도록 지원 되는 유일한 시스템 서비스입니다.
+
+> [!IMPORTANT]
+> Service Fabric 자동 크기 조정은 `Default` 및 `NewestVM` 가상 머신 확장 집합 [의 규모 확장 구성을](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md)지원 합니다.
 
 ## <a name="vertical-scaling-considerations"></a>수직 크기 조정 관련 고려 사항
 
@@ -167,8 +170,8 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> 클러스터의 크기를 조정 하면 제거 된 노드/v m 인스턴스가 Service Fabric Explorer에서 비정상 상태로 표시 되는 것을 볼 수 있습니다. 이 동작에 대 한 설명은 [Service Fabric Explorer에서 관찰할 수 있는 동작](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer)을 참조 하세요. 다음을 수행할 수 있습니다.
-> * 해당 노드 이름을 사용 하 여 [remove-servicefabricnodestate 명령을](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) 호출 합니다.
+> 클러스터의 크기를 조정 하면 제거 된 노드/v m 인스턴스가 Service Fabric Explorer에서 비정상 상태로 표시 되는 것을 볼 수 있습니다. 이 동작에 대 한 설명은 [Service Fabric Explorer에서 관찰할 수 있는 동작](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer)을 참조 하세요. 다음과 같습니다.
+> * 해당 노드 이름을 사용 하 여 [remove-servicefabricnodestate 명령을](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps&preserve-view=true) 호출 합니다.
 > * 클러스터에 [Service Fabric 자동 크기 조정 도우미 응용 프로그램](https://github.com/Azure/service-fabric-autoscale-helper/) 을 배포 합니다. 이 응용 프로그램은 축소 된 노드가 Service Fabric Explorer에서 지워지는 지 확인 합니다.
 
 ## <a name="reliability-levels"></a>안정성 수준

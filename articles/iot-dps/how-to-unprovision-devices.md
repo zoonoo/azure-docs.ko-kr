@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 5683d40e9565068c6cd79eedb08b036eab2c54cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294393"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531392"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>이전에 자동으로 프로비전된 디바이스의 프로비전을 해제하는 방법 
 
@@ -43,7 +43,7 @@ ms.locfileid: "89294393"
 
 
 ## <a name="enrollment-groups"></a>등록 그룹
-X.509 증명을 사용하면 등록 그룹을 통해 디바이스를 프로비전할 수도 있습니다. 등록 그룹은 중간 또는 루트 CA 인증서 중 하나인 서명 인증서로 구성되며, 인증서 체인에 해당 인증서가 있는 디바이스의 프로비전 서비스에 대한 액세스를 제어합니다. 프로비전 서비스를 사용하는 등록 그룹 및 X.509 인증서에 대한 자세한 내용은 [X.509 인증서](concepts-security.md#x509-certificates)를 참조하세요. 
+X.509 증명을 사용하면 등록 그룹을 통해 디바이스를 프로비전할 수도 있습니다. 등록 그룹은 중간 또는 루트 CA 인증서 중 하나인 서명 인증서로 구성되며, 인증서 체인에 해당 인증서가 있는 디바이스의 프로비전 서비스에 대한 액세스를 제어합니다. 프로 비전 서비스를 사용 하 여 등록 그룹 및 x.509 인증서에 대 한 자세한 내용은 [x.509 인증서 증명](concepts-x509-attestation.md)을 참조 하세요. 
 
 등록 그룹을 통해 프로비전된 디바이스 목록을 보려면 등록 그룹의 세부 정보를 확인하면 됩니다. 이는 각 디바이스가 프로비전된 IoT 허브를 이해하는 쉬운 방법입니다. 디바이스 목록을 보려면 다음을 수행합니다. 
 

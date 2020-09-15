@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: a83191fd29e0cda4bc398f6a46a0d2ebf9631665
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 18de210d817ee309ac4970ecea6b62f6ef03ef02
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068050"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530406"
 ---
 # <a name="common-questions"></a>일반적인 질문
 
@@ -50,7 +50,7 @@ ms.locfileid: "90068050"
 
 리소스를 대상 지역으로 이동한 후 구독을 변경할 수 있습니다. 리소스를 다른 구독으로 이동 하는 방법에 [대해 자세히 알아보세요](../azure-resource-manager/management/move-resource-group-and-subscription.md) . 
 
-### <a name="where-is-the-metadata-about-a-region-move-stored"></a>지역 이동에 대 한 메타 데이터는 어디에 저장 되나요?
+### <a name="where-is-the-metadata-for-moving-across-regions-stored"></a>저장 된 지역 간에 이동 하는 메타 데이터는 어디에 있나요?
 
 Azure [Cosmos](../cosmos-db/database-encryption-at-rest.md) 데이터베이스 및 [azure Blob storage](../storage/common/storage-service-encryption.md)의 Microsoft 구독에 저장 됩니다. 현재 메타 데이터는 미국 동부 2 및 유럽 서 면에 저장 됩니다. 이 검사는 다른 지역으로 확장 될 예정입니다. 이렇게 하면 모든 공용 지역에서 리소스를 이동 하는 것을 제한 하지 않습니다.
 

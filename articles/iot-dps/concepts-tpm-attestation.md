@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 624171ffc10a06ac3089b6dceb1683c63c88dbda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12860629d78391ed271306daba29a51aeb326c1d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975281"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531596"
 ---
 # <a name="tpm-attestation"></a>TPM 증명
 
 IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터치 디바이스 프로비저닝을 구성하도록 사용하는 IoT Hub에 대한 도우미 서비스입니다. 디바이스 프로비저닝 서비스를 사용하여 안전한 방식으로 수백만 개의 디바이스를 프로비전할 수 있습니다.
 
-이 문서에서는 [TPM](./concepts-device.md)을 사용하는 경우 ID 증명 프로세스를 설명합니다. TPM은 신뢰할 수 있는 플랫폼 모듈을 의미하고 HSM(하드웨어 보안 모듈)의 형식입니다. 이 문서에서는 불연속, 펌웨어 또는 통합 TPM을 사용한다고 가정합니다. 소프트웨어 에뮬레이트된 TPM은 프로토타이핑 또는 테스트에 적합하지만 불연속, 펌웨어 또는 통합 TPM이 제공하는 것과 동일한 수준의 보안을 제공하지 않습니다. 프로덕션 환경에서 TPM 소프트웨어를 사용하는 것은 좋지 않습니다. TPM 유형에 대한 자세한 내용은 [TPM에 대한 간략한 소개](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf)를 참조하세요.
+이 문서에서는 TPM (신뢰할 수 있는 플랫폼 모듈)을 사용 하는 경우의 id 증명 프로세스를 설명 합니다. TPM은 HSM (하드웨어 보안 모듈) 유형입니다. 이 문서에서는 불연속, 펌웨어 또는 통합 TPM을 사용한다고 가정합니다. 소프트웨어 에뮬레이트된 TPM은 프로토타이핑 또는 테스트에 적합하지만 불연속, 펌웨어 또는 통합 TPM이 제공하는 것과 동일한 수준의 보안을 제공하지 않습니다. 프로덕션 환경에서 TPM 소프트웨어를 사용하는 것은 좋지 않습니다. TPM 유형에 대한 자세한 내용은 [TPM에 대한 간략한 소개](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf)를 참조하세요.
 
 이 문서는 HMAC 키 지원 및 해당 인증 키가 있는 TPM 2.0을 사용하는 디바이스에 해당합니다. 인증을 위해 X.509 인증서를 사용하는 디바이스에 대한 것이 아닙니다. TPM은 TCG(신뢰할 수 있는 컴퓨팅 그룹)의 산업 전반에 걸친 ISO 표준 이며 [전체 tpm 2.0 사양](https://trustedcomputinggroup.org/tpm-library-specification/) 또는 [ISO/IEC 11889 사양](https://www.iso.org/standard/66510.html)에서 tpm에 대 한 자세한 내용을 확인할 수 있습니다. 또한이 문서에서는 공용 및 개인 키 쌍 및 암호화에 사용 되는 방법에 대해 잘 알고 있다고 가정 합니다.
 
@@ -67,5 +67,5 @@ TPM이 있는 디바이스를 디바이스 프로비저닝 서비스에 처음 �
 
 이제 디바이스는 IoT Hub에 연결되고, 디바이스의 키가 안전하게 저장되었다는 정보로 안전이 유지됩니다. 이제 디바이스 프로비저닝 서비스에서 TPM을 사용하여 디바이스의 ID를 안전하게 확인하는 방법을 배웠습니다. 자세히 알아보려면 다음 문서를 참조하세요.
 
-* [자동 프로비전의 모든 개념에 대해 알아보기](./concepts-auto-provisioning.md)
+* [프로 비전의 개념에 대해 알아보기](about-iot-dps.md#provisioning-process)
 * 흐름을 처리하도록 SDK를 사용하여 [자동 프로비전 사용을 시작합니다](./quick-setup-auto-provision.md).

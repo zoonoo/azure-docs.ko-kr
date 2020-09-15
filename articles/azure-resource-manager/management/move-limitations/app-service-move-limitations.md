@@ -3,12 +3,12 @@ title: Azure App Service 리소스 이동
 description: Azure Resource Manager를 사용 하 여 App Service 리소스를 새 리소스 그룹 또는 구독으로 이동 합니다.
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 45f04cad27e175b471f4d6e07426787ca678e369
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 27555a4616befca41c7e970e947afa1cd1ff7248
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042061"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531375"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>App Service 리소스에 대 한 이동 지침
 
@@ -42,7 +42,7 @@ ms.locfileid: "88042061"
 
 리소스를 이동 하기 전에 수행 해야 하는 권장 작업이 표시 됩니다. 이 정보는 웹 앱에 대 한 원래 리소스 그룹을 포함 합니다.
 
-![권장 사항](./media/app-service-move-limitations/recommendations.png)
+![화면 캡처는 Microsoft dot 웹 리소스를 이동 하는 권장 단계를 보여 줍니다.](./media/app-service-move-limitations/recommendations.png)
 
 ## <a name="move-support"></a>이동 지원
 

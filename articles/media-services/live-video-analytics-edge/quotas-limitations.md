@@ -1,14 +1,14 @@
 ---
-title: IoT Edge 할당량에 대 한 라이브 비디오 분석-Azure
+title: IoT Edge 할당량 및 제한 사항에 대 한 라이브 비디오 분석-Azure
 description: 이 문서에서는 IoT Edge 할당량 및 제한 사항에 대 한 라이브 비디오 분석을 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: df1978de4ee1bbbe15d0df3b02a70fb51491e9d2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750233"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529233"
 ---
 # <a name="quotas-and-limitations"></a>할당량 및 제한 사항
 
@@ -65,6 +65,10 @@ Preview 릴리스 시점에 IoT Edge의 라이브 비디오 분석은 다음을 
 * 중단 없이 한 구독에서 다른 구독으로 미디어 서비스 계정을 마이그레이션하는 기능입니다.
 * 미디어 서비스 계정으로 둘 이상의 저장소 계정을 사용할 수 있습니다.
 * 다시 시작 하지 않고 모듈의 desired 속성에서 서비스 주체 정보를 동적으로 변경할 수 있는 기능입니다.
+
+RTSP 프로토콜을 지 원하는 IP 카메라만 사용할 수 있습니다. [ONVIF 규격 제품](https://www.onvif.org/conformant-products) 페이지에서 RTSP를 지원하는 IP 카메라를 찾을 수 있습니다. G, S 또는 T 프로필을 준수하는 디바이스를 찾습니다.
+
+또한 이러한 카메라는 h.264 video 및 AAC audio를 사용 하도록 구성 해야 합니다. 다른 코덱은 현재 지원 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,23 +1,23 @@
 ---
 title: Azure IoT Hub Device Provisioning 서비스 자동 프로비전을 사용하여 IoT Hub에 MXChip IoT DevKit을 등록하는 방법 | Microsoft Docs
 description: Azure IoT Hub 장치 프로 비전 서비스 (DPS) 자동 프로 비전을 사용 하 여 IoT Hub MXChip IoT DevKit를 등록 하는 방법입니다.
-author: liydu
-ms.author: liydu
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: jeffya
-ms.openlocfilehash: f05e92f0452b1cfff23e2094354203fd7eaea48b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: eliotgra
+ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975655"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528656"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Azure IoT Hub Device Provisioning 서비스 자동 프로비전을 사용하여 IoT Hub에 MXChip IoT DevKit 등록
 
-이 문서에서는 Azure IoT Hub Device Provisioning 서비스 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 Azure IoT Hub에 MXChip IoT DevKit을 등록하는 방법을 설명합니다. 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 문서에서는 Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 MXChip IoT DevKit를 Azure IoT Hub에 [프로 비전](about-iot-dps.md#provisioning-process) 하는 방법을 설명 합니다. 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
 * 디바이스에서 Device Provisioning Service의 글로벌 엔드포인트를 구성합니다.
 * UDS(고유 디바이스 비밀)를 사용하여 X.509 인증서를 생성합니다.
@@ -45,7 +45,7 @@ ms.locfileid: "74975655"
 
 ## <a name="save-a-unique-device-secret-on-device-security-storage"></a>디바이스 보안 스토리지에 고유 디바이스 비밀 저장
 
-자동 프로비전은 디바이스의 [증명 메커니즘](concepts-security.md#attestation-mechanism)에 따라 디바이스에 구성할 수 있습니다. MXChip IoT DevKit는 [신뢰할 수 있는 컴퓨팅 그룹](https://trustedcomputinggroup.org)의 [Device Identity Composition Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf)을 사용합니다. DevKit의 STSAFE 보안 칩([STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/))에 저장된 UDS(**고유 디바이스 비밀**)가 디바이스 고유의 [X.509 인증서](concepts-security.md#x509-certificates)를 생성하는 데 사용됩니다. 이 인증서는 나중에 Device Provisioning Service의 등록 프로세스에 사용되며 런타임에 등록하는 동안에도 사용됩니다.
+자동 프로비전은 디바이스의 [증명 메커니즘](concepts-service.md#attestation-mechanism)에 따라 디바이스에 구성할 수 있습니다. MXChip IoT DevKit는 [신뢰할 수 있는 컴퓨팅 그룹](https://trustedcomputinggroup.org)의 [Device Identity Composition Engine](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf)을 사용합니다. DevKit의 STSAFE 보안 칩([STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/))에 저장된 UDS(**고유 디바이스 비밀**)가 디바이스 고유의 [X.509 인증서](concepts-x509-attestation.md)를 생성하는 데 사용됩니다. 이 인증서는 나중에 Device Provisioning Service의 등록 프로세스에 사용되며 런타임에 등록하는 동안에도 사용됩니다.
 
 다음 샘플에서처럼 일반적인 UDS는 64자 문자열입니다.
 

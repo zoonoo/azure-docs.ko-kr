@@ -3,12 +3,12 @@ title: Azure Migrate 복제 어플라이언스
 description: 에이전트 기반 VMWare 마이그레이션의 Azure Migrate 복제 어플라이언스에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8149613effc4519638cc9b80f7894874ef3eafe3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122101"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532123"
 ---
 # <a name="replication-appliance"></a>복제 어플라이언스
 
@@ -129,7 +129,7 @@ VM | Vm에서 실행 되는 모바일 서비스는 복제 관리를 위해 HTTPS
     - 프로세스 서버는 복제 데이터를 수신 하 고, 최적화 하 고, 암호화 하 고 포트 443 아웃 바운드를 통해 Azure storage로 보냅니다.
 5. 복제 데이터 로그는 먼저 Azure의 캐시 저장소 계정에 저장 됩니다. 이러한 로그는 처리 되 고 데이터는 Azure 관리 디스크에 저장 됩니다.
 
-![Architecture](./media/migrate-replication-appliance/architecture.png)
+![다이어그램은 복제 프로세스의 아키텍처를 보여 줍니다.](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>어플라이언스 업그레이드
 

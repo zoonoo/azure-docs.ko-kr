@@ -3,12 +3,13 @@ title: Azure Functions 네트워킹 옵션
 description: Azure Functions에서 사용할 수 있는 모든 네트워킹 옵션에 대한 개요입니다.
 ms.topic: conceptual
 ms.date: 4/11/2019
-ms.openlocfilehash: 60258ef4aa3bbbbab69acd4f5106c774caa6f46f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385945"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530094"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -86,7 +87,7 @@ Azure Key Vault 참조를 사용하여 코드 변경 없이도 Azure Functions �
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>가상 네트워크 트리거를 사용하는 프리미엄 계획
 
-프리미엄 계획을 실행하는 경우 비 HTTP 트리거 함수를 가상 네트워크 내에서 실행되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대한 가상 네트워크 트리거 지원을 사용하도록 설정해야 합니다. **가상 네트워크 트리거 지원** 설정은 **구성** > **함수 런타임 설정**의 [Azure Portal](https://portal.azure.com)에서 확인할 수 있습니다.
+프리미엄 계획을 실행하는 경우 비 HTTP 트리거 함수를 가상 네트워크 내에서 실행되는 서비스에 연결할 수 있습니다. 이렇게 하려면 함수 앱에 대한 가상 네트워크 트리거 지원을 사용하도록 설정해야 합니다. **런타임 규모 모니터링** 설정은 **구성** [Azure portal](https://portal.azure.com)  >  **함수 런타임 설정**아래 Azure Portal에 있습니다.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 

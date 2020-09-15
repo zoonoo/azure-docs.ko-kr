@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: d8312be1f07b8d0d0d2f142bfc0d54f84d8641ae
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 91455e4797324f28f911dd8a928410517a951728
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061005"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531749"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Azure Data Factory Parquet 형식
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](conne
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Parquet 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-| 속성         | Description                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 집합의 type 속성은 **Parquet**로 설정 해야 합니다. | 예      |
 | 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는의 고유한 위치 유형 및 지원 되는 속성이 있습니다 `location` . **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
@@ -68,7 +68,7 @@ Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](conne
 
 복사 작업 *** \* 원본 \* *** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **ParquetSource**로 설정 해야 합니다. | 예      |
 | 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는의 고유한 지원 읽기 설정이 `storeSettings` 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
@@ -77,7 +77,7 @@ Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](conne
 
 복사 작업 *** \* 싱크 \* *** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **ParquetSink**로 설정 해야 합니다. | 예      |
 | formatSettings | 속성 그룹입니다. 아래의 **Parquet write settings** 표를 참조 하세요. |    아니요      |
@@ -85,11 +85,11 @@ Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](conne
 
 지원 되는 **Parquet 쓰기 설정은** `formatSettings` 다음과 같습니다.
 
-| 속성      | Description                                                  | 필수                                              |
+| 속성      | 설명                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | FormatSettings의 형식은 **ParquetWriteSettings**로 설정 해야 합니다. | 예                                                   |
 | maxRowsPerFile | 폴더에 데이터를 쓸 때 여러 파일에 쓰도록 선택 하 고 파일당 최대 행 수를 지정할 수 있습니다.  | 아니요 |
-| fileNamePrefix | 여러 파일에 데이터를 쓸 때 파일 이름 접두사를 지정 합니다 .이 패턴은 `<fileNamePrefix>_00000.<fileExtension>` 입니다. 지정 하지 않으면 파일 이름 접두사가 자동으로 생성 됩니다. 원본이 파일 기반 저장소나 [파티션 옵션 사용 데이터 저장소](copy-activity-performance-features.md)인 경우에는이 속성이 적용 되지 않습니다.  | 아니요 |
+| fileNamePrefix | `maxRowsPerFile`이 구성 된 경우에 적용 됩니다.<br> 여러 파일에 데이터를 쓸 때 파일 이름 접두사를 지정 합니다 .이 패턴은 `<fileNamePrefix>_00000.<fileExtension>` 입니다. 지정 하지 않으면 파일 이름 접두사가 자동으로 생성 됩니다. 원본이 파일 기반 저장소나 [파티션 옵션 사용 데이터 저장소](copy-activity-performance-features.md)인 경우에는이 속성이 적용 되지 않습니다.  | 아니요 |
 
 ## <a name="mapping-data-flow-properties"></a>매핑 데이터 흐름 속성
 
@@ -99,7 +99,7 @@ Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](conne
 
 아래 표에서는 parquet 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 서식 | 형식은 이어야 합니다. `parquet` | 예 | `parquet` | format |
 | 와일드 카드 경로 | 와일드 카드 경로와 일치 하는 모든 파일이 처리 됩니다. 데이터 집합에 설정 된 폴더 및 파일 경로를 재정의 합니다. | no | String[] | wildcardPaths |
@@ -128,7 +128,7 @@ source(allowSchemaDrift: true,
 
 아래 표에서는 parquet 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 서식 | 형식은 이어야 합니다. `parquet` | 예 | `parquet` | format |
 | 폴더 지우기 | 쓰기 전에 대상 폴더를 지운 경우 | no | `true` 또는 `false` | truncate |

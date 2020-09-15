@@ -7,16 +7,16 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434748"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531426"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법 
 
-프로비저닝 서비스에 정의된 할당 정책은 다양한 할당 시나리오를 지원합니다. 가장 일반적인 두 가지 시나리오는 다음과 같습니다.
+이 문서에서는 [할당 정책](concepts-service.md#allocation-policy)을 사용 하 여 여러 대칭 키 장치를 IoT hub 그룹에 안전 하 게 프로 비전 하는 방법을 보여 줍니다. 프로 비전 서비스에서 정의 된 할당 정책은 다양 한 할당 시나리오를 지원 합니다. 가장 일반적인 두 가지 시나리오는 다음과 같습니다.
 
 * **지리적 위치/지리적 대기 시간**: 여러 위치 간에 디바이스를 이동하면서, 각 위치에 가장 가까운 IoT Hub로 디바이스를 프로비전하여 네트워크 대기 시간이 짧아집니다. 이 시나리오에서는 지역에 걸쳐 있는 IoT Hub 그룹이 등록을 위해 선택됩니다. 이러한 등록에 대해 **최저 대기 시간** 할당 정책이 선택되었습니다. 이 정책에 따라 Device Provisioning Service는 디바이스 대기 시간을 평가하고 IoT Hub 그룹 중에서 가장 가까운 IoT Hub를 확인합니다. 
 
@@ -83,7 +83,7 @@ ms.locfileid: "75434748"
 
 이 섹션에서는 테넌트 디바이스에 대한 새 등록 그룹을 만듭니다.  
 
-간단한 설명을 위해 이 문서에서는 등록에 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 사용합니다. 더 안전한 솔루션을 위해 신뢰 체인과 함께 [X.509 인증서 증명](concepts-security.md#x509-certificates)을 사용하는 것이 좋습니다.
+간단한 설명을 위해 이 문서에서는 등록에 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 사용합니다. 더 안전한 솔루션을 위해 신뢰 체인과 함께 [X.509 인증서 증명](concepts-x509-attestation.md)을 사용하는 것이 좋습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 Device Provisioning Service 인스턴스를 엽니다.
 

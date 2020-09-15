@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 랩 정책 관리 | Microsoft 문서
 description: VM 크기, 사용자당 최대 VM 수 및 자동 종료와 같은 랩 정책을 정의하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ab2e2b1905a515d3a85339099f02d93d8e5c0424
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a7ada980b2a251b8164f2e1a20f65da54c89ba72
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290421"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530355"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 대한 모든 정책 관리
 
@@ -105,7 +105,7 @@ Azure DevTest Labs에서는 각 랩의 정책(설정)을 관리하여 랩에서 
 
 1. 랩의 **구성 및 정책** 창에서 **자동**시작을 선택 합니다.
    
-    ![자동 시작](./media/devtest-lab-set-lab-policy/auto-start.png)
+    ![화면 캡처는 가상 컴퓨터에 대 한 자동 시작 옵션을 표시 합니다.](./media/devtest-lab-set-lab-policy/auto-start.png)
 
 2. 이 정책을 사용하도록 설정하려면 **설정**을 선택하고 사용하지 않도록 설정하려면 **해제**를 선택합니다.
 

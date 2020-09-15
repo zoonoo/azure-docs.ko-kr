@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/21/2019
-ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: c6a2d38644d844cb1231a24465478b7f70a85111
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606128"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531157"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>매핑 데이터 흐름에서 열 패턴 사용
 
@@ -27,17 +27,17 @@ ms.locfileid: "81606128"
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>파생 열 및 집계의 열 패턴
 
-집계 변환의 파생 열 또는 집계 탭에 열 패턴을 추가 하려면 기존 열의 오른쪽에 있는 더하기 아이콘을 클릭 합니다. **열 패턴 추가**를 선택 합니다. 
+파생 열, 집계 또는 창 변환에서 열 패턴을 추가 하려면 열 목록 위에 있는 **추가** 를 클릭 하거나 기존 파생 열 옆에 있는 더하기 아이콘을 클릭 합니다. **열 패턴 추가**를 선택 합니다.
 
-![열 패턴](media/data-flow/columnpattern.png "열 패턴")
+![열 패턴](media/data-flow/add-column-pattern.png "열 패턴")
 
 [식 작성기](concepts-data-flow-expression-builder.md) 를 사용 하 여 일치 조건에 입력 합니다. 열의,, 및를 기반으로 하는 열과 일치 하는 부울 식을 만듭니다 `name` `type` `stream` `position` . 이 패턴은 조건이 true를 반환 하는 열, 데이터베이스가 드리프트 또는 defined 열에 영향을 줍니다.
 
 일치 조건 아래의 두 식 상자는 영향을 받는 열의 새 이름과 값을 지정 합니다. `$$`를 사용 하 여 일치 하는 필드의 기존 값을 참조 합니다. 왼쪽 식 상자는 이름을 정의 하 고 오른쪽 식 상자는 값을 정의 합니다.
 
-![열 패턴](media/data-flow/columnpattern2.png "열 패턴")
+![열 패턴](media/data-flow/edit-column-pattern.png "열 패턴")
 
-위의 열 패턴은 double 형식의 모든 열을 일치 시키고 일치 하는 항목 마다 하나의 집계 열을 만듭니다. 새 열의 이름은 일치 하는 열 이름이 ' _total '과 (와) 연결 되어 있습니다. 새 열의 값은 반올림 되어 기존 double 값의 집계 된 합계입니다.
+위의 열 패턴은 double 형식의 모든 열을 일치 시키고 일치 하는 항목 마다 하나의 파생 열을 만듭니다. `$$`열 이름 필드를 사용 하면 일치 하는 각 열이 같은 이름으로 업데이트 됩니다. 각 열의 값은 두 개의 소수점 점으로 반올림 된 기존 값입니다.
 
 일치 조건이 올바른지 확인 하기 위해 **검사** 탭에서 정의 된 열의 출력 스키마 유효성을 검사 하거나 **데이터 미리 보기** 탭에서 데이터의 스냅숏을 가져올 수 있습니다. 
 
@@ -73,15 +73,15 @@ ms.locfileid: "81606128"
 
 ![규칙 기반 매핑](media/data-flow/rule-based-hierarchy.png "규칙 기반 매핑")
 
-위의 예는 복합 열의 모든 하위 열에서 일치 합니다 `a` . `a`에는 두 개의 하위 열 및가 포함 되어 있습니다 `b` `c` . 출력 스키마는 두 개의 열을 포함 `b` 하 고 `c` ' Name as ' 조건은입니다 `$$` .
+위의 예는 복합 열의 모든 하위 열에서 일치 합니다 `a` . `a` 에는 두 개의 하위 열 및가 포함 되어 있습니다 `b` `c` . 출력 스키마는 두 개의 열을 포함 `b` 하 고 `c` ' Name as ' 조건은입니다 `$$` .
 
 ## <a name="pattern-matching-expression-values"></a>패턴 일치 식 값입니다.
 
-* `$$`런타임에 각 일치 항목의 이름 또는 값으로 변환 합니다.
-* `name`들어오는 각 열의 이름을 나타냅니다.
-* `type`들어오는 각 열의 데이터 형식을 나타냅니다.
-* `stream`각 스트림 또는 흐름의 변환과 관련 된 이름을 나타냅니다.
-* `position`데이터 흐름에서 열의 서 수 위치입니다.
+* `$$` 런타임에 각 일치 항목의 이름 또는 값으로 변환 합니다.
+* `name` 들어오는 각 열의 이름을 나타냅니다.
+* `type` 들어오는 각 열의 데이터 형식을 나타냅니다.
+* `stream` 각 스트림 또는 흐름의 변환과 관련 된 이름을 나타냅니다.
+* `position` 데이터 흐름에서 열의 서 수 위치입니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 데이터 변환에 대 한 매핑 데이터 흐름 [식 언어](data-flow-expression-functions.md) 에 대 한 자세한 정보

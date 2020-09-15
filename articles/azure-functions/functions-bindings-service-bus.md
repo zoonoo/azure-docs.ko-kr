@@ -6,23 +6,27 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 46660a0c8d20ab82c994a62b1c781108ea1070c1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 5e15dfec049197fa056cbd55fd839b3eb93be77c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111204"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530372"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions의 Azure Service Bus 바인딩
 
 Azure Functions는 [트리거와 바인딩을](./functions-triggers-bindings.md)통해 [Azure Service Bus](https://azure.microsoft.com/services/service-bus) 와 통합 됩니다. Service Bus와 통합 하면 큐 또는 토픽 메시지에 응답 하는 함수를 작성할 수 있습니다.
 
-| 작업 | Type |
+| 작업 | 형식 |
 |---------|---------|
 | Service Bus 큐 또는 토픽 메시지가 만들어지면 함수를 실행 합니다. | [트리거](./functions-bindings-service-bus-trigger.md) |
 | Azure Service Bus 메시지 보내기 |[출력 바인딩](./functions-bindings-service-bus-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>함수 앱에 추가
+
+> [!NOTE]
+> Service Bus 바인딩은 현재 관리 되는 id를 사용 하 여 인증을 지원 하지 않습니다. 대신 [Service Bus 공유 액세스 서명을](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature)사용 하세요.
 
 ### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 

@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 95d3570d93aa4966fcf6864838ec01735b8662db
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: c135d649feb42c8fa735e67ad6f3c3e51551d3e9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650285"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530287"
 ---
 # <a name="advanced-entry-script-authoring"></a>고급 항목 스크립트 작성
 
 이 문서에서는 특수 한 사용 사례에 대 한 입력 스크립트를 작성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 배포 하려는 학습 된 machine learning 모델이 이미 있다고 가정 합니다. 모델 배포에 대해 자세히 알아보려면 [이 자습서](how-to-deploy-and-where.md)를 참조 하세요.
 
@@ -34,12 +34,16 @@ ms.locfileid: "89650285"
 * `pyspark`
 * 표준 Python 개체
 
-스키마 생성을 사용 하려면 `inference-schema` 종속성 파일에 오픈 소스 패키지를 포함 합니다. 이 패키지에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema) . `input_sample`및 `output_sample` 변수에서 웹 서비스의 요청 및 응답 형식을 나타내는 입력 및 출력 샘플 형식을 정의 합니다. 함수에 대 한 입력 및 출력 함수 데코레이터에서 이러한 샘플을 사용 `run()` 합니다. 다음 scikit 예제에서는 스키마 생성을 사용 합니다.
+스키마 생성을 사용 하려면 `inference-schema` 종속성 파일에 오픈 소스 패키지 버전 1.1.0을 포함 합니다. 이 패키지에 대 한 자세한 내용은을 참조 하십시오 [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema) . 준수 하는 swagger 자동화 웹 서비스 사용을 생성 하기 위해 스크립트 실행 () 함수에는 다음과 같은 API 셰이프가 있어야 합니다.
+* PandasDataframeParameterTypes를 포함 하는 "StandardPythonParameterType" 형식의 첫 번째 매개 변수, 명명 된 입력입니다.
+* 형식이 "StandardPythonParameterType"이 고 중첩 되지 않은 GlobalParameter 라는 선택적인 두 번째 매개 변수입니다.
+* PandasDataFrameParameterTypes를 포함 하는 중첩 된 "StandardPythonParameterType" 형식의 사전을 반환 합니다.
+`input_sample`및 `output_sample` 변수에서 웹 서비스의 요청 및 응답 형식을 나타내는 입력 및 출력 샘플 형식을 정의 합니다. 함수에 대 한 입력 및 출력 함수 데코레이터에서 이러한 샘플을 사용 `run()` 합니다. 다음 scikit 예제에서는 스키마 생성을 사용 합니다.
 
 
 ## <a name="power-bi-compatible-endpoint"></a>Power BI 호환 끝점 
 
-다음 예제에서는 `<key: value>` 데이터 프레임를 사용 하 여 입력 데이터를 사전으로 정의 하는 방법을 보여 줍니다. 이 메서드는 Power BI에서 배포 된 웹 서비스를 사용 하는 데 지원 됩니다. [Power BI에서 웹 서비스를 사용 하는 방법에 대해 자세히 알아보세요](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+다음 예제에서는 위의 명령에 따라 API 셰이프를 정의 하는 방법을 보여 줍니다. 이 메서드는 Power BI에서 배포 된 웹 서비스를 사용 하는 데 지원 됩니다. [Power BI에서 웹 서비스를 사용 하는 방법에 대해 자세히 알아보세요](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
 ```python
 import json
@@ -48,9 +52,10 @@ import numpy as np
 import pandas as pd
 import azureml.train.automl
 from sklearn.externals import joblib
-from azureml.core.model import Model
+from sklearn.linear_model import Ridge
 
 from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.standard_py_parameter_type import StandardPythonParameterType
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 from inference_schema.parameter_types.pandas_parameter_type import PandasParameterType
 
@@ -58,31 +63,32 @@ from inference_schema.parameter_types.pandas_parameter_type import PandasParamet
 def init():
     global model
     # Replace filename if needed.
-    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'model_file.pkl')
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
     # Deserialize the model file back into a sklearn model.
     model = joblib.load(model_path)
 
+# providing 3 sample inputs for schema generation
+numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
+pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
+standard_sample_input = StandardPythonParameterType(0.0)
 
-input_sample = pd.DataFrame(data=[{
-    # This is a decimal type sample. Use the data type that reflects this column in your data.
-    "input_name_1": 5.1,
-    # This is a string type sample. Use the data type that reflects this column in your data.
-    "input_name_2": "value2",
-    # This is an integer type sample. Use the data type that reflects this column in your data.
-    "input_name_3": 3
-}])
+# This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
+sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
+                                            'input2': pandas_sample_input, 
+                                            'input3': standard_sample_input})
 
-# This is an integer type sample. Use the data type that reflects the expected result.
-output_sample = np.array([0])
+sample_global_parameters = StandardPythonParameterType(1.0) #this is optional
+sample_output = StandardPythonParameterType([1.0, 1.0])
 
-# To indicate that we support a variable length of data input,
-# set enforce_shape=False
-@input_schema('data', PandasParameterType(input_sample, enforce_shape=False))
-@output_schema(NumpyParameterType(output_sample))
-def run(data):
+@input_schema('inputs', sample_input)
+@input_schema('global_parameters', sample_global_parameters) #this is optional
+@output_schema(sample_output)
+def run(inputs, global_parameters):
     try:
+        data = inputs['input1']
+        # data will be convert to target format
+        assert isinstance(data, np.ndarray)
         result = model.predict(data)
-        # You can return any data type, as long as it is JSON serializable.
         return result.tolist()
     except Exception as e:
         error = str(e)
