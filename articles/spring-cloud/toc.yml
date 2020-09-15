@@ -67,6 +67,8 @@
   items:
     - name: 배포용 Java Spring 앱 준비
       href: spring-cloud-tutorial-prepare-app-deployment.md
+    - name: 소스 코드에서 Java 앱 시작
+      href: spring-cloud-howto-launch-from-source.md
     - name: 구성 서버 설정
       href: spring-cloud-tutorial-config-server.md
     - name: 서비스 등록 사용

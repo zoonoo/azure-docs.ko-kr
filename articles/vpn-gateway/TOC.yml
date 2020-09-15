@@ -172,6 +172,8 @@
           href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: P2S 클라이언트에 사용자 지정 경로 보급
           href: vpn-gateway-p2s-advertise-custom-routes.md
+        - name: P2S에 대한 사용자 지정 IPsec 정책 만들기
+          href: create-custom-policies-p2s-ps.md
     - name: '라우팅, BGP 및 VNet 피어링'
       items:
         - name: VPN Gateway에 BGP 구성

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: c98935781699510d84247f80367d5c57cb388f6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 4de0014abfde32fc4b863afe1cc9000b25d30e83
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137640"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89503874"
 ---
 # <a name="two-class-decision-forest-module"></a>2 클래스 의사 결정 포리스트 모듈
 
@@ -76,7 +76,6 @@ ms.locfileid: "82137640"
   
 5.  **의사 결정 트리의 최대 깊이**에 대해 의사 결정 트리의 최대 깊이를 제한 하는 숫자를 입력 합니다. 트리의 수준을 늘리면 정밀도는 높아질 수 있지만 학습 시간이 더 길어지고 과잉 맞춤이 발생할 수 있습니다.
   
-6.  **노드당 임의 분할 수**의 경우 트리의 각 노드를 빌드할 때 사용할 분할 수를 입력 합니다. *분할* 은 트리 (노드)의 각 수준에서 무작위로 분할 된 기능을 의미 합니다.
   
 7.  **리프 노드당 최소 샘플 수**는 트리에서 터미널 노드 (리프)를 만드는 데 필요한 최소 사례 수를 지정 합니다.
   

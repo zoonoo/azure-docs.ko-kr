@@ -4,7 +4,7 @@
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: 개요
   items:
-    - name: Azure Synapse Analytics란?
+    - name: Azure Synapse란?
       href: overview-what-is.md
     - name: 시작
       items:
@@ -36,10 +36,10 @@
   items:
     - name: Azure Portal을 사용하여 Synapse 작업 영역 만들기
       href: quickstart-create-workspace.md
-    - name: 템플릿을 사용하여 배포
-      href: quickstart-deployment-template-workspaces.md
     - name: Azure CLI를 사용하여 Synapse 작업 영역 만들기
       href: quickstart-create-workspace-cli.md
+    - name: 템플릿을 사용하여 배포
+      href: quickstart-deployment-template-workspaces.md
     - name: Synapse Studio 사용
       href: quickstart-synapse-studio.md
     - name: Power BI 작업 영역 연결
@@ -70,7 +70,7 @@
       href: quickstart-connect-synapse-link-cosmos-db.md
 - name: 자습서
   items:
-    - name: Spark 풀에 대해 Apache Spark 애플리케이션 실행
+    - name: Apache Spark 애플리케이션 실행
       href: ./spark/intellij-tool-synapse.md
     - name: Spark 작업 정의
       href: ./spark/apache-spark-job-definitions.md
@@ -84,7 +84,7 @@
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
     - name: 데이터 분석가
       items:
-        - name: SQL 주문형을 사용하여 분석 및 Synapse Studio를 사용하여 시각화
+        - name: 주문형 SQL을 사용하여 데이터 분석
           href: ./sql/tutorial-data-analyst.md
 - name: 샘플
   href: 'https://github.com/Azure-Samples/Synapse'
@@ -372,9 +372,9 @@
           href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: '도구 통합(AI, ETL, BI)'
       items:
-        - name: Synapse Analytics Studio 문제 해결
+        - name: Synapse Studio 문제 해결
           href: troubleshoot/troubleshoot-synapse-studio.md
-        - name: PowerShell을 사용하여 Synapse Analytics Studio 문제 해결
+        - name: Synapse Studio 연결 문제 해결
           href: troubleshoot/troubleshoot-synapse-studio-powershell.md
 - name: 방법
   items:
@@ -869,7 +869,7 @@
               href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 자체 호스팅 통합 런타임 문제 해결
               href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Synapse Analytics에 도구 연결
+    - name: 도구를 Synapse 작업 영역에 연결
       items:
         - name: Synapse SQL
           items:

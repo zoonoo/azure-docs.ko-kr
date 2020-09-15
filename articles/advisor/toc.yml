@@ -41,6 +41,8 @@
       href: advisor-quick-fix.md
     - name: Azure Resource Graph의 Advisor 데이터
       href: advisor-azure-resource-graph.md
+    - name: Advisor 점수 사용
+      href: azure-advisor-score.md
 - name: 참조
   items:
     - name: Security Center

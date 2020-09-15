@@ -101,6 +101,8 @@
           href: unresponsive-vm-apply-windows-update.md
         - name: 감사 구성 정책을 적용하는 동안 VM이 응답하지 않음
           href: vm-unresponsive-applying-audit-configuration-policy.md
+        - name: 기본 도메인 컨트롤러 정책을 적용하는 동안 VM이 응답하지 않음
+          href: vm-unresponsive-domain-controllers-policy.md
         - name: 그룹 정책을 적용하는 동안 VM이 응답하지 않음
           href: unresponsive-vm-apply-group-policy.md
         - name: 보안 정책을 적용하는 동안 VM이 응답하지 않음

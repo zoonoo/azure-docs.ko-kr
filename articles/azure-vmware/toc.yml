@@ -58,9 +58,11 @@
               href: set-up-mabs-for-avs.md
             - name: Backup 서버를 사용하여 프라이빗 클라우드 VM 백업
               href: backup-avs-vms-with-mabs.md
+        - name: VM의 수명 주기 관리
+          href: lifecycle-management-of-azure-vmware-solution-vms.md
         - name: Application Gateway
           href: protect-avs-web-apps-with-app-gateway.md
-        - name: AVS를 사용하는 Traffic Manager
+        - name: Traffic Manager
           href: deploy-traffic-manager-to-balance-avs-workloads.md
     - name: VMware 솔루션
       items:

@@ -2,17 +2,17 @@
 title: 'Azure Express 경로: 모니터링, 메트릭 및 경고'
 description: Azure의 모든 메트릭, 경고, 진단 로그에 대 한 한 가지 stop 상점을 Azure Monitor 사용 하 여 Azure Express 경로 모니터링, 메트릭 및 경고에 대해 알아봅니다.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
-ms.author: cherylmc
-ms.openlocfilehash: 6f3bd5392457f05caa8704e7e1de5b4155b28794
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.author: duau
+ms.openlocfilehash: fc83e5e8d14250ed163a56830311533144bbe344
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871350"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395437"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 모니터링, 메트릭 및 경고
 
@@ -42,8 +42,8 @@ ms.locfileid: "88871350"
 |GlobalReachBitsOutPerSecond|트래픽|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|Global Reach|
 |AdminState|실제 연결|링크|ExpressRoute Direct|
 |LineProtocol|실제 연결|링크|ExpressRoute Direct|
-|RxLightLevel|실제 연결|<ui><li>링크나</ui></li><ui><li>차선</ui></li>|ExpressRoute Direct|
-|TxLightLevel|실제 연결|<ui><li>링크나</ui></li><ui><li>차선</ui></li>|ExpressRoute Direct|
+|RxLightLevel|실제 연결|<ui><li>링크</ui></li><ui><li>차선</ui></li>|ExpressRoute Direct|
+|TxLightLevel|실제 연결|<ui><li>링크</ui></li><ui><li>차선</ui></li>|ExpressRoute Direct|
 >[!NOTE]
 >*GlobalGlobalReachBitsInPerSecond* 및 *GlobalGlobalReachBitsOutPerSecond* 를 사용 하는 것은 하나 이상의 Global Reach 연결이 설정 된 경우에만 표시 됩니다.
 >

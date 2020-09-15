@@ -151,6 +151,8 @@
           href: cloud-services-disaster-recovery-guidance.md
         - name: 클래식 VM 아키텍처의 워크플로
           href: cloud-services-workflow-process.md
+        - name: Cloud Services에 대한 리소스 상태 지원
+          href: resource-health-for-cloud-services.md
         - name: Cloud Services FAQ
           items:
             - name: 애플리케이션 및 서비스 가용성 FAQ

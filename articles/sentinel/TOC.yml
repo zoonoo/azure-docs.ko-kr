@@ -50,17 +50,17 @@
               href: connect-azure-ad-identity-protection.md
             - name: Azure Information Protection
               href: connect-azure-information-protection.md
-            - name: Microsoft Defender ATP
+            - name: 엔드포인트에 대한 Microsoft Defender
               href: connect-microsoft-defender-advanced-threat-protection.md
-            - name: Azure ATP
+            - name: ID용 Microsoft Defender(이전 Azure ATP)
               href: connect-azure-atp.md
             - name: Azure DDoS Protection
               href: connect-azure-ddos-protection.md
             - name: Azure Firewall
               href: connect-azure-firewall.md
-            - name: Azure Security Center
+            - name: ASC의 Azure Defender 경고
               href: connect-azure-security-center.md
-            - name: IoT용 Azure Security Center
+            - name: IoT용 Azure Defender(이전에는 ASC)
               href: connect-asc-iot.md
             - name: Azure WAF(웹 애플리케이션 방화벽)
               href: connect-azure-waf.md
@@ -114,6 +114,8 @@
               href: connect-vmware-carbon-black.md
             - name: Zimperium Mobile Threat Defense
               href: connect-zimperium-mtd.md
+            - name: Logstash를 사용하여 연결
+              href: connect-logstash.md
             - name: CEF 기반 솔루션
               href: connect-common-event-format.md
               items:

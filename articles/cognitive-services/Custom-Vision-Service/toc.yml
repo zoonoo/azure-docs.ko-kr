@@ -39,6 +39,8 @@
       href: use-prediction-api.md
     - name: 스마트 레이블 지정자 사용
       href: suggested-tags.md
+    - name: 역할 기반 액세스 제어
+      href: role-based-access-control.md
     - name: 모델 내보내기
       items:
         - name: 모바일로 모델 내보내기

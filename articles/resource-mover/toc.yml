@@ -24,8 +24,22 @@
       href: support-matrix-move-region-sql.md
 - name: 방법 가이드
   items:
-    - name: 이동 컬렉션에서 리소스 제거
-      href: remove-move-resources.md
+    - name: 지역 간 이동
+      items:
+        - name: PowerShell을 사용하여 영역 간 이동
+          href: move-region-powershell.md
+        - name: 가용성 영역으로 Azure VM 이동
+          href: move-region-availability-zone.md
+        - name: 영역 간 이동(리소스 그룹에서)
+          href: move-region-within-resource-group.md
+    - name: 영역 이동 관리
+      items:
+        - name: 영역 이동에 대한 대상 설정 수정
+          href: modify-target-settings.md
+        - name: 영역 이동 컬렉션에서 리소스 제거
+          href: remove-move-resources.md
+        - name: 영역 이동 프로세스에서 만든 리소스 관리
+          href: manage-resources-created-move-process.md
 - name: 리소스
   items:
     - name: CAF(클라우드 채택 프레임워크)에 마이그레이션

@@ -293,8 +293,10 @@
       href: azure-monitor-overview.md
     - name: SAP 솔루션 공급자를 위한 Azure Monitor
       href: azure-monitor-providers.md
-    - name: SAP 솔루션을 위한 Azure Monitor 구성
+    - name: SAP 솔루션을 위한 Azure Monitor 구성 - Portal
       href: azure-monitor-sap-quickstart.md
+    - name: SAP 솔루션을 위한 Azure Monitor 구성 - Azure PowerShell
+      href: azure-monitor-sap-quickstart-powershell.md
     - name: SAP 솔루션을 위한 Azure Monitor FAQ
       href: azure-monitor-faq.md
 - name: 참조

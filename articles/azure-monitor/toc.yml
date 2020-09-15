@@ -1136,7 +1136,21 @@
           displayname: Workbooks
           href: platform/workbooks-overview.md
         - name: 시각화
-          href: platform/workbooks-visualizations.md
+          items:
+            - name: 텍스트
+              href: platform/workbooks-text-visualizations.md
+            - name: 차트
+              href: platform/workbooks-chart-visualizations.md
+            - name: 그리드
+              href: platform/workbooks-grid-visualizations.md
+            - name: Tile
+              href: platform/workbooks-tile-visualizations.md
+            - name: 트리
+              href: platform/workbooks-tree-visualizations.md
+            - name: 그래프
+              href: platform/workbooks-graph-visualizations.md
+            - name: 복합 막대
+              href: platform/workbooks-composite-bar.md
         - name: 데이터 원본
           href: platform/workbooks-data-sources.md
         - name: 매개 변수

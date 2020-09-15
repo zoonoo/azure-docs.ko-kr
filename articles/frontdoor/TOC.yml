@@ -7,8 +7,10 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: Front Door 만들기
+    - name: Front Door 만들기 - Portal
       href: quickstart-create-front-door.md
+    - name: Front Door 만들기 - ARM 템플릿
+      href: quickstart-create-front-door-template.md
 - name: 자습서
   items:
     - name: Front Door에 사용자 지정 도메인 추가

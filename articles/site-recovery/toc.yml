@@ -466,6 +466,8 @@
       href: site-recovery-monitor-and-troubleshoot.md
     - name: Azure Monitor 로그를 사용하여 Site Recovery 모니터링
       href: monitor-log-analytics.md
+    - name: Virtual Machines에서 변동 패턴 모니터링
+      href: monitoring-high-churn.md
     - name: 프로세스 서버 모니터링
       href: vmware-physical-azure-monitor-process-server.md
 - name: 문제 해결

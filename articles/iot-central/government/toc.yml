@@ -24,7 +24,7 @@
   items:
     - name: Dynamics 365 Field Service에 앱 연결
       href: how-to-configure-connected-field-services.md
-    - name: 디바이스 연결
+    - name: 디바이스 연결 및 개발
       items:
         - name: Rigado Cascade 500 준비 및 연결
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json

@@ -25,6 +25,8 @@
   items:
     - name: 인증을 사용하는 서버리스 실시간 앱 빌드
       href: signalr-tutorial-authenticate-azure-functions.md
+    - name: Blazor Server 채팅 앱 빌드
+      href: signalr-tutorial-build-blazor-server-chat-app.md
 - name: 샘플
   items:
     - name: 코드 샘플

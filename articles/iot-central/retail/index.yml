@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: f37f876db15e2722907669cd1c1d8390f771034b
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: 8469f67967f311d4aca98417e8a5a639665b4641
+  ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88080646"
+  ms.lasthandoff: 09/11/2020
+  ms.locfileid: "90014925"
 landingContent:
 - title: 소매업 솔루션 빌드
   linkLists:
@@ -43,18 +43,32 @@ landingContent:
     links:
     - text: Rigado Cascade 500 연결
       url: ../core/howto-connect-rigado-cascade-500.md
-- title: 연결
+- title: 디바이스 연결 및 개발
   linkLists:
+  - linkListType: overview
+    links:
+    - text: 디바이스 개발자를 위한 개요
+      url: ../core/overview-iot-central-developer.md
   - linkListType: tutorial
     links:
-    - text: 디바이스 템플릿 설정
-      url: ../core/howto-set-up-template.md
+    - text: 디바이스 연결(Node.js)
+      url: ../core/tutorial-connect-device-nodejs.md
+    - text: 디바이스 연결(Python)
+      url: ../core/tutorial-connect-device-python.md
+  - linkListType: concept
+    links:
     - text: 디바이스 연결
-      url: ../core/tutorial-connect-device.md
+      url: ../core/concepts-get-connected.md
+    - text: 디바이스 템플릿
+      url: ../core/concepts-device-templates.md
   - linkListType: how-to-guide
     links:
-    - text: 다른 IoT 클라우드 연결
-      url: ../core/howto-build-iotc-device-bridge.md
+    - text: 템플릿 설정
+      url: ../core/howto-set-up-template.md
+    - text: Azure Sphere 디바이스 연결
+      url: ../core/howto-connect-sphere.md
+    - text: 디바이스 연결 문제 해결
+      url: ../core/troubleshoot-connection.md
 - title: 연결 유지
   linkLists:
   - linkListType: tutorial
