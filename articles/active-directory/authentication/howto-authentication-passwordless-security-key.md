@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 09/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f17a634a9bc3b410eec8ed6e868d454dc9ecee6
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e523f8cc3aa9ab2f42d2d28909c9dec2dad30b43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116600"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526955"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -25,22 +25,22 @@ ms.locfileid: "88116600"
 이 문서에서는 보안 키 기반 암호 없는 인증을 사용 하도록 설정 하는 방법을 중점적으로 설명 합니다. 이 문서의 끝 부분에서 FIDO2 보안 키를 사용 하 여 Azure AD 계정으로 웹 기반 응용 프로그램에 로그인 할 수 있습니다.
 
 > [!NOTE]
-> FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
+> FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대 한 자세한 내용은  [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
 ## <a name="requirements"></a>요구 사항
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - [결합 된 보안 정보 등록 미리 보기](concept-registration-mfa-sspr-combined.md) 사용
 - 호환 되는 [FIDO2 보안 키](concept-authentication-passwordless.md#fido2-security-keys)
-- WebAuthN에는 Windows 10 버전 1809 이상이 필요 합니다. * *
+- WebAuthN에는 Windows 10 버전 1903 이상이 필요 합니다. * *
 
 웹 앱 및 서비스에 로그인 하는 데 보안 키를 사용 하려면 WebAuthN 프로토콜을 지 원하는 브라우저가 있어야 합니다. 여기에는 Microsoft Edge, Chrome, Firefox 및 Safari가 포함 됩니다.
 
 ## <a name="prepare-devices-for-preview"></a>미리 보기용으로 장치 준비
 
-를 사용 하 여 파일럿 할 Azure AD 조인 장치는 Windows 10 버전 1809 이상을 실행 해야 합니다. 최상의 환경은 Windows 10 버전 1903 이상에 있습니다.
+를 사용 하 여 파일럿 할 Azure AD 조인 장치는 Windows 10 버전 1909 이상을 실행 해야 합니다. 최상의 환경은 Windows 10 버전 1903 이상에 있습니다.
 
-하이브리드 Azure AD 조인 장치는 Windows 10 Insider Build 18945 이상을 실행 해야 합니다.
+하이브리드 Azure AD 조인 장치는 Windows 10 버전 2004 이상을 실행 해야 합니다.
 
 ## <a name="enable-passwordless-authentication-method"></a>암호 없는 인증 방법 사용
 
@@ -73,7 +73,7 @@ ms.locfileid: "88116600"
 
 ## <a name="sign-in-with-passwordless-credential"></a>암호 없는 자격 증명을 사용 하 여 로그인
 
-아래 예제에서는 사용자가 이미 FIDO2 보안 키를 프로 비전 했습니다. 사용자는 Windows 10 버전 1809 이상에서 지원 되는 브라우저 내에서 FIDO2 보안 키를 사용 하 여 웹에서 로그인 하도록 선택할 수 있습니다.
+아래 예제에서는 사용자가 이미 FIDO2 보안 키를 프로 비전 했습니다. 사용자는 Windows 10 버전 1903 이상에서 지원 되는 브라우저 내에서 FIDO2 보안 키를 사용 하 여 웹에서 로그인 하도록 선택할 수 있습니다.
 
 ![보안 키 로그인 Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 

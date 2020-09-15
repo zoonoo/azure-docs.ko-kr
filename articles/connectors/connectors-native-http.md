@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 9ed490dba1547db6ec3c0ddcff38aa3e0c393fcf
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 5f6328144760b3c55c55fbef13917359fa9e1a62
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226432"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526752"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 또는 HTTPS를 통해 서비스 엔드포인트 호출
 
@@ -104,7 +104,7 @@ ms.locfileid: "89226432"
 
 이 정보를 반환 하는 HTTP 트리거 또는 작업의 출력에 대 한 자세한 내용은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | 형식 | 설명 |
 |----------|------|-------------|
 | `headers` | JSON 개체 | 요청의 헤더 |
 | `body` | JSON 개체 | 요청의 본문 콘텐츠가 포함된 개체 |
@@ -167,6 +167,14 @@ HTTP 요청에 형식이 있는 콘텐츠를 처리 하려면 `multipart/form-da
    "type": "Http"
 }
 ```
+
+## <a name="content-with-applicationx-www-form-urlencoded-type"></a>Application/x-www-x-www-form-urlencoded type을 사용 하는 콘텐츠
+
+HTTP 요청에 대 한 본문에 양식 x-www-form-urlencoded 데이터를 제공 하려면 데이터에 콘텐츠 형식이 있도록 지정 해야 합니다 `application/x-www-form-urlencoded` . HTTP 트리거 또는 작업에서 헤더를 추가 합니다 `content-type` . 헤더 값을로 설정 `application/x-www-form-urlencoded` 합니다.
+
+예를 들어 웹 사이트에 HTTP POST 요청을 보내는 논리 앱이 있다고 가정 합니다 .이는 해당 `application/x-www-form-urlencoded` 유형을 지원 합니다. 이 작업의 모양은 다음과 같습니다.
+
+![' Content-type ' 헤더가 ' application/x-www-form-urlencoded '로 설정 된 HTTP 요청을 보여 주는 스크린샷](./media/connectors-native-http/http-action-urlencoded.png)
 
 <a name="asynchronous-pattern"></a>
 
@@ -263,4 +271,3 @@ Logic Apps에서 HTTP 트리거 또는 작업을 사용 하는 논리 앱을 이
 
 * [다른 서비스와 시스템에 대 한 아웃 바운드 호출을 위한 보안 액세스 및 데이터 액세스](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
 * [Logic Apps용 커넥터](../connectors/apis-list.md)
-

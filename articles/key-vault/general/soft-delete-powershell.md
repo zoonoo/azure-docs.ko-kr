@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 251159c4fcf27ceb4d8b0dddeecbe501c7346e9e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 05ff5d2f7ff87d2ce58f135330487f746cc5c1c7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073236"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528366"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>PowerShell로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -47,7 +47,7 @@ Key Vault 작업은 RBAC(역할 기반 액세스 제어) 권한을 통해 다음
 |복구|삭제된 Key Vault를 복구합니다.|Microsoft.KeyVault/vaults/write|
 |제거|삭제된 Key Vault 및 모든 콘텐츠를 영구적으로 제거합니다.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-권한 및 액세스 제어에 대한 자세한 내용은 [키 자격 증명 모음 보안](secure-your-key-vault.md)을 참조하세요).
+권한 및 액세스 제어에 대한 자세한 내용은 [Key Vault 보안](secure-your-key-vault.md)을 참조하세요.
 
 ## <a name="enabling-soft-delete"></a>일시 삭제를 사용하도록 설정
 
@@ -282,5 +282,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## <a name="other-resources"></a>기타 리소스
 
-- Key Vault의 일시 삭제 기능에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](soft-delete-overview.md)를 참조하세요).
-- Azure Key Vault 사용에 대한 일반적인 개요는 [Azure Key Vault란?](overview.md)을 참조하세요).
+- Key Vault의 일시 삭제 기능에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](soft-delete-overview.md)를 참조하세요.
+- Azure Key Vault 사용에 대한 일반적인 개요는 [Azure Key Vault란?](overview.md)을 참조하세요.

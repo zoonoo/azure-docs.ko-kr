@@ -10,12 +10,12 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: e87ecc14907c6e0618de47ffdbd334d8ba03ec99
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 3d65a7771ff2bd8807a5f02278b0455ee103dbd6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500628"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526343"
 ---
 # <a name="hyperspace---an-indexing-subsystem-for-apache-spark"></a>하이퍼스페이스-Apache Spark에 대 한 인덱싱 하위 시스템
 
@@ -32,7 +32,7 @@ ms.locfileid: "89500628"
 
 이 문서는 [c #](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb) 및 [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb) 의 경우 [Python](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)용 노트북 양식 에서도 사용할 수 있습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
 먼저 새 Spark 세션을 시작 합니다. 이 문서는 하이퍼스페이스가 제공할 수 있는 기능을 보여 주기 위한 자습서 이므로 작은 데이터 집합에서 수행 하는 작업을 강조 하는 데 사용할 수 있는 구성 변경 작업을 수행 합니다. 기본적으로 Spark는 한 쪽 조인의 데이터 크기가 작은 경우 (이 자습서에서 사용 하는 샘플 데이터의 경우) 브로드캐스트 조인을 사용 하 여 조인 쿼리를 최적화 합니다. 따라서 나중에 조인 쿼리를 실행할 때 Spark에서 정렬 병합 조인을 사용 하도록 브로드캐스트 조인을 사용 하지 않도록 설정 합니다. 이는 일반적으로 조인 쿼리를 가속화 하는 데 하이퍼스페이스 인덱스를 사용 하는 방법을 보여 주기 위한 것입니다.
 
@@ -392,7 +392,8 @@ hyperspace: com.microsoft.hyperspace.Hyperspace = com.microsoft.hyperspace.Hyper
 인덱스 구성 개체: IndexConfig-인덱스의 인덱스 이름, 인덱스 및 포괄 열을 지정 합니다.
 먼저 샘플 데이터에 세 개의 하이퍼스페이스 인덱스, 즉 "deptIndex1" 및 "deptIndex2" 라는 부서 데이터 집합에 대 한 두 개의 인덱스와 ' empIndex ' 이라는 직원 데이터 집합에 대 한 인덱스를 만듭니다. 각 인덱스에 대해 인덱싱된 열 및 포괄 열에 대해 열 목록과 함께 이름을 캡처하기 위해 해당 하는 IndexConfig가 필요 합니다. 아래 셀을 실행 하면 이러한 indexConfigs 만들어지고 출력에 나열 됩니다.
 
-참고: 인덱스 열은 필터 또는 조인 조건에 표시 되는 열입니다. 포괄 열은 선택/프로젝트에 표시 되는 열입니다.
+> [!Note]
+> 인덱스 열은 필터 또는 조인 조건에 표시 되는 열입니다. 포괄 열은 선택/프로젝트에 표시 되는 열입니다.
 
 예를 들어 다음 쿼리에서는
 
@@ -508,8 +509,9 @@ import com.microsoft.hyperspace.index.Index
 
 아래 셀에는 데이터 프레임의 ' show ' 작업을 사용 하 여 행을 완전히 인쇄 하 고 인덱스의 세부 정보를 테이블 형식으로 표시 합니다. 각 인덱스에 대해 하이퍼스페이스가 메타 데이터에 저장 한 모든 정보를 볼 수 있습니다. 다음에 대 한 알림이 즉시 표시 됩니다.
 
-"indexName", "config.xml Edcolumns", "includedColumns" 및 "status. status"는 사용자가 일반적으로 참조 하는 필드입니다.
-"dfSignature"는 하이퍼스페이스에 의해 자동으로 생성 되며 각 인덱스에 대해 고유 합니다. 하이퍼스페이스는 내부적으로이 서명을 사용 하 여 인덱스를 유지 관리 하 고 쿼리 시이를 활용 합니다.
+* "indexName", "config.xml Edcolumns", "includedColumns" 및 "status. status"는 사용자가 일반적으로 참조 하는 필드입니다.
+* "dfSignature"는 하이퍼스페이스에 의해 자동으로 생성 되며 각 인덱스에 대해 고유 합니다. 하이퍼스페이스는 내부적으로이 서명을 사용 하 여 인덱스를 유지 관리 하 고 쿼리 시이를 활용 합니다.
+
 아래 출력에서 세 인덱스는 모두 "활성" 상태이 고 해당 이름, 인덱싱된 열 및 포괄 열은 위의 인덱스 구성에서 정의한 내용과 일치 해야 합니다.
 
 :::zone pivot = "programming-language-scala"
@@ -839,7 +841,7 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 | 7876|  ADAMS|    20|
 ```
 
-&nbsp;&nbsp;상위 5 개 행 &nbsp; 만 표시&nbsp;
+&nbsp;&nbsp;상위 5 개 행 &nbsp; 만 표시 됩니다.&nbsp;
 
 ```console
 |deptId|  deptName|location|
@@ -1369,8 +1371,8 @@ empIndex:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/<container>/i
 
 아래 두 셀은이 시나리오에 대 한 예를 보여 줍니다.
 
-첫 번째 셀은 원본 부서 데이터에 두 개 이상의 부서를 추가 합니다. 부서 목록을 읽고 인쇄 하 여 새 부서가 올바르게 추가 되었는지 확인 합니다. 출력에는 총 6 개 부서 (이전 4 개 및 두 개의 새)가 표시 됩니다. "RefreshIndex"를 호출 하면 "deptIndex1"가 업데이트 되어 인덱스가 새 부서를 캡처합니다.
-두 번째 셀은 범위 선택 쿼리 예제를 실행 합니다. 이제 결과에는 위의 쿼리를 실행 하기 전에 표시 되는 4 개의 학과와 두 개의 부서가 포함 됩니다.
+* 첫 번째 셀은 원본 부서 데이터에 두 개 이상의 부서를 추가 합니다. 부서 목록을 읽고 인쇄 하 여 새 부서가 올바르게 추가 되었는지 확인 합니다. 출력에는 총 6 개 부서 (이전 4 개 및 두 개의 새)가 표시 됩니다. "RefreshIndex"를 호출 하면 "deptIndex1"가 업데이트 되어 인덱스가 새 부서를 캡처합니다.
+* 두 번째 셀은 범위 선택 쿼리 예제를 실행 합니다. 이제 결과에는 위의 쿼리를 실행 하기 전에 표시 되는 4 개의 학과와 두 개의 부서가 포함 됩니다.
 
 ### <a name="specific-index-refresh"></a>특정 인덱스 새로 고침
 

@@ -2,13 +2,13 @@
 title: Azure Migrate 어플라이언스 FAQ
 description: Azure Migrate 어플라이언스에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: aa15a3451b990d3c3cec3535fdc14315ff149aef
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.date: 09/15/2020
+ms.openlocfilehash: 6c1e5099f208788919d27ba3d2b1de296f0d91a6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514546"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526564"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -76,7 +76,7 @@ Azure Migrate 어플라이언스에 의해 수집 되는 데이터는 Azure Migr
 데이터를 저장 하는 방법에 대 한 자세한 내용은 다음과 같습니다.
 
 - 수집 된 데이터는 Microsoft 구독에서 CosmosDB에 안전 하 게 저장 됩니다. Azure Migrate 프로젝트를 삭제 하면 데이터가 삭제 됩니다. 저장소는 Azure Migrate에 의해 처리 됩니다. 수집 된 데이터에 대 한 저장소 계정을 구체적으로 선택할 수 없습니다.
-- [종속성 시각화](concepts-dependency-visualization.md)를 사용 하는 경우 수집 된 데이터는 azure 구독에서 만든 azure Log Analytics 작업 영역의 미국에 저장 됩니다. 구독에서 Log Analytics 작업 영역을 삭제 하면 데이터가 삭제 됩니다.
+- [종속성 시각화](concepts-dependency-visualization.md)를 사용 하는 경우 수집 된 데이터는 azure 구독에서 만든 azure Log Analytics 작업 영역에 저장 됩니다. 구독에서 Log Analytics 작업 영역을 삭제 하면 데이터가 삭제 됩니다. 
 
 ## <a name="how-much-data-is-uploaded-during-continuous-profiling"></a>연속 프로 파일링 중에 업로드 되는 데이터의 양
 
@@ -101,7 +101,7 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 
 ## <a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>Azure Migrate 어플라이언스를 여러 vCenter 서버에 연결할 수 있나요?
 
-아닙니다. [Azure Migrate 어플라이언스](migrate-appliance.md) 와 vCenter Server 사이에 일 대 일 매핑이 있습니다. 여러 vCenter Server 인스턴스에서 Vm을 검색 하려면 여러 어플라이언스를 배포 해야 합니다. 
+아니요. [Azure Migrate 어플라이언스](migrate-appliance.md) 와 vCenter Server 사이에 일 대 일 매핑이 있습니다. 여러 vCenter Server 인스턴스에서 Vm을 검색 하려면 여러 어플라이언스를 배포 해야 합니다. 
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Azure Migrate 프로젝트에 여러 개의 어플라이언스를 사용할 수 있나요?
 
@@ -131,11 +131,11 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Azure VM에서 어플라이언스를 설정할 수 있나요?
 
-아닙니다. 현재이 옵션은 지원 되지 않습니다. 
+아니요. 현재이 옵션은 지원 되지 않습니다. 
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>ESXi 호스트에서 검색할 수 있나요?
 
-아닙니다. VMware Vm을 검색 하려면 vCenter Server 있어야 합니다.
+아니요. VMware Vm을 검색 하려면 vCenter Server 있어야 합니다.
 
 ## <a name="how-do-i-update-the-appliance"></a>어플라이언스를 업데이트 어떻게 할까요??
 

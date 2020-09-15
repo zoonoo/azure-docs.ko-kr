@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d70fe8a1fbaee285843bfd76ad2a8076df96b49b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 66283e4965aea9e24da6041133e2d88e95df6755
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717968"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526989"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)를 사용 하 여 Windows 10 장치에 암호 없는 보안 키 로그인 사용
 
@@ -32,8 +32,8 @@ ms.locfileid: "88717968"
 | [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
 | [결합 된 보안 정보 등록 미리 보기](concept-registration-mfa-sspr-combined.md) | X | X |
 | 호환 되는 [FIDO2 보안 키](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
-| WebAuthN에는 Windows 10 버전 1809 이상이 필요 합니다. | X | X |
-| [AZURE AD 가입 장치](../devices/concept-azure-ad-join.md) 에는 Windows 10 버전 1903 이상이 필요 합니다. | X |   |
+| WebAuthN에는 Windows 10 버전 1903 이상이 필요 합니다. | X | X |
+| [AZURE AD 가입 장치](../devices/concept-azure-ad-join.md) 에는 Windows 10 버전 1909 이상이 필요 합니다. | X |   |
 | [하이브리드 AZURE AD 조인 장치](../devices/concept-azure-ad-join-hybrid.md) 에는 Windows 10 버전 2004 이상이 필요 합니다. |   | X |
 | Windows Server 2016/2019 도메인 컨트롤러를 완전히 패치 했습니다. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) 버전 1.4.32.0 이상 |   | X |
@@ -56,7 +56,7 @@ ms.locfileid: "88717968"
 
 ## <a name="prepare-devices-for-preview"></a>미리 보기용으로 장치 준비
 
-기능 미리 보기 중에 파일럿 할 Azure AD 조인 장치는 Windows 10 버전 1809 이상을 실행 해야 합니다. 최상의 환경은 Windows 10 버전 1903 이상에 있습니다.
+기능 미리 보기 중에 파일럿 할 Azure AD 조인 장치는 Windows 10 버전 1909 이상을 실행 해야 합니다.
 
 하이브리드 Azure AD 조인 장치는 Windows 10 버전 2004 이상을 실행 해야 합니다.
 
@@ -125,7 +125,7 @@ Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 �
 1. 만든 프로 비전 패키지를 적용 하려면 [프로 비전 패키지 적용](/windows/configuration/provisioning-packages/provisioning-apply-package)을 참조 하세요.
 
 > [!NOTE]
-> Windows 10 버전 1809을 실행 하는 장치 에서도 공유 PC 모드 (*EnableSharedPCMode*)를 사용 하도록 설정 해야 합니다. 이 기능을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Windows 10을 사용 하 여 공유 또는 게스트 PC 설정](/windows/configuration/set-up-shared-or-guest-pc)을 참조 하세요.
+> Windows 10 버전 1903을 실행 하는 장치 에서도 공유 PC 모드 (*EnableSharedPCMode*)를 사용 하도록 설정 해야 합니다. 이 기능을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Windows 10을 사용 하 여 공유 또는 게스트 PC 설정](/windows/configuration/set-up-shared-or-guest-pc)을 참조 하세요.
 
 ### <a name="enable-with-group-policy"></a>그룹 정책 사용
 

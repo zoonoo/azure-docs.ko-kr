@@ -2,13 +2,13 @@
 title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새 기능 및 최신 업데이트에 대 한 요약 정보를 제공 합니다.
 ms.topic: conceptual
-ms.date: 08/20/2020
-ms.openlocfilehash: 837344d10e21d20488760f6d5aa4749c039f9b07
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/15/2020
+ms.openlocfilehash: 1bf051afaeb61c80e3708a72a4a0605b68533977
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816952"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527346"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -22,14 +22,23 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 **Update** |  **통합 설치** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery Provider** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
+[롤업 50](https://support.microsoft.com/help/4582666/) | 9.37.5724.1 | 5.1.6347.0 | 9.37.5724.1 | 5.1.6347.0  | 2.0.9192.0
 [롤업 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [롤업 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
 [롤업 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | HyperV 컴퓨터-2.0.9183.0 <br> VMware 컴퓨터-2.0.9177.0
 [롤업 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
-[롤업 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
+
 
 업데이트 설치 및 지원에 [대해 자세히 알아보세요](service-updates-how-to.md) .
 
+## <a name="update-september-2020"></a>업데이트 (9 월 2020)
+
+[업데이트 롤업 50](https://support.microsoft.com/help/4582666/update-rollup-50-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
+
+**Update** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | 롤업에 설명 된 대로 Site Recovery 에이전트 및 공급자를 업데이트 합니다.
+**문제 해결/향상** | 롤업에 자세히 설명 된 다양 한 수정 사항 및 개선 사항입니다.
 
 ## <a name="updates-august-2020"></a>업데이트 (8 월 2020)
 
@@ -40,7 +49,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 **Update** | **세부 정보**
 --- | ---
 **공급자 및 에이전트** | 롤업에 설명 된 대로 Site Recovery 에이전트 및 공급자를 업데이트 합니다.
-**문제 해결/향상** | 롤업에 자세히 설명 된 다양 한 수정 사항 및 개선 사항입니다.
+**문제 해결/향상** | 모바일 서비스에 대 한 새로운 Linux 지원을 비롯 하 여 rollup에 설명 된 다양 한 수정 사항 및 개선 사항입니다.
 
 ## <a name="updates-july-2020"></a>업데이트 (7 월 2020)
 

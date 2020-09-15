@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 953d22e2dc41ca64af3793c8e0f67a203eb5ca7c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 1e2af29779c93175ccc4c7f6964862b79febd8e6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646854"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527091"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Dynamics 365 Business Central 제품 만들기
 
@@ -71,9 +71,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 ### <a name="test-drive"></a>시험 사용
 
-시험 사용은 "구입 전 체험" 옵션을 제공하여 잠재적인 고객에게 제품을 선보임으로써 구매 전환율을 높이고 적절한 잠재 고객을 창출할 수 있는 유용한 방법입니다. 자세히 알아보려면 [테스트 드라이브인 무엇 인가요?](../what-is-test-drive.md)를 시작 합니다.
-
-일정 기간 동안 시험 사용을 사용하도록 설정하려면 **시험 사용을 사용하도록 설정** 확인란을 선택합니다. 제품에서 시험 사용을 제거하려면 이 확인란을 선택 취소합니다.
+이 시점에서 Dynamics 365 Business Central 제품은 테스트 드라이브를 지원 하지 않습니다. 제품에서 테스트 드라이브를 제거 하려면 **테스트 드라이브 사용** 확인란의 선택을 취소 합니다.
 
 ### <a name="customer-leads"></a>잠재 고객
 
@@ -124,14 +122,14 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 #### <a name="call-out-descriptions"></a>호출 설명
 
 1. 로고
-2. 제품
+2. Products
 3. 범주
 4. 지원 주소 (링크)
 5. 사용 약관
 6. 개인 정보 보호 정책
 7. Offer name
 8. 요약
-9. Description
+9. 설명
 10. 스크린샷/비디오
 
 ### <a name="name"></a>속성
@@ -140,7 +138,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 ### <a name="short-description"></a>간단한 설명
 
-제품에 대한 간단한 설명을 최대 100자까지 입력합니다. 이 설명은 마켓플레이스 검색 결과에서 사용할 수 있습니다.
+제품에 대한 간단한 설명을 최대 100자까지 입력합니다. 이 설명은 Marketplace 검색 결과에서 사용할 수 있습니다.
 
 ### <a name="description"></a>Description
 
@@ -152,7 +150,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 ### <a name="search-keywords"></a>검색 키워드
 
-필요에 따라 고객이 마켓플레이스에서 제품을 찾을 수 있도록 최대 3개의 검색 키워드를 입력할 수 있습니다. 최상의 결과를 얻으려면 설명에 이러한 키워드를 사용해 보세요.
+필요에 따라 고객이 Marketplace에서 제품을 찾을 수 있도록 최대 3개의 검색 키워드를 입력할 수 있습니다. 최상의 결과를 얻으려면 설명에 이러한 키워드를 사용해 보세요.
 
 ### <a name="products-your-app-works-with"></a>앱과 연동되는 제품
 
@@ -172,7 +170,7 @@ CRM(고객 관계 관리) 시스템을 연결하여 고객 연락처 정보를 �
 
 ### <a name="contact-information"></a>연락처 정보
 
-이 섹션에서는 **지원 연락처** 및 **엔지니어링 연락처**의 이름, 이메일 및 전화 번호를 제공해야 합니다. 이 정보는 고객에게 표시되지 않지만 Microsoft에서 사용할 수 있으며 CSP 파트너에게 제공될 수 있습니다.
+이 섹션에서는 **지원 연락처** 및 **엔지니어링 연락처**의 이름, 이메일 및 전화번호를 제공해야 합니다. 이 정보는 고객에게 표시되지 않지만 Microsoft에서 사용할 수 있으며 CSP 파트너에게 제공될 수 있습니다.
 
 **지원 연락처** 섹션에서 CSP 파트너가 제품에 대한 지원을 찾을 수 있는 **지원 URL**도 제공해야 합니다. 지원 URL은 **도움말 링크**와 같을 수 없습니다.
 

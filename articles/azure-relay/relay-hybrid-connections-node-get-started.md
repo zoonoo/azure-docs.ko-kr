@@ -4,12 +4,12 @@ description: Azure Relay 하이브리드 연결 Websocket에 대한 Node.js 콘�
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8dc52c93d4b5cd6d50b66338350a41cf0e24daa0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: cf660d7a776c0dfa48b6c023fa0fa3516a3a0ea5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386302"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527414"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Node.js에서 Relay 하이브리드 연결 WebSockets 시작
 
@@ -52,7 +52,7 @@ ms.locfileid: "87386302"
 2. Node.js 명령 프롬프트 형식 `node sender.js`의 클라이언트 애플리케이션을 실행하고 일부 텍스트를 입력합니다.
 3. 서버 애플리케이션 콘솔이 클라이언트 애플리케이션에 입력된 텍스트를 출력하는지 확인합니다.
 
-    ![애플리케이션 실행](./media/relay-hybrid-connections-node-get-started/running-applications.png)
+    ![콘솔 windows 서버와 클라이언트 응용 프로그램을 테스트 합니다.](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
 축하합니다. Node.js를 사용하여 엔드투엔드 하이브리드 연결 애플리케이션을 만들었습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: 지원 되는 토폴로지 및 시나리오 Azure AD Connect 클라우드 프로 비전
-description: 이 항목에서는 필수 구성 요소 및 하드웨어 요구 사항 클라우드 프로 비전에 대해 설명 합니다.
+description: Azure AD Connect 클라우드 프로 비전을 사용 하는 다양 한 온-프레미스 및 Azure Active Directory (Azure AD) 토폴로지에 대해 알아보세요.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d442c980ad5bbe3b56eae127b6e9eaeddf380a4e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77620866"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526853"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>지원 되는 토폴로지 및 시나리오 Azure AD Connect 클라우드 프로 비전
 이 문서에서는 Azure AD Connect 클라우드 프로 비전을 사용 하는 다양 한 온-프레미스 및 Azure Active Directory (Azure AD) 토폴로지에 대해 설명 합니다. 이 문서에는 지원 되는 구성 및 시나리오만 포함 되어 있습니다.

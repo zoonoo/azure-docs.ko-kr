@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f0b7d056d37ffb11945a5c50e2705b5d74402007
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8ce343045f7ff124f5faf86b13210bfb5b3b5519
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386115"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527159"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Azure에서 Ethereum 증명 기관 컨소시엄 솔루션 템플릿 배포
 
@@ -97,7 +97,7 @@ Id 저장소는 생성 된 Ethereum id를 안전 하 게 보관 하는 각 멤�
 VM 사용자 이름 | 배포 된 각 VM의 관리자 사용자 이름 | 1-64 영숫자 문자
 인증 유형 | 가상 머신을 인증하는 방법. | 암호
 암호 | 배포된 각 가상 머신의 관리자 계정 암호. 모든 Vm은 처음에 동일한 암호를 가집니다. 프로 비전 한 후 암호를 변경할 수 있습니다. | 12-72자 
-Subscription | 컨소시엄 네트워크를 배포하는 구독 |
+구독 | 컨소시엄 네트워크를 배포하는 구독 |
 리소스 그룹| 컨소시엄 네트워크를 배포하는 리소스 그룹. | myResourceGroup
 위치 | 리소스 그룹에 대한 Azure 지역입니다. | 미국 서부 2
 
@@ -325,7 +325,7 @@ ParityLog_CL
 
 1. **허용-ssh** 규칙을 선택 합니다.
 
-    ![allow-ssh](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![화면 캡처에는 ssh 허용이 선택 된 개요 창이 표시 됩니다.](./media/ethereum-poa-deployment/ssh-allow.png)
 
 1. **작업** 을 **허용** 으로 변경
 
@@ -333,7 +333,7 @@ ParityLog_CL
 
 1. **저장**을 선택합니다. 변경 내용을 적용 하는 데 몇 분 정도 걸릴 수 있습니다.
 
-제공 된 관리자 사용자 이름 및 암호/s s p 키를 사용 하 여 SSH를 통해 유효성 검사기 노드의 가상 컴퓨터에 원격으로 연결할 수 있습니다. 첫 번째 유효성 검사기 노드에 액세스 하는 SSH 명령이 템플릿 배포 출력에 나열 됩니다. 예를 들면 다음과 같습니다.
+제공 된 관리자 사용자 이름 및 암호/s s p 키를 사용 하 여 SSH를 통해 유효성 검사기 노드의 가상 컴퓨터에 원격으로 연결할 수 있습니다. 첫 번째 유효성 검사기 노드에 액세스 하는 SSH 명령이 템플릿 배포 출력에 나열 됩니다. 예를 들어:
 
 ``` bash
 ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
@@ -561,7 +561,7 @@ MetaMask를 설치한 후 브라우저에서 거버넌스 DApp로 이동합니�
 
 다음 예제에서는 간단한 스마트 계약을 만듭니다. Truffle를 사용 하 여 스마트 계약을 컴파일하여 blockchain 네트워크에 배포 합니다. 배포 된 후에는 트랜잭션을 통해 스마트 계약 함수를 호출 합니다.
 
-#### <a name="prerequisites"></a>필수 구성 요소
+#### <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 2.7.15](https://www.python.org/downloads/release/python-2715/)를 설치합니다. Python은 Truffle 및 Web3에 필요 합니다. 설치 옵션을 선택 하 여 경로에 Python을 포함 합니다.
 * Truffle v 5.0.5 `npm install -g truffle@v5.0.5` 를 설치 합니다. Truffle을 사용하려면 [Node.js](https://nodejs.org), [Git](https://git-scm.com/)를 포함한 여러 도구를 설치해야 합니다. 자세한 내용은 [Truffle 설명서](https://github.com/trufflesuite/truffle)를 참조 하세요.

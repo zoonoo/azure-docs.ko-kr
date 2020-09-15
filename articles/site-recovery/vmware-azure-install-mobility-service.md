@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 0613af3d286a9c670d09b2e72c2807c018753455
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 78fddb5b4512883f8e78d6ed53f6e3dbbeba0e4f
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669234"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90525000"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>모바일 에이전트의 강제 설치를 위한 원본 컴퓨터 준비
 
@@ -63,7 +63,7 @@ ms.locfileid: "89669234"
 11. **계정 관리** 탭에서 **계정 추가**를 선택합니다.
 12. 만든 계정을 추가합니다.
 13. 컴퓨터에서 복제를 사용할 때 사용할 자격 증명을 입력합니다.
-1. SUSE Linux Enterprise Server 11 SP3 컴퓨터를 업데이트 하거나 보호 하기 위한 추가 단계입니다. [구성 서버에서 최신 버전을 사용할 수 있는지 확인](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server)합니다.
+1. SUSE Linux Enterprise Server 11 SP3 또는 RHEL 5 또는 CentOS 5 또는 Debian 7 컴퓨터를 업데이트 하거나 보호 하기 위한 추가 단계입니다. [구성 서버에서 최신 버전을 사용할 수 있는지 확인](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server)합니다.
 
 ## <a name="anti-virus-on-replicated-machines"></a>복제된 머신에서 바이러스 백신
 

@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 0354010297942c3b9e18dc6f556cb0afa075ff5f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649095"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528131"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>iOS 디바이스의 공유 디바이스 모드
 
@@ -60,9 +60,18 @@ ms.locfileid: "89649095"
 
     - **유형**: 리디렉션
     - **확장 ID**: com ssoextension
-    - **팀 ID**: SGGM6D27TK
-    - **Url**: https://login.microsoftonline.com
-    - 구성할 추가 데이터:
+    - **팀 ID**: (이 필드는 iOS에는 필요 하지 않음)
+    - **Url**:   
+        - `https://login.microsoftonline.com`
+        - `https://login.microsoft.com`
+        - `https://sts.windows.net`
+        - `https://login.partner.microsoftonline.cn`
+        - `https://login.chinacloudapi.cn`
+        - `https://login.microsoftonline.de`
+        - `https://login.microsoftonline.us`
+        - `https://login.usgovcloudapi.net`
+        - `https://login-us.microsoftonline.com`
+    - **구성할 추가 데이터**:
       - 키: sharedDeviceMode
       - 형식: Boolean
       - 값: true

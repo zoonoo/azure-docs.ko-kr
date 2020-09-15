@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3 .NET SDK를 사용 하 여 필터 만들기
-description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 Media Services가 동적 매니페스트를 생성하여 이루어집니다.
+description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. Media Services v3 .NET SDK는 이러한 선택적 스트리밍을 위해 동적 매니페스트를 만듭니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2a392ab5301a51edff1df88596f2fe68d85ea63
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9f54a505d63660fb7c97b3226df4c232e48125e1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266717"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527363"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Media Services .NET SDK로 필터 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "89266717"
 > [!NOTE]
 > [PresentationTimeRange](filters-concept.md#presentationtimerange)를 검토 해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 - [필터 및 동적 매니페스트](filters-dynamic-manifest-overview.md)를 검토합니다.
 - [Media Services 계정 만들기](./create-account-howto.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 

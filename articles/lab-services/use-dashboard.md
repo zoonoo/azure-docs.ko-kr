@@ -3,17 +3,17 @@ title: Azure Lab Services에서 교실 랩에 대 한 대시보드 사용 Micros
 description: Azure Lab Services에서 교실 랩에 대 한 대시보드를 사용 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4e59917aa385a344d79a62441e208df970f42285
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 607a3e7faaae65adb67afc0ab0ffd5698adf4655
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444321"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528264"
 ---
 # <a name="dashboard-for-classroom-labs"></a>클래스룸 랩용 대시보드
 이 문서에서는 Azure Lab Services의 클래스 룸 랩에 대 한 대시보드 보기에 대해 설명 합니다. 
 
-![대시보드](./media/use-dashboard/dashboard.png)
+![화면 capature에는 Azure Lab Services의 클래스 룸 랩의 대시보드 보기가 표시 됩니다.](./media/use-dashboard/dashboard.png)
 
 ## <a name="costs-and-billing-tile"></a>비용 및 청구 타일
 이 타일은 다음과 같은 비용 예측 정보를 제공 합니다.

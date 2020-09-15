@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9ca8b7e188a7ed438feb5e2b99c6db22ad12b3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717152"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527006"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
 
@@ -61,7 +61,7 @@ Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용
 
 조직에 가장 적합 한 방법을 선택 하는 방법에 대 한 자세한 내용은 [암호 없는 방법 결정](./concept-authentication-passwordless.md#choose-a-passwordless-method)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 조직에서 암호 없는 배포를 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
@@ -93,12 +93,12 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 
 다음 표에서는이 프로젝트 중에 구현 되는 사용 사례를 간략하게 설명 합니다.
 
-| 영역 | Description |
+| 영역 | 설명 |
 | --- | --- |
 | **Access** | Passwordless 로그인은 회사 네트워크 내부 또는 외부의 회사 또는 개인 장치에서 사용할 수 있습니다. |
 | **감사** | 사용 현황 데이터는 관리자가 거의 실시간으로 감사 하는 데 사용할 수 있습니다. <br> 사용 현황 데이터는 최소 29 일 마다 회사 시스템에 다운로드 되거나 SIEM 도구가 사용 됩니다. |
 | **거버넌스** | 적절 한 인증 방법 및 관련 그룹에 대 한 사용자 할당의 수명 주기를 정의 하 고 모니터링 합니다. |
-| **Security** | 적절 한 인증 방법에 대 한 액세스는 사용자 및 그룹 할당을 통해 제어 됩니다. <br> 권한 있는 사용자만 암호 없는 로그인을 사용할 수 있습니다. |
+| **보안** | 적절 한 인증 방법에 대 한 액세스는 사용자 및 그룹 할당을 통해 제어 됩니다. <br> 권한 있는 사용자만 암호 없는 로그인을 사용할 수 있습니다. |
 | **성능** | 액세스 할당 전파 타임 라인은 문서화 및 모니터링 됩니다. <br> 사용 편의성을 위해 로그인 시간이 측정 됩니다. |
 | **사용자 환경** | 사용자는 모바일 호환성을 인식 합니다. <br> 사용자는 인증자 앱 암호 없는 로그인을 구성할 수 있습니다. |
 | **지원** | 사용자는 암호 없는 로그인 문제에 대 한 지원을 찾는 방법을 알고 있습니다. |
@@ -160,7 +160,7 @@ IOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로
 -    Windows 10 버전 1809은 FIDO2 로그인을 지원 하며, FIDO2 키 제조업체의 소프트웨어를 배포 해야 할 수 있습니다. 버전 1903 이상을 사용 하는 것이 좋습니다. 
 
 **하이브리드 Azure Active Directory 도메인 가입 장치**: 
--    Windows 10 Insider build 18945 이상
+-    Windows 10 버전 2004 이상
 -    Windows Server 2016 또는 2019를 실행 하는 완전히 패치 됨 도메인 서버.
 -    최신 버전의 Azure AD Connect
 
@@ -292,7 +292,7 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 
 ### <a name="required-administrative-roles"></a>필요한 관리 역할
 
-| Azure AD 역할 | Description |
+| Azure AD 역할 | 설명 |
 | --- | --- |
 | 전역 관리자|결합 된 등록 환경을 구현할 수 있는 최소 권한 있는 역할입니다. |
 | 인증 관리자 | 인증 방법을 구현 하 고 관리할 수 있는 최소 권한 있는 역할입니다. |
@@ -308,7 +308,7 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 
 ### <a name="troubleshoot-phone-sign-in"></a>휴대폰 로그인 문제 해결
 
-| 시나리오 | 솔루션 |
+| 시나리오 | 해결 방법 |
 | --- | --- |
 | 사용자는 결합 된 등록을 수행할 수 없습니다. | [결합 된 등록이](concept-registration-mfa-sspr-combined.md) 활성화 되어 있는지 확인 합니다. |
 | 사용자가 휴대폰 로그인 인증자 앱을 사용 하도록 설정할 수 없습니다. | 사용자가 배포 범위에 있는지 확인 하세요. |
@@ -316,7 +316,7 @@ FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 �
 
 ### <a name="troubleshoot-security-key-sign-in"></a>보안 키 로그인 문제 해결
 
-| 시나리오 | 솔루션 |
+| 시나리오 | 해결 방법 |
 | --- | --- |
 | 사용자는 결합 된 등록을 수행할 수 없습니다. | [결합 된 등록이](concept-registration-mfa-sspr-combined.md) 활성화 되어 있는지 확인 합니다. |
 | 사용자는 [보안 설정](https://aka.ms/mysecurityinfo)에서 보안 키를 추가할 수 없습니다. | [보안 키](howto-authentication-passwordless-security-key.md) 를 사용할 수 있는지 확인 합니다. |

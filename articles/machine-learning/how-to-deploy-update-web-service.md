@@ -1,22 +1,25 @@
 ---
-title: 배포 된 웹 서비스 업데이트
-author: gvashishtha
+title: 웹 서비스 업데이트
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에 이미 배포 된 웹 서비스를 새로 고치는 방법에 대해 알아봅니다.
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 354d9b84c614447b6a957a6dba65984f4c97cac3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+author: gvashishtha
+ms.date: 07/31/2020
+ms.openlocfilehash: 52d7c42701e20c16272843a50c6c45847545d747
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645964"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90525170"
 ---
 # <a name="update-a-deployed-web-service"></a>배포 된 웹 서비스 업데이트
 
-이 문서에서는 Azure Machine Learning를 사용 하 여 배포 된 웹 서비스를 배포 하는 방법을 보여 줍니다.
+이 문서에서는 Azure Machine Learning를 사용 하 여 배포 된 웹 서비스를 업데이트 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 Azure Machine Learning를 사용 하 여 웹 서비스를 이미 배포 했다고 가정 합니다. 웹 서비스를 배포 하는 방법을 알아야 하는 경우 [다음 단계를 수행](how-to-deploy-and-where.md)합니다.
 

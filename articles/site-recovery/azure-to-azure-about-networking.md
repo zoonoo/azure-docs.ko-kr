@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 2c6d1873aadbbf19f1b7650f9b432b3b6bed2841
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068373"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527380"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 네트워킹 정보
 
@@ -35,7 +35,7 @@ Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 �
 
 ![고객 환경](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-일반적으로 네트워크는 방화벽 및 NSG(네트워크 보안 그룹)를 사용하여 보호됩니다. 방화벽은 URL 또는 IP 기반 허용 목록을 사용하여 네트워크 연결을 제어합니다. NSG는 IP 주소 범위를 사용하여 네트워크 연결을 제어하는 규칙을 제공합니다.
+일반적으로 네트워크는 방화벽 및 NSG(네트워크 보안 그룹)를 사용하여 보호됩니다. 서비스 태그는 네트워크 연결을 제어 하는 데 사용 해야 합니다. NSGs를 사용 하면 여러 서비스 태그가 아웃 바운드 연결을 제어할 수 있습니다.
 
 >[!IMPORTANT]
 > 인증된 프록시를 사용한 네트워크 연결 제어는 Site Recovery에서 지원되지 않으며 복제를 사용할 수 없습니다.
@@ -45,6 +45,8 @@ Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 �
 
 URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 이러한 Site Recovery URL을 허용하세요.
 
+>[!NOTE]
+> 아웃 바운드 연결을 제어 하기 위해 IP 주소 기반 허용 목록를 수행 하면 안 됩니다.
 
 **URL** | **세부 정보**
 --- | ---
@@ -64,9 +66,9 @@ NSG를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 이러한 
     - VM에서 캐시 스토리지 계정에 데이터를 쓸 수 있도록 이러한 주소를 허용합니다.
 - AAD에 해당하는 모든 IP 주소에 대한 액세스를 허용하는 [AAD(Azure Active Directory) 서비스 태그](../virtual-network/security-overview.md#service-tags) 기반 NSG 규칙을 만드세요.
 - 대상 지역에 대 한 EventsHub 서비스 태그 기반 NSG 규칙을 만들어 Site Recovery 모니터링에 대 한 액세스를 허용 합니다.
-- 모든 지역에서 Site Recovery 서비스에 대 한 액세스를 허용 하는 NSG 규칙을 기반으로 AzureSiteRecovery 서비스 태그를 만듭니다.
+- 모든 지역에서 Site Recovery 서비스에 대 한 액세스를 허용 하기 위한 AzureSiteRecovery 서비스 태그 기반 NSG 규칙을 만듭니다.
 - AzureKeyVault 서비스 태그 기반 NSG 규칙을 만듭니다. 이는 포털을 통해 ADE 지원 가상 컴퓨터의 복제를 사용 하도록 설정 하는 경우에만 필요 합니다.
-- GuestAndHybridManagement service 태그 기반 NSG 규칙을 만듭니다. 이는 포털을 통해 복제 된 항목에 대 한 모바일 에이전트의 자동 업그레이드를 사용 하도록 설정 하는 경우에만 필요 합니다.
+- GuestAndHybridManagement 서비스 태그 기반 NSG 규칙을 만듭니다. 이는 포털을 통해 복제 된 항목에 대 한 모바일 에이전트의 자동 업그레이드를 사용 하도록 설정 하는 경우에만 필요 합니다.
 - 프로덕션 NSG에서 규칙을 만들기 전에 테스트 NSG에서 필요한 NSG 규칙을 만들고 문제가 없는지 확인하는 것이 좋습니다.
 
 ## <a name="example-nsg-configuration"></a>NSG 구성 예제
@@ -98,7 +100,7 @@ NSG를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 이러한 
 
 2. NSG에서 “AzureActiveDirectory”에 대한 아웃바운드 HTTPS(443) 보안 규칙을 만듭니다.
 
-3. 위의 보안 규칙과 마찬가지로, 원본 위치에 해당 하는 NSG에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 Site Recovery 모니터링에 액세스할 수 있습니다.
+3. 위의 보안 규칙과 마찬가지로 원본 위치에 해당 하는 NSG에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 Site Recovery 모니터링에 액세스할 수 있습니다.
 
 4. NSG에서 "AzureSiteRecovery"에 대 한 아웃 바운드 HTTPS (443) 보안 규칙을 만듭니다. 이를 통해 모든 지역에서 Site Recovery 서비스에 액세스할 수 있습니다.
 

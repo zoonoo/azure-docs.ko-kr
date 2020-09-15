@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 56f9873828e2f93008498beed986827a01872bf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67e33732574d2a6c173675d5adf0a7d1c2050688
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675862"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528179"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-cli"></a>유지 관리 제어 및 Azure CLI를 사용 하 여 업데이트 제어
 
@@ -37,7 +37,7 @@ az maintenance configuration create \
 
 를 사용 하면 `--maintenanceScope host` 호스트에 대 한 업데이트를 제어 하는 데 유지 관리 구성이 사용 됩니다.
 
-이름이 같은 구성을 만들려고 하지만 다른 위치에 있는 경우 오류가 발생 합니다. 구성 이름은 구독에 대해 고유 해야 합니다.
+이름이 같은 구성을 만들려고 하지만 다른 위치에 있는 경우 오류가 발생 합니다. 구성 이름은 리소스 그룹에서 고유 해야 합니다.
 
 을 사용 하 여 사용 가능한 유지 관리 구성을 쿼리할 수 있습니다 `az maintenance configuration list` .
 

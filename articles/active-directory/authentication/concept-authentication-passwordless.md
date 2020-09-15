@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 144198a708b8e3cfcb5b3c6936d7fc51cadf4a13
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084331"
+ms.locfileid: "90527023"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
@@ -82,11 +82,15 @@ Authenticator 앱을 사용 하는 암호 없는 인증은 비즈니스용 Windo
 
 ## <a name="fido2-security-keys"></a>FIDO2 보안 키
 
+FIDO(Fast IDentity Online) Alliance는 공개 인증 표준의 수준을 올리고 암호 인증 형태의 사용자를 줄이도록 지원합니다. FIDO2는 WebAuthn(웹 인증) 표준을 통합하는 최신 표준입니다.
+
 FIDO2 보안 키는 모든 폼 팩터에서 제공 될 수 있는 unphishable 표준 기반 암호 없는 인증 방법입니다. Fast Identity Online (FIDO)은 암호 없는 인증을 위한 개방형 표준입니다. FIDO를 사용 하면 사용자와 조직이 외부 보안 키 또는 장치에 기본 제공 되는 플랫폼 키를 사용 하 여 사용자 이름 또는 암호 없이 해당 리소스에 로그인 할 수 있습니다.
 
-직원은 보안 키를 사용 하 여 Azure AD 또는 하이브리드 Azure AD에 가입 된 Windows 10 장치에 로그인 하 고 클라우드 및 온-프레미스 리소스에 대 한 single sign-on을 수행할 수 있습니다. 사용자는 지원 되는 브라우저에 로그인 할 수도 있습니다. FIDO2 보안 키는 매우 보안이 중요 하거나, 전화를 두 번째 요소로 사용 하지 않거나 사용할 수 없는 시나리오 또는 직원이 있는 기업에 게 유용한 옵션입니다.
+사용자는 로그인 인터페이스에서 FIDO2 보안 키를 등록한 다음에 인증의 기본 수단으로 선택할 수 있습니다. 이러한 FIDO2 보안 키는 일반적으로 USB 디바이스이지만 Bluetooth 또는 NFC를 사용할 수도 있습니다. 인증을 처리하는 하드웨어 디바이스를 사용하면 노출되거나 추측될 수 있는 암호가 없으므로 계정의 보안이 강화됩니다.
 
-Azure AD에 대 한 FIDO2 보안 키로 로그인은 현재 미리 보기로 제공 됩니다.
+FIDO2 보안 키를 사용 하 여 Azure AD 또는 하이브리드 Azure AD에 가입 된 Windows 10 장치에 로그인 하 고 클라우드 및 온-프레미스 리소스에 대 한 single sign-on을 사용할 수 있습니다. 사용자는 지원 되는 브라우저에 로그인 할 수도 있습니다. FIDO2 보안 키는 매우 보안이 중요 하거나, 전화를 두 번째 요소로 사용 하지 않거나 사용할 수 없는 시나리오 또는 직원이 있는 기업에 게 유용한 옵션입니다.
+
+Azure AD에 대 한 FIDO2 보안 키로 로그인은 현재 미리 보기로 제공 됩니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ![보안 키를 사용 하 여 Microsoft Edge에 로그인](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -141,7 +145,6 @@ FIDO2 보안 키를 시작 하려면 다음 방법에 대 한 작업을 완료 �
 > [!div class="nextstepaction"]
 > [FIDO2 보안 키를 사용 하 여 암호 없는 sign 사용](howto-authentication-passwordless-security-key.md)
 
-
 ## <a name="what-scenarios-work-with-the-preview"></a>어떤 시나리오가 미리 보기에서 작동 하나요?
 
 Azure AD 암호 없는 로그인 기능은 현재 미리 보기 상태입니다. 고려 사항은 다음과 같습니다.
@@ -161,7 +164,7 @@ Microsoft 암호 없는 기술을 선택할 때 고려할 몇 가지 요소는 �
 
 ||**비즈니스용 Windows Hello**|**Microsoft Authenticator 앱을 사용 하 여 passwordless 로그인**|**FIDO2 보안 키**|
 |:-|:-|:-|:-|
-|**필수 구성 요소**| Windows 10, version 1809 이상<br>Azure Active Directory| Microsoft Authenticator 앱<br>휴대폰 (Android 6.0 이상을 실행 하는 iOS 및 Android 장치)|Windows 10, version 1809 이상<br>Azure Active Directory|
+|**필수 구성 요소**| Windows 10, version 1809 이상<br>Azure Active Directory| Microsoft Authenticator 앱<br>휴대폰 (Android 6.0 이상을 실행 하는 iOS 및 Android 장치)|Windows 10, 버전 1903 이상<br>Azure Active Directory|
 |**모드**|플랫폼|소프트웨어|하드웨어|
 |**시스템 및 장치**|기본 제공 신뢰할 수 있는 플랫폼 모듈 (TPM)를 사용 하는 PC<br>PIN 및 생체 인식 인식 |휴대폰에서 PIN 및 생체 인식 인식|Microsoft와 호환 되는 보안 장치 FIDO2|
 |**사용자 환경**|PIN 또는 생체 인식 인식 (얼굴, iri 또는 지문)을 사용 하 여 Windows 장치에 로그인 합니다.<br>Windows Hello 인증은 장치에 연결 됩니다. 회사 리소스에 액세스 하려면 사용자에 게 PIN 또는 생체 인식 요소와 같은 장치 및 로그인 구성 요소가 필요 합니다.|지문 검색, 얼굴 또는 조리개 인식 또는 PIN을 사용 하 여 휴대폰을 사용 하 여 로그인 합니다.<br>사용자는 PC 또는 휴대폰에서 회사 또는 개인 계정에 로그인 합니다.|FIDO2 security 장치 (생체 인식, 핀 및 NFC)를 사용 하 여 로그인<br>사용자는 장치에 액세스 하 고, PIN에 기반 하 여 장치에 액세스 하 고, USB 보안 키, NFC 지원 스마트 카드, 키 또는 착용 식 장치용와 같은 장치를 사용 하 여 생체 인식을 수행할 수 있습니다.|

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 838e0a13cb919a5bc17807c2349bb173e4e489f4
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068815"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526887"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -25,13 +25,13 @@ Azure Multi-Factor Authentication에 대 한 최종 사용자 환경을 사용�
 
 Azure Portal에서 사용할 수 있는 Azure Multi-Factor Authentication 설정은 다음과 같습니다.
 
-| 기능 | Description |
+| 기능 | 설명 |
 | ------- | ----------- |
 | [계정 잠금](#account-lockout) | 한 행에 거부 된 인증 시도가 너무 많으면 Azure Multi-Factor Authentication를 사용 하지 못하도록 일시적으로 계정을 잠급니다. 이 기능은 인증을 위해 PIN을 입력하는 사용자에게만 적용됩니다. (MFA 서버) |
 | [사용자 차단/차단 해제](#block-and-unblock-users) | 특정 사용자가 Azure Multi-Factor Authentication 요청을 받을 수 없도록 차단 합니다. 차단된 사용자에 대한 모든 인증 시도가 자동으로 거부됩니다. 사용자는 차단 된 시간부터 90 일 동안 차단 된 상태로 유지 되거나 수동으로 차단 해제 됩니다. |
 | [사기 행위 경고](#fraud-alert) | 사용자가 사기성 확인 요청을 보고할 수 있도록 하는 설정을 구성 합니다. |
 | [알림](#notifications) | MFA 서버의 이벤트 알림이 가능하도록 설정합니다. |
-| [OATH 토큰](concept-authentication-methods.md#oath-tokens) | 클라우드 기반 Azure MFA 환경에 사용되어 사용자의 OATH 토큰을 관리합니다. |
+| [OATH 토큰](concept-authentication-oath-tokens.md) | 클라우드 기반 Azure MFA 환경에 사용되어 사용자의 OATH 토큰을 관리합니다. |
 | [전화 통화 설정](#phone-call-settings) | 클라우드 및 온-프레미스 환경의 인사말 및 전화 통화 관련 설정을 구성합니다. |
 | 공급자 | 계정과 연관이 있을 수 있는 기존 인증 공급자를 표시합니다. 2018년 9월 1일부로 새 인증 공급자를 생성할 수 없습니다. |
 

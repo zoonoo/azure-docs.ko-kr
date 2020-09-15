@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 24be20d7eac48024b73e88f8ac8500928f0fb840
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: cbcfddcd02a3998b3b35b01d386816735c59ae7e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594230"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526411"
 ---
 # <a name="optical-character-recognition-ocr"></a>OCR(광학 문자 인식)
 
@@ -24,7 +24,7 @@ Azure의 Computer Vision API는 이미지에서 인쇄 되거나 필기 된 텍�
 
 ## <a name="read-api"></a>읽기 API 
 
-Computer Vision [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 는 이미지 및 다중 페이지 PDF 문서에서 인쇄 된 텍스트 (여러 언어로), 필기 텍스트 (영어 전용), 숫자 및 통화 기호를 추출 하는 Azure의 최신 OCR 기술 ([새로운 기능](./whats-new.md#read-api-v31-public-preview-adds-simplified-chinese-support))입니다. 텍스트를 많이 사용 하는 이미지에서 텍스트를 추출 하 고 혼합 언어를 사용 하 여 다중 페이지 PDF 문서를 추출 하도록 최적화 되어 있습니다. 동일한 이미지나 문서에서 인쇄 된 텍스트와 필기 텍스트를 모두 검색 하는 것을 지원 합니다.
+Computer Vision [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 는 이미지 및 다중 페이지 PDF 문서에서 인쇄 된 텍스트 (여러 언어로), 필기 텍스트 (영어 전용), 숫자 및 통화 기호를 추출 하는 Azure의 최신 OCR 기술 ([새로운 기능](./whats-new.md))입니다. 텍스트를 많이 사용 하는 이미지에서 텍스트를 추출 하 고 혼합 언어를 사용 하 여 다중 페이지 PDF 문서를 추출 하도록 최적화 되어 있습니다. 동일한 이미지나 문서에서 인쇄 된 텍스트와 필기 텍스트를 모두 검색 하는 것을 지원 합니다.
 
 ![OCR에서 이미지와 문서를 추출 된 텍스트로 구조화 된 출력으로 변환 하는 방법](./Images/how-ocr-works.svg)
 
@@ -35,6 +35,9 @@ Computer Vision [읽기 API](https://westcentralus.dev.cognitive.microsoft.com/d
 * PDF 및 TIFF 파일의 경우 최대 2000 페이지 (무료 계층에 대 한 처음 두 페이지만 처리 됨)가 처리 됩니다.
 * 파일 크기는 50 MB (무료 계층의 경우 4mb) 미만 이어야 하며, 최소 50 x 50 픽셀 및 최대 1만 x 1만 픽셀 이상 이어야 합니다. 
 * PDF 차원은 legal 또는 A3 용지 크기에 해당 하는 17 x 17 인치 여야 합니다.
+
+### <a name="read-31-preview-allows-selecting-pages"></a>Read 3.1 preview에서 페이지를 선택할 수 있습니다.
+[읽기 3.1 미리 보기 API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)를 사용 하 여 규모가 긴 다중 페이지 문서에 대해 특정 페이지 번호 또는 페이지 범위를 입력 매개 변수로 제공 하 여 해당 페이지 에서만 텍스트를 추출할 수 있습니다. 이 매개 변수는 선택적 언어 매개 변수와 함께 새 입력 매개 변수입니다.
 
 > [!NOTE]
 > **언어 입력** 
@@ -58,7 +61,7 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
 
 두 번째 단계는 [Get Results Get](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) 작업을 호출 하는 것입니다. 이 작업은 읽기 작업에서 만든 작업 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)가 초과 되는 것을 방지 하려면 1 ~ 2 초 간격을 사용 합니다.
 
-|필드| Type | 가능한 값 |
+|필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 작업이 시작 되지 않았습니다. |
 | |  | 실행 중: 작업이 처리 중입니다. |
@@ -125,14 +128,24 @@ Read API의 [read 호출은](https://westcentralus.dev.cognitive.microsoft.com/d
   }
 }
 ```
+### <a name="read-31-preview-adds-text-line-style-latin-languages-only"></a>Read 3.1 preview는 텍스트 선 스타일을 추가 합니다 (라틴어 언어에만 해당).
+[읽기 3.1 미리 보기 API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) 는 신뢰도 점수와 함께 각 텍스트 줄이 인쇄 또는 필기 스타일 인지 여부를 분류 하는 **모양** 개체를 출력 합니다. 이 기능은 라틴어 언어에 대해서만 지원 됩니다.
+
+```json
+  "appearance": {
+              "style": "handwriting",
+              "styleConfidence": 0.836
+            }
+```
 Ocr 기능을 응용 프로그램에 통합 하기 시작 하려면 [COMPUTER VISION OCR SDK 퀵 스타트](./quickstarts-sdk/client-library.md) 및 [읽기 REST API](./QuickStarts/CSharp-hand-text.md) 빠른 시작을 시작 하세요.
 
 ## <a name="supported-languages-for-print-text"></a>인쇄 텍스트에 대해 지원 되는 언어
-[읽기 3.0 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 는 영어, 스페인어, 독일어, 프랑스어, 이탈리아어, 포르투갈어 및 네덜란드어 언어로 인쇄 된 텍스트를 추출 하는 것을 지원 합니다. 
-
-[읽기 3.1 API 공개 미리 보기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) 에는 중국어 간체에 대 한 지원이 추가 되었습니다. 시나리오에서 더 많은 언어를 지원 해야 하는 경우에는 [OCR API](#ocr-api) 섹션을 참조 하세요. 
+[읽기 3.0 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) 는 영어, 스페인어, 독일어, 프랑스어, 이탈리아어, 포르투갈어 및 네덜란드어 언어로 인쇄 된 텍스트를 추출 하는 것을 지원 합니다.
 
 OCR 지원 언어의 전체 목록은 [지원 되는 언어](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) 를 참조 하세요.
+
+### <a name="read-31-preview-adds-simplified-chinese-and-japanese"></a>Read 3.1 preview는 중국어 간체 및 일본어를 추가 합니다.
+[읽기 3.1 API 공개 미리 보기](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) 에는 중국어 간체 및 일본어에 대 한 지원이 추가 되었습니다. 시나리오에서 더 많은 언어를 지원 해야 하는 경우에는 [OCR API](#ocr-api) 섹션을 참조 하세요. 
 
 ## <a name="supported-languages-for-handwritten-text"></a>필기 텍스트에 대해 지원 되는 언어
 읽기 작업은 현재 필기 텍스트를 영어로 독점적으로 추출할 수 있도록 지원 합니다.
@@ -191,4 +204,4 @@ OCR 지원 언어의 전체 목록은 [지원 되는 언어](https://docs.micros
 - C #, Java, JavaScript 또는 Python에서 [Computer Vision 읽기 3.0 SDK 퀵 스타트](./quickstarts-sdk/client-library.md) 를 시작 하세요.
 - C #, Java, JavaScript 또는 Python에서 [읽기 3.0 REST API 퀵 스타트](./QuickStarts/CSharp-hand-text.md) 를 사용 하 여 REST api를 사용 하는 방법을 알아보세요.
 - [읽기 3.0 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005)에 대해 알아봅니다.
-- 중국어 간체에 대 한 지원이 추가 된 [REST API 읽기 3.1 공개 미리 보기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) 에 대해 알아봅니다.
+- 중국어 간체 및 일본어에 대 한 지원이 추가 된 [REST API 읽기 3.1 공개 미리 보기](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) 에 대해 알아봅니다.

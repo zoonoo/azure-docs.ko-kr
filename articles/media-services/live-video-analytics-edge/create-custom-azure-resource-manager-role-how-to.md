@@ -3,12 +3,12 @@ title: 사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주
 description: 이 문서에서는 사용자 지정 Azure Resource Manager 역할을 만들고 Azure CLI을 사용 하 여 IoT Edge에서 Live Video Analytics에 대 한 서비스 주체에 할당 하는 방법을 안내 합니다.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043179"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526581"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주체에 할당
 
@@ -16,7 +16,7 @@ IoT Edge module 인스턴스의 라이브 비디오 분석이 제대로 작동 �
 
 이 문서에서는 Azure Cloud Shell를 사용 하 여 사용자 지정 Azure Resource Manager 역할을 만들고이를 사용 하 여 서비스 주체를 만드는 단계를 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건  
+## <a name="prerequisites"></a>사전 요구 사항  
 
 이 문서의 필수 구성 요소는 다음과 같습니다.
 
@@ -43,7 +43,7 @@ IoT Edge module 인스턴스의 라이브 비디오 분석이 제대로 작동 �
 1. [Cloud Shell](https://shell.azure.com/)로 이동 합니다.
 1. 셸 창의 왼쪽 드롭다운에서 환경으로 "Bash"를 선택 합니다.
 
-    ![Bash](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
+    ![화면 cap는 셸 창에서 선택한 Bash를 표시 합니다.](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
 1. 다음 명령 템플릿을 사용 하 여 Azure 구독을 기본 계정으로 설정 합니다.
     
     ```

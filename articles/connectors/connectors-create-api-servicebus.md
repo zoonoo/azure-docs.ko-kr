@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 68b81fa8cf110b47581e482e7e546821d40aef62
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435153"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526530"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Azure Logic Apps 및 Azure Service Bus를 사용 하 여 클라우드의 메시지 교환
 
@@ -79,7 +79,7 @@ ms.locfileid: "89435153"
    **큐에 하나 이상의 메시지가 도착 하는 경우 (자동 완성)** 트리거와 같은 일부 트리거는 하나 이상의 메시지를 반환할 수 있습니다. 이러한 트리거는 발생 하면 1과 트리거의 **최대 메시지 수** 속성에 지정 된 메시지 수를 반환 합니다.
 
     > [!NOTE]
-    > 자동 완성 트리거는 메시지를 자동으로 완성 하지만 완료는 다음 트리거 실행 시에만 수행 됩니다. 이 동작은 논리 앱의 디자인에 영향을 줄 수 있습니다. 예를 들어 1 분 마다 메시지를 확인 하도록 자동 완성 트리거를 설정 하지만 잠금 기간이 Service Bus 쪽에서 30 초로 설정 된 경우 메시지를 완료할 때 발생 하는 "잠금 만료" 오류가 발생 합니다. 잠금 기간을 폴링 간격 보다 긴 값으로 설정 해야 합니다.
+    > 자동 완성 트리거는 메시지를 자동으로 완성 하지만 완료는 다음 트리거 실행 시에만 수행 됩니다. 이 동작은 논리 앱의 디자인에 영향을 줄 수 있습니다. 예를 들어 논리 앱이 제한 된 상태로 전환 되는 경우이 변경으로 인해 중복 메시지가 나타날 수 있으므로 자동 완성 트리거의 동시성을 변경 하지 마십시오. 동시성 제어를 변경 하면 이러한 조건이 생성 됩니다. 즉, 제한 된 트리거는 코드를 사용 하 여 건너뛰고 `WorkflowRunInProgress` 완료 작업은 발생 하지 않으며 폴링 간격 후에 다음 트리거 실행이 수행 됩니다. Service bus 잠금 기간을 폴링 간격 보다 긴 값으로 설정 해야 합니다. 그러나이 설정에도 불구 하 고 논리 앱이 다음 폴링 간격으로 제한 된 상태로 유지 되는 경우에도 메시지는 완료 되지 않을 수 있습니다.
 
 1. 트리거가 Service Bus 네임 스페이스에 처음으로 연결 하는 경우 논리 앱 디자이너에서 연결 정보를 묻는 메시지가 표시 되 면 다음 단계를 수행 합니다.
 

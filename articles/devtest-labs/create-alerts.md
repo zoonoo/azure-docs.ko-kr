@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 랩을 위한 활동 로그 경고 만들기
 description: 이 문서에서는 Azure DevTest Labs 랩에 대 한 활동 로그 경고를 만드는 단계를 제공 합니다.
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 6c859e70ab8a101c533e16f9cb118e26727baa52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d5886ea26ddbeb07efc23d61d3197860620eebf3
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098948"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526360"
 ---
 # <a name="create-activity-log-alerts-for-labs-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩을 위한 활동 로그 경고 만들기
 이 문서에서는 Azure DevTest Labs에서 랩에 대 한 활동 로그 경고를 만드는 방법을 설명 합니다 (예: VM을 만들 때 또는 VM이 삭제 될 때).
@@ -64,7 +64,7 @@ ms.locfileid: "87098948"
 ## <a name="view-alerts"></a>경고 보기 
 1. 모든 관리 작업 (이 예에서는)에 **대 한 경고에 경고가 표시** 됩니다. 경고가 표시 되는 데 시간이 오래 걸릴 수 있습니다. 
 
-    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="경고":::
+    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="화면 캡처는 대시보드에 경고를 표시 합니다.":::
 1. 열에서 숫자를 선택 하는 경우 (예: **총 경고**) 발생 한 경고가 표시 됩니다. 
 
     :::image type="content" source="./media/activity-logs/all-alerts.png" alt-text="모든 경고":::
@@ -77,6 +77,6 @@ ms.locfileid: "87098948"
 
 ## <a name="next-steps"></a>다음 단계
 - 다른 작업 유형을 사용 하 여 작업 그룹을 만드는 방법에 대 한 자세한 내용은 [Azure Portal에서 작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조 하세요.
-- 활동 로그에 대해 자세히 알아보려면 [Azure 활동 로그](../azure-monitor/platform/activity-log.md)를 참조 하세요.
+- 활동 로그에 대해 자세히 알아보려면  [Azure 활동 로그](../azure-monitor/platform/activity-log.md)를 참조 하세요.
 - 활동 로그에 대 한 경고를 설정 하는 방법에 대해 알아보려면 [활동 로그에 대 한 경고](../azure-monitor/platform/activity-log-alerts.md)를 참조 하세요.
 

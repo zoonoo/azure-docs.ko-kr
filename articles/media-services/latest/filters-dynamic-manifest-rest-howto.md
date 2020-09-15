@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3 REST API를 사용 하 여 필터 만들기
-description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. 이 선택적 스트리밍은 Media Services가 동적 매니페스트를 생성하여 이루어집니다.
+description: 이 항목에서는 클라이언트가 스트림의 특정 섹션을 스트리밍하는 데 사용할 수 있는 필터를 생성하는 방법을 설명합니다. Media Services v3 REST API는 이러한 선택적 스트리밍을 위해 동적 매니페스트를 만듭니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f234c3e221c947443869d8ab472dc60ddf7317ea
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: c1d7bf933b487c40d571f1912341b5ef771e4e67
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297290"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527329"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Media Services REST API를 사용하여 필터 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "89297290"
 > [!NOTE]
 > [PresentationTimeRange](filters-concept.md#presentationtimerange)를 검토 해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 이 항목에 설명된 단계를 완료하려면 다음을 수행해야 합니다.
 

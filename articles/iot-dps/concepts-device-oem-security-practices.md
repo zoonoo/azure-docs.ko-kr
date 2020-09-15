@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM
 ms.reviewer: nberdy
-ms.openlocfilehash: 3854f353e4ea0b78c0162681e0b89d37419105d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 788738082cbf9995fb2f7282bc3f574903275528
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80529516"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527210"
 ---
 # <a name="security-practices-for-azure-iot-device-manufacturers"></a>Azure IoT 장치 제조업체를 위한 보안 방법
 추가 제조업체에서 IoT 장치를 출시 하면 일반적인 방법에 대 한 지침을 확인 하는 데 도움이 됩니다. 이 문서에서는 Azure IoT (장치 프로 비전 서비스)에서 사용할 장치를 제조할 때 고려할 권장 되는 보안 방법을 요약 합니다.  
@@ -182,7 +182,7 @@ TPM 칩을 사용 하 여 장치를 제조 하는 중요 한 단계는 TPM의 �
 #### <a name="step-5-device-is-installed-into-the-location"></a>5 단계: 장치를 위치에 설치 합니다.
 장치가 최종 위치에 도착 한 후에는 DPS를 사용 하 여 자동화 된 프로 비전을 거칩니다.
 
-자세한 내용은 [Autoprovisioning 개념](concepts-auto-provisioning.md) 및 [TPM 증명](concepts-tpm-attestation.md)을 참조 하세요. 
+자세한 내용은 [프로 비전](about-iot-dps.md#provisioning-process) 및 [TPM 증명](concepts-tpm-attestation.md)을 참조 하세요. 
 
 ## <a name="resources"></a>리소스
 

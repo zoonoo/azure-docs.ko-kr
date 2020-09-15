@@ -3,18 +3,18 @@ title: IoT Edge 장치에 라이브 비디오 분석 배포-Azure
 description: 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eecc17e36f35e7552c0be83f7ecc38f2d644f18d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 30a3bda4069bb8c07d7c9be3fd8a3a2b1171eba2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89439625"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526326"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 장치에 라이브 비디오 분석 배포
 
 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 라이브 비디오 분석의 HW/SW 제약 조건을 충족 하는 Linux 컴퓨터
 * [소유자 권한이](../../role-based-access-control/built-in-roles.md#owner) 있는 Azure 구독
@@ -107,7 +107,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
     * **IoT Edge 모듈 이름**: lvaEdge
     * **이미지 URI**: mcr.microsoft.com/media/live-video-analytics:1.0    
     
-    ![추가](./media/deploy-iot-edge-device/add.png)
+    ![스크린샷 모듈 설정 탭을 표시 합니다.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
     > 이 절차에 설명 된 대로 **모듈 설정**, **컨테이너 만들기 옵션**및 **모듈 쌍 설정** 탭에서 값을 지정할 때까지 **추가** 를 선택 하지 마세요.
@@ -217,7 +217,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 모듈을 디바이스에서 시작한 다음, IoT Hub에 다시 보고하려면 몇 분 정도 걸릴 수 있습니다. 업데이트된 상태를 보려면 페이지를 새로 고칩니다.
 상태 코드: 200 – OK는 [IoT Edge 런타임이](../../iot-edge/iot-edge-runtime.md) 정상 이며 제대로 작동 하 고 있음을 의미 합니다.
 
-![상태](./media/deploy-iot-edge-device/status.png)
+![스크린샷 IoT Edge 런타임에 대 한 상태 값을 보여 줍니다.](./media/deploy-iot-edge-device/status.png)
 
 #### <a name="invoke-a-direct-method"></a>직접 메서드 호출
 
@@ -225,7 +225,7 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 
 1. 사용자가 만든 edge 모듈을 클릭 하면 해당 구성 페이지로 이동 합니다.  
 
-    ![모듈](./media/deploy-iot-edge-device/modules.png)
+    ![스크린샷은 edge 모듈의 구성 페이지를 보여 줍니다.](./media/deploy-iot-edge-device/modules.png)
 1. 직접 메서드 메뉴 옵션을 클릭 합니다.
 
     > [!NOTE] 

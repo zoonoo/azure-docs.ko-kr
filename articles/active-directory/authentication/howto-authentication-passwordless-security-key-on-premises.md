@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f20da2d2ecb4426c0deb1c01591ead5933090f6
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 45e1e516986c32e203837f79c83290cc99049e7a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716999"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526972"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)를 사용 하 여 온-프레미스 리소스에 대해 암호 없는 보안 키 로그인 사용
 
@@ -46,7 +46,7 @@ Azure AD Kerberos 서버 개체는 온-프레미스 Active Directory 만든 다�
 
 조직에서는 다음과 같은 소프트웨어 요구 사항도 충족 해야 합니다.
 
-- 장치에서 Windows 10 Insider Build 18945 이상 버전을 실행 해야 합니다.
+- 장치에서 Windows 10 버전 2004 이상을 실행 해야 합니다.
 - [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect)버전 1.4.32.0 이상 이어야 합니다.
   - 사용 가능한 Azure AD 하이브리드 인증 옵션에 대 한 자세한 내용은 [Azure Active Directory 하이브리드 id 솔루션에 적합 한 인증 방법 선택](../hybrid/choose-ad-authn.md) 및 [Azure AD Connect에 사용할 설치 유형 선택](../hybrid/how-to-connect-install-select-installation.md)을 참조 하세요.
 - Windows Server 도메인 컨트롤러에는 다음 패치가 설치 되어 있어야 합니다.
@@ -164,7 +164,7 @@ Azure AD 사용자를 포함 하는 조직의 각 도메인 및 포리스트에�
    - 하위 범주: FIDO
 1. 로그를 캡처하려면이 옵션을 사용 하 여 **문제를 다시 만드십시오** .
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="does-this-work-in-my-on-premises-environment"></a>온-프레미스 환경에서 작동 하나요?
 

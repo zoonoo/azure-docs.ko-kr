@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 12be5109f339223c11970041922ed2172f67382b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224920"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526904"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>앱 암호를 사용 하 여 레거시 응용 프로그램에서 Azure Multi-Factor Authentication 사용 및 사용
 
-Office 2010 이전 및 iOS 11 이전의 Apple 메일 등의 일부 응용 프로그램은 multi-factor authentication을 지원 하지 않습니다. 앱이 보조 형태의 인증 또는 프롬프트를 허용 하도록 구성 되지 않았습니다. 사용자 계정에 대해 사용 하도록 설정 된 Azure Multi-Factor Authentication를 사용 하 여 이러한 응용 프로그램을 안전 하 게 사용 하려면 앱 암호를 사용할 수 있습니다. 이러한 앱 암호는 기존 암호를 대체 하 여 앱이 multi-factor authentication을 바이패스 하 고 제대로 작동할 수 있도록 합니다.
+Office 2010 이전 및 iOS 11 이전 Apple 메일과 같은 일부 이전 브라우저 이외의 앱은 인증 프로세스의 일시 중지 또는 중단을 이해 하지 못합니다. 사용자가 Azure Multi-Factor Authentication에 대해 사용 하도록 설정 되어 있고 이러한 이전의 비 브라우저 앱 중 하나를 사용 하려고 하면 성공적으로 인증할 수 없습니다. 사용자 계정에 대해 사용 하도록 설정 된 Azure Multi-Factor Authentication를 사용 하 여 이러한 응용 프로그램을 안전 하 게 사용 하려면 앱 암호를 사용할 수 있습니다. 이러한 앱 암호는 기존 암호를 대체 하 여 앱이 multi-factor authentication을 바이패스 하 고 제대로 작동할 수 있도록 합니다.
 
 Microsoft Office 2013 클라이언트 이상에 대해 최신 인증이 지원됩니다. Outlook을 포함 한 Office 2013 클라이언트는 최신 인증 프로토콜을 지원 하 고 2 단계 인증을 사용 하도록 설정할 수 있습니다. 클라이언트가 사용하도록 설정된 후에는 클라이언트에 대해 앱 암호가 필요하지 않습니다.
 
