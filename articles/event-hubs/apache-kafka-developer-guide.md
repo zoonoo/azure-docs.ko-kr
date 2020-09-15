@@ -3,18 +3,18 @@ title: Event Hubs에 대 한 Apache Kafka 개발자 가이드
 description: 이 문서에서는 Azure Event Hubs와 Kafka 응용 프로그램을 통합 하는 방법을 설명 하는 문서에 대 한 링크를 제공 합니다.
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bbd173a7f81042c0839cec81838172b21f80d5cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 757db4faf2a933e366bc818d5cf6aab04d0b08ba
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314239"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061736"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Azure Event Hubs에 대 한 Apache Kafka 개발자 가이드
 이 문서에서는 Azure Event Hubs와 Apache Kafka 응용 프로그램을 통합 하는 방법을 설명 하는 문서에 대 한 링크를 제공 합니다. 
 
 ## <a name="overview"></a>개요
-Event Hubs는 기존 Kafka 기반 애플리케이션이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 엔드포인트을 제공합니다. Event Hubs는 Apache Kafka 프로토콜 1.0 이상을 지원하고 MirrorMaker를 포함하여 기존 Kafka 애플리케이션과 작동합니다. 자세한 내용은 [Event Hubs Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) 를 참조 하세요.
+Event Hubs는 기존 Kafka 기반 애플리케이션이 사용자 고유의 Kafka 클러스터 실행에 대한 대안으로 사용할 수 있는 Kafka 엔드포인트을 제공합니다. Event Hubs는 기존 Kafka 응용 프로그램의 다양 한 응용 프로그램과 함께 작동 합니다. 자세한 내용은 [Event Hubs Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) 를 참조 하세요.
 
 ## <a name="quickstarts"></a>빠른 시작
 GitHub에서 빠른 시작을 찾을 수 있으며,이 콘텐츠 집합에서 Kafka에 대 한 Event Hubs에 빠르게 진입 하는 데 도움이 됩니다.
@@ -22,7 +22,7 @@ GitHub에서 빠른 시작을 찾을 수 있으며,이 콘텐츠 집합에서 Ka
 ### <a name="quickstarts-in-github"></a>GitHub의 빠른 시작
 Azure-- **---kafka** 리포지토리의 
 
-| 클라이언트 언어/프레임 워크 | 설명 | 
+| 클라이언트 언어/프레임 워크 | Description | 
 | ------------------------- | ----------- | 
 | [.NET](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/dotnet) | <p>이 빠른 시작에서는 .NET Core 2.0를 사용 하 여 c #으로 작성 된 예제 생산자 및 소비자를 사용 하 여 Event Hubs Kafka 끝점을 만들고 연결 하는 방법을 보여 줍니다.</p><p>이 샘플은 [Confluent의 Apache Kafka .net 클라이언트](https://github.com/confluentinc/confluent-kafka-dotnet)를 기반으로 하며, Kafka 용 Event Hubs와 함께 사용 하도록 수정 되었습니다.</p> | 
 | [Java](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java) | 이 빠른 시작에서는 Java로 작성 된 예제 생산자 및 소비자를 사용 하 여 Event Hubs Kafka 끝점을 만들고 연결 하는 방법을 보여 줍니다. |
@@ -63,13 +63,13 @@ GitHub에서 다음 자습서를 참조 하세요.
 ## <a name="how-to-guides"></a>방법 가이드
 설명서에서 다음 방법 가이드를 참조 하세요.
 
-| 문서 | 설명 | 
+| 아티클 | Description | 
 | ------- | ----------- | 
 | [이벤트 허브에서 Kafka broker 미러링](event-hubs-kafka-mirror-maker-tutorial.md) | Kafka MirrorMaker를 사용 하 여 이벤트 허브에서 Kafka broker를 미러링 하는 방법을 보여 줍니다. |
 | [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md) | 실시간 스트리밍을 위해 Spark 응용 프로그램을 Event Hubs 연결 하는 과정을 안내 합니다. |
 | [이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md) | 프로토콜 클라이언트를 변경 하거나 사용자 고유의 클러스터를 실행 하지 않고 Apache Flink를 이벤트 허브에 연결 하는 방법을 보여 줍니다. |
 | [이벤트 허브와 Apache Kafka 연결 통합 (미리 보기)](event-hubs-kafka-connect-tutorial.md) | Kafka Connect를 이벤트 허브와 통합 하 고 기본 FileStreamSource 및 FileStreamSink 커넥터를 배포 하는 과정을 안내 합니다. |
-| [Akka streams 스트림을 이벤트 허브에 연결](event-hubs-kafka-akka-streams-tutorial.md) | 프로토콜 클라이언트를 변경 하거나 사용자 고유의 클러스터를 실행 하지 않고 Akka streams 스트림을 이벤트 허브에 연결 하는 방법을 보여 줍니다. |
+| [이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md) | 프로토콜 클라이언트를 변경 하거나 사용자 고유의 클러스터를 실행 하지 않고 Akka streams 스트림을 이벤트 허브에 연결 하는 방법을 보여 줍니다. |
 | [Azure Event Hubs에서 Apache Kafka에 대 한 스프링 부팅 스타터 사용](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub) | Azure Event Hubs에서 Apache Kafka를 사용 하도록 스프링 부팅 이니셜라이저를 사용 하 여 만든 Java 기반 스프링 클라우드 스트림 바인더를 구성 하는 방법을 보여 줍니다. |
 
 ## <a name="next-steps"></a>다음 단계

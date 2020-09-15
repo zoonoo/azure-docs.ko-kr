@@ -1,16 +1,16 @@
 ---
 title: 변경 데이터 캡처에 대 한 Debezium를 사용 하 여 Azure Event Hubs (미리 보기)에 Apache Kafka 연결 통합
-description: 이 문서에서는 Kafka에 대한 Azure Event Hubs에서 Apache Spark를 사용하는 방법을 설명합니다.
+description: 이 문서에서는 Kafka에 대해 Azure Event Hubs와 함께 Debezium를 사용 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: a11ec882a50d051a34758562ac84dcef5b799f5f
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: cac04bed797bb9956125bc1a38fdfa5c8285050e
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136891"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061685"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>변경 데이터 캡처에 대 한 Debezium를 사용 하 여 Azure Event Hubs (미리 보기)에 Apache Kafka 연결 지원 통합
 
@@ -51,7 +51,7 @@ Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요�
 ### <a name="download-and-setup-debezium-connector"></a>Debezium 커넥터 다운로드 및 설정
 [Debezium 설명서](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-deploying-a-connector) 의 최신 지침에 따라 커넥터를 다운로드 하 고 설정 하세요.
 
-- 커넥터의 플러그 인 아카이브를 다운로드 합니다. 예를 들어 커넥터의 버전을 다운로드 하려면 `1.2.0` 다음 링크를 사용 합니다.https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.2.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz
+- 커넥터의 플러그 인 아카이브를 다운로드 합니다. 예를 들어 커넥터의 버전을 다운로드 하려면 `1.2.0` 다음 링크를 사용 합니다. https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.2.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz
 - JAR 파일을 추출 하 여 [Kafka Connect 플러그인. 경로](https://kafka.apache.org/documentation/#connectconfigs)에 복사 합니다.
 
 
@@ -133,7 +133,7 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 ```
 
 > [!TIP]
-> `database.server.name`특성은 모니터링 되는 특정 PostgreSQL 데이터베이스 서버/클러스터에 대 한 네임 스페이스를 식별 하 고 제공 하는 논리적 이름입니다. 자세한 정보는 [Debezium 설명서](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-property-database-server-name) 를 참조 하세요.
+> `database.server.name` 특성은 모니터링 되는 특정 PostgreSQL 데이터베이스 서버/클러스터에 대 한 네임 스페이스를 식별 하 고 제공 하는 논리적 이름입니다. 자세한 정보는 [Debezium 설명서](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-property-database-server-name) 를 참조 하세요.
 
 커넥터의 인스턴스를 만들려면 Kafka Connect REST API 끝점을 사용 합니다.
 

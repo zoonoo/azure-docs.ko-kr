@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/14/2020
-ms.openlocfilehash: 902fa34be149f0b876729409c530186e34c706e5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 09/14/2020
+ms.openlocfilehash: 3c9389e6063279e214e3650f6364dc25ff773db5
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587313"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069597"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -65,7 +65,7 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 > [!Important]
 > 중요 비즈니스용 서비스 계층은 읽기 전용 작업에 사용할 수 있는 SQL Managed Instance (보조 복제본)의 추가 기본 복사본을 제공 합니다. 읽기/쓰기 쿼리와 읽기 전용/분석/보고 쿼리를 구분할 수 있는 경우 동일한 가격에 대 한 vCores와 메모리의 두 배를 얻을 수 있습니다. 보조 복제본은 주 인스턴스에서 몇 초 정도 지연 될 수 있으므로 데이터의 정확한 현재 상태를 필요로 하지 않는 보고/분석 워크 로드를 오프 로드 하도록 설계 되었습니다. 아래 표에서 **읽기 전용 쿼리** 는 보조 복제본에서 실행 되는 쿼리입니다.
 
-| **기능** | **범용** | **중요 비즈니스용** |
+| **기능** | **일반 용도** | **중요 비즈니스용** |
 | --- | --- | --- |
 | vCore 수\* | Gen4: 8, 16, 24<br/>Gen5:4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5:4, 8, 16, 24, 32, 40, 64, 80 <br/>\*동일한 수의 vCores는 읽기 전용 쿼리에 전용으로 사용할 수 있습니다. |
 | 최대 메모리 | Gen4:56 g b-168 GB (7GB/vCore)<br/>Gen5:20.4 g b-408 GB (5.1 g b/vCore)<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | Gen4:56 g b-168 GB (7GB/vCore)<br/>Gen5: 읽기-쓰기 쿼리에 20.4 g b-408 GB (5.1 g b/vCore)<br/>+ 읽기 전용 쿼리에 20.4 g b-408 GB (5.1 g b/vCore)가 추가 되었습니다.<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
@@ -99,12 +99,12 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 
 ### <a name="file-io-characteristics-in-general-purpose-tier"></a>일반적인 용도의 계층의 파일 IO 특성
 
-범용 서비스 계층에서 모든 데이터베이스 파일은 파일 크기에 따라 달라 지는 전용 IOPS 및 처리량을 가져옵니다. 더 큰 데이터 파일은 더 많은 IOPS 및 처리량을 얻습니다. 데이터베이스 파일의 IO 특성은 다음 표에 나와 있습니다.
+범용 서비스 계층에서 모든 데이터베이스 파일은 파일 크기에 따라 달라 지는 전용 IOPS 및 처리량을 가져옵니다. 더 큰 파일은 더 많은 IOPS 및 처리량을 얻습니다. 데이터베이스 파일의 IO 특성은 다음 표에 나와 있습니다.
 
-| 파일 크기 | >= 0 및 <= 128 GiB | >128 및 <= 256 GiB | >256 및 <= 512 GiB | >0.5 및 <= 1 TiB    | >1 및 <= 2 TiB    | >2 및 <= 4 TiB | >4 및 <= 8 TiB |
+| 파일 크기 | >= 0 및 <= 128 GiB | >128 및 <= 512 GiB | >0.5 및 <= 1 TiB    | >1 및 <= 2 TiB    | >2 및 <= 4 TiB | >4 및 <= 8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| 파일당 IOPS       | 500   | 1100 | 2300              | 5,000              | 7,500              | 7,500              | 12,500   |
-| 파일당 처리량 | 100MiB/초 | 125MiB/초 | 150MiB/초 | 200MiB/초 | 250MiB/초 | 250MiB/초 | 480 MiB/s | 
+| 파일당 IOPS       | 500   | 2300              | 5,000              | 7,500              | 7,500              | 12,500   |
+| 파일당 처리량 | 100MiB/초 | 150MiB/초 | 200MiB/초 | 250MiB/초 | 250MiB/초 | 480 MiB/s | 
 
 일부 데이터베이스 파일에서 높은 IO 대기 시간이 발생 하거나 IOPS/처리량이 제한에 도달 하는 것을 확인 한 경우 [파일 크기를 늘려서](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337)성능을 향상 시킬 수 있습니다.
 

@@ -3,19 +3,18 @@ title: Apache Kafka용 Apache Flink 사용 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure 이벤트 허브에 Apache Flink를 연결 하는 방법에 대 한 정보를 제공 합니다.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 43cbf99a6ba2c0384ceffc10b01916f6ad22b26a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2e6eeb74c5a334d1692357edec0fd363349c7c0
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320141"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061651"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Apache Kafka용 Azure Event Hubs에서 Apache Flink 사용
-이 자습서에서는 프로토콜 클라이언트를 변경 하거나 자체 클러스터를 실행 하지 않고도 Apache Flink를 이벤트 허브에 연결 하는 방법을 보여 줍니다. Azure Event Hubs는 [Apache Kafka 버전 1.0를](https://kafka.apache.org/10/documentation.html)지원 합니다.
+이 자습서에서는 프로토콜 클라이언트를 변경 하거나 자체 클러스터를 실행 하지 않고도 Apache Flink를 이벤트 허브에 연결 하는 방법을 보여 줍니다. Apache Kafka 소비자 프로토콜에 대 한 Event Hubs 지원에 대 한 자세한 내용은 [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)를 참조 하세요.
 
-Apache Kafka를 사용하는 주요 이점 중 하나는 연결할 수 있는 프레임워크의 에코시스템입니다. Event Hubs은 Azure 에코 시스템의 확장성, 일관성 및 지원과 함께 Kafka의 유연성을 결합 합니다.
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * Event Hubs 네임스페이스 만들기
 > * 프로젝트 예제 복제
@@ -123,5 +122,5 @@ Kafka에 대 한 Event Hubs에 대해 자세히 알아보려면 다음 문서를
 - [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
 - [Kafka Connect를 이벤트 허브와 통합](event-hubs-kafka-connect-tutorial.md)
 - [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [Akka streams 스트림을 이벤트 허브에 연결](event-hubs-kafka-akka-streams-tutorial.md)
+- [이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md)
 - [Azure Event Hubs에 대 한 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)

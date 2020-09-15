@@ -535,6 +535,9 @@
       href: reference-pipeline-yaml.md
     - name: 소버린 클라우드 패리티
       href: reference-machine-learning-cloud-parity.md
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: 리소스
   items:
     - name: 릴리스 정보

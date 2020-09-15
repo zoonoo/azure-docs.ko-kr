@@ -3,12 +3,12 @@ title: DHCP를 만들고 관리 하는 방법
 description: 이 문서에서는 Azure VMware 솔루션에서 DHCP를 관리 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 3fc3de228179925afdf1b7c1015c577fd9c4c924
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ba7c3983f55ed729c77d2f24d3ef311a00522148
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752166"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069563"
 ---
 # <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Azure VMWare 솔루션에서 DHCP를 만들고 관리 하는 방법
 
@@ -56,7 +56,7 @@ DHCP 서버를 만들었으면 네트워크 세그먼트를 추가 해야 합니
 
 ## <a name="create-dhcp-relay-service"></a>DHCP 릴레이 서비스 만들기
 
-1. NXT-T 창에서 **네트워킹** 탭을 선택 하 고 **IP 관리**에서 **DHCP**를 선택 합니다. **서버 추가**를 선택 합니다. **서버 유형에** 대해 DHCP 릴레이를 선택 하 고 릴레이 서버에 대 한 서버 이름 및 IP 주소를 입력 합니다. **저장**을 선택하여 변경 내용을 저장합니다.
+1. NSX-T 창에서 **네트워킹** 탭을 선택 하 고 **IP 관리**에서 **DHCP**를 선택 합니다. **서버 추가**를 선택 합니다. **서버 유형에** 대해 DHCP 릴레이를 선택 하 고 릴레이 서버에 대 한 서버 이름 및 IP 주소를 입력 합니다. **저장**을 선택하여 변경 내용을 저장합니다.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="dhcp 릴레이 서버 만들기" border="true":::
 

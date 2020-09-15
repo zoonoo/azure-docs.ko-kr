@@ -8,18 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: 6587a055d672bc309c89ff2a37fabb273a4c4621
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 772b136c00dc9c20f8bc35d7ebb324175a56e885
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084684"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061719"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight의 Apache Spark 클러스터에서 Jupyter Notebook과 함께 외부 패키지 사용
-
-> [!div class="op_single_selector"]
-> * [셀 매직 사용](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [스크립트 작업 사용](apache-spark-python-package-installation.md)
 
 클러스터에 기본 제공 되지 않는 외부의 커뮤니티 제공 Apache **maven** 패키지를 사용 하도록 HDInsight의 Apache Spark 클러스터에서 [Jupyter Notebook](https://jupyter.org/) 를 구성 하는 방법에 대해 알아봅니다.
 
@@ -65,7 +61,7 @@ ms.locfileid: "86084684"
 
     ![Jupyter 노트북에서 외부 패키지 사용](./media/apache-spark-jupyter-notebook-use-external-packages/use-external-packages-with-jupyter.png "Jupyter 노트북에서 외부 패키지 사용")
 
-    다. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
+    c. 콜론(**:**)으로 구분된 세 개의 값을 연결합니다.
 
     ```scala
     com.databricks:spark-csv_2.11:1.5.0

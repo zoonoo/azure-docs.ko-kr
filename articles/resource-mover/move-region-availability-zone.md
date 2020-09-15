@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: fdd564618232ce7fde5a76fb9c37937113f179b2
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 315ea9b683ccd583f5c29c7527013f0d924336f4
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670621"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061882"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>다른 지역의 가용성 영역으로 Azure Vm 이동
 
@@ -30,12 +30,12 @@ ms.locfileid: "89670621"
 
 동일한 지역의 다른 가용성 영역으로 Vm을 이동 하려면 [이 문서를 검토](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 이동 하려는 리소스가 있는 구독에 대 한 *소유자* 액세스입니다.
     - Azure 구독에서 특정 원본 및 대상 매핑에 대 한 리소스를 처음 추가 하는 경우 리소스 이동 기가 구독에서 신뢰 하는 [시스템 할당 관리 id](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (이전에는 MSI (관리 서비스 식별)로 알려짐)를 만듭니다.
     - Id를 만들고 필요한 역할 (원본 구독의 참가자 또는 사용자 액세스 관리자)을 할당 하려면 리소스를 추가 하는 데 사용 하는 계정에 구독에 대 한 *소유자* 권한이 있어야 합니다. Azure 역할에 대해 [자세히 알아보세요](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) .
-- 구독에는 대상 지역에 원본 리소스를 만드는 데 충분 한 할당량이 필요 합니다. 그렇지 않으면 추가 제한을 요청 합니다. [자세한 정보를 알아보세요](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- 구독에는 대상 지역에 원본 리소스를 만드는 데 충분 한 할당량이 필요 합니다. 그렇지 않으면 추가 제한을 요청 합니다. [자세히 알아보기](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 - Vm을 이동 하는 대상 지역과 관련 된 가격 책정 및 요금을 확인 합니다. [가격 계산기](https://azure.microsoft.com/pricing/calculator/) 를 사용 하 여 도움을 줍니다.
     
 
@@ -71,8 +71,7 @@ ms.locfileid: "89670621"
     ![시작 단추](./media/move-region-availability-zone/get-started.png)
 
 3. **리소스 이동**  >  **원본 + 대상**에서 원본 구독 및 지역을 선택 합니다.
-4. **대상**에서 vm을 이동 하려는 지역을 선택 합니다. 
-5. **메타 데이터 영역**에서 이동 하는 리소스에 대 한 메타 데이터를 저장 하려는 위치를 선택 합니다. 이 목적을 위해 특별히 리소스 그룹이 생성 됩니다. 그런 다음 **다음**을 클릭합니다.
+4. **대상**에서 vm을 이동 하려는 지역을 선택 합니다. **다음**을 클릭합니다.
 
      ![원본 및 대상 구독/지역에 채울 페이지](./media/move-region-availability-zone/source-target.png)
 
@@ -93,7 +92,7 @@ ms.locfileid: "89670621"
 
 > [!NOTE]
 > 알림을 클릭 하면 리소스는 **지역 간** 페이지에서 *준비 보류 중* 상태로 표시 됩니다.
-> - 이동 컬렉션에서 리소스를 제거 하려는 경우 해당 작업을 수행 하는 방법은 이동 프로세스의 위치에 따라 달라 집니다. [자세한 정보를 알아보세요](remove-move-resources.md).
+> - 이동 컬렉션에서 리소스를 제거 하려는 경우 해당 작업을 수행 하는 방법은 이동 프로세스의 위치에 따라 달라 집니다. [자세히 알아보기](remove-move-resources.md).
 
 ## <a name="resolve-dependencies"></a>종속성 오류 해결
 

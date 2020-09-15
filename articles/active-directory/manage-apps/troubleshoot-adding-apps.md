@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory에 응용 프로그램을 추가 하는 일반적인 문제 해결
-description: Azure Active Directory에 앱을 추가할 때 직면 하는 일반적인 문제를 해결 합니다.
+title: Azure Active Directory에 응용 프로그램을 추가 하거나 제거 하는 일반적인 문제 해결
+description: Azure Active Directory에 앱을 추가 하거나 제거할 때 직면 하는 일반적인 문제를 해결 합니다.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: 1502c97e625d3af128772451be8db4dd6187e3a7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89410419"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068033"
 ---
-# <a name="troubleshoot-common-problem-adding-an-application-to-azure-active-directory"></a>Azure Active Directory에 응용 프로그램을 추가 하는 일반적인 문제 해결
-이 문서는 Azure Active Directory에 앱을 추가할 때 직면 하는 일반적인 문제를 이해 하는 데 도움이 됩니다.
+# <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Azure Active Directory에 응용 프로그램을 추가 하거나 제거 하는 일반적인 문제 해결
+이 문서는 Azure Active Directory에 앱을 추가 하거나 제거할 때 직면 하는 일반적인 문제를 이해 하는 데 도움이 됩니다.
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>"추가" 단추를 클릭했고 애플리케이션이 나타나는 데 시간이 오래 걸렸음
 경우에 따라 디렉터리에 추가한 후 애플리케이션이 나타나는 데 1-2분 정도(경우에 따라 더 길게) 걸릴 수 있습니다. 이는 예상한 정상 성능이 아니지만, [Azure Portal](https://portal.azure.com/)의 오른쪽 위에 있는 **알림** 아이콘(벨)을 클릭하고 **진행 중** 또는 **완료** 알림 레이블이 지정된 **애플리케이션 추가**를 찾아 애플리케이션 추가가 진행 중임을 볼 수 있습니다.
@@ -34,6 +34,16 @@ ms.locfileid: "89410419"
 응용 프로그램에 대해 학습 하는 데 도움이 필요한 경우 [Azure Active Directory 문서와 SaaS 앱을 통합 하는 방법에 대 한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 에서 시작 하는 것이 좋습니다.
 
 또한 [Azure AD 애플리케이션 문서 라이브러리](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index)를 통해 Azure AD로 Single Sign-On 및 작동 방법에 대해 자세히 알아볼 수 있습니다.
+
+## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>응용 프로그램을 삭제 하려고 하지만 삭제 단추를 사용할 수 없습니다.
+
+다음 시나리오에서는 삭제 단추를 사용할 수 없습니다.
+
+- 엔터프라이즈 응용 프로그램의 응용 프로그램의 경우 전역 관리자, 클라우드 응용 프로그램 관리자, 응용 프로그램 관리자 또는 서비스 주체의 소유자 역할 중 하나가 없는 경우입니다.
+
+- Microsoft 응용 프로그램의 경우 사용자의 역할에 관계 없이 UI에서 해당 응용 프로그램을 삭제할 수 없습니다.
+
+- 관리 id에 해당 하는 servicePrincipals의 경우입니다. 관리 id 서비스 주체는 Enterprise apps 블레이드에서 삭제할 수 없습니다. Azure 리소스로 이동 하 여 관리 해야 합니다. [관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 에 대 한 lear 추가 정보
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>포털 알림의 세부 정보를 확인하는 방법
 다음 단계를 수행하여 포털 알림의 세부 정보를 확인할 수 있습니다.

@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: abnarain
-ms.openlocfilehash: a6a0a62bd857dff575e17f47f1e2394375b08c45
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033662"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069478"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 문제 해결
 
@@ -46,25 +46,25 @@ ms.locfileid: "90033662"
 > 로그 보기 및 업로드 요청은 모든 온라인 자체 호스팅 IR 인스턴스에서 실행 됩니다. 로그가 누락 되는 경우 자체 호스팅 IR 인스턴스가 모두 온라인 상태 인지 확인 하세요. 
 
 
-## <a name="self-hosted-ir-general-failure-or-error"></a>자체 호스팅 IR 일반 오류 또는 오류
+## <a name="self-hosted-ir-general-failure-or-error"></a>자체 호스팅 IR 일반 실패 또는 오류
 
 ### <a name="tlsssl-certificate-issue"></a>TLS/SSL 인증서 문제
 
 #### <a name="symptoms"></a>증상
 
-**자체 호스팅 Configuration Manager IR**에서 tls/ssl 인증서 (고급)를 사용 하도록 설정 하려는 경우  ->  **인트라넷에서 원격 액세스**를 사용 하도록 설정 하면 tls/ssl 인증서를 선택한 후 아래 오류가 표시 됩니다.
+**자체 호스팅 IR 구성 관리자** -> **인트라넷에서 원격 액세스**에서 TLS/SSL 인증서(고급)를 사용하려고 설정할 때 TLS/SSL 인증서를 선택하면 아래 오류가 표시됩니다.
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
-위의 경우 사용자는 마지막 항목으로 "microsoft.com"가 포함 된 인증서를 사용 합니다.
+위의 경우 사용자는 마지막 항목으로 "microsoft.com"이 포함된 인증서를 사용하고 있습니다.
 
 #### <a name="cause"></a>원인
 
-이것은 WCF의 알려진 문제입니다. WCF TLS/SSL 유효성 검사는 SAN의 마지막 DNSName 확인 합니다. 
+이는 WCF의 알려진 문제입니다. WCF TLS/SSL 유효성 검사는 SAN의 마지막 DNSName만 확인합니다. 
 
 #### <a name="resolution"></a>해결 방법
 
-와일드 카드 인증서는 Azure Data Factory v2 자체 호스팅 IR에서 지원 됩니다. 이 문제는 일반적으로 SSL 인증서가 올바르지 않기 때문에 발생 합니다. SAN의 마지막 DNSName는 유효 해야 합니다. 아래 단계를 수행 하 여 확인 합니다. 
+와일드카드 인증서는 Azure Data Factory v2 자체 호스팅 IR에서 지원됩니다. 이 문제는 일반적으로 SSL 인증서가 올바르지 않기 때문에 발생합니다. SAN의 마지막 DNSName이 유효해야 합니다. 아래 단계를 수행하여 확인합니다. 
 1.  관리 콘솔을 열고 인증서 세부 정보에서 *주체* 및 *주체 대체 이름* 둘 다를 두 번 확인 합니다. 예를 들어 위의 경우에는 "DNS 이름 = microsoft.com.com" 인 *주체 대체 이름의*마지막 항목이 합법적이 지 않습니다.
 2.  잘못 된 DNS 이름을 제거 하려면 인증서 문제 회사에 문의 하세요.
 
@@ -72,14 +72,14 @@ ms.locfileid: "90033662"
 
 #### <a name="symptoms"></a>증상
 
-Azure Data Factory UI에서 동시 작업 제한의 증가를 시도 하는 경우 *업데이트가* 영원히 중단 됩니다.
-동시 작업의 최대값은 24로 설정 되 고 작업을 더 빠르게 실행할 수 있도록 개수를 늘려야 합니다. 입력할 수 있는 최 솟 값은 3이 고 입력할 수 있는 최대값은 32입니다. 아래에서 볼 *수 있듯이 업데이트* 에 걸린 UI에서 24에서 32 사이의 값을 높이고 *업데이트* 단추를 누르면 됩니다. 새로 고친 후에도 고객은 값을 24로 확인 하 고 32으로 업데이트 되지 않습니다.
+Azure Data Factory UI에서 동시 작업 제한을 늘리려고 하면 *업데이트 중* 상태로 영원히 중단됩니다.
+동시 작업의 최댓값이 24로 설정되었으며 작업을 더 빠르게 실행할 수 있도록 개수를 늘리려고 합니다. 입력할 수 있는 최솟값은 3이고 입력할 수 있는 최댓값은 32입니다. 아래에서 볼 *수 있듯이 업데이트* 에 걸린 UI에서 24에서 32 사이의 값을 높이고 *업데이트* 단추를 누르면 됩니다. 새로 고침 후에도 고객은 여전히 값을 24로 확인했으며 이 값은 32로 업데이트되지 않았습니다.
 
 ![상태 업데이트 중](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
 
 #### <a name="cause"></a>원인
 
-값이 컴퓨터 logicCore 및 메모리에 따라 달라 지므로 설정에 제한이 있습니다. 24와 같은 작은 값으로 조정 하 고 결과를 볼 수 있습니다.
+값은 컴퓨터 logicCore 및 메모리에 따라 달라지므로 설정에 제한이 있으며 24와 같은 더 작은 값으로 조정해야 결과를 볼 수 있습니다.
 
 > [!TIP] 
 > - 논리 코어 수와 컴퓨터의 논리 코어 수를 찾는 방법에 대 한 자세한 내용은 [이 문서](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/)를 참조 하세요.
@@ -90,37 +90,37 @@ Azure Data Factory UI에서 동시 작업 제한의 증가를 시도 하는 경�
 
 #### <a name="symptoms"></a>증상
 
-자체 호스팅 IR 작업 노드가 아래 오류를 보고 했습니다.
+자체 호스팅 IR 작업 노드에서 아래 오류를 보고했습니다.
 
 `Failed to pull shared states from primary node net.tcp://abc.cloud.corp.Microsoft.com:8060/ExternalService.svc/. Activity ID: XXXXX The X.509 certificate CN=abc.cloud.corp.Microsoft.com, OU=test, O=Microsoft chain building failed. The certificate that was used has a trust chain that cannot be verified. Replace the certificate or change the certificateValidationMode. The revocation function was unable to check revocation because the revocation server was offline.`
 
 #### <a name="cause"></a>원인
 
-SSL/TLS 핸드셰이크와 관련 된 사례를 처리 하는 경우 인증서 체인 확인과 관련 된 몇 가지 문제가 발생할 수 있습니다. 
+SSL/TLS 핸드셰이크와 관련된 사례를 처리할 때 인증서 체인 확인과 관련된 몇 가지 문제가 발생할 수 있습니다. 
 
 #### <a name="resolution"></a>해결 방법
 
 - 다음은 x.509 인증서 체인 빌드 실패 문제를 해결 하는 빠르고 직관적인 방법입니다.
  
-    1. 확인 해야 하는 인증서를 내보냅니다. 컴퓨터 인증서 관리로 이동 하 여 확인 하려는 인증서를 찾고 **모든 작업**내보내기를 마우스 오른쪽 단추로 클릭  ->  **Export**합니다.
+    1. 확인해야 하는 인증서를 내보냅니다. 컴퓨터 인증서 관리로 이동하여 확인하려는 인증서를 찾아 마우스 오른쪽 단추로 클릭한 다음 **모든 작업** -> **내보내기**를 클릭합니다.
     
         ![작업 내보내기](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
     2. 내보낸 인증서를 클라이언트 컴퓨터에 복사 합니다. 
-    3. 클라이언트 쪽의 CMD에서 아래 명령을 실행 합니다. 아래 *\<certificate path>* 와 *\<output txt file path>* 자리 표시자를 관련 경로로 바꾸어야 합니다.
+    3. 클라이언트 쪽의 CMD에서 아래 명령을 실행합니다. 아래 *\<certificate path>* 와 *\<output txt file path>* 자리 표시자를 관련 경로로 바꾸어야 합니다.
     
         ```
         Certutil -verify -urlfetch    <certificate path>   >     <output txt file path> 
         ```
 
-        다음은 그 예입니다. 
+        예를 들면 다음과 같습니다.
 
         ```
         Certutil -verify -urlfetch c:\users\test\desktop\servercert02.cer > c:\users\test\desktop\Certinfo.txt
         ```
-    4. 출력 txt 파일에 오류가 있는지 확인 합니다. Txt 파일의 끝에서 오류 요약을 찾을 수 있습니다.
+    4. 출력 txt 파일에 오류가 있는지 확인합니다. txt 파일의 끝에서 오류 요약을 찾을 수 있습니다.
 
-        다음은 그 예입니다.  
+        예를 들면 다음과 같습니다. 
 
         ![오류 요약](media/self-hosted-integration-runtime-troubleshoot-guide/error-summary.png)
 
@@ -133,26 +133,26 @@ SSL/TLS 핸드셰이크와 관련 된 사례를 처리 하는 경우 인증서 �
     1. 인증서의 세부 정보를 확인 하 여이 정보를 가져올 수 있습니다.
     
         ![인증서 세부 정보](media/self-hosted-integration-runtime-troubleshoot-guide/certificate-detail.png)
-    1. 아래 명령을 실행 합니다. *\<certificate path>* 자리 표시자를 인증서의 관련 경로로 대체 했는지 확인 합니다.
+    1. 아래 명령을 실행합니다. *\<certificate path>* 자리 표시자를 인증서의 관련 경로로 대체 했는지 확인 합니다.
     
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. 그런 다음 **URL 검색 도구** 를 엽니다. **검색** 단추를 클릭 하 여 AIA, CDP 및 OCSP에서 인증서를 확인할 수 있습니다.
+    1. 그런 다음 **URL 검색 도구**가 열립니다. **검색** 단추를 클릭하여 AIA, CDP 및 OCSP에서 인증서를 확인할 수 있습니다.
 
         ![검색 단추](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
-        AIA의 인증서가 "확인 됨"이 고 CDP 또는 OCSP의 인증서가 "확인 됨" 인 경우 인증서 체인을 성공적으로 구축할 수 있습니다.
+        AIA의 인증서가 "확인됨"이고 CDP 또는 OCSP의 인증서가 "확인됨"인 경우 인증서 체인이 성공적으로 구축될 수 있습니다.
 
-        AIA, CDP를 검색할 때 오류가 표시 되는 경우 네트워크 팀과 협력 하 여 클라이언트 컴퓨터를 대상 URL에 연결할 준비가 된 것입니다. Http 경로 또는 ldap 경로를 확인할 수 있으면 충분 합니다.
+        AIA, CDP를 검색할 때 오류가 표시되는 경우 네트워크 팀과 협력하여 클라이언트 컴퓨터를 대상 URL에 연결할 준비를 합니다. http 경로 또는 ldap 경로를 확인할 수 있으면 충분합니다.
 
-### <a name="self-hosted-ir-could-not-load-file-or-assembly"></a>자체 호스팅 IR에서 파일 또는 어셈블리를 로드할 수 없습니다.
+### <a name="self-hosted-ir-could-not-load-file-or-assembly"></a>자체 호스팅 IR에서 파일 또는 어셈블리를 로드할 수 없음
 
 #### <a name="symptoms"></a>증상
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-다음은 그 예입니다.  
+예를 들면 다음과 같습니다. 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -165,7 +165,7 @@ SSL/TLS 핸드셰이크와 관련 된 사례를 처리 하는 경우 인증서 �
 > [!TIP] 
 > 아래 스크린샷에 표시 된 것 처럼 필터를 설정할 수 있습니다.
 > **System.valuetuple** DLL은 GAC 관련 폴더 또는 *C:\program Files\Microsoft integration Runtime\4.0\Gateway*또는 *c:\program Files\Microsoft integration Runtime\4.0\Shared* 폴더에 있지 않음을 나타냅니다.
-> 기본적으로는 먼저 *GAC* 폴더에서 dll을 로드 한 다음 *공유* 및 마지막으로 *게이트웨이* 폴더에서 로드 합니다. 따라서 유용 하 게 사용할 수 있는 경로에 dll을 배치할 수 있습니다.
+> 기본적으로 *GAC* 폴더에서 먼저 dll을 로드하고, 그다음 *Shared*에서, 마지막으로 *Gateway* 폴더에서 dll을 로드합니다. 따라서 도움이 될 수 있는 경로에 dll을 배치할 수 있습니다.
 
 ![필터 설정](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -173,7 +173,7 @@ SSL/TLS 핸드셰이크와 관련 된 사례를 처리 하는 경우 인증서 �
 
 **System.ValueTuple.dll** *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway\DataScan* 폴더에 있는 것을 확인할 수 있습니다. **System.ValueTuple.dll** 를 *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway* 폴더에 복사 하 여 문제를 해결 합니다.
 
-동일한 방법을 사용 하 여 다른 파일 또는 어셈블리 누락 문제를 해결할 수 있습니다.
+동일한 방법을 사용하여 다른 파일 또는 어셈블리 누락 문제를 해결할 수 있습니다.
 
 #### <a name="more-information"></a>추가 정보
 
@@ -186,78 +186,78 @@ SSL/TLS 핸드셰이크와 관련 된 사례를 처리 하는 경우 인증서 �
 GAC에 대 한 자세한 내용은 [이 문서](https://docs.microsoft.com/dotnet/framework/app-domains/gac)를 참조 하세요.
 
 
-### <a name="how-to-audit-self-hosted-ir-key-missing"></a>자체 호스팅 IR 키 누락을 감사 하는 방법
+### <a name="how-to-audit-self-hosted-ir-key-missing"></a>자체 호스팅 IR 키 누락을 감사하는 방법
 
 #### <a name="symptoms"></a>증상
 
-자체 호스팅 통합 런타임은 키 없이 갑자기 오프 라인으로 전환 되며, 아래 오류 메시지는 이벤트 로그에 표시 됩니다. `Authentication Key is not assigned yet`
+자체 호스팅 통합 런타임이 키 없이 갑자기 오프라인으로 전환되며, 아래 오류 메시지가 이벤트 로그에 표시됩니다. `Authentication Key is not assigned yet`
 
 ![인증 키가 없습니다.](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
 
 #### <a name="cause"></a>원인
 
-- 포털에서 자체 호스팅 IR 노드나 논리 자체 호스팅 IR이 삭제 됩니다.
-- 제거 작업이 완료 됩니다.
+- 포털에서 자체 호스팅 IR 노드나 논리 자체 호스팅 IR이 삭제되었습니다.
+- 완전한 제거 작업이 완료되었습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-위의 원인이 모두 적용 되지 않는 경우 *%Programdata%\Microsoft\Data Transfer\DataManagementGateway*폴더로 이동 하 여 **구성** 파일이 삭제 되었는지 여부를 확인할 수 있습니다. 삭제 된 경우 [여기](https://www.netwrix.com/how_to_detect_who_deleted_file.html) 에 있는 지침에 따라 파일을 삭제 하는 사람을 감사 합니다.
+위의 원인이 모두 적용 되지 않는 경우 *%Programdata%\Microsoft\Data Transfer\DataManagementGateway*폴더로 이동 하 여 **구성** 파일이 삭제 되었는지 여부를 확인할 수 있습니다. 삭제된 경우 [여기](https://www.netwrix.com/how_to_detect_who_deleted_file.html) 지침에 따라 누가 파일을 삭제했는지 감사합니다.
 
 ![구성 파일 확인](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
 
 
-### <a name="cannot-use-self-hosted-ir-to-bridge-two-on-premises-data-stores"></a>자체 호스팅 IR을 사용 하 여 두 개의 온-프레미스 데이터 저장소에 연결할 수 없습니다.
+### <a name="cannot-use-self-hosted-ir-to-bridge-two-on-premises-data-stores"></a>자체 호스팅 IR을 사용하여 두 개의 온-프레미스 데이터 저장소에 연결할 수 없음
 
 #### <a name="symptoms"></a>증상
 
-원본 및 대상 데이터 저장소에 대해 자체 호스트 된 IRs을 만든 후 두 IRs를 함께 연결 하 여 복사본을 완성 하려고 합니다. 데이터 저장소가 다른 Vnet에 구성 되어 있거나 게이트웨이 메커니즘을 이해할 수 없는 경우 다음과 같은 오류가 발생 합니다. *대상 IR에서 원본 드라이버를 찾을 수 없습니다*. *대상 IR에서 원본에 액세스할 수 없습니다*.
+원본 및 대상 데이터 저장소에 대해 자체 호스팅 IR을 만든 후 두 IR을 함께 연결하여 복사본을 완성하려고 합니다. 데이터 저장소가 다른 Vnet에 구성 되어 있거나 게이트웨이 메커니즘을 이해할 수 없는 경우 다음과 같은 오류가 발생 합니다. *대상 IR에서 원본 드라이버를 찾을 수 없습니다*. *대상 IR에서 원본에 액세스할 수 없습니다*.
  
 #### <a name="cause"></a>원인
 
-자체 호스팅 IR은 각 데이터 저장소에 대해 설치 해야 하는 클라이언트 에이전트가 아니라 복사 작업의 중앙 노드로 설계 되었습니다.
+자체 호스팅 IR이 각 데이터 저장소에 대해 설치해야 하는 클라이언트 에이전트가 아니라 복사 작업의 중앙 노드로 설계되었습니다.
  
-위의 경우에서 각 데이터 저장소에 대 한 연결 된 서비스는 동일한 IR을 사용 하 여 만들어야 하며 IR은 네트워크를 통해 두 데이터 저장소에 액세스할 수 있어야 합니다. 원본 데이터 저장소, 대상 데이터 저장소 또는 세 번째 컴퓨터에 IR을 설치 하는 것과 관계 없이 두 개의 연결 된 서비스가 다른 IRs으로 만들어졌지만 동일한 복사 작업에서 사용 되는 경우 대상 IR을 사용 하 고 두 데이터 저장소의 드라이버를 대상 IR 컴퓨터에 설치 해야 합니다.
+위의 경우에서 각 데이터 저장소에 대한 연결된 서비스는 동일한 IR을 사용하여 만들어야 하며 IR은 네트워크를 통해 두 데이터 저장소에 모두 액세스할 수 있어야 합니다. 원본 데이터 저장소, 대상 데이터 저장소 또는 세 번째 컴퓨터에 IR을 설치하는 것과 관계없이 두 개의 연결된 서비스가 다른 IR로 만들어졌지만 동일한 복사 작업에서 사용되는 경우 대상 IR을 사용하고 두 데이터 저장소의 드라이버를 대상 IR 컴퓨터에 설치해야 합니다.
 
 #### <a name="resolution"></a>해결 방법
 
-대상 IR에 원본 및 대상 모두에 대 한 드라이버를 설치 하 고 원본 데이터 저장소에 액세스할 수 있는지 확인 합니다.
+대상 IR에 원본 및 대상 모두에 대한 드라이버를 설치하고 원본 데이터 저장소에 액세스할 수 있는지 확인합니다.
  
-두 데이터 저장소 간에 네트워크를 통해 트래픽을 전달할 수 없는 경우 (예: 두 개의 Vnet에서 구성 된 경우) IR이 설치 된 경우에도 하나의 작업에서 복사를 완료할 수 없습니다. 이 경우 두 개의 IRs를 사용 하 여 두 개의 복사 작업을 만들 수 있습니다. 1 IR은 데이터 저장소 1에서 Azure Blob Storage로 복사 하 고 다른 하나는 Azure Blob Storage에서 데이터 저장소 2로 복사 합니다. 이 경우 IR을 사용 하 여 연결이 끊어진 두 데이터 저장소를 연결 하는 브리지를 만드는 요구 사항을 시뮬레이션할 수 있습니다.
+두 데이터 저장소 간에 네트워크를 통해 트래픽을 전달할 수 없는 경우(예: 두 개의 VNET에 구성된 경우) IR이 설치된 경우에도 한 번의 작업으로 복사를 완료할 수 없습니다. 이 경우 VENT에 각각 두 개의 IR을 사용하여 두 개의 복사 작업을 만들 수 있습니다. 하나의 IR은 데이터 저장소 1에서 Azure Blob Storage로 복사하고, 다른 하나는 Azure Blob Storage에서 데이터 저장소 2로 복사합니다. 이 경우 IR을 사용하여 연결이 끊어진 두 데이터 저장소를 연결하는 브리지를 만드는 데 필요한 요구 사항을 시뮬레이션할 수 있습니다.
 
 
-### <a name="credential-sync-issue-causes-credential-lost-from-ha"></a>자격 증명 동기화 문제로 인해 HA에서 자격 증명이 손실 됨
+### <a name="credential-sync-issue-causes-credential-lost-from-ha"></a>자격 증명 동기화 문제로 인해 HA에서 자격 증명이 손실됨
 
 #### <a name="symptoms"></a>증상
 
-Azure Portal에서 링크 서비스를 삭제 하거나 작업에 잘못 된 페이로드가 있으면 데이터 원본 자격 증명 "XXXXXXXXXX"이 (가) 현재 Integration Runtime 노드에서 삭제 됩니다. "자격 증명을 사용 하 여 새 링크 서비스를 다시 만드세요."를 참조 하세요.
+데이터 원본 자격 증명 "XXXXXXXXXX"가 "Azure Portal에서 링크 서비스를 삭제할 때 페이로드가 있는 현재 Integration Runtime 노드에서 삭제되었거나, 작업에 잘못된 페이로드가 있습니다. 자격 증명을 사용하여 새 링크 서비스를 다시 만드세요".
 
 #### <a name="cause"></a>원인
 
-자체 호스팅 IR은 두 노드를 사용 하 여 HA 모드로 기본 제공 되지만 자격 증명 동기화 상태에 있지 않습니다. 즉, 디스패처 노드에 저장 된 자격 증명이 다른 작업자 노드와 동기화 되지 않습니다. 디스패처 노드에서 작업자 노드에 대 한 장애 조치 (failover)가 발생 하지만 자격 증명이 이전 디스패처 노드에만 존재 하는 경우 자격 증명에 액세스 하려고 하면 작업이 실패 하 고 위의 오류가 발생 합니다.
+자체 호스팅 IR은 두 노드를 사용하여 HA 모드로 기본 제공되지만 자격 증명 동기화 상태에 있지 않습니다. 즉, 디스패처 노드에 저장된 자격 증명이 다른 작업자 노드와 동기화되지 않습니다. 디스패처 노드에서 작업자 노드에 대한 장애 조치(failover)가 발생하지만 자격 증명이 이전 디스패처 노드에만 존재하는 경우 자격 증명에 액세스하려고 하면 작업이 실패하고 위의 오류가 발생합니다.
 
 #### <a name="resolution"></a>해결 방법
 
-이 문제를 방지 하는 유일한 방법은 두 노드가 자격 증명 동기화 상태에 있는지 확인 하는 것입니다. 그렇지 않으면 새 디스패처에 대 한 자격 증명을 다시 입력 해야 합니다.
+이 문제를 방지하는 유일한 방법은 두 노드가 자격 증명 동기화 상태에 있는지 확인하는 것입니다. 그렇지 않으면 새 디스패처에 대한 자격 증명을 다시 입력해야 합니다.
 
 
-### <a name="cannot-choose-the-certificate-due-to-private-key-missing"></a>개인 키가 없어 인증서를 선택할 수 없습니다.
+### <a name="cannot-choose-the-certificate-due-to-private-key-missing"></a>프라이빗 키가 없어 인증서를 선택할 수 없음
 
 #### <a name="symptoms"></a>증상
 
 1.  인증서 저장소에 PFX 파일을 가져옵니다.
-2.  IR Configuration Manager UI를 통해 인증서를 선택 하는 경우 아래 오류에 도달할 수 있습니다.
+2.  IR Configuration Manager UI를 통해 인증서를 선택하는 경우 아래 오류가 발생할 수 있습니다.
 
     ![개인 키가 없음](media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png)
 
 #### <a name="cause"></a>원인
 
-- 사용자 계정이 권한이 낮으므로 개인 키에 액세스할 수 없습니다.
-- 인증서가 서명으로 생성 되었지만 키 교환이 아닙니다.
+- 사용자 계정의 권한이 낮으므로 프라이빗 키에 액세스할 수 없습니다.
+- 인증서가 서명으로 생성되었지만 키 교환으로 생성되지 않았습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-1.  UI를 작동 하기 위해 개인 키에 액세스할 수 있는 권한 있는 계정을 사용 합니다.
-2.  아래 명령을 실행 하 여 인증서를 가져옵니다.
+1.  UI를 작동하기 위해 프라이빗 키에 액세스할 수 있는 권한 있는 계정을 사용합니다.
+2.  아래 명령을 실행하여 인증서를 가져옵니다.
     
     ```
     certutil -importpfx FILENAME.pfx AT_KEYEXCHANGE
@@ -574,50 +574,6 @@ Netmon 추적을 사용 하 고 추가로 분석 합니다.
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
     따라서 네트워크 팀과 협력 하 여 네 번째 홉이 자체 호스팅 IR에 있는지 확인 해야 합니다. Linux 시스템의 방화벽 인 경우 장치에서 TCP 3 핸드셰이크 후에 패키지를 다시 설정 하는 이유에 대 한 로그를 확인 합니다. 그러나 조사를 수행할 위치를 모를 경우에는 문제가 있는 시간에 자체 호스트 된 IR 및 방화벽에서 netmon 추적을 가져와이 패키지를 다시 설정 하 고 연결을 끊는 장치를 파악 합니다. 이 경우 네트워크 팀과 협력 하 여 앞으로 이동 해야 합니다.
-
-### <a name="how-to-collect-netmon-trace"></a>Netmon 추적을 수집 하는 방법
-
-1.  [이 웹 사이트](https://cnet-downloads.com/network-monitor)에서 Netmon 도구를 다운로드 하 고 서버 컴퓨터 (문제가 있는 서버) 및 클라이언트 (예: 자체 호스팅 IR)에 설치 합니다.
-
-2.  다음 경로에서 폴더를 만듭니다. *D:\netmon*. 로그를 저장 하는 데 충분 한 공간이 있는지 확인 합니다.
-
-3.  IP 및 포트 정보를 캡처합니다. 
-    1. CMD 프롬프트를 시작 합니다.
-    2. 관리자 권한으로 실행을 선택 하 고 다음 명령을 실행 합니다.
-       
-        ```
-        Ipconfig /all >D:\netmon\IP.txt
-        netstat -abno > D:\netmon\ServerNetstat.txt
-        ```
-
-4.  Netmon 추적 (네트워크 패키지)을 캡처합니다.
-    1. CMD 프롬프트를 시작 합니다.
-    2. 관리자 권한으로 실행을 선택 하 고 다음 명령을 실행 합니다.
-        
-        ```
-        cd C:\Program Files\Microsoft Network Monitor 3
-        ```
-    3. 세 가지 명령을 사용 하 여 네트워크 페이지를 캡처할 수 있습니다.
-        - 옵션 A: 라운드 로빈 File 명령 (이 경우 하나의 파일만 캡처하고 이전 로그를 덮어씁니다.)
-
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
-            ```         
-        - 옵션 B: 연결 된 파일 명령 (200 MB에 도달 하면 새 파일이 생성 됨).
-        
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
-            ```          
-        - 옵션 C: 예약 된 파일 명령입니다.
-
-            ```
-            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
-            ```  
-
-5.  Netmon 추적 캡처를 중지 하려면 **ctrl + C** 를 누릅니다.
- 
-> [!NOTE]
-> 클라이언트 컴퓨터에서 netmon 추적만 수집할 수 있는 경우 추적을 분석 하는 데 도움이 되는 서버 ip 주소를 확인 하세요.
 
 ### <a name="how-to-analyze-netmon-trace"></a>Netmon 추적을 분석 하는 방법
 

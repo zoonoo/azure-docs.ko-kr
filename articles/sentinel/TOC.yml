@@ -29,6 +29,10 @@
       href: fusion.md
     - name: 작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장
       href: extend-sentinel-across-workspaces-tenants.md
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
 - name: 방법 가이드
   items:
     - name: 데이터 원본 연결
@@ -50,17 +54,17 @@
               href: connect-azure-ad-identity-protection.md
             - name: Azure Information Protection
               href: connect-azure-information-protection.md
-            - name: 엔드포인트에 대한 Microsoft Defender
+            - name: Microsoft Defender ATP
               href: connect-microsoft-defender-advanced-threat-protection.md
-            - name: ID용 Microsoft Defender(이전 Azure ATP)
+            - name: Azure ATP
               href: connect-azure-atp.md
             - name: Azure DDoS Protection
               href: connect-azure-ddos-protection.md
             - name: Azure Firewall
               href: connect-azure-firewall.md
-            - name: ASC의 Azure Defender 경고
+            - name: Azure Security Center
               href: connect-azure-security-center.md
-            - name: IoT용 Azure Defender(이전에는 ASC)
+            - name: IoT용 Azure Security Center
               href: connect-asc-iot.md
             - name: Azure WAF(웹 애플리케이션 방화벽)
               href: connect-azure-waf.md
@@ -114,8 +118,6 @@
               href: connect-vmware-carbon-black.md
             - name: Zimperium Mobile Threat Defense
               href: connect-zimperium-mtd.md
-            - name: Logstash를 사용하여 연결
-              href: connect-logstash.md
             - name: CEF 기반 솔루션
               href: connect-common-event-format.md
               items:

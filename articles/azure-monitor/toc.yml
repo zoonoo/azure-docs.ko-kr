@@ -224,12 +224,10 @@
               href: log-query/get-started-queries.md
         - name: 로그 데이터
           items:
-            - name: 로그 데이터 구조
-              href: log-query/logs-structure.md
             - name: 쿼리 범위
               href: log-query/scope.md
-            - name: 표준 속성
-              href: platform/log-standard-properties.md
+            - name: 표준 열
+              href: platform/log-standard-columns.md
             - name: 컴퓨터 그룹
               href: platform/computer-groups.md
         - name: 쿼리 언어

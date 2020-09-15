@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: 520c2d4fd258bfab5a5a1e0abf890d58bb98fbdc
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83191fd29e0cda4bc398f6a46a0d2ebf9631665
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653180"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068050"
 ---
 # <a name="common-questions"></a>일반적인 질문
 
@@ -24,7 +24,13 @@ ms.locfileid: "89653180"
 
 리소스 이동 기는 현재 공개 미리 보기로 제공 됩니다. 프로덕션 워크 로드가 지원 됩니다.
 
-## <a name="region-move"></a>영역 이동
+
+
+## <a name="moving-across-regions"></a>영역 간 이동
+
+### <a name="can-i-move-resources-across-any-regions"></a>모든 지역에서 리소스를 이동할 수 있나요?
+
+현재 [해당 지역에서 사용할 수 있는 리소스 유형에](https://azure.microsoft.com/global-infrastructure/services/)따라 모든 원본 공용 지역에서 대상 공용 지역으로 리소스를 이동할 수 있습니다. Azure Government 지역에서 리소스 이동은 현재 지원 되지 않습니다.
 
 ### <a name="what-resources-can-i-move-across-regions-using-resource-mover"></a>리소스 이동 기를 사용 하 여 지역 간에 이동할 수 있는 리소스는 무엇 인가요?
 
@@ -34,13 +40,19 @@ ms.locfileid: "89653180"
 - NIC
 - 가용성 집합 
 - Azure 가상 네트워크 
-- 공용 IP 주소 NSGs (네트워크 보안 그룹)
+- 공용 IP 주소
+- NSG(네트워크 보안 그룹)
 - 내부 및 공용 부하 분산 장치 
 - Azure SQL database 및 탄력적 풀
 
+
+### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>지역 간에 이동할 때 구독 간에 리소스를 이동할 수 있나요?
+
+리소스를 대상 지역으로 이동한 후 구독을 변경할 수 있습니다. 리소스를 다른 구독으로 이동 하는 방법에 [대해 자세히 알아보세요](../azure-resource-manager/management/move-resource-group-and-subscription.md) . 
+
 ### <a name="where-is-the-metadata-about-a-region-move-stored"></a>지역 이동에 대 한 메타 데이터는 어디에 저장 되나요?
 
-Azure [Cosmos](../cosmos-db/database-encryption-at-rest.md) 데이터베이스 및 [azure Blob storage](../storage/common/storage-service-encryption.md)의 Microsoft 구독에 저장 됩니다.
+Azure [Cosmos](../cosmos-db/database-encryption-at-rest.md) 데이터베이스 및 [azure Blob storage](../storage/common/storage-service-encryption.md)의 Microsoft 구독에 저장 됩니다. 현재 메타 데이터는 미국 동부 2 및 유럽 서 면에 저장 됩니다. 이 검사는 다른 지역으로 확장 될 예정입니다. 이렇게 하면 모든 공용 지역에서 리소스를 이동 하는 것을 제한 하지 않습니다.
 
 ### <a name="is-the-collected-metadata-encrypted"></a>수집 된 메타 데이터가 암호화 되나요?
 

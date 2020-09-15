@@ -7,12 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 09/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 82a370bcda2d762abb36e6e43ab755c45348e4c5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: ae8b830469a9b52ae68310dde2e65dcffdf4e3be
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020004"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060818"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 작업 만들기 및 실행
 
@@ -38,7 +38,7 @@ Azure IoT Central를 사용 하 여 작업을 통해 규모에 따라 연결 된
 
     **저장 후 종료** 를 선택 **하 여 작업 페이지의** 저장 된 작업 목록에 작업을 추가 합니다. 나중에 저장 된 작업 목록에서 작업으로 돌아갈 수 있습니다.
 
-    **다음** 을 선택 하 여 **검토** 페이지로 이동 합니다. * * 검토 * * * * 페이지에는 작업 구성 세부 정보가 표시 됩니다. **실행** 을 선택 하 여 작업을 제출 합니다.
+    **다음** 을 선택 하 여 **검토** 페이지로 이동 합니다. **검토** 페이지에 작업 구성 세부 정보가 표시 됩니다. **실행** 을 선택 하 여 작업을 제출 합니다.
 
     :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="작업 마법사 검토 페이지의 스크린샷":::
 

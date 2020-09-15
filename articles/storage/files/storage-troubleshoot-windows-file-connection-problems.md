@@ -4,15 +4,15 @@ description: Windows의 Azure Files 문제 해결 Windows 클라이언트에서 
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/31/2019
+ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: eed9109416f434e2492d621f60b7ad6bf6e188e8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: f167ffb652054b64098994d334eea6e1db6d2d14
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437380"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061209"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -366,6 +366,18 @@ RID 마스터 FSMO 역할을 보유 하는 도메인 컨트롤러를 사용할 �
 ### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>오류: "이름이 지정되지 않았으므로 위치 매개 변수를 바인딩할 수 없습니다."
 
 이 오류는 Join-AzStorageAccountforAuth 명령의 구문 오류에 의해 트리거될 수 있습니다.  맞춤법 오류 또는 구문 오류에 대 한 명령을 확인 하 고 최신 버전의 AzFilesHybrid 모듈 (이 설치 되어 있는지 확인 https://github.com/Azure-Samples/azure-files-samples/releases) 합니다.  
+
+## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>AES 256 Kerberos 암호화에 대 한 온-프레미스 AD DS 인증 지원 Azure Files
+
+[AzFilesHybrid module v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases)를 사용 하 여 Azure Files 온-프레미스 AD DS 인증에 대 한 AES 256 Kerberos 암호화 지원이 도입 되었습니다. V 0.2.2 보다 낮은 모듈 버전을 사용 하 여 AD DS 인증을 사용 하도록 설정한 경우 최신 AzFilesHybrid 모듈 (v 0.2.2 +)을 다운로드 하 고 아래 PowerShell을 실행 해야 합니다. 저장소 계정에 대 한 AD DS 인증을 아직 사용 하도록 설정 하지 않은 경우 사용에 대 한이 [지침](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) 을 따를 수 있습니다. AzFilesHybrid module v 0.2.2 이상을 사용 하 여 기능을 사용 하도록 설정한 경우 아래 PowerShell을 다시 실행할 필요가 없습니다. 
+
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
+```
+
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

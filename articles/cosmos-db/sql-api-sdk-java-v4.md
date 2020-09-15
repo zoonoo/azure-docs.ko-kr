@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: f88004d219989b06d4bc7e75e76aca1ce1e894fe
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: aabd52d47bfc59de7a1d79bbe5ffbdda90d099bf
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536403"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060699"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core(SQL) API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -68,27 +68,14 @@ Azure Cosmos DB Java SDK v4 for Core(SQL)는 비동기 API와 동기 API를 하�
 
 ## <a name="release-history"></a>릴리스 기록
 
-### <a name="440-beta2-unreleased"></a>4.4.0-beta. 2 (릴리스되지 않음)
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
-* Tcnative를 사용 하도록 설정 하면 RequestTimeoutException이 수정 되었습니다.
+### <a name="450-beta1-unreleased"></a>4.5.0-베타. 1 (릴리스되지 않음)
 
-### <a name="440-beta1-2020-08-27"></a>4.4.0-beta. 1 (2020-08-27)
-#### <a name="new-features"></a>새로운 기능
-* 여러 문서를 효율적으로 로드 하기 위해 새 API를 추가 했습니다 (pk/id 쌍 목록 또는 pk 값 집합에 대 한 모든 문서를 통해).
-* 새 `deleteItem` API를 추가 했습니다.
-* 기본적으로 쿼리 메트릭을 사용 합니다.
+### <a name="440-2020-09-12"></a>4.4.0 (2020-09-12)
 #### <a name="key-bug-fixes"></a>핵심 버그 수정
-* 에서 NPE을 수정 `GatewayAddressCache` 했습니다.
-* 항목 응답이 0 인 쿼리 메트릭 문제를 수정 합니다.
-* 주소 구문 분석 및 마스터 키 인증에 대 한 성능 향상 (CPU 사용량 감소).
-
-### <a name="432-beta2-2020-08-17"></a>4.3.2 (2020-08-17)
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
-* 이전 버전에서 변경 된 사항은 없으며, 스프링 데이터 모듈과의 호환성 문제에 대 한 릴리스입니다.
-
-### <a name="432-beta1-2020-08-14"></a>4.3.2-beta. 1 (2020-08-14)
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
-* 사용 하지 않는 TCP 연결의 조기 닫기를 방지 하기 위해 RntbdServiceEndpoint의 문제가 수정 되었습니다.
+* 종속성을 사용 하도록 설정할 때 RequestTimeoutException `netty-tcnative-boringssl` 을 수정 했습니다.
+* 모드의 작업에서 메모리 누수 문제를 수정 `Delete` `GATEWAY` 했습니다.
+* `CosmosClient`끝점 uri가 잘못 된 경우 인스턴스화의 누수 문제를 수정 했습니다.
+* 진단이 개선 `CPU History` 되었습니다.
 
 ### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
 #### <a name="key-bug-fixes"></a>핵심 버그 수정

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 7d230ce068678bbc074b54ab361f3d70d9b102f8
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 716928761d23c2cf04ebcc72e253ad7884408065
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670531"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061848"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>리소스 그룹에서 영역 간 리소스 이동
 
@@ -22,12 +22,12 @@ ms.locfileid: "89670531"
 > Azure 리소스 이동 기는 현재 공개 미리 보기로 제공 됩니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 이동 하려는 리소스가 있는 구독에 대 한 *소유자* 액세스 권한이 필요 합니다.
     - Azure 구독에서 특정 원본 및 대상 매핑에 대 한 리소스를 처음 추가 하는 경우 리소스 이동 기가 구독에서 신뢰 하는 [시스템 할당 관리 id](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (이전에는 MSI (관리 서비스 식별)로 알려짐)를 만듭니다.
     - Id를 만들고 필요한 역할 (원본 구독의 참가자 또는 사용자 액세스 관리자)을 할당 하려면 리소스를 추가 하는 데 사용 하는 계정에 구독에 대 한 *소유자* 권한이 있어야 합니다. Azure 역할에 대해 [자세히 알아보세요](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) .
-- 구독에는 대상 지역에 원본 리소스를 만드는 데 충분 한 할당량이 필요 합니다. 그렇지 않으면 추가 제한을 요청 합니다. [자세한 정보를 알아보세요](/azure/azure-resource-manager/management/azure-subscription-service-limits).
+- 구독에는 대상 지역에 원본 리소스를 만드는 데 충분 한 할당량이 필요 합니다. 그렇지 않으면 추가 제한을 요청 합니다. [자세히 알아보기](/azure/azure-resource-manager/management/azure-subscription-service-limits).
 - Vm을 이동 하는 대상 지역과 관련 된 가격 책정 및 요금을 확인 합니다. [가격 계산기](https://azure.microsoft.com/pricing/calculator/) 를 사용 하 여 도움을 줍니다.
 - 이동 하려는 리소스가 리소스 이동 기에서 지원 되는지 확인 합니다.
     - Azure Vm 및 연결 된 디스크
@@ -65,7 +65,6 @@ ms.locfileid: "89670531"
     ![리소스를 다른 지역으로 이동 하기 위한 선택](./media/move-region-within-resource-group/select-move-region.png)
     
 4. **원본 + 대상**에서 리소스를 이동 하려는 대상 지역을 선택 합니다. **다음**을 선택합니다.
-5. **메타 데이터 영역**에서 이동 하는 리소스에 대 한 메타 데이터를 저장 하려는 위치를 선택 합니다.  이 목적을 위해 특별히 리소스 그룹이 생성 됩니다. **다음**을 선택합니다.
 
 
     ![대상 지역을 선택 하는 원본 및 대상 페이지](./media/move-region-within-resource-group/source-target.png)

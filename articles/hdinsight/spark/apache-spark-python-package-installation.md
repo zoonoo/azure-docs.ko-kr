@@ -8,18 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 59de3eb2370029ab9edcb609298c7b1fdf5f8ff8
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 09d1063f704c37eb31546be08765f2b5b6fb8632
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873758"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060750"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
-
-> [!div class="op_single_selector"]
-> * [셀 매직 사용](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [스크립트 작업 사용](apache-spark-python-package-installation.md)
 
 HDInsight는 Spark 클러스터에서 두 개의 기본 제공 Python 설치(Anaconda Python 2.7 및 Python 3.5)가 있습니다. 고객은 Python 환경을 사용자 지정해야 할 수 있습니다. 외부 Python 패키지 또는 다른 Python 버전을 설치하는 것과 같습니다. 여기서는 HDInsight에서 Apache Spark 클러스터에 대한 Python 환경을 안전하게 관리하는 모범 사례를 소개합니다.
 
@@ -47,7 +43,7 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 
 Anaconda 설치를 사용하여 HDInsight Spark 클러스터를 만듭니다. 클러스터에는 두 개의 Python 설치(Anaconda Python 2.7 및 Python 3.5)가 있습니다. 아래 표에서는 Spark, Livy 및 Jupyter에 대한 기본 Python 설정을 보여 줍니다.
 
-|Setting |Python 2.7|Python 3.5|
+|설정 |Python 2.7|Python 3.5|
 |----|----|----|
 |경로|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
 |Spark 버전|2\.7로 기본 설정|해당 없음|
@@ -132,7 +128,7 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
 
     4. 변경 내용을 저장하고 영향을 받은 서비스를 다시 시작합니다. 이러한 변경을 하면 Spark2 서비스를 다시 시작해야 합니다. Ambari UI에서 필수 다시 시작 알림이 표시되면 다시 시작을 클릭하여 영향을 받는 모든 서비스를 다시 시작합니다.
 
-        ![Ambari를 통해 Spark 구성 변경](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        ![서비스 다시 시작](./media/apache-spark-python-package-installation/ambari-restart-services.png)
 
 4. Jupyter에서 새로 만든 가상 환경을 사용하려는 경우 다음과 같이 합니다. Jupyter 구성을 변경하고 Jupyter를 다시 시작합니다. 아래의 문을 사용하여 모든 헤더 노드에서 스크립트 작업을 실행하여 Jupyter가 새로 생성된 가상 환경을 가리키도록 합니다. 가상 환경을 대상으로 지정한 접두사의 경로를 수정해야 합니다. 이 스크립트 작업을 실행한 후 Ambari UI를 통해 Jupyter 서비스를 다시 시작하여 이 변경 내용을 적용합니다.
 

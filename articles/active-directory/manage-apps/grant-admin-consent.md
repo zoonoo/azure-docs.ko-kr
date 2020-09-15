@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aafaeb1143049b14f0a2fe2d867a951355d1ba61
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: 68e40696c935adf6bef78636770b1add81255fa8
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667602"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060920"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>애플리케이션에 대한 테넌트 전체 관리자 동의 부여
 
@@ -25,7 +25,7 @@ ms.locfileid: "89667602"
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 테 넌 트 전체 관리자 동의를 부여 하려면 [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [응용 프로그램 관리자](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator)으로 로그인 해야 합니다.
 
@@ -88,7 +88,7 @@ https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 언제나 처럼 동의를 부여 하기 전에 응용 프로그램에서 요청 하는 권한을 신중 하 게 검토 합니다.
 
 > [!WARNING]
-> 이 URL을 통해 테 넌 트 전체 관리자 동의를 부여 하면 이전에 테 넌 트 전체에 부여 된 모든 사용 권한을 취소 합니다. 이전에 사용자가 자신의 대신 ggranted 권한은 영향을 받지 않습니다. 
+> 이 URL을 통해 테 넌 트 전체 관리자 동의를 부여 하면 이전에 테 넌 트 전체에 부여 된 모든 사용 권한을 취소 합니다. 사용자가 대신 하 여 이전에 부여한 권한은 영향을 받지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

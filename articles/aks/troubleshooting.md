@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 4a28ebd047e4d5e610ea0c895063eb87ce051d45
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460323"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068832"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -450,3 +450,15 @@ E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
+
+### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Kubernetes.io 접두사를 사용 하 여 노드 레이블을 사용 하는 경우 Kubernetes 1.16로의 업그레이드가 실패 하는 이유
+
+Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) 를 기준으로 [kubernetes.io 접두사를 사용 하 여 정의 된 레이블의 하위 집합만](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) 노드에 적용할 수 있습니다. AKS는 영향을 받는 작업에 가동 중지 시간이 발생할 수 있으므로 동의 없이 사용자를 대신 하 여 활성 레이블을 제거할 수 없습니다.
+
+따라서이를 완화 하기 위해 다음 작업을 수행할 수 있습니다.
+
+1. 클러스터 제어 평면을 1.16 이상으로 업그레이드
+2. 지원 되지 않는 kubernetes.io 레이블이 없으면 1.16 이상에서 새 nodepoool를 추가 합니다.
+3. 이전 nodepool 삭제
+
+AKS는이 완화를 개선 하기 위해 nodepool에서 활성 레이블을 변경할 수 있는 기능을 조사 하 고 있습니다.

@@ -967,6 +967,8 @@
         - name: Resource Manager 템플릿 사용
           href: manage-sql-with-resource-manager.md
           displayName: ARM
+        - name: 영역 간 이동
+          href: how-to-move-regions.md
     - name: 글로벌 분포
       items:
         - name: 다중 마스터 구성

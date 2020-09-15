@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스
 description: 서버 평가 및 마이그레이션에 사용되는 Azure Migrate 어플라이언스에 대해 간략히 설명합니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f0bba2f2d200ffc84855ff8fc7f634bd8b71ceb6
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: 2092b03ee95349286b9e845689b5d9d55b61c772
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514359"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060733"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -101,7 +101,7 @@ Azure Migrate 어플라이언스는 인터넷에 연결해야 합니다.
 **URL** | **세부 정보**  
 --- | --- |
 *.portal.azure.com  | Azure Portal로 이동합니다.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Azure 구독에 로그인합니다.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *. office.com | Azure 구독에 로그인합니다.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스에서 Azure Migrate와 통신할 수 있도록 Azure AD(Active Directory) 앱을 만듭니다.
 management.azure.com | 어플라이언스에서 Azure Migrate 서비스와 통신할 수 있도록 Azure AD 앱을 만듭니다.
 *.services.visualstudio.com | 내부 모니터링에 사용되는 앱 로그를 업로드합니다.
@@ -227,7 +227,7 @@ NIC 쓰기 처리량(MB/초) | net.transmitted.average  |VM 크기 계산
 
 **Data**  | **PowerShell cmdlet** | **속성**
 --- | --- | ---
-Name  | Get Add-windowsfeature  | Name
+이름  | Get Add-windowsfeature  | 이름
 기능 유형 | Get Add-windowsfeature  | FeatureType
 Parent  | Get Add-windowsfeature  | Parent
 
@@ -237,7 +237,7 @@ Parent  | Get Add-windowsfeature  | Parent
 
 **Data**  | **레지스트리 위치**  | **Key**
 --- | --- | ---
-Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
+이름  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL  | installedInstance
 버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
 서비스 팩  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | SP
 버전  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \Setup  | 버전 
@@ -248,7 +248,7 @@ Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL 서버 \ 인스턴스 Names\SQL
 
 데이터  | WMI 클래스(WMI class)  | WMI 클래스 속성
 --- | --- | ---
-Name  | Win32_operatingsystem  | 캡션
+이름  | Win32_operatingsystem  | 캡션
 버전  | Win32_operatingsystem  | 버전
 Architecture  | Win32_operatingsystem  | OSArchitecture
 
@@ -258,7 +258,7 @@ Architecture  | Win32_operatingsystem  | OSArchitecture
 
 데이터  | 명령
 --- | --- 
-Name | rpm, dpkg, snap
+이름 | rpm, dpkg, snap
 버전 | rpm, dpkg, snap
 공급자 | rpm, dpkg, snap
 
@@ -268,7 +268,7 @@ Name | rpm, dpkg, snap
 
 **Data**  | **명령** 
 --- | --- | ---
-Name <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+이름 <br/> 버전 | 다음 파일 중 하나 이상에서 수집 됩니다.<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Architecture | uname
 
 

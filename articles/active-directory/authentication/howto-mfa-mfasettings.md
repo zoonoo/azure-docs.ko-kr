@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 6a5ec4644eaed8d525c278c4fc464b4dbc683596
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 838e0a13cb919a5bc17807c2349bb173e4e489f4
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023842"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068815"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -156,7 +156,7 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 * *+ 1 (877) 668 6536*
 
 > [!NOTE]
-> Azure Multi-Factor Authentication 호출이 공용 전화 네트워크를 통해 전달 되는 경우에는 호출자 ID를 지원 하지 않는 통신 회사를 통해 라우팅되는 경우도 있습니다. 이로 인해 Azure Multi-Factor Authentication에서 항상 전송 하더라도 호출자 ID는 보장 되지 않습니다.
+> Azure Multi-Factor Authentication 호출이 공용 전화 네트워크를 통해 전달 되는 경우 호출이 호출자 ID를 지원 하지 않는 통신 회사를 통해 라우팅되는 경우도 있습니다. 이로 인해 Azure Multi-Factor Authentication에서 항상 전송 하더라도 호출자 ID가 보장 되지 않습니다. 이는 Azure Multi-Factor Authentication에서 제공 하는 전화 통화 및 문자 메시지 모두에 적용 됩니다. Azure Multi-Factor Authentication에서 문자 메시지가 있는지 확인 해야 하는 경우 [메시지를 보내는 데 사용 되는 SMS 짧은 코드](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users) 를 참조 하세요.
 
 사용자 고유의 호출자 ID 번호를 구성 하려면 다음 단계를 완료 합니다.
 

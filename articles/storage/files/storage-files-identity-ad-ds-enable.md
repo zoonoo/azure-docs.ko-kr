@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 612584a71aa6be54d726ccdd74d9368ba9cddbc9
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: ce6325abf34813a9ca397f5bcbe2e774af3442d4
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535079"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061481"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>1 부: Azure 파일 공유에 대 한 AD DS 인증 사용 
 
@@ -28,7 +28,7 @@ AzFilesHybrid PowerShell 모듈의 cmdlet은 필요한 수정 작업을 수행 �
 
 ### <a name="download-azfileshybrid-module"></a>AzFilesHybrid 모듈 다운로드
 
-- [AzFilesHybrid 모듈 다운로드 및 압축 풀기](https://github.com/Azure-Samples/azure-files-samples/releases) (GA 모듈: v 0.2.0 +)
+- [AzFilesHybrid 모듈 다운로드 및 압축 풀기 (GA 모듈: v 0.2.0 +)](https://github.com/Azure-Samples/azure-files-samples/releases) V 0.2.2 이상에서 AES 256 kerberos 암호화가 지원 됩니다. V 0.2.2 아래의 AzFilesHybrid 버전으로 기능을 사용 하도록 설정 하 고 AES 256 Kerberos 암호화를 지원 하도록 업데이트 하려는 경우 [이 문서](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)를 참조 하세요. 
 - 대상 AD에서 서비스 로그온 계정 또는 컴퓨터 계정을 만들 수 있는 권한이 있는 AD DS 자격 증명을 사용 하 여 온-프레미스 AD DS에 도메인에 가입 된 장치에 모듈을 설치 하 고 실행 합니다.
 -  Azure AD에 동기화 된 온-프레미스 AD DS 자격 증명을 사용 하 여 스크립트를 실행 합니다. 온-프레미스 AD DS 자격 증명에는 저장소 계정 소유자 또는 참가자 Azure 역할 권한이 있어야 합니다.
 

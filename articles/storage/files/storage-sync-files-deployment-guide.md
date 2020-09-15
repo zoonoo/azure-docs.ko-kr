@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 834b3b60a887dadd75e00a7a33abaff15e1a9407
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: deffa5c75cbde4f9d95be549844478d4de87a685
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441479"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069631"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -109,7 +109,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 > [!Note]  
 > Windows Server Core에 Azure File Sync을 배포 하는 경우이 단계를 건너뛸 수 있습니다.
 
-1. [서버 관리자]를 엽니다.
+1. 서버 관리자를 엽니다.
 2. **로컬 서버**를 클릭합니다.  
     ![서버 관리자 UI 왼쪽에 있는 "로컬 서버"](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
 3. **속성** 하위 창에서 **IE 보안 강화 구성** 링크를 선택합니다.  
@@ -157,7 +157,7 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 
 열리는 창에 다음 정보를 입력합니다.
 
-- **이름**: 스토리지 동기화 서비스의 고유 이름(구독별)입니다.
+- **이름**: Storage 동기화 서비스의 고유한 이름 (지역별)입니다.
 - **구독**: 스토리지 동기화 서비스를 만들 구독입니다. 조직의 구성 전략에 따라 하나 이상의 구독에 대한 액세스 권한이 있을 수 있습니다. Azure 구독은 각 클라우드 서비스(예: Azure Files)에 대한 비용을 청구하는 가장 기본적인 컨테이너입니다.
 - **리소스 그룹**: 리소스 그룹은 스토리지 계정 또는 스토리지 동기화 서비스와 같은 Azure 리소스의 논리적 그룹입니다. 새 리소스 그룹을 만들거나 Azure File Sync에 대 한 기존 리소스 그룹을 사용할 수 있습니다. (리소스 그룹을 컨테이너로 사용 하 여 특정 프로젝트에 대 한 HR 리소스 또는 리소스를 그룹화 하는 등의 조직에 대 한 리소스를 논리적으로 격리 하는 것이 좋습니다.)
 - **Location**: Azure File Sync을 배포 하려는 지역입니다. 지원 되는 영역만이 목록에서 사용할 수 있습니다.
