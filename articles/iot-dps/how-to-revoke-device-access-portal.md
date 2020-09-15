@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: abc625c27617c27a79fe284393cdf7b281973bc4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299262"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532344"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning 서비스에서 디바이스 등록을 해제하는 방법
 
 IoT 솔루션과 같이 세간의 이목을 끄는 프로필 시스템에서는 적절한 디바이스 자격 증명 관리가 매우 중요합니다. 이러한 시스템에 대해서는 SAS(공유 액세스 서명) 토큰 또는 X.509 인증서 등, 자격 증명이 손상될 수 있는 경우 디바이스 액세스를 취소하는 방법을 명확하게 계획하는 것이 가장 좋습니다. 
 
-Device Provisioning Server에 등록하면 디바이스가 [자동 프로비전](concepts-auto-provisioning.md)될 수 있습니다. 프로비전된 디바이스는 IoT Hub에 등록된 디바이스로, 초기 [디바이스 쌍](~/articles/iot-hub/iot-hub-devguide-device-twins.md) 상태를 수신하고 원격 분석 데이터 보고를 시작할 수 있습니다. 이 문서에서는 프로비전 서비스 인스턴스에서 디바이스 등록을 해제하여 앞으로 다시 프로비전되지 못하게 하는 방법을 설명합니다.
+장치 프로 비전 서비스를 등록 하면 장치를 [프로 비전](about-iot-dps.md#provisioning-process)할 수 있습니다. 프로비전된 디바이스는 IoT Hub에 등록된 디바이스로, 초기 [디바이스 쌍](~/articles/iot-hub/iot-hub-devguide-device-twins.md) 상태를 수신하고 원격 분석 데이터 보고를 시작할 수 있습니다. 이 문서에서는 프로비전 서비스 인스턴스에서 디바이스 등록을 해제하여 앞으로 다시 프로비전되지 못하게 하는 방법을 설명합니다.
 
 > [!NOTE] 
 > 액세스를 취소한 디바이스의 다시 시도 정책을 알고 있어야 합니다. 예를 들어 무제한 다시 시도 정책이 적용된 디바이스는 지속적으로 프로비전 서비스 등록을 시도할 수 있습니다. 이 경우 서비스 리소스를 소비하며 성능에도 영향을 미칠 수 있습니다.

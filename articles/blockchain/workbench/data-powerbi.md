@@ -4,12 +4,12 @@ description: Microsoft Power BI에서 Azure Blockchain Workbench SQL DB 데이�
 ms.date: 04/22/2020
 ms.topic: how-to
 ms.reviewer: sunri
-ms.openlocfilehash: 2a5e67a8416c57c1a0cb039733a93608a8919be6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e0e585ce45616c2402972c725b502f4b704d1cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214233"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532378"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Microsoft Power BI에 Azure Blockchain Workbench 데이터 사용
 
@@ -24,7 +24,7 @@ Microsoft Power BI는 Power BI Desktop를 사용 하 여 SQL DB 데이터베이�
 ## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Power BI를 Azure Blockchain Workbench의 데이터에 연결
 
 1.  Power BI Desktop을 엽니다.
-2.  **데이터 가져오기**를 선택합니다.
+2.  **데이터 가져오기**를 선택 합니다.
 
     ![데이터 가져오기](./media/data-powerbi/get-data.png)
 3.  데이터 원본 형식 목록에서 **SQL Server**를 선택합니다.
@@ -41,7 +41,7 @@ Microsoft Power BI는 Power BI Desktop를 사용 하 여 SQL DB 데이터베이�
 
 6.  데이터베이스에 연결되면 **탐색기** 대화 상자에 데이터베이스 내에서 사용할 수 있는 테이블 및 보기가 표시됩니다. 보기는 보고용으로 설계되었으며 모든 보기에는 **vw**라는 접두사가 붙습니다.
 
-    ![탐색기](./media/data-powerbi/navigator.png)
+    ![VwContractAction가 선택 된 상태에서 탐색기 대화 상자를 사용 하 여 Power BI 데스크톱의 화면 캡처](./media/data-powerbi/navigator.png)
 
 7.  포함할 보기를 선택합니다. 데모를 위해, 계약에 대해 발생한 작업에 대한 세부 정보를 제공하는 **vwContractAction**을 포함하겠습니다.
 

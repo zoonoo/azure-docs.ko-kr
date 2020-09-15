@@ -1,24 +1,24 @@
 ---
 title: 디스크 암호화를 사용 하는 Azure HDInsight 클러스터 Key Vault 액세스가 손실 됩니다.
-description: Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법입니다.
+description: Azure HDInsight 클러스터와 상호 작용할 때 Key Vault 액세스 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e34c1002be3dffb719490fee01e481e8df45901
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461534"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532565"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>시나리오: 디스크 암호화를 사용 하는 Azure HDInsight 클러스터 Key Vault 액세스 손실
 
 이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
 
-## <a name="issue"></a>문제점
+## <a name="issue"></a>문제
 
 Resource Health 센터 (RHC) 경고는 `The HDInsight cluster is unable to access the key for BYOK encryption at rest` 클러스터 노드가 KV (고객 Key Vault)에 대 Bring Your Own Key 한 액세스를 잃은 (BYOK) 클러스터에 대해 표시 됩니다. Apache Ambari UI에도 유사한 경고가 표시 될 수 있습니다.
 
@@ -32,7 +32,7 @@ Apache Ambari UI로 이동 하 여 **디스크 암호화 Key Vault 상태**에�
 
 ### <a name="kvaad-outage"></a>KV/AAD 중단
 
-자세한 내용은 [Azure Key Vault 가용성 및 중복성](../../key-vault/general/disaster-recovery-guidance.md) 및 Azure 상태 페이지를 참조 하세요.https://status.azure.com/
+자세한 내용은 [Azure Key Vault 가용성 및 중복성](../../key-vault/general/disaster-recovery-guidance.md) 및 Azure 상태 페이지를 참조 하세요. https://status.azure.com/
 
 ### <a name="kv-accidental-deletion"></a>KV 실수로 삭제
 

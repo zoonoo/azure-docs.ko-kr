@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b88fb32fd4bc07bbaaaf8834646e8d585491dc6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 460ea446fc6dfc43e81a1a57bbba032a61f3a72d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395692"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532548"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>PowerShell을 사용하여 클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
 
@@ -95,14 +95,14 @@ Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Locati
 클래식 모드에서 ExpressRoute 회로에는 지역에 연결되는 개념이 없습니다. 그렇지만 Resource Manager에서 모든 리소스를 Azure 지역에 매핑해야 합니다. AzExpressRouteCircuit cmdlet에 지정 된 지역은 기술적으로 모든 지역이 될 수 있습니다. 조직 용도로 피어링 위치를 가장 잘 나타내는 지역을 선택할 수 있습니다.
 
 > [!NOTE]
-> 이동이 완료되면 이전 cmdlet에 나열된 새 이름을 사용하여 리소스 주소를 지정합니다. 회로는 기본적으로 이름이 바뀝니다.
-> 
+> * 클래식 Express 경로 회로를 리소스 관리자 배포 모델로 이동한 후에는 기본적으로 클래식 및 리소스 관리자 배포 모델에 모두 액세스할 수 있습니다.
+> * 이전 cmdlet에 나열 된 새 이름이 리소스를 처리 하는 데 사용 됩니다. 회로는 기본적으로 이름이 바뀝니다.
 
 ## <a name="modify-circuit-access"></a>회로 액세스 수정
 
 ### <a name="to-enable-expressroute-circuit-access-for-both-deployment-models"></a>두 배포 모델에 대한 ExpressRoute 회로 액세스를 사용하도록 설정하려면
 
-클래식 ExpressRoute 회로를 Resource Manager 배포 모델로 이동한 후에 두 배포 모델에 모두 액세스할 수 있도록 설정할 수 있습니다. 두 배포 모델에 모두 액세스하려면 다음 cmdlet을 실행합니다.
+리소스 관리자 배포 모델에서 만든 Express 경로 회로에 대 한 클래식 배포 모델에 대 한 액세스를 사용 하도록 설정할 수 있습니다. 두 배포 모델에 모두 액세스하려면 다음 cmdlet을 실행합니다.
 
 1. 회로 세부 정보를 가져옵니다.
 

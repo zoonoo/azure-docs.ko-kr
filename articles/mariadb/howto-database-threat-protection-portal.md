@@ -1,17 +1,17 @@
 ---
 title: Advanced Threat Protection-Azure Portal-Azure Database for MariaDB
-description: Threat Protection은 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다.
+description: Azure Database for MariaDB에 대 한 위협 방지는 데이터베이스에 대 한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 5f419836b9e73e49ec510fc359487633523e0ef0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0283688ca2de4e7978da69753d08dd4763d30a75
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104608"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532310"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Azure Database for MariaDB에 대 한 Advanced Threat Protection
 

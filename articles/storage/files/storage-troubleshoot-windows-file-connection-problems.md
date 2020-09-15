@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f167ffb652054b64098994d334eea6e1db6d2d14
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 549f9b03272accbe107c432f4929c5de250a6f6b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061209"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532395"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -142,7 +142,7 @@ SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포�
 
 Azure 파일 공유의 파일 또는 디렉터리에 허용 되는 동시 열린 핸들의 상한에 도달 하면 오류 1816이 발생 합니다. 자세한 내용은 [Azure Files 크기 조정 목표](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets)을 참조하세요.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조 하세요.
 
@@ -181,7 +181,7 @@ Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(I
 ### <a name="cause"></a>원인
 이 문제는 일반적으로 파일 또는 디렉터리에 열린 핸들이 있는 경우에 발생 합니다. 
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속 발생 하면 다음을 수행 합니다.
 
@@ -227,7 +227,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 기본적으로 Windows File Explorer는 관리자 권한으로 실행되지 않습니다. 관리자 명령 프롬프트에서 net use를 실행할 경우 네트워크 드라이브를 관리자 권한으로 매핑합니다. 매핑된 드라이브는 사용자 중심이므로 다른 사용자 계정으로 탑재될 경우 로그인된 사용자 계정에 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 비관리자 명령줄에서 공유를 탑재하세요. 또는 [이 TechNet 항목](https://technet.microsoft.com/library/ee844140.aspx) 을 따라 **EnableLinkedConnections** 레지스트리 값을 구성할 수 있습니다.
 
 <a id="netuse"></a>
@@ -237,7 +237,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용자 계정 이름이 슬래시로 시작되면 드라이브 매핑에 실패합니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 다음 단계 중 하나를 사용하여 문제를 해결할 수 있습니다.
 
@@ -258,7 +258,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 
 드라이브는 사용자별로 탑재됩니다. 애플리케이션 또는 서비스가 드라이브를 탑재한 계정이 아닌 다른 사용자 계정으로 실행되는 경우 애플리케이션에는 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 다음 솔루션 중 하나를 사용하세요.
 
@@ -299,7 +299,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 이 문제는 클라이언트 머신에서 대규모 디렉터리에 대한 캐시가 충분하지 않을 때 발생할 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 **DirectoryCacheEntrySizeMax** 레지스트리 값을 조정하여 클라이언트 머신에 더 큰 디렉터리 목록의 캐시를 허용합니다.
 
@@ -316,7 +316,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 오류 AadDsTenantNotFound는 azure [Ad 도메인 서비스 (azure AD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) 가 연결 된 구독의 azure ad 테 넌 트에 만들어지지 않는 저장소 계정의 [Azure Files에서 Azure Active Directory Domain Services (azure AD DS) 인증을 사용 하도록 설정](storage-files-identity-auth-active-directory-domain-service-enable.md) 하려고 할 때 발생 합니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 저장소 계정이 배포 된 구독의 Azure AD 테 넌 트에서 Azure AD DS를 사용 하도록 설정 합니다. 관리 되는 도메인을 만들려면 Azure AD 테 넌 트의 관리자 권한이 있어야 합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
 
@@ -353,7 +353,7 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 - 보안 탭에서 편집 권한을 클릭 하면 권한 마법사가 로드 되지 않습니다. 
 - 새 사용자 또는 그룹을 선택 하려고 하면 도메인 위치에 올바른 AD DS 도메인이 표시 되지 않습니다. 
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 [Icacls 도구](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) 를 사용 하 여 디렉터리/파일 수준 사용 권한을 해결 방법으로 구성 하는 것이 좋습니다. 
 
@@ -369,7 +369,7 @@ RID 마스터 FSMO 역할을 보유 하는 도메인 컨트롤러를 사용할 �
 
 ## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>AES 256 Kerberos 암호화에 대 한 온-프레미스 AD DS 인증 지원 Azure Files
 
-[AzFilesHybrid module v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases)를 사용 하 여 Azure Files 온-프레미스 AD DS 인증에 대 한 AES 256 Kerberos 암호화 지원이 도입 되었습니다. V 0.2.2 보다 낮은 모듈 버전을 사용 하 여 AD DS 인증을 사용 하도록 설정한 경우 최신 AzFilesHybrid 모듈 (v 0.2.2 +)을 다운로드 하 고 아래 PowerShell을 실행 해야 합니다. 저장소 계정에 대 한 AD DS 인증을 아직 사용 하도록 설정 하지 않은 경우 사용에 대 한이 [지침](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) 을 따를 수 있습니다. AzFilesHybrid module v 0.2.2 이상을 사용 하 여 기능을 사용 하도록 설정한 경우 아래 PowerShell을 다시 실행할 필요가 없습니다. 
+[AzFilesHybrid module v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases)를 사용 하 여 Azure Files 온-프레미스 AD DS 인증에 대 한 AES 256 Kerberos 암호화 지원이 도입 되었습니다. V 0.2.2 보다 낮은 모듈 버전을 사용 하 여 AD DS 인증을 사용 하도록 설정한 경우 최신 AzFilesHybrid 모듈 (v 0.2.2 +)을 다운로드 하 고 아래 PowerShell을 실행 해야 합니다. 저장소 계정에 대 한 AD DS 인증을 아직 사용 하도록 설정 하지 않은 경우 사용에 대 한이 [지침](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) 을 따를 수 있습니다. 
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"

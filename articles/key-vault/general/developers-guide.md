@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e6ee8ce065361ac27bba0e80349eb5e1d1877526
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394757"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532293"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -24,7 +24,7 @@ Key Vault를 사용하면 애플리케이션 내에서 중요한 정보를 안�
 - 애플리케이션은 서명 및 암호화를 위해 키를 사용할 수 있지만, 애플리케이션 외부에서 키 관리를 유지할 수 있으므로 지리적으로 분산된 앱에 적합한 솔루션을 구현할 수 있습니다.
 - Key Vault 인증서를 관리 합니다. 자세한 내용은 [인증서](../certificates/about-certificates.md) 를 참조 하세요.
 
-Azure Key Vault에 대 한 일반적인 정보는 [Key Vault 정의](overview.md))를 참조 하세요.
+Azure Key Vault에 대한 일반적인 내용은 [Key Vault란?](overview.md)을 참조하세요.
 
 ## <a name="public-previews"></a>공개 미리 보기
 
@@ -140,7 +140,7 @@ Node.js에서 Key Vault 관리 API와 Key Vault 개체 API는 별개입니다. �
 
 ## <a name="key-vault-overviews-and-concepts"></a>Key Vault 개요 및 개념
 
-- [Key Vault 일시 삭제 동작](soft-delete-overview.md)) 삭제 된 개체를 실수로 또는 의도적으로 복구할 수 있는 기능에 대해 설명 합니다.
+- [Key Vault 일시 삭제 동작](soft-delete-overview.md)에서는 삭제가 실수인지, 의도적인 것인지에 관계없이 삭제된 개체를 복구할 수 있는 기능에 대해 설명합니다.
 - [Key Vault 클라이언트 제한](overview-throttling.md)에서는 제한의 기본 개념을 소개하고 앱에 맞는 접근 방식을 제공합니다.
 - [Key Vault 보안 권역](overview-security-worlds.md)에서는 지역과 보안 영역 간의 관계를 설명합니다.
 

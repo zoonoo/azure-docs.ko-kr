@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
-ms.date: 08/21/2020
-ms.openlocfilehash: 7ce4580b366b57e2a1d4904b6ab63bf1834bdb65
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.date: 09/14/2020
+ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090111"
+ms.locfileid: "90532191"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 자동 크기 조정
 
@@ -68,7 +68,7 @@ Azure HDInsight의 무료 자동 크기 조정 기능은 이전에 설정한 조
 > [!Important]
 > Azure HDInsight 자동 크기 조정 기능은 Spark 및 Hadoop 클러스터를 위해 2019년 11월 7일에 일반 공급되고, 해당 기능의 미리 보기 버전에서는 사용할 수 없는 향상된 기능이 포함되어 있습니다. 2019년 11월 7일 이전에 Spark 클러스터를 만들었고 클러스터에서 자동 크기 조정 기능을 사용하려는 경우 새 클러스터를 만들고 새 클러스터에서 자동 크기 조정 기능을 사용하도록 설정하는 것이 좋습니다.
 >
-> 대화형 쿼리(LLAP) 및 HBase 클러스터에 대한 자동 크기 조정 기능은 미리 보기에도 있습니다. 자동 크기 조정 기능은 Spark, Hadoop, Interactive Query 및 HBase 클러스터에서만 사용할 수 있습니다.
+> LLAP (대화형 쿼리)에 대 한 자동 크기 조정은 2020 년 8 월 27 일에 일반 공급으로 출시 되었습니다. HBase 클러스터는 아직 미리 보기 상태입니다. 자동 크기 조정 기능은 Spark, Hadoop, Interactive Query 및 HBase 클러스터에서만 사용할 수 있습니다.
 
 다음 표에서는 자동 크기 조정 기능과 호환 되는 클러스터 유형 및 버전을 설명 합니다.
 
@@ -231,7 +231,7 @@ Azure Portal에 나열 된 클러스터 상태를 통해 자동 크기 조정 �
 | 업데이트  | 클러스터 자동 크기 조정 구성을 업데이트 하 고 있습니다.  |
 | HDInsight 구성  | 클러스터 확장 또는 축소 작업이 진행 중입니다.  |
 | 업데이트 오류  | HDInsight에서 자동 크기 조정 구성 업데이트 중에 문제가 발생 했습니다. 고객은 업데이트를 다시 시도 하거나 자동 크기 조정을 사용 하지 않도록 선택할 수 있습니다.  |
-| Error  | 클러스터에 문제가 있어 사용할 수 없습니다. 이 클러스터를 삭제 하 고 새 클러스터를 만듭니다.  |
+| 오류  | 클러스터에 문제가 있어 사용할 수 없습니다. 이 클러스터를 삭제 하 고 새 클러스터를 만듭니다.  |
 
 클러스터의 현재 노드 수를 보려면 클러스터의 **개요** 페이지에서 **클러스터 크기** 차트로 이동 합니다. 또는 [ **설정**] 아래에서 **클러스터 크기** 를 선택 합니다.
 

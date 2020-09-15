@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3를 사용 하는 iOS 용 오프 라인 FairPlay 스트리밍
-description: 이 항목에서는 오프라인 모드에서 Azure Media Services를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화하는 방법과 개요를 설명합니다.
+description: 이 항목에서는 Azure Media Services v 3을 사용 하 여 오프 라인 모드에서 Apple FairPlay를 사용 하 여 HLS (HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화 하는 방법을 간략하게 설명 합니다.
 services: media-services
 keywords: HLS, DRM, FairPlay 스트리밍(FPS), Offline, iOS 10
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c46fe5a4199e73cd22aeef4df62daeed4b58db06
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 886a8aa1a6f062b5fe01476e387742f34efc0c56
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291316"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532242"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Media Services v3를 사용 하는 iOS 용 오프 라인 FairPlay 스트리밍
 
@@ -49,7 +49,7 @@ ms.locfileid: "89291316"
 > [!NOTE]
 > 오프 라인 DRM은 콘텐츠를 다운로드할 때 라이선스에 대 한 단일 요청을 만드는 경우에만 청구 됩니다. 모든 오류는 청구 되지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 iOS 10+ 디바이스에서 FairPlay에 대한 오프라인 DRM을 구현하기 전에 다음을 수행합니다.
 

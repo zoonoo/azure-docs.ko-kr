@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3로 Widevstandroid 오프 라인 스트리밍
-description: 이 항목에서는 Widevine 보호 콘텐츠의 오프라인 스트리밍에 대한 Azure Media Services 계정을 구성하는 방법을 보여 줍니다.
+description: 이 항목에서는 Widevine 보호 된 콘텐츠의 오프 라인 스트리밍을 위해 Azure Media Services v3 계정을 구성 하는 방법을 보여 줍니다.
 services: media-services
 keywords: DASH, DRM, Widevine 오프라인 모드, ExoPlayer, Android
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8cfc426844180cabc6f42330135d8fc1ff8ebabd
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 609c06eedb5c28e31c19df1595c8e4b3b0a59956
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89289395"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532225"
 ---
 # <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Media Services v3을 사용 하 여 Android 용 오프 라인 Widevine 스트리밍
 
@@ -45,7 +45,7 @@ Android 플레이어 앱을 빌드하는 경우 다음 세 가지 옵션을 사�
 > [!NOTE]
 > 오프 라인 DRM은 콘텐츠를 다운로드할 때 라이선스에 대 한 단일 요청을 만드는 경우에만 청구 됩니다. 모든 오류는 청구 되지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 Android 디바이스에서 Widevine에 대한 오프라인 DRM을 구현하기 전에 먼저 다음을 수행해야 합니다.
 

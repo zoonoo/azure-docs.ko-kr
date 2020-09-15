@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f90f5f4298fcca77e293965ddd377598bcfd1930
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93922986dfe0b2b4e8ba0923931df601cc12428b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077306"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532531"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Azure AD를 CloudSimple 사설 클라우드에서 vCenter에 대 한 id 공급자로 사용
 
@@ -64,7 +64,7 @@ VCenter를 사용 하 여 Azure AD를 id 원본으로 사용 하려면 Azure ad 
 3. [Azure Portal를 사용 하 여 Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)사용에 설명 된 대로 Azure AD Domain Services 관리를 위한 관리자 그룹을 구성 합니다.
 4. [Azure Active Directory Domain Services 사용](../active-directory-domain-services/tutorial-create-instance.md)에 설명 된 대로 Azure AD Domain Services에 대 한 DNS 설정을 업데이트 합니다.  인터넷을 통해 AD에 연결 하려는 경우 Azure AD 도메인 서비스의 공용 IP 주소에 대 한 DNS 레코드를 도메인 이름으로 설정 합니다.
 5. 사용자에 대 한 암호 해시 동기화를 사용 하도록 설정 합니다.  이 단계에서는 NTLM (NT LAN Manager) 및 Kerberos 인증에 필요한 암호 해시의 동기화를 Azure AD Domain Services 합니다. 암호 해시 동기화를 설정하면 사용자는 회사 자격 증명을 사용하여 관리되는 도메인에 로그인할 수 있습니다. [Azure Active Directory Domain Services에 암호 해시 동기화 사용을](../active-directory-domain-services/tutorial-create-instance.md)참조 하세요.
-    1. 클라우드 전용 사용자가 있는 경우 암호 해시가 NTLM 또는 Kerberos에서 요구 하는 형식으로 저장 되도록 하려면 <a href="http://myapps.microsoft.com/" target="_blank">AZURE AD 액세스 패널</a> 을 사용 하 여 암호를 변경 해야 합니다.  [클라우드 전용 사용자 계정에 대 한 관리 되는 도메인에 대 한 암호 해시 동기화 사용](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)의 지침을 따릅니다.  Azure Portal 또는 Azure AD PowerShell cmdlet을 사용 하 여 Azure AD 디렉터리에서 만들어진 개별 사용자 및 새 사용자에 대해이 단계를 수행 해야 합니다. Azure AD 도메인 서비스에 액세스 해야 하는 사용자는 <a href="http://myapps.microsoft.com/" target="_blank">AZURE ad 액세스 패널</a> 을 사용 하 고 자신의 프로필에 액세스 하 여 암호를 변경 해야 합니다.
+    1. 클라우드 전용 사용자가 있는 경우 암호 해시가 NTLM 또는 Kerberos에서 요구 하는 형식으로 저장 되도록 하려면 <a href="https://myapps.microsoft.com/" target="_blank">AZURE AD 액세스 패널</a> 을 사용 하 여 암호를 변경 해야 합니다.  [클라우드 전용 사용자 계정에 대 한 관리 되는 도메인에 대 한 암호 해시 동기화 사용](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)의 지침을 따릅니다.  Azure Portal 또는 Azure AD PowerShell cmdlet을 사용 하 여 Azure AD 디렉터리에서 만들어진 개별 사용자 및 새 사용자에 대해이 단계를 수행 해야 합니다. Azure AD 도메인 서비스에 액세스 해야 하는 사용자는 <a href="https://myapps.microsoft.com/" target="_blank">AZURE ad 액세스 패널</a> 을 사용 하 고 자신의 프로필에 액세스 하 여 암호를 변경 해야 합니다.
 
         > [!NOTE]
         > 조직에 클라우드 전용 사용자 계정이 있는 경우 Azure Active Directory Domain Services를 사용해야 하는 사용자는 모두 암호를 변경해야 합니다. 클라우드 전용 사용자 계정은 Azure Portal 또는 Azure AD PowerShell cmdlet을 사용하여 Azure AD 디렉터리에 만든 계정입니다. 이러한 사용자 계정은 온-프레미스 디렉터리에서 동기화되지 않습니다.
@@ -85,11 +85,11 @@ VCenter를 사용 하 여 Azure AD를 id 원본으로 사용 하려면 Azure ad 
 
     | **옵션** | **설명** |
     |------------|-----------------|
-    | **이름** | Id 원본의 이름입니다. |
+    | **Name** | Id 원본의 이름입니다. |
     | **사용자의 기본 DN** | 사용자의 기본 고유 이름입니다.  Azure AD의 경우 다음을 사용 `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` 합니다. 예: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
     | **도메인 이름** | 도메인의 FQDN (예: example.com)입니다. 이 텍스트 상자에 IP 주소를 제공 하지 마십시오. |
     | **도메인 별칭** | *(선택 사항)* 도메인 NetBIOS 이름입니다. SSPI 인증을 사용 하는 경우 Active Directory 도메인의 NetBIOS 이름을 id 원본의 별칭으로 추가 합니다. |
-    | **그룹의 기본 DN** | 그룹에 대 한 기본 고유 이름입니다. Azure AD의 경우 다음을 사용 합니다. `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` 예:`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
+    | **그룹의 기본 DN** | 그룹에 대 한 기본 고유 이름입니다. Azure AD의 경우 다음을 사용 합니다. `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  예: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
     | **주 서버 URL** | 도메인에 대 한 주 도메인 컨트롤러 LDAP 서버입니다.<br><br> `ldaps://hostname:port` 양식을 사용합니다. 포트는 일반적으로 LDAPS 연결의 636입니다. <br><br> `ldaps://`   주 또는 보조 LDAP URL에서를 사용 하는 경우 ACTIVE DIRECTORY 서버의 LDAPS 끝점에 대 한 신뢰를 설정 하는 인증서가 필요 합니다. |
     | **보조 서버 URL** | 장애 조치 (failover)에 사용 되는 보조 도메인 컨트롤러 LDAP 서버의 주소입니다. |
     | **인증서 선택** | Active Directory LDAP 서버 또는 OpenLDAP 서버 id 원본에서 LDAPS를 사용 하려는 경우  `ldaps://`   URL 텍스트 상자에를 입력 하면 인증서 선택 단추가 표시 됩니다. 보조 URL은 필요 하지 않습니다. |
