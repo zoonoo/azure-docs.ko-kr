@@ -6,20 +6,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/14/2020
 ms.author: tamram
 ms.subservice: common
-ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: d842974b0b53e0b0ce199334a07f11e5c998b18d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b5a39b08f34bec5ee1db42cde1fb171452d0efd3
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018810"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069818"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 Azure AD에서 토큰 획득
 
-Azure Blob 저장소 또는 큐 저장소에서 Azure Active Directory (Azure AD)를 사용 하는 경우의 주요 이점은 자격 증명을 코드에 더 이상 저장할 필요가 없다는 점입니다. 대신 Microsoft id 플랫폼 (이전의 Azure AD)에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure Blob 저장소 또는 큐 저장소에 대 한 요청에 권한을 부여할 수 있습니다.
+Azure Blob 저장소 또는 큐 저장소에서 Azure Active Directory (Azure AD)를 사용 하는 경우의 주요 이점은 자격 증명을 코드에 더 이상 저장할 필요가 없다는 점입니다. 대신 Microsoft id 플랫폼에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure Blob 저장소 또는 큐 저장소에 대 한 요청에 권한을 부여할 수 있습니다.
 
 이 문서에서는 Microsoft id platform 2.0 인증을 위해 네이티브 응용 프로그램 또는 웹 응용 프로그램을 구성 하는 방법을 보여 줍니다. 코드 예제에서는 .NET을 사용하지만 다른 언어는 비슷한 접근 방식을 사용합니다. Microsoft id 플랫폼 2.0에 대 한 자세한 내용은 v2.0 [(microsoft identity platform) 개요](../../active-directory/develop/v2-overview.md)를 참조 하세요.
 
@@ -27,7 +27,7 @@ OAuth 2.0 코드 권한 부여 흐름의 개요는 [OAuth 2.0 코드 권한 부�
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Azure AD 보안 주체에 역할 할당
 
-Azure Storage 애플리케이션에서 보안 주체를 인증하려면 먼저 해당 보안 주체에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage는 컨테이너 및 큐에 대 한 권한을 포함 하는 Azure 기본 제공 역할을 정의 합니다. Azure 역할이 보안 주체에 할당 되 면 해당 보안 주체에 게 해당 리소스에 대 한 액세스 권한이 부여 됩니다. 자세한 내용은 [Azure Blob에 대 한 액세스 권한 관리 및 RBAC를 사용 하 여 큐 데이터](storage-auth-aad-rbac.md)를 참조 하세요.
+Azure Storage 애플리케이션에서 보안 주체를 인증하려면 먼저 해당 보안 주체에 대해 RBAC(역할 기반 액세스 제어) 설정을 구성합니다. Azure Storage는 컨테이너 및 큐에 대 한 사용 권한을 포함 하는 기본 제공 역할을 정의 합니다. RBAC 역할이 보안 주체에게 할당되면 해당 보안 주체는 해당 리소스에 대한 액세스 권한이 부여됩니다. 자세한 내용은 [Azure Blob에 대 한 액세스 권한 관리 및 RBAC를 사용 하 여 큐 데이터](storage-auth-aad-rbac.md)를 참조 하세요.
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Azure AD 테넌트에 애플리케이션 등록
 
@@ -127,39 +127,78 @@ Microsoft 퍼블릭 클라우드의 경우 기본 Azure AD 권한은 다음과 �
 
 Visual Studio에서 Azure Storage 클라이언트 라이브러리를 설치 합니다. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다. 콘솔 창에 다음 명령을 입력 하 여 .NET 용 Azure Storage 클라이언트 라이브러리에서 필요한 패키지를 설치 합니다.
 
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+
+```console
+Install-Package Azure.Storage.Blobs
+Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
+```
+
+그런 다음 HomeController.cs 파일에 다음 using 문을 추가 합니다.
+
+```csharp
+using Microsoft.Identity.Web; //MSAL library for getting the access token
+using Azure.Storage.Blobs;
+```
+
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
+
 ```console
 Install-Package Microsoft.Azure.Storage.Blob
-Install-Package Microsoft.Azure.Storage.Common
+Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
 ```
 
 그런 다음 HomeController.cs 파일에 다음 using 문을 추가 합니다.
 
 ```csharp
 using Microsoft.Identity.Client; //MSAL library for getting the access token
-using Microsoft.WindowsAzure.Storage.Auth;
-using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.Azure.Storage.Auth;
+using Microsoft.Azure.Storage.Blob;
 ```
+
+---
 
 #### <a name="create-a-block-blob"></a>블록 Blob 만들기
 
 다음 코드 조각을 추가 하 여 블록 blob을 만듭니다.
 
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
+
+```csharp
+private static async Task<string> CreateBlob(TokenAcquisitionTokenCredential tokenCredential)
+{
+    Uri blobUri = new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt");
+    BlobClient blobClient = new BlobClient(blobUri, tokenCredential);
+
+    string blobContents = "Blob created by Azure AD authenticated user.";
+    byte[] byteArray = Encoding.ASCII.GetBytes(blobContents);
+
+    using (MemoryStream stream = new MemoryStream(byteArray))
+    {
+        await blobClient.UploadAsync(stream);
+    }
+    return "Blob successfully created";
+}
+```
+
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
+
 ```csharp
 private static async Task<string> CreateBlob(string accessToken)
 {
-    // Create a blob on behalf of the user
+    // Create a blob on behalf of the user.
     TokenCredential tokenCredential = new TokenCredential(accessToken);
     StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
-    // Replace the URL below with your storage account URL
-    CloudBlockBlob blob =
-        new CloudBlockBlob(
-            new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt"),
-            storageCredentials);
+    // Replace the URL below with the URL to your blob.
+    Uri blobUri = new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt");
+    CloudBlockBlob blob = new CloudBlockBlob(blobUri, storageCredentials);
     await blob.UploadTextAsync("Blob created by Azure AD authenticated user.");
     return "Blob successfully created";
 }
 ```
+
+---
 
 > [!NOTE]
 > OAuth 2.0 토큰을 사용 하 여 blob 및 큐 작업에 권한을 부여 하려면 HTTPS를 사용 해야 합니다.
@@ -175,69 +214,25 @@ x-ms-version: 2017-11-09
 Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 ```
 
-#### <a name="get-an-oauth-token-from-azure-ad"></a>Azure AD에서 OAuth 토큰 가져오기
+#### <a name="get-an-access-token-from-azure-ad"></a>Azure AD에서 액세스 토큰 가져오기
 
 다음으로, 사용자를 대신 하 여 Azure AD에서 토큰을 요청 하는 메서드를 추가 합니다. 이 메서드는 권한이 부여 되는 범위를 정의 합니다. 사용 권한 및 범위에 대 한 자세한 내용은 [Microsoft id 플랫폼 끝점의 사용 권한 및 동의](../../active-directory/develop/v2-permissions-and-consent.md)를 참조 하세요.
 
 리소스 ID를 사용 하 여 토큰을 가져올 범위를 구성 합니다. 이 예제에서는 리소스 ID를 기본 제공 범위와 함께 사용 하 여 범위를 생성 `user_impersonation` 합니다 .이 범위는 사용자를 대신 하 여 토큰이 요청 됨을 나타냅니다.
 
-사용자가 토큰을 대신해 서 요청 하는 데 동의할 수 있도록 하는 인터페이스를 사용자에 게 제공 해야 할 수 있습니다. 동의가 필요한 경우이 예제에서는 **MsalUiRequiredException** 을 catch 하 고 다른 메서드를 호출 하 여 동의 요청을 용이 하 게 합니다.
+사용자가 토큰을 대신 요청 하는 데 동의할 수 있도록 하는 인터페이스를 사용자에 게 제공 해야 할 수도 있습니다.
 
 ```csharp
+[AuthorizeForScopes(Scopes = new string[] { "https://storage.azure.com/user_impersonation" })]
 public async Task<IActionResult> Blob()
 {
-    var scopes = new string[] { "https://storage.azure.com/user_impersonation" };
-    try
-    {
-        var accessToken =
-            await _tokenAcquisition.GetAccessTokenOnBehalfOfUser(HttpContext, scopes);
-        ViewData["Message"] = await CreateBlob(accessToken);
-        return View();
-    }
-    catch (MsalUiRequiredException ex)
-    {
-        AuthenticationProperties properties =
-            BuildAuthenticationPropertiesForIncrementalConsent(scopes, ex);
-        return Challenge(properties);
-    }
+    string message = await CreateBlob(new TokenAcquisitionTokenCredential(_tokenAcquisition));
+    ViewData["Message"] = message;
+    return View();
 }
 ```
 
-동의란 사용자가 자신을 대신해 보호되는 리소스에 액세스하기 위해 애플리케이션에 권한을 부여하는 프로세스를 말합니다. Microsoft id 플랫폼 2.0은 증분 동의를 지원 합니다. 즉, 보안 주체가 처음에는 최소 권한 집합을 요청 하 고 필요에 따라 시간에 따라 사용 권한을 추가할 수 있습니다. 코드에서 액세스 토큰을 요청 하는 경우 매개 변수에서 지정 된 시간에 앱에 필요한 사용 권한 범위를 지정 합니다 `scope` . 증분 승인에 대 한 자세한 내용은 [Microsoft identity platform (v2.0)로 업데이트 하는 이유에](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)대 한 **증분 및 동적 동의** 섹션을 참조 하십시오.
-
-다음 메서드는 증분 동의를 요청 하기 위한 인증 속성을 생성 합니다.
-
-```csharp
-private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalConsent(string[] scopes,
-                                                                                    MsalUiRequiredException ex)
-{
-    AuthenticationProperties properties = new AuthenticationProperties();
-
-    // Set the scopes, including the scopes that MSAL.NET needs for the token cache.
-    string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
-    properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope,
-                                                 scopes.Union(additionalBuildInScopes).ToList());
-
-    // Attempt to set the login_hint so that the logged-in user is not presented
-    // with an account selection dialog.
-    string loginHint = HttpContext.User.GetLoginHint();
-    if (!string.IsNullOrWhiteSpace(loginHint))
-    {
-        properties.SetParameter<string>(OpenIdConnectParameterNames.LoginHint, loginHint);
-
-        string domainHint = HttpContext.User.GetDomainHint();
-        properties.SetParameter<string>(OpenIdConnectParameterNames.DomainHint, domainHint);
-    }
-
-    // Specify any additional claims that are required (for instance, MFA).
-    if (!string.IsNullOrEmpty(ex.Claims))
-    {
-        properties.Items.Add("claims", ex.Claims);
-    }
-
-    return properties;
-}
-```
+동의란 사용자가 자신을 대신해 보호되는 리소스에 액세스하기 위해 애플리케이션에 권한을 부여하는 프로세스를 말합니다. Microsoft id 플랫폼 2.0은 증분 동의를 지원 합니다. 즉, 보안 주체가 처음에는 최소 권한 집합을 요청 하 고 필요에 따라 시간에 따라 사용 권한을 추가할 수 있습니다. 코드에서 액세스 토큰을 요청 하는 경우 매개 변수에서 지정 된 시간에 앱에 필요한 사용 권한 범위를 지정 합니다 `scope` . 증분 승인에 대 한 자세한 내용은 [증분 및 동적 동의](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)(영문)를 참조 하세요.
 
 ## <a name="view-and-run-the-completed-sample"></a>완성 된 샘플 보기 및 실행
 
@@ -271,17 +266,15 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 
 ### <a name="update-the-storage-account-and-container-name"></a>저장소 계정 및 컨테이너 이름 업데이트
 
-*HomeController.cs* 파일에서 블록 blob을 참조 하는 URI를 업데이트 하 여 저장소 계정 및 컨테이너의 이름을 사용 합니다.
+*HomeController.cs* 파일에서 블록 blob을 참조 하는 URI를 업데이트 하 여 저장소 계정 및 컨테이너의 이름을 사용 하 고 꺾쇠 괄호의 값을 고유한 값으로 바꿉니다.
 
-```csharp
-CloudBlockBlob blob = new CloudBlockBlob(
-                      new Uri("https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt"),
-                      storageCredentials);
+```html
+https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ```
 
 ### <a name="enable-implicit-grant-flow"></a>암시적 허용 흐름 사용
 
-샘플을 실행 하려면 앱 등록에 대 한 암시적 권한 부여 흐름을 구성 해야 할 수 있습니다. 다음 단계를 수행합니다.
+샘플을 실행 하려면 앱 등록에 대 한 암시적 권한 부여 흐름을 구성 해야 할 수 있습니다. 아래 단계를 수행합니다.
 
 1. Azure Portal에서 앱 등록으로 이동 합니다.
 1. **관리** 섹션에서 **인증** 설정을 선택 합니다.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 05/29/2019
+ms.date: 09/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948919"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085912"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -264,7 +264,7 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
 - 디바이스는 하나의 테넌트에만 연결될 수 있습니다.
 - 사용자는 해당 디바이스에 연결할 권한이 있어야 합니다.
-- Intune 등록 앱이 지원되지 않습니다.
+- Intune 등록 앱이 지원되지 않습니다. 사용 약관을 요구 하는 조건부 액세스 정책에서 제외 되는지 확인 합니다.
 - Azure AD B2B 사용자는 지원 되지 않습니다.
 
 사용자의 디바이스가 연결되지 않으면 해당 디바이스에 연결해야 한다는 메시지가 표시됩니다. 해당 환경은 플랫폼 및 소프트웨어에 따라 다릅니다.

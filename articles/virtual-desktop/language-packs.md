@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: de495d18220500e5aa5653e89776c2634d5b1c85
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: fbc2aba21212a83bd73d5664f4fe288017954c0d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719151"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084212"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Windows 10 다중 세션 이미지에 언어 팩 추가
 
@@ -24,13 +24,13 @@ Windows 가상 데스크톱은 사용자가 언제 어디서 나 배포할 수 �
 
 후자의 방법은 훨씬 효율적이 고 비용 효율적입니다. 그러나 사용자의 요구에 가장 적합 한 방법을 결정 하는 것은 사용자의 결정입니다. 이 문서에서는 이미지에 대 한 언어를 사용자 지정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 여러 언어를 추가 하려면 Windows 10 Enterprise 다중 세션 이미지를 사용자 지정 하려면 다음 항목이 필요 합니다.
 
 - Windows 10 Enterprise 다중 세션 버전 1903 이상을 사용 하는 Azure VM (가상 머신)
 
-- 이미지에서 사용 하는 OS 버전의 언어 ISO 및 기능 (주문형) 디스크 1 에서 다운로드할 수 있습니다.
+- 이미지에서 사용 하는 OS 버전의 언어 ISO, OD (주문형 기능) 디스크 1 및 수신함 앱 ISO 에서 다운로드할 수 있습니다.
      
      - 언어 ISO:
         - [Windows 10, 버전 1903 또는 1909 언어 팩 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
@@ -39,6 +39,10 @@ Windows 가상 데스크톱은 사용자가 언제 어디서 나 배포할 수 �
      - D 디스크 1 ISO:
         - [Windows 10, 버전 1903 또는 1909 OD 디스크 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         - [Windows 10, 버전 2004 OD 디스크 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        
+     - 수신함 앱 ISO:
+        - [Windows 10, 버전 1903 또는 1909 수신함 앱 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
+        - [Windows 10, 버전 2004 수신함 앱 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
 
 - Windows 파일 서버 가상 컴퓨터의 Azure Files 공유 또는 파일 공유
 
@@ -47,15 +51,16 @@ Windows 가상 데스크톱은 사용자가 언제 어디서 나 배포할 수 �
 
 ## <a name="create-a-content-repository-for-language-packages-and-features-on-demand"></a>언어 패키지 및 주문형 기능에 대 한 콘텐츠 리포지토리 만들기
 
-언어 패키지 및 Ds에 대 한 콘텐츠 리포지토리를 만들려면 다음을 수행 합니다.
+언어 패키지에 대 한 콘텐츠 리포지토리와 수신함 앱 패키지에 대 한 리포지토리를 만들려면 다음을 수행 합니다.
 
-1. Azure VM에서 [필수 구성 요소](#prerequisites)링크의 Windows 10 다국어 ISO 및 Windows 10 Enterprise 다중 세션 버전 1903, 1909 및 2004 이미지를 다운로드 합니다.
+1. Azure VM에서 [필수 구성 요소](#prerequisites)링크의 Windows 10 Enterprise 다중 세션, 버전 1903/1909 및 2004 이미지에 대 한 Windows 10 다국어 ISO, Ods 및 수신함 앱을 다운로드 합니다.
 
 2. VM에서 ISO 파일을 열고 탑재 합니다.
 
 3. 언어 팩 ISO로 이동 하 여 **LocalExperiencePacks** 및 **x64 \\ langpacks** 폴더에서 콘텐츠를 복사한 다음 파일 공유에 내용을 붙여넣습니다.
 
 4. 해당 콘텐츠를 모두 복사 하 여 파일 공유에 붙여 넣는 방법으로는 **d ISO 파일로**이동 합니다.
+5. 받은 편지함 앱 ISO의 **amd64fre** 폴더로 이동 하 고 준비한 수신함 앱에 대 한 저장소의 콘텐츠를 복사 합니다.
 
      >[!NOTE]
      > 제한 된 저장소로 작업 하는 경우 사용자에 게 필요한 언어용 파일만 복사 합니다. 파일 이름에서 언어 코드를 살펴보면 파일을 구분할 수 있습니다. 예를 들어 프랑스어 파일의 이름에는 "fr-fr" 코드가 있습니다. 사용 가능한 모든 언어에 대 한 언어 코드의 전체 목록은 [Windows 용 사용 가능한 언어 팩](/windows-hardware/manufacture/desktop/available-language-packs-for-windows)을 참조 하세요.
@@ -66,7 +71,7 @@ Windows 가상 데스크톱은 사용자가 언제 어디서 나 배포할 수 �
      > [!div class="mx-imgBorder"]
      > ![파일 이름에 "Jpan" 언어 태그가 있는 일본어 언어 팩의 예입니다.](media/language-pack-example.png)
 
-5. 사용자 지정 이미지를 작성 하는 데 사용할 VM에서 읽기 권한이 있도록 언어 콘텐츠 리포지토리 공유에 대 한 사용 권한을 설정 합니다.
+6. 사용자 지정 이미지를 작성 하는 데 사용할 VM에서 읽기 권한이 있도록 언어 콘텐츠 리포지토리 공유에 대 한 사용 권한을 설정 합니다.
 
 ## <a name="create-a-custom-windows-10-enterprise-multi-session-image-manually"></a>수동으로 사용자 지정 Windows 10 Enterprise 다중 세션 이미지 만들기
 
@@ -75,7 +80,7 @@ Windows 가상 데스크톱은 사용자가 언제 어디서 나 배포할 수 �
 1. Azure VM을 배포 하 고 Azure 갤러리로 이동 하 여 사용 중인 Windows 10 Enterprise 다중 세션의 현재 버전을 선택 합니다.
 2. VM을 배포한 후 로컬 관리자로 RDP를 사용 하 여 연결 합니다.
 3. VM에 최신 Windows 업데이트가 모두 있는지 확인 합니다. 업데이트를 다운로드 하 고 필요한 경우 VM을 다시 시작 합니다.
-4. 언어 패키지 및 패키지 파일 공유 리포지토리에 연결 하 여 문자 드라이브 (예: E 드라이브)에 탑재 합니다.
+4. 언어 패키지, 패키지 및 수신함 앱 파일 공유 리포지토리에 연결 하 여 문자 드라이브 (예: E 드라이브)에 탑재 합니다.
 
 ## <a name="create-a-custom-windows-10-enterprise-multi-session-image-automatically"></a>사용자 지정 Windows 10 Enterprise 다중 세션 이미지 자동 생성
 
@@ -161,6 +166,56 @@ Set-WinUserLanguageList $LanguageList -force
 
 스크립트 실행이 완료 되 면 **시작**  >  **설정**  >  **시간 & 언어**  >  **언어**로 이동 하 여 언어 팩이 올바르게 설치 되었는지 확인 합니다. 언어 파일이 있으면 모든 설정이 완료 됩니다.
 
+Windows 이미지에 언어를 추가 하 고 나면 추가 된 언어를 지원 하도록 수신함 앱도 업데이트 해야 합니다. 이 작업은 수신함 앱 ISO의 콘텐츠로 사전 설치 된 앱을 새로 고쳐 수행할 수 있습니다. 연결 되지 않은 환경에서 새로 고침을 수행 하려면 (VM에서 인터넷에 액세스할 수 없음) 다음 PowerShell 스크립트 샘플을 사용 하 여 프로세스를 자동화할 수 있습니다.
+
+```powershell
+#########################################
+## Update Inbox Apps for Multi Language##
+#########################################
+##Set Inbox App Package Content Stores##
+[string]$InboxApps = "F:\"
+##Update Inbox Store Apps##
+$AllAppx = Get-Item $inboxapps\*.appx | Select-Object name
+$AllAppxBundles = Get-Item $inboxapps\*.appxbundle | Select-Object name
+$allAppxXML = Get-Item $inboxapps\*.xml | Select-Object name
+foreach ($Appx in $AllAppx) {
+    $appname = $appx.name.substring(0,$Appx.name.length-5)
+    $appnamexml = $appname + ".xml"
+    $pathappx = $InboxApps + "\" + $appx.Name
+    $pathxml = $InboxApps + "\" + $appnamexml
+    
+    if($allAppxXML.name.Contains($appnamexml)){
+    
+    Write-Host "Handeling with xml $appname"  
+  
+    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
+    } else {
+      
+      Write-Host "Handeling without xml $appname"
+      
+      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
+    }
+}
+foreach ($Appx in $AllAppxBundles) {
+    $appname = $appx.name.substring(0,$Appx.name.length-11)
+    $appnamexml = $appname + ".xml"
+    $pathappx = $InboxApps + "\" + $appx.Name
+    $pathxml = $InboxApps + "\" + $appnamexml
+    
+    if($allAppxXML.name.Contains($appnamexml)){
+    Write-Host "Handeling with xml $appname"
+    
+    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
+    } else {
+       Write-Host "Handeling without xml $appname"
+      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
+    }
+}
+```
+
+>[!IMPORTANT]
+>ISO에 포함 된 수신함 앱은 미리 설치 된 Windows 앱의 최신 버전이 아닙니다. 모든 앱의 최신 버전을 가져오려면 Windows 스토어 앱을 사용 하 여 앱을 업데이트 하 고 추가 언어를 설치한 후 업데이트를 수동으로 검색 해야 합니다.
+
 완료 되 면 공유의 연결을 끊어야 합니다.
 
 ## <a name="finish-customizing-your-image"></a>이미지 사용자 지정 완료
@@ -177,15 +232,15 @@ Sysprep를 실행 하려면:
      C:\Windows\System32\Sysprep\sysprep.exe /oobe /generalize /shutdown
      ```
 
-2. [Azure에서 일반화 된 vm의 관리 되는 이미지 만들기](../virtual-machines/windows/capture-image-resource.md)의 지침에 따라 VM을 종료 하 고 관리 되는 이미지에서 캡처합니다.
+2. [Azure에서 일반화 된 vm의 관리 되는 이미지 만들기](../virtual-machines/windows/capture-image-resource.md)의 지침에 따라 VM을 중지 하 고 관리 되는 이미지에서 캡처합니다.
 
 3. 이제 사용자 지정 이미지를 사용 하 여 Windows 가상 데스크톱 호스트 풀을 배포할 수 있습니다. 호스트 풀을 배포 하는 방법에 대 한 자세한 내용은 [자습서: Azure Portal 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)를 참조 하세요.
 
 ## <a name="enable-languages-in-windows-settings-app"></a>Windows 설정 앱에서 언어 사용
 
-마지막으로 설정 메뉴에서 원하는 언어를 선택할 수 있도록 각 사용자의 언어 목록에 언어를 추가 해야 합니다.
+마지막으로, 호스트 풀을 배포한 후 설정 메뉴에서 원하는 언어를 선택할 수 있도록 각 사용자의 언어 목록에 언어를 추가 해야 합니다.
 
-사용자가 설치한 언어를 선택할 수 있도록 하려면 사용자로 로그인 한 후 다음 PowerShell cmdlet을 실행 하 여 설치 된 언어 팩을 언어 메뉴에 추가 합니다. 사용자가 세션에 로그인 할 때 활성화 되는 자동화 된 작업으로이 스크립트를 설정할 수도 있습니다.
+사용자가 설치한 언어를 선택할 수 있도록 하려면 사용자로 로그인 한 후 다음 PowerShell cmdlet을 실행 하 여 설치 된 언어 팩을 언어 메뉴에 추가 합니다. 사용자가 세션에 로그인 할 때 활성화 되는 자동화 된 태스크 또는 로그온 스크립트로이 스크립트를 설정할 수도 있습니다.
 
 ```powershell
 $LanguageList = Get-WinUserLanguageList

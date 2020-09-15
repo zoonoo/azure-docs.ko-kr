@@ -1,14 +1,14 @@
 ---
 title: Azure Migrate 어플라이언스
-description: 서버 평가 및 마이그레이션에 사용되는 Azure Migrate 어플라이언스에 대해 간략히 설명합니다.
+description: Azure Migrate 어플라이언스에 대 한 지원 요약을 제공 합니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 2092b03ee95349286b9e845689b5d9d55b61c772
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: e2bd3f2fa40bbf31713393f18a04624d70cbd244
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060733"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084773"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -71,7 +71,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 **PowerShell 스크립트** | 이 [문서](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)를 참조 하세요.<br/><br/> 
 **소프트웨어/하드웨어***   |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 개의 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 컴퓨터에서 실행 해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 어플라이언스를 Hyper-V VM으로 실행하는 경우 16GB RAM, 8개의 vCPU, 약 80GB의 스토리지 공간 및 어플라이언스 VM에 대한 외부 스위치를 할당하는 데 충분한 리소스가 Hyper-V 호스트에 있어야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다. 
 **Hyper-V 요구 사항** | VHD 템플릿을 사용하여 어플라이언스를 배포하는 경우 Azure Migrate에서 제공하는 어플라이언스 VM은 Hyper-V VM 버전 5.0입니다.<br/><br/> Hyper-V 호스트에서 Windows Server 2012 R2 이상을 실행해야 합니다. 
-**해시 값 - VHD** | VHD 템플릿 해시 값을 [확인](tutorial-assess-hyper-v.md#verify-security)합니다.
+**해시 값 - VHD** | VHD 템플릿 해시 값입니다.
 **해시 값 - PowerShell 스크립트** | PowerShell 스크립트 해시 값을 [확인](deploy-appliance-script.md#verify-file-security)합니다.
 
 
@@ -84,7 +84,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 **지원되는 배포** | PowerShell 설치 스크립트를 사용하여 전용 물리적 컴퓨터 또는 VM으로 배포합니다. 스크립트는 포털에서 다운로드할 수 있습니다.
 **프로젝트 지원** |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
 **검색 제한** | 어플라이언스는 최대 1000 대의 물리적 서버를 검색할 수 있습니다.
-**PowerShell 스크립트** | 포털에서 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140334)에서 zip 폴더의 스크립트 (AzureMigrateInstaller.ps1)를 다운로드 합니다. [자세히 알아보기](tutorial-assess-physical.md#set-up-the-azure-migrate-appliance).<br/><br/> 다운로드 크기는 85 MB입니다.
+**PowerShell 스크립트** | 포털에서 또는 [여기](https://go.microsoft.com/fwlink/?linkid=2140334)에서 zip 폴더의 스크립트 (AzureMigrateInstaller.ps1)를 다운로드 합니다. [자세히 알아보기](tutorial-discover-physical.md).<br/><br/> 다운로드 크기는 85 MB입니다.
 **소프트웨어/하드웨어** |  어플라이언스는 Windows Server 2016, 16gb RAM, 8 개의 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 컴퓨터에서 실행 해야 합니다.<br/> 어플라이언스는 고정 또는 동적 IP 주소가 필요하며, 직접 또는 프록시를 통해 인터넷에 액세스해야 합니다.<br/><br/> 물리적 컴퓨터에서 어플라이언스를 실행하는 경우 어플라이언스에서 Windows Server 2016을 실행하고 하드웨어 요구 사항을 충족하는지 확인합니다.<br/> Windows Server 2019를 사용하는 컴퓨터에서 어플라이언스를 실행하는 것은 지원되지 않습니다.
 **해시 값** | PowerShell 스크립트 해시 값을 [확인](deploy-appliance-script.md#verify-file-security)합니다.
 

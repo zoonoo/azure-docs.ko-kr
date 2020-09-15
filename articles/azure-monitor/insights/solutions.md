@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/07/2020
-ms.openlocfilehash: 013d8b77a16a4c7cd0efdadce25fd141793070be
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: d509862fe4dafff174ee03c3b5cc887fa9d9ff22
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459524"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085997"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 모니터링 솔루션
 
@@ -26,7 +26,7 @@ Azure Monitor의 솔루션 **개요** 페이지에는 Log Analytics 작업 영�
 
 타일에 사용되는 작업 영역 또는 시간 범위를 변경하려면 화면 맨 위에 있는 드롭다운 상자를 사용합니다. 솔루션의 타일을 클릭하면 수집된 데이터를 자세히 분석하는 보기가 열립니다.
 
-[![개요](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
+[![솔루션 선택한 솔루션과 솔루션 창에 표시 되는 솔루션을 포함 하는 Azure Portal 메뉴가 표시 됩니다.](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 모니터링 솔루션은 여러 유형의 Azure 리소스를 포함할 수 있으며, 다른 리소스와 마찬가지로 솔루션에 포함된 모든 리소스를 볼 수 있습니다. 예를 들어 솔루션에 포함된 모든 로그 쿼리는 [쿼리 탐색기](../log-query/get-started-portal.md#load-queries)의 **솔루션 쿼리** 아래에 표시됩니다. [로그 쿼리](../log-query/log-query-overview.md)를 사용하여 임시 분석을 수행할 때 해당 쿼리를 사용할 수 있습니다.
 
@@ -160,7 +160,7 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
 * 각 솔루션 설치 시 하나의 Log Analytics 작업 영역과 하나의 Automation 계정만 사용할 수 있습니다. 솔루션을 여러 작업 영역에 개별적으로 설치할 수 있습니다.
 * 솔루션에서 Automation 계정을 요구하는 경우 Log Analytics 작업 영역과 Automation 계정이 서로 연결되어야 합니다. Log Analytics 작업 영역은 하나의 Automation 계정에만 연결되고, Automation 계정은 하나의 Log Analytics 작업 영역에만 연결될 수 있습니다.
 
-Azure Marketplace를 통해 솔루션을 설치하는 경우 작업 영역 및 Automation 계정을 요구하는 메시지가 표시됩니다. 작업 영역과 계정이 아직 서로 연결되지 않았으면 둘 사이에 연결이 만들어집니다.
+Azure Marketplace를 통해 솔루션을 설치 하는 경우 작업 영역 및 Automation 계정을 묻는 메시지가 표시 됩니다. 작업 영역과 계정이 아직 서로 연결되지 않았으면 둘 사이에 연결이 만들어집니다.
 
 ### <a name="verify-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Log Analytics 작업 영역 및 Automation 계정 간의 링크 확인
 

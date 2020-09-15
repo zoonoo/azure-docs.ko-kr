@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68e40696c935adf6bef78636770b1add81255fa8
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 96b4cb6f751a5d2bc4259117007b3abec2e0598d
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060920"
+ms.locfileid: "90069580"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>애플리케이션에 대한 테넌트 전체 관리자 동의 부여
 
@@ -25,7 +25,7 @@ ms.locfileid: "90060920"
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 테 넌 트 전체 관리자 동의를 부여 하려면 [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [응용 프로그램 관리자](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator)으로 로그인 해야 합니다.
 
@@ -69,6 +69,9 @@ ms.locfileid: "90060920"
 4. **API 권한** 을 선택한 다음 **관리자 동의 부여**를 클릭 합니다.
 5. 응용 프로그램에 필요한 권한을 신중 하 게 검토 합니다.
 6. 응용 프로그램에 필요한 사용 권한에 동의 하는 경우 동의를 부여 합니다. 그렇지 않은 경우 **취소** 를 클릭 하거나 창을 닫습니다.
+
+> [!WARNING]
+> **앱 등록** 를 통해 테 넌 트 전체 관리자 동의를 부여 하면 이전에 테 넌 트 전체에 부여 된 모든 사용 권한을 취소 합니다. 사용자가 대신 하 여 이전에 부여한 권한은 영향을 받지 않습니다. 
 
 ## <a name="construct-the-url-for-granting-tenant-wide-admin-consent"></a>테 넌 트 전체 관리자 동의를 부여 하기 위한 URL 생성
 

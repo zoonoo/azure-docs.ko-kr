@@ -3,16 +3,16 @@ title: Azure Backup Server를 사용하여 VMware VM 백업
 description: 이 문서에서는 Azure Backup Server를 사용 하 여 VMware vCenter/ESXi 서버에서 실행 되는 VMware Vm을 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: e18b5c51446446103a91ef7d6a00277c2b41db77
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017569"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069835"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
-이 문서에서는 Azure Backup Server를 사용하여 VMware ESXi 호스트/vCenter Server에서 실행 중인 VMware VM을 Azure로 백업하는 방법을 설명합니다.
+이 문서에서는 MABS (Azure Backup Server)를 사용 하 여 VMware ESXi 호스트/vCenter Server에서 실행 되는 VMware Vm을 Azure에 백업 하는 방법을 설명 합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -21,6 +21,31 @@ ms.locfileid: "89017569"
 - Azure Backup에 계정 자격 증명을 추가합니다.
 - Azure Backup Server에 vCenter 또는 ESXi 서버를 추가합니다.
 - 백업할 VMware VM을 포함하는 보호 그룹을 설정하고 백업 설정을 지정한 다음, 백업을 예약합니다.
+
+## <a name="supported-vmware-features"></a>지원되는 VMware 기능
+
+MABS는 VMware 가상 컴퓨터를 백업할 때 다음과 같은 기능을 제공 합니다.
+
+- 에이전트 없는 백업: MABS는 가상 머신을 백업 하기 위해 vCenter 또는 ESXi 서버에 에이전트를 설치 하지 않아도 됩니다. 대신, MABS를 사용 하 여 VMware 서버를 인증 하는 데 사용 되는 IP 주소 또는 FQDN (정규화 된 도메인 이름) 및 로그인 자격 증명을 제공 하면 됩니다.
+- 클라우드 통합 백업: MABS는 디스크 및 클라우드로 워크 로드를 보호 합니다. MABS의 백업 및 복구 워크플로를 사용 하 여 장기 보존 및 오프 사이트 백업을 관리할 수 있습니다.
+- VCenter에서 관리 하는 Vm 검색 및 보호: MABS는 VMware 서버 (vCenter 또는 ESXi 서버)에 배포 된 Vm을 검색 하 고 보호 합니다. 배포 규모가 증가함에 따라 vCenter를 사용하여 VMware 환경을 관리합니다. 또한 MABS는 vCenter에서 관리 하는 Vm을 검색 하 여 대량 배포를 보호할 수 있도록 합니다.
+- 폴더 수준 자동 보호: vCenter를 통해 VM을 VM 폴더로 구성할 수 있습니다. MABS는 이러한 폴더를 검색 하 고 폴더 수준에서 Vm을 보호할 수 있으며 모든 하위 폴더를 포함 합니다. 폴더를 보호 하는 경우 MABS는 해당 폴더의 Vm을 보호할 뿐만 아니라 나중에 추가 된 Vm도 보호 합니다. MABS는 매일 새 Vm을 검색 하 고 자동으로 보호 합니다. 재귀 폴더에서 Vm을 구성 하는 경우 MABS는 재귀 폴더에 배포 된 새 Vm을 자동으로 검색 하 고 보호 합니다.
+- MABS는 로컬 디스크, NFS (네트워크 파일 시스템) 또는 클러스터 저장소에 저장 된 Vm을 보호 합니다.
+- MABS는 부하 분산을 위해 마이그레이션된 Vm을 보호 합니다. Vm이 부하 분산을 위해 마이그레이션될 때 MABS는 자동으로 VM 보호를 검색 하 고 계속 합니다.
+- MABS는 전체 VM을 복구 하지 않고도 Windows VM에서 파일/폴더를 복구할 수 있습니다. 그러면 필요한 파일을 더 빠르게 복구할 수 있습니다.
+
+## <a name="prerequisites-and-limitations"></a>필수 구성 요소 및 제한 사항
+
+VMware 가상 머신 백업을 시작하기 전에 제한 사항 및 필수 구성 요소에 대한 다음 목록을 검토하세요.
+
+- MABS를 사용 하 여 서버 FQDN을 사용 하 여 vCenter 서버 (Windows에서 실행)를 Windows 서버로 보호 하는 경우 서버의 FQDN을 사용 하 여 vCenter server를 VMware 서버로 보호할 수 없습니다.
+  - VCenter Server의 고정 IP 주소를 해결 방법으로 사용할 수 있습니다.
+  - FQDN을 사용 하려면 Windows 서버로 보호를 중지 하 고 보호 에이전트를 제거한 다음 FQDN을 사용 하 여 VMware 서버로 추가 해야 합니다.
+- VCenter를 사용 하 여 사용자 환경에서 ESXi 서버를 관리 하는 경우 MABS 보호 그룹에 vCenter (및 not ESXi)를 추가 합니다.
+- 첫 번째 MABS 백업 전에 사용자 스냅숏을 백업할 수 없습니다. MABS가 첫 번째 백업을 완료 하면 사용자 스냅숏을 백업할 수 있습니다.
+- MABS는 통과 디스크 및 물리적 원시 장치 매핑 (pRDM)을 사용 하 여 VMware Vm을 보호할 수 없습니다.
+- MABS는 VMware vApps를 검색 하거나 보호할 수 없습니다.
+- MABS는 기존 스냅숏으로 VMware Vm을 보호할 수 없습니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -392,7 +417,7 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
 VSphere 6.7를 백업 하려면 다음을 수행 합니다.
 
-- DPM 서버에서 TLS 1.2 사용
+- MABS 서버에서 TLS 1.2 사용
 
 >[!NOTE]
 >VMWare 6.7는 TLS를 통신 프로토콜로 사용할 수 있었습니다.

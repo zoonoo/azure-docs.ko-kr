@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 84262427c6d5183fb803f3fc16d2e7b8021e9d5e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 52e419e970173ddaf3d4d6176f2dd26a1e8194e2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651800"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084672"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델에 대한 하이퍼 매개 변수 튜닝
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -151,11 +151,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Bayesian 샘플링은 초기 종료 정책을 지원하지 않습니다([초기 종료 정책 지정](#specify-early-termination-policy) 참조). Bayesian 매개 변수 샘플링을 사용할 때 `early_termination_policy = None`을 설정하거나 `early_termination_policy` 매개 변수를 해제해 둡니다.
+> Bayesian 샘플링은 초기 종료 정책을 지원하지 않습니다([초기 종료 정책 지정](#early-termination) 참조). Bayesian 매개 변수 샘플링을 사용할 때 `early_termination_policy = None`을 설정하거나 `early_termination_policy` 매개 변수를 해제해 둡니다.
 
-<a name='specify-primary-metric-to-optimize'/>
-
-## <a name="specify-primary-metric"></a>기본 메트릭 지정
+## <a name="specify-primary-metric"></a><a name="specify-primary-metric-to-optimize"></a> 기본 메트릭 지정
 
 하이퍼 매개 변수 튜닝 실험을 최적화할 [기본 메트릭을](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py&preserve-view=true) 지정 합니다. 각 교육 실행은 기본 메트릭에 대해 평가됩니다. 성능이 불량한 실행(기본 메트릭이 초기 종료 정책에서 설정된 기준을 충족하지 않음)은 종료됩니다. 기본 메트릭 이름 외에도 기본 메트릭을 최대화하거나 최소화할지 최적화의 목표를 지정합니다.
 
@@ -169,9 +167,7 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 "정확도"를 최대화하도록 실행을 최적화합니다.  학습 스크립트에서 이 값을 기록해야 합니다.
 
-<a name='log-metrics-for-hyperparameter-tuning'/>
-
-### <a name="log-metrics-for-hyperparameter-tuning"></a>하이퍼 매개 변수 튜닝에 대한 메트릭 기록
+### <a name="specify-primary-metric"></a><a name="log-metrics-for-hyperparameter-tuning"></a> 기본 메트릭 지정
 
 모델의 학습 스크립트는 모델을 학습하는 동안 관련 메트릭을 기록해야 합니다. 하이퍼 매개 변수 조정을 구성하면 실행 성능을 평가하는 데 사용할 기본 메트릭을 지정합니다. [최적화할 기본 메트릭 지정](#specify-primary-metric-to-optimize)을 참조 하세요.  학습 스크립트에서는이 메트릭을 기록 하 여 하이퍼 매개 변수 튜닝 프로세스에 사용할 수 있도록 해야 합니다.
 
@@ -184,8 +180,6 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 학습 스크립트는 `val_accuracy`을 계산하고 "정확도"를 기록합니다. 이것이 기본 메트릭으로 사용됩니다. 메트릭이 기록될 때마다 하이퍼 매개 변수 조정 서비스에서 수신됩니다. 이 메트릭을 보고하는 빈도를 결정하는 모델 개발자의 몫입니다.
-
-<a name='specify-early-termination-policy'/>
 
 ## <a name="specify-early-termination-policy"></a><a name="early-termination"></a> 조기 종료 정책 지정
 

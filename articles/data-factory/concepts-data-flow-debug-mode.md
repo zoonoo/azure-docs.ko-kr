@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 1d996e62fe60606c3eb93a638d229028ee0471e6
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030602"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085096"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>매핑 데이터 흐름 디버그 모드
 
@@ -32,6 +32,11 @@ ms.locfileid: "90030602"
 디버그 모드를 설정 하면 활성 Spark 클러스터로 데이터 흐름을 대화형으로 작성할 수 있습니다. Azure Data Factory에서 디버그를 끄면 세션이 닫힙니다. 디버그 세션이 켜진 시간 동안 Azure Databricks에서 부과되는 시간당 요금에 유의해야 합니다.
 
 대부분의 경우에는 Azure Data Factory 작업을 게시 하기 전에 비즈니스 논리의 유효성을 검사 하 고 데이터 변환을 볼 수 있도록 디버그 모드에서 데이터 흐름을 작성 하는 것이 좋습니다. 파이프라인 패널의 "디버그" 단추를 사용 하 여 파이프라인의 데이터 흐름을 테스트 합니다.
+
+![데이터 흐름 디버그 세션 보기](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+> [!NOTE]
+> 사용자가 ADF 브라우저 UI에서 시작 하는 모든 디버그 세션은 자체 Spark 클러스터가 포함 된 새 세션입니다. 위의 디버그 세션에 대 한 모니터링 보기를 사용 하 여 팩터리 당 디버그 세션을 보고 관리할 수 있습니다.
 
 ## <a name="cluster-status"></a>클러스터 상태
 

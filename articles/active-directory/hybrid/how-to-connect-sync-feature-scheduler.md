@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b65f8cd22e72e0ba90918121a02d66fe6bf3e7
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ad7b0039602add7f4cd3cdd300bd829c4f148a79
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053051"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084739"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 동기화: Scheduler
 이 항목에서는 Azure AD Connect sync (동기화 엔진)의 기본 제공 스케줄러에 대해 설명 합니다.
@@ -160,12 +160,15 @@ Azure AD Connect의 이전 빌드에서 **isStagingModeEnabled**는 Set-ADSyncSc
 ## <a name="stop-the-scheduler"></a>스케줄러 중지
 스케줄러가 현재 동기화 주기를 실행 중인 경우 중지해야 합니다. 예를 들어 설치 마법사를 시작하는 경우 이 오류가 발생합니다.
 
-![SyncCycleRunningError](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
+![구성 오류 메시지를 변경할 수 없습니다를 보여 주는 스크린샷](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
 
 동기화 주기를 실행 중일 때 구성을 변경할 수 없습니다. 스케줄러에서 프로세스를 완료할 때까지 기다릴 수 있지만 이를 중지하여 즉시 변경할 수도 있습니다. 현재 주기를 중지해도 나쁜 영향을 주지 않으며 변경 사항은 다음 실행 시 처리됩니다.
 
 1. 먼저 PowerShell cmdlet `Stop-ADSyncSyncCycle`을 사용하여 스케줄러가 현재 주기를 중지하도록 합니다.
-2. 1.1.281 이전 빌드를 사용 중인 경우 스케줄러를 중지해도 현재 작업에서 현재 커넥터는 중지되지 않습니다. 커넥터를 강제로 중지하려면 ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png) 작업을 수행합니다.
+2. 1.1.281 이전 빌드를 사용 중인 경우 스케줄러를 중지해도 현재 작업에서 현재 커넥터는 중지되지 않습니다. 커넥터를 강제로 중지하려면 다음 작업을 수행합니다.
+
+   ![커넥터를 선택 하 고 실행 중인 커넥터가 선택한 중지 작업으로 강조 표시 된 Synchronization Service Manager를 보여 주는 스크린샷](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+
    * 시작 메뉴에서 **동기화 서비스**를 시작합니다. **커넥터**로 이동하여 **실행** 상태인 커넥터를 강조 표시하고 작업에서 **중지**를 선택합니다.
 
 스케줄러가 아직 활성화되어 있으며 다음에 다시 시작합니다.

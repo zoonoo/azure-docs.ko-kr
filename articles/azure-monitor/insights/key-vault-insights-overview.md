@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b799c462cc683d8d05edc3f10885c458185a843
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531262"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069801"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Azure Monitor for Key Vault(미리 보기)를 사용하여 키 자격 증명 모음 서비스 모니터링
 Azure Monitor for Key Vault(미리 보기)는 Key Vault 요청, 성능, 실패 및 대기 시간에 대한 통합 보기를 제공하여 키 자격 증명 모음을 종합적으로 모니터링합니다.
@@ -76,16 +76,6 @@ Azure Monitor에서 구독에 속한 여러 키 자격 증명 모음의 요청, 
 이 통합 문서에는 성공(2xx 상태 코드), 인증 오류(401/403 상태 코드), 제한(429 상태 코드) 및 기타 실패(4xx 상태 코드)가 표시됩니다.
 
 각 상태 코드가 무엇을 의미하는지 보다 정확하게 이해하려면 [Azure Key Vault 상태 및 응답 코드](../../key-vault/general/authentication-requests-and-responses.md)에 대한 설명서를 정독하는 것이 좋습니다.
-
-## <a name="operations--latency-workbook"></a>작업 및 대기 시간 통합 문서
-
-페이지 맨 위에서 **작업 및 대기 시간**을 선택하면 **작업 및 대기 시간** 탭이 열립니다. 이 탭에서는 모니터링할 키 자격 증명 모음을 온보딩할 수 있습니다. 자세한 단계는 [모니터링할 키 자격 증명 모음 구성](#configuring-your-key-vaults-for-monitoring) 섹션을 참조하세요.
-
-로깅에 사용하도록 설정된 키 자격 증명 모음의 수를 확인할 수 있습니다. 올바르게 구성된 자격 증명 모음이 하나 이상 있으면 각 키 자격 증명 모음의 작업 및 상태 코드를 표시하는 표를 볼 수 있습니다. 행의 세부 정보 섹션을 클릭하면 개별 작업에 대한 추가 정보를 가져올 수 있습니다.
-
-![작업 및 대기 시간 차트의 스크린샷](./media/key-vaults-insights-overview/logs.png)
-
-이 섹션의 데이터가 하나도 표시되지 않으면 Azure Key Vault에 로그를 사용하도록 설정하는 방법에 대한 최상위 섹션을 참조하거나 아래의 문제 해결 섹션을 참조하세요.
 
 ## <a name="view-from-a-key-vault-resource"></a>Key Vault 리소스의 보기
 
@@ -191,16 +181,6 @@ Azure Monitor for Key Vault(미리 보기)를 사용하여 발견한 키 자격 
 ### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>통합 문서 일부가 고정 된 시간 범위
 
 시간 범위는 대시보드 설정에 따라 달라집니다.
-
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>작업 & 대기 시간 섹션에서 내 Key Vault에 대 한 데이터가 표시 되지 않는 이유는 무엇 인가요?
-
-로그 기반 데이터를 보려면 모니터링하려는 키 자격 증명 모음마다 로그를 사용하도록 설정해야 합니다. 이 작업은 각 키 자격 증명 모음의 진단 설정에서 수행할 수 있습니다. 지정된 Log Analytics 작업 영역으로 데이터를 보내야 합니다.
-
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>내 Key Vault에 대 한 로그를 이미 사용 하도록 설정 했습니다 .이는 여전히 작업 & 대기 시간에 내 데이터를 볼 수 없는 이유입니다.
-
-현재 진단 로그는 소급하여 작동하지 않으므로 키 자격 증명 모음에 대한 작업이 수행된 후에만 데이터가 표시되기 시작합니다. 따라서 키 자격 증명 모음을 활성화하는 방법에 따라 몇 시간에서 하루까지 걸릴 수 있습니다.
-
-또한 선택한 키 자격 증명 모음과 구독의 수가 많은 경우 쿼리 제한 때문에 데이터가 표시되지 않을 수 있습니다. 데이터를 보려면 선택한 구독 또는 자격 증명 모음의 수를 줄여야 할 수도 있습니다. 
 
 ### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>다른 데이터를 보거나 나만의 시각화를 만들려면 어떻게 해야 하나요? Key Vault Insights를 변경 하려면 어떻게 해야 하나요?
 

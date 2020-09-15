@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 0edb50fd72622d3d7d628e0e02ef2c3737f8713a
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 0c4178513c5a6027b3261d6d7975d4ec7cc55c6a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500422"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085793"
 ---
 # <a name="monitoring-azure-storage"></a>Azure Storage 모니터링
 
@@ -76,7 +76,11 @@ Azure Monitor의 메트릭과 로그는 Azure Resource Manager 스토리지 계�
 
 ## <a name="configuration"></a>구성
 
-플랫폼 메트릭과 활동 로그는 자동으로 수집되지만, 리소스 로그를 수집하거나 Azure Monitor 외부로 전달하려면 진단 설정을 만들어야 합니다. Azure Portal, Azure CLI 또는 PowerShell을 사용하여 진단 설정을 만드는 프로세스는 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조하세요.
+플랫폼 메트릭과 활동 로그는 자동으로 수집되지만, 리소스 로그를 수집하거나 Azure Monitor 외부로 전달하려면 진단 설정을 만들어야 합니다. 
+
+Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여 진단 설정을 만들려면 [Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기](../../azure-monitor/platform/diagnostic-settings.md)를 참조 하세요. 
+
+진단 설정을 만드는 Azure Resource Manager 템플릿을 보려면 [Azure Storage에 대 한 진단 설정](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage)을 참조 하세요.
 
 진단 설정을 만들 때 로그를 사용할 스토리지 유형(예: BLOB, 큐, 테이블, 파일)을 선택하세요. Data Lake Storage Gen2은 저장소 유형으로 표시 되지 않습니다. Data Lake Storage Gen2는 Blob Storage에서 사용할 수 있는 기능 집합 이기 때문입니다. 
 
@@ -84,7 +88,7 @@ Azure Portal에서 진단 설정을 만드는 경우 목록에서 리소스를 �
 
 로그를 수집하려는 작업의 범주도 지정해야 합니다. 다음 표에는 Azure Storage의 범주가 나와 있습니다.
 
-| 범주 | Description |
+| Category | Description |
 |:---|:---|
 | StorageRead | 개체에 대 한 읽기 작업입니다. |
 | StorageWrite | 개체에 대 한 쓰기 작업입니다. |
@@ -124,7 +128,7 @@ Azure Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록은 [A
 
 #### <a name="list-the-metric-definition"></a>메트릭 정의 나열
 
-스토리지 계정 또는 BLOB, 파일, 테이블, 큐 서비스 등과 같은 개별 스토리지 서비스의 메트릭 정의를 나열할 수 있습니다. [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition?view=azps-3.3.0)을 사용합니다.
+스토리지 계정 또는 BLOB, 파일, 테이블, 큐 서비스 등과 같은 개별 스토리지 서비스의 메트릭 정의를 나열할 수 있습니다. [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition)을 사용합니다.
 
 이 예제에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정의 리소스 ID 또는 BLOB, 파일, 테이블, 큐 서비스와 같은 개별 스토리지 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지에서 확인할 수 있습니다.
 
@@ -135,7 +139,7 @@ Azure Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록은 [A
 
 #### <a name="reading-metric-values"></a>메트릭 값 읽기
 
-스토리지 계정 또는 BLOB, 파일, 테이블, 큐 서비스 등과 같은 개별 스토리지 서비스의 계정 수준 메트릭 값을 읽을 수 있습니다. [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0) cmdlet을 사용합니다.
+스토리지 계정 또는 BLOB, 파일, 테이블, 큐 서비스 등과 같은 개별 스토리지 서비스의 계정 수준 메트릭 값을 읽을 수 있습니다. [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric) cmdlet을 사용합니다.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -146,7 +150,7 @@ Azure Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록은 [A
 
 #### <a name="list-the-account-level-metric-definition"></a>계정 수준 메트릭 정의 나열
 
-스토리지 계정 또는 BLOB, 파일, 테이블, 큐 서비스 등과 같은 개별 스토리지 서비스의 메트릭 정의를 나열할 수 있습니다. [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list-definitions) 명령을 사용합니다.
+스토리지 계정 또는 BLOB, 파일, 테이블, 큐 서비스 등과 같은 개별 스토리지 서비스의 메트릭 정의를 나열할 수 있습니다. [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) 명령을 사용합니다.
  
 이 예제에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정의 리소스 ID 또는 BLOB, 파일, 테이블, 큐 서비스와 같은 개별 스토리지 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지에서 확인할 수 있습니다.
 
@@ -156,7 +160,7 @@ Azure Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록은 [A
 
 #### <a name="read-account-level-metric-values"></a>계정 수준 메트릭 값 읽기
 
-스토리지 계정 또는 BLOB, 파일, 테이블, 큐 서비스 등과 같은 개별 스토리지 서비스의 메트릭 값을 읽을 수 있습니다. [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) 명령을 사용합니다.
+스토리지 계정 또는 BLOB, 파일, 테이블, 큐 서비스 등과 같은 개별 스토리지 서비스의 메트릭 값을 읽을 수 있습니다. [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list) 명령을 사용합니다.
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H

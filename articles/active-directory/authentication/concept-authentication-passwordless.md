@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 144198a708b8e3cfcb5b3c6936d7fc51cadf4a13
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226678"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084331"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
@@ -45,7 +45,7 @@ MFA (multi-factor authentication)와 같은 기능은 조직을 보호 하는 �
 ![비즈니스용 Windows Hello에서 사용자 로그인에 관련 된 단계를 간략하게 설명 하는 다이어그램입니다.](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
 1. 사용자가 생체 인식 또는 PIN 제스처를 사용 하 여 Windows에 로그인 합니다. 이 제스처는 비즈니스용 Windows Hello 개인 키의 잠금을 해제 하며 클라우드 *AP 공급자*라고 하는 클라우드 인증 보안 지원 공급자에 게 전송 됩니다.
-1. 클라우드 AP 공급자는 Azure AD에서 nonce를 요청 합니다.
+1. 클라우드 AP 공급자는 Azure AD에서 nonce (한 번만 사용할 수 있는 임의의 임의 숫자)를 요청 합니다.
 1. Azure AD는 5 분 동안 유효한 nonce를 반환 합니다.
 1. 클라우드 AP 공급자는 사용자의 개인 키를 사용 하 여 nonce에 서명 하 고 서명 된 nonce를 Azure AD에 반환 합니다.
 1. Azure AD는 nonce 서명에 대해 사용자의 안전 하 게 등록 된 공개 키를 사용 하 여 서명 된 nonce의 유효성을 검사 합니다. 서명 유효성을 검사 한 후 Azure AD는 반환 된 서명 된 nonce의 유효성을 검사 합니다. Nonce의 유효성이 확인 되 면 Azure AD는 장치의 전송 키로 암호화 된 세션 키를 사용 하 여 기본 새로 고침 토큰 (PRT)을 만든 다음 클라우드 AP 공급자에 게 반환 합니다.

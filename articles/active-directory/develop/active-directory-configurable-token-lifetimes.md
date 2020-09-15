@@ -13,12 +13,12 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: e50b4aa300c74ed5fff9a345f83d41fdda5a1054
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bbe4328d797f740e124d4944aee889d471393200
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115869"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085606"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Microsoft id 플랫폼 (미리 보기)의 구성 가능한 토큰 수명
 
@@ -90,8 +90,8 @@ Microsoft id 플랫폼은 영구 및 비영구의 두 가지 SSO 세션 토큰�
 | 새로 고침 토큰 최대 비활성 시간 |MaxInactiveTime |새로 고침 토큰 |90일 |10분 |90일 |
 | 단일 단계 새로 고침 토큰 최대 기간 |MaxAgeSingleFactor |새로 고침 토큰(모든 사용자) |Until-revoked |10분 |Until-revoked<sup>1</sup> |
 | 다단계 새로 고침 토큰 최대 기간 |MaxAgeMultiFactor |새로 고침 토큰(모든 사용자) |Until-revoked |10분 |Until-revoked<sup>1</sup> |
-| 단일 단계 세션 토큰 최대 기간 |MaxAgeSessionSingleFactor |세션 토큰(영구 및 비영구) |Until-revoked |10분 |Until-revoked<sup>1</sup> |
-| 다단계 세션 토큰 최대 기간 |MaxAgeSessionMultiFactor |세션 토큰(영구 및 비영구) |Until-revoked |10분 |Until-revoked<sup>1</sup> |
+| 단일 단계 세션 토큰 최대 기간 |MaxAgeSessionSingleFactor |세션 토큰(영구 및 비영구) |Until-revoked |10분 |180일<sup>1</sup> |
+| 다단계 세션 토큰 최대 기간 |MaxAgeSessionMultiFactor |세션 토큰(영구 및 비영구) |Until-revoked |10분 |180일<sup>1</sup> |
 
 * <sup>1</sup>이러한 특성에 대해 설정할 수 있는 명시적인 최대 기간은 365일입니다.
 * <sup>2</sup> Microsoft 팀 웹 클라이언트의 작동을 보장 하려면 Microsoft 팀에 대해 15 분 이상 AccessTokenLifetime를 유지 하는 것이 좋습니다.
@@ -394,7 +394,7 @@ Microsoft id 플랫폼은 영구 및 비영구의 두 가지 SSO 세션 토큰�
 New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Definition</code> |정책의 모든 규칙을 포함하는 문자열로 변환된 JSON 배열입니다. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;DisplayName</code> |정책 이름의 문자열입니다. |`-DisplayName "MyTokenPolicy"` |
@@ -411,7 +411,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 Get-AzureADPolicy
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code>[선택 사항] |원하는 정책의 **ObjectId (ID)** 입니다. |`-Id <ObjectId of Policy>` |
 
@@ -424,7 +424,7 @@ Get-AzureADPolicy
 Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |원하는 정책의 **ObjectId (ID)** 입니다. |`-Id <ObjectId of Policy>` |
 
@@ -437,7 +437,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |원하는 정책의 **ObjectId (ID)** 입니다. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |정책 이름의 문자열입니다. |`-DisplayName "MyTokenPolicy"` |
@@ -455,7 +455,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
  Remove-AzureADPolicy -Id <ObjectId of Policy>
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |원하는 정책의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Policy>` |
 
@@ -471,7 +471,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |정책의 **ObjectId**입니다. | `-RefObjectId <ObjectId of Policy>` |
@@ -485,7 +485,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 
@@ -498,7 +498,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |정책의 **ObjectId**입니다. | `-PolicyId <ObjectId of Policy>` |
@@ -515,7 +515,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |정책의 **ObjectId**입니다. | `-RefObjectId <ObjectId of Policy>` |
@@ -529,7 +529,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 
@@ -542,7 +542,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
 ```
 
-| 매개 변수 | Description | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | --- | --- | --- |
 | <code>&#8209;Id</code> |응용 프로그램의 **ObjectId (ID)** 입니다. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |정책의 **ObjectId**입니다. | `-PolicyId <ObjectId of Policy>` |

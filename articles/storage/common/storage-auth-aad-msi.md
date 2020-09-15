@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2087e5f8ec397123df504e9d30d351a0ba79b4a5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2927cbe9a586d8e7a35cea1b523122f9c1c3fed7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018759"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085640"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 관리 id를 사용 하 여 blob 및 큐 데이터에 대 한 액세스 권한 부여
 
@@ -165,4 +165,4 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 - [RBAC를 사용 하 여 저장소 데이터에 대 한 액세스 권한을 관리](storage-auth-aad-rbac.md)합니다.
 - [저장소 응용 프로그램과 함께 AZURE AD를 사용](storage-auth-aad-app.md)합니다.
-- [AZURE AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스](authorize-active-directory-powershell.md)합니다.
+- [Azure AD 자격 증명을 사용 하 여 PowerShell 명령을 실행 하 여 blob 데이터 액세스](../blobs/authorize-active-directory-powershell.md)

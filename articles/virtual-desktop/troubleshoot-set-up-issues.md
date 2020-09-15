@@ -3,15 +3,15 @@ title: Windows 가상 데스크톱 환경 호스트 풀 만들기-Azure
 description: Windows 가상 데스크톱 환경을 설치 하는 동안 테 넌 트 및 호스트 풀 문제를 해결 하는 방법입니다.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121377"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084416"
 ---
 # <a name="host-pool-creation"></a>호스트 풀 만들기
 
@@ -46,6 +46,12 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 - 동일한 매개 변수를 사용 하지만 vm 및 VM 코어 수가 작은 새 호스트 풀을 만듭니다.
 
 - 브라우저의 statusMessage 필드에 표시 되는 링크를 열어 지정 된 VM SKU에 대 한 Azure 구독의 할당량을 늘리는 요청을 제출 합니다.
+
+### <a name="error-cant-see-user-assignments-in-app-groups"></a>오류: 앱 그룹의 사용자 할당을 볼 수 없습니다.
+
+원인:이 오류는 일반적으로 구독을 AD (Azure Active Directory) 테 넌 트에서 다른 테 넌 트에서 이동한 후에 발생 합니다. 이전 할당이 여전히 이전 Azure AD 테 넌 트에 연결 된 경우에는 Azure Portal에서 추적을 잃게 됩니다.
+
+Fix: 사용자를 앱 그룹에 다시 할당 해야 합니다.
 
 ## <a name="azure-resource-manager-template-errors"></a>Azure Resource Manager 템플릿 오류
 
@@ -88,7 +94,7 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 3. DNS 서버 메뉴가 화면 오른쪽에 표시 됩니다. 해당 메뉴에서 **사용자 지정**을 선택 합니다.
 4. 사용자 지정 아래에 나열 된 DNS 서버가 도메인 컨트롤러 또는 Active Directory 도메인과 일치 하는지 확인 합니다. DNS 서버가 표시 되지 않으면 **dns 서버 추가** 필드에 해당 값을 입력 하 여 추가할 수 있습니다.
 
-### <a name="error-your-deployment-failedunauthorized"></a>오류: 배포에 실패 했습니다. ..\Unauthorized
+### <a name="error-your-deployment-failedunauthorized"></a>오류: 배포하지 못했습니다...\Unauthorized
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
@@ -109,7 +115,7 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 
 **해결 방법:** PowerShell을 사용 하 여 로그인 하면 Windows 가상 데스크톱 환경이 정상 상태 인지 확인 합니다. [PowerShell을 사용 하 여 호스트 풀 만들기](create-host-pools-powershell.md)에서 수동으로 VM 등록을 완료 합니다.
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>오류: 지정 된 관리자 사용자 이름이 허용 되지 않습니다.
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>오류: 지정된 관리자 사용자 이름이 허용되지 않습니다.
 
 > [!div class="mx-imgBorder"]
 > ![지정 된 관리자가 허용 되지 않는 배포의 스크린샷](media/failure-username.png)
@@ -127,7 +133,7 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 
 **해결 방법:** 사용자 이름을 업데이트 하거나 다른 사용자를 사용 합니다.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>오류: VM이 확장을 처리할 때 오류를 보고 했습니다.
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>오류: 확장을 처리하는 동안 VM이 오류를 보고했습니다.
 
 > [!div class="mx-imgBorder"]
 > ![배포에서 터미널 프로 비전 상태를 사용 하 여 완료 된 리소스 작업의 스크린샷에 실패 했습니다.](media/failure-processing.png)

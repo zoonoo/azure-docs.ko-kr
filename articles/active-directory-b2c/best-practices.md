@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6fee96354760e448de132f88918e9839c6220af3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254494"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084314"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 권장 사항 및 모범 사례
 
@@ -43,8 +43,8 @@ ms.locfileid: "89254494"
 | 마이그레이션 계획 만들기 |미리 계획을 만들면 마이그레이션이 더욱 원활 하 게 진행 될 수 있습니다. [사용자 마이그레이션](user-migration.md)에 대해 자세히 알아보세요.|
 | 유용성 및 보안 | 솔루션은 응용 프로그램 사용 편의성과 조직의 허용 가능한 위험 수준 사이에서 적절 한 균형을 맞추어야 합니다. |
 | 온-프레미스 종속성을 클라우드로 이동 | 복원 력 있는 솔루션을 위해 기존 응용 프로그램 종속성을 클라우드로 이동 하는 것이 좋습니다. |
-| 기존 앱을 b2clogin.com로 마이그레이션 | Login.microsoftonline.com의 사용 중단은 04 년 12 월 2020에 모든 Azure AD B2C 테 넌 트에 적용 됩니다. [자세한 정보를 알아보세요](b2clogin.md). |
-| Id 보호 및 조건부 액세스 사용 | 이러한 기능을 사용 하 여 위험한 인증 및 액세스 정책에 대해 훨씬 더 많은 제어를 제공 합니다. Azure AD B2C Premium P2가 필요 합니다. [자세한 정보를 알아보세요](conditional-access-identity-protection-overview.md). |
+| 기존 앱을 b2clogin.com로 마이그레이션 | Login.microsoftonline.com의 사용 중단은 04 년 12 월 2020에 모든 Azure AD B2C 테 넌 트에 적용 됩니다. [자세히 알아보기](b2clogin.md). |
+| Id 보호 및 조건부 액세스 사용 | 이러한 기능을 사용 하 여 위험한 인증 및 액세스 정책에 대해 훨씬 더 많은 제어를 제공 합니다. Azure AD B2C Premium P2가 필요 합니다. [자세히 알아보기](conditional-access-identity-protection-overview.md). |
 
 ## <a name="implementation"></a>구현
 
@@ -55,7 +55,6 @@ ms.locfileid: "89254494"
 | Visual Studio Code에 대 한 Azure AD B2C 확장으로 사용자 지정 정책 편집 | [Visual Studio Code Marketplace에서](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)Visual Studio Code 및이 커뮤니티에서 빌드된 확장을 다운로드 합니다. 공식 Microsoft 제품이 아니라 Visual Studio Code Azure AD B2C 확장에는 사용자 지정 정책 작업을 용이 하 게 하는 데 도움이 되는 몇 가지 기능이 포함 되어 있습니다. |
 | Azure AD B2C 문제를 해결 하는 방법 알아보기 | 개발 하는 동안 [사용자 지정 정책의 문제를 해결](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) 하는 방법을 알아봅니다. 일반 인증 흐름이 어떻게 표시 되는지 알아보고 비정상 및 오류 검색을 위한 도구를 사용 합니다. 예를 들어 [Application Insights](troubleshoot-with-application-insights.md) 를 사용 하 여 사용자 경험의 출력 로그를 검토할 수 있습니다. |
 | 입증 된 사용자 지정 정책 패턴의 라이브러리 활용 | 몇 가지 향상 된 Azure AD B2C CIAM (고객 id 및 액세스 관리) 사용자 경험에 대 한 [샘플](https://github.com/azure-ad-b2c/samples) 을 찾습니다. |
-
 
 ## <a name="testing"></a>테스트
 
@@ -79,11 +78,10 @@ Azure AD B2C 환경을 관리 합니다.
 |--|--|
 | 여러 환경 만들기 | 작업 및 배포 롤아웃이 용이 하도록 개발, 테스트, 사전 프로덕션 및 프로덕션을 위한 별도의 환경을 만듭니다. 각각에 대해 Azure AD B2C 테 넌 트를 만듭니다. |
 | 사용자 지정 정책에 대 한 버전 제어 사용 | Azure AD B2C 사용자 지정 정책에 GitHub, Azure Repos 또는 다른 클라우드 기반 버전 제어 시스템을 사용 하는 것이 좋습니다. |
-| Microsoft Graph API를 사용 하 여 B2C 테 넌 트의 관리 자동화 | Microsoft Graph Api:<br/>[Id 경험 프레임 워크](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) 관리 (사용자 지정 정책)<br/>[키](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[사용자 흐름](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| Microsoft Graph API를 사용 하 여 B2C 테 넌 트의 관리 자동화 | Microsoft Graph Api:<br/>[Id 경험 프레임 워크](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) 관리 (사용자 지정 정책)<br/>[키](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[사용자 흐름](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | Azure DevOps와 통합 | [CI/CD 파이프라인](deploy-custom-policies-devops.md) 을 사용 하면 서로 다른 환경 간에 코드를 쉽게 이동할 수 있으며 항상 프로덕션 준비를 보장할 수 있습니다.   |
 | Azure Monitor와 통합 | [감사 로그 이벤트](view-audit-logs.md) 는 7 일 동안 보존 됩니다. [Azure Monitor와 통합](azure-monitor.md) 하 여 장기 사용을 위한 로그를 유지 하거나 타사 siem (보안 정보 및 이벤트 관리) 도구와 통합 하 여 사용자 환경에 대 한 정보를 얻습니다. |
 | 활성 경고 및 모니터링 설정 | Application Insights를 사용 하 여 Azure AD B2C에서 [사용자 동작을 추적](active-directory-b2c-custom-guide-eventlogger-appins.md) 합니다. |
-
 
 ## <a name="support-and-status-updates"></a>지원 및 상태 업데이트
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 299bbfa31584b260f85dfa7bafddea268084f876
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 7cbb67a215d44759b2b503929c37cb50ea94709c
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235165"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069767"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>원격 데스크톱을 통해 Azure VM에 연결하려고 할 때 내부 오류 발생
 
@@ -26,7 +26,7 @@ ms.locfileid: "88235165"
 
 ## <a name="symptoms"></a>증상
 
-RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 없습니다. "원격 구성" 섹션에서 연결이 중지되거나 다음과 같은 오류 메시지가 표시됩니다.
+RDP (원격 데스크톱 프로토콜)를 사용 하 여 Azure VM에 연결할 수 없습니다. 연결이 **원격 구성** 섹션에서 중단 되거나 다음과 같은 오류 메시지가 표시 됩니다.
 
 - RDP 내부 오류
 - 내부 오류가 발생했습니다.
@@ -37,20 +37,24 @@ RDP(원격 데스크톱 프로토콜)를 사용하여 Azure VM에 연결할 수 
 
 이 문제는 다음과 같은 이유로 발생할 수 있습니다.
 
+- 가상 컴퓨터가 공격을 받을 수 있습니다.
 - 로컬 RSA 암호화 키에 액세스할 수 없습니다.
 - TLS 프로토콜이 사용되지 않도록 설정되어 있습니다.
 - 인증서가 손상되었거나 만료되었습니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
-다음 단계를 수행하기 전에 영향을 받는 VM의 OS 디스크 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
+이 문제를 해결 하려면 다음 섹션의 단계를 완료 합니다. 시작 하기 전에 영향을 받는 VM의 OS 디스크에 대 한 스냅숏을 백업으로 사용 합니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
 
-이 문제를 해결하려면 직렬 콘솔을 사용하거나 VM의 OS 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
+### <a name="check-rdp-security"></a>RDP 보안 확인
 
+먼저 RDP 포트 3389에 대 한 네트워크 보안 그룹이 안전 하지 않은지 (열려 있는지) 확인 합니다. 보안 되지 않은 경우 \* 인바운드의 원본 IP 주소로 표시 되 고 rdp 포트를 특정 사용자의 IP 주소로 제한 한 다음 rdp 액세스를 테스트 합니다. 이 작업이 실패 하면 다음 섹션의 단계를 완료 합니다.
 
 ### <a name="use-serial-control"></a>직렬 콘솔 사용
 
-[직렬 콘솔에 연결하고 PowerShell 인스턴스를 엽니다](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+VM의 OS 디스크를 복구 VM에 연결 하 여 직렬 콘솔을 사용 하거나 [vm을 오프 라인으로 복구](#repair-the-vm-offline) 합니다.
+
+시작 하려면 직렬 콘솔에 연결 하 [고 PowerShell 인스턴스를 엽니다](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). VM에서 직렬 콘솔을 사용하지 않도록 설정한 경우 [오프라인으로 VM 복구](#repair-the-vm-offline) 섹션으로 이동합니다.
 
 #### <a name="step-1-check-the-rdp-port"></a>1단계: RDP 포트 확인

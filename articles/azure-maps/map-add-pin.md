@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: d705a43da2b2db37c6601f5865ad6e569688b2a7
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 72ce95373df0a670179424d8e7ea95254941db1a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010194"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085929"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>맵에 기호 계층 추가
 
@@ -59,13 +59,13 @@ dataSource.add(new atlas.data.Point([0, 0]));
 - GeoJSON Point geometry-이 개체는 점의 좌표를 포함 하 고 다른 것은 포함 하지 않습니다. `atlas.data.Point`도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
 - GeoJSON MultiPoint geometry-이 개체는 여러 점의 좌표를 포함 하 고 다른 요소는 포함 하지 않습니다. `atlas.data.MultiPoint`도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
 - GeoJSON 기능-이 개체는 모든 GeoJSON 기 하 도형 및 기 하 도형에 연결 된 메타 데이터를 포함 하는 속성 집합으로 구성 됩니다. `atlas.data.Feature`도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
-- `atlas.Shape`클래스는 GeoJSON 기능과 비슷합니다. 둘 다 GeoJSON geometry 및 기 하 도형에 연결 된 메타 데이터를 포함 하는 속성 집합으로 구성 됩니다. GeoJSON 개체가 데이터 원본에 추가 되는 경우 계층에서 쉽게 렌더링할 수 있습니다. 그러나 해당 GeoJSON 개체의 좌표 속성이 업데이트 되는 경우 데이터 원본 및 맵은 변경 되지 않습니다. JSON 개체에 업데이트를 트리거하는 메커니즘이 없기 때문입니다. Shape 클래스는 포함 된 데이터를 업데이트 하는 함수를 제공 합니다. 변경 내용이 적용 되 면 데이터 원본 및 맵이 자동으로 알림 및 업데이트 됩니다. 
+- `atlas.Shape` 클래스는 GeoJSON 기능과 비슷합니다. 둘 다 GeoJSON geometry 및 기 하 도형에 연결 된 메타 데이터를 포함 하는 속성 집합으로 구성 됩니다. GeoJSON 개체가 데이터 원본에 추가 되는 경우 계층에서 쉽게 렌더링할 수 있습니다. 그러나 해당 GeoJSON 개체의 좌표 속성이 업데이트 되는 경우 데이터 원본 및 맵은 변경 되지 않습니다. JSON 개체에 업데이트를 트리거하는 메커니즘이 없기 때문입니다. Shape 클래스는 포함 된 데이터를 업데이트 하는 함수를 제공 합니다. 변경 내용이 적용 되 면 데이터 원본 및 맵이 자동으로 알림 및 업데이트 됩니다. 
 
 다음 코드 샘플에서는 GeoJSON Point geometry를 만들고 클래스에 전달 하 여 `atlas.Shape` 쉽게 업데이트할 수 있게 합니다. 맵의 중심은 처음에 기호를 렌더링 하는 데 사용 됩니다. Click 이벤트가 맵에 추가 됩니다. 이렇게 하면 마우스의 좌표가 shapes 함수에서 사용 됩니다 `setCoordinates` . 마우스 좌표는 click 이벤트가 발생 했을 때 기록 됩니다. 그런 다음에서 `setCoordinates` 지도의 기호 위치를 업데이트 합니다.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='핀 고정 위치 전환' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의한 Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>핀 고정 위치 전환</a>을 참조하세요.
+<iframe height='500' scrolling='no' title='핀 고정 위치 전환' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의한 Pen <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>핀 고정 위치 전환</a>을 참조하세요.
 </iframe>
 
 > [!TIP]
@@ -77,7 +77,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 
 <br/>
 
-<iframe height='500' scrolling='no' title='사용자 지정 기호 이미지 아이콘' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>사용자 지정 기호 이미지 아이콘</a>을 참조하세요.
+<iframe height='500' scrolling='no' title='사용자 지정 기호 이미지 아이콘' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>사용자 지정 기호 이미지 아이콘</a>을 참조하세요.
 </iframe>
 
 > [!TIP]
@@ -89,7 +89,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 
 <br/>
 
-<iframe height='700' scrolling='no' title='기호 계층 옵션' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/PxVXje/'>기호 계층 옵션</a>을 참조하세요.
+<iframe height='700' scrolling='no' title='기호 계층 옵션' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/PxVXje/'>기호 계층 옵션</a>을 참조하세요.
 </iframe>
 
 > [!TIP]
@@ -100,16 +100,16 @@ dataSource.add(new atlas.data.Point([0, 0]));
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)
+> [SymbolLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer)
 
 > [!div class="nextstepaction"]
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)
 
 > [!div class="nextstepaction"]
-> [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-iot-typescript-latest)
+> [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions)
 
 > [!div class="nextstepaction"]
-> [TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
+> [TextOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions)
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
