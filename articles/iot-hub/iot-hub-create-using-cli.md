@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: e7253747d95917e34725cc7c6c034b1306f65e50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69372e4c212e2ce81bcd4c91d460aa191a1d3476
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708079"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087850"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 만들기
 
@@ -44,21 +44,21 @@ Azure CLI를 사용하여 리소스 그룹을 만든 다음 IoT Hub를 추가합
 
 1. IoT Hub는 리소스 그룹에서 만들어야 합니다. 기존 리소스 그룹을 사용하거나 다음 [리소스 그룹을 만드는 명령](https://docs.microsoft.com/cli/azure/resource)을 실행합니다.
     
-   ```azurecli
+   ```azurecli-interactive
    az group create --name {your resource group name} --location westus
    ```
 
    > [!TIP]
    > 이전 예제에서는 미국 서부 위치에서 리소스 그룹을 만듭니다. 이 명령을 실행하여 사용할 수 있는 위치의 목록을 볼 수 있습니다. 
    >
-   >``` bash
-   >az account list-locations -o table
-   >```
+   > ```azurecli-interactive
+   > az account list-locations -o table
+   > ```
    >
 
 2. 리소스 그룹에서 IoT Hub에 대해 글로벌한 고유 이름을 사용하여 다음 [IoT Hub를 만드는 명령](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create)을 실행합니다.
     
-   ```azurecli
+   ```azurecli-interactive
    az iot hub create --name {your iot hub name} \
       --resource-group {your resource group name} --sku S1
    ```
@@ -74,14 +74,14 @@ Azure CLI를 사용하여 IoT Hub와 같은 [개별 리소스를 삭제](https:/
 
 [IoT Hub를 삭제](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete)하려면 다음 명령을 실행합니다.
 
-```azurecli
+```azurecli-interactive
 az iot hub delete --name {your iot hub name} -\
   -resource-group {your resource group name}
 ```
 
 모든 해당 리소스 및 [리소스 그룹을 삭제](https://docs.microsoft.com/cli/azure/group#az-group-delete)하려면 다음 명령을 실행합니다.
 
-```azurecli
+```azurecli-interactive
 az group delete --name {your resource group name}
 ```
 

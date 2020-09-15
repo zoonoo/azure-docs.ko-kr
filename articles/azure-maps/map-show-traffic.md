@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 063fbd2ad4f2f5d427fd2cb39b8ce9b231eba374
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: cd59bb411a598603ccef215cd9a56b7619115e72
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036428"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090570"
 ---
 # <a name="show-traffic-on-the-map"></a>맵에 트래픽 표시
 
@@ -40,7 +40,7 @@ map.setTraffic({
 
 <br/>
 
-<iframe height='500' scrolling='no' title='맵에 트래픽 표시' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>맵에 트래픽 표시</a>를 참조하세요.
+<iframe height='500' scrolling='no' title='맵에 트래픽 표시' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)로 펜 <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>맵에 트래픽 표시</a>를 참조하세요.
 </iframe>
 
 ## <a name="traffic-overlay-options"></a>트래픽 오버레이 옵션
@@ -49,9 +49,31 @@ map.setTraffic({
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="트래픽 오버레이 옵션" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="700" style="width: 100%;" scrolling="no" title="트래픽 오버레이 옵션" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)의 펜 <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>트래픽 오버레이 옵션</a>을 참조하세요.
 </iframe>
+
+
+## <a name="add-traffic-controls"></a>트래픽 컨트롤 추가
+
+지도에 추가할 수 있는 두 가지 트래픽 컨트롤이 있습니다. 첫 번째 컨트롤인는 `TrafficControl` 트래픽을 설정 하거나 해제 하는 데 사용할 수 있는 토글 단추를 추가 합니다. 이 컨트롤에 대 한 옵션을 사용 하 여 트래픽을 표시할 때 트래픽 설정이 사용 되는 시기를 지정할 수 있습니다. 기본적으로이 컨트롤은 상대 트래픽 흐름 및 인시던트 데이터를 표시 하지만 원하는 경우 절대 트래픽 흐름을 표시 하 고 인시던트를 표시 하지 않도록 변경할 수 있습니다. 두 번째 컨트롤인는 `TrafficLegendControl` 지도에 트래픽 흐름 범례를 추가 하 여 사용자가 강조 표시 된 색 코드의 의미를 이해 하는 데 도움을 줍니다. 이 컨트롤은 지도에 트래픽 흐름 데이터가 표시 되는 경우에만 표시 되 고 다른 모든 시간에는 숨겨집니다.
+
+다음 코드에서는 지도에 트래픽 컨트롤을 추가 하는 방법을 보여 줍니다.
+
+```JavaScript
+//Att the traffic control toogle button to the top right corner of the map.
+map.controls.add(new atlas.control.TrafficControl(), { position: 'top-right' });
+
+//Att the traffic legend control to the bottom left corner of the map.
+map.controls.add(new atlas.control.TrafficLegendControl(), { position: 'bottom-left' });
+```
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="트래픽 제어" src="https://codepen.io/azuremaps/embed/ZEWaeLJ?height500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
+CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/ZEWaeLJ'>트래픽 제어</a> 를 참조 하세요 <a href='https://codepen.io/azuremaps'>@azuremaps</a> . <a href='https://codepen.io'>CodePen</a>
+</iframe>
+
 
 ## <a name="next-steps"></a>다음 단계
 

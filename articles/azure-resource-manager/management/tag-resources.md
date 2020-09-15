@@ -4,12 +4,12 @@ description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1eaf9b735e65811b242fa7198b3545c9c68a4d46
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 3ffcb4a0f2f5dc64b165fcdec03f7c3ced258cc1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425996"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086762"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>태그를 사용 하 여 Azure 리소스 및 관리 계층 구조 구성
 
@@ -307,7 +307,27 @@ az group list --tag Dept=IT
 
 ### <a name="handling-spaces"></a>공백 처리
 
-태그 이름 또는 값에 공백이 포함 된 경우 몇 가지 추가 단계를 수행 해야 합니다. 다음 예제에서는 태그에 공백이 포함 될 수 있는 경우 리소스 그룹의 모든 태그를 해당 리소스에 적용 합니다.
+태그 이름 또는 값에 공백이 포함 된 경우 몇 가지 추가 단계를 수행 해야 합니다. 
+
+`--tags`Azure CLI 매개 변수는 문자열의 배열로 구성 된 문자열을 사용할 수 있습니다. 다음 예제에서는 태그에 공백과 하이픈을 포함 하는 리소스 그룹의 태그를 덮어씁니다. 
+
+```azurecli-interactive
+TAGS=("Cost Center=Finance-1222" "Location=West US")
+az group update --name examplegroup --tags "${TAGS[@]}"
+```
+
+매개 변수를 사용 하 여 리소스 그룹 또는 리소스를 만들거나 업데이트할 때 동일한 구문을 사용할 수 있습니다 `--tags` .
+
+매개 변수를 사용 하 여 태그를 업데이트 하려면 `--set` 키와 값을 문자열로 전달 해야 합니다. 다음 예제에서는 리소스 그룹에 단일 태그를 추가 합니다.
+
+```azurecli-interactive
+TAG="Cost Center='Account-56'"
+az group update --name examplegroup --set tags."$TAG"
+```
+
+이 경우 값에 하이픈이 있으므로 태그 값이 작은따옴표로 표시 됩니다.
+
+태그를 많은 리소스에 적용 해야 할 수도 있습니다. 다음 예제에서는 태그에 공백이 포함 될 수 있는 경우 리소스 그룹의 모든 태그를 해당 리소스에 적용 합니다.
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)

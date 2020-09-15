@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 429baa4d5dc85476192758e4500f4c1f14610e6d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77198295"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089312"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>그리기 도구 모듈의 상호 작용 형식 및 바로 가기 키
 
@@ -21,9 +21,9 @@ ms.locfileid: "77198295"
 
 드로잉 관리자는 지도와 상호 작용 하 여 모양을 그리기 위한 세 가지 다른 방법을 지원 합니다.
 
-* `click`-마우스 또는 터치를 클릭 하면 좌표가 추가 됩니다.
-* `freehand `-지도에서 마우스 또는 터치를 끌 때 좌표가 추가 됩니다.
-* `hybrid`-좌표는 마우스 또는 터치를 클릭 하거나 끌 때 추가 됩니다.
+* `click` -마우스 또는 터치를 클릭 하면 좌표가 추가 됩니다.
+* `freehand ` -지도에서 마우스 또는 터치를 끌 때 좌표가 추가 됩니다.
+* `hybrid` -좌표는 마우스 또는 터치를 클릭 하거나 끌 때 추가 됩니다.
 
 ## <a name="how-to-draw-shapes"></a>셰이프를 그리는 방법
 
@@ -146,7 +146,7 @@ ms.locfileid: "77198295"
 그리기 도구 모듈의 클래스에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [드로잉 관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [드로잉 관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [그리기 도구 모음](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [그리기 도구 모음](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

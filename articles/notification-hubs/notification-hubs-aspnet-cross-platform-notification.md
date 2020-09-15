@@ -5,24 +5,23 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
+editor: thsomasu
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 09/14/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3acfc9e3a856ec777bfada68d535b6a1e9878a08
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bf9670ae8fd22342a05f8d506f743c7a5c395e5f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017926"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088139"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Azure Notification Hubs를 사용 하 여 플랫폼 간 알림 보내기
 
@@ -31,16 +30,16 @@ ms.locfileid: "89017926"
 이 문서에서는 템플릿을 활용 하 여 모든 플랫폼을 대상으로 하는 알림을 보내는 방법을 보여 줍니다. 이 문서에서는 단일 Request to Send 플랫폼 중립적 알림을 사용 합니다. 템플릿에 대 한 자세한 내용은 [Notification Hubs 개요][Templates]를 참조 하세요.
 
 > [!IMPORTANT]
-> Windows Phone 프로젝트 8.1 및 이전 버전은 Visual Studio 2019에서 지원 되지 않습니다. 자세한 내용은 [Visual Studio 2019 플랫폼 대상 지정 및 호환성](/visualstudio/releases/2019/compatibility)을 참조하세요.
+> Windows Phone 프로젝트 8.1 및 이전 버전은 Visual Studio 2019에서 지원 되지 않습니다. 자세한 내용은 [Visual Studio 2019 플랫폼 대상 지정 및 호환성](/visualstudio/releases/2019/compatibility)을 참조 하세요.
 
 > [!NOTE]
 > Notification Hubs를 사용하면 디바이스가 동일한 태그로 여러 템플릿을 등록할 수 있습니다. 이 경우 해당 태그를 대상으로 들어오는 메시지가 있으면 각 템플릿에 대해 하나씩 여러 개의 알림이 디바이스에 전달됩니다. 이 프로세스로 Windows 스토어 앱에 알림 메시지와 배지 둘 다로 표시하는 등 여러 시각적 알림에 동일한 메시지를 표시할 수 있습니다.
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>템플릿을 사용하여 플랫폼 간 알림 보내기
 
-이 섹션에서는 [Azure Notification Hubs 자습서를 사용 하 여 특정 사용자에 게 알림 보내기] 에서 빌드한 샘플 코드를 사용 합니다. 샘플은 [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers)에서 다운로드할 수 있습니다.
+이 섹션에서는 [Azure Notification Hubs 자습서를 사용 하 여 특정 사용자에 게 알림 보내기] 에서 빌드한 샘플 코드를 사용 합니다. [GitHub에서 전체 샘플을 다운로드할](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers)수 있습니다.
 
-템플릿을 사용 하 여 플랫폼 간 알림을 보내려면 다음 단계를 수행 합니다.
+템플릿을 사용 하 여 플랫폼 간 알림을 보내려면 다음을 수행 합니다.
 
 1. **솔루션 탐색기**의 Visual Studio에서 **컨트롤러** 폴더를 확장 한 다음 *RegisterController.cs* 파일을 엽니다.
 
@@ -77,7 +76,7 @@ ms.locfileid: "89017926"
 
     이 코드는 플랫폼 특정 메서드를 호출하여 기본 등록이 아니라 템플릿 등록을 만듭니다. 템플릿 등록은 기본 등록에서 파생되므로 기존 등록을 수정할 필요는 없습니다.
 
-1. **솔루션 탐색기**의 **Controllers** 폴더에서 *NotificationsController.cs* 파일을 엽니다. `Post` 메서드를 다음 코드로 바꿉니다.
+1. **솔루션 탐색기**의 **Controllers** 폴더에서 **NotificationsController.cs** 파일을 엽니다. `Post` 메서드를 다음 코드로 바꿉니다.
 
     ```csharp
     public async Task<HttpResponseMessage> Post()

@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/27/2019
-ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/14/2020
+ms.openlocfilehash: 5110f5fd09e360d1435e26312dd2ee2db6891cbb
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949962"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087187"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>예제를 통해 Data Factory 가격 책정 이해
 
@@ -130,9 +130,13 @@ ms.locfileid: "88949962"
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>일반 workday에 대 한 매핑 데이터 흐름 디버그 사용
 
-데이터 엔지니어는 매일 데이터 흐름의 매핑 설계, 빌드 및 테스트를 담당 합니다. 아침에 ADF UI에 로그인 하 고 데이터 흐름에 대해 디버그 모드를 사용 하도록 설정 합니다. 디버그 세션에 대 한 기본 TTL은 60 분입니다. 8 시간 동안 하루 종일 작업 하므로 디버그 세션이 만료 되지 않습니다. 따라서 하루에 대 한 요금은 다음과 같이 청구 됩니다.
+데이터 엔지니어는 Sam은 매일 데이터 흐름의 매핑 설계, 빌드 및 테스트를 담당 합니다. Sam은 오전에 ADF UI에 로그인 하 고 데이터 흐름에 대해 디버그 모드를 사용 하도록 설정 합니다. 디버그 세션에 대 한 기본 TTL은 60 분입니다. Sam은 8 시간 동안 하루 종일 작동 하므로 디버그 세션이 만료 되지 않습니다. 따라서 해당 날짜에 대 한 Sam 요금은 다음과 같습니다.
 
 **8 (시간) x 8 (계산에 최적화 된 코어) x $0.193 = $12.35**
+
+동시에 다른 데이터 엔지니어는 데이터 프로 파일링 및 ETL 디자인 작업을 위해 ADF 브라우저 UI에도 로그인 합니다. Chris는 Sam과 같은 매일 ADF에서 작동 하지 않습니다. Chris는 위의 Sam과 동일한 기간 동안 1 시간 동안 데이터 흐름 디버거를 사용 해야 합니다. 다음은 디버그 사용에 대 한 비용입니다.
+
+**1 (시간) x 8 (범용 코어) x $0.274 = $2.19**
 
 ## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>매핑 데이터 흐름을 사용 하 여 blob 저장소의 데이터 변환
 

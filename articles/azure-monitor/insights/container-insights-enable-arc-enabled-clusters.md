@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Arc enabled
 description: 이 문서에서는 Azure Arc 사용 Kubernetes 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하 여 모니터링을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54a8fea6ddb46dc00fff29ad83a2a348d9218380
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092884"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090621"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 사용 Kubernetes 클러스터 모니터링 사용
 
@@ -32,7 +32,7 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
 
 - 지원 되는 마스터 및 작업자 노드에 대 한 Linux OS 릴리스는 Ubuntu (18.04 LTS 및 16.04 LTS)입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
@@ -124,7 +124,7 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
 4. 기존 Azure Monitor Log Analytics 작업 영역을 사용 하려면 `$logAnalyticsWorkspaceResourceId` 작업 영역의 리소스 ID를 나타내는 해당 값을 사용 하 여 변수를 구성 합니다. 그렇지 않으면 변수를로 설정 하 `""` 고, 해당 지역에 아직 없는 경우 스크립트는 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만듭니다. 만든 기본 작업 영역은 *defaultworkspace \<SubscriptionID> - \<Region> *의 형식과 유사 합니다.
 
     ```powershell
-    $logAnalyticsWorkspaceResourceId = “/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
 5. Arc 사용 Kubernetes 클러스터가 프록시 서버를 통해 통신 하는 경우 `$proxyEndpoint` 프록시 서버의 URL을 사용 하 여 변수를 구성 합니다. 클러스터가 프록시 서버를 통해 통신 하지 않는 경우이 값을로 설정할 수 있습니다 `""` .  자세한 내용은이 문서의 뒷부분에 있는 [프록시 끝점 구성](#configure-proxy-endpoint) 을 참조 하세요.
@@ -199,7 +199,7 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
 
 컨테이너의 Azure Monitor에 대 한 컨테이너 화 된 agent를 사용 하 여 프록시 서버를 통해 통신할 수 있도록 프록시 끝점을 구성할 수 있습니다. 컨테이너 화 된 에이전트와 Azure Monitor 간의 통신은 HTTP 또는 HTTPS 프록시 서버가 될 수 있으며 익명 및 기본 인증 (사용자 이름/암호)이 모두 지원 됩니다.
 
-프록시 구성 값의 구문은 다음과 같습니다.`[protocol://][user:password@]proxyhost[:port]`
+프록시 구성 값의 구문은 다음과 같습니다. `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >프록시 서버에 인증이 필요 하지 않은 경우에도 유사 사용자 이름/암호를 지정 해야 합니다. 이는 사용자 이름 또는 암호일 수 있습니다.
@@ -212,13 +212,13 @@ PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배�
 |proxyhost | 프록시 서버의 주소 또는 FQDN |
 |포트 | 프록시 서버에 대 한 선택적 포트 번호 |
 
-예를 들면 다음과 같습니다. `http://user01:password@proxy01.contoso.com:3128`
+예: `http://user01:password@proxy01.contoso.com:3128`
 
 프로토콜을 **http**로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
 
 ### <a name="configure-using-powershell"></a>PowerShell을 사용한 구성
 
-프록시 서버에 대 한 사용자 이름 및 암호, IP 주소 또는 FQDN 및 포트 번호를 지정 합니다. 예를 들면 다음과 같습니다.
+프록시 서버에 대 한 사용자 이름 및 암호, IP 주소 또는 FQDN 및 포트 번호를 지정 합니다. 예를 들어:
 
 ```powershell
 $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9bc323e0fafc576c5e75f46b3c38fdf140b1b0f4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 240c96016304c009c36485869ac15f5f38076fb7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799805"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088292"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Azure Policy를 사용하여 VM용 Azure Monitor를 사용하도록 설정
 이 문서에서는 Azure Policy를 사용 하 여 azure Arc (preview)와 연결 된 Azure 가상 컴퓨터 또는 하이브리드 가상 컴퓨터에 대해 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다. Azure Policy를 사용 하면 Azure 환경에서 VM용 Azure Monitor에 필요한 에이전트를 설치 하는 정책 정의를 할당 하 고 각 가상 머신이 만들어질 때 자동으로 Vm에 대 한 모니터링을 사용 하도록 설정할 수 있습니다. VM용 Azure Monitor은 사용자 환경에서 비규격 Vm을 검색 및 재구성 하는 데 사용할 수 있는 기능을 제공 합니다. Azure Policy에서 직접 작업 하는 대신이 기능을 사용 합니다.
@@ -21,7 +21,7 @@ Azure Policy에 익숙하지 않은 경우 [Azure Policy를 사용 하 여 대�
 > [!NOTE]
 > Azure 가상 머신 확장 집합에 Azure Policy를 사용 하거나 Azure virtual machines를 사용 하도록 Azure Policy 직접 작업 하려면 [Azure Policy를 사용 하 여 대규모로 Azure Monitor 배포](../deploy-scale.md#azure-monitor-for-vms)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 - [Log Analytics 작업 영역을 만들고 구성](vminsights-configure-workspace.md)합니다.
 - 지원 되는 [운영 체제](vminsights-enable-overview.md#supported-operating-systems) 를 참조 하 여 활성화 하는 가상 머신 또는 가상 머신 확장 집합의 운영 체제가 지원 되는지 확인 합니다. 
 
@@ -46,7 +46,7 @@ VM용 Azure Monitor는 Azure virtual machines에 Log Analytics 에이전트 및 
 **매개 변수** 페이지에서 할당의 모든 가상 컴퓨터에 사용할 **Log Analytics 작업 영역** 을 선택 합니다. 다른 가상 컴퓨터에 대해 서로 다른 작업 영역을 지정 하려면 각각 고유한 범위를 사용 하 여 여러 할당을 만들어야 합니다. 
 
    > [!NOTE]
-   > 작업 영역이 할당 범위를 벗어나는 경우 *Log Analytics 기여자* 권한을 정책 할당의 Principal ID에 부여합니다. 이렇게 하지 않으면 다음과 같은 배포 실패가 표시 될 수 있습니다.`The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
+   > 작업 영역이 할당 범위를 벗어나는 경우 *Log Analytics 기여자* 권한을 정책 할당의 Principal ID에 부여합니다. 이렇게 하지 않으면 다음과 같은 배포 실패가 표시 될 수 있습니다. `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
 [![작업 영역](media/vminsights-enable-at-scale-policy/assignment-workspace.png)](media/vminsights-enable-at-scale-policy/assignment-workspace.png#lightbox)
 
@@ -69,7 +69,7 @@ VM용 Azure Monitor는 Azure virtual machines에 Log Analytics 에이전트 및 
 | **할당 상태** | **성공** -범위에 있는 모든 vm에 Log Analytics 및 종속성 에이전트가 배포 되어 있습니다.<br>**경고** -구독이 관리 그룹 아래에 있지 않습니다.<br>**시작 되지 않음** -새 할당이 추가 되었습니다.<br>**잠금** -관리 그룹에 대 한 충분 한 권한이 없습니다.<br>**Blank** -vm이 없거나 정책이 할당 되지 않았습니다. |
 | **규격 Vm** | Log Analytics 에이전트와 종속성 에이전트가 모두 설치 된 Vm 수 인 호환 되는 Vm 수입니다. 할당이 없거나, 범위에 Vm이 없거나, 적절 한 권한이 없는 경우에는이 값이 비어 있습니다. |
 | **호환성** | 전반적인 규정 준수 번호는 규정을 준수 하는 고유 리소스의 합계를 모든 고유 리소스의 합계로 나눈 값입니다. |
-| **호환성 상태** | **규격** -가상 컴퓨터 범위에 있는 모든 vm에는 Log Analytics 및 종속성 에이전트가 배포 되어 있거나 할당에 적용 되는 범위의 새 vm이 아직 평가 되지 않았습니다.<br>**비규격** -평가 되었지만 사용 하도록 설정 되지 않은 vm이 있으며 수정이 필요할 수 있습니다.<br>**시작 되지 않음** -새 할당이 추가 되었습니다.<br>**잠금** -관리 그룹에 대 한 충분 한 권한이 없습니다.<br>**Blank** -정책이 할당 되지 않습니다.  |
+| **규정 준수 상태** | **규격** -가상 컴퓨터 범위에 있는 모든 vm에는 Log Analytics 및 종속성 에이전트가 배포 되어 있거나 할당에 적용 되는 범위의 새 vm이 아직 평가 되지 않았습니다.<br>**비규격** -평가 되었지만 사용 하도록 설정 되지 않은 vm이 있으며 수정이 필요할 수 있습니다.<br>**시작 되지 않음** -새 할당이 추가 되었습니다.<br>**잠금** -관리 그룹에 대 한 충분 한 권한이 없습니다.<br>**Blank** -정책이 할당 되지 않습니다.  |
 
 
 이니셔티브를 할당할 때 할당에서 선택 된 범위는 나열 된 범위 이거나 그 하위 집합인 것일 수 있습니다. 예를 들어 관리 그룹 (검사 범위)이 아닌 구독 (정책 범위)에 대 한 할당을 만들었을 수 있습니다. 이 경우 **할당** 범위의 값은 이니셔티브 범위의 vm을 검사 범위의 vm으로 나눈 값을 나타냅니다. 다른 경우에는 일부 Vm, 리소스 그룹 또는 정책 범위에서 구독을 제외 했을 수 있습니다. 값이 비어 있으면 정책이 나 이니셔티브가 없거나 사용 권한이 없음을 나타냅니다. 정보는 **할당 상태**에서 제공 됩니다.
@@ -102,7 +102,7 @@ VM용 Azure Monitor는 Azure virtual machines에 Log Analytics 에이전트 및 
 
 재구성 **을 클릭 하** 여 수정 작업을 만든 **다음, 수정 하 여** 시작 합니다. 각 정책 정의에 대해 하나씩 여러 개의 재구성 작업을 만들어야 할 가능성이 높습니다. 이니셔티브에 대 한 수정 작업을 만들 수 없습니다.
 
-[![수정](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
+[![모니터에 대 한 정책 수정 창이 스크린샷 화면에 표시 됩니다. Virtual Machines.](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
 
 
 수정 작업이 완료 되 면 Vm이 설치 되 고 VM용 Azure Monitor에 대해 설정 된 에이전트와 호환 되어야 합니다. 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322910"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090179"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure Monitor에서 VMware 모니터링 (사용 되지 않음) 솔루션
 
@@ -50,14 +50,14 @@ ESXi 호스트로부터 모든 syslog 데이터를 수신하는 Linux 운영 체
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. vSphere 콘솔에서 해당 syslog가 제대로 설정되어 있는지 확인합니다. ESXi 호스트에서 포트가 **1514**로 구성되어 있는지 확인합니다.
 1. Linux용 Log Analytics 에이전트를 다운로드하여 Linux 서버에 설치합니다. 자세한 내용은 [Linux용 Log Analytics 에이전트 설명서](https://github.com/Microsoft/OMS-Agent-for-Linux)를 참조하세요.
-1. Linux용 Log Analytics 에이전트를 설치한 후 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 디렉터리로 이동하고, vmware_esxi.conf 파일을 /etc/opt/microsoft/omsagent/conf/omsagent.d 디렉터리에 복사한 후, 해당 파일의 소유자/그룹 및 사용 권한을 변경합니다. 예를 들면 다음과 같습니다.
+1. Linux용 Log Analytics 에이전트를 설치한 후 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 디렉터리로 이동하고, vmware_esxi.conf 파일을 /etc/opt/microsoft/omsagent/conf/omsagent.d 디렉터리에 복사한 후, 해당 파일의 소유자/그룹 및 사용 권한을 변경합니다. 예를 들어:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. `sudo /opt/microsoft/omsagent/bin/service_control restart`를 실행하여 Linux용 Log Analytics 에이전트를 다시 시작합니다.
-1. ESXi 호스트에서 `nc` 명령을 사용하여 Linux 서버와 ESXi 호스트 간의 연결을 테스트합니다. 예를 들면 다음과 같습니다.
+1. ESXi 호스트에서 `nc` 명령을 사용하여 Linux 서버와 ESXi 호스트 간의 연결을 테스트합니다. 예를 들어:
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
@@ -66,7 +66,7 @@ ESXi 호스트로부터 모든 syslog 데이터를 수신하는 Linux 운영 체
 
 1. Azure Portal에서에 대 한 로그 쿼리를 수행 `VMware_CL` 합니다. Azure Monitor syslog 데이터를 수집 하는 경우 syslog 형식을 유지 합니다. 포털에서는 *Hostname* 및 *ProcessName*과 같은 일부 특정 필드가 캡처됩니다.  
 
-    ![type](./media/vmware/type.png)  
+    ![스크린샷에는 타임 스탬프 된 결과가 포함 된 Type = VMware_CL에 대 한 로그 쿼리가 표시 됩니다.](./media/vmware/type.png)  
 
     로그 검색 결과 보기가 위 이미지와 비슷한 경우 VMware 모니터링 솔루션 대시보드를 사용하도록 설정된 것입니다.  
 
@@ -75,7 +75,7 @@ VMware 모니터링 솔루션에서는 사용 설정된 Linux용 Log Analytics �
 
 다음 테이블은 데이터 수집 방법 및 데이터가 수집되는 방식에 대한 기타 세부 정보를 보여 줍니다.
 
-| platform | Linux용 Log Analytics 에이전트 | SCOM 에이전트 | Azure Storage | SCOM 필요? | 관리 그룹을 통해 전송되는 SCOM 에이전트 데이터 | 수집 빈도 |
+| platform | Linux용 Log Analytics 에이전트 | System Center Operations Manager 에이전트 | Azure Storage | Operations Manager 필요 여부 | 관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터 | 수집 빈도 |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |매 3분 |
 
@@ -97,7 +97,7 @@ VMware 모니터링 솔루션에서는 사용 설정된 Linux용 Log Analytics �
 | SyslogMessage_s |Syslog 데이터 |
 | UserName_s |VM을 만들거나 삭제한 사용자 |
 | VMName_s |VM 이름 |
-| Computer |호스트 컴퓨터 |
+| 컴퓨터 |호스트 컴퓨터 |
 | TimeGenerated |데이터가 생성된 시간 |
 | DataCenter_s |VMware 데이터 센터 |
 | StorageLatency_s |스토리지 대기 시간(밀리초) |
@@ -105,7 +105,7 @@ VMware 모니터링 솔루션에서는 사용 설정된 Linux용 Log Analytics �
 ## <a name="vmware-monitoring-solution-overview"></a>VMware 모니터링 솔루션 개요
 VMware 타일이 Log Analytics 작업 영역에 나타납니다. 발생한 모든 오류에 대한 상위 수준 보기를 제공합니다. 타일을 클릭하면 대시보드 보기로 이동합니다.
 
-![타일](./media/vmware/tile.png)
+![스크린샷에 9 개의 실패를 표시 하는 VMware 타일이 표시 됩니다.](./media/vmware/tile.png)
 
 #### <a name="navigate-the-dashboard-view"></a>대시보드 보기 탐색
 **VMware** 대시보드 보기에 구성되는 블레이드는 다음과 같습니다.
@@ -127,7 +127,7 @@ VMware 타일이 Log Analytics 작업 영역에 나타납니다. 발생한 모�
 #### <a name="find-esxi-host-events"></a>ESXi 호스트 이벤트 찾기
 단일 ESXi 호스트에서는 프로세스에 따라 여러 로그를 생성합니다. VMware 모니터링 솔루션은 이러한 로그를 중앙 집중식으로 관리하고 이벤트 수를 요약 합니다. 이처럼 중앙 집중화된 보기를 사용하면 대량의 이벤트가 발생한 ESXi 호스트 및 사용자 환경에서 가장 빈번하게 발생한 이벤트를 손쉽게 파악할 수 있습니다.
 
-![이벤트](./media/vmware/events.png)
+![event](./media/vmware/events.png)
 
 ESXi 호스트 또는 이벤트 유형을 클릭하면 관련 정보를 자세히 파악할 수 있습니다.
 
@@ -147,13 +147,13 @@ ESXi 호스트마다 가상 머신을 만들고 삭제할 수 있습니다. 이�
 #### <a name="common-log-queries"></a>일반적인 로그 쿼리
 솔루션에는 대규모 스토리지 공간, 스토리지 대기 시간, 경로 오류 등 ESXi 호스트를 관리하는 데 유용한 쿼리들이 포함되어 있습니다.
 
-![쿼리](./media/vmware/queries.png)
+![유용한 저장 된 쿼리 인 권장 검색을 보여 주는 스크린샷](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>쿼리 저장
 로그 쿼리 저장은 Azure Monitor의 표준 기능이 며 유용한 쿼리를 유지 하는 데 도움이 될 수 있습니다. 만든 쿼리가 유용하다고 생각되면 **즐겨찾기**를 클릭하여 해당 쿼리를 저장합니다. 저장된 쿼리를 사용하면 나중에 사용자 지정 대시보드를 만들 수 있는 [내 대시보드](../learn/tutorial-logs-dashboards.md) 페이지에서 해당 쿼리를 손쉽게 다시 활용할 수 있습니다.
 
-![DockerDashboardView](./media/vmware/dockerdashboardview.png)
+![스크린샷에는 실행 취소, 내보내기, 경고, 저장, 즐겨찾기 및 기록에 대 한 아이콘이 포함 된 로그 검색 이라는 레이블이 지정 된 사용자 지정 대시보드의 일부가 표시 됩니다.](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>쿼리에서 경고 만들기
 쿼리를 만든 후에는 특정 이벤트가 발생할 때 경고하도록 이 쿼리를 사용하는 것이 좋습니다. 경고를 생성하는 방법에 대한 내용은 [Log Analytics의 경고](../platform/alerts-overview.md)를 참조하세요. 경고 쿼리 및 기타 쿼리의 예제에 대해서는 [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics)(Log Analytics를 사용하여 VMware 모니터링) 블로그 게시물을 참조하세요.

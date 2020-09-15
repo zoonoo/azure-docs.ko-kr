@@ -4,16 +4,16 @@ description: Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결하�
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/22/2020
+ms.date: 09/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117916"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089992"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
 
@@ -26,22 +26,21 @@ Azure Cosmos DB에서 쿼리 최적화를 광범위하게 분류할 수 있습�
 
 쿼리의 RU 비용을 낮출 경우 거의 대부분 대기 시간도 단축됩니다.
 
-이 문서에서는 [영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 세트를 사용하여 다시 만들 수 있는 예제를 제공합니다.
+이 문서에서는 [영양 데이터 집합](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)을 사용 하 여 다시 만들 수 있는 예제를 제공 합니다.
 
 ## <a name="common-sdk-issues"></a>일반적인 SDK 문제
 
 이 가이드를 읽기 전에 쿼리 엔진과 관련이 없는 일반적인 SDK 문제를 고려하는 것이 좋습니다.
 
-- 최상의 성능을 위해 다음 [성능 팁](performance-tips.md)을 참조하세요.
-    > [!NOTE]
-    > 성능을 향상시키려면 Windows 64 비트 호스트 처리를 권장합니다. SQL SDK에는 로컬에서 쿼리를 구문 분석하고 최적화하는 네이티브 ServiceInterop.dll이 포함되어 있습니다. ServiceInterop.dll은 Windows x64 플랫폼에서만 지원됩니다. ServiceInterop.dll을 사용할 수 없는 Linux 및 기타 지원되지 않는 플랫폼의 경우 게이트웨이에 대한 네트워크 호출을 추가로 수행하여 최적화된 쿼리를 가져옵니다.
+- 이러한 [SDK 성능 팁](performance-tips.md)을 따르세요.
+    - [.NET SDK 문제 해결 가이드](troubleshoot-dot-net-sdk.md)
+    - [Java SDK 문제 해결 가이드](troubleshoot-java-sdk-v4-sql.md)
 - SDK를 사용하여 쿼리에 대한 `MaxItemCount`를 설정할 수 있지만 최소 항목 수를 지정할 수는 없습니다.
     - 코드는 0부터 `MaxItemCount`까지 모든 페이지 크기를 처리해야 합니다.
-    - 한 페이지의 항목 수는 항상 지정된 `MaxItemCount`보다 작거나 같습니다. 그러나 `MaxItemCount`는 엄밀히 말해 최대값이므로 이 크기보다 결과가 적을 수 있습니다.
 - 이후 페이지에 결과가 있더라도 간혹 쿼리에 빈 페이지가 있을 수 있습니다. 그 이유는 다음과 같습니다.
     - SDK에서 여러 네트워크 호출을 수행할 수 있습니다.
     - 쿼리가 문서를 검색하는 데 시간이 오래 걸릴 수 있습니다.
-- 모든 쿼리에는 쿼리가 지속되도록 허용하는 연속 토큰이 있습니다. 쿼리를 완전히 드레이닝해야 합니다. SDK 샘플을 확인하고 `FeedIterator.HasMoreResults`에서 `while` 루프를 사용하여 전체 쿼리를 드레이닝합니다.
+- 모든 쿼리에는 쿼리가 지속되도록 허용하는 연속 토큰이 있습니다. 쿼리를 완전히 드레이닝해야 합니다. [결과의 여러 페이지 처리](sql-query-pagination.md#handling-multiple-pages-of-results) 에 대 한 자세한 정보
 
 ## <a name="get-query-metrics"></a>쿼리 메트릭 가져오기
 

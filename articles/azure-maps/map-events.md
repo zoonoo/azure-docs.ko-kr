@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: f3a48e4434588b2eb64637e6f0a454148cad39f2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e1cce536a9ec498304cbbc591fc56a0ee1b21b13
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036445"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087272"
 ---
 # <a name="interact-with-the-map"></a>맵과 상호 작용
 
@@ -26,7 +26,7 @@ ms.locfileid: "88036445"
 
 <br/>
 
-<iframe height='600' scrolling='no' title='맵 – 마우스 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>맵과 상호 작용 - 마우스 이벤트</a>를 참조하세요.
+<iframe height='600' scrolling='no' title='맵 – 마우스 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>맵과 상호 작용 - 마우스 이벤트</a>를 참조하세요.
 </iframe>
 
 ## <a name="interact-with-map-layers"></a>맵 계층과 상호 작용
@@ -35,16 +35,16 @@ ms.locfileid: "88036445"
 
 <br/>
 
-<iframe height='600' scrolling='no' title='맵 - 계층 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>맵 - 계층 이벤트와 상호 작용</a>을 참조하세요.
+<iframe height='600' scrolling='no' title='맵 - 계층 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>맵 - 계층 이벤트와 상호 작용</a>을 참조하세요.
 </iframe>
 
 ## <a name="interact-with-html-marker"></a>HTML 표식과 상호 작용
 
-다음 코드는 HTML 표식에 Javascript 맵 이벤트를 추가합니다. 또한 HTML 표식과 상호 작용할 때 발생한 이벤트의 이름을 강조 표시합니다.
+다음 코드에서는 HTML 마커에 JavaScript 맵 이벤트를 추가 합니다. 또한 HTML 표식과 상호 작용할 때 발생한 이벤트의 이름을 강조 표시합니다.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='맵 - HTML 표식 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>맵 - HTML 표식 이벤트와 상호 작용</a>을 참조하세요.
+<iframe height='500' scrolling='no' title='맵 - HTML 표식 이벤트와 상호 작용' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io'>CodePen</a>에서 Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에 의해 펜 <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>맵 - HTML 표식 이벤트와 상호 작용</a>을 참조하세요.
 </iframe>
 
 다음 표에서는 지원되는 모든 맵 클래스 이벤트를 보여 줍니다.
@@ -98,11 +98,11 @@ ms.locfileid: "88036445"
 | `sourceremoved`     | 맵에서 `DataSource` 또는 `VectorTileSource`가 제거될 때 발생합니다.|
 | `styledata`         | 맵의 스타일이 로드되거나 변경될 때 발생합니다.|
 | `styleimagemissing` | 존재하지 않는 이미지 스프라이트에서 계층이 이미지를 로드하려고 할 때 발생합니다. |
-| `tokenacquired`     | AAD 액세스 토큰을 가져올 때 발생합니다.|
-| `touchcancel`       | 맵 내에서 touchcancel 이벤트가 발생할 때 발생합니다.|
-| `touchend`          | 맵 내에서 touchend 이벤트가 발생할 때 발생합니다.|
-| `touchmove`         | 맵 내에서 touchmove 이벤트가 발생할 때 발생합니다.|
-| `touchstart`        | 맵 내에서 touchstart 이벤트가 발생할 때 발생합니다.|
+| `tokenacquired`     | Azure Active Directory 액세스 토큰을 가져올 때 발생 합니다.|
+| `touchcancel`       | `touchcancel`지도 내에서 이벤트가 발생할 때 발생 합니다.|
+| `touchend`          | `touchend`지도 내에서 이벤트가 발생할 때 발생 합니다.|
+| `touchmove`         | `touchmove`지도 내에서 이벤트가 발생할 때 발생 합니다.|
+| `touchstart`        | `touchstart`지도 내에서 이벤트가 발생할 때 발생 합니다.|
 | `wheel`             | 맵 내에서 마우스 휠 이벤트가 발생할 때 발생합니다.|
 | `zoom`              | 사용자 상호 작용이나 메서드의 결과로 한 확대/축소 수준에서 다른 확대/축소 수준으로 애니메이션 전환이 수행되는 동안 반복적으로 발생합니다.|
 | `zoomend`           | 사용자 상호 작용이나 메서드의 결과로 맵이 한 확대/축소 수준에서 다른 확대/축소 수준으로의 전환을 완료한 후에 발생합니다.|

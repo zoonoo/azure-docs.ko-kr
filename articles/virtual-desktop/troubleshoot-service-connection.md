@@ -1,17 +1,17 @@
 ---
 title: 서비스 연결 문제 해결 Windows Virtual Desktop - Azure
-description: Windows Virtual Desktop 테넌트 환경에서 클라이언트 연결을 설정할 때 발생하는 문제를 해결하는 방법입니다.
+description: Windows 가상 데스크톱 테 넌 트 환경에서 서비스 연결을 설정 하는 동안 문제를 해결 하는 방법입니다.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/19/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6d0360a4fe957f43e38fd892cef6b4ab0a2325a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009378"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089907"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Windows Virtual Desktop 서비스 연결
 
@@ -39,6 +39,12 @@ ms.locfileid: "88009378"
 3. 웹 클라이언트를 사용하는 경우 캐시된 자격 증명 문제가 없는지 확인합니다.
 
 4. 사용자가 AD (Azure Active Directory) 사용자 그룹의 일부인 경우에는 사용자 그룹이 메일 그룹 대신 보안 그룹 인지 확인 합니다. Windows 가상 데스크톱은 Azure AD 메일 그룹을 지원 하지 않습니다.
+
+## <a name="user-loses-existing-feed-and-no-remote-resource-is-displayed-no-feed"></a>사용자가 기존 피드를 잃고 원격 리소스가 표시 되지 않습니다 (피드 없음).
+
+이 오류는 일반적으로 사용자가 한 Azure AD 테 넌 트에서 다른 Azure AD 테 넌 트에서 구독을 이동한 후에 표시 됩니다. 따라서 서비스는 여전히 이전 Azure AD 테 넌 트에 연결 되어 있기 때문에 사용자 할당을 추적 하지 않습니다.
+
+이 문제를 해결 하려면 사용자를 앱 그룹에 다시 할당 하기만 하면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

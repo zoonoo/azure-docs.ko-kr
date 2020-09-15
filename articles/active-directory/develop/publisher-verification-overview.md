@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 07e8f1d0cf173a8ab41f8feb105743a7559cdd2f
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005794"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089754"
 ---
 # <a name="publisher-verification"></a>게시자 확인
 
@@ -33,7 +33,7 @@ ms.locfileid: "90005794"
 
 - **브랜드 이미지 향상** - Azure AD [동의 확인 프롬프트](application-consent-experience.md), 엔터프라이즈 앱 페이지, 최종 사용자 및 관리자가 사용하는 추가 UX 화면에 "확인" 배지가 표시됩니다. 
 
-- **보다 원활한 엔터프라이즈 채택** - 관리자는 새로운 사용자 동의 정책을 구성할 수 있으며, 게시자 확인 상태는 기본 정책 조건 중 하나입니다. 
+- 보다 **원활한 엔터프라이즈 도입**-관리자는 기본 정책 조건 중 하나로 게시자 확인 상태를 사용 하 여 [사용자 동의 정책을](../manage-apps/configure-user-consent.md)구성할 수 있습니다. 
 
 - **위험 평가 향상** - Microsoft의 "위험한" 동의 요청 감지에 게시자 확인이 신호로 포함됩니다. 
 
@@ -52,6 +52,8 @@ ms.locfileid: "90005794"
 
     -  파트너 센터에서 이 사용자는 [역할](/partner-center/permissions-overview)로 MPN 관리자, 계정 관리자 또는 글로벌 관리자(Azure AD의 공유 역할) 중 하나가 할당되어야 합니다.
     
+-  확인을 수행 하는 사용자는 [multi-factor authentication](../authentication/howto-mfa-getstarted.md)을 사용 하 여 로그인 해야 합니다.
+
 -  게시자가 [개발자용 Microsoft ID 플랫폼 사용 약관](/legal/microsoft-identity-platform/terms-of-use)에 동의해야 합니다.
 
 이러한 필수 구성 요소를 이미 충족하는 개발자는 몇 분 안에 확인을 받을 수 있습니다. 요구 사항이 충족되지 않을 경우 무료로 설정을 가져올 수 있습니다. 

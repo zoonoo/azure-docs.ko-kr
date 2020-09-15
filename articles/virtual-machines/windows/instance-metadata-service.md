@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: adeba1964ab802a903e82b3ea71bc3248b86cea9
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 2e0788b6a7eb6f1d43185d8b484adddd76374ea3
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705064"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086711"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -228,7 +228,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 Metadata Service에는 서로 다른 데이터 원본을 나타내는 여러 Api가 포함 되어 있습니다.
 
-API | Description | 도입된 버전
+API | 설명 | 도입된 버전
 ----|-------------|-----------------------
 /attested | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 /identity | [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) 참조 | 2018-02-01
@@ -517,10 +517,11 @@ OS 디스크 개체에는 VM에서 사용하는 OS 디스크에 대한 다음 �
 createOption | VM이 생성된 방법에 대한 정보
 diffDiskSettings | 임시 디스크 설정
 diskSizeGB | 디스크 크기(GB)
+encryptionSettings | 디스크의 암호화 설정
 이미지   | 원본 사용자 이미지 가상 하드 디스크
-lun     | 디스크의 논리 단위 번호
 managedDisk | 관리 디스크 매개 변수
 name    | 디스크 이름
+osType  | 디스크에 포함된 OS 유형
 VHD     | 가상 하드 디스크
 writeAcceleratorEnabled | writeAccelerator를 디스크에서 사용할 수 있는지 여부
 
@@ -532,11 +533,10 @@ writeAcceleratorEnabled | writeAccelerator를 디스크에서 사용할 수 있�
 createOption | VM이 생성된 방법에 대한 정보
 diffDiskSettings | 임시 디스크 설정
 diskSizeGB | 디스크 크기(GB)
-encryptionSettings | 디스크의 암호화 설정
 이미지   | 원본 사용자 이미지 가상 하드 디스크
+lun     | 디스크의 논리 단위 번호
 managedDisk | 관리 디스크 매개 변수
 name    | 디스크 이름
-osType  | 디스크에 포함된 OS 유형
 VHD     | 가상 하드 디스크
 writeAcceleratorEnabled | writeAccelerator를 디스크에서 사용할 수 있는지 여부
 

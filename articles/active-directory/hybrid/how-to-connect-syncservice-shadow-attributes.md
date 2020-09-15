@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c57ab03f72f0f59dd18a873ddc7cd98d3c36ef9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 128303cb51b39db8442fdda71f949db17923bfa2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356664"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088973"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect 동기화 서비스 섀도 특성
 대부분의 특성은 온-프레미스 Active Directory에 있을 때와 동일한 방식으로 Azure AD에 표현됩니다. 하지만 일부 특성은 조작 방법이 특별하며 Azure AD의 특성 값이 Azure AD Connect가 동기화하는 값과 다를 수 있습니다.
@@ -32,13 +32,13 @@ ms.locfileid: "85356664"
 Azure Portal 또는 PowerShell을 사용하여 섀도 특성을 볼 수는 없습니다. 하지만 개념을 이해하면 온-프레미스와 클라우드의 특성 값이 서로 다른 시나리오를 해결하는 데 도움이 됩니다.
 
 이 동작을 보다 정확하게 이해하려면 Fabrikam의 예를 살펴보세요.  
-![도메인](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
+![스크린샷에는 해당 Azure AD 도메인 값이 추가 되지 않고 확인 되지 않으며 확인 되지 않은 여러 예제에 대 한 Active Directory UPN 접미사가 표시 됩니다.](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
 온-프레미스 Active Directory에 UPN 접미사가 여러 개 있지만 확인된 것은 하나뿐입니다.
 
 ### <a name="userprincipalname"></a>userPrincipalName
 사용자는 유효성이 확인되지 않은 도메인에서 다음과 같은 특성 값을 가집니다.
 
-| 특성 | 값 |
+| attribute | 값 |
 | --- | --- |
 | 온-프레미스 userPrincipalName | lee.sperry@fabrikam.com |
 | Azure AD shadowUserPrincipalName | lee.sperry@fabrikam.com |
@@ -53,7 +53,7 @@ proxyAddresses에서도 확인된 도메인만 포함하기 위한 동일한 프
 
 사서함 사용자의 경우 온-프레미스 또는 Exchange Online에서 확인된 도메인의 값만 표시됩니다. 다음과 같이 표시될 수 있습니다.
 
-| 특성 | 값 |
+| attribute | 값 |
 | --- | --- |
 | 온-프레미스 proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |

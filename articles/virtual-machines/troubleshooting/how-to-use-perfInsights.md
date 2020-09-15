@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7abff8c33ea276b8b8aaeffd010d5f5e09440d9b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 52cdf25b4d77fee0a7a2182e3f1ce60865caf066
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526642"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088564"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Azure에서 PerfInsights를 사용 하는 방법
 
@@ -71,7 +71,7 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 
 이 시나리오에서는 네트워크 추적과 함께 특별한 성능 카운터 캡처를 실행합니다. 캡처에는 모든 SMB(Server Message Block) 클라이언트 공유 카운터가 포함됩니다. 다음은 캡처에 포함되는 몇 가지 주요 SMB 클라이언트 공유 성능 카운터입니다.
 
-| **형식**     | **SMB 클라이언트 공유 카운터** |
+| **유형**     | **SMB 클라이언트 공유 카운터** |
 |--------------|-------------------------------|
 | IOPS         | 데이터 요청 수/초             |
 |              | 읽기 요청 수/초             |
@@ -80,8 +80,8 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 |              | 평균 초/읽기                 |
 |              | 평균 초/쓰기                |
 | IO 크기      | 평균 바이트/데이터 요청       |
-|              | 평균 바이트/읽기               |
-|              | 평균 바이트/쓰기              |
+|              | Avg. Bytes/Read               |
+|              | Avg. Bytes/Write              |
 | 처리량   | 데이터 바이트 수/쓰기                |
 |              | 읽기 바이트 수/초                |
 |              | 쓰기 바이트 수/초               |
@@ -165,7 +165,15 @@ Diskspd IO 워크로드 테스트(OS 디스크[쓰기] 및 풀 드라이브[읽�
 
 -  이 도구는 성능 문제가 있는 VM에서 실행해야 합니다. 
 
--  지원되는 운영 체제는 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016, Windows 8.1과 Windows 10입니다.
+-  지원되는 운영 체제는 다음과 같습니다.
+   * Windows Server 2019
+   * Windows Server 2016
+   * Windows Server 2012 R2
+   * Windows Server 2012
+   * Windows Server 2008 R2
+   * Windows 10
+   * Windows 8.1
+   * Windows 8
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>프로덕션 VM에서 도구 실행 시 발생할 수 있는 문제
 

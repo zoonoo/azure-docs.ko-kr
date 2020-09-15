@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: c8de7148e91f8fafa4a2b1f8a661964a77ead215
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009140"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089448"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식 (웹 SDK)
 
@@ -46,7 +46,7 @@ Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자�
 | [집계 식](#aggregate-expression) | 데이터 집합에 대해 처리 되 고의 옵션과 함께 사용할 수 있는 계산을 정의 하는 식입니다 `clusterProperties` `DataSource` . |
 | [부울 식](#boolean-expressions) | 부울 식은 부울 비교를 평가 하기 위한 부울 연산자 식 집합을 제공 합니다. |
 | [색 식](#color-expressions) | 색 식을 사용 하면 색 값을 보다 쉽게 만들고 조작할 수 있습니다. |
-| [조건부 식](#conditional-expressions) | 조건식은 if 문과 같은 논리 연산을 제공 합니다. |
+| [조건식](#conditional-expressions) | 조건식은 if 문과 같은 논리 연산을 제공 합니다. |
 | [데이터 식](#data-expressions) | 기능에서 속성 데이터에 대 한 액세스를 제공 합니다. |
 | [보간 및 단계 식](#interpolate-and-step-expressions) | 보간 및 단계 식은 보간된 곡선이 나 step 함수를 따라 값을 계산 하는 데 사용할 수 있습니다. |
 | [계층 관련 식](#layer-specific-expressions) | 단일 계층에만 적용 되는 특수 식입니다. |
@@ -72,7 +72,12 @@ Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자�
         "subTitle": "Building 40", 
         "temperature": 72,
         "title": "Cafeteria", 
-        "zoneColor": "red"
+        "zoneColor": "red",
+        "abcArray": ['a', 'b', 'c'],
+        "array2d": [['a', 'b'], ['x', 'y']],
+        "_style": {
+            "fillColor": 'red'
+        }
     }
 }
 ```
@@ -83,14 +88,14 @@ Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자�
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `['at', number, array]` | 개체 | 배열에서 항목을 검색 합니다. |
+| `['at', number, array]` | object | 배열에서 항목을 검색 합니다. |
 | `['geometry-type']` | 문자열 | 기능의 기 하 도형 유형인 Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon을 가져옵니다. |
 | `['get', string]` | 값 | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
 | `['get', string, object]` | 값 | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
 | `['has', string]` | boolean | 기능의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
 | `['has', string, object]` | boolean | 개체의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
 | `['id']` | 값 | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
-| `['length', string | array]` | 숫자 | 문자열이 나 배열의 길이를 가져옵니다. |
+| `['length', string | array]` | number | 문자열이 나 배열의 길이를 가져옵니다. |
 | `['in', boolean | string | number, array]` | boolean | 항목이 배열에 있는지 여부를 확인 합니다. |
 | `['in', substring, string]` | boolean | 문자열에 부분 문자열이 있는지 여부를 확인 합니다. |
 
@@ -137,38 +142,60 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 마찬가지로 다각형의 윤곽선이 선 계층에서 렌더링 됩니다. 선 계층에서이 동작을 사용 하지 않도록 설정 하려면 및 기능만 허용 하는 필터를 추가 `LineString` `MultiLineString` 합니다.  
 
+다음은 데이터 식을 사용 하는 방법에 대 한 몇 가지 추가 예입니다.
+
+```javascript
+//Get item [2] from an array "properties.abcArray[1]" = "c"
+['at', 2, ['get', 'abcArray']]
+
+//Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
+['at', 1, ['at', 0, ['get', 'array2d']]]
+
+//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+['in', 'a', ['get', 'abcArray']]
+
+//Get the length of an array "properties.abcArray.length" = 3
+['length', ['get', 'abcArray']]
+
+//Get the value of a subproperty "properties._style.fillColor" = "red"
+['get', 'fillColor', ['get', '_style']]
+
+//Check that "fillColor" exists as a subproperty of "_style".
+['has', 'fillColor', ['get', '_style']]
+```
+
 ## <a name="math-expressions"></a>수학 식
 
 수학 식은 식 프레임 워크 내에서 데이터 기반 계산을 수행 하는 수치 연산자를 제공 합니다.
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `['+', number, number, …]` | 숫자 | 지정 된 숫자의 합계를 계산 합니다. |
-| `['-', number]` | 숫자 | 지정 된 수 만큼 0을 뺍니다. |
-| `['-', number, number]` | 숫자 | 첫 번째 숫자를 두 번째 숫자로 뺍니다. |
-| `['*', number, number, …]` | 숫자 | 지정 된 숫자를 곱합니다. |
-| `['/', number, number]` | 숫자 | 첫 번째 숫자를 두 번째 숫자로 나눕니다. |
-| `['%', number, number]` | 숫자 | 첫 번째 숫자를 두 번째 숫자로 나눌 때 나머지를 계산 합니다. |
-| `['^', number, number]` | 숫자 | 두 번째 숫자의 거듭제곱으로 발생 한 첫 번째 값의 값을 계산 합니다. |
-| `['abs', number]` | 숫자 | 지정된 숫자의 절대 값을 계산합니다. |
-| `['acos', number]` | 숫자 | 지정 된 숫자의 아크코사인을 계산 합니다. |
-| `['asin', number]` | 숫자 | 지정 된 숫자의 아크사인을 계산 합니다. |
-| `['atan', number]` | 숫자 | 지정 된 숫자의 아크탄젠트를 계산 합니다. |
-| `['ceil', number]` | 숫자 | 숫자를 다음 정수 정수로 반올림 합니다. |
-| `['cos', number]` | 숫자 | 지정 된 수의 cos를 계산 합니다. |
-| `['e']` | 숫자 | 수학 상수를 반환 합니다 `e` . |
-| `['floor', number]` | 숫자 | 숫자를 이전 정수 정수로 내림 합니다. |
-| `['ln', number]` | 숫자 | 지정 된 숫자의 자연 로그를 계산 합니다. |
-| `['ln2']` | 숫자 | 수학 상수를 반환 합니다 `ln(2)` . |
-| `['log10', number]` | 숫자 | 지정 된 숫자의 밑이 10 인 로그를 계산 합니다. |
-| `['log2', number]` | 숫자 | 지정 된 숫자의 밑이 2 인 로그를 계산 합니다. |
-| `['max', number, number, …]` | 숫자 | 지정 된 숫자 집합의 최대 수를 계산 합니다. |
-| `['min', number, number, …]` | 숫자 | 지정 된 숫자 집합의 최소 수를 계산 합니다. |
-| `['pi']` | 숫자 | 수학 상수를 반환 합니다 `PI` . |
-| `['round', number]` | 숫자 | 숫자를 가장 가까운 정수로 반올림 합니다. 중간 값은 0에서 먼 쪽으로 반올림 됩니다. 예를 들어 `['round', -1.5]` 은-2로 계산 됩니다. |
-| `['sin', number]` | 숫자 | 지정 된 숫자의 사인을 계산 합니다. |
-| `['sqrt', number]` | 숫자 | 지정된 숫자의 제곱근을 계산합니다. |
-| `['tan', number]` | 숫자 | 지정 된 숫자의 탄젠트를 계산 합니다. |
+| `['+', number, number, …]` | number | 지정 된 숫자의 합계를 계산 합니다. |
+| `['-', number]` | number | 지정 된 수 만큼 0을 뺍니다. |
+| `['-', number, number]` | number | 첫 번째 숫자를 두 번째 숫자로 뺍니다. |
+| `['*', number, number, …]` | number | 지정 된 숫자를 곱합니다. |
+| `['/', number, number]` | number | 첫 번째 숫자를 두 번째 숫자로 나눕니다. |
+| `['%', number, number]` | number | 첫 번째 숫자를 두 번째 숫자로 나눌 때 나머지를 계산 합니다. |
+| `['^', number, number]` | number | 두 번째 숫자의 거듭제곱으로 발생 한 첫 번째 값의 값을 계산 합니다. |
+| `['abs', number]` | number | 지정된 숫자의 절대 값을 계산합니다. |
+| `['acos', number]` | number | 지정 된 숫자의 아크코사인을 계산 합니다. |
+| `['asin', number]` | number | 지정 된 숫자의 아크사인을 계산 합니다. |
+| `['atan', number]` | number | 지정 된 숫자의 아크탄젠트를 계산 합니다. |
+| `['ceil', number]` | number | 숫자를 다음 정수 정수로 반올림 합니다. |
+| `['cos', number]` | number | 지정 된 수의 cos를 계산 합니다. |
+| `['e']` | number | 수학 상수를 반환 합니다 `e` . |
+| `['floor', number]` | number | 숫자를 이전 정수 정수로 내림 합니다. |
+| `['ln', number]` | number | 지정 된 숫자의 자연 로그를 계산 합니다. |
+| `['ln2']` | number | 수학 상수를 반환 합니다 `ln(2)` . |
+| `['log10', number]` | number | 지정 된 숫자의 밑이 10 인 로그를 계산 합니다. |
+| `['log2', number]` | number | 지정 된 숫자의 밑이 2 인 로그를 계산 합니다. |
+| `['max', number, number, …]` | number | 지정 된 숫자 집합의 최대 수를 계산 합니다. |
+| `['min', number, number, …]` | number | 지정 된 숫자 집합의 최소 수를 계산 합니다. |
+| `['pi']` | number | 수학 상수를 반환 합니다 `PI` . |
+| `['round', number]` | number | 숫자를 가장 가까운 정수로 반올림 합니다. 중간 값은 0에서 먼 쪽으로 반올림 됩니다. 예를 들어 `['round', -1.5]` 은-2로 계산 됩니다. |
+| `['sin', number]` | number | 지정 된 숫자의 사인을 계산 합니다. |
+| `['sqrt', number]` | number | 지정된 숫자의 제곱근을 계산합니다. |
+| `['tan', number]` | number | 지정 된 숫자의 탄젠트를 계산 합니다. |
 
 ## <a name="aggregate-expression"></a>집계 식
 
@@ -181,14 +208,14 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 ```
 
 - 연산자: `mapExpression` 클러스터의 각 지점에 대해가 계산 하는 모든 값에 대해에 적용 되는 식 함수입니다. 지원 되는 연산자: 
-    - 숫자: `+` ,, `*` `max` ,`min`
-    - 부울의 경우: `all` ,`any`
+    - 숫자: `+` ,, `*` `max` , `min`
+    - 부울의 경우: `all` , `any`
 - initialValue: 첫 번째 계산 된 값이 집계 되는 초기 값입니다.
 - mapExpression: 데이터 집합의 각 지점에 대해 적용 되는 식입니다.
 
 **예**
 
-데이터 집합의 모든 기능에 숫자로 된 속성이 있는 경우 `revenue` 그런 다음 데이터 집합에서 만들어진 클러스터의 모든 점에 대 한 총 수익을 계산할 수 있습니다. 이 계산은 다음 집계 식을 사용 하 여 수행 됩니다.`['+', 0, ['get', 'revenue']]`
+데이터 집합의 모든 기능에 숫자로 된 속성이 있는 경우 `revenue` 그런 다음 데이터 집합에서 만들어진 클러스터의 모든 점에 대 한 총 수익을 계산할 수 있습니다. 이 계산은 다음 집계 식을 사용 하 여 수행 됩니다. `['+', 0, ['get', 'revenue']]`
 
 ## <a name="boolean-expressions"></a>부울 식
 
@@ -405,12 +432,12 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 | `['image', string]` | 문자열 | 지정 된 이미지 ID가 맵 이미지 스프라이트에 로드 되는지 확인 합니다. 인 경우 ID가 반환 되 고, 그렇지 않으면 null이 반환 됩니다. |
 | `['to-boolean', value]` | boolean | 입력 값을 부울로 변환 합니다. `false`입력이 빈 문자열인,, 또는 이면이 고, `0` `false` `null` `NaN` 그렇지 않으면입니다 `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | 색 | 입력 값을 색으로 변환 합니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | 숫자 | 가능한 경우 입력 값을 숫자로 변환 합니다. 입력이 또는 이면 `null` `false` 결과는 0입니다. 입력이 이면 `true` 결과는 1입니다. 입력이 문자열이 면 ECMAScript 언어 사양의 [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string 함수를 사용 하 여 숫자로 변환 됩니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | 가능한 경우 입력 값을 숫자로 변환 합니다. 입력이 또는 이면 `null` `false` 결과는 0입니다. 입력이 이면 `true` 결과는 1입니다. 입력이 문자열이 면 ECMAScript 언어 사양의 [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string 함수를 사용 하 여 숫자로 변환 됩니다. 여러 값이 제공 되는 경우 첫 번째 변환이 성공적으로 수행 될 때까지 각 값이 순서 대로 평가 됩니다. 입력을 변환할 수 없는 경우 식이 오류입니다. |
 | `['to-string', value]` | 문자열 | 입력 값을 문자열로 변환 합니다. 입력이 이면 `null` 결과는 `""` 입니다. 입력이 부울 이면 결과는 `"true"` 또는 `"false"` 입니다. 입력이 숫자 이면 ECMAScript 언어 사양의 [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number 함수를 사용 하 여 문자열로 변환 됩니다. 입력이 색 이면 CSS RGBA 색 문자열로 변환 됩니다 `"rgba(r,g,b,a)"` . 그렇지 않으면 ECMAScript 언어 사양의 [json.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) 함수를 사용 하 여 입력이 문자열로 변환 됩니다. |
 | `['typeof', value]` | 문자열 | 지정 된 값의 형식을 설명 하는 문자열을 반환 합니다. |
 
 > [!TIP]
-> 와 유사한 오류 메시지가 `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` 브라우저 콘솔에 표시 되는 경우 코드에 첫 번째 값에 대 한 문자열이 없는 배열이 있는 식이 있음을 의미 합니다. 식이 배열을 반환 하도록 하려면 식을 사용 하 여 배열을 래핑합니다 `literal` . 다음 예에서는 `offset` 식를 사용 하 여 두 개의 숫자를 포함 하는 배열 이어야 하는 기호 계층의 아이콘 옵션을 설정 하 여 `match` point 기능의 속성 값을 기반으로 두 오프셋 값을 선택 합니다 `entityType` .
+> 와 유사한 오류 메시지가 `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` 브라우저 콘솔에 표시 되는 경우 코드에 첫 번째 값에 대 한 문자열이 없는 배열이 있는 식이 있음을 의미 합니다. 식이 배열을 반환 하도록 하려면 식을 사용 하 여 배열을 래핑합니다 `literal` . 다음 예에서는 `offset` 식를 사용 하 여 두 개의 숫자를 포함 하는 배열 이어야 하는 기호 계층의 아이콘 옵션을 설정 하 여 `match` point 기능의 속성 값을 기반으로 두 오프셋 값을 선택 합니다  `entityType` .
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -502,9 +529,9 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 식에 사용할 수 있는 보간 방법에는 다음 세 가지 유형이 있습니다 `interpolate` .
  
-* `['linear']`-중지점의 쌍 사이를 선형으로 보간합니다.
-* `['exponential', base]`-중지 사이에 지를 보간합니다. `base`값은 출력이 늘어나는 속도를 제어 합니다. 값이 높을수록 출력이 범위의 높은 쪽 끝에서 증가 합니다. `base`1에 가까운 값은 보다 선형적으로 향상 되는 출력을 생성 합니다.
-* `['cubic-bezier', x1, y1, x2, y2]`-지정 된 제어점에서 정의 하는 [입방 형 3 차원 곡선](https://developer.mozilla.org/docs/Web/CSS/timing-function) 을 사용 하 여 보간합니다.
+* `['linear']` -중지점의 쌍 사이를 선형으로 보간합니다.
+* `['exponential', base]` -중지 사이에 지를 보간합니다. `base`값은 출력이 늘어나는 속도를 제어 합니다. 값이 높을수록 출력이 범위의 높은 쪽 끝에서 증가 합니다. `base`1에 가까운 값은 보다 선형적으로 향상 되는 출력을 생성 합니다.
+* `['cubic-bezier', x1, y1, x2, y2]` -지정 된 제어점에서 정의 하는 [입방 형 3 차원 곡선](https://developer.mozilla.org/docs/Web/CSS/timing-function) 을 사용 하 여 보간합니다.
 
 다음은 이러한 여러 유형의 보간의 예입니다. 
 
@@ -609,7 +636,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ### <a name="heat-map-density-expression"></a>열 지도 밀도 식
 
-열 지도 밀도 식은 열 지도 계층의 각 픽셀에 대 한 열 지도 밀도 값을 검색 하 고로 정의 됩니다 `['heatmap-density']` . 이 값은에서 사이의 숫자 `0` 입니다 `1` . 또는 식과 함께 사용 되어 `interpolation` `step` 열 지도를 색으로 지정 하는 데 사용 되는 색 그라데이션을 정의 합니다. 이 식은 열 지도 계층의 [색 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) 에만 사용할 수 있습니다.
+열 지도 밀도 식은 열 지도 계층의 각 픽셀에 대 한 열 지도 밀도 값을 검색 하 고로 정의 됩니다 `['heatmap-density']` . 이 값은에서 사이의 숫자 `0` 입니다 `1` . 또는 식과 함께 사용 되어 `interpolation` `step` 열 지도를 색으로 지정 하는 데 사용 되는 색 그라데이션을 정의 합니다. 이 식은 열 지도 계층의 [색 옵션](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) 에만 사용할 수 있습니다.
 
 > [!TIP]
 > 보간 식의 인덱스 0에 있는 색 또는 단계 색의 기본 색은 데이터가 없는 영역의 색을 정의 합니다. 인덱스 0에 있는 색은 배경색을 정의 하는 데 사용할 수 있습니다. 대부분 이 값을 투명 또는 반투명 검은색으로 설정하는 것을 선호합니다.
@@ -653,7 +680,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 ### <a name="line-progress-expression"></a>줄 진행률 식
 
-줄 진행률 식은 선 계층에서 그라데이션 선을 따라 진행률을 검색 하 고로 정의 됩니다 `['line-progress']` . 이 값은 0에서 1 사이의 숫자입니다. 또는 식과 함께 사용 `interpolation` `step` 됩니다. 이 식은 선 계층의 [strokeGradient 옵션]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) 에만 사용할 수 있습니다. 
+줄 진행률 식은 선 계층에서 그라데이션 선을 따라 진행률을 검색 하 고로 정의 됩니다 `['line-progress']` . 이 값은 0에서 1 사이의 숫자입니다. 또는 식과 함께 사용 `interpolation` `step` 됩니다. 이 식은 선 계층의 [strokeGradient 옵션]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) 에만 사용할 수 있습니다. 
 
 > [!NOTE]
 > `strokeGradient`선 계층의 옵션을 사용 하려면 `lineMetrics` 데이터 소스의 옵션을로 설정 해야 합니다 `true` .
@@ -684,9 +711,9 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 
 텍스트 필드 형식 식은 `textField` 기호 계층 속성의 옵션과 함께 사용 `textOptions` 하 여 혼합 텍스트 서식을 제공할 수 있습니다. 이 식을 사용 하면 입력 문자열과 서식 옵션의 집합을 지정할 수 있습니다. 이 식의 각 입력 문자열에 대해 다음과 같은 옵션을 지정할 수 있습니다.
 
- * `'font-scale'`-글꼴 크기의 배율 인수를 지정 합니다. 지정 된 경우이 값은 `size` `textOptions` 개별 문자열에 대해의 속성을 재정의 합니다.
- * `'text-font'`-이 문자열에 사용 해야 하는 글꼴 패밀리를 하나 이상 지정 합니다. 지정 된 경우이 값은 `font` `textOptions` 개별 문자열에 대해의 속성을 재정의 합니다.
- * `'text-color'`-렌더링할 때 텍스트에 적용할 색을 지정 합니다. 
+ * `'font-scale'` -글꼴 크기의 배율 인수를 지정 합니다. 지정 된 경우이 값은 `size` `textOptions` 개별 문자열에 대해의 속성을 재정의 합니다.
+ * `'text-font'` -이 문자열에 사용 해야 하는 글꼴 패밀리를 하나 이상 지정 합니다. 지정 된 경우이 값은 `font` `textOptions` 개별 문자열에 대해의 속성을 재정의 합니다.
+ * `'text-color'` -렌더링할 때 텍스트에 적용할 색을 지정 합니다. 
 
 다음 의사 코드는 텍스트 필드 형식 식의 구조를 정의 합니다. 
 
@@ -743,16 +770,16 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
  
 <center>
 
-![서식이 지정 된 텍스트 필드가 ](media/how-to-expressions/text-field-format-expression.png) 있는 Point 기능 이미지</center>
+![서식이 지정 된 텍스트 필드가 ](media/how-to-expressions/text-field-format-expression.png) 있는 Point 기능 이미지 </center>
 
 ### <a name="number-format-expression"></a>숫자 형식 식
 
 식에는 `number-format` `textField` 기호 계층의 옵션만 사용할 수 있습니다. 이 식은 제공 된 숫자를 서식이 지정 된 문자열로 변환 합니다. 이 식은 JavaScript의 [Number. toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) 함수를 래핑하고 다음 옵션 집합을 지원 합니다.
 
- * `locale`-지정 된 언어로 정렬 되는 방식으로 숫자를 문자열로 변환 하려면이 옵션을 지정 합니다. 이 옵션에 [BCP 47 언어 태그](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) 를 전달 합니다.
- * `currency`-숫자를 통화를 나타내는 문자열로 변환 합니다. 가능한 값은 미국 달러의 경우 "USD", 유로화의 경우 "EUR", 중국어 RMB의 경우 "CNY"와 같은 [ISO 4217 통화 코드](https://en.wikipedia.org/wiki/ISO_4217)입니다.
- * `'min-fraction-digits'`-숫자의 문자열 버전에 포함할 최소 소수 자릿수를 지정 합니다.
- * `'max-fraction-digits'`-숫자의 문자열 버전에 포함할 최대 소수 자릿수를 지정 합니다.
+ * `locale` -지정 된 언어로 정렬 되는 방식으로 숫자를 문자열로 변환 하려면이 옵션을 지정 합니다. 이 옵션에 [BCP 47 언어 태그](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) 를 전달 합니다.
+ * `currency` -숫자를 통화를 나타내는 문자열로 변환 합니다. 가능한 값은 미국 달러의 경우 "USD", 유로화의 경우 "EUR", 중국어 RMB의 경우 "CNY"와 같은 [ISO 4217 통화 코드](https://en.wikipedia.org/wiki/ISO_4217)입니다.
+ * `'min-fraction-digits'` -숫자의 문자열 버전에 포함할 최소 소수 자릿수를 지정 합니다.
+ * `'max-fraction-digits'` -숫자의 문자열 버전에 포함할 최대 소수 자릿수를 지정 합니다.
 
 다음 의사 코드는 텍스트 필드 형식 식의 구조를 정의 합니다. 
 
@@ -916,16 +943,16 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 식을 지 원하는 계층 옵션에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)
+> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
+> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
+> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
+> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)

@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: bfb7c94f1a29eaaf849dbf18a2b6137102617be8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a9e563f32f2b8f38af7ab86be82cd18ef1c2309c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986851"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088411"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Azure SQL Database 및 SQL Managed Instance 보안 기능 개요
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -79,7 +79,7 @@ RLS(행 수준 보안)를 사용하면 고객이 쿼리를 실행하는 사용�
 
 ![azure-database-rls.png](./media/security-overview/azure-database-rls.png)
 
-## <a name="threat-protection"></a>위협 방지
+## <a name="threat-protection"></a>위협 보호
 
 SQL Database 및 SQL Managed Instance 감사 및 위협 검색 기능을 제공 하 여 고객 데이터를 보호 합니다.
 
@@ -87,9 +87,9 @@ SQL Database 및 SQL Managed Instance 감사 및 위협 검색 기능을 제공 
 
 SQL Database 및 SQL Managed Instance 감사는 데이터베이스 작업을 추적 하 고, 고객 소유 Azure storage 계정의 감사 로그에 데이터베이스 이벤트를 기록 하 여 보안 표준 준수를 유지 하는 데 도움이 됩니다. 사용자는 감사를 통해 진행 중인 데이터베이스 활동을 모니터링하고 이전 활동을 분석 및 조사하여 잠재적 위협이나 악용 의심 사례 및 보안 위반을 식별할 수 있습니다. 자세한 내용은 [SQL Database 감사 시작](../../azure-sql/database/auditing-overview.md)을 참조하세요.  
 
-### <a name="advanced-threat-protection"></a>고급 위협 보호
+### <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
-Advanced Threat Protection은 로그를 분석 하 여 비정상적인 동작을 감지 하 고 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 감지 합니다. 경고는 SQL 삽입, 잠재적 데이터 침입 및 무차별 암호 대입 공격과 같은 의심 스러운 활동에 대해 만들어지거나 권한 상승 및 위반 된 자격 증명 사용을 포착 하기 위한 액세스 패턴의 이상에서 발생 합니다. 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 볼 수 있습니다. 여기에서 의심 스러운 활동에 대 한 세부 정보를 제공 하 고, 위협을 완화 하는 작업과 함께 제공 된 추가 조사에 대 한 권장 사항을 제공 합니다. 추가 요금을 위해 서버당 Advanced Threat Protection을 사용 하도록 설정할 수 있습니다. 자세한 내용은 [SQL Database Advanced Threat Protection 시작](threat-detection-configure.md)을 참조 하세요.
+Advanced Threat Protection은 로그를 분석 하 여 비정상적인 동작을 감지 하 고 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 감지 합니다. 경고는 SQL 삽입, 잠재적 데이터 침입 및 무차별 암호 대입 공격과 같은 의심 스러운 활동에 대해 만들어지거나 권한 상승 및 위반 된 자격 증명 사용을 포착 하기 위한 액세스 패턴의 이상에서 발생 합니다. 경고는  [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 볼 수 있습니다. 여기에서 의심 스러운 활동에 대 한 세부 정보를 제공 하 고, 위협을 완화 하는 작업과 함께 제공 된 추가 조사에 대 한 권장 사항을 제공 합니다. 추가 요금을 위해 서버당 Advanced Threat Protection을 사용 하도록 설정할 수 있습니다. 자세한 내용은 [SQL Database Advanced Threat Protection 시작](threat-detection-configure.md)을 참조 하세요.
 
 ![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
 
@@ -103,7 +103,7 @@ SQL Database 및 SQL Managed Instance 모든 연결에 대해 항상 암호화 (
 
 응용 프로그램에서 사용 하는 연결 문자열에서 암호화 된 연결을 지정 하 고 서버 인증서를 신뢰 _**하지**_ 않는 것이 좋습니다. 이렇게 하면 응용 프로그램이 서버 인증서를 확인 하 여 응용 프로그램이 중간 유형의 공격을 받을 수 없게 됩니다.
 
-예를 들어 ADO.NET 드라이버를 사용 하는 경우 **Encrypt = True** 및 **Trustservercertificate = False**를 통해이를 수행 합니다. Azure Portal에서 연결 문자열을 얻는 경우 올바른 설정이 사용됩니다.
+예를 들어 ADO.NET 드라이버를 사용 하는 경우  **Encrypt = True** 및 **Trustservercertificate = False**를 통해이를 수행 합니다. Azure Portal에서 연결 문자열을 얻는 경우 올바른 설정이 사용됩니다.
 
 > [!IMPORTANT]
 > 일부 타사 드라이버는 기본적으로 TLS를 사용 하지 않거나 작동 하기 위해 이전 버전의 TLS (<1.2)를 사용 하지 않을 수 있습니다. 이 경우 서버에서 데이터베이스에 연결할 수 있습니다. 그러나 특히 중요 한 데이터를 저장 하는 경우 이러한 드라이버와 응용 프로그램이 SQL Database에 연결 하도록 허용 하는 보안 위험을 평가 하는 것이 좋습니다.
@@ -140,17 +140,17 @@ Azure에서 새로 만든 모든 데이터베이스는 기본적으로 암호화
 
 ### <a name="data-discovery-and-classification"></a>데이터 검색 및 분류
 
-데이터 검색 및 분류 (현재 미리 보기 상태)는 데이터베이스의 중요 한 데이터를 검색, 분류, 레이블 지정 및 보호 하기 위해 Azure SQL Database 및 SQL Managed Instance에 기본 제공 되는 고급 기능을 제공 합니다. 업무/금융, 의료, 개인 데이터 등의 매우 중요한 데이터를 검색하고 분류하는 작업은 조직 정보 보호 상태를 유지하는 데 중추적인 역할을 할 수 있습니다. 다음에 대한 인프라를 제공할 수 있습니다.
+데이터 검색 및 분류 (현재 미리 보기 상태)는 데이터베이스의 중요 한 데이터를 검색, 분류, 레이블 지정 및 보호 하기 위해 Azure SQL Database 및 SQL Managed Instance에 기본 제공 되는 고급 기능을 제공 합니다. 업무/금융, 의료, 개인 데이터 등의 매우 중요한 데이터를 검색하고 분류하는 작업은 조직 정보 보호 상태를 유지하는 데 중추적인 역할을 할 수 있습니다. 다음에 대한 인프라 역할을 할 수 있습니다.
 
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 - 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 액세스 제어 및 보안 강화.
-- 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원.
+- 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원
 
 자세한 내용은 [데이터 검색 및 분류 시작](data-discovery-and-classification-overview.md)을 참조 하세요.
 
 ### <a name="compliance"></a>규정 준수
 
-Azure SQL Database는 위의 기능 및 애플리케이션이 다양한 보안 요구 사항을 충족하는 데 도움이 될 수 있는 기능을 포함할 뿐 아니라, 정기 감사도 받고 있으며 다수의 규정 준수 표준 충족 인증도 취득했습니다. 자세한 내용은 SQL Database 준수 인증의 최신 목록을 찾을 수 있는 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 를 참조 하세요.
+Azure SQL Database는 위의 기능 및 애플리케이션이 다양한 보안 요구 사항을 충족하는 데 도움이 될 수 있는 기능을 포함할 뿐 아니라, 정기 감사도 받고 있으며 다수의 규정 준수 표준 충족 인증도 취득했습니다. 자세한 내용은 SQL Database 준수 인증의 최신 목록을 찾을 수 있는 [Microsoft Azure 보안 센터](https://www.microsoft.com/trust-center/compliance/compliance-overview) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

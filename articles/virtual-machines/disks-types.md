@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 53089fa42c536cbdc59865f80f63a77c76720e2c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: bfc1a818aeb85eca04faca713d4c7acbbce3626a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752019"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088496"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure에서 사용할 수 있는 디스크 유형
 
@@ -71,12 +71,12 @@ Ultra disks 사용을 시작 하려는 경우 주제: [Azure ultra Disks 사용]
 
 Azure 프리미엄 SSD는 IO(입출력) 집약적 워크로드가 있는 VM(가상 머신)에 대기 시간이 짧은 고성능 디스크를 지원합니다. 프리미엄 스토리지 디스크의 속도와 성능을 활용하기 위해 기존 VM 디스크를 프리미엄 SSD로 마이그레이션할 수 있습니다. 프리미엄 SSD는 중요 업무용 프로덕션 애플리케이션에 적합합니다. Premium Ssd는 프리미엄 저장소와 호환 되는 VM 시리즈에만 사용할 수 있습니다.
 
-프리미엄 저장소와 호환 되는 크기를 비롯 하 여 Windows 또는 Linux 용 Azure의 개별 VM 유형 및 크기에 대 한 자세한 내용은 [azure의 가상 머신 크기](sizes.md)를 참조 하세요. 프리미엄 저장소와 호환 되는 크기를 포함 하 여 Linux 용 Azure의 개별 VM 유형 및 크기에 대 한 자세한 내용은 [azure의 가상 머신 크기](sizes.md)를 참조 하세요. 이러한 문서 중 하나에서 각 개별 VM 크기 문서를 확인 하 여 premium storage와 호환 되는지 확인 해야 합니다.
+프리미엄 저장소와 호환 되는 크기를 비롯 하 여 Windows 또는 Linux 용 Azure의 개별 VM 유형 및 크기에 대 한 자세한 내용은 [azure의 가상 머신 크기](sizes.md)를 참조 하세요. 이 문서에서는 각 개별 VM 크기 문서를 확인 하 여 premium storage와 호환 되는지 확인 해야 합니다.
 
 ### <a name="disk-size"></a>디스크 크기
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
-Premium Storage 디스크를 프로비전하면 표준 스토리지와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 스토리지 용량 4,095GB, 7,500 IOPS, 250MB/초 처리량이 프로비전됩니다. 애플리케이션에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다. 프리미엄 SSD 디스크는 이전 테이블의 99.9%에 설명 된 낮은 1 자리 밀리초 대기 시간 및 대상 IOPS 및 처리량을 제공 하도록 설계 되었습니다.
+Premium Storage 디스크를 프로비전하면 표준 스토리지와 달리, 해당 디스크의 용량, IOPS 및 처리량이 보장됩니다. 예를 들어 P50 디스크를 만들면 Azure에서 해당 디스크에 스토리지 용량 4,095GB, 7,500 IOPS, 250MB/초 처리량이 프로비전됩니다. 애플리케이션에서 용량 및 성능의 전체 또는 일부를 사용할 수 있습니다. 프리미엄 SSD 디스크는 한자리 밀리초 미만의 낮은 지연 시간과 시간의 99.9% 동안 이전 표에서 설명한 목표 IOPS 및 처리량을 제공하도록 설계되었습니다.
 
 ## <a name="bursting"></a>화
 

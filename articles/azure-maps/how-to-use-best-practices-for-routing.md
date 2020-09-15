@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b957453758b9b8e34989877516a9083f06a85ed8
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400786"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086405"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>경로 서비스 Azure Maps에 대 한 모범 사례
 
@@ -75,7 +75,7 @@ Route Service의 적용 범위에 대 한 자세한 내용은 [라우팅 검사]
 
 요청에 **computeTravelTimeFor = all** 매개 변수를 포함 하는 경우 응답의 요약 요소에는 기록 트래픽 상태를 포함 하 여 다음과 같은 추가 필드가 포함 됩니다.
 
-| 요소 | Description|
+| 요소 | 설명|
 | :--- | :--- |
 | noTrafficTravelTimeInSeconds | 트래픽 조건으로 인해 경로에 지연이 발생 하지 않는 경우 처럼 계산 된 예상 이동 시간 (예: 정체 때문) |
 | historicTrafficTravelTimeInSeconds | 시간 종속 기록 트래픽 데이터를 사용 하 여 계산 된 예상 이동 시간 |
@@ -275,7 +275,7 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>웹 앱에서 라우팅 서비스 사용
 
-Azure Maps 웹 SDK는 [서비스 모듈](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest)을 제공 합니다. 이 모듈은 JavaScript 또는 TypeScript를 사용 하 여 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST Api를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다. 서비스 모듈은 맵에 반환 된 경로를 렌더링 하는 데 사용할 수 있습니다. 모듈은 GET 및 POST 요청에 사용할 API를 자동으로 결정 합니다.
+Azure Maps 웹 SDK는 [서비스 모듈](https://docs.microsoft.com/javascript/api/azure-maps-rest/)을 제공 합니다. 이 모듈은 JavaScript 또는 TypeScript를 사용 하 여 웹 또는 Node.js 응용 프로그램에서 Azure Maps REST Api를 쉽게 사용할 수 있도록 하는 도우미 라이브러리입니다. 서비스 모듈은 맵에 반환 된 경로를 렌더링 하는 데 사용할 수 있습니다. 모듈은 GET 및 POST 요청에 사용할 API를 자동으로 결정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

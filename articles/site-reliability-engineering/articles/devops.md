@@ -3,17 +3,17 @@ title: 'FAQ: SRE 및 DevOps | Microsoft Docs'
 titleSuffix: Azure
 description: 'FAQ: SRE와 DevOps 간의 관계 이해'
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: e917c609b484b1a58377fea2f6cdd75dde30ca6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d0698f2780a4ccc41eedbde70fddea1766c5f21
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82196414"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090332"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>질문과 대답: SRE와 DevOps 간의 관계는 무엇입니까?
 
@@ -24,8 +24,8 @@ ms.locfileid: "82196414"
 SRE 및 DevOps는 포함 된 문제에 대 한 응답으로 만들고 개발 된 최신 작업 사례입니다.
 
 - 프로덕션 환경 및 개발 프로세스의 복잡성 증가
-- 이러한 환경의 지속적인 작동에 대 한 비즈니스 종속성 개선
-- 이러한 환경의 크기에 비례하여 직원의 규모를 조정할 수 없습니다.
+- 이러한 환경의 지속적인 작동에 대한 비즈니스 종속성 개선
+- 이러한 환경의 규모에 비례하여 직원의 규모를 조정할 수 없음
 - 운영 안정성을 유지 하면서 더 빠르게 이동 해야 하는 경우
 
 두 작업 사례는 모니터링/관찰성, 자동화, 설명서 및 공동 작업 소프트웨어 개발 도구와 같은 이러한 문제를 처리 하는 데 중요 한 주제에 주의를 기울여야 합니다.
@@ -52,7 +52,7 @@ SRE와 DevOps에 대 한 정의가 여러 개 있기 때문에 이러한 비교�
 
 [Azure Devops 리소스 센터](https://docs.microsoft.com/azure/devops/learn/)에서이 devops 정의를 사용 하는 경우:
 
-> DevOps는 최종 사용자에게 지속적으로 가치를 제공할 수 있는 사람, 프로세스 및 제품의 합집합입니다.
+> DevOps는 최종 사용자에게 지속적으로 가치를 업데이트할 수 있는 사람, 프로세스 및 제품의 합집합입니다.
 
 그러면 DevOps에 대 한 유사한 추출을 "배달" 일 수 있습니다.
 

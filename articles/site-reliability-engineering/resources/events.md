@@ -2,17 +2,17 @@
 title: SRE 이벤트 목록 | Microsoft Docs
 description: 이러한 이벤트에 참여 하 여 글로벌 SRE 커뮤니티에 참여 하세요.
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: 5360ada6dab19564bfa88697d2adc6ef751f3935
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c36b517943ac6d18b0658ea5cb97c47503de26b1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78254813"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090298"
 ---
 # <a name="participate-in-the-global-site-reliability-engineering-community"></a>글로벌 사이트 안정성 엔지니어링 커뮤니티 참여
 

@@ -3,17 +3,17 @@ title: 'FAQ: SRE 및 코딩 | Microsoft Docs'
 titleSuffix: Azure
 description: 'FAQ: SRE와 코딩 간의 관계 이해'
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 06/19/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: 7003844878fcd23b20957c393ac2ed011f5f5946
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8865fdd53f4947b17a3621a128fc83f3d93d3e2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85834940"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089074"
 ---
 # <a name="frequently-asked-questions-do-i-need-to-know-how-to-code-to-get-involved-with-sre"></a>질문과 대답: SRE와 관련 하 여 코드를 실행 하는 방법을 알고 있어야 하나요?
 

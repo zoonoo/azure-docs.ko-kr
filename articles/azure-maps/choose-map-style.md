@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 15224afac33a3e236c2d1ed9f60515bdc2f34c4f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fe07d6d54296a3c55cb0b2cadb4d4ae0a311873b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036796"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089567"
 ---
 # <a name="change-the-style-of-the-map"></a>맵 스타일 변경
 
@@ -82,7 +82,7 @@ var map = new atlas.Map('map', {
 map.setStyle({ style: 'satellite' });
 ```
 
-다음 코드에서 map 인스턴스가 로드 된 후 `grayscale_dark` `satellite` [system.windows.forms.control.setstyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-) 함수를 사용 하 여 지도 스타일이에서로 업데이트 됩니다.
+다음 코드에서 map 인스턴스가 로드 된 후 `grayscale_dark` `satellite` [system.windows.forms.control.setstyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-) 함수를 사용 하 여 지도 스타일이에서로 업데이트 됩니다.
 
 <br/>
 
@@ -97,14 +97,14 @@ map.setStyle({ style: 'satellite' });
 
 아래 이미지는 레이아웃에 표시 되는 스타일 선택기 컨트롤을 보여 줍니다 `icon` .
 
-:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="스타일 선택 목록 레이아웃":::
+:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="스타일 선택 아이콘 레이아웃":::
 
 아래 이미지는 레이아웃에 표시 되는 스타일 선택기 컨트롤을 보여 줍니다 `list` .
 
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="스타일 선택 목록 레이아웃":::
 
 > [!IMPORTANT]
->기본적으로 스타일 선택 컨트롤은 Azure Maps의 S0 가격 책정 계층에서 사용할 수 있는 모든 스타일을 나열 합니다. 이 목록에 있는 스타일의 수를 줄이려면 목록에 표시할 스타일의 배열을 `mapStyle` 스타일 선택기의 옵션에 전달 합니다. S1을 사용 중이 고 사용 가능한 모든 스타일을 표시 하려는 경우 `mapStyles` 스타일 선택기의 옵션을로 설정 `"all"` 합니다.
+> 기본적으로 스타일 선택 컨트롤은 Azure Maps의 S0 가격 책정 계층에서 사용할 수 있는 모든 스타일을 나열 합니다. 이 목록에 있는 스타일의 수를 줄이려면 목록에 표시할 스타일의 배열을 `mapStyle` 스타일 선택기의 옵션에 전달 합니다. S1을 사용 중이 고 사용 가능한 모든 스타일을 표시 하려는 경우 `mapStyles` 스타일 선택기의 옵션을로 설정 `"all"` 합니다.
 
 다음 코드에서는 기본 스타일 목록을 재정의 하는 방법을 보여 줍니다 `mapStyles` . 이 예에서는 옵션을 설정 하 여 `mapStyles` 스타일 선택 컨트롤에서 표시 하려는 기본 스타일을 나열 합니다.
 

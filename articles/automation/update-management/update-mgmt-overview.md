@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 09/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: c95bd7523a57c2de02686d3cd06190e60550de0a
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: ab2c584b1e62ac8296c4e9489a72489cd815fc3c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024143"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089856"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -108,7 +108,7 @@ Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft
 
 업데이트 관리를 Microsoft Endpoint Configuration Manager와 함께 사용할 수 있습니다. 통합 시나리오에 대한 자세한 내용은 To learn more about integration scenarios, see [Windows Endpoint Configuration Manager와 업데이트 관리 통합](update-mgmt-mecmintegration.md)을 참조하세요. Configuration Manager 환경에서 사이트에 의해 관리되는 Windows 서버에는 [Windows용 Log Analytics 에이전트](../../azure-monitor/platform/agent-windows.md)가 필요합니다. 
 
-기본적으로 Azure Marketplace에서 배포된 VM은 Windows 업데이트 서비스에서 자동으로 업데이트를 받도록 설정됩니다. 이 동작은 작업 영역에 Windows VM을 추가해도 달라지지 않습니다. 업데이트 관리를 사용하여 업데이트를 적극적으로 관리하지 않는 경우 기본 동작(업데이트 자동 적용)이 적용됩니다.
+기본적으로 Azure Marketplace에서 배포 된 Windows Vm은 Windows 업데이트 서비스에서 자동 업데이트를 받도록 설정 됩니다. 이 동작은 작업 영역에 Windows VM을 추가해도 달라지지 않습니다. 업데이트 관리를 사용하여 업데이트를 적극적으로 관리하지 않는 경우 기본 동작(업데이트 자동 적용)이 적용됩니다.
 
 > [!NOTE]
 > 머신 재부팅이 시스템이 아니라 사용자에 의해서만 수행될 수 있도록 그룹 정책을 수정할 수 있습니다. 관리형 머신은 업데이트 관리에 사용자의 수동 개입 없이 머신을 재부팅할 권한이 없는 경우 멈출 수 있습니다. 자세한 내용은 [자동 업데이트를 위한 그룹 정책 설정 구성](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates)을 참조하세요.
@@ -122,7 +122,7 @@ Linux의 경우 머신에 업데이트 리포지토리에 대한 프라이빗 �
 
 Linux용 Log Analytics 에이전트를 설치하고 최신 버전을 다운로드하는 방법은 [Linux용 Log Analytics 에이전트](../../azure-monitor/platform/agent-linux.md)를 참조하세요.
 
-Azure Marketplace에서 제공되는 주문형 RHEL(Red Hat Enterprise Linux) 이미지에서 만든 VM은 Azure에 배포된 [RHUI(Red Hat Update Infrastructure)](../../virtual-machines/workloads/redhat/redhat-rhui.md)에 액세스하도록 등록됩니다. 다른 모든 Linux 배포판은 해당 배포판에서 지원되는 방법을 사용하여 배포판의 온라인 파일 리포지토리에서 업데이트되어야 합니다.
+Azure Marketplace에서 사용할 수 있는 주문형 Red Hat Enterprise Linux (RHEL) 이미지에서 만든 Vm은 Azure에 배포 된 [RHUI (Red Hat Update Infrastructure)](../../virtual-machines/workloads/redhat/redhat-rhui.md) 에 액세스 하도록 등록 됩니다. 다른 모든 Linux 배포판은 해당 배포판에서 지원되는 방법을 사용하여 배포판의 온라인 파일 리포지토리에서 업데이트되어야 합니다.
 
 ## <a name="permissions"></a>사용 권한
 
@@ -136,7 +136,7 @@ Azure Marketplace에서 제공되는 주문형 RHEL(Red Hat Enterprise Linux) �
 
 업데이트 관리를 사용하도록 설정하면 Log Analytics 작업 영역에 직접 연결된 모든 Windows 머신이 자동으로 Hybrid Runbook Worker로 구성되어 업데이트 관리를 지원하는 Runbook을 지원합니다.
 
-업데이트 관리에서 관리되는 각 Windows 머신은 경우 해당 Automation 계정의 Hybrid Worker 그룹 창에 시스템 Hybrid Worker 그룹으로 표시됩니다. 그룹은 `Hostname FQDN_GUID` 명명 규칙을 사용합니다. 계정에서 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없습니다. 대상으로 지정하려고 시도해도 실패하게 됩니다. 그룹은 업데이트 관리를 지원하는 용도로만 사용할 수 있습니다.
+업데이트 관리에서 관리되는 각 Windows 머신은 경우 해당 Automation 계정의 Hybrid Worker 그룹 창에 시스템 Hybrid Worker 그룹으로 표시됩니다. 그룹은 `Hostname FQDN_GUID` 명명 규칙을 사용합니다. 계정에서 Runbook을 사용하여 이러한 그룹을 대상으로 지정할 수 없습니다. 대상으로 지정하려고 시도해도 실패하게 됩니다. 그룹은 업데이트 관리를 지원하는 용도로만 사용할 수 있습니다. Hybrid Runbook Worker 구성 된 Windows 컴퓨터의 목록을 보는 방법에 대 한 자세한 내용은 [Hybrid Runbook worker 보기](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers)를 참조 하세요.
 
 업데이트 관리와 Hybrid Runbook Worker 그룹 멤버 자격에 동일한 계정을 사용하는 경우, Automation 계정의 Hybrid Runbook Worker 그룹에 Windows 머신을 추가하여 Automation Runbook을 지원할 수 있습니다. 이 기능은 Hybrid Runbook Worker의 7.2.12024.0 버전에 추가되었습니다.
 

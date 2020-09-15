@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028552"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090655"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Windows용 Azure Performance Diagnostics VM 확장
 
@@ -27,9 +27,17 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 > [!NOTE]
 > 클래식이 아닌 VM에 대한 Azure Portal의 VM에서 진단을 실행하려는 경우 새 환경을 사용하는 것이 좋습니다. 자세한 내용은 [Azure 가상 머신에 대한 진단 수행](performance-diagnostics.md)을 참조 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 확장은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016에 설치될 수 있습니다. Windows 8.1 및 Windows 10에 설치할 수도 있습니다.
+이 확장은 다음에 설치할 수 있습니다.
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ## <a name="extension-schema"></a>확장 스키마
 다음 JSON은 Azure 성능 진단 VM 확장에 대한 스키마를 나타냅니다. 이 확장에는 진단 출력과 보고서를 저장하기 위해 스토리지 계정의 이름과 키가 필요합니다. 이러한 값은 중요합니다. 스토리지 계정 키는 보호되는 설정 구성 안에 저장되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **Storageaccountname** 및 **storageAccountKey** 은 대/소문자를 구분 합니다. 다른 필수 매개 변수는 다음 섹션에 나열됩니다.
@@ -66,18 +74,18 @@ Azure 성능 진단 VM 확장을 통해 Windows VM의 성능 진단 데이터를
 
 ### <a name="property-values"></a>속성 값
 
-|   **이름**   |**값/예제**|       **설명**      |
+|   **Name**   |**값/예제**|       **설명**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|API 버전입니다.
-|publisher|Microsoft.Azure.Performance.Diagnostics|확장의 게시자 네임스페이스입니다.
-|형식|AzurePerformanceDiagnostics|VM 확장의 형식입니다.
+|게시자|Microsoft.Azure.Performance.Diagnostics|확장의 게시자 네임스페이스입니다.
+|type|AzurePerformanceDiagnostics|VM 확장의 형식입니다.
 |typeHandlerVersion|1.0|확장 처리기 버전입니다.
 |performanceScenario|basic|데이터를 캡처할 성능 시나리오입니다. 유효한 값: **basic**, **vmslow**, **azurefiles** 및 **custom**
 |traceDurationInSeconds|300|추적 옵션을 선택한 경우 추적 기간입니다.
 |perfCounterTrace|p|성능 카운터 추적을 사용하는 옵션. 유효한 값은 **p** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
 |networkTrace|n|네트워크 추적을 사용하는 옵션입니다. 유효한 값은 **n** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
 |xperfTrace|x|XPerf 추적을 사용하는 옵션. 유효한 값은 **x** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
-|storPortTrace|s|StorPort 추적을 사용하는 옵션. 유효한 값은 **s** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
+|storPortTrace|초|StorPort 추적을 사용하는 옵션. 유효한 값은 **s** 또는 빈 값입니다. 이 추적을 캡처하지 않을 경우 빈 값으로 둡니다.
 |srNumber|123452016365929|사용 가능한 경우 지원 티켓 번호입니다. 값이 없으면 비워 둡니다.
 |requestTimeUtc|2017-09-28T22:08:53.736Z|현재 날짜 시간(UTC). 포털을 사용하여 이 확장을 설치하는 경우 이 값을 제공하지 않아도 됩니다.
 |resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|VM의 고유 식별자

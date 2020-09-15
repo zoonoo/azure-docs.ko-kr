@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 080952752dc5abfd7cf61ae1c5b00b539af58b99
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 5a85efc5de0d99904da568c97672adf40ce8a414
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646570"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088921"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>네트워크에 대 한 Azure Monitor (미리 보기)
 네트워크에 대 한 Azure Monitor는 구성 없이 배포 된 모든 네트워크 리소스에 대 한 상태 및 메트릭의 포괄적인 보기를 제공 합니다. 고급 검색 기능을 사용 하면 호스트 된 웹 사이트 이름을 검색 하 여 웹 사이트를 호스트 하는 리소스를 식별 하는 등의 시나리오를 지 원하는 리소스 종속성을 식별할 수 있습니다.
@@ -30,7 +30,7 @@ ms.locfileid: "89646570"
 
 검색 상자를 사용 하 여 리소스 및 연결 된 리소스를 검색할 수 있습니다. 예를 들어 공용 IP는 Application Gateway 연결 됩니다. 공용 IP DNS 이름 검색은 공용 IP와 연결 된 Application Gateway를 모두 식별 합니다.
 
-![검색](media/network-insights-overview/search.png)
+![DNS 이름 검색 결과를 보여 주는 스크린샷](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Resource Health 및 메트릭

@@ -3,14 +3,14 @@ title: Azure Automation Hybrid Runbook Worker 개요
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 공급자의 머신에서 Runbook을 실행하는 데 사용할 수 있는 Hybrid Runbook Worker에 대한 개요를 제공합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/16/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d29979e28140b728478d405db934cb41783f4b0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f5dc9305df8ce0e26e13738d605849fa75cc53a7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448080"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087894"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Hybrid Runbook Worker 개요
 
@@ -51,9 +51,9 @@ Hybrid Runbook Worker에서 Azure Automation에 연결하고 등록하려면 이
 Hybrid Runbook Worker에는 다음 포트와 URL이 필요합니다.
 
 * 포트: 아웃바운드 인터넷 액세스에는 TCP 443만 필요
-* 전역 URL:`*.azure-automation.net`
-* US Gov 버지니아의 글로벌 URL:`*.azure-automation.us`
-* 에이전트 서비스:`https://<workspaceId>.agentsvc.azure-automation.net`
+* 전역 URL: `*.azure-automation.net`
+* US Gov 버지니아의 글로벌 URL: `*.azure-automation.us`
+* 에이전트 서비스: `https://<workspaceId>.agentsvc.azure-automation.net`
 
 특정 지역에 대해 정의된 Automation 계정이 있는 경우 해당 지역 데이터 센터와 Hybrid Runbook Worker의 통신을 제한할 수 있습니다. [Azure Automation에서 사용 하는 dns 레코드](how-to/automation-region-dns-records.md) 를 검토 하 여 필요한 dns 레코드를 확인 합니다.
 
@@ -63,11 +63,11 @@ Azure Automation와 Log Analytics 에이전트를 실행 하는 컴퓨터 간의
 
 ### <a name="firewall-use"></a>방화벽 사용
 
-방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다. Log Analytics 게이트웨이를 프록시로 사용하는 경우 Hybrid Runbook Worker용으로 구성되었는지 확인합니다. [Automation Hybrid Worker에 대한 Log Analytics 게이트웨이 구성](../azure-monitor/platform/gateway.md)을 참조하세요.
+방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다. Log Analytics 게이트웨이를 프록시로 사용하는 경우 Hybrid Runbook Worker용으로 구성되었는지 확인합니다. [Automation Hybrid Runbook worker에 대 한 Log Analytics 게이트웨이 구성](../azure-monitor/platform/gateway.md)을 참조 하세요.
 
 ### <a name="service-tags"></a>서비스 태그
 
-Azure Automation는 서비스 태그 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md)부터 Azure virtual network 서비스 태그를 지원 합니다. 서비스 태그를 사용 하 여 [네트워크 보안 그룹](../virtual-network/security-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 **GuestAndHybridManagement** 을 지정 하 여 자동화 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. 이 서비스 태그는 IP 범위를 특정 지역으로 제한 하 여 보다 세부적인 제어를 허용 하는 기능을 지원 하지 않습니다.
+Azure Automation는 서비스 태그 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md)부터 Azure virtual network 서비스 태그를 지원 합니다. 서비스 태그를 사용 하 여 [네트워크 보안 그룹](../virtual-network/security-overview.md#security-rules) 또는 [Azure 방화벽](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 규칙의 적절 한 원본 또는 대상 필드에서 서비스 태그 이름 **GuestAndHybridManagement**  을 지정 하 여 자동화 서비스에 대 한 트래픽을 허용 하거나 거부할 수 있습니다. 이 서비스 태그는 IP 범위를 특정 지역으로 제한 하 여 보다 세부적인 제어를 허용 하는 기능을 지원 하지 않습니다.
 
 Azure Automation 서비스에 대 한 서비스 태그는 다음 시나리오에 사용 되는 Ip만 제공 합니다.
 
@@ -115,6 +115,20 @@ Hybrid Runbook Worker 호스트 머신이 다시 부팅되면, 실행 중인 모
 ### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에 대한 Runbook 권한
 
 Hybrid Runbook Worker에서 실행하는 Runbook은 Azure에 없는 리소스에 액세스하기 때문에 일반적으로 Azure 리소스에 인증하는 Runbook에 사용되는 인증 메커니즘을 사용할 수 없습니다. Runbook은 로컬 리소스에 고유한 인증을 제공하거나 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)를 사용하여 인증을 구성합니다. 실행 계정을 지정하여 모든 Runbook에 대한 사용자 컨텍스트를 제공할 수도 있습니다.
+
+## <a name="view-hybrid-runbook-workers"></a>Hybrid Runbook Worker 보기
+
+Windows 서버 또는 Vm에서 업데이트 관리 기능을 사용 하도록 설정한 후 Azure Portal에서 system Hybrid Runbook Worker 그룹 목록을 인벤토리에 추가할 수 있습니다. 선택한 Automation 계정에 대 한 왼쪽 창의 **hybrid worker 그룹** 옵션에서 탭 **시스템 hybrid worker 그룹** 을 선택 하 여 포털에서 최대 2000 작업자를 볼 수 있습니다.
+
+:::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png" alt-text="Automation 계정 시스템 hybrid worker 그룹 페이지" border="false" lightbox="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png":::
+
+하이브리드 작업 자가 2000 개를 초과 하는 경우 모든 항목의 목록을 가져오려면 다음 PowerShell 스크립트를 실행할 수 있습니다.
+
+```powershell
+"Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
+$workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
+$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
+```
 
 ## <a name="next-steps"></a>다음 단계
 

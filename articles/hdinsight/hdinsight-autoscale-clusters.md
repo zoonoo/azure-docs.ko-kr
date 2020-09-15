@@ -1,6 +1,6 @@
 ---
-title: Azure HDInsight 클러스터 자동 크기 조정
-description: Azure HDInsight 자동 크기 조정 기능을 사용 하 여 자동으로 클러스터 크기 조정 Apache Hadoop
+title: Azure HDInsight 클러스터 크기 자동 조정
+description: Azure HDInsight 자동 크기 조정 기능을 사용 하 여 Apache Hadoop 클러스터의 크기를 자동으로 조정 합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: 4c4b9c60eb967b5791af724e5c15bba887263d44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 7ce4580b366b57e2a1d4904b6ab63bf1834bdb65
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757866"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090111"
 ---
-# <a name="automatically-scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 자동 크기 조정
+# <a name="autoscale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 자동 크기 조정
 
 Azure HDInsight의 무료 자동 크기 조정 기능은 이전에 설정한 조건에 따라 클러스터의 작업자 노드 수를 자동으로 늘리거나 줄일 수 있습니다. 클러스터를 만드는 동안 노드의 최소 및 최대 수를 설정 하 고, 날짜/시간 일정 또는 특정 성능 메트릭을 사용 하 여 크기 조정 기준을 설정 하 고, HDInsight 플랫폼이 나머지를 수행 합니다.
 
@@ -231,7 +231,7 @@ Azure Portal에 나열 된 클러스터 상태를 통해 자동 크기 조정 �
 | 업데이트  | 클러스터 자동 크기 조정 구성을 업데이트 하 고 있습니다.  |
 | HDInsight 구성  | 클러스터 확장 또는 축소 작업이 진행 중입니다.  |
 | 업데이트 오류  | HDInsight에서 자동 크기 조정 구성 업데이트 중에 문제가 발생 했습니다. 고객은 업데이트를 다시 시도 하거나 자동 크기 조정을 사용 하지 않도록 선택할 수 있습니다.  |
-| 오류  | 클러스터에 문제가 있어 사용할 수 없습니다. 이 클러스터를 삭제 하 고 새 클러스터를 만듭니다.  |
+| Error  | 클러스터에 문제가 있어 사용할 수 없습니다. 이 클러스터를 삭제 하 고 새 클러스터를 만듭니다.  |
 
 클러스터의 현재 노드 수를 보려면 클러스터의 **개요** 페이지에서 **클러스터 크기** 차트로 이동 합니다. 또는 [ **설정**] 아래에서 **클러스터 크기** 를 선택 합니다.
 
@@ -243,41 +243,43 @@ Azure Portal에 나열 된 클러스터 상태를 통해 자동 크기 조정 �
 
 ![작업자 노드 일정 기반 자동 크기 조정 메트릭 사용](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
-## <a name="other-considerations"></a>기타 고려 사항
+## <a name="best-practices"></a>모범 사례
 
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>스케일 업 또는 스케일 다운 작업의 대기 시간 고려
+### <a name="consider-the-latency-of-scale-up-and-scale-down-operations"></a>규모 확장 및 축소 작업의 대기 시간 고려
 
 크기 조정 작업을 완료 하는 데 10 ~ 20 분 정도 걸릴 수 있습니다. 사용자 지정 일정을 설정 하는 경우이 지연 시간을 계획 합니다. 예를 들어 9:00 오전에 클러스터 크기를 20으로 설정 해야 하는 경우 크기 조정 작업이 9:00 AM에서 완료 되도록 일정 트리거를 8:30 AM과 같은 이전 시간으로 설정 합니다.
 
-### <a name="preparation-for-scaling-down"></a>스케일 다운 준비
+### <a name="prepare-for-scaling-down"></a>규모 축소 준비
 
-클러스터 규모를 축소 하는 동안 자동 크기 조정 기능은 대상 크기에 맞게 노드를 서비스 해제 합니다. 태스크가 해당 노드에서 실행 중인 경우 자동 크기 조정은 작업이 완료 될 때까지 대기 합니다. 또한 각 작업자 노드는 HDFS에서 역할을 수행 하므로 임시 데이터가 나머지 노드로 이동 됩니다. 따라서 나머지 노드에 모든 임시 데이터를 호스트할 수 있는 충분 한 공간이 있는지 확인 해야 합니다.
+클러스터 규모를 축소 하는 동안 자동 크기 조정은 노드를 대상 크기에 맞게 add-on 합니다. 태스크가 해당 노드에서 실행 중인 경우 자동 크기 조정은 작업이 완료 될 때까지 대기 합니다. 또한 각 작업자 노드는 HDFS에서 역할을 수행 하므로 임시 데이터는 나머지 노드로 이동 합니다. 나머지 노드에 모든 임시 데이터를 호스트할 수 있는 충분 한 공간이 있는지 확인 합니다.
 
 실행 중인 작업은 계속 됩니다. 보류 중인 작업은 사용 가능한 작업자 노드 수를 줄이면 일정 시간 동안 대기 합니다.
 
-### <a name="minimum-cluster-size"></a>최소 클러스터 크기
+### <a name="be-aware-of-the-minimum-cluster-size"></a>최소 클러스터 크기를 알고 있어야 합니다.
 
-클러스터를 3 개 미만의 노드로 확장 하지 마십시오. 클러스터를 3 개 미만의 노드로 확장 하면 파일 복제가 충분 하지 않기 때문에 안전 모드에서 중단 될 수 있습니다.  자세한 내용은 [안전 모드에서 중단 하기](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode)를 참조 하세요.
+클러스터를 3 개 미만의 노드로 확장 하지 마십시오. 클러스터를 3 개 미만의 노드로 확장 하면 파일 복제가 충분 하지 않기 때문에 안전 모드에서 중단 될 수 있습니다. 자세한 내용은 [안전 모드에서 중단 하기](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode)를 참조 하세요.
+
+### <a name="increase-the-number-of-mappers-and-reducers"></a>매퍼 및 리 듀 서의 수를 늘립니다.
+
+Hadoop 클러스터에 대 한 자동 크기 조정은 HDFS 사용도 모니터링 합니다. HDFS가 사용 중인 경우 클러스터에 여전히 현재 리소스가 필요 하다 고 가정 합니다. 쿼리에 많은 데이터가 포함 되어 있으면 매퍼 및 리 듀 서 수를 늘려 병렬 처리를 늘리고 HDFS 작업을 가속화할 수 있습니다. 이러한 방식으로 추가 리소스가 있으면 적절 한 축소가 트리거됩니다. 
+
+### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>최대 사용량 시나리오에 대 한 Hive 구성 최대 총 동시 쿼리 설정
+
+자동 크기 조정 이벤트는 Ambari에서 Hive 구성의 *최대 총 동시 쿼리* 를 변경 하지 않습니다. 즉, Hive 서버 2 대화형 서비스는 로드 및 일정에 따라 LLAP 디먼 수가 확장 및 축소 되는 경우에도 언제 든 지 지정 된 수의 동시 쿼리를 처리할 수 있습니다. 일반적인 권장 사항은 수동 작업을 방지 하기 위해 최고 사용량 시나리오에 대해이 구성을 설정 하는 것입니다.
+
+그러나 적은 수의 작업자 노드가 있고 최대 총 동시 쿼리 수 값이 너무 높게 구성 된 경우 Hive 서버 2 다시 시작 실패가 발생할 수 있습니다. 최소한 지정 된 수의 Tez Ams를 수용할 수 있는 최소 작업자 노드 수는 최대 총 동시 쿼리 수와 동일 해야 합니다. 
+
+## <a name="limitations"></a>제한 사항
+
+### <a name="node-label-file-missing"></a>노드 레이블 파일이 없습니다.
+
+HDInsight 자동 크기 조정에서는 노드 레이블 파일을 사용 하 여 노드가 작업을 실행할 준비가 되었는지 여부를 확인 합니다. 노드 레이블 파일은 3 개의 복제본이 있는 HDFS에 저장 됩니다. 클러스터 크기가 크게 확장 되 고 임시 데이터가 많은 경우 세 개의 복제본을 모두 삭제할 수 있습니다. 이 경우 클러스터는 오류 상태로 전환 됩니다.
 
 ### <a name="llap-daemons-count"></a>LLAP 디먼 수
 
-자동 크기 조정 기능이 설정 된 LLAP 클러스터의 경우에는 자동 크기 조정/아래로 이벤트를 통해 LLAP 디먼 수가 활성 작업자 노드 수로 확장/축소 됩니다. 하지만 디먼 수의 이러한 변경은 Ambari의 **num_llap_nodes** 구성에서 지속 되지 않습니다. Hive 서비스를 수동으로 다시 시작 하는 경우 Ambari의 구성에 따라 LLAP 디먼 수가 다시 설정 됩니다.
+Autoscae를 사용 하는 LLAP 클러스터의 경우, 자동 크기 조정/다운 이벤트는 LLAP 디먼 수를 활성 작업자 노드 수로 확장/축소 합니다. 디먼 수의 변경 내용은 Ambari의 구성에서 지속 되지 않습니다 `num_llap_nodes` . Hive 서비스를 수동으로 다시 시작 하는 경우 Ambari의 구성에 따라 LLAP 디먼 수가 다시 설정 됩니다.
 
-다음 시나리오를 살펴보겠습니다.
-1. LLAP 자동 크기 조정 사용 클러스터는 작업자 노드 3 개를 사용 하 여 만들어지며, 부하 기반 자동 크기 조정 기능은 최소 작업자 노드를 3으로, 최대 작업자 노드는 10으로 설정 합니다.
-2. LLAP 구성 및 Ambari에 따른 LLAP 디먼 count 구성은 3 개의 작업자 노드를 사용 하 여 만들어졌기 때문에 3입니다.
-3. 그런 다음 클러스터의 로드로 인해 자동 크기 조정이 트리거됩니다. 이제 클러스터가 10 개의 노드로 확장 됩니다.
-4. 정기적인 간격으로 실행 되는 자동 크기 조정 검사는 LLAP 디먼 개수가 3 이지만 활성 작업자 노드 수는 10 이지만 자동 크기 조정 프로세스는 이제 LLAP 데몬 수를 10으로 증가 시킬 수 있지만이 변경 내용은 Ambari Config-num_llap_nodes에 유지 되지 않습니다.
-5. 이제 자동 크기 조정을 사용할 수 없습니다.
-6. 이제 클러스터에 10 개의 작업자 노드와 10 개의 LLAP 디먼이 있습니다.
-7. LLAP 서비스를 수동으로 다시 시작 합니다.
-8. 다시 시작 하는 동안 LLAP 구성에서 num_llap_nodes 구성을 확인 하 고 값을 3으로 확인 하 여 디먼의 3 개 인스턴스를 회전 하지만 작업자 노드 수는 10입니다. 이제 두 항목이 일치 하지 않습니다.
-
-이 문제가 발생 하는 경우 고급 hive-대화형에서 현재 활성 작업자 노드 수와 일치 하도록 **num_llap_node 구성 (HIVE LLAP 데몬을 실행 하는 데 필요한 노드 수)** 을 수동으로 변경 해야 합니다.
-
-**참고**
-
-자동 크기 조정 이벤트는 Ambari에서 Hive 구성의 **최대 총 동시 쿼리** 수를 변경 하지 않습니다. 즉, Hive 서버 2 대화형 서비스는 **로드/일정에 따라 LLAP 디먼 수가 확장 및 축소 되는 경우에도 언제 든 지 지정 된 수의 동시 쿼리를 처리할 수 있습니다**. 일반적인 권장 사항은 수동 작업을 피할 수 있도록 최대 사용량 시나리오에 대해이 구성을 설정 하는 것입니다. 그러나 **최대 총 동시 쿼리 수 구성에 대 한 높은 값을 설정 하면 최소한의 작업자 노드가 지정 된 수의 Tez Ams (최대 총 동시 쿼리 수 구성)를 수용할 수 없는 경우 Hive 서버 2 대화형 서비스 다시 시작이 실패할 수 있습니다** .
+LLAP 서비스를 수동으로 다시 시작 하는 경우 `num_llap_node` *고급 hive-대화형* 에서 현재 활성 작업자 노드 수와 일치 하도록 구성 (hive llap 디먼을 실행 하는 데 필요한 노드 수)을 수동으로 변경 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

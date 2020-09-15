@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: f2bf058ddce81ab9f04e97787a4dc93e44036b1b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f90d88e49675681a7f73df838ca489a7193955b3
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186115"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087863"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>PowerShell 갤러리에서 Runbook 및 모듈 사용
 
@@ -39,7 +39,7 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
    * [Update-ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) - PowerShell 갤러리에서 Automation 계정에 있는 모든 모듈의 최신 버전을 가져옵니다.
    * [Enable-AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) - Azure Diagnostics 및 Log Analytics가 작업 상태와 작업 스트림을 포함하는 Azure Automation 로그를 받도록 구성합니다.
    * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) - Microsoft Azure 가상 머신에서 원격 파일을 복사합니다.
-   * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) - Azure 가상 머신으로 로컬 파일을 복사합니다.
+   * [Copy ItemToAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) -로컬 파일을 Azure 가상 머신으로 복사 합니다.
 
 ## <a name="import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Azure Portal을 사용하여 Runbook 갤러리에서 PowerShell Runbook 가져오기
 

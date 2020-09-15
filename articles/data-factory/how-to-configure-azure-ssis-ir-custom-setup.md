@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 08/11/2020
-ms.openlocfilehash: 18e1ff05d76937f8809408da0ed25f55120e456a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/15/2020
+ms.openlocfilehash: ff56ef55066fd0f56b5b8dc7507bfb63b8b8baa0
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440578"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090604"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime 설치 사용자 지정
 
@@ -40,7 +40,7 @@ ms.locfileid: "89440578"
 
 표준 사용자 지정 설치에만 적용되는 제한 사항은 다음과 같습니다.
 
-- 스크립트에서 *gacutil.exe*를 사용하여 어셈블리를 GAC(글로벌 어셈블리 캐시)에 설치하려면 사용자 지정 설치의 일부로 *gacutil.exe*를 제공해야 합니다. 또는 "지침" 섹션의 뒷부분에서 설명하는 *공개 미리 보기* 컨테이너에 제공된 복사본을 사용할 수 있습니다.
+- 스크립트에서 *gacutil.exe*를 사용하여 어셈블리를 GAC(글로벌 어셈블리 캐시)에 설치하려면 사용자 지정 설치의 일부로 *gacutil.exe*를 제공해야 합니다. 또는 *공개 미리 보기* 컨테이너의 *샘플* 폴더에 제공 된 복사본을 사용할 수 있습니다. 아래의 **표준 사용자 지정 설치 샘플** 섹션을 참조 하세요.
 
 - 스크립트에서 하위 폴더를 참조하려는 경우 *msiexec.exe*에서 루프 폴더를 참조하는 `.\` 표기법을 지원하지 않습니다. `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...` 대신 `msiexec /i "MySubfolder\MyInstallerx64.msi" ...`와 같은 명령을 사용합니다.
 

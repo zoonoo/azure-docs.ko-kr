@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 4c00639c02f8834a24a3828ac5b8ba828d0e1733
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 82c5d87be084e85b6de9f890bd042babca9df476
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282826"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090502"
 ---
 # <a name="use-the-drawing-tools-module"></a>그리기 도구 모듈 사용
 
-Azure Maps 웹 SDK는 *그리기 도구 모듈*을 제공 합니다. 이 모듈을 사용 하면 마우스 또는 터치 화면과 같은 입력 장치를 사용 하 여 지도의 셰이프를 쉽게 그리거나 편집할 수 있습니다. 이 모듈의 핵심 클래스는 [드로잉 관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-)입니다. 드로잉 관리자는 맵에 셰이프를 그리거나 편집 하는 데 필요한 모든 기능을 제공 합니다. 직접 사용할 수 있으며 사용자 지정 도구 모음 UI와 통합 됩니다. 기본 제공 [그리기 도구 모음](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) 클래스를 사용할 수도 있습니다. 
+Azure Maps 웹 SDK는 *그리기 도구 모듈*을 제공 합니다. 이 모듈을 사용 하면 마우스 또는 터치 화면과 같은 입력 장치를 사용 하 여 지도의 셰이프를 쉽게 그리거나 편집할 수 있습니다. 이 모듈의 핵심 클래스는 [드로잉 관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-)입니다. 드로잉 관리자는 맵에 셰이프를 그리거나 편집 하는 데 필요한 모든 기능을 제공 합니다. 직접 사용할 수 있으며 사용자 지정 도구 모음 UI와 통합 됩니다. 기본 제공 [그리기 도구 모음](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) 클래스를 사용할 수도 있습니다. 
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>웹 페이지에서 그리기 도구 모듈 로드
 
@@ -44,13 +44,13 @@ Azure Maps 웹 SDK는 *그리기 도구 모듈*을 제공 합니다. 이 모듈�
 
 ## <a name="use-the-drawing-manager-directly"></a>드로잉 관리자 직접 사용
 
-그리기 도구 모듈이 응용 프로그램에 로드 되 면 그리기 [관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-)를 사용 하 여 그리기 및 편집 기능을 사용 하도록 설정할 수 있습니다. 드로잉 관리자를 인스턴스화하거나 함수를 사용 하는 동안 드로잉 관리자에 대 한 옵션을 지정할 수 있습니다 `drawingManager.setOptions()` .
+그리기 도구 모듈이 응용 프로그램에 로드 되 면 그리기 [관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-)를 사용 하 여 그리기 및 편집 기능을 사용 하도록 설정할 수 있습니다. 드로잉 관리자를 인스턴스화하거나 함수를 사용 하는 동안 드로잉 관리자에 대 한 옵션을 지정할 수 있습니다 `drawingManager.setOptions()` .
 
 ### <a name="set-the-drawing-mode"></a>그리기 모드 설정
 
 다음 코드는 그리기 관리자의 인스턴스를 만들고 그리기 **모드** 옵션을 설정 합니다. 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
     mode: "draw-polygon"
@@ -70,13 +70,13 @@ CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/YzKVKR
 
 드로잉 관리자는 지도와 상호 작용 하 여 모양을 그리는 세 가지 다른 방법을 지원 합니다.
 
-* `click`-마우스 또는 터치를 클릭 하면 좌표가 추가 됩니다.
-* `freehand `-지도에서 마우스 또는 터치를 끌 때 좌표가 추가 됩니다. 
-* `hybrid`-좌표는 마우스 또는 터치를 클릭 하거나 끌 때 추가 됩니다.
+* `click` -마우스 또는 터치를 클릭 하면 좌표가 추가 됩니다.
+* `freehand ` -지도에서 마우스 또는 터치를 끌 때 좌표가 추가 됩니다. 
+* `hybrid` -좌표는 마우스 또는 터치를 클릭 하거나 끌 때 추가 됩니다.
 
 다음 코드는 다각형 그리기 모드를 사용 하도록 설정 하 고 그리기 관리자가 준수 해야 하는 그리기 상호 작용의 유형을 설정 합니다 `freehand` . 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
     mode: "draw-polygon",
@@ -122,10 +122,10 @@ CodePen의 Azure Maps ()로 펜 <a href='https://codepen.io/azuremaps/pen/ZEzKoa
 이 문서에서 사용된 클래스 및 메서드에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [드로잉 관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [드로잉 관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [그리기 도구 모음](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [그리기 도구 모음](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

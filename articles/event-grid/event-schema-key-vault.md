@@ -3,16 +3,16 @@ title: Event Grid 원본으로 Azure Key Vault
 description: Azure Key Vault 이벤트에 제공 되는 속성 및 스키마에 대해 설명 Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1f9cbe85de9423484343e4054be8d2d58c6c5e7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f6e2bdfb2000f3a4c4a8f91eee23348d9cc9c766
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109436"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090400"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Event Grid 원본으로 Azure Key Vault
 
-이 문서는 현재 미리 보기로 제공 되는 [Azure Key Vault](../key-vault/index.yml)이벤트에 대 한 속성 및 스키마를 제공 합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+이 문서에서는 [Azure Key Vault](../key-vault/index.yml)이벤트에 대 한 속성 및 스키마를 제공 합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
 ## <a name="event-grid-event-schema"></a>Event Grid 이벤트 스키마
 
@@ -20,7 +20,7 @@ ms.locfileid: "86109436"
 
 Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 
-| 이벤트 전체 이름 | 이벤트 표시 이름 | Description |
+| 이벤트 전체 이름 | 이벤트 표시 이름 | 설명 |
 | ---------- | ----------- |---|
 | CertificateNewVersionCreated | 인증서 새 버전이 만들어짐 | 새 인증서 또는 새 인증서 버전이 만들어질 때 트리거됩니다. |
 | CertificateNearExpiry | 인증서 만료 임박 | 현재 버전의 인증서가 만료 될 때 트리거됩니다. 이 이벤트는 만료 날짜 30 일 전에 트리거됩니다. |
@@ -31,6 +31,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 | SecretNewVersionCreated | 새 보안 버전이 만들어짐 | 새 비밀 또는 새 비밀 버전이 만들어질 때 트리거됩니다. |
 | SecretNearExpiry | 비밀 만료 임박 | 암호의 현재 버전이 곧 만료 될 때 트리거됩니다. 이 이벤트는 만료 날짜 30 일 전에 트리거됩니다. |
 | SecretExpired | 비밀 만료 됨 | 암호가 만료 되 면 트리거됩니다. |
+| VaultAccessPolicyChanged | 자격 증명 모음 액세스 정책이 변경 됨 | Key Vault에 대 한 액세스 정책이 변경 될 때 트리거됩니다. Azure RBAC에서 Key Vault 권한 모델이 변경 되는 시나리오를 포함 합니다.  |
 
 ### <a name="event-examples"></a>이벤트 예제
 
@@ -74,7 +75,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 | exp | number | 1970-01-01T00:00:00Z 이후이 이벤트를 트리거한 개체의 만료 날짜 (초)입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
-|제목  |Description  |
+|제목  |설명  |
 |---------|---------|
 | [Azure Event Grid를 사용 하 여 Key Vault 이벤트 모니터링](../key-vault/general/event-grid-overview.md) | Event Grid와 Key Vault 통합에 대 한 개요입니다. |
 | [자습서: Event Grid를 사용 하 여 Key Vault 이벤트 만들기 및 모니터링](../key-vault/general/event-grid-tutorial.md) | Key Vault에 대 한 Event Grid 알림을 설정 하는 방법을 알아봅니다. |
@@ -84,10 +85,10 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성 합니다.
 
 * Azure Event Grid에 대 한 소개는 [Event Grid 무엇입니까?](overview.md)를 참조 하세요.
 * Azure Event Grid 구독을 만드는 방법에 대 한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md)를 참조 하세요.
-* Event Grid와 Key Vault 통합에 대해 자세히 알아보려면 Azure Event Grid를 [사용 하 여 Key Vault 모니터링 (미리 보기)](../key-vault/general/event-grid-overview.md)을 참조 하세요.
-* Event Grid와 Key Vault 통합에 대 한 자습서는 [Azure Event Grid를 사용 하 여 주요 자격 증명 모음 알림 받기 및 응답 (미리 보기)](../key-vault/general/event-grid-tutorial.md)을 참조 하세요.
+* Event Grid와 Key Vault 통합에 대해 자세히 알아보려면 Azure Event Grid를 [사용 하 여 Key Vault 모니터링](../key-vault/general/event-grid-overview.md)을 참조 하세요.
+* Event Grid와 Key Vault 통합에 대 한 자습서는 [Azure Event Grid를 사용 하 여 주요 자격 증명 모음 알림 받기 및 응답을](../key-vault/general/event-grid-tutorial.md)참조 하세요.
 * Key Vault 및 Azure Automation에 대 한 추가 지침을 보려면 다음을 참조 하세요.
     - [Azure Key Vault란?](../key-vault/general/overview.md)
-    - [Azure Event Grid를 사용하여 Key Vault 모니터링(미리 보기)](../key-vault/general/event-grid-overview.md)
-    - [Azure Event Grid를 사용하여 키 자격 증명 모음 알림 수신 및 응답(미리보기)](../key-vault/general/event-grid-tutorial.md)
+    - [Azure Event Grid를 사용하여 Key Vault 모니터링](../key-vault/general/event-grid-overview.md)
+    - [Azure Event Grid를 사용하여 키 자격 증명 모음 알림 수신 및 응답](../key-vault/general/event-grid-tutorial.md)
     - [Azure Automation 개요](../automation/index.yml)

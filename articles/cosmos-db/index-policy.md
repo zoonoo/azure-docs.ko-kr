@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: f723d7ac218869313f02212d27d9f96b74bb7f0f
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f9e1ff633f70e544a3cde579f1550d3fd708f269
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607519"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089516"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책
 
-Azure Cosmos DB 모든 컨테이너에는 컨테이너의 항목을 인덱싱하는 방법을 지정 하는 인덱싱 정책이 있습니다. 새로 만든 컨테이너에 대 한 기본 인덱싱 정책은 모든 항목의 모든 속성을 인덱싱하고 모든 문자열 또는 숫자에 대해 범위 인덱스를 적용 합니다. 이를 통해 인덱싱 및 인덱스 관리를 사전에 고려 하지 않고도 높은 쿼리 성능을 얻을 수 있습니다.
+Azure Cosmos DB에서 모든 컨테이너에는 컨테이너 항목을 인덱싱해야 하는 방법을 지정하는 인덱싱 정책이 있습니다. 새로 만든 컨테이너에 대한 기본 인덱싱 정책은 모든 항목의 모든 속성을 인덱싱하고 모든 문자열 또는 숫자에 대해 범위 인덱스를 적용합니다. 이를 통해 인덱싱 및 인덱스 관리를 사전에 고려하지 않고도 높은 쿼리 성능을 얻을 수 있습니다.
 
 사용자 요구 사항에 맞게 이 자동 동작을 재정의할 수 있는 상황이 있습니다. *인덱싱 모드*를 설정 하 여 컨테이너의 인덱싱 정책을 사용자 지정 하 고 *속성 경로*를 포함 하거나 제외할 수 있습니다.
 
@@ -30,7 +30,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 - **없음**: 컨테이너에서 인덱싱을 사용할 수 없습니다. 이는 컨테이너를 보조 인덱스가 없어도 순수 키-값 저장소로 사용할 때 일반적으로 사용 됩니다. 이를 사용 하 여 대량 작업의 성능을 향상 시킬 수도 있습니다. 대량 작업이 완료 되 면 인덱스 모드를 일관 된 상태로 설정 하 고 완료 될 때까지 [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) 를 사용 하 여 모니터링할 수 있습니다.
 
 > [!NOTE]
-> Azure Cosmos DB는 지연 인덱싱 모드도 지원 합니다. 지연 인덱싱은 엔진이 다른 작업을 수행 하지 않을 때 훨씬 낮은 우선 순위 수준으로 인덱스 업데이트를 수행 합니다. 이로 인해 **일치 하지 않거나 불완전** 한 쿼리 결과가 발생할 수 있습니다. Cosmos 컨테이너를 쿼리하려면 지연 인덱스를 선택 하면 안 됩니다. 6 월 2020에는 새 컨테이너를 지연 인덱싱 모드로 설정 하는 것이 더 이상 허용 되지 않는 변경 내용이 도입 되었습니다. Azure Cosmos DB 계정에 이미 지연 인덱싱이 있는 컨테이너가 하나 이상 포함 되어 있는 경우이 계정은 변경에서 자동으로 제외 됩니다. [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 에 문의 하 여 예외를 요청할 수도 있습니다 (지연 인덱싱을 지원 하지 않는 [서버](serverless.md) 리스 모드에서 azure Cosmos 계정을 사용 하는 경우 제외).
+> Azure Cosmos DB는 지연 인덱싱 모드도 지원 합니다. 지연 인덱싱은 엔진이 다른 작업을 수행하지 않을 때 훨씬 낮은 우선 순위 수준으로 인덱스 업데이트를 수행합니다. 이로 인해 **불일치 또는 불완전** 쿼리 결과가 발생할 수 있습니다. Cosmos 컨테이너를 쿼리하려면 지연 인덱스를 선택하지 않아야 합니다. 6 월 2020에는 새 컨테이너를 지연 인덱싱 모드로 설정 하는 것이 더 이상 허용 되지 않는 변경 내용이 도입 되었습니다. Azure Cosmos DB 계정에 이미 지연 인덱싱이 있는 컨테이너가 하나 이상 포함 되어 있는 경우이 계정은 변경에서 자동으로 제외 됩니다. [Azure 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 에 문의 하 여 예외를 요청할 수도 있습니다 (지연 인덱싱을 지원 하지 않는 [서버](serverless.md) 리스 모드에서 azure Cosmos 계정을 사용 하는 경우 제외).
 
 기본적으로 인덱싱 정책은로 설정 됩니다 `automatic` . `automatic`인덱싱 정책에서 속성을로 설정 하 여 구현 `true` 합니다. 이 속성을로 설정 `true` 하면 Azure CosmosDB가 작성 된 문서를 자동으로 인덱싱할 수 있습니다.
 
@@ -81,7 +81,7 @@ Azure Cosmos DB는 두 가지 인덱싱 모드를 지원 합니다.
 
 경로를 포함 하거나 제외 하는 경우 다음과 같은 특성이 발생할 수 있습니다.
 
-- `kind` 또는 중 하나일 수 있습니다 `range` `hash` . 범위 인덱스 기능은 해시 인덱스의 모든 기능을 제공 하므로 범위 인덱스를 사용 하는 것이 좋습니다.
+- `kind` 또는 중 하나일 수 있습니다 `range` `hash` . 해시 인덱스 지원은 같음 필터로 제한 됩니다. 범위 인덱스 기능은 해시 인덱스의 모든 기능 뿐만 아니라 효율적인 정렬, 범위 필터, 시스템 함수를 제공 합니다. 항상 범위 인덱스를 사용 하는 것이 좋습니다.
 
 - `precision` 는 포함 된 경로에 대 한 인덱스 수준에서 정의 된 숫자입니다. 값은 `-1` 최대 전체 자릿수를 나타냅니다. 이 값을 항상로 설정 하는 것이 좋습니다 `-1` .
 
