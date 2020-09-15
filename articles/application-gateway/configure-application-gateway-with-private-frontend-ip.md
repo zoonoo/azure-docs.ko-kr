@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: c7a0022c5cff405a993f30cdf2ab5900485c84a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64dfe284772faf2a345b7959f1a1bd6f474cd1bf
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808122"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562488"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>ILB (내부 부하 분산 장치) 끝점을 사용 하 여 응용 프로그램 게이트웨이 구성
 
@@ -90,7 +90,7 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 ### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
 1. **리소스 만들기**를 선택합니다.
-2. **Compute** 를 선택한 다음 **가상 컴퓨터**를 선택 합니다.
+2. **컴퓨팅**을 선택한 다음, **가상 머신**을 선택합니다.
 4. 가상 머신에 대해 다음 값을 입력합니다.
    - **리소스 그룹**에 대해 *myResourceGroupAG* 를 선택 합니다.
    - *Myvm* - **가상 머신 이름**
@@ -103,14 +103,14 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 8. 나머지 기본값을 그대로 적용 하 고 **다음: 관리**를 선택 합니다.
 9. **끄기**를 선택하여 부팅 진단을 사용하지 않도록 설정합니다.
 10. 나머지 기본값을 그대로 적용 하 고 **다음: 고급**을 선택 합니다.
-11. **다음: 태그**를 선택 합니다.
+11. **다음: 태그**를 선택합니다.
 12. **다음: 검토 + 만들기**를 선택 합니다.
 13. 요약 페이지에서 설정을 검토한 다음, **만들기**를 선택합니다. VM을 만드는 데 몇 분 정도 걸릴 수 있습니다. 배포가 성공적으로 완료될 때까지 기다렸다가 다음 섹션으로 이동합니다.
 
 ### <a name="install-iis"></a>IIS 설치
 
 1. Cloud Shell를 열고 **PowerShell**로 설정 되었는지 확인 합니다.
-    ![frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![PowerShell을 사용 하는 열린 Azure Cloud Shell 콘솔 창을 보여 주는 스크린샷](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다.
 
    ```azurepowershell
@@ -144,13 +144,13 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 2. **백 엔드 풀**을 선택합니다. **AppGatewayBackendPool**를 선택 합니다.
 3. **대상 유형** 아래에서 **가상 머신** 를 선택 하 고 **대상**에서 myvm과 연결 된 vNIC을 선택 합니다.
 4. 반복 하 여 MyVM2를 추가 합니다.
-   ![frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
+   ![스크린샷은 대상 유형 및 대상이 강조 표시 된 백엔드 풀 편집 창을 보여 줍니다.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 5. **저장을 선택 합니다.**
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
 1. 포털에서 **프런트 엔드 Ip 구성** 페이지를 클릭 하 여 할당 받은 프런트 엔드 ip를 확인 합니다.
-    ![frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
+    ![스크린샷 강조 표시 된 비공개 형식의 프런트 엔드 IP 구성 창을 보여 줍니다.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. 개인 IP 주소를 복사 하 여이 VNet에 연결 된 동일한 VNet 또는 온-프레미스에 있는 VM의 브라우저 주소 표시줄에 붙여 넣고 Application Gateway에 액세스를 시도 합니다.
 
 ## <a name="next-steps"></a>다음 단계

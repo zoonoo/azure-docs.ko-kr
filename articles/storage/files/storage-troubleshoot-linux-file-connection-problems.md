@@ -7,18 +7,21 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a01d9e90e87d1c23b9aefc5f2d9ba3ba84d0f59f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e4aa0cb2cc3ff623929222d83a560f66198f13c0
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904924"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564273"
 ---
-# <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux에서 Azure Files 문제 해결
+# <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Linux (SMB)의 Azure Files 문제 해결
 
 이 문서에서는 Linux 클라이언트에서 연결할 때 Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 
 
 이 문서의 문제 해결 단계 외에도 [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux)를 사용하여 Linux 클라이언트에서 올바른 필수 구성 요소를 갖출 수 있도록 해야 합니다. AzFileDiagnostics는 이 문서에 언급된 대부분의 증상을 자동으로 검색합니다. 또한 최적의 성능을 얻기 위해 환경을 설정하는 데 도움이 됩니다. 이 정보는 [Azure 파일 공유 문제 해결사](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)에서도 발견할 수 있습니다. 문제 해결사는 Azure Files 공유를 연결, 매핑 및 탑재하는 문제를 해결하기 위한 단계를 제공합니다.
+
+> [!IMPORTANT]
+> 이 문서의 내용은 SMB 공유에만 적용 됩니다.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Azure 파일 공유에 연결하거나 탑재할 수 없음
 
@@ -80,7 +83,7 @@ ms.locfileid: "87904924"
 
 Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 
-**\<filename>[사용 권한 거부 됨] 디스크 할당량 초과**
+**\<filename> [사용 권한 거부 됨] 디스크 할당량 초과**
 
 ### <a name="cause"></a>원인
 
@@ -107,7 +110,7 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
     - 두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 를 사용 합니다.
     - Cp 또는 dd를 병렬로 사용 하 여 복사 속도를 향상 시킬 수 있습니다. 스레드 수는 사용 사례 및 워크 로드에 따라 달라 집니다. 다음 예에서는 6을 사용 합니다. 
     - cp 예 (cp는 파일 시스템의 기본 블록 크기를 청크 크기로 사용): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` 를 사용 합니다.
-    - dd 예 (이 명령은 명시적으로 청크 크기를 1 MiB로 설정):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - dd 예 (이 명령은 명시적으로 청크 크기를 1 MiB로 설정): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - 오픈 소스 타사 도구:
         - [GNU Parallel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) -파일을 정렬 하 고 파티션으로 압축 합니다.
@@ -115,7 +118,7 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
         - GNU coreutils를 기반으로 하는 [다중](https://github.com/pkolano/mutil) 다중 스레드 cp 및 md5sum.
 - 모든 쓰기를 확장 하는 대신 파일 크기를 미리 설정 하면 파일 크기가 알려져 있는 시나리오에서 복사 속도를 향상 시키는 데 도움이 됩니다. 쓰기 확장을 피해 야 하는 경우 명령을 사용 하 여 대상 파일 크기를 설정할 수 있습니다 `truncate - size <size><file>` . `dd if=<source> of=<target> bs=1M conv=notrunc`그러면 대상 파일의 크기를 반복 해 서 업데이트 하지 않고 원본 파일이 복사 됩니다. 예를 들어 복사 하려는 모든 파일의 대상 파일 크기를 설정할 수 있습니다 (공유가/mnt/share 아래에 탑재 되어 있다고 가정).
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - 그런 다음 쓰기를 병렬로 확장 하지 않고 파일을 복사 합니다.`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+    - 그런 다음 쓰기를 병렬로 확장 하지 않고 파일을 복사 합니다. `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>SMB 3.0을 사용하여 Azure Files를 탑재할 때 “Mount 오류(115): 작업이 진행되고 있습니다”

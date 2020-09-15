@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a26a7320cab20c769ddf8dd1f24cd6fda0cc7d64
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049930"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561536"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>조건부 액세스 배포 계획
 
@@ -448,7 +448,7 @@ CA 정책을 만드는 방법에 대해 자세히 알아보려면 다음 예제�
 
 다음 관리 옵션을 사용하여 CA 정책을 제어하고 관리합니다.
 
-![manage-access](media/plan-conditional-access/manage-access.png)
+![스크린샷에서는 명명 된 위치, 사용자 지정 컨트롤, 사용 약관, V P N 연결, 선택한 클래식 정책 등의 C 정책에 대 한 관리 옵션을 보여 줍니다.](media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>명명된 위치

@@ -6,12 +6,12 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: fb53a966b0dc4959253ac0786ef09ef3c497e809
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7614dd1d60bad5c124269ae2af02d30a5aacfe3e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658849"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564035"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>뷰 디자이너에서 통합 문서 변환 요약 및 액세스
 [뷰 디자이너](view-designer.md) 는 Azure Monitor 기능으로, 차트, 목록 및 타임 라인을 사용 하 여 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 되는 사용자 지정 보기를 만들 수 있습니다. 이러한 기능은 추가 기능을 제공 하는 통합 문서와 함께 단계적으로 제공 됩니다. 이 문서에서는 통합 문서에 액세스 하는 데 필요한 개요 요약 및 사용 권한을 만드는 방법을 자세히 설명 합니다.
@@ -21,7 +21,7 @@ ms.locfileid: "77658849"
 
 Azure 대시보드를 통해 제공 되는 높은 수준의 사용자 지정 기능을 활용 하 여 자동 새로 고침, 이동, 크기 조정 및 고정 된 항목 및 시각화에 대 한 추가 필터링을 수행할 수 있습니다. 
 
-![대시보드](media/view-designer-conversion-access/dashboard.png)
+![스크린샷 작업 영역 요약 이라는 사용자 지정 된 Azure 대시보드를 보여 줍니다.](media/view-designer-conversion-access/dashboard.png)
 
 새 Azure 대시보드를 만들거나 기존 대시보드를 선택 하 여 통합 문서 항목의 고정을 시작 합니다.
 

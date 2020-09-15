@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 41d2feefc5af1e795520d9b3d90809e625502fa6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fec7bfc16e2cc36d19c84b93b5b93c3c1365b166
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918403"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564018"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Application Insights의 원격 분석 채널
 
@@ -153,13 +153,25 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 패키지와 네임 스페이스의 이름에 "WindowsServer"가 포함 되어 있지만이 채널은 Windows 이외의 시스템에서 지원 됩니다. 단, 다음은 예외입니다. Windows 이외의 시스템에서 채널은 기본적으로 로컬 저장소 폴더를 만들지 않습니다. 로컬 저장소 폴더를 만들고 채널을 사용 하도록 구성 해야 합니다. 로컬 저장소가 구성 된 후에는 채널이 모든 시스템에서 동일한 방식으로 작동 합니다.
 
+> [!NOTE]
+> 이제 릴리스 2.15.0-beta3 및 더 큰 로컬 저장소가 Linux, Mac 및 Windows 용으로 자동으로 만들어집니다. Windows가 아닌 시스템의 경우 SDK는 다음 논리에 따라 로컬 저장소 폴더를 자동으로 만듭니다.
+> - `${TMPDIR}` - `${TMPDIR}` 환경 변수가 설정 된 경우이 위치가 사용 됩니다.
+> - `/var/tmp` -이전 위치가 없는 경우 시도 `/var/tmp` 합니다.
+> - `/tmp` -이전 위치가 모두 없으면 시도 `tmp` 합니다. 
+> - 이러한 위치가 없는 경우 로컬 저장소가 만들어지지 않으며 수동 구성도 필요 합니다. [전체 구현에 대 한 세부 정보](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860)입니다.
+
 ### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>SDK에서 임시 로컬 스토리지를 작성하나요? 데이터가 저장소에서 암호화 되나요?
 
 SDK는 네트워크 문제나 조정 중에 로컬 저장소에 원격 분석 항목을 저장 합니다. 이 데이터는 로컬로 암호화 되지 않습니다.
 
 Windows 시스템의 경우 SDK는 자동 으로% TEMP% 또는% LOCALAPPDATA% 디렉터리에 임시 로컬 폴더를 만들고 관리자 및 현재 사용자만 액세스할 수 있도록 제한 합니다.
 
-Windows 이외의 시스템의 경우에는 SDK에서 로컬 저장소를 자동으로 만들지 않으므로 기본적으로 로컬에 저장 되는 데이터가 없습니다. 저장소 디렉터리를 직접 만들고 채널을 사용 하도록 구성할 수 있습니다. 이 경우 디렉터리에 보안이 설정 되었는지 확인 해야 합니다.
+Windows 이외의 시스템의 경우에는 SDK에서 로컬 저장소를 자동으로 만들지 않으므로 기본적으로 로컬에 저장 되는 데이터가 없습니다.
+
+> [!NOTE]
+> 이제 릴리스 2.15.0-beta3 및 더 큰 로컬 저장소가 Linux, Mac 및 Windows 용으로 자동으로 만들어집니다. 
+
+ 저장소 디렉터리를 직접 만들고 채널을 사용 하도록 구성할 수 있습니다. 이 경우 디렉터리에 보안이 설정 되었는지 확인 해야 합니다.
 자세한 내용은 [데이터 보호 및 개인 정보](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage)를 참조 하세요.
 
 ## <a name="open-source-sdk"></a>오픈 소스 SDK

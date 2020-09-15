@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fd2e4f5c81427413e3f3f3eceaa0cc41a3b9e318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510375"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563508"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure File Sync를 사용 하 여 Linux에서 하이브리드 클라우드 배포로 마이그레이션
 
-Azure File Sync DAS (직접 연결 된 저장소)를 사용 하는 Windows Server 인스턴스에서 작동 합니다. Linux 또는 원격 SMB (서버 메시지 블록) 공유와의 동기화는 지원 하지 않습니다.
+Azure File Sync DAS (직접 연결 된 저장소)를 사용 하는 Windows Server 인스턴스에서 작동 합니다. Linux 클라이언트, SMB (원격 서버 메시지 블록) 공유 또는 NFS (네트워크 파일 시스템) 공유와의 동기화는 지원 하지 않습니다.
 
 따라서 파일 서비스를 하이브리드 배포로 변환 하면 Windows Server로의 마이그레이션이 필요 합니다. 이 문서에서는 이러한 마이그레이션의 계획 및 실행 과정을 안내 합니다.
 
@@ -201,7 +201,7 @@ Windows Server 폴더에 대 한 공유를 만들고 DFS-N 배포를 조정 하 
 이러한 복사본 중 일부를 병렬로 실행할 수 있습니다. 한 번에 하나의 Azure 파일 공유의 범위를 처리 하는 것이 좋습니다.
 
 > [!WARNING]
-> Linux Samba 서버의 모든 데이터를 Windows Server 인스턴스로 이동 하 고 마이그레이션이 완료 되 면 Azure Portal의 *모든* 동기화 그룹으로 돌아갑니다. 20%와 같은 캐시 사용률에 더 적합 한 클라우드 계층화 볼륨의 사용 가능한 공간 비율을 조정 합니다. 
+> Linux Samba 서버의 모든 데이터를 Windows Server 인스턴스로 이동 하 고 마이그레이션이 완료 되 면 Azure Portal의 *모든*  동기화 그룹으로 돌아갑니다. 20%와 같은 캐시 사용률에 더 적합 한 클라우드 계층화 볼륨의 사용 가능한 공간 비율을 조정 합니다. 
 
 클라우드 계층화 볼륨의 사용 가능한 공간에 대 한 정책은 잠재적으로 여러 서버 끝점에서 동기화 되는 볼륨 수준에서 작동 합니다. 하나의 서버 끝점에서 사용 가능한 공간을 조정 하는 것을 잊은 경우 동기화는 가장 제한적인 규칙을 계속 적용 하 고 사용 가능한 디스크 공간을 99%로 유지 하려고 합니다. 그러면 로컬 캐시가 정상적으로 수행 되지 않을 수 있습니다. 드물게 액세스 하는 보관 데이터만 포함 된 볼륨에 대 한 네임 스페이스를 보유 하 고 있고 다른 시나리오에 대 한 나머지 저장소 공간을 예약 하는 경우 성능이 저하 될 수 있습니다.
 

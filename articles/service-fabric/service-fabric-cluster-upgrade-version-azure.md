@@ -3,12 +3,12 @@ title: 클러스터의 Azure Service Fabric 버전 업그레이드
 description: 클러스터 업데이트 모드 설정, 인증서 업그레이드, 애플리케이션 포트 추가, OS 패치 수행 등을 포함하는 Service Fabric 클러스터를 실행하는 Service Fabric 코드 및/또는 구성을 업그레이드합니다. 업그레이드를 수행할 때 예상할 수 있는 것은 무엇입니까?
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: b0fef612725d606f1415e7e8d004aacee025cedf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01fe916f0ee78c8481ac6b17b8f7409b47c852ee
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261058"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564290"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>클러스터의 Service Fabric 버전 업그레이드
 
@@ -28,7 +28,7 @@ Microsoft에서 자동 패브릭 업그레이드를 릴리스하면 클러스터
 ## <a name="set-the-upgrade-mode-in-the-azure-portal"></a>Azure Portal에서 업그레이드 모드 설정
 클러스터를 만들 때 클러스터를 자동 또는 수동으로 설정할 수 있습니다.
 
-![Create_Manualmode][Create_Manualmode]
+![스크린샷 Service Fabric 클러스터 만들기 창에서 옵션 2 클러스터 구성이 선택 되어 있고 클러스터 구성 창이 열려 있습니다.][Create_Manualmode]
 
 라이브 클러스터인 경우 관리 환경을 사용하여 클러스터를 자동 또는 수동으로 설정할 수 있습니다. 
 
@@ -39,12 +39,12 @@ Microsoft에서 자동 패브릭 업그레이드를 릴리스하면 클러스터
 
 롤백을 일으킨 문제를 수정했으면 이전과 동일한 단계에 따라 업그레이드를 다시 시작해야 합니다.
 
-![Manage_Automaticmode][Manage_Automaticmode]
+![자동 및 수동을 포함 하 여 패브릭 업그레이드 창이 열려 있고 업그레이드 옵션이 강조 표시 된 Service Fabric 클러스터 창을 보여 줍니다.][Manage_Automaticmode]
 
 ## <a name="set-the-upgrade-mode-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 업그레이드 모드 설정
 아래 표시된 것처럼 "upgradeMode" 구성을 Microsoft.ServiceFabric/clusters 리소스 정의에 추가하고 "clusterCodeVersion"을 지원되는 패브릭 버전 중 하나로 설정한 후 템플릿을 배포합니다. "upgradeMode"에 대해 유효한 값은 "Manual" 또는 "Automatic"입니다.
 
-![ARMUpgradeMode][ARMUpgradeMode]
+![스크린샷에는 구조를 반영 하기 위해 일반 텍스트 들여쓰기 인 템플릿과 clusterCodeVersion 및 upgradeMode가 강조 표시 되어 있습니다.][ARMUpgradeMode]
 
 ### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Resource Manager 템플릿을 통해 수동 모드로 설정된 클러스터에서 새 버전으로 업그레이드
 클러스터가 수동 모드인 경우 새 버전으로 업그레이드하려면 "clusterCodeVersion"을 지원되는 버전으로 변경하고 배포합니다. 템플릿의 배포 시 패브릭 업그레이드는 자동으로 시작됩니다. 클러스터 상태 정책(노드 상태 및 클러스터에서 실행 중인 모든 애플리케이션의 상태 조합)은 업그레이드의 기간을 준수합니다.

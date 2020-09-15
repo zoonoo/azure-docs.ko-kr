@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 196b1dda17de1c9430ab048ac90d1d10b6a595b4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24481abb6606d9ce830e5b65285b31637417cbd7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104693"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562454"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB 서버 관리
 이 문서에서는 Azure Database for MariaDB 서버를 관리 하는 방법을 보여 줍니다. 관리 작업에는 계산 및 저장소 크기 조정, 관리자 암호 재설정 및 서버 세부 정보 보기가 포함 됩니다.
@@ -34,7 +34,7 @@ Azure Database for MariaDB 서버를 만들고 시작 하는 방법을 알아보
 
 2. 크기를 조정 하는 대상에 따라 **범용** 또는 **메모리 최적화**를 선택 합니다. 
 
-    ![변경-가격 책정 계층](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+    ![가격 책정 계층을 선택 하 고 메모리 최적화 된 값을 선택 하 여 Azure Portal을 보여 주는 스크린샷](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
     > [!NOTE]
     > 계층을 변경 하면 서버가 다시 시작 됩니다.
@@ -79,7 +79,7 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
 
 2. 새 암호를 입력하고 암호를 확인합니다. 텍스트 상자에 암호 복잡성 요구 사항에 대 한 메시지가 표시 됩니다.
 
-   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
+   ![스크린샷 암호 및 암호 확인 대화 상자를 표시 합니다.](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. **확인** 을 선택 하 여 새 암호를 저장 합니다.
 
@@ -94,7 +94,7 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
 
 2. 입력 상자에 서버 이름을 입력 하 여 삭제 하려는 서버 인지 확인 합니다.
 
-    ![confirm-delete](./media/howto-create-manage-server-portal/confirm-delete.png)
+    ![스크린샷에는 데이터베이스를 삭제할지 여부를 확인 하는 대화 상자가 표시 됩니다 .이 대화 상자는 취소할 수 없습니다.](./media/howto-create-manage-server-portal/confirm-delete.png)
 
     > [!NOTE]
     > 서버 삭제는 취소할 수 없습니다.

@@ -3,12 +3,12 @@ title: Azure Site Recovery를 사용하여 Azure로 Azure Stack VM 복제 | Micr
 description: Azure Site Recovery 서비스를 사용하여 Azure에 Azure Stack VM에 대한 재해 복구를 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131607"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564312"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure에 Azure Stack VM 복제
 
@@ -36,7 +36,7 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 
 ## <a name="architecture"></a>Architecture
 
-![Architecture](./media/azure-stack-site-recovery/architecture.png)
+![다이어그램은 공통 Azure Stack 인프라에서 테 넌 트 구독과 연결 된 클라우드의 두 테 넌 트에 대 한 Recovery Services 자격 증명 모음을 보여 줍니다.](./media/azure-stack-site-recovery/architecture.png)
 
 **위치** | **구성 요소** |**세부 정보**
 --- | --- | ---
@@ -63,7 +63,7 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 **요구 사항** | **세부 정보**
 --- | ---
 **Azure 구독 계정** | Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
-**Azure 계정 권한** | 사용하는 Azure 계정에는 다음 권한이 필요합니다.<br/><br/> - 복구 서비스 자격 증명 모음 만들기<br/><br/> - 시나리오에 사용하는 리소스 그룹 및 가상 네트워크에 가상 머신 만들기<br/><br/> - 지정한 저장소 계정에 쓰기<br/><br/> 다음 사항에 유의합니다.<br/><br/> - 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> - 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> - 보다 세부적인 권한이 필요한 경우 [이 문서](site-recovery-role-based-linked-access-control.md)를 검토합니다.
+**Azure 계정 권한** | 사용하는 Azure 계정에는 다음 권한이 필요합니다.<br/><br/> - 복구 서비스 자격 증명 모음 만들기<br/><br/> - 시나리오에 사용하는 리소스 그룹 및 가상 네트워크에 가상 머신 만들기<br/><br/> - 지정한 저장소 계정에 쓰기<br/><br/> 다음 사항에 유의하세요.<br/><br/> - 계정을 만들면 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> - 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> - 보다 세부적인 권한이 필요한 경우 [이 문서](site-recovery-role-based-linked-access-control.md)를 검토합니다.
 **Azure Stack VM** | 테넌트 구독에서 Site Recovery 구성 서버로 배포될 Azure Stack VM이 필요합니다.
 
 
@@ -141,11 +141,11 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 2. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다.
 3. **리소스 그룹**에서 리소스 그룹을 만들거나 선택합니다. **contosoRG**를 사용합니다.
 4. **위치**에서 Azure 지역을 입력합니다. **서유럽**를 사용합니다.
-5. 대시보드에서 자격 증명 모음에 빠르게 액세스 하려면 **대시보드에 고정**  >  **만들기**를 선택 합니다.
+5. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정** > **만들기**를 선택합니다.
 
    ![새 자격 증명 모음 만들기](./media/azure-stack-site-recovery/new-vault-settings.png)
 
-   새 자격 증명 모음이 **대시보드**  >  **모든 리소스**및 주 **Recovery Services 자격 증명 모음** 페이지에 표시 됩니다.
+   새 자격 증명 모음이 **대시보드** > **모든 리소스** 및 주 **Recovery Services 자격 증명 모음** 페이지에 표시됩니다.
 
 ### <a name="select-a-replication-goal"></a>복제 목표 선택
 
@@ -226,7 +226,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 1. **애플리케이션 복제** > **원본**을 선택합니다.
 2. **원본**에서 구성 서버를 선택합니다.
-3. **컴퓨터 종류**에서 **물리적 컴퓨터**를 선택 합니다.
+3. **컴퓨터 형식**에서 **물리적 컴퓨터**를 선택합니다.
 4. 프로세스 서버(구성 서버)를 선택합니다. 그런 후 **OK**를 클릭합니다.
 5. **대상**에서 장애 조치(failover) 후 VM을 만들 구독 및 리소스 그룹을 선택합니다. 장애 조치(Failover)된 VM에 사용할 배포 모델을 선택합니다.
 6. 복제된 데이터를 저장할 Azure Storage 계정을 선택합니다.
@@ -239,7 +239,7 @@ VM에서 표에 요약된 운영 체제 중 하나가 실행되고 있는지 확
 
 10. 속성 **Properties**  >  **속성 구성**에서 프로세스 서버가 컴퓨터에 모바일 서비스를 자동으로 설치 하는 데 사용할 계정을 선택 합니다.
 11. 복제 **설정**  >  **복제 설정 구성**에서 올바른 복제 정책이 선택 되어 있는지 확인 합니다.
-12. **복제 사용**을 클릭 합니다.
+12. **복제 사용**을 클릭합니다.
 13. **Enable Protection** **설정**  >  **작업**  >  **Site Recovery 작업**에서 보호 사용 작업의 진행률을 추적 합니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
 > [!NOTE]

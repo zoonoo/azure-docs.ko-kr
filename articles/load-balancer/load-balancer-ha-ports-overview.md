@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: ab11060924c29dbddc965aa94064d0091a7b348e
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 5115190d944e78d476f369442dccdbda394e46ba
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639854"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564052"
 ---
 # <a name="high-availability-ports-overview"></a>고가용성 포트 개요
 
@@ -99,5 +99,5 @@ HA 포트를 사용 하 여 단일 내부 표준 Load Balancer와 함께 백 엔
 
 ## <a name="next-steps"></a>다음 단계
 
-- 포털, [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)또는 [템플릿을](load-balancer-get-started-ilb-arm-template.md) [통해 ilb에 대 한 HA 포트를 구성 하는 방법에 대해 알아봅니다](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule).
+- 포털, [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule)또는 [템플릿을](quickstart-load-balancer-standard-internal-template.md) [통해 ilb에 대 한 HA 포트를 구성 하는 방법에 대해 알아봅니다](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule).
 - [표준 Load Balancer에 대해 알아보기](load-balancer-standard-overview.md)

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f17f6fd881243d91428c6025fd63469a38afa0f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268811"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563899"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Azure Active Directory 장치 배포 계획
 
@@ -38,7 +38,7 @@ Azure AD (Azure Active Directory)를 사용 하면 조직에서 장치 id 관리
 
 시작 하기 전에 [장치 id 관리 개요](overview.md)에 대해 잘 알고 있는지 확인 합니다.
 
-### <a name="benefits"></a>혜택
+### <a name="benefits"></a>이점
 
 장치에 Azure AD id를 제공 하는 주요 이점은 다음과 같습니다.
 
@@ -66,7 +66,7 @@ Faq: [AZURE AD 장치 관리 faq](faq.md)  및 [설정 및 데이터 로밍 faq]
 
 이 계획의 경우 목록에 다음 관련자를 추가 합니다.
 
-| 역할| 설명 |
+| 역할| Description |
 | - | - |
 | 장치 관리자| 요금제가 조직의 장치 요구 사항을 충족 하는지 확인할 수 있는 장치 팀의 담당자입니다. |
 | 네트워크 관리자| 네트워크 요구 사항을 충족 하는지 확인할 수 있는 네트워크 팀의 담당자입니다. |
@@ -105,24 +105,24 @@ iOS 및 Android 장치는 Azure AD만 등록할 수 있습니다. 다음 표에�
 | 고려 사항 | Azure AD 등록| Azure AD 조인| 하이브리드 Azure AD 조인 |
 | - | - | - | - |
 | **클라이언트 운영 체제**| | |  |
-| Windows 10 디바이스| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png) |
-| Windows 하위 수준 장치 (Windows 8.1 또는 Windows 7)| | | ![선택](./media/plan-device-deployment/check.png) |
+| Windows 10 디바이스| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
+| Windows 하위 수준 장치 (Windows 8.1 또는 Windows 7)| | | ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
 |**로그인 옵션**| | |  |
-| 최종 사용자 로컬 자격 증명| ![선택](./media/plan-device-deployment/check.png)| |  |
-| 암호| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png) |
-| 디바이스 PIN| ![선택](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello| ![선택](./media/plan-device-deployment/check.png)| |  |
-| 비즈니스용 Windows Hello| | ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png) |
-| FIDO 2.0 보안 키| | ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png) |
-| Microsoft Authenticator 앱 (passwordless)| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png) |
+| 최종 사용자 로컬 자격 증명| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| |  |
+| 암호| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
+| 디바이스 PIN| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| |  |
+| 비즈니스용 Windows Hello| | ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
+| FIDO 2.0 보안 키| | ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
+| Microsoft Authenticator 앱 (passwordless)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
 |**주요 기능**| | |  |
-| 클라우드 리소스에 대 한 SSO| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png) |
-| 온-프레미스 리소스에 대한 SSO| | ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png) |
-| 조건부 액세스 <br> (장치를 규격으로 표시 해야 함) <br> (MDM에서 관리 해야 함)| ![선택](./media/plan-device-deployment/check.png) | ![선택](./media/plan-device-deployment/check.png)|![선택](./media/plan-device-deployment/check.png) |
-조건부 액세스 <br>(하이브리드 Azure AD 조인 장치 필요)| | | ![선택](./media/plan-device-deployment/check.png)
-| Windows 로그인 화면에서 셀프 서비스 암호 재설정| | ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png) |
-| Windows hello PIN 다시 설정| | ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png) |
-| 장치 간 엔터프라이즈 상태 로밍| | ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png) |
+| 클라우드 리소스에 대 한 SSO| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
+| 온-프레미스 리소스에 대한 SSO| | ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
+| 조건부 액세스 <br> (장치를 규격으로 표시 해야 함) <br> (MDM에서 관리 해야 함)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) | ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)|![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
+조건부 액세스 <br>(하이브리드 Azure AD 조인 장치 필요)| | | ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)
+| Windows 로그인 화면에서 셀프 서비스 암호 재설정| | ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
+| Windows hello PIN 다시 설정| | ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
+| 장치 간 엔터프라이즈 상태 로밍| | ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png) |
 
 
 ## <a name="azure-ad-registration"></a>Azure AD 등록 
@@ -239,9 +239,9 @@ Azure AD 조인이 장치에 가장 적합 한 솔루션 이며 해당 장치가
 
 | 디바이스 관리 도구| Azure AD 등록| Azure AD 조인| 하이브리드 Azure AD 조인|
 | - | - | - | - |
-| [MDM (모바일 장치 관리) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>예: Microsoft Intune| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png)|  |
-| [Microsoft Intune 및 Microsoft 끝점을 사용 하 여 공동 관리 Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 이상)| | ![선택](./media/plan-device-deployment/check.png)| ![선택](./media/plan-device-deployment/check.png)|  |
-| [그룹 정책](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows에만 해당)| | | ![선택](./media/plan-device-deployment/check.png)|  |
+| [MDM (모바일 장치 관리) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>예: Microsoft Intune| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)|  |
+| [Microsoft Intune 및 Microsoft 끝점을 사용 하 여 공동 관리 Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 이상)| | ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)| ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)|  |
+| [그룹 정책](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Windows에만 해당)| | | ![이러한 값에 대 한 확인 표시](./media/plan-device-deployment/check.png)|  |
 
 
 

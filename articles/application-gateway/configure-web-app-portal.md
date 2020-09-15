@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: daf4c4ab56e23a212256c2629b7d0ae52a09e7c4
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: dbaad0f6639d65d88da6847886d3aa3d39b93e82
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595713"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563756"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Application Gateway를 사용하여 App Service 구성
 
@@ -26,7 +26,7 @@ Application Gateway는 요청이 `Pick host name from backend address` Applicati
 - 백 엔드 풀을 만들고 여기에 App Service 추가
 - "호스트 선택" 스위치를 사용 하 여 HTTP 설정 및 사용자 지정 프로브 만들기
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Application gateway: 기존 application gateway가 없는 경우 [응용 프로그램 게이트웨이를 만드는](https://docs.microsoft.com/azure/application-gateway/quick-create-portal) 방법을 참조 하세요.
 - App service: 기존 App service가 없는 경우 [app service 설명서](https://docs.microsoft.com/azure/app-service/)를 참조 하세요.
@@ -67,9 +67,9 @@ Application Gateway는 요청이 `Pick host name from backend address` Applicati
 
 5. **확인** 을 클릭 하 여 HTTP 설정을 만듭니다.
 
-   ![HTTP-setting1](./media/configure-web-app-portal/http-setting1.png)
+   ![스크린샷은 App service 및 확인이 선택 된 추가 H T T P 설정 창을 보여 줍니다.](./media/configure-web-app-portal/http-setting1.png)
 
-   ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
+   ![스크린샷 선택 호스트 이름 형식 백 엔드 http 설정을 선택 하 여 상태 프로브를 표시 합니다.](./media/configure-web-app-portal/http-setting2.png)
 
 
 
@@ -85,7 +85,7 @@ Application Gateway는 요청이 `Pick host name from backend address` Applicati
 
 5. **확인** 을 클릭 하 여이 규칙을 저장 합니다.
 
-   ![규칙](./media/configure-web-app-portal/rule.png)
+   ![스크린샷에는 수신기, 백 엔드 풀 및 H T T P 설정이 강조 표시 된 기본 규칙 추가 창이 표시 됩니다.](./media/configure-web-app-portal/rule.png)
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>App service의 상대 경로로 리디렉션하는 경우 추가 구성
 

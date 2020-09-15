@@ -7,14 +7,17 @@ ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: cffac114cacd05e04e149af96d1678b536db7fec
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782373"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564239"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files 성능 문제 해결
+# <a name="troubleshoot-azure-files-performance-issues-smb"></a>Azure Files 성능 문제 해결 (SMB)
+
+> [!IMPORTANT]
+> 이 문서의 내용은 SMB 공유에만 적용 됩니다.
 
 이 문서에서는 Azure 파일 공유와 관련 된 몇 가지 일반적인 문제를 나열 합니다. 이러한 문제가 발생 하는 경우 잠재적 원인과 해결 방법을 제공 합니다.
 
@@ -45,7 +48,7 @@ ms.locfileid: "88782373"
 > [!NOTE]
 > 파일 공유를 제한 하는 경우 경고를 수신 하려면 [파일 공유를 제한 하는 경우 경고를 만드는 방법](#how-to-create-an-alert-if-a-file-share-is-throttled)을 참조 하세요.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 - 표준 파일 공유를 사용 하는 경우 저장소 계정에서 [대량 파일 공유](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) 를 사용 하도록 설정 합니다. 대량 파일 공유는 공유 당 최대 1만 IOPS를 지원 합니다.
 - 프리미엄 파일 공유를 사용 하는 경우 프로 비전 된 파일 공유 크기를 늘려 IOPS 제한을 늘립니다. 자세한 내용은 Azure Files 계획 가이드의 [premium 파일 공유에 대 한 프로 비전 이해](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares) 섹션을 참조 하십시오.
@@ -67,7 +70,7 @@ ms.locfileid: "88782373"
 
 고객이 사용 하는 응용 프로그램이 단일 스레드 인 경우 프로 비전 된 공유 크기에 따라 허용 되는 최대 크기 보다 훨씬 낮은 IOPS/처리량이 발생할 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 - 스레드 수를 늘려 응용 프로그램 병렬 처리를 늘립니다.
 - 병렬 처리를 사용할 수 있는 응용 프로그램으로 전환 합니다. 예를 들어 복사 작업의 경우 고객은 Windows 클라이언트의 AzCopy 또는 RoboCopy를 사용 하거나 Linux 클라이언트에서 **parallel** 명령을 사용할 수 있습니다.
@@ -78,7 +81,7 @@ ms.locfileid: "88782373"
 
 클라이언트 VM은 파일 공유와 다른 지역에 있을 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 - 파일 공유와 동일한 지역에 있는 VM에서 응용 프로그램을 실행 합니다.
 
@@ -200,6 +203,36 @@ IO를 많이 사용 하는 작업에 대 한 Azure Files 액세스 하는 데 �
 11. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 **작업 그룹** (전자 메일, SMS 등)을 추가 합니다.
 12. 경고 **규칙 이름**, **설명** 및 **심각도**와 같은 **경고 정보** 를 입력 합니다.
 13. 경고 **규칙 만들기** 를 클릭 하 여 경고를 만듭니다.
+
+Azure Monitor에서 경고를 구성 하는 방법에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)를 참조 하세요.
+
+## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-towards-being-throttled"></a>프리미엄 파일 공유의 제한에 대 한 추세를 파악 하는 경우 경고를 만드는 방법
+
+1. **Azure Portal**의 **저장소 계정** 으로 이동 합니다.
+2. 모니터링 섹션에서 **경고** 를 클릭 한 다음 **+ 새 경고 규칙**을 클릭 합니다.
+3. **리소스 편집**을 클릭 하 고 저장소 계정에 대 한 **파일 리소스 유형을** 선택한 다음 **완료**를 클릭 합니다. 예를 들어 저장소 계정 이름이 contoso 인 경우 contoso/file 리소스를 선택 합니다.
+4. 조건 **선택** 을 클릭 하 여 조건을 추가 합니다.
+5. 저장소 계정에 대해 지원 되는 신호 목록이 표시 되 면 **송신** 메트릭을 선택 합니다.
+
+  > [!NOTE]
+  > 수신, 송신 또는 트랜잭션이 설정 된 임계값을 초과 하는 경우 경고를 표시 하려면 3 개의 개별 경고를 만들어야 합니다. 이는 모든 조건이 충족 될 때만 경고가 발생 하기 때문입니다. 따라서 모든 조건을 하나의 경고에 배치 하면 수신, 송신 및 트랜잭션이 임계값을 초과한 경우에만 경고가 표시 됩니다.
+
+6. 아래로 스크롤합니다. **차원 이름** 드롭다운을 클릭 하 고 **파일 공유**를 선택 합니다.
+7. **차원 값** 드롭다운을 클릭 하 고 경고를 표시 하려는 파일 공유를 선택 합니다.
+8. **경고 매개 변수** (임계값, 연산자, 집계 세분성 및 평가 빈도)를 정의 하 고 **완료**를 클릭 합니다.
+
+  > [!NOTE]
+  > 송신, 수신 및 트랜잭션 메트릭은 초당 전송, 수신 및 IOPS를 프로 비전 하는 경우에만 분당입니다. 집계 세분성에 대 한 자세한 정보-분당 > = 더 많은 소음이 있으므로 diff를 선택 합니다.) 예를 들어 프로 비전 된 송신이 90 t b/초이 고 임계값이 프로 비전 된 송신의 80%가 되도록 하려면 다음 경고 매개 변수를 선택 해야 합니다 **. 예를**들어 **임계값**에 75497472를 지정 **합니다.** 경고를 발생 시킬 수 있는 시간에 따라 집계 세분성 및 평가 빈도에 대해 선택할 값을 선택할 수 있습니다. 예를 들어 내 경고에서 시간 (분) 동안의 평균 수신을 확인 하 고 1 시간 마다 경고 규칙을 실행 하려는 경우 **집계 세분성** 으로 1 시간을 선택 하 고 **평가 빈도**에 1 시간을 선택 합니다.
+
+9. **작업 그룹 선택** 을 클릭 하 여 기존 작업 그룹을 선택 하거나 새 작업 그룹을 만들어 경고에 **작업 그룹** (전자 메일, SMS 등)을 추가 합니다.
+10. 경고 **규칙 이름**, **설명** 및 **심각도**와 같은 **경고 정보** 를 입력 합니다.
+11. 경고 **규칙 만들기** 를 클릭 하 여 경고를 만듭니다.
+
+  > [!NOTE]
+  > 프로 비전 된 수신으로 인해 프리미엄 파일 공유의 제한에 근접 한 경우 알림이 표시 되도록 하려면 5 단계를 제외 하 고 동일한 단계를 수행 하 여 대신 **수신** 메트릭을 선택 하세요.
+
+  > [!NOTE]
+  > Premium 파일 공유가 프로 비전 된 IOPS로 인해 제한 되는 경우에 대해 알리려면 몇 가지 사항을 변경 해야 합니다. 5 단계에서 **트랜잭션** 메트릭을 대신 선택 합니다. 또한 10 단계에서 **집계 유형에** 대 한 유일한 옵션은 합계입니다. 따라서 임계값은 선택한 집계 세분성에 따라 달라 집니다. 예를 들어 프로 비전 된 기준선 IOPS의 80%로 임계값을 선택 하 고 **집계 세분성**으로 1 시간을 선택 하려는 경우 **임계값** 은 기준 iops (바이트) x 0.8 x 3600입니다. 이러한 변경 내용 외에도 위에 나열 된 것과 동일한 단계를 수행 합니다. 
 
 Azure Monitor에서 경고를 구성 하는 방법에 대 한 자세한 내용은 [Microsoft Azure의 경고 개요]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)를 참조 하세요.
 

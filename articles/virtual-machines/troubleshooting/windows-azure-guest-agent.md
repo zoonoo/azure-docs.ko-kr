@@ -9,14 +9,14 @@ editor: ''
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 08/07/2020
+ms.date: 09/15/2020
 ms.author: genli
-ms.openlocfilehash: 38bf652ccefe98c2bd0fb28e8018d41df21651dc
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 597ea6e7ff7dbcfcb8a99d4e4de3c1b82915ee07
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659469"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561264"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Microsoft Azure 게스트 에이전트 문제 해결
 
@@ -53,7 +53,7 @@ Azure Portal에서 VM 속성 페이지로 이동 하 여 **에이전트 상태**
     
     다음 PowerShell 명령을 실행 하 여 vm 에이전트가 VM에 배포 되었는지 여부를 확인할 수 있습니다.
     
-    `Get-Az VM -ResourceGroup “RGNAME” – Name “VMNAME” -displayhint expand`
+    `Get-AzVM -ResourceGroupName "RGNAME" -Name "VMNAME" -DisplayHint expand`
     
     출력에서 **ProvisionVMAgent** 속성을 찾고 값이 **True**로 설정 되어 있는지 확인 합니다. 이 경우 에이전트가 VM에 설치 되어 있음을 의미 합니다.
     

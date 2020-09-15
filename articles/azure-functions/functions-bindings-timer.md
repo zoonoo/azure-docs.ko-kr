@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 88160d82cb7cc0a012d63445f101a1f2a3740da0
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569285"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563090"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -250,6 +250,7 @@ public void keepAlive(
 
 현재 함수 호출이 일정보다 늦은 경우 `IsPastDue` 속성은 `true`입니다. 예를 들어 함수 앱을 다시 시작하면 호출이 누락될 수 있습니다.
 
+
 ## <a name="ncrontab-expressions"></a>NCRONTAB 식 
 
 Azure Functions [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리를 사용 하 여 NCronTab 식을 해석 합니다. NCRONTAB 식은 시간 전체 자릿수 (초)에 사용할 시작 부분에 추가 여섯 번째 필드를 포함 한다는 점을 제외 하 고는 CRON 식과 비슷합니다.
@@ -282,6 +283,8 @@ Azure Functions에서 타이머 트리거에 사용할 수 있는 NCRONTAB 식�
 |`"0 30 9 * * 1-5"`|평일 오전 9:30|
 |`"0 30 9 * Jan Mon"`|1월 매주 월요일 오전 9:30|
 
+> [!NOTE]
+> NCRONTAB 식에는 **6 개의 필드** 형식이 필요 합니다. Azure에서는 5 개의 field cron 식이 지원 되지 않습니다.
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB 표준 시간대
 
@@ -312,7 +315,7 @@ CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격�
 
 App service에 배포 되지 않은 함수 앱에서 저장소 계정을 공유 하는 경우 각 앱에 호스트 ID를 명시적으로 할당 해야 할 수 있습니다.
 
-| Functions 버전 | 설정                                              |
+| Functions 버전 | Setting                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2.x 이상  | `AzureFunctionsWebHost__hostid`환경 변수 |
 | 1.x               | `id` 의 *host.js*                                  |

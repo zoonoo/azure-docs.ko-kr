@@ -4,12 +4,12 @@ description: Azure Service Fabric에서 첫 번째 Linux 컨테이너 애플리�
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 35e96f1039dc71427a1a3d2745245eff5d012aaf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b9e22ada3da572d5025f56fca824089bb6e20465
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847536"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563712"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 > [!div class="op_single_selector"]
@@ -105,7 +105,7 @@ REPOSITORY                    TAG                 IMAGE ID            CREATED   
 helloworldapp                 latest              86838648aab6        2 minutes ago       194 MB
 ```
 
-## <a name="run-the-application-locally"></a>애플리케이션을 로컬로 실행
+## <a name="run-the-application-locally"></a>로컬에서 애플리케이션 실행
 컨테이너화된 애플리케이션이 컨테이너 레지스트리에 푸시하기 전에 로컬로 실행되는지 확인합니다. 
 
 애플리케이션을 실행하고 컨테이너의 노출되는 포트 80에 컴퓨터의 포트 4000을 매핑합니다.
@@ -215,7 +215,7 @@ V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오�
 
 컨테이너 상태를 모니터링하기 위해 수행되는 실제 검사를 가리키는 **HEALTHCHECK** 명령은 컨테이너 이미지를 생성하는 동안 사용되는 Dockerfile에 있어야 합니다.
 
-![HealthCheckHealthy][1]
+![배포 된 서비스 패키지 NodeServicePackage의 세부 정보를 보여 주는 스크린샷][1]
 
 ![HealthCheckUnhealthyApp][2]
 

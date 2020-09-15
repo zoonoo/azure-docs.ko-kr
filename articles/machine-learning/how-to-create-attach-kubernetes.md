@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: edd4cc28c6d59f1d6e0c9cabfd5855c72bd3fe73
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cac14d5995042847bc98e47e50ea2d188382fd2a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661845"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564341"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -68,6 +68,83 @@ Azure Kubernetes Service에 학습 된 기계 학습 모델을 배포할 수 Azu
 
     - [AKS 클러스터에서 수동으로 노드 수 크기 조정](../aks/scale-cluster.md)
     - [AKS에서 cluster autoscaler 설정](../aks/cluster-autoscaler.md)
+
+## <a name="azure-kubernetes-service-version"></a>Azure Kubernetes 서비스 버전
+
+Azure Kubernetes 서비스를 사용 하면 다양 한 Kubernetes 버전을 사용 하 여 클러스터를 만들 수 있습니다. 사용 가능한 버전에 대 한 자세한 내용은 [Azure Kubernetes Service에서 지원 되는 Kubernetes 버전](/azure/aks/supported-kubernetes-versions)을 참조 하세요.
+
+다음 방법 중 하나를 사용 하 여 Azure Kubernetes 서비스 클러스터를 **만들** 때 생성 되는 클러스터의 *버전에서 선택할 수 없습니다* .
+
+* Azure Machine Learning studio 또는 Azure Portal의 Azure Machine Learning 섹션입니다.
+* Azure CLI에 대 한 Machine Learning 확장입니다.
+* SDK를 Azure Machine Learning 합니다.
+
+AKS 클러스터를 만드는 이러한 메서드는 클러스터의 __기본__ 버전을 사용 합니다. 새 Kubernetes 버전을 사용할 수 있게 되 면 *기본 버전은 시간이 지남에 따라 변경* 됩니다.
+
+기존 AKS 클러스터를 **연결할** 때 현재 지원 되는 모든 AKS 버전을 지원 합니다.
+
+> [!NOTE]
+> 더 이상 지원 되지 않는 이전 클러스터가 있는 경우에는에 지 사례가 있을 수 있습니다. 이 경우 연결 작업은 오류를 반환 하 고 현재 지원 되는 버전을 나열 합니다.
+>
+> **미리 보기** 버전을 연결할 수 있습니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 미리 보기 버전 사용에 대 한 지원이 제한 될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+### <a name="available-and-default-versions"></a>사용 가능한 버전 및 기본 버전
+
+사용 가능한 및 기본 AKS 버전을 찾으려면 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 명령 [az AKS](/cli/azure/aks?view=azure-cli-latest#az_aks_get_versions)를 사용 합니다. 예를 들어 다음 명령은 미국 서 부 지역에서 사용할 수 있는 버전을 반환 합니다.
+
+```azurecli-interactive
+az aks get-versions -l westus -o table
+```
+
+이 명령의 출력은 다음 텍스트와 비슷합니다.
+
+```text
+KubernetesVersion    Upgrades
+-------------------  ----------------------------------------
+1.18.6(preview)      None available
+1.18.4(preview)      1.18.6(preview)
+1.17.9               1.18.4(preview), 1.18.6(preview)
+1.17.7               1.17.9, 1.18.4(preview), 1.18.6(preview)
+1.16.13              1.17.7, 1.17.9
+1.16.10              1.16.13, 1.17.7, 1.17.9
+1.15.12              1.16.10, 1.16.13
+1.15.11              1.15.12, 1.16.10, 1.16.13
+```
+
+Azure Machine Learning를 통해 클러스터를 **만들** 때 사용 되는 기본 버전을 찾으려면 `--query` 매개 변수를 사용 하 여 기본 버전을 선택할 수 있습니다.
+
+```azurecli-interactive
+az aks get-versions -l westus --query "orchestrators[?default == `true`].orchestratorVersion" -o table
+```
+
+이 명령의 출력은 다음 텍스트와 비슷합니다.
+
+```text
+Result
+--------
+1.16.13
+```
+
+**사용 가능한 버전을 프로그래밍 방식으로 확인**하려면 [컨테이너 서비스 클라이언트 목록 orchestrator](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API를 사용 합니다. 사용 가능한 버전을 찾으려면 항목을 확인 `orchestratorType` 합니다. 여기서는 `Kubernetes` 입니다. 연결 된 `orchestrationVersion` 항목에는 작업 영역에 연결할 수 **attached** 있는 사용 가능한 버전이 포함 되어 있습니다.
+
+Azure Machine Learning를 통해 클러스터를 **만들** 때 사용 되는 기본 버전을 찾으려면 `orchestratorType` 가이 `Kubernetes` 고 `default` 가 인 항목을 찾습니다 `true` . 연결 된 `orchestratorVersion` 값이 기본 버전입니다. 다음 JSON 코드 조각은 예제 항목을 보여 줍니다.
+
+```json
+...
+ {
+        "orchestratorType": "Kubernetes",
+        "orchestratorVersion": "1.16.13",
+        "default": true,
+        "upgrades": [
+          {
+            "orchestratorType": "",
+            "orchestratorVersion": "1.17.7",
+            "isPreview": false
+          }
+        ]
+      },
+...
+```
 
 ## <a name="create-a-new-aks-cluster"></a>새 AKS 클러스터 만들기
 

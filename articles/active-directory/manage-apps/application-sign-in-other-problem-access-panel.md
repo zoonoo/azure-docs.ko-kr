@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 472ab82e6941be5c1485773b1115d91eda701666
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a5201d0e31eb6d3b06316b74463dc2b68b33008c
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231183"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563916"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Azure AD 내 앱에서 응용 프로그램에 로그인 하는 문제 해결
 
@@ -33,7 +33,7 @@ ms.locfileid: "89231183"
 -   기존 SSO 솔루션을 사용한 애플리케이션
 
 앱이 나타나거나 표시 되지 않는 경우를 확인 하는 몇 가지 사항은 다음과 같습니다.
-- 앱이 Azure AD에 추가 되었는지 확인 하 고 사용자가 할당 되었는지 확인 합니다. 자세히 알아보려면 [응용 프로그램 관리에 대 한 빠른 시작 시리즈](view-applications-portal.md)를 참조 하세요.
+- 앱이 Azure AD에 추가 되었는지 확인 하 고 사용자가 할당 되었는지 확인 합니다. 자세히 알아보려면 [응용 프로그램 관리에 대 한 빠른 시작 시리즈](add-application-portal.md)를 참조 하세요.
 - 앱을 최근에 추가한 경우 사용자가 다시 로그 아웃 했다가 다시 로그인 합니다. 
 - 앱이 Office와 같은 라이선스를 요구 하는 경우 사용자에 게 적절 한 라이선스가 할당 되었는지 확인 합니다.
 - 라이선스 변경에 걸리는 시간은 그룹의 크기와 복잡도에 따라 달라질 수 있습니다.

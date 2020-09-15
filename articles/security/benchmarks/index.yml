@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Azure 보안 벤치마크 설명서
+title: Azure Security Benchmark 설명서
 summary: 모범 사례 및 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법을 알아봅니다.
 metadata:
   title: Azure 보안 벤치마크
@@ -13,12 +13,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: 705757e3021ff7421dd88e3a2661b1b51f3f927a
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.openlocfilehash: addc6aab30d23ab1aaca691e5d1ee1f0b9d12c39
+  ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88213558"
+  ms.lasthandoff: 09/13/2020
+  ms.locfileid: "90058668"
 landingContent:
 - title: Azure 보안 벤치마크 정보
   linkLists:
@@ -34,22 +34,22 @@ landingContent:
       url: ../../security-center/index.yml
     - text: Azure 보안 기본 사항
       url: ../fundamentals/index.yml
-- title: Azure Security Benchmark 컨트롤
+- title: Azure Security Benchmark V2 컨트롤
   linkLists:
   - linkListType: overview
     links:
     - text: 네트워크 보안
-      url: security-control-network-security.md
-    - text: 로깅 및 모니터링
-      url: security-control-logging-monitoring.md
-    - text: ID 및 액세스 제어
-      url: security-control-identity-access-control.md
+      url: security-controls-v2-network-security.md
+    - text: ID 관리
+      url: security-controls-v2-identity-management.md
+    - text: 권한 있는 액세스
+      url: security-controls-v2-privileged-access.md
     - text: 데이터 보호
-      url: security-control-data-protection.md
-    - text: 취약점 관리
-      url: security-control-vulnerability-management.md
+      url: security-controls-v2-data-protection.md
+    - text: 자산 관리
+      url: security-controls-v2-asset-management.md
     - text: 자세히 보기
-      url: security-control-inventory-asset-management.md
+      url: security-controls-v2-logging-threat-detection.md
 - title: 컴퓨팅 보안 기준
   linkLists:
   - linkListType: overview

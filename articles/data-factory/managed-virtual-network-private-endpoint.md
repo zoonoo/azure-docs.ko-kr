@@ -9,14 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom:
+- seo-lt-2019
+- references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 0553cb47ba0119cf1bc5e744b689b6c510ba8396
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594359"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564001"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory 관리 Virtual Network (미리 보기)
 
@@ -88,7 +90,7 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 - Azure Database for PostgreSQL
 - Azure Database for MariaDB
 
-### <a name="supported-regions"></a>지원되는 지역
+### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Azure Data Factory 관리 Virtual Network는 다음 Azure 지역에서 사용할 수 있습니다.
 - 미국 동부
 - 미국 동부 2
 - 미국 중서부
@@ -104,6 +106,10 @@ Azure Data Factory에서 관리 되는 개인 끝점을 만들 때 "보류 중" 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>ADF 관리 Virtual Network에서 공용 끝점을 통한 아웃 바운드 통신
 - 아웃 바운드 통신용 포트 443만 열립니다.
 - Azure Storage 및 Azure Data Lake Gen2는 ADF 관리 Virtual Network의 공용 끝점을 통해 연결할 수 없습니다.
+
+### <a name="linked-service-creation-of-azure-key-vault"></a>Azure Key Vault 연결 된 서비스 만들기 
+- Azure Key Vault에 대 한 연결 된 서비스를 만들 때 Azure Integration Runtime 참조는 없습니다. 따라서 연결 된 서비스를 만드는 동안에는 Azure Key Vault 개인 끝점을 만들 수 없습니다. 그러나 Azure Key Vault 연결 된 서비스를 참조 하는 데이터 저장소에 대 한 연결 된 서비스를 만들 때이 연결 된 서비스에서 관리 되는 Virtual Network를 사용 하도록 설정 된 Azure Integration Runtime 참조 하는 경우 생성 하는 동안 Azure Key Vault 연결 된 서비스에 대 한 개인 끝점을 만들 수 있습니다. 
+- 연결 된 Azure Key Vault 서비스에 대 한 **연결 테스트** 작업은 URL 형식의 유효성만 검사 하지만 네트워크 작업은 수행 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

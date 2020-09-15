@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4a0739eb1ab14155a98b17e2427c5b08c9db788
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68985940"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564426"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Azure Data Box의 안전한 설치 및 작동
 ![경고 아이콘](./media/data-box-safety/warning_icon.png)
@@ -24,7 +24,7 @@ Azure Data Box를 사용하기 전에 이 문서의 모든 보안 정보를 읽�
 ## <a name="safety-icon-conventions"></a>안전성 아이콘 표시 규칙
 다음은 Data Box를 설정 및 실행할 때 관찰되는 안전 주의 사항을 검토할 때 표시되는 아이콘입니다.
 
-| 아이콘 | 설명 |
+| 아이콘 | Description |
 |:--- |:--- |
 | ![위험 아이콘](./media/data-box-safety/warning_icon.png) **위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
 | ![경고 아이콘 ](./media/data-box-safety/warning_icon.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
@@ -120,7 +120,7 @@ Microsoft의 명시적 승인 없이 디바이스를 변경 또는 수정할 경
 
 이 디바이스는 FCC 규칙 파트 15 및 Industry Canada 라이선스 면제 RSS 표준을 따릅니다. 작동 시 다음 두 조건이 적용됩니다. (1) 이 디바이스는 해로운 간섭을 일으키지 않을 것입니다. (2) 이 디바이스는 오작동을 일으킬 수 있는 간섭을 포함하여 모든 간섭을 받습니다.
 
-![캐나다](./media/data-box-safety/canada.png)
+![스크린샷에는 캐나다에 필요한 알림이 표시 됩니다.](./media/data-box-safety/canada.png)
 
 CAN ICES-3(A)/NMB-3(A)
 
@@ -154,7 +154,7 @@ Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
 
 **일본**
 
-![일본](./media/data-box-safety/japan.png)
+![일본에 필요한 알림을 보여 주는 스크린샷](./media/data-box-safety/japan.png)
 
 <!--**South Korea**
 

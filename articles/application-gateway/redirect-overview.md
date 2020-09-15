@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 8c2bac1bee5a2301a29589f15d72d0f69b4a05b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb01d5a4923410f693b682d66be8d5d09f9019d0
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253854"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561581"
 ---
 # <a name="application-gateway-redirect-overview"></a>Application Gateway 리디렉션 개요
 
@@ -37,7 +37,7 @@ Application Gateway 리디렉션 지원에서는 다음과 같은 기능을 제�
    이러한 종류의 리디렉션에서는 /cart/*로 표시되는 쇼핑 카트 영역과 같이 특정 사이트 영역에서만 HTTP - HTTPS 리디렉션이 가능합니다.
 - **외부 사이트로의 리디렉션**
 
-![리디렉션](./media/redirect-overview/redirect.png)
+![다이어그램은 잠금 해제 된 H T P 빨간색 화살표, 허용 되지 않는 301 direct 빨강 화살표 및 잠긴 H T P S 녹색 화살표를 포함 하 여 둘 사이의 사용자 및 앱 게이트웨이 및 연결을 보여 줍니다.](./media/redirect-overview/redirect.png)
 
 이러한 변경으로 인해 고객은 리디렉션하려는 대상 수신기 또는 외부 사이트를 지정하는 새 리디렉션 구성 개체를 만들어야 합니다. 구성 요소도 리디렉션된 URL에 URI 경로 및 쿼리 문자열을 추가할 수 있는 옵션을 지원합니다. 또한 리디렉션 유형을 선택할 수 있습니다. 이 리디렉션 구성이 만들어지면 새 규칙을 통해 원본 수신기에 첨부됩니다. 기본 규칙을 사용하는 경우 리디렉션 구성이 원본 수신기와 연결되며 전역 리디렉션이 됩니다. 경로 기반 규칙을 사용할 경우 리디렉션 구성이 URL 경로 맵에 정의됩니다. 따라서 사이트의 특정 경로 영역에만 적용됩니다.
 

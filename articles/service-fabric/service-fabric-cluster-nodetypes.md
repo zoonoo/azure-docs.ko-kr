@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261110"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561893"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 노드 형식 및 가상 머신 확장 집합
 
@@ -32,7 +32,7 @@ Service Fabric 런타임은 *ServiceFabric* 가상 머신 확장에 의해 확�
 
 Azure Portal에 클러스터를 배포했거나 샘플 Azure Resource Manager 템플릿을 사용한 경우 리소스 그룹의 모든 리소스가 목록에 열거됩니다. 각 확장 집합 또는 노드 형식에 대해 부하 분산 장치를 확인할 수 있습니다. 부하 분산 장치 이름은 **LB-&lt;노드 형식 이름&gt;** 형식을 사용합니다. 다음 그림에서처럼 LB-sfcluster4doc-0을 예로 들 수 있습니다.
 
-![리소스][Resources]
+![스크린샷 두 개의 부하 분산 장치가 강조 표시 된 리소스 그룹을 보여 줍니다.][Resources]
 
 ## <a name="service-fabric-virtual-machine-extension"></a>가상 컴퓨터 확장 Service Fabric
 
@@ -72,12 +72,12 @@ Service Fabric 가상 머신 확장을 사용 하 여 Azure Virtual Machines에 
 
 속성 설명은 다음과 같습니다.
 
-| **이름** | **허용되는 값** | **지침 또는 간단한 설명** |
+| **Name** | **허용되는 값** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 | name | 문자열 | 확장의 고유한 이름 |
-| 형식 | "ServiceFabricLinuxNode" 또는 "ServiceFabricWindowsNode" | Service Fabric OS를 식별 합니다. |
+| type | "ServiceFabricLinuxNode" 또는 "ServiceFabricWindowsNode" | Service Fabric OS를 식별 합니다. |
 | autoUpgradeMinorVersion | true 또는 false | SF 런타임 부 버전 자동 업그레이드 사용 |
-| publisher | ServiceFabric | Service Fabric 확장 게시자의 이름입니다. |
+| 게시자 | ServiceFabric | Service Fabric 확장 게시자의 이름입니다. |
 | clusterEndpont | 문자열 | URI: 관리 끝점에 대 한 포트 |
 | nodeTypeRef | 문자열 | NodeType의 이름 |
 | durabilityLevel | 브론즈, 실버, 골드, 플래티넘 | 변경할 수 없는 Azure 인프라를 일시 중지할 수 있는 시간 |

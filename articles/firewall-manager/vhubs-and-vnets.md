@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 09/14/2020
 ms.author: victorh
-ms.openlocfilehash: 7a06111fbe38f167ddf3512fdb312d7de754a738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71ff23e749139087f24da406474403167dcc1c0d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563573"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563151"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Azure 방화벽 관리자 아키텍처 옵션은 무엇 인가요?
 
@@ -44,8 +44,9 @@ Azure 방화벽 관리자는 다음 두 가지 네트워크 아키텍처 유형�
 |**여러 보안 공급자 지원**|타사 방화벽에 대 한 강제 터널링을 수동으로 구성 하 여 지원|두 보안 공급자에 대 한 자동화 된 지원: 개인 트래픽 필터링을 위한 Azure 방화벽 및 인터넷 필터링을 위한 타사|
 |**Application Gateway의 Web Application Firewall** |Virtual Network에서 지원|현재 스포크 네트워크에서 지원 됨|
 |**네트워크 가상 어플라이언스**|Virtual Network에서 지원|현재 스포크 네트워크에서 지원 됨|
+|**Azure DDoS Protection 표준 지원**|예|아니요|
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 방화벽 관리자 배포 개요](deployment-overview.md) 를 검토 합니다.
+- [Azure Firewall Manager 배포 개요](deployment-overview.md) 검토
 - [보안 가상 허브](secured-virtual-hub.md)에 대해 알아보기

@@ -3,16 +3,16 @@ title: Azure Portal에서 Service Fabric 클러스터 만들기
 description: Azure Portal 및 Azure Key Vault를 사용하여 Azure에서 보안 Service Fabric 클러스터를 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c679a804db09b1034f31e9d8da1f7d2ad206f684
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259313"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563729"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
-> * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
+> * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 > * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
@@ -128,42 +128,42 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 
 이전 프로세스가 완료될 때까지 화면을 벗어나지 마세요.
 
-![CreateKeyVault]
+![주요 자격 증명 모음 창 및 키 자격 증명 모음 만들기 창에서 기본으로 선택 된 보안 페이지를 보여 주는 스크린샷][CreateKeyVault]
 
 이제 키 자격 증명 모음을 만들었으므로 키 자격 증명 모음에 대한 액세스 정책을 편집합니다. 
 
-![CreateKeyVault2]
+![스크린샷은 옵션 3 보안을 선택 하 고 키 자격 증명 모음을 사용 하도록 설정 되지 않은 설명을 포함 하는 Service Fabric 클러스터 만들기 창을 보여 줍니다.][CreateKeyVault2]
 
 **액세스 정책 편집** 및 **고급 액세스 정책 표시**를 차례로 클릭한 다음, 배포를 위해 Azure Virtual Machines에 액세스할 수 있도록 합니다. 템플릿 배포도 사용하도록 설정하는 것이 좋습니다. 선택이 완료되면 **저장** 단추를 클릭하고 **액세스 정책** 창을 닫아야 합니다.
 
-![CreateKeyVault3]
+![스크린샷에는 보안 창이 열리고 액세스 정책 창이 열려 있는 Service Fabric 클러스터 만들기 창이 표시 됩니다.][CreateKeyVault3]
 
 인증서 이름을 입력하고 **확인**을 클릭합니다.
 
-![CreateKeyVault4]
+![스크린샷에는 키 자격 증명 모음을 사용 하도록 설정 되지 않은 경우를 제외 하 고 이전 처럼 보안이 선택 된 Service Fabric 클러스터 만들기 창이 표시 됩니다.][CreateKeyVault4]
 
 #### <a name="custom-option"></a>사용자 지정 옵션
 **기본** 옵션의 단계를 이미 수행한 경우에는 이 섹션을 건너뜁니다.
 
-![SecurityCustomOption]
+![스크린샷 보안 클러스터 보안 설정 구성 대화 상자를 표시 합니다.][SecurityCustomOption]
 
 보안 페이지를 완료하려면 원본 키 자격 증명 모음, 인증서 URL 및 인증서 지문 정보가 필요합니다. 이 정보가 없는 경우 다른 브라우저 창을 열고 Azure Portal에서 다음을 수행합니다.
 
 1. 키 자격 증명 모음 서비스로 이동합니다.
 2. “속성” 탭을 선택하고 다른 브라우저 창의 “원본 키 자격 증명 모음”에 ‘리소스 ID’를 복사합니다. 
 
-    ![CertInfo0]
+    ![주요 자격 증명 모음에 대 한 속성 창를 보여 주는 스크린샷][CertInfo0]
 
 3. 이제 “인증서” 탭을 선택합니다.
 4. 인증서 지문을 클릭합니다. 버전 페이지로 이동됩니다.
 5. 현재 버전 아래에 표시되는 GUID를 클릭합니다.
 
-    ![CertInfo1]
+    ![주요 자격 증명 모음에 대 한 인증서 창을 보여 주는 스크린샷][CertInfo1]
 
 6. 이제 아래와 같은 화면이 표시됩니다. 다른 브라우저 창의 “인증서 지문”에 16진 SHA-1 지문을 복사합니다.
 7. 다른 브라우저 창의 “인증서 URL”에 ‘비밀 식별자’를 복사합니다.
 
-    ![CertInfo2]
+    ![스크린샷 인증서 식별자를 복사 하는 옵션과 함께 인증서 버전 대화 상자를 표시 합니다.][CertInfo2]
 
 **고급 설정 구성** 확인란을 선택하여 **관리 클라이언트** 및 **읽기 전용 클라이언트**에 대한 클라이언트 인증서를 입력합니다. 이러한 필드에는 관리 클라이언트 인증서의 지문과 읽기 전용 사용자 클라이언트 인증서의 지문을 입력하면 됩니다(해당하는 경우). 관리자가 클러스터에 연결하려고 할 경우, 여기에 입력한 지문 값과 일치하는 지문을 포함하는 인증서가 있어야만 액세스 권한이 부여됩니다.  
 
@@ -173,7 +173,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 
 클러스터 만들기를 완료하려면 **만들기**를 클릭합니다. 필요에 따라 템플릿을 다운로드할 수 있습니다.
 
-![요약]
+![스크린샷에는 인증서를 보고 다운로드할 수 있는 링크가 포함 된 Service Fabric 클러스터 요약 만들기 페이지가 표시 됩니다.][Summary]
 
 알림에서 만들기 진행률을 볼 수 있습니다. 화면 오른쪽 위의 상태 표시줄 근처에 있는 "종" 아이콘을 클릭 합니다. 클러스터를 만드는 동안 시작 **보드에 고정을** 클릭 한 경우에는 **시작** 보드에 고정 된 **Service Fabric 클러스터가 배포** 되는 것을 볼 수 있습니다. 이 프로세스는 시간이 약간 걸립니다. 
 
@@ -230,7 +230,7 @@ PowerShell 또는 CLI를 사용 하 여 클러스터에서 관리 작업을 수�
 [CertInfo2]: ./media/service-fabric-cluster-creation-via-portal/CertInfo2.PNG
 [SecurityCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
 [DownloadCert]: ./media/service-fabric-cluster-creation-via-portal/DownloadCert.PNG
-[요약]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
+[Summary]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png

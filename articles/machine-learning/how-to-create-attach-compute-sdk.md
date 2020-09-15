@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: c25ee5d9c626ba95d28f2247e6771d9fa1ada0f7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: af912838e99e7b36cb29695758108f0a9efeb8ea
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662538"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561638"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Python SDK를 사용 하 여 모델 학습 및 배포를 위한 계산 대상 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "89662538"
 * Azure Machine Learning [VS Code 확장](how-to-manage-resources-vscode.md#compute-clusters) 입니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
 * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
@@ -36,7 +36,11 @@ ms.locfileid: "89662538"
 
 ## <a name="limitations"></a>제한 사항
 
-이 문서에 나열 된 일부 시나리오는 __미리 보기로__표시 되어 있습니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+* 작업 영역에서 **동일한 계산에 대 한 여러 개의 동시 첨부 파일을 만들지 마십시오** . 예를 들어 두 개의 다른 이름을 사용 하 여 하나의 Azure Kubernetes 서비스 클러스터를 작업 영역에 연결 합니다. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
+
+    예를 들어 TLS 또는 다른 클러스터 구성 설정을 변경 하는 등 계산 대상을 다시 연결 하려면 먼저 기존 첨부 파일을 제거 해야 합니다.
+
+* 이 문서에 나열 된 일부 시나리오는 __미리 보기로__표시 되어 있습니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="whats-a-compute-target"></a>계산 대상 이란?
 
@@ -269,6 +273,9 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
 
    또는 [Azure Machine Learning 스튜디오를 사용](how-to-create-attach-compute-studio.md#attached-compute)하여 작업 영역에 DSVM을 연결할 수도 있습니다.
 
+    > [!WARNING]
+    > 작업 영역에서 동일한 DSVM에 대 한 동시 첨부 파일을 여러 개 만들지 마세요. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
+
 1. **구성**: DSVM 컴퓨팅 대상에 대한 실행 구성을 만듭니다. Docker 및 conda는 DSVM에서 학습 환경을 만들고 구성하는 데 사용됩니다.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
@@ -313,6 +320,9 @@ Azure HDInsight는 빅 데이터 분석을 위한 인기 있는 플랫폼입니�
    ```
 
    또는 [Azure Machine Learning 스튜디오를 사용](how-to-create-attach-compute-studio.md#attached-compute)하여 작업 영역에 HDInsight 클러스터를 연결할 수도 있습니다.
+
+    > [!WARNING]
+    > 작업 영역에서 동일한 HDInsight로 동시에 첨부 파일을 여러 개 만들지 마세요. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
 
 1. **구성**: HDI 컴퓨팅 대상에 대한 실행 구성을 만듭니다. 
 
@@ -360,6 +370,9 @@ except ComputeTargetException:
 
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
+
+> [!WARNING]
+> 작업 영역에서 동일한 Azure Batch에 대 한 여러 개의 동시 첨부 파일을 만들지 않습니다. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
 
 ### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
@@ -414,6 +427,9 @@ except ComputeTargetException:
 
 자세한 예제는 GitHub의 [예제 노트북](https://aka.ms/pl-databricks) 을 참조 하세요.
 
+> [!WARNING]
+> 작업 영역에서 동일한 Azure Databricks에 대 한 여러 개의 동시 첨부 파일을 만들지 않습니다. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
+
 ### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure 데이터 레이크 분석
 
 Azure Data Lake Analytics는 Azure 클라우드의 빅 데이터 분석 플랫폼입니다. 이 환경은 Azure Machine Learning 파이프라인 사용 시 컴퓨팅 대상으로 사용할 수 있습니다.
@@ -463,6 +479,9 @@ except ComputeTargetException:
 ```
 
 자세한 예제는 GitHub의 [예제 노트북](https://aka.ms/pl-adla) 을 참조 하세요.
+
+> [!WARNING]
+> 작업 영역에서 동일한 ADLA에 대해 동시에 첨부 파일을 여러 개 만들지 마세요. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
 
 > [!TIP]
 > Azure Machine Learning 파이프라인은 Data Lake Analytics 계정의 기본 데이터 저장소에 저장된 데이터에만 작동할 수 있습니다. 작업 해야 하는 데이터가 기본이 아닌 저장소에 있는 경우를 사용 [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) 하 여 학습 전에 데이터를 복사할 수 있습니다.

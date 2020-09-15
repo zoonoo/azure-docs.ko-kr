@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b27055ce84bbb073045b69b942fd13f4fde4e3b3
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689217"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563865"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect 동기화: 아키텍처 이해
 이 항목에서는 Azure AD Connect 동기화에 대 한 기본 아키텍처에 대해 설명 합니다. 많은 측면에서이는 이전 MIIS 2003, ILM 2007 및 FIM 2010과 비슷합니다. Azure AD Connect 동기화는 이러한 기술이 진화된 모습입니다. 이러한 앞의 기술에 대해 잘 알고 있다면 이 항목의 내용 역시 이해하기 쉽습니다. 동기화를 처음 접하는 경우 이 항목이 도움이 될 것입니다. 하지만 Azure AD Connect 동기화(이 토픽에서는 동기화 엔진이라고 함)를 성공적으로 사용자 지정하기 위해 이 항목의 세부 내용을 알 필요는 없습니다.
@@ -36,7 +36,7 @@ ms.locfileid: "84689217"
 
 커넥터는 API 호출을 통해 ID 정보(읽기 및 쓰기)를 연결된 데이터 원본과 교환합니다. 또한 확장 가능한 연결 프레임워크를 사용하여 사용자 지정 커넥터를 추가할 수도 있습니다. 다음 그림에서는 커넥터가 연결된 데이터 원본을 동기화 엔진에 연결하는 방법을 보여 줍니다.
 
-![Arch1](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
+![다이어그램은 커넥터 라는 선으로 연결 된 연결 된 데이터 원본 및 동기화 엔진을 보여 줍니다.](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
 
 데이터는 어느 방향으로나 이동할 수 있지만 양방향으로 동시에 이동할 수는 없습니다. 즉, 연결된 데이터 원본에서 동기화 엔진으로 또는 동기화 엔진에서 연결된 데이터 원본으로 데이터가 이동하도록 커넥터를 구성할 수 있지만 한 개체 및 특성에 대해 한 번에 이러한 작업 중 하나만 발생할 수 있습니다. 방향은 개체 및 특성마다 다를 수 있습니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "84689217"
 
 다음 그림에서는 동기화 엔진 내에 있는 커넥터 공간 네임스페이스와 메타버스 네임스페이스를 보여 줍니다.
 
-![Arch2](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
+![다이어그램은 커넥터 공간 및 메타 버스 네임 스페이스로 분리 된 연결 된 데이터 원본 및 동기화 엔진을 보여 주며,이는 커넥터 라는 줄에서 연결 됩니다.](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
 
 ## <a name="sync-engine-identity-objects"></a>동기화 엔진 ID 개체
 동기화 엔진의 개체는 연결된 데이터 원본의 개체 또는 동기화 엔진에서 이러한 개체 중에 통합된 보기를 만드는 개체를 표현합니다. 모든 동기화 엔진 개체에는 전역 고유 식별자(GUID)가 있어야 합니다. GUID는 데이터 무결성을 제공하고 개체 간의 관계를 표현합니다.
@@ -97,13 +97,13 @@ ms.locfileid: "84689217"
 
 다음 그림에서는 연결된 데이터 원본에 있는 개체를 나타내는 가져오기 개체를 보여 줍니다.
 
-![Arch3](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
+![다이어그램은 연결 된 데이터 원본에서 동기화 엔진의 커넥터 공간 네임 스페이스로 가져온 개체를 표시 합니다.](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
 
 동기화 엔진은 메타버스의 개체 정보를 사용하여 내보내기 개체를 만듭니다. 내보내기 개체는 다음 통신 세션 동안 연결된 데이터 원본으로 내보내집니다. 동기화 엔진의 관점에서 내보내기 개체는 연결된 데이터 원본에 아직 존재하지 않습니다. 따라서 내보내기 개체에 대한 앵커 특성은 사용할 수 없습니다. 동기화 엔진에서 개체를 수신하면 연결된 데이터 원본은 개체의 앵커 특성으로 고유한 값을 만듭니다.
 
 다음 그림에서는 메타버스의 ID 정보를 사용하여 내보내기 개체가 어떻게 만들어지는지를 보여 줍니다.
 
-![Arch4](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
+![다이어그램은 메타 버스에서 커넥터 공간 네임 스페이스, 연결 된 데이터 원본으로 가져온 내보내기 개체를 보여 줍니다.](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
 
 동기화 엔진은 연결된 데이터 원본에서 개체를 다시 가져와서 개체의 내보내기를 확인합니다. 해당 연결된 데이터 원본에서 다음 가져오는 동안 동기화 엔진이 개체를 수신하면 내보내기 개체는 가져오기 개체가 됩니다.
 
@@ -132,7 +132,7 @@ ms.locfileid: "84689217"
 
 단일 커넥터 공간 개체는 하나의 메타버스 개체에만 연결할 수 있습니다. 그러나 다음 그림에 나와 있는 것처럼 각 메타 버스 개체를 동일한 또는 다른 커넥터 공간에 여러 커넥터 공간 개체에 연결할 수 있습니다.
 
-![Arch5](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
+![다이어그램은 연결 된 개체 및 연결 되지 않은 개체를 포함 하는 동기화 엔진에 대 한 커넥터와 연결 된 두 개의 연결 된 데이터 개체를 보여 줍니다.](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
 
 스테이징 개체와 메타버스 개체 간의 연결된 관계는 영구적이며 사용자가 지정한 규칙으로만 제거할 수 있습니다.
 
@@ -157,7 +157,7 @@ ID 관리 프로세스는 서로 다른 연결된 데이터 원본 간에 ID 정
 
 다음 그림에서는 연결된 데이터 원본 간에 ID 정보가 이동함에 따라 각각 어떤 프로세스가 발생하는지를 보여 줍니다.
 
-![Arch6](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
+![다이어그램은 연결 된 데이터에서 커넥터 공간으로 (가져오기) 연결 된 데이터에서 커넥터 공간 (동기화)으로 연결 된 데이터에 대 한 id 정보 흐름 (내보내기)을 보여 줍니다.](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
 
 ### <a name="import-process"></a>가져오기 프로세스
 가져오기 프로세스 중에 동기화 엔진은 ID 정보에 대한 업데이트를 평가합니다. 동기화 엔진은 연결된 데이터 원본에서 수신한 ID 정보를 스테이징 개체에 대한 ID 정보와 비교하고 스테이징 개체를 업데이트해야 할지 여부를 결정합니다. 이 과정은 스테이징 개체를 새 데이터로 업데이트해야 하는 경우 필요하며 스테이징 개체는 보류 중인 내보내기로 플래그 지정됩니다.
@@ -252,7 +252,7 @@ ID 관리 프로세스는 서로 다른 연결된 데이터 원본 간에 ID 정
 
 동기화 엔진은 각 스테이징 개체에 대한 내보내기 및 가져오기 상태를 저장합니다. 마지막 내보내기 이후 특성 포함 목록에 지정된 특성 값이 변경된 경우 가져오기 및 내보내기 상태 스토리지를 통해 동기화 엔진은 적절하게 대응할 수 있습니다. 동기화 엔진은 가져오기 프로세스를 사용하여 연결된 데이터 원본으로 내보낸 특성 값을 확인합니다. 다음 그림에 나와 있는 것처럼 동기화 엔진은 가져오고 내보낸 정보를 서로 비교하여 내보내기에 성공했는지, 반복해야 하는지를 결정할 수 있습니다.
 
-![Arch7](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
+![다이어그램은 커넥터 공간 간의 개체와 커넥터를 통해 연결 된 데이터를 동기화 하는 것을 보여 줍니다.](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
 
 예를 들어, 동기화 엔진이 값이 5인 특성 C를 연결된 데이터 원본에 내보내는 경우 해당 내보내기 상태 메모리에 C=5를 저장합니다. 이 개체에서 내보내기를 추가로 수행할 때마다 동기화 엔진은 이 값이 개체에 영구적으로 적용되지 않았다고 가정하므로(즉, 연결된 데이터 원본에서 최근에 다른 값을 가져오지 않는 경우) 연결된 데이터 원본으로 C=5 내보내기가 다시 시도됩니다. 개체에 대한 가져오기 작업 중에 C=5를 수신하면 내보내기 메모리가 지워집니다.
 

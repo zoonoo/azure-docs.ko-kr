@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c0121c42c5d498aa79109c874981b9de0f8f4b7c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2781ef69ce85e82dab45a9f890ef5e6862949d98
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588877"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087986"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Logic Apps를 사용하여 키 자격 증명 모음 비밀의 상태 변경에 대한 이메일 수신
 
 이 가이드에서는 [Azure Logic Apps](../../logic-apps/index.yml)를 사용하여 [Azure Event Grid](../../event-grid/index.yml)를 통해 받은 Azure Key Vault 이벤트에 응답하는 방법을 알아봅니다. 결과적으로 Azure Key Vault에서 비밀이 만들어질 때마다 Azure 논리 앱이 알림 이메일을 보내도록 설정합니다.
 
-Azure Key Vault/Azure Event Grid 통합에 대한 개요는 [Azure Event Grid를 사용하여 Key Vault 모니터링(미리 보기)](event-grid-overview.md)을 참조하세요.
+Azure Key Vault/Azure Event Grid 통합에 대한 개요는 [Azure Event Grid를 사용하여 Key Vault 모니터링](event-grid-overview.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -56,7 +56,7 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
 1. **이메일** 검색. 전자 메일 공급자에 따라 일치하는 커넥터를 찾아 선택합니다. 이 자습서에서는 **Office 365 Outlook**이 사용됩니다. 다른 이메일 공급자를 위한 단계들도 비슷합니다.
 1. **이메일 보내기(V2)** 작업을 선택합니다.
 
-   ![논리 앱 디자이너 - 이메일 추가](../media/eventgrid-logicappdesigner3.png)
+   ![논리 앱 디자이너 - 이메일 보내기](../media/eventgrid-logicappdesigner3.png)
 
 1. 이메일 템플릿을 작성합니다.
     - **받는 사람:** 알림 이메일을 받을 이메일 주소를 입력합니다. 이 자습서에서는 테스트를 위해 액세스할 수 있는 메일 계정을 사용합니다.
@@ -64,18 +64,18 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
 
     이메일 템플릿은 다음 예와 같습니다.
 
-    ![논리 앱 디자이너 - 이메일 추가](../media/eventgrid-logicappdesigner4.png)
+    ![논리 앱 디자이너 - 이메일 본문](../media/eventgrid-logicappdesigner4.png)
 
 8. **다른 이름으로 저장**을 클릭합니다.
 9. 새 논리 앱에 대한 **이름**을 입력하고 **만들기**를 클릭합니다.
     
-    ![논리 앱 디자이너 - 이메일 추가](../media/eventgrid-logicappdesigner5.png)
+    ![논리 앱 디자이너 - 만들기](../media/eventgrid-logicappdesigner5.png)
 
 ## <a name="test-and-verify"></a>테스트 및 확인
 
 1.  Azure Portal에서 키 자격 증명 모음으로 이동하여 **이벤트 > 이벤트 구독**을 선택합니다.  새 구독을 만들었는지 확인합니다.
     
-    ![논리 앱 디자이너 - 이메일 추가](../media/eventgrid-logicapps-kvnewsubs.png)
+    ![논리 앱 디자이너 - 테스트 및 확인](../media/eventgrid-logicapps-kvnewsubs.png)
 
 1.  키 자격 증명 모음으로 이동하여 **비밀**을 선택하고, **+ 생성/가져오기**를 선택합니다. 테스트를 위해 새 비밀을 만들고 키의 이름을 지정하고 나머지 매개 변수를 기본 설정으로 유지합니다.
 
@@ -87,8 +87,8 @@ Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 개요: [Azure Event Grid를 사용하여 Key Vault 모니터링(미리 보기)](event-grid-overview.md)
+- 개요: [Azure Event Grid를 사용하여 Key Vault 모니터링](event-grid-overview.md)
 - 방법: [키 자격 증명 모음 알림을 Azure Automation으로 라우팅](event-grid-tutorial.md)
-- [Azure Key Vault에 대한 Azure Event Grid 이벤트 스키마(미리 보기)](../../event-grid/event-schema-key-vault.md)
+- [Azure Key Vault에 대한 Azure Event Grid 이벤트 스키마](../../event-grid/event-schema-key-vault.md)
 - [Azure Event Grid](../../event-grid/index.yml)에 대해 자세히 알아봅니다.
 - [Azure App Service의 Logic Apps 기능](../../logic-apps/index.yml)에 대해 자세히 알아봅니다.

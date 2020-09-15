@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/31/2020
+ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6afbdb6bcb067bdcb570c366f4604ea77ec4f490
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e43ce318ca9e9b14ad059dd296799667653e0f95
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526819"
+ms.locfileid: "90561349"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Apple 장치에 대 한 Microsoft Enterprise SSO 플러그 인 (미리 보기)
 
@@ -125,7 +125,7 @@ Frontline Worker 시나리오용 응용 프로그램을 빌드하는 경우 기�
 
 ## <a name="how-the-sso-plug-in-works"></a>SSO 플러그 인의 작동 방법
 
-Microsoft Enterprise SSO 플러그 인은 [Apple의 Enterprise Single Sign-On 프레임 워크](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc)에 의존 합니다. 프레임 워크에 등록 하는 id 공급자는 해당 도메인에 대 한 네트워크 트래픽을 가로채 해당 요청을 처리 하는 방법을 개선 하거나 변경할 수 있습니다. 예를 들어 SSO 플러그 인은 최종 사용자 자격 증명을 안전 하 게 수집 하거나, MFA를 요구 하거나, 응용 프로그램에 토큰을 자동으로 제공 하는 추가 UI를 표시할 수 있습니다.
+Microsoft Enterprise SSO 플러그 인은 [Apple의 Enterprise Single Sign-On 프레임 워크](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc)에 의존 합니다. 프레임 워크에 등록 하는 id 공급자는 해당 도메인에 대 한 네트워크 트래픽을 가로채 해당 요청을 처리 하는 방법을 개선 하거나 변경할 수 있습니다. 예를 들어, SSO 플러그 인은 최종 사용자 자격 증명을 안전 하 게 수집 하거나, MFA를 요구 하거나, 응용 프로그램에 토큰을 자동으로 제공 하는 추가 UI를 표시할 수 있습니다.
 
 또한 네이티브 응용 프로그램은 사용자 지정 작업을 구현 하 고 SSO 플러그 인과 직접 통신할 수 있습니다.
 [Apple의이 2019 WWDC 비디오](https://developer.apple.com/videos/play/tech-talks/301/) 에서 Single sign-on 프레임 워크에 대해 알아볼 수 있습니다.
@@ -148,11 +148,11 @@ MSAL을 사용 하지 않는 응용 프로그램은 관리자가 명시적으로
 - 응용 프로그램에서 표준 프로토콜을 사용 하 여 Azure AD와 통신 하는 경우 (예: OAuth2, SAML, WS-FEDERATION)
 - 응용 프로그램이 네이티브 UI에서 일반 텍스트 사용자 이름 및 암호를 수집 하지 않습니다.
 
-이 경우 SSO는 응용 프로그램에서 네트워크 요청을 만들 때 제공 되며 사용자에 게 로그인 하기 위해 웹 브라우저를 엽니다. 사용자가 Azure AD 로그인 URL로 리디렉션되는 경우 SSO 플러그 인은 URL의 유효성을 검사 하 고 해당 URL에 사용할 수 있는 SSO 자격 증명이 있는지 확인 합니다. Sso 플러그 인이 있으면 sso 자격 증명을 Azure AD에 전달 합니다. 그러면 응용 프로그램이 최종 사용자에 게 자격 증명을 입력 하 라는 메시지 없이 네트워크 요청을 완료할 수 있도록 권한을 부여 합니다. 또한 장치가 Azure AD에 알려진 경우 SSO 플러그 인은 장치 기반 조건부 액세스 검사를 충족 하기 위해 장치 인증서를 전달 합니다. 
+이 경우 응용 프로그램에서 네트워크 요청을 만들고 사용자에 게 로그인 할 웹 브라우저를 열 때 SSO가 제공 됩니다. 사용자가 Azure AD 로그인 URL로 리디렉션되는 경우 SSO 플러그 인은 URL의 유효성을 검사 하 고 해당 URL에 사용할 수 있는 SSO 자격 증명이 있는지 확인 합니다. Sso 플러그 인이 있으면 sso 자격 증명을 Azure AD에 전달 합니다. 그러면 응용 프로그램에서 사용자에 게 자격 증명을 입력 하도록 요청 하지 않고 네트워크 요청을 완료할 수 있는 권한을 부여 합니다. 또한 장치가 Azure AD에 알려진 경우 SSO 플러그 인은 장치 기반 조건부 액세스 검사를 충족 하기 위해 장치 인증서를 전달 합니다. 
 
-MSAL이 아닌 앱에 대해 SSO를 지원 하기 위해 SSO 플러그 인은 [기본 새로 고침 토큰 이란?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt)에 설명 된 Windows 브라우저 플러그 인에 유사한 프로토콜을 구현 합니다. 
+MSAL이 아닌 앱에 대해 SSO를 지원 하기 위해 SSO 플러그 인은 [기본 새로 고침 토큰 이란?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt)에 설명 된 Windows 브라우저 플러그 인과 비슷한 프로토콜을 구현 합니다. 
 
-MSAL 기반 앱에 비해 SSO 플러그 인은 앱에서 제공 하는 기존 브라우저 로그인 환경과 통합 되어 MSAL이 아닌 앱에 대해 더 투명 하 게 작동 합니다. 최종 사용자는 각 응용 프로그램에서 추가 로그인을 수행할 필요가 없다는 이점도 있으면 친숙 한 경험을 보게 됩니다. 예를 들어, 기본 계정 선택기를 표시 하는 대신 SSO 플러그 인은 웹 기반 계정 선택 환경에 SSO 세션을 추가 합니다. 
+MSAL 기반 앱에 비해 SSO 플러그 인은 앱에서 제공 하는 기존 브라우저 로그인 환경과 통합 되어 MSAL이 아닌 앱에 대해 더 투명 하 게 작동 합니다. 최종 사용자에 게 친숙 한 환경이 표시 되며 각 응용 프로그램에서 추가 로그인을 수행할 필요가 없다는 이점도 있습니다. 예를 들어, 기본 계정 선택기를 표시 하는 대신 SSO 플러그 인은 웹 기반 계정 선택 환경에 SSO 세션을 추가 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ author: azooinmyluggage
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: d4f8a41df64c3bcbbd85438e4d340d44d5f16351
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7743a3a8d6e77affd6229b648ab79b5b2f07a0af
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255220"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564103"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Kubernetes service에 배포 하는 GitHub 작업
 
@@ -56,9 +56,9 @@ GitHub에서 인증하는 데 사용할 수 있는 이 JSON 개체를 복사합�
 
 1. [GitHub](https://github.com/)에서 리포지토리로 이동 하 고, **설정 > 비밀 > 선택 하 여 새 비밀을 추가**합니다.
 
-    ![secrets](media/kubernetes-action/secrets.png)
+    ![리포지토리에 대 한 새 비밀 추가 링크를 보여 주는 스크린샷](media/kubernetes-action/secrets.png)
 
-2. 위의 `az cli` 명령 내용을 secret 변수의 값으로 붙여넣습니다. 정의합니다(예: `AZURE_CREDENTIALS`).
+2. 위의 `az cli` 명령 내용을 secret 변수의 값으로 붙여넣습니다. 예들 들어 `AZURE_CREDENTIALS`입니다.
 
 3. 마찬가지로 컨테이너 레지스트리 자격 증명에 대해 다음과 같은 추가 암호를 정의 하 고 Docker 로그인 작업에서 설정 합니다. 
 
@@ -67,7 +67,7 @@ GitHub에서 인증하는 데 사용할 수 있는 이 JSON 개체를 복사합�
 
 4. 정의 되 면 아래와 같이 비밀이 표시 됩니다.
 
-    ![kubernetes-비밀](media/kubernetes-action/kubernetes-secrets.png)
+    ![리포지토리에 대 한 기존 비밀을 보여 주는 스크린샷](media/kubernetes-action/kubernetes-secrets.png)
 
 ##  <a name="build-a-container-image-and-deploy-to-azure-kubernetes-service-cluster"></a>컨테이너 이미지를 빌드하고 Azure Kubernetes Service 클러스터에 배포
 

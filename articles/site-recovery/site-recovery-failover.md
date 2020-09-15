@@ -4,12 +4,12 @@ description: Azure Site Recovery로 Vm/물리적 서버를 Azure로 장애 조�
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: bebc4cd56f248d09579dcde2fc234f63dd65a09f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309971"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563984"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>온-프레미스에서 Azure로 장애 조치(failover) 실행
 
@@ -46,7 +46,7 @@ ms.locfileid: "84309971"
 1. Site Recovery 자격 증명 모음에서 **복구 계획**  >  *recoveryplan_name*을 선택 합니다.
 2. **장애 조치**를 클릭합니다.
 
-    ![장애 조치](./media/site-recovery-failover/Failover.png)
+    ![자세히 메뉴에서 장애 조치 (Failover)가 선택 된 ADRP 창이 표시 됩니다.](./media/site-recovery-failover/Failover.png)
 
 3. 장애 조치 ( **failover**  >  **) 방향**에서 Azure에 복제 하는 경우 기본값을 그대로 둡니다.
 4. **장애 조치 (Failover)** 에서 장애 조치 (failover) 할 **복구 지점을** 선택 합니다.

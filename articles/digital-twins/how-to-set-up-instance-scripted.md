@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 63bc46f679b71f6965cda8f9db800a125683c093
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 605df0f26600f962bda7a0a0def800a91d74b022
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298741"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562982"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 (스크립팅된) 설정
 
@@ -38,7 +38,7 @@ ms.locfileid: "89298741"
 
 Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같습니다.
 1. 브라우저에서 [Azure Cloud Shell](https://shell.azure.com/) 창으로 이동 합니다. 다음 명령을 사용 하 여 로그인 합니다.
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
     CLI는 기본 브라우저를 열 수 있으면 기본 브라우저를 열고 Azure 로그인 페이지를 로드합니다. 그렇지 않으면 *https://aka.ms/devicelogin*에서 브라우저 페이지를 열고 터미널에 표시된 권한 부여 코드를 입력합니다.
@@ -55,7 +55,7 @@ Cloud Shell에서 배포 스크립트를 실행 하는 단계는 다음과 같�
     * 인스턴스의 경우: *리소스 그룹* 이름입니다. 기존 리소스 그룹을 사용 하거나 새 이름을 입력 하 여 만들 수 있습니다.
     * 인스턴스의 경우: Azure Digital Twins 인스턴스의 *이름* 입니다. 새 인스턴스의 이름은 구독에 대 한 지역 내에서 고유 해야 합니다. 즉, 사용자가 선택한 이름을 이미 사용 하 고 있는 지역에 다른 Azure 디지털 Twins 인스턴스가 있는 경우 다른 이름을 선택 하 라는 메시지가 표시 됩니다.
     * 앱 등록: 등록에 연결할 *AZURE AD 응용 프로그램 표시 이름* 입니다. 이 앱 등록에서는 [Azure Digital Twins api](how-to-use-apis-sdks.md)에 대 한 액세스 권한을 구성 합니다. 나중에 클라이언트 앱이 앱 등록에 대해 인증 되 고, 그 결과 Api에 대해 구성 된 액세스 권한이 부여 됩니다.
-    * 앱 등록의 경우: Azure AD 응용 프로그램에 대 한 *AZURE ad 응용 프로그램 회신 URL* 입니다. `http://localhost`을 사용합니다. 이 스크립트는 *공용 클라이언트/네이티브 (모바일 & 데스크톱)* URI를 설정 합니다.
+    * 앱 등록의 경우: Azure AD 응용 프로그램에 대 한 *AZURE ad 응용 프로그램 회신 URL* 입니다. `http://localhost`을 사용하세요. 이 스크립트는 *공용 클라이언트/네이티브 (모바일 & 데스크톱)* URI를 설정 합니다.
 
 이 스크립트는 azure Digital Twins 인스턴스를 만들고, azure 사용자에 게 인스턴스에 대 한 azure *Digital Twins 소유자 (미리 보기)* 역할을 할당 하 고, 사용할 클라이언트 앱에 대 한 azure AD 앱 등록을 설정 합니다.
 

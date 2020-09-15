@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Azure Media Services 설명서
-summary: Azure Media Services는 인코딩, 패키징, 콘텐츠 보호 및 라이브 이벤트 브로드캐스팅이 필요한 솔루션을 구축할 수 있는 클라우드 기반 미디어 워크플로 플랫폼입니다.
+summary: Azure Media Services는 클라우드 및 에지 미디어 워크플로 서비스의 모음으로, 라이브 및 일괄 비디오 분석, 트랜스코딩, 멀티 디바이스 전송 서비스, 콘텐츠 보호 및 라이브 이벤트 브로드캐스팅이 필요한 솔루션을 대규모로 빌드할 수 있습니다.
 brand: azure
 metadata:
   title: Azure Media Services 설명서
-  description: Azure Media Services는 인코딩, 패키징, 콘텐츠 보호 및 라이브 이벤트 브로드캐스팅이 필요한 솔루션을 빌드할 수 있게 하는 클라우드 기반 미디어 워크플로 플랫폼입니다.
+  description: Azure Media Services는 클라우드 및 에지 미디어 워크플로 서비스의 모음으로, 라이브 및 일괄 비디오 분석, 트랜스코딩, 멀티 디바이스 전송 서비스, 콘텐츠 보호 및 라이브 이벤트 브로드캐스팅이 필요한 솔루션을 대규모로 빌드할 수 있습니다.
   services: media-services
   ms.service: media-services
   ms.subservice: 
@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: d6f78b4494a16a0522f93658b063d157819c519e
-  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+  ms.openlocfilehash: fb258b634ff5511a9e795e8c0990a62bf2d0d22d
+  ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/06/2020
-  ms.locfileid: "87826146"
+  ms.lasthandoff: 09/13/2020
+  ms.locfileid: "90056536"
 highlightedContent:
   items:
   - title: Azure Media Services v3 정보

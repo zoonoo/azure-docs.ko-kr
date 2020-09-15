@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81459222"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561604"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 대시보드의 구조
 이 문서는 다음 대시보드 예제를 사용하여 Azure 대시보드 구조를 안내합니다.
@@ -329,7 +329,7 @@ __position__ 속성에는 __x__, __y__, __rowSpan__ 및 __colSpan__으로 표현
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![그리드 단위](./media/azure-portal-dashboards-structure/grid-units.png)
+![스크린 샷에서 그리드를 하나 강조 표시 하 여 그리드를 닫습니다.](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>metadata 개체
 각 파트는 metadata 속성을 포함하며 개체는 __type__이라는 하나의 필수 속성만 포함합니다. 이 문자열은 포털에 표시할 타일을 알려 줍니다. 예제 대시보드는 다음과 같은 타일 유형을 사용합니다.

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 65d7845763b60a66f396d9081f3c9c6e1d04c1bc
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 04f2b0e989edcb182c6c52ff0479902035137810
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447242"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561826"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>SMB 액세스를 위한 Azure Files id 기반 인증 옵션 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -44,7 +44,7 @@ Azure 파일 공유를 위해 SMB를 통한 Azure AD 도메인 서비스 인증�
 
     온-프레미스 Active Directory Domain Services (AD DS) Azure Files와 통합 되어 네트워크 사용자 및 관리자가 사용할 수 있도록 하는 동안 디렉터리 데이터를 저장 하는 방법을 제공 합니다. 보안은 디렉터리의 개체에 대 한 로그온 인증 및 액세스 제어를 통해 AD DS와 통합 됩니다. 관리자는 단일 네트워크 로그온을 통해 네트워크에서 디렉터리 데이터 및 조직을 관리할 수 있으며, 권한 있는 네트워크 사용자는 네트워크의 모든 위치에서 리소스에 액세스할 수 있습니다. AD DS은 일반적으로 온-프레미스 환경에서 기업에 의해 채택 되 고 AD DS 자격 증명은 액세스 제어를 위한 id로 사용 됩니다. 자세한 내용은 [Active Directory Domain Services 개요](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)를 참조 하세요.
 
--   **Azure 역할 기반 access control (Azure RBAC)**
+-   **Azure RBAC(Azure 역할 기반 액세스 제어)**
 
     Azure RBAC (역할 기반 액세스 제어)를 통해 Azure에 대 한 세밀 한 액세스 관리가 가능 합니다. RBAC를 사용하면 사용자에게 작업을 수행하는 데 필요한 최소한의 권한을 부여하여 리소스에 대한 액세스를 관리할 수 있습니다. RBAC에 대 한 자세한 내용은 azure [의 AZURE RBAC (역할 기반 액세스 제어) 란?](../../role-based-access-control/overview.md)을 참조 하세요.
 
@@ -78,6 +78,7 @@ Azure Files의 Windows Acl에 대 한 id 기반 인증 및 지원은 다음과 �
 - Azure AD DS와 온-프레미스 AD DS 인증은 컴퓨터 계정에 대 한 인증을 지원 하지 않습니다. 대신 서비스 로그온 계정을 사용 하는 것을 고려할 수 있습니다.
 - Azure AD에 가입 된 장치 또는 Azure AD 등록 장치에 대해 Azure AD DS 인증 및 온-프레미스 AD DS 인증을 지원 하지 않습니다.
 - Azure 파일 공유는 [Azure Active Directory Domain Services (Azure AD DS)](#azure-ad-ds) 또는 [온-프레미스 Active Directory Domain Services (AD DS)](#ad-ds)도메인 서비스 중 하나에 대해서만 id 기반 인증을 지원 합니다.
+- Id 기반 인증 방법이 미리 보기 상태인 NFS (네트워크 파일 시스템)에서는 지원 되지 않습니다.
 
 ## <a name="advantages-of-identity-based-authentication"></a>Id 기반 인증의 이점
 Azure Files에 대 한 id 기반 인증은 공유 키 인증 사용에 대 한 몇 가지 이점을 제공 합니다.
@@ -91,7 +92,7 @@ Azure Files에 대 한 id 기반 인증은 공유 키 인증 사용에 대 한 �
 -   **데이터와 함께 Windows Acl (NTFS 라고도 함) 백업**  
     Azure 파일 공유를 사용 하 여 기존 온-프레미스 파일 공유를 백업할 수 있습니다. Azure Files은 SMB를 통해 Azure 파일 공유에 파일 공유를 백업할 때 데이터와 함께 Acl을 유지 합니다.
 
-## <a name="how-it-works"></a>작동 방식
+## <a name="how-it-works"></a>작동 방법
 
 Azure 파일 공유는 온-프레미스 AD DS 또는 Azure AD DS를 사용 하 여 인증 하기 위해 Kerberos 프로토콜을 활용 합니다. 클라이언트에서 실행 되는 사용자 또는 응용 프로그램과 연결 된 id가 Azure 파일 공유의 데이터에 액세스 하려고 하면 요청은 AD DS 또는 Azure AD DS에서 id를 인증 하는 도메인 서비스로 전송 됩니다. 인증에 성공 하면 Kerberos 토큰을 반환 합니다. 클라이언트는 Kerberos 토큰을 포함 하는 요청을 보내고, Azure 파일 공유는 해당 토큰을 사용 하 여 요청에 권한을 부여 합니다. Azure 파일 공유는 액세스 자격 증명이 아닌 Kerberos 토큰만 받습니다.
 

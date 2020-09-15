@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d0f67f9052467e5d1a89fc4c520bd39821403bbe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: fc77d8cbb88385d9be65ccb8df80e922704640a4
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015452"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563808"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Azure AD를 사용하여 SCIM 엔드포인트 빌드 및 사용자 프로비저닝 구성
 
@@ -167,6 +167,7 @@ Azure AD와의 호환성을 보장하기 위해 SCIM 엔드포인트를 구현�
 * https://tools.ietf.org/html/rfc7644#section-3.5.2 에 정의된 SCIM의 구조적 요소, 특히 PATCH `op` 작업 값에 대해 대소문자를 구분하지 않아도 됩니다. Azure AD는 `Add`, `Replace` 및 `Remove`로 ‘op’의 값을 내보냅니다.
 * Microsoft Azure AD는 엔드포인트 및 자격 증명이 유효한지 확인하기 위해 임의 사용자 및 그룹을 가져오도록 요청합니다. [Azure Portal](https://portal.azure.com)에서 **테스트 연결** 흐름의 일부로도 수행됩니다. 
 * 리소스를 쿼리할 수 있는 특성은 [Azure Portal](https://portal.azure.com)의 애플리케이션에 일치하는 특성으로 설정해야 합니다. 자세한 내용은 [사용자 프로비저닝 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
+* SCIM 끝점에서 HTTPS를 지원 합니다.
 
 ### <a name="user-provisioning-and-deprovisioning"></a>사용자 프로비저닝 및 프로비저닝 해제
 

@@ -1,22 +1,25 @@
 ---
-title: Windows에서 Azure Files 문제 해결 | Microsoft Docs
-description: Windows의 Azure Files 문제 해결 Windows 클라이언트에서 연결할 때 Azure Files와 관련 된 일반적인 문제를 확인 하 고 가능한 해결 방법을 참조 하세요.
+title: Windows에서 Azure Files 문제 해결
+description: Windows의 Azure Files 문제 해결 Windows 클라이언트에서 연결할 때 Azure Files와 관련 된 일반적인 문제를 확인 하 고 가능한 해결 방법을 참조 하세요. SMB 공유에만 해당
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 549f9b03272accbe107c432f4929c5de250a6f6b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 16491e36e0196bc3dabee17daf905d9a5204f8cd
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532395"
+ms.locfileid: "90564256"
 ---
-# <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
+# <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Windows의 Azure Files 문제 해결 (SMB)
 
 이 문서에서는 Windows 클라이언트에서 연결할 때 Microsoft Azure Files와 관련하여 발생하는 일반적인 문제를 보여 줍니다. 또한 이러한 문제의 가능한 원인과 해결 방법을 제공합니다. 이 문서의 문제 해결 단계 외에도 [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   를 사용 하 여 Windows 클라이언트 환경에 올바른 필수 구성 요소가 있는지 확인할 수 있습니다. AzFileDiagnostics는 이 문서에서 설명하는 대부분의 현상을 자동으로 감지하고 최적의 성능을 얻도록 환경을 설정하는 데 도움이 됩니다. 이 정보는 Azure Files 공유 연결/매핑/탑재 관련 문제에 도움이 되는 단계를 제공하는 [Azure Files 공유 문제 해결사](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)에서도 찾을 수 있습니다.
+
+> [!IMPORTANT]
+> 이 문서의 내용은 SMB 공유에만 적용 됩니다.
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Azure 파일 공유를 탑재할 때 오류 5 발생
@@ -54,7 +57,7 @@ ms.locfileid: "90532395"
 
 - **AD (Active Directory)** [는 id에 공유 수준 권한 할당을](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions)참조 하세요.
 
-    공유 수준 권한 할당은 Azure AD Connect을 사용 하 여 AD (Active Directory)에서 Azure Active Directory (AAD)로 동기화 된 그룹 및 사용자에 대해 지원 됩니다.  공유 수준 권한이 할당 된 그룹 및 사용자가 지원 되지 않는 "클라우드 전용" 그룹이 아닌지 확인 합니다.
+    공유 수준 권한 할당은 Azure AD Connect을 사용 하 여 AD (Active Directory)에서 Azure Active Directory (Azure AD)로 동기화 된 그룹 및 사용자에 대해 지원 됩니다.  공유 수준 권한이 할당 된 그룹 및 사용자가 지원 되지 않는 "클라우드 전용" 그룹이 아닌지 확인 합니다.
 - **Azure Active Directory Domain Services (Azure AD DS)** [id에 대 한 액세스 권한 할당을](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity)참조 하세요.
 
 <a id="error53-67-87"></a>

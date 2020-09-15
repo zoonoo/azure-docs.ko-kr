@@ -2,11 +2,37 @@
   href: index.yml
 - name: 소개
   href: introduction.md
-- name: Single Sign On 설정
+- name: 보안 컨트롤(v2)
   expanded: true
   items:
     - name: Azure 보안 컨트롤 개요
       href: overview.md
+    - name: 네트워크 보안
+      href: security-controls-v2-network-security.md
+    - name: ID 관리
+      href: security-controls-v2-identity-management.md
+    - name: 권한 있는 액세스
+      href: security-controls-v2-privileged-access.md
+    - name: 데이터 보호
+      href: security-controls-v2-data-protection.md
+    - name: 자산 관리
+      href: security-controls-v2-asset-management.md
+    - name: 로깅 및 위협 탐지
+      href: security-controls-v2-logging-threat-detection.md
+    - name: 사고 대응
+      href: security-controls-v2-incident-response.md
+    - name: 포스처 및 취약성 관리
+      href: security-controls-v2-posture-vulnerability-management.md
+    - name: 엔드포인트 보안
+      href: security-controls-v2-endpoint-security.md
+    - name: Backup 및 복구
+      href: security-controls-v2-backup-recovery.md
+    - name: 거버넌스 및 전략
+      href: security-controls-v2-governance-strategy.md
+- name: 보안 컨트롤(v1)
+  items:
+    - name: Azure 보안 컨트롤 개요(v1)
+      href: overview-v1.md
     - name: 네트워크 보안
       href: security-control-network-security.md
     - name: 로깅 및 모니터링

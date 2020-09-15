@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8d8dc4a3efb034c9428de32f0f975869e1044327
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613882"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561876"
 ---
 # <a name="graphics-binding"></a>그래픽 바인딩
 
@@ -137,11 +137,23 @@ wmrBinding->BlitRemoteFrame();
 ### <a name="simulation"></a>시뮬레이션
 
 `GraphicsApiType.SimD3D11`은 시뮬레이션 바인딩이며 선택하는 경우 `GraphicsBindingSimD3d11` 그래픽 바인딩을 만듭니다. 이 인터페이스는 데스크톱 애플리케이션에서와 같이 헤드 이동을 시뮬레이션하는 데 사용되며 Monoscopic 이미지를 렌더링합니다.
+
+시뮬레이션 바인딩을 구현 하려면 [카메라](../overview/features/camera.md) 페이지에 설명 된 대로 로컬 카메라와 원격 프레임 간의 차이점을 이해 하는 것이 중요 합니다.
+
+두 개의 카메라가 필요 합니다.
+
+* **로컬 카메라**:이 카메라는 응용 프로그램 논리에 의해 구동 되는 현재 카메라 위치를 나타냅니다.
+* **프록시 카메라**:이 카메라는 서버에서 보낸 현재 *원격 프레임과* 일치 합니다. 프레임 및 도착을 요청 하는 클라이언트 사이에는 시간이 지연 되므로 *원격 프레임* 은 항상 로컬 카메라의 이동 보다 약간 뒤에 있습니다.
+
+여기서 기본적인 방식은 원격 이미지와 로컬 콘텐츠가 모두 프록시 카메라를 사용 하 여 오프 스크린 대상으로 렌더링 된다는 것입니다. 그런 다음 프록시 이미지를 로컬 카메라 공간으로 다시 프로젝션 합니다 .이에 대해서는 [후기 단계 다시 프로젝션](../overview/features/late-stage-reprojection.md)에 자세히 설명 되어 있습니다.
+
 설정은 약간 더 복잡하며 다음과 같이 작동합니다.
 
 #### <a name="create-proxy-render-target"></a>프록시 렌더링 대상 만들기
 
-`GraphicsBindingSimD3d11.Update` 함수에서 제공하는 프록시 카메라 데이터를 사용하여 원격 및 로컬 콘텐츠를 '프록시'라는 오프스크린 색상/깊이 렌더링 대상으로 렌더링해야 합니다. 프록시가 백 버퍼의 확인 사항과 일치해야 합니다. 세션이 준비되면 연결하기 전에 `GraphicsBindingSimD3d11.InitSimulation`을 호출해야 합니다.
+`GraphicsBindingSimD3d11.Update` 함수에서 제공하는 프록시 카메라 데이터를 사용하여 원격 및 로컬 콘텐츠를 '프록시'라는 오프스크린 색상/깊이 렌더링 대상으로 렌더링해야 합니다.
+
+프록시는 백 버퍼의 확인과 일치 해야 하며 *DXGI_FORMAT_R8G8B8A8_UNORM* 또는 *DXGI_FORMAT_B8G8R8A8_UNORM* 형식 이어야 합니다. 세션이 준비되면 연결하기 전에 `GraphicsBindingSimD3d11.InitSimulation`을 호출해야 합니다.
 
 ```cs
 AzureSession currentSession = ...;
@@ -244,4 +256,6 @@ else
 
 ## <a name="next-steps"></a>다음 단계
 
+* [카메라](../overview/features/camera.md)
+* [후기 단계 다시 프로젝션](../overview/features/late-stage-reprojection.md)
 * [자습서: 원격으로 렌더링된 모델 보기](../tutorials/unity/view-remote-models/view-remote-models.md)

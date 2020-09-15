@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b7562ab6c7ec9c6234ed3fbb867361307b80a638
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2c7f729f4accf7c9ca212c6e4b4b5d565c3114c
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67673120"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563780"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box-heavy"></a>Azure Data Box Heavy 안전 하 게 설치 및 작동
 
@@ -27,7 +27,7 @@ Azure Data Box Heavy를 사용 하기 전에이 문서의 모든 안전 정보�
 ## <a name="safety-icon-conventions"></a>안전성 아이콘 표시 규칙
 다음은 Data Box를 설정 및 실행할 때 관찰되는 안전 주의 사항을 검토할 때 표시되는 아이콘입니다.
 
-| 아이콘 | 설명 |
+| 아이콘 | Description |
 |:--- |:--- |
 | ![위험 아이콘 ](./media/data-box-heavy-safety/warning-icon.png) **위험!** |피하지 않을 경우 사망 또는 심각한 부상을 당하는 위험한 상황을 나타냅니다. 이 위험도 표시는 가장 극단적인 상황으로 제한됩니다. |
 | ![경고 아이콘 ](./media/data-box-heavy-safety/warning-icon.png) **경고!** |피하지 않을 경우 사망 또는 심각한 부상을 당할 수 있는 위험한 상황을 나타냅니다. |
@@ -156,7 +156,7 @@ Microsoft의 명시적 승인 없이 디바이스를 변경 또는 수정할 경
 - 이 장치에서 유해한 간섭이 발생 하지 않을 수 있습니다.
 - 이 장치는 장치를 원치 않는 작업을 일으킬 수 있는 간섭을 비롯 하 여 수신 된 모든 간섭을 수락 해야 합니다.
 
-![캐나다](./media/data-box-heavy-safety/canada.png)
+![스크린샷에는 캐나다에 필요한 알림이 표시 됩니다.](./media/data-box-heavy-safety/canada.png)
 
 SERVICES (A)/NMB-3 (A) Microsoft Corporation, 한 가지 Microsoft 수단, Redmond, WA 98052, USA를 사용할 수 있습니다.
 미국: (800) 426-9400 캐나다: (800) 933-4750

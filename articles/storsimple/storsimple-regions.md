@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5efb87ad674474b2e21b86b5cdc48785753a51dc
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76275122"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564154"
 ---
 # <a name="available-regions-for-your-storsimple"></a>StorSimple을 사용할 수 있는 지역
 
@@ -39,7 +39,7 @@ StorSimple Device Manager 서비스를 처음 만들 때 지역 또는 위치를
 
 Azure 퍼블릭 클라우드에서 StorSimple Device Manager 서비스를 사용할 수 있으며 배포 가능한 지역 목록은 다음과 같습니다.
 
-![storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
+![스크린샷에는 위치 목록이 강조 표시 된 StorSimple Device Manager 표시 됩니다.](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
 Azure Government 클라우드의 경우 StorSimple Device Manager 서비스는 US Gov 아이오와 및 US Gov 버지니아 데이터 센터에서 사용할 수 있습니다.
 

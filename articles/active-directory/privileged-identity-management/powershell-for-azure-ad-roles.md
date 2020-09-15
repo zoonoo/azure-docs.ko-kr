@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6792fdc405d539a662c8dc20c04b2891fd036704
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1aa0eb0988474a21fbf77ea08ce14a5fa9fb21bc
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421912"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564120"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대한 PowerShell
 
@@ -30,7 +30,7 @@ ms.locfileid: "87421912"
 > [!Note]
 > 공식 PowerShell은 새 버전의 Azure AD Privileged Identity Management를 사용하는 경우에만 지원됩니다. Privileged Identity Management로 이동하여 빠른 시작 블레이드에 다음 배너가 있는지 확인하세요.
 > [![사용하는 Privileged Identity Management 버전 확인](media/pim-how-to-add-role-to-user/pim-new-version.png "Azure AD > Privileged Identity Management 선택")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox) 이 배너가 없으면 기다려주세요. 앞으로 몇 주 동안 업데이트된 환경을 출시하기 위한 작업을 진행하고 있습니다.
-> Privileged Identity Management PowerShell cmdlet은 Azure AD Preview 모듈을 통해 지원됩니다. 다른 모듈을 사용 중이고 해당 모듈이 오류 메시지를 반환하면 이 새 모듈로 시작하세요. 다른 모듈을 기반으로 하는 프로덕션 시스템을 사용하는 경우 pim_preview@microsoft.com으로 문의하세요.
+> Privileged Identity Management PowerShell cmdlet은 Azure AD Preview 모듈을 통해 지원됩니다. 다른 모듈을 사용 중이고 해당 모듈이 오류 메시지를 반환하면 이 새 모듈로 시작하세요. 다른 모듈 위에 빌드된 프로덕션 시스템이 있는 경우에 문의 하세요 [pim_preview@microsoft.com](mailto:pim_preview@microsoft.com) .
 
 ## <a name="installation-and-setup"></a>설치 및 설정
 
@@ -49,12 +49,12 @@ ms.locfileid: "87421912"
     Connect-AzureAD -Credential $AzureAdCred
     ```
 
-1. **Azure Active Directory** > **속성** > **Directory ID**로 이동하여 Azure AD 조직의 테넌트 ID를 찾습니다. cmdlet 섹션에서 resourceId를 입력해야 할 때마다 이 ID를 사용합니다.
+1. **Azure Active Directory**  >  **속성**  >  **디렉터리 id**로 이동 하 여 Azure AD 조직에 대 한 테 넌 트 ID를 찾습니다. cmdlet 섹션에서 resourceId를 입력해야 할 때마다 이 ID를 사용합니다.
 
     ![Azure AD 조직의 속성에서 조직 ID 찾기](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> 다음 섹션은 실행하는 데 도움이 되는 간단한 예제입니다. 다음 cmdlet에 대한 자세한 설명서는 https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management 에서 찾을 수 있습니다. 하지만 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꿔야 합니다. 또한 Azure AD 조직의 조직 ID를 resourceId 매개 변수로 사용해야 합니다.
+> 다음 섹션은 실행하는 데 도움이 되는 간단한 예제입니다. 에서 다음 cmdlet에 대 한 자세한 설명서를 찾을 수 있습니다 [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) . 그러나 providerID 매개 변수에서 "azureResources"를 "aadRoles"로 바꾸어야 합니다. 또한 Azure AD 조직에 대 한 테 넌 트 ID를 resourceId 매개 변수로 사용 해야 합니다.
 
 ## <a name="retrieving-role-definitions"></a>역할 정의 검색
 
@@ -135,7 +135,7 @@ Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId
 다음 cmdlet을 사용하여 Azure AD 조직의 모든 역할 설정을 가져옵니다.
 
 ```powershell
-Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'" 
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'"
 ```
 
 설정에는 네 가지 주요 개체가 있습니다. 이러한 개체 중 세 개만 현재 PIM에서 사용됩니다. UserMemberSettings는 활성화 설정이고, AdminEligibleSettings는 적격 할당에 대한 할당 설정이고, AdminmemberSettings는 활성 할당에 대한 할당 설정입니다.
@@ -145,8 +145,10 @@ Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq
 역할 설정을 업데이트하려면 특정 역할의 기존 설정 개체를 가져와서 변경해야 합니다.
 
 ```powershell
-$setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
-$setting.UserMemberSetting.justificationRule = '{"required":false}'
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq 'tenant id' and RoleDefinitionId eq 'role id'"
+$settinga = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedRuleSetting
+$settinga.RuleIdentifier = "JustificationRule"
+$settinga.Setting = '{"required":false}'
 ```
 
 그런 다음, 아래와 같이 특정 역할의 개체 중 하나에 설정을 적용할 수 있습니다. 여기서 ID는 목록 역할 설정 cmdlet의 결과에서 검색할 수 있는 역할 설정 ID입니다.

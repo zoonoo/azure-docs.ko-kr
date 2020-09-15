@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: fee0837c1196adf35a956cd13df584528d46bfc0
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: dff1d8f48b275fa7e45dab93b5ce45962499b450
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183482"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563882"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Azure Automation Runbook을 사용하여 StorSimple 디바이스 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "88183482"
 
 이 섹션에서는 StorSimple에 대한 Windows PowerShell 스크립트를 예로 들어 스크립트를 Runbook으로 가져온 다음 Runbook을 게시 및 실행하는 데 필요한 여러 단계를 자세히 설명합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -85,7 +85,7 @@ StorSimple 8000 시리즈 디바이스 관리를 위한 자동화 모듈을 만�
 
 6. 자동화 모듈 zip 파일이 `C:\scripts\StorSimpleSDKTools`에 생성되었는지 확인합니다.
 
-    ![verify-automation-module](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
+    ![Automation 모듈 zip 파일을 사용 하는 StorSimpleSDKTools 폴더를 보여 주는 스크린샷](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
 
 7. Windows PowerShell을 통해 자동화 모듈이 생성되면 다음 출력이 표시됩니다.
 
@@ -184,7 +184,7 @@ StorSimple 8000 시리즈 디바이스 관리를 위한 자동화 모듈을 만�
    5. 기본 **실행 계정 만들기** 옵션을 선택된 상태로 둡니다.
    6. 선택적으로 **대시보드에 고정**을 선택합니다. **만들기**를 클릭합니다.
 
-       ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![스크린샷에는 구독 값, Azure 실행 계정 만들기 및 만들기와 함께 Automation 계정 추가 창이 표시 됩니다.](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
       Automation 계정이 생성되면 알림이 표시됩니다. Automation 계정을 만드는 방법에 대한 자세한 내용은 [실행 계정 만들기](https://docs.microsoft.com/azure/automation/automation-create-runas-account)를 참조하세요.
 
@@ -196,7 +196,7 @@ StorSimple 8000 시리즈 디바이스 관리를 위한 자동화 모듈을 만�
 
 5. **모듈 추가** 블레이드에서 압축된 모듈의 위치를 찾은 다음 모듈을 선택하여 엽니다. **확인**을 클릭합니다.
 
-    ![add-module](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
+    ![스크린샷 업로드 파일 값이 있는 모듈 추가 창을 표시 하 고 확인 합니다.](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
 6. **프로세스 자동화 > Runbook으로 이동한 다음 + Runbook 추가**를 클릭합니다. **Runbook 추가** 블레이드에서 **기존 Runbook 가져오기**를 클릭합니다. **Runbook 파일**의 Windows PowerShell 스크립트 파일을 가리킵니다. Runbook 유형이 자동으로 선택됩니다. Runbook의 이름과 선택적 설명을 입력합니다. **만들기**를 클릭합니다.
 
@@ -208,11 +208,11 @@ StorSimple 8000 시리즈 디바이스 관리를 위한 자동화 모듈을 만�
 
 8. Runbook을 편집 하 고 **테스트 창**을 클릭 합니다. StorSimple 디바이스 관리자 서비스 이름, StorSimple 디바이스 이름, 구독 등의 매개 변수를 제공합니다. 테스트를 **시작**합니다. 실행이 완료되면 보고서가 생성됩니다. 자세한 내용은 runbook을 테스트 하 [는 방법](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook)을 참조 하세요.
 
-    ![test-runbook](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
+    ![매개 변수 값을 입력 하 고 테스트를 시작 하는 테스트 팬을 보여 주는 스크린샷](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 
 9. 테스트 창에서 Runbook의 출력을 검사합니다. 만족스러우면 창을 닫습니다. **게시**를 클릭하고, 확인 메시지가 표시되면 Runbook을 확인 및 게시합니다.
 
-    ![publish-runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
+    ![Runbook 게시를 계속 하 라는 메시지가 표시 된 PowerShell Runbook 편집 창이 표시 됩니다.](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
 
 ## <a name="next-steps"></a>다음 단계
 

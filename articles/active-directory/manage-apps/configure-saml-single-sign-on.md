@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 827afbf811042acb2bf01f3e863408d5a6e9732f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 500bfff4afaebc345d344566b02fe945edb05795
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441921"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562607"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>SAML 기반 Single Sign-On 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "89441921"
 
 IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 설정 하는 것은 사용 중인 응용 프로그램에 따라 단순 하거나 복잡할 수 있습니다. 일부 응용 프로그램은 몇 가지 작업 으로만 설정할 수 있습니다. 다른 경우에는 심층 구성이 필요 합니다. 신속 하 게 진행 하려면 응용 프로그램 관리에 대 한 [빠른 시작 시리즈](view-applications-portal.md) 를 살펴봅니다. 추가 중인 응용 프로그램이 간단한 경우에는이 문서를 읽을 필요가 없을 것입니다. 추가 중인 응용 프로그램에 SAML 기반 SSO에 대 한 사용자 지정 구성이 필요한 경우이 문서를 참조 하세요.
 
-[퀵 스타트 시리즈](view-applications-portal.md)에는 Single Sign-On를 구성 하는 문서가 있습니다. 여기서는 앱에 대 한 SAML 구성 페이지에 액세스 하는 방법을 알아봅니다. SAML 구성 페이지에는 5 개의 섹션이 포함 되어 있습니다. 이러한 섹션은이 문서에 자세히 설명 되어 있습니다.
+[퀵 스타트 시리즈](add-application-portal-setup-sso.md)에는 Single Sign-On를 구성 하는 문서가 있습니다. 여기서는 앱에 대 한 SAML 구성 페이지에 액세스 하는 방법을 알아봅니다. SAML 구성 페이지에는 5 개의 섹션이 포함 되어 있습니다. 이러한 섹션은이 문서에 자세히 설명 되어 있습니다.
 
 > [!IMPORTANT] 
 > **엔터프라이즈 응용**프로그램의 응용 프로그램 탐색에는 **Single sign-on** 옵션이 없는 몇 가지 시나리오가 있습니다. 
@@ -42,7 +42,7 @@ IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 설정 
 이 값은 애플리케이션 공급업체에서 받아야 합니다. 필드 값을 추출하려면 수동으로 값을 입력하거나 메타데이터 파일을 업로드할 수 있습니다.
 
 > [!TIP]
-> 많은 앱이 이미 Azure AD와 함께 작동 하도록 미리 구성 되어 있습니다. 이러한 앱은 Azure AD 테 넌 트에 앱을 추가할 때 찾아볼 수 있는 앱 갤러리에 나열 됩니다. [퀵 스타트 시리즈](view-applications-portal.md) 는이 과정을 안내 합니다. 갤러리의 앱에 대 한 자세한 단계별 지침을 확인할 수 있습니다. 단계에 액세스 하려면 퀵 스타트 시리즈에 설명 된 대로 앱에 대 한 SAML 구성 페이지의 링크를 클릭 하거나 [SaaS 앱 구성 자습서](../saas-apps/tutorial-list.md)의 모든 앱 구성 자습서 목록을 찾아볼 수 있습니다.
+> 많은 앱이 이미 Azure AD와 함께 작동 하도록 미리 구성 되어 있습니다. 이러한 앱은 Azure AD 테 넌 트에 앱을 추가할 때 찾아볼 수 있는 앱 갤러리에 나열 됩니다. [퀵 스타트 시리즈](add-application-portal-setup-sso.md) 는이 과정을 안내 합니다. 갤러리의 앱에 대 한 자세한 단계별 지침을 확인할 수 있습니다. 단계에 액세스 하려면 퀵 스타트 시리즈에 설명 된 대로 앱에 대 한 SAML 구성 페이지의 링크를 클릭 하거나 [SaaS 앱 구성 자습서](../saas-apps/tutorial-list.md)의 모든 앱 구성 자습서 목록을 찾아볼 수 있습니다.
 
 | 기본 SAML 구성 설정 | SP 시작 | idP 시작 | Description |
 |:--|:--|:--|:--|
@@ -57,7 +57,7 @@ IdP (Id 공급자)로 Azure AD를 사용 하 고 SSO (Single Sign-On)를 설정 
 사용자가 애플리케이션에 인증할 때 Azure AD는 고유하게 식별하는 사용자에 대한 정보(또는 클레임)를 포함하는 SAML 토큰을 애플리케이션에 발급합니다. 기본적으로 이 정보는 사용자의 사용자 이름, 이메일 주소, 이름 및 성을 포함합니다. 예를 들어 애플리케이션에 사용자 이름이 아닌 특정 클레임 값 또는 **이름** 형식이 필요한 경우 이러한 클레임을 사용자 지정해야 할 수 있습니다. 
 
 > [!IMPORTANT]
-> 많은 앱은 이미 미리 구성 되어 있고 앱 갤러리에 있으며 사용자 및 그룹 클레임을 설정 하는 것에 대해 걱정할 필요가 없습니다. [퀵 스타트 시리즈](view-applications-portal.md) 는 앱을 추가 하 고 구성 하는 과정을 안내 합니다.
+> 많은 앱은 이미 미리 구성 되어 있고 앱 갤러리에 있으며 사용자 및 그룹 클레임을 설정 하는 것에 대해 걱정할 필요가 없습니다. [퀵 스타트 시리즈](add-application-portal.md) 는 앱을 추가 하 고 구성 하는 과정을 안내 합니다.
 
 
 **고유한 사용자 id (이름 ID)** 식별자 값은 필수 클레임 이며 중요 합니다. 기본값은 *userprincipalname*입니다. 사용자 ID는 애플리케이션 내에서 각 사용자를 고유하게 식별합니다. 예를 들어 이메일 주소가 사용자 이름 및 고유 식별자 모두인 경우 값을 *user.mail*로 설정합니다.
@@ -79,7 +79,7 @@ SAML 클레임을 사용자 지정 하는 방법에 대 한 자세한 내용은 
 Azure AD는 인증서를 사용하여 애플리케이션에 보내는 SAML 토큰에 서명합니다. Azure AD 및 애플리케이션 간 신뢰를 설정하려면 이 인증서가 필요합니다. 인증서 형식에 대한 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 자세한 내용은 [페더레이션된 Single Sign-On 인증서 관리](manage-certificates-for-federated-single-sign-on.md) 및 [SAML 토큰의 고급 인증서 서명 옵션](certificate-signing-options.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 많은 앱은 이미 미리 구성 되어 있으며 앱 갤러리에서 인증서를 사용할 필요가 없습니다. [퀵 스타트 시리즈](view-applications-portal.md) 는 앱을 추가 하 고 구성 하는 과정을 안내 합니다.
+> 많은 앱은 이미 미리 구성 되어 있으며 앱 갤러리에서 인증서를 사용할 필요가 없습니다. [퀵 스타트 시리즈](add-application-portal.md) 는 앱을 추가 하 고 구성 하는 과정을 안내 합니다.
 
 Azure AD에서는 Base64 또는 원시 형식의 활성 인증서를 기본 **SAML로 Single Sign-On 설정** 페이지에서 직접 다운로드할 수 있습니다. 또한 응용 프로그램 메타 데이터 XML 파일을 다운로드 하거나 앱 페더레이션 메타 데이터 URL을 사용 하 여 활성 인증서를 가져올 수 있습니다. 인증서(활성 또는 비활성)를 보거나 만들거나 다운로드 하려면 다음 단계를 수행합니다.
 
@@ -111,7 +111,7 @@ Azure AD를 SAML 기반 ID 공급자로 사용하도록 애플리케이션을 �
 
 **테스트** 를 선택한 다음 현재 로그인 한 사용자 또는 다른 사용자로 테스트를 선택 합니다. 
 
-로그온에 성공하면 사용자 및 그룹을 SAML 애플리케이션에 할당할 준비가 된 것입니다. 지금까지
+로그온에 성공하면 사용자 및 그룹을 SAML 애플리케이션에 할당할 준비가 된 것입니다. 축하합니다!
 
 오류 메시지가 표시되면 다음 단계를 수행합니다.
 

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 78007c9f153267b72a94dc4b4024155dee6beb88
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442993"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562012"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 
@@ -30,7 +30,7 @@ ms.locfileid: "89442993"
 
 파이프라인의 작업은 데이터에 대해 수행할 동작을 정의합니다. 예를 들어 복사 작업을 사용 하 여 SQL Server에서 Azure Blob Storage로 데이터를 복사할 수 있습니다. 그런 다음 데이터 흐름 활동 또는 Databricks 노트북 활동을 사용 하 여 blob storage의 데이터를 처리 하 고 비즈니스 인텔리전스 보고 솔루션을 기반으로 하는 Azure Synapse Analytics 풀로 변환 합니다.
 
-Data Factory에는 [데이터 이동 작업](copy-activity-overview.md), [데이터 변환 작업](transform-data.md)및 [제어 작업](control-flow-web-activity.md)이라는 세 가지 작업 그룹이 있습니다. 활동은 0 개 이상의 입력 [데이터 집합](concepts-datasets-linked-services.md) 을 사용 하 고 하나 이상의 출력 [데이터 집합](concepts-datasets-linked-services.md)을 생성할 수 있습니다. 다음 다이어그램은 데이터 팩터리의 파이프라인, 활동 및 데이터 세트 간 관계를 보여 줍니다.
+Data Factory에는 [데이터 이동 작업](copy-activity-overview.md), [데이터 변환 작업](transform-data.md)및 [제어 작업](#control-flow-activities)이라는 세 가지 작업 그룹이 있습니다. 활동은 0 개 이상의 입력 [데이터 집합](concepts-datasets-linked-services.md) 을 사용 하 고 하나 이상의 출력 [데이터 집합](concepts-datasets-linked-services.md)을 생성할 수 있습니다. 다음 다이어그램은 데이터 팩터리의 파이프라인, 활동 및 데이터 세트 간 관계를 보여 줍니다.
 
 ![데이터 세트, 작업 및 파이프라인 간 관계](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
@@ -106,7 +106,7 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 }
 ```
 
-태그 | 설명 | Type | 필수
+태그 | Description | Type | 필수
 --- | ----------- | ---- | --------
 name | 파이프라인의 이름입니다. 파이프라인이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 140개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" </li></ul> | String | 예
 description | 파이프라인의 용도를 설명하는 텍스트를 지정합니다. | String | 아니요
@@ -141,7 +141,7 @@ description | 파이프라인의 용도를 설명하는 텍스트를 지정합�
 
 다음 표에서는 활동 JSON 정의의 속성을 설명합니다.
 
-태그 | 설명 | 필수
+태그 | Description | 필수
 --- | ----------- | ---------
 name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다. <br/><ul><li>최대 문자 수: 55개</li><li>문자 번호 또는 밑줄 ()로 시작 해야 합니다. \_</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | 예</li></ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | 예
@@ -184,9 +184,9 @@ dependsOn | 이 속성을 사용하여 작업 종속성 및 이후 작업이 이
 
 JSON 이름 | Description | 허용되는 값 | 필수
 --------- | ----------- | -------------- | --------
-시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan | 아닙니다. 기본 시간 제한은 7일입니다.
-retry | 최대 다시 시도 횟수 | 정수 | 아닙니다. 기본값은 0입니다.
-retryIntervalInSeconds | 다시 시도 사이의 지연(초) | 정수 | 아닙니다. 기본값은 30초입니다.
+시간 제한 | 작업 실행에 대한 시간 제한을 지정합니다. | Timespan | 아니요. 기본 시간 제한은 7일입니다.
+retry | 최대 다시 시도 횟수 | 정수 | 아니요. 기본값은 0입니다.
+retryIntervalInSeconds | 다시 시도 사이의 지연(초) | 정수 | 아니요. 기본값은 30초입니다.
 secureOutput | True로 설정 하면 활동의 출력이 안전한 것으로 간주 되어 모니터링을 위해 기록 되지 않습니다. | 부울 | 아니요. 기본값은 false입니다.
 
 ### <a name="control-activity"></a>제어 작업
@@ -206,7 +206,7 @@ secureOutput | True로 설정 하면 활동의 출력이 안전한 것으로 간
 }
 ```
 
-태그 | 설명 | 필수
+태그 | Description | 필수
 --- | ----------- | --------
 name | 활동의 이름입니다. 활동이 수행하는 작업을 나타내는 이름을 지정합니다.<br/><ul><li>최대 문자 수: 55개</li><li>문자, 숫자 또는 밑줄(\_)로 시작해야 합니다.</li><li>다음 문자는 사용할 수 없습니다. ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | 예</li><ul>
 description | 활동의 용도를 설명하는 텍스트입니다. | 예
