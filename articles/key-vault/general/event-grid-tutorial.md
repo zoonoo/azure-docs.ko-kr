@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 034bdce96d88deb31a071682a3c02200a64699dd
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d7bb697879f40b45c886cd90bbb1e34906d35f66
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087575"
+ms.locfileid: "90530508"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Azure Event Grid를 사용하여 키 자격 증명 모음 알림 수신 및 응답
 
@@ -197,6 +197,6 @@ Azure 구독 리소스 공급자에서 Event Grid 및 키 자격 증명 모음 �
 - 개요: [Azure Event Grid를 사용하여 Key Vault 모니터링](event-grid-overview.md)
 - 방법: [키 자격 증명 모음 비밀 변경 시 이메일 받기](event-grid-logicapps.md)
 - [Azure Key Vault에 대한 Azure Event Grid 이벤트 스키마](../../event-grid/event-schema-key-vault.md)
-- [Azure Key Vault 개요](overview.md))
+- [Azure Key Vault 개요](overview.md)
 - [Azure Event Grid 개요](../../event-grid/overview.md)
 - [Azure Automation 개요](../../automation/index.yml)
