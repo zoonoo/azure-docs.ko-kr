@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 243e5ece0d0a14cb7e3ade409ee68510cef64a9c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 411e9a6e059075dfc2928ed09c0c604d600fd9be
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89397103"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604158"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Azure Active Directory에서 앱에 사용자를 할당 하는 방법 이해
 이 문서에서는 테넌트의 애플리케이션에 사용자가 할당되는 방법을 이해하는 데 도움을 줍니다.
@@ -28,18 +28,18 @@ ms.locfileid: "89397103"
     * 온-프레미스에서 동기화된 그룹
     * 클라우드에서 만든 정적 보안 그룹
     * 클라우드에서 만든 [동적 보안 그룹](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)
-    * 클라우드에서 만든 Office 365 그룹
+    * 클라우드에서 만든 Microsoft 365 그룹
     * [모든 사용자](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups) 그룹
 *  관리자는 [셀프 서비스 응용 프로그램 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) 를 통해 사용자가 [내 앱](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) 을 사용 하 여 응용 프로그램을 추가할 수 있습니다. **비즈니스 승인 없이** 앱 **추가** 기능을 사용 합니다.
-*  관리자는 [셀프 서비스 응용 프로그램 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) 를 통해 사용자가 [내 앱](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **앱 추가** 기능을 사용 하 여 응용 프로그램을 추가할 수 있지만,**선택한 비즈니스 승인자에 게 사전 승인이 있는** 경우에만이 응용 프로그램을 추가할 수 있습니다.
+*  관리자는 [셀프 서비스 응용 프로그램 액세스](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) 를 통해 사용자가 [내 앱](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **앱 추가** 기능을 사용 하 여 응용 프로그램을 추가할 수 있지만 **선택한 비즈니스 승인자의 사전 승인만** 사용 합니다.
 *  관리자가 [셀프 서비스 그룹 관리](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)를 통해 사용자가 **비즈니스 승인 없이** 애플리케이션이 할당된 그룹에 가입하도록 허용
 *  관리자가 [셀프 서비스 그룹 관리](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)를 통해 사용자가 **선택된 비즈니스 승인자 세트의 사전 승인이 있는 경우에만** 애플리케이션이 할당된 그룹에 가입하도록 허용
-*  관리자가 [Microsoft Office 365](https://products.office.com/)와 같은 자사 애플리케이션에 대해 직접, 사용자에게 라이선스 할당
-*  관리자가 해당 [Microsoft Office 365](https://products.office.com/)와 같은 자사 애플리케이션의 구성원인 그룹에 라이선스 할당
+*  관리자는 [Microsoft 365](https://products.office.com/) 같은 자사 응용 프로그램에 대해 사용자에 게 직접 라이선스를 할당 합니다.
+*  관리자가 사용자가 구성원 인 그룹에 대 한 라이선스를 자사 응용 프로그램에 할당 하는 것과 같은 [Microsoft 365](https://products.office.com/)
 *  [관리자가 모든 사용자가 사용할 수 있게 애플리케이션에 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)한 다음, 사용자가 애플리케이션에 로그인
 * 사용자가 애플리케이션에 로그인하여 [애플리케이션에 직접 동의](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)
 
 ## <a name="next-steps"></a>다음 단계
 * [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)
 * [애플리케이션 관리란?](what-is-application-management.md)
-* [Single Sign-On 이란?](what-is-single-sign-on.md)
+* [Single Sign-On이란?](what-is-single-sign-on.md)

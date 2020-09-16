@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: de6cd4ee2c9800757399b7e32b59d903b817c657
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053578"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604396"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -41,18 +41,22 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-AE` | 아랍어(UAE)                      | 예                                                |
 | `ar-BH` | 아랍어(바레인), 최신 표준 | 언어 모델                                    |
 | `ar-EG` | 아랍어(이집트)                    | 언어 모델                                    |
-| `ar-IL` | 아랍어(이스라엘)                   | 예                                                |
+| `ar-IL` | 아랍어(이스라엘)                   | No                                                |
+| `ar-IQ` | 아랍어(이라크)                     | 예                                                |
 | `ar-JO` | 아랍어(요르단)                   | 예                                                |
 | `ar-KW` | 아랍어(쿠웨이트)                   | 예                                                |
-| `ar-LB` | 아랍어(레바논)                  | 예                                                |
+| `ar-LB` | 아랍어(레바논)                  | No                                                |
+| `ar-OM` | 아랍어(오만)                     | 예                                                |
 | `ar-PS` | 아랍어(팔레스타인)                | 예                                                |
 | `ar-QA` | 아랍어(카타르)                    | 예                                                |
 | `ar-SA` | 아랍어(사우디아라비아)             | 예                                                |
 | `ar-SY` | 아랍어(시리아)                    | 언어 모델                                    |
-| `ca-ES` | 카탈로니아어                           | 언어 모델                                    |
+| `bg-BG` | 불가리아어(불가리아)              | 언어 모델                                    |
+| `ca-ES` | 카탈로니아어(스페인)                   | 언어 모델                                    |
 | `cs-CZ` | 체코어(체코)            | 언어 모델                                    | 
 | `da-DK` | 덴마크어(덴마크)                  | 언어 모델                                    |
 | `de-DE` | 독일어(독일)                  | 음향 모델<br>언어 모델<br>발음 |
+| `el-GR` | 그리스어(그리스)                    | 언어 모델                                    |
 | `en-AU` | 영어(오스트레일리아)               | 음향 모델<br>언어 모델                  |
 | `en-CA` | 영어(캐나다)                  | 음향 모델<br>언어 모델                  |
 | `en-GB` | 영어(영국)          | 음향 모델<br>언어 모델<br>발음 |
@@ -84,23 +88,32 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `es-SV` | 스페인어(엘살바도르)             | 언어 모델                                    | 
 | `es-US` | 스페인어 (미국)                     | 언어 모델                                    | 
 | `es-UY` | 스페인어(우루과이)                 | 언어 모델                                    | 
-| `es-VE` | 스페인어(베네수엘라)               | 언어 모델                                    | 
+| `es-VE` | 스페인어(베네수엘라)               | 언어 모델                                    |
+| `et-EE` | 에스토니아어 (에스토니아)                 | 언어 모델                                    | 
 | `fi-FI` | 핀란드어(핀란드)                 | 언어 모델                                    |
 | `fr-CA` | 프랑스어(캐나다)                   | 음향 모델<br>언어 모델                  |
 | `fr-FR` | 프랑스어(프랑스)                   | 음향 모델<br>언어 모델<br>발음 |
+| `ga-IE` | 아일랜드어 (아일랜드)                    | 언어 모델                                    |
 | `gu-IN` | 구자라트어(인도)                 | 언어 모델                                    |
 | `hi-IN` | 힌디어(인도)                     | 음향 모델<br>언어 모델                  |
+| `hr-HR` | 크로아티아어(크로아티아)                | 언어 모델                                    |
 | `hu-HU` | 헝가리어(헝가리)               | 언어 모델                                    | 
 | `it-IT` | 이탈리아어(이탈리아)                   | 음향 모델<br>언어 모델<br>발음 |
 | `ja-JP` | 일본어(일본)                  | 언어 모델                                    |
 | `ko-KR` | 한국어(한국)                    | 언어 모델                                    |
+| `lt-LT` | 리투아니아어(리투아니아)            | 언어 모델                                    |
+| `lv-LV` | 라트비아어(라트비아)                  | 언어 모델                                    |
 | `mr-IN` | 마라티어(인도)                   | 언어 모델                                    |
+| `mt-MT` | 몰타어 (몰타)                    | 언어 모델                                    |
 | `nb-NO` | 노르웨이어(복말)(노르웨이)       | 언어 모델                                    |
 | `nl-NL` | 네덜란드어(네덜란드)               | 언어 모델                                    |
 | `pl-PL` | 폴란드어(폴란드)                   | 언어 모델                                    |
 | `pt-BR` | 포르투갈어(브라질)               | 음향 모델<br>언어 모델<br>발음 |
 | `pt-PT` | 포르투갈어(포르투갈)             | 언어 모델                                    |
+| `ro-RO` | 루마니아어(루마니아)                | 언어 모델                                    |
 | `ru-RU` | 러시아어(러시아)                  | 음향 모델<br>언어 모델                  |
+| `sk-SK` | 슬로바키아어(슬로바키아)                 | 언어 모델                                    |
+| `sl-SI` | 슬로베니아어(슬로베니아)              | 언어 모델                                    |
 | `sv-SE` | 스웨덴어(스웨덴)                  | 언어 모델                                    |
 | `ta-IN` | 타밀어(인도)                     | 언어 모델                                    |
 | `te-IN` | 텔루구어(인도)                    | 언어 모델                                    |
@@ -125,7 +138,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-|Locale  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
+|로캘  | 언어            | 성별 | 음성 이름 | 스타일 지원 |
 |--|--|--|--|--|
 | `ar-EG` | 아랍어(이집트)                  | Female | `ar-EG-SalmaNeural`      | 일반 |
 | `ar-SA` | 아랍어(사우디아라비아)           | Female | `ar-SA-ZariyahNeural`    | 일반 |
@@ -176,7 +189,7 @@ Microsoft Speech SDK 및 REST API는 이러한 음성을 제공하며, 해당 �
 
 75개를 초과하는 표준 음성은 45개 이상의 언어 및 로캘에서 사용할 수 있으며 텍스트를 합성된 음성으로 변환할 수 있습니다. 국가별 가용성에 대한 자세한 내용은 [지역](regions.md#standard-and-neural-voices)을 참조하세요.
 
-| Locale | 언어 | 성별 | 음성 이름 |
+| 로캘 | 언어 | 성별 | 음성 이름 |
 |--|--|--|--|
 | <sup>1</sup>`ar-EG` | 아랍어(이집트) | Female | "ar-EG-Hoda" |
 | `ar-SA` | 아랍어(사우디아라비아) | Male | "ar-SA-Naayf" |

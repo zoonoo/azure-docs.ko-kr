@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d16412e4e35714c840516670f520f77daed1676d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3031ec6ba17c61c780351169c4e8c2e5e94ab257
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80059923"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606604"
 ---
 클라이언트 인증서를 생성하는 경우 생성하는 데 사용한 컴퓨터에 자동으로 설치됩니다. 다른 클라이언트 컴퓨터에 클라이언트 인증서를 설치하려는 경우 생성한 클라이언트 인증서를 내보내야 합니다.
 
 1. 클라이언트 인증서를 내보내려면 **사용자 인증서 관리**를 엽니다. 기본적으로 생성하는 클라이언트 인증서는 'Certificates - Current User\Personal\Certificates'에 있습니다. 내보내려는 클라이언트 인증서를 마우스 오른쪽 단추로 클릭 하 고 **모든 작업**을 클릭 한 다음 **내보내기** 를 클릭 하 여 **인증서 내보내기 마법사**를 엽니다.
 
-   ![내보내기](./media/vpn-gateway-certificates-export-client-cert-include/export.png)
+   ![스크린 샷에서는 인증서가 선택 된 현재 사용자의 인증서 창 및 모든 작업과 함께 모든 작업을 선택한 상태로 표시 되는 상황에 맞는 메뉴를 보여 줍니다.](./media/vpn-gateway-certificates-export-client-cert-include/export.png)
 2. 인증서 내보내기 마법사에서 **다음**을 클릭하여 계속합니다.
 
-   ![다음](./media/vpn-gateway-certificates-export-client-cert-include/next.png)
+   ![스크린샷 인증서 내보내기 마법사 시작 메시지를 표시 합니다.](./media/vpn-gateway-certificates-export-client-cert-include/next.png)
 3. **예, 프라이빗 키를 내보냅니다.** 를 선택한 후, **다음**을 클릭합니다.
 
    ![프라이빗 키 내보내기](./media/vpn-gateway-certificates-export-client-cert-include/privatekeyexport.png)
@@ -31,10 +31,10 @@ ms.locfileid: "80059923"
    ![내보내기 파일 형식](./media/vpn-gateway-certificates-export-client-cert-include/includeallcerts.png)
 5. **보안** 페이지에서 프라이빗 키를 보호해야 합니다. 암호를 사용하도록 선택하는 경우 이 인증서에 대해 설정한 암호를 기록해두거나 기억합니다. 그런 후 **다음**을 클릭합니다.
 
-   ![security](./media/vpn-gateway-certificates-export-client-cert-include/security.png)
+   ![스크린샷은 암호를 입력 하 고 확인 한 후 다음 강조 표시 된 인증서 내보내기 마법사 보안 페이지를 표시 합니다.](./media/vpn-gateway-certificates-export-client-cert-include/security.png)
 6. **내보낼 파일**에서 인증서를 내보낼 위치를 **찾아보기**합니다. **파일 이름**에는 인증서 파일의 이름을 입력합니다. 그런 후 **다음**을 클릭합니다.
 
    ![내보낼 파일](./media/vpn-gateway-certificates-export-client-cert-include/filetoexport.png)
 7. **마침**을 클릭하여 인증서를 내보냅니다.
 
-   ![마침](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)
+   ![선택한 설정이 있는 인증서 내보내기 마법사 최종 페이지를 보여 주는 스크린샷](./media/vpn-gateway-certificates-export-client-cert-include/finish.png)

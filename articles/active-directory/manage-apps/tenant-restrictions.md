@@ -12,22 +12,22 @@ ms.date: 03/28/2019
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1cce42cdb63fcfcb9a5841f2f2199daf2bb92304
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285903"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604175"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
-보안을 강조하는 대규모 조직에서는 Office 365와 같은 클라우드 서비스로 이동하려고 하지만, 사용자가 승인된 리소스에만 액세스할 수 있다는 사실을 인식하고 있어야 합니다. 일반적으로 회사에서는 액세스를 관리하려는 경우에 도메인 이름 또는 IP 주소를 제한합니다. 이 방법은 SaaS(Software as a Service) 앱이 퍼블릭 클라우드에서 호스트되고 [outlook.office.com](https://outlook.office.com/) 및 [login.microsoftonline.com](https://login.microsoftonline.com/)과 같은 공유 도메인 이름으로 실행되는 환경에서는 실패합니다. 이러한 주소를 차단하면 사용자가 단순히 승인된 ID 및 리소스로만 제한되는 것이 아니라 웹상의 Outlook에 완전히 액세스할 수 없게 됩니다.
+보안을 강조 하는 대기업은 Microsoft 365와 같은 클라우드 서비스로 이동 하려고 하지만, 사용자가 승인 된 리소스에만 액세스할 수 있다는 것을 알고 있어야 합니다. 일반적으로 회사에서는 액세스를 관리하려는 경우에 도메인 이름 또는 IP 주소를 제한합니다. 이 방법은 SaaS(Software as a Service) 앱이 퍼블릭 클라우드에서 호스트되고 [outlook.office.com](https://outlook.office.com/) 및 [login.microsoftonline.com](https://login.microsoftonline.com/)과 같은 공유 도메인 이름으로 실행되는 환경에서는 실패합니다. 이러한 주소를 차단하면 사용자가 단순히 승인된 ID 및 리소스로만 제한되는 것이 아니라 웹상의 Outlook에 완전히 액세스할 수 없게 됩니다.
 
-이러한 경우에 대한 Azure AD(Azure Active Directory) 해결 방법은 테넌트 제한이라는 기능입니다. 테넌트 제한을 사용하면 조직은 애플리케이션이 Single Sign-On에 대해 사용하는 사용할 Azure AD 테넌트에 따라, SaaS 클라우드 애플리케이션에 대한 액세스를 제어할 수 있습니다. 예를 들어 이러한 동일한 애플리케이션의 다른 조직 인스턴스에 대한 액세스를 차단하면서 조직의 Office 365 애플리케이션에 대한 액세스를 허용하려고 할 수 있습니다.  
+이러한 경우에 대한 Azure AD(Azure Active Directory) 해결 방법은 테넌트 제한이라는 기능입니다. 테넌트 제한을 사용하면 조직은 애플리케이션이 Single Sign-On에 대해 사용하는 사용할 Azure AD 테넌트에 따라, SaaS 클라우드 애플리케이션에 대한 액세스를 제어할 수 있습니다. 예를 들어 조직의 Microsoft 365 응용 프로그램에 대 한 액세스를 허용 하는 동시에 이러한 동일한 응용 프로그램의 다른 조직 인스턴스에 대 한 액세스를 방지할 수 있습니다.  
 
 테넌트 제한을 사용하면 조직은 사용자에게 액세스가 허용된 테넌트 목록을 지정할 수 있습니다. 그러면 Azure AD는 이러한 허용된 테넌트에 대해서만 액세스를 허가합니다.
 
-이 문서는 Office 365에 대한 테넌트 제한을 중점적으로 설명하지만 Single Sign-On을 위해 Azure AD와 함께 최신 인증 프로토콜을 사용하는 모든 SaaS 클라우드 앱에도 이 기능을 사용할 수 있습니다. Office 365에서 사용되는 테넌트와는 다른 Azure AD 테넌트에서 SaaS 앱을 사용하는 경우 필요한 모든 테넌트가 허용되는지 확인합니다. 클라우드 SaaS 앱에 대한 자세한 내용은 [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)를 참조하세요.
+이 문서에서는 Microsoft 365에 대 한 테 넌 트 제한 사항에 중점을 둔 반면,이 기능은 Azure AD에서 Single Sign-On에 최신 인증 프로토콜을 사용 하는 모든 SaaS 클라우드 앱에서 작동 해야 합니다. Microsoft 365에서 사용 하는 테 넌 트의 다른 Azure AD 테 넌 트에서 SaaS 앱을 사용 하는 경우 필요한 모든 테 넌 트가 허용 되는지 확인 합니다. 클라우드 SaaS 앱에 대한 자세한 내용은 [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)를 참조하세요.
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -37,11 +37,11 @@ ms.locfileid: "87285903"
 
 2. **온-프레미스 프록시 서버 인프라**: 이 인프라는 TLS(전송 계층 보안) 검사를 수행할 수 있는 프록시 디바이스입니다. 허용되는 테넌트 목록을 포함하는 헤더를 Azure AD로 향하는 트래픽에 삽입하도록 프록시를 구성해야 합니다.
 
-3. **클라이언트 소프트웨어**: 테넌트 제한을 지원하기 위해 클라이언트 소프트웨어는 Azure AD에서 직접 토큰을 요청해야 하므로 프록시 인프라에서 트래픽을 가로챌 수 있습니다. 최신 인증을 사용하는 Office 클라이언트(예: OAuth 2.0)와 마찬가지로 브라우저 기반 Office 365 애플리케이션도 현재 테넌트 제한을 지원합니다.
+3. **클라이언트 소프트웨어**: 테넌트 제한을 지원하기 위해 클라이언트 소프트웨어는 Azure AD에서 직접 토큰을 요청해야 하므로 프록시 인프라에서 트래픽을 가로챌 수 있습니다. 현재 브라우저 기반 Microsoft 365 응용 프로그램은 최신 인증을 사용 하는 Office 클라이언트 (예: OAuth 2.0)와 같이 테 넌 트 제한을 지원 합니다.
 
-4. **최신 인증**: 클라우드 서비스는 테넌트 제한을 사용하고 허용되지 않는 모든 테넌트로의 액세스를 차단하기 위해 최신 인증을 사용해야 합니다. Office 365 클라우드 서비스는 기본적으로 최신 인증 프로토콜을 사용하도록 구성해야 합니다. 최신 인증에 대한 Office 365 지원과 관련된 최신 정보를 보려면 [업데이트된 Office 365 최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)을 참조하세요.
+4. **최신 인증**: 클라우드 서비스는 테넌트 제한을 사용하고 허용되지 않는 모든 테넌트로의 액세스를 차단하기 위해 최신 인증을 사용해야 합니다. 기본적으로 최신 인증 프로토콜을 사용 하도록 Microsoft 365 cloud services를 구성 해야 합니다. 최신 인증에 대 한 Microsoft 365 지원에 대 한 최신 정보는 [업데이트 된 Office 365 최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)을 참조 하세요.
 
-다음 다이어그램은 고급 트래픽 흐름을 보여 줍니다. 테넌트 제한에서는 Office 365 클라우드 서비스로의 트래픽이 아닌 Azure AD로의 트래픽에만 TLS 검사가 필요합니다. Azure AD에서 인증을 받으려는 트래픽 볼륨이 일반적으로 Exchange Online 및 SharePoint Online과 같은 SaaS 애플리케이션에 대한 트래픽 볼륨보다 훨씬 작기 때문에 이러한 구분이 필요합니다.
+다음 다이어그램은 고급 트래픽 흐름을 보여 줍니다. 테 넌 트 제한에는 Microsoft 365 cloud services가 아닌 Azure AD에 대 한 트래픽에만 TLS 검사가 필요 합니다. Azure AD에서 인증을 받으려는 트래픽 볼륨이 일반적으로 Exchange Online 및 SharePoint Online과 같은 SaaS 애플리케이션에 대한 트래픽 볼륨보다 훨씬 작기 때문에 이러한 구분이 필요합니다.
 
 ![테넌트 제한 트래픽 흐름 - 다이어그램](./media/tenant-restrictions/traffic-flow.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "87285903"
 
 - 클라이언트는 TLS 통신을 위해 프록시에서 제공한 인증서 체인을 신뢰해야 합니다. 예를 들어 내부 [PKI(퍼블릭 키 인프라)](/windows/desktop/seccertenroll/public-key-infrastructure)에서 발급한 인증서가 사용될 경우 내부 발급 루트 인증 기관 인증서를 신뢰할 수 있어야 합니다.
 
-- 이 기능은 Office 365 구독에 포함되어 있지만 테넌트 제한을 사용하여 다른 SaaS 앱에 대한 액세스를 제어하려는 경우 다음 Azure AD Premium 1 라이선스가 필요합니다.
+- 이 기능은 Microsoft 365 구독에 포함 되어 있지만 테 넌 트 제한을 사용 하 여 다른 SaaS 앱에 대 한 액세스를 제어 하려면 Azure AD Premium 1 라이선스가 필요 합니다.
 
 #### <a name="configuration"></a>구성
 
@@ -129,16 +129,16 @@ Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보�
 - **위치**
 - **대상 테넌트 ID**
 
-## <a name="office-365-support"></a>Office 365 지원
+## <a name="microsoft-365-support"></a>Microsoft 365 지원
 
-Office 365 애플리케이션은 테넌트 제한을 완전히 지원하기 위해 다음과 같은 두 가지 조건을 충족해야 합니다.
+Microsoft 365 응용 프로그램은 테 넌 트 제한을 완전히 지원 하기 위해 두 가지 조건을 충족 해야 합니다.
 
 1. 사용되는 클라이언트에서 최신 인증을 지원해야 합니다.
 2. 최신 인증이 클라우드 서비스에 대한 기본 인증 프로토콜로 사용되어야 합니다.
 
 현재 최신 인증을 지원하는 Office 클라이언트에 대한 최신 정보를 보려면 [업데이트된 Office 365 최신 인증](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)을 참조하세요. 해당 페이지에는 특정 Exchange Online 및 비즈니스용 Skype Online 테넌트에 대해 최신 인증을 사용하도록 설정하기 위한 지침으로 연결되는 링크도 포함되어 있습니다. SharePoint Online에서는 이미 최신 인증이 사용하도록 설정되어 있습니다.
 
-현재, Office 365 브라우저 기반 애플리케이션(Office 포털, Yammer, SharePoint 사이트, 웹용 Outlook 등)에서 테넌트 제한을 지원합니다. 씩 클라이언트(Outlook, 비즈니스용 Skype, Word, Excel, PowerPoint 등)는 최신 인증을 사용하는 경우에만 테넌트 제한을 적용할 수 있습니다.  
+Microsoft 365 브라우저 기반 응용 프로그램 (웹의 Office Portal, Yammer, SharePoint 사이트, Outlook 등)은 현재 테 넌 트 제한을 지원 합니다. 씩 클라이언트(Outlook, 비즈니스용 Skype, Word, Excel, PowerPoint 등)는 최신 인증을 사용하는 경우에만 테넌트 제한을 적용할 수 있습니다.  
 
 최신 인증을 지원하는 Outlook 및 비즈니스용 Skype 클라이언트는 최신 인증이 사용되도록 설정되지 않은 테넌트에 대해 레거시 프로토콜을 사용하여 테넌트 제한을 효과적으로 우회할 수 있습니다. 레거시 프로토콜을 사용하는 애플리케이션은 인증하는 동안 login.microsoftonline.com, login.microsoft.com 또는 login.windows.net에 접속하는 경우 테넌트 제한으로 차단될 수 있습니다.
 

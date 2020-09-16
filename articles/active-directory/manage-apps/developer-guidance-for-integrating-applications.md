@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d662689d44bcdbd468c882de0679fd60c9ab4f4
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 6b24bd190eac9cb6c29ceab6eb597d8d1c48f2ff
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640449"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605093"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Azure Active Directory용 기간 업무 앱 개발
-이 가이드는 Azure AD(Active Directory)에 대한 LoB(기간 업무) 애플리케이션 개발의 개요를 제공하며, Active Directory/Office 365 글로벌 관리자용으로 작성되었습니다.
+이 가이드에서는 Azure Active Directory (AD)에 대 한 LoB (기간 업무) 응용 프로그램 개발에 대 한 개요를 제공 합니다. 대상 사용자는 전역 관리자 Active Directory/Microsoft 365 합니다.
 
 ## <a name="overview"></a>개요
-Azure AD와 통합된 애플리케이션을 구축하면 조직의 사용자에게 Office 365를 사용하여 Single Sign-On을 제공합니다. Azure AD에 애플리케이션이 있다면 애플리케이션에 대한 인증 정책을 통한 제어를 제공합니다. 조건부 액세스에 대 한 자세한 내용과 MFA (multi-factor authentication)를 사용 하 여 앱을 보호 하는 방법에 대 한 자세한 내용은 [액세스 규칙 구성](../conditional-access/app-based-mfa.md)을 참조 하세요.
+Azure AD와 통합 된 응용 프로그램을 빌드하면 조직의 사용자가 Microsoft 365를 Single Sign-On 수 있습니다. Azure AD에 애플리케이션이 있다면 애플리케이션에 대한 인증 정책을 통한 제어를 제공합니다. 조건부 액세스에 대 한 자세한 내용과 MFA (multi-factor authentication)를 사용 하 여 앱을 보호 하는 방법에 대 한 자세한 내용은 [액세스 규칙 구성](../conditional-access/app-based-mfa.md)을 참조 하세요.
 
 Azure Active Directory를 사용하기 위해 애플리케이션을 등록해야 합니다. 애플리케이션을 등록하면 개발자가 Azure AD를 사용하여 사용자를 인증하고 이메일, 일정, 문서 등과 같은 사용자 리소스에 대한 액세스를 요청할 수 있습니다.
 

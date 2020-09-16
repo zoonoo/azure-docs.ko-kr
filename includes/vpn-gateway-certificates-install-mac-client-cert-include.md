@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b214932f43ce20480ee37a7b4edf942f080b38e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce39e23208398f6060103345a6c6cb3541834abc
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67182096"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606905"
 ---
 클라이언트 인증서를 설치하는 경우 클라이언트 인증서를 내보낼 때 만든 암호가 필요합니다.
 
@@ -23,4 +23,4 @@ ms.locfileid: "67182096"
    ![인증서 추가](./media/vpn-gateway-certificates-install-mac-client-cert-include/addcert.png)
 3. 클라이언트 인증서를 내보낼 때 만든 암호를 입력합니다. 암호는 인증서의 프라이빗 키를 보호합니다. 설치를 완료하려면 **확인**을 클릭합니다.
 
-   ![암호](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)
+   ![스크린샷에는 암호를 묻는 대화 상자가 표시 됩니다.](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)

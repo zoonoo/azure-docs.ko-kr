@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1570f4a8c4fb23b885c1de68c2c8d2440c4f6aae
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: fccbb84647ae9e47afc7bb36eeca97bb41a0d1d8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018444"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604073"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -208,13 +208,13 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 - 새로운 문제 해결 도구는 "사용자 동기화 안 됨", "그룹 동기화 안 됨" 또는 "그룹 구성원 동기화 안 됨" 시나리오에서 문제를 해결하는 데 유용합니다.
-- Azure AD Connect 문제 해결 스크립트에서 국가별 클라우드에 대 한 지원 추가 
+- Azure AD Connect 문제 해결 스크립트에서 국가별 클라우드에 대 한 지원을 추가 합니다.
 - MIIS_Service에 더 이상 사용되지 않는 WMI 엔드포인트가 이제 제거된 것을 고객에게 알려야 합니다. 모든 WMI 작업은 이제 PS cmdlet을 통해 수행됩니다.
-- AZUREADSSOACC 개체에 대해 제한된 위임을 재설정하여 보안이 강화되었습니다.
+- AZUREADSSOACC 개체에 대 한 제한 된 위임을 다시 설정 하 여 보안을 개선 합니다.
 - 동기화 규칙을 추가/편집하는 경우 커넥터 스키마에 있지만 커넥터에 추가되지 않은 규칙에 사용된 특성이 있으면 이 특성은 커넥터에 자동으로 추가됩니다. 규칙이 적용되는 개체 형식에 대해서도 마찬가지입니다. 커넥터에 추가된 항목이 있으면 다음 동기화 주기에 커넥터가 전체 가져오기로 표시됩니다.
 - 새 Azure AD Connect 배포에서는 엔터프라이즈 또는 도메인 관리자를 커넥터 계정으로 사용하는 것이 더 이상 지원되지 않습니다. 엔터프라이즈 또는 도메인 관리자를 커넥터 계정으로 사용 하는 현재 Azure AD Connect 배포는이 릴리스의 영향을 받지 않습니다.
 - 동기화 관리자에서 규칙 생성/편집/삭제 시 전체 동기화가 실행됩니다. 규칙 변경 시 팝업이 나타나서 전체 가져오기 또는 전체 동기화가 실행되는 경우 사용자에게 알립니다.
-- '커넥터 > 속성 > 연결성' 페이지에 암호 오류를 완화하는 단계가 추가되었습니다.
+- ' 커넥터 > 속성 > 연결 ' 페이지에 암호 오류에 대 한 완화 단계를 추가 했습니다.
 - 커넥터 속성 페이지에 동기화 서비스 관리자에 대한 사용 중단 경고가 추가되었습니다. 이 경고는 Azure AD Connect 마법사를 통해 변경해야 한다고 사용자에게 알려줍니다.
 - 사용자의 암호 정책과 관련된 문제에 대해 새 오류가 추가되었습니다.
 - 도메인 및 OU 필터로 그룹 필터링이 잘못 구성되지 않도록 합니다. 입력한 그룹의 도메인/OU가 이미 필터링된 경우에는 그룹 필터링에 오류가 표시되고 문제가 해결될 때까지 사용자가 계속 진행하지 못하도록 합니다.
@@ -233,7 +233,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - 도움말 팝업이 이제 키보드 포커스에 표시됩니다.
 - 자동 업그레이드의 경우, 충돌하는 앱이 6시간 이상 실행되면 종료하고 업그레이드를 계속합니다.
 - 디렉터리 확장을 선택할 때 고객이 선택할 수 있는 특성의 수가 개체당 100개로 제한됩니다. 이렇게 하면 내보내기 중에 오류가 발생하지 않습니다. Azure에서 개체당 최대 확장 특성이 최대 100개이기 때문입니다.
-- AD 연결 스크립트가 더 견고해지도록 버그를 수정했습니다.
+- AD 연결 스크립트를 보다 강력 하 게 만드는 버그를 수정 했습니다.
 - 기존 명명 된 파이프 WCF 서비스를 보다 강력 하 게 사용 하 여 컴퓨터에 Azure AD Connect 설치 하는 버그를 수정 했습니다.
 - 처음 설치할 때 ADSync 서비스를 시작할 수 없는 그룹 정책 관련 진단 및 문제 해결 기능이 향상되었습니다.
 - Windows 컴퓨터의 표시 이름이 잘못 쓰여지는 버그를 수정했습니다.
@@ -246,9 +246,9 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 >[!IMPORTANT]
 >이전 버전에서 1.3.21.0로 Azure AD Connect 업그레이드 하는 것과 관련 된 알려진 문제가 있습니다. 이러한 문제는 Microsoft 365 포털에서 성공적으로 업그레이드 Azure AD Connect 경우에도 업데이트 된 버전을 반영 하지 않습니다.
 >
-> 이 문제를 해결하려면 **AdSync** 모듈을 가져온 다음, Azure AD Connect 서버에서 `Set-ADSyncDirSyncConfiguration` PowerShell cmdlet을 실행해야 합니다.  다음 단계를 사용할 수 있습니다.
+> 이 문제를 해결 하려면 **Adsync** 모듈을 가져온 다음 `Set-ADSyncDirSyncConfiguration` Azure AD Connect 서버에서 PowerShell cmdlet을 실행 해야 합니다.  다음 단계를 사용할 수 있습니다.
 >
->1. 관리자로 모드에서 PowerShell을 엽니다.
+>1. 관리자 모드에서 PowerShell을 엽니다.
 >2. `Import-Module "ADSync"`을 실행합니다.
 >3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`을 실행합니다.
  

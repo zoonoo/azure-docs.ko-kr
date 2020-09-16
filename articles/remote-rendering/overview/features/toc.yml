@@ -4,6 +4,8 @@
   href: debug-rendering.md
 - name: 계층 상태 재정의
   href: override-hierarchical-state.md
+- name: 카메라
+  href: camera.md
 - name: 스테이지 공간
   href: stage-space.md
 - name: 후기 단계 다시 프로젝션

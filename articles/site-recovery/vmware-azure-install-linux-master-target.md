@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1790ac666d77f14ccadfde56f7b86e05b2c563dd
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130150"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604685"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -48,16 +48,7 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 - **OS 디스크 크기**: 100GB 이상(OS 설치에 필요)
 - **보존 드라이브에 대한 추가 디스크 크기**: 1TB
 - **CPU 코어**: 4 코어 이상
-
-다음 Ubuntu 커널을 사용할 수 있습니다.
-
-
-|커널 시리즈  |최대 지원  |
-|---------|---------|
-|4.4.      |4.4.0-81-제네릭         |
-|4.8      |4.8.0-56-제네릭         |
-|4.10     |4.10.0-24-제네릭        |
-
+- **커널**: 4.16. *
 
 ## <a name="deploy-the-master-target-server"></a>마스터 대상 서버 배포
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 8333de5b0139323b352d43a9259bde9d3b514fbe
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ddd6e08d9be36035b2db02ec5feb3ae4e957ec49
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611806"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604447"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Azure 공유 디스크를 사용 하 여 FCI 만들기 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,18 +28,18 @@ ms.locfileid: "89611806"
 자세한 내용은 [Azure vm의 SQL Server를 사용 하는 Fci](failover-cluster-instance-overview.md) 개요 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)를 참조 하세요. 
 
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 조건 
 
 이 문서의 지침을 완료 하기 전에 다음이 이미 있어야 합니다.
 
 - Azure 구독 [무료로](https://azure.microsoft.com/free/)시작 하세요. 
-- 장애 도메인 및 업데이트 도메인을 **1**로 설정 하 여 만든 가용성 집합을 사용 하는 동일한 [가용성 집합](../../../virtual-machines/linux/tutorial-availability-sets.md) 및 [근접 배치 그룹](../../../virtual-machines/windows/co-location.md#proximity-placement-groups)에서 두 개 이상의 [미국 중부-준비 된 Windows Azure 가상 컴퓨터](failover-cluster-instance-prepare-vm.md) 
+- [두 개 이상의 Windows Azure 가상 컴퓨터](failover-cluster-instance-prepare-vm.md). [가용성 집합](../../../virtual-machines/windows/tutorial-availability-sets.md) 및 ppgs ( [근접 배치 그룹](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) )는 모두 지원 됩니다. PPG를 사용 하는 경우 모든 노드가 동일한 그룹에 있어야 합니다.
 - Azure 가상 머신과 Active Directory 모두에서 개체를 만들 수 있는 권한이 있는 계정
 - 최신 버전의 [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0)입니다. 
 
 
 ## <a name="add-azure-shared-disk"></a>Azure 공유 디스크 추가
-공유 디스크 기능이 사용 하도록 설정 된 관리 되는 프리미엄 SSD 디스크를 배포 합니다. `maxShares`두 FCI 노드 간에 디스크를 공유할 수 있도록 설정 하려면 **2** 로 설정 합니다. 
+공유 디스크 기능이 사용 하도록 설정 된 관리 되는 프리미엄 SSD 디스크를 배포 합니다. `maxShares`모든 FCI 노드에서 디스크를 공유할 수 있도록 **클러스터 노드 수와 맞추려면** 를 설정 합니다. 
 
 다음을 수행 하 여 Azure 공유 디스크를 추가 합니다. 
 
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>연결 구성 
 
-현재 주 노드로 트래픽을 적절 하 게 라우팅하려면 사용자 환경에 적합 한 연결 옵션을 구성 합니다. [Azure 부하 분산 장치](hadr-vnn-azure-load-balancer-configure.md) 를 만들 수도 있고, SQL Server 2019 및 Windows Server 2016를 사용 하는 경우에는 [분산 네트워크 이름](hadr-distributed-network-name-dnn-configure.md) 기능을 미리 볼 수 있습니다. 
+현재 주 노드로 트래픽을 적절 하 게 라우팅하려면 사용자 환경에 적합 한 연결 옵션을 구성 합니다. [Azure 부하 분산 장치](hadr-vnn-azure-load-balancer-configure.md) 를 만들 수도 있고, SQL SERVER 2019 CU2 + 및 Windows Server 2016를 사용 하는 경우에는 대신 [분산 네트워크 이름](hadr-distributed-network-name-dnn-configure.md) 기능을 미리 볼 수 있습니다. 
 
 ## <a name="limitations"></a>제한 사항
 

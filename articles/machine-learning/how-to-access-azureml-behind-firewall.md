@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 443649826e821014e0e9918526a363a944b5eceb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660001"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604413"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>방화벽 뒤의 작업 영역을 사용 하 여 Azure Machine Learning
 
@@ -33,6 +33,10 @@ ms.locfileid: "89660001"
 >
 > Azure 방화벽 구성에 대 한 자세한 내용은 [Azure 방화벽 배포 및 구성](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule)을 참조 하세요.
 
+## <a name="routes"></a>경로
+
+Azure Machine Learning 리소스를 포함 하는 서브넷에 대 한 아웃 바운드 경로를 구성 하는 경우 학습 환경의 보안을 위해 [강제 터널링](how-to-secure-training-vnet.md#forced-tunneling) 섹션의 지침을 사용 합니다.
+
 ## <a name="microsoft-hosts"></a>Microsoft 호스트
 
 올바르게 구성 되지 않은 경우 방화벽에서 작업 영역을 사용 하 여 문제를 일으킬 수 있습니다. Azure Machine Learning 작업 영역에서 사용 되는 다양 한 호스트 이름이 있습니다.
@@ -41,6 +45,8 @@ ms.locfileid: "89660001"
 
 | **호스트 이름** | **용도** |
 | ---- | ---- |
+| **login.microsoftonline.com** | 인증 |
+| **management.azure.com** | 작업 영역 정보를 가져오는 데 사용 됩니다. |
 | **\*. batchai.core.windows.net** | 클러스터 학습 |
 | **ml.azure.com** | Azure Machine Learning Studio |
 | **default.exp-tas.com** | Azure Machine Learning studio에서 사용 |
@@ -59,13 +65,16 @@ ms.locfileid: "89660001"
 | **\*. notebooks.azure.net** | Azure Machine Learning studio에서 노트북에 필요 합니다. |
 | **graph.windows.net** | 노트북에 필요 |
 
+> [!TIP]
+> 페더레이션된 id를 사용 하려는 경우 [Active Directory Federation Services 보안 설정에 대 한 모범 사례](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs) 문서를 따르세요.
+
 ## <a name="python-hosts"></a>Python 호스트
 
 이 섹션의 호스트는 Python 패키지를 설치 하는 데 사용 됩니다. 개발, 학습 및 배포 중에 필요 합니다. 
 
 | **호스트 이름** | **용도** |
 | ---- | ---- |
-| **anaconda.com** | 기본 패키지를 설치 하는 데 사용 됩니다. |
+| **anaconda.com**</br>**\*. anaconda.com** | 기본 패키지를 설치 하는 데 사용 됩니다. |
 | **\*. anaconda.org** | 리포지토리 데이터를 가져오는 데 사용 됩니다. |
 | **pypi.org** | 기본 인덱스에서 종속성을 나열 하는 데 사용 되며 (있는 경우) 사용자 설정에서 인덱스를 덮어쓰지 않습니다. 인덱스를 덮어쓰는 경우 ** \* pythonhosted.org**도 허용 해야 합니다. |
 

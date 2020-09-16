@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 15b129db56a9c6854bc3c1f2814a8776ec39adc6
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1e88aac4209f7960b2589cf43f59ead4bd129134
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961570"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605076"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>App Service 환경에 대 한 가용성 영역 지원
 
@@ -29,11 +29,15 @@ ILB ASE는 특정 영역에 고정 되므로 AZ에 명시적으로 배포 된 IL
 
 영역 ILB Ase는 다음 지역 중 하나에서 만들 수 있습니다.
 
+- 오스트레일리아 동부
+- 브라질 남부
+- 캐나다 중부
 - 미국 중부
 - 미국 동부
 - 미국 동부 2
 - 미국 동부 2 (EUAP)
 - 프랑스 중부 
+- 독일 중서부
 - 일본 동부
 - 북유럽
 - 서유럽

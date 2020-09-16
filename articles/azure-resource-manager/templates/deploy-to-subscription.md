@@ -2,13 +2,13 @@
 title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: ef4f92d2e113e7cd393c50ba4eb8b47eb4ad9d08
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.date: 09/15/2020
+ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468643"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605178"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
 
@@ -82,7 +82,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 구독 수준 배포에 대한 명령은 리소스 그룹 배포에 대한 명령과 다릅니다.
 
-Azure CLI의 경우 [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create)를 사용합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
+Azure CLI의 경우 [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)를 사용합니다. 다음 예제에서는 리소스 그룹을 만드는 템플릿을 배포합니다.
 
 ```azurecli-interactive
 az deployment sub create \
@@ -162,9 +162,7 @@ REST API의 경우 [배포 - 구독 범위에서 만들기](/rest/api/resources/
 
 * [resourceGroup()](template-functions-resource.md#resourcegroup) 함수는 지원되지 **않습니다**.
 * [reference()](template-functions-resource.md#reference) 및 [list()](template-functions-resource.md#list) 함수는 지원됩니다.
-* 구독 수준에서 배포 된 리소스에 대 한 리소스 ID를 얻으려면 [resourceId ()](template-functions-resource.md#resourceid) 를 사용 하지 마세요.
-
-  대신, [Subscriptionresourceid ()](template-functions-resource.md#subscriptionresourceid) 함수를 사용 합니다.
+* 구독 수준에서 배포 된 리소스에 대 한 리소스 ID를 얻으려면 [resourceId ()](template-functions-resource.md#resourceid) 를 사용 하지 마세요. 대신, [Subscriptionresourceid ()](template-functions-resource.md#subscriptionresourceid) 함수를 사용 합니다.
 
   예를 들어 구독에 배포 되는 정책 정의에 대 한 리소스 ID를 가져오려면 다음을 사용 합니다.
 

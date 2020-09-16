@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/21/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2eb2dbc43c59f4f6301c7f5073a73462639d35b2
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 8172e0e208d9a780c7676d7cb0e77dbc1c16f493
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797128"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606917"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Azure AD 테넌트 만들기
 
@@ -77,7 +77,7 @@ Azure AD 테넌트에 VPN 클라이언트를 등록합니다.
 
 6. 메시지가 표시되면 **수락**을 선택합니다.
 
-    ![수락](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
+    ![스크린샷에는 요청한 메시지 권한 및 요청에 대 한 정보가 포함 된 창이 표시 됩니다.](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
 
 7. Azure AD 아래의 **엔터프라이즈 애플리케이션**에서 **Azure VPN**이 표시됩니다.
 

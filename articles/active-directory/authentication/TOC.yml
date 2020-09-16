@@ -21,7 +21,19 @@
   expanded: true
   items:
     - name: 인증 방법
-      href: concept-authentication-methods.md
+      items:
+        - name: 개요
+          href: concept-authentication-methods.md
+        - name: Microsoft Authenticator 앱
+          href: concept-authentication-authenticator-app.md
+        - name: OATH 토큰
+          href: concept-authentication-oath-tokens.md
+        - name: 암호 없음
+          href: concept-authentication-passwordless.md
+        - name: 전화 옵션
+          href: concept-authentication-phone-options.md
+        - name: 본인 확인 질문
+          href: concept-authentication-security-questions.md
     - name: 셀프 서비스 암호 재설정
       items:
         - name: 암호 재설정 작동 방법
@@ -46,8 +58,6 @@
           href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
         - name: FAQ
           href: multi-factor-authentication-faq.md
-    - name: 암호 없는 인증
-      href: concept-authentication-passwordless.md
     - name: 암호 보호
       items:
         - name: 클라우드에서 취약한 암호 제거

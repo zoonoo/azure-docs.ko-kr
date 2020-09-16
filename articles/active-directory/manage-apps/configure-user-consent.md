@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 0c9844d5e3f65dba5e51170367cfd16715a08883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 433ff5498baeb4c31473e43fc4a5d24f4ba9fd1c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763468"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605161"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>최종 사용자가 애플리케이션에 동의하는 방법 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "84763468"
 
 * **사용자 동의 사용 안 함** - 사용자가 애플리케이션에 권한을 부여할 수 없습니다. 사용자는 이전에 자신이 동의한 앱 또는 관리자가 사용자를 대신하여 동의한 앱에 계속 로그인할 수 있지만 새 권한이나 새 앱에 자체적으로 동의할 수는 없습니다. 동의할 수 있는 권한이 포함된 디렉터리 역할이 부여된 사용자만 새 권한 또는 새 앱에 동의할 수 있습니다.
 
-* **사용자가 인증된 게시자의 앱에 동의할 수 있지만 관리자가 선택한 권한만 동의할 수 있음(미리 보기)** - 모든 사용자가 [인증된 게시자](../develop/publisher-verification-overview.md)가 게시한 앱 및 테넌트에 등록된 앱에만 동의할 수 있습니다. 사용자가 "낮은 영향"으로 분류된 권한에만 동의할 수 있습니다.
+* **사용자가 인증된 게시자의 앱에 동의할 수 있지만 관리자가 선택한 권한만 동의할 수 있음(미리 보기)** - 모든 사용자가 [인증된 게시자](../develop/publisher-verification-overview.md)가 게시한 앱 및 테넌트에 등록된 앱에만 동의할 수 있습니다. 사용자는 "낮은 영향"으로 분류 한 사용 권한에만 동의할 수 있습니다 ("낮은 위험"이 라고도 함). 사용자 전자 메일 주소를 보는 앱과 같이 한 조직에서 낮은 위험으로 간주 되는 것은 다른 조직에서 높은 위험으로 간주 될 수 있습니다. 이러한 이유로 테 넌 트의 관리자가 "낮은 위험" 권한을 설정 합니다.
 
   사용자가 동의할 수 있는 권한을 선택하려면 [권한을 분류](#configure-permission-classifications-preview)해야 합니다.
 
@@ -56,7 +56,7 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 
 ### <a name="configure-user-consent-settings-using-powershell"></a>PowerShell을 사용하여 사용자 동의 설정 구성
 
-최신 Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview)를 사용하여 애플리케이션에 대한 사용자 동의를 제어하는 동의 정책을 선택할 수 있습니다.
+최신 Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true)를 사용하여 애플리케이션에 대한 사용자 동의를 제어하는 동의 정책을 선택할 수 있습니다.
 
 * **사용자 동의를 사용하지 않도록 설정** - 사용자 동의를 사용하지 않도록 설정하려면 사용자 동의를 제어하는 동의 정책을 빈 상태로 설정합니다.
 
@@ -109,7 +109,7 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 
 ### <a name="classify-permissions-using-powershell"></a>PowerShell을 사용하여 권한 분류
 
-최신 Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)를 사용하여 권한을 분류할 수 있습니다. 권한 분류는 권한을 게시하는 API의 **ServicePrincipal** 개체에 구성됩니다.
+최신 Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)를 사용하여 권한을 분류할 수 있습니다. 권한 분류는 권한을 게시하는 API의 **ServicePrincipal** 개체에 구성됩니다.
 
 #### <a name="to-read-the-current-permission-classifications-for-an-api"></a>API의 현재 사용 권한 분류를 읽으려면 다음을 수행합니다.
 
@@ -196,9 +196,9 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>PowerShell을 사용하여 그룹 소유자 동의 구성
 
-Azure AD PowerShell Preview 모듈 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)를 사용하여 소유하고 있는 그룹의 조직 데이터에 액세스하는 애플리케이션에 동의하는 그룹 소유자의 권한을 허용하거나 허용하지 않을 수 있습니다.
+Azure AD PowerShell Preview 모듈 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)를 사용하여 소유하고 있는 그룹의 조직 데이터에 액세스하는 애플리케이션에 동의하는 그룹 소유자의 권한을 허용하거나 허용하지 않을 수 있습니다.
 
-1. [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview) 모듈을 사용하고 있는지 확인하세요. [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) 모듈 및 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview) 모듈을 모두 설치한 경우 이 단계가 중요합니다.
+1. [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) 모듈을 사용하고 있는지 확인하세요. [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) 모듈 및 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true) 모듈을 모두 설치한 경우 이 단계가 중요합니다.
 
     ```powershell
     Remove-Module AzureAD
@@ -280,7 +280,7 @@ Azure AD PowerShell Preview 모듈 [AzureADPreview](https://docs.microsoft.com/p
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>PowerShell을 사용하여 위험 기반 상향 동의 사용 안 함 또는 다시 사용
 
-Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)를 사용하여 Microsoft에서 위험을 감지하거나 이전에 사용하지 않도록 설정되어 다시 사용하도록 설정하는 경우에 필요한 관리자 동의로의 상향 기능을 사용하지 않도록 설정할 수 있습니다.
+Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)를 사용하여 Microsoft에서 위험을 감지하거나 이전에 사용하지 않도록 설정되어 다시 사용하도록 설정하는 경우에 필요한 관리자 동의로의 상향 기능을 사용하지 않도록 설정할 수 있습니다.
 
 위에 표시된 것과 동일한 단계를 사용하여 [PowerShell을 통해 그룹 소유자 동의를 구성](#configure-group-owner-consent-using-powershell)하되, 다른 설정 값으로 대체하는 방식으로 이 작업을 수행할 수 있습니다. 이 단계에는 세 가지 차이점이 있습니다. 
 

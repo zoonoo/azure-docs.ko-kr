@@ -2,14 +2,14 @@
 title: 공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
 description: 사용자 지정 이미지 풀은 Batch 워크 로드를 실행 하도록 계산 노드를 구성 하는 효율적인 방법입니다.
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aad8b279ce821496d4c947bc7f9c707243468f07
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852415"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605195"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 이미지 풀 만들기
 
@@ -43,7 +43,9 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 - **Shared Image Gallery 이미지** 공유 이미지를 만들려면 관리되는 이미지 리소스를 갖거나 만들어야 합니다. VM OS 디스크 및 연결된 데이터 디스크(선택 사항)의 스냅샷에서 이미지를 만들어야 합니다.
 
 > [!NOTE]
-> 공유 이미지는 Batch 계정과 동일한 구독에 있어야 합니다. Batch 계정과 동일한 지역에 복제본이 있는 경우 이미지는 다른 지역에 있을 수 있습니다.
+> 공유 이미지가 Batch 계정과 동일한 구독에 있지 않은 경우 해당 구독에 대 한 [Microsoft.Batch 리소스 공급자를 등록](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) 해야 합니다. 두 구독은 동일한 Azure AD 테 넌 트에 있어야 합니다.
+>
+> Batch 계정과 동일한 지역에 복제본이 있는 경우 이미지는 다른 지역에 있을 수 있습니다.
 
 Azure AD 응용 프로그램을 사용 하 여 공유 이미지 갤러리 이미지를 사용 하 여 사용자 지정 이미지 풀을 만드는 경우 해당 응용 프로그램에는 공유 이미지에 대 한 액세스 권한을 부여 하는 [azure 기본 제공 역할이](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) 부여 되어 있어야 합니다. 공유 이미지를 탐색 하 고, **액세스 제어 (IAM)** 를 선택 하 고, 응용 프로그램에 대 한 역할 할당을 추가 하 여 Azure Portal에서이 액세스 권한을 부여할 수 있습니다.
 

@@ -2,17 +2,19 @@
 title: 속성의 여러 인스턴스 정의
 description: Azure Resource Manager 템플릿에서 복사 작업을 사용 하 여 리소스에 대 한 속성을 만들 때 여러 번 반복 합니다.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 61122b01889da832a73f729833ab0af676904d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/15/2020
+ms.openlocfilehash: f199872d5bb8a0333bf7bedb9501a6ca1b884691
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678463"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605246"
 ---
 # <a name="property-iteration-in-arm-templates"></a>ARM 템플릿의 속성 반복
 
-이 문서에서는 Azure Resource Manager (ARM) 템플릿에서 속성의 인스턴스를 둘 이상 만드는 방법을 보여 줍니다. 템플릿에서 리소스의 속성 섹션에 **copy** 요소를 추가 하 여 배포 중에 속성의 항목 수를 동적으로 설정할 수 있습니다. 템플릿 구문을 반복 하지 않아도 됩니다.
+이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 속성의 인스턴스를 둘 이상 만드는 방법을 보여 줍니다. 템플릿에서 리소스의 속성 섹션에 **copy** 요소를 추가 하 여 배포 중에 속성의 항목 수를 동적으로 설정할 수 있습니다. 템플릿 구문을 반복 하지 않아도 됩니다.
+
+속성에 복사본을 적용 하는 경우에도 최상위 리소스와 함께 복사를 사용할 수 있습니다. 자식 리소스를 최상위 수준 리소스로 변경 하는 방법에 대 한 자세한 내용은 [자식 리소스에 대 한 반복](copy-resources.md#iteration-for-a-child-resource)을 참조 하세요.
 
 [리소스](copy-resources.md), [변수](copy-variables.md)및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
 

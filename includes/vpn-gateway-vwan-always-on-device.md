@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 594ad352d5fd8431ffaf6d681c891c967cf9d32a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371760"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606949"
 ---
 장치 터널을 성공적으로 설정 하려면 다음 요구 사항을 충족 해야 합니다.
 
@@ -123,18 +123,18 @@ ms.locfileid: "79371760"
    PsExec64.exe Powershell for 64-bit Windows
    ```
 
-   ![PowerShell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
+   ![스크린샷 64 비트 버전의 PowerShell을 시작 하는 명령을 포함 하는 명령 프롬프트 창을 보여 줍니다.](./media/vpn-gateway-vwan-always-on-device/powershell.png)
 1. PowerShell에서 **devicecert.ps1** 및 **VPNProfile.xml** 있는 폴더로 전환 하 고 다음 명령을 실행 합니다.
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+   ![Devicesert 스크립트를 사용 하 여 MachineCertTest를 실행 한 PowerShell 창이 스크린샷으로 표시 됩니다.](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
 1. **Rasphone**를 실행 합니다.
 
-   ![rasphone](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
+   ![Rasphone가 선택 된 실행 대화 상자를 보여 주는 스크린샷](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
 1. **MachineCertTest** 항목을 찾아 **연결**을 클릭 합니다.
 
-   ![연결](./media/vpn-gateway-vwan-always-on-device/connect.png)
+   ![MachineCertTest가 선택 되 고 연결 단추가 있는 네트워크 연결 대화 상자가 표시 됩니다.](./media/vpn-gateway-vwan-always-on-device/connect.png)
 1. 연결에 성공 하면 컴퓨터를 다시 부팅 합니다. 터널이 자동으로 연결 됩니다.

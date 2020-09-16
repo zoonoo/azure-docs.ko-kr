@@ -2,19 +2,21 @@
 title: 배포 기록 삭제
 description: Azure Resource Manager 배포 기록에서 배포를 자동으로 삭제 하는 방법을 설명 합니다. 기록은 800 제한을 초과 하는 경우에만 삭제 됩니다.
 ms.topic: conceptual
-ms.date: 08/07/2020
-ms.openlocfilehash: 736a25a3c73f8f4c70c5fb6c686fa2b8bb86666d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.date: 09/15/2020
+ms.openlocfilehash: 1d4f49fe6b90e672b65aa97971426186384da02f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986511"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605212"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>배포 기록에서 자동 삭제
 
 템플릿을 배포할 때마다 배포에 대 한 정보가 배포 기록에 기록 됩니다. 각 리소스 그룹은 배포 기록에서 800 배포로 제한 됩니다.
 
-Azure Resource Manager은 한도 근처에서 자동으로 기록에서 배포를 삭제 합니다. 자동 삭제는 이전 동작에서 변경 된 내용입니다. 이전에는 오류가 발생 하지 않도록 배포 기록에서 배포를 수동으로 삭제 해야 했습니다. **이 변경은 2020 년 8 월 6 일에 구현 되었습니다.**
+Azure Resource Manager은 한도 근처에서 자동으로 기록에서 배포를 삭제 합니다. 자동 삭제는 이전 동작에서 변경 된 내용입니다. 이전에는 오류가 발생 하지 않도록 배포 기록에서 배포를 수동으로 삭제 해야 했습니다. 이 변경은 2020 년 8 월 6 일에 구현 되었습니다.
+
+**자동 삭제는 리소스 그룹 배포에 대해 지원 됩니다. 현재 [구독](deploy-to-subscription.md), [관리 그룹](deploy-to-management-group.md)및 [테 넌 트](deploy-to-tenant.md) 배포에 대 한 배포 기록의 배포는 삭제 되지 않습니다.**
 
 > [!NOTE]
 > 기록에서 배포를 삭제 해도 배포 된 리소스에는 영향을 주지 않습니다.

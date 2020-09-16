@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ea9a0e52ce424459b6c402eb136d06dd370bab7d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fe85dfb39a9787376221cb9beeea11bec35293f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548048"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604464"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 myPolicies 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "88548048"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -101,7 +101,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 myPolicies를 구
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![프로 비전 탭 Automatica](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래의 `https://<myPoliciesCustomDomain>.mypolicies.com/scim` **테 넌 트 URL** 에 입력 `<myPoliciesCustomDomain>` 합니다. 여기서은 myPolicies 사용자 지정 도메인입니다. URL에서 myPolicies customer 도메인을 검색할 수 있습니다.
 예: `<demo0-qa>` . mypolicies.com.
@@ -122,7 +122,18 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 myPolicies를 구
 
 10. **특성 매핑** 섹션에서 Azure AD에서 myPolicies로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 myPolicies의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![myPolicies 사용자 매핑](media/mypolicies-provisioning-tutorial/userattribute.png)
+   |attribute|Type|
+   |---|---|
+   |userName|String|
+   |활성|부울|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |name.formatted|String|
+   |externalId|String|
+   |addresses[type eq "work"].country|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|참조|
+
 
 11. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
@@ -146,6 +157,10 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 * myPolicies에는 항상 **userName**, **Email** 및 **externalid**가 필요 합니다.
 * myPolicies는 사용자 특성에 대 한 하드 삭제를 지원 하지 않습니다.
+
+## <a name="change-log"></a>로그 변경
+
+* 09/15/2020-사용자에 대 한 "country" 특성에 대 한 지원이 추가 되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

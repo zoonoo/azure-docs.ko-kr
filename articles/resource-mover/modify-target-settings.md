@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: c58fdd38c4221c03778b2c769620bf7911aaded8
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670523"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604481"
 ---
 # <a name="modify-target-settings"></a>대상 설정 수정
 
@@ -42,10 +42,10 @@ Azure Vm 및 관련 리소스를 이동할 때 대상 설정을 수정할 수 �
 **네트워킹 리소스** | 가상 네트워크 (Vnet)/네트워크 보안 그룹/네트워크 인터페이스에 대 한 옵션:<br/><br/> -대상 지역에 동일한 이름으로 새 리소스를 만듭니다.<br/><br/> -대상 지역에 다른 이름으로 새 리소스를 만듭니다.<br/><br/> -대상 지역에서 기존 네트워킹 리소스를 사용 합니다.<br/><br/> 새 대상 리소스를 만드는 경우 수정 하는 설정을 제외 하 고 원본 리소스와 동일한 설정이 할당 됩니다.
 **공용 IP 주소 이름** | 이름을 지정합니다.
 **공용 IP 주소 SKU** | [SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku)를 지정 합니다.
-**공용 IP 주소 영역** | 표준 공용 IP 주소에 대 한 [영역](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) 을 지정 합니다.<br/><br/> 영역을 중복 하려면 **지역**으로를 입력 합니다.
+**공용 IP 주소 영역** | 표준 공용 IP 주소에 대 한 [영역](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) 을 지정 합니다.<br/><br/> 영역 중복으로 하려면 **영역 중복**으로를 입력 합니다.
 **부하 분산 장치 이름** | 이름을 지정합니다.
 **부하 분산 장치 SKU** | 기본 또는 표준. Standard를 사용 하는 것이 좋습니다.
-**부하 분산 장치 영역** | 부하 분산 장치에 대 한 영역을 지정 합니다. <br/><br/> 영역을 중복 하려면 **지역**으로를 입력 합니다.
+**부하 분산 장치 영역** | 부하 분산 장치에 대 한 영역을 지정 합니다. <br/><br/> 영역 중복으로 하려면 **영역 중복**으로를 입력 합니다.
 **리소스 종속성** | 각 종속성에 대 한 옵션:<br/><br/>-리소스는 대상 지역으로 이동 하는 소스 종속 리소스를 사용 합니다.<br/><br/> -리소스는 대상 영역에 있는 서로 다른 종속 리소스를 사용 합니다. 이 경우 대상 지역의 비슷한 리소스에서 선택할 수 있습니다.
 
 ### <a name="edit-vm-target-settings"></a>VM 대상 설정 편집
@@ -83,7 +83,7 @@ Azure SQL Database 리소스를 이동 하는 경우 이동에 대 한 대상 �
 
 **설정** | **SQL 데이터베이스** | **탄력적 풀**
 --- | --- | ---
-**이름** | 대상 지역에 동일한 이름을 사용 하 여 새 데이터베이스를 만듭니다.<br/><br/> 대상 지역에 다른 이름으로 새 데이터베이스를 만듭니다.<br/><br/> 대상 지역에서 기존 데이터베이스를 사용 합니다. | 대상 지역에 동일한 이름으로 새 탄력적 풀을 만듭니다.<br/><br/> 대상 지역에 다른 이름으로 새 탄력적 풀을 만듭니다.<br/><br/> 대상 지역에서 기존 탄력적 풀을 사용 합니다.
+**Name** | 대상 지역에 동일한 이름을 사용 하 여 새 데이터베이스를 만듭니다.<br/><br/> 대상 지역에 다른 이름으로 새 데이터베이스를 만듭니다.<br/><br/> 대상 지역에서 기존 데이터베이스를 사용 합니다. | 대상 지역에 동일한 이름으로 새 탄력적 풀을 만듭니다.<br/><br/> 대상 지역에 다른 이름으로 새 탄력적 풀을 만듭니다.<br/><br/> 대상 지역에서 기존 탄력적 풀을 사용 합니다.
 **영역 중복** | 영역 중복성을 지 원하는 지역에서 영역으로 이동 하려면 영역 설정에서 **사용 안 함** 을 입력 합니다.<br/><br/> 영역 중복성을 지원 하지 않는 지역에서 이동 하려면 영역 설정에서 **사용** 을 입력 합니다. | 영역 중복성을 지 원하는 지역에서 영역으로 이동 하려면 영역 설정에서 **사용 안 함** 을 입력 합니다.<br/><br/> 영역 중복성을 지원 하지 않는 지역에서 이동 하려면 영역 설정에서 **사용** 을 입력 합니다.
 
 ### <a name="edit-sql-target-settings"></a>SQL 대상 설정 편집
