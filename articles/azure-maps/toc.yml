@@ -33,6 +33,14 @@
           href: tutorial-ev-routing.md
         - name: Azure Notebooks(Python)를 사용한 날씨 데이터 분석
           href: weather-service-tutorial.md
+    - name: Bing Maps에서 마이그레이션
+      items:
+        - name: Bing Maps에서 마이그레이션
+          href: migrate-from-bing-maps.md
+        - name: 웹앱 마이그레이션
+          href: migrate-from-bing-maps-web-app.md
+        - name: 웹 서비스 마이그레이션
+          href: migrate-from-bing-maps-web-services.md
     - name: Google Maps에서 마이그레이션
       items:
         - name: Google Maps에서 마이그레이션
@@ -282,7 +290,7 @@
           href: 'https://docs.microsoft.com/rest/api/maps/renderv2'
         - name: Route Service
           href: 'https://docs.microsoft.com/rest/api/maps/route'
-        - name: Search Service
+        - name: Search 서비스
           href: 'https://docs.microsoft.com/rest/api/maps/search'
         - name: 공간 서비스
           href: 'https://docs.microsoft.com/rest/api/maps/spatial'

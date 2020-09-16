@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 8034a7a520cc50b2e57e0ad26205da2e408296a1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3d4cc17570057f5f37cf38685847afbe38ea6831
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88760593"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606886"
 ---
 | 리소스 | 표준 파일 공유 | 프리미엄 파일 공유 |
 |----------|---------------|------------------------------------------|
@@ -26,5 +26,6 @@ ms.locfileid: "88760593"
 | 최대 공유 스냅샷 수 | 200개의 공유 스냅샷 | 200개의 공유 스냅샷 |
 | 최대 개체(디렉터리 및 파일) 이름 길이 | 2,048자 | 2,048자 |
 | 최대 경로 이름 구성 요소(경로 \A\B\C\D의 각 문자가 구성 요소) | 255자 | 255자 |
+| 하드 링크 제한(NFS 전용) | N/A | 178 |
 
 \* 표준 파일 공유의 기본값은 5TiB입니다. 표준 파일 공유 크기를 최대 100TiB까지 확장하는 방법에 대한 자세한 내용은 [대량 파일 공유 사용 및 만들기](../articles/storage/files/storage-files-how-to-create-large-file-share.md)를 참조하세요.

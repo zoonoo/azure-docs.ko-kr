@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: MT
+ms.openlocfilehash: d2c309340155bc626d4da94d74aee9be51bde510
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75928156"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606704"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Azure Portal에서 네임스페이스 만들기
 Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azure에서 고유한 이름인 네임스페이스를 만들어야 합니다. 네임스페이스는 애플리케이션 내에서 Service Bus 리소스의 주소를 지정하기 위한 범위 컨테이너를 제공합니다.
@@ -53,10 +53,10 @@ Azure에서 Service Bus 메시징 엔터티 사용을 시작하려면 먼저 Azu
 2. 네임스페이스 창에서 **공유 액세스 정책**을 클릭합니다.
 3. **공유 액세스 정책** 화면에서 **RootManageSharedAccessKey**를 클릭합니다.
    
-    ![connection-info](./media/service-bus-create-namespace-portal/connection-info.png)
+    ![스크린샷은 정책이 강조 표시된 공유 액세스 정책 창을 보여줍니다.](./media/service-bus-create-namespace-portal/connection-info.png)
 4. **정책: RootManageSharedAccessKey** 창에서 **기본 연결 문자열** 옆의 복사 단추를 클릭하여 나중에 사용할 수 있도록 연결 문자열을 클립보드에 복사합니다. 메모장이나 기타 다른 위치에 임시로 이 값을 붙여 넣습니다.
    
-    ![connection-string](./media/service-bus-create-namespace-portal/connection-string.png)
+    ![스크린샷은 키 및 연결 문자열을 포함하는 RootManageSharedAccessKey라는 S A S 정책을 보여줍니다.](./media/service-bus-create-namespace-portal/connection-string.png)
 5. 이전 단계를 반복하여 나중에 사용할 수 있도록 **기본 키** 값을 임시 위치에 복사 및 붙여넣기합니다.
 
 <!--Image references-->

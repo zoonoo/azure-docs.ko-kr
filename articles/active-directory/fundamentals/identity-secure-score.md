@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77c673ec52873d854647cf49c0efcbd650fb6aa8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320650"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705489"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Azure Active Directory의 ID 보안 점수란?
 
@@ -102,7 +102,7 @@ ID 보안 점수는 다음과 같은 역할에 의해 사용될 수 있습니다
 
 점수 기록을 보려면 [Microsoft 365 security center](https://security.microsoft.com/) 로 이동 하 여 전반적인 Microsoft 보안 점수를 검토 합니다. 전체 보안 점수에 대 한 변경 내용을 검토 하 여 기록을 볼 수 있습니다. 특정 날짜를 선택하여 해당 날짜에 사용하도록 설정된 제어 및 각 제어에 대해 획득한 점수를 확인합니다.
 
-### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>ID 보안 점수는 Office 365 보안 점수와 어떤 관계가 있나요?
+### <a name="how-does-the-identity-secure-score-relate-to-the-microsoft-365-secure-score"></a>Id 보안 점수는 Microsoft 365 보안 점수와 어떤 관계가 있나요?
 
 [Microsoft 보안 점수](/office365/securitycompliance/microsoft-secure-score) 에는 5 가지 고유한 제어 및 점수 범주가 있습니다.
 

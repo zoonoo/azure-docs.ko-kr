@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 247f37a69cd8524339a3f5414230cca0f42fa22d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: da821da08594180b9dd94728252e1a43c04fbde2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662049"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531664"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -25,7 +25,7 @@ Azure Key Vault의 일시 삭제 기능을 사용하면 삭제된 자격 증명 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Azure CLI - 사용자 환경에 이 단계가 없는 경우 [Azure CLI를 사용한 Key Vault 관리](manage-with-cli2.md)를 참조하세요).
+- Azure CLI - 사용자 환경에 이 단계가 없는 경우 [Azure CLI를 사용한 Key Vault 관리](manage-with-cli2.md)를 참조하세요.
 
 CLI에 대한 Key Vault 관련 특정 참조 정보는 [Azure CLI Key Vault 참조](https://docs.microsoft.com/cli/azure/keyvault)를 참조하세요.
 
@@ -39,7 +39,7 @@ Key Vault 작업은 RBAC(역할 기반 액세스 제어) 권한을 통해 다음
 |복구|삭제된 Key Vault를 복구합니다.|Microsoft.KeyVault/vaults/write|
 |제거|삭제된 Key Vault 및 모든 콘텐츠를 영구적으로 제거합니다.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-권한 및 액세스 제어에 대한 자세한 내용은 [키 자격 증명 모음 보안](secure-your-key-vault.md)을 참조하세요).
+권한 및 액세스 제어에 대한 자세한 내용은 [Key Vault 보안](secure-your-key-vault.md)을 참조하세요.
 
 ## <a name="enabling-soft-delete"></a>일시 삭제를 사용하도록 설정
 
@@ -241,6 +241,6 @@ az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge
 
 ## <a name="other-resources"></a>기타 리소스
 
-- Key Vault의 일시 삭제 기능에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](soft-delete-overview.md)를 참조하세요).
-- Azure Key Vault 사용에 대한 일반적인 개요는 [Azure Key Vault란?](overview.md)을 참조하세요).
+- Key Vault의 일시 삭제 기능에 대한 자세한 내용은 [Azure Key Vault 일시 삭제 개요](soft-delete-overview.md)를 참조하세요.
+- Azure Key Vault 사용에 대한 일반적인 개요는 [Azure Key Vault란?](overview.md)을 참조하세요.
 

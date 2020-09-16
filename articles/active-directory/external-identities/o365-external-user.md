@@ -1,6 +1,6 @@
 ---
-title: Office 365 외부 공유 및 B2B 공동 작업-Azure AD
-description: O365 및 Azure Active Directory B2B 협업을 사용하여 외부 파트너와 리소스 공유에 대해 설명합니다.
+title: Microsoft 365 외부 공유 및 B2B 공동 작업-Azure AD
+description: Microsoft 365 및 Azure Active Directory B2B 공동 작업을 사용 하 여 외부 파트너와 리소스를 공유 하는 방법을 설명 합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcb407735cff5a0c43d3a584ff37a0eabc178381
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 563d925aa3e0d6922756ab037226f5a86534b19f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909236"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705438"
 ---
-# <a name="office-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Office 365 외부 공유 및 Azure Active Directory (Azure AD) B2B 공동 작업
+# <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Microsoft 365 외부 공유 및 Azure Active Directory (Azure AD) B2B 공동 작업
 
-Azure AD B2B 공동 작업 및 Office 365 외부 공유 (OneDrive, SharePoint Online, 통합 그룹 등)에서 외부 사용자는 Azure AD B2B를 사용 하 여 인증 됩니다.
+Azure AD B2B 공동 작업 및 Microsoft 365 외부 공유 (OneDrive, SharePoint Online, 통합 그룹 등)에서 외부 사용자는 Azure AD B2B를 사용 하 여 인증 됩니다.
 
 ## <a name="how-does-azure-ad-b2b-differ-from-external-sharing-in-sharepoint-online"></a>Azure AD B2B가 SharePoint Online의 외부 공유와 어떻게 다른가?
 
@@ -37,7 +37,7 @@ OneDrive/SharePoint Online에는 별도 초대 관리자가 있습니다. OneDri
 Azure AD B2B 협업 기능으로 OneDrive/SharePoint Online의 외부 공유를 관리하려면 OneDrive/SharePoint Online 외부 공유 설정을 **조직의 디렉터리에 이미 있는 외부 사용자와의 공유만 허용**으로 설정합니다. 사용자는 외부에서 공유되는 사이트로 이동하여 관리자가 추가한 외부 공동 관리자 중에서 선택할 수 있습니다. 관리자는 B2B 협업 초대 API를 통해 외부 협업자를 추가할 수 있습니다.
 
 
-![OneDrive/SharePoint Online 외부 공유 설정](media/o365-external-user/odsp-sharing-setting.png)
+![OneDrive/SharePoint 외부 공유 설정](media/o365-external-user/odsp-sharing-setting.png)
 
 외부 공유를 사용하면 SPO(SharePoint Online) 사용자 선택기에서 기존 게스트 사용자를 검색하는 기능은 레거시 동작과 일치시키기 위해 기본적으로 꺼져 있습니다.
 

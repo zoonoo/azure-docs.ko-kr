@@ -47,6 +47,8 @@
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: 가상 네트워크에 Azure Spring Cloud 배포
       href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
+    - name: 관리 ID를 사용하여 Azure Spring Cloud 앱에서 Azure Functions 호출
+      href: spring-cloud-tutorial-managed-identities-functions.md
 - name: 개념
   items:
     - name: 앱 및 배포 이해

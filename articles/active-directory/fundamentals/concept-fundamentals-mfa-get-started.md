@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38f3a6d9cea1aa1ebcb76f61882dcf2615dc4832
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13bb7782f6396466200fbb3e2df77158bb75d8a4
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554657"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705404"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>조직의 Azure Multi-Factor Authentication 개요
 
@@ -34,10 +34,10 @@ Azure AD의 무료 혜택을 활용하는 고객은 [보안 기본값](../fundam
 
 ## <a name="microsoft-365-business-e3-or-e5"></a>Microsoft 365 Business, E3 또는 E5
 
-Office 365를 사용하는 고객의 경우 다음 두 가지 옵션을 사용할 수 있습니다.
+Microsoft 365 있는 고객의 경우 다음과 같은 두 가지 옵션을 사용할 수 있습니다.
 
 * 모든 로그인 이벤트에서 모든 사용자에 대해 Azure Multi-Factor Authentication을 사용하거나 사용하지 않도록 설정합니다. 사용자의 일부에 대해서만 또는 특정 시나리오에서만 다단계 인증을 사용하도록 설정하는 기능은 없습니다. Office 365 포털을 통해 관리할 수 있습니다. 
-* 향상된 사용자 환경을 위해 Azure AD Premium P1 또는 P2로 업그레이드하고 조건부 액세스를 사용합니다. 자세한 내용은 다단계 인증을 사용하여 Office 365 리소스 보호를 참조하세요.
+* 향상된 사용자 환경을 위해 Azure AD Premium P1 또는 P2로 업그레이드하고 조건부 액세스를 사용합니다. 자세한 내용은 multi-factor authentication을 사용 하 여 리소스 Microsoft 365 보안을 참조 하세요.
 
 ## <a name="azure-ad-premium-p1"></a>Azure AD Premium P1
 

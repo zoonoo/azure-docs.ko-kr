@@ -1,6 +1,6 @@
 ---
 title: Microsoft 애플리케이션에 로그인하는 문제 | Microsoft Docs
-description: Office 365와 같은 Azure AD를 사용하여 자사 Microsoft 애플리케이션에 로그인할 때 직면하는 일반적인 문제 해결
+description: 'Azure AD를 사용 하 여 자사 Microsoft 응용 프로그램에 로그인 할 때 직면 하는 일반적인 문제를 해결 합니다 (예: Microsoft 365).'
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,20 +16,20 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69edf8e8dc51f8a8841ceed94221ed44786e280d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759286"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707954"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Microsoft 애플리케이션에 로그인하는 문제
 
-타사 SaaS 애플리케이션 또는 Single Sign-On을 위해 Azure AD와 통합하는 다른 애플리케이션과는 약간 다른 방법으로 Microsoft 애플리케이션(예: Office 365 Exchange, SharePoint, Yammer 등)을 할당하고 관리합니다.
+Microsoft 응용 프로그램 (예: Exchange, SharePoint, Yammer 등)은 single sign-on을 위해 Azure AD와 통합 하는 타사 SaaS 응용 프로그램 또는 다른 응용 프로그램과 약간 다르게 할당 및 관리 됩니다.
 
 사용자는 세 가지 방법으로 Microsoft 게시 애플리케이션에 대한 액세스 권한을 얻을 수 있습니다.
 
--   Office 365 또는 기타 유료 도구 모음에 있는 애플리케이션의 경우 사용자는 **라이선스 할당**을 통해 해당 사용자 계정으로 직접 액세스가 부여되거나 그룹 기반 라이선스 할당 기능을 사용하여 그룹을 통해 액세스가 부여됩니다.
+-   Microsoft 365 또는 기타 유료 제품군의 응용 프로그램의 경우 사용자 계정에 직접 또는 그룹 기반 라이선스 할당 기능을 사용 하 여 그룹을 통해 **라이선스 할당** 을 통해 액세스 권한이 부여 됩니다.
 
 -   Microsoft 또는 타사에서 누구나 자유롭게 사용하도록 게시한 애플리케이션의 경우 사용자는 **사용자 동의**를 통해 액세스 권한을 부여받을 수 있습니다. 즉, 해당 Azure AD 회사 또는 학교 계정을 사용하여 애플리케이션에 로그인하고 해당 계정에 대한 일부 제한된 데이터 집합에 대한 액세스 권한을 가질 수 있습니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "84759286"
 
   * Azure Active Directory에 **사용자의 계정이 존재해야** 합니다. [Azure Active Directory에 사용자의 계정이 존재하는지 확인](#problems-with-the-users-account)
 
-  * 사용자의 계정에 로그인 할 **수** 있는지 확인 합니다. [사용자의 계정 상태를 확인](#problems-with-the-users-account) 하세요.
+  * 사용자의 계정이 로그인에 대해 **사용 하도록 설정** 되어 있는지 확인 합니다. [사용자의 계정 상태를 확인 합니다](#problems-with-the-users-account) .
 
   * 사용자의 **암호가 만료되거나 기억하지 못하는지** 확인합니다. [사용자의 암호 재설정](#reset-a-users-password) 또는 [셀프 서비스 암호 재설정 사용](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 

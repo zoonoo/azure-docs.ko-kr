@@ -145,7 +145,7 @@
   items:
     - name: 이미지
       href: shared-image-galleries.md
-    - name: Azure Resource Manager
+    - name: Azure 리소스 관리자
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
         - name: 리소스 관리자 템플릿
@@ -446,7 +446,7 @@
                   items:
                     - name: VM에서
                       href: ../image-version-vm-powershell.md
-                    - name: VHD 또는 스냅샷에서
+                    - name: Managed Disk 또는 스냅샷에서
                       href: ../image-version-snapshot-powershell.md
                     - name: 관리형 이미지에서 마이그레이션
                       href: ../image-version-managed-image-powershell.md
@@ -468,7 +468,7 @@
                   items:
                     - name: VM에서
                       href: ../image-version-vm-cli.md
-                    - name: VHD 또는 스냅샷에서
+                    - name: Managed Disk 또는 스냅샷에서
                       href: ../image-version-snapshot-cli.md
                     - name: 관리형 이미지에서 마이그레이션
                       href: ../image-version-managed-image-cli.md
@@ -507,21 +507,33 @@
           items:
             - name: 개요
               href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Azure CLI 사용
-              href: image-builder.md
-            - name: VNET을 사용하여 VM 만들기
+            - name: Image Builder 사용
+              items:
+                - name: CLI
+                  href: ../linux/image-builder.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                - name: PowerShell
+                  href: image-builder-powershell.md
+            - name: VNET 사용
               href: image-builder-vnet.md
-            - name: Azure PowerShell 사용
-              href: image-builder-powershell.md
+            - name: 네트워킹 옵션
+              href: ../linux/image-builder-networking.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: 권한 구성
+              items:
+                - name: CLI
+                  href: ../linux/image-builder-permissions-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                - name: PowerShell
+                  href: ../linux/image-builder-permissions-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: DevOps 작업
+              href: ../linux/image-builder-devops-task.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: ARM 템플릿 참조
+              displayName: Azure Resource Manager
+              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: 이미지 갤러리용 빌드
               href: image-builder-gallery.md
             - name: 기존 이미지 업데이트
               href: image-builder-gallery-update-image-version.md
             - name: 스크립트 저장
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: ARM 템플릿 참조
-              displayName: Azure Resource Manager
-              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: 문제 해결
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: 이미지 검색 및 사용

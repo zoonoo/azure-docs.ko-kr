@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: ab4d150d79b2c53ad23d892efacef6a848d97854
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 5c02733167db5071b1f2a9c5e04dc05a069fda3c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469816"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604209"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Azure AD의 Single Sign-On 옵션
 
@@ -24,7 +24,7 @@ Single Sign-On은 기존 로그온 방법에 비해 많은 이점을 제공합�
 
 - **Single Sign-On을 사용하면** 사용자는 하나의 계정으로 한 번 로그인으로 도메인 가입 디바이스, 회사 리소스, SaaS(Software as a Service) 애플리케이션 및 웹 애플리케이션에 액세스할 수 있습니다. 로그인한 후 사용자는 Office 365 포털 또는 내 앱에서 애플리케이션을 시작할 수 있습니다. 관리자는 사용자 계정 관리를 중앙 집중화하고, 그룹 멤버 자격에 따라 애플리케이션에 대한 사용자 액세스를 자동으로 추가하거나 제거할 수 있습니다.
 
-- **Single Sign-On을 사용하지 않으면** 사용자는 애플리케이션별 암호를 기억하고 각 애플리케이션마다 로그인해야 합니다. IT 직원은 Office 365, Box 및 Salesforce와 같은 각 애플리케이션에 대한 사용자 계정을 만들고 업데이트해야 합니다. 사용자가 암호를 기억해야 하는 것과 동시에 각 애플리케이션에 로그인하는 시간도 소비됩니다.
+- **Single Sign-On을 사용하지 않으면** 사용자는 애플리케이션별 암호를 기억하고 각 애플리케이션마다 로그인해야 합니다. IT 직원은 Microsoft 365, Box 및 Salesforce와 같은 각 애플리케이션에 대한 사용자 계정을 만들고 업데이트해야 합니다. 사용자가 암호를 기억해야 하는 것과 동시에 각 애플리케이션에 로그인하는 시간도 소비됩니다.
 
 Single Sign-On에 대한 자세한 내용은 [Single Sign-On이란?](what-is-single-sign-on.md)을 참조하세요.
 
@@ -137,7 +137,7 @@ Azure AD 관리자가 자격 증명을 관리하는 경우:
 
 ### <a name="linked-sign-on-for-application-migration"></a>애플리케이션 마이그레이션을 위한 연결된 로그온
 
-연결된 로그온은 일정 기간 동안 애플리케이션을 마이그레이션하면서 일관된 사용자 경험을 제공할 수 있습니다. 애플리케이션을 Azure Active Directory로 마이그레이션하는 경우 연결된 로그온을 사용하면 마이그레이션하려는 모든 애플리케이션에 대한 링크를 신속하게 게시할 수 있습니다.  사용자는 [MyApps 포털](../user-help/active-directory-saas-access-panel-introduction.md) 또는 [Office 365 애플리케이션 시작 관리자](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)에서 모든 링크를 찾을 수 있습니다. 사용자는 연결된 애플리케이션 또는 마이그레이션된 애플리케이션에 액세스하는 것을 알지 못합니다.  
+연결된 로그온은 일정 기간 동안 애플리케이션을 마이그레이션하면서 일관된 사용자 경험을 제공할 수 있습니다. 애플리케이션을 Azure Active Directory로 마이그레이션하는 경우 연결된 로그온을 사용하면 마이그레이션하려는 모든 애플리케이션에 대한 링크를 신속하게 게시할 수 있습니다.  사용자는 [MyApps 포털](../user-help/active-directory-saas-access-panel-introduction.md) 또는 [Microsoft 365 애플리케이션 시작 관리자](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)에서 모든 링크를 찾을 수 있습니다. 사용자는 연결된 애플리케이션 또는 마이그레이션된 애플리케이션에 액세스하는 것을 알지 못합니다.  
 
 사용자가 연결된 애플리케이션을 사용하여 인증하고 나면, 최종 사용자에게 Single Sign-On 액세스를 제공하기 전에 먼저 계정 레코드를 만들어야 합니다. 이 계정 레코드의 프로비저닝은 자동으로 발생하거나 관리자에 의해 수동으로 발생할 수 있습니다.
 

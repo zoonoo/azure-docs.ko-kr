@@ -18,9 +18,9 @@
   items:
     - name: 이동 개요
       href: about-move-process.md
-    - name: Azure VM 지역 이동을 위한 지원 매트릭스
+    - name: 지원 - 지역 간 Azure VM 이동
       href: support-matrix-move-region-azure-vm.md
-    - name: Azure SQL 지역 이동을 위한 지원 매트릭스
+    - name: 지원 - 지역 간 Azure SQL 이동
       href: support-matrix-move-region-sql.md
 - name: 방법 가이드
   items:
@@ -34,11 +34,11 @@
           href: move-region-within-resource-group.md
     - name: 영역 이동 관리
       items:
-        - name: 영역 이동에 대한 대상 설정 수정
+        - name: 대상 설정 수정
           href: modify-target-settings.md
-        - name: 영역 이동 컬렉션에서 리소스 제거
+        - name: 이동 컬렉션에서 리소스 제거
           href: remove-move-resources.md
-        - name: 영역 이동 프로세스에서 만든 리소스 관리
+        - name: 이동 중 생성된 리소스 관리
           href: manage-resources-created-move-process.md
 - name: 리소스
   items:

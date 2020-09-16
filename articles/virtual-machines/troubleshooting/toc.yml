@@ -83,6 +83,8 @@
           href: troubleshoot-critical-service-failed-boot-error.md
         - name: 부팅 오류 문제 해결 - 상태를 찾을 수 없음
           href: boot-error-status-not-found.md
+        - name: Windows에서 시스템 구성을 완료할 수 없는 문제 해결
+          href: windows-could-not-configure-system.md
         - name: Windows 업데이트 설치 용량 문제 해결
           href: windows-update-installation-capacity.md
         - name: 부팅 가능한 디스크가 아님

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/09/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 56f79bf38b627f80d73b59dbbfbb73dddd809458
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c9c8fa8099848eec09e689bf9491f71f378e9e3
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525178"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606247"
 ---
 브라우저에서 Azure Portal로 이동하고 Azure 계정으로 로그인합니다.
 
@@ -21,7 +21,7 @@ ms.locfileid: "86525178"
 1. 결과에서 **Virtual WAN**을 선택합니다. Virtual WAN 페이지에서 **만들기**를 클릭하여 WAN 만들기 페이지를 엽니다.
 1. **WAN 만들기** 페이지의 **기본 사항** 탭에서 다음 필드를 입력합니다.
 
-   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="기본 사항":::
+   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="스크린샷은 기본 탭이 선택된 WAN 만들기 창을 보여줍니다.":::
 
    * **구독** - 사용할 Azure 구독을 선택합니다.
    * **리소스 그룹** - 새로 만들거나 기존 항목을 사용합니다.

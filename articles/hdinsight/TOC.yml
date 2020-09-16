@@ -392,14 +392,20 @@
                   href: ./spark/apache-spark-analyze-application-insight-logs.md
         - name: 관리
           items:
+            - name: 종속성 관리
+              items:
+                - name: Spark 애플리케이션 종속성 관리
+                  href: ./spark/apache-spark-manage-dependencies.md
+                - name: 안전하게 jar 종속성 관리
+                  href: ./spark/safely-manage-jar-dependency.md
+                - name: 안전하게 Python 환경 관리
+                  href: ./spark/apache-spark-python-package-installation.md
             - name: 클러스터 리소스 관리
               href: ./spark/apache-spark-resource-manager.md
             - name: 확장된 기록 서버를 사용하여 Apache Spark 애플리케이션 관리
               href: ./spark/apache-azure-spark-history-server.md
             - name: IO 캐시로 캐싱 사용
               href: ./spark/apache-spark-improve-performance-iocache.md
-            - name: Jar 종속성 관리
-              href: ./spark/manage-jar-dependency.md
             - name: Apache Spark와 함께 Notebook 사용
               items:
                 - name: 로컬 Jupyter Notebook 사용
@@ -408,8 +414,6 @@
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: 셀 매직을 사용하는 Jupyter에서 외부 패키지 사용
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-                - name: 스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
-                  href: ./spark/apache-spark-python-package-installation.md
                 - name: Apache Zeppelin Notebook 사용
                   href: ./spark/apache-spark-zeppelin-notebook.md
             - name: 다른 Azure 서비스와 함께 사용

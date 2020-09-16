@@ -9,14 +9,14 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: afe7d5ce3dd1756ddb9e33fe402fb2eb699ce8f7
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 0f81ffb5279e10c71f7d7cccfb6b738bc12e5cf4
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007420"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086779"
 ---
-# <a name="fetch-shared-access-signature-tokens-in-code"></a>코드에서 공유 액세스 서명 토큰 가져오기
+# <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>SAS 정의를 만들고 코드에서 공유 액세스 서명 토큰 가져오기
 
 키 자격 증명 모음에 저장된 SAS(공유 액세스 서명) 토큰을 사용하여 스토리지 계정을 관리할 수 있습니다. 자세한 내용은 [SAS를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../../storage/common/storage-sas-overview.md)를 참조하세요.
 
@@ -41,9 +41,9 @@ SAS 정의가 만들어지면 `SecretClient`를 사용하여 비밀과 같은 SA
 
 공유 액세스 서명 토큰이 곧 만료되는 경우 동일한 비밀을 다시 가져와서 새 토큰을 생성할 수 있습니다.
 
+Key Vault SAS 토큰에서 검색을 사용하여 Azure Storage 서비스에 액세스하는 방법에 대한 가이드는 [계정 SAS를 사용하여 Blob 서비스에 액세스](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)를 참조하세요.
+
 ## <a name="next-steps"></a>다음 단계
 - [SAS를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../../storage/common/storage-sas-overview.md) 방법을 알아보세요.
 - [Key Vault 및 Azure CLI를 사용하여 스토리지 계정 키 관리](overview-storage-keys.md) 또는 [Key Vault 및 Azure PowerShell을 사용하여 스토리지 계정 키 관리](overview-storage-keys-powershell.md) 방법을 알아보세요.
-- 전체 [ShareLink](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/) 샘플을 참조하세요.
-- 추가 [Key Vault 샘플](https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault)
 - [관리형 스토리지 계정 키 샘플](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)을 확인하세요.

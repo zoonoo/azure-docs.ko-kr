@@ -113,7 +113,7 @@
       href: notification-hubs-send-push-notifications-scheduled.md
     - name: Azure PowerShell을 사용하여 알림 허브 배포 및 관리
       href: notification-hubs-deploy-and-manage-powershell.md
-    - name: 안전하게 사용자에게 푸시 알림 보내기
+    - name: 사용자에게 보안 알림 보내기
       href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
     - name: 대량으로 등록 내보내기 및 가져오기
       href: export-modify-registrations-bulk.md
@@ -159,7 +159,7 @@
       href: /cli/azure/ext/notification-hub/notification-hub
     - name: PowerShell
       href: /powershell/module/az.notificationhubs
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/notificationhubs/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.notificationhubs/allversions

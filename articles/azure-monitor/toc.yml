@@ -564,7 +564,7 @@
               href: platform/itsmc-overview.md
             - name: IT Service Management 연결
               href: platform/itsmc-connections.md
-            - name: 보안 내보내기 통합
+            - name: 보안 내보내기와 통합
               href: platform/it-service-management-connector-secure-webhook-connections.md
             - name: Service Manager 웹앱 만들기
               href: platform/itsmc-service-manager-script.md

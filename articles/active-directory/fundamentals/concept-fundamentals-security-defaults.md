@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 64ee8f2daddd53d37aeaf0f02208e02500b48f57
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2c056bd4d5fa9037ce00588269c0da2937ff57ff
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320871"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705336"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값이란?
 
@@ -92,7 +92,7 @@ Azure Multi-Factor Authentication 등록을 완료한 후에는 로그인할 때
 > [!WARNING]
 > 보안 기본값을 사용하도록 설정하기 전에 관리자가 이전 인증 프로토콜을 사용하지 않는지 확인합니다. 자세한 내용은 [레거시 인증에서 전환하는 방법](concept-fundamentals-block-legacy-authentication.md)을 참조하세요.
 
-- [Office 365 및 Microsoft 365를 사용하여 이메일을 보내도록 다기능 디바이스 또는 애플리케이션을 설정하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- [Microsoft 365를 사용 하 여 전자 메일을 보내도록 다기능 장치 또는 응용 프로그램을 설정 하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>권한 있는 작업 보호
 

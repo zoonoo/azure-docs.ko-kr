@@ -1,6 +1,6 @@
 ---
 title: B2B 공동 작업을 위한 SaaS 앱 구성-Azure AD
-description: Azure Active Directory B2B 협업을 위한 코드 및 PowerShell 샘플
+description: B2B 공동 작업 Azure Active Directory SaaS 앱을 구성 하 고 사용 가능한 추가 리소스를 확인 하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b8f38d42003645e6d6544d5c2064a0c8e692c0f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e0db5e609a5e6b7d74809810a50f86d72ae85675
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909613"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705513"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>B2B 협업용 SaaS 앱 구성
 
@@ -86,7 +86,7 @@ SAML 프로토콜 기반의 페더레이션을 사용하여 사용자의 Azure A
 
    b. **사용자 식별자** 상자에 **user.mail**(게스트 계정의 SSO에 대한)을 입력합니다.
 
-   다. **SAML 서명 인증서**에서 **새 인증서 만들기**를 클릭합니다.
+   c. **SAML 서명 인증서**에서 **새 인증서 만들기**를 클릭합니다.
 
    d. ID 공급자로 Azure AD를 사용하도록 Box.com 테넌트를 구성하려면 메타데이터 파일을 다운로드하여 로컬 드라이브에 저장합니다.
 
@@ -105,5 +105,5 @@ Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 - [Azure AD B2B 협업이란?](what-is-b2b.md)
 - [동적 그룹 및 B2B 협업](use-dynamic-groups.md)
 - [B2B 협업 사용자 클레임 매핑](claims-mapping.md)
-- [Office 365 외부 공유](o365-external-user.md)
+- [Microsoft 365 외부 공유](o365-external-user.md)
 

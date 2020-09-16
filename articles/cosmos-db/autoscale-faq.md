@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449518"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708005"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Azure Cosmos DB의 자동 크기 조정 프로비전된 처리량 FAQ
 
@@ -27,7 +27,7 @@ ms.locfileid: "84449518"
 
 예를 들어 이전에 400~4,000RU/s 범위에서 크기 조정된 계층을 선택하는 경우 데이터베이스 또는 컨테이너는 이제 4,000RU/s의 최대 RU/s를 갖는 것으로 표시되고 400~4,000RU/s 범위에서 크기 조정됩니다. 여기에서 워크로드에 맞게 최대 RU/s를 사용자 지정 값으로 변경할 수 있습니다. 
 
-### <a name="how-quickly-will-autoscale-scale-up-and-down-based-on-spikes-in-traffic"></a>자동 크기 조정은 트래픽 급증에 따라 얼마나 빠르게 확장 또는 축소되나요?
+### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>트래픽 급증을 기준으로 크기 자동 조정의 규모는 얼마나 되나요?
 자동 크기 조정을 사용하는 경우 시스템은 수신 트래픽에 따라 처리량(RU/s) `T`를 `0.1 * Tmax` 및 `Tmax` 범위 내에서 조정합니다. 크기 조정은 언제든지 자동으로 또한 즉각적으로 진행되므로 지연 없이 프로비전된 `Tmax`까지 사용할 수 있습니다. 
 
 ### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>시스템이 현재 크기 조정된 RU/s는 어떻게 확인하나요?
