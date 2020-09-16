@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c9cd790edcb186ed2f80d467076512cd558ca40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a3cdb851ca00300d995bcf2075252a360242197
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253395"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601965"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 cloud app access에 승인 된 클라이언트 앱 요구
 
 사용자는 정기적으로 개인 및 회사 작업에 대해 모바일 디바이스를 사용합니다. 직원들이 생산성을 높일 수 있도록 하는 동시에 잠재적으로 안전하지 않은 애플리케이션의 데이터 손실을 방지하려고 합니다. 조건부 액세스를 통해 조직은 승인 된 (최신 인증 지원) 클라이언트 앱에 대 한 액세스를 제한할 수 있습니다.
 
-이 문서에서는 Office 365, Exchange Online 및 SharePoint Online과 같은 리소스에 대 한 조건부 액세스 정책을 구성 하는 두 가지 시나리오를 제공 합니다.
+이 문서에서는 Microsoft 365, Exchange Online, SharePoint Online 등의 리소스에 대 한 조건부 액세스 정책을 구성 하는 두 가지 시나리오를 제공 합니다.
 
-- [시나리오 1: Office 365 앱에 승인 된 클라이언트 앱 필요](#scenario-1-office-365-apps-require-an-approved-client-app)
+- [시나리오 1: Microsoft 365 앱에 승인 된 클라이언트 앱 필요](#scenario-1-microsoft-365-apps-require-an-approved-client-app)
 - [시나리오 2: Exchange Online 및 SharePoint Online에 승인 된 클라이언트 앱 필요](#scenario-2-exchange-online-and-sharepoint-online-require-an-approved-client-app)
 
 조건부 액세스에서이 기능은 승인 된 클라이언트 앱을 요구 하는 것으로 알려져 있습니다. 승인된 클라이언트 앱의 목록은 [승인된 클라이언트 앱 요구 사항](concept-conditional-access-grant.md#require-approved-client-app)을 참조하세요.
@@ -32,9 +32,9 @@ ms.locfileid: "85253395"
 > [!NOTE]
 > IOS 및 Android 장치에 승인 된 클라이언트 앱을 요구 하기 위해 이러한 장치는 먼저 Azure AD에 등록 해야 합니다.
 
-## <a name="scenario-1-office-365-apps-require-an-approved-client-app"></a>시나리오 1: Office 365 앱에 승인 된 클라이언트 앱 필요
+## <a name="scenario-1-microsoft-365-apps-require-an-approved-client-app"></a>시나리오 1: Microsoft 365 앱에 승인 된 클라이언트 앱 필요
 
-이 시나리오에서 Contoso는 Outlook mobile, OneDrive 및 Microsoft 팀과 같은 승인 된 클라이언트 앱을 사용 하는 경우 모바일 장치를 사용 하는 사용자가 모든 Office 365 서비스에 액세스할 수 있도록 결정 했습니다. 모든 사용자는 이미 Azure AD 자격 증명을 사용하여 로그인하고 Azure AD Premium P1 또는 P2 및 Microsoft Intune을 포함하는 라이선스가 할당되어 있습니다.
+이 시나리오에서 Contoso는 Outlook mobile, OneDrive 및 Microsoft 팀과 같은 승인 된 클라이언트 앱을 사용 하는 경우 모바일 장치를 사용 하는 사용자가 모든 Microsoft 365 서비스에 액세스할 수 있도록 결정 했습니다. 모든 사용자는 이미 Azure AD 자격 증명을 사용하여 로그인하고 Azure AD Premium P1 또는 P2 및 Microsoft Intune을 포함하는 라이선스가 할당되어 있습니다.
 
 조직에서는 모바일 장치에서 승인 된 클라이언트 앱을 사용 하도록 요구 하기 위해 다음 세 단계를 완료 해야 합니다.
 

@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 08305b6aec7dcd5906f4316767c4c512d3a0535e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231166"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600503"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 위험 플래그가 지정된 사용자 수정
 
@@ -42,9 +42,9 @@ Azure Portal에서 [위험에 노출된 사용자 보고서](https://portal.azur
 
 자세한 내용은 [위험 플래그가 지정된 사용자 보안 보고서](../identity-protection/overview-identity-protection.md)를 참조하세요.
 
-### <a name="azure-ad-subscription-for-office-365-customers"></a>Office 365 고객에 대한 Azure AD 구독
+### <a name="azure-ad-subscription-for-microsoft-365-customers"></a>Microsoft 365 고객에 대 한 Azure AD 구독
 
-Office 365 자격 증명을 사용하여 **Azure 관리 센터**에 액세스할 수도 있습니다. Azure AD에 대한 액세스가 활성화되면 Azure AD 포털로 리디렉션됩니다. 기본 구독 수준에서 보고서에서 제공되는 세부 정보의 양은 제한됩니다. Azure Premium 구독자에 대한 추가 데이터 및 분석을 사용할 수 있습니다.
+Microsoft 365 자격 증명을 사용 하 여 **Azure 관리 센터**에 액세스할 수도 있습니다. Azure AD에 대한 액세스가 활성화되면 Azure AD 포털로 리디렉션됩니다. 기본 구독 수준에서 보고서에서 제공되는 세부 정보의 양은 제한됩니다. Azure Premium 구독자에 대한 추가 데이터 및 분석을 사용할 수 있습니다.
 
 Microsoft 365 관리 센터에서 **위험 플래그가 지정 된 사용자** 보고서에 액세스 하려면 다음을 수행 합니다.
 
@@ -79,7 +79,7 @@ Microsoft 365 관리 센터에서 **위험 플래그가 지정 된 사용자** �
 
     h. 관리자가 검토할 수 있도록 감사 로그를 생성합니다.
 
-4. 가능한 모든 수정에 대해 모든 테넌트 설정, 사용자 계정 및 사용자별 구성 설정을 검토하여 Office 365 테넌트 및 기타 IT 인프라를 조사합니다. 지속성 메서드에 대한 표시기 외에도, 침입자가 VPN 자격 증명을 얻거나 다른 조직 리소스에 액세스하기 위해 초기 발판을 활용했을 수 있는 표시기를 확인합니다. 
+4. 모든 테 넌 트 설정, 사용자 계정 및 사용자 단위 구성 설정을 검토 하 여 가능한 수정 사항을 포함 하 여 Microsoft 365 테 넌 트 및 기타 IT 인프라를 조사 합니다. 지속성 메서드에 대한 표시기 외에도, 침입자가 VPN 자격 증명을 얻거나 다른 조직 리소스에 액세스하기 위해 초기 발판을 활용했을 수 있는 표시기를 확인합니다. 
 
 5.  조사의 일환으로, 법 집행 기관을 비롯한 정부 기관에 알려야 할지 고려합니다.
 

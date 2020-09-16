@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d05aaa7a6bd48c92e863d38dcee9f0bf925bafa
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049267"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601591"
 ---
 # <a name="conditional-access-block-access"></a>조건부 액세스: 액세스 차단
 
@@ -40,13 +40,13 @@ ms.locfileid: "89049267"
 
 다음 단계는 사용자가 신뢰할 수 있는 네트워크에 있지 않은 경우 [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) 을 제외 하 고 모든 앱에 대 한 액세스를 차단 하는 조건부 액세스 정책을 만드는 데 도움이 됩니다. 이러한 정책은 관리자가 기존 사용자에 게 미치는 영향을 확인할 수 있도록 [보고서 전용 모드](howto-conditional-access-insights-reporting.md) 에 추가 됩니다. 관리자가 의도 한 대로 정책을 적용 하는 것이 어려우면 **설정**된 상태로 전환할 수 있습니다.
 
-첫 번째 정책은 신뢰할 수 있는 위치에 있지 않은 경우 Office 365 응용 프로그램을 제외한 모든 앱에 대 한 액세스를 차단 합니다.
+첫 번째 정책은 신뢰할 수 있는 위치에 없는 경우 Microsoft 365 응용 프로그램을 제외 하 고 모든 앱에 대 한 액세스를 차단 합니다.
 
 1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
 1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
-1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
+1. **할당**에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자**를 선택합니다.
    1. **제외**에서 **사용자 및 그룹**을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
    1. **완료**를 선택합니다.
@@ -64,11 +64,11 @@ ms.locfileid: "89049267"
 1. 설정을 확인하고 **정책 사용**을 **보고 전용**으로 설정합니다.
 1. **만들기**를 선택하여 정책을 사용하도록 만듭니다.
 
-Office 365의 사용자에 대해 multi-factor authentication 또는 호환 장치를 요구 하기 위해 아래에 두 번째 정책이 생성 됩니다.
+Microsoft 365 사용자에 대해 multi-factor authentication 또는 호환 장치를 요구 하도록 아래에 두 번째 정책이 생성 됩니다.
 
 1. **새 정책**을 선택합니다.
 1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.
-1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
+1. **할당**에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자**를 선택합니다.
    1. **제외**에서 **사용자 및 그룹**을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
    1. **완료**를 선택합니다.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672651"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601387"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>안전 하 고 Azure로 관리 되는 워크스테이션 이해
 
@@ -64,7 +64,7 @@ ms.locfileid: "78672651"
 * 매우 중요 한 워크스테이션 (예: SWIFT 결제 터미널)
 * 거래 비밀을 처리 하는 워크스테이션
 
-위험을 줄이려면 이러한 계정을 사용 하는 권한 있는 워크스테이션에 대해 높은 수준의 보안 제어를 구현 해야 합니다. 자세한 내용은 [Azure Active Directory 기능 배포 가이드](../fundamentals/active-directory-deployment-checklist-p2.md), [Office 365 로드맵](https://aka.ms/o365secroadmap)및 [권한 있는 액세스 보안 로드맵](https://aka.ms/sparoadmap))을 참조 하세요.
+위험을 줄이려면 이러한 계정을 사용 하는 권한 있는 워크스테이션에 대해 높은 수준의 보안 제어를 구현 해야 합니다. 자세한 내용은 [Azure Active Directory 기능 배포 가이드](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 로드맵](https://aka.ms/o365secroadmap)및 [권한 있는 액세스 로드맵 보안](https://aka.ms/sparoadmap))을 참조 하세요.
 
 ## <a name="why-use-dedicated-workstations"></a>전용 워크스테이션을 사용 해야 하는 이유
 
@@ -73,7 +73,7 @@ ms.locfileid: "78672651"
 전자 메일 및 웹 검색을 통해 공격 벡터의 수가 증가 하면 장치를 신뢰할 수 있는지를 더욱 쉽게 확인할 수 있습니다. 이 가이드에서는 전용 워크스테이션이 표준 생산성, 검색 및 전자 메일과 분리 되어 있다고 가정 합니다. 장치에서 생산성, 웹 검색 및 전자 메일을 제거 하면 생산성에 부정적인 영향을 줄 수 있습니다. 그러나이 보호는 일반적으로 작업 태스크에서 명시적으로 요구 하지 않고 보안 인시던트의 위험이 높은 시나리오에 적합 합니다.
 
 > [!NOTE]
-> 웹 검색은 높은 위험 활동 일 수 있는 임의의 웹 사이트에 대 한 일반 액세스를 나타냅니다. 이러한 검색은 웹 브라우저를 사용 하 여 Azure, Office 365, 기타 클라우드 공급자, SaaS 응용 프로그램 등의 서비스에 대 한 잘 알려진 몇 가지 관리 웹 사이트에 액세스 하는 것과는 다릅니다.
+> 웹 검색은 높은 위험 활동 일 수 있는 임의의 웹 사이트에 대 한 일반 액세스를 나타냅니다. 이러한 검색은 웹 브라우저를 사용 하 여 Azure, Microsoft 365, 다른 클라우드 공급자, SaaS 응용 프로그램 등의 서비스에 대 한 잘 알려진 몇 가지 관리 웹 사이트에 액세스 하는 것과는 다릅니다.
 
 포함 전략은 공격자가 중요 한 자산에 액세스 하지 못하도록 하는 컨트롤의 수와 유형을 높여 보안을 강화 합니다. 이 문서에서 설명 하는 모델은 계층화 된 권한 디자인을 사용 하 고 특정 장치에 대 한 관리 권한을 제한 합니다.
 

@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e84fb04d967311fede3be7f20b45f01fb442e69e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228769"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603597"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -37,7 +37,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 이 문서에서는 로그인 보고서의 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 
@@ -142,18 +142,18 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 ![클라이언트 앱 필터](./media/concept-sign-ins/client-app-filter.png)
 
 
-|이름|최신 인증|Description|
+|Name|최신 인증|Description|
 |---|:-:|---|
 |인증 된 SMTP| |POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용 됩니다.|
 |자동 검색| |Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결 하는 데 사용 됩니다.|
 |Exchange ActiveSync| |이 필터는 EAS 프로토콜이 시도 된 모든 로그인 시도를 표시 합니다.|
-|브라우저|![확인](./media/concept-sign-ins/check.png)|웹 브라우저를 사용 하 여 사용자의 모든 로그인 시도를 표시 합니다.|
-|Exchange ActiveSync| | Exchange ActiceSync를 사용 하 여 Exchange Online에 연결 하는 클라이언트 앱이 있는 사용자의 모든 로그인 시도를 표시 합니다.|
+|브라우저|![확인 표시](./media/concept-sign-ins/check.png)|웹 브라우저를 사용 하 여 사용자의 모든 로그인 시도를 표시 합니다.|
+|Exchange ActiveSync| | Exchange ActiveSync를 사용 하 여 Exchange Online에 연결 하는 클라이언트 앱이 있는 사용자의 모든 로그인 시도를 표시 합니다.|
 |Exchange Online PowerShell| |원격 PowerShell을 사용 하 여 Exchange Online에 연결 하는 데 사용 됩니다. Exchange Online PowerShell에 대 한 기본 인증을 차단 하는 경우 Exchange Online PowerShell 모듈을 사용 하 여 연결 해야 합니다. 자세한 내용은 [다단계 인증을 사용하여 Exchange Online PowerShell에 연결](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조하세요.|
 |Exchange 웹 서비스| |Outlook, Mac 용 Outlook 및 타사 앱에서 사용 하는 프로그래밍 인터페이스입니다.|
 |IMAP4| |전자 메일을 검색 하는 데 IMAP를 사용 하는 레거시 메일 클라이언트입니다.|
 |HTTP를 통한 MAPI| |Outlook 2010 이상에서 사용 됩니다.|
-|모바일 앱 및 데스크톱 클라이언트|![확인](./media/concept-sign-ins/check.png)|모바일 앱 및 데스크톱 클라이언트를 사용 하는 사용자의 로그인 시도를 모두 표시 합니다.|
+|모바일 앱 및 데스크톱 클라이언트|![파란색 확인 표시](./media/concept-sign-ins/check.png)|모바일 앱 및 데스크톱 클라이언트를 사용 하는 사용자의 로그인 시도를 모두 표시 합니다.|
 |오프 라인 주소록| |Outlook에서 다운로드 하 여 사용 하는 주소 목록 컬렉션의 복사본입니다.|
 |Outlook Anywhere (RPC over HTTP)| |Outlook 2016 이전 버전에서 사용 됩니다.|
 |Outlook 서비스| |Windows 10 용 메일 및 일정 앱에서 사용 됩니다.|
@@ -234,7 +234,7 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 - 클라이언트
 - 위치
 - IP 주소
-- 날짜
+- Date
 - 필요한 MFA
 - 로그인 상태
 
@@ -269,11 +269,11 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 
 **로그인** 옵션을 선택하면 애플리케이션에 대한 모든 로그인 이벤트의 전체적인 개요를 보여 줍니다.
 
-## <a name="office-365-activity-logs"></a>Office 365 활동 로그
+## <a name="microsoft-365-activity-logs"></a>활동 로그 Microsoft 365
 
-[Microsoft 365 관리 센터](/office365/admin/admin-overview/about-the-admin-center)에서 Office 365 활동 로그를 볼 수 있습니다. Office 365 활동 및 Azure AD 활동 로그가 많은 디렉터리 리소스를 공유 한다는 점을 고려해 야 합니다. Microsoft 365 관리 센터 에서만 Office 365 활동 로그의 전체 보기를 제공 합니다. 
+[Microsoft 365 관리 센터](/office365/admin/admin-overview/about-the-admin-center)에서 Microsoft 365 활동 로그를 볼 수 있습니다. Microsoft 365 활동 및 Azure AD 활동 로그가 많은 디렉터리 리소스를 공유 한다는 점을 고려해 야 합니다. Microsoft 365 관리 센터 에서만 Microsoft 365 활동 로그에 대 한 전체 보기를 제공 합니다. 
 
-[Office 365 관리 api](/office/office-365-management-api/office-365-management-apis-overview)를 사용 하 여 프로그래밍 방식으로 office 365 활동 로그에 액세스할 수도 있습니다.
+[Office 365 관리 api](/office/office-365-management-api/office-365-management-apis-overview)를 사용 하 여 프로그래밍 방식으로 Microsoft 365 활동 로그에 액세스할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

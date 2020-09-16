@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed6beec63114f1f157bb24354d77e50ecdaa8255
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253242"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601640"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>조건부 액세스 Faq Azure Active Directory
 
@@ -59,7 +59,7 @@ Windows 및 Mac용 Microsoft Teams 데스크톱 클라이언트는 최신 인증
 
 Microsoft 팀의 테 넌 트에서 일부 조건부 액세스 정책을 사용 하도록 설정 하면 특정 탭이 더 이상 데스크톱 클라이언트에서 제대로 작동 하지 않을 수 있습니다. 그러나 Microsoft 팀 웹 클라이언트를 사용 하는 경우 영향을 받는 탭이 작동 합니다. 영향을 받는 탭에는 Power BI, 폼, VSTS, PowerApps 및 SharePoint 목록이 포함 될 수 있습니다.
 
-영향을 받는 탭을 확인 하려면 Windows 10 계정 확장이 설치 된 Edge, Internet Explorer 또는 Chrome에서 팀 웹 클라이언트를 사용 해야 합니다. 일부 탭은 조건부 액세스를 사용 하도록 설정 된 경우 Microsoft 팀 데스크톱 클라이언트에서 작동 하지 않는 웹 인증에 종속 됩니다. Microsoft는 파트너와 협력 하 여 이러한 시나리오를 가능 하 게 합니다. 지금까지 Planner, OneNote 및 Stream을 포함 하는 scenrarios를 사용 하도록 설정 했습니다.
+영향을 받는 탭을 확인 하려면 Windows 10 계정 확장이 설치 된 Edge, Internet Explorer 또는 Chrome에서 팀 웹 클라이언트를 사용 해야 합니다. 일부 탭은 조건부 액세스를 사용 하도록 설정 된 경우 Microsoft 팀 데스크톱 클라이언트에서 작동 하지 않는 웹 인증에 종속 됩니다. Microsoft는 파트너와 협력 하 여 이러한 시나리오를 가능 하 게 합니다. 지금까지 Planner, OneNote 및 스트림과 관련 된 시나리오를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

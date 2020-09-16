@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: dcbfd05df84e32423df425f3bdd231a26e4f3bca
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: d4b44deda1bd17e65c3e2c2a9c46dddccd411996
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527050"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602043"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Azure Active Directory에서 사용할 수 있는 인증 및 확인 방법은 무엇인가요?
 
@@ -36,21 +36,18 @@ Azure Multi-Factor Authentication는 사용자가 로그인 할 때 암호를 �
 
 다음 표에서는 사용 가능한 인증 방법에 대 한 보안 고려 사항을 간략하게 설명 합니다. 가용성은 사용자가 Azure AD의 서비스 가용성이 아니라 인증 방법을 사용할 수 있음을 나타냅니다.
 
-| 인증 방법       | 보안 | 사용 편의성 | Phisable? | 채널 jackable? | 가용성 |
-|-----------------------------|:--------:|:---------:|:---------:|:-----------------:|:------------:|
-| FIDO2 보안 키          | 높은     | 높은      | 아니요        | 아니요                | 높은         |
-| Microsoft Authenticator 앱 | 높은     | 높은      | 예       | 아니요 <sup>1</sup>   | 높은         |
-| 비즈니스용 Windows Hello  | 높은     | 높은      | 아니요        | 아니요                | 높은         |
-| 하드웨어 OATH 토큰        | 중간   | 중간    | 예       | 아니요                | 높은         |
-| 소프트웨어 OATH 토큰        | 중간   | 중간    | 예       | 아니요 <sup>2</sup>   | 높은         |
-| SMS                         | 중간   | 높은      | 예       | 예               | 중간       |
-| 음성                       | 중간   | 중간    | 예       | 예               | 중간       |
-| 암호                    | 낮음      | 높음      | 예       | 예               | 높은         |
+| 인증 방법          | 보안 | 사용 편의성 | 가용성 |
+|--------------------------------|:--------:|:---------:|:------------:|
+| 비즈니스용 Windows Hello     | 높은     | 높은      | 높은         |
+| Microsoft Authenticator 앱    | 높은     | 높은      | 높은         |
+| FIDO2 보안 키 (미리 보기)   | 높은     | 높은      | 높은         |
+| OATH 하드웨어 토큰(미리 보기) | 중간   | 중간    | 높은         |
+| OATH 소프트웨어 토큰           | 중간   | 중간    | 높은         |
+| SMS                            | 중간   | 높음      | 중간       |
+| 음성                          | 중간   | 중간    | 중간       |
+| 암호                       | 낮음      | 높음      | 높은         |
 
-응용 프로그램이 특정 장치에 등록 되는 경우 암호 없는 모드에서 <sup>1</sup><br />
-<sup>2</sup> 앱을 잠금 해제 하려면 장치 PIN이 필요 하다 고 가정 합니다.
-
-취약성 및 공격 벡터에 대 한 자세한 내용은 [채널-킹 및 실시간 피싱](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)(영문)을 참조 하세요.
+보안에 대 한 자세한 내용은 [인증 취약성 및 공격 벡터](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/all-your-creds-are-belong-to-us/ba-p/855124)를 참조 하세요.
 
 > [!TIP]
 > 유연성과 유용성을 위해 Microsoft Authenticator 앱을 사용 하는 것이 좋습니다. 이 인증 방법은 passwordless, MFA 푸시 알림 및 OATH 코드와 같은 최상의 사용자 환경 및 여러 모드를 제공 합니다.
@@ -63,9 +60,9 @@ Azure Multi-Factor Authentication는 사용자가 로그인 할 때 암호를 �
 
 | 방법                         | Primary authentication(기본 인증) | 보조 인증  |
 |--------------------------------|:----------------------:|:-------------------------:|
-| FIDO2 보안 키(미리 보기)  | 예                    | MFA                       |
-| Microsoft Authenticator 앱    | 예(미리 보기)          | MFA 및 SSPR              |
 | 비즈니스용 Windows Hello     | 예                    | MFA                       |
+| Microsoft Authenticator 앱    | 예(미리 보기)          | MFA 및 SSPR              |
+| FIDO2 보안 키 (미리 보기)   | 예                    | MFA                       |
 | OATH 하드웨어 토큰(미리 보기) | 예                     | MFA                       |
 | OATH 소프트웨어 토큰           | 예                     | MFA                       |
 | SMS                            | 예(미리 보기)          | MFA 및 SSPR              |
@@ -76,11 +73,11 @@ Azure Multi-Factor Authentication는 사용자가 로그인 할 때 암호를 �
 
 각 인증 방법의 작동 방식에 대 한 자세한 내용은 다음의 개별 개념 문서를 참조 하세요.
 
-* [FIDO2 보안 키(미리 보기)](concept-authentication-passwordless.md#fido2-security-keys)
-* [Microsoft Authenticator 앱](concept-authentication-authenticator-app.md)
 * [비즈니스용 Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview)
-* [OATH 소프트웨어 토큰](concept-authentication-oath-tokens.md#oath-software-tokens)
+* [Microsoft Authenticator 앱](concept-authentication-authenticator-app.md)
+* [FIDO2 보안 키 (미리 보기)](concept-authentication-passwordless.md#fido2-security-keys)
 * [OATH 하드웨어 토큰(미리 보기)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
+* [OATH 소프트웨어 토큰](concept-authentication-oath-tokens.md#oath-software-tokens)
 * SMS [로그인 (미리 보기)](howto-authentication-sms-signin.md) 및 [확인](concept-authentication-phone-options.md#mobile-phone-verification)
 * [음성 통화 확인](concept-authentication-phone-options.md)
 * 암호

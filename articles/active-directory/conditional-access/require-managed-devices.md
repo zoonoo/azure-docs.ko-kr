@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3fbb06355772794fbe3fab5cdf3c8622c2baf4
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 7cb62d3b7ebe3ba6f4551602c7867575e74dca70
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948830"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601523"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위한 관리 되는 장치 요구
 
@@ -24,7 +24,7 @@ ms.locfileid: "88948830"
 
 이 문서에서는 관리 장치가 사용자 환경의 특정 클라우드 앱에 액세스 하도록 요구 하는 조건부 액세스 정책을 구성 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 클라우드 앱 액세스를 위한 관리 되는 장치 요구는 **AZURE Ad 조건부 액세스** 와 **azure ad 장치 관리** 를 함께 연결 합니다. 이러한 내용에 익숙하지 않은 경우 먼저 다음 항목을 읽어보세요.
 
@@ -98,7 +98,7 @@ Azure AD에 등록된 디바이스를 가져오는 데는 세 가지 옵션이 �
 
 ### <a name="scenario-require-device-enrollment-for-ios-and-android-devices"></a>시나리오: iOS 및 Android 장치에 대 한 장치 등록 필요
 
-이 시나리오에서 Contoso는 Office 365 리소스에 대 한 모든 모바일 액세스에서 등록 된 장치를 사용 해야 한다고 결정 했습니다. 모든 사용자는 이미 Azure AD 자격 증명을 사용하여 로그인하고 Azure AD Premium P1 또는 P2 및 Microsoft Intune을 포함하는 라이선스가 할당되어 있습니다.
+이 시나리오에서 Contoso는 Microsoft 365 리소스에 대 한 모든 모바일 액세스에서 등록 된 장치를 사용 해야 한다고 결정 했습니다. 모든 사용자는 이미 Azure AD 자격 증명을 사용하여 로그인하고 Azure AD Premium P1 또는 P2 및 Microsoft Intune을 포함하는 라이선스가 할당되어 있습니다.
 
 조직에서는 등록 된 모바일 장치를 사용 하도록 요구 하기 위해 다음 단계를 완료 해야 합니다.
 

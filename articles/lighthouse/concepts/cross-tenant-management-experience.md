@@ -3,12 +3,12 @@ title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 67111ecb215f4976dd8d3bbe0b901e68c3ef10ec
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564069"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602390"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -48,13 +48,13 @@ Azure PowerShell [AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSu
 
 [Azure Arc](../../azure-arc/index.yml):
 
-- 규모에 맞게 하이브리드 서버 관리- [서버에 대 한 Azure Arc (미리 보기)](../../azure-arc/servers/overview.md):
-  - [Azure 외부의 Windows Server 또는 Linux 컴퓨터를](../../azure-arc/servers/onboard-portal.md) Azure의 위임 구독 및/또는 리소스 그룹에 연결
+- 규모에 맞게 하이브리드 서버 관리- [Azure Arc 사용 서버 (미리 보기)](../../azure-arc/servers/overview.md):
+  - Azure에서 위임 된 구독 및/또는 리소스 그룹에 [연결 된 azure 외부의 Windows Server 또는 Linux 컴퓨터를 관리 합니다](../../azure-arc/servers/onboard-portal.md) .
   - Azure Policy 및 태그 지정과 같은 Azure 구문을 사용하여 연결된 컴퓨터 관리
   - 동일한 정책 집합이 고객의 하이브리드 환경에서 적용 되는지 확인 합니다.
   - Azure Security Center를 사용 하 여 고객의 하이브리드 환경에서 호환성 모니터링
 - 대규모로 하이브리드 Kubernetes 클러스터 관리- [Azure Arc Enabled Kubernetes (미리 보기)](../../azure-arc/kubernetes/overview.md):
-  - Azure의 위임 된 구독 및/또는 리소스 그룹에 [Kubernetes 클러스터를 Azure Arc에 연결](../../azure-arc/kubernetes/connect-cluster.md)
+  - Azure에서 위임 된 구독 및/또는 리소스 그룹에 [연결 된 Kubernetes 클러스터 관리](../../azure-arc/kubernetes/connect-cluster.md)
   - 연결 된 클러스터에 [GitOps 사용](../../azure-arc/kubernetes/use-gitops-connected-cluster.md)
   - 연결 된 클러스터에서 정책 적용
 

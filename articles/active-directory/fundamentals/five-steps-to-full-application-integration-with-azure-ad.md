@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: bbe813b46b41bf0e2b8bf9c6b3fe3e3e843204ed
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 54a1135931c2be9c6b7941c9ff740fd29f855eee
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319749"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601251"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>모든 앱을 Azure AD와 통합 하는 5 단계
 
@@ -70,7 +70,7 @@ Microsoft Cloud App Security&#39;s [클라우드 검색 도구](/cloud-app-secur
 
 Azure AD와 앱을 통합 하는 비즈니스 프로세스를 관리 하기 위한 지침을 게시 했습니다. 여기에는 비즈니스 및 응용 프로그램 소유자가 인식 하 고 관심이 있는 [포스터](https://aka.ms/AppOnePager) 와 [프레젠테이션을](https://aka.ms/AppGuideline) 사용할 수 있습니다. 사용자 고유의 브랜딩을 사용 하 여 이러한 샘플을 수정 하 고이 프로세스를 완료 하는 동안 회사 포털, 뉴스레터 또는 기타 매체를 통해 조직에 게시할 수 있습니다.
 
-먼저 Active Directory Federation Services (ADFS) 사용을 평가 하는 것이 좋습니다. 많은 조직에서 ADFS를 사용 하 여 SaaS 앱, 사용자 지정 기간 업무 앱, Office 365 및 Azure AD 기반 앱을 인증 합니다.
+먼저 Active Directory Federation Services (ADFS) 사용을 평가 하는 것이 좋습니다. 많은 조직에서 ADFS를 사용 하 여 SaaS 앱, 사용자 지정 기간 업무 앱, Microsoft 365 및 Azure AD 기반 앱을 인증 합니다.
 
 ![다이어그램은 온-프레미스 앱, lob (기간 업무) 앱, SaaS 앱 및 Azure AD를 통해 Office 365을 통해 점선으로 연결 하 여 Active Directory 및 AD FS에 연결 하는 기능을 보여 줍니다.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-1.png)
 

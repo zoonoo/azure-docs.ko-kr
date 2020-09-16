@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: e1c931b37cbe155d62aaffe47e36d84afa547638
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4fca84c8e5aa562572792968d0438a61be5ab91b
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068646"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601472"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에 내보내는 클레임 사용자 지정(미리 보기)
 
@@ -301,7 +301,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 | 사용자 | companyname| 조직 이름 |
 | 사용자 | streetaddress | 주소 |
 | 사용자 | postalcode | 우편 번호 |
-| 사용자 | preferredlanguange | 기본 설정 언어 |
+| 사용자 | user.preferredlanguage | 기본 설정 언어 |
 | 사용자 | onpremisesuserprincipalname | 온-프레미스 UPN |*
 | 사용자 | mailNickname | 메일 애칭 |
 | 사용자 | extensionattribute1 | 확장 특성 1 |

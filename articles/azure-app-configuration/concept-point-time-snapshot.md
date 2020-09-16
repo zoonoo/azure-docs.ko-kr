@@ -8,12 +8,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: b1d559d82cb22d8a787785c6d8c6a5101d89793a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: cbcfedc091fd111bceffe775cb337c118a87c767
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586617"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601081"
 ---
 # <a name="point-in-time-snapshot"></a>지정 시간 스냅샷
 
@@ -23,31 +23,29 @@ Azure 앱 구성은 키 값에 대 한 변경 기록을 유지 관리 합니다.
 
 Azure Portal 또는 CLI를 사용 하 여 이전 키-값을 검색할 수 있습니다. Azure CLI에서 `az appconfig revision list` 적절 한 매개 변수를 추가 하 여 필요한 값을 검색 합니다.  저장소 이름 ()을 제공 `--name <app-config-store-name>` 하거나 연결 문자열 ()을 사용 하 여 Azure 앱 구성 인스턴스를 지정 합니다 `--connection-string <your-connection-string>` . 특정 시점 ()을 지정 하 `--datetime` 고 반환할 최대 항목 수 ()를 지정 하 여 출력을 제한 `--top` 합니다.
 
-Azure CLI를 로컬로 설치 하지 않은 경우 필요에 따라 Azure Cloud Shell를 사용할 수 있습니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Azure CLI를 로컬로 설치 하지 않은 경우 필요에 따라 [Azure Cloud Shell](/azure/cloud-shell/overview)를 사용할 수 있습니다.
 
 키 값에 대해 기록 된 모든 변경 내용을 검색 합니다.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name>.
 ```
 
 키와 레이블 및에 대해 기록 된 모든 변경 내용을 검색 `environment` `test` `prod` 합니다.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment --label test,prod
 ```
 
 계층 키 공간에서 기록 된 모든 변경 내용을 검색 `environment:prod` 합니다.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment:prod:* 
 ```
 
 특정 시점에서 키에 대해 기록 된 모든 변경 내용을 검색 `color` 합니다.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --connection-string <your-app-config-connection-string> --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 

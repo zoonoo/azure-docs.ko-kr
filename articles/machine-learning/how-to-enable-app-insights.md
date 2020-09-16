@@ -8,67 +8,47 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 07/23/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ae66447e128b07ce942b8c2fcc66347a31cfe83f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f497bf5374dd6f621a6b48bae245e5efb1505a19
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848862"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603070"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>ML 웹 서비스 엔드포인트에서 데이터 모니터링 및 수집
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 로그를 쿼리하고 Azure 애플리케이션 Insights를 통해 Azure Kubernetes Service Azure Container Instances (ACI)에서 웹 서비스 끝점에 배포 된 모델에서 데이터를 수집 하 고 모니터링 하는 방법에 대해 알아봅니다. 
-* [Azure Machine Learning Python SDK](#python)
-* [Azure Machine Learning studio](#studio)https://ml.azure.com
-
-끝점의 출력 데이터와 응답을 수집 하는 것 외에도 다음을 모니터링할 수 있습니다.
-
+이 문서에서는 AKS (Azure Kubernetes Service) 또는 ACI (Azure Container Instances)에서 웹 서비스 끝점에 배포 된 모델에서 데이터를 수집 하는 방법에 대해 알아봅니다. [Azure 애플리케이션 Insights](../azure-monitor/app/app-insights-overview.md) 를 사용 하 여 끝점에서 다음 데이터를 수집 합니다.
+* 출력 데이터
+* 응답
 * 요청 속도, 응답 시간 및 실패율
 * 종속성 비율, 응답 시간 및 실패율
 * 예외
 
-[Azure 애플리케이션 Insights에 대해 자세히 알아보세요](../azure-monitor/app/app-insights-overview.md). 
+[앱 기반-bbb노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) 은이 문서의 개념을 보여 줍니다.
+ 
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+ 
+## <a name="prerequisites"></a>필수 조건
 
+* Azure 구독- [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+* Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 자세히 알아보려면 [개발 환경을 구성 하는 방법](how-to-configure-environment.md)을 참조 하세요.
 
-* Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
-
-* Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 이러한 필수 구성 요소를 가져오는 방법을 알아보려면 [개발 환경을 구성](how-to-configure-environment.md) 하는 방법을 참조 하세요.
-
-* AKS(Azure Kubernetes Service) 또는 ACI(Azure Container Instances)에 배포할 학습된 Machine Learning 모델. 없는 경우 [학습 이미지 분류 모델](tutorial-train-models-with-aml.md) 자습서를 참조 하세요.
-
-## <a name="query-logs-for-deployed-models"></a>배포 된 모델에 대 한 로그 쿼리
-
-이전에 배포된 웹 서비스에서 로그를 검색하려면 서비스를 로드하고 `get_logs()` 함수를 사용합니다. 로그에는 배포 중에 발생한 오류에 대한 자세한 정보가 포함되어 있을 수 있습니다.
-
-```python
-from azureml.core.webservice import Webservice
-
-# load existing web service
-service = Webservice(name="service-name", workspace=ws)
-logs = service.get_logs()
-```
-
-## <a name="web-service-metadata-and-response-data"></a>웹 서비스 메타 데이터 및 응답 데이터
-
-> [!IMPORTANT]
-> Azure 애플리케이션 Insights는 최대 64kb의 페이로드를 기록 합니다. 이 제한에 도달 하면 메모리 부족 등의 오류가 표시 되거나 정보가 기록 되지 않을 수 있습니다.
-
-웹 서비스 요청에 대 한 정보를 기록 하려면 `print` score.py 파일에 문을 추가 합니다. 각 `print` 문은 Application Insights의 추적 테이블에 있는 하나의 항목을 메시지 아래에 생성 `STDOUT` 합니다. `print`문의 내용은 `customDimensions` `Contents` 추적 테이블의 아래에 포함 됩니다. JSON 문자열을 인쇄할 경우에서 추적 출력에 계층적 데이터 구조를 생성 `Contents` 합니다.
-
-이 데이터에 액세스 하거나 더 긴 보존 또는 추가 처리를 위해 저장소 계정에 대 한 [연속 내보내기를](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) 설정 하기 위해 Azure 애플리케이션 Insights를 직접 쿼리할 수 있습니다. 모델 데이터는 Azure Machine Learning에서 레이블 지정, 재 학습, explainability, 데이터 분석 또는 기타 사용을 설정 하는 데 사용할 수 있습니다. 
-
+* 학습된 Machine Learning 모델. 자세히 알아보려면 [이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조 하세요.
 
 <a name="python"></a>
 
-## <a name="use-python-sdk-to-configure"></a>Python SDK를 사용 하 여 구성 
+## <a name="configure-logging-with-the-python-sdk"></a>Python SDK를 사용 하 여 로깅 구성
+
+이 섹션에서는 Python SDK를 사용 하 여 응용 프로그램 정보 로깅을 사용 하도록 설정 하는 방법에 대해 알아봅니다. 
 
 ### <a name="update-a-deployed-service"></a>배포된 서비스 업데이트
+
+다음 단계를 사용 하 여 기존 웹 서비스를 업데이트 합니다.
 
 1. 작업 영역에서 서비스를 식별합니다. 값은 `ws` 작업 영역의 이름입니다.
 
@@ -84,12 +64,17 @@ logs = service.get_logs()
 
 ### <a name="log-custom-traces-in-your-service"></a>서비스에서 사용자 지정 추적 로그
 
-사용자 지정 추적을 기록하려는 경우 [배포 방법 및 위치](how-to-deploy-and-where.md) 문서에서 AKS 또는 ACI에 대한 표준 배포 프로세스를 수행합니다. 그런 후 다음 단계를 사용하세요.
+> [!IMPORTANT]
+> Azure 애플리케이션 Insights는 최대 64kb의 페이로드를 기록 합니다. 이 제한에 도달 하면 메모리 부족 등의 오류가 표시 되거나 정보가 기록 되지 않을 수 있습니다. 로그 하려는 데이터가 64kb 보다 큰 경우 [프로덕션 환경에서 모델에 대 한 데이터 수집](how-to-enable-data-collection.md)의 정보를 사용 하 여 blob 저장소에 저장 해야 합니다.
+>
+> AKS 배포 내에서의 모델 추적과 같은 보다 복잡 한 상황을 위해 [OpenCensus](https://opencensus.io)와 같은 타사 라이브러리를 사용 하는 것이 좋습니다.
 
-1. 유추 하는 동안 Application Insights로 데이터를 보내려면 인쇄 문을 추가 하 여 점수 매기기 파일을 업데이트 합니다. 요청 데이터 및 응답과 같은 보다 복잡 한 정보를 기록 하려면 JSON 구조를 추가 합니다. 다음 예에서는 모델을 초기화 한 시간, 유추 하는 동안 입력 및 출력을 score.py, 오류가 발생 하는 시간을 기록 합니다.
+사용자 지정 추적을 기록 하려면 [배포 방법 및 where](how-to-deploy-and-where.md) 문서에서 AKS 또는 ACI의 표준 배포 프로세스를 따르세요. 그런 다음, 다음 단계를 사용 합니다.
 
-    > [!IMPORTANT]
-    > Azure 애플리케이션 Insights는 최대 64kb의 페이로드를 기록 합니다. 이 제한에 도달 하면 메모리 부족 등의 오류가 표시 되거나 정보가 기록 되지 않을 수 있습니다. 로그 하려는 데이터가 64kb 보다 큰 경우 [프로덕션 환경에서 모델에 대 한 데이터 수집](how-to-enable-data-collection.md)의 정보를 사용 하 여 blob 저장소에 저장 해야 합니다.
+1. 유추 하는 동안 Application Insights으로 데이터를 보내기 위해 print 문을 추가 하 여 점수 매기기 파일을 업데이트 합니다. 요청 데이터 및 응답과 같은 보다 복잡 한 정보를 보려면 JSON 구조를 사용 합니다. 
+
+    다음 예에서는 `score.py` 모델을 초기화할 때 파일을 기록 하 고, 유추 중에 입력 및 출력을 기록 하 고, 오류가 발생 하는 시간을 기록 합니다.
+
     
     ```python
     import pickle
@@ -133,15 +118,14 @@ logs = service.get_logs()
             return error
     ```
 
-2. 서비스 구성 업데이트
+2. 서비스 구성을 업데이트 하 고 Application Insights를 사용 하도록 설정 해야 합니다.
     
     ```python
     config = Webservice.deploy_configuration(enable_app_insights=True)
     ```
 
-3. 이미지를 빌드하고 [AKS 또는 ACI](how-to-deploy-and-where.md)에 배포합니다.
+3. 이미지를 빌드하고 AKS 또는 ACI에 배포합니다. 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
 
-로깅 및 데이터 수집에 대 한 자세한 내용은 [Azure Machine Learning 로깅 사용](how-to-enable-logging.md) 및 [프로덕션 환경에서 모델에서 데이터 수집](how-to-enable-data-collection.md)을 참조 하세요.
 
 ### <a name="disable-tracking-in-python"></a>Python에서 추적을 사용하지 않도록 설정
 
@@ -154,34 +138,47 @@ Azure 애플리케이션 Insights를 사용 하지 않도록 설정 하려면 �
 
 <a name="studio"></a>
 
-## <a name="use-azure-machine-learning-studio-to-configure"></a>Azure Machine Learning studio를 사용 하 여 구성
+## <a name="configure-logging-with-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 로깅 구성
 
-이러한 단계를 사용 하 여 모델을 배포할 준비가 되 면 Azure Machine Learning studio에서 Azure 애플리케이션 Insights를 사용 하도록 설정할 수도 있습니다.
+Azure Machine Learning studio에서 Azure 애플리케이션 Insights를 사용 하도록 설정할 수도 있습니다. 모델을 웹 서비스로 배포할 준비가 되 면 다음 단계를 사용 하 여 Application Insights를 사용 하도록 설정 합니다.
 
-1. 에서 작업 영역에 로그인 합니다.https://ml.azure.com/
-1. **모델** 로 이동 하 여 배포할 모델을 선택 합니다.
-1. **+ 배포** 선택
-1. **모델 배포** 양식 채우기
-1. **고급** 메뉴 확장
+1. 에서 studio에 로그인 https://ml.azure.com 합니다.
+1. **모델** 로 이동 하 여 배포 하려는 모델을 선택 합니다.
+1. **+ 배포**를 선택 합니다.
+1. **모델 배포** 폼을 채웁니다.
+1. **고급** 메뉴를 확장 합니다.
 
     ![배포 양식](./media/how-to-enable-app-insights/deploy-form.png)
-1. **Application Insights 진단 및 데이터 수집 사용을** 선택 합니다.
+1. **Application Insights 진단 및 데이터 수집 사용을**선택 합니다.
 
     ![앱 Insights 사용](./media/how-to-enable-app-insights/enable-app-insights.png)
 
 ## <a name="view-metrics-and-logs"></a>메트릭 및 로그 보기
 
-서비스의 데이터는 Azure Machine Learning와 동일한 리소스 그룹 내에 Azure 애플리케이션 Insights 계정에 저장 됩니다.
-이 데이터를 보려면:
+### <a name="query-logs-for-deployed-models"></a>배포 된 모델에 대 한 로그 쿼리
+
+함수를 사용 하 여 `get_logs()` 이전에 배포 된 웹 서비스에서 로그를 검색할 수 있습니다. 로그에는 배포 중에 발생한 오류에 대한 자세한 정보가 포함되어 있을 수 있습니다.
+
+```python
+from azureml.core.webservice import Webservice
+
+# load existing web service
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+
+### <a name="view-logs-in-the-studio"></a>스튜디오에서 로그 보기
+
+Azure 애플리케이션 Insights는 서비스 로그를 Azure Machine Learning 작업 영역과 동일한 리소스 그룹에 저장 합니다. Studio를 사용 하 여 데이터를 보려면 다음 단계를 수행 합니다.
 
 1. [스튜디오](https://ml.azure.com/)에서 Azure Machine Learning 작업 영역으로 이동 합니다.
 1. **엔드포인트**를 선택합니다.
 1. 배포 된 서비스를 선택 합니다.
-1. 아래로 스크롤하여 **Application Insights url** 을 찾고 링크를 선택 합니다.
+1. **Application Insights url** 링크를 선택 합니다.
 
     [![Application Insights url 찾기](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. Application Insights의 **개요** 탭 또는 왼쪽 목록의 __모니터링__ 섹션에서 __로그__를 선택 합니다.
+1. Application Insights의 **개요** 탭 또는 __모니터링__ 섹션에서 __로그__를 선택 합니다.
 
     [![모니터링의 개요 탭](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -197,25 +194,29 @@ Azure 애플리케이션 Insights를 사용 하지 않도록 설정 하려면 �
 
 Azure 애플리케이션 Insights를 사용 하는 방법에 대 한 자세한 내용은 [Application Insights 무엇입니까?](../azure-monitor/app/app-insights-overview.md)를 참조 하세요.
 
-## <a name="export-data-for-further-processing-and-longer-retention"></a>추가 처리 및 더 긴 보존을 위해 데이터 내보내기
+## <a name="web-service-metadata-and-response-data"></a>웹 서비스 메타 데이터 및 응답 데이터
+
+> [!IMPORTANT]
+> Azure 애플리케이션 Insights는 최대 64kb의 페이로드를 기록 합니다. 이 제한에 도달 하면 메모리 부족 등의 오류가 표시 되거나 정보가 기록 되지 않을 수 있습니다.
+
+웹 서비스 요청 정보를 기록 하려면 `print` score.py 파일에 문을 추가 합니다. 각 `print` 문은 Application Insights 추적 테이블의 메시지 아래에 한 항목을 반환 `STDOUT` 합니다. Application Insights는 `print`  `customDimensions` 추적 테이블에 및에 문 출력을 저장 합니다 `Contents` . JSON 문자열 인쇄는의 추적 출력에서 계층적 데이터 구조를 생성 `Contents` 합니다.
+
+## <a name="export-data-for-retention-and-processing"></a>보존 및 처리를 위해 데이터 내보내기
 
 >[!Important]
-> Azure 애플리케이션 Insights는 blob 저장소에 대 한 내보내기만 지원 합니다. 이 내보내기 기능의 추가 제한은 [App Insights에서 원격 분석 내보내기](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration)에 나열 되어 있습니다.
+> Azure 애플리케이션 Insights는 blob 저장소에 대 한 내보내기만 지원 합니다. 이 구현의 제한 사항에 대 한 자세한 내용은 [Application Insights에서 원격 분석 내보내기](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration)를 참조 하세요.
 
-Azure 애플리케이션 Insights의 [연속 내보내기를](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) 사용 하 여 지원 되는 저장소 계정으로 메시지를 보낼 수 있으며,이 경우 더 긴 보존을 설정할 수 있습니다. 데이터는 JSON 형식으로 저장 되며 모델 데이터를 추출 하기 위해 쉽게 구문 분석할 수 있습니다. 
-
-Azure Data Factory, Azure ML 파이프라인 또는 다른 데이터 처리 도구를 사용 하 여 필요에 따라 데이터를 변환할 수 있습니다. 데이터를 변환한 후에는 데이터 집합으로 Azure Machine Learning 작업 영역에 데이터를 등록할 수 있습니다. 이렇게 하려면 [데이터 집합을 만들고 등록 하는 방법](how-to-create-register-datasets.md)을 참조 하세요.
+Application Insights ' [연속 내보내기](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) 를 사용 하 여 보존 설정을 정의할 수 있는 blob storage 계정으로 데이터를 내보낼 수 있습니다. Application Insights JSON 형식으로 데이터를 내보냅니다. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="연속 내보내기":::
 
-
-## <a name="example-notebook"></a>예제 Notebook
-
-[앱 기반-bbb노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) 은이 문서의 개념을 보여 줍니다. 
- 
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
-
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Kubernetes Service 클러스터에 모델](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service) 을 배포 하는 방법 또는 [Azure Container Instances에 모델](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance) 을 배포 하 여 웹 서비스 끝점에 모델을 배포 하는 방법 및 Azure 애플리케이션 Insights를 사용 하 여 데이터 수집 및 끝점 모니터링 활용
-* 프로덕션 환경에서 수집한 데이터를 활용 하는 방법에 대 한 자세한 내용은 [Mlops: Azure Machine Learning를 사용 하 여 모델 관리, 배포 및 모니터링](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) 을 참조 하세요. 이러한 데이터는 기계 학습 프로세스를 지속적으로 개선 하는 데 도움이 될 수 있습니다.
+이 문서에서는 웹 서비스 끝점에 대 한 로깅 및 보기 로그를 사용 하도록 설정 하는 방법을 알아보았습니다. 다음 단계에 대 한 다음 문서를 사용해 보세요.
+
+
+* [AKS 클러스터에 모델을 배포 하는 방법](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+
+* [모델을 Azure Container Instances에 배포 하는 방법](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+
+* Mlops: 프로덕션 환경에서 모델에서 수집한 데이터를 활용 하는 방법에 대 한 자세한 내용을 보려면 [Azure Machine Learning를 사용 하 여 모델을 관리, 배포 및 모니터링](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) 하세요. 이러한 데이터는 기계 학습 프로세스를 지속적으로 개선 하는 데 도움이 될 수 있습니다.

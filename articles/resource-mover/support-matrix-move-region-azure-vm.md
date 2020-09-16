@@ -7,19 +7,19 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: ddb1c68ab417390987ac4873a16b89757ec24789
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058736"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602288"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure Vm 이동에 대 한 지원
 
 이 문서에는 리소스 이동 기를 사용 하 여 Azure 지역에서 가상 머신 및 관련 네트워크 리소스를 이동할 때 지원 및 필수 구성 요소가 요약 되어 있습니다.
 
 > [!IMPORTANT]
-> Azure 리소스 이동 기는 현재 미리 보기로 제공 됩니다.
+> Azure Resource Mover는 현재 미리 보기로 제공됩니다.
 
 
 ## <a name="windows-vm-support"></a>Windows VM 지원
@@ -115,6 +115,10 @@ RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 
 
 이 표에서는 Azure VM OS 디스크, 데이터 디스크 및 임시 디스크에 대한 지원을 요약해서 표시합니다. 성능 문제를 방지하려면 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 및 [Windows](../virtual-machines/windows/disk-scalability-targets.md) VM의 VM 디스크 제한 및 목표를 확인하는 것이 중요합니다.
 
+> [!NOTE]
+> 대상 VM 크기는 원본 VM과 같거나 커야 합니다. 유효성 검사에 사용 되는 매개 변수는 데이터 디스크 수, Nic 개수, 사용 가능한 Cpu, 메모리 (GB)입니다. 그렇지 않으면 오류가 발생 합니다.
+
+
 **구성 요소** | **지원** | **세부 정보**
 --- | --- | ---
 OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/windows/managed-disks-overview.md).
@@ -166,7 +170,7 @@ IP 구성 | 지원됨 | 현재이를 구성할 수 없습니다. 값은 기본�
 
  URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 다음 URL에 대한 액세스를 허용합니다.
 
-**이름** | **Azure 퍼블릭 클라우드** | **세부 정보** 
+**이름** | **Azure 공용 클라우드** | **세부 정보** 
 --- | --- | --- 
 스토리지 | `*.blob.core.windows.net`  | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. 
 Azure Active Directory | `login.microsoftonline.com`  | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: beabe9440c37d16ca4a81efdbc9588739f4c7473
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279349"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602373"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택
 
@@ -86,7 +86,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 ### <a name="cloud-authentication-password-hash-synchronization"></a>클라우드 인증: 암호 해시 동기화
 
-* **활동**. 암호 해시 동기화는 배포, 유지 관리 및 인프라와 관련한 최소한의 활동을 필요로 합니다.  이 활동 수준은 일반적으로 사용자가 Office 365, SaaS 앱 및 기타 Azure AD 기반 리소스에 로그인만 하면 되는 조직에 적용됩니다. 설정된 경우, 암호 해시 동기화는 Azure AD Connect 동기화 프로세스의 일부로 2분마다 실행됩니다.
+* **활동**. 암호 해시 동기화는 배포, 유지 관리 및 인프라와 관련한 최소한의 활동을 필요로 합니다.  이러한 노력 수준은 일반적으로 사용자가 Microsoft 365, SaaS 앱 및 기타 Azure AD 기반 리소스에 로그인 해야 하는 조직에 적용 됩니다. 설정된 경우, 암호 해시 동기화는 Azure AD Connect 동기화 프로세스의 일부로 2분마다 실행됩니다.
 
 * **사용자 환경**. 사용자의 로그인 환경을 개선하려면 암호 해시 동기화를 사용하는 원활한 SSO를 배포합니다. 원활한 SSO는 사용자가 로그인한 후 불필요한 프롬프트를 방지합니다.
 
@@ -203,7 +203,7 @@ ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도
 
 2. **온-프레미스 중단에서 생존**.  사이버 공격이나 재해로 인한 온-프레미스 중단은 브랜드 이미지 손상부터 해당 공격을 처리할 수 없을 정도의 조직 마비에 이르기까지 막대한 영향을 줄 수 있습니다. 최근에는 대부분의 조직이 표적형 랜섬웨어를 포함하여 온-프레미스 서버를 중단시키는 맬웨어 공격으로 피해를 입었습니다. 고객이 이러한 종류의 공격을 처리할 수 있도록 지원하면서 Microsoft는 두 가지 범주의 조직이 있음을 알았습니다.
 
-   * 이전에 페더레이션 또는 통과 인증을 기반으로 암호 해시 동기화도 설정한 조직은 기본 인증 방법을 변경한 다음 암호 해시 동기화를 사용했습니다. 몇 시간 만에 다시 온라인 상태가 되었습니다. Office 365를 통한 이메일 액세스를 사용하여 문제를 해결하고 다른 클라우드 기반 워크로드에 액세스할 수 있었습니다.
+   * 이전에 페더레이션 또는 통과 인증을 기반으로 암호 해시 동기화도 설정한 조직은 기본 인증 방법을 변경한 다음 암호 해시 동기화를 사용했습니다. 몇 시간 만에 다시 온라인 상태가 되었습니다. Microsoft 365를 통해 전자 메일에 대 한 액세스를 사용 하 여 문제를 해결 하 고 다른 클라우드 기반 작업에 액세스 하기 위해 작업 했습니다.
 
    * 이전에 암호 해시 동기화를 사용하지 않은 조직은 통신이 문제를 해결하는 데 신뢰할 수 없는 외부 소비자 이메일 시스템에 의존해야 했습니다. 이러한 경우, 사용자가 클라우드 기반 앱에 다시 로그인할 수 있기 전에 온-프레미스 ID 인프라를 복원하는 데 몇 주가 걸렸습니다.
 

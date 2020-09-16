@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 4ff1905eb164d004af69ce5b0df3278bf3a46884
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 6d6f56fb47bfdaadc6704e2a13ebcf0e893b8b1c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670515"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602356"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>VM 이동에 대해 만든 리소스 관리
 
@@ -24,13 +24,13 @@ ms.locfileid: "89670515"
 
 이동 컬렉션을 수동으로 삭제 하 고 VM 이동에 대해 만들어진 리소스를 Site Recovery 합니다.
 
-1. Vm을 이동한 원본 지역에서 리소스 그룹의 리소스를 검토 ```RegionMoveRG-<sourceregion>-<target-region>``` 합니다.
-2. 이동 컬렉션의 VM 및 다른 모든 원본 리소스가 이동/삭제 되었는지 확인 합니다. 이렇게 하면 보류 중인 리소스를 사용 하지 않습니다.
+1. 리소스 그룹에서 리소스를 검토 ```ResourceMoverRG-<sourceregion>-<target-region>``` 합니다.
+2. 이동 컬렉션의 VM 및 다른 모든 원본 리소스가 이동/삭제 되었는지 확인 합니다. 이러한 리소스를 사용하는 보류 중인 리소스가 남아 있지 않도록 확인하기 위한 절차입니다.
 2. 이러한 리소스를 삭제 합니다.
 
-    - 이동 컬렉션 이름은 ```movecollection-<sourceregion>-<target-region>``` 입니다.
-    - 캐시 저장소 계정 이름은입니다. ```resmovecache<guid>```
-    - 자격 증명 모음 이름은 ```ResourceMove-<sourceregion>-<target-region>-GUID``` 입니다.
+    - 이동 컬렉션 이름은 ```movecollection-<sourceregion>-<target-region>```입니다.
+    - 캐시 스토리지 계정 이름은 ```resmovecache<guid>```입니다.
+    - 자격 증명 모음 이름은 ```ResourceMove-<sourceregion>-<target-region>-GUID```입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

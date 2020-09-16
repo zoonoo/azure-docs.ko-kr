@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c9449a996929eb20acf35897a100dfbb722e82
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229925"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603513"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
@@ -163,7 +163,7 @@ Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습�
 
 **Azure Active Directory** 외에도 Azure Portal에서는 감사 데이터에 대한 다음 두 개의 추가 진입점을 제공합니다.
 
-- 개요
+- 사용자 및 그룹
 - Enterprise 애플리케이션
 
 ### <a name="users-and-groups-audit-logs"></a>사용자 및 그룹 감사 로그
@@ -208,11 +208,11 @@ Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습�
 
 ![감사 로그](./media/concept-audit-logs/enterpriseapplications.png "감사 로그")
 
-## <a name="office-365-activity-logs"></a>Office 365 활동 로그
+## <a name="microsoft-365-activity-logs"></a>활동 로그 Microsoft 365
 
-[Microsoft 365 관리 센터](/office365/admin/admin-overview/about-the-admin-center)에서 Office 365 활동 로그를 볼 수 있습니다. Office 365 활동 및 Azure AD 활동 로그가 많은 디렉터리 리소스를 공유 하는 경우에도 Microsoft 365 관리 센터 에서만 Office 365 활동 로그의 전체 보기를 제공 합니다. 
+[Microsoft 365 관리 센터](/office365/admin/admin-overview/about-the-admin-center)에서 Microsoft 365 활동 로그를 볼 수 있습니다. Microsoft 365 활동 및 Azure AD 활동 로그가 많은 디렉터리 리소스를 공유 하는 경우에도 Microsoft 365 관리 센터 에서만 Microsoft 365 활동 로그의 전체 보기를 제공 합니다. 
 
-[Office 365 관리 api](/office/office-365-management-api/office-365-management-apis-overview)를 사용 하 여 프로그래밍 방식으로 office 365 활동 로그에 액세스할 수도 있습니다.
+[Office 365 관리 api](/office/office-365-management-api/office-365-management-apis-overview)를 사용 하 여 프로그래밍 방식으로 Microsoft 365 활동 로그에 액세스할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

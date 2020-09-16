@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b7e394c4227be9ead491fe77457b466b1f62468
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279332"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600800"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Azure Active Directory를 사용 하는 강력한 identity foundation에 대 한 4 단계
 
@@ -46,7 +46,7 @@ ms.locfileid: "89279332"
 응용 프로그램이 Azure AD 갤러리에 추가 되 면 사용자는 할당 된 앱을 보고 필요에 따라 다른 앱을 검색 및 요청할 수 있습니다. Azure AD는 사용자가 앱에 액세스할 수 있는 [여러 가지 방법을](../manage-apps/end-user-experiences.md) 제공 합니다.
 
 * 액세스 패널/내 앱
-* Office 365 앱 시작 관리자
+* Microsoft 365 앱 시작 관리자
 * 페더레이션된 앱에 직접 로그온
 * 직접 로그온 링크
 
@@ -115,7 +115,7 @@ Azure AD Connect는 프로 비전 프로세스에서 주요 역할을 수행 합
 
 Azure AD에서 온-프레미스 디렉터리 개체에 대 한 클라우드 인증을 사용 하는 가장 간단 하 고 권장 되는 방법은 phs ( [암호 해시 동기화](./how-to-connect-password-hash-synchronization.md) )를 사용 하도록 설정 하는 것입니다. 또는 일부 조직에서는 pta ( [통과 인증](./how-to-connect-pta-quick-start.md) )를 사용 하도록 고려할 수 있습니다.
 
-PHS 또는 PTA를 선택 하는지 여부에 상관 없이, [원활한 Single sign-on](./how-to-connect-sso.md) 을 사용 하도록 설정 하 여 사용자가 회사 네트워크에서 Windows 7 및 8 장치를 사용 하는 경우 앱에 사용자 이름과 암호를 지속적으로 입력 하지 않고도 클라우드 앱에 액세스할 수 있도록 해야 합니다. Single Sign-On 하지 않으면 사용자는 응용 프로그램 관련 암호를 기억할 수 있으며 각 응용 프로그램에 로그인 해야 합니다. 마찬가지로, IT 직원은 Office 365, Box, Salesforce 등의 각 응용 프로그램에 대 한 사용자 계정을 만들고 업데이트 해야 합니다. 사용자는 암호를 기억할 뿐만 아니라 각 응용 프로그램에 로그인 하는 데 걸리는 시간을 소비 해야 합니다. 전체 기업에 표준화 된 Single Sign-On 메커니즘을 제공 하는 것은 최상의 사용자 환경, 위험 감소, 보고 기능 및 거 버 넌 스에 매우 중요 합니다.
+PHS 또는 PTA를 선택 하는지 여부에 상관 없이, [원활한 Single sign-on](./how-to-connect-sso.md) 을 사용 하도록 설정 하 여 사용자가 회사 네트워크에서 Windows 7 및 8 장치를 사용 하는 경우 앱에 사용자 이름과 암호를 지속적으로 입력 하지 않고도 클라우드 앱에 액세스할 수 있도록 해야 합니다. Single Sign-On 하지 않으면 사용자는 응용 프로그램 관련 암호를 기억할 수 있으며 각 응용 프로그램에 로그인 해야 합니다. 마찬가지로 IT 직원은 Microsoft 365, Box, Salesforce 등의 각 응용 프로그램에 대 한 사용자 계정을 만들고 업데이트 해야 합니다. 사용자는 암호를 기억할 뿐만 아니라 각 응용 프로그램에 로그인 하는 데 걸리는 시간을 소비 해야 합니다. 전체 기업에 표준화 된 Single Sign-On 메커니즘을 제공 하는 것은 최상의 사용자 환경, 위험 감소, 보고 기능 및 거 버 넌 스에 매우 중요 합니다.
 
 이미 AD FS 또는 다른 온-프레미스 인증 공급자를 사용 하는 조직의 경우 id 공급자로 Azure AD로 이동 하면 복잡성을 줄이고 가용성을 향상 시킬 수 있습니다. 페더레이션을 사용 하는 특정 사용 사례가 있는 경우를 제외 하 고는 페더레이션 인증에서 PHS와 원활한 SSO 또는 PTA와 원활한 SSO로 마이그레이션하는 것이 좋습니다. 자세한 내용은 [페더레이션에서 Azure Active Directory에 대 한 암호 해시 동기화로 마이그레이션](./plan-migrate-adfs-password-hash-sync.md)을 참조 하세요.
 
@@ -156,7 +156,7 @@ MFA [로그인 보고서](../authentication/howto-mfa-reporting.md) 에는 mfa �
 * 동적 그룹 멤버 자격을 사용한 특성 기반
 * 앱 소유자에 게 위임
 
-Azure AD는 보안 그룹 및 Office 365 그룹을 사용하여 리소스에 대한 액세스를 관리하는 기능을 제공합니다. 이러한 그룹은 멤버 자격 요청을 승인 또는 거부 하 고 그룹 멤버 자격에 대 한 제어를 위임할 수 있는 그룹 소유자가 관리할 수 있습니다. [셀프 서비스 그룹 관리](../users-groups-roles/groups-self-service-management.md)라고 하는이 기능은 관리자를 사용 하 여 요청을 처리 하지 않고도 그룹을 만들고 관리할 수 있도록 관리 역할이 할당 되지 않은 그룹 소유자에 게 시간을 절약 합니다.
+Azure AD는 보안 그룹 및 Microsoft 365 그룹을 사용 하 여 리소스에 대 한 액세스를 관리 하는 기능을 제공 합니다. 이러한 그룹은 멤버 자격 요청을 승인 또는 거부 하 고 그룹 멤버 자격에 대 한 제어를 위임할 수 있는 그룹 소유자가 관리할 수 있습니다. [셀프 서비스 그룹 관리](../users-groups-roles/groups-self-service-management.md)라고 하는이 기능은 관리자를 사용 하 여 요청을 처리 하지 않고도 그룹을 만들고 관리할 수 있도록 관리 역할이 할당 되지 않은 그룹 소유자에 게 시간을 절약 합니다.
 
 ## <a name="step-4---operationalize-your-insights"></a>4 단계-통찰력 운영
 

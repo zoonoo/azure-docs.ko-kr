@@ -1,6 +1,6 @@
 ---
 title: Azure AD의 사용자 환경에서 엔터프라이즈 응용 프로그램 숨기기
-description: Azure Active Directory access 패널 또는 Office 365 시작 관리자의 사용자 환경에서 Enterpise 응용 프로그램을 숨기는 방법입니다.
+description: Azure Active Directory 액세스 패널 또는 Microsoft 365 시작 관리자의 사용자 환경에서 엔터프라이즈 응용 프로그램을 숨기는 방법
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,26 +12,26 @@ ms.date: 03/25/2020
 ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21ba14fba24c9b8e0b460e56b93d0e5212bfb27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23d2d6645bea6e99e9f62e36364adf8816329c26
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367702"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601142"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Azure Active Directory에서 최종 사용자의 엔터프라이즈 응용 프로그램 숨기기
 
-최종 사용자의 MyApps 패널 또는 Office 365 시작 관리자에서 애플리케이션을 숨기는 방법에 대한 지침입니다. 애플리케이션을 숨겨도 애플리케이션에 대한 사용자의 권한은 계속 유지됩니다. 
+최종 사용자의 MyApps 패널 또는 Microsoft 365 시작 관리자에서 응용 프로그램을 숨기는 방법에 대 한 지침입니다. 애플리케이션을 숨겨도 애플리케이션에 대한 사용자의 권한은 계속 유지됩니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-MyApps 패널 및 Office 365 시작 관리자에서 애플리케이션을 숨기려면 애플리케이션 관리자 권한이 필요합니다.
+MyApps 패널 및 Microsoft 365 시작 관리자에서 응용 프로그램을 숨기려면 응용 프로그램 관리자 권한이 필요 합니다.
 
-모든 Office 365 애플리케이션을 숨기려면 글로벌 관리자 권한이 필요합니다.
+모든 Microsoft 365 응용 프로그램을 숨기려면 전역 관리자 권한이 필요 합니다.
 
 
 ## <a name="hide-an-application-from-the-end-user"></a>최종 사용자로부터 애플리케이션 숨기기
-MyApps 패널 및 Office 365 애플리케이션 시작 관리자에서 애플리케이션을 숨기려면 다음 단계를 사용합니다.
+MyApps 패널 및 Microsoft 365 응용 프로그램 시작 관리자에서 응용 프로그램을 숨기려면 다음 단계를 사용 합니다.
 
 1.  [Azure Portal](https://portal.azure.com)에 디렉터리에 대한 글로벌 관리자 권한으로 로그인합니다.
 2.  **Azure Active Directory**를 선택합니다.
@@ -59,13 +59,13 @@ $tags += "HideApp"
 Set-AzureADServicePrincipal -ObjectId $objectId -Tags $tags
 ```
 
-## <a name="hide-office-365-applications-from-the-myapps-panel"></a>MyApps 패널에서 Office 365 애플리케이션 숨기기
+## <a name="hide-microsoft-365-applications-from-the-myapps-panel"></a>MyApps 패널에서 Microsoft 365 응용 프로그램 숨기기
 
-MyApps 패널에서 모든 Office 365 애플리케이션을 숨기려면 다음 단계를 사용합니다. 애플리케이션은 Office 365 포털에 계속 표시됩니다.
+다음 단계를 사용 하 여 MyApps 패널에서 모든 Microsoft 365 응용 프로그램을 숨깁니다. 애플리케이션은 Office 365 포털에 계속 표시됩니다.
 
 1.  [Azure Portal](https://portal.azure.com)에 디렉터리에 대한 글로벌 관리자 권한으로 로그인합니다.
 2.  **Azure Active Directory**를 선택합니다.
-3.  **사용자**를 선택 합니다.
+3.  **사용자**를 선택합니다.
 4.  **사용자 설정**을 선택 합니다.
 5.  **엔터프라이즈 애플리케이션**에서 **최종 사용자가 해당 애플리케이션을 시작하고 보는 방법 관리**를 클릭합니다.
 6.  **사용자가 Office 365 포털에서 Office 365 앱만 볼 수 있음**에 대해 **예**를 클릭합니다.

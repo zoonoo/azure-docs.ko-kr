@@ -6,20 +6,24 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 464bf650cbcaa99e947a21f5a87a5872f7b11178
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0583af05ae7d8e365b50610bfb812ac7764f223
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326922"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602468"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
 
-이 빠른 시작에서는 Application Insights를 사용 하 여 요청을 자동으로 계측 하 고, 종속성을 추적 하 고, 성능 카운터를 수집 하 고, 성능 문제 및 예외를 진단 하 고, 앱을 통해 사용자가 수행 하는 작업을 추적 하는
+
+> [!IMPORTANT]
+> Java 응용 프로그램 모니터링에 권장 되는 방법은 코드를 변경 하지 않고 자동 계측을 사용 하는 것입니다. [Application Insights Java 3.0 에이전트](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)에 대 한 지침을 따르세요.
+
+이 빠른 시작에서는 Application Insights SDK를 사용 하 여 요청을 계측 하 고, 종속성을 추적 하 고, 성능 카운터를 수집 하 고, 성능 문제 및 예외를 진단 하 고, 앱을 통해 사용자가 수행 하는 작업을 추적 하는 코드
 
 Application Insights는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * 작동 하는 Java 응용 프로그램입니다.
@@ -77,9 +81,9 @@ Application Insights는 라이브 애플리케이션의 성능 및 사용을 이
 
 ### <a name="questions"></a>질문
 * *`-web-auto`, 및 구성 요소 간의 관계는 `-web` 무엇 `-core` 인가요?*
-  * `applicationinsights-web-auto`런타임에 Application Insights 서브렛 필터를 자동으로 등록 하 여 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 합니다.
-  * `applicationinsights-web`는 또한 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 하지만 응용 프로그램에서 Application Insights 서브렛 필터를 수동으로 등록 해야 합니다.
-  * `applicationinsights-core`응용 프로그램이 서브렛 기반이 아닌 경우와 같이, 기본 API만 제공 합니다.
+  * `applicationinsights-web-auto` 런타임에 Application Insights 서브렛 필터를 자동으로 등록 하 여 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 합니다.
+  * `applicationinsights-web` 는 또한 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 하지만 응용 프로그램에서 Application Insights 서브렛 필터를 수동으로 등록 해야 합니다.
+  * `applicationinsights-core` 응용 프로그램이 서브렛 기반이 아닌 경우와 같이, 기본 API만 제공 합니다.
   
 * *SDK를 최신 버전으로 업데이트하려면 어떻게 해야 하나요?*
   * Gradle 또는 Maven를 사용 하는 경우 ...
@@ -193,22 +197,10 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
     (이 구성 요소를 통해 성능 카운터를 사용할 수 있게 됩니다.)
 
-## <a name="azure-app-service-config-spring-boot"></a>Azure App Service 구성 (스프링 부팅)
+## <a name="azure-app-service-aks-vms-config"></a>Azure App Service, AKS, Vm 구성
 
-Windows에서 실행 되는 스프링 부팅 앱을 Azure 앱 서비스에서 실행 하려면 추가 구성이 필요 합니다. **web.config** 를 수정 하 고 다음 구성을 추가 합니다.
+Azure 리소스 공급자에서 실행 되는 응용 프로그램을 모니터링 하는 가장 쉬운 방법은 [Java 3.0 에이전트](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)를 통해 Application Insights 자동 계측을 사용 하는 것입니다.
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <system.webServer>
-        <handlers>
-            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
-        </handlers>
-        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
-        </httpPlatform>
-    </system.webServer>
-</configuration>
-```
 
 ## <a name="exceptions-and-request-failures"></a>예외 및 요청 실패
 처리 되지 않은 예외 및 요청 오류는 Application Insights 웹 필터에 의해 자동으로 수집 됩니다.
@@ -259,7 +251,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 * `displayName` - Application Insights 포털에서 표시되는 이름입니다.
 * `objectName` – JMX 개체 이름입니다.
 * `attribute` - 가져올 JMX 개체 이름의 특성입니다.
-* `type`(선택 사항)-JMX 개체 특성의 형식입니다.
+* `type` (선택 사항)-JMX 개체 특성의 형식입니다.
   * 기본값: int 또는 long과 같은 단순 유형입니다.
   * `composite`: 성능 카운터 데이터는 'Attribute.Data' 형식입니다.
   * `tabular`: 성능 카운터 데이터는 표 행 형식입니다.
@@ -301,7 +293,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 [가용성 웹 테스트를 설정 하는 방법에 대해 자세히 알아보세요.][availability]
 
-## <a name="questions-problems"></a>질문이 있으세요? 문제가 있습니까?
+## <a name="questions-problems"></a>궁금한 점이 더 있나요? 문제가 있습니까?
 [Java 문제 해결](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>다음 단계

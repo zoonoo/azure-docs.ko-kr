@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: b66f1f0061f697349afae21f5f9c63a4089c2794
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: c43b85f3c4b8d1b750e9f97e0be812bee683c702
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401710"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600809"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Azure CLI를 사용 하 여 서브넷 재정의 Traffic Manager
 
@@ -43,8 +43,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>서브넷 재정의를 사용 하 여 Traffic Manager 끝점을 업데이트 합니다.
 [Az network traffic manager endpoint update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update)를 사용 하 여 끝점을 업데이트 하려면 Azure CLI를 사용 합니다.
 
-```azurecli
-
+```azurecli-interactive
 ### Add a range of IPs ###
 az network traffic-manager endpoint update \
     --name MyEndpoint \
@@ -60,22 +59,21 @@ az network traffic-manager endpoint update \
     --resource-group MyResourceGroup \
     --subnets 9.10.11.0:24 \
     --type AzureEndpoints
-
 ```
 
 **--Remove** 옵션을 사용 하 여 [az network traffic manager endpoint update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update) 를 실행 하 여 IP 주소 범위를 제거할 수 있습니다.
 
-```azurecli
-
+```azurecli-interactive
 az network traffic-manager endpoint update \
     --name MyEndpoint \
     --profile-name MyTmProfile \
     --resource-group MyResourceGroup \
     --remove subnets \
     --type AzureEndpoints
-
 ```
+
 ## <a name="next-steps"></a>다음 단계
+
 Traffic Manager [트래픽 라우팅 방법](traffic-manager-routing-methods.md)에 대해 자세히 알아봅니다.
 
 [서브넷 트래픽 라우팅 방법](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method) 에 대 한 자세한 정보

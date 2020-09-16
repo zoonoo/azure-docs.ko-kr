@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: 18de210d817ee309ac4970ecea6b62f6ef03ef02
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530406"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600656"
 ---
 # <a name="common-questions"></a>일반적인 질문
 
@@ -90,6 +90,9 @@ Azure 리소스 이동 기 관리 id에는 적어도 다음 권한이 필요 합
 리소스 이동 기 관리 id가 *없음*으로 다시 설정 되었습니다. | Move collection > **identity**에서 시스템이 할당 한 id를 다시 활성화 합니다. 또는 동일한 작업을 수행 하는 **리소스 추가**에서 리소스를 다시 추가 합니다.  
 구독이 다른 테 넌 트로 이동 되었습니다. | 이동 컬렉션에 대해 관리 되는 id를 사용 하지 않도록 설정한 다음 사용 하도록 설정 합니다.
 
+### <a name="how-can-i-do-multiple-moves-together"></a>여러 이동을 함께 수행 하려면 어떻게 해야 하나요?
+
+포털에서 변경 옵션을 사용 하 여 필요에 따라 원본/대상 조합을 변경 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

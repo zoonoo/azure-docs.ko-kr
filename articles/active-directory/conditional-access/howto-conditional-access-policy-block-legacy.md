@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18397ef76a4503bf79c4aaf286035d222bd84ba0
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 7b4a0a411f51eed3a262ee59eb8e93b983755af3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460442"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601557"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>조건부 액세스: 레거시 인증 차단
 
@@ -52,4 +52,4 @@ ms.locfileid: "89460442"
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 
-[Office 365 및 Microsoft 365를 사용하여 전자 메일을 보내도록 다기능 디바이스 또는 애플리케이션을 설정하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+[Microsoft 365를 사용 하 여 전자 메일을 보내도록 다기능 장치 또는 응용 프로그램을 설정 하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

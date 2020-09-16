@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1811d5b9ae4d3e34b48e1cdc156438f2bad98d1
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77185920"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601659"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>조건부 액세스 클래식 정책 마이그레이션
 
@@ -73,9 +73,9 @@ Azure Portal에서 만들지 않은 정책을 마이그레이션하는 것을 �
    - 시나리오에 필요한 경우 여러 조건을 결합합니다. 
    - 여러 권한 부여 요구 사항을 액세스 제어로 선택하고 논리 *OR*(선택한 제어 중 하나가 필요함) 또는 논리 *AND*(선택한 모든 제어가 필요함)로 결합합니다.
 
-### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
+### <a name="exchange-online"></a>Exchange Online
 
-**Exchange Active Sync**가 클라이언트 앱 조건으로 포함된 **Office 365 Exchange Online** 클래식 정책을 마이그레이션하는 경우 하나의 새 정책으로 통합하지 못할 수 있습니다. 
+**Exchange Active Sync** 클라이언트 앱 조건으로 포함 된 **Exchange online** 에 대 한 클래식 정책을 마이그레이션하려면 새 정책 하나로 통합 하지 못할 수 있습니다. 
 
 예를 들어 모든 클라이언트 앱 유형을 지원하려는 경우에 해당합니다. **Exchange Active Sync**가 클라이언트 앱 조건으로 있는 새 정책에서는 다른 클라이언트 앱을 선택할 수 없습니다.
 
@@ -89,7 +89,7 @@ Azure Portal에서 만들지 않은 정책을 마이그레이션하는 것을 �
 
 ![조건부 액세스 조건](./media/policy-migration/16.png)
  
-클라이언트 앱 조건으로 **Exchange Active Sync** 를 포함 하는 Office 365 Exchange Online에 대 한 앱 기반 클래식 정책은 **지원** 되거나 **지원 되지 않는** 장치 플랫폼을 허용 합니다. 관련된 새 정책에서는 개별 디바이스 플랫폼을 구성할 수 없으며 [지원되는 디바이스 플랫폼](concept-conditional-access-conditions.md#device-platforms)으로만 지원을 제한할 수 있습니다. 
+클라이언트 앱 조건으로 **Exchange Active Sync** 를 포함 하는 Exchange Online에 대 한 앱 기반 클래식 정책은 **지원** 되거나 **지원 되지 않는** 장치 플랫폼을 허용 합니다. 관련된 새 정책에서는 개별 디바이스 플랫폼을 구성할 수 없으며 [지원되는 디바이스 플랫폼](concept-conditional-access-conditions.md#device-platforms)으로만 지원을 제한할 수 있습니다. 
 
 ![조건부 액세스에서 Exchange ActiveSync를 선택 합니다.](./media/policy-migration/65.png)
 

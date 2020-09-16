@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28516482cf154c81912de0f8e3f35b9e54ef2f69
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 034d2410b97562946216815e5bdafd35fe1bc40b
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948269"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601676"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용하여 인증 세션 관리를 구성합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "88948269"
 - Word, Excel, PowerPoint Online
 - OneNote 온라인
 - Office.com
-- O365 관리 포털
+- Microsoft 365 관리 포털
 - Exchange Online
 - SharePoint 및 OneDrive
 - 팀 웹 클라이언트

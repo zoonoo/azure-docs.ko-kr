@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d0ea9259e701e2ad9a4026401f5aef39c0ecfa51
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042482"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601829"
 ---
 # <a name="conditional-access-conditions"></a>조건부 액세스: 조건
 
@@ -104,7 +104,7 @@ Azure AD 조건부 액세스는 다음과 같은 장치 플랫폼을 지원 합�
 
 | OS | 브라우저 |
 | :-- | :-- |
-| 윈도우 10 | Microsoft Edge, Internet Explorer, Chrome |
+| Windows 10 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows 8 / 8.1 | Internet Explorer, 크롬 |
 | Windows 7 | Internet Explorer, 크롬 |
 | iOS | Microsoft Edge, Intune Managed Browser, Safari |
@@ -149,32 +149,32 @@ Windows 7, iOS, Android 및 macOS Azure AD는 장치가 Azure AD에 등록 될 �
 | 클라이언트 앱 | 대상 서비스 | 플랫폼 |
 | --- | --- | --- |
 | Dynamics CRM 앱 | Dynamics CRM | Windows 10, Windows 8.1, iOS 및 Android |
-| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Office 365 Exchange Online | 윈도우 10 |
+| 메일/달력/사람 앱, Outlook 2016, Outlook 2013(최신 인증 포함)| Exchange Online | Windows 10 |
 | 앱에 대한 MFA 및 위치 정책입니다. 장치 기반 정책은 지원 되지 않습니다.| 모든 My Apps 앱 서비스 | Android 및 iOS |
 | Microsoft Teams Services - Microsoft Teams 및 모든 클라이언트 앱(Windows 데스크톱, iOS, Android, WP 및 웹 클라이언트)을 지원하는 서비스를 모두 제어합니다. | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android 및 macOS |
-| Office 2016 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| Office 2016 앱, Universal Office 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | 윈도우 10 |
-| Office 2016(Word, Excel, PowerPoint, OneNote만 해당) | Office 365 SharePoint Online | macOS |
-| Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
-| Office 모바일 앱 | Office 365 SharePoint Online | Android, iOS |
-| Office Yammer 앱 | Office 365 Yammer | Windows 10, iOS, Android |
-| Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
-| Outlook 2016(macOS용 Office) | Office 365 Exchange Online | macOS |
-| Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
-| Outlook 모바일 앱 | Office 365 Exchange Online | Android, iOS |
+| Office 2016 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
+| Office 2016 앱, Universal Office 앱, Office 2013 (최신 인증 사용), [OneDrive 동기화 클라이언트](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
+| Office 2016(Word, Excel, PowerPoint, OneNote만 해당) | SharePoint | macOS |
+| Office 2019| SharePoint | Windows 10, macOS |
+| Office 모바일 앱 | SharePoint | Android, iOS |
+| Office Yammer 앱 | Yammer | Windows 10, iOS, Android |
+| Outlook 2019 | SharePoint | Windows 10, macOS |
+| Outlook 2016(macOS용 Office) | Exchange Online | macOS |
+| Outlook 2016, Outlook 2013(최신 인증 사용), 비즈니스용 Skype(최신 인증 사용) | Exchange Online | Windows 8.1, Windows 7 |
+| Outlook 모바일 앱 | Exchange Online | Android, iOS |
 | Power BI 앱 | Power BI 서비스 | Windows 10, Windows 8.1, Windows 7, Android 및 iOS |
-| 비즈니스용 Skype | Office 365 Exchange Online| Android, iOS |
+| 비즈니스용 Skype | Exchange Online| Android, iOS |
 | Visual Studio Team Services 앱 | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS 및 Android |
 
 ### <a name="exchange-activesync-clients"></a>Exchange ActiveSync 클라이언트
 
 - 조직에서는 사용자 또는 그룹에 정책을 할당 하는 경우에만 Exchange ActiveSync 클라이언트를 선택할 수 있습니다. 모든 **사용자**, 모든 **게스트 및 외부 사용자**또는 **디렉터리 역할** 을 선택 하면 모든 사용자가 차단 됩니다.
-- Exchange ActiveSync 클라이언트에 할당 된 정책을 만들 때 **Office 365 Exchange Online** 이 정책에 할당 된 유일한 클라우드 응용 프로그램 이어야 합니다. 
+- Exchange ActiveSync 클라이언트에 할당 된 정책을 만들 때 **Exchange Online** 이 정책에 할당 된 유일한 클라우드 응용 프로그램 이어야 합니다. 
 - 조직에서는 **장치 플랫폼** 상태를 사용 하 여 특정 플랫폼에 대해이 정책의 범위를 좁힐 수 있습니다.
 
 정책에 할당 된 액세스 제어에서 승인 된 **클라이언트 앱 필요**를 사용 하는 경우 사용자는 Outlook 모바일 클라이언트를 설치 하 고 사용 하도록 지시 됩니다. **Multi-factor authentication** 이 필요한 경우 기본 인증에서 multi-factor authentication을 지원 하지 않기 때문에 영향을 받는 사용자는 차단 됩니다.
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 항목을 참조하세요.
 
 - [조건부 액세스를 사용 하 여 레거시 인증 차단](block-legacy-authentication.md)
 - [조건부 액세스를 사용 하 여 승인 된 클라이언트 앱 요구](app-based-conditional-access.md)

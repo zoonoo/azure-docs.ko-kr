@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5536c3c427e5b6225d81d649722d8af48c23091
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 161b02ec962df5c5e1c8dee7e124ef78b3ca4db3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948456"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601982"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스에 대 한 모범 사례
 
@@ -97,13 +97,13 @@ Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하�
 
 예, 조건부 액세스 정책에서 Exchange ActiveSync를 사용할 수 있습니다.
 
-SharePoint Online 및 Exchange Online과 같은 일부 클라우드 앱도 레거시 인증 프로토콜을 지원 합니다. 클라이언트 앱이 레거시 인증 프로토콜을 사용 하 여 클라우드 앱에 액세스할 수 있는 경우 Azure AD는이 액세스 시도에 대 한 조건부 액세스 정책을 적용할 수 없습니다. 클라이언트 앱이 정책의 적용을 우회하는 것을 방지하려면 영향을 받는 클라우드 앱에서 최신 인증만을 사용할 수 있는지 확인해야 합니다.
+SharePoint 및 Exchange Online과 같은 일부 클라우드 앱도 레거시 인증 프로토콜을 지원 합니다. 클라이언트 앱이 레거시 인증 프로토콜을 사용 하 여 클라우드 앱에 액세스할 수 있는 경우 Azure AD는이 액세스 시도에 대 한 조건부 액세스 정책을 적용할 수 없습니다. 클라이언트 앱이 정책의 적용을 우회하는 것을 방지하려면 영향을 받는 클라우드 앱에서 최신 인증만을 사용할 수 있는지 확인해야 합니다.
 
-### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Office 365 앱을 사용 하 여 조건부 액세스를 구성 하려면 어떻게 해야 하나요?
+### <a name="how-should-you-configure-conditional-access-with-microsoft-365-apps"></a>Microsoft 365 apps를 사용 하 여 조건부 액세스를 구성 하려면 어떻게 해야 하나요?
 
-Office 365 앱이 상호 연결 되어 있기 때문에 정책을 만들 때 일반적으로 사용 되는 앱을 함께 할당 하는 것이 좋습니다.
+Microsoft 365 앱이 상호 연결 되어 있기 때문에 정책을 만들 때 일반적으로 사용 되는 앱을 함께 할당 하는 것이 좋습니다.
 
-일반적인 상호 연결 된 응용 프로그램에는 Microsoft Flow, Microsoft Planner, Microsoft 팀, Office 365 Exchange Online, Office 365 SharePoint Online 및 Office 365 Yammer가 포함 됩니다.
+일반적인 상호 연결 된 응용 프로그램에는 Microsoft Flow, Microsoft Planner, Microsoft 팀, Exchange Online, SharePoint 및 Yammer가 포함 됩니다.
 
 세션이 나 태스크의 시작 부분에서 액세스를 제어 하는 경우 multi-factor authentication과 같은 사용자 상호 작용이 필요한 정책에 중요 합니다. 그렇지 않으면 사용자가 앱 내에서 일부 작업을 완료할 수 없습니다. 예를 들어 관리 되지 않는 장치에서 다단계 인증을 사용 하 여 SharePoint에 액세스 하지만 전자 메일에 액세스 하지 못하는 경우 전자 메일에서 작업 하는 사용자가 SharePoint 파일을 메시지에 연결할 수 없습니다. 자세한 내용은 [Azure Active Directory 조건부 액세스의 서비스 종속성 이란?](service-dependencies.md)문서에서 찾을 수 있습니다.
 

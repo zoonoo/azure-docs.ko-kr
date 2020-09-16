@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 2a322c26df0f4fc388ded394f5a65de51f01ca45
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5a71476db6f57841a0057de5b8c95f07ef5d90ad
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664560"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603087"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 교육 환경 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "89664560"
 > - Virtual Machine
 > - HDInsight 클러스터
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -180,6 +180,9 @@ Azure Machine Learning compute를 사용 하 여 [강제 터널링](/azure/vpn-g
     UDR을 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 __다음 홉 유형__을 __인터넷__으로 설정합니다. 다음 이미지는 Azure Portal에서 UDR의 예를 보여 줍니다.
 
     ![주소 접두사에 대한 UDR 예](./media/how-to-enable-virtual-network/user-defined-route.png)
+
+    > [!IMPORTANT]
+    > IP 주소는 시간이 지남에 따라 변경 될 수 있습니다.
 
     사용자가 정의 하는 UDRs 외에도 온-프레미스 네트워크 어플라이언스를 통해 Azure Storage에 대 한 아웃 바운드 트래픽을 허용 해야 합니다. 특히이 트래픽의 Url은 `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` 및 형식 `<account>.blob.core.windows.net` 입니다. 
 

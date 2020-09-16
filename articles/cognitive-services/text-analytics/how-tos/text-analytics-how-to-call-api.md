@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: fec85a03b74155b5b18145bfaddc5d326c910bc9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: b2c994d23e63f9e2118cd3e6571c5dcc0449a367
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087306"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601098"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "90087306"
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -46,6 +46,30 @@ ms.locfileid: "90087306"
 |`language` | [지원되는 언어](../text-analytics-supported-languages.md)의 2자리 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 코드 | 상황에 따라 다름 | 감정 분석, 핵심 구 추출 및 엔터티 연결의 경우 필수. 언어 감지의 경우 옵션 제외해도 오류는 발생하지 않지만 분석 효과가 약해집니다. 언어 코드는 사용자가 제공한 `text`와 일치해야 합니다. |
 
 제한에 대한 자세한 내용은 [Text Analytics 개요 > 데이터 제한](../overview.md#data-limits)을 참조하세요. 
+
+
+```json
+{
+  "documents": [
+    {
+      "language": "en",
+      "id": "1",
+      "text": "Sample text to be sent to the text analytics api."
+    },
+    {
+      "language": "en",
+      "id": "2",
+      "text": "It's incredibly sunny outside! I'm so happy."
+    },
+    {
+      "language": "en",
+      "id": "3",
+      "text": "Pike place market is my favorite Seattle attraction."
+    }
+  ]
+}
+```
+
 
 ## <a name="set-up-a-request-in-postman"></a>Postman에서 요청 설정
 
@@ -90,7 +114,7 @@ ms.locfileid: "90087306"
 
    Postman에서 응답은 아래의 다음 창에 단일 JSON 문서로 표시되며, 각 문서 ID 항목이 요청에 제공됩니다.
 
-## <a name="see-also"></a>참고 항목 
+## <a name="see-also"></a>추가 정보 
 
  [Text Analytics 개요](../overview.md)  
  [FAQ(질문과 대답)](../text-analytics-resource-faq.md)

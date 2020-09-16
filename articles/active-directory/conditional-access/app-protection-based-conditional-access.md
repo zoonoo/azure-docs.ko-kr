@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3626a29bb828c9fbc353b11858d42fecd4bb129d
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 82ab9bc0159528446a9de95769f1e433f03acb56
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641027"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601948"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 앱 보호 정책 및 승인된 클라이언트 앱 필요
 
 사용자는 정기적으로 개인 및 회사 작업에 대해 모바일 디바이스를 사용합니다. 직원들이 생산성을 높일 수 있도록 하는 동시에 잠재적으로 안전하지 않은 애플리케이션의 데이터 손실을 방지하려고 합니다. 조건부 액세스를 통해 조직에서는 승인된(최신 인증 지원) 클라이언트 앱에 대한 액세스를 적용된 Intune 앱 보호 정책으로 제한할 수 있습니다.
 
-이 문서에서는 Office 365, Exchange Online 및 SharePoint Online과 같은 리소스에 대한 조건부 액세스 정책을 구성하는 세 가지 시나리오를 제공합니다.
+이 문서에서는 Microsoft 365, Exchange Online 및 SharePoint와 같은 리소스에 대 한 조건부 액세스 정책을 구성 하는 세 가지 시나리오를 제공 합니다.
 
-- [시나리오 1: Office 365 앱에 앱 보호 정책을 사용하는 승인된 앱 필요](#scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies)
+- [시나리오 1: 앱 보호 정책을 사용 하는 앱 Microsoft 365 승인 된 앱 필요](#scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies)
 - [시나리오 2: 브라우저 앱에 앱 보호 정책을 사용하는 승인된 앱 필요](#scenario-2-browser-apps-require-approved-apps-with-app-protection-policies)
-- [시나리오 3: Exchange Online 및 SharePoint Online에 승인된 클라이언트 앱 및 앱 보호 정책 필요](#scenario-3-exchange-online-and-sharepoint-online-require-an-approved-client-app-and-app-protection-policy)
+- [시나리오 3: Exchange Online 및 SharePoint에 승인 된 클라이언트 앱 및 앱 보호 정책 필요](#scenario-3-exchange-online-and-sharepoint-require-an-approved-client-app-and-app-protection-policy)
 
 조건부 액세스에서 이러한 클라이언트 앱은 앱 보호 정책을 사용하여 보호되는 것으로 알려져 있습니다. 앱 보호 정책에 대한 자세한 내용은 [앱 보호 정책 개요](/intune/apps/app-protection-policy) 문서에서 찾을 수 있습니다.
 
@@ -36,13 +36,13 @@ ms.locfileid: "88641027"
 > [!NOTE]
 > "선택 된 컨트롤 중 하나 필요" 권한 부여 컨트롤은 또는 절과 유사 합니다. 이는 정책 내에서 사용 되어 사용자가 **앱 보호 정책 필요** 또는 **승인 된 클라이언트 앱** 부여 컨트롤 필요를 지 원하는 앱을 활용할 수 있도록 합니다. 앱이 두 정책 모두에서 지원 되는 경우 **앱 보호 정책이 적용 되어야** 합니다. **앱 보호 정책 필요** 권한 부여 컨트롤을 지원하는 앱에 대한 자세한 내용은 [앱 보호 정책 요구 사항](concept-conditional-access-grant.md#require-app-protection-policy)을 참조하세요.
 
-## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>시나리오 1: Office 365 앱에 앱 보호 정책을 사용하는 승인된 앱 필요
+## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>시나리오 1: 앱 보호 정책을 사용 하는 앱 Microsoft 365 승인 된 앱 필요
 
-이 시나리오에서 Contoso는 Office 365 리소스에 대 한 모든 모바일 액세스에서 액세스를 받기 전에 앱 보호 정책에 의해 보호 되는 Outlook mobile 및 OneDrive와 같은 승인 된 클라이언트 앱을 사용 하도록 결정 했습니다. 모든 사용자는 이미 Azure AD 자격 증명을 사용하여 로그인하고 Azure AD Premium P1 또는 P2 및 Microsoft Intune을 포함하는 라이선스가 할당되어 있습니다.
+이 시나리오에서 Contoso는 Microsoft 365 리소스에 대 한 모든 모바일 액세스가 액세스를 받기 전에 앱 보호 정책에 의해 보호 되는 Outlook mobile 및 OneDrive와 같은 승인 된 클라이언트 앱을 사용 하도록 결정 했습니다. 모든 사용자는 이미 Azure AD 자격 증명을 사용하여 로그인하고 Azure AD Premium P1 또는 P2 및 Microsoft Intune을 포함하는 라이선스가 할당되어 있습니다.
 
 조직에서는 모바일 디바이스에서 승인된 클라이언트 앱을 사용하도록 요구하기 위해 다음 단계를 완료해야 합니다.
 
-**1단계: Office 365에 대한 Azure AD 조건부 액세스 정책 구성**
+**1 단계: Microsoft 365에 대 한 Azure AD 조건부 액세스 정책 구성**
 
 1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
@@ -89,11 +89,11 @@ Android 및 iOS용 앱 보호 정책을 만드는 단계는 [앱 보호 정책�
 
 ## <a name="scenario-2-browser-apps-require-approved-apps-with-app-protection-policies"></a>시나리오 2: 브라우저 앱에 앱 보호 정책을 사용하는 승인된 앱 필요
 
-이 시나리오에서 Contoso는 Office 365 리소스에 대한 모든 모바일 웹 검색 액세스가 액세스를 받기 전에 앱 보호 정책을 통해 보호되는 iOS 및 Android용 Edge와 같은 승인된 클라이언트 앱을 사용하도록 결정했습니다. 모든 사용자는 이미 Azure AD 자격 증명을 사용하여 로그인하고 Azure AD Premium P1 또는 P2 및 Microsoft Intune을 포함하는 라이선스가 할당되어 있습니다.
+이 시나리오에서 Contoso는 Microsoft 365 리소스에 대 한 모든 모바일 웹 검색에서 액세스를 받기 전에 앱 보호 정책에 의해 보호 되는 iOS 및 Android 용 Edge와 같은 승인 된 클라이언트 앱을 사용 해야 한다고 결정 했습니다. 모든 사용자는 이미 Azure AD 자격 증명을 사용하여 로그인하고 Azure AD Premium P1 또는 P2 및 Microsoft Intune을 포함하는 라이선스가 할당되어 있습니다.
 
 조직에서는 모바일 디바이스에서 승인된 클라이언트 앱을 사용하도록 요구하기 위해 다음 단계를 완료해야 합니다.
 
-**1단계: Office 365에 대한 Azure AD 조건부 액세스 정책 구성**
+**1 단계: Microsoft 365에 대 한 Azure AD 조건부 액세스 정책 구성**
 
 1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
@@ -120,13 +120,13 @@ Android 및 iOS용 앱 보호 정책을 만드는 단계는 [앱 보호 정책�
 
 Android 및 iOS용 앱 보호 정책을 만드는 단계는 [앱 보호 정책을 만들고 할당하는 방법](/intune/apps/app-protection-policies) 문서를 검토하세요. 
 
-## <a name="scenario-3-exchange-online-and-sharepoint-online-require-an-approved-client-app-and-app-protection-policy"></a>시나리오 3: Exchange Online 및 SharePoint Online에 승인된 클라이언트 앱 및 앱 보호 정책 필요
+## <a name="scenario-3-exchange-online-and-sharepoint-require-an-approved-client-app-and-app-protection-policy"></a>시나리오 3: Exchange Online 및 SharePoint에 승인 된 클라이언트 앱 및 앱 보호 정책 필요
 
 이 시나리오에서 Contoso는 액세스를 받기 전에 앱 보호 정책에 의해 보호되는 Outlook 모바일과 같은 승인된 클라이언트 앱을 사용하는 한, 사용자가 모바일 디바이스에서 이메일 및 SharePoint 데이터에만 액세스할 수 있도록 결정했습니다. 모든 사용자는 이미 Azure AD 자격 증명을 사용하여 로그인하고 Azure AD Premium P1 또는 P2 및 Microsoft Intune을 포함하는 라이선스가 할당되어 있습니다.
 
 조직에서는 모바일 디바이스 및 Exchange ActiveSync 클라이언트에서 승인된 클라이언트 앱을 사용하도록 요구하기 위해 다음 세 단계를 완료해야 합니다.
 
-**1단계: Exchange Online 및 SharePoint Online에 액세스할 때 승인된 클라이언트 앱 및 앱 보호 정책을 사용해야 하는 Android 및 iOS 기반 최신 인증 클라이언트에 대한 정책입니다.**
+**1 단계: Exchange Online 및 SharePoint에 액세스할 때 승인 된 클라이언트 앱 및 앱 보호 정책을 사용 하도록 요구 하는 Android 및 iOS 기반 최신 인증 클라이언트에 대 한 정책입니다.**
 
 1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.

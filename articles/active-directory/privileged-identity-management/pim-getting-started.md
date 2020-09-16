@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea8bf2407fb533870495dc501a2d740bff9ee968
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567353"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600724"
 ---
 # <a name="start-using-privileged-identity-management"></a>Privileged Identity Management 사용 시작
 
@@ -27,7 +27,7 @@ ms.locfileid: "89567353"
 
 PIM (Privileged Identity Management)을 사용 하 여 Azure Active Directory (Azure AD) 조직 내에서 액세스를 관리, 제어 및 모니터링할 수 있습니다. PIM을 사용 하면 Azure 리소스, Azure AD 리소스 및 Microsoft 365 또는 Microsoft Intune와 같은 기타 Microsoft 온라인 서비스에 필요에 따라 액세스를 제공할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Privileged Identity Management를 사용 하려면 다음 라이선스 중 하나가 있어야 합니다.
 
@@ -35,6 +35,14 @@ Privileged Identity Management를 사용 하려면 다음 라이선스 중 하�
 - EMS(Enterprise Mobility + Security) E5
 
 자세한 내용은 [Privileged Identity Management 사용할 라이선스 요구 사항](subscription-requirements.md)을 참조 하세요.
+
+> [!Note]
+> 프리미엄 P2 라이선스를 사용 하는 Azure AD 조직의 권한 있는 역할에서 활성 상태인 사용자가 Azure AD의 **역할 및 관리자** 로 이동 하 여 역할을 선택 하는 경우 (또는 Privileged Identity Management만 방문):
+>
+> - 조직에 대해 PIM을 자동으로 사용 하도록 설정 합니다.
+> - 이제는 "일반" 역할 할당 또는 적격 역할 할당을 할당할 수 있습니다.
+>
+> PIM을 사용 하는 경우 조직에 다른 영향을 주지 않으므로 걱정할 필요가 없습니다. 시작 및 종료 시간과 함께 사용할 수 있는 활성 vs와 같은 추가 할당 옵션을 제공 합니다. 또한 PIM을 사용 하면 관리 단위 및 사용자 지정 역할을 사용 하 여 역할 할당의 범위를 정의할 수 있습니다. 전역 관리자 또는 권한 있는 역할 관리자 인 경우 PIM 주간 다이제스트와 같은 몇 가지 추가 전자 메일을 받을 수 있습니다. 역할 할당과 관련 된 감사 로그에 MS-PIM 서비스 사용자가 표시 될 수도 있습니다. 이는 워크플로에 영향을 주지 않아야 하는 예상 되는 변경 내용입니다.
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Azure AD 역할에 대 한 PIM 준비
 

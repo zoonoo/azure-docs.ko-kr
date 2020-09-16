@@ -5,20 +5,20 @@ description: Intune 사용자 지정 프로필을 만들어 Azure VPN 클라이�
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5a754a14cada1547a83e29d474e9b77aed7a2728
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: fba8433a7964b10901527894eee98722ece970ec
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024352"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602196"
 ---
 # <a name="create-an-intune-profile-to-deploy-vpn-client-profiles"></a>Intune 프로필을 만들어 VPN 클라이언트 프로필 배포
 
 Microsoft Intune를 사용 하 여 Azure VPN 클라이언트 (Windows 10)에 대 한 프로필을 배포할 수 있습니다. 이 문서는 사용자 지정 설정을 사용 하 여 Intune 프로필을 만드는 데 도움이 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * 장치가 Intune MDM에 이미 등록 되어 있습니다.
 * Windows 10 용 Azure VPN 클라이언트가 클라이언트 컴퓨터에 이미 배포 되어 있습니다.
@@ -54,17 +54,7 @@ Microsoft Intune를 사용 하 여 Azure VPN 클라이언트 (Windows 10)에 대
     </VPNProfile>
    ```
 1. 및의 항목을 ```<ServerUrlList>``` ```</ServerUrlList>``` 다운로드 한 프로필의 항목 (azurevpnconfig.xml)으로 수정 합니다. 사용자 환경에 맞게 "사용자의 네트워크 검색" FQDN을 변경 합니다.
-1. Azure 다운로드 한 프로필 (azurevpnconfig.xml)을 열고 텍스트를 강조 표시 하 고 + C를 눌러 클립보드에 내용을 복사 <ctrl> 합니다. 다음 AzVpnProfile 줄 사이에 모든 항목을 복사 하 되 AzVpnProfile 줄 자체는 복사 하지 않습니다.
-
-   ```
-   <AzVpnProfile xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/">
-     <any xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Xml"
-       i:nil="true" />
-
-   For example - copy the text in your xml that is located here.
-
-   </AzVpnProfile>
-   ```
+1. Azure 다운로드 한 프로필 (azurevpnconfig.xml)을 열고 텍스트를 강조 표시 하 고 (ctrl) + C를 눌러 전체 콘텐츠를 클립보드에 복사 합니다. 
 1. 이전 단계에서 복사한 텍스트를 태그 사이에 2 단계에서 만든 파일에 붙여넣습니다 ```<CustomConfiguration>  </CustomConfiguration>``` . Xml 확장명을 사용 하 여 파일을 저장 합니다.
 1. 태그의 값을 기록 ```<name>  </name>``` 합니다. 프로필 이름입니다. Intune에서 프로필을 만들 때이 이름이 필요 합니다. 파일을 닫고 저장 위치를 저장 합니다.
 

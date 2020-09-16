@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: e8aa5515bf8ae8e842a98656167f4198ac652981
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642387"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603342"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single Sign-On 배포 계획
 
@@ -28,7 +28,7 @@ SSO (single sign-on)는 단일 사용자 계정을 사용 하 여 한 번만 로
 
 SSO (Single sign-on)는 사용자가 Azure Active Directory (Azure AD)에서 응용 프로그램에 로그인 할 때 보안 및 편리 함을 추가 합니다. 
 
-대부분의 조직에서는 최종 사용자 생산성을 위해 Office 365, Box, Salesforce 등의 SaaS (software as a service) 응용 프로그램을 사용 합니다. 지금까지 IT 담당자는 각 SaaS 응용 프로그램에서 사용자 계정을 개별적으로 만들고 업데이트 해야 했으며, 사용자는 각 SaaS 응용 프로그램에 대 한 암호를 기억할 필요가 있습니다.
+많은 조직에서는 최종 사용자 생산성을 위해 Microsoft 365, Box 및 Salesforce와 같은 SaaS (software as a service) 응용 프로그램을 사용 합니다. 지금까지 IT 담당자는 각 SaaS 응용 프로그램에서 사용자 계정을 개별적으로 만들고 업데이트 해야 했으며, 사용자는 각 SaaS 응용 프로그램에 대 한 암호를 기억할 필요가 있습니다.
 
 Azure Marketplace에는 미리 통합 된 SSO 연결을 사용 하는 3000 이상의 응용 프로그램이 있으므로 테 넌 트에 쉽게 통합할 수 있습니다.
 
@@ -118,7 +118,7 @@ Network 경계는 점점 더 많은 ou가 되 고 BYOD 장치와 클라우드 �
 
 Azure AD는 [기술 및 비즈니스 통찰력을 포함 하는 보고서](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/)를 제공 합니다. 
 
-보안 및 작업 보고서를 모두 사용할 수 있습니다. 보안 보고서에는 위험 플래그가 지정 된 사용자 및 위험한 로그인이 표시 됩니다. 활동 보고서는 로그인 활동을 자세히 설명 하 고 모든 로그인의 감사 내역을 제공 하 여 조직의 사용자 동작을 이해 하는 데 도움이 됩니다. 보고서를 사용 하 여 위험을 관리 하 고 생산성을 높이고 규정 준수를 모니터링할 수 있습니다.
+보안 및 작업 보고서를 모두 사용할 수 있습니다. 보안 보고서에는 위험 플래그가 지정 된 사용자 및 위험한 로그인이 표시 됩니다. 활동 보고서는 로그인 활동을 자세히 설명 하 고 모든 로그인에 대 한 감사 내역을 제공 하 여 조직의 사용자 동작을 이해 하는 데 도움이 됩니다. 보고서를 사용 하 여 위험을 관리 하 고 생산성을 높이고 규정 준수를 모니터링할 수 있습니다.
 
 | 보고서 종류 | 액세스 검토 | 보안 보고서 | 로그인 보고서 |
 |-------------|---------------|------------------|----------------|
@@ -285,7 +285,7 @@ SaaS 앱 보안의 다양 한 측면을 검토 하 고 필요한 수정 작업�
 
 - [사용자 지정 포털에서 로그인 하는 문제](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [내 앱에서 로그인 할 때 발생 하는 문제](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [내 앱에서 로그인하는 문제](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [애플리케이션 로그인 페이지의 오류](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 

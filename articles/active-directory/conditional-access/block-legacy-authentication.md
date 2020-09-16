@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1973d45197044c325caf2d9938838f438d7755c
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ca9f4e290c5dad45e5bf87439ebcd1c88a7c540f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049539"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602006"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용하여 Azure AD에 대한 레거시 인증 차단   
 
@@ -125,4 +125,4 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 - [조건부 액세스 보고서 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 - 조건부 액세스 정책을 구성하는 데 아직 익숙하지 않은 경우 한 가지 예로 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](../authentication/tutorial-enable-azure-mfa.md)를 참조하세요.
 - 최신 인증 지원에 대한 자세한 내용은 [Office 2013 및 Office 2016 클라이언트 앱에 대한 최신 인증 작동 방식](/office365/enterprise/modern-auth-for-office-2013-and-2016)을 참조하세요. 
-- [Office 365 및 Microsoft 365를 사용하여 이메일을 보내도록 다기능 디바이스 또는 애플리케이션을 설정하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+- [Microsoft 365를 사용 하 여 전자 메일을 보내도록 다기능 장치 또는 응용 프로그램을 설정 하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

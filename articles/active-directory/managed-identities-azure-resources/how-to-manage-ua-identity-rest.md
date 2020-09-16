@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/26/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f04eb0eb3741a388b375cf7d8c6455bfd4a17b39
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 45c8694c90fedccbecee1fee09e7146bf2d0aaa6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266343"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601166"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>REST API 호출을 사용 하 여 사용자 할당 관리 id 만들기, 나열 또는 삭제
 
@@ -38,8 +38,6 @@ Azure 리소스에 대 한 관리 되는 id는 코드에서 자격 증명을 필
 - [Linux용 Windows 하위 시스템](/windows/wsl/about) 또는 [Linux 배포 OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)를 사용하는 경우, [Azure CLI 로컬 콘솔을 설치](/cli/azure/install-azure-cli)합니다.
 - Azure CLI 로컬 콘솔을 사용하는 경우, 사용자 할당 관리 ID 정보를 배포하거나 검색하려는 Azure 구독과 연결된 계정으로 `az login`을 사용하여 Azure에 로그인합니다.
 - `az account get-access-token`을 통해 전달자 액세스 토큰을 검색하여 다음 사용자 할당 관리 ID 작업을 수행합니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기 
 
@@ -67,7 +65,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **요청 본문**
 
-|Name  |설명  |
+|Name  |Description  |
 |---------|---------|
 |위치     | 필수 요소. 리소스 위치.        |
 

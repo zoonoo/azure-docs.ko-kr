@@ -2,14 +2,14 @@
 title: 새 구독 또는 리소스 그룹으로 리소스 이동
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2b278dae956ec0bd17773badbeaa880b7bf901a5
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 43b5cd8c9fa5947ff8f345bd0cd3ad26d9e61923
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056670"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603155"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>리소스를 새 리소스 그룹 또는 구독으로 이동
 
@@ -172,7 +172,7 @@ Authorization: Bearer <access-token>
 
 :::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="move 옵션 사용 안 함":::
 
-이동 옵션을 사용 하도록 설정 하려면 이동 하려는 리소스를 선택 합니다. 모든 리소스를 선택 하려면 목록의 맨 위에 있는 확인란을 선택 합니다. 또는 리소스를 개별적으로 선택 합니다.
+이동 옵션을 사용 하도록 설정 하려면 이동 하려는 리소스를 선택 합니다. 모든 리소스를 선택 하려면 목록의 맨 위에 있는 확인란을 선택 합니다. 또는 리소스를 개별적으로 선택 합니다. 리소스를 선택한 후에는 이동 옵션을 사용할 수 있습니다.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="리소스 선택":::
 
@@ -200,7 +200,7 @@ Authorization: Bearer <access-token>
 
 오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
-## <a name="use-azure-powershell"></a>Azure Powershell 사용
+## <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
 다른 리소스 그룹 또는 구독에 기존 리소스를 이동하려면 [Move-AzResource](/powershell/module/az.resources/move-azresource) 명령을 사용합니다. 다음 예제에서는 여러 리소스를 새 리소스 그룹으로 이동하는 방법을 보여 줍니다.
 

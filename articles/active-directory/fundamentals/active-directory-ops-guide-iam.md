@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: ab4e9f7410954292290b6acf0895197ff013b1d8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321670"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601312"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Azure Active Directory Id 및 액세스 관리 작업 참조 가이드
 
@@ -35,8 +35,8 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 될 
 | :- | :- |
 | Azure 구독을 만드는 방법에 대 한 프로세스 정의 | 조직 마다 다름 |
 | Enterprise Mobility + Security 라이선스를 가져오는 사람 결정 | IAM 운영 팀 |
-| Office 365 라이선스를 받는 사람 결정 | 생산성 팀 |
-| 다른 라이선스를 가져오는 사용자 (예: Dynamics, VSO)를 결정 합니다. | 애플리케이션 소유자 |
+| Microsoft 365 라이선스를 가져오는 사람 결정 | 생산성 팀 |
+| 다른 라이선스를 가져오는 사용자 (예: Dynamics, Visual Studio Codespaces)를 결정 합니다. | 애플리케이션 소유자 |
 | 라이선스 할당 | IAM 운영 팀 |
 | 라이선스 할당 오류 문제 해결 및 재구성 | IAM 운영 팀 |
 | Azure AD의 응용 프로그램에 id 프로 비전 | IAM 운영 팀 |
@@ -140,7 +140,7 @@ Azure AD Connect 사용자 지정 규칙은 온-프레미스 개체와 클라우
 
 Azure Active Directory Microsoft 클라우드 서비스에 대 한 [그룹 기반 라이선스](./active-directory-licensing-whatis-azure-portal.md) 를 통해 라이선스 관리를 간소화 합니다. 이러한 방식으로 IAM은 그룹 인프라를 제공 하 고 해당 그룹의 위임 된 관리를 조직의 적절 한 팀에 제공 합니다. Azure AD에서 그룹의 멤버 자격을 설정 하는 방법에는 다음을 비롯 한 여러 가지가 있습니다.
 
-- 온 **-프레미스에서 동기화** -그룹은 온-프레미스 디렉터리에서 가져올 수 있으며,이는 office 365에서 라이선스를 할당 하도록 확장할 수 있는 그룹 관리 프로세스를 설정한 조직에 적합 합니다.
+- 온 **-프레미스에서 동기화** 된 그룹은 온-프레미스 디렉터리에서 가져올 수 있으며,이는 Microsoft 365에서 라이선스를 할당 하도록 확장할 수 있는 그룹 관리 프로세스를 설정한 조직에 적합 합니다.
 
 - **특성 기반/동적** 그룹은 사용자 특성을 기반으로 하는 식을 기반으로 클라우드에서 만들 수 있습니다. 예를 들어 부서는 "sales"와 같습니다. Azure AD는 정의 된 식과 일관 되 게 유지 하면서 그룹의 멤버를 유지 관리 합니다. 라이선스 할당을 위해 이러한 종류의 그룹을 사용 하면 특성 기반 라이선스 할당을 사용할 수 있습니다 .이는 해당 디렉터리에서 데이터 품질이 높은 조직에 적합 합니다.
 
@@ -188,7 +188,7 @@ Azure Active Directory Microsoft 클라우드 서비스에 대 한 [그룹 기�
 
 #### <a name="azure-ad-connect-troubleshooting-recommended-reading"></a>Azure AD Connect 문제 해결 권장 사항
 
-- [IdFix 도구를 사용 하 여 Office 365와 동기화 하기 위한 디렉터리 특성 준비-Office 365](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
+- [IdFix 도구를 사용 하 여 Microsoft 365와 동기화 하기 위한 디렉터리 특성 준비](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
 - [Azure AD Connect: 동기화 중 오류 문제 해결](../hybrid/tshoot-connect-sync-errors.md)
 
 ## <a name="summary"></a>요약

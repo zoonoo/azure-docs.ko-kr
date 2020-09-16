@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: b45a0608d78330eafd6afc3656f8a4addbdffd3b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321721"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601367"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
 
@@ -95,7 +95,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>온-프레미스 중단 인증 복원 력
 
-간단한 자격 증명 검색 기능 외에도 Azure AD의 PHS (암호 해시 동기화) 및 Azure MFA를 사용 하면 [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/)와 같은 사이버 공격로 인 한 온-프레미스 중단에도 불구 하 고 사용자가 SaaS 응용 프로그램 및 Office 365에 액세스할 수 있습니다. 페더레이션을 사용 하는 동시에 페더레이션을 사용 하도록 설정할 수도 있습니다. PHS를 사용 하도록 설정 하면 페더레이션 서비스를 사용할 수 없을 때 인증을 대체 합니다.
+간단 하 고 누출 된 자격 증명 검색을 사용 하는 것 외에도 Azure AD의 PHS (암호 해시 동기화) 및 Azure MFA를 사용 하면 사용자가 [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/)와 같은 사이버 공격으로 인해 온-프레미스 중단에도 불구 하 고 SaaS 응용 프로그램 및 Microsoft 365에 액세스할 수 있습니다. 페더레이션을 사용 하는 동시에 페더레이션을 사용 하도록 설정할 수도 있습니다. PHS를 사용 하도록 설정 하면 페더레이션 서비스를 사용할 수 없을 때 인증을 대체 합니다.
 
 온-프레미스 조직에 중단 복원 력이 없거나 Azure AD와 통합 되지 않은 전략이 있는 경우 Azure AD PHS를 배포 하 고 PHS를 포함 하는 재해 복구 계획을 정의 해야 합니다. Azure AD PHS를 사용 하도록 설정 하면 사용자가 온-프레미스 Active Directory을 사용할 수 없는 경우 Azure AD에 대해 인증할 수 있습니다.
 
@@ -249,7 +249,7 @@ MAM (Microsoft Intune 응용 프로그램 관리)은 저장소 암호화, PIN, �
 - 여러 응용 프로그램에 적용할 수 있는 몇 가지 핵심 정책 집합이 있어야 합니다.
 - 빈 예외 그룹을 정의 하 고 정책에 추가 하 여 예외 전략을 포함 합니다.
 - MFA 컨트롤이 없는 [브레이크 유리](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) 계정 계획
-- Office 365 클라이언트 응용 프로그램 (예: 팀, OneDrive for Business, Outlook 등)에서 일관 된 환경을 보장 합니다. Exchange Online, Sharepoint Online 등의 서비스에 대해 동일한 컨트롤 집합을 구현 하 여
+- Microsoft 365 클라이언트 응용 프로그램 (예: 팀, OneDrive, Outlook 등) 간에 일관 된 환경을 보장 합니다. Exchange Online, Sharepoint Online 등의 서비스에 대해 동일한 컨트롤 집합을 구현 하 여
 - 정책에 대 한 할당은 개인이 아닌 그룹을 통해 구현 되어야 합니다.
 - 정책에 사용 되는 예외 그룹을 정기적으로 검토 하 여 사용자가 보안 상태를 벗어나는 시간을 제한 합니다. Azure AD P2를 소유 하는 경우 액세스 검토를 사용 하 여 프로세스를 자동화할 수 있습니다.
 
@@ -281,7 +281,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
    
    b. 아래 단계에 따라 잠글 일정을 계획 합니다.
    
-   다. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
+   c. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
 
 2. 레거시 인증을 사용 하지 않는 사용자가 더 많은 노출을 방지 하기 위해 원본 (예: Exchange 사서함)에서 레거시 프로토콜을 사용 하지 않도록 설정 합니다.
 3. 나머지 계정 (서비스 계정 등의 비 사용자 id)의 경우 조건부 액세스를 사용 하 여 인증 후 [레거시 프로토콜을 제한](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) 합니다.
@@ -302,14 +302,14 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 
 | 리소스 | 사용 권한 |
 | :- | :- |
-| Office 365 Exchange Online | 그런. AccessAsUser. 모두 |
+| Exchange Online | 그런. AccessAsUser. 모두 |
 | | EWS. AccessAsUser. 모두 |
 | | Mail.Read |
 | Microsoft Graph API | Mail.Read |
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 다음은 그 예입니다. 
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들어:
 
 |리소스 | 사용 권한 |
 | :- | :- |
@@ -339,7 +339,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 
 #### <a name="group-settings"></a>그룹 설정
 
-**셀프 서비스 그룹 관리/사용자는 보안 그룹/O365 그룹을 만들 수 있습니다.** 클라우드의 그룹에 대 한 현재 셀프 서비스 이니셔티브가 없는 경우 고객은이 기능을 사용할 준비가 될 때까지 해제 하도록 결정할 수 있습니다.
+**셀프 서비스 그룹 관리/사용자는 보안 그룹/Microsoft 365 그룹을 만들 수 있습니다.** 클라우드의 그룹에 대 한 현재 셀프 서비스 이니셔티브가 없는 경우 고객은이 기능을 사용할 준비가 될 때까지 해제 하도록 결정할 수 있습니다.
 
 #### <a name="groups-recommended-reading"></a>그룹 권장 읽기
 

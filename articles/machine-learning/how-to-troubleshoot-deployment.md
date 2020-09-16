@@ -11,20 +11,20 @@ ms.reviewer: jmartens
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4, devx-track-python
-ms.openlocfilehash: 4a0601e2821920e7de3b389d9acfd78598ef67ee
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 22f9c709ced1069caa39ba2145981efa353caadf
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019294"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602636"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Azure Kubernetes Service 및 Azure Container Instances를 사용 하 여 모델의 Docker 배포 문제 해결 
 
 Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azure Kubernetes 서비스 (AKS)와의 일반적인 Docker 배포 오류를 해결 하 고 해결 하거나 해결 하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* **Azure 구독**. 구독이 없는 경우[Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* **Azure 구독**. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Azure Machine Learning용 CLI 확장](reference-azure-machine-learning-cli.md)
@@ -34,14 +34,12 @@ Azure Machine Learning를 사용 하 여 Azure Container Instances (ACI) 및 Azu
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>기계 학습 모델의 Docker 배포 단계
 
-Azure Machine Learning에서 모델을 배포하는 경우 시스템에서 많은 작업을 수행합니다.
-
-모델 배포에 권장 되는 방법은 [환경](how-to-use-environments.md) 개체를 입력 매개 변수로 사용 하는 [모델인 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API를 사용 하는 것입니다. 이 경우 서비스는 배포 단계 중에 기본 docker 이미지를 만들고 필요한 모델을 모두 하나의 호출로 탑재 합니다. 기본 배포 작업은 다음과 같습니다.
+Azure Machine Learning에서 모델을 배포 하는 경우에는 [.deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API 및 [환경](how-to-use-environments.md) 개체를 사용 합니다. 서비스는 배포 단계에서 기본 docker 이미지를 만들고 필요한 모델을 모두 하나의 호출로 탑재 합니다. 기본 배포 작업은 다음과 같습니다.
 
 1. 모델을 작업 영역 모델 레지스트리에 등록합니다.
 
 2. 유추 구성을 정의합니다.
-    1. 환경 yaml 파일에 지정한 종속성을 기반으로 하는 [Environment](how-to-use-environments.md) 개체를 만들거나 확보된 환경 중 하나를 사용합니다.
+    1. [환경](how-to-use-environments.md) 개체를 만듭니다. 이 개체는 큐 레이트 환경 중 하나인 yaml 파일 환경에서 종속성을 사용할 수 있습니다.
     2. 환경 및 채점 스크립트를 기반으로 하는 유추 구성(InferenceConfig 개체)을 만듭니다.
 
 3. 모델을 ACI(Azure Container Instance) 서비스 또는 AKS(Azure Kubernetes Service)에 배포합니다.
@@ -52,7 +50,7 @@ Azure Machine Learning에서 모델을 배포하는 경우 시스템에서 많�
 
 문제가 발생할 경우 가장 먼저 할 일은 배포 작업을 개별 단계로 분리하여(이전 설명 참조) 문제를 격리하는 것입니다.
 
-[Environment](how-to-use-environments.md) 개체를 입력 매개 변수로 사용하여 [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API를 통해 배포하는 새 배포 방법 또는 추천 배포 방법을 사용한다고 가정하면 코드를 세 가지 주요 단계로 나눌 수 있습니다.
+[환경](how-to-use-environments.md) 개체를 입력 매개 변수로 사용 하 여 [모델인 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) 를 사용 하는 경우 코드를 세 가지 주요 단계로 나눌 수 있습니다.
 
 1. 모델을 등록합니다. 다음은 몇 가지 샘플 코드입니다.
 
@@ -95,11 +93,11 @@ Azure Machine Learning에서 모델을 배포하는 경우 시스템에서 많�
     aci_service.wait_for_deployment(show_output=True)
     ```
 
-배포 프로세스를 개별 작업으로 분리한 후에는 가장 일반적인 오류 중 일부를 볼 수 있습니다.
+배포 프로세스를 개별 작업으로 분리 하면 보다 일반적인 오류 중 일부를 쉽게 식별할 수 있습니다.
 
 ## <a name="debug-locally"></a>로컬에서 디버그
 
-ACI 또는 AKS에 모델을 배포하는 데 문제가 발생하면 로컬 웹 서비스로 배포해 보세요. 로컬 웹 서비스를 사용하면 문제를 더 쉽게 해결할 수 있습니다. 모델이 포함된 Docker 이미지는 로컬 시스템에서 다운로드되어 시작됩니다.
+ACI 또는 AKS에 모델을 배포할 때 문제가 발생 하는 경우 로컬 웹 서비스로 배포 합니다. 로컬 웹 서비스를 사용하면 문제를 더 쉽게 해결할 수 있습니다.
 
 [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) 리포지토리에서 샘플 [로컬 배포 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) 을 찾아 실행 가능한 예제를 탐색할 수 있습니다.
 
@@ -128,9 +126,9 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-사용자 고유의 conda 사양 YAML을 정의 하는 경우 pip 종속성으로 버전 >= 1.0.45이 있는 azureml 기본값을 나열 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다.
+사용자 고유의 conda 사양 YAML을 정의 하는 경우 pip-기본값 버전 >= 1.0.45를 pip 종속성으로 나열 합니다. 이 패키지는 모델을 웹 서비스로 호스트 하는 데 필요 합니다.
 
-이 시점에서 서비스를 정상적으로 사용할 수 있습니다. 예를 들어 다음 코드에서는 데이터를 서비스에 보내는 방법을 보여 줍니다.
+이 시점에서 서비스를 정상적으로 사용할 수 있습니다. 다음 코드는 서비스에 데이터를 보내는 방법을 보여 줍니다.
 
 ```python
 import json
@@ -189,7 +187,7 @@ print(ws.webservices['mysvc'].get_logs())
  
 ## <a name="container-cannot-be-scheduled"></a>컨테이너를 예약할 수 없음
 
-서비스를 Azure Kubernetes Service 컴퓨팅 대상에 배포하는 경우 Azure Machine Learning에서 서비스를 요청된 리소스의 양으로 예약하려고 합니다. 5 분 후에 클러스터에서 사용할 수 있는 적절 한 양의 리소스를 사용할 수 있는 노드가 없는 경우 배포는 메시지와 함께 실패 합니다 `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . 이 오류는 더 많은 노드를 추가하거나 노드의 SKU를 변경하거나 서비스의 리소스 요구 사항을 변경하여 해결할 수 있습니다. 
+서비스를 Azure Kubernetes Service 컴퓨팅 대상에 배포하는 경우 Azure Machine Learning에서 서비스를 요청된 리소스의 양으로 예약하려고 합니다. 5 분 후에 적절 한 양의 리소스를 사용 하 여 클러스터에서 사용할 수 있는 노드가 없으면 배포에 실패 합니다. 실패 메시지는 `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` 입니다. 노드를 더 추가 하거나, 노드의 SKU를 변경 하거나, 서비스의 리소스 요구 사항을 변경 하 여이 오류를 해결할 수 있습니다. 
 
 오류 메시지는 일반적으로 필요한 리소스를 나타냅니다. 즉, `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` 서비스에 gpu가 필요 하 고 사용 가능한 gpu가 없는 클러스터에 3 개의 노드가 있음을 나타내는 오류 메시지가 표시 됩니다. 이는 GPU SKU를 사용하는 경우 더 많은 노드를 추가하거나, 사용하지 않는 경우 GPU 지원 SKU로 전환하거나, GPU가 필요하지 않도록 환경을 변경하여 해결할 수 있습니다.  
 
@@ -239,13 +237,16 @@ def run(input_data):
 
 ## <a name="http-status-code-503"></a>503 HTTP 상태 코드
 
-Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추가 로드를 지원하기 위해 복제본을 추가할 수 있습니다. 그러나 자동 크기 조정기는 **점진적** 로드 변경을 처리하도록 설계되었습니다. 초당 요청 수가 크게 급증하면 클라이언트에서 503 HTTP 상태 코드를 받을 수 있습니다.
+Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추가 로드를 지원하기 위해 복제본을 추가할 수 있습니다. Autoscaler는 부하의 **점진적** 변화를 처리 하도록 설계 되었습니다. 초당 요청 수가 크게 급증하면 클라이언트에서 503 HTTP 상태 코드를 받을 수 있습니다. Autoscaler가 빠르게 반응 하더라도 추가 컨테이너를 만드는 데 상당한 시간이 소요 됩니다.
+
+수직 확장/축소 결정은 현재 컨테이너 복제본의 사용률을 기준으로 합니다. 현재 복제본의 총 수로 나눈 사용 중인 복제본 수 (요청 처리)가 현재 사용량입니다. 이 수가 초과 `autoscale_target_utilization` 되 면 더 많은 복제본이 생성 됩니다. 이보다 낮으면 복제본이 줄어듭니다. 복제본 추가에 대 한 결정은 신속 하 고 빠르게 진행 됩니다 (약 1 초). 복제본 제거에 대 한 결정은 매우 보수적인 결정입니다 (약 1 분). 기본적으로 자동 크기 조정 대상 사용률은 **70%** 로 설정 됩니다. 즉, 서비스가 **최대 30%** 의 초당 급증 하는 요청 수 (RPS)를 처리할 수 있습니다.
 
 503 상태 코드를 방지하는 데 도움이 되는 두 가지 방법이 있습니다.
 
-* 자동 크기 조정에서 새 복제본을 만드는 사용률 수준을 변경합니다.
-    
-    기본적으로 자동 크기 조정 목표 사용률은 70%로 설정됩니다. 즉 서비스에서 RPS(초당 요청 수)의 급증을 최대 30%까지 처리할 수 있습니다. `autoscale_target_utilization`을 더 낮은 값으로 설정하여 사용률 목표를 조정할 수 있습니다.
+> [!TIP]
+> 이러한 두 가지 접근 방식은 개별적으로 또는 함께 사용할 수 있습니다.
+
+* 자동 크기 조정에서 새 복제본을 만드는 사용률 수준을 변경합니다. `autoscale_target_utilization`을 더 낮은 값으로 설정하여 사용률 목표를 조정할 수 있습니다.
 
     > [!IMPORTANT]
     > 이 변경으로 인해 복제본이 *더 빨리* 만들어지지 않습니다. 대신 낮은 사용률 임계값에서 만들어집니다. 서비스 사용률이 70%가 될 때까지 기다리는 대신 값을 30%로 변경하면 30%의 사용률이 발생할 때 복제본이 만들어집니다.
@@ -286,7 +287,9 @@ Azure Kubernetes Service 배포는 자동 크기 조정을 지원하므로 추�
 
 ## <a name="advanced-debugging"></a>고급 디버깅
 
-경우에 따라 모델 배포에 포함된 Python 코드를 대화형으로 디버그해야 할 수도 있습니다. 예를 들어 항목 스크립트가 실패하고 추가 로깅으로 이유를 확인할 수 없는 경우입니다. Visual Studio Code 및 debugpy를 사용 하 여 Docker 컨테이너 내에서 실행 되는 코드에 연결할 수 있습니다. 자세한 내용은 [VS Code의 대화형 디버깅 가이드](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments)를 참조 하세요.
+모델 배포에 포함 된 Python 코드를 대화형으로 디버깅 해야 할 수도 있습니다. 예를 들어 항목 스크립트가 실패하고 추가 로깅으로 이유를 확인할 수 없는 경우입니다. Visual Studio Code 및 debugpy를 사용 하 여 Docker 컨테이너 내에서 실행 되는 코드에 연결할 수 있습니다.
+
+자세한 내용은 [VS Code의 대화형 디버깅 가이드](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments)를 참조 하세요.
 
 ## <a name="model-deployment-user-forum"></a>[모델 배포 사용자 포럼](https://docs.microsoft.com/answers/topics/azure-machine-learning-inference.html)
 

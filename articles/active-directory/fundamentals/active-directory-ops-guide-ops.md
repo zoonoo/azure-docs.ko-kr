@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: edb35986fcfc0e8855fa712b519ee7a8ca2f0ed8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321959"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601313"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Azure Active Directory 일반 작업 가이드 참조
 
@@ -123,11 +123,11 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 현재 조직에 Id 보안 점수 변경을 모니터링할 프로그램이 없는 경우 계획을 구현 하 고 소유자를 할당 하 여 개선 작업을 모니터링 하 고 구동 하는 것이 좋습니다. 조직은 가능한 한 빨리 30 보다 큰 점수를 사용 하 여 개선 작업을 수정 해야 합니다.
 
-### <a name="notifications"></a>공지
+### <a name="notifications"></a>알림
 
-Microsoft는 관리자에 게 전자 메일 통신을 보내 서비스의 다양 한 변경 내용, 필요한 구성 업데이트 및 관리자 개입이 필요한 오류를 알립니다. 모든 알림을 승인 하 고 작업할 수 있는 적절 한 팀 구성원에 게 알림이 전송 되도록 고객은 알림 전자 메일 주소를 설정 하는 것이 중요 합니다. [Office 365 메시지 센터](/office365/admin/manage/message-center) 에 여러 받는 사람을 추가 하 고 메일 그룹 또는 공유 사서함에 알림 (Azure AD Connect Health 알림 포함)을 보내도록 요청 하는 것이 좋습니다. 전자 메일 주소를 가진 전역 관리자 계정이 하나만 있는 경우 전자 메일을 사용할 수 있는 계정을 두 개 이상 구성 해야 합니다.
+Microsoft는 관리자에 게 전자 메일 통신을 보내 서비스의 다양 한 변경 내용, 필요한 구성 업데이트 및 관리자 개입이 필요한 오류를 알립니다. 모든 알림을 승인 하 고 작업할 수 있는 적절 한 팀 구성원에 게 알림이 전송 되도록 고객은 알림 전자 메일 주소를 설정 하는 것이 중요 합니다. [메시지 센터](/office365/admin/manage/message-center) 에 여러 받는 사람을 추가 하 고 메일 그룹 또는 공유 사서함에 알림 (Azure AD Connect Health 알림 포함)을 보내도록 요청 하는 것이 좋습니다. 전자 메일 주소를 가진 전역 관리자 계정이 하나만 있는 경우 전자 메일을 사용할 수 있는 계정을 두 개 이상 구성 해야 합니다.
 
-Azure AD에서 사용 하는 "보낸 사람" 주소는 다음과 같습니다. 여기서는 <o365mc@email2.microsoft.com> Office 365 메시지 센터 알림을 보내고 <azure-noreply@microsoft.com> ,는와 관련 된 알림을 보냅니다.
+Azure AD에서 사용 하는 "보낸 사람" 주소는 <o365mc@email2.microsoft.com> 메시지 센터 알림을 보내는 및와 <azure-noreply@microsoft.com> 관련 된 알림을 보내는 및입니다.
 
 - [Azure AD 액세스 검토](../governance/access-reviews-overview.md)
 - [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
@@ -141,14 +141,14 @@ Azure AD에서 사용 하는 "보낸 사람" 주소는 다음과 같습니다. �
 | 알림 원본 | 전송 된 항목 | 확인할 위치 |
 |:-|:-|:-|
 | 기술 담당자 | 동기화 오류 | Azure Portal-속성 블레이드 |
-| Office 365 메시지 센터 | Id 서비스 및 O365 백 엔드 서비스의 인시던트 및 성능 저하 알림 | Office 포털 |
+| 메시지 센터 | Id 서비스 및 Microsoft 365 백 엔드 서비스의 인시던트 및 성능 저하 알림 | Office 포털 |
 | Id 보호 주간 다이제스트 | Id 보호 다이제스트 | Azure AD ID 보호 블레이드 |
 | Azure AD Connect Health | 경고 알림 | Azure Portal-Azure AD Connect Health 블레이드 |
 | 엔터프라이즈 응용 프로그램 알림 | 인증서가 만료 되 고 프로 비전 오류가 발생 하는 경우 알림 | Azure Portal-엔터프라이즈 응용 프로그램 블레이드 (각 앱에 고유한 전자 메일 주소 설정 포함) |
 
 #### <a name="notifications-recommended-reading"></a>알림 권장 읽기
 
-- [조직의 주소, 기술 연락처 및 기타-Office 365 변경](/office365/admin/manage/change-address-contact-and-more)
+- [조직의 주소, 기술 연락처 등 변경](/office365/admin/manage/change-address-contact-and-more)
 
 ## <a name="operational-surface-area"></a>운영 노출 영역
 

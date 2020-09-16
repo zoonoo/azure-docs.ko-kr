@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27aabac75516eed2c68b4f14c6593411d0141ef1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437244"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601761"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
@@ -48,26 +48,26 @@ ms.locfileid: "89437244"
 - 관리자가 사용자에 대 한 모든 새로 고침 토큰을 명시적으로 해지
 - Azure AD ID 보호에서 검색 된 승격 된 사용자 위험
 
-이 프로세스를 통해 사용자는 조직 SharePoint Online 파일, 전자 메일, 일정, 작업 및 이러한 중요 한 이벤트 중 한 분 내에 O365 클라이언트 앱의 팀에 대 한 액세스 권한을 잃게 됩니다. 
+이 프로세스를 통해 사용자는 조직 SharePoint Online 파일, 전자 메일, 일정 또는 작업에 대 한 액세스 권한을 상실 하 고 이러한 중요 한 이벤트 중 하나에서 분 내에 Microsoft 365 클라이언트 앱에서 팀에 액세스할 수 있습니다. 
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>조건부 액세스 정책 평가 (미리 보기)
 
 Exchange 및 SharePoint는 키 조건부 액세스 정책을 동기화 할 수 있으므로 서비스 자체 내에서 평가할 수 있습니다.
 
-이 프로세스를 통해 사용자는 네트워크 위치를 변경한 후 즉시 O365 클라이언트 앱 또는 SharePoint Online에서 조직 파일, 전자 메일, 일정 또는 작업에 액세스할 수 없게 됩니다.
+이 프로세스를 통해 사용자는 네트워크 위치를 변경한 후 즉시 Microsoft 365 클라이언트 앱 또는 SharePoint Online에서 조직 파일, 메일, 일정 또는 작업에 액세스할 수 없게 됩니다.
 
 > [!NOTE]
 > 일부 앱 및 리소스 공급자 조합은 지원 되지 않습니다. 아래 표를 참조 하세요. Office는 Word, Excel 및 PowerPoint를 의미 합니다.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | 지원됨 | 지원됨 | 지원되지 않음 | 지원되지 않음 | 지원됨 |
-| Exchange Online | 지원됨 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
+| **SharePoint Online** | 지원됨 | 지원됨 | 지원되지 않음 | 지원되지 않음 | 지원됨 |
+| **Exchange Online** | 지원됨 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
 
 | | Office web apps | Office Win32 앱 | IOS 용 Office | Android 용 Office | Mac용 Office |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | 지원됨 | 지원됨 | 지원되지 않음 | 지원됨 | 지원됨 |
-| Exchange Online | 지원됨 | 지원됨 | 지원되지 않음 | 지원됨 | 지원됨 |
+| **SharePoint Online** | 지원됨 | 지원됨 | 지원되지 않음 | 지원됨 | 지원됨 |
+| **Exchange Online** | 지원됨 | 지원됨 | 지원되지 않음 | 지원됨 | 지원됨 |
 
 ### <a name="client-side-claim-challenge"></a>클라이언트 쪽 클레임 챌린지
 
@@ -144,7 +144,7 @@ CAE의 경우 명명 된 IP 기반 명명 된 위치에 대 한 정보를 제공
 
 ### <a name="ip-address-configuration"></a>IP 주소 구성
 
-Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 다음은 그 예입니다. 
+Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예를 들어:
 
 - Id 공급자는 클라이언트에서 하나의 IP 주소를 확인 합니다.
 - 리소스 공급자는 프록시를 통과 한 후 클라이언트와 다른 IP 주소를 확인 합니다.
