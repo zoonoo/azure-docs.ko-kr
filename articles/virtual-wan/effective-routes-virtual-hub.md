@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0f5481531d23eeb579dcabe80e028ed7b482b09f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 6592b1a934e732888ef949071d95075d0af61bf6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762269"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708073"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>가상 허브 유효 경로 보기
 
@@ -50,6 +50,8 @@ Azure Portal에서 가상 WAN 허브의 모든 경로를 볼 수 있습니다. �
 * **기본 경로 전파** 필드는 가상 네트워크 연결, VPN 연결 또는 express 경로 연결을 편집할 때 AZURE 가상 WAN 포털에 표시 됩니다. 이 필드는 **Enableinternetsecurity** 플래그를 나타냅니다 .이 플래그는 기본적으로 express 경로 및 VPN 연결의 경우 항상 "false"이 고, 가상 네트워크 연결의 경우 "true"입니다.
 
 * VM NIC에서 유효 경로를 볼 때, 다음 홉이 ' Virtual Network 게이트웨이 '로 표시 되는 경우 VM이 가상 WAN 허브에 연결 된 스포크에 있는 경우 가상 허브 라우터를 의미 합니다.
+
+* 가상 허브 경로 테이블에 대 한 유효 경로 보기는 가상 허브에 연결 된 연결 유형 (VPN/ER/VNET)이 하나 이상 있는 경우에만 채워집니다.
 
 ## <a name="next-steps"></a>다음 단계
 

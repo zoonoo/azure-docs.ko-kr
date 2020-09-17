@@ -3,15 +3,15 @@ title: Windows Virtual Desktop이란? - Azure
 description: Windows Virtual Desktop의 개요입니다.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/20/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cc5ad91c779a3445712db962fb97bab309eda973
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661115"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527176"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란?
 
@@ -110,12 +110,10 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android](connect-android.md)
+* Microsoft Store 클라이언트
 
 > [!IMPORTANT]
 > Windows Virtual Desktop은 RADC(RemoteApp 및 데스크톱 연결) 클라이언트 또는 원격 데스크톱 연결(MSTSC) 클라이언트를 지원하지 않습니다.
-
-> [!IMPORTANT]
-> Windows Virtual Desktop은 현재 Windows Store에서 원격 데스크톱 클라이언트를 지원하지 않습니다. 이 클라이언트에 대한 지원은 향후 릴리스에 추가될 예정입니다.
 
 클라이언트를 사용하기 위해 차단을 해제해야 하는 URL에 대한 자세한 내용은 [Safe URL 목록](safe-url-list.md)을 참조하세요.
 

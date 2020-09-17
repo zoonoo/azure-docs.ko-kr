@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 90d51d7eb5425530ebad0fc9ac66ba2c95776076
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 8082e694c4282759c9c38560c14eb3659fcd55ec
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564978"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708141"
 ---
 # <a name="azure-file-share-protocols"></a>Azure 파일 공유 프로토콜
 
@@ -55,7 +55,7 @@ NFS 4.1를 사용 하 여 Azure 파일 공유를 탑재 하는 것은 현재 미
 Azure Files 있는 NFS는 다음과 같은 경우에 적합 합니다.
 
 - POSIX 규격 파일 공유, 대/소문자 구분 또는 Unix 스타일 권한 (UID/GID)이 필요한 작업입니다.
-- SMB에 액세스 하지 않아도 되는 Linux 중심 워크 로드.
+- Windows 액세스를 필요로 하지 않는 Linux 중심 워크 로드
 
 ### <a name="security"></a>보안
 

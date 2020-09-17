@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4929836b7fb617884008fafea50a10e0212fbd58
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7c144ddac255087ae48ff2f1c5406ad66d670562
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961961"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601353"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure Portal
 
@@ -25,8 +25,6 @@ ms.locfileid: "88961961"
 [Azure PowerShell](quick-create-powershell.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하여 이 빠른 시작을 완료할 수도 있습니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -171,7 +169,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다. 필요한 경우 *위치* 매개 변수를 변경합니다. 
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
@@ -196,7 +194,6 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 4. **백 엔드 대상**, **대상 유형** 아래의 드롭다운 목록에서 **가상 머신**을 선택합니다.
 
 5. **대상** 아래의 드롭다운 목록에서 **myVM** 및 **myVM2** 가상 머신과 연결된 네트워크 인터페이스를 선택합니다.
-
 
    > [!div class="mx-imgBorder"]
    > ![백 엔드 서버 추가](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)

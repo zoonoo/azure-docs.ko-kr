@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 09/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 7e6ab90010d4379c1640f73a8deeba874e601daf
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 1690a844ff700a2975be8e972fd90ba71eeb937c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513811"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707784"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Azure NetApp Files에 대한 메트릭
 
@@ -27,20 +27,18 @@ Azure NetApp Files 할당 된 저장소, 실제 저장소 사용량, 볼륨 IOPS
 
 ## <a name="usage-metrics-for-capacity-pools"></a><a name="capacity_pools"></a>용량 풀에 대한 사용량 메트릭
 
-<!-- 
-- *Pool Provisioned Size*  
-    The logical space (GiB) the capacity pool is provisioned with.  
-    This size is the size you selected during capacity pool creation. 
---> 
+- *풀 할당 크기*   
+    프로 비전 된 풀 크기입니다.
+
 - *볼륨 크기에 할당 된 풀*  
     지정 된 용량 풀의 총 볼륨 할당량 (GiB)입니다 (용량 풀에 있는 볼륨의 프로 비전 된 크기).  
     이 크기는 볼륨을 만드는 동안 선택한 크기입니다.  
+
 - *풀 사용 크기*  
     용량 풀의 볼륨에서 사용 되는 총 논리적 공간 (GiB)입니다.  
-<!-- 
-- *Pool Consumed Snapshot Size*  
-    The total of logical space (GiB) used by snapshots across all volumes in a capacity pool. 
--->
+
+- *풀의 총 스냅숏 크기*    
+    풀에 있는 모든 볼륨의 스냅숏 크기의 합계입니다.
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>볼륨에 대한 사용량 메트릭
 
@@ -57,14 +55,37 @@ Azure NetApp Files 할당 된 저장소, 실제 저장소 사용량, 볼륨 IOPS
 
 ## <a name="performance-metrics-for-volumes"></a>볼륨에 대 한 성능 메트릭
 
-- *AverageReadLatency*   
+- *평균 읽기 대기 시간*   
     볼륨 읽기의 평균 시간 (밀리초)입니다.
-- *AverageWriteLatency*   
+- *평균 쓰기 대기 시간*   
     볼륨에서 쓰기에 대 한 평균 시간 (밀리초)입니다.
-- *ReadIops*   
+- *읽기 IOPS*   
     볼륨에서 초당 읽기 수입니다.
-- *WriteIops*   
+- *쓰기 IOPS*   
     초당 볼륨에 대 한 쓰기 수입니다.
+
+## <a name="volume-replication-metrics"></a><a name="replication"></a>볼륨 복제 메트릭
+
+- *볼륨 복제 상태가 정상 임*   
+    복제 관계의 조건입니다. 
+
+- *볼륨 복제 전송*    
+    볼륨 복제 상태가 ' 전송 중 ' 인지 여부입니다. 
+ 
+- *볼륨 복제 지연 시간*   
+    미러의 데이터가 원본 뒤에서 지연 되는 시간 (초)입니다. 
+
+- *볼륨 복제 마지막 전송 기간*   
+    마지막 전송을 완료 하는 데 걸린 시간 (초)입니다. 
+
+- *볼륨 복제 마지막 전송 크기*    
+    마지막 전송의 일부로 전송 된 총 바이트 수입니다. 
+
+- *볼륨 복제 진행률*    
+    현재 전송 작업에 대해 전송 된 총 데이터 양입니다. 
+
+- *볼륨 복제 총 전송*   
+    관계에 대해 전송 된 누적 바이트 수입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

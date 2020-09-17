@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 7818754ca335f503c5afdc47d410cfe1d1029ab4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 66335548381a6f7e3ebf93c97eb212255639644c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434793"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604090"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 첫 번째 정적 웹앱 빌드
 
@@ -65,7 +65,7 @@ GitHub로 로그인한 후 리포지토리 정보를 입력합니다.
     # <a name="no-framework"></a>[프레임워크 없음](#tab/vanilla-javascript)
 
     1. _빌드 사전 설정_ 드롭다운에서 **사용자 지정**을 선택합니다.
-    1. _앱 위치_ 상자에서 기본값을 선택 취소합니다.
+    1. _앱 위치_ 상자에서 기본값을 유지합니다.
     1. _Api 위치_ 상자에서 기본값을 선택 취소합니다.
     1. _앱 아티팩트 위치_ 상자를 비워 둡니다.
 

@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperfq1
-ms.openlocfilehash: 6c7ac840dfba665c4691fc4d389d66f44b077bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1eaef57f46bf6373fdd2a73575bb028904ef108b
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069472"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561653"
 ---
 # <a name="what-is-single-sign-on-sso"></a>SSO(Single Sign-On)란?
 
@@ -53,7 +53,7 @@ Single Sign-On을 구현하는 방법은 앱이 호스트되는 위치에 따라
 > [!TIP]
 > 클라우드 호스팅 앱은 SaaS(Software as a Service) 앱이라고도 합니다. 
 
-클라우드 호스팅 앱에 대한 Single Sign-On은 간단합니다. ID 공급자에게 앱에 사용되고 있음을 알립니다. 그런 다음, ID 공급자를 신뢰하도록 앱을 구성합니다. Azure AD를 앱의 ID 공급자로 사용하는 방법을 알아보려면 [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)를 참조하세요.
+클라우드 호스팅 앱에 대한 Single Sign-On은 간단합니다. ID 공급자에게 앱에 사용되고 있음을 알립니다. 그런 다음, ID 공급자를 신뢰하도록 앱을 구성합니다. Azure AD를 앱의 ID 공급자로 사용하는 방법을 알아보려면 [애플리케이션 관리에 대한 빠른 시작 시리즈](add-application-portal.md)를 참조하세요.
 
 > [!TIP]
 > 클라우드 및 인터넷이라는 용어는 종종 교환 가능한 방식으로 사용됩니다. 그 이유는 네트워크 다이어그램과 관련이 있습니다. 모든 구성 요소를 그리는 것은 불가능하기 때문에 다이어그램에서 클라우드 도형이 포함된 대형 컴퓨터 네트워크를 나타내는 것이 일반적입니다. 인터넷은 가장 잘 알려진 네트워크이므로 상호 교환이 쉽습니다. 그러나 모든 컴퓨터 네트워크를 클라우드로 연결할 수 있습니다.

@@ -9,12 +9,12 @@ ms.author: mlearned
 description: 이 문서에서는 Azure Arc 지원 Kubernetes 개요를 제공합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
 ms.custom: references_regions
-ms.openlocfilehash: 885c96b83edb83cfb62fc117d9b4406792827056
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: fb8a7b7c2e1e5b3de7d1ccdb4054e44825231458
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723727"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604804"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Azure Arc 지원 Kubernetes 미리 보기란?
 
@@ -51,12 +51,15 @@ Azure Arc 지원 Kubernetes는 다음 시나리오를 지원합니다.
 
 * Kubernetes에 대한 Azure Policy를 사용하여 정책 적용. 
 
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+
 ## <a name="supported-regions"></a>지원되는 지역 
 
 현재 Azure Arc 지원 Kubernetes는 다음 지역에서 지원됩니다. 
 
 * 미국 동부 
 * 서유럽
+
 
 ## <a name="next-steps"></a>다음 단계
 

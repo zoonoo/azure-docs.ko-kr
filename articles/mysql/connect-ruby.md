@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 79f3efad9ba5f6c0378f8b093a2f375275767659
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 15bbce208475a85e7be6efbadebcb4e43c2d8d17
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185845"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029106"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Ruby를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 
@@ -72,7 +72,7 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 ## <a name="connect-and-create-a-table"></a>테이블 연결 및 생성
 **CREATE TABLE** SQL 문 다음에 테이블에 행을 추가하는 **INSERT INTO** SQL 문을 사용하여 테이블을 연결 및 생성하려면 다음 코드를 사용합니다.
 
-이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음 [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 메서드를 여러 번 호출하여 DROP, CREATE TABLE 및 INSERT INTO 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
+이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음 [query()](https://www.rubydoc.info/gems/mysql2#Usage) 메서드를 여러 번 호출하여 DROP, CREATE TABLE 및 INSERT INTO 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
 
 `host`, `database`, `username` 및 `password` 문자열은 원하는 값으로 바꾸세요. 
 ```ruby
@@ -117,7 +117,7 @@ end
 ## <a name="read-data"></a>데이터 읽기
 **SELECT** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 
 
-이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class.new() 메서드를 사용하여 MySQL용 Azure Database에 연결합니다. 그런 다음 [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 메서드를 호출하여 SELECT 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
+이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2) class.new() 메서드를 사용하여 MySQL용 Azure Database에 연결합니다. 그런 다음 [query()](https://www.rubydoc.info/gems/mysql2#Usage) 메서드를 호출하여 SELECT 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
 
 `host`, `database`, `username` 및 `password` 문자열은 원하는 값으로 바꾸세요. 
 
@@ -156,7 +156,7 @@ end
 ## <a name="update-data"></a>데이터 업데이트
 **UPDATE** SQL 문을 사용하여 데이터를 연결하고 업데이트하려면 다음 코드를 사용하세요.
 
-이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음 [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 메서드를 호출하여 UPDATE 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
+이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음 [query()](https://www.rubydoc.info/gems/mysql2#Usage) 메서드를 호출하여 UPDATE 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
 
 `host`, `database`, `username` 및 `password` 문자열은 원하는 값으로 바꾸세요. 
 
@@ -193,7 +193,7 @@ end
 ## <a name="delete-data"></a>데이터 삭제
 **DELETE** SQL 문을 사용하여 데이터를 연결하고 읽으려면 다음 코드를 사용하세요. 
 
-이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음 [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 메서드를 호출하여 DELETE 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
+이 코드는 [mysql2::client](https://www.rubydoc.info/gems/mysql2) 클래스 .new() 메서드를 사용하여 MySQL용 Azure 데이터베이스에 연결합니다. 그런 다음 [query()](https://www.rubydoc.info/gems/mysql2#Usage) 메서드를 호출하여 DELETE 명령을 실행합니다. 그런 다음 종료하기 전에 [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) 메서드를 호출하여 연결을 닫습니다.
 
 `host`, `database`, `username` 및 `password` 문자열은 원하는 값으로 바꾸세요. 
 

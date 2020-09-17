@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: c265f404b2e2e2796baf0febb93997ef099f0844
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2a848cb77336fc89172d55a6204d66b9e5be5976
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564875"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705234"
 ---
 # <a name="how-to-create-an-nfs-share"></a>NFS 공유를 만드는 방법
 
@@ -163,3 +163,5 @@ az storage share-rm create \
 ## <a name="next-steps"></a>다음 단계
 
 NFS 공유를 만들었으므로이를 사용 하려면 Linux 클라이언트에 탑재 해야 합니다. 자세한 내용은 [NFS 공유를 탑재 하는 방법](storage-files-how-to-mount-nfs-shares.md)을 참조 하세요.
+
+문제가 발생 하는 경우 [AZURE NFS 파일 공유 문제 해결](storage-troubleshooting-files-nfs.md)을 참조 하세요.

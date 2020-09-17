@@ -4,16 +4,16 @@ description: Azure Queue Java v12 라이브러리를 사용하여 큐를 만들�
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 12/4/2019
+ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 753c245631d2fbdc8122f955c1db6562a1554031
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b9f68737ca714c0661ffb008347149235886c68
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319374"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015027"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>빠른 시작: Java용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -30,17 +30,17 @@ Java용 Azure Queue storage 클라이언트 라이브러리 v12를 사용하여 
 
 추가 리소스:
 
-* [API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html)
+* [API 참조 설명서](/java/api/overview/azure/storage-queue-readme)
 * [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 * [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [샘플](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* [JDK(Java Development Kit)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), 버전 8 이상
+* [JDK(Java Development Kit)](/java/azure/jdk/), 버전 8 이상
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-* Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage 계정 - [스토리지 계정 만들기](/azure/storage/common/storage-quickstart-create-account)
 
 ## <a name="setting-up"></a>설치
 
@@ -161,10 +161,10 @@ Azure Queue storage는 대량의 메시지를 저장하기 위한 서비스입�
 
 다음 Java 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
-* [QueueClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClientBuilder.html): `QueueClientBuilder` 클래스는 `QueueClient` 개체를 구성하고 인스턴스화합니다.
-* [QueueServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueServiceClient.html): `QueueServiceClient`를 사용하면 스토리지 계정의 모든 큐를 관리할 수 있습니다.
-* [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html): `QueueClient` 클래스를 사용하면 개별 큐와 해당 메시지를 관리하고 조작할 수 있습니다.
-* [QueueMessageItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/QueueMessageItem.html): `QueueMessageItem` 클래스는 큐에서 [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-)를 호출할 때 반환되는 개별 개체를 나타냅니다.
+* [QueueClientBuilder](/java/api/com.azure.storage.queue.queueclientbuilder): `QueueClientBuilder` 클래스는 `QueueClient` 개체를 구성하고 인스턴스화합니다.
+* [QueueServiceClient](/java/api/com.azure.storage.queue.queueserviceclient): `QueueServiceClient`를 사용하면 스토리지 계정의 모든 큐를 관리할 수 있습니다.
+* [QueueClient](/java/api/com.azure.storage.queue.queueclient): `QueueClient` 클래스를 사용하면 개별 큐와 해당 메시지를 관리하고 조작할 수 있습니다.
+* [QueueMessageItem](/java/api/com.azure.storage.queue.models.queuemessageitem): `QueueMessageItem` 클래스는 큐에서 [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages)를 호출할 때 반환되는 개별 개체를 나타냅니다.
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -204,7 +204,7 @@ String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
 > 큐 이름은 소문자, 숫자 및 하이픈만 포함할 수 있으며 문자나 숫자로 시작해야 합니다. 각 하이픈의 앞과 뒤에는 하이픈이 아닌 문자가 있어야 합니다. 이름의 길이는 3~63자 사이여야 합니다. 큐 이름 지정에 대한 자세한 내용은 [큐 및 메타데이터 이름 지정](/rest/api/storageservices/naming-queues-and-metadata)을 참조하세요.
 
 
-[QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html) 클래스 인스턴스를 만듭니다. 그런 다음, [create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#create--) 메서드를 호출하여 스토리지 계정에 큐를 만듭니다.
+[QueueClient](/java/api/com.azure.storage.queue.queueclient) 클래스 인스턴스를 만듭니다. 그런 다음, [create](/java/api/com.azure.storage.queue.queueclient.create) 메서드를 호출하여 스토리지 계정에 큐를 만듭니다.
 
 이 코드를 `main` 메서드의 끝에 추가합니다.
 
@@ -227,7 +227,7 @@ queueClient.create();
 
 ### <a name="add-messages-to-a-queue"></a>큐에 메시지 추가
 
-다음 코드 조각은 [sendMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#sendMessage-java.lang.String-) 메서드를 호출하여 큐에 메시지를 추가합니다. 또한, `sendMessage` 호출에서 반환된 [SendMessageResult](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/SendMessageResult.html)를 저장합니다. 결과는 나중에 프로그램에서 메시지를 업데이트하는 데 사용됩니다.
+다음 코드 조각은 [sendMessage](/java/api/com.azure.storage.queue.queueclient.sendmessage) 메서드를 호출하여 큐에 메시지를 추가합니다. 또한, `sendMessage` 호출에서 반환된 [SendMessageResult](/java/api/com.azure.storage.queue.models.sendmessageresult)를 저장합니다. 결과는 나중에 프로그램에서 메시지를 업데이트하는 데 사용됩니다.
 
 이 코드를 `main` 메서드의 끝에 추가합니다.
 
@@ -244,7 +244,7 @@ SendMessageResult result = queueClient.sendMessage("Third message");
 
 ### <a name="peek-at-messages-in-a-queue"></a>큐의 메시지 피킹(Peeking)
 
-[peekMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#peekMessages-java.lang.Integer-java.time.Duration-com.azure.core.util.Context-) 메서드를 호출하여 큐의 메시지를 피킹합니다. `peelkMessages` 메서드는 큐 앞에서 하나 이상의 메시지를 검색하지만 메시지의 표시 유형을 변경하지는 않습니다.
+[peekMessages](/java/api/com.azure.storage.queue.queueclient.peekmessages) 메서드를 호출하여 큐의 메시지를 피킹합니다. `peelkMessages` 메서드는 큐 앞에서 하나 이상의 메시지를 검색하지만 메시지의 표시 유형을 변경하지는 않습니다.
 
 이 코드를 `main` 메서드의 끝에 추가합니다.
 
@@ -258,7 +258,7 @@ queueClient.peekMessages(10, null, null).forEach(
 
 ### <a name="update-a-message-in-a-queue"></a>큐의 메시지 업데이트
 
-[updateMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#updateMessage-java.lang.String-java.lang.String-java.lang.String-java.time.Duration-) 메서드를 호출하여 메시지 콘텐츠를 업데이트합니다. `updateMessage` 메서드는 메시지의 표시 여부 시간 제한 및 콘텐츠를 변경할 수 있습니다. 메시지 콘텐츠는 크기가 최대 64KB인 UTF-8 인코딩 문자열이어야 합니다. 메시지의 새 콘텐츠와 함께 이전에 코드에 저장된 `SendMessageResult`를 사용하여 메시지 ID 및 수신 확인 팝을 전달합니다. 메시지 ID 및 수신 확인 팝은 업데이트할 메시지를 식별합니다.
+[updateMessage](/java/api/com.azure.storage.queue.queueclient.updatemessage) 메서드를 호출하여 메시지 콘텐츠를 업데이트합니다. `updateMessage` 메서드는 메시지의 표시 여부 시간 제한 및 콘텐츠를 변경할 수 있습니다. 메시지 콘텐츠는 크기가 최대 64KB인 UTF-8 인코딩 문자열이어야 합니다. 메시지의 새 콘텐츠와 함께 이전에 코드에 저장된 `SendMessageResult`를 사용하여 메시지 ID 및 수신 확인 팝을 전달합니다. 메시지 ID 및 수신 확인 팝은 업데이트할 메시지를 식별합니다.
 
 ```java
 System.out.println("\nUpdating the third message in the queue...");
@@ -273,7 +273,7 @@ queueClient.updateMessage(result.getMessageId(),
 
 ### <a name="receive-and-delete-messages-from-a-queue"></a>큐에서 메시지 수신 및 삭제
 
-[receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-java.time.Duration-java.time.Duration-com.azure.core.util.Context-) 메서드를 호출하여 이전에 추가한 메시지를 다운로드합니다. 또한 예제 코드는 메시지를 받아서 처리한 후 큐에서 메시지를 삭제합니다. 이 경우 처리는 콘솔에 메시지를 표시하는 것뿐입니다.
+[receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages) 메서드를 호출하여 이전에 추가한 메시지를 다운로드합니다. 또한 예제 코드는 메시지를 받아서 처리한 후 큐에서 메시지를 삭제합니다. 이 경우 처리는 콘솔에 메시지를 표시하는 것뿐입니다.
 
 앱은 메시지를 수신하고 삭제하기 전에 `System.console().readLine();`을 호출하여 사용자 입력을 위해 일시 중지합니다. 리소스가 삭제되기 전에 [Azure Portal](https://portal.azure.com)에서 리소스가 제대로 생성되었는지 확인합니다. 명시적으로 삭제되지 않은 메시지는 다시 처리할 수 있도록 큐에 다시 표시됩니다.
 
@@ -298,7 +298,7 @@ queueClient.receiveMessages(10).forEach(
 
 ### <a name="delete-a-queue"></a>큐 삭제
 
-다음 코드는 [delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#delete--) 메서드를 사용하여 큐를 삭제하여 앱이 만든 리소스를 정리합니다.
+다음 코드는 [delete](/java/api/com.azure.storage.queue.queueclient.delete) 메서드를 사용하여 큐를 삭제하여 앱이 만든 리소스를 정리합니다.
 
 이 코드를 `main` 메서드의 끝에 추가합니다.
 
@@ -372,6 +372,6 @@ Done
 자습서, 샘플, 빠른 시작 및 기타 설명서는 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Java 클라우드 개발자용 Azure](https://docs.microsoft.com/azure/developer/java/)
+> [Java 클라우드 개발자용 Azure](/azure/developer/java/)
 
 * 더 많은 Azure Queue storage 샘플 앱을 보려면 [Azure Queue storage SDK v12 Java 클라이언트 라이브러리 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)을 계속 진행하세요.

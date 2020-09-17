@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: 2bc4c2a3ee7f1a1dbd85d46e49ec27e5276de159
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237150"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016557"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 피어링이 있는 ExpressRoute 회로 만들기
 
@@ -76,9 +76,9 @@ ExpressRoute와 관련된 더 많은 템플릿을 찾으려면 [Azure 빠른 시
 
     리소스 그룹 이름은 **rg**가 추가된 프로젝트 이름입니다.
 
-템플릿을 배포하는 데 20분 정도 걸립니다. 완료되면 다음과 유사하게 출력됩니다.
+    템플릿을 배포하는 데 20분 정도 걸립니다. 완료되면 다음과 유사하게 출력됩니다.
 
-:::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="ExpressRoute Resource Manager 템플릿 PowerShell 배포 출력":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="ExpressRoute Resource Manager 템플릿 PowerShell 배포 출력":::
 
 Azure PowerShell은 템플릿을 배포하는 데 사용됩니다. Azure PowerShell 외에도 Azure Portal, Azure CLI 및 REST API를 사용할 수 있습니다. 다른 배포 방법을 알아보려면 [템플릿 배포](../azure-resource-manager/templates/deploy-portal.md)를 참조하세요.
 

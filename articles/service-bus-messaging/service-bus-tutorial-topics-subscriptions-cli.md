@@ -5,12 +5,12 @@ ms.date: 06/23/2020
 ms.topic: quickstart
 author: spelluru
 ms.author: spelluru
-ms.openlocfilehash: 3a6535a13ab00c4e22ac4cd8c2de5a5bbb02d0a8
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 080b089efa276779420f6d9bc8e76272f1e65788
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189805"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069699"
 ---
 # <a name="use-azure-cli-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Azure CLI를 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기
 이 빠른 시작에서는 Azure CLI를 사용하여 Service Bus 토픽을 만든 다음, 해당 토픽에 대한 구독을 만듭니다. 
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][free ac
 9. 사용자 지정 속성을 통해 필터를 사용하여 세 번째 구독에서 필터를 만듭니다(`Store1`, `Store2`, `Store3` 또는 `Store4`에 없는 `StoreId`).
 
     ```azurecli-interactive
-    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S3 --name MyThirdFilter --filter-sql-expression "StoreId IN ('Store1','Store2','Store3', 'Store4')"     
+    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S3 --name MyThirdFilter --filter-sql-expression "StoreId NOT IN ('Store1','Store2','Store3', 'Store4')"     
     ```
 10. 다음 명령을 실행하여 네임스페이스에 대한 기본 연결 문자열을 가져옵니다. 이 연결 문자열을 사용하여 큐에 연결하고 메시지를 보내고 받습니다. 
 
