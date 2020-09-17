@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 781aa48442d80e55128314dd1e271532162df32c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178827"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705999"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft id 플랫폼 개발자 용어집
 
@@ -154,7 +154,7 @@ Microsoft ID 플랫폼은 Azure AD(Azure Active Directory) ID 서비스와 개�
 
 [OAuth2 권한 부여 프레임워크][OAuth2-Role-Def]에 정의된 대로, [액세스 토큰](#access-token)에 있는 [클라이언트 애플리케이션](#client-application)에 의한 보호된 리소스 요청을 수락하고 응답할 수 있는, 보호된 리소스를 호스트하는 서버입니다. 보호된 리소스 서버 또는 리소스 애플리케이션이라고도 합니다.
 
-리소스 서버는 API를 공개하고 OAuth 2.0 권한 부여 프레임워크를 사용하여 [범위](#scopes) 및 [역할](#roles)을 통해 보호된 리소스에 대한 액세스를 수행합니다. 예제에는 Azure AD 테 넌 트 데이터에 대 한 액세스를 제공 하는 [MICROSOFT GRAPH api][Microsoft-Graph] 와 메일 및 달력과 같은 데이터에 대 한 액세스를 제공 하는 Office 365 api가 포함 됩니다.
+리소스 서버는 API를 공개하고 OAuth 2.0 권한 부여 프레임워크를 사용하여 [범위](#scopes) 및 [역할](#roles)을 통해 보호된 리소스에 대한 액세스를 수행합니다. 예제에는 Azure AD 테 넌 트 데이터에 대 한 액세스를 제공 하는 [MICROSOFT GRAPH api][Microsoft-Graph] 와 메일 및 달력과 같은 데이터에 대 한 액세스를 제공 하는 Microsoft 365 api가 포함 됩니다.
 
 클라이언트 애플리케이션과 마찬가지로 리소스 애플리케이션 ID 구성은 Azure AD 테넌트에서 [등록](#application-registration)을 통해 설정되며 애플리케이션과 서비스 주체 개체를 모두 제공 합니다. Microsoft Graph API와 같은 일부 Microsoft 제공 Api에는 프로 비전 중에 모든 테 넌 트에서 사용할 수 있도록 미리 등록 된 서비스 주체가 있습니다.
 
@@ -172,7 +172,7 @@ Microsoft Graph API에 의해 노출 되는 응용 프로그램 역할에 대 �
 
 범위는 리소스 정의 문자열(예: "Mail.Read", "Directory.ReadWrite.All")로, 리소스의 [애플리케이션 매니페스트](#application-manifest)를 통해 [Azure Portal][AZURE-portal]에서 관리되며, 리소스의 [oauth2Permissions 속성][Graph-Sp-Resource]에 저장됩니다. 또한 Azure Portal은 클라이언트 애플리케이션 [위임된 사용 권한](#permissions)에서 범위에 액세스하도록 구성하는 데도 사용됩니다.
 
-모범 사례 명명 규칙은 "resource.operation.constraint" 형식을 사용 하는 것입니다. Microsoft Graph API에서 노출 하는 범위에 대 한 자세한 내용은 [Graph API 사용 권한 범위][Graph-Perm-Scopes]를 참조 하세요. Office 365 서비스에 의해 노출되는 범위는 [Office 365 API 사용 권한 참조][O365-Perm-Ref]를 참조하세요.
+모범 사례 명명 규칙은 "resource.operation.constraint" 형식을 사용 하는 것입니다. Microsoft Graph API에서 노출 하는 범위에 대 한 자세한 내용은 [Graph API 사용 권한 범위][Graph-Perm-Scopes]를 참조 하세요. Microsoft 365 서비스에 의해 노출 되는 범위는 [MICROSOFT 365 API 사용 권한 참조][O365-Perm-Ref]를 참조 하세요.
 
 ## <a name="security-token"></a>보안 토큰
 
@@ -202,7 +202,7 @@ Azure AD 디렉터리의 인스턴스는 Azure AD 테넌트라고 합니다. 다
 * 사용자 계정 및 등록된 애플리케이션의 인증
 * OAuth2 및 SAML을 포함한 다양한 프로토콜을 지원하는 데 필요한 REST 엔드포인트([권한 부여 엔드포인트](#authorization-endpoint), [토큰 엔드포인트](#token-endpoint) 및 [다중 테넌트 애플리케이션](#multi-tenant-application)에서 사용하는 "일반" 엔드포인트 포함)
 
-Azure AD 테넌트는 등록 시 Azure 및 Office 365 구독으로 생성/연결되어 구독에 대한 ID 및 액세스 관리 기능을 제공합니다. Azure 구독 관리자는 Azure Portal을 통해 Azure AD 테넌트를 추가로 만들 수도 있습니다. 테넌트에 대한 액세스 권한을 가질 수 있는 다양한 방법에 대한 자세한 내용은 [Azure Active Directory 테넌트를 얻는 방법][AAD-How-To-Tenant]을 참조하세요. 구독과 azure AD 테 넌 트 간의 관계에 대 한 자세한 내용 및 Azure AD 테 넌 트에 구독을 연결 하거나 추가 하는 방법에 대 한 지침은 [Azure Active Directory 테 넌 트에 azure 구독 연결 또는 추가][AAD-How-Subscriptions-Assoc] 를 참조 하세요.
+Azure AD 테 넌 트는 등록 하는 동안 Azure 및 Microsoft 365 구독과 연결 되어 구독에 대 한 Id & 액세스 관리 기능을 제공 합니다. Azure 구독 관리자는 Azure Portal을 통해 Azure AD 테넌트를 추가로 만들 수도 있습니다. 테넌트에 대한 액세스 권한을 가질 수 있는 다양한 방법에 대한 자세한 내용은 [Azure Active Directory 테넌트를 얻는 방법][AAD-How-To-Tenant]을 참조하세요. 구독과 azure AD 테 넌 트 간의 관계에 대 한 자세한 내용 및 Azure AD 테 넌 트에 구독을 연결 하거나 추가 하는 방법에 대 한 지침은 [Azure Active Directory 테 넌 트에 azure 구독 연결 또는 추가][AAD-How-Subscriptions-Assoc] 를 참조 하세요.
 
 ## <a name="token-endpoint"></a>토큰 엔드포인트
 

@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: d89f0d08fec0b0f341094d422b1091de5a61055e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bccdb830fba4d55266dc9eff8f06c5ac4e3f2a34
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115767"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706186"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
@@ -70,9 +70,9 @@ Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.
 
 * 사용자가 Azure AD와 통합된 타사 애플리케이션에 로그인하는 경우
   * 로그인하는 동안 사용자는 자신의 프로필 및 다른 권한에 액세스할 수 있는 권한을 애플리케이션에 부여하도록 요청받습니다. 처음으로 동의하는 사람이 애플리케이션을 나타내는 서비스 주체를 디렉터리에 추가하게 됩니다.
-* 사용자가 [Office 365](https://products.office.com/)와 같은 Microsoft 온라인 서비스에 로그인하는 경우
-  * Office 365를 구독하거나 평가판을 시작하면 Office 365와 관련된 모든 기능을 전달하는 데 사용되는 다양한 서비스를 나타내는 디렉터리에 하나 이상의 서비스 주체가 만들어집니다.
-  * SharePoint와 같은 일부 Office 365 서비스는 워크플로 등 구성 요소 간의 보안 통신을 허용하도록 지속적으로 서비스 주체를 만듭니다.
+* 사용자가 [Microsoft 365](https://products.office.com/) 와 같이 Microsoft 온라인 서비스에 로그인 하는 경우
+  * Microsoft 365를 구독 하거나 평가판을 시작 하면 Microsoft 365와 관련 된 모든 기능을 제공 하는 데 사용 되는 다양 한 서비스를 나타내는 디렉터리에 하나 이상의 서비스 주체가 만들어집니다.
+  * SharePoint와 같은 일부 Microsoft 365 서비스는 워크플로를 포함 하는 구성 요소 간의 보안 통신을 허용 하기 위해 지속적으로 서비스 주체를 만듭니다.
 * 관리자가 앱 갤러리에서 애플리케이션을 추가하는 경우(이때 기본 앱 개체도 만듦)
 * 애플리케이션을 추가하여 [Azure AD 애플리케이션 프록시](../manage-apps/application-proxy.md) 사용
 * SAML 또는 암호 SSO(Single Sign-On)를 사용하여 Single-Sign-On용 애플리케이션 연결
@@ -116,7 +116,7 @@ Azure AD와 통합하는 애플리케이션 게시자/공급업체에는 게시 
 * 페더레이션 또는 암호를 사용한 SSO
 * 사용자 프로비전 및 동기화
 * 역할 기반 액세스 제어 - 애플리케이션 역할을 정의하는 디렉터리를 사용하여 애플리케이션에서 역할 기반 권한 부여 확인을 수행합니다.
-* OAuth 인증 서비스 - API/리소스에 대한 액세스 권한을 부여하기 위해 Office 365 및 다른 Microsoft 애플리케이션에서 사용
+* OAuth 권한 부여 서비스-Microsoft 365 및 기타 Microsoft 응용 프로그램에서 Api/리소스에 대 한 액세스 권한을 부여 하는 데 사용 됩니다.
 * 애플리케이션 게시 및 프록시 - 프라이빗 네트워크의 애플리케이션을 인터넷에 게시
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>애플리케이션을 Azure AD 인스턴스에 추가할 권한이 있는 사용자는?

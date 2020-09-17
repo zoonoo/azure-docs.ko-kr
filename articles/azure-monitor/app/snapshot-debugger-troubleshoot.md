@@ -2,18 +2,18 @@
 title: Azure 애플리케이션 Insights 스냅숏 디버거 문제 해결
 description: 이 문서에서는 Application Insights 스냅숏 디버거를 사용 하도록 설정 하거나 사용 하는 데 문제가 있는 개발자를 위한 문제 해결 단계 및 정보를 제공 합니다.
 ms.topic: conceptual
-author: brahmnes
+author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 485f35ed249ab7f6bbb987d8c79afe20287cd25a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671412"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707835"
 ---
-# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a>Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결
-응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 했지만 예외에 대 한 스냅숏이 표시 되지 않는 경우 다음 지침을 사용 하 여 문제를 해결할 수 있습니다. 스냅숏이 생성 되지 않는 이유는 여러 가지가 있을 수 있습니다. 스냅숏 상태 검사를 실행 하 여 가능한 일반적인 원인 중 일부를 식별할 수 있습니다.
+# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결
+응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 했지만 예외에 대 한 스냅숏이 표시 되지 않는 경우 다음 지침을 사용 하 여 문제를 해결할 수 있습니다. 스냅샷이 생성되지 않는 이유는 여러 가지가 있을 수 있습니다. 스냅숏 상태 검사를 실행 하 여 가능한 일반적인 원인 중 일부를 식별할 수 있습니다.
 
 ## <a name="use-the-snapshot-health-check"></a>스냅샷 상태 확인 사용
 몇 가지 일반적인 문제로 인해 [디버그 스냅샷 열기]가 표시되지 않습니다. 오래된 스냅샷 수집기를 사용했거나(예: 일일 업로드 제한에 도달), 스냅샷을 업로드하는 데 시간이 오래 걸렸을 수도 있습니다. [스냅샷 상태 확인]을 사용하여 일반적인 문제를 해결합니다.
@@ -31,6 +31,30 @@ ms.locfileid: "77671412"
 ## <a name="verify-the-instrumentation-key"></a>계측 키 확인
 
 게시된 애플리케이션에서 올바른 계측 키를 사용하는 있는지 확인합니다. 일반적으로 계측 키는 ApplicationInsights.config 파일에서 읽습니다. 포털에 표시된 Application Insights 리소스에 대한 계측 키와 동일한 값인지 확인합니다.
+
+## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>SSL 클라이언트 설정 확인 (ASP.NET)
+
+Azure App Service 또는 가상 머신의 IIS에 호스트 된 ASP.NET 응용 프로그램이 있는 경우 SSL 보안 프로토콜이 누락 되어 응용 프로그램에서 스냅숏 디버거 서비스에 연결 하지 못할 수 있습니다.
+[스냅숏 디버거 끝점에는 TLS 버전 1.2이 필요](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json)합니다. SSL 보안 프로토콜 집합은 web.config의 system.web 섹션에서 httpRuntime targetFramework 값으로 사용 되는 특수 한 기능 중 하나입니다. HttpRuntime targetFramework가 4.5.2 이하인 경우 TLS 1.2는 기본적으로 포함 되지 않습니다.
+
+> [!NOTE]
+> HttpRuntime targetFramework 값은 응용 프로그램을 빌드할 때 사용 되는 대상 프레임 워크의 영향을 받지 않습니다.
+
+설정을 확인 하려면 web.config 파일을 열고 system.web 섹션을 찾습니다. `targetFramework`의 `httpRuntime` 가 4.6 이상으로 설정 되어 있는지 확인 합니다.
+
+   ```xml
+   <system.web>
+      ...
+      <httpRuntime targetFramework="4.7.2" />
+      ...
+   </system.web>
+   ```
+
+> [!NOTE]
+> HttpRuntime targetFramework 값을 수정 하면 응용 프로그램에 적용 되는 런타임이 변경 되어 다른 미묘한 동작이 변경 될 수 있습니다. 이러한 변경을 수행한 후에는 응용 프로그램을 철저히 테스트 해야 합니다. 호환성 변경 내용에 대 한 전체 목록은 다음을 참조 하세요. https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes
+
+> [!NOTE]
+> TargetFramework가 4.7 이상인 경우 Windows에서 사용 가능한 프로토콜을 확인 합니다. Azure App Service TLS 1.2을 사용할 수 있습니다. 그러나 사용자 고유의 가상 컴퓨터를 사용 하는 경우 OS에서 TLS 1.2를 사용 하도록 설정 해야 할 수 있습니다.
 
 ## <a name="preview-versions-of-net-core"></a>.NET Core 미리 보기 버전
 응용 프로그램에서 .NET Core의 미리 보기 버전을 사용 하 고 스냅숏 디버거 포털의 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) 통해 사용 하도록 설정 된 경우 스냅숏 디버거 시작 되지 않을 수 있습니다. [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)통해를 사용 하도록 설정 하는 ***것 외에도*** 응용 프로그램과 함께 [microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하려면 먼저 [다른 환경에 대 한 스냅숏 디버거 사용](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) 의 지침을 따릅니다.

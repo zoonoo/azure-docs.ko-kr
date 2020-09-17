@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184944"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705540"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 오래 된 장치 관리
 
@@ -175,9 +175,9 @@ Windows Autopilot 개체와 연결 된 Azure AD 장치를 삭제 하는 경우 �
 
 디바이스에서 Azure AD를 인증하는 데 사용되는 모든 인증이 거부됩니다. 일반적인 예제는 다음과 같습니다.
 
-- **하이브리드 AZURE AD 조인 장치** -사용자가 장치를 사용 하 여 온-프레미스 도메인에 로그인 할 수 있습니다. 그러나 Office 365와 같은 Azure AD 리소스에는 액세스할 수 없습니다.
+- **하이브리드 AZURE AD 조인 장치** -사용자가 장치를 사용 하 여 온-프레미스 도메인에 로그인 할 수 있습니다. 그러나 Microsoft 365와 같은 Azure AD 리소스에는 액세스할 수 없습니다.
 - **Azure AD 조인 디바이스** - 사용자는 이 디바이스를 사용하여 로그인할 수 없습니다. 
-- **모바일 디바이스** - 사용자는 Office 365와 같은 Azure AD 리소스에 액세스할 수 없습니다. 
+- **모바일 장치** -사용자가 Microsoft 365 같은 Azure AD 리소스에 액세스할 수 없습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

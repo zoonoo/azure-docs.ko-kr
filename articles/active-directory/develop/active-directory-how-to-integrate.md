@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: c193742527cf69526d69549d3c10f5591f0d2f93
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bdeb27f9e761fefc52c9c97b28d15770e22221f4
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115699"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706169"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Microsoft id 플랫폼과 통합
 
@@ -31,7 +31,7 @@ ms.locfileid: "88115699"
 
 ### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Microsoft id 플랫폼을 응용 프로그램에 로그인 하는 방법으로 지원
 
-**로그인 충돌을 줄이고 지원 비용을 절감합니다.** Microsoft id 플랫폼을 사용 하 여 응용 프로그램에 로그인 하면 사용자에 게 기억할 이름 및 암호가 하나 이상 없습니다. 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Microsoft id 플랫폼은 Office 365 및 Microsoft Azure을 포함 하 여 전 세계에서 가장 인기 있는 일부 클라우드 응용 프로그램에 대 한 로그인을 진행 합니다. 수백만 명의 조직에서 수백만 명의 사용자가 Microsoft id 플랫폼에 이미 로그인 한 경우를 들 수 있습니다. [Microsoft id 플랫폼 로그인에 대 한 지원을 추가 하는](./authentication-vs-authorization.md)방법에 대해 자세히 알아보세요.
+**로그인 충돌을 줄이고 지원 비용을 절감합니다.** Microsoft id 플랫폼을 사용 하 여 응용 프로그램에 로그인 하면 사용자에 게 기억할 이름 및 암호가 하나 이상 없습니다. 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Microsoft id 플랫폼은 Microsoft 365 및 Microsoft Azure를 포함 하 여 전 세계에서 가장 인기 있는 일부 클라우드 응용 프로그램에 대 한 로그인을 진행 합니다. 수백만 명의 조직에서 수백만 명의 사용자가 Microsoft id 플랫폼에 이미 로그인 한 경우를 들 수 있습니다. [Microsoft id 플랫폼 로그인에 대 한 지원을 추가 하는](./authentication-vs-authorization.md)방법에 대해 자세히 알아보세요.
 
 **애플리케이션 등록을 단순화합니다.**  응용 프로그램에 등록 하는 동안 Microsoft id 플랫폼은 등록 양식을 미리 채우거 나 완전히 제거할 수 있도록 사용자에 대 한 필수 정보를 보낼 수 있습니다. 사용자는 소셜 미디어 및 모바일 애플리케이션에서 본 것과 비슷한 친숙한 동의 환경을 통해 자신의 Azure AD 계정을 사용하여 애플리케이션을 등록할 수 있습니다. 모든 사용자는 참여를 요구 하지 않고 Microsoft id 플랫폼과 통합 된 응용 프로그램에 등록 하 고 로그인 할 수 있습니다. [Azure AD 계정 로그인을 위해 애플리케이션 등록](../../app-service/configure-authentication-provider-aad.md)에 대해 자세히 알아보세요.
 
@@ -47,13 +47,13 @@ ms.locfileid: "88115699"
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>사용자의 프로필, 일정, 메일, 연락처, 파일 등에 액세스
 
-**Microsoft id 플랫폼은 Office 365 및 기타 Microsoft 비즈니스 서비스에 대 한 권한 부여 서버입니다.**  응용 프로그램에 로그인 하거나 OAuth 2.0를 사용 하 여 현재 사용자 계정을 Azure AD 사용자 계정에 연결 하도록 지 원하는 Microsoft id 플랫폼을 지 원하는 경우 사용자의 프로필, 일정, 전자 메일, 연락처, 파일 및 기타 정보에 대 한 읽기 및 쓰기 액세스를 요청할 수 있습니다. 사용자의 일정에 매끄럽게 이벤트를 쓸 수 있으며 사용자의 OneDrive에 파일을 읽거나 쓸 수 있습니다. [Office 365 API 액세스](/previous-versions/office/office-365-api/)에 대해 자세히 알아보세요.
+**Microsoft id 플랫폼은 Microsoft 365 및 기타 Microsoft 비즈니스 서비스에 대 한 권한 부여 서버입니다.**  응용 프로그램에 로그인 하거나 OAuth 2.0를 사용 하 여 현재 사용자 계정을 Azure AD 사용자 계정에 연결 하도록 지 원하는 Microsoft id 플랫폼을 지 원하는 경우 사용자의 프로필, 일정, 전자 메일, 연락처, 파일 및 기타 정보에 대 한 읽기 및 쓰기 액세스를 요청할 수 있습니다. 사용자의 일정에 매끄럽게 이벤트를 쓸 수 있으며 사용자의 OneDrive에 파일을 읽거나 쓸 수 있습니다. [Microsoft 365 api에 액세스 하는](/previous-versions/office/office-365-api/)방법에 대해 자세히 알아보세요.
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Azure 및 Office 365 마켓플레이스에서 응용 프로그램 홍보
+### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Azure에서 응용 프로그램을 홍보 하 고 Microsoft 365 마켓플레이스
 
 **이미 Azure AD를 사용 중인 수백만 개의 조직에 애플리케이션을 홍보합니다.**   이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/)에서 애플리케이션 홍보하기에 대해 자세히 알아보세요.
 
-**사용자가 애플리케이션에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.**  사용자가 나중에 애플리케이션으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](../user-help/my-apps-portal-end-user-access.md)에 대해 자세히 알아보세요.
+**사용자가 응용 프로그램에 등록 하면 Azure AD 액세스 패널 및 Microsoft 365 앱 시작 관리자에 표시 됩니다.**  사용자가 나중에 애플리케이션으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](../user-help/my-apps-portal-end-user-access.md)에 대해 자세히 알아보세요.
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>안전한 장치-서비스 및 서비스 간 통신
 
@@ -85,7 +85,7 @@ Microsoft id 플랫폼과의 통합은 추가 코드를 작성 하지 않아도 
 
 ### <a name="worldwide-presence-and-high-availability"></a>전 세계의 현재 상태 및 고가용성
 
-**Azure AD는 전 세계 데이터 센터에 배포되어 24시간 내내 관리 및 모니터링됩니다.**   Azure AD는 Microsoft Azure 및 Office 365의 ID 관리 시스템이며 전 세계 28곳의 데이터 센터에 배포됩니다. 디렉터리 데이터는 3개 이상의 데이터 센터에 복제되어야 합니다. 전역 부하 분산 장치는 사용자가 자신의 데이터가 들어 있는 Azure AD의 가장 근접한 복사본에 액세스하도록 하며 문제가 감지되면 요청을 다른 데이터 센터로 자동으로 다시 라우팅합니다.
+**Azure AD는 전 세계 데이터 센터에 배포되어 24시간 내내 관리 및 모니터링됩니다.**  Azure AD는 Microsoft Azure 및 Microsoft 365에 대 한 id 관리 시스템이 며 전 세계 28 개 데이터 센터에 배포 됩니다. 디렉터리 데이터는 3개 이상의 데이터 센터에 복제되어야 합니다. 전역 부하 분산 장치는 사용자가 자신의 데이터가 들어 있는 Azure AD의 가장 근접한 복사본에 액세스하도록 하며 문제가 감지되면 요청을 다른 데이터 센터로 자동으로 다시 라우팅합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

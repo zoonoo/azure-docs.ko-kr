@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 09/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4fb616860cb1e85c6249329f3679de0d29b72e61
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018835"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707920"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>블록 blob에 대 한 개체 복제 구성
 
@@ -150,9 +150,11 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 Azure CLI를 사용 하 여 복제 정책을 만들려면 먼저 Azure CLI 버전 2.11.1 이상을 설치 합니다. 자세한 내용은 [Azure CLI 시작](/cli/azure/get-started-with-azure-cli)을 참조 하세요.
 
-그런 다음 원본 및 대상 저장소 계정에서 blob 버전 관리를 사용 하도록 설정 하 고 원본 계정에서 변경 피드를 사용 하도록 설정 합니다. 꺾쇠 괄호로 묶인 값을 사용자 고유의 값으로 바꿔야 합니다.
+그런 다음, 원본 및 대상 저장소 계정에서 blob 버전 관리를 사용 하도록 설정 하 고 [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) 명령을 호출 하 여 원본 계정에서 변경 피드를 사용 하도록 설정 합니다. 꺾쇠 괄호로 묶인 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli
+az login
+
 az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
@@ -174,24 +176,24 @@ az storage account blob-service-properties update \
 ```azurecli
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container3 \
+    --name source-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container4 \
+    --name source-container-2 \
     --auth-mode login
 
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container3 \
+    --name dest-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container4 \
+    --name dest-container-1 \
     --auth-mode login
 ```
 
-대상 계정에 새 복제 정책 및 연결된 규칙을 만듭니다.
+[Az storage account 또는-policy create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create)를 호출 하 여 대상 계정에 새 복제 정책 및 연결 된 규칙을 만듭니다.
 
 ```azurecli
 az storage account or-policy create \
@@ -199,21 +201,26 @@ az storage account or-policy create \
     --resource-group <resource-group> \
     --source-account <source-storage-account> \
     --destination-account <dest-storage-account> \
-    --source-container source-container3 \
-    --destination-container dest-container3 \
-    --min-creation-time '2020-05-10T00:00:00Z' \
+    --source-container source-container-1 \
+    --destination-container dest-container-1 \
+    --min-creation-time '2020-09-10T00:00:00Z' \
     --prefix-match a
 
+```
+
+Azure Storage 새 정책이 생성 될 때 해당 정책에 대 한 정책 ID를 설정 합니다. 정책에 다른 규칙을 추가 하려면 [az storage account 또는-policy rule add](/cli/azure/storage/account/or-policy/rule#az_storage_account_or_policy_rule_add) 를 호출 하 고 정책 ID를 제공 합니다.
+
+```azurecli
 az storage account or-policy rule add \
     --account-name <dest-storage-account> \
-    --destination-container dest-container4 \
-    --policy-id <policy-id> \
     --resource-group <resource-group> \
-    --source-container source-container4 \
+    --source-container source-container-2 \
+    --destination-container dest-container-2 \
+    --policy-id <policy-id> \
     --prefix-match b
 ```
 
-정책 ID를 사용하여 원본 계정에 정책을 만듭니다.
+그런 다음 정책 ID를 사용 하 여 원본 계정에 정책을 만듭니다.
 
 ```azurecli
 az storage account or-policy show \
@@ -229,16 +236,16 @@ az storage account or-policy show \
 
 ### <a name="configure-object-replication-when-you-have-access-only-to-the-destination-account"></a>대상 계정에만 액세스할 수 있는 경우 개체 복제 구성
 
-원본 저장소 계정에 대 한 권한이 없는 경우 대상 계정에 대 한 개체 복제를 구성 하 고 다른 사용자에 게 정책 정의가 포함 된 JSON 파일을 제공 하 여 원본 계정에 동일한 정책을 만들 수 있습니다. 예를 들어 원본 계정이 대상 계정과 다른 Azure AD 테 넌 트에 있는 경우이 방법을 사용 하 여 개체 복제를 구성 합니다. 
+원본 저장소 계정에 대 한 권한이 없는 경우 대상 계정에 대 한 개체 복제를 구성 하 고 다른 사용자에 게 정책 정의가 포함 된 JSON 파일을 제공 하 여 원본 계정에 동일한 정책을 만들 수 있습니다. 예를 들어 원본 계정이 대상 계정과 다른 Azure AD 테 넌 트에 있는 경우이 방법을 사용 하 여 개체 복제를 구성할 수 있습니다.
 
 정책을 만들려면 대상 저장소 계정 이상의 수준으로 범위가 지정 된 Azure Resource Manager **참가자** 역할을 할당 해야 합니다. 자세한 내용은 Azure 역할 기반 Access Control (RBAC) 설명서의 [azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md) 을 참조 하세요.
 
-다음 표에는 각 시나리오에서 JSON 파일의 정책 ID에 사용할 값이 요약 되어 있습니다.
+다음 표에는 각 시나리오에서 JSON 파일의 정책 ID 및 규칙 Id에 사용할 값이 요약 되어 있습니다.
 
-| 이 계정에 대 한 JSON 파일을 만드는 중 ... | 정책 ID를이 값으로 설정 ... |
+| 이 계정에 대 한 JSON 파일을 만드는 중 ... | 정책 ID 및 규칙 Id를이 값으로 설정 ... |
 |-|-|
-| 대상 계정 | 문자열 값의 *기본값*입니다. Azure Storage에서 정책 ID를 만듭니다. |
-| 원본 계정 | 대상 계정에 정의 된 규칙을 포함 하는 JSON 파일을 다운로드할 때 반환 되는 정책 ID입니다. |
+| 대상 계정 | 문자열 값의 *기본값*입니다. Azure Storage에서 정책 ID 및 규칙 Id를 만듭니다. |
+| 원본 계정 | 대상 계정에 정의 된 정책을 JSON 파일로 다운로드 하는 경우 반환 되는 정책 ID 및 규칙 Id의 값입니다. |
 
 다음 예에서는 접두사 *b* 와 일치 하는 단일 규칙을 사용 하 여 대상 계정에 대 한 복제 정책을 정의 하 고 복제할 blob에 대 한 최소 생성 시간을 설정 합니다. 꺾쇠 괄호로 묶인 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -307,7 +314,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-JSON 파일을 사용 하 여 PowerShell에서 원본 계정에 대 한 복제 정책을 정의 하려면 로컬 파일을 검색 하 고 JSON에서 개체로 변환 합니다. 그런 다음 [AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) 명령을 호출 하 여 다음 예제와 같이 원본 계정에 정책을 구성 합니다. 꺾쇠 괄호의 값과 파일 경로를 고유한 값으로 바꿔야 합니다.
+JSON 파일을 사용 하 여 PowerShell을 사용 하 여 원본 계정에 대 한 복제 정책을 구성 하려면 로컬 파일을 검색 하 고 JSON에서 개체로 변환 합니다. 그런 다음 [AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) 명령을 호출 하 여 다음 예제와 같이 원본 계정에 정책을 구성 합니다. 꺾쇠 괄호의 값과 파일 경로를 고유한 값으로 바꿔야 합니다.
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
@@ -321,7 +328,24 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-해당 없음
+대상 계정에 대 한 복제 정책 정의를 Azure CLI의 JSON 파일에 쓰려면 [az storage account 또는-policy show](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_show) 명령을 호출 하 고 파일에 출력 합니다.
+
+다음 예제에서는 *policy.js에 있는*JSON 파일에 정책 정의를 씁니다. 꺾쇠 괄호의 값과 파일 경로를 고유한 값으로 바꿔야 합니다.
+
+```azurecli
+az storage account or-policy show \
+    --account-name <dest-account-name> \
+    --policy-id  <policy-id> > policy.json
+```
+
+JSON 파일을 사용 하 여 Azure CLI 사용 하 여 원본 계정에 대 한 복제 정책을 구성 하려면 [az storage account 또는-policy create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create) 명령을 호출 하 고 file * 에서policy.js* 을 참조 합니다. 꺾쇠 괄호의 값과 파일 경로를 고유한 값으로 바꿔야 합니다.
+
+```azurecli
+az storage account or-policy create \
+    -resource-group <resource-group> \
+    --source-account <source-account-name> \
+    --policy @policy.json
+```
 
 ---
 
@@ -360,12 +384,12 @@ Remove-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 ```azurecli
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <source-storage-account> \
     --resource-group <resource-group>
 
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <dest-storage-account> \
     --resource-group <resource-group>
 ```

@@ -13,12 +13,12 @@ ms.date: 09/09/2020
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 254fa03310bac9c5c478d9297145f88773c1a7b0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6dda32bb2bab4123ede0133b31625c499380fd59
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648615"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705710"
 ---
 # <a name="saml-token-claims-reference"></a>SAML 토큰 클레임 참조
 
@@ -27,13 +27,13 @@ Microsoft id 플랫폼은 각 인증 흐름의 처리 과정에서 여러 유형
 ## <a name="claims-in-saml-tokens"></a>SAML 토큰의 클레임
 
 > [!div class="mx-codeBreakAll"]
-> | Name | 동등한 JWT 클레임 | Description | 예제 |
+> | Name | 동등한 JWT 클레임 | Description | 예 |
 > | --- | --- | --- | ------------|
 > |사용자 | `aud` |토큰의 의도한 수신자입니다. 토큰을 받는 애플리케이션에서는 대상 값이 올바른지 확인하여 대상이 다른 모든 토큰을 거부해야 합니다. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 > | 인증 인스턴트 | |인증이 발생한 날짜 및 시간을 기록합니다. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` |
 > |인증 방법 | `amr` |토큰의 주체가 인증된 방법을 식별합니다. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
 > |이름 | `given_name` |Azure AD 사용자 개체에 설정된 대로 사용자의 이름 또는 "지정된 이름"을 제공합니다. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
-> |그룹 | `groups` |주체의 그룹 멤버 자격을 나타내는 개체 ID를 제공합니다. 이러한 값은 고유하며(개체 ID 참조) 리소스 액세스 시 강제로 인증하게 하는 경우처럼 액세스 관리에 안전하게 사용할 수 있습니다. 그룹 클레임에 포함된 그룹은 애플리케이션 매니페스트의 "groupMembershipClaims" 속성을 통해 애플리케이션별로 구성됩니다. Null 값은 모든 그룹을 제외하고, "SecurityGroup" 값은 Active Directory 보안 그룹 멤버 자격만 포함하고, "All" 값은 보안 그룹과 Office 365 메일 그룹을 모두 포함합니다. <br><br> **참고**: <br> 그룹 수가 한도(SAML은 150, JWT는 200)를 넘어설 경우 초과 클레임은 해당 사용자에 대한 그룹 목록을 포함하는 Graph 엔드포인트를 가리키는 클레임 원본에 추가됩니다. ( | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
+> |그룹 | `groups` |주체의 그룹 멤버 자격을 나타내는 개체 ID를 제공합니다. 이러한 값은 고유하며(개체 ID 참조) 리소스 액세스 시 강제로 인증하게 하는 경우처럼 액세스 관리에 안전하게 사용할 수 있습니다. 그룹 클레임에 포함된 그룹은 애플리케이션 매니페스트의 "groupMembershipClaims" 속성을 통해 애플리케이션별로 구성됩니다. 값이 null 이면 모든 그룹이 제외 되 고, 값이 "SecurityGroup" 이면 Active Directory 보안 그룹 멤버 자격만 포함 되 고, 값이 "All" 이면 보안 그룹과 Microsoft 365 메일 그룹이 모두 포함 됩니다. <br><br> **참고**: <br> 그룹 수가 한도(SAML은 150, JWT는 200)를 넘어설 경우 초과 클레임은 해당 사용자에 대한 그룹 목록을 포함하는 Graph 엔드포인트를 가리키는 클레임 원본에 추가됩니다. ( | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
 > | 그룹 초과 지표 | `groups:src1` | 길이가 제한 되지 않지만 토큰에 대해 너무 많은 토큰 요청의 경우 사용자의 전체 그룹 목록에 대 한 링크가 포함 됩니다. SAML의 경우 `groups` 클레임 대신 새 클레임으로 추가됩니다. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |ID 공급자 | `idp` |토큰의 주체를 인증한 ID 공급자를 기록합니다. 이 값은 사용자 계정이 발급자가 아닌 다른 테넌트에 있는 경우를 제외하고 발급자 클레임의 값과 동일합니다. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
 > |IssuedAt | `iat` |토큰이 발급된 시간을 저장합니다. 토큰 만료 전 시간을 측정하는 데 주로 사용됩니다. | `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` |

@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a5201d0e31eb6d3b06316b74463dc2b68b33008c
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563916"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707971"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Azure AD 내 앱에서 응용 프로그램에 로그인 하는 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "90563916"
 이러한 애플리케이션은 Azure AD 포털에서 사용자를 대신하여 구성됩니다. 응용 프로그램을 올바르게 구성 하 고 사용자 또는 사용자가 구성원으로 속한 그룹에 할당 하 여 내 앱에서 응용 프로그램을 확인 해야 합니다. 
 
 사용자가 볼 수 있는 앱의 종류는 다음과 같은 범주로 분류됩니다.
--   Microsoft 365 및 Office 365 응용 프로그램
+-   응용 프로그램 Microsoft 365
 -   페더레이션 기반 SSO로 구성된 Microsoft 및 타사 애플리케이션
 -   암호 기반 SSO 애플리케이션
 -   기존 SSO 솔루션을 사용한 애플리케이션
@@ -163,7 +163,7 @@ Multi-Factor Authentication, 조건부 액세스, ID 보호 및 암호 재설정
 11. **할당** 단추를 선택 하 여이 사용자에 게 이러한 라이선스를 할당 합니다.
 
 ## <a name="troubleshooting-deep-links"></a>딥 링크 문제 해결
-딥 링크 또는 사용자 액세스 URL은 사용자가 해당 브라우저 URL 막대에서 직접 암호 SSO 애플리케이션에 액세스하는 데 사용할 수 있는 링크입니다. 이 링크로 이동 하면 사용자는 먼저 내 앱으로 이동 하지 않고도 응용 프로그램에 자동으로 로그인 됩니다. 이 링크는 사용자가 Office 365 응용 프로그램 시작 관리자에서 이러한 응용 프로그램에 액세스 하는 데 사용 하는 링크와 동일 합니다.
+딥 링크 또는 사용자 액세스 URL은 사용자가 해당 브라우저 URL 막대에서 직접 암호 SSO 애플리케이션에 액세스하는 데 사용할 수 있는 링크입니다. 이 링크로 이동 하면 사용자는 먼저 내 앱으로 이동 하지 않고도 응용 프로그램에 자동으로 로그인 됩니다. 이 링크는 사용자가 Microsoft 365 응용 프로그램 시작 관리자에서 이러한 응용 프로그램에 액세스 하는 데 사용 하는 링크와 동일 합니다.
 
 ### <a name="checking-the-deep-link"></a>딥 링크를 확인 하는 중
 

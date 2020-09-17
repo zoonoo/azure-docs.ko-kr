@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 617128640c4f4ae4ce5ac32803e459a9a3eb448f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235641"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706458"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>다중 테 넌 트 응용 프로그램에 대 한 자동 사용자 프로 비전 사용
 
@@ -64,7 +64,7 @@ Azure AD는 응용 프로그램에 대 한 자동 사용자 프로비저닝을 �
 |---|---|---|---|
 | Azure AD의 사용자 및 그룹 관리| √| √| 사용자만 |
 | 온-프레미스 Active Directory에서 동기화 된 사용자 및 그룹 관리| √*| √*| 사용자만 해당 * |
-| O365 데이터 (팀, SharePoint, 전자 메일, 일정, 문서 등)에 대 한 액세스를 프로 비전 하는 동안 사용자 및 그룹 외의 데이터에 액세스| X+| √| X |
+| Microsoft 365 데이터에 대 한 액세스를 프로 비전 하는 동안 사용자 및 그룹 외의 데이터 액세스 (팀, SharePoint, 전자 메일, 일정, 문서 등)| X+| √| X |
 | 비즈니스 규칙에 따라 사용자 만들기, 읽기 및 업데이트| √| √| √ |
 | 비즈니스 규칙에 따라 사용자 삭제| √| √| X |
 | Azure Portal의 모든 응용 프로그램에 대 한 자동 사용자 프로 비전 관리| √| X| √ |
@@ -91,7 +91,7 @@ Azure AD 프로 비전 서비스 사용자의 SCIM 방법에 대 한 자세한 �
 
 프로 비전에 Microsoft Graph를 사용 하는 경우 Graph에서 사용할 수 있는 모든 리치 사용자 데이터에 액세스할 수 있습니다. 사용자 및 그룹의 세부 정보 외에도 사용자의 역할, 관리자 및 부하 직원, 소유 및 등록 된 장치, [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0)에서 사용할 수 있는 수백 개의 기타 데이터 부분과 같은 추가 정보를 가져올 수 있습니다. 
 
-1500만 개 이상의 조직 및 fortune 500 회사의 90%는 Office 365, Microsoft Azure, Enterprise Mobility Suite 또는 Microsoft 365와 같은 Microsoft 클라우드 서비스를 구독 하는 동안 Azure AD를 사용 합니다. Microsoft Graph를 사용 하 여 직원 온 보 딩 (종료), 프로필 유지 관리 등의 관리 워크플로와 앱을 통합할 수 있습니다. 
+1500만 개 이상의 조직 및 fortune 500 회사의 90%는 Microsoft 365, Microsoft Azure 또는 Enterprise Mobility Suite와 같은 Microsoft 클라우드 서비스를 구독 하는 동안 Azure AD를 사용 합니다. Microsoft Graph를 사용 하 여 직원 온 보 딩 (종료), 프로필 유지 관리 등의 관리 워크플로와 앱을 통합할 수 있습니다. 
 
 프로 비전에 Microsoft Graph를 사용 하는 방법에 대해 자세히 알아보세요.
 

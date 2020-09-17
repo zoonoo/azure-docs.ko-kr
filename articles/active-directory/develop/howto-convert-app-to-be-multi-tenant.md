@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 966149cf1a4f40ccc565b22e9d5afdd599997b4e
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141367"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705897"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -141,7 +141,7 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>단일 테넌트의 여러 계층
 
-논리 애플리케이션이 예를 들어 별도의 클라이언트와 리소스와 같은 두 개 이상의 애플리케이션 등록으로 구성되어 있다면 이것이 문제일 수 있습니다. 우선 리소스를 고객 테넌트에 가져가려면 어떻게 해야 합니까? Azure AD에서는 클라이언트와 리소스를 한 번에 승인하여 이 문제를 해결합니다. 동의 페이지에서 클라이언트와 리소스 모두에서 요청한 전체 사용 권한을 사용자에게 표시합니다. 이 동작을 사용하도록 설정하려면 리소스의 애플리케이션 등록에 클라이언트의 앱 ID가 해당 [애플리케이션 매니페스트][AAD-App-Manifest]의 `knownClientApplications`로 포함되어야 합니다. 다음은 그 예입니다. 
+논리 애플리케이션이 예를 들어 별도의 클라이언트와 리소스와 같은 두 개 이상의 애플리케이션 등록으로 구성되어 있다면 이것이 문제일 수 있습니다. 우선 리소스를 고객 테넌트에 가져가려면 어떻게 해야 합니까? Azure AD에서는 클라이언트와 리소스를 한 번에 승인하여 이 문제를 해결합니다. 동의 페이지에서 클라이언트와 리소스 모두에서 요청한 전체 사용 권한을 사용자에게 표시합니다. 이 동작을 사용하도록 설정하려면 리소스의 애플리케이션 등록에 클라이언트의 앱 ID가 해당 [애플리케이션 매니페스트][AAD-App-Manifest]의 `knownClientApplications`로 포함되어야 합니다. 예를 들면 다음과 같습니다.
 
 ```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
@@ -153,9 +153,9 @@ Microsoft id 플랫폼은/common 끝점에서 요청을 받으면 사용자에 �
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>다중 테넌트의 여러 계층
 
-애플리케이션의 다른 계층이 다른 테넌트에 등록되어 있다면 유사한 사례가 발생합니다. 예를 들어 Office 365 Exchange Online API를 호출하는 네이티브 클라이언트 애플리케이션을 빌드하는 경우를 생각해 보겠습니다. 네이티브 애플리케이션을 개발하고, 그 후 네이티브 애플리케이션이 고객 테넌트에서 실행되도록 하려면 Exchange Online 서비스 주체가 있어야 합니다. 이 경우에 개발자 및 고객이 자신의 테넌트에 서비스 주체가 생성되도록 하려면 Exchange Online를 구매해야 합니다.
+애플리케이션의 다른 계층이 다른 테넌트에 등록되어 있다면 유사한 사례가 발생합니다. 예를 들어 Exchange Online API를 호출 하는 네이티브 클라이언트 응용 프로그램을 빌드하는 경우를 고려해 보세요. 네이티브 애플리케이션을 개발하고, 그 후 네이티브 애플리케이션이 고객 테넌트에서 실행되도록 하려면 Exchange Online 서비스 주체가 있어야 합니다. 이 경우에 개발자 및 고객이 자신의 테넌트에 서비스 주체가 생성되도록 하려면 Exchange Online를 구매해야 합니다.
 
-Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고객이 응용 프로그램을 고객의 테 넌 트에 동의 하는 방법을 제공 해야 합니다. 권장 되는 디자인은 타사 개발자가 등록을 구현 하는 웹 클라이언트로 작동할 수 있도록 API를 빌드하기 위한 것입니다. 이렇게 하려면 다음을 수행합니다.
+Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고객이 응용 프로그램을 고객의 테 넌 트에 동의 하는 방법을 제공 해야 합니다. 권장 되는 디자인은 타사 개발자가 등록을 구현 하는 웹 클라이언트로 작동할 수 있도록 API를 빌드하기 위한 것입니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
 
 1. 이전 섹션에 따라 API에서 다중 테넌트 애플리케이션 등록/코드 요구 사항을 구현하는지 확인합니다.
 2. API의 범위/역할을 노출 하는 것 외에, 등록에 "로그인 및 사용자 프로필 읽기" 권한이 포함 되어 있는지 확인 합니다 (기본적으로 제공 됨).
@@ -181,7 +181,7 @@ Microsoft 이외의 조직에서 빌드한 API의 경우, API 개발자는 고�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 모든 Azure AD 테넌트에서 사용자를 로그인할 수 있는 애플리케이션을 빌드하는 방법을 알아보았습니다. 애플리케이션 및 Azure AD 간에 SSO(Single Sign-On)를 사용하도록 설정되면 Office 365와 같은 Microsoft 리소스에서 노출되는 API에 액세스하도록 애플리케이션을 업데이트할 수도 있습니다. 이렇게 하면 사용자에게 컨텍스트 정보(예: 프로필 사진 또는 다음 일정 약속)를 표시하는 등 개인 설정 환경을 애플리케이션에 제공할 수 있습니다. Azure AD 및 Office 365 서비스(예: Exchange, SharePoint, OneDrive, OneNote 등)에 대한 API 호출을 만드는 방법을 자세히 알아보려면 [Microsoft Graph API][MSFT-Graph-overview]를 방문하세요.
+이 문서에서는 모든 Azure AD 테넌트에서 사용자를 로그인할 수 있는 애플리케이션을 빌드하는 방법을 알아보았습니다. 앱과 Azure AD 간에 SSO (Single Sign-on)를 사용 하도록 설정한 후 Microsoft 365와 같은 Microsoft 리소스에 의해 노출 되는 Api에 액세스 하도록 응용 프로그램을 업데이트할 수도 있습니다. 이렇게 하면 사용자에게 컨텍스트 정보(예: 프로필 사진 또는 다음 일정 약속)를 표시하는 등 개인 설정 환경을 애플리케이션에 제공할 수 있습니다. Azure AD 및 Exchange, SharePoint, OneDrive, OneNote 등의 Microsoft 365 서비스에 대 한 API 호출을 수행 하는 방법에 대 한 자세한 내용을 보려면 [MICROSOFT GRAPH api][MSFT-Graph-overview]를 방문 하세요.
 
 ## <a name="related-content"></a>관련 콘텐츠
 

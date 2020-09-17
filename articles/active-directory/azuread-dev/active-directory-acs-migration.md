@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 75c3b325b29e6738a61728d53b85464bb61655f8
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117790"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706254"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -173,7 +173,7 @@ SharePoint 2013, 2016 및 SharePoint Online 고객은 클라우드, 온-프레�
 
 #### <a name="migrate-to-azure-active-directory"></a>Azure Active Directory로 마이그레이션
 
-앱과 서비스를 Azure AD에 직접 통합하는 방법도 있습니다. Azure AD는 Microsoft 회사 또는 학교 계정을 위한 클라우드 기반 ID 공급자입니다. Azure AD는 Office 365, Azure 등을 위한 ID 공급자입니다. Azure AD는 Access Control과 비슷한 페더레이션 인증 기능을 제공하긴 하나, Access Control의 모든 기능을 지원하지는 않습니다. 
+앱과 서비스를 Azure AD에 직접 통합하는 방법도 있습니다. Azure AD는 Microsoft 회사 또는 학교 계정을 위한 클라우드 기반 ID 공급자입니다. Azure AD는 Microsoft 365, Azure 등을 위한 id 공급자입니다. Azure AD는 Access Control과 비슷한 페더레이션 인증 기능을 제공하긴 하나, Access Control의 모든 기능을 지원하지는 않습니다. 
 
 페더레이션은 주로 Facebook, Google, Yahoo와 같은 소셜 ID 공급자에 대해 실시됩니다. 사용자가 이러한 유형의 자격 증명을 이용하여 로그인하는 경우가 많다면 Azure AD는 적합한 솔루션이 아닙니다. 
 
@@ -316,7 +316,7 @@ Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증�
 
 #### <a name="migrate-to-azure-active-directory"></a>Azure Active Directory로 마이그레이션
 
-이러한 인증 흐름에 대해 Microsoft에서 권장하는 방법은 [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/)로 마이그레이션하는 것입니다. Azure AD는 Microsoft 회사 또는 학교 계정을 위한 클라우드 기반 ID 공급자입니다. Azure AD는 Office 365, Azure 등을 위한 ID 공급자입니다. 
+이러한 인증 흐름에 대해 Microsoft에서 권장하는 방법은 [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/)로 마이그레이션하는 것입니다. Azure AD는 Microsoft 회사 또는 학교 계정을 위한 클라우드 기반 ID 공급자입니다. Azure AD는 Microsoft 365, Azure 등을 위한 id 공급자입니다. 
 
 또한 Azure AD는 OAuth 클라이언트 자격 증명 부여에 대한 Azure AD의 구현을 사용하여 서버-투-서버 인증에도 사용할 수 있습니다. 다음 표에서는 서버-투-서버 인증과 관련 있는 Access Control의 기능과 Azure AD의 기능을 비교하고 있습니다.
 

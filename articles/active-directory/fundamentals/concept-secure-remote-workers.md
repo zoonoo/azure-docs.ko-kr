@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0e0ad9086a7945201b1752126253f12eb751bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320038"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705370"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Azure AD를 사용하여 ID 보안에 신속하게 대응
 
@@ -34,7 +34,7 @@ ms.locfileid: "89320038"
 - 클라우드 인텔리전스를 활용합니다.
 - 최종 사용자 셀프 서비스를 사용하도록 설정합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 가이드에서는 Azure AD에서 클라우드 전용 또는 하이브리드 id가 이미 설정 되어 있다고 가정 합니다. Id 유형 선택에 대 한 도움말은 [Azure Active Directory 하이브리드 id 솔루션에 적합 한 인증 방법 선택](../hybrid/choose-ad-authn.md) 문서를 참조 하세요. 
 
@@ -42,13 +42,12 @@ ms.locfileid: "89320038"
 
 보안 id 인프라에는 많은 측면이 있지만이 검사 목록은 사용자가 원격으로 작업할 수 있도록 하는 안전 하 고 안전한 id 인프라를 중심으로 설명 합니다. Id를 보호 하는 것은 보안 스토리의 일부 이며, 데이터, 응용 프로그램 및 장치를 보호 하는 것도 고려해 야 합니다.
 
-### <a name="guidance-for-azure-ad-free-or-office-365-customers"></a>Azure AD Free 또는 Office 365 고객에 대 한 지침입니다.
+### <a name="guidance-for-azure-ad-free-office-365-or-microsoft-365-customers"></a>Azure AD Free, Office 365 또는 Microsoft 365 고객에 대 한 지침입니다.
 
-사용자 id를 보호 하기 위해 고객이 사용 해야 하는 Azure AD Free 또는 Office 365 앱의 권장 사항은 다음과 같습니다. 다음 표에서는 다음 라이선스 구독의 주요 동작을 강조 합니다.
+사용자 id를 보호 하기 위해 고객이 사용 해야 하는 Azure AD Free, Office 365 또는 Microsoft 365 앱의 권장 사항은 다음과 같습니다. 다음 표에서는 다음 라이선스 구독의 주요 동작을 강조 합니다.
 
-- Office 365 (O365 E1, E3, E5, F1, A1, A3, A5)
-- Office 365 비즈니스 (Essentials, Business, Business Premium)
-- Microsoft 365 (M365 Business, A1)
+- Office 365 (Office 365 E1, E3, E5, F1, A1, A3, A5)
+- Microsoft 365 (비즈니스 기본, 비즈니스용 앱, 비즈니스 표준, 비즈니스 프리미엄, A1)
 - Azure AD Free (Azure, Dynamics 365, Intune 및 Power Platform에 포함 됨)
 
 | 권장 조치 | 세부 정보 |

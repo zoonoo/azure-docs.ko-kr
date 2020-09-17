@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45e1e516986c32e203837f79c83290cc99049e7a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 23ce2f02ef96a88b6bf4471377ce97a529dbd1a9
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526972"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706339"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)를 사용 하 여 온-프레미스 리소스에 대해 암호 없는 보안 키 로그인 사용
 
@@ -57,7 +57,7 @@ Azure AD Kerberos 서버 개체는 온-프레미스 Active Directory 만든 다�
 
 시나리오는 다음 두 시나리오에서 모두 SSO (Single Sign-On)를 지원 합니다.
 
-- Office 365 및 기타 SAML 사용 응용 프로그램과 같은 클라우드 리소스
+- Microsoft 365 및 기타 SAML 사용 응용 프로그램과 같은 클라우드 리소스
 - 온-프레미스 리소스와 웹 사이트에 대 한 Windows 통합 인증 리소스에는 IIS 인증을 요구 하는 웹 사이트와 SharePoint 사이트 및 NTLM 인증을 사용 하는 리소스가 포함 될 수 있습니다.
 
 ### <a name="unsupported-scenarios"></a>지원되지 않는 시나리오

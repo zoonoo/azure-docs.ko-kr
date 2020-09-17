@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 662bda03fc2d389ed316bd2c7141d5e6a30cef1a
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 40d299049a0a1bbff81c412a5beb84f28e64ff46
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814639"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706305"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
@@ -124,7 +124,7 @@ HTML 로그인 페이지가 있는 웹 애플리케이션을 만들어서 [암�
 
 ## <a name="update-or-remove-an-existing-listing"></a>기존 목록을 업데이트 하거나 제거 합니다.
 
-Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 하거나 제거 하려면 먼저 [응용 프로그램 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps)에서 요청을 제출 해야 합니다. Office 365 계정이 있는 경우 이를 사용하여 해당 포털에 로그인합니다. 그렇지 않으면 Outlook 또는 Hotmail과 같은 Microsoft 계정를 사용 하 여 로그인 합니다.
+Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 하거나 제거 하려면 먼저 [응용 프로그램 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps)에서 요청을 제출 해야 합니다. 회사 또는 학교 계정이 있는 경우이를 사용 하 여이 포털에 로그인 합니다. 그렇지 않으면 Outlook 또는 Hotmail과 같은 Microsoft 계정를 사용 하 여 로그인 합니다.
 
 - 다음 그림에 표시 된 것 처럼 적절 한 옵션을 선택 합니다.
 

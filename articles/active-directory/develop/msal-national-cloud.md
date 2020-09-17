@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 479e74f9c36864e041685393d35972e7365260da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119441"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705863"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
 
@@ -42,7 +42,7 @@ Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브�
 
 [Azure Government](../../azure-government/index.yml) 응용 프로그램은 Azure ad 정부 Id 및 Azure ad 공용 id를 사용 하 여 사용자를 인증할 수 있습니다. 이러한 id 중 하나를 사용할 수 있으므로 시나리오에 대해 선택 해야 하는 기관 끝점을 결정 해야 합니다.
 
-- Azure AD Public: 조직에 Office 365 (공용 또는 GCC) 또는 다른 응용 프로그램을 지원 하기 위한 Azure AD 공용 테 넌 트가 이미 있는 경우 일반적으로 사용 됩니다.
+- Azure AD Public: 조직에 Microsoft 365 (공용 또는 GCC) 또는 다른 응용 프로그램을 지원 하기 위한 Azure AD 공용 테 넌 트가 이미 있는 경우 일반적으로 사용 됩니다.
 - Azure AD 정부: 조직에 이미 Office 365 (GCC High 또는 DoD)를 지원 하기 위한 Azure AD 정부 테 넌 트가 있는 경우 또는 Azure AD 정부에서 새 테 넌 트를 만드는 경우 일반적으로 사용 됩니다.
 
 결정 한 후에는 앱 등록을 수행 하는 특별 한 고려 사항이 있습니다. Azure Government 응용 프로그램에 대해 Azure AD 공용 id를 선택 하는 경우 Azure AD 공용 테 넌 트에서 응용 프로그램을 등록 해야 합니다.
@@ -122,7 +122,7 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 
 해당 코드에서 다음을 수행 합니다.
 
-- `Enter_the_Application_Id_here`등록 한 응용 프로그램에 대 한 **응용 프로그램 (클라이언트) ID** 값입니다.
+- `Enter_the_Application_Id_here` 등록 한 응용 프로그램에 대 한 **응용 프로그램 (클라이언트) ID** 값입니다.
 - `Enter_the_Tenant_Info_Here` 는 다음 옵션 중 하나로 설정됩니다.
     - 응용 프로그램이 **이 조직 디렉터리에서 계정을**지 원하는 경우이 값을 테 넌 트 ID 또는 테 넌 트 이름 (예: contoso.microsoft.com)으로 바꿉니다.
     - 응용 프로그램에서 **조직 디렉터리의 계정을**지 원하는 경우이 값을로 바꿉니다 `organizations` .
@@ -132,7 +132,7 @@ const myMSALObj = new UserAgentApplication(msalConfig);
     > [!NOTE]
     > 개인 Microsoft 계정은 국가별 클라우드에서 지원 되지 않습니다.
 
-- `graphEndpoint`는 미국 정부의 Microsoft 클라우드의 Microsoft Graph 끝점입니다.
+- `graphEndpoint` 는 미국 정부의 Microsoft 클라우드의 Microsoft Graph 끝점입니다.
 
    모든 국가별 클라우드의 Microsoft Graph 끝점을 찾으려면 [국가별 클라우드의 Microsoft Graph 끝점](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)을 참조 하세요.
 

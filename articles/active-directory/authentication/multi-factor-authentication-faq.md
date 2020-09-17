@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4e09637a7d990e1555b5443b9931cf8ff8c271b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 57325363909664bb527c2e2101505641858c4285
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718869"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706271"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -102,7 +102,7 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 
 사용자 단위 또는 인증 단위 MFA 공급자를 만들 때 해당 조직의 Azure 구독이 사용량을 기준으로 매월 청구됩니다. 이 청구 모델은 Azure에서 가상 컴퓨터 사용 및 Web Apps에 대 한 요금 청구 방법과 비슷합니다.
 
-Azure Multi-Factor Authentication에 대한 구독을 구매하는 경우 조직은 각 사용자에 대해 연간 라이선스 사용료만 지불합니다. MFA 라이선스 및 Office 365, Azure AD Premium 또는 Enterprise Mobility + Security 번들은 이 방법으로 청구됩니다.
+Azure Multi-Factor Authentication에 대한 구독을 구매하는 경우 조직은 각 사용자에 대해 연간 라이선스 사용료만 지불합니다. MFA 라이선스와 Microsoft 365, Azure AD Premium 또는 Enterprise Mobility + Security 번들은 이러한 방식으로 청구 됩니다.
 
 자세한 내용은 [Azure Multi-Factor Authentication 획득 방법](concept-mfa-licensing.md)을 참조하세요.
 
@@ -190,7 +190,7 @@ MFA 공급자가 Azure AD 테 넌 트에 연결 되어 *있지* 않거나 새 mf
 
 Azure MFA 서버 v7.0 이상을 사용하는 단방향 SMS의 경우 레지스트리 키를 설정하여 시간 제한 설정을 구성할 수 있습니다. MFA 클라우드 서비스가 텍스트 메시지를 보내면 확인 코드(또는 일회용 암호)가 MFA 서버에 반환됩니다. MFA 서버는 코드를 기본적으로 300초 동안 메모리에 저장합니다. 300초가 경과하기 전에 사용자가 코드를 입력하지 않으면 인증이 거부됩니다. 기본 시간 제한 설정을 변경하려면 다음 단계를 사용합니다.
 
-1. `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`로 이동합니다.
+1. `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor` 로 이동합니다.
 2. *Pfsvc_pendingSmsTimeoutSeconds* 라는 **DWORD** 레지스트리 키를 만들고 Azure MFA 서버에서 일회성 암호을 저장 하는 시간 (초)을 설정 합니다.
 
 >[!TIP]

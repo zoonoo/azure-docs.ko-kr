@@ -13,12 +13,12 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 5e62472fdccd2ee71a0ef725f34a75492d1b8ffa
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226644"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706203"
 ---
 # <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
 
@@ -36,7 +36,7 @@ Microsoft id 플랫폼을 사용 하 여 응용 프로그램을 개발 하는 �
 Microsoft는 두 종류의 사용자 계정을 관리합니다.
 
 - **개인 계정** (이전의 Windows Live ID). 이 계정은 *개인* 사용자와 Microsoft 사이의 관계를 나타내며 Microsoft의 소비자 디바이스 및 서비스에 액세스하는 데 사용됩니다. 이 계정은 개인적인 용도를 위한 것입니다.
-- **회사 또는 학교 계정.**  이 계정은 Azure Active Directory를 사용하는 조직을 대신하여 Microsoft에서 관리합니다. 이 계정은 Office 365 및 Microsoft의 다른 비즈니스 서비스에 로그인하는 데 사용됩니다.
+- **회사 또는 학교 계정.**  이 계정은 Azure Active Directory를 사용하는 조직을 대신하여 Microsoft에서 관리합니다. 이러한 계정은 Microsoft의 Microsoft 365 및 기타 비즈니스 서비스에 로그인 하는 데 사용 됩니다.
 
 Microsoft 회사 또는 학교 계정은 일반적으로 회사, 학교, 정부 기관 등의 조직이 직원, 학생, 연방 직원 등의 최종 사용자에게 할당합니다. 이러한 계정은 온-프레미스 디렉터리 (예: Windows Server Active Directory)에서 Azure AD로 동기화 되거나 클라우드에서 직접 마스터 됩니다 (Azure AD 플랫폼에서). Microsoft는 회사 또는 학교 계정의 *보유자* 이지만, 이 계정을 소유하고 제어하는 것은 조직입니다.
 
@@ -49,7 +49,7 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 ## <a name="user-account-pictogram"></a>사용자 계정 픽토그램
 
-이 지침의 이전 버전에서는 "파란색 배지" 픽토그램을 사용하도록 권장했습니다. 사용자와 개발자의 의견을 반영하여 이제 그 대신 Microsoft 로고를 사용할 것을 권장합니다. Microsoft 로고를 통해 사용자들이 Office 365 또는 기타 Microsoft 비즈니스 서비스에 사용하는 계정을 앱 로그인에 다시 사용할 수 있다는 점을 이해할 수 있습니다.
+이 지침의 이전 버전에서는 "파란색 배지" 픽토그램을 사용하도록 권장했습니다. 사용자와 개발자의 의견을 반영하여 이제 그 대신 Microsoft 로고를 사용할 것을 권장합니다. Microsoft 로고는 사용자가 Microsoft 365 또는 다른 Microsoft 비즈니스 서비스에 사용 하는 계정을 다시 사용 하 여 앱에 로그인 하는 것을 이해 하는 데 도움이 됩니다.
 
 ## <a name="signing-up-and-signing-in-with-azure-ad"></a>Azure AD를 사용한 등록 및 로그인
 
@@ -63,13 +63,13 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 "앱 가져오기" 링크는 Azure AD 액세스 권한 부여(권한 부여) 페이지로 사용자를 리디렉션해야 합니다. 그러면 조직 관리자가 앱이 Microsoft에서 호스트되는 조직 데이터에 액세스할 수 있게 승인할 수 있습니다. 액세스 권한을 요청하는 방법에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](./quickstart-register-app.md) 문서에서 설명합니다.
 
-관리자는 앱에 동의한 후 사용자의 Office 365 앱 시작 관리자 환경에 추가 하도록 선택할 수 있습니다 (와플 및에서 액세스할 수 있음 [https://portal.office.com/myapps](https://portal.office.com/myapps) ). 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음 예제와 같은 단추를 표시할 수 있습니다.
+관리자는 앱에 동의한 후 Microsoft 365 사용자의 앱 시작 관리자 환경 (와플 및에서 액세스할 수 있음)에 추가 하도록 선택할 수 있습니다 [https://portal.office.com/myapps](https://portal.office.com/myapps) . 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음 예제와 같은 단추를 표시할 수 있습니다.
 
 ![Microsoft 로고 및 텍스트 "내 조직에 추가"를 표시하는 단추](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예:
+그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
-> *이미 Office 365 또는 Microsoft의 다른 비즈니스 서비스를 사용 하는 경우 조직의 데이터에 대 한 액세스> your_app_name <부여할 수 있습니다. 이렇게 하면 사용자가 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
+> *이미 Microsoft 365 또는 Microsoft의 다른 비즈니스 서비스를 사용 하는 경우 조직의 데이터에 대 한 액세스> <your_app_name 부여할 수 있습니다. 이렇게 하면 사용자가 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
 
 공식 Microsoft 로고를 앱에서 사용하기 위해 다운로드하려면 사용할 이미지를 마우스 오른쪽 단추로 클릭한 다음, 컴퓨터에 저장합니다.
 
@@ -102,7 +102,7 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 
 **권장** 최종 사용자가 단추를 사용할 수 있는지 여부를 인식할 수 있도록, 추가 설명을 제공하기 위해 "회사 또는 학교 계정"을 "Microsoft에 로그인" 단추와 함께 사용합니다. **권장 안 함** "엔터프라이즈 계정", "비즈니스 계정" 또는 "회사 계정"과 같은 다른 용어는 사용하지 않습니다.
 
-"Office 365 ID" 또는 "Azure ID"를 사용 **하지 마세요** . Office 365는 인증을 위해 Azure AD를 사용하지 않는 Microsoft 소비자 서비스의 이름이기도 합니다.
+"Microsoft 365 ID" 또는 "Azure ID"를 사용 **하지 마세요** . Microsoft 365은 Microsoft에서 제공 하는 소비자의 이름 이기도 하며 인증에 Azure AD를 사용 하지 않습니다.
 
 **권장 안 함** Microsoft 로고를 변경하지 않습니다.
 

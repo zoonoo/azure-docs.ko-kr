@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dac17c8592530c06dd761914e7f556b35c3674b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bf57bea87fcb5e1d1f1bde4eada5a79d2fef52c8
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202992"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706322"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 
@@ -50,7 +50,7 @@ ms.locfileid: "86202992"
 
 신뢰할 수 있는 IP를 사용하면 관리자가 특정 IP 주소 또는 자신의 인트라넷 내에서 시작된 요청을 가진 페더레이션 사용자에 대한 2단계 확인을 바이패스할 수 있습니다. 다음 섹션에서는 페더레이션 사용자 인트라넷에서 요청이 시작되는 경우 페더레이션 사용자로 Azure Multi-Factor Authentication 신뢰할 수 있는 IP를 구성하고 2단계 확인을 바이패스하는 방법을 설명합니다. 이 작업은 들어오는 클레임(회사 네트워크 내부 클레임 형식 사용) 통과 또는 필터링 템플릿을 사용하도록 AD FS를 구성하여 수행합니다.
 
-이 예제는 신뢰 당사자 트러스트에 대해 Office 365를 사용합니다.
+이 예제에서는 신뢰 당사자 트러스트에 대 한 Microsoft 365를 사용 합니다.
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>AD FS 클레임 규칙 구성
 
@@ -67,7 +67,7 @@ ms.locfileid: "86202992"
 6. 클레임 규칙 이름 옆에 있는 상자에 규칙의 이름을 지정합니다. 예를 들어 InsideCorpNet입니다.
 7. 들어오는 클레임 형식 옆의 드롭다운 목록에서 **회사 네트워크 내부**를 선택합니다.
    ![회사 네트워크 클레임 내부 추가](./media/howto-mfa-adfs/trustedip4.png)
-8. **Finish**를 클릭합니다.
+8. **마침**을 클릭합니다.
 9. 발급 변환 규칙에서 **규칙 추가**를 클릭 합니다.
 10. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **사용자 지정 규칙을 사용하여 클레임 보내기**를 선택하고 **다음**을 클릭합니다.
 11. 클레임 규칙 이름 아래에 있는 상자에 *로그인한 사용자 유지*를 입력합니다.
@@ -79,7 +79,7 @@ ms.locfileid: "86202992"
     ![Create custom claim to keep users signed in](./media/howto-mfa-adfs/trustedip5.png)
 ```
 
-13. **Finish**를 클릭합니다.
+13. **마침**을 클릭합니다.
 14. **적용**을 클릭합니다.
 15. **확인**을 클릭합니다.
 16. AD FS 관리를 닫습니다.
@@ -97,4 +97,4 @@ ms.locfileid: "86202992"
 4. [서비스 설정] 페이지의 **신뢰할 수 있는 IP**에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기**를 선택합니다.  
 5. **저장**을 클릭합니다.
 
-모두 끝났습니다. 이제 회사 인트라넷 외부에서 클레임이 시작하는 경우 Office 365 페더레이션 사용자만 MFA를 사용해야 합니다.
+이것으로 끝입니다. 이 시점에서 페더레이션 Microsoft 365 사용자는 클레임이 회사 인트라넷 외부에서 시작 된 경우에만 MFA를 사용 해야 합니다.

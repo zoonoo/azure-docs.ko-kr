@@ -1,6 +1,6 @@
 ---
 title: Microsoft id 플랫폼 범위, 사용 권한 및 동의
-description: 범위, 사용 권한 및 동의를 포함 하 여 Microsoft id 플랫폼 끝점의 권한 부여에 대 한 설명입니다.
+description: 범위, 사용 권한 및 동의를 포함 하 여 Microsoft id 플랫폼 끝점의 권한 부여에 대해 알아봅니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d513dbd8449dad1d34117e06970f0c0881462aa3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263230"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705693"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -28,11 +28,11 @@ Microsoft ID 플랫폼과 통합되는 애플리케이션은 사용자와 관리
 Microsoft ID 플랫폼은 [OAuth 2.0](active-directory-v2-protocols.md) 권한 부여 프로토콜을 구현합니다. OAuth 2.0은 사용자 대신 타사 앱에서 웹에 호스트된 리소스에 액세스할 수 있도록 하는 방법입니다. Microsoft ID 플랫폼과 통합되는 웹 호스트팅 리소스에는 리소스 식별자 또는 *애플리케이션 ID URI*가 있습니다. 예를 들어 웹에 호스트된 몇 가지 Microsoft 리소스는 다음과 같습니다.
 
 * Microsoft Graph: `https://graph.microsoft.com`
-* Office 365 메일 API: `https://outlook.office.com`
-* Azure Key Vault:`https://vault.azure.net`
+* Microsoft 365 메일 API: `https://outlook.office.com`
+* Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
-> Office 365 메일 API 등을 사용 하는 대신 Microsoft Graph를 사용 하는 것이 좋습니다.
+> Microsoft 365 메일 API 등을 사용 하는 대신 Microsoft Graph를 사용 하는 것이 좋습니다.
 
 Microsoft ID 플랫폼과 통합된 타사 리소스의 경우도 마찬가지입니다. 이러한 리소스는 해당 리소스의 기능을 더 작은 청크로 나누는 데 사용할 수 있는 사용 권한 집합을 정의할 수도 있습니다. 예를 들어 [Microsoft Graph](https://graph.microsoft.com)는 특히 다음 작업을 수행할 수 있는 사용 권한을 정의했습니다.
 
@@ -193,13 +193,13 @@ https://graph.microsoft.com/mail.send
 ```
 
 
-| 매개 변수        | 조건        | 설명                                                                                |
+| 매개 변수        | 조건        | Description                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | 필요한 공간 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 는 GUID 또는 친숙 한 이름 형식으로 제공 하거나 예에 표시 된 대로 조직에서 일반적으로 참조할 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
+| `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 는 GUID 또는 친숙 한 이름 형식으로 제공 하거나 예에 표시 된 대로 조직에서 일반적으로 참조할 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID**입니다. |
 | `redirect_uri` | 필수 |리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. 앱 등록 포털에 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태를 사용하여 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |
-|`scope`        | 필요한 공간        | 응용 프로그램에서 요청 하는 사용 권한 집합을 정의 합니다. 정적 (사용 [`/.default`](#the-default-scope) ) 또는 동적 범위 중 하나일 수 있습니다.  여기에는 OIDC 범위 ( `openid` , `profile` ,)가 포함 될 수 있습니다 `email` . 응용 프로그램 권한이 필요한 경우를 사용 하 여 `/.default` 정적으로 구성 된 사용 권한 목록을 요청 해야 합니다.  |
+|`scope`        | 필수        | 응용 프로그램에서 요청 하는 사용 권한 집합을 정의 합니다. 정적 (사용 [`/.default`](#the-default-scope) ) 또는 동적 범위 중 하나일 수 있습니다.  여기에는 OIDC 범위 ( `openid` , `profile` ,)가 포함 될 수 있습니다 `email` . 응용 프로그램 권한이 필요한 경우를 사용 하 여 `/.default` 정적으로 구성 된 사용 권한 목록을 요청 해야 합니다.  |
 
 
 이 시점에서 Azure AD는 테넌트 관리자에게 요청을 완료하기 위해 로그인하도록 요구합니다. 관리자는 매개 변수에서 요청한 모든 사용 권한을 승인 하 라는 메시지를 표시 `scope` 합니다.  Static () 값을 사용 하는 경우 `/.default` ,이 값은 해당 앱에 대 한 필수 사용 권한에 있는 모든 범위에 대 한 요청 동의 및 v1.0 관리자 동의 끝점 처럼 작동 합니다.

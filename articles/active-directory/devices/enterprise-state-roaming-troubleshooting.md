@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb376ebacdd76fdde30178e19fa3c3062e57da1c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267244"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705727"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 설정 문제 해결
 
@@ -78,9 +78,9 @@ Enterprise State Roaming은 Azure AD에 등록된 디바이스가 필요합니�
 
 특정 조건에서 엔터프라이즈 상태 로밍은 Azure Multi-Factor Authentication이 구성된 경우 데이터를 동기화하는 데 실패할 수 있습니다. 이러한 현상에 대 한 자세한 내용은 지원 문서 [자세한 내용은 kb3193683](https://support.microsoft.com/kb/3193683)를 참조 하세요. 
 
-**잠재적인 문제**: Azure Active Directory 포털에서 Multi-Factor Authentication을 필요로 하도록 디바이스가 구성된 경우 암호를 사용하여 Windows 10 디바이스에 로그인하는 동안 설정을 동기화하는 데 실패할 수 있습니다. 이러한 형식의 Multi-Factor Authentication 구성은 Azure 관리자 계정을 보호하도록 계획되었습니다. 관리자 사용자는 Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 Microsoft Passport for Work PIN을 사용하거나 Multi-Factor Authentication을 완료하여 해당 Windows 10 디바이스에 로그인함으로써 동기화할 수 있습니다.
+**잠재적인 문제**: Azure Active Directory 포털에서 Multi-Factor Authentication을 필요로 하도록 디바이스가 구성된 경우 암호를 사용하여 Windows 10 디바이스에 로그인하는 동안 설정을 동기화하는 데 실패할 수 있습니다. 이러한 형식의 Multi-Factor Authentication 구성은 Azure 관리자 계정을 보호하도록 계획되었습니다. 관리자 사용자는 Microsoft Passport for Work PIN을 사용 하 여 Windows 10 장치에 로그인 하거나 Microsoft 365 같은 다른 Azure 서비스에 액세스 하는 동안 Multi-Factor Authentication를 완료 하 여 동기화 할 수 있습니다.
 
-**잠재적인 문제**: 관리자가 조건부 액세스 정책 Multi-Factor Authentication Active Directory Federation Services를 구성 하 고 장치의 액세스 토큰이 만료 되 면 동기화가 실패할 수 있습니다. Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 Microsoft Passport for Work PIN을 사용하거나 Multi-Factor Authentication을 완료하여 로그인 및 로그아웃해야 합니다.
+**잠재적인 문제**: 관리자가 조건부 액세스 정책 Multi-Factor Authentication Active Directory Federation Services를 구성 하 고 장치의 액세스 토큰이 만료 되 면 동기화가 실패할 수 있습니다. Microsoft 365 같은 다른 Azure 서비스에 액세스 하는 동안 Microsoft Passport for Work PIN 또는 전체 Multi-Factor Authentication를 사용 하 여 로그인 및 로그 아웃 해야 합니다.
 
 ### <a name="event-viewer"></a>이벤트 뷰어
 

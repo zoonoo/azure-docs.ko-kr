@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: b94bcd1cfbbf215ed912d506d27311aae502656b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 554e5a022dcb49cd861ad7198a2c375634db6d10
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115070"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705748"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 앱 매니페스트
 
@@ -82,7 +82,7 @@ Azure Portal을 통해 또는 프로그래밍 방식으로 [REST API](/graph/api
 | :--- | :--- |
 | addIns | 컬렉션 |
 
-소비하는 서비스가 특정 컨텍스트에서 앱을 호출하는 데 사용할 수 있는 사용자 지정 동작을 정의합니다. 예를 들어, 파일 스트림을 렌더링할 수 있는 애플리케이션은 해당 "FileHandler" 기능에 대해 `addIns` 속성을 설정할 수 있습니다. 이 매개 변수를 사용하면 Office 365 같은 서비스가 사용자가 작업 중인 문서의 컨텍스트에서 애플리케이션을 호출할 수 있습니다.
+소비하는 서비스가 특정 컨텍스트에서 앱을 호출하는 데 사용할 수 있는 사용자 지정 동작을 정의합니다. 예를 들어, 파일 스트림을 렌더링할 수 있는 애플리케이션은 해당 "FileHandler" 기능에 대해 `addIns` 속성을 설정할 수 있습니다. 이 매개 변수를 사용 하면 Microsoft 365와 같은 서비스가 사용자가 작업 중인 문서의 컨텍스트에서 응용 프로그램을 호출할 수 있습니다.
 
 예제:
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ec1aa165b8fa5d3a249cb525887acf2990136bd3
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 21498f9117ac25356c9381d632644bbaa4d5a74b
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049872"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706697"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>ISV 파트너 Azure Active Directory B2C
 
@@ -37,6 +37,7 @@ ISV 파트너 네트워크는 원활한 최종 사용자 환경을 구축 하는
 | ![로고](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) 는 id 확인 서비스 이며,이 서비스를 사용 하면 실시간 자동화 id를 확인 하 고 고객 데이터를 보호 합니다. |
 | ![로고](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) 은 사용자 id를 확인 하 고 사용자의 장치에 따라 포괄적인 위험 평가를 제공 하는 프로 파일링 및 id 유효성 검사 공급자입니다. |
 | ![로고](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) 는 회사에서 고객 및 id 요구 사항을 실시간으로 *파악* 하는 데 사용할 수 있는 문서 ID 및 얼굴 인식 확인 솔루션입니다.  |
+| ![로고](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-saviynt.md) cloud native platform은 intelligent analytics를 사용 하 고 응용 프로그램 간 통합을 제공 하 여 IT 현대화을 간소화 하 고 더 나은 보안, 거 버 넌 스 및 규정 준수 수준을 올립니다. 비즈니스 현대화 회사는 액세스 요청을 검토 하 고, 액세스 검토, 보고서 분석을 수행 하 고, 인증 캠페인을 간소화 하는 방식을 변경 합니다.  |
 | ![로고](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) 통합을 사용 하면 안전 하 게 로그인 하 고 암호 없는 인증, multi-factor authentication 및 디지털 라이선스 검색을 사용할 수 있습니다.|
 | ![로고](./media/partner-gallery/twilio-logo.png) | [Twilio Verify 앱](./partner-twilio.md) 은 MFA (multi-factor authentication)를 사용 하 여 SMS OTP (일회성 암호), 시간 기반 일회용 암호 (totp) 및 푸시 알림을 사용 하도록 설정 하 고, 결제 서비스 지시어 2 (PSD2)에 대 한 SCA 요구 사항을 준수 하는 여러 솔루션을 제공 합니다.|
 | ![로고](./media/partner-gallery/typingdna-logo.png) | [Typingdna](./partner-typingdna.md) 는 사용자 입력 패턴을 기반으로 하는 id 확인 및 교정 공급자 이며, id 확인 솔루션을 사용 하 여 multi-factor authentication을 강제 적용 하 고, 결제 서비스 지시어 2 (PSD2)에 대 한 SCA 요구 사항을 준수 하는 데 도움이 됩니다. |

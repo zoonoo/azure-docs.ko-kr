@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: de6cd4ee2c9800757399b7e32b59d903b817c657
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 9a1745aa0e78dafca70ea90d4a5ac92f340312b3
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604396"
+ms.locfileid: "90706925"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Speech Service에 대한 언어 및 음성 지원
 
@@ -38,18 +38,18 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | 로캘  | 언어                          | 사용자 지정                                    |
 |---------|-----------------------------------|---------------------------------------------------|
-| `ar-AE` | 아랍어(UAE)                      | 예                                                |
+| `ar-AE` | 아랍어 (아랍에미리트)     | 언어 모델                                    |
 | `ar-BH` | 아랍어(바레인), 최신 표준 | 언어 모델                                    |
 | `ar-EG` | 아랍어(이집트)                    | 언어 모델                                    |
 | `ar-IL` | 아랍어(이스라엘)                   | No                                                |
-| `ar-IQ` | 아랍어(이라크)                     | 예                                                |
-| `ar-JO` | 아랍어(요르단)                   | 예                                                |
-| `ar-KW` | 아랍어(쿠웨이트)                   | 예                                                |
-| `ar-LB` | 아랍어(레바논)                  | No                                                |
-| `ar-OM` | 아랍어(오만)                     | 예                                                |
-| `ar-PS` | 아랍어(팔레스타인)                | 예                                                |
-| `ar-QA` | 아랍어(카타르)                    | 예                                                |
-| `ar-SA` | 아랍어(사우디아라비아)             | 예                                                |
+| `ar-IQ` | 아랍어(이라크)                     | 언어 모델                                    |
+| `ar-JO` | 아랍어(요르단)                   | 언어 모델                                    |
+| `ar-KW` | 아랍어(쿠웨이트)                   | 언어 모델                                    |
+| `ar-LB` | 아랍어(레바논)                  | 언어 모델                                    |
+| `ar-OM` | 아랍어(오만)                     | 언어 모델                                    |
+| `ar-PS` | 아랍어 (팔레스타인 자치 정부 상태)       | 예                                                |
+| `ar-QA` | 아랍어(카타르)                    | 언어 모델                                    |
+| `ar-SA` | 아랍어(사우디아라비아)             | 언어 모델                                    |
 | `ar-SY` | 아랍어(시리아)                    | 언어 모델                                    |
 | `bg-BG` | 불가리아어(불가리아)              | 언어 모델                                    |
 | `ca-ES` | 카탈로니아어(스페인)                   | 언어 모델                                    |
@@ -117,7 +117,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `sv-SE` | 스웨덴어(스웨덴)                  | 언어 모델                                    |
 | `ta-IN` | 타밀어(인도)                     | 언어 모델                                    |
 | `te-IN` | 텔루구어(인도)                    | 언어 모델                                    |
-| `th-TH` | 태국어(태국)                   | 예                                                |
+| `th-TH` | 태국어(태국)                   | 언어 모델                                    |
 | `tr-TR` | 터키어(터키)                  | 언어 모델                                    |
 | `zh-CN` | 중국어 (북경어, 간체)    | 음향 모델<br>언어 모델                  |
 | `zh-HK` | 중국어(광둥어, 번체)  | 언어 모델                                    |

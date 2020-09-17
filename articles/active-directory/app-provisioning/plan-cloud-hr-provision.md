@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235698"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706349"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>사용자 프로 비전을 Azure Active Directory 클라우드 HR 응용 프로그램 계획
 
@@ -50,9 +50,9 @@ Azure AD 사용자 프로 비전과 클라우드 HR 앱 통합은 다음을 수�
 - 클라우드 HR 앱에서 Active Directory 또는 Azure AD로 직접 사용자를 프로 비전 해야 합니다.
 - 클라우드 HR 앱에서 얻은 데이터를 사용 하 여 사용자를 프로 비전 해야 합니다.
 - 클라우드 HR 앱에서 검색 된 변경 정보만 기반으로 하나 이상의 Active Directory 포리스트, 도메인 및 Ou로 사용자를 동기화 할 수 있어야 합니다.
-- 전자 메일에 Office 365를 사용 합니다.
+- 전자 메일에 Microsoft 365를 사용 합니다.
 
-## <a name="learn"></a>배우기
+## <a name="learn"></a>Learn
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스를 위한 토대를 만듭니다. 이를 통해 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킬 수 있습니다.
 
@@ -61,14 +61,14 @@ Azure AD 사용자 프로 비전과 클라우드 HR 앱 통합은 다음을 수�
 이 문서에서는 다음과 같은 용어를 사용 합니다.
 
 - **원본 시스템**: Azure AD가 프로 비전 하는 사용자의 리포지토리입니다. 예를 들어 Workday 또는 SuccessFactors와 같은 클라우드 HR 앱이 있습니다.
-- **대상 시스템**: Azure AD가 프로 비전 하는 사용자의 리포지토리입니다. 예를 들면 Active Directory, Azure AD, Office 365 또는 기타 SaaS 앱이 있습니다.
+- **대상 시스템**: Azure AD가 프로 비전 하는 사용자의 리포지토리입니다. 예를 들면 Active Directory, Azure AD, Microsoft 365 또는 기타 SaaS 앱이 있습니다.
 - **Joiners-Leavers 프로세스**: 클라우드 HR 앱을 레코드 시스템으로 사용 하 여 새 고용, 전송 및 종료에 사용 되는 용어입니다. 이 프로세스는 서비스가 대상 시스템에 필요한 특성을 성공적으로 프로 비전 할 때 완료 됩니다.
 
 ### <a name="key-benefits"></a>주요 이점
 
 HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니스 혜택을 제공 합니다.
 
-- **생산성 향상:** 이제 사용자 계정 및 Office 365 라이선스 할당을 자동화 하 고 키 그룹에 대 한 액세스를 제공할 수 있습니다. 할당을 자동화 하면 작업 도구에 즉시 액세스할 수 있으며 생산성이 향상 됩니다.
+- **생산성 향상:** 이제 사용자 계정 및 라이선스 Microsoft 365 할당을 자동화 하 고 키 그룹에 대 한 액세스를 제공할 수 있습니다. 할당을 자동화 하면 작업 도구에 즉시 액세스할 수 있으며 생산성이 향상 됩니다.
 - **위험 관리:** 클라우드 HR 앱에서 이동 하는 데이터를 사용 하 여 직원 상태 또는 그룹 멤버 자격에 따라 변경 내용을 자동화 하 여 보안을 강화할 수 있습니다. 변경을 자동화 하면 사용자가 조직을 전환 하거나 탈퇴할 때 키 앱에 대 한 사용자 id 및 액세스가 자동으로 업데이트 됩니다.
 - **주소 규정 준수 및 거 버 넌 스:** Azure AD는 원본 및 대상 시스템 모두의 앱에서 수행 하는 사용자 프로 비전 요청에 대 한 기본 감사 로그를 지원 합니다. 감사를 통해 단일 화면에서 앱에 대 한 액세스 권한이 있는 사용자를 추적할 수 있습니다.
 - **비용 관리:** 자동 프로 비전은 수동 프로 비전과 관련 된 비효율성 및 인간 오류를 방지 하 여 비용을 절감 합니다. 레거시 및 오래 된 플랫폼을 사용 하 여 시간에 따라 작성 된 사용자 지정 개발 된 사용자 프로 비전 솔루션에 대 한 필요성을 줄입니다.
@@ -79,7 +79,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 
 또한 클라우드 HR 앱에서 소스인 Active Directory 또는 Azure AD로 프로 비전 되는 모든 사용자에 대해 유효한 Azure AD Premium P1 이상의 구독 라이선스가 필요 합니다. 클라우드 HR 앱에서 소유 하 고 있는 라이선스 수가 잘못 된 경우 사용자 프로 비전 중에 오류가 발생할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 - Azure AD Connect 프로 비전 에이전트를 구성 하는 Azure AD [하이브리드 id 관리자](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  입니다.
 - Azure Portal에서 프로 비전 앱을 구성 하는 Azure AD [응용 프로그램 관리자](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) 역할
@@ -94,7 +94,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 |:-|:-|
 | 동영상 | [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) |
 | | [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) |
-| 자습서 | [Azure AD와 SaaS 앱을 통합 하는 방법에 대 한 자습서 목록](../saas-apps/tutorial-list.md) |
+| 자습서 | [SaaS 앱을 Azure AD와 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md) |
 | | [자습서: 자동 사용자 프로비저닝을 위한 Workday 구성](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 | FAQ | [자동화된 사용자 프로비전](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Workday에서 Azure AD로 프로 비전](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |

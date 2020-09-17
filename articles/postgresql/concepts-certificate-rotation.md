@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: ce1ef0257f2003c3af01d71b7da3924ebd9ed44f
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 5b46dc0197022aa72b6ca4c206d1da4369234167
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603920"
+ms.locfileid: "90707682"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 루트 CA 변경 내용 이해
 
@@ -28,10 +28,9 @@ ms.locfileid: "90603920"
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>데이터베이스에 영향을 미치는지 여부를 어떻게 할까요? 확인
 
 SSL/TLS를 사용 하 고 루트 인증서를 확인 하는 모든 응용 프로그램은 루트 인증서를 업데이트 해야 합니다. 연결 문자열을 검토 하 여 연결에서 루트 인증서를 확인 하는지 여부를 식별할 수 있습니다.
--   연결 문자열에 `sslmode=verify-ca` 또는 ' '가 포함 되어 있는 경우
--   연결 문자열에가 포함 되어 있으면 `sslmode=disable` 인증서를 업데이트할 필요가 없습니다.
--   연결 문자열에 `sslmode=allow` , 또는가 포함 되어 있으면 `sslmode=prefer` `sslmode=require` 인증서를 업데이트할 필요가 없습니다. 
--   연결 문자열이 특정 sslmode가 아니면 인증서를 업데이트할 필요가 없습니다.
+-   연결 문자열에 `sslmode=verify-ca` 또는가 포함 `sslmode=verify-full` 된 경우 인증서를 업데이트 해야 합니다.
+-   연결 문자열에,, 또는가 포함 되어 있으면 `sslmode=disable` `sslmode=allow` `sslmode=prefer` `sslmode=require` 인증서를 업데이트할 필요가 없습니다. 
+-   연결 문자열에서 sslmode를 지정 하지 않는 경우 인증서를 업데이트할 필요가 없습니다.
 
 연결 문자열을 추상화 하는 클라이언트를 사용 하는 경우 클라이언트의 설명서를 검토 하 여 인증서를 확인 하는지 여부를 파악 합니다.
 
