@@ -1,14 +1,14 @@
 ---
 title: CAF Foundation 청사진 샘플 개요
 description: Azure에 대한 CAF(Cloud Adoption Framework) Foundation 청사진 샘플의 개요 및 아키텍처입니다.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: b8bd0015d5f95fc61806197ca21fdaeeb3452700
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852347"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531698"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Foundation 청사진 샘플
 
@@ -18,7 +18,9 @@ Azure에 대한 Microsoft CAF(클라우드 채택 프레임워크) Foundation �
 
 CAF Foundation 청사진 샘플은 조직에서 클라우드 자산을 관리하는 데 필요한 기본 컨트롤을 배치하는 데 사용할 수 있는 권장 인프라 리소스를 Azure에 배포합니다. 이 샘플은 조직이 Azure를 안전하게 시작할 수 있도록 리소스, 정책 및 템플릿을 배포하고 적용합니다.
 
-:::image type="content" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="CAF Foundation, 이미지는 Azure를 시작하기 위한 기초를 만들기 위해 CAF 지침의 일부로 설치되는 항목을 설명합니다." border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="C A F Foundation, 이미지는 Azure를 시작하기 위한 기초를 만들기 위해 C A F 지침의 일부로 설치되는 항목을 설명합니다." border="false":::
+   C A F Foundation 청사진을 배포하여 달성한 Azure 아키텍처를 설명합니다.  이는 로그 저장을 위한 스토리지 계정, 스토리지 계정에 저장하도록 구성된 로그 분석으로 구성된 리소스 그룹 구독에 적용됩니다. 또한 Azure Security Center 표준 설치로 구성된 Azure Key Vault에 대해서도 설명합니다. 이러한 모든 핵심 인프라는 Azure Active Directory를 사용하여 액세스되고 Azure Policy를 사용하여 적용됩니다.     
+:::image-end:::
 
 이 구현에서는 안전하고 완벽하게 모니터링되는 엔터프라이즈 지원 파운데이션을 제공하는 데 사용되는 여러 Azure 서비스를 통합합니다. 이 환경은 다음과 같은 요소로 구성됩니다.
 

@@ -28,8 +28,6 @@
           href: tutorial-discover-physical.md
         - name: AWS 인스턴스 검색
           href: tutorial-discover-aws.md
-        - name: 가져온 서버 검색
-          href: tutorial-discover-import.md
     - name: 평가
       items:
         - name: Azure VM으로 마이그레이션할 VMware VM 평가
@@ -42,7 +40,9 @@
           href: tutorial-assess-physical.md
         - name: Azure로 마이그레이션할 AWS 인스턴스 평가
           href: tutorial-assess-aws.md
-    - name: 마이그레이션
+        - name: 가져온 서버 평가
+          href: tutorial-discover-import.md
+    - name: Migrate
       items:
         - name: VMware VM 마이그레이션
           items:

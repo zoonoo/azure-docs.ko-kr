@@ -1072,6 +1072,8 @@
               href: troubleshoot-not-found.md
             - name: 승인되지 않은 문제 해결
               href: troubleshoot-unauthorized.md
+            - name: 다중 지역 환경에서의 SDK 가용성
+              href: troubleshoot-sdk-availability.md
         - name: .NET
           items:
             - name: .NET SDK 일반적인 문제 해결

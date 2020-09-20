@@ -340,8 +340,16 @@
           href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: 확장 집합에 대한 네트워킹
           href: virtual-machine-scale-sets-networking.md
-        - name: 자동 OS 업그레이드
-          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: OS 이미지 업그레이드
+          items:
+            - name: 자동 OS 업그레이드
+              href: virtual-machine-scale-sets-automatic-upgrade.md
+            - name: 유지 관리 제어
+              items:
+                - name: 개요(미리 보기)
+                  href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
+                - name: PowerShell(미리 보기)
+                  href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
         - name: 자동 인스턴스 복구
           href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: 인스턴스 보호

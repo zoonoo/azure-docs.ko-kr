@@ -20,19 +20,11 @@
       href: quickstart-load-balancer-standard-internal-powershell.md
     - name: 내부 부하 분산 장치 만들기 - Azure CLI
       href: quickstart-load-balancer-standard-internal-cli.md
+    - name: 내부 부하 분산 장치 만들기 - ARM 템플릿
+      href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: 자습서
   items:
-    - name: 내부 부하 분산 장치
-      items:
-        - name: 내부 Load Balancer 만들기 - 포털
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: 내부 Load Balancer 만들기 - Azure CLI
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: 내부 Load Balancer 만들기 - Azure PowerShell
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: 내부 Load Balancer 만들기 - ARM 템플릿
-          href: load-balancer-get-started-ilb-arm-template.md
     - name: 가용성 영역에 VM 부하 분산
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: 특정 가용성 영역 내에 VM 부하 분산

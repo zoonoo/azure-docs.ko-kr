@@ -31,6 +31,8 @@
       href: set-preferences.md
     - name: '즐겨찾기 추가, 제거 및 정렬'
       href: azure-portal-add-remove-sort-favorites.md
+    - name: 리소스 정보 보기 및 필터링
+      href: manage-filter-resource-views.md
     - name: Azure 대시보드 만들기
       items:
         - name: Azure 대시보드 만들기 및 공유

@@ -12,122 +12,134 @@ metadata:
   author: msmimart
   ms.author: mimart
   ms.date: 01/28/2020
-  ms.openlocfilehash: fe0fc7f20a81d9b887a61ca382dafcb69fc420d2
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 34cb40d385b007f8a41a6700448a1591b714c096
+  ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "78187715"
+  ms.lasthandoff: 09/15/2020
+  ms.locfileid: "90562760"
 landingContent:
-- title: 기본 사항 알아보기
+- title: Azure AD B2C
   linkLists:
   - linkListType: overview
     links:
     - text: Azure AD B2C란?
       url: overview.md
+    - text: External Identities용 솔루션 비교
+      url: https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: Azure AD B2C 시작
+      url: tutorial-create-tenant.md
     - text: 기술 및 기능 개요
       url: technical-overview.md
-  - linkListType: get-started
-    links:
-    - text: Azure AD B2C 테넌트 만들기
-      url: tutorial-create-tenant.md
-    - text: 애플리케이션 등록
-      url: tutorial-register-applications.md
-    - text: 사용자 흐름 설정
-      url: tutorial-create-user-flows.md
-  - linkListType: video
-    links:
-    - text: Azure AD B2C란? (9:35)
-      url: https://www.youtube.com/watch?v=GmBKlXED9Ug
-- title: ASP.NET 앱에 ID 추가
+    - text: 가격 책정
+      url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
+- title: 기본 사항
   linkLists:
-  - linkListType: quickstart
+  - linkListType: learn
     links:
-    - text: 로그인 설정
-      url: quickstart-web-app-dotnet.md
-  - linkListType: tutorial
-    links:
-    - text: .NET 웹 애플리케이션에서 사용자 인증
-      url: tutorial-web-app-dotnet.md
-    - text: .NET 웹 애플리케이션에 대한 API 액세스 권한 부여
-      url: tutorial-web-api-dotnet.md
-    - text: 엔터프라이즈 및 소셜 로그인 사용
-      url: tutorial-add-identity-providers.md
-  - linkListType: download
-    links:
-    - text: 웹앱 및 API에 대한 코드 샘플
-      url: code-samples.md#web-apps-and-apis
-- title: 단일 페이지 앱에 ID 추가
+    - text: 인증 및 권한 부여
+      url: https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: 토큰
+      url: https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: 프로토콜
+      url: https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: 인증 라이브러리
+      url: https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json
+    - text: '웹 사이트 빌드: HTML, CSS, JavaScript'
+      url: https://docs.microsoft.com/learn/modules/build-simple-website/
+- title: 일반 사용 예
   linkLists:
-  - linkListType: quickstart
+  - linkListType: how-to-guide
     links:
-    - text: 로그인 설정
-      url: quickstart-single-page-app.md
-  - linkListType: tutorial
-    links:
-    - text: 단일 페이지 앱에서 사용자 인증
-      url: tutorial-single-page-app.md
-    - text: 단일 페이지 앱에 대한 API 액세스 권한 부여
-      url: tutorial-single-page-app-webapi.md
-    - text: 엔터프라이즈 및 소셜 로그인 사용
-      url: tutorial-add-identity-providers.md
-  - linkListType: download
-    links:
-    - text: 단일 페이지 앱에 대한 코드 샘플
-      url: code-samples.md#single-page-apps
-- title: 데스크톱 앱에 ID 추가
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: 로그인 설정
-      url: quickstart-native-app-desktop.md
-  - linkListType: tutorial
-    links:
-    - text: 네이티브 클라이언트에서 사용자 인증
-      url: tutorial-desktop-app.md
-    - text: 네이티브 클라이언트에 대한 API 액세스 권한 부여
-      url: tutorial-desktop-app-webapi.md
-    - text: 엔터프라이즈 및 소셜 로그인 사용
-      url: tutorial-add-identity-providers.md
-  - linkListType: download
-    links:
-    - text: 모바일 및 데스크톱 앱에 대한 코드 샘플
-      url: code-samples.md
-- title: 일반적인 ID 시나리오 구성
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 사용자 흐름 소개
+    - text: 셀프 서비스 로그인 사용
       url: user-flow-overview.md
+    - text: '소셜 및 회사 ID 추가: OIDC/OAuth2/SAML'
+      url: tutorial-add-identity-providers.md
+    - text: SSO(Single Sign-On) 사용
+      url: session-overview.md
+    - text: UI/UX 사용자 지정
+      url: customize-ui-overview.md
+    - text: 사용자 및 앱 마이그레이션
+      url: user-migration.md
+- title: 애플리케이션에 로그인 추가
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: '빠른 시작: 웹앱'
+      url: quickstart-web-app-dotnet.md
+    - text: 네이티브/모바일 앱
+      url: code-samples.md#mobile-and-desktop-apps
+    - text: 단일 페이지 앱
+      url: code-samples.md#single-page-apps
+    - text: 웹앱
+      url: code-samples.md#web-apps-and-apis
+- title: '권한 부여: API 호출 및 보안'
+  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 사용자 가입 및 로그인
-      url: tutorial-create-user-flows.md
-    - text: 사용자 인터페이스 사용자 지정
-      url: customize-ui-overview.md
-    - text: Facebook으로 로그인 사용
-      url: identity-provider-facebook.md
-  - linkListType: video
-    links:
-    - text: 기본 정책을 구성하는 방법(9:41)
-      url: https://www.youtube.com/watch?v=nWJ3m82536A
-- title: 고급 ID 시나리오 빌드
+    - text: 액세스 토큰 요청
+      url: access-tokens.md
+    - text: API 등록 및 보호
+      url: tutorial-web-api-dotnet.md
+    - text: '샘플: 웹앱 및 API'
+      url: code-samples.md#web-apps-and-apis
+    - text: API 게이트웨이와 통합
+      url: secure-api-management.md?tabs=app-reg-ga
+- title: 보안, 프라이버시 및 규정 준수
   linkLists:
   - linkListType: concept
     links:
-    - text: 사용자 지정 정책 소개
-      url: custom-policy-overview.md
+    - text: 위협 관리
+      url: threat-management.md
+    - text: 사용자 데이터가 저장되는 위치 알아보기
+      url: data-residency.md
+    - text: 규정
+      url: overview.md
+    - text: 사용자 액세스 및 사용 약관
+      url: manage-user-access.md
+- title: 작업
+  linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 사용자 가입 및 로그인
-      url: custom-policy-get-started.md
-    - text: 사용자 인터페이스 사용자 지정
-      url: custom-policy-ui-customization.md
-    - text: Azure AD 다중 테넌트로 로그인 사용
-      url: identity-provider-azure-ad-multi-tenant-custom.md
-    - text: REST API를 사용하여 고유한 비즈니스 논리 추가
-      url: custom-policy-rest-api-claims-validation.md
-  - linkListType: video
+    - text: CI/CD 파이프라인
+      url: deploy-custom-policies-devops.md
+    - text: 모니터링
+      url: azure-monitor.md
+    - text: 관리자에 대한 역할 기반 액세스
+      url: overview.md
+    - text: 사용자 관리
+      url: manage-user-accounts-graph-api.md
+    - text: 문제 해결
+      url: troubleshoot-custom-policies.md?tabs-app-reg-ga
+    - text: 모범 사례
+      url: best-practices.md
+- title: 리소스
+  linkLists:
+  - linkListType: overview
     links:
-    - text: Azure AD B2C의 고급 사용 사례(4:54)
-      url: https://www.youtube.com/watch?v=-ZmPBuMZY-Y
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
+    - text: GitHub
+      url: https://github.com/azure-ad-b2c/samples
+    - text: YouTube
+      url: https://www.youtube.com/results?search_query=azure+ad+b2c
+    - text: 교육
+      url: solution-articles.md
+    - text: 서비스 업데이트
+      url: https://azure.microsoft.com/updates/?product=active-directory-b2c
+    - text: 질문과 대답
+      url: faq.md
+    - text: Microsoft 지원
+      url: support-options.md
+- title: 일반적인 통합
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 'Azure Monitor: 로그 보존 및 분석'
+      url: azure-monitor.md
+    - text: 'Azure DevOps Services: CI/CD 파이프라인 빌드'
+      url: deploy-custom-policies-devops.md
+    - text: 'Application Insights: 문제 해결 및 사용자 인사이트 얻기'
+      url: troubleshoot-with-application-insights.md
+    - text: 기술 파트너와 통합
+      url: partner-gallery.md

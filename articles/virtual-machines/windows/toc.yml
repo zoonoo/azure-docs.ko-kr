@@ -145,7 +145,7 @@
   items:
     - name: 이미지
       href: shared-image-galleries.md
-    - name: Azure 리소스 관리자
+    - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       items:
         - name: 리소스 관리자 템플릿
@@ -592,7 +592,7 @@
               href: disk-encryption-troubleshooting.md
             - name: 디스크 암호화 FAQ
               href: disk-encryption-faq.md
-            - name: 디스크 암호화 - 이전 버전(AAD)
+            - name: 디스크 암호화 - 이전 버전(Azure AD)
               items:
                 - name: 개요
                   href: disk-encryption-overview-aad.md
@@ -670,7 +670,7 @@
           href: nested-virtualization.md
         - name: 자동 VM 게스트 패치(미리 보기)
           href: automatic-vm-guest-patching.md
-    - name: 플랫폼 유지 관리
+    - name: 유지 관리 제어
       items:
         - name: 유지 관리 알림
           items:
@@ -682,7 +682,7 @@
               href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-        - name: 유지 관리 제어
+        - name: 플랫폼 유지 관리
           items:
             - name: 개요
               href: ../maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -696,6 +696,16 @@
           href: scheduled-events.md
         - name: Windows 예약 이벤트 서비스
           href: scheduled-event-service.md
+        - name: 가상 머신 확장 집합 OS 이미지 업그레이드
+          items:
+            - name: 자동 OS 업그레이드
+              href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: 유지 관리 제어
+              items:
+                - name: 개요(미리 보기)
+                  href: ../virtual-machine-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                - name: PowerShell(미리 보기)
+                  href: ../virtual-machine-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: VM 모니터링
       items:
         - name: 에이전트

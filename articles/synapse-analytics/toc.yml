@@ -26,6 +26,8 @@
           href: get-started-visualize-power-bi.md
         - name: 8 모니터링
           href: get-started-monitor.md
+        - name: 9 지식 센터 살펴보기
+          href: get-started-knowledge-center.md
     - name: 참고 자료
       href: overview-cheat-sheet.md
     - name: FAQ
@@ -803,7 +805,7 @@
               href: ../data-factory/transform-data-using-stored-procedure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: 컴퓨팅 연결 서비스
               href: ../data-factory/compute-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: 제어 흐름
+        - name: 흐름 제어
           items:
             - name: 변수 작업 추가
               href: ../data-factory/control-flow-append-variable-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

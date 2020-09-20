@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: fab6422300dd3db7dd0d02055721bd57354668bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322282"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527142"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -106,7 +106,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 이메일을 받으려면 이메일이 정크 메일 폴더로 이동하지 않도록 승인된 보낸 사람 목록에 azure-noreply@microsoft.com을 추가합니다. 알림에 대한 자세한 내용은 [비용 경고 사용](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md)을 참조하세요.
 
-아래 예제에서 예산의 90%에 도달했을 때 이메일 경고가 생성되었습니다. 예산 API를 사용하여 예산을 만드는 경우 사용자가 경고를 수신하도록 역할을 할당할 수도 있습니다. 사용자에게 역할을 할당하는 것은 Azure Portal에서 지원되지 않습니다. Azure 예산 API에 대한 자세한 내용은 [예산 API](/rest/api/consumption/budgets)를 참조하세요.
+아래 예제에서 예산의 90%에 도달했을 때 이메일 경고가 생성되었습니다. 예산 API를 사용하여 예산을 만드는 경우 사용자가 경고를 수신하도록 역할을 할당할 수도 있습니다. 사용자에게 역할을 할당하는 것은 Azure Portal에서 지원되지 않습니다. Azure 예산 API에 대한 자세한 내용은 [예산 API](/rest/api/consumption/budgets)를 참조하세요. 이메일 경고를 다른 언어로 전송하려면 [예산 경고 이메일이 지원되는 로캘](manage-automation.md#supported-locales-for-budget-alert-emails)을 참조하세요.
 
 경고 제한은 제공된 예산 임계값의 0.01~1000% 범위를 지원합니다.
 

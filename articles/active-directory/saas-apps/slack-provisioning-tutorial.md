@@ -1,5 +1,5 @@
 ---
-title: '자습서: 여유 시간에 대 한 사용자 프로 비전-Azure AD'
+title: '자습서: Slack에 대한 사용자 프로비저닝 - Azure AD'
 description: 사용자 계정을 Slack으로 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 author: ArvindHarinder1
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 368d75ecffda49f688a7a5ce11b60693650014c6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
-ms.translationtype: MT
+ms.openlocfilehash: 6caaba06dcc2fdeaeb672b5381b240cb3f676ca9
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527828"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563051"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Slack 구성
 
@@ -24,40 +24,40 @@ ms.locfileid: "88527828"
 
 ## <a name="capabilities-supported"></a>지원되는 기능
 > [!div class="checklist"]
-> * 여유 시간으로 사용자 만들기
-> * 더 이상 액세스 하지 않아도 되는 사용자를 위한 여유 시간을 제거 합니다.
-> * Azure AD와 여유 시간 사이에 사용자 특성을 동기화 상태로 유지
-> * 그룹 및 그룹 멤버 자격을 시간 단위로 프로 비전
-> * 여유 시간에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-tutorial) (권장)
+> * Slack에서 사용자 만들기
+> * Slack에서 더 이상 액세스할 필요가 없는 사용자 제거
+> * Azure AD와 Slack 간에 사용자 특성을 동기화된 상태로 유지
+> * Slack에서 그룹 및 그룹 멤버 프로비저닝
+> * Slack에 대한 [Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-tutorial)(추천)
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
-* [AZURE AD 테 넌 트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Azure AD 테넌트](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 * 프로비저닝을 구성할 [권한](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)이 있는 Azure AD의 사용자 계정(예: 애플리케이션 관리자, 클라우드 애플리케이션 관리자, 애플리케이션 소유자 또는 전역 관리자).
-* [Plus 계획](https://aadsyncfabric.slack.com/pricing) 이상을 사용 하도록 설정 된 여유 시간 테 넌 트
-* 팀 관리자 권한이 있는 사용자 계정 (여유 시간)입니다.
+* [추가 플랜](https://aadsyncfabric.slack.com/pricing) 이상을 사용하도록 설정된 Slack 테넌트
+* 팀 관리자 권한이 있는 Slack의 사용자 계정
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)에 대해 알아봅니다.
 2. [프로비저닝 범위](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)에 있는 사용자를 결정합니다.
-3. [AZURE AD와 여유 시간 간에 매핑할](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)데이터를 결정 합니다. 
+3. [Azure AD와 Slack 간에 매핑](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)할 데이터를 결정합니다. 
 
-## <a name="step-2-add-slack-from-the-azure-ad-application-gallery"></a>2단계. Azure AD 응용 프로그램 갤러리에서 여유 시간 추가
+## <a name="step-2-add-slack-from-the-azure-ad-application-gallery"></a>2단계. Azure AD 애플리케이션 갤러리에서 Slack 추가
 
-Azure AD 응용 프로그램 갤러리에서 여유 시간을 추가 하 여 시간에 대 한 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 여유를 설정 했다면 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
+Azure AD 애플리케이션 갤러리에서 Slack을 추가하여 Slack에 대한 프로비저닝 관리를 시작합니다. 이전에 SSO에 대해 Slack을 설정한 경우 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
 ## <a name="step-3-define-who-will-be-in-scope-for-provisioning"></a>3단계. 프로비저닝 범위에 있는 사용자 정의 
 
 Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 할당 또는 사용자/그룹의 특성을 기반으로 프로비저닝되는 사용자의 범위를 지정할 수 있습니다. 할당을 기준으로 앱에 프로비저닝할 사용자의 범위를 선택하려면 다음 [단계](../manage-apps/assign-user-or-group-access-portal.md)를 사용하여 애플리케이션에 사용자 및 그룹을 할당할 수 있습니다. 사용자 또는 그룹의 특성만을 기준으로 프로비저닝할 사용자의 범위를 선택하려면 [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 설명된 대로 범위 지정 필터를 사용할 수 있습니다. 
 
-* 여유 시간에 사용자 및 그룹을 할당할 때 **기본 액세스**외의 다른 역할을 선택 해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)하여 역할을 더 추가할 수 있습니다. 
+* 사용자 및 그룹을 Slack에 할당하는 경우 **기본 액세스** 이외의 역할을 선택해야 합니다. 기본 액세스 역할이 있는 사용자는 프로비저닝에서 제외되고 프로비저닝 로그에 실질적으로 권한을 부여받지 않은 것으로 표시됩니다. 애플리케이션에서 사용할 수 있는 유일한 역할이 기본 액세스 역할인 경우에는 [애플리케이션 매니페스트를 업데이트](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)하여 역할을 더 추가할 수 있습니다. 
 
 * 소규모로 시작합니다. 모든 사용자에게 배포하기 전에 소수의 사용자 및 그룹 집합으로 테스트합니다. 할당된 사용자 및 그룹으로 프로비저닝 범위가 설정된 경우 앱에 하나 또는 두 개의 사용자 또는 그룹을 할당하여 범위를 제어할 수 있습니다. 모든 사용자 및 그룹으로 범위가 설정된 경우 [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 지정할 수 있습니다.
 
-## <a name="step-4-configure-automatic-user-provisioning-to-slack"></a>4단계. 여유 시간에 대 한 자동 사용자 프로 비전 구성 
+## <a name="step-4-configure-automatic-user-provisioning-to-slack"></a>4단계. Slack에 대한 자동 사용자 프로비저닝 구성 
 
 이 섹션에서는 사용자의 Azure AD를 Slack의 사용자 계정 프로비전 API에 연결하고, Azure AD의 사용자 및 그룹 할당을 기반으로 Slack에서 할당된 사용자 계정을 만들고, 업데이트하고 비활성화하도록 프로비전 서비스를 구성하는 방법을 안내합니다.
 
@@ -81,7 +81,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 5. **관리자 자격 증명** 섹션에서 **권한 부여**를 클릭합니다. 그러면 새 브라우저 창에서 Slack 권한 부여 대화 상자가 열립니다.
 
-    ![권한 부여](media/slack-provisioning-tutorial/authorization.png)
+    ![관리자 자격 증명 권한 부여 단추를 보여 주는 스크린샷](media/slack-provisioning-tutorial/authorization.png)
 
 
 6. 새 창에서 팀 관리자 계정을 사용하여 Slack에 로그인합니다. 표시된 권한 부여 대화 상자에서 프로비전을 사용하도록 설정하려는 Slack 팀을 선택한 다음, **권한 부여**를 선택합니다. 완료되면 Azure Portal로 돌아가서 프로비전 구성을 완료합니다.
@@ -110,29 +110,29 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |title|String|
    |emails[type eq "work"].value|String|
    |userName|String|
-   |애칭|String|
-   |addresses [type eq "형식화 되지 않은"]. streetAddress|String|
-   |addresses [type eq "형식화 되지 않은"]. 집약성|String|
-   |addresses [type eq "형식화 되지 않은"]. region|String|
-   |addresses [type eq "형식화 되지 않은"]. postalCode|String|
-   |addresses [type eq "형식화 되지 않은"]. country|String|
+   |nickName|String|
+   |addresses[type eq "untyped"].streetAddress|String|
+   |addresses[type eq "untyped"].locality|String|
+   |addresses[type eq "untyped"].region|String|
+   |addresses[type eq "untyped"].postalCode|String|
+   |addresses[type eq "untyped"].country|String|
    |phoneNumbers[type eq "mobile"].value|String|
    |phoneNumbers[type eq "work"].value|String|
-   |역할 [primary eq "True"]. 값|String|
+   |roles[primary eq "True"].value|String|
    |locale|String|
-   |이름. honorificPrefix|String|
-   |사진 [type eq "photo"]. value|String|
+   |name.honorificPrefix|String|
+   |photos[type eq "photo"].value|String|
    |profileUrl|String|
    |timezone|String|
    |userType|String|
-   |urn: scim: 스키마: 확장: enterprise: 1.0 학과|String|
-   |urn: scim: 스키마: 확장: enterprise: 1.0. 관리자|참조|
-   |urn: scim: 스키마: 확장: enterprise: 1.0. 예제|String|
-   |urn: scim: 스키마: 확장: enterprise: 1.0. costCenter|String|
-   |urn: scim: 스키마: 확장: enterprise: 1.0. 조직|String|
-   |urn: scim: 스키마: 확장: enterprise: 1.0. 나누기|String|
+   |urn:scim:schemas:extension:enterprise:1.0.department|String|
+   |urn:scim:schemas:extension:enterprise:1.0.manager|참조|
+   |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
+   |urn:scim:schemas:extension:enterprise:1.0.costCenter|String|
+   |urn:scim:schemas:extension:enterprise:1.0.organization|String|
+   |urn:scim:schemas:extension:enterprise:1.0.division|String|
 
-12. **매핑** 섹션 아래에서 **Azure Active Directory 그룹을 여유 시간으로 동기화를**선택 합니다.
+12. **매핑** 섹션 아래에서 **Azure Active Directory 그룹을 Slack에 동기화**를 선택합니다.
 
 13. **특성 매핑** 섹션에서 Azure AD에서 Slack으로 동기화할 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Slack의 그룹을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
@@ -147,7 +147,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-16. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 여유 시간에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
+16. **설정** 섹션의 **범위**에서 원하는 값을 선택하여 Slack에 프로비저닝하려는 사용자 및/또는 그룹을 정의합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 
@@ -174,19 +174,19 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
   
   * 허용되는 문장 부호에는 마침표, 밑줄, 하이픈, 아포스트로피, 대괄호(예: **( [ { } ] )**) 및 구분 기호(예: **, / ;**)가 포함됩니다.
   
-  * displayName 속성에는 ' @ ' 문자를 사용할 수 없습니다. ' @ '가 포함 된 경우 프로 비전 로그에 "AttributeValidationFailed" 라는 설명이 포함 된 건너뛴 이벤트를 찾을 수 있습니다.
+  * displayName 속성에는 '@' 문자를 사용할 수 없습니다. '@'가 포함되면 프로비저닝 로그에서 "AttributeValidationFailed"라는 설명이 있는 건너뛴 이벤트를 찾을 수 있습니다.
 
   * Slack의 작업 공간/조직에서 두 설정, 즉 **Profile syncing is enabled**(프로필 동기화 사용) 및 **Users cannot change their display name**(사용자가 표시 이름을 변경할 수 없음)이 구성된 경우에만 업데이트됩니다.
 
 * Slack의 **userName** 특성은 21자 미만이어야 하며 고유한 값을 가져야 합니다.
 
-* 여유 시간에는 **사용자 이름** 및 **전자 메일과**특성만 사용할 수 있습니다.  
+* Slack은 **userName** 및 **email** 특성과의 일치만 허용합니다.  
   
-* 일반적인 오류 코드는 공식 여유 시간 설명서에 설명 되어 있습니다. https://api.slack.com/scim#errors
+* 일반적인 오류 코드는 공식 Slack 설명서(https://api.slack.com/scim#errors )에서 설명하고 있습니다.
 
 ## <a name="change-log"></a>로그 변경
 
-* 06/16/2020-새 사용자를 만드는 동안에만 업데이트 되도록 DisplayName 특성을 수정 했습니다.
+* 2020년 6월 16일 - 새 사용자를 만드는 동안에만 업데이트되도록 DisplayName 특성이 수정되었습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

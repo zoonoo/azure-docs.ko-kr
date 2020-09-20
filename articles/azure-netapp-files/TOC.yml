@@ -33,6 +33,12 @@
       href: azure-netapp-files-cost-model.md
     - name: Azure NetApp Files 네트워크 계획 지침
       href: azure-netapp-files-network-topologies.md
+    - name: 지역 간 복제
+      items:
+        - name: 지역 간 복제 이해
+          href: cross-region-replication-introduction.md
+        - name: 지역 간 복제에 대한 요구 사항 및 고려 사항
+          href: cross-region-replication-requirements-considerations.md
     - name: 솔루션
       items:
         - name: Azure NetApp Files를 사용하는 솔루션 아키텍처
@@ -81,6 +87,16 @@
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
     - name: 볼륨의 서비스 수준을 동적으로 변경
       href: dynamic-change-volume-service-level.md
+    - name: 지역 간 복제 관리
+      items:
+        - name: 복제 피어링 만들기
+          href: cross-region-replication-create-peering.md
+        - name: 복제 관계의 상태 표시
+          href: cross-region-replication-display-health-status.md
+        - name: 재해 복구 관리
+          href: cross-region-replication-manage-disaster-recovery.md
+        - name: 복제 삭제
+          href: cross-region-replication-delete.md
     - name: 개발
       items:
         - name: REST API
@@ -91,6 +107,10 @@
           href: azure-netapp-files-sdk-cli.md
         - name: Azure NetApp Files 리소스 공급자 오류 문제 해결
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: 문제 해결
+      items:
+        - name: 지역 간 복제 문제 해결
+          href: troubleshoot-cross-region-replication.md
 - name: 참조
   items:
     - name: REST (영문)

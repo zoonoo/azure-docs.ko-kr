@@ -17,7 +17,7 @@
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
     - name: 컨테이너 인스턴스 배포 - Docker CLI
-      href: container-instances-quickstart-docker-cli.md
+      href: quickstart-docker-cli.md
 - name: 자습서
   items:
     - name: 컨테이너 이미지 만들기 및 배포
@@ -34,6 +34,8 @@
           href: container-instances-multi-container-yaml.md
         - name: 컨테이너 그룹 배포 - Resource Manager
           href: container-instances-multi-container-group.md
+        - name: 컨테이너 그룹 배포 - Docker Compose
+          href: tutorial-docker-compose.md
     - name: Azure 서비스와 통합
       items:
         - name: Azure Functions로 트리거

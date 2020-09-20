@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Custom Vision이란?
-      href: home.md
+      href: overview.md
     - name: 새로운 기능
       href: whats-new.md
 - name: 빠른 시작
@@ -49,7 +49,11 @@
           href: custom-vision-onnx-windows-ml.md
         - name: Python에서 TensorFlow 모델 실행
           href: export-model-python.md
-    - name: 계정 데이터 내보내기 또는 삭제
+    - name: 스토리지 알림 통합
+      href: storage-integration.md
+    - name: 프로젝트 복사 및 이동
+      href: copy-move-projects.md
+    - name: 계정 데이터 보기 또는 삭제
       href: ./export-delete-data.md
     - name: 3.0 API로 앱 업데이트
       href: ./update-application-to-3.0-sdk.md

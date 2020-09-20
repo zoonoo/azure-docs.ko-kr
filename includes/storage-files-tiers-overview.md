@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 034f5c487750600910cb32f73bcc6ea243b3ec6f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: e75cb7d13fb74d32191ab7f076d73ad66976503d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563453"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90606314"
 ---
 Azure Files는 프리미엄, 트랜잭션 최적화, 핫, 쿨 등의 4가지 스토리지 계층을 제공하여 시나리오의 성능 및 가격 요구 사항에 맞게 공유를 조정할 수 있도록 지원합니다.
 
@@ -24,6 +24,6 @@ Azure Files는 프리미엄, 트랜잭션 최적화, 핫, 쿨 등의 4가지 스
 
 프리미엄 파일 공유는 프로비전된 청구 모델에서만 제공됩니다. 프리미엄 파일 공유의 프로비저닝된 청구 모델에 대한 자세한 내용은 [프리미엄 파일 공유에 대한 프로비저닝 이해](../articles/storage/files/storage-files-planning.md#understanding-provisioning-for-premium-file-shares)를 참조하세요. 트랜잭션 최적화, 핫 및 쿨 파일 공유를 포함한 표준 파일 공유는 종량제 청구를 통해 제공됩니다.
 
-핫 및 쿨 파일 공유는 모든 Azure 공용 지역에서 사용할 수 있습니다. 트랜잭션 최적화 파일 공유는 국가 클라우드 지역을 포함한 모든 Azure 지역에서 사용할 수 있습니다.
+핫 및 쿨 파일 공유는 모든 Azure 공용 및 Azure Government 지역에서 사용할 수 있습니다. 트랜잭션 최적화 파일 공유는 국가 클라우드 지역을 포함한 모든 Azure 중국 및 Azure 독일 지역에서 사용할 수 있습니다.
 
 핫 또는 쿨 파일 공유를 배포하려면 [핫 또는 쿨 파일 공유 만들기](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share)를 참조하세요. 

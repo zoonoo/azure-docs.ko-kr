@@ -1,14 +1,14 @@
 ---
 title: 청사진 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
-ms.date: 09/11/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 7ac95dee88cb244ecb4b60738daae26bb0d8831a
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: def5e51a3db7e0733e0d7e1ef5c6895aedb7128d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031877"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530984"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -42,7 +42,8 @@ ms.locfileid: "90031877"
 
 ## <a name="samples-strategy"></a>샘플 전략
 
-:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="청사진 샘플 전략" border="false":::
+:::image type="complex" source="../media/blueprint-samples-strategy.png" alt-text="아키텍처 복잡성과 규정 준수 요구 사항에 적합한 위치를 보여주는 다이어그램입니다." border="false":::
+   X축이 아키텍처 복잡성, Y축이 규정 준수 요구 사항인 좌표계를 설명합니다.  아키텍처 복잡성과 규정 준수 요구 사항이 증가함에 따라 지역 E에 지정된 포털에서 표준 청사진 샘플을 채택합니다. Azure를 시작하는 고객의 경우 지역 A 및 B로 지정된 C A F(클라우드 채택 프레임워크) 기반 파운데이션 및 랜딩 존 청사진을 활용합니다. 나머지 공간은 고객이 C, D 및 F 지역의 파트너로 만든 사용자 지정 청사진에 의한 것입니다. :::image-end:::
 
 CAF Foundation 및 CAF Migrate 방문 영역 청사진은 고객이 온-프레미스 자산과 워크로드를 Azure로 마이그레이션하기 위해 기존의 완전한 단일 구독을 준비하는 것으로 가정합니다.
 (그림의 지역 A 및 B).  

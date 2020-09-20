@@ -3,9 +3,11 @@
 - name: 개요
   expanded: true
   items:
-    - name: Azure Cognitive Search란?
+    - name: Cognitive Search란?
       href: search-what-is-azure-search.md
-    - name: 새로운 기능
+    - name: Cognitive Search의 기능
+      href: search-features-list.md
+    - name: Cognitive Search의 새로운 기능
       href: whats-new.md
 - name: 빠른 시작
   items:
@@ -413,25 +415,27 @@
     - name: .NET
       items:
         - name: 검색 API
-          href: /dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search.documents-readme
         - name: 관리 API
-          href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search/management
     - name: Java
       items:
+        - name: 검색 API
+          href: /java/api/overview/azure/search-documents-readme
         - name: 관리 API
-          href: /java/api/overview/azure/search/management?view=azure-java-stable
+          href: /java/api/overview/azure/search/management
     - name: JavaScript
       items:
         - name: 검색 API
-          href: /javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
+          href: /javascript/api/overview/azure/search-documents-readme
         - name: 관리 API
-          href: /javascript/api/overview/azure/search/management?view=azure-node-latest
+          href: /javascript/api/overview/azure/search/management
     - name: Python
       items:
         - name: 검색 API
-          href: /python/api/overview/azure/search-documents-readme?view=azure-python
+          href: /python/api/overview/azure/search-documents-readme
         - name: 관리 API
-          href: /python/api/overview/azure/search/management?view=azure-python
+          href: /python/api/overview/azure/search/management
     - name: OData 언어 참조
       items:
         - name: 개요

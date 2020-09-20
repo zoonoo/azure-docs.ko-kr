@@ -15,40 +15,52 @@
           href: quick-setup-auto-provision-cli.md
         - name: Azure RM 템플릿
           href: quick-setup-auto-provision-rm.md
-    - name: 단일 디바이스 프로비저닝
+    - name: 대칭 키 디바이스 프로비저닝
       items:
-        - name: 대칭 키 증명
-          items:
-            - name: C
-              href: quick-create-simulated-device-symm-key.md
-            - name: Java
-              href: quick-create-simulated-device-symmetric-key-java.md
-            - name: Python
-              href: quick-create-device-symmetric-key-python.md
-        - name: X.509 인증서 증명
-          items:
-            - name: C
-              href: quick-create-simulated-device-x509.md
-            - name: Java
-              href: quick-create-simulated-device-x509-java.md
-            - name: C#
-              href: quick-create-simulated-device-x509-csharp.md
-            - name: Node.js
-              href: quick-create-simulated-device-x509-node.md
-            - name: Python
-              href: quick-create-simulated-device-x509-python.md
-        - name: 시뮬레이션된 TPM 디바이스 증명
-          items:
-            - name: C
-              href: quick-create-simulated-device.md
-            - name: Java
-              href: quick-create-simulated-device-tpm-java.md
-            - name: C#
-              href: quick-create-simulated-device-tpm-csharp.md
-            - name: Node.js
-              href: quick-create-simulated-device-tpm-node.md
-            - name: Python
-              href: quick-create-simulated-device-tpm-python.md
+        - name: C
+          href: quick-create-simulated-device-symm-key.md
+        - name: Java
+          href: quick-create-simulated-device-symmetric-key-java.md
+        - name: Python
+          href: quick-create-device-symmetric-key-python.md
+    - name: X.509 인증서 디바이스 프로비저닝
+      items:
+        - name: C
+          href: quick-create-simulated-device-x509.md
+        - name: Java
+          href: quick-create-simulated-device-x509-java.md
+        - name: C#
+          href: quick-create-simulated-device-x509-csharp.md
+        - name: Node.js
+          href: quick-create-simulated-device-x509-node.md
+        - name: Python
+          href: quick-create-simulated-device-x509-python.md
+- name: 자습서
+  items:
+    - name: 1 - 등록 그룹을 사용하여 디바이스 집합 프로비저닝
+      href: how-to-legacy-device-symm-key.md
+    - name: 2 - 여러 허브에 디바이스 프로비저닝
+      items:
+        - name: 여러 허브를 DPS에 연결
+          href: tutorial-provision-multiple-hubs.md
+        - name: 다중 테넌트에 대한 프로비전
+          href: how-to-provision-multitenant.md
+        - name: 사용자 지정 할당 정책 사용
+          href: how-to-use-custom-allocation-policies.md
+- name: 샘플
+  items:
+    - name: 시뮬레이션된 TPM 디바이스 증명 샘플
+      items:
+        - name: C
+          href: quick-create-simulated-device.md
+        - name: Java
+          href: quick-create-simulated-device-tpm-java.md
+        - name: C#
+          href: quick-create-simulated-device-tpm-csharp.md
+        - name: Node.js
+          href: quick-create-simulated-device-tpm-node.md
+        - name: Python
+          href: quick-create-simulated-device-tpm-python.md
     - name: DPS API를 사용하여 디바이스 등록 만들기
       items:
         - name: X.509 인증서 증명을 사용하여 그룹 등록
@@ -71,51 +83,33 @@
               href: quick-enroll-device-tpm-node.md
             - name: Python
               href: quick-enroll-device-tpm-python.md
-- name: 자습서
-  items:
-    - name: 1 - 클라우드 리소스 설정
-      href: tutorial-set-up-cloud.md
-    - name: 2 - 디바이스 설정
-      href: tutorial-set-up-device.md
-    - name: 3 - IoT Hub에 디바이스 프로비전
-      items:
-        - name: C
-          href: tutorial-provision-device-to-hub.md
-        - name: C#
-          href: tutorial-net-provision-device-to-hub.md
-    - name: 4 - 여러 허브에 디바이스 프로비전
-      href: tutorial-provision-multiple-hubs.md
-    - name: 5 - 그룹 등록 설정
-      href: tutorial-group-enrollments.md
 - name: 개념
   items:
-    - name: 자동 프로비전
-      href: concepts-auto-provisioning.md
-    - name: 다시 프로비전
-      href: concepts-device-reprovision.md
-    - name: 디바이스
-      href: concepts-device.md
-    - name: 보안
-      href: concepts-security.md
-    - name: TLS 지원
-      href: tls-support.md
-    - name: 가상 네트워크 지원
-      href: virtual-network-support.md
-    - name: 서비스
+    - name: DPS 용어
       href: concepts-service.md
-    - name: DPS IP 주소 이해
-      href: iot-dps-understand-ip-address.md
-    - name: TPM 증명
-      href: concepts-tpm-attestation.md
     - name: 대칭 키 증명
       href: concepts-symmetric-key-attestation.md
+    - name: X.509 인증서 증명
+      href: concepts-x509-attestation.md
+    - name: TPM 증명
+      href: concepts-tpm-attestation.md
+    - name: 역할 및 작업
+      href: concepts-roles-operations.md
+    - name: 가상 네트워크 지원
+      href: virtual-network-support.md
+    - name: 다시 프로비전
+      href: concepts-device-reprovision.md
+    - name: DPS IP 주소 이해
+      href: iot-dps-understand-ip-address.md
+    - name: TLS 지원
+      href: tls-support.md
     - name: 디바이스 제조업체를 위한 보안 관행
       href: concepts-device-oem-security-practices.md
 - name: 방법 가이드
   items:
     - name: IoT Hub에 MXChip IoT DevKit 연결
       href: how-to-connect-mxchip-iot-devkit.md
-    - name: Device Provisioning Service 구성 관리
+    - name: Device Provisioning Service 관리
       items:
         - name: 등록 관리 - 포털
           href: how-to-manage-enrollments.md
@@ -131,14 +125,12 @@
           href: how-to-revoke-device-access-portal.md
         - name: 프로비전 해제 관리
           href: how-to-unprovision-devices.md
-    - name: Device Provisioning Service 관리
-      items:
-        - name: Azure CLI를 사용하여 Device Provisioning Service 구성
-          href: how-to-manage-dps-with-cli.md
         - name: 프로비저닝 서비스 API에 대한 액세스 제어
           href: how-to-control-access.md
         - name: IP 필터링 구성
           href: iot-dps-ip-filtering.md
+        - name: Azure CLI를 사용하여 Device Provisioning Service 구성
+          href: how-to-manage-dps-with-cli.md
     - name: IoT Edge 디바이스 프로비전
       items:
         - name: Linux
@@ -149,12 +141,6 @@
           maintainContext: true
     - name: SDK를 통한 증명 메커니즘 사용
       href: use-hsm-with-sdk.md
-    - name: 다중 테넌트에 대한 프로비전
-      href: how-to-provision-multitenant.md
-    - name: 사용자 지정 할당 정책 사용
-      href: how-to-use-custom-allocation-policies.md
-    - name: 레거시 디바이스에서 대칭 키 사용
-      href: how-to-legacy-device-symm-key.md
     - name: 개발에 SDK 도구 사용
       href: how-to-use-sdk-tools.md
     - name: 디바이스에서 추가 데이터를 보내는 방법

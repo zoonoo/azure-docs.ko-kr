@@ -27,6 +27,8 @@
       items:
         - name: Azure Files 배포에 대한 계획
           href: storage-files-planning.md
+        - name: 사용 가능한 파일 공유 프로토콜
+          href: storage-files-compare-protocols.md
         - name: ID 기반 인증 및 권한 부여
           href: storage-files-active-directory-overview.md
         - name: 직접 액세스를 위한 네트워킹 고려 사항
@@ -79,12 +81,14 @@
   items:
     - name: 생성
       items:
-        - name: 파일 공유 만들기
+        - name: SMB 파일 공유 만들기
           href: storage-how-to-create-file-share.md
         - name: 대량 파일 공유 사용
           href: storage-files-how-to-create-large-file-share.md
         - name: 프리미엄 파일 공유 만들기
           href: storage-how-to-create-premium-fileshare.md
+        - name: NFS 공유 만들기
+          href: storage-files-how-to-create-nfs-shares.md
     - name: 배포
       items:
         - name: Azure Files 배포
@@ -95,11 +99,13 @@
           href: ../../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 탑재
       items:
-        - name: Windows에서 Azure Files 사용
+        - name: Windows에 SMB 파일 공유 탑재
           href: storage-how-to-use-files-windows.md
-        - name: Linux에서 Azure Files 사용
+        - name: Linux에 SMB 파일 공유 탑재
           href: storage-how-to-use-files-linux.md
-        - name: macOS에서 Azure Files 사용
+        - name: Linux에 NFS 파일 공유 탑재
+          href: storage-files-how-to-mount-nfs-shares.md
+        - name: macOS에 SMB 파일 공유 탑재
           href: storage-how-to-use-files-mac.md
     - name: 네트워크
       items:
@@ -269,12 +275,14 @@
           href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 문제 해결
       items:
-        - name: Windows에서 Azure Files 문제 해결
+        - name: Windows에서 Azure Files 문제 해결(SMB)
           href: storage-troubleshoot-windows-file-connection-problems.md
-        - name: Linux에서 Azure Files 문제 해결
+        - name: Linux에서 Azure Files 문제 해결(SMB)
           href: storage-troubleshoot-linux-file-connection-problems.md
         - name: Azure Files 성능 문제 해결
           href: storage-troubleshooting-files-performance.md
+        - name: Linux에서 Azure Files 문제 해결(NFS)
+          href: storage-troubleshooting-files-nfs.md
         - name: Azure 파일 동기화 문제 해결
           href: storage-sync-files-troubleshoot.md
         - name: Azure Files 삭제 문제 해결

@@ -3,17 +3,17 @@ title: 자동화로 Azure 비용 관리
 description: 이 문서에서는 자동화를 사용하여 Azure 비용을 관리하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/19/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
-ms.openlocfilehash: a5ab84794884cc0c87bd766be7a0fa2fe4c52aa9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.reviewer: matrive
+ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684408"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526649"
 ---
 # <a name="manage-costs-with-automation"></a>자동화로 비용 관리
 
@@ -161,6 +161,70 @@ Azure에서 비용이 임계값을 초과했음을 감지하는 경우 알림이
 ### <a name="automate-budget-creation"></a>예산 만들기 자동화
 
 [예산 API](/rest/api/consumption/budgets)를 사용하여 예산 만들기를 자동화할 수 있습니다. 예산은 [예산 템플릿](quick-create-budget-template.md)을 사용하여 만들 수도 있습니다. 템플릿은 Azure 배포를 표준화하는 동시에 비용 제어가 적절하게 구성되고 적용되도록 하는 쉬운 방법입니다.
+
+#### <a name="supported-locales-for-budget-alert-emails"></a>예산 경고 이메일이 지원되는 로캘
+
+예산을 사용하면 비용이 설정된 임계값을 초과하는 경우 경고가 표시됩니다. 예산당 최대 5명의 이메일 수신자를 설정할 수 있습니다. 예산 임계값을 초과하면 수신자는 24시간 이내에 이메일 알림을 받습니다. 그러나 수신자는 다른 언어로 된 이메일을 받을 수도 있습니다. 다음 언어 문화권 코드를 예산 API와 함께 사용할 수 있습니다. 다음 예와 유사한 `locale` 매개 변수를 사용하여 문화권 코드를 설정합니다.
+
+```json
+{
+  "eTag": "\"1d681a8fc67f77a\"",
+  "properties": {
+    "timePeriod": {
+      "startDate": "2020-07-24T00:00:00Z",
+      "endDate": "2022-07-23T00:00:00Z"
+    },
+    "timeGrain": "BillingMonth",
+    "amount": 1,
+    "currentSpend": {
+      "amount": 0,
+      "unit": "USD"
+    },
+    "category": "Cost",
+    "notifications": {
+      "actual_GreaterThan_10_Percent": {
+        "enabled": true,
+        "operator": "GreaterThan",
+        "threshold": 20,
+        "locale": "en-us",
+        "contactEmails": [
+          "user@contoso.com"
+        ],
+        "contactRoles": [],
+        "contactGroups": [],
+        "thresholdType": "Actual"
+      }
+    }
+  }
+}
+
+```
+
+문화권 코드에서 지원되는 언어:
+
+| 문화권 코드| 언어 |
+| --- | --- |
+| ko-kr | 영어(미국) |
+| ja-jp | 일본어(일본) |
+| zh-cn | 중국어(간체, 중국) |
+| de-de | 독일어 (독일) |
+| es-es | 스페인어(스페인, 국제) |
+| fr-fr | 프랑스어(프랑스) |
+| it-it | 이탈리아어(이탈리아) |
+| ko-kr | 한국어(한국) |
+| pt-br | 포르투갈어(브라질) |
+| ru-ru | 러시아어(러시아) |
+| zh-tw | 중국어(번체, 대만) |
+| cs-cz | 체코어(체코) |
+| pl-pl | 폴란드어(폴란드) |
+| tr-tr | 터키어(터키) |
+| da-dk | 덴마크어(덴마크) |
+| dn-gb | 영어(영국) |
+| hu-hu | 헝가리어(헝가리) |
+| nb-bo | 노르웨이어 복말(노르웨이) |
+| nl-nl | 네덜란드어(네덜란드) |
+| pt-pt | 포르투갈어(포르투갈) |
+| sv-se | 스웨덴어(스웨덴) |
 
 #### <a name="common-budgets-api-configurations"></a>일반적인 예산 API 구성
 
