@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2551a3c860dbdf27e7c9473e88c3a3293f575faa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769784"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883956"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 응답
 
@@ -28,7 +28,7 @@ ms.locfileid: "84769784"
 * Security Center에서 경고를 생성 하는 방법에 대 한 개요는 [Azure Security Center 검색 하 고 위협에 대응 하는 방법](security-center-alerts-overview.md)을 참조 하세요.
 
 > [!NOTE]
-> 고급 감지를 사용하도록 설정하려면 Azure Security Center 표준으로 업그레이드합니다. 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](tutorial-security-policy.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Azure Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
+> 고급 검색을 사용 하도록 설정 하려면 Azure Defender를 사용 하도록 설정 합니다. 평가판을 사용할 수 있습니다. 업그레이드하려면 [보안 정책](tutorial-security-policy.md)에서 가격 책정 계층을 선택합니다. 자세한 내용은 [Azure Security Center 가격 책정](security-center-pricing.md)을 참조하세요.
 
 ## <a name="what-are-security-alerts"></a>보안 경고란?
 보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다. 우선 순위가 지정된 보안 경고의 목록은 문제를 신속하게 조사해야 하는 정보 및 공격을 해결하는 방법에 대한 권장 사항과 함께 보안 센터에 표시됩니다.
@@ -38,7 +38,7 @@ ms.locfileid: "84769784"
 
 ## <a name="manage-your-security-alerts"></a>보안 경고 관리
 
-1. Security Center 대시보드에서 **위협 방지** 타일을 참조 하 여 경고를 확인 하 고 개요를 확인 합니다.
+1. Security Center 대시보드에서  **위협 방지** 타일을 참조 하 여 경고를 확인 하 고 개요를 확인 합니다.
 
     ![보안 센터의 보안 경고 타일](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
 
@@ -64,7 +64,7 @@ ms.locfileid: "84769784"
      
     ![보안 경고에 대해 수행할 작업에 대 한 제안](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    오른쪽 창에는 **작업 수행** 탭도 있습니다 .이 탭을 사용 하 여 보안 경고와 관련 된 추가 작업을 수행할 수 있습니다. 작업은 다음과 같습니다.
+    오른쪽 창에는 **작업 수행** 탭도 있습니다. 이 탭을 사용 하 여 보안 경고와 관련 된 추가 작업을 수행할 수 있습니다. 작업은 다음과 같습니다.
     - *위협 완화* -이 보안 경고에 대 한 수동 수정 단계를 제공 합니다.
     - *향후 공격 방지* -공격 노출 영역을 줄이고 보안 상태를 높이고 이후 공격을 방지 하는 데 도움이 되는 보안 권장 사항을 제공 합니다.
     - *자동 응답 트리거* -이 보안 경고에 대 한 응답으로 논리 앱을 트리거하는 옵션을 제공 합니다.

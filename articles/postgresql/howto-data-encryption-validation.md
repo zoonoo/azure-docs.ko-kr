@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: be725c574c54dfc298a900d3c043559d484d1bc7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0a1b8eaee0a483fb4ce09a33d3c7ca9fe6f980e1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117851"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884343"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에 대 한 데이터 암호화 유효성 검사
 
@@ -37,7 +37,7 @@ ms.locfileid: "86117851"
 
 2. Azure Portal에서 암호화 키가 설정 되어 있는지 확인할 수 있는 경우 Azure Portal에서 사용 되는 고객 키를 사용 하 여 데이터가 암호화 됩니다.
 
-  ![액세스 정책 개요](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="액세스 정책 개요":::
 
 ### <a name="from-cli"></a>CLI에서
 

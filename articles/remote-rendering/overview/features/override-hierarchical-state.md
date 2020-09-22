@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3f032ca973a188bf294155c73de3ca84f6ee30f
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: c098dc6b1d3b41a41246857f8a353dd4f5dfcef1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024403"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884169"
 ---
 # <a name="hierarchical-state-override"></a>계층 상태 재정의
 
@@ -45,6 +45,10 @@ ms.locfileid: "90024403"
   ![선택한 파트를 강조 표시 하는 데 사용 되는 윤곽선 옵션](./media/selection-outline.png)
 
 * **`DisableCollision`**: 기 하 도형은 [공간 쿼리에서](spatial-queries.md)제외 됩니다. **`Hidden`** 플래그는 충돌 상태 플래그에 영향을 주지 않으므로 이러한 두 플래그는 자주 함께 설정 됩니다.
+
+* **`UseCutPlaneFilterMask`**: 개별 필터 비트 마스크를 사용 하 여 잘림 평면 선택을 제어 합니다. 이 플래그는 개별 필터 마스크를 사용 하거나 부모 로부터 상속 해야 하는지 여부를 결정 합니다. 필터 비트 마스크 자체는 속성을 통해 설정 됩니다 `CutPlaneFilterMask` . 필터링의 작동 방식에 대 한 자세한 내용은 [선택적 잘라내기 평면 단락](cut-planes.md#selective-cut-planes)을 참조 하세요.
+![선택적 잘라내기 평면](./media/selective-cut-planes.png)
+
 
 > [!TIP]
 > 전체 하위 그래프의 표시 유형 및 공간 쿼리를 해제 하는 대신 `enabled` 게임 개체의 상태를 설정/해제할 수 있습니다. 계층을 사용 하지 않도록 설정 하는 경우이에 대 한 우선 순위가 지정 됩니다 `HierarchicalStateOverrideComponent` .

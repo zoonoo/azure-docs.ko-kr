@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 7683d3472d382707de538874035c8448f589bf82
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9ff62a568af4f60318ba0e5bdf2144bb43c9d2b1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110813"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884314"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 서버를 백업 및 복원 하는 방법
 
@@ -28,7 +28,7 @@ Azure Database for PostgreSQL 서버는 정기적으로 백업되어 복원 기�
 
 Azure Portal을 통해 서버를 만드는 중에 **가격 책정 계층** 창에서 서버에 대해 **로컬 중복** 또는 **지역 중복** 백업을 선택합니다. 또한 이 창에서는 **백업 보존 기간**(서버 백업을 저장하려는 기간(일))도 선택할 수 있습니다.
 
-   ![가격 책정 계층 - 백업 중복 선택](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="가격 책정 계층 - 백업 중복 선택":::
 
 만드는 중에 이러한 값을 설정하는 방법에 대한 자세한 내용은 [Azure Database for PostgreSQL 서버 빠른 시작](quickstart-create-server-database-portal.md)을 참조하세요.
 
@@ -37,7 +37,7 @@ Azure Portal을 통해 서버를 만드는 중에 **가격 책정 계층** 창�
 2. Azure Database for PostgreSQL 서버를 선택합니다. 이 작업은 **개요** 페이지를 엽니다.
 3. **설정** 아래의 메뉴에서 **가격 책정 계층**을 선택합니다. 슬라이더를 사용하여 **백업 보존 기간**을 7일에서 35일까지 원하는 대로 변경할 수 있습니다.
 아래 스크린샷에서는 34일로 늘렸습니다.
-![늘어난 백업 보존 기간](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="늘어난 백업 보존 기간":::
 
 4. **확인**을 클릭하여 변경 내용을 확인합니다.
 
@@ -53,11 +53,11 @@ Azure Database for PostgreSQL을 사용하면 특정 시점의 서버를 서버�
 
 2. 서버 **개요** 페이지의 도구 모음에서 **복원**을 선택합니다.
 
-   ![PostgreSQL용 Azure Database - 개요 - 복원 단추](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="PostgreSQL용 Azure Database - 개요 - 복원 단추":::
 
 3. 필요한 정보로 복원 양식을 채웁니다.
 
-   ![PostgreSQL용 Azure Database - 정보 복원](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="PostgreSQL용 Azure Database - 정보 복원":::
    - **복원 지점**: 복원하려는 특정 시점을 선택합니다.
    - **대상 서버**: 새 서버에 대한 이름을 제공합니다.
    - **위치**: 하위 지역을 선택할 수 없습니다. 기본적으로 원본 서버와 동일합니다.
@@ -75,7 +75,7 @@ Azure Database for PostgreSQL을 사용하면 특정 시점의 서버를 서버�
 
 서버를 지리적으로 중복된 백업으로 구성한 경우 기존 서버의 백업에서 새 서버를 만들 수 있습니다. 이 새 서버는 Azure Database for PostgreSQL을 사용할 수 있는 모든 지역에서 만들 수 있습니다.  
 
-1. 포털의 왼쪽 위 모서리에 있는 **리소스 만들기** 단추 (+)를 선택 합니다. **데이터베이스**  >  **Azure Database for PostgreSQL**를 선택 합니다.
+1. 포털의 왼쪽 상단 모서리에서 **리소스 만들기** 단추(+)를 선택합니다. **데이터베이스** > **PostgreSQL용 Azure Database**를 차례로 선택합니다.
 
    :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Azure Database for PostgreSQL로 이동 합니다.":::
 

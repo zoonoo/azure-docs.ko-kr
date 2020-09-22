@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 28a6ea4ed40df909b4d74ff52703babb8e8cd949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6ddfa1f6db06c2ca06b94efec7f890c2a714b2a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791747"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883870"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 인시던트 관리
 
@@ -62,6 +62,5 @@ Security Center는 [분석](security-center-detection-capabilities.md) 을 사�
 
 이 페이지에서는 Security Center의 보안 인시던트 기능에 대해 설명 했습니다. 관련 정보는 다음 페이지를 참조 하세요.
 
-* [Security Center에서 위협 방지](threat-protection.md)
-* [Security Center의 보안 경고](security-center-alerts-overview.md)
-* [보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md)
+- [Security Center의 보안 경고](security-center-alerts-overview.md)
+- [보안 경고 관리 및 응답](security-center-managing-and-responding-alerts.md)
