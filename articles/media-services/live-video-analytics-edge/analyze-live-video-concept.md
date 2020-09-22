@@ -3,12 +3,12 @@ title: 기록 없이 라이브 비디오 분석-Azure
 description: 미디어 그래프를 사용 하 여에 지 또는 클라우드에 기록 하지 않고도 라이브 비디오 스트림에서 분석을 추출할 수 있습니다. 이 문서에서는 이러한 개념에 대해 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: d59e2e9e309f0ed6a65e001557dcd9dd8af90da2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5dda18b68cb19d29623f2120fe07d7cc617f0c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566754"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893031"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>기록 없이 라이브 비디오 분석
 
@@ -40,7 +40,7 @@ ms.locfileid: "89566754"
 이 예제의 향상 된 기능은 프레임 전송률 필터 프로세서 노드 앞에 동작 탐지기 프로세서를 사용 하는 것입니다. 이렇게 하면 비디오에 동작 동작이 있는 경우에만 사용 되므로 유추 서비스의 부하를 줄일 수 있습니다.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video/custom-model.png" alt-text="외부 추론 모듈을 통해 검색 된 이동 프레임을 기반으로 하는 라이브 비디오 분석":::
+> :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="외부 추론 모듈을 통해 검색 된 이동 프레임을 기반으로 하는 라이브 비디오 분석":::
 
 ## <a name="next-steps"></a>다음 단계
 

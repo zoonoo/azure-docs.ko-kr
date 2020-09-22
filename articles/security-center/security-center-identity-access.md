@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2020
 ms.author: memildin
-ms.openlocfilehash: 313f10c77da499f4c405134028b975900d2d2a9e
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 042780c313c444062fd512ab0d9f38aaeb6cf170
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590237"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894553"
 ---
 # <a name="monitor-identity-and-access"></a>ID 및 액세스 모니터링
 
@@ -66,6 +66,4 @@ MFA를 사용하려면 [Azure AD(Active Directory) 테넌트 권한](https://doc
 ## <a name="next-steps"></a>다음 단계
 다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음 문서를 참조하세요.
 
-- [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
 - [Azure Security Center에서 네트워크 보호](security-center-network-recommendations.md)
-- [Azure Security Center에서 Azure SQL 서비스 및 데이터 보호](security-center-sql-service-recommendations.md)

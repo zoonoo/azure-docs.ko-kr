@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276765"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894710"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>적응 응용 프로그램 컨트롤을 사용 하 여 컴퓨터의 공격 노출 영역 축소
 
@@ -50,8 +50,8 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|일반 공급|
-|결정|표준 계층|
+|릴리스 상태:|GA(일반 공급)|
+|결정|[서버용 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
 |지원 되는 컴퓨터:|![예, ](./media/icons/yes-icon.png) Windows 및 Linux를 실행 하는 azure 및 비 azure 컴퓨터<br>![예 ](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) 컴퓨터|
 |필요한 역할 및 사용 권한:|**보안 판독기** 및 **읽기** 권한자 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 볼 수 있습니다.<br>**참가자** 및 **보안 관리자** 역할은 그룹 및 알려진 안전한 응용 프로그램 목록을 모두 편집할 수 있습니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
@@ -65,7 +65,9 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 권장 사항을 선택 하거나 적응 응용 프로그램 컨트롤 페이지를 열어 알려진 알려진 안전한 응용 프로그램 및 컴퓨터 그룹 목록을 봅니다.
 
-1. Security Center의 메뉴에서 **적응 응용 프로그램 컨트롤**을 선택 합니다.
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어**를 선택 합니다.
+
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Azure 대시보드에서 적응 응용 프로그램 컨트롤 열기" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
     다음 탭으로 그룹화 된 Vm이 있는 **적응 응용 프로그램 컨트롤** 페이지가 열립니다.
 
@@ -86,7 +88,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
       - GPO 또는 로컬 보안 정책에서 사용 하도록 설정 된 기존 [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) 정책을 사용 하는 Windows 컴퓨터입니다.
 
       > [!TIP]
-      > Security Center는 컴퓨터 그룹당 고유한 권장 사항을 정의 하기 위해 2 주 이상의 데이터가 필요 합니다. 최근에 만들었거나 표준 계층을 사용 하 여 최근에 사용 하도록 설정 된 구독에 속하는 컴퓨터는 **권장 사항 없음** 탭 아래에 표시 됩니다.
+      > Security Center는 컴퓨터 그룹당 고유한 권장 사항을 정의 하기 위해 2 주 이상의 데이터가 필요 합니다. 최근에 만들었거나 Azure Defender를 사용 하 여 최근에 사용 하도록 설정 된 구독에 속하는 컴퓨터는 **권장 사항 없음** 탭 아래에 표시 됩니다.
 
 
 1. **권장** 탭을 엽니다. 권장 허용 목록이 있는 컴퓨터 그룹이 표시 됩니다.
@@ -121,7 +123,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 컴퓨터 그룹에 대 한 규칙을 편집 하려면:
 
-1. Security Center의 메뉴에서 **적응 응용 프로그램 컨트롤**을 선택 합니다.
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어**를 선택 합니다.
 
 1. **구성 됨** 탭에서 편집 하려는 규칙이 포함 된 그룹을 선택 합니다.
 
@@ -169,7 +171,7 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 
 ## <a name="audit-alerts-and-violations"></a>감사 경고 및 위반
 
-1. Security Center의 메뉴에서 **적응 응용 프로그램 컨트롤**을 선택 합니다.
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어**를 선택 합니다.
 
 1. 최근 경고가 있는 컴퓨터의 그룹을 확인 하려면 **구성 됨** 탭에 나열 된 그룹을 검토 합니다.
 
@@ -184,6 +186,8 @@ Azure Security Center의 적응 응용 프로그램 컨트롤의 이점 및이 �
 ## <a name="move-a-machine-from-one-group-to-another"></a>컴퓨터를 한 그룹에서 다른 그룹으로 이동
 
 컴퓨터를 한 그룹에서 다른 그룹으로 이동 하면 해당 컴퓨터에 적용 된 응용 프로그램 제어 정책이 사용자가 이동한 그룹의 설정으로 변경 됩니다. 구성 된 그룹에서 구성 되지 않은 그룹으로 컴퓨터를 이동할 수도 있습니다. 이렇게 하면 컴퓨터에 적용 된 모든 응용 프로그램 제어 규칙이 제거 됩니다.
+
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어**를 선택 합니다.
 
 1. **적응 응용 프로그램 컨트롤** 페이지의 **구성 됨** 탭에서 이동할 컴퓨터를 포함 하는 그룹을 선택 합니다.
 

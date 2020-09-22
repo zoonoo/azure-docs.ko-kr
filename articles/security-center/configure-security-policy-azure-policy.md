@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a81b3016f86c6fd7de646ccbdbf533685471ac3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77430944"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894802"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>REST API를 사용 하 여 Azure Policy에서 보안 정책 구성
 
@@ -122,9 +122,9 @@ Security Center에는 모든 보안 정책을 포함하는 기본 제공 이니�
 |SQL 암호화 |Azure Security Center에서 암호화되지 않은 SQL 데이터베이스 모니터링 |sqlEncryptionMonitoringEffect| 
 |SQL 감사 |Azure Security Center에서 감사되지 않은 SQL 데이터베이스 모니터링 |sqlAuditingMonitoringEffect|
 |시스템 업데이트 |Azure Security Center에서 누락된 시스템 업데이트 모니터링 |systemUpdatesMonitoringEffect|
-|스토리지 암호화 |스토리지 계정에 대해 누락된 Blob 암호화 감사 |storageEncryptionMonitoringEffect|
+|스토리지 암호화 |스토리지 계정의 누락된 Blob 암호화 감사 |storageEncryptionMonitoringEffect|
 |JIT 네트워크 액세스 |Azure Security Center에서 가능한 네트워크 JIT (just-in-time) 액세스를 모니터링 합니다. |jitNetworkAccessMonitoringEffect |
-|적응 애플리케이션 컨트롤 |Azure Security Center에서 가능한 앱 허용 목록 모니터링 |adaptiveApplicationControlsMonitoringEffect|
+|적응 애플리케이션 컨트롤 |Azure Security Center에서 가능한 앱 허용 목록을 모니터링 합니다. |adaptiveApplicationControlsMonitoringEffect|
 |네트워크 보안 그룹 |Azure Security Center에서 관대한 네트워크 액세스 모니터링 |networkSecurityGroupsMonitoringEffect| 
 |보안 구성 |Azure Security Center에서 OS 취약성 모니터링 |systemConfigurationsMonitoringEffect| 
 |엔드포인트 보호 |Azure Security Center에서 누락된 Endpoint Protection 모니터링 |endpointProtectionMonitoringEffect |

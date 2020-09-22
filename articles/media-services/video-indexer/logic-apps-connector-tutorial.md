@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 5f29e616c0643914ca28921eee481105a5feb0c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2d89782b836db0daaf75c0337ad3b7f475824177
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047098"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882876"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>자습서: Logic App 및 Power Automate에서 Video Indexer 사용
 
@@ -21,12 +21,15 @@ Azure Media Services [Video Indexer v2 REST API](https://api-portal.videoindexer
 
 더 쉽게 통합할 수 있도록 API와 호환되는  [Logic Apps](https://azure.microsoft.com/services/logic-apps/)  및  [Power Automate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/)  커넥터를 지원합니다. 한 줄의 코드도 작성하지 않고도 커넥터를 사용하여 대량의 비디오 및 오디오 파일에서 인사이트를 효과적으로 인덱싱하고 추출할 수 있는 사용자 지정 워크플로를 설정할 수 있습니다. 또한 통합을 위해 커넥터를 사용하면 워크플로의 상태를 더 효율적으로 파악하고 쉽게 디버그할 수 있습니다.  
 
-Video Indexer 커넥터를 빠르게 시작할 수 있도록 사용자가 설정할 수 있는 Logic App 및 Power Automate 솔루션의 예를 살펴보겠습니다. 
+Video Indexer 커넥터를 빠르게 시작할 수 있도록 사용자가 설정할 수 있는 Logic App 및 Power Automate 솔루션의 예를 살펴보겠습니다. 이 자습서에서는 Logic Apps를 사용하여 흐름을 설정하는 방법을 보여 줍니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 자습서에서 다루는 "자동으로 비디오 업로드 및 인덱싱" 시나리오는 함께 작동하는 서로 다른 두 개의 흐름으로 구성됩니다. 
+* 첫 번째 흐름은 Azure Storage 계정에서 Blob이 추가되거나 수정될 때 트리거됩니다. 인덱싱 작업이 완료되면 알림을 보내기 위해 콜백 URL을 사용하여 새 파일을 Video Indexer로 업로드합니다. 
+* 두 번째 흐름은 콜백 URL에 따라 트리거되며, 추출된 인사이트를 Azure Storage의 JSON 파일에 다시 저장합니다. 이 두 가지 흐름 방법은 더 큰 파일의 비동기 업로드 및 인덱싱을 효과적으로 지원하는 데 사용됩니다. 
+
+이 자습서에서는 논리 앱을 사용하여 다음을 수행하는 방법을 보여 줍니다.
 
 > [!div class="checklist"]
-> * 자동으로 비디오 업로드 및 인덱싱
 > * 파일 업로드 흐름 설정
 > * JSON 추출 흐름 설정
 
@@ -34,19 +37,13 @@ Video Indexer 커넥터를 빠르게 시작할 수 있도록 사용자가 설정
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-먼저, API 키를 통한 API 액세스 권한과 함께 Video Indexer 계정이 필요합니다. 
+* 먼저, [API 키를 통한 API 액세스 권한](video-indexer-use-apis.md)과 함께 Video Indexer 계정이 필요합니다. 
+* Azure Storage 계정도 필요합니다. Storage 계정에 대한 액세스 키를 적어 두세요. 두 개의 컨테이너를 만듭니다. 하나는 비디오를 저장하고, 다른 하나는 Video Indexer에서 생성한 인사이트를 저장합니다.  
+* 다음으로, 사용하는 항목에 따라 Logic Apps 또는 Power Automate에서 별도의 두 흐름을 열어야 합니다. 
 
-Azure Storage 계정도 필요합니다. Storage 계정에 대한 액세스 키를 적어 두세요. 두 개의 컨테이너를 만듭니다. 하나는 비디오를 저장하고, 다른 하나는 Video Indexer에서 생성한 인사이트를 저장합니다.  
+## <a name="set-up-the-first-flow---file-upload"></a>첫 번째 흐름 설정 - 파일 업로드   
 
-다음으로, 사용하는 항목에 따라 Logic Apps 또는 Power Automate에서 별도의 두 흐름을 열어야 합니다.  
-
-## <a name="upload-and-index-your-video-automatically"></a>자동으로 비디오 업로드 및 인덱싱 
-
-이 시나리오는 함께 작동하는 서로 다른 두 개의 흐름으로 구성됩니다. 첫 번째 흐름은 Azure Storage 계정에서 Blob이 추가되거나 수정될 때 트리거됩니다. 인덱싱 작업이 완료되면 알림을 보내기 위해 콜백 URL을 사용하여 새 파일을 Video Indexer로 업로드합니다. 두 번째 흐름은 콜백 URL에 따라 트리거되며, 추출된 인사이트를 Azure Storage의 JSON 파일에 다시 저장합니다. 이 두 가지 흐름 방법은 더 큰 파일의 비동기 업로드 및 인덱싱을 효과적으로 지원하는 데 사용됩니다. 
-
-### <a name="set-up-the-file-upload-flow"></a>파일 업로드 흐름 설정 
-
-첫 번째 흐름은 Azure Storage 컨테이너에 Blob이 추가될 때마다 트리거됩니다. 트리거되면 Video Indexer에서 비디오를 업로드하고 인덱싱하는 데 사용할 수 있는 SAS URI를 만듭니다. 다음 흐름을 만들어 시작합니다. 
+첫 번째 흐름은 Azure Storage 컨테이너에 Blob이 추가될 때마다 트리거됩니다. 트리거되면 Video Indexer에서 비디오를 업로드하고 인덱싱하는 데 사용할 수 있는 SAS URI를 만듭니다. 이 섹션에서는 다음과 같은 흐름을 만듭니다. 
 
 ![파일 업로드 흐름](./media/logic-apps-connector-tutorial/file-upload-flow.png)
 
@@ -56,15 +53,17 @@ Azure Storage 계정도 필요합니다. Storage 계정에 대한 액세스 키�
 
 ![연결 이름 및 API 키](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-Azure Storage 및 Video Indexer 계정에 연결할 수 있으면 "Blob이 추가되거나 수정되는 경우" 트리거로 이동하여 비디오 파일을 저장할 컨테이너를 선택합니다. 
+Azure Storage 및 Video Indexer 계정에 연결하고 **Logic Apps Designer**에서 "Blob이 추가되거나 수정되는 경우" 트리거를 찾아 선택합니다. 비디오 파일을 저장할 컨테이너를 선택합니다. 
 
-![컨테이너](./media/logic-apps-connector-tutorial/container.png)
+![컨테이너를 선택할 수 있는 "Blob이 추가되거나 수정되는 경우" 대화 상자를 보여 주는 스크린샷입니다.](./media/logic-apps-connector-tutorial/container.png)
 
-다음으로, "경로로 SAS URI 만들기" 작업으로 이동하여 동적 [콘텐츠 옵션]에서 [파일 경로 목록]을 선택합니다.  
+다음으로, "경로로 SAS URI 만들기" 작업을 찾아 선택합니다. 작업 대화 상자의 동적 콘텐츠 옵션에서 파일 목록 경로를 선택합니다.  
+
+또한 새 "공유 액세스 프로토콜" 매개 변수를 추가합니다. 매개 변수 값에 HttpsOnly를 선택합니다.
 
 ![경로로 SAS URI](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Video Indexer 계정 토큰을 가져오려면 [계정 위치 및 ID](./video-indexer-use-apis.md#account-id) 를 입력합니다.
+Video Indexer 계정 토큰을 가져오려면 [계정 위치](regions.md) 및 [계정 ID](./video-indexer-use-apis.md#account-id) 를 입력합니다.
 
 ![계정 액세스 토큰 가져오기](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -78,7 +77,7 @@ Video Indexer 계정 토큰을 가져오려면 [계정 위치 및 ID](./video-in
 
 "저장"을 클릭합니다. 업로드와 인덱싱이 완료되면 인사이트를 추출하기 위한 두 번째 흐름을 구성해 보겠습니다. 
 
-## <a name="set-up-the-json-extraction-flow"></a>JSON 추출 흐름 설정 
+## <a name="set-up-the-second-flow---json-extraction"></a>두 번째 흐름 설정 - JSON 추출  
 
 첫 번째 흐름에서 업로드와 인덱싱이 완료되면 올바른 콜백 URL이 포함된 HTTP 요청을 보내 두 번째 흐름을 트리거합니다. 그런 다음, Video Indexer에서 생성된 인사이트를 검색합니다. 이 예에서는 인덱싱 작업의 출력을 Azure Storage에 저장합니다.  그러나 출력으로 수행할 수 있는 작업은 사용자에게 달려 있습니다.  
 
@@ -90,7 +89,7 @@ Video Indexer 계정 토큰을 가져오려면 [계정 위치 및 ID](./video-in
 
 트리거에서는 HTTP POST URL 필드가 표시됩니다. 흐름을 저장한 후에는 URL이 생성되지 않지만, 결국에는 URL이 필요합니다. 나중에 이를 다시 살펴보겠습니다. 
 
-Video Indexer 계정 토큰을 가져오려면 [계정 위치 및 ID](./video-indexer-use-apis.md#account-id) 를 입력합니다.  
+Video Indexer 계정 토큰을 가져오려면 [계정 위치](regions.md) 및 [계정 ID](./video-indexer-use-apis.md#account-id) 를 입력합니다.  
 
 "비디오 인덱스 가져오기" 작업으로 이동하여 필수 매개 변수를 입력합니다. [비디오 ID]에 대해 triggerOutputs()['queries']['id'] 식을 입력합니다. 
 
@@ -104,7 +103,7 @@ Video Indexer 계정 토큰을 가져오려면 [계정 위치 및 ID](./video-in
 
 이 식은 이 흐름에서 "비디오 인덱스 가져오기" 작업의 출력을 가져옵니다. 
 
-"흐름 저장"을 클릭합니다. 
+**흐름 저장**을 클릭합니다. 
 
 흐름이 저장되면 트리거에서 HTTP POST URL이 만들어집니다. 트리거에서 URL을 복사합니다. 
 

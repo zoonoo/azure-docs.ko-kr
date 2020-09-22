@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 98431e7a451aa54dfdee2126d4ce94b8b0b0fb84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1035b0afee9821020673acbc813b31cba3e2fd90
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339215"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893946"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Azure Data Box Gateway에 대 한 액세스, 기능 및 연결 모드 관리
 
@@ -57,16 +57,16 @@ Data Box Gateway 장치에 대 한 액세스는 장치 암호를 사용 하 여 
 
 ## <a name="manage-resource-access"></a>리소스 액세스 관리
 
-Azure Stack Edge/Data Box Gateway, IoT Hub 및 Azure Storage 리소스를 만들려면 리소스 그룹 수준에서 참가자 이상의 권한이 필요 합니다. 또한 해당 하는 리소스 공급자를 등록 해야 합니다. 정품 인증 키 및 자격 증명을 포함 하는 작업의 경우 Graph API Azure Active Directory 권한도 필요 합니다. 이러한 내용은 다음 섹션에 설명 되어 있습니다.
+Azure Stack Edge Pro/Data Box Gateway, IoT Hub 및 Azure Storage 리소스를 만들려면 리소스 그룹 수준에서 참가자 이상의 권한이 필요 합니다. 또한 해당 하는 리소스 공급자를 등록 해야 합니다. 정품 인증 키 및 자격 증명을 포함 하는 작업의 경우 Graph API Azure Active Directory 권한도 필요 합니다. 이러한 내용은 다음 섹션에 설명 되어 있습니다.
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Microsoft Graph API 사용 권한 관리
 
-Azure Stack Edge 장치에 대 한 정품 인증 키를 생성 하거나 자격 증명이 필요한 작업을 수행 하는 경우 Microsoft Graph API에 대 한 권한이 필요 합니다. 자격 증명을 필요로 하는 작업은 다음과 같습니다.
+Azure Stack Edge Pro 장치에 대 한 정품 인증 키를 생성 하거나 자격 증명이 필요한 작업을 수행 하는 경우 API를 Microsoft Graph 수 있는 권한이 필요 합니다. 자격 증명을 필요로 하는 작업은 다음과 같습니다.
 
 -  연결 된 저장소 계정을 사용 하 여 공유 만들기
 -  장치에서 공유에 액세스할 수 있는 사용자 만들기
 
-`User`가능 하면 Active Directory 테 넌 트에 대 한 액세스 권한이 있어야 합니다 `Read all directory objects` . 권한이 없는 게스트 사용자는 사용할 수 없습니다 `Read all directory objects` . 게스트 인 경우 활성화 키 생성, Azure Stack에 지 장치에서 공유 만들기와 같은 작업은 모두 실패 합니다.
+`User`가능 하면 Active Directory 테 넌 트에 대 한 액세스 권한이 있어야 합니다 `Read all directory objects` . 권한이 없는 게스트 사용자는 사용할 수 없습니다 `Read all directory objects` . 게스트 인 경우 활성화 키 생성, Azure Stack Edge Pro 장치에서 공유 만들기와 같은 작업이 모두 실패 하 게 됩니다.
 
 Microsoft Graph API에 대 한 사용자 액세스를 제공 하는 방법에 대 한 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://docs.microsoft.com/graph/permissions-reference)를 참조 하세요.
 
@@ -89,7 +89,7 @@ Azure에서 리소스를 프로 비전 하려면 (Azure Resource Manager 모델)
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Azure Stack Edge 장치의 경우을 `Microsoft.DataBoxEdge` 등록 해야 합니다. 등록 하려면 `Microsoft.DataBoxEdge` 구독 관리자가 다음 명령을 실행 해야 합니다.
+Edge Pro 장치 Azure Stack에 대해를 `Microsoft.DataBoxEdge` 등록 해야 합니다. 등록 하려면 `Microsoft.DataBoxEdge` 구독 관리자가 다음 명령을 실행 해야 합니다.
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

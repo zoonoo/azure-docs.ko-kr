@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6af23f566e8768dd1213095402b7af029d494476
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19e022073f43548a91fad76cb380a75205237bbd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076033"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892546"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Azure Spring Cloud 재해 복구
+
+이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
 
 이 문서에서는 가동 중지 시간이 발생하지 않도록 Azure Spring Cloud 애플리케이션을 보호하는 데 사용할 수 있는 몇 가지 전략을 설명합니다.  지역 또는 데이터 센터에서 지리적 재해로 인한 가동 중지 시간이 발생할 수 있지만 신중하게 계획하여 고객에 미치는 영향을 완화할 수 있습니다.
 
@@ -62,3 +64,8 @@ Traffic Manager 프로필은 다음과 같습니다.
 4. DNS 영역에 CNAME 레코드를 만듭니다. bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
 
 5. 이제 환경이 완전하게 설정되었습니다. 고객은 bcdr-test.contoso.com을 통해 앱에 액세스할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* [빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포](spring-cloud-quickstart.md)
+ 

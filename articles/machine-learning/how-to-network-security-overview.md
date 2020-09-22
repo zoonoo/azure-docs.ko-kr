@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 57746b833e238bbd0cc99ba103f710a9239ee5ba
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664569"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893185"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>가상 네트워크 격리 및 개인 정보 개요
 
@@ -28,7 +28,7 @@ ms.locfileid: "89664569"
 
 **1. VNet 개요**  >  [2. 작업 영역 3을 보호](how-to-secure-workspace-vnet.md)합니다  >  [. 학습 환경 4를 안전 하 게 보호](how-to-secure-training-vnet.md)합니다  >  [. 추론 환경 5를 보호](how-to-secure-inferencing-vnet.md)합니다  >  [. 스튜디오 기능 사용](how-to-enable-studio-virtual-network.md)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 다음 항목에 대해 잘 알고 있다고 가정 합니다.
 + [Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
@@ -63,22 +63,6 @@ ms.locfileid: "89664569"
 1. [**추론 환경을**](#secure-the-inferencing-environment)보호 합니다.
 1. 선택적으로: [**studio 기능을 사용 하도록 설정**](#optional-enable-studio-functionality)합니다.
 1. [ **방화벽 설정** 구성](#configure-firewall-settings)
-
-> [!TIP]
->  가상 네트워크 및 Azure 서비스의 일부 조합에는 Enterprise edition 작업 영역이 필요 합니다. Enterprise Edition이 필요한 시나리오를 이해하려면 다음 표를 참조하세요.
->
-> | 시나리오 | Enterprise</br>edition | Basic</br>edition |
-> | ----- |:-----:|:-----:| 
-> | 가상 네트워크 또는 Private Link 없음 | ✔ | ✔ |
-> | Private Link가 없는 작업 영역. 가상 네트워크의 기타 리소스(Azure Container Registry 제외) | ✔ | ✔ |
-> | Private Link가 없는 작업 영역. Private Link가 있는 기타 리소스 | ✔ | |
-> | Private Link가 있는 작업 영역. 가상 네트워크의 기타 리소스(Azure Container Registry 제외) | ✔ | ✔ |
-> | Private Link가 있는 기타 리소스 및 작업 영역 | ✔ | |
-> | Private Link가 있는 작업 영역. 가상 네트워크 또는 Private Link가 없는 기타 리소스 | ✔ | ✔ |
-> | 가상 네트워크의 Azure Container Registry | ✔ | |
-> | 작업 영역에 대한 고객 관리 키 | ✔ | |
->
-
 
 ## <a name="secure-the-workspace-and-associated-resources"></a>작업 영역 및 연결 된 리소스를 보호 합니다.
 

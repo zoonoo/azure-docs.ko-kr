@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 680fd298f3d772ecb9a4787342d22bf44e74ec78
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 394d048ce5978c2789e47b984abebaf30dec5f93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651086"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893578"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -184,7 +184,7 @@ Azure ML은 ML 수명 주기의 이벤트를 알리고 자동화 하는 데 사�
 - 새 모델의 출력을 이전 모델의 출력과 비교 합니다.
 - 미리 정의 된 조건을 사용 하 여 이전 모델을 바꿀지 여부를 선택 합니다. 
 
-위의 단계를 수행 하는 것은 임시가 아닌 재 학습을 자동화 해야 한다는 것입니다. [Azure Machine Learning 파이프라인](concept-ml-pipelines.md) 은 데이터 준비, 학습, 유효성 검사 및 배포와 관련 된 워크플로를 만들 때 좋은 답입니다. [Azure Machine Learning designer (미리 보기)를 사용 하 여 다시 학습 모델](how-to-retrain-designer.md) 을 읽어 파이프라인과 Azure Machine Learning 디자이너가 재 학습 시나리오에 어떻게 부합 하는지 알아보세요. 
+위의 단계를 수행 하는 것은 임시가 아닌 재 학습을 자동화 해야 한다는 것입니다. [Azure Machine Learning 파이프라인](concept-ml-pipelines.md) 은 데이터 준비, 학습, 유효성 검사 및 배포와 관련 된 워크플로를 만들 때 좋은 답입니다. [Azure Machine Learning designer를 사용 하 여 다시 학습 모델](how-to-retrain-designer.md) 을 읽고 파이프라인과 Azure Machine Learning 디자이너가 재 학습 시나리오에 어떻게 부합 하는지 알아보세요. 
 
 ## <a name="automate-the-ml-lifecycle"></a>ML 수명 주기 자동화 
 

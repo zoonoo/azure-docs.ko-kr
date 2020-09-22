@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 886e45e92fb3a882de167b5c59a9b5ee09a9c430
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657574"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892979"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning 소 버린 클라우드 패리티
 
@@ -49,9 +49,9 @@ ms.locfileid: "89657574"
 | Azure ML SDK를 사용 하 여 파이프라인 끝점 만들기                           | GA                   | YES                | YES         |
 | Azure ML SDK를 사용 하 여 예약 된 파이프라인의 실행을 만들고, 편집 하 고, 삭제 합니다. | GA                   | 예로               | 예로        |
 | 스튜디오에서 파이프라인 실행 세부 정보 보기                                        | GA                   | YES                | YES         |
-| Azure ML 디자이너에서 파이프라인 만들기, 실행, 시각화 및 게시          | 공개 미리 보기       | YES                | YES         |
+| Azure ML 디자이너에서 파이프라인 만들기, 실행, 시각화 및 게시          | GA      | YES                | YES         |
 | ML 파이프라인과 Azure Databricks 통합                             | GA                   | 아니요                 | 아니요          |
-| Azure ML 디자이너에서 파이프라인 끝점 만들기                             | 공개 미리 보기       | YES                | YES         |
+| Azure ML 디자이너에서 파이프라인 끝점 만들기                             | GA      | YES                | YES         |
 | **통합 노트북** |   |  | | 
 | 작업 영역 노트북 및 파일 공유                                        | GA                   | YES                | YES         |
 | R 및 Python 지원                                                       | GA                   | YES                | YES         |
@@ -162,9 +162,9 @@ ms.locfileid: "89657574"
 | Azure ML SDK를 사용 하 여 파이프라인 끝점 만들기                           | GA               | YES       | 해당 없음        |
 | Azure ML SDK를 사용 하 여 예약 된 파이프라인의 실행을 만들고, 편집 하 고, 삭제 합니다. | GA               | YES       | 해당 없음        |
 | 스튜디오에서 파이프라인 실행 세부 정보 보기                                        | GA               | YES       | 해당 없음        |
-| Azure ML 디자이너에서 파이프라인 만들기, 실행, 시각화 및 게시          | 공개 미리 보기   | YES       | 해당 없음        |
+| Azure ML 디자이너에서 파이프라인 만들기, 실행, 시각화 및 게시          | GA  | YES       | 해당 없음        |
 | ML 파이프라인과 Azure Databricks 통합                             | GA               | 아니요        | 해당 없음        |
-| Azure ML 디자이너에서 파이프라인 끝점 만들기                             | 공개 미리 보기   | YES       | 해당 없음        |
+| Azure ML 디자이너에서 파이프라인 끝점 만들기                             | GA   | YES       | 해당 없음        |
 | **통합 노트북** |   | | |
 | 작업 영역 노트북 및 파일 공유                                        | GA               | YES       | 해당 없음        |
 | R 및 Python 지원                                                       | GA               | YES       | 해당 없음        |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 6d9d9f2d7363217ef4e9b13b44d3665af33cb8ef
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: bd77af133b88e1ba93054dbb7e0f896d8d418f89
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661793"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893549"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Git 통합
 
@@ -41,7 +41,7 @@ Git CLI를 사용 하는 방법에 대 한 가이드는 [여기](https://guides.
 
 Python SDK 또는 Machine Learning CLI에서 학습 실행을 제출 하면 모델을 학습 하는 데 필요한 파일이 작업 영역에 업로드 됩니다. `git`개발 환경에서이 명령을 사용할 수 있는 경우 업로드 프로세스에서이 명령을 사용 하 여 파일이 git 리포지토리에 저장 되었는지 확인 합니다. 그렇다면 git 리포지토리의 정보는 학습 실행의 일부로도 업로드 됩니다. 이 정보는 학습 실행을 위해 다음 속성에 저장 됩니다.
 
-| 속성 | 값을 가져오는 데 사용 되는 Git 명령입니다. | Description |
+| 속성 | 값을 가져오는 데 사용 되는 Git 명령입니다. | 설명 |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | 리포지토리가 복제 된 URI입니다. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | 리포지토리가 복제 된 URI입니다. |
@@ -70,12 +70,10 @@ Git 정보는 학습 실행을 위한 속성에 저장 됩니다. Azure Portal, 
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. [Azure Portal](https://portal.azure.com)에서 작업 영역을 선택 합니다.
+1. [Studio 포털](https://ml.azure.com)에서 작업 영역을 선택 합니다.
 1. __실험__을 선택 하 고 실험 중 하나를 선택 합니다.
 1. __실행 번호__ 열에서 실행 중 하나를 선택 합니다.
-1. __로그__를 선택한 다음 __로그__ 및 __azureml__ 항목을 확장 합니다. __ ### \_ Azure__로 시작 하는 링크를 선택 합니다.
-
-    ![포털의 # # #_azure 항목](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
+1. __출력 + 로그__를 선택한 다음 __로그__ 및 __azureml__ 항목을 확장 합니다. __ ### \_ Azure__로 시작 하는 링크를 선택 합니다.
 
 기록 된 정보에는 다음 JSON과 유사한 텍스트가 포함 됩니다.
 

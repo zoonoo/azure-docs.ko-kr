@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477598"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893789"
 ---
 # <a name="filter-based-feature-selection"></a>필터 기반 기능 선택
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에서 필터 기반 기능 선택 모듈을 사용 하는 방법을 설명 합니다. 이 모듈은 입력 데이터 집합에서 예측 전력이 가장 많은 열을 식별 하는 데 도움이 됩니다. 
+이 문서에서는 Azure Machine Learning 디자이너에서 필터 기반 기능 선택 모듈을 사용 하는 방법을 설명 합니다. 이 모듈은 입력 데이터 집합에서 예측 전력이 가장 많은 열을 식별 하는 데 도움이 됩니다. 
 
 일반적으로 *기능 선택* 은 지정 된 출력에서 입력에 통계 테스트를 적용 하는 프로세스를 의미 합니다. 목표는 출력의 예측 가능성이 더 높은 열을 결정 하는 것입니다. 필터 기반 기능 선택 모듈에서는 선택할 수 있는 여러 기능 선택 알고리즘을 제공 합니다. 모듈에는 피어슨 상관 관계 및 카이 제곱 값과 같은 상관 관계 메서드가 포함 되어 있습니다. 
 
@@ -68,7 +68,7 @@ ms.locfileid: "79477598"
     > 일부 열이 잘못 된 기능을 수행 하는 경우 열 선택에서 제거할 수 있습니다. [메타 데이터 편집](edit-metadata.md) 모듈을 사용 하 여 **범주**에 플래그를 지정할 수도 있습니다. 
 3.  **기능 점수 매기기 방법**의 경우 점수 계산에 사용할 다음의 설정 된 통계 방법 중 하나를 선택 합니다.  
 
-    | 메서드              | 요구 사항                             |
+    | 방법              | 요구 사항                             |
     | ------------------- | ---------------------------------------- |
     | 피어슨 상관 관계 | 레이블은 텍스트 또는 숫자일 수 있습니다. 기능은 숫자 여야 합니다. |
     카이 제곱| 레이블과 기능은 텍스트 또는 숫자일 수 있습니다. 두 범주 열에 대 한 기능 중요도를 계산 하려면이 방법을 사용 합니다.|

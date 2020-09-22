@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0bcf81e0c762dd2a8e63ae242fec77d30f5b2c3d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011857"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894819"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - 데이터 수집, 에이전트 및 작업 영역에 대한 질문
 
@@ -29,9 +29,9 @@ Security Center는 Azure VM(Virtual Machines) 및 가상 머신 확장 집합, I
 
 아니요. Security Center에서 만든 작업 영역은 노드 요금 청구당 Azure Monitor 로그에 구성된 동안 Azure Monitor 로그 요금이 청구되지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
 
-- **무료 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 솔루션을 사용하도록 설정합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
+- **Azure Defender off** – Security Center 기본 작업 영역에서 ' SecurityCenterFree ' 솔루션을 사용 하도록 설정 합니다. Azure Defender가 꺼져 있는 경우 요금이 청구 되지 않습니다.
 
-- **표준 계층** – Security Center는 기본 작업 영역에서 'Security' 솔루션을 사용하도록 설정합니다.
+- **Azure Defender on** – Security Center 기본 작업 영역에서 ' 보안 ' 솔루션을 사용 하도록 설정 합니다.
 
 자세한 내용은 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)을 참조하세요.
 
@@ -164,7 +164,7 @@ Microsoft Monitoring 확장을 제거하는 경우 Security Center는 VM의 보�
 
 보안 정책에서 구독에 대해 자동 프로비저닝을 해제할 수는 있지만, 해제하지 않는 것이 좋습니다. 자동 프로비저닝을 해제하면 Security Center 권장 사항 및 경고 기능이 제한됩니다. 자동 프로비저닝을 사용하지 않도록 설정하려면 다음을 수행합니다.
 
-1. 표준 계층에 대 한 구독이 구성 된 경우 해당 구독에 대 한 보안 정책을 열고 **무료** 계층을 선택 합니다.
+1. 구독에서 Azure Defender를 사용 하는 경우 해당 구독에 대 한 보안 정책을 열고 **Azure defender off**를 선택 합니다.
 
    ![가격 책정 계층][1]
 

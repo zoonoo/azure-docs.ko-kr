@@ -11,15 +11,14 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 08685a6ebfcbfced91c3685635c40ff48030fe38
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 769b4d364412d3409ef95c4222197fe6f7ce222c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669571"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893470"
 ---
 # <a name="connect-to-azure-storage-services"></a>Azure 스토리지 서비스에 연결
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 **Azure Machine Learning 데이터 저장소를 통해 Azure storage 서비스에 연결**하는 방법을 알아봅니다. 데이터 저장소는 인증 자격 증명과 원래 데이터 원본의 무결성이 위험에 노출 되지 않고 Azure storage 서비스에 안전 하 게 연결 됩니다. 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하므로 스크립트에 하드 코드를 만들지 않고도 저장소에 안전 하 게 액세스할 수 있습니다. [Azure Machine Learning PYTHON SDK](#python) 또는 [Azure Machine Learning studio](#studio) 를 사용 하 여 datastores를 만들고 등록할 수 있습니다.
 
@@ -54,7 +53,7 @@ Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이�
     작업 영역을 만들 때 Azure blob 컨테이너 및 Azure 파일 공유는 작업 영역에 데이터 저장소로 자동으로 등록 됩니다. 각각 이름이 `workspaceblobstore` 및 `workspacefilestore`로 지정됩니다. 는 `workspaceblobstore` 작업 영역 아티팩트와 machine learning 실험 로그를 저장 하는 데 사용 됩니다. 또한 **기본 데이터 저장소** 로 설정 되며 작업 영역에서 삭제할 수 없습니다. 는 `workspacefilestore` [계산 인스턴스](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files)를 통해 권한이 부여 된 노트북 및 R 스크립트를 저장 하는 데 사용 됩니다.
     
     > [!NOTE]
-    > 디자이너 홈페이지에서 샘플을 열면 Azure Machine Learning 디자이너(미리 보기)가 **azureml_globaldatasets**라는 데이터 저장소를 자동으로 만듭니다. 이 데이터 저장소는 샘플 데이터 세트만 포함합니다. 기밀 데이터 액세스에는 이 데이터 저장소를 사용하지 **마세요**.
+    > Azure Machine Learning 디자이너에서는 디자이너 홈페이지에서 샘플을 열 때 **azureml_globaldatasets** 라는 데이터 저장소를 자동으로 만듭니다. 이 데이터 저장소는 샘플 데이터 세트만 포함합니다. 기밀 데이터 액세스에는 이 데이터 저장소를 사용하지 **마세요**.
 
 <a name="matrix"></a>
 

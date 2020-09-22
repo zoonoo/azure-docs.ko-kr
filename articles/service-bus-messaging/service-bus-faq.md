@@ -2,19 +2,18 @@
 title: Azure Service Bus FAQ | Microsoft Docs
 description: 이 문서에서는 Azure Service Bus에 대 한 FAQ (질문과 대답)를 제공 합니다.
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: e098b05dba25a51d5d6ef7c50a1b73730828357a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 09/16/2020
+ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080816"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894525"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus-질문과 대답 (FAQ)
 
 이 문서는 Microsoft Azure Service Bus에 대한 일부 자주 묻는 질문에 대해 설명합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)에서 확인할 수 있습니다.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions-about-azure-service-bus"></a>Azure Service Bus에 대한 일반적인 질문
 ### <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
@@ -36,6 +35,9 @@ ms.locfileid: "88080816"
 
  분할된 엔터티는 [프리미엄 SKU](service-bus-premium-messaging.md)에서 지원되지 않습니다. 
 
+### <a name="where-does-azure-service-bus-store-customer-data"></a><a name="in-region-data-residency"></a>어디에서 고객 데이터를 저장 Azure Service Bus?
+Azure Service Bus 고객 데이터를 저장 합니다. 이 데이터는 Service Bus에 의해 단일 지역에 자동으로 저장 되므로이 서비스는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정 된 데이터를 포함 하 여 지역 데이터 상주 요구 사항을 자동으로 충족 합니다.
+
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 어느 것인가요? 
 Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고받을 수 있습니다.
 
@@ -48,7 +50,7 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
 | 프로토콜 | 포트 | 세부 정보 | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 및 5672 | [AMQP 프로토콜 가이드](service-bus-amqp-protocol-guide.md)를 참조하세요. | 
-| SBMP | 9350 ~ 9354 | [연결 모드](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) 를 참조 하세요. |
+| SBMP | 9350 ~ 9354 | [연결 모드](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) 를 참조 하세요. |
 | HTTP, HTTPS | 80, 443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>허용 목록에 추가 해야 하는 IP 주소는 무엇 인가요?
@@ -59,9 +61,9 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. `Non-authoritative answer`에서 반환된 IP 주소를 적어 둡니다. 이 IP 주소는 정적입니다. 다른 클러스터로 네임스페이스를 복원하는 경우에만 변경될 수 있습니다.
+2. `Non-authoritative answer`에서 반환된 IP 주소를 적어 둡니다. 
 
-네임스페이스에 대해 영역 중복성을 사용하는 경우 몇 가지 추가 단계를 수행해야 합니다. 
+네임 스페이스에 **영역 중복성** 을 사용 하는 경우 몇 가지 추가 단계를 수행 해야 합니다. 
 
 1. 먼저 네임스페이스에서 nslookup을 실행합니다.
 
@@ -76,6 +78,9 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
     <name>-s3.cloudapp.net
     ```
 3. 접미사 s1, s2 및 s3를 포함하는 각 이름에 대해 nslookup을 실행하여 세 개의 가용성 영역에서 실행되는 세 인스턴스의 IP 주소를 모두 가져옵니다. 
+
+    > [!NOTE]
+    > 명령에서 반환 된 IP 주소는 `nslookup` 고정 ip 주소가 아닙니다. 그러나 기본 배포가 삭제 되거나 다른 클러스터로 이동 될 때까지 일정 하 게 유지 됩니다.
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>네임 스페이스에서 메시지를 보내고 받는 클라이언트의 IP 주소는 어디에서 찾을 수 있나요? 
 네임 스페이스에서 메시지를 보내거나 받는 클라이언트의 IP 주소를 기록 하지 않습니다. 키를 다시 생성 하 여 모든 기존 클라이언트가 인증에 실패 하 고 허용 되는 사용자 또는 응용 프로그램만이 네임 스페이스에 액세스할 수 있도록[RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)(역할 기반 액세스 제어) 설정을 검토 합니다. 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/10/2020
-ms.openlocfilehash: 806c19100594f449288d810b68d072dd7de23646
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: bf62fa995724b8e1fff757e89945cc39db3d9842
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189823"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893716"
 ---
 # <a name="score-svd-recommender"></a>SVD 추천 점수 매기기
 
-이 문서에서는 Azure Machine Learning 디자이너 (미리 보기)에서 점수 .SVD 추천 모듈을 사용 하는 방법을 설명 합니다. 이 모듈을 사용 하 여 .SVD (단일 값 분해) 알고리즘을 기반으로 학습 된 추천 모델을 사용 하 여 예측을 만들 수 있습니다.
+이 문서에서는 Azure Machine Learning 디자이너에서 점수 .SVD 추천 모듈을 사용 하는 방법을 설명 합니다. 이 모듈을 사용 하 여 .SVD (단일 값 분해) 알고리즘을 기반으로 학습 된 추천 모델을 사용 하 여 예측을 만들 수 있습니다.
 
 .SVD 추천는 다음과 같은 두 가지 종류의 예측을 생성할 수 있습니다.
 
