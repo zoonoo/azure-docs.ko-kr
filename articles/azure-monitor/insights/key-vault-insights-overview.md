@@ -1,23 +1,23 @@
 ---
-title: Azure Monitor for Key Vault(미리 보기)를 사용하여 Key Vault 모니터링 | Microsoft Docs
+title: Key Vault에 대 한 Azure Monitor를 사용 하 여 Key Vault 모니터링 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor for Key Vault에 대해 설명합니다.
 services: azure-monitor
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/13/2019
-ms.openlocfilehash: 7b799c462cc683d8d05edc3f10885c458185a843
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.date: 09/10/2020
+ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069801"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894504"
 ---
-# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Azure Monitor for Key Vault(미리 보기)를 사용하여 키 자격 증명 모음 서비스 모니터링
-Azure Monitor for Key Vault(미리 보기)는 Key Vault 요청, 성능, 실패 및 대기 시간에 대한 통합 보기를 제공하여 키 자격 증명 모음을 종합적으로 모니터링합니다.
-이 문서는 Azure Monitor for Key Vault(미리 보기) 환경을 온보딩하고 사용자 지정하는 방법을 이해하는 데 도움이 됩니다.
+# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Key Vault에 대 한 Azure Monitor를 사용 하 여 주요 자격 증명 모음 서비스 모니터링
+Key Vault Azure Monitor는 Key Vault 요청, 성능, 실패 및 대기 시간에 대 한 통합 보기를 제공 하 여 주요 자격 증명 모음에 대 한 종합적인 모니터링을 제공 합니다.
+이 문서는 Key Vault에 대 한 Azure Monitor 환경을 등록 하 고 사용자 지정 하는 방법을 이해 하는 데 도움이 됩니다.
 
-## <a name="introduction-to-azure-monitor-for-key-vault-preview"></a>Azure Monitor for Key Vault(미리 보기) 소개
+## <a name="introduction-to-azure-monitor-for-key-vault"></a>Key Vault에 대 한 Azure Monitor 소개
 
 이 환경을 살펴보기 전에, 이 환경에서 어떤 방식으로 정보가 제공되고 시각화되는지 이해해야 합니다.
 -    **규모의 관점에서** 요청, 오류 분석, 작업 및 대기 시간의 개요를 기반으로 성능에 대한 스냅샷 보기를 표시합니다.
@@ -49,7 +49,7 @@ Azure Monitor에서 구독에 속한 여러 키 자격 증명 모음의 요청, 
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-2. Azure Portal의 왼쪽 창에서 **모니터링**을 선택하고, [인사이트] 섹션에서 **키 자격 증명 모음(미리 보기)** 을 선택합니다.
+2. Azure Portal의 왼쪽 창에서 **모니터** 를 선택 하 고, Insights 섹션 아래에서 **Key**vault를 선택 합니다.
 
 ![여러 그래프가 있는 개요 환경의 스크린샷](./media/key-vaults-insights-overview/overview.png)
 
@@ -83,7 +83,7 @@ Azure Monitor에서 구독에 속한 여러 키 자격 증명 모음의 요청, 
 
 1. Azure Portal에서 [키 자격 증명 모음]을 선택합니다.
 
-2. 목록에서 백업할 키 자격 증명 모음을 선택합니다. 모니터링 섹션에서 [인사이트]\(미리 보기)를 선택합니다.
+2. 목록에서 백업할 키 자격 증명 모음을 선택합니다. 모니터링 섹션에서 Insights를 선택 합니다.
 
 Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 이름을 선택해도 이 보기에 액세스할 수 있습니다.
 
@@ -140,7 +140,7 @@ Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 �
 
 다음 단계를 수행하여 실행할 때마다 범위를 특정 구독 또는 키 자격 증명 모음으로 지정하도록 여러 구독 및 키 자격 증명 모음 개요 또는 용량 통합 문서를 구성할 수 있습니다.
 
-1. 포털에서 **모니터링**을 선택한 다음, 왼쪽 창에서 **키 자격 증명 모음(미리 보기)** 을 선택합니다.
+1. 포털에서 **모니터** 를 선택 하 고 왼쪽 창에서 **키 자격 증명 모음** 을 선택 합니다.
 2. **개요** 통합 문서의 명령 모음에서 **편집**을 선택합니다.
 3. **구독** 드롭다운 목록에서 기본값으로 사용할 구독을 하나 이상 선택합니다. 통합 문서에서 최대 10개의 구독을 선택할 수 있습니다.
 4. **키 자격 증명 모음** 드롭다운 목록에서 기본값으로 사용할 계정을 하나 이상 선택합니다. 통합 문서에서 최대 200개의 스토리지 계정을 선택할 수 있습니다.
@@ -150,11 +150,11 @@ Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 �
 
 일반적인 문제 해결 지침은 전용 통합 문서 기반 insights [문제 해결 문서](troubleshoot-workbooks.md)를 참조 하세요.
 
-이 섹션에서는 Azure Monitor for Key Vault(미리 보기)를 사용할 때 발생할 수 있는 몇 가지 일반적인 문제를 진단하고 해결하는 데 도움이 되는 정보를 제공합니다. 아래 목록에서 특정 문제와 관련된 정보를 찾을 수 있습니다.
+이 섹션은 Key Vault Azure Monitor을 사용할 때 발생할 수 있는 일반적인 문제 중 일부에 대 한 진단 및 문제 해결에 도움이 됩니다. 아래 목록에서 특정 문제와 관련된 정보를 찾을 수 있습니다.
 
 ### <a name="resolving-performance-issues-or-failures"></a>성능 문제 또는 오류 해결
 
-Azure Monitor for Key Vault(미리 보기)를 사용하여 발견한 키 자격 증명 모음 관련 문제를 해결하려면 [Azure Key Vault 설명서](../../key-vault/index.yml)를 참조하세요.
+Key Vault Azure Monitor에서 식별 하는 주요 자격 증명 모음 관련 문제를 해결 하려면 [Azure Key Vault 설명서](../../key-vault/index.yml)를 참조 하세요.
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>200 주요 자격 증명 모음만 볼 수 있는 이유는 무엇 인가요?
 

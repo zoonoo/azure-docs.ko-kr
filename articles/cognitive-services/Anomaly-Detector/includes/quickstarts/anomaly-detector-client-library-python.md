@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/30/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8d66b653f78de5b2dee1a42227fe64152ccc6fe9
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 98f68af11cf21cb795e7741585e55c195c066995
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89464176"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91024984"
 ---
 Python용 Anomaly Detector 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Anomaly Detector 서비스를 사용하면 업계, 시나리오 또는 데이터 양에 관계없이 가장 적합한 모델을 자동으로 사용하여 시계열 데이터의 변칙을 찾을 수 있습니다.
 
@@ -21,10 +21,11 @@ Python용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다�
 
 * 일괄 요청으로 시계열 데이터 세트 전체에서 변칙 검색
 * 시계열에서 최신 데이터 요소의 변칙 상태 검색
+* 데이터 세트에서 추세 변화 포인트 검색
 
-[라이브러리 참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [패키지(PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [GitHub에서 샘플 코드 찾기](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
+[라이브러리 참조 설명서](https://go.microsoft.com/fwlink/?linkid=2090370) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [패키지(PyPi)](https://pypi.org/project/azure-ai-anomalydetector/) | [GitHub에서 샘플 코드 찾기](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/python-sdk-sample.py)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Python 3.x](https://www.python.org/)
 * [Pandas 데이터 분석 라이브러리](https://pandas.pydata.org/)
@@ -53,16 +54,16 @@ Python용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다�
 Python을 설치한 후, 다음을 사용하여 클라이언트 라이브러리를 설치할 수 있습니다.
 
 ```console
-pip install --upgrade azure-cognitiveservices-anomalydetector
+pip install --upgrade azure-ai-anomalydetector
 ```
 
 ## <a name="object-model"></a>개체 모델
 
-Anomaly Detector 클라이언트는 키를 사용하여 Azure에 인증하는 [AnomalyDetectorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python) 개체입니다. 클라이언트는 다음과 같은 두 가지 변칙 검색 방법을 제공합니다. 전체 데이터 세트에 [entire_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-) 사용, 최신 데이터 요소에 [Last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) 사용.
+Anomaly Detector 클라이언트는 키를 사용하여 Azure에 인증하는 [AnomalyDetectorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python) 개체입니다. 클라이언트는 전체 데이터 세트에 대해 [entire_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#entire-detect-body--custom-headers-none--raw-false----operation-config-)를 사용하거나 최신 데이터 포인트에 대해 [Last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-)를 사용하여 변칙 검색을 수행할 수 있습니다. [ChangePointDetectAsync](https://go.microsoft.com/fwlink/?linkid=2090370) 함수는 추세의 변화를 표시하는 포인트를 검색합니다.
 
 시계열 데이터는 [요청](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.request?view=azure-python) 개체에 일련의 [포인트](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.point?view=azure-python)로 전송됩니다. `Request` 개체에는 데이터를 설명하는 속성(예: [Granularity](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.granularity?view=azure-python)) 및 변칙 검색용 매개 변수가 포함됩니다.
 
-Anomaly Detector 응답은 사용된 메서드에 따라 [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) 또는 [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) 개체입니다.
+Anomaly Detector 응답은 사용된 메서드에 따라 [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python), [EntireDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.entiredetectresponse?view=azure-python) 또는 [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090370) 개체입니다.
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -72,6 +73,7 @@ Anomaly Detector 응답은 사용된 메서드에 따라 [LastDetectResponse](ht
 * [파일에서 시계열 데이터 세트 로드](#load-time-series-data-from-a-file)
 * [전체 데이터 세트에서 변칙 검색](#detect-anomalies-in-the-entire-data-set)
 * [최신 데이터 요소의 변칙 상태 검색](#detect-the-anomaly-status-of-the-latest-data-point)
+* [데이터 세트에서 변화 포인트 검색](#detect-change-points-in-the-data-set)
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
@@ -107,6 +109,12 @@ API를 호출하여 클라이언트의 [entire_detect()](https://docs.microsoft.
 Anomaly Detector API를 호출하여 클라이언트의 [last_detect()](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.anomalydetectorclient?view=azure-python#last-detect-body--custom-headers-none--raw-false----operation-config-) 메서드를 사용하여 최신 데이터 요소가 변칙인지 확인하고 반환된 [LastDetectResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-python) 개체를 저장합니다. 응답의 `is_anomaly` 값은 해당 포인트의 변칙 상태를 지정하는 부울 값입니다.  
 
 [!code-python[Batch anomaly detection sample](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=latestPointDetection)]
+
+## <a name="detect-change-points-in-the-data-set"></a>데이터 세트에서 변화 포인트 검색
+
+API를 호출하여 클라이언트의 [detect_change_point()](https://go.microsoft.com/fwlink/?linkid=2090370) 메서드로 시계열 데이터의 변화 포인트를 검색합니다. 반환된 [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090370) 개체를 저장합니다. 응답의 `is_change_point` 목록을 반복하고 `true` 값의 인덱스를 출력합니다. 이러한 값은 추세 변화 포인트의 인덱스에 해당합니다(발견된 경우).
+
+[!code-python[detect change points](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=changePointDetection)]
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 

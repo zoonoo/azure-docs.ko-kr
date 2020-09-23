@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/19/2020
-ms.openlocfilehash: 47c203eaea0c3fc2a39267ed78eb603c4836cd2b
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 97a16bd81fd79646fb3693ec2dc4b8a40b9a6a3b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660284"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896165"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MySQL 서버 만들기
 
@@ -22,7 +22,7 @@ Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베�
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -66,7 +66,7 @@ Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베�
 
 다음 링크를 선택하여 Azure Portal에서 Azure Database for MySQL 서버 템플릿을 배포합니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 배포":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
 **VNet을 사용하여 Azure Database for MySQL 배포** 페이지에서 다음을 수행합니다.
 
@@ -76,7 +76,7 @@ Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베�
 
 3. **서버 이름**, **관리자 로그인** 및 **관리자 로그인 암호**를 입력합니다.
 
-    ![VNet 창, Azure 빠른 시작 템플릿, Azure Portal을 사용하여 Azure Database for MySQL 배포](./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png)
+    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-arm-template/deploy-azure-database-for-mysql-with-vnet.png" alt-text="VNet 창, Azure 빠른 시작 템플릿, Azure Portal을 사용하여 Azure Database for MySQL 배포":::
 
 4. 원하는 경우 다른 기본 설정을 변경합니다.
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014594"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982965"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -37,7 +37,7 @@ GPU가 2개인 랩톱에서 작업하는 경우 실행 중인 GPU가 기본적�
 
 ## <a name="retrieve-sessionconversion-status-fails"></a>세션 검색/변환 상태 실패
 
-REST API 명령을 너무 자주 전송 하면 서버에서 오류를 제한 하 고 반환 합니다. 조정 사례의 http 상태 코드는 429 ("요청이 너무 많음")입니다. 이에 대 한 규칙에 따라 **이후 호출 사이에 5-10 초의**지연이 발생 합니다.
+REST API 명령을 너무 자주 전송 하면 서버에서 오류를 제한 하 고 반환 합니다. 조정 사례의 http 상태 코드는 429 ("요청이 너무 많음")입니다. 일반적으로 **후속 호출 간에 5~10초** 지연이 발생합니다.
 
 참고이 제한은 직접 호출 될 때 REST API 호출에 영향을 줄 뿐만 아니라,, 등의 c #/C + +와 같은 항목에도 영향을 줄 수 `Session.GetPropertiesAsync` `Session.RenewAsync` `Frontend.GetAssetConversionStatusAsync` 있습니다.
 
@@ -156,7 +156,8 @@ Azure Remote Rendering은 Unity 렌더링 파이프라인에 후크하여 비디
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>바둑판 패턴은 모델을 로드 한 후 렌더링 됩니다.
 
-렌더링 된 이미지가 다음과 같이 표시 되 면 ![ ](../reference/media/checkerboard.png) 렌더러가 [표준 구성 크기에 대 한 다각형 한도에](../reference/vm-sizes.md)도달 합니다. 이를 완화 하려면 **프리미엄** 구성 크기로 전환 하거나 보이는 다각형의 수를 줄이십시오.
+렌더링 된 이미지가 다음과 같이 표시 되는 경우 ![ 스크린샷은 도구 메뉴를 사용 하 여 검정 및 흰색 사각형의 표를 표시 합니다.](../reference/media/checkerboard.png)
+그러면 렌더러에서 [표준 구성 크기에 대 한 다각형 한도에](../reference/vm-sizes.md)도달 합니다. 이를 완화 하려면 **프리미엄** 구성 크기로 전환 하거나 보이는 다각형의 수를 줄이십시오.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>Unity에서 렌더링 된 이미지가 거꾸로 작동 합니다.
 
@@ -216,7 +217,7 @@ Z-싸 줄이기 위해 다음 워크플로를 사용 합니다.
 
 ARR에는 표면에서 z를 사용할 수 있는지를 확인 하는 기능 ( [바둑판 강조 표시](../overview/features/z-fighting-mitigation.md))이 있습니다. Z를 시각적으로 표시 하는 원인을 시각적으로 확인할 수도 있습니다. 다음 첫 번째 애니메이션은 거리의 깊이 전체 자릿수 손실의 예를 보여 주고, 두 번째 애니메이션은 거의 동일 평면상 표면의 예를 보여 줍니다.
 
-![깊이-전체 자릿수-z-싸 워](./media/depth-precision-z-fighting.gif)  ![동일 평면상-z-싸 워](./media/coplanar-z-fighting.gif)
+![애니메이션은 거리의 깊이 전체 자릿수 손실 예를 보여 줍니다.](./media/depth-precision-z-fighting.gif)  ![애니메이션은 거의 동일 평면상 표면의 예를 보여 줍니다.](./media/coplanar-z-fighting.gif)
 
 이러한 예제를 z-싸 비교 하 여 원인을 확인 하거나 선택적으로이 단계별 워크플로를 수행 합니다.
 

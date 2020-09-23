@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f7da9b1779ed2cf46cb29b21215a9415cbaef494
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f41dfa0889b7f0c34486eee5d16362f4c3c7360d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231285"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894601"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Security Center에 대 한 Azure 보안 기준
 
@@ -606,7 +606,7 @@ Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리
 
 **지침**: 자격 증명 스캐너를 구현하여 코드 내에서 자격 증명을 식별합니다. 또한 자격 증명 스캐너는 검색된 자격 증명을 더 안전한 위치(예: Azure Key Vault)로 이동하도록 추천합니다.
 
-- [자격 증명 스캐너를 설정하는 방법](https://secdevtools.azurewebsites.net/helpcredscan.html)
+- [자격 증명 스캐너를 설정 하는 방법](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Azure Security Center 모니터링**: 해당 없음
 

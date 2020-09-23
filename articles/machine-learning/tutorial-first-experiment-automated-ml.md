@@ -10,20 +10,17 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f68867a7b24e9c5d8dafa0da65209e14eeae5210
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047823"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896456"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-이 자습서에서는 Azure Machine Learning Studio의 자동화된 기계 학습을 사용하여 코드 줄을 하나도 작성하지 않고 기본 분류 모델을 만드는 방법에 대해 알아봅니다. 이 분류 모델은 클라이언트가 금융 기관의 정기 예금을 구독할지 예측합니다.
 
->[!IMPORTANT]
-> Azure Machine Learning Studio의 자동화된 기계 학습 환경은 미리 보기로 제공됩니다. 특정 기능은 지원되지 않거나 기능이 제한될 수 있습니다.
+이 자습서에서는 Azure Machine Learning Studio에서 자동화된 Machine Learning을 사용하여 한 줄의 코드도 작성하지 않고 간단한 분류 모델을 만드는 방법에 대해 알아봅니다. 이 분류 모델은 클라이언트가 금융 기관의 정기 예금을 구독할지 예측합니다.
 
 자동화된 기계 학습을 사용하면 시간이 많이 걸리는 작업을 자동화할 수 있습니다. 자동화된 기계 학습은 사용자가 선택한 성공 메트릭을 기반으로 최상의 모델을 발견할 수 있도록 알고리즘과 하이퍼 매개 변수의 여러 조합을 빠르게 반복합니다.
 
@@ -39,7 +36,7 @@ ms.locfileid: "87047823"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. Azure 구독이 아직 없는 경우 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 
 * [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) 데이터 파일을 다운로드합니다. **y** 열은 고객이 정기 예금에 가입했는지 여부를 나타내며, 뒷부분에서 이 자습서의 예측에 대한 대상 열로 식별됩니다. 
 
@@ -47,9 +44,9 @@ ms.locfileid: "87047823"
 
 Azure Machine Learning 작업 영역은 기계 학습 모델을 실험하고, 학습시키고, 배포하는 데 사용하는 클라우드의 기본 리소스입니다. Azure 구독 및 리소스 그룹을 서비스에서 사용하기 쉬운 개체에 연결합니다. 
 
-Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통해 **Enterprise 버전** 작업 영역을 만듭니다.
+Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통해 작업 영역을 만듭니다.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > **작업 영역** 및 **구독**을 적어 둡니다. 올바른 작업 영역에 실험을 만들려면 이 정보가 필요합니다. 

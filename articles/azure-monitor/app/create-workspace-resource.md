@@ -4,15 +4,15 @@ description: 새 Azure Monitor Application Insights 작업 영역 기반 리소�
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783844"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894547"
 ---
-# <a name="workspace-based-application-insights-resources-preview"></a>작업 영역 기반 Application Insights 리소스(미리 보기)
+# <a name="workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스
 
 작업 영역 기반 리소스는 Application Insights와 Log Analytics 간의 완전한 통합을 지원합니다. 이제 Application Insights 원격 분석을 공통 Log Analytics 작업 영역으로 보낼 수 있습니다. 이를 통해 애플리케이션, 인프라 및 플랫폼 로그를 통합된 단일 위치에 유지하면서 Log Analytics의 모든 기능에 액세스할 수 있습니다.
 
@@ -21,7 +21,19 @@ ms.locfileid: "88783844"
 > [!NOTE]
 > 작업 영역 기반 Application Insights 리소스에 대한 데이터 수집 및 보존 비용은 데이터가 있는 Log Analytics 작업 영역을 통해 청구됩니다. 작업 영역 기반 Application Insights 리소스에 대한 요금 청구에 대해 [자세히 알아봅니다]( ./pricing.md#workspace-based-application-insights).
 
-새 환경을 테스트하려면 [Azure Portal](https://portal.azure.com)에 로그인하고 Application Insights 리소스를 만듭니다.
+## <a name="new-capabilities"></a>새로운 기능
+
+작업 영역 기반 Application Insights를 사용 하면 다음과 같은 Azure Monitor 및 Log Analytics의 최신 기능을 활용할 수 있습니다.
+
+* [CMK (고객 관리 키](../platform/customer-managed-keys.md) )는 사용자만 액세스할 수 있는 암호화 키를 사용 하 여 미사용 데이터 암호화를 제공 합니다.
+* [Azure Private Link](../platform/private-link-security.md)를 사용하면 프라이빗 엔드포인트를 사용하여 Azure PaaS 서비스를 가상 네트워크에 안전하게 연결할 수 있습니다.
+* [Profiler 및 스냅숏 디버거에 대 한 사용자 고유의 저장소 (BYOS)](./profiler-bring-your-own-storage.md) 를 사용 하면 Application Insights Profiler 및 스냅숏 디버거와 연결 된 모든 데이터에 대 한 전체 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 완벽 하 게 제어할 수 있습니다. 
+* [용량 예약 계층](../platform/manage-cost-storage.md#pricing-model) 을 사용 하면 종 량 제 가격과 비교 하 여 25%까지 절감할 수 있습니다. 
+* Log Analytics 스트리밍 수집을 통한 더 빠른 데이터 수집
+
+## <a name="create-workspace-based-resource"></a>작업 영역 기반 리소스 만들기
+
+[Azure Portal](https://portal.azure.com)에 로그인 하 고 Application Insights 리소스를 만듭니다.
 
 ![작업 영역 기반 Application Insights 리소스](./media/create-workspace-resource/create-workspace-based.png)
 
@@ -36,7 +48,7 @@ ms.locfileid: "88783844"
 파란색 링크 텍스트를 클릭하면 새 통합 작업 영역 쿼리 환경을 활용할 수 있는 관련 Log Analytics 작업 영역으로 이동합니다.
 
 > [!NOTE]
-> Application Insights 환경 내에서 Application Insights 클래식 리소스 쿼리, 통합 문서 및 로그 기반 경고에 대해 계속 이전 버전과 완전히 호환됩니다. [새 작업 영역 기반 테이블 구조/스키마](apm-tables.md)를 쿼리/확인하려면 먼저 Log Analytics 작업 영역으로 이동해야 합니다. 미리 보기 중에 Application Insights 창 내에서 **로그**를 선택하면 클래식 Application Insights 쿼리 환경에 액세스할 수 있습니다.
+> Application Insights 환경 내에서 Application Insights 클래식 리소스 쿼리, 통합 문서 및 로그 기반 경고에 대해 계속 이전 버전과 완전히 호환됩니다. [새 작업 영역 기반 테이블 구조/스키마](apm-tables.md)를 쿼리/확인하려면 먼저 Log Analytics 작업 영역으로 이동해야 합니다. Application Insights 창 내에서 **로그 (분석)** 를 선택 하면 클래식 Application Insights 쿼리 환경에 액세스할 수 있습니다.
 
 ## <a name="copy-the-connection-string"></a>연결 문자열 복사
 
@@ -185,14 +197,6 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 
 ```
 
-## <a name="new-capabilities"></a>새로운 기능
-
-작업 영역 기반 Application Insights를 사용 하면 다음을 비롯 한 Azure Monitor의 모든 최신 기능을 활용할 수 있습니다.
-
-* [CMK (고객 관리 키](../platform/customer-managed-keys.md) )는 사용자만 액세스할 수 있는 암호화 키를 사용 하 여 미사용 데이터 암호화를 제공 합니다.
-* [Azure Private Link](../platform/private-link-security.md)를 사용하면 프라이빗 엔드포인트를 사용하여 Azure PaaS 서비스를 가상 네트워크에 안전하게 연결할 수 있습니다.
-* [Profiler 및 스냅숏 디버거에 대 한 사용자 고유의 저장소 (BYOS)](./profiler-bring-your-own-storage.md) 를 사용 하면 Application Insights Profiler 및 스냅숏 디버거와 연결 된 모든 데이터에 대 한 전체 암호화 정책, 수명 관리 정책 및 네트워크 액세스를 완벽 하 게 제어할 수 있습니다. 
-
 ## <a name="modifying-the-associated-workspace"></a>연결된 작업 영역 수정
 
 작업 영역 기반 Application Insights 리소스를 만든 후에는 연결된 Log Analytics 작업 영역을 수정할 수 있습니다.
@@ -207,8 +211,3 @@ Application Insights 리소스 창 내에서 **속성** > **작업 영역 변경
 
 * [메트릭 탐색](../platform/metrics-charts.md)
 * [분석 쿼리 작성](../log-query/log-query-overview.md)
-
-[api]: ./api-custom-events-metrics.md
-[diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
-[start]: ./app-insights-overview.md

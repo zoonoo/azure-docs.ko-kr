@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8dbe36693e551bd03022f4a00044b75b912c834a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8f93e0ffe74ade79059fc845788faf36ab5b4f13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875129"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025100"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Anomaly Detector 리소스 만들기
 
@@ -28,15 +28,14 @@ ms.locfileid: "80875129"
     |위치|주변 및 사용 가능한 위치 선택|
     |가격 책정 계층|`F0` - 최소 가격 책정 계층|
     |리소스 그룹|사용 가능한 리소스 그룹 선택|
-    |미리 보기 확인 확인란 (필수)|**미리 보기** 공지를 읽고 있는지 여부|
 
 1. **만들기**를 클릭하고 리소스가 생성될 때까지 기다립니다. 만든 후에는 리소스 페이지로 이동 합니다.
 1. 구성 된 `endpoint` 및 API 키를 수집 합니다.
 
-    |포털의 리소스 탭|설정|Value|
+    |포털의 리소스 탭|설정|값|
     |--|--|--|
-    |**개요**|엔드포인트|끝점을 복사 합니다. 다음과 유사 하 게 표시 됩니다.`https://westus2.api.cognitive.microsoft.com/`|
-    |**키**|API 키|두 키의 1을 복사 합니다. 공백이 나 대시가 없는 32 영숫자 문자열입니다 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**개요**|엔드포인트|끝점을 복사 합니다. 다음과 유사 하 게 표시 됩니다. `https://westus2.api.cognitive.microsoft.com/`|
+    |**키**|API 키|두 키의 1을 복사 합니다. 공백이 나 대시가 없는 32 영숫자 문자열입니다 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
 
 
 

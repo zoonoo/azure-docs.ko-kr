@@ -8,90 +8,110 @@
       items:
         - name: SSL 루트 인증서 만료
           href: concepts-certificate-rotation.md
-- name: 빠른 시작
+- name: 공유 설명서
+  items:
+    - name: 마이그레이션
+      items:
+        - name: pg_dump 및 pg_restore를 사용하여 데이터 마이그레이션
+          href: howto-migrate-using-dump-and-restore.md
+          displayName: 'pg_dump, pg_restore'
+        - name: pg_dump 및 psql을 사용하여 데이터 마이그레이션
+          href: howto-migrate-using-export-and-import.md
+          displayName: 'import , export'
+        - name: DMS를 사용한 최소 가동 중지 시간 마이그레이션
+          href: howto-migrate-online.md
+          displayName: 'dms, data migration service'
+- name: 단일 서버
   expanded: true
   items:
-    - name: 단일 서버
+    - name: 단일 서버 설명서
+      href: single-server/index.yml
+    - name: 개요
+      href: overview-single-server.md
+    - name: 빠른 시작
+      expanded: true
       items:
-        - name: DB 만들기 - 포털
-          href: quickstart-create-server-database-portal.md
-        - name: DB 만들기 - Azure CLI
-          href: quickstart-create-server-database-azure-cli.md
-        - name: DB 만들기 - Azure CLI up 명령
-          href: quickstart-create-server-up-azure-cli.md
-        - name: DB 만들기 - Azure PowerShell
-          href: quickstart-create-postgresql-server-database-using-azure-powershell.md
-        - name: DB 만들기 - ARM 템플릿
-          href: quickstart-create-postgresql-server-database-using-arm-template.md
-          displayName: deploy azure resource manager template
+        - name: 서버 만들기
+          items:
+            - name: Azure portal
+              href: quickstart-create-server-database-portal.md
+              displayName: 'create single server,portal'
+            - name: Azure CLI
+              href: quickstart-create-server-database-azure-cli.md
+              displayName: create single server in CLI
+            - name: Azure CLI 작동 명령
+              href: quickstart-create-server-up-azure-cli.md
+              displayName: create single server up command
+            - name: Azure PowerShell
+              href: quickstart-create-postgresql-server-database-using-azure-powershell.md
+            - name: ARM 템플릿
+              href: quickstart-create-postgresql-server-database-using-arm-template.md
+              displayName: deploy azure resource manager template
         - name: 연결 및 쿼리
           items:
             - name: Python
               href: connect-python.md
+              displayName: 'python, django , connect'
             - name: Node.js
               href: connect-nodejs.md
+              displayName: 'nodejs, express, connect'
             - name: Java
               href: connect-java.md
+              displayName: 'java , connect'
             - name: Spring Data JDBC를 사용하는 Java
               href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+              displayName: 'spring java, jdbc, connect'
             - name: Spring Data JPA를 사용하는 Java
               href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+              displayName: 'java jpa, spring data'
             - name: Spring Data R2DBC를 사용하는 Java
               href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+              displayName: 'java, r2dbc, spring data'
             - name: Ruby
               href: connect-ruby.md
+              displayName: connect with ruby
             - name: PHP
               href: connect-php.md
+              displayName: connect with php
             - name: .NET
               href: connect-csharp.md
+              displayName: connect with .net
             - name: Go
               href: connect-go.md
-    - name: 하이퍼스케일(Citus)
+              displayName: connect with go
+    - name: 자습서
       items:
-        - name: 서버 그룹 만들기 - 포털
-          href: quickstart-create-hyperscale-portal.md
-- name: 자습서
-  items:
-    - name: 단일 서버
-      items:
-        - name: 1 - 데이터베이스 설계
+        - name: 데이터베이스 설계
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: tutorial-design-database-using-azure-portal.md
+              displayName: design database
             - name: Azure CLI
               href: tutorial-design-database-using-azure-cli.md
             - name: Azure PowerShell
               href: tutorial-design-database-using-powershell.md
-        - name: 2 - Web App 설계 - Python
+        - name: Python 웹앱(Django) 빌드 및 배포
           href: ../app-service/tutorial-python-postgresql-app.md
+          displayName: 'python, django, connect'
           maintainContext: true
-        - name: 3 - 모니터링 및 튜닝
+        - name: 모니터링 및 튜닝
           href: tutorial-monitor-and-tune.md
-    - name: 하이퍼스케일(Citus)
+          displayName: 'monitor, alerts, configure'
+    - name: 샘플
       items:
-        - name: 다중 테넌트 데이터베이스 설계
-          href: tutorial-design-database-hyperscale-multi-tenant.md
-        - name: 실시간 대시보드 설계
-          href: tutorial-design-database-hyperscale-realtime.md
-- name: 샘플
-  items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
-- name: 개념
-  items:
-    - name: 단일 서버
+        - name: Azure CLI
+          href: sample-scripts-azure-cli.md
+        - name: Azure Policy 기본 제공 기능
+          href: policy-samples.md
+    - name: 개념
       items:
-        - name: 데이터베이스 및 서버
-          items:
-            - name: 서버
-              href: concepts-servers.md
-            - name: 지원되는 버전
-              href: concepts-supported-versions.md
-            - name: PostgreSQL 확장
-              href: concepts-extensions.md
-            - name: 고가용성
-              href: concepts-high-availability.md
-        - name: 리소스
+        - name: 서버
+          href: concepts-servers.md
+        - name: 지원되는 버전
+          href: concepts-supported-versions.md
+        - name: PostgreSQL 확장
+          href: concepts-extensions.md
+        - name: 가격 책정 계층 이해
           items:
             - name: 가격 책정 계층
               href: concepts-pricing-tiers.md
@@ -99,270 +119,485 @@
               href: concept-reserved-pricing.md
             - name: 제한
               href: concepts-limits.md
-        - name: 데이터 액세스 및 보안
+        - name: 보안
           items:
             - name: 보안 개요
               href: concepts-security.md
+              displayName: 'security, overview'
             - name: SSL 구성
               href: concepts-ssl-connection-security.md
+              displayName: 'security,ssl'
             - name: 연결 아키텍처
               href: concepts-connectivity-architecture.md
-            - name: 방화벽 규칙
-              href: concepts-firewall-rules.md
-            - name: 가상 네트워크
-              href: concepts-data-access-and-security-vnet.md
-            - name: 고급 위협 보호
+              displayName: 'security, architecture'
+            - name: Advanced Threat Protection
               href: concepts-data-access-and-security-threat-protection.md
+              displayName: 'security, advanced threat protection'
             - name: Azure AD 인증
               href: concepts-aad-authentication.md
-            - name: Private Link
-              href: concepts-data-access-and-security-private-link.md
-            - name: 데이터 암호화
+              displayName: 'security, aad, active directory'
+            - name: 데이터 암호화.
               href: concepts-data-encryption-postgresql.md
+              displayName: 'security, data encryption'
             - name: 인프라 이중 암호화
               href: concepts-infrastructure-double-encryption.md
-            - name: Azure Policy의 보안 컨트롤
-              displayName: 'regulatory, compliance, standards, domains'
-              href: ./security-controls-policy.md
-            - name: Azure Security Benchmark에 대한 보안 기준
+              displayName: 'security, infrastructure encryption'
+            - name: 보안 기준
               href: security-baseline.md
+        - name: 네트워킹
+          items:
+            - name: 방화벽 규칙
+              href: concepts-firewall-rules.md
+              displayName: 'firewall rules, security, connect'
+            - name: 가상 네트워크
+              href: concepts-data-access-and-security-vnet.md
+              displayName: 'security, service endpoint'
+            - name: 프라이빗 링크
+              href: concepts-data-access-and-security-private-link.md
+              displayName: 'security, private link, private endpoint'
         - name: 비즈니스 연속성
           items:
             - name: 비즈니스 연속성 소개
               displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
               href: concepts-business-continuity.md
+            - name: 고가용성
+              href: concepts-high-availability.md
             - name: 백업 및 복원
               href: concepts-backup.md
+              displayName: 'backup ,restore, georestore, geo-restore, outage'
         - name: 모니터링 및 튜닝
           items:
             - name: 모니터링 및 튜닝
               href: concepts-monitoring.md
+              displayName: 'monitor, tune, alerts'
             - name: 로그
               href: concepts-server-logs.md
+              displayName: 'monitor, server logs'
             - name: 감사 로그
               href: concepts-audit.md
+              displayName: 'audit logs, monitor'
             - name: 쿼리 저장소
               items:
                 - name: 쿼리 저장소
                   href: concepts-query-store.md
+                  displayName: 'performance, optimize, query store'
                 - name: 쿼리 저장소 사용 시나리오
                   href: concepts-query-store-scenarios.md
+                  displayName: 'query store, performance, optimize'
                 - name: 쿼리 저장소 모범 사례
                   href: concepts-query-store-best-practices.md
-            - name: 쿼리
+            - name: 쿼리 성능 Insight
               href: concepts-query-performance-insight.md
+              displayName: 'query store, performance, optimize, insights'
             - name: 성능 권장 사항
               href: concepts-performance-recommendations.md
-        - name: 개발
+              displayName: 'query store, performance, optimize, recommendations'
+        - name: 앱 개발
           items:
             - name: 연결 라이브러리
               href: concepts-connection-libraries.md
+              displayName: 'libraries, drivers'
             - name: 연결 복원력
               href: concepts-connectivity.md
-            - name: AKS(Azure Kubernetes Service)로 개발
-              href: concepts-aks.md
-            - name: Java
-              items:
-                - name: Java 및 JDBC 사용
-                  href: connect-java.md
-                - name: Spring Data JDBC 구성
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
-                - name: Spring Data JPA 구성
-                  href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
-                - name: Spring Data R2DBC 구성
-                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql
+              displayName: 'transient errors, connection issues, connectivity issues, pooling'
         - name: 복제
           items:
             - name: 읽기 복제본
               href: concepts-read-replicas.md
+              displayName: 'replication, read replica'
             - name: 논리 디코딩
               href: concepts-logical.md
-    - name: 하이퍼스케일(Citus)
+              displayName: logical decoding
+    - name: 방법 가이드
       items:
-        - name: 분선 데이터
-          items:
-            - name: 노드 및 테이블
-              href: concepts-hyperscale-nodes.md
-            - name: 애플리케이션 유형 확인
-              href: concepts-hyperscale-app-type.md
-            - name: 배포 열 선택
-              href: concepts-hyperscale-choose-distribution-column.md
-            - name: 테이블 공동 배치
-              href: concepts-hyperscale-colocation.md
-        - name: 데이터 액세스 및 보안
-          items:
-            - name: 방화벽 규칙
-              href: concepts-hyperscale-firewall-rules.md
-            - name: SSL 구성
-              href: concepts-hyperscale-ssl-connection-security.md
-            - name: Azure Security Benchmark에 대한 보안 기준
-              href: postgresql-hyperscale-security-baseline.md
-        - name: 비즈니스 연속성
-          items:
-            - name: 백업 및 복원
-              href: concepts-hyperscale-backup.md
-        - name: 모니터링 및 튜닝
-          items:
-            - name: 모니터링 및 튜닝
-              href: concepts-hyperscale-monitoring.md
-        - name: PostgreSQL 확장
-          href: concepts-hyperscale-extensions.md
-        - name: 고가용성
-          href: concepts-hyperscale-high-availability.md
-        - name: 리소스
-          items:
-            - name: 구성 옵션
-              href: concepts-hyperscale-configuration-options.md
-            - name: 예약된 용량 선불
-              href: concepts-hyperscale-reserved-pricing.md
-- name: 방법 가이드
-  items:
-    - name: 단일 서버
-      items:
-        - name: 서버 관리
+        - name: 관리 및 스케일링
           items:
             - name: Azure portal
               href: howto-create-manage-server-portal.md
-        - name: 인증
+              displayName: 'scale server, reset password'
+            - name: Azure CLI
+              href: how-to-manage-server-cli.md
+              displayName: 'scale server, reset password'
+        - name: 서버 다시 시작
+          items:
+            - name: Azure portal
+              href: howto-restart-server-portal.md
+            - name: Azure CLI
+              href: howto-restart-server-cli.md
+            - name: Azure PowerShell
+              href: howto-restart-server-powershell.md
+        - name: 방화벽 규칙
+          items:
+            - name: Azure portal
+              href: howto-manage-firewall-using-portal.md
+              displayName: 'firewall, portal, rules'
+            - name: Azure CLI
+              href: howto-manage-firewall-using-cli.md
+              displayName: 'firewall, rules, cli'
+        - name: 연결 및 쿼리 가이드
+          href: how-to-connect-query-guide.md
+          displayName: application development
+        - name: 서버 복원
+          items:
+            - name: Azure portal
+              href: howto-restore-server-portal.md
+              displayName: 'restore, georestore, geo-restore, outage'
+            - name: Azure CLI
+              href: howto-restore-server-cli.md
+              displayName: 'restore, georestore, geo-restore, outage'
+            - name: Azure PowerShell
+              href: howto-restore-server-powershell.md
+              displayName: 'restore, georestore, geo-restore, outage'
+        - name: 인증 사용
           items:
             - name: 사용자 만들기
               href: howto-create-users.md
+              displayName: 'non-admin user, application development'
             - name: Azure AD 통합 구성
               href: howto-configure-sign-in-aad-authentication.md
+              displayName: 'application development, aad, active directory'
             - name: 관리 ID를 사용하여 연결
               href: howto-connect-with-managed-identity.md
         - name: 최적화
           items:
             - name: 대량 삽입
               href: howto-optimize-bulk-inserts.md
+              displayName: 'bulk inserts, optimzie'
             - name: Autovacuum
               href: howto-optimize-autovacuum.md
+              displayName: 'optimize, autovacuum'
             - name: 쿼리 통계 컬렉션
               href: howto-optimize-query-stats-collection.md
+              displayName: 'query optimize, performance'
             - name: 알림 테이블 전략
               href: howto-optimize-query-time-with-toast-table-storage-strategy.md
-        - name: 방화벽 관리
-          items:
-            - name: Azure Portal
-              href: howto-manage-firewall-using-portal.md
-            - name: Azure CLI
-              href: howto-manage-firewall-using-cli.md
-        - name: 서버 복원
-          items:
-            - name: Azure Portal
-              href: howto-restore-server-portal.md
-            - name: Azure CLI
-              href: howto-restore-server-cli.md
-            - name: Azure PowerShell
-              href: howto-restore-server-powershell.md
-        - name: 데이터베이스 마이그레이션
-          items:
-            - name: 덤프 및 복원
-              href: howto-migrate-using-dump-and-restore.md
-            - name: 가져오기 및 내보내기
-              href: howto-migrate-using-export-and-import.md
-            - name: 최소 가동 중지 시간 마이그레이션
-              href: howto-migrate-online.md
-        - name: 애플리케이션 연결
-          items:
-            - name: TLS 구성
-              href: howto-tls-configurations.md
-            - name: Azure PowerShell
-              href: howto-connection-string-powershell.md
+              displayName: 'query optimize, performance'
+        - name: TLS 구성
+          href: howto-tls-configurations.md
+          displayName: 'application development, TLS'
+        - name: 연결 문자열
+          href: howto-connection-string-powershell.md
+          displayName: 'application development, TLS'
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-server-parameters-using-portal.md
+              displayName: 'application development, server parameters'
             - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
+              displayName: 'application development, server parameters'
             - name: Azure PowerShell
               href: howto-configure-server-parameters-using-powershell.md
+              displayName: 'application development, server parameters'
         - name: 자동 증가 스토리지
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-auto-grow-storage-portal.md
+              displayName: 'business continuity, scale , storage'
             - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
+              displayName: 'business continuity, scale , storage'
             - name: Azure PowerShell
               href: howto-auto-grow-storage-powershell.md
+              displayName: 'business continuity, scale , storage'
         - name: 액세스 로그
           items:
             - name: Azure portal
               href: howto-configure-server-logs-in-portal.md
+              displayName: 'access logs, monitor'
             - name: Azure CLI
               href: howto-configure-server-logs-using-cli.md
+              displayName: 'access logs, monitor'
         - name: 모니터
           items:
             - name: 메트릭에 대한 경고 만들기
               href: howto-alert-on-metric.md
+              displayName: 'alerts, metrics, monitor'
         - name: 문제 해결
           items:
             - name: 연결 오류 문제 해결
               href: howto-troubleshoot-common-connection-issues.md
+              displayName: 'debug, connection, issues, firewall, ssl, port'
             - name: 데이터 암호화 문제 해결
               href: howto-data-encryption-troubleshoot.md
-        - name: 고급 위협 보호
+              displayName: 'debug, security, encryption'
+        - name: Advanced Threat Protection
           items:
             - name: Azure portal
               href: howto-database-threat-protection-portal.md
-        - name: Virtual Network
+              displayName: 'advanced thread, security'
+        - name: 가상 네트워크
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-manage-vnet-using-portal.md
+              displayName: 'service endpoint, vnet, virtual network'
             - name: Azure CLI
               href: howto-manage-vnet-using-cli.md
-        - name: Private Link
+              displayName: 'service endpoint, vnet, virtual network'
+        - name: 프라이빗 링크
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-configure-privatelink-portal.md
+              displayName: 'private endpoint, private link'
             - name: Azure CLI
               href: howto-configure-privatelink-cli.md
-        - name: 데이터 암호화
+              displayName: 'private endpoint, private link'
+        - name: 데이터 암호화.
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-data-encryption-portal.md
+              displayName: 'encryption, security'
             - name: Azure CLI
               href: howto-data-encryption-cli.md
+              displayName: 'encryption, security'
             - name: 데이터 암호화 유효성 검사
               href: howto-data-encryption-validation.md
+              displayName: 'encryption, security'
         - name: 인프라 이중 암호화
           items:
-            - name: 인프라 이중 암호화 구성
+            - name: 이중 암호화 구성
               href: howto-double-encryption.md
-        - name: 서버 다시 시작
-          items:
-            - name: Azure Portal
-              href: howto-restart-server-portal.md
-            - name: Azure CLI
-              href: howto-restart-server-cli.md
-            - name: Azure PowerShell
-              href: howto-restart-server-powershell.md
+              displayName: 'encryption, security'
         - name: 퍼블릭 네트워크 액세스 거부
           items:
             - name: Azure portal
               href: howto-deny-public-network-access.md
+              displayName: 'deny, public access, security'
         - name: 복제
           items:
-            - name: Azure Portal 읽기 복제본 관리
+            - name: Azure portal
               href: howto-read-replicas-portal.md
-            - name: '읽기 복제본 Azure CLI, REST API 관리'
+              displayName: replica
+            - name: 'Azure CLI, REST API'
               href: howto-read-replicas-cli.md
-            - name: Azure PowerShell 읽기 복제본 관리
+              displayName: read replica
+            - name: Azure PowerShell
               href: howto-read-replicas-powershell.md
+              displayName: read replica
         - name: 영역 간 이동
           items:
             - name: Azure portal
               href: howto-move-regions-portal.md
-    - name: 하이퍼스케일(Citus)
+- name: 유연한 서버(미리 보기)
+  expanded: true
+  items:
+    - name: 유연한 서버 설명서
+      href: flexible-server/index.yml
+    - name: 개요
+      href: flexible-server/overview.md
+    - name: 빠른 시작
+      expanded: true
       items:
-        - name: 사용자 만들기
-          href: howto-hyperscale-create-users.md
-        - name: 서버 그룹 크기
+        - name: 서버 및 데이터베이스 만들기
+          items:
+            - name: Azure portal
+              href: flexible-server/quickstart-create-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/quickstart-create-server-cli.md
+            - name: ARM 템플릿
+              href: flexible-server/quickstart-create-server-arm-template.md
+        - name: 연결 및 쿼리
+          items:
+            - name: Python
+              href: flexible-server/connect-python.md
+    - name: 자습서
+      items:
+        - name: 가상 네트워크에서 웹앱 만들기
+          href: flexible-server/tutorial-webapp-server-vnet.md
+        - name: Django 앱 배포
+          href: flexible-server/tutorial-django-app-service-postgres.md
+    - name: 개념
+      items:
+        - name: 서버
+          href: flexible-server/concepts-servers.md
+        - name: 지원되는 버전
+          href: flexible-server/concepts-supported-versions.md
+        - name: 컴퓨팅 및 스토리지
+          href: flexible-server/concepts-compute-storage.md
+        - name: 네트워킹
+          href: flexible-server/concepts-networking.md
+          displayName: 'virtual networks, vnet, IP address, public access'
+        - name: 제한
+          href: flexible-server/concepts-limits.md
+        - name: 확장
+          href: flexible-server/concepts-extensions.md
+        - name: 예약된 유지 관리
+          href: flexible-server/concepts-maintenance.md
+        - name: 비즈니스 연속성
+          items:
+            - name: 비즈니스 연속성 개요
+              href: flexible-server/concepts-business-continuity.md
+            - name: 백업 및 복원
+              href: flexible-server/concepts-backup-restore.md
+            - name: 고가용성
+              href: flexible-server/concepts-high-availability.md
+        - name: 모니터링 및 튜닝
+          items:
+            - name: 모니터링 및 튜닝 개요
+              href: flexible-server/concepts-monitoring.md
+              displayName: 'monitor, metrics'
+            - name: 로그
+              href: flexible-server/concepts-logging.md
+              displayName: 'monitor, server logs'
+            - name: 감사 로그
+              href: flexible-server/concepts-audit.md
+        - name: 복제
+          href: flexible-server/concepts-logical.md
+          displayName: logical decoding
+    - name: 방법 가이드
+      items:
+        - name: 서버 관리
+          items:
+            - name: Azure portal
+              href: flexible-server/how-to-manage-server-portal.md
+            - name: Azure CLI
+              href: flexible-server/how-to-manage-server-cli.md
+        - name: 예약된 유지 관리
+          items:
+            - name: Azure portal
+              href: flexible-server/how-to-maintenance-portal.md
+        - name: 네트워킹
+          items:
+            - name: 프라이빗 액세스(VNet 통합)
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-manage-virtual-network-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-virtual-network-cli.md
+            - name: 퍼블릭 액세스(허용된 IP 주소)
+              items:
+                - name: Azure portal
+                  href: flexible-server/how-to-manage-firewall-portal.md
+                - name: Azure CLI
+                  href: flexible-server/how-to-manage-firewall-cli.md
+            - name: TLS/SSL
+              items:
+                - name: TLS/SSL을 사용하여 연결
+                  href: flexible-server/how-to-connect-tls-ssl.md
+        - name: 서버 매개 변수 구성
+          items:
+            - name: Azure portal
+              href: flexible-server/howto-configure-server-parameters-using-portal.md
+              displayName: 'application development, server parameters'
+            - name: Azure CLI
+              href: flexible-server/howto-configure-server-parameters-using-cli.md
+              displayName: 'application development, server parameters'
+        - name: 서버 확장
+          items:
+            - name: Azure portal
+              href: flexible-server/how-to-scale-compute-storage-portal.md
+        - name: 서버 다시 시작
+          items:
+            - name: Azure portal
+              href: flexible-server/how-to-restart-server-portal.md
+        - name: 서버 복원
+          items:
+            - name: Azure portal
+              href: flexible-server/how-to-restore-server-portal.md
+        - name: 서버 중지/시작
+          items:
+            - name: Azure portal
+              href: flexible-server/how-to-stop-start-server-portal.md
+        - name: 고가용성 관리
+          items:
+            - name: Azure portal
+              href: flexible-server/how-to-manage-high-availability-portal.md
+        - name: 모니터
+          items:
+            - name: 메트릭에 대한 경고 만들기
+              href: flexible-server/howto-alert-on-metrics.md
+            - name: 로그 구성 및 액세스
+              href: flexible-server/howto-configure-and-access-logs.md
+- name: 하이퍼스케일(Citus)
+  items:
+    - name: 하이퍼스케일(Citus) 설명서
+      href: hyperscale/index.yml
+    - name: 개요
+      items:
+        - name: 하이퍼스케일(Citus)이란?
+          href: hyperscale-overview.md
+    - name: 빠른 시작
+      items:
+        - name: 서버 그룹 만들기
+          items:
+            - name: Azure portal
+              href: quickstart-create-hyperscale-portal.md
+              displayName: 'portal, create hyperscale'
+    - name: 자습서
+      items:
+        - name: 다중 테넌트 데이터베이스 설계
+          href: tutorial-design-database-hyperscale-multi-tenant.md
+          displayName: 'hyperscale, tutorial, multi-tenant'
+        - name: 실시간 대시보드 설계
+          href: tutorial-design-database-hyperscale-realtime.md
+          displayName: 'hyperscale, tutorial, real-time'
+    - name: 샘플
+      items:
+        - name: Azure CLI
+          href: sample-scripts-azure-cli.md
+          displayName: 'samples, azure cli'
+        - name: Azure Policy 기본 제공 기능
+          displayName: 'samples, policies, definitions'
+          href: ./policy-samples.md
+    - name: 개념
+      items:
+        - name: 분선 데이터
+          items:
+            - name: 노드 및 테이블
+              href: concepts-hyperscale-nodes.md
+              displayName: 'nodes, tables'
+            - name: 애플리케이션 유형 확인
+              href: concepts-hyperscale-app-type.md
+            - name: 배포 열 선택
+              href: concepts-hyperscale-choose-distribution-column.md
+            - name: 테이블 공동 배치
+              href: concepts-hyperscale-colocation.md
+            - name: 구성 옵션
+              href: concepts-hyperscale-configuration-options.md
+            - name: 예약된 용량 선불
+              href: concepts-hyperscale-reserved-pricing.md
+        - name: 보안
+          items:
+            - name: 방화벽 규칙
+              href: concepts-hyperscale-firewall-rules.md
+              displayName: 'firewall, rules, hyperscale'
+            - name: SSL 구성
+              href: concepts-hyperscale-ssl-connection-security.md
+              displayName: 'hyperscale, ssl'
+            - name: 보안 기준
+              href: postgresql-hyperscale-security-baseline.md
+        - name: 비즈니스 연속성
+          items:
+            - name: 백업 및 복원
+              href: concepts-hyperscale-backup.md
+              displayName: 'backup, restore, outage, hyperscale'
+            - name: 고가용성
+              href: concepts-hyperscale-high-availability.md
+        - name: 모니터링 및 튜닝
+          items:
+            - name: 모니터링 및 튜닝
+              href: concepts-hyperscale-monitoring.md
+        - name: PostgreSQL 확장
+          href: concepts-hyperscale-extensions.md
+    - name: API 참조
+      items:
+        - name: SQL API 함수
+          href: reference-hyperscale-functions.md
+        - name: 서버 매개 변수
+          href: reference-hyperscale-parameters.md
+        - name: 시스템 테이블
+          href: reference-hyperscale-metadata.md
+    - name: 방법 가이드
+      items:
+        - name: 서버 그룹 스케일링
           href: howto-hyperscale-scaling.md
-        - name: 방화벽 관리
+        - name: 방화벽 규칙
           items:
             - name: Azure portal
               href: howto-hyperscale-manage-firewall-using-portal.md
+              displayName: 'firewall rule, hyperscale'
+        - name: 사용자 만들기
+          href: howto-hyperscale-create-users.md
         - name: 분선 데이터
           items:
             - name: 테이블 분산 및 수정
@@ -373,33 +608,23 @@
           items:
             - name: 메트릭에 대한 경고 만들기
               href: howto-hyperscale-alert-on-metric.md
+              dispalyName: alerts on hyperscale
             - name: 데이터베이스 로그 액세스
               href: howto-hyperscale-logging.md
+              displayName: 'log, hyperscale'
         - name: 문제 해결
           items:
             - name: 연결 오류 문제 해결
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
+              displayName: 'connection errors, hyperscale'
 - name: 참조
   items:
-    - name: 단일 서버
-      items:
-        - name: Azure CLI
-          href: /cli/azure/postgres
-        - name: REST API
-          href: /rest/api/postgresql
-        - name: Resource Manager 템플릿
-          href: /azure/templates/microsoft.dbforpostgresql/allversions
-    - name: 하이퍼스케일(Citus)
-      items:
-        - name: SQL API 함수
-          href: reference-hyperscale-functions.md
-        - name: 서버 매개 변수
-          href: reference-hyperscale-parameters.md
-        - name: 시스템 테이블
-          href: reference-hyperscale-metadata.md
-    - name: Azure Policy 기본 제공 기능
-      displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
+    - name: Azure CLI
+      href: /cli/azure/postgres
+    - name: REST API
+      href: /rest/api/postgresql
+    - name: Resource Manager 템플릿
+      href: /azure/templates/microsoft.dbforpostgresql/allversions
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

@@ -11,15 +11,15 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: efe2f062cc75fb05484fe810a3ae16c07e93339b
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cf6616dcc3935946ad4a7213263bb20281d25354
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651749"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896781"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 자습서에서는 Azure Machine Learning의 자동화된 기계 학습을 사용하여 NYC 택시 요금 가격을 예측하는 회귀 모델을 만듭니다. 이 프로세스는 학습 데이터 및 구성 설정을 적용하며 다양한 기능 정규화/표준화 메서드, 모델 및 하이퍼 매개 변수 설정의 결합을 자동으로 반복하여 최선의 모델에 도달합니다.
 

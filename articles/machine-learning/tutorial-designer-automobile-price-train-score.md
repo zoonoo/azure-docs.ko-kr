@@ -1,5 +1,5 @@
 ---
-title: '자습서: 디자이너를 사용하여 자동차 가격 예측(미리 보기)'
+title: '자습서: 디자이너를 사용하여 자동차 가격 예측'
 titleSuffix: Azure Machine Learning
 description: 끌어서 놓기 인터페이스를 사용하여 기계 학습 모델을 학습하고 점수를 매기고 배포하는 방법에 대해 알아봅니다. 이 자습서는 선형 회귀 분석을 사용하여 자동차 가격을 예측하는 2부로 구성된 시리즈 중 1부입니다.
 author: peterclu
@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 3992bbe466241eb388874905237dbe00f07b3752
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812988"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896693"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 자동차 가격 예측
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="tutorial-predict-automobile-price-with-the-designer"></a>자습서: 디자이너를 사용하여 자동차 가격 예측
+
 
 2부로 구성된 이 자습서에서는 Azure Machine Learning 디자이너를 사용하여 자동차 가격을 예측하는 기계 학습 모델을 학습하고 배포하는 방법을 알아봅니다. 디자이너는 코드 한 줄 없이 기계 학습 모델을 만들 수 있는 끌어서 놓기 도구입니다.
 
@@ -49,10 +49,6 @@ Azure Machine Learning 파이프라인을 만들려면 Azure Machine Learning �
 ### <a name="create-a-new-workspace"></a>새 작업 영역 만들기
 
 디자이너를 사용하려면 먼저 Azure Machine Learning 작업 영역이 필요합니다. 작업 영역은 Azure Machine Learning의 최상위 리소스로, Azure Machine Learning에서 만든 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공합니다.
-
-Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 섹션으로 건너뜁니다](#create-the-pipeline).
-
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>파이프라인 만들기
 
@@ -94,7 +90,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 디자이너에는 실험에 사용할 몇 가지 샘플 데이터 세트가 포함되어 있습니다. 이 자습서에서는 **자동차 가격 데이터(원시)** 를 사용합니다. 
 
-1. 파이프라인 캔버스의 왼쪽에는 데이터 세트와 모듈로 구성된 팔레트가 있습니다. **데이터 세트**를 선택한 다음, **샘플** 섹션에서 사용 가능한 샘플 데이터 세트를 확인합니다.
+1. 파이프라인 캔버스의 왼쪽에는 데이터 세트와 모듈로 구성된 팔레트가 있습니다. **샘플 데이터 세트**를 선택하여 사용 가능한 샘플 데이터 세트를 확인합니다.
 
 1. **자동차 가격 데이터(원시)** 데이터 세트를 선택하여 캔버스로 끕니다.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0b7e277518337072659bf5ccddd3436c05ff5201
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401778"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563797"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -162,13 +162,13 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창으로 돌아�
 
 Azure Cloud Shell에서 다음 명령을 사용하여 함수 앱에서 Azure Digital Twins 인스턴스를 참조하는 데 사용할 애플리케이션 설정을 지정합니다.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 다음 명령을 사용하여 시스템 관리 ID를 만듭니다. 출력에서 *principalId* 필드를 기록해 둡니다.
 
-```azurecli-interactive
+```azurecli
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
@@ -203,7 +203,7 @@ Azure Digital Twins는 디바이스와 해당 데이터를 관리하는 Azure �
 
 Azure Cloud Shell에서 다음 명령을 사용하여 새 IoT 허브를 만듭니다.
 
-```azurecli-interactive
+```azurecli
 az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku S1
 ```
 
@@ -242,7 +242,7 @@ IoT 허브에 지정한 이름을 저장합니다. 나중에 필요합니다.
 
 Azure Cloud Shell에서 다음 명령을 사용하여 IoT Hub에 디바이스를 만듭니다.
 
-```azurecli-interactive
+```azurecli
 az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> -g <your-resource-group>
 ```
 
@@ -330,7 +330,7 @@ ObserveProperties thermostat67 Temperature
 
 Azure Cloud Shell에서 다음 명령을 실행하여 이벤트 그리드 토픽을 만듭니다.
 
-```azurecli-interactive
+```azurecli
 az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
 ```
 
@@ -441,7 +441,7 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹 및 그 안에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 
