@@ -7,15 +7,15 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8617b0b71e58d22ccd2cf753e4ddc862932f68da
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: bc25a2ada3052689bc9dc4585c238fe19cb2a341
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536058"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087399"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault 방화벽 및 가상 네트워크 구성
 
@@ -27,7 +27,6 @@ ms.locfileid: "89536058"
 > [!NOTE]
 > 다음과 같은 구성 제한 사항을 고려해야 합니다.
 > * 최대한 127개 가상 네트워크 규칙 및 127개 IPv4 규칙이 허용됩니다. 
-> * "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다. 대신 개별 IP 주소 규칙을 사용하여 이러한 범위를 구성합니다.
 > * IP 네트워크 규칙은 공용 IP 주소에 대해서만 허용됩니다. 프라이빗 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크에는 **10.** , **172.16-31** 및 **192.168.** 로 시작하는 주소가 포함됩니다. 
 > * 현재 IPv4 주소만 지원됩니다.
 

@@ -1,16 +1,16 @@
 ---
 title: 3ds Max에서 PBR 재질 설정
 description: 3ds Max에서 물리적 기반 렌더링 재질을 설정하고 FBX 형식으로 내보내는 방법을 설명합니다.
-author: muxanickms
-ms.author: misams
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: ac0f4ee8f06982126d2ae30bed01716b287e8993
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e77379be863f4527081eeec6a0ee1f426d526527
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078034"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084467"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-3ds-max"></a>자습서: 3ds Max에서 물리적 기반 렌더링 재질 설정
 

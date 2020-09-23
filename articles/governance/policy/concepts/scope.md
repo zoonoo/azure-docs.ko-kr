@@ -3,12 +3,12 @@ title: Azure Policy 범위 이해
 description: Azure Resource Manager 범위 개념과 Azure Policy에서 평가할 리소스를 제어 하는 Azure Policy에 적용 되는 방법에 대해 설명 합니다.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: dee5d2bdbcb5aa86e293652af3bc5008f56b7877
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 83eda330a35b007abfa37046a202b14728726849
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940145"
+ms.locfileid: "90984429"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Azure Policy 범위 이해
 
@@ -34,6 +34,8 @@ Azure Policy에서 사용 하는 첫 번째 인스턴스 범위는 정책 정의
 - 포함-정의의 준수에 대 한 리소스 계층 또는 개별 리소스를 평가 해야 합니다. `properties.scope`할당 개체의 속성은 규정 준수를 포함 하 고 평가할 항목을 결정 합니다. 자세한 내용은 [할당 정의](./assignment-structure.md)를 참조 하세요.
 
 - 제외-정의의 호환성을 위해 리소스 계층 또는 개별 리소스를 평가할 수 없습니다. `properties.notScopes`할당 개체의 _배열_ 속성은 제외할 항목을 결정 합니다. 이러한 범위 내의 리소스는 평가 되거나 준수 개수에 포함 되지 않습니다. 자세한 내용은 [할당 정의-제외 된 범위](./assignment-structure.md#excluded-scopes)를 참조 하세요.
+
+정책 할당의 속성 외에도는 [정책 예외](./exemption-structure.md) 개체입니다. 예외는 평가할 할당의 일부를 식별 하는 메서드를 제공 하 여 범위 스토리를 향상 시킵니다.
 
 - 예외 (**미리 보기 기능에서 무료** )-리소스 계층 또는 개별 리소스는 정의에의 한 준수 여부를 평가 해야 하지만, 면제가 있거나 다른 방법을 통해 완화 되는 등의 이유로 평가 되지 않습니다. 이 상태의 리소스는 추적 가능 하도록 준수 보고서에서 **제외** 된 것으로 표시 됩니다. 예외 개체는 리소스 계층 구조 또는 개별 리소스에 대해 예외 범위를 결정 하는 자식 개체로 생성 됩니다. 리소스 계층 또는 개별 리소스는 여러 할당에 대해 제외 될 수 있습니다. 예외는 속성을 사용 하 여 일정에 따라 만료 되도록 구성할 수 있습니다 `expiresOn` . 자세한 내용은 [예외 정의](./exemption-structure.md)를 참조 하세요.
 

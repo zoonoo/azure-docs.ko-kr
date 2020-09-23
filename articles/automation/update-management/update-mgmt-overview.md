@@ -3,14 +3,14 @@ title: Azure Automation - 업데이트 관리 개요
 description: 이 문서에서는 Windows 및 Linux 머신의 업데이트를 구현하는 업데이트 관리 기능의 개요를 살펴봅니다.
 services: automation
 ms.subservice: update-management
-ms.date: 09/11/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ab2c584b1e62ac8296c4e9489a72489cd815fc3c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 4a753cd139db9dec23c82346704382979aeaa0de
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089856"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976986"
 ---
 # <a name="update-management-overview"></a>업데이트 관리 개요
 
@@ -30,6 +30,8 @@ VM용 업데이트 관리는 다음과 같은 방법으로 사용하도록 설�
 
 > [!NOTE]
 > 업데이트 관리로 구성한 머신은 Azure Automation에서 사용자 지정 스크립트를 실행하는 데 사용할 수 없습니다. 이 머신은 Microsoft 서명 업데이트 스크립트만 실행할 수 있습니다.
+
+Azure VM에서 사용 가능한 *중요* 및 *보안* 패치를 자동으로 다운로드 하 여 설치 하려면 Windows Vm에 대 한 [자동 VM 게스트 패치](../../virtual-machines/windows/automatic-vm-guest-patching.md) 를 검토 합니다.
 
 ## <a name="about-update-management"></a>업데이트 관리에 대해 자세히 알아보기
 
@@ -82,7 +84,7 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 Run
 |Windows Server 2008 R2(RTM 및 SP1 Standard)| 업데이트 관리은이 운영 체제에 대 한 평가 및 패치를 지원 합니다. [Hybrid Runbook Worker](../automation-windows-hrw-install.md) 는 Windows Server 2008 r 2에서 지원 됩니다. |
 |CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다. 분류 기반 패치를 사용하려면 `yum`에서 CentOS가 RTM 릴리스에 없는 보안 데이터를 반환해야 합니다. CentOS의 분류 기반 패치에 대한 자세한 내용은 [Linux의 업데이트 분류](update-mgmt-view-update-assessments.md#linux)를 참조하세요.          |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |
-|SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |
+|SUSE Linux Enterprise Server 12(x64)     | Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.        |
 |Ubuntu 14.04 LTS, 16.04 LTS 및 18.04(x86/x64)      |Linux 에이전트를 사용하려면 업데이트 리포지토리에 대한 액세스 권한이 필요합니다.         |
 
 > [!NOTE]
@@ -234,7 +236,7 @@ Linux의 경우 클라우드의 풍부한 데이터로 인해 평가 데이터�
 sudo yum -q --security check-update
 ```
 
-현재는 CentOS에서 네이티브 분류 데이터 가용성을 지원하는 메서드가 없습니다. 따라서 이러한 기능을 직접 사용하도록 설정했을 수 있는 고객에게만 최선의 지원이 제공됩니다.
+현재는 CentOS에서 네이티브 분류 데이터 가용성을 지원하는 메서드가 없습니다. 현재이 기능을 사용 하도록 설정 했을 수 있는 고객에 게는 제한 된 지원이 제공 됩니다.
 
 Red Hat Enterprise 버전 6의 업데이트를 분류하려면 yum-보안 플러그인을 설치해야 합니다. Red Hat Enterprise Linux 7에서는 플러그인이 이미 yum 자체에 포함되어 있으므로 아무것도 설치할 필요가 없습니다. 자세한 내용은 다음 Red Hat [기술 항목](https://access.redhat.com/solutions/10021)을 참조하세요.
 

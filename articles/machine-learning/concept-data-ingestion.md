@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 93401ee32da8218fa53568a3f46cae3805a5d939
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875322"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890170"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Azure Machine Learning 워크플로에 대 한 데이터 수집 옵션
 
@@ -25,7 +25,7 @@ ms.locfileid: "87875322"
 다음 중에서 선택합니다.
 + 데이터를 추출, 로드 및 변환 하기 위해 특별히 빌드된 [Azure Data Factory](#azure-data-factory) 파이프라인
 
-+ [PYTHON SDK를 Azure Machine Learning](#azure-machine-learning-python-sdk)하 여 기본 데이터 수집 작업에 대 한 사용자 지정 코드 솔루션을 제공 합니다.
++ [PYTHON SDK를 Azure Machine Learning](#azure-machine-learning-python-sdk)하 여 데이터 수집 작업을 위한 사용자 지정 코드 솔루션을 제공 합니다.
 
 + 둘 다의 조합입니다.
 
@@ -70,7 +70,7 @@ Azure Data Factory 데이터 흐름에 대 한 포함 된 데이터 계보 기�
 모든 모델 학습 실행의 일부로 데이터 준비|데이터 수집 스크립트를 만들기 위한 개발 기술이 필요 합니다.
 [Azure Machine Learning 계산](concept-compute-target.md#azure-machine-learning-compute-managed) 을 포함 하 여 다양 한 계산 대상에서 데이터 준비 스크립트를 지원 합니다. |수집 메커니즘을 만들기 위한 사용자 인터페이스를 제공 하지 않습니다.
 
-다음 다이어그램에서 Azure Machine Learning 파이프라인은 데이터 수집 및 모델 학습의 두 단계로 구성 됩니다. 데이터 수집 단계는 Python 라이브러리 및 Python SDK를 사용 하 여 수행할 수 있는 작업 (예: 로컬/웹 원본에서 데이터 추출 및 누락 된 값 대체 같은 기본 데이터 변환)을 포함 합니다. 그런 다음 학습 단계에서는 학습 스크립트에 대 한 입력으로 준비 된 데이터를 사용 하 여 machine learning 모델을 학습 합니다. 
+다음 다이어그램에서 Azure Machine Learning 파이프라인은 데이터 수집 및 모델 학습의 두 단계로 구성 됩니다. 데이터 수집 단계는 Python 라이브러리 및 Python SDK를 사용 하 여 수행할 수 있는 작업을 포함 합니다. 예를 들어 로컬/웹 원본에서 데이터를 추출 하 고 누락 된 값 대체 같은 데이터 변환을 수행할 수 있습니다. 그런 다음 학습 단계에서는 학습 스크립트에 대 한 입력으로 준비 된 데이터를 사용 하 여 machine learning 모델을 학습 합니다. 
 
 ![Azure 파이프라인 + SDK 데이터 수집](media/concept-data-ingestion/data-ingest-option-two.png)
 

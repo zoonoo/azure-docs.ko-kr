@@ -25,7 +25,7 @@ ms.locfileid: "90904560"
 
 Mcas ( [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) ) 커넥터를 사용 하면 mcas의 경고 및 [Cloud Discovery 로그](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) 를 Azure 센티널로 스트리밍할 수 있습니다. 이렇게 하면 클라우드 앱에 대 한 가시성을 확보 하 고 정교한 분석을 통해 사이버 위협 대를 식별 및 공격 하 고 데이터가 이동 하는 방식을 제어할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 사용자에 게 작업 영역에 대 한 읽기 및 쓰기 권한이 있어야 합니다.
 - 사용자에 게 작업 영역의 테 넌 트에 대 한 전역 관리자 또는 보안 관리자 권한이 있어야 합니다.

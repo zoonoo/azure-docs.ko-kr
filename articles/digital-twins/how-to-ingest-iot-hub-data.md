@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: IoT Hub에서 장치 원격 분석 메시지를 수집 하는 방법을 참조 하세요.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 8/11/2020
+ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7e6c200f0bec90fb73122e50885f2e6ad7420aeb
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 9fa3c27f9cc35b31fc78b2a09bea725934093e63
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564392"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983321"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins에 IoT Hub 원격 분석 수집
 
@@ -22,7 +22,7 @@ Azure digital 쌍로 데이터를 수집 하는 프로세스는 [azure function]
 
 이 방법 문서에서는 IoT Hub에서 원격 분석을 수집할 수 있는 Azure 함수를 작성 하는 프로세스를 안내 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 예를 계속 하기 전에 다음 리소스를 필수 조건으로 설정 해야 합니다.
 * **IoT hub**. 지침은 [이 IoT Hub 빠른](../iot-hub/quickstart-send-telemetry-cli.md)시작의 *IoT Hub 만들기* 섹션을 참조 하세요.
@@ -31,20 +31,20 @@ Azure digital 쌍로 데이터를 수집 하는 프로세스는 [azure function]
 
 ### <a name="example-telemetry-scenario"></a>원격 분석 시나리오 예제
 
-이 방법에서는 Azure function을 사용 하 여 IoT Hub에서 Azure Digital Twins로 메시지를 보내는 방법을 간략하게 설명 합니다. 이 작업에 사용할 수 있는 여러 가지 구성 및 일치 전략이 있지만이 문서의 예제에는 다음 부분이 포함 되어 있습니다.
-* IoT Hub의 온도계 장치로, 알려진 장치 ID가 있습니다.
+이 방법에서는 Azure function을 사용 하 여 IoT Hub에서 Azure Digital Twins로 메시지를 보내는 방법을 간략하게 설명 합니다. 메시지를 보내는 데 사용할 수 있는 여러 가지 구성 및 일치 전략이 있지만이 문서의 예제에는 다음과 같은 부분이 포함 되어 있습니다.
+* 알려진 장치 ID를 사용 하는 IoT Hub의 온도계 장치
 * 일치 하는 ID를 사용 하 여 장치를 나타내는 디지털 쌍
 
 > [!NOTE]
 > 이 예에서는 장치 ID와 해당 하는 디지털 쌍 ID 사이에 간단한 ID 일치를 사용 하지만, 장치에서 해당 쌍 (예: 매핑 테이블)으로 보다 정교한 매핑을 제공할 수 있습니다.
 
-온도계 장치에서 온도 원격 분석 이벤트를 보낼 때마다 디지털 쌍의 *온도* 속성이 업데이트 되어야 합니다. 이 시나리오는 아래 다이어그램에 설명 되어 있습니다.
+자동 온도 조절기 장치에서 온도 원격 분석 이벤트를 보낼 때마다 Azure 함수는 원격 분석을 처리 하 고 디지털 쌍의 *온도* 속성은 업데이트 해야 합니다. 이 시나리오는 아래 다이어그램에 설명 되어 있습니다.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="순서도를 표시 하는 다이어그램입니다. 차트에서 IoT Hub 장치는 azure 함수에 IoT Hub를 통해 온도 원격 분석을 전송 합니다 .이 함수는 Azure에서 쌍으로 된 쌍의 온도 속성을 업데이트 합니다." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="순서도를 표시 하는 다이어그램입니다. 차트에서 IoT Hub 장치는 azure 함수에 IoT Hub를 통해 온도 원격 분석을 전송 합니다. 그러면 azure 함수는 Azure Digital Twins의 쌍에서 온도 속성을 업데이트 합니다." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>모델 및 쌍 추가
 
-IoT hub 정보로 업데이트 하려면 쌍이 필요 합니다.
+아래 CLI 명령을 사용 하 여 모델을 추가/업로드 하 고이 모델을 사용 하 여 IoT Hub 정보로 업데이트 되는 쌍을 만들 수 있습니다.
 
 모델은 다음과 같습니다.
 ```JSON
@@ -129,7 +129,9 @@ await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
 
 ### <a name="update-your-azure-function-code"></a>Azure 함수 코드 업데이트
 
-이전 샘플의 코드를 이해 했으므로 Visual Studio를 열고 Azure 함수 코드를이 샘플 코드로 바꿉니다.
+이전 샘플의 코드를 이해 했으므로 이제 Visual Studio의 [*전제 조건*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) 섹션에서 Azure 함수를 엽니다. Azure 함수가 없는 경우에는 필수 구성 요소의 링크를 방문 하 여 지금 만듭니다.
+
+Azure 함수 코드를이 샘플 코드로 바꿉니다.
 
 ```csharp
 using System;
@@ -191,21 +193,52 @@ namespace IotHubtoTwins
     }
 }
 ```
+함수 코드를 저장 하 고 Azure에 함수 앱을 게시 합니다. 이 작업은 [*방법: 데이터 처리를 위한 Azure 함수 설정*](how-to-create-azure-function.md)의 [*함수 앱 섹션 게시*](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function#publish-the-function-app-to-azure) 를 참조 하 여 수행할 수 있습니다.
+
+성공적으로 게시 되 면 다음과 같이 Visual Studio 명령 창에 출력이 표시 됩니다.
+
+```cmd
+1>------ Build started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
+1>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
+2>------ Publish started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
+2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
+2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\Out\
+2>Publishing C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\adtIngestFunctionSample - 20200911112545669.zip to https://adtingestfunctionsample20200818134346.scm.azurewebsites.net/api/zipdeploy...
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Publish: 1 succeeded, 0 failed, 0 skipped ==========
+```
+[Azure Portal](https://portal.azure.com/)에서 게시 프로세스의 상태를 확인할 수도 있습니다. _리소스 그룹_ 을 검색 하 고 _활동 로그_ 로 이동 하 여 목록에서 _웹 앱 게시 프로필 가져오기_ 를 찾아 상태가 성공 인지 확인 합니다.
+
+:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="게시 프로세스의 상태를 보여 주는 Azure Portal의 스크린샷":::
 
 ## <a name="connect-your-function-to-iot-hub"></a>함수를 IoT Hub에 연결
 
-1. 허브 데이터의 이벤트 대상을 설정 합니다. [Azure Portal](https://portal.azure.com/)에서 IoT Hub 인스턴스로 이동 합니다. **이벤트**아래에서 Azure function에 대 한 구독을 만듭니다. 
+허브 데이터의 이벤트 대상을 설정 합니다.
+[Azure Portal](https://portal.azure.com/)에서 [*전제 조건*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) 섹션에서 만든 IoT Hub 인스턴스로 이동 합니다. **이벤트**아래에서 Azure function에 대 한 구독을 만듭니다.
 
-    :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="이벤트 구독을 추가 하는 것을 보여 주는 Azure Portal의 스크린샷":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="이벤트 구독을 추가 하는 것을 보여 주는 Azure Portal의 스크린샷":::
 
-2. **이벤트 구독 만들기** 페이지에서 다음과 같이 필드를 채웁니다.
-    1. **이름**아래에서 원하는 구독 이름을로 선택 합니다.
-    2. **이벤트 스키마**에서 **Event Grid 스키마**를 선택 합니다.
-    3. **시스템 항목 이름**에서 고유한 이름을 선택 합니다.
-    4. **이벤트 유형**에서 필터링 할 이벤트 유형으로 **장치 원격 분석** 을 선택 합니다.
-    5. **끝점 세부 정보**에서 끝점으로 Azure 함수를 선택 합니다.
+**이벤트 구독 만들기** 페이지에서 다음과 같이 필드를 채웁니다.
+  1. **이름**아래에서 원하는 구독 이름을로 선택 합니다.
+  2. **이벤트 스키마**에서 _Event Grid 스키마_를 선택 합니다.
+  3. **이벤트 유형**에서 _장치 원격 분석_ 확인란을 선택 하 고 다른 이벤트 유형을 선택 취소 합니다.
+  4. **끝점 유형**에서 _Azure 함수_를 선택 합니다.
+  5. 끝점 **에서 끝점**을 만들려면 끝점 링크를 _선택_ 합니다 .를 선택 합니다.
+    
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="이벤트 구독 정보를 만드는 Azure Portal의 스크린샷":::
 
-    :::image type="content" source="media/how-to-ingest-iot-hub-data/event-subscription-2.png" alt-text="이벤트 구독 정보를 표시 하는 Azure Portal의 스크린샷":::
+열리는 _Azure 함수 선택_ 페이지에서 아래 세부 정보를 확인 합니다.
+ 1. **구독**: Azure 구독
+ 2. **리소스 그룹**: 리소스 그룹
+ 3. **함수 앱**: 함수 앱 이름
+ 4. **슬롯**: _프로덕션_
+ 5. **함수**: 드롭다운에서 Azure 함수를 선택 합니다.
+
+_선택 확인_ 단추를 선택 하 여 세부 정보를 저장 합니다.            
+      
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Azure function을 선택 하는 Azure Portal의 스크린샷":::
+
+_만들기_ 단추를 선택 하 여 이벤트 구독을 만듭니다.
 
 ## <a name="send-simulated-iot-data"></a>시뮬레이션 된 IoT 데이터 보내기
 

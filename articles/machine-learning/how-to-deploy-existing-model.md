@@ -25,7 +25,7 @@ ms.locfileid: "90905664"
 
 이 문서의 개념 및 용어에 대 한 자세한 내용은 [machine learning 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
   + Python 예제에서는 `ws` 변수가 Azure Machine Learning 작업 영역으로 설정 된 것으로 가정 합니다. 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Python 용 AZURE MACHINE LEARNING SDK 설명서](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=trueworkspace)를 참조 하세요.

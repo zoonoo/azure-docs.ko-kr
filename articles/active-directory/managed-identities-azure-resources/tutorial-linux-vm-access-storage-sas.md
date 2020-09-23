@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e265ea0128411eb483c84b1317051089a0550a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3b0bb70b82e8c34c50743bf56069488e2d4c4e39
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260240"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968789"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Linux VM 시스템 할당 ID를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스
 
@@ -154,7 +154,7 @@ echo "This is a test file." > test.txt
 
 다음으로, SAS 자격 증명을 사용하여 CLI `az storage` 명령을 통해 인증을 받고 Blob 컨테이너에 파일을 업로드합니다. 이 단계에서는 VM에 [최신 Azure CLI를 설치](/cli/azure/install-azure-cli)해야 합니다(아직 없는 경우).
 
-```azurecli-interactive
+```azurecli
  az storage blob upload --container-name 
                         --file 
                         --name
@@ -176,7 +176,7 @@ Finished[#############################################################]  100.000
 
 요청: 
 
-```azurecli-interactive
+```azurecli
 az storage blob download --container-name
                          --file 
                          --name 

@@ -11,15 +11,14 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: c897cb513745669523daea0a850e20715de4676b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5dce7cde3c46fbcf3f764819f730f42cace4a74c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664609"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897528"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Azure 가상 네트워크에서 Azure Machine Learning studio 사용
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 가상 네트워크에서 Azure Machine Learning studio를 사용 하는 방법에 대해 알아봅니다. 다음 방법을 알아봅니다.
 
@@ -39,7 +38,7 @@ ms.locfileid: "89664609"
 > 대부분의 스튜디오는 가상 네트워크에 저장 된 데이터와 함께 작동 하지만 통합 된 노트북은 __그렇지 않습니다__. 통합 된 노트북은 가상 네트워크에 있는 저장소 사용을 지원 하지 않습니다. 대신, 계산 인스턴스에서 Jupyter 노트북을 사용할 수 있습니다. 자세한 내용은 [Compute Instance 노트북의 데이터 액세스]() 섹션을 참조 하세요.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + [네트워크 보안 개요](how-to-network-security-overview.md) 를 읽고 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 합니다.
 

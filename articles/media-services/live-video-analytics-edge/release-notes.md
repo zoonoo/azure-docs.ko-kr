@@ -3,12 +3,12 @@ title: IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석-Azure
 description: 이 항목에서는 IoT Edge 릴리스, 개선 사항, 버그 수정 및 알려진 문제에 대 한 라이브 비디오 분석의 릴리스 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: feab7755dea69a932fe40df59e0dd35f3f826553
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 0bdf11cd99d99067dc53dde7d55fd37b96a382c9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645820"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882720"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>IoT Edge 릴리스 정보에 대 한 라이브 비디오 분석
 
@@ -21,6 +21,31 @@ ms.locfileid: "89645820"
 * 버그 수정
 * 사용되지 않는 기능
 
+<hr width=100%>
+
+## <a name="september-22-2020"></a>2020 년 9 월 22 일
+
+모듈의 9 월 2020 새로 고침에 대 한이 릴리스 태그는 다음과 같습니다.
+
+```
+mcr.microsoft.com/media/live-video-analytics:1.0.4
+```
+
+> [!NOTE]
+> 빠른 시작 및 자습서에서 배포 매니페스트는 1 (라이브-비디오-분석: 1) 태그를 사용 합니다. 따라서 이러한 매니페스트를 다시 배포 하면 edge > 장치에서 모듈을 업데이트 해야 합니다.
+
+### <a name="module-updates"></a>모듈 업데이트
+
+* 새 그래프 확장 노드인 [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) 는 Cognitive Services에서 [공간 분석 모듈](spatial-analysis-tutorial.md)(미리 보기)과 통합 하는 데 사용할 수 있습니다.
+* Linux ARM64 장치에 대 한 지원이 추가 됨-이러한 장치에 배포 하는 데 [수동 단계](deploy-iot-edge-device.md) 를 사용 합니다.
+
+### <a name="documentation-updates"></a>설명서 업데이트
+
+* [지침은](deploy-azure-stack-edge-how-to.md) Azure Stack에 지 장치의 IoT Edge에서 라이브 비디오 분석을 사용 하는 데 사용할 수 있습니다.
+* [Custom Vision 서비스](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) 를 사용 하 고 실시간 비디오를 실시간으로 [분석](custom-vision-tutorial.md) 하는 데 사용 하는 시나리오 특정 컴퓨터의 비전 모델 개발에 대 한 새로운 자습서입니다.
+
+<hr width=100%>
+
 ## <a name="august-19-2020"></a>2020 년 8 월 19 일
 
 모듈의 8 월 2020 새로 고침에 대 한이 릴리스 태그는 다음과 같습니다.
@@ -32,7 +57,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 > [!NOTE]
 > 빠른 시작 및 자습서에서 배포 매니페스트는 1 (라이브-비디오-분석: 1) 태그를 사용 합니다. 따라서 이러한 매니페스트를 다시 배포 하면 edge > 장치에서 모듈을 업데이트 해야 합니다.
 
-### <a name="new-features"></a>새 기능 
+### <a name="module-updates"></a>모듈 업데이트
 
 * 이제 gRPC 프레임 워크를 사용 하 여 IoT Edge에서 라이브 비디오 분석과 사용자 지정 확장 간에 높은 데이터 콘텐츠 전송 성능을 얻을 수 있습니다. 시작 하려면 [이](analyze-live-video-use-your-grpc-model-quickstart.md) 항목을 참조 하세요.
 * 라이브 비디오 분석의 광범위 한 지역 배포와 클라우드 서비스만 업데이트 되었습니다.  
@@ -43,6 +68,8 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 ### <a name="bug-fixes"></a>버그 수정 
 
 * 설정 스크립트에서 사용 되지 않는 azure 확장의 사용을 제거 합니다.
+
+<hr width=100%>
 
 ## <a name="july-13-2020"></a>2020 년 7 월 13 일
 
@@ -55,11 +82,15 @@ mcr.microsoft.com/media/live-video-analytics:1.0.2
 > [!NOTE]
 > 빠른 시작 및 자습서에서 배포 매니페스트는 1 (라이브-비디오-분석: 1) 태그를 사용 합니다. 따라서 이러한 매니페스트를 다시 배포 하면 edge > 장치에서 모듈을 업데이트 해야 합니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="module-updates"></a>모듈 업데이트
+
 * 이제 자산 싱크 노드가 있는 그래프 토폴로지와 신호 게이트 프로세서 노드의 다운스트림 파일 싱크 노드를 만들 수 있습니다. 예제는 [이](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) 항목을 참조 하세요.
 
 ### <a name="bug-fixes"></a>버그 수정
+
 * Desired 속성의 유효성 검사에 대 한 향상 된 기능
+
+<hr width=100%>
 
 ## <a name="june-1-2020"></a>2020년 6월 1일
 
@@ -70,6 +101,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.2
 ```
 
 ### <a name="supported-functionalities"></a>지원 되는 기능
+
 * 원하는 AI 모듈을 사용 하 여 라이브 비디오 스트림을 분석 하 고 필요에 따라 edge 장치 또는 클라우드에서 비디오 녹화
 * IoT Edge에서 [지 원하는](../../iot-edge/support.md) Linux AMD64 운영 체제에서 사용
 * Azure Portal 또는 Visual Studio Code를 사용 하 여 IoT Hub를 통해 모듈을 배포 하 고 구성 합니다.
@@ -83,7 +115,6 @@ mcr.microsoft.com/media/live-video-analytics:1.0.2
     *   GraphInstanceSet
     *   GraphInstanceDelete
     *   GraphInstanceList
-
 
 ## <a name="next-steps"></a>다음 단계
 

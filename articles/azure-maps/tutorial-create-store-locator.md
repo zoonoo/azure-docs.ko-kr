@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 1ec4dbb1ce55919fda6c73d198100db34f5f57ea
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 61c085cb721f9e1a8d9c44146a9d96cd5a08562c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121258"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085317"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -385,7 +385,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. *index.js*에 코드를 추가합니다. 다음 코드는 맵을 초기화합니다. 페이지 로드가 완료될 때까지 대기하도록 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 추가했습니다. 그런 다음, 이벤트를 연결하여 지도의 로드를 모니터링하고 검색 단추와 내 위치 단추에 기능을 제공합니다.
+1. *index.js*에 코드를 추가합니다. 다음 코드는 맵을 초기화합니다. 페이지 로드가 완료될 때까지 대기하도록 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events)를 추가했습니다. 그런 다음, 이벤트를 연결하여 지도의 로드를 모니터링하고 검색 단추와 내 위치 단추에 기능을 제공합니다.
 
    사용자가 검색 단추를 선택하거나 검색 상자에 위치를 입력한 다음, Enter를 누르면 사용자의 쿼리에 대한 유사 항목 검색이 시작됩니다. 국가/지역 ISO 2개 값 배열을 `countrySet` 옵션에 제공하여 검색 결과를 해당 국가/지역으로 제한할 수 있습니다. 검색할 국가/지역을 제한하면 반환되는 결과의 정확도를 높이는 데 도움이 됩니다. 
   
@@ -935,7 +935,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 > * [필터를 설정](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property)하는 기능을 추가합니다. 
 > * 쿼리 문자열을 사용하여 초기 검색 값을 지정하는 지원을 추가합니다. 매장 로케이터에 이 옵션을 포함하면 사용자가 검색에 책갈피를 지정하고 공유할 수 있습니다. 또한 다른 페이지에서 이 페이지로 검색을 전달하는 쉬운 방법도 제공됩니다.  
 > * 매장 로케이터를 [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/quickstart-html)으로 배포합니다. 
-> * 데이터를 데이터베이스에 저장하고 근처 위치를 검색합니다. 자세한 내용은 [SQL Server 공간 데이터 형식 개요](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) 및 [공간 데이터에서 가장 인접한 항목 쿼리](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017)를 참조하세요.
+> * 데이터를 데이터베이스에 저장하고 근처 위치를 검색합니다. 자세한 내용은 [SQL Server 공간 데이터 형식 개요](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) 및 [공간 데이터에서 가장 인접한 항목 쿼리](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor)를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [전체 소스 코드 보기](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)

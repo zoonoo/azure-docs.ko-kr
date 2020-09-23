@@ -4,14 +4,14 @@ description: App Service 또는 Azure Functions 앱에 대 한 id 공급자로 O
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: 89164061a968e37f928f8c21f5323c418e85361f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e8112f2dc20175e81cfa8388440b2d9aef6a419c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413921"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983871"
 ---
-# <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Openid connect Connect 공급자를 사용 하 여 로그인 하도록 App Service 또는 Azure Functions 앱 구성 (미리 보기)
+# <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>OpenID Connect 공급자를 사용하여 로그인하도록 App Service 또는 Azure Functions 앱 구성(미리 보기)
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
@@ -53,7 +53,7 @@ ms.locfileid: "87413921"
 이 섹션에서는 새 IDP을 포함 하도록 구성을 업데이트 하는 과정을 안내 합니다. 구성 예제는 다음과 같습니다.
 
 1. 개체가 없는 경우 개체 내에 `identityProviders` 개체를 추가 `openIdConnectProviders` 합니다.
-1. 개체 내에서 `openIdConnectProviders` 새 공급자에 대 한 키를 추가 합니다. 나머지 구성에서 공급자를 참조 하는 데 사용 되는 이름입니다. 예를 들어이 공급자를 사용 하 여 모든 요청을 인증 해야 하는 경우 `globalValidation.unauthenticatedClientAction` 를 "RedirectToLoginPage"로 설정 하 고 `globalValidation.unauthenticatedClientAction` 이 같은 친숙 한 이름으로 설정 합니다.
+1. 개체 내에서 `openIdConnectProviders` 새 공급자에 대 한 키를 추가 합니다. 나머지 구성에서 공급자를 참조 하는 데 사용 되는 이름입니다. 예를 들어이 공급자를 사용 하 여 모든 요청을 인증 해야 하는 경우 `globalValidation.unauthenticatedClientAction` 를 "RedirectToLoginPage"로 설정 하 고 `redirectToProvider` 이 같은 친숙 한 이름으로 설정 합니다.
 1. 개체를 포함 하 `registration` 고 필요에 따라 개체를 사용 하 여 개체를 해당 키에 할당 합니다 `login` .
     
     ```json

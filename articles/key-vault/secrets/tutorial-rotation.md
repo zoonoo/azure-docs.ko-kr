@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c2d1a46a35ef38791b6a3b47c300aa1b47f70324
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378018"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086920"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>단일 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -24,7 +24,7 @@ Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/a
 
 이 자습서에서는 단일 인증 자격 증명 세트를 사용하는 데이터베이스 및 서비스의 비밀을 정기적으로 자동 순환하는 방법을 보여줍니다. 특히 이 자습서에서는 Azure Event Grid 알림에 의해 트리거되는 함수를 사용하여 Azure Key Vault에 저장된 SQL 서버 암호를 순환합니다.
 
-![순환 솔루션 다이어그램](../media/rotate1.png)
+![순환 솔루션 다이어그램](../media/rotate-1.png)
 
 1. 비밀 만료 30일 전에 Key Vault는 "만료 임박" 이벤트를 Event Grid에 게시합니다.
 1. Event Grid는 이벤트 구독을 확인하고 HTTP POST를 사용하여 이벤트를 구독하는 함수 앱 엔드포인트를 호출합니다.
@@ -49,7 +49,7 @@ Azure 서비스를 인증하는 가장 좋은 방법은 [관리 ID](../general/a
 1. **검토 + 만들기**를 선택합니다.
 1. **만들기**
 
-    ![리소스 그룹 만들기](../media/rotate2.png)
+    ![리소스 그룹 만들기](../media/rotate-2.png)
 
 이제 키 자격 증명 모음 및 SQL Server 인스턴스가 있습니다. Azure CLI에서 다음 명령을 실행하여 이 설정을 확인할 수 있습니다.
 
@@ -91,7 +91,7 @@ akvrotation-sql/master  akvrotation      eastus      Microsoft.Sql/servers/datab
 1. **검토 + 만들기**를 선택합니다.
 1. **만들기**를 선택합니다.
 
-   ![검토+만들기 선택](../media/rotate3.png)
+   ![검토+만들기 선택](../media/rotate-3.png)
 
 위의 단계가 완료되면 스토리지 계정, 서버 팜 및 함수 앱이 만들어집니다. Azure CLI에서 다음 명령을 실행하여 이 설정을 확인할 수 있습니다.
 
@@ -207,11 +207,11 @@ az keyvault secret set --name sqlPassword --vault-name akvrotation-kv --value "S
 
 비밀이 순환되었는지 확인하려면 **Key Vault** > **비밀**로 이동합니다.
 
-![비밀로 이동](../media/rotate8.png)
+![비밀로 이동](../media/rotate-8.png)
 
 **sqlPassword** 비밀을 열고, 원래 버전과 순환된 버전을 확인합니다.
 
-![sqluser 비밀 열기](../media/rotate9.png)
+![sqluser 비밀 열기](../media/rotate-9.png)
 
 ### <a name="create-a-web-app"></a>웹앱 만들기
 
@@ -245,6 +245,6 @@ https://akvrotation-app.azurewebsites.net/
 ## <a name="learn-more"></a>자세한 정보
 
 - 자습서: [두 개의 자격 증명 세트가 있는 리소스에 대한 순환](tutorial-rotation-dual.md)
-- 개요: [Azure Event Grid를 사용하여 Key Vault 모니터링(미리 보기)](../general/event-grid-overview.md)
+- 개요: [Azure Event Grid를 사용하여 Key Vault 모니터링](../general/event-grid-overview.md)
 - 방법: [키 자격 증명 모음 비밀 변경 시 이메일 받기](../general/event-grid-logicapps.md)
-- [Azure Key Vault에 대한 Azure Event Grid 이벤트 스키마(미리 보기)](../../event-grid/event-schema-key-vault.md)
+- [Azure Key Vault에 대한 Azure Event Grid 이벤트 스키마](../../event-grid/event-schema-key-vault.md)

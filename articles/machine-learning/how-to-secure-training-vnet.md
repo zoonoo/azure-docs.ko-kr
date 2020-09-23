@@ -11,15 +11,14 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 5a71476db6f57841a0057de5b8c95f07ef5d90ad
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: cf2c19297fdd56fb376a54b231bbb021c53b25bd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603087"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882990"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 교육 환경 보호
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning의 가상 네트워크를 사용 하 여 교육 환경을 보호 하는 방법에 대해 알아봅니다.
 
@@ -37,7 +36,7 @@ ms.locfileid: "90603087"
 > - Virtual Machine
 > - HDInsight 클러스터
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 

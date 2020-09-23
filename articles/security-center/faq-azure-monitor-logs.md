@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 2fe306cf7d17f0789c5e134c3fcad3f8f07a0b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f4552d6488ecd083b6ee5d4cae2ef2bd660efc7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82612829"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906372"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>이미 Azure Monitor 로그를 사용 하는 고객에 대 한 FAQ<a name="existingloganalyticscust"></a>
 
@@ -32,10 +32,11 @@ Security Center 솔루션은 아직 없는 경우 데이터 수집 화면에서 
 > Log Analytics 에이전트가 Azure Security Center 확장이 아닌 VM에 직접 설치 된 경우에는 Log Analytics 에이전트를 설치 하지 않고 보안 모니터링이 제한 됩니다.
 
 ## <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Security Center에서 기존 Log Analytics 작업 영역에 솔루션을 설치하나요? 요금 청구에 영향을 주는 요인은 무엇인가요?
-Security Center에서 VM이 만든 작업 영역에 이미 연결되어 있는지를 식별하는 경우 Security Center를 통해 가격 책정 계층에 따라 이 작업 영역에서 솔루션을 사용할 수 있습니다. 솔루션이 [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 통해 관련 Azure VM에만 적용되므로 청구는 동일하게 유지됩니다.
+Security Center에서 만든 작업 영역에 VM이 이미 연결 되어 있음을 확인 하는 경우 가격 책정 구성에 따라이 작업 영역에서 솔루션을 사용 하도록 설정 Security Center. 솔루션이 [솔루션 대상 지정](../operations-management-suite/operations-management-suite-solution-targeting.md)을 통해 관련 Azure VM에만 적용되므로 청구는 동일하게 유지됩니다.
 
-- **체험 계층** – Security Center는 작업 영역에서 'SecurityCenterFree' 솔루션을 설치합니다. 체험 계층에 대한 요금이 청구되지 않습니다.
-- **표준 계층** – Security Center가 작업 영역에 'Security' 솔루션을 설치합니다.
+- **Azure Defender off** – Security Center 작업 영역에 ' 보안 센터 무료 ' 솔루션을 설치 합니다. 요금은 청구 되지 않습니다.
+- 
+- **Azure Defender on** – Security Center 작업 영역에 ' Security ' 솔루션을 설치 합니다.
 
    ![기본 작업 영역의 솔루션](./media/security-center-platform-migration-faq/solutions.png)
 
@@ -45,4 +46,4 @@ VM에 이미 Azure 확장으로 설치 된 Log Analytics 에이전트가 있는 
 Security Center Vm에 Log Analytics 에이전트를 설치 하는 경우 Security Center 기존 작업 영역을 가리키고 있지 않으면 Security Center에서 만든 기본 작업 영역을 사용 합니다.
 
 ## <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>내 작업 영역에 보안 솔루션이 이미 있습니다. 요금 청구에 영향을 주는 요인은 무엇인가요?
-보안 & 감사 솔루션은 Azure Vm에 대 한 Security Center 표준 계층 기능을 사용 하도록 설정 하는 데 사용 됩니다. 보안 및 감사 솔루션이 작업 영역에 이미 설치되어 있는 경우 Security Center에서는 기존 솔루션을 사용합니다. 요금 청구는 변하지 않습니다.
+보안 & 감사 솔루션은 **서버에 대해 Azure Defender**를 사용 하도록 설정 하는 데 사용 됩니다. 보안 및 감사 솔루션이 작업 영역에 이미 설치되어 있는 경우 Security Center에서는 기존 솔루션을 사용합니다. 요금 청구는 변하지 않습니다.

@@ -6,16 +6,16 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: ff358f3c90edfcdabb5a1225ad1efa122818b070
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 7933cc692ebc3b40e5f608a917dce51f5298fbe3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375264"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904647"
 ---
-# <a name="workflow-automation"></a>워크플로 자동화
+# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>워크플로 자동화를 사용 하 여 경고 및 권장 사항에 대 한 자동 응답 만들기
 
 모든 보안 프로그램에는 인시던트 응답을 위한 여러 워크플로가 포함되어 있습니다. 이러한 프로세스에는 관련 이해 관계자에게 알리고, 변경 관리 프로세스를 시작하고, 특정 수정 단계를 적용하는 것이 포함될 수 있습니다. 보안 전문가는 가능한 한 해당 절차의 여러 단계를 자동화할 것을 권장합니다. 자동화를 통해 오버 헤드가 감소 합니다. 또한 프로세스 단계가 미리 정의 된 요구 사항에 따라 빠르고 일관 되 게 수행 되도록 하 여 보안을 향상 시킬 수 있습니다.
 
@@ -30,8 +30,8 @@ ms.locfileid: "89375264"
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|일반 공급|
-|결정|무료 계층|
+|릴리스 상태:|GA(일반 공급)|
+|결정|Free|
 |필요한 역할 및 사용 권한:|리소스 그룹에 대 한 **보안 관리자 역할** 또는 **소유자**<br>또한 대상 리소스에 대 한 쓰기 권한이 있어야 합니다.<br><br>Azure Logic Apps 워크플로를 사용 하려면 다음과 같은 Logic Apps 역할/권한도 있어야 합니다.<br> - [논리 앱 운영자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) 권한은 필수 또는 논리 앱 읽기/트리거 액세스입니다 .이 역할은 논리 앱을 만들거나 편집할 수 없으며 기존 항목만 *실행* 합니다.<br> - 논리 앱을 만들고 수정 하려면 [논리 앱 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) 권한이 필요 합니다.<br>논리 앱 커넥터를 사용 하려는 경우 해당 서비스 (예: Outlook/팀/여유 시간 인스턴스)에 로그인 하려면 추가 자격 증명이 필요할 수 있습니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/yes-icon.png) 중국 .Gov, 기타 .Gov|
 |||
@@ -42,7 +42,7 @@ ms.locfileid: "89375264"
 
 1. Security Center의 사이드바에서 **워크플로 자동화**를 선택 합니다.
 
-    [![워크플로 자동화 목록](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="워크플로 자동화 목록":::
 
     이 페이지에서 새 자동화 규칙을 만들고 기존 규칙을 사용, 사용 안 함 또는 삭제할 수 있습니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "89375264"
     1. 이 자동 워크플로를 시작 하는 트리거입니다. 예를 들어 "SQL"을 포함 하는 보안 경고가 생성 될 때 논리 앱을 실행 하려고 할 수 있습니다.
     1. 트리거 조건이 충족 될 때 실행 되는 논리 앱입니다. 
 
-        [![워크플로 자동화 목록](media/workflow-automation/add-workflow.png)](media/workflow-automation/add-workflow.png#lightbox)
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Workflow 자동화 창 추가":::
 
 1. 작업 섹션에서 **새 항목 만들기** 를 클릭 하 여 논리 앱 만들기 프로세스를 시작 합니다.
 
@@ -101,7 +101,7 @@ ms.locfileid: "89375264"
 
 이 문서에서는 Logic Apps을 만들고 Security Center에서 실행을 자동화 하 고 수동으로 실행 하는 방법을 배웠습니다. 
 
-기타 관련 자료는 다음을 참조 하세요. 
+관련 자료는 다음을 참조 하세요. 
 
 - [워크플로 자동화를 사용 하 여 보안 응답을 자동화 하는 방법에 대 한 Microsoft Learn 모듈](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 - [Azure Security Center의 보안 권장 사항](security-center-recommendations.md)

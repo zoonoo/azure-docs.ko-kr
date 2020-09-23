@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: dda61b81ee2c357ddac29701832fe4780ea06859
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9fbd63e1b46b837350be720fadf68777927f9bff
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516302"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904766"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>보안 경고에 대 한 전자 메일 알림 설정 
 
@@ -39,10 +39,10 @@ ms.locfileid: "88516302"
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|일반 공급|
-|결정|무료 계층|
+|릴리스 상태:|GA(일반 공급)|
+|결정|Free|
 |필요한 역할 및 사용 권한:|**보안 관리자**<br>**구독 소유자** |
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov (부분)<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov (부분)<br>![아니요](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
 |||
 
 
@@ -60,7 +60,7 @@ ms.locfileid: "88516302"
 1. 보안 연락처 정보를 구독에 적용 하려면 **저장**을 선택 합니다.
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 보안 경고에 대 한 자세한 내용은 다음을 참조 하세요.
 
 * [보안 경고-참조 가이드](alerts-reference.md) --Azure Security Center의 위협 방지 모듈에서 볼 수 있는 보안 경고에 대해 알아봅니다.

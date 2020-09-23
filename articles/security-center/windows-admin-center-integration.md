@@ -8,20 +8,20 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 90c1132091f543b84fc764522dfa95672f2e2aef
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 36f519ce41ccfbfb48ca696ed2a61c6131a75998
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277496"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906344"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Security Center를 사용 하 여 Windows 관리 센터 리소스 보호
 
 Windows 관리 센터는 Windows server에 대 한 관리 도구입니다. 시스템 관리자가 가장 일반적으로 사용 되는 대부분의 관리 도구에 액세스할 수 있는 단일 위치입니다. Windows 관리 센터 내에서 온-프레미스 서버를 Azure Security Center에 직접 등록할 수 있습니다. 그러면 Windows 관리 센터 환경에서 직접 보안 권장 사항 및 경고에 대 한 요약을 볼 수 있습니다.
 
 > [!NOTE]
-> Windows 관리 센터 통합을 사용 하도록 설정 하려면 Azure 구독 및 연결 된 Log Analytics 작업 영역에 Security Center의 표준 계층이 사용 하도록 설정 되어 있어야 합니다.
-> 이전에 구독 및 작업 영역에서 사용 하지 않은 경우 표준 계층은 처음 30 일 동안 무료입니다. 자세한 내용은 [가격 책정 정보 페이지](security-center-pricing.md)를 참조 하세요.
+> Azure 구독과 연결 된 Log Analytics 작업 영역에는 Windows 관리 센터 통합을 사용 하도록 설정 하기 위해 Azure Defender를 사용 하도록 설정 해야 합니다.
+> Azure Defender는 구독 및 작업 영역에서 이전에 사용 하지 않은 경우 처음 30 일 동안 무료입니다. 자세한 내용은 [가격 책정 정보 페이지](security-center-pricing.md)를 참조 하세요.
 >
 
 Windows 관리 센터에서 Azure Security Center 서버를 성공적으로 등록 하는 경우 다음을 수행할 수 있습니다.
@@ -46,8 +46,8 @@ Windows 관리 센터에서 Azure Security Center 서버를 성공적으로 등�
 1. 지침에 따라 Security Center에 서버를 연결 합니다. 필요한 세부 정보를 입력 하 고 확인 한 후에는 필요한 구성 변경을 수행 하 여 다음 모두에 해당 하는지 확인 Security Center 합니다.
     * Azure 게이트웨이가 등록 됩니다.
     * 서버에는 보고할 작업 영역 및 연결 된 구독이 있습니다.
-    * 작업 영역에서 Security Center의 표준 계층 Log Analytics 솔루션이 사용 됩니다. 이 솔루션은이 작업 영역에 보고 하는 *모든* 서버 및 가상 컴퓨터에 대 한 Security Center 표준 계층 기능을 제공 합니다.
-    * 가상 컴퓨터에 대 한 Security Center의 표준 계층 가격은 구독에서 사용 하도록 설정 됩니다.
+    * Security Center의 Log Analytics 솔루션은 작업 영역에서 사용 하도록 설정 됩니다. 이 솔루션은이 작업 영역에 보고 하는 *모든* 서버 및 가상 컴퓨터에 대 한 Azure Defender의 기능을 제공 합니다.
+    * 서버에 대 한 Azure Defender는 구독에서 사용 하도록 설정 됩니다.
     * Log Analytics 에이전트가 서버에 설치 되어 있고 선택한 작업 영역에 보고 하도록 구성 되어 있습니다. 서버에서 이미 다른 작업 영역에 보고 하는 경우 새로 선택한 작업 영역에도 보고 하도록 구성 됩니다.
 
     > [!NOTE]
@@ -63,12 +63,8 @@ Windows 관리 센터에서 Azure Security Center 서버를 성공적으로 등�
 ## <a name="view-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Security Center에서 Windows 관리 센터 관리 서버에 대 한 보안 권장 사항 및 경고를 확인 합니다.
 Azure Security Center에서:
 
-* 모든 Windows 관리 센터 서버에 대 한 보안 권장 사항을 보려면 **Compute & Apps** 를 열고 **vm 및 컴퓨터** 탭을 클릭 합니다. 다음과 같이 리소스 "서버" 별로 목록을 필터링 합니다.
-
-    [![Windows 관리 센터 관리 서버에 대 한 보안 권장 사항 보기](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
+* 모든 Windows 관리 센터 서버에 대 한 보안 권장 사항을 보려면 [자산 인벤토리](asset-inventory.md) 를 열고 조사 하려는 컴퓨터 유형으로 필터링 합니다. **vm 및 컴퓨터** 탭을 선택 합니다.
 
 * 모든 Windows 관리 센터 서버에 대 한 보안 경고를 보려면 **보안 경고**를 엽니다. **필터** 를 클릭 하 여 "비 Azure" **만** 선택 되어 있는지 확인 합니다.
 
-    ![Windows 관리 센터 관리 서버에 대 한 보안 경고 필터링](./media/windows-admin-center-integration/filtering-alerts-to-non-azure.png)
-
-    [![Windows 관리 센터 관리 서버에 대 한 보안 경고 보기](media/windows-admin-center-integration/viewing-alerts-wac.png)](media/windows-admin-center-integration/viewing-alerts-wac.png#lightbox)
+    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Windows 관리 센터 관리 서버에 대 한 보안 경고 필터링" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::

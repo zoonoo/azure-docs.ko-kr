@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a9da4689a1b5579f90a1df0feb487e50d57a9d98
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2f9ac119a3365eff39fe1a65ff8b553d3900b117
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269219"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969321"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>PowerShell을 사용하여 관리 ID의 서비스 주체 보기
 
@@ -36,13 +36,15 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요.
 - 아직 Azure 계정이 없는 경우 [체험 계정에 가입](https://azure.microsoft.com/free/)합니다.
 - [가상 머신](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) 또는 [애플리케이션에서 시스템 할당 ID](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity)를 사용하도록 설정합니다.
-- 최신 버전의 [Azure PowerShell](/powershell/azure/install-az-ps) 설치
+- 예제 스크립트를 실행 하기 위해 두 가지 옵션이 있습니다.
+    - 코드 블록의 오른쪽 위 모퉁이에 있는 **사용해 보기** 단추를 사용 하 여 열 수 있는 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용 합니다.
+    - 최신 버전의 [Azure PowerShell](/powershell/azure/install-az-ps)를 설치한 다음를 사용 하 여 Azure에 로그인 하 여 스크립트를 로컬로 실행 `Connect-AzAccount` 합니다.
 
 ## <a name="view-the-service-principal"></a>서비스 주체 보기
 
 다음 명령은 시스템 할당 ID가 사용하도록 설정된 VM 또는 애플리케이션의 서비스 주체를 보는 방법을 보여 줍니다. `<VM or application name>`을 고유한 값으로 바꿉니다.
 
-```powershell
+```azurepowershell-interactive
 Get-AzADServicePrincipal -DisplayName <VM or application name>
 ```
 
