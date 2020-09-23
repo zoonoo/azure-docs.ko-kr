@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 440007767835de4641fb828b41d572f35997acd2
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 73178a9707d35fe7337210b11e76504794bc93ed
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064471"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896391"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Azure Database for MySQL의 연결 아키텍처
 이 문서에서는 Azure 내부 및 외부의 클라이언트에서 Azure Database for MySQL 인스턴스로 트래픽이 전송 되는 방법 뿐만 아니라 Azure Database for MySQL 연결 아키텍처에 대해 설명 합니다.
@@ -19,7 +19,7 @@ ms.locfileid: "88064471"
 ## <a name="connectivity-architecture"></a>연결 아키텍처
 들어오는 연결을 클러스터에 있는 서버의 실제 위치로 라우팅하는 게이트웨이를 통해 Azure Database for MySQL에 대 한 연결이 설정 됩니다. 다음 다이어그램은 트래픽 흐름을 보여 줍니다.
 
-![연결 아키텍처 개요](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+:::image type="content" source="./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png" alt-text="연결 아키텍처 개요":::
 
 클라이언트는 데이터베이스에 연결할 때 게이트웨이에 연결 되는 연결 문자열을 가져옵니다. 이 게이트웨이에는 3306 포트를 수신 하는 공용 IP 주소가 있습니다. 데이터베이스 클러스터 내에서 트래픽이 적절 한 Azure Database for MySQL 전달 됩니다. 따라서 회사 네트워크에서와 같이 서버에 연결 하려면 클라이언트 쪽 방화벽을 열어 아웃 바운드 트래픽이 게이트웨이에 도달할 수 있도록 해야 합니다. 아래에서 지역별 게이트웨이에서 사용 하는 IP 주소의 전체 목록을 찾을 수 있습니다.
 

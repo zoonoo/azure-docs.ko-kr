@@ -4,19 +4,25 @@ description: 스프링 클라우드 서비스 레지스트리를 사용 하 여 
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/05/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c3e26b157630df6004292c93a0a0a47307d5949a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 1e60799878cc30b729344c03df36a4c5e4f4a199
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071014"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904216"
 ---
 # <a name="discover-and-register-your-spring-cloud-services"></a>스프링 클라우드 서비스 검색 및 등록
 
 서비스 검색은 마이크로 서비스 기반 아키텍처의 핵심 요구 사항입니다.  각 클라이언트를 수동으로 구성 하면 시간이 걸리고 사용자 오류가 발생할 가능성이 있습니다.  Azure 스프링 클라우드 서비스 레지스트리는이 문제를 해결 합니다.  구성 된 서비스 레지스트리 서버는 응용 프로그램의 마이크로 서비스에 대 한 서비스 등록과 검색을 제어 합니다. 서비스 레지스트리 서버는 배포 된 마이크로 서비스의 레지스트리를 유지 관리 하 고, DNS에 의존 하지 않고 클라이언트 쪽 부하 분산 및 클라이언트의 분리 서비스 공급자를 사용 하도록 설정 합니다.
+
+::: zone pivot="programming-language-csharp"
+Steeltoe 앱에 대 한 서비스 등록을 설정 하는 방법에 대 한 자세한 내용은 [Azure 스프링 클라우드에서 배포용 Java 스프링 응용 프로그램 준비](spring-cloud-tutorial-prepare-app-deployment.md)를 참조 하세요.
+::: zone-end
+::: zone pivot="programming-language-java"
 
 ## <a name="register-your-application-using-spring-cloud-service-registry"></a>스프링 클라우드 서비스 레지스트리를 사용 하 여 응용 프로그램 등록
 
@@ -56,3 +62,4 @@ ms.locfileid: "87071014"
 스프링 클라우드 서비스 레지스트리 서버 끝점은 응용 프로그램에 환경 변수로 삽입 됩니다.  마이크로 서비스는 이제 서비스 레지스트리 서버에 자신을 등록 하 고 다른 종속 마이크로 서비스를 검색할 수 있습니다.
 
 변경 내용이 서버에서 모든 마이크로 서비스로 전파 되는 데 몇 분 정도 걸릴 수 있습니다.
+::: zone-end

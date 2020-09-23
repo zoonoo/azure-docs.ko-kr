@@ -3,12 +3,12 @@ title: 작업을 백업 하도록 DPM 서버 준비
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure에 대 한 System Center Data Protection Manager (DPM) 백업을 준비 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 4534b75018fb91cedda00b8c1167012858c5e562
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021037"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975454"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
 
@@ -61,7 +61,7 @@ Azure Backup 에이전트 | DPM이 System Center 2012 SP1에서 실행 중인 �
 
 - 기본적으로 사용자 자격 증명 모음에는 지역 중복 스토리지가 있습니다.
 - 자격 증명 모음이 기본 백업인 경우 지역 중복 스토리지 옵션이 설정된 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 다음 절차에 따라 로컬 중복 스토리지를 구성합니다.
-- [Azure Storage](../storage/common/storage-redundancy.md)와 [지역 중복](../storage/common/storage-redundancy.md) 및 [로컬 중복](../storage/common/storage-redundancy.md) 스토리지 옵션에 대해 알아봅니다.
+- [Azure storage](../storage/common/storage-redundancy.md)및 [지역 중복 지역](../storage/common/storage-redundancy.md#geo-redundant-storage) [중복 및](../storage/common/storage-redundancy.md#locally-redundant-storage) [영역 중복](../storage/common/storage-redundancy.md#zone-redundant-storage) 저장소 옵션에 대해 알아봅니다.
 - 초기 백업 전에 스토리지 설정을 수정합니다. 항목을 이미 백업한 경우 스토리지 설정을 수정하기 전에 자격 증명 모음에 백업하는 작업을 중지합니다.
 
 스토리지 복제 설정을 편집하려면
@@ -165,7 +165,7 @@ Azure Backup으로 백업되는 모든 머신에는 MARS(Microsoft Azure Recover
 
 7. **등록** 을 선택 하 여 DPM 서버를 자격 증명 모음에 등록 합니다.
 
-서버를 자격 증명 모음에 성공적으로 등록 한 후에는 Microsoft Azure에 대 한 백업을 시작할 준비가 완료 된 것입니다. Azure에 작업을 백업 하도록 DPM 콘솔에서 보호 그룹을 구성 해야 합니다. 보호 그룹을 배포 하 [는 방법을 알아봅니다](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) .
+서버를 자격 증명 모음에 성공적으로 등록 한 후에는 Microsoft Azure에 대 한 백업을 시작할 준비가 완료 된 것입니다. Azure에 작업을 백업 하도록 DPM 콘솔에서 보호 그룹을 구성 해야 합니다. 보호 그룹을 배포 하 [는 방법을 알아봅니다](/system-center/dpm/create-dpm-protection-groups) .
 
 ## <a name="troubleshoot-vault-credentials"></a>자격 증명 모음의 자격 증명 문제 해결
 

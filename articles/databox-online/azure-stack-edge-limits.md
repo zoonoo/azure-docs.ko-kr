@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge 제한 | Microsoft Docs
-description: 서비스 한도, 장치 제한 및 저장소 제한을 포함 하 여 Azure Stack Edge를 배포 하 고 작동할 때 제한 사항 및 권장 크기에 대해 알아봅니다.
+title: Azure Stack Edge Pro 제한 | Microsoft Docs
+description: 서비스 한도, 장치 제한 및 저장소 제한을 포함 하 여 Edge Pro Azure Stack 배포 하 고 작동할 때 제한 사항 및 권장 크기에 대해 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,26 +8,26 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: e21f5a89d9f1f21eb99071a141794f99c07a8dfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079815"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904457"
 ---
-# <a name="azure-stack-edge-limits"></a>Azure Stack Edge 제한 사항
+# <a name="azure-stack-edge-pro-limits"></a>Azure Stack Edge Pro 제한 사항
 
-Microsoft Azure Stack Edge 솔루션을 배포 하 고 작동할 때 이러한 제한을 고려 합니다. 
+Microsoft Azure Stack Edge Pro 솔루션을 배포 하 고 작동할 때 이러한 제한을 고려 합니다. 
 
 ## <a name="azure-stack-edge-service-limits"></a>Azure Stack Edge 서비스 제한
 
 [!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
-## <a name="azure-stack-device-limits"></a>Azure Stack 장치 제한
+## <a name="azure-stack-edge-device-limits"></a>Azure Stack Edge 장치 제한
 
-다음 표에서는 Azure Stack Edge 장치에 대 한 제한을 설명 합니다. 
+다음 표에서는 Azure Stack Edge Pro 장치에 대 한 제한을 설명 합니다. 
 
-| Description | 값 |
+| 설명 | 값 |
 |---|---|
 |아니요. 디바이스당 파일 수 |1억 |
 |아니요. 디바이스당 공유 수 |24 |
@@ -53,4 +53,4 @@ Microsoft Azure Stack Edge 솔루션을 배포 하 고 작동할 때 이러한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Stack Edge 배포 준비](azure-stack-edge-deploy-prep.md)
+- [Edge Pro Azure Stack 배포 준비](azure-stack-edge-deploy-prep.md)

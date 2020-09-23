@@ -1,7 +1,7 @@
 ---
-title: '자습서: 디자이너를 사용하여 ML 모델 배포(미리 보기)'
+title: '자습서: 디자이너를 사용하여 ML 모델 배포'
 titleSuffix: Azure Machine Learning
-description: 이 자습서에서는 Azure Machine Learning 디자이너(미리 보기)에서 예측 분석 솔루션을 빌드하는 방법을 보여줍니다. 끌어서 놓기 모듈을 사용하여 기계 학습 모델을 학습, 채점 및 배포합니다.
+description: 이 자습서에서는 Azure Machine Learning 디자이너에서 예측 분석 솔루션을 빌드하는 방법을 보여줍니다. 끌어서 놓기 모듈을 사용하여 기계 학습 모델을 학습, 채점 및 배포합니다.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 453971d776a0953a344d147bca387a81f65ac73c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a4923e48c890a50d642d937f014e466e998171cf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287981"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896639"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 Machine Learning 모델 배포
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>자습서: 디자이너를 사용하여 Machine Learning 모델 배포
+
 
 다른 사용자가 사용할 수 있도록 [이 자습서의 1부](tutorial-designer-automobile-price-train-score.md)에서 개발한 예측 모델을 배포할 수 있습니다. 1부에서는 모델을 학습했습니다. 이제는 사용자 입력에 기반한 새 예측을 생성해야 합니다. 이 자습서의 이번 회차에서는 다음과 같은 일을 합니다.
 

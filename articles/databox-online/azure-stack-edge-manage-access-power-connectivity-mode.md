@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge 장치 액세스, 전원 및 연결 모드 | Microsoft Docs
-description: Azure로 데이터를 전송 하는 데 도움이 되는 Azure Stack Edge 장치에 대 한 액세스, 기능 및 연결 모드를 관리 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro 장치 액세스, 전원 및 연결 모드 | Microsoft Docs
+description: Azure로 데이터를 전송 하는 데 도움이 되는 Azure Stack Edge Pro 장치에 대 한 액세스, 기능 및 연결 모드를 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 75e7a43d545bea63d553ad01836ed5c6ebc2dcc9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e0e2ac43ce0157b4917e9c45f6a02ace63432137
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079798"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904420"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Azure Stack Edge에 대 한 액세스, 기능 및 연결 모드 관리
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro에 대 한 액세스, 기능 및 연결 모드 관리
 
-이 문서에서는 Azure Stack Edge에 대 한 액세스, 기능 및 연결 모드를 관리 하는 방법을 설명 합니다. 이러한 작업은 로컬 웹 UI 또는 Azure Portal을 통해 수행합니다.
+이 문서에서는 Azure Stack Edge Pro에 대 한 액세스, 기능 및 연결 모드를 관리 하는 방법을 설명 합니다. 이러한 작업은 로컬 웹 UI 또는 Azure Portal을 통해 수행합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "89079798"
 
 ## <a name="manage-device-access"></a>디바이스 액세스 관리
 
-Azure Stack Edge 장치에 대 한 액세스는 장치 암호를 사용 하 여 제어 됩니다. 로컬 웹 UI를 통해 암호를 변경할 수 있습니다. Azure Portal에서 장치 암호를 다시 설정할 수도 있습니다.
+Azure Stack Edge Pro 장치에 대 한 액세스는 장치 암호를 사용 하 여 제어 됩니다. 로컬 웹 UI를 통해 암호를 변경할 수 있습니다. Azure Portal에서 장치 암호를 다시 설정할 수도 있습니다.
 
 ### <a name="change-device-password"></a>디바이스 암호 변경
 
@@ -61,12 +61,12 @@ Azure Stack Edge/Data Box Gateway, IoT Hub 및 Azure Storage 리소스를 만들
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Microsoft Graph API 사용 권한 관리
 
-Azure Stack Edge 장치에 대 한 정품 인증 키를 생성 하거나 자격 증명이 필요한 작업을 수행 하는 경우 Graph API Azure Active Directory 수 있는 권한이 있어야 합니다. 자격 증명을 필요로 하는 작업은 다음과 같습니다.
+Azure Stack Edge Pro 장치에 대 한 정품 인증 키를 생성 하거나 자격 증명이 필요한 작업을 수행 하는 경우 Graph API Azure Active Directory 수 있는 권한이 있어야 합니다. 자격 증명을 필요로 하는 작업은 다음과 같습니다.
 
 -  연결 된 저장소 계정을 사용 하 여 공유 만들기
 -  장치에서 공유에 액세스할 수 있는 사용자 만들기
 
-`User`가능 하면 Active Directory 테 넌 트에 대 한 액세스 권한이 있어야 합니다 `Read all directory objects` . 권한이 없는 게스트 사용자는 사용할 수 없습니다 `Read all directory objects` . 게스트 인 경우 활성화 키 생성, Azure Stack에 지 장치에서 공유 만들기, 사용자 만들기, Edge 계산 역할의 구성, 장치 암호 다시 설정 등의 작업이 모두 실패 합니다.
+`User`가능 하면 Active Directory 테 넌 트에 대 한 액세스 권한이 있어야 합니다 `Read all directory objects` . 권한이 없는 게스트 사용자는 사용할 수 없습니다 `Read all directory objects` . 게스트 인 경우 활성화 키 생성, Azure Stack Edge Pro 장치에서 공유 만들기, 사용자 만들기, Edge 계산 역할의 구성, 장치 암호 다시 설정 등의 작업이 모두 실패 합니다.
 
 Microsoft Graph API에 대 한 사용자 액세스를 제공 하는 방법에 대 한 자세한 내용은 [Microsoft Graph 사용 권한 참조](https://docs.microsoft.com/graph/permissions-reference)를 참조 하세요.
 
@@ -89,7 +89,7 @@ Azure에서 리소스를 프로 비전 하려면 (Azure Resource Manager 모델)
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Azure Stack Edge 장치의 경우을 `Microsoft.DataBoxEdge` 등록 해야 합니다. 등록 하려면 `Microsoft.DataBoxEdge` 구독 관리자가 다음 명령을 실행 해야 합니다.
+Edge Pro 장치 Azure Stack에 대해를 `Microsoft.DataBoxEdge` 등록 해야 합니다. 등록 하려면 `Microsoft.DataBoxEdge` 구독 관리자가 다음 명령을 실행 해야 합니다.
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

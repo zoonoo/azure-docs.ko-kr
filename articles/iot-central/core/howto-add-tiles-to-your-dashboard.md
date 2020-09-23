@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 892bdcc08bd19b92c8b3d32d2954583f80005e87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022891"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985314"
 ---
 # <a name="configure-the-application-dashboard"></a>애플리케이션 대시보드 구성
 
@@ -51,13 +51,13 @@ ms.locfileid: "84022891"
 
 다음 표에서는 대시보드에 추가할 수 있는 다양 한 유형의 타일에 대해 설명 합니다.
 
-| 타일             | 설명 |
+| Tile             | 설명 |
 | ---------------- | ----------- |
 | Markdown         | Markdown 타일은 Markdown를 사용 하 여 서식이 지정 된 제목 및 설명 텍스트를 표시 하는 클릭할 수 있는 타일입니다. URL은 응용 프로그램의 다른 페이지에 대 한 상대 링크 또는 외부 사이트에 대 한 절대 링크 일 수 있습니다.|
 | 이미지            | 이미지 타일은 사용자 지정 이미지를 표시하며 클릭할 수 있습니다. URL은 응용 프로그램의 다른 페이지에 대 한 상대 링크 또는 외부 사이트에 대 한 절대 링크 일 수 있습니다.|
 | 레이블            | 레이블 타일은 대시보드에 사용자 지정 텍스트를 표시합니다. 텍스트 크기를 선택할 수 있습니다. 레이블 타일을 사용하여 설명, 연락처 세부 정보 또는 도움말과 같은 관련 정보를 대시보드에 추가합니다.|
 | 개수            | 개수 타일 장치 그룹의 장치 수를 표시 합니다.|
-| 맵              | 지도 타일 지도에서 하나 이상의 장치 위치를 표시 합니다. 또한 디바이스 위치 기록으로 최대 100개 지점을 표시할 수 있습니다. 예를 들어 지난 주에 장치가 있는 위치의 샘플링 된 경로를 표시할 수 있습니다.|
+| 지도              | 지도 타일 지도에서 하나 이상의 장치 위치를 표시 합니다. 또한 디바이스 위치 기록으로 최대 100개 지점을 표시할 수 있습니다. 예를 들어 지난 주에 장치가 있는 위치의 샘플링 된 경로를 표시할 수 있습니다.|
 | KPI              |  KPI 타일은 일정 기간 동안 하나 이상의 장치에 대 한 집계 원격 분석 값을 표시 합니다. 예를 들어 지난 1 시간 동안 하나 이상의 장치에 대 한 최대 온도 및 압력을 표시 하는 데 사용할 수 있습니다.|
 | 꺾은선형 차트       | 꺾은선형 차트 타일 특정 기간 동안 하나 이상의 장치에 대해 하나 이상의 집계 원격 분석 값을 플롯 합니다. 예를 들어 꺾은선형 차트를 표시 하 여 지난 1 시간 동안 하나 이상의 장치에 대 한 평균 온도와 압력을 그릴 수 있습니다.|
 | 가로 막대형 차트        | 가로 막대형 차트 타일 특정 기간 동안 하나 이상의 장치에 대 한 하나 이상의 집계 원격 분석 값을 플롯 합니다. 예를 들어 가로 막대형 차트를 표시 하 여 지난 1 시간 동안 하나 이상의 장치에 대 한 평균 온도 및 압력을 표시할 수 있습니다.|
@@ -79,7 +79,19 @@ ms.locfileid: "84022891"
 
 문자열 속성 또는 원격 분석 값을 표시 하는 타일의 경우 텍스트를 표시 하는 방법을 선택할 수 있습니다. 예를 들어 장치에서 문자열 속성에 URL을 저장 하는 경우 클릭 가능한 링크로 표시할 수 있습니다. URL이 이미지를 참조하는 경우 마지막으로 알려진 값 또는 속성 타일로 이미지를 렌더링할 수 있습니다. 문자열이 표시 되는 방식을 변경 하려면 타일 구성에서 원격 분석 유형 또는 속성 옆의 기어 아이콘을 선택 합니다.
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="타일에 문자열을 표시 하는 방법 Chane":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="타일에 문자열이 표시 되는 방식 변경":::
+
+숫자 **KPI**, **마지막으로 알려진 값**및 **속성** 타일의 경우 조건부 서식을 사용 하 여 현재 값을 기준으로 타일의 색을 사용자 지정할 수 있습니다. 조건부 서식을 추가 하려면 타일에서 **구성** 을 선택한 다음 사용자 지정할 값 옆에 있는 **조건부 서식** 아이콘을 선택 합니다.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="타일에 대 한 구성 옵션을 찾는 방법 및 조건부 서식 아이콘을 찾는 방법을 보여 주는 스크린샷":::
+
+조건부 서식 지정 규칙을 추가 합니다.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="평균 흐름에 대 한 조건부 서식 규칙을 보여 주는 스크린샷 Tha 20 개의 규칙 (20 개는 녹색, 50은 노란색, 50 보다는 빨강)이 있습니다.":::
+
+다음 스크린샷은 조건부 서식 지정 규칙의 효과를 보여 줍니다.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="평균 급수 흐름 타일의 노랑 배경색을 보여 주는 스크린샷 타일의 번호는 40.84입니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

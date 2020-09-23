@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: 사용자 지정 커넥터를 사용 하 여 Azure Digital Twins에 Logic Apps를 연결 하는 방법을 참조 하세요.
 author: baanders
 ms.author: baanders
-ms.date: 8/14/2020
+ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 20959709854f8366cc067437fe86c245fcbc3ef0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 09181a28edf21f0a4da11a244d3c094469446ab5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401064"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983532"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>사용자 지정 커넥터를 사용 하 여 Logic Apps와 통합
 
@@ -26,8 +26,12 @@ Azure Digital Twins는 현재 Logic Apps에 대해 인증 된 (미리 작성 된
 ## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** 을 만듭니다.
+이 계정으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다. 
 
-이 계정으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
+이 섹션의 나머지 부분에서는 다음 단계를 안내 합니다.
+- Azure Digital Twins 인스턴스 설정
+- 앱 등록 클라이언트 암호 가져오기
+- 디지털 쌍 추가
 
 ### <a name="set-up-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스 설정
 
@@ -49,7 +53,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Azure AD 앱 등록의 포털 뷰입니다. 리소스 메뉴에서 ' 인증서 및 암호 '를 강조 표시 하 고 ' 새 클라이언트 암호 ' 주위의 페이지에서 강조 표시 합니다.":::
 
 설명 및 만료에 사용할 값을 입력 하 고 *추가*를 누릅니다.
-*인증서 및 암호* 페이지의 클라이언트 암호 목록에 비밀이 추가 됩니다. 나중에 사용 하기 위해 값을 기록해 둡니다 (복사 아이콘을 사용 하 여 클립보드로 복사할 수도 있음).
+
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="클라이언트 암호 추가":::
+
+이제 클라이언트 암호가 _만료_ 됨 및 _값_ 필드가 있는 _인증서 & 암호_ 페이지에 표시 되는지 확인 합니다. 나중에 사용할 _값_ 을 기록해 둡니다 (복사 아이콘을 사용 하 여 클립보드로 복사할 수도 있음).
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="클라이언트 암호 값 복사":::
 
 ### <a name="add-a-digital-twin"></a>디지털 쌍 추가
 
@@ -67,9 +76,13 @@ Azure Portal에서 [Logic Apps 사용자 지정 커넥터](https://portal.azure.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Azure Portal의 ' Logic Apps 사용자 지정 커넥터 ' 페이지입니다. ' 추가 ' 단추를 강조 표시 합니다.":::
 
-다음에 나오는 *Logic Apps 사용자 지정 커넥터 만들기* 페이지에서 구독 및 리소스 그룹을 선택 하 고 새 커넥터에 대 한 이름 및 배포 위치를 선택 합니다. *검토 + 만들기*를 누릅니다. 그러면 아래에서 *만들기* 를 눌러 리소스를 만들 수 있는 *검토 + 만들기* 탭으로 이동 합니다.
+다음에 나오는 *Logic Apps 사용자 지정 커넥터 만들기* 페이지에서 구독 및 리소스 그룹을 선택 하 고 새 커넥터에 대 한 이름 및 배포 위치를 선택 합니다. *검토 + 만들기*를 누릅니다. 
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Azure Portal에서 ' Logic Apps 사용자 지정 커넥터 만들기 ' 페이지의 ' 검토 + 만들기 ' 탭 ' 만들기 ' 단추를 강조 표시 합니다.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Azure Portal의 ' Logic Apps 사용자 지정 커넥터 만들기 ' 페이지입니다.":::
+
+그러면 아래에서 *만들기* 를 눌러 리소스를 만들 수 있는 *검토 + 만들기* 탭으로 이동 합니다.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="Azure Portal에서 ' Logic Apps 사용자 지정 커넥터 검토 ' 페이지의 ' 검토 + 만들기 ' 탭 ' 만들기 ' 단추를 강조 표시 합니다.":::
 
 커넥터에 대 한 배포 페이지로 이동 합니다. 배포가 완료 되 면 *리소스로 이동* 단추를 눌러 포털에서 커넥터의 세부 정보를 확인 합니다.
 
@@ -89,7 +102,9 @@ Azure Portal에서 [Logic Apps 사용자 지정 커넥터](https://portal.azure.
     - 가져오기 모드: OpenAPI 파일 (기본값 유지)
     - 파일: 앞에서 다운로드 한 사용자 지정 Swagger 파일입니다. *가져오기*를 눌러 컴퓨터에서 파일 (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.js*)을 찾고 *열기*를 누릅니다.
 * **일반 정보**
-    - 아이콘, 아이콘 배경색, 설명: 원하는 모든 값을 입력 합니다.
+    - 아이콘: 원하는 아이콘을 업로드 합니다.
+    - 아이콘 배경색: 16 진수 코드를 색의 ' #xxxxxx ' 형식으로 입력 합니다.
+    - 설명: 원하는 모든 값을 입력 합니다.
     - 구성표: HTTPS (기본값 유지)
     - Host: Azure Digital Twins 인스턴스의 *호스트 이름* 입니다.
     - 기준 URL:/(기본값 유지)
@@ -145,11 +160,15 @@ Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_Re
 
 다음으로, 새 커넥터를 사용 하 여 Azure Digital Twins 업데이트를 자동화 하는 논리 앱을 만듭니다.
 
-Azure Portal의 [Logic Apps](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) 페이지로 이동 합니다 .이 링크를 사용 하거나 포털 검색 표시줄에서 찾을 수 있습니다. *논리 앱 만들기*를 누릅니다.
+Azure Portal에서 [논리 앱 (소비)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) 페이지로 이동 합니다 .이 링크를 사용 하거나 포털 검색 표시줄에서 찾을 수 있습니다. *추가* 단추를 클릭 하 여 논리 앱을 만듭니다.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Azure Portal의 ' Logic Apps ' 페이지입니다. ' 논리 앱 만들기 ' 단추를 강조 표시 합니다.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Azure Portal의 ' Logic Apps (소비) ' 페이지입니다. ' 추가 ' 단추를 누릅니다.":::
 
-다음 *논리 앱* 페이지에서 구독 및 리소스 그룹을 선택 하 고 새 논리 앱에 대 한 이름 및 배포 위치를 선택 합니다. *검토 + 만들기*를 누릅니다. 그러면 아래에서 *만들기* 를 눌러 리소스를 만들 수 있는 *검토 + 만들기* 탭으로 이동 합니다.
+다음에 나오는 *논리 앱 (소비)* 페이지에서 구독, 리소스 그룹을 입력 합니다. 또한 논리 앱의 이름을 선택 하 고 위치를 선택 합니다.
+
+_검토 + 만들기_ 단추를 선택 합니다.
+
+그러면 정보를 검토 하 고 맨 아래에 있는 *만들기* 를 눌러 리소스를 만들 수 있는 *검토 + 만들기* 탭으로 이동 됩니다.
 
 논리 앱에 대 한 배포 페이지로 이동 합니다. 배포가 완료 되 면 *리소스로 이동* 단추를 클릭 하 여 워크플로의 논리를 채울 *Logic Apps 디자이너로*이동 합니다.
 
@@ -172,11 +191,13 @@ Azure Portal의 [Logic Apps](https://portal.azure.com/#blade/HubsExtension/Brows
 커넥터에 연결 하려면 Azure 자격 증명을 사용 하 여 로그인 하 라는 메시지가 표시 될 수 있습니다. *요청 된 사용 권한* 대화 상자가 표시 되 면 메시지에 따라 앱에 대 한 동의를 부여 하 고 수락 합니다.
 
 새 *DigitalTwinsAdd* 상자에서 다음과 같이 필드를 채웁니다.
-* id: 논리 앱을 업데이트 하려는 인스턴스에서 디지털 쌍의 쌍 *ID* 를 채웁니다.
-* 항목-1:이 필드는 선택한 API 요청에 필요한 본문을 입력 합니다. *DigitalTwinsUpdate*의 경우이 본문은 JSON 패치 코드 형식입니다. 쌍을 업데이트 하는 JSON 패치를 구조화 하는 방법에 대 한 자세한 내용은 *방법: 디지털 쌍 관리*의 디지털 쌍 [업데이트](how-to-manage-twin.md#update-a-digital-twin) 섹션을 참조 하십시오.
-* api-version: 현재 공개 미리 보기에서이 값은 *2020-05-31-미리 보기* 입니다.
+* _id_: 논리 앱을 업데이트 하려는 인스턴스에서 디지털 쌍의 쌍 *id* 를 채웁니다.
+* 쌍:이 필드는 선택한 API 요청에 필요한 본문을 입력 _합니다._ *DigitalTwinsUpdate*의 경우이 본문은 JSON 패치 코드 형식입니다. 쌍을 업데이트 하는 JSON 패치를 구조화 하는 방법에 대 한 자세한 내용은 *방법: 디지털 쌍 관리*의 디지털 쌍 [업데이트](how-to-manage-twin.md#update-a-digital-twin) 섹션을 참조 하십시오.
+* _api-version_: 현재 공개 미리 보기에서이 값은 *2020-05-31-미리 보기* 입니다.
 
 Logic Apps 디자이너에서 *저장* 을 누릅니다.
+
+같은 창에서 _+ 새 단계_ 를 선택 하 여 다른 작업을 선택할 수 있습니다.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="논리 앱 커넥터에서 완료 된 앱 보기입니다. DigitalTwinsAdd 상자는 샘플 JSON 패치 본문을 포함 하 여 위에서 설명한 값으로 채워집니다. 창에 대 한 ' 저장 ' 단추가 강조 표시 됩니다.":::
 

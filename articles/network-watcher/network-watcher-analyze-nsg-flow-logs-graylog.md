@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 7a4aa4cc545d6941f144ce0657ede7199d4f8f57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 62f4a06ec729d896dc11a290bc7a5ccc7c321683
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497117"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984066"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
@@ -186,7 +186,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
    Graylog 서버를 구성한 IP에 입력을 바인딩해야 합니다. IP 주소는 Logstash 구성 파일에 지정된 UDP 출력의 **host** 필드와 일치해야 합니다. 기본 포트는 *12201*이어야 합니다. 포트가 Logstash 구성 파일에 지정된 UDP 출력의 **port** 필드와 일치하는지 확인합니다.
 
-   ![입력](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
+   ![스크린샷은 입력을 시작 하 고 찾을 수 있는 옵션과 함께 Graylog 입력을 보여 줍니다.](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
 
    입력을 시작하면 다음 그림과 같이 **로컬 입력** 섹션 아래에 해당 입력이 표시됩니다.
 
@@ -200,11 +200,11 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 Graylog 서버에서 메시지를 수집하도록 허용된 약간의 시간이 지나면 메시지를 검색할 수 있습니다. Graylog 서버로 보내는 메시지를 확인하려면 **입력** 구성 페이지에서 만든 GELF UDP 입력의 "**Show received messages(수신 메시지 표시)**" 단추를 클릭합니다. 다음 그림과 비슷한 화면으로 이동하게 됩니다. 
 
-![히스토그램](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
+![스크린샷은 검색 결과, 히스토그램 및 메시지를 표시 하는 Graylog 서버를 보여 줍니다.](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
 
 파란색 "%{Message}" 링크를 클릭하면 다음 그림과 같이 각 메시지를 확장하여 각 흐름 튜플의 매개 변수를 표시합니다.
 
-![메시지](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
+![스크린샷 Graylog 서버에서 메시지 세부 정보를 표시 합니다.](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
 검색할 특정 메시지 필드를 선택하지 않으면 기본적으로 모든 메시지 필드가 검색에 포함됩니다. 특정 메시지(예: 특정 원본 IP의 흐름 튜플)를 검색하려면 Graylog 검색 쿼리 언어를 [문서화](https://docs.graylog.org/en/2.2/pages/queries.html)된 대로 사용할 수 있습니다.
 
@@ -218,7 +218,7 @@ Graylog 실행을 설정했으므로 기능 중 일부를 사용하여 흐름 �
 
 2. 여기서 녹색 **대시보드 만들기** 단추를 클릭하고 대시보드의 제목과 설명이 포함된 간단한 양식을 작성합니다. **저장** 단추를 눌러 새 대시보드를 만듭니다. 다음 그림과 비슷한 대시보드가 표시됩니다.
 
-    ![대시보드](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
+    ![대시보드를 만들고 편집 하는 옵션을 사용 하 여 Graylog 서버 대시보드를 보여 주는 스크린샷](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
 ### <a name="add-widgets"></a>위젯 추가
 

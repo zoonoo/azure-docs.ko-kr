@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 5110f5fd09e360d1435e26312dd2ee2db6891cbb
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087187"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983625"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>예제를 통해 Data Factory 가격 책정 이해
 
@@ -38,7 +38,7 @@ ms.locfileid: "90087187"
 
 3. 파이프라인을 1시간마다 실행하는 일정 트리거
 
-   ![시나리오 1](media/pricing-concepts/scenario1.png)
+   ![다이어그램에서 일정 트리거를 사용 하는 파이프라인을 보여 줍니다. 파이프라인에서 복사 작업은 입력 데이터 집합으로 전달 되 고,이는 W S S3 연결 된 서비스로 이동 하 고, 복사 작업은 Azure Storage 연결 된 서비스로 흐르는 출력 데이터 집합으로 흐릅니다.](media/pricing-concepts/scenario1.png)
 
 | **작업** | **형식 및 단위** |
 | --- | --- |
@@ -69,7 +69,7 @@ ms.locfileid: "90087187"
 2. 데이터 변환에 대한 하나의 Azure Databricks 작업
 3. 파이프라인을 1시간마다 실행하는 하나의 일정 트리거
 
-![시나리오 2](media/pricing-concepts/scenario2.png)
+![다이어그램에서 일정 트리거를 사용 하는 파이프라인을 보여 줍니다. 파이프라인에서 복사 작업은 입력 데이터 집합, 출력 데이터 집합 및 Azure Databricks에서 실행 되는 DataBricks 작업으로 흐릅니다. 입력 데이터 집합은 W S S3 연결 된 서비스로 흐릅니다. 출력 데이터 집합은 연결 된 Azure Storage 서비스로 흐릅니다.](media/pricing-concepts/scenario2.png)
 
 | **작업** | **형식 및 단위** |
 | --- | --- |
@@ -103,7 +103,7 @@ ms.locfileid: "90087187"
 3. 데이터 변환에 대한 하나의 Azure Databricks 작업
 4. 파이프라인을 1시간마다 실행하는 하나의 일정 트리거
 
-![시나리오 3](media/pricing-concepts/scenario3.png)
+![다이어그램에서 일정 트리거를 사용 하는 파이프라인을 보여 줍니다. 파이프라인에서 복사 작업은 입력 데이터 집합, 출력 데이터 집합 및 Azure Databricks에서 실행 되는 DataBricks 작업으로 이동 하는 조회 작업으로 흐릅니다. 입력 데이터 집합은 W S S3 연결 된 서비스로 흐릅니다. 출력 데이터 집합은 연결 된 Azure Storage 서비스로 흐릅니다.](media/pricing-concepts/scenario3.png)
 
 | **작업** | **형식 및 단위** |
 | --- | --- |

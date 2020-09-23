@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5c16173fb46144be7c44664c45e917ec0a886313
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: da84fee4e974f02f29dc9006fe740c415632ae53
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82181161"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029021"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C 코드 샘플
 
@@ -26,7 +26,7 @@ ms.locfileid: "82181161"
 | 샘플 | Description |
 |--------| ----------- |
 | [ios-swift-native-msal](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal) | OAuth 2.0을 사용하여 Azure AD B2C 사용자를 인증하고 API를 호출하는 Swift의 iOS 샘플 |
-| [android-native-msal](https://github.com/Azure-Samples/active-directory-b2c-android-native-msal) | MSAL을 사용하여 Azure Active Directory B2C를 통해 사용자를 인증하고 결과 토큰을 사용하여 Web API에 액세스하는 방법을 보여주는 간단한 Android 앱입니다. |
+| [android-native-msal](https://github.com/Azure-Samples/ms-identity-android-java#b2cmodefragment-class) | MSAL을 사용하여 Azure Active Directory B2C를 통해 사용자를 인증하고 결과 토큰을 사용하여 Web API에 액세스하는 방법을 보여주는 간단한 Android 앱입니다. |
 | [ios-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth) | 타사 라이브러리를 사용하여 Objective-C로 Microsoft ID 사용자를 Azure AD B2C ID 서비스에 인증하는 iOS 애플리케이션을 빌드하는 방법을 보여주는 샘플입니다. |
 | [android-native-appauth](https://github.com/Azure-Samples/active-directory-b2c-android-native-appauth) | 타사 라이브러리를 사용하여 Microsoft ID 사용자를 B2C ID 서비스에 인증하고 OAuth 2.0 액세스 토큰을 사용하여 Web API를 호출하는 Android 애플리케이션을 빌드하는 방법을 보여주는 샘플입니다. |
 | [dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) | Azure AD B2C를 사용하여 Windows 데스크톱 .NET(WPF) 애플리케이션으로 사용자를 로그인하고, MSAL.NET을 사용하여 액세스 토큰을 가져오고, API를 호출하는 방법을 보여주는 샘플입니다. |

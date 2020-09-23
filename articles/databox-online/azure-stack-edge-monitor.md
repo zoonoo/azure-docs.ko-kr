@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge 디바이스 모니터링 | Microsoft Docs
-description: Azure Portal 및 로컬 웹 UI를 사용하여 Azure Stack Edge를 모니터링하는 방법을 설명합니다.
+title: Azure Stack Edge Pro 장치 모니터링 | Microsoft Docs
+description: Azure Portal 및 로컬 웹 UI를 사용 하 여 Azure Stack Edge Pro를 모니터링 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4050a4a75432e8bcc840a2406660dce268c5a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd75eb0f7de602979f2233a873c01ef742471e37
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339555"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904410"
 ---
-# <a name="monitor-your-azure-stack-edge"></a>Azure Stack Edge 모니터링
+# <a name="monitor-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro 모니터링
 
-이 문서에서는 Azure Stack Edge를 모니터링하는 방법을 설명합니다. 디바이스를 모니터링하기 위해 Azure Portal 또는 로컬 웹 UI를 사용할 수 있습니다. Azure Portal을 사용하여 디바이스 이벤트를 보고 경고를 구성 및 관리하고 메트릭을 봅니다. 실제 디바이스에서 로컬 웹 UI를 사용하여 다양한 디바이스 구성 요소의 하드웨어 상태를 봅니다.
+이 문서에서는 Azure Stack Edge Pro를 모니터링 하는 방법을 설명 합니다. 디바이스를 모니터링하기 위해 Azure Portal 또는 로컬 웹 UI를 사용할 수 있습니다. Azure Portal을 사용하여 디바이스 이벤트를 보고 경고를 구성 및 관리하고 메트릭을 봅니다. 실제 디바이스에서 로컬 웹 UI를 사용하여 다양한 디바이스 구성 요소의 하드웨어 상태를 봅니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 

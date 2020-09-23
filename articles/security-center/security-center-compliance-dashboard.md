@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: a636acab42d14925f507568e8a9fff4693c8f71c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7f235f9255df49c096e224e1754ad2bbdf664423
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519646"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895814"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>자습서: 규정 준수 개선
 ---
@@ -35,8 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서에서 설명하는 기능을 단계별로 실행하려면 Security Center의 표준 가격 책정 계층이 있어야 합니다. 비용 없이 Security Center 표준을 사용해 볼 수 있습니다.
-자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Security Center 표준에 Azure 구독 온보딩](https://docs.microsoft.com/azure/security-center/security-center-get-started) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
+이 자습서에서 설명하는 기능을 단계별로 실행하려면 [Azure Defender](azure-defender.md)가 사용하도록 설정되어 있어야 합니다. 30일 동안 무료로 Azure Defender를 사용해 볼 수 있습니다.
 
 ##  <a name="assess-your-regulatory-compliance"></a>규정 준수 평가
 
@@ -72,13 +71,13 @@ Security Center는 지속적으로 리소스 구성을 평가하여 보안 문�
 
 1.  특정 리소스를 선택하여 자세한 세부 정보를 보고 해당 리소스에 대한 권장 사항을 해결할 수 있습니다. <br>예를 들어 **Azure CIS 표준** 탭에서 권장 사항 **스토리지 계정에 대한 보안 전송 필요**를 클릭할 수 있습니다.
 
-    ![준수 권장 사항](./media/security-center-compliance-dashboard/compliance-recommendation.png)
+    ![**스토리지 계정에 대한 보안 전송 필요** 권장 사항 선택](./media/security-center-compliance-dashboard/compliance-recommendation.png)
 
 1. 권장 사항 정보를 클릭하고 비정상 리소스를 선택하면 Azure Portal 내에서 **보안 스토리지 전송** 활성화의 경험으로 직접 이동합니다.
 
     권장 사항을 적용하는 방법에 대한 자세한 내용은 [Azure Security Center에서 보안 권장 사항 구현](security-center-recommendations.md)을 참조하세요.
 
-    ![준수 권장 사항](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
+    ![Storage 계정 구성](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 
 1.  권장 사항을 해결하기 위한 작업을 수행한 후 준수 점수가 개선되므로 준수 대시보드 보고서에 영향이 나타납니다.
 
