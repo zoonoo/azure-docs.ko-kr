@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: a5264c14294f84858cd489f5892b8cdd19e117d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3a0b904d65e6597c058ccf05ec837696e9ca20e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79455913"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893632"
 ---
 # <a name="select-columns-transform"></a>열 변환 선택
 
-이 문서에서는 Azure Machine Learning 디자이너 (미리 보기)의 열 변형 선택 모듈을 사용 하는 방법을 설명 합니다. 열 변환 선택 모듈의 목적은 다운스트림 기계 학습 작업에서 예측 가능 하 고 일관성 있는 열 집합이 사용 되도록 하는 것입니다.
+이 문서에서는 Azure Machine Learning 디자이너에서 열 변환 선택 모듈을 사용 하는 방법을 설명 합니다. 열 변환 선택 모듈의 목적은 다운스트림 기계 학습 작업에서 예측 가능 하 고 일관성 있는 열 집합이 사용 되도록 하는 것입니다.
 
 이 모듈은 특정 열이 필요한 점수 매기기 등의 작업에 유용 합니다. 사용 가능한 열을 변경 하면 파이프라인이 손상 되거나 결과가 변경 될 수 있습니다.
 

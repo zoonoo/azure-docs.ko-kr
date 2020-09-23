@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: f068f91a104c15099809343438cc925fb8856248
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 1a29b8cfbc07e1232ffee788da8d195d39b9ca93
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146864"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531647"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -254,7 +254,7 @@ Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 
 1. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 Functions 앱을 만듭니다. 다음 예제에서 `<storage_name>`을 이전 섹션에서 스토리지 계정에 사용한 이름으로 바꿉니다. 또한 `<app_name>`을 적절하고 전역적으로 고유한 이름으로 바꾸고, `<docker_id>`를 Docker ID로 바꿉니다.
 
     ```azurecli
-    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
+    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime <functions runtime stack> --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
     *deployment-container-image-name* 매개 변수는 함수 앱에 사용할 이미지를 지정합니다. [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) 명령을 사용하여 배포에 사용되는 이미지에 대한 정보를 볼 수 있습니다. 또한 [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) 명령을 사용하여 다른 이미지에서 배포할 수도 있습니다.

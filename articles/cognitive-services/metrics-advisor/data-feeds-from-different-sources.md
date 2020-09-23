@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4dc3c46b65bab48b8923af985f0c2c29fcddc53b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9ab340e73ce8d58da63a0089073ac4770bf2d52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938193"
+ms.locfileid: "90973378"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>다른 데이터 원본의 데이터 피드를 메트릭 Advisor에 추가
 
@@ -27,10 +27,10 @@ ms.locfileid: "90938193"
 | ---------------------|-------------|
 |**기본** | 데이터 원본에 액세스 하기 위한 기본 매개 변수를 제공할 수 있어야 합니다. 예를 들어 연결 문자열 또는 키입니다. 데이터 피드 관리자는 이러한 자격 증명을 볼 수 있습니다. |
 | **AzureManagedIdentity** | Azure 리소스에 대 한 [관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 는 Azure Active Directory의 기능입니다. Azure AD에서 자동으로 관리 되는 id를 Azure 서비스에 제공 합니다. Id를 사용 하 여 Azure AD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다.|
-| **AzureSQLConnectionString**| 메트릭 관리자에서 AzureSQL 연결 문자열을 **인증 엔터티로** 저장 하 고 메트릭 데이터를 온 보 딩 할 때마다 직접 사용 합니다. 인증 엔터티의 관리자만 이러한 자격 증명을 볼 수 있지만, 권한 있는 뷰어가 자격 증명에 대 한 세부 정보를 몰라도 데이터 피드를 만들 수 있습니다. |
-| **DataLakeGen2SharedKey**| 메트릭 관리자에서 data lake 계정 키를 **인증 엔터티로** 저장 하 고 메트릭 데이터를 온 보 딩 할 때마다 직접 사용 합니다. 인증 엔터티의 관리자만 이러한 자격 증명을 볼 수 있지만 자격 증명 정보를 알 필요 없이 권한 있는 뷰어가 데이터 피드를 만들 수 있습니다.|
-| **ServicePrincipal**| 메트릭 관리자에서 서비스 주체를 **인증 엔터티로** 저장 하 고 메트릭 데이터를 다시 등록할 때마다 직접 사용 합니다. 인증 엔터티 관리자만 자격 증명을 볼 수 있지만 자격 증명 정보를 몰라도 권한 있는 뷰어가 데이터 피드를 만들 수 있습니다.|
-| **ServicePrincipalInKeyVault**|메트릭 관리자에서 키 자격 증명 모음에 서비스 주체를 **인증 엔터티로** 저장 하 고 메트릭 데이터를 다시 등록할 때마다 직접 사용 합니다. **인증 엔터티의** 관리자만 자격 증명을 볼 수 있지만, 자세한 자격 증명을 몰라도 데이터 피드를 만들 수 있습니다. |
+| **AzureSQLConnectionString**| 메트릭 관리자에서 AzureSQL 연결 문자열을 **자격 증명 엔터티로** 저장 하 고 메트릭 데이터를 온 보 딩 할 때마다 직접 사용 합니다. 자격 증명 엔터티의 관리자만 이러한 자격 증명을 볼 수 있지만, 권한 있는 뷰어가 자격 증명에 대 한 세부 정보를 몰라도 데이터 피드를 만들 수 있습니다. |
+| **DataLakeGen2SharedKey**| 메트릭 관리자에서 data lake 계정 키를 **자격 증명 엔터티로** 저장 하 고 메트릭 데이터를 온 보 딩 할 때마다 직접 사용 합니다. 자격 증명 엔터티의 관리자만 이러한 자격 증명을 볼 수 있지만, 권한 있는 뷰어가 자격 증명 정보를 몰라도 데이터 피드를 만들 수 있습니다.|
+| **서비스 주체**| 메트릭 관리자에서 서비스 주체를 **자격 증명 엔터티로** 저장 하 고 메트릭 데이터를 온 보 딩 할 때마다 직접 사용 합니다. 자격 증명 엔터티의 관리자만 자격 증명을 볼 수 있지만 자격 증명 정보를 알 필요 없이 권한 있는 뷰어가 데이터 피드를 만들 수 있습니다.|
+| **Key vault의 서비스 사용자**|메트릭 관리자에서 키 자격 증명 모음에 서비스 주체를 저장 하 고 메트릭 **데이터를 다시** 등록할 때마다 직접 사용 합니다. 자격 증명 **엔터티의** 관리자만 자격 증명을 볼 수 있지만 자세한 자격 증명을 몰라도 데이터 피드를 만들 수 있습니다. |
 
 ## <a name="data-sources-supported-and-corresponding-authentication-types"></a>지원 되는 데이터 원본 및 해당 인증 유형
 
@@ -41,8 +41,8 @@ ms.locfileid: "90938193"
 |[**Azure Blob Storage (JSON)**](#blob) | 기본<br>Microsoft.managedidentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | 기본 |
 |[**Azure 데이터 탐색기 (Kusto)**](#kusto) | 기본<br>Microsoft.managedidentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | 기본<br>DataLakeGen2SharedKey<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br> |
-|[**Azure SQL Database/SQL Server**](#sql) | 기본<br>Microsoft.managedidentity<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br>AzureSQLConnectionString
+|[**Azure Data Lake Storage Gen2**](#adl) | 기본<br>DataLakeGen2SharedKey<br>서비스 주체<br>Key vault의 서비스 사용자<br> |
+|[**Azure SQL Database/SQL Server**](#sql) | 기본<br>Microsoft.managedidentity<br>서비스 주체<br>Key vault의 서비스 사용자<br>AzureSQLConnectionString
 |[**Azure Table Storage**](#table) | 기본 | 
 |[**ElasticSearch**](#es) | 기본 |
 |[**Http 요청**](#http) | 기본 | 
@@ -51,7 +51,7 @@ ms.locfileid: "90938193"
 |[**MySQL**](#mysql) | 기본 |
 |[**PostgreSQL**](#pgsql)| 기본|
 
-**인증 엔터티** 를 만들어 데이터 원본에 인증 하는 데 사용 합니다. 다음 섹션에서는 *기본* 인증에에 필요한 매개 변수를 지정 합니다. 
+**자격 증명 엔터티** 를 만들어 데이터 원본에 인증 하는 데 사용 합니다. 다음 섹션에서는 *기본* 인증에에 필요한 매개 변수를 지정 합니다. 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 

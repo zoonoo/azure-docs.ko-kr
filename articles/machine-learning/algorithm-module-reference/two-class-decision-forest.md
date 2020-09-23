@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
-ms.openlocfilehash: 4de0014abfde32fc4b863afe1cc9000b25d30e83
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 9870b5366ac629fe1b10cfde15a58b85c7c6fbc3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503874"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907718"
 ---
 # <a name="two-class-decision-forest-module"></a>2 클래스 의사 결정 포리스트 모듈
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 의사 결정 포리스트 알고리즘을 기반으로 기계 학습 모델을 만듭니다.  
 

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Edge에서 데이터 변경 내용 추적 (미리 보기)
-description: Azure SQL Edge (미리 보기)의 변경 내용 추적 및 변경 데이터 캡처에 대해 알아봅니다.
+title: Azure SQL Edge에서 데이터 변경 내용 추적
+description: Azure SQL Edge의 변경 내용 추적 및 변경 데이터 캡처에 대해 알아봅니다.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6d0a081f2b0adb143a6b37a647a00014846f8fe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d5d5f74a816bf745faf5decf761cd453f40123
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669599"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900063"
 ---
-# <a name="track-data-changes-in-azure-sql-edge-preview"></a>Azure SQL Edge에서 데이터 변경 내용 추적 (미리 보기)
+# <a name="track-data-changes-in-azure-sql-edge"></a>Azure SQL Edge에서 데이터 변경 내용 추적
 
 Azure SQL Edge는 데이터베이스의 데이터 변경 내용을 추적 하는 두 가지 SQL Server 기능 ( [변경 내용 추적](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Tracking) 및 변경 [데이터 캡처](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture))을 지원 합니다. 이러한 기능을 통해 응용 프로그램은 데이터베이스의 사용자 테이블에 대해 수행 된 데이터 수정 언어 변경 내용 (삽입, 업데이트 및 삭제 작업)을 확인할 수 있습니다. 동일한 데이터베이스에서 변경 데이터 캡처 및 변경 내용 추적을 사용 하도록 설정할 수 있습니다. 특별한 고려 사항은 필요하지 않습니다.
 
@@ -36,7 +36,7 @@ Azure SQL Edge는 데이터베이스의 데이터 변경 내용을 추적 하는
 
 변경 된 데이터를 쿼리하고 작업 하는 방법을 이해 하려면 [변경 데이터 작업](https://docs.microsoft.com/sql/relational-databases/track-changes/work-with-change-data-sql-server)을 참조 하세요.
 
-## <a name="change-tracking"></a>Change tracking
+## <a name="change-tracking"></a>변경 내용 추적
 
 이 기능의 작동 방식에 대 한 세부 정보를 이해 하려면 [변경 내용 추적 정보](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)를 참조 하세요.
 
@@ -60,10 +60,10 @@ Azure SQL Edge는 SQL Server의 temporal 테이블 기능도 지원 합니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure SQL Edge의 데이터 스트리밍 (미리 보기)](stream-data.md)
-- [Azure SQL Edge(미리 보기)에서 ONNX를 통한 기계 학습 및 AI](onnx-overview.md)
-- [Azure SQL Edge로 복제 구성 (미리 보기)](configure-replication.md)
-- [Azure SQL Edge에서 데이터베이스 백업 및 복원 (미리 보기)](backup-restore.md)
+- [Azure SQL Edge의 데이터 스트리밍 ](stream-data.md)
+- [Azure SQL Edge에서 ONNX를 사용 하는 기계 학습 및 AI ](onnx-overview.md)
+- [Azure SQL Edge로 복제 구성](configure-replication.md)
+- [Azure SQL Edge에서 데이터베이스 백업 및 복원](backup-restore.md)
 
 
 

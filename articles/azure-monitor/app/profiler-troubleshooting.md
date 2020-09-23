@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa9b186e74ed3b8fe5496afd5b21c54f50537d5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9acd322c454002613e21e8591c3e83aeec2d51e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049781"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979387"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
@@ -79,12 +79,12 @@ Profiler가 제대로 작동하도록 하려면 다음 조건을 충족해야 �
    1. **도구** 메뉴에서 **웹 작업 대시보드**를 선택합니다.  
       **웹 작업** 창이 열립니다. 
    
-      ![profiler-webjob]   
+      ![스크린샷에는 작업의 이름, 상태 및 마지막 실행 시간이 표시 되는 WebJobs 창이 표시 됩니다.][profiler-webjob]   
    
    1. 로그를 포함 하 여 webjob의 세부 정보를 보려면 **ApplicationInsightsProfiler3** 링크를 선택 합니다.  
      **지속적인 웹 작업 세부 정보** 창이 열립니다.
 
-      ![profiler-webjob-log]
+      ![연속 WebJob 세부 정보 창이 표시 됩니다.][profiler-webjob-log]
 
 프로파일러가 작동 하지 않는 이유를 알 수 없는 경우 로그를 다운로드 하 여 팀에 보내 도움을 받을 수 있습니다 serviceprofilerhelp@microsoft.com . 
     
@@ -168,7 +168,7 @@ Azure Diagnostics를 구성하는 데 사용된 설정을 확인하려면 다음
 
 1. Profiler 명령줄의 ikey가 올바른지 확인합니다. 
 
-1. 파일 *의 이전config.js* 에 있는 경로를 사용 하 여 **BootstrapN**라는 프로파일러 로그 파일을 확인 합니다. 이 파일에는 Profiler가 사용하는 설정을 나타내는 디버그 정보가 표시됩니다. 또한 Profiler의 상태 및 오류 메시지도 표시됩니다.  
+1. 파일 * 의 이전config.js* 에 있는 경로를 사용 하 여 **BootstrapN**라는 프로파일러 로그 파일을 확인 합니다. 이 파일에는 Profiler가 사용하는 설정을 나타내는 디버그 정보가 표시됩니다. 또한 Profiler의 상태 및 오류 메시지도 표시됩니다.  
 
     Vm의 경우 파일은 일반적으로 다음 위치에 있습니다.
     ```

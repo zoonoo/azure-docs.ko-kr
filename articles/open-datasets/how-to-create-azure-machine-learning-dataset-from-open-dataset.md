@@ -8,15 +8,14 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 0725a97aecab5d03c2f5e3937c181a95a7b97c2a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c90d11ba630dbb1e37054715855ae5547a8a034b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461513"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902725"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Azure Open 데이터 집합에서 Azure Machine Learning 데이터 집합 만들기
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) 데이터 집합 및 [Azure Open 데이터 집합](https://docs.microsoft.com/azure/open-datasets/)을 사용 하 여 큐 레이트 보강 데이터를 로컬 또는 원격 기계 학습 실험으로 가져오는 방법에 대해 알아봅니다. 
 
@@ -38,7 +37,7 @@ Azure Open 데이터 집합은 예측 솔루션을 보강 하 고 정확성을 �
 개방형 데이터 집합은 Microsoft Azure의 클라우드에 있으며 [Azure Machine Learning PYTHON SDK](#create-datasets-with-the-sdk) 및 [Azure Machine Learning studio](#create-datasets-with-the-studio)에 모두 포함 되어 있습니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 다음이 필요 합니다.
 

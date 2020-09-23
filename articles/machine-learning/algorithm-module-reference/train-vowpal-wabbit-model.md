@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 34caefba5bae660ca150f6e447b1d59b7174c768
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6bc9f69440be772910ea8200b5ccf7d5a5122ae6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857741"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907802"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Vowpal Wabbit 모델 학습
-이 문서에서는 Vowpal Wabbit를 사용 하 여 기계 학습 모델을 만들기 위해 Azure Machine Learning designer (미리 보기)에서 **Vowpal Wabbit 모델 학습** 모듈을 사용 하는 방법을 설명 합니다.  
+이 문서에서는 Azure Machine Learning designer에서 **Vowpal Wabbit 모델 학습** 모듈을 사용 하 여 Vowpal Wabbit를 사용 하 여 기계 학습 모델을 만드는 방법을 설명 합니다.  
 
 기계 학습에 Vowpal Wabbit를 사용 하려면 Vowpal Wabbit 요구 사항에 따라 입력 형식을 지정 하 고 필요한 형식으로 데이터를 준비 합니다. 이 모듈을 사용 하 여 Vowpal Wabbit 명령줄 인수를 지정 합니다. 
 
@@ -112,7 +112,7 @@ Vowpal Wabbit은 모든 데이터, 즉 텍스트 데이터뿐 아니라 다른 �
 
 다음 매개 변수는 지원 되지 않습니다.
 
--   에 지정 된 입력/출력 옵션[https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
+-   에 지정 된 입력/출력 옵션 [https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
   
      이러한 속성은 이미 모듈에 의해 자동으로 구성 됩니다.  
   
@@ -120,7 +120,7 @@ Vowpal Wabbit은 모든 데이터, 즉 텍스트 데이터뿐 아니라 다른 �
   
 -   감독 된 학습 알고리즘만 지원 됩니다. 따라서, 등의 옵션은 지원 되지 *`–active`* 않습니다 `--rank` . *`--search`* 
 
-### <a name="restrictions"></a>제한 사항
+### <a name="restrictions"></a>제한
 
 서비스의 목표가 숙련 된 Vowpal Wabbit 사용자를 지원 하기 때문에 입력 데이터는 다른 모듈에서 사용 하는 데이터 집합 형식이 아니라 Vowpal Wabbit 네이티브 텍스트 형식을 사용 하 여 미리 준비 해야 합니다.
 

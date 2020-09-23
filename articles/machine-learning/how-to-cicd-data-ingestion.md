@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 7a52dcabb448c39d9ae4e4edb4f5b7f701be6603
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 47b41e807c4d7b9a9fce6591da6655db74f483f3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228888"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971259"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>데이터 수집 파이프라인에 대 한 DevOps
 
@@ -168,11 +168,11 @@ labels = np.array(data['target'])
 
 이 이름은 ***Dev***, ***QA***, ***UAT***및 ***PROD*** 환경에서 서로 다릅니다. 여러 작업을 포함 하는 복잡 한 파이프라인에서 여러 사용자 지정 속성을 사용할 수 있습니다. 모든 값을 한 곳에서 수집 하 고 파이프라인 ***변수로***정의 하는 것이 좋습니다.
 
-![adf-변수](media/how-to-cicd-data-ingestion/adf-variables.png)
+![스크린샷은 새 변수를 추가 하는 옵션을 사용 하 여 아래에서 변수 탭을 선택 하 고, 각각 이름, 형식 및 기본값을 사용 하 여 새 변수를 추가 하는 옵션을 사용 하 여 아래에 있는 변수 탭을 사용 하 여 맨 위에 있는 m L 실행 파이프라인 이라는](media/how-to-cicd-data-ingestion/adf-variables.png)
 
 파이프라인 활동은 실제로 사용 하는 동안 파이프라인 변수를 참조할 수 있습니다.
 
-![adf-노트북-매개 변수](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
+![스크린샷에는 PrepareData 및 m l 실행 파이프라인 이라는 노트북을 보여 줍니다 .이 파이프라인은 위에서 선택한 설정 탭을 사용 하 여 위쪽에 실행 파이프라인을 실행 합니다.](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
 Azure Data Factory 작업 영역은 파이프라인 변수를 기본적으로 Azure Resource Manager 템플릿 매개 변수로 노출 ***하지 않습니다*** . 작업 영역에서는 Azure Resource Manager 템플릿 매개 변수로 노출 되어야 하는 파이프라인 속성을 지시 하는 [기본 매개 변수화 템플릿을](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) 사용 합니다. 파이프라인 변수를 목록에 추가 하려면 `"Microsoft.DataFactory/factories/pipelines"` 다음 코드 조각을 사용 하 여 [기본 매개 변수화 템플릿](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) 섹션을 업데이트 하 고 결과 json 파일을 원본 폴더의 루트에 저장 합니다.
 

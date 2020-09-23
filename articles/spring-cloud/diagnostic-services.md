@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 56f392210aac6045a9dc8cc3522d36092162f26c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086118"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892574"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정을 사용 하 여 로그 및 메트릭 분석
+
+이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
 
 Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스 중 하나를 사용 하 여 로그 및 메트릭을 분석할 수 있습니다.
 
@@ -25,11 +27,11 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
 모니터링할 로그 범주 및 메트릭 범주를 선택 합니다.
 
 > [!TIP]
-> 로그를 스트리밍하 시겠습니까? 이 [Azure CLI 명령을](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)확인 하세요.
+> 로그를 스트리밍하 시겠습니까? 이 [Azure CLI 명령을](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs)확인 하세요.
 
 ## <a name="logs"></a>로그
 
-|로그 | Description |
+|로그 | 설명 |
 |----|----|
 | **ApplicationConsole** | 모든 고객 응용 프로그램의 콘솔 로그입니다. |
 | **SystemLogs** | 현재이 범주에는 [스프링 클라우드 구성 서버](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) 로그만 있습니다. |
@@ -106,7 +108,7 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
     | limit 50
     ```
 > [!NOTE]
-> `==`는 대/소문자를 구분 하지만 `=~` 는 그렇지 않습니다.
+> `==` 는 대/소문자를 구분 하지만 `=~` 는 그렇지 않습니다.
 
 Log Analytics에서 사용 되는 쿼리 언어에 대 한 자세한 내용은 [로그 쿼리 Azure Monitor](../azure-monitor/log-query/query-language.md)를 참조 하세요.
 
@@ -203,3 +205,7 @@ AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
 다른 Java 로그 라이브러리에 대해 동일한 전략을 사용할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+* [빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포](spring-cloud-quickstart.md)

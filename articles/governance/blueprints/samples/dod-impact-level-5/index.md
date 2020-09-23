@@ -1,14 +1,14 @@
 ---
 title: DoD 영향 수준 5 청사진 샘플 개요
 description: DoD 영향 수준 5 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 DoD 영향 수준 5 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 0889da5f0eb9d177589d8ebc6a9a17b61fec624b
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 15e2c5990ba32363441f8ca7cd19672cadc16d51
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85804376"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978095"
 ---
 # <a name="overview-of-the-dod-impact-level-5-blueprint-sample"></a>DoD 영향 수준 5 청사진 샘플의 개요
 

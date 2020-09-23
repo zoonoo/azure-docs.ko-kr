@@ -13,12 +13,12 @@ ms.custom:
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 10c7abf7349a3b2419e81459866920f20c3af6f7
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ca32426b2f3f6251d699c9249b8c6dfdc8fdb4eb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182734"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901917"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Node.js를 사용하여 Azure Database for PostgreSQL - 단일 서버의 데이터 연결 및 쿼리
 
@@ -52,7 +52,7 @@ PostgreSQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가�
 
 1. 서버의 **개요** 패널에서 **서버 이름**과 **관리자 사용자 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
 
-   ![Azure Database for PostgreSQL 연결 문자열](./media/connect-nodejs/server-details-azure-database-postgresql.png)
+   :::image type="content" source="./media/connect-nodejs/server-details-azure-database-postgresql.png" alt-text="Azure Database for PostgreSQL 연결 문자열":::
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Node.js에서 JavaScript 코드 실행
 `node`를 입력하여 bash 셸, 터미널 또는 Windows 명령 프롬프트에서 Node.js를 시작한 다음, 예시 JavaScript 코드를 복사하여 프롬프트에 붙여넣어 대화형으로 실행할 수 있습니다. 또는 JavaScript 코드를 텍스트 파일로 저장하고 파일 이름을 매개 변수로 지정한 `node filename.js`를 시작하여 실행할 수 있습니다.

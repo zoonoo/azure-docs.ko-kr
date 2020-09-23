@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: a9303909eb98fc0ff2d7582fa7f5807a879e7958
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9fb0c02bcf040b1d27831e72d31ff07a7c38ad0a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182685"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901811"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Python을 사용하여 Azure Database for PostgreSQL - 단일 서버의 데이터 연결 및 쿼리
 
@@ -25,7 +25,7 @@ ms.locfileid: "88182685"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 활성 구독이 있는 Azure 계정. [평가판 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 - [빠른 시작: Azure Portal에서 Azure Database for PostgreSQL 서버 만들기](quickstart-create-server-database-portal.md) 또는 [빠른 시작: Azure CLI를 사용하여 Azure Database for PostgreSQL 만들기](quickstart-create-server-database-azure-cli.md)의 단계를 사용하여 만든 Azure Database for PostgreSQL - 단일 서버
   
@@ -46,7 +46,7 @@ Azure Database for PostgreSQL 데이터베이스에 연결하려면 정규화된
    
    관리자 암호도 필요합니다. 이 암호를 잊어버린 경우 이 페이지에서 다시 설정할 수 있습니다. 
    
-   ![Azure Database for PostgreSQL 서버 이름](./media/connect-python/1-connection-string.png)
+   :::image type="content" source="./media/connect-python/1-connection-string.png" alt-text="Azure Database for PostgreSQL 서버 이름":::
 
 ## <a name="how-to-run-the-python-examples"></a>Python 예제를 실행하는 방법
 
@@ -105,7 +105,7 @@ conn.close()
 
 코드가 성공적으로 실행되면 다음과 같은 출력이 생성됩니다.
 
-![명령줄 출력](media/connect-python/2-example-python-output.png)
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="명령줄 출력":::
 
 ## <a name="read-data"></a>데이터 읽기
 다음 코드 예제에서는 Azure Database for PostgreSQL 데이터베이스에 연결하고 [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute)와 SQL **SELECT**를 사용하여 데이터를 읽습니다. 이 함수는 쿼리를 허용하며, [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall)을 사용하여 반복할 결과 세트를 반환합니다. 

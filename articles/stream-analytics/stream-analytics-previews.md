@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: e11d5b14bdf6b134fefea79a1f709ec73499bd20
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 0020efea69fc684ff6ebebf286718aa2a720910e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815711"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900803"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -25,10 +25,6 @@ ms.locfileid: "88815711"
 ### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>관리 ID를 사용하여 SQL Database 출력에 인증
 
 Azure Stream Analytics는 Azure SQL Database 출력 싱크에 대한 [관리 ID 인증](../active-directory/managed-identities-azure-resources/overview.md)을 지원합니다. 관리 id를 사용 하면 암호 변경으로 인해 다시 인증 해야 하는 것과 같은 사용자 기반 인증 방법의 제한 사항이 제거 됩니다. 
-
-### <a name="output-to-azure-synapse-analytics"></a>Azure Synapse Analytics에 출력
-
-Azure Stream Analytics 작업은 [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)의 SQL 풀 테이블로 출력될 수 있으며 최대 200MB/초의 속도로 처리할 수 있습니다. 이는 보고 및 대시보드와 같은 워크로드를 위한 가장 까다로운 실시간 분석 및 핫 경로 데이터 처리 요구를 지원합니다.  
 
 ### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Azure Machine Learning에서 관리하는 사용자 지정 ML 모델을 사용하는 실시간 고성능 점수 매기기
 
@@ -52,7 +48,7 @@ Azure Stream Analytics용 Visual Studio 도구는 이벤트 허브 또는 IoT �
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Azure Stream Analytics용 Visual Studio Code
 
-Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다. [VS Code 시작 자습서](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code)를 참조하세요.
+Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다. [VS Code 시작 자습서](https://docs.microsoft.com/azure/stream-analytics/quick-create-visual-studio-code)를 참조하세요.
 
 ### <a name="local-testing-with-live-data-in-visual-studio-code"></a>Visual Studio Code의 라이브 데이터를 사용하여 로컬 테스트
 

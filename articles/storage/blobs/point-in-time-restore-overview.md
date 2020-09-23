@@ -1,27 +1,29 @@
 ---
-title: 블록 Blob에 대한 지정 시간 복원(미리 보기)
+title: 블록 blob에 대 한 지정 시간 복원
 titleSuffix: Azure Storage
 description: 블록 blob에 대 한 지정 시간 복원은 지정 된 시간에 저장소 계정을 이전 상태로 복원할 수 있도록 하 여 실수로 인 한 삭제 또는 손상 으로부터 보호 합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/18/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1187b01fa623264055edecf21ea5c9d35d59a152
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068305"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987038"
 ---
-# <a name="point-in-time-restore-for-block-blobs-preview"></a>블록 Blob에 대한 지정 시간 복원(미리 보기)
+# <a name="point-in-time-restore-for-block-blobs"></a>블록 blob에 대 한 지정 시간 복원
 
 지정 시간 복원은 블록 blob 데이터를 이전 상태로 복원할 수 있도록 하 여 실수로 인 한 삭제 또는 손상 으로부터 보호 합니다. 특정 시점 복원은 사용자 또는 응용 프로그램이 실수로 데이터를 삭제 하거나 응용 프로그램 오류로 인해 데이터가 손상 되는 경우에 유용 합니다. 또한 지정 시간 복원은 추가 테스트를 실행 하기 전에 데이터 집합을 알려진 상태로 되돌려야 하는 테스트 시나리오를 가능 하 게 합니다.
 
-저장소 계정에 대 한 지정 시간 복원을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [블록 blob에 대 한 지정 시간 복원 설정 및 관리 (미리 보기)](point-in-time-restore-manage.md)를 참조 하세요.
+특정 시점 복원은 범용 v2 저장소 계정에 대해서만 지원 됩니다. 핫 및 쿨 액세스 계층의 데이터만 지정 시간 복원을 사용 하 여 복원할 수 있습니다.
+
+저장소 계정에 대 한 지정 시간 복원을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [블록 blob 데이터에 지정 시간 복원 수행](point-in-time-restore-manage.md)을 참조 하세요.
 
 ## <a name="how-point-in-time-restore-works"></a>특정 시점 복원 작동 방법
 
@@ -48,17 +50,15 @@ Azure Storage는 UTC 시간 및 현재 순간에 지정 된 요청 된 복원 �
 > 저장소 계정이 지리적으로 복제 되는 경우 보조 위치에서 읽기 작업은 복원 작업 중에 진행할 수 있습니다.
 
 > [!CAUTION]
-> 지정 시간 복원은 블록 Blob에 대한 작업만 복원하도록 지원합니다. 컨테이너에 대한 작업은 복원할 수 없습니다. 지정 시간 복원 미리 보기 중에 [컨테이너 삭제](/rest/api/storageservices/delete-container) 작업을 호출하여 스토리지 계정에서 컨테이너를 삭제하면 해당 컨테이너는 복원 작업을 통해 복원할 수 없습니다. 미리 보기 중에는, Blob을 복원해야 할 수도 있으면 컨테이너를 삭제하는 대신 개별 Blob을 삭제하는 것이 좋습니다.
+> 지정 시간 복원은 블록 Blob에 대한 작업만 복원하도록 지원합니다. 컨테이너에 대한 작업은 복원할 수 없습니다. 컨테이너 [삭제](/rest/api/storageservices/delete-container) 작업을 호출 하 여 저장소 계정에서 컨테이너를 삭제 하는 경우 해당 컨테이너는 복원 작업을 통해 복원할 수 없습니다. 컨테이너를 삭제 하는 대신, 개별 blob을 복원 하는 것이 좋습니다.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>지정 시간 복원에 대 한 필수 조건
 
-지정 시간 복원을 사용 하려면 다음 Azure Storage 기능을 사용 하도록 설정 해야 합니다.
+지정 시간 복원을 사용 하려면 지정 시간 복원을 사용 하도록 설정 하기 전에 다음과 같은 Azure Storage 기능을 사용 하도록 설정 해야 합니다.
 
 - [일시 삭제](soft-delete-overview.md)
-- [변경 피드(미리 보기)](storage-blob-change-feed.md)
+- [변경 피드](storage-blob-change-feed.md)
 - [Blob 버전 관리](versioning-overview.md)
-
-지정 시간 복원을 사용 하기 전에 저장소 계정에 이러한 기능을 사용 하도록 설정 합니다. 변경 피드 및 Blob 버전 관리 미리 보기를 사용하도록 설정하기 전에 먼저 등록해야 합니다.
 
 ### <a name="retention-period-for-point-in-time-restore"></a>지정 시간 복원에 대 한 보존 기간
 
@@ -72,83 +72,17 @@ Azure Storage는 UTC 시간 및 현재 순간에 지정 된 요청 된 복원 �
 
 복원 작업을 시작 하려면 클라이언트에 저장소 계정의 모든 컨테이너에 대 한 쓰기 권한이 있어야 합니다. Azure Active Directory (Azure AD)를 사용 하 여 복원 작업에 권한을 부여 하는 권한을 부여 하려면 저장소 계정, 리소스 그룹 또는 구독 수준에서 보안 주체에 **저장소 계정 참가자** 역할을 할당 합니다.
 
-## <a name="about-the-preview"></a>미리 보기 정보
+## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 
-특정 시점 복원은 범용 v2 저장소 계정에 대해서만 지원 됩니다. 핫 및 쿨 액세스 계층의 데이터만 지정 시간 복원을 사용 하 여 복원할 수 있습니다.
+블록 blob에 대 한 지정 시간 복원에는 다음과 같은 제한 사항 및 알려진 문제가 있습니다.
 
-다음 지역에서는 미리 보기의 지정 시간 복원을 지원 합니다.
-
-- 캐나다 중부
-- 캐나다 동부
-- 프랑스 중부
-
-미리 보기에는 다음과 같은 제한 사항이 포함 되어 있습니다.
-
-- 프리미엄 블록 blob 복원은 지원 되지 않습니다.
-- 보관 계층에서 Blob 복원은 지원되지 않습니다. 예를 들어 핫 계층의 Blob을 2일 전에 보관 계층으로 이동하고 복원 작업이 3일 전 지점으로 복원하면 Blob이 핫 계층으로 복원되지 않습니다.
+- 표준 범용 v2 저장소 계정의 블록 blob만 지정 시간 복원 작업의 일부로 복원할 수 있습니다. 추가 blob, 페이지 blob 및 premium 블록 blob은 복원 되지 않습니다. 보존 기간 동안 컨테이너를 삭제 한 경우 해당 컨테이너는 지정 시간 복원 작업으로 복원 되지 않습니다. 컨테이너를 삭제 하지 못하도록 보호 하는 방법에 대 한 자세한 내용은 [컨테이너의 일시 삭제 (미리 보기)](soft-delete-container-overview.md)를 참조 하세요.
+- 지정 시간 복원 작업에서 핫 또는 쿨 계층의 블록 blob만 복원할 수 있습니다. 보관 계층에서 블록 blob을 복원 하는 것은 지원 되지 않습니다. 예를 들어 핫 계층의 Blob을 2일 전에 보관 계층으로 이동하고 복원 작업이 3일 전 지점으로 복원하면 Blob이 핫 계층으로 복원되지 않습니다. 보관 된 blob을 복원 하려면 먼저 보관 계층 외부로 이동 합니다.
+- 복원할 범위의 블록 blob에 활성 임대가 있는 경우 지정 시간 복원 작업이 실패 합니다. 복원 작업을 시작 하기 전에 활성 임대를 중단 합니다.
 - Azure Data Lake Storage Gen2 플랫 및 계층적 네임 스페이스는 복원할 수 없습니다.
-- 고객이 제공한 키를 사용 하 여 저장소 계정을 복원 하는 것은 지원 되지 않습니다.
 
 > [!IMPORTANT]
-> 지정 시간 복원 미리 보기는 비프로덕션 용도로만 사용해야 합니다. 현재 프로덕션 SLA(서비스 수준 계약)는 사용할 수 없습니다.
-
-### <a name="register-for-the-preview"></a>미리 보기에 등록
-
-미리 보기에 등록 하려면 다음 명령을 실행 합니다.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-# Register for the point-in-time restore preview
-Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
-
-# Register for change feed (preview)
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-
-# Register for Blob versioning
-Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
-az feature register --namespace Microsoft.Storage --name Changefeed
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-registration-status"></a>등록 상태 확인
-
-지정 시간 복원에 대 한 등록은 자동 이며 10 분 이내에 수행 되어야 합니다. 등록 상태를 확인 하려면 다음 명령을 실행 합니다.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName RestoreBlobRanges
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Changefeed
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/RestoreBlobRanges')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
-```
-
----
+> 블록 blob을 2020 년 9 월 22 일 이전 지점으로 복원 하는 경우 지정 시간 복원에 대 한 미리 보기 제한이 적용 됩니다. 일반적으로 사용 가능한 지정 시간 복원 기능을 활용 하려면 2020 년 9 월 22 일 이상인 복원 지점을 선택 하는 것이 좋습니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
@@ -158,13 +92,9 @@ az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning
 
 지정 시간 복원에 대 한 가격 책정에 대 한 자세한 내용은 [블록 blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조 하세요.
 
-## <a name="ask-questions-or-provide-feedback"></a>질문하기 또는 피드백 제공
-
-지정 시간 복원 미리 보기에 대해 문의 하거나 피드백을 제공 하려면 Microsoft에 문의 하세요 pitrdiscussion@microsoft.com .
-
 ## <a name="next-steps"></a>다음 단계
 
-- [블록 Blob에 대한 지정 시간 복원 설정 및 관리(미리 보기)](point-in-time-restore-manage.md)
-- [Azure Blob 스토리지의 변경 피드 지원(미리 보기)](storage-blob-change-feed.md)
+- [블록 blob 데이터에 지정 시간 복원 수행](point-in-time-restore-manage.md)
+- [Azure Blob Storage의 변경 피드 지원](storage-blob-change-feed.md)
 - [Blob에 일시 삭제를 사용하도록 설정](soft-delete-enable.md)
 - [Blob 버전 관리 설정 및 관리](versioning-enable.md)

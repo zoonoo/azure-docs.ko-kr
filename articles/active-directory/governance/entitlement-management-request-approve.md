@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4703a7d1928415d78eae63c42051542b035d3b1a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: ca42ddbc648f7c342b1cd649c19b77df803257d8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798361"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979787"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 요청 승인 또는 거부
 
@@ -48,6 +48,22 @@ Azure AD 자격 관리를 사용 하 여 액세스 패키지에 대 한 승인�
 1. 왼쪽 메뉴 **에서 승인을 클릭 하** 여 승인 보류 중인 액세스 요청 목록을 확인 합니다.
 
 1. **보류 중** 탭에서 요청을 찾습니다.
+
+## <a name="view-requestors-answers-to-questions-preview"></a>요청자의 질문에 대 한 답변 보기 (미리 보기)
+
+1. 내 액세스에서 **승인** 탭으로 이동 합니다.
+
+1. 승인 하려는 요청으로 이동 하 고 **세부 정보**를 클릭 합니다. 결정을 내릴 준비가 되었으면 **승인** 또는 **거부** 를 클릭할 수도 있습니다.
+
+1. **요청 정보**를 클릭 합니다.
+
+     ![내 액세스 포털-액세스 요청-클릭 요청 세부 정보](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+
+1. 요청자에 의해 제공 되는 정보는 패널의 맨 아래에 있습니다.
+
+     ![내 액세스 포털 - 액세스 요청](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+
+1. 요청자는 제공 된 정보에 따라 요청을 승인 하거나 거부할 수 있습니다. 지침은 요청 승인 또는 거부의 단계를 참조 하세요.
 
 ## <a name="approve-or-deny-request"></a>요청 승인 또는 거부
 
