@@ -3,12 +3,12 @@ title: Live Video Analytics on IoT Edge란? - Azure
 description: 이 항목에서는 Live Video Analytics on IoT Edge의 개요를 제공합니다. 이 플랫폼은 IoT 솔루션을 개선하는 데 사용할 수 있는 기능을 제공합니다. 예를 들어 라이브 비디오를 캡처, 기록, 분석하고 결과(비디오 및/또는 비디오 분석)를 Azure 서비스에 게시합니다.
 ms.topic: overview
 ms.date: 05/27/2020
-ms.openlocfilehash: 81a67322d0a5e524d75b9bf3e481be7157e09e63
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b9b8726c5e8ad6850e05aeee48fccabee703080e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266800"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904355"
 ---
 # <a name="what-is-live-video-analytics-on-iot-edge-preview"></a>Live Video Analytics on IoT Edge란? (미리 보기)
 
@@ -26,7 +26,10 @@ Live Video Analytics on IoT Edge를 사용하면 기존 [VMS(비디오 관리 �
 
 ## <a name="supported-environments"></a>지원되는 환경
 
-Linux AMD64 및 X64 환경이 지원됩니다.
+Linux x86-64 및 ARM64 환경이 지원됩니다.
+> [!NOTE]
+> ARM64 디바이스에 대한 지원은 빌드 `1.0.4` 이상에서 사용할 수 있습니다.
+> ARM64 디바이스에서 Azure IoT Edge 런타임을 실행하는 것에 대한 지원은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
 
 ## <a name="get-started"></a>시작하기
 

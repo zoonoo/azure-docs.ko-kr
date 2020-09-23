@@ -1,23 +1,23 @@
 ---
 title: Azure Arc 지원 서버에 대한 기본 제공 정책 정의
 description: Azure Arc 지원 서버(미리 보기)에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 15e7ab3e8b6f355f112aafe20afdea80f958fda8
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 792532c407687a84a4e90c34fd7d1c69ba0fcedd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007233"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967368"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers-preview"></a>Azure Arc 지원 서버(미리 보기)에 대한 Azure Policy 기본 제공 정의
+# <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers"></a>Azure Arc 사용 서버에 대 한 기본 제공 정의 Azure Policy
 
-이 페이지는 Azure Arc 지원 서버(미리 보기)에 대한 [Azure Policy](../../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../../governance/policy/samples/built-in-policies.md)를 참조하세요.
+이 페이지는 Azure Arc 사용 서버에 대 한 [Azure Policy](../../governance/policy/overview.md) 기본 제공 정책 정의의 인덱스입니다. 다른 서비스에 대한 추가 Azure Policy 기본 제공 기능은 [Azure Policy 기본 제공 정의](../../governance/policy/samples/built-in-policies.md)를 참조하세요.
 
 Azure Portal의 정책 정의에 대한 각 기본 제공 정책 정의 링크의 이름입니다. **Version** 열의 링크를 사용하여 [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)에서 원본을 봅니다.
 
-## <a name="azure-arc-enabled-servers-preview"></a>Azure Arc 사용 서버(미리 보기)
+## <a name="azure-arc-enabled-servers"></a>Azure Arc 지원 서버
 
 [!INCLUDE [azure-policy-reference-rp-arcserver](../../../includes/policy/reference/byrp/microsoft.hybridcompute.md)]
 

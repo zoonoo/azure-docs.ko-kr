@@ -10,15 +10,15 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: cd9b891212010d7e61c4a4eb64d8bf0660bbd69a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cd9af35e5b616f3f4d72405078782e1e88414c98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661646"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897346"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용하여 Azure Machine Learning의 작업 영역 만들기
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 Azure CLI를 사용하여 Azure Machine Learning 작업 영역을 만드는 방법을 알아봅니다. Azure CLI는 Azure 리소스를 관리하기 위한 명령을 제공합니다. CLI에 대한 Machine Learning 확장은 Azure Machine Learning 리소스를 사용하기 위한 명령을 제공합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "89661646"
 > [!IMPORTANT]
 > Azure Cloud Shell을 사용하는 경우 이 섹션을 건너뛸 수 있습니다. Cloud Shell은 Azure 구독에 로그인하는 계정을 사용하여 사용자를 자동으로 인증합니다.
 
-CLI에서 Azure 구독에 인증하는 방법에는 여러 가지가 있습니다. 가장 기본적인 방법은 브라우저를 사용하여 대화형으로 인증하는 것입니다. 대화형으로 인증하려면 명령줄 또는 터미널을 열고 다음 명령을 사용합니다.
+CLI에서 Azure 구독에 인증하는 방법에는 여러 가지가 있습니다. 가장 간단한 방법은 브라우저를 사용하여 대화형으로 인증하는 것입니다. 대화형으로 인증하려면 명령줄 또는 터미널을 열고 다음 명령을 사용합니다.
 
 ```azurecli-interactive
 az login
@@ -109,9 +109,6 @@ az group create --name <resource-group-name> --location <location>
 
 __서비스가 자동으로 생성되는__ 새 작업 영역을 만들려면 다음 명령을 사용합니다.
 
-> [!TIP]
-> 이 섹션의 명령은 기본 버전 작업 영역을 만듭니다. 엔터프라이즈 작업 영역을 만들려면 `az ml workspace create` 명령과 함께 `--sku enterprise` 스위치를 사용합니다. Azure Machine Learning 버전에 관한 자세한 내용은 [Azure Machine Learning이란?](overview-what-is-azure-ml.md#sku)을 참조하세요.
-
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
@@ -161,7 +158,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 
 기본적으로 작업 영역에 대 한 메트릭 및 메타 데이터는 Microsoft에서 유지 관리 하는 Azure Cosmos DB 인스턴스에 저장 됩니다. 이 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 암호화 됩니다. 
 
-Azure Machine Learning의 __엔터프라이즈__ 버전을 만드는 경우 사용자 고유의 키 제공을 사용할 수 있습니다. 이렇게 하면 Azure 구독에 메트릭 및 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다. `--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 URL을 지정 합니다.
+Microsoft에서 관리 하는 키를 사용 하는 대신 사용자 고유의 키 제공을 사용할 수 있습니다. 이렇게 하면 Azure 구독에 메트릭 및 메타 데이터를 저장 하는 Azure Cosmos DB 인스턴스가 만들어집니다. `--cmk-keyvault`매개 변수를 사용 하 여 키를 포함 하는 Azure Key Vault를 지정 하 고 `--resource-cmk-uri` 자격 증명 모음 내에서 키의 URL을 지정 합니다.
 
 > [!IMPORTANT]
 > `--cmk-keyvault`및 `--resource-cmk-uri` 매개 변수를 사용 하기 전에 먼저 다음 작업을 수행 해야 합니다.

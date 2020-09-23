@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 4618bb4ba65c48808bc738b51c90a6fd04f0eca3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 63acffd16fa4374d4f8541a9d3327b29a3641f71
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659630"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895794"
 ---
 # <a name="connect-data-sources"></a>데이터 원본 연결
 
@@ -38,6 +38,7 @@ Azure 센티널을 사용 하도록 설정 하 고 나면 먼저 데이터 원�
 
    ![커넥터에 대 한 다음 단계](./media/collect-data/data-insights.png)
  
+
 ## <a name="data-connection-methods"></a>데이터 연결 메서드
 
 Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
@@ -49,7 +50,7 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
     - [Azure AD ID 보호](connect-azure-ad-Identity-protection.md)
     - [Microsoft Defender For Identity](connect-azure-atp.md) (이전의 Azure Advanced Threat Protection)
     - [Azure Information Protection](connect-azure-information-protection.md)
-    - [Azure Defender](connect-azure-security-center.md) (이전의 Azure Security Center)
+    - [Azure Security Center](connect-azure-security-center.md) -Azure Defender 솔루션의 경고
     - [Cloud App Security](connect-cloud-app-security.md)
     - [도메인 이름 서버](connect-dns.md)
     - [Office 365](connect-office-365.md)
@@ -135,7 +136,7 @@ Azure Sentinel에서는 다음 데이터 연결 방법이 지원됩니다.
 | WindowsFirewall | [Windows 방화벽 연결](connect-windows-firewall.md) | &#10003; | |
 | AADIP SecurityAlert  | [Azure AD ID 보호 연결](connect-azure-ad-identity-protection.md)  | &#10003; | |
 | AATP SecurityAlert  | [Id에 대해 Microsoft Defender 연결](connect-azure-atp.md) (이전 Azure ATP) | &#10003; | |
-| ASC SecurityAlert  | [Azure Defender 연결](connect-azure-security-center.md) (이전에 Azure Security Center)  | &#10003; | |
+| ASC SecurityAlert  | Azure Security Center에서 [Azure Defender 경고 연결](connect-azure-security-center.md)  | &#10003; | |
 | MCAS SecurityAlert  | [Microsoft Cloud App Security 연결](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
 | Sysmon(이벤트) | [Sysmon 연결](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Windows 이벤트 연결](../azure-monitor/platform/data-sources-windows-events.md) <br> [Sysmon Parser 가져오기](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon 컬렉션은 가상 머신에 기본적으로 설치되지 않습니다. Sysmon 에이전트를 설치하는 방법에 대한 자세한 내용은 [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon)을 참조하세요. |

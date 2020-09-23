@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 18ab9a4108d6d9effaa25fe69ce42a18ca4ba0dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75354426"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903846"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>자습서: Azure Pipelines를 사용하여 CI/CD를 통해 Azure Stream Analytics 작업 배포
 이 자습서에서는 Azure Pipelines를 사용하여 Azure Stream Analytics 작업의 연속 통합 및 배포를 설정하는 방법을 설명합니다. 
@@ -26,8 +26,12 @@ ms.locfileid: "75354426"
 > * Azure Pipelines에서 릴리스 파이프라인 만들기
 > * 애플리케이션 자동 배포 및 업그레이드
 
+> [!NOTE]
+> CI/CD NuGet은 더 이상 사용되지 않습니다. 최신 npm으로 마이그레이션하는 방법에 대한 자세한 내용은 [연속 통합 및 배포 개요](cicd-overview.md)를 참조하세요.
+
 ## <a name="prerequisites"></a>사전 요구 사항
-시작하기 전에 다음이 필요합니다.
+
+시작하기 전에 다음 단계를 마쳐야 합니다.
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 및 **Azure 개발** 또는 **데이터 스토리지 및 처리** 워크로드를 설치합니다.
@@ -63,9 +67,9 @@ ms.locfileid: "75354426"
     리포지토리를 게시하면 조직에 로컬 리포지토리와 같은 이름으로 새 프로젝트가 만들어집니다. 기존 프로젝트에서 리포지토리를 만들려면 **리포지토리** 이름 옆의 **고급**을 클릭하고 프로젝트를 선택합니다. **웹에서 확인하세요**를 선택하면 웹에서 코드를 볼 수 있습니다.
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Azure DevOps를 사용한 지속적인 업데이트 구성
-Azure Pipelines 빌드 파이프라인은 순차적으로 실행되는 빌드 단계로 구성된 워크플로를 설명합니다. [Azure Pipelines 빌드 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav)에 대해 자세히 알아봅니다. 
+Azure Pipelines 빌드 파이프라인은 순차적으로 실행되는 빌드 단계로 구성된 워크플로를 설명합니다. [Azure Pipelines 빌드 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav&preserve-view=true)에 대해 자세히 알아봅니다.
 
-Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인과 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 애플리케이션에서 종료할 때까지 전체 워크플로를 실행합니다. Azure Pipelines [릴리스 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)에 대해 자세히 알아봅니다.
+Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지를 클러스터에 배포하는 워크플로를 설명합니다. 빌드 파이프라인과 릴리스 파이프라인을 함께 사용할 경우 소스 파일로 시작하여 클러스터에서 실행 중인 애플리케이션에서 종료할 때까지 전체 워크플로를 실행합니다. Azure Pipelines [릴리스 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts&preserve-view=true)에 대해 자세히 알아봅니다.
 
 ### <a name="create-a-build-pipeline"></a>빌드 파이프라인 만들기
 웹 브라우저를 열고 [Azure DevOps](https://app.vsaex.visualstudio.com/)에서 방금 만든 프로젝트로 이동합니다. 
@@ -121,7 +125,7 @@ Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지�
     |리소스 그룹  |  리소스 그룹 이름을 입력합니다.   |
     |템플릿  | [솔루션 경로]\bin\Debug\Deploy\\[프로젝트 이름].JobTemplate.json   |
     |템플릿 매개 변수  | [솔루션 경로]\bin\Debug\Deploy\\[프로젝트 이름].JobTemplate.parameters.json   |
-    |템플릿 매개 변수 재정의  | 텍스트 상자에 재정의할 템플릿 매개 변수를 입력합니다. 예: –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). 이 속성은 선택 사항이지만 키 매개 변수를 재정의하지 않으면 빌드에 오류가 발생합니다.    |
+    |템플릿 매개 변수 재정의  | 텍스트 상자에 재정의할 템플릿 매개 변수를 입력합니다. 예: `–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre)`. 이 속성은 선택 사항이지만 키 매개 변수를 재정의하지 않으면 빌드에 오류가 발생합니다.    |
     
     ![Azure 리소스 그룹 배포에 대한 속성 설정](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
@@ -158,7 +162,7 @@ Azure DevOps Services에 변경 내용을 푸시하면 빌드가 자동으로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Visual Studio용 Azure Stream Analytics 도구를 사용하여 지속적인 통합 및 배포 프로세스를 설정하는 방법에 대해 자세히 알아보려면 CI/CD 파이프라인 설정 문서를 계속 진행하세요.
+Visual Studio용 Azure Stream Analytics 도구를 사용하여 연속 통합 및 배포 프로세스를 설정하는 방법에 대해 자세히 알아보려면 CI/CD 파이프라인 설정 문서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Stream Analytics 도구를 사용하여 지속적으로 통합 및 개발](stream-analytics-tools-for-visual-studio-cicd.md)

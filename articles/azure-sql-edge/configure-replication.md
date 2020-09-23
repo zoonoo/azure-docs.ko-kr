@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Edge(미리 보기)로 복제 구성
-description: Azure SQL Edge (미리 보기)에 대 한 복제를 구성 하는 방법을 알아봅니다.
+title: Azure SQL Edge로 복제 구성
+description: Azure SQL Edge로 복제를 구성 하는 방법에 대해 알아봅니다.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: ad92f796205d84a372de610cb210bbf8878a6c9b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282775"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888426"
 ---
-# <a name="configure-replication-to-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)로 복제 구성 
+# <a name="configure-replication-to-azure-sql-edge"></a>Azure SQL Edge로 복제 구성 
 
 Azure SQL Edge 인스턴스를 단방향 트랜잭션 복제 또는 스냅숏 복제에 대 한 밀어넣기 구독자로 구성할 수 있습니다. 이 인스턴스는 트랜잭션 복제 구성의 게시자 또는 배포자로 작동할 수 없습니다. Azure SQL Edge는 병합 복제, 피어 투 피어 복제 또는 Oracle 게시를 지원 하지 않습니다.
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Database for MySQL에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Database for MySQL에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 09/04/2020
+ms.date: 09/10/2020
 ms.topic: sample
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 295791e247b742945f46d8ed166df420ec8a2dd3
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 679b4f6ca8960c735fec9b83c1a30152e6e95b2d
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489337"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019441"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대한 Azure Policy 규정 준수 컨트롤
 

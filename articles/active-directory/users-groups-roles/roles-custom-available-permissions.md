@@ -1,6 +1,6 @@
 ---
-title: 사용 가능한 사용자 지정 관리자 역할 권한-Azure AD | Microsoft Docs
-description: Id 관리를 위임 하기 위한 사용자 지정 관리자 역할 권한
+title: 앱 등록에 대 한 사용자 지정 역할 권한-Azure AD | Microsoft Docs
+description: 앱 등록을 관리 하기 위한 사용자 지정 관리자 역할 권한을 위임 합니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c11723efe3fac236fce49c1f92fa338d4e58b59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732109"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967683"
 ---
-# <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 등록 하위 형식 및 권한
+# <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대 한 응용 프로그램 등록 권한
 
 이 문서에는 Azure Active Directory (Azure AD)에서 사용자 지정 역할 정의에 대해 현재 사용 가능한 앱 등록 권한이 포함 되어 있습니다.
 
-## <a name="permissions-for-managing-single-directory-applications"></a>단일 디렉터리 응용 프로그램 관리 권한
+## <a name="permissions-for-managing-single-tenant-applications"></a>단일 테 넌 트 응용 프로그램을 관리 하기 위한 권한
 
-사용자 지정 역할에 대 한 사용 권한을 선택할 때 단일 디렉터리 응용 프로그램을 관리 하기 위해 액세스 권한을 부여할 수 있는 옵션이 있습니다. 단일 디렉터리 응용 프로그램은 응용 프로그램이 등록 된 Azure AD 조직의 사용자만 사용할 수 있습니다. 단일 디렉터리 응용 프로그램은 지원 되는 **계정 유형이** "이 조직 디렉터리의 계정 전용 계정"으로 설정 된 것으로 정의 됩니다. Graph API에서 단일 디렉터리 응용 프로그램은 signInAudience 속성을 "AzureADMyOrg"로 설정 합니다.
+사용자 지정 역할에 대 한 사용 권한을 선택할 때 단일 테 넌 트 응용 프로그램을 관리 하기 위해 액세스 권한을 부여할 수 있는 옵션이 있습니다. 단일 테 넌 트 응용 프로그램은 응용 프로그램이 등록 된 Azure AD 조직의 사용자만 사용할 수 있습니다. 단일 테 넌 트 응용 프로그램은 지원 되는 **계정 유형이** "이 조직 디렉터리의 계정 전용 계정"으로 설정 된 것으로 정의 됩니다. Graph API에서 단일 테 넌 트 응용 프로그램은 signInAudience 속성을 "AzureADMyOrg"로 설정 합니다.
 
-단일 디렉터리 응용 프로그램만 관리할 수 있는 액세스 권한을 부여 하려면 하위 형식 **응용 프로그램. myOrganization**에서 아래 권한을 사용 합니다. 예를 들어 microsoft. directory/applications. myOrganization/기본/업데이트입니다.
+단일 테 넌 트 응용 프로그램만 관리할 수 있는 액세스 권한을 부여 하려면 하위 형식 **응용 프로그램. myOrganization**에서 아래 권한을 사용 합니다. 예를 들어 microsoft. directory/applications. myOrganization/기본/업데이트입니다.
 
 일반 용어 하위 유형, 권한 및 속성 집합의 의미에 대 한 설명은 [사용자 지정 역할 개요](roles-custom-overview.md) 를 참조 하세요. 다음 정보는 응용 프로그램 등록에만 적용 됩니다.
 
@@ -95,7 +95,7 @@ ms.locfileid: "84732109"
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft. directory/응용 프로그램/m 속성/업데이트
 
-단일 디렉터리 및 다중 디렉터리 응용 프로그램의 모든 속성을 업데이트할 수 있습니다.
+단일 테 넌 트 및 다중 테 넌 트 응용 프로그램에 대 한 모든 속성을 업데이트할 수 있습니다.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>microsoft. directory/응용 프로그램. myOrganization/allProperties/update
 
@@ -103,7 +103,7 @@ ms.locfileid: "84732109"
 
 #### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
-단일 디렉터리 및 다중 디렉터리 응용 프로그램에서 지원 되는 계정 유형 (signInAudience) 속성을 업데이트 하는 기능입니다.
+단일 테 넌 트 및 다중 테 넌 트 응용 프로그램에서 지원 되는 계정 유형 (signInAudience) 속성을 업데이트 하는 기능입니다.
 
 ![이 권한은 인증 페이지에서 앱 등록 지원 계정 유형 속성에 대 한 액세스 권한을 부여 합니다.](./media/roles-custom-available-permissions/supported-account-types.png)
 
@@ -139,7 +139,7 @@ ms.locfileid: "84732109"
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>microsoft. directory/응용 프로그램. myOrganization/자격 증명/업데이트
 
-는 단일 디렉터리 응용 프로그램에 대해서만 microsoft. directory/응용 프로그램/자격 증명/업데이트와 동일한 권한을 부여 합니다.
+는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/응용 프로그램/자격 증명/업데이트와 동일한 권한을 부여 합니다.
 
 #### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.directory/applications/owners/update
 

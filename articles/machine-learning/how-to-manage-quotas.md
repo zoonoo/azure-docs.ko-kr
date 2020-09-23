@@ -11,15 +11,15 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141128"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897411"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Azure Machine Learning 리소스에 대한 할당량 관리 및 늘리기
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 [Azure Machine Learning](overview-what-is-azure-ml.md) 구독에 대 한 Azure 리소스의 미리 구성 된 제한과 관리할 수 있는 할당량에 대해 알아봅니다. 사기로 인해 예산이 초과되는 것을 방지하고 Azure 용량 제약 조건을 준수하려면 이러한 한도를 적용해야 합니다. 
 
@@ -99,8 +99,6 @@ ms.locfileid: "88141128"
 
 
 > [!NOTE]
-> 이는 Enterprise Edition 전용 기능입니다. 구독에 [Basic Edition과 Enterprise Edition](overview-what-is-azure-ml.md#sku) 작업 영역이 둘 다 있는 경우 이를 사용하여 엔터프라이즈 작업 영역에 대한 할당량만 설정할 수 있습니다. 기본 작업 영역에는 기본 동작인 구독 수준 할당량이 계속 적용됩니다.
->
 > 작업 영역 수준에서 할당량을 설정하려면 구독 수준 권한이 있어야 합니다. 이는 개별 작업 영역 소유자가 할당량을 편집하거나 늘리지 못하게 하고, 다른 작업 영역에 별도로 설정된 리소스를 침해하지 않도록 하기 위해 적용됩니다. 따라서 작업 영역 간에 이러한 할당량을 설정하고 분산하는 데 가장 적합한 역할은 구독 관리자입니다.
 
 

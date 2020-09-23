@@ -1,14 +1,14 @@
 ---
 title: 정책 할당 구조의 세부 정보
 description: Azure Policy에서 평가를 위해 리소스에 정책 정의 및 매개 변수를 연결 하는 데 사용 하는 정책 할당 정의에 대해 설명 합니다.
-ms.date: 08/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 969274d72724c8d0a8f10f86f614fe2c50d066f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520716"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904087"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
@@ -61,16 +61,19 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 이 속성의 값은 다음과 같습니다.
 
-|Mode |JSON 값 |형식 |수동으로 재구성 |활동 로그 항목 |설명 |
+|모드 |JSON 값 |형식 |수동으로 재구성 |활동 로그 항목 |설명 |
 |-|-|-|-|-|-|
 |사용 |기본값 |문자열 |예 |예 |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
-|사용 안 함 |DoNotEnforce |문자열 |예 |예 | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |
+|사용 안 함 |DoNotEnforce |문자열 |예 |아니요 | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |
 
 **EnforcementMode** 가 정책 또는 이니셔티브 정의에 지정 되지 않은 경우에는 _기본값_ 을 사용 합니다. **EnforcementMode** 가 _DoNotEnforce_로 설정 된 경우에도 [deployifnotexists](./effects.md#deployifnotexists) 정책에 대해 [재구성 작업](../how-to/remediate-resources.md) 을 시작할 수 있습니다.
 
 ## <a name="excluded-scopes"></a>제외 된 범위
 
-할당의 **범위** 는 모든 자식 리소스 컨테이너 및 자식 리소스를 포함 합니다. 자식 리소스 컨테이너 또는 자식 리소스에 정의가 적용 되지 않아야 하는 경우에는 **Notscopes**을 설정 하 여 계산에서 제외할 수 있습니다. 이 속성은 하나 이상의 리소스 컨테이너 또는 리소스를 평가에서 제외할 수 있도록 하는 배열입니다. **Notscopes** 은 초기 할당을 만든 후 추가 하거나 업데이트할 수 있습니다.
+할당의 **범위** 는 모든 자식 리소스 컨테이너 및 자식 리소스를 포함 합니다. 자식 리소스 컨테이너 또는 자식 리소스에 정의가 적용 되지 않아야 하는 경우에는 **Notscopes**을 설정 하 여 계산에서 _제외할_ 수 있습니다. 이 속성은 하나 이상의 리소스 컨테이너 또는 리소스를 평가에서 제외할 수 있도록 하는 배열입니다. **Notscopes** 은 초기 할당을 만든 후 추가 하거나 업데이트할 수 있습니다.
+
+> [!NOTE]
+> _제외_ 된 리소스 _는 제외 된 리소스와_ 다릅니다. 자세한 내용은 [Azure Policy 범위 이해](./scope.md)를 참조 하세요.
 
 ## <a name="policy-definition-id"></a>정책 정의 ID
 

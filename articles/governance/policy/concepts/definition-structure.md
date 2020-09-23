@@ -1,14 +1,14 @@
 ---
 title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 81e08e07236d445a4ca351a7d93e7851cad69ace
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648726"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895379"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -77,7 +77,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 > [!NOTE]
 > 정책 정의를 만들거나 업데이트하는 동안 **id**, **type**, **name**이 JSON 외부의 속성으로 정의되며 JSON 파일에는 필요하지 않습니다. SDK를 통해 정책 정의를 가져오면 **id**, **type**, **name** 속성이 JSON의 일부로 반환되지만 각각은 정책 정의와 관련된 읽기 전용 정보입니다.
 
-## <a name="type"></a>Type
+## <a name="type"></a>형식
 
 **Type** 속성을 설정할 수 없는 경우 SDK에서 반환 되 고 포털에 표시 되는 세 가지 값이 있습니다.
 
@@ -186,7 +186,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="strongtype"></a>strongType
 
-`metadata` 속성 안에 **strongType**을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType**은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType**에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>` 입니다. 예: `Microsoft.Network/virtualNetworks/subnets`.
+`metadata` 속성 안에 **strongType**을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType**은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType**에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>` 입니다. `Microsoft.Network/virtualNetworks/subnets`)을 입력합니다.
 
 **Get-AzResourceProvider**에서 반환하지 않는 일부 리소스 유형이 지원됩니다. 이러한 형식은 다음과 같습니다.
 
@@ -206,8 +206,10 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 정의 위치는 다음과 같습니다.
 
-- **구독** - 해당 구독 내의 리소스만 정책에 할당할 수 있습니다.
-- **관리 그룹**  - 하위 관리 그룹과 자식 구독 내의 리소스만 정책에 할당할 수 있습니다. 여러 구독에 정책 정의를 적용 하려는 경우 해당 위치는 구독을 포함 하는 관리 그룹 이어야 합니다.
+- **구독** -해당 구독 내의 리소스에는 정책 정의를 할당할 수 있습니다.
+- **관리 그룹** -자식 관리 그룹 및 자식 구독 내의 리소스만 정책 정의에 할당할 수 있습니다. 여러 구독에 정책 정의를 적용 하려는 경우 해당 위치는 각 구독이 포함 된 관리 그룹 이어야 합니다.
+
+자세한 내용은 [Azure Policy 범위 이해](./scope.md#definition-location)를 참조 하세요.
 
 ## <a name="policy-rule"></a>정책 규칙
 
@@ -576,16 +578,16 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 다음 함수는 정책 규칙에서 사용할 수 있지만 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용 하는 것과는 다릅니다.
 
 - `utcNow()` -ARM 템플릿과 달리이 속성은 _defaultValue_외부에서 사용할 수 있습니다.
-  - 범용 ISO 8601 DateTime 형식 'yyyy-MM-ddTHH : mm : ss.fffffffZ'의 현재 날짜와 시간으로 설정된 문자열을 반환합니다.
+  - 유니버설 ISO 8601 DateTime 형식으로 현재 날짜 및 시간으로 설정 된 문자열을 반환 합니다 `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
 
 다음 함수는 정책 규칙에서만 사용할 수 있습니다.
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **dateTime**: [필수] 문자열 - 범용 ISO 8601 DateTime 형식 'yyyy-MM-ddTHH:mm:ss.fffffffZ'의 문자열
-  - **numberOfDaysToAdd**: [필수] 정소 - 추가할 일수
+  - **datetime**: [Required] Universal ISO 8601 dateTime 형식의 문자열 문자열 `yyyy-MM-ddTHH:mm:ss.fffffffZ` 입니다.
+  - **Numberofdaystoadd**: [필수] 정수-더할 일 수입니다.
 - `field(fieldName)`
   - **fieldName**: [필수] 문자열 - 검색할 [field](#fields)의 이름
-  - If 조건에 의해 평가되는 리소스에서 해당 필드의 값을 반환합니다.
+  - If 조건에 의해 평가 되는 리소스에서 해당 필드의 값을 반환 합니다.
   - `field`는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
 - `requestContext().apiVersion`
   - 정책 평가를 트리거한 요청의 API 버전을 반환합니다(예: `2019-09-01`).

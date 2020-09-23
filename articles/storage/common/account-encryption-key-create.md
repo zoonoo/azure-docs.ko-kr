@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d60a6f9032a39ab4889ce0db154739c5cb3b540b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 726be3f0f8402404d0154336aaf7d5f09fefec10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070499"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967469"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>테이블 및 큐에 대해 고객이 관리 하는 키를 지 원하는 계정 만들기
 
-Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 Queue storage 및 Table storage는 서비스로 범위가 지정 되 고 Microsoft에서 관리 하는 키를 사용 합니다. 또한 고객이 관리 하는 키를 사용 하 여 큐 또는 테이블 데이터를 암호화할 수 있습니다. 큐 및 테이블에서 고객 관리 키를 사용 하려면 먼저 서비스 대신 계정으로 범위가 한정 된 암호화 키를 사용 하는 저장소 계정을 만들어야 합니다. 큐 및 테이블 데이터에 대 한 계정 암호화 키를 사용 하는 계정을 만든 후에는 해당 저장소 계정에 대 한 Azure Key Vault를 사용 하 여 고객 관리 키를 구성할 수 있습니다.
+Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화합니다. 기본적으로 Queue storage 및 Table storage는 서비스로 범위가 지정 되 고 Microsoft에서 관리 하는 키를 사용 합니다. 또한 고객이 관리 하는 키를 사용 하 여 큐 또는 테이블 데이터를 암호화할 수 있습니다. 큐 및 테이블에서 고객 관리 키를 사용 하려면 먼저 서비스 대신 계정으로 범위가 한정 된 암호화 키를 사용 하는 저장소 계정을 만들어야 합니다. 큐 및 테이블 데이터에 대 한 계정 암호화 키를 사용 하는 계정을 만든 후에는 해당 저장소 계정에 대 한 고객 관리 키를 구성할 수 있습니다.
 
 이 문서에서는 계정으로 범위가 지정 된 키에 의존 하는 저장소 계정을 만드는 방법을 설명 합니다. 계정을 처음 만들 때 Microsoft는 계정 키를 사용 하 여 계정의 데이터를 암호화 하 고 Microsoft는 키를 관리 합니다. 그런 다음 사용자 고유의 키를 제공 하 고, 키 버전을 업데이트 하 고, 키를 회전 하 고, 액세스 제어를 취소할 수 있는 기능을 포함 하 여, 계정에 대 한 고객 관리 키를 구성 하 여 이러한 혜택을 활용할 수 있습니다.
 
@@ -62,7 +62,7 @@ az feature register --namespace Microsoft.Storage \
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-N/A
+해당 없음
 
 ---
 
@@ -94,7 +94,7 @@ az feature show --namespace Microsoft.Storage \
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-N/A
+해당 없음
 
 ---
 
@@ -120,7 +120,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 # <a name="template"></a>[템플릿](#tab/template)
 
-N/A
+해당 없음
 
 ---
 
@@ -215,11 +215,7 @@ az storage account create \
 
 ---
 
-계정 암호화 키를 사용 하는 계정을 만든 후에는 다음 문서 중 하나를 참조 하 여 Azure Key Vault에서 고객 관리 키를 구성 합니다.
-
-- [Azure Portal을 사용하여 Azure Key Vault로 고객 관리형 키 구성](storage-encryption-keys-portal.md)
-- [PowerShell을 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성](storage-encryption-keys-powershell.md)
-- [Azure CLI를 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성](storage-encryption-keys-cli.md)
+계정 암호화 키를 사용 하는 계정을 만든 후 Azure Key Vault 또는 Key Vault 관리 되는 HSM (하드웨어 보안 모델) (미리 보기)에 저장 된 고객이 관리 하는 키를 구성할 수 있습니다. 주요 자격 증명 모음에 고객이 관리 하는 키를 저장 하는 방법에 대 한 자세한 내용은 [Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 암호화 구성](customer-managed-keys-configure-key-vault.md)을 참조 하세요. 관리 되는 HSM에서 고객이 관리 하는 키를 저장 하는 방법을 알아보려면 [관리 되는 hsm Azure Key Vault에 저장 된 고객 관리 키를 사용 하 여 암호화 구성 (미리 보기)](customer-managed-keys-configure-key-vault-hsm.md)을 참조 하세요.
 
 ## <a name="verify-the-account-encryption-key"></a>계정 암호화 키 확인
 
@@ -254,5 +250,6 @@ az storage account show /
 
 ## <a name="next-steps"></a>다음 단계
 
-- [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md) 
+- [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)
+- [Azure Storage 암호화를 위한 고객 관리 키](customer-managed-keys-overview.md)
 - [Azure Key Vault란](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

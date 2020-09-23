@@ -7,18 +7,20 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1c1ea19c22d003ed1aa7c3d3191ff20a69513bc5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 93fd286aa76a0409a515abbf8c9dabd88a9a65c4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299510"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904284"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Azure Spring Boot Actuator를 사용하여 앱 관리 및 모니터링
 
+**이 문서는 다음에 적용 됩니다.** ✔️ Java
+
 앱에 새 이진을 배포한 후 기능을 확인 하 고 실행 중인 응용 프로그램에 대 한 정보를 볼 수 있습니다. 이 문서에서는 Azure 스프링 클라우드에서 제공 하는 테스트 끝점에서 API에 액세스 하 여 앱에 대 한 프로덕션 준비 기능을 제공 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 Azure 스프링 클라우드 서비스에서 성공적으로 배포 하 고 부팅할 수 있는 스프링 부팅 2.x 응용 프로그램이 있다고 가정 합니다.  [빠른 시작: Azure Portal을 사용 하 여 기존 Azure 스프링 클라우드 응용 프로그램 시작을](spring-cloud-quickstart.md) 참조 하세요.
 
 ## <a name="verify-app-through-test-endpoint"></a>테스트 끝점을 통해 앱 확인
@@ -73,5 +75,7 @@ Maven 기반 프로젝트에 작동기를 추가 하려면 ' 스타터 ' 종속�
 기본 제공 되는 모든 끝점을 보려면 [끝점 노출](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html#production-ready-endpoints-exposing-endpoints) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 * [Azure 스프링 클라우드의 메트릭 이해](spring-cloud-concept-metrics.md)
-* [Azure 스프링 클라우드의 앱 상태 이해](spring-cloud-concept-app-status.md)
+* [Azure Spring Cloud의 앱 상태 이해](spring-cloud-concept-app-status.md)
+

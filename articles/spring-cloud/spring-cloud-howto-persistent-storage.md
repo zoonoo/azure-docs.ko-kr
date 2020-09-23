@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 1ff09941d07ecd6d62483b1fca59c9003ddbd159
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9d769cb6e2cc33df259da46a82ad27a8bfd9e74b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496273"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888516"
 ---
 # <a name="use-persistent-storage-in-azure-spring-cloud"></a>Azure Spring Cloud에서 영구 스토리지 사용
+
+이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
 
 Azure 스프링 클라우드는 응용 프로그램에 영구 및 임시의 두 가지 저장소 유형을 제공 합니다.
 

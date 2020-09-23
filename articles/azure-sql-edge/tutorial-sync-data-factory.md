@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory를 사용하여 Azure SQL Edge(미리 보기)에서 데이터 동기화
-description: Azure SQL Edge(미리 보기)와 Azure Blob 스토리지 간의 데이터 동기화에 대해 알아보기
+title: Azure Data Factory를 사용하여 Azure SQL Edge에서 데이터 동기화
+description: Azure SQL Edge와 Azure Blob 스토리지 간의 데이터 동기화에 대해 알아보기
 keywords: SQL Edge, SQL Edge에서 데이터 동기화, SQL Edge 데이터 팩터리
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 91bf2ba0957104b7ccba330f914734a362c3e309
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 672c9f0d5403ae27a26d58617dca44f0f1121411
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255435"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904157"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 SQL Edge에서 Azure Blob 스토리지로 데이터 동기화
 

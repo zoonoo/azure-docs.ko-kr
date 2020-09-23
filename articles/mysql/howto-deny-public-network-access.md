@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: f8156b01244012d78214f2ba8c49ed76dbceed6d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eb5c4e4c4dfb73b2f7c9dc9f2629296790790885
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118786"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896148"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mysql-using-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MySQL에서 공용 네트워크 액세스 거부
 
 이 문서에서는 모든 공용 구성을 거부 하도록 Azure Database for MySQL 서버를 구성 하 고 개인 끝점을 통해서만 연결을 허용 하 여 네트워크 보안을 강화 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
@@ -33,13 +33,13 @@ MySQL server Deny 공용 네트워크 액세스를 설정 하려면 다음 단�
 
 1. **공용 네트워크 액세스 거부**에서 **예** 를 선택 하 여 MySQL server에 대 한 공용 액세스 거부를 사용 하도록 설정 합니다.
 
-    ![네트워크 액세스 거부 Azure Database for MySQL](./media/howto-deny-public-network-access/setting-deny-public-network-access.PNG)
+    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access.PNG" alt-text="네트워크 액세스 거부 Azure Database for MySQL":::
 
 1. **저장**을 클릭하여 변경 내용을 저장합니다.
 
 1. 연결 보안 설정이 성공적으로 설정 되었는지 확인 하는 알림이 나타납니다.
 
-    ![Azure Database for MySQL 네트워크 액세스 거부 성공](./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png)
+    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png" alt-text="Azure Database for MySQL 네트워크 액세스 거부 성공":::
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 5095931e28438beebf3250155ede1a8af0bb5c64
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d8ae03d52691a6c30f78439a579e7e7c136dda76
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796972"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975294"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>사용자 정의 경로를 사용 하 여 클러스터 송신 사용자 지정
 
@@ -51,7 +51,7 @@ AKS에 의해 수행 되는 구성은 다음과 같습니다.
 
 다음은 기본적으로 AKS 클러스터에 배포된 네트워크 토폴로지이며 `loadBalancer`의 `outboundType`을 사용합니다.
 
-![outboundtype-lb](media/egress-outboundtype/outboundtype-lb.png)
+![다이어그램은 수신 I P 및 송신 I P를 표시 합니다. 여기서 수신 I P는 트래픽을 내부 클러스터로 들어오고 트래픽을 전송 하 고 송신 I P로 트래픽을 전송 합니다. 그러면 트래픽이 인터넷, M C R, Azure 필요한 서비스 및 A K S 제어 평면으로 전송 됩니다.](media/egress-outboundtype/outboundtype-lb.png)
 
 ### <a name="outbound-type-of-userdefinedrouting"></a>userDefinedRouting의 아웃바운드 형식
 

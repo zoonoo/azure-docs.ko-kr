@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8d985587dc436d55e17c69e25295b5a58cb15b0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647497"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888951"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스에서 시스템 노드 풀 관리 (AKS)
 
-Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀*로 그룹화 됩니다. 노드 풀에는 응용 프로그램을 실행 하는 기본 Vm이 포함 됩니다. 시스템 노드 풀 및 사용자 노드 풀은 AKS 클러스터에 대 한 두 개의 서로 다른 노드 풀 모드입니다. 시스템 노드 풀은 CoreDNS 및 tunnelfront와 같은 중요 한 시스템 pod를 호스트 하는 기본 목적을 제공 합니다. 사용자 노드 풀은 응용 프로그램 pod를 호스트 하는 기본 목적을 제공 합니다. 그러나 AKS 클러스터에 풀을 하나만 포함 하려는 경우에는 시스템 노드 풀에서 응용 프로그램 pod를 예약할 수 있습니다. 모든 AKS 클러스터에 하나 이상의 노드를 포함 하는 시스템 노드 풀이 하나 이상 있어야 합니다.
+Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀*로 그룹화 됩니다. 노드 풀에는 응용 프로그램을 실행 하는 기본 Vm이 포함 됩니다. 시스템 노드 풀 및 사용자 노드 풀은 AKS 클러스터에 대 한 두 개의 서로 다른 노드 풀 모드입니다. 시스템 노드 풀은 및와 같은 중요 한 시스템 pod를 호스트 하는 기본 목적을 제공 합니다 `CoreDNS` `metrics-server` . 사용자 노드 풀은 응용 프로그램 pod를 호스트 하는 기본 목적을 제공 합니다. 그러나 AKS 클러스터에 풀을 하나만 포함 하려는 경우에는 시스템 노드 풀에서 응용 프로그램 pod를 예약할 수 있습니다. 모든 AKS 클러스터에 하나 이상의 노드를 포함 하는 시스템 노드 풀이 하나 이상 있어야 합니다.
 
 > [!Important]
 > 프로덕션 환경에서 AKS 클러스터에 대 한 단일 시스템 노드 풀을 실행 하는 경우 노드 풀에 대해 세 개 이상의 노드를 사용 하는 것이 좋습니다.
@@ -164,7 +164,7 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 > [!Note]
 > API 버전 2020-03-02 이전에 AKS 클러스터에서 시스템 노드 풀을 사용 하려면 새 시스템 노드 풀을 추가한 다음 원래 기본 노드 풀을 삭제 합니다.
 
-이전에는 AKS 클러스터의 초기 기본 노드 풀 인 시스템 노드 풀을 삭제할 수 없습니다. 이제 클러스터에서 노드 풀을 유연 하 게 삭제할 수 있습니다. AKS 클러스터에는 시스템 노드 풀이 하나 이상 필요 하므로 AKS 클러스터에 두 개 이상의 시스템 노드 풀이 있어야 하나를 삭제할 수 있습니다.
+AKS 클러스터에 두 개 이상의 시스템 노드 풀이 있어야 하나를 삭제할 수 있습니다.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool

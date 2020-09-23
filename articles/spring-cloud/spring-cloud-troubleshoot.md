@@ -4,15 +4,16 @@ description: Azure Spring Cloud 문제 해결 가이드
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b34bd51e9d84629682565592c733b23a320597aa
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: d3094a8cca317e53dd3b8bc8e9b32b956c89a376
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669764"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904193"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>일반적인 Azure 스프링 클라우드 문제 해결
 
@@ -20,6 +21,7 @@ ms.locfileid: "89669764"
 
 ## <a name="availability-performance-and-application-issues"></a>가용성, 성능 및 애플리케이션 문제
 
+::: zone pivot="programming-language-java"
 ### <a name="my-application-cant-start-for-example-the-endpoint-cant-be-connected-or-it-returns-a-502-after-a-few-retries"></a>응용 프로그램을 시작할 수 없습니다. 예를 들어 끝점은 연결할 수 없으며 몇 번의 재시도 후에는 502을 반환 합니다.
 
 로그를 Azure Log Analytics로 내보냅니다. 스프링 응용 프로그램 로그에 대 한 테이블 이름은 *AppPlatformLogsforSpring*입니다. 자세히 알아보려면 [진단 설정을 사용 하 여 로그 및 메트릭 분석](diagnostic-services.md)을 참조 하세요.
@@ -67,6 +69,7 @@ ms.locfileid: "89669764"
 
 
 Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)을 참조 하세요.
+::: zone-end
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>애플리케이션에서 높은 CPU 사용 또는 높은 메모리 사용 경험
 
@@ -90,6 +93,7 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 
 Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log Analytics 시작](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)을 참조 하세요. [Kusto 쿼리 언어](https://docs.microsoft.com/azure/kusto/query/)를 사용 하 여 로그를 쿼리 합니다.
 
+::: zone pivot="programming-language-java"
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Azure 스프링 클라우드에 스프링 응용 프로그램을 배포 하기 위한 검사 목록
 
 응용 프로그램을 등록 하기 전에 다음 조건을 충족 하는지 확인 합니다.
@@ -101,6 +105,7 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 * JVM 매개 변수에는 필요한 값이 있습니다.
 * 응용 프로그램 패키지에서 포함 된 _구성 서버_ 및 _스프링 서비스 레지스트리_ 서비스를 사용 하지 않도록 설정 하거나 제거 하는 것이 좋습니다.
 * Azure 리소스가 _서비스 바인딩_을 통해 바인딩될 경우 대상 리소스가 실행 중인지 확인합니다.
+::: zone-end
 
 ## <a name="configuration-and-management"></a>구성 및 관리
 
@@ -119,6 +124,17 @@ Azure Portal를 사용 하 여 Azure 스프링 클라우드 서비스 인스턴�
 
 Azure 스프링 클라우드 서비스 인스턴스의 이름은에서 하위 도메인 이름을 요청 하는 데 사용 `azureapps.io` 되므로 이름이 기존 이름과 충돌 하는 경우 설치가 실패 합니다. 활동 로그에서 자세한 내용을 확인할 수 있습니다.
 
+::: zone pivot="programming-language-java"
+### <a name="i-cant-deploy-a-net-core-app"></a>.NET Core 앱을 배포할 수 없습니다.
+
+Azure Portal 또는 리소스 관리자 템플릿을 사용 하 여 .NET Core Steeltoe 앱에 대 한 *.zip* 파일을 업로드할 수 없습니다.
+
+[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용 하 여 응용 프로그램 패키지를 배포 하는 경우 Azure CLI는 배포 진행률을 주기적으로 폴링하고, 결과적으로 배포 결과를 표시 합니다.
+
+응용 프로그램이 올바른 *.zip* 파일 형식으로 패키지 되었는지 확인 합니다. 올바르게 패키지 되지 않은 경우 프로세스가 중단 되거나 오류 메시지가 표시 됩니다.
+::: zone-end
+
+::: zone pivot="programming-language-java"
 ### <a name="i-cant-deploy-a-jar-package"></a>JAR 패키지를 배포할 수 없습니다.
 
 Azure Portal 또는 리소스 관리자 템플릿을 사용 하 여/source 패키지를 업로드할 수 없습니다.
@@ -164,7 +180,7 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 > [!WARNING]
 > 이 프로시저는 테스트 끝점을 사용 하 여 환경 변수를 노출 합니다.  테스트 엔드포인트에 공개적으로 액세스할 수 있거나 애플리케이션에 도메인 이름을 할당한 경우에는 더이상 진행하지 마십시오.
 
-1. `https://<your application test endpoint>/actuator/health` 으로 이동합니다.  
+1. `https://<your application test endpoint>/actuator/health`로 이동합니다.  
     - `{"status":"UP"}`과 유사한 응답은 엔드포인트가 사용하도록 설정되었음을 나타냅니다.
     - 응답이 음수 이면 *POM.xml* 파일에 다음 종속성을 포함 합니다.
 
@@ -216,3 +232,8 @@ Azure Log Analytics에 대해 자세히 알아보려면 [Azure Monitor에서 Log
 ```
 
 응용 프로그램 로그를 저장소 계정에 보관할 수는 있지만 Azure Log Analytics로 보내지 않은 경우 [작업 영역을 올바르게 설정](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)했는지 확인 합니다. Azure Log Analytics의 무료 계층을 사용 하는 경우 [무료 계층은 SLA (서비스 수준 계약)를 제공 하지](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/)않습니다.
+::: zone-end
+
+## <a name="next-steps"></a>다음 단계
+
+* [Azure 스프링 클라우드의 문제를 자체 진단 하 고 해결 하는 방법](spring-cloud-howto-self-diagnose-solve.md)

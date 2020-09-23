@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7adeb9682336b19cc87d8c73a7f9ad8bda5e7828
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e814487cb4dab9c8c19daab2ea3bb81391d4a98f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564063"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983678"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel-for-virtual-wan"></a>가상 WAN에 대 한 Always On VPN 장치 터널 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "85564063"
 
 프로필을 제거 하려면 다음 명령을 실행 합니다.
 
-![정리](./media/howto-always-on-device-tunnel/cleanup.png)
+![스크린샷 VpnConnection-Name MachineCertTest 명령을 실행 하는 PowerShell 창을 보여 줍니다.](./media/howto-always-on-device-tunnel/cleanup.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: MARS (Microsoft Azure Recovery Services) 에이전트 설치
 description: Windows 컴퓨터를 백업 하는 MARS (Microsoft Azure Recovery Services) 에이전트를 설치 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 715153d445acbc372f8305ca39f5276bf8a39773
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fb59c245c469791233ce973b00426a127b116535
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533481"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975308"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>MARS 에이전트 Azure Backup를 설치 합니다.
 
@@ -42,10 +42,10 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
 
 ## <a name="modify-storage-replication"></a>스토리지 복제 수정
 
-기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md)를 사용합니다.
+기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md#geo-redundant-storage)를 사용합니다.
 
 * 자격 증명 모음이 기본 백업 메커니즘인 경우 GRS를 사용 하는 것이 좋습니다.
-* [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) 를 사용 하 여 Azure storage 비용을 줄일 수 있습니다.
+* [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md#locally-redundant-storage) 를 사용 하 여 Azure storage 비용을 줄일 수 있습니다.
 
 저장소 복제 유형을 수정 하려면:
 
