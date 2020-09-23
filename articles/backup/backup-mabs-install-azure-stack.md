@@ -3,12 +3,12 @@ title: Azure Stack에 Azure Backup Server 설치
 description: 이 문서에서는 Azure Backup Server를 사용하여 Azure Stack에서 워크로드를 보호하거나 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: a95ee42c3229e642bd48b812eb6bc01636af3ba2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018130"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970234"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -107,7 +107,7 @@ Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘�
 
 ### <a name="set-storage-replication"></a>스토리지 복제 설정
 
-Recovery Services 자격 증명 모음 스토리지 복제를 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 내구성이 낮은 더 저렴 한 옵션을 원하는 경우 로컬 중복 저장소를 선택 합니다. [지역 중복](../storage/common/storage-redundancy.md) 및 [로컬 중복](../storage/common/storage-redundancy.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+Recovery Services 자격 증명 모음 스토리지 복제를 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 내구성이 낮은 더 저렴 한 옵션을 원하는 경우 로컬 중복 저장소를 선택 합니다. [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)에서 [지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage), [로컬 중복](../storage/common/storage-redundancy.md#locally-redundant-storage)및 [영역 중복](../storage/common/storage-redundancy.md#zone-redundant-storage) 저장소 옵션에 대해 자세히 알아보세요.
 
 스토리지 복제 설정을 편집하려면
 
@@ -243,7 +243,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Dat
 
     ![파일 설치 위치 제공](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    스크래치 위치는 Azure에 백업하는 데 필요합니다. 스크래치 위치의 크기는 Azure에 백업하기로 계획된 데이터의 5% 이상이어야 합니다. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 저장소 풀에 대 한 자세한 내용은 [데이터 저장소 준비](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019)를 참조 하세요.
+    스크래치 위치는 Azure에 백업하는 데 필요합니다. 스크래치 위치의 크기는 Azure에 백업하기로 계획된 데이터의 5% 이상이어야 합니다. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 저장소 풀에 대 한 자세한 내용은 [데이터 저장소 준비](/system-center/dpm/plan-long-and-short-term-data-storage)를 참조 하세요.
 
 6. **보안 설정** 화면에서 제한 된 로컬 사용자 계정에 대 한 강력한 암호를 입력 하 고 **다음**을 선택 합니다.
 

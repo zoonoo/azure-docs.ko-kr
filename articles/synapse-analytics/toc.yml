@@ -464,13 +464,15 @@
               href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Cosmos DB용 Azure Synapse Link에 연결
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-            - name: Azure Synapse Analytics용 Apache Spark와 함께 Azure Cosmos DB 분석 저장소 쿼리
+            - name: Apache Spark를 사용하여 Azure Cosmos DB Analytical Store 쿼리
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Apache Spark를 사용하여 Synapse Link에서 SQL 풀로 데이터 복사
               href: ./synapse-link/how-to-copy-to-sql-pool.md
+            - name: SQL 주문형을 사용하여 Azure Cosmos DB Analytical Store 쿼리
+              href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Synapse SQL
           items:
-            - name: 스토리지의 데이터 쿼리
+            - name: 외부 데이터 쿼리
               items:
                 - name: 개요
                   href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -478,13 +480,15 @@
                   href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Parquet 파일 쿼리
                   href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Parquet 중첩 형식 쿼리
-                  href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: JSON 파일 쿼리
                   href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Azure Cosmos DB 쿼리
+                  href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: 중첩 형식 쿼리
+                  href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: 폴더 및 여러 파일 쿼리
                   href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: 파일 메타데이터 사용
+                - name: 파일 메타데이터를 사용하여 분할된 파일 쿼리
                   href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: 보기 만들기 및 사용
                   href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

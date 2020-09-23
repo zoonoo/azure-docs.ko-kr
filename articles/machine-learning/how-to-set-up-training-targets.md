@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: da48b593b8f645566b2f9775fabc5d8e62e625b6
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 8b07d19ca88a2d680a4f9efbb85fcf60b895a2b3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661566"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907595"
 ---
 # <a name="submit-a-training-run-to-a-compute-target"></a>계산 대상에 학습 실행 제출
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 다양 한 교육 환경 ([계산 대상](concept-compute-target.md))을 사용 하 여 machine learning 모델을 학습 하는 방법에 대해 알아봅니다.
 
@@ -35,7 +33,7 @@ ms.locfileid: "89661566"
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)`ws`
 * 계산 대상인 `my_compute_target` 입니다.  다음을 사용 하 여 계산 대상을 만듭니다.
   * [Python SDK](how-to-create-attach-compute-sdk.md) 
-  * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
+  * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>스크립트 실행 구성 이란?
 

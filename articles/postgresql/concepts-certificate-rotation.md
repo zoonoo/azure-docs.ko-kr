@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 5b46dc0197022aa72b6ca4c206d1da4369234167
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 576ff4eb3a189b27a4c7743966ced0676ec67a9d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707682"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978913"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 루트 CA 변경 내용 이해
 
@@ -84,7 +84,7 @@ Baltimore CyberTrust Root 인증서를 사용 하 여 여기에 설명 된 Azure
 *   잘못 된 인증서/해지 된 인증서
 *   연결 시간이 초과됨
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. SSL/TLS를 사용 하지 않는 경우 여전히 루트 CA를 업데이트 해야 하나요?
 SSL/TLS를 사용 하지 않는 경우 아무 작업도 필요 하지 않습니다. 
@@ -126,5 +126,8 @@ Azure Database for PostgreSQL에서 사용 하는 이러한 인증서는 신뢰�
 ### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. SSL이 사용 중인지 확인 하는 서버 쪽 쿼리가 있나요?
 SSL 연결을 사용 하 여 서버에 연결 하는지 확인 하려면 [ssl 확인](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity)을 참조 하세요.
 
-### <a name="13-what-if-i-have-further-questions"></a>13. 추가 질문이 있으면 어떻게 하나요?
+### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. 인증서 파일에 DigiCertGlobalRootG2이 이미 있는 경우 필요한 작업이 있나요?
+아니요. 인증서 파일에 **DigiCertGlobalRootG2**이 이미 있는 경우에는 필요한 작업이 없습니다.
+
+### <a name="14-what-if-i-have-further-questions"></a>14. 추가 질문이 있으면 어떻게 하나요?
 질문이 있는 경우 [Microsoft Q&](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)의 커뮤니티 전문가 로부터 답변을 받으세요. 지원 계획이 있고 기술 도움말이 필요한 경우 [microsoft에 문의 하세요](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com) .

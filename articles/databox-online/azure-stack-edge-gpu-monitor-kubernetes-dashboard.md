@@ -1,6 +1,6 @@
 ---
-title: Kubernetes 대시보드를 통해 Azure Stack Edge 장치 모니터링 | Microsoft Docs
-description: Kubernetes 대시보드를 액세스 및 사용 하 여 Azure Stack Edge 장치를 모니터링 하는 방법을 설명 합니다.
+title: Kubernetes 대시보드를 통해 Azure Stack Edge Pro 장치 모니터링 | Microsoft Docs
+description: Kubernetes 대시보드를 액세스 및 사용 하 여 Azure Stack Edge Pro 장치를 모니터링 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 12fe605fef444b4e0d7439350e350316157f53a5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 1a4f22e7ae3cc60d0a16b24a1f0e5f93d3a86d8c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297860"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899206"
 ---
-# <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Kubernetes 대시보드를 사용 하 여 Azure Stack Edge GPU 장치 모니터링
+# <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes 대시보드를 사용 하 여 Azure Stack Edge Pro GPU 장치 모니터링
 
-이 문서에서는 Kubernetes 대시보드를 액세스 및 사용 하 여 Azure Stack Edge GPU 장치를 모니터링 하는 방법을 설명 합니다. 장치를 모니터링 하려면 Azure Portal에서 차트를 사용 하거나, Kubernetes 대시보드를 보거나, `kubectl` 장치의 PowerShell 인터페이스를 통해 명령을 실행할 수 있습니다. 
+이 문서에서는 Kubernetes 대시보드를 액세스 및 사용 하 여 Azure Stack Edge Pro GPU 장치를 모니터링 하는 방법을 설명 합니다. 장치를 모니터링 하려면 Azure Portal에서 차트를 사용 하거나, Kubernetes 대시보드를 보거나, `kubectl` 장치의 PowerShell 인터페이스를 통해 명령을 실행할 수 있습니다. 
 
 이 문서에서는 Kubernetes 대시보드에서 수행할 수 있는 모니터링 작업만 중점적으로 다룹니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "89297860"
 
 Kubernetes 대시보드는 컨테이너 화 된 응용 프로그램 문제를 해결 하는 데 사용할 수 있는 웹 기반 사용자 인터페이스입니다. Kubernetes 대시보드는 Kubernetes 명령줄에 대 한 UI 기반 대안입니다 `kubectl` . 자세한 내용은 [Kubernetes Dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)를 참조 하세요. 
 
-Azure Stack Edge 장치에서 *읽기 전용* 모드로 Kubernetes 대시보드를 사용 하 여 Azure Stack Edge 장치에서 실행 되는 응용 프로그램의 개요를 가져오고, Kubernetes 클러스터 리소스의 상태를 보고, 장치에서 발생 한 모든 오류를 볼 수 있습니다.
+Azure Stack Edge Pro 장치에서 Kubernetes 대시보드를 *읽기 전용* 모드로 사용 하 여 Azure Stack Edge pro 장치에서 실행 되는 응용 프로그램의 개요를 가져오고, Kubernetes 클러스터 리소스의 상태를 보고, 장치에서 발생 한 모든 오류를 확인할 수 있습니다.
 
 ## <a name="access-dashboard"></a>액세스 대시보드
 
@@ -54,19 +54,19 @@ Kubernetes 대시보드는 *읽기 전용* 이며 포트 31000의 Kubernetes 마
     1. 줄임표 **...** 를 선택 합니다. `kubeconfig` 로컬 시스템에서 이전에 다운로드 한를 찾아서 가리킵니다. **로그인**을 선택합니다.
         ![Kubeconfig 파일로 이동 합니다.](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
-6. 이제 읽기 전용 모드에서 Azure Stack Edge 장치에 대 한 Kubernetes 대시보드를 볼 수 있습니다.
+6. 이제 읽기 전용 모드에서 Azure Stack Edge Pro 장치에 대 한 Kubernetes 대시보드를 볼 수 있습니다.
 
     ![Kubernetes 대시보드 기본 페이지](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-main-page-1.png)
 
 ## <a name="view-module-status"></a>모듈 상태 보기
 
-계산 모듈은 비즈니스 논리를 구현 하는 컨테이너입니다. 대시보드를 사용 하 여 Azure Stack Edge 장치에서 계산 모듈이 성공적으로 배포 되었는지 확인할 수 있습니다.
+계산 모듈은 비즈니스 논리를 구현 하는 컨테이너입니다. 대시보드를 사용 하 여 Azure Stack Edge Pro 장치에서 계산 모듈이 성공적으로 배포 되었는지 확인할 수 있습니다.
 
 모듈 상태를 보려면 대시보드에서 다음 단계를 수행 합니다.
 
 1. 대시보드의 왼쪽 창에서 **네임 스페이스**로 이동 합니다. IoT Edge 모듈이 표시 되는 네임 스페이스 (이 경우에는 **iotedge**)를 기준으로 필터링 합니다.
 1. 왼쪽 창에서 **워크 로드 > 배포**로 이동 합니다.
-1. 오른쪽 창에 장치에 배포 된 모든 모듈이 표시 됩니다. 이 경우 GettingStartedWithGPU 모듈은 Azure Stack Edge에 배포 되었습니다. 모듈이 배포 된 것을 볼 수 있습니다.
+1. 오른쪽 창에 장치에 배포 된 모든 모듈이 표시 됩니다. 이 경우 GettingStartedWithGPU 모듈은 Azure Stack Edge Pro에 배포 되었습니다. 모듈이 배포 된 것을 볼 수 있습니다.
 
     ![모듈 배포 보기](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-view-module-deployment-1.png)
 
@@ -81,7 +81,7 @@ IP 주소를 가져오려면 대시보드에서 다음 단계를 수행 합니�
 
 1. 대시보드의 왼쪽 창에서 **네임 스페이스**로 이동 합니다. 외부 서비스가 배포 되는 네임 스페이스 (이 경우에는 **iotedge**)를 기준으로 필터링 합니다.
 1. 왼쪽 창에서 **검색 및 부하 분산 > 서비스로**이동 합니다.
-1. 오른쪽 창에 `iotedge` Azure Stack Edge 장치의 네임 스페이스에서 실행 중인 모든 서비스가 표시 됩니다.
+1. 오른쪽 창에 `iotedge` Azure Stack Edge Pro 장치의 네임 스페이스에서 실행 중인 모든 서비스가 표시 됩니다.
 
     ![외부 서비스에 대 한 IP 가져오기](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-get-ip-external-service-1.png)
 
@@ -104,7 +104,7 @@ IP 주소를 가져오려면 대시보드에서 다음 단계를 수행 합니�
 
 ## <a name="view-cpu-memory-usage"></a>CPU, 메모리 사용량 보기
 
-Azure Stack Edge 장치에 대 한 Kubernetes 대시보드의 Kubernetes 리소스에서 CPU 및 메모리 사용량을 집계 하는 [메트릭 서버 추가](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) 기능도 있습니다.
+Azure Stack Edge Pro 장치에 대 한 Kubernetes 대시보드의 Kubernetes 리소스에서 CPU 및 메모리 사용량을 집계 하는 [메트릭 서버 추가](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) 기능도 있습니다.
  
 예를 들어 모든 네임 스페이스의 배포에서 사용 되는 CPU 및 메모리를 볼 수 있습니다. 
 

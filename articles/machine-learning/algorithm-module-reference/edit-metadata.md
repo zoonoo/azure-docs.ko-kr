@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/10/2020
-ms.openlocfilehash: 5078e625f86affb8d16ffab538d11b839d2d7bda
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e279a7c9f6810ece482b043284f0be0719a3dafe
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965011"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908041"
 ---
 # <a name="edit-metadata-module"></a>메타 데이터 모듈 편집
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에 포함 된 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer에 포함 된 모듈을 설명 합니다.
 
 메타 데이터 편집 모듈을 사용 하 여 데이터 집합의 열과 연결 된 메타 데이터를 변경할 수 있습니다. 메타 데이터 편집 모듈을 사용한 후에는 데이터 집합의 값과 데이터 형식이 변경 됩니다.
 

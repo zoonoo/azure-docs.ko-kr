@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a3f3daa56c782d84cf6ba07223f8cfea15daa8a4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101627"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905855"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>기존 Azure App Service를 Azure Database for MySQL 서버에 연결
 이 항목에서는 기존 Azure App Service를 Azure Database for MySQL 서버에 연결하는 방법을 설명합니다.
@@ -26,21 +26,21 @@ Azure Database for MySQL은 데이터를 보호하는 방화벽을 사용하여 
 
 1. MySQL 서버 블레이드의 설정 머리글에서 **연결 보안**을 클릭하여 MySQL용 Azure Database에 대한 연결 보안 블레이드를 엽니다.
 
-   ![Azure Portal - 보안 연결 클릭](./media/howto-connect-webapp/1-connection-security.png)
+   :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Azure Portal - 보안 연결 클릭":::
 
 2. **Azure 서비스에 대한 액세스 허용**에서 **설정**, **저장**을 차례로 선택합니다.
-   ![Azure Portal - Azure 액세스 허용](./media/howto-connect-webapp/allow-azure.png)
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Azure Portal - Azure 액세스 허용":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>솔루션 2 - 아웃바운드 IP를 명시적으로 허용하는 방화벽 규칙 만들기
 Azure App Service의 모든 아웃바운드 IP를 명시적으로 추가할 수 있습니다.
 
 1. App Service 속성 블레이드에서 **아웃바운드 IP 주소**를 확인합니다.
 
-   ![Azure Portal - 아웃바운드 IP 확인](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Azure Portal - 아웃바운드 IP 확인":::
 
 2. MySQL 연결 보안 블레이드에서 아웃바운드 IP를 하나씩 추가합니다.
 
-   ![Azure Portal - 명시적 IP 추가](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Azure Portal - 명시적 IP 추가":::
 
 3. 잊지 말고 방화벽 규칙을 **저장**하세요.
 

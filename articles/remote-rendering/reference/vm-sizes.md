@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8843f24f27f8973ad99989f743d1b3fae568679e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b37aabb39e19fa5ec53d2b006a7cbc1793adad72
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997152"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988041"
 ---
 # <a name="server-sizes"></a>서버 크기
 
@@ -23,7 +23,7 @@ Azure 원격 렌더링은 및의 두 서버 구성에서 사용할 수 있습니
 
 ' 표준 ' 서버 크기의 렌더러에서는이 제한에 도달 하면 렌더링을 바둑판 배경에 전환 합니다.
 
-![체크 무늬](media/checkerboard.png)
+![도구 메뉴를 사용 하 여 검은색 및 흰색 사각형의 표를 보여 주는 스크린샷](media/checkerboard.png)
 
 ## <a name="specify-the-server-size"></a>서버 크기 지정
 

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: 컴퓨터 비전, 컴퓨터 비전 애플리케이션, 컴퓨터 비전 서비스
-ms.openlocfilehash: f613080ec24fdfc4c739d4d0494aa2f3c36705cd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323123"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907069"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -92,7 +92,11 @@ Computer Vision을 사용하여 이미지에서 [성인 콘텐츠를 감지](con
 
 ## <a name="use-containers"></a>컨테이너 사용
 
-데이터에 더 가깝게 표준화된 Docker 컨테이너를 설치함으로써 [Computer Vision 컨테이너를 사용](computer-vision-how-to-install-containers.md)하여 인쇄 텍스트와 필기 텍스트를 로컬로 인식합니다.
+Computer Vision Docker 컨테이너를 통해 온-프레미스에서 서비스를 사용합니다. 현재 두 개의 컨테이너를 사용할 수 있습니다.
+
+* [Computer Vision 읽기 컨테이너](computer-vision-how-to-install-containers.md)를 사용하면 이미지에서 활자체 및 필기체 텍스트를 인식할 수 있습니다.
+
+* [Computer Vision 공간 분석 컨테이너](spatial-analysis-container.md)를 사용하면 실시간 스트리밍 비디오를 분석하여 사용자와 사용자의 물리적 환경 간 이동의 공간 관계를 이해할 수 있습니다.
 
 ## <a name="image-requirements"></a>이미지 요구 사항
 

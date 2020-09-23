@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Edge(미리 보기)란?
-description: Azure SQL Edge(미리 보기)에 대해 알아보기
+title: Azure SQL Edge 란?
+description: Azure SQL Edge에 대 한 자세한 정보
 keywords: SQL Edge 소개, SQL Edge란, SQL Edge 개요
 services: sql-edge
 ms.service: sql-edge
@@ -9,27 +9,31 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 20e709db9e6992f52b04934cb0f6eb65d3dcb44c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e34cd0907320f96f2846c1f424e678555381cccc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489530"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907114"
 ---
-# <a name="what-is-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)란?
+# <a name="what-is-azure-sql-edge"></a>Azure SQL Edge 란?
 
-Azure SQL Edge(미리 보기)는 IoT 및 IoT Edge 배포에 최적화된 관계형 데이터베이스 엔진으로 IoT 애플리케이션과 솔루션을 위한 고성능 데이터 스토리지 및 처리 계층을 만드는 기능을 제공합니다. Azure SQL Edge는 JSON, 그래프, 시계열 데이터 등의 관계형 및 비관계형 데이터를 스트리밍, 처리 및 분석하는 기능을 제공하므로 다양한 최신 IoT 애플리케이션에 적합한 선택입니다.
+Azure SQL Edge는 IoT 및 IoT Edge 배포를 위해 설계 된 최적화 된 관계형 데이터베이스 엔진입니다. IoT 애플리케이션과 솔루션을 위한 고성능 데이터 스토리지 및 처리 계층을 만드는 기능을 제공합니다. Azure SQL Edge는 JSON, 그래프, 시계열 데이터 등의 관계형 및 비관계형 데이터를 스트리밍, 처리 및 분석하는 기능을 제공하므로 다양한 최신 IoT 애플리케이션에 적합한 선택입니다.
 
-Azure SQL Edge는 업계 최고의 성능, 보안 및 쿼리 처리 기능을 제공 하는 최신 버전의 Microsoft SQL Database 엔진 (/sql/sql-server/sql-server-technical-documentation? toc =/azure/azure-sql-edge/toc.json)을 기반으로 합니다. Azure SQL Edge는 [SQL Server](/sql/sql-server/sql-server-technical-documentation?toc=/azure/azure-sql-edge/toc.json) 및 [azure sql](https://docs.microsoft.com/azure/azure-sql/)과 동일한 엔진을 기반으로 하기 때문에 응용 프로그램 또는 솔루션 개발을 더 쉽고 빠르게 수행할 수 있도록 하는 동일한 t-sql 프로그래밍 노출 영역을 제공 하 고, 동시에 IoT Edge 장치, 데이터 센터 및 클라우드 간에 응용 프로그램 이식성을 제공 합니다.
+Azure SQL Edge는 업계 최고의 성능, 보안 및 쿼리 처리 기능을 제공 하는 최신 버전의 [SQL Server 데이터베이스 엔진](/sql/sql-server/sql-server-technical-documentation)를 기반으로 합니다. Azure SQL Edge는 [SQL Server](/sql/sql-server/sql-server-technical-documentation) 및 [azure sql](https://docs.microsoft.com/azure/azure-sql/)과 동일한 엔진을 기반으로 하기 때문에 응용 프로그램 또는 솔루션 개발을 더 쉽고 빠르게 수행할 수 있도록 하는 동일한 transact-sql (t-sql) 프로그래밍 노출 영역을 제공 하 고 IoT Edge 장치, 데이터 센터 및 클라우드 간에 응용 프로그램 이식성을 만듭니다.
 
-> [!NOTE]
-> Azure SQL Edge는 현재 미리 보기로 제공되므로 프로덕션 환경에서는 사용할 수 없습니다.
+Channel 9의 Azure SQL Edge 비디오 란:
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-SQL-Edge/player]
 
 ## <a name="deployment-models"></a>배포 모델
 
-Azure SQL Edge는 Azure Marketplace에서 사용할 수 있으며 [Azure IoT Edge](../iot-edge/about-iot-edge.md)용 모듈로 배포할 수 있습니다. 자세한 내용은 [Azure SQL Edge 배포](deploy-portal.md)를 참조하세요.<br>
+Azure SQL Edge는 두 가지 배포 모드를 지원 합니다.
+
+- Azure IoT Edge를 통한 연결 된 배포: Azure SQL Edge는 Azure Marketplace에서 사용할 수 있으며 [Azure IoT Edge](../iot-edge/about-iot-edge.md)의 모듈로 배포할 수 있습니다. 자세한 내용은 [Azure SQL Edge 배포](deploy-portal.md)를 참조하세요.<br>
 
 ![SQL Edge 개요 다이어그램](media/overview/overview.png)
+
+- 연결 끊김: Azure SQL Edge 컨테이너 이미지를 docker 허브에서 끌어온 후 독립 실행형 docker 컨테이너 또는 kubernetes 클러스터로 배포할 수 있습니다. 자세한 내용은 [Docker를 사용 하 여 AZURE Sql Edge 배포](disconnected-deployment.md) 및 [KUBERNETES에서 azure Sql edge 컨테이너 배포](deploy-kubernetes.md)를 참조 하세요.
 
 ## <a name="editions-of-sql-edge"></a>SQL Edge 버전
 
@@ -38,11 +42,11 @@ SQL Edge는 두 가지 버전 또는 소프트웨어 플랜으로 제공됩니�
    |**계획**  |**설명**  |
    |---------|---------|
    |Azure SQL Edge Developer  |  개발 전용 sku이며, 각 SQL Edge 컨테이너는 최대 4코어, 32GB 메모리로 제한됩니다.  |
-   |Azure SQL Edge    |  프로덕션 sku이며, 각 SQL Edge 컨테이너는 최대 8코어, 64GB 메모리로 제한됩니다. |
+   |Azure SQL Edge    |  프로덕션 sku, 각 SQL Edge 컨테이너는 최대 8 개의 코어 및 64 GB 메모리로 제한 됩니다. |
 
 ## <a name="pricing-and-availability"></a>가격 책정 및 가용성
 
-Azure SQL Edge는 현재 미리 보기로 제공됩니다. 가격 책정 및 가용성에 대한 자세한 내용은 [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/)를 참조하세요.
+Azure SQL Edge는 이제 일반 공급 됩니다. 특정 지역의 가격 책정 및 가용성에 대 한 자세한 내용은 [AZURE SQL Edge](https://azure.microsoft.com/services/sql-edge/)를 참조 하세요.
 
 > [!IMPORTANT]
 > Azure SQL Edge와 SQL Server 간의 기능 차이점과 다양한 Azure SQL Database 옵션 간의 차이점을 알아보려면 [Azure SQL Edge에서 지원하는 기능](features.md)을 참조하세요.

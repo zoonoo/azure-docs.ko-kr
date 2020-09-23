@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ade5972226a735ce5d093890091536baf02f5eff
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6576ac53f43a8e176b3d166d5218b0ba9934b856
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068986"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907150"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Azure Stream Analytics 출력
 
@@ -26,7 +26,7 @@ Stream Analytics 작업 출력을 만들고, 편집하고, 테스트하려면 [A
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|예|Azure Active Directory 사용자 </br> MSI|
 |[Azure SQL Database](sql-database-output.md)|예, 사용하도록 설정해야 합니다.|SQL 사용자 인증 </br> MSI (미리 보기)|
-|[Azure Synapse Analytics(미리 보기)](azure-synapse-analytics-output.md)|아니요|SQL 사용자 인증|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|예|SQL 사용자 인증|
 |[Blob storage 및 Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|예|MSI </br> 액세스 키|
 |[Azure Event Hubs](event-hubs-output.md)|예|액세스 키|
 |[Power BI](power-bi-output.md)|아니요|Azure Active Directory 사용자 </br> MSI|

@@ -5,14 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 8c6ed19a585bc1ebae65045cd1cc4c442f113597
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.custom: references_regions
+ms.openlocfilehash: e3f9105037c049a53f1b7b99da96dd857070fcc7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651486"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987612"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
 Express 경로는 온-프레미스 네트워크를 Microsoft 클라우드에 연결 하는 개인적이 고 복원 력 있는 방법입니다. Azure와 같은 여러 Microsoft 클라우드 서비스에 액세스 하 고 개인 데이터 센터나 회사 네트워크에서 Microsoft 365 수 있습니다. 예를 들어, 실리콘밸리의 ExpressRoute 회로를 사용하는 샌프란시스코 지사와, 런던의 ExpressRoute 회로를 사용하는 런던 지사가 있을 수 있습니다. 두 지점에는 미국 서 부 및 영국 남부의 Azure 리소스에 대 한 고속 연결이 있습니다. 그러나 지점은 서로 직접 연결 하 여 데이터를 보낼 수 없습니다. 즉, 10.0.1.0/24는 10.0.3.0/24 및 10.0.4.0/24 네트워크에 데이터를 보낼 수 있지만 10.0.2.0/24 네트워크에는 보낼 수 없습니다.
@@ -29,10 +30,27 @@ ExpressRoute Global Reach는 서비스 공급자의 WAN 구현을 보완하고 �
 ![Express Route Global Reach의 사용 사례를 보여 주는 다이어그램입니다.][3]
 
 ## <a name="availability"></a>가용성 
-Express 경로 Global Reach는 현재 Express 경로를 지 원하는 대부분의 지역에서 지원 됩니다. 현재 지원 되는 지역에 대 한 [express 경로 연결 공급자](expressroute-locations-providers.md#partners) 를 참조할 수 있습니다. 
+Express 경로 Global Reach 다음 위치에서 지원 됩니다. 
 
 > [!NOTE] 
 > [서로 다른 지정 학적 지역](expressroute-locations-providers.md#locations)간에 express 경로 Global Reach를 사용 하도록 설정 하려면 회로가 **프리미엄 SKU**여야 합니다.
+
+* 오스트레일리아
+* 캐나다
+* 프랑스
+* 독일
+* 홍콩 특별행정구
+* 아일랜드
+* 일본
+* 한국
+* 네덜란드
+* 뉴질랜드
+* 노르웨이
+* 싱가포르
+* 스웨덴
+* 스위스
+* 영국
+* 미국
 
 ## <a name="next-steps"></a>다음 단계
 - [GLOBAL REACH FAQ](expressroute-faqs.md#globalreach)를 확인 합니다.

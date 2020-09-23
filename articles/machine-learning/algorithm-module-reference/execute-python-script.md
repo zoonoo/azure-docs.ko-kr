@@ -10,16 +10,16 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 330c7e01b33cfdf48687c492d09fb7aab8a5e779
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3a39b12afb715cf091ff1af1dcc7cc702769bed3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648747"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908018"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 Python 스크립트 실행 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 Python 스크립트 실행 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 Python 코드를 실행 합니다. Python의 아키텍처 및 디자인 원칙에 대 한 자세한 내용은 [Azure Machine Learning designer에서 python 코드 실행 방법](../how-to-designer-python.md)을 참조 하세요.
 

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
-ms.openlocfilehash: 840e7769e8a242314b10562684c942a2468ea5ad
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: cdddd9a90911499421351adf0f41ef90f0e2f9a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705149"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906566"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for MySQL 서버 만들기
 
@@ -34,12 +34,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
   
 >[!div class="mx-imgBorder"]
-> ![Azure Database for MySQL 옵션](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png" alt-text="Azure Database for MySQL 옵션":::
 
 3. 새 서버 세부 정보 양식을 다음 정보로 작성합니다.
     
 >[!div class="mx-imgBorder"]
-> ![서버 양식 만들기](./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png)
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="서버 양식 만들기":::
 
 **설정** | **제안 값** | **필드 설명** 
 ---|---|---
@@ -67,7 +67,7 @@ Resource group | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름�
 기본적으로 만들어진 서버는 방화벽으로 보호되며 공개적으로 액세스할 수 없습니다. IP에 대한 액세스 권한을 부여하려면 Azure Portal의 서버 리소스로 이동하여 서버 리소스의 왼쪽 메뉴에서 **연결 보안**을 선택합니다. 리소스를 찾는 방법을 모를 경우 [리소스를 여는 방법](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources)을 참조하세요.
 
 >[!div class="mx-imgBorder"]
-> ![연결 보안 - 방화벽 규칙](./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png)
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="연결 보안 - 방화벽 규칙":::
    
 이제 **현재 클라이언트 IP 주소 추가**를 선택한 다음, **저장**을 선택합니다. 추가 IP를 추가하거나 IP 범위를 제공하여 해당 IP에서 서버에 연결할 수 있습니다. 자세한 내용은 [Azure Database for MySQL 서버에서 방화벽 규칙을 관리하는 방법](./concepts-firewall-rules.md)을 참조하세요.
 
@@ -83,7 +83,7 @@ Resource group | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름�
     >클라우드 셸을 처음 시작하는 경우 리소스 그룹, 스토리지 계정을 생성하라는 메시지가 표시됩니다. 이는 일회성 단계이며 모든 세션에서 자동으로 연결됩니다. 
 
    >[!div class="mx-imgBorder"]
-   > ![포털 전체 보기 Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png)
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="포털 전체 보기 Cloud Shell":::
 2. Azure Cloud Shell 터미널에서 이 명령을 실행합니다. 값을 실제 서버 이름 및 관리 사용자 로그인 이름으로 바꿉니다. 관리자 사용자 이름에는 아래와 같이 Azure Database for MySQL에 대해 '@\<servername>'이 필요합니다.  
 
   ```azurecli-interactive
@@ -136,7 +136,7 @@ Resource group | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름�
 
 서버를 삭제하려면 아래와 같이 서버의 **개요** 페이지에서 **삭제** 단추를 클릭하면 됩니다.
 > [!div class="mx-imgBorder"]
-> ![리소스 삭제](media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
+> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="리소스 삭제":::
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

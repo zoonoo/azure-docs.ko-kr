@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: b9cbb873066131264732d6f46320461bae8c3188
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: a9fe083818c5850ad05556b18911c19fe19e0e72
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84981764"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987398"
 ---
 # <a name="privacy-guidelines-for-voice-assistants-on-windows"></a>Windows의 음성 도우미에 대 한 개인 정보 취급 방침
 
@@ -31,7 +31,7 @@ Windows에서 음성 도우미를 만드는 개발자는 해당 응용 프로그
 Windows 사용자는에서 해당 길잡이 응용 프로그램의 가용성을 확인 하 고 제어할 수 있습니다 **`Settings > Privacy > Voice activation`** .
 
  > [!div class="mx-imgBorder"]
- > [![개인 정보-앱 목록](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "길잡이 응용 프로그램에 대 한 Windows 음성 정품 인증 개인 정보 설정 항목")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
+ > [![가용성 Cortana를 제어 하는 옵션을 보여 줍니다. ](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "길잡이 응용 프로그램에 대 한 Windows 음성 정품 인증 개인 정보 설정 항목")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
 
 이 목록에 포함 될 수 있도록 하려면 Microsoft에 문의 winvoiceassistants@microsoft.com 하 여 시작 하세요. 기본적으로 사용자는에서 새 길잡이에 대 한 음성 활성화를 명시적으로 사용 하도록 설정 해야 **`Settings > Privacy > Voice Activation`** 합니다. 그러면 응용 프로그램에서에 대 한 프로토콜 링크를 사용할 수 있습니다 `ms-settings:privacy-voiceactivation` . 허용 된 응용 프로그램이 실행 되 고 api를 사용 하면 목록에 표시 됩니다 `Windows.ApplicationModel.ConversationalAgent` . 응용 프로그램이 사용자 로부터 마이크 동의를 받은 후에는 음성 활성화 설정을 수정할 수 있습니다.
 

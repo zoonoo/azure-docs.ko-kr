@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 252abcac6e9e39930593c1b110bf6d55ffdfc33f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 36945d998bf00d7b229b5ae3cce1958953ade601
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843524"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978614"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 질문과 대답
 
@@ -49,7 +49,24 @@ Azure 용 FHIR 서버를 실행 하는 경우 기본 서비스에 직접 액세�
 FHIR의 SMART (대체 가능한 의료 응용 프로그램 및 재사용 가능한 기술)는 파트너 응용 프로그램을 FHIR 서버와 통합 하는 개방형 사양 집합으로, 전자적 상태 레코드 및 상태 정보 교환 등의 기타 상태 IT 시스템입니다. SMART on FHIR 응용 프로그램을 만들어 응용 프로그램을 서로 다른 시스템의 다양 한에서 액세스 하 고 활용할 수 있는지 확인할 수 있습니다.
 FHIR 용 인증 및 Azure API. SMART에 대해 자세히 알아보려면 [스마트 상태](https://smarthealthit.org/)를 참조 하세요.
 
-## <a name="azure-iot-connector-for-fhir-preview"></a>FHIR 용 Azure IoT 커넥터 (미리 보기)
+### <a name="can-i-create-a-custom-fhir-resource"></a>사용자 지정 FHIR 리소스를 만들 수 있나요?
+
+사용자 지정 FHIR 리소스를 허용 하지 않습니다. 사용자 지정 FHIR 리소스가 필요한 경우에는 확장을 사용 하 여 [기본 리소스](http://www.hl7.org/fhir/basic.html) 위에 사용자 지정 리소스를 빌드할 수 있습니다. 
+
+### <a name="are-extensions-supported-on-azure-api-for-fhir"></a>FHIR 용 Azure API에서 지원 되는 [확장](https://www.hl7.org/fhir/extensibility.html) 은 무엇 인가요?
+
+모든 유효한 FHIR JSON 데이터를 서버에 로드할 수 있습니다. 확장을 정의 하는 구조 정의를 저장 하려는 경우이를 구조체 정의 리소스로 저장할 수 있습니다. 현재는 확장을 검색할 수 없습니다.
+
+### <a name="what-is-the-limit-on-_count"></a>_Count에 대 한 제한은 무엇 인가요?
+
+개수에 대 한 현재 제한은 100입니다.
+
+### <a name="are-there-any-limitations-on-the-group-export-functionality"></a>그룹 내보내기 기능에 제한이 있나요?
+
+그룹 내보내기의 경우 그룹 [리소스](https://www.hl7.org/fhir/group.html)의 모든 특성이 아니라 그룹의 포함 된 참조만 내보냅니다.
+
+
+## <a name="azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector for FHIR(미리 보기)
 
 ### <a name="what-is-iomt"></a>IoMT 란?
 IoMT는 의료 사물 인터넷을 의미 하 고, 네트워크를 통해 다른 의료 IT 시스템과 health 및 웰빙 데이터를 캡처하고 교환 하는 IoT 장치의 범주입니다. IoMT 디바이스에는 피트니스 및 임상 착용식 디바이스, 모니터링 센서, 활동 추적기, 의료 키오스크 지점 또는 스마트 약 등이 있습니다.
@@ -88,6 +105,6 @@ Azure 용 IoMT FHIR 커넥터를 실행 하는 경우 기본 리소스에 직접
 >[!div class="nextstepaction"]
 >[지원 되는 FHIR 기능](fhir-features-supported.md)
 
-* Azure Portal에서 FHIR 용 Azure IoT 커넥터를 IoT 커넥터 (미리 보기) 라고 합니다.
+*Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다.
 
 FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다.

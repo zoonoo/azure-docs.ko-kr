@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: ceafbe1fd1682fc5e92ab3048ed09866fb9ebbdf
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 19e9a33350b6a1a67986dc35a372f737e45ab39a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89570489"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906395"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>적용/거부 권장 구성으로 잘못 된 구성 방지
 
@@ -24,10 +24,9 @@ ms.locfileid: "89570489"
 특정 권장 사항에 따라 보안 구성을 강제 적용 하는 것은 다음 두 가지 모드로 제공 됩니다.
 
 - Azure Policy **거부** 효과를 사용 하 여 비정상 리소스 생성을 중지할 수 있습니다.
-
 - **적용** 옵션을 사용 하면 Azure 정책의 **Deployifnotexist** 효과를 활용 하 고 만들 때 비호환 리소스를 자동으로 수정할 수 있습니다.
- 
-이는 선택한 보안 권장 사항에 대해 사용할 수 있으며 리소스 세부 정보 페이지의 맨 위에서 찾을 수 있습니다.
+
+이는 선택한 보안 권장 사항에 대 한 리소스 세부 정보 페이지의 맨 위에 있습니다 ( [거부/적용 옵션을 사용 하는 권장 사항](#recommendations-with-denyenforce-options)참조).
 
 ## <a name="prevent-resource-creation"></a>리소스 생성 방지
 

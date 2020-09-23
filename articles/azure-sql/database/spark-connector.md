@@ -11,12 +11,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/02/2020
-ms.openlocfilehash: 22a9bec09652b6cbce02fe5a54a319694aaa6911
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 46fa489c5a72c3de923f5281cc9be205925dd42d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421308"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988093"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Spark 커넥터를 사용 하 여 실시간 빅 데이터 분석 가속화
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ Spark 커넥터는 SQL Server 용 Microsoft JDBC Driver를 활용 하 여 Spark 
 
 아래 다이어그램은 데이터 흐름을 보여 줍니다.
 
-   ![아키텍처](./media/spark-connector/architecture.png)
+   ![다이어그램에서는 마스터 노드가 데이터베이스에 직접 연결 하 고 세 개의 작업자 노드에 연결 하 여 데이터베이스에 연결 하는 설명 된 흐름을 보여 줍니다.](./media/spark-connector/architecture.png)
 
 ### <a name="build-the-spark-connector"></a>Spark 커넥터 빌드
 

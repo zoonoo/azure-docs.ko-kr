@@ -1,6 +1,6 @@
 ---
-title: Azure Portal에서 GPU를 사용하여 Azure Stack Edge 디바이스에 연결, 구성, 활성화하는 자습서 | Microsoft Docs
-description: Azure Stack Edge GPU를 배포하기 위한 자습서에서는 물리적 디바이스를 연결, 설정 및 활성화하는 방법을 안내합니다.
+title: Azure Portal에서 GPU가 있는 Azure Stack Edge Pro 디바이스에 연결, 구성, 활성화하는 자습서 | Microsoft Docs
+description: 로컬 웹 UI를 사용하여 온보드 GPU가 있는 Azure Stack Edge 디바이스에 연결하는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3b500a7d93d19bcc0cd9c23d64ad079f0abfd353
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: f069f711ccf5672041ea6f3b15a52fa2b3ba2022
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421359"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900039"
 ---
-# <a name="tutorial-connect-to-azure-stack-edge-with-gpu"></a>자습서: GPU를 사용하여 Azure Stack Edge에 연결
+# <a name="tutorial-connect-to-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro에 연결
 
-이 자습서에서는 로컬 웹 UI를 사용하여 온보드 GPU가 있는 Azure Stack Edge 디바이스에 연결하는 방법을 설명합니다.
+이 자습서에서는 로컬 웹 UI를 사용하여 온보드 GPU가 있는 Azure Stack Edge Pro 디바이스에 연결하는 방법을 설명합니다.
 
 연결 프로세스를 완료하는 데 5분 정도가 소요됩니다.
 
@@ -32,14 +32,14 @@ ms.locfileid: "89421359"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-GPU가 있는 Azure Stack Edge 디바이스를 구성하고 설정하기 전에 다음 사항을 확인합니다.
+Azure Stack Edge Pro device with GPU 디바이스를 구성하고 설정하기 전에 다음 사항을 확인합니다.
 
-* [Azure Stack Edge 설치](azure-stack-edge-gpu-deploy-install.md)에서 설명한 대로 물리적 디바이스를 설치했습니다.
+* [Azure Stack Edge Pro 설치](azure-stack-edge-gpu-deploy-install.md)에서 설명한 대로 물리적 디바이스를 설치했습니다.
 
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>로컬 웹 UI 설정에 연결
 
-1. 고정 IP 주소가 192.168.100.5이고 서브넷이 255.255.255.0인 Azure Stack Edge 디바이스에 연결하도록 컴퓨터의 이더넷 어댑터를 구성합니다.
+1. 고정 IP 주소가 192.168.100.5이고 서브넷이 255.255.255.0인 Azure Stack Edge Pro 디바이스에 연결하도록 컴퓨터의 이더넷 어댑터를 구성합니다.
 
 2. 디바이스의 포트 1에 컴퓨터를 연결합니다. 컴퓨터를 디바이스에 직접 연결하는 경우(스위치 없이) 크로스오버 케이블 또는 USB 이더넷 어댑터를 사용합니다. 다음 일러스트레이션을 사용하여 디바이스의 포트 1을 찾습니다.
 
@@ -60,7 +60,7 @@ GPU가 있는 Azure Stack Edge 디바이스를 구성하고 설정하기 전에 
 
 5. 디바이스의 웹 UI에 로그인합니다. 기본 암호는 *Password1*입니다. 
    
-    ![Azure Stack Edge 디바이스 로그인 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
+    ![Azure Stack Edge Pro 디바이스 로그인 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. 디바이스 관리자 암호를 변경하라는 메시지가 표시되면 변경합니다.  
     새 암호는 8-16자여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다.
@@ -77,7 +77,7 @@ GPU가 있는 Azure Stack Edge 디바이스를 구성하고 설정하기 전에 
 > * 물리적 디바이스에 연결
 
 
-Azure Stack Edge 디바이스에서 네트워크 설정을 구성하는 방법을 알아보려면 다음을 참조하세요.
+Azure Stack Edge Pro 디바이스에서 네트워크 설정을 구성하는 방법을 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [네트워크 구성](./azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)

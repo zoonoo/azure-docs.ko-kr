@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: e1595d7e205c788f90177836f3c0370681b7747b
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 28242341ddd21adea33e56c3e1f35f0677e5921a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569087"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907365"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Azure Security Center으로 Microsoft Defender Advanced Threat Protection
 
@@ -28,11 +28,11 @@ Azure Security Center는 [Microsoft DEFENDER ATP (Advanced Threat Protection)](h
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|**출시**|
-|결정|표준 계층|
+|릴리스 상태:|GA(일반 공급)|
+|결정|[Azure Defender](security-center-pricing.md) 필요|
 |지원 되는 컴퓨터:|![예](./media/icons/yes-icon.png) Windows를 실행 하는 Azure 컴퓨터<br>![예](./media/icons/yes-icon.png) Windows를 실행 하는 Azure Arc 컴퓨터|
 |필요한 역할 및 사용 권한:|통합을 사용 하거나 사용 하지 않도록 설정 하려면 **보안 관리자** 또는 **소유자** 입니다.<br>Security Center에서 MDATP 경고를 보려면 **보안 읽기 권한자**, **읽기 권한자**, **리소스 그룹 참가자**, **리소스 그룹 소유자**, **보안 관리자**, **구독 소유자**또는 **구독 참가자** 입니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드.<br>![아니요](./media/icons/no-icon.png) 공용 Azure 클라우드에서 워크 로드를 실행 하는 GCC 고객<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드.<br>![예](./media/icons/no-icon.png) 공용 Azure 클라우드에서 워크 로드를 실행 하는 GCC 고객<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
 |||
 
 
@@ -57,7 +57,7 @@ Azure Security Center와 Defender ATP를 통합 하 여 다음과 같은 추가 
 
 ## <a name="platform-support"></a>플랫폼 지원
 
-Security Center의 Microsoft Defender ATP는 Windows Server 2016, 2012 R2 및 2008 R2 s p 1에 대 한 검색을 지원 합니다. Azure Vm의 경우 표준 계층 구독이 필요 하 고 비 Azure Vm의 경우 작업 영역 수준 에서만 표준 계층이 필요 합니다.
+Security Center의 Microsoft Defender ATP는 Windows Server 2016, 2012 R2 및 2008 R2 s p 1에 대 한 검색을 지원 합니다. Azure Vm의 경우 구독에서 Azure Defender를 사용 하도록 설정 하 고, 비 Azure Vm의 경우 작업 영역 수준 에서만 Azure Defender를 사용 하도록 설정 해야 합니다.
 
 이 통합을 사용한 서버 끝점 모니터링은 Office 365 GCC 고객에 대해 사용 하지 않도록 설정 되었습니다.
 
@@ -74,24 +74,25 @@ Security Center에 서버를 등록 하려면 이동을 클릭 하 여 Microsoft
 
 1. **온 보 딩** 영역에서 데이터를 저장할 작업 영역을 선택 하거나 만듭니다.
 
-2. 모든 작업 영역을 볼 수 없는 경우 권한이 부족 하기 때문일 수 있습니다. 작업 영역이 Azure 보안 표준 가격 책정 계층으로 설정 되어 있는지 확인 합니다. 자세한 내용은 [보안 강화를 위해 Security Center의 표준 계층으로 업그레이드](security-center-pricing.md)를 참조 하세요.
+2. 모든 작업 영역을 볼 수 없는 경우 권한이 부족 하기 때문일 수 있습니다. Azure Defender에서 작업 영역을 보호 하 고 있는지 확인 하세요.
     
 3. Log Analytics 에이전트를 설치 하는 방법에 대 한 지침을 보려면 **서버 추가** 를 선택 합니다. 
 
-4. 온 보 딩 후 **계산 및 앱**에서 컴퓨터를 모니터링할 수 있습니다.
+4. 온 보 딩 후에 [asset inventory](asset-inventory.md)에서 컴퓨터를 모니터링할 수 있습니다.
 
    ![컴퓨터 등록](media/security-center-wdatp/onboard-computers.png)
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Microsoft Defender ATP 통합 사용
 
-Microsoft Defender ATP 통합이 사용 하도록 설정 되어 있는지 확인 하려면 **Security center**  >  **가격 책정 & 설정** 을 선택 하 > 구독을 클릭 합니다.
+Microsoft Defender ATP 통합이 사용 하도록 설정 되어 있는지 확인 하려면 **Security center**  >  **가격 책정 & 설정** > 선택 하 여 구독을 선택 합니다.
+
 여기서 현재 사용하도록 설정된 통합을 확인할 수 있습니다.
 
   ![Microsoft Defender ATP 통합을 사용 하도록 설정 된 Azure Security Center 위협 검색 설정 페이지](media/security-center-wdatp/enable-integrations.png)
 
-- Azure Security Center 표준 계층에 서버를 이미 온보딩한 경우에는 추가로 작업을 수행할 필요가 없습니다. Azure Security Center은 자동으로 Microsoft Defender ATP에 서버를 등록 합니다. 온 보 딩은 최대 24 시간이 걸릴 수 있습니다.
+- Azure Defender를 이미 사용 하도록 설정한 경우에는 추가 작업이 필요 하지 않습니다. Azure Security Center은 자동으로 Microsoft Defender ATP에 서버를 등록 합니다. 온 보 딩은 최대 24 시간이 걸릴 수 있습니다.
 
-- Azure Security Center 표준 계층에 서버를 온보딩하지 않았다면 일반적인 방법으로 Azure Security Center에 서버를 온보딩합니다.
+- Azure Security Center 서버를 등록 하지 않은 경우에는 Azure Security Center로 등록 하 고 평소와 같이 Azure Defender를 사용 하도록 설정 합니다.
 
 - Microsoft Defender ATP를 통해 서버를 등록 경우:
   - [서버 컴퓨터를 온보딩하는 방법](https://go.microsoft.com/fwlink/p/?linkid=852906)의 설명서에서 지침을 참조합니다.

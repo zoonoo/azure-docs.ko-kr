@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: f2e067f76d6ed7d89a38e9b8920c407f161969a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17882581c4548996c9a8b2a8670b5f720e64da1e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456781"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899002"
 ---
 # <a name="add-columns-module"></a>열 추가 모듈
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 두 데이터 집합을 연결 합니다. 지정 하는 두 데이터 집합의 모든 열을 입력으로 결합 하 여 단일 데이터 집합을 만듭니다. 세 개 이상의 데이터 집합을 연결 해야 하는 경우 **열 추가**의 여러 인스턴스를 사용 합니다.
 
