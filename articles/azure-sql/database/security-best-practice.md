@@ -8,14 +8,14 @@ ms.custom: sqldbrb=2
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: e720a95007ff06a954affe03f43f386be3bed39f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442108"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885181"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -231,7 +231,7 @@ SQL 인증은 사용자 이름 및 암호를 사용 하 여 Azure SQL Database �
        - [역할 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
     1. 필수 사용자 만들기
-       - [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
+       - [사용자 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
     1. 사용자를 역할에 멤버로 추가
        - [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
        - [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql)
@@ -647,7 +647,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 **모범 사례**:
 
-- 특정 서버 또는 관리 되는 인스턴스에 대해 [ad (Advanced Data Security)](advanced-data-security.md#getting-started-with-ads)를 구성   합니다. [Azure Security Center 표준 계층](../../security-center/security-center-pricing.md)으로 전환 하 여 구독에 있는 모든 서버 및 관리 되는 인스턴스에 대해 광고를 구성할 수도 있습니다.
+- 특정 서버 또는 관리 되는 인스턴스에 대해 [Azure Defender FOR SQL](azure-defender-for-sql.md)을 구성   합니다. [Azure Security Center 표준 계층](../../security-center/security-center-pricing.md)으로 전환 하 여 구독에 있는 모든 서버 및 관리 되는 인스턴스에 대해 SQL Azure Defender를 구성할 수도 있습니다.
 
 - 전체 조사 환경을 위해서는 [SQL Database 감사](../../azure-sql/database/auditing-overview.md)를 사용 하도록 설정 하는 것이 좋습니다. 감사를 사용 하면 데이터베이스 이벤트를 추적 하 고 Azure Storage 계정 또는 Azure Log Analytics 작업 영역에서 감사 로그에 쓸 수 있습니다.
 

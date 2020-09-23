@@ -1,18 +1,18 @@
 ---
 title: '가상 WAN: 다른 사용자 그룹에 대 한 Azure AD 테 넌 트: Azure AD 인증'
-description: Azure AD 인증을 사용 하 여 VNet에 연결 하는 데 P2S VPN을 사용할 수 있습니다.
+description: P2S OpenVPN 인증을 위해 Azure AD 테 넌 트를 설정 하 고 여러 사용자 및 그룹에 대해 서로 다른 액세스를 허용 하도록 Azure AD에서 여러 앱을 만들어 등록 합니다.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 5ca57ccc40669a607cd0541dc738e3a3eacf3e88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 57fd36366eef284e2975633fbb34549f4316cde6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507695"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988274"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결에 대 한 AD (Azure Active Directory) 테 넌 트 만들기
 
@@ -123,11 +123,11 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 1. 삭제하려는 클라이언트 프로필 옆의 줄임표(...)를 선택합니다. 그런 다음, **제거**를 선택합니다.
 
-    ![삭제](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
+    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
 2. **제거**를 선택하여 삭제합니다.
 
-    ![삭제](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>연결 문제를 진단 하려면
 

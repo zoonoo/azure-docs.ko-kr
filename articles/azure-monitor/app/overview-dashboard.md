@@ -3,12 +3,12 @@ title: Azure Application Insights 개요 대시보드 | Microsoft Docs
 description: Azure Application Insights 및 개요 대시보드 기능을 사용하여 애플리케이션을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 714488d88b269f252dfd6677f847db315969a270
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322536"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970617"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 개요 대시보드
 
@@ -36,7 +36,7 @@ Application Insights에는 애플리케이션의 상태 및 성능을 한 눈에
 
 기본 대시보드에 액세스하려면 왼쪽 위 모서리에 있는 _애플리케이션 대시보드_를 선택합니다.
 
-![대시보드 보기](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![스크린샷 강조 표시 된 응용 프로그램 대시보드 단추를 표시 합니다.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 대시보드에 처음 액세스하는 경우 기본 보기가 시작됩니다.
 

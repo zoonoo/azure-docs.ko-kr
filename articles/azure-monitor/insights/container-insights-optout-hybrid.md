@@ -44,7 +44,7 @@ Kubernetes 클러스터의 모니터링을 사용 하도록 설정한 후에는 
 
     `helm delete <releaseName>`
 
-    예제:
+    예:
 
     `helm delete azmon-containers-release-1`
 
@@ -96,7 +96,7 @@ $servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $service
 $tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
 ```
 
-다음은 그 예입니다. 
+예를 들어:
 
 ```powershell
 \disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId
@@ -149,7 +149,7 @@ servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
 tenantId=$(echo $servicePrincipal | jq -r '.tenant')
 ```
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```bash
 bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId

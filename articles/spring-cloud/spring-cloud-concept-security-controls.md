@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 2e001e5e927d9d4c5dc4c3eb74f7b5ad33617b99
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1472da4c87dc4579a30290460fb7811cf228be47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037579"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892489"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Azure Spring Cloud Service의 보안 컨트롤
+
+이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
+
 보안 제어는 Azure 스프링 클라우드 서비스에 기본 제공 됩니다.
 
 보안 제어는 보안 취약성을 방지, 탐지 및 대응할 수 있는 서비스의 기능에 기여하는 Azure 서비스의 품질 또는 기능입니다.  각 컨트롤에 대해 *예* 또는 *아니요* 를 사용 하 여 서비스에 대 한 현재 준비 여부를 나타냅니다.  서비스에 적용 되지 않는 컨트롤에는 *N/A* 를 사용 합니다. 
@@ -32,3 +35,7 @@ ms.locfileid: "87037579"
 | 보안 컨트롤 | 예/아니요 | 메모 | 문서화 |
 |:-------------|:-------|:-------------------------------|:----------------------|
 | 서비스 태그 | 예 | **AzureSpringCloud** service 태그를 사용 하 여 Azure 스프링 클라우드 응용 프로그램에 대 한 트래픽을 허용 하는 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) 또는 [azure 방화벽](https://docs.microsoft.com/azure/firewall/service-tags)에서 아웃 바운드 네트워크 액세스 제어를 정의 합니다.<br><br>*참고:* 현재 2020/07/14 이후 생성 된 새 Azure 스프링 클라우드 서비스 인스턴스만 **AzureSpringCloud** service 태그를 지원 합니다. | [서비스 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |
+
+## <a name="next-steps"></a>다음 단계
+
+* [빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포](spring-cloud-quickstart.md)

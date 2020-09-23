@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: 910d98558e5b949a76202cce48c2a210531d5c35
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 9e8bd56655adfa1f7cdb769ac6cd282193b1bcf2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459796"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901377"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure Security Center에서 파일 무결성 모니터링
 이 연습을 사용하여 Azure Security Center에서 FIM(파일 무결성 모니터링)을 구성하는 방법을 알아봅니다.
@@ -28,8 +28,8 @@ ms.locfileid: "89459796"
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|일반 공급|
-|결정|표준 계층|
+|릴리스 상태:|GA(일반 공급)|
+|결정|[서버용 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
 |필요한 역할 및 사용 권한:|**작업 영역 소유자** 는 FIM을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Log Analytics에 대 한 Azure 역할](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)을 참조 하세요.<br>**판독기** 가 결과를 볼 수 있습니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
 |||
@@ -50,7 +50,7 @@ Security Center의 파일 무결성 모니터링은 Windows 파일, Windows 레�
 Security Center에서는 모니터링할 엔터티를 권장하며 FIM을 쉽게 사용할 수 있습니다. 사용자 고유의 FIM 정책 또는 모니터링할 엔터티를 정의할 수도 있습니다. 이 연습에서는 방법을 보여 줍니다.
 
 > [!NOTE]
-> FIM (파일 무결성 모니터링) 기능은 Windows 및 Linux 컴퓨터 및 Vm에 대해 작동 하며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. FIM은 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
+> FIM (파일 무결성 모니터링) 기능은 Windows 및 Linux 컴퓨터와 Vm에서 작동 하며, **서버에 대 한 Azure Defender** 를 사용 하도록 설정한 경우에만 사용할 수 있습니다. 자세히 알아보려면 [가격 책정](security-center-pricing.md) 을 참조 하세요. FIM은 Log Analytics 작업 영역에 데이터를 업로드합니다. 업로드하는 데이터의 양에 따라 데이터 요금이 부과됩니다. 자세한 내용은 [Log Analytics 가격](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
 
 FIM은 Azure 변경 내용 추적 솔루션을 사용하여 환경의 변경 내용을 추적하고 식별합니다. 파일 무결성 모니터링을 사용 하도록 설정 하면 **솔루션**형식 **변경 내용 추적** 리소스가 있습니다. 데이터 수집 빈도에 대한 자세한 내용은 Azure 변경 내용 추적의 [변경 내용 추적 데이터 수집 세부 정보](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details)를 참조하세요.
 
@@ -94,13 +94,18 @@ Security Center는 알려진 공격 패턴을 기준으로 모니터링할 권�
 |||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\PublicProfile|
 |||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile|
 
-## <a name="using-file-integrity-monitoring"></a>파일 무결성 모니터링 사용
-1. **Security Center** 대시보드를 엽니다.
-2. 왼쪽 창의 **고급 클라우드 방어** 아래에서 **파일 무결성 모니터링**을 선택합니다.
-![Security Center 대시보드][1]
 
-**파일 무결성 모니터링**이 열립니다.
-  ![Security Center 대시보드][2]
+## <a name="using-file-integrity-monitoring"></a>파일 무결성 모니터링 사용
+
+1. **Azure Defender** 대시보드를 엽니다.
+
+1. **고급 보호** 영역에서 **파일 무결성 모니터링**을 선택 합니다.
+
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="FIM 시작" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
+
+
+    **파일 무결성 모니터링**이 열립니다.
+    ![Security Center 대시보드][2]
 
 각 작업 영역에 대해 제공되는 정보는 다음과 같습니다.
 
@@ -112,26 +117,28 @@ Security Center는 알려진 공격 패턴을 기준으로 모니터링할 권�
 또한 작업 영역에 대해 표시될 수 있는 단추는 다음과 같습니다.
 
 - ![사용 아이콘:][3] 작업 영역에 대해 FIM을 사용할 수 없음을 나타냅니다. 작업 영역을 선택하면 작업 영역 아래의 모든 컴퓨터에서 FIM을 사용하도록 설정할 수 있습니다.
-- ![업그레이드 계획 아이콘 ][4] 은 작업 영역 또는 구독이 Security Center의 표준 계층에서 실행 되 고 있지 않음을 나타냅니다. FIM 기능을 사용하려면 구독에서 표준을 실행해야 합니다.  작업 영역을 선택하면 표준으로 업그레이드할 수 있습니다. 표준 계층 및 업그레이드 방법에 대 한 자세한 내용은 [보안 강화를 위해 Security Center의 표준 계층으로 업그레이드](security-center-pricing.md)를 참조 하세요.
+- ![업그레이드 계획 아이콘][4] 작업 영역 또는 구독이 Azure Defender에 의해 보호 되지 않음을 나타냅니다. FIM 기능을 사용 하려면 Azure Defender에서 구독을 보호 해야 합니다.  작업 영역을 선택 하면를 업그레이드할 수 있습니다.
 - 공백(단추 없음)은 이미 작업 영역에서 FIM을 사용할 수 있음을 나타냅니다.
 
-**파일 무결성 모니터링** 아래에서 작업 영역을 선택하여 해당 작업 영역에 대해 FIM을 사용하도록 설정하거나, 해당 작업 영역에 대한 파일 무결성 모니터링 대시보드를 보거나, 작업 영역을 표준으로 [업그레이드](security-center-pricing.md)할 수 있습니다.
+**파일 무결성 모니터링**에서 작업 영역을 선택 하 여 해당 작업 영역에 대 한 FIM을 사용 하도록 설정 하거나, 해당 작업 영역에 대 한 파일 무결성 모니터링 대시보드를 보거나, Azure Defender를 사용 하도록 작업 영역을 [업그레이드할](security-center-pricing.md) 수 있습니다.
 
 ## <a name="enable-fim"></a>FIM 사용
 작업 영역에서 FIM을 사용하도록 설정하려면
 
 1. **파일 무결성 모니터링** 아래에서 **사용** 단추를 사용하여 작업 영역을 선택합니다.
-2. 작업 영역에 속한 Windows 및 Linux 컴퓨터 수를 표시하는 **파일 무결성 모니터링 사용**이 열립니다.
+
+1. 작업 영역에 속한 Windows 및 Linux 컴퓨터 수를 표시하는 **파일 무결성 모니터링 사용**이 열립니다.
 
    ![파일 무결성 모니터링 사용][5]
 
    또한 Windows 및 Linux에 권장되는 설정도 나열됩니다.  권장 항목의 전체 목록을 보려면 **Windows 파일**, **레지스트리** 및 **Linux 파일**을 펼칩니다.
 
-3. FIM을 적용하지 않으려는 권장 엔터티를 모두 선택 취소합니다.
-4. **파일 무결성 모니터링 적용**을 선택하여 FIM을 사용하도록 설정합니다.
+1. FIM을 적용하지 않으려는 권장 엔터티를 모두 선택 취소합니다.
+
+1. **파일 무결성 모니터링 적용**을 선택하여 FIM을 사용하도록 설정합니다.
 
 > [!NOTE]
-> 언제든지 설정을 변경할 수 있습니다. 자세한 내용은 아래의 모니터링되는 엔터티 편집을 참조하세요.
+> 언제든지 설정을 변경할 수 있습니다. 자세한 내용은 아래의 [모니터링된 엔터티 수정](#edit-monitored-entities)을 참조하세요.
 
 
 ## <a name="view-the-fim-dashboard"></a>FIM 대시보드 보기

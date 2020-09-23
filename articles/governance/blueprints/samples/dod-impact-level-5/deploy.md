@@ -1,14 +1,14 @@
 ---
 title: DoD 영향 수준 5 청사진 샘플
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 DoD 영향 수준 5 청사진 샘플에 대한 단계를 배포합니다.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 9267ed0de35107b8f6582d852ab925b4dbbbdba4
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: deb6ffa0f886cc6a4a9bea10a38d7cd82e7df8f1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85804423"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978232"
 ---
 # <a name="deploy-the-dod-impact-level-5-blueprint-sample"></a>DoD 영향 수준 5 청사진 샘플 배포
 

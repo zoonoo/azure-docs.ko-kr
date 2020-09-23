@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 51b478e5184c79e11d95ff004a652b2e5298558f
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 7aefa6cd048c41feb1535f2ae7fa5c87bf628b2d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402607"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884899"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Azure Database for MySQL의 Query Performance Insight
 
@@ -51,7 +51,7 @@ Azure Database for MySQL 서버의 포털 페이지에서 메뉴 모음의 **지
 
 차트를 클릭하고 끌어 특정 기간으로 범위를 좁힐 수 있습니다. 확대/축소 아이콘을 사용하여 더 긴 기간이나 더 짧은 기간을 표시할 수도 있습니다.
 
-![Query Performance Insight 장기 실행 쿼리](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Query Performance Insight 장기 실행 쿼리"::: 
 
 ### <a name="wait-statistics"></a>대기 통계
 
@@ -64,7 +64,7 @@ Azure Database for MySQL 서버의 포털 페이지에서 메뉴 모음의 **지
 
 대기 통계 보기에 표시되는 쿼리는 지정된 시간 간격 동안 가장 큰 대기를 나타내는 쿼리로 그룹화됩니다.
 
-![Query Performance Insight 대기 통계](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight 대기 통계":::
 
 ## <a name="next-steps"></a>다음 단계
 

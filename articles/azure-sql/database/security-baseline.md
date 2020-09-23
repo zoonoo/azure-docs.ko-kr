@@ -4,15 +4,15 @@ description: Azure SQL Database 및 Azure SQL Managed Instance에 대 한 azure 
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 09/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 846d66a1cf1bb1d97f7ab9d7dfd7bbcf43d3f8d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ce297b436ce79a4a0a14d0f6e9ad900de61a8dc9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231030"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885217"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>SQL Managed Instance & Azure SQL Database에 대 한 Azure 보안 기준
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -285,15 +285,15 @@ https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-porta
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: 비정상 활동에 대한 경고 사용
 
-**지침**: 비정상적인 활동을 모니터링 하 고 경고 하는 Azure SQL Database에 대해 Azure Security Center Advanced Threat Protection을 사용 합니다. SQL 데이터베이스에 대해 고급 데이터 보안을 사용 하도록 설정 합니다. 고급 데이터 보안에는 중요 한 데이터를 검색 및 분류 하 고, 잠재적인 데이터베이스 취약성을 표시 및 완화 하 고, 데이터베이스에 위협을 나타낼 수 있는 비정상적인 활동을 검색 하기 위한 기능이 포함 되어 있습니다.
+**지침**: 비정상적인 활동을 모니터링 하 고 경고 하는 Azure SQL Database에 대해 Azure Security Center Advanced Threat Protection을 사용 합니다. SQL 데이터베이스에 Azure Defender for SQL을 사용 하도록 설정 합니다. SQL 용 Azure Defender에는 잠재적 데이터베이스 취약성을 표시 하 고 완화 하는 기능과 데이터베이스 위협을 나타낼 수 있는 비정상적인 활동을 검색 하는 기능이 포함 되어 있습니다.
 
 Azure SQL Database에 대 한 고급 위협 방지 및 경고 이해:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
-Azure SQL Database에 대 한 고급 데이터 보안을 사용 하도록 설정 하는 방법:
+Azure SQL Database에 대해 Azure Defender for SQL을 사용 하도록 설정 하는 방법:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Azure Security Center에서 경고를 관리 하는 방법:
 
@@ -333,7 +333,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: 관리 계정의 인벤토리 유지 관리
 
-**지침**: AAD (Azure Active Directory)에는 명시적으로 할당 되어야 하며 쿼리할 수 있는 기본 제공 역할이 있습니다. AAD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
+**지침**: Azure Active Directory (Azure AD)에는 명시적으로 할당 되어야 하며 쿼리할 수 있는 기본 제공 역할이 있습니다. Azure AD PowerShell 모듈을 사용 하 여 임시 쿼리를 수행 하 여 관리 그룹의 구성원 인 계정을 검색 합니다.
 
 PowerShell을 사용 하 여 Azure AD에서 디렉터리 역할을 가져오는 방법:
 
@@ -381,7 +381,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: 모든 Azure Active Directory 기반 액세스에 다단계 인증 사용
 
-**지침**: AZURE ACTIVE DIRECTORY (AAD) MULTI-FACTOR AUTHENTICATION (MFA)를 사용 하도록 설정 하 고 Azure Security Center Id 및 액세스 관리 권장 사항을 따릅니다.
+**지침**: Azure Active Directory (Azure AD) MULTI-FACTOR AUTHENTICATION (MFA)를 사용 하도록 설정 하 고 Azure Security Center Id 및 액세스 관리 권장 사항을 따릅니다.
 
 Azure에서 MFA를 사용하도록 설정하는 방법: 
 
@@ -445,13 +445,13 @@ Azure에서 명명된 위치를 구성하는 방법: https://docs.microsoft.com/
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Azure Active Directory 사용
 
-**지침**: 서버에 대 한 AAD (Azure Active Directory) 관리자를 만듭니다.
+**지침**: 서버에 대 한 Azure Active Directory (Azure AD) 관리자를 만듭니다.
 
 Azure SQL을 사용 하 여 Azure Active Directory 인증을 구성 하 고 관리 하는 방법:
 
 https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
-AAD 인스턴스를 만들고 구성 하는 방법:
+Azure AD 인스턴스를 만들고 구성 하는 방법:
 
 https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
@@ -461,7 +461,7 @@ https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-creat
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: 정기적으로 사용자 액세스 검토 및 조정
 
-**지침**: AAD (Azure Active Directory)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다.
+**지침**: Azure Active Directory (Azure AD)는 오래 된 계정을 검색 하는 데 도움이 되는 로그를 제공 합니다. 또한 Azure Id 액세스 검토를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 역할 할당을 효율적으로 관리할 수 있습니다. 사용자의 액세스를 정기적으로 검토 하 여 적절 한 사용자만 계속 액세스할 수 있도록 할 수 있습니다.
 
 Azure ID 액세스 검토를 사용하는 방법: 
 
@@ -473,7 +473,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11: 비활성화된 계정에 대한 액세스 시도 모니터링
 
-**지침**: Azure SQL을 사용 하 여 AAD (Azure Active Directory) 인증을 구성 하 고 Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성 합니다.
+**지침**: azure SQL을 사용 하 여 Azure Active Directory (azure AD) 인증을 구성 하 고 Azure Active Directory 사용자 계정에 대 한 진단 설정을 만들어 감사 로그 및 로그인 로그를 Log Analytics 작업 영역으로 보냅니다. Log Analytics 작업 영역 내에서 원하는 경고를 구성 합니다.
 
 Azure SQL을 사용 하 여 Azure Active Directory 인증을 구성 하 고 관리 하는 방법:
 
@@ -489,7 +489,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: 계정 로그인 동작 편차에 대한 경고
 
-**지침**: 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 하려면 AAD (Azure Active Directory) id 보호 및 위험 감지를 사용 합니다. 또한 추가 조사를 위해 데이터를 Azure 센티널로 수집할 수 있습니다.
+**지침**: 사용자 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 하려면 Azure AD (Azure Active Directory) id 보호 및 위험 검색을 사용 합니다. 또한 추가 조사를 위해 데이터를 Azure 센티널로 수집할 수 있습니다.
 
 Azure AD 위험 로그인을 보는 방법:
 
@@ -599,7 +599,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-cl
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Azure RBAC를 사용하여 리소스에 대한 액세스 제어
 
-**지침**: Azure SQL Database 인스턴스에 대 한 액세스를 인증 하 고 제어 하기 위해 AAD (Azure Active Directory)를 사용 합니다.
+**지침**: Azure SQL Database 인스턴스에 대 한 액세스를 인증 하 고 제어 하는 데 Azure Active Directory (Azure AD)를 사용 합니다.
 
 인증을 위해 Azure SQL Database Azure Active Directory와 통합 하는 방법:
 
@@ -655,15 +655,15 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: 자동화된 취약성 검사 도구 실행
 
-**지침**: Azure SQL Database에 대 한 고급 데이터 보안을 사용 하도록 설정 하 고 서버에서 취약점 평가를 수행 하는 Azure Security Center의 권장 사항을 따릅니다.
+**지침**: Azure SQL Database에 대해 Azure DEFENDER for SQL을 사용 하도록 설정 하 고 서버에서 취약점 평가를 수행 하는 Azure Security Center의 권장 사항을 따릅니다.
 
 Azure SQL Database에서 취약성 평가를 실행 하는 방법:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
-고급 데이터 보안을 사용 하도록 설정 하는 방법:
+SQL 용 Azure Defender를 사용 하도록 설정 하는 방법:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Azure Security Center 취약성 평가 권장 사항을 구현 하는 방법:
 
@@ -993,7 +993,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azur
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: 안전하게 자동으로 ID 관리
 
-**지침**: 관리 되는 id를 사용 하 여 AAD (Azure Active Directory)에서 자동으로 관리 되는 Id를 Azure 서비스에 제공 합니다. 관리 Id를 사용 하면 코드에 자격 증명 없이 Azure Key Vault를 포함 하 여 AAD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다.
+**지침**: 관리 되는 id를 사용 하 여 azure AD (Azure Active Directory)에서 자동으로 관리 되는 Id를 azure 서비스에 제공 합니다. 관리 Id를 사용 하면 코드에 자격 증명 없이 Azure Key Vault를 포함 하 여 Azure AD 인증을 지 원하는 모든 서비스에 인증할 수 있습니다.
 
 자습서: Windows VM 시스템 할당 관리 id를 사용 하 여 Azure SQL에 액세스:
 

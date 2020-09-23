@@ -1,27 +1,27 @@
 ---
-title: Synapse SQL의 CETAS
-description: Synapse SQL과 함께 CETAS 사용
+title: Synapse SQL의 CREATE EXTERNAL TABLE AS SELECT (CETAS)
+description: Synapse SQL에서 CREATE EXTERNAL TABLE AS SELECT (CETAS) 사용
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 18f472da30b34fcacd70bba9ea7371b56f1a7abf
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: d33403f49429398d9bc006187c23bb8091d9b4a1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032914"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885350"
 ---
 # <a name="cetas-with-synapse-sql"></a>Synapse SQL의 CETAS
 
 SQL 풀 또는 SQL 주문형(미리 보기)에서 CREATE EXTERNAL TABLE AS SELECT (CETAS)를 사용하여 다음 작업을 완료할 수 있습니다.  
 
 - 외부 테이블 만들기
-- Transact-SQL SELECT 문의 결과를 다음 위치에 병렬로 내보내기
+- Transact-SQL SELECT 문의 결과를 다음 위치에 병렬로 내보내기:
 
   - Hadoop은
   - Azure Storage Blob
@@ -29,11 +29,12 @@ SQL 풀 또는 SQL 주문형(미리 보기)에서 CREATE EXTERNAL TABLE AS SELEC
 
 ## <a name="cetas-in-sql-pool"></a>SQL 풀의 CETAS
 
-SQL 풀의 경우 CETAS 사용 및 구문에 대한 자세한 내용은 [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 문서를 참조하세요. SQL 풀을 사용하는 CTAS에 대한 지침은 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) 문서를 참조하세요.
+SQL 풀 CETAS 사용 및 구문에 대한 자세한 내용은 [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문서를 참조하세요. SQL 풀을 사용하는 CTAS에 대한 지침은 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문서를 참조하세요.
+SQL 풀 CETAS 사용 및 구문에 대한 자세한 내용은 [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문서를 참조하세요. SQL 풀을 사용하는 CTAS에 대한 지침은 [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 문서를 참조하세요.
 
 ## <a name="cetas-in-sql-on-demand"></a>SQL 주문형의 CETAS
 
-SQL 주문형 리소스를 사용하는 경우 CETAS는 외부 테이블을 만들고 쿼리 결과를 Azure Storage Blob 또는 Azure Data Lake Storage Gen2로 내보내는 데 사용됩니다.
+SQL 주문형을 사용하는 경우 CETAS는 외부 테이블을 만들고 쿼리 결과를 Azure Storage Blob 또는 Azure Data Lake Storage Gen2로 내보내는 데 사용됩니다.
 
 ## <a name="syntax"></a>구문
 
@@ -68,18 +69,18 @@ DATA_SOURCE = *external_data_source_name*
 
 FILE_FORMAT = *external_file_format_name*
 
-외부 데이터 파일에 대한 형식을 포함하는 외부 파일 형식 개체의 이름을 지정합니다. 외부 파일 형식을 만들려면 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format)을 사용합니다. 현재는 FORMAT='PARQUET'인 외부 파일 형식만 지원됩니다.
+외부 데이터 파일에 대한 형식을 포함하는 외부 파일 형식 개체의 이름을 지정합니다. 외부 파일 형식을 만들려면 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](develop-tables-external-tables.md#create-external-file-format)을 사용합니다. 현재는 FORMAT_TYPE=PARQUET 및 FORMAT_TYPE=DELIMITEDTEXT인 외부 파일 형식만 지원합니다.
 
 WITH *<common_table_expression>*
 
-CTE(공통 테이블 식)라고도 하는 임시로 이름이 지정된 결과 집합을 지정합니다. 자세한 내용은 [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.
+CTE(공통 테이블 식)라고도 하는 임시로 이름이 지정된 결과 집합을 지정합니다. 자세한 내용은 [WITH common_table_expression (Transact-SQL)](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
 
 SELECT <select_criteria>
 
-새 테이블을 SELECT 문의 결과로 채웁니다. *select_criteria*는새 테이블에 복사할 데이터를 결정하는 SELECT 문의 본문입니다. SELECT 문에 대한 자세한 내용은 [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 참조하세요.
+새 테이블을 SELECT 문의 결과로 채웁니다. *select_criteria*는새 테이블에 복사할 데이터를 결정하는 SELECT 문의 본문입니다. SELECT 문에 대한 자세한 내용은 [SELECT (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
 
 > [!NOTE]
-> CETAS의 SELECT 부분에 있는 ORDER BY 절은 지원되지 않습니다.
+> SELECT 문의 ORDER BY 절은 CETAS에서 지원되지 않습니다.
 
 ## <a name="permissions"></a>사용 권한
 
@@ -94,7 +95,7 @@ CETAS가 작동하려면 폴더 콘텐츠를 나열하고 LOCATION 폴더에 쓸
 다른 스토리지 계정에 결과를 저장하려면 DATA_SOURCE 인수에 대한 다른 데이터 원본을 만들어서 사용하면 됩니다.
 
 > [!NOTE]
-> 다음 샘플에서는 공용 Azure Open Data 스토리지 계정을 사용합니다. 읽기 전용입니다. 이러한 쿼리를 실행하려면 쓰기 권한이 있는 데이터 원본을 제공해야 합니다.
+> 다음 샘플에서는 퍼블릭 Azure Open Data 스토리지 계정을 사용합니다. 읽기 전용입니다. 이러한 쿼리를 실행하려면 쓰기 권한이 있는 데이터 원본을 제공해야 합니다.
 
 ```sql
 -- use CETAS to export select statement with OPENROWSET result to  storage
@@ -112,7 +113,7 @@ FROM
 GROUP BY decennialTime, stateName
 GO
 
--- you can query created external table
+-- you can query the newly created external table
 SELECT * FROM population_by_year_state
 ```
 
@@ -132,7 +133,7 @@ FROM census_external_table
 GROUP BY decennialTime, stateName
 GO
 
--- you can query created external table
+-- you can query the newly created external table
 SELECT * FROM population_by_year_state
 ```
 
@@ -173,4 +174,4 @@ CETAS를 사용하여 다음 SQL 데이터 형식으로 결과 세트를 저장�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Apache Spark for Azure Synapse 외부 테이블](develop-storage-files-spark-tables.md)을 쿼리할 수 있습니다.
+[Apache Spark for Azure Synapse 외부 테이블](develop-storage-files-spark-tables.md)을 쿼리해 보세요.

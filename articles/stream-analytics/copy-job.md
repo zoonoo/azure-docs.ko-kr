@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: 2c6b6af46ae89f794e05c3aa80716250c566257e
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e0214cb9515a5974f1de9a27760dc037f7593f30
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037225"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892319"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업 복사 또는 백업
 
@@ -23,7 +23,7 @@ Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Strea
 
 * [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-* Visual Studio Code 또는 [Azure Stream Analytics tools For Visual Studio](quick-create-vs-code.md#install-the-azure-stream-analytics-tools-extension) [용 Azure Stream Analytics 확장을](quick-create-vs-code.md#install-the-azure-stream-analytics-tools-extension) 설치 합니다.  
+* Visual Studio Code 또는 [Azure Stream Analytics tools For Visual Studio](quick-create-visual-studio-code.md#install-the-azure-stream-analytics-tools-extension) [용 Azure Stream Analytics 확장을](quick-create-visual-studio-code.md#install-the-azure-stream-analytics-tools-extension) 설치 합니다.  
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -33,7 +33,7 @@ Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Strea
 
 2. 작업을 로컬 프로젝트로 내보내려면 Visual Studio Code의 **Stream Analytics 탐색기** 에서 내보내려는 작업을 찾습니다. 그런 다음 프로젝트에 대 한 폴더를 선택 합니다.
 
-    ![Visual Studio Code에서이 작업 내보내기](./media/vscode-explore-jobs/export-job.png)
+    ![Visual Studio Code에서 GLOBAL.ASA 작업 찾기](./media/vscode-explore-jobs/export-job.png)
 
     프로젝트를 선택 하 고 현재 작업 영역에 추가 된 폴더로 내보냅니다.
 
@@ -41,7 +41,7 @@ Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Strea
 
 3. 다른 이름을 사용 하 여 작업을 다른 지역 또는 백업에 게시 하려면 쿼리 편집기 (. script.asaql)에서 **게시할 구독에서 선택을** 선택 하 \* 고 지침을 따릅니다.
 
-    ![Visual Studio Code에서 Azure에 게시](./media/quick-create-vs-code/submit-job.png)
+    ![Visual Studio Code에서 Azure에 게시](./media/quick-create-visual-studio-code/submit-job.png)
 
 ## <a name="visual-studio"></a>Visual Studio
 
@@ -51,6 +51,6 @@ Visual Studio Code 또는 Visual Studio를 사용 하 여 배포 된 Azure Strea
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: Visual Studio Code를 사용 하 여 Stream Analytics 작업 만들기](quick-create-vs-code.md)
+* [빠른 시작: Visual Studio Code를 사용 하 여 Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)
 * [빠른 시작: Visual Studio를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
 * [Azure Pipelines를 사용하여 CI/CD를 통해 Azure Stream Analytics 작업 배포](stream-analytics-tools-visual-studio-cicd-vsts.md)
