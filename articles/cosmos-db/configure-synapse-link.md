@@ -6,17 +6,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: 50881071380bbe5d245ed458d162e62bfabd108a
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.custom: references_regions
+ms.openlocfilehash: a375656f579e626d8f41afe49adc3f2ebdb3b27d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061498"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891697"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용(미리 보기)
 
 Azure Cosmos DB용 Synapse Link는 클라우드 네이티브 HTAP(하이브리드 트랜잭션 및 분석 처리) 기능으로, 이를 통해 Azure Cosmos DB의 작동 데이터에 대해 근 실시간 분석을 실행할 수 있습니다. Synapse Link를 통해 Azure Cosmos DB와 Azure Synapse Analytics가 긴밀하게 통합됩니다.
-
 
 > [!IMPORTANT]
 > Azure Synapse 링크를 사용 하려면 지원 되는 지역 중 하나에서 azure Cosmos 계정 & Azure Synapse Analytics 작업 영역을 프로 비전 해야 합니다. Azure Synapse 링크는 현재 미국 서 부, 미국 동부, 서 부 미국, 유럽 서 부, 유럽 서부, 남부 중부, 동남 아시아, 오스트레일리아 동부, 동부 U2, 영국 남부의 Azure 지역에서 사용할 수 있습니다.
@@ -26,7 +26,9 @@ Azure Cosmos DB용 Synapse Link를 사용하여 분석 쿼리를 실행하려면
 * [Azure Cosmos 계정에 대해 Synapse Link를 사용하도록 설정](#enable-synapse-link)
 * [Azure Cosmos 컨테이너를 사용하도록 설정된 분석 저장소 만들기](#create-analytical-ttl)
 * [Synapse 작업 영역에 Azure Cosmos 데이터베이스 연결](#connect-to-cosmos-database)
-* [Synapse Spark를 사용하여 분석 저장소 쿼리](#query-analytical-store)
+* [Synapse Spark를 사용하여 분석 저장소 쿼리](#query-analytical-store-spark)
+* [서버를 사용 하지 않는 Synapse SQL을 사용 하 여 분석 저장소 쿼리](#query-analytical-store-sql-on-demand)
+* [Synapse SQL server 서버를 사용 하 여 Power BI에서 데이터 분석 및 시각화](#analyze-with-powerbi)
 
 ## <a name="enable-azure-synapse-link-for-azure-cosmos-accounts"></a><a id="enable-synapse-link"></a>Azure Cosmos 계정에 대해 Azure Synapse Link를 사용하도록 설정
 
@@ -207,9 +209,20 @@ container.replace(containerProperties).block();
 
 Azure Synapse Link를 사용하여 Azure Synapse Analytics Studio에서 Azure Cosmos DB 데이터베이스에 액세스하는 방법에 대해 [Azure Synapse Link에 연결](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md)의 지침을 사용합니다.
 
-## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a> Synapse Spark를 사용하여 쿼리
+## <a name="query-analytical-store-using-apache-spark-for-azure-synapse-analytics"></a><a id="query-analytical-store-spark"></a> Azure Synapse Analytics에 대 한 Apache Spark를 사용 하 여 쿼리 분석 저장소
 
 Synapse Spark를 사용하여 쿼리하는 방법에 대해 [Azure Cosmos DB 분석 저장소 쿼리](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) 문서의 지침을 사용합니다. 이 문서에서는 Synapse 제스처에서 분석 저장소와 상호 작용하는 방법에 대한 몇 가지 예를 제공합니다. 컨테이너를 마우스 오른쪽 단추로 클릭하면 해당 제스처가 표시됩니다. 제스처를 사용하면 코드를 빠르게 생성하고 필요에 맞게 조정할 수 있습니다. 제스처는 한 번의 클릭으로 데이터를 검색하는 데에도 적합합니다.
+
+## <a name="query-the-analytical-store-using-synapse-sql-serverless"></a><a id="query-analytical-store-sql-on-demand"></a> 서버를 사용 하지 않는 Synapse SQL을 사용 하 여 분석 저장소 쿼리
+
+서버를 사용 하지 않는 Synapse (이전에는 **sql 주문형**이라고 했던 미리 보기 기능)를 사용 하면 Azure Synapse 링크로 사용 되는 Azure Cosmos DB 컨테이너의 데이터를 쿼리하고 분석할 수 있습니다. 트랜잭션 워크 로드의 성능에 영향을 주지 않고 데이터를 거의 실시간으로 분석할 수 있습니다. 분석 저장소에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 T-sql 인터페이스를 통한 광범위 한 BI 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다. 자세히 알아보려면 [SYNAPSE SQL 서버를 사용 하지 않는 쿼리 분석 저장소](../synapse-analytics/sql/on-demand-workspace-overview.md) 문서를 참조 하세요.
+
+> [!NOTE]
+> Synapse SQL server를 사용 하지 않는 Azure Cosmos DB 분석 저장소를 사용 하는 것은 현재 제어 된 미리 보기로 제공 됩니다. 액세스를 요청 하려면 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의 하세요.
+
+## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Synapse SQL server 서버를 사용 하 여 Power BI에서 데이터 분석 및 시각화
+
+Azure Cosmos DB에 대 한 Synapse 링크를 통해 Synapse SQL 서버를 사용 하지 않는 데이터베이스 및 뷰를 빌드할 수 있습니다. 나중에 Azure Cosmos 컨테이너를 쿼리 한 다음 해당 쿼리를 반영 하기 위해 이러한 뷰에 대해 Power BI를 사용 하 여 모델을 작성할 수 있습니다. 자세한 내용은 [Synapse SQL server 서버를 사용 하 여 Synapse 링크를 사용 하 여 Azure Cosmos DB 데이터 분석](synapse-link-power-bi.md) 문서를 참조 하세요.
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
@@ -217,7 +230,7 @@ Synapse Spark를 사용하여 쿼리하는 방법에 대해 [Azure Cosmos DB 분
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Azure Synpase Link 시작 - 샘플
 
-[GitHub](https://aka.ms/cosmosdb-synapselink-samples)에서 Azure Synapse 링크를 시작 하는 샘플을 찾을 수 있습니다. 이 샘플은 IoT 및 소매 시나리오를 사용하여 엔드투엔드 솔루션을 보여 줍니다.
+[GitHub](https://aka.ms/cosmosdb-synapselink-samples)에서 Azure Synapse 링크를 시작 하는 샘플을 찾을 수 있습니다. IoT 및 소매 시나리오를 사용 하 여 종단 간 솔루션을 소개 합니다. [MongoDB](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/MongoDB) 폴더 아래에 있는 동일한 리포지토리의 MongoDB API Azure Cosmos DB에 해당 하는 샘플을 찾을 수도 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

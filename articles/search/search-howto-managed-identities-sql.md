@@ -1,25 +1,22 @@
 ---
-title: 관리 id (미리 보기)를 사용 하 여 Azure SQL Database에 대 한 연결 설정
+title: 관리 id를 사용 하 여 Azure SQL Database에 대 한 연결 설정
 titleSuffix: Azure Cognitive Search
-description: 관리 id (미리 보기)를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결을 설정 하는 방법을 알아봅니다.
+description: 관리 id를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결을 설정 하는 방법을 알아봅니다.
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 8dabf69af8628bb0b168bfea94af5333df341423
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: 9f90125edeee453dc9e8b8b80f8eb09d9fc6e84c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924132"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971527"
 ---
-# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>관리 id (미리 보기)를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결 설정
-
-> [!IMPORTANT] 
-> 관리 id를 사용 하 여 데이터 원본에 대 한 연결을 설정 하는 기능은 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다.
+# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>관리 id를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결 설정
 
 이 페이지에서는 데이터 원본 개체 연결 문자열에 자격 증명을 제공 하는 대신 관리 되는 id를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결을 설정 하는 방법을 설명 합니다.
 
@@ -97,7 +94,7 @@ ms.locfileid: "88924132"
 
 ### <a name="5---create-the-data-source"></a>5 - 데이터 원본 만들기
 
-[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 Azure SQL Database에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법에 대 한 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](/dotnet/api/microsoft.azure.search.models.datasource) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 Azure SQL Database에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법에 대 한 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
 
 [REST API](/rest/api/searchservice/create-data-source)를 사용 하 여 데이터 원본을 만들 때 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Edge에서 데이터 스트리밍(미리 보기)
-description: Azure SQL Edge (미리 보기)의 데이터 스트리밍에 대해 알아봅니다.
+title: Azure SQL Edge의 데이터 스트리밍
+description: Azure SQL Edge의 데이터 스트리밍에 대해 알아봅니다.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,23 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 866c74fbdfcfcef7cbb7d6cddb360c4265a2f776
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca22b3d2c00bfef128455df4ad6b9bb6411f8a13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669616"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900563"
 ---
-# <a name="data-streaming-in-azure-sql-edge-preview"></a>Azure SQL Edge에서 데이터 스트리밍(미리 보기)
+# <a name="data-streaming-in-azure-sql-edge"></a>Azure SQL Edge의 데이터 스트리밍
 
-Azure SQL Edge (미리 보기)는 데이터 스트리밍을 구현 하기 위해 다음 옵션을 제공 합니다. 
-
-- Azure에서 만든 Azure Stream Analytics edge 작업 배포 자세한 내용은 [Azure Stream Analytics 작업 배포](deploy-dacpac.md)를 참조 하세요.
-- Azure에서 스트리밍 작업을 구성할 필요 없이 T-sql 스트리밍을 사용 하 여 Azure SQL Edge에서 스트리밍 작업을 만듭니다. 
-
-Azure SQL Edge에서 데이터 스트리밍을 구현 하기 위해 두 옵션을 모두 사용할 수는 있지만 그 중 하나만 사용 해야 합니다. 둘 다 사용 하는 경우 데이터 스트리밍 작업의 기능에 영향을 주는 경합 조건이 있을 수 있습니다.
-
-T-sql 스트리밍은이 문서의 중심입니다. 실시간 데이터 스트리밍, 분석 및 이벤트 처리 기능을 제공 하 여 여러 원본에서 동시에 많은 양의 고속 스트리밍 데이터를 분석 하 고 처리 합니다. T-sql 스트리밍은 Microsoft Azure에서 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) 을 지 원하는 동일한 고성능 스트리밍 엔진을 사용 하 여 빌드됩니다. 이 기능은 edge에서 실행 되는 Azure Stream Analytics에서 제공 하는 것과 비슷한 기능 집합을 지원 합니다.
+Azure SQL Edge는 T-sql 스트리밍 이라는 데이터 스트리밍 기능의 기본 구현을 제공 합니다. 실시간 데이터 스트리밍, 분석 및 이벤트 처리 기능을 제공 하 여 여러 원본에서 동시에 많은 양의 고속 스트리밍 데이터를 분석 하 고 처리 합니다. T-sql 스트리밍은 Microsoft Azure에서 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) 을 지 원하는 동일한 고성능 스트리밍 엔진을 사용 하 여 빌드됩니다. 이 기능은 edge에서 실행 되는 Azure Stream Analytics에서 제공 하는 것과 비슷한 기능 집합을 지원 합니다.
 
 Stream Analytics와 마찬가지로 T-sql 스트리밍은 장치, 센서 및 응용 프로그램을 포함 하 여 여러 IoT 입력 원본에서 추출 된 정보의 패턴과 관계를 인식 합니다. 이러한 패턴을 사용 하 여 작업을 트리거하고 워크플로를 시작할 수 있습니다. 예를 들어 경고를 만들거나, 보고 또는 시각화 솔루션에 정보를 피드 하거나, 나중에 사용할 수 있도록 데이터를 저장할 수 있습니다. 
 
@@ -49,7 +42,6 @@ Stream analytics 작업은 다음으로 구성 됩니다.
 - **스트림 출력**: 데이터 스트림을 쓸 데이터 원본에 대 한 연결을 정의 합니다. 현재 Azure SQL Edge는 다음과 같은 스트림 출력 유형을 지원합니다.
     - 에지 허브
     - Sql (sql 출력은 Azure SQL Edge 인스턴스 내의 로컬 데이터베이스 또는 원격 SQL Server 또는 Azure SQL Database 일 수 있습니다.) 
-    - Azure Blob 스토리지
 
 - **스트림 쿼리**: 스트림 출력에 기록 되기 전에 입력 스트림에 적용할 변환, 집계, 필터, 정렬 및 조인을 정의 합니다. 스트림 쿼리는 Stream Analytics에서 사용 하는 것과 동일한 쿼리 언어를 기반으로 합니다. 자세한 내용은 [Stream Analytics 쿼리 언어](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?)를 참조 하세요.
 
@@ -65,9 +57,11 @@ T-sql 스트리밍에는 다음과 같은 제한 사항이 적용 됩니다.
 
 - 특정 시간에 하나의 스트리밍 작업만 활성 상태일 수 있습니다. 이미 실행 중인 작업은 다른 작업을 시작 하기 전에 중지 해야 합니다.
 - 각 스트리밍 작업 실행은 단일 스레드입니다. 스트리밍 작업에 여러 개의 쿼리가 포함 되어 있으면 각 쿼리는 일련의 순서로 계산 됩니다.
+- Azure SQL Edge에서 스트리밍 작업을 중지 하면 다음 스트리밍 작업을 시작할 수 있을 때까지 약간의 지연이 있을 수 있습니다. 이 지연은 작업 중지 요청에 대 한 응답으로 기본 스트리밍 프로세스를 중지 한 다음 작업 시작 요청에 대 한 응답으로 다시 시작 해야 하기 때문에 발생 합니다. 
+- T-sql 스트리밍은 kafka 스트림에 대해 32 파티션을 기반으로 합니다. 더 높은 파티션 수를 구성 하려고 하면 오류가 발생 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure SQL Edge에서 Stream Analytics 작업 만들기(미리 보기)](create-stream-analytics-job.md)
-- [Azure SQL Edge에서 스트림 작업과 관련된 메타데이터 보기(미리 보기) ](streaming-catalog-views.md)
+- [Azure SQL Edge에서 Stream Analytics 작업 만들기 ](create-stream-analytics-job.md)
+- [Azure SQL Edge에서 스트림 작업과 연결 된 메타 데이터 보기 ](streaming-catalog-views.md)
 - [외부 스트림 만들기](create-external-stream-transact-sql.md)

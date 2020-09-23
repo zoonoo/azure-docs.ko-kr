@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: dc19d74953db48ccf51d4731e2b9feccb2294041
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076388"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901088"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>자습서: 보안 인시던트에 대응
 Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 악의적인 활동을 경고합니다. 또한 다른 보안 제품 및 서비스의 경고를 Security Center에 통합하고, 사용자 고유의 표시기 또는 인텔리전스 원본에 기반한 사용자 지정 경고를 만들 수 있습니다. 경고가 생성되면 조사하고 수정하기 위한 신속한 조치가 필요합니다. 이 자습서에서는 다음 작업 방법을 배웁니다.
@@ -32,7 +32,7 @@ Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하�
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-이 자습서에서 설명하는 기능을 단계별로 실행하려면 Security Center의 표준 가격 책정 계층에 있어야 합니다. 비용 없이 Security Center 표준을 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Security Center 표준에 Azure 구독 온보딩](security-center-get-started.md) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
+이 자습서에서 설명하는 기능을 단계별로 실행하려면 Azure Defender가 사용하도록 설정되어 있어야 합니다. 무료로 Azure Defender를 사용해 볼 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Security Center 시작](security-center-get-started.md) 빠른 시작에서는 업그레이드 방법을 안내합니다.
 
 ## <a name="scenario"></a>시나리오
 Contoso는 최근에 일부 가상 머신 기반 LOB(기간 업무) 워크로드 및 SQL 데이터베이스를 포함하여 온-프레미스 리소스 일부를 Azure에 마이그레이션했습니다. 현재 Contoso의 CSIRT(주요 컴퓨터 보안 사고 대응 팀)에는 현재의 사고 대응 도구와 통합되지 않는 보안 인텔리전스로 인해 보안 문제를 조사하는 데 문제가 있습니다. 부족한 조사로 인해 감지(너무 많은 가양성)뿐만 아니라 평가와 진단 단계에서도 문제가 발생하고 있습니다. 이 마이그레이션의 일부로 이 문제를 해결할 수 있도록 Security Center에 옵트인하기로 했습니다.
@@ -68,13 +68,13 @@ Security Center는 모든 보안 경고에 대해 통일된 보기를 제공합�
 
    ![보안 경고](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
-2. 이 인시던트에 대한 자세한 내용을 보려면 경고 목록에서 경고 모음인 보안 인시던트를 클릭합니다. **보안 인시던트가 검색됨**이 열립니다.
+2. 이 인시던트에 대한 자세한 내용을 보려면 경고 목록에서 경고 모음인 보안 인시던트를 선택합니다. **보안 인시던트가 검색됨**이 열립니다.
 
-   ![보안 인시던트](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![보안 인시던트가 검색됨](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. 이 화면에는 보안 인시던트 설명이 맨 위에 있으며, 이 인시던트의 일부인 경고 목록이 있습니다. 자세한 내용을 보려면 추가로 조사하려는 경고를 클릭합니다.
 
-   ![보안 인시던트](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![인시던트의 경고 세부 정보](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
    경고 유형은 다양할 수 있습니다. 경고 유형 및 잠재적 수정 단계에 대한 자세한 내용은 [Azure Security Center의 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)를 참조하세요. 안전하게 해제할 수 있는 경고의 경우 해당 경고를 마우스 오른쪽 단추로 클릭하고 **해제** 옵션을 선택할 수 있습니다.
 
@@ -99,13 +99,12 @@ Security Center의 검색 기능을 사용하여 손상된 시스템에 대한 �
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 컬렉션의 다른 빠른 시작과 자습서는 이 빠른 시작을 기반으로 하여 작성됩니다. 이후의 빠른 시작과 자습서를 계속 사용하려면 표준 계층을 계속 실행하고 자동 프로비저닝을 설정된 상태로 유지합니다. 계속하지 않거나 체험 계층으로 되돌리려면 다음을 수행합니다.
+이 컬렉션의 다른 빠른 시작과 자습서는 이 빠른 시작을 기반으로 하여 작성됩니다. 후속 빠른 시작 및 자습서를 계속 사용하려면 자동 프로비저닝 및 Azure Defender를 설정된 상태로 유지합니다. 계속하지 않거나 Azure Defender를 사용하지 않으려면 다음을 수행합니다.
 
-1. Security Center 주 메뉴로 돌아가서 **보안 정책**을 선택합니다.
-2. 체험 계층으로 되돌리려는 구독 또는 정책을 선택합니다. **보안 정책**이 열립니다.
-3. **정책 구성 요소** 아래에서 **가격 책정 계층**을 선택합니다.
-4. **체험**을 선택하여 표준 계층에서 체험 계층으로 구독을 변경합니다.
-5. **저장**을 선택합니다.
+1. Security Center 주 메뉴로 돌아가서 **가격 책정 및 설정**을 선택합니다.
+1. 다운그레이드할 구독을 선택합니다.
+1. **Azure Defender**를 꺼짐으로 설정합니다.
+1. **저장**을 선택합니다.
 
 자동 프로비저닝을 사용하지 않도록 설정하려면 다음을 수행합니다.
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 7df783f15280d9f5ba3330afaf504f3259aeccf3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646266"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898705"
 ---
 # <a name="convert-to-dataset"></a>데이터 세트로 변환
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에서 데이터 집합으로 변환 모듈을 사용 하 여 파이프라인에 대 한 모든 데이터를 디자이너의 내부 형식으로 변환 하는 방법을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너에서 데이터 집합으로 변환 모듈을 사용 하 여 파이프라인에 대 한 모든 데이터를 디자이너의 내부 형식으로 변환 하는 방법을 설명 합니다.
   
 대부분의 경우에는 변환이 필요 하지 않습니다. Azure Machine Learning는 데이터에 대해 작업이 수행 될 때 암시적으로 데이터를 네이티브 데이터 집합 형식으로 변환 합니다. 
 

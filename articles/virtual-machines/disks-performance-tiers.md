@@ -8,16 +8,16 @@ ms.date: 09/22/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4ad0ce1aef45dc4126d3ce17c7093b885f1b8bd7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aa188babf56d4a825059fe6103e2e07745eb134f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938014"
+ms.locfileid: "90974127"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>관리 디스크의 성능 계층 (미리 보기)
 
-Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하 여 단기 예상치 못한 트래픽을 처리 하는 데 필요한 성능을 향상 시킬 수 있습니다. Premium Ssd를 사용 하면 실제 디스크 크기를 늘리지 않고도 디스크 성능을 향상 시킬 수 있으므로 워크 로드 성능 요구를 충족 하 고 비용을 절감할 수 있습니다. 이는 휴일 쇼핑, 성능 테스트 또는 교육 환경 실행과 같이 일관 되 게 높은 수준의 성능이 일시적으로 필요한 이벤트에 적합 합니다. 이러한 이벤트를 처리 하기 위해 필요에 따라 더 높은 성능 계층을 선택 하 고 추가 성능이 더 이상 필요 하지 않을 경우 원래 계층으로 돌아갈 수 있습니다.
+Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하 여 단기 예상치 못한 트래픽을 처리 하는 데 필요한 성능을 향상 시킬 수 있습니다. Premium Ssd는 실제 디스크 크기를 늘리지 않고 디스크 성능을 향상 시킬 수 있는 유연성을 제공 하므로 워크 로드 성능 요구를 충족 하 고 비용을 절감할 수 있습니다 .이 기능은 현재 미리 보기로 제공 됩니다. 이는 휴일 쇼핑, 성능 테스트 또는 교육 환경 실행과 같이 일관 되 게 높은 수준의 성능이 일시적으로 필요한 이벤트에 적합 합니다. 이러한 이벤트를 처리 하기 위해 필요에 따라 더 높은 성능 계층을 선택 하 고 추가 성능이 더 이상 필요 하지 않을 경우 원래 계층으로 돌아갈 수 있습니다.
 
 ## <a name="how-it-works"></a>작동 방식
 
@@ -35,10 +35,10 @@ Azure 디스크 저장소는 현재 기본 제공 버스트 기능을 제공 하
 | 512GiB | P20 | P30, P40, P50 |
 | 1TiB | P30 | P40, P50 |
 | 2TiB | P40 | P50 |
-| 4TiB | P50 | None |
+| 4TiB | P50 | 없음 |
 | 8TiB | P60 |  P70, P80 |
 | 16TiB | P70 | P80 |
-| 32TiB | P80 | None |
+| 32TiB | P80 | 없음 |
 
 ## <a name="restrictions"></a>제한
 

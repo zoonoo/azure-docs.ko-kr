@@ -1,18 +1,18 @@
 ---
-title: Azure Arc 사용 서버 (미리 보기) 에이전트 연결 문제 해결
-description: 이 문서에서는 서비스에 연결 하려고 할 때 Azure Arc 사용 서버 (미리 보기)에서 발생 하는 연결 된 컴퓨터 에이전트와 관련 된 문제를 해결 하는 방법을 설명 합니다.
-ms.date: 07/20/2020
+title: Azure Arc 사용 서버 에이전트 연결 문제 해결
+description: 이 문서에서는 서비스에 연결 하려고 할 때 Azure Arc 사용 서버에서 발생 하는 연결 된 컴퓨터 에이전트와 관련 된 문제를 해결 하는 방법을 설명 합니다.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213549"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900676"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>연결 된 컴퓨터 에이전트 연결 문제 해결
 
-이 문서에서는 Windows 또는 Linux 용 Azure Arc 사용 서버 (미리 보기) 연결 된 컴퓨터 에이전트를 구성 하는 동안 발생할 수 있는 문제를 해결 하 고 해결 하는 방법에 대 한 정보를 제공 합니다. 서비스에 대 한 연결을 구성 하는 경우 대화형 및 확장 설치 방법 모두 포함 됩니다. 일반 정보는 [Arc 사용 서버 개요](./overview.md)를 참조 하세요.
+이 문서에서는 Windows 또는 Linux 용 Azure Arc 사용 서버 연결 컴퓨터 에이전트를 구성 하는 동안 발생할 수 있는 문제를 해결 하 고 문제를 해결 하는 방법에 대 한 정보를 제공 합니다. 서비스에 대 한 연결을 구성 하는 경우 대화형 및 확장 설치 방법 모두 포함 됩니다. 일반 정보는 [Arc 사용 서버 개요](./overview.md)를 참조 하세요.
 
 ## <a name="agent-verbose-log"></a>에이전트 자세한 정보 표시 로그
 

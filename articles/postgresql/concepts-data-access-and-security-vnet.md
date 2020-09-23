@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 56b2fd7d78d95978b2e822f2d18160013d17eb15
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d7ad1116f7c0168181dbf5b43f8f1595ce250949
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433622"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903926"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 Virtual Network 서비스 끝점 및 규칙 사용
 
@@ -19,7 +19,7 @@ ms.locfileid: "89433622"
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 VNet([가상 네트워크 서비스 끝점][vm-virtual-network-overview]) 및 [가상 네트워크 서비스 엔드포인트][vm-virtual-network-service-endpoints-overview-649d]가 있어야 합니다. 다음 그림에서는 Virtual Network 서비스 엔드포인트가 Azure Database for PostgreSQL에서 작동하는 방법을 보여줍니다.
 
-![VNet 서비스 엔드포인트 작동 방식 예제](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-vnet/vnet-concept.png" alt-text="VNet 서비스 엔드포인트 작동 방식 예제":::
 
 > [!NOTE]
 > 이 기능은 범용 및 메모리 최적화 서버에 대해 Azure Database for PostgreSQL이 배포된 모든 Azure 퍼블릭 클라우드 지역에서 사용할 수 있습니다.

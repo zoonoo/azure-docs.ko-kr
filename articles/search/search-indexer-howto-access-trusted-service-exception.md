@@ -7,20 +7,17 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: f901833caf0623de643e0372c53658fa7da8c8be
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.date: 09/22/2020
+ms.openlocfilehash: 1400f3c3d15698a5f1a145e8e0750ad7c4e9cec8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463723"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971412"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>신뢰할 수 있는 서비스 예외를 통해 안전 하 게 저장소 계정에서 데이터 액세스
 
 저장소 계정의 데이터에 액세스 하는 인덱서는 신뢰할 수 있는 [서비스 예외](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) 기능을 사용 하 여 데이터에 안전 하 게 액세스할 수 있습니다. 이 메커니즘은 저장소 계정의 데이터에 액세스 하는 데 사용할 수 있는 간단 하 고 안전 하며 무료 대안이 [IP 방화벽 규칙을 통해 인덱서 액세스](search-indexer-howto-access-ip-restricted.md) 를 부여할 수 없는 고객을 제공 합니다.
-
-> [!NOTE]
-> 검색 서비스의 시스템 할당 id를 통해 저장소 계정에 액세스 하는 것은 아직 미리 보기 상태입니다. 이 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다.
 
 ## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>1 단계: id를 통해 저장소 계정에 대 한 연결 구성
 

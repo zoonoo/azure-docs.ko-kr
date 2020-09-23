@@ -1,0 +1,55 @@
+- name: Metrics Advisor
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Metrics Advisor란?
+      href: overview.md
+- name: 빠른 시작
+  items:
+    - name: 데모 사이트 살펴보기
+      href: quickstarts/explore-demo.md
+    - name: 웹 포털 사용
+      href: quickstarts/web-portal.md
+    - name: REST API 사용
+      href: quickstarts/rest-api.md
+- name: 방법
+  items:
+    - name: 데이터 온보딩
+      href: how-tos/onboard-your-data.md
+    - name: 여러 데이터 피드 원본 연결
+      href: data-feeds-from-different-sources.md
+    - name: 데이터 피드 관리
+      href: how-tos/manage-data-feeds.md
+    - name: 메트릭을 구성하고 구성 감지 미세 조정
+      href: how-tos/configure-metrics.md
+    - name: 후크를 사용하여 경고를 구성하고 알림 가져오기
+      href: how-tos/alerts.md
+    - name: 인시던트 진단
+      href: how-tos/diagnose-incident.md
+    - name: 피드백을 사용하여 변칙 검색 조정
+      href: how-tos/anomaly-feedback.md
+    - name: 메트릭 그래프 작성
+      href: how-tos/metrics-graph.md
+- name: 참조
+  items:
+    - name: 용어
+      href: glossary.md
+    - name: FAQ
+      href: faq.md
+    - name: Metrics Advisor API
+      href: 'https://go.microsoft.com/fwlink/?linkid=2141634'
+    - name: Azure CLI 참조
+      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+    - name: PowerShell 참조
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+- name: 리소스
+  items:
+    - name: 가격 책정
+      href: 'http://go.microsoft.com/fwlink/?LinkID=761229'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: 규정 준수
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: 암호화
+      href: encryption.md

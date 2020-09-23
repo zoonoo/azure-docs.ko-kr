@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU 물리적 디바이스를 설치 - 개봉하고, 랙에 탑재하고, 케이블로 연결하는 방법에 대한 자습서 | Microsoft Docs
-description: Azure Stack Edge GPU 설치에 대한 두 번째 자습서에서는 물리적 디바이스의 포장을 풀고, 랙에 탑재하고, 케이블을 연결하는 방법을 설명합니다.
+title: Azure Stack Edge Pro GPU 물리적 디바이스를 설치(포장을 풀고, 랙에 탑재하고, 케이블로 연결)하는 방법에 대한 자습서 | Microsoft Docs
+description: Azure Stack Edge Pro GPU 설치에 대한 두 번째 자습서에서는 물리적 디바이스의 포장을 풀고, 랙에 탑재하고, 케이블을 연결하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 25bdf2fba67b3a2b42a24416a9de692cf3e992dd
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
+ms.openlocfilehash: b9f3b564e36939197acd532a37f9a6098fbc870f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421376"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900012"
 ---
-# <a name="tutorial-install-azure-stack-edge-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge 설치
+# <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro 설치
 
-이 자습서에서는 GPU가 있는 Azure Stack Edge 물리적 디바이스를 설치하는 방법에 대해 설명합니다. 설치 절차에는 포장 풀기, 랙 탑재 및 디바이스에 케이블 연결이 포함됩니다. 
+이 자습서에서는 GPU가 있는 Azure Stack Edge Pro 물리적 디바이스를 설치하는 방법에 대해 설명합니다. 설치 절차에는 포장 풀기, 랙 탑재 및 디바이스에 케이블 연결이 포함됩니다. 
 
 설치가 완료되려면 약 2시간 정도 걸릴 수 있습니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "89421376"
     * Azure Stack Edge 리소스를 통해 디바이스를 활성화하기 위한 활성화 키를 생성했습니다.
 
  
-### <a name="for-the-azure-stack-edge-physical-device"></a>Azure Stack Edge 물리적 디바이스의 경우
+### <a name="for-the-azure-stack-edge-pro-physical-device"></a>Azure Stack Edge Pro 물리적 디바이스의 경우
 
 디바이스를 배포하기 전에 다음 사항을 확인합니다.
 
@@ -58,7 +58,7 @@ ms.locfileid: "89421376"
 
 시작하기 전에
 
-- Azure Stack Edge를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Azure Stack Edge 네트워킹 요구 사항](azure-stack-edge-system-requirements.md#networking-port-requirements)을 참조하세요.
+- Azure Stack Edge Pro를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Azure Stack Edge Pro 네트워킹 요구 사항](azure-stack-edge-system-requirements.md#networking-port-requirements)을 참조하세요.
 
 - 디바이스가 최적으로 작동할 수 있도록 최소 인터넷 대역폭이 20Mbps인지 확인합니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "89421376"
 1. 평평한 지면에 상자를 놓습니다.
 2. 상자와 포장 발포 폼에 찌그러짐, 자르기, 물에 의한 손상 또는 기타 손상이 없는지 검사합니다. 상자나 포장이 심각하게 손상된 경우에는 열지 마세요. 디바이스가 제대로 작동하는지 평가하려면 [Microsoft 지원]에 문의하세요.
 3. 상자를 개봉합니다. 상자를 개봉한 후 다음이 있는지 확인합니다.
-    - 단일 인클로저 Azure Stack Edge 디바이스 1개
+    - 단일 인클로저 Azure Stack Edge Pro 디바이스 1개
     - 전원 코드 2개
     - 하나의 레일 키트 어셈블리
     - 보안, 환경 및 규정 정보 소책자
@@ -83,7 +83,7 @@ ms.locfileid: "89421376"
 디바이스는 표준 19인치 랙에 설치해야 합니다. 다음 절차에 따라 표준 19인치 랙에 디바이스를 탑재합니다.
 
 > [!IMPORTANT]
-> Azure Stack Edge 디바이스는 올바른 작동을 위해 랙에 탑재되어야 합니다.
+> Azure Stack Edge Pro 디바이스가 올바르게 작동하려면 랙에 탑재되어야 합니다.
 
 
 ### <a name="prerequisites"></a>필수 조건
@@ -157,11 +157,11 @@ ms.locfileid: "89421376"
 
 ## <a name="cable-the-device"></a>디바이스에 케이블 연결
 
-케이블을 라우팅한 다음, 디바이스를 케이블로 연결합니다. 다음 절차에서는 전원 및 네트워크를 위해 Azure Stack Edge 디바이스에 케이블을 연결하는 방법에 대해 설명합니다.
+케이블을 라우팅한 다음, 디바이스를 케이블로 연결합니다. 다음 절차에서는 전원 및 네트워크를 위해 Azure Stack Edge Pro 디바이스에 케이블을 연결하는 방법에 대해 설명합니다.
 
 디바이스 케이블 연결을 시작하기 전에 다음이 필요합니다.
 
-- 포장을 풀고 랙에 탑재된 Azure Stac Edge 물리적 디바이스.
+- 포장을 풀고 랙에 탑재된 Azure Stac Edge Pro 물리적 디바이스.
 - 전원 케이블 2개
 - 관리 인터페이스에 연결하는 하나 이상의 1-GbE RJ-45 네트워크 케이블 디바이스에는 두 개의 1-GbE 네트워크 인터페이스가 있습니다. 하나는 관리용이고 하나는 데이터용입니다.
 - 구성할 각 데이터 네트워크 인터페이스에 대한 25-GbE SFP+ 동 케이블 1개 하나 이상의 데이터 네트워크 인터페이스 - PORT 2, PORT 3, PORT 4, PORT 5 또는 PORT 6을 인터넷에 연결해야 합니다(Azure에 연결).  
@@ -171,9 +171,9 @@ ms.locfileid: "89421376"
 > [!NOTE]
 > - 단 하나의 데이터 네트워크 인터페이스를 연결하는 경우 PORT 3, PORT 4, PORT 5 또는 PORT 6과 같은 25/10-GbE 네트워크 인터페이스를 사용하여 데이터를 Azure에 보내는 것이 좋습니다. 
 > - 최상의 성능을 얻고 많은 양의 데이터를 처리하려면 모든 데이터 포트를 연결하는 것이 좋습니다.
-> - Azure Stack Edge 디바이스는 데이터 원본 서버의 데이터를 수집할 수 있도록 데이터 센터 네트워크에 연결해야 합니다.
+> - Azure Stack Edge Pro 디바이스는 데이터 원본 서버의 데이터를 수집할 수 있도록 데이터 센터 네트워크에 연결해야 합니다.
 
-Azure Stack Edge 디바이스에서:
+Azure Stack Edge Pro 디바이스에서 다음을 수행합니다.
 
 - 전면 패널에는 디스크 드라이브와 전원 단추가 있습니다.
 
@@ -232,7 +232,7 @@ Azure Stack Edge 디바이스에서:
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음을 수행하는 방법과 같은 Azure Stack Edge 항목에 대해 알아보았습니다.
+이 자습서에서는 다음을 수행하는 방법과 같은 Azure Stack Edge Pro 항목에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 디바이스 포장 풀기
@@ -242,4 +242,4 @@ Azure Stack Edge 디바이스에서:
 다음 자습서로 이동하여 디바이스에 연결하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure Stack Edge 연결](./azure-stack-edge-gpu-deploy-connect.md)
+> [Azure Stack Edge 연결 Pro](./azure-stack-edge-gpu-deploy-connect.md)

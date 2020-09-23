@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ac087a7ba241534c08c4e5737973861727ab01ca
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 46234f3b4bfd467db9b5754b5590603ff3d42915
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069581"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974547"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>WAD(Windows Azure Diagnostics) 확장 설치 및 구성
 [Azure Diagnostics 확장](diagnostics-extension-overview.md)은 게스트 운영 체제에서 모니터링 데이터를 수집하고 Azure 가상 머신 및 기타 계산 리소스의 워크로드를 수집하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Windows 진단 확장 설치 및 구성에 대한 자세한 내용을 알아보고 데이터가 저장되는 방법과 Azure Storage 계정에 대해 설명합니다.
@@ -51,7 +51,7 @@ Azure Portal에서 개별 가상 머신에 진단 확장을 설치하고 구성�
 
 6. **로그** 탭에서 가상 머신에서 수집할 로그를 선택합니다. 로그를 스토리지 또는 이벤트 허브로 전송할 수 있지만 Azure Monitor로는 전송할 수 없습니다. [Log Analytics 에이전트](log-analytics-agent.md)를 사용하여 Azure Monitor에 대한 게스트 로그를 수집합니다.
 
-   ![로그](media/diagnostics-extension-windows-install/logs.png)
+   ![가상 컴퓨터에 대해 다른 로그가 선택 된 로그 탭이 스크린샷으로 표시 됩니다.](media/diagnostics-extension-windows-install/logs.png)
 
 7. **크래시 덤프** 탭에서 크래시 후 메모리 덤프를 수집할 프로세스를 지정합니다. 진단 설정에 대한 데이터는 스토리지 계정에 기록되며 필요에 따라 Blob 컨테이너를 지정할 수 있습니다.
 
@@ -59,7 +59,7 @@ Azure Portal에서 개별 가상 머신에 진단 확장을 설치하고 구성�
 
 8. **싱크** 탭에서 데이터를 Azure 스토리지 이외의 위치로 보낼지 여부를 지정합니다. **Azure Monitor**를 선택하면 게스트 성능 데이터가 Azure Monitor 메트릭에 전송됩니다. Azure Portal을 사용하여 이벤트 허브 싱크를 구성할 수 없습니다.
 
-   ![Sinks](media/diagnostics-extension-windows-install/sinks.png)
+   ![스크린샷 Azure Monitor 진단 데이터 보내기 옵션을 사용 하는 싱크 탭을 보여 줍니다.](media/diagnostics-extension-windows-install/sinks.png)
    
    가상 머신에 대해 구성된 시스템 할당 ID를 사용하도록 설정하지 않은 경우 Azure Monitor 싱크로 구성을 저장할 때 아래 경고가 표시될 수 있습니다. 시스템 할당 ID를 사용하도록 설정하려면 배너를 클릭합니다.
    
@@ -67,7 +67,7 @@ Azure Portal에서 개별 가상 머신에 진단 확장을 설치하고 구성�
 
 9. **에이전트**에서 스토리지 계정을 변경하고, 디스크 할당량을 설정하고, 진단 인프라 로그를 수집할지 여부를 지정할 수 있습니다.  
 
-   ![에이전트](media/diagnostics-extension-windows-install/agent.png)
+   ![스크린샷 저장소 계정을 설정 하는 옵션을 포함 하는 에이전트 탭을 보여 줍니다.](media/diagnostics-extension-windows-install/agent.png)
 
 10. 구성을 저장하려면 **Save**를 클릭합니다. 
 

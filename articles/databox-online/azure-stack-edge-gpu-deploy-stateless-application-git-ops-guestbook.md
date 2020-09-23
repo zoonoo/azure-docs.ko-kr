@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU 장치에서 PHP 방명록 앱을 Arc 사용 Kubernetes에 배포 | Microsoft Docs
-description: Azure Stack Edge 장치의 Arc enabled Kubernetes 클러스터에서 GitOps를 사용 하 여 Redis를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.
+title: Edge Pro GPU 장치 Azure Stack에서 PHP 방명록 앱 배포 Arc 사용 Kubernetes Microsoft Docs
+description: Azure Stack Edge Pro 장치의 Arc enabled Kubernetes 클러스터에서 GitOps를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 7fdd9b8ca0fd62d55f5a9412af9486bfb2b942c1
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319295"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899553"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Azure Stack Edge GPU에서 Redis on Arc enabled Kubernetes cluster를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램 배포
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Azure Stack Edge Pro GPU에서 Redis on Arc enabled Kubernetes cluster를 사용 하 여 PHP 방명록 상태 비저장 응용 프로그램 배포
 
 이 문서에서는 Kubernetes 및 Azure Arc를 사용 하 여 간단한 다중 계층 웹 응용 프로그램을 빌드하고 배포 하는 방법을 보여 줍니다. 이 예제는 다음과 같은 구성 요소로 구성 됩니다.
 
@@ -23,41 +23,41 @@ ms.locfileid: "89319295"
 - 읽기를 제공 하기 위해 여러 복제 된 Redis 인스턴스
 - 여러 웹 프런트 엔드 인스턴스
 
-배포는 Azure Stack Edge 장치의 Arc enabled Kubernetes 클러스터에서 GitOps를 사용 하 여 수행 됩니다. 
+배포는 Azure Stack Edge Pro 장치의 Arc enabled Kubernetes 클러스터에서 GitOps를 사용 하 여 수행 됩니다. 
 
-이 절차는 [Azure Stack Edge 장치에서 Kubernetes 작업](azure-stack-edge-gpu-kubernetes-workload-management.md) 을 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
+이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 작업](azure-stack-edge-gpu-kubernetes-workload-management.md) 을 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 상태 비저장 응용 프로그램을 배포 하기 전에 장치에서 장치에 액세스 하는 데 사용할 클라이언트 및 장치에 대 한 다음 필수 구성 요소를 완료 했는지 확인 합니다.
 
 ### <a name="for-device"></a>디바이스의 경우
 
-1. 1 노드 Azure Stack Edge 장치에 대 한 로그인 자격 증명이 있습니다.
+1. 1 노드 Azure Stack Edge Pro 장치에 로그인 자격 증명이 있어야 합니다.
     1. 장치가 활성화 됩니다. [장치 활성화를](azure-stack-edge-gpu-deploy-activate.md)참조 하세요.
     1. 장치에 Azure Portal를 통해 구성 된 계산 역할이 있으며, Kubernetes 클러스터가 있습니다. [Compute 구성](azure-stack-edge-gpu-deploy-configure-compute.md)을 참조 하세요.
 
-1. 장치의 기존 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하 고 Azure Portal에 해당 하는 Azure Arc 리소스가 있습니다. 자세한 단계는 [Azure Stack Edge 장치에서 Azure Arc 사용](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)을 참조 하세요.
+1. 장치의 기존 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하 고 Azure Portal에 해당 하는 Azure Arc 리소스가 있습니다. 자세한 단계는 [Azure Stack Edge Pro 장치에서 Azure Arc 사용](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)을 참조 하세요.
 
 ### <a name="for-client-accessing-the-device"></a>장치에 액세스 하는 클라이언트
 
-1. Azure Stack Edge 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
+1. Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
   
     - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7)로 이동 합니다.
     
     - [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) 를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 
     
-1. [Azure Stack Edge 장치에서 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)에 설명 된 절차를 완료 했습니다. 수행한 작업은 다음과 같습니다.
+1. [Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)에 설명 된 절차를 완료 했습니다. 수행한 작업은 다음과 같습니다.
     
     - `kubectl`클라이언트에 설치 됨  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
-    - `kubectl`클라이언트 버전이 Azure Stack Edge 장치에서 실행 되는 Kubernetes 마스터 버전에서 둘 이상의 버전을 사용 하지 않는지 확인 합니다. 
+    - `kubectl`클라이언트 버전이 Azure Stack Edge Pro 장치에서 실행 되는 Kubernetes 마스터 버전에서 둘 이상의 버전을 사용 하지 않는지 확인 합니다. 
       - `kubectl version`클라이언트에서 실행 되는 kubectl의 버전을 확인 하는 데 사용 합니다. 전체 버전을 기록해 둡니다.
-      - Azure Stack Edge 장치의 로컬 UI에서 **개요** 로 이동 하 여 Kubernetes software 번호를 확인 합니다. 
+      - Azure Stack Edge Pro 장치의 로컬 UI에서 **개요** 로 이동 하 여 Kubernetes 소프트웨어 번호를 확인 합니다. 
       - 지원 되는 Kubernetes 버전에서 제공 되는 매핑과의 호환성을 위해 이러한 두 버전을 확인 합니다. <!--insert link-->.
 
-1. [Azure Arc 배포를 실행 하는 데 사용할 수 있는 Gitops 구성이](https://github.com/kagoyal/dbehaikudemo)있습니다. 이 예제에서는 다음 파일을 사용 하 여 `yaml` Azure Stack에 지 장치에 배포 합니다.
+1. [Azure Arc 배포를 실행 하는 데 사용할 수 있는 Gitops 구성이](https://github.com/kagoyal/dbehaikudemo)있습니다. 이 예제에서는 다음 파일을 사용 하 여 `yaml` Azure Stack Edge Pro 장치에 배포 합니다.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
@@ -83,7 +83,7 @@ Azure Portal를 통해 GitOps 구성을 배포 하도록 Azure Arc 리소스를 
 
 1. **구성 추가**에서 필드에 적절 한 값을 입력 하 고 **적용**을 선택 합니다.
 
-    |매개 변수  |Description |
+    |매개 변수  |설명 |
     |---------|---------|
     |구성 이름     | 구성 리소스의 이름입니다.        |
     |Operator 인스턴스 이름     |특정 구성을 식별 하는 운영자의 인스턴스 이름입니다. Name은 소문자, 영숫자, 하이픈 및 마침표만 가능 해야 하는 최대 253 자의 문자열입니다.         |
@@ -176,4 +176,4 @@ C:\Users\user>
 
 ## <a name="next-steps"></a>다음 단계
 
-[Kubernetes 대시보드를 사용 하 여 Azure Stack Edge 장치에서 배포를 모니터링](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) 하는 방법을 알아봅니다.
+[Kubernetes 대시보드를 사용 하 여 Azure Stack Edge Pro 장치에서 배포를 모니터링](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) 하는 방법을 알아봅니다.

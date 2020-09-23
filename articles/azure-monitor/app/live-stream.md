@@ -4,12 +4,12 @@ description: 사용자 지정 메트릭으로 웹앱을 실시간으로 모니�
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c12126c23ce1f1e2bd72f88eead5b8f34e4fd83d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142216"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973595"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -114,7 +114,7 @@ namespace LiveMetricsDemo
 |**대기 시간**|데이터가 1초 내에 표시됨|몇 분에 걸쳐 집계됨|
 |**보존 없음**|데이터가 차트에 있는 동안 지속된 후 삭제됨|[데이터가 90일 동안 유지됨](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**요청 시**|라이브 메트릭 창이 열려 있는 동안에만 데이터가 스트리밍됩니다. |SDK가 설치되고 사용될 때마다 데이터가 전송됨|
-|**무료**|라이브 스트림 데이터 무료|[가격 책정](./pricing.md)에 따라 다름
+|**Free**|라이브 스트림 데이터 무료|[가격 책정](./pricing.md)에 따라 다름
 |**샘플링**|선택한 모든 메트릭 및 카운터가 전송되고 오류 및 스택 추적이 샘플링되며 |이벤트가 [샘플링](./api-filtering-sampling.md)될 수 있음|
 |**컨트롤 채널**|필터 제어 신호가 SDK로 전송되며 이 채널을 보호하는 것이 좋습니다.|한 가지 방법은 포털에 대 한 통신입니다.|
 
@@ -148,7 +148,7 @@ Application Insights 원격 분석 외에, 스트림 옵션 중에서 선택하�
 
 라이브 피드 항목을 클릭하여 세부 정보를 확인합니다. **일시 중지**를 클릭하거나, 아래로 스크롤하거나, 항목을 클릭하여 피드를 일시 중지할 수 있습니다. 맨 위로 다시 스크롤하거나 일시 중지된 상태에서 수집된 항목의 카운터를 클릭하면 라이브 피드가 계속됩니다.
 
-![샘플링된 라이브 실패](./media/live-stream/sample-telemetry.png)
+![스크린 샷에서는 예외를 선택 하 고 창 맨 아래에 예외 세부 정보를 표시 하는 샘플 원격 분석 창을 보여 줍니다.](./media/live-stream/sample-telemetry.png)
 
 ## <a name="filter-by-server-instance"></a>서버 인스턴스별 필터링
 
@@ -243,13 +243,13 @@ Application Insights 리소스 내에서 API 키를 만들고 **설정 >** 함�
 | .NET Framework                   | 지원 됨 (V 2.7.2 +) | 지원 됨 (V 2.7.2 +) | 지원 됨 (V 2.7.2 +) | 지원 됨 (V 2.7.2 +) | 지원 됨 (V 2.7.2 +)  |
 | .NET Core (target = .net Framework)| 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +)  |
 | .NET Core (target = .net Core)     | 지원 됨 (V 2.4.1 +) | 지원됨*          | 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +) | **지원 안 됨**    |
-| Azure Functions v2               | 지원 여부           | 지원 여부           | 지원 여부           | 지원 여부           | **지원 안 됨**    |
+| Azure Functions v2               | 지원됨           | 지원됨           | 지원됨           | 지원됨           | **지원 안 됨**    |
 | Java                             | 지원 됨 (V 2.0.0 +) | 지원 됨 (V 2.0.0 +) | **지원 안 됨**   | **지원 안 됨**   | **지원 안 됨**    |
 | Node.js                          | 지원 됨 (V 1.3.0 +) | 지원 됨 (V 1.3.0 +) | **지원 안 됨**   | 지원 됨 (V 1.3.0 +) | **지원 안 됨**    |
 
 기본 메트릭에는 요청, 종속성 및 예외 비율이 포함 됩니다. 성능 메트릭 (성능 카운터)에는 메모리 및 CPU가 포함 됩니다. 샘플 원격 분석은 실패 한 요청 및 종속성, 예외, 이벤트 및 추적에 대 한 자세한 정보 스트림을 표시 합니다.
 
- \*PerfCounters 지원은 .NET Framework를 대상으로 하지 않는 .NET Core의 여러 버전에 따라 약간씩 다릅니다.
+ \* PerfCounters 지원은 .NET Framework를 대상으로 하지 않는 .NET Core의 여러 버전에 따라 약간씩 다릅니다.
 
 - PerfCounters 메트릭은 Windows 용 Azure App Service에서 실행 되는 경우 지원 됩니다. (AspNetCore SDK 버전 2.4.1 이상)
 - PerfCounters는 Windows 컴퓨터 (VM 또는 클라우드 서비스 또는 온-프레미스 등)에서 앱이 실행 되는 경우 지원 됩니다. (AspNetCore SDK 버전 2.7.1 이상). 하지만 .NET Core 2.0 이상을 대상으로 하는 앱의 경우
