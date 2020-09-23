@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge 장치의 Kubernetes 저장소 관리 이해 | Microsoft Docs
-description: Kubernetes 저장소 관리가 Azure Stack Edge 장치에서 어떻게 발생 하는지 설명 합니다.
+title: Azure Stack Edge Pro 장치에서 Kubernetes 저장소 관리 이해 | Microsoft Docs
+description: Azure Stack Edge Pro 장치에서 Kubernetes 저장소 관리를 수행 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 57574b66ddb20e592a5979a4b827347f7c8e09af
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268094"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899264"
 ---
-# <a name="kubernetes-storage-management-on-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에서 저장소 관리 Kubernetes
+# <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 저장소 관리 Kubernetes
 
-Azure Stack Edge 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 컨테이너 화 된 응용 프로그램을 pod의 Kubernetes 클러스터에 배포할 수 있습니다. Kubernetes 클러스터에서 pod에 저장소를 제공 하는 고유한 방법이 있습니다. 
+Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 컨테이너 화 된 응용 프로그램을 pod의 Kubernetes 클러스터에 배포할 수 있습니다. Kubernetes 클러스터에서 pod에 저장소를 제공 하는 고유한 방법이 있습니다. 
 
-이 문서에서는 Kubernetes 클러스터에서 저장소를 프로 비전 하는 방법에 대해 설명 합니다 .이 방법은 특히 Azure Stack Edge 장치의 컨텍스트에서 제공 합니다. 
+이 문서에서는 Kubernetes 클러스터에서 저장소를 프로 비전 하는 방법에 대해 설명 합니다 .이 방법은 특히 Azure Stack Edge Pro 장치의 컨텍스트에서 제공 합니다. 
 
 ## <a name="storage-requirements-for-kubernetes-pods"></a>Kubernetes pod에 대 한 저장소 요구 사항
 
@@ -75,9 +75,9 @@ Kubernetes에서 정적으로 프로 비전 된 저장소를 사용 하는 방�
 1. **컨테이너에 Pvc 탑재**: PVC를 PV에 바인딩한 후에는 정적 프로 비전과 동일한 방식으로 경로에 pvc를 탑재 하 고 공유에서 읽거나 쓸 수 있습니다.
 
 
-## <a name="storage-provisioning-on-azure-stack-edge"></a>Azure Stack Edge에서 저장소 프로 비전
+## <a name="storage-provisioning-on-azure-stack-edge-pro"></a>Azure Stack Edge Pro에서 저장소 프로 비전
 
-Azure Stack Edge 장치에서 정적으로 프로 비전 `PersistentVolumes` 된 장치는 장치의 저장소 기능을 사용 하 여 생성 됩니다. 공유를 프로 비전 하 고 **Edge compute로 공유** 옵션을 사용 하는 경우이 작업은 Kubernetes 클러스터에서 자동으로 PV 리소스를 만듭니다.
+Azure Stack Edge Pro 장치에서 정적으로 프로 비전 `PersistentVolumes` 된 장치는 장치의 저장소 기능을 사용 하 여 만들어집니다. 공유를 프로 비전 하 고 **Edge compute로 공유** 옵션을 사용 하는 경우이 작업은 Kubernetes 클러스터에서 자동으로 PV 리소스를 만듭니다.
 
 ![정적 프로 비전을 위한 Azure Portal의 로컬 공유 만들기](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
 
@@ -85,7 +85,7 @@ Azure Stack Edge 장치에서 정적으로 프로 비전 `PersistentVolumes` 된
 
 ![정적 프로 비전을 위한 Azure Portal의 클라우드 공유 만들기](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
 
-SMB 및 NFS 공유를 모두 만들어 Azure Stack Edge 장치에서 PVs를 정적으로 프로 비전 할 수 있습니다. PV가 프로 비전 되 면이 저장소를 요청 하는 PVC를 제출 합니다. `yaml`저장소를 클레임 하 고 프로 비전 한 공유를 사용 하는 PVC 배포의 예는 다음과 같습니다.
+SMB 및 NFS 공유를 모두 만들어 Azure Stack Edge Pro 장치에서 PVs를 정적으로 프로 비전 할 수 있습니다. PV가 프로 비전 되 면이 저장소를 요청 하는 PVC를 제출 합니다. `yaml`저장소를 클레임 하 고 프로 비전 한 공유를 사용 하는 PVC 배포의 예는 다음과 같습니다.
 
 
 ```yml
@@ -103,13 +103,13 @@ spec:
   storageClassName: ""
 ```
 
-자세한 내용은 [kubectl를 통해 Azure Stack Edge에서 정적 프로 비전을 통해 상태 저장 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md)를 참조 하세요.
+자세한 내용은 [kubectl를 통해 Azure Stack Edge Pro에서 정적 프로 비전을 통해 상태 저장 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md)를 참조 하세요.
 
-Azure Stack Edge에는 `StorageClass` `ase-node-local` Kubernetes 노드에 연결 된 데이터 디스크 저장소를 사용 하는 라는 기본 제공도 있습니다. 이는 `StorageClass` 동적 프로비저닝을 지원 합니다. `StorageClass`Pod 응용 프로그램에서 참조를 만들 수 있으며 PV가 자동으로 만들어집니다. 자세한 내용은 쿼리할 [Kubernetes 대시보드](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) 를 참조 하세요 `ase-node-local StorageClass` .
+Azure Stack Edge Pro에는 `StorageClass` `ase-node-local` Kubernetes 노드에 연결 된 데이터 디스크 저장소를 사용 하는 라는 builtin도 있습니다. 이는 `StorageClass` 동적 프로비저닝을 지원 합니다. `StorageClass`Pod 응용 프로그램에서 참조를 만들 수 있으며 PV가 자동으로 만들어집니다. 자세한 내용은 쿼리할 [Kubernetes 대시보드](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) 를 참조 하세요 `ase-node-local StorageClass` .
 
 ![Kubernetes 대시보드의 기본 제공 저장소 클래스](./media/azure-stack-edge-gpu-kubernetes-storage/dynamic-provisioning-builtin-storage-class-1.png)
 
-자세한 내용은 [kuebctl를 통해 Azure Stack Edge에서 동적 프로 비전을 통해 상태 저장 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)를 참조 하세요.
+자세한 내용은 [kuebctl를 통해 Azure Stack Edge Pro에서 동적 프로 비전을 통해 상태 저장 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)를 참조 하세요.
 
 ## <a name="choose-storage-type"></a>저장소 유형 선택
 
@@ -127,8 +127,8 @@ Azure Stack Edge에는 `StorageClass` `ase-node-local` Kubernetes 노드에 연�
 
 을 정적으로 프로 비전 할 수 있는 방법을 이해 하려면 `PersistentVolume` 다음을 참조 하세요.
 
-- [Kubectl를 통해 Azure Stack Edge에서 정적 프로 비전을 통해 상태 저장 응용 프로그램을 배포](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md)합니다.
+- [Kubectl를 통해 Azure Stack Edge Pro에서 정적 프로 비전을 통해 상태 저장 응용 프로그램을 배포](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md)합니다.
 
 를 동적으로 프로 비전 하는 방법에 대 한 자세한 `StorageClass` 내용은 다음을 참조 하세요.
 
-- [Kuebctl를 통해 Azure Stack Edge에서 동적 프로 비전을 통해 상태 저장 응용 프로그램을 배포](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)합니다.
+- [Kuebctl를 통해 Azure Stack Edge Pro에서 동적 프로 비전을 통해 상태 저장 응용 프로그램을 배포](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)합니다.

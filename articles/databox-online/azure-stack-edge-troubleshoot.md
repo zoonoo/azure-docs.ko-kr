@@ -1,6 +1,6 @@
 ---
-title: Azure Portal를 사용 하 여 Azure Stack에 지 문제 해결 | Microsoft Docs
-description: Azure Stack Edge에서 문제를 해결 하는 방법에 대해 알아봅니다. 진단을 실행 하 고, 지원 정보를 수집 하 고, 로그를 사용 하 여 문제를 해결할 수 있습니다.
+title: Azure Portal를 사용 하 여 Edge Pro Azure Stack 문제 해결 Microsoft Docs
+description: Azure Stack Edge Pro에서 문제를 해결 하는 방법에 대해 알아봅니다. 진단을 실행 하 고, 지원 정보를 수집 하 고, 로그를 사용 하 여 문제를 해결할 수 있습니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: f9dabdfd9df77822f06c41fa4355a1657bceb76c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: bc4afa0d26f6ba256354d3802a0c4f9b9b04088e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134567"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903657"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Azure Stack에 지 문제 해결
+# <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Azure Stack Edge Pro 문제 해결
 
-이 문서에서는 Azure Stack Edge에서 문제를 해결 하는 방법을 설명 합니다. 
+이 문서에서는 Azure Stack Edge Pro에서 문제를 해결 하는 방법을 설명 합니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "88134567"
 
       ![공유 콘텐츠 연결 및 확인](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. _Microsoft Azure Stack Edge 폴더_를 선택 합니다. 이 폴더에는 두 개의 하위 폴더가 있습니다.
+2. _Edge Pro 폴더 Microsoft Azure Stack_를 선택 합니다. 이 폴더에는 두 개의 하위 폴더가 있습니다.
 
     * 업로드 오류에 대한 로그 파일이 있는 Upload 폴더
     * 새로 고침 중 오류를 위한 Refresh 폴더

@@ -37,8 +37,6 @@
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: 사용자 지정 DNS 이름
       href: spring-cloud-tutorial-custom-domain.md
-    - name: IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Terraform을 사용하여 Azure Spring Cloud 인스턴스를 프로비저닝
       href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Jenkins를 사용하는 CI/CD

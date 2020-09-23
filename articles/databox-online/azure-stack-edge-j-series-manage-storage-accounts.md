@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU storage 계정 관리 | Microsoft Docs
-description: Azure Portal를 사용 하 여 Azure Stack Edge에서 저장소 계정을 관리 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro GPU storage 계정 관리 | Microsoft Docs
+description: Azure Portal를 사용 하 여 Azure Stack Edge Pro에서 저장소 계정을 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 3b190a108651f4b127c2f009c383613922a59018
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a239b36a539cf7be3e880512b753d45ae4050bad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254301"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904543"
 ---
-# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge"></a>Azure Portal를 사용 하 여 Azure Stack에 지 저장소 계정 관리
+# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro에서 Edge storage 계정 관리
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-이 문서에서는 Azure Stack Edge에서 Edge 저장소 계정을 관리 하는 방법을 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge를 관리할 수 있습니다. Azure Portal를 사용 하 여 장치에서 Edge storage 계정을 추가 하거나 삭제할 수 있습니다.
+이 문서에서는 Azure Stack Edge Pro에서 Edge 저장소 계정을 관리 하는 방법을 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro를 관리할 수 있습니다. Azure Portal를 사용 하 여 장치에서 Edge storage 계정을 추가 하거나 삭제할 수 있습니다.
 
 ## <a name="about-edge-storage-accounts"></a>Edge 저장소 계정 정보
 
-SMB, NFS 또는 REST 프로토콜을 통해 Azure Stack Edge 장치에서 데이터를 전송할 수 있습니다. REST Api를 사용 하 여 Blob 저장소에 데이터를 전송 하려면 Azure Stack Edge에 Edge storage 계정을 만들어야 합니다. 
+SMB, NFS 또는 REST 프로토콜을 통해 Azure Stack Edge Pro 장치에서 데이터를 전송할 수 있습니다. REST Api를 사용 하 여 Blob 저장소에 데이터를 전송 하려면 Edge Pro Azure Stack에 Edge 저장소 계정을 만들어야 합니다. 
 
-Azure Stack Edge 장치에 추가 하는 Edge 저장소 계정은 Azure Storage 계정에 매핑됩니다. Edge 저장소 계정에 기록 된 모든 데이터는 클라우드에 자동으로 푸시됩니다.
+Azure Stack Edge Pro 장치에 추가 하는 Edge 저장소 계정은 Azure Storage 계정에 매핑됩니다. Edge 저장소 계정에 기록 된 모든 데이터는 클라우드에 자동으로 푸시됩니다.
 
 두 가지 유형의 계정에 대해 자세히 설명 하는 다이어그램과 이러한 각 계정에서 Azure로 데이터를 이동 하는 방법은 다음과 같습니다.
 
@@ -34,13 +34,13 @@ Azure Stack Edge 장치에 추가 하는 Edge 저장소 계정은 Azure Storage 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
-> * Edge 저장소 계정 추가
+> * Edge 스토리지 계정 추가
 > * Edge 저장소 계정 삭제
 
 
-## <a name="add-an-edge-storage-account"></a>Edge 저장소 계정 추가
+## <a name="add-an-edge-storage-account"></a>Edge 스토리지 계정 추가
 
-Edge 저장소 계정을 만들려면 다음 절차를 수행 합니다.
+Edge 스토리지 계정을 만들려면 다음 절차를 수행합니다.
 
 [!INCLUDE [Add an Edge storage account](../../includes/azure-stack-edge-gateway-add-storage-account.md)]
 

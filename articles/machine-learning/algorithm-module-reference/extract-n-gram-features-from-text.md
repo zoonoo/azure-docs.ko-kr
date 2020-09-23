@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: efe09c1d516b37c23b024e07ae387772fa7e5992
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c21c63bdb64f7c15c049bfe4039ef47cea689922
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477615"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907977"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>텍스트 모듈 참조에서 N-문법 기능 추출
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다. 텍스트 모듈의 N-문법 기능 추출에서 *피쳐화* 구조화 되지 않은 텍스트 데이터를 사용 합니다. 
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다. 텍스트 모듈의 N-문법 기능 추출에서 *피쳐화* 구조화 되지 않은 텍스트 데이터를 사용 합니다. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>텍스트 모듈에서 추출 N-영문법 기능 구성
 
@@ -125,7 +125,7 @@ ms.locfileid: "79477615"
 + **DF**: 원래 모음의 n-문법에 대 한 용어 빈도 점수입니다.
 + **IDF**: 원래 모음의 n-문법에 대 한 역 문서 빈도 점수입니다.
 
-이 데이터 집합을 수동으로 업데이트할 수 있지만 오류가 발생할 수 있습니다. 예를 들어:
+이 데이터 집합을 수동으로 업데이트할 수 있지만 오류가 발생할 수 있습니다. 다음은 그 예입니다. 
 
 * 모듈이 입력 어휘에서 동일한 키를 가진 중복 행을 찾은 경우 오류가 발생 합니다. 어휘의 두 행이 같은 단어를 포함 하지 않도록 합니다.
 * 어휘 데이터 집합의 입력 스키마는 열 이름과 열 유형을 포함 하 여 정확 하 게 일치 해야 합니다. 

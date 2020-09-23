@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/17/2020
-ms.openlocfilehash: 916d23670e1db22efe43e2966d96aa1c82f1852a
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: b88a9477c9d63becb32bc95ca78b4a8117168a47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782161"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907767"
 ---
 # <a name="tune-model-hyperparameters"></a>모델 하이퍼 매개 변수 튜닝
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에서 모델 하이퍼 매개 변수 조정 모듈을 사용 하는 방법을 설명 합니다. 목표는 machine learning 모델에 대 한 최적의 하이퍼 매개 변수를 결정 하는 것입니다. 모듈은 다양 한 설정 조합을 사용 하 여 여러 모델을 작성 하 고 테스트 합니다. 모든 모델에 대 한 메트릭을 비교 하 여 설정의 조합을 가져옵니다. 
+이 문서에서는 Azure Machine Learning designer에서 모델 하이퍼 매개 변수 조정 모듈을 사용 하는 방법을 설명 합니다. 목표는 machine learning 모델에 대 한 최적의 하이퍼 매개 변수를 결정 하는 것입니다. 모듈은 다양 한 설정 조합을 사용 하 여 여러 모델을 작성 하 고 테스트 합니다. 모든 모델에 대 한 메트릭을 비교 하 여 설정의 조합을 가져옵니다. 
 
 용어 *매개 변수* 및 하이퍼 *매개 변수* 는 혼동 될 수 있습니다. 모델의 매개 변수는 모듈의 오른쪽 창에서 설정 하는 *매개 변수* 입니다. 기본적으로이 모듈은 지정 된 매개 변수 설정에 대 한 *매개 변수 비우기* 를 수행 합니다. 각 특정 의사 결정 트리, 데이터 집합 또는 회귀 방법 마다 다를 수 있는 최적의 하이퍼 _매개 변수_집합을 학습 합니다. 최적 구성을 찾는 프로세스를 *튜닝*이 라고도 합니다. 
 

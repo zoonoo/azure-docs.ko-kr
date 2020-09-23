@@ -1,7 +1,7 @@
 ---
-title: Azure Machine Learning 디자이너(미리 보기)를 사용하여 모델 재학습
+title: Azure Machine Learning 디자이너를 사용 하 여 모델 다시 학습
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 디자이너(미리 보기)에서 게시된 파이프라인으로 모델을 재학습시키는 방법에 대해 알아봅니다.
+description: Azure Machine Learning designer에서 게시 된 파이프라인으로 모델을 다시 학습 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 11e04d0aa313a005cfd13bca134c75bb712fd234
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661598"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905676"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)를 사용하여 모델 재학습
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 모델 다시 학습
+
 
 이 방법 문서에서는 Azure Machine Learning 디자이너를 사용하여 기계 학습 모델을 재학습시키는 방법에 대해 알아봅니다. 게시된 파이프라인을 사용하여 워크플로를 자동화하고 매개 변수를 설정하여 새 데이터에 대한 모델을 학습시킵니다. 
 
@@ -32,12 +32,12 @@ ms.locfileid: "89661598"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* Enterprise SKU를 사용하는 Azure Machine Learning 작업 영역
-* 이 방법 시리즈의 1부, [디자이너에서 데이터 변환](how-to-designer-transform-data.md)을 완료합니다.
+* Azure Machine Learning 작업 영역
+* 이 방법 시리즈의 1 부를 완료 하 고 [디자이너에서 데이터를 변환 합니다](how-to-designer-transform-data.md) .
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
-또한 이 문서에서는 디자이너에서 파이프라인을 빌드하는 방법에 대한 기본 지식이 있다고 가정합니다. 단계별 소개를 보려면 [자습서](tutorial-designer-automobile-price-train-score.md)를 완료하세요. 
+또한이 문서에서는 사용자가 디자이너에서 파이프라인을 빌드하는 데 대 한 지식이 있다고 가정 합니다. 단계별 소개를 보려면 [자습서](tutorial-designer-automobile-price-train-score.md)를 완료하세요. 
 
 ### <a name="sample-pipeline"></a>샘플 파이프라인
 

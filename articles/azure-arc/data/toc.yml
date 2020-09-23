@@ -1,0 +1,214 @@
+- name: Azure Arc 지원 데이터 서비스 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Arc 지원 데이터 서비스란?
+      href: overview.md
+    - name: 릴리스 정보
+      href: release-notes.md
+- name: 빠른 시작
+  items:
+    - name: 데이터 컨트롤러 만들기
+      href: create-data-controller.md
+- name: 개념
+  items:
+    - name: 연결 모드 및 요구 사항
+      href: connectivity.md
+    - name: 스토리지 구성
+      href: storage-configuration.md
+- name: 방법 가이드
+  items:
+    - name: 도구 설치
+      items:
+        - name: 클라이언트 도구 설치
+          href: install-client-tools.md
+        - name: azdata
+          items:
+            - name: 설치
+              href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: macOS
+              href: /sql/azdata/install/deploy-install-azdata-macos?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: Windows
+              href: /sql/azdata/install/deploy-install-azdata-installer?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: Apt를 사용하는 Linux
+              href: /sql/azdata/install/deploy-install-azdata-linux-package?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: yum을 사용하는 Linux
+              href: /sql/azdata/install/deploy-install-azdata-yum?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: zypper를 사용하는 Linux
+              href: /sql/azdata/install/deploy-install-azdata-zypper?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+            - name: pip를 사용하는 Linux
+              href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: 데이터 컨트롤러 만들기
+      items:
+        - name: 데이터 컨트롤러 만들기(Azure Data Studio)
+          href: create-data-controller-azure-data-studio.md
+        - name: 데이터 컨트롤러 리소스 만들기(포털)
+          href: create-data-controller-resource-in-azure-portal.md
+        - name: 데이터 컨트롤러 만들기(azdata)
+          href: create-data-controller-using-azdata.md
+        - name: Kubernetes를 사용하여 데이터 컨트롤러 만들기
+          href: create-data-controller-using-k8s-native-tools.md
+    - name: Azure Arc 지원 데이터 서비스 간의 공통 환경
+      items:
+        - name: 대시보드를 사용하여 모니터링(Azure Data Studio)
+          href: azure-data-studio-dashboards.md
+        - name: 청구 데이터 보기(Azure)
+          href: view-billing-data-in-azure.md
+        - name: 데이터 컨트롤러 보기(포털)
+          href: view-data-controller-in-azure-portal.md
+        - name: 리소스 삭제
+          href: delete-azure-resources.md
+        - name: Azure Arc 데이터 컨트롤러 제거
+          href: uninstall-azure-arc-data-controller.md
+    - name: 관리
+      items:
+        - name: Grafana & Kibana를 사용하여 모니터링
+          href: monitor-grafana-kibana.md
+        - name: 메트릭 및 로그 업로드
+          href: upload-metrics-and-logs-to-azure-monitor.md
+        - name: 인벤토리 데이터베이스 인스턴스
+          href: view-arc-data-services-inventory-in-azure-portal.md
+        - name: 데이터 컨트롤러 사용자 이름 및 암호 가져오기
+          href: retrieve-the-username-password-for-data-controller.md
+    - name: 문제 해결
+      items:
+        - name: 가이드
+          href: troubleshoot-guide.md
+        - name: 로그 가져오기
+          href: troubleshooting-get-logs.md
+- name: Azure Arc 지원 PostgreSQL 하이퍼스케일(미리 보기)
+  items:
+    - name: 개요
+      items:
+        - name: Azure Arc 지원 PostgreSQL 하이퍼스케일이란?
+          href: what-is-azure-arc-enabled-postgres-hyperscale.md
+    - name: 빠른 시작
+      items:
+        - name: 지원되는 버전
+          href: supported-versions-postgres-hyperscale.md
+        - name: Postgres 하이퍼스케일 서버 그룹 만들기(CLI)
+          href: create-postgresql-hyperscale-server-group.md
+        - name: Postgres 하이퍼스케일 서버 그룹 만들기(Azure Data Studio)
+          href: create-postgresql-hyperscale-server-group-azure-data-studio.md
+        - name: 연결
+          href: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+    - name: 개념
+      items:
+        - name: 데이터 배포
+          href: concepts-distributed-postgres-hyperscale.md
+        - name: 서버 그룹 배치
+          href: postgresql-hyperscale-server-group-placement-on-kubernetes-cluster-nodes.md
+    - name: 방법
+      items:
+        - name: 관리
+          items:
+            - name: 백업 및 복원
+              href: backup-restore-postgresql-hyperscale.md
+            - name: 구성 및 스케일링
+              items:
+                - name: 구성 표시
+                  href: show-configuration-postgresql-hyperscale-server-group.md
+                - name: 스케일 아웃 - 작업자 노드 추가
+                  href: scale-out-postgresql-hyperscale-server-group.md
+                - name: 메모리 및 vCore 스케일 업|다운
+                  href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
+                - name: 서버 매개 변수 구성
+                  href: configure-server-parameters-postgresql-hyperscale.md
+            - name: 삭제
+              href: delete-postgresql-hyperscale-server-group.md
+            - name: 서버 그룹 나열
+              href: list-server-groups-postgres-hyperscale.md
+            - name: '모니터링, 로그 분석, 청구 정보, Azure Portal'
+              href: monitoring-log-analytics-azure-portal-postgresql.md
+            - name: 보안
+              href: configure-security-postgres-hyperscale.md
+            - name: 서버 그룹 관리(Azure Data Studio)
+              href: manage-postgresql-hyperscale-server-group-with-azure-data-studio.md
+            - name: Postgres 확장 사용
+              href: using-extensions-in-postgresql-hyperscale-server-group.md
+        - name: 마이그레이션
+          items:
+            - name: PostgreSQL 데이터를 Postgres 하이퍼스케일 서버 그룹으로 마이그레이션
+              href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+            - name: 샘플 데이터베이스 AdventureWorks 복원
+              href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+        - name: 문제 해결
+          href: troubleshoot-postgresql-hyperscale-server-group.md
+- name: Azure Arc 지원 SQL Managed Instance(미리 보기)
+  items:
+    - name: 개요
+      items:
+        - name: Azure Arc 지원 SQL Managed Instance란?
+          href: managed-instance-overview.md
+        - name: 기능
+          href: managed-instance-features.md
+    - name: 빠른 시작
+      items:
+        - name: SQL Managed Instance 만들기
+          href: create-sql-managed-instance.md
+        - name: SQL Managed Instance 만들기(Azure Data Studio)
+          href: create-sql-managed-instance-azure-data-studio.md
+        - name: 연결
+          href: connect-managed-instance.md
+    - name: 방법
+      items:
+        - name: 관리
+          items:
+            - name: 구성
+              href: configure-managed-instance.md
+            - name: '모니터링, 로그 분석, 청구 정보, Azure Portal'
+              href: monitoring-log-analytics-azure-portal-managed-instance.md
+            - name: 삭제
+              href: delete-managed-instance.md
+        - name: 마이그레이션
+          items:
+            - name: SQL Managed Instance로 마이그레이션(Azure Arc)
+              href: migrate-to-managed-instance.md
+            - name: AdventureWorks 복원
+              href: restore-adventureworks-sample-db.md
+- name: 참조
+  items:
+    - name: azdata
+      items:
+        - name: azdata
+          href: /sql/azdata/reference/reference-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: Notebook
+          href: /sql/azdata/reference/reference-azdata-notebook?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: postgres
+          href: /sql/azdata/reference/reference-azdata-postgres?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: sql
+          href: /sql/azdata/reference/reference-azdata-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: azdata-arc
+          href: /sql/azdata/reference/reference-azdata-arc?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-dc
+          href: /sql/azdata/reference/reference-azdata-arc-dc?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-dc-config
+          href: /sql/azdata/reference/reference-azdata-arc-dc-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-dc-debug
+          href: /sql/azdata/reference/reference-azdata-arc-dc-debug?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-dc-endpoint
+          href: /sql/azdata/reference/reference-azdata-arc-dc-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-dc-status
+          href: /sql/azdata/reference/reference-azdata-arc-dc-status?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-postgres
+          href: /sql/azdata/reference/reference-azdata-arc-postgres?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-postgres-backup
+          href: /sql/azdata/reference/reference-azdata-arc-postgres-backup?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-postgres-endpoint
+          href: /sql/azdata/reference/reference-azdata-arc-postgres-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-postgres-server
+          href: /sql/azdata/reference/reference-azdata-arc-postgres-server?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-postgres-server-backup
+          href: /sql/azdata/reference/reference-azdata-arc-postgres-server-backup?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-postgres-server-config
+          href: /sql/azdata/reference/reference-azdata-arc-postgres-server-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-resource
+          href: /sql/azdata/reference/reference-azdata-arc-resource?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-resource-kind
+          href: /sql/azdata/reference/reference-azdata-arc-resource-kind?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-sql
+          href: /sql/azdata/reference/reference-azdata-arc-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-sql-mi
+          href: /sql/azdata/reference/reference-azdata-arc-sql-mi?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+        - name: arc-sql-mi-config
+          href: /sql/azdata/reference/reference-azdata-arc-sql-mi-config?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json

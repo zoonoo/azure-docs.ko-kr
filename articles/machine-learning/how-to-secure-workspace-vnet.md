@@ -11,15 +11,14 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: e718ed13cfd67092b50b42584d861a2bcf5dacc5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 4dc1f86ce7dbb060c747c4433f0c2b871ce5582d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664553"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907650"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 작업 영역 보호
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 가상 네트워크에서 Azure Machine Learning 작업 영역 및 연결 된 리소스를 보호 하는 방법에 대해 알아봅니다.
 
@@ -38,7 +37,7 @@ ms.locfileid: "89664553"
 > - Azure Key Vault
 > - Azure Container Registry
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 
@@ -173,8 +172,6 @@ Azure Machine Learning는 연결 된 Key Vault 인스턴스를 사용 하 여 �
 
 가상 네트워크 내에서 Azure Container Registry를 사용 하려면 다음 요구 사항을 충족 해야 합니다.
 
-* Azure Machine Learning 작업 영역이 Enterprise edition이어야 합니다. 업그레이드에 대한 자세한 내용은 [Enterprise edition으로 업그레이드](how-to-manage-workspace.md#upgrade)를 참조하세요.
-
 * Azure Container Registry은 프리미엄 버전 이어야 합니다. 업그레이드에 대한 자세한 내용은 [SKU 변경](/azure/container-registry/container-registry-skus#changing-skus)을 참조하세요.
 
 * Azure Container Registry가 스토리지 계정 및 학습 또는 유추에 사용되는 컴퓨팅 대상과 동일한 가상 네트워크 및 서브넷에 있어야 합니다.
@@ -256,8 +253,8 @@ Azure Machine Learning는 연결 된 Key Vault 인스턴스를 사용 하 여 �
             "type": "SystemAssigned"
         },
         "sku": {
-            "tier": "enterprise",
-            "name": "enterprise"
+            "tier": "basic",
+            "name": "basic"
         },
         "properties": {
             "sharedPrivateLinkResources":

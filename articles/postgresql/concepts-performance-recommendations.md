@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a30af0c8bef47a37fe3439e885d3895a2c826225
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ce3843752ebd6ed56281f6699783181b52fdc6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768472"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903868"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 성능 권장 사항-단일 서버
 
@@ -27,13 +27,13 @@ ms.locfileid: "74768472"
 
 PostgreSQL 서버에 대 한 Azure Portal 페이지의 메뉴 모음에 있는 **지능형 성능** 섹션에서 **성능 권장 사항을** 엽니다.
 
-![성능 권장 사항 방문 페이지](./media/concepts-performance-recommendations/performance-recommendations-page.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="성능 권장 사항 방문 페이지":::
 
 **분석**을 선택하고 분석을 시작할 데이터베이스를 선택합니다. 워크 로드에 따라 분석을 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 분석이 완료되면 포털에 알림이 표시됩니다. 분석은 데이터베이스에 대한 심층 검사를 수행합니다. 사용량이 적은 기간에 분석을 수행하는 것이 좋습니다. 
 
 권장 **사항 창이 있으면** 권장 사항 목록이 표시 됩니다.
 
-![성능 권장 사항 새 페이지](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="성능 권장 사항 새 페이지":::
 
 이러한 권장 사항은 자동으로 적용되지 않습니다. 권장 사항을 적용하려면 쿼리 텍스트를 복사하고 선택한 클라이언트에서 실행합니다. 테스트 및 모니터링을 통해 권장 사항을 평가해야 합니다. 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 314004d2b62d5616c1d7925b82fd9f050d0a1fd0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 31a3bfbc174ca9c4c46005a26cde65db1ff74b65
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441802"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906915"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Azure IoT Hub에 대 한 Azure 보안 기준
 
@@ -71,7 +71,7 @@ Azure DDoS Protection Basic은 이미 사용 하도록 설정 되어 있으며 I
 
 - [IP 필터 IoT Hub](iot-hub-ip-filtering.md)
 
-- [IoT 의심 스러운 IP 주소 통신을 위한 Azure Security Center](../asc-for-iot/concept-security-alerts.md)
+- [IoT 의심 스러운 IP 주소 통신을 위한 Azure Security Center](../defender-for-iot/concept-security-alerts.md)
 
 - [Azure DDoS Protection 기본 관리](../virtual-network/ddos-protection-overview.md)
 
@@ -234,7 +234,7 @@ Azure DDoS Protection Basic은 이미 사용 하도록 설정 되어 있으며 I
 
 - [Azure IoT Hub 상태 모니터링](iot-hub-monitor-resource-health.md)
 - [Azure Sentinel을 온보딩하는 방법](../sentinel/quickstart-onboard.md)
-- [IoT 경고에 대 한 Azure Security Center](../asc-for-iot/concept-security-alerts.md)
+- [IoT 경고에 대 한 Azure Security Center](../defender-for-iot/concept-security-alerts.md)
 
 - [Log analytics 로그 데이터를 경고 하는 방법](../azure-monitor/learn/tutorial-response.md)
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: b949603b3e6ee51311f9c54f3e1326217f00c82d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88ca997e2d22283babf582b10d9b0eeb7de122c0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039119"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905189"
 ---
 # <a name="score-image-model"></a>이미지 모델 채점
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 입력 이미지 데이터에 대해 학습 된 이미지 모델을 사용 하 여 예측을 생성 합니다.
 

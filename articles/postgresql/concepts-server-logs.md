@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5515c21d89b01576bb6aae8c9d480b439dc1507
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392814"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902702"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 로그-단일 서버
 
@@ -23,7 +23,7 @@ Azure Database for PostgreSQL를 사용 하 여 Postgres의 표준 로그를 구
 ## <a name="configure-logging"></a>로깅 구성 
 로깅 서버 매개 변수를 사용 하 여 서버에서 Postgres 표준 로깅을 구성할 수 있습니다. 각 Azure Database for PostgreSQL 서버에서 `log_checkpoints` 및 `log_connections` 는 기본적으로 설정 되어 있습니다. 로깅 요구에 맞게 매개 변수를 추가로 조정할 수도 있습니다. 
 
-![Azure Database for PostgreSQL - 로깅 매개 변수](./media/concepts-server-logs/log-parameters.png)
+:::image type="content" source="./media/concepts-server-logs/log-parameters.png" alt-text="Azure Database for PostgreSQL - 로깅 매개 변수":::
 
 Postgres 로그 매개 변수에 대 한 자세한 내용을 보려면 Postgres 설명서의 [시기를 기록](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) 하는 시기 및 [로깅할 항목](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) 섹션을 참조 하세요. Azure Database for PostgreSQL에서 대부분의 Postgres 로깅 매개 변수를 구성할 수 있습니다.
 
@@ -103,10 +103,10 @@ AzureDiagnostics
 | TenantId | 테넌트 ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
-| 형식 | 로그의 형식 항상 `AzureDiagnostics` |
+| 형식 | 로그의 형식 항상 `AzureDiagnostics`입니다. |
 | SubscriptionId | 서버가 속한 구독의 GUID |
 | ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
-| ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL` |
+| ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL`입니다. |
 | ResourceType | `Servers` |
 | ResourceId | 리소스 URI |
 | 리소스 | 서버의 이름 |
@@ -126,5 +126,5 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Portal](howto-configure-server-logs-in-portal.md) 또는 [Azure CLI](howto-configure-server-logs-using-cli.md)에서 로그에 액세스하는 방법에 대해 자세히 알아봅니다.
-- [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/)에 대해 자세히 알아봅니다.
+- [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)에 대해 자세히 알아보세요.
 - [감사 로그](concepts-audit.md) 에 대해 자세히 알아보기

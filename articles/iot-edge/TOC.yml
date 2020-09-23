@@ -101,6 +101,8 @@
           href: iot-edge-security-manager.md
         - name: IoT Edge 인증서
           href: iot-edge-certs.md
+        - name: 기밀 컴퓨팅
+          href: deploy-trusted-applications.md
     - name: 플랫폼 지원
       href: support.md
     - name: 프로덕션 배포 검사 목록

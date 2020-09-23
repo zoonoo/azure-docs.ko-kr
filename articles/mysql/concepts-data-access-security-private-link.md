@@ -6,16 +6,16 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 6391b21faaf6cd2a61dbe84af50ae12e4289dff9
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e49fd0d2b4d8fc801372dbc766c2fdc7beb21b10
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837292"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905923"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 개인 링크
 
-Private Link를 사용하면 프라이빗 엔드포인트를 통해 Azure의 다양한 PaaS 서비스에 연결할 수 있습니다. Azure Private Link는 기본적으로 개인 VNet(Virtual Network) 내에 Azure 서비스를 제공합니다. PaaS 리소스는 VNet의 다른 리소스와 마찬가지로 개인 IP 주소를 사용 하 여 액세스할 수 있습니다.
+Private Link를 사용하면 프라이빗 엔드포인트를 통해 Azure의 다양한 PaaS 서비스에 연결할 수 있습니다. Azure Private Link는 기본적으로 개인 VNet(Virtual Network) 내에 Azure 서비스를 제공합니다. PaaS 리소스는 VNet의 다른 리소스와 마찬가지로 개인 IP 주소를 사용하여 액세스할 수 있습니다.
 
 개인 링크 기능을 지 원하는 PaaS 서비스 목록을 보려면 개인 링크 [설명서](https://docs.microsoft.com/azure/private-link/index)를 검토 하세요. 프라이빗 엔드포인트는 특정 [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) 및 서브넷 내의 개인 IP 주소입니다.
 
@@ -68,25 +68,25 @@ Azure Database for MySQL의 데이터 필터링은 데이터베이스 관리자�
     * 모든 개인 끝점 연결의 목록을 표시 합니다 (PECs).
     * 만든 해당 개인 끝점 (PE)
 
-![개인 끝점 포털을 선택 합니다.](media/concepts-data-access-and-security-private-link/select-private-link-portal.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-portal.png" alt-text="개인 끝점 포털을 선택 합니다.":::
 
 * 목록에서 개별 PEC를 선택합니다.
 
-![개인 끝점 승인 보류 중을 선택 합니다.](media/concepts-data-access-and-security-private-link/select-private-link.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="개인 끝점 승인 보류 중을 선택 합니다.":::
 
 * MySQL server 관리자는 PEC를 승인 또는 거부 하 고 필요에 따라 짧은 텍스트 응답을 추가 하도록 선택할 수 있습니다.
 
-![개인 끝점 메시지 선택](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="개인 끝점 메시지 선택":::
 
 * 승인 또는 거부 후에는 목록에 응답 텍스트와 함께 적절 한 상태가 반영 됩니다.
 
-![개인 끝점 최종 상태를 선택 합니다.](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="개인 끝점 최종 상태를 선택 합니다.":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 개인 링크 사용 사례
 
 클라이언트는 동일한 VNet, 동일한 지역의 피어 링 VNet 또는 지역 간에 VNet 간 연결을 통해 개인 끝점에 연결할 수 있습니다. 또한 클라이언트는 ExpressRoute, 프라이빗 피어링 또는 VPN 터널링을 사용하여 온-프레미스에서 연결할 수 있습니다. 다음은 일반적인 사용 사례를 보여 주는 간소화된 다이어그램입니다.
 
-![개인 끝점 개요를 선택 합니다.](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="개인 끝점 개요를 선택 합니다.":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>피어링된 VNet(가상 네트워크)의 Azure VM에서 연결
 [Vnet 피어 링](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) 을 구성 하 여 피어 링 Vnet의 Azure VM에서 Azure Database for MySQL에 대 한 연결을 설정 합니다.

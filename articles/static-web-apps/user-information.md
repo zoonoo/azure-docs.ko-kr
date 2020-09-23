@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 7e1f56fc4601b271bf4a0718a944741016509ce4
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: f966492dd8a231db92f607438bb9ba2d3be71389
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430519"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906769"
 ---
 # <a name="accessing-user-information-in-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기의 사용자 정보 액세스
 
@@ -64,6 +64,10 @@ console.log(getUserInfo());
 
 ## <a name="api-functions"></a>API 함수
 
+Azure Functions 백 엔드를 통해 정적 Web Apps에서 사용할 수 있는 API 함수는 클라이언트 응용 프로그램과 동일한 사용자 정보에 액세스할 수 있습니다. API는 사용자가 식별할 수 있는 정보를 수신 하지만 사용자가 인증 되는 경우 또는 사용자가 필요한 역할과 일치 하는지 확인 하지 않습니다. 액세스 제어 규칙은 파일에 정의 되어 있습니다 [`routes.json`](routes.md) .
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
 클라이언트 보안 주체 데이터는 `x-ms-client-principal` 요청 헤더의 API 함수에 전달됩니다. 클라이언트 보안 주체 데이터는 직렬화된 JSON 개체를 포함하는 [Base64](https://www.wikipedia.org/wiki/Base64) 인코딩 문자열로 전송됩니다.
 
 다음 예제 함수는 사용자 정보를 읽고 반환하는 방법을 보여줍니다.
@@ -92,8 +96,49 @@ async function getUser() {
   return clientPrincipal;
 }
 
-console.log(getUser());
+console.log(await getUser());
 ```
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+C # 함수에서 사용자 정보는 `x-ms-client-principal` `ClaimsPrincipal` 개체 또는 사용자 지정 형식으로 deserialize 할 수 있는 헤더에서 사용할 수 있습니다. 다음 코드에서는 헤더를 중간 형식에 압축을 풀고 인스턴스로 전환 하는 방법을 보여 줍니다 `ClientPrincipal` `ClaimsPrincipal` .
+
+```csharp
+  public static class StaticWebAppsAuth
+  {
+    private class ClientPrincipal
+    {
+        public string IdentityProvider { get; set; }
+        public string UserId { get; set; }
+        public string UserDetails { get; set; }
+        public IEnumerable<string> UserRoles { get; set; }
+    }
+
+    public static ClaimsPrincipal Parse(HttpRequest req)
+    {
+        var header = req.Headers["x-ms-client-principal"];
+        var data = header.Value[0];
+        var decoded = System.Convert.FromBase64String(data);
+        var json = System.Text.ASCIIEncoding.ASCII.GetString(decoded);
+        var principal = JsonSerializer.Deserialize<ClientPrincipal>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+  
+        principal.UserRoles = principal.UserRoles.Except(new string[] { "anonymous" }, StringComparer.CurrentCultureIgnoreCase);
+  
+        if (!principal.UserRoles.Any())
+        {
+            return new ClaimsPrincipal();
+        }
+  
+        var identity = new ClaimsIdentity(principal.IdentityProvider);
+        identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, principal.UserId));
+        identity.AddClaim(new Claim(ClaimTypes.Name, principal.UserDetails));
+        identity.AddClaims(principal.UserRoles.Select(r => new Claim(ClaimTypes.Role, r)));
+        return new ClaimsPrincipal(identity);
+    }
+  }
+```
+
+---
 
 <sup>1</sup> Internet Explorer에서는 [fetch](https://caniuse.com/#feat=fetch) API 및 [await](https://caniuse.com/#feat=mdn-javascript_operators_await) 연산자가 지원되지 않습니다.
 

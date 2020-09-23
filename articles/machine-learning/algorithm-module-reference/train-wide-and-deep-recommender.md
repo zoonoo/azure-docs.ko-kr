@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420892"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907780"
 ---
 # <a name="train-wide--deep-recommender"></a>넓은 & 심층적 추천 학습
-이 문서에서는 Azure Machine Learning 디자이너 (미리 보기)에서 **전체 & 심층 추천** 모듈을 사용 하 여 권장 사항 모델을 학습 하는 방법을 설명 합니다. 이 모듈은 Google에서 제안 하는 넓은 & 심층 학습을 기반으로 합니다.
+이 문서에서는 Azure Machine Learning designer에서 **전체 & 심층 추천** 모듈을 사용 하 여 권장 사항 모델을 학습 하는 방법을 설명 합니다. 이 모듈은 Google에서 제안 하는 넓은 & 심층 학습을 기반으로 합니다.
 
 **열차 Wide & Deep 추천** 모듈은 사용자-항목-등급 삼중 쌍의 데이터 집합을 읽고, 선택적으로 일부 사용자 및 항목 기능을 읽습니다. 학습 된 넓은 & 심층 추천을 반환 합니다.  그런 다음 학습 된 모델을 사용 하 여 [전체 점수 및 심층 추천](score-wide-and-deep-recommender.md) 모듈을 사용 하 여 등급 예측 또는 권장 사항을 생성할 수 있습니다.  
 
@@ -66,7 +66,7 @@ ms.locfileid: "87420892"
 
 예를 들어 일반적인 사용자 기능 집합은 다음과 같습니다. 
 
-|UserId|나이|성별|Interest|위치|
+|UserId|나이|성별|Interest|Location|
 |------------|--------------|-----------------------|---------------|------------|
 |1|25|male| 드라마    |유럽|
 |223|40|female|테두리|아시아|
@@ -77,14 +77,14 @@ ms.locfileid: "87420892"
 
 예를 들어 일반적인 항목 기능 집합은 다음과 같습니다.  
 
-|MovieId|제목|원래 언어|장르|년|
+|MovieId|제목|원래 언어|장르|Year|
 |-------------|-------------|-------------------|-----------|---------------|
 |68646|Godfather|영어|드라마|1972|
 |31381|바람에 사라졌습니다.|영어|기록|1939|
 
 ### <a name="train-the-model"></a>모델 학습
 
-1.  Designer의 실험 (미리 보기)에 **전체 학습 및 심층 추천** 모듈을 추가 하 고 학습 데이터 집합에 연결 합니다.  
+1.  Designer에서 **전체 실험 및 심층 추천** 모듈을 실험에 추가 하 고 학습 데이터 집합에 연결 합니다.  
   
 2. 사용자 기능 및/또는 항목 기능 중 하나에 대 한 별도의 데이터 집합을 사용 하는 경우에는이를 **학습 Wide And Deep 추천** 모듈에 연결 합니다.  
   

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 7f37a598c31f340e66437a6478512fad1f79121f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6dfee84c44643823a4ec76c32e750febc6646be5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285954"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908053"
 ---
 # <a name="evaluate-model-module"></a>모델 평가 모듈
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용하여 학습된 모델의 정확도를 측정합니다. 모델에서 생성된 점수가 포함된 데이터 세트를 제공하면 **모델 평가** 모듈은 산업 표준 평가 메트릭 세트를 계산합니다.
   

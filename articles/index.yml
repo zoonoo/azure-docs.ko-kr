@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/10/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: ae4e327b7b4d230bd89baccdd27d5ac416ebb6cb
-  ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+  ms.openlocfilehash: aec131b8c7a3e5092b6b090668fb0eb006b079a3
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90087952"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90904130"
 highlightedContent:
   items:
   - title: Azure 개발자를 위한 시작 가이드
@@ -36,7 +36,7 @@ highlightedContent:
 productDirectory:
   title: Azure 제품 찾아보기
   items:
-  - title: Anomaly Detector(미리 보기)
+  - title: Anomaly Detector
     summary: 앱에 변칙 검색 기능을 쉽게 추가
     imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
     azureCategories:
@@ -144,6 +144,13 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/bing-web-search/overview.md
+  - title: Communication Services
+    summary: 앱에 실시간 음성, 비디오 및 전화 통신 추가
+    imageSrc: ./media/index/communication-services.svg
+    azureCategories:
+    - web
+    - mobile
+    url: communication-services/overview.md
   - title: Computer Vision
     summary: 이미지에서 실용적인 정보를 추출
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -610,7 +617,7 @@ productDirectory:
     azureCategories:
     - databases
     url: azure-sql/managed-instance/index.yml
-  - title: Azure SQL Edge(미리 보기)
+  - title: Azure SQL Edge
     summary: 설치 공간을 적게 차지하고 에지에 최적화되어 있으며 AI가 내장된 데이터 엔진
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
     azureCategories:

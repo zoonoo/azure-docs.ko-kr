@@ -1,0 +1,88 @@
+- name: Azure Communication Services 설명서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Azure Communication Services란?
+      href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: Communication Services 리소스 만들기
+      href: quickstarts/create-communication-resource.md
+    - name: 액세스 토큰 만들기 및 관리
+      href: quickstarts/access-tokens.md
+    - name: 채팅
+      items:
+        - name: 앱에 채팅 추가
+          href: quickstarts/chat/get-started.md
+    - name: 전화 통신 및 SMS
+      items:
+        - name: 전화 번호 가져오기
+          href: quickstarts/telephony-sms/get-phone-number.md
+        - name: SMS 메시지 보내기
+          href: quickstarts/telephony-sms/send.md
+        - name: SMS 이벤트 처리
+          href: quickstarts/telephony-sms/handle-sms-events.md
+    - name: 음성 및 비디오 통화
+      items:
+        - name: 앱에 음성 통화 추가
+          href: quickstarts/voice-video-calling/getting-started-with-calling.md
+        - name: 통화 클라이언트 라이브러리 사용
+          href: quickstarts/voice-video-calling/calling-client-samples.md
+- name: 자습서
+  expanded: false
+  items:
+    - name: Azure Functions를 사용하여 신뢰할 수 있는 인증 서비스 빌드
+      href: tutorials/trusted-service-tutorial.md
+- name: 개념
+  expanded: false
+  items:
+    - name: 채팅
+      items:
+        - name: 채팅 클라이언트 라이브러리 개요
+          href: concepts/chat/sdk-features.md
+        - name: 채팅 개념
+          href: concepts/chat/concepts.md
+    - name: 전화 통신 및 SMS
+      items:
+        - name: SMS 클라이언트 라이브러리 개요
+          href: concepts/telephony-sms/sdk-features.md
+        - name: SMS 개념
+          href: concepts/telephony-sms/concepts.md
+        - name: 전화 통신 및 SMS 솔루션 계획
+          href: concepts/telephony-sms/plan-solution.md
+    - name: 음성 및 비디오 통화
+      items:
+        - name: 통화 클라이언트 라이브러리 개요
+          href: concepts/voice-video-calling/calling-sdk-features.md
+        - name: 음성 및 비디오 개념
+          href: concepts/voice-video-calling/about-call-types.md
+    - name: 클라이언트 및 서버 아키텍처
+      href: concepts/client-and-server-architecture.md
+    - name: 호출 흐름
+      href: concepts/call-flows.md
+    - name: 클라이언트 라이브러리 및 REST API
+      href: concepts/sdk-options.md
+    - name: 가격 책정 모델
+      href: concepts/pricing.md
+    - name: 인증
+      href: concepts/authentication.md
+    - name: 이벤트 처리
+      href: concepts/event-handling.md
+    - name: 알림
+      href: concepts/notifications.md
+- name: 샘플
+  items:
+    - name: 그룹 통화 주인공 샘플
+      href: samples/calling-hero-sample.md
+    - name: 채팅 주인공 샘플
+      href: samples/chat-hero-sample.md
+- name: 참조
+  items:
+    - name: REST API 설명서
+      href: 'https://docs.microsoft.com/rest/api/azure/'
+- name: 리소스
+  items:
+    - name: 릴리스 정보
+      href: release-notes.md

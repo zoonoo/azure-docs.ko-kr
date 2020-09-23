@@ -1,6 +1,6 @@
 ---
-title: 템플릿을 통해 Azure Stack Edge 장치에 Vm 배포
-description: 템플릿을 사용 하 여 Azure Stack Edge 장치에서 Vm (가상 머신)을 만들고 관리 하는 방법을 설명 합니다.
+title: 템플릿을 통해 Azure Stack Edge Pro 장치에 Vm 배포
+description: 템플릿을 사용 하 여 Azure Stack Edge Pro 장치에서 Vm (가상 머신)을 만들고 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 4f5fb02239fa48d96b0b779af7c970fc67fbcb99
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: eeefbcdc080620c60f7cd49b8f749375e23ddd02
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419829"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899711"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>템플릿을 통해 Azure Stack Edge GPU 장치에 Vm 배포
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>템플릿을 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
 
-이 자습서에서는 템플릿을 사용 하 여 Azure Stack Edge 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다. 이러한 템플릿은 VM에 대 한 인프라 및 구성을 정의 하는 JSON (JavaScript Object Notation) 파일입니다. 이러한 템플릿에서는 배포할 리소스 및 해당 리소스에 대 한 속성을 지정 합니다.
+이 자습서에서는 템플릿을 사용 하 여 Azure Stack Edge Pro 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다. 이러한 템플릿은 VM에 대 한 인프라 및 구성을 정의 하는 JSON (JavaScript Object Notation) 파일입니다. 이러한 템플릿에서는 배포할 리소스 및 해당 리소스에 대 한 속성을 지정 합니다.
 
 템플릿은 런타임에 파일의 입력으로 매개 변수를 사용할 수 있으므로 다양 한 환경에서 유연 합니다. 표준 명명 구조는 `TemplateName.json` 템플릿 및 매개 변수 파일에 대 한 것입니다 `TemplateName.parameters.json` . ARM 템플릿에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 이란?](../azure-resource-manager/templates/overview.md)을 참조 하세요.
 
@@ -25,7 +25,7 @@ ms.locfileid: "89419829"
 
 ## <a name="vm-deployment-workflow"></a>VM 배포 워크플로
 
-여러 장치에 Azure Stack에 지 Vm을 배포 하기 위해 전체 부에 대해 단일 sysprep VHD를 사용 하 고, 배포에 동일한 템플릿을 사용 하 고, 각 배포 위치에 대 한 매개 변수를 변경 하는 것이 좋습니다. 이러한 변경은 여기에서 수행 하는 것과 같은 방식으로 또는 프로그래밍 방식으로 수행 될 수 있습니다. 
+여러 장치에 Azure Stack Edge Pro Vm을 배포 하기 위해 전체 부에 대해 단일 sysprep VHD를 사용 하 고, 배포에 대해 동일한 템플릿을 사용 하 고, 각 배포 위치에 대 한 매개 변수를 변경 하는 것이 가능 합니다. 이러한 변경은 여기에서 수행 하는 것과 같은 방식으로 또는 프로그래밍 방식으로 변경 될 수 있습니다. 
 
 템플릿을 사용한 배포 워크플로의 개략적인 요약은 다음과 같습니다.
 
@@ -57,13 +57,13 @@ ms.locfileid: "89419829"
 
 ## <a name="device-prerequisites"></a>장치 필수 조건
 
-Azure Stack Edge 장치에서 이러한 필수 구성 요소를 구성 합니다.
+Azure Stack Edge Pro 장치에서 이러한 필수 구성 요소를 구성 합니다.
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 ## <a name="client-prerequisites"></a>클라이언트 필수 조건
 
-클라이언트에서 Azure Stack Edge 장치에 액세스 하는 데 사용 되는 이러한 필수 구성 요소를 구성 합니다.
+Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 클라이언트에서 이러한 필수 구성 요소를 구성 합니다.
 
 1. VHD를 업로드 하는 데 사용 하는 경우 [Storage 탐색기를 다운로드](https://azure.microsoft.com/features/storage-explorer/) 합니다. 또는 AzCopy를 다운로드 하 여 VHD를 업로드할 수 있습니다. 이전 버전의 AzCopy를 실행 하는 경우 클라이언트 컴퓨터에서 TLS 1.2을 구성 해야 할 수 있습니다. 
 1. 클라이언트 컴퓨터에 [VM 템플릿 및 매개 변수 파일을 다운로드](https://aka.ms/ase-vm-templates) 합니다. 작업 디렉터리로 사용할 디렉터리에 압축을 풉니다.
@@ -108,7 +108,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> 로컬 중복 저장소 (Standard_LRS 또는 Premium_LRS)와 같은 로컬 저장소 계정만 Azure Resource Manager를 통해 만들 수 있습니다. 계층화 된 저장소 계정을 만들려면 [Azure Stack Edge에서 저장소 계정에 추가, 연결](azure-stack-edge-j-series-deploy-add-storage-accounts.md)의 단계를 참조 하세요.
+> 로컬 중복 저장소 (Standard_LRS 또는 Premium_LRS)와 같은 로컬 저장소 계정만 Azure Resource Manager를 통해 만들 수 있습니다. 계층화 된 저장소 계정을 만들려면 [Azure Stack Edge Pro에서 저장소 계정에 연결 추가](azure-stack-edge-j-series-deploy-add-storage-accounts.md)의 단계를 참조 하세요.
 
 샘플 출력은 다음과 같습니다.
 
@@ -145,7 +145,7 @@ Blob storage에 연결 하는 데 사용 하는 클라이언트의 호스트 파
 
 `<Device IP> <storage account name>.blob.<Device name>.<DNS domain>`
 
-일반적인 환경에서는 모든 저장소 계정이 항목을 사용 하 여 Azure Stack Edge 장치를 가리키도록 DNS를 구성 해야 `*.blob.devicename.domainname.com` 합니다.
+일반적인 환경에서는 모든 저장소 계정이 항목을 사용 하 여 Azure Stack Edge Pro 장치를 가리키도록 DNS를 구성 해야 `*.blob.devicename.domainname.com` 합니다.
 
 ### <a name="optional-install-certificates"></a>필드 인증서 설치
 
@@ -215,7 +215,7 @@ Blob storage에 연결 하는 데 사용 하는 클라이언트의 호스트 파
 
 <!--### Use AzCopy for upload
 
-Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge device.
+Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
 
 
 ```powershell
@@ -269,7 +269,7 @@ VM에 대 한 이미지 및 가상 네트워크를 만들려면 `CreateImageAndV
     }
 ```
 
-파일을 편집 `CreateImageAndVnet.parameters.json` 하 여 Azure Stack Edge 장치에 대해 다음을 포함 합니다.
+파일을 편집 `CreateImageAndVnet.parameters.json` 하 여 Azure Stack Edge Pro 장치에 대해 다음을 포함 합니다.
 
 1. 업로드할 VHD에 해당 하는 OS 유형을 제공 합니다. OS 유형은 Windows 또는 Linux 일 수 있습니다.
 
@@ -341,9 +341,9 @@ VM에 대 한 이미지 및 가상 네트워크를 만들려면 `CreateImageAndV
 템플릿을 배포 `CreateImageAndVnet.json` 합니다. 이 템플릿은 이후 단계에서 Vm을 만드는 데 사용 될 VNet 및 이미지 리소스를 배포 합니다.
 
 > [!NOTE]
-> 인증 오류가 발생 하는 경우 템플릿을 배포할 때이 세션의 Azure 자격 증명이 만료 되었을 수 있습니다. 명령을 다시 실행 `login-AzureRM` 하 여 Azure Stack Edge 장치의 Azure Resource Manager에 다시 연결 합니다.
+> 인증 오류가 발생 하는 경우 템플릿을 배포할 때이 세션의 Azure 자격 증명이 만료 되었을 수 있습니다. 명령을 다시 실행 `login-AzureRM` 하 여 Azure Stack Edge Pro 장치에서 Azure Resource Manager에 다시 연결 합니다.
 
-1. 다음 명령을 실행합니다. 
+1. 다음 명령 실행: 
     
     ```powershell
     $templateFile = "Path to CreateImageAndVnet.json"
@@ -437,7 +437,7 @@ VM을 만들려면 `CreateVM.parameters.json` 매개 변수 파일을 사용 합
         }
 ```    
 
-에서 Azure Stack Edge 장치에 적절 한 매개 변수를 할당 `CreateVM.parameters.json` 합니다.
+에서 Azure Stack Edge Pro 장치에 적절 한 매개 변수를 할당 `CreateVM.parameters.json` 합니다.
 
 1. 고유한 이름, 네트워크 인터페이스 이름 및 ipconfig 이름을 제공 합니다. 
 1. 사용자 이름, 암호 및 지원 되는 VM 크기를 입력 합니다.
@@ -497,7 +497,7 @@ VM을 만들려면 `CreateVM.parameters.json` 매개 변수 파일을 사용 합
 
 VM 만들기 템플릿을 배포 `CreateVM.json` 합니다. 이 템플릿은 기존 VNet에서 네트워크 인터페이스를 만들고 배포 된 이미지에서 VM을 만듭니다.
 
-1. 다음 명령을 실행합니다. 
+1. 다음 명령 실행: 
     
     ```powershell
     Command:
@@ -571,7 +571,7 @@ VM 만들기 템플릿을 배포 `CreateVM.json` 합니다. 이 템플릿은 기
     2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
     ```
 
-7. VM이 성공적으로 프로 비전 되었는지 확인 합니다. 다음 명령을 실행합니다.
+7. VM이 성공적으로 프로 비전 되었는지 확인 합니다. 다음 명령 실행:
 
     `Get-AzureRmVm`
 
@@ -594,7 +594,7 @@ Linux VM에 연결 하려면 다음 단계를 수행 합니다.
 
 <!--## Manage VM
 
-The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge device.
+The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge Pro device.
 
 [!INCLUDE [azure-stack-edge-gateway-manage-vm](../../includes/azure-stack-edge-gateway-manage-vm.md)]-->
 
@@ -609,9 +609,9 @@ The following section describes some of the common operations around the VM that
 
 <!--## Configure AzCopy
 
-When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge device.
+When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge Pro device.
 
-On the client used to access your Azure Stack Edge device, set up a global variable to match the blob storage REST API version.
+On the client used to access your Azure Stack Edge Pro device, set up a global variable to match the blob storage REST API version.
 
 ### On Windows client 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge 장치의 Kubernetes 네트워킹 이해 | Microsoft Docs
-description: Kubernetes 네트워킹이 Azure Stack Edge 장치에서 작동 하는 방식을 설명 합니다.
+title: Edge Pro 장치 Azure Stack의 Kubernetes 네트워킹 이해 | Microsoft Docs
+description: Kubernetes 네트워킹을 Azure Stack Edge Pro 장치에서 작동 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 4eab89710e031ead0a3758afd2367e60d26f395b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 001304ad6eda27db2285aaa9ad8b28929e2a04f8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268128"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899324"
 ---
-# <a name="kubernetes-networking-in-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치의 Kubernetes 네트워킹
+# <a name="kubernetes-networking-in-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Kubernetes 네트워킹
 
-Azure Stack Edge 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 컨테이너 화 된 응용 프로그램을 Pod의 Kubernetes 클러스터에 배포할 수 있습니다. Kubernetes 클러스터의 Pod에는 네트워킹을 사용 하는 고유한 방법이 있습니다. 
+Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 컨테이너 화 된 응용 프로그램을 Pod의 Kubernetes 클러스터에 배포할 수 있습니다. Kubernetes 클러스터의 Pod에는 네트워킹을 사용 하는 고유한 방법이 있습니다. 
 
-이 문서에서는 Kubernetes 클러스터의 네트워킹을 일반적인 방법으로 설명 하 고 Azure Stack Edge 장치의 컨텍스트에서 특히 
+이 문서에서는 Kubernetes 클러스터의 네트워킹에 대해 일반적 이며 특히 Azure Stack Edge Pro 장치의 컨텍스트에서 설명 합니다. 
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 
@@ -59,9 +59,9 @@ For discovery of applications within the cluster, Kubernetes cluster has a
 When an application or the end user would first use the IP address associated with the service of type load balancer to discover the service. Then it would use the label select `app = WS` to discover the pods associated with the application. The `kube-proxy` component would then distribute the traffic and ensure that it hits one of the web server application pods. If the web server app wanted to talk to the database app, then it would simply use the name of the service and using the name and the DNS server pod, resolve the name to an IP address. Again using labels and label selector, it would discover the pods associated with the database application. The `kube-proxy` would then distribute the traffic across each of the database app nodes.-->
 
 
-## <a name="kubernetes-networking-on-azure-stack-edge"></a>Azure Stack Edge의 Kubernetes 네트워킹
+## <a name="kubernetes-networking-on-azure-stack-edge-pro"></a>Azure Stack Edge Pro의 Kubernetes 네트워킹
 
-Calico, Metallb 및 Core DNS는 모두 Azure Stack에 지에 대 한 네트워킹에 설치 되는 구성 요소입니다. 
+Calico, Metallb 및 Core DNS는 Azure Stack Edge Pro에서 네트워킹에 대해 설치 되는 모든 구성 요소입니다. 
 
 - **Calico** 은 개인 ip 범위에서 모든 POD에 ip 주소를 할당 하 고 이러한 pod에 대 한 네트워킹을 구성 하 여 한 노드의 pod가 다른 노드의 pod와 통신할 수 있도록 합니다. 
 - **Metallb** 는 클러스터 내 pod에서 실행 되며, 부하 분산 장치 유형의 서비스에 IP 주소를 할당 합니다. 부하 분산 장치 IP 주소는 로컬 UI를 통해 제공 되는 서비스 Ip 범위에서 선택 됩니다. 
@@ -80,8 +80,8 @@ IP 할당은 다음에 대 한 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Stack Edge에서 Kubernetes 네트워킹을 구성 하려면 다음을 참조 하세요.
+Azure Stack Edge Pro에서 Kubernetes 네트워킹을 구성 하려면 다음을 참조 하세요.
 
-- [IoT Edge를 통해 Azure Stack Edge에서 외부적으로 상태 비저장 응용 프로그램을 노출](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)합니다.
+- [IoT Edge를 통해 Azure Stack Edge Pro에서 외부 상태 비저장 응용 프로그램을 노출](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)합니다.
 
-- [Kuebctl를 통해 Azure Stack Edge에서 외부적으로 상태 비저장 응용 프로그램을 노출](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md)합니다.
+- [Kuebctl를 통해 Azure Stack Edge Pro에서 외부적으로 상태 비저장 응용 프로그램을 노출](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md)합니다.

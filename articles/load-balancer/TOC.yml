@@ -39,6 +39,10 @@
       href: powershell-samples.md
 - name: 개념
   items:
+    - name: 영역 간 부하 분산 장치
+      href: cross-region-overview.md
+    - name: 새로운 기능
+      href: whats-new.md
     - name: 구성 요소
       href: components.md
     - name: 개념

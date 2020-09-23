@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 08859eb87431b59e8be68369ce8f3876aa7d9f21
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 3c2934c92be668d4b4c05f97a98395e2e219b7dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530304"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907607"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Visual Studio Code (VS Code) 및 [depugpy](https://github.com/microsoft/debugpy/)를 사용 하 여 Azure Machine Learning 파이프라인과 배포를 대화형으로 디버깅 하는 방법에 대해 알아봅니다.
 
@@ -42,7 +42,7 @@ Azure Machine Learning에서 Azure Virtual Network를 사용 하는 방법에 �
 > [!TIP]
 > 가상 네트워크 뒤에 있지 않은 Azure Machine Learning 리소스를 사용할 수 있지만 가상 네트워크를 사용 하는 것이 좋습니다.
 
-### <a name="how-it-works"></a>작동 방법
+### <a name="how-it-works"></a>작동 방식
 
 ML 파이프라인 단계는 Python 스크립트를 실행 합니다. 이러한 스크립트는 다음 작업을 수행 하도록 수정 됩니다.
 
@@ -109,7 +109,7 @@ ML 파이프라인 단계는 Python 스크립트를 실행 합니다. 이러한 
         print(f'Debugger attached = {debugpy.is_client_connected()}')
     ```
 
-다음 Python 예제에서는 `train.py` 디버깅을 사용 하도록 설정 하는 기본 파일을 보여 줍니다.
+다음 Python 예제에서는 `train.py` 디버깅을 사용 하도록 설정 하는 간단한 파일을 보여 줍니다.
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.

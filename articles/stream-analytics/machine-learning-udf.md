@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e2277e2088a8cb386d6f19799b235d96e08959b0
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e9496dc70d847d0e9e830a216e8f435b1c48d878
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543438"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900970"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Azure Machine Learning과 Azure Stream Analytics 통합(미리 보기)
 
@@ -33,23 +33,39 @@ Azure Stream Analytics 작업에서 UDF(사용자 정의 함수)로 기계 학�
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>작업에 기계 학습 모델 추가
 
-Azure Portal에서 직접 Stream Analytics 작업에 Azure Machine Learning 함수를 추가할 수 있습니다.
+Azure Portal 또는 Visual Studio Code에서 직접 Stream Analytics 작업에 Azure Machine Learning 함수를 추가할 수 있습니다.
 
-1. Azure Portal의 Stream Analytics 작업으로 이동하고 **작업 토폴로지**에서 **함수**를 선택합니다. 그런 다음 **+ 추가** 드롭다운 메뉴에서 **Azure ML 서비스**를 선택합니다.
+### <a name="azure-portal"></a>Azure portal
 
-   ![Azure ML UDF 추가](./media/machine-learning-udf/add-azureml-udf.png)
+1. Azure Portal의 Stream Analytics 작업으로 이동하고 **작업 토폴로지**에서 **함수**를 선택합니다. 그런 다음 **+ 추가** 드롭다운 메뉴에서 **Azure Machine Learning 서비스** 를 선택 합니다.
+
+   ![Azure Machine Learning UDF 추가](./media/machine-learning-udf/add-azure-machine-learning-udf.png)
 
 2. 다음 속성 값을 사용하여 **Azure Machine Learning Service 함수** 양식을 채웁니다.
 
-   ![Azure ML UDF 구성](./media/machine-learning-udf/configure-azureml-udf.png)
+   ![Azure Machine Learning UDF 구성](./media/machine-learning-udf/configure-azure-machine-learning-udf.png)
 
-다음 표는 Stream Analytics에서 Azure ML 서비스 함수의 각 속성을 설명합니다.
+### <a name="visual-studio-code"></a>Visual Studio Code
+
+1. Visual Studio Code에서 Stream Analytics 프로젝트를 열고 **함수** 폴더를 마우스 오른쪽 단추로 클릭 합니다. 그런 다음 **함수 추가**를 선택 합니다. 드롭다운 목록에서 **MACHINE LEARNING UDF** 를 선택 합니다.
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="VS Code에서 UDF 추가":::
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="VS Code에서 Azure Machine Learning UDF 추가":::
+
+2. 함수 이름을 입력 하 고 CodeLens의 **구독에서 선택을** 사용 하 여 구성 파일의 설정을 입력 합니다.
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="VS Code에서 Azure Machine Learning UDF를 선택 합니다.":::
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="VS Code에서 Azure Machine Learning UDF 구성":::
+
+다음 표에서는 Stream Analytics에서 Azure Machine Learning 서비스 함수의 각 속성을 설명 합니다.
 
 |속성|Description|
 |--------|-----------|
 |함수 별칭|쿼리에서 함수를 호출할 이름을 입력합니다.|
 |Subscription|사용자의 Azure 구독입니다.|
-|Azure ML 작업 영역|모델을 웹 서비스로 배포하는 데 사용한 Azure Machine Learning 작업 영역입니다.|
+|Azure Machine Learning 작업 영역|모델을 웹 서비스로 배포하는 데 사용한 Azure Machine Learning 작업 영역입니다.|
 |배포|모델을 호스팅하는 웹 서비스입니다.|
 |함수 시그니처|API의 스키마 사양에서 유추된 웹 서비스의 서명입니다. 서명을 로드하지 못하면 채점 스크립트에 샘플 입력 및 출력을 제공하여 스키마를 자동으로 생성했는지 확인합니다.|
 |파티션당 병렬 요청 수|이는 대규모의 처리량을 최적화하는 고급 구성입니다. 이 숫자는 작업의 각 파티션에서 웹 서비스로 전송되는 동시 요청을 나타냅니다. 6개 이하의 SU(스트리밍 단위)를 사용하는 작업에 하나의 파티션이 있습니다. 12개의 SU를 사용하는 작업에는 2개의 파티션이 있으며 18개의 SU 작업에는 3개의 파티션이 있습니다.<br><br> 예를 들어 작업에 두 개의 파티션이 있고 이 매개 변수를 4로 설정하면 작업에서 웹 서비스로의 동시 요청이 8개가 됩니다. 현재 공개 미리 보기의 경우 이 값은 기본적으로 20이며 업데이트할 수 없습니다.|
@@ -168,4 +184,3 @@ FROM input
 
 * [자습서: Azure Stream Analytics JavaScript 사용자 정의 함수](stream-analytics-javascript-user-defined-functions.md)
 * [Azure Machine Learning Studio(클래식) 함수를 사용하여 Stream Analytics 작업의 크기 조정](stream-analytics-scale-with-machine-learning-functions.md)
-

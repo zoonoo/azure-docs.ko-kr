@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Azure Communication Services
+summary: Azure Communication Services는 음성, 비디오, 채팅 및 전화 통신을 앱에 추가할 수 있는 클라우드 기반 통신 서비스입니다. Azure Communication Services는 현재 공개 미리 보기로 제공됩니다.
+metadata:
+  title: Azure Communication Services
+  description: Azure Communication Services는 음성, 비디오, 채팅 및 전화 통신을 앱에 추가할 수 있는 클라우드 기반 통신 서비스입니다. Azure Communication Services는 현재 공개 미리 보기로 제공됩니다.
+  ms.service: azure-communication-services
+  ms.topic: landing-page
+  author: mikben
+  ms.author: mikben
+  ms.date: 08/10/2020
+  ms.openlocfilehash: 6081063605439982e29984cc4378ec3aee7ac08a
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90929038"
+landingContent:
+- title: Azure Communication Services 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Communication Services란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: 클라이언트 라이브러리 옵션
+      url: concepts/sdk-options.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Communication Services 리소스 만들기
+      url: quickstarts/create-communication-resource.md
+    - text: 사용자 액세스 토큰 만들기 및 관리
+      url: quickstarts/access-tokens.md
+  - linkListType: concept
+    links:
+    - text: 클라이언트 및 서버 아키텍처
+      url: concepts/client-and-server-architecture.md
+    - text: 인증 및 권한 부여
+      url: concepts/authentication.md
+    - text: 이벤트 처리
+      url: concepts/event-handling.md
+    - text: 알림
+      url: concepts/notifications.md
+- title: 음성 및 비디오 통화
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 음성 및 비디오 통화를 앱에 추가
+      url: quickstarts/voice-video-calling/getting-started-with-calling.md
+    - text: 통화 클라이언트 라이브러리 사용
+      url: quickstarts/voice-video-calling/calling-client-samples.md
+  - linkListType: concept
+    links:
+    - text: 음성 및 비디오 개념
+      url: concepts/voice-video-calling/about-call-types.md
+    - text: 통화 클라이언트 라이브러리 개요
+      url: concepts/voice-video-calling/calling-sdk-features.md
+    - text: 호출 흐름
+      url: concepts/call-flows.md
+- title: 전화 통신 및 SMS
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 전화 번호 가져오기
+      url: quickstarts/telephony-sms/get-phone-number.md
+    - text: SMS 메시지 보내기
+      url: quickstarts/telephony-sms/send.md
+    - text: SMS 이벤트 처리
+      url: quickstarts/telephony-sms/handle-sms-events.md
+  - linkListType: concept
+    links:
+    - text: SMS 개념
+      url: concepts/telephony-sms/concepts.md
+    - text: SMS 클라이언트 라이브러리 개요
+      url: concepts/telephony-sms/sdk-features.md
+    - text: 통화 개요
+      url: concepts/voice-video-calling/calling-sdk-features.md
+    - text: 전화 통신 및 SMS 솔루션 계획
+      url: concepts/telephony-sms/plan-solution.md
+- title: 채팅
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 앱에 채팅 추가
+      url: quickstarts/chat/get-started.md
+  - linkListType: concept
+    links:
+    - text: 채팅 개념
+      url: concepts/chat/concepts.md
+    - text: 채팅 클라이언트 라이브러리 개요
+      url: concepts/chat/sdk-features.md
+- title: 샘플
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 그룹 통화 주인공 샘플 시작
+      url: samples/calling-hero-sample.md
+    - text: 채팅 주인공 샘플 시작
+      url: samples/chat-hero-sample.md
