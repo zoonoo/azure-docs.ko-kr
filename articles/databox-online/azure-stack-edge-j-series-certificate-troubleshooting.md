@@ -1,6 +1,6 @@
 ---
-title: GPU를 사용 하 여 Azure Stack Edge에서 인증서 문제 해결 | Microsoft Docs
-description: Azure Stack Edge GPU 장치를 사용 하 여 인증서 오류 문제를 해결 하는 방법을 설명 합니다.
+title: GPU를 사용 하 여 Azure Stack Edge Pro에서 인증서 문제 해결 | Microsoft Docs
+description: Edge Pro GPU 장치를 Azure Stack 인증서 오류 문제를 해결 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 05338fb70bfa390ff3bd9e14e938edeb40938aeb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a0918c6cebd50231a9664811bb467e04d2d2bfd9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269440"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891325"
 ---
 # <a name="troubleshooting-certificate-errors"></a>인증서 오류 문제 해결
 
-이 문서에서는 Azure Stack Edge 장치에 인증서를 설치할 때 일반적인 인증서 오류 문제를 해결 하는 방법을 설명 합니다.
+이 문서에서는 Azure Stack Edge Pro 장치에 인증서를 설치할 때 일반적인 인증서 오류 문제를 해결 하는 방법을 설명 합니다.
 
 ## <a name="common-certificate-errors"></a>일반적인 인증서 오류
 

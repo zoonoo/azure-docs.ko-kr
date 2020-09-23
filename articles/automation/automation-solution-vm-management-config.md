@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266718"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987204"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>작업 시간 외 VM 시작/중지 구성
 
@@ -139,17 +139,17 @@ VM을 중지하는 기능 구성만 지원됩니다. 사용자 지정 일정을 
 
 1. Azure Portal에서 **모니터**, **작업 그룹**으로 차례로 이동합니다. **StartStop_VM_Notication**이라는 작업 그룹을 선택합니다.
 
-    ![Automation 업데이트 관리 페이지](media/automation-solution-vm-management/azure-monitor.png)
+    :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="모니터-작업 그룹 페이지의 스크린샷":::
 
 2. StartStop_VM_Notification 페이지의 **세부 정보** 아래에서 **세부 정보 편집**을 클릭합니다. 그러면 메일/SMS/푸시/음성 페이지가 열립니다. 메일 주소를 업데이트하고 **확인**을 클릭하여 변경 내용을 저장합니다.
 
-    ![Automation 업데이트 관리 페이지](media/automation-solution-vm-management/change-email.png)
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="업데이트 된 예제 전자 메일 주소를 보여 주는 전자 메일/SMS/푸시/음성 페이지의 스크린샷":::
 
     또는 작업 그룹에 추가 작업을 추가할 수 있습니다. 작업 그룹에 대한 자세한 내용은 [작업 그룹](../azure-monitor/platform/action-groups.md)을 참조하세요.
 
 기능이 가상 머신을 종료할 때 전송되는 예제 메일은 다음과 같습니다.
 
-![Automation 업데이트 관리 페이지](media/automation-solution-vm-management/email.png)
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="기능이 가상 컴퓨터를 종료할 때 전송 되는 예제 전자 메일의 스크린샷":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>VM 추가 또는 제외
 

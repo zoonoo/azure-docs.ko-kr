@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 934a7546464cf552c355ee6b4e278b79a0f9ff90
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8cc16e611002748dad2716a1c8dc914f297da9f1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747494"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090553"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Google Maps에서 웹 서비스 마이그레이션
 
@@ -495,6 +495,9 @@ Azure Maps REST 서비스에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [서비스 모듈(Web SDK)을 사용하는 방법](how-to-use-best-practices-for-routing.md)
+
+> [!div class="nextstepaction"]
+> [Azure Maps REST 서비스 API 참조 설명서](https://docs.microsoft.com/rest/api/maps/)
 
 > [!div class="nextstepaction"]
 > [코드 샘플](https://docs.microsoft.com/samples/browse/?products=azure-maps)

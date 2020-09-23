@@ -1,21 +1,21 @@
 ### YamlMime:Landing
-title: Azure SQL Edge(미리 보기) 설명서
+title: Azure SQL Edge 설명서
 summary: Azure SQL Edge는 IoT 및 에지 배포를 위해 최적화된 관계형 데이터베이스 엔진입니다.
 metadata:
-  title: Azure SQL Edge(미리 보기) 설명서
-  meta.description: Learn how to use Azure SQL Edge (Preview).
+  title: Azure SQL Edge 설명서
+  meta.description: Learn how to use Azure SQL Edge.
   services: sql-edge
   ms.service: sql-edge
   ms.topic: landing-page
   author: stevestein
   ms.author: sstein
   ms.date: 05/19/2020
-  ms.openlocfilehash: 97595cd74fa5a584d5d1943ed88ac617fc742569
-  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+  ms.openlocfilehash: 3a043b3e29352abd44d1b880f366d9fa8ccea4d2
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/31/2020
-  ms.locfileid: "84233190"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90894476"
 landingContent:
 - title: SQL Edge
   linkLists:
@@ -25,8 +25,14 @@ landingContent:
       url: overview.md
   - linkListType: deploy
     links:
-    - text: SQL Edge 배포
+    - text: 포털을 사용하여 SQL Edge 배포
       url: deploy-portal.md
+    - text: Docker를 사용하여 SQL Edge 배포
+      url: disconnected-deployment.md
+  - linkListType: tutorial
+    links:
+    - text: Kubernetes에서 배포
+      url: deploy-kubernetes.md
 - title: 데이터 동기화
   linkLists:
   - linkListType: tutorial
@@ -43,6 +49,8 @@ landingContent:
       url: stream-data.md
     - text: 스트리밍 카탈로그 뷰
       url: streaming-catalog-views.md
+    - text: 스트리밍 작업 생성 및 관리
+      url: create-stream-analytics-job.md
 - title: 기계 학습
   linkLists:
   - linkListType: concept
@@ -53,3 +61,21 @@ landingContent:
     links:
     - text: SQL Edge에서 ONNX 배포
       url: deploy-onnx.md
+- title: 시계열 데이터 처리
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 누락 값 입력
+      url: imputing-missing-values.md
+    - text: 데이터 보존 정책
+      url: data-retention-overview.md
+    - text: Date_Bucket(Transact-SQL)
+      url: date-bucket-tsql.md
+- title: SQL Edge 구성
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: SQL Edge 구성
+      url: configure.md
+    - text: 복제 구성
+      url: configure-replication.md

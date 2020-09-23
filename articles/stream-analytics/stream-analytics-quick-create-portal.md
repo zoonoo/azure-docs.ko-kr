@@ -7,12 +7,12 @@ ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 4abf5078a005f9d928397d9666e7f2bc55d65f19
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5ad261064adf34945a600983296cb3e0ceaa5247
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75431543"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901063"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
@@ -36,14 +36,14 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
    
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
-   |Subscription  | \<구독\> |  사용할 Azure 구독을 선택합니다. |
+   |Subscription  | \<Your subscription\> |  사용할 Azure 구독을 선택합니다. |
    |Resource group   |   asaquickstart-resourcegroup  |   **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다. |
-   |지역  |  \<사용자와 가장 가까운 지역 선택\> | IoT Hub를 호스트할 수 있는 지리적 위치를 선택합니다. 사용자와 가장 가까운 위치를 사용합니다. |
+   |지역  |  \<Select the region that is closest to your users\> | IoT Hub를 호스트할 수 있는 지리적 위치를 선택합니다. 사용자와 가장 가까운 위치를 사용합니다. |
    |IoT Hub 이름  | MyASAIoTHub  |   IoT Hub의 이름을 선택합니다.   |
 
    ![IoT Hub 만들기](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. **다음: 크기 및 규모 설정**을 선택합니다.
+4. 완료되면 **다음: 크기 및 규모 설정**을 선택합니다.
 
 5. **가격 책정 및 규모 계층**을 선택합니다. 이 빠른 시작의 경우 구독에서 아직 사용할 수 있다면 **F1 - 무료** 계층을 선택합니다. 자세한 내용은 [IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조하세요.
 
@@ -88,9 +88,9 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |작업 이름   |  MyASAJob   |   Stream Analytics 작업을 식별하는 이름을 입력합니다. Stream Analytics 작업 이름은 영숫자 문자, 하이픈, 밑줄만 사용할 수 있으며 길이가 3자에서 63자 사이여야 합니다. |
-   |Subscription  | \<구독\> |  이 작업에 사용할 Azure 구독을 선택합니다. |
+   |구독  | \<Your subscription\> |  이 작업에 사용할 Azure 구독을 선택합니다. |
    |Resource group   |   asaquickstart-resourcegroup  |   IoT Hub와 동일한 리소스 그룹을 선택합니다. |
-   |위치  |  \<사용자와 가장 가까운 지역 선택\> | Stream Analytics 작업을 호스트할 수 있는 지리적 위치를 선택합니다. 성능을 향상하고 데이터 전송 비용을 줄이기 위해 사용자에게 가장 가까운 위치를 사용합니다. |
+   |위치  |  \<Select the region that is closest to your users\> | Stream Analytics 작업을 호스트할 수 있는 지리적 위치를 선택합니다. 성능을 향상하고 데이터 전송 비용을 줄이기 위해 사용자에게 가장 가까운 위치를 사용합니다. |
    |스트리밍 단위  | 1  |   스트리밍 단위는 작업을 실행하는 데 필요한 컴퓨팅 리소스를 나타냅니다. 기본적으로 이 값은 1로 설정됩니다. 스트리밍 단위 크기를 조정하는 방법에 대한 자세한 내용은 [스트리밍 단위의 이해 및 크기 조정](stream-analytics-streaming-unit-consumption.md) 문서를 참조하세요.   |
    |호스팅 환경  |  클라우드  |   Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure 클라우드에 배포할 수 있고, 에지를 사용하면 IoT Edge 디바이스에 배포할 수 있습니다. |
 
@@ -113,7 +113,7 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |입력 별칭  |  IoTHubInput   |  작업의 입력을 식별하는 이름을 입력합니다.   |
-   |Subscription   |  \<구독\> |  만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다. |
+   |Subscription   |  \<Your subscription\> |  만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다. |
    |IoT Hub  |  MyASAIoTHub |  이전 섹션에서 만든 IoT Hub의 이름을 입력합니다. |
 
 4. 다른 옵션을 기본값으로 유지하고 **저장**을 선택하여 설정을 저장합니다.  
@@ -131,7 +131,7 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |출력 별칭 |   BlobOutput   |   작업의 출력을 식별하는 이름을 입력합니다. |
-   |Subscription  |  \<구독\>  |  만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다. |
+   |Subscription  |  \<Your subscription\>  |  만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다. |
    |스토리지 계정 |  asaquickstartstorage |   스토리지 계정의 이름을 선택하거나 입력합니다. 스토리지 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.       |
    |컨테이너 |   container1  |  스토리지 계정에서 만든 기존 컨테이너를 선택합니다.   |
 
@@ -186,7 +186,7 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Portal을 사용하여 간단한 Stream Analytics 작업을 배포했습니다. [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), [Visual Studio Code](quick-create-vs-code.md)를 사용하여 Stream Analytics 작업을 배포할 수도 있습니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 간단한 Stream Analytics 작업을 배포했습니다. [PowerShell](stream-analytics-quick-create-powershell.md), [Visual Studio](stream-analytics-quick-create-vs.md), [Visual Studio Code](quick-create-visual-studio-code.md)를 사용하여 Stream Analytics 작업을 배포할 수도 있습니다.
 
 다른 입력 원본을 구성하고 실시간 검색을 수행하는 방법을 알아보려면 다음 문서로 이동하세요.
 

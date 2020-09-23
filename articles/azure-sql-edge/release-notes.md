@@ -9,17 +9,42 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/04/2020
-ms.openlocfilehash: a2d27f892e79d99f515032b72e1ec090ab1f6a31
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.date: 09/22/2020
+ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500354"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900602"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Azure SQL Edge 릴리스 정보 
 
 이 문서에서는 Azure SQL Edge의 모든 새 빌드에서 새로 제공 되는 기능과 변경 된 사항에 대해 설명 합니다.
+
+## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge-1.0.0 (RTM)
+
+### <a name="sql-engine-build-number---15020001549"></a>SQL 엔진 빌드 번호-15.0.2000.1549
+
+### <a name="whats-new"></a>새로운 기능
+1. Ubuntu 18.04 기반 컨테이너 이미지입니다. 
+2. 및 `IGNORE NULL` 함수로 및 `RESPECT NULL` 구문을 지원 `LAST_VALUE()` `FIRST_VALUE()` 합니다. 
+3. ONNX를 사용 하 여 예측 하기 위한 안정성 향상.
+4. 데이터 보존 정책 기반 정리에 대 한 지원.      
+   - 클러스터형 columnstore 인덱스에 대 한 최적화 된 정리를 지원 합니다.
+5. 새 기능 지원 
+   - 빠른 복구
+   - 쿼리 자동 조정
+
+### <a name="fixes"></a>수정 프로그램
+1. TSQL 스트리밍 작업 문제 해결에 대 한 추가 오류 메시지 및 세부 정보입니다. 
+2. 배터리 수명을 유휴 모드로 유지 하는 기능이 향상 되었습니다. 
+3. TSQL 스트리밍 엔진 수정: 
+   - 중지 된 스트리밍 작업 정리 
+   - 지역화 및 유니코드 처리 기능 향상을 위한 수정 사항
+4. 데이터 보존 정책 기반 정리
+   - 보존 정책 만들기 및 정리 시나리오를 수정 합니다.
+5. 낮은 전원 모드의 전원 절약을 위해 백그라운드 타이머 작업을 수정 합니다.
+
 
 ## <a name="ctp-23"></a>CTP 2.3
 ### <a name="sql-engine-build-number---15020001549"></a>SQL 엔진 빌드 번호-15.0.2000.1549
@@ -33,7 +58,7 @@ ms.locfileid: "89500354"
 
 ### <a name="fixes"></a>수정 프로그램
 1. TSQL 스트리밍 작업 문제 해결에 대 한 추가 오류 메시지 및 세부 정보입니다. 
-2. 배터리 수명을 유휴 모드로 유지 하는 Imporvements. 
+2. 배터리 수명을 유휴 모드로 유지 하는 기능이 향상 되었습니다. 
 3. TSQL 스트리밍 엔진 수정: 
    - Substreamed 도약 창에서 중지 된 워터 마크 문제 해결 
    - 프레임 워크 예외 처리를 수정 하 여 사용자의 조치 가능한 오류로 수집 되는지 확인 합니다.

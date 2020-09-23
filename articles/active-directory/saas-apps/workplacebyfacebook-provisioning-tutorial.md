@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 4b4953cbca4d08e911fd043413387a1602bd8e08
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: ae13e062f50e1e8eefeaa886c67c636cf6230c18
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006094"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973874"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
@@ -59,7 +59,7 @@ ms.locfileid: "90006094"
 
 *   Workplace by Facebook에 사용자를 할당할 때 유효한 사용자 역할을 선택해야 합니다. "기본 액세스" 역할은 프로비전에 작동하지 않습니다.
 
-## <a name="step-3-add-workplace-by-facebook-from-the-azure-ad-application-gallery"></a>3단계. Azure AD 응용 프로그램 갤러리에서 Facebook으로 작업 공간 추가
+## <a name="step-3-add-workplace-by-facebook-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 응용 프로그램 갤러리에서 Facebook으로 작업 공간 추가
 
 Azure AD 응용 프로그램 갤러리에서 Facebook으로 작업 공간을 추가 하 여 Facebook에서 작업 공간으로 프로 비전 관리를 시작 합니다. 이전에 SSO에 대 한 Facebook의 작업 공간을 설치한 경우 동일한 응용 프로그램을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다.
 
@@ -89,7 +89,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 5. **관리자 자격 증명** 섹션 아래에서 **권한 부여**를 클릭 합니다. Facebook의 권한 부여 페이지에서 작업 공간으로 리디렉션됩니다. Facebook 사용자 이름으로 작업 공간을 입력 하 고 **계속** 단추를 클릭 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Facebook의 작업 공간에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Facebook 계정으로 작업 공간에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
-    ![프로비전](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![권한 부여 옵션이 있는 관리자 자격 증명 대화 상자를 보여 주는 스크린샷](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
     ![권한 부여](./media/workplacebyfacebook-provisioning-tutorial/workplacelogin.png)
 
@@ -125,13 +125,13 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |phoneNumbers[type eq "fax"].value|String|
    |externalId|String|
    |preferredLanguage|String|
-   |urn: scim: 스키마: 확장: enterprise: 1.0. 관리자|String|
-   |urn: scim: 스키마: 확장: enterprise: 1.0 학과|String|
-   |urn: scim: 스키마: 확장: enterprise: 1.0. 나누기|String|
-   |urn: scim: 스키마: 확장: enterprise: 1.0. 조직|String|
-   |urn: scim: 스키마: 확장: enterprise: 1.0. costCenter|String|
-   |urn: scim: 스키마: 확장: enterprise: 1.0. 예제|String|
-   |urn: scim: 스키마: 확장: facebook: auth_method: 1.0: auth_method|String|
+   |urn:scim:schemas:extension:enterprise:1.0.manager|String|
+   |urn:scim:schemas:extension:enterprise:1.0.department|String|
+   |urn:scim:schemas:extension:enterprise:1.0.division|String|
+   |urn:scim:schemas:extension:enterprise:1.0.organization|String|
+   |urn:scim:schemas:extension:enterprise:1.0.costCenter|String|
+   |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
+   |urn: scim: 스키마: 확장: facebook: auth_method: 1.0: auth_method|문자열|
    |urn: scim: 스키마: 확장: facebook: frontline: 1.0. is_frontline|부울|
    |urn: scim: 스키마: 확장: facebook: starttermdates: 1.0.|정수|
 

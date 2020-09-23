@@ -4,12 +4,12 @@ description: Service Fabric, Virtual Machines, Web Apps 및 클라우드 서비�
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751340"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979038"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Azure 자동 크기 조정 문제 해결
  
@@ -47,7 +47,7 @@ ms.locfileid: "75751340"
 
 자동 크기 조정 서비스에서 메트릭을 검토해 보겠습니다.
  
-![가상 머신 확장 집합 백분율 CPU 예](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+![가상 머신 확장 집합 백분율 CPU 예를 보여 주는 스크린샷](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
 ![가상 머신 확장 집합 백분율 CPU 예](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
@@ -72,7 +72,7 @@ ms.locfileid: "75751340"
 
 이 경우 자동 크기 조정 엔진의 관찰 된 메트릭 값은 인스턴스 수로 나눈 실제 메트릭 값으로 계산 됩니다. 관찰 된 메트릭 값이 임계값 보다 낮으면 확장 작업을 시작 하지 않습니다. 
  
-![가상 머신 확장 집합 자동 크기 조정 메트릭 차트 예](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+![가상 머신 확장 집합 자동 크기 조정 메트릭 차트의 예가 포함 된 평균 아웃 바운드 흐름 페이지를 보여 주는 스크린샷](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
 ![가상 머신 확장 집합 자동 크기 조정 메트릭 차트 예](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 

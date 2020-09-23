@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor 통합 문서 시간 매개 변수
-description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합 문서를 사용하여 복잡한 보고 간소화
+description: 사용자가 분석의 시간 컨텍스트를 설정할 수 있도록 시간 매개 변수를 설정 하는 방법에 대해 알아봅니다. 시간 매개 변수는 거의 모든 보고서에서 사용 됩니다.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c84133d5728f7b6593e0606dda2eef28b8167e43
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658016"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972874"
 ---
 # <a name="workbook-time-parameters"></a>통합 문서 시간 매개 변수
 
@@ -25,9 +25,9 @@ ms.locfileid: "77658016"
 2. 통합 문서 내의 링크에서 _매개 변수 추가_ 를 선택 합니다.
 3. 파란색 _매개 변수 추가_ 단추를 클릭 합니다.
 4. 새 매개 변수 창에서 enter 키를 누르십시오.
-    1. 매개 변수 이름:`TimeRange`
-    2. 매개 변수 유형:`Time range picker`
-    3. 필수:`checked`
+    1. 매개 변수 이름: `TimeRange`
+    2. 매개 변수 유형: `Time range picker`
+    3. 필수: `checked`
     4. 사용 가능한 시간 범위: 지난 1 시간, 지난 12 시간, 지난 24 시간, 최근 48 시간, 지난 3 일, 지난 7 일 및 사용자 지정 시간 범위 선택 허용
 5. 도구 모음에서 ' 저장 '을 선택 하 여 매개 변수를 만듭니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "77658016"
 
 ### <a name="in-kql"></a>KQL에서
 1. 통합 문서에 쿼리 컨트롤을 추가 하 고 Application Insights 리소스를 선택 합니다.
-2. KQL에서 매개 변수를 사용 하 여 시간 범위 필터를 입력 합니다.`| where timestamp {TimeRange}`
+2. KQL에서 매개 변수를 사용 하 여 시간 범위 필터를 입력 합니다. `| where timestamp {TimeRange}`
 3. 이렇게 하면 쿼리 평가 시간이 `| where timestamp > ago(1d)` 매개 변수의 시간 범위 값인로 확장 됩니다.
 4. 쿼리를 실행 하 여 결과를 확인 합니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "77658016"
 
 ### <a name="in-text"></a>텍스트 
 1. 통합 문서에 텍스트 컨트롤을 추가 합니다.
-2. Markdown에 다음을 입력 합니다.`The chosen time range is {TimeRange:label}`
+2. Markdown에 다음을 입력 합니다. `The chosen time range is {TimeRange:label}`
 3. _편집 완료_ 를 선택 합니다.
 4. 텍스트 컨트롤에 텍스트가 표시 됩니다. _선택한 시간 범위는 최근 24 시간입니다_ .
 

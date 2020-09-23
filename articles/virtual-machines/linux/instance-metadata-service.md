@@ -1,6 +1,6 @@
 ---
 title: Azure Instance Metadata Service
-description: RESTful 인터페이스를 통해 Vm 계산, 네트워크 및 예정 된 유지 관리 이벤트에 대 한 정보를 가져올 수 있습니다.
+description: Azure Instance Metadata Service 및 현재 실행 중인 가상 머신 인스턴스에 대 한 정보를 제공 하는 방법에 대해 알아봅니다.
 services: virtual-machines
 author: KumariSupriya
 manager: paulmey
@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: bb9bc978e49cddab13ab1e4f7ec4f0b74d369ac1
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: ea11e2f5f8d89381723011686de9e22639997c01
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705846"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974140"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)
 
@@ -227,7 +227,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance"
 
 Metadata Service에는 서로 다른 데이터 원본을 나타내는 여러 Api가 포함 되어 있습니다.
 
-API | Description | 도입된 버전
+API | 설명 | 도입된 버전
 ----|-------------|-----------------------
 /attested | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 /identity | [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) 참조 | 2018-02-01
