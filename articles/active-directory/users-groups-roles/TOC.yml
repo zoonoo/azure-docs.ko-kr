@@ -165,18 +165,24 @@
           href: directory-manage-roles-portal.md
         - name: 사용자 지정 역할
           items:
-            - name: 사용자 지정 역할
+            - name: 사용자 지정 역할 개요
               href: roles-custom-overview.md
             - name: 사용자 지정 역할 만들기
               href: roles-create-custom.md
             - name: 사용자 지정 역할 할당 보기
               href: roles-view-assignments.md
-            - name: Azure AD 관리 센터에서 역할 할당
+            - name: Azure Portal에서 사용자 지정 역할 할당
               href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
             - name: PowerShell에서 사용자 지정 역할 할당
               href: roles-assign-powershell.md
+            - name: 엔터프라이즈 앱에 대한 사용자 지정 역할 할당
+              href: custom-enterprise-apps.md
             - name: 사용자 지정 역할
-              href: roles-custom-available-permissions.md
+              items:
+                - name: 앱 등록 권한
+                  href: roles-custom-available-permissions.md
+                - name: 엔터프라이즈 앱 사용 권한
+                  href: custom-enterprise-app-permissions.md
             - name: 앱 관리자 권한 위임
               href: roles-delegate-app-roles.md
         - name: 그룹을 사용하여 역할 할당 관리

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a3cd250e53fb30e07795b184b5c949505e3b20ae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: af32be357899090e0df96e2c67910a4f9ad5194d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905750"
+ms.locfileid: "90988087"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대한 엔터프라이즈 보안
 
@@ -361,6 +361,17 @@ Machine Learning 컴퓨팅은 관리되는 컴퓨팅 대상(즉, Microsoft에서
 * 원격 분석도 Microsoft/Azure 구독으로 푸시됩니다.
 
 [![유추 워크플로](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
+
+## <a name="audit-and-manage-compliance"></a>규정 준수 감사 및 관리
+
+[Azure Policy](/azure/governance/policy) 은 Azure 리소스가 정책을 준수 하는지 확인할 수 있도록 하는 거 버 넌 스 도구입니다. Azure Machine Learning를 사용 하 여 다음 정책을 할당할 수 있습니다.
+
+* **고객 관리 키**: 작업 영역에서 고객이 관리 하는 키를 사용 해야 하는지 여부를 감사 하거나 적용 합니다.
+* **개인 링크**: 작업 영역에서 개인 끝점을 사용 하 여 가상 네트워크와 통신 하는지 여부를 감사 합니다.
+
+Azure Policy에 대 한 자세한 내용은 [Azure Policy 설명서](/azure/governance/policy/overview)를 참조 하세요.
+
+Azure Machine Learning 관련 된 정책에 대 한 자세한 내용은 [Azure Policy 준수 감사 및 관리](how-to-integrate-azure-policy.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,17 +1,17 @@
 ---
 title: Log Analytics 대시보드 시각화 업그레이드
-description: 필요에 따라 시작 하 고 수정할 수 있는 쿼리
+description: 강력한 통찰력을 제공할 수 있는 쿼리를 사용 하 여 Log Analytics 대시보드 시각화를 업그레이드 하는 방법을 알아봅니다.
 ms.subservice: logs
 ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505774"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988256"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Log Analytics 대시보드 시각화 업그레이드
 
