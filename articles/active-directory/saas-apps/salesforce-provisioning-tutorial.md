@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 66bba0d4825300a6cead2453a67518af631234b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: db94c868daecdd82bcf7749f17fc6fde86fac963
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543507"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979780"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Salesforce 구성
 
@@ -67,7 +67,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비전](./media/salesforce-provisioning-tutorial/provisioning.png)
+    ![프로 비전 모드를 자동으로 설정 하 고 설정할 수 있는 다른 값으로 설정 된 Salesforce 프로 비전 페이지를 보여 주는 스크린샷](./media/salesforce-provisioning-tutorial/provisioning.png)
 
 5. **관리자 자격 증명** 섹션에서 다음 구성 설정을 제공합니다.
 

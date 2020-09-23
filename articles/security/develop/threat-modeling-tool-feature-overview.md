@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540005"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980673"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>위협 모델링 도구 기능 개요
 
@@ -41,7 +41,7 @@ ms.locfileid: "87540005"
 
 | 레이블                               | 세부 정보      |
 | --------------------------------------- | ------------ |
-| **파일** | <ul><li>파일 열기, 저장 및 닫기</li><li>OneDrive 계정에 로그인 및 로그아웃합니다.</li><li>링크를 공유합니다(보기 및 편집).</li><li>파일 정보를 봅니다.</li><li>기존 모델에 새 템플릿을 적용합니다.</li></ul> |
+| **최근에 사용한 파일** | <ul><li>파일 열기, 저장 및 닫기</li><li>OneDrive 계정에 로그인 및 로그아웃합니다.</li><li>링크를 공유합니다(보기 및 편집).</li><li>파일 정보를 봅니다.</li><li>기존 모델에 새 템플릿을 적용합니다.</li></ul> |
 | **편집** | 작업을 실행 취소 및 다시 실행하고, 복사하고, 붙여넣고, 삭제합니다. |
 | **보기** | <ul><li>**분석** 및 **디자인** 보기 사이를 전환합니다.</li><li>닫힌 창을(예: 스텐실, 요소 속성 및 메시지) 엽니다.</li><li>레이아웃을 기본 설정으로 다시 설정합니다.</li></ul> |
 | **다이어그램** | 다이어그램을 추가하고 삭제하며, 다이어그램의 탭을 통해 이동합니다. |
@@ -50,7 +50,7 @@ ms.locfileid: "87540005"
 
 아이콘은 최상위 메뉴에 대한 바로 가기입니다.
 
-| Symbol                               | 세부 정보      |
+| 기호                               | 세부 정보      |
 | --------------------------------------- | ------------ |
 | **열기** | 새 파일을 엽니다. |
 | **저장** | 현재 파일을 저장합니다. |
@@ -101,7 +101,7 @@ ms.locfileid: "87540005"
 | 요소 속성                               | 세부 정보      |
 | --------------------------------------- | ------------ |
 | **이름** | 프로세스, 저장소, 인자 및 흐름을 쉽게 인식하도록 이름을 지정하는 데 유용합니다. |
-| **범위 외** | 선택한 경우 요소는 위협 생성 매트릭스에서 제거됩니다(권장하지 않음). |
+| **범위를 벗어났습니다.** | 선택한 경우 요소는 위협 생성 매트릭스에서 제거됩니다(권장하지 않음). |
 | **범위 외에 대한 이유** | 범위 외가 선택된 이유를 사용자에게 알리는 맞춤 필드입니다. |
 
 속성은 각 요소 범주 아래에서 변경됩니다. 각 요소를 선택하여 사용 가능한 옵션을 검사합니다. 또는 템플릿을 열어 자세히 알아볼 수 있습니다. 기능을 검토해 보겠습니다.
@@ -122,7 +122,7 @@ ms.locfileid: "87540005"
 
 **피드백, 제안 및 문제**를 선택하는 경우 SDL 도구에 관한 MSDN 포럼으로 이동합니다. 해결 방법 및 새로운 아이디어를 포함하여 도구에 대한 다른 사용자의 의견을 읽을 수 있습니다.
 
-![피드백](./media/threat-modeling-tool-feature-overview/feedback.png)
+![스크린 샷 텍스트 피드백, 제안 및 문제를 포함 하는 단추를 표시 합니다.](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>디자인 보기
 
@@ -158,9 +158,9 @@ ms.locfileid: "87540005"
 
 위협 모델을 만들고 데이터 흐름을 요소에 연결하는 것을 잊은 경우 알림이 나타납니다. 메시지를 무시하거나 지침을 따라 문제를 해결할 수 있습니다. 
 
-![메시지](./media/threat-modeling-tool-feature-overview/messages.png)
+![이 문제로 인해 발생 하는 메시지와 함께 요소에 연결 되지 않은 위협 모델 커넥터를 보여 주는 스크린샷](./media/threat-modeling-tool-feature-overview/messages.png)
 
-### <a name="notes"></a>메모
+### <a name="notes"></a>참고
 
 다이어그램에 메모를 추가하려면 **메시지** 탭에서 **메모** 탭으로 전환합니다.
 
@@ -174,7 +174,7 @@ ms.locfileid: "87540005"
 
 위협을 선택하면 세 가지 고유 함수를 사용할 수 있습니다.
 
-| 기능                               | 정보 산업      |
+| 기능                               | 정보      |
 | --------------------------------------- | ------------ |
 | **읽음 표시기** | <p>위협이 읽음으로 표시되며, 검토한 항목을 계속 추적할 수 있습니다.</p><p>![읽음/읽지 않음 표시기](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **상호 작용 포커스** | <p>위협에 속한 다이어그램의 상호 작용이 강조 표시됩니다.</p><p>![상호 작용 포커스](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
@@ -196,7 +196,7 @@ ms.locfileid: "87540005"
 
 생성된 각 위협 상태의 우선 순위 변경 및 업데이트가 완료되면 파일을 저장하거나 보고서를 출력할 수 있습니다. **보고서**  >  **전체 보고서 만들기**로 이동 합니다. 보고서에 이름을 지정하면 다음 이미지와 비슷하게 표시됩니다.
 
-![보고서](./media/threat-modeling-tool-feature-overview/report.png)
+![요약, 다이어그램 및 기타 정보를 포함 하는 예제 위협 모델링 보고서를 보여 주는 스크린샷](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 159691ee101e586419d2fd8df314947af28219dd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1ed5a64a76d27f87b590573894e34f2560a5c2aa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77016513"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972295"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Azure IoT Central을 사용하여 정부 기관 솔루션 빌드
 
@@ -72,12 +72,10 @@ Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 시티 
 
 [커넥티드 폐기물 관리 애플리케이션 자습서](./tutorial-connected-waste-management.md)를 시작하세요.
 
-
 ## <a name="next-steps"></a>다음 단계
 
 * IoT Central의 정부 기관 애플리케이션 템플릿을 사용하여 무료로 [앱 만들기](https://apps.azureiotcentral.com/build/government)
 * [용수 품질 모니터링 개념](./concepts-waterqualitymonitoring-architecture.md)에 대해 자세히 알아보기
 * [용수 사용량 모니터링 개념](./concepts-waterconsumptionmonitoring-architecture.md)에 대해 자세히 알아보기
 * [커넥티드 폐기물 관리 개념](./concepts-connectedwastemanagement-architecture.md)에 대해 자세히 알아보기  
-* [IoT Central 개요](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)를 참조하여 IoT Central에 대해 자세히 알아보기
- 
+* [IoT Central 개요](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)를 참조하여 IoT Central에 대해 자세히 알아보기 

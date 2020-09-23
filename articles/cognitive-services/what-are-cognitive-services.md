@@ -5,23 +5,31 @@ description: Azure Cognitive Services는 REST API가 있는 클라우드 서비�
 services: cognitive-services
 author: nitinme
 manager: nitinme
-keywords: 인식 서비스, 인식 인텔리전스, 인지 서비스, ai as a service, 인지 솔루션, 인지 인공 지능, 인지 소프트웨어, ai 서비스, 인지 ai, 인지 이해
+keywords: 인지적 서비스, 인지적 인텔리전스, 인지적 솔루션, AI 서비스, 인지적 이해, 인지적 기능
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
 ms.date: 08/28/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 3d7f5926991239786d9b37dffecc05cd8983bf3f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: bcb3fdbe12a2704e585a9b13484c2528c9cdc559
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89381295"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894448"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
-Azure Cognitive Services는 REST API가 있는 클라우드 서비스이며, 개발자가 직접적인 AI(인공 지능) 또는 데이터 과학 기술이나 지식 없이도 인지 지능형 애플리케이션을 빌드하는 데 도움이 되도록 사용할 수 있는 클라이언트 라이브러리 SDK입니다. 개발자는 Azure Cognitive Services를 통해 애플리케이션에 인식 기능을 손쉽게 추가할 수 있습니다. Azure Cognitive Services의 목표는 개발자가 보고, 듣고, 말하고, 이해하고, 추론까지 할 수 있는 애플리케이션을 만들도록 지원하는 것입니다. Azure Cognitive Services 내의 서비스 카탈로그는 5가지 주요 핵심 요소인 Vision, Speech, Language, Web Search 및 Decision으로 분류될 수 있습니다.
+Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이며, 개발자가 직접적인 AI(인공 지능) 또는 데이터 과학 기술이나 지식 없이도 인지적 인텔리전스를 애플리케이션에 빌드하도록 지원하는 데 사용할 수 있는 클라이언트 라이브러리 SDK입니다. Azure Cognitive Services를 사용하는 개발자는 보고, 듣고, 말하고, 이해하고, 추론할 수도 있는 인지적 솔루션을 통해 애플리케이션에 인지적 기능을 손쉽게 추가할 수 있습니다.
+
+인지적 이해를 제공하는 AI 서비스 카탈로그는 크게 5가지로 분류됩니다.
+
+* 시각
+* 음성
+* 언어
+* Web Search
+* 의사 결정
 
 새 설명서의 현재 목록은 [Cognitive Services 문서의 새로운 기능](whats-new-docs.md)에서 확인할 수 있습니다.
 
@@ -80,7 +88,17 @@ Azure Cognitive Services는 REST API가 있는 클라우드 서비스이며, 개
 |:-----------|:------------------|
 |[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomaly Detector")(미리 보기)|Anomaly Detector를 사용하면 시계열 데이터에서 변칙을 모니터링하고 감지할 수 있습니다.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator는 불쾌감을 주거나, 원치 않거나, 위험한 콘텐츠를 모니터링하는 프로세스를 제공합니다.|
+|[Metrics Advisor](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor)(미리 보기) | Metrics Advisor는 다변형 시계열 데이터에 대한 사용자 지정 변칙 검색과 서비스를 사용하는 데 도움이 되는 완전한 기능을 갖춘 웹 포털을 제공합니다.
 |[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer")|Personalizer를 사용하면 사용자의 실시간 동작을 통해 학습함으로써 사용자에게 표시할 최상의 환경을 선택할 수 있습니다.|
+
+## <a name="learn-with-the-quickstarts"></a>빠른 시작으로 학습
+
+다음을 사용하는 실습 빠른 시작으로 Cognitive Services 리소스를 만드는 방법에 대해 알아보세요.
+
+* [Azure Portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure portal")
+* [Azure CLI](cognitive-services-apis-create-account-cli.md?tabs=windows "Azure CLI")
+* [Azure SDK 클라이언트 라이브러리](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
+* [ARM(Azure Resource Manager) 템플릿](resource-manager-template.md?tabs=portal "ARM(Azure Resource Manager) 템플릿")
 
 ## <a name="subscription-management"></a>구독 관리
 
@@ -119,6 +137,9 @@ Cognitive Services은 CSA STAR 인증, FedRAMP Moderate 및 HIPAA BAA와 같은 
 ## <a name="support"></a>지원
 
 Cognitive Services는 여러 [지원 옵션](cognitive-services-support-options.md "지원 옵션")을 제공합니다.
+
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

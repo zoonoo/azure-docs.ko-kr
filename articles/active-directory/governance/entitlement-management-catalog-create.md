@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b8e107fb377a30b35f0941b89c490e11fc458c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: cf6e02ebad2ac5150be4775ad0ff6069fe3db89f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783538"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980049"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 리소스 카탈로그 만들기 및 관리
 
@@ -100,6 +100,7 @@ Microsoft Graph를 사용 하 여 카탈로그에 리소스를 추가할 수도 
 1. 제거 하려는 리소스를 선택 합니다.
 
 1. **제거** 를 클릭 하거나 줄임표 (**...**)를 클릭 한 다음 **리소스 제거**를 클릭 합니다.
+
 
 ## <a name="add-additional-catalog-owners"></a>카탈로그 소유자 추가
 

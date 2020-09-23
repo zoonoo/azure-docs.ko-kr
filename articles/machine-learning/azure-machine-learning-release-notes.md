@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 245b977e0aeda3df933b6ab4b27735264444c4df
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 022040f4fa7f70dd5fc7677ce969ee9acbe7bcbb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659178"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886419"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -22,6 +22,54 @@ ms.locfileid: "89659178"
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
+## <a name="2020-09-21"></a>2020-09-21
+
+### <a name="azure-machine-learning-sdk-for-python-v1140"></a>Azure Machine Learning SDK for Python v 1.14.0
++ **버그 수정 및 향상 된 기능**
+  + **azure-cli-ml**
+    + SDK에서 제거 된 그리드 프로 파일링은 더 이상 지원 되지 않습니다.
+  + **azureml-accel-models**
+    + 가속-모델 패키지는 이제 Tensorflow 2.x를 지원 합니다.
+  + **azureml-automl-core**
+    + Pandas/이상 버전의 로컬 버전이 학습 중에 사용 된 것과 일치 하지 않는 경우 get_output에 오류 처리가 추가 됨
+  + **azureml-automl-runtime**
+    + PredictionException와 "예측 중 자동 오류가 발생 했습니다." 라는 메시지와 함께 AutoArima 반복이 실패 하는 버그를 수정 했습니다.
+  + **azureml-cli-일반**
+    + SDK에서 제거 된 그리드 프로 파일링은 더 이상 지원 되지 않습니다.
+  + **azureml-서버**
+    + Pypi 개요 페이지의 패키지에 대 한 설명을 업데이트 합니다.
+  + **azureml-core**
+    + SDK에서 제거 된 그리드 프로 파일링은 더 이상 지원 되지 않습니다.
+    + 작업 영역 검색에 실패 하는 경우 오류 메시지의 수를 줄입니다.
+    + 메타 데이터를 인출 하지 못할 때 경고 표시 안 함
+    + 새 Kusto 단계 및 Kusto 계산 대상입니다.
+    + Sku 매개 변수에 대 한 문서를 업데이트 합니다. CLI 및 SDK의 작업 영역 업데이트 기능에서 sku를 제거 합니다.
+    + Pypi 개요 페이지의 패키지에 대 한 설명을 업데이트 합니다.
+    + AzureML 환경을 위한 업데이트 된 설명서입니다.
+    + SDK의 AML 작업 영역에 대 한 서비스 관리 리소스 설정을 노출 합니다.
+  + **azureml-dataprep**
+    + 데이터 집합 탑재를 위해 파일에 대 한 execute 권한을 사용 하도록 설정 합니다.
+  + **azureml.mlflow**
+    + 업데이트 된 AzureML MLflow 설명서 및 노트북 샘플 
+    + AzureML 백 엔드를 사용 하 여 MLflow 프로젝트에 대 한 새로운 지원
+    + MLflow 모델 레지스트리 지원
+    + AzureML-MLflow 작업에 대해 RBAC 지원이 추가 됨 
+    
+  + **azureml-pipeline-core**
+    + Parse_ PipelineOutputFileDataset * 메서드의 설명서가 개선 되었습니다.
+    + 새 Kusto 단계 및 Kusto 계산 대상입니다.
+    + 해당 사용자를 통해 파이프라인 끝점 엔터티에 대해 제공 된 Swaggerurl 속성은 게시 된 파이프라인 끝점에 대 한 스키마 정의를 볼 수 있습니다.
+  + **azureml-pipeline-steps**
+    + 새 Kusto 단계 및 Kusto 계산 대상입니다.
+  + **azureml-telemetry**
+    + Pypi 개요 페이지의 패키지에 대 한 설명을 업데이트 합니다.
+  + **azureml-학습**
+    + Pypi 개요 페이지의 패키지에 대 한 설명을 업데이트 합니다.
+  + **azureml-train-automl-client**
+    + Pandas/이상 버전의 로컬 버전이 학습 중에 사용 된 것과 일치 하지 않는 경우 get_output에 오류 처리가 추가 됨
+  + **azureml-train-core**
+    + Pypi 개요 페이지의 패키지에 대 한 설명을 업데이트 합니다.
+    
 ## <a name="2020-08-31"></a>2020-08-31
 
 ### <a name="azure-machine-learning-sdk-for-python-v1130"></a>Azure Machine Learning SDK for Python v 1.13.0
@@ -592,9 +640,9 @@ ms.locfileid: "89659178"
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
     
-| 웹 기반 도구  |     Description  | 버전 | 
-|---|---|---|
-| Azure ML Studio 노트북   |     전자 필기장 파일의 첫 번째 내 클래스 작성 및 Azure ML Python SDK에서 사용할 수 있는 모든 작업을 지원 합니다. | Basic & Enterprise  |   
+| 웹 기반 도구  |     설명  |
+|---|---|
+| Azure ML Studio 노트북   |     전자 필기장 파일의 첫 번째 내 클래스 작성 및 Azure ML Python SDK에서 사용할 수 있는 모든 작업을 지원 합니다. | 
 
 ## <a name="2020-04-27"></a>2020-04-27
 
@@ -1098,17 +1146,17 @@ ms.locfileid: "89659178"
 
 ### <a name="web-experience"></a>웹 환경
 
-의 공동 작업 영역 방문 페이지는 [https://ml.azure.com](https://ml.azure.com) Azure Machine Learning studio (미리 보기)로 향상 되 고 다시 브랜드가 제공 되었습니다.
+의 공동 작업 영역 방문 페이지가 [https://ml.azure.com](https://ml.azure.com) 향상 되었으며 Azure Machine Learning studio로 다시 브랜드 되었습니다.
 
 스튜디오에서 데이터 집합, 파이프라인, 모델, 끝점 등의 Azure Machine Learning 자산을 학습, 테스트, 배포 및 관리할 수 있습니다.
 
 스튜디오에서 다음 웹 기반 제작 도구에 액세스 합니다.
 
-| 웹 기반 도구 | Description | 버전 |
+| 웹 기반 도구 | 설명 | 
 |-|-|-|
-| 노트북 VM (미리 보기) | 완전히 관리 되는 클라우드 기반 워크스테이션 | Basic & Enterprise |
-| [자동화 된 machine learning](tutorial-first-experiment-automated-ml.md) (미리 보기) | 기계 학습 모델 개발을 자동화 하기 위한 코드 환경 없음 | Enterprise |
-| [Designer](concept-designer.md) (미리 보기) | 이전에 디자이너로 알려진 기계 학습 모델링 도구 끌어서 놓기 | Enterprise |
+| 노트북 VM (미리 보기) | 완전히 관리 되는 클라우드 기반 워크스테이션 | 
+| [자동화 된 machine learning](tutorial-first-experiment-automated-ml.md) (미리 보기) | 기계 학습 모델 개발을 자동화 하기 위한 코드 환경 없음 | 
+| [Designer](concept-designer.md) | 이전에 시각적 인터페이스 라고 하는 기계 학습 모델링 도구를 끌어서 놓습니다. | 
 
 
 ### <a name="azure-machine-learning-designer-enhancements"></a>Azure Machine Learning designer 향상 된 기능
@@ -1292,13 +1340,13 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
   + **azureml-train-core**
     + TensorFlow 평가기에서 TensorFlow 2.0 지원을 추가 했습니다.
   + **azureml-학습-automl**
-    + [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예:
+    + [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 ID 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예제:
 
         ```py
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
-        [archive ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예:
+        [archive ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예제:
 
         ```py
         experiment1 = Experiment(workspace, "Active Experiment")
@@ -1307,7 +1355,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        실험에서 정적 메서드 [목록 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예:
+        실험에서 정적 메서드 [목록 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예제:
 
         ```py
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")

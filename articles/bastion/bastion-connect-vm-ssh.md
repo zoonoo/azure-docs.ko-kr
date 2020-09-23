@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 98f1f3d02d8433dd88fed844a587a961ea9f8c82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9bc06e58fcbd93fba0c92e91b51503239b5a951
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744292"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980779"
 ---
 # <a name="connect-using-ssh-to-a-linux-virtual-machine-using-azure-bastion"></a>Azure 방호를 사용 하 여 Linux 가상 머신에 SSH를 사용 하 여 연결
 
@@ -23,7 +23,7 @@ Azure 방호를 사용 하 여 SSH를 통해 Linux 가상 머신에 연결할 �
 * 수동으로 입력 하는 개인 키
 * 개인 키 정보를 포함 하는 파일입니다.
 
-SSH 개인 키는로 시작 하 고로 끝나는 형식 이어야 합니다 `"-----BEGIN RSA PRIVATE KEY-----"` `"-----END RSA PRIVATE KEY-----"` .
+SSH 개인 키는로 시작 하 고로 끝나는 형식 이어야 합니다  `"-----BEGIN RSA PRIVATE KEY-----"` `"-----END RSA PRIVATE KEY-----"` .
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -49,10 +49,10 @@ SSH를 통해 Linux VM에 연결 하려면 VM에서 다음 포트를 열어야 �
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다. 연결 하려는 가상 머신으로 이동한 다음 **연결** 을 클릭 하 고 드롭다운에서 **방호** 를 선택 합니다.
 
-   ![연결](./media/bastion-connect-vm-ssh/connect.png)
+   ![연결을 선택한 Azure Portal의 가상 컴퓨터에 대 한 개요를 보여 주는 스크린샷](./media/bastion-connect-vm-ssh/connect.png)
 1. 요새를 클릭 하면 RDP, SSH 및 방호의 3 개 탭이 있는 사이드 막대가 나타납니다. 가상 네트워크에 대해 방호를 프로 비전 한 경우에는 기본적으로 방호 탭이 활성화 됩니다. 가상 네트워크에 대 한 방호를 프로 비전 하지 않은 경우에는 [요새 구성](bastion-create-host-portal.md)을 참조 하세요.
 
-   ![Bastion](./media/bastion-connect-vm-ssh/bastion.png)
+   ![스크린샷을 선택 하 고 가상 컴퓨터에 연결 대화 상자를 표시 합니다.](./media/bastion-connect-vm-ssh/bastion.png)
 1. 가상 컴퓨터에 대 한 SSH의 사용자 이름 및 암호를 입력 합니다.
 1. 키를 입력 한 후 **연결** 단추를 클릭 합니다.
 
@@ -60,10 +60,10 @@ SSH를 통해 Linux VM에 연결 하려면 VM에서 다음 포트를 열어야 �
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다. 연결 하려는 가상 머신으로 이동한 다음 **연결** 을 클릭 하 고 드롭다운에서 **방호** 를 선택 합니다.
 
-   ![연결](./media/bastion-connect-vm-ssh/connect.png)
+   ![연결을 선택한 Azure Portal의 가상 컴퓨터에 대 한 개요를 보여 주는 스크린샷](./media/bastion-connect-vm-ssh/connect.png)
 1. 요새를 클릭 하면 RDP, SSH 및 방호의 3 개 탭이 있는 사이드 막대가 나타납니다. 가상 네트워크에 대해 방호를 프로 비전 한 경우에는 기본적으로 방호 탭이 활성화 됩니다. 가상 네트워크에 대 한 방호를 프로 비전 하지 않은 경우에는 [요새 구성](bastion-create-host-portal.md)을 참조 하세요.
 
-   ![Bastion](./media/bastion-connect-vm-ssh/bastion.png)
+   ![스크린샷을 선택 하 고 가상 컴퓨터에 연결 대화 상자를 표시 합니다.](./media/bastion-connect-vm-ssh/bastion.png)
 1. 사용자 이름을 입력 하 고 **SSH 개인 키**를 선택 합니다.
 1. 텍스트 영역 **SSH 개인 키** 에 개인 키를 입력 하거나 직접 붙여 넣습니다.
 1. 키를 입력 한 후 **연결** 단추를 클릭 합니다.
@@ -72,10 +72,10 @@ SSH를 통해 Linux VM에 연결 하려면 VM에서 다음 포트를 열어야 �
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다. 연결 하려는 가상 머신으로 이동한 다음 **연결** 을 클릭 하 고 드롭다운에서 **방호** 를 선택 합니다.
 
-   ![연결](./media/bastion-connect-vm-ssh/connect.png)
+   ![연결을 선택한 Azure Portal의 가상 컴퓨터에 대 한 개요를 보여 주는 스크린샷](./media/bastion-connect-vm-ssh/connect.png)
 1. 요새를 클릭 하면 RDP, SSH 및 방호의 3 개 탭이 있는 사이드 막대가 나타납니다. 가상 네트워크에 대해 방호를 프로 비전 한 경우에는 기본적으로 방호 탭이 활성화 됩니다. 가상 네트워크에 대 한 방호를 프로 비전 하지 않은 경우에는 [요새 구성](bastion-create-host-portal.md)을 참조 하세요.
 
-   ![Bastion](./media/bastion-connect-vm-ssh/bastion.png)
+   ![스크린샷을 선택 하 고 가상 컴퓨터에 연결 대화 상자를 표시 합니다.](./media/bastion-connect-vm-ssh/bastion.png)
 1. 사용자 이름을 입력 하 고 **로컬 파일에서 SSH 개인 키**를 선택 합니다.
 1. **찾아보기** 단추 (로컬 파일의 폴더 아이콘)를 클릭 합니다.
 1. 파일을 찾은 다음 **열기**를 클릭 합니다.

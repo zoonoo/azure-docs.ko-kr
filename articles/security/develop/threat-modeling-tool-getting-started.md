@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: 3b8467a5983ae9d8928d14987bcee9d2aef094aa
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 6ddb2ecef3a70ed6a56b404e64cef5b78b7abd13
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539903"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980475"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>위협 모델링 도구 시작
 
@@ -97,7 +97,7 @@ Ricardo는 목록에서 첫 번째 항목을 선택하여 시작합니다. 다�
 
 첫째, 두 개의 스텐실 간의 상호 작용이 향상되었습니다.
 
-![상호 작용](./media/threat-modeling-tool-getting-started/interaction.png)
+![스크린 샷에서는 두 개의 스텐실이 표시 되 고 더 무거운 선 두께를 연결 하는 구부러진 화살표가 표시 됩니다.](./media/threat-modeling-tool-getting-started/interaction.png)
 
 둘째, 위협에 대한 추가 정보가 위협 속성 창에 나타납니다.
 

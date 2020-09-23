@@ -1,23 +1,23 @@
 ---
-title: 날씨 서비스 개념 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps 날씨 서비스에 적용 되는 개념에 대해 알아봅니다.
+title: Microsoft Azure 맵의 날씨 서비스 개념
+description: Microsoft Azure Maps 날씨 서비스에 적용 되는 개념에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e8ecbd50aa4490bde705b386a67b8732bb8c02c9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132112"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972032"
 ---
 # <a name="weather-services-in-azure-maps"></a>Azure Maps의 날씨 서비스
 
-이 문서에서는 [Azure Maps 날씨 서비스](https://aka.ms/AzureMapsWeatherService)에 적용 되는 개념을 소개 합니다. 날씨 Api를 시작 하기 전에이 문서를 진행 하는 것이 좋습니다. 
+이 문서에서는 [Azure Maps 날씨 서비스](https://aka.ms/AzureMapsWeatherService)에 적용 되는 개념을 소개 합니다. 날씨 Api를 시작 하기 전에이 문서를 진행 하는 것이 좋습니다.
 
 ## <a name="unit-types"></a>단위 유형
 
@@ -47,7 +47,7 @@ ms.locfileid: "87132112"
 |19      |kelvin              |
 |20      |percent             |
 |21      |float               |
-|22      |integer             |
+|22      |정수             |
 
 
 ## <a name="weather-icons"></a>날씨 아이콘
@@ -58,25 +58,25 @@ ms.locfileid: "87132112"
 |-------------|:----:|-----|-------|------|
 | 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | 예 |  예    | 맑음|
 | 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | 예 |  예    | 대부분 Sunny|
-| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | 예 |  예    | 부분적으로 Sunny|
+| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | 예 |  아니요    | 부분적으로 Sunny|
 | 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | 예 |  예    | 간헐적인 클라우드|
 | 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | 예 |  예    | Hazy 햇빛과 |
-| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | 예 |  예    | 대부분 Cloudy|
+| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | 예 |  아니요    | 대부분 Cloudy|
 | 7           | :::image type="icon" source="./media/weather-services-concepts/cloudy-i.png"::: | 예 |  예   | Cloudy |
 | 8           | :::image type="icon" source="./media/weather-services-concepts/dreary-overcast.png"::: | 예 |  예   | Dreary (과잉 캐스트)|
 | 11           | :::image type="icon" source="./media/weather-services-concepts/fog-i.png"::: | 예 |  예   | 안개|
 | 12           | :::image type="icon" source="./media/weather-services-concepts/showers-i.png"::: | 예 |  예   | 샤워|
 | 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | 예 |  아니요    | 주로 Showers로 Cloudy|
-| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | 예 |  아니요    | Showers를 사용 하는 부분적으로 Sunny|
+| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | 예 |  예    | Showers를 사용 하는 부분적으로 Sunny|
 | 15           | :::image type="icon" source="./media/weather-services-concepts/tstorms-i.png"::: | 예 |  예   | Thunderstorms|
-| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | 예 |  아니요    | 주로 Thunderstorms로 Cloudy|
-| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | 예 |  아니요    | Thunderstorms를 사용 하 여 부분적으로 Sunny|
+| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | 예 |  예    | 주로 Thunderstorms로 Cloudy|
+| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | 예 |  예    | Thunderstorms를 사용 하 여 부분적으로 Sunny|
 | 18           | :::image type="icon" source="./media/weather-services-concepts/rain-i.png"::: | 예 |  예   | 비가|
 | 19           | :::image type="icon" source="./media/weather-services-concepts/flurries-i.png"::: | 예 |  예   | Flurries|
-| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | 예 |  아니요    | 대부분 Flurries를 사용 하 여 Cloudy|
+| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | 예 |  예    | 대부분 Flurries를 사용 하 여 Cloudy|
 | 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | 예 |  아니요    | Flurries를 사용 하 여 부분적으로 Sunny|
 | 22           | :::image type="icon" source="./media/weather-services-concepts/snow-i.png"::: | 예 |  예   | 덮인|
-| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | 예 |  아니요    | 주로 눈에 Cloudy|     
+| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | 예 |  예    | 주로 눈에 Cloudy|     
 | 24           | :::image type="icon" source="./media/weather-services-concepts/ice-i.png"::: | 예 |  예   | Ice |
 | 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | 예 |  예   | Sleet|
 | 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | 예 |  예   | 고정|
@@ -91,8 +91,8 @@ ms.locfileid: "87132112"
 | 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | 예  |  예   | Hazy Moonlight|
 | 38           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-night.png"::: | 예  |  예   | 대부분 Cloudy|
 | 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | 예  |  예   | Showers를 사용 하는 부분적으로 Cloudy|
-| 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | 예  |  예   | 주로 Showers로 Cloudy|
-| 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | 예  |  예   | Thunderstorms를 사용 하 여 부분적으로 Cloudy|
+| 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | 아니요  |  예   | 주로 Showers로 Cloudy|
+| 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | 아니요  |  예   | Thunderstorms를 사용 하 여 부분적으로 Cloudy|
 | 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | 예  |  예   | 주로 Thunderstorms로 Cloudy|
 | 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | 예  |  예   | 대부분 Flurries를 사용 하 여 Cloudy|
 | 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | 예  |  예   | 주로 눈에 Cloudy|
@@ -472,3 +472,169 @@ ms.locfileid: "87132112"
 |307.57  |#02555555     |
 |308     |#00525252     |
 |308     |#00525252     |
+
+## <a name="index-ids-and-index-groups-ids"></a>인덱스 Id 및 인덱스 그룹 Id
+
+[일일 인덱스 가져오기 API](https://aka.ms/AzureMapsWeatherDailyIndices) 를 사용 하면 사용자가 반환 된 결과를 특정 인덱스 유형 또는 인덱스 그룹으로 제한할 수 있습니다.
+
+아래에는 사용 가능한 인덱스 Id, 해당 이름 및 해당 범위 집합에 대 한 링크가 나와 있습니다. 다음 표에서는 다양 한 인덱스 그룹을 나열 하는 표를 표시 합니다.
+
+  Index Name |  ID  | 값 범위
+  -------------------------- |---|-----
+  Arthritis 문제점             |21 | [유용한 기능-심각한 위험](#beneficial-at-extreme-risk)
+  Asthma                     |23|  [유용한 기능-심각한 위험](#beneficial-at-extreme-risk)
+  해변 & 풀               |10| [나쁨-양호 1](#poor-excellent-1)
+  자전거                  |4| [나쁨-양호 1](#poor-excellent-1)
+  일반적인 콜드                |25|  [유용한 기능-심각한 위험](#beneficial-at-extreme-risk)
+  Composting                 |38| [나쁨-양호 1](#poor-excellent-1)
+  건설               |14| [나쁨-양호 1](#poor-excellent-1)
+  이상                       |44|  [유용한 기능-심각한 위험](#beneficial-at-extreme-risk)
+  Dog 편안 함        |43| [나쁨-양호 1](#poor-excellent-1)
+  Driving                    |40|  [매우 나쁨 2](#poor-excellent-2)
+  먼지 & Dander              |18| [낮은-익스트림 1](#low-extreme-1)
+  필드 준비            |32| [나쁨-양호 1](#poor-excellent-1)
+  낚시                    |13| [나쁨-양호 1](#poor-excellent-1)
+  비행 지연              |-3|  [매우 가능성 높음-매우 가능성 2](#very-unlikely-very-likely-2)
+  감기                        |26|  [유용한 기능-심각한 위험](#beneficial-at-extreme-risk)
+  비행 여행 인덱스        |31| [매우 나쁨](#excellent-poor)
+  연료 경제               |37| [나쁨-양호 1](#poor-excellent-1)
+  골프 날씨               |5| [나쁨-양호 1](#poor-excellent-1)
+  잔디 증가              |33| [나쁨-양호 1](#poor-excellent-1)
+  헤어 Frizz                 |42| [가능성 낮음-응급](#unlikely-emergency)
+  정상적인 핵심 적합성      |16| [나쁨-양호 1](#poor-excellent-1)
+  하이킹                     |3| [나쁨-양호 1](#poor-excellent-1)
+  가정용 에너지 효율성     |36| [나쁨-양호 1](#poor-excellent-1)
+  사냥                    | 20| [나쁨-양호 1](#poor-excellent-1)
+  실내 활동            | -2| [나쁨-양호 1](#poor-excellent-1)
+  Jogging                    |2| [나쁨-양호 1](#poor-excellent-1)
+  Kite 비행                |9| [나쁨-양호 1](#poor-excellent-1)
+  잔디색 Mowing                |28| [나쁨-양호 1](#poor-excellent-1)
+  Migraine 골칫거리          |27|  [유용한 기능-심각한 위험](#beneficial-at-extreme-risk)
+  아침 학교 버스         |35| [나쁨-양호 1](#poor-excellent-1)
+  Mosquito 활동          |17|[낮은-익스트림 1](#low-extreme-1)
+  옥외 활동           |29| [나쁨-양호 1](#poor-excellent-1)
+  실외 Barbecue           |24| [나쁨-양호 1](#poor-excellent-1)
+  옥외 콘서트            |8| [나쁨-양호 1](#poor-excellent-1)
+  실행 중                    |1|  [나쁨-양호 1](#poor-excellent-1)
+  테니스                     |6| [나쁨-양호 1](#poor-excellent-1)
+  Thirst                     |41| [낮은-익스트림 2](#low-extreme-2)
+  돛단                    |11| [나쁨-양호 1](#poor-excellent-1)
+  쇼핑                   |39| [나쁨-양호 1](#poor-excellent-1)
+  Sinus 골칫거리             |30|  [유용한 기능-심각한 위험](#beneficial-at-extreme-risk)
+  코팅 안 보 딩              | 7| [나쁨-양호 1](#poor-excellent-1)
+  Ski 날씨                | 15| [나쁨-양호 1](#poor-excellent-1)
+  눈이 날                  | 19| [매우 가능성 높음-매우 가능성 높음](#very-unlikely-very-likely)
+  토양 습기              | 34| [나쁨-양호 1](#poor-excellent-1)
+  Stargazing                 | 12| [나쁨-양호 1](#poor-excellent-1)
+
+다음은 사용 가능한 인덱스 그룹 (indexGroupId)의 목록입니다.
+
+  ID   | 그룹 이름 | 이 그룹의 인덱스 |
+  -------- | ------------------|------
+  1       |모두 | 모두
+  2       |Aches 및 Pains | Arthritis 문제점 (21) </br> Migraine 골칫거리 (27) </br> Sinus 골칫거리 (30)
+  3       |Respiratory | Asthma (23) </br> 일반적인 콜드 (25) </br> 감기 예측 (26)
+  4       |가든 | 필드 준비 (32) </br> 잔디색 Mowing (28) </br> 토양 습기 (34)</br>
+  5       |기상 | 합성 (38) </br> 가정용 에너지 효율성 (36) </br> 연료 경제 (37)
+  6       |옥외 | 실외 Barbecue (24) </br> Mosquito 활동 (17)
+  7       |해변 및 해병대 | 해변 & 풀 (10) </br> 어 (13) </br> 돛단 (11)
+  8       |Sportsman | 어 (13) </br> 구하기 (20) </br> 옥외 활동 (29)</br>
+  9       |경작 |  필드 준비 (32) </br>  토양 습기 (34)
+  10      |의료 | Arthritis 문제점 (21) </br> Asthma (23) </br> 일반적인 콜드 (25) </br> 먼지 & Dander (18) </br> 감기 (26) </br> 정상적인 하트 적합성 (16) </br> Migraine 골칫거리 (27)
+  11      |옥외 | 실외 Barbecue (24) </br> 해변 & 풀 (10) </br> 자전거 (4) </br> 옥외 콘서트 (8) </br>  필드 준비 (32) </br> 어 (13) </br> 골프 날씨 (5) </br> 하이킹 (3) </br> 구하기 (20) </br> Jogging (2) </br> Kite 비행 (9) </br> Mosquito 활동 (17)</br> 잔디색 Mowing (28) </br> 옥외 활동 (29) </br> 실행 중 (1) </br> 돛단 (11) </br> 코팅 안 보 딩 (7) </br> Ski 날씨 (15) </br>  토양 습기 (34)</br> Stargazing (12) </br> 테니스 (6)
+  12      |스포츠 | 자전거 (4) </br> 골프 날씨 (5) </br> 하이킹 (3) </br>  Jogging (2) </br> 실행 중 (1) </br> 코팅 안 보 딩 (7) </br> Ski 날씨 (15) </br>테니스 (6)
+  13      |홈 | 가정용 에너지 효율성 (36) </br> 연료 경제 (37) </br> 실내 활동 (-2)
+
+## <a name="daily-index-range-sets"></a>일일 인덱스 범위 집합
+
+[매일 인덱스 가져오기 API](https://aka.ms/AzureMapsWeatherDailyIndices) 는 각 인덱스 ID에 대해 원거리 값과 관련 된 범주 이름을 반환 합니다. 모든 인덱스에 대해 범위 집합이 동일 하지는 않습니다. 아래 표에는 [인덱스 id 및 인덱스 그룹 id](#index-ids-and-index-groups-ids)에 나열 된 지원 되는 인덱스에서 사용 하는 다양 한 범위 집합이 나와 있습니다. 범위 집합을 사용 하는 인덱스를 확인 하려면이 문서의 [인덱스 id 및 인덱스 그룹 id](#index-ids-and-index-groups-ids) 섹션으로 이동 합니다.
+
+### <a name="poor-excellent-1"></a>나쁨-양호 1
+
+  | 범주 이름 | 시작 범위 | 끝 범위 |
+  ----------------|--------------|------------
+  나쁨              |  0 |                2.99
+  보통              |  3  |               4.99
+  좋음              |  5  |              6.99
+  아주 좋아요         |  7  |               8.99
+  우수         |  9  |               10
+
+### <a name="poor-excellent-2"></a>매우 나쁨 2
+
+ | 범주 이름 | 시작 범위 | 끝 범위 |
+  ----------------|--------------|------------
+  나쁨           |0              |  3
+  보통           |3.01           |  6
+  좋음           |6.01           |  7.5
+  아주 좋아요      |7.51           |  8.99
+  우수      |9              |  10
+
+### <a name="excellent-poor"></a>매우 나쁨
+
+ | 범주 이름 | 시작 범위 | 끝 범위 |
+  ----------------|--------------|------------
+  우수      |     0.00        |    1.00
+  아주 좋아요        |   1.01          |  3.00
+  좋음             |   3.01          |  5.00
+  보통             |   5.01          |  7.00
+  나쁨             |   7.01          |  10.00
+
+### <a name="low-extreme-1"></a>낮은-익스트림 1
+
+   | 범주 이름 | 시작 범위 | 끝 범위 |
+  ----------------|--------------|------------
+  낮음                |  0         |        1.99
+  보통           |  2         |        3.99
+  높음               |  4         |        5.99
+  매우 높음          |  6         |        7.99
+  극단            |  8         |        10
+
+### <a name="low-extreme-2"></a>낮은-익스트림 2
+
+   | 범주 이름 | 시작 범위 | 끝 범위 |
+  ----------------|--------------|------------
+  낮음                |  0            |      2.99
+  보통           |  3            |      4.99
+  높음               |  5            |      6.99
+  매우 높음          |  7            |      8.99
+  극단            |  9            |      10
+
+### <a name="very-unlikely-very-likely"></a>매우 가능성 높음-매우 가능성 높음
+
+ | 범주 이름 | 시작 범위 | 끝 범위 |
+  ----------------|--------------|------------
+  매우 가능성 높음      | 0     |           1.99
+  많지           | 2     |           3.99
+  가능한           | 4     |           5.99
+  높음             | 6     |           7.99
+  높음        | 8     |           10
+
+### <a name="very-unlikely-very-likely-2"></a>매우 가능성 높음-매우 가능성 2
+
+ | 범주 이름 | 시작 범위 | 끝 범위 |
+  ----------------|--------------|------------
+  매우 가능성 높음      |  0.00     |         1.00
+  많지           |  1.01     |         3.00
+  가능한           |  3.01     |         5.00
+  높음             |  5.01     |         7.00
+  높음        |  7.01     |         10.00
+
+### <a name="unlikely-emergency"></a>가능성 낮음-응급
+
+| 범주 이름 | 시작 범위 | 끝 범위 |
+  ----------------|--------------|------------
+  많지         |  0     |          2.99
+  조사식            |  3     |          4.99
+  권고         |  5     |          6.99
+  경고          |  7     |          8.99
+  응급        |  9     |          10
+
+### <a name="beneficial-at-extreme-risk"></a>유용한 기능-심각한 위험
+
+| 범주 이름 | 시작 범위 | 끝 범위 |
+  ----------------|--------------|------------
+  아니라        |    0        |        1.99
+  무감정           |    2        |        3.99
+  위험에 노출           |    4        |        5.99
+  위험 수준 높음      |    6        |        7.99
+  매우 위험   |    8        |        10

@@ -1,0 +1,68 @@
+### YamlMime:Landing
+title: Metrics Advisor 설명서
+summary: Metrics Advisor는 데이터 수집, 변칙 검색 및 진단용 API 세트를 제공하는 시계열 모니터링 플랫폼으로, 기계 학습을 모르는 분도 사용할 수 있습니다.
+metadata:
+  title: Metrics Advisor 설명서 - 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  description: Metrics Advisor는 데이터 수집, 변칙 검색 및 진단용 API 세트를 제공하는 시계열 모니터링 플랫폼으로, 기계 학습을 모르는 분도 사용할 수 있습니다.
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: metrics-advisor
+  ms.topic: landing-page
+  ms.date: 08/13/2020
+  ms.author: aahi
+  ms.openlocfilehash: f30f45b8a683d9403973517ee4558be9cd4be664
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928987"
+landingContent:
+- title: Metrics Advisor 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Metrics Advisor란?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: 데모 사이트 살펴보기
+      url: quickstarts/explore-demo.md
+    - text: 웹에서 첫 번째 메트릭 모니터링
+      url: quickstarts/web-portal.md
+    - text: REST API를 사용하여 솔루션 사용자 지정
+      url: quickstarts/rest-api.md
+- title: 방법 문서
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 데이터 온보딩
+      url: how-tos/onboard-your-data.md
+    - text: 여러 데이터 피드 원본 연결
+      url: data-feeds-from-different-sources.md
+    - text: 데이터 피드 관리
+      url: how-tos/manage-data-feeds.md
+    - text: 메트릭을 구성하고 구성 감지 미세 조정
+      url: how-tos/configure-metrics.md
+    - text: 후크를 사용하여 경고를 구성하고 알림 가져오기
+      url: how-tos/alerts.md
+    - text: 인시던트 진단
+      url: how-tos/diagnose-incident.md
+    - text: 피드백을 사용하여 변칙 검색 조정
+      url: how-tos/anomaly-feedback.md
+    - text: 메트릭 그래프 작성
+      url: how-tos/metrics-graph.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 용어
+      url: glossary.md
+    - text: Metrics Advisor API
+      url: https://go.microsoft.com/fwlink/?linkid=2141634
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest

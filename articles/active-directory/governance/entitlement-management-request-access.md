@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 527255653bf2779b36e0e463cd32a0b334c00f96
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798497"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979888"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 액세스 요청
 
@@ -80,6 +80,12 @@ Azure AD 자격 관리를 통해 액세스 패키지는 액세스 패키지의 �
 여러 정책이 적용 되는 액세스 패키지에 대 한 액세스를 요청 하는 경우 정책을 선택 하 라는 메시지가 표시 될 수 있습니다. 예를 들어 액세스 패키지 관리자는 두 개의 내부 직원 그룹에 대해 두 개의 정책으로 액세스 패키지를 구성할 수 있습니다. 첫 번째 정책은 60 일에 대 한 액세스를 허용 하 고 승인을 받아야 할 수 있습니다. 두 번째 정책은 2 일간의 액세스를 허용할 수 있으며 승인이 필요 하지 않습니다. 이 시나리오가 발생 하는 경우 사용 하려는 정책을 선택 해야 합니다.
 
 ![내 액세스 포털-액세스 요청-여러 정책](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+### <a name="fill-out-requestor-information"></a>요청자 정보 입력
+
+액세스 패키지에 대 한 액세스 권한을 부여 하기 전에 비즈니스 근거와 추가 요청자 정보를 필요로 하는 액세스 패키지에 대 한 액세스를 요청할 수 있습니다. 액세스 패키지에 액세스 하는 데 필요한 모든 요청자 정보를 입력 합니다.
+
+![내 액세스 포털-액세스 요청-요청자 정보를 입력 합니다.](./media/entitlement-management-request-access/my-access-requestor-information.png)
 
 ## <a name="resubmit-a-request"></a>요청 다시 제출
 
