@@ -5,12 +5,12 @@ ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c4c20579f2306b61741f3c6ab1549285271435a3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d722d420597bb459d3e7b6d2ca33fdc49bfe6f09
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123346"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981573"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Azure Queue Storage에 의해 트리거되는 함수 만들기
 
@@ -89,7 +89,7 @@ Azure Storage 큐에 메시지가 제출될 때 트리거되는 함수를 만드
 
 1. **메시지 추가**를 선택하고 "Hello World!"를 **메시지 텍스트**에 입력합니다. **확인**을 선택합니다.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Azure Portal에서 myqueue-items 큐로 이동합니다." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="스크린샷 선택한 메시지 추가 단추와 메시지 텍스트 필드가 강조 표시 됩니다." border="true":::
 
 1. 몇 초 동안 기다린 다음 함수 로그로 돌아가서 새 메시지를 큐에서 읽었는지 확인합니다.
 

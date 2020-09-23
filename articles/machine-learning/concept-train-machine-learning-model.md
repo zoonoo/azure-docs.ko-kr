@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 6b40130fb1d965abf76ba9ed1f6ebd45d94c8e01
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b0a0420b470ee6bf0c7fbb9885e496eaabaf7ef4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651026"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893536"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -32,7 +32,7 @@ Azure Machine Learning은 SDK를 사용하는 코드 중심 솔루션부터 자�
 
 + [R에 대 한 AZURE MACHINE LEARNING sdk](#r-sdk): r 용 sdk는 reticulate 패키지를 사용 하 여 Azure Machine Learning의 Python SDK에 바인딩합니다. 따라서 모든 R 환경에서 Python SDK를 사용하여 구현된 핵심 개체 및 메서드에 액세스할 수 있습니다.
 
-+ **디자이너**: Azure Machine Learning 디자이너(미리 보기)는 개념 증명을 빌드하기 위한 또는 코딩 경험이 거의 없는 사용자를 위한 쉬운 진입점을 제공합니다. 끌어서 놓기 웹 기반 UI를 사용하여 모델을 학습시킬 수 있습니다. 디자인의 일부로 Python 코드를 사용할 수도 있고, 코드를 작성하지 않고 모델을 학습시킬 수도 있습니다.
++ **Designer**: Azure Machine Learning designer는 개념 증명을 빌드하기 위한 Machine Learning 또는 코딩 경험이 적은 사용자를 위한 쉬운 진입점을 제공 합니다. 끌어서 놓기 웹 기반 UI를 사용하여 모델을 학습시킬 수 있습니다. 디자인의 일부로 Python 코드를 사용할 수도 있고, 코드를 작성하지 않고 모델을 학습시킬 수도 있습니다.
 
 + **CLI**: 기계 학습 CLI는 Azure Machine Learning을 사용하는 일반적인 작업에 대한 명령을 제공하며, **스크립팅 및 자동화 작업**에 종종 사용됩니다. 예를 들어 학습 스크립트 또는 파이프라인을 만든 후에는 CLI를 사용하여 일정에 따라 또는 학습에 사용되는 데이터 파일이 업데이트될 때 학습 실행을 시작할 수 있습니다. 학습 모델에는 학습 작업을 제출하는 명령을 제공합니다. 실행 구성 또는 파이프라인을 사용하여 작업을 제출할 수 있습니다.
 

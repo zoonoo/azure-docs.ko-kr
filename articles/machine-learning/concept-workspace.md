@@ -8,21 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/08/2020
-ms.openlocfilehash: e765422ebfce1a4328bac9a17edb8b581f87e6f7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.date: 09/22/2020
+ms.openlocfilehash: 7185adf559f429feb0ada60fef65e1edb106da66
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661700"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907636"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역이란?
 
 작업 영역은 Azure Machine Learning의 최상위 리소스 이며 Azure Machine Learning를 사용할 때 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다.  작업 영역에는 로그, 메트릭, 출력 및 스크립트의 스냅숏을 비롯 하 여 모든 학습 실행의 기록이 유지 됩니다. 이 정보를 사용하여 최고의 모델을 생성하는 학습 실행을 확인합니다.  
 
 원하는 모델이 있으면 작업 영역에 등록 합니다. 그런 다음 등록 된 모델 및 점수 매기기 스크립트를 사용 하 여 Azure Container Instances, Azure Kubernetes Service에 배포 하거나 FPGA (필드 프로그래밍 가능 게이트 배열)에 REST 기반 HTTP 끝점으로 배포 합니다. 모델을 Azure IoT Edge 장치에 모듈로 배포할 수도 있습니다.
-
-사용할 수 있는 가격 책정 및 기능은 작업 영역에 대해 [Basic 또는 Enterprise edition](overview-what-is-azure-ml.md#sku) 이 선택 되어 있는지 여부에 따라 달라 집니다. [작업 영역을 만들](#create-workspace)때 버전을 선택 합니다.  Basic에서 Enterprise edition으로 [업그레이드할](#upgrade) 수도 있습니다.
 
 ## <a name="taxonomy"></a>분류 
 
@@ -53,7 +51,7 @@ ms.locfileid: "89661700"
 
 + 웹에서:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
-    + [Azure Machine Learning designer (미리 보기)](concept-designer.md) - [Enterprise edition](overview-what-is-azure-ml.md#sku) 작업 영역 에서만 사용할 수 있습니다.
+    + [Azure Machine Learning 디자이너](concept-designer.md) 
 + [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용 하는 모든 python 환경에서
 + [R (미리 보기)에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용 하는 모든 r 환경
 + Azure Machine Learning [CLI 확장](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) 을 사용 하 여 명령줄에서
@@ -80,7 +78,6 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 |---------------------------|---------|---------|------------|------------|------------|
 | 작업 영역 만들기        | **&check;**     | | **&check;** | **&check;** | **&check;** |
 | 작업 영역 액세스 관리    | **&check;**   || |  **&check;**    ||
-| Enterprise edition으로 업그레이드    | **&check;** | **&check;**  | |     ||
 | 계산 리소스 만들기 및 관리    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
 | 노트북 VM 만들기 |   | **&check;** | |     ||
 
@@ -88,8 +85,6 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 > Azure Machine Learning 작업 영역을 다른 구독으로 이동하거나 소유하는 구독을 새 테넌트로 이동하는 것은 지원되지 않습니다. 이렇게 하면 오류가 발생할 수 있습니다.
 
 ## <a name="create-a-workspace"></a><a name='create-workspace'></a> 작업 영역 만들기
-
-작업 영역을 만들 때 [Basic 또는 Enterprise edition](overview-what-is-azure-ml.md#sku)을 사용 하 여 작업 영역을 만들지 여부를 결정 합니다. 버전은 작업 영역에서 사용할 수 있는 기능을 결정 합니다. 다른 기능 중에서 Enterprise edition은 [자동화 된 기계 학습 실험](tutorial-first-experiment-automated-ml.md)을 빌드하는 [Azure Machine Learning designer](concept-designer.md) 및 studio 버전에 대 한 액세스를 제공 합니다.  자세한 내용 및 가격 책정 정보는 [Azure Machine Learning 가격 책정](https://azure.microsoft.com/pricing/details/machine-learning/)을 참조 하세요.
 
 작업 영역을 만드는 방법에는 여러 가지가 있습니다.  
 
@@ -101,32 +96,35 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 > [!NOTE]
 > 작업 영역 이름은 대/소문자를 구분하지 않습니다.
 
-## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a> Enterprise edition으로 업그레이드
-
-Azure Portal를 사용 하 여 [기본에서 Enterprise edition으로 작업 영역을 업그레이드할](how-to-manage-workspace.md#upgrade) 수 있습니다. Enterprise edition 작업 영역을 기본 버전 작업 영역으로 다운 그레이드할 수 없습니다. 
-
 ## <a name="associated-resources"></a><a name="resources"></a> 연결 된 리소스
 
 새 작업 영역을 만들면 작업 영역에서 사용되는 여러 Azure 리소스가 자동으로 생성됩니다.
 
++ [Azure Storage 계정](https://azure.microsoft.com/services/storage/): 작업 영역에 대 한 기본 데이터 저장소로 사용 됩니다.  Azure Machine Learning 계산 인스턴스와 함께 사용 되는 jupyter 노트북도 여기에 저장 됩니다. 
+  
+  > [!IMPORTANT]
+  > 기본적으로 저장소 계정은 범용 v1 계정입니다. 작업 영역을 만든 후 [이를 범용 v2로 업그레이드할](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) 수 있습니다. 범용 v2로 업그레이드 한 후 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 설정 하지 마세요.
+
+  기존 Azure Storage 계정을 사용 하려면 premium 계정 (Premium_LRS 및 Premium_GRS)이 될 수 없습니다. 또한 계층적 네임 스페이스 (Azure Data Lake Storage Gen2에서 사용)를 가질 수 없습니다. Premium storage 또는 계층적 네임 스페이스는 작업 영역의 _기본_ 저장소 계정에서 지원 되지 않습니다. _기본이 아닌_ 저장소 계정이 포함 된 premium storage 또는 계층적 네임 스페이스를 사용할 수 있습니다.
+  
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): 학습 중에 또는 모델을 배포할 때 사용 하는 docker 컨테이너를 등록 합니다. 비용을 최소화 하기 위해 ACR은 배포 이미지를 만들 때까지 **지연 로드** 됩니다.
-+ [Azure Storage 계정](https://azure.microsoft.com/services/storage/): 작업 영역에 대 한 기본 데이터 저장소로 사용 됩니다.  Azure Machine Learning 계산 인스턴스와 함께 사용 되는 jupyter 노트북도 여기에 저장 됩니다.
+
 + [Azure 애플리케이션 Insights](https://azure.microsoft.com/services/application-insights/): 모델에 대 한 모니터링 정보를 저장 합니다.
+
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): 계산 대상에서 사용 하는 암호 및 작업 영역에 필요한 기타 중요 한 정보를 저장 합니다.
 
 > [!NOTE]
 > 새 버전을 만드는 것 외에 기존 Azure 서비스를 사용할 수도 있습니다.
 
-### <a name="azure-storage-account"></a>Azure Storage 계정
+<a name="wheres-enterprise"></a>
 
-작업 영역을 사용 하 여 기본적으로 생성 되는 Azure Storage 계정은 범용 v1 계정입니다. 범용 [v2 저장소 계정으로 업그레이드](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) 문서의 단계를 수행 하 여 작업 영역을 만든 후이를 범용 v2로 업그레이드할 수 있습니다.
+## <a name="what-happened-to-enterprise-edition"></a>Enterprise edition의 변경 내용
 
-> [!IMPORTANT]
-> 범용 v2로 업그레이드 한 후 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 설정 하지 마세요.
+9 월 2020 현재 Enterprise edition 작업 영역에서 사용할 수 있었던 모든 기능을 기본 버전 작업 영역 에서도 사용할 수 있습니다. 새 엔터프라이즈 작업 영역을 더 이상 만들 수 없습니다.  매개 변수를 사용 하는 모든 SDK, CLI 또는 Azure Resource Manager 호출은 `sku` 계속 작동 하지만 기본 작업 영역이 프로 비전 됩니다.
 
-기존 Azure Storage 계정을 사용 하려는 경우 premium 계정 (Premium_LRS 및 Premium_GRS)이 될 수 없습니다. 또한 계층적 네임 스페이스 (Azure Data Lake Storage Gen2에서 사용)를 가질 수 없습니다. Premium storage 또는 계층적 네임 스페이스는 작업 영역의 _기본_ 저장소 계정에서 지원 되지 않습니다. _기본이 아닌_ 저장소 계정이 포함 된 premium storage 또는 계층적 네임 스페이스를 사용할 수 있습니다.
+12 월 21 일부 터 모든 Enterprise Edition 작업 영역은 동일한 기능을 가진 기본 버전으로 자동 설정 됩니다. 이 프로세스 중에 가동 중지 시간이 발생 하지 않습니다. 2021 년 1 월 1 일에 Enterprise Edition은 공식적으로 사용이 중지 됩니다. 
 
-
+두 버전에서 고객은 사용 되는 Azure 리소스의 비용을 담당 하며 Azure Machine Learning에 대 한 추가 요금을 지불할 필요가 없습니다. 자세한 내용은 [Azure Machine Learning 가격 책정 페이지](https://azure.microsoft.com/pricing/details/machine-learning/) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -137,5 +135,5 @@ Azure Machine Learning을 시작하려면 다음을 참조하세요.
 + [작업 영역 관리](how-to-manage-workspace.md)
 + [자습서: Python SDK로 첫 번째 ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)
 + [자습서: R SDK를 사용 하 여 Azure Machine Learning 시작](tutorial-1st-r-experiment.md)
-+ [자습서: 자동화 된 machine learning을 사용 하 여 첫 번째 분류 모델 만들기](tutorial-first-experiment-automated-ml.md) ( [Enterprise edition](overview-what-is-azure-ml.md#sku) 작업 영역 에서만 사용 가능)
-+ [자습서: 디자이너를 사용 하 여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md) ( [Enterprise edition](overview-what-is-azure-ml.md#sku) 작업 영역 에서만 사용 가능)
++ [자습서: 자동화된 Machine Learning을 사용하여 처음으로 분류 모델 만들어 보기](tutorial-first-experiment-automated-ml.md) 
++ [자습서: 디자이너를 사용하여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)

@@ -1,19 +1,19 @@
 ---
-title: .Net SDK를 사용하여 Azure Cosmos DB SQL API 계정으로 데이터 대량 가져오기
+title: .NET SDK를 사용하여 Azure Cosmos DB SQL API 계정으로 데이터 대량 가져오기
 description: 데이터 가져오기에 필요한 프로비저닝된 처리량(RU/초)을 최적화하는 .NET 콘솔 애플리케이션을 빌드하여 데이터를 Azure Cosmos DB로 가져오거나 수집하는 방법 알아보기
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b16402f809da18588b26995e7129d2f27575b48d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cfab8ba88c7da84efb3f6aed6f95bb100507f8da
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019252"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981937"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB SQL API 계정으로 데이터 대량 가져오기
 
@@ -86,7 +86,7 @@ Azure Portal에서 [Azure Cosmos DB SQL API 계정을 만들거나](create-cosmo
 1.  Azure Cosmos 계정으로 이동합니다.
 1.  **키** 창을 열고 계정의 **URI** 및 **기본 키**를 복사합니다.
 
-Azure Cosmos DB 에뮬레이터를 사용하는 경우 [이 문서에서 에뮬레이터 자격 증명](local-emulator.md#authenticating-requests)을 가져옵니다.
+Azure Cosmos DB 에뮬레이터를 사용하는 경우 [이 문서에서 에뮬레이터 자격 증명](local-emulator.md#authenticate-requests)을 가져옵니다.
 
 ## <a name="step-5-initialize-the-cosmosclient-object-with-bulk-execution-support"></a>5단계: 대량 실행을 지원하여 CosmosClient 개체 초기화
 

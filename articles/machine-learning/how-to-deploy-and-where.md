@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: fd58adf9e845e296725131da96c3319a72895cb8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b77d48fa8af8be05123ee17f218ddb4ae5e8af98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645691"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886229"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 배포
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거나 장치를 Azure IoT Edge 하는 방법에 대해 알아봅니다.
 
@@ -348,9 +348,9 @@ print(service.state)
 
 다음 표에서는 다양 한 서비스 상태에 대해 설명 합니다.
 
-| 웹 서비스 상태 | Description | 최종 상태?
+| 웹 서비스 상태 | 설명 | 최종 상태?
 | ----- | ----- | ----- |
-| 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
+| 변환은 | 서비스의 배포를 진행 중입니다. | 예 |
 | Unhealthy | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
 | 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 아니요 |
 | Failed | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |

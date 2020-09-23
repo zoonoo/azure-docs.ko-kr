@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
+ms.date: 09/22/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 982073c77a7e876611f753c716f55c50df8b0817
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3f3c53d412105489a814f082bbc0fd209476ecf9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935163"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971391"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
 
@@ -50,9 +50,9 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 * [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (미리 보기)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Azure SQL Database 및 SQL Managed Instance](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Virtual Machines에서 SQL Server](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+* [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [SQL Managed Instance](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+* [Azure Virtual Machines에서 SQL Server](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
 ## <a name="indexer-stages"></a>인덱서 단계
 
@@ -66,7 +66,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 
 문서 크랙은 파일을 열고 콘텐츠를 추출 하는 프로세스입니다. 데이터 원본 유형에 따라 인덱서는 잠재적으로 인덱싱 가능한 콘텐츠를 추출 하기 위해 다른 작업을 수행 합니다.  
 
-예:  
+예제:  
 
 * 문서가 [AZURE SQL 데이터 원본의](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)레코드인 경우 인덱서는 레코드에 대 한 각 필드를 추출 합니다.
 * 문서가 [Azure Blob Storage 데이터 원본의](search-howto-indexing-azure-blob-storage.md)PDF 파일이 면 인덱서가 파일의 텍스트, 이미지 및 메타 데이터를 추출 합니다.

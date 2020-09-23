@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 5f00164e90d625c5343103290e9272f15d164cd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d59d2fabb0b74ef12e33f55467b0ba68e0b7386
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099148"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907955"
 ---
-# <a name="fast-forest-quantile-regression"></a>빠른 포리스트 변위치 회귀
+# <a name="fast-forest-quantile-regression"></a>빠른 포리스트 분위수 회귀
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 파이프라인에서 고속 포리스트 변 위치 회귀 모델을 만듭니다. Fast forest 변 위치 회귀는 단일 평균 예측 값을 가져오는 대신 예측 값의 분포에 대해 더 잘 이해 하려는 경우에 유용 합니다. 이 방법은 다음과 같은 다양한 방식으로 적용할 수 있습니다.  
   
@@ -32,7 +32,7 @@ ms.locfileid: "87099148"
 
 ## <a name="more-about-quantile-regression"></a>변 위치 회귀에 대 한 자세한 정보
 
-여러 다양한 유형의 회귀가 있습니다. 가장 기본적인 관점에서 회귀는 숫자 벡터로 표시되는 대상에 모델을 맞추는 것입니다. 그러나 통계학자들은 점점 더 발전된 회귀 방법을 개발해 오고 있습니다.
+여러 다양한 유형의 회귀가 있습니다. 간단히 말해서 회귀는 숫자 벡터로 표현 된 대상에 모델을 맞추는 것을 의미 합니다. 그러나 통계학자들은 점점 더 발전된 회귀 방법을 개발해 오고 있습니다.
 
 가장 간단한 *변 위치* 정의는 데이터 집합을 동일한 크기의 그룹으로 나누는 값입니다. 따라서 변 위치 값은 그룹 간의 경계를 표시 합니다. 통계적으로 말하는 변 위치은 임의 변수의 CDF (누적 분포 함수)의 역에서 일정 한 간격으로 사용 되는 값입니다.
 

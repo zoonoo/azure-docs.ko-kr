@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: eef8abebde2578ac549b2facfc1317a90ecc7fb5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658569"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886387"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
@@ -78,8 +78,6 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
    * 제한된 코드 환경 또는 코드리스 환경인 경우 [https://ml.azure.com](https://ml.azure.com/)에서 Azure Machine Learning Studio 웹 환경을 사용해 봅니다.  
    * Python 개발자의 경우 [Azure Machine Learning Python SDK](how-to-configure-auto-train.md)를 확인합니다. 
-
-    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
     
 1. **레이블이 지정된 학습 데이터의 원본 및 형식 지정**: numpy 배열 또는 pandas 데이터 프레임
 
@@ -172,25 +170,25 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 
 ### <a name="feature-availability"></a>기능 가용성 
 
- 아래 표와 같이 원격 컴퓨팅을 사용하는 경우 더 많은 기능을 사용할 수 있습니다. 이러한 기능 중 일부는 엔터프라이즈 작업 영역에서만 사용할 수 있습니다.
+ 아래 표와 같이 원격 컴퓨팅을 사용하는 경우 더 많은 기능을 사용할 수 있습니다. 
 
-| 기능                                                    | 원격 | 로컬 | 엔터프라이즈 작업 영역 <br>필요 |
-|------------------------------------------------------------|--------|-------|-------------------------------|
-| 데이터 스트리밍(큰 데이터 지원, 최대 100GB)          | ✓      |       | ✓                             |
-| DNN-BERT 기반 텍스트 기능화 및 학습             | ✓      |       | ✓                             |
-| 기본 제공 GPU 지원(학습 및 추론)        | ✓      |       | ✓                             |
-| 이미지 분류 및 레이블 지정 지원                  | ✓      |       | ✓                             |
-| 예측을 위한 Auto-ARIMA, Prophet 및 ForecastTCN 모델 | ✓      |       | ✓                             |
-| 동시에 여러 실행/반복                       | ✓      |       | ✓                             |
-| AutoML 스튜디오 웹 환경 UI에서 해석력 있는 모델 만들기      | ✓      |       | ✓                             |
-| 스튜디오 웹 환경 UI에서 기능 엔지니어링 사용자 지정                        | ✓      |       | ✓                              |
-| Azure ML 하이퍼 매개 변수 튜닝                             | ✓      |       |                               |
-| Azure ML 파이프라인 워크플로 지원                         | ✓      |       |                               |
-| 실행 계속                                             | ✓      |       |                               |
-| 예측                                                | ✓      | ✓     | ✓                             |
-| Notebook에서 실험 만들기 및 실행                    | ✓      | ✓     |                               |
-| UI에서 실험 정보와 메트릭 등록 및 시각화 | ✓      | ✓     |                               |
-| 데이터 가드 레일                                            | ✓      | ✓     |                               |
+| 기능                                                    | 원격 | 로컬 | 
+|------------------------------------------------------------|--------|-------|
+| 데이터 스트리밍(큰 데이터 지원, 최대 100GB)          | ✓      |       | 
+| DNN-BERT 기반 텍스트 기능화 및 학습             | ✓      |       |
+| 기본 제공 GPU 지원(학습 및 추론)        | ✓      |       |
+| 이미지 분류 및 레이블 지정 지원                  | ✓      |       |
+| 예측을 위한 Auto-ARIMA, Prophet 및 ForecastTCN 모델 | ✓      |       | 
+| 동시에 여러 실행/반복                       | ✓      |       |
+| AutoML 스튜디오 웹 환경 UI에서 해석력 있는 모델 만들기      | ✓      |       |
+| 스튜디오 웹 환경 UI에서 기능 엔지니어링 사용자 지정| ✓      |       |
+| Azure ML 하이퍼 매개 변수 튜닝                             | ✓      |       |
+| Azure ML 파이프라인 워크플로 지원                         | ✓      |       |
+| 실행 계속                                             | ✓      |       |
+| 예측                                                | ✓      | ✓     |
+| Notebook에서 실험 만들기 및 실행                    | ✓      | ✓     |
+| UI에서 실험 정보와 메트릭 등록 및 시각화 | ✓      | ✓     |
+| 데이터 가드 레일                                            | ✓      | ✓     |
 
 ## <a name="many-models"></a>많은 모델 
 

@@ -1,6 +1,6 @@
 ---
-title: 데이터 보존 정책 사용 및 사용 안 함-Azure SQL Edge (미리 보기)
-description: Azure SQL Edge (미리 보기)에서 데이터 보존 정책을 사용 및 사용 하지 않도록 설정 하는 방법에 대해 알아봅니다.
+title: 데이터 보존 정책 사용 및 사용 안 함-Azure SQL Edge
+description: Azure SQL Edge에서 데이터 보존 정책을 사용 및 사용 하지 않도록 설정 하는 방법을 알아봅니다.
 keywords: SQL Edge, 데이터 보존
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9787f2cfa87a16d9e7dd1753e4389977c6753b81
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550663"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902502"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>데이터 보존 정책 사용 및 사용 안 함
 
@@ -23,9 +23,6 @@ ms.locfileid: "89550663"
 ## <a name="enable-data-retention-for-a-database"></a>데이터베이스에 대 한 데이터 보존 사용
 
 다음 예에서는 [Alter database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options)를 사용 하 여 데이터 보존을 설정 하는 방법을 보여 줍니다.
-
-> [!NOTE]
-> Azure SQL Edge (미리 보기)에서 데이터 보존 기능을 사용 하도록 설정 하려면 TF 12825를 시작 옵션으로 사용 하거나 DBCC TRACEON 명령을 사용 합니다. Mssql 파일을 사용 하 여 추적 플래그를 설정 하는 방법에 대 한 자세한 내용은 [mssql 파일을 사용 하 여 구성](configure.md#configure-by-using-an-mssqlconf-file)을 참조 하세요. 
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -64,7 +61,7 @@ CONSTRAINT [pk_current_data_retention_table] PRIMARY KEY CLUSTERED ([product_cod
     - DateTime
     - DateTime2
     - DateTimeOffset
-- RETENTION_PERIOD-정수 값 뒤에 단위 설명자가 있습니다. 허용 되는 단위는 일, 주, 월 및 연도입니다.
+- RETENTION_PERIOD-정수 값 뒤에 단위 설명자가 있습니다. 허용 되는 단위는 일, 일, 주, 주, 월, 월, 연도 및 연도입니다.
 
 다음 예에서는 [Alter table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql)을 사용 하 여 테이블에 대 한 데이터 보존을 설정 하는 방법을 보여 줍니다.  
 
@@ -98,9 +95,9 @@ and object_id = object_id(N'dbo.data_retention_table', N'U')
 |데이터베이스 옵션 | 테이블 옵션 | 동작 |
 |----------------|--------------|----------|
 | OFF | OFF | 데이터 보존 정책을 사용 하지 않도록 설정 하 고 오래 된 레코드의 자동 및 수동 정리를 모두 사용 하지 않도록 설정 했습니다.|
-| OFF | 켜기  | 테이블에 대해 데이터 보존 정책을 사용 하도록 설정 했지만 오래 된 레코드의 자동 및 수동 정리를 모두 사용할 수 없습니다. |
+| OFF | 켜기  | 테이블에 대해 데이터 보존 정책을 사용 하도록 설정 되어 있습니다. 사용 되지 않는 레코드의 자동 정리가 비활성화 되었지만 수동 정리 메서드를 사용 하 여 사용 되지 않는 레코드를 정리할 수 있습니다. |
 | 켜기 | OFF | 데이터베이스 수준에서 데이터 보존 정책을 사용 하도록 설정 합니다. 그러나이 옵션은 테이블 수준에서 사용 하지 않도록 설정 되어 있으므로 오래 된 행의 보존 기반 정리가 없습니다.|
-| 켜기 | 켜기 | 데이터베이스와 테이블 모두에 대해 데이터 보존 정책을 사용 하도록 설정 합니다. 오래 된 레코드의 자동/수동 정리가 사용 됩니다. |
+| 켜기 | 켜기 | 데이터베이스와 테이블 모두에 대해 데이터 보존 정책을 사용 하도록 설정 합니다. 사용 되지 않는 레코드의 자동 정리가 사용 됩니다. |
 
 ## <a name="disable-data-retention-on-a-table"></a>테이블에서 데이터 보존 사용 안 함 
 

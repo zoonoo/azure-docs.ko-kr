@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 09/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bed0f6cc32c25563d322da77193c5a3b6072902
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 0e5d8dc60ee0a1f4742382b1cec8ef3ed60e8fb3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052282"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970666"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 데이터 보존 및 고객 데이터
 
@@ -24,13 +24,12 @@ ms.locfileid: "90052282"
 
 클라우드 기반 Azure Multi-Factor Authentication 및 Azure Multi-Factor Authentication 서버는 일부 개인 데이터와 조직 데이터를 처리하고 저장합니다. 이 문서에서는 저장되는 데이터 및 위치를 간략하게 설명합니다.
 
-다음 Multi-Factor Authentication 활동은 명시된 경우를 제외하고는 현재 미국 데이터 센터에서 비롯됩니다.
+Azure Multi-Factor Authentication 서비스에는 미국, 유럽 및 아시아 태평양의 데이터 센터가 있습니다. 다음 활동은 명시 된 경우를 제외 하 고는 지역 데이터 센터에서 제외 됩니다.
 
-* 전화 통화 또는 SMS를 사용하는 2단계 인증은 일반적으로 미국 데이터 센터에서 발생하고 글로벌 공급자에 의해 라우팅됩니다.
-    * 유럽 또는 오스트레일리아와 같은 다른 지역의 범용 사용자 인증 요청은 현재 해당 지역의 데이터 센터에서 처리됩니다. 셀프 서비스 암호 재설정, Azure B2C 이벤트 또는 NPS 확장 또는 AD FS 어댑터를 사용하는 하이브리드 시나리오와 같은 기타 이벤트는 현재 미국 데이터 센터에서 모두 처리됩니다.
-* Microsoft Authenticator 앱을 사용한 푸시 알림은 미국 데이터 센터에서 발생합니다. 또한 디바이스 공급 업체의 특정 서비스도 다른 지역에서 적용될 수 있습니다.
-* OATH 코드는 일반적으로 현재 미국에서 유효성을 검사합니다.
-    * 또한 유럽 또는 오스트레일리아와 같은 다른 지역에서 시작되는 범용 사용자 인증 이벤트는 해당 지역의 데이터 센터에서 처리됩니다. 추가 이벤트는 현재 미국 데이터 센터에서 처리됩니다.
+* 전화 통화를 사용 하는 multi-factor authentication은 미국 데이터 센터에서 시작 되며 전역 공급자에 의해 라우팅됩니다.
+* 유럽 또는 오스트레일리아와 같은 다른 지역의 범용 사용자 인증 요청은 현재 사용자의 위치를 기준으로 처리 됩니다.
+* Microsoft Authenticator 앱을 사용 하는 푸시 알림은 사용자의 위치를 기반으로 하는 지역 데이터 센터를 시작 합니다.
+    * Apple 푸시 알림과 같은 장치 공급 업체 특정 서비스는 사용자의 위치 외부에 있을 수 있습니다.
 
 ## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 저장된 개인 데이터
 

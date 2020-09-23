@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2020
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 6cd69d1f5330e4967a31ac77359e046f461270cf
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a16afcafa03ef2ab8642316db560e30a473a526b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657505"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883721"
 ---
 # <a name="connect-windows-security-events"></a>Windows 보안 이벤트 연결 
 
@@ -43,10 +43,10 @@ ms.locfileid: "89657505"
     | **일반** | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614,,,,,,, 4622, 4624, 4625, 4634, 4647, 4648, 4649, 4657, 4661, 4662, 4663, 4665, 4666, 4667, 4688, 4670, 4672, 4673, 4674, 4675, 4689, 4697, 4700, 4702, 4704, 4705, 4716, 4717, 4718, 4719, 4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729 , 4733, 4732, 4735, 4737, 4738, 4739, 4740, 4742, 4744, 4745, 4746, 4750, 4751, 4752, 4754, 4755, 4756, 4757, 4760, 4761, 4762, 4764,,,,,, 4767, 4768, 4771, 4774, 4778, 4779, 4781, 4793, 4797, 4798, 4799, 4800, 4801, 4802, 4803, 4825, 4826, 4870, 4886, 4887, 4888, 4893, 4898, 4902, 4904, 4905, 4907, 4931, 4932, 4933, 4946, 4948, 4956, 4985, 5024, 5033, 5059, 5136, 5137 , 5140, 5145, 5632, 6144, 6145, 6272, 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
 
 > [!NOTE]
-> 단일 작업 영역의 컨텍스트 내에서 보안 이벤트 컬렉션은 Azure Defender (이전의 Azure Security Center) 또는 Azure 센티널 중 하나에서 구성할 수 있습니다. 이미 Azure Defender를 실행 하 고 있는 작업 영역에서 Azure 센티널을 온 보 딩 하 고 보안 이벤트를 수집 하도록 설정 하는 경우 다음 두 가지 옵션을 사용할 수 있습니다.
-> - Azure Defender에서 보안 이벤트 컬렉션을 그대로 유지 합니다. Azure에서 및 azure Defender에서 이러한 이벤트를 쿼리하고 분석할 수 있습니다. 그러나 Azure 센티널에서 커넥터의 연결 상태를 모니터링 하거나 구성을 변경할 수는 없습니다. 이것이 중요 한 경우 두 번째 옵션을 고려 합니다.
+> 단일 작업 영역의 컨텍스트 내에서 보안 이벤트 컬렉션은 Azure Security Center 또는 Azure 센티널 중 하나에서 구성할 수 있습니다. 이미 Azure Security Center에서 Azure Defender 경고를 받고 있는 작업 영역에서 Azure 센티널을 온 보 딩 하 고 보안 이벤트를 수집 하도록 설정 된 경우 두 가지 옵션이 있습니다.
+> - 보안 이벤트 컬렉션은 Azure Security Center 그대로 둡니다. Azure에서 및 azure Defender에서 이러한 이벤트를 쿼리하고 분석할 수 있습니다. 그러나 Azure 센티널에서 커넥터의 연결 상태를 모니터링 하거나 구성을 변경할 수는 없습니다. 이것이 중요 한 경우 두 번째 옵션을 고려 합니다.
 >
-> - Azure Defender에서 [보안 이벤트 수집을 사용 하지 않도록 설정](../security-center/security-center-enable-data-collection.md) 하 고 azure 센티널에 보안 이벤트 커넥터를 추가 합니다. 첫 번째 옵션을 사용 하는 것 처럼 Azure 센티널과 Azure Defender 모두에서 이벤트를 쿼리하고 분석할 수 있습니다. 그러나 이제 커넥터의 연결 상태를 모니터링 하거나, 및 Azure 내에서의 구성을 변경할 수 있습니다.
+> - Azure Security Center에서 [보안 이벤트 수집을 사용 하지 않도록 설정](../security-center/security-center-enable-data-collection.md) 하 고 Azure 센티널에 보안 이벤트 커넥터를 추가 합니다. 첫 번째 옵션을 사용 하는 것 처럼 Azure 센티널과 Azure Defender/ASC 모두에서 이벤트를 쿼리하고 분석할 수 있습니다. 그러나 이제는 커넥터의 연결 상태를 모니터링 하거나, 및 Azure 내에서의 구성을 변경할 수 있습니다.
 
 ## <a name="set-up-the-windows-security-events-connector"></a>Windows 보안 이벤트 커넥터 설정
 

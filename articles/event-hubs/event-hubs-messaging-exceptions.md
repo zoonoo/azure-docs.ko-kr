@@ -3,12 +3,12 @@ title: Azure Event Hubs-예외
 description: 이 문서에서는 Azure Event Hubs 메시징 예외 및 제안된 작업의 목록을 제공합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: a93daa88c468a22838a6f9012f0c4622447f5555
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3a7023dc44d7280284fec1eccf00a3dbe88b7ec
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512370"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908381"
 ---
 # <a name="event-hubs-messaging-exceptions---net"></a>Event Hubs 메시징 예외-.NET
 이 섹션에서는 .NET Framework Api에 의해 생성 된 .NET 예외를 나열 합니다. 
@@ -19,10 +19,10 @@ Event Hubs .NET Api는 다음 범주에 해당 하는 예외를 생성 하는 �
 
  - 사용자 코딩 오류: 
  
-   - [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)
-   - [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1)
-   - [System.OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1)
-   - [SerializationException.](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1)
+   - [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)
+   - [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1&preserve-view=true)
+   - [System.OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1&preserve-view=true)
+   - [SerializationException.](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1&preserve-view=true)
    
    일반 작업: 계속 하기 전에 코드를 수정 하십시오.
  
@@ -30,7 +30,7 @@ Event Hubs .NET Api는 다음 범주에 해당 하는 예외를 생성 하는 �
  
    - [Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception)
    - [Microsoft.Azure.EventHubs.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception)
-   - [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1)
+   - [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1&preserve-view=true)
    
    일반 작업: 구성을 검토 하 고 필요한 경우 변경 합니다.
    
@@ -45,7 +45,7 @@ Event Hubs .NET Api는 다음 범주에 해당 하는 예외를 생성 하는 �
  
  - 기타 예외: 
  
-   - [TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1)
+   - [TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1&preserve-view=true)
    - [System.TimeoutException](#timeoutexception)
    - [ServiceBus. Microsoft.servicebus.messaging.messagelocklostexception](/dotnet/api/microsoft.servicebus.messaging.messagelocklostexception)
    - [ServiceBus. Microsoft.servicebus.messaging.sessionlocklostexception](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception)
@@ -57,11 +57,11 @@ Event Hubs .NET Api는 다음 범주에 해당 하는 예외를 생성 하는 �
 
 | 예외 유형 | 설명/원인/예 | 권장 조치 | 자동/즉시 다시 시도 참고 |
 | -------------- | -------------------------- | ---------------- | --------------------------------- |
-| [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) |서버가 지정 된 시간 내에 요청 된 작업에 응답 하지 않았습니다 .이 작업은 [Operationtimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings)에 의해 제어 됩니다. 서버가 요청된 작업을 완료했을 수도 있습니다. 이 예외는 네트워크 또는 기타 인프라 지연으로 인해 발생할 수 있습니다. |필요한 경우 시스템 상태에서 일관성을 확인하고 다시 시도합니다.<br /> [TimeoutException](#timeoutexception)을 참조하세요. | 일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
-| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1) |요청 된 사용자 작업은 서버 또는 서비스 내에서 허용 되지 않습니다. 자세한 내용은 예외 메시지를 참조하세요. 예를 들어 [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 모드에서 메시지를 받은 경우 [Complete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 가 이 예외를 생성합니다. | 코드 및 설명서를 확인합니다. 요청된 작업이 유효한지 확인합니다. | 다시 시도 해도 도움이 되지 않습니다. |
-| [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1) | 이미 종료, 중단 또는 삭제된 개체에서 작업을 호출하려 시도합니다. 드문 경우지만 앰비언트 트랜잭션이 이미 삭제되었을 수 있습니다. | 코드를 확인 하 고 삭제 된 개체에 대 한 작업을 호출 하지 않는지 확인 합니다. | 다시 시도 해도 도움이 되지 않습니다. |
-| [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) | [Tokenprovider](/dotnet/api/microsoft.servicebus.tokenprovider) 개체가 토큰을 가져올 수 없습니다. 토큰이 잘못 되었거나 토큰에 작업을 수행 하는 데 필요한 클레임이 포함 되어 있지 않습니다. | 올바른 값을 사용하여 토큰 공급자를 만드는지 확인합니다. Access Control Service의 구성을 확인 합니다. | 일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
-| [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1) | 메서드에 제공된 하나 이상의 인수가 잘못되었습니다. [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory)에 제공된 URI에 경로 세그먼트가 포함됩니다. [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory)에 제공된 URI 스키마가 올바르지 않습니다. 속성 값이 32KB보다 큽니다. | 호출 코드를 확인하고 인수가 정확한지 확인합니다. | 재시도로 해결되지 않습니다. |
+| [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) |서버가 지정 된 시간 내에 요청 된 작업에 응답 하지 않았습니다 .이 작업은 [Operationtimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings)에 의해 제어 됩니다. 서버가 요청된 작업을 완료했을 수도 있습니다. 이 예외는 네트워크 또는 기타 인프라 지연으로 인해 발생할 수 있습니다. |필요한 경우 시스템 상태에서 일관성을 확인하고 다시 시도합니다.<br /> [TimeoutException](#timeoutexception)을 참조하세요. | 일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
+| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1&preserve-view=true) |요청 된 사용자 작업은 서버 또는 서비스 내에서 허용 되지 않습니다. 자세한 내용은 예외 메시지를 참조하세요. 예를 들어 [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 모드에서 메시지를 받은 경우 [Complete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 가 이 예외를 생성합니다. | 코드 및 설명서를 확인합니다. 요청된 작업이 유효한지 확인합니다. | 다시 시도 해도 도움이 되지 않습니다. |
+| [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1&preserve-view=true) | 이미 종료, 중단 또는 삭제된 개체에서 작업을 호출하려 시도합니다. 드문 경우지만 앰비언트 트랜잭션이 이미 삭제되었을 수 있습니다. | 코드를 확인 하 고 삭제 된 개체에 대 한 작업을 호출 하지 않는지 확인 합니다. | 다시 시도 해도 도움이 되지 않습니다. |
+| [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1&preserve-view=true) | [Tokenprovider](/dotnet/api/microsoft.servicebus.tokenprovider) 개체가 토큰을 가져올 수 없습니다. 토큰이 잘못 되었거나 토큰에 작업을 수행 하는 데 필요한 클레임이 포함 되어 있지 않습니다. | 올바른 값을 사용하여 토큰 공급자를 만드는지 확인합니다. Access Control Service의 구성을 확인 합니다. | 일부 경우 다시 시도하면 문제가 해결될 수 있습니다. 코드에 재시도 논리를 추가합니다. |
+| [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1&preserve-view=true)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1&preserve-view=true) | 메서드에 제공된 하나 이상의 인수가 잘못되었습니다. [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory)에 제공된 URI에 경로 세그먼트가 포함됩니다. [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) 또는 [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory)에 제공된 URI 스키마가 올바르지 않습니다. 속성 값이 32KB보다 큽니다. | 호출 코드를 확인하고 인수가 정확한지 확인합니다. | 재시도로 해결되지 않습니다. |
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | 작업과 연결된 엔터티가 없거나 삭제되었습니다. | 엔터티가 있는지 확인합니다. | 재시도로 해결되지 않습니다. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | 클라이언트가 이벤트 허브로 연결을 설정할 수 없습니다. |제공된 호스트 이름이 정확하며 호스트에 연결할 수 있는지 확인합니다. | 간헐적인 연결 문제라면 재시도로 문제를 해결할 수 있습니다. |
 | [ServiceBus ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | 서비스가 지금은 요청을 처리할 수 없습니다. | 클라이언트가 잠시 대기한 후 작업을 다시 시도할 수 있습니다. <br /> [ServerBusyException](#serverbusyexception)을 참조하세요. | 클라이언트가 일정 시간 이후에 다시 시도할 수 있습니다. 재시도에서 다른 예외가 발생한 경우 해당 예외의 재시도 작동을 확인합니다. |
@@ -80,9 +80,12 @@ Event Hubs .NET Api는 다음 범주에 해당 하는 예외를 생성 하는 �
 Event Hubs는 이벤트 허브당 20개의 소비자 그룹으로 제한됩니다. 더 만들려고 하면 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception)을 받습니다. 
 
 ## <a name="timeoutexception"></a>TimeoutException
-[TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) 은 사용자가 시작한 작업이 작업 시간 제한보다 더 오래 걸린다는 것을 나타냅니다. 
+[TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) 은 사용자가 시작한 작업이 작업 시간 제한보다 더 오래 걸린다는 것을 나타냅니다. 
 
 Event Hubs의 경우 시간 제한은 연결 문자열의 일부로 또는 [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder)를 통해 지정됩니다. 오류 메시지 자체는 다를 수 있지만 현재 작업에 대해 지정된 시간 제한 값을 항상 포함합니다. 
+
+시간 제한은 서비스를 실행 하는 리소스에 대 한 Event Hubs 서비스 업데이트 (또는) OS 업데이트와 같은 유지 관리 작업 중 또는 유지 관리 작업 중에 발생 합니다. OS를 업데이트 하는 동안 엔터티가 이동 되 고 노드를 업데이트 하거나 다시 부팅 하 여 시간 초과가 발생할 수 있습니다. Azure Event Hubs 서비스에 대 한 SLA (서비스 수준 계약) 세부 정보는 [Event Hubs에 대 한 sla](https://azure.microsoft.com/support/legal/sla/event-hubs/)를 참조 하세요. 
+
 
 ### <a name="common-causes"></a>일반적인 원인
 이 오류에 대한 일반적인 두 가지 원인은 잘못된 구성 또는 일시적 서비스 오류입니다.

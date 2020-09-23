@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Edge(미리 보기)에서 지원하는 기능
-description: Azure SQL Edge (미리 보기)에서 지원 되는 기능의 세부 정보에 대해 알아봅니다.
+title: Azure SQL Edge의 지원 되는 기능
+description: Azure SQL Edge에서 지 원하는 기능에 대해 자세히 알아보세요.
 keywords: SQL Edge 소개, SQL Edge란, SQL Edge 개요
 services: sql-edge
 ms.service: sql-edge
@@ -9,21 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 87ccb28f527082dccee338396b460124652c0e76
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462703"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886531"
 ---
-# <a name="supported-features-of-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기)에서 지원하는 기능 
+# <a name="supported-features-of-azure-sql-edge"></a>Azure SQL Edge의 지원 되는 기능 
 
-Azure SQL Edge는 Linux에서 최신 버전의 Microsoft SQL Server 데이터베이스 엔진을 기반으로 합니다. Linux의 SQL Server 2019에서 지원 되는 기능 및 Linux의 SQL Server 2019 (또는 Windows의 SQL Server)에서 지원 되지 않는 일부 기능을 지원 합니다.
+Azure SQL Edge는 최신 버전의 SQL Database 엔진을 기반으로 합니다. Linux의 SQL Server 2019에서 지원 되는 기능 및 Linux의 SQL Server 2019 (또는 Windows의 SQL Server)에서 지원 되지 않는 일부 기능을 지원 합니다.
 
 SQL Server on Linux에서 지원되는 기능의 전체 목록은 [SQL Server 2019 on Linux 버전 및 지원되는 기능](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019)을 참조하세요. Windows의 버전 및 지원 되는 SQL Server 기능에 대 한 자세한 내용은 [SQL Server 2019 (4.x)의 버전 및 지원 되는 기능](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15)을 참조 하세요.
-
-> [!NOTE]
-> Azure SQL Edge는 현재 미리 보기 상태 이며 프로덕션 환경에서 사용할 수 없습니다. Microsoft는 배포의 유효성 검사 및 사용 사례 시나리오에 따라 프로덕션 환경에서 Azure SQL Edge를 실행 하는 것이 좋습니다.
 
 ## <a name="azure-sql-edge-editions"></a>Azure SQL Edge 버전
 
@@ -36,9 +33,7 @@ Azure SQL Edge는 두 가지 버전 또는 소프트웨어 플랜으로 제공�
 
 ## <a name="operating-system"></a>운영 체제
 
-Azure SQL Edge 컨테이너는 현재 Ubuntu 16.04을 기반으로 하며, Ubuntu 16.04 LTS (권장) 또는 Ubuntu 18.04 LTS를 실행 하는 Docker 호스트 에서만 실행할 수 있습니다. 예를 들어 다른 운영 체제 호스트에서 Azure SQL Edge 컨테이너를 실행할 수 있습니다. 예를 들어 Docker CE 또는 Docker EE를 사용 하 여 Linux 또는 Windows의 다른 배포판에서 실행할 수 있지만,이 구성은 광범위 하 게 테스트 되지 않으므로 Microsoft는 권장 하지 않습니다.
-
-Azure SQL Edge는 현재 Azure IoT Edge를 통한 배포만 지원합니다. 자세한 내용은 [지원 되는 Azure IoT Edge 시스템](https://docs.microsoft.com/azure/iot-edge/support)을 참조 하세요.
+Azure SQL Edge 컨테이너는 Ubuntu 18.04를 기반으로 하며, ubuntu 18.04 LTS (권장) 또는 Ubuntu 20.04 LTS를 실행 하는 Docker 호스트 에서만 실행할 수 있습니다. 예를 들어 다른 운영 체제 호스트에서 Azure SQL Edge 컨테이너를 실행할 수 있습니다. 예를 들어 Docker CE 또는 Docker EE를 사용 하 여 Linux 또는 Windows의 다른 배포판에서 실행할 수 있지만,이 구성은 광범위 하 게 테스트 되지 않으므로 Microsoft는 권장 하지 않습니다.
 
 Windows에서 Azure SQL Edge를 실행 하는 데 권장 되는 구성은 Windows 호스트에서 Ubuntu VM을 구성한 후 Linux VM 내에서 Azure SQL Edge를 실행 하는 것입니다.
 
@@ -46,7 +41,7 @@ Azure SQL Edge에 대해 권장 되는 지원 되는 파일 시스템은 EXT4 �
 
 ## <a name="hardware-support"></a>하드웨어 지원
 
-Azure SQL Edge에는 64 비트 프로세서 (x64 또는 ARM64)가 필요 하며, 하나 이상의 프로세서와 1GB RAM이 호스트에 있습니다. Azure SQL Edge의 시작 메모리 공간이 500MB에 육박하지만, 에지 디바이스에서 실행되는 다른 IoT Edge 모듈을 위한 추가 메모리가 필요합니다. Azure SQL Edge에 대 한 실제 메모리 및 CPU 요구 사항은 처리 되는 데이터의 양과 작업의 복잡성에 따라 달라 집니다. 솔루션에 대 한 하드웨어를 선택 하는 경우 솔루션에 필요한 성능 특성이 충족 되도록 광범위 한 성능 테스트를 실행 하는 것이 좋습니다.  
+Azure SQL Edge에는 64 비트 프로세서 (x64 또는 ARM64)가 필요 하며, 하나 이상의 프로세서와 1GB RAM이 호스트에 있습니다. Azure SQL Edge의 시작 메모리 공간이 450MB의에 가까우면 Edge 장치에서 실행 되는 다른 IoT Edge 모듈 또는 프로세스에 추가 메모리가 필요 합니다. Azure SQL Edge에 대 한 실제 메모리 및 CPU 요구 사항은 처리 되는 데이터의 양과 작업의 복잡성에 따라 달라 집니다. 솔루션에 대 한 하드웨어를 선택 하는 경우 솔루션에 필요한 성능 특성이 충족 되도록 광범위 한 성능 테스트를 실행 하는 것이 좋습니다.  
 
 ## <a name="azure-sql-edge-components"></a>Azure SQL Edge 구성 요소
 
@@ -76,6 +71,7 @@ Azure SQL Edge는 SQL Server on Linux 기능 하위 집합을 지 원하는 것 
 | &nbsp; | Polybase. Azure SQL Edge를 Polybase의 외부 테이블에 대 한 대상으로 구성할 수 있습니다. |
 | &nbsp; | Java 및 Spark를 통한 언어 확장성. |
 | &nbsp; | Active Directory 통합. |
+| &nbsp; | 데이터베이스 자동 축소입니다. 데이터베이스의 자동 축소 속성은 명령을 사용 하 여 설정할 수 있지만 `ALTER DATABASE <database_name> SET AUTO_SHRINK ON` 변경 내용은 적용 되지 않습니다. 자동 축소 태스크는 데이터베이스에 대해 실행 되지 않습니다. 사용자는 여전히 ' DBCC ' 명령을 사용 하 여 데이터베이스 파일을 축소할 수 있습니다. |
 | &nbsp; | 데이터베이스 스냅숏 |
 | &nbsp; | 영구적 메모리 지원. |
 | &nbsp; | Microsoft DTC(Distributed Transaction Coordinator). |

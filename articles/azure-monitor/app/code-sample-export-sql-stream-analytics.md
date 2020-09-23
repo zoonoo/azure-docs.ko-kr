@@ -3,12 +3,12 @@ title: Azure Application Insights에서 SQL로 내보내기 | Microsoft Docs
 description: Stream Analytics를 사용하여 Application Insights 데이터를 SQL로 계속 내보냅니다.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 9c559a61794b36ea1bc33abc14271151fbea9d4c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 90aab1794a9b412de2498edcc4d221f4bcc86968
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311231"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979447"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
 이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용 하 여 [Azure 애플리케이션 Insights][start] 에서 Azure SQL Database로 원격 분석 데이터를 이동 하는 방법을 보여 줍니다. 
@@ -133,21 +133,21 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 ## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics 인스턴스 만들기
 [Azure Portal](https://portal.azure.com/)에서 Azure Stream Analytics 서비스를 선택하고 새 Stream Analytics 작업을 만듭니다.
 
-![Stream Analytics 설정](./media/code-sample-export-sql-stream-analytics/SA001.png)
+![스크린샷-만들기 단추가 강조 표시 된 Stream analytics 작업 페이지를 보여 줍니다.](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
 ![새 stream analytics 작업](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 새 작업이 만들어질 때 **리소스로 이동**을 선택합니다.
 
-![Stream Analytics 설정](./media/code-sample-export-sql-stream-analytics/SA003.png)
+![배포 성공 메시지 및 리소스로 이동 단추를 보여 주는 스크린샷](./media/code-sample-export-sql-stream-analytics/SA003.png)
 
 #### <a name="add-a-new-input"></a>새 입력 추가
 
-![Stream Analytics 설정](./media/code-sample-export-sql-stream-analytics/SA004.png)
+![스크린샷 선택 된 추가 단추가 있는 입력 페이지를 보여 줍니다.](./media/code-sample-export-sql-stream-analytics/SA004.png)
 
 연속 내보내기 Blob에서 입력을 가져오도록 설정합니다.
 
-![Stream Analytics 설정](./media/code-sample-export-sql-stream-analytics/SA0005.png)
+![스크린샷 입력 별칭, 원본 및 저장소 계정 드롭다운 메뉴 옵션이 선택 된 새 입력 창을 보여 줍니다.](./media/code-sample-export-sql-stream-analytics/SA0005.png)
 
 이제 앞에서 기록해 둔 Storage 계정의 기본 액세스 키가 필요합니다. 이 키를 Storage 계정 키로 설정합니다.
 

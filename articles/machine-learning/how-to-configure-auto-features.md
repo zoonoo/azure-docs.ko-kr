@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: e5ed84c6daaf01deb67d39bd13de1498dca131c5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: d8779a25b7c6036f3b09badab67733fa55acfee7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750871"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907582"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>자동화 된 기계 학습의 기능화
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 가이드에서는 다음에 대해 알아봅니다.
 
@@ -47,7 +47,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 
 다음 표에서는 `featurization` [AutoMLConfig 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에서에 대해 허용 되는 설정을 보여 줍니다.
 
-|기능화 구성 | Description|
+|기능화 구성 | 설명|
 ------------- | ------------- |
 |`"featurization": 'auto'`| 전처리의 일부로 [데이터 guardrails 및 기능화 단계](#featurization) 를 자동으로 수행 하도록 지정 합니다. 이 설정은 기본값입니다.|
 |`"featurization": 'off'`| 기능화 단계가 자동으로 수행 되지 않도록 지정 합니다.|
@@ -62,7 +62,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 > [!NOTE]
 > AutoML에서 만든 모델을 [onnx 모델로](concept-onnx.md)내보낼 계획인 경우 별표 ("*")로 표시 된 기능화 옵션만 onnx 형식으로 지원 됩니다. [모델을 ONNX로 변환](concept-automated-ml.md#use-with-onnx)하는 방법에 대해 자세히 알아보세요.
 
-|기능화 &nbsp; 단계| Description |
+|기능화 &nbsp; 단계| 설명 |
 | ------------- | ------------- |
 |**상위 카디널리티를 삭제 하거나 가변성 기능을 제거 합니다.*** |이러한 기능을 학습 및 유효성 검사 집합에서 삭제 합니다. 모든 행에서 동일한 값을 가진 모든 값이 누락 된 기능 또는 높은 카디널리티 (예: 해시, Id 또는 Guid)를 가진 기능에 적용 됩니다.|
 |**누락 값 돌립니다*** |숫자 기능의 경우 돌립니다는 열에 있는 값의 평균을 사용 합니다.<br/><br/>범주 기능의 경우 가장 자주 사용 되는 값을 돌립니다 합니다.|
@@ -93,7 +93,7 @@ Python SDK를 사용 하 여 구성 하는 실험의 경우 기능화 설정을 
 
 데이터 guardrails 세 가지 상태 중 하나를 표시 합니다.
 
-|시스템 상태| Description |
+|시스템 상태| 설명 |
 |----|---- |
 |**통과**| 데이터 문제가 검색 되지 않았으므로 사용자에 게 아무런 조치도 필요 하지 않습니다. |
 |**완료**| 변경 내용이 데이터에 적용되었습니다. 변경 내용이 예상 된 결과와 일치 하는지 확인 하기 위해 AutoML에서 수행한 정정 작업을 검토 하는 것이 좋습니다. |
@@ -182,7 +182,7 @@ best_run, fitted_model = automl_run.get_output()
   fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
   ```
 
-결과
+출력
 
   ```
   [{'RawFeatureName': 'A',

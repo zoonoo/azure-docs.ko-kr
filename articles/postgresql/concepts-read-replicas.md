@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 608740ea52cf82485bae073d9679107ac52baa28
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f093d9b1a67d5e6836fc7f760b0336c9923f5186
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611129"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902081"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 복제본 읽기-단일 서버
 
@@ -38,7 +38,7 @@ ms.locfileid: "88611129"
 
 [Azure Database for PostgreSQL 지역](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql)에 마스터 서버를 둘 수 있습니다. 마스터 서버는 쌍을 이루는 지역 또는 유니버설 복제본 지역에 복제본이 있을 수 있습니다. 아래 그림은 마스터 지역에 따라 사용할 수 있는 복제본 지역을 보여 줍니다.
 
-[ ![읽기 복제본 지역](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="복제본 영역 읽기":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>유니버설 복제본 지역
 마스터 서버가 있는 위치에 관계 없이 항상 다음 지역에서 읽기 복제본을 만들 수 있습니다. 다음은 범용 복제본 지역입니다.
