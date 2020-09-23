@@ -1,15 +1,15 @@
 ---
 title: Azure Portal를 사용 하 여 Vm 복원
-description: Azure Portal을 사용하여 복구 지점에서 Azure Virtual Machine 복원
+description: 지역 간 복원 기능을 포함 하 여 Azure Portal를 사용 하 여 복구 지점에서 Azure 가상 머신을 복원 합니다.
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 582ec3e5409e5ada6f98a0c2db77c0bb73eaed18
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: d2b5c00df9f9b5b41877fe21181f11ea7fe76084
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050423"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986538"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원 하는 방법
 
@@ -138,18 +138,21 @@ Vm을 복원 하려면 (새 VM 만들기) VM 복원 작업에 대 한 올바른 
 
 미리 보기 중에 기능에 등록 하려면 [시작 하기 전에 섹션](./backup-create-rs-vault.md#set-cross-region-restore)을 참조 하세요.
 
-CRR을 사용 하도록 설정 되어 있는지 확인 하려면 [지역 간 복원 구성](backup-create-rs-vault.md#configure-cross-region-restore) 의 지침을 따르세요.
+CRR을 사용 하도록 설정 되어 있는지 확인 하려면 [지역 간 복원 구성](backup-create-rs-vault.md#configure-cross-region-restore)의 지침을 따르세요.
 
 ### <a name="view-backup-items-in-secondary-region"></a>보조 지역에서 백업 항목 보기
 
 CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습니다.
 
-1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 항목** 으로 이동 합니다.
+1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 항목**으로 이동 합니다.
 1. 보조 **지역을 선택 하** 여 보조 지역의 항목을 봅니다.
 
-    ![보조 지역의 가상 컴퓨터](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+>[!NOTE]
+>CRR 기능을 지 원하는 백업 관리 유형만 목록에 표시 됩니다. 현재 보조 지역에 대 한 보조 지역 데이터 복원만 지원 됩니다.
 
-    ![보조 지역 선택](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
+![보조 지역의 가상 컴퓨터](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+
+![보조 지역 선택](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
 
 ### <a name="restore-in-secondary-region"></a>보조 지역에서 복원
 

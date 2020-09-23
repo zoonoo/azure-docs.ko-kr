@@ -4,12 +4,12 @@ description: Azure App Services에 대한 애플리케이션 성능 모니터링
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript, devx-track-dotnet
-ms.openlocfilehash: 1e06aacaa12a428b42090ecb8e8ae89ae1e5ad76
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 952cd9669ecc3fb5ff1326d15aef25e1a1524ca5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933803"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979436"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -55,7 +55,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
 2. 사용할 리소스를 지정한 후 Application Insights에서 애플리케이션에 대한 플랫폼별 데이터를 수집하는 방법을 선택할 수 있습니다. ASP.NET 앱 모니터링은 기본적으로 두 가지 수준의 수집을 사용 하 여 설정 됩니다.
 
-    ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new.png)
+    ![새 리소스 만들기가 선택 된 Application Insights 사이트 확장 페이지가 스크린샷으로 표시 됩니다.](./media/azure-web-apps/choose-options-new.png)
  
  다음은 각 경로에 대해 수집 된 데이터에 대 한 요약입니다.
         
@@ -165,7 +165,7 @@ Application Insights에서 원격 분석 컬렉션을 사용 하도록 설정 �
 |앱 설정 이름 |  정의 | 값 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 런타임 모니터링을 제어 하는 기본 확장입니다. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended`입니다. |
+|XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended` |
 |InstrumentationEngine_EXTENSION_VERSION | 이진 재작성 엔진을 켤 지 여부를 제어 `InstrumentationEngine` 합니다. 이 설정은 성능에 영향을 주며 콜드 시작/시작 시간에 영향을 줍니다. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | SQL & Azure 테이블 텍스트가 종속성 호출과 함께 캡처될 수 있는지 여부를 제어 합니다. 성능 경고: 응용 프로그램 콜드 시작 시간이 영향을 받습니다. 이 설정에는가 필요 합니다 `InstrumentationEngine` . | `~1` |
 
@@ -340,7 +340,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 * [PowerShell을 통해 업그레이드](#enabling-through-powershell):
 
-    1. 미리 설치 된 사이트 확장 ApplicationInsightsAgent를 사용 하도록 응용 프로그램 설정을 설정 합니다. [Powershell을 통한 사용](#enabling-through-powershell)을 참조 하세요.
+    1. 미리 설치 된 사이트 확장 ApplicationInsightsAgent를 사용 하도록 응용 프로그램 설정을 설정 합니다. [PowerShell을 통한 사용](#enabling-through-powershell)을 참조 하세요.
     2. Azure App Service에 대 한 Application Insights 확장 이라는 개인 사이트 확장을 수동으로 제거 합니다.
 
 2.5.1 이전 버전에서 업그레이드를 수행 하는 경우 응용 프로그램 bin 폴더에서 ApplicationInsigths dll이 제거 되었는지 확인 하 고 [문제 해결 단계를 참조](#troubleshooting)하세요.

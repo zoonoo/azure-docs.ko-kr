@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 17dd83ba7df469e12e0569e670d71b9068bb2a9f
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 479daa9a94247ada30c54a9c5df3471035765087
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297521"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908285"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Azure 스프링 클라우드 응용 프로그램 시작, 중지 및 삭제
+
+이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
 
 이 가이드에서는 Azure Portal 또는 Azure CLI를 사용 하 여 Azure 스프링 클라우드에서 응용 프로그램의 상태를 변경 하는 방법을 설명 합니다.
 
@@ -30,7 +32,7 @@ ms.locfileid: "89297521"
 ## <a name="using-the-azure-cli"></a>Azure CLI 사용
 
 > [!NOTE]
-> Azure CLI를 사용하여 선택적 매개 변수를 사용하고 기본값을 구성할 수 있습니다. [참조 설명서를 참조](/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest)하 여 Azure CLI에 대해 자세히 알아보세요.  
+> Azure CLI를 사용하여 선택적 매개 변수를 사용하고 기본값을 구성할 수 있습니다. [참조 설명서를 참조](/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest&preserve-view=true)하 여 Azure CLI에 대해 자세히 알아보세요.  
 
 먼저 다음과 같이 Azure CLI에 대 한 Azure 스프링 클라우드 확장을 설치 합니다.
 

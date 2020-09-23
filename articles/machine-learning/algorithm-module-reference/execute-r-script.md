@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 873f0d7d2aa4493e77a10f62b0646f4f8233f6b9
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d5ef8d6a9b0c0039b500ce9d0238609e8a8edc93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337843"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908001"
 ---
 # <a name="execute-r-script-module"></a>R 스크립트 실행 모듈
 
-이 문서에서는 R 스크립트 실행 모듈을 사용 하 여 Azure Machine Learning designer (미리 보기) 파이프라인에서 R 코드를 실행 하는 방법을 설명 합니다.
+이 문서에서는 R 스크립트 실행 모듈을 사용 하 여 Azure Machine Learning 디자이너 파이프라인에서 R 코드를 실행 하는 방법을 설명 합니다.
 
 R을 사용 하면 기존 모듈이 현재 지원 하지 않는 다음과 같은 작업을 수행할 수 있습니다. 
 - 사용자 지정 데이터 변환 만들기

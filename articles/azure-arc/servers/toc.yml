@@ -47,12 +47,12 @@
       items:
         - name: 에이전트 연결 문제
           href: troubleshoot-agent-onboard.md
-    - name: 참조
-      items:
-        - name: 지역 가용성 및 데이터 상주
-          href: data-residency.md
-        - name: REST (영문)
-          href: /rest/api/hybridcompute
-        - name: Azure Policy 기본 제공 기능
-          displayName: 'samples, policies, definitions'
-          href: policy-reference.md
+- name: 참조
+  items:
+    - name: 데이터 상주
+      href: data-residency.md
+    - name: REST (영문)
+      href: /rest/api/hybridcompute
+    - name: Azure Policy 기본 제공 기능
+      displayName: 'samples, policies, definitions'
+      href: policy-reference.md

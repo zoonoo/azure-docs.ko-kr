@@ -3,12 +3,12 @@ title: Azure Application Insights에서 Power BI로 내보내기 | Microsoft Doc
 description: 분석 쿼리를 Power BI에서 표시할 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 804da7d3aaa2fd1b7973a686bc9ca5cb5ee973a2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324372"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979159"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](https://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 디바이스에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](./app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -67,11 +67,11 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
    내보낸 M 언어 스크립트를 고급 편집기에 붙여넣습니다. 
 
-   ![고급 편집기가 강조 표시된 Power BI Desktop 스크린샷](./media/export-power-bi/advancedquery.png)
+   ![고급 편집기 강조 표시 된 Power BI Desktop를 보여 주는 스크린샷](./media/export-power-bi/advancedquery.png)
 
 4. 쿼리에서 항목을 선택하고 깔때기 시각화를 선택합니다.
 
-   ![Power BI Desktop 시각화 옵션 스크린샷](./media/export-power-bi/selectsequence.png)
+   ![스크린샷 Power BI Desktop 깔때기 시각화 옵션을 보여 줍니다.](./media/export-power-bi/selectsequence.png)
 
 5. 제목을 더 의미 있게 변경하고 Power BI 클라우드 작업 영역에 보고서를 게시합니다. 
 
@@ -86,7 +86,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 1. Azure Portal에 로그인 하 고 리소스에 액세스할 수 있는지 확인 합니다.
 2. 대시보드에 대한 자격 증명 새로 고침을 시도합니다.
-3. PowerBI Desktop에서 캐시를 지워야 합니다.
+3. Power BI Desktop에서 캐시를 지워야 합니다.
 
 
    액세스 권한이 있고 자격 증명 새로 고침이 작동하지 않는 경우 지원 티켓을 여세요.
@@ -121,14 +121,14 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 1. [Power BI](https://app.powerbi.com/)에 로그인합니다.
 2. **데이터 가져오기** ![왼쪽 하단 모서리의 데이터 가져오기 아이콘 스크린샷](./media/export-power-bi/001.png), **서비스**를 엽니다.
 
-    ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/export-power-bi/002.png)
+    ![스크린샷은 서비스 창에서 가져오기 단추를 표시 합니다.](./media/export-power-bi/002.png)
 
 3. Application Insights 아래에서 **지금 가져오기**를 선택합니다.
 
    ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/export-power-bi/003.png)
 4. Application Insights 리소스의 세부 정보를 제공한 다음, **로그인**합니다.
 
-    ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/export-power-bi/005.png)
+    ![Application Insights 창에 연결을 보여 주는 스크린샷](./media/export-power-bi/005.png)
 
      이 정보는 Application Insights 개요 창에서 확인할 수 있습니다.
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 7178417a5c20afe5b1ed02bc526ec174704962df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456253"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907920"
 ---
 # <a name="feature-hashing-module-reference"></a>기능 해싱 모듈 참조
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에 포함 된 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer에 포함 된 모듈을 설명 합니다.
 
 기능 해싱 모듈을 사용 하 여 영어 텍스트 스트림을 정수 기능 집합으로 변환 합니다. 그런 다음이 해시 된 기능 집합을 기계 학습 알고리즘에 전달 하 여 텍스트 분석 모델을 학습 시킬 수 있습니다.
 
