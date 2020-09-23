@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램 유형-Hyperscale (Citus)-Azure Database for PostgreSQL 확인
+title: 응용 프로그램 유형-Hyperscale (Citus)-Azure Database for PostgreSQL를 확인 합니다.
 description: 효과적인 분산 데이터 모델링을 위한 응용 프로그램 식별
 author: jonels-msft
 ms.author: jonels
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 0daed8e9bba247ae3d4e320e4a02cc2b1b26dbec
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 92333857177d33307d6997bfcbdf79787d3ab127
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136947"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895956"
 ---
 # <a name="determining-application-type"></a>응용 프로그램 유형 결정
 

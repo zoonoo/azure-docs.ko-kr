@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 0498823e1b730db6425d255b6de4b826dd05a6a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749494"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898461"
 ---
 # <a name="pca-based-anomaly-detection-module"></a>PCA 기반 변칙 검색 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에서 PCA 기반 변칙 검색 모듈을 사용 하 여 PCA (주 구성 요소 분석)를 기반으로 변칙 검색 모델을 만드는 방법을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer에서 PCA 기반 변칙 검색 모듈을 사용 하 여 PCA (주 구성 요소 분석)를 기반으로 변칙 검색 모델을 만드는 방법을 설명 합니다.
 
 이 모듈을 사용 하면 유효한 트랜잭션과 같은 한 클래스에서 학습 데이터를 쉽게 가져올 수 있지만 대상 변칙의 충분 한 샘플을 얻는 것이 어려운 시나리오에서 모델을 빌드할 수 있습니다. 
 
@@ -109,4 +109,4 @@ PCA 작동 방식에 대 한 자세한 내용과 변칙 검색의 구현에 대 
 
 Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
 
-디자이너 모듈에 특정 한 오류 목록은 [디자이너 (미리 보기)에 대 한 예외 및 오류 코드](designer-error-codes.md) 를 참조 하세요.
+디자이너 모듈과 관련 된 오류 목록은 [디자이너의 예외 및 오류 코드](designer-error-codes.md) 를 참조 하세요.

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/18/2020
-ms.openlocfilehash: 59a335e41116818e41579488cc6931ed1534c9ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03f80ebeb7b30d8c0fe14060335541d77b7523b0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984888"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898616"
 ---
 # <a name="create-python-model-module"></a>Python 모델 모듈 만들기
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 Python 모델 만들기 모듈을 사용 하 여 Python 스크립트에서 학습 되지 않은 모델을 만드는 방법에 대해 알아봅니다. Azure Machine Learning designer 환경의 Python 패키지에 포함 된 모든 학습자 모델을 기반으로 할 수 있습니다. 
 

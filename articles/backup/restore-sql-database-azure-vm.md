@@ -1,14 +1,14 @@
 ---
 title: Azure VM에서 SQL Server 데이터베이스 복원
-description: 이 문서에서는 Azure VM에서 실행 되 고 Azure Backup을 사용 하 여 백업 되는 SQL Server 데이터베이스를 복원 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure VM에서 실행 되 고 Azure Backup을 사용 하 여 백업 되는 SQL Server 데이터베이스를 복원 하는 방법을 설명 합니다. 지역 간 복원을 사용 하 여 데이터베이스를 보조 지역으로 복원할 수도 있습니다.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377984"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985391"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -23,14 +23,14 @@ ms.locfileid: "89377984"
 - 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
 - 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터베이스를 복원 하기 전에 다음 사항에 유의 하십시오.
 
 - 동일한 Azure 지역의 SQL Server 인스턴스에 데이터베이스를 복원할 수 있습니다.
 - 대상 서버를 원본과 동일한 자격 증명 모음에 등록해야 합니다.
 - TDE로 암호화 된 데이터베이스를 다른 SQL Server 복원 하려면 먼저 [대상 서버에 인증서를 복원](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server)해야 합니다.
-- [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) 사용 데이터베이스는 [파일로 복원](#restore-as-files) 옵션을 사용 하 여 복원 해야 합니다.
+- [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) 사용 데이터베이스는 [파일로 복원](#restore-as-files) 옵션을 사용 하 여 복원 해야 합니다.
 - "Master" 데이터베이스를 복원 하기 전에 시작 옵션인 **-m AzureWorkloadBackup**을 사용 하 여 SQL Server 인스턴스를 단일 사용자 모드로 시작 합니다.
   - **-M** 에 대 한 값은 클라이언트 이름입니다.
   - 지정 된 클라이언트 이름만 연결을 열 수 있습니다.
@@ -168,6 +168,51 @@ ms.locfileid: "89377984"
 데이터베이스에 있는 파일의 전체 문자열 크기가 [특정 한도](backup-sql-server-azure-troubleshoot.md#size-limit-for-files)보다 큰 경우 Azure Backup는 데이터베이스 파일 목록을 다른 pit 구성 요소에 저장 하므로 복원 작업 중에 대상 복원 경로를 설정할 수 없습니다. 대신 파일이 SQL 기본 경로로 복원 됩니다.
 
   ![대량 파일을 사용 하 여 데이터베이스 복원](./media/backup-azure-sql-database/restore-large-files.jpg)
+
+## <a name="cross-region-restore"></a>지역 간 복원
+
+복원 옵션 중 하나로, CRR (지역 간 복원)을 사용 하면 azure Vm에 호스트 되는 Azure Vm에 있는 Azure Vm에서 호스트 되는 SQL 데이터베이스를 Azure 쌍을 이루는 지역으로 복원할 수 있습니다.
+
+미리 보기 중에 기능에 등록 하려면 [시작 하기 전에 섹션](./backup-create-rs-vault.md#set-cross-region-restore)을 참조 하세요.
+
+CRR을 사용 하도록 설정 되어 있는지 확인 하려면 [지역 간 복원 구성](backup-create-rs-vault.md#configure-cross-region-restore) 의 지침을 따르세요.
+
+### <a name="view-backup-items-in-secondary-region"></a>보조 지역에서 백업 항목 보기
+
+CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습니다.
+
+1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 항목**으로 이동 합니다.
+1. 보조 **지역을 선택 하** 여 보조 지역의 항목을 봅니다.
+
+>[!NOTE]
+>CRR 기능을 지 원하는 백업 관리 유형만 목록에 표시 됩니다. 현재 보조 지역에 대 한 보조 지역 데이터 복원만 지원 됩니다.
+
+![보조 지역의 백업 항목](./media/backup-azure-sql-database/backup-items-secondary-region.png)
+
+![보조 지역의 데이터베이스](./media/backup-azure-sql-database/databases-secondary-region.png)
+
+### <a name="restore-in-secondary-region"></a>보조 지역에서 복원
+
+보조 지역 복원 사용자 환경은 주 지역 복원 사용자 환경과 유사 합니다. 복원 구성 창에서 세부 정보를 구성 하 여 복원을 구성 하는 경우 보조 지역 매개 변수만 제공 하 라는 메시지가 표시 됩니다.
+
+![복원 위치 및 방법](./media/backup-azure-sql-database/restore-secondary-region.png)
+
+>[!NOTE]
+>보조 지역의 가상 네트워크는 고유 하 게 할당 해야 하며 해당 리소스 그룹의 다른 Vm에는 사용할 수 없습니다.
+
+![진행 중인 복원 알림 트리거](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>- 복원이 트리거되고 데이터 전송 단계에서는 복원 작업을 취소할 수 없습니다.
+>- 보조 지역에서 복원 하는 데 필요한 Azure 역할은 주 지역의 경우와 동일 합니다.
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>보조 지역 복원 작업 모니터링
+
+1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 작업** 으로 이동 합니다.
+1. 보조 **지역을 선택 하** 여 보조 지역의 항목을 봅니다.
+
+    ![필터링 된 백업 작업](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
 
 ## <a name="next-steps"></a>다음 단계
 

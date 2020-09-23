@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2020
+ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 91935e8c052a9130d0a40ed292ca466bc1ab5427
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: b7cbba051dd0833a039d378cd73a59314c0221c8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567627"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905580"
 ---
-# <a name="enhanced-secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수 향상
+# <a name="secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수
 
 ## <a name="introduction-to-secure-score"></a>보안 점수 소개
 
@@ -95,12 +95,11 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
 
 기본 제공 권장 사항만 보안 점수에 영향을 줍니다.
 
-또한 **미리 보기** 로 플래그가 지정 된 권장 사항은 보안 점수 계산에 포함 되지 않습니다. 가능 하면 항상 재구성 해야 하므로 미리 보기 기간이 종료 되 면 점수를 매길 수 있습니다.
+**미리 보기로** 플래그가 지정 된 권장 사항은 보안 점수 계산에 포함 되지 않습니다. 가능 하면 항상 재구성 해야 하므로 미리 보기 기간이 종료 되 면 점수를 매길 수 있습니다.
 
 미리 보기 권장 사항의 예는 다음과 같습니다.
 
 :::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="미리 보기 플래그를 사용 하는 권장 사항":::
-
 
 ## <a name="improve-your-secure-score"></a>보안 점수 향상
 
@@ -137,7 +136,7 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">취약성 해결(최대 점수 6)</p></strong>취약성은 리소스의 기밀성, 가용성 또는 무결성을 손상시키기 위해 위협 행위자가 활용할 수 있는 약점입니다. <a href="https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt">취약성 관리</a>는 조직의 노출을 줄이고, 엔드포인트 노출 영역을 강화하고, 조직의 복원력을 높이고, 리소스의 공격 노출 영역을 줄입니다. 위협 및 취약성 관리는 소프트웨어 및 보안 구성 오류에 대한 가시성을 제공하고 완화에 대한 권장 사항을 제공합니다.</td>
-    <td class="tg-lboi"; width=55%>- SQL Database에서 고급 데이터 보안을 사용 하도록 설정 해야 합니다.<br>- Azure Container Registry 이미지의 취약성을 수정해야 합니다.<br>- SQL 데이터베이스의 취약성을 수정해야 합니다.<br>- 취약성 평가 솔루션으로 취약성을 수정해야 합니다.<br>- SQL Managed Instance에서 취약성 평가를 사용 하도록 설정 해야 합니다.<br>- SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.<br>- 취약성 평가 솔루션을 가상 머신에 설치해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- SQL Database에서 고급 데이터 보안을 사용 하도록 설정 해야 합니다.<br>- Azure Container Registry 이미지의 취약성을 수정해야 합니다.<br>- SQL 데이터베이스의 취약성을 수정해야 합니다.<br>- 취약성 평가 솔루션으로 취약성을 수정해야 합니다.<br>- SQL Managed Instance에서 취약성 평가를 사용 하도록 설정 해야 합니다.<br>- SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.<br>- 취약성 평가 솔루션을 가상 머신에 설치해야 합니다.<br>- 컨테이너 이미지는 신뢰할 수 있는 레지스트리만 배포 해야 합니다 (미리 보기).<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">미사용 암호화 사용(최대 점수 4)</p></strong><a href="https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest">미사용 데이터 암호화</a>는 저장된 데이터에 대한 데이터 보호를 제공합니다. 미사용 데이터에 대한 공격에는 데이터가 저장된 하드웨어에 대한 물리적 액세스 권한을 얻습니다. Azures는 대칭 암호화를 사용하여 미사용 데이터를 암호화하고 해독합니다. 데이터가 스토리지에 쓰여질 때 대칭 암호화 키를 사용하여 데이터를 암호화합니다. 암호화 키를 사용하여 메모리에서 사용하도록 준비된 데이터의 암호를 해독합니다. 키는 ID 기반 액세스 제어 및 감사 정책으로 안전하게 보호되는 위치에 저장해야 합니다. 이러한 보안 위치 중 하나는 Azure Key Vault입니다. 공격자가 암호화된 데이터를 획득했지만 암호화 키는 획득하지 못한 경우 암호를 해독하지 않으면 데이터에 액세스할 수 없습니다.</td>
@@ -149,15 +148,15 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">액세스 및 사용 권한 관리(최대 점수 4)</p></strong>보안 프로그램의 핵심 부분은 사용자에 게 작업을 수행하는 데 필요한 액세스 권한만 있는지 확인하는 것입니다. 즉, <a href="https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models">최소 권한 액세스 모델</a>을 따릅니다.<br><a href="https://docs.microsoft.com/azure/role-based-access-control/overview">RBAC(역할 기반 Access Control)</a>에서 역할 할당을 만들어 리소스에 대한 액세스를 제어합니다. 역할 할당은 다음과 같은 세 가지 요소로 구성됩니다.<br>- <strong>보안 주체</strong>: 사용자가 해당 액세스를 요청하는 개체입니다.<br>- <strong>역할 정의</strong>: 사용 권한<br>- <strong>범위</strong>: 권한이 적용되는 리소스 세트입니다.</td>
-    <td class="tg-lboi"; width=55%>- 더 이상 사용되지 않는 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 구독에 둘 이상의 소유자를 할당해야 합니다.<br>- Kubernetes Service(미리 보기)에서 RBAC(역할 기반 액세스 제어)를 사용해야 합니다.<br>- Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.<br>- 관리 인증서 대신 서비스 주체를 사용 하 여 구독을 보호 해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- 더 이상 사용되지 않는 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다(미리 보기).<br>- 소유자 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다(미리 보기).<br>- 구독에 둘 이상의 소유자를 할당해야 합니다.<br>- Kubernetes Service(미리 보기)에서 RBAC(역할 기반 액세스 제어)를 사용해야 합니다.<br>- Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.<br>- 관리 인증서 대신 서비스 주체를 사용 하 여 구독을 보호 해야 합니다.<br>- 컨테이너 (미리 보기)에 대해 최소 권한 Linux 기능을 적용 해야 함<br>- 컨테이너 (미리 보기)에 대해 변경할 수 없는 (읽기 전용) 루트 파일 시스템을 적용 해야 함<br>- 권한 에스컬레이션이 있는 컨테이너를 사용 하지 않아야 함 (미리 보기)<br>- 루트 사용자로 컨테이너를 실행 하는 것을 피해 야 함 (미리 보기)<br>- 중요 한 호스트 네임 스페이스를 공유 하는 컨테이너를 피해 야 함 (미리 보기)<br>- Pod HostPath 볼륨 탑재 사용은 알려진 목록 (미리 보기)으로 제한 되어야 합니다.<br>- 권한 있는 컨테이너를 피해 야 함 (미리 보기)<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">보안 구성 수정(최대 점수 4)</p></strong>잘못 구성된 IT 자산은 공격 당할 위험이 높습니다. 자산을 배포하고 마감일을 충족해야 할 때는 기본 강화 작업을 잊는 경우가 많습니다. 보안 구성 오류는 운영 체제 및 네트워크 어플라이언스에서 클라우드 리소스에 이르는 인프라의 모든 수준에서 나타날 수 있습니다.<br>Azure Security Center는 리소스 구성을 업계 표준, 규정 및 벤치마크의 요구 사항과 지속적으로 비교합니다. 조직에 중요한 관련 "규정 준수 패키지"(표준 및 기준)를 구성할 때 나타나는 간격을 토대로 CCEID와 잠재적 보안 영향에 대한 설명을 포함 하는 보안 권장 사항이 제공됩니다.<br>일반적으로 사용되는 패키지는 <a href="https://docs.microsoft.com/azure/security/benchmarks/introduction">Azure Security 벤치마크</a> 및 <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations 벤치마크 버전 1.1.0</a>입니다.</td>
-    <td class="tg-lboi"; width=55%>- 컨테이너 보안 구성의 취약성을 수정해야 합니다.<br>- 머신 보안 구성의 취약성을 수정해야 합니다.<br>- 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>- Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다.<br>- Linux 기반 Azure Arc 컴퓨터 (미리 보기)에 Log Analytics 에이전트를 설치 해야 합니다.<br>- 가상 머신 확장 집합에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- 컨테이너 보안 구성의 취약성을 수정해야 합니다.<br>- 머신 보안 구성의 취약성을 수정해야 합니다.<br>- 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.<br>- 가상 머신에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에 모니터링 에이전트를 설치해야 합니다.<br>- Log Analytics 에이전트는 Windows 기반 Azure Arc 컴퓨터 (미리 보기)에 설치 되어야 합니다.<br>- Linux 기반 Azure Arc 컴퓨터 (미리 보기)에 Log Analytics 에이전트를 설치 해야 합니다.<br>- 가상 머신 확장 집합에 모니터링 에이전트를 설치해야 합니다.<br>- 컴퓨터에서 모니터링 에이전트 상태 문제를 해결해야 합니다.<br>- 컨테이너 AppArmor 프로필을 재정의 하거나 사용 하지 않도록 설정 해야 합니다 (미리 보기).<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">무단 네트워크 액세스 제한(최대 점수 4)</p></strong>조직 내의 엔드포인트는 가상 네트워크에서 지원되는 Azure 서비스로의 직접 연결을 제공합니다. 서브넷의 가상 머신은 모든 리소스와 통신할 수 있습니다. 서브넷 내의 리소스 간에 통신을 제한하려면 네트워크 보안 그룹을 만들고, 서브넷에 연결합니다. 조직은 인바운드 및 아웃바운드 규칙을 만들어 권한이 없는 트래픽을 제한하고 보호할 수 있습니다.</td>
-    <td class="tg-lboi"; width=55%>- 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 합니다.<br>- Kubernetes Service에 권한 있는 IP 범위를 정의해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) App Services에 대한 액세스를 제한해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) IaaS NSG의 웹 애플리케이션에 대한 규칙을 강화해야 합니다.<br>- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.<br>- CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 합니다.<br>- API 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 함수 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.<br>- 인터넷 연결 VM을 포함하는 허용되는 네트워크 보안 그룹에 대한 액세스를 제한해야 합니다.<br>- 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- 가상 머신에서 IP 전달을 사용하지 않도록 설정해야 합니다.<br>- Kubernetes Service에 권한 있는 IP 범위를 정의해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) App Services에 대한 액세스를 제한해야 합니다(미리 보기).<br>- (더 이상 사용되지 않음) IaaS NSG의 웹 애플리케이션에 대한 규칙을 강화해야 합니다.<br>- 가상 머신을 네트워크 보안 그룹과 연결해야 합니다.<br>- CORS에서 모든 리소스가 API 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 합니다.<br>- CORS에서 모든 리소스가 웹 애플리케이션에 액세스하도록 허용하지 않아야 합니다.<br>- API 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 함수 앱에 대해 원격 디버깅을 해제해야 합니다.<br>- 웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다.<br>- 인터넷 연결 VM을 포함하는 허용되는 네트워크 보안 그룹에 대한 액세스를 제한해야 합니다.<br>- 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).<br>- 컨테이너는 허용 된 포트만 수신 해야 함 (미리 보기)<br>- 서비스는 허용 된 포트만 (미리 보기)에서 수신 해야 합니다.<br>- 호스트 네트워킹 및 포트 사용은 제한 되어야 합니다 (미리 보기).</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">적응형 애플리케이션 제어 적용(최대 점수 3)</p></strong>AAC(적응형 애플리케이션 제어)는 Azure 및 비 Azure 머신에서 실행할 수 있는 애플리케이션을 제어하도록 하는 지능적이고 자동화된 종단 간 솔루션입니다. 또한 맬웨어로부터 머신을 보호하는 데 유용합니다.<br>Security Center는 machine learning을 사용 하 여 컴퓨터 그룹의 알려진 안전한 응용 프로그램 목록을 만듭니다.<br>승인 된 응용 프로그램 목록에 대 한이 혁신적인 접근 방식은 관리 복잡성 없이 보안 혜택을 제공 합니다.<br>AAC는 특정 애플리케이션 세트를 실행해야 하는 특화된 서버에 특히 적절합니다.</td>
@@ -169,7 +168,7 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">DDoS 공격으로부터 애플리케이션 보호(최대 점수 2)</p></strong>DDoS(분산 서비스 거부)는 리소스의 폭발적 사용을 야기하고 애플리케이션을 사용할 수 있게 만듭니다. <a href="https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview">Azure DDoS Protection 표준</a>을 사용하여 세 가지 주요 유형의 DDoS 공격으로부터 조직을 보호합니다.<br>- <strong>대규모 공격</strong>에서는 합법적인 트래픽이 네트워크에 급증합니다. DDoS Protection Standard는 이러한 공격을 흡수하거나 자동으로 삭제하여 완화합니다.<br>- <strong>프로토콜 공격</strong>은 계층 3 및 계층 4 프로토콜 스택의 취약성을 악용하여 대상을 액세스 불능 상태로 만듭니다. DDoS Protection 표준은 악성 트래픽을 차단하여 이러한 공격을 완화합니다.<br>- <strong>리소스(애플리케이션) 계층 공격</strong>은 웹 애플리케이션 패킷을 대상으로 합니다. 웹 애플리케이션 방화벽 및 DDoS Protection 표준을 사용하여 이 유형의 공격으로부터 방어합니다.</td>
-    <td class="tg-lboi"; width=55%>- DDoS Protection 표준을 사용하도록 설정해야 합니다.</td>
+    <td class="tg-lboi"; width=55%>- DDoS Protection 표준을 사용하도록 설정해야 합니다.<br>- 컨테이너 CPU 및 메모리 제한 적용 (미리 보기)<br>- Kubernetes 용 Azure Policy 추가 기능을 클러스터에 설치 하 고 사용 하도록 설정 해야 합니다 (미리 보기).</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Endpoint Protection 사용(최대 점수 2)</p></strong>엔드포인트가 맬웨어로부터 보호되도록 하기 위해 동작 센서는 엔드포인트 운영 체제에서 데이터를 수집 및 처리하고 분석을 위해 이 데이터를 프라이빗 클라우드로 보냅니다. 보안 분석은 빅 데이터, 기계 학습 및 기타 원본을 활용하여 위협에 대한 대응 방안을 권장합니다. 예를 들어 <a href="https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection">Microsoft Defender ATP</a>는 위협 인텔리전스를 사용하여 공격 방법을 식별하고 보안 경고를 생성합니다.<br>Security Center에서는 Endpoint Protection 솔루션 Windows Defender, System Center Endpoint Protection, Trend Micro, Symantec v12.1.1.1100, McAfee v10 for Windows, McAfee v10 for Linux 및 Sophos v9 for Linux를 지원합니다. Security Center가 이러한 솔루션을 검색하는 경우 Endpoint Protection 설치에 대한 권장 사항이 더 이상 표시되지 않습니다.</td>
@@ -205,7 +204,7 @@ Security Center는 포털에서 점수를 두드러지게 표시 합니다. 개�
 아니요. 단일 리소스에 대한 모든 권장 사항을 수정할 때까지 변경되지 않습니다. 컨트롤에 대해 최대 점수를 얻으려면 모든 리소스에 대해 모든 권장 사항을 수정해야 합니다.
 
 ### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>이전 보안 점수 환경을 계속 사용할 수 있나요? 
-아닙니다. 에 대해 나란히 실행 되는 동안에는 쉽게 전환할 수 있습니다. 이전 모델은 이제 사용 되지 않습니다. 
+아니요. 에 대해 나란히 실행 되는 동안에는 쉽게 전환할 수 있습니다. 이전 모델은 이제 사용 되지 않습니다. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>권장 사항이 나에게 적용되지 않는 경우 정책에서 사용하지 않도록 설정해도 보안 컨트롤이 이행되고 보안 점수가 업데이트되나요?
 예. 사용자 환경에 적용할 수 없는 경우 권장 사항을 사용하지 않도록 설정하는 것이 좋습니다. 특정 권장 사항을 사용하지 않도록 설정하는 방법에 대한 지침은 [보안 정책 사용 안 함](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies)을 참조하세요.

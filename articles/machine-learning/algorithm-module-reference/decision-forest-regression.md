@@ -9,22 +9,22 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: bb7ebee67d65ab37dc037437b7c35d8c19c53096
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f9677bfd793e7ff21ff2c6c7e6760b630dc074b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137028"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898529"
 ---
 # <a name="decision-forest-regression-module"></a>의사 결정 포리스트 회귀 모듈
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 의사 결정 트리의 앙상블을 기반으로 하는 회귀 모델을 만듭니다.
 
 모델을 구성한 후에는 레이블이 지정 된 데이터 집합 및 [모델 학습](./train-model.md) 모듈을 사용 하 여 모델을 학습 해야 합니다. 그러면 학습된 모델을 예측에 사용할 수 있습니다. 
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 방식
 
 의사 결정 트리는 리프 노드(의사 결정)에 도달할 때까지 이진 트리 데이터 구조를 트래버스하며 각 인스턴스에 대해 일련의 간단한 테스트를 수행하는 비파라메트릭 모델입니다.
 

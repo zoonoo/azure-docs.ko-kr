@@ -11,21 +11,21 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 006aab66eb220c3bb74794ba78bf1495583b653e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 0dcede7e6c15fbc0bae39370431d14696cb4026e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648308"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905664"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 기존 모델 배포
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 Azure Machine Learning 외부에서 학습 한 machine learning 모델을 등록 하 고 배포 하는 방법에 대해 알아봅니다. 는 웹 서비스 또는 IoT Edge 장치에 배포할 수 있습니다.  배포 되 면 모델을 모니터링 하 고 Azure Machine Learning에서 데이터 드리프트를 검색할 수 있습니다. 
 
 이 문서의 개념 및 용어에 대 한 자세한 내용은 [machine learning 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
   + Python 예제에서는 `ws` 변수가 Azure Machine Learning 작업 영역으로 설정 된 것으로 가정 합니다. 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Python 용 AZURE MACHINE LEARNING SDK 설명서](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#&preserve-view=trueworkspace)를 참조 하세요.
@@ -274,7 +274,7 @@ az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc de
 
 ## <a name="request-response-consumption"></a>요청-응답 소비
 
-배포 후 점수 매기기 URI가 표시 됩니다. 클라이언트는이 URI를 사용 하 여 서비스에 요청을 제출할 수 있습니다. 다음 예제는 서비스에 데이터를 전송 하 고 응답을 표시 하는 기본 Python 클라이언트입니다.
+배포 후 점수 매기기 URI가 표시 됩니다. 클라이언트는이 URI를 사용 하 여 서비스에 요청을 제출할 수 있습니다. 다음 예제는 서비스에 데이터를 전송 하 고 응답을 표시 하는 간단한 Python 클라이언트입니다.
 
 ```python
 import requests

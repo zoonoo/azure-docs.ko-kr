@@ -1,6 +1,6 @@
 ---
-title: Azure Stack에 지 GPU 장치에서 Azure Resource Manager 암호를 설정 합니다.
-description: Azure PowerShell를 사용 하 여 Azure Stack에 지 GPU에서 실행 되는 Azure Resource Manager에 연결 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro GPU 장치에서 Azure Resource Manager 암호를 설정 합니다.
+description: Azure PowerShell를 사용 하 여 Azure Stack Edge Pro GPU에서 실행 되는 Azure Resource Manager에 연결 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6a59510b342f7ebd3969a4bb4fcfd75fffd04804
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254154"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904491"
 ---
-# <a name="set-azure-resource-manager-password-on-azure-stack-edge-gpu-device"></a>Azure Stack에 지 GPU 장치에서 Azure Resource Manager 암호 설정
+# <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Edge Pro GPU 장치 Azure Stack에서 Azure Resource Manager 암호를 설정 합니다.
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -47,7 +47,7 @@ ms.locfileid: "89254154"
 
 2. **설정 > 속성**으로 이동 합니다. **속성** 페이지에서 다음 매개 변수를 적어 둡니다.
 
-    - 리소스 그룹
+    - Resource group
     - CIK 암호화 키: 보기를 선택한 후 **암호화 키**를 복사 합니다.
 
     ![CIK 암호화 키 가져오기](media/azure-stack-edge-j-series-set-azure-resource-manager-password/get-cik-portal.png)
@@ -122,7 +122,7 @@ ms.locfileid: "89254154"
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    위의 생성 된 보안 문자열을 AzDataBoxEdgeUser cmdlet의 매개 변수로 사용 하 여 암호를 다시 설정 합니다. Azure Stack Edge/Data Box Gateway 리소스를 만들 때 사용한 것과 동일한 리소스 그룹을 사용 합니다.
+    위의 생성 된 보안 문자열을 AzDataBoxEdgeUser cmdlet의 매개 변수로 사용 하 여 암호를 다시 설정 합니다. Azure Stack Edge Pro/Data Box Gateway 리소스를 만들 때 사용한 것과 동일한 리소스 그룹을 사용 합니다.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key

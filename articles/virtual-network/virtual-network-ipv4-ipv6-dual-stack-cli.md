@@ -1,7 +1,7 @@
 ---
 title: IPv6 이중 스택 응용 프로그램 배포-기본 Load Balancer-CLI
 titlesuffix: Azure Virtual Network
-description: 이 문서에서는 Azure CLI를 사용 하 여 Azure 가상 네트워크에서 IPv6 이중 스택 응용 프로그램을 배포 하는 방법을 보여 줍니다.
+description: Azure CLI를 사용 하 여 기본 Load Balancer를 사용 하 여 이중 스택 (IPv4 + IPv6) 응용 프로그램을 배포 하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 885d36786c804de069a9d1e6ebf031e9ffc3d32a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2746397e2aa97f3c8c3b98d1c7be65b083dcc425
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086490"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983824"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>기본 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-CLI
 

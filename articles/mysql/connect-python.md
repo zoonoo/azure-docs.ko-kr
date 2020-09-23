@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 32603514db76ceba4f1d9f8873c99b2e8a97eddf
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: aad160f8a4ec96a1e0e627684c598062079b57e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185913"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896314"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Python을 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 
@@ -63,11 +63,11 @@ Azure Portal에서 Azure Database for MySQL에 연결하는 데 필요한 연결
    
 1. 포털 검색 창에서 **mydemoserver**와 같이 만든 Azure Database for MySQL 서버를 검색하여 선택합니다.
    
-   ![MySQL용 Azure Database 서버 이름](./media/connect-python/1_server-overview-name-login.png)
+   :::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="MySQL용 Azure Database 서버 이름":::
    
 1. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 페이지에서 암호를 재설정할 수 있습니다.
    
-   ![MySQL용 Azure Database 서버 이름](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
+   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="MySQL용 Azure Database 서버 이름":::
 
 ## <a name="run-the-python-examples"></a>Python 예제 실행
 

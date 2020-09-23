@@ -11,15 +11,15 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1917ded59275c7a456e8d2fd25412afc91a1327c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7c049b56bd72a0b59862e655da3b79f63c264fbf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650642"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882793"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 Keras 분류 모델 학습 및 등록
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 TensorFlow를 기반으로 하는 Keras 분류 모델을 학습 하 고 등록 하는 방법을 보여 줍니다. 인기 있는 [Mnist 데이터 집합](http://yann.lecun.com/exdb/mnist/) 을 사용 하 여 [TensorFlow](https://www.tensorflow.org/overview)에서 실행 되는 [KERAS Python 라이브러리로](https://keras.io) 빌드된 DNN (심층 신경망)를 사용 하 여 필기 된 숫자를 분류 합니다.
 
@@ -29,7 +29,7 @@ Keras는 기타 인기 있는 DNN 프레임 워크를 실행 하 여 개발을 �
 
 기계 학습 및 심층 학습 간의 차이점에 대 한 자세한 내용은 [개념 문서](concept-deep-learning-vs-machine-learning.md) 를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 

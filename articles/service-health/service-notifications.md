@@ -1,14 +1,14 @@
 ---
 title: Azure Portal을 사용하여 서비스 상태 알림 보기
-description: 서비스 상태 알림을 통해 Microsoft Azure에서 게시한 서비스 상태 메시지를 볼 수 있습니다.
+description: Azure Portal에서 서비스 상태 알림을 확인 합니다. 서비스 상태 알림은 azure 인프라에 의해 Azure 활동 로그에 게시 됩니다.
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.openlocfilehash: 9f8297ae708d3f4e7921221f2c4bacee12a7a2b1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 615d08b6a04aef9e8ef2033154da8ff8caeebe04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089569"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967771"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure Portal을 사용하여 서비스 상태 알림 보기
 

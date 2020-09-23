@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: aac6f833985a708c7ed65542e314b65fa1039ef7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 347c539abbe90119a74394eeb748af12d30d0b15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569053"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904672"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Azure Security Center 권장 사항을 사용하여 보안 강화
 
@@ -41,7 +41,7 @@ Contoso의 IT 보안 부서에서 일하는 David은 보안 취약성을 감지�
 
 Security Center는 Contoso Azure 리소스의 보안 상태를 자동으로 분석하고 기본 보안 정책을 적용합니다. Security Center 잠재적인 보안 취약점을 식별 하는 경우 보안 정책에서 설정 된 컨트롤에 따라 **권장 사항을** 만듭니다. 
 
-David는 모든 구독에서 Azure 보안 표준 계층을 실행 하 여 사용 가능한 전체 권장 사항 및 보안 기능을 가져옵니다. 또한 Jeff는 [Windows](quick-onboard-windows-computer.md) 및 [Linux](quick-onboard-linux-computer.md) 서버에서 Security Center의 하이브리드 지원을 활용할 수 있도록 아직 클라우드로 마이그레이션되지 않은 기존의 모든 온-프레미스 서버를 보드 합니다.
+David는 모든 구독에서 azure Defender를 사용 하 여 Azure 보안을 실행 하 여 전체 권장 사항 및 보안 기능을 제공 합니다. 또한 Jeff는 [Windows 및 Linux 서버](quickstart-onboard-machines.md)에서 Security Center의 하이브리드 지원을 활용할 수 있도록 아직 클라우드로 마이그레이션되지 않은 기존의 모든 온-프레미스 서버를 보드 합니다.
 
 Jeff는 클라우드 워크로드 소유자입니다. Jeff는 Contoso의 보안 정책에 따라 보안 제어를 적용하는 일을 담당합니다. 
 
@@ -60,9 +60,9 @@ Jeff는 다음 작업을 수행합니다.
 
 3. Jeff는 먼저 처리할 권장 사항을 결정해야 합니다. 따라서 Jeff는 보안 점수를 클릭 하 고 [보안 점수](secure-score-security-controls.md)를 개선 하는 정도에 따라 권장 사항을 처리 하기 시작 합니다.
 
-4. Jeff에 많은 VM 및 서버에 연결되어 있으므로 **Compute 및 앱**에 집중하기로 결정했습니다.
+4. Jeff는 다 수의 연결 된 Vm을 포함 하므로, Jeff는 [자산 인벤토리에](asset-inventory.md)있는 컴퓨터에 초점을 맞춰야 합니다.
 
-5. Jeff가 **Compute 및 apps**를 클릭 하면 권장 사항 목록이 표시 되 고 보안 점수 영향에 따라 처리 됩니다.
+5. Jeff가 asset inventory를 열면 권장 사항 목록이 나타납니다. Jeff는 보안 점수 영향에 따라이를 처리 합니다.
 
 6. Jeff에는 다양 한 인터넷 연결 Vm이 있으며 해당 포트가 노출 되기 때문에 공격자가 서버를 제어할 수 있습니다. 따라서 Jeff는 [**JUST-IN-TIME VM 액세스**](security-center-just-in-time.md)를 사용 하도록 선택 합니다.
 

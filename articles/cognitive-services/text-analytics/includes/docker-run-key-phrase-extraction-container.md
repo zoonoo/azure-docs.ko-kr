@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 5929a34ea8fbcbb89f3738ac2a10b14353324b6c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d4ae9d793168a41930a51047caca6e0fb7e923b2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108955"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906110"
 ---
 *핵심 구 추출* 컨테이너를 실행 하려면 다음 명령을 실행 합니다 `docker run` . 아래 자리 표시자를 사용자 고유의 값으로 바꿉니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "86108955"
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
+mcr.microsoft.com/azure-cognitive-services/textanalytics/keyphrase \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

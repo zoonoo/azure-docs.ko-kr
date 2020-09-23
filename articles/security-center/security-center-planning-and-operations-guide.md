@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 45d3ec8dc5d819464046e40bab22491a4bccde63
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e5d483af44116274019851f049d6222adfd8dbcd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461326"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904848"
 ---
 # <a name="planning-and-operations-guide"></a>계획 및 운영 가이드
 이 가이드는 IT (정보 기술) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자가 Azure Security Center 사용을 계획 하는 데 사용 됩니다.
@@ -120,7 +120,7 @@ Security Center 정책에는 다음 구성 요소가 포함되어 있습니다.
 - [데이터 컬렉션](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): 에이전트 프로비전 및 데이터 컬렉션 설정입니다.
 - [보안 정책](https://docs.microsoft.com/azure/security-center/security-center-policies): Security Center에서 모니터링 및 권장 하는 컨트롤을 결정 하는 [Azure Policy](../governance/policy/overview.md) 또는 Azure Policy를 사용 하 여 새 정의를 만들고, 추가 정책을 정의 하 고, 관리 그룹 간에 정책을 할당 합니다.
 - [전자 메일 알림](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): 보안 연락처 및 알림 설정입니다.
-- [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing): 무료 또는 표준 가격 책정 선택 영역입니다. 여기서 범위 내의 리소스에 사용할 수 있는 Security Center 기능을 결정합니다(구독, 리소스 그룹 및 작업 영역에 대해 지정할 수 있음).
+- [가격 책정 계층](https://docs.microsoft.com/azure/security-center/security-center-pricing): Azure Defender를 사용 하거나 사용 하지 않고 범위 내의 리소스에 사용할 수 있는 Security Center 기능을 결정 합니다 (구독, 리소스 그룹 및 작업 영역에 대해 지정할 수 있음).
 
 > [!NOTE]
 > 보안 계약을 지정하면 보안 인시던트가 발생하는 경우 Azure가 조직에서 적합한 사람에게 연결할 수 있게 됩니다. 이 권장 사항을 사용하는 방법에 대한 자세한 내용은 [Azure Security Center에 보안 연락처 세부 정보 제공](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) 을 참고하세요.
@@ -158,12 +158,12 @@ Azure Portal에서 Azure Security Center에서 만든 항목을 포함하여 Log
 Azure Security Center에서 만든 작업 영역의 경우 데이터는 30일 동안 보존됩니다. 기존 작업 영역의 경우 작업 영역 가격 책정 계층에 따라 보존됩니다. 원하는 경우 기존 작업 영역을 사용할 수도 있습니다.
 
 > [!NOTE]
-> Microsoft에서는 이 데이터의 개인 정보 및 보안을 보호하기 위해 노력하고 있습니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다. 데이터 처리 및 개인 정보 보호에 대한 자세한 내용은 [Azure Security Center 데이터 보안](security-center-data-security.md)을 참조하세요.
+> Microsoft는이 데이터의 개인 정보 보호 및 보안을 위해 강력한 약정을 만듭니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다. 데이터 처리 및 개인 정보 보호에 대한 자세한 내용은 [Azure Security Center 데이터 보안](security-center-data-security.md)을 참조하세요.
 >
 
 ## <a name="onboarding-non-azure-resources"></a>비 Azure 리소스 온보딩
 
-Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 수는 있지만, 그러려면 먼저 이러한 리소스를 온보딩해야 합니다. 비Azure 리소스를 등록하는 방법에 대한 자세한 내용은 [보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩](https://docs.microsoft.com/azure/security-center/security-center-onboarding#onboard-non-azure-computers)을 참고하세요.
+Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 수는 있지만, 그러려면 먼저 이러한 리소스를 온보딩해야 합니다. 비 Azure 리소스를 온 보 딩 하는 방법에 대 한 자세한 내용은 [비 azure 컴퓨터](quickstart-onboard-machines.md) 등록을 참조 하세요.
 
 ## <a name="ongoing-security-monitoring"></a>지속적인 보안 모니터링
 보안 센터 권장 사항의 최초 구성과 적용 후에는 보안 센터 운영 프로세스를 고려합니다.
@@ -191,7 +191,7 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 또한 보안 작업의 일환으로 VM에 대한 액세스 권한을 제한하는 예방 조치를 채택하고 VM에서 실행되는 애플리케이션을 제어해야 합니다. Azure VM에 인바운드 트래픽을 잠금으로써 공격에 대한 노출을 줄이고 동시에 필요할 때 VM에 쉽게 연결할 수 있는 액세스 권한을 제공합니다. Vm에 대 한 액세스를 강화 하려면 [JUST-IN-TIME vm](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 액세스 기능을 사용 합니다.
 
-[적응 응용 프로그램 컨트롤](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) 을 사용 하 여 Azure에 있는 vm에서 실행할 수 있는 응용 프로그램을 제한할 수 있습니다. 다른 이점 중 하나는 맬웨어에 대해 Vm을 강화 하는 데 도움이 됩니다. Machine learning을 사용 하 여 VM에서 실행 되는 프로세스를 분석 Security Center 허용 목록 규칙을 만드는 데 도움이 됩니다.
+[적응 응용 프로그램 컨트롤](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) 을 사용 하 여 Azure에 있는 vm에서 실행할 수 있는 응용 프로그램을 제한할 수 있습니다. 다른 이점 중 하나는 맬웨어에 대해 Vm을 강화 하는 데 도움이 됩니다. Machine learning을 사용 하 여 VM에서 실행 되는 프로세스를 분석 하 여 허용 목록 규칙을 만드는 데 도움을 Security Center.
 
 
 ## <a name="incident-response"></a>사고 대응
@@ -199,7 +199,7 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 이 문서는 사용자 고유의 인시던트 대응 계획을 만드는 데 도움을 주지는 않지만, 인시던트 대응 단계에 대 한 기반으로 클라우드 수명 주기에 Microsoft Azure 보안 응답을 사용할 예정입니다. 단계는 다음 다이어그램에 나와 있습니다.
 
-![의심되는 활동](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
+![클라우드 수명 주기의 인시던트 응답 단계](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
 > [!NOTE]
 > 자체 계획을 마련할 때는 NIST(National Institute of Standards and Technology) [컴퓨터 보안 인시던트 처리 가이드](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) 를 사용할 수 있습니다.

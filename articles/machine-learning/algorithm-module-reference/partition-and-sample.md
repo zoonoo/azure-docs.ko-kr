@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 0392a05df485b45b1244f4542ed55af1837dca3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1f0a0dff4eb8a1aad0cd5e142959a636827a541
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477513"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898489"
 ---
 # <a name="partition-and-sample-module"></a>파티션 및 샘플 모듈
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 파티션 및 샘플 모듈을 사용 하 여 데이터 집합에서 샘플링을 수행 하거나 데이터 집합에서 파티션을 만들 수 있습니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "79477513"
 
 1. **파티션 및 샘플** 모듈을 파이프라인에 추가 하 고 데이터 집합을 연결 합니다.
 
-1. **파티션 또는 샘플 모드**:이 옵션을 **샘플링**으로 설정 합니다.
+1. **파티션 또는 샘플 모드**:이 옵션을  **샘플링**으로 설정 합니다.
 
 1. **샘플링 률**: 0에서 1 사이의 값을 입력 합니다. 이 값은 원본 데이터 집합에서 출력 데이터 집합에 포함 되어야 하는 행의 비율을 지정 합니다.
 

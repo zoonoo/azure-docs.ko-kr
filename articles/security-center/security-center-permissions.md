@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: e5728b220f12c3305aa896e64010fc7e5828d6fb
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: ed73c4781b9fd9926e12910ca1eb2f71d2b99245
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067225"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904835"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure Security Center의 권한
 
@@ -44,7 +44,7 @@ Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성�
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |보안 정책 편집|-|✔|-|-|✔|
 |이니셔티브 추가/할당 (규정 준수 표준 포함)|-|-|-|-|✔|
-|구독 가격 책정 계층 변경|-|✔|-|-|✔|
+|Azure Defender 사용/사용 안 함|-|✔|-|-|✔|
 |자동 프로 비전 사용/사용 안 함|-|✔|-|✔|✔|
 |리소스에 보안 권장 사항 적용</br> (및 [빠른 수정](security-center-remediate-recommendations.md#quick-fix-remediation)사용)|-|-|✔|✔|✔|
 |경고 해제|-|✔|-|✔|✔|

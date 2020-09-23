@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 95edcee32c1917d23e4808e805f947d18d2fa7f4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207372"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986234"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Azure Network Watcher의 리소스 문제 해결 소개
 
 Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다른 가상 네트워크 간의 연결을 제공합니다. 게이트웨이 및 해당 연결을 모니터링하는 것은 통신이 끊기지 않도록 하는 데 중요합니다. Network Watcher는 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다. 이 기능은 포털, PowerShell, Azure CLI 또는 REST API를 통해 호출할 수 있습니다. 호출하면 Network Watcher가 게이트웨이 또는 연결의 상태를 진단하고 적절한 결과를 반환합니다. 요청은 장기 실행 트랜잭션입니다. 진단이 완료되면 결과가 반환됩니다.
 
-![portal][2]
+![Network Watcher V P N 진단이 표시 됩니다.][2]
 
 ## <a name="results"></a>결과
 
@@ -50,12 +50,12 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 | 오류 유형 | 이유 | 로그|
 |---|---|---|
 | NoFault | 오류가 발견되지 않은 경우 |예|
-| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |예|
-| PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |예|
-| UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다. | 예 |
+| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니요|
+| PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
+| UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다. | 아니요 |
 | VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 아니요 |
 | PlatformInActive | 플랫폼에 문제가 있습니다. | 예|
-| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 예|
+| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 아니요|
 | NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 이 오류는 단지 경고일 뿐입니다.| 예|
 | ConnectionsNotConnected | 연결이 연결되지 않습니다. 이 오류는 단지 경고일 뿐입니다.| 예|
 | GatewayCPUUsageExceeded | 현재 게이트웨이 CPU 사용량이 95%를 초과했습니다. | 예 |
@@ -65,11 +65,11 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 | 오류 유형 | 이유 | 로그|
 |---|---|---|
 | NoFault | 오류가 발견되지 않은 경우 |예|
-| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |예|
-| PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |예|
-| UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다.  | 예 |
+| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니요|
+| PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니요|
+| UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다.  | 아니요 |
 | VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 예 |
-| ConnectionEntityNotFound | 연결 구성이 없습니다. | 예 |
+| ConnectionEntityNotFound | 연결 구성이 없습니다. | 아니요 |
 | ConnectionIsMarkedDisconnected | 연결이 “연결 끊김”으로 표시되었습니다. |예|
 | ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | 예 |
 | ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| 예|
@@ -90,7 +90,7 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 |**VPN 유형** | |
 |경로 기반 | 지원됨|
 |정책 기반 | 지원되지 않음|
-|**연결 형식**||
+|**연결 유형**||
 |IPSec| 지원됨|
 |VNet2Vnet| 지원됨|
 |ExpressRoute| 지원되지 않음|
@@ -105,7 +105,7 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 > [!NOTE]
 > 일부 경우에는 로그 파일의 하위 집합만 스토리지에 기록됩니다.
 
-Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 Storage Explorer입니다. Storage 탐색기에 대 한 자세한 내용은 다음 링크에서 찾을 수 있습니다. [Storage 탐색기](https://storageexplorer.com/)
+Azure storage 계정에서 파일을 다운로드 하는 방법에 대 한 지침은 [.net을 사용 하 여 Azure Blob storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조 하세요. 사용할 수 있는 다른 도구는 Storage Explorer입니다. Storage 탐색기에 대 한 자세한 내용은 다음 링크에서 찾을 수 있습니다. [Storage 탐색기](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

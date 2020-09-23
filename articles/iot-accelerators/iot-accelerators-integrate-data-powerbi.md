@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a7d29583636879698abc598e1935358796b6062
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74184234"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976007"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Power BI를 사용하여 원격 모니터링 데이터 시각화
 
@@ -45,7 +45,7 @@ ms.locfileid: "74184234"
    - URI
    - 기본 키
 
-     ![키](./media/iot-accelerators-integrate-data-powerbi/keys.png)
+     ![스크린샷에는 키 항목이 선택 된 Azure Cosmos D B 계정이 표시 됩니다.](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
 ## <a name="setting-up-the-stream-in-power-bi"></a>Power BI에서 스트림 설정
   

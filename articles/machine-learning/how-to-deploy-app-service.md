@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 73769a5f8a677f5e08610560db1e5d90dd5b7c3a
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7c98bfe4adb9cbbcc1009c530ba875511ea9ec01
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645620"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905110"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Azure App Service에 machine learning 모델 배포 (미리 보기)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure App Service에서 웹 앱으로 Azure Machine Learning에서 모델을 배포 하는 방법에 대해 알아봅니다.
 
@@ -54,7 +54,7 @@ Azure App Service에서 제공 하는 기능에 대 한 자세한 내용은 [App
 
 ## <a name="prepare-for-deployment"></a>배포 준비
 
-을 배포 하기 전에 모델을 웹 서비스로 실행 하는 데 필요한 작업을 정의 해야 합니다. 다음 목록에서는 배포에 필요한 기본 항목에 대해 설명 합니다.
+을 배포 하기 전에 모델을 웹 서비스로 실행 하는 데 필요한 작업을 정의 해야 합니다. 다음 목록에서는 배포에 필요한 주요 항목에 대해 설명 합니다.
 
 * __항목 스크립트__입니다. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 요청 점수를 생성 하 고, 결과를 반환 합니다.
 
@@ -115,7 +115,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-`show_output=True`인 경우 Docker 빌드 프로세스의 출력이 표시 됩니다. 프로세스가 완료 되 면 작업 영역에 대 한 Azure Container Registry에 이미지가 생성 됩니다. 이미지가 빌드되면 Azure Container Registry의 위치가 표시 됩니다. 반환 된 위치는 형식입니다 `<acrinstance>.azurecr.io/package@sha256:<imagename>` . 예: `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
+`show_output=True`인 경우 Docker 빌드 프로세스의 출력이 표시 됩니다. 프로세스가 완료 되 면 작업 영역에 대 한 Azure Container Registry에 이미지가 생성 됩니다. 이미지가 빌드되면 Azure Container Registry의 위치가 표시 됩니다. 반환 된 위치는 형식입니다 `<acrinstance>.azurecr.io/package@sha256:<imagename>` . `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`)을 입력합니다.
 
 > [!IMPORTANT]
 > 이미지를 배포할 때 사용 되는 위치 정보를 저장 합니다.
@@ -247,7 +247,7 @@ az webapp show --name <app-name> --resource-group myresourcegroup
 
 ## <a name="use-the-web-app"></a>웹 앱 사용
 
-모델에 요청을 전달 하는 웹 서비스는에 `{baseurl}/score` 있습니다. 예: `https://<app-name>.azurewebsites.net/score`. 다음 Python 코드는 URL에 데이터를 전송 하 고 응답을 표시 하는 방법을 보여 줍니다.
+모델에 요청을 전달 하는 웹 서비스는에 `{baseurl}/score` 있습니다. `https://<app-name>.azurewebsites.net/score`)을 입력합니다. 다음 Python 코드는 URL에 데이터를 전송 하 고 응답을 표시 하는 방법을 보여 줍니다.
 
 ```python
 import requests

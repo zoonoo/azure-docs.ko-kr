@@ -1,14 +1,14 @@
 ---
 title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
-ms.date: 06/17/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 662a7510013e2008d8c16cf21376b11c247e0bc0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044195"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905961"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -18,8 +18,7 @@ Azure Policy에 대한 일반적인 사용 사례에는 리소스 일관성, 규
 
 ## <a name="overview"></a>개요
 
-Azure Policy는 해당 리소스의 속성을 비즈니스 규칙과 비교하여 Azure의 리소스를 평가합니다. [JSON 형식](./concepts/definition-structure.md)에서 설명하는 이러한 비즈니스 규칙을 [정책 정의](#policy-definition)라고 합니다. 관리를 간소화하기 위해 여러 비즈니스 규칙을 그룹화하여 [정책 이니셔티브](#initiative-definition)(_policySet_라고도 함)를 구성할 수 있습니다. 비즈니스 규칙이 구성되면 정책 정의 또는 이니셔티브가 Azure에서 지원하는 리소스의 범위(예: [관리 그룹](../management-groups/overview.md), 구독, [ 리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups) 또는 개별 리소스)에 [할당](#assignments)됩니다. 할당은 해당 할당의 [범위](../../azure-resource-manager/management/overview.md#understand-scope) 내에 있는 모든 리소스에 적용됩니다.
-필요한 경우 하위 범위를 제외할 수 있습니다.
+Azure Policy는 해당 리소스의 속성을 비즈니스 규칙과 비교하여 Azure의 리소스를 평가합니다. [JSON 형식](./concepts/definition-structure.md)에서 설명하는 이러한 비즈니스 규칙을 [정책 정의](#policy-definition)라고 합니다. 관리를 간소화하기 위해 여러 비즈니스 규칙을 그룹화하여 [정책 이니셔티브](#initiative-definition)(_policySet_라고도 함)를 구성할 수 있습니다. 비즈니스 규칙이 구성되면 정책 정의 또는 이니셔티브가 Azure에서 지원하는 리소스의 범위(예: [관리 그룹](../management-groups/overview.md), 구독, [ 리소스 그룹](../../azure-resource-manager/management/overview.md#resource-groups) 또는 개별 리소스)에 [할당](#assignments)됩니다. 할당은 해당 할당의 [Resource Manager 범위](../../azure-resource-manager/management/overview.md#understand-scope) 내에 있는 모든 리소스에 적용됩니다. 필요한 경우 하위 범위를 제외할 수 있습니다. 자세한 내용은 [Azure Policy의 범위](./concepts/scope.md)를 참조하세요.
 
 Azure Policy는 [JSON 형식](./concepts/definition-structure.md)을 사용하여 평가에서 리소스의 규정 준수 여부를 확인하는 데 사용하는 논리를 구성합니다. 정의에는 메타데이터와 정책 규칙이 포함됩니다. 정의된 규칙은 함수, 매개 변수, 논리 연산자, 조건 및 속성 [별칭](./concepts/definition-structure.md#aliases)을 사용하여 원하는 시나리오와 정확하게 일치시킬 수 있습니다. 정책 규칙은 할당 범위에서 평가되는 리소스를 결정합니다.
 

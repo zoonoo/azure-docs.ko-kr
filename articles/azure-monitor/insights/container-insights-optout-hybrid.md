@@ -3,12 +3,12 @@ title: 하이브리드 Kubernetes 클러스터 모니터링을 중지 하는 방
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 hybrid Kubernetes 클러스터의 모니터링을 중지 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 8369c82b83cfbaa7128383c6203aaf584916cae9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2754649cd990b015162be158effa2b85aa1fe27e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091201"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986046"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>하이브리드 클러스터 모니터링을 중지 하는 방법
 
@@ -44,7 +44,7 @@ Kubernetes 클러스터의 모니터링을 사용 하도록 설정한 후에는 
 
     `helm delete <releaseName>`
 
-    예:
+    예제:
 
     `helm delete azmon-containers-release-1`
 
@@ -84,7 +84,26 @@ Kubernetes 클러스터의 모니터링을 사용 하도록 설정한 후에는 
     .\disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext
     ```
 
-### <a name="using-bash"></a>Bash 사용
+#### <a name="using-service-principal"></a>서비스 주체 사용
+스크립트 *disable-monitoring.ps1* 는 대화형 장치 로그인을 사용 합니다. 비 대화형 로그인을 선호 하는 경우 기존 서비스 주체를 사용 하거나 [필수 구성 요소](container-insights-enable-arc-enabled-clusters.md#prerequisites)에 설명 된 대로 필요한 권한이 있는 새 서비스 주체를 만들 수 있습니다. 서비스 주체를 사용 하려면 스크립트를 enable-monitoring.ps1 하는 데 사용할 서비스 주체의 값을 사용 하 여 $servicePrincipalClientId, $servicePrincipalClientSecret 및 $tenantId 매개 변수를 전달 해야 합니다.
+
+```powershell
+$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
+
+$servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
+$servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $servicePrincipal.Secret).Password
+$tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
+```
+
+다음은 그 예입니다. 
+
+```powershell
+\disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId
+```
+
+
+### <a name="using-bash"></a>bash 사용
 
 1. 다음 명령을 사용 하 여 모니터링 추가 기능을 사용 하 여 클러스터를 구성 하는 로컬 폴더에 스크립트를 다운로드 하 고 저장 합니다.
 
@@ -117,6 +136,24 @@ Kubernetes 클러스터의 모니터링을 사용 하도록 설정한 후에는 
     ```bash
     bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext
     ```
+
+#### <a name="using-service-principal"></a>서비스 주체 사용
+Bash 스크립트 *disable-monitoring.sh* 는 대화형 장치 로그인을 사용 합니다. 비 대화형 로그인을 선호 하는 경우 기존 서비스 주체를 사용 하거나 [필수 구성 요소](container-insights-enable-arc-enabled-clusters.md#prerequisites)에 설명 된 대로 필요한 권한이 있는 새 서비스 주체를 만들 수 있습니다. 서비스 주체를 사용 하려면 bash 스크립트를 *enable-monitoring.sh* 하는 데 사용할 서비스 주체의--클라이언트 id,--클라이언트 암호 및--테 넌 트 id 값을 전달 해야 합니다.
+
+```bash
+subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
+servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
+servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
+
+servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
+tenantId=$(echo $servicePrincipal | jq -r '.tenant')
+```
+
+다음은 그 예입니다.
+
+```bash
+bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,22 +11,19 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 429471c2a24b90f14241bf54197c4baecb27e5c0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 10c0200aae5ffa432c2da037d58d455fc28e8acd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660435"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904966"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 이 문서에서는 Azure Machine Learning studio에서 코드를 한 줄 사용 하지 않고 자동화 된 기계 학습 모델을 만들고 탐색 하 고 배포 하는 방법에 대해 알아봅니다.
 
->[!IMPORTANT]
-> Azure Machine Learning Studio의 자동화된 ML 환경은 미리 보기로 제공됩니다. 특정 기능은 지원되지 않거나 기능이 제한될 수 있습니다.
-
- 자동화된 Machine Learning은 특정 데이터에 사용할 가장 적합한 기계 학습 알고리즘을 선택하는 프로세스입니다. 이 프로세스를 통해 기계 학습 모델을 빠르게 생성할 수 있습니다. [자동화된 Machine Learning에 대해 자세히 알아보세요](concept-automated-ml.md).
+자동화된 Machine Learning은 특정 데이터에 사용할 가장 적합한 기계 학습 알고리즘을 선택하는 프로세스입니다. 이 프로세스를 통해 기계 학습 모델을 빠르게 생성할 수 있습니다. [자동화된 Machine Learning에 대해 자세히 알아보세요](concept-automated-ml.md).
  
 엔드투엔드 예제의 경우 [Azure Machine Learning의 자동화된 ML 인터페이스를 사용하여 분류 모델을 만드는 자습서](tutorial-first-experiment-automated-ml.md)를 사용해 보세요. 
 
@@ -36,7 +33,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* **Enterprise 버전** 형식의 Azure Machine Learning 작업 영역. [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.  기존 작업 영역을 Enterprise 버전으로 업그레이드하려면 [Enterprise 버전으로 업그레이드](how-to-manage-workspace.md#upgrade)를 참조하세요.
+* Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요. 
 
 ## <a name="get-started"></a>시작하기
 
@@ -180,13 +177,13 @@ Variance| 이 열의 데이터가 평균 값에서 분산된 정도를 측정한
 
 다음 표에서는 현재 스튜디오를 통해 사용할 수 있는 사용자 지정 항목을 요약 합니다. 
 
-열| 사용자 지정
+Column| 사용자 지정
 ---|---
 포함 | 학습에 포함할 열을 지정 합니다.
 기능 유형| 선택한 열에 대 한 값 유형을 변경 합니다.
 돌립니다| 데이터에서 누락 된 값을 돌립니다 값을 선택 합니다.
 
-![Azure Machine Learning studio 작업 형식 폼](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
+![Azure Machine Learning studio 사용자 지정 기능화](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>실험 실행 및 결과 보기
 

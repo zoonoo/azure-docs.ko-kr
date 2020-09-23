@@ -3,12 +3,12 @@ title: AKS(Azure Kubernetes Service)에 대한 질문과 대답
 description: AKS(Azure Kubernetes Service)에 대한 일반적인 질문에 대한 답변을 찾아보세요.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7a56756855319ee72bd5b3dc60ad1ae440afd7fe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4150f850263aed7b8aa4317028386dc285f06ade
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927150"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905342"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -175,6 +175,10 @@ AKS 클러스터 및 관련 리소스의 이동 또는 이름 변경은 지원 �
 
 서비스 주체가 만료되지 않았는지 확인하세요.  참조 항목: [AKS 서비스 주체](./kubernetes-service-principal.md) 및 [AKS 업데이트 자격 증명](./update-credentials.md).
 
+## <a name="can-i-scale-my-aks-cluster-to-zero"></a>AKS 클러스터를 0으로 확장할 수 있나요?
+[실행 중인 AKS 클러스터](start-stop-cluster.md)를 완전히 중지 하 고 각각의 계산 비용을 절감할 수 있습니다. 또한 [모든 또는 특정 `User` 노드 풀](scale-cluster.md#scale-user-node-pools-to-0) 의 크기를 0으로 조정 하거나 자동으로 크기를 조정 하 여 필요한 클러스터 구성만 유지 하도록 선택할 수도 있습니다.
+[시스템 노드 풀](use-system-pools.md) 을 0으로 직접 확장할 수 없습니다.
+
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>가상 머신 확장 집합 API를 사용하여 수동으로 크기를 조정할 수 있나요?
 
 아니요, 가상 머신 확장 집합 API를 사용한 크기 조정 작업은 지원되지 않습니다. AKS API(`az aks scale`)를 사용하세요.
@@ -193,7 +197,7 @@ AKS는 관리형 서비스이며 IaaS 리소스 조작은 지원되지 않습니
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>AKS는 고객 데이터를 클러스터 영역 외부에 저장 하나요?
 
-단일 지역에 고객 데이터를 저장할 수 있도록 하는 기능은 현재 아시아 태평양 지역의 동남 아시아 지역 (싱가포르) 에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 지역에 저장 됩니다.
+단일 지역에 고객 데이터를 저장할 수 있도록 하는 기능은 현재 아시아 태평양 지역의 동남 아시아 지역 (싱가포르) 에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 지역에 저장됩니다.
 
 <!-- LINKS - internal -->
 

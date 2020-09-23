@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 76c2cf7164c3e2d683a9294cb500ed05381811b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c421c730321213a9adbf0a0043874a21ba26bb05
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043532"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906231"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Azure Stream Analytics 작업 Azure Resource Manager 템플릿 내보내기
 
@@ -28,7 +28,7 @@ Azure Resource Manager 템플릿을 내보내 Azure Stream Analytics 작업을 �
 
 ![Visual Studio Code에서 Stream Analytics 작업 열기](./media/resource-manager-export/open-job-vs-code.png)
 
-Visual Studio Code를 사용 하 여 Stream Analytics 작업을 관리 하는 방법에 대 한 자세한 내용은 [Visual Studio Code 빠른](quick-create-vs-code.md)시작을 참조 하세요.
+Visual Studio Code를 사용 하 여 Stream Analytics 작업을 관리 하는 방법에 대 한 자세한 내용은 [Visual Studio Code 빠른](quick-create-visual-studio-code.md)시작을 참조 하세요.
 
 ## <a name="compile-the-script"></a>스크립트 컴파일 
 
@@ -42,7 +42,7 @@ Visual Studio Code를 사용 하 여 Stream Analytics 작업을 관리 하는 �
 
 1. Stream Analytics 작업 작업 영역에 **배포** 폴더가 표시 됩니다.
 
-1. 배포에 사용 되는 Azure 리소스 관리 템플릿인 파일 *의JobTemplate.js* 를 탐색 합니다.
+1. 배포에 사용 되는 Azure 리소스 관리 템플릿인 파일 * 의JobTemplate.js* 를 탐색 합니다.
 
 ## <a name="complete-the-parameters-file"></a>매개 변수 파일을 완성 합니다.
 

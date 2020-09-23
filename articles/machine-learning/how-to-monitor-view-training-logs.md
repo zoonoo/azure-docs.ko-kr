@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 642186ef4af43127ba0d6eb6950f09e069eb79ca
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6f557ac8476224cdb8414b2a45952d8f7d34513d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649289"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904994"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>ML 실행 로그 및 메트릭 모니터링 및 보기
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 Azure Machine Learning 실행을 모니터링 하 고 로그를 보는 방법에 대해 알아봅니다. 로그를 보려면 먼저 해당 로그를 사용 하도록 설정 해야 합니다. 자세한 내용은 [AZURE ML 학습 실행에서 로깅 사용](how-to-track-experiments.md)을 참조 하세요.
 
@@ -129,7 +129,7 @@ RunDetails(run).show()
 
 Azure Machine Learning를 사용 하는 방법을 알아보려면 다음 단계를 수행 하세요.
 
-* [Azure Machine Learning 디자이너 (미리 보기)에서 실험을 추적 하 고 로그를 사용 하도록 설정](how-to-track-designer-experiments.md)하는 방법에 대해 알아봅니다.
+* [Azure Machine Learning 디자이너에서 실험을 추적 하 고 로그를 사용 하도록 설정](how-to-track-designer-experiments.md)하는 방법을 알아봅니다.
 
 * 최상의 모델을 등록하고 배포하는 방법에 대한 예제는 [Azure Machine Learning으로 이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조하세요.
 

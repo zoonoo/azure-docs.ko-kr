@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: 773a05b911bc8e785957b5cf93700a361dc621ef
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a37a09d971ee80d05f9e028ece1adc7962c0c1a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651135"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905704"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Azure Machine Learning 환경 이란 무엇 인가요?
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure Machine Learning 환경은 Machine Learning 교육이 발생 하는 환경을 캡슐화 하는 것입니다. 이들은 학습 및 점수 매기기 스크립트와 관련 된 Python 패키지, 환경 변수 및 소프트웨어 설정을 지정 합니다. 실행 시간 (Python, Spark 또는 Docker)도 지정 합니다. 환경은 다양 한 계산 대상에서 재현 가능 하 고 감사 가능 하며 이식 가능한 기계 학습 워크플로를 사용할 수 있도록 하는 Machine Learning 작업 영역 내에서 관리 되는 버전의 엔터티입니다.
 

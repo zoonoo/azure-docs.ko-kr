@@ -11,21 +11,21 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8ad22abdf17c68c93a6189db839fe357e7acc91e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 4ccf89a4dcb2c91cfdd96b20d74b7f31596b6249
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650839"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898275"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 Azure Machine Learning을 사용 하도록 개발 환경을 구성 하는 방법에 대해 알아봅니다. Azure Machine Learning는 플랫폼에 독립적입니다. 개발 환경에 대 한 유일한 하드 요구 사항은 Python 3입니다. Anaconda 또는 Virtualenv와 같은 격리 된 환경도 권장 됩니다.
 
 다음 표에서는 이 문서에서 다루는 각 개발 환경을 장단점과 함께 보여 줍니다.
 
-| Environment | 장점 | 단점 |
+| 환경 | 장점 | 단점 |
 | --- | --- | --- |
 | [클라우드 기반 Azure Machine Learning 계산 인스턴스](#compute-instance) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요. |
 | [로컬 환경](#local) | 개발 환경 및 종속성에 대 한 모든 권한 원하는 빌드 도구, 환경 또는 IDE를 사용 하 여를 실행 합니다. | 시작 하는 데 시간이 더 오래 걸립니다. 필요한 SDK 패키지를 설치 해야 하 고, 아직 설치 되어 있지 않은 경우에도 환경을 설치 해야 합니다. |
@@ -61,7 +61,7 @@ Azure Machine Learning [계산 인스턴스](concept-compute-instance.md) 는 Ju
 
 패키지를 설치 하는 방법을 비롯 하 여 계산 인스턴스에 대해 자세히 알아보려면 [계산 인스턴스](concept-compute-instance.md)를 참조 하세요.
 
-계산 요금이 발생 하지 않도록 하려면 [계산 인스턴스를 중지](tutorial-1st-experiment-sdk-train.md#clean-up-resources)합니다.
+계산 요금이 발생 하지 않도록 하려면 [계산 인스턴스를 중지](tutorial-1st-experiment-bring-data.md#clean-up-resources)합니다.
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>데이터 과학 Virtual Machine
 

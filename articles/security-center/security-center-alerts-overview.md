@@ -10,18 +10,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278142"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905471"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
 Azure Security Center에는 다양한 리소스 유형에 대한 광범위한 경고가 있습니다. Security Center는 Azure에 배포된 리소스와, 온-프레미스 및 하이브리드 클라우드 환경에 배포된 리소스에 대해 경고를 생성합니다.
 
-보안 경고는 고급 검색에 의해 트리거되고 Azure Security Center 표준 계층 에서만 사용할 수 있습니다. 평가판을 사용할 수 있습니다. **가격 책정 & 설정** 페이지에서 업그레이드할 수 있습니다. [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 대해 자세히 알아보세요.
+보안 경고는 고급 검색에서 트리거되고 Azure Defender 에서만 사용할 수 있습니다. 평가판을 사용할 수 있습니다. **가격 책정 & 설정** 페이지에서 업그레이드할 수 있습니다. [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 대해 자세히 알아보세요.
 
 ## <a name="respond-to-todays-threats"></a>오늘 위협 <a name="respond-threats"> </a> 에 대응
 
@@ -45,7 +45,7 @@ Security Center는 인시던트를 통해 사용자에게 공격 행위와 모�
 
 ## <a name="how-does-security-center-detect-threats"></a>Security Center는 위협을 어떻게 검색하나요? <a name="detect-threats"> </a>
 
-Microsoft 보안 연구원은 지속적으로 위협을 지켜보고 있습니다. 클라우드 및 온-프레미스를 망라하는 Microsoft의 글로벌 입지 덕분에 포괄적인 원격 분석 집합에 액세스할 수 있습니다. 이 광범위하고 다양한 데이터 세트의 컬렉션을 통해 온라인 서비스뿐 아니라 해당 온-프레미스 소비자 및 엔터프라이즈 제품에서도 새로운 공격 패턴 및 추세를 검색할 수 있습니다. 결과적으로 보안 센터는 공격자가 새롭고 더욱 정교한 악용을 릴리스하는 동안 신속하게 해당 감지 알고리즘을 업데이트할 수 있습니다. 이 방법을 통해 빠르게 움직이는 위협 환경을 지속적으로 관리할 수 있습니다.
+Microsoft 보안 연구원은 지속적으로 위협을 지켜보고 있습니다. 클라우드 및 온-프레미스의 글로벌 거점 때문에 광범위 한 원격 분석 집합에 액세스할 수 있습니다. 광범위 하 고 다양 한 데이터 집합 컬렉션을 통해 온-프레미스 소비자 및 엔터프라이즈 제품 뿐만 아니라 온라인 서비스 새로운 공격 패턴 및 추세를 검색할 수 있습니다. 결과적으로 보안 센터는 공격자가 새롭고 더욱 정교한 악용을 릴리스하는 동안 신속하게 해당 감지 알고리즘을 업데이트할 수 있습니다. 이 방법을 통해 빠르게 움직이는 위협 환경을 지속적으로 관리할 수 있습니다.
 
 실제 위혐을 검색하고 가양성을 줄이기 위해 Security Center는 Azure 리소스 및 네트워크에서 로그 데이터를 수집, 분석 및 취합합니다. 또한 방화벽 및 엔드포인트 보호 솔루션처럼 연결된 파트너 솔루션과도 연동합니다. Security Center는 위협 식별을 위해 종종 여러 원본의 정보를 상호 연결하여 이 정보를 분석합니다.
 
@@ -90,6 +90,5 @@ Azure Security Center는 위협 환경의 변화를 지속적으로 모니터링
 
 이 문서에서는 Security Center에서 제공하는 다양한 보안 경고 유형에 대해 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center의 위협 방지](threat-protection.md) - Azure Security Center에 표시되는 보안 경고의 원본에 대한 간단한 설명입니다. 
-* **Azure 활동 로그의 보안 경고** - 보안 경고와 인시던트는 Azure Portal에서 또는 프로그래밍 방식으로 사용할 수 있을 뿐만 아니라 [Azure 활동 로그](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)에서 이벤트로 감사됩니다. 이벤트 스키마에 대한 자세한 내용은 [Azure 활동 로그의 보안 경고](https://go.microsoft.com/fwlink/?linkid=2114113)를 참조하세요.
+- **Azure 활동 로그의 보안 경고** - 보안 경고와 인시던트는 Azure Portal에서 또는 프로그래밍 방식으로 사용할 수 있을 뿐만 아니라 [Azure 활동 로그](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)에서 이벤트로 감사됩니다. 이벤트 스키마에 대한 자세한 내용은 [Azure 활동 로그의 보안 경고](https://go.microsoft.com/fwlink/?linkid=2114113)를 참조하세요.
 

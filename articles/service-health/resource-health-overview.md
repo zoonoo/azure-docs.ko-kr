@@ -1,14 +1,14 @@
 ---
 title: Azure Resource Health 개요
-description: Azure Resource Health 개요
+description: Azure Resource Health 사용 하 여 Azure 리소스에 영향을 주는 서비스 문제를 진단 하 고 지원을 받는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: f0d2fdb8e1c8b92dba526650405405db8ae8a776
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 25425eadfaf54ba56cde3b377a44cd85c2b68959
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041577"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967879"
 ---
 # <a name="resource-health-overview"></a>Resource Health 개요
  
@@ -32,7 +32,7 @@ Azure Resource Health를 통해 Azure 리소스에 영향을 주는 서비스 �
 
 !["최근에 해결 됨" 알림이 있는 가상 머신의 상태 * 사용 가능 *](./media/resource-health-overview/Available.png)
 
-### <a name="unavailable"></a>사용할 수 없음
+### <a name="unavailable"></a>Unavailable
 
 *사용할 수 없음* 은 서비스에서 리소스 상태에 영향을 주는 진행 중인 플랫폼 또는 비-플랫폼 이벤트를 검색 했음을 의미 합니다.
 
@@ -50,7 +50,7 @@ Resource Health는 이벤트 및 복구 프로세스에 대 한 추가 정보를
 
 ![비-플랫폼 이벤트로 인 한 가상 머신의 "사용할 수 없음" 상태](./media/resource-health-overview/Unavailable_NonPlatform.png)
 
-### <a name="unknown"></a>알 수 없음
+### <a name="unknown"></a>Unknown
 
 *Unknown* 은 Resource Health에서 리소스에 대 한 정보를 10 분 넘게 수신 하지 못했음을 의미 합니다. 이 상태는 리소스의 상태를 명확 하 게 표시 하지는 않지만 문제 해결을 위한 중요 한 데이터 요소입니다.
 

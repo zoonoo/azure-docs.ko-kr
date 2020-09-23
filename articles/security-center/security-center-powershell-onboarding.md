@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: e6dfc0eb704b0b35ab4e181076d8f97fd3e8c9d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e367851c4d709acbc0eb94a47d7e20d4d3c1cc46
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080755"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904807"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell을 사용하여 Azure Security Center 온보딩 자동화
 
@@ -29,9 +29,9 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 이 문서에서는 전체 구독에서 Security Center를 배포하기 위해 환경에서 수정 및 사용될 수 있는 샘플 PowerShell 스크립트를 제공합니다. 
 
-이 예제에서는 ID: d07c0080-170c-4c24-861d-9c817742786c를 사용 하 여 구독에 대 한 Security Center를 사용 하도록 설정 하 고, 고급 위협 방지 및 검색 기능을 제공 하는 Security Center 표준 계층을 구현 하 여 높은 수준의 보호를 제공 하는 권장 설정을 적용 합니다.
+이 예제에서는 ID: d07c0080-170c-4c24-861d-9c817742786c를 사용 하 여 구독에 대 한 Security Center를 사용 하도록 설정 하 고, 고급 위협 방지 및 검색 기능을 제공 하는 Azure Defender를 사용 하 여 높은 수준의 보호를 제공 하는 권장 설정을 적용 합니다.
 
-1. [Security Center 표준 보호 수준을](https://azure.microsoft.com/pricing/details/security-center/)설정 합니다. 
+1. [Azure Defender](azure-defender.md)를 사용 하도록 설정 합니다. 
  
 2. 구독과 연결 된 Vm에서 수집한 데이터를 Log Analytics 에이전트가 전송 하는 Log Analytics 작업 영역을 설정 합니다 .이 예제에서는 기존 사용자 정의 작업 영역 (myWorkspace)입니다.
 
@@ -41,7 +41,7 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 6. Azure Security Center의 [기본 보안 정책](tutorial-security-policy.md)을 할당합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 단계는 Security Center cmdlet을 실행하기 전에 수행해야 합니다.
 
@@ -61,7 +61,7 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-1. 선택 사항: 구독의 적용 범위 수준(가격 책정 계층)을 설정합니다(정의되지 않은 경우 가격 책정 계층이 무료로 설정됨).
+1. 선택 사항: 구독의 적용 범위 수준 (Azure Defender on/off)을 설정 합니다. 정의 되지 않은 경우 Defender가 해제 됩니다.
 
     ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 
@@ -98,7 +98,7 @@ PowerShell을 사용 하 여 Azure Security Center 성공적으로 등록 했습
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 PowerShell을 사용하여 Security Center에 대한 온보딩을 자동화하는 방법을 자세히 알아보려면 다음 문서를 참조하세요.
 
 * [Az. Security](https://docs.microsoft.com/powershell/module/az.security)
