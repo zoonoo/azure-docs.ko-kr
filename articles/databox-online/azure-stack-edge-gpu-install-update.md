@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU 장치에 업데이트 설치 | Microsoft Docs
-description: Azure Portal 및 장치의 로컬 웹 UI를 사용 하 여 업데이트를 적용 하는 방법에 대해 설명 Azure Stack Edge GPU 장치 및 Kubernetes 클러스터
+title: Azure Stack Edge Pro GPU 장치에 업데이트 설치 | Microsoft Docs
+description: Azure Portal 및 장치의 로컬 웹 UI를 사용 하 여 업데이트를 적용 하는 방법에 대해 설명 합니다. Azure Stack Edge Pro GPU 장치 및 장치의 Kubernetes 클러스터
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 6bafeeeda686dafadc3f5104240f8d018de83aeb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 107485277e28a44841b0d71fef686f0bcbf52216
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268247"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899514"
 ---
-# <a name="update-your-azure-stack-edge-with-gpu"></a>GPU를 사용 하 여 Azure Stack Edge 업데이트 
+# <a name="update-your-azure-stack-edge-pro-with-gpu"></a>GPU를 사용 하 여 Azure Stack Edge Pro 업데이트 
 
-이 문서에서는 로컬 웹 UI를 통해 GPU를 사용 하 여 Azure Stack Edge에 업데이트를 설치 하 고 Azure Portal를 통해 업데이트를 설치 하는 데 필요한 단계를 설명 합니다. 장치에 Azure Stack Edge 장치 및 관련 Kubernetes cluaster을 최신 상태로 유지 하기 위해 소프트웨어 업데이트나 핫픽스를 적용 합니다. 
+이 문서에서는 로컬 웹 UI를 통해 Azure Portal를 통해 GPU를 사용 하 여 Azure Stack Edge Pro에 업데이트를 설치 하는 데 필요한 단계를 설명 합니다. Azure Stack Edge Pro 장치와 연결 된 Kubernetes cluaster를 장치에 최신 상태로 유지 하기 위해 소프트웨어 업데이트나 핫픽스를 적용 합니다. 
 
 > [!IMPORTANT]
 > - 업데이트 **2008** 은 장치의 **2.1.1328.1904** 소프트웨어 버전에 해당 합니다. 이 업데이트에 대 한 자세한 내용은 [릴리스 정보](azure-stack-edge-gpu-2008-release-notes.md)를 참조 하세요.
 >
-> - 업데이트 또는 핫픽스를 설치하면 디바이스가 다시 시작됩니다. 이 업데이트를 적용 하려면 두 업데이트를 순차적으로 적용 해야 합니다. 먼저 장치 소프트웨어 업데이트를 적용 한 다음 업데이트를 Kubernetes 합니다. Azure Stack Edge가 단일 노드 장치인 경우 진행 중인 모든 i/o가 중단 되 고 장치 소프트웨어 업데이트에 대해 최대 30 분의 가동 중지 시간이 발생 합니다.
+> - 업데이트 또는 핫픽스를 설치하면 디바이스가 다시 시작됩니다. 이 업데이트를 적용 하려면 두 업데이트를 순차적으로 적용 해야 합니다. 먼저 장치 소프트웨어 업데이트를 적용 한 다음 업데이트를 Kubernetes 합니다. Azure Stack Edge Pro가 단일 노드 장치인 경우 처리 중인 모든 i/o가 중단 되 고 장치 소프트웨어 업데이트에 대해 최대 30 분의 가동 중지 시간이 발생 합니다.
 
 장치에 업데이트를 설치 하려면 먼저 업데이트 서버의 위치를 구성 해야 합니다. 업데이트 서버를 구성한 후 Azure Portal UI 또는 로컬 웹 UI를 통해 업데이트를 적용할 수 있습니다.
 
@@ -57,7 +57,7 @@ Azure Portal를 통해 업데이트를 설치 하는 것이 좋습니다. 장치
 
 2. **장치 업데이트** 블레이드에서 릴리스 정보의 새 기능과 관련 된 사용 조건을 검토 했는지 확인 합니다.
 
-    업데이트를 다운로드 하 여 **설치** 하거나 업데이트를 **다운로드** 하도록 선택할 수 있습니다. 그런 다음 나중에 이러한 업데이트를 설치 하도록 선택할 수 있습니다.
+    업데이트를 다운로드 하 여 **설치** 하거나 업데이트를 **다운로드** 하도록 선택할 수 있습니다. 그런 다음 나중에 이러한 업데이트를 설치하도록 선택할 수 있습니다.
 
     ![업데이트 후 소프트웨어 버전](./media/azure-stack-edge-gpu-install-update/portal-update-2a.png)    
 
@@ -159,9 +159,9 @@ Microsoft 업데이트 카탈로그에서 업데이트를 다운로드 하려면
 
     ![카탈로그 검색](./media/azure-stack-edge-gpu-install-update/download-update-1.png)
 
-2. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드 하려는 업데이트에 대 한 기술 자료 (KB) 번호 (KB)를 입력 합니다. 예를 들어 **Azure Stack Edge**를 입력 한 다음 **검색**을 클릭 합니다.
+2. Microsoft 업데이트 카탈로그의 검색 상자에 다운로드 하려는 업데이트에 대 한 기술 자료 (KB) 번호 (KB)를 입력 합니다. 예를 들어 **Azure Stack Edge Pro**를 입력 한 다음 **검색**을 클릭 합니다.
    
-    업데이트 목록은 **Azure Stack Edge 2006**으로 표시 됩니다.
+    업데이트 목록은 **Azure Stack Edge Pro 2006**으로 표시 됩니다.
    
     ![카탈로그 검색](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
 
@@ -215,4 +215,4 @@ Microsoft 업데이트 카탈로그에서 업데이트를 다운로드 하려면
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack Edge 관리](azure-stack-edge-manage-access-power-connectivity-mode.md)에 대해 자세히 알아보세요.
+[Azure Stack Edge Pro 관리](azure-stack-edge-manage-access-power-connectivity-mode.md)에 대해 자세히 알아보세요.

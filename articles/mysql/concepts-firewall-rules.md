@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c677b0278d29c499d4369967c1c76132a1ae9d21
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519850"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882662"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>MySQL용 Azure 데이터베이스 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
@@ -25,7 +25,7 @@ Azure Database for MySQL 서버에 대한 모든 데이터베이스 액세스는
 
 인터넷과 Azure로부터의 연결 시도는 다음 다이어그램과 같이 MySQL용 Azure 데이터베이스에 연결하기 전에 먼저 방화벽을 통과해야 합니다.
 
-![방화벽 작동 방식을 보여 주는 예제 흐름](./media/concepts-firewall-rules/1-firewall-concept.png)
+:::image type="content" source="./media/concepts-firewall-rules/1-firewall-concept.png" alt-text="방화벽 작동 방식을 보여 주는 예제 흐름":::
 
 ## <a name="connecting-from-the-internet"></a>인터넷에서 연결하기
 서버 수준 방화벽 규칙은 MySQL용 Azure 데이터베이스 서버의 모든 데이터베이스에 적용됩니다.
@@ -43,7 +43,7 @@ Azure 서비스에 대해 고정 된 나가는 IP 주소를 사용할 수 없는
 > **Azure 서비스에 대 한 액세스 허용** 옵션은 다른 고객의 구독에서 연결을 포함 하 여 azure에서 모든 연결을 허용 하도록 방화벽을 구성 합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.
 > 
 
-![포털에서 Azure 서비스 방문 허용 구성](./media/concepts-firewall-rules/allow-azure-services.png)
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="포털에서 Azure 서비스 방문 허용 구성":::
 
 ### <a name="connecting-from-a-vnet"></a>VNet에서 연결
 VNet에서 Azure Database for MySQL 서버에 안전 하 게 연결 하려면 [vnet 서비스 끝점](./concepts-data-access-and-security-vnet.md)을 사용 하는 것이 좋습니다. 
@@ -68,7 +68,7 @@ Microsoft Azure Database for MySQL 서버 서비스에 대한 액세스가 예�
 
 * **허용 되는 IP를 사용 하 여 Azure 리소스에서 연결할 수 없음:** 연결 하려는 서브넷에 대해 **Microsoft Sql** 서비스 끝점을 사용할 수 있는지 여부를 확인 합니다. **Microsoft .sql** 을 사용 하는 경우에는 해당 서브넷에서 [VNet 서비스 끝점 규칙만](concepts-data-access-and-security-vnet.md) 사용 합니다.
 
-   예를 들어, **Microsoft Sql server** 를 사용 하지만 해당 VNet 규칙이 없는 서브넷의 Azure VM에서 연결 하는 경우 다음과 같은 오류가 표시 될 수 있습니다.`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+   예를 들어, **Microsoft Sql server** 를 사용 하지만 해당 VNet 규칙이 없는 서브넷의 Azure VM에서 연결 하는 경우 다음과 같은 오류가 표시 될 수 있습니다.  `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
 ## <a name="next-steps"></a>다음 단계
 

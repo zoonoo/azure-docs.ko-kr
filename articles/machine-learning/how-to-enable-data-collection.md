@@ -11,16 +11,16 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 72706a67e1798662ea0f40fa7843c32d8267e0d0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 195fc6100229fca2a05198ffa80108057ad8ad65
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646068"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897590"
 ---
 # <a name="collect-data-from-models-in-production"></a>프로덕션 환경에서 모델의 데이터 수집
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 AKS (Azure Kubernetes Service) 클러스터에 배포 된 Azure Machine Learning 모델에서 데이터를 수집 하는 방법을 보여 줍니다. 수집 된 데이터는 Azure Blob 저장소에 저장 됩니다.
 
@@ -199,7 +199,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
     [![Databricks 테이블 만들기](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. 데이터의 위치를 업데이트 합니다. 예를 들면 다음과 같습니다.
+1. 데이터의 위치를 업데이트 합니다. 다음은 예제입니다.
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

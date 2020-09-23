@@ -1,6 +1,6 @@
 ---
-title: IoT Edge 모듈을 통해 Azure Stack Edge GPU에 Kubernetes 상태 비저장 앱 배포 | Microsoft Docs
-description: 외부 IP를 통해 액세스 되는 IoT Edge 모듈을 사용 하 여 Azure Stack Edge GPU 장치에 Kubernetes 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.
+title: IoT Edge 모듈을 통해 Azure Stack Edge Pro GPU에 Kubernetes 상태 비저장 앱 배포 | Microsoft Docs
+description: 외부 IP를 통해 액세스 되는 IoT Edge 모듈을 사용 하 여 Azure Stack Edge Pro GPU 장치에 Kubernetes 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,42 +8,42 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 15316cbdd44053bfaf7403815ba42d92e2264b7b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4bc598080b96886e6734ac3709761465a1a28d49
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254171"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899520"
 ---
-# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-gpu-device"></a>IoT Edge 모듈을 사용 하 여 Azure Stack Edge GPU 장치에서 Kubernetes 상태 비저장 응용 프로그램을 실행 합니다.
+# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-pro-gpu-device"></a>IoT Edge 모듈을 사용 하 여 Azure Stack Edge Pro GPU 장치에서 Kubernetes 상태 비저장 응용 프로그램을 실행 합니다.
 
-이 문서에서는 IoT Edge 모듈을 사용 하 여 Azure Stack에 지 장치에 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.
+이 문서에서는 IoT Edge 모듈을 사용 하 여 Azure Stack Edge Pro 장치에 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다.
 
 상태 비저장 응용 프로그램을 배포 하려면 다음 단계를 수행 합니다.
 
 - IoT Edge 모듈을 배포 하기 전에 필수 구성 요소가 완료 되었는지 확인 합니다.
-- Azure Stack Edge에서 계산 네트워크에 액세스 하는 IoT Edge 모듈을 추가 합니다.
+- IoT Edge 모듈을 추가 하 여 Azure Stack Edge Pro에서 계산 네트워크에 액세스 합니다.
 - 모듈이 사용 가능한 네트워크 인터페이스에 액세스할 수 있는지 확인 합니다.
 
 이 방법 문서에서는 웹 서버 앱 모듈을 사용 하 여 시나리오를 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음이 필요 합니다.
 
-- Azure Stack Edge 장치입니다. 확인할 사항은 다음과 같습니다.
+- Azure Stack Edge Pro 장치입니다. 확인할 사항은 다음과 같습니다.
 
     - 장치에서 Compute 네트워크 설정이 구성 됩니다.
     - 장치는 [자습서: 장치 활성화](azure-stack-edge-gpu-deploy-activate.md)의 단계에 따라 활성화 됩니다.
-- [자습서: 장치에서 Azure Stack Edge 장치에서 계산 구성](azure-stack-edge-gpu-deploy-configure-compute.md) 을 기준으로 계산 단계를 **구성** 했습니다. 장치에 연결 된 IoT Hub 리소스, IoT 장치 및 IoT Edge 장치가 있어야 합니다.
+- [자습서: 장치에서 Azure Stack Edge Pro 장치에서 계산 구성](azure-stack-edge-gpu-deploy-configure-compute.md) 을 기준으로 계산 단계를 **구성** 했습니다. 장치에 연결 된 IoT Hub 리소스, IoT 장치 및 IoT Edge 장치가 있어야 합니다.
 
 
 ## <a name="add-webserver-app-module"></a>웹 서버 앱 모듈 추가
 
-다음 단계를 수행 하 여 Azure Stack Edge 장치에 웹 서버 앱 모듈을 추가 합니다.
+다음 단계를 수행 하 여 Azure Stack Edge Pro 장치에 웹 서버 앱 모듈을 추가 합니다.
 
 1. 장치와 연결 된 IoT Hub 리소스에서 **> IoT Edge 자동 장치 관리**로 이동 합니다.
-1. Azure Stack에 지 장치와 연결 된 IoT Edge 장치를 선택 하 고 클릭 합니다. 
+1. Azure Stack Edge Pro 장치와 연결 된 IoT Edge 장치를 선택 하 고 클릭 합니다. 
 
     ![IoT Edge 장치 선택](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/select-iot-edge-device-1.png)  
 

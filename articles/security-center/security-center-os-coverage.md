@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: f02e45804234fc8f8aa2b966db7ddce5efc9cfd1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2092a1aa3d5157db0392397e86553c5cc9da9de2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998835"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883796"
 ---
 # <a name="supported-platforms"></a>지원되는 플랫폼 
 
@@ -55,7 +55,7 @@ Azure Kubernetes (AKS), Azure Databricks 등의 일부 Azure 관리 서비스의
 
 클라우드 서비스에서 실행 되는 가상 컴퓨터도 지원 됩니다. 프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다. 클라우드 서비스에 대한 자세한 내용은 [Azure Cloud Services 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요.
 
-Azure Stack에 있는 Vm에 대 한 보호도 지원 됩니다. Azure Stack와 Security Center의 통합에 대 한 자세한 내용은 [Security Center에 Azure Stack virtual machines](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack)등록을 참조 하세요.
+Azure Stack에 있는 Vm에 대 한 보호도 지원 됩니다. Azure Stack와 Security Center의 통합에 대 한 자세한 내용은 [Security Center에 Azure Stack virtual machines](quickstart-onboard-machines.md)등록을 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

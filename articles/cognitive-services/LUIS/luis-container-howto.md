@@ -11,14 +11,17 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: f5409fea1cdbbc35e9068fae6b3ba7fbc2a95580
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bec96f45de69ab2698f3f0cf26f08222e4595ea5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547395"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889500"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
+
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
+
 
 LUIS (Language Understanding) 컨테이너는 학습 또는 게시 된 Language Understanding 모델을 로드 합니다. [LUIS 앱](https://www.luis.ai)으로 docker 컨테이너는 컨테이너의 API 끝점에서 쿼리 예측에 대 한 액세스를 제공 합니다. 컨테이너에서 쿼리 로그를 수집 하 고 다시 Language Understanding 앱에 업로드 하 여 앱의 예측 정확도를 향상 시킬 수 있습니다.
 
@@ -32,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합니다.
 
-|필수|용도|
+|필수|목적|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.|
@@ -66,10 +69,10 @@ LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합�
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
-명령을 사용 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 하 여 리포지토리에서 컨테이너 이미지를 다운로드 합니다 `mcr.microsoft.com/azure-cognitive-services/luis` .
+명령을 사용 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) 하 여 리포지토리에서 컨테이너 이미지를 다운로드 합니다 `mcr.microsoft.com/azure-cognitive-services/language/luis` .
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/language/luis:latest
 ```
 
 사용 가능한 태그에 대한 전체 설명은 이전 명령에서 사용되는 `latest`처럼 Docker 허브에서 [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204)를 참조하세요.
@@ -108,8 +111,8 @@ LUIS 컨테이너는 사용자 발화의 예측 쿼리에 응답하기 위해 �
 |패키지 형식|쿼리 엔드포인트 API|쿼리 가용성|패키지 파일 이름 형식|
 |--|--|--|--|
 |바뀔|GET, POST|컨테이너만|`{APP_ID}_v{APP_VERSION}.gz`|
-|준비|GET, POST|Azure 및 컨테이너|`{APP_ID}_STAGING.gz`|
-|프로덕션|GET, POST|Azure 및 컨테이너|`{APP_ID}_PRODUCTION.gz`|
+|스테이징|GET, POST|Azure 및 컨테이너|`{APP_ID}_STAGING.gz`|
+|생산|GET, POST|Azure 및 컨테이너|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
 > LUIS 패키지 파일의 이름을 바꾸거나 변경 하거나 덮어쓰거나 압축을 해제 하지 마십시오.
@@ -206,7 +209,7 @@ docker run --rm -it -p 5000:5000 ^
 --cpus 2 ^
 --mount type=bind,src=c:\input,target=/input ^
 --mount type=bind,src=c:\output\,target=/output ^
-mcr.microsoft.com/azure-cognitive-services/luis ^
+mcr.microsoft.com/azure-cognitive-services/language/luis ^
 Eula=accept ^
 Billing={ENDPOINT_URI} ^
 ApiKey={API_KEY}

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/12/2020
-ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9a1a3892e6a47aabd9b5129ca551900494616bc8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192741"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905166"
 ---
 # <a name="score-wide-and-deep-recommender"></a>와이드 및 딥 추천 점수 매기기
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 wide **wide And Deep 추천** 모듈을 사용 하 여 Google에서 제공 하는 광범위 한 & 심층 학습을 기반으로 학습 된 추천 모델을 기반으로 예측을 만드는 방법을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 wide **wide And Deep 추천** 모듈을 사용 하 여 Google의 넓은 & 심층 학습을 기반으로 학습 된 권장 사항 모델을 기반으로 예측을 만드는 방법을 설명 합니다.
 
 Wide and Deep 추천는 다음과 같은 두 가지 종류의 예측을 생성할 수 있습니다.
 
@@ -56,7 +56,7 @@ Wide and Deep 추천 및 해당 기본 이론에 대 한 자세한 내용은 관
 
     데이터 집합에는 첫 번째 및 두 번째 열에 있는 사용자-항목 쌍의 선택적인 세 번째 열이 포함 될 수 있지만 예측 중에 세 번째 열은 무시 됩니다.
 
-4.  (선택 사항). 사용자 기능의 데이터 집합이 있는 경우 **사용자 기능**에 연결 합니다.
+4.  (선택 사항) 사용자 기능의 데이터 집합이 있는 경우 **사용자 기능**에 연결 합니다.
 
     사용자 기능의 데이터 집합은 첫 번째 열에 사용자 id를 포함 해야 합니다. 나머지 열은 성별, 기본 설정, 위치 등 사용자의 특징을 지정 하는 값을 포함 해야 합니다.
   
@@ -112,7 +112,7 @@ Wide and Deep 추천 및 해당 기본 이론에 대 한 자세한 내용은 관
 
         데이터 집합은 사용자 항목 등급의 세 번째 열을 포함할 수 있지만이 열은 무시 됩니다.
 
-5. (선택 사항). **사용자 기능의**데이터 집합이 있는 경우 **사용자 기능**에 연결 합니다.
+5. (선택 사항) **사용자 기능의**데이터 집합이 있는 경우 **사용자 기능**에 연결 합니다.
 
     사용자 기능 데이터 집합의 첫 번째 열은 사용자 id를 포함 해야 합니다. 나머지 열은 성별, 기본 설정, 위치 등 사용자의 특징을 지정 하는 값을 포함 해야 합니다.
 

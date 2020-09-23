@@ -1,6 +1,6 @@
 ---
-title: Azure Marketplace에서 Microsoft Azure Stack Edge 장치에 GPU 모듈을 배포 합니다. Microsoft Docs
-description: 계산을 사용 하도록 설정 하 고 로컬 UI를 통해 Azure Stack Edge 장치를 계산 하도록 설정 하는 방법을 설명 합니다.
+title: Azure Marketplace에서 Microsoft Azure Stack Edge Pro 장치에 GPU 모듈을 배포 합니다. Microsoft Docs
+description: 계산을 사용 하도록 설정 하 고 로컬 UI를 통해 Azure Stack Edge Pro 장치를 계산 하도록 설정 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d29408c126844615666a4ab217027b6ae1d037d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a15e74dd2a1a2737675ef66284f348f33cd753dd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659954"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899944"
 ---
-# <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-gpu-device"></a>Azure Stack에 지 GPU 장치의 Azure Marketplace에서 GPU 사용 IoT 모듈 배포
+# <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치의 Azure Marketplace에서 GPU 사용 IoT 모듈 배포
 
-이 문서에서는 Azure Stack Edge 장치의 Azure Marketplace에서 GPU (그래픽 처리 장치) 사용 IoT Edge 모듈을 배포 하는 방법을 설명 합니다. 
+이 문서에서는 Azure Stack Edge Pro 장치의 Azure Marketplace에서 GPU (그래픽 처리 장치) 사용 IoT Edge 모듈을 배포 하는 방법을 설명 합니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
-  - GPU 모듈을 실행할 Azure Stack Edge를 준비 합니다.
+  - GPU 모듈을 실행할 Azure Stack Edge Pro를 준비 합니다.
   - Azure Marketplace에서 GPU 사용 IoT 모듈을 다운로드 하 고 배포 합니다.
   - 모듈 출력을 모니터링 합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "89659954"
 
 이 문서의 GPU 샘플 모듈에는 GPU에 대 한 CPU에 대 한 PyTorch 및 TensorFlow 벤치마킹 샘플 코드가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인합니다.
 
@@ -57,11 +57,11 @@ ms.locfileid: "89659954"
 
     ![샘플 모듈 가져오기](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
-5. Azure Stack Edge 장치를 배포 하는 데 사용 하는 구독을 선택 합니다.
+5. Azure Stack Edge Pro 장치를 배포 하는 데 사용 하는 구독을 선택 합니다.
 
     ![구독 선택](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/select-subscription-1.png)
 
-6. Azure Stack Edge 장치를 구성할 때 만든 IoT Hub 서비스의 이름을 입력 합니다. 이 IoT Hub 서비스 이름을 찾으려면 Azure Portal에서 장치와 연결 된 Azure Stack Edge 리소스로 이동 합니다. 
+6. Edge Pro 장치 Azure Stack 구성할 때 만든 IoT Hub 서비스의 이름을 입력 합니다. 이 IoT Hub 서비스 이름을 찾으려면 Azure Portal에서 장치와 연결 된 Azure Stack Edge 리소스로 이동 합니다. 
 
     1. 왼쪽 창 메뉴 옵션에서 **가장자리 계산 > 시작**으로 이동 합니다. 
 
@@ -71,7 +71,7 @@ ms.locfileid: "89659954"
 
     1. **Edge 계산 구성** 블레이드에서 다음을 수행 합니다.
 
-        1. Azure Stack에 지 장치에서 계산을 구성할 때 생성 된 IoT Hub 서비스를 적어 둡니다.
+        1. Azure Stack Edge Pro 장치에서 계산을 구성할 때 생성 된 IoT Hub 서비스를 적어 둡니다.
         2. 계산을 구성할 때 생성 된 IoT Edge 장치의 이름을 적어둡니다. 이후 단계에서이 이름을 사용 합니다.
 
         ![Edge 계산 구성](media/azure-stack-edge-gpu-deploy-sample-module/view-compute-config-1.png)
@@ -95,9 +95,9 @@ ms.locfileid: "89659954"
 
 1. VS Code 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택**을 실행합니다.
 
-2. 구성하려는 IoT Edge 디바이스가 포함된 구독 및 IoT Hub를 선택합니다. 이 경우 Azure Stack Edge 장치를 배포 하는 데 사용 되는 구독을 선택 하 고 Azure Stack Edge 장치에 대해 생성 된 IoT Edge 장치를 선택 합니다. 이는 이전 단계의 Azure Portal를 통해 compute를 구성 하는 경우에 발생 합니다.
+2. 구성하려는 IoT Edge 디바이스가 포함된 구독 및 IoT Hub를 선택합니다. 이 경우 Azure Stack Edge Pro 장치를 배포 하는 데 사용 되는 구독을 선택 하 고 Azure Stack Edge Pro 장치에 대해 생성 된 IoT Edge 장치를 선택 합니다. 이는 이전 단계의 Azure Portal를 통해 compute를 구성 하는 경우에 발생 합니다.
 
-3. VS Code 탐색기에서 Azure IoT Hub 섹션을 확장 합니다. **장치**에 Azure Stack에 지 장치에 해당 하는 IoT Edge 장치가 표시 됩니다. 
+3. VS Code 탐색기에서 Azure IoT Hub 섹션을 확장 합니다. **장치**에 Azure Stack Edge Pro 장치에 해당 하는 IoT Edge 장치가 표시 됩니다. 
 
     1. 해당 장치를 선택 하 고 마우스 오른쪽 단추를 클릭 한 다음 **기본 제공 모니터링 시작 이벤트 끝점**을 선택 합니다.
   
@@ -105,7 +105,7 @@ ms.locfileid: "89659954"
 
     2. **장치 > 모듈로** 이동 하면 **GPU 모듈이** 실행 되 고 있는 것을 볼 수 있습니다.
 
-    3. 또한 VS Code 터미널은 IoT Hub 이벤트를 Azure Stack Edge 장치에 대 한 모니터링 출력으로 표시 해야 합니다.
+    3. 또한 VS Code 터미널은 IoT Hub 이벤트를 Azure Stack Edge Pro 장치에 대 한 모니터링 출력으로 표시 해야 합니다.
 
         ![모니터링 출력](media/azure-stack-edge-gpu-deploy-sample-module/monitor-events-output-1.png) 
 

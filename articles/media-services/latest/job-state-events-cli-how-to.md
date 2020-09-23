@@ -1,6 +1,6 @@
 ---
 title: CLI를 사용하여 Event Grid에서 Azure Media Services 이벤트 모니터링 | Microsoft Docs
-description: 이 문서에서는 Azure Media Services 이벤트를 모니터링하기 위해 Event Grid를 구독하는 방법을 설명합니다.
+description: 이 문서에서는 Azure CLI를 사용 하 여 Azure Media Services 이벤트를 모니터링 하기 위해 Event Grid를 구독 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b840f00f23db1590422bae853fee070c3c43f899
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 072bfb22eba82d7a39d985f72cbc78c0639a4795
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296756"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976828"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Azure CLI를 사용하여 Event Grid에서 Media Services 이벤트 만들기 및 모니터링
 

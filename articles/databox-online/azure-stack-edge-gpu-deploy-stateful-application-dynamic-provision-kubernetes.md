@@ -1,6 +1,6 @@
 ---
-title: Kubectl를 사용 하 여 Azure Stack Edge GPU 장치에서 동적으로 프로 비전 된 공유를 통해 Kubernetes 상태 저장 앱을 배포 합니다. | Microsoft Docs
-description: Microsoft Azure Stack Edge GPU 장치에서 kubectl를 사용 하 여 동적으로 프로 비전 된 공유를 통해 Kubernetes 상태 저장 응용 프로그램 배포를 만들고 관리 하는 방법을 설명 합니다.
+title: Kubectl를 사용 하 여 Azure Stack Edge Pro GPU 장치에서 동적으로 프로 비전 된 공유를 통해 Kubernetes 상태 저장 앱을 배포 합니다. | Microsoft Docs
+description: Microsoft Azure Stack Edge Pro GPU 장치에서 kubectl를 사용 하 여 동적으로 프로 비전 된 공유를 통해 Kubernetes 상태 저장 응용 프로그램 배포를 만들고 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,50 +8,50 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: c787fc4c37c8fc3b4b8f007b1a84a5989a15fbc4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d37152f7dec78d5f5db21fdde9a8ec25c36c4e05
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254324"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899477"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-gpu-device"></a>Kubectl를 사용 하 여 Azure Stack Edge GPU 장치에서 StorageClass로 Kubernetes 상태 저장 응용 프로그램을 실행 합니다.
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-pro-gpu-device"></a>Kubectl를 사용 하 여 Azure Stack Edge Pro GPU 장치에서 StorageClass로 Kubernetes 상태 저장 응용 프로그램을 실행 합니다.
 
 이 문서에서는 StorageClass를 사용 하 여 Kubernetes에서 단일 인스턴스 상태 저장 응용 프로그램을 배포 하 여 저장소 및 배포를 동적으로 프로 비전 하는 방법을 보여 줍니다. 배포는 `kubectl` 기존 Kubernetes 클러스터에서 명령을 사용 하 고 MySQL 응용 프로그램을 배포 합니다. 
 
-이 절차는 [Azure Stack Edge 장치에서 Kubernetes 저장소](azure-stack-edge-gpu-kubernetes-storage.md) 를 검토 하 고 [Kubernetes 저장소](https://kubernetes.io/docs/concepts/storage/)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
+이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 저장소](azure-stack-edge-gpu-kubernetes-storage.md) 를 검토 하 고 [Kubernetes 저장소](https://kubernetes.io/docs/concepts/storage/)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 상태 저장 응용 프로그램을 배포 하기 전에 장치에서 장치에 액세스 하는 데 사용할 클라이언트 및 장치에 대 한 다음 필수 구성 요소를 완료 했는지 확인 합니다.
 
 ### <a name="for-device"></a>디바이스의 경우
 
-- 1 노드 Azure Stack Edge 장치에 대 한 로그인 자격 증명이 있습니다.
+- 1 노드 Azure Stack Edge Pro 장치에 로그인 자격 증명이 있어야 합니다.
     - 장치가 활성화 됩니다. [장치 활성화를](azure-stack-edge-gpu-deploy-activate.md)참조 하세요.
     - 장치에 Azure Portal를 통해 구성 된 계산 역할이 있으며, Kubernetes 클러스터가 있습니다. [Compute 구성](azure-stack-edge-gpu-deploy-configure-compute.md)을 참조 하세요.
 
 ### <a name="for-client-accessing-the-device"></a>장치에 액세스 하는 클라이언트
 
-- Azure Stack Edge 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
+- Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
     - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7)로 이동 합니다.
     
     - [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) 를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 
     
-    - [Azure Stack Edge 장치에서 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)에 설명 된 절차를 완료 했습니다. 수행한 작업은 다음과 같습니다.
+    - [Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)에 설명 된 절차를 완료 했습니다. 수행한 작업은 다음과 같습니다.
       - `userns1`명령을 통해 네임 스페이스를 만들었습니다 `New-HcsKubernetesNamespace` . 
       - `user1`명령을 통해 사용자를 만들었습니다 `New-HcsKubernetesUser` . 
       - `user1`명령을 통해에 대 한 액세스 권한이 부여 `userns1` `Grant-HcsKubernetesNamespaceAccess` 됩니다.       
       - `kubectl`클라이언트에 설치 되 고 `kubeconfig` 사용자 구성으로 파일을 C: \\ Users 사용자 \\ &lt; 이름 &gt; \\ . kube에 저장 합니다. 
     
-    - `kubectl`클라이언트 버전이 Azure Stack Edge 장치에서 실행 되는 Kubernetes 마스터 버전에서 둘 이상의 버전을 사용 하지 않는지 확인 합니다. 
+    - `kubectl`클라이언트 버전이 Azure Stack Edge Pro 장치에서 실행 되는 Kubernetes 마스터 버전에서 둘 이상의 버전을 사용 하지 않는지 확인 합니다. 
         - `kubectl version`클라이언트에서 실행 되는 kubectl의 버전을 확인 하는 데 사용 합니다. 전체 버전을 기록해 둡니다.
-        - Azure Stack Edge 장치의 로컬 UI에서 **개요** 로 이동 하 여 Kubernetes software 번호를 확인 합니다. 
+        - Azure Stack Edge Pro 장치의 로컬 UI에서 **개요** 로 이동 하 여 Kubernetes 소프트웨어 번호를 확인 합니다. 
         - 지원 되는 Kubernetes 버전에서 제공 되는 매핑과의 호환성을 위해 이러한 두 버전을 확인 합니다.<!-- insert link-->. 
 
 
-Azure Stack Edge 장치에 상태 저장 응용 프로그램을 배포할 준비가 되었습니다. 
+Azure Stack Edge Pro 장치에 상태 저장 응용 프로그램을 배포할 준비가 되었습니다. 
 
 
 ## <a name="deploy-mysql"></a>MySQL 배포
@@ -78,7 +78,7 @@ Azure Stack Edge 장치에 상태 저장 응용 프로그램을 배포할 준비
 
 1. 다음 YAML 파일을 사용 합니다. `mysql-deployment.yml`이 파일은 MySQL을 실행 하 고 PVC를 참조 하는 배포를 설명 합니다. 파일은에 대 한 볼륨 탑재를 정의한 `/var/lib/mysql` 후 20gb 볼륨을 검색 하는 PVC를 만듭니다. 동적 PV가 프로 비전 되 고 PVC가이 PV에 바인딩됩니다.
 
-    `mysql-deployment.yml`Azure Stack Edge 장치에 액세스 하는 데 사용 하는 Windows 클라이언트의 폴더에 다음 파일을 복사 하 여 저장 합니다.
+    `mysql-deployment.yml`Azure Stack Edge Pro 장치에 액세스 하는 데 사용 하는 Windows 클라이언트의 폴더에 다음 파일을 복사 하 여 저장 합니다.
     
     ```yml
     apiVersion: v1
@@ -126,7 +126,7 @@ Azure Stack Edge 장치에 상태 저장 응용 프로그램을 배포할 준비
               claimName: mysql-pv-claim-sc
     ```
     
-2. `mysql-pvc.yml`을 저장 한 폴더와 동일한 폴더에 파일을 복사 하 고 저장 `mysql-deployment.yml` 합니다. 연결 된 데이터 디스크에 Edge 장치를 Azure Stack 하는 builtin StorageClass를 사용 하려면 `storageClassName` PVC 개체의 필드를로 설정 하 `ase-node-local` 고 accessmodes를로 설정 해야 합니다 `ReadWriteOnce` . 
+2. `mysql-pvc.yml`을 저장 한 폴더와 동일한 폴더에 파일을 복사 하 고 저장 `mysql-deployment.yml` 합니다. 연결 된 데이터 디스크에서 Edge Pro 장치를 Azure Stack 하는 builtin StorageClass를 사용 하려면 `storageClassName` PVC 개체의 필드를로 설정 하 `ase-node-local` 고 accessmodes를로 설정 해야 합니다 `ReadWriteOnce` . 
 
     > [!NOTE] 
     > YAML 파일의 들여쓰기가 올바른지 확인 합니다. [Yaml 보풀이](http://www.yamllint.com/) 있는지 확인 하 여 유효성을 검사 한 후 저장할 수 있습니다.
@@ -326,4 +326,4 @@ C:\Users\user>
 
 ## <a name="next-steps"></a>다음 단계
 
-Kubectl를 통해 네트워킹을 구성 하는 방법을 이해 하려면 [Azure Stack Edge 장치에 상태 비저장 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md) 를 참조 하세요.
+Kubectl를 통해 네트워킹을 구성 하는 방법을 이해 하려면 [Azure Stack Edge Pro 장치에 상태 비저장 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md) 를 참조 하세요.

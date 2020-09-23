@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 654b10a283c4dcf5a1a1866ec51799aad45a8893
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456746"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898888"
 ---
 # <a name="apply-math-operation"></a>수학 연산 적용
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 수학 적용 연산을 사용 하 여 입력 데이터 집합의 숫자 열에 적용 되는 계산을 만들 수 있습니다. 
 
@@ -36,7 +36,7 @@ ms.locfileid: "79456746"
   
      **기본** 범주의 함수는 단일 값 또는 값의 열을 조작 하는 데 사용할 수 있습니다. 예를 들어 열에 있는 모든 숫자의 절대값을 가져오거나 열에서 각 값의 제곱근을 계산할 수 있습니다.  
   
--   [과](#comparison-operations)  
+-   [비교](#comparison-operations)  
   
       **비교** 범주의 함수는 모두 비교에 사용 됩니다. 두 열의 값에 대 한 쌍 비교를 수행 하거나 열의 각 값을 지정 된 상수와 비교할 수 있습니다. 예를 들어 열을 비교 하 여 두 데이터 집합의 값이 동일한 지 여부를 확인할 수 있습니다. 또는 허용 되는 최대 값과 같은 상수를 사용 하 여 숫자 열에서 이상 값을 찾을 수 있습니다.  
   
@@ -148,7 +148,7 @@ Matlab의 ATAN2 함수에 해당합니다.
 
 선택한 열에 있는 값의 음수 지 수를 반환 합니다.  
 
-### <a name="factorial"></a>계승값
+### <a name="factorial"></a>계승
 선택한 열에 있는 값의 계승값을 반환 합니다.  
 
 ### <a name="hypotenuse"></a>빗변
@@ -251,7 +251,7 @@ Matlab의 ATAN2 함수에 해당합니다.
 
 나누기 및 빼기의 열을 선택 하는 순서는 직관적 것 처럼 보일 수 있습니다. 그러나 결과를 보다 쉽게 이해할 수 있도록 열 머리글은 작업 이름과 열이 사용 된 순서를 제공 합니다.
 
-연산|Num1|Num2|결과 열|결과 값|
+작업(Operation)|Num1|Num2|결과 열|결과 값|
 ----|----|----|----|----
 |더하기|1|5|추가 (Num2_Num1)| 4|
 |곱하기|1|5|Multiple (Num2_Num1)|5|
@@ -536,7 +536,7 @@ Erfc는 1 – erf (x)로 정의 됩니다.
 
 열 값의 하이퍼볼릭 시 컨 트를 계산 합니다.  
 
-### <a name="sign"></a>Sign
+### <a name="sign"></a>로그인
 
 열 값의 부호를 반환 합니다.  
 

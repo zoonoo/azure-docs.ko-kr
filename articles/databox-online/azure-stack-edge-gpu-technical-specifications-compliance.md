@@ -1,6 +1,6 @@
 ---
-title: GPU 기술 사양 및 규정 준수를 사용 하는 Microsoft Azure Stack Edge | Microsoft Docs
-description: GPU를 사용 하는 Azure Stack Edge 장치에 대 한 기술 사양 및 규정 준수에 대해 알아봅니다.
+title: GPU 기술 사양 및 규정 준수를 포함 하는 Microsoft Azure Stack Edge Pro | Microsoft Docs
+description: GPU를 사용 하 여 Azure Stack Edge Pro 장치에 대 한 기술 사양 및 규정 준수에 대해 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 3f354655a612d4085b0a0de45ae1a6e5ee097ade
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b0eaa9778480a6a767a4b37bd92a395d2b1ee6cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266666"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899029"
 ---
-# <a name="technical-specifications-and-compliance-for-azure-stack-edge-with-gpu"></a>GPU를 사용 하는 Azure Stack에 지에 대 한 기술 사양 및 규정 준수 
+# <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용 하는 Azure Stack Edge Pro에 대 한 기술 사양 및 규정 준수 
 
-온보드 GPU (그래픽 처리 장치)를 사용 하는 Azure Stack Edge의 하드웨어 구성 요소는이 문서에 설명 된 기술 사양 및 규제 표준을 준수 합니다. 기술 사양은 하드웨어, PSUs (전원 공급 장치), 저장소 용량, 엔클로저 및 환경 표준을 설명 합니다.
+온보드 GPU (그래픽 처리 장치)를 사용 하는 Azure Stack Edge Pro의 하드웨어 구성 요소는이 문서에 설명 된 기술 사양 및 규제 표준을 준수 합니다. 기술 사양은 하드웨어, PSUs (전원 공급 장치), 저장소 용량, 엔클로저 및 환경 표준을 설명 합니다.
 
 ## <a name="compute-and-memory-specifications"></a>계산 및 메모리 사양
 
-Azure Stack Edge 디바이스에는 컴퓨팅 및 메모리에 대한 다음과 같은 사양이 있습니다.
+Azure Stack Edge Pro 장치에는 계산 및 메모리에 대 한 다음과 같은 사양이 있습니다.
 
 | 사양           | 값                  |
 |-------------------------|----------------------------|
@@ -31,7 +31,7 @@ Azure Stack Edge 디바이스에는 컴퓨팅 및 메모리에 대한 다음과 
 
 ## <a name="compute-acceleration-specifications"></a>계산 가속 사양
 
-GPU (그래픽 처리 장치)는 Kubernetes, 심층 학습 및 기계 학습 시나리오를 지 원하는 모든 Azure Stack Edge 장치에 포함 되어 있습니다.
+GPU (그래픽 처리 장치)는 Kubernetes, 심층 학습 및 기계 학습 시나리오를 지 원하는 모든 Azure Stack Edge Pro 장치에 포함 되어 있습니다.
 
 | 사양           | 값                  |
 |-------------------------|----------------------------|
@@ -40,7 +40,7 @@ GPU (그래픽 처리 장치)는 Kubernetes, 심층 학습 및 기계 학습 시
 
 ## <a name="power-supply-unit-specifications"></a>전원 공급 장치 사양
 
-Azure Stack Edge 장치에는 고성능 팬이 있는 2 개의 100-240 V 전원 공급 장치 (PSUs)가 있습니다. 두 대의 PSU는 중복 전원 구성을 제공합니다. PSU가 실패하면, 디바이스는 실패한 모듈이 교체될 때까지 다른 PSU에서 정상적으로 작동합니다. 다음 표에는 PSU의 기술 사양이 나열되어 있습니다.
+Azure Stack Edge Pro 장치에는 고성능 팬이 있는 2 개의 100-240 V 전원 공급 장치 (PSUs)가 있습니다. 두 대의 PSU는 중복 전원 구성을 제공합니다. PSU가 실패하면, 디바이스는 실패한 모듈이 교체될 때까지 다른 PSU에서 정상적으로 작동합니다. 다음 표에는 PSU의 기술 사양이 나열되어 있습니다.
 
 | 사양           | 750W PSU                  |
 |-------------------------|----------------------------|
@@ -52,16 +52,16 @@ Azure Stack Edge 장치에는 고성능 팬이 있는 2 개의 100-240 V 전원 
 
 ## <a name="network-interface-specifications"></a>네트워크 인터페이스 사양
 
-Azure Stack Edge 장치에는 PORT1-PORT6의 6 개 네트워크 인터페이스가 있습니다.
+Azure Stack Edge Pro 장치에는 PORT1-PORT6의 6 개 네트워크 인터페이스가 있습니다.
 
 | 사양           | Description                 |
 |-------------------------|----------------------------|
 |  네트워크 인터페이스    | **2 X 1 GbE 인터페이스** – 1 관리 인터페이스 포트 1은 초기 설치에 사용 되며 기본적으로 정적입니다. 초기 설치가 완료 된 후에는 모든 IP 주소를 사용 하 여 데이터에 대 한 인터페이스를 사용할 수 있습니다. 그러나 다시 설정 시 인터페이스는 정적 IP로 돌아갑니다. <br>다른 인터페이스 포트 2는 사용자가 구성할 수 있으며, 데이터 전송에 사용할 수 있으며, 기본적으로 DHCP입니다. <br>**4 X 25 GbE 인터페이스** – 포트 6을 통해 포트 3의 이러한 데이터 인터페이스는 DHCP (기본값) 또는 정적으로 사용자에 의해 구성 될 수 있습니다. 이러한 인터페이스는 10 개의 GbE 인터페이스로 작동할 수도 있습니다.  | 
 
-Azure Stack Edge 장치에는 다음과 같은 네트워크 하드웨어가 있습니다.
+Azure Stack Edge Pro 장치에는 다음과 같은 네트워크 하드웨어가 있습니다.
 
-* **사용자 지정 Microsoft Qlogic Cavium 25G NDC 어댑터** -포트 1에서 포트 4까지
-* **Mellanox 이중 포트 25G connectx-3-4 채널 네트워크 어댑터** -포트 5 및 포트 6.
+* **사용자 지정 Microsoft Qlogic Cavium 25G NDC 어댑터** - 포트 1~포트 4
+* **Mellanox 이중 포트 25G ConnectX-4 채널 네트워크 어댑터** - 포트 5 및 포트 6
 
 다음은 Mellanox 카드에 대 한 세부 정보입니다.
 
@@ -72,14 +72,14 @@ Azure Stack Edge 장치에는 다음과 같은 네트워크 하드웨어가 있�
 | 장치 부품 번호 (R640) | MCX4121A-ACAT  |
 | PSID (R640)           | MT_2420110034                         |
 
-이러한 네트워크 카드에 대해 지원 되는 케이블, 스위치 및 트랜시버의 전체 목록은 다음으로 이동 합니다.
+이러한 네트워크 카드에 대해 지원되는 케이블, 스위치 및 트랜시버의 전체 목록은 다음으로 이동합니다.
 
-- [Qlogic Cavium 25G NDC 어댑터 상호 운용성 매트릭스](https://www.marvell.com/documents/xalflardzafh32cfvi0z/)입니다.
-- [Mellanox 이중 포트 25G connectx-3-4 채널 네트워크 어댑터 호환 제품](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products)입니다.  
+- [Qlogic Cavium 25G NDC 어댑터 상호 운용성 매트릭스](https://www.marvell.com/documents/xalflardzafh32cfvi0z/)
+- [Mellanox 이중 포트 25G ConnectX-4 채널 네트워크 어댑터 호환 제품](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products)  
 
 ## <a name="storage-specifications"></a>스토리지 사양
 
-Azure Stack Edge 장치에는 각각 1.6 TB의 용량을 포함 하는 5 개의 2.5 "NVMe DC P4610 Ssd가 있습니다. 부팅 드라이브는 240 g b의 SATA SSD입니다. 장치에 사용할 수 있는 총 용량은 약 8.28 TB입니다. 다음 표에는 장치의 저장소 용량이 정리 되어 있습니다.
+Azure Stack Edge Pro 장치에는 각각 1.6 TB의 용량을 포함 하는 5 개의 2.5 "NVMe DC P4610 Ssd가 있습니다. 부팅 드라이브는 240 g b의 SATA SSD입니다. 장치에 사용할 수 있는 총 용량은 약 8.28 TB입니다. 다음 표에는 장치의 저장소 용량이 정리 되어 있습니다.
 
 |     사양                          |     값             |
 |--------------------------------------------|-----------------------|
@@ -97,7 +97,7 @@ Azure Stack Edge 장치에는 각각 1.6 TB의 용량을 포함 하는 5 개의 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
 
-Your Azure Stack Edge device also contains the following hardware:
+Your Azure Stack Edge Pro device also contains the following hardware:
 
 * iDRAC baseboard management
 * Performance fans
@@ -172,4 +172,4 @@ Your Azure Stack Edge device also contains the following hardware:
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack Edge 배포](azure-stack-edge-gpu-deploy-prep.md)
+[Azure Stack Edge Pro 배포](azure-stack-edge-gpu-deploy-prep.md)

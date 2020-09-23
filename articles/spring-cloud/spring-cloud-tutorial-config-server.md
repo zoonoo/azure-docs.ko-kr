@@ -7,14 +7,16 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 665d508a7d95e177d0db09ad86e2a5f0ee4d605b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2f788452455bfbbc47f0a48689ccf3344515fdae
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291299"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904242"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>서비스용 Spring Cloud Config 서버 인스턴스 설정
+
+이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
 
 이 문서에서는 Spring Cloud Config 서버 인스턴스를 Azure Spring Cloud 서비스에 연결하는 방법을 보여 줍니다.
 
@@ -163,7 +165,7 @@ SSH를 사용하는 프라이빗 Git 리포지토리를 설정하는 데 사용�
 
 리포지토리 설정을 사용하여 YAML 파일을 작성한 경우 파일을 로컬 머신에서 Azure Spring Cloud로 직접 가져올 수 있습니다. 기본 인증을 사용하는 프라이빗 리포지토리의 간단한 YAML 파일은 다음과 같습니다.
 
-```yml
+```yaml
 spring:
     cloud:
         config:

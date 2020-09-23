@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge, Azure Data Box Gateway의 지원 티켓 기록 | Microsoft Docs
-description: Azure Stack Edge 또는 Data Box Gateway 주문과 관련된 문제에 관한 지원 요청을 기록하는 방법을 알아봅니다.
+title: Azure Stack Edge Pro, Azure Data Box Gateway에 대 한 지원 티켓을 기록 합니다. Microsoft Docs
+description: Azure Stack Edge Pro 또는 Data Box Gateway 주문과 관련 된 문제에 대 한 지원 요청을 기록 하는 방법에 대해 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 4d513471e288c1aadbf70b24ef367965a0b69a80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9df729277934e074e1e8cc92126e777336708586
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339912"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904527"
 ---
-# <a name="open-a-support-ticket-for-azure-stack-edge-and-azure-data-box-gateway"></a>Azure Stack Edge 및 Azure Data Box Gateway의 지원 티켓 열기
+# <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Azure Stack Edge Pro 및 Azure Data Box Gateway에 대 한 지원 티켓을 엽니다.
 
-이 문서는 Azure Stack Edge/Azure Data Box Gateway 서비스에서 관리하는 Azure Stack Edge 및 Azure Data Box Gateway에 둘 다 적용됩니다. 서비스와 관련된 문제가 발생하면 기술 지원을 위한 서비스 요청을 만들 수 있습니다. 이 문서에서는 다음을 안내합니다.
+이 문서는 Azure Stack Edge Pro/Azure Data Box Gateway 서비스에서 관리 하는 Azure Stack Edge Pro 및 Azure Data Box Gateway에 적용 됩니다. 서비스와 관련된 문제가 발생하면 기술 지원을 위한 서비스 요청을 만들 수 있습니다. 이 문서에서는 다음을 안내합니다.
 
 * 지원 요청을 만드는 방법
 * 포털 내에서 지원 요청 주기를 관리하는 방법
@@ -26,13 +26,13 @@ ms.locfileid: "84339912"
 
 지원 요청을 만들려면 다음 단계를 수행합니다.
 
-1. Azure Stack Edge 또는 Data Box Gateway 주문으로 이동합니다. **지원 + 문제 해결** 섹션으로 이동한 다음, **새 지원 요청**을 선택합니다.
+1. Azure Stack Edge Pro 또는 Data Box Gateway 순서로 이동 합니다. **지원 + 문제 해결** 섹션으로 이동한 다음, **새 지원 요청**을 선택합니다.
 
 2. **새 지원 요청**의 **기본 사항** 탭에서 다음 단계를 수행합니다.
 
     1. **문제점 유형** 드롭다운 목록에서 **기술**을 선택합니다.
     2. **구독**을 선택합니다.
-    3. **서비스**에서 **내 서비스**를 확인합니다. 드롭다운 목록에서 **Azure Stack Edge 및 Data Box Gateway**를 선택합니다.
+    3. **서비스**에서 **내 서비스**를 확인합니다. 드롭다운 목록에서 **Azure Stack Edge Pro 및 Data Box Gateway**를 선택 합니다.
     4. **리소스**를 선택합니다. 이는 주문의 이름에 해당합니다.
     5. 발생한 문제의 간략한 **요약**을 제공합니다. 
     6. **문제 유형**을 선택합니다.
@@ -98,5 +98,5 @@ ms.locfileid: "84339912"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack Edge 관련 문제 해결](azure-stack-edge-troubleshoot.md) 방법을 알아봅니다.
+[Edge Pro Azure Stack와 관련 된 문제를 해결](azure-stack-edge-troubleshoot.md)하는 방법에 대해 알아봅니다.
 [Data Box Gateway 관련 문제 해결 방법](data-box-gateway-troubleshoot.md)을 알아봅니다.

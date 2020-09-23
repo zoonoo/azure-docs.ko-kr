@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: bf30fc5e6ccfc0f59c1769245e58177428472156
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 3d35a1f6913d0b657956489d0e57836a05f9eb1d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701817"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900044"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Azure Cognitive Services 컨테이너 FAQ (질문과 대답)
 
@@ -22,11 +22,16 @@ ms.locfileid: "83701817"
 
 **Q: 사용할 수 있는 기능은 무엇 인가요?**
 
-**A:** Azure Cognitive Services 컨테이너는 개발자가 Azure에서 사용할 수 있는 것과 동일한 지능형 Api를 사용할 수 있지만 컨테이너 화의 [이점이](../cognitive-services-container-support.md#features-and-benefits) 있습니다. 일부 컨테이너는 응용 프로그램에 액세스 해야 하는 제어 된 미리 보기로 사용할 수 있습니다. 다른 컨테이너는 일반적으로 제어 되지 않는 미리 보기로 사용할 수 있거나 일반 공급 됩니다. 컨테이너 및 [Azure Cognitive Services의 컨테이너 지원](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) 문서에서 전체 컨테이너 및 해당 가용성 목록을 찾을 수 있습니다. 
+**A:** Azure Cognitive Services 컨테이너는 개발자가 Azure에서 사용할 수 있는 것과 동일한 지능형 Api를 사용할 수 있지만 컨테이너 화의 [이점이](../cognitive-services-container-support.md#features-and-benefits) 있습니다. 일부 컨테이너는 응용 프로그램에 액세스 해야 하는 제어 된 미리 보기로 사용할 수 있습니다. 다른 컨테이너는 일반적으로 제어 되지 않는 미리 보기로 사용할 수 있거나 일반 공급 됩니다. 컨테이너 및 [Azure Cognitive Services의 컨테이너 지원](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) 문서에서 전체 컨테이너 및 해당 가용성 목록을 찾을 수 있습니다. [Docker 허브](https://hub.docker.com/_/microsoft-azure-cognitive-services)에서 컨테이너를 볼 수도 있습니다.
 
 **Q: Cognitive Services 클라우드와 컨테이너 간에 차이가 있나요?**
 
 **A:** Cognitive Services 컨테이너는 Cognitive Services 클라우드의 대안입니다. 컨테이너는 해당 하는 클라우드 서비스와 동일한 기능을 제공 합니다. 고객은 온-프레미스 또는 Azure에서 컨테이너를 배포할 수 있습니다. 핵심 AI 기술, 가격 책정 계층, API 키 및 API 서명은 컨테이너와 해당 클라우드 서비스 간에 동일 합니다. 해당 하는 클라우드 서비스에 대해 컨테이너를 선택 하는 [기능 및 이점은](../cognitive-services-container-support.md#features-and-benefits) 다음과 같습니다.
+
+**Q: 제어 되는 미리 보기 컨테이너에 액세스 하 여 사용 어떻게 할까요??**
+
+**A:** 이전에는 제어 된 미리 보기 컨테이너가 리포지토리에 호스트 되었습니다 `containerpreview.azurecr.io` . 2020 년 9 월 2 일부 터 이러한 컨테이너는 Microsoft Container Registry에서 호스팅되며, 다운로드 하면 docker login 명령을 사용 하지 않아도 됩니다. 승인 된 Azure 구독 ID를 사용 하 여 Azure 리소스를 만든 경우에는 제어 된 미리 보기 컨테이너를 실행할 수 있습니다. [요청 양식을](https://aka.ms/csgate)완료 한 후 Azure 구독이 승인 되지 않은 경우에는 컨테이너를 실행할 수 없습니다.
+
 
 **Q: 모든 Cognitive Services에 대해 컨테이너를 사용할 수 있게 하 고, 다음에 필요한 컨테이너 집합은 무엇 인가요?**
 
@@ -77,6 +82,22 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 
 **A:** 고객은 문제를 공개적으로 [음성](https://cognitive.uservoice.com/) 으로 전달 하 고 잠재적인 문제가 겹치면 동일한 작업을 수행 하는 다른 사람을 투표 하는 것이 좋습니다. 사용자 음성 도구는 제품 사용자 의견 및 기능 권장 사항에 모두 사용할 수 있습니다.
 
+**Q: Cognitive Services 컨테이너에서 반환 되는 상태 메시지 및 오류는 무엇 인가요?**
+
+**A:** 상태 메시지 및 오류 목록은 다음 표를 참조 하세요.
+
+|Status  | 설명  |
+|---------|---------|
+| `Valid` | API 키가 올바르지만 아무런 조치도 필요 하지 않습니다. |
+| `Invalid` |   API 키가 잘못 되었습니다. 컨테이너를 실행 하려면 올바른 API 키를 제공 해야 합니다. Azure Portal에서 Azure Cognitive Services 리소스에 대 한 **키 및 끝점** 섹션에서 API 키 및 서비스 지역을 찾습니다. |
+| `Mismatch` | 다른 종류의 인식 서비스 리소스에 대 한 API 키 또는 끝점을 제공 했습니다. Azure Cognitive Services 리소스에 대 한 **키 및 끝점** 섹션에서 API 키 및 서비스 지역을 찾습니다. |
+| `CouldNotConnect` | 컨테이너에서 청구 끝점에 연결할 수 없습니다. `Retry-After`추가 요청을 수행 하기 전에 값을 확인 하 고이 기간이 끝날 때까지 기다립니다. |
+| `OutOfQuota` | API 키가 할당량을 초과 했습니다. 가격 책정 계층을 업그레이드 하거나 추가 할당량을 사용할 수 있게 될 때까지 기다릴 수 있습니다. Azure Portal에서 Azure 인식 서비스 리소스의 **가격 책정 계층** 섹션에서 계층을 찾습니다. |
+| `BillingEndpointBusy` | 청구 끝점이 현재 사용 중입니다. `Retry-After`추가 요청을 수행 하기 전에 값을 확인 하 고이 기간이 끝날 때까지 기다립니다. |
+| `ContainerUseUnauthorized` | 제공 된 API 키는이 컨테이너에서 사용할 수 있는 권한이 없습니다. 제어 된 컨테이너를 사용할 가능성이 있으므로 [온라인 요청](https://aka.ms/csgate)을 제출 하 여 AZURE 구독 ID가 승인 되었는지 확인 합니다. |
+| `Unknown` | 서버에서 현재 청구 요청을 처리할 수 없습니다. |
+
+
 **Q: 지원 담당자에 게 연락 하는 사람은 누구 인가요?**
 
 **A:** 고객 지원 채널은 Cognitive Services 클라우드 제품과 동일 합니다. 모든 Cognitive Services 컨테이너에는 microsoft와 커뮤니티 지원 고객에 게 도움이 되는 로깅 기능이 포함 되어 있습니다. 추가 지원이 필요한 경우 다음 옵션을 참조 하세요.
@@ -106,7 +127,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 * [Computer Vision][cv-containers-billing]
 * [Face][fa-containers-billing]
 * [Form Recognizer][fr-containers-billing]
-* [언어 이해(LUIS)][lu-containers-billing]
+* [Language Understanding (LUIS)][lu-containers-billing]
 * [Speech Service API][sp-containers-billing]
 * [텍스트 분석][ta-containers-billing]
 
@@ -133,7 +154,7 @@ OpenShift를 사용 하 여 컨테이너를 테스트 하지는 않지만 일반
 * [Computer Vision][cv-containers-recommendations]
 * [Face][fa-containers-recommendations]
 * [Form Recognizer][fr-containers-recommendations]
-* [언어 이해(LUIS)][lu-containers-recommendations]
+* [Language Understanding (LUIS)][lu-containers-recommendations]
 * [Speech Service API][sp-containers-recommendations]
 * [텍스트 분석][ta-containers-recommendations]
  

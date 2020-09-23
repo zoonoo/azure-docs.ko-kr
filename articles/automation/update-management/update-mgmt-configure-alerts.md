@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c39a07ceac4d36bf3ef7394927589b53da7d789
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 1a46b5bf6c4be4953e6cde9972aa143be71406a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450755"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976998"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>업데이트 관리에 대 한 경고를 만드는 방법
 
@@ -56,7 +56,7 @@ Azure Automation 수집 되 고 Azure Monitor에 전달 되는 업데이트 관�
 
 9. **심각도** 필드는 성공적인 실행의 경우 **정보(심각도 2)** 로 설정하고, 실패한 실행의 경우 **정보(심각도 1)** 로 설정합니다.
 
-    ![신호 논리 구성](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
+    ![스크린샷 경고 규칙 이름, 설명 및 심각도 필드가 강조 표시 된 경고 세부 정보 정의 섹션을 보여 줍니다.](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
 
 10. **예** 를 선택 하 여 경고 규칙을 사용 하도록 설정 합니다.
 

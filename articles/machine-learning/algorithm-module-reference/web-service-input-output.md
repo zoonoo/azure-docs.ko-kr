@@ -1,6 +1,6 @@
 ---
 title: '웹 서비스 입력/출력: 모듈 참조'
-description: Azure Machine Learning 디자이너의 웹 서비스 모듈에 대 한 자세한 내용 (미리 보기)
+description: Azure Machine Learning 디자이너의 웹 서비스 모듈에 대 한 자세한 정보
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: ded976fc9090535f3c683b5c6351646a55265205
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a62f8aee0bd0a0d2b7009a48e9d5f00ea3c5155f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751113"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883228"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>웹 서비스 입력 및 웹 서비스 출력 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 웹 서비스 입력 및 웹 서비스 출력 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 웹 서비스 입력 및 웹 서비스 출력 모듈을 설명 합니다.
 
 웹 서비스 입력 모듈은 **DataFrameDirectory**형식의 입력 포트에만 연결할 수 있습니다. 웹 서비스 출력 모듈은 **DataFrameDirectory**형식의 출력 포트 에서만 연결할 수 있습니다. 모듈 트리의 **웹 서비스** 범주 아래에서 두 모듈을 찾을 수 있습니다. 
 

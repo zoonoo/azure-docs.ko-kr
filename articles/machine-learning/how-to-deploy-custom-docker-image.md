@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 2164f6d6b346eda185e8a38720677ad50f2e8c89
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f69ba6e1c5fdfc04fac6fed8487b246f9af72fa2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650673"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889936"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure Machine Learning를 사용 하 여 학습 된 모델을 배포할 때 사용자 지정 Docker 기본 이미지를 사용 하는 방법을 알아봅니다.
 
@@ -42,7 +42,7 @@ Azure Machine Learning는 기본 Docker 기본 이미지를 제공 하므로 만
 * 사용자 지정 기본 이미지 만들기: 사용자 지정 이미지를 만들고 Azure CLI 및 Machine Learning CLI를 사용 하 여 Azure Container Registry에 대 한 인증을 구성 하는 데 관리자 및 DevOps에 정보를 제공 합니다.
 * 사용자 지정 기본 이미지를 사용 하 여 모델 배포: Python SDK 또는 ML CLI에서 학습 된 모델을 배포할 때 사용자 지정 이미지를 사용 하 여 데이터 과학자 및 DevOps/ML 엔지니어에 게 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) 
@@ -184,14 +184,14 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 
 사용자 지정 이미지를 사용 하려면 다음 정보가 필요 합니다.
 
-* __이미지 이름__입니다. 예를 들어 `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` 은 Microsoft에서 제공 하는 기본 Docker 이미지에 대 한 경로입니다.
+* __이미지 이름__입니다. 예를 들어 `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` 은 Microsoft에서 제공 하는 간단한 Docker 이미지에 대 한 경로입니다.
 
     > [!IMPORTANT]
     > 만든 사용자 지정 이미지의 경우 이미지에 사용 된 태그를 포함 해야 합니다. 예를 들어와 같은 특정 태그를 사용 하 여 이미지를 만든 경우 `:v1` 입니다. 이미지를 만들 때 특정 태그를 사용 하지 않은 경우의 태그가 `:latest` 적용 됩니다.
 
 * 이미지가 __개인 리포지토리에__있는 경우 다음 정보가 필요 합니다.
 
-    * 레지스트리 __주소__입니다. 예: `myregistry.azureecr.io`.
+    * 레지스트리 __주소__입니다. `myregistry.azureecr.io`)을 입력합니다.
     * 레지스트리에 대 한 읽기 권한이 있는 서비스 사용자 __이름__ 및 __암호__ 입니다.
 
     이 정보가 없는 경우 관리자에 게 이미지를 포함 하는 Azure Container Registry에 대해 문의 하십시오.
@@ -202,7 +202,7 @@ Microsoft는 공개적으로 액세스할 수 있는 리포지토리에 여러 d
 
 | 이미지 | 설명 |
 | ----- | ----- |
-| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning에 대 한 기본 이미지 |
+| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Azure Machine Learning에 대 한 핵심 이미지 |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | CPU 추론에 대 한 ONNX 런타임을 포함 합니다. |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | GPU에 대 한 ONNX 런타임 및 UDA를 포함 합니다. |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | ONNX Runtime 및 GPU 용 TensorRT을 포함 합니다. |

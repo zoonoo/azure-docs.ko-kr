@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4112d26d6a21ac800e20bb67ce24a35ca9d09a13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477496"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905238"
 ---
 # <a name="preprocess-text"></a>텍스트 전처리
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 텍스트 **전처리** 모듈을 사용 하 여 텍스트를 정리 하 고 간소화할 수 있습니다. 이러한 일반 텍스트 처리 작업을 지원 합니다.
 
