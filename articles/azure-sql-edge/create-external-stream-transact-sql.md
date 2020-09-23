@@ -1,6 +1,6 @@
 ---
-title: CREATE EXTERNAL STREAM(Transact-SQL) - Azure SQL Edge(미리 보기)
-description: Azure SQL Edge(미리 보기)의 CREATE EXTERNAL STREAM 문에 대해 알아보기
+title: CREATE EXTERNAL STREAM (Transact-sql)-Azure SQL Edge
+description: Azure SQL Edge에서 CREATE EXTERNAL STREAM 문에 대해 알아보기
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 17783662ba91f227a7b0bf69203bf21dd8342277
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e28ce4cd46cb802241e02e4060441747389d3989
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489547"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888172"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM(Transact-SQL)
 
@@ -100,7 +100,7 @@ WITH  ( <with_options> )
    - Azure Blob Storage stream 개체 위치는 Blob 컨테이너 내에서 사용할 경로 패턴을 참조 합니다. 이 기능에 대 한 자세한 내용은 (/articles/stream-analytics/stream-analytics-define-outputs.md # blob-storage-gen2)를 참조 하세요.
 
 - **INPUT_OPTIONS**: 옵션을 키-값 쌍으로 지정 합니다 (예: Kafka, 스트리밍 쿼리를 입력 하는 IoT Edge 허브).
-    - 파티션: 토픽에 대해 정의 된 파티션 수
+    - 파티션: 토픽에 대해 정의 된 파티션 수입니다. 사용할 수 있는 최대 파티션 수는 32 개로 제한 됩니다.
       - Kafka 입력 스트림에 적용 됩니다.
     - CONSUMER_GROUP: Event 및 IoT Hubs는 한 소비자 그룹 내의 reader 수를 5로 제한합니다. 이 필드를 비워 두면 '$Default' 소비자 그룹이 사용됩니다.
       - 향후 사용을 위해 예약 되었습니다. Azure SQL Edge에는 적용 되지 않습니다.  
@@ -247,6 +247,5 @@ WITH
 
 ## <a name="see-also"></a>참고 항목
 
-- [ALTER EXTERNAL STREAM(Transact-SQL)](alter-external-stream-transact-sql.md) 
 - [DROP EXTERNAL STREAM(Transact-SQL)](drop-external-stream-transact-sql.md) 
 

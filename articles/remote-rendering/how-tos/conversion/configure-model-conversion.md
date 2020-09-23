@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: dda2676f258705ed833068c966bcc57115434b0d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067174"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967210"
 ---
 # <a name="configure-the-model-conversion"></a>모델 변환 구성
 
@@ -94,13 +94,19 @@ ms.locfileid: "88067174"
 
 * `deduplicateMaterials` - 이 매개 변수는 동일한 속성과 질감을 공유하는 재질의 자동 중복 제거를 사용하거나 사용하지 않도록 설정합니다. 중복 제거는 재질 재정의가 처리된 후에 발생합니다. 기본적으로 사용하도록 설정되어 있습니다.
 
+* 중복 제거 후에도 모델의 자료를 65535 개 이상 포함 하는 경우 서비스는 유사한 속성으로 자료를 병합 하려고 시도 합니다. 마지막 수단으로 제한을 초과 하는 자료는 빨간색 오류 자료로 바뀝니다.
+
+![이미지는 68921 색 삼각형의 두 큐브를 보여 줍니다.](media/mat-dedup.png?raw=true)
+
+68921 색이 지정 된 삼각형의 두 큐브입니다. Left: 68921 색 자료를 사용 하 여 중복 제거 전. Right: 64000 색 자료를 사용 하 여 중복 제거 후. 한도는 65535 자료입니다. [제한](../../reference/limits.md)을 참조 하세요.
+
 ### <a name="color-space-parameters"></a>색 공간 매개 변수
 
 렌더링 엔진은 색 값이 선형 공간에 있을 것으로 예상합니다.
 감마 공간을 사용하여 모델을 정의하는 경우 이러한 옵션을 true로 설정해야 합니다.
 
 * `gammaToLinearMaterial` - 재질 색을 감마 공간에서 선형 공간으로 변환합니다.
-* `gammaToLinearVertex`- :::no-loc text="vertex"::: 감마 공간에서 선형 공간으로 색을 변환 합니다.
+* `gammaToLinearVertex` - :::no-loc text="vertex"::: 감마 공간에서 선형 공간으로 색을 변환 합니다.
 
 > [!NOTE]
 > FBX 파일의 경우 이러한 설정은 기본적으로 `true`로 설정됩니다. 다른 모든 파일 형식의 경우 기본값은 `false`입니다.
@@ -139,11 +145,11 @@ ms.locfileid: "88067174"
 
 ### <a name="node-meta-data"></a>노드 메타 데이터
 
-* `metadataKeys`-변환 결과에 유지 하려는 노드 메타 데이터 속성의 키를 지정할 수 있습니다. 정확한 키 또는 와일드 카드 키를 지정할 수 있습니다. 와일드 카드 키는 "ABC *" 형식이 며 "ABC"로 시작 하는 모든 키와 일치 합니다. 지원 되는 메타 데이터 값 형식은 `bool` ,, `int` `float` 및 `string` 입니다.
+* `metadataKeys` -변환 결과에 유지 하려는 노드 메타 데이터 속성의 키를 지정할 수 있습니다. 정확한 키 또는 와일드 카드 키를 지정할 수 있습니다. 와일드 카드 키는 "ABC *" 형식이 며 "ABC"로 시작 하는 모든 키와 일치 합니다. 지원 되는 메타 데이터 값 형식은 `bool` ,, `int` `float` 및 `string` 입니다.
 
     글 글 TF 파일의 경우이 데이터는 [노드의 스페셜 개체](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras)에서 제공 됩니다. FBX 파일의 경우이 데이터는 `Properties70` 의 데이터에서 제공 `Model nodes` 됩니다. 자세한 내용은 3D 자산 도구의 설명서를 참조 하세요.
 
-### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::형식과
+### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex"::: 형식과
 
 :::no-loc text="vertex":::메모리 절약을 위해 전체 자릿수를 지정 하기 위해 메시의 형식을 조정할 수 있습니다. 메모리 공간이 작으면 더 큰 모델을 로드하거나 더 나은 성능을 얻을 수 있습니다. 그러나 데이터에 따라, 형식이 잘못될 경우 렌더링 품질이 크게 저하될 수 있습니다.
 
@@ -194,7 +200,7 @@ ms.locfileid: "88067174"
 
 형식의 메모리 공간은 다음과 같습니다.
 
-| 형식 | 설명 | 바이트 당 바이트:::no-loc text="vertex"::: |
+| 형식 | 설명 | 바이트 당 바이트 :::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|2분 부동 소수점 배정밀도|8
 |16_16_FLOAT|2분 부동 소수점 단정밀도|4
@@ -241,9 +247,9 @@ ms.locfileid: "88067174"
 
 ![3ds Max에서 복제](./media/3dsmax-clone-object.png)
 
-* **`Copy`**:이 모드에서는 메쉬가 복제 되므로 인스턴스 (= 0)가 사용 되지 않습니다 `numMeshPartsInstanced` .
-* **`Instance`**: 두 개체가 동일한 메시를 공유 하므로 인스턴스 ( `numMeshPartsInstanced` = 1)가 사용 됩니다.
-* **`Reference`**: 고유한 한정자를 기 하 도형에 적용할 수 있으므로 내보내기는 보수적인 접근 방식을 선택 하 고 인스턴스 (= 0)를 사용 하지 않습니다 `numMeshPartsInstanced` .
+* **`Copy`** :이 모드에서는 메쉬가 복제 되므로 인스턴스 (= 0)가 사용 되지 않습니다 `numMeshPartsInstanced` .
+* **`Instance`** : 두 개체가 동일한 메시를 공유 하므로 인스턴스 ( `numMeshPartsInstanced` = 1)가 사용 됩니다.
+* **`Reference`** : 고유한 한정자를 기 하 도형에 적용할 수 있으므로 내보내기는 보수적인 접근 방식을 선택 하 고 인스턴스 (= 0)를 사용 하지 않습니다 `numMeshPartsInstanced` .
 
 
 ### <a name="depth-based-composition-mode"></a>깊이 기반 컴퍼지션 모드
@@ -259,8 +265,8 @@ ms.locfileid: "88067174"
 시나리오 유형에 따라 텍스처 데이터의 양은 메시 데이터에 사용 되는 메모리 보다 클 수 있습니다. Photogrammetry 모델은 후보입니다.
 변환 구성은 질감을 자동으로 축소 하는 방법을 제공 하지 않습니다. 필요한 경우 질감 크기 조정을 클라이언트 쪽 전처리 단계로 수행 해야 합니다. 그러나 변환 단계에서는 적절 한 [질감 압축 형식을](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11)선택 합니다.
 
-* `BC1`불투명 한 색 질감
-* `BC7`알파 채널이 있는 소스 색 질감
+* `BC1` 불투명 한 색 질감
+* `BC7` 알파 채널이 있는 소스 색 질감
 
 형식에 `BC7` 비해 메모리 사용 공간이 두 배 이기 때문에 `BC1` 입력 질감이 불필요 하 게 알파 채널을 제공 하지 않는지 확인 하는 것이 중요 합니다.
 

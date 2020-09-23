@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 12/18/2019
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 9237e670dd8d43c4036f996c477948944718e3aa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ba094709d78d92b678e3aa5ad9995923888caf00
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053706"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887496"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
 
@@ -35,6 +35,7 @@ Anomaly Detector를 사용하면 시계열 데이터 전체에서 또는 실시�
 |---------|---------|
 |실시간으로 발생하는 변칙을 검색합니다. | 이전에 본 데이터 요소를 사용하여 최신 데이터가 변칙인지 확인하여 스트리밍 데이터에서 변칙을 검색합니다. 이 작업은 보내는 데이터 요소를 사용하여 모델을 생성하고 대상 포인트가 변칙인지 여부를 결정합니다. 생성하는 각각의 새 데이터 요소를 사용하여 API를 호출하면 데이터가 생성될 때 모니터링할 수 있습니다. |
 |일괄 처리로 데이터 세트 전체의 변칙을 검색합니다. | 시계열을 사용하여 데이터 전체에 존재할 수 있는 변칙을 검색합니다. 이 작업은 전체 시계열 데이터를 사용하여 모델을 생성하고, 각 포인트는 동일한 모델로 분석됩니다.         |
+|일괄 처리로 데이터 세트 전체의 변화 포인트를 검색합니다. | 시계열을 사용하여 데이터에 존재하는 추세 변화 포인트를 검색합니다. 이 작업은 전체 시계열 데이터를 사용하여 모델을 생성하고, 각 포인트는 동일한 모델로 분석됩니다.    |
 | 데이터에 대한 추가 정보를 가져옵니다. | 데이터 및 관찰된 변칙에 대한 유용한 정보를 가져오며, 여기에는 예상되는 값, 변칙 경계 및 위치 등이 포함됩니다. |
 | 변칙 검색 경계를 조정합니다. | Anomaly Detector API는 변칙 검색에 대한 경계를 자동으로 만듭니다. 이러한 경계를 조정하여 데이터에 잘 맞도록 데이터 변칙에 대한 API의 민감도를 높이거나 낮춥니다. |
 
@@ -45,7 +46,7 @@ Anomaly Detector를 사용하면 시계열 데이터 전체에서 또는 실시�
 
 ## <a name="notebook"></a>Notebook
 
-Anomaly Detector API를 호출하는 방법을 알아보려면 이 [Azure Notebook](https://aka.ms/adNotebook)을 사용해 보세요. 이 웹 호스팅 Jupyter Notebook은 API 요청을 보내고 결과를 시각화하는 방법을 보여 줍니다.
+Anomaly Detector API를 호출하는 방법을 알아보려면 이 [Notebook](https://aka.ms/adNotebook)을 사용해 보세요. 이 Jupyter Notebook은 API 요청을 보내고 결과를 시각화하는 방법을 보여 줍니다.
 
 Notebook을 실행하려면 다음 단계를 완료하세요.
 
@@ -92,4 +93,4 @@ Microsoft에서 개발한 SR-CNN 알고리즘에 대해 자세히 알아보려�
 
 * [빠른 시작: Anomaly Detector REST API를 사용하여 시계열 데이터에서 변칙 검색](quickstarts/detect-data-anomalies-csharp.md)
 * Anomaly Detector API [온라인 데모](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector)
-* Anomaly Detector [REST API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
+* Anomaly Detector [REST API 참조](https://aka.ms/anomaly-detector-rest-api-ref)

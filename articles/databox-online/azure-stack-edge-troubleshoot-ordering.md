@@ -1,6 +1,6 @@
 ---
-title: Azure Portal를 사용 하 여 Azure Stack에 지 정렬 문제 해결 | Microsoft Docs
-description: Azure Stack Edge 순서 문제를 해결 하는 방법을 설명 합니다.
+title: Azure Portal를 사용 하 여 Azure Stack Edge Pro 주문 문제를 해결 합니다. Microsoft Docs
+description: Edge Pro 주문 문제를 Azure Stack 문제를 해결 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 8c42ee867bdd20de64fa1c603de47b5f1e7bdb39
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055948"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903629"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Azure Stack Edge 순서 문제 해결
+# <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Azure Stack Edge Pro 주문 문제 해결
 
-이 문서에서는 Azure Stack Edge 순서 지정 문제를 해결 하는 방법을 설명 합니다.
+이 문서에서는 Edge Pro 주문 문제 Azure Stack 문제를 해결 하는 방법을 설명 합니다.
 
-이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >
@@ -59,7 +59,7 @@ Microsoft에서 대/소문자를 기준으로 구독 유형 업그레이드를 �
 
 ## <a name="microsoftdataboxedge-not-registered-for-subscription"></a>DataBoxEdge가 구독에 등록 되지 않았습니다.
 
-**오류:** Azure Portal에서 Edge 또는 Data Box Gateway Azure Stack에 사용할 구독을 선택 하 고 다음 오류를 가져옵니다.
+**오류:** Azure Portal에서 Edge Pro 또는 Data Box Gateway Azure Stack에 사용할 구독을 선택 하 고 다음 오류를 가져옵니다.
 
 *리소스 공급자: DataBoxEdge가 구독 구독 이름에 등록 되어 있지 않으며 &lt; &gt; 구독 &lt; 구독 이름 &gt; 에 대해 리소스 공급자를 등록할 수 있는 권한이*없습니다.
 
@@ -75,4 +75,4 @@ Microsoft에서 대/소문자를 기준으로 구독 유형 업그레이드를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Stack에 지 문제를 해결](azure-stack-edge-troubleshoot.md)하는 방법에 대해 자세히 알아보세요.
+* [Azure Stack Edge Pro 문제를 해결](azure-stack-edge-troubleshoot.md)하는 방법에 대해 자세히 알아보세요.

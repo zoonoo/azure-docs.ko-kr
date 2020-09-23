@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: df6e7435d072cc88e82f3dc9a323a5b21145c432
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bd72866e3e3db21691fda6aaec864a76af7414a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037259"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903719"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>Visual Studio Code Azure Stream Analytics 도구에서 IntelliSense
 
@@ -37,7 +37,7 @@ IntelliSense for VS Code Stream Analytics 도구는 언어 서버 제안, 코드
 |Completion     |  형식       |
 | ----- | ------- |
 | 키워드 | `keyword`
-| Functions | `build-in function`, `user defined function`  |
+| 함수 | `build-in function`, `user defined function`  |
 | 데이터 집합 이름| `input`, `output`, `intermediate result set`|
 | 데이터 집합 열 이름|`input`, `intermediate result set`|
 
@@ -71,6 +71,6 @@ IntelliSense **매개 변수 정보** 옵션은 함수에 필요한 매개 변�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기](quick-create-vs-code.md)
+* [빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)
 * [Visual Studio Code를 통해 샘플 데이터를 사용하여 로컬로 Stream Analytics 쿼리 테스트](visual-studio-code-local-run.md)
 * [Visual Studio Code를 사용 하 여 라이브 스트림 입력에 대해 로컬로 쿼리 Stream Analytics 테스트](visual-studio-code-local-run-live-input.md)

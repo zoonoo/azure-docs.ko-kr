@@ -1,14 +1,14 @@
 ---
 title: Recovery Services 자격 증명 모음 개요
-description: Recovery Services 자격 증명 모음 및 Azure Backup 자격 증명 모음 간의 개요 및 비교입니다.
+description: Recovery Services 자격 증명 모음에 대 한 개요입니다.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 6b6550bc8c5221547d55ad1e81a985b8ecd303e0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: cc09c1ffa84bc66e8fe2c48c80b8aea0977762ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889620"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975159"
 ---
 # <a name="recovery-services-vaults-overview"></a>Recovery Services 자격 증명 모음 개요
 
@@ -30,7 +30,7 @@ Recovery Services 자격 증명 모음은 시간에 따라 생성된 모든 백�
 
 - Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리 합니다. [저장소 설정을 변경](./backup-create-rs-vault.md#set-storage-redundancy)하는 방법을 참조 하세요.
 
-- 저장소 중복성에 대 한 자세한 내용은 [지역](../storage/common/storage-redundancy.md) 및 [로컬](../storage/common/storage-redundancy.md) 중복성에 대 한 문서를 참조 하세요.
+- 저장소 [중복성에](../storage/common/storage-redundancy.md#zone-redundant-storage) 대해 자세히 알아보려면 지역, [로컬](../storage/common/storage-redundancy.md#locally-redundant-storage) 및 영역 중복성 [에 대 한](../storage/common/storage-redundancy.md#geo-zone-redundant-storage)다음 문서를 참조 하세요.
 
 ## <a name="encryption-settings-in-the-recovery-services-vault"></a>Recovery Services 자격 증명 모음의 암호화 설정
 
@@ -54,7 +54,7 @@ Azure Advisor는 백업 되지 않은 Vm에 대 한 시간별 [권장 사항을]
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [자격 증명 모음 지원 및 지원 되지 않는 시나리오](backup-support-matrix.md#vault-support)
 - [자격 증명 모음에 대 한 질문과 대답](backup-azure-backup-faq.md)

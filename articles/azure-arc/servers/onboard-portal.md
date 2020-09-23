@@ -1,19 +1,19 @@
 ---
 title: Azure Portal에서 Azure에 하이브리드 머신 연결
-description: 이 문서에서는 Azure Portal에서 Azure Arc 사용 서버 (미리 보기)를 사용 하 여 에이전트를 설치 하 고 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
-ms.date: 08/07/2020
+description: 이 문서에서는 Azure Portal에서 Azure Arc 사용 서버를 사용 하 여 에이전트를 설치 하 고 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 23415bc648ae31b9073adb71d6f066a28c144c9d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7435256dda68b2689aeb19b237f499d50b418055
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213504"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887619"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Azure Portal에서 Azure에 하이브리드 머신 연결
 
-일련의 단계를 수동으로 수행 하 여 환경에서 하나 또는 소수의 Windows 또는 Linux 컴퓨터에 대해 Azure Arc 사용 서버 (미리 보기)를 사용 하도록 설정할 수 있습니다. 또는 제공된 템플릿 스크립트를 실행하여 자동화된 방법을 사용할 수 있습니다. 이 스크립트는 두 에이전트의 다운로드 및 설치를 자동화합니다.
+일련의 단계를 수동으로 수행 하 여 환경에서 하나 또는 소수의 Windows 또는 Linux 컴퓨터에 대해 Azure Arc 사용 서버를 사용 하도록 설정할 수 있습니다. 또는 제공된 템플릿 스크립트를 실행하여 자동화된 방법을 사용할 수 있습니다. 이 스크립트는 두 에이전트의 다운로드 및 설치를 자동화합니다.
 
 이 방법을 사용하려면 머신에 대한 관리자 권한으로 에이전트를 설치하고 구성할 수 있어야 합니다. Linux에서는 루트 계정을 사용하여 수행하고, Windows에서는 로컬 관리자 그룹의 멤버로 수행해야 합니다.
 
@@ -27,14 +27,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 브라우저에서 [Azure Portal](https://aka.ms/hybridmachineportal)로 이동합니다.
 
-1. **머신 - Azure Arc** 페이지의 왼쪽 위에서 **추가**를 선택하거나 가운데 창의 아래쪽에서 **머신 만들기 - Azure Arc** 옵션을 선택합니다.
+1. **서버-Azure Arc** 페이지에서 왼쪽 위에 있는 **추가** 를 선택 합니다.
 
-1. **메서드 선택** 페이지에서 **대화형 스크립트를 사용하여 머신 추가** 타일, **스크립트 생성**을 차례로 선택합니다.
+1. **방법 선택** 페이지에서 **대화형 스크립트를 사용 하 여 서버 추가** 타일을 선택한 다음 **스크립트 생성**을 선택 합니다.
 
 1. **스크립트 생성** 페이지에서 머신을 Azure 내에서 관리하려는 구독 및 리소스 그룹을 선택합니다. 머신 메타데이터를 저장할 Azure 위치를 선택합니다.
 
     >[!NOTE]
-    >Azure Arc 사용 서버 (미리 보기)는 다음 영역만 지원 합니다.
+    >Azure Arc 사용 서버는 다음 영역만 지원 합니다.
     >- EastUS
     >- WestUS2
     >- WestEurope
@@ -42,15 +42,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     >
     >개요 문서의 [여기](overview.md#supported-regions)에서 지역 선택 시 추가 고려 사항을 검토하세요.
 
-1. **스크립트 생성** 페이지의 **운영 체제** 드롭다운 목록에서 스크립트를 실행할 운영 체제를 선택합니다.
+1. **필수 구성 요소** 페이지에서 정보를 검토 한 후 **다음: 리소스 정보**를 선택 합니다.
 
-1. 머신에서 프록시 서버를 통해 통신하여 인터넷에 연결하는 경우 **다음: 프록시 서버**를 선택합니다.
+1. **리소스 정보** 페이지에서 다음을 제공 합니다.
 
-1. **프록시 서버** 탭에서 머신에서 프록시 서버와 통신하는 데 사용할 프록시 서버 IP 주소 또는 이름 및 포트 번호를 지정합니다. 해당 값을 `http://<proxyURL>:<proxyport>` 형식으로 입력합니다.
+    1. **리소스 그룹** 드롭다운 목록에서 컴퓨터가 관리 되는 리소스 그룹을 선택 합니다.
+    1. **지역** 드롭다운 목록에서 서버 메타 데이터를 저장할 Azure 지역을 선택 합니다.
+    1. **운영** 체제 드롭다운 목록에서 스크립트가 실행 되도록 구성 된 운영 체제를 선택 합니다.
+    1. 컴퓨터에서 인터넷에 연결 하기 위해 프록시 서버를 통해 통신 하는 경우 프록시 서버 IP 주소 또는 컴퓨터에서 프록시 서버와 통신 하는 데 사용할 이름 및 포트 번호를 지정 합니다. 해당 값을 `http://<proxyURL>:<proxyport>` 형식으로 입력합니다.
+    1. 완료되면 **다음: 태그**를 선택합니다.
 
-1. **검토 + 생성**을 선택합니다.
+1. **태그** 페이지에서 제안 된 기본 **물리적 위치 태그** 를 검토 하 고 값을 입력 하거나 표준을 지원할 **사용자 지정 태그** 를 하나 이상 지정 합니다.
 
-1. **검토 + 생성** 탭에서 요약 정보를 검토한 다음, **다운로드**을 선택합니다. 그래도 변경해야 하는 경우 **이전**을 선택합니다.
+1. **다음: 스크립트 다운로드 및 실행을**선택 합니다.
+
+1. **스크립트 다운로드 및 실행** 페이지에서 요약 정보를 검토 하 고 **다운로드**를 선택 합니다. 그래도 변경해야 하는 경우 **이전**을 선택합니다.
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>Windows에서 에이전트 설치 및 유효성 검사
 
@@ -147,7 +153,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Azure Arc 연결 확인
 
-에이전트를 설치 하 고 Azure Arc 사용 서버 (미리 보기)에 연결 하도록 구성한 후 Azure Portal으로 이동 하 여 서버가 성공적으로 연결 되었는지 확인 합니다. [Azure Portal](https://aka.ms/hybridmachineportal)에서 머신을 확인합니다.
+에이전트를 설치 하 고 Azure Arc 사용 서버에 연결 하도록 구성한 후 Azure Portal으로 이동 하 여 서버가 성공적으로 연결 되었는지 확인 합니다. [Azure Portal](https://aka.ms/hybridmachineportal)에서 머신을 확인합니다.
 
 ![성공적인 서버 연결](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -155,4 +161,4 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 - [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/insights/vminsights-enable-policy.md)로 모니터링 등).
 
-- [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. 머신에서 실행되는 OS 및 워크로드를 사전에 모니터링하거나, 자동화 Runbook 또는 업데이트 관리 같은 솔루션을 사용하여 관리하거나, [Azure Security Center](../../security-center/security-center-intro.md) 같은 다른 Azure 서비스를 사용하려는 경우에는 Windows 및 Linux용 Log Analytics 에이전트가 필요합니다.
+- [[Log Analytics agent]](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-intro.md)같은 다른 Azure 서비스를 사용 하려는 경우에 필요 합니다.

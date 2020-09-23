@@ -2,28 +2,32 @@
 title: IoT Edge 장치에 라이브 비디오 분석 배포-Azure
 description: 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.openlocfilehash: 30a3bda4069bb8c07d7c9be3fd8a3a2b1171eba2
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/09/2020
+ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526326"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887235"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 장치에 라이브 비디오 분석 배포
 
 이 문서에서는 IoT Edge 장치에 라이브 비디오 분석을 배포 하는 데 도움이 되는 단계를 나열 합니다. 예를 들어 로컬 Linux 컴퓨터에 대 한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우이 작업을 수행할 수 있습니다.
 
+> [!NOTE]
+> ARM64 장치에 대 한 지원은 IoT Edge 빌드 이상에서 라이브 비디오 분석에 제공 됩니다 `1.0.4` .
+> ARM64 디바이스에서 Azure IoT Edge 런타임을 실행하는 것에 대한 지원은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 있습니다.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 라이브 비디오 분석의 HW/SW 제약 조건을 충족 하는 Linux 컴퓨터
+* [지원 되는 Linux 운영 체제](https://docs.microsoft.com/azure/iot-edge/support#operating-systems) 중 하나를 실행 하는 x86-64 또는 ARM64 장치
 * [소유자 권한이](../../role-based-access-control/built-in-roles.md#owner) 있는 Azure 구독
 * [IoT Hub 만들기 및 설정](../../iot-hub/iot-hub-create-through-portal.md)
 * [IoT Edge 장치 등록](../../iot-edge/how-to-register-device.md)
 * [Debian 기반 Linux 시스템에서 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Azure Media Services 계정 만들기](../latest/create-account-howto.md)
 
-    * 미국 동부 2, 미국 중부, 미국 중 북부, 일본 동부, 미국 서 부 2, 미국 중부, 캐나다 동부, 영국 남부, 프랑스 중부, 프랑스 남부, 스위스 북부, 스위스 서부, 일본 서 부 지역 중 하나를 사용 합니다.
+    * 미국 동부 2, 미국 동부, 미국 중부, 미국 중 북부, 일본 동부, 미국 서 부, 미국 서 부 2, 미국 서 부, 캐나다 동부, 영국 남부, 프랑스 중부, 프랑스 남부, 스위스 북부, 스위스 서부, 일본 서 부 지역 중 하나를 사용 합니다.
     * 범용 v2 (GPv2) 저장소 계정을 사용 하는 것이 좋습니다.
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Live Video Analytics를 사용 하 여 Azure 리소스 구성
@@ -81,7 +85,6 @@ sudo chown -R edgeuser /var/media
 
 ## <a name="deploy-live-video-analytics-edge-module"></a>Live Video Analytics Edge 모듈 배포
 
-<!-- (To JuliaKo: this is similar to https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob)-->
 IoT Edge의 Live Video Analytics는 [모듈 쌍 구성 스키마](module-twin-configuration-schema.md)에 설명 된 모듈 쌍 속성을 노출 합니다. 
 
 ### <a name="deploy-using-the-azure-portal"></a>Azure Portal을 사용하여 배포
@@ -252,4 +255,4 @@ Azure Portal 배포 매니페스트를 만들고 배포를 IoT Edge 장치로 �
 [빠른 시작: IoT Edge 시작 하기-라이브 비디오 분석을](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device) 수행 합니다.
 
 > [!TIP]
-> 명령에서 다음을 실행 하 고 기본값 대신을 사용 `device-id` `lva-sample-device` 합니다.
+> 위의 빠른 시작을 진행 하는 경우 Visual Studio Code를 사용 하 여 직접 메서드를 호출 하는 경우 기본 대신이 문서를 통해 IoT Hub에 추가 된 장치를 사용 합니다 `lva-sample-device` .

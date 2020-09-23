@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 363c003a915763a7ab1165c2e0d8f945bc3dd510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213689"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903899"
 ---
 # <a name="logical-decoding"></a>논리 디코딩
  
@@ -52,11 +52,11 @@ Postgres 논리적 디코딩이 작동 하는 방식에 대 한 개요를 보려
 
 1. Azure replication support를 **logical**로 설정 합니다. **저장**을 선택합니다.
 
-   ![Azure Database for PostgreSQL-복제-Azure 복제 지원](./media/concepts-logical/replication-support.png)
+   :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Azure Database for PostgreSQL-복제-Azure 복제 지원":::
 
 2. **예**를 선택 하 여 서버를 다시 시작 하 여 변경 내용을 적용 합니다.
 
-   ![Azure Database for PostgreSQL-복제-다시 시작 확인](./media/concepts-logical/confirm-restart.png)
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL-복제-다시 시작 확인":::
 
 
 ## <a name="start-logical-decoding"></a>논리적 디코딩 시작
@@ -79,7 +79,7 @@ Postgres 논리적 디코딩이 작동 하는 방식에 대 한 개요를 보려
    SELECT * FROM pg_create_logical_replication_slot('test_slot', 'wal2json');
    ```
  
-2. SQL 명령을 실행 합니다. 예를 들어:
+2. SQL 명령을 실행 합니다. 다음은 그 예입니다. 
    ```SQL
    CREATE TABLE a_table (
       id varchar(40) NOT NULL,

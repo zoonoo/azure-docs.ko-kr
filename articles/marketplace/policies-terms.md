@@ -3,16 +3,16 @@ title: 상업적 marketplace 정책 및 약관, Azure Marketplace
 description: Microsoft 상업적 marketplace 정책 및 조항은 Azure Marketplace의 모든 게시자 및 제품에 적용 됩니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: reference
+ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/09/2020
-ms.openlocfilehash: cd936307eaacc7b2a46bac23c8fcfc9e2769135c
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4ddf37d5f2e7f569e5447dfe321574e3f9ccc778
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006723"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974846"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>상용 마켓플레이스 정책 및 용어
 
@@ -25,12 +25,11 @@ ms.locfileid: "90006723"
 
 ## <a name="policies-and-terms"></a>정책 및 용어
 
-* [상업용 Marketplace 인증 정책](https://docs.microsoft.com/legal/marketplace/certification-policies)
-
-* [등급 및 검토 정책](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
-
-* [Azure Marketplace 약관](https://docs.microsoft.com/legal/marketplace/terms)
+- [상업용 Marketplace 인증 정책](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context)
+- [Microsoft AppSource 및 Azure Marketplace 정책 검토](/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context)
+- [Azure Marketplace 참가 정책](/legal/marketplace/participation-policy?context=/azure/marketplace/context/context)
+- [Azure Marketplace 약관](/legal/marketplace/terms?context=/azure/marketplace/context/context)
 
 ## <a name="next-step"></a>다음 단계
 
-[상업적 marketplace 게시 가이드](./marketplace-publishers-guide.md) 페이지를 방문 하세요.
+[상업적 marketplace 게시 가이드](marketplace-publishers-guide.md) 페이지를 방문 하세요.

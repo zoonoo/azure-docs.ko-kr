@@ -1,23 +1,23 @@
 ---
-title: Windows PowerShell 인터페이스를 통해 Microsoft Azure Stack Edge 장치에 연결 및 관리 | Microsoft Docs
-description: Windows PowerShell 인터페이스를 통해에 연결 하 고 Azure Stack에 지를 관리 하는 방법을 설명 합니다.
+title: Windows PowerShell 인터페이스를 통해 Microsoft Azure Stack Edge Pro 장치에 연결 및 관리 | Microsoft Docs
+description: Windows PowerShell 인터페이스를 통해에 연결 하 고 Azure Stack Edge Pro를 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b58c38dd0257a65bad6021b6152c14a37f905e0a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: b0c2b547391efd37fc667b84548d99f1e7385cfb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461836"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903517"
 ---
-# <a name="manage-an-azure-stack-edge-gpu-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge GPU 장치 관리
+# <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro GPU 장치 관리
 
-Azure Stack Edge 솔루션을 사용 하면 데이터를 처리 하 고 네트워크를 통해 Azure에 보낼 수 있습니다. 이 문서에서는 Azure Stack Edge 장치에 대 한 몇 가지 구성 및 관리 작업을 설명 합니다. Azure Portal, 로컬 웹 UI 또는 Windows PowerShell 인터페이스를 사용 하 여 장치를 관리할 수 있습니다.
+Edge Pro 솔루션 Azure Stack 데이터를 처리 하 고 네트워크를 통해 Azure에 보낼 수 있습니다. 이 문서에서는 Azure Stack Edge Pro 장치에 대 한 구성 및 관리 작업을 설명 합니다. Azure Portal, 로컬 웹 UI 또는 Windows PowerShell 인터페이스를 사용 하 여 장치를 관리할 수 있습니다.
 
 이 문서에서는 장치의 PowerShell 인터페이스와이 인터페이스를 사용 하 여 수행할 수 있는 작업에 연결 하는 방법을 중점적으로 설명 합니다. 
 
@@ -84,11 +84,11 @@ For more information on certificates, go to [Azure IoT Edge certificates](https:
 
 ## <a name="enable-multi-process-service-mps"></a>MP (다중 프로세스 서비스) 사용
 
-Nvidia Gpu의 MP (다중 프로세스 서비스)는 여러 작업에서 Gpu를 공유할 수 있는 메커니즘을 제공 합니다. 여기에서 각 작업에는 GPU 리소스의 일부 백분율이 할당 됩니다. Azure Stack Edge 장치에서 MP를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+Nvidia Gpu의 MP (다중 프로세스 서비스)는 여러 작업에서 Gpu를 공유할 수 있는 메커니즘을 제공 합니다. 여기에서 각 작업에는 GPU 리소스의 일부 백분율이 할당 됩니다. MP는 Azure Stack Edge Pro GPU 장치의 미리 보기 기능입니다. 장치에서 MP를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. 시작 하기 전에 다음을 확인 합니다. 
 
-    1. Azure에서 Azure Stack Edge/Data Box Gateway 리소스를 사용 하 여 [Azure Stack edge 장치](azure-stack-edge-gpu-deploy-activate.md) 를 구성 하 고 활성화 했습니다.
+    1. Azure에서 Azure Stack Edge Pro/Data Box Gateway 리소스를 사용 하 여 [Azure Stack Edge pro 장치를](azure-stack-edge-gpu-deploy-activate.md) 구성 하 고 활성화 했습니다.
     1. [Azure Portal에서이 장치에 대 한 계산을 구성](azure-stack-edge-deploy-configure-compute.md#configure-compute)했습니다.
     
 1. [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
@@ -187,7 +187,7 @@ users:
 ```
 -->
 
-계산 역할이 구성 된 Azure Stack Edge 장치에서 두 가지 명령 집합을 사용 하 여 장치를 문제를 해결 하거나 모니터링할 수 있습니다.
+계산 역할이 구성 된 Azure Stack Edge Pro 장치에서는 두 개의 다른 명령 집합을 사용 하 여 장치를 문제를 해결 하거나 모니터링할 수 있습니다.
 
 - `iotedge`명령을 사용 합니다. 이러한 명령은 장치에 대 한 기본 작업에 사용할 수 있습니다.
 - `kubectl`명령을 사용 합니다. 이러한 명령은 장치에 대 한 광범위 한 작업 집합에서 사용할 수 있습니다.
@@ -212,7 +212,7 @@ Commands:
 
 다음 표에는에서 사용할 수 있는 명령에 대 한 간략 한 설명이 나와 있습니다 `iotedge` .
 
-|명령을 사용합니다.  |Description |
+|명령을 사용합니다.  |설명 |
 |---------|---------|
 |`list`     | 모듈 목록 표시         |
 |`logs`     | 모듈의 로그 가져오기        |
@@ -241,7 +241,7 @@ webserverapp           Running Up 10 days  nginx:stable                         
 
 ### <a name="use-kubectl-commands"></a>Kubectl 명령 사용
 
-계산 역할이 구성 된 Azure Stack Edge 장치에서 모든 `kubectl` 명령을 사용 하 여 모듈을 모니터링 하거나 문제를 해결할 수 있습니다. 사용 가능한 명령 목록을 보려면 `kubectl --help` 명령 창에서를 실행 합니다.
+계산 역할이 구성 된 Azure Stack Edge Pro 장치에서 모든 `kubectl` 명령을 사용 하 여 모듈을 모니터링 하거나 문제를 해결할 수 있습니다. 사용 가능한 명령 목록을 보려면 `kubectl --help` 명령 창에서를 실행 합니다.
 
 ```PowerShell
 C:\Users\myuser>kubectl --help
@@ -433,4 +433,4 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Portal에서 [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md)를 배포합니다.
+- Azure Portal에서 [Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md)를 배포합니다.

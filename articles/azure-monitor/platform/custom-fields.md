@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906805"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974715"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Azure Monitor (미리 보기)에서 Log Analytics 작업 영역에 사용자 지정 필드 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "84906805"
 
 Azure Monitor의 **사용자 지정 필드** 기능을 사용 하면 사용자 고유의 검색 가능한 필드를 추가 하 여 Log Analytics 작업 영역의 기존 레코드를 확장할 수 있습니다.  사용자 지정 필드는 동일한 레코드의 다른 속성에서 추출한 데이터로 자동으로 채워집니다.
 
-![개요](media/custom-fields/overview.png)
+![다이어그램은 수정 된 레코드의 원래 속성에 속성 값 쌍이 추가 된 Log Analytics 작업 영역에서 수정 된 레코드와 연결 된 원본 레코드를 보여 줍니다.](media/custom-fields/overview.png)
 
 예를 들어, 아래 샘플 레코드에는 이벤트 설명에 파묻혀 있는 유용한 데이터가 있습니다. 이 데이터를 별도의 속성으로 추출 하면 정렬 및 필터링과 같은 작업에 사용할 수 있습니다.
 
@@ -81,7 +81,7 @@ Azure Portal에서 Log Analytics 작업 영역의 **고급 설정** 메뉴에서
 
 서비스 시작 또는 중지를 나타내는 이벤트인, 이벤트 ID가 7036인 서비스 제어 관리자의 모든 이벤트를 반환하기 위해서 다음 쿼리를 입력합니다.
 
-![쿼리](media/custom-fields/query.png)
+![스크린샷 이벤트 원본 및 ID에 대 한 쿼리를 보여 줍니다.](media/custom-fields/query.png)
 
 그런 다음 이벤트 ID가 7036 인 모든 레코드를 선택 하 고 확장 합니다.
 

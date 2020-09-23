@@ -4,12 +4,12 @@ description: Azure Portal, Azure Resource Manager 템플릿 및 Azure PowerShell
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: b202e3d47b98c5e395b3a8b525b9b8c0a04c0f76
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7914f3ee57d014de2f34fca301b587c6297bebe3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322417"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983095"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Azure Monitor를 사용하여 활동 로그 경고 만들기, 보기 및 관리하기  
 
@@ -111,7 +111,7 @@ Azure Portal를 사용하여 활동 로그 경고 규칙을 만들고 수정할 
 
 1. Azure Portal에서 **모니터** > **경고**를 선택합니다. 창의 왼쪽 상단에서 **경고 규칙 관리**를 선택합니다.
 
-    ![경고 규칙 관리](media/alerts-activity-log/manage-alert-rules.png)
+    ![강조 표시 된 검색 상자가 있는 활동 로그를 보여 주는 스크린샷](media/alerts-activity-log/manage-alert-rules.png)
 
     사용 가능한 규칙 목록이 나타납니다.
 
