@@ -4,12 +4,12 @@ description: Application Insights에서 웹 테스트를 설정합니다. 웹 �
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 6f9c5fa691456195943f97419c1175fd5b586878
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a5bee2da5059213e85e03d5a0e4df0ef88c26b03
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310279"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986032"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>모든 웹 사이트의 가용성 모니터링
 
@@ -78,7 +78,7 @@ Azure Portal에서 **리소스 만들기**  >  **개발자 도구**  >  **Applic
 
 몇 분 후에 **새로 고침** 을 클릭 하 여 테스트 결과를 확인 합니다.
 
-![줄 뷰](./media/monitor-web-app-availability/availability-refresh-002.png)
+![스크린샷 강조 표시 된 새로 고침 단추를 사용 하 여 가용성 페이지를 표시 합니다.](./media/monitor-web-app-availability/availability-refresh-002.png)
 
 산 점도 보기에는 진단 테스트가 포함 된 테스트 결과 샘플이 표시 됩니다. 테스트 엔진은 실패한 테스트에 대한 진단 정보를 저장합니다. 성공한 테스트의 경우 실행의 하위 집합에 대한 진단 정보가 저장됩니다. 녹색/빨간색 점을 마우스로 가리켜서 테스트, 테스트 이름 및 위치를 확인 합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Verizon의 코어 보고서 | Microsoft Docs
-description: 대역폭, 전송되는 데이터, 적중 횟수, 캐시 상태, 캐시 적중률, 전송되는 IPV4/IPV6 데이터와 같은 보고서를 사용하여 CDN 사용 패턴을 볼 수 있습니다.
+description: Verizon 프로필에 대 한 관리 포털을 통해 Verizon 코어 보고서에 액세스 하 고 보는 방법에 대해 알아봅니다.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3dc7547dbcf2bde7dd7db0d3f0db3f163a5910ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5353fa70be4705b28dab9350fcdf7819b22faf54
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888445"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985535"
 ---
 # <a name="core-reports-from-verizon"></a>Verizon의 코어 보고서
 

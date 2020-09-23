@@ -11,16 +11,16 @@ ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 07/09/2020
-ms.openlocfilehash: 2182c9bc7588947ece5a309018359a8bcfa3ff41
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 355d96fe5a617effab89fbd038f7f1785215f88f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320207"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897693"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Azure Machine Learning에서 차등 개인 정보 사용 (미리 보기)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 WhiteNoise Python 패키지를 사용하여 차등 프라이버시 모범 사례를 Azure Machine Learning 모델에 적용하는 방법에 대해 알아봅니다.
 
@@ -156,7 +156,7 @@ Privacy usage: approximate {
 | 합계           |            | 대체 |
 | 가변성/공변성(Covariance) |      | 변환  |
 
-자세한 내용은 [기본 데이터 분석 Notebook](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb)을 참조하세요.
+자세한 내용은 [데이터 분석 노트북](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) 을 참조 하세요.
 
 ## <a name="approximate-utility-of-differentially-private-releases"></a>차등 프라이빗 릴리스의 근사 유틸리티
 

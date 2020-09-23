@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/06/2020
 ms.author: duau
-ms.openlocfilehash: 09d3723224f9c678e41a6cbc86b5f8f9655173c8
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 52aba71ba289a1b5479a6a9eaef7e07418b563fd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401472"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986363"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Express 경로 직접 만들기
 
@@ -97,7 +97,7 @@ Express 경로 직접 사용을 통해 전 세계에 분산 된 피어 링 위�
 
 1. Express 경로 직접 **설정** 섹션에서 **회로**를 선택 하 고 **+ 추가**를 선택 합니다. 
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="추가" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="스크린샷에 선택 된 회로와 추가 강조 표시 된 Express 경로 설정을 보여 줍니다." lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
 
 1. **구성** 페이지에서 설정을 구성 합니다.
 

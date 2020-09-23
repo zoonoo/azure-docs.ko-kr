@@ -1,7 +1,7 @@
 ---
-title: 디자이너로 데이터 가져오기 (미리 보기)
+title: 디자이너로 데이터 가져오기
 titleSuffix: Azure Machine Learning
-description: 다양 한 데이터 원본에서 Azure Machine Learning designer (미리 보기)로 데이터를 가져오는 방법에 대해 알아봅니다.
+description: 다양 한 데이터 원본에서 Azure Machine Learning 디자이너로 데이터를 가져오는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: a7d0a1604b3bea1f11532639dbbc5102f4a243a6
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006987"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985610"
 ---
-# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Azure Machine Learning designer로 데이터 가져오기 (미리 보기)
+# <a name="import-data-into-azure-machine-learning-designer"></a>Azure Machine Learning designer로 데이터 가져오기
 
 이 문서에서는 사용자 고유의 데이터를 디자이너에 가져와서 사용자 지정 솔루션을 만드는 방법을 알아봅니다. 데이터를 디자이너로 가져오는 두 가지 방법은 다음과 같습니다. 
 
@@ -32,7 +32,7 @@ ms.locfileid: "90006987"
 
 ### <a name="register-a-dataset"></a>데이터 세트 등록
 
-[SDK를 사용하여 프로그래밍 방식으로](how-to-create-register-datasets.md#datasets-sdk) 또는 [Azure Machine Learning 스튜디오에서 시각적으로](how-to-create-register-datasets.md#datasets-ui) 기존 데이터 세트를 등록할 수 있습니다.
+[SDK를 사용하여 프로그래밍 방식으로](how-to-create-register-datasets.md#datasets-sdk) 또는 [Azure Machine Learning 스튜디오에서 시각적으로](how-to-connect-data-ui.md#create-datasets) 기존 데이터 세트를 등록할 수 있습니다.
 
 모든 디자이너 모듈의 출력을 데이터 세트로 등록할 수도 있습니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "90006987"
 데이터 가져오기 모듈을 사용하는 방법에 대한 자세한 내용은 [데이터 가져오기 참조 페이지](algorithm-module-reference/import-data.md)를 확인하세요.
 
 > [!NOTE]
-> 데이터 세트에 너무 많은 열이 있는 경우 다음과 같은 오류가 발생할 수 있습니다. "크기 제한으로 인해 유효성 검사에 실패했습니다." 이 문제를 방지하려면 [데이터 세트 인터페이스에 데이터 세트를 등록](how-to-create-register-datasets.md#datasets-ui)합니다.
+> 데이터 세트에 너무 많은 열이 있는 경우 다음과 같은 오류가 발생할 수 있습니다. "크기 제한으로 인해 유효성 검사에 실패했습니다." 이 문제를 방지하려면 [데이터 세트 인터페이스에 데이터 세트를 등록](how-to-connect-data-ui.md#create-datasets)합니다.
 
 ## <a name="supported-sources"></a>지원되는 원본
 
@@ -107,4 +107,4 @@ ms.locfileid: "90006987"
 
 ## <a name="next-steps"></a>다음 단계
 
-[자습서: 디자이너를 사용하여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)을 통해 디자이너의 기본 사항을 알아봅니다.
+디자이너를 [사용 하 여 자동차 가격 예측 자습서](tutorial-designer-automobile-price-train-score.md)를 사용 하 여 디자이너의 기본 사항을 알아봅니다.

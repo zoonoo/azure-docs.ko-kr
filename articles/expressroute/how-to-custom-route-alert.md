@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: f29f43234f1541abeb448e722d0b72ef7c0221c9
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4a116d06f5feb3fe402e7f64b9bccd5531b210c1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401727"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986571"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>보급 경로를 모니터링하기 위해 사용자 지정 경고 구성
 
@@ -235,7 +235,7 @@ Write-Output  $jsonResults
 
 PowerShell 스크립트를 실행 하면 값 목록이 수집 됩니다.
  
-* 리소스 그룹
+* Resource group
 
 * Express 경로 게이트웨이 이름
 
@@ -299,7 +299,7 @@ Azure Logic Apps는 모든 컬렉션 및 작업 프로세스의 오 케 스트�
 
 워크플로 구성이 끝나면 워크플로를 몇 번 실행 하 여 되풀이 빈도의 일관성을 확인 한 다음 **실행 기록**의 결과를 확인할 수 있습니다.
 
-:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="되풀이" lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
+:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="스크린샷 되풀이 간격 및 빈도 값을 보여 줍니다." lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
 
 ### <a name="3-create-a-job"></a><a name="job"></a>3. 작업 만들기
 
@@ -320,7 +320,7 @@ Azure Logic Apps는 모든 컬렉션 및 작업 프로세스의 오 케 스트�
 
 5. **작업 만들기** 페이지에서 서비스 주체에 automation 계정을 호스트 하는 **리소스 그룹** 에 대 한 "읽기 권한자" 역할 및 **automation 계정**에 대 한 "automation 작업 연산자"가 있어야 합니다. 또한 **Runbook 이름을** 새 매개 변수로 추가 했는지 확인 합니다.
 
-   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="역할" lightbox="./media/custom-route-alert-portal/roles-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Runbook 이름을 확인할 수 있는 되풀이 작업 값 만들기가 스크린샷에 표시 됩니다." lightbox="./media/custom-route-alert-portal/roles-expand.png":::
 
 ### <a name="4-get-the-job-output"></a><a name="output"></a>4. 작업 출력 가져오기
 
@@ -343,7 +343,7 @@ Azure Logic Apps는 모든 컬렉션 및 작업 프로세스의 오 케 스트�
 
 3. **콘텐츠** 상자 내부를 클릭 합니다. 동적 콘텐츠 목록이 표시 되 면 **콘텐츠**를 선택 합니다.
 
-   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="콘텐츠" lightbox="./media/custom-route-alert-portal/content-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="스크린 샷에서 콘텐츠가 선택 된 JSON 구문 분석 대화 상자를 표시 합니다." lightbox="./media/custom-route-alert-portal/content-expand.png":::
 
 4. JSON을 구문 분석 하려면 스키마가 필요 합니다. 자동화 runbook의 출력을 사용 하 여 스키마를 생성할 수 있습니다. 새 웹 브라우저 세션을 열고, Automation runbook을 실행 하 고, 출력을 가져옵니다. **LOGIC APPS JSON 데이터 구문 분석** 작업으로 돌아갑니다. 페이지 맨 아래에서 **샘플 페이로드를 사용 하 여 스키마 생성을**선택 합니다.
 
@@ -363,7 +363,7 @@ Azure Logic Apps는 모든 컬렉션 및 작업 프로세스의 오 케 스트�
 
 1. **작업 출력 가져오기 작업**에서 **새 단계**를 선택 합니다. 검색 상자에서 **변수**를 찾아 선택 합니다.
 
-   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="변수":::
+   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="스크린샷 선택 된 검색 상자 및 변수를 사용 하 여 작업 선택 대화 상자를 보여 줍니다.":::
 
 2. **작업** 목록에서 **변수 초기화** 작업을 선택 합니다.
 
@@ -371,7 +371,7 @@ Azure Logic Apps는 모든 컬렉션 및 작업 프로세스의 오 케 스트�
 
 3. 변수의 이름을 지정 합니다. **형식**에서 **문자열**을 선택 합니다. 변수의 **값** 은 나중에 워크플로에서 할당 됩니다.
 
-   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="String" lightbox="./media/custom-route-alert-portal/string-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="이름, 형식 및 값을 입력할 수 있는 Initialize 변수와 연결 된 구문 분석 JSON이 스크린샷에 표시 됩니다." lightbox="./media/custom-route-alert-portal/string-expand.png":::
 
 ### <a name="7-create-a-for-each-action"></a><a name="cycles-json"></a>7. "For each" 작업 만들기
 
@@ -379,7 +379,7 @@ JSON이 구문 분석 되 면 **Json 데이터 구문 분석** 작업은 *본문
 
 1. **변수 초기화**에서 **작업 추가**를 선택 합니다. 검색 상자에서 필터로 “for each”를 입력합니다.
 
-   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="제어":::
+   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="스크린샷 선택한 검색 상자 및 컨트롤의 각에 대해 작업 선택 대화 상자를 보여 줍니다.":::
 
 2. **작업** 목록에서 **각 컨트롤에 대 한**작업을 선택 합니다.
 
@@ -387,7 +387,7 @@ JSON이 구문 분석 되 면 **Json 데이터 구문 분석** 작업은 *본문
 
 3. **이전 단계에서 출력 선택** 텍스트 상자를 클릭 합니다. **동적 콘텐츠** 목록이 표시 되 면 구문 분석 된 JSON에서 출력 되는 **본문**을 선택 합니다.
 
-   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="본문":::
+   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="스크린샷에는 이전 단계에서 출력 선택 텍스트 상자를 포함 하는 각에 대해 초기화 된 변수가 표시 됩니다.":::
 
 4. JSON 본문의 각 요소에 대해 조건을 설정 하려고 합니다. 작업 그룹에서 **제어**를 선택 합니다.
 

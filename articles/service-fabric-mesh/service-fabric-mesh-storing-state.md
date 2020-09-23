@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: d56ce811155f7b7f60fa870dbdae2550afab2eac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01c54c8baa411e7d57698c626b098dc19e66be4e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246829"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984125"
 ---
 # <a name="state-management-with-service-fabric"></a>Service Fabric을 사용한 상태 관리
 
@@ -22,7 +22,7 @@ Service Fabric Mesh를 사용하면 새 애플리케이션을 쉽게 배포하�
 
 컨테이너는 종종 임시 디스크를 이용합니다. 그러나 임시 디스크는 사용 후 삭제되므로 컨테이너가 충돌하면 새 임시 디스크를 가져와 정보를 잃게 됩니다. 임시 디스크에 대한 정보를 다른 컨테이너와 공유하는 것도 어렵습니다. 볼륨은 상태를 유지하는 데 사용할 수 있는 컨테이너 인스턴스 내에 탑재된 디렉터리입니다. 볼륨은 범용 파일 스토리지를 제공하며 이를 통해 일반 디스크 I/O 파일 API를 사용하여 파일을 읽고 쓸 수 있습니다. 볼륨 리소스는 디렉터리를 탑재하는 방법 및 사용할 지원 스토리지를 설명합니다. Azure File Storage 또는 Service Fabric 볼륨 디스크에 데이터를 저장하도록 선택할 수 있습니다.
 
-![볼륨][image3]
+![다이어그램은 볼륨으로 이동 하는 서비스를 보여 줍니다. 볼륨은 복제 된 로컬 디스크의 Service Fabric 안정적 볼륨으로 이동 하 고 네트워크 저장소의 Azure Files 볼륨으로 이동 합니다.][image3]
 
 ### <a name="service-fabric-reliable-volume"></a>Service Fabric 신뢰할 수 있는 볼륨
 

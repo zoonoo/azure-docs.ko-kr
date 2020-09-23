@@ -12,20 +12,22 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 9137c98a2ba0b7356d25a79d3b75c3727fc35fc3
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 92394138c5aa20d0abc33387aab1e9c37e6f9cb9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604702"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986396"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 로컬 또는 원격 실험을 위해 데이터에 액세스 하는 Azure Machine Learning 데이터 집합을 만드는 방법에 대해 알아봅니다. 데이터 집합이 Azure Machine Learning의 전체 데이터 액세스 워크플로에 적합 한 위치를 이해 하려면 [안전 하 게 데이터 액세스](concept-data.md#data-workflow) 문서를 참조 하세요.
+
+이 문서에서는 Azure Machine Learning Python SDK를 사용 하 여 로컬 또는 원격 실험의 데이터에 액세스 하는 Azure Machine Learning 데이터 집합을 만드는 방법에 대해 알아봅니다. 데이터 집합이 Azure Machine Learning의 전체 데이터 액세스 워크플로에 적합 한 위치를 이해 하려면 [안전 하 게 데이터 액세스](concept-data.md#data-workflow) 문서를 참조 하세요.
 
 데이터 세트를 만들면 데이터 원본 위치에 대한 참조와 해당 메타데이터의 복사본을 만듭니다. 데이터는 기존 위치에 남아 있으므로 추가 저장소 비용이 발생 하지 않으며 데이터 원본의 무결성을 위험 하지 않습니다. 또한 데이터 집합은 지연 계산 되며 워크플로 성능 속도를 지원 합니다. 데이터 저장소, 공용 Url 및 [Azure Open 데이터 집합](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md)에서 데이터 집합을 만들 수 있습니다.
+
+낮은 코드 환경에서는 [Azure Machine Learning studio를 사용 하 여 Azure Machine Learning 데이터 집합을 만듭니다](how-to-connect-data-ui.md#create-datasets).
 
 Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 수 있습니다.
 
@@ -35,7 +37,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -72,15 +74,14 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 원본 파일이 모든 형식일 수 있으므로 기계 학습 워크플로에 FileDatasets을 사용 하는 것이 좋습니다 .이를 통해 심층 학습을 비롯 한 다양 한 기계 학습 시나리오를 사용할 수 있습니다.
 
-[PYTHON SDK](#create-a-filedataset) 또는 [Azure Machine Learning studio](#create-datasets-in-the-studio) 를 사용 하 여 filedataset 만들기
-
+[PYTHON SDK](#create-a-filedataset) 또는 [Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets) 를 사용 하 여 filedataset을 만듭니다.
 ### <a name="tabulardataset"></a>TabularDataset
 
 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) 는 제공 된 파일 또는 파일 목록을 구문 분석 하 여 테이블 형식으로 데이터를 나타냅니다. 이를 통해 pandas 또는 Spark 데이터 프레임로 데이터를 구체화할 수 있으므로 노트북을 떠나지 않고도 익숙한 데이터 준비 및 학습 라이브러리를 사용할 수 있습니다. `TabularDataset`.Csv,. tsv, parquet,. jsonl 파일 및 [SQL 쿼리 결과](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#&preserve-view=truefrom-sql-query-query--validate-true--set-column-types-none--query-timeout-30-)에서 개체를 만들 수 있습니다.
 
 TabularDatasets를 사용 하면 데이터의 열에서 타임 스탬프를 지정 하거나 경로 패턴 데이터가 저장 되는 위치에서 시계열 특성을 사용할 수 있습니다. 이 사양에서는 시간을 기준으로 쉽고 효율적인 필터링을 수행할 수 있습니다. 예를 들어 [NOAA 날씨 데이터를 사용 하 여 테이블 형식 시계열 관련 API 데모](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb)를 참조 하세요.
 
-[PYTHON SDK](#create-a-tabulardataset) 또는 [Azure Machine Learning studio](#create-datasets-in-the-studio)를 사용 하 여 TabularDataset를 만듭니다.
+[PYTHON SDK](#create-a-tabulardataset) 또는 [Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets)를 사용 하 여 TabularDataset를 만듭니다.
 
 >[!NOTE]
 > Azure Machine Learning studio를 통해 생성 된 AutoML 워크플로는 현재 TabularDatasets만 지원 합니다. 
@@ -91,9 +92,9 @@ TabularDatasets를 사용 하면 데이터의 열에서 타임 스탬프를 지�
 
 <a name="datasets-sdk"></a>
 
-## <a name="create-datasets-via-the-sdk"></a>SDK를 통해 데이터 집합 만들기
+## <a name="create-datasets"></a>데이터 세트 만들기
 
- Azure Machine Learning에서 데이터에 액세스할 수 있도록 하려면 [Azure 데이터 저장소](how-to-access-data.md) 또는 공용 웹 url의 경로에서 데이터 집합을 만들어야 합니다. 
+Azure Machine Learning에서 데이터에 액세스할 수 있도록 하려면 [Azure 데이터 저장소](how-to-access-data.md) 또는 공용 웹 url의 경로에서 데이터 집합을 만들어야 합니다. 
 
 Python SDK를 사용 하 여 [Azure 데이터 저장소](how-to-access-data.md) 에서 데이터 집합을 만들려면 다음을 수행 합니다.
 
@@ -101,7 +102,7 @@ Python SDK를 사용 하 여 [Azure 데이터 저장소](how-to-access-data.md) 
 
 2. 데이터 저장소에서 경로를 참조 하 여 데이터 집합을 만듭니다. 여러 데이터 저장소의 여러 경로에서 데이터 집합을 만들 수 있습니다. 데이터 집합을 만들 수 있는 파일 수 또는 데이터 크기에 대 한 하드 제한은 없습니다. 
 
-> [!Note]
+> [!NOTE]
 > 각 데이터 경로에 대해 몇 가지 요청은 저장소 서비스로 전송 되어 파일이 나 폴더를 가리키는지 확인 합니다. 이러한 오버 헤드로 인해 성능이 저하 되거나 오류가 발생할 수 있습니다. 내에서 1000 파일을 포함 하는 한 개의 폴더를 참조 하는 데이터 집합은 하나의 데이터 경로를 참조 하 고 최적의 성능을 위해 데이터 저장소에서 100 미만의 경로를 참조 하는 데이터 집합을 만드는 것이 좋습니다.
 
 ### <a name="create-a-filedataset"></a>FileDataset 만들기
@@ -120,7 +121,12 @@ web_paths = ['https://azureopendatastorage.blob.core.windows.net/mnist/train-ima
              'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz']
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
+작업 영역에서 실험을 통해 데이터 집합을 다시 사용 하 고 공유 하려면 [데이터 집합을 등록](#register-datasets)합니다. 
 
+> [!TIP] 
+> 로컬 디렉터리에서 파일을 업로드 하 고 공개 미리 보기 메서드인 [upload_directory ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py#methods)를 사용 하 여 단일 메서드에서 filedataset을 만듭니다. 이 방법은 [실험적](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) 미리 보기 기능으로, 언제 든 지 변경 될 수 있습니다. 
+> 
+>  이 메서드는 데이터를 기본 저장소에 업로드 하므로 저장소 비용이 발생 합니다. 
 ### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
 
 클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) 메서드를 사용 `TabularDatasetFactory` 하 여 .csv 또는. tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다. 
@@ -163,13 +169,15 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|인덱싱할|PassengerId|Survived|Pclass|Name|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
+|인덱싱할|PassengerId|Survived|Pclass|이름|성|나이|SibSp|Parch|티켓|요금|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
-### <a name="create-a-dataset-from-pandas-dataframe"></a>Pandas 데이터 프레임에서 데이터 집합 만들기
+작업 영역의 실험에서 데이터 집합을 다시 사용 하 고 공유 하려면 [데이터 집합을 등록](#register-datasets)합니다.
+
+## <a name="create-a-dataset-from-pandas-dataframe"></a>Pandas 데이터 프레임에서 데이터 집합 만들기
 
 In memory pandas 데이터 프레임에서 TabularDataset을 만들려면 csv와 같은 로컬 파일에 데이터를 작성 하 고 해당 파일에서 데이터 집합을 만듭니다. 다음 코드에서는이 워크플로를 보여 줍니다.
 
@@ -180,7 +188,8 @@ In memory pandas 데이터 프레임에서 TabularDataset을 만들려면 csv와
 from azureml.core import Workspace, Dataset
 local_path = 'data/prepared.csv'
 dataframe.to_csv(local_path)
-upload the local file to a datastore on the cloud
+
+# upload the local file to a datastore on the cloud
 
 subscription_id = 'xxxxxxxxxxxxxxxxxxxxx'
 resource_group = 'xxxxxx'
@@ -198,6 +207,11 @@ datastore.upload(src_dir='data', target_path='data')
 dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
 ```
 
+> [!TIP]
+> 공용 미리 보기 메서드 및를 사용 하 여 단일 메서드를 사용 하 여 메모리 내 spark 또는 pandas 데이터 프레임에서 TabularDataset을 만들고 등록 [`register_spark_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#methods) [`register_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#methods) 합니다. 이러한 register 메서드는 [실험적](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) 미리 보기 기능 이며 언제 든 지 변경 될 수 있습니다. 
+> 
+>  이러한 메서드는 데이터를 기본 저장소에 업로드 하므로 저장소 비용이 발생 합니다. 
+
 ## <a name="register-datasets"></a>데이터 집합 등록
 
 만들기 프로세스를 완료 하려면 작업 영역을 사용 하 여 데이터 집합을 등록 합니다. 메서드를 사용 하 여 [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#&preserve-view=trueregister-workspace--name--description-none--tags-none--create-new-version-false-) 다른 사람과 공유 하 고 작업 영역의 실험에서 다시 사용 하기 위해 작업 영역에 데이터 집합을 등록 합니다.
@@ -207,26 +221,6 @@ titanic_ds = titanic_ds.register(workspace=workspace,
                                  name='titanic_ds',
                                  description='titanic training data')
 ```
-
-<a name="datasets-ui"></a>
-## <a name="create-datasets-in-the-studio"></a>Studio에서 데이터 집합 만들기
-다음 단계와 애니메이션은 [Azure Machine Learning studio](https://ml.azure.com)에서 데이터 집합을 만드는 방법을 보여 줍니다.
-
-> [!Note]
-> Azure Machine Learning studio를 통해 만든 데이터 집합은 작업 영역에 자동으로 등록 됩니다.
-
-![UI를 사용 하 여 데이터 집합 만들기](./media/how-to-create-register-datasets/create-dataset-ui.gif)
-
-Studio에서 데이터 집합을 만들려면 다음을 수행 합니다.
-1. 에서 로그인 https://ml.azure.com 합니다.
-1. 왼쪽 창의 **자산** 섹션에서 **데이터 집합** 을 선택 합니다. 
-1. 데이터 집합 **만들기** 를 선택 하 여 데이터 집합의 원본을 선택 합니다. 이 원본은 로컬 파일, 데이터 저장소 또는 공용 Url 일 수 있습니다.
-1. 데이터 집합 형식으로 **테이블** 형식 또는 **파일** 을 선택 합니다.
-1. **다음** 을 선택 하 여 **데이터 저장소 및 파일 선택** 양식을 엽니다. 이 폼에서 데이터 집합을 만든 후 데이터 집합에 사용할 데이터 파일을 선택할 뿐만 아니라 데이터 집합을 보관할 위치를 선택할 수 있습니다. 
-    1. 데이터가 가상 네트워크에 있는 경우 유효성 검사 건너뛰기를 사용 하도록 설정 합니다. [가상 네트워크에서 데이터 집합 및 데이터 저장소를 사용 하는](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets)방법에 대해 자세히 알아보세요.
-1. **다음** 을 선택 하 여 **설정 및 미리 보기** 및 **스키마** 폼을 채웁니다. 이러한 형식은 파일 형식에 따라 지능적으로 채워지며 이러한 폼에서 만들기 전에 데이터 집합을 추가로 구성할 수 있습니다. 
-1. **다음** 을 선택 하 여 **확인 세부 정보** 양식을 검토 합니다. 선택 항목을 확인 하 고 데이터 집합에 대 한 선택적 데이터 프로필을 만듭니다. [데이터 프로파일링](how-to-use-automated-ml-for-ml-models.md#profile)에 대한 자세한 정보 
-1. **만들기** 를 선택 하 여 데이터 집합 만들기를 완료 합니다.
 
 ## <a name="create-datasets-with-azure-open-datasets"></a>Azure Open 데이터 집합을 사용 하 여 데이터 집합 만들기
 

@@ -9,22 +9,22 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 490d3305abcbcd906a0f727d736db8cab7e4287e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf35d08128aa8a3e8f545ed7184866694219f2cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456024"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905225"
 ---
 # <a name="remove-duplicate-rows-module"></a>중복 행 제거 모듈
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 데이터 집합에서 잠재적 중복 항목을 제거 합니다.
 
 예를 들어 데이터가 다음과 같은 것으로 가정 하 고 환자에 대 한 여러 레코드를 나타냅니다. 
 
-| PatientID | 이니셜| 성별|Age|연결 되도록 허용|
+| PatientID | 이니셜| 성별|나이|연결 되도록 허용|
 |----|----|----|----|----|
 |1|F.M.| M| 53| 1월|
 |2| F.A.M.| M| 53| 1월|
@@ -59,7 +59,7 @@ ms.locfileid: "79456024"
 
     이 컨텍스트에서 **키는** 고유 식별자를 의미 하지 않습니다. 열 선택기를 사용 하 여 선택 하는 모든 열은 **키 열**로 지정 됩니다. 선택 하지 않은 모든 열은 키가 아닌 열로 간주 됩니다. 키로 선택한 열을 조합 하면 레코드의 고유성이 결정 됩니다. (이를 여러 equalities 조인을 사용 하는 SQL 문으로 생각 합니다.)
 
-    예:
+    예제:
 
     + "Id가 고유한 지 확인 합니다.": ID 열만 선택 합니다.
     + "First name, last name 및 ID의 조합이 고유한 지 확인 합니다.": 세 개의 열을 모두 선택 합니다.

@@ -3,12 +3,12 @@ title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017739"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986428"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -45,7 +45,7 @@ ms.locfileid: "89017739"
 
 아니요. 자격 증명 모음에 저장된 백업 데이터는 다른 자격 증명 모음으로 옮길 수 없습니다.
 
-### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>백업 후 GRS에서 LRS로 변경할 수 있나요?
+### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>백업 후 저장소 중복성 설정을 변경할 수 있나요?
 
 기본적으로 저장소 복제 유형은 GRS (지역 중복 저장소)로 설정 됩니다. 백업을 구성한 후에는 수정할 수 있는 옵션이 사용 하지 않도록 설정 되며 변경할 수 없습니다.
 

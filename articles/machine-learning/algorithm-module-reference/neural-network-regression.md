@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: c260643d7d553e407d0758f286aac76c91ae08d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 403576454615effeb53651b51679681422b08e9e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137691"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890360"
 ---
 # <a name="neural-network-regression-module"></a>신경망 회귀 모듈
 
@@ -24,7 +24,7 @@ ms.locfileid: "82137691"
   
 ## <a name="module-overview"></a>모듈 개요  
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 사용자 지정 가능한 신경망 알고리즘을 사용 하 여 회귀 모델을 만듭니다.
   
@@ -50,7 +50,7 @@ ms.locfileid: "82137691"
     
     이 옵션은 신경망에 대해 이미 잘 알고 있는 경우에 가장 적합 합니다. Net # 언어를 사용 하 여 네트워크 아키텍처를 정의 합니다.  
 
-##  <a name="create-a-neural-network-model-using-the-default-architecture"></a><a name="bkmk_DefaultArchitecture"></a>기본 아키텍처를 사용 하 여 신경망 모델 만들기
+##  <a name="create-a-neural-network-model-using-the-default-architecture"></a><a name="bkmk_DefaultArchitecture"></a> 기본 아키텍처를 사용 하 여 신경망 모델 만들기
 
 1.  디자이너에서 파이프라인에 **신경망 회귀** 모듈을 추가 합니다. **회귀** 범주의 **Machine Learning**, **초기화**에서이 모듈을 찾을 수 있습니다. 
   

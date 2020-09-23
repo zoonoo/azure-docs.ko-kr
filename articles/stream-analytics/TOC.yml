@@ -4,8 +4,8 @@
   items:
     - name: Stream Analytics란 무엇인가요?
       href: stream-analytics-introduction.md
-    - name: 엔드투엔드 솔루션 범위
-      href: stream-analytics-solution-patterns.md
+    - name: Stream Analytics 클러스터
+      href: cluster-overview.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -23,7 +23,11 @@
         - name: Visual Studio
           href: stream-analytics-quick-create-vs.md
         - name: Visual Studio Code
-          href: quick-create-vs-code.md
+          href: quick-create-visual-studio-code.md
+    - name: 클러스터 만들기
+      items:
+        - name: Azure portal
+          href: create-cluster.md
 - name: 자습서
   items:
     - name: 1 - 작업 만들기/관리
@@ -42,6 +46,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: 개념
   items:
+    - name: 엔드투엔드 솔루션 범위
+      href: stream-analytics-solution-patterns.md
     - name: 스트리밍 분석 기술 선택
       href: streaming-technologies.md
     - name: 작업 개발 도구 선택
@@ -145,6 +151,14 @@
   items:
     - name: 관리
       items:
+        - name: 클러스터
+          items:
+            - name: 프라이빗 엔드포인트 생성 및 삭제
+              href: private-endpoints.md
+            - name: 작업 추가 및 제거
+              href: manage-jobs-cluster.md
+            - name: 클러스터 크기 조정
+              href: scale-cluster.md
         - name: 자동 크기 조정 작업
           href: stream-analytics-autoscale.md
         - name: 자격 증명 업데이트
@@ -234,6 +248,14 @@
           href: stream-analytics-cicd-api.md
         - name: Azure Resource Manager를 사용하여 내보내기 및 배포
           href: resource-manager-export.md
+    - name: 연속 통합 및 배포
+      items:
+        - name: CI/CD 개요
+          href: cicd-overview.md
+        - name: 'PowerShell을 사용하여 빌드, 테스트 및 배포'
+          href: cicd-tools.md
+        - name: Azure DevOps를 사용하여 파이프라인 설정
+          href: set-up-cicd-pipeline.md
     - name: Visual Studio
       items:
         - name: 도구 설치
@@ -260,8 +282,6 @@
           href: visual-studio-code-local-run-live-input.md
         - name: 작업 다이어그램을 사용하여 쿼리 디버그
           href: debug-locally-using-job-diagram-vs-code.md
-        - name: CI/CD 파이프라인 설정
-          href: setup-cicd-vs-code.md
         - name: 작업 탐색
           href: visual-studio-code-explore-jobs.md
         - name: JobConfig.json 필드

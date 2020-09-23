@@ -11,16 +11,16 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8a0853d4a863f6b7677f665513bdac9ca8e6b673
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: dc07d2826d3c27fad1eee644da36cb7b4f85ea3c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144110"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897462"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Interpretability 패키지를 사용 하 여 Python의 ML 모델 & 예측 (미리 보기)을 설명 합니다.
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 방법 가이드에서는 Azure Machine Learning Python SDK의 interpretability 패키지를 사용 하 여 다음 작업을 수행 하는 방법을 알아봅니다.
 
@@ -244,7 +244,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
     pip install azureml-interpret
     pip install azureml-contrib-interpret
     ```
-1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. 예들 들어 `train_explain.py`입니다.
+1. 로컬 Jupyter 노트북에 학습 스크립트를 만듭니다. `train_explain.py`)을 입력합니다.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient

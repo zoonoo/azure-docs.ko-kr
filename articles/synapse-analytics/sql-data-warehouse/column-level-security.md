@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: a4da74c01f732f3a62d29847d5f61934dede9778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1364da4849a07100ac28644a51409837012f93cc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208096"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986219"
 ---
 # <a name="column-level-security"></a>열 수준 보안
 
@@ -28,9 +28,9 @@ ms.locfileid: "85208096"
 
 열 수준 보안은 애플리케이션의 보안 디자인 및 코딩을 간소화하여 열 액세스를 제한함으로써 중요한 데이터를 보호할 수 있도록 합니다. 예를 들어 특정 사용자가 해당 부서와 관련된 테이블의 특정 열에만 액세스할 수 있도록 합니다. 액세스 제한 논리는 다른 애플리케이션 계층의 데이터와 다소 떨어진 데이터베이스 계층에 위치합니다. 데이터베이스는 모든 계층에서 데이터 액세스를 시도할 때마다 액세스 제한을 적용합니다. 이렇게 제한하면 전체 보안의 노출 영역이 줄어들어 보안 시스템을 보다 안정적이고 강력하게 만들 수 있습니다. 또한 열 수준 보안을 사용하면 사용자에게 액세스 제한을 적용하기 위해 열을 필터링하는 뷰를 도입할 필요가 없습니다.
 
-[GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 문을 사용하여 열 수준 보안을 구현할 수 있습니다. 이 메커니즘을 사용하면 SQL 및 AAD(Azure Active Directory) 인증이 모두 지원됩니다.
+[GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 문을 사용하여 열 수준 보안을 구현할 수 있습니다. 이 메커니즘을 사용 하 여 SQL 및 Azure Active Directory (Azure AD) 인증을 모두 지원 합니다.
 
-![cls](./media/column-level-security/cls.png)
+![다이어그램에는 첫 번째 열에 닫힌 자물쇠와 해당 셀이 회색으로 표시 되 고 다른 열은 흰색 셀이 있는 도식 테이블이 표시 됩니다.](./media/column-level-security/cls.png)
 
 ## <a name="syntax"></a>구문
 

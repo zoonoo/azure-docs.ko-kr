@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell 스크립트: 소비자에 게 보낸 Azure 데이터 공유 초대 나열 | Microsoft Docs'
-description: 이 PowerShell 스크립트는 기존 데이터 공유의 초대를 수락 합니다.
+description: 이 PowerShell 스크립트를 통해 소비자에 게 보낸 초대를 가져오고 사용할 수 있는 스크립트의 예를 확인 하는 방법을 알아봅니다.
 services: data-share
 author: joannapea
 ms.service: data-share
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 157b844afd9d59b6c03c7ae8585bc2182370d3a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f0374ba5b98c145359d18143584e23fc543c552
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70307146"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985629"
 ---
 # <a name="use-powershell-to-get-a-data-share-invitation"></a>PowerShell을 사용 하 여 데이터 공유 초대 가져오기
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: e4511cf4393172e7d2b1ab8a985c76d8f98d4015
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456066"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905271"
 ---
 # <a name="permutation-feature-importance"></a>순열 기능 중요도
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에서 순열 기능 중요도 모듈을 사용 하 여 데이터 집합에 대 한 기능 중요도 점수 집합을 계산 하는 방법을 설명 합니다. 이러한 점수를 사용 하 여 모델에서 사용 하기에 가장 적합 한 기능을 결정 하는 데 도움을 줍니다.
+이 문서에서는 Azure Machine Learning designer에서 순열 기능 중요도 모듈을 사용 하 여 데이터 집합에 대 한 기능 중요도 점수 집합을 계산 하는 방법을 설명 합니다. 이러한 점수를 사용 하 여 모델에서 사용 하기에 가장 적합 한 기능을 결정 하는 데 도움을 줍니다.
 
 이 모듈에서 기능 값은 한 번에 한 열에 임의로 섞은 됩니다. 모델의 성능은 이전 및 이후로 측정 됩니다. 표준 메트릭 중 하나를 선택 하 여 성능을 측정할 수 있습니다.
 

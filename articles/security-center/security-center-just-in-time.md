@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 88f1924f69aed350b39f953cb7503a0dde9ca9ad
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 5b2446aa62b16dcf9773c367d87faac65d79fa0b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056317"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904858"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Just-in-time 액세스를 사용 하 여 관리 포트 보호
 
@@ -33,15 +33,15 @@ JIT 작동 방식 및 기본 논리에 대 한 전체 설명은 [just-in-time �
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|일반 공급|
-|결정|표준 계층|
+|릴리스 상태:|GA(일반 공급)|
+|결정|[서버용 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
 |지원 되는 Vm:|![](./media/icons/yes-icon.png)Azure Resource Manager를 통해 배포 되는 vm입니다.<br>![](./media/icons/no-icon.png)클래식 배포 모델을 사용 하 여 vm을 배포 하지 않았습니다. [이러한 배포 모델에 대해 자세히 알아보세요](../azure-resource-manager/management/deployment-models.md).<br>![Azure ](./media/icons/no-icon.png) [방화벽 관리자](https://docs.microsoft.com/azure/firewall-manager/overview) 에서 제어 하는 azure 방화벽으로 보호 되는 vm 없음|
 |필요한 역할 및 사용 권한:|**판독기** 및 **securityreader** 역할은 둘 다 JIT 상태와 매개 변수를 볼 수 있습니다.<br>JIT에서 사용할 수 있는 사용자 지정 역할을 만들려면 [jit를 구성 하 고 사용 하는 데 필요한 권한은 무엇 인가요?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)를 참조 하세요.<br>VM에 대 한 JIT 액세스를 요청 해야 하는 사용자에 게 최소 권한 역할을 만들고 다른 JIT 작업을 수행 하지 않으려면 Security Center GitHub 커뮤니티 페이지에서 [JitLeastPrivilegedRole 스크립트](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) 를 사용 합니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
 |||
 
 
-## <a name="enable-jit-vm-access"></a>JIT VM 액세스 사용<a name="jit-configure"></a>
+## <a name="enable-jit-vm-access"></a>JIT VM 액세스 사용 <a name="jit-configure"></a>
 
 Security Center를 사용 하거나 프로그래밍 방식으로 하나 이상의 Vm에 대 한 사용자 지정 옵션을 사용 하 여 JIT VM 액세스를 사용 하도록 설정할 수 있습니다. 
 
@@ -51,13 +51,13 @@ Security Center를 사용 하거나 프로그래밍 방식으로 하나 이상�
 
 ### <a name="azure-security-center"></a>[**Azure Security Center**](#tab/jit-config-asc)
 
-### <a name="enable-jit-on-your-vms-from-azure-security-center"></a>Azure Security Center에서 Vm에 대 한 JIT 사용<a name="jit-asc"></a>
+### <a name="enable-jit-on-your-vms-from-azure-security-center"></a>Azure Security Center에서 Vm에 대 한 JIT 사용 <a name="jit-asc"></a>
 
-![Azure Security Center에서 JIT VM 액세스 구성](./media/security-center-just-in-time/jit-config-security-center.gif)
+:::image type="content" source="./media/security-center-just-in-time/jit-config-security-center.gif" alt-text="Azure Security Center에서 JIT VM 액세스 구성":::
 
 Security Center에서 JIT VM 액세스를 사용 하도록 설정 하 고 구성할 수 있습니다.
 
-1. Security Center의 메뉴에서 **JUST-IN-TIME VM 액세스**를 선택 합니다.
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **JUST-IN-TIME VM 액세스**를 선택 합니다.
 
     Vm이 다음 탭으로 그룹화 되 면 **JUST-IN-TIME vm 액세스** 페이지가 열립니다.
 
@@ -101,13 +101,13 @@ Security Center에서 JIT VM 액세스를 사용 하도록 설정 하 고 구성
 
 
 
-### <a name="edit-the-jit-configuration-on-a-jit-enabled-vm-using-security-center"></a>Security Center를 사용 하 여 JIT 사용 VM에서 JIT 구성 편집<a name="jit-modify"></a>
+### <a name="edit-the-jit-configuration-on-a-jit-enabled-vm-using-security-center"></a>Security Center를 사용 하 여 JIT 사용 VM에서 JIT 구성 편집 <a name="jit-modify"></a>
 
 Vm의 보호를 위해 새 포트를 추가 및 구성 하거나 이미 보호 된 포트와 관련 된 다른 설정을 변경 하 여 VM의 just-in-time 구성을 수정할 수 있습니다.
 
 VM에 대 한 기존 JIT 규칙을 편집 하려면:
 
-1. Security Center의 메뉴에서 **JUST-IN-TIME VM 액세스**를 선택 합니다.
+1. Azure Defender 대시보드를 열고 고급 보호 영역에서 **적응 응용 프로그램 제어**를 선택 합니다.
 
 1. **구성 됨** 탭에서 포트를 추가 하려는 VM을 마우스 오른쪽 단추로 클릭 하 고 편집을 선택 합니다. 
 
@@ -241,7 +241,7 @@ Azure Portal (Security Center 또는 Azure Virtual machines)에서 또는 프로
 
 VM에 JIT를 사용 하는 경우 연결에 대 한 액세스를 요청 해야 합니다. JIT를 사용 하도록 설정 하는 방법에 관계 없이 지원 되는 방법 중 하나를 사용 하 여 액세스를 요청할 수 있습니다.
 
-![Security Center에서 JIT 액세스 요청](./media/security-center-just-in-time/jit-request-security-center.gif)
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Security Center에서 JIT 액세스 요청":::
 
 1. **JUST-IN-TIME VM 액세스** 페이지에서 **구성 됨** 탭을 선택 합니다.
 

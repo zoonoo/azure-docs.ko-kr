@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: c9da25a7d7521108195d3183f52b914e13105e8d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2bdfdd31e2cc9bc964abc040d0631c4760fca283
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082287"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984871"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Azure Data Factory에서 SQL Server Integration Services (SSIS)를 사용 하 여 Azure SQL Managed Instance 사용
 
@@ -141,7 +141,7 @@ ms.locfileid: "86082287"
 
     퍼블릭 엔드포인트 호스트 이름은 <mi_name>.public.<dns_zone>.database.windows.net 형식으로 제공되며 연결에 사용되는 포트는 3342입니다.  
 
-    ![catalog-public-endpoint](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
+    ![스크린샷은 만들기 S s I s I s 카탈로그를 선택 하 고 카탈로그 데이터베이스 서버 끝점을 입력 하 여 통합 런타임 설정을 보여 줍니다.](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
 
 1. 적용되는 경우 Azure AD 인증을 선택합니다.
 
@@ -157,7 +157,7 @@ ms.locfileid: "86082287"
 
     Azure-SSIS IR을 가상 네트워크에 조인하는 방법에 관한 자세한 내용은 [Azure SSIS 통합 런타임을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
 
-    ![join-virtual-network](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
+    ![스크린샷에는 런타임에 연결할 가상 네트워크를 선택할 수 있는 통합 런타임 설정 고급 설정이 표시 됩니다.](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
 
 Azure-SSIS IR을 만드는 방법에 대한 자세한 정보는 [Azure Data Factory에서 Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime)를 참조하세요.
 

@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307202"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897574"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그 지정 
 
@@ -111,7 +111,7 @@ Azure는 사용자가 각 이미지에 하나 이상의 태그를 적용한 후�
 1. **사각형 상자** 도구 ![사각형 상자 도구](./media/how-to-label-images/rectangular-box-tool.png)를 선택하거나 "R"을 선택합니다.
 3. 대상을 클릭하고 대각선 방향으로 가로지르며 끌어서 대략적인 경계 상자를 만듭니다. 경계 상자를 조정하려면 가장자리 또는 모서리를 끕니다.
 
-![기본 경계 상자를 만드는 방법을 보여 주는 스크린샷](./media/how-to-label-images/bounding-box-sequence.png)
+![경계 상자 만들기](./media/how-to-label-images/bounding-box-sequence.png)
 
 경계 상자를 삭제하려면 경계 상자를 만든 후 옆에 표시되는 X 모양의 대상을 클릭합니다.
 

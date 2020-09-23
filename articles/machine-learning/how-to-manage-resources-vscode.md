@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 09/03/2020
-ms.openlocfilehash: 06fc929e0149c48aa75aa87a12e3747ef1df1bf2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: abdd04f59ee820585d58817297d161f68bd952f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440121"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897406"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>VS Code 확장을 사용 하 여 Azure Machine Learning 리소스 관리 (미리 보기)
 
@@ -44,7 +44,6 @@ VS Code 확장을 사용 하 여 Azure Machine Learning 리소스를 관리 하�
     1. Azure 구독 선택
     1. 작업 영역을 프로 비전 할 새 리소스 그룹을 선택 하거나 만듭니다.
     1. 작업 영역을 프로 비전 할 위치를 선택 합니다.
-    1. *Basic* 및 *enterprise* edition 중에서 선택 합니다. 다른 [Azure Machine Learning 버전](concept-editions.md)에 대해 자세히 알아보세요.
 
 작업 영역을 만드는 다른 방법은 다음과 같습니다.
 
