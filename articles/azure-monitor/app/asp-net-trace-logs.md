@@ -4,12 +4,12 @@ description: 추적, NLog 또는 Log4Net에서 생성된 로그를 검색합니�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: c17f1f4eb8d2fb680f31a42009247b25c74941c9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ab3b12bf0401c4060823c6ed1d20dd6385cc397f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936455"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973847"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Application Insights에서 .NET/.NET Core 및 Python 추적 로그 검색
 
@@ -50,20 +50,20 @@ ILogger, NLog, log4Net 또는 System.Diagnostics.Trace의 ASP.NET/ASP.NET Core �
 3. "Application Insights"를 검색합니다.
 4. 다음 패키지 중 하나를 선택합니다.
 
-   - ILogger의 경우: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-   - NLog의 경우: [Microsoft.ApplicationInsights.NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-   - Log4Net의 경우: [Microsoft.ApplicationInsights.Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-   - System.Diagnostics의 경우: [Microsoft.ApplicationInsights.TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-   - [Microsoft.ApplicationInsights.DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-   - [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
-   - [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
-[![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
+   - ILogger의 경우: ILogger- [applicationinsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/) 
+ [ ![ NuGet 배너](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+   - Nlog: [Microsoft applicationinsights. nlogtarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/) 
+ [ ![ NuGet nlog 배너](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+   - Log4Net의 경우: [Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/) 
+ [ ![ NuGet Log4Net 배너](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+   - 시스템 진단: [TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/) 
+ [ ![ NuGet 시스템 진단 배너](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+   - [DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/) 
+ [ ![ NuGet 진단 소스 수신기 배너](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+   - [Microsoft ApplicationInsights. EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/) 
+ [ ![ NuGet Etw 수집기 배너](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+   - [Microsoft ApplicationInsights. EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/) 
+ [ ![ NuGet 이벤트 원본 수신기 배너](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 
 NuGet 패키지는 필요한 어셈블리를 설치하고 해당하는 경우 web.config 또는 app.config를 수정합니다.
 
@@ -205,7 +205,7 @@ Java SDK를 사용하는 경우 [Java 로그 어댑터](./java-trace-logs.md)를
 * 최신 버전의 Application Insights가 설치되어 있는지 확인합니다. Visual Studio에서 **도구** > **확장 및 업데이트**로 이동하고, **업데이트** 탭을 엽니다. **Developer Analytics Tools**가 있으면 선택하여 업데이트합니다.
 
 ### <a name="i-get-the-instrumentation-key-cannot-be-empty-error-message"></a><a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류 메시지가 표시됨
-Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 설치했을 수 있습니다. 솔루션 탐색기에서 *ApplicationInsights.config*를 마우스 오른쪽 단추로 클릭하고, **Application Insights 업데이트**를 선택합니다. Azure에 로그인하고 Application Insights 리소스를 만들거나 기존 리소스를 다시 사용하라는 메시지가 표시됩니다. 이렇게 하면 문제가 해결됩니다.
+Application Insights를 설치 하지 않고 로깅 어댑터 NuGet 패키지를 설치 했을 수 있습니다. 솔루션 탐색기에서 *ApplicationInsights.config*를 마우스 오른쪽 단추로 클릭하고, **Application Insights 업데이트**를 선택합니다. Azure에 로그인하고 Application Insights 리소스를 만들거나 기존 리소스를 다시 사용하라는 메시지가 표시됩니다. 이렇게 하면 문제가 해결됩니다.
 
 ### <a name="i-can-see-traces-but-not-other-events-in-diagnostic-search"></a>진단 검색에 추적은 보이지만 다른 이벤트가 보이지 않음
 모든 이벤트와 요청이 파이프라인을 통과할 때까지 시간이 걸릴 수 있습니다.

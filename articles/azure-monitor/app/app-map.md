@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: d4067b23c4ff365857c37d7dfdce6dc42e129989
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 642a382f2ec5da7821c9d709bd27d592ced31c8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936608"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974033"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -34,7 +34,7 @@ ms.locfileid: "88936608"
 
 모든 구성 요소가 단일 Application Insights 리소스 내의 역할인 경우 이 검색 단계가 필요하지 않습니다. 이러한 애플리케이션에 대한 초기 로드 시에는 모든 구성 요소가 포함됩니다.
 
-![애플리케이션 맵 스크린샷](media/app-map/app-map-001.png)
+![응용 프로그램 맵의 예를 보여 주는 스크린샷](media/app-map/app-map-001.png)
 
 수백 가지 구성 요소가 있는 복잡한 토폴로지를 시각화하는 것이 이 환경의 주요 목표 중 하나입니다.
 

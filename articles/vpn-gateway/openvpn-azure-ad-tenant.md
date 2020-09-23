@@ -1,18 +1,18 @@
 ---
 title: 'VPN Gateway: P2S VPN 연결에 대 한 Azure AD 테 넌 트: Azure AD 인증'
-description: Azure AD 인증을 사용 하 여 VNet에 연결 하는 데 P2S VPN을 사용할 수 있습니다.
+description: P2S 오픈 VPN 인증을 위해 Azure AD 테 넌 트를 설정 하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 01fe9331d4063ae45a5d30aa3546d6338d30822d
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 74df878baa6ed4e2ba902a73a7830c0b075c58ce
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89499963"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981525"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결을 위한 Azure Active Directory 테넌트 만들기
 
@@ -85,7 +85,7 @@ Azure AD 테 넌 트에는 전역 관리자 계정 및 마스터 사용자 계�
 
 6. 메시지가 표시되면 **수락**을 선택합니다.
 
-    ![수락](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![스크린샷에는 요청한 메시지 사용 권한과 세부 정보 및 수락할 옵션이 표시 됩니다.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 7. Azure AD의 **엔터프라이즈 응용 프로그램**에는 나열 된 **azure VPN** 이 표시 됩니다.
 

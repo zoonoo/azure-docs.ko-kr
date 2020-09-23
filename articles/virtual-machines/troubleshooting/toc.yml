@@ -234,6 +234,12 @@
           items:
             - name: PerfInsights를 사용하는 방법
               href: how-to-use-perfinsights-linux.md
+- name: 공유 이미지 갤러리 문제 해결
+  items:
+    - name: 공유 이미지 갤러리 문제 해결 - Windows
+      href: ../windows/troubleshooting-shared-images.md
+    - name: 공유 이미지 갤러리 문제 해결 - Linux
+      href: ../linux/troubleshooting-shared-images.md
 - name: VM 확장 문제
   items:
     - name: Azure 확장 개요

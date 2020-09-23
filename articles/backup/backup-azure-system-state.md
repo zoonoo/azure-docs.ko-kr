@@ -3,12 +3,12 @@ title: Azure에 Windows 시스템 상태 백업
 description: Windows Server 컴퓨터의 시스템 상태를 Azure에 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 10d37bbafab6aa96986a5d7af88a509d4c8eac25
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: ebe527ef7ddb32d46c2f39970f74b64c2594bf60
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376493"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975496"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Azure에 Windows 시스템 상태 백업
 
@@ -40,7 +40,7 @@ Recovery Services 자격 증명 모음을 만드는 경우 스토리지 중복�
 
     ![저장소 구성 선택](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    기본적으로 사용자 자격 증명 모음에는 지역 중복 스토리지가 있습니다. Azure를 기본 백업 스토리지 엔드포인트로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. [지역 중복](../storage/common/storage-redundancy.md) 및 [로컬 중복](../storage/common/storage-redundancy.md) 스토리지 옵션에 대한 자세한 내용은 [스토리지 중복 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+    기본적으로 사용자 자격 증명 모음에는 지역 중복 스토리지가 있습니다. Azure를 기본 백업 스토리지 엔드포인트로 사용하는 경우 **지역 중복**을 계속 사용합니다. Azure를 기본 백업 스토리지 엔드포인트로 사용하지 않는 경우 Azure Storage 비용이 감소되는 **로컬 중복**을 선택합니다. 이 [저장소 중복성 개요](../storage/common/storage-redundancy.md)에서 [지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage), [로컬 중복](../storage/common/storage-redundancy.md#locally-redundant-storage) 및 [영역 중복](../storage/common/storage-redundancy.md#zone-redundant-storage) 저장소 옵션에 대해 자세히 알아보세요.
 
 이제 자격 증명 모음을 만들었으므로 Windows 시스템 상태를 백업하도록 구성합니다.
 

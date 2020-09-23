@@ -16,18 +16,18 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 355f0127829b709d82127fb340381830793c93ff
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 18bc7ca9e108a35fd27f7b3155f186221a8caae3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783555"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980057"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 할당 보기, 추가 및 제거
 
 Azure AD 자격 관리에서 패키지, 정책 및 상태에 대 한 액세스 권한이 할당 된 사용자를 볼 수 있습니다. 액세스 패키지에 적절 한 정책이 있는 경우 사용자를 액세스 패키지에 직접 할당할 수도 있습니다. 이 문서에서는 액세스 패키지에 대 한 할당을 확인, 추가 및 제거 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure AD 자격 관리를 사용 하 고 패키지에 액세스 하는 사용자를 할당 하려면 다음 라이선스 중 하나가 있어야 합니다.
 
@@ -36,7 +36,7 @@ Azure AD 자격 관리를 사용 하 고 패키지에 액세스 하는 사용자
 
 ## <a name="view-who-has-an-assignment"></a>할당 된 사용자 보기
 
-**필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -64,7 +64,7 @@ Microsoft Graph를 사용 하 여 액세스 패키지에서 할당을 검색할 
 
 경우에 따라 사용자가 액세스 패키지를 요청 하는 프로세스를 진행할 필요가 없도록 특정 사용자를 액세스 패키지에 직접 할당할 수 있습니다. 사용자를 직접 할당 하려면 액세스 패키지에 관리자 직접 할당을 허용 하는 정책이 있어야 합니다.
 
-**필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -94,7 +94,7 @@ Microsoft Graph를 사용 하 여 액세스 패키지에서 할당을 검색할 
 
 ## <a name="remove-an-assignment"></a>할당 제거
 
-**필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 

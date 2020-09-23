@@ -13,12 +13,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 549309a01602206b85a54b47df297735dfc5e709
-  ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+  ms.openlocfilehash: bd1a0b2efb01d0db153bd666f8ff4e3911095702
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/17/2020
-  ms.locfileid: "88262605"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90984989"
 highlightedContent:
   items:
   - title: Azure Key Vault 소개
@@ -89,6 +89,20 @@ conceptualContent:
     footerLink:
       url: ./secrets/index.yml
       text: 자세히 보기
+  - title: 관리형 HSM(미리 보기)
+    links:
+    - url: ./managed-hsm/overview.md
+      itemType: overview
+      text: 관리형 HSM이란?
+    - url: ./managed-hsm/best-practices.md
+      itemType: overview
+      text: 모범 사례
+    - url: ./managed-hsm/quick-create-cli.md
+      itemType: quickstart
+      text: 관리형 HSM 프로비저닝 및 활성화
+    footerLink:
+      text: 자세히 보기
+      url: ./managed-hsm/index.yml
   - title: 클라이언트 라이브러리
     links:
     - url: ./general/client-libraries.md

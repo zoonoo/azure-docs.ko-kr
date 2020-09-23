@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 218a3ad04d4f7366604784e06c558a9c568ad77e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b4ee17ba6587c38efb6da15117a5c55dc5abb873
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88528066"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979732"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 ServiceNow 구성
 
@@ -101,9 +101,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 5. **관리자 자격 증명** 섹션에서 ServiceNow 관리자 자격 증명 및 사용자 이름을 입력합니다. **연결 테스트**를 클릭하여 Azure AD가 ServiceNow에 연결할 수 있는지 확인합니다. 연결에 실패하면 ServiceNow 계정에 관리자 권한이 있는지 확인하고 다시 시도합니다.
 
-    ![프로비전](./media/servicenow-provisioning-tutorial/provisioning.png)
+    ![관리자 자격 증명을 입력할 수 있는 서비스 프로 비전 페이지를 보여 주는 스크린샷](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 입력하고, **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
+6. **알림 이메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우 메일 알림 보내기** 확인란을 선택합니다.
 
     ![알림 이메일](common/provisioning-notification-email.png)
 

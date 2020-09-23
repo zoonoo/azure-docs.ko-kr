@@ -10,12 +10,12 @@ ms.date: 09/08/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0d03b2708bfd4aac2565b303ddce44f50be65ef9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ee76c1692049d5b25e85b6780fbcf78f7ebfdd2f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612336"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987057"
 ---
 # <a name="object-replication-for-block-blobs"></a>블록 blob에 대 한 개체 복제
 
@@ -68,7 +68,7 @@ ms.locfileid: "89612336"
 
 원본 및 대상 컨테이너가 모두 있어야 규칙에서 지정할 수 있습니다. 복제 정책을 만든 후에 대상 컨테이너는 읽기 전용이 됩니다. 대상 컨테이너에 대한 쓰기 시도가 실패하고 오류 코드 409(충돌)가 발생합니다. 그러나 대상 컨테이너의 blob에 대 한 [Blob 계층 설정](/rest/api/storageservices/set-blob-tier) 작업을 호출 하 여 보관 계층으로 이동할 수 있습니다. 보관 계층에 대 한 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](storage-blob-storage-tiers.md#archive-access-tier)을 참조 하세요.
 
-## <a name="billing"></a>결제 
+## <a name="billing"></a>결제
 
 개체 복제에는 원본 및 대상 계정에 대 한 읽기 및 쓰기 트랜잭션과 함께 원본 계정에서 대상 계정으로 데이터를 복제 하 고 변경 피드를 처리 하는 데 필요한 수신 요금을 부과 하는 추가 비용이 발생 합니다.
 

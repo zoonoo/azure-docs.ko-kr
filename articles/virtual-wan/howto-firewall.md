@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: f20ed76a72eecce59a7b8795a42b033230a2f7e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 577340e485550e84941a33d82b58aa6ff1c933d3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753681"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983676"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>Virtual WAN 허브에 Azure Firewall 구성
 
@@ -32,20 +32,20 @@ ms.locfileid: "84753681"
 
 Virtual WAN의 **개요** 페이지에는 가상 허브 및 보안 허브 목록이 표시됩니다. 다음 그림은 보안 허브가 없는 Virtual WAN을 보여 줍니다.
 
-[ ![개요](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
+[가상 ![ 허브 목록이 포함 된 가상 WAN의 개요 페이지를 보여 주는 스크린샷](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
 
 ## <a name="convert-to-secured-hub"></a>보안 허브로 변환
 
 1. Virtual WAN의 **개요** 페이지에서 보안 허브로 변환할 허브를 선택합니다. 가상 허브 페이지에 Azure Firewall을 이 허브에 배포하는 두 가지 옵션이 표시됩니다. 옵션 중 하나를 선택합니다.
 
-   [ ![보안](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
+   [![보안 허브 또는 Azure 방화벽으로 변환을 선택할 수 있는 가상 WAN의 개요 페이지가 스크린샷에 표시 됩니다.](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
 
 1. 옵션 중 하나를 선택하면 **보안 허브로 변환** 페이지가 표시됩니다. 변환할 허브를 선택하고 페이지 하단의 **다음: Azure Firewall**을 선택합니다.
 
    [ ![허브 선택](./media/howto-firewall/select-hub.png)](./media/howto-firewall/select-hub.png#lightbox)
 1. 워크플로를 완료한 후 **확인**을 선택합니다.
 
-   [ ![확인](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
+   [![스크린샷 확인을 선택 하 여 보안 허브로 변환 창을 보여 줍니다.](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
 
 1. 허브가 보안 허브로 변환되면 Virtual WAN **개요** 페이지에서 볼 수 있습니다.
 

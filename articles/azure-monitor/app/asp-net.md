@@ -3,12 +3,12 @@ title: Azure Application Insights로 ASP.NET에 대한 웹앱 분석 설정 | Mi
 description: Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이트에 대한 성능, 가용성 및 사용자 동작 분석을 구성합니다.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: acfba63cba520631831888a1480929be3b1897f0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: c07e7c8e7bd710cb591719fe8d53a3bad6ca2ee0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475535"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973797"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
@@ -42,7 +42,7 @@ Application Insights 구성 화면:
 
 **시작**을 선택합니다.
 
-![Application Insights에 앱 등록 페이지의 스크린샷](./media/asp-net/00004-start-free.png)
+![Application Insights 페이지 및 시작 단추를 보여 주는 스크린샷](./media/asp-net/00004-start-free.png)
 
 데이터가 저장되는 위치나 리소스 그룹을 설정하려면 **설정 구성**을 클릭합니다. 리소스 그룹은 데이터에 대한 액세스를 제어하는 데 사용됩니다. 예를 들어, 동일한 시스템의 부분을 형성하는 몇 개의 앱이 있는 경우 해당 앱의 Application Insights 데이터를 동일한 리소스 그룹에 배치할 수 있습니다.
 

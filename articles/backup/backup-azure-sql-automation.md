@@ -4,12 +4,12 @@ description: Azure Backup 및 PowerShell을 사용 하 여 Azure Vm에서 SQL �
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: b355aaa465132e86c636c68552f3d650b51b08f1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 37e2336b262311ea00e833ad91fe5e8c5c1ddf1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004989"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975191"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm에서 SQL 데이터베이스 백업 및 복원
 
@@ -102,7 +102,7 @@ Recovery Services 자격 증명 모음은 Resource Manager 리소스이므로 �
 
 3. 자격 증명 모음 저장소에 사용할 중복성 유형을 지정 합니다.
 
-    * [로컬 중복 스토리지](../storage/common/storage-redundancy.md) 또는 [지역 중복 스토리지](../storage/common/storage-redundancy.md)를 사용할 수 있습니다.
+    * [로컬 중복 저장소](../storage/common/storage-redundancy.md#locally-redundant-storage), [지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage) 저장소 또는 [영역 중복 저장소](../storage/common/storage-redundancy.md#zone-redundant-storage) 를 사용할 수 있습니다.
     * 다음 예에서는 **GeoRedundant**로 설정 된 **testvault 된** 에 대 한 **BackupStorageRedundancy** 옵션을[AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd로 설정 합니다.
 
     ```powershell

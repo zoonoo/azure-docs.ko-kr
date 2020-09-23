@@ -60,7 +60,7 @@
               href: entitlement-management-catalog-create.md
             - name: 액세스 패키지 관리자에 위임
               href: entitlement-management-delegate-managers.md
-        - name: 액세스 패키지 관리자
+        - name: 액세스 패키지 관리자 및 액세스 패키지 할당 관리자
           items:
             - name: 새 액세스 패키지 만들기
               href: entitlement-management-access-package-create.md
@@ -68,8 +68,10 @@
               href: entitlement-management-access-package-settings.md
             - name: 리소스 역할 변경
               href: entitlement-management-access-package-resources.md
-            - name: 요청 및 승인 설정 변경
+            - name: 변경 요청 설정
               href: entitlement-management-access-package-request-policy.md
+            - name: 승인 설정 변경
+              href: entitlement-management-access-package-approval-policy.md
             - name: 수명 주기 설정 변경
               href: entitlement-management-access-package-lifecycle-policy.md
             - name: 요청 보기

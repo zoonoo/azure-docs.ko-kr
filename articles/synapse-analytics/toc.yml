@@ -10,24 +10,34 @@
       items:
         - name: 소개
           href: get-started.md
+          displayName: 'get, started'
         - name: 1 Synapse 작업 영역 만들기
           href: get-started-create-workspace.md
+          displayName: 'get, started'
         - name: 2 SQL 풀을 사용하여 분석
           href: get-started-analyze-sql-pool.md
+          displayName: 'get, started'
         - name: 3 Spark를 사용하여 분석
           href: get-started-analyze-spark.md
+          displayName: 'get, started'
         - name: 4 SQL 주문형을 사용하여 분석
           href: get-started-analyze-sql-on-demand.md
+          displayName: 'get, started'
         - name: 5 스토리지 계정에서 데이터 분석
           href: get-started-analyze-storage.md
+          displayName: 'get, started'
         - name: 6 파이프라인을 사용하여 오케스트레이션
           href: get-started-pipelines.md
+          displayName: 'get, started'
         - name: 7 Power BI를 사용하여 시각화
           href: get-started-visualize-power-bi.md
+          displayName: 'get, started'
         - name: 8 모니터링
           href: get-started-monitor.md
+          displayName: 'get, started'
         - name: 9 지식 센터 살펴보기
           href: get-started-knowledge-center.md
+          displayName: 'get, started'
     - name: 참고 자료
       href: overview-cheat-sheet.md
     - name: FAQ
@@ -48,16 +58,16 @@
       href: quickstart-power-bi.md
     - name: 풀 만들기
       items:
-        - name: 웹 도구를 사용하여 Apache Spark 노트북 만들기
-          href: quickstart-apache-spark-notebook.md
-        - name: Azure Portal을 사용하여 Apache Spark 풀 만들기
-          href: quickstart-create-apache-spark-pool-portal.md
-        - name: Synapse Studio를 사용하여 Apache Spark 풀 만들기
-          href: quickstart-create-apache-spark-pool-studio.md
-        - name: Azure Portal을 사용하여 SQL 풀 만들기
-          href: quickstart-create-sql-pool-portal.md
         - name: Synapse Studio를 사용하여 SQL 풀 만들기
           href: quickstart-create-sql-pool-studio.md
+        - name: Azure Portal을 사용하여 SQL 풀 만들기
+          href: quickstart-create-sql-pool-portal.md
+        - name: Notebook 만들기
+          href: quickstart-apache-spark-notebook.md
+        - name: Azure Portal을 사용하여 Spark 풀 만들기
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Synapse Studio를 사용하여 Spark 풀 만들기
+          href: quickstart-create-apache-spark-pool-studio.md
     - name: SQL 풀을 사용하여 데이터 로드
       items:
         - name: COPY 문

@@ -29,6 +29,10 @@
       href: fusion.md
     - name: 작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장
       href: extend-sentinel-across-workspaces-tenants.md
+    - name: UEBA를 사용하여 지능형 위협 식별
+      href: identify-threats-with-entity-behavior-analytics.md
+    - name: Azure Sentinel로 위협 인텔리전스 가져오기
+      href: import-threat-intelligence.md
     - name: 테이블에서 데이터 정규화
       href: normalization.md
     - name: 보안
@@ -162,6 +166,8 @@
           href: connect-threat-intelligence.md
         - name: Azure Stack VM 연결
           href: connect-azure-stack.md
+    - name: 사용자 및 엔터티 동작 분석 사용
+      href: enable-entity-behavior-analytics.md
     - name: 다중 테넌트 작업(MSSP)
       href: multiple-tenants-service-providers.md
     - name: 여러 작업 영역에서 인시던트 작업

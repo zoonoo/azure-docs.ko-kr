@@ -109,7 +109,7 @@
           href: howto-run-a-job.md
     - name: 변환
       items:
-        - name: 클라우드 대상으로 데이터 내보내기(미리 보기)
+        - name: 클라우드 대상으로 데이터 내보내기
           href: howto-export-data.md
         - name: 클라우드 대상으로 데이터 내보내기(레거시)
           href: howto-export-data-legacy.md

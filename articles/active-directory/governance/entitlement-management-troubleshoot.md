@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e230d3a4029d97a328280f581c126c7ec2d0bdb3
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460799"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979423"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Azure AD 자격 관리 문제 해결
 
@@ -75,7 +75,7 @@ ms.locfileid: "89460799"
 
 ### <a name="view-a-requests-delivery-errors"></a>요청의 배달 오류 보기
 
-**필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -103,7 +103,7 @@ ms.locfileid: "89460799"
 
 - 평가판 기간 동안 오류가 수정 되지 않은 경우 요청이 **배달** 되지 않거나 **부분적으로 배달**될 수 있습니다. 그런 다음 다시 **처리** 단추를 사용할 수 있습니다. 요청을 다시 처리 하는 데 7 일이 있습니다.
 
-**필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -121,7 +121,7 @@ ms.locfileid: "89460799"
 
 아직 배달 되지 않았거나 배달이 실패 한 보류 중인 요청만 취소할 수 있습니다. 그렇지 않으면 **취소** 단추가 회색으로 표시 됩니다.
 
-**필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자 또는 액세스 패키지 할당 관리자
 
 1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
@@ -141,7 +141,7 @@ ms.locfileid: "89460799"
 
 * 여러 정책이 적용 되는 경우 자동으로 선택 되는 정책이 나 요청자에 게 표시 되는 정책은 다음 우선 순위 논리를 기반으로 합니다.
 
-    | 정책 우선 순위 | 범위 |
+    | 정책 우선 순위 | Scope |
     | --- | --- |
     | P1 | 디렉터리 또는 특정 연결 된 조직의 특정 사용자 및 그룹 |
     | P2 | 디렉터리의 모든 구성원 (게스트 제외) |

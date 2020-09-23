@@ -184,6 +184,8 @@
       items:
         - name: VPN Gateway에 BGP 구성
           items:
+            - name: Azure portal
+              href: bgp-howto.md
             - name: Azure PowerShell
               href: vpn-gateway-bgp-resource-manager-ps.md
             - name: Azure CLI
@@ -228,6 +230,8 @@
           href: create-zone-redundant-vnet-gateway.md
     - name: 연결에서 IPsec/IKE 정책 구성
       items:
+        - name: Azure portal
+          href: ipsec-ike-policy-howto.md
         - name: PowerShell
           href: vpn-gateway-ipsecikepolicy-rm-powershell.md
     - name: 활성-활성 연결 구성

@@ -50,6 +50,8 @@
       items:
         - name: Azure Backup 지원 매트릭스
           href: backup-support-matrix.md
+        - name: 백업 센터 지원 매트릭스
+          href: backup-center-support-matrix.md
         - name: Azure VM 백업 지원 매트릭스
           href: backup-support-matrix-iaas.md
         - name: MABS(DPM/Azure Backup Server) 지원 매트릭스
@@ -68,6 +70,8 @@
       items:
         - name: FAQ-Recovery Services 자격 증명 모음
           href: backup-azure-backup-faq.md
+        - name: FAQ 백업 센터
+          href: backup-center-faq.md
         - name: FAQ-Azure VM 백업
           href: backup-azure-vm-backup-faq.md
         - name: FAQ-MARS 에이전트
@@ -88,18 +92,36 @@
       href: guidance-best-practices.md
 - name: 방법 가이드
   items:
-    - name: Recovery Services 자격 증명 모음
+    - name: 자격 증명 모음
+      items:
+        - name: Recovery Services 자격 증명 모음
+          items:
+            - name: 개요
+              href: backup-azure-recovery-services-vault-overview.md
+            - name: 생성
+              href: backup-create-rs-vault.md
+            - name: DELETE
+              href: backup-azure-delete-vault.md
+            - name: 이동
+              href: backup-azure-move-recovery-services-vault.md
+            - name: 관리
+              href: backup-azure-manage-windows-server.md
+        - name: Backup 자격 증명 모음
+          items:
+            - name: 개요
+              href: backup-vault-overview.md
+    - name: 백업 센터
       items:
         - name: 개요
-          href: backup-azure-recovery-services-vault-overview.md
-        - name: 생성
-          href: backup-create-rs-vault.md
-        - name: DELETE
-          href: backup-azure-delete-vault.md
-        - name: 이동
-          href: backup-azure-move-recovery-services-vault.md
-        - name: 관리
-          href: backup-azure-manage-windows-server.md
+          href: backup-center-overview.md
+        - name: 모니터링 및 운영
+          href: backup-center-monitor-operate.md
+        - name: 인사이트 얻기
+          href: backup-center-obtain-insights.md
+        - name: 환경 관리
+          href: backup-center-govern-environment.md
+        - name: 작업 수행
+          href: backup-center-actions.md
     - name: Azure VM 백업
       items:
         - name: 개요
@@ -150,6 +172,10 @@
           href: restore-sql-database-azure-vm.md
         - name: 관리
           href: manage-monitor-sql-database-backup.md
+    - name: Azure Database for PostgreSQL 백업
+      items:
+        - name: Backup
+          href: backup-azure-database-postgresql.md
     - name: MARS 에이전트를 사용한 Windows 백업
       items:
         - name: 개요

@@ -1,29 +1,29 @@
 ---
-title: Azure IoT Central에서 데이터 내보내기 (미리 보기) | Microsoft Docs
+title: Azure IoT Central |에서 데이터 내보내기 Microsoft Docs
 description: 새 데이터 내보내기를 사용 하 여 Azure 및 사용자 지정 클라우드 대상으로 IoT 데이터를 내보내는 방법
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/02/2020
+ms.date: 09/15/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 0a07d7e57ced5e2cd9457dc51ebcd355306fc48e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 9738b7d3fb435888e7ffc248b7b2ac6c0ef42471
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461938"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974407"
 ---
-# <a name="export-iot-data-to-cloud-destinations-using-data-export-preview"></a>데이터 내보내기를 사용 하 여 IoT 데이터를 클라우드 대상으로 내보내기 (미리 보기)
+# <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>데이터 내보내기를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기
 
 > [!Note]
-> 이 문서에서는 IoT Central의 미리 보기 데이터 내보내기 기능을 설명 합니다.
+> 이 문서에서는 IoT Central의 데이터 내보내기 기능에 대해 설명 합니다.
 >
 > - 레거시 데이터 내보내기 기능에 대 한 자세한 내용은 [데이터 내보내기 (레거시)를 사용 하 여 클라우드 대상으로 IoT 데이터 내보내기](./howto-export-data-legacy.md)를 참조 하세요.
-> - 미리 보기 데이터 내보내기 및 레거시 데이터 내보내기 기능 간의 차이점에 대 한 자세한 내용은 아래의 [비교 표](#comparison-of-legacy-data-export-and-preview-data-export) 를 참조 하세요.
+> - 데이터 내보내기 및 레거시 데이터 내보내기 기능 간의 차이점에 대 한 자세한 내용은 아래의 [비교 표](#comparison-of-legacy-data-export-and-data-export) 를 참조 하세요.
 
-이 문서에서는 Azure IoT Central에서 새로운 데이터 내보내기 미리 보기 기능을 사용 하는 방법을 설명 합니다. 이 기능을 사용 하 여 IoT Central 응용 프로그램에서 필터링 및 보강 IoT 데이터를 지속적으로 내보낼 수 있습니다. 데이터 내보내기는 웜 경로 통찰력, 분석 및 저장소에 대 한 클라우드 솔루션의 다른 부분에 거의 실시간으로 변경 내용을 푸시합니다.
+이 문서에서는 Azure IoT Central의 새로운 데이터 내보내기 기능을 사용 하는 방법을 설명 합니다. 이 기능을 사용 하 여 IoT Central 응용 프로그램에서 필터링 및 보강 IoT 데이터를 지속적으로 내보낼 수 있습니다. 데이터 내보내기는 웜 경로 통찰력, 분석 및 저장소에 대 한 클라우드 솔루션의 다른 부분에 거의 실시간으로 변경 내용을 푸시합니다.
 
 예를 들어, 다음을 수행할 수 있습니다.
 
@@ -35,9 +35,9 @@ ms.locfileid: "89461938"
 > [!Tip]
 > 데이터 내보내기를 켜면 해당 순간부터의 데이터만 가져옵니다. 현재 데이터 내보내기가 해제 된 시간에 대 한 데이터를 검색할 수 없습니다. 기록 데이터를 더 보존 하려면 초기에 데이터 내보내기를 켭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-데이터 내보내기 미리 보기 기능을 사용 하려면 [V3 응용 프로그램이](howto-get-app-info.md)있어야 하며 [데이터 내보내기](howto-manage-users-roles.md) 권한이 있어야 합니다.
+데이터 내보내기 기능을 사용 하려면 [V3 응용 프로그램이](howto-get-app-info.md)있어야 하며 [데이터 내보내기](howto-manage-users-roles.md) 권한이 있어야 합니다.
 
 ## <a name="set-up-export-destination"></a>내보내기 대상 설정
 
@@ -63,7 +63,12 @@ ms.locfileid: "89461938"
     - **설정 > 공유 액세스 정책**을 선택 합니다.
     - 새 키를 만들거나 **송신** 권한이 있는 기존 키를 선택 합니다.
     - 기본 또는 보조 연결 문자열을 복사합니다. 이 연결 문자열을 사용 하 여 IoT Central에서 새 대상을 설정 합니다.
-
+    - 또는 전체 Event Hubs 네임 스페이스에 대 한 연결 문자열을 생성할 수 있습니다.
+        1. Azure Portal에서 Event Hubs 네임 스페이스로 이동 합니다.
+        2. **설정**아래에서 **공유 액세스 정책** 을 선택 합니다.
+        3. 새 키를 만들거나 **송신** 권한이 있는 기존 키를 선택 합니다.
+        4. 주 또는 보조 연결 문자열 중 하나를 복사합니다.
+        
 ### <a name="create-a-service-bus-queue-or-topic-destination"></a>Service Bus 큐 또는 토픽 대상 만들기
 
 내보낼 기존 Service Bus 네임 스페이스가 없는 경우 다음 단계를 수행 합니다.
@@ -78,6 +83,11 @@ ms.locfileid: "89461938"
     - **설정/공유 액세스 정책**을 선택 합니다.
     - 새 키를 만들거나 **송신** 권한이 있는 기존 키를 선택 합니다.
     - 기본 또는 보조 연결 문자열을 복사합니다. 이 연결 문자열을 사용 하 여 IoT Central에서 새 대상을 설정 합니다.
+    - 또는 전체 Service Bus 네임 스페이스에 대 한 연결 문자열을 생성할 수 있습니다.
+        1. Azure Portal에서 Service Bus 네임 스페이스로 이동 합니다.
+        2. **설정**아래에서 **공유 액세스 정책** 을 선택 합니다.
+        3. 새 키를 만들거나 **송신** 권한이 있는 기존 키를 선택 합니다.
+        4. 주 또는 보조 연결 문자열 중 하나를 복사합니다.
 
 ### <a name="create-an-azure-blob-storage-destination"></a>Azure Blob Storage 대상 만들기
 
@@ -109,10 +119,10 @@ ms.locfileid: "89461938"
 
 1. IoT Central 애플리케이션에 로그인합니다.
 
-1. 왼쪽 창에서 **데이터 내보내기 (미리 보기)** 를 선택 합니다.
+1. 왼쪽 창에서 **데이터 내보내기**를 선택 합니다.
 
     > [!Tip]
-    > 왼쪽 창에 **데이터 내보내기 (미리 보기)** 가 표시 되지 않으면 앱에서 데이터 내보내기를 구성할 수 있는 권한이 없습니다. 관리자에게 데이터 내보내기를 설정하도록 요청합니다.
+    > 왼쪽 창에 **데이터 내보내기가** 표시 되지 않으면 앱에서 데이터 내보내기를 구성할 수 있는 권한이 없는 것입니다. 관리자에게 데이터 내보내기를 설정하도록 요청합니다.
 
 1. **+ 새로 만들기 내보내기**를 선택 합니다.
 
@@ -127,9 +137,10 @@ ms.locfileid: "89461938"
 
 1. 필요에 따라 필터를 추가 하 여 내보내는 데이터의 양을 줄입니다. 각 데이터 내보내기 유형에는 다음과 같은 다양 한 유형의 필터를 사용할 수 있습니다.
 
-    원격 분석을 필터링 하려면 다음을 사용 합니다.
+    원격 분석을 필터링 하려면 다음을 수행할 수 있습니다.
 
-    - **기능 필터**: **이름** 드롭다운에서 원격 분석 항목을 선택 하면 내보낸 스트림에는 필터 조건을 충족 하는 원격 분석만 포함 됩니다. **이름** 드롭다운에서 장치 또는 클라우드 속성 항목을 선택 하는 경우 내보낸 스트림에는 필터 조건과 일치 하는 속성이 있는 장치의 원격 분석만 포함 됩니다.
+    - 장치 이름, 장치 ID 및 장치 템플릿 필터 조건과 일치 하는 장치의 원격 분석만 포함 하도록 내보낸 스트림을 **필터링** 합니다.
+    - 기능에 대 한 **필터링** : **이름** 드롭다운에서 원격 분석 항목을 선택 하면 내보낸 스트림에는 필터 조건을 충족 하는 원격 분석만 포함 됩니다. **이름** 드롭다운에서 장치 또는 클라우드 속성 항목을 선택 하는 경우 내보낸 스트림에는 필터 조건과 일치 하는 속성이 있는 장치의 원격 분석만 포함 됩니다.
     - **메시지 속성 필터**: 장치 sdk를 사용 하는 장치는 각 원격 분석 메시지에서 *메시지 속성* 또는 *응용 프로그램 속성* 을 보낼 수 있습니다. 속성은 사용자 지정 식별자를 사용 하 여 메시지에 태그를 지정 하는 키-값 쌍의 모음입니다. 메시지 속성 필터를 만들려면 찾으려는 메시지 속성 키를 입력 하 고 조건을 지정 합니다. 지정 된 필터 조건과 일치 하는 속성이 있는 원격 분석 메시지만 내보내집니다. 다음 문자열 비교 연산자가 지원 됩니다. equals, 같지 않음, 포함, 포함 안 함, 존재 안 함, 존재 하지 않음 [IoT Hub 문서에서 응용 프로그램 속성에 대해 자세히 알아보세요](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
     속성 변경 내용을 필터링 하려면 **기능 필터**를 사용 합니다. 드롭다운에서 속성 항목을 선택 합니다. 내보낸 스트림에는 필터 조건을 충족 하는 선택한 속성의 변경 내용만 포함 됩니다.
@@ -143,8 +154,8 @@ ms.locfileid: "89461938"
 
     - **대상 이름**: IoT Central의 대상 표시 이름입니다.
     - **대상 유형**: 대상 유형을 선택 합니다. 대상을 아직 설정 하지 않은 경우 [내보내기 대상 설정](#set-up-export-destination)을 참조 하세요.
-    - Azure Event Hubs Azure Service Bus 큐 또는 토픽에서 리소스에 대 한 연결 문자열을 붙여 넣습니다.
-    - Azure Blob Storage의 경우 리소스에 대 한 연결 문자열을 붙여넣고 대/소문자를 구분 하는 컨테이너 이름을 입력 합니다.
+    - Azure Event Hubs의 경우 큐 또는 토픽을 Azure Service Bus 하 고 리소스에 대 한 연결 문자열을 붙여넣은 다음 필요한 경우 대/소문자 구분 이벤트 허브, 큐 또는 토픽 이름을 입력 합니다.
+    - Azure Blob Storage의 경우 리소스에 대 한 연결 문자열을 붙여넣고 필요한 경우 대/소문자를 구분 하는 컨테이너 이름을 입력 합니다.
     - Webhook에 대해 웹 후크 끝점에 대 한 콜백 URL을 붙여넣습니다.
     - **만들기**를 선택합니다.
 
@@ -185,7 +196,7 @@ Azure Portal에서 내보낸 파일을 찾아보려면 해당 파일로 이동 �
 - `enrichments`: 내보내기에 설정 된 모든 강화.
 - `messageProperties`: 장치에서 메시지와 함께 보낸 추가 속성입니다. 이러한 속성을 *응용 프로그램 속성*이 라고도 합니다. [IoT Hub 문서에서 자세히 알아보세요](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
-Event Hubs 및 Service Bus의 경우 장치에서 메시지를 받은 후 새 메시지를 빠르게 내보냅니다 IoT Central.
+Event Hubs 및 Service Bus의 경우 장치에서 메시지를 받은 후 새 메시지를 빠르게 내보냅니다 IoT Central. 각 메시지의 사용자 속성 (응용 프로그램 속성이 라고도 함)에는 `iotcentral-device-id` , `iotcentral-application-id` 및가 `iotcentral-message-source` 자동으로 포함 됩니다.
 
 Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보냅니다.
 
@@ -197,7 +208,7 @@ Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보�
     "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
     "messageSource": "telemetry",
     "deviceId": "1vzb5ghlsg1",
-    "schema": "default@preview",
+    "schema": "default@v1",
     "templateId": "urn:qugj6vbw5:___qbj_27r",
     "enqueuedTime": "2020-08-05T22:26:55.455Z",
     "telemetry": {
@@ -232,7 +243,7 @@ Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보�
 - `templateId`: 장치와 연결 된 장치 템플릿의 ID입니다.
 - `enrichments`: 내보내기에 설정 된 모든 강화.
 
-Event Hubs 및 Service Bus의 경우 IoT Central 새 메시지 데이터를 이벤트 허브 또는 Service Bus 큐 또는 토픽에 거의 실시간으로 내보냅니다.
+Event Hubs 및 Service Bus의 경우 IoT Central 새 메시지 데이터를 이벤트 허브 또는 Service Bus 큐 또는 토픽에 거의 실시간으로 내보냅니다. 각 메시지의 사용자 속성 (응용 프로그램 속성이 라고도 함)에는 `iotcentral-device-id` ,, 및가 `iotcentral-application-id` `iotcentral-message-source` `iotcentral-message-type` 자동으로 포함 됩니다.
 
 Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보냅니다.
 
@@ -244,11 +255,11 @@ Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보�
     "messageSource": "properties",
     "messageType": "cloudPropertyChange",
     "deviceId": "18a985g1fta",
-    "schema": "default@preview",
+    "schema": "default@v1",
     "templateId": "urn:qugj6vbw5:___qbj_27r",
     "enqueuedTime": "2020-08-05T22:37:32.942Z",
     "properties": [{
-        "fieldName": "MachineSerialNumber",
+        "name": "MachineSerialNumber",
         "value": "abc"
     }],
     "enrichments": {
@@ -257,15 +268,15 @@ Blob storage의 경우 메시지는 일괄 처리 되 고 분당 한 번 내보�
 }
 ```
 
-## <a name="comparison-of-legacy-data-export-and-preview-data-export"></a>레거시 데이터 내보내기 및 미리 보기 데이터 내보내기 비교
+## <a name="comparison-of-legacy-data-export-and-data-export"></a>레거시 데이터 내보내기 및 데이터 내보내기 비교
 
-다음 표에서는 [레거시 데이터 내보내기](howto-export-data-legacy.md) 및 미리 보기 데이터 내보내기 기능 간의 차이점을 보여 줍니다.
+다음 표에서는 [레거시 데이터 내보내기](howto-export-data-legacy.md) 와 새로운 데이터 내보내기 기능 간의 차이점을 보여 줍니다.
 
 | 기능  | 레거시 데이터 내보내기 | 새 데이터 내보내기 |
 | :------------- | :---------- | :----------- |
 | 사용 가능한 데이터 형식 | 원격 분석, 장치, 장치 템플릿 | 원격 분석, 속성 변경 |
-| Filtering | 없음 | 내보내는 데이터 형식에 따라 달라 집니다. 원격 분석, 원격 분석을 통한 필터링, 메시지 속성, 속성 값 |
-| 강화 | 없음 | 사용자 지정 문자열 또는 장치에서 속성 값을 사용 하 여 보강 |
+| 필터링 | None | 내보내는 데이터 형식에 따라 달라 집니다. 원격 분석, 원격 분석을 통한 필터링, 메시지 속성, 속성 값 |
+| 강화 | None | 사용자 지정 문자열 또는 장치에서 속성 값을 사용 하 여 보강 |
 | Destinations | Azure Event Hubs, Azure Service Bus 큐 및 토픽 Azure Blob Storage | 레거시 데이터 내보내기 및 webhook와 동일 합니다.|
 | 지원되는 애플리케이션 버전 | V2, V3 | V3만 |
 | 주목할 만한 제한 | 앱 당 내보내기 5 개, 내보내기 당 하나의 대상 | 10 개의 내보내기-앱 당 대상 연결 |

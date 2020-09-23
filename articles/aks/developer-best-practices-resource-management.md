@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e52bd150f72ba663c504b81832ce83d3e38cbf04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005315"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986787"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 리소스를 관리하기 위한 애플리케이션 개발자 모범 사례
 
@@ -22,7 +22,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 개발 빛 실행할 �
 
 > [!div class="checklist"]
 > * Pod 리소스 요청 및 한도의 개념
-> * Dev Spaces 및 Visual Studio Code를 사용하여 애플리케이션을 개발 및 배포하는 방법
+> * Kubernetes 및 Visual Studio Code에 대 한 브리지를 사용 하 여 응용 프로그램을 개발 하 고 배포 하는 방법
 > * `kube-advisor` 도구를 사용하여 배포 관련 문제를 확인하는 방법
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Pod 리소스 요청 및 한도 정의
@@ -74,13 +74,13 @@ spec:
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>AKS 클러스터에서 애플리케이션 개발 및 디버그
 
-**모범 사례 가이드** - 개발 팀은 Dev Spaces를 사용하여 AKS 클러스터에서 배포 및 디버그해야 합니다. 이 개발 모델은 앱을 프로덕션 환경에 배포 하기 전에 RBAC (역할 기반 액세스 제어), 네트워크 또는 저장소 요구 사항을 구현 하는지 확인할 수 있습니다.
+**모범 사례 지침** -개발 팀은 Kubernetes에 대 한 Bridge를 사용 하 여 AKS 클러스터에 대 한 배포 및 디버그를 수행 해야 합니다.
 
-Azure Dev Spaces를 사용하면 AKS 클러스터에서 직접 애플리케이션을 개발, 디버그 및 테스트합니다. 팀 내의 개발자들은 애플리케이션 수명 주기 내내 함께 빌드하고 테스트합니다. Visual Studio 또는 Visual Studio Code와 같은 기존 도구를 계속 사용할 수 있습니다. AKS 클러스터에서 응용 프로그램을 실행 하 고 디버그 하는 옵션을 제공 하는 개발 공간에 대해 확장이 설치 됩니다.
+Kubernetes에 대 한 브리지를 사용 하 여 AKS 클러스터에 대해 직접 응용 프로그램을 개발, 디버그 및 테스트할 수 있습니다. 팀 내의 개발자들은 애플리케이션 수명 주기 내내 함께 빌드하고 테스트합니다. Visual Studio 또는 Visual Studio Code와 같은 기존 도구를 계속 사용할 수 있습니다. AKS 클러스터에서 직접 개발할 수 있는 Kubernetes에 대 한 연결을 위한 확장이 설치 됩니다.
 
-Dev Spaces를 사용하는 이 통합 개발 및 테스트 프로세스를 적용하면 로컬 테스트 환경(예: [minikube][minikube])의 필요성이 줄어듭니다. 대신 AKS 클러스터에서 개발하고 테스트합니다. 네임스페이스를 사용하여 클러스터를 논리적으로 격리하는 방법에 대한 이전 섹션의 설명대로 이 클러스터를 보호 및 격리할 수 있습니다. 앱을 프로덕션 환경에 배포할 준비가 되면 실제 AKS 클러스터에서 배포가 모두 완료되었으므로 자신 있게 배포할 수 있습니다.
+Kubernetes에 대 한 브리지를 사용 하는이 통합 개발 및 테스트 프로세스는 [minikube][minikube]와 같은 로컬 테스트 환경에 대 한 필요성을 줄여 줍니다. 대신 AKS 클러스터에서 개발하고 테스트합니다. 네임스페이스를 사용하여 클러스터를 논리적으로 격리하는 방법에 대한 이전 섹션의 설명대로 이 클러스터를 보호 및 격리할 수 있습니다.
 
-Azure Dev Spaces은 Linux pod 및 노드에서 실행 되는 응용 프로그램에서 사용 하기 위한 것입니다.
+Kubernetes에 대 한 브리지는 Linux pod 및 노드에서 실행 되는 응용 프로그램에서 사용 하기 위한 것입니다.
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Kubernetes용 Visual Studio Code 확장 사용
 
@@ -106,7 +106,7 @@ Kube-advisor 도구는 Linux 애플리케이션뿐만 아니라 Windows 애플�
 
 이러한 일부 모범 사례를 구현하려면 다음 문서를 참조하세요.
 
-* [Dev Spaces를 사용하여 개발][dev-spaces]
+* [Kubernetes에 대 한 브리지를 사용 하 여 개발][btk]
 * [kube-advisor를 사용하여 문제 확인][aks-kubeadvisor]
 
 <!-- EXTERNAL LINKS -->
@@ -117,7 +117,7 @@ Kube-advisor 도구는 Linux 애플리케이션뿐만 아니라 Windows 애플�
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: /visualstudio/containers/overview-local-process-kubernetes
+[btk]: /visualstudio/containers/overview-bridge-to-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

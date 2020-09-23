@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: f78a311125340f447cb0f2dda960e34c289c123a
-  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+  ms.openlocfilehash: eeca42ea748c10970f312a84ea32c53fb904344a
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88650845"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90974440"
 landingContent:
 - title: Azure Backup에 대해 알아보기
   linkLists:
@@ -56,12 +56,14 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: 백업 센터
+      url: backup-center-overview.md
+    - text: Azure Database for PostgreSQL 백업
+      url: backup-azure-database-postgresql.md
     - text: Azure Backup의 일시 삭제
       url: backup-azure-security-feature-cloud.md
     - text: Azure VM의 SQL Server에서 파일로 복원
       url: restore-sql-database-azure-vm.md#restore-as-files
-    - text: Azure VM의 SAP HANA 데이터베이스 백업
-      url: backup-azure-sap-hana-database.md
 - title: Azure VM 백업
   linkLists:
   - linkListType: concept
@@ -134,6 +136,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: 백업 센터를 사용하여 규모에 맞게 관리
+      url: backup-center-monitor-operate.md
     - text: Azure Policy를 사용하여 규모에 맞게 관리
       url: backup-azure-auto-enable-backup.md
     - text: 백업 탐색기를 사용하여 규모에 맞게 모니터링 및 운영

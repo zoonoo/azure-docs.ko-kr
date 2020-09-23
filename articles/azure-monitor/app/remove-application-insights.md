@@ -3,12 +3,12 @@ title: Visual Studio에서 Application Insights 제거-Azure Monitor
 description: Visual Studio에서 ASP.NET 및 ASP.NET Core에 대 한 Application Insights SDK를 제거 하는 방법입니다.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 08a6d29e9170dde4bf3cc12015d126874006a778
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5bfa6ee21cc1a55f653c0e79807a14ac34082e73
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049764"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981480"
 ---
 # <a name="how-to-remove-application-insights-in-visual-studio"></a>Visual Studio에서 Application Insights를 제거 하는 방법
 
@@ -27,7 +27,7 @@ Application Insights를 제거 하려면 응용 프로그램의 API에서 NuGet 
     > [!NOTE]
     > 추적 컬렉션을 사용 하도록 설정한 경우 TraceListener를 먼저 제거 해야 합니다. Enter 키 `Uninstall-package Microsoft.ApplicationInsights.TraceListener` 를 누른 후 아래 단계를 수행 하 여 Microsoft ApplicationInsights. 웹을 제거 합니다.
 
-1. 다음 명령을 입력 합니다. `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
+1. 다음 명령을 입력합니다. `Uninstall-Package Microsoft.ApplicationInsights.Web -RemoveDependencies`
 
     명령을 입력 하면 Application Insights 패키지와 모든 해당 종속성이 프로젝트에서 제거 됩니다.
     
@@ -39,7 +39,7 @@ Application Insights를 제거 하려면 응용 프로그램의 API에서 NuGet 
 
     ![상단 메뉴에서 도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔을 클릭 합니다.](./media/remove-application-insights/package-manager.png)
 
-1. 다음 명령을 입력 합니다. ` Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
+1. 다음 명령을 입력합니다. ` Uninstall-Package Microsoft.ApplicationInsights.AspNetCore -RemoveDependencies`
 
     명령을 입력 하면 Application Insights 패키지와 모든 해당 종속성이 프로젝트에서 제거 됩니다.
 
@@ -66,11 +66,11 @@ Application Insights를 제거 하려면 응용 프로그램의 API에서 NuGet 
 
 1. **제거**를 선택합니다.
     
-    ![종속성 제거를 선택한 다음 제거를 선택 합니다.](./media/remove-application-insights/uninstall-framework.png)
+    ![종속성 제거를 선택 하 고 제거를 강조 표시 한 Microsoft ApplicationInsights를 보여 주는 스크린샷](./media/remove-application-insights/uninstall-framework.png)
 
     응용 프로그램에서 제거할 모든 종속성을 보여 주는 대화 상자가 표시 됩니다. **확인**   을 선택 하 여 제거 합니다.
     
-    ![종속성 제거를 선택한 다음 제거를 선택 합니다.](./media/remove-application-insights/preview-uninstall-framework.png)
+    ![스크린샷을 제거할 종속성이 있는 대화 상자를 보여 줍니다.](./media/remove-application-insights/preview-uninstall-framework.png)
     
 1.  모든 항목을 제거한 후에도 *솔루션 탐색기*에서 "ApplicationInsights.config" 및 "AiHandleErrorAttribute.cs"가 표시 될 수 있습니다.두 파일을 수동으로 삭제할 수 있습니다.
 

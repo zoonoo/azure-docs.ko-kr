@@ -31,6 +31,8 @@
       href: connection-monitor-preview.md
     - name: VM 네트워크 트래픽 필터 문제 진단
       href: network-watcher-ip-flow-verify-overview.md
+    - name: NSG 규칙 및 트래픽 필터링 진단
+      href: network-watcher-network-configuration-diagnostics-overview.md
     - name: VM 라우팅 문제 진단
       href: network-watcher-next-hop-overview.md
     - name: 아웃바운드 VM 통신 문제 진단

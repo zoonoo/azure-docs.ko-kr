@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Azure Dev Spaces 사용 하 여 Azure Kubernetes Service에서 코드를 실행 하는 프로세스를 설명 합니다.
 keywords: azds, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 9dbc1f0f21c2883e5caadbdae268a515eb94d145
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a189b26264f3e22a69acb3e3c0410203f9822c31
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208684"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981285"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Azure Dev Spaces 작업을 사용 하 여 코드를 실행 하는 방법
 
@@ -199,12 +199,12 @@ ingress:
 
 네트워킹 및 요청을 라우팅하는 방법에 대 한 자세한 내용은 [Azure Dev Spaces에서 라우팅이 작동 하는 방법][how-it-works-routing]을 참조 Azure Dev Spaces.
 
-신속 하 게 반복 하 고 개발 하는 데 Azure Dev Spaces를 사용 하는 방법에 대 한 자세한 내용은 Kubernetes를 사용 하 [는 로컬 프로세스 작동 방식][how-it-works-local-process-kubernetes] 및 [Azure Dev Spaces를 사용 하 여 코드를 원격으로 디버그][how-it-works-remote-debugging]
+Kubernetes를 사용 하 여 신속 하 게 반복 하 고 개발 하는 방법에 대 한 자세한 내용은 [Kubernetes에 대][how-it-works-bridge-to-kubernetes] 한 연결 방법 및 [Azure Dev Spaces 사용 하 여 원격으로 코드를 디버깅][how-it-works-remote-debugging]하는 방법
 
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
+[how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

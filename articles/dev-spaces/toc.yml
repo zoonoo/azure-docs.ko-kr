@@ -11,6 +11,8 @@
           href: get-started-netcore-visualstudio.md
     - name: 개념
       items:
+        - name: Kubernetes에 대한 브리지로 마이그레이션
+          href: migrate-to-bridge-to-kubernetes.md
         - name: Dev Spaces의 작동 방식
           items:
             - name: 개요

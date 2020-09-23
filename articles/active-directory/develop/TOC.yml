@@ -445,7 +445,7 @@
           href: supported-accounts-validation.md
         - name: 단일 테넌트 및 다중 테넌트 앱
           href: single-and-multi-tenant-apps.md
-        - name: 게시자 확인(미리 보기)
+        - name: 게시자 확인
           href: publisher-verification-overview.md
     - name: 권한 및 동의
       displayName: Scopes
@@ -553,9 +553,9 @@
           href: howto-add-terms-of-service-privacy-statement.md
         - name: 앱에 대한 게시자 확인 구성
           items:
-            - name: 앱을 게시자 확인으로 표시(미리 보기)
+            - name: 앱을 게시자 확인으로 표시
               href: mark-app-as-publisher-verified.md
-            - name: 게시자 확인 문제 해결(미리 보기)
+            - name: 게시자 확인 문제 해결
               href: troubleshoot-publisher-verification.md
     - name: Microsoft 인증 라이브러리 작업
       displayName: MSAL

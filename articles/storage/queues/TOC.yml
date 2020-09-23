@@ -48,8 +48,8 @@
         - name: Azure Storage 미사용 데이터 암호화
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:
-            - name: Azure Key Vault를 사용하는 고객 관리형 키
-              href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: 고객 관리형 키로 암호화
+              href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: 데이터 작업 권한 부여
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:
@@ -69,8 +69,6 @@
               href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: 관리 작업 권한 부여
           href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Advanced Threat Protection
-          href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: 기본 제공 보안 컨트롤
           href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Azure 프라이빗 엔드포인트 사용
@@ -167,17 +165,15 @@
           items:
             - name: 고객 관리형 키를 지원하는 계정 만들기
               href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: 고객 관리형 키 구성
+            - name: 고객 관리형 키로 암호화 구성
               items:
-                - name: 포털
-                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Azure CLI
-                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: 주요 자격 증명 모음에 고객 관리형 키 저장
+                  href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: 관리형 HSM에 고객 관리형 키 저장
+                  href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: 계정에 대한 암호화 키 모델 확인
               href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: 스토리지 계정에 인프라 암호화 사용
+            - name: 계정에 인프라 암호화 사용
               href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: 클라이언트 쪽 암호화 구성
           items:
@@ -199,6 +195,8 @@
                   href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: 클라이언트 애플리케이션에 대한 TLS 버전 구성
                   href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: 위협 보호를 위해 Azure Defender 구성
+          href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: 데이터 중복성 관리
       items:
         - name: 데이터 복제 방법 변경

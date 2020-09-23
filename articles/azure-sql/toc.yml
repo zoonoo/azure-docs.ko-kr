@@ -51,8 +51,8 @@
               href: database/security-baseline.md
             - name: 보안 특성
               href: database/security-controls.md
-            - name: Advanced Data Security
-              href: database/advanced-data-security.md
+            - name: Azure Defender for SQL
+              href: database/azure-defender-for-sql.md
             - name: Advanced Threat Protection
               href: database/threat-detection-overview.md
             - name: 데이터 검색 및 분류
@@ -712,6 +712,10 @@
           items:
             - name: 개요
               href: managed-instance/management-operations-overview.md
+            - name: 작업 모니터링
+              href: managed-instance/management-operations-monitor.md
+            - name: 작업 취소
+              href: managed-instance/management-operations-cancel.md
             - name: API 참조
               href: managed-instance/api-references-create-manage-instance.md
         - name: Machine Learning Services
@@ -1030,7 +1034,7 @@
                       href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                     - name: 수동으로 구성
                       items:
-                        - name: 필수 구성 요소
+                        - name: 사전 요구 사항
                           href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                         - name: 자습서
                           href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
@@ -1146,7 +1150,7 @@
       href: /sql/tools/overview-sql-tools
     - name: SSMS(SQL Server Management Studio)
       href: /sql/ssms/download-sql-server-management-studio-ssms
-    - name: SSDT(SQL Server Data Tools)
+    - name: SQL Server Data Tools(SSDT)
       href: /sql/ssdt/download-sql-server-data-tools-ssdt
     - name: BCP
       href: /sql/tools/bcp-utility
