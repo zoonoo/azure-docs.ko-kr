@@ -16,12 +16,12 @@ ms.date: 04/17/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5c3af6c46dd8ad69915e8f870d739f33375dba5e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 29a1a991ab79c38dad1a89533091d80406615d35
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266411"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969468"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Azure CLI를 사용하여 사용자 할당 관리 ID 생성, 나열 또는 삭제
 
@@ -34,18 +34,12 @@ Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id�
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
-- CLI 스크립트 예제는 다음의 세 가지 옵션 중 하나로 실행할 수 있습니다.
-    - Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다(다음 섹션 참조).
-    - 각 코드 블록의 오른쪽 위 모퉁이에 있는 "사용해 보세요." 단추를 통해 포함 된 Azure Cloud Shell를 사용 합니다.
-    - 로컬 CLI 콘솔을 사용하려는 경우 [Azure CLI의 최신 버전을 설치](/cli/azure/install-azure-cli)합니다(2.0.13 이상). 사용자 할당 관리 ID를 배포하려는 Azure 구독과 연결된 계정으로 `az login`을 사용하여 Azure에 로그인합니다.
-
+- 예제 스크립트를 실행 하기 위해 두 가지 옵션이 있습니다.
+    - 코드 블록의 오른쪽 위 모퉁이에 있는 **사용해 보기** 단추를 사용 하 여 열 수 있는 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용 합니다.
+    - 최신 버전의 [Azure CLI](/cli/azure/install-azure-cli)를 설치한 다음 [az login](/cli/azure/reference-index#az-login)을 사용 하 여 Azure에 로그인 하 여 스크립트를 로컬로 실행 합니다. 리소스를 만들려는 Azure 구독과 연결 된 계정을 사용 합니다.   
 
 > [!NOTE]
-> CLI를 사용 하 여 앱 servivce 보안 주체를 사용 하는 경우 사용자 권한을 수정 하려면 CLI의 일부에서 Graph API에 대해 GET 요청을 수행 하는 서비스 사용자에 게 Azure Graph API AD의 추가 권한을 제공 해야 합니다. 그렇지 않으면 ' 작업을 완료할 수 있는 권한이 없습니다. ' 메시지가 표시 될 수 있습니다. 이렇게 하려면 Azure Active Directory에서 앱 등록으로 이동 하 고, 앱을 선택 하 고, API 권한을 클릭 하 고, 아래로 스크롤하여 Azure Active Directory Graph를 선택 해야 합니다. 여기에서 응용 프로그램 사용 권한을 선택 하 고 적절 한 사용 권한을 추가 합니다. 
-
-
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+> CLI를 사용 하 여 app service 사용자를 사용할 때 사용자 권한을 수정 하려면 CLI의 일부에서 Graph API에 대해 GET 요청을 수행 하는 서비스 주체에 게 Azure AD Graph API의 추가 권한을 제공 해야 합니다. 그렇지 않으면 ' 작업을 완료할 수 있는 권한이 없습니다. ' 메시지가 표시 될 수 있습니다. 이렇게 하려면 Azure Active Directory에서 앱 등록으로 이동 하 고, 앱을 선택 하 고, API 권한을 클릭 하 고, 아래로 스크롤하여 Azure Active Directory Graph를 선택 해야 합니다. 여기에서 응용 프로그램 사용 권한을 선택 하 고 적절 한 사용 권한을 추가 합니다. 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기 
 
@@ -55,7 +49,7 @@ Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id�
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
- ```azurecli-interactive
+```azurecli-interactive
 az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 ```
 ## <a name="list-user-assigned-managed-identities"></a>사용자 할당 관리 ID 나열
@@ -67,6 +61,7 @@ az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
 ```azurecli-interactive
 az identity list -g <RESOURCE GROUP>
 ```
+
 JSON 응답에서 사용자 할당 관리 ID에는 키 `type`에 대해 반환된 `"Microsoft.ManagedIdentity/userAssignedIdentities"` 값이 있습니다.
 
 `"type": "Microsoft.ManagedIdentity/userAssignedIdentities"`
@@ -77,7 +72,7 @@ JSON 응답에서 사용자 할당 관리 ID에는 키 `type`에 대해 반환�
 
 사용자 할당 관리 ID를 삭제하려면 [az identity delete](/cli/azure/identity#az-identity-delete) 명령을 사용합니다.  -n 매개 변수는 그 이름을 지정하고 -g 매개 변수는 사용자 할당 관리 ID가 만들어진 리소스 그룹을 지정합니다. `<USER ASSIGNED IDENTITY NAME>` 및 `<RESOURCE GROUP>` 매개 변수 값을 원하는 값으로 바꿉니다.
 
- ```azurecli-interactive
+```azurecli-interactive
 az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>
 ```
 > [!NOTE]
@@ -88,5 +83,3 @@ az identity delete -n <USER ASSIGNED IDENTITY NAME> -g <RESOURCE GROUP>
 Azure CLI identity 명령의 전체 목록을 보려면 [az identity](/cli/azure/identity)를 참조하세요.
 
 Azure VM에 사용자 할당 관리 ID를 할당하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)을 참조하세요.
-
-

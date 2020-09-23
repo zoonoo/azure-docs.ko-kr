@@ -4,12 +4,12 @@ description: Application Insights를 시작합니다. 온-프레미스 또는 Mi
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f84e1065f93fc2cca950f12d5df537b931faac8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323454"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987148"
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 애플리케이션의 성능 모니터링
 
@@ -112,11 +112,11 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 이 작업에 대한 사용자 환경을 더 잘 이해하기 위해 더 긴 시간 범위를 선택할 수 있습니다. 그러면 작업이 느린 특정 시간 범위에서 시간을 좁힐 수 있습니다. 다음 예에서는 기본 24시간 시간 범위에서 7일 시간 범위로 전환한 다음, 12일 화요일과 13일 수요일 사이의 9:47~12:47 시간 범위로 확대했습니다. 기간 분포와 샘플 및 프로파일러 추적의 수는 모두 오른쪽에서 업데이트되었습니다.
 
-![고객/세부 정보 가져오기 세 가지 기간 스파이크(기간: 7일 범위)](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![3 개의 기간 급증을 사용 하는 성능 (미리 보기) 및 기간 7 일 범위를 보여 주는 스크린샷](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
 느린 환경에서 범위를 좁히기 위해 95와 99 백분위수 사이로 떨어지는 기간으로 확대합니다. 이는 느린 사용자 상호 작용의 4%를 나타냅니다.
 
-![고객/세부 정보 가져오기 세 가지 기간 스파이크(기간: 7일 범위)](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![스크린샷에서 고객/세부 정보 가져오기는 7 일 범위에서 기간으로 3 개의 기간 급증을 보여 줍니다.](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
 이제 샘플 단추를 클릭하거나 대표 프로파일러 추적에서 프로파일러 추적 단추를 클릭하여 대표 샘플 중 하나를 살펴볼 수 있습니다. 다음 예에는 시간 범위 및 관심 있는 범위 기간에서 고객/세부 정보를 가져오기 위해 수집된 4개의 추적이 있습니다.
 
@@ -126,7 +126,7 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 성능 조사 환경은 집중하기로 결정한 샘플 집합 측면과 관련된 통찰력을 보여 줍니다. 사용 가능한 모든 정보를 살펴보기에 가장 좋은 방법은 30일 시간 범위로 전환한 다음, 전체를 선택하여 지난 달 동안의 모든 작업에 걸쳐 정보를 확인하는 것입니다.
 
-![고객/세부 정보 가져오기 세 가지 기간 스파이크(기간: 7일 범위)](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
+![전체 창 열기 및 Insights가 선택 된 성능 (미리 보기)이 스크린샷으로 표시 됩니다.](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 ## <a name="next-steps"></a><a name="next"></a>다음 단계

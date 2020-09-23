@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 16ce5b42e35ff3d650ba18aa95ab80b83fdbfdad
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0d723e1613e96f0aea243eace8ece3f0473e3742
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547684"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884440"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Azure Database for PostgreSQL에서 고가용성 – 단일 서버
 Azure Database for PostgreSQL – 단일 서버 서비스는 재정적 지원 되는 SLA (서비스 수준 계약) [99.99%](https://azure.microsoft.com/support/legal/sla/postgresql) 가동 시간을 보장 하는 높은 수준의 가용성을 제공 합니다. Azure Database for PostgreSQL은 사용자가 제공 하는 크기 조정 계산 작업 등의 계획 된 이벤트 중에 고가용성을 제공 하며, 기본 하드웨어, 소프트웨어 또는 네트워크 오류와 같은 계획 되지 않은 이벤트가 발생 하는 경우에도 제공 합니다. 이 서비스를 사용 하는 경우 응용 프로그램 작동 중단 시간이 거의 없도록 하 여 대부분의 중요 한 상황에서 신속 하 게 복구할 수 Azure Database for PostgreSQL.
@@ -29,7 +29,7 @@ Azure Database for PostgreSQL는 높은 가동 시간이 필요한 중요 업무
 ## <a name="planned-downtime-mitigation"></a>계획 된 가동 중지 시간 완화
 Azure Database for PostgreSQL는 계획 된 가동 중지 시간 동안 고가용성을 제공 하도록 설계 되었습니다. 
 
-![Azure PostgreSQL에서 탄력적 크기 조정 보기](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-elastic-scaling.png" alt-text="Azure PostgreSQL에서 탄력적 크기 조정 보기":::
 
 1. 몇 초 안에 PostgreSQL 데이터베이스 서버 확장 및 축소
 2. 라우팅 클라이언트에서 프록시 역할을 하는 게이트웨이를 적절 한 데이터베이스 서버에 연결 합니다.
@@ -49,7 +49,7 @@ Azure Database for PostgreSQL는 계획 된 가동 중지 시간 동안 고가�
 계획 되지 않은 가동 중지 시간은 기본 하드웨어 오류, 네트워킹 문제 및 소프트웨어 버그를 포함 하 여 예측할 수 없는 실패의 결과로 발생할 수 있습니다. 데이터베이스 서버가 예기치 않게 중단 되 면 새 데이터베이스 서버가 몇 초 안에 자동으로 프로 비전 됩니다. 원격 저장소는 새 데이터베이스 서버에 자동으로 연결 됩니다. PostgreSQL 엔진은 WAL 및 데이터베이스 파일을 사용 하 여 복구 작업을 수행 하 고, 클라이언트의 연결을 허용 하도록 데이터베이스 서버를 엽니다. 커밋되지 않은 트랜잭션은 손실 되며 응용 프로그램에서 다시 시도해 야 합니다. 계획 되지 않은 가동 중지 시간은 피할 수 없지만, Azure Database for PostgreSQL은 사용자의 개입 없이 데이터베이스 서버와 저장소 계층 모두에서 복구 작업을 자동으로 수행 하 여 가동 중지 시간을 완화 합니다. 
 
 
-![Azure PostgreSQL의 고가용성 보기](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="Azure PostgreSQL의 고가용성 보기":::
 
 1. Azure PostgreSQL 서버는 빠른 크기 조정 기능을 제공 합니다.
 2. 클라이언트 연결을 적절 한 데이터베이스 서버로 라우팅하는 프록시로 역할을 하는 게이트웨이

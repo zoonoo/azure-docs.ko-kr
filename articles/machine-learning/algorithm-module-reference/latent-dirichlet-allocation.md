@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
-ms.openlocfilehash: 2fa969b6dd89000b4d669bc5d42aa09b3cf3a2b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751687"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907859"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>잠재적 Dirichlet 할당 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에서 숨어 있는 Dirichlet 할당 모듈을 사용 하 여 다른 방법으로는 분류 되지 않은 텍스트를 범주로 그룹화 하는 방법을 설명 합니다. 
+이 문서에서는 Azure Machine Learning 디자이너에서 잠재적으로 분류 되지 않은 텍스트를 범주로 그룹화 하는 방법을 설명 합니다. 
 
 LDA (숨어 있는 Dirichlet 할당)는 유사한 텍스트를 찾기 위해 자연어 처리에 자주 사용 됩니다. 또 다른 일반적인 용어는 *항목 모델링*입니다.
 
@@ -75,7 +75,7 @@ LDA는 일반적으로 분류 방법이 아닙니다. 그러나 인기 방법을
     + 기능 항목 매트릭스의 값은의 확률로 표시 됩니다 `P(word|topic)` .
 
     > [!NOTE] 
-    > Azure Machine Learning designer (미리 보기)에서 scikit 라이브러리는 버전 0.19에서 정규화 되지 않은 *doc_topic_distr* 출력을 더 이상 지원 하지 않습니다. 이 모듈에서는 **정규화** 매개 변수를 *기능 토픽 행렬* 출력에만 적용할 수 있습니다. *변환 된 데이터 집합* 출력은 항상 정규화 됩니다.
+    > Azure Machine Learning 디자이너에서 scikit 라이브러리는 버전 0.19에서 정규화 되지 않은 *doc_topic_distr* 출력을 더 이상 지원 하지 않습니다. 이 모듈에서는 **정규화** 매개 변수를 *기능 토픽 행렬* 출력에만 적용할 수 있습니다. *변환 된 데이터 집합* 출력은 항상 정규화 됩니다.
 
 7. 다음 고급 매개 변수를 설정 하려면 **모든 옵션 표시**옵션을 선택한 다음 **TRUE** 로 설정 합니다.
 
@@ -148,7 +148,7 @@ LDA는 일반적으로 분류 방법이 아닙니다. 그러나 인기 방법을
 
 자세한 내용은 [전처리 텍스트](preprocess-text.md)를 참조 하세요.
 
-디자이너에서 텍스트 처리에 r 또는 Python 라이브러리를 사용할 수도 있습니다. [r 스크립트 실행](execute-r-script.md), [python 스크립트 실행](execute-python-script.md)을 참조 하세요.
+디자이너에서 텍스트 처리에 r 또는 Python 라이브러리를 사용할 수도 있습니다. [r 스크립트 실행](execute-r-script.md),  [python 스크립트 실행](execute-python-script.md)을 참조 하세요.
 
 
 
@@ -181,13 +181,13 @@ LDA 프로세스에서 식별 하는 *토픽* 은 개별 제품에 대 한 검�
 
 ###  <a name="module-parameters"></a>모듈 매개 변수
 
-|이름|Type|범위|선택 사항|기본값|Description|  
+|이름|Type|범위|선택 사항|기본값|설명|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
-|대상 열|열 선택||필요한 공간|StringFeature|대상 열 이름 또는 인덱스입니다.|  
-|모델링할 토픽 수|정수|[1, 1000]|필요한 공간|5|N 개 항목에 대 한 문서 분포를 모델링 합니다.|  
-|N그램|정수|[1, 10]|필요한 공간|2|해시 중에 생성 된 N 그램의 순서입니다.|  
-|일반화|부울|True 또는 False|필요한 공간|true|출력을 확률로 정규화 합니다.  변환 된 데이터 집합은 P (토픽&#124;문서)이 되 고 기능 토픽 행렬은 P (word&#124;토픽)가 됩니다.|  
-|모든 옵션 표시|부울|True 또는 False|필요한 공간|False|Scikit에 고유한 추가 매개 변수를 제공 합니다 (온라인 학습 LDA).|  
+|대상 열|열 선택||필수|StringFeature|대상 열 이름 또는 인덱스입니다.|  
+|모델링할 토픽 수|정수|[1, 1000]|필수|5|N 개 항목에 대 한 문서 분포를 모델링 합니다.|  
+|N그램|정수|[1, 10]|필수|2|해시 중에 생성 된 N 그램의 순서입니다.|  
+|일반화|부울|True 또는 False|필수|true|출력을 확률로 정규화 합니다.  변환 된 데이터 집합은 P (토픽&#124;문서)이 되 고 기능 토픽 행렬은 P (word&#124;토픽)가 됩니다.|  
+|모든 옵션 표시|부울|True 또는 False|필수|False|Scikit에 고유한 추가 매개 변수를 제공 합니다 (온라인 학습 LDA).|  
 |가는 매개 변수|Float|[0.00001; 1.0]|[ **모든 옵션 표시** ] 확인란이 선택 된 경우 적용 됩니다.|0.01|항목의 이전 배포 항목입니다.|  
 |알파 매개 변수|Float|[0.00001; 1.0]|[ **모든 옵션 표시** ] 확인란이 선택 된 경우 적용 됩니다.|0.01|문서 항목 이전 배포.|  
 |예상 문서 수|정수|[1;int.MaxValue]|[ **모든 옵션 표시** ] 확인란이 선택 된 경우 적용 됩니다.|1000|예상 문서 수입니다. `total_samples`매개 변수에 해당 합니다.|  

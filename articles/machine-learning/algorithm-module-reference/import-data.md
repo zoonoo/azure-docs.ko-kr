@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 68bf47f370a57fe277d4ab9679af0b920a0d81ec
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 85a54ce7c8b3beea102fad7c3adb58f92c8574dd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658117"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907931"
 ---
 # <a name="import-data-module"></a>데이터 가져오기 모듈
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 기존 클라우드 데이터 서비스에서 machine learning 파이프라인으로 데이터를 로드할 수 있습니다. 
 

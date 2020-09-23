@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성
-description: 이 문서에는 Azure Disk Encryption과 함께 사용할 키 자격 증명 모음을 만들어 구성하는 단계가 나와 있습니다.
+description: 이 문서에서는 Windows VM에서 Azure Disk Encryption 사용할 키 자격 증명 모음을 만들고 구성 하는 단계를 제공 합니다.
 ms.service: virtual-machines
 ms.subservice: security
 ms.topic: how-to
@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0779cad02f266d49be055ea485e87c9c8075b7b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9d9d3d8456e0623ea3f1ef17c5f9f7acb28d0ecd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284526"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977910"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성
 

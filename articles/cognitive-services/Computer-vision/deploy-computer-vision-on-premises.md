@@ -1,7 +1,7 @@
 ---
 title: Kubernetes 및 투구와 Computer Vision 컨테이너 사용
 titleSuffix: Azure Cognitive Services
-description: Computer Vision 컨테이너를 Azure Container Instance에 배포 하 고 웹 브라우저에서 테스트 합니다.
+description: Kubernetes 및 투구를 사용 하 여 Computer Vision 컨테이너를 배포 하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e2a017371ccb3cf70812aed5606c386746024884
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9a8e0dde8b24c39180a584c26af725ab82ea0176
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443163"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907098"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Kubernetes 및 투구와 Computer Vision 컨테이너 사용
 
 온-프레미스 Computer Vision 컨테이너를 관리 하는 한 가지 옵션은 Kubernetes 및 투구를 사용 하는 것입니다. Kubernetes 및 투구를 사용 하 여 Computer Vision 컨테이너 이미지를 정의 합니다. Kubernetes 패키지를 만듭니다. 이 패키지는 온-프레미스 Kubernetes 클러스터에 배포 됩니다. 마지막으로 배포 된 서비스를 테스트 하는 방법을 살펴보겠습니다. Kubernetes 오케스트레이션을 사용 하지 않고 Docker 컨테이너를 실행 하는 방법에 대 한 자세한 내용은 [Computer Vision 컨테이너 설치 및 실행](computer-vision-how-to-install-containers.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 온-프레미스 Computer Vision 컨테이너를 사용 하기 전에 다음 필수 구성 요소가 필요 합니다.
 
-| 필수 | 용도 |
+| 필수 | 목적 |
 |----------|---------|
 | Azure 계정 | Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][free-azure-account]을 만듭니다. |
 | Kubernetes CLI | [KUBERNETES CLI][kubernetes-cli] 는 컨테이너 레지스트리에서 공유 자격 증명을 관리 하는 데 필요 합니다. Kubernetes는 Kubernetes 패키지 관리자 인 투구 이전에도 필요 합니다. |
@@ -44,7 +44,7 @@ ms.locfileid: "89443163"
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Kubernetes 클러스터에 연결
 
-호스트 컴퓨터에 사용 가능한 Kubernetes 클러스터가 있어야 합니다. Kubernetes 클러스터를 호스트 컴퓨터에 배포 하는 방법에 대 한 개념을 이해 하려면 [Kubernetes 클러스터 배포](../../aks/tutorial-kubernetes-deploy-cluster.md) 에 대 한이 자습서를 참조 하세요.
+호스트 컴퓨터에 사용 가능한 Kubernetes 클러스터가 있어야 합니다. Kubernetes 클러스터를 호스트 컴퓨터에 배포 하는 방법에 대 한 개념을 이해 하려면 [Kubernetes 클러스터 배포](../../aks/tutorial-kubernetes-deploy-cluster.md) 에 대 한이 자습서를 참조 하세요. 배포에 대 한 자세한 내용은 [Kubernetes 설명서](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)에서 확인할 수 있습니다.
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Kubernetes 클러스터를 사용 하 여 Docker 자격 증명 공유
 

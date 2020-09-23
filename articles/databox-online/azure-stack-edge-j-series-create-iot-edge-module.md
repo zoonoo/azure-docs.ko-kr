@@ -1,6 +1,6 @@
 ---
-title: 'GPU를 사용 하는 Azure Stack Edge 용 c # IoT Edge 모듈 | Microsoft Docs'
-description: 'Azure Stack Edge GPU 장치에 배포할 수 있는 c # IoT Edge 모듈을 개발 하는 방법에 대해 알아봅니다.'
+title: 'GPU를 사용 하는 Azure Stack Edge Pro 용 c # IoT Edge 모듈 | Microsoft Docs'
+description: 'Azure Stack Edge Pro GPU 장치에 배포할 수 있는 c # IoT Edge 모듈을 개발 하는 방법에 대해 알아봅니다.'
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,49 +8,49 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: c981208438529ec7c23ab3c3089f4d57d77c2714
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 628dec7f1ba44d81243aeff2657e2311119c566a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268964"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891190"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>C # IoT Edge 모듈을 개발 하 여 Azure Stack에 지에서 파일 이동
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Edge Pro Azure Stack 파일을 이동 하는 c # IoT Edge 모듈 개발
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-이 문서에서는 Azure Stack에 지 장치를 사용 하 여 배포용 IoT Edge 모듈을 만드는 방법을 단계별로 안내 합니다. Azure Stack Edge는 데이터를 처리 하 고 네트워크를 통해 Azure에 보낼 수 있는 저장소 솔루션입니다.
+이 문서에서는 Azure Stack Edge Pro 장치를 사용 하 여 배포용 IoT Edge 모듈을 만드는 방법을 단계별로 안내 합니다. Azure Stack Edge Pro는 데이터를 처리 하 고 네트워크를 통해 Azure에 보낼 수 있는 저장소 솔루션입니다.
 
-Azure IoT Edge 모듈을 Azure Stack Edge와 함께 사용 하 여 데이터를 Azure로 이동할 때 데이터를 변환할 수 있습니다. 이 문서에 사용 된 모듈은 로컬 공유에서 Azure Stack Edge 장치의 클라우드 공유로 파일을 복사 하는 논리를 구현 합니다.
+Azure IoT Edge 모듈을 Azure Stack Edge Pro와 함께 사용 하 여 Azure로 이동 되는 데이터를 변환할 수 있습니다. 이 문서에 사용 된 모듈은 로컬 공유에서 Azure Stack Edge Pro 장치의 클라우드 공유로 파일을 복사 하는 논리를 구현 합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 모듈을 저장하고 관리하는 컨테이너 레지스트리를 만듭니다(Docker 이미지).
-> * Azure Stack에 지 장치에 배포할 IoT Edge 모듈을 만듭니다.
+> * Azure Stack Edge Pro 장치에 배포할 IoT Edge 모듈을 만듭니다.
 
 
 ## <a name="about-the-iot-edge-module"></a>IoT Edge 모듈 정보
 
-Azure Stack Edge 장치는 IoT Edge 모듈을 배포 하 고 실행할 수 있습니다. Edge 모듈은 기본적으로 디바이스에서 메시지를 수집하고, 메시지를 변환하거나 IoT Hub에 메시지를 전송하는 등의 특정 작업을 수행하는 Docker 컨테이너입니다. 이 문서에서는 로컬 공유에서 Azure Stack Edge 장치의 클라우드 공유로 파일을 복사 하는 모듈을 만듭니다.
+Azure Stack Edge Pro 장치는 IoT Edge 모듈을 배포 하 고 실행할 수 있습니다. Edge 모듈은 기본적으로 디바이스에서 메시지를 수집하고, 메시지를 변환하거나 IoT Hub에 메시지를 전송하는 등의 특정 작업을 수행하는 Docker 컨테이너입니다. 이 문서에서는 로컬 공유에서 Azure Stack Edge Pro 장치의 클라우드 공유로 파일을 복사 하는 모듈을 만듭니다.
 
-1. 파일은 Azure Stack Edge 장치의 로컬 공유에 기록 됩니다.
+1. 파일은 Azure Stack Edge Pro 장치의 로컬 공유에 기록 됩니다.
 2. 파일 이벤트 생성기는 로컬 공유에 작성된 각 파일에 대한 파일 이벤트를 만듭니다. 파일 이벤트는 파일이 수정 되는 경우에도 생성 됩니다. 그런 다음, 파일 이벤트는 IoT Edge 허브에 전송됩니다(IoT Edge 런타임).
 3. IoT Edge 사용자 지정 모듈은 파일에 대한 상대 경로를 포함하는 파일 이벤트 개체를 만들도록 파일 이벤트를 처리합니다. 모듈은 상대 파일 경로를 사용하여 절대 경로를 생성하고 로컬 공유에서 클라우드 공유로 파일을 복사합니다. 그런 다음, 모듈은 로컬 공유에서 파일을 삭제합니다.
 
-![Azure Stack Edge에서 Azure IoT Edge 모듈이 작동 하는 방식](./media/azure-stack-edge-j-series-create-iot-edge-module/how-module-works-1.png)
+![Edge Pro Azure Stack에서 Azure IoT Edge 모듈이 작동 하는 방식](./media/azure-stack-edge-j-series-create-iot-edge-module/how-module-works-1.png)
 
 파일이 클라우드 공유에 있으면 Azure Storage 계정으로 자동으로 업로드됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음을 확인합니다.
 
-- 을 실행 하는 Azure Stack Edge 장치입니다.
+- 을 실행 하는 Azure Stack Edge Pro 장치입니다.
 
     - 디바이스에는 연결된 IoT Hub 리소스가 있습니다.
     - 디바이스에 Edge 컴퓨팅 역할이 구성되어 있습니다.
-    자세한 내용은 Azure Stack Edge에 대 한 [계산 구성](azure-stack-edge-j-series-deploy-configure-compute.md#configure-compute) 으로 이동 하세요.
+    자세한 내용은 Azure Stack Edge Pro에 대 한 [계산 구성](azure-stack-edge-j-series-deploy-configure-compute.md#configure-compute) 으로 이동 하세요.
 
 - 다음 개발 리소스:
 
@@ -278,4 +278,4 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Stack Edge에서이 모듈을 배포 하 고 실행 하려면 [모듈 추가](azure-stack-edge-j-series-deploy-configure-compute.md#add-a-module)의 단계를 참조 하세요.
+Edge Pro Azure Stack에서이 모듈을 배포 하 고 실행 하려면 [모듈 추가](azure-stack-edge-j-series-deploy-configure-compute.md#add-a-module)의 단계를 참조 하세요.

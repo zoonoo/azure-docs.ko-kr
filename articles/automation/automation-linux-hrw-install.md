@@ -3,14 +3,14 @@ title: Azure Automation에 Linux Hybrid Runbook Worker 배포
 description: 이 문서에서는 로컬 데이터 센터 또는 클라우드 환경의 Linux 기반 컴퓨터에서 runbook을 실행 하는 Azure Automation Hybrid Runbook Worker를 설치 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f19aec65ed2616d757718116ac948473dd4b0ed
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: fb975305e18315fa8d0a39e4fe0ab6902c98b7e7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448006"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987233"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -56,7 +56,7 @@ Hybrid Runbook Worker 기능은 다음 배포를 지원합니다.
 * Red Hat Enterprise Linux Server 5, 6 및 7(x86/x64)
 * Debian GNU/Linux 6, 7, 8(x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS 및 18.04(x86/x64)
-* SUSE Linux Enterprise Server 11 및 12(x86/x64)
+* SUSE Linux Enterprise Server 12 (x86/x64)
 
 ### <a name="minimum-requirements"></a>최소 요구 사항
 
@@ -76,6 +76,12 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
 | **선택적 패키지** | **설명** | **최소 버전**|
 | PowerShell Core | PowerShell runbook을 실행 하려면 PowerShell Core를 설치 해야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요. | 6.0.0 |
 
+## <a name="supported-linux-hardening"></a>지원 되는 Linux 강화
+
+다음은 아직 지원 되지 않습니다.
+
+* 들
+
 ## <a name="supported-runbook-types"></a>지원되는 Runbook 유형
 
 Linux Hybrid Runbook Worker는 Azure Automation의 제한 된 runbook 형식 집합을 지원 하며 다음 표에 설명 되어 있습니다.
@@ -85,7 +91,7 @@ Linux Hybrid Runbook Worker는 Azure Automation의 제한 된 runbook 형식 집
 |Python 2 |예 |
 |PowerShell |예<sup>1</sup> |
 |PowerShell 워크플로 |예 |
-|그래픽 |예 |
+|그래픽 |아니요 |
 |그래픽 PowerShell 워크플로 |예 |
 
 <sup>1</sup> PowerShell runbook을 설치 하려면 PowerShell Core가 Linux 컴퓨터에 설치 되어 있어야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요.

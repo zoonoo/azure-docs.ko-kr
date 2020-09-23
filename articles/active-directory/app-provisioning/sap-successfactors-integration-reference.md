@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 07/20/2020
 ms.author: chmutali
-ms.openlocfilehash: ea47f8a6fc29571a27f8976bd0ad9bbd30ed0ad9
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808459"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969530"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Azure Active Directory 프로비저닝이 SAP SuccessFactors와 통합 되는 방법 
 
@@ -63,7 +63,7 @@ SuccessFactors의 모든 사용자에 대해 Azure AD 프로 비전 서비스는
 | 14 | 코드 코드                              | employmentNav/jobInfoNav/jobCodeNav  | `jobCode`또는 `jobCodeId` 특성만 매핑되는 경우에만 |
 | 15 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | `payGrade`특성이 매핑되는 경우에만 |
 | 16 | 위치                             | employmentNav/jobInfoNav/locationNav  | `location`특성이 매핑되는 경우에만 |
-| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | 매핑에 다음 특성 중 하나가 포함 된 경우:`officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | 매핑에 다음 특성 중 하나가 포함 된 경우: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
 | 18 | 이벤트 이유                          | employmentNav/jobInfoNav/eventReasonNav  | `eventReason`특성이 매핑되는 경우에만 |
 | 19 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | `assignmentType`가 매핑될 경우에만 |
 | 20 | EmploymentType 선택 목록                | employmentNav/jobInfoNav/employmentTypeNav | `employmentType`가 매핑될 경우에만 |
@@ -182,7 +182,7 @@ JSONPath 변환을 사용 하 여 Azure AD 프로 비전 앱의 동작을 사용
 직원 중심 인스턴스에서 *EmpJobInfo* 의 *customString35* attribute는 위치 설명을 저장 합니다. 이 값을 Active Directory *physicalDeliveryOfficeName* 특성으로 이동 하려고 합니다. 이 시나리오에 대 한 특성 매핑을 구성 하려면 아래 지정 된 단계를 사용 합니다. 
 
 1. SuccessFactors 특성 목록을 편집 하 여 *empJobNavCustomString35*라는 새 특성을 추가 합니다.
-1. 이 특성에 대 한 JSONPath API 식을 다음과 같이 설정 합니다.`$.employmentNav.results[0].jobInfoNav.results[0].customString35`
+1. 이 특성에 대 한 JSONPath API 식을 다음과 같이 설정 합니다. `$.employmentNav.results[0].jobInfoNav.results[0].customString35`
 1. Azure Portal에서 매핑 변경을 저장 하 고 다시 로드 합니다.  
 1. 특성 매핑 블레이드에서 *empJobNavCustomString35* 을 *physicalDeliveryOfficeName*에 매핑합니다.
 1. 매핑을 저장 합니다.
@@ -199,20 +199,20 @@ JSONPath 변환을 사용 하 여 Azure AD 프로 비전 앱의 동작을 사용
 1. 아래로 스크롤하고 **고급 옵션 표시**를 클릭 합니다.
 1. **여기에서 스키마 검토** 링크를 클릭 하 여 스키마 편집기를 엽니다. 
 
-   >![검토-스키마](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
+   >![스키마 편집기를 여는 여기의 스키마 검토 링크를 보여 주는 스크린샷](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
 
 1. 편집 하기 전에 **다운로드** 링크를 클릭 하 여 스키마 복사본을 저장 합니다. 
 
-   >![다운로드-스키마](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
+   >![다운로드를 사용 하는 스키마 편집기를 보여 주는 스크린샷 스키마 복사본을 저장 하려면 선택 합니다.](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
 1. 스키마 편집기에서 Ctrl + H 키를 눌러 찾기-바꾸기 컨트롤을 엽니다.
-1. 찾기 텍스트 상자에서 값을 복사 하 여 붙여넣습니다.`$.employmentNav.results[0]`
+1. 찾기 텍스트 상자에서 값을 복사 하 여 붙여넣습니다. `$.employmentNav.results[0]`
 1. 바꾸기 텍스트 상자에서 값을 복사 하 여 붙여넣습니다 `$.employmentNav.results[?(@.userNav != null)]` . 연산자 주위의 공백은 `!=` JSONPath 식을 성공적으로 처리 하는 데 중요 합니다. 
    >![찾기-바꾸기-변환](media/sap-successfactors-integration-reference/find-replace-conversion-scenario.png#lightbox)
 1. "모두 바꾸기" 옵션을 클릭 하 여 스키마를 업데이트 합니다. 
 1. 스키마를 저장합니다. 
 1. 위의 프로세스는 다음과 같이 모든 JSONPath 식을 업데이트 합니다. 
-   * 이전 JSONPath:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * 새 JSONPath:`$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
+   * 이전 JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * 새 JSONPath: `$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
 1. 프로 비전을 다시 시작 합니다. 
 
 ### <a name="handling-rehire-scenario"></a>Rehire 시나리오 처리
@@ -230,13 +230,13 @@ HR 프로세스에서 옵션 1을 사용 하는 경우 프로 비전 스키마�
 1. **여기에서 스키마 검토** 링크를 클릭 하 여 스키마 편집기를 엽니다.   
 1. 편집 하기 전에 **다운로드** 링크를 클릭 하 여 스키마 복사본을 저장 합니다.   
 1. 스키마 편집기에서 Ctrl + H 키를 눌러 찾기-바꾸기 컨트롤을 엽니다.
-1. 찾기 텍스트 상자에서 값을 복사 하 여 붙여넣습니다.`$.employmentNav.results[0]`
+1. 찾기 텍스트 상자에서 값을 복사 하 여 붙여넣습니다. `$.employmentNav.results[0]`
 1. 바꾸기 텍스트 상자에서 값을 복사 하 여 붙여넣습니다 `$.employmentNav.results[-1:]` . 이 JSONPath 식은 최신 *EmpEmployment* 레코드를 반환 합니다.   
 1. "모두 바꾸기" 옵션을 클릭 하 여 스키마를 업데이트 합니다. 
 1. 스키마를 저장합니다. 
 1. 위의 프로세스는 다음과 같이 모든 JSONPath 식을 업데이트 합니다. 
-   * 이전 JSONPath:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * 새 JSONPath:`$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
+   * 이전 JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * 새 JSONPath: `$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
 1. 프로 비전을 다시 시작 합니다. 
 
 이 스키마 변경은 작업자 변환 시나리오도 지원 합니다. 
@@ -254,13 +254,13 @@ Employee Central의 사용자가 전역 할당에 대해 처리 되 면 SuccessF
 1. **여기에서 스키마 검토** 링크를 클릭 하 여 스키마 편집기를 엽니다.   
 1. 편집 하기 전에 **다운로드** 링크를 클릭 하 여 스키마 복사본을 저장 합니다.   
 1. 스키마 편집기에서 Ctrl + H 키를 눌러 찾기-바꾸기 컨트롤을 엽니다.
-1. 찾기 텍스트 상자에서 값을 복사 하 여 붙여넣습니다.`$.employmentNav.results[0]`
+1. 찾기 텍스트 상자에서 값을 복사 하 여 붙여넣습니다. `$.employmentNav.results[0]`
 1. 바꾸기 텍스트 상자에서 값을 복사 하 여 붙여넣습니다 `$.employmentNav.results[?(@.assignmentClass == 'ST')]` . 
 1. "모두 바꾸기" 옵션을 클릭 하 여 스키마를 업데이트 합니다. 
 1. 스키마를 저장합니다. 
 1. 위의 프로세스는 다음과 같이 모든 JSONPath 식을 업데이트 합니다. 
-   * 이전 JSONPath:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * 새 JSONPath:`$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
+   * 이전 JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * 새 JSONPath: `$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
 1. 앱의 특성 매핑 블레이드를 다시 로드 합니다. 
 1. 아래로 스크롤하고 **고급 옵션 표시**를 클릭 합니다.
 1. **SuccessFactors에 대 한 특성 목록 편집**을 클릭 합니다.
@@ -291,11 +291,11 @@ Employee Central의 사용자에 게 동시/여러 작업이 있는 경우 *Assi
 
 | \# | 시나리오 요구 사항 | 전자 메일 기본 <br> 플래그 값 | 회사 전화 <br> 기본 플래그 값 | 휴대폰 <br> 기본 플래그 값 | 회사 전화 <br> 매핑 | 휴대폰 <br> 매핑 |
 |--|--|--|--|--|--|--|
-| 1 | * 비즈니스 전자 메일을 기본으로 설정 합니다. <br> * 전화 번호를 설정 하지 않습니다. | true | true | false | \[설정 안 함\] | \[설정 안 함\] | 
+| 1 | * 비즈니스 전자 메일을 기본으로 설정 합니다. <br> * 전화 번호를 설정 하지 않습니다. | true | true | false | \[설정되지 않음\] | \[설정되지 않음\] | 
 | 2 | * SuccessFactors, 비즈니스 전자 메일 및 회사 전화는 주입니다. <br> * 항상 Azure AD 전화 번호를 회사 전화로 이동 하 고 휴대폰을 휴대폰으로 이동 합니다. | true | true | false | telephoneNumber | mobile | 
 | 3 | * SuccessFactors, 비즈니스 전자 메일 및 휴대폰은 기본입니다. <br> * 항상 Azure AD 전화 번호를 회사 전화로 이동 하 고 휴대폰을 휴대폰으로 이동 합니다. | true | false | true |  telephoneNumber | mobile | 
-| 4 | * SuccessFactors 비즈니스 전자 메일이 기본입니다. <br> * Azure AD에서 직장 전화 번호가 있는지 확인 하 고 (있는 경우) 휴대폰 번호가 있는지 확인 하 고 휴대폰 번호가 있는 경우에만 회사 전화 번호를 기본으로 표시를 선택 합니다. | true | 식 매핑 사용:`IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | 식 매핑 사용:`IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | mobile | 
-| 5 | * SuccessFactors 비즈니스 전자 메일 및 회사 전화는 주입니다. <br> * Azure AD에서 mobile을 사용할 수 있는 경우 회사 전화로 설정 하 고, 그렇지 않으면 telephoneNumber를 사용 합니다. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[설정 안 함\] | 
+| 4 | * SuccessFactors 비즈니스 전자 메일이 기본입니다. <br> * Azure AD에서 직장 전화 번호가 있는지 확인 하 고 (있는 경우) 휴대폰 번호가 있는지 확인 하 고 휴대폰 번호가 있는 경우에만 회사 전화 번호를 기본으로 표시를 선택 합니다. | true | 식 매핑 사용: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | 식 매핑 사용: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | mobile | 
+| 5 | * SuccessFactors 비즈니스 전자 메일 및 회사 전화는 주입니다. <br> * Azure AD에서 mobile을 사용할 수 있는 경우 회사 전화로 설정 하 고, 그렇지 않으면 telephoneNumber를 사용 합니다. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[설정되지 않음\] | 
 
 * 다시 쓰기 특성 매핑에 전화 번호에 대 한 매핑이 없는 경우에는 전자 메일만 쓰기 상태로 포함 됩니다.
 * 직원 중앙에서 신규 고용 온 보 딩 중에는 비즈니스 전자 메일 및 전화 번호를 사용할 수 없습니다. 온 보 딩 중에 비즈니스 전자 메일 및 회사 전화를 기본으로 설정 하는 것이 필수 인 경우 새 고용 생성 중에 회사 전화 및 전자 메일에 대 한 더미 값을 설정할 수 있습니다 .이 값은 나중에 나중 쓰기 앱에서 업데이트 됩니다.

@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 9d83a9ffb9dc334ef959b7a8039b9a9c4a1fced7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a9b0ec0fc19b6b6efa0453d698a5a978dacabc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137459"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907844"
 ---
 # <a name="linear-regression-module"></a>선형 회귀 모듈
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 파이프라인에서 사용할 선형 회귀 모델을 만들 수 있습니다.  선형 회귀는 하나 이상의 독립적인 변수와 숫자 결과 또는 종속 변수 간의 선형 관계를 설정 하려고 시도 합니다. 
 
@@ -25,7 +25,7 @@ ms.locfileid: "82137459"
 
 ## <a name="about-linear-regression"></a>선형 회귀 정보
 
-선형 회귀는 일반적인 통계 방법으로, 기계 학습에서 채택 되 고, 줄을 맞추기 위한 여러 가지 새로운 메서드를 사용 하 여 오류를 측정 합니다. 가장 기본적인 의미에서 회귀는 숫자 대상의 예측을 의미 합니다. 선형 회귀는 기본 예측 태스크에 대 한 간단한 모델을 원하는 경우에도 적합 합니다. 선형 회귀는 복잡 한 큰 차원의 스파스 데이터 집합 에서도 잘 작동 하는 경향이 있습니다.
+선형 회귀는 일반적인 통계 방법으로, 기계 학습에서 채택 되 고, 줄을 맞추기 위한 여러 가지 새로운 메서드를 사용 하 여 오류를 측정 합니다. 간단히 말해서 회귀는 숫자 대상의 예측을 의미 합니다. 선형 회귀는 기본 예측 태스크에 대 한 간단한 모델을 원하는 경우에도 적합 합니다. 선형 회귀는 복잡 한 큰 차원의 스파스 데이터 집합 에서도 잘 작동 하는 경향이 있습니다.
 
 Azure Machine Learning는 선형 회귀 외에도 다양 한 회귀 모델을 지원 합니다. 그러나 "회귀" 라는 용어는 느슨하게 해석 될 수 있으며 다른 도구에서 제공 하는 일부 유형의 회귀는 지원 되지 않습니다.
 

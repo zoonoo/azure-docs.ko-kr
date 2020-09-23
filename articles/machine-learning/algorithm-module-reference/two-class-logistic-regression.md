@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 525293c7ae3d0af49f6deaa0ce9d3cb037d9ba38
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137623"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907698"
 ---
 # <a name="two-class-logistic-regression-module"></a>2 클래스 로지스틱 회귀 모듈
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 두 개의 결과를 예측 하는 데 사용할 수 있는 로지스틱 회귀 모델을 만듭니다. 
 
@@ -58,7 +58,7 @@ ms.locfileid: "82137623"
      이 알고리즘은 L1 및 L2 정규화 값의 선형 조합을 지원 합니다. 즉, 및 인 경우는 <code>x = L1</code> <code>y = L2</code> <code>ax + by = c</code> 정규화 용어의 선형 범위를 정의 합니다.  
   
     > [!NOTE]
-    >  L1 및 L2 정규화에 대해 자세히 알아보고 싶습니까? 다음 문서에서는 L1 및 L2 정규화 어떻게 다르고, 로지스틱 회귀 및 신경망 모델에 대 한 코드 샘플을 사용 하 여 모델 피팅에 어떻게 영향을 주는지에 대해 설명 합니다. [l1 및 L2 정규화 for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  L1 및 L2 정규화에 대해 자세히 알아보고 싶습니까? 다음 문서에서는 L1 및 L2 정규화 어떻게 다르고, 로지스틱 회귀 및 신경망 모델에 대 한 코드 샘플을 사용 하 여 모델 피팅에 어떻게 영향을 주는지에 대해 설명 합니다.  [l1 및 L2 정규화 for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
     >
     > 로지스틱 회귀 모델에 대해 L1 및 L2 용어의 여러 선형 조합이 고안 되었습니다 (예: [탄력적 네트워크 정규화](https://wikipedia.org/wiki/Elastic_net_regularization)). 이러한 조합을 참조 하 여 모델에 적용 되는 선형 조합을 정의 하는 것이 좋습니다.
       

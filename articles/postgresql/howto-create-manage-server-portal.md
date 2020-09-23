@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 11/20/2019
-ms.openlocfilehash: 908a61a00f0e33016074a6f985271ac94157fdf4
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 02a50a94b0b07d1755abe78c567df7ff5c7eda92
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854989"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907440"
 ---
 # <a name="manage-an-azure-database-for-postgresql-server-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 서버 관리
 
@@ -37,7 +37,7 @@ Azure Database for PostgreSQL 서버를 만들고 시작 하는 방법을 알아
 
 2. 크기를 조정 하는 대상에 따라 **범용** 또는 **메모리 최적화**를 선택 합니다.
 
-   ![Azure Database for PostgreSQL에서 기본, 범용 또는 메모리 액세스에 최적화 된 계층을 선택 하는 Azure Portal의 스크린샷](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/change-pricing-tier.png" alt-text="Azure Database for PostgreSQL에서 기본, 범용 또는 메모리 액세스에 최적화 된 계층을 선택 하는 Azure Portal의 스크린샷":::
 
    > [!NOTE]
    > 계층을 변경 하면 서버가 다시 시작 됩니다.
@@ -50,7 +50,7 @@ Azure Database for PostgreSQL 서버를 만들고 시작 하는 방법을 알아
 
 2. 슬라이더를 원하는 값으로 이동하여 **vCore** 설정을 변경합니다.
 
-   ![Azure Database for PostgreSQL에서 vCore 옵션을 선택할 Azure Portal의 스크린샷](./media/howto-create-manage-server-portal/scaling-compute.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Azure Database for PostgreSQL에서 vCore 옵션을 선택할 Azure Portal의 스크린샷":::
 
    > [!NOTE]
    > VCores 크기를 조정 하면 서버를 다시 시작 합니다.
@@ -63,7 +63,7 @@ Azure Database for PostgreSQL 서버를 만들고 시작 하는 방법을 알아
 
 2. 슬라이더를 원하는 값으로 이동 하 여 **저장소** 설정을 변경 합니다.
 
-   ![Azure Database for PostgreSQL에서 저장소 크기 조정을 선택 Azure Portal의 스크린샷](./media/howto-create-manage-server-portal/scaling-storage.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Azure Database for PostgreSQL에서 저장소 크기 조정을 선택 Azure Portal의 스크린샷":::
 
    > [!NOTE]
    > 저장소 크기를 축소할 수 없습니다.
@@ -76,11 +76,11 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
 
 1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **암호 재설정**을 선택 합니다.
 
-   ![Azure Database for PostgreSQL에서 암호를 다시 설정 하 Azure Portal의 스크린샷](./media/howto-create-manage-server-portal/overview-reset-password.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Azure Database for PostgreSQL에서 암호를 다시 설정 하 Azure Portal의 스크린샷":::
 
 2. 새 암호를 입력하고 암호를 확인합니다. 텍스트 상자에 암호 복잡성 요구 사항에 대 한 메시지가 표시 됩니다.
 
-   ![암호를 다시 설정 하 고 Azure Database for PostgreSQL 저장 하는 Azure Portal의 스크린샷](./media/howto-create-manage-server-portal/reset-password.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="암호를 다시 설정 하 고 Azure Database for PostgreSQL 저장 하는 Azure Portal의 스크린샷":::
 
 3. **확인** 을 선택 하 여 새 암호를 저장 합니다.
 
@@ -90,11 +90,11 @@ Azure Portal를 사용 하 여 관리자 역할의 암호를 변경할 수 있�
 
 1. Azure Portal에서 서버를 선택 합니다. **개요** 창에서 **삭제**를 선택 합니다.
 
-   ![Azure Database for PostgreSQL에서 서버를 삭제 Azure Portal의 스크린샷](./media/howto-create-manage-server-portal/overview-delete.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Azure Database for PostgreSQL에서 서버를 삭제 Azure Portal의 스크린샷":::
 
 2. 입력 상자에 서버 이름을 입력 하 여 삭제 하려는 서버 인지 확인 합니다.
 
-   ![Azure Database for PostgreSQL에서 서버 삭제를 확인 하는 Azure Portal의 스크린샷](./media/howto-create-manage-server-portal/confirm-delete.png)
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Azure Database for PostgreSQL에서 서버 삭제를 확인 하는 Azure Portal의 스크린샷":::
 
    > [!NOTE]
    > 서버 삭제는 취소할 수 없습니다.

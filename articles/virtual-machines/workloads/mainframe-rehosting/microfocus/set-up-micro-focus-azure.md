@@ -1,6 +1,6 @@
 ---
 title: Azure에서 마이크로 포커스 엔터프라이즈 서버 5.0 및 Enterprise Developer 5.0 설치 | Microsoft Docs
-description: Azure Vm (가상 머신)에서 마이크로 포커스 개발 및 테스트 환경을 사용 하 여 IBM z/OS 메인프레임 워크 로드를 Rehost.
+description: 이 문서에서는 Microsoft Azure에 마이크로 포커스 엔터프라이즈 서버 5.0 및 Enterprise Developer 5.0를 설치 하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: maggsl
@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 59566fc051b1e84d8e271b3c9d061f2481dcc58f
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 11fde4480f4e2ed9feda00fa2af0e5937a77b9ad
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245318"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986889"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Azure에서 마이크로 포커스 엔터프라이즈 서버 5.0 및 Enterprise Developer 5.0 설치
 
@@ -29,7 +29,7 @@ Azure에서 일반적인 작업은 개발 및 테스트 환경입니다. 이 시
 
 Enterprise Server에 대 한 해당 개발 환경은 Microsoft Visual Studio 2017 이상, Visual Studio Community (무료로 다운로드 가능) 또는 Eclipse에서 실행 되는 엔터프라이즈 개발자입니다. 이 문서에서는 Visual Studio 2017 이상과 함께 제공 되는 Windows Server 2016 가상 컴퓨터를 사용 하 여 배포 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음 필수 구성 요소를 확인 하세요.
 

@@ -13,42 +13,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 36118bb99da5f0c7f918009413394d931415886f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 868470292fbacd71e1eb2d39de7e3a9c5cf6900e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076368"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883889"
 ---
 # <a name="protect-your-network-resources"></a>네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
-
-이 문서에서는 Security Center 리소스 보안 섹션의 **네트워킹** 페이지에 대해 설명 합니다.
 
 네트워킹에 대 한 권장 사항의 전체 목록은 [네트워킹 권장 사항](recommendations-reference.md#recs-network)을 참조 하세요.
 
 이 문서에서는 네트워크 보안 관점에서 Azure 리소스에 적용되는 권장 사항을 설명합니다. 네트워킹 권장 사항은 차세대 방화벽, 네트워크 보안 그룹, JIT VM 액세스, 과도 하 게 허용 되는 인바운드 트래픽 규칙 등을 중심으로 합니다. 네트워킹 권장 사항 및 수정 작업 목록은 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
 
-> [!NOTE]
-> **네트워킹** 페이지에서 네트워크 관점에서 본 Azure 리소스 상태에 대해 자세히 알아볼 수 있습니다. 네트워크 맵 및 적응 네트워크 컨트롤은 Azure Security Center 표준 계층에서만 사용할 수 있습니다. [무료 계층을 사용하는 경우 **레거시 네트워킹 보기** 단추를 클릭하여 네트워킹 리소스 권장 사항을 받을 수 있습니다](#legacy-networking).
->
+Security Center **네트워킹** 기능에는 다음이 포함 됩니다. 
 
-**네트워킹** 페이지에서는 네트워크 리소스의 상태에 대한 자세한 정보를 볼 수 있는 섹션의 개요를 제공합니다.
-
-- 네트워크 맵 (Azure Security Center 표준 계층만 해당)
-- 적응형 네트워크 강화
+- 네트워크 맵 (Azure Defender 필요)
+- [적응 네트워크 강화](security-center-adaptive-network-hardening.md) (Azure Defender 필요)
 - 네트워킹 보안 권장 사항
-- 레거시 **네트워킹** 블레이드(이전 네트워킹 블레이드) 
  
-[![네트워킹 창](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
+## <a name="view-your-networking-resources-and-their-recommendations"></a>네트워킹 리소스 및 권장 사항 보기
+
+[자산 인벤토리 페이지](asset-inventory.md)에서 리소스 종류 필터를 사용 하 여 조사 하려는 네트워킹 리소스를 선택 합니다.
+
+:::image type="content" source="./media/security-center-network-recommendations/network-filters-inventory.png" alt-text="Asset inventory network 리소스 유형" lightbox="./media/security-center-network-recommendations/network-filters-inventory.png":::
+
 
 ## <a name="network-map"></a>네트워크 맵
+
 대화형 네트워크 맵은 네트워크 리소스를 강화하기 위한 권장 사항 및 정보를 제공하는 보안 오버레이를 통해 그래픽 뷰를 제공합니다. 맵을 사용하면 Azure 워크로드의 네트워크 토폴로지, 가상 머신과 서브넷 간 연결, 맵에서 특정 리소스 및 해당 리소스에 대한 권장 사항으로 드릴다운하는 기능을 확인할 수 있습니다.
 
 네트워크 맵을 열려면:
 
-1. Security Center의 리소스 보안 예방 조치에서 **네트워킹**을 선택합니다.
-2. **네트워크 맵**에서 **토폴로지 보기**를 클릭합니다.
+1. Security Center의 메뉴에서 Azure Defender 대시보드를 열고 **네트워크 맵**을 선택 합니다.
+
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Azure Defender 대시보드에서 네트워크 맵 열기" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+
+1. **계층** 메뉴를 선택 하 여 **토폴로지**를 선택 합니다.
  
 토폴로지 맵의 기본 보기에 다음이 표시됩니다.
 
@@ -63,7 +65,7 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 ## <a name="understanding-the-network-map"></a>네트워크 맵 이해
 
-네트워크 맵은 Azure 리소스를 **토폴로지** 보기 및 **트래픽** 보기로 표시할 수 있습니다. 
+네트워크 맵은 **토폴로지** 보기 및 **트래픽** 보기에 Azure 리소스를 표시할 수 있습니다. 
 
 ### <a name="the-topology-view"></a>토폴로지 보기
 
@@ -114,31 +116,8 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 [![네트워킹 트래픽 맵](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
 
-## <a name="legacy-networking"></a>레거시 네트워킹 <a name ="legacy-networking"></a>
-
-표준 계층이 Security Center 되지 않은 경우이 섹션에서는 무료 네트워킹 권장 사항을 보는 방법에 대해 설명 합니다.
-
-이 정보에 액세스하려면 네트워킹 블레이드에서 **레거시 네트워킹 보기**를 클릭합니다. 
-
-[![레거시 네트워킹](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
-
-### <a name="internet-facing-endpoints-section"></a>인터넷 연결 엔드포인트 섹션
-**인터넷 연결 엔드포인트** 섹션에서 현재 인터넷 연결 엔드포인트로 구성된 가상 머신 및 해당 상태를 확인할 수 있습니다.
-
-이 테이블에는 엔드포인트 이름, 인터넷 연결 IP 주소, 네트워크 보안 그룹 및 NGFW 권장 사항의 현재 심각도 상태가 있습니다. 테이블은 심각도별로 정렬됩니다.
-
-### <a name="networking-topology-section"></a>네트워킹 토폴로지 섹션
-**네트워킹 토폴로지** 섹션에는 리소스의 계층적 보기가 있습니다.
-
-테이블은 심각도별로 정렬됩니다(가상 머신 및 서브넷).
-
-이 토폴로지 보기에서 첫 번째 수준은 Vnet을 표시합니다. 두 번째는 서브넷을 표시 하 고 세 번째 수준에는 해당 서브넷에 속하는 가상 컴퓨터가 표시 됩니다. 오른쪽 열에는 해당 리소스의 네트워크 보안 그룹 권장 사항의 현재 상태가 표시됩니다.
-
-세 번째 수준은 이전에 설명한 것과 유사한 가상 머신을 표시합니다. 리소스를 클릭 하 여 자세히 알아보거나 필요한 보안 제어 또는 구성을 적용할 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음을 참조하세요.
 
-* [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
-* [Azure Security Center에서 Azure SQL 서비스 보호](security-center-sql-service-recommendations.md)
+- [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)

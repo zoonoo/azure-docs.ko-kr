@@ -9,19 +9,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 4028d6732220dba4848c88306a501ce22af7487a
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 07edfa2bca25a9f3e8d985cfe36987ff04ca950f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144027"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906647"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>자습서: CLI에서 모델 학습 및 배포
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 자습서에서는 Azure CLI용 기계 학습 확장을 사용하여 모델을 학습, 등록 및 배포합니다.
 
-이 자습서의 Python 학습 스크립트는 [scikit-learn](https://scikit-learn.org/)을 사용하여 기본 모델을 학습합니다. 이 자습서는 스크립트나 모델이 아니라 CLI를 사용하여 Azure Machine Learning으로 작업하는 프로세스에 초점을 둡니다.
+이 자습서의 Python 학습 스크립트는 [scikit-learn](https://scikit-learn.org/)을 사용하여 간단한 모델을 학습시킵니다. 이 자습서는 스크립트나 모델이 아니라 CLI를 사용하여 Azure Machine Learning으로 작업하는 프로세스에 초점을 둡니다.
 
 다음 작업을 수행하는 방법에 대해 알아봅니다.
 
@@ -75,7 +75,7 @@ git clone https://github.com/microsoft/MLOps.git
 
 ## <a name="connect-to-your-azure-subscription"></a>Azure 구독에 연결
 
-CLI에서 Azure 구독에 인증하는 방법에는 여러 가지가 있습니다. 가장 기본적인 방법은 브라우저를 사용하여 대화형으로 인증하는 것입니다. 대화형으로 인증하려면 명령줄 또는 터미널을 열고 다음 명령을 사용합니다.
+CLI에서 Azure 구독에 인증하는 방법에는 여러 가지가 있습니다. 가장 간단한 방법은 브라우저를 사용하여 대화형으로 인증하는 것입니다. 대화형으로 인증하려면 명령줄 또는 터미널을 열고 다음 명령을 사용합니다.
 
 ```azurecli-interactive
 az login
@@ -101,7 +101,7 @@ az extension update -n azure-cli-ml
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 Azure 플랫폼의 기본 리소스 컨테이너입니다. Azure Machine Learning 작업 시 리소스 그룹에는 Azure Machine Learning 작업 영역이 포함됩니다. 작업 영역에서 사용하는 다른 Azure 서비스도 리소스 그룹에 포함됩니다. 예를 들어, 클라우드 기반 컴퓨팅 리소스를 사용하여 모델을 학습하는 경우 해당 리소스는 리소스 그룹에 만들어집니다.
+리소스 그룹은 Azure 플랫폼의 리소스 컨테이너입니다. Azure Machine Learning 작업 시 리소스 그룹에는 Azure Machine Learning 작업 영역이 포함됩니다. 작업 영역에서 사용하는 다른 Azure 서비스도 리소스 그룹에 포함됩니다. 예를 들어, 클라우드 기반 컴퓨팅 리소스를 사용하여 모델을 학습하는 경우 해당 리소스는 리소스 그룹에 만들어집니다.
 
 __새 리소스 그룹을 만들려면__ 다음 명령을 사용합니다. `<resource-group-name>`을 이 리소스 그룹에 사용할 이름으로 바꿉니다. `<location>`을 이 리소스 그룹에 사용할 Azure 지역으로 바꿉니다.
 

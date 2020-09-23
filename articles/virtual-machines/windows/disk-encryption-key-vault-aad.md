@@ -1,6 +1,6 @@
 ---
 title: Azure AD (이전 릴리스)를 사용 하 여 Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성
-description: 이 문서에서는 IaaS VM용 Microsoft Azure Disk Encryption을 사용하기 위한 필수 구성 요소를 설명합니다.
+description: 이 문서에서는 Azure AD를 사용 하 여 Azure Disk Encryption에 대 한 주요 자격 증명 모음을 만들고 구성 하는 방법에 대해 알아봅니다.
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: eb625624fa6faa4fdf3ef4fba3b49a0d2d5d7e09
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f983c0f5fc951376246fdbed9869211c8b495402
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284543"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977953"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Azure AD (이전 릴리스)를 사용 하 여 Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성
 
@@ -232,13 +232,13 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 
 * Key Vault 비밀 및 KEK URL 버전을 지정해야 합니다. Azure에서 이 버전 관리 제한을 적용합니다. 유효한 비밀과 KEK URL은 다음 예제를 참조하세요.
 
-  * 유효한 비밀 URL의 예는 다음과 같습니다.*https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * 유효한 KEK URL의 예는 다음과 같습니다.*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * 유효한 비밀 URL의 예는 다음과 같습니다.   *https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * 유효한 KEK URL의 예는 다음과 같습니다.   *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * Azure Disk Encryption은 키 자격 증명 모음 비밀 및 KEK URL의 일부로 포트 번호 지정을 지원하지 않습니다. 지원되거나 지원되지 않는 키 자격 증명 모음 URL에 대한 예제는 다음 예제를 참조하세요.
 
-  * 허용 되지 않는 주요 자격 증명 모음 URL*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * 허용 되는 주요 자격 증명 모음 URL:*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * 허용 되지 않는 주요 자격 증명 모음 URL  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * 허용 되는 주요 자격 증명 모음 URL:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 ### <a name="set-up-a-key-encryption-key-with-azure-powershell"></a> Azure PowerShell을 사용하여 키 암호화 키 설정 
 PowerShell 스크립트를 사용하기 전에 스크립트의 단계를 이해할 수 있도록 Azure Disk Encryption 필수 구성 요소를 잘 알고 있어야 합니다. 샘플 스크립트는 사용자 환경에 맞게 변경해야 할 수도 있습니다. 이 스크립트는 모든 Azure Disk Encryption 필수 구성 요소를 만들고, 기존 IaaS VM을 암호화하여 키 암호화 키로 디스크 암호화 키를 래핑합니다. 

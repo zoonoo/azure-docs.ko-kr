@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: d2d3c94985f099c7a0ab92efab564415f5cd81bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3ede38edd9d24114eb4d0939ff9d4586a2d31daa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099198"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978145"
 ---
-# <a name="azure-time-series-insights-gen2-use-cases"></a>Azure Time Series Insights Gen2 사용 사례
+# <a name="azure-time-series-insights-gen2-use-cases"></a>Azure Time Series Insights Gen2 자습서
 
 이 문서에서는 Azure Time Series Insights Gen2의 몇 가지 일반적인 사용 사례를 요약 합니다. 이 문서의 권장 사항은 Azure Time Series Insights Gen2를 사용 하 여 응용 프로그램 및 솔루션을 개발 하기 위한 시작 지점으로 사용 됩니다.
 
@@ -66,7 +66,7 @@ Azure Time Series Insights Gen2에 저장 된 데이터와 상호 작용 하는 
 
 Azure Time Series Insights Gen2를 사용 하 여 대규모 장비의 상태, 사용 및 성능을 모니터링 하 고 운영 효율성을 측정 합니다. Azure Time Series Insights Gen2는 수집 또는 쿼리 성능 저하 없이 다양 하 고 예측할 수 없는 IoT 워크 로드를 관리할 수 있습니다.
 
-[![개요](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
+[![스크린샷 Azure Time Series Insights Gen2의 장치/응용 프로그램 데이터, 스트림 처리, 운영 효율성, 인텔리전스/통찰력, 고급 분석 등을 보여 줍니다.](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
 적절한 기술 또는 솔루션과 결합할 경우 운영 프로세스에서 오는 데이터를 스트리밍하고 지속적으로 처리하여 비즈니스를 성공적으로 변환할 수 있습니다. 종종 이러한 솔루션은 여러 시스템을 조합하여 구성됩니다. 이를 통해 지속적으로 변경 되는 데이터를 탐색 하 고 분석할 수 있습니다. 특히 IoT 영역에서 일반적인 패턴을 공유 합니다.
 

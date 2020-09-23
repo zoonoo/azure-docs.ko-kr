@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: ea0970a672ac8fb15c2e7c6bbb65edf33bd25f04
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186591"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987274"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -59,7 +59,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
    > [!NOTE]
    > Automation 계정 추가 창에서 다음과 같은 경고가 표시되는 경우 사용자의 계정은 구독 관리자 역할의 구성원 및 구독의 공동 관리자가 아닙니다.
    >
-   > ![Automation 계정 경고 추가](media/automation-create-standalone-account/create-account-without-perms.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="' Azure Active directory에 실행 계정을 만들 수 있는 권한이 없습니다. ' 라는 프롬프트의 스크린샷":::
 
 1. Automation 계정 추가 창의 **이름** 필드에 새 Automation 계정의 이름을 입력합니다. 선택한 후에는 이 이름을 변경할 수 없습니다. 
 
@@ -74,7 +74,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
    > [!NOTE]
    > **Azure 실행 계정 만들기**에서 **아니요**를 선택하여 실행 계정을 만들지 않는 경우 Automation 계정 추가 창에 메시지가 표시됩니다. Azure Portal에서 계정이 생성되지만 계정에는 클래식 모델 구독 또는 Azure Resource Manager 구독 디렉터리 서비스에서 해당하는 인증 ID가 없습니다. 따라서 Automation 계정에는 구독의 리소스에 대한 액세스 권한도 없습니다. 이렇게 하면 이 계정을 참조하는 Runbook이 그러한 배포 모델의 리소스에 대해 작업을 인증하고 수행하지 못하도록 방지합니다.
    >
-   > ![Automation 계정 경고 추가](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="' 실행 계정을 만들지 않기로 선택 했습니다. ' 메시지가 표시 된 프롬프트 스크린샷":::
    >
    > 서비스 주체가 생성되지 않은 경우 참여자 역할은 할당되지 않습니다.
    >
@@ -105,4 +105,4 @@ Automation 계정이 성공적으로 만들어지면 몇 가지 리소스가 자
 * PowerShell Runbook을 시작하려면 [자습서: PowerShell Runbook 만들기](learn/automation-tutorial-runbook-textual-powershell.md)를 참조하세요.
 * PowerShell 워크플로 Runbook을 시작하려면 [자습서: PowerShell 워크플로 Runbook 만들기](learn/automation-tutorial-runbook-textual.md)를 참조하세요.
 * Python 2 Runbook을 시작하려면 [자습서: Python 2 Runbook 만들기](learn/automation-tutorial-runbook-textual-python2.md)를 참조하세요.
-* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation)을 참조하세요.
