@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 417ef716c391126982809574fc16f6681115cac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5740e851fbd8f7ba82e179f7e5299d6c7090596
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477411"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890238"
 ---
 # <a name="train-svd-recommender"></a>SVD 추천 학습
 
-이 문서에서는 Azure Machine Learning 디자이너 (미리 보기)에서 학습 .SVD 추천 모듈을 사용 하는 방법을 설명 합니다. 이 모듈을 사용 하 여 .SVD (단일 값 분해) 알고리즘을 기반으로 추천 모델을 학습 합니다.  
+이 문서에서는 Azure Machine Learning designer에서 학습 .SVD 추천 모듈을 사용 하는 방법을 설명 합니다. 이 모듈을 사용 하 여 .SVD (단일 값 분해) 알고리즘을 기반으로 추천 모델을 학습 합니다.  
 
 학습 .SVD 추천 모듈은 사용자-항목-등급 삼중 쌍의 데이터 집합을 읽습니다. 학습 된 .SVD 추천를 반환 합니다. 그런 다음 [점수 .Svd 추천](score-svd-recommender.md) 모듈을 사용 하 여 학습 된 모델을 사용 하 여 등급을 예측 하거나 권장 구성을 생성할 수 있습니다.  
 

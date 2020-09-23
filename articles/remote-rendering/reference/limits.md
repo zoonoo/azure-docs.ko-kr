@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: af935aeaaeee11ab50b327b7f7b5b77246cb974b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: e6b12c2bac4a9732f868f6a6ac3491ef993f54c3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566049"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976567"
 ---
 # <a name="limitations"></a>제한 사항
 
@@ -28,7 +28,7 @@ ms.locfileid: "88566049"
 
 ## <a name="geometry"></a>기하 도형
 
-* 자산에서 허용되는 총 재질: 65,535.
+* 자산에서 허용되는 총 재질: 65,535. 자세한 내용은 [자료 중복](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) 제거를 참조 하세요.
 * 단일 질감의 최대 차원: 16384 x 16384. 변환 프로세스를 통해 큰 소스 질감이 축소 됩니다.
 
 ## <a name="overall-number-of-polygons"></a>전체 다각형 수

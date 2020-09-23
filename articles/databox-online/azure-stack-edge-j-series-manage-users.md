@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU 사용자 관리 | Microsoft Docs
-description: Azure Portal를 사용 하 여 Azure Stack에 지 GPU의 사용자를 관리 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro GPU 관리 사용자 | Microsoft Docs
+description: Azure Portal를 사용 하 여 Edge Pro GPU Azure Stack 사용자를 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 8400f134c7a2b9da32c04e15e42a54f697b9cea6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5f7e8c09a09084b28278667cdeaf94f7e38908cd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254188"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904509"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge"></a>Azure Portal를 사용 하 여 Azure Stack Edge의 사용자를 관리 합니다.
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro의 사용자를 관리 합니다.
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-이 문서에서는 Azure Stack Edge에서 사용자를 관리 하는 방법을 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge를 관리할 수 있습니다. Azure Portal을 사용하여 사용자를 추가, 수정 또는 삭제합니다.
+이 문서에서는 Azure Stack Edge Pro에서 사용자를 관리 하는 방법을 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro를 관리할 수 있습니다. Azure Portal을 사용하여 사용자를 추가, 수정 또는 삭제합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "89254188"
 
 사용자를 추가하려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **개요 > 사용자**로 이동 합니다. 명령 모음에서 **+ 사용자 추가**를 선택합니다.
+1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 다음 **개요 > 사용자**로 이동 합니다. 명령 모음에서 **+ 사용자 추가** 를 선택 합니다.
 
     ![사용자 추가 선택](media/azure-stack-edge-j-series-manage-users/add-user-1.png)
 

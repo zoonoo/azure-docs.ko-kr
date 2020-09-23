@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 4a62520a9807cd99b5c353c32bb13058fc471a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a3dd1c0df32e7d6a67e63c9e148327d30f0082c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771362"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904730"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -29,12 +29,12 @@ Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으�
 다음 리소스를 사용하여 Security Center를 시작합니다.
 
 아티클
-* [Azure Security Center 소개](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* [Azure Security Center 빠른 시작 가이드](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Azure Security Center 소개](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Azure Security Center 빠른 시작 가이드](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
 동영상
-* [간략한 소개 비디오](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
-* [Security Center 예방, 검색 및 응답 기능에 대한 개요](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
+- [간략한 소개 비디오](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
+- [Security Center 예방, 검색 및 응답 기능에 대한 개요](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
 ## <a name="planning-and-operations"></a>계획 및 작업
 
@@ -42,20 +42,16 @@ Security Center를 완벽하게 활용하려면 조직의 여러 개인 또는 �
 
 다음 리소스를 사용하여 계획 및 작업 프로세스 중에 도움을 받습니다.
 
-아티클
-* [Azure Security Center 계획 및 작업 가이드](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Azure Security Center 계획 및 작업 가이드](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Security Center에 컴퓨터 온보딩
-Security Center에서는 Security Center 표준 계층이 적용되지 않은 모든 Azure 구독이나 작업 영역을 자동으로 검색합니다. 여기에는 Security Center 무료 계층을 사용하는 Azure 구독과 보안 솔루션이 사용하도록 설정되지 않은 작업 영역이 포함됩니다.
+Security Center는 azure Defender에서 보호 하지 않는 Azure 구독 또는 작업 영역을 자동으로 검색 합니다. 여기에는 Security Center Free를 사용 하는 Azure 구독과 보안 솔루션이 사용 하도록 설정 되지 않은 작업 영역이 포함 됩니다.
 
 다음 리소스를 사용하여 온보딩 프로세스 중에 도움을 받습니다.
 
-아티클
-* [보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
-
-비디오
-* [Azure Security Center 하이브리드 - 개요](https://youtu.be/NMa4L_M597k)
+- [비 Azure 컴퓨터 온보딩](quickstart-onboard-machines.md)
+- [Azure Security Center 하이브리드 - 개요](https://youtu.be/NMa4L_M597k)
 
 ## <a name="mitigating-security-issues-using-security-center"></a>Security Center를 사용하여 보안 문제 완화
 보안 센터는 방화벽 및 엔드포인트 보호 솔루션과 같은 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 로그 데이터를 자동으로 수집하고 분석하며 통합하여 실제 위협을 감지하고 가양성을 줄입니다.
@@ -63,14 +59,13 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 다음 리소스를 사용하여 보안 경고를 관리하고 리소스를 보호할 수 있습니다.
 
 아티클    
-* [Azure Security Center에서 보안 상태 모니터링](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-* [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
-* [Azure Security Center에서 네트워크 보호](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-* [Azure Security Center에서 Azure SQL 서비스 및 데이터 보호](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+- [Azure Security Center에서 보안 상태 모니터링](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
+- [Azure Security Center에서 네트워크 보호](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Azure Security Center에서 Azure SQL 서비스 및 데이터 보호](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
 비디오    
-* [Azure Security Center를 사용하여 보안 문제 완화](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
+- [Azure Security Center를 사용하여 보안 문제 완화](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### <a name="security-center-for-incident-response"></a>인시던트 대응을 위한 Security Center
 비용과 손상을 줄이려면 공격이 발생하기 전에 사고 대응 계획을 적절히 수립하는 것이 중요합니다. Azure Security Center는 사고에 대응하는 여러 단계에서 사용할 수 있습니다.
@@ -119,6 +114,4 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 ## <a name="community-resources"></a>커뮤니티 리소스
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
-* [보안 센터에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-security-center.html)
-
-
+* [Q&Security Center 페이지](https://docs.microsoft.com/answers/topics/azure-security-center.html)

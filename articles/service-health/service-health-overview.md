@@ -1,14 +1,14 @@
 ---
 title: Service Health 개요 | Microsoft Docs
-description: Azure 앱이 현재 및 향후 Azure 서비스 문제 및 유지 관리에 의해 어떤 영향을 받는지에 대한 개인 설정된 정보입니다.
+description: Service Health 사용 하는 지역에서 Azure 서비스의 상태를 추적 하는 사용자 지정 가능한 대시보드를 제공 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 2f2f0c8bf2cf4fe5beae7d48b198a23edba4e9ae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8246b0ab93b95c13858e4ff96d0f24b255d05e55
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089603"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967787"
 ---
 # <a name="service-health-overview"></a>Service Health 개요
 

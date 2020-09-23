@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - devx-track-python
 - device-developer
-ms.openlocfilehash: 64b44fa2bdb9221d83715d3214da80e82d791e9b
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 1be7087e99ca2e4dc605a8d1c6b9821567aecfef
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017628"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968130"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-python"></a>자습서: 클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결(Python)
 
@@ -78,19 +78,19 @@ ms.locfileid: "90017628"
 
     ```python
     async def main():
-      # In a production environment, don't store
-      # connection information in the code.
-      provisioning_host = 'global.azure-devices-provisioning.net'
-      id_scope = '{your Scope ID}'
-      registration_id = '{your Device ID}'
-      symmetric_key = '{your Primary Key}'
-
-      delay = 2
-
-      # All the remaining code is nested within this main function
+        # In a production environment, don't store
+        # connection information in the code.
+        provisioning_host = 'global.azure-devices-provisioning.net'
+        id_scope = '{your Scope ID}'
+        registration_id = '{your Device ID}'
+        symmetric_key = '{your Primary Key}'
+  
+        delay = 2
+  
+        # All the remaining code is nested within this main function
 
     if __name__ == '__main__':
-    asyncio.run(main())
+        asyncio.run(main())
     ```
 
     `{your Scope ID}`, `{your Device ID}` 및 `{your Primary Key}` 자리 표시자를 이전에 적어 둔 값으로 업데이트합니다. 실제 애플리케이션에서는 애플리케이션에서 이 정보를 하드 코딩하지 마세요.
@@ -100,50 +100,54 @@ ms.locfileid: "90017628"
 1. 다음 두 함수를 `main` 내부에 추가하여 디바이스를 등록하고 IoT Central 애플리케이션에 연결합니다. 등록 시 다음 Azure Device Provisioning Service가 사용됩니다.
 
     ```python
-      async def register_device():
-        provisioning_device_client = ProvisioningDeviceClient.create_from_symmetric_key(
-          provisioning_host=provisioning_host,
-          registration_id=registration_id,
-          id_scope=id_scope,
-          symmetric_key=symmetric_key,
-        )
-
-        registration_result = await provisioning_device_client.register()
-
-        print(f'Registration result: {registration_result.status}')
-
-        return registration_result
-
-      async def connect_device():
-        device_client = None
-        try:
-          registration_result = await register_device()
-          if registration_result.status == 'assigned':
-            device_client = IoTHubDeviceClient.create_from_symmetric_key(
-              symmetric_key=symmetric_key,
-              hostname=registration_result.registration_state.assigned_hub,
-              device_id=registration_result.registration_state.device_id,
+        async def register_device():
+            provisioning_device_client = ProvisioningDeviceClient.create_from_symmetric_key(
+                provisioning_host=provisioning_host,
+                registration_id=registration_id,
+                id_scope=id_scope,
+                symmetric_key=symmetric_key,
             )
-            # Connect the client.
-            await device_client.connect()
-            print('Device connected successfully')
-        finally:
-          return device_client
+
+            registration_result = await provisioning_device_client.register()
+
+            print(f'Registration result: {registration_result.status}')
+
+            return registration_result
+  
+        async def connect_device():
+            device_client = None
+            try:
+                registration_result = await register_device()
+                if registration_result.status == 'assigned':
+                    device_client = IoTHubDeviceClient.create_from_symmetric_key(
+                        symmetric_key=symmetric_key,
+                        hostname=registration_result.registration_state.assigned_hub,
+                        device_id=registration_result.registration_state.device_id
+                    )
+                    # Connect the client.
+                    await device_client.connect()
+                    print('Device connected successfully')
+            finally:
+                return device_client
     ```
 
 1. 원격 분석 데이터를 Azure IoT Central 애플리케이션에 보내려면 다음 함수를 `main` 함수 내부에 추가합니다.
 
     ```python
-      async def send_telemetry():
-        print(f'Sending telemetry from the provisioned device every {delay} seconds')
-        while True:
-          temp = random.randrange(1, 75)
-          humid = random.randrange(30, 99)
-          payload = json.dumps({'temp': temp, 'humid': humid})
-          msg = Message(payload)
-          await device_client.send_message(msg, )
-          print(f'Sent message: {msg}')
-          await asyncio.sleep(delay)
+        async def send_telemetry():
+            print(f'Sending telemetry from the provisioned device every {delay} seconds')
+            while True:
+                temp = random.randrange(1, 75)
+                humid = random.randrange(30, 99)
+                payload = json.dumps(
+                    {
+                        'temp': temp,
+                        'humid': humid
+                    })
+                msg = Message(payload)
+                await device_client.send_message(msg, )
+                print(f'Sent message: {msg}')
+                await asyncio.sleep(delay)
     ```
 
     원격 분석 항목의 이름(`temp` 및 `humid`)이 디바이스 템플릿에 사용된 이름과 일치해야 합니다.
@@ -151,55 +155,64 @@ ms.locfileid: "90017628"
 1. IoT Central 애플리케이션에서 호출한 명령을 처리하려면 다음 함수를 `main` 함수 내부에 추가합니다.
 
     ```python
-      async def blink_command(request):
-        print('Received synchronous call to blink')
-        response = MethodResponse.create_from_method_request(
-          request, status = 200, payload = {'description': f'Blinking LED every {request.payload} seconds'}
-        )
-        await device_client.send_method_response(response)  # send response
-        print(f'Blinking LED every {request.payload} seconds')
+        async def blink_command(request):
+            print('Received synchronous call to blink')
+            response = MethodResponse.create_from_method_request(
+                request,
+                status = 200,
+                payload = {'description': f'Blinking LED every {request.payload} seconds'}
+            )
+            await device_client.send_method_response(response)  # send response
+            print(f'Blinking LED every {request.payload} seconds')
 
-      async def diagnostics_command(request):
-        print('Starting asynchronous diagnostics run...')
-        response = MethodResponse.create_from_method_request(
-          request, status = 202
-        )
-        await device_client.send_method_response(response)  # send response
-        print('Generating diagnostics...')
-        await asyncio.sleep(2)
-        print('Generating diagnostics...')
-        await asyncio.sleep(2)
-        print('Generating diagnostics...')
-        await asyncio.sleep(2)
-        print('Sending property update to confirm command completion')
-        await device_client.patch_twin_reported_properties({'rundiagnostics': {'value': f'Diagnostics run complete at {datetime.datetime.today()}.'}})
+        async def diagnostics_command(request):
+            print('Starting asynchronous diagnostics run...')
+            response = MethodResponse.create_from_method_request(
+                request,
+                status = 202
+            )
+            await device_client.send_method_response(response)  # send response
+            print('Generating diagnostics...')
+            await asyncio.sleep(2)
+            print('Generating diagnostics...')
+            await asyncio.sleep(2)
+            print('Generating diagnostics...')
+            await asyncio.sleep(2)
+            print('Sending property update to confirm command completion')
+            await device_client.patch_twin_reported_properties(
+                {
+                    'rundiagnostics':
+                    {
+                        'value': f'Diagnostics run complete at {datetime.datetime.today()}.'
+                    }
+                })
 
-      async def turnon_command(request):
-        print('Turning on the LED')
-        response = MethodResponse.create_from_method_request(
-          request, status = 200
-        )
-        await device_client.send_method_response(response)  # send response
+        async def turnon_command(request):
+            print('Turning on the LED')
+            response = MethodResponse.create_from_method_request(
+                request, status = 200
+            )
+            await device_client.send_method_response(response)  # send response
 
-      async def turnoff_command(request):
-        print('Turning off the LED')
-        response = MethodResponse.create_from_method_request(
-          request, status = 200
-        )
-        await device_client.send_method_response(response)  # send response
+        async def turnoff_command(request):
+            print('Turning off the LED')
+            response = MethodResponse.create_from_method_request(
+                request, status = 200
+            )
+            await device_client.send_method_response(response)  # send response
 
-      commands = {
-        'blink': blink_command,
-        'rundiagnostics': diagnostics_command,
-        'turnon': turnon_command,
-        'turnoff': turnoff_command,
-      }
+        commands = {
+            'blink': blink_command,
+            'rundiagnostics': diagnostics_command,
+            'turnon': turnon_command,
+            'turnoff': turnoff_command,
+        }
 
-      # Define behavior for handling commands
-      async def command_listener():
-        while True:
-          method_request = await device_client.receive_method_request()  # Wait for commands
-          await commands[method_request.name](method_request)
+        # Define behavior for handling commands
+        async def command_listener():
+            while True:
+                method_request = await device_client.receive_method_request()  # Wait for commands
+                await commands[method_request.name](method_request)
     ```
 
     명령 이름(`blink`, `turnon`, `turnoff` 및 `rundiagnostics`)은 디바이스 템플릿에 사용된 이름과 일치해야 합니다.
@@ -219,29 +232,47 @@ ms.locfileid: "90017628"
 1. IoT Central 애플리케이션에서 보낸 속성 업데이트를 처리하려면 다음 함수를 `main` 함수 내부에 추가합니다. [쓰기 가능한 속성 업데이트](concepts-telemetry-properties-commands.md#writeable-property-types)에 대한 응답으로 디바이스에서 보내는 메시지에는 `av` 및 `ac` 필드가 포함되어야 합니다. `ad` 필드는 선택 사항입니다.
 
     ```python
-      async def name_setting(value, version):
-        await asyncio.sleep(1)
-        print(f'Setting name value {value} - {version}')
-        await device_client.patch_twin_reported_properties({'name' : {'value': value, 'ad': 'completed', 'ac': 200, 'av': version}})
+        async def name_setting(value, version):
+            await asyncio.sleep(1)
+            print(f'Setting name value {value} - {version}')
+            await device_client.patch_twin_reported_properties(
+                {
+                    'name' :
+                    {
+                        'value': value,
+                        'ad': 'completed',
+                        'ac': 200,
+                        'av': version
+                    }
+                })
+  
+        async def brightness_setting(value, version):
+            await asyncio.sleep(5)
+            print(f'Setting brightness value {value} - {version}')
+            await device_client.patch_twin_reported_properties(
+                {
+                    'brightness' :
+                    {
+                        'value': value,
+                        'ad': 'completed',
+                        'ac': 200,
+                        'av': version
+                    }
+                })
+  
+        settings = {
+            'name': name_setting,
+            'brightness': brightness_setting
+        }
 
-      async def brightness_setting(value, version):
-        await asyncio.sleep(5)
-        print(f'Setting brightness value {value} - {version}')
-        await device_client.patch_twin_reported_properties({'brightness' : {'value': value, 'ad': 'completed', 'ac': 200, 'av': version}})
-
-      settings = {
-        'name': name_setting,
-        'brightness': brightness_setting
-      }
-
-      # define behavior for receiving a twin patch
-      async def twin_patch_listener():
-        while True:
-          patch = await device_client.receive_twin_desired_properties_patch() # blocking
-          to_update = patch.keys() & settings.keys()
-          await asyncio.gather(
-            *[settings[setting](patch[setting], patch['$version']) for setting in to_update]
-          )
+        # define behavior for receiving a twin patch
+        async def twin_patch_listener():
+            while True:
+                patch = await device_client.receive_twin_desired_properties_patch() # blocking
+                to_update = patch.keys() & settings.keys()
+                await asyncio.gather(
+                    *[settings[setting](patch[setting], patch['$version']) for setting in to_update]
+                )
     ```
 
     운영자가 IoT Central 애플리케이션에서 쓰기 가능 속성을 설정하면 애플리케이션에서는 디바이스 쌍 desired 속성을 사용하여 디바이스에 값을 보냅니다. 그러면 디바이스는 디바이스 쌍 reported 속성속성을 사용하여 응답합니다. IoT Central은 reported 속성 값을 받으면 속성 보기를 **동기화됨** 상태로 업데이트합니다.
@@ -251,39 +282,44 @@ ms.locfileid: "90017628"
 1. 애플리케이션을 제어하려면 다음 함수를 `main` 함수 내부에 추가합니다.
 
     ```python
-      # Define behavior for halting the application
-      def stdin_listener():
-        while True:
-          selection = input('Press Q to quit\n')
-          if selection == 'Q' or selection == 'q':
-            print('Quitting...')
-            break
+        # Define behavior for halting the application
+        def stdin_listener():
+            while True:
+                selection = input('Press Q to quit\n')
+                if selection == 'Q' or selection == 'q':
+                    print('Quitting...')
+                    break
+  
+        device_client = await connect_device()
+  
+        if device_client is not None and device_client.connected:
+            print('Send reported properties on startup')
+            await device_client.patch_twin_reported_properties(
+                {
+                    'state': 'true',
+                    'processorArchitecture': 'ARM',
+                    'swVersion': '1.0.0'
+                })
+            tasks = asyncio.gather(
+                send_telemetry(),
+                command_listener(),
+                twin_patch_listener(),
+            )
 
-      device_client = await connect_device()
+            # Run the stdin listener in the event loop
+            loop = asyncio.get_running_loop()
+            user_finished = loop.run_in_executor(None, stdin_listener)
 
-      if device_client is not None and device_client.connected:
-        print('Send reported properties on startup')
-        await device_client.patch_twin_reported_properties({'state': 'true', 'processorArchitecture': 'ARM', 'swVersion': '1.0.0'})
-        tasks = asyncio.gather(
-          send_telemetry(),
-          command_listener(),
-          twin_patch_listener(),
-        )
+            # Wait for user to indicate they are done listening for method calls
+            await user_finished
 
-        # Run the stdin listener in the event loop
-        loop = asyncio.get_running_loop()
-        user_finished = loop.run_in_executor(None, stdin_listener)
-
-        # Wait for user to indicate they are done listening for method calls
-        await user_finished
-
-        # Cancel tasks
-        tasks.add_done_callback(lambda r: r.exception())
-        tasks.cancel()
-        await device_client.disconnect()
-
-      else:
-        print('Device could not connect')
+            # Cancel tasks
+            tasks.add_done_callback(lambda r: r.exception())
+            tasks.cancel()
+            await device_client.disconnect()
+  
+        else:
+            print('Device could not connect')
     ```
 
 1. **environmental_sensor.py** 파일을 저장합니다.
@@ -312,12 +348,12 @@ python3 environmental_sensor.py
 
 ## <a name="next-steps"></a>다음 단계
 
-디바이스 개발자로서, Python을 사용하여 디바이스를 만드는 방법의 기본 사항을 배웠으므로 이제 다음 단계를 수행하는 것이 좋습니다.
-
-* 디바이스 코드를 구현할 때 디바이스 템플릿의 역할을 자세히 알아보려면 [디바이스 템플릿이란?](./concepts-device-templates.md)을 참조하세요.
-* IoT Central에 디바이스를 등록하는 방법과 IoT Central에서 디바이스 연결을 보호하는 방법에 대한 자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md)을 참조하세요.
-
 IoT Central 자습서 세트를 계속 진행하고 IoT Central 솔루션 빌드에 대해 자세히 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [게이트웨이 디바이스 템플릿 만들기](./tutorial-define-gateway-device-type.md)
+
+디바이스 개발자로서, Python을 사용하여 디바이스를 만드는 방법의 기본 사항을 배웠으므로 이제 다음 단계를 수행하는 것이 좋습니다.
+
+* 디바이스 코드를 구현할 때 디바이스 템플릿의 역할을 자세히 알아보려면 [디바이스 템플릿이란?](./concepts-device-templates.md)을 참조하세요.
+* IoT Central에 디바이스를 등록하는 방법과 IoT Central에서 디바이스 연결을 보호하는 방법에 대한 자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md)을 참조하세요.

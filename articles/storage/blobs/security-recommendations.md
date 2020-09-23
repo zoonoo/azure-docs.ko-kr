@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 808cf713cc34f90224cb3d5ce8a714fbafdcedbc
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5b1e5c73f3d43ca2627729149256f3e9362d58c2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202939"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984268"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Blob Storage에 대한 보안 권장 사항
 
@@ -30,7 +30,7 @@ Azure Security Center는 Azure 리소스의 보안 상태를 주기적으로 분
 | 권장 | 주석 | Security Center |
 |-|----|--|
 | Azure Resource Manager 배포 모델 사용 | Azure Resource Manager 배포 모델을 사용 하 여 새로운 저장소 계정을 만듭니다 .이를 통해 RBAC (고급 액세스 제어) 및 감사, 리소스 관리자 기반 배포 및 거 버 넌 스, 관리 되는 id에 대 한 액세스, 암호에 대 한 Azure Key Vault 액세스, Azure AD 기반 인증 및 Azure Storage 데이터 및 리소스에 대 한 액세스 권한 부여를 비롯 한 중요 한 보안 향상을 위해 가능 하면 클래식 배포 모델을 사용 하는 기존 저장소 계정을 Azure Resource Manager를 사용 하 여 마이그레이션합니다. Azure Resource Manager에 대 한 자세한 내용은 [Azure Resource Manager 개요](/azure/azure-resource-manager/resource-group-overview)를 참조 하세요. | - |
-| 모든 저장소 계정에 대해 advanced threat protection 사용 | Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 보안 경고는 활동의 비정상 상황에서 발생 하며, 의심 스러운 활동의 세부 정보와 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 전자 메일을 통해 구독 관리자에 게 전송 되는 경우에 Azure Security Center 트리거됩니다. 자세한 내용은 [Azure Storage에 대 한 Advanced threat protection](../common/storage-advanced-threat-protection.md)을 참조 하세요. | [예](../../security-center/security-center-sql-service-recommendations.md) |
+| 모든 저장소 계정에 대해 Azure Defender를 사용 하도록 설정 | Azure Storage 용 Azure Defender는 저장소 계정에 액세스 하거나 악용 하려는 비정상적이 고 잠재적으로 유해한 시도를 감지 하는 추가 보안 인텔리전스 계층을 제공 합니다. 보안 경고는 활동의 비정상 상황에서 발생 하며, 의심 스러운 활동의 세부 정보와 위협 조사 및 해결 방법에 대 한 권장 사항을 포함 하 여 전자 메일을 통해 구독 관리자에 게 전송 되는 경우에 Azure Security Center 트리거됩니다. 자세한 내용은 [Azure Storage에 대 한 Azure Defender 구성](../common/azure-defender-storage-configure.md)을 참조 하세요. | [예](../../security-center/security-center-sql-service-recommendations.md) |
 | Blob 데이터에 대 한 일시 삭제 설정 | 일시 삭제를 통해 blob 데이터를 삭제 한 후 복구할 수 있습니다. 일시 삭제에 대 한 자세한 내용은 [Azure Storage blob에 대 한 일시 삭제](storage-blob-soft-delete.md)를 참조 하세요. | - |
 | 변경할 수 없는 blob에 비즈니스에 중요 한 데이터 저장 | Hyper-v에 blob 데이터를 저장 하는 법적 보류 및 시간 기반 보존 정책을 구성 합니다 (한 번 쓰기, 읽기 다) 상태. Blob 저장 된 immutably를 읽을 수는 있지만 보존 간격이 지속 되는 동안에는 수정 하거나 삭제할 수 없습니다. 자세한 내용은 변경할 수 없는 [저장소로 비즈니스에 중요 한 blob 데이터 저장](storage-blob-immutable-storage.md)을 참조 하세요. | - |
 | SAS (공유 액세스 서명) 토큰을 HTTPS 연결로만 제한 | 클라이언트에서 SAS 토큰을 사용 하 여 blob 데이터에 액세스 하는 경우 도청의 위험을 최소화 하는 데 도움이 되는 HTTPS가 필요 합니다. 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)를 참조 하세요. | - |

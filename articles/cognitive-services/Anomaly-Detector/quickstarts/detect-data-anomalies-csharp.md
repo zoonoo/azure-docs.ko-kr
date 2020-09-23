@@ -8,26 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a364588d77fb24e96c831ce541c5bb4e63d93e98
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a5a3757a33beebb6e688dbea13259723da9280cc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922347"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904568"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>빠른 시작: Anomaly Detector REST API와 C#을 사용하여 시계열 데이터에서 변칙 검색
 
-이 빠른 시작을 통해 Anomaly Detector API의 두 가지 검색 모드를 사용하여 시계열 데이터에서 변칙을 검색합니다. 이 C# 애플리케이션은 JSON 형식의 시계열 데이터가 포함된 2개의 API 요청을 보내고 응답을 받습니다.
+이 빠른 시작을 통해 Anomaly Detector API를 사용하여 시계열 데이터에서 변칙을 검색합니다. 이 C# 애플리케이션은 JSON 형식의 시계열 데이터가 포함된 API 요청을 보내고 응답을 받습니다.
 
 | API 요청                                        | 애플리케이션 출력                                                                                                                                         |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 일괄 처리로 변칙 검색                        | 시계열 데이터의 각 데이터 요소에 대한 변칙 상태(및 기타 데이터)와 검색된 변칙의 위치가 포함된 JSON 응답입니다. |
-| 최신 데이터 요소의 변칙 상태 검색 | 시계열 데이터의 최신 데이터 요소에 대한 변칙 상태(및 기타 데이터)가 포함된 JSON 응답입니다.                                        |
+| 최신 데이터 요소의 변칙 상태 검색 | 시계열 데이터의 최신 데이터 요소에 대한 변칙 상태(및 기타 데이터)가 포함된 JSON 응답입니다. |
+| 새 데이터 추세를 표시하는 변화 포인트 검색 | 시계열 데이터에서 검색된 변화 포인트가 포함된 JSON 응답입니다. |
 
- 이 애플리케이션은 C#으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 빠른 시작의 소스 코드는 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs)에서 찾을 수 있습니다.
+이 애플리케이션은 C#으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 빠른 시작의 소스 코드는 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs)에서 찾을 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -61,6 +62,7 @@ ms.locfileid: "88922347"
     |------------------------------------|--------------------------------------------------|
     | 일괄 검색                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
     | 최신 데이터 요소에서 검색 | `/anomalydetector/v1.0/timeseries/last/detect`   |
+    | 변화점 검색 | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
@@ -95,6 +97,18 @@ ms.locfileid: "88922347"
 
     [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
 
+## <a name="detect-change-points-in-the-data"></a>데이터에서 변화 포인트 검색
+
+1. `detectChangePoints()`라는 새 함수를 만듭니다. 요청을 구성하고 엔드포인트, 일괄 처리 변칙 검색을 위한 URL, 구독 키 및 시계열 데이터와 함께 `Request()` 함수를 호출하여 보냅니다.
+
+2. JSON 개체를 역직렬화하여 콘솔에 작성합니다.
+
+3. 응답에 `code` 필드가 포함된 경우에는 오류 코드 및 오류 메시지를 출력합니다.
+
+4. 그렇지 않으면 데이터 세트에서 변화 포인트의 위치를 찾습니다. 응답의 `isChangePoint` 필드에 부울 값 배열이 포함되고 이들 각각은 데이터 요소가 변화 포인트로 식별되었는지 여부를 나타냅니다. 이것을 응답 개체의 `ToObject<bool[]>()` 함수를 사용하여 문자열 배열로 변환합니다. 배열을 반복하고 `true` 값의 인덱스를 출력합니다. 이러한 값은 추세 변화 포인트의 인덱스에 해당합니다(발견된 경우).
+
+    [!code-csharp[Detect change points](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectChangePoints)]
+
 ## <a name="load-your-time-series-data-and-send-the-request"></a>시계열 데이터 로드 및 요청 보내기
 
 1. 애플리케이션의 main 메서드에서 `File.ReadAllText()`를 사용하여 JSON 시계열 데이터를 로드합니다.
@@ -108,5 +122,6 @@ ms.locfileid: "88922347"
 성공 응답이 JSON 형식으로 반환됩니다. 아래 링크를 클릭하면 GitHub에서 JSON 응답을 볼 수 있습니다.
 * [일괄 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [최신 요소 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [변화 포인트 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

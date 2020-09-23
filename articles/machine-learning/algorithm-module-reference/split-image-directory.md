@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 9673b3260425fd9244c635beaf77d367a14cac54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63ae7115f905523a3aac131fd7e77b56eb695243
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809920"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890265"
 ---
 # <a name="split-image-directory"></a>이미지 디렉터리 분할
 
-이 항목에서는 Azure Machine Learning designer (미리 보기)에서 이미지 분할 모듈을 사용 하 여 이미지 디렉터리의 이미지를 두 개의 고유 집합으로 나누는 방법에 대해 설명 합니다.
+이 항목에서는 Azure Machine Learning 디자이너에서 이미지 분할 모듈을 사용 하 여 이미지 디렉터리의 이미지를 두 개의 고유 집합으로 나누는 방법에 대해 설명 합니다.
 
 이 모듈은 이미지 데이터를 학습 및 테스트 집합으로 분리 해야 하는 경우에 특히 유용 합니다. 
 
@@ -35,7 +35,7 @@ ms.locfileid: "84809920"
 
 ### <a name="expected-inputs"></a>예상 입력
 
-| 이름                  | 유형           | 설명              |
+| 이름                  | Type           | 설명              |
 | --------------------- | -------------- | ------------------------ |
 | 입력 이미지 디렉터리 | ImageDirectory | 분할할 이미지 디렉터리입니다. |
 
@@ -43,11 +43,11 @@ ms.locfileid: "84809920"
 
 | 이름                                   | Type  | 범위 | 옵션 | Description                            | 기본값 |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
-| 첫 번째 출력에서 이미지의 비율 | Float | 0-1   | 필요한 공간 | 첫 번째 출력에서 이미지의 비율 | 0.9     |
+| 첫 번째 출력에서 이미지의 비율 | Float | 0-1   | 필수 | 첫 번째 출력에서 이미지의 비율 | 0.9     |
 
 ### <a name="outputs"></a>출력
 
-| 이름                    | 유형           | 설명                              |
+| 이름                    | Type           | 설명                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | 출력 이미지 directory1 | ImageDirectory | 선택한 이미지를 포함 하는 이미지 디렉터리 |
 | 출력 이미지 directory2 | ImageDirectory | 다른 모든 이미지를 포함 하는 이미지 디렉터리 |

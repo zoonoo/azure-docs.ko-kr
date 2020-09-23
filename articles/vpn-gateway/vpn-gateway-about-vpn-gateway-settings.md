@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: cc9cb06c2154202f319d57aa77700a356ffe19c1
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419574"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976224"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
@@ -28,8 +28,6 @@ VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 �
 
 * Virtual WAN에 대한 내용은 [Virtual WAN 정보](../virtual-wan/virtual-wan-about.md)를 참조하세요.
 
-
-
 ## <a name="gateway-types"></a><a name="gwtype"></a>게이트웨이 유형
 
 가상 네트워크마다 각 유형의 가상 네트워크 게이트웨이를 하나씩만 포함할 수 있습니다. 가상 네트워크 게이트웨이를 만들 때 게이트웨이 유형이 구성에 정확한지 확인해야 합니다.
@@ -41,7 +39,7 @@ VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 �
 
 VPN Gateway에는 `-GatewayType` *Vpn*이 필요합니다.
 
-예:
+예제:
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -152,9 +150,9 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ## <a name="local-network-gateways"></a><a name="lng"></a>로컬 네트워크 게이트웨이
 
- 로컬 네트워크 게이트웨이는 가상 네트워크 게이트웨이와 다릅니다. VPN 게이트웨이 구성을 만들 때 로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 위치를 나타냅니다. 클래식 배포 모델에서 로컬 네트워크 게이트웨이는 로컬 사이트라고 했습니다.
+로컬 네트워크 게이트웨이는 가상 네트워크 게이트웨이와 다릅니다. VPN gateway 구성을 만들 때 로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 네트워크 및 해당 VPN 장치를 나타냅니다. 클래식 배포 모델에서 로컬 네트워크 게이트웨이는 로컬 사이트라고 했습니다.
 
-로컬 네트워크 게이트웨이에 이름인 온-프레미스 VPN 디바이스의 공용 IP 주소를 지정하고 온-프레미스 위치에 있는 주소 접두사를 지정합니다. Azure는 네트워크 트래픽에 대상 주소 접두사를 보고 로컬 네트워크 게이트웨이에 대해 지정한 구성을 참조하며 그에 따라 패킷을 라우팅합니다. VPN Gateway 연결을 사용하는 VNet-VNet 구성에 대해서도 로컬 네트워크 게이트웨이를 지정합니다.
+로컬 네트워크 게이트웨이에 온-프레미스 VPN 장치의 이름, 공용 IP 주소 또는 FQDN (정규화 된 도메인 이름)을 지정 하 고 온-프레미스 위치에 있는 주소 접두사를 지정 합니다. Azure는 네트워크 트래픽에 대상 주소 접두사를 보고 로컬 네트워크 게이트웨이에 대해 지정한 구성을 참조하며 그에 따라 패킷을 라우팅합니다. VPN 장치에서 BGP (Border Gateway Protocol)를 사용 하는 경우 VPN 장치의 BGP 피어 IP 주소와 온-프레미스 네트워크의 ASN (자치 시스템 번호)을 제공 합니다. VPN Gateway 연결을 사용하는 VNet-VNet 구성에 대해서도 로컬 네트워크 게이트웨이를 지정합니다.
 
 다음 PowerShell 예제에서는 새 로컬 네트워크 게이트웨이 만듭니다.
 

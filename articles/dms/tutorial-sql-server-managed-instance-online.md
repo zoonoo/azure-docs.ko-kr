@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 08/04/2020
-ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: ce63d86c3256646782775c84636c4d248e0a6735
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553311"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984333"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>자습서: DMS를 사용 하 여 온라인으로 Azure SQL Managed Instance SQL Server 마이그레이션
 
@@ -35,7 +35,7 @@ Azure Database Migration Service를 사용 하 여 가동 중지 시간을 최�
 
 > [!IMPORTANT]
 > Azure Database Migration Service를 사용 하 여 SQL Server에서 SQL Managed Instance로의 온라인 마이그레이션에 대해 서비스에서 데이터베이스를 마이그레이션하는 데 사용할 수 있는 전체 데이터베이스 백업 및 후속 로그 백업을 SMB 네트워크 공유에 제공 해야 합니다. Azure Database Migration Service는 백업을 새로 시작하는 것이 아니라 사용자가 재해 복구 계획의 일부로 보유한 기존 백업을 마이그레이션에 사용합니다.
-> [WITH CHECKSUM 옵션을 사용하여 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)을 만들어야 합니다. 또한 여러 백업(즉, 전체 및 t-로그)을 단일 백업 미디어에 추가하면 안 됩니다. 각 백업을 별도의 백업 파일에 만들어야 합니다. 마지막으로, 압축된 백업을 사용하여 대량 백업 마이그레이션과 관련된 잠재적인 문제 발생 가능성을 줄일 수 있습니다.
+> [WITH CHECKSUM 옵션을 사용하여 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017&preserve-view=true)을 만들어야 합니다. 또한 여러 백업(즉, 전체 및 t-로그)을 단일 백업 미디어에 추가하면 안 됩니다. 각 백업을 별도의 백업 파일에 만들어야 합니다. 마지막으로, 압축된 백업을 사용하여 대량 백업 마이그레이션과 관련된 잠재적인 문제 발생 가능성을 줄일 수 있습니다.
 
 > [!NOTE]
 > Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다.
@@ -245,7 +245,7 @@ Azure Database Migration Service를 사용 하 여 가동 중지 시간을 최�
 
     데이터베이스 및 로그인 범주를 더 확장하여 각 서버 개체의 마이그레이션 상태를 모니터링할 수 있습니다.
 
-   ![진행 중인 마이그레이션 작업](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
+   ![마이그레이션 작업 상태](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## <a name="performing-migration-cutover"></a>마이그레이션 중단 수행
 
@@ -264,7 +264,7 @@ SQL Managed Instance 대상 인스턴스에서 전체 데이터베이스 백업�
     ![중단 완료 준비](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
     > [!IMPORTANT]
-    > 이 외에도 중요 비즈니스용 서비스 계층을 사용 하는 SQL Managed Instance의 가용성은 AlwaysOn 고가용성 그룹에 대 한 세 개의 보조 복제본이 시드 되어야 하기 때문에 일반적인 목적 보다 훨씬 더 오래 걸릴 수 있습니다. 이 작업 기간은 데이터의 크기에 따라 달라 집니다. 자세한 내용은 [관리 작업 기간](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration)을 참조 하세요.
+    > 이 외에도 중요 비즈니스용 서비스 계층을 사용 하는 SQL Managed Instance의 가용성은 AlwaysOn 고가용성 그룹에 대 한 세 개의 보조 복제본이 시드 되어야 하기 때문에 일반적인 목적 보다 훨씬 더 오래 걸릴 수 있습니다. 이 작업 기간은 데이터의 크기에 따라 달라 집니다. 자세한 내용은 [관리 작업 기간](../azure-sql/managed-instance/management-operations-overview.md#duration)을 참조 하세요.
 
 5. 데이터베이스 마이그레이션 상태가 **완료 됨**으로 표시 되 면 응용 프로그램을 SQL Managed Instance의 새 대상 인스턴스에 연결 합니다.
 

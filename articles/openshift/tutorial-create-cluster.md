@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: f4b43129db5288275434253545861f3eae218e82
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 1ba383b99b8265e01cf757bfb1589a86a934e0e3
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503791"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053874"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>자습서: Azure Red Hat OpenShift 4 클러스터 만들기
 
@@ -104,20 +104,22 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
    CLUSTER=cluster                 # the name of your cluster
    ```
 
-1. **리소스 그룹을 만듭니다.**
+2. **리소스 그룹을 만듭니다.**
 
-    Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치입니다. [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다.
+Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 리소스 그룹 메타데이터가 저장되는 위치이며 리소스를 만드는 동안 다른 지역을 지정하지 않으면 리소스가 Azure에서 실행되는 위치입니다. [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다.
     
-> [!NOTE]
+> [!NOTE] 
 > Azure 리소스 그룹을 만들 수 있는 일부 지역에서는 Azure Red Hat OpenShift를 사용할 수 없습니다. Azure Red Hat OpenShift가 지원되는 위치에 대한 정보는 [사용 가능한 지역](https://docs.openshift.com/aro/4/welcome/index.html#available-regions)을 참조하세요.
 
-    ```azurecli-interactive
-    az group create --name $RESOURCEGROUP --location $LOCATION
-    ```
+```azurecli-interactive
+az group create \
+  --name $RESOURCEGROUP \
+  --location $LOCATION
+```
 
-    The following example output shows the resource group created successfully:
+다음 예제 출력에서는 성공적으로 만들어진 리소스 그룹이 나와 있습니다.
 
-    ```json
+```json
     {
     "id": "/subscriptions/<guid>/resourceGroups/aro-rg",
     "location": "eastus",
@@ -128,24 +130,24 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
     },
     "tags": null
     }
-    ```
+```
 
-2. **가상 네트워크를 만듭니다.**
+3. **가상 네트워크를 만듭니다.**
 
-    OpenShift 4를 실행하는 Azure Red Hat OpenShift 클러스터에는 마스터 및 작업자 노드에 사용할 두 개의 빈 서브넷이 있는 가상 네트워크가 필요합니다.
+OpenShift 4를 실행하는 Azure Red Hat OpenShift 클러스터에는 마스터 및 작업자 노드에 사용할 두 개의 빈 서브넷이 있는 가상 네트워크가 필요합니다.
 
-    이전에 만든 동일한 리소스 그룹에 새 가상 네트워크를 만듭니다.
+이전에 만든 동일한 리소스 그룹에 새 가상 네트워크를 만듭니다.
 
-    ```azurecli-interactive
-    az network vnet create \
-    --resource-group $RESOURCEGROUP \
-    --name aro-vnet \
-    --address-prefixes 10.0.0.0/22
-    ```
+```azurecli-interactive
+az network vnet create \
+   --resource-group $RESOURCEGROUP \
+   --name aro-vnet \
+   --address-prefixes 10.0.0.0/22
+```
 
-    다음 예제 출력을 보면 가상 네트워크가 성공적으로 만들어졌습니다.
+다음 예제 출력을 보면 가상 네트워크가 성공적으로 만들어졌습니다.
 
-    ```json
+```json
     {
     "newVNet": {
         "addressSpace": {
@@ -161,9 +163,9 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
         "type": "Microsoft.Network/virtualNetworks"
     }
     }
-    ```
+```
 
-3. **마스터 노드에 사용할 빈 서브넷을 추가합니다.**
+4. **마스터 노드에 사용할 빈 서브넷을 추가합니다.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -174,7 +176,7 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-4. **작업자 노드에 사용할 빈 서브넷을 추가합니다.**
+5. **작업자 노드에 사용할 빈 서브넷을 추가합니다.**
 
     ```azurecli-interactive
     az network vnet subnet create \
@@ -185,7 +187,7 @@ Red Hat 풀 비밀을 사용하면 클러스터에서 추가 콘텐츠와 함께
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **마스터 서브넷에서 [서브넷 프라이빗 엔드포인트 정책을 사용하지 않도록 설정](../private-link/disable-private-link-service-network-policy.md)합니다.** 클러스터에 연결하고 관리하는 데 필요합니다.
+6. **마스터 서브넷에서 [서브넷 프라이빗 엔드포인트 정책을 사용하지 않도록 설정](../private-link/disable-private-link-service-network-policy.md)합니다.** 클러스터에 연결하고 관리하는 데 필요합니다.
 
     ```azurecli-interactive
     az network vnet subnet update \

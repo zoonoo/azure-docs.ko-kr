@@ -4,12 +4,12 @@ description: Advisor에서 빠른 수정을 사용 하 여 대량 업데이트�
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
-ms.openlocfilehash: ebd993733c1aca9cd4f7d92f0a75e22d68a87ffe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a9c86a7ae510d9657f64c71db2aa8c4e3e558f52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518065"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968586"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Advisor에 대 한 빠른 수정 재구성
 **빠른 픽스** 를 사용 하면 여러 리소스에 대 한 권장 사항을 보다 빠르고 쉽게 수정할 수 있습니다. 리소스를 대량으로 재구성 하는 기능을 제공 하 고, 리소스에 맞게 대규모로 수정 하 여 구독을 더 빠르게 최적화 합니다.
@@ -20,13 +20,13 @@ ms.locfileid: "86518065"
 
 1. **빠른 수정** 레이블이 있는 권장 사항 목록에서 권장 사항을 클릭 합니다.
 
-   ![Advisor 빠른 수정](./media/quick-fix-1.png)
+   :::image type="content" source="./media/quick-fix-1.png" alt-text="{권장 사항에서 빠른 수정 레이블을 보여 주는 Azure Advisor의 스크린샷}":::
    
    *이미지의 가격은 예를 들어 목적 으로만 사용 됩니다.*
 
 2. 권장 사항 세부 정보 페이지에이 권장 사항이 있는 리소스 목록이 표시 됩니다. 권장 사항에 대해 재구성 하려는 모든 리소스를 선택 합니다.
 
-   ![Advisor 빠른 수정](./media/quick-fix-2.png)
+   :::image type="content" source="./media/quick-fix-2.png" alt-text="목록 항목과 빠른 수정 단추가 강조 표시 된 영향을 받는 리소스 창의 스크린샷":::
    
    *이미지의 가격은 예를 들어 목적 으로만 사용 됩니다.*
 

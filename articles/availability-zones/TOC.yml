@@ -95,6 +95,10 @@
       items:
         - name: Edge 영역이란?
           href: ../networking/edge-zones-overview.md
+    - name: Azure Orbital 설명서
+      items:
+        - name: Azure Orbital이란?
+          href: ../networking/azure-orbital-overview.md
 - name: 재해 복구
   items:
     - name: Azure Site Recovery 사용

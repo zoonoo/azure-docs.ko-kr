@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU 공유 관리 | Microsoft Docs
-description: Azure Portal를 사용 하 여 Azure Stack에 지 GPU의 공유를 관리 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro GPU 공유 관리 | Microsoft Docs
+description: Azure Portal를 사용 하 여 Azure Stack Edge Pro GPU에서 공유를 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,25 +8,25 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6448ac002482751052310532989278e3b88b5915
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 44f22f365699ddc345849df78d6e27c2703d785b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268845"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904689"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge"></a>Azure Portal를 사용 하 여 Azure Stack에 지에 대 한 공유를 관리 합니다.
+# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro에서 공유를 관리 합니다.
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-이 문서에서는 Azure Stack Edge에서 공유를 관리 하는 방법을 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge를 관리할 수 있습니다. Azure Portal을 사용하여 공유와 연결된 스토리지 계정의 스토리지 키를 동기화하거나 공유를 추가, 삭제, 새로 고칠 수 있습니다.
+이 문서에서는 Azure Stack Edge Pro에서 공유를 관리 하는 방법을 설명 합니다. Azure Portal 또는 로컬 웹 UI를 통해 Azure Stack Edge Pro를 관리할 수 있습니다. Azure Portal을 사용하여 공유와 연결된 스토리지 계정의 스토리지 키를 동기화하거나 공유를 추가, 삭제, 새로 고칠 수 있습니다.
 
 ## <a name="about-shares"></a>공유에 대한 정보
 
-Azure로 데이터를 전송 하려면 Azure Stack Edge에 공유를 만들어야 합니다. Azure Stack Edge 장치에 추가 하는 공유는 클라우드에 데이터를 푸시하는 로컬 공유 또는 공유 일 수 있습니다.
+Azure로 데이터를 전송 하려면 Azure Stack Edge Pro에 공유를 만들어야 합니다. Azure Stack Edge Pro 장치에 추가 하는 공유는 클라우드에 데이터를 푸시하는 로컬 공유 또는 공유 일 수 있습니다.
 
  - **로컬 공유**: 장치에서 데이터를 로컬로 처리 하려면 이러한 공유를 사용 합니다.
- - **공유**: 클라우드의 저장소 계정에 장치 데이터를 자동으로 푸시 하려면 이러한 공유를 사용 합니다. **새로 고침** 및 **스토리지 키 동기화**와 같은 모든 클라우드 기능이 공유에 적용됩니다.
+ - **공유**: 클라우드의 저장소 계정에 장치 데이터를 자동으로 푸시 하려면 이러한 공유를 사용 합니다. **새로 고침** 및 **동기화 저장소 키** 와 같은 모든 클라우드 함수는 공유에 적용 됩니다.
 
 
 ## <a name="add-a-share"></a>공유 추가
@@ -45,7 +45,7 @@ Azure로 데이터를 전송 하려면 Azure Stack Edge에 공유를 만들어�
 
 4. 공유가 상주할 **스토리지 계정**을 제공합니다. 컨테이너가 아직 없으면 스토리지 계정에 공유 이름이 포함된 컨테이너가 만들어집니다. 컨테이너가 이미 있으면 기존 컨테이너가 사용됩니다.
 
-5. 드롭다운 목록의 블록 Blob, 페이지 Blob 또는 파일에서 **스토리지 서비스**를 선택합니다. 선택하는 서비스 유형은 데이터를 Azure에 저장할 형식에 따라 달라집니다. 예를 들어, 이 인스턴스에서는 Azure에서 데이터가 블록 Blob으로 존재하기를 원하므로 **블록 Blob**을 선택합니다. **페이지 Blob**을 선택 하는 경우 데이터를 512 바이트로 맞춰야 합니다. 항상 512바이트로 정렬되는 VHD 또는 VHDX에는 **페이지 Blob**을 사용합니다.
+5. 드롭다운 목록에서 블록 blob, 페이지 blob 또는 파일에서 **저장소 서비스** 를 선택 합니다. 선택하는 서비스 유형은 데이터를 Azure에 저장할 형식에 따라 달라집니다. 예를 들어이 인스턴스에서 데이터는 Azure에서 블록 blob으로 배치 하므로 **Blob 차단**을 선택 합니다. **페이지 Blob**을 선택 하는 경우 데이터를 512 바이트로 맞춰야 합니다. 항상 512 바이트를 맞춘 Vhd 또는 VHDX에 대해 **페이지 blob** 을 사용 합니다.
 
 6. 이 단계는 SMB 공유 또는 NFS 공유 중에서 어느 것을 만드는지에 따라 달라집니다.
     - **SMB 공유를 만드는 경우** - **모든 권한 로컬 사용자** 필드에서 **새로 만들기** 또는 **기존 항목 사용**을 선택합니다. 새 로컬 사용자를 만드는 경우 **사용자 이름**, **암호**를 입력한 다음, 암호를 확인합니다. 이렇게 하면 로컬 사용자에게 해당 권한이 할당됩니다. 여기에서 권한을 할당한 후에 파일 탐색기를 사용하여 해당 권한을 수정할 수 있습니다.
@@ -74,7 +74,7 @@ Azure로 데이터를 전송 하려면 Azure Stack Edge에 공유를 만들어�
 3. 공유에 대한 **유형**을 선택합니다. 유형은 **SMB** 또는 **NFS**이며, SMB가 기본값입니다. SMB는 Windows 클라이언트에 대한 표준이며, NFS는 Linux 클라이언트에 사용됩니다. SMB 공유 또는 NFS 공유 중에서 어느 것을 선택하는지에 따라 제공되는 옵션이 약간 다릅니다.
 
    > [!IMPORTANT]
-   > Azure Stack Edge 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage)를 참조하세요.
+   > Azure Stack Edge Pro 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage)를 참조하세요.
 
 4. Edge 컴퓨팅 모듈에서 공유에 손쉽게 액세스하려면 로컬 탑재 지점을 사용합니다. Edge 모듈에서 로컬 탑재 지점을 통해 컴퓨팅을 사용할 수 있도록 **Edge 컴퓨팅으로 공유 사용**을 선택합니다.
 
@@ -96,7 +96,7 @@ Azure로 데이터를 전송 하려면 Azure Stack Edge에 공유를 만들어�
 
 ## <a name="mount-a-share"></a>공유 탑재
 
-Azure Stack Edge 장치에서 계산을 구성 하기 전에 공유를 만든 경우 공유를 탑재 해야 합니다. 공유를 탑재하려면 다음 단계를 수행합니다.
+Azure Stack Edge Pro 장치에서 계산을 구성 하기 전에 공유를 만든 경우 공유를 탑재 해야 합니다. 공유를 탑재하려면 다음 단계를 수행합니다.
 
 
 1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **게이트웨이 > 공유**로 이동 합니다. 공유 목록에서 탑재할 공유를 선택합니다. 선택한 공유에 대해 **컴퓨팅에 사용됨** 열에 **사용 안 함**으로 상태가 표시됩니다.

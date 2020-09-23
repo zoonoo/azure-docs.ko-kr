@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 97ba976c841e192646ebb484fe4d004556e34c54
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: aa3225378f921792d1e8ba0442f2c555d095fb9d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640840"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968404"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Azure Monitor 에이전트에 대 한 데이터 수집 구성 (미리 보기)
 DCR (데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정의 하 고이를 보내야 하는 위치를 지정 합니다. 이 문서에서는 Azure Monitor 에이전트를 사용 하 여 가상 머신에서 데이터를 수집 하는 데이터 수집 규칙을 만드는 방법을 설명 합니다.
@@ -26,7 +26,7 @@ DCR (데이터 수집 규칙)은 Azure Monitor에 들어오는 데이터를 정�
 
 예를 들어 lob (기간 업무) 응용 프로그램을 실행 하는 가상 머신 집합과 SQL Server를 실행 하는 다른 환경에서 환경을 가정 합니다. 모든 가상 컴퓨터에 적용 되는 하나의 기본 데이터 수집 규칙 및 lob (기간 업무) 응용 프로그램 및 SQL Server에 대 한 데이터를 수집 하는 별도의 데이터 수집 규칙이 있을 수 있습니다. 데이터 수집 규칙에 대 한 가상 컴퓨터 연결은 다음 다이어그램과 유사 하 게 표시 됩니다.
 
-![연결](media/data-collection-rule-azure-monitor-agent/associations.png)
+![다이어그램은 lob (기간 업무) 응용 프로그램 및 중앙-i t-SQL Server 기본값 및 lob (기간 업무) 응용 프로그램에 대 한 데이터 수집 규칙과 관련 된 SQL Server를 호스트 하는 가상 컴퓨터를 보여 줍니다.](media/data-collection-rule-azure-monitor-agent/associations.png)
 
 ## <a name="create-using-the-azure-portal"></a>Azure Portal을 사용하여 만들기
 Azure Portal를 사용 하 여 데이터 수집 규칙을 만들고 구독의 가상 컴퓨터를 해당 규칙에 연결할 수 있습니다. Azure Monitor 에이전트가 자동으로 설치 되 고 아직 설치 되지 않은 가상 컴퓨터에 대해 관리 id가 만들어집니다.

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/04/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c00c723c23e2f0d962009d33a6abe1008c734a5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 312ca5f693c42d70ecb5e210ef0d30df5c9739bb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266275"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968703"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 액세스 키를 통해 Azure Storage에 액세스
 
@@ -130,7 +130,7 @@ echo "This is a test file." > test.txt
 다음으로, 스토리지 액세스 키를 사용하여 CLI `az storage` 명령을 통해 인증을 받고 Blob 컨테이너에 파일을 업로드합니다. 이 단계에서는 VM에 [최신 Azure CLI를 설치](/cli/azure/install-azure-cli)해야 합니다(아직 없는 경우).
  
 
-```azurecli-interactive
+```azurecli
 az storage blob upload -c <CONTAINER NAME> -n test.txt -f test.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
@@ -148,7 +148,7 @@ Finished[#############################################################]  100.000
 
 요청: 
 
-```azurecli-interactive
+```azurecli
 az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
