@@ -11,21 +11,21 @@ ms.subservice: core
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5c7568b0914b5e60d1a47971424f1f04f41745da
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e984c0c43dcc47c3e11a36f3d5c32bf2ddb9973a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646955"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902326"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Azure Machine Learning 교육 실행에서 인증 자격 증명 비밀 사용
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 학습 실행 시 안전 하 게 암호를 사용 하는 방법에 대해 알아봅니다. 사용자 이름 및 암호와 같은 인증 정보는 비밀입니다. 예를 들어 학습 데이터를 쿼리 하기 위해 외부 데이터베이스에 연결 하는 경우 사용자 이름 및 암호를 원격 실행 컨텍스트에 전달 해야 합니다. 이러한 값을 일반 텍스트의 학습 스크립트에 코딩 하는 것은 암호를 노출 하므로 안전 하지 않습니다. 
 
 대신 Azure Machine Learning 작업 영역에 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)라는 연결 된 리소스가 있습니다. 이 Key Vault를 사용 하 여 Azure Machine Learning Python SDK의 Api 집합을 통해 안전 하 게 원격으로 실행할 수 있습니다.
 
-비밀 사용에 대 한 기본 흐름은 다음과 같습니다.
+비밀을 사용 하는 표준 흐름은 다음과 같습니다.
  1. 로컬 컴퓨터에서 Azure에 로그인 하 고 작업 영역에 연결 합니다.
  2. 로컬 컴퓨터에서 작업 영역 Key Vault에 암호를 설정 합니다.
  3. 원격 실행을 제출 합니다.

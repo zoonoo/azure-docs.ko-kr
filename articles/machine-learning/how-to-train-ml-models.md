@@ -11,15 +11,15 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 69987210d69855b0fcaa676e406ec6a1c02a4d85
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 2b944f6207ecc47df4176a512a900e08e6b0d643
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650616"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885941"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure Machine Learning에서는 [RunConfiguration 개체](how-to-set-up-training-targets.md#whats-a-run-configuration) 및 [ScriptRunConfig 개체](how-to-set-up-training-targets.md#submit)를 사용하여 학습 스크립트를 [다양한 컴퓨팅 대상](how-to-set-up-training-targets.md)에 제출할 수 있습니다. 이러한 패턴은 풍부한 유연성과 최대의 제어 능력을 제공합니다.
 
@@ -139,7 +139,7 @@ model = run.register_model(model_name='sklearn-sample', model_path=None)
 
 원본 디렉터리가 로컬 Git 리포지토리인 학습 실행을 시작하면 리포지토리에 대한 정보가 실행 기록에 저장됩니다. 자세한 내용은 [Azure Machine Learning에 대한 Git 통합](concept-train-model-git-integration.md)을 참조하세요.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 예측 도구를 사용하여 scikit-learn 모델을 학습하는 Notebook은 다음을 참조하세요.
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)

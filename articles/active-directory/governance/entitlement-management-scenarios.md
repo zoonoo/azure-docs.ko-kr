@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59b66511720966ff978c8460b9ac69ad133b7501
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 7f8a8f76ce7d46c0a44dd86ef1490c1c74a7992a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707223"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979506"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 일반적인 시나리오
 
@@ -119,24 +119,24 @@ ms.locfileid: "90707223"
 1. [비디오 보기: 일상적인 관리: 변경 된 항목](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. 액세스 패키지 열기
 1. [수명 주기 설정 열기](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings)
-1. [만료 설정 업데이트](entitlement-management-access-package-lifecycle-policy.md#lifecycle)
+1. [만료 설정 업데이트](entitlement-management-access-package-lifecycle-policy.md#lifecycle) 
 
 ### <a name="access-package-manager-update-how-access-is-approved-for-a-project"></a>액세스 패키지 관리자: 프로젝트에 대 한 액세스가 승인 되는 방법 업데이트
 
 1. [비디오 보기: 일상적인 관리: 변경 된 항목](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
-1. [요청 및 승인 설정의 기존 정책 열기](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
-1. [승인 설정 업데이트](entitlement-management-access-package-request-policy.md#approval)
+1. [요청 설정의 기존 정책 열기](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
+1. [승인 설정 업데이트](entitlement-management-access-package-approval-policy.md#change-approval-settings-of-an-existing-access-package)
 
 ### <a name="access-package-manager-update-the-people-for-a-project"></a>액세스 패키지 관리자: 프로젝트에 대 한 사용자를 업데이트 합니다.
 
 1. [비디오 보기: 일상적인 관리: 변경 된 항목](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. [더 이상 액세스할 필요가 없는 사용자 제거](entitlement-management-access-package-assignments.md)
-1. [요청 및 승인 설정의 기존 정책 열기](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
+1. [요청 설정의 기존 정책 열기](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [액세스 권한이 필요한 사용자 추가](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)
 
 ### <a name="access-package-manager-directly-assign-specific-users-to-an-access-package"></a>액세스 패키지 관리자: 액세스 패키지에 특정 사용자를 직접 할당 합니다.
 
-1. [사용자에 게 다른 수명 주기 설정이 필요한 경우 액세스 패키지에 새 정책을 추가 합니다.](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings)
+1. [사용자에 게 다른 수명 주기 설정이 필요한 경우 액세스 패키지에 새 정책을 추가 합니다.](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [액세스 패키지에 특정 사용자를 직접 할당](entitlement-management-access-package-assignments.md#directly-assign-a-user)
 
 ## <a name="assignments-and-reports"></a>할당 및 보고서

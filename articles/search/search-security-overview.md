@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: c9f0f496bfdb31e0c7cb45a07c87ea238d031e34
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 24e631b3ddb25cc8bed20b432ff2ba31fd331f37
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928771"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979603"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Azure Cognitive Search의 보안-개요
 
@@ -94,7 +94,7 @@ Azure Cognitive Search에서 이중 암호화는 CMK의 확장입니다. 이는 
 
 포털을 사용 하 여 [인바운드 액세스를 구성할](service-configure-firewall.md)수 있습니다.
 
-또는 관리 REST Api를 사용할 수 있습니다. [IpRule](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) 매개 변수를 사용 하는 API 버전 2020-03-13은 검색 서비스에 대 한 액세스 권한을 부여 하려는 IP 주소를 개별적으로 식별 하 여 서비스에 대 한 액세스를 제한할 수 있습니다.
+또는 관리 REST Api를 사용할 수 있습니다. [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) 매개 변수를 사용 하 여 API 버전 2020-03-13부터 검색 서비스에 대 한 액세스 권한을 부여 하려는 IP 주소를 개별적으로 식별 하 여 서비스에 대 한 액세스를 제한할 수 있습니다.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>개인 끝점 (인터넷 트래픽 없음)
 
@@ -120,10 +120,10 @@ Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 
 
 검색 결과에 대 한 사용자 단위 제어를 세부적으로 요구 하는 경우 쿼리에 보안 필터를 빌드하여 지정 된 보안 id와 연결 된 문서를 반환할 수 있습니다. 미리 정의된 역할 및 역할 할당 대신 ID 기반 액세스 제어는 ID에 따라 문서 및 콘텐츠의 검색 결과를 잘라내는 *필터*로 구현됩니다. 다음 표에서는 권한이 없는 콘텐츠의 검색 결과를 잘라내는 방법에 대한 두 가지 방법을 설명합니다.
 
-| 접근 방식 | Description |
+| 접근 방식 | 설명 |
 |----------|-------------|
 |[ID 필터에 따라 보안 조정](search-security-trimming-for-azure-search.md)  | 사용자 ID 액세스 제어를 구현하기 위한 기본 워크플로를 문서화합니다. 인덱스에 보안 식별자를 추가하는 방법을 다루고 금지된 콘텐츠의 결과를 잘라내는 해당 필드에 대한 필터링을 설명합니다. |
-|[Azure Active Directory ID에 따라 보안 조정](search-security-trimming-for-azure-search-with-aad.md)  | 이 문서는 이전 문서에서 확장되어 Azure 클라우드 플랫폼에서 제공하는 [체험 서비스](https://azure.microsoft.com/free/) 중 하나인 AAD(Azure Active Directory)에서 ID를 검색하는 단계를 제공합니다. |
+|[Azure Active Directory ID에 따라 보안 조정](search-security-trimming-for-azure-search-with-aad.md)  | 이 문서는 Azure cloud platform의 [무료 서비스](https://azure.microsoft.com/free/) 중 하나인 Azure Active Directory (azure AD)에서 id를 검색 하는 단계를 제공 하는 이전 문서를 확장 합니다. |
 
 ## <a name="administrative-rights"></a>관리 권한
 

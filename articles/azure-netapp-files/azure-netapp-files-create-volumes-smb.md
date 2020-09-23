@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 9ac30bdcb137afb26a8461f98a36b568ebe179b0
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6a90a4ad44bff392b5fe6cd0af13313bd98ce2a6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459014"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988321"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -74,15 +74,17 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
     AD 사이트 및 서비스에 대한 [사이트 토폴로지 디자인](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)을 참조하세요. 
     
-<!--
-* Azure NetApp Files supports DES, Kerberos AES 128, and Kerberos AES 256 encryption types (from the least secure to the most secure). The user credentials used to join Active Directory must have the highest corresponding account option enabled that matches the capabilities enabled for your Active Directory.   
+* [조인 Active Directory](#create-an-active-directory-connection) 창에서 **aes 암호화** 상자를 선택 하 여 SMB 볼륨에 대 한 aes 암호화를 사용 하도록 설정할 수 있습니다. Azure NetApp Files는 DES, Kerberos AES 128 및 Kerberos AES 256 암호화 유형 (최소 보안에서 가장 안전)을 지원 합니다. AES 암호화를 사용 하도록 설정 하는 경우 Active Directory를 조인 하는 데 사용 되는 사용자 자격 증명에 Active Directory에 대해 사용 하도록 설정 된 기능과 일치 하는 가장 높은 해당 계정 옵션을 사용 해야    
 
-    For example, if your Active Directory has only the AES-128 capability, you must enable the AES-128 account option for the user credentials. If your Active Directory has the AES-256 capability, you must enable the AES-256 account option (which also supports AES-128). If your Active Directory does not have any Kerberos encryption capability, Azure NetApp Files uses DES by default.  
+    예를 들어 Active Directory에만 AES-128 기능이 있는 경우 사용자 자격 증명에 대 한 AES-128 계정 옵션을 사용 하도록 설정 해야 합니다. Active Directory에 AES-256 기능이 있는 경우 aes-256 계정 옵션 (AES 128도 지원)을 사용 하도록 설정 해야 합니다. Active Directory에 Kerberos 암호화 기능이 없을 경우 기본적으로 DES를 사용 Azure NetApp Files 합니다.  
 
-    You can enable the account options in the properties of the Active Directory Users and Computers Microsoft Management Console (MMC):   
+    Active Directory 사용자 및 컴퓨터 MMC (Microsoft Management Console)의 속성에서 계정 옵션을 사용 하도록 설정할 수 있습니다.   
 
-    ![Active Directory Users and Computers MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
--->
+    ![Active Directory 사용자 및 컴퓨터 MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
+
+* Azure NetApp Files은 Azure NetApp Files 서비스와 대상 [Active Directory 도메인 컨트롤러](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)간의 ldap 트래픽을 안전 하 게 전송할 수 있는 [ldap 서명을](https://docs.microsoft.com/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server)지원 합니다. LDAP 서명에 대 한 Microsoft 자문 [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) 의 지침을 수행 하는 경우 [조인 Active Directory](#create-an-active-directory-connection) 창에서 **ldap 서명** 상자를 선택 하 여 Azure NetApp Files에서 ldap 서명 기능을 사용 하도록 설정 해야 합니다. 
+
+    [LDAP 채널 바인딩](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) 구성은 Azure NetApp Files 서비스에 영향을 주지 않습니다. 
 
 추가 AD 정보에 대한 Azure NetApp Files [SMB FAQ](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)를 참조하세요. 
 
@@ -144,7 +146,7 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
     * **AD DNS 도메인 이름**  
         가입하려는 Active Directory Domain Services의 도메인 이름입니다.
     * **AD 사이트 이름**  
-        도메인 컨트롤러 검색이 제한될 사이트 이름입니다.
+        도메인 컨트롤러 검색이 제한 될 사이트 이름입니다.
     * **SMB 서버(컴퓨터 계정) 접두사**  
         Azure NetApp Files에서 새 계정을 만드는 데 사용할 Active Directory의 머신 계정에 대한 명명 접두사입니다.
 
@@ -160,8 +162,56 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
 
         Azure Active Directory Domain Services와 함께 Azure NetApp Files를 사용하는 경우 NetApp 계정에 대해 Active Directory를 구성할 때 조직 구성 단위 경로는 `OU=AADDC Computers`입니다.
 
+    ![Active Directory 조인](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+
+    * **AES 암호화**   
+        SMB 볼륨에 대해 AES 암호화를 사용 하도록 설정 하려면이 확인란을 선택 합니다. 요구 사항에 대 한 [Active Directory 연결에 대 한 요구 사항](#requirements-for-active-directory-connections) 을 참조 하세요. 
+
+        ![Active Directory AES 암호화](../media/azure-netapp-files/active-directory-aes-encryption.png)
+
+        **AES 암호화** 기능은 현재 미리 보기로 제공 됩니다. 이 기능을 처음 사용 하는 경우이 기능을 사용 하기 전에 등록 합니다. 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
+        ```
+
+        기능 등록의 상태를 확인 합니다. 
+
+        > [!NOTE]
+        > **RegistrationState** `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
+        ```
+        
+        [Azure CLI 명령을](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
+
+    * **LDAP 서명**   
+        LDAP 서명을 사용 하도록 설정 하려면이 확인란을 선택 합니다. 이 기능을 사용 하면 Azure NetApp Files 서비스와 사용자가 지정한 [Active Directory Domain Services 도메인 컨트롤러](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services)간에 보안 LDAP 조회가 가능 합니다. 자세한 내용은 ADV190023를 참조 하세요. [ LDAP 채널 바인딩 및 LDAP 서명을 사용 하도록 설정 하기 위한 Microsoft 지침](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023)  
+
+        ![LDAP 서명 Active Directory](../media/azure-netapp-files/active-directory-ldap-signing.png) 
+
+        **LDAP 서명** 기능은 현재 미리 보기 상태입니다. 이 기능을 처음 사용 하는 경우이 기능을 사용 하기 전에 등록 합니다. 
+
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
+        ```
+
+        기능 등록의 상태를 확인 합니다. 
+
+        > [!NOTE]
+        > **RegistrationState** `Registering` 로 변경 하기 전까지 최대 60 분 동안 registrationstate 상태가 될 수 있습니다 `Registered` . 계속 하기 전에 상태가 **등록** 될 때까지 기다립니다.
+
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
+        ```
+        
+        [Azure CLI 명령을](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
+
      * **백업 정책 사용자**  
         Azure NetApp Files에 사용하기 위해 만든 컴퓨터 계정에 대한 높은 권한이 필요한 추가 계정을 포함할 수 있습니다. 지정된 계정은 파일 또는 폴더 수준에서 NTFS 권한을 변경할 수 있습니다. 예를 들어 Azure NetApp Files에서 SMB 파일 공유로 데이터를 마이그레이션하는 데 사용되는 권한 없는 서비스 계정을 지정할 수 있습니다.  
+
+        ![백업 정책 사용자 Active Directory](../media/azure-netapp-files/active-directory-backup-policy-users.png)
 
         **백업 정책 사용자** 기능은 현재 미리 보기 상태입니다. 이 기능을 처음 사용 하는 경우이 기능을 사용 하기 전에 등록 합니다. 
 
@@ -178,11 +228,11 @@ DNS 서버의 경우 Active Directory 연결 구성에 2개의 IP 주소가 사�
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
         
-        Azure CLI 명령을 사용 하 여 [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) 기능을 [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) 등록 하 고 등록 상태를 표시할 수도 있습니다. 
+        [Azure CLI 명령을](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
 
     * **사용자 이름**과 **암호**를 포함한 자격 증명
 
-    ![Active Directory 조인](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+        ![Active Directory 자격 증명](../media/azure-netapp-files/active-directory-credentials.png)
 
 3. **조인**을 클릭합니다.  
 

@@ -10,21 +10,21 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
-ms.reviewer: vanto, carlrab, emlisa
-ms.date: 05/14/2019
-ms.openlocfilehash: a9e563f32f2b8f38af7ab86be82cd18ef1c2309c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.reviewer: vanto, emlisa
+ms.date: 09/21/2020
+ms.openlocfilehash: f3ae5e1ef4dc2968724daeafb32f26cf445b0d2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088411"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885290"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Azure SQL Database 및 SQL Managed Instance 보안 기능 개요
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 이 문서에서는 [Azure SQL Database](sql-database-paas-overview.md) 및 [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md)를 사용 하 여 응용 프로그램의 데이터 계층을 보호 하는 기본 사항을 간략하게 설명 합니다. 여기서 설명하는 보안 전략은 아래 그림에 나와 있는 계층형 심층 방어 방식을 따르며 외부에서 내부로 적용됩니다.
 
-![sql-security-layer.png](./media/security-overview/sql-security-layer.png)
+![sql 보안 layer.png](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>네트워크 보안
 
@@ -77,7 +77,7 @@ Azure SQL Database는 [가상 네트워크 규칙](vnet-service-endpoint-rule-ov
 
 RLS(행 수준 보안)를 사용하면 고객이 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)에 따라 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다. 행 수준 보안을 사용 하 여 사용자 지정 레이블 기반 보안 개념을 구현할 수도 있습니다. 자세한 내용은 [행 수준 보안](/sql/relational-databases/security/row-level-security)을 참조 하세요.
 
-![azure-database-rls.png](./media/security-overview/azure-database-rls.png)
+![azure 데이터베이스 rls.png](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>위협 보호
 
@@ -91,7 +91,7 @@ SQL Database 및 SQL Managed Instance 감사는 데이터베이스 작업을 추
 
 Advanced Threat Protection은 로그를 분석 하 여 비정상적인 동작을 감지 하 고 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 감지 합니다. 경고는 SQL 삽입, 잠재적 데이터 침입 및 무차별 암호 대입 공격과 같은 의심 스러운 활동에 대해 만들어지거나 권한 상승 및 위반 된 자격 증명 사용을 포착 하기 위한 액세스 패턴의 이상에서 발생 합니다. 경고는  [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 볼 수 있습니다. 여기에서 의심 스러운 활동에 대 한 세부 정보를 제공 하 고, 위협을 완화 하는 작업과 함께 제공 된 추가 조사에 대 한 권장 사항을 제공 합니다. 추가 요금을 위해 서버당 Advanced Threat Protection을 사용 하도록 설정할 수 있습니다. 자세한 내용은 [SQL Database Advanced Threat Protection 시작](threat-detection-configure.md)을 참조 하세요.
 
-![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
+![azure 데이터베이스 td.jpg](./media/security-overview/azure-database-td.jpg)
 
 ## <a name="information-protection-and-encryption"></a>정보 보호 및 암호화
 
@@ -122,13 +122,13 @@ Azure에서 새로 만든 모든 데이터베이스는 기본적으로 암호화
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted(사용 중인 데이터 암호화)
 
-![azure-database-ae.png](./media/security-overview/azure-database-ae.png)
+![azure 데이터베이스 ae.png](./media/security-overview/azure-database-ae.png)
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)는 신용 카드 번호, 주민 등록 번호 또는 _확인이 필요_한 데이터와 같이 특정 데이터베이스 열에 저장된 중요한 데이터를 액세스할 수 없도록 보호하는 기능입니다. 예를 들어 이 기능을 통해 데이터베이스에 액세스하여 관리 작업을 수행할 권한은 부여되었지만 업무상 암호화된 열의 특정 데이터에는 액세스할 필요가 없는 데이터베이스 관리자 또는 기타 권한 있는 사용자로부터 데이터를 보호할 수 있습니다. 데이터는 항상 암호화되므로 암호화 키 액세스 권한이 있는 클라이언트 애플리케이션에서 처리해야 하는 경우에만 암호화된 데이터의 암호가 해독됩니다. 암호화 키는 SQL Database 또는 SQL Managed Instance에 노출 되지 않으며 [Windows 인증서 저장소](always-encrypted-certificate-store-configure.md) 또는 [Azure Key Vault](always-encrypted-azure-key-vault-configure.md)에 저장 될 수 있습니다.
 
 ### <a name="dynamic-data-masking"></a>동적 데이터 마스킹
 
-![azure-database-ddm.png](./media/security-overview/azure-database-ddm.png)
+![azure 데이터베이스 ddm.png](./media/security-overview/azure-database-ddm.png)
 
 동적 데이터 마스킹에서는 권한이 없는 사용자로 마스킹하여 중요한 데이터 노출을 제한합니다. 동적 데이터 마스킹은 Azure SQL Database 및 SQL Managed Instance에서 잠재적으로 중요 한 데이터를 자동으로 검색 하 고 응용 프로그램 계층에 미치는 영향을 최소화 하면서 이러한 필드를 마스킹할 조치 가능한 권장 사항을 제공 합니다. 이 기능은 지정된 데이터베이스 필드를 통해 쿼리의 결과 집합에 있는 중요한 데이터를 혼란스럽게 만들면서 작동하지만 데이터베이스의 데이터를 변경하지는 않습니다. 자세한 내용은 [SQL Database 및 SQL Managed Instance 동적 데이터 마스킹 시작](dynamic-data-masking-overview.md)을 참조 하세요.
 
@@ -136,7 +136,7 @@ Azure에서 새로 만든 모든 데이터베이스는 기본적으로 암호화
 
 ### <a name="vulnerability-assessment"></a>취약점 평가
 
-[취약성 평가](sql-vulnerability-assessment.md)는 전반적인 데이터베이스 보안을 사전에 개선하기 위해 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 손쉽게 구성 가능한 서비스입니다. VA (취약성 평가)는 고급 SQL 보안 기능을 위한 통합 패키지인 고급 데이터 보안 제품의 일부입니다. 취약성 평가는 중앙 SQL Advanced Data Security 포털을 통해 액세스 하 고 관리할 수 있습니다.
+[취약성 평가](sql-vulnerability-assessment.md)는 전반적인 데이터베이스 보안을 사전에 개선하기 위해 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 손쉽게 구성 가능한 서비스입니다. VA (취약성 평가)는 고급 SQL 보안 기능을 위한 통합 패키지인 SQL 용 Azure Defender 제공의 일부입니다. 취약성 평가는 SQL 포털의 중앙 Azure Defender를 통해 액세스 하 고 관리할 수 있습니다.
 
 ### <a name="data-discovery-and-classification"></a>데이터 검색 및 분류
 
@@ -148,7 +148,7 @@ Azure에서 새로 만든 모든 데이터베이스는 기본적으로 암호화
 
 자세한 내용은 [데이터 검색 및 분류 시작](data-discovery-and-classification-overview.md)을 참조 하세요.
 
-### <a name="compliance"></a>규정 준수
+### <a name="compliance"></a>준수
 
 Azure SQL Database는 위의 기능 및 애플리케이션이 다양한 보안 요구 사항을 충족하는 데 도움이 될 수 있는 기능을 포함할 뿐 아니라, 정기 감사도 받고 있으며 다수의 규정 준수 표준 충족 인증도 취득했습니다. 자세한 내용은 SQL Database 준수 인증의 최신 목록을 찾을 수 있는 [Microsoft Azure 보안 센터](https://www.microsoft.com/trust-center/compliance/compliance-overview) 를 참조 하세요.
 

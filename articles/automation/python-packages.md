@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.custom: devx-track-python
-ms.openlocfilehash: 0b0fab40eb95fabd4b74e809c9e6cd6f6573f513
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1ab0b2def1a22470c1d0b6339e1525cd683b4a0b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852908"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987572"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Azure Automation에서 Python 2 패키지 관리
 
@@ -21,15 +21,15 @@ Azure Automation을 사용하면 Linux Hybrid Runbook Worker 및 Azure에서 Pyt
 
 Automation 계정의 **공유 리소스** 아래에서 **Python 2 패키지**를 선택합니다. **+ Python 2 패키지 추가**를 클릭합니다.
 
-![Python 패키지 추가](media/python-packages/add-python-package.png)
+:::image type="content" source="media/python-packages/add-python-package.png" alt-text="Python 2 패키지 페이지의 스크린샷 왼쪽 메뉴에 Python 2 패키지가 표시 되 고 Python 2 패키지가 강조 표시 됩니다.":::
 
 Python 2 패키지 추가 페이지에서 업로드할 로컬 패키지를 선택합니다. 패키지는 **.whl** 또는 **.tar.gz** 파일일 수 있습니다. 패키지를 선택한 다음 **확인**을 클릭하여 업로드합니다.
 
-![Python 패키지 추가](media/python-packages/upload-package.png)
+:::image type="content" source="media/python-packages/upload-package.png" alt-text="스크린샷 release.tar.gz 파일이 선택 된 Python 2 패키지 추가 페이지가 표시 됩니다.":::
 
 가져온 패키지는 Automation 계정의 Python 2 패키지 페이지에 나열됩니다. 패키지를 제거해야 하는 경우 해당 패키지를 선택하고 **삭제**를 선택합니다.
 
-![패키지 목록](media/python-packages/package-list.png)
+:::image type="content" source="media/python-packages/package-list.png" alt-text="패키지를 가져온 후의 스크린샷에는 Python 2 패키지 페이지가 표시 됩니다.":::
 
 ## <a name="import-packages-with-dependencies"></a>종속성이 있는 패키지 가져오기
 
@@ -49,12 +49,12 @@ C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 
  Runbook을 가져오려면 갤러리에서 Automation 계정으로 [Python 2 패키지를 pypi에서 Azure Automation 계정으로 가져옵니다](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509). 실행 설정이 **Azure**로 설정되어 있고 매개 변수가 포함된 Runbook을 시작해야 합니다. Automation 계정이 작동하려면 Runbook에 실행 계정이 필요 합니다. 각 매개 변수에 대해 다음 목록과 이미지에 표시된 것처럼 스위치를 사용하여 시작해야 합니다.
 
-* -s\<subscriptionId\>
-* -g\<resourceGroup\>
-* -a\<automationAccount\>
-* -m\<modulePackage\>
+* -s \<subscriptionId\>
+* -g \<resourceGroup\>
+* -a \<automationAccount\>
+* -m \<modulePackage\>
 
-![패키지 목록](media/python-packages/import-python-runbook.png)
+:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="스크린샷 오른쪽에 있는 Runbook 시작 창을 사용 하 여 import_py2package_from_pypi에 대 한 개요 페이지를 표시 합니다.":::
 
 Runbook을 사용하여 다운로드할 패키지를 지정할 수 있습니다. 예를 들어 `Azure` 매개 변수를 사용하면 모든 Azure 모듈과 모든 종속성(약 105개)이 다운로드됩니다.
 

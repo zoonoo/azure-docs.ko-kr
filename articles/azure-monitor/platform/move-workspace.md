@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d3937eaa5017ed66641d886ecd45e812f7070b83
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566287"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979684"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동
 
@@ -40,9 +40,9 @@ Automation 계정 연결을 해제 하기 전에 제거 해야 하는 솔루션�
 
 >[!IMPORTANT]
 > **Azure 센티널 고객:**
-> - 작업 영역에 배포 되 면 Azure 센티널은 현재 해당 작업 영역을 다른 리소스 그룹 또는 구독으로 이동 하는 작업을 **지원 하지** 않습니다. 
+> - 작업 영역에 배포되면 Azure Sentinel은 해당 작업 영역을 다른 리소스 그룹 또는 구독으로 이동하는 것을 **현재 지원하지 않습니다**. 
 >
->   작업 영역을 이미 이동한 경우 **분석** 에서 모든 활성 규칙을 사용 하지 않도록 설정 하 고 5 분 후에 다시 사용 하도록 설정 합니다. 대부분의 경우에는이를 효과적으로 수행 해야 하지만,이는 지원 되지 않으며 사용자의 위험에 따라 수행 됩니다.
+>   작업 영역을 이미 이동한 경우 **Analytics**에서 모든 활성 규칙을 사용하지 않도록 설정하고 5분 후에 다시 사용하도록 설정합니다. 대부분의 경우에 이를 효과적으로 수행해야 하지만, 이는 지원되지 않으며 사용자의 책임하에 수행됩니다.
 
 ### <a name="delete-solutions-in-azure-portal"></a>Azure Portal에서 솔루션 삭제
 Azure Portal를 사용 하 여 솔루션을 제거 하려면 다음 절차를 따르십시오.
@@ -96,7 +96,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 4. 대상 **구독** 및 **리소스 그룹**을 선택 합니다. 작업 영역을 동일한 구독의 다른 리소스 그룹으로 이동 하는 경우에는 **구독** 옵션이 표시 되지 않습니다.
 5. **확인** 을 클릭 하 여 작업 영역 및 선택 된 리소스를 이동 합니다.
 
-    ![포털](media/move-workspace/portal.png)
+    ![스크린샷에는 리소스 그룹 및 구독 이름을 변경 하는 옵션과 함께 Log Analytics 작업 영역의 개요 창이 표시 됩니다.](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 PowerShell을 사용 하 여 작업 영역을 이동 하려면 다음 예제와 같이 [AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) 를 사용 합니다.

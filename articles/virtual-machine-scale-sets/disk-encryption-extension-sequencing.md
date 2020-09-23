@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption 및 Azure 가상 머신 확장 집합 확장 시퀀싱
-description: 이 문서에서는 Linux IaaS VM용 Microsoft Azure Disk Encryption을 사용하도록 설정하는 방법에 대한 지침을 제공합니다.
+description: 이 문서에서는 Linux IaaS Vm에 대해 Microsoft Azure 디스크 암호화를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 1c93359486379ecfc8bf6df1f29978ba369f551a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1aff05e51bcbc99f33325efb905ade819ae22e02
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83117260"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988025"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>가상 머신 확장 집합 확장 시퀀싱을 통한 Azure Disk Encryption 사용
 

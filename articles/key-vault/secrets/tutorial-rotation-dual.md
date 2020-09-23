@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: b9478d3b171189decb4e2cca7fc93ba2fa75e32e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 904355b28af93d4a277f2158b1548517118a67ba
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89482785"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529420"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>두 개의 인증 자격 증명 세트를 사용하는 리소스의 비밀 순환 자동화
 
@@ -80,7 +80,7 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 
 1. Azure 템플릿 배포 링크를 선택합니다. 
 
-   [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
+   [!["Azure에 배포"라는 레이블이 지정된 단추를 보여주는 이미지](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json)
 
 1. **리소스 그룹** 목록에서 **akvrotation**을 선택합니다.
 1. 순환할 액세스 키가 포함된 스토리지 계정 이름을 **스토리지 계정 이름**에 입력합니다.
@@ -204,7 +204,7 @@ az storage account keys list -n akvrotationstorage
 - [Redis Cache](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
 ## <a name="learn-more"></a>자세한 정보
-- 개요: [Azure Event Grid를 사용하여 Key Vault 모니터링(미리 보기)](../general/event-grid-overview.md)
+- 개요: [Azure Event Grid를 사용하여 Key Vault 모니터링](../general/event-grid-overview.md)
 - 방법: [Azure Portal에서 첫 번째 함수 만들기](../../azure-functions/functions-create-first-azure-function.md)
 - 방법: [키 자격 증명 모음 비밀 변경 시 이메일 받기](../general/event-grid-logicapps.md)
-- [Azure Key Vault에 대한 Azure Event Grid 이벤트 스키마(미리 보기)](../../event-grid/event-schema-key-vault.md)
+- [Azure Key Vault에 대한 Azure Event Grid 이벤트 스키마](../../event-grid/event-schema-key-vault.md)

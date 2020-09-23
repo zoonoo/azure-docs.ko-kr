@@ -1,25 +1,22 @@
 ---
-title: 관리 ID를 사용하여 스토리지 계정에 대한 연결 설정(미리 보기)
+title: 관리 id를 사용 하 여 저장소 계정에 대 한 연결 설정
 titleSuffix: Azure Cognitive Search
-description: 관리 ID를 사용하여 Azure Storage 계정에 인덱서 연결을 설정하는 방법 알아보기(미리 보기)
+description: 관리 id를 사용 하 여 Azure Storage 계정에 인덱서 연결을 설정 하는 방법을 알아봅니다.
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 30305607ea291587f7751b7e8048924f995251e9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917978"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971517"
 ---
-# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>관리 ID를 사용하여 Azure Storage 계정에 대한 연결 설정(미리 보기)
-
-> [!IMPORTANT] 
-> 관리 id를 사용 하 여 데이터 원본에 대 한 연결을 설정 하는 기능은 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다.
+# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>관리 id를 사용 하 여 Azure Storage 계정에 대 한 연결 설정
 
 이 페이지에서는 데이터 원본 개체 연결 문자열에 자격 증명을 제공하는 대신 관리 ID를 사용하여 Azure Storage 계정에 인덱서 연결을 설정하는 방법을 설명합니다.
 
@@ -64,11 +61,11 @@ ms.locfileid: "88917978"
 
     Azure 테이블 저장소에 대 한 예제:
 
-    ![읽기 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 및 데이터 액세스 역할 할당 추가")
+    ![읽기 권한자 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 권한자 및 데이터 액세스 역할 할당 추가")
 
 ### <a name="3---create-the-data-source"></a>3 - 데이터 원본 만들기
 
-[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 저장소 계정에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법의 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](/dotnet/api/microsoft.azure.search.models.datasource) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 저장소 계정에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법의 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
 
 스토리지 계정에서 인덱싱할 때 데이터 원본에는 다음과 같은 필수 속성이 있어야 합니다.
 
@@ -150,6 +147,7 @@ Blob 인덱서에 대한 인덱서 정의 예:
 ## <a name="see-also"></a>참고 항목
 
 Azure Storage 인덱서에 대한 자세한 정보:
+
 * [Azure Blob 인덱서](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2 인덱서](search-howto-index-azure-data-lake-storage.md)
 * [Azure 테이블 인덱서](search-howto-indexing-azure-tables.md)

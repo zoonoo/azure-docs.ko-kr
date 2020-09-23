@@ -12,15 +12,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: df254e0766a755754aabcfb8c98a8c140b43cb20
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 548113a5f775595caf3a798d7b35eddfbc80674e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650841"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886093"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Azure Machine Learning 실험을 위해 파일을 저장 하 고 작성 하는 위치
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 입력 파일을 저장할 위치와 실험에서 출력 파일을 쓸 위치를 학습 하 여 저장소 제한 오류 및 실험 대기 시간을 방지 합니다.
 

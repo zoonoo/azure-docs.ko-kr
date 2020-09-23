@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: 4e818617b70e874153e026bcf40b6dfee8a8e04e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad1476847874f7cea53c6e9c0c3d9f142c949dac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744241"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987722"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>가상 컴퓨터에 복사 하 여 붙여넣기: Azure 방호
 
@@ -37,7 +37,7 @@ ms.locfileid: "84744241"
 
    ![도구 팔레트](./media/bastion-vm-manage/left.png)
 
-   ![클립보드](./media/bastion-vm-manage/clipboard.png)
+   ![스크린샷에는 요새에 복사 된 텍스트에 대 한 클립보드가 표시 됩니다.](./media/bastion-vm-manage/clipboard.png)
 1. 일반적으로 복사 된 텍스트는 자동으로 방호 복사 붙여넣기 팔레트에 표시 됩니다. 텍스트가 없으면 색상표의 텍스트 영역에 텍스트를 붙여넣습니다.
 1. 텍스트 영역이 텍스트 영역에 있으면 원격 세션에 붙여 넣을 수 있습니다.
 

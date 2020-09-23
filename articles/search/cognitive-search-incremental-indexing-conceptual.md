@@ -8,17 +8,18 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 5596a2db32a0fe5b6b5eddf3ae20501e6edb0b99
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9fb76c5c96795b8092c86e22acbab4ea5963b42e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935384"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971635"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 보강 및 캐싱
 
 > [!IMPORTANT] 
-> 증분 보강 현재 공개 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-미리 보기 및 2020-06-30-미리 보기](search-api-preview.md) 에서이 기능을 제공 합니다. 지금은 포털 또는 .NET SDK가 지원 되지 않습니다.
+> 증분 보강 현재 공개 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
+> [REST API 미리 보기 버전](search-api-preview.md) 은이 기능을 제공 합니다. 지금은 포털 또는 .NET SDK가 지원 되지 않습니다.
 
 *증분 보강* [기술력과](cognitive-search-working-with-skillsets.md)를 대상으로 하는 기능입니다. Azure Storage 활용 하 여 이후 인덱서 실행에서 다시 사용할 수 있도록 보강 파이프라인에서 내보낸 처리 출력을 저장 합니다. 가능 하면 인덱서는 여전히 유효한 모든 캐시 된 출력을 재사용 합니다. 
 
@@ -166,7 +167,7 @@ REST API 버전 `2020-06-30-Preview` 에서는 인덱서의 추가 속성을 통
 
 ## <a name="next-steps"></a>다음 단계
 
-증분 보강는 기술력과 및 AI 보강 변경 내용 추적을 확장 하는 강력한 기능입니다. AIncremental 보강는 기술 design을 반복 하면서 처리 된 기존 콘텐츠를 다시 사용할 수 있도록 합니다.
+증분 보강는 기술력과 및 AI 보강 변경 내용 추적을 확장 하는 강력한 기능입니다. 증분 보강를 사용 하면 기술 디자인을 반복 하면서 처리 된 기존 콘텐츠를 다시 사용할 수 있습니다.
 
 다음 단계로, 기존 인덱서에 캐싱을 사용 하도록 설정 하거나 새 인덱서를 정의할 때 캐시를 추가 합니다.
 

@@ -3,12 +3,12 @@ title: Logic Apps를 사용 하 여 Azure 애플리케이션 Insights 프로세�
 description: 논리 앱에 Application Insights 커넥터를 추가하여 반복 가능한 프로세스를 신속하게 자동화하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: d023d774c130a9db513fbcf9452b05fa030a967a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f6406c2e6fb933c561a8ae54009499768c81a204
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323199"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970869"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Logic Apps를 사용하여 Application Insights 프로세스 자동화
 
@@ -53,7 +53,7 @@ ms.locfileid: "87323199"
 
 이 단계를 완료하려면 리소스의 애플리케이션 ID 및 API 키가 필요합니다. 다음 다이어그램에 표시된 것처럼 Azure Portal에서 리소스의 응용 프로그램 ID 및 API 키를 검색할 수 있습니다.
 
-![Azure Portal의 애플리케이션 ID](./media/automate-with-logic-apps/5apiaccess.png)
+![API 키 만들기 단추가 선택 된 상태에서 Azure Portal에 API 액세스 페이지가 표시 됩니다.](./media/automate-with-logic-apps/5apiaccess.png)
 
 ![Azure Portal의 애플리케이션 ID](./media/automate-with-logic-apps/6apikey.png)
 
@@ -99,11 +99,11 @@ ms.locfileid: "87323199"
 
    b. 이메일의 제목을 입력합니다.
 
-   c. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
+   다. **본문** 상자의 임의의 위치를 클릭한 다음, 오른쪽에서 열리는 동적 콘텐츠 메뉴에서 **본문**을 선택합니다.
     
    d. **새 매개 변수 추가** 드롭다운을 클릭 하 고 첨부 파일 및 HTML을 선택 합니다.
 
-      ![Office 365 Outlook 구성](./media/automate-with-logic-apps/10emailbody.png)
+      ![스크린샷에는 본문 상자가 강조 표시 되 고 오른쪽에 본문이 강조 표시 된 동적 콘텐츠 메뉴가 강조 표시 된 전자 메일 보내기 창이 표시 됩니다.](./media/automate-with-logic-apps/10emailbody.png)
 
       ![Office 365 Outlook 구성](./media/automate-with-logic-apps/11emailparameter.png)
 
@@ -113,7 +113,7 @@ ms.locfileid: "87323199"
 
     b. **첨부 파일 콘텐츠**를 선택합니다.
     
-    c. **HTML임** 상자에서 **예**를 선택합니다.
+    다. **HTML임** 상자에서 **예**를 선택합니다.
 
       ![Office 365 메일 구성 화면](./media/automate-with-logic-apps/12emailattachment.png)
 

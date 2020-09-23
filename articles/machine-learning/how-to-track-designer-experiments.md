@@ -1,5 +1,5 @@
 ---
-title: 디자이너의 로그 메트릭 (미리 보기)
+title: 디자이너의 로그 메트릭
 titleSuffix: Azure Machine Learning
 description: Azure ML 디자이너 실험을 모니터링 합니다. Python 스크립트 실행 모듈을 사용 하 여 로깅을 사용 하도록 설정 하 고 스튜디오에서 기록 된 결과를 확인 합니다.
 services: machine-learning
@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 20845a6f1238095b40c9b05b5f5d8d85217b6db5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950411"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885967"
 ---
-# <a name="enable-logging-in-azure-machine-learning-designer-preview-pipelines"></a>Azure Machine Learning designer (미리 보기) 파이프라인에서 로깅 사용
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Azure Machine Learning designer 파이프라인에서 로깅 사용
+
 
 이 문서에서는 디자이너 파이프라인에 로깅 코드를 추가 하는 방법에 대해 알아봅니다. 또한 Azure Machine Learning studio 웹 포털을 사용 하 여 이러한 로그를 보는 방법을 알아봅니다.
 
@@ -78,5 +78,6 @@ Python SDK를 사용 하 여 값을 기록 하는 방법에 대 한 자세한 �
 
 이 문서에서는 디자이너에서 로그를 사용 하는 방법을 알아보았습니다. 다음 단계는 다음 관련 문서를 참조 하세요.
 
-* 디자이너 파이프라인 문제를 해결 하는 방법에 대해 알아봅니다. [ML 파이프라인 문제 해결 디버그 &](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview)를 참조 하세요.
+
+* 디자이너 파이프라인 문제를 해결 하는 방법에 대해 알아봅니다. [ML 파이프라인 문제 해결 디버그 &](how-to-debug-pipelines.md#azure-machine-learning-designer)를 참조 하세요.
 * Python SDK를 사용 하 여 SDK 제작 환경에서 메트릭을 기록 하는 방법에 대해 알아봅니다. [AZURE ML 학습 실행에서 로깅 사용](how-to-track-experiments.md)을 참조 하세요.

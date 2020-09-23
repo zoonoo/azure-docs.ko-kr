@@ -9,17 +9,18 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: c432b89574949b31612aeba862ece7687c12dde4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a1b317b651b0e17c07eb17dbdb8a7c6657d39564
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922840"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971618"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search에서 증분 보강 캐싱을 구성 하는 방법
 
 > [!IMPORTANT] 
-> 증분 보강 현재 공개 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-미리 보기 및 2020-06-30-미리 보기](search-api-preview.md) 에서이 기능을 제공 합니다. 지금은 포털 또는 .NET SDK가 지원 되지 않습니다.
+> 증분 보강 현재 공개 미리 보기 상태입니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
+> [REST API 미리 보기 버전](search-api-preview.md) 은이 기능을 제공 합니다. 지금은 포털 또는 .NET SDK가 지원 되지 않습니다.
 
 이 문서에서는 보강 파이프라인에 캐싱을 추가 하는 방법을 보여 줍니다. 이렇게 하면 매번 다시 빌드하지 않고도 단계를 증분 수정할 수 있습니다. 기본적으로 기술는 상태 비저장 이며 해당 컴포지션의 모든 부분을 변경 하려면 인덱서를 전체 다시 실행 해야 합니다. 증분 보강을 사용 하면 인덱서는 기술 또는 인덱서 정의에서 검색 된 변경 내용을 기반으로 새로 고쳐야 하는 문서 트리 부분을 확인할 수 있습니다. 처리 된 기존 출력은 가능한 모든 경우에 유지 되 고 다시 사용 됩니다. 
 

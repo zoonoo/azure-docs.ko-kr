@@ -10,15 +10,15 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3803b9770d3caf3f45f109b62145677a38c5bcc2
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 794e2c8b436b6a6dfa736bef59eb2ad0bda83bc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657207"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893137"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Azure Machine Learning용 CLI 확장 설치 및 사용
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure Machine Learning CLI는 Azure 플랫폼용 플랫폼 간 명령줄 인터페이스인 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)에 대한 확장입니다. 이 확장은 Azure Machine Learning을 사용하기 위한 명령을 제공합니다. 이 확장을 사용하여 기계 학습 활동을 자동화할 수 있습니다. 다음 목록에서는 CLI 확장을 통해 수행할 수 있는 몇 가지 예제 작업을 보여 줍니다.
 
@@ -110,9 +110,6 @@ az extension remove -n azure-cli-ml
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
-
-    > [!TIP]
-    > 이 명령은 기본 버전 작업 영역을 만듭니다. 엔터프라이즈 작업 영역을 만들려면 `az ml workspace create` 명령과 함께 `--sku enterprise` 스위치를 사용합니다. Azure Machine Learning 버전에 관한 자세한 내용은 [Azure Machine Learning이란?](overview-what-is-azure-ml.md#sku)을 참조하세요.
 
     자세한 내용은 [az ml workspace create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create)를 참조하세요.
 

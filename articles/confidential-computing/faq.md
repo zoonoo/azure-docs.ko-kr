@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: bb821d00a168e3b8f0636b93696376dc8b5d492e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 519b5b669cfc8140b837743d694184a5cb859f20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772901"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987993"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Azure 기밀 컴퓨팅 FAQ
 
-이 문서에서는 [Azure에서 기밀 컴퓨팅 워크로드 실행](overview.md)에 대한 가장 일반적인 질문 몇 가지에 대한 답변을 제공합니다.
+이 문서에서는 [Azure virtual machines에서 기밀 컴퓨팅 워크 로드](overview.md)실행에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 제공 합니다.
 
 Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack Overflow에서 Azure 포럼](https://azure.microsoft.com/support/forums/)을 방문합니다. 이러한 포럼이나 [@AzureSupport Twitter](https://twitter.com/AzureSupport) 의 에 문제를 게시할 수 있습니다. Azure 지원 요청을 제출할 수도 있습니다. 지원 요청을 제출하려면 [Azure 지원 페이지](https://azure.microsoft.com/support/options/)에서 지원 받기를 선택합니다.
 

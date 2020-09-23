@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85126215"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901346"
 ---
 # <a name="security-alerts-schemas"></a>보안 경고 스키마
 
-Azure Security Center 표준 계층의 사용자는 Security Center 리소스에 대 한 위협을 검색할 때 보안 경고를 수신 합니다.
+구독에서 Azure Defender를 사용 하는 경우 리소스에 대 한 위협을 검색할 Security Center 때 보안 경고가 표시 됩니다.
 
 Azure Security Center의 **위협 방지** 페이지에서 또는 다음과 같은 외부 도구를 통해 이러한 보안 경고를 볼 수 있습니다.
 
@@ -144,13 +144,13 @@ Azure Security Center는 생성 된 보안 경고를 Azure 활동 로그의 이�
 |----|----|
 |**채널이**|상수, "Operation"|
 |**correlationId**|Azure Security Center 경고 ID|
-|**한**|경고에 대한 설명|
+|**description**|경고에 대한 설명|
 |**eventDataId**|CorrelationId 참조|
 |**eventName**|Value 및 localizedValue 하위 필드에는 경고 표시 이름이 포함 됩니다.|
 |**category**|Value 및 localizedValue 하위 필드는 상수 "보안"입니다.|
 |**eventTimestamp**|경고가 생성 된 시간에 대 한 UTC 타임 스탬프|
 |**id**|정규화 된 경고 ID|
-|**수준**|상수, "정보"|
+|**level**|상수, "정보"|
 |**operationId**|CorrelationId 참조|
 |**operationName**|값 필드는 상수-"Microsoft. 보안/위치/경고/활성화/동작" 이며, 지역화 된 값은 "경고 활성화" (잠재적으로 사용자 로캘과 함께 지역화 될 수 있음)입니다.|
 |**resourceGroupName**|리소스 그룹 이름을 포함 합니다.|

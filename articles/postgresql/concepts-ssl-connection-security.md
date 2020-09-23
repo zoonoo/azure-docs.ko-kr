@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 615e8c80d194bb37feac1c09af22d2aa5d4aa3fc
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 872daf3a208452e8b7ec27b2326e394b416a1c5f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142714"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902044"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에서 TLS 연결 구성
 
@@ -33,7 +33,7 @@ Azure Portal 및 CLI를 통해 프로 비전 된 모든 Azure Database for Postg
 
 PostgreSQL용 Azure 데이터베이스 서버를 방문하여 **연결 보안**을 클릭합니다. 설정/해제 단추를 사용하여 **SSL 연결 적용** 설정을 사용하거나 사용하지 않도록 설정합니다. 그런 다음 **저장**을 클릭합니다.
 
-![연결 보안-TLS/SSL 적용 사용 안 함](./media/concepts-ssl-connection-security/1-disable-ssl.png)
+:::image type="content" source="./media/concepts-ssl-connection-security/1-disable-ssl.png" alt-text="연결 보안-TLS/SSL 적용 사용 안 함":::
 
 **SSL 적용 상태** 표시기를 확인할 수 있는 **개요** 페이지에서 설정을 확인할 수 있습니다.
 
