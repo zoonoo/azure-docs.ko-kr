@@ -768,6 +768,8 @@
                   href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
                 - name: 사후 마이그레이션 가이드
                   href: mongodb-post-migration.md
+            - name: MongoDB 3.2에서 3.6으로 업그레이드
+              href: mongodb-version-upgrade.md
             - name: 연결 문자열 가져오기
               href: connect-mongodb-account.md
             - name: Studio 3T를 사용하여 연결
@@ -1108,7 +1110,7 @@
           href: how-to-migrate-from-change-feed-library.md
         - name: 변경 피드 - 비동기 Java 샘플
           href: create-sql-api-java-changefeed.md
-    - name: Azure Synapse Link를 사용하는 분석
+    - name: Azure Synapse Link를 지원하는 Analytics 및 BI
       items:
         - name: Azure Synapse Link 구성
           href: configure-synapse-link.md
@@ -1116,6 +1118,8 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure Synapse Spark를 사용하여 쿼리
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Synapse Link를 지원하는 Power BI 사용
+          href: synapse-link-power-bi.md
     - name: Apache Spark를 사용한 기본 제공 분석
       items:
         - name: Azure Databricks Spark 커넥터
@@ -1198,12 +1202,16 @@
           href: monitor-cosmos-db-reference.md
         - name: Logic Apps를 통한 애플리케이션 로깅
           href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-    - name: 로컬에서 개발
+    - name: 에뮬레이터를 사용하여 로컬로 개발
       items:
-        - name: 에뮬레이터 사용
+        - name: 에뮬레이터 설치 및 사용
           href: local-emulator.md
-        - name: 인증서 내보내기
+        - name: 에뮬레이터 인증서 내보내기
           href: local-emulator-export-ssl-certificates.md
+        - name: 에뮬레이터 명령줄 매개 변수
+          href: emulator-command-line-parameters.md
+        - name: 에뮬레이터 문제 해결
+          href: troubleshoot-local-emulator.md
         - name: Visual Studio Code 확장
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
     - name: Azure DevOps CI/CD 파이프라인 설정

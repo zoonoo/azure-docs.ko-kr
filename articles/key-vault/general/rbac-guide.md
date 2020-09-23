@@ -9,14 +9,17 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9b7abc39bf50a61b7b52bc4027c6d845728c3874
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419268"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972257"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Azure 역할 기반 액세스 제어 (미리 보기)를 사용 하 여 Key Vault 키, 인증서 및 암호에 대 한 액세스 제공
+
+> [!NOTE]
+> Key Vault 리소스 공급자는 **자격 증명 모음** 과 **관리 되는 hsm**이라는 두 가지 리소스 유형을 지원 합니다. 이 문서에서 설명 하는 액세스 제어는 **자격 증명 모음**에만 적용 됩니다. 관리 되는 HSM에 대 한 액세스 제어에 대해 자세히 알아보려면 [관리 되는 hsm 액세스 제어](../managed-hsm/access-control.md)를 참조 하세요.
 
 Azure RBAC (역할 기반 access control)는 Azure 리소스에 대 한 세분화 된 액세스 관리를 제공 하는 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 을 기반으로 하는 권한 부여 시스템입니다.
 
@@ -61,10 +64,6 @@ Azure 기본 제공 역할 정의에 대 한 자세한 내용은 [azure 기본 �
 키 자격 증명 모음에 대 한 새 Azure RBAC 권한 모델은 자격 증명 모음 액세스 정책 권한 모델에 대 한 대안을 제공 합니다. 
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Key Vault에 대 한 Azure RBAC 사용 권한 설정
-
-미리 보기 중에는 Azure RBAC 기능 태그 (Microsoft_Azure_KeyVault_RBACEnabled = true)를 사용 하 여 새 권한 모델 옵션을 확인 해야 합니다.
-
-https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
 
 > [!IMPORTANT]
 > Azure RBAC 권한 모델을 설정 하면 모든 액세스 정책 권한이 무효화 됩니다. 동일한 Azure 역할이 할당 되지 않은 경우 중단 될 수 있습니다.

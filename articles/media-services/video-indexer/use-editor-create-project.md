@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73839159"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970083"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Video Indexer 편집기를 사용 하 여 프로젝트 만들기
 
@@ -51,11 +51,11 @@ Video Indexer 웹 사이트를 사용 하면 비디오의 심층 통찰력을 �
     
     예를 들어 아래 이미지에서 "GitHub"를 언급 하는 비디오를 찾고 있습니다.
     
-    ![GitHub](./media/video-indexer-view-edit/github.png)
+    ![두 개의 결과를 포함 하는 GitHub를 언급 하는 비디오 검색을 보여 주는 스크린샷](./media/video-indexer-view-edit/github.png)
 
     결과 **필터링**을 선택 하 여 결과를 추가로 필터링 할 수 있습니다. 필터링 하 여 특정 사용자가 있는 비디오를 표시 하거나 특정 언어로 된 비디오 결과만 표시 하거나 특정 소유자가 있는 비디오 결과만 표시 하도록 지정할 수 있습니다. <br/> 쿼리의 범위를 지정할 수도 있습니다. 예를 들어 OCR에서 "GitHub"를 검색 하려면 **시각적 텍스트**를 선택 합니다.
 
-    ![Assert](./media/video-indexer-view-edit/visual-text.png)
+    ![필터](./media/video-indexer-view-edit/visual-text.png)
 
     여러 필터를 쿼리에 계층화 할 수 있습니다. 단추를 사용 **+** / **-** 하 여 필터를 추가/제거 합니다. 필터 **지우기** 를 사용 하 여 모든 필터를 제거 합니다.
 1. 비디오를 추가 하려면 해당 비디오를 선택 하 고 **추가**를 선택 합니다.
@@ -63,7 +63,7 @@ Video Indexer 웹 사이트를 사용 하면 비디오의 심층 통찰력을 �
 
     끌어서 놓는 방법으로 또는 목록 메뉴 단추를 선택 하 고 **아래로 이동** 또는 **위로 이동**을 선택 하 여 비디오 순서를 다시 정렬할 수 있습니다. 목록 메뉴에서이 프로젝트의 비디오를 제거할 수도 있습니다. 
 
-    ![조정할](./media/video-indexer-view-edit/rearrange.png)
+    ![비디오 중 하나에 대 한 상황에 맞는 메뉴를 사용 하 여 Video Indexer 표시 합니다.](./media/video-indexer-view-edit/rearrange.png)
     
     언제 든 지 **비디오 추가**를 선택 하 여이 프로젝트에 비디오를 더 추가할 수 있습니다. 동일한 비디오의 여러 항목을 프로젝트에 추가할 수도 있습니다. 한 비디오에서 클립을 표시 한 다음 다른 비디오의 클립을 표시 하 고 첫 번째 비디오에서 다른 클립을 표시 하려는 경우이 작업을 수행할 수 있습니다. 
 
@@ -81,7 +81,7 @@ Video Indexer 웹 사이트를 사용 하면 비디오의 심층 통찰력을 �
 
     예를 들어 Donovan 갈색이 화면에 있는 동안 GitHub를 언급 하는 클립을 볼 수 있습니다. 이 경우 "사용자"가 있는 정보 형식으로 "포함" 필터를 추가 해야 합니다. 그런 다음 필터의 검색 상자에 "Donovan 갈색"을 입력 해야 합니다.
     
-    ![포함](./media/video-indexer-view-edit/include.png)
+    ![포함 필터에 대해 선택한 사용자와 Video Indexer를 보여 주는 스크린샷](./media/video-indexer-view-edit/include.png)
     
     Donovan 갈색이 화면에 _없는_ 상태에서 GitHub를 언급 하는 클립을 원하는 경우 드롭다운을 사용 하 여 "포함" 필터를 "제외" 필터로 변경 하기만 하면 됩니다. 
 
@@ -96,7 +96,7 @@ Video Indexer 웹 사이트를 사용 하면 비디오의 심층 통찰력을 �
 > [!TIP]
 > 클립을 선택 하 고 정렬 하는 동안 페이지의 오른쪽에 있는 플레이어의 비디오를 미리 볼 수 있습니다. 
 
-![미리 보기](./media/video-indexer-view-edit/preview.png)
+![스크린 샷에서는 창의 오른쪽에 있는 비디오의 미리 보기가 있는 Video Indexer 보여 줍니다.](./media/video-indexer-view-edit/preview.png)
 
 **프로젝트 저장**을 선택 하 여 변경 작업을 수행할 때 프로젝트를 저장 해야 합니다. 
 
@@ -107,7 +107,7 @@ Video Indexer 웹 사이트를 사용 하면 비디오의 심층 통찰력을 �
 
 1. 완료 되 면 프로젝트가 저장 되었는지 확인 합니다. 이제이 프로젝트를 렌더링할 수 있습니다. **렌더링 및 다운로드**를 선택 합니다. 
 
-    ![저장](./media/video-indexer-view-edit/save.png)
+    ![스크린 샷에서는 프로젝트를 렌더링 하 고 다운로드 하는 옵션과 함께 Video Indexer를 보여 줍니다.](./media/video-indexer-view-edit/save.png)
 
     비디오 인덱서가 파일을 렌더링 하는 팝업이 표시 되 고 다운로드 링크가 전자 메일로 전송 됩니다. 계속을 선택합니다. 
     

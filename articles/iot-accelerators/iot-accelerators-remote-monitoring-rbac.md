@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: b32e0a60e099b5ad184f8919be3f93646c3a68b3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 817bc7624bb3a6b69d56265e40681287b7fc09fa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018147"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969597"
 ---
 # <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에서 역할 기반 액세스 제어 구성
 
@@ -62,7 +62,7 @@ Azure Active Directory 애플리케이션 소유자로서 Azure Portal을 사용
 
 1. 애플리케이션을 클릭한 다음, **소유자**를 클릭하여 내가 애플리케이션의 소유자인지 확인합니다. 다음 스크린샷에서 **Contoso admin**은 **contoso-rm4** 애플리케이션의 소유자입니다.
 
-    ![소유자](media/iot-accelerators-remote-monitoring-rbac/owners.png)
+    ![Contoso r m 4 응용 프로그램의 소유자를 표시 하는 선택 된 소유자 관리 옵션을 보여 주는 스크린샷](media/iot-accelerators-remote-monitoring-rbac/owners.png)
 
     소유자가 아닌 경우에는 기존 소유자에게 나를 목록에 추가하도록 요청해야 합니다. 소유자만 **관리자**나 **읽기 전용**과 같은 애플리케이션 역할을 다른 사용자에게 할당할 수 있습니다.
 

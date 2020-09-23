@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: active-directory
 author: daveba
@@ -9,14 +9,17 @@ ms.topic: include
 ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: dc7849e52b3e00c87d271ee8aef8788d816dff7a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67182612"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971041"
 ---
-| 범주 | 제한 |
-| --- | --- |
-| 사용자 할당 관리 id | <ul><li>사용자 할당 관리 id를 만들 때 영숫자 문자 (0-9, a-z 및 a-z)와 하이픈 (-)만 지원 됩니다. 가상 머신 또는 가상 머신 확장 집합에 대 한 할당이 제대로 작동 하려면 이름은 24 자로 제한 됩니다.</li><li>관리 id 가상 머신 확장을 사용 하는 경우 지원 되는 한도는 32 사용자 할당 관리 id입니다. 관리 되는 id 가상 머신 확장을 사용 하지 않으면 지원 되는 한도는 512 사용자 할당 id입니다.</li>|
+- 각 관리 ID는 [Azure AD 서비스 한도 및 제한 사항](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md)에 설명된 대로 Azure AD 테넌트의 개체 할당량 한도 계산에 포함됩니다.
+-   관리 ID를 만들 수 있는 속도에는 다음과 같은 한도가 있습니다.
 
+    1. Azure 지역별 Azure AD 테넌트당: 20초당 200개의 만들기 작업
+    2. Azure 지역별 Azure 구독당: 20초당 40개의 만들기 작업
+
+- 사용자 할당 관리 ID를 만드는 경우, 영숫자 문자(0-9, a-z, A-Z) 및 하이픈(-)만 지원됩니다. 가상 머신 또는 가상 머신 확장 집합에 대한 할당이 제대로 작동하려면 이름이 24자로 제한됩니다.

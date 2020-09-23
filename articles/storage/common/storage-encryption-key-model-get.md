@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 11e08427067efa5e7bd33b8d08d84443444a190b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 17be7cb8e3330a9bd0391e0750f5e37ac64b0484
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078268"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971003"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>저장소 계정에 사용 중인 Azure Storage 암호화 키 모델 확인
 
@@ -79,4 +79,4 @@ key_source=$(az storage account show \
 ## <a name="next-steps"></a>다음 단계
 
 - [미사용 데이터에 대한 Azure Storage 암호화](storage-service-encryption.md)
-- [Azure Key Vault에서 고객이 관리 하는 키를 사용 하 여 Azure Storage 암호화 관리](encryption-customer-managed-keys.md)
+- [Azure Storage 암호화를 위한 고객 관리 키](customer-managed-keys-overview.md)

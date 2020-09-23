@@ -1,6 +1,6 @@
 ---
 title: Azure AD 앱 필수 구성 요소를 사용 하 여 Azure Disk Encryption (이전 릴리스)
-description: 이 문서에서는 IaaS VM용 Microsoft Azure Disk Encryption을 사용하기 위한 필수 구성 요소를 설명합니다.
+description: 이 문서에서는 Azure AD를 사용 하 여 Azure Disk Encryption 하기 위한 추가 요구 사항 및 필수 구성 요소를 사용 하 여 Linux Vm에 대 한 Azure Disk Encryption를
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c85d362f7295e8edef1b4070a779c6aa99c3991f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b258d499c78aa5fb734cbee01fb753c292bf2678
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372640"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970889"
 ---
 # <a name="azure-disk-encryption-with-azure-active-directory-ad-previous-release"></a>Azure Active Directory (AD)로 Azure Disk Encryption (이전 릴리스)
 

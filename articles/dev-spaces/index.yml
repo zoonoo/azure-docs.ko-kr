@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: ac8900298670323551a25d4ef7ac3f7b44249c5a
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.openlocfilehash: 0100ace6dcf4701a8491f034f36075dc483849ec
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88209897"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90970063"
 landingContent:
 - title: Azure Dev Spaces 정보
   linkLists:
@@ -46,13 +46,11 @@ landingContent:
       url: how-to/ingress-https-traefik.md
     - text: 사용자 지정 수신 및 HTTPS에 NGINX 사용
       url: how-to/ingress-https-nginx.md
-- title: 미리 보기 기능
+- title: Kubernetes에 대한 브리지
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure Dev Spaces로 GitHub 작업 사용
-      url: how-to/github-actions.md
-    - text: Visual Studio Code에서 Kubernetes와 함께 로컬 프로세스 사용
-      url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-    - text: Visual Studio에서 Kubernetes와 함께 로컬 프로세스 사용
-      url: /visualstudio/containers/local-process-kubernetes
+    - text: Visual Studio Code와 함께 Kubernetes에 대한 브리지 사용
+      url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+    - text: Visual Studio와 함께 Kubernetes에 대한 브리지 사용
+      url: /visualstudio/containers/bridge-to-kubernetes

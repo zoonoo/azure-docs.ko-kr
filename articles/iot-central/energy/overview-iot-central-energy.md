@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 13b626945743c17bad8df58fba77e1c960e90ef3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1a7502a77f8dca526c95e92302f0ca0a06a1dd32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77016565"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970441"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>IoT Central을 사용하여 에너지 산업 솔루션 빌드 
 
@@ -62,7 +62,6 @@ Azure 구독 및 약정 없이 [무료로 태양 전지판 모니터링 앱](htt
 
 > [!div class="mx-imgBorder"]
 > ![태양 전지판 앱 대시보드](media/overview-iot-central-energy/solar-panel-app-dashboard.png)
-
 
 ## <a name="next-steps"></a>다음 단계
 에너지 솔루션 빌드를 시작하려면 다음을 수행하세요.

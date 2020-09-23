@@ -180,6 +180,8 @@
               href: manage/grant-access-to-create-subscription.md
             - name: 구독 정보 내보내기
               href: manage/export-subscriptions.md
+            - name: Azure 청구 결제 방법 삭제
+              href: manage/delete-azure-payment-method.md
             - name: 신용 카드 변경
               href: manage/change-credit-card.md
             - name: 관리자 변경

@@ -1,6 +1,6 @@
 ---
 title: Azure AD에서 Privileged Identity Management를 사용 하 여 그룹에 역할 할당 | Microsoft Docs
-description: ID 관리를 위임하기 위한 사용자 지정 Azure AD 역할을 미리 봅니다. Azure Portal, PowerShell 또는 Graph API에서 Azure 역할을 관리합니다.
+description: PIM (Azure AD Privileged Identity Management)을 사용 하 여 그룹에 Azure Active Directory (Azure AD) 역할을 할당 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343da87048cf43c04a137376e9a7f24270ce729a
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476097"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971167"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Privileged Identity Management를 사용 하 여 그룹에 역할 할당
 
@@ -104,6 +104,6 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 ## <a name="next-steps"></a>다음 단계
 
 - [클라우드 그룹을 사용 하 여 역할 할당 관리](roles-groups-concept.md)
-- [클라우드 그룹에 할당 된 역할 문제 해결](roles-groups-faq-troubleshooting.md)
+- [클라우드 그룹에 할당된 역할 문제 해결](roles-groups-faq-troubleshooting.md)
 - [Privileged Identity Management에서 Azure AD 관리자 역할 설정 구성](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Privileged Identity Management에서 Azure 리소스 역할 할당](../privileged-identity-management/pim-resource-roles-assign-roles.md)

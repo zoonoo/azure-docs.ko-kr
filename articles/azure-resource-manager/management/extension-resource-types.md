@@ -2,13 +2,13 @@
 title: 확장 리소스 종류
 description: 다른 리소스 유형의 기능을 확장 하는 데 사용 되는 Azure 리소스 유형을 나열 합니다.
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.openlocfilehash: 84de9b66f9001985b8c7b92882f03ff8c7cbf431
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 09/22/2020
+ms.openlocfilehash: 8b80c63d361f3ad8199fd669178f7bf88dabe02e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374017"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969753"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>다른 리소스의 기능을 확장 하는 리소스 종류
 
@@ -21,6 +21,8 @@ ms.locfileid: "87374017"
 - Microsoft Advisor/비 표시 오류
 - AlertsManagement/경고
 - AlertsManagement/alertsSummary
+- Microsoft. Authorization/accessReviewScheduleDefinitions
+- Microsoft. Authorization/accessReviewScheduleSettings
 - Microsoft. Authorization/checkAccess
 - Microsoft. Authorization/denyAssignments
 - Microsoft. Authorization/findOrphanRoleAssignments
@@ -34,6 +36,7 @@ ms.locfileid: "87374017"
 - Microsoft.Authorization/roleAssignments
 - Microsoft. Authorization/roleAssignmentsUsageMetrics
 - Microsoft. Authorization/roleDefinitions
+- Microsoft. automanage/configurationprofil
 - Microsoft. 청구/billingPeriods
 - Microsoft. 청구/billingPermissions
 - Microsoft. 청구/billingRoleAssignments
@@ -47,24 +50,24 @@ ms.locfileid: "87374017"
 - Microsoft 소비량/예산
 - Microsoft 소비량/요금
 - Microsoft 소비량/CostTags
+- Microsoft 소비량/크레딧
+- Microsoft 사용량과 이벤트
 - Microsoft의 소비/예측
+- Microsoft 사용량과 많은
 - Microsoft 소비량/마켓플레이스
 - Microsoft의 소비율/OperationResults
 - Microsoft 사용/OperationStatus
 - Microsoft 소비량/Pricesheets
+- Microsoft. 소비/제품
 - Microsoft 소비량/ReservationDetails
 - Microsoft 소비량/ReservationRecommendationDetails
 - Microsoft 소비량/ReservationRecommendations
 - Microsoft 소비량/ReservationSummaries
 - Microsoft 소비량/ReservationTransactions
 - Microsoft. 소비/태그
+- Microsoft 소비/테 넌 트
 - Microsoft 사용량과 사용 약관
 - Microsoft 소비량/사용량 세부 정보
-- Microsoft 소비량/크레딧
-- Microsoft 사용량과 이벤트
-- Microsoft 사용량과 많은
-- Microsoft. 소비/제품
-- Microsoft 소비/테 넌 트
 - ContainerInstance/serviceAssociationLinks
 - CostManagement/경고
 - CostManagement/예산
@@ -73,6 +76,7 @@ ms.locfileid: "87374017"
 - CostManagement/내보내기
 - CostManagement/ExternalSubscriptions
 - CostManagement/예측
+- CostManagement/정보
 - CostManagement/쿼리
 - CostManagement/Reportconfigs
 - CostManagement/보고서
@@ -93,17 +97,19 @@ ms.locfileid: "87374017"
 - microsoft insights/diagnosticSettingsCategories
 - microsoft insights/eventtypes
 - microsoft insights/extendedDiagnosticSettings
+- microsoft insights/generateLiveToken
 - microsoft insights/찾은 guestdiagnosticsettingsassociation
 - microsoft insights/logDefinitions
 - microsoft 인 사이트/로그
+- microsoft insights/metricbaselines
 - microsoft insights/metricDefinitions
 - microsoft insights/metricNamespaces
-- microsoft insights/metricbaselines
 - microsoft. 통찰력/메트릭
 - microsoft insights/myWorkbooks 문서
 - microsoft. a s e/토폴로지
 - microsoft. a s e/트랜잭션
 - microsoft insights/vmInsightsOnboardingStatuses
+- KubernetesConfiguration/extensions
 - KubernetesConfiguration/sourceControlConfigurations
 - Microsoft. Maintenance/applyUpdates
 - Microsoft. 유지 관리/configurationAssignments
@@ -128,20 +134,22 @@ ms.locfileid: "87374017"
 - Microsoft ResourceHealth/알림
 - Microsoft .Resources/링크
 - Microsoft .Resources/태그
-- Microsoft. Security/규격
-- Microsoft. Security/InformationProtectionPolicies
 - Microsoft. Security/adaptiveNetworkHardenings
 - Microsoft. Security/advancedThreatProtectionSettings
 - Microsoft. Security/assessmentMetadata
 - Microsoft. 보안/평가
 - Microsoft. Security/complianceResults
+- Microsoft. Security/규격
 - Microsoft. Security/dataCollectionAgents
 - Microsoft. Security/deviceSecurityGroups
+- Microsoft. Security/InformationProtectionPolicies
+- Microsoft. Security/I이상 센서
 - Microsoft. Security/jitPolicies
 - Microsoft. Security/serverVulnerabilityAssessments
+- Microsoft. Security/sqlVulnerabilityAssessments
 - Microsoft SecurityInsights/집계
-- Microsoft SecurityInsights/alertRuleTemplates
 - Microsoft SecurityInsights/alertRules
+- Microsoft SecurityInsights/alertRuleTemplates
 - Microsoft SecurityInsights/automationRules
 - Microsoft SecurityInsights/책갈피
 - Microsoft SecurityInsights/사례
@@ -153,6 +161,7 @@ ms.locfileid: "87374017"
 - Microsoft SecurityInsights/officeConsents
 - Microsoft SecurityInsights/설정
 - Microsoft SecurityInsights/threatIntelligence
+- Microsoft SecurityInsights/watchlists
 - SoftwarePlan/hybridUseBenefits
 - Microsoft. Subscription/CreateSubscription
 - microsoft. 지원/지원 티켓

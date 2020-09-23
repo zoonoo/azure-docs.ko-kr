@@ -1,6 +1,6 @@
 ---
 title: 격리 된 네트워크에서 Azure Disk Encryption
-description: 이 문서에서는 Linux Vm 용 Microsoft Azure 디스크 암호화에 대 한 문제 해결 팁을 제공 합니다.
+description: 이 문서에서는 Linux Vm에서 디스크 암호화를 Microsoft Azure 하기 위한 문제 해결 팁에 대해 알아봅니다.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0ca50d137ef7e6378d2bf8d0ab03127d49a9a88
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 0cc54bcc23e354ae8cc807e63a0039286e295181
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373592"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970959"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>격리 된 네트워크에서 Azure Disk Encryption
 

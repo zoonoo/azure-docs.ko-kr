@@ -5,12 +5,12 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be539efdb66b0a9bda583960484f40fae1e18235
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 9e542c493c02174364072f91d092f05ad9ec69cf
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123503"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973101"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure에서 타이머에 따라 트리거되는 함수 만들기
 
@@ -44,7 +44,7 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
 1. 이미지 아래 표에 지정된 설정을 사용하여 새 트리거를 구성한 후 **함수 만들기**를 선택합니다.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Azure Portal에서 타이머 트리거를 선택합니다." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="타이머 트리거 템플릿이 선택 된 새 함수 페이지를 보여 주는 스크린샷" border="true":::
     
     | 설정 | 제안 값 | Description |
     |---|---|---|

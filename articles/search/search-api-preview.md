@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/09/2020
-ms.openlocfilehash: 0e83f63e3c39f2aa20cd46f098185aba523e2478
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/22/2020
+ms.openlocfilehash: ac0b04db783571b6ef31161adaf18b4220244c6a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950479"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969805"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Azure Cognitive Search의 미리 보기 기능
 
@@ -23,9 +23,8 @@ ms.locfileid: "88950479"
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 범주 | Description | 가용성  |
 |---------|------------------|-------------|---------------|
-| [**Azure Machine Learning (AML) 기술**](cognitive-search-aml-skill.md) | AI 보강| Azure Machine Learning에서 추론 끝점을 통합 하는 새 기술 유형입니다. [이 자습서](cognitive-search-tutorial-aml-custom-skill.md)를 시작합니다. | [검색 REST API 2020-06-30-미리 보기](/rest/api/searchservice/) 또는 2019-05-06-미리 보기를 사용 합니다. 포털에서 기술 디자인을 사용 하 여 Cognitive Search 및 Azure ML 서비스가 동일한 구독에 배포 되는 것으로 가정 합니다. |
-| [**featuresMode 매개 변수**](/rest/api/searchservice/search-documents#featuresmode) | 관련성 (점수 매기기) | 세부 정보를 포함 하는 관련성 점수 확장: 필드별 유사성 점수, 필드별 별 빈도 및 일치 하는 고유 토큰의 필드 당 수 [사용자 지정 점수 매기기 솔루션](https://github.com/Azure-Samples/search-ranking-tutorial)에서 이러한 데이터 요소를 사용할 수 있습니다. | Api-version = 2020-06 -30-Preview 또는 2019-05-06-Preview를 사용 하 여 [문서 검색 (REST)](/rest/api/searchservice/search-documents) 을 사용 하 여이 쿼리 매개 변수를 추가 합니다. |
-| [**관리 서비스 ID**](search-howto-managed-identities-data-sources.md) | 인덱서, 보안| Azure Active Directory를 사용 하 여 검색 서비스를 등록 한 다음 신뢰할 수 있는 서비스로 설정 하 고 Azure 데이터 원본에 대 한 RBAC 권한을 사용 하 여 인덱서에 읽기 전용 액세스를 허용 합니다. | 이 기능에 액세스 하려면 api-version = 2020-06 -30 또는 api-version = 2019-05 -06-Preview를 사용 하 여 포털을 사용 하거나 [데이터 원본 (REST)을 만듭니다](/rest/api/searchservice/create-data-source) . |
+| [**Azure Machine Learning (AML) 기술**](cognitive-search-aml-skill.md) | AI 보강| Azure Machine Learning에서 추론 끝점을 통합 하는 새 기술 유형입니다. [이 자습서](cognitive-search-tutorial-aml-custom-skill.md)를 시작합니다. | [검색 REST API 2020-06-30-미리 보기](https://docs.microsoft.com/rest/api/searchservice/) 또는 2019-05-06-미리 보기를 사용 합니다. 포털에서 기술 디자인을 사용 하 여 Cognitive Search 및 Azure ML 서비스가 동일한 구독에 배포 되는 것으로 가정 합니다. |
+| [**featuresMode 매개 변수**](https://docs.microsoft.com/rest/api/searchservice/search-documents#featuresmode) | 관련성 (점수 매기기) | 세부 정보를 포함 하는 관련성 점수 확장: 필드별 유사성 점수, 필드별 별 빈도 및 일치 하는 고유 토큰의 필드 당 수 [사용자 지정 점수 매기기 솔루션](https://github.com/Azure-Samples/search-ranking-tutorial)에서 이러한 데이터 요소를 사용할 수 있습니다. | Api-version = 2020-06 -30-Preview 또는 2019-05-06-Preview를 사용 하 여 [문서 검색 (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) 을 사용 하 여이 쿼리 매개 변수를 추가 합니다. |
 | [**디버그 세션**](cognitive-search-debug-session.md) | 포털, AI 보강 (기술) | 기술와 관련 된 문제를 조사 하 고 해결 하는 데 사용 되는 세션 내 기술 편집기입니다. 디버그 세션 중에 적용 되는 픽스는 서비스의 기술에 저장할 수 있습니다. | 개요 페이지의 중간 페이지 링크를 사용 하 여 디버그 세션을 열 수 있습니다. |
 | [**네이티브 blob 일시 삭제**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | 인덱서, Azure blob| Azure Cognitive Search의 Azure Blob Storage 인덱서는 일시 삭제 된 상태에 있는 blob을 인식 하 고 인덱싱 중에 해당 하는 검색 문서를 제거 합니다. | [Create 인덱서 (REST)](/rest/api/searchservice/create-indexer) 를 사용 하 여 Create 인덱서-version = 2020-06 -30 또는 api-version = 2019-05 -06-preview를 사용 하 여이 구성 설정을 추가 합니다. |
 | [**사용자 지정 엔터티 조회 기술**](cognitive-search-skill-custom-entity-lookup.md ) | AI 보강 (기술) | 사용자 정의 된 단어 및 구 목록에서 텍스트를 찾는 인식 기술입니다. 이 목록을 사용하면 일치하는 엔터티가 있는 모든 문서에 레이블이 지정됩니다. 또한 이 기술은 비슷하지만 정확하지 않는 일치 항목을 찾는 데 적용할 수 있는 유사 항목 일치 수준을 지원합니다. | 포털에서 기술 편집기를 사용 하 여이 미리 보기 기술을 참조 하거나 api-version = 2020-06 -30-Preview 또는 api-version = 2019-05 -06-Preview를 사용 하 여 [기술 (REST) 만들기](/rest/api/searchservice/create-skillset) 를 참조 하세요. |

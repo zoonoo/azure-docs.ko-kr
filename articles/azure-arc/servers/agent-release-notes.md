@@ -1,18 +1,18 @@
 ---
-title: Azure Arc 사용 서버 (미리 보기) 에이전트의 새로운 기능
-description: 이 문서에는 Azure Arc 사용 서버 (미리 보기) 에이전트에 대 한 릴리스 정보가 포함 되어 있습니다. 요약 된 많은 문제에 대 한 자세한 내용은 추가 정보를 참조 하세요.
+title: Azure Arc 사용 서버 에이전트의 새로운 기능
+description: 이 문서에는 Azure Arc 사용 서버 에이전트에 대 한 릴리스 정보가 포함 되어 있습니다. 요약 된 많은 문제에 대 한 자세한 내용은 추가 정보를 참조 하세요.
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 3b739401603f6dc18b9f48fb3cb6e28023a051ab
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/16/2020
+ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532174"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908154"
 ---
-# <a name="whats-new-with-azure-arc-enabled-servers-preview-agent"></a>Azure Arc 사용 서버 (미리 보기) 에이전트의 새로운 기능
+# <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트의 새로운 기능
 
-Azure Arc 사용 서버 (미리 보기)에 연결 된 컴퓨터 에이전트는 지속적으로 향상 된 기능을 받습니다. 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음에 대한 정보를 제공합니다.
+Azure Arc 사용 서버 연결 된 컴퓨터 에이전트는 지속적으로 향상 된 기능을 받습니다. 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음에 대한 정보를 제공합니다.
 
 - 최신 릴리스
 - 알려진 문제
@@ -60,4 +60,4 @@ Azure Arc 사용 서버 (미리 보기)에 연결 된 컴퓨터 에이전트는 
 
 ## <a name="next-steps"></a>다음 단계
 
-여러 하이브리드 머신에서 Arc 지원 서버(미리 보기)를 평가하거나 활성화하기 전에 [연결된 머신 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보 및 배포 방법을 이해하세요.
+여러 하이브리드 머신에서 Arc 지원 서버를 평가하거나 활성화하기 전에 [연결된 머신 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보 및 배포 방법을 이해하세요.

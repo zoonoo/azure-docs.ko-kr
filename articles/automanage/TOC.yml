@@ -1,0 +1,28 @@
+- name: Azure Automanage
+  href: automanage-virtual-machines.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: Azure Portal의 VM에서 사용
+      href: quick-create-virtual-machines-portal.md
+- name: 개념
+  expanded: true
+  items:
+    - name: 가상 머신
+      href: automanage-virtual-machines.md
+    - name: VM에 대한 모범 사례
+      href: virtual-machines-best-practices.md
+- name: 방법
+  expanded: true
+  items:
+    - name: 사용자 지정 기본 설정 만들기
+      href: virtual-machines-custom-preferences.md
+    - name: Azure Policy를 통해 VM에서 사용
+      href: virtual-machines-policy-enable.md
+- name: 리소스
+  expanded: true
+  items:
+    - name: FAQ
+      href: faq.md
+    - name: 클라우드 채택 프레임워크
+      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management'
