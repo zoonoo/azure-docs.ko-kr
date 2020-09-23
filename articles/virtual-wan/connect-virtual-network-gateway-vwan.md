@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9d94904e580cefb53b2c71d21259bebfc07c1ad6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6dac922f1a50dd54973f7eefff7011aab3b49994
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431284"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983753"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>가상 WAN에 VPN Gateway (가상 네트워크 게이트웨이) 연결
 
@@ -47,7 +47,7 @@ Azure Virtual Network
 
 가상 네트워크 게이트웨이 **구성** 페이지에서 **BGP ASN**을 구성할 수 있습니다. BGP ASN을 변경 합니다. BGP ASN은 65515 일 수 없습니다. 66515는 Azure 가상 WAN에서 사용 됩니다.
 
-![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
+![스크린샷에 BGP ASN 구성이 선택 된 가상 네트워크 게이트웨이 구성 페이지를 보여 줍니다.](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
 ### <a name="public-ip-addresses"></a><a name="pip"></a>공용 IP 주소
 

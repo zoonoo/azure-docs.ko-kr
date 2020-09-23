@@ -1,6 +1,6 @@
 ---
-title: Date_Bucket(Transact-SQL) - Azure SQL Edge(미리 보기)
-description: Azure SQL Edge(미리 보기)에서 Date_Bucket을 사용하는 방법에 대해 알아봅니다.
+title: Date_Bucket (Transact-sql)-Azure SQL Edge
+description: Azure SQL Edge에서 Date_Bucket 사용에 대 한 자세한 정보
 keywords: Date_Bucket, SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 63b7ad84b0866c91e84007a188b82de65983790f
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 896caae2dfd79c4678ffb34c531fb56835e9bd66
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458853"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886840"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket(Transact-SQL)
 
@@ -162,7 +162,7 @@ Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
 + SELECT \<list>
 + WHERE
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="a-calculating-date_bucket-with-a-bucket-width-of-1-from-the-origin-time"></a>A. 원본 시간으로부터 1의 버킷 너비로 Date_Bucket을 계산
 

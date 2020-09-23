@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 158b66d63292a1ffb503f3f87eddfd33a2b09b71
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b428ffc0122f13ef15f870ce734b54fe6707f582
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554484"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983962"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Netsuite 구성
 
@@ -62,7 +62,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. **프로비전 모드**를 **자동**으로 설정합니다. 
 
-    ![프로비전](./media/netsuite-provisioning-tutorial/provisioning.png)
+    ![Netsuite 프로 비전 페이지가 표시 되 고 프로 비전 모드가 자동으로 설정 되 고 다른 값을 설정할 수 있습니다.](./media/netsuite-provisioning-tutorial/provisioning.png)
 
 1. **관리자 자격 증명** 섹션에서 다음 구성 설정을 제공합니다.
    

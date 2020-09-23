@@ -1,6 +1,6 @@
 ---
 title: '자습서: 다중 테넌트 데이터베이스 디자인 - 하이퍼스케일(Citus) - Azure Database for PostgreSQL'
-description: 이 자습서에서는 Azure Database for PostgreSQL 하이퍼스케일(Citus)에서 분산된 테이블을 만들고, 채우고, 쿼리하는 방법을 보여 줍니다.
+description: 이 자습서에서는 Azure Database for PostgreSQL 하이퍼스케일(Citus)을 사용하여 확장 가능한 다중 테넌트 애플리케이션을 구동하는 방법을 보여줍니다.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: bc7891e157bbffa386396a352fd1d48e4559ecdc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: ef0f542a27f378b6132d8ef19b55f386d4102d53
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386398"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895260"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL – 하이퍼스케일(Citus)을 사용하여 다중 테넌트 데이터베이스 설계
 
@@ -275,6 +275,5 @@ SELECT id
 
 이 자습서에서는 하이퍼스케일(Citus) 서버 그룹을 프로비저닝하는 방법을 배웠습니다. 그 후 psql을 사용하여 이 서버 그룹에 연결하고, 스키마를 만들고, 데이터를 분산했습니다. 테넌트 내 또는 테넌트 간에 데이터를 쿼리하고, 스키마를 테넌트별로 사용자 지정하는 방법을 알아보았습니다.
 
-다음으로, 하이퍼스케일의 개념을 알아보세요.
-> [!div class="nextstepaction"]
-> [하이퍼스케일 노드 형식](https://aka.ms/hyperscale-concepts)
+- 서버 그룹 [노드 유형](https://aka.ms/hyperscale-concepts)에 대한 자세한 정보
+- 서버 그룹에 적합한 [처음 크기](howto-hyperscale-scaling.md#picking-initial-size) 결정

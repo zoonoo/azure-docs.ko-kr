@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 4f6252ffbb880e347a89594cb267fb99d576dc7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89039301"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902928"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 
@@ -34,13 +34,13 @@ ms.locfileid: "89039301"
 
   스튜디오에 직접 통합된 관리되는 [Jupyter Notebook 서버](how-to-run-jupyter-notebooks.md)에서 직접 코드를 작성하고 실행합니다. 
 
-+ **Azure Machine Learning 디자이너(미리 보기)**
++ **Azure Machine Learning 디자이너**
 
   디자이너를 사용하여 코드를 작성하지 않고도 기계 학습 모델을 학습하고 배포할 수 있습니다. 데이터 세트 및 모듈을 끌어서 놓아 ML 파이프라인을 만듭니다. [디자이너 자습서](tutorial-designer-automobile-price-train-score.md)를 사용해 보세요.
 
     ![Azure Machine Learning 디자이너 예](media/concept-designer/designer-drag-and-drop.gif)
 
-+ **자동화된 기계 학습 UI(미리 보기)**
++ **자동화된 기계 학습 UI**
 
   사용하기 쉬운 인터페이스로 [자동화된 ML 실험](tutorial-first-experiment-automated-ml.md)을 만드는 방법을 알아보세요. 
 
@@ -82,7 +82,7 @@ ms.locfileid: "89039301"
 
 | 기능 | ML Studio(클래식) | Azure Machine Learning |
 |---| --- | --- |
-| 끌어서 놓기 인터페이스 | 클래식 환경 | 업데이트된 환경 - [Azure Machine Learning 디자이너(미리 보기)](concept-designer.md) <br/>(엔터프라이즈 작업 영역 필요) | 
+| 끌어서 놓기 인터페이스 | 클래식 환경 | 환경이 업데이트됨 - [Azure Machine Learning 디자이너](concept-designer.md)| 
 | 코드 SDK | 지원되지 않음 | [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) 및 [R](tutorial-1st-r-experiment.md) SDK와 완전히 통합됨 |
 | 실험 | 크기 조정 가능(10GB 학습 데이터 제한) | 컴퓨팅 대상으로 크기 조정 |
 | 컴퓨팅 대상 학습 | 전용 컴퓨팅 대상, CPU만 지원 | 광범위한 사용자 지정이 가능한 [컴퓨팅 대상 학습](concept-compute-target.md#train). GPU 및 CPU 지원 포함 | 

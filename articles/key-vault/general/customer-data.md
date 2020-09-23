@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7cfc707aa4bccdcd72e45efa3693ebd8f88a211
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189915"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983249"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 고객 데이터 기능
 
-Azure Key Vault는 자격 증명 모음, 키, 비밀, 인증서 및 관리되는 스토리지 계정의 만들기 또는 업데이트 중 고객 데이터를 수신합니다. 이 고객 데이터는 Azure Portal과 REST API를 통해 직접 표시됩니다. 고객 데이터는 데이터를 포함하는 개체를 업데이트하거나 삭제하여 편집 또는 삭제될 수 있습니다.
+자격 증명 모음, 관리 되는 HSM 풀, 키, 암호, 인증서 및 관리 되는 저장소 계정을 만들거나 업데이트 하는 동안 고객 데이터를 수신 Azure Key Vault. 이 고객 데이터는 Azure Portal과 REST API를 통해 직접 표시됩니다. 고객 데이터는 데이터를 포함하는 개체를 업데이트하거나 삭제하여 편집 또는 삭제될 수 있습니다.
 
 사용자 또는 애플리케이션에서 Key Vault에 액세스하는 경우 시스템 액세스 로그가 생성됩니다. 고객은 Azure Insights를 통해 자세한 액세스 로그를 사용할 수 있습니다.
 
@@ -52,7 +52,7 @@ Azure Key Vault 액세스 로깅은 각 REST API 호출에 대한 로그를 생�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [로깅 Azure Key Vault](logging.md))
+- [Azure Key Vault 로깅](logging.md)
 
 - [Azure Key Vault 일시 삭제 개요](soft-delete-cli.md)
 

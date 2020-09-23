@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 94a0c0af5071397ee4deb859f8f58f2ed1c73a77
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277666"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894575"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -33,7 +33,7 @@ Azure Security Center은 선택한 정책에 따라 보안 권장 사항을 적�
 
 Security Center은 보안 정책을 사용 하기 위한 다음과 같은 옵션을 제공 합니다.
 
-* 기본 **제공 기본 정책 보기 및 편집** -Security Center를 사용 하도록 설정 하면 ' ASC default ' 라는 기본 제공 이니셔티브가 등록 된 모든 Security Center 구독 (무료 또는 표준 가격 책정 계층)에 자동으로 할당 됩니다. 이 이니셔티브를 사용자 지정 하려면 내부에서 개별 정책을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. [기본 제공 보안 정책](security-center-policy-definitions.md) 목록을 참조 하 여 기본적으로 제공 되는 옵션을 이해 합니다.
+* 기본 **제공 기본 정책 보기 및 편집** -Security Center를 사용 하도록 설정 하면 ' ASC default ' 라는 기본 제공 이니셔티브가 등록 된 모든 Security Center 구독에 자동으로 할당 됩니다. 이 이니셔티브를 사용자 지정 하려면 내부에서 개별 정책을 사용 하거나 사용 하지 않도록 설정할 수 있습니다. [기본 제공 보안 정책](security-center-policy-definitions.md) 목록을 참조 하 여 기본적으로 제공 되는 옵션을 이해 합니다.
 
 * **사용자 고유의 사용자 지정 정책 추가** -구독에 적용 되는 보안 이니셔티브를 사용자 지정 하려는 경우 Security Center 내에서 수행할 수 있습니다. 그러면 컴퓨터가 만든 정책을 따르지 않는 경우 권장 사항을 받게 됩니다. 사용자 지정 정책 빌드 및 할당에 대 한 지침은 [사용자 지정 보안 정책 사용](custom-security-policies.md)을 참조 하세요.
 

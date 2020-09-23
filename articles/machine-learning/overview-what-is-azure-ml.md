@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 233eb06714dc8ac614cceef157f87d175c3f455b
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: f8be403a9aa095a24ec4802aad0364b535ed7c5a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462465"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902901"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -41,7 +41,7 @@ Machine Learning을 통한 예측은 좀 더 똑똑한 앱 및 디바이스를 �
 ## <a name="machine-learning-tools-to-fit-each-task"></a>각 작업에 적합한 기계 학습 도구 
 
 Azure Machine Learning은 개발자와 데이터 과학자에게 다음을 비롯한 기계 학습 워크플로에 필요한 모든 도구를 제공합니다.
-+ [Azure Machine Learning 디자이너](tutorial-designer-automobile-price-train-score.md)(미리 보기): 끌어서 놓기로 실험을 빌드하고 파이프라인을 배포할 수 있는 모듈입니다.
++ [Azure Machine Learning 디자이너](tutorial-designer-automobile-price-train-score.md): 모듈 끌어서 놓기를 통해 실험을 빌드한 다음, 파이프라인을 배포합니다.
 
 + Jupyter Notebook: [예제 Notebook](https://github.com/Azure/MachineLearningNotebooks)을 사용하거나 고유한 Notebook을 만들어 기계 학습에서 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python용 Azure SDK</a> 샘플을 활용할 수 있습니다. 
 
@@ -71,7 +71,7 @@ SDK를 사용하여 [모델 학습 및 튜닝을 자동화](tutorial-auto-train-
 
 [Azure Machine Learning 스튜디오](https://studio.azureml.net)는 모델 학습, 배포 및 자산 관리를 위한 낮은 코드와 코드 없음 옵션에 대한 Azure Machine Learning의 웹 포털입니다. 스튜디오는 원활한 환경을 위해 Azure Machine Learning SDK와 통합됩니다. 자세한 내용은 [Azure Machine Learning 스튜디오란?](overview-what-is-machine-learning-studio.md)을 참조하세요.
 
-+ **Azure Machine Learning 디자이너(미리 보기)**
++ **Azure Machine Learning 디자이너**
 
   [디자이너](concept-designer.md)를 사용하여 코드를 작성하지 않고도 기계 학습 모델을 학습하고 배포할 수 있습니다. 시작하려면 [디자이너 자습서](tutorial-designer-automobile-price-train-score.md)를 사용해 보세요. 
 
@@ -92,7 +92,7 @@ SDK를 사용하여 [모델 학습 및 튜닝을 자동화](tutorial-auto-train-
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: 배포 및 수명 주기 관리
 적합한 모델이 있는 경우 웹 서비스, IoT 디바이스 또는 Power BI에서 해당 모델을 쉽게 사용할 수 있습니다. 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md) 문서를 참조하세요.
 
-그런 다음, [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py), [Azure Machine Learning Studio](https://ml.azure.com) 또는 [기계 학습 CLI](reference-azure-machine-learning-cli.md)를 사용하여 배포된 모델을 관리할 수 있습니다.
+그런 다음, [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true), [Azure Machine Learning Studio](https://ml.azure.com) 또는 [기계 학습 CLI](reference-azure-machine-learning-cli.md)를 사용하여 배포된 모델을 관리할 수 있습니다.
 
 이러한 모델은 사용 가능하며 대량의 데이터에 대한 예측을 [실시간으로](how-to-consume-web-service.md) 또는 [비동기적으로](how-to-use-parallel-run-step.md) 반환할 수 있습니다.
 
@@ -115,7 +115,7 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 + __Azure Event Grid__. 자세한 내용은 [Azure Machine Learning 이벤트 사용](concept-event-grid-integration.md)을 참조하세요.
 + __Azure Monitor__ 자세한 내용은 [Azure Machine Learning 모니터링](monitor-azure-machine-learning.md)을 참조하세요.
 + __Azure Storage 계정__, __Azure Data Lake Storage__, __Azure SQL Database__, __Azure Database for PostgreSQL__, __Azure Open Datasets__ 등의 데이터 저장소. 자세한 내용은 [Azure 스토리지 서비스에서 데이터 액세스](how-to-access-data.md) 및 [Azure Open Datasets로 데이터 세트 만들기](how-to-create-register-datasets.md)를 참조하세요.
-+ __Azure Virtual Network__. 자세한 내용은 [가상 네트워크에서 실험 및 유추 보호](how-to-enable-virtual-network.md)를 참조하세요.
++ __Azure Virtual Network__. 자세한 내용은 [Virtual Network 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조하세요.
 + __Azure Pipelines__. 자세한 내용은 [기계 학습 모델의 학습 및 배포](/azure/devops/pipelines/targets/azure-machine-learning)를 참조하세요.
 + __Git 리포지토리 로그__. 자세한 내용은 [Git 통합](concept-train-model-git-integration.md)을 참조하세요.
 + __MLFlow__. 자세한 내용은 [MLflow를 사용하여 메트릭을 추적하고 모델 배포](how-to-use-mlflow.md)를 참조하세요. 
@@ -123,16 +123,7 @@ Azure Machine Learning은 Azure 플랫폼의 다른 서비스와 함께 작동�
 
 ### <a name="secure-communications"></a>통신 보안
 
-Azure Storage 계정, 컴퓨팅 대상 및 기타 리소스를 가상 네트워크 내에서 안전하게 사용하여 모델을 학습시키고 유추를 수행할 수 있습니다. 자세한 내용은 [가상 네트워크에서 실험 및 유추 보호](how-to-enable-virtual-network.md)를 참조하세요.
-
-## <a name="basic--enterprise-editions"></a><a name="sku"></a>Basic Edition 및 Enterprise Edition
-
-Azure Machine Learning은 고객의 기계 학습 요구 사항에 맞게 조정된 두 가지 버전을 제공합니다.
-+ **기본**: 코드 우선 환경을 갖춘 클라우드 규모의 오픈 소스 개발에 적합합니다.
-
-+ **Enterprise**: 모든 기본과 웹 인터페이스(스튜디오) + 모든 기술 수준을 위한 안전하고 포괄적인 ML 수명 주기 관리.
-
-이러한 버전과 해당 버전의 잠금 기능에 대한 자세한 내용은 ["Azure Machine Learning 버전" 문서](concept-editions.md)를 참조하세요.
+Azure Storage 계정, 컴퓨팅 대상 및 기타 리소스를 가상 네트워크 내에서 안전하게 사용하여 모델을 학습시키고 유추를 수행할 수 있습니다. 자세한 내용은 [Virtual Network 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

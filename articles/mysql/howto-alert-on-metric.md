@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: c20177b3dceca3b32cf8f2e2f8f60fa4227e2082
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b7054b520d31c6c5363c8784bb9a4839e9249c88
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112720"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902877"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Azure Portal을 사용하여 Azure Database for MySQL의 메트릭에 대한 경고를 설정합니다. 
 
@@ -34,25 +34,25 @@ ms.locfileid: "86112720"
 
 2. 다음과 같이 사이드바의 **모니터링** 섹션에서 **경고**를 선택합니다.
 
-   ![경고 규칙 선택](./media/howto-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="경고 규칙 선택":::
 
 3. **메트릭 경고 추가**(+ 아이콘)를 선택합니다.
 
 4. 아래와 같이 **규칙 만들기** 페이지가 열립니다. 필수 정보를 입력합니다.
 
-   ![메트릭 경고 양식 추가](./media/howto-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="메트릭 경고 양식 추가":::
 
 5. **조건** 섹션에서 **조건 추가**를 선택합니다.
 
 6. 신호 목록에서 경고를 발생할 메트릭을 선택합니다. 이 예제에서는 "스토리지 비율"을 선택합니다.
    
-   ![메트릭 선택](./media/howto-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="메트릭 선택":::
 
 7. **조건**(예: "보다 큼"), **임계값**(예: 85%), **시간 집계**, 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**(예: "지난 30 분") 및 **Frequency**.
    
    완료되면 **완료**를 선택합니다.
 
-   ![메트릭 선택](./media/howto-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="메트릭 선택":::
 
 8. **작업 그룹** 섹션에서 **새로 만들기**를 선택하여 경고 알림을 받을 새 그룹을 만듭니다.
 
@@ -66,11 +66,11 @@ ms.locfileid: "86112720"
 
     완료되면 **확인**을 선택합니다.
 
-    ![작업 그룹](./media/howto-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="작업 그룹":::
 
 11. 경고 규칙 이름, 설명 및 심각도를 지정합니다.
 
-    ![작업 그룹](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="작업 그룹"::: 
 
 12. **경고 규칙 만들기**를 선택하여 경고를 만듭니다.
 

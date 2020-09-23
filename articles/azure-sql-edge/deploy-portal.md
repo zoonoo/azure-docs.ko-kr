@@ -1,6 +1,6 @@
 ---
-title: Azure Portal을 사용하여 Azure SQL Edge(미리 보기) 배포
-description: Azure Portal을 사용하여 Azure SQL Edge(미리 보기)를 배포하는 방법 알아보기
+title: Azure Portal를 사용 하 여 Azure SQL Edge 배포
+description: Azure Portal를 사용 하 여 Azure SQL Edge를 배포 하는 방법을 알아봅니다.
 keywords: SQL Edge 배포
 services: sql-edge
 ms.service: sql-edge
@@ -8,17 +8,17 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 7af4264860f8d9950515cd5302f03822e7cbac39
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/22/2020
+ms.openlocfilehash: ffd967797a4e586387a0385169672220727f78a7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816867"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886781"
 ---
-# <a name="deploy-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기) 배포 
+# <a name="deploy-azure-sql-edge"></a>Azure SQL Edge 배포 
 
-Azure SQL Edge(미리 보기)는 IoT 및 Azure IoT Edge 배포에 최적화된 관계형 데이터베이스 엔진으로, IoT 애플리케이션과 솔루션을 위한 고성능 데이터 스토리지 및 처리 계층을 만드는 기능을 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure IoT Edge를 통해 Azure SQL Edge 모듈 만들기를 시작하는 방법을 보여줍니다.
+Azure SQL Edge는 IoT 및 Azure IoT Edge 배포에 최적화 된 관계형 데이터베이스 엔진입니다. IoT 애플리케이션과 솔루션을 위한 고성능 데이터 스토리지 및 처리 계층을 만드는 기능을 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure IoT Edge를 통해 Azure SQL Edge 모듈 만들기를 시작하는 방법을 보여줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -28,7 +28,7 @@ Azure SQL Edge(미리 보기)는 IoT 및 Azure IoT Edge 배포에 최적화된 �
 * [Azure Portal에서 IoT Edge 디바이스](../iot-edge/how-to-register-device-portal.md)를 등록합니다.
 * [Azure Portal에서 IoT Edge 모듈을 배포](../iot-edge/how-to-deploy-modules-portal.md)할 수 있게 IoT Edge 디바이스를 준비합니다.
 
-> [!NOTE]
+> [!NOTE]   
 > Azure Linux VM을 IoT Edge 디바이스로 배포하려면 이 [빠른 시작 가이드](../iot-edge/quickstart-linux.md)를 참조하세요.
 
 ## <a name="deploy-sql-edge-module-from-azure-marketplace"></a>Azure Marketplace의 SQL Edge 모듈 배포
@@ -51,75 +51,73 @@ Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/ma
    |IoT Hub   |  IoT Edge 디바이스가 등록된 IoT Hub의 이름이며 "디바이스에 배포" 옵션 선택|
    |IoT Edge 디바이스 이름  |  SQL Edge를 배포할 IoT Edge 디바이스의 이름 |
 
-4. **모듈 설정** 페이지에서 배포 모듈 섹션으로 이동하고 SQL Edge 모듈에 대해 **구성**을 클릭합니다. 
+4. **장치에서 모듈 설정:** 페이지의 **IoT Edge 모듈**에서 Azure SQL Edge 모듈을 클릭 합니다. 기본 모듈 이름은 *AzureSQLEdge*로 설정 됩니다. 
 
-5. **IoT Edge 사용자 지정 모듈** 창에서 원하는 환경 변수 값을 지정하거나 만들기 옵션 및 원하는 모듈 속성을 사용자 지정합니다. 지원되는 환경 변수의 전체 목록은 [SQL Server 컨테이너 환경 변수](/sql/linux/sql-server-linux-configure-environment-variables/)를 참조하세요.
+5. **업데이트 IoT Edge 모듈** 블레이드의 *모듈 설정* 섹션에서 *IoT Edge 모듈 이름*, *다시 시작 정책* 및 *원하는 상태*에 대해 원하는 값을 지정 합니다. 
+
+   > [!IMPORTANT]    
+   > 모듈에서 **이미지 URI** 설정을 변경 하거나 업데이트 하지 마십시오.
+
+6. **업데이트 IoT Edge 모듈** 블레이드의 *환경 변수* 섹션에서 환경 변수에 대해 원하는 값을 지정 합니다. Azure SQL Edge 환경 변수의 전체 목록은 [환경 변수를 사용 하 여 구성](configure.md#configure-by-using-environment-variables)을 참조 하세요. 모듈에 대해 다음과 같은 기본 환경 변수가 정의 되어 있습니다. 
 
    |**매개 변수**  |**설명**|
    |---------|---------|
    | Name | 모듈의 이름입니다. |
-   |SA_PASSWORD  | SQL Edge 관리자 계정의 강력한 암호를 지정합니다. |
-   |MSSQL_LCID   | SQL Server에 사용할 언어 ID를 설정합니다. 예를 들어 1036은 프랑스어입니다. |
-   |MSSQL_COLLATION | SQL Server에 대한 기본 데이터 정렬을 설정합니다. 이 설정은 데이터 정렬에 대한 언어 ID(LCID)의 기본 매핑을 재정의합니다. |
+   | MSSQL_SA_PASSWORD  | 기본값을 변경 하 여 SQL Edge 관리자 계정에 대 한 강력한 암호를 지정 합니다. |
+   | MSSQL_LCID   | 기본값을 변경 하 여 SQL Edge에 사용할 언어 ID를 설정 합니다. 예를 들어 1036은 프랑스어입니다. |
+   | MSSQL_COLLATION | 기본값을 변경 하 여 SQL Edge에 대 한 기본 데이터 정렬을 설정 합니다. 이 설정은 데이터 정렬에 대한 언어 ID(LCID)의 기본 매핑을 재정의합니다. |
 
-   > [!NOTE]
-   > 모듈의 **이미지 URI** 또는 **ACCEPT_EULA** 설정을 변경하거나 업데이트하지 마세요.
+   > [!IMPORTANT]    
+   > 모듈에 대 한 **ACCEPT_EULA** 환경 변수를 변경 하거나 업데이트 하지 마십시오.
 
-6. **IoT Edge 사용자 지정 모듈** 창에서 컨테이너 만들기 옵션의 원하는 **호스트 포트** 값을 업데이트합니다. 둘 이상의 SQL DB Edge 모듈을 배포해야 하는 경우에는 탑재 옵션을 업데이트하여 영구적 볼륨에 대한 새 원본 & 대상 쌍을 만들어야 합니다. 탑재 및 볼륨에 대한 자세한 내용은 docker 설명서의 [볼륨 사용](https://docs.docker.com/storage/volumes/)을 참조하세요. 
-
-   ```json
-       {
-         "HostConfig": {
-           "Binds": [
-             "sqlvolume:/sqlvolume"
-           ],
-           "PortBindings": {
-             "1433/tcp": [
-               {
-                 "HostPort": "1433"
-               }
-             ]
-           },
-           "Mounts": [
-             {
-               "Type": "volume",
-               "Source": "sqlvolume",
-               "Target": "/var/opt/mssql"
-             }
-           ]
-         },
-         "Env": [
-           "MSSQL_AGENT_ENABLED=TRUE",
-           "MSSQL_PID=Developer"
-         ]
-       }
-   ```
-
-7. **IoT Edge 사용자 지정 모듈** 창에서 SQL 패키지의 위치와 스트림 분석 작업 정보를 포함하도록 *모듈 쌍의 원하는 속성 설정*을 업데이트합니다. 이러한 두 필드는 선택 사항이며, 데이터베이스 및 스트리밍 작업을 사용하여 SQL Edge 모듈을 배포하려는 경우에 사용해야 합니다.
+7. **업데이트 IoT Edge 모듈** 블레이드의 *컨테이너 만들기 옵션* 섹션에서 요구 사항에 따라 다음 옵션을 업데이트 합니다. 
+   - **호스트 포트:** 컨테이너의 포트 1433 (기본 SQL 포트)에 지정 된 호스트 포트를 매핑합니다.
+   - **바인딩** 및 **탑재:** 둘 이상의 SQL Edge 모듈을 배포 해야 하는 경우에는 탑재 옵션을 업데이트 하 여 영구적 볼륨에 대 한 새 원본 & 대상 쌍을 만들어야 합니다. 탑재 및 볼륨에 대한 자세한 내용은 docker 설명서의 [볼륨 사용](https://docs.docker.com/storage/volumes/)을 참조하세요. 
 
    ```json
-       {
-         "properties.desired":
-         {
-           "SqlPackage": "<Optional_DACPAC_ZIP_SAS_URL>",
-           "ASAJobInfo": "<Optional_ASA_Job_ZIP_SAS_URL>"
-         }
-       }
+   {
+    "HostConfig": {
+        "CapAdd": [
+            "SYS_PTRACE"
+        ],
+        "Binds": [
+            "sqlvolume:/sqlvolume"
+        ],
+        "PortBindings": {
+            "1433/tcp": [
+                {
+                    "HostPort": "1433"
+                }
+            ]
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Source": "sqlvolume",
+                "Target": "/var/opt/mssql"
+            }
+        ]
+    },
+    "Env": [
+        "MSSQL_AGENT_ENABLED=TRUE",
+        "ClientTransportType=AMQP_TCP_Only",
+        "PlanId=asde-developer-on-iot-edge"
+    ]
+   }
    ```
-
-8. **IoT Edge 사용자 지정 모듈** 창에서 *다시 시작 정책*을 항상으로 설정하고 *원하는 상태*를 실행 중으로 설정합니다.
-9. **IoT Edge 사용자 지정 모듈** 창에서 **저장**을 클릭합니다.
-10. **모듈 설정** 페이지에서 **다음**을 선택합니다.
-11. **모듈 설정** 페이지의 **경로 지정(선택 사항)** 에서 모듈 간 통신 또는 모듈과 IoT Edge 허브의 통신 경로를 지정하고 [IoT Edge에 모듈을 배포하고 경로 설정](../iot-edge/module-composition.md)을 참조하세요.
-12. **다음**을 클릭합니다.
-13. **제출**을 클릭합니다.
+   > [!IMPORTANT]    
+   > `PlanId`구성 만들기 설정에 정의 된 환경 변수를 변경 하지 마십시오. 이 값이 변경 되 면 Azure SQL Edge 컨테이너가 시작 되지 않습니다. 
+   
+8. **업데이트 IoT Edge 모듈** 창에서 **업데이트**를 클릭 합니다.
+9. **장치에서 모듈 설정** 페이지에서 다음을 클릭 합니다. 배포에 대 한 경로를 정의 해야 하는 경우 **>경로** 를 클릭 합니다. 그렇지 않으면 **검토 + 만들기**를 클릭 합니다. 경로를 구성 하는 방법에 대 한 자세한 내용은 [모듈 배포 및 IoT Edge에서 경로 설정](../iot-edge/module-composition.md)을 참조 하세요.
+11. **업데이트 IoT Edge 모듈** 창에서 **만들기**를 클릭 합니다.
 
 ## <a name="connect-to-azure-sql-edge"></a>Azure SQL Edge에 연결
 
-다음 단계는 컨테이너 내에서 Azure SQL Edge 명령줄 도구인 **sqlcmd**를 사용 하 여 Azure sql edge에 연결 합니다.
+다음 단계에서는 Azure SQL Edge에 연결하기 위해 컨테이너 내에서 Azure SQL Edge 명령줄 도구 **sqlcmd**를 사용합니다.
 
-> [!NOTE]
-> sqlcmd 도구는 SQL Edge 컨테이너의 ARM64 버전 내에서 사용할 수 없습니다.
+> [!NOTE]      
+> SQL 명령줄 도구 (sqlcmd)는 ARM64 버전의 Azure SQL Edge 컨테이너 내에서 사용할 수 없습니다.
 
 1. `docker exec -it` 명령을 사용하여 실행 중인 컨테이너 내에서 대화형 bash 셸을 시작합니다. 다음 예에서는 `azuresqledge` `Name` IoT Edge 모듈의 매개 변수에 지정 된 이름을 지정 합니다.
 
@@ -133,14 +131,14 @@ Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/ma
    /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
    ```
 
-   > [!TIP]
+   > [!TIP]    
    > 명령줄에서 암호를 생략하여 입력하라는 메시지가 표시되도록 할 수 있습니다.
 
 3. 성공하면 **sqlcmd** 명령 프롬프트 `1>`이 표시됩니다.
 
 ## <a name="create-and-query-data"></a>데이터 만들기 및 쿼리
 
-다음 섹션에서는 **sqlcmd** 및 Transact-SQL을 사용하여 새 데이터베이스를 만들고, 데이터를 추가하고, 간단한 쿼리를 실행하는 단계를 안내합니다.
+다음 섹션에서는 **sqlcmd** 및 Transact-SQL을 사용하여 새 데이터베이스를 만들고, 데이터를 추가하고, 쿼리를 실행하는 단계를 안내합니다.
 
 ### <a name="create-a-new-database"></a>새 데이터베이스 만들기
 
@@ -216,12 +214,13 @@ Azure Marketplace는 [IoT Edge 모듈](https://azuremarketplace.microsoft.com/ma
 
 ## <a name="connect-from-outside-the-container"></a> 컨테이너 외부에서 연결
 
-SQL 연결을 지 원하는 모든 외부 Linux, Windows 또는 macOS 도구에서 Azure SQL Edge 인스턴스에 대해 SQL 쿼리를 연결 하 고 실행할 수 있습니다. 외부에서 SQL Edge 컨테이너에 연결 하는 방법에 대 한 자세한 내용은 [AZURE Sql Edge 연결 및 쿼리](https://docs.microsoft.com/azure/azure-sql-edge/connect)를 참조 하세요.
+SQL 연결을 지 원하는 모든 외부 Linux, Windows 또는 macOS 도구에서 Azure SQL Edge 인스턴스에 대해 SQL 쿼리를 연결 하 고 실행할 수 있습니다. 외부에서 SQL Edge 컨테이너에 연결하는 방법에 대한 자세한 내용은 [Azure SQL Edge 연결 및 쿼리](https://docs.microsoft.com/azure/azure-sql-edge/connect)를 참조하세요.
 
 이 빠른 시작에서는 IoT Edge 디바이스에 SQL Edge 모듈을 배포했습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQL Edge에 ONNX를 사용하는 Machine Learning 및 AI](onnx-overview.md)
-- [IoT Edge를 사용하여 SQL Edge로 엔드투엔드 IoT 솔루션 빌드](tutorial-deploy-azure-resources.md).
-- [Azure SQL Edge의 데이터 스트리밍](stream-data.md)
+- [SQL Edge에서 ONNX를 사용 하는 Machine Learning 및 인공 지능](onnx-overview.md)
+- [IoT Edge를 사용 하 여 SQL Edge를 사용 하는 종단 간 IoT 솔루션 빌드](tutorial-deploy-azure-resources.md)
+- [Azure SQL Edge에서 데이터 스트리밍](stream-data.md)
+- [배포 오류 문제 해결](troubleshoot.md)

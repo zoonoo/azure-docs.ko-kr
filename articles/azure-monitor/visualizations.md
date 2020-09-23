@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325528"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983608"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
@@ -21,7 +21,7 @@ ms.locfileid: "87325528"
 ## <a name="workbooks"></a>통합 문서
 [통합 문서](./platform/workbooks-overview.md)는 팀 내 데이터, 조사, 협업에 대한 깊이 있는 인사이트를 제공하는 대화형 문서입니다. 통합 문서가 효율적으로 활용되는 구체적인 예는 문제 해결 가이드 및 인시던트 사후 검토에 나와 있습니다.
 
-![통합 문서](media/visualizations/workbook.png)
+![다이어그램은 페이지 보기, 사용 및 페이지에 소요 된 시간에 대 한 분석을 비롯 하 여 통합 문서에서 여러 페이지의 스크린샷을 보여 줍니다.](media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>장점
 - 메트릭 및 로그를 둘 다 지원합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "87325528"
 ## <a name="azure-dashboards"></a>Azure 대시보드
 [Azure 대시보드](../azure-portal/azure-portal-dashboards.md)는 Azure의 주요 대시보드 기술입니다. 중요한 문제를 빠르게 파악할 수 있는 Azure 인프라 및 서비스에 대한 단일 창을 제공하는 점에서 특히 유용합니다.
 
-![대시보드](media/visualizations/dashboard.png)
+![스크린샷은 사용자 지정 가능한 정보를 포함 하는 Azure 대시보드의 예를 보여 줍니다.](media/visualizations/dashboard.png)
 
 대시보드를 만드는 비디오 연습은 다음과 같습니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "87325528"
 ## <a name="grafana"></a>Grafana
 [Grafana](https://grafana.com/)는 뛰어난 운영 대시보드를 제공하는 개방형 플랫폼입니다. 운영 인시던트를 감지하고, 격리하고, 심사하는 데 특히 유용합니다. Azure 구독에 [Grafana Azure Monitor 데이터 원본 플러그 인](platform/grafana-plugin.md)을 추가하여 Azure 메트릭 데이터가 시각화되도록 할 수 있습니다.
 
-![Grafana](media/visualizations/grafana.png)
+![Grafana 시각화를 보여 주는 스크린샷](media/visualizations/grafana.png)
 
 ### <a name="advantages"></a>장점
 - 다양하게 시각화할 수 있습니다.
@@ -120,7 +120,7 @@ ms.locfileid: "87325528"
 [Azure Monitor의 뷰](platform/view-designer.md)를 통해 로그 데이터로 사용자 지정 시각화를 만들 수 있습니다. [모니터링 솔루션](insights/solutions.md)에서 수집한 데이터를 표시하는 데 사용됩니다.
 
 
-![보기](media/visualizations/view.png)
+![스크린샷 선택할 때 열리는 컨테이너 모니터링 솔루션 타일 및 자세한 Azure Monitor 보기가 표시 됩니다.](media/visualizations/view.png)
 
 ### <a name="advantages"></a>장점
 - 로그 데이터를 다양하게 시각화할 수 있습니다.

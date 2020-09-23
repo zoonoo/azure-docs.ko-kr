@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory에서 그룹에 할당 된 역할 보기 Microsoft Docs
-description: ID 관리를 위임하기 위한 사용자 지정 Azure AD 역할을 미리 봅니다. Azure Portal, PowerShell 또는 Graph API에서 Azure 역할을 관리합니다.
+description: Azure AD 관리 센터를 사용 하 여 그룹에 할당 된 역할을 볼 수 있는 방법에 대해 알아봅니다. 그룹 및 할당 된 역할 보기는 기본 사용자 권한입니다.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b7613fb70299a70e4389b97c2647a26cb7c3374
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 0c0a34b3861c82b3d2ef54a36108f9ea522d716d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476089"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983107"
 ---
 # <a name="view-roles-assigned-to-a-group-in-azure-active-directory"></a>Azure Active Directory의 그룹에 할당 된 역할 보기
 
@@ -63,4 +63,4 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$f
 ## <a name="next-steps"></a>다음 단계
 
 - [클라우드 그룹을 사용 하 여 역할 할당 관리](roles-groups-concept.md)
-- [클라우드 그룹에 할당 된 역할 문제 해결](roles-groups-faq-troubleshooting.md)
+- [클라우드 그룹에 할당된 역할 문제 해결](roles-groups-faq-troubleshooting.md)

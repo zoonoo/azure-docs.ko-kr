@@ -2,22 +2,40 @@
 title: 인증, 요청 및 응답
 description: Azure Key Vault에서 JSON 형식 요청 및 응답과 키 자격 증명 모음을 사용 하는 데 필요한 인증을 사용 하는 방법에 대해 알아봅니다.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 2b4c8ad666efa32d98e78a0bc2544d0f8851be5e
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.date: 09/15/2020
+ms.author: ambapat
+ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191791"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983254"
 ---
 # <a name="authentication-requests-and-responses"></a>인증, 요청 및 응답
+
+Azure Key Vault는 클라우드 응용 프로그램에 대 한 암호를 저장 하 고 관리 하는 두 가지 유형의 컨테이너를 제공 합니다.
+
+|컨테이너 유형|지원 되는 개체 유형|데이터 평면 끝점|
+|--|--|--|
+| **자격 증명 모음**|<ul><li>소프트웨어 보호 된 키</li><li>HSM 보호 된 키 (프리미엄 SKU 포함)</li><li>인증서</li><li>Storage 계정 키</li></ul> | https://{vault-이름}. 자격 증명 모음. azure .net
+|**관리 HSM** |<ul><li>HSM 보호 키</li></ul> | https://{hsm-name}. managedhsm. azure .net
+
+각 개체 형식에 액세스 하는 데 사용 되는 URL 접미사는 다음과 같습니다.
+
+|개체 유형|URL 접미사|
+|--|--|
+|소프트웨어 보호 된 키| /키 |
+|HSM 보호 키| /키 |
+|비밀|/비밀|
+|인증서| /certificates|
+|Storage 계정 키|/storageaccounts
+||
 
 Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Vault에 대한 요청은 일부 URL 매개 변수 및 JSON 인코딩 요청 및 응답 본문을 통해 HTTPS를 사용하여 올바른 Azure Key Vault URL로 이동됩니다.
 
@@ -36,7 +54,9 @@ Azure Key Vault는 JSON 형식 요청과 응답을 지원합니다. Azure Key Va
 
 - Key Vault에서 TESTKEY라는 키를 사용하여 다이제스트에 서명하려면 `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1` 사용  
 
-  Key Vault에 대한 요청을 위한 기관은 항상 다음과 같습니다. `https://{keyvault-name}.vault.azure.net/`  
+- Key Vault에 대한 요청을 위한 기관은 항상 다음과 같습니다. 
+  - 자격 증명 모음: `https://{keyvault-name}.vault.azure.net/`
+  - 관리 되는 Hsm의 경우: `https://{HSM-name}.managedhsm.azure.net/`
 
   키는 항상 /keys 경로에 저장되며, 비밀은 항상 /secrets 경로에 저장됩니다.  
 

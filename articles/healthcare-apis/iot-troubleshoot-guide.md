@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 088d1e409f14fdba02311d1ff17eb655f6e41ad3
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053459"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982984"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>FHIR 용 Azure IoT 커넥터 (미리 보기) 문제 해결 가이드
 
@@ -26,9 +26,37 @@ ms.locfileid: "88053459"
 > [!TIP]
 > FHIR 용 Azure IoT 커넥터에 대 한 [Azure 기술 지원](https://azure.microsoft.com/support/create-ticket/) 티켓을 열 경우 문제 해결 프로세스에 도움이 되는 변환 매핑 JSON의 복사본을 포함 해야 합니다.
 
+## <a name="device-and-fhir-conversion-mapping-json-template-validations-for-azure-iot-connector-for-fhir-preview"></a>Azure IoT 커넥터에 대 한 Azure IoT 커넥터 (미리 보기)에 대 한 장치 및 FHIR 변환 매핑 JSON 템플릿 유효성 검사
+이 섹션에서는 FHIR 용 Azure IoT Connector가 장치 및 FHIR 변환의 유효성을 검사 하기 위해 수행 하는 유효성 검사 프로세스에 대해 알아봅니다. JSON 템플릿은 사용 하기 위해 저장 됩니다.  이러한 요소는 장치 및 FHIR 변환 JSON JSON에 필요 합니다.
+
+**장치 매핑**
+
+|요소|필수|
+|:-------|:------|
+|TypeName|True|
+|TypeMatchExpression|True|
+|DeviceIdExpression|True|
+|TimestampExpression|True|
+|값 []. ValueName|True|
+|값 []. ValueExpression|True|
+
+> [!NOTE]
+> 값 []. ValueName 및 Values []. ValueExpression
+>
+> 이러한 요소는 배열에 값 항목이 있는 경우에만 필요 하며, 값이 매핑되지 않은 경우에만 유효 합니다. 이는 전송할 원격 분석이 이벤트 일 때 사용 됩니다. 예: wearable IoMT 장치를 on 또는 제거 하는 경우. FHIR 용 Azure IoT 커넥터가 일치 하 고 내보내는 이름을 제외 하 고 요소에는 값이 없습니다. FHIR 변환에서 FHIR 용 Azure IoT Connector는 의미 체계 유형을 기반으로 코드를 사용할 수 있는 개념에 매핑합니다. 실제 값은 채워지지 않습니다.
+
+**FHIR 매핑**
+
+|요소|필수|
+|:------|:-------|
+|TypeName|True|
+
+> [!NOTE]
+> 지금은 유효성 검사를 수행 하는 데 필요한 FHIR 매핑 요소입니다.
+
 ## <a name="error-messages-and-fixes-for-azure-iot-connector-for-fhir-preview"></a>FHIR 용 Azure IoT 커넥터 (미리 보기)에 대 한 오류 메시지 및 수정
 
-|메시지|표시할지|조건|수정| 
+|메시지|표시할지|조건|Fix| 
 |-------|---------|---------|---|
 |매핑 이름이 잘못 되었습니다. 매핑 이름은 장치 또는 FHIR 이어야 합니다.|API|제공 된 매핑 유형은 장치 또는 FHIR이 아닙니다.|지원 되는 두 가지 매핑 유형 (예: 장치 또는 FHIR) 중 하나를 사용 합니다.|
 |유효성 검사에 실패했습니다. 필요한 정보가 누락 되었거나 잘못 되었습니다.|API 및 Azure Portal|필요한 정보 또는 요소가 누락 된 변환 매핑을 저장 하는 중입니다.|누락 된 변환 매핑 정보 또는 요소를 추가 하 고 변환 매핑을 다시 저장 하려고 합니다.|
@@ -42,8 +70,8 @@ ms.locfileid: "88053459"
 
 ##  <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Fhir (미리 보기) 데이터를 위한 Azure IoT 커넥터가 FHIR 용 Azure API에 표시 되지 않는 이유는 무엇 인가요?
 
-|잠재적 문제  |수정 프로그램            |
-|------------------|-----------------|
+|잠재적 이슈|수정 프로그램|
+|----------------|-----|
 |데이터를 계속 처리 하 고 있습니다.|데이터는 일괄 처리에서 Azure API에 egressed 됩니다 (15 분 마다).  데이터를 계속 처리할 수 있으며 데이터를 FHIR 용 Azure API에서 지속 하기 위해 추가 시간이 필요할 수 있습니다.|
 |장치 변환 매핑 JSON이 구성 되지 않았습니다.|준수 하는 장치 변환 매핑 JSON을 구성 하 고 저장 합니다.|
 |JSON 변환 매핑 JSON이 구성 되지 않았습니다.|준수 하는 FHIR 변환 매핑 JSON을 구성 하 고 저장 합니다.|
@@ -67,22 +95,22 @@ FHIR 매핑 파일에 대 한 Azure IoT 커넥터를 복사 하면 Azure Portal 
 
 1. **"추가 기능"** 섹션에서 Azure API for FHIR 리소스 대시보드의 왼쪽 아래에 있는 **"IoT 커넥터 (미리 보기)"** 를 선택 합니다.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT 커넥터" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector1" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
 
 2. 변환 매핑 JSON을 복사할 **"커넥터"** 를 선택 합니다.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT 커넥터" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > 이 프로세스를 사용 하 여 **"FHIR 매핑 구성"** JSON의 내용을 복사 하 고 저장할 수도 있습니다.
 
 3. **"장치 매핑 구성"** 을 선택 합니다.
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT 커넥터" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. JSON의 콘텐츠를 선택 하 고 복사 작업을 수행 합니다 (예: Ctrl + c 선택). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT 커넥터" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. 편집기 내의 새 파일 (예: Visual Studio Code, 메모장)에 붙여넣기 작업 (예: Ctrl + v 선택)을 수행 하 고 *. i n i 확장명을 사용 하 여 파일을 저장 합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU 장치에서 Kubernetes의 Azure Arc 사용 Microsoft Docs
-description: Azure Stack Edge GPU 장치의 기존 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하는 방법을 설명 합니다.
+title: Edge Pro GPU 장치 Azure Stack의 Kubernetes에서 Azure Arc 사용 | Microsoft Docs
+description: Azure Stack Edge Pro GPU 장치의 기존 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,27 +8,27 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 3405f28d5f306e8370bae72eb5f3f3c406235c3d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 423345739ca5c078fbff4f267e1e8a118abf107c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322027"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903196"
 ---
-# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에서 Kubernetes 클러스터에 Azure Arc 사용
+# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Kubernetes 클러스터에 Azure Arc 사용
 
-이 문서에서는 Azure Stack Edge 장치의 기존 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하는 방법을 보여 줍니다. 
+이 문서에서는 Azure Stack Edge Pro 장치의 기존 Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하는 방법을 보여 줍니다. 
 
-이 절차는 [Azure Stack Edge 장치에서 Kubernetes 워크 로드](azure-stack-edge-gpu-kubernetes-workload-management.md) 를 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
+이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 작업](azure-stack-edge-gpu-kubernetes-workload-management.md) 을 검토 하 고 [Azure Arc Enabled Kubernetes (미리 보기)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에 Azure Stack Edge 장치에서 장치에 액세스 하는 데 사용할 클라이언트에 대해 다음과 같은 필수 구성 요소를 완료 했는지 확인 합니다.
+Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에 Azure Stack Edge Pro 장치에서 장치에 액세스 하는 데 사용할 클라이언트에 대해 다음과 같은 필수 구성 요소를 완료 했는지 확인 합니다.
 
 ### <a name="for-device"></a>디바이스의 경우
 
-1. 1 노드 Azure Stack Edge 장치에 대 한 로그인 자격 증명이 있습니다.
+1. 1 노드 Azure Stack Edge Pro 장치에 로그인 자격 증명이 있어야 합니다.
     1. 장치가 활성화 됩니다. [장치 활성화를](azure-stack-edge-gpu-deploy-activate.md)참조 하세요.
     1. 장치에 Azure Portal를 통해 구성 된 계산 역할이 있으며, Kubernetes 클러스터가 있습니다. [Compute 구성](azure-stack-edge-gpu-deploy-configure-compute.md)을 참조 하세요.
 
@@ -37,19 +37,19 @@ Kubernetes 클러스터에서 Azure Arc를 사용 하도록 설정 하기 전에
 
 ### <a name="for-client-accessing-the-device"></a>장치에 액세스 하는 클라이언트
 
-1. Azure Stack Edge 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
+1. Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
   
     - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7)로 이동 합니다.
     
     - [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) 를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 
     
-1. [Azure Stack Edge 장치에서 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)에 설명 된 절차를 완료 했습니다. 수행한 작업은 다음과 같습니다.
+1. [Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)에 설명 된 절차를 완료 했습니다. 수행한 작업은 다음과 같습니다.
     
     - `kubectl`클라이언트에 설치 됨  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
-    - `kubectl`클라이언트 버전이 Azure Stack Edge 장치에서 실행 되는 Kubernetes 마스터 버전에서 둘 이상의 버전을 사용 하지 않는지 확인 합니다. 
+    - `kubectl`클라이언트 버전이 Azure Stack Edge Pro 장치에서 실행 되는 Kubernetes 마스터 버전에서 둘 이상의 버전을 사용 하지 않는지 확인 합니다. 
       - `kubectl version`클라이언트에서 실행 되는 kubectl의 버전을 확인 하는 데 사용 합니다. 전체 버전을 기록해 둡니다.
-      - Azure Stack Edge 장치의 로컬 UI에서 **소프트웨어 업데이트** 로 이동 하 여 Kubernetes 서버 버전 번호를 확인 합니다. 
+      - Azure Stack Edge Pro 장치의 로컬 UI에서 **소프트웨어 업데이트** 로 이동 하 여 Kubernetes 서버 버전 번호를 확인 합니다. 
     
         ![Kubernetes 서버 버전 번호 확인](media/azure-stack-edge-gpu-connect-powershell-interface/verify-kubernetes-version-1.png)      
       
@@ -142,9 +142,9 @@ Azure Arc 관리를 위해 Kubernetes 클러스터를 구성 하려면 다음 �
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-    Azure Stack Edge 장치에 Azure Arc를 배포 하려면 [Azure arc에 대해 지원](../azure-arc/kubernetes/overview.md#supported-regions)되는 지역을 사용 하 고 있는지 확인 합니다. Azure Arc는 현재 미리 보기 상태입니다. 명령을 사용 하 여 cmdlet에 전달할 영역의 정확한 이름을 확인할 수도 있습니다 `az account list-locations` .
+    Edge Pro 장치 Azure Stack에 Azure 호를 배포 하려면 [Azure arc에 대해 지원 되는 지역을](../azure-arc/kubernetes/overview.md#supported-regions)사용 하 고 있는지 확인 합니다. Azure Arc는 현재 미리 보기 상태입니다. 명령을 사용 하 여 cmdlet에 전달할 영역의 정확한 이름을 확인할 수도 있습니다 `az account list-locations` .
     
-    예를 들면 다음과 같습니다.
+    다음은 예제입니다.
    
     ```powershell
     [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
@@ -224,4 +224,4 @@ Azure Arc 관리를 제거 하려면 다음 단계를 수행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Arc 배포를 실행 하는 방법을 이해 하려면 [Azure Stack Edge 장치에서 GitOps를 통해 Redis을 사용 하 여 상태 비저장 PHP 방명록 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md) 를 참조 하세요.
+Azure Arc 배포를 실행 하는 방법을 이해 하려면 [Azure Stack Edge Pro 장치에서 GitOps를 통해 Redis을 사용 하 여 상태 비저장 PHP 방명록 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md) 를 참조 하세요.

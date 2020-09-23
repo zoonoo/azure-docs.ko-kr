@@ -4,12 +4,12 @@ description: Azure Monitor의 작업 규칙 및 구성 및 관리 방법 이해
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 083db4ad046ee586f139309b62eedf0fcc2ffa6a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723da36093c895a3a4aefbe66c2d8ca2ac0cba32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045723"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983136"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
@@ -21,7 +21,7 @@ ms.locfileid: "87045723"
 
 ### <a name="suppression-of-alerts"></a>경고 표시 안 함
 
-경고가 생성 하는 알림을 표시 하지 않는 것이 유용한 여러 시나리오가 있습니다. 이러한 시나리오는 업무 시간 외 시간에는 계획 된 유지 관리 기간 동안 억제에서 억제로의 범위입니다. 예를 들어 **ContosoVM** 를 담당 하는 팀은 **ContosoVM** 가 계획 된 유지 관리를 수행 하기 때문에 예정 된 주말에 대 한 경고 알림을 표시 하지 않습니다.
+경고가 생성 하는 알림을 표시 하지 않는 것이 유용한 여러 시나리오가 있습니다. 이러한 시나리오는 업무 시간 외 시간에는 계획 된 유지 관리 기간 동안 억제에서 억제로의 범위입니다. 예를 들어  **ContosoVM** 를 담당 하는 팀은 **ContosoVM** 가 계획 된 유지 관리를 수행 하기 때문에 예정 된 주말에 대 한 경고 알림을 표시 하지 않습니다.
 
 팀은 **ContosoVM** 에서 수동으로 구성 된 각 경고 규칙을 사용 하지 않도록 설정할 수 있지만 (유지 관리 후 다시 사용 하도록 설정) 간단한 프로세스가 아닙니다. 작업 규칙은 제거 기간을 유연 하 게 구성할 수 있는 기능을 사용 하 여 대규모 경고 억제를 정의 하는 데 도움이 됩니다. 이전 예제에서 팀은 주말의 모든 경고 알림을 표시 하지 않는 **ContosoVM** 에 대 한 하나의 작업 규칙을 정의할 수 있습니다.
 
@@ -44,17 +44,17 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
 **+ 새 작업 규칙**을 선택 합니다.
 
-![새 작업 규칙 추가](media/alerts-action-rules/action-rules-new-rule.png)
+![스크린샷에 새 작업 규칙 단추가 강조 표시 된 작업 관리 페이지가 표시 됩니다.](media/alerts-action-rules/action-rules-new-rule.png)
 
 또는 경고 규칙을 구성 하는 동안 작업 규칙을 만들 수 있습니다.
 
-![새 작업 규칙 추가](media/alerts-action-rules/action-rules-alert-rule.png)
+![작업 규칙 만들기 단추가 강조 표시 된 규칙 만들기 페이지가 표시 됩니다.](media/alerts-action-rules/action-rules-alert-rule.png)
 
 이제 작업 규칙을 만들기 위한 흐름 페이지가 표시 됩니다. 다음 요소를 구성 합니다.
 
 ![새 작업 규칙 만들기 흐름](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>범위
+### <a name="scope"></a>Scope
 
 먼저 범위 (Azure 구독, 리소스 그룹 또는 대상 리소스)를 선택 합니다. 단일 구독 내에서 범위 조합을 여러 개 선택할 수도 있습니다.
 
@@ -117,7 +117,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
    원한다 면 Azure Cloud Shell를 사용 하 여이 문서의 단계를 완료할 수도 있습니다.  Azure Cloud Shell는 브라우저를 통해 사용 하는 대화형 셸 환경입니다.  다음 방법 중 하나를 사용 하 여 Cloud Shell를 시작 합니다.
 
-   - 다음으로 이동 하 여 Cloud Shell을 엽니다.[https://shell.azure.com](https://shell.azure.com)
+   - 다음으로 이동 하 여 Cloud Shell을 엽니다. [https://shell.azure.com](https://shell.azure.com)
 
    - [Azure Portal](https://portal.azure.com) 의 오른쪽 위 모퉁이에 있는 메뉴 모음에서 **Cloud Shell** 단추를 선택 합니다.
 
@@ -255,7 +255,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 [결과 수](alerts-unified-log.md) 옵션을 사용 하 여 만든 로그 경고는 전체 검색 결과 (여러 컴퓨터에 걸쳐 있을 수 있음)를 사용 하 여 단일 경고 인스턴스를 생성 합니다. 이 시나리오에서 작업 규칙은 **경고 컨텍스트 (페이로드)** 필터를 사용 하는 경우 일치 하는 항목이 있는 한 경고 인스턴스에 대해 작동 합니다. 앞서 설명한 시나리오 2에서는 생성 된 로그 경고에 대 한 검색 결과에 **컴퓨터-01** 과 **컴퓨터-02**가 모두 포함 되어 있으면 전체 알림이 표시 되지 않습니다. **컴퓨터 02** 에 대해 전혀 생성 된 알림이 없습니다.
 
-![작업 규칙 및 로그 경고 (결과 수)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
+![다이어그램에는 단일 경고 인스턴스가 강조 표시 된 작업 규칙 및 로그 경고가 표시 됩니다.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
 작업 규칙과 함께 로그 경고를 사용 하는 것이 가장 좋습니다. [메트릭 측정](alerts-unified-log.md) 옵션을 사용 하 여 로그 경고를 만듭니다. 이 옵션은 정의 된 그룹 필드에 따라 별도의 경고 인스턴스를 생성 합니다. 그런 다음 시나리오 2에서는 **컴퓨터-01** 및 **컴퓨터-02**에 대 한 별도의 경고 인스턴스가 생성 됩니다. 시나리오에 설명 된 작업 규칙 때문에 **컴퓨터-01** 에 대 한 알림만 표시 되지 않습니다. **컴퓨터 02** 에 대 한 알림은 정상적으로 계속 해 서 발생 합니다.
 
@@ -272,7 +272,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 * 상위 집합: 예를 들어, 정의 하는 작업 규칙은 리소스 그룹에 있고 겹치는 작업 규칙은 리소스 그룹을 포함 하는 구독에 있습니다.
 * 교집합: 예를 들어 정의 하는 작업 규칙은 **VM1** 및 **v m 2**에 있고 겹치는 작업 규칙은 **v m 2** 및 **v m 3**에 있습니다.
 
-![겹치는 작업 규칙](media/alerts-action-rules/action-rules-overlapping.png)
+![스크린샷 동일한 범위 창에 정의 된 작업 규칙에 표시 되는 겹치는 동작 규칙을 포함 하는 새 작업 규칙 페이지를 표시 합니다.](media/alerts-action-rules/action-rules-overlapping.png)
 
 ### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>경고 규칙을 구성 하는 동안 정의 하는 경고 규칙에 대해 수행할 수 있는 작업 규칙이 이미 정의 되어 있는지 확인할 수 있나요?
 
