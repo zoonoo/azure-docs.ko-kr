@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor 통합 문서 개요
-description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합 문서를 사용하여 복잡한 보고 간소화
+description: 통합 문서에서 데이터 분석을 위한 유연한 캔버스를 제공 하 고 Azure Portal 내에서 풍부한 시각적 보고서를 만드는 방법에 대해 알아봅니다.
 author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 18e757ccac56d2165a1b46bb73a698ac754177b7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d6ac552640b4a557c51b674624e6a4493241e0ed
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657945"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977560"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor 통합 문서
 

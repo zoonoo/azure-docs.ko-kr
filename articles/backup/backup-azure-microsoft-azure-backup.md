@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용하여 워크로드 백업
 description: 이 문서에서는 MABS(Microsoft Azure Backup Server)를 사용하여 워크로드를 보호 및 백업하기 위한 환경을 준비하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 79abf55fdbaae80a84618f6944870131dcd82c89
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181700"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975502"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -59,7 +59,7 @@ Azure에서 기본 서버를 실행 하지 않으려는 경우 Hyper-v VM, VMwar
 | Windows Server 2019 |64비트 |Standard, Datacenter, Essentials |
 | Windows Server 2016 및 최신 SP |64비트 |Standard, Datacenter, Essentials  |
 
-Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거할 수 있습니다. [DPM 및 중복 제거](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) 가 Hyper-V VM에 배포될 때 함께 작동하는 방법에 대해 자세히 알아보세요.
+Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거할 수 있습니다. [DPM 및 중복 제거](/system-center/dpm/deduplicate-dpm-storage) 가 Hyper-V VM에 배포될 때 함께 작동하는 방법에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > Azure Backup Server는 단일 용도의 전용 서버에서 실행하도록 설계되었습니다. 에 Azure Backup Server을 설치할 수 없습니다.
@@ -80,7 +80,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
 ### <a name="set-storage-replication"></a>스토리지 복제 설정
 
-스토리지 복제 옵션을 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [지역 중복](../storage/common/storage-redundancy.md) 및 [로컬 중복](../storage/common/storage-redundancy.md) 스토리지 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
+스토리지 복제 옵션을 사용하면 지역 중복 스토리지와 로컬 중복 스토리지 중에서 선택할 수 있습니다. 기본적으로 Recovery Services 자격 증명 모음은 지역 중복 스토리지를 사용합니다. 이 자격 증명 모음이 기본 자격 증명 모음인 경우 스토리지 옵션을 지역 중복 스토리지 상태로 둡니다. 오래 지속되지 않는 저렴한 옵션을 원하는 경우에는 로컬 중복 스토리지를 선택합니다. [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)에서 [지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage), [로컬 중복](../storage/common/storage-redundancy.md#locally-redundant-storage) 및 [영역 중복](../storage/common/storage-redundancy.md#zone-redundant-storage) 저장소 옵션에 대해 자세히 알아보세요.
 
 스토리지 복제 설정을 편집하려면
 
@@ -89,7 +89,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
 3. 저장소 복제 유형을 선택 하 고 **저장**을 선택 합니다.
 
-     ![새 자격 증명 모음의 스토리지 구성 설정](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![새 자격 증명 모음의 스토리지 구성 설정](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
 ## <a name="software-package"></a>소프트웨어 패키지
 
@@ -199,7 +199,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     ![파일 설치 위치 제공](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    스크래치 위치는 Azure에 백업에 대한 요구 사항입니다. 스크래치 위치가 클라우드로 백업할 계획된 데이터의 5%인지 확인하세요. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 저장소 풀에 대 한 자세한 내용은 [데이터 저장소 준비](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019)를 참조 하세요.
+    스크래치 위치는 Azure에 백업에 대한 요구 사항입니다. 스크래치 위치가 클라우드로 백업할 계획된 데이터의 5%인지 확인하세요. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 저장소 풀에 대 한 자세한 내용은 [데이터 저장소 준비](/system-center/dpm/plan-long-and-short-term-data-storage)를 참조 하세요.
 5. 제한 된 로컬 사용자 계정에 대 한 강력한 암호를 입력 하 고 **다음**을 선택 합니다.
 
     ![강력한 암호 제공](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -362,7 +362,7 @@ Azure Backup 서버 컴퓨터에 Azure에 대한 연결이 복원되면 수행�
 
 ## <a name="next-steps"></a>다음 단계
 
-[DPM을 위한 환경 준비](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019)에 관한 자세한 내용은 여기에서 확인할 수 있습니다. 또한 여기에는 Azure Backup 서버를 배포 및 사용하는 데 지원되는 구성에 대한 정보도 포함되어 있습니다. 일련의 [PowerShell cmdlet](/powershell/module/dataprotectionmanager/) 을 사용 하 여 다양 한 작업을 수행할 수 있습니다.
+[DPM을 위한 환경 준비](/system-center/dpm/prepare-environment-for-dpm)에 관한 자세한 내용은 여기에서 확인할 수 있습니다. 또한 여기에는 Azure Backup 서버를 배포 및 사용하는 데 지원되는 구성에 대한 정보도 포함되어 있습니다. 일련의 [PowerShell cmdlet](/powershell/module/dataprotectionmanager/) 을 사용 하 여 다양 한 작업을 수행할 수 있습니다.
 
 Microsoft Azure Backup 서버를 사용하여 워크로드 보호를 더 깊이 이해하려면 다음 문서를 사용할 수 있습니다.
 

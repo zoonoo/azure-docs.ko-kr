@@ -8,12 +8,12 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 1f8f4dee2ed1e6dc5cdf6985c1149db0dcaed7c2
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ab4783d2bcce6ec42d49ef9a3e70d7a1acf83b8d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185930"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906583"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Node.js를 사용하여 MySQL용 Azure Database에서 데이터 연결 및 쿼리
 
@@ -93,7 +93,7 @@ MySQL용 Azure Database에 연결하는 데 필요한 연결 정보를 가져옵
 2. Azure Portal의 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, 생성한 서버를 검색합니다(예: **mydemoserver**).
 3. 서버 이름을 선택합니다.
 4. 서버의 **개요** 패널에 있는 **서버 이름**과 **서버 관리자 로그인 이름**을 기록해 둡니다. 암호를 잊어버리면 이 패널에서 암호를 재설정할 수 있습니다.
- ![MySQL용 Azure Database 서버 이름](./media/connect-nodejs/server-name-azure-database-mysql.png)
+ :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="MySQL용 Azure Database 서버 이름":::
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Node.js에서 JavaScript 코드 실행
 

@@ -11,15 +11,14 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 43d8211c7cbe5d785f6004157ff40c0bf9dfa788
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 359c2a27099ca298076edc255b8c30e226af0a18
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664584"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882950"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>가상 네트워크를 사용 하 여 Azure Machine Learning 추론 환경 보호
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning의 가상 네트워크를 사용 하 여 추론 환경을 보호 하는 방법에 대해 알아봅니다.
 
@@ -36,7 +35,7 @@ ms.locfileid: "89664584"
 > - ACI(Azure Container Instances)
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 일반적인 가상 네트워크 시나리오 및 전반적인 가상 네트워크 아키텍처를 이해 하려면 [네트워크 보안 개요](how-to-network-security-overview.md) 문서를 참조 하세요.
 

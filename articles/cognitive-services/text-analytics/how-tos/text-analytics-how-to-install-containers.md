@@ -11,19 +11,20 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 61303a52212c4cec88dee2ccd8a1c08fb971a9b8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a83fd67a9ad5e5a36555fcbaed65b1d76936c33d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545661"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906127"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
 > [!NOTE]
 > * 감정 분석 v3의 컨테이너가 이제 일반 공급 됩니다. 핵심 구 추출 및 언어 검색 컨테이너는 제어되지 않은 공개 미리 보기로 제공됩니다.
 > * 엔터티 링크 및 NER는 현재 컨테이너로 사용할 수 없습니다.
-> * 현재 상태 컨테이너 사용에 대한 Text Analytics에 대해서는 요금이 청구되지 않습니다.
+> * 상태 컨테이너의 Text Analytics에 액세스 하려면 [요청 양식이](https://aka.ms/cognitivegate)필요 합니다. 현재 사용에 대 한 요금이 청구 되지 않습니다.
+> * 컨테이너 이미지 위치가 최근에 변경 되었을 수 있습니다. 이 컨테이너의 업데이트 된 위치를 확인 하려면이 문서를 참조 하세요.
 
 컨테이너를 사용하면 사용자 환경에서 Text Analytic API를 실행할 수 있으며 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다. Text Analytics 컨테이너는 원시 텍스트에 대 한 고급 자연어 처리를 제공 하며, 감정 분석, 핵심 구 추출 및 언어 감지 라는 세 가지 주요 함수를 포함 합니다. 
 
@@ -40,7 +41,7 @@ Text Analytics 컨테이너를 실행 하려면 호스트 컴퓨터와 컨테이
 
 Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 
-|필수|용도|
+|필수|목적|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ce5bc3b4e5ccd26ec3f6b35c995ebe2274042c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ff647581447ad4436daf6c8b1d2ecbf817f7f8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749717"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983637"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Azure 가상 WAN 로그 및 메트릭
 
@@ -60,9 +60,9 @@ Azure Express 경로 게이트웨이에서는 다음 메트릭을 사용할 수 
 
 2. **VPN (사이트 간)** 을 선택 하 여 사이트 간 게이트웨이를 찾습니다. **express** 경로를 선택 하 여 express 경로 게이트웨이를 찾거나 **사용자 VPN (지점 및 사이트 간)** 을 선택 하 여 지점 및 사이트 간 게이트웨이를 찾습니다. 페이지에서 게이트웨이 정보를 볼 수 있습니다. 이 정보를 복사 합니다. 나중에 Azure Monitor를 사용 하 여 진단을 확인 하는 데 사용 합니다.
 
-3. **메트릭**을 선택 합니다.
+3. **메트릭**을 선택합니다.
 
-   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="성과":::
+   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="스크린샷 Azure Monitor 선택 된 보기가 포함 된 사이트 간 V P N 창을 보여 줍니다.":::
 
 4. **메트릭** 페이지에서 관심 있는 메트릭을 볼 수 있습니다.
 

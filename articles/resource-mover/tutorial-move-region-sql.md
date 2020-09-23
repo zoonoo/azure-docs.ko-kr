@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0718151039d88ffb76a07ce082c08fb011dab88b
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652518"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061610"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>자습서: Azure SQL Database 리소스를 다른 지역으로 이동
 
@@ -77,7 +77,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 3. **리소스 이동** > **원본 + 대상**에서 원본 구독과 지역을 선택합니다.
 4. **대상**에서 리소스를 이동하려는 지역을 선택합니다. 그런 다음 **다음**을 클릭합니다.
-5. **메타데이터 지역**에서 이동하는 리소스에 대한 메타데이터를 저장하려는 위치를 선택합니다. 이 목적을 위해 리소스 그룹이 특별히 만들어집니다. 그런 다음 **다음**을 클릭합니다.
 
     ![원본 및 대상 지역을 선택하는 페이지](./media/tutorial-move-region-sql/source-target.png)
 
@@ -88,7 +87,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 8. **이동할 리소스**에서 **다음**을 클릭합니다.
 
-9. **검토 + 추가**에서 원본 및 대상 설정을 확인합니다. 이동에 대한 메타데이터가 메타데이터 지역에서 이 목적을 위해 만들어진 리소스 그룹에 저장된다는 것을 이해해야 합니다.
+9. **검토 + 추가**에서 원본 및 대상 설정을 확인합니다. 이동에 대한 메타데이터가 저장을 목적으로 생성된 메타데이터 지역의 리소스 그룹에 저장된다는 것을 이해해야 합니다.
 
 
     ![설정을 검토하고 이동을 계속하는 페이지](./media/tutorial-move-region-sql/review.png)
@@ -227,7 +226,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 처음 이동한 후에는 이동을 커밋할지 아니면 취소할지를 결정할 수 있습니다. 
 
 - **취소**: 테스트하는 중에 원본 리소스를 실제로 이동하지 않으려는 경우 이동을 취소할 수 있습니다. 이동이 취소되면 리소스가 **이동 시작 보류 중** 상태로 돌아갑니다.
-- **커밋**: 커밋은 대상 지역으로의 이동을 완료합니다. 커밋 후 원본 리소스는 **원본 삭제 보류 중** 상태가 되며 삭제할지 여부를 결정할 수 있습니다.
+- **커밋**: 커밋은 대상 지역으로의 이동을 완료합니다. 커밋 후 원본 리소스는 **원본 삭제 보류 중** 상태가 되며 삭제 여부를 결정할 수 있습니다.
 
 
 ## <a name="discard-the-move"></a>이동 취소 

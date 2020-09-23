@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e6fb2f09200e42f7ad7781716bb83ab418134509
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 089c53c72ae2c4cf6216937e8977b64a7abf80fc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516144"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983209"
 ---
 # <a name="azure-activity-log"></a>Azure 활동 로그
 활동 로그는 구독 수준 이벤트에 대 한 통찰력을 제공 하는 Azure의 [플랫폼 로그](platform-logs-overview.md) 입니다. 여기에는 리소스가 수정되거나 가상 머신이 시작되는 등의 이벤트 정보가 포함됩니다. Azure Portal에서 활동 로그를 보거나 PowerShell 및 CLI를 사용하여 항목을 검색할 수 있습니다. 추가 기능을 위해 활동 로그를 [Azure Monitor 로그](data-platform-logs.md), azure Event Hubs에서 azure로 전달 하거나 보관을 위해 Azure Storage 전송 하는 진단 설정을 만들어야 합니다. 이 문서에서는 활동 로그를 보고 다른 대상으로 보내는 방법에 대 한 세부 정보를 제공 합니다.
@@ -156,7 +156,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 각 PT1H.json Blob은 Blob URL에 지정된 시간 내에서 발생한 이벤트의 JSON Blob을 포함합니다(예: h=12). 현재 시간 동안 이벤트는 발생하는 순서대로 PT1H.json 파일에 추가됩니다. 리소스 로그 이벤트는 시간당 개별 blob으로 분할 되므로 분 값 (m = 00)은 항상 00입니다.
 
-각 이벤트는 공통 최상위 스키마를 사용 하지만 [활동 로그 스키마](activity-log-schema.md)에 설명 된 대로 각 범주에 대해 고유한 다음 형식의 PT1H.js파일에 저장 됩니다.
+각 이벤트는 공통 최상위 스키마를 사용 하지만  [활동 로그 스키마](activity-log-schema.md)에 설명 된 대로 각 범주에 대해 고유한 다음 형식의 PT1H.js파일에 저장 됩니다.
 
 ``` JSON
 { "time": "2020-06-12T13:07:46.766Z", "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MV-VM-01", "correlationId": "0f0cb6b4-804b-4129-b893-70aeeb63997e", "operationName": "Microsoft.Resourcehealth/healthevent/Updated/action", "level": "Information", "resultType": "Updated", "category": "ResourceHealth", "properties": {"eventCategory":"ResourceHealth","eventProperties":{"title":"This virtual machine is starting as requested by an authorized user or process. It will be online shortly.","details":"VirtualMachineStartInitiatedByControlPlane","currentHealthStatus":"Unknown","previousHealthStatus":"Unknown","type":"Downtime","cause":"UserInitiated"}}}
@@ -202,11 +202,11 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
     | 속성 | 필수 | 설명 |
     | --- | --- | --- |
     | 이름 |예 |로그 프로필의 이름입니다. |
-    | StorageAccountId |아니요 |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
-    | serviceBusRuleId |아니요 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. 형식으로 된 문자열입니다 `{service bus resource ID}/authorizationrules/{key name}` . |
+    | StorageAccountId |예 |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
+    | serviceBusRuleId |예 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. 형식으로 된 문자열입니다 `{service bus resource ID}/authorizationrules/{key name}` . |
     | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
     | RetentionInDays |예 |저장소 계정에서 이벤트를 보존 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한 저장합니다. |
-    | 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기_, _삭제_및 _동작_입니다. |
+    | 범주 |예 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기_, _삭제_및 _동작_입니다. |
 
 ### <a name="example-script"></a>예제 스크립트
 다음은 저장소 계정 및 이벤트 허브 모두에 활동 로그를 기록 하는 로그 프로필을 만드는 샘플 PowerShell 스크립트입니다.
@@ -259,7 +259,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 1. 작업 영역 메뉴의 **작업 영역 데이터 원본** 섹션에서 **Azure 활동 로그**를 선택 합니다.
 1. 연결 하려는 구독을 클릭 합니다.
 
-    ![작업 영역](media/activity-log-collect/workspaces.png)
+    ![Azure 활동 로그가 선택 된 Log Analytics 작업 영역을 보여 주는 스크린샷](media/activity-log-collect/workspaces.png)
 
 1. **연결** 을 클릭 하 여 구독의 활동 로그를 선택한 작업 영역에 연결 합니다. 구독이 다른 작업 영역에 이미 연결 되어 있는 경우 먼저 **연결 끊기** 를 클릭 하 여 연결을 끊습니다.
 

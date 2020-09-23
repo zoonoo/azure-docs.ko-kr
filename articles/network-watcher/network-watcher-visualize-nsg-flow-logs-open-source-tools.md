@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6d2b2fb55a9c23643bbb778ced047e75871ba7f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807678"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986247"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화
 
@@ -29,7 +29,7 @@ ms.locfileid: "84807678"
 
 이 문서에서는 탄력적인 스택을 사용하여 네트워크 보안 그룹 흐름 로그를 시각화할 수 있는 솔루션을 설정합니다.  Logstash 입력 플러그 인은 흐름 로그를 포함하기 위해 구성된 Blob Storage에서 직접 흐름 로그를 가져옵니다. 그런 다음, 탄력적인 스택을 사용하여 흐름 로그가 인덱싱되고, 흐름 로그로 Kibana 대시보드를 만들어 정보를 시각화합니다.
 
-![시나리오][scenario]
+![다이어그램은 탄력적 스택을 사용 하 여 네트워크 보안 그룹 흐름 로그를 시각화할 수 있는 시나리오를 보여 줍니다.][scenario]
 
 ## <a name="steps"></a>단계
 
@@ -215,27 +215,27 @@ Kibana의 **관리** 탭 아래에서 **저장된 개체**로 이동하고 세 �
 
 1. Flows by Decision/Direction Over Time - 기간별 흐름 수를 보여주는 시계열 그래프입니다. 이러한 시각화 요소의 시간 단위와 범위를 편집할 수 있습니다. Flows by Decision은 허용 또는 거부 결정의 비율을 보여주고, Flows by Direction은 인바운드 및 아웃바운드 트래픽의 비율을 보여줍니다. 이러한 시각 효과를 사용하면 시간에 따른 트래픽 추세를 검토할 수 있고 스파이크 또는 비정상 패턴을 찾을 수 있습니다.
 
-   ![figure2][2]
+   ![스크린샷에는 결정 및 시간별 흐름이 있는 샘플 대시보드가 표시 됩니다.][2]
 
 2. Flows by Destination/Source Port - 각 해당 포트에 대한 흐름의 분석 결과를 보여 주는 원형 차트입니다. 이 보기를 사용하면 가장 자주 사용되는 포트를 볼 수 있습니다. 원형 차트 내에서 특정 포트를 클릭하면 대시보드의 나머지 부분이 해당 포트의 흐름으로 필터링됩니다.
 
-   ![figure3][3]
+   ![스크린샷 대상 및 원본 포트당 흐름이 있는 샘플 대시보드를 보여 줍니다.][3]
 
 3. Number of Flows 및 Earliest Log Time – 기록된 흐름 수 및 가장 빨리 캡처된 로그의 날짜를 보여주는 메트릭입니다.
 
-   ![figure4][4]
+   ![스크린샷는 흐름 수와 가장 이른 로그 시간을 포함 하는 샘플 대시보드를 보여 줍니다.][4]
 
 4. Flows by NSG and Rule – 각 NSG 내 흐름 분포와 각 NSG 내 규칙 분포를 보여주는 막대 그래프입니다. 여기에서 어떤 NSG와 규칙이 가장 많은 트래픽을 생성했는지 볼 수 있습니다.
 
-   ![figure5][5]
+   ![스크린샷은 N S G 및 규칙으로 흐르는 샘플 대시보드를 보여 줍니다.][5]
 
 5. Top 10 Source/Destination IPs - 상위 10개의 원본 및 대상 IP를 보여주는 막대형 차트입니다. 이러한 차트를 조정하여 표시되는 상위 IP를 늘리거나 줄일 수 있습니다. 여기에서 가장 자주 발생하는 IP와 각 IP에 대해 수행되는 트래픽 의사 결정(허용 또는 거부)을 볼 수 있습니다.
 
-   ![figure6][6]
+   ![스크린샷은 상위 10 개 원본 및 대상 I P 주소를 통해 흐름이 있는 샘플 대시보드를 보여 줍니다.][6]
 
 6. Flow Tuples - 이 표에서는 각 흐름 튜플 내에 포함된 정보와 해당하는 NGS 및 규칙을 보여줍니다.
 
-   ![figure7][7]
+   ![테이블의 흐름 튜플을 보여 주는 스크린샷][7]
 
 대시보드 맨 위에 있는 쿼리 표시줄을 사용하여 구독 ID, 리소스 그룹, 규칙 또는 원하는 다른 변수 같은 흐름의 모든 매개 변수를 기준으로 대시보드를 필터링할 수 있습니다. Kibana의 쿼리 및 필터에 대한 자세한 내용을 보려면 [공식 설명서](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)를 참조하세요.
 

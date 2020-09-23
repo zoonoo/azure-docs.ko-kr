@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 07/6/2020
-ms.openlocfilehash: d62fd0a23a5f5553f27c7a399eb17d06d427a6f3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c6c878aa0e4a9d5caa22f7cd94c438f22a81d2ab
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108790"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90881869"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure Stream Analytics란?
 
@@ -57,7 +57,7 @@ Stream Analytics 출력의 전체 목록은 [Azure Stream Analytics의 출력 �
 
 ## <a name="programmer-productivity"></a>프로그래머 생산성
 
-Azure Stream Analytics는 강력한 임시 제약 조건으로 강화된 간단한 SQL 기반 쿼리 언어를 사용하여 이동 중인 데이터를 분석합니다. 작업 변환을 정의하려면 간단한 SQL 구문을 사용하여 복잡한 임시 쿼리 및 분석을 작성하도록 하는 간단하고 선언적인 [Stream Analytics 쿼리 언어](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)를 사용합니다. Stream Analytics 쿼리 언어는 SQL 언어와 일치하므로 SQL에 익숙하면 작업 만들기를 시작하는 데도 충분히 익숙합니다. 또한 작업은 Azure PowerShell, [Stream Analytics Visual Studio 도구](stream-analytics-tools-for-visual-studio-install.md), [Stream Analytics Visual Studio Code 확장](quick-create-vs-code.md) 또는 Azure Resource Manager 템플릿과 같은 개발자 도구를 사용하여 만들 수 있습니다. 개발자 도구를 사용하면 변환 쿼리를 오프라인에서 개발하고 [CI/CD 파이프라인](stream-analytics-tools-for-visual-studio-cicd.md)을 사용하여 Azure에 작업을 제출할 수 있습니다.
+Azure Stream Analytics는 강력한 임시 제약 조건으로 강화된 간단한 SQL 기반 쿼리 언어를 사용하여 이동 중인 데이터를 분석합니다. 작업 변환을 정의하려면 간단한 SQL 구문을 사용하여 복잡한 임시 쿼리 및 분석을 작성하도록 하는 간단하고 선언적인 [Stream Analytics 쿼리 언어](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)를 사용합니다. Stream Analytics 쿼리 언어는 SQL 언어와 일치하므로 SQL에 익숙하면 작업 만들기를 시작하는 데도 충분히 익숙합니다. 또한 작업은 Azure PowerShell, [Stream Analytics Visual Studio 도구](stream-analytics-tools-for-visual-studio-install.md), [Stream Analytics Visual Studio Code 확장](quick-create-visual-studio-code.md) 또는 Azure Resource Manager 템플릿과 같은 개발자 도구를 사용하여 만들 수 있습니다. 개발자 도구를 사용하면 변환 쿼리를 오프라인에서 개발하고 [CI/CD 파이프라인](stream-analytics-tools-for-visual-studio-cicd.md)을 사용하여 Azure에 작업을 제출할 수 있습니다.
 
 Stream Analytics 쿼리 언어는 스트리밍 데이터를 분석하고 처리하기 위한 다양한 배열의 함수를 제공합니다. 이 쿼리 언어는 간단한 데이터 조작, 집계 및 분석 함수, [지리 공간적 함수](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-geospatial-functions), [패턴 일치](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics) 및 [변칙 검색](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection)을 지원합니다. 포털에서 쿼리를 편집하고 라이브 스트림에서 추출된 샘플 데이터를 사용하여 테스트할 수 있습니다.
 
@@ -106,4 +106,4 @@ Stream Analytics는 매초 수백만 개의 이벤트를 처리할 수 있으며
 * [Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
 * [Azure PowerShell을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
 * [Visual Studio를 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [Visual Studio Code를 사용하여 Stream Analytics 작업 만들기](quick-create-vs-code.md)
+* [Visual Studio Code를 사용하여 Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)

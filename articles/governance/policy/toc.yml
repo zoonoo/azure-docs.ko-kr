@@ -86,12 +86,18 @@
     - name: 효과 이해
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Scope
+      displayName: 'location, notScope, exemption, waiver, save'
+      href: ./concepts/scope.md
     - name: 이니셔티브 구조
       displayName: 'parameters, groups, domains, policies'
       href: ./concepts/initiative-definition-structure.md
     - name: 할당 구조
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
+    - name: 예외 구조
+      displayName: 'waiver, mitigated, compliance'
+      href: ./concepts/exemption-structure.md
     - name: 새 정책의 영향 평가
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md

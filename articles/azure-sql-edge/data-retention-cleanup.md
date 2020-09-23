@@ -1,6 +1,6 @@
 ---
-title: 보존 정책을 사용 하 여 기록 데이터 관리-Azure SQL Edge (미리 보기)
-description: Azure SQL Edge (미리 보기)에서 보존 정책을 사용 하 여 기록 데이터를 관리 하는 방법을 알아봅니다.
+title: 보존 정책을 사용 하 여 기록 데이터 관리-Azure SQL Edge
+description: Azure SQL Edge에서 보존 정책을 사용 하 여 기록 데이터를 관리 하는 방법을 알아봅니다.
 keywords: SQL Edge, 데이터 보존
 services: sql-edge
 ms.service: sql-edge
@@ -9,22 +9,21 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9acec467819f159623176edf2f3f763a55019eb4
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550697"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888131"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>보존 정책을 사용 하 여 기록 데이터 관리
 
 사용자가 테이블 및 데이터베이스에 대해 유연한 에이징 정책을 만들 수 있도록 데이터베이스 및 기본 테이블 중 하나에서 데이터 보존을 개별적으로 사용 하도록 설정할 수 있습니다. 데이터 보존을 적용 하는 작업은 간단 합니다. 테이블을 만드는 동안 또는 alter table 작업의 일부로 하나의 매개 변수만 설정 해야 합니다. 
 
-데이터베이스 및 기본 테이블에 대 한 데이터 보존 정책을 정의 한 후에는 백그라운드 시간 타이머 태스크가 실행 되어 데이터 보존에 사용 되는 테이블에서 사용 되지 않는 레코드를 제거 합니다. 시스템에서 예약 하 고 실행 하는 백그라운드 태스크에서는 일치 하는 행 및 테이블에서 제거 된 항목의 id가 투명 하 게 발생 합니다. 테이블 정의의로 사용 된 열을 기반으로 테이블 행에 대 한 사용 기간 조건을 확인 합니다 `filter_column` . 예를 들어 보존 기간이 1 주일으로 설정 된 경우 정리에 적합 한 테이블 행은 다음 조건을 충족 합니다. 
+데이터베이스 및 기본 테이블에 대 한 데이터 보존 정책을 정의 한 후에는 백그라운드 시간 타이머 태스크가 실행 되어 데이터 보존에 사용 되는 테이블에서 사용 되지 않는 레코드를 제거 합니다. 시스템에서 예약 하 고 실행 하는 백그라운드 태스크에서는 일치 하는 행 및 테이블에서 제거 된 항목의 id가 투명 하 게 발생 합니다. 테이블 정의의로 사용 된 열을 기반으로 테이블 행에 대 한 사용 기간 조건을 확인 합니다 `filter_column` . 예를 들어 보존 기간이 1 주일으로 설정 된 경우 정리에 적합 한 테이블 행은 다음 조건 중 하나를 만족 합니다. 
 
-```sql
-filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())
-```
+- 필터 열에 DATETIMEOFFSET 데이터 형식이 사용 되는 경우 조건은입니다. `filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())`
+- 그 밖의 조건은 `filter_column < DATEADD(WEEK, -1, SYSDATETIME())`
 
 ## <a name="data-retention-cleanup-phases"></a>데이터 보존 정리 단계
 
@@ -37,7 +36,7 @@ filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())
 
 ## <a name="manual-cleanup"></a>수동 정리
 
-테이블의 데이터 보존 설정 및 데이터베이스 작업의 특성에 따라 자동 정리 스레드가 실행 중 사용 되지 않는 모든 행을 완전히 제거 하지 못할 수 있습니다. 이를 지원 하 고 사용자가 사용 되지 않는 행을 수동으로 제거 하도록 허용 하기 위해 `sys.sp_cleanup_data_retention` 저장 프로시저가 AZURE SQL Edge (미리 보기)에 도입 되었습니다. 
+테이블의 데이터 보존 설정 및 데이터베이스 작업의 특성에 따라 자동 정리 스레드가 실행 중 사용 되지 않는 모든 행을 완전히 제거 하지 못할 수 있습니다. 이를 지원 하 고 사용자가 사용 되지 않는 행을 수동으로 제거 하도록 허용 하기 위해 `sys.sp_cleanup_data_retention` 저장 프로시저가 AZURE SQL Edge에 도입 되었습니다. 
 
 이 저장 프로시저는 세 개의 매개 변수를 사용 합니다. 
     - 스키마 이름-테이블에 대 한 소유 하는 스키마의 이름입니다. 필수 매개 변수입니다. 
@@ -67,18 +66,20 @@ select @rowcnt
 
 ## <a name="monitoring-data-retention-cleanup"></a>데이터 보존 정리 모니터링
 
-Azure SQL Edge (미리 보기)에서 확장 이벤트 (Xevent)를 사용 하 여 데이터 보존 정책 정리 작업을 모니터링할 수 있습니다. 확장 이벤트에 대 한 자세한 내용은 [Xevent 개요](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)를 참조 하세요.
+Azure SQL Edge에서 확장 이벤트 (Xevent)를 사용 하 여 데이터 보존 정책 정리 작업을 모니터링할 수 있습니다. 확장 이벤트에 대 한 자세한 내용은 [Xevent 개요](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)를 참조 하세요. 
 
 다음 6 개의 확장 이벤트는 정리 작업의 상태를 추적 하는 데 도움이 됩니다. 
 
-| Name | Description |
+| 이름 | 설명 |
 |------| ------------|
 | data_retention_task_started  | 보존 정책이 있는 테이블의 정리를 위한 백그라운드 작업이 시작 될 때 발생 합니다. |
 | data_retention_task_completed  | 보존 정책이 있는 테이블의 정리를 위한 백그라운드 작업이 종료 될 때 발생 합니다. |
 | data_retention_task_exception  | 보존 정책이 있는 테이블의 정리를 위한 백그라운드 작업이 테이블과 관련 된 보존 정리 프로세스 외부에서 실패할 때 발생 합니다. |
 | data_retention_cleanup_started  | 데이터 보존 정책이 있는 테이블의 정리 프로세스가 시작 될 때 발생 합니다. |
 | data_retention_cleanup_exception  | 보존 정책이 있는 테이블의 정리 프로세스가 실패 하는 경우 발생 합니다. |
-| data_retention_cleanup_completed  | 데이터 보존 정책이 있는 테이블의 정리 프로세스가 종료 될 때 발생 합니다. |
+| data_retention_cleanup_completed  | 데이터 보존 정책이 있는 테이블의 정리 프로세스가 종료 될 때 발생 합니다. |  
+
+또한 라는 새 링 버퍼 형식이 `RING_BUFFER_DATA_RETENTION_CLEANUP` dm_os_ring_buffers 동적 관리 뷰에 추가 되었습니다. 이 보기를 사용 하 여 데이터 보존 정리 작업을 모니터링할 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

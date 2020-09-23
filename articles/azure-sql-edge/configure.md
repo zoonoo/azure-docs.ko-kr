@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Edge(미리 보기) 구성
-description: Azure SQL Edge (미리 보기)를 구성 하는 방법에 대해 알아봅니다.
+title: Azure SQL Edge 구성
+description: Azure SQL Edge를 구성 하는 방법에 대해 알아봅니다.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -8,15 +8,15 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/28/2020
-ms.openlocfilehash: 722d33e76b6009a44811dfcb8a3238b042ec6918
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/22/2020
+ms.openlocfilehash: b2c52457972d94b2e999c137d19d3a434ff17a7d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816884"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888400"
 ---
-# <a name="configure-azure-sql-edge-preview"></a>Azure SQL Edge(미리 보기) 구성
+# <a name="configure-azure-sql-edge"></a>Azure SQL Edge 구성
 
 Azure SQL Edge는 다음 두 가지 옵션 중 하나를 통한 구성을 지원합니다.
 
@@ -30,6 +30,15 @@ Azure SQL Edge는 다음 두 가지 옵션 중 하나를 통한 구성을 지원
 
 Azure SQL Edge는 SQL Edge 컨테이너를 구성하는 데 사용할 수 있는 여러 가지 환경 변수를 노출합니다. 이러한 환경 변수는 SQL Server on Linux 사용할 수 있는 집합의 하위 집합입니다. SQL Server on Linux 환경 변수에 대 한 자세한 내용은 [환경 변수](/sql/linux/sql-server-linux-configure-environment-variables/)를 참조 하세요.
 
+Azure SQL Edge에 다음과 같은 새 환경 변수가 추가 되었습니다. 
+
+| 환경 변수 | Description | 값 |     
+|-----|-----| ---------- |   
+| **MSSQL_TELEMETRY_ENABLED** | 사용량 및 진단 데이터 수집을 사용 하거나 사용 하지 않도록 설정 합니다. | TRUE 또는 FALSE |  
+| **MSSQL_TELEMETRY_DIR** | 사용 및 진단 데이터 수집 감사 파일에 대 한 대상 디렉터리를 설정 합니다. | SQL Edge 컨테이너 내의 폴더 위치입니다. 이 폴더는 탑재 지점이 나 데이터 볼륨을 사용 하 여 호스트 볼륨에 매핑할 수 있습니다. | 
+| **MSSQL_PACKAGE** | 배포할 dacpac 또는 bacpac 패키지의 위치를 지정 합니다. | Dacpac 또는 bacpac 패키지를 포함 하는 폴더, 파일 또는 SAS URL입니다. 자세한 내용은 [SQL Edge에서 SQL DATABASE DACPAC 및 BACPAC 패키지 배포](deploy-dacpac.md)를 참조 하세요. |
+
+
 다음 SQL Server on Linux 환경 변수는 Azure SQL Edge에 대해 지원 되지 않습니다. 정의 된 경우이 환경 변수는 컨테이너를 초기화 하는 동안 무시 됩니다.
 
 | 환경 변수 | Description |
@@ -38,9 +47,6 @@ Azure SQL Edge는 SQL Edge 컨테이너를 구성하는 데 사용할 수 있는
 
 > [!IMPORTANT]
 > SQL Edge에 대한 **MSSQL_PID** 환경 변수는 **Premium** 및 **Developer**를 유효한 값으로 허용합니다. Azure SQL Edge는 제품 키를 사용 하 여 초기화를 지원 하지 않습니다.
-
-> [!NOTE]
-> Azure SQL Edge에 대 한 [Microsoft 소프트웨어 사용 조건](https://go.microsoft.com/fwlink/?linkid=2128283) 을 다운로드 합니다.
 
 ### <a name="specify-the-environment-variables"></a>환경 변수 지정
 
@@ -53,6 +59,9 @@ Azure SQL Edge는 SQL Edge 컨테이너를 구성하는 데 사용할 수 있는
 **컨테이너 만들기 옵션**에서 값을 추가 합니다.
 
 ![컨테이너 만들기 옵션을 사용 하 여 설정](media/configure/set-environment-variables-using-create-options.png)
+
+> [!NOTE]
+> 연결 되지 않은 배포 모드에서 `-e` 또는 `--env` `--env-file` 명령의 옵션을 사용 하 여 환경 변수를 지정할 수 있습니다 `docker run` .
 
 ## <a name="configure-by-using-an-mssqlconf-file"></a>Mssql 파일을 사용 하 여 구성
 
@@ -70,6 +79,13 @@ Azure SQL Edge는 SQL Server on Linux와 같은 [mssql 구성 유틸리티](/sql
       }
     }
 ```
+
+Azure SQL Edge에 대해 다음과 같은 새로운 mssql 옵션이 추가 되었습니다. 
+
+|옵션|설명|
+|:---|:---|
+|**customerfeedback** | SQL Server 사용자 의견을 Microsoft에 보낼지 여부를 선택 합니다. 자세한 내용은 사용 [안 함 및 진단 데이터 수집 사용 안 함](usage-and-diagnostics-data-configuration.md#disable-usage-and-diagnostic-data-collection) 을 참조 하세요.|      
+|**userrequestedlocalauditdirectory** | 사용 및 진단 데이터 수집 감사 파일에 대 한 대상 디렉터리를 설정 합니다. 자세한 내용은 [사용 현황 및 진단 데이터 수집](usage-and-diagnostics-data-configuration.md#local-audit-of-usage-and-diagnostic-data-collection) 에 대 한 로컬 감사를 참조 하세요. |        
 
 다음 mssql 옵션은 SQL Edge에 적용 되지 않습니다.
 
@@ -116,7 +132,7 @@ traceflag2 = 1204
 
 ## <a name="run-azure-sql-edge-as-non-root-user"></a>루트가 아닌 사용자로 Azure SQL Edge 실행
 
-Azure SQL Edge CTP 2.2부터 SQL Edge 컨테이너는 루트가 아닌 사용자/그룹을 사용 하 여 실행할 수 있습니다. Azure Marketplace를 통해 배포 되는 경우 다른 사용자/그룹을 지정 하지 않으면 SQL Edge 컨테이너가 mssql (루트가 아닌) 사용자로 시작 합니다. 배포 하는 동안 다른 루트가 아닌 사용자를 지정 하려면 `*"User": "<name|uid>[:<group|gid>]"*` 컨테이너 만들기 옵션 아래에 키-값 쌍을 추가 합니다. 아래 예제에서 SQL Edge는 사용자로 시작 되도록 구성 됩니다 `*IoTAdmin*` .
+기본적으로 Azure SQL Edge 컨테이너는 루트가 아닌 사용자/그룹을 사용 하 여 실행 됩니다. 다른 사용자/그룹을 지정 하지 않으면 Azure Marketplace 또는 docker run을 사용 하 여 배포 하는 경우 SQL Edge 컨테이너가 mssql (루트가 아닌) 사용자로 시작 됩니다. 배포 하는 동안 다른 루트가 아닌 사용자를 지정 하려면 `*"User": "<name|uid>[:<group|gid>]"*` 컨테이너 만들기 옵션 아래에 키-값 쌍을 추가 합니다. 아래 예제에서 SQL Edge는 사용자로 시작 되도록 구성 됩니다 `*IoTAdmin*` .
 
 ```json
 {
@@ -140,7 +156,7 @@ chown -R 10001:0 <database file dir>
 
 ### <a name="upgrading-from-earlier-ctp-releases"></a>이전 CTP 릴리스에서 업그레이드
 
-이전 CTP의 Azure SQL Edge가 루트 사용자로 실행 되도록 구성 되었습니다. 이전 CTP에서 업그레이드 하는 경우 다음 옵션을 사용할 수 있습니다.
+이전에 Azure SQL Edge의 CTPs가 루트 사용자로 실행 되도록 구성 되었습니다. 이전 CTPs에서 업그레이드 하는 경우 다음 옵션을 사용할 수 있습니다.
 
 - 루트 사용자 계속 사용-루트 사용자를 계속 사용 하려면 `*"User": "0:0"*` 컨테이너 만들기 옵션 아래에 키-값 쌍을 추가 합니다.
 - 기본 mssql 사용자 사용-기본 mssql 사용자를 사용 하려면 다음 단계를 수행 합니다.
@@ -154,7 +170,7 @@ chown -R 10001:0 <database file dir>
     sudo chmod -R g=u /var/lib/docker/volumes/kafka_sqldata/
     ```
 - 다른 루트 이외의 사용자 계정을 사용 하 여 다른 루트가 아닌 사용자 계정을 사용 합니다.
-  - 컨테이너 만들기 옵션을 업데이트 하 여 `*"User": "user_name | user_id*` 컨테이너 만들기 옵션에서 키-값 쌍 추가를 지정 합니다. User_name 또는 user_id를 docker 호스트의 실제 user_name 또는 user_id로 바꾸세요. 
+  - 컨테이너 만들기 옵션을 업데이트 하 여 `*"User": "user_name | user_id*` 컨테이너 만들기 옵션에서 키-값 쌍 추가를 지정 합니다. User_name 또는 user_id를 docker 호스트의 실제 user_name 또는 user_id로 바꿉니다. 
   - 디렉터리/탑재 볼륨에 대 한 사용 권한을 변경 합니다.
 
 ## <a name="persist-your-data"></a> 데이터 유지
@@ -169,11 +185,11 @@ chown -R 10001:0 <database file dir>
 첫 번째 옵션은 호스트의 디렉터리를 컨테이너에 데이터 볼륨으로 탑재하는 것입니다. 이렇게 하려면 `docker run` 명령에 `-v <host directory>:/var/opt/mssql` 플래그를 사용합니다. 그러면 컨테이너 실행 간에 데이터를 복원할 수 있습니다.
 
 ```bash
-docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge
 ```
 
 ```PowerShell
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge
 ```
 
 이 방법을 사용하여 Docker 외부에서 호스트의 파일을 공유하고 볼 수도 있습니다.
@@ -189,11 +205,11 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 14
 두 번째 옵션은 데이터 볼륨 컨테이너를 사용하는 것입니다. `-v` 매개 변수를 사용하여 호스트 디렉터리 대신 볼륨 이름을 지정하면 데이터 볼륨 컨테이너를 만들 수 있습니다. 다음 예제에서는 **sqlvolume**이라는 공유 데이터 볼륨을 만듭니다.
 
 ```bash
-docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge
 ```
 
 ```PowerShell
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge
 ```
 
 > [!NOTE]

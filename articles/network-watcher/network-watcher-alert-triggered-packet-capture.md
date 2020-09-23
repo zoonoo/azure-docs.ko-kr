@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738059"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975065"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>경고 및 Azure Functions를 통한 사전 네트워크 모니터링을 위해 패킷 캡처 사용
 
@@ -30,7 +30,7 @@ Azure에 배포된 리소스는 연중 무휴(24/7) 실행됩니다. 사용자 �
 
 Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사용하면 데이터와 도구에 미리 응답함으로써 네트워크 문제를 해결할 수 있습니다.
 
-![시나리오][scenario]
+![다이어그램은 100 오류로 전달 되는 가상 > 컴퓨터의 Network Watcher 확장을 보여 줍니다. Azure Functions로 이동 하 여 Network Watcher로 이동 하 여 Network Watcher 확장으로 전달 되는로 흐릅니다.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -91,7 +91,7 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
     |---|---|---|
     |**시나리오**|실험적|시나리오 유형|
     |**함수 이름 지정**|AlertPacketCapturePowerShell|함수의 이름|
-    |**권한 부여 수준**|기능|함수에 대한 권한 부여 수준|
+    |**권한 부여 수준**|함수|함수에 대한 권한 부여 수준|
 
 ![함수 예제][functions1]
 
@@ -344,10 +344,10 @@ $Encryptedpassword
 
   |**설정** | **값** | **세부 정보** |
   |---|---|---|
-  |**이름**|TCP_Segments_Sent_Exceeded|경고 규칙의 이름입니다.|
+  |**Name**|TCP_Segments_Sent_Exceeded|경고 규칙의 이름입니다.|
   |**설명**|전송된 TCP 세그먼트가 임계값을 초과함|경고 규칙에 대한 설명입니다.|
   |**메트릭**|전송된 TCP 세그먼트| 경고를 트리거하는 데 사용할 메트릭입니다. |
-  |**조건**|초과| 메트릭을 평가할 때 사용할 조건입니다.|
+  |**Condition**|초과| 메트릭을 평가할 때 사용할 조건입니다.|
   |**임계값**|100| 경고를 트리거하는 메트릭의 값입니다. 이 값은 사용자 환경에 적합한 값으로 설정해야 합니다.|
   |**기간**|지난 5분 이상| 메트릭에서 임계값을 검색할 기간을 결정합니다.|
   |**웹후크**|[함수 앱에서 웹후크 URL]| 이전 단계에서 만든 함수 앱의 웹후크 URL입니다.|

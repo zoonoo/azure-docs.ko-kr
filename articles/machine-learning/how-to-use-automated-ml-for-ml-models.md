@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 10c0200aae5ffa432c2da037d58d455fc28e8acd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3214ce260fa4981b8ac970bdf3520ecd7de59e18
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904966"
+ms.locfileid: "90985568"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 자동화된 Machine Learning 모델 만들기, 검토 및 배포
 
@@ -86,7 +86,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
             
         **다음**을 선택합니다.
 
-    1. **세부 정보 확인** 양식은 이전에 **기본 정보** 및 **설정 및 미리 보기** 양식에 채운 정보를 요약한 것입니다. 프로파일링을 사용하도록 설정된 컴퓨팅을 사용하여 데이터 세트에 대한 데이터 프로필을 만드는 옵션도 있습니다. [데이터 프로파일링](#profile)에 대한 자세한 정보
+    1. **세부 정보 확인** 양식은 이전에 **기본 정보** 및 **설정 및 미리 보기** 양식에 채운 정보를 요약한 것입니다. 프로파일링을 사용하도록 설정된 컴퓨팅을 사용하여 데이터 세트에 대한 데이터 프로필을 만드는 옵션도 있습니다. [데이터 프로파일링](how-to-connect-data-ui.md#profile)에 대한 자세한 정보
 
         **다음**을 선택합니다.
 1. 새로 만든 데이터 세트가 표시되면 선택합니다. 또한 데이터 세트 및 샘플 통계 미리 보기도 볼 수 있습니다. 
@@ -111,7 +111,7 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
     **만들기**를 선택합니다. 새 컴퓨팅을 만드는 데 몇 분 정도 걸릴 수 있습니다.
 
     >[!NOTE]
-    > 컴퓨팅 이름에는 선택하고 만드는 컴퓨팅에서 *프로파일링을 사용하도록 설정*했는지 여부가 표시됩니다. (자세한 내용은 [데이터 프로파일링](#profile) 섹션을 참조하세요.)
+    > 컴퓨팅 이름에는 선택하고 만드는 컴퓨팅에서 *프로파일링을 사용하도록 설정*했는지 여부가 표시됩니다. (자세한 내용은 [데이터 프로파일링](how-to-connect-data-ui.md#profile) 섹션을 참조하세요.)
 
     **다음**을 선택합니다.
 
@@ -144,32 +144,6 @@ Python 코드 기반 환경의 경우 Azure Machine Learning SDK를 사용하여
 1. 필드 기능화 설정 보기: **추가 구성 설정** 양식에서 **자동 기능화** 를 사용 하도록 선택 하는 경우 기본 기능화 기술이 적용 됩니다. **기능화 설정 보기** 에서 이러한 기본값을 변경 하 고 적절 하 게 사용자 지정할 수 있습니다. [Featurizations를 사용자 지정](#customize-featurization)하는 방법을 알아봅니다. 
 
     ![Azure Machine Learning studio 작업 형식 폼](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
-
-<a name="profile"></a>
-
-## <a name="data-profiling--summary-stats"></a>데이터 프로파일링 및 요약 통계
-
-데이터 세트 전체에 대한 다양한 요약 통계를 가져와서 데이터 세트가 ML 준비 상태인지 여부를 확인할 수 있습니다. 숫자가 아닌 열의 경우 최솟값, 최댓값 및 오류 수와 같은 기본 통계만 포함됩니다. 숫자 열의 경우 통계적 모멘트 및 예상 분위수를 검토할 수도 있습니다. 특히 데이터 프로필에 포함되는 항목은 다음과 같습니다.
-
->[!NOTE]
-> 관련이 없는 형식의 기능은 빈 항목으로 표시되어 있습니다.
-
-통계|Description
-------|------
-기능| 요약되는 열의 이름입니다.
-프로필| 유추된 형식을 기반으로 하는 인라인 시각화입니다. 예를 들어 문자열, 술래 및 날짜에는 값 개수가 있고 소수점(숫자)에는 근사 히스토그램이 있습니다. 이를 통해 데이터의 분포를 빠르게 파악할 수 있습니다.
-형식 분포| 열 내 유형의 인라인 값 개수입니다. Null은 고유 형식이므로 이 시각화는 홀수 또는 누락된 값을 탐지하는 데 유용합니다.
-Type|열의 유추된 형식입니다. 가능한 값은 문자열, 부울, 날짜 및 10진수입니다.
-최소값| 열의 최솟값입니다. 고유한 순서(예: 부울)가 없는 형식의 기능은 빈 항목으로 표시됩니다.
-최대값| 열의 최댓값입니다. 
-개수| 열에서 누락되거나 누락되지 않은 항목의 총 수입니다.
-누락되지 않은 수| 열에서 누락되지 않은 항목의 수입니다. 빈 문자열과 오류는 값으로 처리되므로 "누락되지 않은 수"에 영향을 주지 않습니다.
-분위수| 데이터 분포를 파악하기 위한 각 분위수의 근사 값입니다.
-평균| 열의 산술 평균 또는 평균입니다.
-표준 편차| 이 열의 데이터에 대한 분산 또는 편차를 측정한 값입니다.
-Variance| 이 열의 데이터가 평균 값에서 분산된 정도를 측정한 값입니다. 
-왜곡도| 이 열의 데이터가 정규 분포에서 치우쳐 있는 정도를 측정한 값입니다.
-첨도| 이 열의 데이터가 정규 분포와 비교하여 뾰족하게 밀집된 정도를 측정한 값입니다.
 
 ## <a name="customize-featurization"></a>기능화 사용자 지정
 

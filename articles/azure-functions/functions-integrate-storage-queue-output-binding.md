@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 6c16aad9bb04ffb4cb4df52799d63f7ec2e19725
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9c635b01bcd04bd03191fca2590b0189bad0f544
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210844"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982024"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Functions를 사용하여 Azure Storage 큐에 메시지 추가
 
@@ -111,7 +111,7 @@ Azure Functions에서 입력 및 출력 바인딩은 코드에서 외부 서비�
 
 1. **애플리케이션 설정**에서 **AzureWebJobsStorage**를 선택합니다.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="AzureWebJobsStorage에 연결된 스토리지 계정을 찾습니다." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="스크린샷에는 AzureWebJobsStorage가 선택 된 구성 페이지가 표시 됩니다." border="true":::
 
 1. 계정 이름을 찾아서 적어 둡니다.
 

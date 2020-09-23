@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 5b298767f9814f76dd606bab29bd0b245dad6937
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 84a262cae17a4e26724ab06da397e699e09468db
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260189"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969202"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>가상 컴퓨터 관리 id 확장 사용을 중지 하 고 Azure Instance Metadata Service 사용을 시작 하는 방법
 
@@ -37,8 +37,8 @@ ms.locfileid: "89260189"
 
 관리 id가 있는 가상 머신 또는 가상 머신 확장 집합을 구성 하는 경우 필요에 따라 `-Type` [AzVMExtension](/powershell/module/az.compute/set-azvmextension) cmdlet의 매개 변수를 사용 하 여 Azure resources VM 확장에 대 한 관리 되는 id를 프로 비전 하도록 선택할 수 있습니다. `ManagedIdentityExtensionForWindows` `ManagedIdentityExtensionForLinux` 가상 컴퓨터의 형식에 따라 또는를 전달 하 고 매개 변수를 사용 하 여 이름을 지정할 수 있습니다 `-Name` . `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
 
-```powershell
-   $settings = @{ "port" = 50342 }
+```azurepowershell-interactive
+$settings = @{ "port" = 50342 }
    Set-AzVMExtension -ResourceGroupName myResourceGroup -Location WestUS -VMName myVM -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Settings $settings 
 ```
 
@@ -68,7 +68,7 @@ Azure Resource Manager 또한 템플릿에 대 한 섹션에 다음 JSON을 추�
     
 Virtual machine scale sets를 사용 하 여 작업 하는 경우 [AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet을 사용 하 여 Azure 리소스에 대 한 관리 id 가상 머신 확장 집합 확장을 프로 비전 할 수도 있습니다. `ManagedIdentityExtensionForWindows` `ManagedIdentityExtensionForLinux` 가상 머신 확장 집합의 유형에 따라 또는 중 하나를 전달 하 고 매개 변수를 사용 하 여 이름을 지정할 수 있습니다 `-Name` . `-Settings` 매개 변수는 토큰 획득을 위해 OAuth 토큰 엔드포인트에서 사용하는 포트를 지정합니다.
 
-   ```powershell
+   ```azurepowershell-interactive
    $setting = @{ "port" = 50342 }
    $vmss = Get-AzVmss
    Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ManagedIdentityExtensionForWindows" -Type "ManagedIdentityExtensionForWindows" -Publisher "Microsoft.ManagedIdentity" -TypeHandlerVersion "1.0" -Setting $settings 
@@ -96,7 +96,7 @@ Azure Resource Manager 배포 템플릿을 사용 하 여 가상 머신 확장 �
 DNS 조회 오류로 인해 가상 컴퓨터 확장의 프로 비전이 실패할 수 있습니다. 이 경우 가상 컴퓨터를 다시 시작 하 고 다시 시도 하세요. 
 
 ### <a name="remove-the-extension"></a>확장 제거 
-확장 프로그램을 제거 하려면 `-n ManagedIdentityExtensionForWindows` `-n ManagedIdentityExtensionForLinux` [az vm extension delete](/cli/azure/vm/)를 사용 하 여 가상 컴퓨터의 형식에 따라 또는 스위치를 사용 하거나, Azure CLI를 사용 하 여 가상 컴퓨터 확장 집합에 대 한 [az vmss Extension delete](/cli/azure/vmss) 를 사용 하거나 `Remove-AzVMExtension` Powershell을 사용 합니다.
+확장 프로그램을 제거 하려면 `-n ManagedIdentityExtensionForWindows` `-n ManagedIdentityExtensionForLinux` [az vm extension delete](/cli/azure/vm/)를 사용 하 여 가상 컴퓨터의 형식에 따라 또는 스위치를 사용 하거나, Azure CLI를 사용 하 여 가상 컴퓨터 확장 집합에 대 한 [az vmss Extension delete](/cli/azure/vmss) 를 사용 하거나 `Remove-AzVMExtension` PowerShell을 사용 합니다.
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -106,7 +106,7 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
 ```
 
-```powershell
+```azurepowershell-interactive
 Remove-AzVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
 ```
 
@@ -162,7 +162,7 @@ Content-Type: application/json
 
 Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdlet 사용하여 수동으로 다시 시작할 수 있습니다.
 
-```powershell
+```azurepowershell-interactive
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 

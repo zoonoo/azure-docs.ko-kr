@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ce4c44ef17f456a776fde3addc5ec4ed29c8ebbd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fd6894ea90dc6cb3cc721438ba73a94b43c36a5b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434455"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983699"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그
 <a name="network-service-tags"></a>
@@ -67,7 +67,7 @@ ms.locfileid: "89434455"
 | **AzureInformationProtection** | Azure Information Protection입니다.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory**, **AzureFrontDoor.Frontend** 및 **AzureFrontDoor.FirstParty** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureIoTHub** | Azure IoT Hub입니다. | 아웃바운드 | 예 | 예 |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
-| **AzureLoadBalancer** | Azure 인프라 부하 분산 장치입니다. 이 태그는 Azure의 상태 프로브가 시작되는 [호스트의 가상 IP 주소](security-overview.md#azure-platform-considerations)(168.63.129.16)로 변환됩니다. 여기에는 Azure Load Balancer 리소스에 대한 트래픽이 포함되지 않습니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다. | 모두 | 예 | 예 |
+| **AzureLoadBalancer** | Azure 인프라 부하 분산 장치입니다. 이 태그는 Azure의 상태 프로브가 시작되는 [호스트의 가상 IP 주소](security-overview.md#azure-platform-considerations)(168.63.129.16)로 변환됩니다. 이는 백 엔드 리소스에 대 한 실제 트래픽이 아닌 프로브 트래픽만 포함 합니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다. | 모두 | 예 | 예 |
 | **AzureMachineLearning** | Azure Machine Learning입니다. | 모두 | 예 | 예 |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon 및 사용자 지정 메트릭(GIG 엔드포인트)입니다.<br/><br/>*참고:* Log Analytics의 경우 이 태그는 **Storage** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |
 | **AzureOpenDatasets** | Azure Open Datasets입니다.<br/><br/>*참고:* 이 태그는 **AzureFrontDoor** 및 **Storage** 태그에 종속됩니다. | 아웃바운드 | 예 | 예 |

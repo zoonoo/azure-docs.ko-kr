@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/03/2020
-ms.openlocfilehash: 46f7c7185de559fb6b6545eb8f1b2113aa0ec4b2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d5db970d4ed3c3988c96a2c0c33775bcbfb00d92
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085011"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986013"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -31,12 +31,13 @@ ms.locfileid: "90085011"
 | 워크플로당 트리거 | 10 | 디자이너가 아닌 코드 보기에서 작업하는 경우 |
 | Switch 범위 사례 제한 | 25 | |
 | 워크플로당 변수 | 250 | |
-| 식당 문자 | 8,192 | |
-| `trackedProperties`에 대한 최대 크기 | 16,000자 |
 | `action` 또는 `trigger`의 이름 | 80자 | |
+| 식당 문자 | 8,192 | |
 | `description`의 길이 | 256자 | |
-| 최대 `parameters` | 50 | |
-| 최대 `outputs` | 10 | |
+| 최대 수 `parameters` | 50 | |
+| 최대 수 `outputs` | 10 | |
+| `trackedProperties`에 대한 최대 크기 | 16,000자 |
+| 인라인 코드 작업-최대 코드 문자 수 | 1024 문자 <p>10만 문자 제한의 경우 Visual Studio Code 및 [미리 보기 **Azure Logic Apps** 확장](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)을 사용 하 여 논리 앱을 만듭니다. |
 
 <a name="run-duration-retention-limits"></a>
 

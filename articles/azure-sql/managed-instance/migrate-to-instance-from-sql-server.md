@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: douglas, carlrab
+ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: a54cf2ed228a166ea3d87c14515f41d5b0e7aed9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090230"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887653"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Azure SQL Managed Instance에 대 한 SQL Server 인스턴스 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -198,7 +198,7 @@ SQL Managed Instance는 모니터링 및 문제 해결을 위한 다양 한 고�
 
 예를 들어 관리 되는 인스턴스에서 백업을 만들 필요가 없습니다. 서비스에서 자동으로 백업을 수행 합니다. 백업 예약, 가져오기 및 관리에 대해 더 이상 걱정할 필요가 없습니다. SQL Managed Instance는 [PITR (지정 시간 복구)](../database/recovery-using-backups.md#point-in-time-restore)를 사용 하 여이 보존 기간 내의 특정 시점으로 복원 하는 기능을 제공 합니다. 또한 고가용성이 기본적으로 제공 되므로 고가용성을 설정 하 [는 것에](../database/high-availability-sla.md) 대해 걱정할 필요가 없습니다.
 
-보안을 강화 하려면 [Azure Active Directory 인증](../database/security-overview.md), [감사](auditing-configure.md), [위협 검색](../database/advanced-data-security.md), [행 수준 보안](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)및 [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)을 사용 하는 것이 좋습니다.
+보안을 강화 하려면 [Azure Active Directory 인증](../database/security-overview.md), [감사](auditing-configure.md), [위협 검색](../database/azure-defender-for-sql.md), [행 수준 보안](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)및 [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)을 사용 하는 것이 좋습니다.
 
 관리 되는 인스턴스는 고급 관리 및 보안 기능 외에도 [워크 로드를 모니터링 하 고 조정](../database/monitor-tune-overview.md)하는 데 도움이 되는 고급 도구 집합을 제공 합니다. [Azure SQL 분석](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) 를 사용 하면 많은 수의 관리 되는 인스턴스를 모니터링 하 고 많은 수의 인스턴스와 데이터베이스를 중앙 집중식으로 모니터링할 수 있습니다. 관리 되는 인스턴스에서 [자동 튜닝](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) 은 SQL 계획 실행 통계의 성능을 지속적으로 모니터링 하 고 식별 된 성능 문제를 자동으로 해결 합니다.
 

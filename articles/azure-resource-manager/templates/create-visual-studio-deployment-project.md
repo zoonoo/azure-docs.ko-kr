@@ -3,12 +3,12 @@ title: Visual Studio 리소스 그룹 프로젝트 만들기 및 배포
 description: Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트를 만들고 Azure에 리소스를 배포합니다.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76152734"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985245"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
@@ -23,7 +23,7 @@ Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프�
 1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 선택 합니다.
 1. **Azure 리소스 그룹** 프로젝트 템플릿 및 **다음**을 선택합니다.
 
-    ![프로젝트 만들기](./media/create-visual-studio-deployment-project/create-project.png)
+    ![Azure 리소스 그룹을 사용 하 여 새 프로젝트 창 만들기 및 다음 단추가 강조 표시 된 스크린샷](./media/create-visual-studio-deployment-project/create-project.png)
 
 1. 프로젝트 이름을 지정합니다. 다른 기본 설정은 정상이지만 사용자 환경에 맞게 작동하는지 검토하세요. 완료되면 **만들기**를 선택합니다.
 
@@ -65,7 +65,7 @@ Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프�
 
 1. JSON 개요 창의 맨 위에 있는 **리소스 추가** 버튼을 선택하거나 **리소스**를 마우스 오른쪽 단추로 클릭하고 **새 리소스 추가**를 선택하여 리소스를 추가할 수 있습니다.
 
-   ![리소스 추가](./media/create-visual-studio-deployment-project/add-resource.png)
+   ![스크린 샷에서는 새 리소스 추가 옵션이 강조 표시 된 JSON 개요 창을 보여 줍니다.](./media/create-visual-studio-deployment-project/add-resource.png)
 
 1. **스토리지 계정**을 선택하고 이름을 입력합니다. 11개 미만의 문자이며 숫자 및 소문자만을 포함하는 이름을 제공합니다.
 
@@ -189,7 +189,7 @@ AzureRM 모듈 스크립트의 경우 Visual Studio를 사용합니다.
 
 1. 이제, 리소스 그룹 프로젝트가 새 프로젝트를 인식하는지 확인해야 합니다. 리소스 그룹 프로젝트(ExampleAppDeploy)로 돌아갑니다. **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택합니다.
 
-    ![추가 참조](./media/create-visual-studio-deployment-project/add-new-reference.png)
+    ![참조 추가 옵션이 강조 표시 된 ExampleAppDeploy 메뉴가 표시 됩니다.](./media/create-visual-studio-deployment-project/add-new-reference.png)
 
 1. 만든 웹앱 프로젝트를 선택합니다.
 
@@ -364,7 +364,7 @@ Visual Studio 인터페이스를 통해 사용할 수 있는 리소스로만 제
 
 1. 배포가 완료된 후 포털에서 대시보드를 확인합니다. **대시보드**를 선택하고 배포한 항목을 하나 선택합니다.
 
-   ![사용자 지정 대시보드](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
+   ![예제 사용자 지정 대시보드가 강조 표시 된 대시보드 페이지를 보여 주는 스크린샷](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
 
 1. 사용자 지정 대시보드가 표시됩니다.
 

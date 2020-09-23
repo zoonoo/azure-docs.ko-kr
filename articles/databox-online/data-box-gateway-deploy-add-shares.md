@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 6db2d8fa6e957a63a4410f17b09a9f106bfba6e6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4e54f5254d38bca9c8ff30d5b7cefbe3fde69576
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923478"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904362"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway를 통해 데이터 전송
 
@@ -57,7 +57,7 @@ Data Box Gateway에 공유를 추가하기 전에 다음 사항을 확인합니�
 
     3. 공유가 상주할 스토리지 계정을 입력합니다. 컨테이너가 아직 없으면 스토리지 계정에 새로 만든 공유 이름으로 만들어집니다. 컨테이너가 이미 있으면 해당 컨테이너가 사용됩니다.
        > [!IMPORTANT]
-       > Azure Stack Edge 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage)를 참조하세요.
+       > Azure Stack Edge Pro 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage)를 참조하세요.
     
     4. **스토리지 서비스**는 블록 Blob, 페이지 Blob 또는 파일 중에서 선택합니다. 선택하는 서비스 유형은 데이터를 Azure에 저장할 형식에 따라 달라집니다. 예를 들어, 이 인스턴스에서는 데이터가 Blob 블록으로 Azure에 저장되도록 하므로 [블록 Blob]을 선택합니다. [페이지 Blob]을 선택하는 경우 데이터가 512바이트로 정렬되었는지 확인해야 합니다. 예를 들어 VHDX는 항상 512바이트로 정렬됩니다.
    
@@ -115,7 +115,7 @@ Data Box Gateway 디바이스에 연결된 Windows Server 클라이언트에서 
 
 ### <a name="connect-to-an-nfs-share"></a>NFS 공유에 연결
 
-Azure Stack Edge 디바이스에 연결된 Linux 클라이언트에서 다음 절차를 수행합니다.
+Azure Stack Edge Pro 디바이스에 연결된 Linux 클라이언트에서 다음 절차를 수행합니다.
 
 1. 클라이언트에 NFSv4 클라이언트가 설치되어 있는지 확인합니다. NFS 클라이언트를 설치하려면 다음 명령을 사용합니다.
 

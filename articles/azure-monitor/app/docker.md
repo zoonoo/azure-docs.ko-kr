@@ -3,12 +3,12 @@ title: Azure Application Insights에서 Docker 애플리케이션 모니터링 |
 description: Docker 성능 카운터, 이벤트 및 예외는 컨테이너식 앱에서 보낸 원격 분석과 함께 Application Insights에 표시될 수 있습니다.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 1cbb2968fec68eb750ce3c9b6cac09f23a1d36c5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 272b4e8af7b1ed3d01d8af0979b56954585f795d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324423"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977582"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Application Insights에서 Docker 응용 프로그램 모니터링 (사용 되지 않음)
 
@@ -61,7 +61,7 @@ Application Insights 이미지는 Docker 호스트당 하나만 필요합니다.
     <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
 ```
 
-이것은 앱에서 보내는 모든 원격 분석 항목에 컨테이너 및 호스트 ID 같은 Docker 정보를 추가합니다.
+그러면 앱에서 보낸 모든 원격 분석 항목에 컨테이너 및 호스트 ID와 같은 Docker 정보가 추가 됩니다.
 
 ## <a name="view-your-telemetry"></a>원격 분석 보기
 Azure 포털에서 Application Insights 리소스로 돌아갑니다.
@@ -71,12 +71,12 @@ Docker 타일을 클릭합니다.
 특히 Docker 엔진에서 다른 컨테이너가 실행되고 있는 경우 Docker 앱에서 데이터가 도착하는 것을 곧 확인할 수 있습니다.
 
 ### <a name="docker-container-events"></a>Docker 컨테이너 이벤트
-![예제](./media/docker/13.png)
+![스크린샷은 검색을 선택 하 고, 사용자 지정 이벤트에서 사용자 지정 데이터를 사용 하는 창으로 향하는 화살표가 있는 진단 검색 결과 창을 보여 줍니다.](./media/docker/13.png)
 
 개별 이벤트를 조사하려면 [검색](./diagnostic-search.md)을 클릭합니다. 검색 및 필터링하여 원하는 이벤트를 찾습니다. 자세한 내용을 보려면 이벤트를 클릭합니다.
 
 ### <a name="exceptions-by-container-name"></a>컨테이너 이름별 예외
-![예제](./media/docker/14.png)
+![차트를 선택 하 고 오른쪽에 차트 세부 정보 창이 열려 있는 메트릭 탐색기 페이지를 보여 주는 스크린샷](./media/docker/14.png)
 
 ### <a name="docker-context-added-to-app-telemetry"></a>앱 원격 분석에 추가되는 Docker 컨텍스트
 AI SDK를 사용하여 계측되는 애플리케이션에서 보내는 요청 원격 분석은 Docker 컨텍스트 정보를 사용하여 보강됩니다.

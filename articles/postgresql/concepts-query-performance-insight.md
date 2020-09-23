@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: dd5b4ec53d82421ddd9d680ca41e48eeecc43c2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768387"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906520"
 ---
 # <a name="query-performance-insight"></a>쿼리 
 
@@ -30,7 +30,7 @@ Azure Portal의 [Query Performance Insight](concepts-query-performance-insight.m
 
 Azure Database for PostgreSQL 서버의 포털 페이지에서 메뉴 모음의 **지능형 성능** 섹션 아래에 있는 **쿼리 성능** 정보를 선택 합니다.
 
-![Query Performance Insight 장기 실행 쿼리](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Query Performance Insight 장기 실행 쿼리":::
 
 **장기 실행 쿼리** 탭에는 15 분 간격으로 집계 된 실행 당 평균 기간별 상위 5 개 쿼리가 표시 됩니다. **쿼리 수 드롭다운 목록을** 선택 하 여 더 많은 쿼리를 볼 수 있습니다. 이 작업을 수행하면 특정 쿼리 ID에 대해 차트 색이 변경될 수 있습니다.
 
@@ -40,7 +40,7 @@ Azure Database for PostgreSQL 서버의 포털 페이지에서 메뉴 모음의 
 
 서버의 대기 쿼리를 시각화하려면 **대기 통계** 탭을 선택합니다.
 
-![Query Performance Insight 대기 통계](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Query Performance Insight 대기 통계":::
 
 ## <a name="considerations"></a>고려 사항
 * [읽기 복제본](concepts-read-replicas.md)에 Query Performance Insight를 사용할 수 없습니다.
