@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7c5164a032e77d85c995384473935b134ff528e5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5db25f993fa006fa635ac12c1be5ff1c3eb92f68
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009310"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883461"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.2 버전): 지원되는 기능 및 구문
 
@@ -25,7 +25,9 @@ Azure Cosmos DB의 API for MongoDB를 사용하면 Cosmos DB가 제공하는 모
 
 ## <a name="protocol-support"></a>프로토콜 지원
 
-Azure Cosmos DB의 API for MongoDB에 대한 모든 새 계정은 MongoDB 서버 버전 **3.6**과 호환됩니다. 이 문서에서는 MongoDB 버전 3.2에 대해 설명합니다. 지원되는 연산자 및 제한 사항이나 예외는 다음과 같습니다. 이러한 프로토콜을 인식하는 모든 클라이언트 드라이버는 Azure Cosmos DB의 API for MongoDB에 연결할 수 있습니다.
+Azure Cosmos DB의 API for MongoDB에 대한 모든 새 계정은 MongoDB 서버 버전 **3.6**과 호환됩니다. 이 문서에서는 MongoDB 버전 3.2에 대해 설명합니다. 지원되는 연산자 및 제한 사항이나 예외는 다음과 같습니다. 이러한 프로토콜을 인식하는 모든 클라이언트 드라이버는 Azure Cosmos DB의 API for MongoDB에 연결할 수 있습니다. 
+
+또한 Azure Cosmos DB의 API for MongoDB는 적격 계정에 대한 원활한 업그레이드 환경을 제공합니다. 자세한 내용은 [MongoDB 버전 업그레이드 가이드](mongodb-version-upgrade.md)를 참조하세요.
 
 ## <a name="query-language-support"></a>쿼리 언어 지원
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: 71bcb72b645c574eedd24ff868751f366738e73d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b1cb48d1ae858dbcd0df80780b4c3cee3deac75b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935690"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976500"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-signalr-service"></a>Azure SignalR Service의 복원력 및 재해 복구
 
@@ -42,7 +42,7 @@ SDK 구현에서 협상은 기본 엔드포인트만 반환하므로, 일반적�
 
 다음은 이러한 토폴로지를 보여주는 다이어그램입니다.
 
-![토폴로지](media/signalr-concept-disaster-recovery/topology.png)
+![다이어그램은 각각 앱 서버 및 SignalR 서비스를 포함 하는 두 개의 지역을 보여줍니다. 여기서 각 서버는 해당 지역의 SignalR 서비스와 다른 지역의 서비스를 보조로 연결 합니다.](media/signalr-concept-disaster-recovery/topology.png)
 
 ## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>여러 SignalR Service 인스턴스를 사용한 앱 서버 구성
 

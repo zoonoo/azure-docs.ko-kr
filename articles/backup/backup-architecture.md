@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824035"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986489"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -35,18 +35,22 @@ Azure Backup은 온-프레미스 컴퓨터 및 Azure VM (가상 컴퓨터) 인�
 
 ## <a name="where-is-data-backed-up"></a>데이터는 어디에 백업되나요?
 
-Azure Backup Recovery Services 자격 증명 모음에 백업 된 데이터를 저장 합니다. 자격 증명 모음은 백업 복사본, 복구 시점 및 백업 정책과 같은 데이터를 저장 하는 데 사용 되는 Azure의 온라인 저장소 엔터티입니다.
+Azure Backup는 자격 증명 모음-복구 서비스 자격 증명 모음 및 백업 자격 증명 모음에 백업 된 데이터를 저장 합니다. 자격 증명 모음은 백업 복사본, 복구 시점 및 백업 정책과 같은 데이터를 저장 하는 데 사용 되는 Azure의 온라인 저장소 엔터티입니다.
 
-Recovery Services 자격 증명 모음에는 다음과 같은 기능이 있습니다.
+자격 증명 모음에는 다음과 같은 기능이 있습니다.
 
 - 자격 증명 모음을 사용하면 관리 오버헤드를 최소화하면서 백업 데이터를 쉽게 구성할 수 있습니다.
-- 각 Azure 구독에서 최대 500개의 자격 증명 모음을 만들 수 있습니다.
 - Azure Vm 및 온-프레미스 컴퓨터를 포함 하 여 자격 증명 모음에서 백업 된 항목을 모니터링할 수 있습니다.
 - Azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 자격 증명 모음 액세스를 관리할 수 있습니다.
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
-  - **LRS (로컬 중복 저장소)**: 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](../storage/common/storage-redundancy.md).
-  - **GRS (지역 중복 저장소)**: 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아보기](../storage/common/storage-redundancy.md).
+  - **LRS (로컬 중복 저장소)**: 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **GRS (지역 중복 저장소)**: 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **ZRS (영역 중복 저장소)**: [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)에서 데이터를 복제 하 여 동일한 지역에 데이터 상주 및 복원 력을 보장 합니다. [자세한 정보](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - 기본적으로 Recovery Services 자격 증명 모음은 GRS를 사용 합니다.
+
+Recovery Services 자격 증명 모음에는 다음과 같은 추가 기능이 있습니다.
+
+- 각 Azure 구독에서 최대 500개의 자격 증명 모음을 만들 수 있습니다.
 
 ## <a name="backup-agents"></a>백업 에이전트
 

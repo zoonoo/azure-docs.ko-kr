@@ -1,5 +1,5 @@
 ---
-title: 디자이너를 사용 하 여 ML 모델 빌드 (미리 보기)
+title: 디자이너를 사용 하 여 ML 모델 빌드
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning용 디자이너를 구성하는 용어, 개념 및 워크플로를 알아봅니다.
 services: machine-learning
@@ -10,15 +10,15 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 788eebaf28a768acbdb5b1eb778f196fe05dc3e3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: c92351131a60b571a102b85f7d11b79ab29d939e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651229"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883111"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)란 무엇인가요? 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="what-is-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너 란? 
+
 
 Azure Machine Learning 디자이너를 통해 대화형 캔버스에서 [데이터 세트](#datasets) 및 [모듈](#module)을 시각적으로 연결하여 기계 학습 모델을 만들 수 있습니다. 디자이너를 시작하는 방법을 알아보려면 [자습서: 디자이너를 사용하여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)을 참조하세요.
 
@@ -118,5 +118,5 @@ Azure Machine Learning 디자이너를 통해 대화형 캔버스에서 [데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다음을 사용하여 예측 분석 및 기계 학습의 기본 사항에 대해 알아봅니다. [자습서: 디자이너를 사용하여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)을 참조하세요.
+* [자습서: 디자이너를 사용하여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)을 통해 예측 분석 및 기계 학습의 기본 사항을 알아봅니다.
 * 기존 [디자이너 샘플](samples-designer.md)을 수정하여 요구에 맞게 조정하는 방법을 알아봅니다.

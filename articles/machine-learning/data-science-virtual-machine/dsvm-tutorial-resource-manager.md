@@ -10,16 +10,14 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: 9b89c0a4135bf595991439dd47e57a870ea2b0d1
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8f83cdb09b94fb7eda1f8f700390be8b2c2147e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855070"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883157"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Ubuntu Data Science Virtual Machine 만들기
-
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Ubuntu 18.04 Data Science Virtual Machine을 만드는 방법을 보여줍니다. Data Science Virtual Machine은 데이터 과학과 기계 학습 프레임워크 및 도구 제품군이 미리 로드된 클라우드 기반 가상 머신입니다. GPU 기반 컴퓨팅 리소스에 배포되는 경우 모든 도구와 라이브러리는 GPU를 사용하도록 구성됩니다.
 

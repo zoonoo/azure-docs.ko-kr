@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: b29b5fa1beb19bc055f94c56b064ae2c0ae175b5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 677cf60ff3e614fd1486445786154fbf026b7cd9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171145"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898689"
 ---
 # <a name="convert-to-image-directory"></a>이미지 디렉터리로 변환
 
-이 문서에서는 이미지 디렉터리로 변환 모듈을 사용 하 여 이미지 데이터 집합을 ' 이미지 디렉터리 ' 데이터 형식으로 변환 하는 방법을 설명 합니다 .이 데이터 형식은 Azure Machine Learning designer (미리 보기)의 이미지 분류와 같은 이미지 관련 작업에서 표준화 된 데이터 형식입니다.
+이 문서에서는 이미지 디렉터리로 변환 모듈을 사용 하 여 이미지 데이터 집합을 Azure Machine Learning 디자이너의 이미지 분류와 같은 이미지 관련 작업에서 표준화 된 데이터 형식으로 변환 하는 데 도움이 되는 방법을 설명 합니다.
 
 ## <a name="how-to-use-convert-to-image-directory"></a>이미지 디렉터리로 변환 사용 방법  
 
@@ -58,13 +58,13 @@ ms.locfileid: "86171145"
 
 ###  <a name="expected-inputs"></a>예상 입력  
 
-| 이름          | 유형                  | 설명   |
+| 이름          | Type                  | 설명   |
 | ------------- | --------------------- | ------------- |
 | 입력 데이터 세트 | AnyDirectory, ZipFile | 입력 데이터 세트 |
 
 ###  <a name="output"></a>출력  
 
-| 이름                   | 유형           | 설명            |
+| 이름                   | Type           | 설명            |
 | ---------------------- | -------------- | ---------------------- |
 | 출력 이미지 디렉터리 | ImageDirectory | 출력 이미지 디렉터리 |
 

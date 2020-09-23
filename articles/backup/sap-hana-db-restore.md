@@ -1,14 +1,14 @@
 ---
 title: Azure Vm에서 SAP HANA 데이터베이스 복원
-description: 이 문서에서는 Azure Virtual Machines에서 실행 되는 SAP HANA 데이터베이스를 복원 하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Virtual Machines에서 실행 되는 SAP HANA 데이터베이스를 복원 하는 방법을 알아봅니다. 지역 간 복원을 사용 하 여 데이터베이스를 보조 지역으로 복원할 수도 있습니다.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 68858db6f89221e1a3a8f0955d5e009d56e2d365
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c502b7741acd343baefe5e2bf8b95cfc02e46688
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375315"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986150"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Azure Vm에서 SAP HANA 데이터베이스 복원
 
@@ -24,7 +24,7 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
 * 특정 복구 지점으로 복원하려면 특정 전체 또는 차등 백업을 복원합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터베이스를 복원 하기 전에 다음 사항에 유의 하십시오.
 
@@ -249,6 +249,51 @@ Azure Backup에서는 다음과 같이 Azure VM에서 실행되는 SAP HANA 데�
 
     > [!NOTE]
     > 여러 데이터베이스 컨테이너 (MDC)에서 시스템 DB가 대상 인스턴스로 복원 된 후 복원 되는 경우 등록 전 스크립트를 다시 실행 해야 합니다. 그래야만 후속 테넌트 DB 복원 작업이 성공합니다. 자세한 내용은 [문제 해결 – MDC 복원](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore)을 참조 하세요.
+
+## <a name="cross-region-restore"></a>지역 간 복원
+
+복원 옵션 중 하나로, CRR (지역 간 복원)을 사용 하면 azure Vm에서 호스트 되는 SAP HANA 데이터베이스를 Azure 쌍을 이루는 지역에 있는 보조 지역에서 복원할 수 있습니다.
+
+미리 보기 중에 기능에 등록 하려면 [시작 하기 전에 섹션](./backup-create-rs-vault.md#set-cross-region-restore)을 참조 하세요.
+
+CRR을 사용 하도록 설정 되어 있는지 확인 하려면 [지역 간 복원 구성](backup-create-rs-vault.md#configure-cross-region-restore) 의 지침을 따르세요.
+
+### <a name="view-backup-items-in-secondary-region"></a>보조 지역에서 백업 항목 보기
+
+CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습니다.
+
+1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 항목**으로 이동 합니다.
+1. 보조 **지역을 선택 하** 여 보조 지역의 항목을 봅니다.
+
+>[!NOTE]
+>CRR 기능을 지 원하는 백업 관리 유형만 목록에 표시 됩니다. 현재 보조 지역에 대 한 보조 지역 데이터 복원만 지원 됩니다.
+
+![보조 지역의 백업 항목](./media/sap-hana-db-restore/backup-items-secondary-region.png)
+
+![보조 지역의 데이터베이스](./media/sap-hana-db-restore/databases-secondary-region.png)
+
+### <a name="restore-in-secondary-region"></a>보조 지역에서 복원
+
+보조 지역 복원 사용자 환경은 주 지역 복원 사용자 환경과 유사 합니다. 복원 구성 창에서 세부 정보를 구성 하 여 복원을 구성 하는 경우 보조 지역 매개 변수만 제공 하 라는 메시지가 표시 됩니다.
+
+![복원 위치 및 방법](./media/sap-hana-db-restore/restore-secondary-region.png)
+
+>[!NOTE]
+>보조 지역의 가상 네트워크는 고유 하 게 할당 해야 하며 해당 리소스 그룹의 다른 Vm에는 사용할 수 없습니다.
+
+![진행 중인 복원 알림 트리거](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>* 복원이 트리거되고 데이터 전송 단계에서는 복원 작업을 취소할 수 없습니다.
+>* 보조 지역에서 복원 하는 데 필요한 Azure 역할은 주 지역의 경우와 동일 합니다.
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>보조 지역 복원 작업 모니터링
+
+1. 포털에서 **Recovery Services 자격 증명 모음**  >  **백업 작업** 으로 이동 합니다.
+1. 보조 **지역을 선택 하** 여 보조 지역의 항목을 봅니다.
+
+    ![필터링 된 백업 작업](./media/sap-hana-db-restore/backup-jobs-secondary-region.png)
 
 ## <a name="next-steps"></a>다음 단계
 

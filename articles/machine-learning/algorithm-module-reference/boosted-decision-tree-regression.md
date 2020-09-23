@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 171c53aa36ecc854cf32a64f9f2639a7086c24e5
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 21cd1491da4374babaff8b5b4b451a3cce874368
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782586"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898840"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>승격 된 의사 결정 트리 회귀 모듈
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 부스트를 사용 하는 회귀 트리의 앙상블을 만듭니다. *부스트* 는 각 트리가 이전 트리에 종속 됨을 의미 합니다. 알고리즘은 앞에 오는 트리의 나머지를 맞추는 방법으로 학습 합니다. 따라서 의사 결정 트리 앙상블이 승격되면 정확도는 개선되지만 적용 범위가 감소할 약간의 위험이 따릅니다.  
 

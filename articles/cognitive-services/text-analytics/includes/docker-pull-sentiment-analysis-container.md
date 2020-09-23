@@ -9,19 +9,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: a3db0e2ffdd4a75f02634ca2227c3c41416d4f65
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 549ecf940c53267db6b3caa576c4c24db414337a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588403"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906076"
 ---
 #### <a name="docker-pull-for-the-sentiment-analysis-v3-container"></a>감정 분석 v3 컨테이너에 대 한 Docker 풀
 
 감정 분석 컨테이너 v3 컨테이너는 여러 언어로 제공 됩니다. 영어 컨테이너의 컨테이너를 다운로드 하려면 아래 명령을 사용 합니다. 
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en
 ```
 
 다른 언어용 컨테이너를 다운로드 하려면를 `en` 아래의 언어 코드 중 하나로 바꿉니다. 

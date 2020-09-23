@@ -11,15 +11,15 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f497bf5374dd6f621a6b48bae245e5efb1505a19
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: a36f69c9956dd05c5fbd85d7e37b90c0b1e4c21e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603070"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897661"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>ML 웹 서비스 엔드포인트에서 데이터 모니터링 및 수집
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 AKS (Azure Kubernetes Service) 또는 ACI (Azure Container Instances)에서 웹 서비스 끝점에 배포 된 모델에서 데이터를 수집 하는 방법에 대해 알아봅니다. [Azure 애플리케이션 Insights](../azure-monitor/app/app-insights-overview.md) 를 사용 하 여 끝점에서 다음 데이터를 수집 합니다.
 * 출력 데이터
@@ -32,7 +32,7 @@ ms.locfileid: "90603070"
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
  
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독- [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 83fa119a17d319dffe1fcd54173d9a11b29135ca
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 4310bd94edd5ebe14eab40b6d19e2bacbdd1b03c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89481832"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906218"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Azure SQL Database
 
@@ -56,4 +56,4 @@ Azure Stream Analytics에서 Azure Synapse Analytics(이전의 SQL Data Warehous
 * [빠른 시작: ARM 템플릿을 사용하여 Azure Stream Analytics 작업 만들기](quick-create-azure-resource-manager.md)
 * [빠른 시작: Azure PowerShell를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
 * [빠른 시작: Visual Studio를 사용하여 Azure Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기](quick-create-vs-code.md)
+* [빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)

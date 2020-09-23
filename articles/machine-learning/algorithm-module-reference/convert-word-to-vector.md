@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 21b207ece1a2a7fd6f218716912d4c4d2c2f1ee2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c2aa9023a7081387d38b9f7c6cfe8323300ad6e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753883"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898607"
 ---
 # <a name="convert-word-to-vector-module"></a>Word를 Vector 모듈로 변환
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에서 다음 작업을 수행 하는 데 Word to Vector로 변환 모듈을 사용 하는 방법을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 Vector to Vector로 변환 모듈을 사용 하 여 다음 작업을 수행 하는 방법을 설명 합니다.
 
 - 입력으로 지정한 텍스트의 모음에 다양 한 Word2Vec 모델 (Word2Vec, fasttext, 글러브 미리 학습 된 된 모델)을 적용 합니다.
 - 단어 포함를 사용 하 여 어휘를 생성 합니다.
@@ -93,7 +93,7 @@ Word 포함는 텍스트 분류 및 감정 분석과 같은 NLP 다운스트림 
 
 + **포함가 있는 어휘**: 생성 된 어휘와 함께 각 단어 포함을 포함 합니다. 한 차원은 하나의 열을 차지 합니다.
 
-다음 예에서는 Word를 Vector로 변환 모듈을 작동 하는 방법을 보여 줍니다. 이 모듈은 Azure Machine Learning (미리 보기)에서 제공 하는 전처리 된 위키백과 SP 500 데이터 집합에 대 한 기본 설정으로이 모듈을 적용 합니다.
+다음 예에서는 Word를 Vector로 변환 모듈을 작동 하는 방법을 보여 줍니다. Azure Machine Learning에서 제공 하는 전처리 된 위키백과 SP 500 데이터 집합에 대 한 기본 설정과이 모듈을 적용 합니다.
 
 ### <a name="source-dataset"></a>원본 데이터 세트
 
@@ -149,4 +149,4 @@ loop|-0.391421|0.52366|0.141503|-0.105423|0.084503|-0.018424|...|-0.0521
 
 Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
 
-디자이너 (미리 보기) 모듈과 관련 된 오류 목록은 [Machine Learning 오류 코드](designer-error-codes.md)를 참조 하세요.
+디자이너 모듈과 관련 된 오류 목록은 [Machine Learning 오류 코드](designer-error-codes.md)를 참조 하세요.

@@ -1,15 +1,15 @@
 ---
 title: Personalizer 리소스 만들기
-description: 서비스 구성에는 서비스의 보상 처리 방법, 서비스의 탐색 빈도, 모델을 다시 학습하는 빈도 및 저장할 데이터의 양이 포함됩니다.
+description: 이 문서에서는 각 피드백 루프에 대해 Azure Portal에서 personalizer 리소스를 만드는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2ebd5496eb45ed007f47cd34761800f8b54e5a5a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7965fb1eaa3efbe1f47db4eedd88e4444b0e610b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501255"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985823"
 ---
 # <a name="create-a-personalizer-resource"></a>Personalizer 리소스 만들기
 

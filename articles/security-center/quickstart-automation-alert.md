@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: ecef318978194ac3773c54e2d9c960781086de65
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687216"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906365"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>빠른 시작: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 특정 보안 경고에 대한 자동 응답 만들기
 
@@ -73,9 +73,7 @@ Azure Portal을 사용하여 워크플로 자동화가 배포되었는지 확인
 1. [Azure Portal](https://portal.azure.com)에서 **Security Center**를 엽니다.
 1. 상단 메뉴 모음에서 필터 아이콘을 선택하고 새 워크플로 자동화를 배포한 특정 구독을 선택합니다.
 1. Security Center의 사이드바에서 **워크플로 자동화**를 열고 새 자동화를 확인합니다.
-
-    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="이미지 대체 텍스트." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
-
+    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="구성된 자동화 목록" lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
     >[!TIP]
     > 구독에 많은 워크플로 자동화가 있는 경우 **이름으로 필터링** 옵션을 사용합니다. 
 
@@ -86,11 +84,9 @@ Azure Portal을 사용하여 워크플로 자동화가 배포되었는지 확인
 1. [Azure Portal](https://portal.azure.com)에서 **Security Center**를 엽니다.
 1. 상단 메뉴 모음에서 필터 아이콘을 선택하고 새 워크플로 자동화를 배포한 특정 구독을 선택합니다.
 1. Security Center의 사이드바에서 **워크플로 자동화**를 열고 삭제할 자동화를 찾습니다.
-
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="이미지 대체 텍스트." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
-
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="워크플로 자동화를 제거하는 단계" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. 삭제할 항목의 확인란을 선택합니다.
-1. 도구 모음에서 삭제를 선택합니다.
+1. 도구 모음에서 **삭제**를 선택합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

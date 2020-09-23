@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 73e8f0de9f879498acb71e97fa47c81b3447252d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edf35fada4233fbe43bc7f859c2414bfb8130714
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749606"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905729"
 ---
 # <a name="train-anomaly-detection-model-module"></a>변칙 검색 모델 학습 모듈
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 변칙 검색 모델 학습 모듈을 사용 하 여 학습 된 변칙 검색 모델을 만드는 방법을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer에서 변칙 검색 모델 학습 모듈을 사용 하 여 학습 된 변칙 검색 모델을 만드는 방법을 설명 합니다.
 
 모듈은 변칙 검색 모델 및 레이블이 없는 데이터 집합에 대 한 매개 변수 집합을 입력으로 사용 합니다. 학습 된 변칙 검색 모델을 학습 데이터에 대 한 레이블 집합과 함께 반환 합니다.  
 
@@ -53,5 +53,5 @@ ms.locfileid: "84749606"
 
 Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
 
-디자이너 모듈에 특정 한 오류 목록은 [디자이너 (미리 보기)에 대 한 예외 및 오류 코드](designer-error-codes.md) 를 참조 하세요.
+디자이너 모듈과 관련 된 오류 목록은 [디자이너의 예외 및 오류 코드](designer-error-codes.md) 를 참조 하세요.
 '

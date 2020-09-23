@@ -10,16 +10,16 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/16/2020
-ms.openlocfilehash: abb24ef1cc6a693acbaf6561a185fd5ae536a66d
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 64665c0b1e32970f29233f5abdd6b2d2d020a6b2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89668799"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897525"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Azure Machine Learning 복원 력 향상
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 고가용성 구성을 사용 하 여 Microsoft Azure Machine Learning 리소스의 복원 력을 높이는 방법에 대해 알아봅니다. 고가용성을 위해 Azure Machine Learning 따라 달라 지는 Azure 서비스를 구성할 수 있습니다. 이 문서에서는 고가용성을 위해 구성할 수 있는 서비스를 식별 하 고 이러한 리소스 구성에 대 한 추가 정보에 대 한 링크를 제공 합니다.
 

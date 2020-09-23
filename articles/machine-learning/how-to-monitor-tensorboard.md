@@ -10,15 +10,15 @@ ms.author: maxluk
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 362b44cbed07359635f542e4eb18fc33803f0390
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: da5c128b9e0befd69e1ded6b47644a3c64b8f657
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649307"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905053"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning을 사용한 실험 실행 및 메트릭 시각화
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 주 Azure Machine Learning SDK의 [`tensorboard` 패키지](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py&preserve-view=true)를 사용하여 TensorBoard에서의 실험 실행과 메트릭을 보는 방법에 대해 알아봅니다. 실험 실행을 검사한 후에는 더 나은 기계 학습 모델 조정 및 재학습을 할 수 있습니다.
 

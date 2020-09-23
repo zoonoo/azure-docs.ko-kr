@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 08f1d1e0ca1936b30db968dde5d7f6f2e6104cf8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3e1832d656ea2bad772a686e52a357c1daf0ded5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651208"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883211"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
@@ -49,7 +49,7 @@ Azure Machine Learning는 여러 계산 리소스에 대해 다양 한 지원을
 Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 합니다. 이 계산은 machine learning 워크 로드에 최적화 되어 있습니다. 계산 클러스터와 [계산 인스턴스](concept-compute-instance.md) 는 유일 하 게 관리 되는 계산 Azure Machine Learning. 
 
 다음에서 계산 인스턴스 또는 계산 클러스터 Azure Machine Learning 만들 수 있습니다.
-* [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
+* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 * Azure portal
 * Python SDK 계산 [Einstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true) 및 [amlcompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) 클래스
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (미리 보기)
@@ -68,7 +68,7 @@ Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 
 
 
 > [!NOTE]
-> 계산 클러스터는 유휴 상태일 때 0 개 노드로 자동 확장 되므로 사용 하지 않을 때에는 요금이 청구 되지 않습니다.  그러나 계산 *인스턴스*는 항상 켜져 있으며 자동 크기 조정 하지 않습니다.  추가 비용을 방지 하기 위해 사용 하지 않을 때는 [계산 인스턴스를 중지](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) 해야 합니다. 
+> 계산 클러스터는 유휴 상태일 때 0 개 노드로 자동 확장 되므로 사용 하지 않을 때에는 요금이 청구 되지 않습니다.  그러나 계산 *인스턴스*는 항상 켜져 있으며 자동 크기 조정 하지 않습니다.  추가 비용을 방지 하기 위해 사용 하지 않을 때는 [계산 인스턴스를 중지](concept-compute-instance.md#managing-a-compute-instance) 해야 합니다. 
 
 ### <a name="supported-vm-series-and-sizes"></a>지원되는 VM 시리즈 및 크기
 
@@ -82,19 +82,19 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 
 | **지원 되는 VM 시리즈**  | **제한 사항** |
 |------------|------------|
-| D | 없음 |
-| Dv2 | 없음 |  
-| DSv2 | 없음 |  
-| FSv2 | 없음 | 
+| D | None |
+| Dv2 | None |  
+| DSv2 | None |  
+| FSv2 | None | 
 | HBv2 | 승인 필요 |  
 | HCS | 승인 필요 |  
 | M | 승인 필요 |
-| NC | 없음 |    
+| NC | None |    
 | NCsv2 | 승인 필요 |
 | NCsv3 | 승인 필요 |  
 | NDs | 승인 필요 |
 | NDv2 | 승인 필요 |
-| NV | 없음 |
+| NV | None |
 | NVv3 | 승인 필요 | 
 
 

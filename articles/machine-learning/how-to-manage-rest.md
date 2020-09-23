@@ -10,16 +10,16 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8c97ee9782f728e39175ed2517b64020ca4169f4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 39000a34d1d19026ce406eeb996f89d1acc7ea04
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649403"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897360"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>REST를 사용 하 여 Azure ML 리소스 만들기, 실행 및 삭제
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. [포털](https://portal.azure.com/), [명령줄 인터페이스](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)또는 [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용할 수 있습니다. 또는 REST API를 선택할 수 있습니다. REST API는 표준 방식으로 HTTP 동사를 사용 하 여 리소스를 만들고, 검색 하 고, 업데이트 하 고, 삭제 합니다. REST API는 HTTP 요청을 수행할 수 있는 모든 언어 또는 도구와 함께 작동 합니다. REST의 간단한 구조를 사용 하면 스크립팅 환경 및 MLOps 자동화에 적합 합니다. 
 
@@ -33,7 +33,7 @@ Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. 
 > * DELETE 요청을 사용 하 여 리소스 정리 
 > * 키 기반 권한 부여를 사용 하 여 배포 된 모델 점수 매기기
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 관리 권한이 있는 **Azure 구독** . 이러한 구독이 없는 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree) 을 사용해 보세요.
 - [Azure Machine Learning 작업 영역](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
@@ -423,5 +423,5 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 ## <a name="next-steps"></a>다음 단계
 
 - 전체 [AzureML REST API 참조](https://docs.microsoft.com/rest/api/azureml/)를 살펴봅니다.
-- Studio & Designer를 사용 하 여 [디자이너 (미리 보기)로 자동차 가격을 예측](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score)하는 방법을 알아봅니다.
+- 디자이너를 사용 하 여 [자동차 가격을 디자이너와 예측](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score)하는 방법을 알아봅니다.
 - [Jupyter 노트북을 사용 하 여 Azure Machine Learning을](https://docs.microsoft.com/azure//machine-learning/samples-notebooks)탐색 합니다.

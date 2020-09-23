@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f32f6c4366aac1a39dbc1bc4af3b945e259b3280
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4444f86f094d46419d7ff4b2f80609da007c4594
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543540"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906132"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Database for MySQL 서버 만들기
 
@@ -201,7 +201,7 @@ mydemoserver.mysql.database.azure.com       myadmin
 
 1. **새 연결 설정** 대화 상자의 **매개 변수** 탭에서 다음 정보를 입력합니다.
 
-   ![새 연결 설정](./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png)
+   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png" alt-text="새 연결 설정":::
 
     |    **설정**    |           **제안 값**           |                      **설명**                       |
     | ----------------- | --------------------------------------- | ---------------------------------------------------------- |
@@ -237,4 +237,4 @@ Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [PowerShell을 사용하여 연결 문자열 생성 - Azure Database for MySQL](connect-powershell.md)
+> [PowerShell을 사용하여 Azure Database for MySQL 디자인](tutorial-design-database-using-powershell.md)

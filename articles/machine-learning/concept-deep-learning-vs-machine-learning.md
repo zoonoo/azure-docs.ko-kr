@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b024010583ba1c6e0ffdf663f7335011ce212bf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414576"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905125"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습
 
@@ -26,7 +26,7 @@ ms.locfileid: "81414576"
 
 심층 학습 및 기계 학습 vs AI를 이해 하려면 다음 정의를 고려 하십시오.
 
-- **심층 학습은** 인공 신경망을 기반으로 하는 기계 학습의 하위 집합입니다. 인공 신경망의 구조가 여러 입력, 출력 및 숨겨진 계층으로 구성 되기 때문에 _학습 프로세스_ 는 _깊습니다_ . 각 계층에는 입력 데이터를 다음 계층이 특정 예측 태스크에 사용할 수 있는 정보로 변환 하는 단위가 포함 되어 있습니다. 이 구조 덕분에 컴퓨터는 자체 데이터 처리를 통해 학습할 수 있습니다.
+- **심층 학습은** 인공 신경망을 기반으로 하는 기계 학습의 하위 집합입니다. 인공 신경망의 구조가 여러 입력, 출력 및 숨겨진 계층으로 구성 되기 때문에 _학습 프로세스_ 는 _깊습니다_ . 각 레이어에는 입력 데이터를 다음 레이어가 특정 예측 작업에 사용할 수 있는 정보로 변환하는 장치가 포함되어 있습니다. 이 구조 덕분에 컴퓨터는 자체 데이터 처리를 통해 학습할 수 있습니다.
 
 - **Machine learning** 은 컴퓨터에서 환경을 사용 하 여 작업을 개선할 수 있도록 하는 기술 (예: 심층 학습)을 사용 하는 인공 지능의 하위 집합입니다. _학습 프로세스_ 는 다음 단계를 기반으로 합니다.
 
@@ -96,7 +96,7 @@ AI, 기계 학습 및 심층 학습 간의 관계를 이해 하는 것이 중요
 
 ### <a name="feedforward-neural-network"></a>Feedforward 신경망
 
-Feedforward 신경망은 가장 기본적인 유형의 인공 신경망입니다. Feedforward 네트워크에서 정보는 입력 계층에서 출력 계층으로 한 방향 으로만 이동 합니다. Feedforward 신경망은 일련의 숨겨진 계층을 통해 입력 하 여 입력을 변환 합니다. 모든 계층은 뉴런 집합으로 구성 되며 각 계층은 이전 계층의 모든 뉴런에 완전히 연결 됩니다. 마지막으로 완전히 연결 된 계층 (출력 계층)은 생성 된 예측을 나타냅니다.
+Feedforward 신경망은 가장 간단한 유형의 인공 신경망입니다. Feedforward 네트워크에서 정보는 입력 계층에서 출력 계층으로 한 방향 으로만 이동 합니다. Feedforward 신경망은 일련의 숨겨진 계층을 통해 입력 하 여 입력을 변환 합니다. 모든 계층은 뉴런 집합으로 구성 되며 각 계층은 이전 계층의 모든 뉴런에 완전히 연결 됩니다. 마지막으로 완전히 연결 된 계층 (출력 계층)은 생성 된 예측을 나타냅니다.
 
 ### <a name="recurrent-neural-network"></a>되풀이 신경망
 

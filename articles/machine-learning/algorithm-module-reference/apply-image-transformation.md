@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 7ff135911742c49c2c52ce30d1dca00bc89b3a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450097"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898915"
 ---
 # <a name="apply-image-transformation"></a>이미지 변환 적용 
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 이미지 변환 적용 모듈을 사용 하 여 이전에 지정 된 이미지 변환을 기반으로 입력 이미지 디렉터리를 수정 하는 방법을 설명 합니다.  
+이 문서에서는 Azure Machine Learning designer에서 이미지 변환 적용 모듈을 사용 하 여 이전에 지정 된 이미지 변환을 기반으로 입력 이미지 디렉터리를 수정 하는 방법을 설명 합니다.  
 
 [초기화 이미지](init-image-transformation.md) 변환 모듈을 연결 하 여 변환을 지정 하 고 나 서 이미지 변환 적용 모듈의 입력 이미지 디렉터리에 이러한 변환을 적용할 수 있습니다.
 
@@ -47,20 +47,20 @@ ms.locfileid: "84450097"
 
 ### <a name="module-parameters"></a>모듈 매개 변수
 
-| 이름 | 범위 | Type | 기본값                   | Description                              |
+| 이름 | 범위 | Type | 기본값                   | 설명                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |
-| Mode | 모두   | Mode | (사용자가 지정 해야 함) | 입력 변환을 사용 하는 용도 ' 임의 ' 변환 작업을 유추에서 제외 하 고 학습에 유지 해야 합니다. |
+| Mode | 모두   | 모드 | (사용자가 지정 해야 함) | 입력 변환을 사용 하는 용도 ' 임의 ' 변환 작업을 유추에서 제외 하 고 학습에 유지 해야 합니다. |
 
 ### <a name="expected-inputs"></a>예상 입력  
 
-| 이름                       | 유형                    | 설명                       |
+| 이름                       | Type                    | 설명                       |
 | -------------------------- | ----------------------- | --------------------------------- |
 | 입력 이미지 변환 | TransformationDirectory | 입력 이미지 변환        |
 | 입력 이미지 디렉터리      | ImageDirectory          | 변형할 이미지 디렉터리입니다. |
 
 ### <a name="outputs"></a>출력  
 
-| 이름                   | 유형           | 설명            |
+| 이름                   | Type           | 설명            |
 | ---------------------- | -------------- | ---------------------- |
 | 출력 이미지 디렉터리 | ImageDirectory | 출력 이미지 디렉터리 |
 

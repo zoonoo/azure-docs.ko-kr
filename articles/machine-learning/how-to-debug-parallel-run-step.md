@@ -11,15 +11,15 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 07/16/2020
-ms.openlocfilehash: 8d357cea7ce809c2df6b35e08ac7da7e9d3795e9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 010843f4249909e23ffac3b41fb3acaf9c91eb17
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650427"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890010"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>ParallelRunStep 디버그 및 문제 해결
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)에서 [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) 클래스의 디버그 및 문제 해결 방법에 대해 알아봅니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "89650427"
 
 ## <a name="debugging-scripts-from-remote-context"></a>원격 컨텍스트에서 스크립트 디버그
 
-채점 스크립트의 로컬 디버깅을 실제 파이프라인에서의 디버깅으로 전환하는 것은 어려운 작업일 수 있습니다. 포털에서 로그 찾기에 대한 자세한 내용은 [원격 컨텍스트에서의 스크립트 디버깅에 관한 기계 학습 파이프라인 섹션](how-to-debug-pipelines.md#finding-and-reading-pipeline-log-files)을 참조하세요. 해당 섹션의 정보는 ParallelRunStep에도 적용됩니다.
+채점 스크립트의 로컬 디버깅을 실제 파이프라인에서의 디버깅으로 전환하는 것은 어려운 작업일 수 있습니다. 포털에서 로그 찾기에 대한 자세한 내용은 [원격 컨텍스트에서의 스크립트 디버깅에 관한 기계 학습 파이프라인 섹션](how-to-debug-pipelines.md)을 참조하세요. 해당 섹션의 정보는 ParallelRunStep에도 적용됩니다.
 
 예를 들어 로그 파일 `70_driver_log.txt`에는 ParallelRunStep 코드를 시작하는 컨트롤러의 정보가 포함됩니다.
 

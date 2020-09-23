@@ -1,19 +1,19 @@
 ---
 title: 'P2S VPN 클라이언트 구성 파일 만들기 & 설치: 인증서 인증'
 titleSuffix: Azure VPN Gateway
-description: P2S 인증서 인증용 Windows, Linux, Linux(strongSwan) 및 Mac OS X VPN 클라이언트 구성 파일을 만들고 설치합니다.
+description: P2S 인증서 인증을 위해 Windows, Linux, Linux (strongSwan) 및 macOS X VPN 클라이언트 구성 파일을 만들고 설치 합니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 17a9339fff27a0fbd7fa389933d21ef85e29248b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 3a7a9711f04a4b54459d57a05ae65b4eedf1d6b6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420781"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986644"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
@@ -96,7 +96,7 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 
    **인터페이스** 값은 'VPN'이고, **VPN 유형** 값은 'IKEv2'입니다. **서비스 이름** 필드에 프로필 이름을 지정한 다음 **만들기**를 클릭하여 VPN 클라이언트 연결 프로필을 만듭니다.
 
-   ![network](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![스크린샷 인터페이스를 선택 하 고 VPN 유형을 선택한 다음 서비스 이름을 입력 하는 옵션이 포함 된 네트워크 창이 표시 됩니다.](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. **Generic** 폴더의 **VpnSettings.xml** 파일에서 **VpnServer** 태그 값을 복사합니다. 이 값을 프로필의 **서버 주소** 및 **원격 ID** 필드에 붙여넣습니다.
 
    ![서버 정보](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -106,14 +106,14 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 
    * Catalina.properties에 대해 **없음** 을 선택 하 고 **인증서**를 선택 합니다. 올바른 인증서를 **선택** 합니다.
    
-   ![catalina.properties](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
+   ![선택 된 인증 설정 및 인증서에 대해 선택 하지 않은 네트워크 창이 스크린샷에 표시 됩니다.](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
 
 6. **선택** ...을 클릭 합니다. 인증에 사용하려는 클라이언트 인증서를 선택합니다. 이 인증서는 2단계에서 설치한 인증서입니다.
 
-   ![인증서(certificate)](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
+   ![인증서를 선택할 수 있는 인증 설정이 포함 된 네트워크 창이 스크린샷에 표시 됩니다.](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. **ID 선택**은 선택할 수 있는 인증서의 목록을 표시합니다. 적절한 인증서를 선택한 다음 **계속**을 클릭합니다.
 
-   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![적절 한 인증서를 선택할 수 있는 Id 선택 대화 상자를 보여 주는 스크린샷](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. **로컬 ID** 필드에서 인증서 이름(6단계에서 사용한 이름)을 지정합니다. 이 예에서는 "ikev2Client.com"입니다. 그런 다음 **적용** 단추를 클릭하여 변경 내용을 저장합니다.
 
    ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
@@ -199,7 +199,7 @@ Ubuntu 18.0.4에서 다음 지침이 생성 되었습니다. Ubuntu 16.0.10은 s
    : P12 client.p12 'password' # key filename inside /etc/ipsec.d/private directory
    ```
 
-7. 다음 명령을 실행 합니다.
+7. 다음 명령을 실행합니다.
 
    ```
    # ipsec restart
@@ -213,4 +213,4 @@ P2S 구성을 완료하려면 [P2S 구성 완료](vpn-gateway-howto-point-to-sit
 P2S 연결 문제를 해결하려면 다음 문서를 참조하세요.
 
   * [Azure 지점 및 사이트 간 연결 문제 해결](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-  * [Mac OS X VPN 클라이언트에서 VPN 연결 문제 해결](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+  * [MacOS X VPN 클라이언트에서 VPN 연결 문제 해결](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)

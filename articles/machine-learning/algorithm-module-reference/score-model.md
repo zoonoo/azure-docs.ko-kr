@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 361199bd380b126ec41fb8a5587a2ebd78cd6f24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0cc367b86507d6d819608795851052e8a0c1c73b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84447614"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890314"
 ---
 # <a name="score-model"></a>모델 채점
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 학습 된 분류 또는 회귀 모델을 사용 하 여 예측을 생성 합니다.
 
