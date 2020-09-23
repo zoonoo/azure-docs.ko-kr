@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU 대역폭 일정 관리 | Microsoft Docs
-description: Azure Portal를 사용 하 여 Azure Stack Edge GPU에서 대역폭 일정을 관리 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro GPU 대역폭 일정 관리 | Microsoft Docs
+description: Azure Portal를 사용 하 여 Azure Stack Edge Pro GPU에서 대역폭 일정을 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 92b9edb4f694a5ff7d15b06be41cc20db3b64b97
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: faf78e9f7efb83c5f28538e18ed081378d120848
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265697"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890663"
 ---
-# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-gpu"></a>Azure Portal를 사용 하 여 Azure Stack Edge GPU에서 대역폭 일정을 관리 합니다. 
+# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Azure Portal를 사용 하 여 Azure Stack Edge Pro GPU에서 대역폭 일정을 관리 합니다. 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-이 문서에서는 Azure Stack Edge에서 대역폭 일정을 관리 하는 방법을 설명 합니다. 대역폭 일정을 사용하면 여러 시간대의 일정에 대해 네트워크 대역폭 사용량을 구성할 수 있습니다. 이러한 일정은 디바이스에서 클라우드로 업로드 및 다운로드 작업에 적용할 수 있습니다.
+이 문서에서는 Azure Stack Edge Pro에서 대역폭 일정을 관리 하는 방법을 설명 합니다. 대역폭 일정을 사용하면 여러 시간대의 일정에 대해 네트워크 대역폭 사용량을 구성할 수 있습니다. 이러한 일정은 디바이스에서 클라우드로 업로드 및 다운로드 작업에 적용할 수 있습니다.
 
-Azure Portal를 통해 Azure Stack에 지에 대 한 대역폭 일정을 추가, 수정 또는 삭제할 수 있습니다.
+Azure Portal를 통해 Azure Stack Edge Pro의 대역폭 일정을 추가, 수정 또는 삭제할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -42,9 +42,9 @@ Azure Portal를 통해 Azure Stack에 지에 대 한 대역폭 일정을 추가,
 
 3. **일정 추가**에서: 
 
-   1. 일정에 대한 **시작일**, **종료일**, **시작 시간** 및 **종료 시간**을 입력합니다.
-   2. 이 일정이 하루 종일 실행되어야 하는 경우 **하루 종일** 옵션을 확인합니다.
-   3. **대역폭 속도**는 클라우드와 관련된 작업(업로드 및 다운로드 모두)의 디바이스에 사용되는 초당 메가비트(Mbps)의 대역폭입니다. 이 필드에 20에서 2147483647 사이의 숫자를 입력 합니다.
+   1. 일정의 **시작 날짜**, **종료 날짜**, **시작 시간**및 **종료 시간** 을 제공 합니다.
+   2. 이 일정을 모두 실행 해야 하는 경우 **하루 종일** 옵션을 선택 합니다.
+   3. **대역폭 비율은** 클라우드와 관련 된 작업 (업로드 및 다운로드 모두)에서 장치에 사용 되는 대역폭 (초당 메가 비트) (mbps)입니다. 이 필드에 20에서 2147483647 사이의 숫자를 입력 합니다.
    4. 업로드 및 다운로드 날짜를 제한하지 않으려면 **무제한 대역폭**을 선택합니다.
    5. **추가**를 선택합니다.
 
@@ -73,7 +73,7 @@ Azure Portal를 통해 Azure Stack에 지에 대 한 대역폭 일정을 추가,
 
 ## <a name="delete-a-schedule"></a>일정 삭제
 
-Azure Stack Edge 장치와 연결 된 대역폭 일정을 삭제 하려면 다음 단계를 수행 합니다.
+Azure Stack Edge Pro 장치와 연결 된 대역폭 일정을 삭제 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 Azure Stack Edge 리소스로 이동한 후 **대역폭**으로 이동 합니다.  
 

@@ -54,7 +54,7 @@ Azure Advisor는 백업 되지 않은 Vm에 대 한 시간별 [권장 사항을]
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [자격 증명 모음 지원 및 지원 되지 않는 시나리오](backup-support-matrix.md#vault-support)
 - [자격 증명 모음에 대 한 질문과 대답](backup-azure-backup-faq.md)

@@ -1,14 +1,9 @@
 - name: 몰입형 판독기 설명서
   href: index.yml
-- name: 개요
-  items:
-    - name: 몰입형 판독기란?
-      href: Overview.md
+- name: 몰입형 판독기란?
+  href: Overview.md
 - name: 빠른 시작
-  expanded: true
-  items:
-    - name: 클라이언트 라이브러리 사용
-      href: ./quickstarts/client-libraries.md
+  href: ./quickstarts/client-libraries.md
 - name: 자습서
   items:
     - name: 몰입형 판독기(Android) 시작

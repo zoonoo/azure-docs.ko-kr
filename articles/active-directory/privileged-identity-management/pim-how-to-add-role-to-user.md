@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3370ea52c5bd189f929c0f81a0aa9b59cc77b97
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 919585d557a668e44f229451ab202fb8bcab9079
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421385"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985163"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 할당
 
@@ -75,6 +75,30 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
     ![새 할당 - 알림](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
+## <a name="assign-a-role-with-restricted-scope"></a>제한 된 범위의 역할 할당
+
+특정 역할의 경우 부여 된 사용 권한의 범위는 단일 관리 단위, 서비스 주체 또는 응용 프로그램으로 제한 될 수 있습니다. 이 절차는 관리 단위의 범위를 포함 하는 역할을 할당 하는 경우의 예입니다. 관리 단위를 통해 범위를 지 원하는 역할 목록은 [관리 단위에 범위 지정 역할 할당](../users-groups-roles/roles-admin-units-assign-roles.md)을 참조 하세요. 이 기능은 현재 Azure AD 조직에 롤아웃 되 고 있습니다.
+
+1. 권한 있는 역할 관리자 권한으로 [Azure Active Directory 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
+
+1. **Azure Active Directory**  >  **역할 및 관리자**를 선택 합니다.
+
+1. **사용자 관리자**를 선택 합니다.
+
+    ![포털에서 역할을 열 때 할당 추가 명령을 사용할 수 있습니다.](./media/pim-how-to-add-role-to-user/add-assignment.png)
+
+1. **할당 추가**를 선택 합니다.
+
+    ![역할에서 범위를 지 원하는 경우 범위를 선택할 수 있습니다.](./media/pim-how-to-add-role-to-user/add-scope.png)
+
+1. **할당 추가** 페이지에서 다음을 수행할 수 있습니다.
+
+   - 역할에 할당할 사용자 또는 그룹을 선택 합니다.
+   - 역할 범위 (이 경우에는 관리 단위)를 선택 합니다.
+   - 범위에 대 한 관리 단위를 선택 합니다.
+
+관리 단위를 만드는 방법에 대 한 자세한 내용은 [관리 단위 추가 및 제거](../users-groups-roles/roles-admin-units-manage.md)를 참조 하세요.
+
 ## <a name="update-or-remove-an-existing-role-assignment"></a>기존 역할 할당 업데이트 또는 제거
 
 기존 역할 할당을 업데이트하거나 제거하려면 다음 단계를 수행합니다.
@@ -101,7 +125,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 1. **역할** 또는 **멤버**를 선택 합니다.
 
-    ![Azure AD 역할](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Azure AD 역할을 엽니다.](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. **관리 되는 멤버 추가**를 열려면 **구성원 추가** 를 선택 합니다.
 
@@ -111,7 +135,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 1. **구성원 선택**을 선택 하 고 역할에 할당 하려는 사용자를 선택한 다음 **선택**을 선택 합니다.
 
-    ![역할 선택](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![할당할 사용자 또는 그룹을 선택 하십시오.](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. **관리 되는 멤버 추가**에서 **확인** 을 선택 하 여 역할에 사용자를 추가 합니다.
 
@@ -169,7 +193,7 @@ Azure AD 관리자 역할에서 특정 사용자를 제거 하려면 다음 단�
 
 1. 확인 메시지가 표시 되 면 **예**를 선택 합니다.
 
-    ![역할 제거](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![제거 확인](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     역할 할당이 제거됩니다.
 

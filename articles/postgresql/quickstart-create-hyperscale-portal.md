@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: 977082b7f9055b90ee5c93913154934741d93772
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a16283f3d04c9ad331a04c3a36b49055635d76e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547701"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906494"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 하이퍼스케일(Citus) 서버 그룹 만들기
 
@@ -138,6 +138,5 @@ SELECT gu.login, count(*)
 
 이 빠른 시작에서는 하이퍼스케일(Citus) 서버 그룹을 프로비저닝하는 방법을 배웠습니다. 그 후 psql을 사용하여 이 서버 그룹에 연결하고, 스키마를 만들고, 데이터를 분산했습니다.
 
-다음으로, 자습서에 따라 확장성 있는 다중 테넌트 애플리케이션을 빌드합니다.
-> [!div class="nextstepaction"]
-> [다중 테넌트 데이터베이스 설계](https://aka.ms/hyperscale-tutorial-multi-tenant)
+- 자습서에 따라 [확장성 있는 다중 테넌트 애플리케이션을 빌드](https://aka.ms/hyperscale-tutorial-multi-tenant)합니다.
+- 서버 그룹에 적합한 [처음 크기](howto-hyperscale-scaling.md#picking-initial-size)를 결정합니다.

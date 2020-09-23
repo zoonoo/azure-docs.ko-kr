@@ -3,12 +3,12 @@ title: 정책 예외 구조의 세부 정보
 description: 이니셔티브 또는 정의 평가에서 리소스를 제외 하기 위해 Azure Policy에서 사용 하는 정책 예외 정의에 대해 설명 합니다.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3e6a6c9bc7993161697187b6131994c1973b49d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938594"
+ms.locfileid: "90968049"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy 예외 구조
 
@@ -99,11 +99,12 @@ JSON을 사용 하 여 정책 예외를 만듭니다. 정책 예외에는 다음
 
 `policyAssignmentId`이 이니셔티브 할당에 대 한 인 경우 `policyDefinitionReferenceIds` 속성을 사용 하 여 주체 리소스가에 대 한 예외가 있는 이니셔티브의 정책 정의를 지정할 수 있습니다. 하나 이상의 포함 된 정책 정의에서 리소스가 제외 될 수 있으므로이 속성은 _배열_입니다. 값은 필드에 있는 이니셔티브 정의의 값과 일치 해야 합니다 `policyDefinitions.policyDefinitionReferenceId` .
 
-## <a name="required-permissions"></a>필요한 사용 권한
+## <a name="exemption-category"></a>예외 범주
 
-정책 예외 개체를 관리 하는 데 필요한 Azure RBAC 권한은 `Microsoft.Authorization/policyExemptions` 작업 그룹에 있습니다. 기본 제공 역할 [리소스 정책 참가자](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) 및 [보안 관리자](../../../role-based-access-control/built-in-roles.md#security-admin) 는 모두 `read` 및 `write` 사용 권한을 가지 며 [Policy Insights 데이터 기록기 (미리 보기)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) 에는 `read` 권한이 있습니다.
+예외를 그룹화 하는 데 사용 되는 두 개의 예외 범주가 있습니다.
 
-예외에는 예외를 부여 하는 영향 때문에 추가 보안 수단이 있습니다. `Microsoft.Authorization/policyExemptions/write`리소스 계층 이나 개별 리소스에 대 한 작업을 요구 하는 것 외에는 예외 작성자에 게 `exempt/Action` 대상 할당에 대 한 동사가 있어야 합니다.
+- **완화**: 다른 메서드를 통해 정책 의도가 충족 되기 때문에 예외가 부여 됩니다.
+- **면제**: 리소스의 비호환 상태가 일시적으로 허용 되기 때문에 예외가 부여 됩니다. 이 범주를 사용 하는 또 다른 이유는 이니셔티브에서 하나 이상의 정의에서 제외 되어야 하지만 전체 이니셔티브에서 제외 해서는 안 되는 리소스 또는 리소스 계층 구조에 대 한 것입니다.
 
 ## <a name="expiration"></a>만료
 
@@ -111,6 +112,12 @@ JSON을 사용 하 여 정책 예외를 만듭니다. 정책 예외에는 다음
 
 > [!NOTE]
 > 날짜에 도달 하면 정책 예외가 삭제 되지 않습니다 `expiresOn` . 개체는 레코드 유지를 위해 유지 되지만 예외는 더 이상 적용 되지 않습니다.
+
+## <a name="required-permissions"></a>필요한 사용 권한
+
+정책 예외 개체를 관리 하는 데 필요한 Azure RBAC 권한은 `Microsoft.Authorization/policyExemptions` 작업 그룹에 있습니다. 기본 제공 역할 [리소스 정책 참가자](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) 및 [보안 관리자](../../../role-based-access-control/built-in-roles.md#security-admin) 는 모두 `read` 및 `write` 사용 권한을 가지 며 [Policy Insights 데이터 기록기 (미리 보기)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) 에는 `read` 권한이 있습니다.
+
+예외에는 예외를 부여 하는 영향 때문에 추가 보안 수단이 있습니다. `Microsoft.Authorization/policyExemptions/write`리소스 계층 이나 개별 리소스에 대 한 작업을 요구 하는 것 외에는 예외 작성자에 게 `exempt/Action` 대상 할당에 대 한 동사가 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: d3a9f88325f03d0252adf51c5bf221b131d7d33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751711"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907040"
 ---
 # <a name="group-data-into-bins-module"></a>Bin 모듈로 데이터 그룹화
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)에서 Bin으로 데이터 그룹화 모듈을 사용하여 숫자를 그룹화하거나 연속 데이터의 배포를 변경하는 방법을 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 Bin 모듈에 데이터 그룹화를 사용 하 여 숫자를 그룹화 하거나 연속 데이터의 분포를 변경 하는 방법을 설명 합니다.
 
 Bin으로 데이터 그룹화 모듈은 데이터를 범주화하기 위한 여러 옵션을 지원합니다. bin 에지가 설정되는 방법과 값이 bin에 할당되는 방법을 사용자 지정할 수 있습니다. 예를 들어, 다음을 수행할 수 있습니다.  
 
@@ -50,7 +50,7 @@ Bin으로 데이터 그룹화 모듈은 데이터를 범주화하기 위한 여�
 
 ## <a name="how-to-configure-group-data-into-bins"></a>Bin으로 데이터 그룹화를 구성하는 방법
 
-1. 디자이너 (미리 보기)의 파이프라인에 Bin 모듈에 **그룹 데이터** 를 추가 합니다. 이 모듈은 범주 **데이터 변환**에서 찾을 수 있습니다.
+1. 디자이너에서 파이프라인에 **그룹 데이터를 bin** 모듈에 추가 합니다. 이 모듈은 범주 **데이터 변환**에서 찾을 수 있습니다.
 
 2. 숫자 데이터를 포함하는 데이터 세트를 bin에 연결합니다. 양자화는 숫자 데이터를 포함 하는 열에만 적용할 수 있습니다. 
 

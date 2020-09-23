@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Edge(미리 보기)에서 ONNX를 통한 기계 학습 및 AI
-description: Azure SQL Edge(미리 보기)의 기계 학습은 ONNX(Open Neural Network Exchange) 형식의 모델을 지원합니다. ONNX는 다양한 기계 학습 프레임워크 및 도구 간에 모델을 교환하는 데 사용할 수 있는 개방형 형식입니다.
+title: Azure SQL Edge에서 ONNX를 사용 하는 기계 학습 및 AI
+description: Azure SQL Edge의 Machine learning은 ONNX (오픈 신경망 교환) 형식의 모델을 지원 합니다. ONNX는 다양한 기계 학습 프레임워크 및 도구 간에 모델을 교환하는 데 사용할 수 있는 개방형 형식입니다.
 keywords: SQL Edge 배포
 services: sql-edge
 ms.service: sql-edge
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 2db6c728ac35c6fc2f1fee1a602725371e448104
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47c040b0fad0211af413141a5b16b587d41d3b08
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368059"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907145"
 ---
-# <a name="machine-learning-and-ai-with-onnx-in-sql-edge-preview"></a>SQL Edge(미리 보기)에서 ONNX를 통한 기계 학습 및 AI
+# <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>SQL Edge에서 ONNX를 통한 기계 학습 및 AI
 
-Azure SQL Edge(미리 보기)의 기계 학습은 [ONNX(Open Neural Network Exchange)](https://onnx.ai/) 형식의 모델을 지원합니다. ONNX는 다양한 [기계 학습 프레임워크 및 도구](https://onnx.ai/supported-tools) 간에 모델을 교환하는 데 사용할 수 있는 개방형 형식입니다.
+Azure SQL Edge의 Machine learning은 [ONNX (오픈 신경망 교환)](https://onnx.ai/) 형식의 모델을 지원 합니다. ONNX는 다양한 [기계 학습 프레임워크 및 도구](https://onnx.ai/supported-tools) 간에 모델을 교환하는 데 사용할 수 있는 개방형 형식입니다.
 
 ## <a name="overview"></a>개요
 
@@ -55,4 +55,4 @@ ONNX 형식으로 모델을 가져오려면 다음을 수행합니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Portal을 통해 SQL Edge 배포](deploy-portal.md)
-- [Azure SQL Edge(미리 보기)에 ONNX 모델 배포](deploy-onnx.md)
+- [Azure SQL Edge에 ONNX 모델 배포 ](deploy-onnx.md)

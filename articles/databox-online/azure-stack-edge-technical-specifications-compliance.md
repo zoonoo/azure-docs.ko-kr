@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge 기술 사양 및 규정 준수 | Microsoft Docs
-description: Azure Stack Edge에 대한 기술 사양 및 규정 준수에 대해 알아보기
+title: Microsoft Azure Stack Edge Pro 기술 사양 및 규정 준수 | Microsoft Docs
+description: Azure Stack Edge Pro의 기술 사양 및 규정 준수에 대해 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 5a4ac2342ca36d83d1a579851c090c4713814c8d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 91aa386311452ae08ead2b8eac9005b2c730f3f3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652043"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883448"
 ---
-# <a name="azure-stack-edge-technical-specifications"></a>Azure Stack Edge 기술 사양
+# <a name="azure-stack-edge-pro-technical-specifications"></a>Azure Stack Edge Pro 기술 사양
 
-Microsoft Azure Stack Edge 디바이스의 하드웨어 구성 요소는 이 문서에 설명된 기술 사양 및 규제 표준을 준수합니다. 기술 사양은 PSU(전원 공급 장치), 스토리지 용량, 엔클로저 및 환경 표준을 설명합니다.
+Microsoft Azure Stack Edge Pro 장치의 하드웨어 구성 요소는이 문서에 설명 된 기술 사양과 규정 표준을 준수 합니다. 기술 사양은 PSU(전원 공급 장치), 스토리지 용량, 엔클로저 및 환경 표준을 설명합니다.
 
 ## <a name="compute-memory-specifications"></a>컴퓨팅, 메모리 사양
 
-Azure Stack Edge 디바이스에는 컴퓨팅 및 메모리에 대한 다음과 같은 사양이 있습니다.
+Azure Stack Edge Pro 장치에는 계산 및 메모리에 대 한 다음과 같은 사양이 있습니다.
 
 | 사양           | 값                  |
 |-------------------------|----------------------------|
@@ -30,7 +30,7 @@ Azure Stack Edge 디바이스에는 컴퓨팅 및 메모리에 대한 다음과 
 
 ## <a name="fpga-specifications"></a>FPGA 사양
 
-ML(기계 학습) 시나리오를 가능하게 하는 FPGA(Field Programmable Gate Array)는 모든 Azure Stack Edge 디바이스에 포함되어 있습니다.
+FPGA (필드 프로그래밍 가능 게이트 배열)는 ML (Machine Learning) 시나리오를 가능 하 게 하는 모든 Azure Stack Edge Pro 장치에 포함 됩니다.
 
 | 사양           | 값                  |
 |-------------------------|----------------------------|
@@ -38,7 +38,7 @@ ML(기계 학습) 시나리오를 가능하게 하는 FPGA(Field Programmable Ga
 
 ## <a name="power-supply-unit-specifications"></a>전원 공급 장치 사양
 
-Azure Stack Edge 디바이스에는 고성능 팬이 달린 2대의 100-240V PSU(전원 공급 장치)가 있습니다. 두 대의 PSU는 중복 전원 구성을 제공합니다. PSU가 실패하면, 디바이스는 실패한 모듈이 교체될 때까지 다른 PSU에서 정상적으로 작동합니다. 다음 표에는 PSU의 기술 사양이 나열되어 있습니다.
+Azure Stack Edge Pro 장치에는 고성능 팬이 있는 2 개의 100-240 V 전원 공급 장치 (PSUs)가 있습니다. 두 대의 PSU는 중복 전원 구성을 제공합니다. PSU가 실패하면, 디바이스는 실패한 모듈이 교체될 때까지 다른 PSU에서 정상적으로 작동합니다. 다음 표에는 PSU의 기술 사양이 나열되어 있습니다.
 
 | 사양           | 750W PSU                  |
 |-------------------------|----------------------------|
@@ -47,18 +47,18 @@ Azure Stack Edge 디바이스에는 고성능 팬이 달린 2대의 100-240V PSU
 | 전압 범위 선택 | 자동 범위 지정: 100-240V AC |
 | 핫 플러그형           | 예                        |
 
-### <a name="azure-stack-edge-power-cord-specifications-by-region"></a>Azure Stack 지역별 전원 코드 사양
+### <a name="azure-stack-edge-pro-power-cord-specifications-by-region"></a>지역별 Edge Pro 전원 코드 사양 Azure Stack
 
-Azure Stack Edge 디바이스에는 Azure 지역에 따라 달라지는 전원 코드가 필요합니다.
-지원되는 모든 전원 코드의 기술 사양에 대해서는 [Azure Stack Edge 지역별 전원 코드 사양](azure-stack-edge-technical-specifications-power-cords-regional.md)을 참조하세요.
+Azure Stack Edge Pro 장치에는 Azure 지역에 따라 달라 지는 전원 코드가 필요 합니다.
+지원 되는 모든 전원 코드의 기술 사양에 대해서는 [지역별 Azure Stack Edge Pro 전원 코드 사양](azure-stack-edge-technical-specifications-power-cords-regional.md)을 참조 하세요.
 
 <!--## Power consumption statistics
 
-The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge device.-->
+The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge Pro device.-->
 
 ## <a name="network-interface-specifications"></a>네트워크 인터페이스 사양
 
-Azure Stack Edge 디바이스에는 6개의 네트워크 인터페이스인 PORT1-PORT6가 있습니다.
+Azure Stack Edge Pro 장치에는 6 개의 네트워크 인터페이스인 PORT1-PORT6가 있습니다.
 
 | 사양           | Description                 |
 |-------------------------|----------------------------|
@@ -66,7 +66,7 @@ Azure Stack Edge 디바이스에는 6개의 네트워크 인터페이스인 PORT
 
 ## <a name="storage-specifications"></a>스토리지 사양
 
-Azure Stack Edge 디바이스에는 각각 1.6TB의 용량을 포함하는 2.5" NVMe SSD가 9개 있습니다. 이러한 SSD 중 1개는 운영 체제 디스크이고 다른 8개는 데이터 디스크입니다. 디바이스에 사용할 수 있는 총 용량은 약 12.5TB입니다. 다음 표에는 디바이스의 스토리지 용량에 대한 세부 정보가 나와 있습니다.
+Azure Stack Edge Pro 장치에는 각각 1.6 TB의 용량을 포함 하는 9 X 2.5 "NVMe Ssd가 있습니다. 이러한 SSD 중 1개는 운영 체제 디스크이고 다른 8개는 데이터 디스크입니다. 디바이스에 사용할 수 있는 총 용량은 약 12.5TB입니다. 다음 표에는 디바이스의 스토리지 용량에 대한 세부 정보가 나와 있습니다.
 
 |     사양                          |     값             |
 |--------------------------------------------|-----------------------|
@@ -146,4 +146,4 @@ Azure Stack Edge 디바이스에는 각각 1.6TB의 용량을 포함하는 2.5" 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Stack Edge 배포](azure-stack-edge-deploy-prep.md)
+- [Azure Stack Edge Pro 배포](azure-stack-edge-deploy-prep.md)

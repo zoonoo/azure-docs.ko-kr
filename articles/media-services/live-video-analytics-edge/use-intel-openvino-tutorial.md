@@ -4,18 +4,21 @@ description: 이 자습서에서는 Intel에서 제공하는 AI 모델 서버를
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 95dbf555cc6b8f8edb1bc9dca2e10d3ef72eb9db
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: e620da1a4f0b7f782d478314fb0e2e83ab9a124a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567585"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906607"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>자습서: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브 비디오 분석 
 
-이 자습서에는 OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드를 분석하는 방법을 보여줍니다. 유추 서버가 물체(사람, 차량 또는 자전거) 감지용 모델과 차량 분류용 모델에 액세스하는 방법을 확인할 수 있습니다. 라이브 비디오 피드의 프레임 하위 집합이 유추 서버로 전송되고, IoT Edge Hub로 결과가 전송됩니다. 
+이 자습서에는 OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드를 분석하는 방법을 보여줍니다. 유추 서버가 물체(사람, 차량 또는 자전거) 감지용 모델과 차량 분류용 모델에 액세스하는 방법을 확인할 수 있습니다. 라이브 비디오 피드의 프레임 하위 집합이 유추 서버로 전송되고, IoT Edge Hub로 결과가 전송됩니다.
 
-이 자습서에서는 Azure VM을 IoT Edge 디바이스로 사용하고, 시뮬레이션된 라이브 비디오 스트림을 사용합니다. C#으로 작성된 샘플 코드 및 [동작 감지 및 이벤트 내보내기](detect-motion-emit-events-quickstart.md) 빠른 시작을 기반으로 합니다. 
+이 자습서에서는 Azure VM을 IoT Edge 디바이스로 사용하고, 시뮬레이션된 라이브 비디오 스트림을 사용합니다. C#으로 작성된 샘플 코드 및 [동작 감지 및 이벤트 내보내기](detect-motion-emit-events-quickstart.md) 빠른 시작을 기반으로 합니다.
+
+> [!NOTE]
+> 이 자습서를 사용하려면 에지 디바이스로 x86-64 컴퓨터를 사용해야 합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -40,7 +43,7 @@ Azure 리소스가 설치되면 주차장의 짧은 비디오가 IoT Edge 디바
 ## <a name="overview"></a>개요
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/use-intel-openvino-tutorial/topology.png" alt-text="개요":::
+> :::image type="content" source="./media/use-intel-openvino-tutorial/http-extension-with-vino.svg" alt-text="개요":::
 
 이 다이어그램에서는 이 빠른 시작의 신호 흐름을 보여 줍니다. [에지 모듈](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555)은 RTSP(Real-Time Streaming Protocol) 서버를 호스팅하는 IP 카메라를 시뮬레이션합니다. [RTSP 원본](media-graph-concept.md#rtsp-source) 노드는 이 서버에서 비디오 피드를 가져와서 비디오 프레임을 [프레임 속도 필터 프로세서](media-graph-concept.md#frame-rate-filter-processor) 노드로 보냅니다. 이 프로세서는 [HTTP 확장 프로세서](media-graph-concept.md#http-extension-processor) 노드에 도달하는 비디오 스트림의 프레임 속도를 제한합니다. 
 
@@ -53,6 +56,7 @@ HTTP 확장 노드는 프록시 역할을 수행합니다. 비디오 프레임�
 1. 리소스를 정리합니다.
 
 ## <a name="about-openvino-model-server--ai-extension-from-intel"></a>OpenVINO™ Model Server – Intel의 AI 확장 정보
+
 Intel® Distribution of [OpenVINO™ 툴킷](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html)(개방형 시각적 유추 및 신경망 최적화)은 개발자와 데이터 과학자가 컴퓨터 비전 워크로드의 속도를 높이고 딥 러닝 유추 및 배포를 간소화하고 에지에서 클라우드에 이르는 Intel® 플랫폼 전반에서 다른 유형의 데이터를 간편하게 실행하도록 설정하는 데 유용합니다. 여기에는 모델 최적화 프로그램 및 유추 엔진이 있는 Intel® Deep Learning Deployment Toolkit 및 40가지 이상의 최적화된 사전 학습 모델이 있는 [Open Model Zoo](https://github.com/openvinotoolkit/open_model_zoo) 리포지토리가 포함됩니다.
 
 복잡한 고성능 라이브 비디오 분석 솔루션을 구축하려면 IoT Edge 모듈의 Live Video Analytics가 에지에서 규모를 활용할 수 있는 강력한 유추 엔진과 쌍을 이뤄야 합니다. 이 자습서에서는 유추 요청이 IoT Edge의 Live Video Analytics와 작동하도록 설계된 Edge 모듈인 [OpenVINO™ Model Server – Intel의 AI 확장](https://aka.ms/lva-intel-ovms)으로 전송됩니다. 유추 서버 모듈에는 OVMS(OpenVINO™ Model Server)가 포함되어 있습니다. OVMS는 컴퓨터 비전 워크로드에 고도로 최적화되고 Intel® 아키텍처용으로 개발된 OpenVINO™ 도구 키트로 구동되는 유추 서버입니다. 유추 서버와 IoT Edge 모듈의 Live Video Analytic 간에 비디오 프레임 및 추론 결과를 간편하게 교환할 수 있도록 OVMS에 확장이 추가되었기 때문에, OpenVINO™ 도구 키트 지원 모델을 실행할 수 있습니다([코드](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)를 수정하여 유추 서버 모듈을 사용자 지정할 수 있음). Intel® 하드웨어가 제공하는 광범위한 가속 메커니즘에서 추가로 선택할 수도 있습니다. 여기에는 CPU(Atom, Core, Xeon), FPGA, VPU가 포함됩니다.

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/26/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45c8694c90fedccbecee1fee09e7146bf2d0aaa6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 37fad118fe314b1392c31906a3f0a0989e39d876
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601166"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969412"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>REST API 호출을 사용 하 여 사용자 할당 관리 id 만들기, 나열 또는 삭제
 
@@ -34,10 +34,23 @@ Azure 리소스에 대 한 관리 되는 id는 코드에서 자격 증명을 필
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
-- Windows를 사용하는 경우, [Linux용 Windows 하위 시스템](/windows/wsl/about)을 설치하거나 Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
-- [Linux용 Windows 하위 시스템](/windows/wsl/about) 또는 [Linux 배포 OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)를 사용하는 경우, [Azure CLI 로컬 콘솔을 설치](/cli/azure/install-azure-cli)합니다.
-- Azure CLI 로컬 콘솔을 사용하는 경우, 사용자 할당 관리 ID 정보를 배포하거나 검색하려는 Azure 구독과 연결된 계정으로 `az login`을 사용하여 Azure에 로그인합니다.
-- `az account get-access-token`을 통해 전달자 액세스 토큰을 검색하여 다음 사용자 할당 관리 ID 작업을 수행합니다.
+- 클라우드에서 또는 로컬로이 문서의 모든 명령을 실행할 수 있습니다.
+    - 클라우드에서 실행 하려면 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용 합니다.
+    - 로컬로 실행 하려면 [말아 넘기기](https://curl.haxx.se/download.html) 와 [Azure CLI](/cli/azure/install-azure-cli)를 설치 합니다.
+
+## <a name="obtain-a-bearer-access-token"></a>전달자 액세스 토큰 가져오기
+
+1. 로컬로 실행 하는 경우 Azure CLI를 통해 Azure에 로그인 합니다.
+
+    ```
+    az login
+    ```
+
+1. [Az account get-token을](/cli/azure/account#az_account_get_access_token) 사용 하 여 액세스 토큰 가져오기
+
+    ```azurecli-interactive
+    az account get-access-token
+    ```
 
 ## <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기 
 
@@ -65,9 +78,9 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **요청 본문**
 
-|Name  |Description  |
+|이름  |설명  |
 |---------|---------|
-|위치     | 필수 요소. 리소스 위치.        |
+|위치     | 필수 사항입니다. 리소스 위치.        |
 
 ## <a name="list-user-assigned-managed-identities"></a>사용자 할당 관리 ID 나열
 
@@ -91,7 +104,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 사용자 할당 관리 ID를 삭제하려면 계정에 [관리 ID 기여자](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) 역할 할당이 필요합니다.
 
 > [!NOTE]
-> 사용자 할당 관리 ID를 삭제해도 할당된 리소스에서 참조는 제거되지 않습니다. CURL을 사용하여 VM에서 사용자 할당 관리 ID를 제거하려면 [Azure VM에서 사용자 할당 ID 제거](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm)를 참조하세요.
+> 사용자 할당 관리 ID를 삭제해도 할당된 리소스에서 참조는 제거되지 않습니다. CURL을 사용하여 VM에서 사용자 할당 관리 ID를 제거하려면 [Azure VM에서 사용자 할당 ID 제거](qs-configure-rest-vm.md#remove-a-user-assigned-managed-identity-from-an-azure-vm)를 참조하세요.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup

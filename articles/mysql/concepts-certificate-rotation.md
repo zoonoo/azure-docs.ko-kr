@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 971554443e5b420cf759f86013445a6ff9069dea
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 4599346cd4538151f6c758253f1f1bf29bafdcbf
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706862"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985784"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 루트 CA 변경의 변경 내용 이해
 
@@ -122,8 +122,28 @@ Azure Database for MySQL에서 사용 하는 이러한 인증서는 신뢰할 �
 ### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. 읽기 복제본을 사용 하는 경우 마스터 서버 또는 읽기 복제본 에서만이 업데이트를 수행 해야 하나요?
 이 업데이트는 클라이언트 쪽 변경 이기 때문에 클라이언트가 복제본 서버에서 데이터를 읽는 데 사용 되는 경우에도 해당 클라이언트에 대 한 변경 내용을 적용 해야 합니다.
 
-### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. SSL이 사용 중인지 확인 하는 서버 쪽 쿼리가 있나요?
+### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. 데이터 복제를 사용 하는 경우 어떤 작업을 수행 해야 하나요?
+[데이터에서 복제](concepts-data-in-replication.md) 를 사용 하 여 Azure Database for MySQL에 연결 하는 경우 다음 두 가지 사항을 고려해 야 합니다.
+*   가상 컴퓨터 (온-프레미스 또는 Azure 가상 컴퓨터)에서 Azure Database for MySQL로 데이터를 복제 하는 경우에는 SSL을 사용 하 여 복제본을 만들 수 있는지 확인 해야 합니다. **슬레이브 상태 표시** 를 실행 하 고 다음 설정을 선택 합니다.  
+
+    ```azurecli-interactive
+    Master_SSL_Allowed            : Yes
+    Master_SSL_CA_File            : ~\azure_mysqlservice.pem
+    Master_SSL_CA_Path            :
+    Master_SSL_Cert               : ~\azure_mysqlclient_cert.pem
+    Master_SSL_Cipher             :
+    Master_SSL_Key                : ~\azure_mysqlclient_key.pem
+    ```
+
+    CA_file, SSL_Cert 및 SSL_Key에 대 한 인증서가 제공 되는 것으로 확인 되 면 [새 인증서](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem)를 추가 하 여 파일을 업데이트 해야 합니다.
+
+*   데이터 복제가 두 Azure Database for MySQL 사이에 있는 경우 MySQL 호출을 실행 하 여 복제본을 다시 설정 해야 **합니다. az_replication_change_master** 하 고 새 이중 루트 인증서를 마지막 매개 변수로 제공 [master_ssl_ca](howto-data-in-replication.md#link-master-and-replica-servers-to-start-data-in-replication)
+
+### <a name="13-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>13. SSL이 사용 중인지 확인 하는 서버 쪽 쿼리가 있나요?
 SSL 연결을 사용 하 여 서버에 연결 하는지 확인 하려면 [ssl 확인](howto-configure-ssl.md#step-4-verify-the-ssl-connection)을 참조 하세요.
 
-### <a name="13-what-if-i-have-further-questions"></a>13. 추가 질문이 있으면 어떻게 하나요?
-질문이 있는 경우 [Microsoft Q&](mailto:AzureDatabaseforMySQL@service.microsoft.com)의 커뮤니티 전문가 로부터 답변을 받으세요. 지원 계획이 있고 기술 도움말이 필요한 경우 [microsoft에 문의 하세요](mailto:AzureDatabaseforMySQL@service.microsoft.com) .
+### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. 인증서 파일에 DigiCertGlobalRootG2이 이미 있는 경우 필요한 작업이 있나요?
+아니요. 인증서 파일에 **DigiCertGlobalRootG2**이 이미 있는 경우에는 필요한 작업이 없습니다.
+
+### <a name="15-what-if-i-have-further-questions"></a>15. 추가 질문이 있으면 어떻게 하나요?
+질문이 있는 경우 [Microsoft Q&](mailto:AzureDatabaseforMySQL@service.microsoft.com)의 커뮤니티 전문가 로부터 답변을 받으세요. 지원 계획이 있고 기술 도움말이 필요한 경우 [microsoft에 문의 하세요](mailto:AzureDatabaseforMySQL@service.microsoft.com).

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 04/08/2019
-ms.openlocfilehash: 9ee4070562e44d4f560230fa2fd069eb1fd57932
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.reviewer: ''
+ms.date: 09/21/2020
+ms.openlocfilehash: 38f52178ec9c736f3ee51839678401753365d48d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612092"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907056"
 ---
 # <a name="what-is-azure-sql-database"></a>Azure SQL Database란?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ Azure 가용성 영역는 단일 지역 내에서 단일 데이터 센터 빌드
 
 실제로 Microsoft에서 관리 하는 데이터 센터의 글로벌 네트워크에서 제공 하는 Azure의 [SLA (](https://azure.microsoft.com/support/legal/sla/) 서비스 수준 계약)는 앱이 24/7을 계속 실행 하는 데 도움이 됩니다. Azure 플랫폼은 모든 데이터베이스를 완벽 하 게 관리 하 고 데이터 손실 및 높은 비율의 데이터 가용성을 보장 하지 않습니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 컴퓨팅 계층과 스토리지 계층을 분리하여 달성합니다. 프리미엄 가용성은 성능 향상을 위해 단일 노드에 계산 및 저장소를 통합 한 다음 Always On 가용성 그룹과 유사한 기술을 구현 하 여 수행 됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](high-availability-sla.md)을 참조하세요. 
 
-또한 SQL Database는 기본 제공 [비즈니스 연속성 및 글로벌 확장성](business-continuity-high-availability-disaster-recover-hadr-overview.md) 기능을 제공 합니다. 여기에는 다음이 포함됩니다.
+또한 SQL Database는 기본 제공 [비즈니스 연속성 및 글로벌 확장성](business-continuity-high-availability-disaster-recover-hadr-overview.md) 기능을 제공 합니다. 이러한 개체는 다음과 같습니다.
 
 - [자동 백업](automated-backups-overview.md):
 
@@ -165,11 +165,8 @@ SQL Database는 응용 프로그램이 다양 한 보안 및 규정 준수 요�
 
 ### <a name="advance-threat-protection"></a>고급 위협 방지
 
-고급 데이터 보안은 고급 SQL 보안 기능의 통합 패키지입니다. 여기에는 중요 한 데이터를 검색 및 분류 하 고, 데이터베이스 취약성을 관리 하 고, 데이터베이스에 위협을 나타낼 수 있는 비정상적인 활동을 검색 하는 기능이 포함 됩니다. 이 패키지를 통해 이러한 기능을 한 곳에서 사용하도록 설정하고 관리할 수 있습니다.
+SQL 용 Azure Defender는 고급 SQL 보안 기능을 위한 통합 패키지입니다. 여기에는 데이터베이스 취약성을 관리 하 고 데이터베이스에 위협을 나타낼 수 있는 비정상적인 활동을 검색 하기 위한 기능이 포함 되어 있습니다. 이 패키지를 통해 이러한 기능을 한 곳에서 사용하도록 설정하고 관리할 수 있습니다.
 
-- [데이터 검색 및 분류](data-discovery-and-classification-overview.md):
-
-  이 기능은 데이터베이스의 중요 한 데이터를 검색, 분류, 레이블 지정 및 보호 하기 위해 Azure SQL Database에 기본 제공 되는 기능을 제공 합니다. 데이터베이스 분류 상태에 대 한 가시성을 제공 하 고 데이터베이스 내의 중요 한 데이터에 대 한 액세스와 해당 테두리를 벗어난 액세스를 추적 합니다.
 - [취약성 평가](sql-vulnerability-assessment.md):
 
   이 서비스는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정하는 데 도움이 됩니다. 보안 상태에 대한 가시성을 제공하며, 보안 문제를 해결하고 데이터베이스 보안을 강화하기 위해 실행할 수 있는 단계를 포함합니다.
@@ -185,6 +182,10 @@ SQL Database는 응용 프로그램이 다양 한 보안 및 규정 준수 요�
 
 SQL Database는 암호화를 제공하여 데이터를 보호합니다. 동작 중인 데이터의 경우 [전송 계층 보안](https://support.microsoft.com/kb/3135244)을 사용 합니다. 미사용 데이터의 경우 [투명 한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용 합니다. 사용 중인 데이터의 경우 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용 합니다.
 
+### <a name="data-discovery-and-classification"></a>데이터 검색 및 분류
+
+[데이터 검색 및 분류](data-discovery-and-classification-overview.md) 는 데이터베이스의 중요 한 데이터를 검색, 분류, 레이블 지정 및 보호 하기 위해 Azure SQL Database에 기본 제공 되는 기능을 제공 합니다. 데이터베이스 분류 상태에 대 한 가시성을 제공 하 고 데이터베이스 내의 중요 한 데이터에 대 한 액세스와 해당 테두리를 벗어난 액세스를 추적 합니다.
+
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 통합 및 다단계 인증
 
 SQL Database를 사용하면 [Azure Active Directory 통합](authentication-aad-overview.md)에서 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 중앙 집중식으로 관리할 수 있습니다. 이 기능은 사용 권한 관리를 간소화하고 보안을 향상시킵니다. Azure Active Directory는 단일 로그인 프로세스를 지 원하는 동시에 데이터 및 응용 프로그램 보안을 강화 하는 [multi-factor authentication](authentication-mfa-ssms-overview.md) 을 지원 합니다.
@@ -193,10 +194,10 @@ SQL Database를 사용하면 [Azure Active Directory 통합](authentication-aad-
 
 SQL Database로 애플리케이션을 빌드하고 관리하는 작업의 편의성과 생산성을 높이세요. SQL Database를 사용하면 멋진 앱을 만드는 데만 집중할 수 있습니다. 이미 보유 하 고 있는 도구와 기술을 사용 하 여 SQL Database에서 관리 하 고 개발할 수 있습니다.
 
-|도구|Description|
+|도구|설명|
 |:---|:---|
 |[Azure Portal](https://portal.azure.com/)|모든 Azure 서비스를 관리 하기 위한 웹 기반 응용 프로그램입니다.|
-|[Azure Data Studio](/sql/azure-data-studio/)|Windows, MacOS 및 Linux에서 실행 되는 플랫폼 간 데이터베이스 도구입니다.|
+|[Azure Data Studio](/sql/azure-data-studio/)|Windows, macOS 및 Linux에서 실행 되는 플랫폼 간 데이터베이스 도구입니다.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|SQL Server에서 SQL Database까지 모든 SQL 인프라를 관리 하기 위한 다운로드 가능한 무료 클라이언트 응용 프로그램입니다.|
 |[Visual Studio의 SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|SQL Server 관계형 데이터베이스, Azure SQL Database의 데이터베이스, Integration Services 패키지, Analysis Services 데이터 모델 및 Reporting Services 보고서를 개발 하기 위한 다운로드 가능한 무료 클라이언트 응용 프로그램입니다.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|Windows, macOS 및 Linux 용 다운로드 가능한 무료 오픈 소스 코드 편집기입니다. Microsoft SQL Server, Azure SQL Database 및 Azure Azure Synapse Analytics (이전의 SQL Data Warehouse)를 쿼리 하는 [mssql 확장](https://aka.ms/mssql-marketplace) 을 비롯 한 확장을 지원 합니다.|
@@ -209,7 +210,7 @@ SQL Database은 macOS, Linux 및 Windows에서 Python, Java, Node.js, PHP, Ruby 
 
 ### <a name="can-i-control-when-patching-downtime-occurs"></a>가동 중지 시간이 발생 하는 시기를 제어할 수 있나요?
 
-아닙니다. 일반적으로 패치 적용에 따른 영향은 앱에서 [다시 시도 논리를 사용](develop-overview.md#resiliency)하면 두드러지지 않습니다. 자세한 내용은 [Azure SQL Database에서 Azure 유지 관리 이벤트 계획](planned-maintenance.md)을 참조 하세요.
+아니요. 일반적으로 패치 적용에 따른 영향은 앱에서 [다시 시도 논리를 사용](develop-overview.md#resiliency)하면 두드러지지 않습니다. 자세한 내용은 [Azure SQL Database에서 Azure 유지 관리 이벤트 계획](planned-maintenance.md)을 참조 하세요.
 
 
 

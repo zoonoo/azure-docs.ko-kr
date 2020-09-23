@@ -4,17 +4,17 @@ description: Azure Storage은 데이터를 클라우드로 유지 하기 전에 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 08/24/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e949c3db6d8c0cafab8556dbfde367e6e49273e9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 19f0027b506b78ef81f9acc25a94ef9ab74643e2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078200"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985763"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 암호화
 
@@ -38,8 +38,8 @@ Azure managed disks의 암호화 및 키 관리에 대 한 자세한 내용은 W
 
 새 저장소 계정의 데이터는 기본적으로 Microsoft 관리 키를 사용 하 여 암호화 됩니다. Microsoft에서 관리 하는 키를 사용 하 여 데이터를 암호화 하거나 사용자 고유의 키를 사용 하 여 암호화를 관리할 수 있습니다. 사용자 고유의 키로 암호화를 관리 하도록 선택 하는 경우 두 가지 옵션이 있습니다. 두 가지 유형의 키 관리 또는 두 가지 모두를 사용할 수 있습니다.
 
-- Blob storage 및 Azure Files에서 데이터를 암호화 하 고 암호 해독 하는 데 사용할 Azure Key Vault를 사용 하 여 *고객 관리 키* 를 지정할 수 있습니다. <sup>1, 2</sup> 고객 관리 키에 대 한 자세한 내용은 Azure Key Vault에서 [고객이 관리 하는 키를 사용 하 여 Azure Storage 암호화 관리를](encryption-customer-managed-keys.md)참조 하세요.
-- Blob storage 작업에서 *고객이 제공한 키* 를 지정할 수 있습니다. Blob 저장소에 대 한 읽기 또는 쓰기 요청을 수행 하는 클라이언트에는 blob 데이터의 암호화 및 암호 해독 방법에 대 한 세부적인 제어를 요청 하는 암호화 키가 포함 될 수 있습니다. 고객 제공 키에 대 한 자세한 내용은 [Blob 저장소에 대 한 요청에 암호화 키 제공](encryption-customer-provided-keys.md)을 참조 하세요.
+- Blob storage 및 Azure Files에서 데이터를 암호화 하 고 암호 해독 하는 데 사용할 *고객 관리 키* 를 지정할 수 있습니다. <sup>1, 2</sup> 고객 관리 키는 Azure Key Vault 또는 Azure Key Vault 관리 되는 HSM (하드웨어 보안 모델) (미리 보기)에 저장 되어야 합니다. 고객 관리 키에 대 한 자세한 내용은 [Azure Storage 암호화를 위해 고객이 관리 하는 키 사용](encryption-customer-managed-keys.md)을 참조 하세요.
+- Blob storage 작업에서 *고객이 제공한 키* 를 지정할 수 있습니다. Blob 저장소에 대 한 읽기 또는 쓰기 요청을 수행 하는 클라이언트에는 blob 데이터의 암호화 및 암호 해독 방법에 대 한 세부적인 제어를 요청 하는 암호화 키가 포함 될 수 있습니다. 고객 제공 키에 대 한 자세한 내용은 [Blob 저장소에 대 한 요청에 암호화 키 제공](../blobs/encryption-customer-provided-keys.md)을 참조 하세요.
 
 다음 표에서는 Azure Storage 암호화에 대 한 키 관리 옵션을 비교 합니다.
 
@@ -47,15 +47,23 @@ Azure managed disks의 암호화 및 키 관리에 대 한 자세한 내용은 W
 |--|--|--|--|
 | 암호화/암호 해독 작업 | Azure | Azure | Azure |
 | 지원 되는 Azure Storage 서비스 | 모두 | Blob storage, Azure Files<sup>1, 2</sup> | Blob Storage |
-| 키 스토리지 | Microsoft 키 저장소 | Azure Key Vault | 고객의 고유 키 저장소 |
-| 키 회전 책임 | Microsoft | 고객 | 고객 |
-| 키 컨트롤 | Microsoft | 고객 | 고객 |
+| 키 스토리지 | Microsoft 키 저장소 | HSM Azure Key Vault 또는 Key Vault | 고객의 고유 키 저장소 |
+| 키 회전 책임 | Microsoft | Customer | Customer |
+| 키 컨트롤 | Microsoft | Customer | Customer |
 
 <sup>1</sup> 큐 저장소에서 고객 관리 키를 사용 하도록 지 원하는 계정을 만드는 방법에 대 한 자세한 내용은 [큐에 대 한 고객 관리 키를 지 원하는 계정 만들기](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 참조 하세요.<br />
 <sup>2</sup> 테이블 저장소에서 고객 관리 키를 사용 하도록 지 원하는 계정을 만드는 방법에 대 한 자세한 내용은 [테이블에 대 한 고객 관리 키를 지 원하는 계정 만들기](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)를 참조 하세요.
 
 > [!NOTE]
 > Microsoft 관리 키는 준수 요구 사항에 따라 적절 하 게 회전 됩니다. 특정 키 회전 요구 사항이 있는 경우 사용자가 직접 순환을 관리 하 고 감사할 수 있도록 고객이 관리 하는 키로 이동 하는 것이 좋습니다.
+
+## <a name="doubly-encrypt-data-with-infrastructure-encryption"></a>인프라 암호화를 사용 하 여 데이터 이중 암호화
+
+데이터를 보호 해야 하는 높은 수준의 보증을 요구 하는 고객은 Azure Storage 인프라 수준에서 256 비트 AES 암호화를 사용 하도록 설정할 수도 있습니다. 인프라 암호화를 사용 하는 경우 저장소 계정의 데이터는 서비스 수준에서 한 번, 두 개의 &mdash; &mdash; 서로 다른 암호화 알고리즘과 두 개의 다른 키를 사용 하 여 인프라 수준에서 한 번씩 암호화 됩니다. Azure Storage 데이터의 이중 암호화는 암호화 알고리즘 또는 키 중 하나가 손상 될 수 있는 시나리오를 방지 합니다. 이 시나리오에서 추가 암호화 계층은 계속 해 서 데이터를 보호 합니다.
+
+서비스 수준 암호화는 Azure Key Vault에서 Microsoft 관리 키 또는 고객이 관리 하는 키의 사용을 지원 합니다. 인프라 수준 암호화는 Microsoft에서 관리 하는 키를 기반으로 하며 항상 별도의 키를 사용 합니다.
+
+인프라 암호화를 사용 하도록 설정 하는 저장소 계정을 만드는 방법에 대 한 자세한 내용은 [데이터의 이중 암호화를 위한 인프라 암호화가 설정 된 저장소 계정 만들기](infrastructure-encryption-enable.md)를 참조 하세요.
 
 ## <a name="encryption-scopes-for-blob-storage-preview"></a>Blob 저장소의 암호화 범위 (미리 보기)
 
@@ -102,6 +110,5 @@ Azure Storage 리소스 공급자를 사용 하 여 저장소 계정에 대 한 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Key Vault란?](../../key-vault/general/overview.md)
-- [Azure Portal에서 Azure Storage 암호화를 위해 고객이 관리하는 키 구성](storage-encryption-keys-portal.md)
-- [PowerShell에서 Azure Storage 암호화용 고객 관리형 키 구성](storage-encryption-keys-powershell.md)
-- [Azure CLI에서 Azure Storage 암호화용 고객 관리형 키 구성](storage-encryption-keys-cli.md)
+- [Azure Storage 암호화를 위한 고객 관리 키](customer-managed-keys-overview.md)
+- [Blob 저장소의 암호화 범위 (미리 보기)](../blobs/encryption-scope-overview.md)

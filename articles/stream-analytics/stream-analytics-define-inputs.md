@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 52f333a8e39dfd8f68666e6438a7d40414b6f958
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 445cd7c55de58b6e5266f76a06d2cbabc75c18b4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701426"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907172"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics에 입력으로 데이터 스트리밍
 
@@ -30,12 +30,12 @@ Stream Analytics는 모든 데이터 스트림 입력 원본에서 압축을 지
 
 ## <a name="create-edit-or-test-inputs"></a>입력 만들기, 편집 또는 테스트
 
-[Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), [Visual Studio Code](quick-create-vs-code.md)를 사용하여 스트리밍 작업에서 기존 입력을 추가하고 보거나 편집할 수 있습니다. 또한 입력 연결을 테스트하고 Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md) 및 [Visual Studio Code](visual-studio-code-local-run.md)의 샘플 데이터에서 [쿼리를 테스트](stream-analytics-manage-job.md#test-your-query)할 수 있습니다. 쿼리를 작성할 때 FROM 절에 입력이 나열됩니다. 포털의 **쿼리** 페이지에서 사용 가능한 입력 목록을 가져올 수 있습니다. 여러 입력을 사용하려는 경우 `JOIN`하거나 여러 `SELECT` 쿼리를 작성할 수 있습니다.
+[Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), [Visual Studio Code](quick-create-visual-studio-code.md)를 사용하여 스트리밍 작업에서 기존 입력을 추가하고 보거나 편집할 수 있습니다. 또한 입력 연결을 테스트하고 Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md) 및 [Visual Studio Code](visual-studio-code-local-run.md)의 샘플 데이터에서 [쿼리를 테스트](stream-analytics-manage-job.md#test-your-query)할 수 있습니다. 쿼리를 작성할 때 FROM 절에 입력이 나열됩니다. 포털의 **쿼리** 페이지에서 사용 가능한 입력 목록을 가져올 수 있습니다. 여러 입력을 사용하려는 경우 `JOIN`하거나 여러 `SELECT` 쿼리를 작성할 수 있습니다.
 
 
 ## <a name="stream-data-from-event-hubs"></a>이벤트 허브에서 데이터 스트리밍
 
-Azure Event Hubs는 확장성 있는 게시-구독 이벤트 수집기를 제공합니다. 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있으므로 연결된 디바이스와 애플리케이션이 생성하는 대량의 데이터를 처리하고 분석할 수 있습니다. Event Hubs 및 Stream Analytics는 실시간 분석을 위한 엔드투엔드 솔루션을 함께 제공합니다. Event Hubs를 사용하면 이벤트를 실시간으로 Azure에 공급할 수 있으며 Stream Analytics 작업은 해당 이벤트를 실시간으로 처리할 수 있습니다. 예를 들어 Event Hubs에 웹 클릭, 센서 판독값 또는 온라인 로그 이벤트를 보낼 수 있습니다. 그런 다음 실시간 필터링, 집계 및 상관 관계에 대한 입력 데이터 스트림으로 Event Hubs를 사용하도록 Stream Analytics 작업을 만들 수 있습니다.
+Azure Event Hubs는 확장성이 뛰어난 게시-구독 이벤트 투자자을 제공 합니다. 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있으므로 연결된 디바이스와 애플리케이션이 생성하는 대량의 데이터를 처리하고 분석할 수 있습니다. Event Hubs 및 Stream Analytics는 실시간 분석을 위한 엔드투엔드 솔루션을 함께 제공합니다. Event Hubs를 사용하면 이벤트를 실시간으로 Azure에 공급할 수 있으며 Stream Analytics 작업은 해당 이벤트를 실시간으로 처리할 수 있습니다. 예를 들어 Event Hubs에 웹 클릭, 센서 판독값 또는 온라인 로그 이벤트를 보낼 수 있습니다. 그런 다음 실시간 필터링, 집계 및 상관 관계에 대한 입력 데이터 스트림으로 Event Hubs를 사용하도록 Stream Analytics 작업을 만들 수 있습니다.
 
 `EventEnqueuedUtcTime`은 이벤트 허브에서 이벤트 도착의 타임스탬프이며 Stream Analytics의 Event Hubs에서 오는 이벤트의 기본 타임스탬프입니다. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) 키워드를 사용해야 합니다.
 
@@ -143,7 +143,7 @@ CSV 형식의 입력은 데이터 세트용 필드를 정의하기 위해 헤더
 > [!NOTE]
 > Stream Analytics에서는 기존 blob 파일에 콘텐츠를 추가할 수 없습니다. Stream Analytics에서는 각 파일을 한 번만 보며 작업에서 데이터를 읽은 후 파일에서 발생한 모든 변경 내용은 처리되지 않습니다. Blob 파일에 대한 모든 데이터를 한 번에 업로드한 후 다른 새 Blob 파일에 최신 이벤트를 추가하는 것이 좋습니다.
 
-많은 Blob이 지속적으로 추가되고 해당 Blob이 추가되면서 Stream Analytics이 이 Blob을 처리하는 시나리오에서는 매우 드물게 `BlobLastModifiedTime`의 세분성으로 인해 일부 Blob을 건너뛸 수 있습니다. 2초 이상 간격으로 Blob을 업로드하여 이를 완화할 수 있습니다. 이 옵션을 사용할 수 없는 경우 Event Hubs를 사용하여 대량의 이벤트를 스트리밍할 수 있습니다.
+많은 blob을 지속적으로 추가 하 고 Stream Analytics 추가 되는 blob을 처리 하는 시나리오에서는의 세분성으로 인해 일부 blob을 건너뛸 수 `BlobLastModifiedTime` 있습니다. 2초 이상 간격으로 Blob을 업로드하여 이를 완화할 수 있습니다. 이 옵션을 사용할 수 없는 경우 Event Hubs를 사용하여 대량의 이벤트를 스트리밍할 수 있습니다.
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>스트림 입력으로 Blob Storage 구성 
 

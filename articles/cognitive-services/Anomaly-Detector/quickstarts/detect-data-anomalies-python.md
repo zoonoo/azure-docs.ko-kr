@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 38c2b3cdf40f1924a36ffd84d9dc5f9b2f7f319d
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 7bfe10ea5e0e95bcabf02243bb8b7172a5aec08d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245709"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906749"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>빠른 시작: Anomaly Detector REST API 및 Python을 사용하여 시계열 데이터에서 변칙 검색
 
-이 빠른 시작을 통해 Anomaly Detector API의 두 가지 검색 모드를 사용하여 시계열 데이터에서 변칙을 검색합니다. 이 Python 애플리케이션은 JSON 형식의 시계열 데이터가 포함된 2개의 API 요청을 보내고 응답을 받습니다.
+이 빠른 시작을 통해 Anomaly Detector API의 두 가지 검색 모드를 사용하여 시계열 데이터에서 변칙을 검색합니다. 이 Python 애플리케이션은 JSON 형식의 시계열 데이터가 포함된 API 요청을 보내고 응답을 받습니다.
 
 | API 요청                                        | 애플리케이션 출력                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | 일괄 처리로 변칙 검색                        | 시계열 데이터의 각 데이터 요소에 대한 변칙 상태(및 기타 데이터)와 검색된 변칙의 위치가 포함된 JSON 응답입니다. |
-| 최신 데이터 요소의 변칙 상태 검색 | 시계열 데이터의 최신 데이터 요소에 대한 변칙 상태(및 기타 데이터)가 포함된 JSON 응답입니다.                                                                                                                                         |
+| 최신 데이터 요소의 변칙 상태 검색 | 시계열 데이터의 최신 데이터 요소에 대한 변칙 상태(및 기타 데이터)가 포함된 JSON 응답입니다.|
+| 새 데이터 추세를 표시하는 변화 포인트 검색 | 시계열 데이터에서 검색된 변화 포인트가 포함된 JSON 응답입니다. |
 
  이 애플리케이션은 Python으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 빠른 시작의 소스 코드는 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/python-detect-anomalies.py)에서 찾을 수 있습니다.
 
@@ -54,6 +55,7 @@ ms.locfileid: "88245709"
     |---------|---------|
     |일괄 검색    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |최신 데이터 요소에서 검색     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    | 변화점 검색 | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-python[initial endpoint and key variables](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=vars)]
 
@@ -91,6 +93,18 @@ ms.locfileid: "88245709"
 
     [!code-python[Latest point detection](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectLatest)]
 
+## <a name="detect-change-points-in-the-data"></a>데이터에서 변화 포인트 검색
+
+1. `detect_change_point()`라는 메서드를 만들어서 데이터 전체의 변칙을 일괄 처리로 검색합니다. 위에서 만든 `send_request()` 메서드를 엔드포인트, URL, 구독 키 및 JSON 데이터로 호출합니다.
+
+2. 결과에서 `json.dumps()`를 호출하여 형식을 지정하고 콘솔에 출력합니다.
+
+3. 응답에 `code` 필드가 포함된 경우에는 오류 코드 및 오류 메시지를 출력합니다.
+
+4. 그렇지 않으면 데이터 세트에서 변칙의 위치를 찾습니다. 응답의 `isChangePoint` 필드는 지정된 데이터 요소가 변칙인지 여부를 나타내는 부울 값을 포함합니다. 목록을 반복하고 `True` 값의 인덱스를 출력합니다. 이러한 값은 추세 변화 포인트의 인덱스에 해당합니다(발견된 경우).
+
+    [!code-python[detect change points](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectChangePoint)]
+
 ## <a name="send-the-request"></a>요청 보내기
 
 위에서 만든 변칙 검색 메서드를 호출합니다.
@@ -102,5 +116,6 @@ ms.locfileid: "88245709"
 성공 응답이 JSON 형식으로 반환됩니다. 아래 링크를 클릭하면 GitHub에서 JSON 응답을 볼 수 있습니다.
 * [일괄 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [최신 요소 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [변화 포인트 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

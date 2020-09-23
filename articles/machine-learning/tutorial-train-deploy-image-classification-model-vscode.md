@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 7d209b3434eae20b4c9a7b328f5c15032315b178
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203557"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906705"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Azure Machine Learning Visual Studio Code 확장(미리 보기)을 사용하여 이미지 분류 TensorFlow 모델 학습 및 배포
 
@@ -61,7 +61,7 @@ Azure Machine Learning에서 애플리케이션을 빌드하려면 가장 먼저
 1. **새 리소스 그룹 만들기**를 선택합니다. 
 1. 리소스 그룹 이름을 "TeamWorkspace-rg"로 지정하고, **Enter** 키를 누릅니다. 
 1. 작업 영역에 대한 위치를 선택합니다. 모델을 배포하려는 위치와 가장 가까운 위치를 선택하는 것이 좋습니다. 예를 들어 "미국 서부 2"입니다.
-1. 작업 영역 형식을 선택하라는 메시지가 표시되면 **기본**을 선택하여 기본 작업 영역을 만듭니다. 다양한 작업 영역 제품에 대한 자세한 내용은 [Azure Machine Learning 개요](./overview-what-is-azure-ml.md#sku)를 참조하세요.
+1. 작업 영역 유형을 선택하라는 메시지가 표시되면 **기본**을 선택합니다.
 
 이 시점에서 새 작업 영역을 계정에 만들도록 요구하는 요청을 Azure에 보냅니다. 몇 분 후에 새 작업 영역이 구독 노드에 표시됩니다. 
 

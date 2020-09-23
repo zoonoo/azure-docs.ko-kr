@@ -3,12 +3,12 @@ title: 지침 및 모범 사례
 description: 클라우드 및 온-프레미스 워크 로드를 클라우드로 백업 하기 위한 모범 사례 및 지침을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000365"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985522"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크 로드를 클라우드로 백업
 
@@ -48,7 +48,7 @@ Azure Backup를 사용 하면 다양 한 워크 로드 (온-프레미스 및 클
 
 ### <a name="management-plane"></a>관리 평면
 
-* **액세스 제어** – Recovery Services 자격 증명 모음은 관리 기능을 제공 하 고 AZURE PORTAL, SDK, CLI 및 심지어 REST api를 통해 액세스할 수 있습니다. 또한 승인 된 백업 관리자 에게만 백업에 대 한 액세스를 제한 하는 옵션을 제공 하는 RBAC 경계입니다.
+* **액세스 제어** – 자격 증명 모음 (Recovery Services 및 백업 자격 증명 모음)은 관리 기능을 제공 하며, Azure Portal, 백업 센터, 자격 증명 모음 대시보드, SDK, CLI 및 심지어 REST api를 통해 액세스할 수 있습니다. 또한 승인 된 백업 관리자 에게만 백업에 대 한 액세스를 제한 하는 옵션을 제공 하는 RBAC 경계입니다.
 
 * **정책 관리** – 각 자격 증명 모음 내의 Azure Backup 정책은 백업이 트리거되는 시기 및 유지 해야 하는 기간을 정의 합니다. 또한 이러한 정책을 관리 하 고 여러 항목에서 적용할 수 있습니다.
 
@@ -58,7 +58,7 @@ Azure Backup를 사용 하면 다양 한 워크 로드 (온-프레미스 및 클
 
 ## <a name="vault-considerations"></a>자격 증명 모음 고려 사항
 
-Azure Backup은 Recovery Services 자격 증명 모음을 사용하여 백업을 오케스트레이션 및 관리합니다. 또한 자격 증명 모음을 사용하여 백업 데이터를 저장합니다. 효과적인 자격 증명 모음 디자인을 통해 조직은 비즈니스 우선 순위를 지원 하기 위해 Azure에서 백업 자산을 구성 하 고 관리 하는 구조를 구축할 수 있습니다. 자격 증명 모음을 만들 때 다음 지침을 고려 하세요.  
+Azure Backup는 자격 증명 모음 (Recovery Services 및 백업 자격 증명 모음)을 사용 하 여 백업을 오케스트레이션 하 고 관리 합니다. 또한 자격 증명 모음을 사용하여 백업 데이터를 저장합니다. 효과적인 자격 증명 모음 디자인을 통해 조직은 비즈니스 우선 순위를 지원 하기 위해 Azure에서 백업 자산을 구성 하 고 관리 하는 구조를 구축할 수 있습니다. 자격 증명 모음을 만들 때 다음 지침을 고려 하세요.  
 
 ### <a name="align-to-subscription-design-strategy"></a>구독 디자인 전략에 맞추기
 
@@ -71,7 +71,8 @@ Azure Backup은 Recovery Services 자격 증명 모음을 사용하여 백업을
 * 워크 로드가 모두 단일 구독과 단일 리소스에 의해 관리 되는 경우 단일 자격 증명 모음을 사용 하 여 백업 공간을 모니터링 하 고 관리할 수 있습니다.
 
 * 워크 로드가 여러 구독에 걸쳐 분산 된 경우 구독 당 하나 이상의 자격 증명 모음을 만들 수 있습니다.
-  * 모든 자격 증명 모음, 구독 및 테 넌 트에서 작업 활동의 모니터링을 간소화 하기 위해 Backup 탐색기 및 보고서를 사용할 수 있습니다. 집계 보기를 보려면 [여기에서 자세히 알아보세요](monitor-azure-backup-with-backup-explorer.md) .
+  * Backup Center를 사용 하면 단일 창에서 백업과 관련 된 모든 작업을 관리할 수 있습니다. [자세한 내용은 여기를 참조]()하세요.
+  * 통합 문서 템플릿을 사용 하 여 보기를 사용자 지정할 수 있습니다. 백업 탐색기는 Azure Vm에 대 한 이러한 템플릿 중 하나입니다. [자세한 내용은 여기를 참조](monitor-azure-backup-with-backup-explorer.md)하세요.
   * 자격 증명 모음에서 일관 된 정책을 필요로 하는 경우 Azure policy를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파할 수 있습니다. [' Deployifnotexists '](../governance/policy/concepts/effects.md#deployifnotexists) 효과를 사용 하 여 여러 자격 증명 모음에 백업 정책을 전파 하는 사용자 지정 [Azure Policy 정의](../governance/policy/concepts/definition-structure.md) 를 작성할 수 있습니다. 할당 하면이 Azure Policy 정의를 특정 범위 (구독 또는 RG)에 [할당할](../governance/policy/assign-policy-portal.md) 수 있으므로 Azure Policy 할당 범위에서 모든 Recovery Services 자격 증명 모음에 ' 백업 정책 ' 리소스를 배포할 수 있습니다. 백업 빈도, 보존 등의 백업 정책 설정은 사용자가 Azure Policy 할당에서 매개 변수로 지정 해야 합니다.
 
 * 조직의 공간이 증가 함에 따라 백업 정책에 따라 정렬, 자격 증명 모음 통합, 저렴 한 중복성에 대 한 절충 (GRS에서 LRS로 이동) 등의 이유로 작업을 구독 간에 이동 하는 것이 좋습니다.  Azure Backup는 Azure 구독에서 또는 동일한 구독 내의 다른 리소스 그룹으로 Recovery Services 자격 증명 모음 이동을 지원 합니다. [자세한 내용은 여기를 참조](backup-azure-move-recovery-services-vault.md)하세요.
