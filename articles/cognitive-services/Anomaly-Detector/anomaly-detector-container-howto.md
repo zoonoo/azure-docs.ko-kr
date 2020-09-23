@@ -8,22 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 0ae3b66d8093c0498011d9f93cd8d869b85f9003
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530712"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903558"
 ---
-# <a name="install-and-run-anomaly-detector-containers-preview"></a>변칙 탐지기 컨테이너 설치 및 실행 (미리 보기)
+# <a name="install-and-run-anomaly-detector-containers"></a>Anomaly Detector 컨테이너 설치 및 실행 
+
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
 Anomaly Detector에는 다음과 같은 컨테이너 기능이 있습니다.
 
-| 기능 | 기능 |
+| 함수 | 기능 |
 |--|--|
-| 변칙 감지기 | <li> 는 실시간으로 발생 하는 변칙을 검색 합니다. <li> 일괄 처리로 데이터 집합 전체에서 변칙을 검색 합니다. <li> 데이터의 정상적인 범위를 유추 합니다. <li> 데이터에 더 잘 맞도록 변칙 검색 민감도 조정을 지원 합니다. |
+| 변칙 감지기 | <li> 는 실시간으로 발생 하는 변칙을 검색 합니다. <li> 일괄 처리로 데이터 집합 전체에서 변칙을 검색 합니다. <li> 데이터 집합에서 일괄 처리로 추세 변경 점을 검색 합니다.<li> 데이터의 정상적인 범위를 유추 합니다. <li> 데이터에 더 잘 맞도록 변칙 검색 민감도 조정을 지원 합니다. |
 
 Api에 대 한 자세한 내용은 다음을 참조 하세요.
 * [변칙 탐지기 API 서비스에 대 한 자세한 정보](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -34,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 변칙 탐지기 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-|필수|용도|
+|필수|목적|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.|
@@ -67,7 +69,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 | 컨테이너 | 리포지토리 |
 |-----------|------------|
-| cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
+| cognitive-services-anomaly-detector | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -95,7 +97,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -177,7 +179,7 @@ ApiKey={API_KEY}
 이 문서에서는 변칙 탐지기 컨테이너를 다운로드, 설치 및 실행 하기 위한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
 
 * 변칙 탐지기는 Docker에 대해 하나의 Linux 컨테이너를 제공 하 고, batch vs 스트리밍을 사용 하 여 변칙 검색을 캡슐화 하 고, 예상 범위 유추와 민감도 조정을 제공 합니다.
-* 컨테이너 이미지는 컨테이너 미리 보기 전용 전용 Azure Container Registry에서 다운로드 됩니다.
+* 컨테이너 이미지는 컨테이너 전용 전용 Azure Container Registry에서 다운로드 됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
 * 컨테이너의 호스트 URI를 지정 하 여 변칙 탐지기 컨테이너에서 작업을 호출 하는 데 REST API 또는 SDK를 사용할 수 있습니다.
 * 컨테이너를 인스턴스화할 때 청구 정보를 지정해야 합니다.

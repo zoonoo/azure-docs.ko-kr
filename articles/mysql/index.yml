@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 title: Azure Database for MySQL 설명서
-summary: Azure Database for MySQL은 MySQL Community Edition을 기반으로 하는 관계형 데이터베이스 서비스입니다.  예측 가능한 성능과 동적인 확장성으로 중요 업무 워크로드를 처리할 수 있는 완전 관리형 Database as a Service 제품입니다. 사용자가 선택한 오픈 소스 도구 및 플랫폼을 활용한 Azure Database for MySQL로 애플리케이션을 개발하세요. 빠른 시작, 자습서 및 샘플을 통해 MySQL용 Azure 데이터베이스를 사용하는 방법을 알아보세요.
+summary: Azure Database for MySQL은 MySQL Community Edition에서 제공하는 관계형 데이터베이스 서비스입니다. 단일 서버 또는 유연한 서버(미리 보기)를 사용하여 Azure에서 MySQL 데이터베이스를 호스트할 수 있습니다. 예측 가능한 성능과 동적인 확장성으로 중요 업무 워크로드를 처리할 수 있는 완전 관리형 Database as a Service 제품입니다.
 metadata:
-  description: Azure Database for MySQL은 MySQL Community Edition을 기반으로 하여 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다.
+  description: Azure Database for MySQL은 MySQL Community Edition을 기반으로 하여 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. 단일 서버 또는 유연한 서버(미리 보기)를 선택하여 Azure에 MySQL 데이터베이스를 배포할 수 있습니다.
   author: ajlam
   ms.author: andrela
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 2d01ffea7a570eb2f8af203dd1db8777661dc7df
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: 03deaa446b7db7790f751f226cb788faf9ebc2a7
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88078464"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90903965"
 landingContent:
 - title: Azure Database for MySQL 정보
   linkLists:
@@ -21,125 +21,131 @@ landingContent:
     links:
     - text: MySQL용 Azure Database란?
       url: overview.md
+    - text: 적절한 MySQL 옵션 선택
+      url: select-right-deployment-type.md
   - linkListType: whats-new
     links:
     - text: 블로그 보기
       url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
-- title: 서버 만들기
+- title: 단일 서버
   linkLists:
+  - linkListType: overview
+    links:
+    - text: 단일 서버란?
+      url: single-server-overview.md
+    - text: 모든 단일 서버 설명서 보기
+      url: single-server/index.yml
+  - linkListType: concept
+    links:
+    - text: 가격 책정 계층 이해
+      url: concepts-pricing-tiers.md
+    - text: 지원되는 MySQL 버전 이해
+      url: concepts-supported-versions.md
   - linkListType: quickstart
     links:
     - text: Azure Portal을 사용하여 서버 만들기
       url: quickstart-create-mysql-server-database-using-azure-portal.md
     - text: Azure CLI를 사용하여 서버 만들기
       url: quickstart-create-mysql-server-database-using-azure-cli.md
+- title: 유연한 서버(미리 보기)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 유연한 서버란?
+      url: flexible-server/overview.md
+    - text: 모든 유연한 서버 설명서 보기
+      url: flexible-server/index.yml
   - linkListType: concept
     links:
-    - text: 가격 책정 계층 이해
-      url: concepts-pricing-tiers.md
-    - text: 제한 이해
-      url: concepts-limits.md
-    - text: 지원되는 MySQL 버전 이해
-      url: concepts-supported-versions.md
-    - text: 서버 매개 변수 구성
-      url: howto-server-parameters.md
-    - text: 고가용성을 위한 계획
-      url: concepts-high-availability.md
-  - linkListType: tutorial
+    - text: 서버 개념
+      url: flexible-server/concept-servers.md
+    - text: 컴퓨팅 및 스토리지 이해
+      url: flexible-server/concepts-compute-storage.md
+    - text: 제한 사항
+      url: flexible-server/concepts-limitations.md
+  - linkListType: quickstart
     links:
-    - text: Azure Portal을 사용하여 데이터베이스 설계
-      url: tutorial-design-database-using-portal.md
-    - text: Azure CLI를 사용하여 데이터베이스 설계
-      url: tutorial-design-database-using-cli.md
-    - text: 컨테이너의 Wordpress 배포
-      url: ../app-service/tutorial-multi-container-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
-    - text: Azure CLI에서 PHP를 사용하여 웹앱 빌드
-      url: ../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
-- title: 데이터 백업 및 마이그레이션
+    - text: 포털을 사용하여 서버 만들기
+      url: flexible-server/quickstart-create-server-portal.md
+    - text: CLI를 사용하여 서버 만들기
+      url: flexible-server/quickstart-create-server-cli.md
+- title: 연결 및 쿼리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 연결 및 쿼리 참조 가이드
+      url: how-to-connect-overview-single-server.md
+  - linkListType: quickstart
+    links:
+    - text: MySQL Workbench를 사용하여 단일 서버에 연결
+      url: connect-workbench.md
+    - text: Java를 사용하여 단일 서버에 연결
+      url: connect-java.md
+    - text: PHP를 사용하여 단일 서버에 연결
+      url: connect-php.md
+    - text: MySQL Workbench를 사용하여 유연한 서버에 연결
+      url: connect-workbench.md
+    - text: PHP를 사용하여 유연한 서버에 연결
+      url: flexible-server/connect-php.md
+    - text: Python을 사용하여 유연한 서버에 연결
+      url: flexible-server/connect-python.md
+- title: 데이터 관리 및 마이그레이션
   linkLists:
   - linkListType: concept
     links:
-    - text: 백업 및 복원
-      url: concepts-backup.md
+    - text: Azure Portal을 사용하여 단일 서버 관리
+      url: howto-create-manage-server-portal.md
+    - text: Azure Portal을 사용하여 유연한 서버(미리 보기) 관리
+      url: flexible-server/how-to-manage-server-portal.md
     - text: 덤프 및 복원을 사용하여 마이그레이션
       url: concepts-migrate-dump-restore.md
     - text: 가져오기 및 내보내기를 사용하여 마이그레이션
       url: concepts-migrate-import-export.md
   - linkListType: how-to-guide
     links:
-    - text: Azure Portal을 사용하여 서버 복원
-      url: howto-restore-server-portal.md
-    - text: Azure CLI를 사용하여 서버 복원
-      url: howto-restore-server-cli.md
-    - text: 최소 가동 중지 시간 마이그레이션
+    - text: Data Migration Service를 사용하여 마이그레이션
       url: howto-migrate-online.md
-- title: Azure Database for MySQL에 연결
+    - text: Azure 데이터 마이그레이션 가이드
+      url: https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1
+- title: 애플리케이션 개발
   linkLists:
   - linkListType: concept
     links:
-    - text: 방화벽 이해
-      url: concepts-firewall-rules.md
-    - text: SSL 이해
-      url: concepts-ssl-connection-security.md
-    - text: Virtual Network 이해
-      url: concepts-data-access-and-security-vnet.md
-  - linkListType: how-to-guide
+    - text: 연결 복원력
+      url: concepts-connectivity.md
+    - text: 모범 사례
+      url: app-development-best-practices.md
+    - text: 호환되는 드라이버 및 도구
+      url: concepts-compatibility.md
+  - linkListType: tutorial
     links:
-    - text: 방화벽 규칙 만들기
-      url: howto-manage-firewall-using-portal.md
-    - text: SSL 연결 구성
-      url: howto-configure-ssl.md
-    - text: 기존 Azure App Service 연결
-      url: howto-connect-webapp.md
-    - text: 연결 문자열
-      url: howto-connection-string.md
-    - text: 연결 문제 해결
-      url: howto-troubleshoot-common-connection-issues.md
-  - linkListType: get-started
-    links:
-    - text: MySQL Workbench를 사용하여 연결
-      url: connect-workbench.md
-    - text: PHP를 사용하여 연결
-      url: connect-php.md
-    - text: Java를 사용하여 연결
-      url: connect-java.md
-    - text: .Net을 사용하여 연결
-      url: connect-csharp.md
-    - text: Python을 사용하여 연결
-      url: connect-python.md
-    - text: Node.js를 사용하여 연결
-      url: connect-nodejs.md
-    - text: Ruby를 사용하여 연결
-      url: connect-ruby.md
-    - text: C++를 사용하여 연결
-      url: connect-cpp.md
-    - text: Go를 사용하여 연결
-      url: connect-go.md
-- title: 데이터 복제
+    - text: 단일 서버에서 데이터베이스 설계
+      url: tutorial-design-database-using-portal.md
+    - text: VNET에서 유연한 서버를 사용하는 웹앱 만들기
+      url: flexible-server/tutorial-webapp-server-vnet.md
+    - text: 유연한 서버를 사용하는 PHP(Laravel) 웹앱 빌드
+      url: flexible-server/tutorial-php-database-app.md
+    - text: 단일 서버를 사용하는 PHP(Laravel) 웹앱 빌드
+      url: ../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+- title: 참조
   linkLists:
-  - linkListType: concept
+  - linkListType: download
     links:
-    - text: 데이터 내부 복제 이해
-      url: concepts-data-in-replication.md
-    - text: 읽기 복제본 이해
-      url: concepts-read-replicas.md
-  - linkListType: how-to-guide
-    links:
-    - text: 데이터 내부 복제 구성
-      url: howto-data-in-replication.md
-    - text: Azure Portal을 사용하여 읽기 복제본 만들기
-      url: howto-read-replicas-portal.md
-- title: 프로그래밍 API를 사용하여 코딩
-  linkLists:
-  - linkListType: get-started
+    - text: MySQL Workbench
+      url: https://www.mysql.com/products/workbench
+    - text: MySQL .NET 커넥터
+      url: https://dev.mysql.com/doc/connector-net/en/
+  - linkListType: deploy
     links:
     - text: 일반 작업용 Azure CLI 스크립트
       url: /azure/mysql/sample-scripts-azure-cli
+    - text: Azure 리소스 관리자 템플릿
+      url: /azure/templates/microsoft.dbformysql/allversions
   - linkListType: reference
     links:
     - text: Azure CLI 개발자 참조
       url: /cli/azure/mysql
     - text: REST API 개발자 참조
       url: /rest/api/mysql/
-    - text: Azure 리소스 관리자 템플릿
-      url: /azure/templates/microsoft.dbformysql/allversions
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.mysql

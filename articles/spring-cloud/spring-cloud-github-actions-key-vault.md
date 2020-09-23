@@ -5,16 +5,19 @@ author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 01/20/2019
+ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 433cd9e7b8cfe69ce5008366db884659cccbc149
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076015"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888779"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>GitHub Actions에서 Key Vault를 사용하여 Azure Spring Cloud 인증
+
+이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
+
 Key vault는 키를 저장할 수 있는 안전한 장소입니다. 기업 사용자는 CI/CD 환경의 자격 증명을 제어 하는 범위 내에 저장 해야 합니다. 키 자격 증명 모음에서 자격 증명을 가져오는 키는 리소스 범위로 제한 되어야 합니다.  전체 Azure 범위가 아니라 key vault 범위에만 액세스할 수 있습니다. 이는 건물의 모든 도어를 열 수 있는 마스터 키가 아닌 강력한 상자를 열 수 있는 키와 같습니다. CICD 워크플로에서 유용한 다른 키를 사용 하 여 키를 가져오는 방법입니다. 
 
 ## <a name="generate-credential"></a>자격 증명 생성
@@ -43,7 +46,7 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 ## <a name="add-access-policies-for-the-credential"></a>자격 증명에 대 한 액세스 정책 추가
 위에서 만든 자격 증명은 저장 된 내용이 아니라 Key Vault에 대 한 일반 정보만 가져올 수 있습니다.  Key Vault에 저장 된 암호를 가져오려면 자격 증명에 대 한 액세스 정책을 설정 해야 합니다.
 
-Azure Portal에서 **Key Vault** 대시보드로 이동 하 고 **Access control** 메뉴를 클릭 한 다음 **역할 할당** 탭을 엽니다. **유형** 및 범위에 대해 **앱** 을 선택 합니다. `This resource` **scope**  이전 단계에서 만든 자격 증명이 표시 됩니다.
+Azure Portal에서 **Key Vault** 대시보드로 이동 하 고 **Access control** 메뉴를 클릭 한 다음 **역할 할당** 탭을 엽니다. **유형** 및 범위에 대해 **앱** 을 선택 `This resource` 합니다. **scope**  이전 단계에서 만든 자격 증명이 표시 됩니다.
 
  ![액세스 정책 설정](./media/github-actions/key-vault1.png)
 

@@ -4,15 +4,16 @@ description: 이 문서에서는 Azure 스프링 클라우드에 대해 자주 �
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ad008ff3ef4f29ee358b075802deba7eef919bd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 1947e57a5f200521fe57c6aaf41e9d57c1085592
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322044"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888705"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure 스프링 클라우드 FAQ
 
@@ -61,9 +62,11 @@ Azure 스프링 클라우드에 문제가 발생 한 경우 [Azure 지원 요청
 
 Azure 스프링 클라우드를 시작 하는 가장 빠른 방법은 [빠른 시작: Azure Portal을 사용 하 여 Azure 스프링 클라우드 응용 프로그램 시작](spring-cloud-quickstart.md)의 지침을 따르세요.
 
+::: zone pivot="programming-language-java"
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Azure Spring Cloud에서 지원하는 Java 런타임은 어떻게 되나요?
 
 Azure Spring Cloud는 Java 8 및 11을 지원합니다. [Java 런타임 및 OS 버전을](#java-runtime-and-os-versions) 참조 하세요.
+::: zone-end
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>내 스프링 클라우드 응용 프로그램 로그 및 메트릭은 어디에서 볼 수 있나요?
 
@@ -75,12 +78,14 @@ Azure 스프링 클라우드는 스프링 클라우드 응용 프로그램 로�
 
 예. 자세한 내용은 [자습서: Azure 스프링 클라우드에서 분산 추적 사용](spring-cloud-tutorial-distributed-tracing.md)을 참조 하세요.
 
+::: zone pivot="programming-language-java"
 ### <a name="what-resource-types-does-service-binding-support"></a>서비스 바인딩에서 지원하는 리소스 종류는 무엇인가요?
 
 현재 지원되는 세 가지 서비스는
 * Azure Cosmos DB
 * Azure Database for MySQL
 * Azure Cache for Redis
+::: zone-end
 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>내 응용 프로그램 내에서 영구적 볼륨을 보거나 추가 하거나 이동할 수 있나요?
 
@@ -96,6 +101,7 @@ Azure CLI를 사용 하 여 스프링 클라우드의 진단 설정을 삭제할
  az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
 ```
 
+::: zone pivot="programming-language-java"
 ## <a name="java-runtime-and-os-versions"></a>Java 런타임 및 OS 버전
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 지원 되는 Java runtime 버전은 무엇 인가요?
@@ -136,10 +142,11 @@ Azure 지원으로 지원 티켓을 열 수 있습니다.  [Azure 지원 요청�
 
 최신 Ubuntu LTS 버전이 사용 됩니다. 현재 [ubuntu 20.04 lts (초점면)](https://releases.ubuntu.com/focal/) 는 기본 OS입니다.
 
-### <a name="how-often-will-os-security-patches-be-applied"></a>OS 보안 패치는 얼마나 자주 적용 되나요?
+### <a name="how-often-are-os-security-patches-applied"></a>OS 보안 패치는 얼마나 자주 적용 되나요?
 
-Azure 스프링 클라우드에 적용 되는 보안 패치는 매달 프로덕션으로 롤아웃 될 예정입니다.
-Azure 스프링 클라우드에 적용 가능한 중요 보안 패치 (CVE 점수 >= 9)는 가능한 한 빨리 출시 될 예정입니다.
+Azure 스프링 클라우드에 적용 되는 보안 패치는 매달 프로덕션으로 롤아웃 됩니다.
+Azure 스프링 클라우드에 적용 가능한 중요 보안 패치 (CVE 점수 >= 9)는 가능한 한 빨리 출시 됩니다.
+::: zone-end
 
 ## <a name="deployment"></a>배포
 
@@ -148,7 +155,7 @@ Azure 스프링 클라우드에 적용 가능한 중요 보안 패치 (CVE 점�
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>내 애플리케이션 컨테이너를 조작하기 위해 Kubernetes에 액세스할 수 있나요?
 
-아닙니다.  Azure Spring Cloud는 기본 아키텍처에서 개발자를 추상화하여 애플리케이션 코드와 비즈니스 논리에 집중할 수 있도록 합니다.
+아니요.  Azure Spring Cloud는 기본 아키텍처에서 개발자를 추상화하여 애플리케이션 코드와 비즈니스 논리에 집중할 수 있도록 합니다.
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Azure Spring Cloud는 원본에서 컨테이너를 빌드할 수 있도록 지원하나요?
 
@@ -156,8 +163,9 @@ Azure 스프링 클라우드에 적용 가능한 중요 보안 패치 (CVE 점�
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure Spring Cloud에서 앱 인스턴스의 자동 크기 조정을 지원하나요?
 
-아닙니다.
+아니요.
 
+::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>기존 스프링 클라우드 마이크로 서비스를 Azure 스프링 클라우드로 마이그레이션하기 위한 모범 사례는 무엇 인가요?
 
 기존 스프링 클라우드 마이크로 서비스를 Azure 스프링 클라우드로 마이그레이션할 때는 다음과 같은 모범 사례를 따르는 것이 좋습니다.
@@ -168,8 +176,22 @@ Azure 스프링 클라우드에 적용 가능한 중요 보안 패치 (CVE 점�
 * 공식적인 안정적인 Pivotal 스프링 라이브러리를 사용 하는 것이 좋습니다. Pivotal 스프링 라이브러리의 비공식적, 베타 또는 분기 버전에는 SLA (서비스 수준 계약)가 지원 되지 않습니다.
 
 마이그레이션 후에는 CPU/RAM 메트릭과 네트워크 트래픽을 모니터링 하 여 응용 프로그램 인스턴스의 크기를 적절히 조정 해야 합니다.
+::: zone-end
 
-## <a name="trouble-shooting"></a>문제 해결
+::: zone pivot="programming-language-csharp"
+## <a name="net-core-versions"></a>.NET Core 버전
+
+### <a name="which-net-core-versions-are-supported"></a>지원 되는 .NET Core 버전은 무엇 인가요?
+
+.NET Core 3.1 이상 버전
+
+### <a name="how-long-will-net-core-31-be-supported"></a>.NET Core 3.1는 얼마나 오래 지원 되나요?
+
+2022 년 12 월 3 일까 야. [.Net Core 지원 정책](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)을 참조 하세요.
+::: zone-end
+
+
+## <a name="troubleshooting"></a>문제 해결
 
 ### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>서비스 레지스트리의 영향을 거의 없는 경우는 어떻게 되나요?
 

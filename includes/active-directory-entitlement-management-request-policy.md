@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 12c9b1226e3ba928a4062049c7839d4e46ef727d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156723"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91024799"
 ---
 ## <a name="for-users-in-your-directory"></a>디렉터리의 사용자
 
@@ -207,3 +207,33 @@ ms.locfileid: "86156723"
     ![액세스 패키지-정책-정책 설정 사용](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. **다음**을 클릭합니다.
+
+## <a name="add-requestor-information-preview-to-an-access-package"></a>액세스 패키지에 요청자 정보 (미리 보기) 추가
+
+1. **요청자 정보** 탭으로 이동 하 여 **질문** 하위 탭을 클릭 합니다.
+ 
+1. **질문** 상자의 질문에 대해 요청자에 게 표시 문자열이 라고도 하는 요청을 입력 합니다.
+
+    ![액세스 패키지-정책-요청자 정보 사용 설정](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+
+1. 사용자 고유의 지역화 옵션을 추가 하려면 **지역화 추가**를 클릭 합니다.
+    1. **지역화 추가 질문** 창에서 질문을 지역화할 언어에 대 한 **언어 코드** 를 선택 합니다.
+    1. 구성한 언어로 **지역화 된 텍스트** 상자에 질문을 입력 합니다.
+    1. 필요한 모든 지역화를 추가 했으면 **저장**을 클릭 합니다.
+
+    ![액세스 패키지-정책-지역화 된 텍스트 구성](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+
+1. 요청자에 게 답변할 **대답 형식을** 선택 합니다. 응답 형식에는 *짧은 텍스트*, *다중 선택*및 *긴 텍스트가*포함 됩니다.
+ 
+    ![액세스 패키지-정책-여러 선택 응답 형식 보기 및 편집을 선택 합니다.](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+ 
+1. 여러 항목을 선택 하는 경우 **보기 및 편집** 단추를 클릭 하 여 응답 옵션을 구성 합니다.
+    1. 보기 및 편집을 선택 하면 **보기/편집 질문** 창이 열립니다.
+    1. 응답 **값** 상자에서 질문에 대답할 때 요청자에 게 제공 하려는 응답 옵션을 입력 합니다.
+    1. 필요한 만큼 응답을 입력 한 다음 **저장**을 클릭 합니다.
+    
+    ![액세스 패키지-정책-여러 선택 옵션 입력](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+  
+1. 액세스 패키지에 대 한 액세스를 요청할 때 요청자에 게이 질문에 대 한 대답을 요구 하려면 **필요**에서 확인란을 클릭 합니다.
+
+1. 다음을 클릭합니다.

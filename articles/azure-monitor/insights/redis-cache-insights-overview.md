@@ -1,20 +1,20 @@
 ---
-title: Azure Cache for Redis용 Azure Monitor(미리 보기) | Microsoft Docs
+title: Redis 용 Azure 캐시에 대 한 Azure Monitor | Microsoft Docs
 description: 이 문서에서는 캐시 소유자가 성능 및 사용 문제를 신속하게 이해하도록 도와주는 Azure Cache for Redis용 Azure Monitor에 대해 설명합니다.
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/21/2020
-ms.openlocfilehash: 70bf39011761bcf59c8270ecdcc0542e326aef42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/10/2020
+ms.openlocfilehash: e7b8a8e131cf7e0aae051f42043abf0640c927e4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045855"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887016"
 ---
-# <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Azure Cache for Redis용 Azure Monitor(미리 보기) 살펴보기
+# <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Redis 용 Azure Cache Azure Monitor 살펴보기
 
-모든 Azure Cache for Redis 리소스에 대해 Azure Cache for Redis용 Azure Monitor(미리 보기)는 다음과 같은 통합된 대화형 보기를 제공합니다.
+Redis 리소스에 대 한 모든 Azure Cache의 경우 Redis 용 Azure Cache에 대 한 Azure Monitor는 다음과 같은 통합 된 대화형 보기를 제공 합니다.
 
 - 전반적인 성능
 - 오류
@@ -50,7 +50,7 @@ ms.locfileid: "87045855"
 
     !["모니터"라는 단어가 포함된 검색 상자와 속도계 기호가 있는 "모니터"를 표시하는 서비스 검색 결과](./media/cosmosdb-insights-overview/search-monitor.png)
 
-1. **Azure Cache for Redis(미리 보기)** 를 선택합니다. 이 옵션이 표시되지 않는 경우 **더 보기** > **Azure Cache for Redis**를 선택합니다.
+1. **Redis 용 Azure Cache를**선택 합니다. 이 옵션이 표시되지 않는 경우 **더 보기** > **Azure Cache for Redis**를 선택합니다.
 
 ### <a name="overview"></a>개요
 
@@ -128,9 +128,9 @@ Azure Cache for Redis 리소스 중 하나의 옆에 있는 드롭다운 목록 
 
 1. Azure Portal에서 Azure Cache for Redis를 선택합니다.
 
-2. 목록에서 개별 Azure Cache for Redis 리소스를 선택합니다. 모니터링 섹션에서 인사이트(미리 보기)를 선택합니다.
+2. 목록에서 개별 Azure Cache for Redis 리소스를 선택합니다. 모니터링 섹션에서 Insights를 선택 합니다.
 
-    ![빨간색 상자에 강조 표시된 "인사이트(미리 보기)" 단어가 표시되는 메뉴 옵션 스크린샷](./media/redis-cache-insights-overview/insights.png)
+    ![빨간색 상자에 "Insights" 라는 단어가 강조 표시 된 메뉴 옵션의 스크린샷](./media/redis-cache-insights-overview/insights.png)
 
 Azure Monitor 수준 통합 문서에서 Azure Cache for Redis 리소스의 리소스 이름을 선택하여 이러한 보기에 액세스할 수도 있습니다.
 
@@ -168,7 +168,7 @@ Azure Redis Cache에 대한 **개요** 통합 문서에는 다음에 액세스�
 
 ![강조 표시된 통합 문서 확장 기호](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cache-for-redis-preview"></a>Azure Cache for Redis용 Azure Monitor(미리 보기) 사용자 지정
+## <a name="customize-azure-monitor-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 Azure Monitor 사용자 지정
 
 이 환경은 Azure Monitor 통합 문서 템플릿을 기준으로 구축되었으므로 **사용자 지정** > **편집** > **저장**을 선택하여 수정된 버전의 복사본을 사용자 지정 통합 문서에 복사할 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
-title: 위치에 따른 Microsoft Azure Stack Edge 전원 코드 기술 사양 | Microsoft Docs
-description: Azure Stack Edge 전원 코드의 기술 사양을 알아봅니다.
+title: 위치에 따라 Edge Pro 전원 코드 기술 사양을 Microsoft Azure Stack | Microsoft Docs
+description: Azure Stack Edge Pro 전원 코드에 대 한 기술 사양에 대해 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 34f5b578581c5a11b3dbfba76f68819c2ed706d0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 76d8c84fd1dd403c88e8261cf49e3620f3a6ec14
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055931"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903628"
 ---
-# <a name="azure-stack-edge-power-cord-specifications"></a>Azure Stack Edge 전원 코드 사양
+# <a name="azure-stack-edge-pro-power-cord-specifications"></a>Azure Stack Edge Pro 전원 코드 사양
 
-Azure Stack Edge 디바이스에는 Azure 지역에 따라 달라지는 전원 코드가 필요합니다.
+Azure Stack Edge Pro 장치에는 Azure 지역에 따라 달라 지는 전원 코드가 필요 합니다.
 
 ## <a name="supported-power-cords"></a>지원되는 전원 코드
 
@@ -158,4 +158,4 @@ Azure Stack Edge 디바이스에는 Azure 지역에 따라 달라지는 전원 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack Edge 기술 사양](data-box-edge-technical-specifications-compliance.md)
+[Azure Stack Edge Pro 기술 사양](data-box-edge-technical-specifications-compliance.md)

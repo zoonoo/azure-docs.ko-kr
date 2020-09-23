@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: c31f3c998df918466e707c95f041592051e8251c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f8885229c8ab6784c6c0bf45487812fcc43f9b22
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045317"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903816"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Visual Studio Code에서 작업 다이어그램을 사용 하 여 로컬에서 Azure Stream Analytics 쿼리 디버그
 
@@ -27,7 +27,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 ### <a name="start-local-testing"></a>로컬 테스트 시작
 
-이 [빠른](quick-create-vs-code.md) 시작을 사용 하 여 Visual Studio Code를 사용 하 여 Stream Analytics 작업을 만들거나 [기존 작업을 로컬 프로젝트로 내보내는](visual-studio-code-explore-jobs.md)방법을 알아봅니다. 입력 및 출력에 대 한 자격 증명은 내보낸 작업에 대해 자동으로 채워집니다.
+이 [빠른](quick-create-visual-studio-code.md) 시작을 사용 하 여 Visual Studio Code를 사용 하 여 Stream Analytics 작업을 만들거나 [기존 작업을 로컬 프로젝트로 내보내는](visual-studio-code-explore-jobs.md)방법을 알아봅니다. 입력 및 출력에 대 한 자격 증명은 내보낸 작업에 대해 자동으로 채워집니다.
 
 로컬 입력 데이터로 쿼리를 테스트 하려면 다음 [지침](visual-studio-code-local-run.md)을 따르세요. 라이브 입력을 사용 하 여 테스트 하려면 다음 단계로 이동 하 여 [입력을 구성](stream-analytics-add-inputs.md) 합니다. 
 
@@ -59,7 +59,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 3. 드롭다운 목록에서 입력 데이터 원본의 이름을 선택 하 여 입력 메트릭을 표시 합니다. 아래 스크린샷에서 입력 소스를 *따옴표*라고 합니다. 입력 메트릭에 대 한 자세한 내용은 [Stream Analytics 작업 모니터링 및 쿼리 모니터링 방법 이해](stream-analytics-monitoring.md)를 참조 하세요.
 
    > [!div class="mx-imgBorder"]
-   > ![작업 다이어그램 메트릭](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
+   > ![작업 다이어그램 입력 메트릭](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
 
 4. 작업 다이어그램에서 쿼리 단계를 선택 하거나 드롭다운 목록에서 단계 이름을 선택 하 여 단계 수준 메트릭을 표시 합니다. 워터 마크 지연은 유일 하 게 사용할 수 있는 단계 메트릭입니다.
 
@@ -108,7 +108,7 @@ Azure Stream Analytics 스크립트는 입력 데이터를 출력 데이터로 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: Visual Studio Code를 사용 하 여 Stream Analytics 작업 만들기](quick-create-vs-code.md)
+* [빠른 시작: Visual Studio Code를 사용 하 여 Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)
 * [Visual Studio Code를 사용 하 여 Azure Stream Analytics 탐색](visual-studio-code-explore-jobs.md)
 * [Visual Studio Code를 통해 샘플 데이터를 사용하여 로컬로 Stream Analytics 쿼리 테스트](visual-studio-code-local-run.md)
 * [Visual Studio Code를 사용 하 여 라이브 입력으로 Azure Stream Analytics 작업을 로컬로 테스트](visual-studio-code-local-run-live-input.md)

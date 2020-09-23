@@ -1,6 +1,6 @@
 ---
 title: ONNX를 사용 하 여 배포 및 예측
-description: 모델을 학습 하 고, ONNX로 변환 하 고, Azure sql Edge (미리 보기) 또는 Azure SQL Managed Instance (미리 보기)에 배포 하 고, 업로드 된 ONNX 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법에 대해 알아봅니다.
+description: 모델을 학습 하 고, ONNX로 변환 하 고, Azure sql Edge 또는 Azure SQL Managed Instance (미리 보기)에 배포 하 고, 업로드 된 ONNX 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법을 알아봅니다.
 keywords: SQL Edge 배포
 ms.prod: sql
 ms.technology: machine-learning
@@ -8,22 +8,22 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
-ms.openlocfilehash: eeb50f682c8b3b225c6574b5276722b79465a511
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1e70b48e4c28cdc74c5079e492b0266ea60900ad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718784"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886828"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>ONNX 모델을 사용 하 여 배포 및 예측
 
-이 빠른 시작에서는 모델을 학습 하 고, ONNX로 변환 하 고, [azure Sql Edge (미리 보기](onnx-overview.md) ) 또는 [azure sql Managed Instance (미리 보기)](../azure-sql/managed-instance/machine-learning-services-overview.md)에 배포 하 고, 업로드 된 onnx 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법을 알아봅니다.
+이 빠른 시작에서는 모델을 학습 하 고, ONNX로 변환 하 고, [azure Sql Edge](onnx-overview.md) 또는 [azure sql Managed Instance (미리 보기)](../azure-sql/managed-instance/machine-learning-services-overview.md)에 배포한 후 업로드 된 onnx 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법을 알아봅니다.
 
 이 빠른 시작은 **scikit-learn**을 기반으로 하며, [보스턴 하우징 데이터 세트](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)를 사용합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-* Azure SQL Edge를 사용 하는 경우 Azure SQL Edge 모듈을 배포 하지 않은 경우 [Azure Portal를 사용 하 여 SQL edge 배포 (미리 보기)](deploy-portal.md)의 단계를 수행 합니다.
+* Azure SQL edge를 사용 하는 경우 Azure SQL edge 모듈을 배포 하지 않은 경우 [Azure Portal를 사용 하 여 SQL edge 배포](deploy-portal.md)의 단계를 따르세요.
 
 * [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download)를 설치합니다.
 

@@ -13,15 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 1f69fe027772dc2d008a567723a5b3c04f3ee51b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e8aea9b8abb5926fdb73df7c140ecfec1114f7a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378205"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894769"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Azure Security Center의 적응 네트워크 강화
 Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법에 대해 알아봅니다.
+
+## <a name="availability"></a>가용성
+|양상|세부 정보|
+|----|:----|
+|릴리스 상태:|GA(일반 공급)|
+|결정|[서버용 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
+|필요한 역할 및 사용 권한:|컴퓨터의 NSGs에 대 한 쓰기 권한|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|||
 
 ## <a name="what-is-adaptive-network-hardening"></a>적응 네트워크 강화 란?
 [NSG (네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview) 를 적용 하 여 리소스로 들어오고 나가는 트래픽을 필터링 하 여 네트워크 보안 상태를 향상 시킵니다. 그러나 NSG를 통과 하는 실제 트래픽이 정의 된 NSG 규칙의 하위 집합인 경우도 있습니다. 이러한 경우 실제 트래픽 패턴에 따라 NSG 규칙을 강화 하 여 보안 상태를 더욱 향상 시킬 수 있습니다.
@@ -37,15 +46,6 @@ Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법�
 ![네트워크 강화 보기](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 
-## <a name="availability"></a>가용성
-
-|양상|세부 정보|
-|----|:----|
-|릴리스 상태:|일반 공급|
-|결정|표준 계층|
-|필요한 역할 및 사용 권한:|컴퓨터의 NSGs에 대 한 쓰기 권한|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
-|||
 
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>적응 네트워크 강화 경고 및 규칙 보기
@@ -56,7 +56,7 @@ Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법�
    * **검색 되지 않은 리소스**: 적응 네트워크 강화 알고리즘을 실행할 수 없는 vm은 다음 이유 중 하나로 인해 실행할 수 없습니다.
       * **Vm은 클래식 vm**입니다. Azure Resource Manager vm만 지원 됩니다.
       * **충분 한 데이터를 사용할 수 없습니다**. 정확한 트래픽 강화 권장 사항을 생성 하기 위해 Security Center에는 최소 30 일의 트래픽 데이터가 필요 합니다.
-      * **VM은 ASC standard로 보호 되지 않습니다**. Security Center 표준 가격 책정 계층으로 설정 된 vm만이이 기능을 사용할 수 있습니다.
+      * **VM은 Azure defender에 의해 보호 되지 않습니다**. [서버에 대해 azure defender](defender-for-servers-introduction.md) 로 보호 되는 vm만이 기능을 사용할 수 있습니다.
 
      ![비정상 리소스](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
@@ -106,14 +106,14 @@ Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법�
 
 1. 규칙의 일부 매개 변수를 수정 하려면 **규칙 탭에서** 규칙 행의 끝에 있는 점 세 개 (...)를 클릭 하 고 **편집**을 클릭 합니다.
 
-   ![규칙 편집](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
+   ![S 규칙 편집](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
 1. **규칙 편집** 창에서 변경 하려는 세부 정보를 업데이트 하 고 **저장**을 클릭 합니다.
 
    > [!NOTE]
-   > **저장**을 클릭 하면 규칙이 성공적으로 변경 된 것입니다. *그러나 NSG에 적용 하지 않았습니다.* 이를 적용 하려면 목록에서 규칙을 선택 하 고 **적용** 을 클릭 해야 합니다 (다음 단계에서 설명).
+   > **저장**을 클릭 하면 규칙이 성공적으로 변경 된 것입니다. *그러나 NSG에 적용 하지 않았습니다.* 이를 적용 하려면 목록에서 규칙을 선택 하 고 다음 단계에 설명 된 대로 **적용** 을 선택 해야 합니다.
 
-   ![규칙 편집](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+   ![저장 선택](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
 3. 업데이트 된 규칙을 적용 하려면 목록에서 업데이트 된 규칙을 선택 하 고 **적용**을 클릭 합니다.
 
@@ -150,4 +150,4 @@ Security Center에서 권장 하지 않은 "허용" 규칙을 추가할 수 있�
 
 1. **규칙** 탭에서 규칙 행의 끝에 있는 점 세 개 (...)를 클릭 하 고 **삭제**를 클릭 합니다.  
 
-    ![규칙 강화](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![규칙 삭제](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)

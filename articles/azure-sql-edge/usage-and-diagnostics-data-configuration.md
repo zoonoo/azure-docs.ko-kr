@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: af4353e5b0991f7ce2f6fe8ff940e916717b0579
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 130e23c290ce493d3fb92f6dd0be4cd7c61a86fd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650484"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888041"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Azure SQL Edge 사용량 및 진단 데이터 구성
 
@@ -60,6 +60,9 @@ group by data_source_type
 ## <a name="disable-usage-and-diagnostic-data-collection"></a>사용 및 진단 데이터 수집 사용 안 함
 
 다음 방법 중 하나를 사용 하 여 Azure SQL Edge에서 사용 및 진단 데이터 수집을 사용 하지 않도록 설정할 수 있습니다.
+
+> [!NOTE]
+> 개발자 버전에서는 사용 현황 및 진단 데이터를 사용 하지 않도록 설정할 수 없습니다.
 
 ### <a name="disable-usage-and-diagnostics-using-environment-variables"></a>환경 변수를 사용 하 여 사용 및 진단 사용 안 함
 

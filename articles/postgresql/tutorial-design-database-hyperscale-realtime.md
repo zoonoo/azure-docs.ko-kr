@@ -1,6 +1,6 @@
 ---
 title: '자습서: 실시간 대시보드 디자인 - 하이퍼스케일(Citus) - Azure Database for PostgreSQL'
-description: 이 자습서에서는 Azure Database for PostgreSQL 하이퍼스케일(Citus)에서 분산된 테이블을 만들고, 채우고, 쿼리하는 방법을 보여 줍니다.
+description: 이 자습서에서는 Azure Database for PostgreSQL 하이퍼스케일(Citus)을 사용하여 실시간 대시보드 쿼리를 병렬화하는 방법을 보여줍니다.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: db3cd95c5a833b299ee85c1e68b15644ae0e0226
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 41ac1cb856011d9730f7b49bbf85350f4dbccdbd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387577"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895232"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL - 하이퍼스케일(Citus)을 사용하여 실시간 분석 대시보드 설계
 
@@ -226,6 +226,5 @@ DELETE FROM http_request_1min WHERE ingest_time < now() - interval '1 month';
 
 이 자습서에서는 하이퍼스케일(Citus) 서버 그룹을 프로비저닝하는 방법을 배웠습니다. 그 후 psql을 사용하여 이 서버 그룹에 연결하고, 스키마를 만들고, 데이터를 분산했습니다. 데이터를 원시 형식으로 쿼리하고, 해당 데이터를 주기적으로 집계하고, 집계된 테이블을 쿼리하고, 오래된 데이터를 만료하는 방법을 알아보았습니다.
 
-다음으로, 하이퍼스케일의 개념을 알아보세요.
-> [!div class="nextstepaction"]
-> [하이퍼스케일 노드 형식](https://aka.ms/hyperscale-concepts)
+- 서버 그룹 [노드 유형](https://aka.ms/hyperscale-concepts)에 대한 자세한 정보
+- 서버 그룹에 적합한 [처음 크기](howto-hyperscale-scaling.md#picking-initial-size) 결정
