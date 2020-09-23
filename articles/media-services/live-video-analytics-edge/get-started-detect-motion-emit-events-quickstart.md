@@ -3,12 +3,12 @@ title: Live Video Analytics on IoT Edge 시작 - Azure
 description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 시작하는 방법을 보여 줍니다. 라이브 비디오 스트림에서 동작을 감지하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: c7e5efa19c27c3f56f9653ed933c7ad290d18408
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 0d1aaf34ad38b50403a3cbefbc953f9140f2fe82
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568050"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884930"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>빠른 시작: 시작 - IoT Edge의 Live Video Analytics
 
@@ -84,6 +84,9 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 연결에 성공하면 에지 디바이스의 목록이 표시됩니다. **lva-sample-device**라는 하나 이상의 디바이스가 표시되어야 합니다. 이제 상황에 맞는 메뉴를 통해 IoT Edge 디바이스를 관리하고 Azure IoT Hub와 상호 작용할 수 있습니다. 에지 디바이스에 배포된 모듈을 보려면 **lva-sample-device** 아래에서 **모듈** 노드를 펼칩니다.
 
 ![lva-sample-device 노드](./media/quickstarts/lva-sample-device-node.png)
+
+> [!TIP]
+> 에지 디바이스(예: ARM64 디바이스)에서 자체적으로 [Live Video Analytics on IoT Edge를 수동으로 배포](deploy-iot-edge-device.md)한 경우 해당 디바이스의 Azure IoT Hub에 모듈이 표시됩니다. 해당 모듈을 선택하고 아래의 나머지 단계를 수행할 수 있습니다.
 
 ## <a name="use-direct-method-calls"></a>직접 메서드 호출 사용
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 51a9b85f4d19807c9e6d908b3d7944136e109e0f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7c5bc010653a936c00c5995142b5b34829591d24
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118735"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884701"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
 서버 수준 방화벽 규칙은 지정 된 IP 주소 또는 IP 주소 범위에서 Azure Database for MySQL 서버에 대 한 액세스를 관리 하는 데 사용할 수 있습니다. 
@@ -22,11 +22,11 @@ VNet (Virtual Network) 규칙을 사용 하 여 서버에 대 한 액세스를 �
 
 1. MySQL 서버 페이지의 설정 제목에서 **연결 보안**을 클릭하여 MySQL용 Azure Database에 대한 연결 보안 페이지를 엽니다.
 
-   ![Azure Portal - 보안 연결 클릭](./media/howto-manage-firewall-using-portal/1-connection-security.png)
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/1-connection-security.png" alt-text="연결 보안 Azure Portal 클릭":::
 
 2. 도구 모음에서 **내 IP 추가**를 클릭합니다. 이렇게 하면 Azure 시스템에서 감지한 컴퓨터의 공용 IP 주소를 사용하는 방화벽 규칙이 자동으로 만들어집니다.
 
-   ![Azure Portal - 내 IP 추가 클릭](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Azure Portal - 내 IP 추가 클릭":::
 
 3. 구성을 저장하기 전에 사용자의 IP 주소를 확인합니다. 상황에 따라 Azure Portal에서 관찰하는 IP 주소는 인터넷 및 Azure 서버에 액세스할 때 사용된 IP 주소와 다릅니다. 따라서, 규칙 함수를 예상대로 만들기 위해 시작 IP 및 끝 IP를 변경해야 할 수도 있습니다.
 
@@ -34,11 +34,11 @@ VNet (Virtual Network) 규칙을 사용 하 여 서버에 대 한 액세스를 �
 
 4. 추가 주소 범위를 추가합니다. Azure Database for MySQL 방화벽 규칙에서 단일 IP 주소 또는 주소 범위를 지정할 수 있습니다. 하나의 단일 IP 주소로 규칙을 제한하려는 경우 시작 IP 및 끝 IP 필드에 동일한 주소를 입력합니다. 방화벽을 열면 관리자, 사용자 및 애플리케이션에서 유효한 자격 증명이 있는 MySQL 서버의 데이터베이스에 액세스할 수 있습니다.
 
-   ![Azure Portal - 방화벽 규칙](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/4-specify-addresses.png" alt-text="Azure Portal-방화벽 규칙":::
 
 5. 도구 모음에서 **저장**을 클릭하여 이 서버 수준 방화벽 규칙을 저장합니다. 방화벽 규칙에 대한 업데이트가 성공적으로 수행되었는지 확인될 때까지 기다립니다.
 
-   ![Azure Portal - 저장 클릭](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png" alt-text="Azure Portal - 저장 클릭":::
 
 ## <a name="connecting-from-azure"></a>Azure에서 연결
 Azure의 애플리케이션에서 Azure Database for MySQL 서버에 연결할 수 있게 하려면 Azure 연결을 사용하도록 설정해야 합니다. 예를 들어 Azure Web Apps 애플리케이션 또는 Azure VM에서 실행되는 애플리케이션을 호스팅하거나 Azure Data Factory 데이터 관리 게이트웨이에서 연결하는 경우가 있습니다. 이러한 연결을 사용하도록 설정하려면 리소스가 방화벽 규칙에 대해 동일한 VNet(Virtual Network) 또는 리소스 그룹에 있을 필요가 없습니다. Azure의 애플리케이션이 데이터베이스 서버로 연결을 시도할 때, 방화벽은 Azure 연결이 허용되는지 확인합니다. 이러한 유형의 연결을 사용하도록 설정하는 몇 가지 방법이 있습니다. 0.0.0.0으로 된 시작 및 끝 주소가 포함된 방화벽 설정은 연결이 허용됨을 나타냅니다. 또는 포털의 **연결 보안** 창에서 **Azure 서비스에 대 한 액세스 허용** 옵션을 **켜기** 로 설정 하 고 **저장**을 누를 수 있습니다. 연결 시도가 허용되지 않으면 해당 요청이 Azure Database for MySQL 서버에 도달하지 않습니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 1af99f6317ac5888478c7df08fcc31478ef1ccef
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 40b96cac4c9ad638373fbb75f736dc7eded42b43
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180850"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883941"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -35,11 +35,11 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 > [!NOTE]
 > 대부분의 보안 공급 업체는 해당 어플라이언스에서 실행 되는 외부 에이전트를 금지 하므로 Security Center는 파트너 가상 어플라이언스에 Log Analytics 에이전트를 설치 하지 않습니다.
 
-표준 계층 고객에 게 제공 되는 기본 제공 스캐너를 비롯 하 여 Qualys에서 취약성 검색 도구를 통합 하는 방법에 대 한 자세한 내용은 [Azure Virtual Machines에 대 한 취약성 평가](deploy-vulnerability-assessment-vm.md)를 참조 하세요.
+Azure Defender 고객에 게 제공 되는 기본 제공 스캐너를 비롯 하 여 Qualys에서 취약성 검색 도구를 통합 하는 방법에 대 한 자세한 내용은 [azure Virtual Machines에 대 한 취약성 평가](deploy-vulnerability-assessment-vm.md)를 참조 하세요.
 
 Security Center는 다음에 대한 취약성 분석도 제공합니다.
 
-* SQL 데이터베이스 - [취약성 평가 대시보드에서 취약성 평가 보고서 탐색](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)을 참조하세요.
+* SQL 데이터베이스 - [취약성 평가 대시보드에서 취약성 평가 보고서 탐색](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)을 참조하세요.
 * Azure Container Registry 이미지- [Security Center와 Azure Container Registry 통합 (미리 보기)](azure-container-registry-integration.md) 을 참조 하세요.
 
 ## <a name="how-security-solutions-are-integrated"></a>보안 솔루션을 통합하는 방법
@@ -88,7 +88,7 @@ Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩
 Security Center는 Azure에서 실행 되는 보안 솔루션을 자동으로 검색 하지만 Security Center에 연결 되지 않고 **검색 된 솔루션** 섹션에 솔루션을 표시 합니다. 이러한 솔루션에는 [Azure AD ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)및 파트너 솔루션과 같은 Azure 솔루션이 포함 됩니다.
 
 > [!NOTE]
-> Security Center 표준 계층은 검색 된 솔루션 기능의 구독 수준에서 필요 합니다. 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md) 을 참조 하세요.
+> 검색 된 솔루션 기능에 대해 구독 수준에서 **Azure Defender** 를 사용 하도록 설정 합니다. 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md) 을 참조 하세요.
 >
 
 Security Center와 통합 하기 위해 솔루션에서 **연결** 을 선택 하 고 보안 경고에 대 한 알림을 받습니다.

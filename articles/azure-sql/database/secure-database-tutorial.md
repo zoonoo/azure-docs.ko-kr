@@ -7,15 +7,15 @@ ms.subservice: security
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 09/03/2019
+ms.reviewer: ''
+ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bec60875561a9d821642d850c27e47d4f906aba3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496919"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885421"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>자습서: Azure SQL Database의 데이터베이스 보안
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "87496919"
 > - 서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기
 > - Azure AD(Azure Active Directory) 관리자 구성
 > - SQL 인증, Azure AD 인증 및 보안 연결 문자열을 사용하여 사용자 액세스 관리
-> - 고급 데이터 보안, 감사, 데이터 마스킹 및 암호화와 같은 보안 기능 사용
+> - Azure Defender for SQL, 감사, 데이터 마스킹 및 암호화와 같은 보안 기능을 사용하도록 설정
 
 Azure SQL Database는 다음과 같은 방법으로 데이터를 보호합니다.
 
@@ -233,30 +233,30 @@ Azure AD 인증을 사용하여 사용자를 추가하려면,
 
 ## <a name="enable-security-features"></a>보안 기능 사용
 
-Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능을 제공합니다. 이러한 기능은 데이터베이스에서만 사용할 수 있는 데이터 마스킹을 제외하고는 데이터베이스와 서버 모두에서 사용할 수 있습니다. 자세한 내용은 [고급 데이터 보안](advanced-data-security.md), [감사](../../azure-sql/database/auditing-overview.md), [동적 데이터 마스킹](dynamic-data-masking-overview.md) 및 [투명 데이터 암호화](transparent-data-encryption-tde-overview.md)를 참조하세요.
+Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능을 제공합니다. 이러한 기능은 데이터베이스에서만 사용할 수 있는 데이터 마스킹을 제외하고는 데이터베이스와 서버 모두에서 사용할 수 있습니다. 자세한 내용은 [Azure Defender for SQL](azure-defender-for-sql.md), [감사](../../azure-sql/database/auditing-overview.md), [동적 데이터 마스킹](dynamic-data-masking-overview.md) 및 [투명한 데이터 암호화](transparent-data-encryption-tde-overview.md)를 참조하세요.
 
-### <a name="advanced-data-security"></a>고급 데이터 보안
+### <a name="azure-defender-for-sql"></a>Azure Defender for SQL
 
-고급 데이터 보안 기능은 발생할 수 있는 잠재적 위협을 탐지하고 비정상적인 활동에 대한 보안 경고를 제공합니다. 사용자는 감사 기능을 사용하여 이러한 의심스러운 이벤트를 검색하고, 해당 이벤트가 데이터베이스의 데이터를 액세스, 위반 또는 악용했는지 여부를 확인할 수 있습니다. 또한 취약성 평가, 데이터 검색 및 분류 도구가 포함된 보안 개요도 사용자에게 제공됩니다.
+Azure Defender for SQL 기능은 발생할 수 있는 잠재적 위협을 탐지하고 비정상적인 활동에 대한 보안 경고를 제공합니다. 사용자는 감사 기능을 사용하여 이러한 의심스러운 이벤트를 검색하고, 해당 이벤트가 데이터베이스의 데이터를 액세스, 위반 또는 악용했는지 여부를 확인할 수 있습니다. 또한 취약성 평가, 데이터 검색 및 분류 도구가 포함된 보안 개요도 사용자에게 제공됩니다.
 
 > [!NOTE]
 > 위협의 한 가지 예로, 공격자가 애플리케이션 입력에 악의적인 SQL을 삽입하는 프로세스인 SQL 삽입이 있습니다. 이 경우 애플리케이션에서 자체적으로 인식하지 못한 채 악성 SQL을 실행하여 공격자가 데이터베이스의 데이터를 위반하거나 수정할 수 있습니다.
 
-고급 데이터 보안을 사용하도록 설정하려면:
+Azure Defender for SQL을 사용하도록 설정하려면 다음을 수행합니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택하고 **SQL 데이터베이스** 페이지에서 데이터베이스를 선택합니다.
 
 1. **개요** 페이지에서 **서버 이름** 링크를 선택합니다. 서버 페이지가 열립니다.
 
-1. **SQL 서버** 페이지에서 **보안** 섹션을 찾아서 **Advanced Data Security**를 선택합니다.
+1. **SQL Server** 페이지에서 **보안** 섹션을 찾아서 **Security Center**를 선택합니다.
 
-   1. 이 기능을 사용하도록 설정하려면 **Advanced Data Security** 아래에서 **켜기**를 선택합니다. 취약성 평가 결과를 저장할 스토리지 계정을 선택합니다. 그런 다음 **저장**을 선택합니다.
+   1. **Azure Defender for SQL**에서 **ON**을 선택하여 이 기능을 사용하도록 설정합니다. 취약성 평가 결과를 저장할 스토리지 계정을 선택합니다. 그런 다음 **저장**을 선택합니다.
 
       ![탐색 창](./media/secure-database-tutorial/threat-settings.png)
 
       또한 보안 경고, 스토리지 세부 정보 및 위협 탐지 유형을 받을 수 있도록 이메일을 구성할 수도 있습니다.
 
-1. 데이터베이스의 **SQL 데이터베이스** 페이지로 돌아가서 **보안** 섹션 아래에서 **Advanced Data Security**을 선택합니다. 여기서는 데이터베이스에 사용할 수 있는 다양한 보안 표시기를 찾을 수 있습니다.
+1. 데이터베이스의 **SQL 데이터베이스** 페이지로 돌아가서 **보안** 섹션 아래에서 **Security Center**를 선택합니다. 여기서는 데이터베이스에 사용할 수 있는 다양한 보안 표시기를 찾을 수 있습니다.
 
     ![위협 상태](./media/secure-database-tutorial/threat-status.png)
 
@@ -347,7 +347,7 @@ Azure SQL Database는 Azure Portal을 사용하여 액세스하는 보안 기능
 > - 서버 수준 및 데이터베이스 수준 방화벽 규칙 만들기
 > - Azure AD(Active Directory) 관리자 구성
 > - SQL 인증, Azure AD 인증 및 보안 연결 문자열을 사용하여 사용자 액세스 관리
-> - 고급 데이터 보안, 감사, 데이터 마스킹 및 암호화와 같은 보안 기능 사용
+> - Azure Defender for SQL, 감사, 데이터 마스킹 및 암호화와 같은 보안 기능을 사용하도록 설정
 
 지리적 배포를 구현하는 방법에 대해 알아보려면 다음 자습서로 계속 진행하세요.
 

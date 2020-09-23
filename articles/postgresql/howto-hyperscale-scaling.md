@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 8/10/2020
-ms.openlocfilehash: 5b1a5da688b162c85d2be8580e29dc6ee9db6d40
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/18/2020
+ms.openlocfilehash: fef873d5122fefb48c85281f71e206f95f3fbe48
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906474"
+ms.locfileid: "90986708"
 ---
 # <a name="server-group-size"></a>서버 그룹 크기
 
@@ -60,9 +60,6 @@ SELECT rebalance_table_shards('distributed_table_name');
 `rebalance_table_shards`함수는 해당 인수에서 이라는 테이블의 [공동 배치](concepts-hyperscale-colocation.md) 그룹에 있는 모든 테이블의 균형을 다시 조정 합니다. 따라서 분산 된 모든 테이블에 대해 함수를 호출할 필요는 없으며, 각 공동 배치 그룹의 대표 테이블에 대해이 함수를 호출 하기만 하면 됩니다.
 
 ### <a name="increase-or-decrease-vcores-on-nodes"></a>노드에서 vCores 증가 또는 감소
-
-> [!NOTE]
-> 이 기능은 현재 미리 보기로 제공됩니다. 서버 그룹의 노드에 대 한 vCores 변경을 요청 하려면 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
 새 노드를 추가 하는 것 외에도 기존 노드의 기능을 늘릴 수 있습니다. 계산 용량을 늘리거나 줄일 수 있는 것은 성능 실험 뿐만 아니라 트래픽 요구에 대 한 단기 또는 장기 변경에 유용할 수 있습니다.
 

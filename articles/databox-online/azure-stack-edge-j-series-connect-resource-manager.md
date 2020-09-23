@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU 장치에서 Azure Resource Manager에 연결
-description: Azure PowerShell를 사용 하 여 Azure Stack에 지 GPU에서 실행 되는 Azure Resource Manager에 연결 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro GPU 장치에서 Azure Resource Manager에 연결
+description: Azure PowerShell를 사용 하 여 Azure Stack Edge Pro GPU에서 실행 되는 Azure Resource Manager에 연결 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,35 +8,35 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: cf57d81c2ef56662abbd529a5de90e03c00e091a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5cf406dc0577f477858dd8a6570f7975747112e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269814"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891224"
 ---
-# <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-device"></a>Azure Stack에 지 장치에서 Azure Resource Manager에 연결
+# <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 Azure Resource Manager에 연결
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Azure Resource Manager는 Azure 구독에서 리소스를 만들고, 업데이트 하 고, 삭제할 수 있는 관리 계층을 제공 합니다. Azure Stack Edge 장치는 로컬 구독에서 Vm을 만들고, 업데이트 하 고, 삭제 하는 동일한 Azure Resource Manager Api를 지원 합니다. 이 지원을 통해 클라우드와 일관 된 방식으로 장치를 관리할 수 있습니다. 
+Azure Resource Manager는 Azure 구독에서 리소스를 만들고, 업데이트 하 고, 삭제할 수 있는 관리 계층을 제공 합니다. Azure Stack Edge Pro 장치는 로컬 구독에서 Vm을 만들고, 업데이트 하 고, 삭제 하는 동일한 Azure Resource Manager Api를 지원 합니다. 이 지원을 통해 클라우드와 일관 된 방식으로 장치를 관리할 수 있습니다. 
 
-이 자습서에서는 Azure PowerShell를 사용 하 여 Azure Resource Manager를 통해 Azure Stack Edge 장치에서 로컬 Api에 연결 하는 방법을 설명 합니다.
+이 자습서에서는 Azure PowerShell를 사용 하 여 Azure Resource Manager를 통해 Azure Stack Edge Pro 장치에서 로컬 Api에 연결 하는 방법을 설명 합니다.
 
 ## <a name="about-azure-resource-manager"></a>Azure Resource Manager 정보
 
-Azure Resource Manager은 Azure Stack Edge 장치 API를 호출 하 고 Vm 만들기, 업데이트 및 삭제와 같은 작업을 수행 하는 일관 된 관리 계층을 제공 합니다. Azure Resource Manager의 아키텍처는 다음 다이어그램에 자세히 설명 되어 있습니다.
+Azure Resource Manager은 Azure Stack Edge Pro 장치 API를 호출 하 고 Vm 만들기, 업데이트 및 삭제와 같은 작업을 수행 하는 일관 된 관리 계층을 제공 합니다. Azure Resource Manager의 아키텍처는 다음 다이어그램에 자세히 설명 되어 있습니다.
 
 ![Azure Resource Manager 다이어그램](media/azure-stack-edge-j-series-connect-resource-manager/edge-device-flow.svg)
 
 
-## <a name="endpoints-on-azure-stack-edge-device"></a>Azure Stack Edge 장치의 끝점
+## <a name="endpoints-on-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 끝점
 
 다음 표에서는 장치에 노출 되는 다양 한 끝점, 지원 되는 프로토콜 및 해당 끝점에 액세스 하는 포트를 요약 하 여 설명 합니다. 이 문서 전체에서 이러한 끝점에 대 한 참조를 찾을 수 있습니다.
 
-| # | 엔드포인트 | 지원되는 프로토콜 | 사용 되는 포트 | 사용 대상 |
+| # | 엔드포인트 | 지원되는 프로토콜 | 사용 되는 포트 | 사용 목적 |
 | --- | --- | --- | --- | --- |
-| 1. | Azure 리소스 관리자 | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
+| 1. | Azure Resource Manager | https | 443 | 자동화를 위해 Azure Resource Manager에 연결 하려면 |
 | 2. | 보안 토큰 서비스 | https | 443 | 액세스 및 새로 고침 토큰을 통해 인증 하려면 |
 | 3. | Blob | https | 443 | REST를 통해 Blob storage에 연결 하려면 |
 
@@ -47,7 +47,7 @@ Azure Resource Manager를 사용 하 여 장치의 로컬 Api에 연결 하는 �
 
 | 단계 # | 이 단계를 수행 합니다. | .. 이 위치에 있습니다. |
 | --- | --- | --- |
-| 1. | [Azure Stack Edge 장치 구성](#step-1-configure-azure-stack-edge-device) | 로컬 웹 UI |
+| 1. | [Azure Stack Edge Pro 장치 구성](#step-1-configure-azure-stack-edge-pro-device) | 로컬 웹 UI |
 | 2. | [인증서 만들기 및 설치](#step-2-create-and-install-certificates) | Windows 클라이언트/로컬 웹 UI |
 | 3. | [필수 구성 요소 검토 및 구성](#step-3-install-powershell-on-the-client) | Windows 클라이언트 |
 | 4. | [클라이언트에서 Azure PowerShell 설정](#step-4-set-up-azure-powershell-on-the-client) | Windows 클라이언트 |
@@ -57,15 +57,15 @@ Azure Resource Manager를 사용 하 여 장치의 로컬 Api에 연결 하는 �
 
 다음 섹션에서는 Azure Resource Manager 연결에서 위의 각 단계에 대해 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-시작 하기 전에 Azure Resource Manager을 통해 장치에 연결 하는 데 사용 되는 클라이언트가 TLS 1.2을 사용 하는지 확인 합니다. 자세한 내용은 [Windows 클라이언트에서 TLS 1.2 구성 Azure Stack Edge 장치에 액세스](azure-stack-edge-j-series-configure-tls-settings.md)를 참조 하세요.
+시작 하기 전에 Azure Resource Manager을 통해 장치에 연결 하는 데 사용 되는 클라이언트가 TLS 1.2을 사용 하는지 확인 합니다. 자세한 내용은 [Windows 클라이언트에서 TLS 1.2 구성 Azure Stack Edge Pro 장치에 액세스](azure-stack-edge-j-series-configure-tls-settings.md)를 참조 하세요.
 
-## <a name="step-1-configure-azure-stack-edge-device"></a>1 단계: Edge 장치 Azure Stack 구성 
+## <a name="step-1-configure-azure-stack-edge-pro-device"></a>1 단계: Edge Pro 장치 Azure Stack 구성 
 
-Azure Stack Edge 장치의 로컬 웹 UI에서 다음 단계를 수행 합니다.
+Azure Stack Edge Pro 장치의 로컬 웹 UI에서 다음 단계를 수행 합니다.
 
-1. Azure Stack Edge 장치에 대 한 네트워크 설정을 완료 합니다. 
+1. Azure Stack Edge Pro 장치에 대 한 네트워크 설정을 완료 합니다. 
 
     ![로컬 웹 UI "네트워크 설정" 페이지](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png)
 
@@ -74,7 +74,7 @@ Azure Stack Edge 장치의 로컬 웹 UI에서 다음 단계를 수행 합니다
 
 2. **장치 페이지에서** 장치 이름 및 DNS 도메인을 구성 합니다. 나중에 사용할 수 있도록 장치 이름 및 DNS 도메인을 기록해 둡니다.
 
-    ![로컬 웹 UI "장치" 페이지](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
+    ![로컬 웹 UI "디바이스" 페이지](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
     > [!IMPORTANT]
     > 장치 이름, DNS 도메인은 노출 되는 끝점을 구성 하는 데 사용 됩니다.
@@ -83,7 +83,7 @@ Azure Stack Edge 장치의 로컬 웹 UI에서 다음 단계를 수행 합니다
 
 ## <a name="step-2-create-and-install-certificates"></a>2 단계: 인증서 만들기 및 설치
 
-인증서를 통해 통신이 신뢰 되는지 확인 합니다. Azure Stack Edge 장치에서 자체 서명 된 어플라이언스, blob 및 Azure Resource Manager 인증서가 자동으로 생성 됩니다. 필요에 따라 서명 된 blob 및 Azure Resource Manager 인증서를 가져올 수 있습니다.
+인증서를 통해 통신이 신뢰 되는지 확인 합니다. Azure Stack Edge Pro 장치에서 자체 서명 된 어플라이언스, blob 및 Azure Resource Manager 인증서가 자동으로 생성 됩니다. 필요에 따라 서명 된 blob 및 Azure Resource Manager 인증서를 가져올 수 있습니다.
 
 자신의 서명 된 인증서를 가져오는 경우 인증서의 해당 서명 체인도 필요 합니다. 서명 체인, Azure Resource Manager 및 장치의 blob 인증서의 경우 클라이언트 컴퓨터에 해당 인증서를 사용 하 여 장치를 인증 하 고 통신 해야 합니다.
 
@@ -99,9 +99,9 @@ Azure Resource Manager에 연결 하려면 서명 체인 및 끝점 인증서를
 
 3. 이러한 모든 인증서의 경우 주체 이름 및 주체 대체 이름이 다음 지침을 준수 하는지 확인 합니다.
 
-    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
-    |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
@@ -255,13 +255,13 @@ Binary     1.48.204.0 AzureInformationProtection          {Clear-RMSAuthenticati
 > [!IMPORTANT]
 > 끝점 이름 확인에 대 한 DNS 서버 구성을 수정 하는 것이 좋습니다.
 
-장치에 연결 하는 데 사용 하는 Windows 클라이언트에서 다음 단계를 수행 합니다.
+디바이스에 연결하는 데 사용하는 Windows 클라이언트에서 다음 단계를 수행합니다.
 
 1. 관리자 권한으로 **메모장** 을 시작한 다음 C:\Windows\System32\Drivers\etc.에 있는 **hosts** 파일을 엽니다.
 
     ![Windows 탐색기 호스트 파일](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file.png)
 
-2. **호스트** 파일에 다음 항목을 추가 하 여 장치에 대 한 적절 한 값으로 바꿉니다. 
+2. 다음 항목을 디바이스에 적합한 값으로 대체하고 **hosts** 파일에 추가합니다. 
 
     ```
     <Device IP> login.<appliance name>.<DNS domain>
@@ -278,7 +278,7 @@ Binary     1.48.204.0 AzureInformationProtection          {Clear-RMSAuthenticati
 
 3. 참조를 위해 다음 이미지를 사용합니다. **호스트** 파일을 저장합니다.
 
-    ![메모장에서 파일을 호스팅합니다.](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file-notepad.png)
+    ![메모장의 hosts 파일](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file-notepad.png)
 
 ## <a name="step-6-verify-endpoint-name-resolution-on-the-client"></a>6 단계: 클라이언트에서 끝점 이름 확인 확인
 
@@ -319,7 +319,7 @@ Azure Resource Manager 환경을 설정 하 고 장치가 Azure Resource Manager
     AzDBE https://management.dbe-n6hugc2ra.microsoftdatabox.com https://login.dbe-n6hugc2ra.microsoftdatabox.com/adfs/
     ```
 
-2. 환경을 Azure Stack Edge로 설정 하 고 Azure Resource Manager 호출에 사용할 포트를 443으로 설정 합니다. 다음 두 가지 방법으로 환경을 정의 합니다.
+2. 환경을 Azure Stack Edge Pro로 설정 하 고 Azure Resource Manager 호출에 사용할 포트를 443으로 설정 합니다. 다음 두 가지 방법으로 환경을 정의 합니다.
 
     - 환경을 설정합니다. 다음 명령을 입력합니다.
 
@@ -329,7 +329,7 @@ Azure Resource Manager 환경을 설정 하 고 장치가 Azure Resource Manager
     
     자세한 내용은 [get-azurermenvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0)를 참조 하세요.
 
-    - 실행 하는 모든 cmdlet에 대해 인라인으로 환경을 정의 합니다. 이렇게 하면 모든 API 호출이 올바른 환경을 통과 하 게 됩니다. 기본적으로 호출은 Azure public을 통과 하지만 이러한 호출은 Edge 장치 Azure Stack에 대해 설정한 환경을 통과 하 게 하려고 합니다.
+    - 실행 하는 모든 cmdlet에 대해 인라인으로 환경을 정의 합니다. 이렇게 하면 모든 API 호출이 올바른 환경을 통과 하 게 됩니다. 기본적으로 호출은 Azure public을 통과 하지만, 이러한 호출은 Edge Pro 장치 Azure Stack에 대해 설정한 환경을 통해 이동 하는 것을 원합니다.
 
     - [AzureRM 환경을 전환 하는 방법](#switch-environments)에 대 한 자세한 내용을 참조 하세요.
 
@@ -376,7 +376,7 @@ Azure Resource Manager 환경을 설정 하 고 장치가 Azure Resource Manager
 
 
 > [!IMPORTANT]
-> Azure Resource Manager에 대 한 연결은 1.5 시간 마다 또는 Azure Stack에 지 장치가 다시 시작 될 때 만료 됩니다. 이 경우 실행 하는 모든 cmdlet은 Azure에 더 이상 연결 되지 않은 오류 메시지를 결과에 반환 합니다. 다시 로그인 해야 합니다.
+> Azure Resource Manager에 대 한 연결은 1.5 시간 마다 또는 Azure Stack Edge Pro 장치를 다시 시작 하는 경우에 만료 됩니다. 이 경우 실행 하는 모든 cmdlet은 Azure에 더 이상 연결 되지 않은 오류 메시지를 결과에 반환 합니다. 다시 로그인 해야 합니다.
 
 ## <a name="switch-environments"></a>환경 전환
 
@@ -460,4 +460,4 @@ ExtendedProperties : {}
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack Edge 장치에 vm을 배포](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md)합니다.
+[Azure Stack Edge Pro 장치에 vm을 배포](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md)합니다.

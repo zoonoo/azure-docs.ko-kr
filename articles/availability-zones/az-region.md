@@ -4,15 +4,15 @@ description: Azure에서 가용성과 복원력이 높은 애플리케이션을 
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 09/18/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: cf1fc81ea63db21d2e864c00e1987eec3d376b59
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: d7a158d91295aedc14f1f913ae152c496066fab5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853163"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891687"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Azure에서 가용성 영역를 지 원하는 지역
 
@@ -24,36 +24,36 @@ ms.locfileid: "87853163"
 
 ## <a name="americas"></a>아메리카
 
-| 서비스 | 미국 중부 | 미국 동부 | 미국 동부 2 | 미국 서부 2 |
-| --- | :---: | :---: | :---: | :---: |
+| 서비스 | 미국 중부 | 미국 동부 | 미국 동부 2 | 미국 서부 2 | 캐나다 중부
+| --- | :---: | :---: | :---: | :---: | :---: |
 | **컴퓨팅** |  |  |  |  |
-| Linux Virtual Machines             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Windows Virtual Machines           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Virtual Machine Scale Sets         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Azure App Service 환경 ILB | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Kubernetes Service           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Linux Virtual Machines             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Windows Virtual Machines           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Virtual Machine Scale Sets         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure App Service 환경 ILB | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Kubernetes Service           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **스토리지** |  |  |  |  |
-| Managed Disks                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 영역 중복 저장소             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Managed Disks                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 영역 중복 저장소             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **네트워킹** |  |  |  |  |
-| 표준 IP 주소                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 표준 Load Balancer             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| VPN Gateway                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| ExpressRoute 게이트웨이               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Application Gateway (V2)           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Firewall                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 표준 IP 주소                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 표준 Load Balancer             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| VPN Gateway                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| ExpressRoute 게이트웨이               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Application Gateway (V2)           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Firewall                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **데이터베이스** |  |  |  |  |
-| Azure Data Explorer                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| SQL Database                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (미리 보기) |
-| Azure Cache for Redis              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Cosmos DB                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Data Explorer                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| SQL Database                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (미리 보기) | :heavy_check_mark: |
+| Azure Cache for Redis              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Cosmos DB                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **분석** |  |  |  |  |
-| Event Hubs                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Event Hubs                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **통합** |  |  |  |  |
-| Service Bus(프리미엄 계층만 해당)    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Event Grid                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Service Bus(프리미엄 계층만 해당)    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Event Grid                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **ID** |  |  |  |  |
-| Azure AD Domain Services           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure AD Domain Services           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |   |
 
 ## <a name="europe"></a>유럽
 
@@ -86,7 +86,7 @@ ms.locfileid: "87853163"
 | Service Bus(프리미엄 계층만 해당)    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Event Grid                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **ID** |  |  |  |  |
-| Azure AD Domain Services           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure AD Domain Services           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 
 ## <a name="asia-pacific"></a>아시아 태평양
 
@@ -96,8 +96,8 @@ ms.locfileid: "87853163"
 | Linux Virtual Machines             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Windows Virtual Machines           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Virtual Machine Scale Sets         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Azure App Service 환경 ILB | :heavy_check_mark: | :heavy_check_mark: |  |
-| Azure Kubernetes Service           | :heavy_check_mark: | :heavy_check_mark: |  |
+| Azure App Service 환경 ILB | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Kubernetes Service           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **스토리지** |  |  |  |
 | Managed Disks                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 영역 중복 저장소             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -107,17 +107,17 @@ ms.locfileid: "87853163"
 | VPN Gateway                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | ExpressRoute 게이트웨이               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Application Gateway (V2)           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Firewall                     | :heavy_check_mark: | :heavy_check_mark: |  |
+| Azure Firewall                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **데이터베이스** |  |  |  |
-| Azure Data Explorer                | :heavy_check_mark: | :heavy_check_mark: |  |
+| Azure Data Explorer                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | SQL Database                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Cache for Redis              | :heavy_check_mark: | :heavy_check_mark: |  |
+| Azure Cache for Redis              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Cosmos DB                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **분석** |  |  |  |
 | Event Hubs                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **통합** |  |  |  |
 | Service Bus(프리미엄 계층만 해당)    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Event Grid                         | :heavy_check_mark: | :heavy_check_mark: |  |
+| Event Grid                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **ID** |  |  |  |
 | Azure AD Domain Services           | :heavy_check_mark: | :heavy_check_mark: |  |
 
@@ -128,9 +128,8 @@ ms.locfileid: "87853163"
 - US Gov 버지니아
 - 남아프리카 북부
 - 미국 중남부
-- 캐나다 중부
 
-이러한 4 개 지역에서 가용성 영역 지원에 대 한 자세한 내용을 보려면 Microsoft 영업 담당자나 고객 담당자에 게 문의 하거나 기술 지원 요청을 여세요.
+이러한 세 지역에서 가용성 영역 지원에 대 한 자세한 내용은 Microsoft 영업 담당자나 고객 담당자에 게 문의 하거나 기술 지원 요청을 여세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU에서 인증서 사용 | Microsoft Docs
-description: 을 사용 하는 이유, 장치에서 인증서를 업로드 하는 방법 등을 포함 하 여 Azure Stack Edge GPU 장치에서 인증서를 사용 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro GPU에서 인증서 사용 | Microsoft Docs
+description: 을 사용 하는 이유, 장치에서 인증서를 업로드 하는 방법 등을 포함 하 여 Azure Stack Edge Pro GPU 장치에서 인증서를 사용 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,28 +8,28 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: bf7f9236c8f0835d0041b4b0c454a492330ef878
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 59924312fe0483d11d0f70ce83b8f6e4b0e198dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268879"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890746"
 ---
-# <a name="use-certificates-with-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에서 인증서 사용
+# <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 인증서 사용
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-이 문서에서는 Azure Stack Edge 장치에 설치할 수 있는 인증서의 유형을 설명 합니다. 또한이 문서에는 만료 날짜를 설치 하 고 식별 하는 절차와 함께 각 인증서 종류에 대 한 세부 정보도 포함 되어 있습니다. 
+이 문서에서는 Azure Stack Edge Pro 장치에 설치할 수 있는 인증서의 유형을 설명 합니다. 또한이 문서에는 만료 날짜를 설치 하 고 식별 하는 절차와 함께 각 인증서 종류에 대 한 세부 정보도 포함 되어 있습니다. 
 
 ## <a name="about-certificates"></a>인증서 정보
 
 인증서는 신뢰할 수 있는 타사 (예: **인증 기관**)에 의해 **서명** (확인) 된 엔터티 (예: 도메인 이름)와 **공개 키** 간의 링크를 제공 합니다.  인증서는 신뢰할 수 있는 공용 암호화 키를 배포 하는 편리한 방법을 제공 합니다. 인증서를 통해 통신이 신뢰 되 고 암호화 된 정보를 올바른 서버로 전송 하 고 있는지 확인 합니다. 
 
-Azure Stack Edge 장치가 처음으로 구성 되 면 자체 서명 된 인증서가 자동으로 생성 됩니다. 필요에 따라 사용자 고유의 인증서를 가져올 수 있습니다. 사용자 고유의 인증서를 가져올 계획인 경우 따라야 하는 지침이 있습니다.
+Azure Stack Edge Pro 장치를 처음 구성 하면 자체 서명 된 인증서가 자동으로 생성 됩니다. 필요에 따라 사용자 고유의 인증서를 가져올 수 있습니다. 사용자 고유의 인증서를 가져올 계획인 경우 따라야 하는 지침이 있습니다.
 
 ## <a name="types-of-certificates"></a>인증서의 종류
 
-Azure Stack Edge 장치에서 사용 되는 다양 한 유형의 인증서는 다음과 같습니다. 
+Azure Stack Edge Pro 장치에서 사용 되는 다양 한 유형의 인증서는 다음과 같습니다. 
 - 서명 인증서
     - 루트 CA
     - 중급
@@ -52,7 +52,7 @@ Azure Stack Edge 장치에서 사용 되는 다양 한 유형의 인증서는 �
 
 인증서 또는 서명 인증 기관에 서명 하는 인증 기관에 대 한 인증서입니다. 
 
-### <a name="types"></a>유형
+### <a name="types"></a>형식
 
 이러한 인증서는 루트 인증서 또는 중간 인증서 일 수 있습니다. 루트 인증서는 항상 자체 서명 되거나 자체 서명 됩니다. 중간 인증서는 자체 서명 되지 않고 서명 기관에서 서명 됩니다.
 
@@ -68,7 +68,7 @@ Azure Stack Edge 장치에서 사용 되는 다양 한 유형의 인증서는 �
 
 ## <a name="node-certificates"></a>노드 인증서
 
-<!--Your Azure Stack Edge device could be a 1-node device or a 4-node device.--> 장치의 모든 노드가 지속적으로 서로 통신 하므로 트러스트 관계가 있어야 합니다. 노드 인증서는 해당 신뢰를 설정 하는 방법을 제공 합니다. Https를 통한 원격 PowerShell 세션을 사용 하 여 장치 노드에 연결 하는 경우에도 노드 인증서가 재생 됩니다.
+<!--Your Azure Stack Edge Pro device could be a 1-node device or a 4-node device.--> 장치의 모든 노드가 지속적으로 서로 통신 하므로 트러스트 관계가 있어야 합니다. 노드 인증서는 해당 신뢰를 설정 하는 방법을 제공 합니다. Https를 통한 원격 PowerShell 세션을 사용 하 여 장치 노드에 연결 하는 경우에도 노드 인증서가 재생 됩니다.
 
 ### <a name="caveats"></a>제한 사항
 
@@ -77,7 +77,7 @@ Azure Stack Edge 장치에서 사용 되는 다양 한 유형의 인증서는 �
 - DNS 도메인이 변경 되어도 장치 이름이 변경 되지 않으면 노드 인증서를 변경 해야 합니다. 사용자 고유의 노드 인증서를 가져오는 경우 장치 일련 번호를 변경할 수 없으며, 도메인 이름만 변경할 수 있습니다.
 - 다음 표를 사용 하 여 노드 인증서를 만들 때 안내 합니다.
    
-    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |노드|`<NodeSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br><br>`<NodeSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
    
@@ -98,9 +98,9 @@ Azure Stack Edge 장치에서 사용 되는 다양 한 유형의 인증서는 �
 - 끝점 인증서의 속성은 일반적인 SSL 인증서의 속성과 유사 합니다. 
 - 끝점 인증서를 만들 때 다음 표를 사용 합니다.
 
-    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
-    |Azure 리소스 관리자|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
+    |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Blob Storage|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |두 끝점 모두에 대 한 다중 SAN 단일 인증서|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
@@ -114,16 +114,16 @@ Azure Stack Edge 장치에서 사용 되는 다양 한 유형의 인증서는 �
 - 로컬 UI 인증서는 `.pfx` 내보낼 수 있는 개인 키를 사용 하 여 형식으로도 업로드 됩니다.
 - 로컬 UI 인증서를 업로드 한 후 브라우저를 다시 시작 하 고 캐시를 지워야 합니다. 브라우저에 대 한 구체적인 지침을 참조 하세요.
 
-    |유형 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
+    |형식 |주체 이름 (SN)  |SAN (주체 대체 이름)  |주체 이름 예 |
     |---------|---------|---------|---------|
     |로컬 UI| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
    
 
 ## <a name="iot-edge-device-certificates"></a>장치 인증서 IoT Edge
 
-Azure Stack Edge 장치는 연결 된 IoT Edge 장치에서 계산을 사용 하는 IoT 장치 이기도 합니다. 이 IoT Edge 장치와이 장치에 연결할 수 있는 다운스트림 장치 간의 보안 통신을 위해 IoT Edge 인증서를 업로드할 수도 있습니다. 
+Azure Stack Edge Pro 장치는 연결 된 IoT Edge 장치에서 계산을 사용 하는 IoT 장치 이기도 합니다. 이 IoT Edge 장치와이 장치에 연결할 수 있는 다운스트림 장치 간의 보안 통신을 위해 IoT Edge 인증서를 업로드할 수도 있습니다. 
 
-장치에는 장치에서 계산 시나리오를 사용 하려는 경우에 사용할 수 있는 자체 서명 된 인증서가 있습니다. 그러나 Azure Stack Edge 장치가 다운스트림 장치에 연결 된 경우에는 사용자 고유의 인증서를 가져와야 합니다.
+장치에는 장치에서 계산 시나리오를 사용 하려는 경우에 사용할 수 있는 자체 서명 된 인증서가 있습니다. 그러나 Azure Stack Edge Pro 장치가 다운스트림 장치에 연결 된 경우에는 사용자 고유의 인증서를 가져와야 합니다.
 
 이 트러스트 관계를 사용 하도록 설정 하려면 다음 세 가지 IoT Edge 인증서가 설치 되어 있어야 합니다.
 
@@ -140,7 +140,7 @@ Azure Stack Edge 장치는 연결 된 IoT Edge 장치에서 계산을 사용 하
 
 ## <a name="support-session-certificates"></a>지원 세션 인증서
 
-Azure Stack Edge 장치에 문제가 발생 하는 경우 해당 문제를 해결 하기 위해 장치에서 원격 PowerShell 지원 세션이 열릴 수 있습니다. 이 지원 세션을 통해 암호화 된 보안 통신을 사용 하도록 설정 하려면 인증서를 업로드할 수 있습니다.
+Azure Stack Edge Pro 장치에 문제가 발생 하는 경우 해당 문제를 해결 하기 위해 장치에서 원격 PowerShell 지원 세션이 열릴 수 있습니다. 이 지원 세션을 통해 암호화 된 보안 통신을 사용 하도록 설정 하려면 인증서를 업로드할 수 있습니다.
 
 ### <a name="caveats"></a>제한 사항
 
@@ -155,7 +155,7 @@ Azure Stack Edge 장치에 문제가 발생 하는 경우 해당 문제를 해�
 
 <!--## VPN certificates
 
-If VPN is configured on your Azure Stack Edge device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
+If VPN is configured on your Azure Stack Edge Pro device, then you will also need a certificate for any communication that occurs over the VPN channel. You can bring your own VPN certificate to ensure the communication is trusted.
 
 ### Caveats
 
@@ -262,7 +262,7 @@ $DeviceSerial = "HWDC1T2"
 New-SelfSignedCertificate -Type Custom -DnsName "$AppName.$domain","$DeviceSerial.$domain","management.$AppName.$domain","login.$AppName.$domain","*.blob.$AppName.$domain" -Subject "CN=$AppName.$domain" -KeyExportPolicy Exportable  -HashAlgorithm sha256 -KeyLength 2048  -CertStoreLocation "Cert:\LocalMachine\My" -Signer $cert -KeySpec KeyExchange -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")
 ```
 
-인증서를 만든 후 다음 단계는 Azure Stack Edge 장치에서 인증서를 업로드 하는 것입니다.
+인증서를 만든 후 다음 단계는 Azure Stack Edge Pro 장치에서 인증서를 업로드 하는 것입니다.
 
 
 ## <a name="upload-certificates"></a>인증서 업로드 
@@ -401,7 +401,7 @@ Windows 클라이언트에서 인증서를 가져오려면 다음 단계를 수�
 
 ## <a name="supported-certificate-algorithms"></a>지원 되는 인증서 알고리즘
 
- Azure Stack Edge 장치에서는 RSA (Rivest – Rivest-shamir-adleman – Rivest-shamir-adleman) 인증서만 지원 됩니다. ECDSA (타원 Curve Digital Signature Algorithm) 인증서를 사용 하는 경우 장치 동작은 결정 되지 않습니다.
+ Azure Stack Edge Pro 장치에서는 RSA (Rivest – Rivest-shamir-adleman – Rivest-shamir-adleman) 인증서만 지원 됩니다. ECDSA (타원 Curve Digital Signature Algorithm) 인증서를 사용 하는 경우 장치 동작은 결정 되지 않습니다.
 
  RSA 공개 키를 포함 하는 인증서를 RSA 인증서 라고 합니다. ECC (타원 Curve 암호화) 공개 키가 포함 된 인증서를 ECDSA (타원 Curve Digital Signature Algorithm) 인증서 라고 합니다. 
 
@@ -418,4 +418,4 @@ Windows 클라이언트에서 인증서를 가져오려면 다음 단계를 수�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack Edge 장치 배포](azure-stack-edge-gpu-deploy-prep.md)
+[Azure Stack Edge Pro 장치 배포](azure-stack-edge-gpu-deploy-prep.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: abcdc903e1509c266b9ea6666c296a59183e83c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7586cca21d470bcb0cf637ca0370f5dfcb59406
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711088"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901102"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Azure Security Center에서 SQL 정보 보호 정책 사용자 지정
  
@@ -56,7 +56,7 @@ Azure 테넌트에 대한 정보 보호 정책을 사용자 지정하려면 [테
  
 4. 레이블은 민감도 오름차순 순서로 나열됩니다. 레이블 간의 순위를 변경하려면 레이블을 끌어와서 테이블에서 순서를 변경하거나 **위로 이동** 및 **아래로 이동** 단추를 사용하여 순서를 변경합니다. 
  
-    ![정보 보호 정책 구성](./media/security-center-info-protection-policy/move-up.png)
+    ![레이블 목록](./media/security-center-info-protection-policy/move-up.png)
  
 5. 작업을 완료하면 화면 맨 위에 있는 **저장**을 클릭해야 합니다.
  
@@ -66,7 +66,7 @@ Azure 테넌트에 대한 정보 보호 정책을 사용자 지정하려면 [테
 1. **정보 형식 관리**를 클릭하여 정보 형식을 관리하고 사용자 지정할 수 있습니다.
 2. 새 **정보 형식**을 추가하려면 최상위 메뉴에서 **정보 형식 만들기**를 선택합니다. **정보 형식**에 대한 이름, 설명 및 검색 패턴 문자열을 구성할 수 있습니다. 필요에 따라 검색 패턴 문자열은 열의 메타데이터에 따라 와일드 카드 문자('%' 문자 사용)와 함께 키워드를 사용할 수 있습니다. 이 항목은 자동화된 검색 엔진이 데이터베이스에서 중요한 데이터를 식별하는 데 사용합니다.
  
-    ![정보 보호 정책 구성](./media/security-center-info-protection-policy/info-types.png)
+    ![정보 유형 만들기](./media/security-center-info-protection-policy/info-types.png)
  
 3. 추가 검색 패턴 문자열을 추가하거나, 기존 문자열의 일부를 사용하지 않도록 설정하거나, 설명을 변경하여 기본 제공 **정보 형식**을 구성할 수도 있습니다. 기본 제공 **정보 형식**을 삭제하거나 해당 이름을 편집할 수 없습니다. 
 4. **정보 형식**은 검색 순위 오름차순으로 나열됩니다. 즉, 목록의 위에 있는 형식을 먼저 일치시킵니다. 정보 형식 간의 순위를 변경하려면 형식을 테이블의 오른쪽으로 끌어오거나 **위로 이동** 및 **아래로 이동** 단추를 사용하여 순서를 변경합니다. 

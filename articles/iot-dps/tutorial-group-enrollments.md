@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 43ae9bd0e844a23adabf52e7fbb4b8cd077d23bd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 80efd92560bc7fb5c8bf16b524752e7dbfcdc74b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326718"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526666"
 ---
 # <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>자습서: IoT Hub Device Provisioning Service용 Java 디바이스 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
 
@@ -260,4 +260,4 @@ ms.locfileid: "87326718"
 이 자습서에서는 시뮬레이션된 X.509 디바이스를 Windows 머신에 만들고, Azure IoT Hub Device Provisioning Service 및 등록 그룹을 사용하여 IoT Hub에 이 디바이스를 프로비전했습니다. X.509 디바이스에 대한 자세한 내용은 디바이스 개념으로 이어집니다. 
 
 > [!div class="nextstepaction"]
-> [IoT Hub Device Provisioning Service 디바이스 개념](concepts-device.md)
+> [IoT Hub Device Provisioning Service 개념](concepts-service.md)
