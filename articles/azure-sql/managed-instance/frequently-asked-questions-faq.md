@@ -1,7 +1,7 @@
 ---
 title: 질문과 대답(FAQ)
 titleSuffix: Azure SQL Managed Instance
-description: Azure SQL Managed Instance FAQ (질문과 대답)
+description: Azure SQL Managed Instance FAQ(질문과 대답)
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab
-ms.date: 03/17/2020
-ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.reviewer: sstein
+ms.date: 09/21/2020
+ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661421"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887392"
 ---
-# <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ (질문과 대답)
+# <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ(질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 이 문서에는 [AZURE SQL Managed Instance](sql-managed-instance-paas-overview.md)에 대 한 가장 일반적인 질문이 포함 되어 있습니다.
@@ -72,7 +72,7 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 제품 오류 및 알려진 문제는 [알려진 문제](../database/doc-changes-updates-release-notes.md#known-issues)를 참조 하세요.
 
-## <a name="new-features"></a>새로운 기능
+## <a name="new-features"></a>새 기능
 
 **공개 미리 보기에서 최신 기능과 기능을 어디에서 찾을 수 있나요?**
 
@@ -102,7 +102,7 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 **내 Managed Instance을 삭제 하려면 어떻게 해야 하나요?**
 
-Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [AZURE CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) 또는 [리소스 관리자 REST Api](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)를 통해 관리 되는 인스턴스를 삭제할 수 있습니다.
+Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0) [AZURE CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) 또는 [리소스 관리자 REST Api](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)를 통해 관리 되는 인스턴스를 삭제할 수 있습니다.
 
 **인스턴스를 만들거나 업데이트 하는 데 소요 되는 시간 또는 데이터베이스를 복원 하는 데 소요 되는 시간은 어느 정도 인가요?**
 
@@ -350,7 +350,7 @@ Express 경로 회로 피어 링을 사용할 수 없는 경우 다른 옵션은
 - 권한이 낮은 DBA 계정으로 인스턴스에 액세스 합니다.
 - Sysadmin 계정에 대 한 JIT jumpbox 액세스를 구성 합니다.
 - [SQL 감사](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)를 켜고 경고 메커니즘과 통합 합니다.
-- [광고 (advanced data security)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) 도구 모음에서 [위협 감지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) 를 설정 합니다.
+- [Azure Defender FOR SQL](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql) Suite에서 [위협 감지](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) 를 켭니다.
 
 ## <a name="dns"></a>DNS
 
@@ -450,7 +450,7 @@ SQL Managed Instance는 [Vcore 기반 구매 모델](sql-managed-instance-paas-o
 
 **백업 저장소 소비에 대 한 청구 비용을 모니터링 하려면 어떻게 해야 하나요?**
 
-Azure Portal을 통해 백업 저장소에 대 한 비용을 모니터링할 수 있습니다. 지침은 [자동화 된 백업에 대 한 비용 모니터링](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs)을 참조 하세요. 
+Azure Portal를 통해 백업 저장소에 대 한 비용을 모니터링할 수 있습니다. 지침은 [자동화 된 백업에 대 한 비용 모니터링](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs)을 참조 하세요. 
 
 **관리 되는 인스턴스에서 백업 저장소 비용을 최적화 하려면 어떻게 해야 하나요?**
 

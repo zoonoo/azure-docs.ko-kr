@@ -2,13 +2,13 @@
 title: 질문과 대답 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs에 대한 FAQ(질문과 대답) 목록 및 그에 대한 답변을 제공합니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/16/2020
+ms.openlocfilehash: b852af961327fbecb773c0608dfb823093e17267
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89288970"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883398"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -55,6 +55,9 @@ Event Hubs 표준 계층은 현재 최대 7일의 보존 기간을 지원합니�
 ### <a name="how-do-i-monitor-my-event-hubs"></a>내 Event Hubs를 모니터링하려면 어떻게 할까요?
 Event Hubs는 [Azure Monitor](../azure-monitor/overview.md)에 리소스 상태를 제공하는 자세한 메트릭을 내보냅니다. 또한 네임스페이스 수준뿐만 아니라 엔터티 수준에서도 Event Hubs 서비스의 전반적인 상태를 평가할 수 있습니다. [Azure Event Hubs](event-hubs-metrics-azure-monitor.md)에 제공되는 모니터링에 대해 알아보세요.
 
+### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Azure Event Hubs 고객 데이터를 저장 하는 위치
+Azure Event Hubs는 고객 데이터를 저장 합니다. 이 데이터는 Event Hubs에 의해 단일 지역에 자동으로 저장 되므로이 서비스는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정 된 데이터를 포함 하 여 지역 데이터 상주 요구 사항을 자동으로 충족 합니다.
+
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>방화벽에서 열어야 하는 포트는 어느 것인가요? 
 Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고받을 수 있습니다.
 
@@ -78,9 +81,9 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. `Non-authoritative answer`에서 반환된 IP 주소를 적어 둡니다. 다른 클러스터로 네임스페이스를 복원하는 경우에만 변경될 수 있습니다.
+2. `Non-authoritative answer`에서 반환된 IP 주소를 적어 둡니다. 
 
-네임스페이스에 대해 영역 중복성을 사용하는 경우 몇 가지 추가 단계를 수행해야 합니다. 
+네임 스페이스에 **영역 중복성** 을 사용 하는 경우 몇 가지 추가 단계를 수행 해야 합니다. 
 
 1. 먼저 네임스페이스에서 nslookup을 실행합니다.
 
@@ -94,9 +97,12 @@ Azure Service Bus에서 다음 프로토콜을 사용하여 메시지를 주고�
     <name>-s2.cloudapp.net
     <name>-s3.cloudapp.net
     ```
+
+    > [!NOTE]
+    > 명령에서 반환 된 IP 주소는 `nslookup` 고정 ip 주소가 아닙니다. 그러나 기본 배포가 삭제 되거나 다른 클러스터로 이동 될 때까지 일정 하 게 유지 됩니다.
 3. 접미사 s1, s2 및 s3를 포함하는 각 이름에 대해 nslookup을 실행하여 세 개의 가용성 영역에서 실행되는 세 인스턴스의 IP 주소를 모두 가져옵니다. 
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-msgs-to-my-namespace"></a>내 네임 스페이스에 대 한 클라이언트 IP 송신 또는 수신 위치는 어디에서 확인할 수 있나요?
+### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>네임 스페이스에 메시지를 보내거나 받는 클라이언트 IP를 어디에서 찾을 수 있나요?
 먼저 네임 스페이스에서 [IP 필터링](event-hubs-ip-filtering.md) 을 사용 하도록 설정 합니다. 
 
 그런 다음 [진단 로그 사용](event-hubs-diagnostic-logs.md#enable-diagnostic-logs)의 지침에 따라 [가상 네트워크 연결 이벤트 Event Hubs](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) 에 대 한 진단 로그를 사용 하도록 설정 합니다. 연결이 거부 된 IP 주소가 표시 됩니다.

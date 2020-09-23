@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 7a7b603efe376250607b4a48ff3ef2833f40a2bd
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3e2711243d7c093d3ab8aa5f0e7ebac0a5ec95f9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650734"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886193"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>자동화 된 기계 학습에서 데이터 분할 및 교차 유효성 검사 구성
 
@@ -31,13 +31,13 @@ AutoML 실험은 모델 유효성 검사를 자동으로 수행 합니다. 다�
 > [!NOTE]
 > 스튜디오는 현재 학습/유효성 검사 데이터 분할 및 교차 유효성 검사 옵션을 지원 하지만 유효성 검사 집합에 대 한 개별 데이터 파일을 지정 하는 것은 지원 하지 않습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에는 다음이 필요 합니다.
 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
 
-* Azure Machine Learning SDK를 사용 하 여 자동화 된 machine learning 실험을 설정 하는 것에 대해 잘 알고 있어야 합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법](how-to-configure-auto-train.md)에 따라 기본적인 자동화된 기계 학습 실험 디자인 패턴을 확인합니다.
+* Azure Machine Learning SDK를 사용 하 여 자동화 된 machine learning 실험을 설정 하는 것에 대해 잘 알고 있어야 합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법에](how-to-configure-auto-train.md) 따라 기본적인 자동화 된 기계 학습 실험 디자인 패턴을 확인할 수 있습니다.
 
 * 교차 유효성 검사 및 학습/유효성 검사 데이터를 이해 하는 것은 ML 개념으로 분할 됩니다. 개략적인 설명의 경우
 

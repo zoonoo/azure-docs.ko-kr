@@ -12,15 +12,15 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6d0d626fe0720500b436aea73d6df7c8bb08e004
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fc9dee3d4ace5f70c4238cdce5c57696b131bfa9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649382"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897311"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azure Machine Learning STUDIO](https://ml.azure.com) [용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)는 학습 및 실험을 위해 실행을 모니터링 하 고 구성 하 고 관리 하는 다양 한 방법을 제공 합니다.
 
@@ -31,7 +31,7 @@ Python, [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md)및 [Azur
 * 자식 실행을 만듭니다.
 * 태그를 만들고 실행을 찾습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 항목이 필요 합니다.
 
@@ -110,7 +110,7 @@ notebook_run.log(name="message", value="Hello from run!")
 
 ### <a name="using-azure-machine-learning-studio"></a>Azure Machine Learning studio 사용
 
-디자이너 (미리 보기)에서 파이프라인 전송 실행을 시작 하려면 다음 단계를 사용 합니다.
+디자이너에서 파이프라인 전송 실행을 시작 하려면 다음 단계를 사용 합니다.
 
 1. 파이프라인의 기본 계산 대상을 설정 합니다.
 
@@ -384,7 +384,7 @@ list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"
 
 #### <a name="using-the-cli"></a>CLI 사용
 
-Azure CLI는 속성 및 태그를 기준으로 실행을 필터링 하는 데 사용할 수 있는 [JMESPath](http://jmespath.org) 쿼리를 지원 합니다. Azure CLI와 함께 JMESPath 쿼리를 사용 하려면 매개 변수를 사용 하 여 지정 `--query` 합니다. 다음 예에서는 속성 및 태그를 사용 하는 기본 쿼리를 보여 줍니다.
+Azure CLI는 속성 및 태그를 기준으로 실행을 필터링 하는 데 사용할 수 있는 [JMESPath](http://jmespath.org) 쿼리를 지원 합니다. Azure CLI와 함께 JMESPath 쿼리를 사용 하려면 매개 변수를 사용 하 여 지정 `--query` 합니다. 다음 예에서는 속성 및 태그를 사용 하는 몇 가지 쿼리를 보여 줍니다.
 
 ```azurecli-interactive
 # list runs where the author property = 'azureml-user'

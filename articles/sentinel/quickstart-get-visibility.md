@@ -8,14 +8,14 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
-ms.date: 09/23/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496216"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889140"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>빠른 시작: Azure Sentinel 시작
 
@@ -34,7 +34,7 @@ ms.locfileid: "86496216"
 
 - 위쪽 도구 모음에는 선택한 기간 동안 발생한 이벤트의 수와 이전 24시간과 비교한 결과가 표시됩니다. 이 도구 모음에는 이러한 이벤트에서 트리거된 경고(작은 크기 숫자는 지난 24시간 동안의 변화량을 나타냄)가 표시된 후, 열려 있는 이벤트, 진행 중인 이벤트 및 닫힌 이벤트 수가 표시됩니다. 이벤트 수가 급격히 증가하거나 감소하지 않았는지 확인합니다. 이벤트 수가 감소하면 Azure Sentinel에 연결 중지가 보고될 수 있습니다. 이벤트 수가 증가하면 의심스러운 문제가 발생한 것일 수 있습니다. 새 경고가 있는지 확인합니다.
 
-   ![Azure Sentinel 깔때기](./media/qs-get-visibility/funnel.png)
+   ![Azure Sentinel 카운터](./media/qs-get-visibility/funnel.png)
 
 개요 페이지의 주 본문에서 작업 영역의 보안 상태를 한눈에 파악할 수 있습니다.
 
@@ -42,14 +42,13 @@ ms.locfileid: "86496216"
 
 - **잠재적 악성 이벤트**: 트래픽이 악의적인 것으로 알려진 원본에서 검색되면 Azure Sentinel에서 맵에 경고를 표시합니다. 주황색 표시는 인바운드 트래픽을 나타냅니다. 누군가가 악의적인 것으로 알려진 IP 주소에서 조직에 액세스하려고 하는 것입니다. 아웃바운드(빨간색) 활동이 표시되면 네트워크의 데이터가 조직을 벗어나 악의적인 것으로 알려진 IP 주소로 스트리밍되고 있음을 나타냅니다.
 
-   ![Azure Sentinel 맵](./media/qs-get-visibility/map.png)
+   ![악성 트래픽 맵](./media/qs-get-visibility/map.png)
 
-
-- **최근 인시던트**: 최근 인시던트, 해당 심각도, 인시던트와 연결된 경고 수를 보려면 다음을 수행합니다. 특정 유형의 경고에서 갑작스러운 피크가 확인되면 현재 활성 공격이 진행되고 있는 것일 수 있습니다. 예를 들어, Azure ATP에서 20개의 Pass-the-hash 이벤트가 갑자기 발생하면 누군가가 사용자를 공격하려고 하는 것일 수 있습니다.
+- **최근 인시던트**: 최근 인시던트, 해당 심각도, 인시던트와 연결된 경고 수를 보려면 다음을 수행합니다. 특정 유형의 경고에서 갑작스러운 피크가 확인되면 현재 활성 공격이 진행되고 있는 것일 수 있습니다. 예를 들어 Microsoft Defender for Identity(이전에는 Azure ATP)에서 갑자기 20개의 Pass-the-hash 이벤트가 발생하면 누군가가 현재 공격 중인 것일 수 있습니다.
 
 - **데이터 원본 오류**: Microsoft의 데이터 분석가는 데이터 원본 데이터에 오류가 있는지를 지속적으로 검색하는 모델을 만들었습니다. 오류가 있으면 아무것도 표시되지 않습니다. 오류가 감지되면 자세히 검토하여 원인을 파악해야 합니다. 예를 들어, Azure 활동에서 스파이크 부분을 클릭합니다. **차트**를 클릭하여 스파이크가 발생한 시간을 확인한 후 해당 기간 동안 발생한 활동을 필터링하여 스파이크의 원인을 파악할 수 있습니다.
 
-   ![Azure Sentinel 맵](./media/qs-get-visibility/anomolies.png)
+   ![비정상 데이터 원본](./media/qs-get-visibility/anomolies.png)
 
 ## <a name="use-built-in-workbooks"></a>기본 제공 통합 문서 사용<a name="dashboards"></a>
 
@@ -64,10 +63,10 @@ ms.locfileid: "86496216"
 
    - 방화벽에 대한 통합 문서를 추가합니다. 예를 들어, Palo Alto 통합 문서를 추가합니다. 이 통합 문서는 방화벽 트래픽을 분석하여 방화벽 데이터와 위협 이벤트 간 상관 관계를 제공하며, 엔터티 전체에서 의심스러운 이벤트를 강조 표시합니다. 통합 문서는 트래픽의 추세에 대한 정보를 제공하며, 결과를 드릴다운하고 필터링할 수 있습니다. 
 
-      ![Pal Alto 대시보드](./media/qs-get-visibility/palo-alto-week-query.png)
+      ![Palo Alto 대시보드](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-주 쿼리 ![단추](./media/qs-get-visibility/edit-query-button.png)를 편집하여 통합 문서를 사용자 지정할 수 있습니다. 단추 ![단추](./media/qs-get-visibility/go-to-la-button.png)를 클릭하여 [쿼리 편집을 위한 Log Analytics](../azure-monitor/log-query/get-started-portal.md)로 이동한 다음, 줄임표(...)를 선택하고 **타일 데이터의 사용자 지정**을 선택할 수 있습니다. 여기서 주 시간 필터를 편집하거나 통합 문서에서 특정 타일을 제거할 수 있습니다.
+주 쿼리를 편집하여(![쿼리 편집 단추](./media/qs-get-visibility/edit-query-button.png)) 통합 문서를 사용자 지정할 수 있습니다. ![Log Analytics 단추](./media/qs-get-visibility/go-to-la-button.png) 단추를 클릭하여 [쿼리 편집을 위한 Log Analytics](../azure-monitor/log-query/get-started-portal.md)로 이동한 다음, 줄임표(...)를 선택하고 **타일 데이터의 사용자 지정**을 선택할 수 있습니다. 여기서 주 시간 필터를 편집하거나 통합 문서에서 특정 타일을 제거할 수 있습니다.
 
 쿼리 작업에 대한 자세한 내용은 [자습서: Log Analytics의 시각적 데이터](../azure-monitor/learn/tutorial-logs-dashboards.md)를 참조하세요.
 

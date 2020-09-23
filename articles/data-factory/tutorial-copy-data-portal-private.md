@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: b2e666419a702832243c69bdb059f4447b02d756
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 953dae3c264e76b1e40f0dc07ccea0c00a7464c8
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079458"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024420"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 Azure Blob 스토리지에서 SQL 데이터베이스로 안전하게 데이터 복사
 
@@ -57,7 +57,7 @@ ms.locfileid: "89079458"
 
 #### <a name="create-a-sink-sql-table"></a>싱크 SQL 테이블 만들기
 
-1. 다음 SQL 스크립트를 사용하여 SQL 데이터베이스에 **dbo.emp** 테이블을 만듭니다.
+다음 SQL 스크립트를 사용하여 SQL 데이터베이스에 **dbo.emp** 테이블을 만듭니다.
 
     ```sql
     CREATE TABLE dbo.emp
@@ -70,8 +70,6 @@ ms.locfileid: "89079458"
 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
-
-1. Azure 서비스에서 SQL Server에 액세스하도록 허용합니다. Data Factory에서 SQL 서버에 데이터를 쓸 수 있도록 SQL 서버에 대해 **Azure 서비스에 대한 액세스 허용**이 **켜기**로 설정되어 있는지 확인합니다. 이 설정을 확인하고 켜려면 **Azure SQL Server** > **개요** > **서버 방화벽 설정**으로 이동합니다. **Azure 서비스에 대한 액세스 허용** 옵션을 **켜기**로 설정합니다.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 이 단계에서는 데이터 팩터리를 만들고, Data Factory UI를 시작하여 파이프라인을 데이터 팩터리에 만듭니다.

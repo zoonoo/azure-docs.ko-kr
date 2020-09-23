@@ -9,12 +9,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2232aa46b0586ca62e80c8b9002271a67e4021c1
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b0217766c92ddcd1907eca2c6702d91b02e06c03
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651119"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893642"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
@@ -95,7 +95,7 @@ Azure ML 파이프라인은 Azure Machine Learning 작업 영역에 연결 되 �
 
 ### <a name="a-simple-python-pipeline"></a>간단한 Python 파이프라인
 
-이 코드 조각은 기본를 만들고 실행 하는 데 필요한 개체 및 호출을 보여 줍니다 `Pipeline` .
+이 코드 조각에서는를 만들고 실행 하는 데 필요한 개체 및 호출을 보여 줍니다 `Pipeline` .
 
 ```python
 ws = Workspace.from_config() 
@@ -141,7 +141,7 @@ pipeline_run.wait_for_completion()
 
 기계 학습 워크플로에 파이프라인을 사용 하는 경우의 주요 이점은 다음과 같습니다.
 
-|주요 장점|Description|
+|주요 장점|설명|
 |:-------:|-----------|
 |**무인&nbsp;실행**|안정적이 고 무인 방식으로 병렬로 실행 하거나 순서 대로 실행 하는 단계를 예약 합니다. 데이터 준비 및 모델링은 마지막 일 또는 몇 주, 그리고 파이프라인을 사용 하 여 프로세스가 실행 되는 동안 다른 작업에 집중할 수 있습니다. |
 |**다른 유형의 계산**|다른 유형의 확장 가능한 계산 리소스 및 저장소 위치에서 안정적으로 조정 된 여러 파이프라인을 사용 합니다. HDInsight, GPU 데이터 과학 Vm 및 Databricks 같은 다양 한 계산 대상에서 개별 파이프라인 단계를 실행 하 여 사용 가능한 계산 리소스를 효율적으로 사용 합니다.|
@@ -152,7 +152,7 @@ pipeline_run.wait_for_completion()
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure ML 파이프라인은 초기 개발 단계에서 가치를 제공 하기 시작 하는 강력한 기능입니다. 이 값은 팀과 프로젝트가 증가 함에 따라 증가 합니다. 이 문서에서는 Azure에서 Azure Machine Learning Python SDK 및 오케스트레이션를 사용 하 여 파이프라인을 지정 하는 방법에 대해 설명 했습니다. 몇 가지 기본 소스 코드를 확인 하 여 사용할 수 있는 몇 가지 클래스를 소개 했습니다 `PipelineStep` . Azure ML 파이프라인을 사용 하는 경우와 Azure가이를 실행 하는 방법을 이해 해야 합니다. 
+Azure ML 파이프라인은 초기 개발 단계에서 가치를 제공 하기 시작 하는 강력한 기능입니다. 이 값은 팀과 프로젝트가 증가 함에 따라 증가 합니다. 이 문서에서는 Azure에서 Azure Machine Learning Python SDK 및 오케스트레이션를 사용 하 여 파이프라인을 지정 하는 방법에 대해 설명 했습니다. 몇 가지 간단한 소스 코드를 확인 하 여 사용할 수 있는 몇 가지 클래스를 소개 했습니다 `PipelineStep` . Azure ML 파이프라인을 사용 하는 경우와 Azure가이를 실행 하는 방법을 이해 해야 합니다. 
 
 
 + [첫 번째 파이프라인을 만드는](how-to-create-your-first-pipeline.md)방법에 대해 알아봅니다.

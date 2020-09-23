@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure Stack Edge GPU를 사용하여 스토리지 계정에 데이터 전송 | Microsoft Docs
-description: Azure Stack Edge GPU 디바이스에서 로컬 및 Edge 스토리지 계정을 추가하고 연결하는 방법을 알아봅니다.
+title: 자습서 - Azure Stack Edge Pro GPU를 사용하여 스토리지 계정에 데이터 전송 | Microsoft Docs
+description: Azure Stack Edge Pro GPU 디바이스에서 로컬 및 Edge 스토리지 계정을 추가하고 연결하는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 66c09b7fa0eb8fbf709441da5996fb2237b3e284
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: c24970b30e522d593a491194dbbabb0421ad7f4b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256399"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891057"
 ---
-# <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-gpu"></a>자습서: Azure Stack Edge GPU를 사용하여 스토리지 계정을 통해 데이터 전송 
+# <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>자습서: Azure Stack Edge Pro GPU를 사용하여 스토리지 계정을 통해 데이터 전송 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-이 자습서에서는 Azure Stack Edge 디바이스에서 스토리지 계정을 추가하고 연결하는 방법에 대해 설명합니다. 스토리지 계정이 추가되면 Azure Stack Edge에서 데이터를 Azure로 전송할 수 있습니다.
+이 자습서에서는 Azure Stack Edge Pro 디바이스에서 스토리지 계정을 추가하고 연결하는 방법에 대해 설명합니다. 스토리지 계정이 추가되면 Azure Stack Edge Pro에서 데이터를 Azure로 전송할 수 있습니다.
 
 이 절차를 완료하는 데 약 30분이 걸릴 수 있습니다.
 
@@ -33,11 +33,11 @@ ms.locfileid: "89256399"
  
 ## <a name="prerequisites"></a>필수 조건
 
-스토리지 계정을 Azure Stack Edge에 추가하려면 먼저 다음 사항을 확인합니다.
+스토리지 계정을 Azure Stack Edge Pro에 추가하려면 먼저 다음 사항을 확인합니다.
 
-- [Azure Stack Edge 설치](azure-stack-edge-gpu-deploy-install.md)에서 설명한 대로 물리적 디바이스를 설치했습니다.
+- [Azure Stack Edge Pro 설치](azure-stack-edge-gpu-deploy-install.md)에서 설명한 대로 물리적 디바이스를 설치했습니다.
 
-- [Azure Stack Edge 활성화](azure-stack-edge-gpu-deploy-activate.md)에서 설명한 대로 물리적 디바이스를 활성화했습니다.
+- [Azure Stack Edge Pro 활성화](azure-stack-edge-gpu-deploy-activate.md)에서 설명한 대로 물리적 디바이스를 활성화했습니다.
 
 
 ## <a name="add-an-edge-storage-account"></a>Edge 스토리지 계정 추가
@@ -135,7 +135,7 @@ https를 통해 Azure Blob 스토리지 REST API에 연결하려면 다음 단�
 
 ### <a name="get-certificate"></a>인증서 가져오기
 
-HTTPS를 통해 Blob 스토리지에 액세스하려면 디바이스에 대한 SSL 인증서가 필요합니다. 또한 이 인증서를 프라이빗 키가 연결된 *.pfx* 파일로 Azure Stack Edge 디바이스에 업로드합니다. 테스트 및 개발 목적으로만 이러한 인증서를 만들고 Azure Stack Edge 디바이스에 업로드하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+HTTPS를 통해 Blob 스토리지에 액세스하려면 디바이스에 대한 SSL 인증서가 필요합니다. 또한 이 인증서를 프라이빗 키가 연결된 *.pfx* 파일로 Azure Stack Edge Pro 디바이스에 업로드합니다. 테스트 및 개발 목적으로만 이러한 인증서를 만들고 Azure Stack Edge Pro 디바이스에 업로드하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Blob 엔드포인트 인증서 만들기](azure-stack-edge-j-series-manage-certificates.md#create-certificates-optional)
 - [Blob 엔드포인트 인증서 업로드](azure-stack-edge-j-series-manage-certificates.md#upload-certificates)
@@ -167,15 +167,15 @@ Azure Storage Explorer를 사용하여 디바이스의 스토리지 계정에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음과 같은 Azure Stack Edge 항목에 대해 알아보았습니다.
+이 자습서에서는 다음과 같은 Azure Stack Edge Pro 항목에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 스토리지 계정 추가
 > * 스토리지 계정에 연결
 
-Azure Stack Edge를 사용하여 데이터를 변환하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
+Azure Stack Edge Pro를 사용하여 데이터를 변환하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Stack Edge를 사용하여 데이터 변환](./azure-stack-edge-j-series-deploy-configure-compute.md)
+> [Azure Stack Edge Pro를 사용하여 데이터 변환](./azure-stack-edge-j-series-deploy-configure-compute.md)
 
 

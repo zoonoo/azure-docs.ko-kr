@@ -11,15 +11,14 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 235135cbbcc7c622f4dd23c2e4f29cc3636dc1ea
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d36c0ab78f9f96a051e6cb0a53b756c7409ca142
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661924"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893411"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대한 액세스 관리
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning 작업 영역에 대 한 액세스를 관리 하는 방법에 대해 알아봅니다. Azure [RBAC (역할 기반 액세스 제어)](/azure/role-based-access-control/overview) 는 azure 리소스에 대 한 액세스를 관리 하는 데 사용 됩니다. Azure Active Directory 사용자에 게 리소스에 대 한 액세스 권한을 부여 하는 특정 역할이 할당 됩니다. Azure는 기본 제공 역할 및 사용자 지정 역할을 만드는 기능을 모두 제공 합니다.
 
@@ -122,7 +121,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 사용자 지정 역할에 대 한 자세한 내용은 [Azure 사용자 지정 역할](/azure/role-based-access-control/custom-roles)을 참조 하세요. 사용자 지정 역할과 함께 사용할 수 있는 작업 (작업 및 작업 아님)에 대 한 자세한 내용은 [리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)을 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>자주 묻는 질문
 
 
 ### <a name="q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service"></a>17. Azure Machine Learning 서비스에서 몇 가지 일반적인 시나리오를 수행 하는 데 필요한 권한은 무엇 인가요?
@@ -135,7 +134,6 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 | 활동 | 구독 수준 범위 | 리소스 그룹 수준 범위 | 작업 영역 수준 범위 |
 | ----- | ----- | ----- | ----- |
 | 새 작업 영역 만들기 | 필요하지 않음 | 소유자 또는 참가자 | 해당 없음 (소유자가 되거나 생성 후 상위 범위 역할 상속) |
-| 작업 영역 버전 업데이트 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/write` |
 | 구독 수준 Amlcompute 할당량을 요청 하거나 작업 영역 수준 할당량을 설정 합니다. | 소유자, 참가자 또는 사용자 지정 역할 </br>있어 `/locations/updateQuotas/action`</br> 구독 범위 | 권한 없음 | 권한 없음 |
 | 새 계산 클러스터 만들기 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
 | 새 계산 인스턴스 만들기 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `/workspaces/computes/write` |
@@ -301,7 +299,6 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
     * 새 작업 영역 만들기
     * 구독 또는 작업 영역 수준 할당량 할당
-    * 작업 영역 버전 업그레이드
 
     작업 영역 관리자도 새 역할을 만들 수 없습니다. 작업 영역의 범위 내에서 기존 기본 제공 또는 사용자 지정 역할만 할당할 수 있습니다.
 
@@ -415,11 +412,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 
 > [!NOTE]
 > 역할 업데이트는 해당 범위의 모든 역할 할당에 적용 되는 데 15 분에서 1 시간 정도 걸릴 수 있습니다.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>17. 작업 영역 버전 업데이트를 방지 하는 역할을 정의할 수 있나요? 
 
-예, 작업 영역 버전 업데이트를 방지 하는 역할을 정의할 수 있습니다. 작업 영역 업데이트는 작업 영역 개체에 대 한 패치 호출 이므로 `"NotActions"` JSON 정의의 배열에 다음 작업을 추가 하 여이 작업을 수행 합니다. 
-
-`"Microsoft.MachineLearningServices/workspaces/write"`
 
 ### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>17. 작업 영역에서 할당량 작업을 수행 하는 데 필요한 권한은 무엇 인가요? 
 

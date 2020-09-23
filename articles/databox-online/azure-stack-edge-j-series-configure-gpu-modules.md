@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge GPU 장치에서 GPU 모듈 실행 | Microsoft Docs
-description: Azure Portal를 통해 Azure Stack Edge 장치에서 GPU에 모듈을 구성 하 고 실행 하는 방법을 설명 합니다.
+title: Microsoft Azure Stack Edge Pro GPU 장치에서 GPU 모듈 실행 | Microsoft Docs
+description: Azure Portal를 통해 Azure Stack Edge Pro 장치에서 GPU에 모듈을 구성 하 고 실행 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,29 +8,29 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 419b8beb866711e80b4366df4398eb248256021b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8b9f1180639f638e72fdea2f87958628a2e9e86b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266955"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891464"
 ---
-# <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-device"></a>Azure Stack Edge 장치의 GPU에서 모듈 구성 및 실행
+# <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 GPU에 모듈 구성 및 실행
 
-Azure Stack Edge 장치에 하나 이상의 GPU (그래픽 처리 장치)가 포함 되어 있습니다. Gpu는 병렬 처리 기능을 제공 하 고 Cpu (중앙 처리 장치) 보다 이미지를 렌더링 하는 속도가 더 빠른 AI 계산에 널리 사용 되는 선택 사항입니다. Azure Stack Edge 장치에 포함 된 GPU에 대 한 자세한 내용은 [edge 장치 기술 사양 Azure Stack](azure-stack-edge-gpu-technical-specifications-compliance.md)을 참조 하세요.
+Azure Stack Edge Pro 장치에 하나 이상의 GPU (그래픽 처리 장치)가 포함 되어 있습니다. Gpu는 병렬 처리 기능을 제공 하 고 Cpu (중앙 처리 장치) 보다 이미지를 렌더링 하는 속도가 더 빠른 AI 계산에 널리 사용 되는 선택 사항입니다. Azure Stack Edge Pro 장치에 포함 된 GPU에 대 한 자세한 내용은 [Edge pro 장치 기술 사양 Azure Stack](azure-stack-edge-gpu-technical-specifications-compliance.md)을 참조 하세요.
 
-이 문서에서는 Azure Stack Edge 장치의 GPU에서 모듈을 구성 하 고 실행 하는 방법을 설명 합니다. 이 문서에서는 Nvidia T4 Gpu 용으로 작성 된 공개적으로 사용 가능한 컨테이너 모듈 **번호** 를 사용 합니다. 이 절차는 이러한 Gpu에 대해 Nvidia에서 게시 한 다른 모듈을 구성 하는 데 사용할 수 있습니다.
+이 문서에서는 Azure Stack Edge Pro 장치에서 GPU에 모듈을 구성 하 고 실행 하는 방법을 설명 합니다. 이 문서에서는 Nvidia T4 Gpu 용으로 작성 된 공개적으로 사용 가능한 컨테이너 모듈 **번호** 를 사용 합니다. 이 절차는 이러한 Gpu에 대해 Nvidia에서 게시 한 다른 모듈을 구성 하는 데 사용할 수 있습니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
-1. GPU 사용 1 노드 Azure Stack Edge 장치에 액세스할 수 있습니다. 이 장치는 Azure의 리소스를 사용 하 여 활성화 됩니다.  
+1. Edge Pro 장치 Azure Stack GPU 사용 1 노드에 액세스할 수 있습니다. 이 장치는 Azure의 리소스를 사용 하 여 활성화 됩니다.  
 
 ## <a name="configure-module-to-use-gpu"></a>GPU를 사용 하도록 모듈 구성
 
-모듈을 실행 하기 위해 Azure Stack Edge 장치에서 GPU를 사용 하도록 모듈을 구성 하려면 다음 단계를 수행 합니다.
+모듈을 실행 하기 위해 Azure Stack Edge Pro 장치에서 GPU를 사용 하도록 모듈을 구성 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 장치와 연결 된 리소스로 이동 합니다. 
 
@@ -54,7 +54,7 @@ Azure Stack Edge 장치에 하나 이상의 GPU (그래픽 처리 장치)가 포
 
     ![GPU 6을 사용 하도록 모듈 구성](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-2.png)
 
-    오른쪽 창에 Azure Stack에 지 장치와 연결 된 IoT Edge 장치가 표시 됩니다. 이는 IoT Hub 리소스를 만들 때 이전 단계에서 만든 IoT Edge 장치에 해당 합니다. 
+    오른쪽 창에 Azure Stack Edge Pro 장치와 연결 된 IoT Edge 장치가 표시 됩니다. 이는 IoT Hub 리소스를 만들 때 이전 단계에서 만든 IoT Edge 장치에 해당 합니다. 
     
 6. 이 IoT Edge 장치를 선택 합니다.
 

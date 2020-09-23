@@ -1,6 +1,6 @@
 ---
 title: 알고리즘 및 모듈 참조
-description: Azure Machine Learning 디자이너(미리 보기)에서 사용할 수 있는 모듈에 대한 자세한 내용
+description: Azure Machine Learning 디자이너에서 사용할 수 있는 모듈에 대 한 자세한 정보
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: a588c58c74ab9632f3c3c61e223dd37704103714
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048110"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886395"
 ---
-# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너(미리 보기)에 대한 알고리즘 및 모듈 참조
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에 대 한 알고리즘 & 모듈 참조
 
-이 참조 콘텐츠는 Azure Machine Learning 디자이너(미리 보기)에서 사용할 수 있는 각 기계 학습 알고리즘 및 모듈에 대한 기술적 배경을 제공합니다.
+이 참조 콘텐츠는 Azure Machine Learning designer에서 사용할 수 있는 각 기계 학습 알고리즘 및 모듈에 대 한 기술 배경을 제공 합니다.
 
 각 모듈은 필요한 입력을 고려하여 독립적으로 실행되고 기계 학습 작업을 수행할 수 있는 코드 세트를 나타냅니다. 모듈은 특정 알고리즘을 포함하거나 누락된 값 대체 또는 통계 분석과 같이 기계 학습에서 중요한 작업을 수행할 수 있습니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "87048110"
 
 | 기능 | Description | 모듈 |
 | --- |--- | --- |
-| 회귀 | 값을 예측합니다. | [향상된 의사 결정 트리 회귀](boosted-decision-tree-regression.md) <br/> [의사 결정 포리스트 회귀](decision-forest-regression.md) <br/> [고속 포리스트 변 위치 회귀](fast-forest-quantile-regression.md)  <br/> [선형 회귀](linear-regression.md)  <br/> [신경망 회귀](neural-network-regression.md)  <br/> [포아송 회귀](poisson-regression.md)  <br/>|
+| 회귀 | 값을 예측합니다. | [향상된 의사 결정 트리 회귀](boosted-decision-tree-regression.md) <br/> [의사 결정 포리스트 회귀](decision-forest-regression.md) <br/> [빠른 포리스트 분위수 회귀](fast-forest-quantile-regression.md)  <br/> [선형 회귀](linear-regression.md)  <br/> [신경망 회귀](neural-network-regression.md)  <br/> [포아송 회귀](poisson-regression.md)  <br/>|
 | Clustering | 데이터를 그룹화합니다.| [K-Means 클러스터링](k-means-clustering.md)
 | 분류 | 클래스를 예측합니다.  이진 파일(2클래스) 또는 다중 클래스 알고리즘에서 선택합니다.| [다중 클래스 향상된 의사 결정 트리](multiclass-boosted-decision-tree.md) <br/> [다중 클래스 의사 결정 포리스트](multiclass-decision-forest.md) <br/> [다중 클래스 로지스틱 회귀](multiclass-logistic-regression.md)  <br/> [다중 클래스 신경망](multiclass-neural-network.md) <br/> [일대다 모든 다중 클래스](one-vs-all-multiclass.md) <br/> [2클래스 평균 퍼셉트론](two-class-averaged-perceptron.md) <br/>  [2클래스 향상된 의사 결정 트리](two-class-boosted-decision-tree.md)  <br/> [2클래스 의사 결정 포리스트](two-class-decision-forest.md) <br/>  [2클래스 로지스틱 회귀](two-class-logistic-regression.md) <br/> [2클래스 신경망](two-class-neural-network.md) <br/> [2클래스 Support Vector Machine](two-class-support-vector-machine.md) | 
 

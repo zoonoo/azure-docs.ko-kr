@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170261"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883230"
 ---
 # <a name="train-pytorch-model"></a>Pytorch 모델 학습
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에서 **Pytorch 모델 학습** 모듈을 사용 하 여 DenseNet와 같은 Pytorch 모델을 학습 하는 방법을 설명 합니다. 학습은 모델을 정의 하 고 해당 매개 변수를 설정한 후에 발생 하며 레이블이 지정 된 데이터를 요구 합니다. 
+이 문서에서는 Azure Machine Learning designer에서 **Pytorch 모델 학습** 모듈을 사용 하 여 DenseNet와 같은 Pytorch 모델을 학습 하는 방법을 설명 합니다. 학습은 모델을 정의 하 고 해당 매개 변수를 설정한 후에 발생 하며 레이블이 지정 된 데이터를 요구 합니다. 
 
 ## <a name="how-to-use-train-pytorch-model"></a>Pytorch 학습 모델을 사용 하는 방법 
 
@@ -58,7 +58,7 @@ ms.locfileid: "86170261"
 ## <a name="technical-notes"></a>기술 정보
 ###  <a name="expected-inputs"></a>예상 입력  
 
-| 이름               | 유형                    | 설명                              |
+| 이름               | Type                    | 설명                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | 학습되지 않은 모델    | UntrainedModelDirectory | 학습 되지 않은 모델, pytorch 필요         |
 | 학습 데이터 세트   | ImageDirectory          | 학습 데이터 세트                         |
@@ -66,7 +66,7 @@ ms.locfileid: "86170261"
 
 ###  <a name="module-parameters"></a>모듈 매개 변수  
 
-| 이름          | 범위            | Type    | 기본값 | Description                              |
+| 이름          | 범위            | Type    | 기본값 | 설명                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Epoch        | >0               | 정수 | 5       | 레이블 또는 결과 열이 포함된 열을 선택합니다. |
 | Batch 크기    | >0               | 정수 | 16      | 일괄 처리에서 학습 하는 인스턴스 수   |
@@ -76,7 +76,7 @@ ms.locfileid: "86170261"
 
 ###  <a name="outputs"></a>출력  
 
-| 이름          | 유형           | 설명   |
+| 이름          | Type           | 설명   |
 | ------------- | -------------- | ------------- |
 | 학습된 모델 | ModelDirectory | 학습된 모델 |
 

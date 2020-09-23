@@ -11,21 +11,21 @@ ms.topic: conceptual
 author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
-ms.date: 02/05/2020
+ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 07a39edcb7a5605759ae70a014549863a038de1c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 0f0dde0da69ad225e39292681fc079aba4b81203
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437057"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885149"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Azure SQL Database, SQL Managed Instance 및 Azure Synapse 분석에 대 한 고급 위협 방지
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 [Azure SQL Database](sql-database-paas-overview.md), [azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) 및 [azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에 대 한 Advanced Threat Protection은 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 합니다.
 
-Advanced Threat Protection은 고급 SQL 보안 기능을 위한 통합 패키지인 [고급 데이터 보안](advanced-data-security.md) 제품의 일부입니다. 중앙의 SQL ADS 포털을 통해 Advanced Threat Protection에 액세스하고 관리할 수 있습니다.
+Advanced Threat Protection은 고급 SQL 보안 기능을 위한 통합 패키지인 [sql 용 Azure Defender](azure-defender-for-sql.md) 제공의 일부입니다. 고급 위협 방지는 SQL portal 용 중앙 Azure Defender를 통해 액세스 하 고 관리할 수 있습니다.
 
 ## <a name="overview"></a>개요
 
@@ -55,19 +55,15 @@ Azure SQL Database용 Advanced Threat Protection은 비정상적이며 잠재적
 
 ## <a name="explore-alerts-in-the-azure-portal"></a>Azure Portal에서 경고 살펴보기
 
-Advanced Threat Protection은 경고를 [Azure security center](https://azure.microsoft.com/services/security-center/)와 통합 합니다. 데이터베이스 내의 라이브 SQL Advanced Threat Protection 타일과 Azure Portal의 SQL 광고 블레이드는 활성 위협의 상태를 추적 합니다.
+Advanced Threat Protection은 경고를 [Azure security center](https://azure.microsoft.com/services/security-center/)와 통합 합니다. 데이터베이스 내의 라이브 SQL Advanced Threat Protection 타일과 Azure Portal의 SQL Azure Defender 블레이드는 활성 위협의 상태를 추적 합니다.
 
 경고 Azure Security Center 페이지를 시작 하 고 데이터베이스에서 감지 된 활성 SQL 위협에 대 한 개요를 보려면 **Advanced Threat Protection 경고** 를 클릭 합니다.
-
-   ![Advanced Threat Protection 경고](./media/threat-detection-overview/threat_detection_alert.png)
-
-   ![Advanced Threat Protection alert2](./media/threat-detection-overview/threat_detection_alert_atp.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Synapse & Azure SQL Database의 Advanced Threat Protection](threat-detection-configure.md)에 대해 자세히 알아보세요.
 - [AZURE SQL Managed Instance의 Advanced Threat Protection](../managed-instance/threat-detection-configure.md)에 대해 자세히 알아보세요.
-- [고급 데이터 보안](advanced-data-security.md)에 대해 자세히 알아보세요.
+- [SQL 용 Azure Defender](azure-defender-for-sql.md)에 대해 자세히 알아보세요.
 - [Azure SQL Database 감사](../../azure-sql/database/auditing-overview.md) 에 대 한 자세한 정보
 - [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro) 에 대 한 자세한 정보
 - 가격 책정에 대 한 자세한 내용은 [Azure SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/) 를 참조 하세요.  

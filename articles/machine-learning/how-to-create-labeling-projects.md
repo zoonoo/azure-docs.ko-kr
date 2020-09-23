@@ -8,16 +8,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: a86a7ee600d7443e5ba8cb4f30db0c48c8170327
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612171"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897983"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>데이터 레이블 지정 프로젝트 만들기 및 레이블 내보내기 
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 기계 학습 프로젝트에서 대량의 데이터에 대한 레이블을 지정하는 작업은 처리하기가 매우 어려운 경우가 많습니다. 이미지 분류 또는 개체 감지와 같은 컴퓨터 비전 구성 요소가 있는 프로젝트에는 일반적으로 수천 개의 이미지에 대한 레이블이 필요합니다.
  
@@ -144,13 +144,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 >[!NOTE]
 > 레이블 지정자는 1-9 숫자 키를 사용하여 처음 9개의 레이블을 선택할 수 있습니다.
 
-## <a name="use-ml-assisted-labeling-preview"></a>ML 지원 레이블 지정 사용(미리 보기)
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
-
-> [!IMPORTANT]
-> ML 지원 레이블 지정은 현재 공개 미리 보기로 제공됩니다.
-> 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+## <a name="use-ml-assisted-labeling"></a>ML 지원 레이블 지정 사용
 
 **ML 지원 레이블 지정** 페이지를 사용하면 자동 기계 학습 모델을 트리거하여 레이블 지정 작업을 가속화할 수 있습니다. 레이블 지정 프로젝트가 시작될 때 잠재적인 편차를 줄이기 위해 이미지가 임의의 순서로 섞입니다. 그러나 데이터 세트에 있는 모든 편차는 학습된 모델에 반영됩니다. 예를 들어 이미지의 80%가 단일 클래스인 경우 모델을 학습시키는 데 사용되는 데이터의 약 80%가 해당 클래스의 데이터입니다. 이 학습에는 활성 학습이 포함되지 않습니다.
 
@@ -175,9 +169,6 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 충분한 이미지 레이블이 제출되면 분류 모델을 사용하여 이미지 태그를 예측합니다. 또는 개체 검색 모델을 사용하여 경계 상자를 예측할 수 있습니다. 이제 레이블 지정자에는 이미 각 이미지에 있는 예측된 레이블이 포함된 페이지가 표시됩니다. 개체 검색의 경우 예측 상자도 표시됩니다. 그런 다음, 페이지를 제출하기 전에 이러한 예측을 검토하고 레이블이 잘못 지정된 이미지를 수정합니다.  
 
 기계 학습 모델이 수동으로 레이블이 지정된 데이터에 대해 학습되면 수동으로 레이블이 지정된 이미지의 테스트 세트에 대해 모델을 평가하여 다양한 신뢰도 임계값에서 정확도를 결정합니다. 이 평가 프로세스는 사전 레이블을 표시할 만큼 충분히 정확한 모델의 신뢰도 임계값을 결정하는 데 사용됩니다. 그런 다음, 레이블이 없는 데이터에 대해 모델을 평가합니다. 이 임계값보다 더 확실한 예측이 있는 이미지는 사전 레이블 지정에 사용됩니다.
-
-> [!NOTE]
-> ML 지원 레이블 지정은 **Enterprise 버전 작업 영역에서만** 사용할 수 있습니다.
 
 ## <a name="initialize-the-labeling-project"></a>레이블 지정 프로젝트 초기화
 

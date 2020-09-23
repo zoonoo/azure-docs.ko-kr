@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 539b663366cd2820eec62a18d1fc2989c6b3c9b0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 77bf0f4cd60ba6e85763334a4d864975945ec2c3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042359"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894784"
 ---
-# <a name="feature-coverage-for-azure-paas-services"></a>Azure PaaS 서비스에 대 한 기능 검사<a name="paas-services"></a>
+# <a name="feature-coverage-for-azure-paas-services"></a>Azure PaaS 서비스에 대 한 기능 검사 <a name="paas-services"></a>
 
 다음 표에서는 지원 되는 Azure PaaS 리소스에 대 한 Azure Security Center 기능의 가용성을 보여 줍니다.
 
-|서비스|권장 사항 (무료)|보안 경고 (표준)|취약성 평가 (표준)|
+|서비스|권장 사항 (무료)|보안 경고 (Azure Defender)|취약성 평가 (Azure Defender)|
 |:----|:----:|:----:|:----:|
 |Azure App Service|✔|✔|-|
 |Azure Automation 계정|✔|-|-|
@@ -41,7 +41,7 @@ ms.locfileid: "86042359"
 |Azure Database for PostgreSQL *|✔|✔|-|
 |Azure Event Hubs 네임 스페이스|✔|-|-|
 |Azure Functions 앱|✔|-|-|
-|Azure Key Vault|✔|✔ *|-|
+|Azure Key Vault|✔|✔|-|
 |Azure Kubernetes Service|✔|✔|-|
 |Azure Load Balancer|✔|-|-|
 |Azure Logic Apps|✔|-|-|
@@ -54,6 +54,6 @@ ms.locfileid: "86042359"
 |Azure 구독|✔ **|✔|-|
 |Azure Virtual Network</br> (포함, Nic 및 네트워크 보안 그룹)|✔|-|-|
 
-\*이러한 기능은 현재 미리 보기에서 지원 됩니다.
+\* 이러한 기능은 현재 미리 보기에서 지원 됩니다.
 
-\*\*Azure Active Directory (Azure AD) 권장 사항은 표준 구독에 대해서만 사용할 수 있습니다.
+\*\* Azure AD (Azure Active Directory) 권장 사항은 Azure Defender를 사용 하는 구독에만 사용할 수 있습니다.

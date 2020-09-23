@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
-ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477445"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898217"
 ---
 # <a name="summarize-data"></a>데이터 요약
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 데이터 요약 모듈을 사용 하 여 입력 테이블의 각 열을 설명 하는 표준 통계 측정값 집합을 만들 수 있습니다.
 
@@ -49,15 +49,15 @@ ms.locfileid: "79477445"
 |열 이름|설명|
 |------|------|  
 |**기능**|열의 이름입니다.|
-|**개수**|모든 행의 개수|
+|**Count**|모든 행의 개수|
 |**고유 값 수**|열의 고유 값 수|
 |**누락 값 개수**|열의 고유 값 수|
-|**일별**|열에서 가장 낮은 값|  
-|**최대값**|열에서 가장 높은 값|
-|**되었음을**|모든 열 값의 평균|
+|**Min**|열에서 가장 낮은 값|  
+|**Max**|열에서 가장 높은 값|
+|**평균값**|모든 열 값의 평균|
 |**평균 편차**|열 값의 평균 편차|
 |**첫 번째 변위치**|처음 사분 위 값|
-|**중간값**|중앙값 열 값|
+|**중앙값**|중앙값 열 값|
 |**세 번째 변위치**|3 분 분의 값|
 |**모드**|열 값 모드|
 |**Range**|최대값과 최 댓 값 사이의 값 수를 나타내는 정수입니다.|

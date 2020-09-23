@@ -11,25 +11,25 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: eb28ee0adb3c23a44936cbc940ee9bcddfd11141
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6b239ab14437083b74f4501eabb588e929152431
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647414"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897241"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Python의 Azure Machine Learning 파이프라인에서 자동화 된 ML 사용
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Azure Machine Learning의 자동화 된 ML 기능을 사용 하면 가능한 모든 방법을 reimplementing 하지 않고도 고성능 모델을 검색할 수 있습니다. Azure Machine Learning 파이프라인과 결합 하 여 데이터에 가장 적합 한 알고리즘을 신속 하 게 검색할 수 있는 배포 가능한 워크플로를 만들 수 있습니다. 이 문서에서는 자동화 된 ML 단계에 데이터 준비 단계를 효율적으로 조인 하는 방법을 보여 줍니다. 자동화 된 ML은 사용자의 데이터에 가장 적합 한 알고리즘을 신속 하 게 검색할 수 있으며, 파이프라인으로 운영 화 된 MLOps 및 모델 수명 주기로 이동 하 게 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.  
 
-* Azure의 [자동화 된 machine learning](concept-automated-ml.md) 및 [machine learning 파이프라인](concept-ml-pipelines.md) 시설 및 SDK에 대 한 기본 지식.
+* Azure의 자동화 된 [machine learning](concept-automated-ml.md) 및 [machine learning 파이프라인](concept-ml-pipelines.md) 기능 및 SDK에 대해 잘 알고 있어야 합니다.
 
 ## <a name="review-automated-mls-central-classes"></a>자동화 된 ML의 중앙 클래스 검토
 
@@ -368,7 +368,7 @@ train_step = AutoMLStep(name='AutoML_Classification',
 
 ## <a name="register-the-model-generated-by-automated-ml"></a>자동 ML에 의해 생성 된 모델 등록 
 
-기본 ML 파이프라인의 마지막 단계는 생성 된 모델을 등록 하는 것입니다. 작업 영역 모델 레지스트리에 모델을 추가 하 여 포털에서 사용할 수 있으며 버전을 지정할 수 있습니다. 모델을 등록 하려면 `PythonScriptStep` 의 출력을 사용 하는 다른 모델을 작성 합니다 `model_data` `AutoMLStep` .
+간단한 ML 파이프라인의 마지막 단계는 생성 된 모델을 등록 하는 것입니다. 작업 영역 모델 레지스트리에 모델을 추가 하 여 포털에서 사용할 수 있으며 버전을 지정할 수 있습니다. 모델을 등록 하려면 `PythonScriptStep` 의 출력을 사용 하는 다른 모델을 작성 합니다 `model_data` `AutoMLStep` .
 
 ### <a name="write-the-code-to-register-the-model"></a>모델을 등록 하는 코드 작성
 

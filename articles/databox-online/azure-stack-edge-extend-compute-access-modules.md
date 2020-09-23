@@ -1,6 +1,6 @@
 ---
-title: 모듈에 액세스 하려면 Azure Stack Edge에서 계산 네트워크 관리 | Microsoft Docs
-description: Azure Stack Edge에서 계산 네트워크를 확장 하 여 외부 IP를 통해 모듈에 액세스 하는 방법을 설명 합니다.
+title: 모듈에 액세스 하는 Azure Stack Edge Pro에서 계산 네트워크 관리 | Microsoft Docs
+description: Azure Stack Edge Pro에서 계산 네트워크를 확장 하 여 외부 IP를 통해 모듈에 액세스 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 01b0eae7d2e5d1078c0761838081a2379a724a97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84342989"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894112"
 ---
-# <a name="enable-compute-network-on-your-azure-stack-edge"></a>Azure Stack Edge에서 계산 네트워크를 사용 하도록 설정
+# <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Azure Stack Edge Pro에서 계산 네트워크를 사용 하도록 설정
 
-이 문서에서는 Azure Stack Edge에서 실행 되는 모듈이 장치에서 사용 하도록 설정 된 계산 네트워크에 액세스할 수 있는 방법을 설명 합니다.
+이 문서에서는 Azure Stack Edge Pro에서 실행 되는 모듈이 장치에서 사용 하도록 설정 된 계산 네트워크에 액세스할 수 있는 방법을 설명 합니다.
 
 네트워크를 구성 하려면 다음 단계를 수행 합니다.
 
-- 계산을 위해 Azure Stack Edge 장치에서 네트워크 인터페이스를 사용 하도록 설정
-- Azure Stack Edge에서 계산 네트워크에 액세스 하는 모듈 추가
+- Compute에 대해 Azure Stack Edge Pro 장치에서 네트워크 인터페이스를 사용 하도록 설정
+- Azure Stack Edge Pro에서 계산 네트워크에 액세스 하는 모듈 추가
 - 모듈이 사용 가능한 네트워크 인터페이스에 액세스할 수 있는지 확인 합니다.
 
 이 자습서에서는 웹 서버 앱 모듈을 사용 하 여 시나리오를 보여 줍니다.
@@ -31,8 +31,8 @@ ms.locfileid: "84342989"
 
 시작 하기 전에 다음이 필요 합니다.
 
-- 장치 설정이 완료 된 Azure Stack Edge 장치입니다.
-- [자습서: 장치에서 Azure Stack Edge를 사용 하 여 데이터 변환](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) 에 따라 계산 단계를 **구성** 했습니다. 장치에 연결 된 IoT Hub 리소스, IoT 장치 및 IoT Edge 장치가 있어야 합니다.
+- 장치 설정이 완료 된 Azure Stack Edge Pro 장치입니다.
+- [자습서: 장치에서 Azure Stack Edge Pro를 사용 하 여 데이터 변환](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) 에 따라 계산 단계를 **구성** 했습니다. 장치에 연결 된 IoT Hub 리소스, IoT 장치 및 IoT Edge 장치가 있어야 합니다.
 
 ## <a name="enable-network-interface-for-compute"></a>Compute에 대해 네트워크 인터페이스를 사용 하도록 설정
 
@@ -55,10 +55,10 @@ ms.locfileid: "84342989"
 
 ## <a name="add-webserver-app-module"></a>웹 서버 앱 모듈 추가
 
-다음 단계를 수행 하 여 Azure Stack Edge 장치에 웹 서버 앱 모듈을 추가 합니다.
+다음 단계를 수행 하 여 Azure Stack Edge Pro 장치에 웹 서버 앱 모듈을 추가 합니다.
 
-1. Azure Stack Edge 장치와 연결 된 IoT Hub 리소스로 이동한 다음 **IoT Edge 장치**를 선택 합니다.
-2. Azure Stack에 지 장치와 연결 된 IoT Edge 장치를 선택 합니다. **장치 세부 정보**에서 **모듈 설정**을 선택 합니다. **모듈 추가**에서 **+ 추가** 를 선택 하 고 **모듈 IoT Edge**선택 합니다.
+1. Azure Stack Edge Pro 장치와 연결 된 IoT Hub 리소스로 이동한 다음 **IoT Edge 장치**를 선택 합니다.
+2. Azure Stack Edge Pro 장치와 연결 된 IoT Edge 장치를 선택 합니다. **장치 세부 정보**에서 **모듈 설정**을 선택 합니다. **모듈 추가**에서 **+ 추가** 를 선택 하 고 **모듈 IoT Edge**선택 합니다.
 3. **사용자 지정 모듈 IoT Edge** 블레이드에서 다음을 수행 합니다.
 
     1. 배포 하려는 웹 서버 앱 모듈의 **이름을** 지정 합니다.

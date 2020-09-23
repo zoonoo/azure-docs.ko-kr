@@ -1,26 +1,26 @@
 ---
 title: Windows PowerShell DSC를 사용 하 여 연결 된 컴퓨터 에이전트 설치
-description: 이 문서에서는 Windows PowerShell DSC를 사용 하 여 Azure Arc 사용 서버 (미리 보기)를 사용 하 여 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
-ms.date: 03/12/2020
+description: 이 문서에서는 Windows PowerShell DSC를 사용 하 여 Azure Arc 사용 서버를 사용 하 여 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 675258ff95829c2dc9922571db5014b2ba93d336
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5349ff870be324c0137d2adcaf201ecdac286cbc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565823"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887635"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Windows PowerShell DSC를 사용 하 여 연결 된 컴퓨터 에이전트를 설치 하는 방법
 
-[Windows PowerShell DSC (필요한 상태 구성](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) )를 사용 하 여 windows 컴퓨터에 대 한 소프트웨어 설치 및 구성을 자동화할 수 있습니다. 이 문서에서는 DSC를 사용 하 여 하이브리드 Windows 컴퓨터에 Azure Arc 사용 서버 (미리 보기)에 연결 된 컴퓨터 에이전트를 설치 하는 방법을 설명 합니다.
+[Windows PowerShell DSC (필요한 상태 구성](/powershell/scripting/dsc/getting-started/winGettingStarted) )를 사용 하 여 windows 컴퓨터에 대 한 소프트웨어 설치 및 구성을 자동화할 수 있습니다. 이 문서에서는 DSC를 사용 하 여 하이브리드 Windows 컴퓨터에 Azure Arc 사용 서버 연결 된 컴퓨터 에이전트를 설치 하는 방법을 설명 합니다.
 
 ## <a name="requirements"></a>요구 사항
 
 - Windows PowerShell 버전 4.0 이상
 
-- [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc/1.0.1.0) DSC 모듈
+- [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc) DSC 모듈
 
-- 컴퓨터를 비 대화형으로 Azure Arc 사용 서버 (미리 보기)에 연결 하는 서비스 주체입니다. Arc 사용 서버 (미리 보기)에 대 한 서비스 주체를 아직 만들지 않은 경우 [대규모로 온 보 딩에 대 한 서비스 주체 만들기](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 섹션의 단계를 따릅니다.
+- 컴퓨터를 비 대화형으로 Azure Arc 사용 서버에 연결 하는 서비스 주체입니다. Arc 사용 서버에 대 한 서비스 주체를 아직 만들지 않은 경우 [대규모로 온 보 딩에 대 한 서비스 주체 만들기](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) 섹션의 단계를 따릅니다.
 
 ## <a name="install-the-connectedmachine-dsc-module"></a>ConnectedMachine DSC 모듈 설치
 
@@ -44,7 +44,7 @@ ms.locfileid: "89565823"
 
 이 모듈의 리소스는 Azure 연결 된 컴퓨터 에이전트 구성을 관리 하도록 설계 되었습니다. 또한 폴더에 있는 PowerShell 스크립트도 포함 되어 `AzureConnectedMachineAgent.ps1` `AzureConnectedMachineDsc\examples` 있습니다. 커뮤니티 리소스를 사용 하 여 다운로드 및 설치를 자동화 하 고 Azure Arc와의 연결을 설정 합니다. 이 스크립트는 [Azure Portal에서 Azure에 하이브리드 컴퓨터 연결](onboard-portal.md) 문서에 설명 된 유사한 단계를 수행 합니다.
 
-컴퓨터가 프록시 서버를 통해 서비스와 통신 해야 하는 경우 에이전트를 설치한 후 [여기](manage-agent.md#update-or-remove-proxy-settings)에 설명 된 명령을 실행 해야 합니다. 그러면 `https_proxy` 프록시 서버 시스템 환경 변수가 설정됩니다. 명령을 수동으로 실행 하는 대신 [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) 모듈을 사용 하 여 DSC에서이 단계를 수행할 수 있습니다.
+컴퓨터가 프록시 서버를 통해 서비스와 통신 해야 하는 경우 에이전트를 설치한 후 [여기](manage-agent.md#update-or-remove-proxy-settings)에 설명 된 명령을 실행 해야 합니다. 그러면 `https_proxy` 프록시 서버 시스템 환경 변수가 설정됩니다. 명령을 수동으로 실행 하는 대신 [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc) 모듈을 사용 하 여 DSC에서이 단계를 수행할 수 있습니다.
 
 >[!NOTE]
 >DSC를 실행할 수 있도록 허용 하려면 localhost 구성을 실행 하는 경우에도 PowerShell 원격 명령을 받도록 Windows를 구성 해야 합니다. 환경을 올바르게 구성하려면 관리자 권한 PowerShell 터미널에서 `Set-WsManQuickConfig -Force`를 실행하면 됩니다.
@@ -64,11 +64,11 @@ Cmdlet을 사용 하 여 구성 문서 (MOF 파일)를 컴퓨터에 적용할 �
 
 - `Tags`: 연결 된 컴퓨터 리소스에 적용 해야 하는 태그의 문자열 배열입니다.
 
-- `Credential`: [서비스 주체](onboard-service-principal.md)를 사용 하 여 대규모로 컴퓨터를 등록 하는 데 사용 되는 **ApplicationId** 및 **암호** 를 사용 하는 PowerShell 자격 증명 개체입니다. 
+- `Credential`: [서비스 주체](onboard-service-principal.md)를 사용 하 여 대규모로 컴퓨터를 등록 하는 데 사용 되는 **ApplicationId** 및 **암호** 를 사용 하는 PowerShell 자격 증명 개체입니다.
 
 1. PowerShell 콘솔에서 파일을 저장 한 폴더로 이동 `.ps1` 합니다.
 
-2. 다음 PowerShell 명령을 실행하여 MOF 문서를 컴파일합니다(DSC 구성 컴파일에 대한 자세한 내용은 [DSC 구성](/powershell/scripting/dsc/configurations/configurations?view=powershell-7) 참조).
+2. 다음 PowerShell 명령을 실행하여 MOF 문서를 컴파일합니다(DSC 구성 컴파일에 대한 자세한 내용은 [DSC 구성](/powershell/scripting/dsc/configurations/configurations) 참조).
 
     ```powershell
     .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
@@ -76,13 +76,13 @@ Cmdlet을 사용 하 여 구성 문서 (MOF 파일)를 컴퓨터에 적용할 �
 
 3. 그러면 `localhost.mof file` 라는 새 폴더에이 만들어집니다 `C:\dsc` .
 
-에이전트를 설치 하 고 Azure Arc 사용 서버 (미리 보기)에 연결 하도록 구성한 후 Azure Portal으로 이동 하 여 서버가 성공적으로 연결 되었는지 확인 합니다. [Azure Portal](https://aka.ms/hybridmachineportal)에서 해당 머신을 확인합니다.
+에이전트를 설치 하 고 Azure Arc 사용 서버에 연결 하도록 구성한 후 Azure Portal으로 이동 하 여 서버가 성공적으로 연결 되었는지 확인 합니다. [Azure Portal](https://aka.ms/hybridmachineportal)에서 해당 머신을 확인합니다.
 
 ## <a name="adding-to-existing-configurations"></a>기존 구성에 추가
 
 이 리소스는 기존 DSC 구성에 추가 하 여 컴퓨터에 대 한 종단 간 구성을 나타낼 수 있습니다. 예를 들어이 리소스를 보안 운영 체제 설정을 설정 하는 구성에 추가할 수 있습니다.
 
-PowerShell 갤러리의 [CompositeResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) 모듈을 사용 하 여 구성 결합을 더욱 간소화 하는 예제 구성의 [복합 리소스](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) 를 만들 수 있습니다.
+PowerShell 갤러리의 [CompositeResource](https://www.powershellgallery.com/packages/compositeresource) 모듈을 사용 하 여 구성 결합을 더욱 간소화 하는 예제 구성의 [복합 리소스](/powershell/scripting/dsc/resources/authoringResourceComposite) 를 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

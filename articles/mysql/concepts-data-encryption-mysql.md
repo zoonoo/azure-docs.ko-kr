@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 8fca0195c2941e4ed1a859c3201adfc2a4a0a2ed
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 71657d45ce9c4cc6fb103b61235a282b3005b924
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067446"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884916"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>고객 관리형 키를 사용한 Azure Database for MySQL 데이터 암호화
 
@@ -44,7 +44,7 @@ KEK로 암호화된 DEK는 별도로 저장됩니다. KEK에 대한 액세스 �
 
 ## <a name="how-data-encryption-with-a-customer-managed-key-work"></a>고객 관리형 키를 사용하는 데이터 암호화의 작동 원리
 
-![Bring Your Own Key의 개요를 보여주는 다이어그램](media/concepts-data-access-and-security-data-encryption/mysqloverview.png)
+:::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysqloverview.png" alt-text="Bring Your Own Key의 개요를 보여주는 다이어그램":::
 
 MySQL 서버에서 Key Vault에 저장된 고객 관리형 키를 DEK 암호화에 사용하려면 Key Vault 관리자는 서버에 대한 다음 액세스 권한을 제공해야 합니다.
 
@@ -80,7 +80,7 @@ Key Vault를 구성하기 위한 요구 사항은 다음과 같습니다.
 * DEK 래핑 및 래핑 해제 작업에 더 빠르게 액세스할 수 있도록 Key Vault와 Azure Database for MySQL이 동일한 지역에 있어야 합니다.
 * Azure KeyVault를 **프라이빗 엔드포인트 및 선택한 네트워크**로 잠가서 *신뢰할 수 있는 Microsoft* 서비스만 허용하여 리소스를 보호합니다.
 
-    ![trusted-service-with-AKV](media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png)
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
 
 고객 관리형 키를 다음과 같이 구성하는 것이 좋습니다.
 

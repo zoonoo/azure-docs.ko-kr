@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c24e9f58154b1523496a82761a8c48ba06dea46c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651253"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886322"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -193,7 +193,7 @@ Application Insights 원격 분석 또는 모델 원격 분석을 사용 하도�
 
 #### <a name="real-time-endpoints"></a>실시간 엔드포인트
 
-디자이너 (미리 보기)에 학습 된 모델을 배포할 때 [모델을 실시간 끝점으로 배포할](tutorial-designer-automobile-price-deploy.md)수 있습니다. 실시간 끝점은 일반적으로 REST 끝점을 통해 단일 요청을 받아 실시간으로 예측을 반환 합니다. 이는 여러 값을 한 번에 처리 하 고 완료 된 후 데이터 저장소에 결과를 저장 하는 일괄 처리와는 대조적입니다.
+디자이너에서 학습 된 모델을 배포할 때 [모델을 실시간 끝점으로 배포할](tutorial-designer-automobile-price-deploy.md)수 있습니다. 실시간 끝점은 일반적으로 REST 끝점을 통해 단일 요청을 받아 실시간으로 예측을 반환 합니다. 이는 여러 값을 한 번에 처리 하 고 완료 된 후 데이터 저장소에 결과를 저장 하는 일괄 처리와는 대조적입니다.
 
 #### <a name="pipeline-endpoints"></a>파이프라인 엔드포인트
 
@@ -229,7 +229,7 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 또한 스튜디오는 Azure Machine Learning의 일부인 대화형 도구에 액세스할 수 있습니다.
 
-+ 코드를 작성 하지 않고 워크플로 단계를 수행 하 [Azure Machine Learning 디자이너 (미리 보기)](concept-designer.md)
++ 코드를 작성 하지 않고 워크플로 단계를 수행 하 [Azure Machine Learning 디자이너](concept-designer.md)
 + [자동화 된 기계 학습](concept-automated-ml.md) 을 위한 웹 환경
 + 통합 Jupyter 노트북 서버에서 사용자 고유의 코드를 작성 하 고 실행 하는 [노트북을 Azure Machine Learning](how-to-run-jupyter-notebooks.md) 합니다.
 + 프로젝트를 만들고, 관리 하 고, 모니터링 하 여 데이터에 레이블을 지정 하는 [데이터 레이블 지정 프로젝트](how-to-create-labeling-projects.md)
@@ -242,6 +242,7 @@ Azure IoT Edge는 모듈이 실행 중인지 확인하고 모듈을 호스트 �
 
 +  [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)를 사용하여 Python 환경에서 서비스와 상호 작용합니다.
 + R (미리 보기) [에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) 를 사용 하 여 모든 r 환경에서 서비스와 상호 작용 합니다.
++ [Azure Machine Learning 디자이너](concept-designer.md) 를 사용 하 여 코드를 작성 하지 않고 워크플로 단계를 수행 합니다. 
 + 자동화에 [AZURE MACHINE LEARNING CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) 를 사용 합니다.
 + [많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기반으로 하며 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.
 

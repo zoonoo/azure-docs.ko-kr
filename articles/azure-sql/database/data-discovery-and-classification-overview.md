@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 3f1f284255d1c0e77779c175951eaf33d3e56067
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f324b1b0b5ed1882050684e7ac1c8ec4ea573dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004106"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886509"
 ---
 # <a name="data-discovery--classification"></a>데이터 검색 및 분류
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,8 +30,6 @@ ms.locfileid: "87004106"
 - 규정 준수를 위한 데이터 개인 정보 및 요구 사항에 대 한 표준을 충족 하는 데 도움이 됩니다.
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 - 매우 중요 한 데이터를 포함 하는 데이터베이스에 대 한 액세스 제어 및 보안 강화
-
-데이터 검색 & 분류는 고급 Azure SQL 보안 기능을 위한 통합 패키지인 [고급 데이터 보안](advanced-data-security.md) 제품의 일부입니다. Azure Portal의 중앙 **SQL 고급 데이터 보안** 섹션을 통해 데이터 검색 & 분류에 액세스 하 고 관리할 수 있습니다.
 
 > [!NOTE]
 > 온-프레미스 SQL Server에 대 한 자세한 내용은 [SQL 데이터 검색 & 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조 하세요.
@@ -79,31 +77,23 @@ Information protection에 대 한 정책 관리의 일부로 사용자 지정 �
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 
-2. Azure SQL Database 창에서 **보안** 머리글 아래의 **고급 데이터 보안** 으로 이동 합니다. **고급 데이터 보안**을 선택 하 고 **데이터 검색 & 분류** 카드를 선택 합니다.
+1. Azure SQL Database 창의 보안 제목 아래에서 **데이터 검색 & 분류** 로 이동 합니다. 개요 탭에는 데이터베이스의 현재 분류 상태 요약이 포함 되어 있습니다. 요약에는 특정 스키마 파트, 정보 유형 및 레이블만 표시 하도록 필터링 할 수 있는 모든 분류 된 열의 상세 목록이 포함 되어 있습니다. 아직 열을 분류 하지 않은 경우 [4 단계로 건너뜁니다](#step-4).
 
-   ![Azure Portal의 고급 데이터 보안 창](./media/data-discovery-and-classification-overview/data_classification.png)
+1. Excel 형식으로 보고서를 다운로드 하려면 창의 최상위 메뉴에서 **내보내기** 를 선택 합니다.
 
-3. **데이터 검색 & 분류** 페이지의 **개요** 탭에는 데이터베이스의 현재 분류 상태 요약이 포함 되어 있습니다. 요약에는 특정 스키마 파트, 정보 유형 및 레이블만 표시 하도록 필터링 할 수 있는 모든 분류 된 열의 상세 목록이 포함 되어 있습니다. 아직 열을 분류 하지 않은 경우 [5 단계로 건너뜁니다](#step-5).
-
-   ![현재 분류 상태 요약](./media/data-discovery-and-classification-overview/2_data_classification_overview_dashboard.png)
-
-4. Excel 형식으로 보고서를 다운로드 하려면 창의 최상위 메뉴에서 **내보내기** 를 선택 합니다.
-
-5. <a id="step-5"></a>데이터 분류를 시작 하려면 **데이터 검색 & 분류** 페이지에서 **분류** 탭을 선택 합니다.
+1. <a id="step-4"></a>데이터 분류를 시작 하려면 **데이터 검색 & 분류** 페이지에서 **분류** 탭을 선택 합니다.
 
     분류 엔진은 데이터베이스에서 잠재적으로 중요 한 데이터가 포함 된 열을 검색 하 고 권장 되는 열 분류 목록을 제공 합니다.
 
-6. 분류 권장 사항을 보고 적용 합니다.
+1. 분류 권장 사항을 보고 적용 합니다.
 
    - 권장 열 분류 목록을 보려면 창 맨 아래에 있는 권장 사항 패널을 선택 합니다.
 
    - 특정 열에 대 한 권장 사항을 적용 하려면 관련 행의 왼쪽 열에 있는 확인란을 선택 합니다. 모든 권장 사항을 허용 됨으로 표시 하려면 권장 구성 테이블 헤더에서 가장 왼쪽에 있는 확인란을 선택 합니다.
 
-       ![분류 권장 사항 목록에서 검토 및 선택](./media/data-discovery-and-classification-overview/6_data_classification_recommendations_list.png)
-
    - 선택한 권장 사항을 적용 하려면 **선택한 권장 사항 적용**을 선택 합니다.
 
-7. 또한 다른 방법으로 또는 권장 사항 기반 분류를 비롯 하 여 열을 수동으로 분류할 수도 있습니다.
+1. 또한 다른 방법으로 또는 권장 사항 기반 분류를 비롯 하 여 열을 수동으로 분류할 수도 있습니다.
 
    1. 창의 위쪽 메뉴에서 **분류 추가** 를 선택 합니다.
 
@@ -111,9 +101,7 @@ Information protection에 대 한 정책 관리의 일부로 사용자 지정 �
 
    1. 컨텍스트 창의 아래쪽에서 **분류 추가** 를 선택 합니다.
 
-      ![분류할 열을 선택 하십시오.](./media/data-discovery-and-classification-overview/9_data_classification_manual_classification.png)
-
-8. 분류를 완료 하 고 새 분류 메타 데이터를 사용 하 여 데이터베이스 열을 영구적으로 레이블 (태그) 하려면 창의 상단 메뉴에서 **저장** 을 선택 합니다.
+1. 분류를 완료 하 고 새 분류 메타 데이터를 사용 하 여 데이터베이스 열을 영구적으로 레이블 (태그) 하려면 창의 상단 메뉴에서 **저장** 을 선택 합니다.
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>중요 한 데이터에 대 한 액세스 감사
 
@@ -126,7 +114,7 @@ Information protection에 대 한 정책 관리의 일부로 사용자 지정 �
 이러한 기본 제공 역할은 데이터베이스의 데이터 분류를 읽을 수 있습니다.
 
 - 소유자
-- 읽기 권한자
+- 판독기
 - 참가자
 - SQL 보안 관리자
 - 사용자 액세스 관리자
@@ -191,6 +179,5 @@ REST API를 사용 하 여 분류 및 권장 사항을 프로그래밍 방식으
 
 ## <a name="next-steps"></a><a id="next-steps"></a>다음 단계
 
-- [고급 데이터 보안](advanced-data-security.md)에 대해 자세히 알아보세요.
 - 분류 된 중요 한 데이터에 대 한 액세스 모니터링 및 감사를 위해 [AZURE SQL 감사](../../azure-sql/database/auditing-overview.md) 를 구성 하는 것이 좋습니다.
 - 데이터 검색 & 분류를 포함 하는 프레젠테이션은 [SQL 데이터 검색, 분류, 레이블 지정 & 보호를 참조 하세요. 데이터가 노출](https://www.youtube.com/watch?v=itVi9bkJUNc)됩니다.
