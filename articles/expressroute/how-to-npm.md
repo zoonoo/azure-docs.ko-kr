@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 0783675450bb6ddf2de7d012a6870f5e4c90408d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 7810afffd5da6d46439ff27ddb3f5b0aafdc2341
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393681"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981322"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "89393681"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-다음 작업을 수행할 수 있습니다.
+다음을 수행할 수 있습니다.
 
 * 다양한 VNet에서 손실 및 지연 모니터링, 경고 설정
 
@@ -228,7 +228,7 @@ Microsoft 피어링의 경우 모니터링하려는 Microsoft 피어링 연결�
 
 NPM 페이지에는 ExpressRoute 회로 및 피어링의 상태 개요를 보여 주는 ExpressRoute 페이지가 표시됩니다.
 
-![대시보드](./media/how-to-npm/dashboard.png)
+![스크린샷는 Express 경로 회로 및 피어 링의 상태에 대 한 개요가 포함 된 대시보드를 보여 줍니다.](./media/how-to-npm/dashboard.png)
 
 ### <a name="list-of-circuits"></a><a name="circuits"></a>회로 목록
 

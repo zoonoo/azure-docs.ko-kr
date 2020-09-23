@@ -1,6 +1,6 @@
 ---
-title: Kubectl를 사용 하 여 Azure Stack Edge GPU 장치에 Kubernetes 상태 비저장 응용 프로그램 배포 | Microsoft Docs
-description: Microsoft Azure Stack Edge 장치에서 kubectl를 사용 하 여 Kubernetes 상태 비저장 응용 프로그램 배포를 만들고 관리 하는 방법을 설명 합니다.
+title: Kubectl를 사용 하 여 Azure Stack Edge Pro GPU 장치에 Kubernetes 상태 비저장 응용 프로그램 배포 | Microsoft Docs
+description: Microsoft Azure Stack Edge Pro 장치에서 kubectl를 사용 하 여 Kubernetes 상태 비저장 응용 프로그램 배포를 만들고 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,28 +8,28 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 27502c58481444a9dc14120bf447d4614d051ccc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268862"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890740"
 ---
-# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Azure Stack Edge GPU 장치에서 kubectl를 통해 Kubernetes 상태 비저장 응용 프로그램 배포
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 kubectl를 통해 Kubernetes 상태 비저장 응용 프로그램 배포
 
 이 문서에서는 기존 Kubernetes 클러스터에서 kubectl 명령을 사용 하 여 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다. 또한이 문서에서는 상태 비저장 응용 프로그램에서 pod을 만들고 설정 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Kubernetes 클러스터를 만들고 명령줄 도구를 사용 하기 전에 `kubectl` 다음을 확인 해야 합니다.
 
-- 1 노드 Azure Stack Edge 장치에 대 한 로그인 자격 증명이 있습니다.
+- 1 노드 Azure Stack Edge Pro 장치에 로그인 자격 증명이 있어야 합니다.
 
-- Windows PowerShell 5.0 이상이 Windows 클라이언트 시스템에 설치 되어 Azure Stack Edge 장치에 액세스 합니다. 지원 되는 운영 체제를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7)로 이동 합니다.
+- Windows PowerShell 5.0 이상이 Windows 클라이언트 시스템에 설치 되어 Azure Stack Edge Pro 장치에 액세스 합니다. 지원 되는 운영 체제를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7)로 이동 합니다.
 
-- Compute는 Azure Stack Edge 장치에서 사용 하도록 설정 됩니다. 계산을 사용 하도록 설정 하려면 장치의 로컬 UI에서 **계산** 페이지로 이동 합니다. 그런 다음 계산에 사용할 네트워크 인터페이스를 선택 합니다. **사용**을 선택합니다. 계산을 사용 하도록 설정 하면 장치에서 해당 네트워크 인터페이스의 가상 스위치가 생성 됩니다. 자세한 내용은 [Azure Stack Edge에서 compute 네트워크 사용](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)을 참조 하세요.
+- Compute는 Azure Stack Edge Pro 장치에서 사용 하도록 설정 됩니다. 계산을 사용 하도록 설정 하려면 장치의 로컬 UI에서 **계산** 페이지로 이동 합니다. 그런 다음 계산에 사용할 네트워크 인터페이스를 선택 합니다. **사용**을 선택합니다. 계산을 사용 하도록 설정 하면 장치에서 해당 네트워크 인터페이스의 가상 스위치가 생성 됩니다. 자세한 내용은 [Azure Stack Edge Pro에서 compute 네트워크 사용](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)을 참조 하세요.
 
-- Azure Stack Edge 장치에는 버전 v 1.9 이상 버전을 실행 하는 Kubernetes 클러스터 서버가 있습니다. 자세한 내용은 [Microsoft Azure Stack Edge 장치에서 Kubernetes 클러스터 만들기 및 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md)를 참조 하세요.
+- Azure Stack Edge Pro 장치에는 버전 v 1.9 이상 버전을 실행 하는 Kubernetes 클러스터 서버가 있습니다. 자세한 내용은 [Microsoft Azure Stack Edge Pro 장치에서 Kubernetes 클러스터 만들기 및 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md)를 참조 하세요.
 
 - 을 (를) 설치 했습니다 `kubectl` .
 
@@ -43,7 +43,7 @@ Kubernetes 클러스터를 만들고 명령줄 도구를 사용 하기 전에 `k
 4. 사용자 구성을에 저장 `C:\Users\<username>\.kube` 했습니다.
 5. 설치 됨 `kubectl` .
 
-이제 Azure Stack Edge 장치에서 상태 비저장 응용 프로그램 배포의 실행 및 관리를 시작할 수 있습니다. 사용을 시작 하기 전에 `kubectl` 올바른 버전의가 있는지 확인 해야 `kubectl` 합니다.
+이제 Azure Stack Edge Pro 장치에서 상태 비저장 응용 프로그램 배포 실행 및 관리를 시작할 수 있습니다. 사용을 시작 하기 전에 `kubectl` 올바른 버전의가 있는지 확인 해야 `kubectl` 합니다.
 
 ### <a name="verify-you-have-the-correct-version-of-kubectl-and-set-up-configuration"></a>Kubectl의 올바른 버전이 있는지 확인 하 고 구성을 설정 합니다.
 
@@ -109,7 +109,7 @@ Pod는 만들거나 배포 하는 Kubernetes 개체 모델에서 가장 작은 �
 
 사용자가 만드는 상태 비저장 응용 프로그램의 형식은 nginx 웹 서버 배포입니다.
 
-상태 비저장 응용 프로그램 배포를 만들고 관리 하는 데 사용 하는 모든 kubectl 명령은 구성과 연결 된 네임 스페이스를 지정 해야 합니다. 을 사용 하 여 [Microsoft Azure Stack edge 장치에서 Kubernetes 클러스터 만들기 및 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md) 자습서의 Azure Stack Edge 장치에서 클러스터에 연결 된 상태에서 네임 스페이스를 만들었습니다 `New-HcsKubernetesNamespace` .
+상태 비저장 응용 프로그램 배포를 만들고 관리 하는 데 사용 하는 모든 kubectl 명령은 구성과 연결 된 네임 스페이스를 지정 해야 합니다. 을 사용 하 여 [Microsoft Azure Stack Edge pro 장치에서 Kubernetes 클러스터 만들기 및 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md) 자습서의 Azure Stack Edge pro 장치에서 클러스터에 연결 된 상태에서 네임 스페이스를 만들었습니다 `New-HcsKubernetesNamespace` .
 
 Kubectl 명령에서 네임 스페이스를 지정 하려면를 사용 `kubectl <command> -n <namespace-string>` 합니다.
 

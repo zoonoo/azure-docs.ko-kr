@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge 장치 반환 | Microsoft Docs
-description: 데이터를 초기화 하 고 Azure Stack Edge 장치를 반환한 다음 장치와 연결 된 리소스를 삭제 하는 방법을 알아봅니다.
+title: Azure Stack Edge Pro 장치 반환 | Microsoft Docs
+description: 데이터를 초기화 하 고 Azure Stack Edge Pro 장치를 반환한 다음 장치와 연결 된 리소스를 삭제 하는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,23 +8,23 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: aa917361ad3c967a697421e86d232e1a206c403e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 730774f33d43754d4ca198ed170159fa4f872e09
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923954"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903679"
 ---
-# <a name="return-your-azure-stack-edge-device"></a>Azure Stack Edge 장치 반환
+# <a name="return-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치 반환
 
-이 문서에서는 데이터를 지우고 Azure Stack Edge 디바이스를 반환하는 방법을 설명합니다. 장치를 반환한 후에는 장치와 연결 된 리소스를 삭제할 수도 있습니다.
+이 문서에서는 데이터를 초기화 한 다음 Azure Stack Edge Pro 장치를 반환 하는 방법을 설명 합니다. 장치를 반환한 후에는 장치와 연결 된 리소스를 삭제할 수도 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 >
 > * 디바이스의 데이터 디스크에서 데이터 지우기
-> * Azure Portal에서 장치 반환 시작
+> * Azure Portal에서 디바이스 반환 시작
 > * 디바이스 포장 및 픽업 예약
 > * Microsoft Azure Portal에서 리소스 삭제
 
@@ -59,7 +59,7 @@ ms.locfileid: "87923954"
 
 반환 프로세스를 시작하려면 다음 단계를 수행하세요.
 
-1. Azure Portal에서 Azure Stack Edge/Data Box Gateway 리소스로 이동 합니다. **개요**에서 오른쪽 창의 명령 모음으로 이동 하 고 **장치 반환**을 선택 합니다. 
+1. Azure Portal에서 Azure Stack Edge Pro/Data Box Gateway 리소스로 이동 합니다. **개요**에서 오른쪽 창의 명령 모음으로 이동 하 고 **장치 반환**을 선택 합니다. 
 
     ![장치 1 반환](media/azure-stack-edge-return-device/return-device-1.png)  
 
@@ -90,11 +90,11 @@ ms.locfileid: "87923954"
 
     ![장치 4 반환](media/azure-stack-edge-return-device/return-device-4.png) 
 
-6. 장치 반환 세부 정보를 캡처하면 전자 메일을 통해 Azure Stack에 지 운영 팀에 알릴 수 있습니다. 전자 메일 응용 프로그램을 설치 및 구성 했다고 가정 하 고 전자 메일 응용 프로그램을 사용할 수 있습니다. 또한 데이터를 복사 하 여 전자 메일을 만들고 보낼 수 있습니다.
+6. 장치 반환 세부 정보를 캡처하면 전자 메일을 통해 Azure Stack Edge Pro 운영 팀에 알릴 수 있습니다. 전자 메일 응용 프로그램을 설치 및 구성 했다고 가정 하 고 전자 메일 응용 프로그램을 사용할 수 있습니다. 또한 데이터를 복사 하 여 전자 메일을 만들고 보낼 수 있습니다.
 
     ![장치 5 반환](media/azure-stack-edge-return-device/return-device-5.png) 
 
-7. Azure Stack Edge 운영 팀이 전자 메일을 받은 후에는 역방향 배송 레이블을 보냅니다. 이 레이블을 받으면 캐리어를 사용 하 여 장치 픽업을 예약할 수 있습니다. 
+7. Azure Stack Edge Pro 운영 팀이 전자 메일을 받은 후에는 역방향 배송 레이블을 보냅니다. 이 레이블을 받으면 캐리어를 사용 하 여 장치 픽업을 예약할 수 있습니다. 
 
 ## <a name="schedule-a-pickup"></a>픽업 예약
 
@@ -111,20 +111,20 @@ ms.locfileid: "87923954"
     2. 통화 시 인쇄된 레이블에 표시된 역방향 배송 추적 번호를 알려줍니다.
     3. 추적 번호를 알려주지 않으면 픽업 시 UPS에서 추가 요금을 지불하도록 요구합니다.
 
-    픽업을 예약하는 대신 가장 가까운 반납 위치에 Azure Stack Edge를 반납할 수도 있습니다.
+    픽업을 예약 하는 대신 가장 가까운 드롭다운 위치에서 Azure Stack Edge Pro를 삭제할 수도 있습니다.
 
 ## <a name="delete-the-resource"></a>리소스 삭제
 
 Azure 데이터 센터에서 디바이스를 받은 후 디바이스에 손상 또는 변조 징후가 있는지 검사합니다.
 
-- 장치가 그대로 도착 하 고 좋은 셰이프 이면 해당 리소스에 대 한 청구 측정기가 중지 됩니다. Edge 운영 팀 Azure Stack 장치가 반환 되었는지 확인 하기 위해 연락 합니다. 그러면 Microsoft Azure Portal에서 디바이스와 연결된 리소스를 삭제할 수 있습니다.
+- 장치가 그대로 도착 하 고 좋은 셰이프 이면 해당 리소스에 대 한 청구 측정기가 중지 됩니다. Edge Pro 운영 팀 Azure Stack 장치가 반환 되었는지 확인 하기 위해 연락 합니다. 그러면 Microsoft Azure Portal에서 디바이스와 연결된 리소스를 삭제할 수 있습니다.
 - 디바이스가 많이 손상된 상태로 도착하면 벌금이 부과될 수 있습니다. 자세한 내용은 [분실 또는 손상된 디바이스에 대한 FAQ](https://azure.microsoft.com/pricing/details/databox/edge/)와 [제품 서비스 약관](https://www.microsoft.com/licensing/product-licensing/products)을 참조하세요.  
 
 
 Microsoft Azure Portal에서 디바이스를 삭제할 수 있습니다.
 
 - 주문한 후 Microsoft에서 디바이스를 준비하기 전
-- 장치를 Microsoft에 반환 하면 Azure 데이터 센터에서 물리적 검사를 전달 하 고, Edge 운영 팀 호출을 Azure Stack 하 여 장치가 반환 되었는지 확인 합니다.
+- 장치를 Microsoft에 반환 하면 Azure 데이터 센터에서 물리적 검사를 전달 하 고 Edge Pro 운영 팀 호출을 Azure Stack 하 여 장치가 반환 되었는지 확인 합니다.
 
 다른 구독 또는 위치에 대해 디바이스를 활성화한 경우 Microsoft는 1일(업무일 기준) 이내에 주문을 새 구독 또는 위치로 이동합니다. 주문이 이동된 후 이 리소스를 삭제할 수 있습니다.
 
@@ -144,4 +144,4 @@ Microsoft Azure Portal에서 디바이스와 리소스를 삭제하려면 다음
 
 ## <a name="next-steps"></a>다음 단계
 
-- [대체 Azure Stack Edge 장치를 가져오는](azure-stack-edge-replace-device.md)방법에 대해 알아봅니다.
+- [대체 Azure Stack Edge Pro 장치를 가져오는](azure-stack-edge-replace-device.md)방법에 대해 알아봅니다.

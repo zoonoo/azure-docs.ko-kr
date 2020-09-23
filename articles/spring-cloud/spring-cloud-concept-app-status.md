@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: e3ef202a1a98b8193b55bcc4c2cb616d4a2000d8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec87c5523d6f608363ca615037f20365705609df
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037766"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892864"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Azure Spring Cloud의 앱 상태 이해
+
+이 문서는 ✔️ Java ✔️ C **에 적용 됩니다.** #
 
 Azure 스프링 클라우드 UI는 실행 중인 응용 프로그램의 상태에 대 한 정보를 제공 합니다.  응용 프로그램 유형의 일반적인 상태를 표시 하는 구독에서 각 리소스 그룹에 대 한 **앱** 옵션이 있습니다.  각 응용 프로그램 유형에 대해 **응용 프로그램 인스턴스**를 표시 합니다.
 
@@ -42,7 +44,7 @@ Azure 스프링 클라우드 UI는 실행 중인 응용 프로그램의 상태�
 | 만드는 중 | 리소스를 만드는 중입니다. |
 | 업데이트 | 리소스를 업데이트 하는 중입니다. |
 | 성공 | 리소스를 제공 하 고 이진 파일을 배포 했습니다. |
-| 실패 | *성공* 목표를 달성 하지 못했습니다. |
+| Failed | *성공* 목표를 달성 하지 못했습니다. |
 | 삭제 중 | 리소스를 삭제 하 고 있습니다. 이렇게 하면 작업이 수행 되지 않으며 리소스를이 상태에서 사용할 수 없습니다. |
 
 ## <a name="app-instances-status"></a>앱 인스턴스 상태
@@ -59,7 +61,7 @@ Azure 스프링 클라우드 UI는 실행 중인 응용 프로그램의 상태�
 |:--:|:----------------:|
 | 시작 중 | 지정 된 인스턴스에 이진 파일이 성공적으로 배포 되었습니다. Jar 파일을 제대로 실행할 수 없기 때문에 jar 파일을 부팅 하는 인스턴스가 실패할 수 있습니다. |
 | 실행 중 | 인스턴스가 작동 합니다. |
-| 실패 | 여러 번 다시 시도한 후에 앱 인스턴스가 사용자의 이진을 시작 하지 못했습니다. |
+| Failed | 여러 번 다시 시도한 후에 앱 인스턴스가 사용자의 이진을 시작 하지 못했습니다. |
 | 종결 | 앱 인스턴스를 종료 하는 중입니다. |
 
 **인스턴스의 검색 상태는 다음 값 중 하나로 보고 됩니다.**
@@ -71,5 +73,5 @@ Azure 스프링 클라우드 UI는 실행 중인 응용 프로그램의 상태�
 | 아래로 | 앱 인스턴스가 Eureka에 등록 되어 있지 않거나 등록 되어 있지만 트래픽을 수신할 수 없습니다. |
 
 
-## <a name="see-also"></a>참고 항목
-* [Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비](spring-cloud-tutorial-prepare-app-deployment.md)
+## <a name="see-also"></a>참조
+* [Azure 스프링 클라우드에서 배포용 스프링 또는 Steeltoe 응용 프로그램 준비](spring-cloud-tutorial-prepare-app-deployment.md)

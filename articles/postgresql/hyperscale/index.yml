@@ -1,0 +1,94 @@
+### YamlMime:Landing
+title: Azure Database for PostgreSQL – 하이퍼스케일(Citus) 설명서
+summary: Azure Database for PostgreSQL은 오픈 소스 Postgres 데이터베이스 엔진을 기반으로 한 완전 관리형 Database-as-a-Service입니다. 하이퍼스케일(Citus) 배포 옵션은 분할을 사용하여 쿼리를 여러 머신에 확장하고 더 큰 규모와 성능이 필요한 애플리케이션에 사용됩니다.
+metadata:
+  description: Azure Database for PostgreSQL은 오픈 소스 PostgreSQL 데이터베이스 엔진을 기반으로 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다.
+  author: jonels-msft
+  ms.author: jonels
+  ms.date: 09/27/2020
+  ms.service: postgresql
+  ms.subservice: hyperscale-citus
+  ms.topic: landing-page
+  ms.openlocfilehash: 20e99db5f380ee24cf88987a7884292ca47f7e1e
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90929020"
+landingContent:
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Portal을 사용하여 서버 그룹 만들기
+      url: ../quickstart-create-hyperscale-portal.md
+  - linkListType: concept
+    links:
+    - text: 서버 그룹 노드 및 테이블
+      url: ../concepts-hyperscale-nodes.md
+  - linkListType: tutorial
+    links:
+    - text: 다중 테넌트 데이터베이스 설계
+      url: ../tutorial-design-database-hyperscale-multi-tenant.md
+    - text: 실시간 분석 대시보드 설계
+      url: ../tutorial-design-database-hyperscale-realtime.md
+- title: 연결 및 쿼리
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 방화벽 이해
+      url: ../concepts-hyperscale-firewall-rules.md
+    - text: TLS 구성
+      url: ../concepts-hyperscale-ssl-connection-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: 방화벽 규칙
+      url: ../howto-hyperscale-manage-firewall-using-portal.md
+    - text: 연결 문제 해결
+      url: ../howto-hyperscale-troubleshoot-common-connection-issues.md
+- title: 확장
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 노드 및 테이블
+      url: ../concepts-hyperscale-nodes.md
+    - text: 배포 열 선택
+      url: ../concepts-hyperscale-choose-distribution-column.md
+  - linkListType: how-to-guide
+    links:
+    - text: 서버 그룹 크기
+      url: ../howto-hyperscale-scaling.md
+    - text: 테이블 배포
+      url: ../howto-hyperscale-modify-distributed-tables.md
+    - text: 메트릭에 대한 경고 만들기
+      url: ../howto-hyperscale-alert-on-metric.md
+- title: 관리
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 백업 및 복원
+      url: ../concepts-hyperscale-backup.md
+    - text: 모니터링 및 튜닝
+      url: ../concepts-hyperscale-monitoring.md
+    - text: 고가용성
+      url: ../concepts-hyperscale-high-availability.md
+    - text: 예약 용량
+      url: ../concepts-hyperscale-reserved-pricing.md
+  - linkListType: how-to-guide
+    links:
+    - text: 데이터베이스 사용자 만들기
+      url: ../howto-hyperscale-create-users.md
+    - text: 고가용성 구성
+      url: ../howto-hyperscale-high-availability.md
+    - text: 데이터베이스 로그 액세스
+      url: ../howto-hyperscale-logging.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: SQL API 함수
+      url: ../reference-hyperscale-functions.md
+    - text: 서버 매개 변수
+      url: ../reference-hyperscale-parameters.md
+    - text: 시스템 테이블
+      url: ../reference-hyperscale-metadata.md

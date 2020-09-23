@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell를 통해 Azure Stack Edge GPU 장치에 Vm 배포
-description: Azure PowerShell를 사용 하 여 Azure Stack Edge GPU 장치에서 Vm (가상 머신)을 만들고 관리 하는 방법을 설명 합니다.
+title: Azure PowerShell를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
+description: Azure PowerShell를 사용 하 여 Azure Stack Edge Pro GPU 장치에서 Vm (가상 머신)을 만들고 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: aa35111a2fa26b3e4fd5e80a8227b7c244f30e9f
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: aa492acdedc2d131d28c894031de2181e87a2f3e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461717"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890706"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge GPU 장치에 Vm 배포
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Azure PowerShell를 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
 
 <!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
 
-이 자습서에서는 Azure PowerShell를 사용 하 여 Azure Stack Edge 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다.
+이 자습서에서는 Azure PowerShell를 사용 하 여 Azure Stack Edge Pro 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다.
 
 ## <a name="vm-deployment-workflow"></a>VM 배포 워크플로
 
@@ -27,7 +27,7 @@ ms.locfileid: "89461717"
 
 ![VM 배포 워크플로](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-vm-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
@@ -128,7 +128,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> 로컬 중복 저장소 (Standard_LRS 또는 Premium_LRS)와 같은 로컬 저장소 계정만 Azure Resource Manager를 통해 만들 수 있습니다. 계층화 된 저장소 계정을 만들려면 [Azure Stack Edge에서 저장소 계정에 추가, 연결](azure-stack-edge-j-series-deploy-add-storage-accounts.md)의 단계를 참조 하세요.
+> 로컬 중복 저장소 (Standard_LRS 또는 Premium_LRS)와 같은 로컬 저장소 계정만 Azure Resource Manager를 통해 만들 수 있습니다. 계층화 된 저장소 계정을 만들려면 [Azure Stack Edge Pro에서 저장소 계정에 연결 추가](azure-stack-edge-j-series-deploy-add-storage-accounts.md)의 단계를 참조 하세요.
 
 샘플 출력은 다음과 같습니다.
 
@@ -193,7 +193,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 이전 단계에서 만든 로컬 저장소 계정의 페이지 blob에 사용할 디스크 이미지를 복사 합니다. [AzCopy](../storage/common/storage-use-azcopy-v10.md) 와 같은 도구를 사용 하 여 이전 단계에서 만든 저장소 계정에 VHD를 업로드할 수 있습니다. 
 
-AzCopy를 사용 하기 전에 Azure Stack Edge 장치에서 사용 하는 blob storage REST API 버전에 사용할 수 있도록 [AzCopy가 올바르게 구성 되어](#configure-azcopy) 있는지 확인 합니다.
+AzCopy를 사용 하기 전에 Azure Stack Edge Pro 장치에서 사용 하는 blob storage REST API 버전에 사용할 수 있도록 [AzCopy가 올바르게 구성 되어](#configure-azcopy) 있는지 확인 합니다.
 
 ```powershell
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
@@ -445,11 +445,11 @@ The public IP in this case will be the same as the private IP that you passed du
 
 ## <a name="manage-vm"></a>VM 관리
 
-다음 섹션에서는 Azure Stack Edge 장치에서 만들 VM에 대 한 몇 가지 일반적인 작업에 대해 설명 합니다.
+다음 섹션에서는 Azure Stack Edge Pro 장치에서 만들 VM에 대 한 몇 가지 일반적인 작업에 대해 설명 합니다.
 
 ### <a name="list-vms-running-on-the-device"></a>장치에서 실행 되는 Vm 나열
 
-Azure Stack Edge 장치에서 실행 되는 모든 Vm의 목록을 반환 하려면 다음 명령을 실행 합니다.
+Azure Stack Edge Pro 장치에서 실행 되는 모든 Vm의 목록을 반환 하려면 다음 명령을 실행 합니다.
 
 
 `Get-AzureRmVM -ResourceGroupName <String> -Name <String>`
@@ -502,7 +502,7 @@ Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 
 VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅 리소스의 양이 결정됩니다. 가상 머신은 워크로드에 맞는 VM 크기로 만들어야 합니다. 모든 컴퓨터가 동일한 하드웨어에서 실행 되는 경우에도 컴퓨터 크기는 디스크 액세스에 대해 서로 다른 제한을 가지 지만 Vm 전체에서 전체 디스크 액세스를 관리 하는 데 도움이 될 수 있습니다. 워크로드가 증가할 경우 기존 가상 머신의 크기를 조정할 수도 있습니다.
 
-다음 표준 Dv2 시리즈 Vm은 Azure Stack Edge 장치에서 만들 수 있도록 지원 됩니다.
+다음 표준 Dv2 시리즈 Vm은 Azure Stack Edge Pro 장치에서 만들 수 있도록 지원 됩니다.
 
 ### <a name="dv2-series"></a>Dv2 시리즈
 |크기     |vCPU     |메모리(GiB) | 임시 스토리지(GiB)  | 최대 OS 디스크 처리량 (IOPS) | 최대 임시 저장소 처리량 (IOPS) | 최대 데이터 디스크/처리량 (IOPS) | 최대 NIC 수 |
@@ -547,9 +547,9 @@ VM 크기에 따라 CPU, GPU, 메모리 등 VM에 사용할 수 있는 컴퓨팅
 
 ## <a name="configure-azcopy"></a>AzCopy 구성
 
-최신 버전의 AzCopy을 설치 하는 경우 AzCopy Azure Stack Edge 장치의 blob storage REST API 버전과 일치 하는지 확인 하도록 구성 해야 합니다.
+AzCopy의 최신 버전을 설치 하는 경우 AzCopy를 구성 하 여 Azure Stack Edge Pro 장치의 blob storage REST API 버전과 일치 하는지 확인 해야 합니다.
 
-Azure Stack Edge 장치에 액세스 하는 데 사용 되는 클라이언트에서 blob storage REST API 버전과 일치 하도록 전역 변수를 설정 합니다.
+Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 클라이언트에서 blob storage REST API 버전과 일치 하도록 전역 변수를 설정 합니다.
 
 ### <a name="on-windows-client"></a>Windows 클라이언트 
 

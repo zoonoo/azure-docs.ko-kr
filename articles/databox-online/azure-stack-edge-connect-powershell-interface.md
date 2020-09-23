@@ -1,6 +1,6 @@
 ---
-title: Windows PowerShell 인터페이스를 통해 Microsoft Azure Stack Edge 장치에 연결 및 관리 | Microsoft Docs
-description: Windows PowerShell 인터페이스를 통해에 연결 하 고 Azure Stack에 지를 관리 하는 방법을 설명 합니다.
+title: Windows PowerShell 인터페이스를 통해 Microsoft Azure Stack Edge Pro 장치에 연결 및 관리 | Microsoft Docs
+description: Windows PowerShell 인터페이스를 통해에 연결 하 고 Azure Stack Edge Pro를 관리 하는 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,22 +8,22 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 973c618b46d1b6be902d9629ca63ee120cae6855
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6b0fe7e9e096b252d33d25c4a70305e57d206b1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85313197"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894424"
 ---
-# <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge 장치 관리
+# <a name="manage-an-azure-stack-edge-pro-device-via-windows-powershell"></a>Windows PowerShell을 통해 Azure Stack Edge Pro 장치 관리
 
-Azure Stack Edge 솔루션을 사용 하면 데이터를 처리 하 고 네트워크를 통해 Azure에 보낼 수 있습니다. 이 문서에서는 Azure Stack Edge 장치에 대 한 몇 가지 구성 및 관리 작업을 설명 합니다. Azure Portal, 로컬 웹 UI 또는 Windows PowerShell 인터페이스를 사용 하 여 장치를 관리할 수 있습니다.
+Edge Pro 솔루션 Azure Stack 데이터를 처리 하 고 네트워크를 통해 Azure에 보낼 수 있습니다. 이 문서에서는 Azure Stack Edge Pro 장치에 대 한 구성 및 관리 작업을 설명 합니다. Azure Portal, 로컬 웹 UI 또는 Windows PowerShell 인터페이스를 사용 하 여 장치를 관리할 수 있습니다.
 
 이 문서에서는 PowerShell 인터페이스를 사용 하 여 수행 하는 작업을 중점적으로 설명 합니다. 
 
 이 문서에는 다음과 같은 절차가 포함 되어 있습니다.
 
-- PowerShell 인터페이스에 연결
+- PowerShell 인터페이스에 연결합니다.
 - 지원 패키지 만들기
 - 인증서 업로드
 - 장치 다시 설정
@@ -31,7 +31,7 @@ Azure Stack Edge 솔루션을 사용 하면 데이터를 처리 하 고 네트�
 - 계산 로그 가져오기
 - 계산 모듈 모니터링 및 문제 해결
 
-## <a name="connect-to-the-powershell-interface"></a>PowerShell 인터페이스에 연결
+## <a name="connect-to-the-powershell-interface"></a>PowerShell 인터페이스에 연결합니다.
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
 
@@ -43,7 +43,7 @@ Azure Stack Edge 솔루션을 사용 하면 데이터를 처리 하 고 네트�
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-IoT Edge 인증서를 업로드 하 여 IoT Edge 장치와이 장치에 연결할 수 있는 다운스트림 장치 간에 보안 연결을 설정할 수도 있습니다. 설치 해야 하는 다음과 같은 세 가지 IoT Edge 인증서 (*pem* 형식)가 있습니다.
+IoT Edge 인증서를 업로드하여 IoT Edge 디바이스와 이 디바이스에 연결할 수 있는 다운스트림 디바이스 간에 보안 연결을 설정할 수 있습니다. 설치 해야 하는 다음과 같은 세 가지 IoT Edge 인증서 (*pem* 형식)가 있습니다.
 
 - 루트 CA 인증서 또는 소유자 CA
 - 디바이스 CA 인증서
@@ -94,4 +94,4 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Portal에 [Azure Stack Edge](azure-stack-edge-deploy-prep.md) 를 배포 합니다.
+- Azure Portal에서 [Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)를 배포합니다.

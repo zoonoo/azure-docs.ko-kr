@@ -12,12 +12,12 @@ ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b756e83f1d810007e9e9ef6cf2987c3cf60b7f7d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ad04566699b2eebb0cbd7a9f242de38bc75e2015
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852857"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986408"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Azure Data Factory로 데이터 수집
 
@@ -35,7 +35,7 @@ ms.locfileid: "87852857"
 
 ## <a name="adf-with-azure-functions"></a>Azure 함수를 사용 하는 ADF
 
-![adf-함수](media/how-to-data-ingest-adf/adf-function.png)
+![다이어그램은 Azure 함수 및 실행 M L 파이프라인, Azure Machine Learning 파이프라인, 학습 모델 및 원시 데이터와 준비 된 데이터와 상호 작용 하는 방법에 대 한 Azure Data Factory 파이프라인을 보여 줍니다.](media/how-to-data-ingest-adf/adf-function.png)
 
 Azure Functions를 사용 하면 응용 프로그램 인프라에 대해 걱정 하지 않고 작은 코드 (함수)를 실행할 수 있습니다. 이 옵션에서는 Azure 함수로 래핑된 사용자 지정 Python 코드를 사용 하 여 데이터를 처리 합니다. 
 
@@ -51,7 +51,7 @@ Azure Functions를 사용 하면 응용 프로그램 인프라에 대해 걱정 
 
 ## <a name="adf-with-custom-component-activity"></a>사용자 지정 구성 요소 작업이 포함 된 ADF
 
-![adf-customcomponent](media/how-to-data-ingest-adf/adf-customcomponent.png)
+![다이어그램은 사용자 지정 구성 요소와 실행 M L 파이프라인, Azure Machine Learning 파이프라인, 학습 모델 및 원시 데이터와 준비 된 데이터와 상호 작용 하는 방법을 사용 하 여 Azure Data Factory 파이프라인을 보여 줍니다.](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
 이 옵션에서는 실행 파일에 래핑된 사용자 지정 Python 코드를 사용 하 여 데이터를 처리 합니다. [ADF 사용자 지정 구성 요소 작업](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)을 사용 하 여 호출 됩니다. 이 방법은 이전 기술 보다 많은 데이터에 적합 합니다.
 
@@ -64,7 +64,7 @@ Azure Functions를 사용 하면 응용 프로그램 인프라에 대해 걱정 
 
 ## <a name="adf-with-azure-databricks-python-notebook"></a>Azure Databricks Python 노트북을 사용 하는 ADF
 
-![adf-databricks](media/how-to-data-ingest-adf/adf-databricks.png)
+![다이어그램은 Python 및 실행 M L 파이프라인, Azure Machine Learning 파이프라인, 학습 모델 및 원시 데이터와 준비 된 데이터와 상호 작용 하는 방법을 사용 하 Azure Databricks 여 Azure Data Factory 파이프라인을 보여 줍니다.](media/how-to-data-ingest-adf/adf-databricks.png)
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) 는 Microsoft 클라우드의 Apache Spark 기반 분석 플랫폼입니다.
 
@@ -82,7 +82,7 @@ Azure Functions를 사용 하면 응용 프로그램 인프라에 대해 걱정 
 
 ## <a name="consuming-data-in-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인에서 데이터 사용
 
-![aml-데이터 집합](media/how-to-data-ingest-adf/aml-dataset.png)
+![다이어그램은 Azure Data Factory 파이프라인과 Azure Machine Learning 파이프라인 및 이러한 파이프라인이 원시 데이터 및 준비 된 데이터와 상호 작용 하는 방법을 보여 줍니다. Data Factory 파이프라인은 데이터 저장소를 공급 하는 준비 된 데이터 데이터베이스로 데이터를 피드 하 여 Machine Learning 작업 영역에 데이터 집합을 피드 합니다.](media/how-to-data-ingest-adf/aml-dataset.png)
 
 ADF 파이프라인에서 변환 된 데이터는 데이터 저장소 (예: Azure Blob)에 저장 됩니다. 데이터 [저장소](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) 및 데이터 [집합](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets)을 사용 하 여이 데이터에 액세스할 수 Azure Machine Learning.
 

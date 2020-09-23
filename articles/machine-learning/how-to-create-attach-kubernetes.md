@@ -11,15 +11,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: cac14d5995042847bc98e47e50ea2d188382fd2a
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 034fbf991c97ba7b9f51b5508c35df1889280562
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564341"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897900"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Azure Kubernetes Service에 학습 된 기계 학습 모델을 배포할 수 Azure Machine Learning. 그러나 먼저 Azure ML 작업 영역에서 AKS (Azure Kubernetes Service) 클러스터를 __만들거나__ 기존 AKS 클러스터를 __연결__ 해야 합니다. 이 문서에서는 클러스터를 만들고 연결 하는 방법에 대 한 정보를 제공 합니다.
 

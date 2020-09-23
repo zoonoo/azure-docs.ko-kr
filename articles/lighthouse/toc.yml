@@ -101,6 +101,8 @@
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./samples/policy-reference.md
+    - name: Terraform
+      href: 'https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html'
 - name: 리소스
   items:
     - name: Azure Lighthouse에 대한 Microsoft Q&A

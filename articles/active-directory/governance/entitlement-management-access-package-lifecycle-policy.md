@@ -1,6 +1,6 @@
 ---
 title: Azure AD 자격 관리에서 액세스 패키지의 수명 주기 설정 변경-Azure Active Directory
-description: Azure Active Directory 자격 관리에서 액세스 패키지의 수명 주기 설정을 변경 하는 방법에 대해 알아봅니다.
+description: Azure Active Directory 자격 관리에서 액세스 패키지에 대 한 요청자 정보 & 수명 주기 설정을 변경 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -16,18 +16,21 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c628c3c1f11cb973176e7a689856b64177036c9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4fd119238476b842a4dba1efeec86544ca263920
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798701"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980095"
 ---
 # <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지의 수명 주기 설정 변경
 
 액세스 패키지 관리자는 기존 정책을 편집 하 여 언제 든 지 액세스 패키지에 대 한 수명 주기 설정을 변경할 수 있습니다. 정책에 대 한 만료 날짜를 변경 하는 경우 이미 보류 중인 승인 또는 승인 된 상태에 있는 요청에 대 한 만료 날짜는 변경 되지 않습니다.
 
 이 문서에서는 기존 액세스 패키지의 수명 주기 설정을 변경 하는 방법을 설명 합니다.
+
+## <a name="open-requestor-information"></a>요청자 정보 열기
+사용자가 액세스 패키지에 적절 한 액세스 권한을 갖도록 하려면 특정 액세스 패키지에 대 한 액세스를 요청 하는 사용자에 게 사용자에 게 요청 하는 사용자 지정 질문을 구성할 수 있습니다. 구성 옵션으로는 지역화, 필수/선택적 및 텍스트/다중 선택 응답 형식이 있습니다. 요청자는 패키지를 요청할 때 질문이 표시 되 고 승인자는 결정을 내리는 데 도움이 되는 질문에 대 한 답변을 볼 수 있습니다. 액세스 패키지에서 질문을 구성 하려면 다음 단계를 사용 합니다.
 
 ## <a name="open-lifecycle-settings"></a>수명 주기 설정 열기
 

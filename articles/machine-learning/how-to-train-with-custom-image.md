@@ -10,23 +10,22 @@ author: saachigopal
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2289a761d4e266c305c2868e9f234871624ae528
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d90b56366cb22e80162983c982e861de608e4e9e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661320"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893109"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>사용자 지정 Docker 이미지를 사용 하 여 모델 학습
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning로 모델을 학습 하는 경우 사용자 지정 Docker 이미지를 사용 하는 방법을 알아봅니다. 
 
 이 문서의 예제 스크립트는 나선형 신경망을 만들어 pet 이미지를 분류 하는 데 사용 됩니다. 
 
-Azure Machine Learning 기본 Docker 기본 이미지를 제공 하는 동안 Azure Machine Learning 환경을 사용 하 여 유지 관리 되는 [AZURE ML 기본 이미지](https://github.com/Azure/AzureML-Containers) 집합 또는 고유한 [사용자 지정 이미지](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image)중 하나 등의 특정 기본 이미지를 지정할 수도 있습니다. 사용자 지정 기본 이미지를 사용 하면 종속성을 긴밀 하 게 관리 하 고 학습 작업을 실행할 때 구성 요소 버전을 보다 강력 하 게 제어할 수 있습니다. 
+Azure Machine Learning 기본 Docker 기본 이미지를 제공 하는 동안 Azure Machine Learning 환경을 사용 하 여 유지 관리 되는 [AZURE ML 기본 이미지](https://github.com/Azure/AzureML-Containers) 집합 또는 고유한 [사용자 지정 이미지](how-to-deploy-custom-docker-image.md#create-a-custom-base-image)중 하나 등의 특정 기본 이미지를 지정할 수도 있습니다. 사용자 지정 기본 이미지를 사용 하면 종속성을 긴밀 하 게 관리 하 고 학습 작업을 실행할 때 구성 요소 버전을 보다 강력 하 게 제어할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 * Azure Machine Learning 컴퓨팅 인스턴스 - 다운로드 또는 설치 필요 없음
     * [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
@@ -101,11 +100,11 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
 
 ### <a name="create-or-attach-existing-amlcompute"></a>기존 AmlCompute 만들기 또는 연결
-모델 학습을 위한 [계산 대상을](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#compute-target) 만들어야 합니다. 이 자습서에서는 AmlCompute를 학습 계산 리소스로 만듭니다.
+모델 학습을 위한 [계산 대상을](concept-azure-machine-learning-architecture.md#compute-targets) 만들어야 합니다. 이 자습서에서는 AmlCompute를 학습 계산 리소스로 만듭니다.
 
 AmlCompute 생성에는 약 5 분이 걸립니다. 해당 이름을 가진 AmlCompute가 이미 작업 영역에 있는 경우이 코드는 생성 프로세스를 건너뜁니다.
 
-다른 Azure 서비스와 마찬가지로 Azure Machine Learning 서비스와 연결 된 특정 리소스 (예: AmlCompute)에 제한이 있습니다. 기본 제한과 추가 할당량을 요청 하는 방법에 대해서는 [이 문서](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas) 를 참조 하세요. 
+다른 Azure 서비스와 마찬가지로 Azure Machine Learning 서비스와 연결 된 특정 리소스 (예: AmlCompute)에 제한이 있습니다. 기본 제한과 추가 할당량을 요청 하는 방법에 대해서는 [이 문서](how-to-manage-quotas.md) 를 참조 하세요. 
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -132,7 +131,7 @@ print(compute_target.get_status().serialize())
 ```
 
 ### <a name="create-a-scriptrunconfig"></a>ScriptRunConfig 만들기
-이 ScriptRunConfig는 원하는 [계산 대상](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets#compute-targets-for-training)에서 실행 되도록 작업을 구성 합니다.
+이 ScriptRunConfig는 원하는 [계산 대상](how-to-set-up-training-targets.md)에서 실행 되도록 작업을 구성 합니다.
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -160,4 +159,4 @@ Python 환경을 사용자 지정 하는 방법에 대 한 자세한 내용은 [
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 사용자 지정 Docker 이미지를 사용 하 여 모델을 학습 했습니다. Azure Machine Learning에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 * 학습 중 [실행 메트릭 추적](how-to-track-experiments.md)
-* 사용자 지정 Docker 이미지를 사용 하 여 [모델을 배포](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image) 합니다.
+* 사용자 지정 Docker 이미지를 사용 하 여 [모델을 배포](how-to-deploy-custom-docker-image.md) 합니다.

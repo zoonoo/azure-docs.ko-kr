@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373507"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981457"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Azure Portal에서 자동 조정 기능을 사용 하 여 쿼리를 모니터링 하 고 워크 로드 성능을 향상 시킵니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ Azure SQL Database는 쿼리를 지속적으로 모니터링 하 고 워크 로�
 
 Azure SQL Database [서버](logical-servers.md) 에서 자동 조정을 사용 하도록 설정 하려면 Azure Portal에서 서버로 이동한 다음 메뉴에서 **자동 조정** 을 선택 합니다.
 
-![서버](./media/automatic-tuning-enable/server.png)
+![서버에 대 한 옵션을 적용할 수 있는 Azure Portal의 자동 튜닝을 보여 주는 스크린샷](./media/automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > 이 경우 **DROP_INDEX** 옵션은 파티션 전환 및 인덱스 힌트를 사용 하는 응용 프로그램과 호환 되지 않으므로 이러한 경우 사용 하도록 설정 하면 안 됩니다. Premium 및 중요 비즈니스용 서비스 계층에서는 사용 하지 않는 인덱스를 삭제할 수 없습니다.
@@ -77,7 +77,7 @@ Azure SQL Database를 사용 하 여 각 데이터베이스에 대 한 자동 �
 
 개별 자동 조정 설정을 각 데이터베이스에 대해 별도로 구성할 수 있습니다. 개별 자동 조정 옵션을 수동으로 구성하거나 서버에서 해당 설정을 상속하는 옵션을 지정할 수 있습니다.
 
-![데이터베이스](./media/automatic-tuning-enable/database.png)
+![단일 데이터베이스에 대 한 옵션을 적용할 수 있는 Azure Portal의 자동 튜닝을 보여 주는 스크린샷](./media/automatic-tuning-enable/database.png)
 
 현재 DROP_INDEX 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않으므로 이러한 경우에는 사용하도록 설정해서는 안 됩니다.
 
