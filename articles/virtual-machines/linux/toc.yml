@@ -372,6 +372,8 @@
       href: /azure/cloud-adoption-framework/get-started/
     - name: 아키텍처 센터
       href: /azure/architecture/
+    - name: Azure 하이브리드 혜택
+      href: azure-hybrid-benefit-linux.md
 - name: 방법 가이드
   items:
     - name: VM 만들기

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: f5e71697ca6ce9e2585bbb903ad8c46744e05e13
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e2922d19dbcad7da2808a86896e39d21420e73d5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462397"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904737"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 
@@ -132,7 +132,7 @@ Security Center 대시보드를 로드하는 문제가 있는 경우 Security Ce
 
 ## <a name="contacting-microsoft-support"></a>Microsoft 지원에 문의
 
-이 문서에서 제공된 지침을 사용하여 몇 가지 문제를 식별할 수 있으며 그 외 문제는 Security Center 공용 [Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/topics/azure-security-center.html)에 설명되어 있는 것을 찾을 수 있습니다. 그러나 추가로 문제 해결이 필요한 경우 아래와 같이 **Azure Portal**을 사용하여 새로운 지원 요청을 열 수 있습니다.
+이 문서에 제공 된 지침을 사용 하 여 몇 가지 문제를 확인할 수 있으며, 다른 사용자는이 문서에서 설명 하는 Security Center 공용 [Microsoft Q&페이지를](https://docs.microsoft.com/answers/topics/azure-security-center.html)찾을 수도 있습니다. 그러나 추가로 문제 해결이 필요한 경우 아래와 같이 **Azure Portal**을 사용하여 새로운 지원 요청을 열 수 있습니다.
 
 ![Microsoft 지원](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 

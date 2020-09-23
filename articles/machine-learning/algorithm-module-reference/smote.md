@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: ed6d9e86143c3a5d6c97c4bd92a07c258bbd1bbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 501f3e8946023d28d67a33fbbfca661afbc6306d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477462"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898290"
 ---
 # <a name="smote"></a>SMOTE
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에서 SMOTE 모듈을 사용 하 여 기계 학습에 사용 되는 데이터 집합에서 가장 많이 표시 되는 사례 수를 늘리는 방법을 설명 합니다. SMOTE는 단순히 기존 사례를 복제 하는 것 보다 드물게 발생 하는 사례 수를 늘릴 수 있는 좋은 방법입니다.  
+이 문서에서는 Azure Machine Learning designer에서 SMOTE 모듈을 사용 하 여 기계 학습에 사용 되는 데이터 집합에서 가장 적게 표시 되는 사례 수를 늘리는 방법을 설명 합니다. SMOTE는 단순히 기존 사례를 복제 하는 것 보다 드물게 발생 하는 사례 수를 늘릴 수 있는 좋은 방법입니다.  
 
 SMOTE 모듈을 *불균형*데이터 집합에 연결 합니다. 데이터 집합이 불균형 하 게 분산 되는 이유는 여러 가지가 있습니다. 예를 들어 대상으로 하는 범주가 모집단에서 드물게 발생 하거나 데이터를 수집 하기가 어려울 수 있습니다. 일반적으로는 분석할 *클래스가* 가장 적게 표시 될 때 SMOTE를 사용 합니다. 
   
@@ -62,7 +62,7 @@ SMOTE는 전체 데이터 집합을 입력으로 사용 하지만, 소주주 사
   
 4.  SMOTE 모듈은 레이블 열에서 소주주 클래스를 자동으로 식별 한 다음, 해당 클래스에 대 한 모든 예제를 가져옵니다. 모든 열은 NaN 값을 가질 수 없습니다.
   
-5.  **SMOTE 비율** 옵션에서 출력 데이터 집합에 있는 소수 사례의 대상 백분율을 나타내는 정수를 입력 합니다. 예를 들어:  
+5.  **SMOTE 비율** 옵션에서 출력 데이터 집합에 있는 소수 사례의 대상 백분율을 나타내는 정수를 입력 합니다. 다음은 그 예입니다.   
   
     - **0**을 입력 합니다. SMOTE 모듈은 입력으로 제공한 것과 정확히 동일한 데이터 집합을 반환 합니다. 새 소주주 사례를 추가 하지 않습니다. 이 데이터 집합에서 클래스 비율은 변경 되지 않았습니다.  
   

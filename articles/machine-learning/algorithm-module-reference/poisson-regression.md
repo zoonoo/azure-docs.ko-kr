@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 6682d9426ed3fe011fe5c493ec34fcdf0a2b35b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097846"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905249"
 ---
 # <a name="poisson-regression"></a>포아송 회귀
 
-이 문서에서는 Azure Machine Learning 디자이너(미리 보기)의 모듈에 대해 설명합니다.
+이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 파이프라인에서 포아송 회귀 모델을 만들 수 있습니다. 포아송 회귀는 숫자 값을 예측 하기 위한 것 이며 일반적으로 개수입니다. 따라서 예측 하려는 값이 다음 조건에 부합 하는 경우에만이 모듈을 사용 하 여 회귀 모델을 만들어야 합니다.
 
@@ -49,7 +49,7 @@ ms.locfileid: "87097846"
 
 ## <a name="how-to-configure-poisson-regression"></a>포아송 회귀를 구성 하는 방법
 
-1. 디자이너 (미리 보기)에서 **포아송 회귀** 모듈을 파이프라인에 추가 합니다. **회귀** 범주의 **Machine Learning 알고리즘**에서이 모듈을 찾을 수 있습니다.
+1. 디자이너에서 **포아송 회귀** 모듈을 파이프라인에 추가 합니다. **회귀** 범주의 **Machine Learning 알고리즘**에서이 모듈을 찾을 수 있습니다.
 
 2. 올바른 유형의 학습 데이터를 포함 하는 데이터 집합을 추가 합니다. 
 

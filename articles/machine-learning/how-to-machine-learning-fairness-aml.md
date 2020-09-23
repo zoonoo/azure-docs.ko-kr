@@ -11,16 +11,16 @@ ms.reviewer: luquinta
 ms.date: 09/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 459189c699b9c48f090d55df98f4618d9e515aaa
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 0332400ce6808e92ba09e3bee3277495f6b6d1a9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279978"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897476"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Fairlearn 오픈 소스 패키지와 함께 Azure Machine Learning를 사용 하 여 ML 모델의 공평을 평가 (미리 보기)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 방법 가이드에서는 다음 작업을 수행 하는 Azure Machine Learning [Fairlearn](https://fairlearn.github.io/) 오픈 소스 Python 패키지를 사용 하는 방법을 배웁니다.
 

@@ -10,17 +10,16 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: cad1c8b7250ddf1e675145e764abcc90b4db9d86
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 616cdb1d0940ea6f64c3be3d687adaa9c2a98cc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661723"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889970"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>기계 학습 파이프라인 디버그 및 문제 해결
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 및 [Azure Machine Learning designer (미리 보기)](https://docs.microsoft.com/azure/machine-learning/concept-designer)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 의 문제를 해결 하 고 디버그 하는 방법에 대해 알아봅니다. 
+이 문서에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 및 [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 을 디버그 하 고 문제를 해결 하는 방법에 대해 알아봅니다. 다음 방법에 대 한 정보가 제공 됩니다.
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 
@@ -108,31 +107,7 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-### <a name="finding-and-reading-pipeline-log-files"></a>파이프라인 로그 파일 찾기 및 읽기
-
-로그 파일에는 `70_driver_log.txt` 다음이 포함 됩니다. 
-
-* 스크립트를 실행 하는 동안 모든 인쇄 된 문
-* 스크립트에 대 한 스택 추적입니다. 
-
-포털에서이 파일 및 기타 로그 파일을 찾으려면 먼저 작업 영역에서 파이프라인 실행을 클릭 합니다.
-
-![파이프라인 실행 목록 페이지](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-파이프라인 실행 세부 정보 페이지로 이동 합니다.
-
-![파이프라인 실행 세부 정보 페이지](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-특정 단계에 대 한 모듈을 클릭 합니다. **로그** 탭으로 이동 합니다. 기타 로그에는 환경 이미지 빌드 프로세스 및 단계 준비 스크립트에 대 한 정보가 포함 됩니다.
-
-![파이프라인 실행 세부 정보 페이지 로그 탭](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> 게시 된 *파이프라인* 에 대 한 실행은 작업 영역의 **끝점** 탭에서 찾을 수 있습니다. *게시 되지 않은 파이프라인* 에 대 한 실행은 **실험** 또는 **파이프라인**에서 찾을 수 있습니다.
-
-에서 로깅 및 추적 하는 방법에 대 한 자세한 내용은 `ParallelRunStep` [ParallelRunStep 디버그 및 문제 해결](how-to-debug-parallel-run-step.md)을 참조 하세요.
-
-## <a name="logging-in-azure-machine-learning-designer-preview"></a>Azure Machine Learning designer에서 로깅 (미리 보기)
+## <a name="azure-machine-learning-designer"></a>Azure Machine Learning 디자이너
 
 디자이너에서 만든 파이프라인의 경우 제작 페이지나 파이프라인 실행 세부 정보 페이지에서 **70_driver_log** 파일을 찾을 수 있습니다.
 

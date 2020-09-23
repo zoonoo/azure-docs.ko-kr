@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 3220b9d56ff7107245a0a00aac44bb58f87099f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b1bc58b6b4a87cd6e5e09e83020a38261b8746f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075959"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905372"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Azure 정적 Web Apps 미리 보기를 사용 하 여 프런트 엔드 프레임 워크 및 라이브러리 구성
 
 Azure Static Web Apps을 사용 하려면 프런트 엔드 프레임 워크 또는 라이브러리의 [빌드 구성 파일](github-actions-workflow.md) 에 적절 한 구성 값이 있어야 합니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 다음 표에서는 일련의 프레임 워크 및 라이브러리<sup>1</sup>에 대 한 설정을 보여 줍니다.
 
@@ -35,6 +35,7 @@ Azure Static Web Apps을 사용 하려면 프런트 엔드 프레임 워크 또�
 | [각도 유니버설](https://angular.io/guide/universal) | `dist/<APP_NAME>/browser` | `npm run prerender` |
 | [Aurelia](https://aurelia.io/) | `dist` | 해당 없음 |
 | [Backbone.js](https://backbonejs.org/) | `/` | 해당 없음 |
+| [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) | `wwwroot` | 해당 없음 |
 | [Ember](https://emberjs.com/) | `dist` | 해당 없음 |
 | [Flutter](https://flutter.dev/) | `build/web` | `flutter build web` |
 | [Framework7](https://framework7.io/) | `www` | `npm run build-prod` |
@@ -46,7 +47,7 @@ Azure Static Web Apps을 사용 하려면 프런트 엔드 프레임 워크 또�
 | [KnockoutJS](https://knockoutjs.com/) | `dist` | 해당 없음 |
 | [LitElement](https://lit-element.polymer-project.org/) | `dist` | 해당 없음 |
 | [Marko](https://markojs.com/) | `public` | 해당 없음 |
-| [Meteor](https://www.meteor.com/) | `bundle` | 해당 없음 |
+| [유성](https://www.meteor.com/) | `bundle` | 해당 없음 |
 | [Mithril](https://mithril.js.org/) | `dist` | 해당 없음 |
 | [Polymer](https://www.polymer-project.org/) | `build/default` | 해당 없음 |
 | [사전 act](https://preactjs.com/) | `build` | 해당 없음 |

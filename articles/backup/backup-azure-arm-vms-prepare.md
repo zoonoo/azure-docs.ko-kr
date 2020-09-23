@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 Azure VM 백업
 description: Azure Backup을 사용하여 Recovery Services 자격 증명 모음에 Azure VM을 백업하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 28cc995afc131e747314032c1363f73531e6915c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145657"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986512"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
@@ -41,10 +41,11 @@ ms.locfileid: "89145657"
 
 ### <a name="modify-storage-replication"></a>스토리지 복제 수정
 
-기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md)를 사용합니다.
+기본적으로 자격 증명 모음은 [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md#geo-redundant-storage)를 사용합니다.
 
 * 자격 증명 모음이 기본 백업 메커니즘인 경우 GRS를 사용하는 것이 좋습니다.
-* 저렴 한 옵션으로 [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) 를 사용할 수 있습니다.
+* 저렴 한 옵션으로 [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md#locally-redundant-storage) 를 사용할 수 있습니다.
+* [ZRS (영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage) 는 [가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)에서 데이터를 복제 하 여 동일한 지역에 데이터 상주 및 복원 력을 보장 합니다.
 
 저장소 복제 유형을 다음과 같이 수정 합니다.
 

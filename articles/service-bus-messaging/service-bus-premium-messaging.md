@@ -3,12 +3,12 @@ title: Azure Service Bus 프리미엄 및 표준 계층
 description: 이 문서에서는 Azure Service Bus의 표준 및 프리미엄 계층에 대해 설명 합니다. 는 이러한 계층을 비교 하 고 기술적 차이를 제공 합니다.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 82f8dbce7c48cb6efea67de4297239915e46eac8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 31c53a1375078cd5d185945cba55a6e5a6dd5ffb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386353"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90966784"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 
@@ -72,7 +72,7 @@ Service Bus Premium 네임 스페이스에 할당 된 메시징 단위 수는 �
     - CPU 사용량이 ***20% 미만이***면 네임 스페이스에 할당 된 메시징 단위의 수를 ***줄일*** 수 있습니다.
     - CPU 사용량이 ***70%를 초과***하면 응용 프로그램은 네임 스페이스에 할당 된 메시징 단위 수를 ***확장*** 하는 이점을 누릴 수 있습니다.
 
-Service Bus 네임 스페이스에 할당 된 리소스의 크기를 조정 하는 프로세스는 [Azure Automation runbook](../automation/automation-quickstart-create-runbook.md)을 사용 하 여 자동화할 수 있습니다.
+자동으로 크기를 조정 (메시징 단위 증가 또는 감소) 하도록 Service Bus 네임 스페이스를 구성 하는 방법을 알아보려면 [메시징 단위 자동 업데이트](automate-update-messaging-units.md)를 참조 하세요.
 
 > [!NOTE]
 > 네임 스페이스에 할당 된 리소스의 **크기 조정은** 선점형 이거나 대응식 일 수 있습니다.
@@ -96,10 +96,9 @@ Service Bus 네임 스페이스에 할당 된 리소스의 크기를 조정 하�
 
 Service Bus 메시지에 대해 자세히 알아보려면 다음 링크를 참조하세요.
 
-* [Azure Service Bus 프리미엄 메시징 소개 (블로그 게시물)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Channel9 (Azure Service Bus Premium Messaging 소개)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Service Bus 메시징 개요](service-bus-messaging-overview.md)
-* [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
+- [메시징 단위를 자동으로 업데이트](automate-update-messaging-units.md)합니다.
+- [Azure Service Bus 프리미엄 메시징 소개 (블로그 게시물)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Channel9 (Azure Service Bus Premium Messaging 소개)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 
 <!--Image references-->
 

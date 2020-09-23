@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 02f4fe4f97d3e976675757835e3931666d1c6410
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 23dfee7b78f2606c54525391e1260af69a9b0779
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857742"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898402"
 ---
 # <a name="score-vowpal-wabbit-model"></a>Vowpal Wabbit 모델 점수 매기기
-이 문서에서는 기존 학습 된 Vowpal Wabbit 모델을 사용 하 여 Azure Machine Learning 디자이너 (미리 보기)에서 **Vowpal Wabbit 모델 점수 매기기** 모듈을 사용 하 여 입력 데이터 집합에 대 한 점수를 생성 하는 방법을 설명 합니다.  
+이 문서에서는 Azure Machine Learning designer에서 **Vowpal Wabbit 모델 점수 매기기** 모듈을 사용 하 여 기존의 학습 된 Vowpal Wabbit 모델을 사용 하 여 입력 데이터 집합에 대 한 점수를 생성 하는 방법을 설명 합니다.  
 
 이 모듈은 Vowpal Wabbit 프레임 워크 버전 8.8.1의 최신 버전을 제공 합니다. 이 모듈을 사용 하 여 VW 버전 8 형식으로 저장 된 학습 된 모델을 사용 하 여 데이터의 점수를 매길 수 있습니다.  
 
@@ -74,7 +74,7 @@ Vowpal Wabbit에는 알고리즘을 선택 하 고 조정 하는 데 사용할 �
 
 다음 매개 변수는 Azure Machine Learning Studio (클래식)에서 지원 되지 않습니다.  
 
--   에 지정 된 입력/출력 옵션[https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
+-   에 지정 된 입력/출력 옵션 [https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
   
      이러한 속성은 이미 모듈에 의해 자동으로 구성 됩니다.  
   

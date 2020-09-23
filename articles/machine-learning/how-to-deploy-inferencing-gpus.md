@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 112d086b9e988726e5ed4790119cc19b6d101426
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3874f2126354b9ecbd453d00c86b647b0f7f3dcc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646121"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889981"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용 하 여 유추를 위한 심층 학습 모델 배포
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 GPU 사용 모델을 웹 서비스로 배포 하는 방법을 설명 합니다. 이 문서의 정보는 AKS (Azure Kubernetes Service)에 모델을 배포 하는 방법을 기반으로 합니다. AKS 클러스터는 유추를 위해 모델에서 사용 하는 GPU 리소스를 제공 합니다.
 

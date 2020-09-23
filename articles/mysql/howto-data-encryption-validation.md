@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: 9cd1db0365cdc4f834516fd4efb0d80dacc75eca
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e7b747bd2babeeccb210bb30c3eb28f22d4befe7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118531"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905792"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 데이터 암호화 유효성 검사
 
@@ -37,7 +37,7 @@ ms.locfileid: "86118531"
 
 2. Azure Portal에서 암호화 키가 설정 되어 있는지 확인할 수 있는 경우 Azure Portal에서 사용 되는 고객 키를 사용 하 여 데이터가 암호화 됩니다.
 
-  ![액세스 정책 개요](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="액세스 정책 개요":::
 
 ### <a name="from-cli"></a>CLI에서
 

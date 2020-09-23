@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 4d5cff416c1ac54e54d06e8def121db65bb7d191
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cf8fdd8d91c035d374277c4752fb761c0c4e72c7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433938"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905634"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>보안 경고 및 권장 사항 내보내기
 
@@ -33,8 +33,8 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|일반 공급|
-|결정|무료 계층|
+|릴리스 상태:|GA(일반 공급)|
+|결정|Free|
 |필요한 역할 및 사용 권한:|리소스 그룹 (또는 **소유자**)에 대 한 **보안 관리자 역할**<br>또한 대상 리소스에 대 한 쓰기 권한이 있어야 합니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/yes-icon.png) 중국 .Gov (이벤트 허브로), 기타 .Gov|
 |||
@@ -125,11 +125,11 @@ Azure Event Hubs는 프로그래밍 방식으로 스트리밍 데이터를 사�
 
 Log Analytics 작업 영역 내의 Azure Security Center 데이터를 분석 하거나 Azure 경고를 Security Center와 함께 사용 하려면 Log Analytics 작업 영역으로 연속 내보내기를 설정 합니다.
 
-Log Analytics 작업 영역으로 내보내려면 작업 영역에서 Security Center Log Analytics 솔루션을 사용 하도록 설정 해야 합니다. Azure Portal 사용 하는 경우 연속 내보내기를 사용 하도록 설정 하면 Security Center의 무료 계층 솔루션이 자동으로 사용 하도록 설정 됩니다. 그러나 연속 내보내기 설정을 프로그래밍 방식으로 구성 하는 경우 **가격 책정 & 설정**에서 필수 작업 영역에 대 한 무료 또는 표준 가격 책정 계층을 수동으로 선택 해야 합니다.  
+Log Analytics 작업 영역으로 내보내려면 작업 영역에서 Security Center Log Analytics 솔루션을 사용 하도록 설정 해야 합니다. Azure Portal 사용 하는 경우 연속 내보내기를 사용 하도록 설정 하면 Security Center의 무료 솔루션이 자동으로 사용 하도록 설정 됩니다. 그러나 연속 내보내기 설정을 프로그래밍 방식으로 구성 하는 경우 **가격 책정 & 설정** 페이지 내에서 수동으로 Azure Defender를 설정 하거나 해제 해야 합니다.
 
 ### <a name="log-analytics-tables-and-schemas"></a>테이블 및 스키마 Log Analytics
 
-보안 경고 및 권장 사항은 각각 *Securityalert* 및 *securityalert* 테이블에 저장 됩니다. 이러한 테이블을 포함 하는 Log Analytics 솔루션의 이름은 무료 또는 표준 계층에 있는지 ( [가격 책정](security-center-pricing.md)참조) (보안 (' 보안 및 감사 ') 또는 Securitycenter free)에 따라 달라 집니다.
+보안 경고 및 권장 사항은 각각 *Securityalert* 및 *securityalert* 테이블에 저장 됩니다. 이러한 테이블을 포함 하는 Log Analytics 솔루션의 이름은 Azure Defender를 사용 하는지 여부 (보안 (' 보안 및 감사 ') 또는 Securitycenter 무료)에 따라 다릅니다.
 
 ![Log Analytics의 * SecurityAlert * 테이블](./media/continuous-export/log-analytics-securityalert-solution.png)
 

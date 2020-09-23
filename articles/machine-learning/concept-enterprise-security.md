@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a89115d69943ff63d403edff942677b134e7f2a8
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: a3cd250e53fb30e07795b184b5c949505e3b20ae
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024386"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905750"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대한 엔터프라이즈 보안
 
@@ -63,7 +63,6 @@ Azure Machine Learning은 웹 서비스에 두 가지 형태의 인증(키 및 �
 | ---- |:----:|:----:|:----:|
 | 작업 영역 만들기 | ✓ | ✓ | |
 | 작업 영역 공유 | ✓ | |  |
-| 작업 영역을 Enterprise Edition으로 업그레이드 | ✓ | |
 | 컴퓨팅 대상 만들기 | ✓ | ✓ | |
 | 컴퓨팅 대상 연결 | ✓ | ✓ | |
 | 데이터 저장소 연결 | ✓ | ✓ | |
@@ -105,7 +104,7 @@ Azure Machine Learning은 모든 작업 영역 지역에 대한 구독에서 기
 
 Azure Machine Learning은 다른 Azure 서비스에 의존하여 컴퓨팅 리소스를 얻습니다. 컴퓨팅 리소스(컴퓨팅 대상)는 모델을 학습 및 배포하는 데 사용합니다. 가상 네트워크 컴퓨팅 대상을 만들 수 있습니다. 예를 들어, Azure Data Science Virtual Machine을 사용하여 모델을 학습한 다음, AKS에 모델을 배포할 수 있습니다.  
 
-자세한 내용은 [가상 네트워크 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조 하세요.
+자세한 내용은 [Virtual Network 격리 및 개인 정보 개요](how-to-network-security-overview.md)를 참조하세요.
 
 작업 영역에 대해 Azure Private Link를 사용하도록 설정할 수도 있습니다. Private Link를 사용하면 Azure Virtual Network에서 작업 영역으로의 통신을 제한할 수 있습니다. 자세한 내용은 [Private Link를 구성하는 방법](how-to-configure-private-link.md)을 참조하세요.
 

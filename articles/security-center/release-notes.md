@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/12/2020
+ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: f3aeccd30a9c89c2a43dfb85d4a57274037ec05f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: e4a0dfb658bb9388aa43b568fe0d28576026d1e9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569257"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905588"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -33,7 +33,16 @@ Azure 보안은 현재 개발 중이며 지속적으로 향상된 기능을 수�
 ## <a name="september-2020"></a>2020년 9월
 
 9 월의 업데이트는 다음과 같습니다.
-
+- [Security Center 새 모양을 가져옵니다.](#security-center-gets-a-new-look)
+- [Azure Defender 출시](#azure-defender-released)
+- [Azure Defender for Key Vault는 일반 공급 됩니다.](#azure-defender-for-key-vault-is-generally-available)
+- [파일 및 ADLS Gen2에 대 한 저장소 보호를 위한 Azure Defender를 일반적으로 사용할 수 있습니다.](#azure-defender-for-storage-protection-for-files-and-adls-gen2-is-generally-available)
+- [Asset inventory tools는 이제 일반 공급 됩니다.](#asset-inventory-tools-are-now-generally-available)
+- [컨테이너 레지스트리 및 가상 컴퓨터의 검색에 대 한 특정 취약성 검색 사용 안 함](#disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines)
+- [권장 사항에서 리소스 제외](#exempt-a-resource-from-a-recommendation)
+- [AWS 및 GCP 커넥터 Security Center 다중 클라우드 환경 제공](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
+- [Kubernetes 워크 로드 보호 권장 번들](#kubernetes-workload-protection-recommendation-bundle)
+- [IoT 용 Azure Defender의 IoT 위협 방지 기능 향상](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
 - [이제 취약점 평가 결과를 연속 내보내기에서 사용할 수 있습니다.](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [새 리소스를 만들 때 권장 사항을 적용 하 여 보안 구성을 방지 합니다.](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [향상 된 네트워크 보안 그룹 권장 사항](#network-security-group-recommendations-improved)
@@ -41,6 +50,127 @@ Azure 보안은 현재 개발 중이며 지속적으로 향상된 기능을 수�
 - [Azure Security Center 개선 된 전자 메일 알림](#email-notifications-from-azure-security-center-improved)
 - [보안 점수는 미리 보기 권장 사항을 포함 하지 않습니다.](#secure-score-doesnt-include-preview-recommendations)
 - [이제 권장 사항에 심각도 표시기 및 새로 고침 간격이 포함 됩니다.](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
+
+
+### <a name="security-center-gets-a-new-look"></a>Security Center 새 모양을 가져옵니다.
+
+Security Center의 포털 페이지에 대 한 새로 고친 UI를 출시 했습니다. 새 페이지에는 보안 점수, 자산 인벤토리 및 Azure Defender에 대 한 대시보드 뿐만 아니라 새로운 개요 페이지가 포함 됩니다.
+
+이제 다시 디자인 된 개요 페이지에는 보안 점수, asset inventory 및 Azure Defender 대시보드에 액세스 하기 위한 타일이 있습니다. 또한 규정 준수 대시보드에 대 한 타일이 연결 되어 있습니다.
+
+[개요 페이지](overview-page.md)에 대해 자세히 알아보세요.
+
+
+### <a name="azure-defender-released"></a>Azure Defender 출시
+
+**Azure Defender** 는 azure 및 하이브리드 워크 로드에 대 한 고급 지능형 보호를 위해 Security Center 내에 통합 된 cwpp (클라우드 워크 로드 보호 플랫폼)입니다. Security Center의 표준 가격 책정 계층 옵션을 대체 합니다. 
+
+Azure Security Center의 **가격 책정 및 설정** 영역에서 Azure defender를 사용 하도록 설정 하면 다음 Defender 요금제를 모두 동시에 사용할 수 있으며 사용자 환경의 계산, 데이터 및 서비스 계층에 대 한 포괄적인 방어 기능을 제공 합니다.
+
+- [서버용 Azure Defender](defender-for-servers-introduction.md)
+- [App Service용 Azure Defender](defender-for-app-service-introduction.md)
+- [스토리지용 Azure Defender](defender-for-storage-introduction.md)
+- [Azure Defender for SQL](defender-for-sql-introduction.md)
+- [IoT용 Azure Defender](defender-for-iot-introduction.md)
+- [Key Vault용 Azure Defender](defender-for-key-vault-introduction.md)
+- [Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)
+- [컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)
+
+이러한 각 계획은 Security Center 설명서에 별도로 설명 되어 있습니다.
+
+Azure Defender는 전용 대시보드를 사용 하 여 가상 머신, SQL 데이터베이스, 컨테이너, 웹 응용 프로그램, 네트워크 등에 대 한 보안 경고 및 고급 위협 방지 기능을 제공 합니다.
+
+[Azure Defender에 대 한 자세한 정보](azure-defender.md)
+
+### <a name="azure-defender-for-key-vault-is-generally-available"></a>Azure Defender for Key Vault는 일반 공급 됩니다.
+
+Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 암호)을 보호하는 클라우드 서비스입니다. 
+
+**Azure Defender for Key Vault** 는 Azure Key Vault에 대 한 azure 네이티브 및 고급 위협 방지 기능을 제공 하 여 보안 인텔리전스의 추가 계층을 제공 합니다. 확장을 통해 Key Vault에 대 한 Azure Defender는 Key Vault 계정에 종속 된 많은 리소스를 보호 합니다.
+
+선택적인 계획은 이제 GA입니다. 이 기능은 미리 보기에서 "Azure Key Vault에 대 한 advanced threat protection"으로 제공 되었습니다.
+
+또한 Azure Portal의 Key Vault 페이지에는 **Security Center** 권장 사항 및 경고에 대 한 전용 **보안** 페이지가 포함 됩니다.
+
+[Key Vault에 대 한 자세한 내용은 Azure Defender](defender-for-key-vault-introduction.md)를 확인 하세요.
+
+
+### <a name="azure-defender-for-storage-protection-for-files-and-adls-gen2-is-generally-available"></a>파일 및 ADLS Gen2에 대 한 저장소 보호를 위한 Azure Defender를 일반적으로 사용할 수 있습니다. 
+
+**Storage 용 Azure Defender는** Azure Storage 계정에서 잠재적으로 유해한 작업을 검색 합니다. Blob 컨테이너, 파일 공유 또는 데이터 레이크 저장 되어 있는지에 관계 없이 데이터를 보호할 수 있습니다.
+
+이제 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 및 [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) 에 대 한 지원이 일반적으로 제공 됩니다.
+
+2020 년 10 월 1 일부 터 이러한 서비스에서 리소스를 보호 하기 위한 요금 청구를 시작 합니다.
+
+[저장소에 대 한 자세한 내용은 Azure Defender](defender-for-storage-introduction.md)를 확인 하세요.
+
+
+### <a name="asset-inventory-tools-are-now-generally-available"></a>Asset inventory tools는 이제 일반 공급 됩니다.
+
+Azure Security Center의 자산 인벤토리 페이지에서는 Security Center 연결 된 리소스의 보안 상태를 볼 수 있는 단일 페이지를 제공 합니다.
+
+Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음 이러한 취약성을 해결 하는 방법에 대 한 권장 사항을 제공 합니다.
+
+리소스에 해결 되지 않은 권장 사항이 있는 경우 인벤토리에 표시 됩니다.
+
+[자산 인벤토리 및 관리 도구를 사용 하 여 리소스 탐색 및 관리](asset-inventory.md)에서 자세히 알아보세요.
+
+
+
+### <a name="disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines"></a>컨테이너 레지스트리 및 가상 컴퓨터의 검색에 대 한 특정 취약성 검색 사용 안 함
+
+Azure Defender에는 Azure Container Registry 및 가상 머신의 이미지를 검색 하는 취약성 스캐너가 포함 되어 있습니다.
+
+검색을 무시 하지 않고 검색을 무시 해야 하는 조직의 경우 필요에 따라 사용 하지 않도록 설정할 수 있습니다. 사용 하지 않도록 설정 된 결과는 보안 점수에 영향을 주지 않거나 원치 않는 노이즈를 생성 합니다.
+
+찾기는 사용 안 함 규칙에서 정의한 조건과 일치 하는 경우 검색 결과 목록에 표시 되지 않습니다.
+
+이 옵션은 다음에 대 한 권장 사항 세부 정보 페이지에서 사용할 수 있습니다.
+
+- **Azure Container Registry 이미지의 취약성을 수정해야 함**
+- **가상 컴퓨터의 취약성을 재구성 해야 함**
+
+자세한 내용은 [컨테이너 이미지에 대 한 특정 검색을 사용 하지 않도록 설정](defender-for-container-registries-usage.md#disable-specific-findings-preview) 및 [가상 컴퓨터에 대 한 특정 검색 사용 안 함](remediate-vulnerability-findings-vm.md#disable-specific-findings-preview)을 확인 하세요.
+
+
+### <a name="exempt-a-resource-from-a-recommendation"></a>권장 사항에서 리소스 제외
+
+경우에 따라 특정 권장 사항과 관련 하 여 리소스가 비정상으로 표시 되 고, 그렇지 않은 경우에도 보안 점수가 줄어듭니다. Security Center에서 추적 하지 않는 프로세스에 의해 재구성 되었을 수 있습니다. 또는 조직에서 특정 리소스에 대 한 위험을 수락 하기로 결정 했을 수도 있습니다. 
+
+이러한 경우 예외 규칙을 만들고 리소스를 나중에 비정상 리소스 사이에 나열 되지 않도록 할 수 있습니다. 이러한 규칙에는 아래에 설명 된 대로 문서화 된 근거 포함 될 수 있습니다.
+
+[권장 사항 및 보안 점수에서 리소스 제외](exempt-resource.md)에 대해 자세히 알아보세요.
+
+
+### <a name="aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience"></a>AWS 및 GCP 커넥터 Security Center 다중 클라우드 환경 제공
+
+클라우드 워크 로드가 일반적으로 여러 클라우드 플랫폼을 사용 하는 경우 클라우드 보안 서비스는 동일한 작업을 수행 해야 합니다.
+
+Azure Security Center는 이제 Azure, Amazon Web Services (AWS) 및 Google Cloud Platform (GCP)에서 워크 로드를 보호 합니다.
+
+AWS 및 GCP 계정을 Security Center에 등록 하면 AWS Security Hub, GCP 보안 명령 및 Azure Security Center를 통합 합니다. 
+
+[AWS 계정에 연결 Azure Security Center 하](quickstart-onboard-aws.md) 고 [gcp 계정을 Azure Security Center에 연결](quickstart-onboard-gcp.md)에서 자세히 알아보세요.
+
+
+### <a name="kubernetes-workload-protection-recommendation-bundle"></a>Kubernetes 워크 로드 보호 권장 번들
+
+Kubernetes 작업은 기본적으로 보안을 유지 하기 위해 Kubernetes 허용 제어를 사용 하는 적용 옵션을 포함 하 여 Kubernetes 수준 강화 권장 사항을 추가 Security Center 합니다.
+
+AKS 클러스터에 Kubernetes에 대 한 Azure Policy 추가 기능을 설치한 경우 Kubernetes API 서버에 대 한 모든 요청은 클러스터에 유지 되기 전에 미리 정의 된 모범 사례 집합에 대해 모니터링 됩니다. 그런 다음 모범 사례를 적용 하 고 향후 작업을 위해이를 요구 하도록를 구성할 수 있습니다.
+
+예를 들어, 권한 있는 컨테이너를 만들지 않아야 하 고 이후의 모든 요청이 차단 되도록 할 수 있습니다.
+
+[Kubernetes 허용 제어를 사용 하 여 워크 로드 보호 모범 사례](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)에서 자세히 알아보세요.
+
+
+### <a name="iot-threat-protection-enhancements-in-azure-defender-for-iot"></a>IoT 용 Azure Defender의 IoT 위협 방지 기능 향상
+
+IoT 용 Azure Defender는 CyberX 에이전트 없는 기술을 포함 하 여 더 많은 위협 방지 기능을 제공 합니다. 여기에는 제조, BMS (건물 관리 시스템), 생명 과학, 에너지 및 수상 유틸리티, 석유 & 가스 및 물류와 같은 OT (운영 기술) 환경에서 사용 되는 관리 되지 않는 brownfield 장치에 대 한 보안 보호가 제공 됩니다.
+
+[IoT 용 Azure Defender 소개](defender-for-iot-introduction.md)에서 자세히 알아보세요.
+
 
 ### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>이제 취약점 평가 결과를 연속 내보내기에서 사용할 수 있습니다.
 
@@ -55,7 +185,7 @@ Security Center의 통합 취약성 평가 도구는 ' 부모 ' 권장 사항 �
 관련 페이지:
 
 - [Azure virtual machines에 대 한 Security Center의 통합 취약성 평가 솔루션](deploy-vulnerability-assessment-vm.md)
-- [Azure Container Registry 이미지에 대 한 Security Center의 통합 취약성 평가 솔루션](monitor-container-security.md)
+- [Azure Container Registry 이미지에 대 한 Security Center의 통합 취약성 평가 솔루션](defender-for-container-registries-usage.md)
 - [연속 내보내기](continuous-export.md)
 
 ### <a name="prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources"></a>새 리소스를 만들 때 권장 사항을 적용 하 여 보안 구성을 방지 합니다.
@@ -182,7 +312,7 @@ Security Center Vm을 검사 하 여 취약성 평가 솔루션을 실행 중인
 
 |통합 권장 사항|변경 내용 설명|
 |----|:----|
-|**가상 머신에서 취약점 평가 솔루션을 사용 하도록 설정 해야 합니다.**|는 다음과 같은 두 가지 권장 사항을 대체 합니다.<br> **•** 가상 머신에서 기본 제공 취약점 평가 솔루션을 사용 하도록 설정 (Qualys (현재 사용 되지 않음) (표준 계층에 포함 됨)<br> **•** 취약성 평가 솔루션을 가상 머신에 설치 해야 합니다 (현재 사용 되지 않음) (표준 및 무료 계층).|
+|**취약성 평가 솔루션을 가상 머신에서 사용하도록 설정해야 함**|는 다음과 같은 두 가지 권장 사항을 대체 합니다.<br> **•** 가상 머신에서 기본 제공 취약점 평가 솔루션을 사용 하도록 설정 (Qualys (현재 사용 되지 않음) (표준 계층에 포함 됨)<br> **•** 취약성 평가 솔루션을 가상 머신에 설치 해야 합니다 (현재 사용 되지 않음) (표준 및 무료 계층).|
 |**가상 컴퓨터의 취약성을 재구성 해야 함**|는 다음과 같은 두 가지 권장 사항을 대체 합니다.<br>**•** 가상 머신에서 발견 된 취약점 해결 (Qualys) (현재는 사용 되지 않음)<br>**•** 취약성 평가 솔루션 (현재는 사용 되지 않음)으로 취약성을 재구성 해야 합니다.|
 |||
 
@@ -196,7 +326,7 @@ Security Center Vm을 검사 하 여 취약성 평가 솔루션을 실행 중인
 
 ##### <a name="before-august-2020"></a>8 월 2020 일 전
 
-|권장|범위|
+|권장|Scope|
 |----|:----|
 |**가상 머신에서 기본 제공 취약점 평가 솔루션을 사용 하도록 설정 (Qualys 기반)**<br>키: 550e890b-e652-4d22-8274-60b3bdb24c63|기본 제공|
 |**가상 머신에서 발견한 취약성 수정(Qualys 제공)**<br>키: 1195afff-c881-495e-9bc5-1486211ae03f|기본 제공|
@@ -205,7 +335,7 @@ Security Center Vm을 검사 하 여 취약성 평가 솔루션을 실행 중인
 ||||
 
 
-|정책|범위|
+|정책|Scope|
 |----|:----|
 |**가상 머신에서 취약성 평가를 사용하도록 설정해야 함**<br>정책 ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|기본 제공|
 |**취약성 평가 솔루션에서 취약성을 재구성 해야 함**<br>정책 ID: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
@@ -214,13 +344,13 @@ Security Center Vm을 검사 하 여 취약성 평가 솔루션을 실행 중인
 
 ##### <a name="from-august-2020"></a>8 월 2020부터
 
-|권장|범위|
+|권장|Scope|
 |----|:----|
-|**가상 머신에서 취약점 평가 솔루션을 사용 하도록 설정 해야 합니다.**<br>키: ffff0522-1e88-47fc-8382-2a80ba848f5d|기본 제공 + BYOL|
+|**취약성 평가 솔루션을 가상 머신에서 사용하도록 설정해야 함**<br>키: ffff0522-1e88-47fc-8382-2a80ba848f5d|기본 제공 + BYOL|
 |**가상 컴퓨터의 취약성을 재구성 해야 함**<br>키: 1195afff-c881-495e-9bc5-1486211ae03f|기본 제공 + BYOL|
 ||||
 
-|정책|범위|
+|정책|Scope|
 |----|:----|
 |[**가상 컴퓨터에서 취약성 평가를 사용 하도록 설정 해야 합니다.**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>정책 ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |기본 제공 + BYOL|
 ||||
@@ -257,9 +387,9 @@ Kubernetes 작업은 Security Center 기본적으로 보안을 유지 하기 위
 
 이 업데이트에서 확인이 제거 되었으며 이제 ' 사용자 지정 ' Windows 및 Linux 컴퓨터에 취약성 평가 도구를 배포할 수 있습니다. 사용자 지정 이미지는 marketplace 기본값에서 수정한 이미지입니다.
 
-이제 더 많은 컴퓨터에서 통합 취약성 평가 확장 (Qualys 기반)을 배포할 수 있지만, [표준 계층 vm에 통합 취약성 스캐너 배포](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-standard-tier-vms) 에 나열 된 OS를 사용 하는 경우에만 지원을 사용할 수 있습니다.
+이제 더 많은 컴퓨터에서 통합 취약성 평가 확장 (Qualys 기반)을 배포할 수 있지만, [표준 계층 vm에 통합 취약성 스캐너 배포](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-your-vms) 에 나열 된 OS를 사용 하는 경우에만 지원을 사용할 수 있습니다.
 
-[가상 컴퓨터에 대 한 통합 취약성 스캐너](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)에 대해 자세히 알아보세요 (표준 계층에만 해당).
+[가상 컴퓨터에 대 한 통합 취약성 스캐너에 대해 자세히 알아보세요 (Azure Defender 필요)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
 Qualys 또는 Rapid7에서 개인적으로 사용이 허가 된 취약점 평가 솔루션을 사용 하는 방법에 대 한 자세한 내용은 [파트너 취약점 검사 솔루션 배포](deploy-vulnerability-assessment-vm.md)를
 
@@ -268,9 +398,7 @@ Qualys 또는 Rapid7에서 개인적으로 사용이 허가 된 취약점 평가
 
 Azure Storage에 대 한 위협 방지는 Azure Storage 계정에서 잠재적으로 유해한 작업을 검색 합니다. Security Center는 저장소 계정에 대 한 액세스 또는 악용 시도를 감지한 경우 경고를 표시 합니다. 
 
-Blob 컨테이너, 파일 공유 또는 데이터 레이크 저장 되어 있는지에 관계 없이 데이터를 보호할 수 있습니다. 
-
-[Azure Storage에 대 한 위협 방지](threat-protection.md#threat-protection-for-azure-storage-)에 대해 자세히 알아보세요.
+Blob 컨테이너, 파일 공유 또는 데이터 레이크 저장 되어 있는지에 관계 없이 데이터를 보호할 수 있습니다.
 
 
 
@@ -386,13 +514,13 @@ SQL 컴퓨터에 대 한 Azure Security Center의 고급 데이터 보안은 이
 
 Advanced data security는 SQL 컴퓨터에 대 한 취약성 평가 및 고급 위협 방지 기능을 배치 합니다.
 
-설치에는 두 단계가 포함 됩니다.
+설정에는 두 단계가 포함 됩니다.
 
 1. SQL Server의 호스트 컴퓨터에 Log Analytics 에이전트를 배포 하 여 Azure 계정에 대 한 연결을 제공 합니다.
 
 1. Security Center의 가격 책정 및 설정 페이지에서 선택적 번들을 사용 하도록 설정 합니다.
 
-[SQL 컴퓨터의 고급 데이터 보안](security-center-iaas-advanced-data.md)에 대해 자세히 알아보세요.
+[SQL 컴퓨터의 고급 데이터 보안](defender-for-sql-usage.md)에 대해 자세히 알아보세요.
 
 
 
@@ -551,7 +679,7 @@ Security Center에는 VM의 관리 포트를 보호하는 선택적 기능이 �
 
 [Azure Security Center에서 향상된 보안 점수(미리 보기)](secure-score-security-controls.md)의 보안 컨트롤에 대해 자세히 알아보세요.
 
-![권장 사항에 대 한 "컨트롤 그룹화" 토글](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="권장 구성에 대 한 그룹화 방법 컨트롤 설정/해제":::
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>확장된 보안 컨트롤 "보안 모범 사례 구현" 
 

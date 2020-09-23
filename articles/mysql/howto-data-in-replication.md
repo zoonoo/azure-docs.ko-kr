@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 8/7/2020
-ms.openlocfilehash: f8dbdf87eef193540fd5c1bf9d9e7f3794ae46ce
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 8ebb524a5297380fca575ce6849fe4c5f15507cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168221"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903989"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "88168221"
 > Microsoft는 다양 한 inclusionary 환경을 지원 합니다. 이 문서에는 word _슬레이브_에 대 한 참조가 포함 되어 있습니다. [바이어스 없는 통신을 위한 Microsoft 스타일 가이드](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) 는이를 exclusionary 단어로 인식 합니다. 이 문서는 현재 소프트웨어에 표시 되는 단어 이므로 일관성을 위해 사용 됩니다. 소프트웨어를 업데이트 하 여 단어를 제거 하면이 문서는 맞춤으로 업데이트 됩니다.
 >
 
-Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 데이터 복제](concepts-data-in-replication.md) 는 master MySQL server 온-프레미스, vm (가상 머신) 또는 클라우드 데이터베이스 서비스에서 데이터를 동기화 합니다. 내부 데이터 복제는 MySQL에 네이티브인 이진 로그(binlog) 파일 위치 기반 복제를 기반으로 합니다. binlog 복제에 대한 자세히 알려면 [MySQL binlog 복제 개요](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)를 참조합니다.
+Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 데이터 복제](concepts-data-in-replication.md)  는 master MySQL server 온-프레미스, vm (가상 머신) 또는 클라우드 데이터베이스 서비스에서 데이터를 동기화 합니다. 내부 데이터 복제는 MySQL에 네이티브인 이진 로그(binlog) 파일 위치 기반 복제를 기반으로 합니다. binlog 복제에 대한 자세히 알려면 [MySQL binlog 복제 개요](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html)를 참조합니다.
 
 이 문서의 단계를 수행 하기 전에 데이터 복제의 [제한 사항 및 요구 사항을](concepts-data-in-replication.md#limitations-and-considerations) 검토 합니다.
 
@@ -101,19 +101,19 @@ Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 �
    GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
    ```
 
-   **MySQL Workbench**
+   **MySQL 워크 벤치**
 
    MySQL Workbench에서 복제 역할을 만들려면 **관리** 패널에서 **사용자 및 권한** 패널을 엽니다. 그런 다음, **계정 추가**를 클릭합니다. 
  
-   ![사용자 및 권한](./media/howto-data-in-replication/users_privileges.png)
+   :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="사용자 및 권한":::
 
    **로그인 이름** 필드에 사용자 이름을 입력합니다. 
 
-   ![사용자 동기화](./media/howto-data-in-replication/syncuser.png)
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="사용자 동기화":::
  
    **관리 역할** 패널을 클릭하고 **전역 권한** 목록에서 **복제 슬레이브**를 선택합니다. 그런 다음, **적용** 을 클릭하여 복제 역할을 만듭니다.
 
-   ![복제 슬레이브](./media/howto-data-in-replication/replicationslave.png)
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="복제 슬레이브":::
 
 1. 마스터 서버를 읽기 전용 모드로 설정
 
@@ -133,7 +133,7 @@ Azure Database for MySQL 서비스에서 복제본을 만들기 위해 [입력 �
    ```
    결과는 다음과 같아야 합니다. 이후 단계에서 사용되므로 이진 파일 이름을 적어 두세요.
 
-   ![마스터 상태 결과](./media/howto-data-in-replication/masterstatus.png)
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="마스터 상태 결과":::
  
 ## <a name="dump-and-restore-master-server"></a>마스터 서버 덤프 및 복원
 

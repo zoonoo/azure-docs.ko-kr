@@ -1,30 +1,30 @@
 ---
-title: 디자이너용 파이프라인 및 데이터 세트 예제(미리 보기)
+title: 디자이너의 파이프라인 및 데이터 세트 예제
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 디자이너에서 샘플을 사용하여 기계 학습 파이프라인을 신속하게 시작합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
-ms.date: 03/29/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.custom: designer
-ms.openlocfilehash: c4fa5a2554f10a720c0f2241e17514e798cf7f4c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 15393a0e618c14fbaff46a51a300284d8afb4b77
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812940"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889748"
 ---
-# <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너용 파이프라인 및 데이터 세트 예제(미리 보기)
+# <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너의 파이프라인 및 데이터 세트 예제
 
 Azure Machine Learning 디자이너에서 기본 제공되는 예제를 사용하여 고유한 기계 학습 파이프라인 빌드를 신속하게 시작합니다. Azure Machine Learning 디자이너 [GitHub 리포지토리](https://github.com/Azure/MachineLearningDesigner)는 몇 가지 일반적인 기계 학습 시나리오를 이해하는 데 도움이 되는 자세한 설명서를 포함합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 Azure 구독이 아직 없는 경우 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
-* Enterprise SKU를 사용하는 Azure Machine Learning 작업 영역
+* Azure 구독 Azure 구독이 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
+* Azure Machine Learning 작업 영역 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
@@ -67,8 +67,8 @@ Azure Machine Learning 디자이너에서 기본 제공되는 예제를 사용�
 
 | 샘플 제목 | Description | 
 | --- | --- |
-| [샘플 1: 회귀 - 자동차 가격 예측(기본)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | 선형 회귀를 사용하여 자동차 가격을 예측합니다. |
-| [샘플 2: 회귀 - 자동차 가격 예측(고급)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | 의사 결정 포리스트와 향상된 의사 결정 트리 회귀 변수를 사용하여 자동차 가격을 예측합니다. 모델을 비교하여 가장 적합한 알고리즘을 찾습니다.
+| [회귀 - 자동차 가격 예측(기본)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | 선형 회귀를 사용하여 자동차 가격을 예측합니다. |
+| [회귀 - 자동차 가격 예측(고급)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | 의사 결정 포리스트와 향상된 의사 결정 트리 회귀 변수를 사용하여 자동차 가격을 예측합니다. 모델을 비교하여 가장 적합한 알고리즘을 찾습니다.
 
 ## <a name="classification"></a>분류
 
@@ -76,11 +76,19 @@ Azure Machine Learning 디자이너에서 기본 제공되는 예제를 사용�
 
 | 샘플 제목 | Description | 
 | --- | --- |
-| [샘플 3: 기능 선택이 포함된 이진 분류 - 수입 예측](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | 2클래스 향상된 의사 결정 트리를 사용하여 수입을 높음 또는 낮음으로 예측합니다. 피어슨 상관 관계를 사용하여 기능을 선택합니다.
-| [샘플 4: 사용자 지정 Python 스크립트를 사용하는 이진 분류 - 신용 위험 예측](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | 신용 애플리케이션을 위험 수준 높음 또는 위험 수준 낮음으로 분류합니다. Python 스크립트 실행 모듈을 사용하여 데이터에 가중치를 부여합니다.
-| [샘플 5: 이진 분류 - 고객 관계 예측](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | 2클래스 향상된 의사 결정 트리를 사용하여 고객 이탈을 예측합니다. SMOTE를 사용하여 편향 데이터를 샘플링합니다.
-| [샘플 7: 텍스트 분류 - Wikipedia SP 500 데이터 세트](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | 다중 클래스 로지스틱 회귀를 사용하여 Wikipedia 문서의 회사 유형을 분류합니다. |
-| 샘플 12: 다중 클래스 분류 - 문자 인식 | 작성된 문자를 분류하는 이진 분류자의 앙상블을 만듭니다. |
+| [기능 선택을 통한 이진 분류 - 수입 예측](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | 2클래스 향상된 의사 결정 트리를 사용하여 수입을 높음 또는 낮음으로 예측합니다. 피어슨 상관 관계를 사용하여 기능을 선택합니다.
+| [사용자 지정 Python 스크립트를 통한 이진 분류 - 신용 위험 예측](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | 신용 애플리케이션을 위험 수준 높음 또는 위험 수준 낮음으로 분류합니다. Python 스크립트 실행 모듈을 사용하여 데이터에 가중치를 부여합니다.
+| [이진 분류 - 고객 관계 예측](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | 2클래스 향상된 의사 결정 트리를 사용하여 고객 이탈을 예측합니다. SMOTE를 사용하여 편향 데이터를 샘플링합니다.
+| [텍스트 분류 - Wikipedia SP 500 데이터 세트](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | 다중 클래스 로지스틱 회귀를 사용하여 Wikipedia 문서의 회사 유형을 분류합니다. |
+| 다중 클래스 분류 - 문자 인식 | 작성된 문자를 분류하는 이진 분류자의 앙상블을 만듭니다. |
+
+## <a name="computer-vision"></a>Computer Vision
+
+기본 제공 컴퓨터 비전 예제를 살펴보세요. 샘플을 열고 모듈 주석을 대신 확인하여 설명서 링크 없이 샘플에 대해 자세히 알아볼 수 있습니다.
+
+| 샘플 제목 | Description | 
+| --- | --- |
+| 광범위한 심층 분석 기반 추천 - 식당 등급 예측 | 식당/사용자 특성 및 등급에서 식당 추천 엔진을 빌드합니다.|
 
 ## <a name="recommender"></a>추천
 
@@ -88,7 +96,7 @@ Azure Machine Learning 디자이너에서 기본 제공되는 예제를 사용�
 
 | 샘플 제목 | Description | 
 | --- | --- |
-| 샘플 10: 권장 사항 - 영화 등급 트윗 | 영화 제목 및 등급에서 영화 추천 엔진을 빌드합니다. |
+| DenseNet을 통한 이미지 분류 | 컴퓨터 비전 모듈을 통해 PyTorch DenseNet을 기반으로 하여 이미지 분류 모델을 빌드합니다.| 
 
 ## <a name="utility"></a>유틸리티
 
@@ -96,10 +104,11 @@ Azure Machine Learning 디자이너에서 기본 제공되는 예제를 사용�
 
 | 샘플 제목 | Description | 
 | --- | --- |
-| [샘플 6: 사용자 지정 R 스크립트 사용 - 비행 지연 예측](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) |
-| 샘플 8: 이진 분류자 교차 유효성 검사 - 성인 수입 예측 | 교차 유효성 검사를 사용하여 성인 수입에 대한 이진 분류자를 빌드합니다.
-| 샘플 9: 순열 기능 중요도 | 순열 기능 중요도를 사용하여 테스트 데이터 세트의 중요도 점수를 계산합니다. 
-| 샘플 11: 이진 분류자 매개 변수 튜닝 - 성인 수입 예측 | 모델 하이퍼 매개 변수 튜닝을 사용하여 이진 분류자를 빌드하기 위한 최적의 하이퍼 매개 변수를 찾습니다. |
+| Vowpal Wabbit 모델을 통한 이진 분류 - 성인 수입 예측 | Vowpal Wabbit은 온라인, 해싱, allreduce, 감소, learning2search, 활성 및 대화형 학습과 같은 기술을 사용하여 기계 학습의 경계를 넓히고 있는 기계 학습 시스템입니다. 이 샘플에서는 Vowpal Wabbit 모델을 통해 이진 분류 모델을 빌드하는 방법을 보여 줍니다. 
+| [사용자 지정 R 스크립트 사용 - 항공편 지연 예측](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) | 사용자 지정 R 스크립트를 통해 예약된 승객 항공편이 15분 넘게 지연되는지 여부를 예측합니다.
+| 이진 분류자 교차 유효성 검사 - 성인 수입 예측 | 교차 유효성 검사를 사용하여 성인 수입에 대한 이진 분류자를 빌드합니다.
+| 순열 기능 중요도 | 순열 기능 중요도를 사용하여 테스트 데이터 세트의 중요도 점수를 계산합니다. 
+| 이진 분류자 매개 변수 튜닝 - 성인 수입 예측 | 모델 하이퍼 매개 변수 튜닝을 사용하여 이진 분류자를 빌드하기 위한 최적의 하이퍼 매개 변수를 찾습니다. |
 
 ## <a name="datasets"></a>데이터 세트
 
@@ -129,5 +138,5 @@ Azure Machine Learning 디자이너에서 새 파이프라인을 만들 때 다�
 
 ## <a name="next-steps"></a>다음 단계
 
-다음을 사용하여 예측 분석 및 기계 학습의 기본 사항에 대해 알아봅니다. [자습서: 디자이너를 사용하여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)을 참조하세요.
+[자습서: 디자이너를 사용하여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)을 통해 예측 분석 및 기계 학습의 기본 사항을 알아봅니다.
 

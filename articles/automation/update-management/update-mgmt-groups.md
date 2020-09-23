@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20e6d26808964c8e697c694bd796af2851e7ca48
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 61339a22fc3823325ff5356112c2df8a800010a0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450551"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985199"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>업데이트 관리에서 동적 그룹 사용
 
@@ -45,7 +45,7 @@ Azure 머신에 대한 동적 그룹 쿼리를 정의할 때 다음 항목을 �
 
 Azure가 아닌 머신에 대한 동적 그룹은 컴퓨터 그룹이라고도 하는 저장된 검색을 사용합니다. 저장된 검색을 만드는 방법에 대한 자세한 내용은 [컴퓨터 그룹 만들기](../../azure-monitor/platform/computer-groups.md#creating-a-computer-group)를 참조하세요. 저장된 검색을 만든 후에는 Azure Portal의 **업데이트 관리**에 있는 저장된 검색 목록에서 선택할 수 있습니다. 저장된 검색의 컴퓨터를 미리 보려면 **미리 보기**를 클릭합니다.
 
-![그룹 선택](./media/update-mgmt-groups/select-groups-2.png)
+![스크린샷-비 Azure (미리 보기)에 대 한 그룹 선택 페이지 및 오른쪽의 미리 보기 창을 보여 줍니다.](./media/update-mgmt-groups/select-groups-2.png)
 
 ## <a name="next-steps"></a>다음 단계
 

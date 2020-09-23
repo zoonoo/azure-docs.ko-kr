@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 57288d49fdfa193e9ebebe5f2ce4d24327997980
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: af3513c4a4f3b3187e85c65de51ad2e6e2d7279c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392479"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983172"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Azure Portal을 사용하여 로컬 네트워크 게이트웨이 설정 수정
 
@@ -27,18 +27,63 @@ ms.locfileid: "89392479"
 >
 >
 
+## <a name="local-network-gateway-configuration"></a><a name="configure-lng"></a>로컬 네트워크 게이트웨이 구성
+
+아래 스크린샷에서는 공용 IP 주소 끝점을 사용 하 여 로컬 네트워크 게이트웨이 리소스의 **구성** 페이지를 보여 줍니다.
+
+:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/ip-address.png" alt-text="로컬 네트워크 게이트웨이-IP 주소 구성":::
+
+FQDN 끝점이 있는 동일한 구성 페이지입니다.
+
+:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/fqdn.png" alt-text="로컬 네트워크 게이트웨이 구성-FQDN":::
+
+## <a name="modify-the-gateway-ip-address"></a><a name="ip"></a>게이트웨이 IP 주소 수정
+
+연결하려는 VPN 디바이스의 공용 IP 주소가 변경된 경우 해당 변경 내용을 반영하도록 로컬 네트워크 게이트웨이를 수정해야 합니다.
+
+1. 로컬 네트워크 게이트웨이 리소스의 **설정** 섹션에서 **구성**을 클릭합니다.
+2. **IP 주소** 상자에서 IP 주소를 수정합니다.
+3. **저장**을 클릭하여 설정을 저장합니다.
+
+## <a name="modify-the-gateway-fqdn"></a><a name="fqdn"></a>게이트웨이 FQDN 수정
+
+연결 하려는 VPN 장치가 FQDN (정규화 된 도메인 이름)을 변경한 경우 해당 변경 내용을 반영 하도록 로컬 네트워크 게이트웨이를 수정 해야 합니다.
+
+1. 로컬 네트워크 게이트웨이 리소스의 **설정** 섹션에서 **구성**을 클릭합니다.
+2. **FQDN** 상자에서 도메인 이름을 수정 합니다.
+3. **저장**을 클릭하여 설정을 저장합니다.
+
+> ! 두고 FQDN 끝점과 IP 주소 끝점 사이에는 로컬 네트워크 게이트웨이를 변경할 수 없습니다. 이 로컬 네트워크 게이트웨이와 연결 된 모든 연결을 삭제 하 고 새 엔드포인트 (IP 주소 또는 FQDN)를 사용 하 여 새 연결을 만든 다음 연결을 다시 만들어야 합니다.
 
 ## <a name="modify-ip-address-prefixes"></a><a name="ipaddprefix"></a>IP 주소 접두사 수정
 
-IP 주소 접두사를 수정하는 경우 수행하는 단계는 로컬 네트워크 게이트웨이에 에 연결이 있는지 여부에 따라 달라집니다.
+### <a name="to-add-additional-address-prefixes"></a>추가 주소 접두사를 추가하려면:
 
-[!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
+1. 로컬 네트워크 게이트웨이 리소스의 **설정** 섹션에서 **구성**을 클릭합니다.
+2. *추가 주소 범위 추가* 상자에 IP 주소 공간을 추가합니다.
+3. **Save** 를 클릭하여 설정을 저장합니다.
 
-## <a name="modify-the-gateway-ip-address"></a><a name="gwip"></a>게이트웨이 IP 주소 수정
+### <a name="to-remove-address-prefixes"></a>주소 접두사를 제거하려면:
 
-연결하려는 VPN 디바이스의 공용 IP 주소가 변경된 경우 해당 변경 내용을 반영하도록 로컬 네트워크 게이트웨이를 수정해야 합니다. 공용 IP 주소를 변경하는 경우 수행하는 단계는 로컬 네트워크 게이트웨이에 에 연결이 있는지 여부에 따라 달라집니다.
+1. 로컬 네트워크 게이트웨이 리소스의 **설정** 섹션에서 **구성**을 클릭합니다.
+2. 제거하려는 접두사를 포함하는 줄에서 **‘...’** 를 클릭합니다.
+3. **제거**를 클릭합니다.
+4. **Save** 를 클릭하여 설정을 저장합니다.
 
-[!INCLUDE [modify gateway IP](../../includes/vpn-gateway-modify-lng-gateway-ip-portal-include.md)]
+## <a name="modify-bgp-settings"></a><a name="bgp"></a>BGP 설정 수정
+
+### <a name="to-add-or-update-bgp-settings"></a>BGP 설정을 추가 하거나 업데이트 하려면:
+
+1. 로컬 네트워크 게이트웨이 리소스의 **설정** 섹션에서 **구성**을 클릭합니다.
+2. 이 로컬 네트워크 게이트웨이에 대 한 BGP 구성을 표시 하거나 업데이트 하려면 **"bgp 설정 구성"** 을 선택 합니다.
+3. 해당 필드에 자치 시스템 번호 또는 BGP 피어 IP 주소를 추가 하거나 업데이트 합니다.
+4. **Save** 를 클릭하여 설정을 저장합니다.
+
+### <a name="to-remove-bgp-settings"></a>BGP 설정을 제거 하려면:
+
+1. 로컬 네트워크 게이트웨이 리소스의 **설정** 섹션에서 **구성**을 클릭합니다.
+2. **"Bgp 설정 구성"** 을 선택 취소 하 여 기존 BGP ASN 및 BGP 피어 IP 주소를 제거 합니다.
+3. **Save** 를 클릭하여 설정을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 8deb3d81895629e817aeb9dbc1eb6520e1fb7aad
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747523"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967507"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -339,7 +339,7 @@ Azure PowerShell에서 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az
  - 애플리케이션 게이트웨이 또는 Load Balancer와 대화하는 서브넷을 알고 있음. 예기치 않은 대화가 발견되면 구성을 수정할 수 있습니다.
  - 불량 네트워크가 애플리케이션 게이트웨이 또는 Load Balancer와 대화하는 경우 불량 네트워크를 차단하도록 NSG 규칙을 구성하여 수정할 수 있습니다. 
 
-    ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![스크린샷은 흐름과 관련 하 여 응용 프로그램 게이트웨이 서브넷에 트래픽이 분산 된 서브넷 토폴로지를 보여 줍니다.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>인터넷에서 트래픽을 수신하는 포트 및 가상 머신 보기
 
