@@ -5,12 +5,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 description: Power Azure Dev Spaces 프로세스를 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 48bde5f3cc6f397d51a31f80f41ab299ba8866ee
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 81408ed4bbe5322538d893b29c7397104c5b0844
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212539"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981267"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Azure Dev Spaces의 작동 원리
 
@@ -22,9 +22,9 @@ Azure Dev Spaces는 Kubernetes 응용 프로그램을 신속 하 게 반복 하 
 
 Azure Dev Spaces AKS 클러스터의 컨텍스트에서 Kubernetes 응용 프로그램을 개발, 테스트 및 반복 하는 데 드는 노력이 줄어듭니다. 이러한 노력을 줄이면 개발자는 응용 프로그램의 비즈니스 논리에 집중 하 고 Kubernetes에서 실행 되도록 서비스를 구성 하지 않을 수 있습니다.
 
-### <a name="local-process-with-kubernetes"></a>Kubernetes를 사용한 로컬 프로세스
+### <a name="bridge-to-kubernetes"></a>Kubernetes에 연결
 
-Kubernetes를 사용 하는 로컬 프로세스를 사용 하면 개발 컴퓨터를 Kubernetes 클러스터에 연결 하 여 클러스터에서 실행 되는 것 처럼 개발 컴퓨터에서 코드를 실행 하 고 디버그할 수 있습니다. Azure Dev Spaces은 원격 에이전트 역할을 하는 pod를 클러스터에서 실행 하 여 연결 된 클러스터 간에 트래픽을 리디렉션하여 개발 컴퓨터와 클러스터 간에 트래픽을 리디렉션합니다. 이러한 트래픽 리디렉션을 통해 개발 컴퓨터의 코드와 클러스터에서 실행 되는 서비스가 동일한 클러스터에 있는 것 처럼 통신할 수 있습니다. 개발 컴퓨터를 Kubernetes 클러스터에 연결 하는 방법에 대 한 자세한 내용은 [Kubernetes를 사용 하는 로컬 프로세스 작동 방식][how-it-works-local-process-kubernetes]을 참조 하세요.
+Kubernetes에 대 한 연결을 사용 하면 개발 컴퓨터를 Kubernetes 클러스터에 연결 하 여 클러스터에서 실행 되는 것 처럼 개발 컴퓨터에서 코드를 실행 하 고 디버그할 수 있습니다. Kubernetes에 연결 하면 개발 컴퓨터와 클러스터 간에 트래픽을 리디렉션하는 원격 에이전트 역할을 하는 pod를 클러스터에서 실행 하 여 연결 된 클러스터 간에 트래픽을 리디렉션합니다. 이러한 트래픽 리디렉션을 통해 개발 컴퓨터의 코드와 클러스터에서 실행 되는 서비스가 동일한 클러스터에 있는 것 처럼 통신할 수 있습니다. 개발 컴퓨터를 Kubernetes 클러스터에 연결 하는 방법에 대 한 자세한 내용은 [Kubernetes에 연결 하는 방법][how-it-works-bridge-to-kubernetes]을 참조 하세요.
 
 ### <a name="run-your-code-in-aks"></a>AKS에서 코드 실행
 
@@ -47,8 +47,8 @@ Azure Dev Spaces와 함께 GitHub 작업을 사용 하 여 병합 하기 전에 
 AKS 클러스터에 로컬 개발 컴퓨터를 연결 하는 작업을 시작 하려면 [개발 컴퓨터를 AKS 클러스터에 연결][connect]을 참조 하세요.
 
 
-[connect]: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
+[connect]: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+[how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

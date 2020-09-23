@@ -5,12 +5,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 4039a70bf90bc8f4b7932dbf40d8369e9773abf3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321822"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973334"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>IntelliJ 아이디어를 사용 하 여 ARM 템플릿 만들기 및 배포
 
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 이 페이지에서 두 파일을 편집하고 변경 내용을 Azure에 배포할 수 있습니다. 여기서는 매개 변수 파일의 **storageAccountType** 값을 `Standard_LRS`에서 `Standard_GRS`로 수정합니다. 그런 다음, 아래쪽 **배포 업데이트**를 클릭하고 업데이트를 확인합니다.
 
-    ![Resource Manager 템플릿 - 배포 편집](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![스크린샷 업데이트 배포 프롬프트가 표시 된 리소스 관리자 템플릿을 보여 줍니다.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. 업데이트 배포가 완료된 후에는 포털에서 만들어진 스토리지 계정이 `Standard_GRS`로 변경되었는지 확인할 수 있습니다.
 

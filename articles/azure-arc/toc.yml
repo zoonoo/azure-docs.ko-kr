@@ -8,3 +8,7 @@
   href: ./servers/overview.md
 - name: Arc 지원 Kubernetes >
   href: ./kubernetes/overview.md
+- name: Arc 지원 데이터 서비스(미리 보기) >
+  href: ./data/overview.md
+- name: Arc 지원 SQL Server(미리 보기) >
+  href: 'https://docs.microsoft.com/sql/sql-server/azure-arc/overview'

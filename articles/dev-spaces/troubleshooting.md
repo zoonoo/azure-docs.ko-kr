@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용하도록 설정하고 사용할 때 발생하는 일반적인 문제를 해결하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: e26f066294cb0a6a48c5a3299213206fe4226ad0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d697a11f3087c31a49d9b88e99b18bab686a2b59
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210825"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981071"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -27,14 +27,6 @@ Visual Studio의 경우 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 환경 변�
 CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자세한 정보를 출력할 수 있습니다. `%TEMP%\Azure Dev Spaces`에서 자세한 로그를 찾아볼 수도 있습니다. Mac의 경우 터미널 창에서 `echo $TMPDIR`을 실행하면 *‘TEMP’* 디렉터리를 찾을 수 있습니다. Linux 컴퓨터에서 *‘TEMP’* 디렉터리는 일반적으로 `/tmp`입니다. 또한 [Azure CLI 구성 파일](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables)에서 로깅을 사용하도록 설정했는지 확인합니다.
 
 또한 Azure Dev Spaces는 단일 인스턴스 또는 Pod를 디버그할 때 가장 원활하게 작동합니다. `azds.yaml` 파일에는 Kubernetes가 서비스용으로 실행하는 Pod 수를 나타내는 설정인 *replicaCount*가 포함되어 있습니다. 지정된 서비스용으로 여러 개의 Pod를 실행하도록 애플리케이션을 구성하기 위해 *replicaCount*를 변경하면 디버거는 첫 번째 Pod(사전순으로 나열된 경우)에 연결됩니다. 원래 Pod가 재순환될 때는 디버거가 다른 Pod에 연결되므로 예기치 않은 동작이 발생할 수 있습니다.
-
-## <a name="common-issues-when-using-local-process-with-kubernetes"></a>Kubernetes에서 로컬 프로세스를 사용할 때 발생 하는 일반적인 문제
-
-### <a name="fail-to-restore-original-configuration-of-deployment-on-cluster"></a>클러스터의 원래 배포 구성을 복원 하지 못함
-
-Kubernetes를 사용 하 여 로컬 프로세스를 사용 하는 경우 Kubernetes client를 사용 하는 로컬 프로세스가 갑자기 충돌 하거나 종료 되 면 Kubernetes를 사용 하 여 로컬 프로세스가 리디렉션하는 서비스는 로컬 프로세스와 Kubernetes가 연결 되기 전에 원래 상태로 복원 되지 않을 수 있습니다.
-
-이 문제를 해결 하려면 클러스터에 서비스를 다시 배포 합니다.
 
 ## <a name="common-issues-when-enabling-azure-dev-spaces"></a>Azure Dev Spaces를 사용하는 경우 일반적인 이슈
 
@@ -265,7 +257,7 @@ Service cannot be started.
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>개발 머신에 연결할 때 네트워크 트래픽이 AKS 클러스터로 전달되지 않습니다.
 
-[Azure Dev Spaces를 사용하여 AKS 클러스터를 개발 머신에 연결](https://code.visualstudio.com/docs/containers/local-process-kubernetes)하는 경우 개발 머신과 AKS 클러스터 간에 네트워크 트래픽이 전달되지 않는 이슈가 발생할 수 있습니다.
+[Azure Dev Spaces를 사용하여 AKS 클러스터를 개발 머신에 연결](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes)하는 경우 개발 머신과 AKS 클러스터 간에 네트워크 트래픽이 전달되지 않는 이슈가 발생할 수 있습니다.
 
 개발 머신을 AKS 클러스터에 연결하는 경우 Azure Dev Spaces는 개발 머신의 `hosts` 파일을 수정하여 AKS 클러스터와 개발 머신 간에 네트워크 트래픽을 전달합니다. Azure Dev Spaces는 호스트 이름으로 대체하려는 Kubernetes 서비스의 주소를 사용하여 `hosts`에 항목을 만듭니다. 이 항목은 개발 머신과 AKS 클러스터 간에 네트워크 트래픽을 보내기 위해 포트 전달과 함께 사용됩니다. 개발 머신의 서비스가 바꿀 Kubernetes 서비스의 포트와 충돌하는 경우 Azure Dev Spaces는 Kubernetes 서비스의 네트워크 트래픽을 전달할 수 없습니다. 예를 들어, *Windows BranchCache* 서비스는 일반적으로 *0.0.0.0:80*에 바인딩되므로 모든 로컬 IP의 포트 80에 충돌을 유발합니다.
 

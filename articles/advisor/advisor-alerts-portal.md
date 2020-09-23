@@ -1,36 +1,36 @@
 ---
 title: Azure Portal를 사용 하 여 새 권장 사항에 대 한 Azure Advisor 경고 만들기
-description: 새 권장 사항에 대 한 Azure Advisor 경고 만들기
+description: 새 추천에 대한 Azure Advisor 경고를 만듭니다.
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 0b3984b82cd5265f4940cd88597ccb29d51e1118
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507219"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973663"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Azure Portal를 사용 하 여 새 권장 사항에 대 한 Azure Advisor 경고 만들기 
 
 이 문서에서는 Azure Portal를 사용 하 여 Azure Advisor의 새 권장 사항에 대 한 경고를 설정 하는 방법을 보여 줍니다. 
 
-Azure Advisor에서 리소스 중 하나에 대 한 새로운 권장 사항을 발견할 때마다 이벤트는 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)에 저장 됩니다. 권장 사항 별 경고 생성 환경을 사용 하 여 Azure Advisor에서 이러한 이벤트에 대 한 경고를 설정할 수 있습니다. 구독을 선택 하 고 필요에 따라 리소스 그룹을 선택 하 여 경고를 수신 하려는 리소스를 지정할 수 있습니다. 
+Azure Advisor에서 리소스 중 하나에 대한 새 추천을 검색할 때마다 이벤트가 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)에 저장됩니다. 추천별 경고 만들기 환경을 사용하여 Azure Advisor에서 이러한 이벤트에 대한 경고를 설정할 수 있습니다. 구독을 선택하고 필요에 따라 리소스 그룹을 선택하여 경고를 받도록 하려는 리소스를 지정할 수 있습니다. 
 
-이러한 속성을 사용 하 여 권장 구성 유형을 확인할 수도 있습니다.
+다음 속성을 사용하여 추천 유형을 확인할 수도 있습니다.
 
 * 범주
 * 영향 수준
-* 권장 사항 유형
+* 추천 유형
 
-또한에서 경고를 트리거할 때 수행 되는 작업을 구성할 수 있습니다.  
+다음과 같은 방법으로 경고가 트리거될 때 수행되는 작업을 구성할 수도 있습니다.  
 
-* 기존 작업 그룹을 선택 합니다.
+* 기존 작업 그룹 선택
 * 새 작업 그룹 만들기
 
 작업 그룹에 대해 자세히 알아보려면 [작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조하세요.
 
 > [!NOTE] 
-> Advisor 경고는 현재 고가용성, 성능 및 비용 권장 사항에 대해서만 사용할 수 있습니다. 보안 권장 사항은 지원 되지 않습니다. 
+> Advisor 경고는 현재 고가용성, 성능 및 비용 추천에만 사용할 수 있습니다. 보안 추천은 지원되지 않습니다. 
 
 ## <a name="create-alert-rule"></a>경고 규칙 만들기
 1. **포털**에서 **Azure Advisor**를 선택 합니다.
@@ -63,8 +63,7 @@ Azure Advisor에서 리소스 중 하나에 대 한 새로운 권장 사항을 �
 
 8. 경고 정보 섹션에서 경고에 이름 및 간단한 설명을 제공 합니다. 경고를 사용 하도록 설정 하려면 **만들 때 규칙 사용** 을 **예**로 설정 된 상태로 둡니다. 그런 다음 경고를 저장할 리소스 그룹을 선택 합니다. 권장 구성의 대상 범위에는 영향을 주지 않습니다. 
 
-    ![Azure Advisor 배너](./media/advisor-alerts/create8.png)
-
+    :::image type="content" source="./media/advisor-alerts/create8.png" alt-text="경고 정보 섹션의 스크린샷":::
 
 
 ## <a name="configure-recommendation-alerts-to-use-a-webhook"></a>Webhook를 사용 하도록 권장 구성 경고 구성
@@ -170,7 +169,7 @@ Azure Advisor에서 리소스 중 하나에 대 한 새로운 권장 사항을 �
 }
 ```
 
-어느 스키마에서 나 **eventSource** 를 찾고 `Recommendation` **OperationName** 이 인 경우 Advisor 추천 이벤트를 식별할 수 있습니다 `Microsoft.Advisor/recommendations/available/action` .
+어느 스키마에서 나 **eventSource** 를 찾고 `Recommendation` **OperationName**  이 인 경우 Advisor 추천 이벤트를 식별할 수 있습니다 `Microsoft.Advisor/recommendations/available/action` .
 
 사용할 수 있는 다른 중요 한 필드는 다음과 같습니다. 
 
@@ -188,11 +187,11 @@ Azure Advisor에서 권장 구성 경고를 편집, 삭제 또는 사용 하지 
 
 1. **포털**에서 **Azure Advisor**를 선택 합니다.
 
-    ![Azure Advisor 배너](./media/advisor-alerts/create1.png)
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="선택 Azure Advisor를 표시 하는 Azure Portal 메뉴의 스크린샷":::
 
 2. 왼쪽 메뉴의 **모니터링** 섹션에서 **경고**를 선택 합니다.
 
-    ![Azure Advisor 배너](./media/advisor-alerts/create2.png)
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="선택한 경고를 표시 하는 Azure Portal 메뉴의 스크린샷":::
 
 3. 경고를 편집 하려면 경고 이름을 클릭 하 여 경고를 열고 편집 하려는 필드를 편집 합니다.
 

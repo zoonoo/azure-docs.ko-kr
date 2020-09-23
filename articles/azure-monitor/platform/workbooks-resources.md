@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor 통합 문서 리소스 매개 변수
-description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합 문서를 사용하여 복잡한 보고 간소화
+description: 리소스 매개 변수를 사용 하 여 통합 문서에서 리소스를 선택할 수 있도록 하는 방법을 알아봅니다. 리소스 매개 변수를 사용 하 여 데이터를 가져올 범위를 설정 합니다.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: b5822c1af4f3bc5d9519af93054a01c3cdc82001
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a4d4e095e065e9f505ba1b9b46f0d31fb1783eb2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504994"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972849"
 ---
 # <a name="workbook-resource-parameters"></a>통합 문서 리소스 매개 변수
 
@@ -27,12 +27,12 @@ ms.locfileid: "86504994"
 2. 통합 문서 내의 링크에서 _매개 변수 추가_ 를 선택 합니다.
 3. 파란색 _매개 변수 추가_ 단추를 클릭 합니다.
 4. 새 매개 변수 창에서 enter 키를 누르십시오.
-    1. 매개 변수 이름:`Applications`
-    2. 매개 변수 유형:`Resource picker`
-    3. 필수:`checked`
-    4. 여러 항목을 선택할 수 있습니다.`checked`
-5. 데이터 가져오기:`Workbook Resources`
-6. 리소스 유형만 포함:`Application Insights`
+    1. 매개 변수 이름: `Applications`
+    2. 매개 변수 유형: `Resource picker`
+    3. 필수: `checked`
+    4. 여러 항목을 선택할 수 있습니다. `checked`
+5. 데이터 가져오기: `Workbook Resources`
+6. 리소스 유형만 포함: `Application Insights`
 7. 도구 모음에서 ' 저장 '을 선택 하 여 매개 변수를 만듭니다.
 
 ![통합 문서 리소스를 사용 하 여 리소스 매개 변수의 생성을 보여 주는 이미지](./media/workbooks-resources/resource-create.png)
@@ -42,13 +42,13 @@ ms.locfileid: "86504994"
 2. 통합 문서 내의 링크에서 _매개 변수 추가_ 를 선택 합니다.
 3. 파란색 _매개 변수 추가_ 단추를 클릭 합니다.
 4. 새 매개 변수 창에서 enter 키를 누르십시오.
-    1. 매개 변수 이름:`Applications`
-    2. 매개 변수 유형:`Resource picker`
-    3. 필수:`checked`
-    4. 여러 항목을 선택할 수 있습니다.`checked`
-5. 데이터 가져오기:`Query`
-    1. 쿼리 유형:`Azure Resource Graph`
-    2. 등에`Use default subscriptions`
+    1. 매개 변수 이름: `Applications`
+    2. 매개 변수 유형: `Resource picker`
+    3. 필수: `checked`
+    4. 여러 항목을 선택할 수 있습니다. `checked`
+5. 데이터 가져오기: `Query`
+    1. 쿼리 유형: `Azure Resource Graph`
+    2. 등에 `Use default subscriptions`
     3. 쿼리 컨트롤에서이 코드 조각을 추가 합니다.
     ```kusto
     where type == 'microsoft.insights/components'
@@ -68,11 +68,11 @@ ms.locfileid: "86504994"
 2. 통합 문서 내의 링크에서 _매개 변수 추가_ 를 선택 합니다.
 3. 파란색 _매개 변수 추가_ 단추를 클릭 합니다.
 4. 새 매개 변수 창에서 enter 키를 누르십시오.
-    1. 매개 변수 이름:`Applications`
-    2. 매개 변수 유형:`Resource picker`
-    3. 필수:`checked`
-    4. 여러 항목을 선택할 수 있습니다.`checked`
-5. 데이터 가져오기:`JSON`
+    1. 매개 변수 이름: `Applications`
+    2. 매개 변수 유형: `Resource picker`
+    3. 필수: `checked`
+    4. 여러 항목을 선택할 수 있습니다. `checked`
+5. 데이터 가져오기: `JSON`
     1. 콘텐츠 컨트롤에서이 json 코드 조각을 추가 합니다.
     ```json
     [

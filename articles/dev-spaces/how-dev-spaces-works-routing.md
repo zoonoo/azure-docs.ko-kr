@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Power Azure Dev Spaces 프로세스와 라우팅의 작동 방식에 대해 설명 합니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: abdd8a573b7e120c5494b8878c2eb19813fc9507
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 6987bbaaebe342b571d5b19fe0e37bebd5b8b6e1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213399"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981308"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>라우팅이 Azure Dev Spaces와 작동 하는 방식
 
@@ -64,11 +64,7 @@ HTTP가 아닌 다른 모든 TCP 트래픽은 수신 컨트롤러 및 devspaces 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Dev Spaces 라우팅을 사용 하 여 신속 하 게 반복 하 고 개발 하는 방법에 대 한 몇 가지 예를 보려면 [로컬 프로세스 (Kubernetes 사용][how-it-works-local-process-kubernetes]), [Azure Dev Spaces 작동 하는 원격 디버깅 방법][how-it-works-remote-debugging]및 [GitHub 작업 & Azure Kubernetes Service][pr-flow]를 참조 하세요.
+Azure Dev Spaces 라우팅을 사용 하 여 신속한 반복 및 개발을 제공 하는 방법의 예제를 보려면 [Azure Dev Spaces를 사용 하 여 원격으로 코드를 디버깅 하는 방법][how-it-works-remote-debugging]을 참조 하세요.
 
 
-[helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
-[pr-flow]: how-to/github-actions.md
-[troubleshooting]: troubleshooting.md
