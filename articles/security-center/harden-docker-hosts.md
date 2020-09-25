@@ -7,18 +7,18 @@ ms.date: 9/12/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 25d8d3dee8810311ae25f54c0e51e34bdf918c09
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3f59bae9864e533270b0bfea829f64ccf541a8a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937208"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301434"
 ---
 # <a name="harden-your-docker-hosts"></a>Docker 호스트 강화
 
 Azure Security Center IaaS Linux Vm 또는 Docker 컨테이너를 실행 하는 다른 Linux 컴퓨터에서 호스트 되는 관리 되지 않는 컨테이너를 식별 합니다. Security Center은 이러한 컨테이너의 구성을 지속적으로 평가 합니다. 그런 다음 이러한 항목을 [CIS (Internet Security) Docker 벤치 마크](https://www.cisecurity.org/benchmark/docker/)와 비교 합니다.
 
-Security Center에는 CIS Docker 벤치 마크의 전체 규칙 집합이 포함 되며 컨테이너가 컨트롤을 충족 하지 않는 경우 경고를 표시 합니다. 구성이 잘못 되 면 Security Center에서 보안 권장 사항을 생성 합니다. 권장 사항 **페이지** 를 사용 하 여 권장 사항을 확인 하 고 문제를 해결 합니다. 또한 Docker를 사용 하 여 배포 된 모든 가상 머신을 표시 하는 **컨테이너** 탭에서 권장 사항을 확인할 수 있습니다. 
+Security Center에는 CIS Docker 벤치 마크의 전체 규칙 집합이 포함 되며 컨테이너가 컨트롤을 충족 하지 않는 경우 경고를 표시 합니다. 구성이 잘못 되 면 Security Center에서 보안 권장 사항을 생성 합니다. 권장 사항을 확인 하 고 문제를 해결 하려면 Security Center의 **권장 사항 페이지** 를 사용 합니다.
 
 취약점이 발견 되 면 단일 권장 사항 내에서 그룹화 됩니다.
 
@@ -32,7 +32,7 @@ Security Center에는 CIS Docker 벤치 마크의 전체 규칙 집합이 포함
 |릴리스 상태:|GA(일반 공급)|
 |결정|[서버용 Azure Defender](defender-for-servers-introduction.md) 가 필요 합니다.|
 |필요한 역할 및 사용 권한:|호스트에서 연결 하는 작업 영역에 대 한 **읽기 권한자**|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
 |||
 
 ## <a name="identify-and-remediate-security-vulnerabilities-in-your-docker-configuration"></a>Docker 구성에서 보안 취약점 식별 및 해결

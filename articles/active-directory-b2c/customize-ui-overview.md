@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 09/24/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 84f488863a39307ac7b55d5238fab786084a3614
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486738"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259546"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -34,7 +34,7 @@ ms.locfileid: "87486738"
 [Azure Portal](tutorial-customize-ui.md) 를 사용 하 여 사용자 흐름에 대 한 UI 사용자 지정을 구성할 수 있습니다.
 
 > [!TIP]
-> 배너 로고, 배경 이미지 및 사용자 흐름 페이지의 배경색만 수정 하려면이 문서의 뒷부분에서 설명 하는 [회사 브랜딩 (미리 보기)](#company-branding-preview) 기능을 사용해 볼 수 있습니다.
+> 배너 로고, 배경 이미지 및 사용자 흐름 페이지의 배경색만 수정 하려면이 문서의 뒷부분에 설명 된 [회사 브랜딩](#company-branding) 기능을 사용해 보세요.
 
 ### <a name="custom-policies"></a>사용자 지정 정책
 
@@ -155,16 +155,14 @@ Azure AD B2C [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)�
 | 로컬 계정 등록 | 이메일 주소 또는 사용자 이름을 기준으로 하는 로컬 계정 등록 양식을 포함합니다. 양식은 텍스트 입력 상자, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같은 다른 입력 제어를 포함할 수 있습니다. |
 | 소셜 계정 등록 | Facebook 또는 Google과 같은 소셜 ID 공급자의 기존 계정을 사용하여 등록하는 경우 나타날 수 있습니다. 등록 양식을 사용 하 여 고객 으로부터 추가 정보를 수집 해야 하는 경우에 사용 됩니다. |
 | 통합 등록 또는 로그인 | Facebook, Google 또는 로컬 계정과 같은 소셜 ID 공급자를 사용할 수 있는 고객의 등록과 로그인을 모두 다룹니다. |
-| Multi-factor Authentication | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
-| 오류 | 고객에게 오류 정보를 제공합니다. |
+| Multi-Factor Authentication | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
+| Error | 고객에게 오류 정보를 제공합니다. |
 
-## <a name="company-branding-preview"></a>회사 브랜딩 (미리 보기)
+## <a name="company-branding"></a>회사 브랜딩
 
 Azure Active Directory [회사 브랜딩을](../active-directory/fundamentals/customize-branding.md)사용 하 여 배너 로고, 배경 이미지 및 배경색으로 사용자 흐름 페이지를 사용자 지정할 수 있습니다.
 
 사용자 흐름 페이지를 사용자 지정 하려면 먼저 Azure Active Directory에서 회사 브랜딩을 구성한 다음 Azure AD B2C 사용자 흐름의 페이지 레이아웃에서 사용 하도록 설정 합니다.
-
-[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
 
 ### <a name="configure-company-branding"></a>회사 브랜딩 구성
 
@@ -230,7 +228,7 @@ https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 GitHub의 [B2C](https://github.com/azureadquickstarts/b2c-azureblobstorage-client) 저장소에서 여러 샘플 템플릿 파일을 찾을 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: 373629c86f2d842ad2e02dd2b66739f3963bf7ed
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 6366824b8dc7f63f99ebda2a542d95d3eb1c6146
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064556"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301108"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>RabbitMQ와 Azure Service Bus를 통합 하는 방법
 
@@ -112,7 +112,7 @@ RabbitMQ 관리 인터페이스에서 `Queues` 큐를 선택 하 `azure` 고 패
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="첫 번째 메시지 게시":::
 
-Azure로 돌아가서 큐를 검사 합니다. `Service Bus Explorer`왼쪽 패널에서를 클릭 합니다. 모든 문제가 정상적으로 완료 되 면 이제 큐에 하나의 메시지가 표시 됩니다. Yay, 축 하 합니다!
+Azure로 돌아가서 큐를 검사 합니다. `Service Bus Explorer`왼쪽 패널을 클릭 한 다음 _피킹 (peeking_ ) 단추를 클릭 합니다. 모든 문제가 정상적으로 완료 되 면 이제 큐에 하나의 메시지가 표시 됩니다. Yay, 축 하 합니다!
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Azure Service Bus 큐":::
 
@@ -122,7 +122,7 @@ Azure로 돌아가서 큐를 검사 합니다. `Service Bus Explorer`왼쪽 패�
 
 ## <a name="lets-recap"></a>요약 하겠습니다.
 
-축하합니다. 많은 것을 달성 했습니다. RabbitMQ에서 Azure Service Bus로 메시지를 가져오기 위해 관리 하는 단계를 살펴보겠습니다.
+축하합니다! 많은 것을 달성 했습니다. RabbitMQ에서 Azure Service Bus로 메시지를 가져오기 위해 관리 하는 단계를 살펴보겠습니다.
 
 1. Azure Service Bus 네임 스페이스 만들기
 2. 네임 스페이스에 큐 추가
@@ -136,3 +136,8 @@ Azure로 돌아가서 큐를 검사 합니다. `Service Bus Explorer`왼쪽 패�
 이전 단계를 수행 하 여 Azure 외부의 조직 영역을 통합 했습니다. Shovel 플러그 인을 통해 RabbitMQ에서 Azure Service Bus로 메시지를 배송할 수 있습니다. 이제 신뢰할 수 있는 타사가 Azure 배포에 앱을 연결 하도록 허용할 수 있으므로이는 상당한 이점이 있습니다.
 
 결과적으로 메시징은 연결을 설정 하는 것 이며,이 기술을 사용 하면 새 연결을 열었습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Service Bus](./service-bus-messaging-overview.md)에 대해 자세히 알아보세요.
+- [에서 Amqp 1.0 지원](./service-bus-amqp-overview.md) 에 대해 자세히 알아보세요 Service Bus

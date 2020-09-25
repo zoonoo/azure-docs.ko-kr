@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services를 사용하여 딥 러닝에 초점을 맞춘 랩을 설정 | Microsoft Docs
-description: Linux에서 셸 스크립팅을 학습하도록 랩을 설정하는 방법을 배웁니다.
+description: Azure Lab Services를 사용 하 여 NLP (자연어 처리)의 심층 학습에 초점을 맞춘 랩을 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c5ac93109d24c0d5936c8f271276c02e4e6f6c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01199e76b7b9cb1a6360b5aba010d0cfd8936c23
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443947"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251459"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Azure Lab Services를 사용하여 자연어 처리의 딥 러닝에 초점을 맞춘 랩을 설정
 이 문서는 Azure Lab Services를 사용하여 NLP(자연어 처리)의 딥 러닝에 초점을 맞춘 랩을 설정하는 방법을 안내합니다. NLP(자연어 처리)는 번역, 음성 인식 및 기타 언어 이해 기능을 갖춘 컴퓨터를 가능케하는 AI(인공 지능) 형태입니다.  

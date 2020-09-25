@@ -1,18 +1,18 @@
 ---
 title: Azure 방화벽 정책의 IP 그룹
-description: IP 그룹을 사용 하 여 Azure 방화벽 규칙에 대 한 IP 주소를 그룹화 및 관리할 수 있습니다.
+description: IP 그룹을 사용 하 여 Azure 방화벽 정책 규칙의 IP 주소를 그룹화 및 관리할 수 있습니다.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: 5192ecb31c71364bdf1301b13da0b0742625d44f
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 5b3b3fb5e5440fea888654027f4fbf1a68b34141
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460136"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252428"
 ---
 # <a name="ip-groups-in-azure-firewall-policy"></a>Azure 방화벽 정책의 IP 그룹
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5ff2fe74a0dd5064232fcef3178aec2967ef6812
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5d0835114844069d4ebdc992b872f9be1f0b3ca6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683864"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259223"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Onfido 구성에 대 한 자습서
 
@@ -24,7 +24,7 @@ ms.locfileid: "88683864"
 
 이 샘플에서는 등록 또는 로그인 흐름에 Onfido의 서비스를 연결 하 여 id 확인을 수행 합니다. 사용자가 액세스할 수 있는 제품 및 서비스에 대 한 의사 결정은 Onfido의 결과에 따라 결정 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
@@ -94,7 +94,7 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 1. [저장소 계정에 blob 저장소 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) 설정
 
-2. Ui 폴더의 UI 파일을 blob 컨테이너에 저장 합니다.
+2. Ui [폴더](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) 의 ui 파일을 blob 컨테이너에 저장 합니다.
 
 3. 다음 지침에 따라 만든 저장소 컨테이너에 대 한 CORS 액세스를 허용 합니다.
 
@@ -124,7 +124,7 @@ Onfido에 대 한 자세한 내용은 [ONFIDO API 설명서](https://documentati
 
 #### <a name="replace-the-configuration-values"></a>구성 값 바꾸기
 
-제공 된 사용자 지정 정책에서 다음 자리 표시자를 찾고를 인스턴스의 해당 값으로 바꿉니다.
+제공 된 [사용자 지정 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies)에서 다음 자리 표시자를 찾고를 인스턴스의 해당 값으로 바꿉니다.
 
 | 자리표시자 | 대체할 값 | 예제  |
 |:---------------|:----------------|:-------------------|

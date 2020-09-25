@@ -12,38 +12,28 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: a6cbb574245c7b11d2437693d60fd952becedba3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771862"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257557"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>시나리오: Web API를 호출하는 데스크톱 앱
 
 웹 API를 호출하는 데스크톱 앱을 빌드하는 데 필요한 모든 것을 알아보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="get-started"></a>시작
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+아직 시작 하지 않은 경우 빠른 시작을 완료 하 여 첫 번째 응용 프로그램을 만듭니다.
 
-## <a name="get-started"></a>시작하기
-
-.NET 데스크톱 빠른 시작, UWP(유니버설 Windows 플랫폼) 빠른 시작 또는 macOS 네이티브 앱 빠른 시작에 따라 첫 번째 애플리케이션을 만듭니다.
-
-> [!div class="nextstepaction"]
-> [빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출](./quickstart-v2-windows-desktop.md)
-
-
-> [!div class="nextstepaction"]
-> [빠른 시작: UWP 앱에서 토큰 가져오기 및 Microsoft Graph API 호출](./quickstart-v2-uwp.md)
-
-> [!div class="nextstepaction"]
-> [빠른 시작: macOS 네이티브 앱에서 토큰 가져오기 및 Microsoft Graph API 호출](./quickstart-v2-ios.md)
+- [빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출](./quickstart-v2-windows-desktop.md)
+- [빠른 시작: UWP 앱에서 토큰 가져오기 및 Microsoft Graph API 호출](./quickstart-v2-uwp.md)
+- [빠른 시작: macOS 네이티브 앱에서 토큰 가져오기 및 Microsoft Graph API 호출](./quickstart-v2-ios.md)
 
 ## <a name="overview"></a>개요
 
-데스크톱 애플리케이션을 작성하고, 사용자가 이 애플리케이션에 로그인하여 Microsoft Graph, 다른 Microsoft API 또는 자체 웹 API를 호출하도록 하고자 합니다. 다음과 같은 몇 가지 가능성이 있습니다.
+데스크톱 애플리케이션을 작성하고, 사용자가 이 애플리케이션에 로그인하여 Microsoft Graph, 다른 Microsoft API 또는 자체 웹 API를 호출하도록 하고자 합니다. 여러 옵션이 있습니다.
 
 - 다음과 같은 경우 대화형 토큰 획득을 사용할 수 있습니다.
 
@@ -64,6 +54,10 @@ ms.locfileid: "83771862"
 ## <a name="specifics"></a>특수 적용 사항
 
 데스크톱 애플리케이션에는 몇 가지 특수 적용 사항이 있으며, 애플리케이션이 대화형 인증을 사용하는지 여부에 따라 달라집니다.
+
+## <a name="recommended-reading"></a>추천 자료
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

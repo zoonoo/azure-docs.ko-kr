@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: cccc45f182f3ae826440df8bc163080b82226c9f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172087"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269763"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Azure Logic Apps 커넥터에서 만든 연결 차단
 
@@ -19,7 +19,7 @@ ms.locfileid: "87172087"
 
 이 항목에서는 Azure Portal를 사용 하 여 특정 연결을 차단 하는 정책을 설정 하는 방법을 보여 주지만 Azure REST API, Azure PowerShell, Azure CLI 및 Azure Resource Manager 템플릿을 통해 다른 방법으로 정책 정의를 만들 수 있습니다. 자세한 내용은 [자습서: 규정 준수를 적용 하는 정책 만들기 및 관리](../governance/policy/tutorials/create-and-manage.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 구독이 없는 경우 시작 하기 전에 [무료 Azure 계정을 만듭니다](https://azure.microsoft.com/free/) .
 
@@ -121,12 +121,12 @@ ms.locfileid: "87172087"
 
 1. **정책 정의**에서 예제에 설명 된 속성에 따라 정책 정의에 대 한 정보를 제공 합니다.
 
-   ![정책 정의 속성](./media/block-connections-connectors/policy-definition-create-connections-1.png)
+   !["정책 정의" 속성을 보여 주는 스크린샷](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **정의 위치** | 예 | <*Azure-subscription-name*> | 정책 정의에 사용할 Azure 구독입니다. <p><p>1. 구독을 찾으려면 줄임표 (**...**) 단추를 선택 합니다. <br>2. **구독** 목록에서 구독을 찾아 선택 합니다. <br>3. 완료 되 면 **선택**을 선택 합니다. |
-   | **Name** | 예 | <*정책-정의-이름*> | 정책 정의에 사용할 이름입니다. |
+   | **이름** | 예 | <*정책-정의-이름*> | 정책 정의에 사용할 이름입니다. |
    | **설명** | 예 | <*정책-정의-이름*> | 정책 정의에 대 한 설명입니다. |
    | **범주** | 예 | **논리 앱** | 정책 정의에 대 한 기존 범주나 새 범주의 이름 |
    | **정책 적용** | 예 | **Enabled** | 이 설정은 작업을 저장할 때 정책 정의를 사용할지 여부를 지정 합니다. |
@@ -150,12 +150,12 @@ ms.locfileid: "87172087"
     }
     ```
 
-   | 속성 | Value | Description |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
    | `mode` | `All` | 정책이 평가 하는 리소스 종류를 결정 하는 모드입니다. <p><p>이 시나리오에서는 `mode` `All` 정책을 Azure 리소스 그룹, 구독 및 모든 리소스 유형에 적용 하는로 설정 합니다. <p><p>자세한 내용은 [정책 정의 구조-모드](../governance/policy/concepts/definition-structure.md#mode)를 참조 하세요. |
    | `if` | `{condition-to-evaluate}` | 정책 규칙을 적용할 시기를 결정 하는 조건입니다. <p><p>이 시나리오에서는 `{condition-to-evaluate}` `api.id` `Microsoft.Web/connections/api.id` `*managedApis/{connector-name}` 와일드 카드 (*) 값을 지정 하는에 일치 하는 값이 있는지 여부를 확인 합니다. <p><p>자세한 내용은 [정책 정의 구조-정책 규칙](../governance/policy/concepts/definition-structure.md#policy-rule)을 참조 하세요. |
    | `field` | `Microsoft.Web/connections/api.id` | `field`조건과 비교할 값입니다. <p><p>이 시나리오에서는 `field` [*별칭*](../governance/policy/concepts/definition-structure.md#aliases)을 사용 하 여 `Microsoft.Web/connections/api.id` 커넥터 속성의 값에 액세스 `api.id` 합니다. |
-   | `like` | `*managedApis/{connector-name}` | 값을 비교 하는 데 사용할 논리 연산자 및 값입니다. `field` <p><p>이 시나리오에서 `like` 연산자와 와일드 카드 (*) 문자는 모두 지역에 관계 없이 작동 하는지 확인 하 고, 문자열은 `*managedApis/{connector-name}` 차단 하려는 커넥터의 ID와 일치 하는 값입니다 `{connector-name}` . <p><p>예를 들어 소셜 미디어 플랫폼 또는 데이터베이스에 대 한 연결 만들기를 차단 하려는 경우를 가정해 보겠습니다. <p><p>Twitter`twitter` <br>Instagram`instagram` <br>Facebook`facebook` <br>Pinterest`pinterest` <br>-SQL Server 또는 Azure SQL:`sql` <p><p>이러한 커넥터 Id를 찾으려면이 항목의 앞부분에 나오는 [커넥터 참조 ID 찾기](#connector-reference-ID) 를 참조 하세요. |
+   | `like` | `*managedApis/{connector-name}` | 값을 비교 하는 데 사용할 논리 연산자 및 값입니다. `field` <p><p>이 시나리오에서 `like` 연산자와 와일드 카드 (*) 문자는 모두 지역에 관계 없이 작동 하는지 확인 하 고, 문자열은 `*managedApis/{connector-name}` 차단 하려는 커넥터의 ID와 일치 하는 값입니다 `{connector-name}` . <p><p>예를 들어 소셜 미디어 플랫폼 또는 데이터베이스에 대 한 연결 만들기를 차단 하려는 경우를 가정해 보겠습니다. <p><p>Twitter `twitter` <br>Instagram `instagram` <br>Facebook `facebook` <br>Pinterest `pinterest` <br>-SQL Server 또는 Azure SQL: `sql` <p><p>이러한 커넥터 Id를 찾으려면이 항목의 앞부분에 나오는 [커넥터 참조 ID 찾기](#connector-reference-ID) 를 참조 하세요. |
    | `then` | `{effect-to-apply}` | 조건이 충족 될 때 적용할 효과입니다. `if` <p><p>이 시나리오에서는 `{effect-to-apply}` 정책을 준수 하지 않는 요청이 나 작업을 차단 하 고 실패 하는 것입니다. <p><p>자세한 내용은 [정책 정의 구조-정책 규칙](../governance/policy/concepts/definition-structure.md#policy-rule)을 참조 하세요. |
    | `effect` | `deny` | 는 `effect` 지정 된 연결을 만드는 요청을 차단 하는 것입니다. <p><p>자세한 내용은 [Azure Policy 효과 이해-거부](../governance/policy/concepts/effects.md#deny)를 참조 하세요. |
    ||||
@@ -180,7 +180,7 @@ ms.locfileid: "87172087"
 
    **정책 규칙** 상자가 표시 되는 방법은 다음과 같습니다.
 
-   ![정책 정의에 대 한 규칙](./media/block-connections-connectors/policy-definition-create-connections-2.png)
+   ![정책 규칙 예제가 있는 "정책 규칙" 상자를 보여 주는 스크린샷](./media/block-connections-connectors/policy-definition-create-connections-2.png)
 
    여러 커넥터의 경우 다음과 같은 조건을 추가할 수 있습니다.
 
@@ -247,7 +247,7 @@ Azure 정책 정의에 대 한 자세한 내용은 다음 항목을 참조 하�
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **정의 위치** | 예 | <*Azure-subscription-name*> | 정책 정의에 사용할 Azure 구독입니다. <p><p>1. 구독을 찾으려면 줄임표 (**...**) 단추를 선택 합니다. <br>2. **구독** 목록에서 구독을 찾아 선택 합니다. <br>3. 완료 되 면 **선택**을 선택 합니다. |
-   | **Name** | 예 | <*정책-정의-이름*> | 정책 정의에 사용할 이름입니다. |
+   | **이름** | 예 | <*정책-정의-이름*> | 정책 정의에 사용할 이름입니다. |
    | **설명** | 예 | <*정책-정의-이름*> | 정책 정의에 대 한 설명입니다. |
    | **범주** | 예 | **논리 앱** | 정책 정의에 대 한 기존 범주나 새 범주의 이름 |
    | **정책 적용** | 예 | **Enabled** | 이 설정은 작업을 저장할 때 정책 정의를 사용할지 여부를 지정 합니다. |
@@ -271,12 +271,12 @@ Azure 정책 정의에 대 한 자세한 내용은 다음 항목을 참조 하�
     }
     ```
 
-   | 속성 | Value | Description |
+   | 속성 | 값 | Description |
    |----------|-------|-------------|
    | `mode` | `All` | 정책이 평가 하는 리소스 종류를 결정 하는 모드입니다. <p><p>이 시나리오에서는 `mode` `All` 정책을 Azure 리소스 그룹, 구독 및 모든 리소스 유형에 적용 하는로 설정 합니다. <p><p>자세한 내용은 [정책 정의 구조-모드](../governance/policy/concepts/definition-structure.md#mode)를 참조 하세요. |
    | `if` | `{condition-to-evaluate}` | 정책 규칙을 적용할 시기를 결정 하는 조건입니다. <p><p>이 시나리오에서는의 `{condition-to-evaluate}` 문자열 출력에 문자열이 포함 되어 있는지 여부를 확인 합니다 `[string(field('Microsoft.Logic/workflows/parameters'))]` `{connector-name}` . <p><p>자세한 내용은 [정책 정의 구조-정책 규칙](../governance/policy/concepts/definition-structure.md#policy-rule)을 참조 하세요. |
    | `value` | `[string(field('Microsoft.Logic/workflows/parameters'))]` | 조건과 비교할 값입니다. <p><p>이 시나리오에서는 `value` `[string(field('Microsoft.Logic/workflows/parameters'))]` `$connectors` 개체 내의 개체를 문자열로 변환 하는의 문자열 출력입니다 `Microsoft.Logic/workflows/parameters` . |
-   | `contains` | `{connector-name}` | 속성과 비교 하는 데 사용할 논리 연산자 및 값입니다. `value` <p><p>이 시나리오에서 연산자는 `contains` 가 표시 되는 위치에 관계 없이 작동 하도록 합니다 `{connector-name}` . 여기서 문자열는 `{connector-name}` 제한 하거나 차단 하려는 커넥터의 ID입니다. <p><p>예를 들어 소셜 미디어 플랫폼 또는 데이터베이스에 대 한 연결 사용을 차단 하려는 경우를 가정해 보겠습니다. <p><p>Twitter`twitter` <br>Instagram`instagram` <br>Facebook`facebook` <br>Pinterest`pinterest` <br>-SQL Server 또는 Azure SQL:`sql` <p><p>이러한 커넥터 Id를 찾으려면이 항목의 앞부분에 나오는 [커넥터 참조 ID 찾기](#connector-reference-ID) 를 참조 하세요. |
+   | `contains` | `{connector-name}` | 속성과 비교 하는 데 사용할 논리 연산자 및 값입니다. `value` <p><p>이 시나리오에서 연산자는 `contains` 가 표시 되는 위치에 관계 없이 작동 하도록 합니다 `{connector-name}` . 여기서 문자열는 `{connector-name}` 제한 하거나 차단 하려는 커넥터의 ID입니다. <p><p>예를 들어 소셜 미디어 플랫폼 또는 데이터베이스에 대 한 연결 사용을 차단 하려는 경우를 가정해 보겠습니다. <p><p>Twitter `twitter` <br>Instagram `instagram` <br>Facebook `facebook` <br>Pinterest `pinterest` <br>-SQL Server 또는 Azure SQL: `sql` <p><p>이러한 커넥터 Id를 찾으려면이 항목의 앞부분에 나오는 [커넥터 참조 ID 찾기](#connector-reference-ID) 를 참조 하세요. |
    | `then` | `{effect-to-apply}` | 조건이 충족 될 때 적용할 효과입니다. `if` <p><p>이 시나리오에서은 `{effect-to-apply}` 요청을 차단 하 고 실패 하는 것입니다 .는 정책을 준수 하지 않습니다. <p><p>자세한 내용은 [정책 정의 구조-정책 규칙](../governance/policy/concepts/definition-structure.md#policy-rule)을 참조 하세요. |
    | `effect` | `deny` | 는 `effect` 지정 된 `deny` 연결을 사용 하는 논리 앱을 저장 하는 요청을 또는 차단 합니다. <p><p>자세한 내용은 [Azure Policy 효과 이해-거부](../governance/policy/concepts/effects.md#deny)를 참조 하세요. |
    ||||

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 742d230d6ed1535bada9c35219d2ddf68fd64ae1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6254b78ad19e7034f78f7891d57a3474fee0c602
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977159"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301927"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>컨테이너 레지스트리에 대 한 Azure Defender 소개
 
@@ -64,14 +64,11 @@ Security Center는 스캐너에서 검색 결과를 필터링 하 고 분류 합
 
 Security Center는 스캐너에서 검색 결과를 필터링 하 고 분류 합니다. 이미지가 정상 상태 이면 Security Center 표시 합니다. Security Center는 문제를 해결 해야 하는 이미지에 대해서만 보안 권장 사항을 생성 합니다. 문제가 발생 하는 경우에만 Security Center 하면 원치 않는 정보 알림이 발생할 가능성이 줄어듭니다.
 
-### <a name="how-often-does-security-center-scan-my-images"></a>에서 이미지를 얼마나 자주 Security Center 검색 하나요?
-이미지 검색은 모든 푸시 또는 가져오기에서 트리거되고, 지난 30 일 내에 이미지를 끌어온 경우에 발생 합니다. 
-
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>REST API를 통해 검사 결과를 가져올 수 있나요?
 예. 결과는 [하위 평가 REST API](/rest/api/securitycenter/subassessments/list/)에 있습니다. 또한 모든 리소스에 대 한 Kusto like API 인 ARG (Azure 리소스 그래프)를 사용할 수 있습니다. 쿼리는 특정 검색을 페치할 수 있습니다.
  
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>어떤 레지스트리 유형을 검색 하나요? 청구 되는 형식은 무엇입니까?
-Availability 섹션에는 컨테이너 레지스트리에 대해 Azure Defender에서 지 원하는 컨테이너 레지스트리 유형이 나열 됩니다. 
+컨테이너 레지스트리에 대해 Azure Defender에서 지 원하는 컨테이너 레지스트리 형식의 목록은 [Availability](defender-for-container-registries-usage.md#availability)를 참조 하세요.
 
 지원 되지 않는 레지스트리를 Azure 구독에 연결 하는 경우 검색 되지 않으며 청구 되지 않습니다.
 

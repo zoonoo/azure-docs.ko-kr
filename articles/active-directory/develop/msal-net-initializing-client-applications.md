@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 30f9f1998ee133c2546c9f4de7a99c51feb8740f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5ec419be5c7549553788d009f09fa3e0fb8655e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166198"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258288"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>MSAL.NET를 사용 하 여 클라이언트 응용 프로그램 초기화
 이 문서에서는 .NET 용 Microsoft Authentication Library (MSAL.NET)를 사용 하 여 공용 클라이언트 및 기밀 클라이언트 응용 프로그램을 초기화 하는 방법을 설명 합니다.  클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [개요](msal-client-applications.md)를 참조 하세요.
@@ -98,7 +98,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 |한정자 | Description|
 |--------- | --------- |
-|`.WithAuthority()`7 재정의 | Azure 클라우드, 대상 그룹, 테 넌 트 (테 넌 트 ID 또는 도메인 이름)를 선택 하거나 직접 인증 기관 URI를 제공 하 여 응용 프로그램 기본 기관을 Azure AD 기관에 설정 합니다.|
+|`.WithAuthority()` 7 재정의 | Azure 클라우드, 대상 그룹, 테 넌 트 (테 넌 트 ID 또는 도메인 이름)를 선택 하거나 직접 인증 기관 URI를 제공 하 여 응용 프로그램 기본 기관을 Azure AD 기관에 설정 합니다.|
 |`.WithAdfsAuthority(string)` | 응용 프로그램 기본 기관을 ADFS 기관으로 설정 합니다.|
 |`.WithB2CAuthority(string)` | 응용 프로그램 기본 기관을 Azure AD B2C 기관으로 설정 합니다.|
 |`.WithClientId(string)` | 클라이언트 ID를 재정의 합니다.|
@@ -137,7 +137,7 @@ Xamarin.ios에서 공용 클라이언트 응용 프로그램 작성기에 대해
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzurePublic, tenantId)
+        .WithAuthority(AzureCloudInstance.AzurePublic, tenantId)
         .Build();
 ```
 
@@ -146,7 +146,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
+        .WithAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
 ```
 

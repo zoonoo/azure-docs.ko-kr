@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a71c78dcbaa5fb02927e9a2cfdea40cd5b26130
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75666876"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269100"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Azure Logic Apps에서 콘텐츠 형식 처리
 
@@ -59,9 +59,9 @@ Logic Apps는 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생�
   
   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.  
   
-  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 예를 들어: 
+  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 예를 들면 다음과 같습니다. 
 
-     ![샘플 JSON 페이로드 입력](./media/logic-apps-content-type/request-trigger.png)
+     ![샘플 JSON 페이로드를 사용 하는 "HTTP 요청을 수신 하는 경우" 창을 보여 주는 스크린샷](./media/logic-apps-content-type/request-trigger.png)
 
      생성된 스키마가 트리거에 나타납니다.
 
@@ -141,8 +141,8 @@ Logic Apps는 항상 수신한 HTTP 요청 또는 응답의 `Content-Type`을 �
 * `binary()`: 데이터를 `application/octet-stream`로 캐스팅합니다.
 * `string()`: 데이터를 `text/plain`로 캐스팅합니다.
 * `base64()`: 콘텐츠를 b a s e 64로 인코딩된 문자열로 변환 합니다.
-* `base64toString()`: B a s e 64로 인코딩된 문자열을로 변환 합니다.`text/plain`
-* `base64toBinary()`: B a s e 64로 인코딩된 문자열을로 변환 합니다.`application/octet-stream`
+* `base64toString()`: B a s e 64로 인코딩된 문자열을로 변환 합니다. `text/plain`
+* `base64toBinary()`: B a s e 64로 인코딩된 문자열을로 변환 합니다. `application/octet-stream`
 * `dataUri()`: 문자열을 데이터 URI로 변환 합니다.
 * `dataUriToBinary()`: 데이터 URI를 이진 문자열로 변환 합니다.
 * `dataUriToString()`: 데이터 URI를 문자열로 변환 합니다.

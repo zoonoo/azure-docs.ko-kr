@@ -1,14 +1,14 @@
 ---
 title: 규정 비준수 리소스 수정
 description: 이 지침에서는 Azure Policy에서 정책을 준수하지 않는 리소스를 수정하는 과정을 안내합니다.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 52d8ef6dd66c52edd574b2ccfa51da16623a1afb
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3b2d145322be8b70e096e49be892018952519cf0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651361"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269848"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
@@ -17,12 +17,16 @@ ms.locfileid: "89651361"
 ## <a name="how-remediation-security-works"></a>수정 보안의 작동 방식
 
 Azure Policy는 **deployIfNotExists** 정책 정의의 템플릿을 실행할 때 [관리 ID](../../../active-directory/managed-identities-azure-resources/overview.md)를 사용합니다.
-Azure Policy는 각 할당용 관리 ID를 만듭니다. 단, 관리 ID를 부여할 역할 관련 세부 정보가 있어야 합니다. 관리 ID에서 역할이 누락된 경우 정책 또는 이니셔티브 할당 중에 이 오류가 표시됩니다. 포털 사용 시 Azure Policy는 할당이 시작되면 나열된 역할을 관리 ID에 자동으로 부여합니다. 관리 id의 _위치_ 는 Azure Policy 작업에 영향을 주지 않습니다.
+Azure Policy는 각 할당용 관리 ID를 만듭니다. 단, 관리 ID를 부여할 역할 관련 세부 정보가 있어야 합니다. 관리 ID에서 역할이 누락된 경우 정책 또는 이니셔티브 할당 중에 이 오류가 표시됩니다. 포털 사용 시 Azure Policy는 할당이 시작되면 나열된 역할을 관리 ID에 자동으로 부여합니다. SDK를 사용 하는 경우 관리 id에 수동으로 역할을 부여 해야 합니다. 관리 id의 _위치_ 는 Azure Policy 작업에 영향을 주지 않습니다.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="관리 id에 대해 정의 된 사용 권한이 없는 deployIfNotExists 정책의 스크린샷" border="false":::
 
 > [!IMPORTANT]
-> **deployIfNotExists** 또는 **수정**으로 수정된 리소스가 정책 할당의 범위를 벗어나거나, 템플릿이 정책 할당 범위를 벗어난 리소스의 속성에 액세스하는 경우에는 할당의 관리 ID에 [액세스 권한을 수동으로 부여](#manually-configure-the-managed-identity)해야 합니다. 이렇게 하지 않으면 수정 배포는 실패합니다.
+> 다음 시나리오에서는 할당의 관리 되는 id를 [수동으로 부여](#manually-configure-the-managed-identity) 해야 하며, 그렇지 않으면 재구성 배포가 실패 합니다.
+>
+> - SDK를 통해 할당을 만든 경우
+> - **Deployifnotexists** 또는 **modify** 로 수정 된 리소스가 정책 할당 범위를 벗어난 경우
+> - 템플릿이 정책 할당 범위를 벗어난 리소스의 속성에 액세스 하는 경우
 
 ## <a name="configure-policy-definition"></a>정책 정의 구성
 

@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: e75921e5ee5b148d81c637800f46403d3d410f42
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.date: 09/23/2020
+ms.openlocfilehash: fd345f0eed5bd7140047b12a3c1a7471872c8bb7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613481"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270443"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 
@@ -31,7 +31,7 @@ ms.locfileid: "89613481"
 
 다음은 조회 작업에 지원되는 데이터 원본입니다. 
 
-조회 작업은 최대 5000 개의 행을 반환할 수 있습니다. 결과 집합에 추가 레코드가 포함 되어 있으면 첫 번째 5000 행이 반환 됩니다. 조회 작업 출력은 최대 2mb의 크기를 지원 하며, 크기가 제한을 초과 하는 경우 작업은 실패 합니다. 현재 시간 제한 전까지 가능한 최대 조회 작업 기간은 1시간입니다.
+조회 작업은 최대 5000 개의 행을 반환할 수 있습니다. 결과 집합에 추가 레코드가 포함 되어 있으면 첫 번째 5000 행이 반환 됩니다. 조회 작업 출력은 최대 4mb의 크기를 지원 하므로 크기가 제한을 초과 하면 작업이 실패 합니다. 현재 시간 제한 전까지 가능한 최대 조회 작업 기간은 1시간입니다.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 

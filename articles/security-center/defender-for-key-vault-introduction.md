@@ -3,17 +3,17 @@ title: Azure Defender for Key Vault-혜택 및 기능
 description: Key Vault Azure Defender의 이점 및 기능에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 06818e443568918e2ee87bbfbec81836ea85648b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 78a522922f8580003e2d2ff588cbf10dbf5fff9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939880"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301774"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Key Vault에 대 한 Azure Defender 소개
 
@@ -42,6 +42,11 @@ Azure Defender에서 Key Vault에 대 한 경고를 수신 하는 경우 [Key Va
 경고는 Key Vault의 **보안** 페이지, Azure Defender 대시보드 및 Security Center의 경고 페이지에 표시 됩니다.
 
 :::image type="content" source="./media/defender-for-key-vault-intro/key-vault-security-page.png" alt-text="Azure Key Vault의 보안 페이지":::
+
+
+> [!TIP]
+> [Azure Security Center에서 Azure Key Vault 위협 검색의 유효성 검사](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)에 설명 된 지침에 따라 Key Vault 경고에 대 한 Azure Defender를 시뮬레이션할 수 있습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

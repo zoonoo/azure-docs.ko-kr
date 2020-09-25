@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 9dafb702117a7e171ff88b3c77d7b8b79503636f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3514ce966e1de9af1741de6b966964aca2599610
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066460"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269236"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업에 대한 병렬 분기 만들기 또는 조인
 
@@ -47,7 +47,7 @@ ms.locfileid: "87066460"
 
 1. 검색 상자에서 원하는 작업을 찾아서 선택합니다.
 
-   ![원하는 작업을 찾아서 선택](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
+   ![논리 앱 디자이너의 "작업 선택" 창을 보여 주는 스크린샷](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
    이제 선택한 작업이 다음과 같이 병렬 분기에 표시됩니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "87066460"
 
 1. 검색 상자에서 원하는 작업을 찾아서 선택합니다.
 
-   ![순차적 작업을 찾아서 선택](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+   ![논리 앱 디자이너에서 "작업 선택" 창과 검색 상자를 보여 주는 스크린샷](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
 
    이제 선택한 작업이 다음과 같이 현재 분기 내에 표시됩니다.
 

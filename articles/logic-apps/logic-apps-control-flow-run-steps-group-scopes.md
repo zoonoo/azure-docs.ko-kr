@@ -6,22 +6,22 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef8862ebbcdd1ee79178af56b7c6cc81c7a68a43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520904"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269287"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Azure Logic Apps에서 범위를 사용하여 그룹 상태에 따라 작업 실행
 
 다른 작업 그룹이 성공하거나 실패한 후에만 작업을 실행하려면 해당 작업을 *범위* 내에 그룹화합니다. 이 구조는 작업을 논리 그룹으로 구성하고, 해당 그룹의 상태를 평가하고, 범위의 상태에 따라 작업을 수행하려는 경우에 유용합니다. 범위 내 모든 작업의 실행이 완료되면 범위에서 자체의 상태도 가져옵니다. 예를 들어 [예외 및 오류 처리](../logic-apps/logic-apps-exception-handling.md#scopes)를 구현하려는 경우 범위를 사용할 수 있습니다. 
 
-범위의 상태를 확인하려면 "성공", "실패", "취소됨" 등과 같이 논리 앱의 실행 상태를 결정하는 데 사용하는 것과 동일한 기준을 사용할 수 있습니다. 기본적으로 범위의 모든 작업이 성공하면 범위 상태가 "성공"으로 표시됩니다. 그러나 범위의 모든 작업이 실패하거나 취소되면 범위의 상태가 "실패"로 표시됩니다. 범위에 대한 제한은 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
+범위의 상태를 확인 하려면 논리 앱의 실행 상태 (예: "성공", "실패", "취소 됨" 등)를 결정 하는 데 사용 하는 것과 동일한 기준을 사용할 수 있습니다. 기본적으로 범위의 모든 작업이 성공하면 범위 상태가 "성공"으로 표시됩니다. 그러나 범위의 모든 작업이 실패하거나 취소되면 범위의 상태가 "실패"로 표시됩니다. 범위에 대한 제한은 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
 
 예를 들어 특정 작업을 실행하는 범위 및 범위의 상태를 확인하는 조건을 사용하는 상위 수준의 논리 앱이 있습니다. 범위의 작업이 예기치 않게 실패하거나 종료되면, 범위가 각각 "실패" 또는 "중단됨"으로 표시되고, 논리 앱에서 "범위 실패" 메시지를 보냅니다. 범위가 지정된 모든 작업이 성공하면 논리 앱에서 "범위 성공" 메시지를 보냅니다.
 
-!["일정 - 되풀이" 트리거 설정](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![다이어그램은 "범위 실패" 및 "범위 성공"의 예제를 사용 하 여 논리 앱 범위 흐름을 보여 줍니다.](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -192,7 +192,7 @@ ms.locfileid: "86520904"
    
       `result('Scope')[0]['status']`
 
-      ![범위 상태를 확인하는 식 추가](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![결과 식이 강조 표시 된 "식 추가" 창을 보여 주는 스크린샷](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. 두 행 모두에서 **다음과 같음** 연산자를 선택합니다. 
    

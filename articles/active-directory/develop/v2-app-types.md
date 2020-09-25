@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f8906c5fb934546ac8b1a95f817874f91f6c3b95
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: c468ecb390a3ad321f9fe0619204994dfbf3fbb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015809"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256759"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 애플리케이션 유형
 
@@ -117,6 +117,9 @@ OAuth2 액세스 토큰을 사용하여 웹 API 보안을 유지하는 방법을
 이 흐름에서 앱은 사용자 로그인 시 Microsoft ID 플랫폼 엔드포인트에서 권한 부여 코드를 받습니다. 권한 부여 코드는 현재 로그인한 사용자를 대신해 백 엔드 서비스를 호출할 앱의 사용 권한을 나타냅니다. 앱은 백그라운드에서 권한 부여 코드를 OAuth 2.0 액세스 토큰 및 새로 고침 토큰으로 교환할 수 있습니다. 앱은 액세스 토큰을 사용하여 HTTP 요청 시 웹 API에 인증할 수 있고 새로 고침 토큰을 사용하여 이전 액세스 토큰 만료 시 새 액세스 토큰을 가져올 수 있습니다.
 
 ![네이티브 앱 인증 흐름 표시](./media/v2-app-types/convergence-scenarios-native.svg)
+
+> [!NOTE]
+> 응용 프로그램에서 기본 시스템 웹 보기를 사용 하는 경우 [AZURE AD 인증 및 권한 부여 오류 코드](reference-aadsts-error-codes.md)에서 "로그인 확인" 기능과 오류 코드 AADSTS50199에 대 한 정보를 확인 합니다.
 
 ## <a name="daemons-and-server-side-apps"></a>디먼 및 서버 쪽 앱
 

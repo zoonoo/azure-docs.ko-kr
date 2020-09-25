@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/08/2020
+ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ad5c2ad76f9ab98a6ad284a0bb50f3a611dc9a00
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206033"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257676"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 디먼 앱-코드 구성
 
@@ -51,16 +51,13 @@ MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증�
 
 구성 파일은 다음을 정의 합니다.
 
-- 권한 또는 클라우드 인스턴스 및 테 넌 트 ID입니다.
+- 클라우드 인스턴스 및 테 넌 트 ID는 함께 *인증 기관을*구성 합니다.
 - 응용 프로그램 등록에서 가져온 클라이언트 ID입니다.
 - 클라이언트 암호 또는 인증서 중 하나입니다.
 
-> [!NOTE]
-> 문서 참조 [구성](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs) 의 나머지 부분에 있는 .net 코드 조각은 [dotnetcore-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 샘플입니다.
-
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[.Net Core 콘솔 디먼](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 샘플에서 [appsettings.js](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) 합니다.
+다음은 파일 [* 에 대 한appsettings.js*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) 의 구성을 정의 하는 예제입니다. 이 예제는 GitHub의 [.Net Core 콘솔 데몬](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) 코드 샘플에서 가져온 것입니다.
 
 ```json
 {
@@ -124,9 +121,9 @@ MSAL 응용 프로그램을 인스턴스화하려면 MSAL 패키지 (언어에 �
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 패키지를 응용 프로그램에 추가 합니다.
+응용 프로그램에 [Microsoft Identity. 클라이언트](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 패키지를 추가 하 고 `using` 코드에 지시문을 추가 하 여 참조 합니다.
+
 MSAL.NET에서 기밀 클라이언트 응용 프로그램은 인터페이스로 표시 됩니다 `IConfidentialClientApplication` .
-소스 코드에서 MSAL.NET 네임 스페이스를 사용 합니다.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -167,6 +164,23 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
            .Build();
+```
+
+는 `Authority` 클라우드 인스턴스와 테 넌 트 ID (예: 또는)를 연결한 것 `https://login.microsoftonline.com/contoso.onmicrosoft.com` 입니다 `https://login.microsoftonline.com/eb1ed152-0000-0000-0000-32401f3f9abd` . [구성 파일](#configuration-file) 섹션에 표시 되는 파일의 *appsettings.js* 에는 `Instance` 각각 및 값이 표시 됩니다 `Tenant` .
+
+코드 샘플에서 이전 코드 조각은에서 가져온 `Authority` 것입니다 .는  [authenticationconfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) 클래스의 속성 이며 다음과 같이 정의 됩니다.
+
+```csharp
+/// <summary>
+/// URL of the authority
+/// </summary>
+public string Authority
+{
+    get
+    {
+        return String.Format(CultureInfo.InvariantCulture, Instance, Tenant);
+    }
+}
 ```
 
 # <a name="python"></a>[Python](#tab/python)

@@ -13,31 +13,24 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1f90f7f23fbdf10b91d8dfc7cd00cca83cd32fbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70ddc2191cc06a1bede87adc5940e0f7dea63384
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882576"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257540"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 모바일 응용 프로그램
 
 웹 API를 호출하는 모바일 앱을 빌드하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>시작
 
-첫 번째 모바일 응용 프로그램을 만들고 퀵 스타트를 사용해 보세요.
+아직 시작 하지 않은 경우 빠른 시작을 완료 하 여 첫 번째 응용 프로그램을 만듭니다.
 
-> [!div class="nextstepaction"]
-> [빠른 시작: Android 앱에서 토큰 획득 및 Microsoft Graph API 호출](./quickstart-v2-android.md)
->
-> [빠른 시작: iOS 앱에서 토큰 획득 및 Microsoft Graph API 호출](./quickstart-v2-ios.md)
->
-> [빠른 시작: Xamarin iOS 및 Android 앱에서 토큰을 획득 하 고 Microsoft Graph API를 호출 합니다.](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+- [빠른 시작: Android 앱에서 토큰 획득 및 Microsoft Graph API 호출](./quickstart-v2-android.md)
+- [빠른 시작: iOS 앱에서 토큰 획득 및 Microsoft Graph API 호출](./quickstart-v2-ios.md)
+- [빠른 시작: Xamarin iOS 및 Android 앱 (GitHub)에서 토큰을 획득 하 고 MICROSOFT GRAPH API를 호출 합니다.](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
 
 ## <a name="overview"></a>개요
 
@@ -59,6 +52,10 @@ Microsoft id 플랫폼에서 모바일 앱을 빌드하는 경우 다음 사항�
 - 플랫폼에 따라 사용자가 처음으로 로그인 할 때 일부 사용자 조작이 필요할 수 있습니다. 예를 들어 iOS에서는 앱이 처음으로 SSO를 사용 하는 경우 Microsoft Authenticator를 통해 (그리고 Android에서 Intune 회사 포털) 사용자 상호 작용을 표시 해야 합니다.
 - IOS 및 Android에서 MSAL은 외부 브라우저를 사용 하 여 사용자를 로그인 할 수 있습니다. 외부 브라우저가 앱 위에 표시 될 수 있습니다.
 - 모바일 응용 프로그램에서는 암호를 사용 하지 마세요. 이러한 응용 프로그램에서는 모든 사용자가 암호에 액세스할 수 있습니다.
+
+## <a name="recommended-reading"></a>추천 자료
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

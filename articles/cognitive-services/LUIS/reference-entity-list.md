@@ -1,14 +1,16 @@
 ---
 title: 엔터티 형식 나열-LUIS
 description: 목록 엔터티는 동의어와 함께 일련의 고정된 폐쇄형 관련 단어를 나타냅니다. LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. 권장 기능을 사용하여 현재 목록을 기준으로 권장되는 새 단어를 확인합니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.openlocfilehash: 339fb832ef4af069b6f040c5264426002189f93f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 29f0f0c3fd48920990519aecfe5ae58c32b43db9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588890"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253839"
 ---
 # <a name="list-entity"></a>목록 엔터티
 

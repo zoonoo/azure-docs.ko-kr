@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 21969f52223a4e0c7de6ee26c0a6f9e2f96366b1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 27cf60f09a8c0f149aec16dd81da0e7ce0707a15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902342"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302097"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>실험의 버전 및 트랙 데이터 집합
 
@@ -63,7 +63,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### <a name="retrieve-a-dataset-by-name"></a>이름을 기준으로 데이터 집합 검색
 
-기본적으로 클래스의 [get_by_name ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다. 
+기본적으로 클래스의 [get_by_name ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-by-name-workspace--name--version--latest--) 메서드는 `Dataset` 작업 영역에 등록 된 데이터 집합의 최신 버전을 반환 합니다. 
 
 다음 코드는 데이터 집합의 버전 1을 가져옵니다 `titanic_ds` .
 
@@ -158,7 +158,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 각 Machine Learning 실험의 경우 실험 개체를 통해 입력으로 사용 되는 데이터 집합을 쉽게 추적할 수 있습니다 `Run` .
 
-다음 코드에서는 메서드를 사용 하 여 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueget-details--) 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
+다음 코드에서는 메서드를 사용 하 여 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
 
 ```Python
 # get input datasets

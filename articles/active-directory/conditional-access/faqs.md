@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ed6beec63114f1f157bb24354d77e50ecdaa8255
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 9694dd06b67219e0f02c3fe1c7c53d1fc103a0c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601640"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258628"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>조건부 액세스 Faq Azure Active Directory
 
@@ -31,11 +31,11 @@ B2B(Business-to-Business) 협업 사용자에 대한 정책이 적용됩니다. 
 
 ## <a name="does-a-sharepoint-online-policy-also-apply-to-onedrive-for-business"></a>SharePoint Online 정책도 비즈니스용 OneDrive에 적용됩니까?
 
-예. SharePoint Online 정책은 비즈니스용 OneDrive에도 적용됩니다. 자세한 내용은 [조건부 액세스 서비스 종속성](service-dependencies.md) 문서를 참조 하 고 [Office 365 앱](concept-conditional-access-cloud-apps.md#office-365-preview) 에 대 한 정책을 대상으로 지정 하는 것이 좋습니다.
+예. SharePoint Online 정책은 비즈니스용 OneDrive에도 적용됩니다. 자세한 내용은 [조건부 액세스 서비스 종속성](service-dependencies.md) 문서를 참조 하 고 [Office 365 앱](concept-conditional-access-cloud-apps.md#office-365) 에 대 한 정책을 대상으로 지정 하는 것이 좋습니다.
 
 ## <a name="why-cant-i-set-a-policy-directly-on-client-apps-like-word-or-outlook"></a>Word 또는 Outlook과 같은 클라이언트 앱에서 정책을 직접 설정할 수 없는 이유는 무엇입니까?
 
-조건부 액세스 정책은 서비스에 액세스 하기 위한 요구 사항을 설정 합니다. 해당 서비스에 인증하는 경우에 적용됩니다. 클라이언트 애플리케이션에서 직접 정책이 설정되는 것이 아니라 클라이언트가 서비스를 호출할 때 적용됩니다. 예를 들어 SharePoint에서 설정된 정책은 SharePoint를 호출하는 클라이언트에 적용됩니다. Exchange에서 설정된 정책은 Outlook에 적용됩니다. 자세한 내용은 [조건부 액세스 서비스 종속성](service-dependencies.md) 문서를 참조 하 고 [Office 365 앱](concept-conditional-access-cloud-apps.md#office-365-preview) 에 대 한 정책을 대상으로 지정 하는 것이 좋습니다.
+조건부 액세스 정책은 서비스에 액세스 하기 위한 요구 사항을 설정 합니다. 해당 서비스에 인증하는 경우에 적용됩니다. 클라이언트 애플리케이션에서 직접 정책이 설정되는 것이 아니라 클라이언트가 서비스를 호출할 때 적용됩니다. 예를 들어 SharePoint에서 설정된 정책은 SharePoint를 호출하는 클라이언트에 적용됩니다. Exchange에서 설정된 정책은 Outlook에 적용됩니다. 자세한 내용은 [조건부 액세스 서비스 종속성](service-dependencies.md) 문서를 참조 하 고 [Office 365 앱](concept-conditional-access-cloud-apps.md#office-365) 에 대 한 정책을 대상으로 지정 하는 것이 좋습니다.
 
 ## <a name="does-a-conditional-access-policy-apply-to-service-accounts"></a>조건부 액세스 정책이 서비스 계정에 적용 되나요?
 
@@ -53,7 +53,7 @@ Microsoft 팀도 조건부 액세스 정책에서 클라우드 앱으로 개별�
 
 Windows 및 Mac용 Microsoft Teams 데스크톱 클라이언트는 최신 인증을 지원합니다. 최신 인증은 ADAL(Azure Active Directory Authentication Library) 기반의 로그인을 플랫폼 전체의 Microsoft Office 클라이언트 애플리케이션에 제공합니다.
 
-자세한 내용은 [조건부 액세스 서비스 종속성](service-dependencies.md) 문서를 참조 하 고 [Office 365 앱](concept-conditional-access-cloud-apps.md#office-365-preview) 에 대 한 정책을 대상으로 지정 하는 것이 좋습니다.
+자세한 내용은 [조건부 액세스 서비스 종속성](service-dependencies.md) 문서를 참조 하 고 [Office 365 앱](concept-conditional-access-cloud-apps.md#office-365) 에 대 한 정책을 대상으로 지정 하는 것이 좋습니다.
 
 ## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>조건부 액세스 정책을 사용 하도록 설정한 후 일부 탭이 Microsoft 팀에서 작동 하지 않는 이유는 무엇 인가요?
 

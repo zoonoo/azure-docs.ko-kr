@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8f356cb935f1cf63408b6fbc604f139439022a4f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 433d519cc71b8bb218569679c94142658f3c9416
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646620"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255253"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure 가상 네트워크에 앱 통합
 
@@ -54,6 +54,10 @@ App Service의 앱은 작업자 역할에서 호스팅 됩니다. 기본 및 더
 
 지역 VNet 통합을 사용하면 앱에서 평소와 동일한 채널을 통해 인터넷으로 아웃바운드 호출을 수행합니다. 앱 속성 포털에 나열된 아웃바운드 주소는 앱에서 계속 사용하는 주소입니다. 앱 변경 내용은 서비스 엔드포인트 보안 서비스 호출 또는 RFC 1918 주소의 이동입니다. WEBSITE_VNET_ROUTE_ALL을 1로 설정 하면 모든 아웃바운드 트래픽이 VNet으로 전송될 수 있습니다.
 
+> [!NOTE]
+> `WEBSITE_VNET_ROUTE_ALL` 는 현재 Windows 컨테이너에서 지원 되지 않습니다.
+> 
+
 이 기능은 작업자당 가상 인터페이스 하나만 지원합니다. 작업자당 가상 인터페이스 하나는 App Service 계획당 한 지역 내 VNet 통합을 의미합니다. 동일한 App Service 계획의 모든 앱은 동일한 VNet 통합을 사용할 수 있습니다. 추가로 VNet에 연결할 앱이 필요한 경우 다른 App Service 계획을 만들어야 합니다. 여기에 사용되는 가상 인터페이스는 고객이 직접 액세스할 수 있는 리소스가 아닙니다.
 
 이 기술이 작동하는 방법의 특성상 VNet 통합에 사용되는 트래픽은 Azure Network Watcher 또는 NSG 플로 로그에 표시되지 않습니다.
@@ -72,7 +76,8 @@ App Service의 앱은 작업자 역할에서 호스팅 됩니다. 기본 및 더
 필수 게이트웨이 VNet 통합을 사용할 수 없습니다.
 
 * Azure ExpressRoute와 연결된 VNet 사용.
-* Linux 앱에서
+* Linux 앱에서.
+* [Windows 컨테이너](quickstart-custom-container.md)에서.
 * 서비스 엔드포인트의 보안 리소스에 액세스합니다.
 * ExpressRoute와 지점 및 사이트 간 또는 사이트 간 VPN을 모두 지원하는 동시 존재 게이트웨이.
 
@@ -173,7 +178,7 @@ Commands:
     list : List the virtual network integrations used in an appservice plan.
 ```
 
-지역 VNet 통합에 대 한 Powershell 지원도 사용할 수 있지만 서브넷 resourceID의 속성 배열을 사용 하 여 제네릭 리소스를 만들어야 합니다.
+지역 VNet 통합에 대 한 PowerShell 지원도 사용할 수 있지만 서브넷 resourceID의 속성 배열을 사용 하 여 제네릭 리소스를 만들어야 합니다.
 
 ```azurepowershell
 # Parameters

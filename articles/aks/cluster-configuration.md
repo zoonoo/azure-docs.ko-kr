@@ -3,28 +3,30 @@ title: AKS(Azure Kubernetes Service)의 클러스터 구성
 description: AKS(Azure Kubernetes Service)에서 클러스터를 구성하는 방법 알아보기
 services: container-service
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5b26054ae8dfb73dea8d064292beb73220be5e09
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 6446e138df1fe744d70be085d0aecac58e2c1c45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433452"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255301"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
 AKS 클러스터를 만드는 과정에서 필요에 따라 클러스터 구성을 사용자 지정해야 할 수 있습니다. 이 문서에서는 AKS 클러스터를 사용자 지정하기 위한 몇 가지 옵션을 소개합니다.
 
-## <a name="os-configuration-preview"></a>OS 구성(미리 보기)
+## <a name="os-configuration"></a>OS 구성
 
-이제 AKS는 미리 보기에서 노드 OS(운영 체제)로 Ubuntu 18.04를 지원합니다. 미리 보기 기간 동안 Ubuntu 16.04 및 Ubuntu 18.04를 모두 사용할 수 있습니다.
+이제 AKS는 1.18.8 보다 높은 kubernetes 버전의 클러스터에 대 한 일반 공급으로 Ubuntu 18.04을 노드 OS (운영 체제)로 지원 합니다. 1.18 아래 버전의 경우 AKS Ubuntu 16.04는 여전히 기본 기본 이미지입니다. Kubernetes v 1.18 이후부터 기본 기본은 AKS Ubuntu 18.04입니다.
 
 > [!IMPORTANT]
-> Kubernetes v 1.18에 생성 된 노드 풀은 필수 노드 이미지에 대 한 기본값 보다 높습니다 `AKS Ubuntu 18.04` . 1.18 미만의 지원 되는 Kubernetes 버전의 노드 풀은 노드 `AKS Ubuntu 16.04` 이미지로 수신 하지만 `AKS Ubuntu 18.04` 노드 풀 Kubernetes 버전이 v 1.18 이상으로 업데이트 되 면 업데이트 됩니다.
+> Kubernetes v 1.18에 생성 되는 노드 풀은 노드 이미지에 대 한 기본값 보다 높습니다 `AKS Ubuntu 18.04` . 1.18 미만의 지원 되는 Kubernetes 버전의 노드 풀은 노드 `AKS Ubuntu 16.04` 이미지로 수신 하지만 `AKS Ubuntu 18.04` 노드 풀 Kubernetes 버전이 v 1.18 이상으로 업데이트 되 면 업데이트 됩니다.
 > 
 > 1.18 이상에서 클러스터를 사용 하기 전에 AKS Ubuntu 18.04 노드 풀에서 워크 로드를 테스트 하는 것이 좋습니다. [Ubuntu 18.04 노드 풀을 테스트](#use-aks-ubuntu-1804-existing-clusters-preview)하는 방법을 참조 하세요.
+
+다음 섹션에서는 OS 구성 미리 보기를 사용 하 여 kubernetes 버전 1.18 이상을 아직 사용 하지 않거나이 기능을 일반 공급 하기 전에 만든 클러스터에서 AKS Ubuntu 18.04를 사용 하 고 테스트 하는 방법을 설명 합니다.
 
 다음 리소스가 설치되어 있어야 합니다.
 
@@ -44,13 +46,13 @@ az extension list
 az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.ContainerService
 ```
 
-상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
-상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
+상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -122,14 +124,14 @@ az feature register --name UseCustomizedUbuntuPreview --namespace Microsoft.Cont
 
 ```
 
-상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedContainerRuntime')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
-상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
+상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -179,7 +181,7 @@ Azure는 [Gen2 (2 세대) vm (가상 머신)](../virtual-machines/windows/genera
 2세대 VM은 1세대 VM에서 사용되는 BIOS 기반 아키텍처 대신 새 UEFI 기반 부팅 아키텍처를 사용합니다.
 특정 Sku 및 크기만 Gen2 Vm을 지원 합니다. [지원 되는 크기 목록을](../virtual-machines/windows/generation-2.md#generation-2-vm-sizes)확인 하 여 SKU가 Gen2을 지원 하거나 요구 하는지 확인 합니다.
 
-또한 모든 VM 이미지가 Gen2을 지 원하는 것은 아닙니다. AKS Gen2 Vm은 새로운 [AKS Ubuntu 18.04 이미지](#os-configuration-preview)를 사용 합니다. 이 이미지는 모든 Gen2 Sku 및 크기를 지원 합니다.
+또한 모든 VM 이미지가 Gen2을 지 원하는 것은 아닙니다. AKS Gen2 Vm은 새로운 [AKS Ubuntu 18.04 이미지](#os-configuration)를 사용 합니다. 이 이미지는 모든 Gen2 Sku 및 크기를 지원 합니다.
 
 미리 보기 중에 Gen2 Vm을 사용 하려면 다음이 필요 합니다.
 - `aks-preview`CLI 확장이 설치 되었습니다.
@@ -191,13 +193,13 @@ Azure는 [Gen2 (2 세대) vm (가상 머신)](../virtual-machines/windows/genera
 az feature register --name Gen2VMPreview --namespace Microsoft.ContainerService
 ```
 
-상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/Gen2VMPreview')].{Name:name,State:properties.state}"
 ```
 
-상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
+상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
@@ -248,17 +250,19 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
 ```
 
-상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+상태가 **등록됨**으로 표시되는 데 몇 분 정도 걸릴 수 있습니다. [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true) 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
 ```
 
-상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
+상태가 등록됨으로 표시되면 [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true) 명령을 사용하여 `Microsoft.ContainerService` 리소스 공급자 등록 상태를 새로 고칩니다.
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
 ```
+
+사용 후 삭제 OS에는 aks-preview CLI 확장의 버전 0.4.63 이상이 필요 합니다.
 
 Aks-preview CLI 확장을 설치 하려면 다음 Azure CLI 명령을 사용 합니다.
 
@@ -274,25 +278,25 @@ az extension update --name aks-preview
 
 ### <a name="use-ephemeral-os-on-new-clusters-preview"></a>새 클러스터에서 사용 후 삭제 OS 사용 (미리 보기)
 
-클러스터를 만들 때 사용 후 삭제 OS 디스크를 사용 하도록 클러스터를 구성 합니다. `--aks-custom-headers`새 클러스터에 대 한 os 디스크 유형으로 사용 후 삭제 os를 설정 하려면 플래그를 사용 합니다.
+클러스터를 만들 때 사용 후 삭제 OS 디스크를 사용 하도록 클러스터를 구성 합니다. `--node-osdisk-type`새 클러스터에 대 한 os 디스크 유형으로 사용 후 삭제 os를 설정 하려면 플래그를 사용 합니다.
 
 ```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-네트워크에 연결 된 OS 디스크를 사용 하 여 일반 클러스터를 만들려는 경우 사용자 지정 태그를 생략 하 여 수행할 수 있습니다 `--aks-custom-headers` . 또한 아래와 같이 더 많은 임시 OS 노드 풀을 추가 하도록 선택할 수 있습니다.
+네트워크에 연결 된 OS 디스크를 사용 하 여 일반 클러스터를 만들려는 경우 사용자 지정 태그를 생략 하거나를 지정 하 여 수행할 수 있습니다 `--node-osdisk-type` `--node-osdisk-type=Managed` . 또한 아래와 같이 더 많은 임시 OS 노드 풀을 추가 하도록 선택할 수 있습니다.
 
 ### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>기존 클러스터에서 사용 후 삭제 OS 사용 (미리 보기)
-새 노드 풀을 구성 하 여 사용 후 삭제 OS 디스크를 사용 합니다. 플래그를 사용 `--aks-custom-headers` 하 여 os 디스크 유형으로 해당 노드 풀의 os 디스크 유형으로 설정 합니다.
+새 노드 풀을 구성 하 여 사용 후 삭제 OS 디스크를 사용 합니다. 플래그를 사용 `--node-osdisk-type` 하 여 os 디스크 유형으로 해당 노드 풀의 os 디스크 유형으로 설정 합니다.
 
 ```azurecli
-az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
 > [!IMPORTANT]
 > 사용 후 삭제 OS를 사용 하면 vm 캐시 크기까지 VM 및 인스턴스 이미지를 배포할 수 있습니다. AKS의 경우 기본 노드 OS 디스크 구성은 100GiB을 사용 합니다. 즉, 캐시가 100 GiB 보다 큰 VM 크기가 필요 합니다. 기본 Standard_DS2_v2의 캐시 크기는 86 GiB입니다 .이는 충분히 크지 않습니다. Standard_DS3_v2의 캐시 크기가 172 GiB입니다 .이는 크기가 충분 합니다. 또한를 사용 하 여 OS 디스크의 기본 크기를 줄일 수 있습니다 `--node-osdisk-size` . AKS 이미지의 최소 크기는 30GiB입니다. 
 
-네트워크에 연결 된 OS 디스크를 사용 하 여 노드 풀을 만들려면 사용자 지정 태그를 생략 하 여 그렇게 할 수 있습니다 `--aks-custom-headers` .
+네트워크에 연결 된 OS 디스크를 사용 하 여 노드 풀을 만들려면 사용자 지정 태그를 생략 하 여 그렇게 할 수 있습니다 `--node-osdisk-type` .
 
 ## <a name="custom-resource-group-name"></a>사용자 지정 리소스 그룹 이름
 

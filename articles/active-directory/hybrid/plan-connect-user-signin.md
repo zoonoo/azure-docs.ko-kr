@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd198a132f64c26f775a8212c22b77201d579260
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3365a58a0c667ca55b74a5120cdd7a78ad0abc79
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657159"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299913"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
 Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 암호를 사용하여 온-프레미스 및 클라우드 리소스 모두에 로그인할 수 있습니다. 이 문서에서는 Azure AD에 로그인할 때 사용하려는 ID 선택에 도움이 되도록 모든 ID 모델의 주요 개념에 대해 설명합니다.
@@ -155,7 +155,7 @@ Azure AD 디렉터리의 사용자 지정 도메인 상태와 UPN 접미사가 �
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Express 설정/암호 해시 동기화
 
-| 시스템 상태 | Azure 로그인 사용자 경험에 미치는 영향 |
+| 상태 | Azure 로그인 사용자 경험에 미치는 영향 |
 |:---:|:--- |
 | 추가되지 않음 |이 경우에 contoso.com에 대한 사용자 지정 도메인은 Azure AD 디렉터리에서 추가되지 않습니다. 접미사 @contoso.com이 포함된 UPN 온-프레미스를 가진 사용자는 해당 온-프레미스 UPN을 사용하여 Azure에 로그인할 수 없습니다. 대신 기본 Azure AD 디렉터리에 대한 접미사를 추가하여 Azure AD에서 제공한 새 UPN을 사용해야 합니다. 예를 들어 Azure AD 디렉터리 azurecontoso.onmicrosoft.com에 사용자를 동기화하는 경우 온-프레미스 사용자 user@contoso.com은 지정된 user@azurecontoso.onmicrosoft.com의 UPN입니다. |
 | 확인되지 않음 |이 경우에 Azure AD 디렉터리에 추가된 사용자 지정 도메인 contoso.com이 있지만 아직 확인되지 않습니다. 도메인을 확인하지 않고 사용자를 동기화하는 경우 사용자는 '추가되지 않음' 시나리오처럼 Azure AD에 의해 할당된 새 UPN입니다. |
@@ -166,7 +166,7 @@ Azure AD의 기본 .onmicrosoft.com 도메인 또는 Azure AD의 확인되지 �
 
 **AD FS로 페더레이션**으로 사용자 로그인 옵션을 선택한 경우 Azure AD에서 페더레이션을 계속 만들려면 사용자 지정 도메인이 있어야 합니다. 설명하자면 즉, Azure AD 디렉터리에 추가된 사용자 지정 도메인 contoso.com이 있어야 합니다.
 
-| 시스템 상태 | Azure 로그인 사용자 경험에 미치는 영향 |
+| 상태 | Azure 로그인 사용자 경험에 미치는 영향 |
 |:---:|:--- |
 | 추가되지 않음 |이 경우에 Azure AD Connect는 Azure AD 디렉터리에서 UPN 접미사 contoso.com에 일치하는 사용자 지정 도메인을 찾을 수 없습니다. 사용자가 user@contoso.com과 같은 해당 온-프레미스 UPN으로 AD FS를 사용하여 로그인해야 하는 경우 사용자 지정 도메인 contoso.com을 추가해야 합니다. |
 | 확인되지 않음 |이 경우에 Azure AD Connect는 이후 단계에서 도메인을 확인하는 방법에 대한 적절한 정보를 메시지로 표시합니다. |
@@ -179,7 +179,7 @@ Azure AD의 기본 .onmicrosoft.com 도메인 또는 Azure AD의 확인되지 �
 
 다음 페이지에서 Azure AD에 대한 자격 증명을 제공하도록 요청합니다.
 
-![Azure에 연결](./media/plan-connect-user-signin/changeusersignin2.png)
+![Azure AD에 대 한 자격 증명을 입력 해야 하는 위치를 보여 주는 스크린샷](./media/plan-connect-user-signin/changeusersignin2.png)
 
 **사용자 로그인** 페이지에서 원하는 사용자 로그인을 선택합니다.
 

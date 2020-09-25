@@ -1,50 +1,50 @@
 ---
 title: Azure Cosmos DB용 Azure Synapse Link 구성 및 사용(미리 보기)
-description: Azure Cosmos 계정에 대해 synapse 링크를 사용하도록 설정하고, 분석 저장소가 사용하도록 설정된 컨테이너를 만들고, Azure Cosmos 데이터베이스를 synapse 작업 영역에 연결하고, 쿼리를 실행하는 방법을 알아봅니다.
+description: Azure Cosmos DB 계정에 대해 synapse 링크를 사용 하도록 설정 하 고, 분석 저장소가 사용 하도록 설정 된 컨테이너를 만들고, Azure Cosmos 데이터베이스를 synapse 작업 영역에 연결 하 고, 쿼리를 실행 하는 방법을 알아봅니다.
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: a375656f579e626d8f41afe49adc3f2ebdb3b27d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 559c596ed9b7412b277fbfc1cf30cad15e852cef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891697"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253159"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Azure Synapse Link 구성 및 사용(미리 보기)
 
 Azure Cosmos DB용 Synapse Link는 클라우드 네이티브 HTAP(하이브리드 트랜잭션 및 분석 처리) 기능으로, 이를 통해 Azure Cosmos DB의 작동 데이터에 대해 근 실시간 분석을 실행할 수 있습니다. Synapse Link를 통해 Azure Cosmos DB와 Azure Synapse Analytics가 긴밀하게 통합됩니다.
 
 > [!IMPORTANT]
-> Azure Synapse 링크를 사용 하려면 지원 되는 지역 중 하나에서 azure Cosmos 계정 & Azure Synapse Analytics 작업 영역을 프로 비전 해야 합니다. Azure Synapse 링크는 현재 미국 서 부, 미국 동부, 서 부 미국, 유럽 서 부, 유럽 서부, 남부 중부, 동남 아시아, 오스트레일리아 동부, 동부 U2, 영국 남부의 Azure 지역에서 사용할 수 있습니다.
+> Azure Synapse 링크를 사용 하려면 지원 되는 지역 중 하나에서 Azure Synapse Analytics 작업 영역 & Azure Cosmos DB 계정을 프로 비전 해야 합니다. Azure Synapse 링크는 현재 미국 서 부, 미국 동부, 서 부 미국, 유럽 서 부, 유럽 서부, 남부 중부, 동남 아시아, 오스트레일리아 동부, 동부 U2, 영국 남부의 Azure 지역에서 사용할 수 있습니다.
 
-Azure Cosmos DB용 Synapse Link를 사용하여 분석 쿼리를 실행하려면 다음 단계를 수행합니다.
+Azure Synapse 링크는 Azure Cosmos DB SQL API 컨테이너 또는 Mongo DB 컬렉션에 대 한 Azure Cosmos DB API에 사용할 수 있습니다. 다음 단계를 사용 하 여 Azure Cosmos DB에 대 한 Azure Synapse 링크로 분석 쿼리를 실행 합니다.
 
-* [Azure Cosmos 계정에 대해 Synapse Link를 사용하도록 설정](#enable-synapse-link)
-* [Azure Cosmos 컨테이너를 사용하도록 설정된 분석 저장소 만들기](#create-analytical-ttl)
-* [Synapse 작업 영역에 Azure Cosmos 데이터베이스 연결](#connect-to-cosmos-database)
+* [Azure Cosmos DB 계정에 대해 Synapse 링크를 사용 하도록 설정](#enable-synapse-link)
+* [Azure Cosmos DB 컨테이너를 사용 하도록 설정 된 분석 저장소 만들기](#create-analytical-ttl)
+* [Azure Cosmos DB 데이터베이스를 Synapse 작업 영역에 연결](#connect-to-cosmos-database)
 * [Synapse Spark를 사용하여 분석 저장소 쿼리](#query-analytical-store-spark)
 * [서버를 사용 하지 않는 Synapse SQL을 사용 하 여 분석 저장소 쿼리](#query-analytical-store-sql-on-demand)
 * [Synapse SQL server 서버를 사용 하 여 Power BI에서 데이터 분석 및 시각화](#analyze-with-powerbi)
 
-## <a name="enable-azure-synapse-link-for-azure-cosmos-accounts"></a><a id="enable-synapse-link"></a>Azure Cosmos 계정에 대해 Azure Synapse Link를 사용하도록 설정
+## <a name="enable-azure-synapse-link-for-azure-cosmos-db-accounts"></a><a id="enable-synapse-link"></a>Azure Cosmos DB 계정에 대해 Azure Synapse 링크를 사용 하도록 설정
 
 ### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. [새 Azure 계정을 만들거나](create-sql-api-dotnet.md#create-account) 기존 Azure Cosmos 계정을 선택합니다.
+1. [새 Azure 계정을 만들거나](create-sql-api-dotnet.md#create-account)기존 Azure Cosmos DB 계정을 선택 합니다.
 
-1. Azure Cosmos 계정으로 이동하여 **기능** 창을 엽니다.
+1. Azure Cosmos DB 계정으로 이동 하 여 **기능** 창을 엽니다.
 
 1. 기능 목록에서 **Synapse Link**를 선택합니다.
 
    :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Synapse Link 미리 보기 기능 찾기":::
 
-1. 그런 다음, 계정에서 synapse link를 사용하도록 설정하라는 메시지를 표시합니다. 사용을 선택합니다.
+1. 그런 다음, 계정에서 synapse link를 사용하도록 설정하라는 메시지를 표시합니다. **사용**을 선택합니다. 이 프로세스는 완료 하는 데 1 ~ 5 분 정도 걸릴 수 있습니다.
 
    :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Synapse Link 기능 사용":::
 
@@ -64,15 +64,17 @@ Azure Cosmos DB용 Synapse Link를 사용하여 분석 쿼리를 실행하려면
 
 1. [Azure Portal](https://portal.azure.com/) 또는 [Azure Cosmos explorer](https://cosmos.azure.com/)에 로그인합니다.
 
-1. Azure Cosmos 계정으로 이동하여 **데이터 탐색기** 탭을 엽니다.
+1. Azure Cosmos DB 계정으로 이동하여 **데이터 탐색기** 탭을 엽니다.
 
 1. **새 컨테이너**를 선택하고 데이터베이스, 컨테이너, 파티션 키 및 처리량 정보에 대한 이름을 입력합니다. **분석 저장소** 옵션을 설정합니다. 분석 저장소를 사용하도록 설정하면 `AnalyicalTTL` 속성이 기본값 -1(무한 보존)로 설정된 컨테이너가 만들어집니다. 레코드의 모든 기록 버전을 유지하는 분석 저장소입니다.
 
    :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Azure Cosmos 컨테이너에 대한 분석 저장소 설정":::
 
-1. 이 계정에 대해 이전에 Synapse Link를 사용하도록 설정하지 않은 경우 분석 저장소를 사용하도록 설정된 컨테이너를 만들기 위한 필수 구성 요소이므로 그렇게 하라는 메시지가 표시됩니다. 메시지가 표시되면 **Synapse Link 사용**을 선택합니다.
+1. 이 계정에 대해 이전에 Synapse Link를 사용하도록 설정하지 않은 경우 분석 저장소를 사용하도록 설정된 컨테이너를 만들기 위한 필수 구성 요소이므로 그렇게 하라는 메시지가 표시됩니다. 메시지가 표시되면 **Synapse Link 사용**을 선택합니다. 이 프로세스는 완료 하는 데 1 ~ 5 분 정도 걸릴 수 있습니다.
 
 1. **확인**을 선택하여 Azure Cosmos 컨테이너를 사용하도록 설정된 분석 저장소를 만듭니다.
+
+1. 컨테이너를 만든 후에 데이터 탐색기의 문서 아래에 있는 **설정**을 클릭 하 여 분석 저장소를 사용 하도록 설정 했는지 확인 하 고 **분석 저장소 시간** 옵션의 설정 여부를 확인 합니다.
 
 ### <a name="net-sdk"></a>.NET SDK
 
@@ -170,7 +172,7 @@ Azure Portal을 통해 분석 저장소를 사용하도록 설정된 컨테이�
 
 1. [Azure Portal](https://portal.azure.com/) 또는 [Azure Cosmos explorer](https://cosmos.azure.com/)에 로그인합니다.
 
-1. Azure Cosmos 계정으로 이동하여 **데이터 탐색기** 탭을 엽니다.
+1. Azure Cosmos DB 계정으로 이동하여 **데이터 탐색기** 탭을 엽니다.
 
 1. 분석 저장소가 사용하도록 설정된 기존 컨테이너를 선택합니다. 확장하고 다음 값을 수정합니다.
 
@@ -215,7 +217,7 @@ Synapse Spark를 사용하여 쿼리하는 방법에 대해 [Azure Cosmos DB 분
 
 ## <a name="query-the-analytical-store-using-synapse-sql-serverless"></a><a id="query-analytical-store-sql-on-demand"></a> 서버를 사용 하지 않는 Synapse SQL을 사용 하 여 분석 저장소 쿼리
 
-서버를 사용 하지 않는 Synapse (이전에는 **sql 주문형**이라고 했던 미리 보기 기능)를 사용 하면 Azure Synapse 링크로 사용 되는 Azure Cosmos DB 컨테이너의 데이터를 쿼리하고 분석할 수 있습니다. 트랜잭션 워크 로드의 성능에 영향을 주지 않고 데이터를 거의 실시간으로 분석할 수 있습니다. 분석 저장소에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 T-sql 인터페이스를 통한 광범위 한 BI 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다. 자세히 알아보려면 [SYNAPSE SQL 서버를 사용 하지 않는 쿼리 분석 저장소](../synapse-analytics/sql/on-demand-workspace-overview.md) 문서를 참조 하세요.
+서버를 사용 하지 않는 Synapse (이전에는 **sql 주문형**이라고 했던 미리 보기 기능)를 사용 하면 Azure Synapse 링크로 사용 되는 Azure Cosmos DB 컨테이너의 데이터를 쿼리하고 분석할 수 있습니다. 트랜잭션 워크 로드의 성능에 영향을 주지 않고 데이터를 거의 실시간으로 분석할 수 있습니다. 분석 저장소에서 데이터를 쿼리 하는 친숙 한 T-sql 구문과 T-sql 인터페이스를 통한 광범위 한 BI 및 임시 쿼리 도구에 대 한 통합 연결을 제공 합니다. 자세히 알아보려면 [SYNAPSE SQL 서버를 사용 하지 않는 쿼리 분석 저장소](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) 문서를 참조 하세요.
 
 > [!NOTE]
 > Synapse SQL server를 사용 하지 않는 Azure Cosmos DB 분석 저장소를 사용 하는 것은 현재 제어 된 미리 보기로 제공 됩니다. 액세스를 요청 하려면 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 문의 하세요.
@@ -226,7 +228,7 @@ Azure Cosmos DB에 대 한 Synapse 링크를 통해 Synapse SQL 서버를 사용
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
-[Azure Resource Manager 템플릿](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store)은 SQL API용 Synapse Link 사용 Azure Cosmos 계정을 만듭니다. 이 템플릿은 분석 TTL이 설정된 컨테이너와 수동 또는 자동 크기 조정 처리량을 사용하는 옵션을 통해 한 지역에 Core(SQL) API 계정을 만듭니다. 이 템플릿을 배포하려면 추가 정보 페이지에서 **Azure에 배포**를 클릭합니다.
+[Azure Resource Manager 템플릿은](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) SQL API에 대 한 Synapse 링크 사용 Azure Cosmos DB 계정을 만듭니다. 이 템플릿은 분석 TTL이 설정된 컨테이너와 수동 또는 자동 크기 조정 처리량을 사용하는 옵션을 통해 한 지역에 Core(SQL) API 계정을 만듭니다. 이 템플릿을 배포하려면 추가 정보 페이지에서 **Azure에 배포**를 클릭합니다.
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Azure Synpase Link 시작 - 샘플
 

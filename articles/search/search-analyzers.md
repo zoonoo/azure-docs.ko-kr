@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9db8a50e670e3c6af7adce0a8efcf3ce569ac89
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b1206d9e4d6eec7b2bf029310360f563849d61d6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009630"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268303"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Azure Cognitive Search에서 텍스트 처리를 위한 분석기
 
@@ -45,7 +45,7 @@ Azure Cognitive Search 쿼리에서는 검색 가능으로 표시 된 모든 문
 
 다음 목록에는 Azure Cognitive Search에서 사용할 수 있는 분석기에 대 한 설명이 나와 있습니다.
 
-| 범주 | 설명 |
+| Category | Description |
 |----------|-------------|
 | [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 기본값 사양 또는 구성이 필요하지 않습니다. 이 범용 분석기는 다양 한 언어 및 시나리오에 적합 합니다.|
 | 미리 정의된 분석기 | 있는 그대로 사용되는 완제품으로 제공됩니다. <br/>특수 및 언어와 같은 두 가지 형식이 있습니다. "미리 정의된"이라는 수식어가 붙은 이유는 구성 또는 사용자 지정 없이 이름으로 참조하기 때문입니다. <br/><br/>[특수(언어 중립적) 분석기](index-add-custom-analyzers.md#AnalyzerTable)는 텍스트 입력에 특수 처리 또는 최소한의 처리가 필요할 때 사용됩니다. 미리 정의된 비언어 분석기는 **Asciifolding**, **키워드**, **패턴**, **단순**, **중지**, **공백**을 포함합니다.<br/><br/>[언어 분석기](index-add-language-analyzers.md)는 개별 언어에 대해 풍부한 언어 지원이 필요할 때 사용됩니다. Azure Cognitive Search는 35 Lucene 언어 분석기 및 50 Microsoft 자연어 처리 분석기를 지원 합니다. |
@@ -147,7 +147,7 @@ Azure Cognitive Search를 사용 하 여 인덱싱 및 검색에 대해 다른 �
 * 이 경우에 사용자 지정 분석기는 "my_analyzer"이며, 사용자 지정된 표준 토크나이저 "my_standard_tokenizer" 및 소문자 필터와 사용자 지정된 asciifolding 필터 "my_asciifolding"라는 두 개의 토큰 필터를 차례로 사용합니다.
 * 또한 2개의 사용자 지정 문자 필터 "map_dash" 및 "remove_whitespace"를 정의합니다. 첫 번째 필터는 모든 대시를 밑줄로 바꾸고 두 번째 필터는 모든 공백을 제거합니다. 공백은 매핑 규칙에서 UTF-8로 인코딩되어야 합니다. 문자 필터는 토큰화 전에 적용되며 결과 토큰에 영향을 미칩니다(표준 토크나이저는 대시 및 공백으로 분리되지만 밑줄은 사용하지 않습니다).
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -206,7 +206,7 @@ Azure Cognitive Search를 사용 하 여 인덱싱 및 검색에 대해 다른 �
         }
      ]
   }
-~~~~
+```
 
 <a name="Per-field-analyzer-assignment-example"></a>
 
@@ -216,7 +216,7 @@ Azure Cognitive Search를 사용 하 여 인덱싱 및 검색에 대해 다른 �
 
 "analyzer" 요소에서 필드 기준으로 표준 분석기를 재정의합니다. 전역 재정의가 없습니다. 이 예제에서 `text1`는 패턴 분석기를 사용하고 분석기를 지정하지 않는 `text2`는 기본값을 사용합니다.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -239,7 +239,7 @@ Azure Cognitive Search를 사용 하 여 인덱싱 및 검색에 대해 다른 �
         }
      ]
   }
-~~~~
+```
 
 <a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
@@ -248,7 +248,7 @@ Azure Cognitive Search를 사용 하 여 인덱싱 및 검색에 대해 다른 �
 API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 추가 인덱스 특성을 포함합니다. **searchAnalyzer** 및 **indexAnalyzer** 특성은 쌍으로 지정해야 하며, 단일 **analyzer** 특성을 대체합니다.
 
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -267,7 +267,7 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
         },
      ],
   }
-~~~~
+```
 
 <a name="Language-analyzer-example"></a>
 
@@ -275,7 +275,7 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 다른 언어의 문자열을 포함하는 필드는 언어 분석기를 사용할 수 있지만 다른 필드는 기본값을 그대로 둡니다(또는 다른 미리 정의되거나 사용자 지정된 분석기 사용). 언어 분석기를 사용하는 경우 인덱싱 및 검색 작업에 사용해야 합니다. 언어 분석기를 사용하는 필드는 인덱싱 및 검색에 다른 분석기를 가질 수 없습니다.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -300,7 +300,7 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
         }
      ],
   }
-~~~~
+```
 
 ## <a name="c-examples"></a>C # 예제
 

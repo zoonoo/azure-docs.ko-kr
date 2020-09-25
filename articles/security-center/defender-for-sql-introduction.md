@@ -3,17 +3,17 @@ title: SQL 용 Azure Defender-혜택 및 기능
 description: Azure Defender for SQL의 이점 및 기능에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: e76fd33ccca73394c4ee48b3737db8b93a990659
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dcdbc3efba53f78890816721b6659aa69553d6ea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940301"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301608"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>SQL 용 Azure Defender 소개
 
@@ -26,7 +26,7 @@ SQL 용 azure Defender에는 데이터베이스와 해당 데이터의 위치에
 |릴리스 상태:|**AZURE SQL database 서버용 Azure Defender** -일반적으로 사용 가능 (GA)<br>**컴퓨터의 SQL server에 대 한 Azure Defender** -미리 보기|
 |결정|**Azure Defender FOR SQL** 을 구성 하는 두 요금제는 [가격 책정 페이지](security-center-pricing.md) 에 표시 된 대로 청구 됩니다.|
 |보호 된 SQL 버전:|Azure SQL Database <br>Azure SQL Managed Instance<br>Azure Synapse Analytics(이전의 SQL DW)<br>SQL Server (지원 되는 모든 버전)|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>Azure Defender for SQL은 무엇을 보호 하나요?

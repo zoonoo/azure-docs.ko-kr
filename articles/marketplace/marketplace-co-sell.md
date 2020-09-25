@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/15/2020
-ms.openlocfilehash: 41dd683bb0ff5be4a48cd05f24663dd51c66a15b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268726"
 ---
 # <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
 
@@ -36,7 +36,7 @@ ms.locfileid: "90984619"
 * Marketplace 서비스 요금은 20%에서 10%로 줄어듭니다. 이 할인은 상업적 marketplace를 통해 판매 된 IaaS 또는 SaaS 제품에 적용 됩니다. 자세한 내용은 [서비스 요금 감소](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) 를 참조 하세요.
 * CSP (클라우드 솔루션 공급자) 파트너는 IaaS 또는 SaaS 제품을 판매 하기 위해 10%의 동기를 받습니다. [클라우드 솔루션 공급자 프로그램](cloud-solution-providers.md)에서 CSP 프로그램에 대해 자세히 알아보세요.
 * 상업적 marketplace를 통한 제품 판매는 고객의 Azure 사용량 약정에 기여 합니다. 적격 고객은 Azure Portal에서 **"azure 혜택 적격"** 으로 표시 된 제품을 볼 수 있습니다. 자세한 내용은 [Azure 사용량 약정 혜택](azure-consumption-commitment-benefit.md) 을 참조 하세요.
-* 제품이 상점에서 **"선호 하는 솔루션"** 배지를 받게 됩니다. 배지는 특정 산업 수직 또는 솔루션 영역에서 고객의 요구 사항을 해결 하는 제품의 품질, 성능 및 기능을 홍보 합니다. [Microsoft AppSource 및 Azure Marketplace에서 선호 하는 솔루션](preferred-solutions.md)에 대해 자세히 알아보세요.
+* **AZURE IP 공동 판매 incentivized** 또는 **Business Applications 공동 판매 incentivized** 상태를 실현 하는 제품은 상점에서 **"기본 솔루션"** 배지를 받게 됩니다. 배지는 특정 산업 수직 또는 솔루션 영역에서 고객의 요구를 해결 하는 제품의 품질, 성능 및 기능을 홍보 합니다. [Microsoft AppSource 및 Azure Marketplace에서 선호 하는 솔루션](preferred-solutions.md)에 대해 자세히 알아보세요.
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>공동 판매 게시 단계 및 요구 사항
 

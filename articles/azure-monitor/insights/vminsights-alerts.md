@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/23/2020
-ms.openlocfilehash: 987537d8497b3d8f2728941334d8328320ec6997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be469ab3b05c54ebc5afa6bd6d129efd8d4ba692
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80289603"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254808"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>VM용 Azure Monitor에서 경고를 만드는 방법
 [Azure Monitor의 경고](../platform/alerts-overview.md) 는 모니터링 데이터에서 관심 있는 데이터 및 패턴을 사전에 알려 줍니다. VM용 Azure Monitor는 미리 구성 된 경고 규칙을 포함 하지 않지만 수집 된 데이터를 기반으로 직접 만들 수 있습니다. 이 문서에서는 샘플 쿼리 집합을 포함 하 여 경고 규칙을 만드는 방법에 대 한 지침을 제공 합니다.
@@ -22,8 +22,8 @@ Azure Monitor에는 경고를 생성 하는 데 사용 되는 데이터를 기�
 
 Azure Monitor에서 로그 경고에는 두 가지 유형이 있습니다.
 
-- [결과 경고 수](../platform/alerts-unified-log.md#number-of-results-alert-rules) 쿼리가 적어도 지정 된 수의 레코드를 반환할 때 단일 경고를 생성 합니다. 이러한 데이터는 [Log Analytics 에이전트가](../platform/log-analytics-agent.md) 수집 하는 Windows 및 Syslog 이벤트와 같은 숫자가 아닌 데이터 또는 여러 컴퓨터에서 성능 추세를 분석 하는 데 적합 합니다.
-- [메트릭 단위 경고](../platform/alerts-unified-log.md#metric-measurement-alert-rules) 는 경고 규칙에 정의 된 임계값을 초과 하는 값이 있는 쿼리의 각 레코드에 대해 별도의 경고를 만듭니다. 이러한 경고 규칙은 각 컴퓨터에 대 한 개별 경고를 만들 수 있으므로 VM용 Azure Monitor에 의해 수집 되는 성능 데이터에 적합 합니다.
+- [결과 경고 수](../platform/alerts-unified-log.md#count-of-the-results-table-rows) 쿼리가 적어도 지정 된 수의 레코드를 반환할 때 단일 경고를 생성 합니다. 이러한 데이터는 [Log Analytics 에이전트가](../platform/log-analytics-agent.md) 수집 하는 Windows 및 Syslog 이벤트와 같은 숫자가 아닌 데이터 또는 여러 컴퓨터에서 성능 추세를 분석 하는 데 적합 합니다.
+- [메트릭 단위 경고](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) 는 경고 규칙에 정의 된 임계값을 초과 하는 값이 있는 쿼리의 각 레코드에 대해 별도의 경고를 만듭니다. 이러한 경고 규칙은 각 컴퓨터에 대 한 개별 경고를 만들 수 있으므로 VM용 Azure Monitor에 의해 수집 되는 성능 데이터에 적합 합니다.
 
 
 ## <a name="alert-rule-walkthrough"></a>경고 규칙 연습

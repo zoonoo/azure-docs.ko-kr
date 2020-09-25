@@ -3,12 +3,12 @@ title: 관리 ID를 사용하여 인증
 description: 사용자 할당 또는 시스템 할당 관리 Azure ID를 사용하여 프라이빗 컨테이너 레지스트리의 이미지에 액세스할 수 있습니다.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: e5fd8ead989838c0ba74b42a9766bc63936379fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a144f0e865cfc9bf857752eed65dbe5cda88bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537904"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253465"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용 
 
@@ -230,6 +230,8 @@ az acr login --name myContainerRegistry
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
+> [!NOTE]
+> 시스템 할당 관리 서비스 id를 사용 하 여 Acr와 상호 작용 하 고 시스템 할당 관리 서비스 id를 사용할 수 App Service. 그러나이 경우에는 MSI를 사용 하 여 ACR App Service와 통신할 수 없으므로 이러한를 결합할 수 없습니다. 유일한 방법은 ACR에서 관리자를 사용 하도록 설정 하 고 관리자 사용자 이름/암호를 사용 하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

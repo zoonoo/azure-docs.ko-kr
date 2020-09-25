@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41dc4e97e847e9e7d9863631cdb20b72d3f35d9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598422"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269372"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE(통합 서비스 환경) 관리
 
@@ -122,7 +122,7 @@ ISE에 배포한 사용자 지정 커넥터를 보고 관리할 수 있습니다
    * [**수동 크기 조정**](#manual-scale): 사용 하려는 처리 단위 수를 기준으로 크기를 조정 합니다.
    * [**사용자 지정 자동 크기 조정**](#custom-autoscale): 다양 한 조건에서 선택 하 고 해당 조건에 맞는 임계값 조건을 지정 하 여 성능 메트릭에 따라 크기를 조정 합니다.
 
-   ![원하는 크기 조정 유형을 선택 합니다.](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
+   !["수동 크기 조정"이 선택 된 "규모 확장" 페이지를 보여 주는 스크린샷](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
 
 <a name="manual-scale"></a>
 
@@ -136,7 +136,7 @@ ISE에 배포한 사용자 지정 커넥터를 보고 관리할 수 있습니다
 
 <a name="custom-autoscale"></a>
 
-### <a name="custom-autoscale"></a>사용자 지정 자동 크기 조정
+### <a name="custom-autoscale"></a>사용자 지정 자동 스케일링
 
 1. **사용자 지정 자동 크기 조정**을 선택한 후 **자동 크기 조정 설정 이름**에 설정에 대 한 이름을 제공 하 고 필요에 따라 설정이 속한 Azure 리소스 그룹을 선택 합니다.
 

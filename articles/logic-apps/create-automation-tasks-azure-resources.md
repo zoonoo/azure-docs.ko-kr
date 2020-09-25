@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 93c796fd16dde8c238265d16a96b9cfa4a254ea9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1826b17a971b49fdfe8d5df02d71eb682b15db6f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996339"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269729"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Automation 작업 (미리 보기)을 만들어 Azure 리소스를 관리 하 고 비용을 모니터링 합니다.
 
@@ -30,6 +30,7 @@ ms.locfileid: "90996339"
 | 모든 Azure 리소스 | **리소스에 대 한 월별 비용 전송** |
 | Azure 가상 머신 | 추가 필수 구성 요소: <p>- **가상 컴퓨터 전원 끄기** <br>- **가상 컴퓨터 시작** |
 | Azure Storage 계정 | 추가 필수 구성 요소: <p>- **이전 blob 삭제** |
+| Azure Cosmos DB | 또한 <p>- **전자 메일을 통해 쿼리 결과 보내기** |
 |||
 
 이 문서에서는 다음 작업을 완료 하는 방법을 보여 줍니다.
@@ -40,11 +41,13 @@ ms.locfileid: "90996339"
 
 * 작업을 업데이트 하거나 논리 앱 디자이너에서 작업의 기본 워크플로를 사용자 지정할 수 있도록 [작업을 편집](#edit-task) 합니다.
 
+<a name="differences"></a>
+
 ## <a name="how-do-automation-tasks-differ-from-azure-automation"></a>자동화 작업은 Azure Automation와 어떻게 다릅니까?
 
-현재는 리소스 수준 에서만 자동화 작업을 만들고, 작업 실행 기록을 확인 하 고, [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 서비스에서 제공 하는 작업의 기본 논리 앱 워크플로를 편집할 수 있습니다.
+현재는 리소스 수준 에서만 자동화 작업을 만들고, 작업 실행 기록을 확인 하 고, [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 서비스에서 제공 하는 작업의 기본 논리 앱 워크플로를 편집할 수 있습니다. 자동화 작업은 [Azure Automation](../automation/automation-intro.md)보다 간단 하 고 간단 합니다.
 
-[Azure Automation](../automation/automation-intro.md) 은 azure 및 비 azure 환경에서 일관 된 관리를 지 원하는 클라우드 기반 자동화 및 구성 서비스입니다. 이 서비스는 [runbook](../automation/automation-runbook-execution.md), [변경 내용 추적 및 인벤토리](../automation/change-tracking.md)를 통한 구성 관리, 업데이트 관리, 공유 기능 및 다른 유형의 기능을 사용 하 여 [오케스트레이션 프로세스에 대 한 프로세스 자동화](../automation/automation-intro.md#process-automation) 로 구성 됩니다. Automation을 통해 워크로드와 리소스를 배포하고, 운영하고, 서비스를 해제하는 동안 완벽한 제어가 가능합니다.
+비교 하 여 Azure Automation은 Azure 및 비 Azure 환경에서 일관 된 관리를 지 원하는 클라우드 기반 자동화 및 구성 서비스입니다. 이 서비스는 [runbook](../automation/automation-runbook-execution.md), [변경 내용 추적 및 인벤토리](../automation/change-tracking.md)를 통한 구성 관리, 업데이트 관리, 공유 기능 및 다른 유형의 기능을 사용 하 여 [오케스트레이션 프로세스에 대 한 프로세스 자동화](../automation/automation-intro.md#process-automation) 로 구성 됩니다. Automation을 통해 워크로드와 리소스를 배포하고, 운영하고, 서비스를 해제하는 동안 완벽한 제어가 가능합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -130,7 +133,7 @@ ms.locfileid: "90996339"
 
    실행에 대 한 가능한 상태는 다음과 같습니다.
 
-   | Status | 설명 |
+   | 상태 | Description |
    |--------|-------------|
    | **취소** | 작업을 실행 하는 동안 작업이 취소 되었습니다. |
    | **실패** | 작업에 실패 한 작업이 하나 이상 있지만 실패를 처리 하기 위해 후속 작업이 없었습니다. |

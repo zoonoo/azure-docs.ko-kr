@@ -1,14 +1,14 @@
 ---
 title: Azure Lab Services의 템플릿 VM에서 중첩 된 가상화 사용 (스크립트) | Microsoft Docs
-description: 여러 VM이 들어 있는 템플릿 VM을 만드는 방법  즉, Azure Lab Services의 템플릿 VM에서 중첩된 가상화를 사용하는 방법을 알아봅니다.
+description: 스크립트를 사용 하 여 내에서 여러 Vm이 있는 템플릿 VM을 만드는 방법에 대해 알아봅니다.  즉, Azure Lab Services의 템플릿 VM에서 중첩된 가상화를 사용하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a45257dffffc98c3f650c5b1753158edd9bfbede
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ae50bd11ab9a8adb769920f6d473a2ff2ce9342
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445749"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251498"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>스크립트를 사용 하 여 Azure Lab Services의 템플릿 가상 머신에서 중첩 된 가상화 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "85445749"
 
         ![신뢰할 수 있는 사이트](./media/how-to-enable-nested-virtualization-template-vm-using-script/trusted-sites-dialog.png)
 1. 다음 단계에 설명 된 대로 Git 리포지토리 파일을 다운로드 합니다.
-    1. 로 이동 [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/) 합니다.
+    1. 로 이동  [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/) 합니다.
     1. **복제 또는 다운로드** 단추를 클릭 합니다.
     1. **ZIP 다운로드**를 클릭 합니다.
     1. ZIP 파일 추출

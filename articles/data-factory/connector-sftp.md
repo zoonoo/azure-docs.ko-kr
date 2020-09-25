@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: e8067f2aa485202412f0f0b6101eafb7768b222a
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: f4b78c6cb2af8d18dc761e9bfc78740a845f54fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181904"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252938"
 ---
 # <a name="copy-data-from-and-to-the-sftp-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SFTP 서버에서 데이터 복사
 
@@ -236,7 +236,7 @@ SSH 공개 키 인증을 사용하려면 “authenticationType” 속성을 **Ss
 | 옵션 3: 파일 목록<br>- fileListPath | 지정 된 파일 집합을 복사 함을 나타냅니다. 복사할 파일 목록이 포함 된 텍스트 파일을 가리킵니다 (데이터 집합에 구성 된 경로에 대 한 상대 경로를 사용 하 여 한 줄에 하나씩 파일).<br/>이 옵션을 사용 하는 경우 데이터 집합에서 파일 이름을 지정 하지 마세요. 더 많은 예제는 [파일 목록 예](#file-list-examples)를 참조 하세요. |예 |
 | ***추가 설정*** |  | |
 | recursive | 하위 폴더 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. recursive를 true로 설정하고 싱크가 파일 기반 저장소인 경우 빈 폴더 또는 하위 폴더가 싱크에 복사되거나 만들어지지 않습니다. <br>허용되는 값은 *true*(기본값) 및 *false*입니다.<br>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. |예 |
-| deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 소스 저장소에서 이진 파일을 삭제할지 여부를 나타냅니다. 파일 삭제는 파일 단위 이므로 복사 작업에 실패 하면 일부 파일이 이미 대상에 복사 되 고 원본에서 삭제 된 것을 확인할 수 있습니다. 반면 다른 파일은 원본 저장소에 남아 있습니다. <br/>이 속성은 이진 복사 시나리오 에서만 유효 합니다. 여기에서 데이터 원본 저장소는 Blob, ADLS Gen1, ADLS Gen2, S3, Google 클라우드 저장소, 파일, Azure 파일, SFTP 또는 FTP입니다. 기본값은 false입니다. |예 |
+| deleteFilesAfterCompletion | 대상 저장소로 이동한 후에 소스 저장소에서 이진 파일을 삭제할지 여부를 나타냅니다. 파일 삭제는 파일 단위 이므로 복사 작업에 실패 하면 일부 파일이 이미 대상에 복사 되 고 원본에서 삭제 된 것을 확인할 수 있습니다. 반면 다른 파일은 원본 저장소에 남아 있습니다. <br/>이 속성은 이진 파일 복사 시나리오 에서만 사용할 수 있습니다. 기본값은 false입니다. |예 |
 | modifiedDatetimeStart    | 파일이 *마지막으로 수정*된 특성을 기준으로 필터링 됩니다. <br>마지막으로 수정한 시간이의 범위 내에 있는 경우 파일이 선택 됩니다 `modifiedDatetimeStart` `modifiedDatetimeEnd` . 시간은 *2018-12-01T05:00:00z*형식으로 UTC 표준 시간대에 적용 됩니다. <br> 속성은 NULL 일 수 있습니다. 즉, 데이터 집합에 파일 특성 필터가 적용 되지 않습니다.  `modifiedDatetimeStart`에 datetime 값이 있지만 `modifiedDatetimeEnd` 가 NULL 인 경우 마지막으로 수정 된 특성이 datetime 값 보다 크거나 같은 파일이 선택 되어 있음을 의미 합니다.  `modifiedDatetimeEnd`에 datetime 값이 있지만 `modifiedDatetimeStart` 가 NULL 인 경우 마지막으로 수정 된 특성이 datetime 값 보다 작은 파일이 선택 되어 있음을 의미 합니다.<br/>`fileListPath`를 구성하는 경우에는 이 속성이 적용되지 않습니다. | 예                                            |
 | modifiedDatetimeEnd      | 위와 동일합니다.                                               | 예                                            |
 | Enable파티션 검색 | 분할 된 파일의 경우 파일 경로에서 파티션을 구문 분석할 지 여부를 지정 하 고 추가 원본 열로 추가 합니다.<br/>허용 되는 값은 **false** (기본값) 및 **true**입니다. | 예                                            |

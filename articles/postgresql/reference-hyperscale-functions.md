@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: eaada1981929cec890ce3c8ca89fe47393730b05
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136904"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250334"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Citus (Hyperscale) SQL API의 함수
 
@@ -20,7 +20,7 @@ ms.locfileid: "88136904"
 
 > [!NOTE]
 >
-> Citus 엔진의 이전 버전을 실행 하는 하이퍼 확장 서버 그룹은 아래 나열 된 모든 기능을 제공 하지 않을 수 있습니다.
+> 이전 버전의 Citus 엔진을 실행 중인 Citus (hyperscale) 서버 그룹은 아래 나열 된 일부 기능을 제공 하지 않을 수 있습니다.
 
 ## <a name="table-and-shard-ddl"></a>테이블 및 분할 DDL
 
@@ -719,7 +719,7 @@ SELECT replicate_table_shards('github_events', max_shard_copies:=10);
 
 분할 된 ** \_ id:** 함수는 새로 만든 분할 된 데이터베이스가 할당 된 고유 id를 반환 합니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예제
 
 테 넌 트 135에 대 한 lineitems를 보유할 새 분할 된 데이터베이스가 만들어집니다.
 

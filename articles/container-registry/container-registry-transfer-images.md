@@ -4,12 +4,12 @@ description: Azure storage 계정을 사용 하 여 전송 파이프라인을 �
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: 0bbdfc8d1586b7d71daf6d4cbfdc4288357aa45b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ed848380457862fee506bf5111789e5d44545bdd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009157"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253414"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>다른 레지스트리에 아티팩트 전송
 
@@ -30,7 +30,7 @@ ms.locfileid: "88009157"
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **컨테이너 레지스트리** -전송할 아티팩트가 있는 기존 원본 레지스트리 및 대상 레지스트리가 필요 합니다. ACR 전송은 물리적으로 연결이 끊어진 클라우드에서 이동 하기 위한 것입니다. 테스트를 위해 원본 및 대상 레지스트리는 동일 하거나 다른 Azure 구독, Active Directory 테 넌 트 또는 클라우드에 있을 수 있습니다. 레지스트리를 만들어야 하는 경우 [빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요. 
 * **저장소 계정** -구독 및 사용자가 선택한 위치에 원본 및 대상 저장소 계정을 만듭니다. 테스트를 위해 원본 및 대상 레지스트리로 동일한 구독 또는 구독을 사용할 수 있습니다. 클라우드 간 시나리오의 경우 일반적으로 각 클라우드에서 별도의 저장소 계정을 만듭니다. 필요한 경우 [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) 또는 다른 도구를 사용 하 여 저장소 계정을 만듭니다. 
@@ -162,7 +162,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-명령 출력에서 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예:
+명령 출력에서 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -208,7 +208,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-가져오기를 수동으로 실행 하려는 경우 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예:
+가져오기를 수동으로 실행 하려는 경우 파이프라인의 리소스 ID ()를 기록해 둡니다 `id` . [Az deployment group show][az-deployment-group-show]를 실행 하 여 나중에 사용할 수 있도록이 값을 환경 변수에 저장할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \
@@ -250,7 +250,7 @@ az deployment group create \
 
 ```azurecli
 az storage blob list \
-  --account-name $SA_SOURCE
+  --account-name $SOURCE_SA
   --container transfer
   --output table
 ```

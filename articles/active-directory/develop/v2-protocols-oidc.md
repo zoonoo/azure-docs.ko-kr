@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71e930898f1f86622357f9e02da69be7bf2f8088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263281"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256588"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft ID 플랫폼 및 OpenID Connect 프로토콜
 
@@ -37,13 +37,13 @@ OIDC (Openid connect Connect)는 응용 프로그램에 사용자를 안전 하 
 
 Openid connect Connect는 앱이 로그인을 수행 하는 데 필요한 대부분의 정보를 포함 하는 메타 데이터 문서 [(RFC)](https://openid.net/specs/openid-connect-discovery-1_0.html) 를 설명 합니다. 여기에는 사용할 URL, 서비스의 공개 서명 키의 위치 등과 같은 정보가 포함됩니다. 검색 문서 경로를 기관 URL에 추가 하 여이 문서를 찾을 수 있습니다.
 
-검색 문서 경로:`/.well-known/openid-configuration`
+검색 문서 경로: `/.well-known/openid-configuration`
 
-기관`https://login.microsoftonline.com/{tenant}/v2.0`
+기관 `https://login.microsoftonline.com/{tenant}/v2.0`
 
 `{tenant}`는 4개의 값 중 하나를 가질 수 있습니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | --- | --- |
 | `common` |개인 Microsoft 계정과 Azure AD의 회사 또는 학교 계정이 둘 다 있는 사용자가 애플리케이션에 로그인할 수 있습니다. |
 | `organizations` |Azure AD의 회사 또는 학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |
@@ -249,12 +249,12 @@ Content-Type: application/x-www-form-urlencoded
 
 | 매개 변수 | Description |
 | --- | --- |
-| `token` | UserInfo 끝점을 호출 하는 데 사용 되는 토큰입니다.|
+| `access_token` | UserInfo 끝점을 호출 하는 데 사용 되는 토큰입니다.|
 | `token_type` | 항상 "전달자" |
 | `expires_in`| 액세스 토큰이 만료 될 때 까지의 시간 (초)입니다. |
 | `scope` | 액세스 토큰에 부여 된 권한입니다.  사용자 정보 끝점은 MS Graph에서 호스트 되므로 앱에 이전에 부여 된 경우 여기에 나열 된 추가 그래프 범위 (예: user. 읽기)가 있을 수 있습니다.  지정 된 리소스에 대 한 토큰에는 항상 현재 클라이언트에 부여 된 모든 사용 권한이 포함 되기 때문입니다.  |
 | `id_token` | 앱이 요청한 ID 토큰입니다. ID 토큰을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. ID 토큰 및 해당 내용에 대한 자세한 내용은 [`id_tokens` 참조](id-tokens.md)에서 확인할 수 있습니다. |
-| `state` | 요청에 state 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 앱은 요청 및 응답의 상태 값이 동일한지 확인해야 합니다. |
+| `state` | state 매개 변수가 요청에 포함된 경우 동일한 값이 응답에 표시됩니다. 앱은 요청 및 응답의 상태 값이 동일한지 확인해야 합니다. |
 
 ### <a name="error-response"></a>오류 응답
 

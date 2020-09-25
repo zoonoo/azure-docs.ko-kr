@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078720"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269746"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경)에 리소스 추가
 
@@ -20,7 +20,7 @@ ms.locfileid: "87078720"
 > [!IMPORTANT]
 > 논리 앱과 통합 계정이 ISE에서 함께 작동하려면 둘 다 각자 위치와 동일한 ISE를 사용해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -40,9 +40,9 @@ ISE (통합 서비스 환경)에서 실행 되는 논리 앱을 빌드하려면 
 
 1. 만들려는 논리 앱에 대 한 정보를 제공 합니다. 예를 들면 다음과 같습니다.
 
-   ![통합 서비스 환경 선택](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
+   ![예제 정보가 입력 된 "논리 앱" "만들기" 창을 보여 주는 스크린샷](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **이름** | 예 | 만들 논리 앱의 이름 |
    | **구독** | 예 | 사용할 Azure 구독의 이름입니다. |
@@ -74,7 +74,7 @@ ISE를 사용 하는 통합 계정을 만들려면 다음 단계를 수행 합�
 
    ![통합 서비스 환경 선택](./media/add-artifacts-integration-service-environment-ise/create-integration-account-integration-service-environment.png)
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **이름** | 예 | 만들려는 통합 계정의 이름입니다. |
    | **구독** | 예 | 사용 하려는 Azure 구독의 이름입니다. |
@@ -121,7 +121,7 @@ ISE에서 사용자 지정 커넥터를 사용 하려면 ISE 내에서 직접 �
 
 1. **위치** 목록의 **Integration service environment** 섹션에서 논리 앱이 사용 하는 동일한 ISE를 선택 하 고 **만들기**를 선택 합니다. 예를 들면 다음과 같습니다.
 
-   ![통합 서비스 환경 선택](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
+   ![예제 정보를 선택한 상태로 "Logic Apps 사용자 지정 커넥터 만들기" 창을 보여 주는 스크린샷](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
 1. 새 사용자 지정 커넥터를 선택 하 고 **편집**을 선택 합니다. 예를 들면 다음과 같습니다.
 

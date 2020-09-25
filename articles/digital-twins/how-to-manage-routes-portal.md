@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 87b674a9c6b7f7d591b39f1baf54c4d54082f306
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987310"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252836"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Azure Digital Twins에서 끝점 및 경로 관리 (포털)
 
@@ -24,10 +24,10 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 [Eventroutes api](how-to-use-apis-sdks.md), [.net (c #) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)또는 [Azure Digital twins CLI](how-to-use-cli.md)를 사용 하 여 끝점과 경로를 관리할 수도 있습니다. 포털 대신 이러한 메커니즘을 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (api 및 CLI)*](how-to-manage-routes-apis-cli.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
-* Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-scripted.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
+* Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
     - 인스턴스 이름
     - 리소스 그룹
 
@@ -58,7 +58,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 인스턴스 메뉴에서 _끝점_을 선택 합니다. 그런 다음 뒤에 오는 *끝점* 페이지에서 *+ 끝점 만들기*를 선택 합니다. 
 
-열리는 *끝점 만들기* 페이지에서 해당 라디오 단추를 선택 하 여 _Event Grid_ 형식의 끝점을 만들 수 있습니다. 기타 세부 정보를 완료 합니다. _이름_ 필드에 끝점 이름을 입력 하 고 드롭다운에서 _구독_ 을 선택한 다음 세 번째 드롭다운에서 미리 만든 _Event Grid 항목_ 을 선택 합니다.
+열리는 *끝점 만들기* 페이지에서 해당 라디오 단추를 선택 하 여 _Event Grid_ 형식의 끝점을 만들 수 있습니다. 기타 세부 정보를 완료 합니다. _이름_ 필드에 끝점 이름을 입력 하 고 드롭다운에서 _구독_ 을 선택한 다음 세 번째 드롭다운에서 미리 만든  _Event Grid 항목_ 을 선택 합니다.
 
 그런 다음 _저장_을 눌러서 끝점을 만듭니다.
 
@@ -133,8 +133,8 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 * 사용 하려는 경로 이름
 * 사용 하려는 끝점의 이름입니다.
 * 끝점으로 전송 되는 이벤트를 정의 하는 필터입니다.
-    - 이벤트를 보내지 않도록 경로를 사용 하지 않도록 설정 하려면의 필터 값을 사용 합니다.`false`
-    - 특정 필터링이 없는 경로를 사용 하도록 설정 하려면의 필터 값을 사용 합니다.`true`
+    - 이벤트를 보내지 않도록 경로를 사용 하지 않도록 설정 하려면의 필터 값을 사용 합니다. `false`
+    - 특정 필터링이 없는 경로를 사용 하도록 설정 하려면의 필터 값을 사용 합니다. `true`
     - 다른 유형의 필터에 대 한 자세한 내용은 아래의 [*필터 이벤트*](#filter-events) 섹션을 참조 하십시오.
 
 단일 경로를 사용 하 여 여러 알림과 이벤트 유형을 선택할 수 있습니다.

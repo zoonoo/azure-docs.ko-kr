@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 75ad602eb6b9a0ce52b2b4c4115f351668327c43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900272"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253194"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Microsoft Azure Cosmos DB 분석 저장소(미리 보기)란?
 
@@ -60,7 +60,7 @@ Microsoft Azure Cosmos DB 컨테이너에서 분석 저장소를 사용하도록
 
 ### <a name="auto-sync"></a>자동 동기화
 
-자동 동기화는 작동 데이터의 삽입, 업데이트 및 삭제가 5분 내에 거의 실시간으로 트랜잭션 저장소에서 분석 저장소로 자동 동기화되는 Microsoft Azure Cosmos DB의 완전 관리형 기능입니다.
+자동 동기화는 운영 데이터에 대 한 삽입, 업데이트, 삭제가 트랜잭션 저장소에서 분석 저장소로 거의 실시간으로 자동 동기화 되는 Azure Cosmos DB의 완전히 관리 되는 기능을 나타냅니다. 자동 동기화 대기 시간은 일반적으로 2 분 이내입니다. 컨테이너가 많은 공유 처리량 데이터베이스의 경우 개별 컨테이너의 자동 동기화 대기 시간이 더 높아질 수 있으며 최대 5 분이 걸릴 수 있습니다. 이 대기 시간이 시나리오에 얼마나 적합 한지 자세히 알아보세요. 이를 위해 [Azure Cosmos DB 팀](mailto:cosmosdbsynapselink@microsoft.com)에 연락 하세요.
 
 자동 동기화 기능은 분석 저장소와 함께 다음과 같은 주요 이점을 제공합니다.
 
@@ -138,7 +138,7 @@ salary: 1000000
 }
 ```
 
-`streetName`중첩 된 개체 내의 리프 속성은 `address` 분석 저장소 스키마에서 열로 표시 됩니다 `address.object.streetName.int32` . 데이터 형식이 열에 접미사로 추가 됩니다. 이러한 방식으로 리프 속성의 값 `streetNo` 이 "123" (문자열) 인 트랜잭션 저장소에 다른 문서를 추가 하면 이전에 작성 한 열의 형식을 변경 하지 않고 분석 저장소의 스키마가 자동으로 진화 합니다. `address.object.streetName.string`"123" 값이 저장 되는 위치에 따라 분석 저장소에 추가 된 새 열입니다.
+`streetNo`중첩 된 개체 내의 리프 속성은 `address` 분석 저장소 스키마에서 열로 표시 됩니다 `address.object.streetNo.int32` . 데이터 형식이 열에 접미사로 추가 됩니다. 이러한 방식으로 리프 속성의 값 `streetNo` 이 "123" (문자열) 인 트랜잭션 저장소에 다른 문서를 추가 하면 이전에 작성 한 열의 형식을 변경 하지 않고 분석 저장소의 스키마가 자동으로 진화 합니다. `address.object.streetNo.string`"123" 값이 저장 되는 위치에 따라 분석 저장소에 추가 된 새 열입니다.
 
 **데이터 형식-접미사 맵**
 
@@ -149,11 +149,11 @@ salary: 1000000
 | Double |  "float64" |    24.99|
 | 배열 | ". array" |    ["a", "b"]|
 |이진 | "binary" |0|
-|부울    | ". bool"   |True|
+|부울    | ". bool"   |참|
 |Int32  | ". int32"  |123|
 |Int64  | ". int64"  |255486129307|
 |Null   | ". null"   | null|
-|문자열|    "system.string" | "ABC"|
+|String|    "system.string" | "ABC"|
 |타임스탬프 |    ". timestamp" |  Timestamp (0, 0)|
 |DateTime   |". date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
 |ObjectId   |"objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|

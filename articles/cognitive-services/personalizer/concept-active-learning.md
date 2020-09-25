@@ -1,14 +1,16 @@
 ---
 title: 학습 정책-Personalizer
 description: 학습 설정은 모델 학습의 하이퍼 *매개 변수* 를 결정 합니다. 서로 다른 학습 설정에서 학습 된 동일한 데이터의 두 모델은 서로 다르게 작동 합니다.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 1d2038e3796df843736eb80f7e5645f4141c82f4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84700735"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253635"
 ---
 # <a name="learning-policy-and-settings"></a>학습 정책 및 설정
 

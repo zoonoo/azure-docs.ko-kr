@@ -1,14 +1,16 @@
 ---
 title: 활성 및 비활성 이벤트-Personalizer
 description: 이 문서에서는 Personalizer 서비스 내에서 활성 및 비활성 이벤트를 사용 하는 방법을 설명 합니다.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: a8f27542208965e2b820b9fc45cfcc5353a7f193
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7d1044d02ceba1f3d0996b1fe1c8a9a44b31049b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624321"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253652"
 ---
 # <a name="active-and-inactive-events"></a>활성 및 비활성 이벤트
 
@@ -37,9 +39,9 @@ ms.locfileid: "77624321"
 
 ## <a name="inactive-events"></a>비활성 이벤트
 
-이벤트에 대 한 학습을 사용 하지 않도록 설정 하려면 `learningEnabled = False`를 사용 하 여 순위를 호출 합니다.
+이벤트에 대 한 학습을 사용 하지 않도록 설정 하려면를 사용 하 여 순위를 호출 `learningEnabled = False` 합니다.
 
-비활성 이벤트의 경우 이벤트 Id에 대 한 보상을 보내거나 해당 eventId에 대해 `activate` API를 호출 하면 학습이 암시적으로 활성화 됩니다.
+비활성 이벤트의 경우 이벤트 Id에 대 한 보상을 보내거나 `activate` 해당 eventid에 대해 API를 호출 하면 학습이 암시적으로 활성화 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

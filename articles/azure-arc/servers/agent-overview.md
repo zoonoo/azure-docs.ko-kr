@@ -1,14 +1,14 @@
 ---
 title: Connected Machine Windows 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트 되는 가상 컴퓨터를 모니터링 하는 데 사용할 수 있는 Azure Arc 사용 가능 서버 에이전트에 대 한 자세한 개요를 제공 합니다.
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 990b5999a8483c6417049ac5ab965843c2b13659
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 01f1b291fee57d94b95bdeeef5f9f24b011e9fca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908172"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255046"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트 개요
 
@@ -48,8 +48,8 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 
 - Windows Server 2012 R2 이상(Windows Server Core 포함)
 - Ubuntu 16.04 및 18.04 LTS (x64)
-- CentOS Linux 7 (x64)
-- SUSE Linux Enterprise Server (SLES) 15 (x64)
+- CentOS Linux 7(x64)
+- SLES(SUSE Linux Enterprise Server) 15(x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
 
@@ -131,7 +131,10 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 하이브리드 환경의 머신을 Azure에 직접 연결할 때 요구 사항에 따라 다양한 방법을 사용할 수 있습니다. 다음 표를 통해 조직에 가장 적합한 방법을 결정할 수 있습니다.
 
-| 방법 | Description |
+> [!IMPORTANT]
+> 연결 된 컴퓨터 에이전트는 Azure Windows 가상 컴퓨터에 설치할 수 없습니다. 을 (를) 시도 하면 설치에서이를 감지 하 고 롤백합니다.
+
+| 메서드 | Description |
 |--------|-------------|
 | 대화형 | [Azure Portal에서 머신 연결](onboard-portal.md)의 단계에 따라 머신 한 대 또는 약간의 머신에 에이전트를 수동으로 설치합니다.<br> Azure Portal에서 스크립트를 생성하고 머신에서 실행하여 에이전트의 설치 및 구성 단계를 자동화할 수 있습니다.|
 | 대규모 | [서비스 주체를 사용하여 머신 연결](onboard-service-principal.md)의 지침에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 방법은 비 대화형으로 머신을 연결하는 서비스 주체를 만듭니다.|
@@ -228,7 +231,7 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 추가 
     |/opt/logs/dsc.log |DSC 서비스 활동의 세부 정보,<br> 특히 himds 서비스와 Azure Policy 간의 연결을 기록합니다.|
     |/opt/logs/dsc.telemetry.txt |DSC 서비스 원격 분석 및 자세한 정보 로깅에 대한 세부 정보를 기록합니다.|
     |/var/lib/GuestConfig/ext_mgr_logs |확장 에이전트 구성 요소에 대 한 세부 정보를 기록 합니다.|
-    |/var/log/GuestConfig/extension_logs|설치 된 확장의 세부 정보를 기록 합니다.|
+    |/var/lib/GuestConfig/extension_logs|설치 된 확장의 세부 정보를 기록 합니다.|
 
 * 에이전트 설치 중에 다음 환경 변수가 생성됩니다. 이러한 변수는 `/lib/systemd/system.conf.d/azcmagent.conf`에 설정됩니다.
 
@@ -244,4 +247,6 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 추가 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Arc 사용 서버 평가를 시작 하려면 [Azure Portal에서 azure에 하이브리드 컴퓨터 연결](onboard-portal.md)문서를 따르세요.
+* Azure Arc 사용 서버 평가를 시작 하려면 [Azure Portal에서 azure에 하이브리드 컴퓨터 연결](onboard-portal.md)문서를 따르세요.
+
+* 문제 해결 정보는 [연결 된 컴퓨터 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)에서 찾을 수 있습니다.

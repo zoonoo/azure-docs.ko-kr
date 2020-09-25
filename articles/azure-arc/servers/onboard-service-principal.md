@@ -1,14 +1,14 @@
 ---
 title: Azure에 하이브리드 머신을 대규모로 연결
 description: 이 문서에서는 서비스 주체를 사용 하 여 Azure Arc 사용 서버를 통해 Azure에 컴퓨터를 연결 하는 방법에 대해 알아봅니다.
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 545d8abd6dd17e1e413852735c096ddc9261b972
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5976e2ff9aef5f68d119a5fdf5f7d4d4345287a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908332"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254944"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Azure에 하이브리드 머신을 대규모로 연결
 
@@ -139,6 +139,8 @@ azcmagent connect \
 
 ## <a name="next-steps"></a>다음 단계
 
+* 문제 해결 정보는 [연결 된 컴퓨터 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)에서 찾을 수 있습니다.
+
 - [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/insights/vminsights-enable-policy.md)로 모니터링 등).
 
-- [[Log Analytics agent]](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-intro.md)같은 다른 Azure 서비스를 사용 하려는 경우에 필요 합니다.
+- [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-intro.md)같은 다른 Azure 서비스를 사용 하려는 경우에 필요 합니다.

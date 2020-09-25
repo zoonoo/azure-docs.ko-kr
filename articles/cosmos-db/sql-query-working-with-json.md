@@ -4,14 +4,14 @@ description: 중첩된 JSON 속성을 쿼리 및 액세스하고 Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: a569b0122f9122b141b64ded21dbd9be1d766a41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 355f73d46215aa9e05f4ea6d91bb173c77509b63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83699130"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270857"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Azure Cosmos DB에서 JSON 작업
 
@@ -138,6 +138,34 @@ WHERE EXISTS(
     WHERE n.checkingAccount < 0
 )
 ```
+
+## <a name="difference-between-null-and-undefined"></a>Null과 undefined의 차이
+
+속성이 항목에 정의 되어 있지 않으면 해당 값은 `undefined` 입니다. 값을 가진 속성은 `null` 명시적으로 정의 되 고 값을 할당 해야 합니다 `null` .
+
+예를 들어 다음 샘플 항목이 있다고 가정 합니다.
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "address": {
+      "state": "WA",
+      "county": "King",
+      "city": "Seattle"
+      },
+  "creationDate": null
+}
+```
+
+이 예제에서 속성은 `isRegistered` `undefined` 항목에서 생략 되므로 값을 갖습니다. 속성에 `creationDate` 값이 `null` 있습니다.
+
+Azure Cosmos DB는 및 속성에 대 한 두 가지 유용한 형식 검사 시스템 함수를 지원 합니다 `null` `undefined` .
+
+* [IS_NULL](sql-query-is-null.md) -속성 값이 인지 여부를 확인 합니다. `null`
+* [IS_DEFINED](sql-query-is-defined.md) -속성 값이 정의 되었는지 여부를 확인 합니다.
+
+및 값에 대해 [지원 되는 연산자](sql-query-operators.md) 와 해당 동작에 대해 알아볼 수 있습니다 `null` `undefined` .
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>JSON의 예약 키워드 및 특수 문자
 

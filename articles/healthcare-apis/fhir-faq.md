@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 36945d998bf00d7b229b5ae3cce1958953ade601
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 35b59fb0583911b5b9faee96276d1bb09a8d6679
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269712"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 질문과 대답
 
@@ -65,6 +65,23 @@ FHIR 용 인증 및 Azure API. SMART에 대해 자세히 알아보려면 [스마
 
 그룹 내보내기의 경우 그룹 [리소스](https://www.hl7.org/fhir/group.html)의 모든 특성이 아니라 그룹의 포함 된 참조만 내보냅니다.
 
+### <a name="can-i-post-a-bundle-to-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 번들을 게시할 수 있나요?
+
+현재 [batch 번들](https://www.hl7.org/fhir/valueset-bundle-type.html) 의 게시를 지원 하지만 FHIR 용 Azure API에는 트랜잭션 번들 게시를 지원 하지 않습니다. SQL에서 지원 되는 오픈 소스 FHIR 서버를 사용 하 여 트랜잭션 번들을 게시할 수 있습니다.
+
+### <a name="how-can-i-get-all-resources-for-a-single-patient-in-the-azure-api-for-fhir"></a>Azure API for FHIR에서 단일 환자에 대 한 모든 리소스를 얻으려면 어떻게 해야 하나요?
+
+FHIR 용 Azure API에서 [컴파트먼트 검색](https://www.hl7.org/fhir/compartmentdefinition.html) 을 지원 합니다. 이렇게 하면 특정 환자와 관련 된 모든 리소스를 가져올 수 있습니다. 올바른 now 구획에는 환자와 관련 된 모든 리소스가 포함 되어 있으므로, 결과에 환자 리소스가 필요한 경우에도 환자를 가져오도록 검색 해야 합니다.
+
+이에 대 한 몇 가지 예는 다음과 같습니다.
+
+* 환자 받기/<id>/*
+* 환자/ <id> /CHGET
+* 환자/ <id> /c? 코드 = 8302-2
+
+### <a name="where-can-i-see-some-examples-of-using-the-azure-api-for-fhir-within-a-workflow"></a>워크플로 내에서 Azure API for FHIR을 사용 하는 몇 가지 예는 어디에서 확인할 수 있나요?
+
+[상태 아키텍처 GitHub 페이지](https://github.com/microsoft/health-architectures)에서 사용할 수 있는 참조 아키텍처 컬렉션이 있습니다.
 
 ## <a name="azure-iot-connector-for-fhir-preview"></a>Azure IoT Connector for FHIR(미리 보기)
 

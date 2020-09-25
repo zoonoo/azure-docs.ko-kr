@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: 305a369733ce0435b5f892efd0d447b0940143fc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: dd5a0e05b303d6fc7a5cfa012f49fab99828e8a2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300074"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Brivo Onair Identity Connector 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "88547752"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -54,7 +54,7 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
    ![Brivo Onair Id 커넥터 관리 콘솔](media/brivo-onair-identity-connector-provisioning-tutorial/admin.png)
 
-2. **AZURE AD** 탭을 클릭 합니다. **AZURE AD** 세부 정보 페이지에서 선임 관리자 계정의 암호를 다시 입력 합니다. **제출**을 클릭 합니다.
+2. **AZURE AD** 탭을 클릭 합니다. **AZURE AD** 세부 정보 페이지에서 선임 관리자 계정의 암호를 다시 입력 합니다. **제출**을 클릭합니다.
 
    ![Brivo Onair Id 커넥터 azure](media/brivo-onair-identity-connector-provisioning-tutorial/azuread.png)
 
@@ -100,11 +100,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Brivo Onair 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에 `https://scim.brivo.com/ActiveDirectory/v2/` 있는 **테 넌 트 URL**에 입력 합니다. 이전에 **비밀 토큰**에서 검색 된 **Scim 인증 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Brivo Onair Identity Connector에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Brivo Onair Id 커넥터 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 

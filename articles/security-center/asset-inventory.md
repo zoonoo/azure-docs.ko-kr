@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: e62973c83db90df2857186fe6a556278a3c41a7d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302046"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Asset inventory 및 관리 도구를 사용 하 여 리소스 탐색 및 관리
 
@@ -54,7 +54,7 @@ Security Center는 Azure 리소스의 보안 상태를 주기적으로 분석 �
 - **요약** -필터를 정의 하기 전에 인벤토리 보기의 맨 위에 있는 값의 중요 한 스트립은 다음과 같이 표시 됩니다.
 
     - **Total resources**: Security Center에 연결 된 총 리소스 수입니다.
-    - **비정상 리소스**: 활성 보안 권장 사항이 있는 리소스입니다. [보안 권장 사항에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+    - **비정상 리소스**: 활성 보안 권장 사항이 있는 리소스입니다. [보안 권장 사항에 대해 자세히 알아보세요](security-center-recommendations.md).
     - **모니터링**되지 않는 리소스: 에이전트 모니터링 문제를 포함 하는 리소스-Log Analytics 에이전트를 배포 했지만 에이전트가 데이터를 전송 하지 않거나 다른 상태 문제를 포함 하 고 있습니다.
 
 - **필터** -페이지 맨 위의 여러 필터는 대답 하려는 질문에 따라 리소스 목록을 신속 하 게 구체화 하는 방법을 제공 합니다. 예를 들어 *' Production ' 태그가 있는 내 컴퓨터에 Log Analytics 에이전트가 누락 된* 경우 질문에 답변 하려면 다음 클립과 같이 **에이전트 모니터링** 필터를 **태그** 필터와 결합할 수 있습니다.

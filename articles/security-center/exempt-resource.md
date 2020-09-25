@@ -3,16 +3,16 @@ title: Azure Security Center 보안 권장 사항 및 보안 점수에서 리소
 description: 보안 권장 사항 및 보안 점수에서 리소스를 제외 하는 방법을 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b4d043812800bec1070624382755aeb355ea595a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3ac2f82882dfd7eb1e15e9a5287cf1d6f5b32d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940264"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301536"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>권장 사항 및 보안 점수에서 리소스 제외
 
@@ -33,7 +33,7 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 
 |릴리스 상태:|미리 보기|
 |결정|Azure Defender 고객에 게 추가 비용 없이 제공 되는 프리미엄 Azure 정책 기능입니다. 다른 사용자에 게는 나중에 요금이 부과 될 수 있습니다.|
 |필요한 역할 및 사용 권한:|예외를 만들기 위한 **구독 소유자** 또는 **정책 기여자**<br>규칙을 만들려면 Azure Policy에서 정책을 편집할 수 있는 권한이 필요 합니다.<br>[Azure Policy에서 RBAC 권한](../governance/policy/overview.md#rbac-permissions-in-azure-policy)에 대해 자세히 알아보세요.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/no-icon.png) 국가/소 버린 (US Gov, 중국 .Gov, 기타 .Gov)|
 |||
 
 
@@ -62,7 +62,7 @@ Azure Security Center에서 보안 권장 사항을 조사할 때 가장 먼저 
 
     :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="예외 수정":::
 
-    각 예외에 대 한 이유는 표에 포함 되어 있습니다. 
+    각 예외에 대 한 이유는 테이블 (1)에 포함 됩니다.
 
     예외를 수정 하거나 삭제 하려면 (2)와 같이 줄임표 메뉴 ("...")를 선택 합니다.
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dcf80ffa26ecaeb0f4481b3997146c07bd89be10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d89942ad5209b854b8df486ad3e59a3976edfc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85397946"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259054"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용 하 여 TypingDNA 구성 자습서
 
@@ -36,9 +36,9 @@ ms.locfileid: "85397946"
 
 2. 사용자가 페이지를 제출 하면 TypingDNA 라이브러리가 사용자의 입력 특성을 계산 합니다. 그런 다음 Azure AD B2C 렌더링 된 숨겨진 텍스트 필드에 정보를 삽입 합니다. 이 필드는 CSS를 사용 하 여 숨겨집니다.  
 
-    이 샘플은 JavaScript 및 CSS 수정이 포함 된 HTML 파일을 포함 하며 `api.selfasserted.tdnasignin` 및 콘텐츠 정의에서 참조 됩니다 `api.selfasserted.tdnasignup` . HTML 파일을 호스트 하려면 [페이지 콘텐츠 호스팅](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) 을 참조 하세요.
+    이 샘플은 JavaScript 및 CSS 수정이 [포함 된 HTML 파일을 포함](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) 하며 `api.selfasserted.tdnasignin` 및 콘텐츠 정의에서 참조 됩니다 `api.selfasserted.tdnasignup` . HTML 파일을 호스트 하려면 [페이지 콘텐츠 호스팅](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) 을 참조 하세요.
 
-3. 이제 사용자가 자격 증명을 전송할 때 클레임 모음 내에 Azure AD B2C 입력 패턴이 있습니다. API를 호출 하 여이 데이터를 TypingDNA REST API 끝점에 전달 해야 합니다. 이 API는 샘플 (typingDNA-API 인터페이스)에 포함 되어 있습니다.
+3. 이제 사용자가 자격 증명을 전송할 때 클레임 모음 내에 Azure AD B2C 입력 패턴이 있습니다. API를 호출 하 여이 데이터를 TypingDNA REST API 끝점에 전달 해야 합니다. 이 API는 [샘플 (typingDNA-API 인터페이스)](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface)에 포함 되어 있습니다.
 4. 그러면 중간 계층 API는 입력 패턴 데이터를 TypingDNA REST API 전달 합니다. 등록 시 사용자가 존재 하지 않는지 확인 하기 위해 [사용자 끝점 확인](https://api.typingdna.com/index.html#api-API_Services-GetUser) 이 호출 되 고 [저장 패턴](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) 끝점이 호출 되어 사용자의 첫 번째 입력 패턴을 저장 합니다.
 
 > [!NOTE]
@@ -61,7 +61,7 @@ REST API 호출은 내에서 모델링 됩니다 `validationTechnicalProfiles` `
 
 ### <a name="sign-in"></a>로그인
 
-이후 로그인에서 사용자의 입력 패턴은 사용자 지정 HTML을 사용 하 여 등록할 때와 동일한 방식으로 계산 됩니다. 입력 프로필이 Azure AD B2C 된 클레임 모음 내에 있으면 Azure AD B2C API를 호출 하 여 TypingDNA의 REST API 엔드포인트를 호출 합니다. 사용자가 존재 하는지 확인 하기 위해 [사용자](https://api.typingdna.com/index.html#api-API_Services-GetUser) 끝점이 호출 됩니다. 그런 다음를 반환 하기 위해 패턴 끝점이 호출 [되는지 확인](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) `net_score` 합니다. 이는 `net_score` 등록 시 원래에 입력 패턴을 닫는 방법을 나타냅니다.
+이후 로그인에서 사용자의 입력 패턴은 [사용자 지정 HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml)을 사용 하 여 등록할 때와 동일한 방식으로 계산 됩니다. 입력 프로필이 Azure AD B2C 된 클레임 모음 내에 있으면 Azure AD B2C API를 호출 하 여 TypingDNA의 REST API 엔드포인트를 호출 합니다. 사용자가 존재 하는지 확인 하기 위해 [사용자](https://api.typingdna.com/index.html#api-API_Services-GetUser) 끝점이 호출 됩니다. 그런 다음를 반환 하기 위해 패턴 끝점이 호출 [되는지 확인](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) `net_score` 합니다. 이는 `net_score` 등록 시 원래에 입력 패턴을 닫는 방법을 나타냅니다.
 
 이 입력 패턴은 `validationTechnicalProfiles` 다음 내에서 모델링 됩니다 `SelfAsserted-LocalAccountSignin-Email-TDNA` .
 
@@ -99,7 +99,7 @@ REST API 호출은 내에서 모델링 됩니다 `validationTechnicalProfiles` `
 
  사용자가 높은 형식으로 입력 패턴을 가져오는 경우 `net_score` TypingDNA [저장 입력 패턴](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) 끝점을 사용 하 여이를 저장할 수 있습니다.  
 
-Api를 `saveTypingPattern` 통해 Azure AD B2C (api를 통해)에 의해 호출 되는 TypingDNA 저장 형식 패턴 끝점을 원하는 경우 api는 클레임을 반환 해야 합니다.
+Api를  `saveTypingPattern` 통해 Azure AD B2C (api를 통해)에 의해 호출 되는 TypingDNA 저장 형식 패턴 끝점을 원하는 경우 api는 클레임을 반환 해야 합니다.
 
 리포지토리의 예제에는 다음 속성으로 구성 된 API (TypingDNA-인터페이스)가 포함 되어 있습니다.
 
@@ -158,14 +158,14 @@ Api를 `saveTypingPattern` 통해 Azure AD B2C (api를 통해)에 의해 호출 
 
 ## <a name="integrate-typingdna-with-azure-ad-b2c"></a>Azure AD B2C를 사용 하 여 TypingDNA 통합
 
-1. 선택한 호스팅 공급자에서 TypingDNA-API 인터페이스를 호스팅합니다.
-2. TypingDNA의 모든 인스턴스와 `apiKey` `apiSecret` API 인터페이스 솔루션을 사용자의 자격 증명으로 바꿉니다.
+1. 선택한 호스팅 공급자에서 [Typingdna-API 인터페이스](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) 를 호스팅합니다.
+2. Typingdna의 모든 인스턴스와 `apiKey` `apiSecret` [API 인터페이스](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) 솔루션을 사용자의 자격 증명으로 바꿉니다.
 3. [여기](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors) 에 CORS 요구 사항에 따라 선택한 공급자에서 HTML 파일을 호스팅합니다.
 4. 파일의 및 콘텐츠 정의에 대 한 LoadURI 요소를 `api.selfasserted.tdnasignup` `api.selfasserted.tdnasignin` `TrustFrameworkExtensions.xml` 각각 호스팅된 HTML 파일의 uri로 바꿉니다.
 5. **Azure Portal**Azure AD 블레이드의 id 경험 프레임 워크에서 B2C 정책 키를 만듭니다. `Generate`옵션을 사용 하 고이 키의 이름을로 `tdnaHashedId` 합니다.
 6. 정책 파일에서 TenantId를 바꿉니다.
-7. 모든 TypingDNA의 ServiceURLs REST API 기술 프로필 (REST-TDNA-VerifyUser, REST-TDNA-SaveUser, REST-TDNA-CheckUser)을 TypingDNA api 인터페이스에 대 한 끝점으로 바꿉니다.
-8. 테 넌 트에 정책 파일을 업로드 합니다.
+7. 모든 TypingDNA의 ServiceURLs REST API 기술 프로필 (REST-TDNA-VerifyUser, REST-TDNA-SaveUser, REST-TDNA-CheckUser)을 [Typingdna Api 인터페이스](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface)에 대 한 끝점으로 바꿉니다.
+8. 테 넌 트에 [정책 파일](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/policy) 을 업로드 합니다.
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 

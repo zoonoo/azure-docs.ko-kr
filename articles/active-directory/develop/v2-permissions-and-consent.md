@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 5d1aa4ff87b272911e4e39076f337ea249b962d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705693"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256605"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -48,15 +48,15 @@ OAuth 2.0에서는 이러한 유형의 사용 권한을 *범위*라고 합니다
 * `Calendars.ReadWrite`를 사용하여 사용자의 일정 쓰기
 * `Mail.Send`을 사용하여 사용자로 메일 보내기
 
-앱은 가장 일반적으로 Microsoft id 플랫폼 권한 부여 끝점에 대 한 요청에 범위를 지정 하 여 이러한 사용 권한을 요청 합니다. 그러나 특정 권한이 높은 권한은 관리자 동의를 통해서만 부여할 수 있으며 [관리자 동의 끝점](v2-permissions-and-consent.md#admin-restricted-permissions)을 사용 하 여 요청/부여할 수 있습니다. 더 알아보려면 계속 읽어 보세요.
+앱은 가장 일반적으로 Microsoft id 플랫폼 권한 부여 끝점에 대 한 요청에 범위를 지정 하 여 이러한 사용 권한을 요청 합니다. 그러나 특정 권한이 높은 권한은 관리자 동의를 통해서만 부여할 수 있으며 [관리자 동의 끝점](#admin-restricted-permissions)을 사용 하 여 요청/부여할 수 있습니다. 더 알아보려면 계속 읽어 보세요.
 
 ## <a name="permission-types"></a>사용 권한 유형
 
 Microsoft ID 플랫폼은 **위임된 권한** 및 **애플리케이션 권한**의 두 가지 사용 권한을 지원합니다.
 
-* **위임된 권한**은 로그인한 사용자가 있는 앱에서 사용합니다. 이러한 앱의 경우 사용자 또는 관리자는 앱이 요청 하는 사용 권한을 동의 앱은 대상 리소스에 대 한 호출을 수행할 때 로그인 한 사용자 역할을 할 수 있는 권한을 위임 합니다. 일부 위임된 권한은 관리자가 아닌 사용자가 동의할 수 있지만, 일부 상위 권한은 [관리자 동의](v2-permissions-and-consent.md#admin-restricted-permissions)가 필요합니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+* **위임된 권한**은 로그인한 사용자가 있는 앱에서 사용합니다. 이러한 앱의 경우 사용자 또는 관리자는 앱이 요청 하는 사용 권한을 동의 앱은 대상 리소스에 대 한 호출을 수행할 때 로그인 한 사용자 역할을 할 수 있는 권한을 위임 합니다. 일부 위임된 권한은 관리자가 아닌 사용자가 동의할 수 있지만, 일부 상위 권한은 [관리자 동의](#admin-restricted-permissions)가 필요합니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
-* **애플리케이션 권한**은 로그인한 사용자 없이 실행되는 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다.  애플리케이션 권한은 [관리자만 승인할 수 있습니다](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+* **애플리케이션 권한**은 로그인한 사용자 없이 실행되는 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다.  애플리케이션 권한은 [관리자만 승인할 수 있습니다](#requesting-consent-for-an-entire-tenant).
 
 _유효 권한_ 은 앱이 대상 리소스를 요청할 때 갖게 되는 권한입니다. 응용 프로그램에 부여 되는 위임 된 권한 및 응용 프로그램 권한과 대상 리소스를 호출할 때의 유효 사용 권한 간의 차이점을 이해 하는 것이 중요 합니다.
 
@@ -302,6 +302,16 @@ response_type=token            //code or a hybrid flow is also possible here
 
 여기서는 등록된 모든 사용 권한에 대한 동의 화면이 표시되고(동의 및 `/.default`에 대한 위의 설명에 따라 해당되는 경우) 액세스 토큰이 아닌 id_token이 반환됩니다.  이 동작은 ADAL에서 MSAL로 이동 하는 특정 레거시 클라이언트에 대해 **존재 하며,** Microsoft id 플랫폼 끝점을 대상으로 하는 새 클라이언트에서 사용 하면 안 됩니다.
 
+### <a name="client-credentials-grant-flow-and-default"></a>클라이언트 자격 증명 부여 흐름 및 기본값
+
+의 또 다른 용도 `./default` 는 [클라이언트 자격 증명](v2-oauth2-client-creds-grant-flow.md) 부여 흐름을 사용 하 여 web API를 호출 하는 디먼 앱 처럼 비 대화형 응용 프로그램에서 응용 프로그램 사용 권한 (또는 *역할*)을 요청 하는 경우입니다.
+
+웹 API에 대 한 응용 프로그램 사용 권한 (역할)을 만들려면 [방법: 응용 프로그램에 앱 역할 추가](howto-add-app-roles-in-azure-ad-apps.md)를 참조 하세요.
+
+클라이언트 앱의 클라이언트 자격 증명 요청에는가 포함 **되어야 합니다** `scope={resource}/.default` `{resource}` . 여기서는 앱이 호출 하려는 웹 API입니다. 개별 응용 프로그램 사용 권한 (역할)이 있는 클라이언트 자격 증명 요청은 지원 **되지 않습니다** . 해당 web API에 대해 부여 된 모든 응용 프로그램 사용 권한 (역할)은 반환 된 액세스 토큰에 포함 됩니다.
+
+응용 프로그램에 대 한 관리자 동의 부여를 비롯 하 여 사용자가 정의 하는 응용 프로그램 사용 권한에 대 한 액세스 권한을 부여 하려면 [빠른 시작: 웹 API에 액세스 하도록 클라이언트 응용 프로그램 구성](quickstart-configure-app-access-web-apis.md)을 참조 하세요.
+
 ### <a name="trailing-slash-and-default"></a>후행 슬래시 및/sats 기본값
 
 일부 리소스 Uri는 후행 슬래시 ( `https://contoso.com/` 와 반대)를 가지 `https://contoso.com` 며,이로 인해 토큰 유효성 검사에 문제가 발생할 수 있습니다.  이는 주로 리소스 URI에 후행 슬래시를 포함 하는 Azure 리소스 관리 ()에 대 한 토큰을 요청 하는 경우에 발생할 수 있으며 `https://management.azure.com/` 토큰이 요청 될 때 표시 되어야 합니다.  따라서에 대 한 토큰을 요청 `https://management.azure.com/` 하 고를 사용 하는 경우 `/.default` `https://management.azure.com//.default` 이중 슬래시를 요청 해야 합니다.
@@ -311,3 +321,8 @@ response_type=token            //code or a hybrid flow is also possible here
 ## <a name="troubleshooting-permissions-and-consent"></a>권한 및 동의 문제 해결
 
 사용자 또는 응용 프로그램의 사용자에 게 동의 프로세스 중에 예기치 않은 오류가 표시 되는 경우 문제 해결 단계: [응용 프로그램에 대 한 동의를 수행할 때 예기치 않은 오류](../manage-apps/application-sign-in-unexpected-user-consent-error.md)에 대 한이 문서를 참조 하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+* [ID 토큰 | Microsoft id 플랫폼](id-tokens.md)
+* [액세스 토큰 | Microsoft id 플랫폼](access-tokens.md)

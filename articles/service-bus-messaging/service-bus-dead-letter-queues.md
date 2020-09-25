@@ -4,12 +4,12 @@ description: Azure Service Bus의 배달 못한 편지 큐에 대해 설명합�
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5f7fb65a2a1a6d6529177cd20a85a6d845c119d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4dbd1216d3ff81e785f16ebed6ceabfa5d5897db
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021683"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301026"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
 
@@ -62,7 +62,7 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 
 ## <a name="errors-while-processing-subscription-rules"></a>구독 규칙을 처리하는 동안 오류 발생
 
-구독에 대해 When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 속성이 활성화되면 구독의 SQL 필터 규칙이 실행되는 동안 발생하는 모든 오류가 오류 메시지와 함께 DLQ에 캡처됩니다.
+구독에 대해 When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 속성이 활성화되면 구독의 SQL 필터 규칙이 실행되는 동안 발생하는 모든 오류가 오류 메시지와 함께 DLQ에 캡처됩니다. 일부 메시지 유형에 구독자가 없는 프로덕션 환경에서는이 옵션을 사용 하지 마세요.
 
 ## <a name="application-level-dead-lettering"></a>애플리케이션 수준에서 배달 못 한 편지 처리
 

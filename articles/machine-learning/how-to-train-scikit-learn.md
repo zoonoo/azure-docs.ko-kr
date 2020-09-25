@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7b63ef36d7df43168ed132a740bab026e6e00f3f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e2f1eb50f6d878eecb4b5c448e683a3024e8c396
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897232"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250847"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>빌드 scikit-Azure Machine Learning를 사용 하 여 규모에 맞게 모델 학습
 
@@ -166,7 +166,7 @@ model = run.register_model(model_name='sklearn-iris',
 
 ### <a name="preview-no-code-model-deployment"></a>모드 코드 없는 모델 배포
 
-기존 배포 경로 대신 scikit에 대 한 비 코드 배포 기능 (미리 보기)을 사용할 수도 있습니다. 모든 기본 제공 scikit 모델 형식에 대해 코드 모델 배포가 지원 되지 않습니다. 위에 표시 된 대로, 및 매개 변수를 사용 하 여 모델을 등록 하면 `model_framework` `model_framework_version` `resource_configuration` 단순히 정적 함수를 사용 하 여 모델을 배포할 수 있습니다 [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) .
+기존 배포 경로 대신 scikit에 대 한 비 코드 배포 기능 (미리 보기)을 사용할 수도 있습니다. 모든 기본 제공 scikit 모델 형식에 대해 코드 모델 배포가 지원 되지 않습니다. 위에 표시 된 대로, 및 매개 변수를 사용 하 여 모델을 등록 하면 `model_framework` `model_framework_version` `resource_configuration` 단순히 정적 함수를 사용 하 여 모델을 배포할 수 있습니다 [`deploy()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) .
 
 ```python
 web_service = Model.deploy(ws, "scikit-learn-service", [model])

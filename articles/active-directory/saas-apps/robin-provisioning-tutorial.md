@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: Zhchia
-ms.openlocfilehash: c025a0dfee92a523b00cdf0721078ae3caf61ac9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e69b6aa5518f83dbbeba34d70b459c781b50dc9f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545168"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299995"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 로빈 구성
 
@@ -103,11 +103,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 로빈을 구성 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에 `https://api.robinpowered.com/v1.0/scim-2` 있는 **테 넌 트 URL**에 입력 합니다. 이전에 **비밀 토큰**에서 검색 된 **Scim 인증 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 로빈에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 사용자의 로빈 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 

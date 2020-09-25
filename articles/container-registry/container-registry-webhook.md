@@ -3,12 +3,12 @@ title: 레지스트리 작업에 응답하는 웹후크
 description: 레지스트리 리포지토리 중 하나에서 풀 또는 푸시 작업이 수행되는 경우 웹후크를 사용하여 이벤트를 트리거하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 3d0a12b6e742b0209cbb746a70686423f2fb5627
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1db1098da81e6cf9ecb262c99f705b77af2efd26
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253397"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용
 
@@ -41,7 +41,7 @@ Webhook 요청에 대한 세부 정보는 [Azure Container Registry 웹후크 �
 
 웹후크 양식 예제:
 
-![Azure Portal의 ACR 웹후크 만들기 UI](./media/container-registry-webhook/webhook.png)
+![Azure Portal에 있는 ACR webhook 생성을 보여 주는 스크린샷](./media/container-registry-webhook/webhook.png)
 
 ## <a name="create-webhook---azure-cli"></a>웹후크 만들기 - Azure CLI
 

@@ -3,59 +3,18 @@ title: Azure vm의 SQL server에 대 한 일시 삭제 및 Azure VM 워크 로�
 description: Azure VM의 SQL server에 대 한 일시 삭제 및 Azure VM 워크 로드의 SAP HANA에 대 한 자세한 내용은 백업을 더욱 안전 하 게 만듭니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2a442997d426ff0bf4c74b0b45f7657cc0593b82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022295"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254298"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Azure vm의 SQL server에 대 한 일시 삭제 및 Azure VM 워크 로드의 SAP HANA
 
 이제 Azure Backup은 Azure VM의 SQL server에 대 한 일시 삭제와 Azure VM 워크 로드의 SAP HANA를 제공 합니다. 이는 이미 지원 되는 [Azure Virtual machine 일시 삭제 시나리오](soft-delete-virtual-machines.md)와 함께 사용할 수 있습니다.
 
 [일시 삭제](backup-azure-security-feature-cloud.md) 는 삭제 후에도 백업 데이터를 보호 하는 보안 기능입니다. 일시 삭제를 사용 하는 경우 악의적인 행위자가 데이터베이스의 백업 (또는 실수로 삭제 된 백업 데이터)을 삭제 하더라도 백업 데이터는 14 일 동안 보존 됩니다. 이렇게 하면 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존은 고객에 게 비용을 부과 하지 않습니다.
-
->[!NOTE]
->구독에 대해 미리 보기가 활성화 된 후에는 동일한 자격 증명 모음에서 가상 컴퓨터에 대해 사용 하도록 설정 된 상태로 유지 하면서 SQL server 또는 SAP HANA Db에 대해서만 일시 삭제를 사용 하지 않도록 설정할 수 없습니다. 세부적인 제어를 위해 별도의 자격 증명 모음을 만들 수 있습니다.
-
-## <a name="steps-to-enroll-in-preview"></a>미리 보기에 등록 하는 단계
-
-1. Azure 계정에 로그인 합니다.
-
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-2. 미리 보기에 등록 하려는 구독을 선택 합니다.
-
-   ```powershell
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-   ```
-
-3. 이 구독을 미리 보기 프로그램에 등록 합니다.
-
-   ```powershell
-   Register-AzureRMProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-4. 구독이 미리 보기에 등록 될 때까지 30 분 동안 기다립니다.
-
-5. 상태를 확인 하려면 다음 cmdlet을 실행 합니다.
-
-   ```powershell
-   Get-AzureRmProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-6. 구독이 등록 된 것으로 표시 되 면 다음 명령을 실행 합니다.
-
-   ```powershell
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
->[!NOTE]
->일시 삭제를 사용 하는 구독에서 새 자격 증명 모음/자격 증명 모음이 생성 될 때마다 새로 만든 자격 증명 모음에 대해이 기능을 사용 하려면 다음 명령을 다시 실행 해야 합니다.<BR>
-> `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 ## <a name="soft-delete-for-sql-server-in-azure-vm-using-azure-portal"></a>Azure Portal를 사용 하 여 Azure VM의 SQL server에 대 한 일시 삭제
 

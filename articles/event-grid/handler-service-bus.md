@@ -3,12 +3,12 @@ title: Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Service
 description: Service Bus 큐 및 토픽을 Azure Event Grid 이벤트에 대한 이벤트 처리기로 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 00f937a66ff17c2d5f502fe976675c999ee02a58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440799"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270171"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 Service Bus 큐 및 토픽
 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 추가 작업을 수행합니다. 이벤트를 처리하도록 여러 Azure 서비스가 자동으로 구성되며, **Azure Service Bus**는 그 중 하나입니다. 
@@ -51,7 +51,7 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="message-properties"></a>메시지 속성
-**Service Bus 토픽 또는 큐**를 Event Grid의 이벤트에 대한 이벤트 처리기로 사용하는 경우 다음 메시지 헤더를 설정합니다. 
+Event Grid에서 이벤트에 대 한 이벤트 처리기로 **Service Bus 토픽 또는 큐** 를 사용 하는 경우 메시지 헤더에 표시 되는 속성은 다음과 같습니다. 
 
 | 속성 이름 | Description |
 | ------------- | ----------- | 
@@ -156,6 +156,9 @@ az eventgrid event-subscription create \
     }
 }
 ```
+
+> [!NOTE]
+> **다른 테 넌 트** 의 Azure Servive Bus 큐 또는 토픽에 이벤트를 전달 하는 것은 지원 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 지원되는 이벤트 처리기 목록은 [이벤트 처리기](event-handlers.md) 문서를 참조하세요. 

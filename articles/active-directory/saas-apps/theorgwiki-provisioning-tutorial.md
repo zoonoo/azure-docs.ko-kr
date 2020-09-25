@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 5959ccd2699ef1162779a4a1d90ab6bb8af1bbbf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544851"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255845"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 TheOrgWiki 구성
 
@@ -55,23 +55,23 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 TheOrgWiki�
 
 1. [TheOrgWiki 관리 콘솔](https://www.theorgwiki.com/login/)에 로그인 합니다. **관리 콘솔**을 클릭 합니다.
 
-    ![TheOrgWiki SCIM 추가](media/theorgwiki-provisioning-tutorial/login.png)
+    ![사용자 아바타와 관리 콘솔이 호출 된 Org Wiki의 스크린샷](media/theorgwiki-provisioning-tutorial/login.png)
 
 2. 관리 콘솔에서 **설정 탭**을 클릭 합니다. 
 
-    ![TheOrgWiki SCIM 추가](media/theorgwiki-provisioning-tutorial/settings.png)
+    ![설정 탭이 호출 된 조직도의 스크린샷](media/theorgwiki-provisioning-tutorial/settings.png)
     
 3. **서비스 계정**으로 이동 합니다.
 
-    ![TheOrgWiki SCIM 추가](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
+    ![조직 Wiki 관리 콘솔에서 서비스 계정 페이지의 스크린샷](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
 4. **+ 서비스 계정**을 클릭 합니다. **서비스 계정 유형**에서 **토큰 기반**을 선택 합니다. **저장**을 클릭합니다.
 
-    ![TheOrgWiki SCIM 추가](media/theorgwiki-provisioning-tutorial/auth.png)
+    ![서비스 계정 유형, 토큰 기반 및 저장 옵션 이라는 새 서비스 계정 대화 상자의 스크린샷](media/theorgwiki-provisioning-tutorial/auth.png)
 
 5.  **활성 토큰**을 복사 합니다. 이 값은 Azure Portal TheOrgWiki 응용 프로그램의 프로 비전 탭에 있는 비밀 토큰 필드에 입력 됩니다.
      
-    ![TheOrgWiki SCIM 추가](media/theorgwiki-provisioning-tutorial/token.png)
+    ![S C I 프로 비전 용 토큰 관리 대화 상자 스크린샷](media/theorgwiki-provisioning-tutorial/token.png)
 
 ## <a name="add-theorgwiki-from-the-gallery"></a>갤러리에서 TheOrgWiki 추가
 
@@ -95,15 +95,15 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 TheOrgWiki를 구
 
 5. **TheOrgWiki에 등록** 단추를 선택 합니다. 그러면 TheOrgWiki의 로그인 페이지로 리디렉션됩니다. 
 
-    ![TheOrgWiki SCIM 추가](media/theorgwiki-provisioning-tutorial/image00.png)
+    ![URL이 out 인 조직도 Wiki 로그인 페이지의 스크린샷](media/theorgwiki-provisioning-tutorial/image00.png)
 
 6.  오른쪽 위 모서리에서 **로그인**을 선택 합니다.
 
-    ![TheOrgWiki SCIM 추가](media/theorgwiki-provisioning-tutorial/image02.png)
+    ![로그인 옵션이 out 인 로그인 페이지의 오른쪽 위 모퉁이에 대 한 스크린샷](media/theorgwiki-provisioning-tutorial/image02.png)
 
 7. TheOrgWiki는 OpenIDConnect 앱 이므로 Microsoft 회사 계정을 사용 하 여 OrgWiki에 로그인 하도록 선택 합니다.
 
-    ![TheOrgWiki SCIM 추가](media/theorgwiki-provisioning-tutorial/image03.png)
+    ![Microsoft에 로그인 옵션이 out 인 조직도 Wiki 로그인 페이지의 스크린샷](media/theorgwiki-provisioning-tutorial/image03.png)
     
 8. 인증에 성공 하면 응용 프로그램이 테 넌 트에 자동으로 추가 되 고 TheOrgWiki 계정으로 리디렉션됩니다.
 
@@ -126,11 +126,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 TheOrgWiki를 구
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에 `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` 있는 **테 넌 트 URL**에 입력 합니다. 
 

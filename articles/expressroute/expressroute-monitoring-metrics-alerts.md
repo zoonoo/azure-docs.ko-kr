@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: fc83e5e8d14250ed163a56830311533144bbe344
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395437"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252632"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 모니터링, 메트릭 및 경고
 
@@ -154,6 +154,19 @@ Express 경로 직접 포트 쌍의 각 링크에서 줄 프로토콜을 볼 수
 **경고 조건**에서 신호 유형으로 **활동 로그**를 선택하고 신호를 선택할 수 있습니다.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="활동 로그":::
+
+## <a name="additional-metrics-in-log-analytics"></a>Log Analytics의 추가 메트릭
+
+Express 경로 회로 리소스로 이동 하 고 *로그* 탭을 선택 하 여 express 경로 메트릭을 볼 수도 있습니다. 쿼리 하는 모든 메트릭에 대해 아래 열이 출력에 포함 됩니다.
+
+|**열**|**형식**|**설명**|
+| --- | --- | --- |
+|TimeGrain|문자열|PT1M (메트릭 값은 1 분 마다 푸시 됨)|
+|개수|real|일반적으로 2와 같습니다 (각 MSEE는 1 분 마다 단일 메트릭 값을 푸시합니다).|
+|최소|real|두 개의 MSEEs에 의해 푸시되는 두 메트릭 값의 최소값입니다.|
+|최대|real|두 MSEEs에 의해 푸시되는 두 메트릭 값의 최대|
+|평균|real|같음 (최소 + 최대)/2|
+|합계|real|MSEEs의 두 메트릭 값 합계 (쿼리 된 메트릭에 대해 초점을 맞춘 주 값)|
   
 ## <a name="next-steps"></a>다음 단계
 

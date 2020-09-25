@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 440f901f06e431c371b7445f4a04499c475c9aa1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5ffa5398143bff4e24d81a28a541e16c44700c99
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940588"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254026"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>방법: 웹 응용 프로그램을 계산 하는 사용자 배포
 
@@ -181,8 +181,8 @@ docker push [desired local image name]
 
 설치가 완료 될 때까지 기다렸다가 Azure Portal의 리소스로 이동 합니다. **구성** 섹션으로 이동 하 여 다음 두 가지 **응용 프로그램 설정을**추가 합니다.
 
-* `EventHubConsumerGroup` – Azure IoT hub에서 소비자 그룹의 문자열 이름을 사용 하 여 IoT hub에서 새 소비자 그룹을 만들거나 기본 그룹을 사용할 수 있습니다. 
-* `IotHubConnectionString` – Azure IoT hub에 대 한 연결 문자열입니다. Azure IoT hub 리소스의 키 섹션에서이를 검색 하 여 ![ 매개 변수를 구성할 수 있습니다.](./media/spatial-analysis/solution-app-config-page.png)
+* `EventHubConsumerGroup` – Azure IoT Hub에서 소비자 그룹의 문자열 이름을 사용 하 여 IoT Hub에 새 소비자 그룹을 만들거나 기본 그룹을 사용할 수 있습니다. 
+* `IotHubConnectionString` -Azure IoT Hub에 대 한 연결 문자열입니다 .이 문자열을 Azure IoT Hub 리소스 ![ 구성 매개 변수의 키 섹션에서 검색할 수 있습니다.](./media/spatial-analysis/solution-app-config-page.png)
 
 이러한 두 설정이 추가 되 면 **저장**을 클릭 합니다. 왼쪽 탐색 메뉴에서 **인증/권한 부여** 를 클릭 하 고 원하는 인증 수준으로 업데이트 합니다. Azure AD (Azure Active Directory) express를 권장 합니다. 
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 332c33ce46298e5338587cd4d001466d30c1a9e6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 138b3b35633b432193a1972421f05d0a8e52b90a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937193"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301365"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Kubernetes 워크로드 보호
 
@@ -70,11 +70,11 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능**을 �
     | 권장 사항 이름                                                                   | 보안 컨트롤                         | 구성 필요 |
     |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
     | 컨테이너 CPU 및 메모리 제한 적용 (미리 보기)                          | DDoS 공격 으로부터 응용 프로그램 보호 | 예                     |
-    | 권한 있는 컨테이너를 피해 야 함 (미리 보기)                                     | 액세스 및 사용 권한 관리            | 아니요                     |
+    | 권한 있는 컨테이너를 피해 야 함 (미리 보기)                                     | 액세스 및 사용 권한 관리            | 예                     |
     | 컨테이너 (미리 보기)에 대해 변경할 수 없는 (읽기 전용) 루트 파일 시스템을 적용 해야 함     | 액세스 및 사용 권한 관리            | 예                     |
     | 권한 에스컬레이션이 있는 컨테이너를 사용 하지 않아야 함 (미리 보기)                       | 액세스 및 사용 권한 관리            | 예                     |
-    | 루트 사용자로 컨테이너를 실행 하는 것을 피해 야 함 (미리 보기)                           | 액세스 및 사용 권한 관리            | 아니요                     |
-    | 중요 한 호스트 네임 스페이스를 공유 하는 컨테이너를 피해 야 함 (미리 보기)              | 액세스 및 사용 권한 관리            | 아니요                     |
+    | 루트 사용자로 컨테이너를 실행 하는 것을 피해 야 함 (미리 보기)                           | 액세스 및 사용 권한 관리            | 예                     |
+    | 중요 한 호스트 네임 스페이스를 공유 하는 컨테이너를 피해 야 함 (미리 보기)              | 액세스 및 사용 권한 관리            | 예                     |
     | 컨테이너 (미리 보기)에 대해 최소 권한 Linux 기능을 적용 해야 함       | 액세스 및 사용 권한 관리            | **예**                |
     | Pod HostPath 볼륨 탑재 사용은 알려진 목록 (미리 보기)으로 제한 되어야 합니다.    | 액세스 및 사용 권한 관리            | **예**                |
     | 컨테이너는 허용 된 포트만 수신 해야 함 (미리 보기)                              | 무단 네트워크 액세스 제한     | **예**                |
@@ -95,11 +95,15 @@ Azure Security Center **에는 Kubernetes 용 Azure Policy 추가 기능**을 �
     1. **저장**을 선택합니다.
 
 
-1. 권장 사항을 적용 하려면 Security Center의 보안 정책 **매개 변수** 탭에서 **Deny** 로 설정 합니다.
+1. 권장 사항을 적용 하려면 다음을 수행 합니다. 
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Azure Policy 매개 변수에 대 한 Deny 옵션":::
+    1. 권장 사항 세부 정보 페이지를 열고 **거부**를 선택 합니다.
 
-    AKS 클러스터에 대 한 비규격 요청을 거부 합니다.
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Azure Policy 매개 변수에 대 한 Deny 옵션":::
+
+        그러면 범위를 설정 하는 창이 열립니다. 
+
+    1. 범위를 설정 했으면 **거부로 변경**을 선택 합니다.
 
 1. 클러스터에 적용 되는 권장 사항을 확인 하려면 다음을 수행 합니다.
 

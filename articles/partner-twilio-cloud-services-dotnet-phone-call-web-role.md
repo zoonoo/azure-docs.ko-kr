@@ -1,6 +1,6 @@
 ---
 title: Twilio에서 전화를 거는 방법(.NET) | Microsoft Docs
-description: Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET으로 작성되었습니다.
+description: Azure에서 Twilio API 서비스를 사용 하 여 전화를 거는 방법에 대해 알아봅니다. 코드 샘플은 .NET으로 작성되었습니다.
 services: ''
 documentationcenter: .net
 author: mimckitt
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: mimckitt
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 90e7bafab3fb9658cd9e11d0417f84269adcfa13
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 536a28801193cdbb4204ca1432892abdc7fb297e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022346"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268488"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Azure의 웹 역할에서 Twilio를 사용하여 전화를 거는 방법
 이 가이드에서는 Azure에 호스트된 웹 페이지에서 Twilio를 사용하여 전화를 거는 방법을 설명합니다. 결과적으로 애플리케이션은 다음 스크린샷에 표시된 대로 지정된 번호와 메시지를 사용하여 호출하라는 메시지를 사용자에게 표시합니다.
@@ -151,7 +151,7 @@ namespace WebRole1
 TwiML에 대 한 자세한 내용은에서 찾을 수 있습니다 [https://www.twilio.com/docs/api/twiml][twiml] . 및 기타 Twilio 동사에 대 한 자세한 내용은 &lt; &gt; 에서 찾을 수 있습니다 [https://www.twilio.com/docs/api/twiml/say][twilio_say] .
 
 ## <a name="next-steps"></a><a id="nextsteps"></a>다음 단계
-이 코드는 Azure에서 ASP.NET 웹 역할의 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들어:
+이 코드는 Azure에서 ASP.NET 웹 역할의 Twilio를 사용하는 기본 기능을 보여 줍니다. Azure를 프로덕션에 배포하기 전에 더 많은 오류 처리 또는 기타 기능을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 웹 양식을 사용하는 대신, Azure Blob 스토리지 또는 Azure SQL Database 인스턴스를 사용하여 전화 번호 및 통화 텍스트를 저장할 수 있습니다. Azure에서 Blob 사용에 대한 자세한 내용은 [.NET에서 Azure Blob Storage 서비스를 사용하는 방법][howto_blob_storage_dotnet]을 참조하세요. SQL Database 사용에 대한 자세한 내용은 [.NET 애플리케이션에서 Azure SQL Database를 사용하는 방법][howto_sql_azure_dotnet]을 참조하세요.
 * 양식에서 값을 하드 코딩하는 대신, `RoleEnvironment.getConfigurationSettings`를 사용하여 배포 구성 설정에서 Twilio 계정 ID 및 인증 토큰을 검색할 수 있습니다. `RoleEnvironment` 클래스에 대한 자세한 내용은 [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet]를 참조하세요.

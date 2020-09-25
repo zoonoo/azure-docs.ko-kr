@@ -11,31 +11,26 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 60e4ca80faa2c8787a13d87ab06cad9243299e50
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc0aee2e6c1b06850ffd0385626955a9798e7aeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291956"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257319"
 ---
 # <a name="scenario-single-page-application"></a>시나리오: 단일 페이지 응용 프로그램
 
 SPA (단일 페이지 응용 프로그램)를 빌드하는 데 필요한 모든 것을 알아보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>시작
 
-JavaScript SPA 빠른 시작을 수행 하 여 첫 번째 응용 프로그램을 만들 수 있습니다.
+아직 없는 경우 JavaScript SPA 빠른 시작을 완료 하 여 첫 번째 앱을 만듭니다.
 
-> [!div class="nextstepaction"]
-> [빠른 시작: 단일 페이지 응용 프로그램](./quickstart-v2-javascript.md)
+[빠른 시작: 단일 페이지 응용 프로그램](./quickstart-v2-javascript.md)
 
 ## <a name="overview"></a>개요
 
-많은 최신 웹 응용 프로그램은 클라이언트 쪽 단일 페이지 응용 프로그램으로 빌드됩니다. 개발자는 JavaScript를 사용 하 여, 또는의 SPA 프레임 워크 (예: 각도, Vue 및 반응)를 사용 하 여 작성 합니다. 이러한 응용 프로그램은 웹 브라우저에서 실행 되며 기존 서버 쪽 웹 응용 프로그램과는 다른 인증 특징이 있습니다. 
+많은 최신 웹 응용 프로그램은 클라이언트 쪽 단일 페이지 응용 프로그램으로 빌드됩니다. 개발자는 JavaScript를 사용 하 여, 또는의 SPA 프레임 워크 (예: 각도, Vue 및 반응)를 사용 하 여 작성 합니다. 이러한 응용 프로그램은 웹 브라우저에서 실행 되며 기존 서버 쪽 웹 응용 프로그램과는 다른 인증 특징이 있습니다.
 
 Microsoft id 플랫폼은 단일 페이지 응용 프로그램이 사용자를 로그인 하 고 백 엔드 서비스 또는 웹 Api에 액세스 하는 토큰을 가져올 수 있도록 하는 **두 가지** 옵션을 제공 합니다.
 
@@ -56,6 +51,10 @@ Microsoft id 플랫폼은 단일 페이지 응용 프로그램이 사용자를 �
 * Azure Active Directory (Azure AD)를 사용 하 여 응용 프로그램 등록 등록 단계는 암시적 부여 흐름과 권한 부여 코드 흐름 간에 다릅니다.
 * 응용 프로그램 ID와 같은 등록 된 응용 프로그램 속성이 포함 된 응용 프로그램 구성
 * JavaScript 용 Microsoft Authentication Library (MSAL.js)를 사용 하 여 로그인 하 고 토큰을 획득 하는 인증 흐름을 수행 합니다.
+
+## <a name="recommended-reading"></a>추천 자료
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

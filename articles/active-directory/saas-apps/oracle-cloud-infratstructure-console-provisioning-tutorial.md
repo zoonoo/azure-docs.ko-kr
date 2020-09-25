@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0c3d68698621fe963074c7216e4636208d93deca
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7efe58081604708ff090d28f7274c738406c5007
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543874"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255925"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Oracle Cloud Infrastructure 콘솔 구성
 
@@ -31,7 +31,7 @@ ms.locfileid: "88543874"
 > * Oracle Cloud Infrastructure Console에서 그룹 및 그룹 멤버 자격 프로 비전
 > * Oracle 클라우드 인프라 콘솔에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-cloud-tutorial) (권장)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -100,11 +100,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 형식으로 **테 넌 트 URL** 을 입력 `https://<IdP ID>.identity.oraclecloud.com/admin/v1` 합니다. 예: `https://idcs-0bfd023ff2xx4a98a760fa2c31k92b1d.identity.oraclecloud.com/admin/v1`. **비밀 토큰**에 이전에 검색된 비밀 토큰 값을 입력합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Oracle Cloud Infrastructure Console에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Oracle Cloud Infrastructure Console 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 

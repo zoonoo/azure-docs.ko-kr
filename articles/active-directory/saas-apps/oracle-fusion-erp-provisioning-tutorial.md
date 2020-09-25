@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: ad6b24c4bbfc2e117c010b99247cb8eb9925ff3e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f835c021e20edba21583e71c6c1a480eca7fd89
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543825"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255843"
 ---
 # <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위해 Oracle Fusion ERP 구성
 
@@ -108,11 +108,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Oracle Fusio
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에 `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` 있는 **테 넌 트 URL**에 입력 합니다. 이전에 **관리자** 사용자 이름 및 **암호** 필드에 검색 한 관리자 사용자 이름 및 암호를 입력 합니다. Azure AD와 Oracle Fusion ERP 간의 **연결 테스트** 를 클릭 합니다. 
 

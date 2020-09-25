@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 76015602cbf949b166c4067ad72bace5d355d70b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ea0df1fb68697ceee55614510cc0295c73fec00e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938313"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301655"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>컴퓨터의 SQL server에 대 한 Azure Defender 
 
@@ -33,7 +33,7 @@ ms.locfileid: "90938313"
 |릴리스 상태:|미리 보기|
 |결정|**컴퓨터의 SQL server에 대 한 Azure Defender** 는 [가격 책정 페이지](security-center-pricing.md) 에 표시 된 대로 청구 됩니다.|
 |보호 된 SQL 버전:|Azure SQL Server (Microsoft 지원에 포함 된 모든 버전)|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>컴퓨터에서 SQL server에 대 한 Azure Defender 설정
@@ -79,7 +79,7 @@ ms.locfileid: "90938313"
 
 
 1. 필요에 따라 보안 경고에 대 한 전자 메일 알림을 구성 합니다. 
-    Security Center 경고가 생성 될 때 전자 메일 알림을 받을 받는 사람 목록을 설정할 수 있습니다. 전자 메일에는 관련 된 모든 세부 정보와 함께 Azure Security Center의 경고에 대 한 직접 링크가 포함 됩니다. 자세한 내용은 [보안 경고에 대 한 전자 메일 알림 설정](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)을 참조 하세요.
+    Security Center 경고가 생성 될 때 전자 메일 알림을 받을 받는 사람 목록을 설정할 수 있습니다. 전자 메일에는 관련 된 모든 세부 정보와 함께 Azure Security Center의 경고에 대 한 직접 링크가 포함 됩니다. 자세한 내용은 [보안 경고에 대 한 전자 메일 알림 설정](security-center-provide-security-contact-details.md)을 참조 하세요.
 
 
 
@@ -121,7 +121,7 @@ Azure Defender 경고는 Security Center의 경고 페이지, 리소스의 보�
     * 추가 조사를 위해 SQL Server의 감사 기능을 사용 하도록 설정 합니다. Azure 센티널 사용자 인 경우 Windows 보안 로그 이벤트에서 센티널로 SQL 감사 로그를 업로드 하 고 풍부한 조사 환경을 즐길 수 있습니다. [SQL Server 감사에 대해 자세히 알아보세요](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15).
     * 보안 상태를 향상 시키려면 각 경고에 표시 된 호스트 컴퓨터에 대 한 Security Center 권장 사항을 사용 합니다. 이렇게 하면 향후 공격의 위험을 줄일 수 있습니다. 
 
-    [경고 관리 및 대응에 대 한 자세한](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)정보.
+    [경고 관리 및 대응에 대 한 자세한](security-center-managing-and-responding-alerts.md)정보.
 
 
 ## <a name="next-steps"></a>다음 단계

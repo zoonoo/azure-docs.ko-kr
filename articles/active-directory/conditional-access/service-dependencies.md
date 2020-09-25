@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 09/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578f1e97c8a53604edca7b803933139362a763a7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c6592add5e33ba240c0f1d9fdbd23d82adfe5229
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419736"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258611"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>조건부 액세스 Azure Active Directory의 서비스 종속성은 무엇 인가요? 
 
@@ -25,7 +25,7 @@ ms.locfileid: "87419736"
 사이트 또는 서비스에 직접 액세스 하는 경우 일반적으로 관련 정책의 영향을 쉽게 평가할 수 있습니다. 예를 들어 SharePoint Online에 대해 MFA (multi-factor authentication)를 구성 해야 하는 정책이 있는 경우 SharePoint 웹 포털에 로그인 할 때마다 MFA가 적용 됩니다. 그러나 다른 클라우드 앱에 대 한 종속성이 있는 클라우드 앱이 있으므로 정책의 영향을 평가 하는 것은 항상 직접적인 것은 아닙니다. 예를 들어 Microsoft 팀은 SharePoint Online에서 리소스에 대 한 액세스를 제공할 수 있습니다. 따라서 현재 시나리오에서 Microsoft 팀에 액세스할 때 SharePoint MFA 정책도 적용 됩니다. 
 
 > [!TIP]
-> Office [365 (미리 보기)](concept-conditional-access-cloud-apps.md#office-365-preview) 앱을 사용 하면 office 스택에서 서비스 종속성 문제를 방지 하기 위해 모든 office 앱을 대상으로 합니다.
+> Office [365](concept-conditional-access-cloud-apps.md#office-365) 앱을 사용 하면 office 스택에서 서비스 종속성 문제를 방지 하기 위해 모든 office 앱을 대상으로 합니다.
 
 ## <a name="policy-enforcement"></a>정책 적용 
 
@@ -40,13 +40,13 @@ ms.locfileid: "87419736"
 
 모범 사례에 따라 가능한 경우 관련 앱과 서비스 간에 공통 정책을 설정 해야 합니다. 일관 된 보안 상태를 유지 하면 최상의 사용자 환경을 제공 합니다. 예를 들어 Exchange Online, SharePoint Online, Microsoft 팀 및 비즈니스용 Skype에서 일반적인 정책을 설정 하면 다운스트림 서비스에 적용 되는 여러 정책에 의해 발생할 수 있는 예기치 않은 프롬프트가 현저 하 게 줄어듭니다. 
 
-Office stack의 응용 프로그램을 사용 하 여이를 수행 하는 좋은 방법은 개별 응용 프로그램을 대상으로 지정 하는 대신 [office 365 (미리 보기)](concept-conditional-access-cloud-apps.md#office-365-preview) 를 사용 하는 것입니다.
+Office stack의 응용 프로그램을 사용 하 여이를 수행 하는 좋은 방법은 개별 응용 프로그램을 대상으로 지정 하는 대신 [office 365 앱](concept-conditional-access-cloud-apps.md#office-365) 을 사용 하는 것입니다.
 
 아래 표에는 클라이언트 앱이 충족 해야 하는 추가 서비스 종속성이 나열 되어 있습니다.  
 
 | 클라이언트 앱         | 다운스트림 서비스                          | 적용 |
 | :--                 | :--                                         | ---         | 
-| Azure 데이터 레이크     | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
+| Azure Data Lake     | Microsoft Azure 관리 (포털 및 API) | 초기 바인딩 |
 | Microsoft 교실 | Exchange                                    | 초기 바인딩 |
 |                     | SharePoint                                  | 초기 바인딩 |
 | Microsoft Teams     | Exchange                                    | 초기 바인딩 |

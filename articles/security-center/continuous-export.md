@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 09/13/2020
 ms.author: memildin
-ms.openlocfilehash: cf8fdd8d91c035d374277c4752fb761c0c4e72c7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 416968229e37fe6474da38df5402b0cebf02d54c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905634"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301978"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>보안 경고 및 권장 사항 내보내기
 
@@ -187,6 +187,6 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 관련 자료는 다음 설명서를 참조 하세요. 
 
 - [Azure Event Hubs 설명서](https://docs.microsoft.com/azure/event-hubs/)
-- [Azure 센티널 설명서](https://docs.microsoft.com/azure/sentinel/)
+- [Azure Sentinel 설명서](https://docs.microsoft.com/azure/sentinel/)
 - [Azure Monitor 설명서](https://docs.microsoft.com/azure/azure-monitor/)
 - [워크플로 자동화 및 연속 내보내기 데이터 형식 스키마](https://aka.ms/ASCAutomationSchemas)

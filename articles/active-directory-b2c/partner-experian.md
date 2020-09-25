@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5c2fb330149d3e6530e7cb0fc3350d5db3fa24cf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683881"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259376"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 Experian 구성에 대 한 자습서
 
@@ -30,13 +30,13 @@ ms.locfileid: "88683881"
 - Middle Name
 - Surname
 - 주소
-- City
+- 구/군/시
 - 시/도
 - 우편 번호
 - 국가/지역
 - 전화 번호
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
@@ -77,7 +77,7 @@ Experian 통합에는 다음 구성 요소가 포함 됩니다.
 
 ### <a name="part-1---deploy-the-api"></a>1 부-API 배포
 
-제공 된 API 코드를 Azure 서비스에 배포 합니다. 이러한 [지침](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
+제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) 를 Azure 서비스에 배포 합니다. 이러한 [지침](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
 
 >[!NOTE]
 >필요한 설정을 사용 하 여 Azure AD를 구성 하려면 배포 된 서비스의 URL이 필요 합니다.
@@ -117,7 +117,7 @@ Experian API 호출은 클라이언트 인증서로 보호 됩니다. 이 클라
 
 ### <a name="part-5---replace-the-configuration-values"></a>5 부-구성 값 바꾸기
 
-제공 된 사용자 지정 정책에서 다음 자리 표시자를 찾고를 인스턴스의 해당 값으로 바꿉니다.
+제공 된 [사용자 지정 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy)에서 다음 자리 표시자를 찾고를 인스턴스의 해당 값으로 바꿉니다.
 
 |                      자리표시자                       |                                   대체할 값                                 |                   예제                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |

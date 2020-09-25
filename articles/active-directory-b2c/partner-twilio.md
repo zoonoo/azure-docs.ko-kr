@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 840d2afa72de290d5534adc766f8634efa6926e8
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 953653a758577ed3d48ca2d81403b4cb363ea294
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170057"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259071"
 ---
 # <a name="integrating-twilio-verify-app-with-azure-active-directory-b2c"></a>Azure Active Directory B2C Twilio Verify 앱 통합
 
 이 연습에서는 Azure Active Directory B2C (Azure AD B2C)의 샘플 온라인 지불 앱을 Twilio Verify API와 통합 하는 방법에 대해 알아봅니다. Twilio Verify 앱 Azure AD B2C을 사용 하면 고객이 동적 링크 및 강력한 고객 인증을 통해 PSD2 (결제 서비스 지시어 2) 트랜잭션 요구 사항을 준수할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
@@ -34,15 +34,15 @@ ms.locfileid: "86170057"
 
 Twilio 솔루션을 구성 하는 구성 요소는 다음과 같습니다.
 
-- 로그인 또는 등록 하는 기능을 제공 하는 .NET PSD2 demo 웹 앱 이며 더미 높은 위험 트랜잭션을 수행 합니다.
-- Azure AD B2C 결합 된 로그인 및 등록 정책입니다.
+- 로그인 또는 등록 하는 기능을 제공 하는 .NET [PSD2 demo 웹 앱](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/source-code/PSD2%20Demo%20App)이며 더미 높은 위험 트랜잭션을 수행 합니다.
+- Azure AD B2C 결합 된 [로그인 및 등록 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/policy)입니다.
 - 을 사용 하 여 Twilio Verify API와 통합 된 Azure AD B2C 정책 `id_token_hint` 입니다.
 - `.well-known`의 유효성 검사를 허용 하기 위해 openidconnect 끝점을 호스트 하는 .Net 웹 앱 `id_token_hint` 입니다.
 
 
     ![twilio flow](media/partner-twilio/twilio-flow.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 |------|------|
 | 1     | 사용자가 PSD2 Demo 앱에 로그인 또는 등록을 시작 합니다. 사용자는 Azure AD B2C 결합 된 로그인 및 등록 정책을 통해 인증 됩니다. 응용 프로그램에 토큰이 반환 됩니다. 등록 시 사용자의 전화 번호는 SMS/Phone을 사용 하 여 확인 되 고 Azure AD B2C 계정에 기록 됩니다.     |
 | 2     | 사용자가 $50.00의 전송과 같은 높은 위험 수준 트랜잭션을 시작 합니다. 사용자의 현재 액세스 토큰은 PolicyId를 평가 하 여 사용자가 이미 단계 사용자 지정 정책을 통해 인증 되었는지 여부를 확인 합니다.     |
@@ -73,7 +73,7 @@ Twilio 솔루션을 구성 하는 구성 요소는 다음과 같습니다.
    <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />
    ```
 
-2. 또한 웹 앱은 ID 토큰 힌트 생성기 및 메타 데이터 끝점을 호스팅합니다.
+2. 또한 [웹 앱](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/source-code/PSD2%20Demo%20App) 은 ID 토큰 힌트 생성기 및 메타 데이터 끝점을 호스팅합니다.
    - 이 [샘플 설명](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#creating-a-signing-certificate)에 설명 된 대로 서명 인증서를 만듭니다.
    - web.config에서 인증서를 기준으로 다음 줄을 업데이트 합니다.
    
@@ -86,7 +86,7 @@ Twilio 솔루션을 구성 하는 구성 요소는 다음과 같습니다.
 
 4. 응용 프로그램이 호스팅되는 URL에 해당 하는 회신 URL을 추가 하 여 Azure AD B2C 응용 프로그램 등록을 업데이트 합니다.
 
-5. 정책 파일을 열고의 모든 인스턴스를  `contoso` 테 넌 트 이름으로 바꿉니다.
+5. [정책 파일](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/policy) 을 열고의 모든 인스턴스를  `contoso` 테 넌 트 이름으로 바꿉니다.
 
 6. Twilio REST API 기술 프로필 **사용자 지정-SMS-등록**을 찾습니다.  `ServiceURL`   Twilio AccountSID 및 From 번호를 구매한 전화 번호로 업데이트 합니다.
 

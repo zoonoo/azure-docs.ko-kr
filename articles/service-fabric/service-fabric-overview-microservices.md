@@ -4,12 +4,12 @@ description: 마이크로 서비스 접근 방식을 통해 클라우드 애플�
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: b8fbe5096014b116c3d5c5deaa7615874135d001
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4345c919e73e57667fb3b9c90c42224326bc3552
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246023"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300771"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>응용 프로그램을 빌드하는 데 마이크로 서비스 접근 방식을 사용 하는 이유
 
@@ -138,6 +138,9 @@ Azure [에서 마이크로 서비스를 설계 하 고 구축 하](/azure/archit
 Microsoft가 일반적으로 모놀리식 된 박스형 제품을 제공 하 여 서비스를 제공 하는 경우 Azure Service Fabric가 제공 됩니다. Azure SQL Database 및 Azure Cosmos DB 처럼 규모가 많은 서비스를 구축 하 고 운영 하는 환경은 Service Fabric. 플랫폼은 시간이 지남에 따라 더 많은 서비스를 채택 하 여 발전 했습니다. Service Fabric이 Azure뿐 아니라 독립 실행형 Windows Server 배포에서 실행되어야 했다는 점입니다.
 
 ***Service Fabric은 서비스를 빌드 및 실행 하 고 인프라 리소스를 효율적으로 사용 하기 위한 하드 문제를 해결 하는 것입니다. 따라서 팀은 마이크로 서비스 접근 방식을 사용 하 여 비즈니스 문제를 해결할 수 있습니다.***
+
+이 짧은 비디오에서는 Service Fabric 및 마이크로 서비스를 소개합니다.
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 Service Fabric은 마이크로 서비스 접근 방식을 사용하는 애플리케이션을 쉽게 빌드할 수 있도록 다음을 제공합니다.
 
