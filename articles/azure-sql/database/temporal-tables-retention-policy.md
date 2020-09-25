@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 09/25/2018
-ms.openlocfilehash: 8c5ea1f7ef094944c3e5a20dd19bce6d8cce294d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: d8a1c86443352c38a4ff578a271e45db2b5e3800
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284179"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>보존 정책을 사용 하 여 Temporal 테이블의 기록 데이터 관리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
 ```
 
-데이터베이스 플래그 **is_temporal_history_retention_enabled**는 기본적으로 ON으로 설정되어 있지만 사용자가 ALTER DATABASE 문을 사용하여 변경할 수 있습니다. 또한 이 플래그는 [특정 시점 복원](recovery-using-backups.md) 작업 후에 자동적으로 OFF로 설정됩니다. 데이터베이스에 대한 temporal 기록 보존 정리를 사용하도록 설정하려면 다음 문을 실행합니다.
+데이터베이스 플래그 **is_temporal_history_retention_enabled**는 기본적으로 ON으로 설정되어 있지만 사용자가 ALTER DATABASE 문을 사용하여 변경할 수 있습니다. 특정 [시점 복원](recovery-using-backups.md) 작업 후에도 자동으로 꺼짐으로 설정 됩니다. 데이터베이스에 대한 temporal 기록 보존 정리를 사용하도록 설정하려면 다음 문을 실행합니다.
 
 ```sql
 ALTER DATABASE <myDB>
@@ -110,7 +110,7 @@ rowstore(B-트리) 클러스터형 인덱스에 대한 정리 논리를 사용�
 
 ![클러스터형 columnstore 보존](./media/temporal-tables-retention-policy/cciretention.png)
 
-클러스터형 columnstore 인덱스는 데이터 압축이 뛰어나고 보존 정리가 효율적이므로 작업에서 대량의 기록 데이터를 빠르게 생성하는 시나리오에 적합합니다. 해당 패턴은 변경 내용 추적 및 감사, 추세 분석 또는 IoT 데이터 수집에 대해 [임시 테이블을 사용하는 집약적 트랜잭션 처리 워크로드](/sql/relational-databases/tables/temporal-table-usage-scenarios)에 일반적입니다.
+클러스터형 columnstore 인덱스는 데이터 압축이 뛰어나고 보존 정리가 효율적이므로 작업에서 대량의 기록 데이터를 빠르게 생성하는 시나리오에 적합합니다. 이 패턴은 변경 내용 추적 및 감사, 추세 분석 또는 IoT 데이터 수집에 [임시 테이블을 사용 하는 집약적 트랜잭션 처리 워크 로드](/sql/relational-databases/tables/temporal-table-usage-scenarios) 에 일반적입니다.
 
 ## <a name="index-considerations"></a>인덱스 고려 사항
 

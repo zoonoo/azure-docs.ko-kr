@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886638"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324351"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>데이터 흐름 매핑의 스키마 드리프트
 
@@ -60,7 +60,7 @@ Azure Data Factory은 데이터 흐름을 다시 컴파일할 필요 없이 일�
 데이터 흐름에 데이터베이스가 드리프트 열이 있는 경우 다음 방법을 사용 하 여 변환에서 열에 액세스할 수 있습니다.
 
 * `byPosition` `byName` 이름 또는 위치 번호로 열을 명시적으로 참조 하려면 및 식을 사용 합니다.
-* 이름, 스트림, 위치 또는 형식의 조합에 대해 일치 하도록 파생 열 또는 집계 변환에 열 패턴을 추가 합니다.
+* 이름, 스트림, 위치, 원점 또는 유형 조합에 대해 일치 하도록 파생 열 또는 집계 변환에 열 패턴을 추가 합니다.
 * 패턴을 통해 데이터베이스가 드리프트 열을 열 별칭과 일치 시키려면 Select 또는 Sink 변환에 규칙 기반 매핑을 추가 합니다.
 
 열 패턴을 구현 하는 방법에 대 한 자세한 내용은 [데이터 흐름 매핑의 열 패턴](concepts-data-flow-column-pattern.md)을 참조 하세요.

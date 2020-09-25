@@ -1,15 +1,17 @@
 ---
 title: LUIS 앱 빌드에 대 한 모범 사례
 description: LUIS 앱 모델에서 최상의 결과를 얻기 위한 모범 사례를 알아봅니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 9c22256f6fac3647108b7078b774338d7f22d29a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 6ab7b8db3e1bc1b1134c0e7ab6c14bd17f819935
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683764"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324878"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>언어 이해 (LUIS) 앱 빌드에 대 한 모범 사례
 앱 제작 프로세스를 사용 하 여 LUIS 앱을 빌드합니다.
@@ -65,7 +67,7 @@ ms.locfileid: "83683764"
 |항공권 예약|
 |호텔 예약|
 
-`Book a flight`및는 `Book a hotel` 의 동일한 어휘를 사용 `book a ` 합니다. 이 형식은 동일 하므로의 다른 단어와 추출 된 엔터티로 동일한 의도 여야 합니다 `flight` `hotel` .
+`Book a flight` 및는 `Book a hotel` 의 동일한 어휘를 사용 `book a ` 합니다. 이 형식은 동일 하므로의 다른 단어와 추출 된 엔터티로 동일한 의도 여야 합니다 `flight` `hotel` .
 
 ## <a name="do-add-features-to-intents"></a>의도에 기능 추가
 

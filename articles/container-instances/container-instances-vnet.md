@@ -3,13 +3,13 @@ title: Azure virtual network에 컨테이너 그룹 배포
 description: Azure 명령줄 인터페이스를 사용 하 여 새 또는 기존 Azure 가상 네트워크에 컨테이너 그룹을 배포 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c5eff486299a3974e8fb9b4b12d6bb74880c48d8
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.custom: devx-track-js
+ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569393"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303011"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -77,7 +77,7 @@ az container show --resource-group myResourceGroup \
   --query ipAddress.ip --output tsv
 ```
 
-출력은 개인 서브넷에 있는 컨테이너 그룹의 IP 주소를 표시 합니다. 다음은 그 예입니다. 
+출력은 개인 서브넷에 있는 컨테이너 그룹의 IP 주소를 표시 합니다. 예를 들면 다음과 같습니다.
 
 ```console
 10.0.0.4

@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: ddc8186e85001a2a3ed2ed9f57b8f025133ef16a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46a5f4036be2d670689f7e936a31dc63e0690ddc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897751"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302386"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Machine learning 파이프라인 게시 및 추적
 
@@ -84,6 +84,74 @@ response = requests.post(published_pipeline1.endpoint,
                          json={"ExperimentName": "My_Pipeline",
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
+
+`json`POST 요청에 대 한 인수에는 키의 경우 `ParameterAssignments` 파이프라인 매개 변수 및 해당 값이 포함 된 사전이 포함 되어야 합니다. 또한 인수에는 `json` 다음 키가 포함 될 수 있습니다.
+
+| 키 | Description |
+| --- | --- | 
+| `ExperimentName` | 이 끝점과 연결 된 실험의 이름입니다. |
+| `Description` | 끝점을 설명 하는 자유형 텍스트 | 
+| `Tags` | 요청에 레이블을 지정 하 고 주석을 추가 하는 데 사용할 수 있는 자유형 키-값 쌍  |
+| `DataSetDefinitionValueAssignments` | 사전 학습 없이 데이터 집합을 변경 하는 데 사용 되는 사전 (아래 설명 참조) | 
+| `DataPathAssignments` | 사전 학습 없이 datapaths를 변경 하는 데 사용 되는 사전 (아래 설명 참조) | 
+
+### <a name="changing-datasets-and-datapaths-without-retraining"></a>다시 학습 없이 데이터 집합 및 datapaths 변경
+
+다른 데이터 집합 및 datapaths에 대해 학습 하 고 유추 하려고 할 수 있습니다. 예를 들어, 더 작은 스파스 데이터 집합에 대해 학습 하 고 전체 데이터 집합에 대 한 유추를 수행할 수 있습니다. 요청의 인수에서 키를 사용 하 여 데이터 집합을 전환 `DataSetDefinitionValueAssignments` `json` 합니다. Datapaths를로 전환 `DataPathAssignments` 합니다. 두 방법의 기술은 비슷합니다.
+
+1. 파이프라인 정의 스크립트에서 `PipelineParameter` 데이터 집합에 대 한를 만듭니다. `DatasetConsumptionConfig`에서 또는를 만듭니다 `DataPath` `PipelineParameter` .
+
+    ```python
+    tabular_dataset = Dataset.Tabular.from_delimited_files('https://dprepdata.blob.core.windows.net/demo/Titanic.csv')
+    tabular_pipeline_param = PipelineParameter(name="tabular_ds_param", default_value=tabular_dataset)
+    tabular_ds_consumption = DatasetConsumptionConfig("tabular_dataset", tabular_pipeline_param)
+    ```
+
+1. ML 스크립트에서 다음을 사용 하 여 동적으로 지정 된 데이터 집합에 액세스 합니다 `Run.get_context().input_datasets` .
+
+    ```python
+    from azureml.core import Run
+    
+    input_tabular_ds = Run.get_context().input_datasets['tabular_dataset']
+    dataframe = input_tabular_ds.to_pandas_dataframe()
+    # ... etc ...
+    ```
+
+    ML 스크립트는 () `DatasetConsumptionConfig` 의 값이 아니라 ()에 대해 지정 된 값에 액세스 합니다 `tabular_dataset` `PipelineParameter` `tabular_ds_param` .
+
+1. 파이프라인 정의 스크립트에서를 매개 변수로로 설정 합니다 `DatasetConsumptionConfig` `PipelineScriptStep` .
+
+    ```python
+    train_step = PythonScriptStep(
+        name="train_step",
+        script_name="train_with_dataset.py",
+        arguments=["--param1", tabular_ds_consumption],
+        inputs=[tabular_ds_consumption],
+        compute_target=compute_target,
+        source_directory=source_directory)
+    
+    pipeline = Pipeline(workspace=ws, steps=[train_step])
+    ```
+
+1. 추론 REST 호출에서 데이터 집합을 동적으로 전환 하려면 다음을 사용 합니다 `DataSetDefinitionValueAssignments` .
+    
+    ```python
+    tabular_ds1 = Dataset.Tabular.from_delimited_files('path_to_training_dataset')
+    tabular_ds2 = Dataset.Tabular.from_delimited_files('path_to_inference_dataset')
+    ds1_id = tabular_ds1.id
+    d22_id = tabular_ds2.id
+    
+    response = requests.post(rest_endpoint, 
+                             headers=aad_token, 
+                             json={
+                                "ExperimentName": "MyRestPipeline",
+                               "DataSetDefinitionValueAssignments": {
+                                    "tabular_ds_param": {
+                                        "SavedDataSetReference": {"Id": ds1_id #or ds2_id
+                                    }}}})
+    ```
+
+노트북 [보여주는 데이터 집합 및 PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb) 및 [보여주는 데이터 경로 및 PipelineParameter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-datapath-and-pipelineparameter.ipynb) 에는이 기술의 전체 예제가 포함 되어 있습니다.
 
 ## <a name="create-a-versioned-pipeline-endpoint"></a>버전 지정 파이프라인 끝점 만들기
 

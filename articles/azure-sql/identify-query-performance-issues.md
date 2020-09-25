@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b33d8db9d43b151cb0405ea24e0bea87e21cbdc9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a7cd807de7e723d48faaa0944ea55b1887c9721
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345345"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284112"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Azure SQL Database에서 쿼리 성능 병목 상태의 검색 가능한 유형
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -58,7 +58,7 @@ SQL 쿼리 최적화 프로그램에서 생성 된 최적이 아닌 계획은 �
 
 다음 섹션에서는 최적이 아닌 쿼리 실행 계획을 사용 하 여 쿼리를 해결 하는 방법을 설명 합니다.
 
-### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a>PSP (매개 변수 구분 계획) 문제가 있는 쿼리
+### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a> PSP (매개 변수 구분 계획) 문제가 있는 쿼리
 
 PSP (매개 변수 구분 계획) 문제는 쿼리 최적화 프로그램에서 특정 매개 변수 값 (또는 값 집합)에 대해서만 최적으로 사용 되는 쿼리 실행 계획을 생성 하 고 연속 실행에 사용 되는 매개 변수 값에 대해 캐시 된 계획이 최적이 아닌 경우에 발생 합니다. 최적이 아닌 계획은 쿼리 성능 문제를 발생 시키고 전체 작업 처리량을 저하 시킬 수 있습니다.
 
@@ -166,7 +166,7 @@ RECOMPILE 힌트를 사용 하는 경우에는 계획이 캐시 되지 않습니
 - 응용 프로그램의 쿼리에서 CPU의 높은 문제가 발생 한 이유는 무엇 인가요?
 - [식별할 수 있는 상위 CPU 소비 쿼리](database/monitoring-with-dmvs.md#the-cpu-issue-occurred-in-the-past):
 
-  - 동일한 쿼리와 연결 된 여러 실행 계획이 있나요? 그렇다면 이유가 무엇입니까?
+  - 동일한 쿼리와 연결 된 여러 실행 계획이 있나요? 그렇다면 이유는 무엇인가요?
   - 실행 계획이 동일한 쿼리의 경우 실행 시간이 일치 했습니까? 실행 횟수가 증가 했습니까? 그렇다면 워크 로드 증가로 인해 성능 문제가 발생할 수 있습니다.
 
 요약 하자면, 쿼리 실행 계획이 다르게 실행 되지 않았지만 CPU 사용량이 실행 수와 함께 증가 하는 경우 성능 문제는 워크 로드 증가와 관련이 있을 수 있습니다.

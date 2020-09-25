@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: ae139dd65242be9456f3498c494e1a7c5a29402f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48dfc456616fa4876b7053483f7377eda21aabde
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695702"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283822"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure SQL Managed Instance에 대 한 경고 만들기
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-이 문서에서는 Azure Portal를 사용 하 여 Azure SQL Managed Instance 데이터베이스의 데이터베이스에 대 한 경고를 설정 하는 방법을 보여 줍니다. 경고는 전자 메일을 보내거나, 웹 후크를 호출 하 고, Azure Function을 실행 하 고, runbook을 실행 하거나, 외부 ITSM 호환 티켓 시스템을 호출 하거나, 예를 들어 인스턴스 저장소 크기 또는 CPU 사용량과 같은 일부 메트릭이 미리 정의 된 임계값에 도달할 때 휴대폰에서 호출 하거나 문자 메시지를 보낼 수 있습니다. 이 문서는 또한 경고 기간 설정에 대한 모범 사례를 제공합니다.
+이 문서에서는 Azure Portal를 사용 하 여 Azure SQL Managed Instance 데이터베이스의 데이터베이스에 대 한 경고를 설정 하는 방법을 보여 줍니다. 경고는 이메일을 보내거나, 웹 후크를 호출하거나, Azure Function을 실행하거나, runbook을 실행하거나, 외부 ITSM 호환 티켓 시스템을 호출하거나, 일부 메트릭(예: 인스턴스 스토리지 크기 또는 CPU 사용량)이 미리 정의된 임계값에 도달할 때 휴대폰으로 연락하거나 문자 메시지를 보낼 수 있습니다. 이 문서는 또한 경고 기간 설정에 대한 모범 사례를 제공합니다.
 
 
 ## <a name="overview"></a>개요
@@ -50,13 +50,13 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 경고 구성에 사용할 수 있는 관리 되는 인스턴스 메트릭은 다음과 같습니다.
 
-| 메트릭 | 설명 | 측정 단위 (가능한 값) |
+| 메트릭 | Description | 측정 단위 (가능한 값) |
 | :--------- | --------------------- | ----------- |
 | 평균 CPU 비율 | 선택한 기간의 평균 CPU 사용률입니다. | 0-100 (%) |
 | 읽은 IO 바이트 | 선택한 기간에서 읽은 IO 바이트 수입니다. | 바이트 |
 | 기록된 IO 바이트 | 선택한 기간 동안 쓴 IO 바이트 수입니다. | 바이트 |
 | IO 요청 수 | 선택한 기간의 IO 요청 수입니다. | 숫자 |
-| 예약된 스토리지 공간 | 현재 최대입니다. 관리 되는 인스턴스에 대해 예약 된 저장소 공간입니다. 리소스 크기 조정 작업을 사용 하 여 변경 합니다. | MB (메가바이트) |
+| 예약된 스토리지 공간 | 관리 되는 인스턴스에 대해 예약 된 현재 최대 저장소 공간입니다. 리소스 크기 조정 작업을 사용 하 여 변경 합니다. | MB (메가바이트) |
 | 사용된 스토리지 공간 | 선택한 기간에 사용 되는 저장소 공간입니다. 데이터베이스 및 인스턴스의 저장소 사용에 대 한 변경 내용 | MB (메가바이트) |
 | 가상 코어 수 | 관리 되는 인스턴스에 대해 프로 비전 된 vCores입니다. 리소스 크기 조정 작업을 사용 하 여 변경 합니다. | 4-80 (vCores) |
 

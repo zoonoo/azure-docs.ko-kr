@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova
 ms.date: 03/17/2020
-ms.openlocfilehash: 059828336288eeadc0567fed060db07e323f885c
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283380"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Azure SQL Managed Instance의 연결 아키텍처
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -43,7 +43,7 @@ SQL Managed Instance는 PaaS (platform as a service) 제품입니다. Azure는 �
 
 SQL Managed Instance는 백업용 Azure Storage, 원격 Azure Active Directory 분석에 대 한 Azure Event Hubs, 인증을 위한 Azure, TDE (Azure Key Vault 투명한 데이터 암호화) 및 보안 및 지원 가능성 기능을 제공 하는 몇 가지 Azure platform 서비스에 따라 달라 집니다. SQL Managed Instance은 이러한 서비스에 연결 합니다.
 
-모든 통신은 인증서를 사용 하 여 암호화 되 고 서명 됩니다. 통신 당사자를 신뢰할 수 있는지 확인 하기 위해 SQL Managed Instance는 인증서 해지 목록을 통해 이러한 인증서를 지속적으로 확인 합니다. 인증서가 해지 되 면 SQL Managed Instance는 데이터를 보호 하기 위해 연결을 닫습니다.
+모든 통신은 인증서를 사용하여 암호화되고 서명됩니다. 통신 당사자를 신뢰할 수 있는지 확인 하기 위해 SQL Managed Instance는 인증서 해지 목록을 통해 이러한 인증서를 지속적으로 확인 합니다. 인증서가 해지 되 면 SQL Managed Instance는 데이터를 보호 하기 위해 연결을 닫습니다.
 
 ## <a name="high-level-connectivity-architecture"></a>고급 연결 아키텍처
 
@@ -113,18 +113,18 @@ Azure는 관리 끝점을 사용 하 여 SQL Managed Instance를 관리 합니�
 
 | Name       |포트                        |프로토콜|원본           |대상|작업|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|관리  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI SUBNET  |Allow |
-|            |9000, 9003                  |TCP     |CorpnetSaw       |MI SUBNET  |Allow |
-|            |9000, 9003                  |TCP     |CorpnetPublic    |MI SUBNET  |Allow |
-|mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |Allow |
-|health_probe|모두                         |모두     |AzureLoadBalancer|MI SUBNET  |Allow |
+|관리  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI SUBNET  |허용 |
+|            |9000, 9003                  |TCP     |CorpnetSaw       |MI SUBNET  |허용 |
+|            |9000, 9003                  |TCP     |CorpnetPublic    |MI SUBNET  |허용 |
+|mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |허용 |
+|health_probe|모두                         |모두     |AzureLoadBalancer|MI SUBNET  |허용 |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>서비스 관련 서브넷 구성을 사용 하는 필수 아웃 바운드 보안 규칙
 
 | Name       |포트          |프로토콜|원본           |대상|작업|
 |------------|--------------|--------|-----------------|-----------|------|
-|관리  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
-|mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |Allow |
+|관리  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |허용 |
+|mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |허용 |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>서비스 관련 서브넷 구성을 사용 하 여 사용자 정의 경로
 
@@ -333,16 +333,16 @@ Azure는 관리 끝점을 사용 하 여 SQL Managed Instance를 관리 합니�
 
 | Name       |포트                        |프로토콜|원본           |대상|작업|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|관리  |9000, 9003, 1438, 1440, 1452|TCP     |모두              |MI SUBNET  |Allow |
-|mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |Allow |
-|health_probe|모두                         |모두     |AzureLoadBalancer|MI SUBNET  |Allow |
+|관리  |9000, 9003, 1438, 1440, 1452|TCP     |모두              |MI SUBNET  |허용 |
+|mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |허용 |
+|health_probe|모두                         |모두     |AzureLoadBalancer|MI SUBNET  |허용 |
 
 ### <a name="mandatory-outbound-security-rules"></a>필수 아웃바운드 보안 규칙
 
 | Name       |포트          |프로토콜|원본           |대상|작업|
 |------------|--------------|--------|-----------------|-----------|------|
-|관리  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
-|mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |Allow |
+|관리  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |허용 |
+|mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |허용 |
 
 > [!IMPORTANT]
 > 포트 9000, 9003, 1438, 1440 및 1452에 대 한 인바운드 규칙이 하나 뿐 이며 포트 443 및 12000에 대해 아웃 바운드 규칙은 하나 뿐입니다. 인바운드 및 아웃 바운드 규칙이 각 포트에 대해 개별적으로 구성 된 경우 Azure Resource Manager 배포를 통해 SQL Managed Instance 프로 비전에 실패 합니다. 이러한 포트가 별도의 규칙에 있는 경우 배포는 오류 코드와 함께 실패 합니다 `VnetSubnetConflictWithIntendedPolicy` .

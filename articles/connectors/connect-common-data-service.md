@@ -7,12 +7,12 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284118"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334585"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Common Data Service에서 레코드 만들기 및 관리
 
@@ -49,7 +49,7 @@ ms.locfileid: "87284118"
 
    ![모니터링할 환경에 대 한 트리거 정보](./media/connect-common-data-service/when-record-created-trigger-details.png)
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **환경** | 예 | 모니터링할 환경 (예: "Fabrikam Sales Production")입니다. 자세한 내용은 [전원 플랫폼-환경 개요](/power-platform/admin/environments-overview)를 참조 하세요. |
    | **엔터티 이름** | 예 | 모니터링할 엔터티입니다 (예: "잠재 고객"). |
@@ -70,7 +70,7 @@ ms.locfileid: "87284118"
 
    ![레코드를 만들 환경에 대 한 작업 정보](./media/connect-common-data-service/create-new-record-action-details.png)
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **조직 이름** | 예 | 레코드를 만들려는 환경 (트리거에서 동일한 환경이 아니어도 되는 환경)이 예에서는 "Fabrikam Sales Production"입니다. |
    | **엔터티 이름** | 예 | 레코드를 만들려는 엔터티, 예를 들어 "작업" |
@@ -87,7 +87,7 @@ ms.locfileid: "87284118"
 
       ![작업 레코드에서 사용할 트리거 출력 선택](./media/connect-common-data-service/create-new-record-action-select-trigger-outputs.png)
 
-      | 트리거 출력 | 설명 |
+      | 트리거 출력 | Description |
       |----------------|-------------|
       | **First Name** | 작업 레코드에서 기본 연락처로 사용할 잠재 고객 레코드의 첫 번째 이름입니다. |
       | **성** | 작업 레코드에서 기본 연락처로 사용할 잠재 고객 레코드의 성입니다. |
@@ -108,7 +108,7 @@ ms.locfileid: "87284118"
 
 1. 트리거의 **새 매개 변수 추가** 목록에서 **특성 필터**를 선택 합니다.
 
-   !["특성 필터" 속성 추가](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
+   !["특성 필터" 속성이 선택 된 상태에서 "레코드가 업데이트 되는 경우" 작업 및 열린 "새 매개 변수 추가" 목록을 보여 주는 스크린샷](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
 1. 각 **특성 필터 항목**에 대해 다음과 같이 업데이트를 모니터링 하려는 특성을 선택 합니다.
 
@@ -122,7 +122,7 @@ ms.locfileid: "87284118"
 
    !["필터 쿼리" 속성 추가](./media/connect-common-data-service/list-records-action-filter-query.png)
 
-1. 이제 동작에 표시 되는 **필터 쿼리** 속성에서 다음 ODATA 필터 쿼리를 입력 합니다.`statuscode eq 1`
+1. 이제 동작에 표시 되는 **필터 쿼리** 속성에서 다음 ODATA 필터 쿼리를 입력 합니다. `statuscode eq 1`
 
    ![레코드 필터링을 위한 ODATA 필터 쿼리 입력](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
@@ -136,7 +136,7 @@ ms.locfileid: "87284118"
 
    !["Order by" 속성 추가](./media/connect-common-data-service/list-records-action-order-by.png)
 
-1. 이제 동작에 표시 되는 **Order by** 속성에서 다음 ODATA 필터 쿼리를 입력 합니다.`name`
+1. 이제 동작에 표시 되는 **Order by** 속성에서 다음 ODATA 필터 쿼리를 입력 합니다. `name`
 
    ![레코드 순서 지정을 위한 ODATA 필터 쿼리 입력](./media/connect-common-data-service/list-records-action-order-by-value.png)
 

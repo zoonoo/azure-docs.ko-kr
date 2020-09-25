@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218233"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255255"
 ---
 지역 VNet 통합을 사용 하면 앱이 다음에 액세스할 수 있습니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "86218233"
 
 다른 계획의 앱이 다른 계획의 앱에 이미 연결 되어 있는 VNet에 도달 하 게 하려면 기존 VNet 통합에서 사용 중인 것과 다른 서브넷을 선택 합니다.
 
-이 기능은 Windows 및 Linux 웹 앱 모두에 대해 완벽 하 게 지원 됩니다. 모든 동작은 Windows 앱과 Linux 앱 간에 동일 하 게 작동 합니다.
+이 기능은 [사용자 지정 컨테이너](../articles/app-service/quickstart-custom-container.md)를 포함 하 여 Windows 및 Linux 앱 모두에 대해 완벽 하 게 지원 됩니다. 모든 동작은 Windows 앱과 Linux 앱 간에 동일 하 게 작동 합니다.
 
 ### <a name="service-endpoints"></a>서비스 엔드포인트
 

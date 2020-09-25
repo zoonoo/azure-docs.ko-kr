@@ -1,15 +1,17 @@
 ---
 title: FAQ (질문과 대답)-LUIS
 description: 이 문서에서는 LUIS(Language Understanding)에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: ff7beff6682d594f9b9fc1901d396d29028ec989
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054851"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334704"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -178,7 +180,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 
 [일괄 처리 테스트](luis-tutorial-batch-testing.md) 자습서를 참조하세요.
 
-### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>앱을 내보낸 후 새 앱으로 다시 가져오면(새 앱 ID 사용) LUIS 예측 점수가 달라집니다. 그 이유는 무엇인가요?
+### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>앱을 내보낸 후 새 앱으로 다시 가져오면(새 앱 ID 사용) LUIS 예측 점수가 달라집니다. 이유는 무엇입니까?
 
 [동일한 앱 사본 간 예측 차이점](luis-concept-prediction-score.md#review-intents-with-similar-scores)을 참조하세요.
 

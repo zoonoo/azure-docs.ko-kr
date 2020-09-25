@@ -1,22 +1,22 @@
 ---
 title: 개념-API Management
-description: Azure VMware 솔루션 (AVS) 가상 머신 (Vm)에서 실행 되 API Management Api를 보호 하는 방법을 알아봅니다.
+description: API Management Azure VMware 솔루션 Vm (가상 머신)에서 실행 되는 Api를 보호 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 62112bf3c0bf551232e09e5910e3eaae228dc202
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 346d0f795c3d19b115ced771991263cce2104217
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85306810"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262980"
 ---
-# <a name="api-management-to-publish-and-protect-apis-running-on-avs-based-vms"></a>AVS 기반 Vm에서 실행 되는 Api를 게시 및 보호 API Management
+# <a name="api-management-to-publish-and-protect-apis-running-on-azure-vmware-solution-based-vms"></a>Azure VMware 솔루션 기반 Vm에서 실행 되는 Api를 게시 및 보호 API Management
 
 Microsoft Azure [API Management](https://azure.microsoft.com/services/api-management/) 를 통해 개발자와 devops 팀이 내부 또는 외부 소비자에 게 안전 하 게 게시할 수 있습니다.
 
-여러 Sku에서 제공 되기는 하지만, azure Virtual Network 통합을 통해 azure VMware 솔루션 (AVS) 워크 로드에서 실행 되는 Api를 게시할 수 있습니다. 이러한 두 Sku는 API Management 서비스와 백 엔드 간의 연결을 안전 하 게 사용할 수 있도록 합니다. 개발자 SKU는 개발 및 테스트를 위한 것이 고, 프리미엄 SKU는 프로덕션 배포를 위한 것입니다.
+여러 Sku에서 제공 되기는 하지만 개발자 및 프리미엄 Sku만 azure Virtual Network 통합을 통해 Azure VMware 솔루션 작업에서 실행 되는 Api를 게시할 수 있습니다. 이러한 두 Sku는 API Management 서비스와 백 엔드 간의 연결을 안전 하 게 사용할 수 있도록 합니다. 개발자 SKU는 개발 및 테스트를 위한 것이 고, 프리미엄 SKU는 프로덕션 배포를 위한 것입니다.
 
-AVS Vm (가상 머신)을 기반으로 실행 되는 백 엔드 서비스의 경우 기본적으로 API Management의 구성은 온-프레미스 백 엔드 서비스와 동일 합니다. 내부 및 외부 배포 모두에서 백 엔드 서버가 NSX Load Balancer 뒤에 배치 되 면 백 엔드 끝점으로 부하 분산 장치의 VIP (가상 IP)를 구성 API Management 합니다.
+Azure VMware 솔루션 Vm (가상 머신)을 기반으로 실행 되는 백 엔드 서비스의 경우 기본적으로 API Management의 구성이 온-프레미스 백 엔드 서비스와 동일 합니다. 내부 및 외부 배포 모두에 대해 API Management는 Azure VMware 솔루션 쪽에서 백 엔드 서버가 NSX Load Balancer 뒤에 배치 될 때 부하 분산 장치의 VIP (가상 IP)를 백 엔드 끝점으로 구성 합니다.
 
 ## <a name="external-deployment"></a>외부 배포
 
@@ -24,7 +24,7 @@ AVS Vm (가상 머신)을 기반으로 실행 되는 백 엔드 서비스의 경
 
 외부 배포 다이어그램은 전체 프로세스와 관련 된 행위자 (맨 위에 표시 됨)를 보여 줍니다. 행위자는 다음과 같습니다.
 
-- **관리자:** PowerShell 또는 Azure DevOps와 같은 Azure Portal 및 자동화 메커니즘을 통해 AVS를 관리 하는 관리자 또는 DevOps 팀을 나타냅니다.
+- **관리자:** PowerShell 또는 Azure DevOps와 같은 Azure Portal 및 자동화 메커니즘을 통해 Azure VMware 솔루션을 관리 하는 관리 또는 DevOps 팀을 나타냅니다.
 
 - **사용자:**  표시 되는 Api의 소비자를 나타내며 Api를 사용 하는 사용자와 서비스를 모두 나타냅니다.
 
@@ -32,7 +32,7 @@ AVS Vm (가상 머신)을 기반으로 실행 되는 백 엔드 서비스의 경
 
 API Management Azure 공용 API가 있고 Azure DDOS Protection 서비스를 활성화 하는 것이 좋습니다. 
 
-:::image type="content" source="media/api-management/external-deployment.png" alt-text="외부 배포-AVS에 대 한 API Management":::
+:::image type="content" source="media/api-management/external-deployment.png" alt-text="외부 배포-Azure VMware 솔루션에 대 한 API Management":::
 
 
 ## <a name="internal-deployment"></a>내부 배포
@@ -49,11 +49,11 @@ API Management Azure 공용 API가 있고 Azure DDOS Protection 서비스를 활
 
 아래 배포 다이어그램은 내부 또는 외부에 있을 수 있는 소비자를 보여 줍니다. 각 형식은 동일한 Api 또는 다른 Api에 액세스 합니다.
 
-내부 배포에서 Api는 동일한 API Management 인스턴스에 노출 됩니다. API Management 앞에는 Azure WAF (웹 응용 프로그램 방화벽) 기능을 활성화 하 고, 트래픽을 필터링 하는 HTTP 수신기 및 규칙 집합을 배포 하 고, AVS에서 실행 되는 백 엔드 서비스의 하위 집합만 노출 하 여 Application Gateway.
+내부 배포에서 Api는 동일한 API Management 인스턴스에 노출 됩니다. API Management 앞에는 azure WAF (웹 응용 프로그램 방화벽) 기능을 활성화 하 고, 트래픽을 필터링 하는 HTTP 수신기와 규칙 집합을 배포 하 고, Azure VMware 솔루션에서 실행 되는 백 엔드 서비스의 하위 집합만 노출 하 여 Application Gateway.
 
 * 내부 트래픽은 Express 경로 게이트웨이를 통해 Azure 방화벽으로 라우팅되고 트래픽 규칙이 설정 되거나 API Management에 직접 API Management 됩니다.  
 
 * 외부 트래픽은 API Management의 외부 보호 계층을 사용 하는 Application Gateway를 통해 Azure에 들어갑니다.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="내부 배포-AVS에 대 한 API Management":::
+:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Azure VMware 솔루션에 대 한 내부 배포-API Management":::

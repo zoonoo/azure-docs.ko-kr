@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Event Grid 토픽 또는 도메인에 대
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa67ba8dbe8106c0311bafec07a1510ca0c25c3f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508841"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324147"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Azure Event Grid 토픽 또는 도메인에 대 한 개인 끝점 구성
 [개인 끝점](../private-link/private-endpoint-overview.md) 을 사용 하 여 공용 인터넷을 통하지 않고 [개인 링크](../private-link/private-link-overview.md) 를 통해 안전 하 게 항목 및 도메인에 대 한 가상 네트워크에서 직접 이벤트를 수신 하도록 허용할 수 있습니다. 개인 끝점은 토픽 또는 도메인에 대 한 VNet 주소 공간의 IP 주소를 사용 합니다. 개념에 대 한 자세한 내용은 [네트워크 보안](network-security.md)을 참조 하세요.
@@ -42,9 +42,9 @@ ms.locfileid: "88508841"
         3. 선택한 리소스 종류에 따라 **대상 하위 리소스가** **토픽** 또는 **도메인** 으로 설정 되어 있는지 확인 합니다.    
         4. 완료되면 **다음: 구성 >** 단추를 페이지 아래쪽에서 선택합니다. 
 
-            ![개인 끝점-리소스 페이지](./media/configure-private-endpoints/resource-page.png)
+            !["개인 끝점-리소스 만들기" 페이지를 보여 주는 스크린샷](./media/configure-private-endpoints/resource-page.png)
     2. **리소스 ID 또는 별칭을 사용 하 여 리소스에 연결**을 선택 하는 경우 다음 단계를 수행 합니다.
-        1. 리소스의 ID를 입력 합니다. 예: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`  
+        1. 리소스의 ID를 입력 합니다. 예: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. **리소스**에 대해 **토픽** 또는 **도메인**을 입력 합니다. 
         3. 필드 요청 메시지를 추가 합니다. 
         4. 완료되면 **다음: 구성 >** 단추를 페이지 아래쪽에서 선택합니다. 
@@ -108,7 +108,7 @@ ms.locfileid: "88508841"
 
 1. 거부할 **개인 끝점** 을 선택 하 고 도구 모음에서 **거부** 를 선택 합니다.
 
-    ![개인 끝점-거부](./media/configure-private-endpoints/reject-button.png)
+    !["거부"가 선택 된 "네트워킹-개인 끝점 연결 (미리 보기)"을 보여 주는 스크린샷](./media/configure-private-endpoints/reject-button.png)
 1. **연결 거부** 대화 상자에서 설명 (선택 사항)을 입력 하 고 **예**를 선택 합니다. 
 
     ![개인 끝점-거부](./media/configure-private-endpoints/reject.png)
@@ -196,7 +196,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 #### <a name="sample-script"></a>샘플 스크립트
 다음은 Azure 리소스를 만드는 샘플 스크립트입니다.
 
-- Resource group
+- 리소스 그룹
 - 가상 네트워크
 - 가상 네트워크의 서브넷
 - Azure Event Grid 항목

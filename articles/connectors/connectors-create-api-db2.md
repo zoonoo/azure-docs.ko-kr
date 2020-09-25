@@ -7,12 +7,12 @@ ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: bd85155f932d57319f5f27081b44b48e5540bfb2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6c9c54450788a89a7b1aadbb0b4682a60619c061
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284050"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334602"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 IBM DB2 리소스 액세스 및 관리
 
@@ -80,9 +80,9 @@ IBM DB2 커넥터는 커넥터에서 해당 작업에 매핑되는 이러한 데
 
 연결을 설정하려면 메시지가 표시될 때 이러한 연결 세부 정보를 입력하고 **만들기**를 선택한 다음, 논리 앱을 저장합니다.
 
-| 속성 | 필수 | 설명 |
+| 속성 | 필수 | Description |
 |----------|----------|-------------|
-| **온-프레미스 게이트웨이를 통해 연결** | 아니요 | 온-프레미스 연결에만 적용됩니다. |
+| **온-프레미스 게이트웨이를 통해 연결** | 예 | 온-프레미스 연결에만 적용됩니다. |
 | **연결 이름** | 예 | 연결 이름(예: “MyLogicApp-DB2-connection”) |
 | **Server** | 예 | DB2 서버에 대한 주소 또는 별칭 콜론 포트 번호(예: “myDB2server.cloudapp.net:50000”) <p><p>**참고**: 이 값은 콜론과 TCP/IP 포트 번호가 뒤에 붙는 IPv4 또는 IPv6 형식 중 하나로 구성되어 TCP/IP 주소 또는 별칭을 나타내는 문자열입니다. |
 | **Database** | 예 | 데이터베이스의 이름 <p><p>**참고**: 이 값은 DRDA 관계형 데이터베이스 이름(RDBNAM)을 나타내는 문자열입니다. <p>- “z/OS용 IBM DB2” 위치로 인식되는 데이터베이스인 z/OS용 DB2에는 16바이트 문자열이 허용됩니다. <br>- “i용 IBM DB2” 관계형 데이터베이스로 인식되는 데이터베이스인 i용 DB2에는 18바이트 문자열이 허용됩니다. <br>- LUW용 DB2에는 8바이트 문자열이 허용됩니다. |
@@ -100,7 +100,7 @@ IBM DB2 커넥터는 커넥터에서 해당 작업에 매핑되는 이러한 데
 
 연결을 만들기 전에 온-프레미스 데이터 게이트웨이가 이미 설치되어 있어야 합니다. 그렇지 않은 경우, 연결 설정을 완료할 수 없습니다. 게이트웨이가 설치되어 있는 경우 연결 세부 정보 입력을 진행한 다음, **만들기**를 선택합니다.
 
-| 속성 | 필수 | 설명 |
+| 속성 | 필수 | Description |
 |----------|----------|-------------|
 | **온-프레미스 게이트웨이를 통해 연결** | 예 | 온-프레미스 연결을 원하는 경우 적용하고 온-프레미스 연결 속성을 보여 줍니다. |
 | **연결 이름** | 예 | 연결 이름(예: “MyLogicApp-DB2-connection”) | 
@@ -151,13 +151,13 @@ DB2 데이터베이스 테이블에서 한 개의 레코드를 페치하려면 �
 
 1. 모든 필수 속성(*)에 대한 값을 지정합니다. 테이블을 선택하면 작업이 해당 테이블의 레코드와 관련된 관련 속성을 보여 줍니다.
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **테이블 이름** | 예 | 원하는 레코드가 있는 테이블(이 예제에서는 “AREA”) |
    | **영역 ID** | 예 | 원하는 레코드의 ID(이 예제에서는 “99999”) |
    ||||
 
-   ![테이블 선택](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![열린 "테이블 이름" 목록과 "영역" 값이 선택 된 "행 가져오기 (미리 보기)" 작업을 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다.
 
@@ -192,7 +192,7 @@ DB2 데이터베이스 테이블에서 모든 레코드를 페치하려면 논�
 
 1. **테이블 이름** 목록을 연 다음, 원하는 테이블을 선택합니다(이 예제에서는 “AREA”).
 
-   ![테이블 선택](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   !["테이블 이름" 목록에서 "영역" 값을 선택 하 여 "행 가져오기 (미리 보기)" 동작을 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. 결과에 대한 필터 또는 쿼리를 지정하려면 **고급 옵션 표시**를 선택합니다.
 
@@ -231,7 +231,7 @@ DB2 데이터베이스 테이블에 단일 레코드를 추가하려면 논리 �
 
    이 예제에서 속성은 다음과 같습니다.
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **테이블 이름** | 예 | 레코드를 추가할 테이블(예: “AREA”) |
    | **영역 ID** | 예 | 추가할 영역에 대한 ID(예: “99999”) |
@@ -241,7 +241,7 @@ DB2 데이터베이스 테이블에 단일 레코드를 추가하려면 논리 �
 
    예를 들면 다음과 같습니다.
 
-   ![테이블 선택](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   !["행 삽입 (미리 보기)" 작업과 예제 속성 값을 사용 하 여 Logic Apps 디자이너를 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다.
 
@@ -278,7 +278,7 @@ DB2 데이터베이스 테이블에서 단일 레코드를 업데이트하려면
 
    이 예제에서 속성은 다음과 같습니다.
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **테이블 이름** | 예 | 레코드를 업데이트할 테이블(예: “AREA”) |
    | **행 ID** | 예 | 업데이트할 레코드의 ID(예: “99999”) |
@@ -289,7 +289,7 @@ DB2 데이터베이스 테이블에서 단일 레코드를 업데이트하려면
 
    예를 들면 다음과 같습니다.
 
-   ![테이블 선택](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![테이블을 선택 하는 "행 업데이트 (미리 보기)" 작업을 사용 하 여 Logic Apps 디자이너를 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다.
 
@@ -326,7 +326,7 @@ DB2 데이터베이스 테이블에서 단일 레코드를 삭제하려면 논�
 
    이 예제에서 속성은 다음과 같습니다.
 
-   | 속성 | 필수 | 설명 |
+   | 속성 | 필수 | Description |
    |----------|----------|-------------|
    | **테이블 이름** | 예 | 레코드를 삭제할 테이블(예: “AREA”) |
    | **행 ID** | 예 | 삭제할 레코드의 ID(예: “99999”) |
@@ -334,7 +334,7 @@ DB2 데이터베이스 테이블에서 단일 레코드를 삭제하려면 논�
 
    예를 들면 다음과 같습니다.
 
-   ![테이블 선택](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![삭제할 테이블을 선택 하는 "행 삭제 (미리 보기)" 작업을 사용 하 여 Logic Apps 디자이너를 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. 완료되면 디자이너 도구 모음에서 **저장**을 선택합니다.
 

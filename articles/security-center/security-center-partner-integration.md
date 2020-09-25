@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 40b96cac4c9ad638373fbb75f736dc7eded42b43
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9a781fd48b30ccb32b0a733e5aa1ac054b96dc12
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883941"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323658"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -40,7 +40,7 @@ Azure Defender 고객에 게 제공 되는 기본 제공 스캐너를 비롯 하
 Security Center는 다음에 대한 취약성 분석도 제공합니다.
 
 * SQL 데이터베이스 - [취약성 평가 대시보드에서 취약성 평가 보고서 탐색](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)을 참조하세요.
-* Azure Container Registry 이미지- [Security Center와 Azure Container Registry 통합 (미리 보기)](azure-container-registry-integration.md) 을 참조 하세요.
+* 이미지 Azure Container Registry- [컨테이너 레지스트리에 대해 Azure Defender를 사용 하 여 취약성에 대 한 이미지 검색을](defender-for-container-registries-usage.md) 참조 하세요.
 
 ## <a name="how-security-solutions-are-integrated"></a>보안 솔루션을 통합하는 방법
 Security Center에서 배포된 Azure 보안 솔루션은 자동으로 연결됩니다. 온-프레미스 또는 다른 클라우드에서 실행 되는 컴퓨터를 포함 하 여 다른 보안 데이터 원본에 연결할 수도 있습니다.

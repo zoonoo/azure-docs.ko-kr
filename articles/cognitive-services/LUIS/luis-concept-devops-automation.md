@@ -1,14 +1,16 @@
 ---
 title: LUIS apps에 대 한 연속 워크플로
 description: Language Understanding 용 DevOps에 대 한 CI/CD 워크플로를 구현 하는 방법 (LUIS)
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 4cedf0cbe3f9ab675c191f8e4639688bb7916ee0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a74ad7b995f0112346e2212866655107f72c03e7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072988"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324810"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>LUIS DevOps에 대 한 지속적인 통합 및 지속적인 업데이트 워크플로
 

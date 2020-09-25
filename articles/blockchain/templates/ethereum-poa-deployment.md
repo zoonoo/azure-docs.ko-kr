@@ -4,13 +4,13 @@ description: Ethereum Authority consortium 솔루션을 사용 하 여 Azure에�
 ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 8ce343045f7ff124f5faf86b13210bfb5b3b5519
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.custom: devx-track-js
+ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527159"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283431"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Azure에서 Ethereum 증명 기관 컨소시엄 솔루션 템플릿 배포
 
@@ -90,7 +90,7 @@ Id 저장소는 생성 된 Ethereum id를 안전 하 게 보관 하는 각 멤�
 
 ![기본 사항](./media/ethereum-poa-deployment/basic-blade.png)
 
-매개 변수 | 설명 | 예제 값
+매개 변수 | Description | 예제 값
 ----------|-------------|--------------
 새 네트워크를 만들거나 기존 네트워크에 가입 | 새 consortium 네트워크를 만들거나 기존 컨소시엄 네트워크에 가입할 수 있습니다. 기존 네트워크를 조인 하려면 추가 매개 변수가 필요 합니다. | Create new
 메일 주소 | 배포가 완료 되 면 배포에 대 한 정보를 사용 하 여 전자 메일 알림을 받게 됩니다. | 유효한 전자 메일 주소
@@ -109,7 +109,7 @@ VM 사용자 이름 | 배포 된 각 VM의 관리자 사용자 이름 | 1-64 영
 
 ![배포 지역](./media/ethereum-poa-deployment/deployment-regions.png)
 
-매개 변수 | 설명 | 예제 값
+매개 변수 | Description | 예제 값
 ----------|-------------|--------------
 지역 수|컨소시엄 네트워크를 배포하는 지역 수| 2
 첫 번째 지역 | 컨소시엄 네트워크를 배포하는 첫 번째 지역 | 미국 서부 2
@@ -123,7 +123,7 @@ VM 사용자 이름 | 배포 된 각 VM의 관리자 사용자 이름 | 1-64 영
 
 ![네트워크 크기 및 성능](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
-매개 변수 | 설명 | 예제 값
+매개 변수 | Description | 예제 값
 ----------|-------------|--------------
 부하가 분산된 유효성 검사기 노드 수 | 네트워크의 일부로 프로 비전 할 유효성 검사기 노드의 수입니다. | 2
 유효성 검사기 노드 스토리지 성능 | 배포 된 각 유효성 검사기 노드에 대 한 관리 디스크의 유형입니다. 가격 책정에 대 한 자세한 내용은 [저장소 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/) 을 참조 하세요. | 표준 SSD
@@ -145,7 +145,7 @@ F16s|프리미엄 SSD|high|high|low
 
 ![Ethereum 설정](./media/ethereum-poa-deployment/ethereum-settings.png)
 
-매개 변수 | 설명 | 예제 값
+매개 변수 | Description | 예제 값
 ----------|-------------|--------------
 컨소시엄 멤버 ID | 컨소시엄 네트워크에 참여 하는 각 멤버와 연결 된 ID입니다. 이는 충돌을 방지 하기 위해 IP 주소 공간을 구성 하는 데 사용 됩니다. 개인 네트워크의 경우 구성원 ID는 동일한 네트워크에 있는 여러 조직에서 고유 해야 합니다.  고유 멤버 ID는 같은 조직이 여러 지역에 배포하는 경우에도 필요합니다. 충돌이 발생 하지 않도록 하기 위해 다른 조인 멤버와 공유 해야 하므로이 매개 변수의 값을 기록해 둡니다. 유효한 범위는 0에서 255 까지입니다. | 0
 네트워크 ID | 배포하는 컨소시엄 Ethereum 네트워크의 네트워크 ID입니다. 각 Ethereum 네트워크에는 공용 네트워크에 대한 ID를 1로 하는 자체의 네트워크 ID가 있습니다. 유효한 범위는 5에서 999999999 까지입니다. | 10101010
@@ -164,7 +164,7 @@ F16s|프리미엄 SSD|high|high|low
 
 ![Azure Monitor](./media/ethereum-poa-deployment/azure-monitor.png)
 
-매개 변수 | 설명 | 예제 값
+매개 변수 | Description | 예제 값
 ----------|-------------|--------------
 모니터링 | 모니터링을 사용 하도록 설정 하는 옵션 | 사용
 기존 Azure Monitor 로그에 연결 | 새 Azure Monitor 로그 인스턴스를 만들거나 기존 인스턴스에 조인 하는 옵션 | Create new
@@ -333,7 +333,7 @@ ParityLog_CL
 
 1. **저장**을 선택합니다. 변경 내용을 적용 하는 데 몇 분 정도 걸릴 수 있습니다.
 
-제공 된 관리자 사용자 이름 및 암호/s s p 키를 사용 하 여 SSH를 통해 유효성 검사기 노드의 가상 컴퓨터에 원격으로 연결할 수 있습니다. 첫 번째 유효성 검사기 노드에 액세스 하는 SSH 명령이 템플릿 배포 출력에 나열 됩니다. 예를 들어:
+제공 된 관리자 사용자 이름 및 암호/s s p 키를 사용 하 여 SSH를 통해 유효성 검사기 노드의 가상 컴퓨터에 원격으로 연결할 수 있습니다. 첫 번째 유효성 검사기 노드에 액세스 하는 SSH 명령이 템플릿 배포 출력에 나열 됩니다. 예를 들면 다음과 같습니다.
 
 ``` bash
 ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.

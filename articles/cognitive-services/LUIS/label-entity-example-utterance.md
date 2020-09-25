@@ -1,14 +1,16 @@
 ---
 title: 예제 발화의 엔터티에 레이블 지정
 description: LUIS 포털의 의도 세부 정보 페이지에서 utterance 예제에 있는 하위 엔터티를 사용 하 여 기계 학습 엔터티에 레이블을 만드는 방법을 알아봅니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ffbaa2e40d5924ba61e548398e63295cf7dba2b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610492"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303729"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>예 utterance에서 기계 학습 엔터티 레이블
 
@@ -53,7 +55,7 @@ Utterance 내에서 엔터티 예를 레이블 하려면 utterance의 의도를 
 3. 예제 발화에서 커서를 사용하여 엔터티를 _그립니다_.
 
     > [!div class="mx-imgBorder"]
-    > ![기계 학습 엔터티에 대 한 엔터티 팔레트](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![커서를 사용 하 여 그린 엔터티를 보여 주는 스크린샷](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## <a name="adding-entity-as-a-feature-from-the-entity-palette"></a>엔터티 팔레트의 기능으로 엔터티 추가
 

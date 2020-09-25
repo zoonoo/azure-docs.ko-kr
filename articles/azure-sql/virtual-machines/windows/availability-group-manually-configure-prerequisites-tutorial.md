@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8e62d2d1955b5b323ad31cc5d45106210e3e22c6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 278e5feb327c1376b7644050f414f680334d5c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263235"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 Always On 가용성 그룹을 만들기 위한 필수 구성 요소
 
@@ -320,7 +320,7 @@ DNS에 대한 주 도메인 컨트롤러를 사용합니다. 주 도메인 컨�
     >**DNS 옵션** 페이지에서 이 DNS 서버에 대한 위임을 만들 수 없다고 경고할 수 있습니다. 비-프로덕션 환경에서 이 경고를 무시할 수 있습니다.
     >
 
-22. 대화 상자가 **필수 구성 요소** 확인에 도달할 때까지 **다음** 을 선택 합니다. 그런 다음, **설치**를 선택합니다.
+22. 대화 상자가 **필수 구성 요소** 확인에 도달할 때까지 **다음** 을 선택 합니다. **설치**를 선택합니다.
 
 서버가 구성 변경 내용을 완료한 후 서버를 다시 시작합니다.
 

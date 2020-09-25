@@ -1,19 +1,19 @@
 ---
 title: Key Vault 인증서를 사용하여 TLS 종료 구성 - PowerShell
 titleSuffix: Azure Application Gateway
-description: HTTPS 지원 수신기에 연결된 서버 인증서를 위해 Azure Application Gateway를 Key Vault와 통합하는 방법을 알아봅니다.
+description: Azure PowerShell 스크립트를 사용 하 여 TLS/SSL 종료 인증서용 application gateway와 key vault를 통합 하는 방법에 대해 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 4a872bc63be33ebed0a8ba9d89383cdfc9feef28
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: aaaeed9d8d6a2d84fa13f495f581dc1f5fdc19e2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386285"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323427"
 ---
 # <a name="configure-tls-termination-with-key-vault-certificates-using-azure-powershell"></a>Azure PowerShell을 사용하여 Key Vault 인증서로 TLS 종료 구성
 

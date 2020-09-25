@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, srbozovi, bonova
+ms.reviewer: sstein, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 72d5a722e6c1e6b936c6ec0386036317e887bb92
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 072dc3c453984eb30805bb6c2c8c44cc39b06d17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90969823"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283601"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>빠른 시작: azure SQL Managed Instance에 연결 하도록 Azure VM 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -49,14 +49,14 @@ ms.locfileid: "90969823"
 
 3. 이 표의 정보를 사용하여 양식을 작성합니다.
 
-   | 설정| 제안 값 | 설명 |
+   | 설정| 제안 값 | Description |
    | ---------------- | ----------------- | ----------- |
    | **이름** | 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|
    | **주소 범위(CIDR 블록)** | 유효 범위 | 이 빠른 시작에는 기본값이 적합합니다.|
-   | **네트워크 보안 그룹** | None | 이 빠른 시작에는 기본값이 적합합니다.|
-   | **경로 테이블** | None | 이 빠른 시작에는 기본값이 적합합니다.|
+   | **네트워크 보안 그룹** | 없음 | 이 빠른 시작에는 기본값이 적합합니다.|
+   | **경로 테이블** | 없음 | 이 빠른 시작에는 기본값이 적합합니다.|
    | **서비스 엔드포인트** | 0개 선택됨 | 이 빠른 시작에는 기본값이 적합합니다.|
-   | **서브넷 위임** | None | 이 빠른 시작에는 기본값이 적합합니다.|
+   | **서브넷 위임** | 없음 | 이 빠른 시작에는 기본값이 적합합니다.|
 
    ![클라이언트 VM에 대 한 새 SQL Managed Instance 서브넷](./media/connect-vm-instance-configure/new-subnet.png)
 
@@ -78,7 +78,7 @@ SQL Managed Instance 개인 가상 네트워크에 배치 되기 때문에 SQL S
 
 2. 다음 표의 정보를 사용하여 양식을 작성합니다.
 
-   | 설정| 제안 값 | 설명 |
+   | 설정| 제안 값 | Description |
    | ---------------- | ----------------- | ----------- |
    | **구독** | 유효한 구독 | 새 리소스를 만들 권한이 있는 구독이어야 합니다. |
    | **리소스 그룹** |[CREATE SQL Managed Instance](instance-create-quickstart.md) 빠른 시작에서 지정한 리소스 그룹|이 리소스 그룹은 VNet이 있는 리소스 그룹이어야 합니다.|
