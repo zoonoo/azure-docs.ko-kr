@@ -1,5 +1,5 @@
 ---
-title: 관리 단위 범위 (미리 보기)를 사용 하 여 역할 할당 및 나열-Azure Active Directory | Microsoft Docs
+title: 관리 단위 범위를 사용 하 여 역할 할당 및 나열-Azure Active Directory | Microsoft Docs
 description: 관리 단위를 사용 하 여 Azure Active Directory에서 역할 할당 범위 제한
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 07/10/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 00b5f39363e4c8b2fd3a0d74a8c013d315bff1fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475637"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264939"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>관리 단위에 범위 지정 역할 할당
 
@@ -105,4 +105,4 @@ Request body
 ## <a name="next-steps"></a>다음 단계
 
 - [클라우드 그룹을 사용 하 여 역할 할당 관리](roles-groups-concept.md)
-- [클라우드 그룹에 할당 된 역할 문제 해결](roles-groups-faq-troubleshooting.md)
+- [클라우드 그룹에 할당된 역할 문제 해결](roles-groups-faq-troubleshooting.md)

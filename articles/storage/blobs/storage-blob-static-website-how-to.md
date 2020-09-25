@@ -7,19 +7,22 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: bac476cfbe78ad6fcf73b6a2319581cc60524a57
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432564"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289874"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스트
 
 Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠(HTML, CSS, JavaScript 및 이미지 파일)를 제공할 수 있습니다. 자세한 내용은 [Azure Storage에서 정적 웹 사이트 호스팅](storage-blob-static-website.md)을 참조하세요.
 
 이 문서에서는 Azure Portal, Azure CLI 또는 PowerShell을 사용하여 정적 웹 사이트 호스팅을 사용하도록 설정하는 방법을 보여 줍니다.
+
+> [!NOTE]
+> 범용 v2 Standard storage 계정을 만들어야 합니다. 정적 웹 사이트는 다른 유형의 스토리지 계정에서 사용할 수 없습니다.
 
 ## <a name="enable-static-website-hosting"></a>정적 웹 사이트 호스팅 사용
 

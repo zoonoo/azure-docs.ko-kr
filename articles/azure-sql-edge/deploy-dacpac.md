@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 6c8be6e67b1d7b919d6ea221c473c8975e559658
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e9c8c58c6be8d2c2a85e56690903e6b54f0e4a0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887481"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293903"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>SQL Edge에서 DACPAC 및 BACPAC 패키지 SQL Database
 
 Azure SQL Edge는 IoT 및 에지 배포를 위해 최적화된 관계형 데이터베이스 엔진입니다. 업계 최고의 성능, 보안 및 쿼리 처리 기능을 제공 하는 최신 버전의 Microsoft SQL Database 엔진을 기반으로 합니다. Azure SQL Edge는 SQL Server의 업계 최고의 관계형 데이터베이스 관리 기능과 함께 실시간 분석 및 복잡한 이벤트 처리를 위한 기본 제공 스트리밍 기능을 제공합니다.
 
-또한 Azure SQL Edge는 SQL Edge 배포 중에 [SQL DATABASE DACPAC 및 BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) 패키지를 배포할 수 있도록 하는 SqlPackage.exe의 기본 구현을 제공 합니다. 
+Azure SQL Edge는 SQL Edge를 배포한 후 또는 중에 [SQL DATABASE DACPAC 및 BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) 패키지를 배포할 수 있도록 하는 기본 메커니즘을 제공 합니다.
 
 환경 변수를 사용 하 여 SQL Edge에 SQL Database dacpac 및 bacpac 패키지를 배포할 수 있습니다 `MSSQL_PACKAGE` . 환경 변수는 다음 중 하나를 사용 하 여 구성할 수 있습니다.  
 - Dacpac 및 bacpac 파일을 포함 하는 SQL 컨테이너 내의 로컬 폴더 위치입니다. 이 폴더는 탑재 지점이 나 데이터 볼륨 컨테이너를 사용 하 여 호스트 볼륨에 매핑할 수 있습니다. 
@@ -64,6 +64,10 @@ Azure SQL Edge는 IoT 및 에지 배포를 위해 최적화된 관계형 데이�
 5. 모듈을 업데이트 한 후 패키지 파일이 다운로드 되 고, 압축을 푼 다음 SQL Edge 인스턴스에 대해 배포 됩니다.
 
 Azure SQL Edge 컨테이너를 다시 시작할 때마다 SQL Edge는 압축 된 파일 패키지를 다운로드 하 고 변경 내용을 확인 하려고 시도 합니다. 새 버전의 dacpac 파일이 발견되면 변경 내용이 SQL Edge의 데이터베이스에 배포됩니다.
+
+## <a name="known-issue"></a>알려진 문제
+
+일부 DACPAC 또는 BACPAC 배포 중에 사용자는 명령 시간 초과가 발생할 수 있으므로 DACPAC 배포 작업이 실패 합니다. 이 문제가 발생 하는 경우 SQLPackage.exe (또는 SQL 클라이언트 도구)를 사용 하 여 DACPAC 또는 BACPAC 수동으로을 적용 하십시오. 
 
 ## <a name="next-steps"></a>다음 단계
 

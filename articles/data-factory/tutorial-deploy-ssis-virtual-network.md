@@ -1,6 +1,6 @@
 ---
 title: Azure SSIS 통합 런타임을 구성 하 여 가상 네트워크에 가입 하는 자습서
-description: Azure 가상 네트워크에 Azure SSIS 통합 런타임을 조인 하는 방법에 대해 알아봅니다.
+description: Azure SSIS 통합 런타임을 조인 하 여 Azure 가상 네트워크에 가입 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 0b83049e154afc48334cc6deb576c700ed71d844
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2bd2fa9badc7c299099b647e1f67c50e997024
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84118153"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292306"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>가상 네트워크에 가입 하기 위해 Azure SQL Server Integration Services (SSIS) IR (통합 런타임) 구성
 
@@ -110,7 +110,7 @@ Azure Resource Manager 가상 네트워크 또는 클래식 가상 네트워크�
 
    ![데이터 팩터리 목록](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. 목록에서 Azure-SSIS IR를 사용 하 여 데이터 팩터리를 선택 합니다. 데이터 팩터리의 홈 페이지가 표시됩니다. **작성자 & 모니터** 타일을 선택 합니다. 별도의 탭에 Data Factory UI가 표시됩니다.
+1. 목록에서 Azure-SSIS IR를 사용 하 여 데이터 팩터리를 선택 합니다. 데이터 팩터리의 홈 페이지가 표시됩니다. **작성자 & 모니터** 타일을 선택합니다. 별도의 탭에 Data Factory UI가 표시됩니다.
 
    ![데이터 팩터리 홈페이지](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 

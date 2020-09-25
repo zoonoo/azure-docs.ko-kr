@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: cf73b3949b0a0dc1e76ebdebb191af0a33ce22ff
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: ac76ce5d4fb788e6c2fb3dc9ec01c8d88bfb55cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180476"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268077"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Azure Security Center의 경고 유효성 검사
 이 문서에서는 시스템이 Azure Security Center 경고에 대해 제대로 구성되었는지 확인하는 방법을 알아봅니다.
@@ -62,16 +62,16 @@ ms.locfileid: "89180476"
 
 ## <a name="validate-alerts-on-kubernetes"></a>Kubernetes에 대 한 경고 유효성 검사 <a name="validate-kubernetes"></a>
 
-Azure Kubernetes Service를 통합 하는 Security Center 미리 보기 기능을 사용 하는 경우 다음 kubectl 명령을 실행 하 여 경고가 작동 하는지 테스트 합니다.
+Azure Kubernetes Service를 Security Center와 통합 한 경우 다음 kubectl 명령을 사용 하 여 경고가 작동 하는지 테스트할 수 있습니다.
 
 ```kubectl get pods --namespace=asc-alerttest-662jfi039n```
 
-Azure Kubernetes Service와 Azure Security Center를 통합 하는 방법에 대 한 자세한 내용은 [이 문서](azure-kubernetes-service-integration.md)를 참조 하세요.
+Kubernetes 노드 및 클러스터를 방어 하는 방법에 대 한 자세한 내용은 [Kubernetes 용 Azure Defender 소개](defender-for-kubernetes-introduction.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 경고 유효성 검사 프로세스에 대해 소개했습니다. 이제 유효성 검사에 익숙해졌으므로 다음 문서를 시도해 보세요.
 
 * [Azure Security Center에서 Azure Key Vault 위협 검색의 유효성 검사](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
-* [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) -경고를 관리 하 고 Security Center의 보안 인시던트에 대응 하는 방법을 알아봅니다.
+* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) -경고를 관리 하 고 Security Center의 보안 인시던트에 대응 하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center의 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) -다양 한 유형의 보안 경고에 대해 알아봅니다.
+* [Azure Security Center의 보안 경고 이해](security-center-alerts-type.md) -다양 한 유형의 보안 경고에 대해 알아봅니다.

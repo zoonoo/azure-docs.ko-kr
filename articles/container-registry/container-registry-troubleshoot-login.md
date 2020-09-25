@@ -3,12 +3,12 @@ title: 레지스트리에 로그인 문제 해결
 description: Azure container registry에 로그인 할 때 발생 하는 일반적인 문제에 대 한 증상, 원인 및 해결 방법
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 8fbb96be8223001ac52db47788c31609e9b86e35
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227480"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253357"
 ---
 # <a name="troubleshoot-registry-login"></a>레지스트리 로그인 문제 해결
 
@@ -56,13 +56,13 @@ ms.locfileid: "88227480"
 
 ### <a name="specify-correct-registry-name"></a>올바른 레지스트리 이름 지정
 
-를 사용 하는 경우 `docker login` *myregistry.azurecr.io*와 같은 레지스트리의 전체 로그인 서버 이름을 제공 합니다. 소문자만 사용 해야 합니다. 예제:
+를 사용 하는 경우 `docker login` *myregistry.azurecr.io*와 같은 레지스트리의 전체 로그인 서버 이름을 제공 합니다. 소문자만 사용 해야 합니다. 예:
 
 ```console
 docker login myregistry.azurecr.io
 ```
 
-Azure Active Directory id로 [az acr login](/cli/azure/acr#az-acr-login) 을 사용 하는 경우 먼저 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli)한 후 레지스트리의 Azure 리소스 이름을 지정 합니다. 리소스 이름은 *myregistry* (도메인 접미사 제외)와 같이 레지스트리를 만들 때 제공 되는 이름입니다. 예제:
+Azure Active Directory id로 [az acr login](/cli/azure/acr#az-acr-login) 을 사용 하는 경우 먼저 [Azure CLI에 로그인](/cli/azure/authenticate-azure-cli)한 후 레지스트리의 Azure 리소스 이름을 지정 합니다. 리소스 이름은 *myregistry* (도메인 접미사 제외)와 같이 레지스트리를 만들 때 제공 되는 이름입니다. 예:
 
 ```azurecli
 az acr login --name myregistry
@@ -107,7 +107,7 @@ Azure CLI를 사용 하는 포털 또는 레지스트리 관리의 레지스트�
 * [리포지토리 범위 토큰을 사용 하 여 로그인](container-registry-repository-scoped-permissions.md)
 * [Azure Portal을 사용하여 Azure 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md)
 * [포털을 사용 하 여 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)
-* [새 애플리케이션 비밀 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)
+* [새 애플리케이션 비밀 만들기](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
 * [Azure AD 인증 및 권한 부여 코드](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### <a name="check-that-credentials-arent-expired"></a>자격 증명이 만료 되지 않았는지 확인 합니다.
@@ -140,7 +140,7 @@ Azure CLI를 사용 하는 포털 또는 레지스트리 관리의 레지스트�
 
 * 다른 레지스트리 문제 해결 항목은 다음과 같습니다.
   * [레지스트리의 네트워크 문제 해결](container-registry-troubleshoot-access.md)
-  * [레지스트리 성능 문제 해결](container-registry-troubleshoot-performance.md)
+  * [쿼리 성능 문제 해결](container-registry-troubleshoot-performance.md)
 * [커뮤니티 지원](https://azure.microsoft.com/support/community/) 옵션
 * [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
 * 제공 된 정보에 따라 [지원 티켓을 엽니다](https://azure.microsoft.com/support/create-ticket/) . 레지스트리에서 인증 오류에 대 한 빠른 진단을 실행할 수 있습니다.

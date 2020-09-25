@@ -3,12 +3,12 @@ title: Azure Backup Server에서 Modern Backup Storage 사용
 description: Azure Backup Server의 새로운 기능에 대해 알아봅니다. 이 문서에서는 Backup Server 설치를 업그레이드하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 997b2052751473d095b6534ef0bcbe3ed6a099ad
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: b077296e58e1193e454a686a392d802e905500a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378239"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292900"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Azure Backup Server에 스토리지 추가
 
@@ -18,7 +18,7 @@ Azure Backup Server V2 이상은 스토리지를 50% 절약할 수 있고, 백�
 > Modern Backup Storage를 사용하려면 Windows Server 2016에서 Backup Server V2 또는 V3을, Windows Server 2019에서 V3을 실행해야 합니다.
 > Backup Server V2를 이전 버전의 Windows Server에서 실행하면 Azure Backup Server는 Modern Backup Storage를 사용할 수 없습니다. 대신에 Backup Server V1에서 보호하는 것처럼 워크로드를 보호합니다. 자세한 내용은 Backup Server 버전 [보호 매트릭스](backup-mabs-protection-matrix.md)를 참조하세요.
 >
-> 향상 된 백업 성능을 얻으려면 Windows Server 2019에서 계층화 된 저장소를 사용 하 여 MABS v3을 배포 하는 것이 좋습니다. 계층화 된 저장소를 구성 하는 단계는 DPM 문서 "[Tiered Storage으로 Mb 설정](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage)"을 참조 하세요.
+> 향상 된 백업 성능을 얻으려면 Windows Server 2019에서 계층화 된 저장소를 사용 하 여 MABS v3을 배포 하는 것이 좋습니다. 계층화 된 저장소를 구성 하는 단계는 DPM 문서 "[Tiered Storage으로 Mb 설정](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage)"을 참조 하세요.
 
 ## <a name="volumes-in-backup-server"></a>Backup Server의 볼륨
 

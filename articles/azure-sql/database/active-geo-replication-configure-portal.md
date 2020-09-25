@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1beb2065f1823135981545e42d499c5429b87c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf7e4da2051ab84cebff5aae857c02907f7b58e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263626"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>자습서: Azure Portal에서 활성 지역 복제 및 장애 조치 (failover) 구성 (Azure SQL Database)
 
@@ -55,17 +55,17 @@ Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리�
     ![지역에서 복제 구성](./media/active-geo-replication-configure-portal/configure-geo-replication.png)
 3. 보조 데이터베이스를 위한 서버 및 가격 책정 계층을 선택하거나 구성합니다.
 
-    ![보조 구성](./media/active-geo-replication-configure-portal/create-secondary.png)
+    ![보조 폼 만들기](./media/active-geo-replication-configure-portal/create-secondary.png)
 4. 필요에 따라 탄력적 풀에 보조 데이터베이스를 추가할 수 있습니다. 풀에서 보조 데이터베이스를 만들려면 **탄력적 풀**을 클릭하고 대상 서버에서 풀을 선택합니다. 대상 서버에 풀이 이미 있어야 합니다. 이 워크플로는 풀을 만들지 않습니다.
 5. **만들기** 를 클릭하여 보조를 추가합니다.
 6. 보조 데이터베이스가 만들어지고 시드 프로세스가 시작됩니다.
 
-    ![보조 구성](./media/active-geo-replication-configure-portal/seeding0.png)
+    ![보조 맵](./media/active-geo-replication-configure-portal/seeding0.png)
 7. 시드 프로세스가 완료되면 보조 데이터베이스가 해당 상태를 표시합니다.
 
     ![시드 완료](./media/active-geo-replication-configure-portal/seeding-complete.png)
 
-## <a name="initiate-a-failover"></a>장애 조치(Failover) 시작
+## <a name="initiate-a-failover"></a>장애 조치(failover) 시작
 
 보조 데이터베이스가 주 데이터베이스가 되도록 전환할 수 있습니다.  
 

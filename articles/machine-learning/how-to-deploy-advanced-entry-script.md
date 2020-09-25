@@ -1,19 +1,20 @@
 ---
 title: 고급 시나리오에 대 한 작성 항목 스크립트
 titleSuffix: Azure Machine Learning entry script authoring
+description: 배포 하는 동안 전처리 및 후 처리에 대 한 Azure Machine Learning 입력 스크립트를 작성 하는 방법을 알아봅니다.
 author: gvashishtha
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 09/17/2020
 ms.author: gopalv
-ms.openlocfilehash: c135d649feb42c8fa735e67ad6f3c3e51551d3e9
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0146c6c003e3c22b63b5fde5c8979a9d7c112b69
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530287"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261394"
 ---
 # <a name="advanced-entry-script-authoring"></a>고급 항목 스크립트 작성
 
@@ -40,6 +41,49 @@ ms.locfileid: "90530287"
 * PandasDataFrameParameterTypes를 포함 하는 중첩 된 "StandardPythonParameterType" 형식의 사전을 반환 합니다.
 `input_sample`및 `output_sample` 변수에서 웹 서비스의 요청 및 응답 형식을 나타내는 입력 및 출력 샘플 형식을 정의 합니다. 함수에 대 한 입력 및 출력 함수 데코레이터에서 이러한 샘플을 사용 `run()` 합니다. 다음 scikit 예제에서는 스키마 생성을 사용 합니다.
 
+
+
+```python
+#Example: scikit-learn and Swagger
+import json
+import numpy as np
+import os
+from sklearn.externals import joblib
+from sklearn.linear_model import Ridge
+
+from inference_schema.schema_decorators import input_schema, output_schema
+from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
+
+
+def init():
+    global model
+    # AZUREML_MODEL_DIR is an environment variable created during deployment. Join this path with the filename of the model file.
+    # It holds the path to the directory that contains the deployed model (./azureml-models/$MODEL_NAME/$VERSION).
+    # If there are multiple models, this value is the path to the directory containing all deployed models (./azureml-models).
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
+
+    # If your model were stored in the same directory as your score.py, you could also use the following:
+    # model_path = os.path.abspath(os.path.join(os.path.dirname(__file_), 'sklearn_mnist_model.pkl')
+
+    # Deserialize the model file back into a sklearn model
+    model = joblib.load(model_path)
+
+
+input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
+output_sample = np.array([3726.995])
+
+
+@input_schema('data', NumpyParameterType(input_sample))
+@output_schema(NumpyParameterType(output_sample))
+def run(data):
+    try:
+        result = model.predict(data)
+        # You can return any data type, as long as it is JSON serializable.
+        return result.tolist()
+    except Exception as e:
+        error = str(e)
+        return error
+```
 
 ## <a name="power-bi-compatible-endpoint"></a>Power BI 호환 끝점 
 
@@ -266,9 +310,19 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-모델을 등록할 때 레지스트리에서 모델을 관리 하는 데 사용 되는 모델 이름을 제공 합니다. 이 이름을 [model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) 메서드와 함께 사용 하 여 로컬 파일 시스템에서 모델 파일의 경로를 검색할 수 있습니다. 폴더 또는 파일 컬렉션을 등록 하는 경우이 API는 해당 파일이 포함 된 디렉터리의 경로를 반환 합니다.
+모델을 등록할 때 레지스트리에서 모델을 관리 하는 데 사용 되는 모델 이름을 제공 합니다. 이 이름을 [model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) 메서드와 함께 사용 하 여 로컬 파일 시스템에서 모델 파일의 경로를 검색할 수 있습니다. 폴더 또는 파일 컬렉션을 등록 하는 경우이 API는 해당 파일이 포함 된 디렉터리의 경로를 반환 합니다.
 
 모델을 등록할 때 이름을 지정 합니다. 이름은 모델을 로컬 또는 서비스 배포 중에 배치 하는 위치에 해당 합니다.
+
+## <a name="framework-specific-examples"></a>프레임 워크 관련 예제
+
+특정 machine learning 사용 사례에 대 한 추가 항목 스크립트 예제는 아래에서 찾을 수 있습니다.
+
+* [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
+* [Tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
+* [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
+* [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
+* [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 
 ## <a name="next-steps"></a>다음 단계
 

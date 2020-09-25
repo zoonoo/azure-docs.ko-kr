@@ -1,8 +1,8 @@
 ---
 title: Python ADAL에서 MSAL 마이그레이션 가이드 | Microsoft
+titleSuffix: Microsoft identity platform
 description: ADAL (Azure Active Directory Authentication Library) Python 앱을 Python 용 MSAL (Microsoft 인증 라이브러리)로 마이그레이션하는 방법에 대해 알아봅니다.
 services: active-directory
-titleSuffix: Microsoft identity platform
 author: rayluo
 manager: CelesteDG
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: Python
 ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
-ms.reviewer: rayluo, nacanuma, twhitney
+ms.reviewer: rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8dcd2b55d177c533336842293b2aedaef6b4222c
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 574615a6b6e4b399605ca1863c0f764f814b2bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119915"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258305"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Python에 대 한 ADAL에서 MSAL 마이그레이션 가이드
 
@@ -50,7 +50,7 @@ ADAL Python은 리소스에 대 한 토큰을 가져오지만 MSAL Python은 범
 
 ### <a name="error-handling"></a>오류 처리
 
-Python 용 ADAL (Azure Active Directory 인증 라이브러리)은 예외를 사용 하 여 `AdalError` 문제가 있음을 표시 합니다. Python 용 MSAL은 일반적으로 오류 코드를 대신 사용 합니다. 자세한 내용은 [Msal For Python error 처리](./msal-handling-exceptions.md?tabs=python)를 참조 하세요.
+Python 용 ADAL (Azure Active Directory 인증 라이브러리)은 예외를 사용 하 여 `AdalError` 문제가 있음을 표시 합니다. Python 용 MSAL은 일반적으로 오류 코드를 대신 사용 합니다. 자세한 내용은  [Msal For Python error 처리](./msal-handling-exceptions.md?tabs=python)를 참조 하세요.
 
 ### <a name="api-changes"></a>API 변경 내용
 

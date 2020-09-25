@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: bc55ab2697d8278bd975f618d17804499ba0128d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 310a7578fe9d3af8c4600968178cb677658feaa6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982067"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254332"
 ---
 # <a name="install-and-run-read-containers-preview"></a>컨테이너 읽기 (미리 보기)를 설치 하 고 실행 합니다.
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="request-approval-to-run-the-container"></a>컨테이너 실행에 대 한 승인 요청
 
-컨테이너를 실행 하기 위한 승인을 요청 하는 [요청 양식을](https://aka.ms/cognitivegate) 작성 하 고 제출 합니다. 
+컨테이너를 실행 하기 위한 승인을 요청 하는 [요청 양식을](https://aka.ms/csgate) 작성 하 고 제출 합니다. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -345,7 +345,7 @@ Swagger UI에서을 선택 하 여 `asyncBatchAnalyze` 브라우저에서 확장
 
 # <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
-`POST /vision/v3.0/read/SyncAnalyze`
+`POST /vision/v3.0/read/syncAnalyze`
 
 ---
 

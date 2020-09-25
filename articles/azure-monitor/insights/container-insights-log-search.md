@@ -3,12 +3,12 @@ title: 컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법 | Micr
 description: 컨테이너에 대 한 Azure Monitor는 메트릭 및 로그 데이터를 수집 하 고이 문서에서는 레코드를 설명 하 고 샘플 쿼리를 포함 합니다.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: f9b30f11ae6a2f64601b9595bfb1d45493209849
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 2f0e9848ffbf7584d75b5e994e49379186a69641
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569682"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254893"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법
 
@@ -27,7 +27,7 @@ ms.locfileid: "89569682"
 | Kubernetes 클러스터의 노드 부분 인벤토리 | Kube API | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Kubernetes 이벤트 | Kube API | `KubeEvents` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
 | Kubernetes 클러스터의 서비스 | Kube API | `KubeServices` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Kubernetes 클러스터의 노드 부분에 대한 성능 메트릭 | 사용 메트릭은 cAdvisor에서 가져오고 Kube api에서 제한 됩니다. | 성능 &#124; (ObjectName = = "K8SNode") | Computer, ObjectName, CounterName &#40;cpuAllocatableBytes, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
+| Kubernetes 클러스터의 노드 부분에 대한 성능 메트릭 | 사용 메트릭은 cAdvisor에서 가져오고 Kube api에서 제한 됩니다. | 성능 &#124; (ObjectName = = "K8SNode") | Computer, ObjectName, CounterName &#40;cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes, memoryRssBytes, cpuUsageNanoCores, memoryWorkingsetBytes, restartTimeEpoch&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
 | Kubernetes 클러스터의 컨테이너 부분에 대한 성능 메트릭 | 사용 메트릭은 cAdvisor에서 가져오고 Kube api에서 제한 됩니다. | 성능 &#124; (ObjectName = = "K8SContainer") | CounterName &#40; cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryWorkingSetBytes, restartTimeEpoch, cpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, Countervalue, SourceSystem | 
 | 사용자 지정 메트릭 ||`InsightsMetrics` | 컴퓨터, 이름, 네임 스페이스, 원본, SourceSystem, 태그<sup>1</sup>, Timegenerated, Type, Va, _ResourceId | 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b60798ad1fab0ed66f3d4a39b2fd7faf79fd515e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73686482"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268071"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Azure Security Center의 클라우드 스마트 경고 상관 관계 (인시던트)
 
@@ -38,5 +38,5 @@ Security Center는 MITRE 공격 매트릭스를 활용 하 여 경고를 인식 
 
 ![보안 인시던트의 검색 된 보고서의 스크린샷](./media/security-center-alerts-cloud-smart/security-incident.png)
 
-보안 인시던트를 더 잘 이해 하려면 [Azure Security Center에서 보안 인시던트를 처리 하는 방법](https://docs.microsoft.com/azure/security-center/security-center-incident)을 참조 하세요.
+보안 인시던트를 더 잘 이해 하려면 [Azure Security Center에서 보안 인시던트를 처리 하는 방법](security-center-incident.md)을 참조 하세요.
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 21120239c44dbdd812dfb3d3208990db4372ec29
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7c463beb7874e0b66e2a45a1675484f19c4fab34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828016"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249667"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 Azure 역할을 할당 합니다.
 
@@ -59,16 +59,16 @@ Azure AD 보안 주체에 azure 역할을 할당 하는 경우 Azure는 해당 �
 1. 역할을 할당하려는 컨테이너를 찾아 컨테이너의 설정을 표시합니다.
 1. **액세스 제어 (IAM)** 를 선택 하 여 컨테이너에 대 한 액세스 제어 설정을 표시 합니다. **역할 할당** 탭을 선택하여 역할 할당 목록을 봅니다.
 
-    ![컨테이너 액세스 제어 설정을 보여 주는 스크린샷](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/portal-access-control-container.png" alt-text="컨테이너 액세스 제어 설정을 보여 주는 스크린샷":::
 
 1. **역할 할당 추가** 단추를 클릭하여 새 역할을 추가합니다.
 1. **역할 할당 추가** 창에서 할당 하려는 Azure Storage 역할을 선택 합니다. 그런 다음 검색 하 여 해당 역할을 할당 하려는 보안 주체를 찾습니다.
 
-    ![Azure 역할을 할당 하는 방법을 보여 주는 스크린샷](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Azure 역할을 할당 하는 방법을 보여 주는 스크린샷":::
 
 1. **저장**을 클릭합니다. 역할을 할당받은 ID가 해당 역할에 따라 나열되어 표시됩니다. 예를 들어 다음 이미지에서는 추가된 사용자에게 이제 *sample-container*라는 컨테이너의 데이터에 대한 읽기 권한이 있음을 보여줍니다.
 
-    ![역할에 할당 된 사용자 목록을 보여 주는 스크린샷](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="역할에 할당 된 사용자 목록을 보여 주는 스크린샷":::
 
 비슷한 단계를 수행 하 여 저장소 계정, 리소스 그룹 또는 구독에 범위가 지정 된 역할을 할당할 수 있습니다.
 

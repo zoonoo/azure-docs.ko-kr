@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1788eba0ef9be781fb7cf23f1eb86b48c9c360e1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289901"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287420"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Azure Time Series Insights Gen2 환경 계획
 
@@ -69,10 +69,7 @@ Azure Time Series Insights Gen2 환경을 프로 비전 할 때 두 가지 Azure
 
 **Timestamp** 속성도 중요 합니다. 이벤트 원본을 추가할 때 이 속성을 지정할 수 있습니다. 각 이벤트 원본에는 시간 경과에 따라 이벤트 원본을 추적하는 데 사용되는 선택적 타임스탬프 속성이 있습니다. 타임스탬프 값은 대/소문자를 구분하며 각 이벤트 원본의 개별 사양에 맞는 형식이어야 합니다.
 
-> [!TIP]
-> 이벤트 원본에 대한 형식 및 구문 분석 요구 사항을 확인합니다.
-
-이 값을 비워 두면 이벤트 원본의 이벤트를 큐에 넣는 시간이 이벤트 타임스탬프로 사용됩니다. 기록 데이터 또는 일괄 처리 이벤트를 전송하는 경우 타임스탬프 속성을 사용자 지정하는 것이 기본 이벤트를 큐에 넣는 시간보다 더 유용합니다. 자세한 내용은 [Azure IoT Hub에서 이벤트 소스를 추가](./time-series-insights-how-to-add-an-event-source-iothub.md)하는 방법을 참조 하세요.
+이 값을 비워 두면 이벤트가 IoT Hub 또는 이벤트 허브로 큐에 들어간 시간이 이벤트 타임 스탬프로 사용 됩니다. 일반적으로 사용자는 타임 스탬프 속성을 사용자 지정 하 고, 센서 또는 태그가 허브를 큐에 넣은 시간 대신 읽기를 생성 한 시간을 사용 하도록 옵트인 해야 합니다. 자세한 내용과 표준 시간대 오프셋 읽기 [이벤트 원본 타임 스탬프](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp)에 대 한 자세한 내용은을 참조 하세요.
 
 ## <a name="understand-the-time-series-model"></a>시계열 모델 이해
 
@@ -91,7 +88,7 @@ Azure Time Series Insights에 이벤트를 전송 하는 방법을 확인할 수
 * 시계열 모델에 메타 데이터를 저장 합니다.
 * 시계열 모드, 인스턴스 필드 및 이벤트에 시계열 ID 또는 Timestamp 속성과 같은 필요한 정보만 포함 되어 있는지 확인 합니다.
 
-자세한 내용은 [Shape 이벤트](./time-series-insights-send-events.md#supported-json-shapes)를 참조 하세요.
+자세한 내용 및 이벤트를 평면화 하 고 저장 하는 방법을 이해 하려면 [JSON 평면화 및 이스케이프 규칙](./concepts-json-flattening-escaping-rules.md)을 참조 하세요.
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

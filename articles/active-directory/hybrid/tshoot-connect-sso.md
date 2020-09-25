@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016268"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294821"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
@@ -37,6 +37,7 @@ ms.locfileid: "90016268"
 - 30개 이상의 Active Directory 포리스트를 동기화하는 경우 Azure AD Connect를 통해 Seamless SSO를 활성화할 수 없습니다. 이 경우 테넌트에서 이 기능을 [수동으로 활성화](#manual-reset-of-the-feature)하여 해결할 수 있습니다.
 - `https://autologon.microsoftazuread-sso.com`로컬 인트라넷 영역 대신 신뢰할 수 있는 사이트 영역에 AZURE AD 서비스 URL ()을 추가 하면 *사용자가 로그인*하지 못하도록 차단 됩니다.
 - 원활한 SSO는 Kerberos에 대 한 AES256_HMAC_SHA1, AES128_HMAC_SHA1 및 RC4_HMAC_MD5 암호화 종류를 지원 합니다. AzureADSSOAcc $ account의 암호화 유형을 AES256_HMAC_SHA1 또는 AES 유형 중 하나를 설정 하 여 보안을 강화 하는 것이 좋습니다. 암호화 유형은 Active Directory 계정의의 msds-primary-computer-Supported Types 특성에 저장 됩니다.  AzureADSSOAcc $ account encryption 유형을 RC4_HMAC_MD5로 설정 하고 AES 암호화 유형 중 하나로 변경하려는 경우 [FAQ 문서](how-to-connect-sso-faq.md)에 설명된 대로 먼저 AzureADSSOAcc $ 계정의 Kerberos 암호 해독 키를 롤오버하는지 확인하세요. 관련 질문에서, 그렇지 않으면 원활한 SSO가 발생하지 않습니다.
+-  포리스트 트러스트가 있는 포리스트가 둘 이상 있는 경우 포리스트 중 하나에서 SSO를 사용 하도록 설정 하면 트러스트 된 모든 포리스트에서 SSO를 사용할 수 있습니다. SSO가 이미 사용 하도록 설정 된 포리스트에서 SSO를 사용 하도록 설정 하면 포리스트에서 SSO가 이미 사용 하도록 설정 되었다는 오류가 발생 합니다.
 
 ## <a name="check-status-of-feature"></a>기능의 상태 확인
 

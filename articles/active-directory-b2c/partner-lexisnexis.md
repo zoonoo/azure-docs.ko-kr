@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 6f5b6bfdb523a22fc4dd9593bfec556da7493aa9
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c753e9a18f9869e1bf11aa437fb60484f2553e17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371195"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259257"
 ---
 # <a name="tutorial-for-configuring-lexisnexis-with-azure-active-directory-b2c"></a>Azure Active Directory B2C로 LexisNexis 구성에 대 한 자습서
 
@@ -23,11 +23,11 @@ ms.locfileid: "87371195"
 
 이 통합은 등록 흐름 중에 사용자가 제공 하는 몇 가지 사용자 정보를 기반으로 프로 파일링을 수행 합니다. ThreatMetrix는 사용자가 로그인 할 수 있도록 허용할지 여부를 결정 합니다. 다음 특성은 ThreatMetrix의 위험 분석에서 고려 됩니다.
 
-- 전자 메일
+- 메일
 - 전화 번호
 - 사용자의 컴퓨터에서 수집 된 프로 파일링 정보
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하려면 다음이 필요 합니다.
 
@@ -49,7 +49,7 @@ ThreatMetrix 통합에는 다음 구성 요소가 포함 됩니다.
 
 ![lexisnexis에 대 한 스크린샷-다이어그램](media/partner-lexisnexis/lexisnexis-architecture-diagram.png)
 
-|단계 | 설명 |
+|단계 | Description |
 |:--------------|:-------------|
 |1. | 사용자가 로그인 페이지에 도착 합니다. 사용자가 등록을 선택 하 여 새 계정을 만들고 페이지에 정보를 입력 합니다. Azure AD B2C 사용자 특성을 수집 합니다.
 | 2. | Azure AD B2C 중간 계층 API를 호출 하 고 사용자 특성을 전달 합니다.
@@ -73,7 +73,7 @@ ThreatMetrix 통합에는 다음 구성 요소가 포함 됩니다.
 
 ### <a name="part-1---deploy-the-api"></a>1 부-API 배포
 
-제공 된 API 코드를 Azure 서비스에 배포 합니다. 이러한 [지침](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
+제공 된 [API 코드](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/Api) 를 Azure 서비스에 배포 합니다. 이러한 [지침](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019)에 따라 Visual Studio에서 코드를 게시할 수 있습니다.
 
 >[!NOTE]
 >필요한 설정을 사용 하 여 Azure AD를 구성 하려면 배포 된 서비스의 URL이 필요 합니다.
@@ -95,9 +95,9 @@ ThreatMetrix 통합에는 다음 구성 요소가 포함 됩니다.
 
 이 솔루션은 Azure AD B2C에서 로드 하는 사용자 지정 UI 템플릿을 사용 합니다. 이러한 UI 템플릿은 ThreatMetrix 서비스로 직접 전송 되는 프로 파일링을 수행 합니다.
 
-이러한 [지침](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough) 을 참조 하 여 포함 된 UI 파일을 blob storage 계정에 배포 합니다. 이러한 지침에는 blob storage 계정 설정, CORS 구성 및 공용 액세스 사용이 포함 됩니다.
+이러한 [지침](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#custom-page-content-walkthrough) 을 참조 하 여 포함 된 [UI 파일](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template) 을 blob storage 계정에 배포 합니다. 이러한 지침에는 blob storage 계정 설정, CORS 구성 및 공용 액세스 사용이 포함 됩니다.
 
-UI는 바다색 페이지 템플릿을 기반으로 합니다. 배포 된 위치를 참조 하도록 UI 내의 모든 링크를 업데이트 해야 합니다. UI 폴더에서을 찾아를 배포 된 https://yourblobstorage/blobcontainer 위치로 바꿉니다.
+UI는 [대양 blue 템플릿을](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/ui-template/ocean_blue)기반으로 합니다. 배포 된 위치를 참조 하도록 UI 내의 모든 링크를 업데이트 해야 합니다. UI 폴더에서을 찾아를 배포 된 https://yourblobstorage/blobcontainer 위치로 바꿉니다.
 
 ### <a name="part-4---create-api-policy-keys"></a>4 부-API 정책 키 만들기
 
@@ -111,21 +111,21 @@ UI는 바다색 페이지 템플릿을 기반으로 합니다. 배포 된 위치
 
 ### <a name="part-5---update-the-api-url"></a>5 부-API URL 업데이트
 
-제공 된 Trustframeworkextensions.xml 정책에서 이라는 기술 프로필을 찾고 `Rest-LexisNexus-SessionQuery` `ServiceUrl` 위에 배포 된 API의 위치를 사용 하 여 메타 데이터 항목을 업데이트 합니다.
+제공 된 [trustframeworkextensions.xml 정책](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml)에서 이라는 기술 프로필을 찾고 `Rest-LexisNexus-SessionQuery` `ServiceUrl` 위에 배포 된 API의 위치를 사용 하 여 메타 데이터 항목을 업데이트 합니다.
 
 ### <a name="part-6---update-ui-url"></a>6 부-UI URL 업데이트
 
-제공 된 Trustframeworkextensions.xml 정책에서 찾기 및 바꾸기를 수행 하 여 https://yourblobstorage/blobcontainer/ UI 파일이 배포 된 위치로를 검색 합니다.
-
-### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>7 부-Azure AD B2C 정책 구성
-
-[로컬 계정 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) 을 다운로드 하 고 Azure AD B2C 테 넌 트에 대 한 정책을 구성 하려면이 [문서](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) 를 참조 하세요.
-
->[!NOTE]
->제공 된 정책을 업데이트 하 여 특정 테 넌 트와 관련 된 정책을 업데이트 합니다.
+제공 된 [trustframeworkextensions.xml 정책](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/ThreatMetrix/policy/TrustFrameworkExtensions.xml)에서 찾기 및 바꾸기를 수행 하 여 https://yourblobstorage/blobcontainer/ UI 파일이 배포 된 위치로를 검색 합니다.
 
 >[!NOTE]
 > 모범 사례로, 고객은 특성 컬렉션 페이지에서 동의 알림을 추가 하는 것이 좋습니다. 신원 확인을 위해 타사 서비스에 정보를 보내도록 사용자에 게 알립니다.
+
+### <a name="part-7---configure-the-azure-ad-b2c-policy"></a>7 부-Azure AD B2C 정책 구성
+
+[로컬 계정 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) 을 다운로드 하 고 Azure AD B2C 테 넌 트에 대 한 [정책을](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) 구성 하려면이 [문서](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) 를 참조 하세요.
+
+>[!NOTE]
+>제공 된 정책을 업데이트 하 여 특정 테 넌 트와 관련 된 정책을 업데이트 합니다.
 
 ## <a name="test-the-user-flow"></a>사용자 흐름 테스트
 
@@ -139,7 +139,7 @@ UI는 바다색 페이지 템플릿을 기반으로 합니다. 배포 된 위치
 
    b. **회신 url**: **리디렉션 url** 을 선택 합니다.
 
-   c. **사용자 흐름 실행**을 선택합니다.
+   다. **사용자 흐름 실행**을 선택합니다.
 
 4. 등록 흐름으로 이동 하 여 계정 만들기
 

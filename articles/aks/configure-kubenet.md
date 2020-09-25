@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6f773f57bea40ba87f35ca2bbefe424d084afb2e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462142"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264612"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -20,7 +20,7 @@ ms.locfileid: "89462142"
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워킹 옵션 및 고려 사항에 대한 자세한 내용은 [Kubernetes 및 AKS에 대한 네트워크 개념][aks-network-concepts]을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.
@@ -162,13 +162,13 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role "Network Co
 
 또한 다음 IP 주소 범위도 클러스터를 만드는 과정 중에 정의됩니다.
 
-* *--service-cidr*을 사용하여 AKS 클러스터의 내부 서비스에 IP 주소를 할당합니다. 이 IP 주소 범위는 네트워크 환경의 다른 위치에서 사용되지 않는 주소 공간이어야 합니다. 이 범위는 Express 경로 또는 사이트 간 VPN 연결을 사용 하 여 Azure 가상 네트워크에 연결 하거나 연결 하려는 경우 온-프레미스 네트워크 범위를 포함 합니다.
+* *--service-cidr*을 사용하여 AKS 클러스터의 내부 서비스에 IP 주소를 할당합니다. 이 IP 주소 범위는 Express 경로 또는 사이트 간 VPN 연결을 사용 하 여 Azure 가상 네트워크에 연결 하거나 연결 하려는 경우 온-프레미스 네트워크 범위를 포함 하 여 네트워크 환경의 다른 곳에서 사용 하지 않는 주소 공간 이어야 합니다.
 
 * *--dns-service-ip* 주소는 서비스 IP 주소 범위의 *.10* 주소여야 합니다.
 
 * *--pod-cidr*은 네트워크 환경의 다른 위치에서 사용되지 않는 큰 주소 공간이어야 합니다. 이 범위는 Express 경로 또는 사이트 간 VPN 연결을 사용 하 여 Azure 가상 네트워크에 연결 하거나 연결 하려는 경우 온-프레미스 네트워크 범위를 포함 합니다.
     * 이 주소 범위는 확장할 예정인 노드 수를 수용할만큼 충분히 커야 합니다. 추가 노드를 위해 더 많은 주소가 필요하더라도 클러스터를 배포한 후에는 이 주소 범위를 변경할 수 없습니다.
-    * Pod IP 주소 범위를 사용하여 */24* 주소 공간을 클러스터의 각 노드에 할당합니다. 다음 예제에서 *10.244.0.0/16* 의 *--pod-cidr* 은 첫 번째 노드 *10.244.0.0/24*, 두 번째 노드 *10.244.1.0/24*및 세 번째 노드 *10.244.2.0/24*를 할당 합니다.
+    * Pod IP 주소 범위는 클러스터의 각 노드에 */24* 주소 공간을 할당 하는 데 사용 됩니다. 다음 예제에서 *10.244.0.0/16* 의 *--pod-cidr* 은 첫 번째 노드 *10.244.0.0/24*, 두 번째 노드 *10.244.1.0/24*및 세 번째 노드 *10.244.2.0/24*를 할당 합니다.
     * 클러스터가 확장 또는 업그레이드되면 Azure 플랫폼은 새로운 각 노드에 pod IP 주소 범위를 계속 할당합니다.
     
 * *--Docker-브리지 주소* 를 사용 하면 AKS 노드가 기본 관리 플랫폼과 통신할 수 있습니다. 이 IP 주소는 클러스터의 가상 네트워크 IP 주소 범위 내에 속하지 않아야 하고 네트워크에서 사용 중인 다른 주소 범위와 겹쳐서는 안 됩니다.

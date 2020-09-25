@@ -2,23 +2,23 @@
 title: 리소스의 여러 인스턴스 배포
 description: Azure Resource Manager 템플릿에서 복사 작업 및 배열을 사용 하 여 리소스 형식을 여러 번 배포 합니다.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/21/2020
+ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583389"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293971"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>ARM 템플릿의 리소스 반복
 
 이 문서에서는 Azure Resource Manager (ARM) 템플릿에 리소스의 인스턴스를 둘 이상 만드는 방법을 보여 줍니다. 템플릿의 리소스 섹션에 **copy** 요소를 추가 하 여 배포할 리소스의 수를 동적으로 설정할 수 있습니다. 템플릿 구문을 반복 하지 않아도 됩니다.
 
-[속성](copy-properties.md), [변수](copy-variables.md) 및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
+[속성](copy-properties.md), [변수](copy-variables.md)및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
 
 리소스 배포 여부를 지정해야 하는 경우, [조건 요소](conditional-resource-deployment.md)를 참조하세요.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 Copy 요소의 일반적인 형식은 다음과 같습니다.
 
@@ -155,6 +155,8 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 기본적으로 Resource Manager는 병렬로 리소스를 만듭니다. 템플릿에 있는 리소스의 총 800 제한 수를 제외 하 고 병렬로 배포 되는 리소스의 수에는 제한이 없습니다. 생성되는 순서는 정해져 있지 않습니다.
 
 그러나 그 결과로 리소스가 배포되도록 지정하려고 합니다. 예를 들어 프로덕션 환경을 업데이트할 때 특정 수를 한 번에 업데이트하도록 업데이트를 늦추려고 할 수 있습니다. 리소스의 여러 인스턴스를 직렬로 배포하려면 `mode`를 **직렬**로 설정하고 `batchSize`를 한 번에 배포할 인스턴스 수로 설정합니다. Resource Manager는 직렬 모드에서 루프에 이전 인스턴스의 종속성을 만듭니다. 따라서 이전 일괄 처리가 완료될 때까지 하나의 일괄 처리를 시작하지 않습니다.
+
+의 값은 `batchSize` copy 요소의 값을 초과할 수 없습니다 `count` .
 
 예를 들어 스토리지 계정을 한 번에 두 개씩 직렬로 배포하려면 다음을 사용합니다.
 

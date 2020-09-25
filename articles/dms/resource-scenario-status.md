@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 4e6f8a115e996ac6862f2fb04e5050b94f9f823b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 77c54d6ea463b5a8a4952d243886b80f38312d27
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132747"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291489"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Azure Database Migration Service에서 지 원하는 마이그레이션 시나리오의 상태
 
@@ -45,7 +45,7 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 
 다음 표에서는 오프라인 마이그레이션에 대한 Azure Database Migration Service 지원을 보여 줍니다.
 
-| Target  | 원본 | 지원 | 상태 |
+| 대상  | 원본 | 지원 | 상태 |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL | X |  |
@@ -67,7 +67,7 @@ Azure Database Migration Service에서 지 원하는 마이그레이션 시나�
 
 다음 표에서는 온라인 마이그레이션에 대한 Azure Database Migration Service 지원을 보여 줍니다.
 
-| Target  | 원본 | 지원 | 상태 |
+| 대상  | 원본 | 지원 | 상태 |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |

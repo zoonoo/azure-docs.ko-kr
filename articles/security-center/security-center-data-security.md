@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: d08984165f59f15e9feb739a719d80e7dc3902a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 97d3b5030ed0ddb29fc439f4a0f6bcc7ff98b6ce
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905452"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268029"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center 데이터 보안
 고객이 위협을 방지, 탐지 및 대응하는 데 도움이 되도록 Azure Security Center에서 구성 정보, 메타데이터, 이벤트 로그 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
@@ -76,7 +76,7 @@ Azure Defender를 사용 하지 않는 경우 보안 정책의 가상 머신에�
 
 고객은 아래와 같이 다른 데이터 스트림에서 데이터와 관련된 Security Center를 사용할 수 있습니다.
 
-* **Azure 활동**: 모든 보안 경고, 승인 된 Security Center [just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 요청 및 [적응 응용 프로그램 컨트롤](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)에 의해 생성 된 모든 경고입니다.
+* **Azure 활동**: 모든 보안 경고, 승인 된 Security Center [just-in-time](security-center-just-in-time.md) 요청 및 [적응 응용 프로그램 컨트롤](security-center-adaptive-application.md)에 의해 생성 된 모든 경고입니다.
 * **Azure Monitor 로그**: 모든 보안 경고
 
 

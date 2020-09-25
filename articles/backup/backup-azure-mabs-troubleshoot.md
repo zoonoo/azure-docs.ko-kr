@@ -4,12 +4,12 @@ description: Azure Backup Server 설치, 등록 및 애플리케이션 워크로
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 70431ee42566d1cbba5ed239b9da55c2ff7a2afe
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d3b2ee87dda09fe1b5611d00ce567304aec33a6f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999226"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298374"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Server 문제 해결
 
@@ -71,7 +71,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| Backup | 복제본이 불일치 | 보호 그룹 마법사의 자동 일관성 검사 옵션이 켜져 있는지 확인합니다. 복제 옵션 및 일관성 확인에 대한 자세한 내용은 [이 문서](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019)를 참조하세요.<br> <ol><li> 시스템 상태/BMR 백업의 경우 보호 된 서버에 Windows Server 백업이 설치 되어 있는지 확인 합니다.</li><li> DPM/Microsoft Azure Backup Server의 DPM 스토리지 풀에서 공간 관련 문제를 확인하고 필요에 따라 스토리지를 할당합니다.</li><li> 보호된 서버에서 볼륨 섀도 복사본 서비스의 상태를 확인합니다. 비활성화 된 상태 이면 수동으로 시작 하도록 설정 합니다. 서버에서 서비스를 시작합니다. 그런 다음, DPM/Microsoft Azure Backup Server 콘솔로 다시 돌아가 일관성 검사 작업과 동기화를 시작합니다.</li></ol>|
+| Backup | 복제본이 불일치 | 보호 그룹 마법사의 자동 일관성 검사 옵션이 켜져 있는지 확인합니다. 복제 옵션 및 일관성 확인에 대한 자세한 내용은 [이 문서](/system-center/dpm/create-dpm-protection-groups)를 참조하세요.<br> <ol><li> 시스템 상태/BMR 백업의 경우 보호 된 서버에 Windows Server 백업이 설치 되어 있는지 확인 합니다.</li><li> DPM/Microsoft Azure Backup Server의 DPM 스토리지 풀에서 공간 관련 문제를 확인하고 필요에 따라 스토리지를 할당합니다.</li><li> 보호된 서버에서 볼륨 섀도 복사본 서비스의 상태를 확인합니다. 비활성화 된 상태 이면 수동으로 시작 하도록 설정 합니다. 서버에서 서비스를 시작합니다. 그런 다음, DPM/Microsoft Azure Backup Server 콘솔로 다시 돌아가 일관성 검사 작업과 동기화를 시작합니다.</li></ol>|
 
 ## <a name="online-recovery-point-creation-failed"></a>온라인 복구 지점 생성 실패
 
@@ -95,7 +95,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| 보호된 서버에 에이전트 푸시 | 에서 DPM 에이전트 코디네이터 서비스와의 통신 오류로 인해 에이전트 작업에 실패 했습니다 \<ServerName> . | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <ul><li> 트러스트 되지 않은 도메인에서 컴퓨터를 연결 하는 경우 [다음 단계](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)를 수행 합니다. <br> 또는 </li><li> 트러스트 된 도메인에서 컴퓨터를 연결 하는 경우 [이 블로그](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726)에 설명 된 단계를 사용 하 여 문제를 해결 합니다. <br>또는</li><li> 문제 해결 단계로 바이러스 백신을 사용하지 않도록 설정해 봅니다. 문제가 해결되면 [이 문서](/system-center/dpm/run-antivirus-server?view=sc-dpm-2019)에 제안된 대로 바이러스 백신 설정을 수정합니다.</li></ul> |
+| 보호된 서버에 에이전트 푸시 | 에서 DPM 에이전트 코디네이터 서비스와의 통신 오류로 인해 에이전트 작업에 실패 했습니다 \<ServerName> . | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <ul><li> 트러스트 되지 않은 도메인에서 컴퓨터를 연결 하는 경우 [다음 단계](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)를 수행 합니다. <br> 또는 </li><li> 트러스트 된 도메인에서 컴퓨터를 연결 하는 경우 [이 블로그](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726)에 설명 된 단계를 사용 하 여 문제를 해결 합니다. <br>또는</li><li> 문제 해결 단계로 바이러스 백신을 사용하지 않도록 설정해 봅니다. 문제가 해결되면 [이 문서](/system-center/dpm/run-antivirus-server)에 제안된 대로 바이러스 백신 설정을 수정합니다.</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>설치 프로그램이 레지스트리 메타데이터를 업데이트할 수 없습니다.
 
@@ -108,7 +108,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| 보호된 서버에 에이전트 푸시 | 서버에 대해 지정된 자격 증명이 잘못되었습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br> [이 문서](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019)에 지정된 대로 프로덕션 서버에 보호 에이전트를 수동으로 설치합니다.|
+| 보호된 서버에 에이전트 푸시 | 서버에 대해 지정된 자격 증명이 잘못되었습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br> [이 문서](/system-center/dpm/deploy-dpm-protection-agent)에 지정된 대로 프로덕션 서버에 보호 에이전트를 수동으로 설치합니다.|
 | Azure Backup Agent가 Azure Backup 서비스에 연결할 수 없습니다(ID: 100050). | Azure Backup Agent가 Azure Backup 서비스에 연결할 수 없습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br>1. 관리자 권한 프롬프트에서 **psexec -i -s "c:\Program Files\InternetExplorer\iexplore.exe** 명령을 실행합니다. 그러면 Internet Explorer 창이 열립니다. <br/> 2. **도구** > **인터넷 옵션** > **연결** > **LAN 설정**으로 이동합니다. <br/> 3. 프록시 서버를 사용하도록 설정을 변경합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다.<br/> 4. 머신의 인터넷 액세스가 제한된 경우 머신 또는 프록시의 방화벽 설정이 다음 [URL](install-mars-agent.md#verify-internet-access) 및 [IP 주소](install-mars-agent.md#verify-internet-access)를 허용하는지 확인합니다.|
 | Azure Backup Agent 설치 실패 | Microsoft Azure Recovery Services 설치에 실패했습니다. 시스템에 Microsoft Azure Recovery Services 설치로 인한 모든 변경 사항은 롤백되었습니다. (ID: 4024) | Azure 에이전트를 수동으로 설치합니다.
 
@@ -117,8 +117,8 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
 | 보호 그룹 구성 | DPM은 보호된 컴퓨터(보호된 컴퓨터 이름)에 애플리케이션 구성 요소를 열거할 수 없습니다. | 관련 데이터 원본/구성 요소 수준의 보호 그룹 구성 UI 화면에서 **새로 고침**을 선택합니다. |
-| 보호 그룹 구성 | 보호를 구성할 수 없음 | 보호된 서버가 SQL Server인 경우 [이 문서](/system-center/dpm/back-up-sql-server?view=sc-dpm-2019)에 설명된 대로 보호된 컴퓨터에 대한 시스템 계정(NTAuthority\System)에 sysadmin 역할 권한이 제공되었는지 확인합니다.
-| 보호 그룹 구성 | 이 보호 그룹에 대한 스토리지 풀에 여유 공간이 부족합니다. | 스토리지 풀에 추가된 디스크는 [파티션을 포함하지 않아야 합니다](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). 디스크에 있는 기존 볼륨을 모두 삭제합니다. 그런 다음 스토리지 풀에 추가합니다.|
+| 보호 그룹 구성 | 보호를 구성할 수 없음 | 보호된 서버가 SQL Server인 경우 [이 문서](/system-center/dpm/back-up-sql-server)에 설명된 대로 보호된 컴퓨터에 대한 시스템 계정(NTAuthority\System)에 sysadmin 역할 권한이 제공되었는지 확인합니다.
+| 보호 그룹 구성 | 이 보호 그룹에 대한 스토리지 풀에 여유 공간이 부족합니다. | 스토리지 풀에 추가된 디스크는 [파티션을 포함하지 않아야 합니다](/system-center/dpm/create-dpm-protection-groups). 디스크에 있는 기존 볼륨을 모두 삭제합니다. 그런 다음 스토리지 풀에 추가합니다.|
 | 정책 변경 |백업 정책을 수정할 수 없습니다. 오류: 내부 서비스 오류[0x29834]로 인해 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. | **원인:**<br/>이 오류는 보안 설정이 사용 되는 경우, 이전에 지정 된 최소값 미만으로 보존 범위를 줄이려고 할 때, 지원 되지 않는 버전에 있는 경우에 발생 합니다. 지원 되지 않는 버전은 Microsoft Azure Backup Server 버전 2.0.9052 및 Azure Backup Server 업데이트 1 보다 낮습니다.) <br/>**권장 작업:**<br/> 정책 관련 업데이트를 계속하려면 보존 기간을 지정된 최소 보존 기간보다 길게 설정합니다. (최소 보존 기간은 일별 백업의 경우 7일, 주별 백업의 경우 4주, 월별 백업의 경우 3개월, 연도별 백업의 경우 1년입니다.) <br><br>그 외에도 권장되는 방법은 백업 에이전트 및 Azure Backup Server를 업데이트하여 모든 보안 업데이트를 적용하는 것입니다. |
 
 ## <a name="backup"></a>Backup
@@ -129,7 +129,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 | Backup | 시스템 상태만 백업하는 경우 보호된 컴퓨터에 시스템 상태 백업을 저장하기에 충분한 여유 공간이 있는지 확인합니다. | <ol><li>보호된 컴퓨터에 Windows Server 백업이 설치되어 있는지 확인합니다.</li><li>보호된 컴퓨터에 시스템 상태를 저장할 공간이 충분히 있는지 확인합니다. 이를 간단히 확인하려면 보호된 컴퓨터로 이동하고 Windows Server 백업을 연 다음, 선택 사항을 클릭하고 BMR을 선택합니다. 그러면 UI에 얼마나 많은 공간이 필요한지 표시됩니다. **WSB** > **로컬 백업** > **백업 일정** > **백업 구성 선택** > **전체 서버**를 엽니다(크기가 표시됨). 검증에 이 크기를 사용합니다.</li></ol>
 | Backup | BMR에 대한 백업 실패 | BMR 크기가 크면 일부 애플리케이션 파일을 OS 드라이브로 이동한 후 다시 시도합니다. |
 | Backup | 새 Microsoft Azure Backup Server에서 VMware VM을 다시 보호하는 옵션이 추가할 수 있는 것으로 표시되지 않습니다. | VMware 속성이 더 이상 사용되지 않는 이전 Microsoft Azure Backup Server 인스턴스에 지정되어 있습니다. 이 문제를 해결하려면:<br><ol><li>VCenter(SC-VMM에 해당)에서 **요약** 탭, **사용자 지정 특성**으로 이동합니다.</li>  <li>**DPMServer** 값에서 이전 Microsoft Azure Backup Server 이름을 삭제합니다.</li>  <li>새 Microsoft Azure Backup Server로 돌아가서 PG를 수정합니다.  **새로 고침** 단추를 선택하면 VM을 보호에 추가할 수 있도록 확인란이 표시됩니다.</li></ol> |
-| Backup | 파일/공유 폴더에 액세스하는 동안 오류가 발생했습니다. | [DPM 서버에서 바이러스 백신 소프트웨어 실행](/system-center/dpm/run-antivirus-server?view=sc-dpm-2019) 문서에서 제안하는 대로 바이러스 백신 설정을 수정해 보세요.|
+| Backup | 파일/공유 폴더에 액세스하는 동안 오류가 발생했습니다. | [DPM 서버에서 바이러스 백신 소프트웨어 실행](/system-center/dpm/run-antivirus-server) 문서에서 제안하는 대로 바이러스 백신 설정을 수정해 보세요.|
 
 ## <a name="change-passphrase"></a>암호 변경
 
@@ -142,7 +142,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| Office 365 계정을 사용하여 메일 알림 설정 |오류 ID: 2013| **원인:**<br> Office 365 계정을 사용하려고 합니다. <br>**권장 작업:**<ol><li> 가장 먼저 Exchange에서 DPM 서버에 "수신 커넥터에서 익명 릴레이 허용"이 설정되어 있는지 확인해야 합니다. 구성 방법에 대한 자세한 내용은 [수신 커넥터에서 익명 릴레이 허용](/exchange/mail-flow/connectors/allow-anonymous-relay?view=exchserver-2019)을 참조하세요.</li> <li> 내부 SMTP 릴레이를 사용할 수 없고 Office 365 서버를 사용하여 설정해야 할 경우 IIS가 릴레이가 되도록 설정할 수 있습니다. [IIS를 사용하여 O365에 SMTP를 릴레이](/exchange/mail-flow/test-smtp-with-telnet?view=exchserver-2019)하도록 DPM 서버를 구성합니다.<br><br>  domain\user가 *아닌* user\@domain.com 형식을 사용하세요.<br><br><li>DPM에서 로컬 서버 이름을 SMTP 서버(포트 587)로 사용하도록 지정합니다. 그런 다음, 메일을 가져올 사용자 메일을 가리킵니다.<li> DPM SMTP 설정 페이지의 사용자 이름과 암호는 DPM이 사용 설정되어 있는 도메인 계정용이어야 합니다. </li><br> SMTP 서버 주소를 변경 하는 경우 새 설정을 변경 하 고 설정 상자를 닫은 후 다시 열어 새 값을 반영 하는지 확인 합니다.  단순히 변경 및 테스트한다고 해서 새 설정이 적용되는 것은 아니므로, 이 방법으로 테스트하는 것이 좋습니다.<br><br>이 프로세스 중 언제라도 DPM 콘솔을 닫고 다음 레지스트리 키를 편집하여 이러한 설정을 정리할 수 있습니다. **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Delete SMTPPassword and SMTPUserName keys**. 다시 시작할 때 UI에 다시 추가할 수 있습니다.
+| Office 365 계정을 사용하여 메일 알림 설정 |오류 ID: 2013| **원인:**<br> Office 365 계정을 사용하려고 합니다. <br>**권장 작업:**<ol><li> 가장 먼저 Exchange에서 DPM 서버에 "수신 커넥터에서 익명 릴레이 허용"이 설정되어 있는지 확인해야 합니다. 구성 방법에 대한 자세한 내용은 [수신 커넥터에서 익명 릴레이 허용](/exchange/mail-flow/connectors/allow-anonymous-relay)을 참조하세요.</li> <li> 내부 SMTP 릴레이를 사용할 수 없고 Office 365 서버를 사용하여 설정해야 할 경우 IIS가 릴레이가 되도록 설정할 수 있습니다. [IIS를 사용 하 여 SMTP를 O365에 릴레이](/exchange/mail-flow/test-smtp-with-telnet)하도록 DPM 서버를 구성 합니다.<br><br>  domain\user가 *아닌* user\@domain.com 형식을 사용하세요.<br><br><li>DPM에서 로컬 서버 이름을 SMTP 서버(포트 587)로 사용하도록 지정합니다. 그런 다음, 메일을 가져올 사용자 메일을 가리킵니다.<li> DPM SMTP 설정 페이지의 사용자 이름과 암호는 DPM이 사용 설정되어 있는 도메인 계정용이어야 합니다. </li><br> SMTP 서버 주소를 변경 하는 경우 새 설정을 변경 하 고 설정 상자를 닫은 후 다시 열어 새 값을 반영 하는지 확인 합니다.  단순히 변경 및 테스트한다고 해서 새 설정이 적용되는 것은 아니므로, 이 방법으로 테스트하는 것이 좋습니다.<br><br>이 프로세스 중 언제라도 DPM 콘솔을 닫고 다음 레지스트리 키를 편집하여 이러한 설정을 정리할 수 있습니다. **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Delete SMTPPassword and SMTPUserName keys**. 다시 시작할 때 UI에 다시 추가할 수 있습니다.
 
 ## <a name="common-issues"></a>일반적인 문제
 

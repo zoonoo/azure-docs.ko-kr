@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d7e6d3c1554f70ea14e097ff2fe6df47987b5927
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 15f5918748df80cec01ccf89835a0ef51da64529
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423051"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296249"
 ---
 # <a name="azure-media-player-full-setup"></a>Azure Media Player 전체 설정 #
 
@@ -56,11 +56,11 @@ Azure Media Player를 사용 하면 HTML5 video 태그를 사용 하 여 비디�
 1. 의 `<data-setup>` 특성은 `<video>` 페이지가 준비 될 때 비디오를 자동으로 설정 하 고 특성에서 JSON 형식으로 읽을 수 있도록 Azure Media Player에 지시 합니다.
 1. `id`특성: 동일한 페이지의 모든 비디오에 대해 고유한 특성을 사용 해야 합니다.
 1. 특성에는 `class` 다음과 같은 두 개의 클래스가 포함 됩니다.
-    - `azuremediaplayer`Azure Media Player UI 기능에 필요한 스타일을 적용 합니다.
-    - `amp-default-skin`HTML5 컨트롤에 기본 스킨을 적용 합니다.
+    - `azuremediaplayer` Azure Media Player UI 기능에 필요한 스타일을 적용 합니다.
+    - `amp-default-skin` HTML5 컨트롤에 기본 스킨을 적용 합니다.
 1. 에는 `<source>` 두 개의 필수 특성이 포함 되어 있습니다.
-    - `src`특성에는 *. p s */매니페스트* 파일이 추가 Azure Media Services Azure Media Player 자동으로 플레이어에 게 대시, 부드러운 및 HLS에 대 한 url이 추가 됩니다.
-    - `type`attribute는 스트림의 필수 MIME 형식입니다. *".Manifest/manifest"* 와 연결 된 MIME 형식은 *"application/vnd + xml"입니다.*
+    - `src` 특성에는 *. p s */매니페스트* 파일이 추가 Azure Media Services Azure Media Player 자동으로 플레이어에 게 대시, 부드러운 및 HLS에 대 한 url이 추가 됩니다.
+    - `type` attribute는 스트림의 필수 MIME 형식입니다. *".Manifest/manifest"* 와 연결 된 MIME 형식은 *"application/vnd + xml"입니다.*
 1. 의 *선택적* `<data-setup>` 특성은 `<source>` 암호화 유형 (AES 또는 PlayReady, Widevine 또는) 및 토큰을 포함 하 여 Azure Media Services에서 스트림에 대 한 고유한 배달 정책이 있는 경우 Azure Media Player에 게 알립니다.
 
 HTML5 비디오와 동일 하 게 특성, 설정, 원본 및 트랙을 포함/제외 합니다.

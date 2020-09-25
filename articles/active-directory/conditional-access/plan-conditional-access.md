@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a26a7320cab20c769ddf8dd1f24cd6fda0cc7d64
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561536"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258679"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>조건부 액세스 배포 계획
 
@@ -262,7 +262,7 @@ MFA 또는 네트워크 위치와 같은 단일 액세스 제어를 사용하여
 
 * 정책이 적용되는 시기(해당하는 경우)
 
-![이름 지정 표준](media/plan-conditional-access/11.png)
+![정책에 대 한 명명 표준을 보여 주는 스크린샷](media/plan-conditional-access/11.png)
 
 **예**: 외부 네트워크에서 Dynamics CRP 앱에 액세스하는 마케팅 사용자에게 MFA를 요구하는 정책은 다음과 같을 수 있습니다.
 

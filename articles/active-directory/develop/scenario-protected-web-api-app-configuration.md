@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5953e5d5f6bc50c913c3e92aa92775c34c0fd170
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512337"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257455"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
 
@@ -111,6 +111,12 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 
 **[권한 부여]** 특성을 보유 하는 컨트롤러 작업에 대해 앱이 호출 되 면 ASP.NET 및 ASP.NET Core가 권한 부여 헤더의 전달자 토큰에서 액세스 토큰을 추출 합니다. 그런 다음 액세스 토큰은 .NET 용 Microsoft System.identitymodel Extensions를 호출 하는 JwtBearer 미들웨어에 전달 됩니다.
 
+#### <a name="microsoftidentityweb"></a>Microsoft. Identity. 웹
+
+ASP.NET Core를 사용 하 여 web API를 개발 하는 경우에는 [microsoft의 Microsoft Id 웹](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet 패키지를 사용 하는 것이 좋습니다.
+
+_Microsoft. Identity_ 는 ASP.NET Core, 인증 미들웨어 및 .NET 용 [Msal (microsoft 인증 라이브러리)](msal-overview.md) 간의 붙이기를 제공 합니다. 이 기능을 사용 하면 보다 명확 하 고 강력한 개발자 환경을 제공 하 고 Microsoft id 플랫폼을 활용 하 고 Azure AD B2C 수 있습니다.
+
 #### <a name="using-microsoftidentityweb-templates"></a>Microsoft. Identity. 웹 템플릿 사용
 
 Microsoft. Identity. 웹 프로젝트 템플릿을 사용 하 여 웹 API를 처음부터 만들 수 있습니다. 자세한 내용은 [Microsoft. Identity 웹 API 프로젝트 템플릿](https://aka.ms/ms-id-web/webapi-project-templates) 을 참조 하세요.
@@ -134,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- 현재 ASP.NET Core 템플릿은 조직 또는 조직 내에서 사용자를 로그인 하는 Azure Active Directory (Azure AD) 웹 Api를 만듭니다. 개인 계정으로 사용자를 로그인 하지 않습니다. 그러나 NuGet 패키지로 사용 가능한 *Startup.cs*의 코드를 [대체 하 여 microsoft id](https://www.nuget.org/packages/Microsoft.Identity.Web)플랫폼 끝점을 사용 하 여 템플릿을 변경할 수 있습니다.
+ 현재 ASP.NET Core 템플릿은 조직 또는 조직 내에서 사용자를 로그인 하는 Azure Active Directory (Azure AD) 웹 Api를 만듭니다. 개인 계정으로 사용자를 로그인 하지 않습니다. 그러나 *Startup.cs*에서 코드 [를 대체 하 여 microsoft id](https://www.nuget.org/packages/Microsoft.Identity.Web) 플랫폼 끝점을 사용 하도록 템플릿을 변경할 수 있습니다.
 
 ```csharp
 using Microsoft.Identity.Web;

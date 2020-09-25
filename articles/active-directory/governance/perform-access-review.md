@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efab031ac2ad96524ce12e6d1c4a942f01ce2344
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 7e03ba5e7a4a24ee3114946230f78a64ea3d42cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299969"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265684"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토
 
@@ -37,7 +37,7 @@ Azure ad (Azure Active Directory)는 기업에서 azure ad 액세스 검토 라�
 
 1. Microsoft에서 액세스를 검토 하도록 요청 하는 전자 메일을 찾습니다. 그룹에 대 한 액세스를 검토 하는 예제 메일은 다음과 같습니다.
 
-    ![그룹에 대 한 액세스를 검토 하기 위한 Microsoft의 예제 메일](./media/perform-access-review/access-review-email.png)
+    ![그룹에 대 한 액세스를 검토 하는 Microsoft의 예제 전자 메일을 보여 주는 스크린샷](./media/perform-access-review/access-review-email.png)
 
 1. **검토 시작** 링크를 클릭 하 여 액세스 검토를 엽니다.
 
@@ -54,7 +54,7 @@ Azure ad (Azure Active Directory)는 기업에서 azure ad 액세스 검토 라�
         > [!NOTE]
         > **액세스 검토** 타일이 표시 되지 않는 경우 해당 조직에 대해 수행할 액세스 검토가 없으며 지금은 아무런 조치도 필요 하지 않습니다.
 
-        ![앱 및 그룹에 대 한 보류 중인 액세스 검토 목록](./media/perform-access-review/access-reviews-list.png)
+        ![앱 및 그룹에 대 한 보류 중인 액세스 검토 목록을 보여 주는 스크린샷](./media/perform-access-review/access-reviews-list.png)
 
     1. 수행 하려는 액세스 검토에 대 한 **검토 시작** 링크를 클릭 합니다.
 
@@ -99,7 +99,7 @@ Azure ad (Azure Active Directory)는 기업에서 azure ad 액세스 검토 라�
 
 1. 페이지 아래쪽의 파란색 표시줄에서 **권장 구성 적용**을 클릭 합니다.
 
-    ![권장 구성 적용 단추를 표시 하는 액세스 검토 목록 열기](./media/perform-access-review/accept-recommendations.png)
+    !["권장 구성 적용" 단추가 선택 된 상태에서 열기 액세스 검토를 보여 주는 스크린샷](./media/perform-access-review/accept-recommendations.png)
 
     권장 작업에 대 한 요약이 표시 됩니다.
 

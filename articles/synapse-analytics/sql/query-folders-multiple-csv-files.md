@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: jrasnick
+ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207634"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288344"
 ---
 # <a name="query-folders-and-multiple-files"></a>폴더 및 여러 파일 쿼리  
 
@@ -24,7 +24,7 @@ SQL 주문형은 Windows OS에서 사용 되는 와일드 카드와 유사한 �
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-첫 번째 단계는 쿼리를 실행할 **데이터베이스 만들기**입니다. 그런 다음, 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 이 설치 스크립트는 이러한 샘플에서 사용되는 데이터 원본, 데이터베이스 범위 자격 증명 및 외부 파일 형식을 만듭니다.
+첫 번째 단계는 쿼리를 실행할 **데이터베이스를 만드는** 것입니다. 그런 다음, 해당 데이터베이스에서 [설치 스크립트](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql)를 실행하여 개체를 초기화합니다. 이 설치 스크립트는 이러한 샘플에서 사용되는 데이터 원본, 데이터베이스 범위 자격 증명 및 외부 파일 형식을 만듭니다.
 
 *Csv/taxi* 폴더를 사용 하 여 샘플 쿼리를 따릅니다. 7 월 2016에서 6 월 2018로 NYC Taxi-노란색 Taxi 여행 레코드 데이터를 포함 합니다. *Csv/taxi* 의 파일은 다음 패턴을 사용 하 여 year 및 month로 이름이 지정 됩니다. <year> - <month> csv: yellow_tripdata_
 
@@ -232,4 +232,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Query 특정 파일](query-specific-files.md) 의 문서에서 찾을 수 있습니다.
+자세한 내용은 [쿼리 관련 파일](query-specific-files.md) 문서에서 찾을 수 있습니다.

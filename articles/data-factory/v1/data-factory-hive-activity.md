@@ -1,6 +1,6 @@
 ---
 title: Hive 작업을 사용 하 여 데이터 변환-Azure
-description: Azure 데이터 공장에서 Hive 활동을 사용하여 필요 시/사용자 고유의 HDInsight 클러스터에서 Hive 쿼리를 실행하는 방법을 알아봅니다.
+description: Azure data factory v1에서 Hive 작업을 사용 하 여 주문형/사용자 고유의 HDInsight 클러스터에서 Hive 쿼리를 실행 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41f570f93e95e9801b08c06cacc0423b1bf3b8e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74703349"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252786"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 활동을 사용하여 데이터 변환 
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -72,15 +72,15 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)에서 HDInsight
 }
 ```
 ## <a name="syntax-details"></a>구문 세부 정보
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | name |작업의 이름 |예 |
-| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
+| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |예 |
 | type |HDinsightHive |예 |
-| 입력 |Hive 활동에서 사용된 입력 |아니요 |
+| 입력 |Hive 활동에서 사용된 입력 |예 |
 | outputs |Hive 활동에서 생성된 출력 |예 |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
-| 스크립트 |Hive 스크립트 인라인 지정 |아니요 |
+| 스크립트 |Hive 스크립트 인라인 지정 |예 |
 | scriptPath |.NET용 File Storage 시작 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |예 |
 | defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |예 |
 

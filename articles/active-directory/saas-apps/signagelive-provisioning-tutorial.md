@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7bf9e7a4c17134a47cbaafbc2bde25d467c6a978
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f6bb119e5e82ce642722d0f739177fc1e4c06c25
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548551"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255734"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Signagelive 구성
 
@@ -95,11 +95,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 Signagelive를 �
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. 관리자 자격 증명 섹션 아래에 ` https://samlapi.signagelive.com/scim/v2` 있는 **테 넌 트 URL**에 입력 합니다. **비밀 토큰** 필드에 엔지니어링 개발 팀에서 제공한 **전달자 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Signagelive에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Signagelive 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
@@ -112,19 +112,19 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 Signagelive를 �
 
 8. **매핑** 섹션 아래에서 **Signagelive에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
-    ![Signagelive 사용자 매핑](media/signagelive-provisioning-tutorial/usermapping.png)
+    ![Signagelive 사용자에 게 Azure Active Directory 동기화 옵션이 포함 된 매핑 섹션의 스크린샷](media/signagelive-provisioning-tutorial/usermapping.png)
 
 9. **특성 매핑** 섹션에서 Azure AD에서 Signagelive로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Signagelive의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![Signagelive 사용자 특성](media/signagelive-provisioning-tutorial/userattribute.png)
+    ![7 개의 매핑이 표시 된 특성 매핑 섹션의 스크린샷](media/signagelive-provisioning-tutorial/userattribute.png)
 
 10. **매핑** 섹션 아래에서 **Signagelive에 Azure Active Directory 그룹 동기화를**선택 합니다.
 
-    ![Signagelive 사용자 매핑](media/signagelive-provisioning-tutorial/groupmapping.png)
+    ![Signagelive에 Azure Active Directory 그룹을 동기화 합니다. 옵션을 호출 하는 매핑 섹션의 스크린샷](media/signagelive-provisioning-tutorial/groupmapping.png)
 
 11. **특성 매핑** 섹션에서 Azure AD에서 Signagelive로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Signagelive의 그룹 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![Signagelive 사용자 특성](media/signagelive-provisioning-tutorial/groupattribute.png)
+    ![3 개의 매핑이 표시 된 특성 매핑 섹션의 스크린샷](media/signagelive-provisioning-tutorial/groupattribute.png)
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 

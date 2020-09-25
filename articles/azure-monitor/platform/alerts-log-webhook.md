@@ -1,47 +1,40 @@
 ---
 title: Azure alerts의 로그 경고에 대 한 웹 후크 작업
-description: 이 문서에서는 Log Analytics 작업 영역 또는 Application Insights를 사용 하 여 로그 경고 규칙을 만드는 방법, 경고에서 데이터를 HTTP webhook로 푸시하는 방법 및 가능한 여러 사용자 지정 항목에 대해 설명 합니다.
+description: Webhook 작업 및 사용 가능한 사용자 지정을 사용 하 여 로그 경고 푸시를 구성 하는 방법을 설명 합니다.
 author: yanivlavi
 ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 3311819f021533a28a41daf2c2f08193218fae96
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a074be9bcc62d8c20635400f462f52fb796d2fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075271"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294311"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
-[Azure에서 로그 경고가 생성 되](alerts-log.md)면 [작업 그룹을 사용](action-groups.md) 하 여 하나 이상의 작업을 수행 하는 옵션을 구성할 수 있습니다. 이 문서에서는 사용 가능한 다양 한 웹 후크 작업을 설명 하 고 사용자 지정 JSON 기반 webhook를 구성 하는 방법을 보여 줍니다.
+
+[로그 경고](alerts-log.md) 는 [webhook 작업 그룹 구성을](action-groups.md#webhook)지원 합니다. 이 문서에서는 사용할 수 있는 속성 및 사용자 지정 JSON webhook를 구성 하는 방법을 설명 합니다.
 
 > [!NOTE]
-> Webhook 통합에 대 한 [일반적인 경고 스키마](https://aka.ms/commonAlertSchemaDocs) 를 사용할 수도 있습니다. 일반적인 경고 스키마는 Azure Monitor의 모든 경고 서비스에서 확장 가능 하 고 통합 된 단일 경고 페이로드를 포함 하는 이점을 제공 합니다. 일반적인 경고 스키마는 로그 경고에 대 한 사용자 지정 JSON 옵션을 사용할 수 없습니다. 경고 규칙 수준에서 수행 했을 수 있는 사용자 지정에 관계 없이 선택 된 경우 일반적인 경고 스키마 페이로드로 지연 됩니다. [일반적인 경고 스키마 정의에 대해 알아봅니다.](https://aka.ms/commonAlertSchemaDefinitions)
-
-## <a name="webhook-actions"></a>웹후크 작업
-
-Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로세스를 호출할 수 있습니다. 호출 되는 서비스는 웹 후크를 지원 하 고 수신 하는 페이로드를 사용 하는 방법을 결정 해야 합니다.
-
-웹후크 작업에는 다음 표의 속성이 필요합니다.
-
-| 속성 | Description |
-|:--- |:--- |
-| **Webhook URL** |웹후크의 URL입니다. |
-| **사용자 지정 JSON 페이로드** |경고를 만드는 동안이 옵션을 선택 하면 웹 후크에 보낼 사용자 지정 페이로드입니다. 자세한 내용은 [로그 경고 관리](alerts-log.md)를 참조 하세요.|
+> 사용자 지정 JSON 기반 webhook는 현재 API 버전에서 지원 되지 않습니다. `2020-05-01-preview`
 
 > [!NOTE]
-> 로그 경고에 대 한 웹 후크 **에 대 한 사용자 지정 JSON 페이로드 포함** 옵션과 함께 **webhook 보기** 단추는 제공 된 사용자 지정 항목에 대 한 샘플 Webhook 페이로드를 표시 합니다. 실제 데이터는 포함 되지 않지만 로그 경고에 사용 되는 JSON 스키마를 나타냅니다. 
+> 웹 후크 통합에 [일반적인 경고 스키마](alerts-common-schema.md) 를 사용 하는 것이 좋습니다. 일반적인 경고 스키마는 Azure Monitor의 모든 경고 서비스에서 단일 확장 가능 하 고 통합 된 경고 페이로드를 포함 하는 이점을 제공 합니다. 사용자 지정 JSON 페이로드가 정의 된 로그 경고 규칙의 경우 공통 스키마를 사용 하도록 설정 하면 페이로드 스키마가 [여기](alerts-common-schema-definitions.md#log-alerts)에 설명 된 것으로 되돌아갑니다. 공통 스키마를 사용 하는 경고는 경고 당 256 KB로 제한 됩니다. 더 큰 경고에는 검색 결과가 포함 되지 않습니다. 검색 결과가 포함 되지 않은 경우 또는를 사용 하 여 `LinkToFilteredSearchResultsAPI` `LinkToSearchResultsAPI` Log Analytics API를 통해 쿼리 결과에 액세스 해야 합니다.
 
-웹 후크에는 데이터가 외부 서비스로 전송 되는 JSON으로 형식이 지정 된 URL 및 페이로드가 포함 됩니다. 기본적으로 페이로드는 다음 표의 값을 포함합니다. 이 페이로드를 자신만의 사용자 지정 페이로드로 바꾸도록 선택할 수 있습니다. 이 경우 각 매개 변수에 대 한 테이블의 변수를 사용 하 여 사용자 지정 페이로드에 값을 포함 합니다.
+## <a name="webhook-payload-properties"></a>Webhook 페이로드 속성
 
+웹 후크 작업을 통해 단일 HTTP POST 요청을 호출할 수 있습니다. 호출 되는 서비스는 웹 후크를 지원 하 고 수신 하는 페이로드를 사용 하는 방법을 알고 있어야 합니다.
+
+기본 webhook 작업 속성 및 해당 사용자 지정 JSON 매개 변수 이름:
 
 | 매개 변수 | 변수 | Description |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |경고 규칙의 이름입니다. |
 | *심각도* |#severity |실행된 로그 경고에 대해 설정된 심각도입니다. |
-| *AlertThresholdOperator* |#thresholdoperator |보다 큼 또는 보다 작음을 사용 하는 경고 규칙에 대 한 임계값 연산자입니다. |
+| *AlertThresholdOperator* |#thresholdoperator |경고 규칙에 대한 임계값 연산자입니다. |
 | *AlertThresholdValue* |#thresholdvalue |경고 규칙에 대한 임계값입니다. |
 | *LinkToSearchResults* |#linktosearchresults |경고를 만든 쿼리에서 레코드를 반환 하는 분석 포털에 대 한 링크입니다. |
 | *LinkToSearchResultsAPI* |#linktosearchresultsapi |경고를 만든 쿼리에서 레코드를 반환 하는 분석 API에 대 한 링크입니다. |
@@ -54,15 +47,15 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
 | *SearchQuery* |#searchquery |경고 규칙에서 사용하는 로그 검색 쿼리입니다. |
 | *SearchResults* |"IncludeSearchResults": true|처음 1000 레코드로 제한 되는 JSON 테이블로 쿼리를 통해 반환 된 레코드입니다. "IncludeSearchResults": true는 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 됩니다. |
 | *차원* |"IncludeDimensions": true|JSON 섹션으로 해당 경고를 트리거한 차원 값 조합입니다. "IncludeDimensions": true는 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 됩니다. |
-| *경고 유형*| #alerttype | [메트릭 측정](alerts-unified-log.md#metric-measurement-alert-rules) 또는 [결과 수](alerts-unified-log.md#number-of-results-alert-rules)로 구성 된 로그 경고 규칙의 유형입니다.|
+| *경고 유형*| #alerttype | [메트릭 측정 또는 결과 수](alerts-unified-log.md#measure)로 구성 된 로그 경고 규칙의 유형입니다.|
 | *WorkspaceID* |#workspaceid |Log Analytics 작업 영역의 ID입니다. |
 | *애플리케이션 ID* |#applicationid |Application Insights 앱의 ID입니다. |
-| *구독 ID* |#subscriptionid |사용 되는 Azure 구독의 ID입니다. 
+| *구독 ID* |#subscriptionid |사용 되는 Azure 구독의 ID입니다. |
 
-> [!NOTE]
-> 제공 된 링크는 URL의 *Searchquery*, *search Interval StartTime*및 *search interval 종료 시간과* 같은 매개 변수를 Azure Portal 또는 API에 전달 합니다.
+## <a name="custom-webhook-payload-definition"></a>사용자 지정 webhook 페이로드 정의
 
-예를 들어 *text*라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다. 이 webhook가 호출 하는 서비스에는이 매개 변수가 필요 합니다.
+위의 매개 변수를 사용 하 여 사용자 지정 JSON 페이로드를 가져오기 위해 **webhook에 대 한 사용자 지정 json 페이로드 포함** 을 사용할 수 있습니다. 추가 속성을 생성할 수도 있습니다.
+예를 들어 *text*라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다. 이 webhook가 호출 하는 서비스에는 다음 매개 변수가 필요 합니다.
 
 ```json
 
@@ -77,18 +70,21 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-사용자 지정 webhook의 모든 변수는 "#searchinterval"와 같이 JSON 엔클로저 내에서 지정 해야 하므로 결과 webhook에는 "00:05:00"와 같은 인클로저 내에 변수 데이터가 있습니다.
+사용자 지정 webhook의 변수는 JSON 인클로저 내에서 지정 해야 합니다. 예를 들어 위의 webhook 예제에서 "#searchresultcount"을 참조 하면 경고 결과에 따라 출력 됩니다.
 
-검색 결과를 사용자 지정 페이로드에 포함 하려면 **Includesearchresults** 가 JSON 페이로드의 최상위 속성으로 설정 되어 있는지 확인 합니다. 
+검색 결과를 포함 하려면 사용자 지정 JSON에서 **Includesearchresults** 를 최상위 속성으로 추가 합니다. 검색 결과는 JSON 구조로 포함 되므로 사용자 지정 정의 된 필드에서 결과를 참조할 수 없습니다. 
+
+> [!NOTE]
+> **Webhook에 대 한 사용자 지정 JSON 페이로드 포함** 옵션 옆에 있는 **webhook 보기** 단추는 제공 된 항목의 미리 보기를 표시 합니다. 실제 데이터는 포함 되지 않지만 사용 될 JSON 스키마를 나타냅니다. 
 
 ## <a name="sample-payloads"></a>샘플 페이로드
 이 섹션에서는 로그 경고에 대 한 웹 후크에 대 한 샘플 페이로드를 보여 줍니다. 샘플 페이로드에는 페이로드가 표준 이며 사용자 지정 인 경우 예제가 포함 됩니다.
 
-### <a name="standard-webhook-for-log-alerts"></a>로그 경고에 대 한 표준 webhook 
-이러한 두 예제에는 두 개의 열과 두 개의 행만 포함 된 더미 페이로드가 있습니다.
+### <a name="log-alert-for-log-analytics"></a>Log Analytics에 대 한 로그 경고
+다음 샘플 페이로드는 Log Analytics 기반으로 하는 경고에 사용 되는 표준 웹 후크 작업에 대 한 것입니다.
 
-#### <a name="log-alert-for-log-analytics"></a>Log Analytics에 대 한 로그 경고
-다음 샘플 페이로드는 Log Analytics 기반으로 하는 경고에 사용 되는 *사용자 지정 JSON 옵션이 없는* 표준 웹 후크 작업에 대 한 것입니다.
+> [!NOTE]
+> [레거시 Log Analytics 경고 api](api-alerts.md)에서 [현재 scheduledQueryRules api로 전환한](alerts-log-api-switch.md) 경우 "심각도" 필드 값이 변경 됩니다.
 
 ```json
 {
@@ -152,14 +148,10 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
     "WorkspaceId": "12345a-1234b-123c-123d-12345678e",
     "AlertType": "Metric measurement"
 }
- ```
+```
 
-> [!NOTE]
-> Log Analytics에서 로그 경고에 대 한 [API 기본 설정을 전환](alerts-log-api-switch.md) 했다면 "심각도" 필드 값이 변경 될 수 있습니다.
-
-
-#### <a name="log-alert-for-application-insights"></a>Application Insights에 대 한 로그 경고
-다음 샘플 페이로드는 Application Insights 기반으로 하는 로그 경고에 사용 될 때 *사용자 지정 JSON 옵션이 없는* 표준 webhook 용입니다.
+### <a name="log-alert-for-application-insights"></a>Application Insights에 대 한 로그 경고
+다음 샘플 페이로드는 Application Insights 리소스를 기반으로 하는 로그 경고에 사용 되는 표준 웹 후크에 대 한 것입니다.
     
 ```json
 {
@@ -225,8 +217,73 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
 }
 ```
 
-#### <a name="log-alert-with-custom-json-payload"></a>사용자 지정 JSON 페이로드를 사용 하는 로그 경고
-예를 들어 경고 이름과 검색 결과만 포함 하는 사용자 지정 페이로드를 만들려면 다음을 사용할 수 있습니다. 
+### <a name="log-alert-for-other-resources-logs-from-api-version-2020-05-01-preview"></a>다른 리소스 로그 (API 버전에서)에 대 한 경고 로그 `2020-05-01-preview`
+
+> [!NOTE]
+> 현재 API 버전 `2020-05-01-preview` 및 리소스 중심 로그 경고에 대 한 추가 요금은 없습니다.  미리 보기에 있는 기능의 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 되는 공지가 제공 됩니다. 알림 기간이 끝난 후 새 API 버전 및 리소스 중심 로그 경고를 계속 사용 하도록 선택 하는 경우 해당 요금에 대 한 요금이 청구 됩니다.
+
+다음 샘플 페이로드는 다른 리소스 로그 (작업 영역 및 Application Insights 제외)를 기반으로 하는 로그 경고에 사용 되는 경우 표준 webhook 용입니다.
+
+```json
+{
+    "schemaId": "azureMonitorCommonAlertSchema",
+    "data": {
+        "essentials": {
+            "alertId": "/subscriptions/12345a-1234b-123c-123d-12345678e/providers/Microsoft.AlertsManagement/alerts/12345a-1234b-123c-123d-12345678e",
+            "alertRule": "AcmeRule",
+            "severity": "Sev4",
+            "signalType": "Log",
+            "monitorCondition": "Fired",
+            "monitoringService": "Log Alerts V2",
+            "alertTargetIDs": [
+                "/subscriptions/12345a-1234b-123c-123d-12345678e/resourcegroups/ai-engineering/providers/microsoft.compute/virtualmachines/testvm"
+            ],
+            "originAlertId": "123c123d-1a23-1bf3-ba1d-dd1234ff5a67",
+            "firedDateTime": "2020-07-09T14:04:49.99645Z",
+            "description": "log alert rule V2",
+            "essentialsVersion": "1.0",
+            "alertContextVersion": "1.0"
+        },
+        "alertContext": {
+            "properties": null,
+            "conditionType": "LogQueryCriteria",
+            "condition": {
+                "windowSize": "PT10M",
+                "allOf": [
+                    {
+                        "searchQuery": "Heartbeat",
+                        "metricMeasure": null,
+                        "targetResourceTypes": "['Microsoft.Compute/virtualMachines']",
+                        "operator": "LowerThan",
+                        "threshold": "1",
+                        "timeAggregation": "Count",
+                        "dimensions": [
+                            {
+                                "name": "ResourceId",
+                                "value": "/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm"
+                            }
+                        ],
+                        "metricValue": 0.0,
+                        "failingPeriods": {
+                            "numberOfEvaluationPeriods": 1,
+                            "minFailingPeriodsToAlert": 1
+                        },
+                        "linkToSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToFilteredSearchResultsUI": "https://portal.azure.com#@12f345bf-12f3-12af-12ab-1d2cd345db67/blade/Microsoft_Azure_Monitoring_Logs/LogsBlade/source/Alerts.EmailLinks/scope/%7B%22resources%22%3A%5B%7B%22resourceId%22%3A%22%2Fsubscriptions%2F12345a-1234b-123c-123d-12345678e%2FresourceGroups%2FTEST%2Fproviders%2FMicrosoft.Compute%2FvirtualMachines%2Ftestvm%22%7D%5D%7D/q/eJzzSE0sKklKTSypUSjPSC1KVQjJzE11T81LLUosSU1RSEotKU9NzdNIAfJKgDIaRgZGBroG5roGliGGxlYmJlbGJnoGEKCpp4dDmSmKMk0A/prettify/1/timespan/2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z",
+                        "linkToFilteredSearchResultsAPI": "https://api.loganalytics.io/v1/subscriptions/12345a-1234b-123c-123d-12345678e/resourceGroups/TEST/providers/Microsoft.Compute/virtualMachines/testvm/query?query=Heartbeat%7C%20where%20TimeGenerated%20between%28datetime%282020-07-09T13%3A44%3A34.0000000%29..datetime%282020-07-09T13%3A54%3A34.0000000%29%29&timespan=2020-07-07T13%3a54%3a34.0000000Z%2f2020-07-09T13%3a54%3a34.0000000Z"
+                    }
+                ],
+                "windowStartTime": "2020-07-07T13:54:34Z",
+                "windowEndTime": "2020-07-09T13:54:34Z"
+            }
+        }
+    }
+}
+```
+
+### <a name="log-alert-with-a-custom-json-payload"></a>사용자 지정 JSON 페이로드를 사용 하는 로그 경고
+예를 들어 경고 이름과 검색 결과만 포함 하는 사용자 지정 페이로드를 만들려면 다음 구성을 사용 합니다. 
 
 ```json
     {

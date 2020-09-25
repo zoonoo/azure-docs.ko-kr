@@ -3,12 +3,12 @@ title: Azure Lab Services의 클래스룸 랩 관리 | Microsoft Docs
 description: 클래스룸 랩을 만들고 구성하거나, 모든 클래스룸 랩을 보거나, 랩 사용자와 등록 링크를 공유하거나 또는 랩을 삭제하는 방법에 대해 알아봅니다.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: ed5eb05fa586e19fdf684a4f88b56e7b0185baf4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a251f668508ee0b727c5e2ace65d1ea4eb5123e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445392"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251680"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 랩 관리 
 이 문서에서는 클래스룸 랩을 만들고 삭제하는 방법을 설명합니다. 또한 랩 계정에서 모든 클래스룸 랩을 보는 방법을 보여 줍니다. 
@@ -32,7 +32,7 @@ ms.locfileid: "85445392"
     1. 페이지에 표시되는 **시간당 총 가격**을 검토합니다. 
     1. **저장**을 선택합니다.
 
-        ![새 랩 창](./media/tutorial-setup-classroom-lab/new-lab-window.png)
+        !["새 랩" 창을 보여 주는 스크린샷](./media/tutorial-setup-classroom-lab/new-lab-window.png)
 
         > [!NOTE]
         > 랩 계정에 [랩 작성자가 랩 위치를 선택하도록 허용](allow-lab-creator-pick-lab-location.md) 옵션이 구성된 경우 랩의 위치를 선택하는 옵션이 표시됩니다. 

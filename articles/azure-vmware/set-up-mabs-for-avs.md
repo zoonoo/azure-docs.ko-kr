@@ -3,16 +3,16 @@ title: Azure VMware 솔루션에 대 한 Azure Backup Server 설정
 description: Azure Backup Server를 사용 하 여 가상 컴퓨터를 백업 하도록 Azure VMware 솔루션 환경을 설정 합니다.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 0dd2b16254e697a08d0ff542a5ddcb3fc7e4103d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 516f4a2fa92740897e186a782e276fc6d40fc925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750624"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255012"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 Azure Backup Server 설정
 
-Azure Backup Server는 BCDR (비즈니스 연속성 및 재해 복구) 전략에 기여 하는 강력한 엔터프라이즈 백업 및 복구 시스템입니다. Azure VMware 솔루션 미리 보기 중에 Azure Backup Server를 사용 하 여 VM (가상 머신) 수준 백업만 구성할 수 있습니다. 
+Azure Backup Server는 BCDR (비즈니스 연속성 및 재해 복구) 전략에 기여 하는 강력한 엔터프라이즈 백업 및 복구 시스템입니다. Azure VMware 솔루션 중에 Azure Backup Server를 사용 하 여 VM (가상 머신) 수준 백업만 구성할 수 있습니다. 
 
 백업 데이터를 저장할 수 있는 Azure Backup Server:
 
@@ -34,7 +34,7 @@ Azure Backup Server는 BCDR (비즈니스 연속성 및 재해 복구) 전략에
 - **에이전트 없는 백업:** 가상 컴퓨터를 백업 하려면 vCenter 또는 ESXi 서버에 에이전트를 설치 하지 않아도 됩니다. Azure Backup Server 대신 Azure Backup Server를 사용 하 여 VMware 서버를 인증 하는 데 사용 되는 IP 주소 또는 FQDN (정규화 된 도메인 이름) 및 로그인 자격 증명을 제공 하면 됩니다.
 - **클라우드 통합 백업:** Azure Backup Server는 디스크 및 클라우드로 워크 로드를 보호 합니다. Azure Backup Server의 백업 및 복구 워크플로를 사용 하 여 장기 보존 및 오프 사이트 백업을 관리할 수 있습니다.
 - **VCenter에서 관리 하는 vm을 검색 하 고 보호 합니다.** Azure Backup Server vCenter 또는 ESXi 서버에 배포 된 Vm을 검색 하 고 보호 합니다. 또한 Azure Backup Server는 vCenter에서 관리 하는 Vm을 검색 하 여 대량 배포를 보호할 수 있도록 합니다.
-- **폴더 수준 autoprotection:** vCenter를 사용 하면 vm 폴더에서 vm을 구성할 수 있습니다. Azure Backup Server는 이러한 폴더를 검색 하 고이를 사용 하 여 모든 하위 폴더를 포함 하는 폴더 수준에서 Vm을 보호할 수 있습니다. 폴더를 보호 하는 경우 해당 폴더의 Vm을 보호할 뿐만 아니라 나중에 추가 된 Vm도 보호 합니다 Azure Backup Server. Azure Backup Server는 매일 새 Vm을 검색 하 고 자동으로 보호 합니다. 재귀 폴더에서 Vm을 구성 하는 경우 Azure Backup Server는 재귀 폴더에 배포 된 새 Vm을 자동으로 검색 하 고 보호 합니다.
+- **폴더 수준 autoprotection:** vCenter를 사용 하면 vm 폴더에서 vm을 구성할 수 있습니다. Azure Backup Server는 이러한 폴더를 검색 합니다. 모든 하위 폴더를 포함 하는 폴더 수준에서 Vm을 보호 하는 데 사용할 수 있습니다. 폴더를 보호 하는 경우 해당 폴더의 Vm을 보호할 뿐만 아니라 나중에 추가 된 Vm도 보호 합니다 Azure Backup Server. Azure Backup Server는 매일 새 Vm을 검색 하 고 자동으로 보호 합니다. 재귀 폴더에서 Vm을 구성 하는 경우 Azure Backup Server는 재귀 폴더에 배포 된 새 Vm을 자동으로 검색 하 고 보호 합니다.
 - **Azure Backup Server는 클러스터 내에서 VMotioned vm을 계속 보호 합니다.** Vm은 클러스터 내에서 부하 분산을 위해 vMotioned 자동으로 VM 보호 Azure Backup Server를 검색 하 고 계속 합니다.
 - **필요한 파일을 더 빠르게 복구:** 전체 VM을 복구 하지 않고 Windows VM에서 파일 또는 폴더를 복구할 수 Azure Backup Server.
 
@@ -68,7 +68,7 @@ Azure 환경에 Azure Backup Server를 설치 하는 경우이 섹션의 권장 
 
 ### <a name="determine-the-size-of-the-virtual-machine"></a>가상 컴퓨터의 크기를 확인 합니다.
 
-이전 단계에서 만든 가상 네트워크에 Windows 가상 머신을 만들어야 합니다. Azure Backup Server를 실행 하기 위한 서버를 선택 하는 경우 Windows Server 2019 Datacenter의 갤러리 이미지를 사용 하 여 시작 합니다. [Azure Portal에서 첫 번째 Windows 가상 컴퓨터 만들기](../virtual-machines/windows/quick-create-portal.md) 자습서에서는 azure를 사용한 적이 없는 경우에도 azure에서 권장 VM으로 시작 합니다.
+이전 단계에서 만든 가상 네트워크에 Windows 가상 머신을 만듭니다. Azure Backup Server를 실행 하기 위한 서버를 선택 하는 경우 Windows Server 2019 Datacenter의 갤러리 이미지를 사용 하 여 시작 합니다. [Azure Portal에서 첫 번째 Windows 가상 컴퓨터 만들기](../virtual-machines/windows/quick-create-portal.md) 자습서에서는 azure를 사용한 적이 없는 경우에도 azure에서 권장 VM으로 시작 합니다.
 
 다음 표에는 각 Azure Backup Server 가상 컴퓨터 크기에 대 한 보호 된 작업의 최대 수가 요약 되어 있습니다. 이 정보는 작업 크기 및 변동의 정식 값을 사용한 내부 성능 및 확장 테스트를 기준으로 한 결과입니다. 실제 작업 크기는 클 수 있지만 Azure Backup Server 가상 컴퓨터에 연결 된 디스크에서 수용 해야 합니다.
 
@@ -140,7 +140,7 @@ Recovery Services 자격 증명 모음은 시간에 따라 생성 된 복구 위
 
 1. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
 
-   ![왼쪽 메뉴에서 모든 서비스를 선택 합니다.](../backup/media/backup-create-rs-vault/click-all-services.png)
+   ![왼쪽 메뉴에서 모든 서비스를 선택합니다.](../backup/media/backup-create-rs-vault/click-all-services.png)
 
 1. **모든 서비스** 대화 상자에서 **Recovery Services** 를 입력 하 고 목록에서 **Recovery Services 자격 증명 모음** 을 선택 합니다.
 
@@ -183,8 +183,6 @@ Recovery Services 자격 증명 모음은 시간에 따라 생성 된 복구 위
 1. **설정** 아래에서 **속성**을 선택합니다. **백업 구성**에서 **업데이트**를 선택 합니다.
 
 1. 저장소 복제 유형을 선택 하 고 **저장**을 선택 합니다.
-
-   ![새 자격 증명 모음에 대 한 저장소 구성을 설정 합니다.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## <a name="download-and-install-the-software-package"></a>소프트웨어 패키지 다운로드 및 설치
 
@@ -309,7 +307,7 @@ Recovery Services 자격 증명 모음은 시간에 따라 생성 된 복구 위
    * **데이터베이스**: **DatabaseName** 은 **ReportServer $ \<SQLInstanceName> **여야 합니다.
    * **웹 포털 URL**: **가상 디렉터리** 를 **Reports_ \<SQLInstanceName> **해야 합니다.
 
-   SSRS 구성에 대해 [자세히 알아봅니다](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017).
+   [SSRS 구성](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode)에 대해 자세히 알아보세요.
 
    > [!NOTE]
    > [Microsoft Online Services 약관](https://www.microsoft.com/licensing/product-licensing/products) (OST)은 Azure Backup Server의 데이터베이스로 사용 되는 SQL Server에 대 한 라이선스를 제어 합니다. OST에 따라 Azure Backup Server와 함께 제공 되는 SQL Server는 Azure Backup Server 데이터베이스로만 사용할 수 있습니다.

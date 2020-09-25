@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 5eaf107861d20cea395209418c343d25461b3836
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 6dffe2c6145e1596d92335defdc764c3c7bc3fa0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469935"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264374"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -62,7 +62,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 | Level | 포함 된 범주 |
 |-|-|
-|**Disabled** | 없음 |
+|**사용 안 함** | 없음 |
 |**오류** | 오류, 위험 |
 |**경고** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
@@ -108,9 +108,9 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 ## <a name="add-log-messages-in-code"></a>코드에 로그 메시지 추가
 
-응용 프로그램 코드에서 일반적인 로깅 기능을 사용 하 여 응용 프로그램 로그에 로그 메시지를 보냅니다. 다음은 그 예입니다. 
+응용 프로그램 코드에서 일반적인 로깅 기능을 사용 하 여 응용 프로그램 로그에 로그 메시지를 보냅니다. 예를 들면 다음과 같습니다.
 
-- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 다음은 그 예입니다. 
+- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -138,12 +138,12 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 다음은 그 예입니다. 
+오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 다음은 그 예입니다. 
+HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -166,7 +166,7 @@ Linux/컨테이너 앱의 경우 ZIP 파일에는 docker 호스트와 docker 컨
 
 Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\LogFiles* 디렉터리 내용이 포함 되어 있습니다. 구조는 다음과 같습니다.
 
-| 로그 형식 | 디렉터리 | Description |
+| 로그 형식 | 디렉터리 | 설명 |
 |-|-|-|
 | **애플리케이션 로그 전송 사용** |*/LogFiles/Application/* | 하나 이상의 텍스트 파일을 포함 합니다. 로그 메시지의 형식은 사용 하는 로깅 공급자에 따라 달라 집니다. |
 | **실패 한 요청 추적** | */LogFiles/W3SVC # # # # # # # # #/* | XML 파일 및 XSL 파일을 포함 합니다. 브라우저에서 형식이 지정 된 XML 파일을 볼 수 있습니다. |
@@ -185,16 +185,16 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 
 다음 표에서는 지원 되는 로그 유형 및 설명을 보여 줍니다. 
 
-| 로그 형식 | Windows 지원 | Linux (Docker) 지원 | Description |
-|-|-|-|
-| AppServiceConsoleLogs | TBA | 예 | 표준 출력 및 표준 오류 |
-| AppServiceHTTPLogs | 예 | 예 | 웹 서버 로그 |
-| Appservice환경 Platformlogs | 예 | 예 | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
-| AppServiceAuditLogs | 예 | 예 | FTP 및 Kudu를 통한 로그인 활동 |
-| AppServiceFileAuditLogs | 예 | TBD | 사이트 콘텐츠에 대 한 파일 변경 내용 프리미엄 계층 이상 에서만 사용할 수 있습니다. |
-| AppServiceAppLogs | TBA | Java SE & Tomcat | 애플리케이션 로그 전송 사용 |
-| AppServiceIPSecAuditLogs  | 예 | 예 | IP 규칙의 요청 |
-| AppServicePlatformLogs  | TBA | 예 | 컨테이너 로그 |
+| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | Description |
+|-|-|-|-|-|-|
+| AppServiceConsoleLogs | TBA | TBA | 예 | 예 | 표준 출력 및 표준 오류 |
+| AppServiceHTTPLogs | 예 | TBA | 예 | 예 | 웹 서버 로그 |
+| Appservice환경 Platformlogs | 예 | 해당 없음 | 예 | 예 | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
+| AppServiceAuditLogs | 예 | TBA | 예 | 예 | FTP 및 Kudu를 통한 로그인 활동 |
+| AppServiceFileAuditLogs | 예 | TBA | TBA | TBA | 사이트 콘텐츠에 대 한 파일 변경 내용 프리미엄 계층 이상 에서만 사용할 수 있습니다. |
+| AppServiceAppLogs | ASP .NET | TBA | Java SE & Tomcat | Java SE & Tomcat | 애플리케이션 로그 전송 사용 |
+| AppServiceIPSecAuditLogs  | 예 | TBA | 예 | 예 | IP 규칙의 요청 |
+| AppServicePlatformLogs  | TBA | TBA | 예 | 예 | 컨테이너 작업 로그 |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> 다음 단계
 * [Azure Monitor를 사용하여 로그 쿼리](../azure-monitor/log-query/log-query-overview.md)

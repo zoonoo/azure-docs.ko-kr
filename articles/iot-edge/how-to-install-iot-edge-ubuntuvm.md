@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e70b22b3edaae96e00306d5d0a93d229e11aac41
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 95fd10ab7de4885d3630b5defe4080fe0203b62f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494080"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296980"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
 
@@ -71,7 +71,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
     > [!div class="mx-imgBorder"]
     > [![Iotedge vm의 dns 이름을 보여 주는 스크린샷](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
-1. 설치 후에이 VM으로 SSH 하려면 다음 명령을 사용 하 여 연결 된 **DNS 이름을** 사용 합니다.`ssh <adminUsername>@<DNS_Name>`
+1. 설치 후에이 VM으로 SSH 하려면 다음 명령을 사용 하 여 연결 된 **DNS 이름을** 사용 합니다.  `ssh <adminUsername>@<DNS_Name>`
 
 ## <a name="deploy-from-azure-cli"></a>Azure CLI에서 배포
 
@@ -117,7 +117,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
    --template-uri "https://aka.ms/iotedge-vm-deploy" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
    --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
    --parameters authenticationType='password' \
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
@@ -134,7 +134,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
     --template-uri "https://aka.ms/iotedge-vm-deploy" \
     --parameters dnsLabelPrefix='my-edge-vm1' \
     --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-    --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
     --parameters authenticationType='sshPublicKey' \
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
     ```
@@ -157,7 +157,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
     > [!div class="mx-imgBorder"]
     > [![Iotedge vm의 dns 이름을 보여 주는 스크린샷](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
-1. 설치 후에이 VM으로 SSH 하려면 다음 명령을 사용 하 여 연결 된 **DNS 이름을** 사용 합니다.`ssh <adminUsername>@<DNS_Name>`
+1. 설치 후에이 VM으로 SSH 하려면 다음 명령을 사용 하 여 연결 된 **DNS 이름을** 사용 합니다.  `ssh <adminUsername>@<DNS_Name>`
 
 ## <a name="next-steps"></a>다음 단계
 

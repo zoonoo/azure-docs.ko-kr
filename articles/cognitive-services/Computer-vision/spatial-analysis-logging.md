@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 2d19c061ad1e5cf033d2801df64a0ae37736c418
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983018"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254077"
 ---
 # <a name="telemetry-and-troubleshooting"></a>원격 분석 및 문제 해결
 
@@ -103,7 +103,7 @@ Telegraf 모듈이 배포 되 면 Azure Monitor 서비스를 통해 또는 Azure
 
 ### <a name="system-health-events"></a>시스템 상태 이벤트
 
-| 이벤트 이름 | 설명|
+| 이벤트 이름 | Description|
 |------|---------|
 |archon_exit    |사용자가 공간 분석 모듈 상태를 *실행 중* 에서 *중지 됨*으로 변경 하면 전송 됩니다.  |
 |archon_error   |컨테이너 내 프로세스가 충돌 하는 경우 전송 됩니다. 이것은 심각한 오류입니다.  |
@@ -121,7 +121,7 @@ Telegraf 모듈이 배포 되 면 Azure Monitor 서비스를 통해 또는 Azure
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>IoT Edge 장치 문제 해결
 
-`iotedge`명령줄 도구를 사용 하 여 실행 중인 모듈의 상태와 로그를 확인할 수 있습니다. 다음은 그 예입니다. 
+`iotedge`명령줄 도구를 사용 하 여 실행 중인 모듈의 상태와 로그를 확인할 수 있습니다. 예를 들면 다음과 같습니다.
 * `iotedge list`: 실행 중인 모듈의 목록을 보고 합니다. 
   에서 오류를 추가로 확인할 수 있습니다 `iotedge logs edgeAgent` . 가 중단 되 면를 `iotedge` 사용 하 여 다시 시작 해 볼 수 있습니다. `iotedge restart edgeAgent`
 * `iotedge logs <module-name>`
@@ -248,7 +248,7 @@ IoT Edge 포털에서 장치를 선택 하 고 **진단** 모듈을 선택 합�
 
 다음 표에서는 쿼리 응답의 특성을 나열 합니다.
 
-| 키워드 | 설명|
+| 키워드 | Description|
 |--|--|
 |DoPost| *True* 또는 *false*입니다. 로그가 업로드 되었는지 여부를 나타냅니다. 로그를 업로드 하지 않도록 선택 하면 api가 정보를 ***동기적***으로 반환 합니다. 로그를 업로드 하도록 선택 하는 경우 api는 200을 반환 하 고, 요청이 올바르면 로그를 ***비동기식***으로 업로드 하기 시작 합니다.|
 |TimeFilter| 로그에 적용 된 시간 필터입니다.|
@@ -313,8 +313,7 @@ Fetch log의 줄, 시간 및 크기를 확인 합니다. 해당 설정이에 대
 
 "컨테이너가 올바른 상태가 아닙니다. ' 불일치 ' 상태의 구독 유효성 검사에 실패 했습니다. 지정 된 컨테이너 형식에 대 한 Api 키가 아닙니다. "
 
-자세한 내용은 [컨테이너 실행에 대 한 승인 요청](spatial-analysis-container.md#request-approval-to-run-the-container)을 참조 하세요. 
-
+자세한 내용은 [컨테이너 실행에 대 한 승인 요청](spatial-analysis-container.md#request-approval-to-run-the-container)을 참조 하세요.
 
 ## <a name="troubleshooting-the-azure-stack-edge-device"></a>Edge 장치 Azure Stack 문제 해결
 
@@ -337,7 +336,7 @@ Fetch log의 줄, 시간 및 크기를 확인 합니다. 해당 설정이에 대
 1. 관리자 권한으로 Windows PowerShell 세션을 실행 합니다. 
     1. Windows 원격 관리 서비스가 클라이언트에서 실행 되 고 있는지 확인 합니다. 명령 프롬프트에서 `winrm quickconfig`를 입력합니다.
 
-2. 장치 IP 주소에 대 한 변수를 할당 합니다. `$ip = "<device-ip-address>"`)을 입력합니다.
+2. 장치 IP 주소에 대 한 변수를 할당 합니다. 예들 들어 `$ip = "<device-ip-address>"`입니다.
 
 3. 다음 명령을 사용 하 여 장치의 IP 주소를 클라이언트의 신뢰할 수 있는 호스트 목록에 추가 합니다. 
 
@@ -401,7 +400,7 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 
 ### <a name="useful-commands"></a>유용한 명령
 
-|명령  |설명  |
+|명령  |Description  |
 |---------|---------|
 |`Get-HcsKubernetesUserConfig -AseUser`     | Kubernetes 구성 파일을 생성 합니다. 명령을 사용 하는 경우이 정보를 *config*라는 파일로 복사 합니다. 파일 확장명을 사용 하 여 파일을 저장 하지 않습니다.        |
 | `Get-HcsApplianceInfo` | 장치에 대 한 정보를 반환 합니다. |

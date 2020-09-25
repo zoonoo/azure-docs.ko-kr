@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5e3cb07730aafed7d1c339f543e7fb09fe956cab
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: ca333115b8a0588f781b93e0d8a9279ab9c7928c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961910"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255165"
 ---
 # <a name="use-an-app-service-environment"></a>App Service 환경 사용
 
@@ -196,7 +196,7 @@ Log Analytics와 통합 하는 경우 ASE 포털에서 **로그** 를 선택 하
 
 **경고 만들기**
 
-로그에 대 한 경고를 만들려면 [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리][logalerts]의 지침을 따르세요. 개요:
+로그에 대 한 경고를 만들려면 [Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리](../../azure-monitor/platform/alerts-log.md)의 지침을 따르세요. 개요:
 
 * ASE 포털에서 경고 페이지를 엽니다.
 * **새 경고 규칙** 선택

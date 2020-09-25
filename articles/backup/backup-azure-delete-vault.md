@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services 자격 증명 모음 삭제
 description: 이 문서에서는 종속성을 제거 하 고 Azure Backup Recovery Services 자격 증명 모음을 삭제 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: c0b75d147abba45a745f811de5e4b8ac45088bd8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fd941db933d243b83c1c19c7ae0fdfc2d7869b8a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826738"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293070"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Azure Backup Recovery Services 자격 증명 모음 삭제
 
@@ -331,7 +331,7 @@ Recovery Services 자격 증명 모음을 삭제 하는 방법에 [대해 자세
                        [--yes]
     ```
 
-    자세한 내용은이 [문서](/cli/azure/backup/vault?view=azure-cli-latest) 를 참조 하세요.
+    자세한 내용은이 [문서](/cli/azure/backup/vault) 를 참조 하세요.
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>Azure Resource Manager을 사용 하 여 Recovery Services 자격 증명 모음을 삭제 합니다.
 

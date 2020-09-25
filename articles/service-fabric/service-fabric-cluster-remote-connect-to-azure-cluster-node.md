@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 노드에 원격 연결
 description: 확장 집합 인스턴스(Service Fabric 클러스터 노드)에 원격으로 연결하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458325"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268097"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>가상 머신 확장 집합 인스턴스 또는 클러스터 노드에 원격 연결
 Azure에서 실행되는 Service Fabric 클러스터에서 정의한 각 클러스터 노드 형식은 [가상 머신별 규모를 설정](service-fabric-cluster-nodetypes.md)합니다.  특정 확장 집합 인스턴스(클러스터 노드)에 원격 연결할 수 있습니다.  단일 인스턴스 VM과 달리 확장 집합 인스턴스는 고유한 가상 IP 주소가 없습니다. 따라서 특정 인스턴스에 원격으로 연결하는 데 사용할 수 있는 IP 주소 및 포트를 찾는 것이 어려울 수 있습니다.
@@ -21,11 +21,11 @@ Azure에서 실행되는 Service Fabric 클러스터에서 정의한 각 클러�
     
     Azure Portal에서 부하 분산 장치에 대 한 페이지에서 **설정**  >  **인바운드 NAT 규칙**을 선택 합니다. 
 
-    ![부하 분산 장치 인바운드 NAT 규칙](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
+    ![Azure Portal 부하 분산 장치 페이지의 스크린샷 왼쪽 메뉴의 설정 아래에서 인바운드 NAT 규칙을 선택 합니다.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
     다음 스크린샷에서는 FrontEnd라는 노드 형식에 대한 인바운드 NAT 규칙을 보여 줍니다. 
 
-    ![부하 분산 장치 인바운드 NAT 규칙](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    ![부하 분산 장치에 대 한 인바운드 NAT 규칙을 보여 주는 스크린샷 각 규칙에 대해 이름, IP 버전, 대상, 대상 및 서비스가 나열 됩니다.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
     각 노드에 대해 IP 주소가 **대상** 열에 표시되며, **대상**은 확장 집합 인스턴스를 제공하고 **서비스** 열은 포트 번호를 제공합니다. 원격 연결의 경우 포트 3389부터 오름차순으로 각 노드에 포트가 할당됩니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 관리 단위 추가 및 제거 (미리 보기)-Azure Active Directory | Microsoft Docs
+title: 관리 단위 추가 및 제거-Azure Active Directory | Microsoft Docs
 description: 관리 단위를 사용 하 여 Azure Active Directory에서 역할 권한 범위를 제한할 수 있습니다.
 services: active-directory
 documentationcenter: ''
@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977a90419c142e576fcf484562875d12c8dad451
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 30b673994e20f01dde504adb438aa1b199c96d88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851776"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264740"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Azure Active Directory에서 관리 단위 관리
 
 Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해 하나 이상의 au (관리 단위)로 제한 되는 범위를 사용 하 여 Azure AD 역할에 사용자를 할당할 수 있습니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 1. [그래프 탐색기](https://aka.ms/ge)를 통해 다음 지침에서 쿼리를 실행 하려면 다음을 수행 합니다.
 
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해
 
 1. Azure Portal에서 Azure AD로 이동한 다음 왼쪽 창에서 **관리 단위**를 선택 합니다.
 
-    ![Azure AD의 관리 단위 (미리 보기) 링크 스크린샷](./media/roles-admin-units-manage/nav-to-admin-units.png)
+    ![Azure AD의 관리 unitslink 스크린샷](./media/roles-admin-units-manage/nav-to-admin-units.png)
 
 1. **추가** 를 선택 하 고 관리 단위의 이름을 입력 합니다. 필요에 따라 관리 단위에 대 한 설명을 추가 합니다.
 

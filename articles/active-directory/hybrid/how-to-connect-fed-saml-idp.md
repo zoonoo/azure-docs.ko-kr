@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c341235a646fff28a16d30d1bf010932b02cf19
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 2cd95d01c9b49bb6002c00c805dc82dcf30941e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660955"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295041"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
@@ -306,7 +306,7 @@ Microsoft는 SAML 2.0 기반된 ID 공급자를 테스트하는 데 사용할 �
 2.  지금 설치를 클릭하여 이 도구를 다운로드하여 설치하기 시작합니다.
 3.  "Office 365, Azure 또는 Azure Active Directory를 사용하는 다른 서비스와 페더레이션을 설정할 수 없습니다."를 선택합니다.
 4.  이 도구가 다운로드되고 실행되면 연결 진단 창이 표시됩니다. 이 도구는 페더레이션 연결을 테스트하는 과정을 안내합니다.
-5.  연결 분석기에서 로그인하기 위한 SAML 2.0 IDP가 열립니다. 그러면 테스트하려는 사용자 계정의 자격 증명을 입력합니다. ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  연결 분석기가 로그인 할 수 있도록 SAML 2.0 IDP을 열고, 테스트 중인 사용자 계정에 대 한 자격 증명을 입력 합니다. ( ![ saml 2.0 IDP 로그인 창을 보여 주는 스크린샷)](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  페더레이션 테스트 로그인 창에서 SAML 2.0 ID 공급자와 페더레이션되도록 구성된 Azure AD 테넌트에 대한 계정 이름 및 암호를 입력해야 합니다. 이 도구는 해당 자격 증명을 사용하여 로그인을 시도하고 로그인 기도 중에 수행된 자세한 테스트 결과를 출력으로 제공합니다.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. 이 창에는 실패한 테스트 결과가 표시됩니다. 자세한 결과 검토를 클릭하면 수행한 각 테스트 결과에 대한 정보가 표시됩니다. 또한 결과를 공유하기 위해 디스크를 저장할 수도 있습니다.

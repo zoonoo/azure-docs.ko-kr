@@ -4,12 +4,12 @@ description: Application Insights를 사용 하 여 온-프레미스 또는 Micr
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d98fe91994c992d11fc58e3fec42d1796c0c966
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: df13042656aa077b30bf144aab0a47d9fc0a0662
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936540"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263932"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 애플리케이션 Insights에서 종속성 추적 
 
@@ -101,9 +101,10 @@ ASP.NET 응용 프로그램의 경우, 계측 엔진을 사용 하거나 System.
 | 플랫폼 | 전체 SQL 쿼리를 가져오는 데 필요한 단계 |
 | --- | --- |
 | Azure 웹앱 |웹 앱 제어판에서 [Application Insights 블레이드를 열고](../../azure-monitor/app/azure-web-apps.md) .NET에서 SQL 명령을 사용 하도록 설정 합니다. |
-| IIS 서버 (Azure VM, 온-프레미스 등) | [Microsoft. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 패키지를 사용 하거나 상태 모니터 PowerShell 모듈을 사용 하 여 [계측 엔진을 설치](../../azure-monitor/app/status-monitor-v2-api-reference.md) 하 고 IIS를 다시 시작 합니다. |
+| IIS 서버 (Azure VM, 온-프레미스 등) | [Microsoft. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 패키지를 사용 하거나 상태 모니터 PowerShell 모듈을 사용 하 여 [계측 엔진을 설치](../../azure-monitor/app/status-monitor-v2-api-reference.md#enable-instrumentationengine) 하 고 IIS를 다시 시작 합니다. |
 | Azure 클라우드 서비스 | [StatusMonitor를 설치 하기 위한 시작 작업](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) 추가 <br> 응용 프로그램은 [ASP.NET](./asp-net.md) 또는 [ASP.NET Core 응용 프로그램](./asp-net-core.md) 에 대 한 NuGet 패키지를 설치 하 여 빌드 시에 applicationinsights SDK로 등록 됩니다. |
 | IIS Express | [Microsoft. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 패키지를 사용 합니다.
+| Azure 웹 작업 | [Microsoft. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet 패키지를 사용 합니다.
 
 위의 플랫폼별 단계 외에도 applicationInsights.config 파일을 다음과 같이 수정 **하 여 SQL 명령 컬렉션을 사용 하도록 명시적으로 옵트인 해야 합니다** .
 

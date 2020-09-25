@@ -11,19 +11,19 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: ad2b13fbfbd9871a55efb1826fa1e978d4eeb453
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 0d9d28bacac02326ee781ca56309b7a72e921960
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032302"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289172"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Synapse SQL의 GROUP BY 옵션
 Synapse SQL을 사용 하면 다른 GROUP BY 옵션을 구현 하 여 솔루션을 개발할 수 있습니다. 
 
 ## <a name="what-does-group-by-do"></a>그룹화 방법
 
-[GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL 절을 사용하여 데이터를 요약 행 집합으로 집계합니다.
+[GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL 절을 사용하여 데이터를 요약 행 집합으로 집계합니다.
 
 SQL 주문형은 전체 범위의 GROUP BY 옵션을 지원 합니다. SQL 풀은 제한 된 수의 GROUP BY 옵션을 지원 합니다.
 
@@ -124,7 +124,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-다음 이미지는 CREATE TABLE의 결과를 [SELECT로](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)보여 줍니다.
+다음 이미지는 CREATE TABLE의 결과를 [SELECT로](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)보여 줍니다.
 
 ![큐브별로 그룹화](./media/develop-group-by-options/develop-group-by-cube.png)
 

@@ -5,18 +5,18 @@ description: LUIS 작성 API를 사용하여 CSV 형식의 기존 데이터에�
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 3df1ccadb69f02272c44a0ba574805c816151dc7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 13e18e024c2200459e58474f53bed2431e3375a7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520943"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298232"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드
 

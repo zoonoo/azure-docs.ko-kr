@@ -1,14 +1,16 @@
 ---
 title: 수련 여 모드-Personalizer
 description: ''
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 5ee8242fbc9ab5bed4e3eed8997feb122b131062
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f793535f04b36d231cec384b7acd66e38a7eb039
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087200"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253533"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>기존 응용 프로그램에 영향을 주지 않고 Personalizer를 학습 하려면 수련 한 모드를 사용 합니다.
 
@@ -57,7 +59,7 @@ Personalizer를 학습 하 여 다음과 같은 시나리오에서 효율성을 
 
 다음과 같은 방법으로, 수련 여가 온라인 모드와 다른 경우를 학습 합니다.
 
-|Area|실습생 모드|온라인 모드|
+|영역|실습생 모드|온라인 모드|
 |--|--|--|
 |사용자 경험에 미치는 영향|기존 사용자 동작을 사용 하 여 **기본 작업이** 수행 된 것과 획득 한 보상을 관찰 (영향을 주지 않음) 하도록 하 여 Personalizer를 교육할 수 있습니다. 즉, 사용자의 경험과 비즈니스 결과는 영향을 받지 않습니다.|사용자 동작에 영향을 주기 위해 Rank 호출에서 반환 된 상위 작업을 표시 합니다.|
 |학습 속도|Personalizer은 온라인 모드로 학습 하는 경우를 제외 하 고는 더 느리게 설명 합니다. 수련 여은 탐색이 수행 될 수 없으므로 학습 속도를 제한 하는 **기본 작업**에서 얻은 보상을 관찰 하 여 학습할 수 있습니다.|는 현재 모델을 활용 하 고 새로운 추세를 탐색할 수 있기 때문에 더 빠르게 학습 합니다.|
@@ -88,7 +90,7 @@ Personalizer를 수련 여 설정 하 고 기록 데이터의 작업 및 컨텍�
 
 Personalizer만 _처리_하는 경우에도 데이터의 유효성 검사가 Personalizer 학습에 적합 한 경우에도 동일한 과제가 제공 됩니다. 대신 100%의 트래픽을 포함 하 고 모든 사용자가 제어 (영향을 받지 않음) 환경을 얻는 경우에는 수련 한 모드를 사용할 수 있습니다.
 
-Personalizer 및 learning을 사용 하는 사용 사례가 있으면 A/B 실험을 통해 보상에 사용 되는 신호 보다 더 복잡 한 결과의 제어 된 코 호트 및 과학적 비교를 수행할 수 있습니다. A/B 테스트에서 답변할 수 있는 예제 질문은 다음과 같습니다.`In a retail website, Personalizer optimizes a layout and gets more users to _check out_ earlier, but does this reduce total revenue per transaction?`
+Personalizer 및 learning을 사용 하는 사용 사례가 있으면 A/B 실험을 통해 보상에 사용 되는 신호 보다 더 복잡 한 결과의 제어 된 코 호트 및 과학적 비교를 수행할 수 있습니다. A/B 테스트에서 답변할 수 있는 예제 질문은 다음과 같습니다. `In a retail website, Personalizer optimizes a layout and gets more users to _check out_ earlier, but does this reduce total revenue per transaction?`
 
 ## <a name="next-steps"></a>다음 단계
 

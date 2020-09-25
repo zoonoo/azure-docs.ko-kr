@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 81a83c629a1cdcde77ec43751f32ebfe1dfb3425
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 79cc17ba4f845e2263d1a09af4a3f9ae4150f362
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266851"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292203"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 
@@ -68,7 +68,7 @@ ms.locfileid: "84266851"
 ### <a name="complex-expression-example"></a>복합 식 예
 아래 예에서 작업 출력의 심층 하위 필드를 참조하는 복잡한 예를 보여 줍니다. 하위 필드로 계산되는 파이프라인 매개 변수를 참조하려면 subfield1 및 subfield2의 경우와 같이 점(.) 연산자 대신 [] 구문을 사용합니다.
 
-@activity('{activityName}').output.{subfield1}.{subfield2}[pipeline().parameters.subfield3].{subfield4}
+@activity('*activityName*'). 출력. *subfield1*. *subfield2*[pipeline (). parameters.* subfield3*]. *subfield4*
 
 ### <a name="a-dataset-with-a-parameter"></a>매개 변수가 포함된 데이터 세트
 다음 예제에서는 BlobDataset은 **경로**라는 매개 변수를 사용합니다. `dataset().path` 식을 사용하여 **folderPath** 속성에 대한 값을 설정하도록 해당 값을 사용합니다. 

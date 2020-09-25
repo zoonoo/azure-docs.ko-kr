@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2b944f6207ecc47df4176a512a900e08e6b0d643
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 051a910fb8803f7c9ebc6d9cdfb00bc814db4c0e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885941"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250864"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 
@@ -129,7 +129,7 @@ print(run.get_portal_url())
 
 모델을 학습한 후에는 작업 영역에 저장하고 등록할 수 있습니다. 모델 등록을 사용하면 모델을 작업 영역에 저장하고 버전을 지정하여 [모델 관리 및 배포](concept-model-management-and-deployment.md)를 간소화할 수 있습니다.
 
-다음 코드를 실행하면 모델을 작업 영역에 등록하고, 원격 컴퓨팅 컨텍스트 또는 배포 스크립트에서 이름으로 참조할 수 있도록 합니다. 자세한 내용 및 추가 매개 변수는 참조 문서에서 [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)을 참조하세요.
+다음 코드를 실행하면 모델을 작업 영역에 등록하고, 원격 컴퓨팅 컨텍스트 또는 배포 스크립트에서 이름으로 참조할 수 있도록 합니다. 자세한 내용 및 추가 매개 변수는 참조 문서에서 [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-)을 참조하세요.
 
 ```python
 model = run.register_model(model_name='sklearn-sample', model_path=None)
@@ -139,7 +139,7 @@ model = run.register_model(model_name='sklearn-sample', model_path=None)
 
 원본 디렉터리가 로컬 Git 리포지토리인 학습 실행을 시작하면 리포지토리에 대한 정보가 실행 기록에 저장됩니다. 자세한 내용은 [Azure Machine Learning에 대한 Git 통합](concept-train-model-git-integration.md)을 참조하세요.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 예측 도구를 사용하여 scikit-learn 모델을 학습하는 Notebook은 다음을 참조하세요.
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/image-classification-mnist-data/img-classification-part1-training.ipynb)

@@ -11,12 +11,12 @@ ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d442c980ad5bbe3b56eae127b6e9eaeddf380a4e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 172e836a212f9ce097c2c4e392a7386a510c2c6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526853"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266295"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>지원 되는 토폴로지 및 시나리오 Azure AD Connect 클라우드 프로 비전
 이 문서에서는 Azure AD Connect 클라우드 프로 비전을 사용 하는 다양 한 온-프레미스 및 Azure Active Directory (Azure AD) 토폴로지에 대해 설명 합니다. 이 문서에는 지원 되는 구성 및 시나리오만 포함 되어 있습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "90526853"
 - 원본 앵커에 사용 되는 특성은 변경할 수 없습니다.
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>단일 포리스트, 단일 Azure AD 테넌트
-![단일 포리스트 및 단일 테넌트에 대한 토폴로지](media/plan-cloud-provisioning-topologies/single-forest.png)
+![단일 포리스트 및 단일 테 넌 트에 대 한 토폴로지를 보여 주는 다이어그램입니다.](media/plan-cloud-provisioning-topologies/single-forest.png)
 
 가장 간단한 토폴로지는 하나 이상의 도메인 및 단일 Azure AD 테 넌 트를 포함 하는 단일 온-프레미스 포리스트입니다.  이 시나리오의 예는 [자습서: 단일 AZURE AD 테 넌 트를 포함 하는 단일 포리스트](tutorial-single-forest.md) 를 참조 하세요.
 
@@ -45,7 +45,7 @@ ms.locfileid: "90526853"
 일반적인 토폴로지는 하나 이상의 도메인 및 단일 Azure AD 테 넌 트를 포함 하는 여러 AD 포리스트입니다.  
 
 ## <a name="existing-forest-with-azure-ad-connect-new-forest-with-cloud-provisioning"></a>Azure AD Connect 있는 기존 포리스트, 클라우드 프로 비전을 사용 하는 새 포리스트
-![단일 포리스트 및 단일 테넌트에 대한 토폴로지](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
+![기존 포리스트와 새 포리스트에 대 한 토폴로지를 표시 하는 다이어그램입니다.](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
 
 이 시나리오는 토폴로지가 다중 포리스트 시나리오와 유사 하지만이는 기존 Azure AD Connect 환경을 포함 하지만 Azure AD Connect 클라우드 프로 비전을 사용 하 여 새 포리스트를 가져오는 것입니다.  이 시나리오의 예는 [자습서: 단일 AZURE AD 테 넌 트를 포함 하는 기존 포리스트](tutorial-existing-forest.md) 를 참조 하세요.
 

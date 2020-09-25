@@ -1,14 +1,14 @@
 ---
 title: 효과 작동 방식 이해
 description: Azure Policy 정의는 규정 준수가 관리되고 보고되는 방법을 결정하는 다양한 효과가 있습니다.
-ms.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: b6622796ab0554f692a3b64e0b41d60f49c561b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425537"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252007"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -24,7 +24,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 - [사용 안 함](#disabled)
 - [수정](#modify)
 
-다음 효과는 _더 이상 사용_되지 않습니다.
+다음 효과는 _더 이상 사용 되지_않습니다.
 
 - [EnforceOPAConstraint](#enforceopaconstraint)
 - [EnforceRegoPolicy](#enforceregopolicy)
@@ -374,8 +374,8 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 이 효과는 `Microsoft.Kubernetes.Data`의 정책 정의 _mode_와 함께 사용됩니다. OPA([Open Policy Agent](https://www.openpolicyagent.org/))에 대한 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework)로 정의된 Gatekeeper v3 허용 제어 규칙을 Azure의 Kubernetes 클러스터로 전달하는 데 사용됩니다.
 
-> [!NOTE]
-> [Azure Policy for Kubernetes](./policy-for-kubernetes.md)는 미리 보기 상태이며 Linux 노드 풀 및 기본 제공 정책 정의만 지원합니다. 기본 제공 정책 정의는 **Kubernetes** 범주에 있습니다. **EnforceOPAConstraint** 효과가 있는 제한 된 미리 보기 정책 정의 및 관련 **Kubernetes 서비스** 범주는 _더 이상 사용_되지 않습니다. 대신 리소스 공급자 모드를 사용 하 여 _감사_ 및 _거부_ 효과를 사용 `Microsoft.Kubernetes.Data` 합니다.
+> [!IMPORTANT]
+> **EnforceOPAConstraint** 효과가 있는 제한 된 미리 보기 정책 정의 및 관련 **Kubernetes 서비스** 범주는 _사용 되지_않습니다. 대신 리소스 공급자 모드를 사용 하 여 _감사_ 및 _거부_ 효과를 사용 `Microsoft.Kubernetes.Data` 합니다.
 
 ### <a name="enforceopaconstraint-evaluation"></a>EnforceOPAConstraint 평가
 
@@ -430,8 +430,8 @@ EnforceOPAConstraint 효과의 **details** 속성에는 Gatekeeper v3 허용 제
 
 이 효과는 `Microsoft.ContainerService.Data`의 정책 정의 _mode_와 함께 사용됩니다. [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 OPA([Open Policy Agent](https://www.openpolicyagent.org/))에 대한 [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)로 정의된 Gatekeeper v2 허용 제어 규칙을 전달하는 데 사용됩니다.
 
-> [!NOTE]
-> [Azure Policy for Kubernetes](./policy-for-kubernetes.md)는 미리 보기 상태이며 Linux 노드 풀 및 기본 제공 정책 정의만 지원합니다. 기본 제공 정책 정의는 **Kubernetes** 범주에 있습니다. **EnforceRegoPolicy** 효과 및 관련 **Kubernetes 서비스** 범주가 포함된 제한된 미리 보기 정책 정의는 더 이상 사용되지 않습니다. 대신 리소스 공급자 모드를 사용 하 여 _감사_ 및 _거부_ 효과를 사용 `Microsoft.Kubernetes.Data` 합니다.
+> [!IMPORTANT]
+> **EnforceRegoPolicy** 효과 및 관련 **Kubernetes 서비스** 범주가 포함된 제한된 미리 보기 정책 정의는 ‘더 이상 사용되지 않습니다’. 대신 리소스 공급자 모드를 사용 하 여 _감사_ 및 _거부_ 효과를 사용 `Microsoft.Kubernetes.Data` 합니다.
 
 ### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy 평가
 

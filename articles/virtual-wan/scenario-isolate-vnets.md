@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8a0a8093ab5f4d6c5e528bce592d5c029de30a7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: f725932b30fad062123d6c752f2d563b84f98b2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400044"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267638"
 ---
 # <a name="scenario-isolating-vnets"></a>시나리오: Vnet 격리
 
@@ -24,7 +24,7 @@ ms.locfileid: "89400044"
 
 이 시나리오에서는 특정 VNet 내의 워크 로드가 격리 된 상태를 유지 하 고 다른 Vnet와 통신할 수 없습니다. 그러나 Vnet는 모든 분기 (VPN, ER 및 사용자 VPN)에 도달 하는 데 필요 합니다. 필요한 경로 테이블 수를 파악 하기 위해 연결 행렬을 작성할 수 있습니다. 이 시나리오에서 각 셀은 원본 (행)이 대상 (열)과 통신할 수 있는지 여부를 나타내는 다음 표와 같습니다.
 
-| 시작 |   대상 |  *Vnet* | *분기* |
+| 보낸 사람 |   대상 |  *Vnet* | *분기* |
 | -------------- | -------- | ---------- | ---|
 | VNet     | &#8594;|           |     X    |
 | 분기   | &#8594;|    X     |     X    |

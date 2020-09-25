@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b48bebe6aa5f9862d5f51fea257c4b7f3057639b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 22992f66d45b9bdb76383301cccff645c98a74d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794476"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264782"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Azure AD 관리 단위: 문제 해결 및 FAQ
 
-Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해 하나 이상의 au (관리 단위)로 제한 되는 범위를 사용 하 여 Azure AD 역할에 사용자를 할당할 수 있습니다. 일반 작업에 대 한 샘플 PowerShell 스크립트는 [관리 단위 작업](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)을 참조 하세요.
+Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해 하나 이상의 au (관리 단위)로 제한 되는 범위를 사용 하 여 Azure AD 역할에 사용자를 할당할 수 있습니다. 일반 작업에 대 한 샘플 PowerShell 스크립트는 [관리 단위 작업](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true)을 참조 하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -67,9 +67,9 @@ Azure Active Directory (Azure AD)의 보다 세부적인 관리 제어를 위해
 
 **Q: PowerShell 및 Graph API에서 지원 되는 관리 단위는 무엇입니까?**
 
-**A:** 예. [PowerShell cmdlet 설명서](/powershell/module/Azuread/?view=azureadps-2.0-preview) 및 [샘플 스크립트](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview)에서 관리 단위에 대 한 지원을 찾을 수 있습니다. 
+**A:** 예. [PowerShell cmdlet 설명서](/powershell/module/Azuread/?view=azureadps-2.0-preview&preserve-view=true) 및 [샘플 스크립트](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0-preview&preserve-view=true)에서 관리 단위에 대 한 지원을 찾을 수 있습니다.
 
-Microsoft Graph에서 [administrativeUnit 리소스 종류](/graph/api/resources/administrativeunit?view=graph-rest-beta) 에 대 한 지원을 찾습니다.
+Microsoft Graph에서 [administrativeUnit 리소스 종류](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true) 에 대 한 지원을 찾습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

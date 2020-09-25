@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 54d33b849f809dbe1ebefbbc3d2f63db6877e86e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: feb79a2a077f819cce22925f23f5ed640d05e8d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996723"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296674"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 데이터에 연결
 
@@ -24,14 +24,14 @@ ms.locfileid: "90996723"
 
 다음 표에서는 데이터 저장소 및 데이터 집합의 이점을 정의 하 고 요약 합니다. 
 
-||설명| 이점|   
+|개체|Description| 이점|   
 |---|---|---|
-|데이터 저장소| 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하 여 Azure의 저장소 서비스에 안전 하 게 연결 합니다. | 사용자 정보를 안전 하 게 저장 하기 때문에 <br><br> <li> &nbsp; &nbsp; 인증 &nbsp; 자격 증명이 나 원본 데이터 원본을 위험에 노출 하지 마십시오. <li> 더 이상 스크립트에서 하드 코드를 코딩할 필요가 없습니다.
+|데이터 저장소| 작업 영역과 연결 된 [Key Vault](https://azure.microsoft.com/services/key-vault/) 에서 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하 여 Azure의 저장소 서비스에 안전 하 게 연결 합니다. | 사용자 정보를 안전 하 게 저장 하기 때문에 <br><br> <li> &nbsp; &nbsp; 인증 &nbsp; 자격 증명이 &nbsp; 나 &nbsp; 원본 &nbsp; 데이터 원본을 위험에 노출 하지 마십시오. <li> 더 이상 스크립트에서 하드 코드를 코딩할 필요가 없습니다.
 |데이터 세트| 데이터 세트를 만들면 데이터 원본 위치에 대한 참조와 해당 메타데이터의 복사본을 만듭니다. 데이터 집합을 사용 하 여 다음을 수행할 수 있습니다. <br><br><li> 모델 학습 중 데이터에 액세스 합니다.<li> 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.<li> 데이터 탐색을 위해 pandas와 같은 오픈 소스 라이브러리를 활용 합니다. | 데이터 집합은 지연 평가 되 고 데이터는 기존 위치에 남아 있기 때문에 <br><br><li>저장소에 데이터의 단일 복사본을 유지 합니다.<li> 추가 저장소 비용이 발생 하지 않음 <li> 실수로 원래 데이터 원본을 변경 하는 것은 위험 하지 않습니다.<li>ML 워크플로 성능 속도를 향상 시킵니다. 
 
 데이터 저장소 및 데이터 집합이 Azure Machine Learning의 전체 데이터 액세스 워크플로에 적합 한 위치를 이해 하려면 [안전 하 게 데이터 액세스](concept-data.md#data-workflow) 문서를 참조 하세요.
 
-Code first를 사용 하려면 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) 를 사용 하는 다음 문서를 참조 하세요.
+Code first를 사용 하려면 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) 를 사용 하는 다음 문서를 참조 하세요.
 * [데이터 저장소를 사용 하 여 Azure storage 서비스에 연결](how-to-access-data.md)합니다. 
 * [Azure Machine Learning 데이터 집합을 만듭니다](how-to-create-register-datasets.md). 
 
@@ -112,22 +112,22 @@ Studio에서 데이터 집합을 만들려면 다음을 수행 합니다.
 >[!NOTE]
 > 관련이 없는 형식의 기능은 빈 항목으로 표시되어 있습니다.
 
-통계|Description
-------|------
-기능| 요약되는 열의 이름입니다.
-프로필| 유추된 형식을 기반으로 하는 인라인 시각화입니다. 예를 들어 문자열, 술래 및 날짜에는 값 개수가 있고 소수점(숫자)에는 근사 히스토그램이 있습니다. 이를 통해 데이터의 분포를 빠르게 파악할 수 있습니다.
-형식 분포| 열 내 유형의 인라인 값 개수입니다. Null은 고유 형식이므로 이 시각화는 홀수 또는 누락된 값을 탐지하는 데 유용합니다.
-Type|열의 유추된 형식입니다. 가능한 값은 문자열, 부울, 날짜 및 10진수입니다.
-최소값| 열의 최솟값입니다. 형식에 고유 순서 (예: 부울)가 없는 기능에 대 한 빈 항목이 표시 됩니다.
-최대값| 열의 최댓값입니다. 
-개수| 열에서 누락되거나 누락되지 않은 항목의 총 수입니다.
-누락되지 않은 수| 열에서 누락되지 않은 항목의 수입니다. 빈 문자열과 오류는 값으로 처리되므로 "누락되지 않은 수"에 영향을 주지 않습니다.
-분위수| 데이터 분포를 파악하기 위한 각 분위수의 근사 값입니다.
-평균| 열의 산술 평균 또는 평균입니다.
-표준 편차| 이 열의 데이터에 대한 분산 또는 편차를 측정한 값입니다.
-Variance| 이 열의 데이터가 평균 값에서 분산된 정도를 측정한 값입니다. 
-왜곡도| 이 열의 데이터가 정규 분포에서 치우쳐 있는 정도를 측정한 값입니다.
-첨도| 이 열의 데이터가 정규 분포와 비교하여 뾰족하게 밀집된 정도를 측정한 값입니다.
+|통계|Description
+|------|------
+|기능| 요약되는 열의 이름입니다.
+|프로필| 유추된 형식을 기반으로 하는 인라인 시각화입니다. 예를 들어 문자열, 술래 및 날짜에는 값 개수가 있고 소수점(숫자)에는 근사 히스토그램이 있습니다. 이를 통해 데이터의 분포를 빠르게 파악할 수 있습니다.
+|형식 분포| 열 내 유형의 인라인 값 개수입니다. Null은 고유 형식이므로 이 시각화는 홀수 또는 누락된 값을 탐지하는 데 유용합니다.
+|Type|열의 유추된 형식입니다. 가능한 값은 문자열, 부울, 날짜 및 10진수입니다.
+|최소값| 열의 최솟값입니다. 형식에 고유 순서 (예: 부울)가 없는 기능에 대 한 빈 항목이 표시 됩니다.
+|최대값| 열의 최댓값입니다. 
+|개수| 열에서 누락되거나 누락되지 않은 항목의 총 수입니다.
+|누락되지 않은 수| 열에서 누락되지 않은 항목의 수입니다. 빈 문자열과 오류는 값으로 처리되므로 "누락되지 않은 수"에 영향을 주지 않습니다.
+|분위수| 데이터 분포를 파악하기 위한 각 분위수의 근사 값입니다.
+|평균| 열의 산술 평균 또는 평균입니다.
+|표준 편차| 이 열의 데이터에 대한 분산 또는 편차를 측정한 값입니다.
+|Variance| 이 열의 데이터가 평균 값에서 분산된 정도를 측정한 값입니다. 
+|왜곡도| 이 열의 데이터가 정규 분포에서 치우쳐 있는 정도를 측정한 값입니다.
+|첨도| 이 열의 데이터가 정규 분포와 비교하여 뾰족하게 밀집된 정도를 측정한 값입니다.
 
 ## <a name="storage-access-and-permissions"></a>저장소 액세스 및 사용 권한
 

@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ef9d0eb3dd97795f3b6757759679351f857891ab
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5e46cd744be609adff764edfe5a506b710e9d788
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288072"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Synapse SQL에 대 한 데이터베이스 데이터 정렬 지원
 
@@ -24,7 +24,7 @@ ms.locfileid: "90032863"
 CREATE DATABASE 문을 사용 하 여 만들 때 기본 Synapse SQL 주문형 데이터베이스 데이터 정렬을 지정할 수 있습니다.
 
 ## <a name="change-collation"></a>데이터 정렬 변경
-SQL 풀 데이터베이스의 기본 데이터 정렬을 변경 하려면 프로 비전 환경의 데이터 정렬 필드를 간단 하 게 업데이트 해야 합니다. 예를 들어, 기본 데이터 정렬을 대/소문자를 구분 하도록 변경 하려면 데이터 정렬의 이름을 SQL_Latin1_General_CP1_CI_AS에서 SQL_Latin1_General_CP1_CS_AS으로 변경 하면 됩니다. 
+SQL 풀 데이터베이스의 기본 데이터 정렬을 변경 하려면 프로 비전 환경의 데이터 정렬 필드를 업데이트 합니다. 예를 들어, 기본 데이터 정렬을 대/소문자를 구분 하도록 변경 하려면 데이터 정렬의 이름을 SQL_Latin1_General_CP1_CI_AS에서 SQL_Latin1_General_CP1_CS_AS로 변경 합니다. 
 
 SQL 주문형 데이터베이스의 기본 데이터 정렬을 변경 하려면 ALTER DATABASE 문을 사용 하면 됩니다.
 

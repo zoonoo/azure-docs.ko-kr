@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e5d8dc60ee0a1f4742382b1cec8ef3ed60e8fb3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1b8673dd98ab66714c54720ea1d909a90e117c18
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970666"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266431"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 데이터 보존 및 고객 데이터
 
@@ -28,7 +28,7 @@ Azure Multi-Factor Authentication 서비스에는 미국, 유럽 및 아시아 �
 
 * 전화 통화를 사용 하는 multi-factor authentication은 미국 데이터 센터에서 시작 되며 전역 공급자에 의해 라우팅됩니다.
 * 유럽 또는 오스트레일리아와 같은 다른 지역의 범용 사용자 인증 요청은 현재 사용자의 위치를 기준으로 처리 됩니다.
-* Microsoft Authenticator 앱을 사용 하는 푸시 알림은 사용자의 위치를 기반으로 하는 지역 데이터 센터를 시작 합니다.
+* Microsoft Authenticator 앱을 사용 하는 푸시 알림은 현재 사용자의 위치를 기반으로 하는 지역 데이터 센터에서 처리 됩니다.
     * Apple 푸시 알림과 같은 장치 공급 업체 특정 서비스는 사용자의 위치 외부에 있을 수 있습니다.
 
 ## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 저장된 개인 데이터

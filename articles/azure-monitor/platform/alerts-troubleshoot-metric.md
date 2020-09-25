@@ -3,15 +3,15 @@ title: Azure 메트릭 경고 문제 해결
 description: Azure Monitor 메트릭 경고 및 가능한 해결 방법에 대 한 일반적인 문제
 author: harelbr
 ms.author: harelbr
-ms.topic: reference
+ms.topic: troubleshooting
 ms.date: 09/14/2020
 ms.subservice: alerts
-ms.openlocfilehash: b0e39982b3d62e0ef722a139024b499efc254f5f
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: f9003aa7b9b2c28e443485484ccd4eb50fa6e0dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068765"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294228"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Azure Monitor 메트릭 경고 문제 해결 
 

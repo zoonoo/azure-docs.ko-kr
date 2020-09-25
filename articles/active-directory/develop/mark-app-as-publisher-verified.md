@@ -12,16 +12,16 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: acb4b601118b341d14bc5e7c549d22eef23b2cc2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085708"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258339"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>앱을 게시자 확인으로 표시
 
-애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 Microsoft 파트너 네트워크(MPN) 계정을 사용하여 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다. 이 문서에서는 [게시자 확인](publisher-verification-overview.md) 프로세스를 완료 하는 방법을 설명 합니다.
+앱 등록에 확인 된 게시자가 있는 경우 앱 게시자는 해당 Microsoft 파트너 네트워크 (MPN) 계정을 사용 하 여 id를 [확인](/partner-center/verification-responses) 하 고이 MPN 계정을 앱 등록과 연결 했음을 의미 합니다. 이 문서에서는 [게시자 확인](publisher-verification-overview.md) 프로세스를 완료 하는 방법을 설명 합니다.
 
 ## <a name="quickstart"></a>빠른 시작
 이미 Microsoft 파트너 네트워크 (MPN)에 등록되어 있고 [필수 조건](publisher-verification-overview.md#requirements)을 충족한 경우 바로 시작할 수 있습니다. 
@@ -42,9 +42,9 @@ ms.locfileid: "90085708"
 
 1. 파트너 센터의 MPN 계정에 게시자 확인으로 표시 하려는 앱을 변경할 수 있는 권한이 있는 조직 (Azure AD) 계정에 대 한 [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) 을 사용 하 여 로그인 했는지 확인 합니다.
 
-    - Azure AD에서이 사용자는 응용 프로그램 관리, 클라우드 응용 프로그램 관리자, 전역 관리자 역할 중 하나의 멤버 여야 합니다. 
+    - Azure AD에서이 사용자는 응용 프로그램 관리, 클라우드 응용 프로그램 관리자, 전역 관리자 [역할](../users-groups-roles/directory-assign-admin-roles.md)중 하나의 멤버 여야 합니다. 
 
-    - 파트너 센터에서 이 사용자는 MPN 관리자, 계정 관리자 또는 글로벌 관리자(Azure AD의 공유 역할)역할 중 하나가 할당되어 있어야 합니다. 
+    - 파트너 센터에서 이 사용자는 [역할](/partner-center/permissions-overview)로 MPN 관리자, 계정 관리자 또는 글로벌 관리자(Azure AD의 공유 역할) 중 하나가 할당되어야 합니다. 
 
 1. 앱 등록 포털로 이동 합니다.  
 

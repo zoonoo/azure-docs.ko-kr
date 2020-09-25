@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2b7acb1ad6fbe0beb4d79ee2a833561f0829664c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 392ecff2ab120e713a07d130493a4a8339dae5ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423034"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296198"
 ---
 # <a name="options"></a>옵션 #
 
@@ -51,7 +51,7 @@ Controls 옵션은 플레이어에 게 사용자가 조작할 수 있는 컨트�
 > [!NOTE]
 > 이 옵션은 Windows Phone, Apple iOS, Android 등의 모바일 장치에서 지원 되지 않습니다. 모바일 장치는 소비자의 월간 데이터 요금제 사용을 방지 하기 위해 자동 실행 기능을 차단 합니다 (종종 비용이 많이 듭니다.). 이 경우 비디오를 시작 하려면 사용자 터치/클릭이 필요 합니다.
 
-`<video autoplay ...>`디스크나`{ "autoplay": true }`
+`<video autoplay ...>`디스크나 `{ "autoplay": true }`
 
 ### <a name="poster"></a>장 ###
 포스터 특성은 비디오 재생을 시작 하기 전에 표시 되는 이미지를 설정 합니다. 이는 종종 비디오 또는 사용자 지정 제목 화면의 프레임입니다. 사용자가 play를 클릭 하는 즉시 이미지는 사라집니다.
@@ -93,11 +93,11 @@ Height 특성은 비디오의 표시 높이를 설정 합니다.
 
 `<video ... data-setup='{"fluid": true}'>`
 
-`fluid`옵션은 명시적 `width` 및 `height` 설정 보다 우선 합니다. 이 옵션은 Azure Media Player 버전 이상 에서만 사용할 수 있습니다 `2.0.0` .
+`fluid` 옵션은 명시적 `width` 및 `height` 설정 보다 우선 합니다. 이 옵션은 Azure Media Player 버전 이상 에서만 사용할 수 있습니다 `2.0.0` .
 
 ### <a name="playbackspeed"></a>playbackSpeed ###
 
-`playbackSpeed`옵션은 playbackSpeed 컨트롤 및 사용자가 사용할 수 있는 재생 속도 설정 집합을 제어 합니다. `playbackSpeed`개체를 사용 합니다. 컨트롤 막대에서 재생 속도 제어를 사용 하도록 설정 하려면 `enabled` 개체의 속성을 true로 설정 해야 합니다. 태그에서 재생 속도를 사용 하는 예제:
+`playbackSpeed` 옵션은 playbackSpeed 컨트롤 및 사용자가 사용할 수 있는 재생 속도 설정 집합을 제어 합니다. `playbackSpeed` 개체를 사용 합니다. 컨트롤 막대에서 재생 속도 제어를 사용 하도록 설정 하려면 `enabled` 개체의 속성을 true로 설정 해야 합니다. 태그에서 재생 속도를 사용 하는 예제:
 
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 

@@ -10,21 +10,21 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9db7f2016de01edbedfa9e7d7254561fea957d2a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 33e1ebc2269ef1db6bb0646f845b09be1a01c724
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495304"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289058"
 ---
 # <a name="use-t-sql-loops-in-synapse-sql"></a>Synapse SQL에서 T-sql 루프 사용
 이 문서에서는 Synapse SQL에서 SQL 풀을 사용 하 여 T-sql 루프를 사용 하 고, 커서를 바꾸고, 관련 솔루션을 개발 하는 데 필요한 팁을 제공 합니다.
 
 ## <a name="purpose-of-while-loops"></a>WHILE 루프의 목적
 
-Synapse SQL은 문 블록을 반복 실행 하기 위한 [while](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15) 루프를 지원 합니다. 이 WHILE 루프는 지정한 조건이 true이거나 코드가 BREAK 키워드를 사용하여 루프를 명시적으로 종료할 때까지 계속됩니다. 
+Synapse SQL은 문 블록을 반복 실행 하기 위한 [while](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15&preserve-view=true) 루프를 지원 합니다. 이 WHILE 루프는 지정한 조건이 true이거나 코드가 BREAK 키워드를 사용하여 루프를 명시적으로 종료할 때까지 계속됩니다. 
 
-Sql 풀의 루프는 SQL 코드에 정의 된 커서를 대체 하는 데 유용 합니다. 다행히 SQL 코드로 작성된 거의 모든 커서는 빠른 정방향 읽기 전용 변형만 존재합니다. 따라서 [WHILE] 루프는 커서를 대체 하는 좋은 대안입니다.
+Sql 풀의 루프는 SQL 코드에 정의 된 커서를 대체 하는 데 유용 합니다. 다행히 SQL 코드로 작성된 거의 모든 커서는 빠른 정방향 읽기 전용 변형만 존재합니다. 따라서 루프는 커서를 대체 하는 좋은 방법입니다.
 
 ## <a name="replace-cursors-in-sql-pool"></a>SQL 풀에서 커서 바꾸기
 

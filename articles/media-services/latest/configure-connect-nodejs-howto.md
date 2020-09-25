@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4f6b24b17ac0e12c286a11abe8732bb86e2deb5c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.custom: devx-track-js
+ms.openlocfilehash: d32f39daeb66990d99915e8bbcca5dd637d4f914
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297351"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296266"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Media Services v3 API에 연결-Node.js
 
@@ -27,7 +27,7 @@ ms.locfileid: "89297351"
 
 이 문서에서는 서비스 사용자 로그인 방법을 사용 하 여 Azure Media Services v3 node.js SDK에 연결 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Node.js](https://nodejs.org/en/download/)를 설치합니다.
 - [Media Services 계정 만들기](./create-account-howto.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해야 합니다.
