@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 Windows VM을 Azure Premium Storage로 마이그레이션
-description: Site Recovery를 사용하여 Azure Premium Storage에 기존 가상 머신을 마이그레이션합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다.
+description: Azure Site Recovery를 사용 하 여 표준 저장소 계정에서 프리미엄 저장소 계정으로 VM 디스크를 마이그레이션하는 방법에 대해 알아봅니다.
 author: luywang
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 51fa0c063de106f627fc097910514e7c5416ee51
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 203176c4c7ffed95cb4f1616f29f3953fcc0afc5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525962"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320101"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 Premium Storage로 마이그레이션
 
@@ -62,7 +62,7 @@ Site Recovery는 최소한의 가동 중지 시간 또는 가동 중지 시간 �
 * 장애 조치(failover) 시 만든 경우 VM에서 연결할 Azure 가상 네트워크 Azure 가상 네트워크는 Site Recovery가 실행되는 동일한 지역에 있어야 합니다.
 * 복제 로그를 저장할 Azure 표준 스토리지 계정 마이그레이션되는 VM 디스크와 동일한 스토리지 계정일 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이전 섹션의 관련 마이그레이션 시나리오 구성 요소 이해
 * [Site Recovery에서 장애 조치(Failover)](../../site-recovery/site-recovery-failover.md)에 대해 학습하여 작동 중단 시간 계획

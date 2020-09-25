@@ -7,12 +7,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 40ce2844e33c9a71f87e434a6a3e9f8e0f7e3cc6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 360578a36b92711c55b1fc65befa1b3df7927aad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322111"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330896"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>여러 Azure Monitor Application Insights 리소스 통합 
 이 문서에서는 다른 Azure 구독에 있는 경우에도 Application Insights 커넥터의 사용 중단을 대체 하 여 한 곳에서 모든 Application Insights 로그 데이터를 쿼리하고 보는 방법을 설명 합니다. 단일 쿼리에 포함할 수 있는 Application Insights 리소스의 수는 100 개로 제한 됩니다.
@@ -57,7 +57,7 @@ ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하
 ![쿼리 간 결과 예제](media/unify-app-resource-data/app-insights-query-results.png)
 
 >[!NOTE]
->로그 경고의 [리소스 간 쿼리](./cross-workspace-query.md)는 새 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서 지원됩니다. [레거시 Log Analytics 경고 API](../platform/api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. [SCHEDULEDQUERYRULES api의 ARM 템플릿을](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) 사용 하 여 스위치를 만들지 않고 [리소스 간 쿼리](./cross-workspace-query.md) 로그 경고 규칙을 만들 수 있습니다. 그러나이 경고 규칙은 Azure Portal [scheduledQueryRules api](/rest/api/monitor/scheduledqueryrules) 를 통해 관리할 수 있습니다.
+>로그 경고의 [리소스 간 쿼리](./cross-workspace-query.md) 는 현재 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서만 지원 됩니다. 레거시 Log Analytics Alerts API를 사용 하는 경우 [현재 api로 전환](../platform/alerts-log-api-switch.md)해야 합니다. [예제 템플릿을 참조](../platform/alerts-log-create-templates.md)하세요.
 
 ## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Application Insights 및 Log Analytics 작업 영역 스키마의 차이점
 다음 표에는 Log Analytics 및 Application Insights의 스키마 간 차이점이 나와 있습니다.  
@@ -76,9 +76,9 @@ ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하
 | AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
 | 브라우저 | client_browser |
-| 도시 | client_city |
+| 구/군/시 | client_city |
 | ClientIP | client_IP |
-| Computer | cloud_RoleInstance | 
+| 컴퓨터 | cloud_RoleInstance | 
 | 국가 | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
@@ -88,7 +88,7 @@ ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | message | 
-| ExceptionType | type |
+| ExceptionType | 형식 |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
 | OS | client_OS | 
@@ -106,7 +106,7 @@ ApplicationsScoping 함수는 Application Insights 데이터 구조를 반환하
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | type |
+| TelemetryTYpe | 형식 |
 | URL | url |
 | UserAccountId | user_AccountId |
 

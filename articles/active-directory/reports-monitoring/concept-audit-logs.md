@@ -13,20 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/17/2019
+ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 23cfc2ea17e1801ec4caeea9e8933cfdc72e33d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331253"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
 Azure AD(Azure Active Directory) 보고서를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
+
+
 
 보고 아키텍처는 다음과 같은 구성 요소로 구성됩니다.
 
@@ -45,7 +47,7 @@ Azure AD(Azure Active Directory) 보고서를 통해 사용자 환경의 작동 
 
 ## <a name="audit-logs"></a>감사 로그
 
-Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다. 감사 보고서에 액세스 하려면 **Azure Active Directory**의 **모니터링** 섹션에서 **감사 로그** 를 선택 합니다. 감사 로그의 대기 시간은 최대 1 시간 일 수 있으므로 작업을 완료 한 후에 감사 작업 데이터가 포털에 표시 되는 데 시간이 오래 걸릴 수 있습니다.
+Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다. 감사 보고서에 액세스 하려면 **Azure Active Directory**의 **모니터링** 섹션에서 **감사 로그** 를 선택 합니다. 
 
 
 
@@ -62,15 +64,15 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 
 도구 모음에서 **열** 을 클릭 하 여 목록 보기를 사용자 지정할 수 있습니다.
 
-![감사 로그](./media/concept-audit-logs/columns.png "감사 로그")
+![감사 열](./media/concept-audit-logs/columns.png "감사 열")
 
 그러면 추가 필드를 표시하거나 이미 표시된 필드를 제거할 수 있습니다.
 
-![감사 로그](./media/concept-audit-logs/columnselect.png "감사 로그")
+![필드 제거](./media/concept-audit-logs/columnselect.png "필드 제거")
 
 자세한 정보를 가져오려면 목록 보기에서 항목을 선택합니다.
 
-![감사 로그](./media/concept-audit-logs/details.png "감사 로그")
+![항목 선택](./media/concept-audit-logs/details.png "항목 선택")
 
 
 ## <a name="filtering-audit-logs"></a>감사 로그 필터링
@@ -85,7 +87,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - 초기자(작업자)
 - 날짜 범위
 
-![감사 로그](./media/concept-audit-logs/filter.png "감사 로그")
+![필터 개체](./media/concept-audit-logs/filter.png "Filter 개체")
 
 **서비스** 필터를 사용 하면 다음 서비스의 드롭다운 목록에서 선택할 수 있습니다.
 
@@ -157,7 +159,7 @@ Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습�
 
 **다운로드** 단추를 선택 하 여 필터링 된 데이터를 최대 25만 개의 레코드로 다운로드 하도록 선택할 수도 있습니다. 로그는 CSV 또는 JSON 형식으로 다운로드할 수 있습니다. 다운로드할 수 있는 레코드의 수는 [Azure Active Directory 보고서 보존 정책](reference-reports-data-retention.md)에 의해 제한됩니다.
 
-![감사 로그](./media/concept-audit-logs/download.png "감사 로그")
+![데이터 다운로드](./media/concept-audit-logs/download.png "데이터 다운로드")
 
 ## <a name="audit-logs-shortcuts"></a>감사 로그 바로 가기
 
@@ -170,7 +172,7 @@ Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습�
 
 사용자 및 그룹 기반 감사 보고서를 사용하여 다음과 같은 질문에 대한 답을 얻을 수 있습니다.
 
-- 어떤 종류의 업데이트가 사용자에게 적용되나요?
+- 사용자에 게 적용 된 업데이트 유형은 무엇입니까?
 
 - 얼마나 많은 사용자가 변경되었나요?
 
@@ -188,11 +190,11 @@ Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습�
 
 사용자와 관련 된 감사 데이터만 검토 하려는 경우에는 **사용자** 탭의 **모니터링** 섹션에 있는 **감사 로그** 에서 필터링 된 보기를 찾을 수 있습니다. 이 진입점에는 미리 선택 된 범주로 **Usermanagement** 가 있습니다.
 
-![감사 로그](./media/concept-audit-logs/users.png "감사 로그")
+![사용자](./media/concept-audit-logs/users.png "사용자")
 
 그룹과 관련 된 감사 데이터만 검토 하려는 경우 **그룹** 탭의 **모니터링** 섹션에 있는 **감사 로그** 에서 필터링 된 보기를 찾을 수 있습니다. 이 진입점에는 미리 선택 된 범주의 **Groupmanagement** 가 있습니다.
 
-![감사 로그](./media/concept-audit-logs/groups.png "감사 로그")
+![그룹 필터링](./media/concept-audit-logs/groups.png "그룹 필터링")
 
 ### <a name="enterprise-applications-audit-logs"></a>Enterprise 애플리케이션 감사 로그
 
@@ -206,7 +208,7 @@ Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습�
 
 애플리케이션과 관련된 감사 데이터를 검토하려면 **Enterprise 애플리케이션** 블레이드의 **활동** 섹션에 있는 **감사 로그**에서 필터링된 보기를 찾을 수 있습니다. 이 진입점에는 **응용 프로그램 유형**으로 미리 선택 된 **엔터프라이즈 응용 프로그램이** 있습니다.
 
-![감사 로그](./media/concept-audit-logs/enterpriseapplications.png "감사 로그")
+![Enterprise 애플리케이션](./media/concept-audit-logs/enterpriseapplications.png "Enterprise 애플리케이션")
 
 ## <a name="microsoft-365-activity-logs"></a>활동 로그 Microsoft 365
 

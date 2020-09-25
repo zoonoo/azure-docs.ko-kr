@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 62f30d8a0fe1b2f2397fc16161929279a148aaa2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 741bea5129e5fa9660e198a74e23f0ef6c67dc23
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037510"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329757"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 지원
 
@@ -38,8 +38,7 @@ Microsoft 상업용 Marketplace 게시자로 시작하는 것과 관련된 질�
 ## <a name="marketing-resources"></a>마케팅 리소스  
 
 | 지원 채널 | Description | 가용성 |  
-|:--- |:--- |:--- |  
-| 메일: [cosell@microsoft.com](mailto:cosell@microsoft.com) | 온보딩 프로세스 및 공동 판매 프로그램 관련 질문에 대한 지원입니다. | 태평양 표준 시간대를 기준으로 합니다. |  
+|:--- |:--- |:--- |
 | 메일: [gtm@microsoft.com](mailto:gtm@microsoft.com) | GTM 혜택 및 프로그램 질문에 대한 지원입니다. | 태평양 표준 시간대의 근무 시간입니다. |  
 | 메일: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Azure 로고의 브랜드 사용과 브랜딩에 대한 질문과 답변을 제공합니다. |  |  
 

@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용하여 조직에서 Azure 리소스에 대한 규칙을 설정하는 방법을 설명합니다.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330284"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -102,16 +102,19 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 `indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹** 및 **구독**입니다. 리소스 그룹 또는 구독에서 위치 또는 태그를 적용하는 정책 정의는 **mode**를 `all`로 설정하고 특히, `Microsoft.Resources/subscriptions/resourceGroups` 또는 `Microsoft.Resources/subscriptions` 유형을 대상으로 지정해야 합니다. 예제는 [패턴: 태그 - 샘플 #1](../samples/pattern-tags.md)을 참조하세요. 태그를 지원하는 리소스 목록은 [Azure 리소스에 대한 태그 지원](../../../azure-resource-manager/management/tag-support.md)을 참조하세요.
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>리소스 공급자 모드(미리 보기)
+### <a name="resource-provider-modes"></a>리소스 공급자 모드
 
-다음 리소스 공급자 모드는 현재 미리 보기 중에 지원됩니다.
+다음 리소스 공급자 노드가 완전히 지원 됩니다.
 
-- `Microsoft.ContainerService.Data`는 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 허용 컨트롤러 규칙을 관리하는 데 사용합니다. 이 리소스 공급자 모드를 사용 하는 정의는 [EnforceRegoPolicy](./effects.md#enforceregopolicy) 효과를 사용 **해야** 합니다. 이 모드는 더 이상 사용되지 않습니다.
-- `Microsoft.Kubernetes.Data`는 Azure 온/오프 Kubernetes 클러스터를 관리하는 데 사용됩니다. 이 리소스 공급자 모드를 사용 하는 정의는 효과 _감사_, _거부_및 사용 _안 함_을 사용 합니다. [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과의 사용은 _더 이상_사용 되지 않습니다.
+- `Microsoft.Kubernetes.Data`는 Azure 온/오프 Kubernetes 클러스터를 관리하는 데 사용됩니다. 이 리소스 공급자 모드를 사용 하는 정의는 효과 _감사_, _거부_및 사용 _안 함_을 사용 합니다. [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과를 사용 하는 것은 _더 이상 사용 되지_않습니다.
+
+다음 리소스 공급자 모드는 현재 **미리 보기로**지원 됩니다.
+
+- `Microsoft.ContainerService.Data`는 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 허용 컨트롤러 규칙을 관리하는 데 사용합니다. 이 리소스 공급자 모드를 사용 하는 정의는 [EnforceRegoPolicy](./effects.md#enforceregopolicy) 효과를 사용 **해야** 합니다. 이 모드는 _사용 되지_않습니다.
 - `Microsoft.KeyVault.Data`는 [Azure Key Vault](../../../key-vault/general/overview.md)에서 자격 증명 모음 및 인증서를 관리하는 데 사용됩니다.
 
 > [!NOTE]
-> 리소스 공급자 모드는 기본 제공 정책 정의만 지원하며 미리 보기 중에는 이니셔티브를 지원하지 않습니다.
+> 리소스 공급자 모드는 기본 제공 정책 정의만 지원 합니다.
 
 ## <a name="metadata"></a>메타데이터
 
@@ -186,7 +189,7 @@ Azure Policy 기본 제공 및 패턴은 [Azure Policy 샘플](../samples/index.
 
 ### <a name="strongtype"></a>strongType
 
-`metadata` 속성 안에 **strongType**을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType**은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType**에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>` 입니다. `Microsoft.Network/virtualNetworks/subnets`)을 입력합니다.
+`metadata` 속성 안에 **strongType**을 사용하여 Azure Portal 내에서 다중 선택 옵션 목록을 제공할 수 있습니다. **strongType**은 지원되는 리소스 유형이거나 허용되는 값일 수 있습니다. 리소스 유형이 **strongType**에 유효한지 확인하려면 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)를 사용합니다. _리소스 종류_ **strongType** 의 형식은 `<Resource Provider>/<Resource Type>` 입니다. 예들 들어 `Microsoft.Network/virtualNetworks/subnets`입니다.
 
 **Get-AzResourceProvider**에서 반환하지 않는 일부 리소스 유형이 지원됩니다. 이러한 형식은 다음과 같습니다.
 
@@ -552,9 +555,9 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 - **거부**: 활동 로그에 이벤트를 생성하고 요청을 실패합니다.
 - **DeployIfNotExists**: 관련 리소스가 아직 없으면 배포합니다.
 - **Disabled**: 정책 규칙 준수에 대해 리소스를 평가하지 않습니다.
-- **EnforceOPAConstraint**(미리 보기): Azure의 자체 관리형 Kubernetes 클러스터용 Gatekeeper v3으로 Open Policy Agent 허용 컨트롤러를 구성합니다(미리 보기).
-- **EnforceRegoPolicy**(미리 보기): Azure Kubernetes Service에서 Gatekeeper v2를 사용하여 Open Policy Agent 허용 컨트롤러를 구성합니다.
 - **Modify**: 리소스에서 정의된 태그를 추가, 업데이트 또는 제거합니다.
+- **EnforceOPAConstraint** (사용 되지 않음): Azure에서 자체 관리 되는 Kubernetes 클러스터에 대 한 게이트 키퍼 V3로 열린 정책 에이전트 입학 컨트롤러를 구성 합니다.
+- **EnforceRegoPolicy** (사용 되지 않음): Azure Kubernetes Service에서 게이트 키퍼 v 2로 개방 된 정책 에이전트 입학 컨트롤러를 구성 합니다.
 
 각 효과, 평가 순서, 속성 및 예제에 대한 자세한 내용은 [Azure Policy 효과 이해](effects.md)를 참조하세요.
 
@@ -592,6 +595,18 @@ Azure Policy는 다음과 같은 유형의 효과를 지원합니다.
 - `requestContext().apiVersion`
   - 정책 평가를 트리거한 요청의 API 버전을 반환합니다(예: `2019-09-01`).
     이 값은 리소스 생성/업데이트에 대 한 평가를 위해 PUT/PATCH 요청에 사용 된 API 버전입니다. 기존 리소스에 대한 규정 준수 평가 중에는 항상 최신 API 버전이 사용됩니다.
+- `policy()`
+  - 평가 중인 정책에 대 한 다음 정보를 반환 합니다. 반환 된 개체 (예:)에서 속성에 액세스할 수 있습니다 `[policy().assignmentId]` .
+  
+  ```json
+  {
+    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+    "definitionReferenceId": "StorageAccountNetworkACLs"
+  }
+  ```
+  
   
 #### <a name="policy-function-example"></a>정책 함수 예제
 

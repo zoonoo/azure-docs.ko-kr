@@ -1,22 +1,22 @@
 ---
-title: Azure Database for PostgreSQL-Hyperscale의 Azure 보안 기준
-description: Azure Database for PostgreSQL-Hyperscale 보안 기준은 Azure 보안 벤치 마크에 지정 된 보안 권장 사항을 구현 하기 위한 절차 지침과 리소스를 제공 합니다.
+title: Azure Database for PostgreSQL-Hyperscale (Citus)에 대 한 Azure 보안 기준
+description: Citus (Azure Database for PostgreSQL-Hyperscale) 보안 기준은 Azure 보안 벤치 마크에 지정 된 보안 권장 사항을 구현 하기 위한 절차 지침과 리소스를 제공 합니다.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 37ebd1702ed8ef059b38378b89f5a5cb61748568
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c82451ca9f1f974aba7578b0dfc4f6f0eb99ac16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231302"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318129"
 ---
-# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Azure Database for PostgreSQL-Hyperscale의 Azure 보안 기준
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에 대 한 Azure 보안 기준
 
-Azure Database for PostgreSQL-Hyperscale의 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
+Citus (Azure Database for PostgreSQL-Hyperscale)의 Azure 보안 기준에는 배포의 보안 상태를 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
 이 서비스의 기준은 [Azure Security Benchmark 버전 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview)에서 가져왔으며, 모범 사례 지침을 통해 Azure에서 클라우드 솔루션을 보호하는 방법에 대한 추천 사항을 제공합니다.
 

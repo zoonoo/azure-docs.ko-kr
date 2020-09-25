@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: f0d8a37f0edc161cbd73bf7438dc1c9486c4251b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62d80426dec6f5d63d8fa5d67d64d6aafb881110
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027940"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320016"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>미리 보기: Azure 이미지 작성기를 사용 하 여 Windows VM 만들기
 
@@ -161,7 +161,7 @@ vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> 원본 이미지의 경우 항상 [버전을 지정](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)해야 합니다 .를 사용할 수 없습니다 `latest` .
+> 원본 이미지의 경우 항상 [버전을 지정](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version)해야 합니다 .를 사용할 수 없습니다 `latest` .
 > 이미지가 배포 되는 리소스 그룹을 추가 하거나 변경 하는 경우 리소스 그룹에 대 한 [사용 권한을 설정](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) 해야 합니다.
  
 ## <a name="create-the-image"></a>이미지 만들기
@@ -179,13 +179,13 @@ az resource create \
 
 완료 되 면 성공 메시지를 다시 콘솔로 반환 하 고에서를 만듭니다 `Image Builder Configuration Template` `$imageResourceGroup` . ' 숨겨진 형식 표시 '를 사용 하도록 설정 하는 경우 Azure Portal의 리소스 그룹에서이 리소스를 볼 수 있습니다.
 
-배경에서 이미지 작성기는 구독에 준비 리소스 그룹도 만듭니다. 이 리소스 그룹은 이미지 빌드에 사용 됩니다. 다음 형식이 됩니다.`IT_<DestinationResourceGroup>_<TemplateName>`
+배경에서 이미지 작성기는 구독에 준비 리소스 그룹도 만듭니다. 이 리소스 그룹은 이미지 빌드에 사용 됩니다. 다음 형식이 됩니다. `IT_<DestinationResourceGroup>_<TemplateName>`
 
 > [!Note]
 > 스테이징 리소스 그룹을 직접 삭제 하면 안 됩니다. 먼저 이미지 템플릿 아티팩트를 삭제 합니다. 이렇게 하면 준비 리소스 그룹이 삭제 됩니다.
 
 이미지 구성 템플릿 전송 중에 서비스에서 오류를 보고 하면 다음을 수행 합니다.
--  이러한 [문제 해결](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) 단계를 검토 합니다. 
+-  이러한 [문제 해결](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors) 단계를 검토 합니다. 
 - 제출을 다시 시도 하기 전에 다음 코드 조각을 사용 하 여 템플릿을 삭제 해야 합니다.
 
 ```azurecli-interactive
@@ -208,7 +208,7 @@ az resource invoke-action \
 
 빌드가 완료 될 때까지 기다립니다. 이는 약 15 분 정도 걸릴 수 있습니다.
 
-오류가 발생 하는 경우 다음 [문제 해결](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) 단계를 검토 하세요.
+오류가 발생 하는 경우 다음 [문제 해결](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) 단계를 검토 하세요.
 
 
 ## <a name="create-the-vm"></a>VM 만들기

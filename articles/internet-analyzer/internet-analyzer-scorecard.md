@@ -1,18 +1,18 @@
 ---
 title: 성과 기록표 해석 | Microsoft Docs
-description: Azure 인터넷 분석기에 대 한 FAQ입니다.
+description: 성과 기록표를 해석 하는 방법을 알아보세요. 성과 기록표 탭에는 테스트에서 집계 되 고 분석 된 결과가 포함 됩니다.
 services: internet-analyzer
 author: mattcalder
 ms.service: internet-analyzer
 ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 5ed8621fbfd1528bfffeaa986fa9c2e17c19f82b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f43d094193fb266d1ecec7089b44d8b3fd5e9b43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744037"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330216"
 ---
 # <a name="interpreting-your-scorecard"></a>성과 기록표 해석
 

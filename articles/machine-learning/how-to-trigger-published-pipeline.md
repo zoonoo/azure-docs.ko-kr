@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 6d54945ce026f91b27ce31ba82ada1b0cc49a260
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324253"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318299"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>논리 앱에서 Machine Learning 파이프라인 실행 트리거
 
@@ -94,3 +94,14 @@ ms.locfileid: "87324253"
     > ![HTTP 설정](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. **저장** 을 선택 하면 이제 일정이 준비 됩니다.
+
+## <a name="next-steps"></a>다음 단계
+
+자세한 내용은 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [일괄 처리 채점에 Azure Machine Learning 파이프라인 사용](tutorial-pipeline-batch-scoring-classification.md)
+
+* [파이프라인](concept-ml-pipelines.md) 에 대 한 자세한 정보
+* [Jupyter를 사용 하 여 Azure Machine Learning 탐색](samples-notebooks.md) 에 대해 자세히 알아보기
+

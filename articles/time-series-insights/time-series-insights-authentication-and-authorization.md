@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: bbec605f25c2e74178bdb5c28d0a7995e4e265f1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9e032b8bb2dd8c82e8b076517f4309baae41c6f9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690394"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320322"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -85,7 +85,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
    1. C#에서 다음 코드는 애플리케이션 대신 토큰을 가져올 수 있습니다. Gen1 환경에서 데이터를 쿼리 하는 방법에 대 한 전체 예제는 [c #을 사용 하 여 쿼리 데이터](time-series-insights-query-data-csharp.md)를 참조 하세요.
 
-        C # 코드에 액세스 하려면 [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] 리포지토리를 참조 하세요. 
+        C # 코드에 액세스 하려면 [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] 리포지토리를 참조 하세요.
 
    1. 그런 다음 `Authorization` 응용 프로그램에서 AZURE TIME SERIES INSIGHTS API를 호출할 때 헤더에서 토큰을 전달할 수 있습니다.
 
@@ -117,7 +117,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 > [!IMPORTANT]
 > 토큰은 토큰의 "대상"이라고도 하는 `https://api.timeseries.azure.com/` 리소스로 정확히 발급되어야 합니다.
 
-> * 따라서 [Postman](https://www.getpostman.com/) **AuthURL**은 다음과 같습니다. `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
+> * 따라서 [Postman](https://www.getpostman.com/) **AuthURL**은 다음과 같습니다. `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com//.default`
 > * `https://api.timeseries.azure.com/`은 유효하지만 `https://api.timeseries.azure.com`은 유효하지 않습니다.
 
 선택적 요청 헤더는 아래에 설명되어 있습니다.

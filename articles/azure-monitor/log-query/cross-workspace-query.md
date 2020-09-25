@@ -6,27 +6,30 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 7cfa3d5652e13ddc88db70674049069a5b391297
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e2f9430ae039cc54c3e6180eb8ea76791d17f67f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322128"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285131"
 ---
-# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Azure Monitor에서 리소스 간 로그 쿼리 수행  
+# <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>작업 영역 및 앱에 걸쳐 있는 Azure Monitor에서 로그 쿼리 수행
+
+Azure Monitor 로그는 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독에서 여러 Log Analytics 작업 영역 및 Application Insights 앱에 대 한 쿼리를 지원 합니다. 이를 통해 시스템 차원의 데이터 보기가 가능합니다.
+
+여러 작업 영역 및 앱에 저장 된 데이터를 쿼리 하는 방법에는 다음 두 가지가 있습니다.
+1. 작업 영역 및 앱 세부 정보를 지정 하 여 명시적으로 이 기법은이 문서에 자세히 설명 되어 있습니다.
+2. [리소스 컨텍스트 쿼리](../platform/design-logs-deployment.md#access-mode)를 암시적으로 사용 합니다. 특정 리소스, 리소스 그룹 또는 구독의 컨텍스트에서 쿼리하면 해당 리소스에 대 한 데이터를 포함 하는 모든 작업 영역에서 관련 데이터가 인출 됩니다. 앱에 저장 된 Application Insights 데이터는 인출 되지 않습니다.
 
 > [!IMPORTANT]
 > [작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md)를 사용하는 경우 원격 분석은 다른 모든 로그 데이터와 함께 Log Analytics 작업 영역에 저장됩니다. Log () 식을 사용 하 여 여러 작업 영역에서 응용 프로그램을 포함 하는 쿼리를 작성 합니다. 동일한 작업 영역에 있는 여러 응용 프로그램의 경우에는 상호 작업 영역 쿼리가 필요 하지 않습니다.
 
-이전에는 Azure Monitor로 현재 작업 영역 내의 데이터만 분석할 수 있었기 때문에 구독에 정의된 여러 작업 영역을 쿼리할 수 없었습니다.  또한 Application Insights에서 직접 또는 Visual Studio에서, Application Insights를 사용하여 웹 기반 애플리케이션에서 수집된 원격 분석 항목만 검색할 수 있습니다. 이로 인해 운영 및 애플리케이션 데이터를 고유하게 분석하는 데 어려움이 나타납니다.
-
-이제 여러 Log Analytics 작업 영역뿐만 아니라 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 Application Insights 앱의 데이터도 쿼리가 가능합니다. 이를 통해 시스템 차원의 데이터 보기가 가능합니다. [로그 분석](./log-query-overview.md)에서 이러한 유형의 쿼리만 수행할 수 있습니다.
 
 ## <a name="cross-resource-query-limits"></a>리소스 간 쿼리 제한 
 
 * 단일 쿼리에 포함할 수 있는 Application Insights 리소스 및 Log Analytics 작업 영역의 수는 100 개로 제한 됩니다.
-* 뷰 디자이너에서는 리소스 간 쿼리가 지원 되지 않습니다. Log Analytics에서 쿼리를 작성 하 고 Azure 대시보드에 고정 하 여 [로그 쿼리를 시각화할](../learn/tutorial-logs-dashboards.md)수 있습니다. 
-* 로그 경고의 리소스 간 쿼리는 새 [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrules)에서 지원됩니다. [레거시 Log Analytics 경고 API](../platform/api-alerts.md)에서 전환하지 않는 한, Azure Monitor는 기본적으로 [레거시 Log Analytics 경고 API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)를 사용하여 Azure Portal에서 새 로그 경고 규칙을 만듭니다. 전환 후에는 새 API가 Azure Portal에서 새 경고 규칙의 기본값이 되며, 해당 API를 사용하여 리소스 간 쿼리 로그 경고 규칙을 만들 수 있습니다. [SCHEDULEDQUERYRULES api에 대 한 Azure Resource Manager 템플릿을](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) 사용 하 여 스위치를 만들지 않고 리소스 간 쿼리 로그 경고 규칙을 만들 수 있지만이 경고 규칙은 Azure Portal가 아닌 [scheduledQueryRules api](/rest/api/monitor/scheduledqueryrules) 를 통해 관리할 수 있습니다.
+* 뷰 디자이너에서는 리소스 간 쿼리가 지원되지 않습니다. Log Analytics에서 쿼리를 작성 하 고 Azure 대시보드에 고정 하 여 [로그 쿼리를 시각화할](../learn/tutorial-logs-dashboards.md)수 있습니다. 
+* 로그 경고의 리소스 간 쿼리는 현재 [SCHEDULEDQUERYRULES API](/rest/api/monitor/scheduledqueryrules)에서만 지원 됩니다. 레거시 Log Analytics Alerts API를 사용 하는 경우 [현재 api로 전환](../platform/alerts-log-api-switch.md)해야 합니다.
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Log Analytics 작업 영역 전체 및 Application Insights 쿼리
@@ -132,7 +135,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
->작업 영역 및 응용 프로그램을 포함 하 여 경고 규칙 리소스의 액세스 유효성 검사는 경고 생성 시 수행 되므로이 메서드는 로그 경고와 함께 사용할 수 없습니다. 경고를 만든 후 함수에 새 리소스를 추가 하는 것은 지원 되지 않습니다. 로그 경고에 리소스 범위를 지정 하는 함수를 사용 하려면 포털에서 또는 리소스 관리자 템플릿을 사용 하 여 범위 리소스를 업데이트 해야 합니다. 또는 로그 경고 쿼리에 리소스 목록을 포함할 수 있습니다.
+> 작업 영역 및 응용 프로그램을 포함 하 여 경고 규칙 리소스의 액세스 유효성 검사는 경고 생성 시 수행 되므로이 메서드는 로그 경고와 함께 사용할 수 없습니다. 경고를 만든 후 함수에 새 리소스를 추가 하는 것은 지원 되지 않습니다. 로그 경고에 리소스 범위를 지정 하는 함수를 사용 하려면 포털에서 또는 리소스 관리자 템플릿을 사용 하 여 범위 리소스를 업데이트 해야 합니다. 또는 로그 경고 쿼리에 리소스 목록을 포함할 수 있습니다.
 
 
 ![Timechart](media/cross-workspace-query/chart.png)

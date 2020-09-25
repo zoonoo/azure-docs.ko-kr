@@ -11,16 +11,16 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: caf0fdf5fd167987ea0fd7111a05b04bd5bf848f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279791"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319846"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Azure Active Directory에서 사용자 계정 이름 변경 계획 및 문제 해결
 
-UPN (사용자 계정 이름)은 사용자 계정에 대 한 인터넷 통신 표준인 특성입니다. UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. 접두사는 "@" 기호를 사용 하 여 접미사를 조인 합니다. 예: someone@example.com. UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 
+UPN (사용자 계정 이름)은 사용자 계정에 대 한 인터넷 통신 표준인 특성입니다. UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. 접두사는 "@" 기호를 사용 하 여 접미사를 조인 합니다. 예들 들어 someone@example.com입니다. UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 
 
 **이 문서에서는 사용자가 UPN을 사용 하 고 있다고 가정 합니다. UPN 변경에 대 한 계획을 수립 하 고 UPN 변경으로 인해 발생할 수 있는 문제를 해결 합니다.**
 
@@ -57,9 +57,9 @@ Bsimon@contoso.com대상Britta.Simon@contoso.com
 
     예를 들어 사용자가 부서를 변경한 경우 해당 도메인을 변경할 수 있습니다. 
 
-   * Britta.Simon@contoso.com - Britta.Simon@contosolabs.com <br>
-     Or<br>
-    * Britta.Simon@corp.contoso.com - Britta.Simon@labs.contoso.com 
+   * Britta.Simon@contosolabs.com에 대한 Britta.Simon@contoso.com <br>
+     또는<br>
+    * Britta.Simon@labs.contoso.com에 대한 Britta.Simon@corp.contoso.com 
 
 기본 전자 메일 주소가 업데이트 될 때마다 사용자의 UPN을 변경 하는 것이 좋습니다.
 
@@ -94,7 +94,7 @@ username@labs.contoso.com.
 
 사용자 계정을 Active Directory에서 Azure AD로 동기화 하는 경우 Active Directory의 Upn이 Azure AD의 확인 된 도메인에 매핑되는지 확인 합니다.
 
-![확인 된 도메인의 스크린샷](./media/howto-troubleshoot-upn-changes/verified-domains.png)
+![확인 된 Azure A D 도메인에 매핑된 Upn의 예를 보여 주는 스크린샷](./media/howto-troubleshoot-upn-changes/verified-domains.png)
 
 UserPrincipalName 특성의 값이 Azure AD의 확인 된 도메인에 해당 하지 않는 경우 동기화 프로세스에서 접미사를 onmicrosoft.com 값으로 바꿉니다.
 

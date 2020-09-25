@@ -1,6 +1,6 @@
 ---
 title: Azure Front Door 서비스용 지역 필터링 웹 애플리케이션 방화벽 정책 구성
-description: 이 자습서에서는 지역 필터링 정책을 만들고 기존 Front Door 프런트 엔드 호스트에 연결하는 방법을 알아봅니다.
+description: 이 자습서에서는 지역 필터링 정책을 만들고 정책을 기존 Front 도어가 프런트 엔드 호스트와 연결 하는 방법에 대해 알아봅니다.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: fd38d900285f6cda0c98dd1f49076ea04180b18c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a7ab7debffc8e88f385fbba6ae52af74ef98b25f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068314"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266943"
 ---
 # <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Front Door에 대한 지역 필터링 WAF 정책 설정
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266062"
 ---
 # <a name="continuous-access-evaluation"></a>지속적인 액세스 평가
 
@@ -66,8 +66,8 @@ Exchange 및 SharePoint는 키 조건부 액세스 정책을 동기화 할 수 �
 
 | | Office web apps | Office Win32 앱 | IOS 용 Office | Android 용 Office | Mac용 Office |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | 지원됨 | 지원됨 | 지원되지 않음 | 지원됨 | 지원됨 |
-| **Exchange Online** | 지원됨 | 지원됨 | 지원되지 않음 | 지원됨 | 지원됨 |
+| **SharePoint Online** | 지원되지 않음 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
+| **Exchange Online** | 지원되지 않음 | 지원됨 | 지원됨 | 지원됨 | 지원됨 |
 
 ### <a name="client-side-claim-challenge"></a>클라이언트 쪽 클레임 챌린지
 
@@ -144,7 +144,7 @@ CAE의 경우 명명 된 IP 기반 명명 된 위치에 대 한 정보를 제공
 
 ### <a name="ip-address-configuration"></a>IP 주소 구성
 
-Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예를 들어:
+Id 공급자 및 리소스 공급자는 서로 다른 IP 주소를 볼 수 있습니다. 이러한 불일치는 조직의 네트워크 프록시 구현 또는 id 공급자와 리소스 공급자 간의 잘못 된 IPv4/IPv6 구성으로 인해 발생할 수 있습니다. 예를 들면 다음과 같습니다.
 
 - Id 공급자는 클라이언트에서 하나의 IP 주소를 확인 합니다.
 - 리소스 공급자는 프록시를 통과 한 후 클라이언트와 다른 IP 주소를 확인 합니다.
@@ -177,7 +177,7 @@ Azure AD와 리소스 공급자 간의 복제 지연이 발생할 수 있으므�
 
 사용 하지 않도록 설정한 후 사용자를 사용 하도록 설정 하는 경우 계정을 사용 하려면 약간의 대기 시간이 있습니다. SPO 및 팀은 15 분 지연 됩니다. EXO의 지연 시간은 35-40 분입니다.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQ(질문과 대답)
 
 ### <a name="how-will-cae-work-with-sign-in-frequency"></a>CAE가 로그인 빈도로 어떻게 작동 하나요?
 

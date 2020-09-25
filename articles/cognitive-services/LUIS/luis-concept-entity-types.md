@@ -1,14 +1,16 @@
 ---
 title: 엔터티 형식-LUIS
 description: 엔터티는 예측 런타임에 사용자 utterance에서 데이터를 추출 합니다. _선택적인_보조 목적은 엔터티를 기능으로 사용 하 여 의도 또는 다른 엔터티의 예측을 높이는 것입니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 8751bdd52bb1c3738103dc074184a3cf72bfeb09
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 398d18642052726af4d4920443bad515ec0b5bef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207758"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316565"
 ---
 # <a name="extract-data-with-entities"></a>엔터티를 사용 하 여 데이터 추출
 
@@ -97,10 +99,10 @@ ms.locfileid: "88207758"
 
 데이터를 추출해야 하는 방법 및 추출된 후에 데이터를 표시하는 방법에 따라 엔터티를 선택합니다.
 
-|엔터티 유형|용도|
+|엔터티 유형|목적|
 |--|--|
 |[**컴퓨터-학습**](tutorial-machine-learned-entity.md)|레이블이 지정 된 예제에서 배운 중첩 된 복잡 한 데이터를 추출 합니다. |
-|[**은**](reference-entity-list.md)|**정확히 일치**하는 텍스트를 사용 하 여 추출 된 항목 및 해당 동의어의 목록입니다.|
+|[**목록**](reference-entity-list.md)|**정확히 일치**하는 텍스트를 사용 하 여 추출 된 항목 및 해당 동의어의 목록입니다.|
 |[**패턴. 모든**](#patternany-entity)|엔터티 끝을 찾는 엔터티는 자유 형식 이므로 확인 하기 어렵습니다. [패턴](luis-concept-patterns.md)에서만 사용할 수 있습니다.|
 |[**미리 빌드됨**](luis-reference-prebuilt-entities.md)|URL, 전자 메일 등의 특정 종류의 데이터를 추출 하도록 이미 학습 되었습니다. 이러한 미리 빌드된 엔터티 중 일부는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트에 정의되어 있습니다. 특정 문화권이나 엔터티가 현재 지원되지 않은 경우 프로젝트에 적용됩니다.|
 |[**정규식**](reference-entity-regular-expression.md)|**정확히 일치**하는 텍스트를 위해 정규식을 사용 합니다.|

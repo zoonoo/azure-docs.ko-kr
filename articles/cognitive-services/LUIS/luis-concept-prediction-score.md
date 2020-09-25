@@ -1,14 +1,16 @@
 ---
 title: 예측 점수-LUIS
 description: 예측 점수는 사용자 utterance를 기반으로 LUIS API 서비스가 예측 결과에 대해 갖는 신뢰도를 나타냅니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 709a34f0a278d8a17267c7544583798d54167dad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d836273e61752ff208133466016ce7c6ff9c28fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382371"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316463"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>예측 점수는 의도 및 엔터티에 대한 예측 정확도를 나타냅니다.
 
@@ -46,7 +48,7 @@ ms.locfileid: "81382371"
 
 여러 의도의 예측 점수가 가까운 경우에는 발화 컨텍스트에 따라 LUIS가 의도 간에 전환할 수 있습니다. 이러한 상황을 해결 하려면 더 광범위 한 컨텍스트 차이를 사용 하 여 각 의도에 길이 발언를 추가 하거나 채팅 봇과 같은 클라이언트 응용 프로그램을 사용 하 여 2 개의 인기를 처리 하는 방법에 대해 프로그래밍 방식으로 선택 합니다.
 
-명확 하지 않은 두 가지 의도는 **명확 하지 않은 교육**으로 인해 반전 될 수 있습니다. 최고 점수가 두 번째로 높은 점수가 될 수 있고 두 번째로 높은 점수가 최고 점수가 될 수 있습니다. 이러한 상황을 방지 하기 위해 두 가지 의도를 차별화 하는 단어를 선택 하 고 컨텍스트를 사용 하 여 utterance에 대 한 길이 발언 예를 각 상위 두 의도에 추가 합니다. 두 가지 의도에는 동일한 수의 예제 발언이 있어야 합니다. 학습으로 인한 반전을 방지할 수 있는 일반적인 분리 기준은 15%의 점수 차이입니다.
+점수가 너무 가깝게 매겨진 두 개의 의도는 **비결정적 교육**으로 인해 반전될 수 있습니다. 최고 점수가 두 번째로 높은 점수가 될 수 있고 두 번째로 높은 점수가 최고 점수가 될 수 있습니다. 이러한 상황을 방지 하기 위해 두 가지 의도를 차별화 하는 단어를 선택 하 고 컨텍스트를 사용 하 여 utterance에 대 한 길이 발언 예를 각 상위 두 의도에 추가 합니다. 두 가지 의도에는 동일한 수의 예제 발언이 있어야 합니다. 학습으로 인한 반전을 방지할 수 있는 일반적인 분리 기준은 15%의 점수 차이입니다.
 
 [모든 데이터로 학습](luis-how-to-train.md#train-with-all-data)하 여 **비 결정적인 학습** 을 해제할 수 있습니다.
 

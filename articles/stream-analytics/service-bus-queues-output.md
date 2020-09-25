@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: ba4b8f1d3aaa9b06f3bc24e9e267f6778734152a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: bad81e8929cd0c5c66c87fd9f6cc11dc746b3e5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903739"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317792"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 Service Bus 큐 출력
 
@@ -51,6 +51,22 @@ ms.locfileid: "90903739"
 ## <a name="custom-metadata-properties-for-output"></a>출력에 대한 사용자 지정 메타데이터 속성
 
 쿼리 열을 사용자 속성으로 나가는 메시지에 첨부할 수 있습니다. 이러한 열은 페이로드로 이동하지 않습니다. 속성은 출력 메시지에서 사전 형식으로 제공됩니다. *키*는 열 이름이고 *값*은 속성 사전의 열 값입니다. 레코드 및 배열을 제외한 모든 Stream Analytics 데이터 형식이 지원됩니다.
+
+다음 예제에서는 `DeviceId` 및 필드가 `DeviceStatus` 메타 데이터에 추가 됩니다.
+
+1. 다음 쿼리를 사용합니다.
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. `DeviceId,DeviceStatus`출력에서 속성 열로 구성 합니다.
+
+   :::image type="content" source="media/service-bus-queues-output/property-columns.png" alt-text="속성 열":::
+
+다음 이미지는 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)를 사용 하 여 EventHub에서 검사 된 예상 출력 메시지 속성입니다.
+
+:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="이벤트 사용자 지정 속성":::
 
 ## <a name="system-properties"></a>시스템 속성
 

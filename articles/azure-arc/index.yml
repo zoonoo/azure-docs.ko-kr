@@ -9,19 +9,19 @@ metadata:
   ms.topic: hub-page
   author: MGoedtel
   ms.author: magoedte
-  ms.date: 08/21/2020
-  ms.openlocfilehash: a2bf337f5bcd5d4fb5810025b6d2aaa8da15201c
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.date: 09/23/2020
+  ms.openlocfilehash: ea57cbb94a45339c6de58ba1abdaa864ddc43186
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90908220"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91317245"
 highlightedContent:
   items:
   - title: Azure Arc 정보
     itemType: overview
     url: overview.md
-  - title: Azure Arc 사용 서버(미리 보기)
+  - title: Azure Arc 지원 서버
     itemType: overview
     url: ./servers/overview.md
   - title: Azure Arc 사용 Kubernetes(미리 보기)
@@ -32,7 +32,7 @@ highlightedContent:
     url: ./data/overview.md
   - title: Azure Arc 지원 SQL Server(미리 보기)
     itemType: overview
-    url: https://docs.microsoft.com/en-us/sql/sql-server/
+    url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
 productDirectory:
   title: Azure Arc 지원 서비스
   summary: 어디서나 서비스를 실행하는 방법을 참조하세요.
@@ -78,7 +78,7 @@ productDirectory:
 conceptualContent:
   title: 시작
   items:
-  - title: Azure Arc 사용 서버(미리 보기)
+  - title: Azure Arc 지원 서버
     links:
     - url: ./servers/learn/quick-enable-hybrid-vm.md
       itemType: get-started

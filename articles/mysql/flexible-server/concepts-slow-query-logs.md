@@ -6,17 +6,20 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 2ce10353d1d102667718f368dc55a5821f16e25d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8b413b82ceb148374bd89fd2baec7d4db13f54d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938524"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329551"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Azure Database for MySQL 유연한 서버에서 느리게 쿼리 로그 (미리 보기)
 
 > [!IMPORTANT] 
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
+
+> [!NOTE]
+> 로그에 액세스 하는 Azure Monitor 진단 설정과의 통합은 배포 중 이며 곧 전체 기능을 사용할 수 있습니다.
 
 Azure Database for MySQL 유연한 서버에서 저속 쿼리 로그는 사용자가 구성 하 고 액세스 하는 데 사용할 수 있습니다. 저속 쿼리 로그는 기본적으로 사용 하지 않도록 설정 되어 있으므로 문제 해결 중 성능 병목 상태를 식별 하는 데 도움이 됩니다.
 
@@ -38,6 +41,9 @@ MySQL 저속 쿼리 로그에 대 한 자세한 내용은 MySQL 엔진 설명서
 느린 쿼리 로그 매개 변수의 전체 설명은 MySQL [느린 쿼리 로그 설명서](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)를 참조하세요.
 
 ## <a name="access-slow-query-logs"></a>저속 쿼리 로그 액세스
+
+> [!NOTE]
+> 로그에 액세스 하는 Azure Monitor 진단 설정과의 통합은 배포 중 이며 곧 전체 기능을 사용할 수 있습니다.
 
 저속 쿼리 로그는 Azure Monitor 진단 설정에 통합 됩니다. MySQL 유연한 서버에서 감사 로그를 사용 하도록 설정 하면 로그, Event Hubs 또는 Azure Storage Azure Monitor으로 내보낼 수 있습니다. 진단 설정에 대해 자세히 알아보려면 [진단 로그 설명서](../../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요. Azure Portal에서 진단 설정을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [저속 쿼리 로그 포털 문서](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics)를 참조 하세요.
 

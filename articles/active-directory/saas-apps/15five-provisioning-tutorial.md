@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: b42833056d6c9c0e6053dbf34c7de17b4136a797
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 40fd048e1ace56af7a9198088d6129925033be93
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539184"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331219"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 15Five 구성
 
@@ -96,11 +96,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5.  관리자 자격 증명 섹션 아래에서 먼저 **테 넌 트 url** 및 **비밀 토큰** 필드에서 검색 된 **Scim 2.0 기준 url 및 액세스 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 15five에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 15Five 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 

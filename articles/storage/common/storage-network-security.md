@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 3ec4e6ee49052657210fffa8976b661c1a9e5948
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 474b3c4261b412c0c875f7a05802095c9e0c2cd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827463"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320373"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -256,7 +256,7 @@ IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용�
 
 스토리지 방화벽 규칙의 구성에는 IPV4 주소만 지원됩니다.
 
-각 스토리지 계정은 최대 100개의 IP 네트워크 규칙을 지원합니다.
+각 저장소 계정은 최대 200 IP 네트워크 규칙을 지원 합니다.
 
 ### <a name="configuring-access-from-on-premises-networks"></a>온-프레미스 네트워크에서의 액세스 구성
 

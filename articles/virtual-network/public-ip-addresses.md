@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9f3d95d7ae725dba700b0a060ba74552d6b83ad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84172248"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329264"
 ---
 # <a name="public-ip-addresses"></a>공용 IP 주소
 
@@ -44,7 +44,7 @@ Azure 리소스 관리자에서 [공용 IP](virtual-network-public-ip-address.md
 >[!IMPORTANT]
 > 부하 분산 장치 및 공용 IP 리소스에 대해 일치 하는 Sku가 필요 합니다. 기본 SKU 리소스와 표준 SKU 리소스를 함께 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.  새 디자인에서는 표준 SKU 리소스를 사용하도록 고려해야 합니다.  자세한 내용은 [표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 검토하세요.
 
-### <a name="standard"></a>표준
+### <a name="standard"></a>Standard
 
 표준 SKU 공용 IP 주소:
 
@@ -165,16 +165,24 @@ Azure [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure
 * 응용 프로그램 게이트웨이 V1 프런트 엔드 구성에 **동적** 기본 공용 IP를 할당 합니다. 
 * V2 프런트 엔드 구성에 **정적** 표준 SKU 주소를 할당 합니다.
 
+## <a name="azure-firewall"></a>Azure Firewall
+
+[Azure 방화벽](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 을 통해 구독 및 가상 네트워크에서 응용 프로그램 및 네트워크 연결 정책을 만들고, 적용 하 고, 기록할 수 있습니다.
+
+**정적** 표준 공용 IP 주소만 방화벽과 연결할 수 있습니다. 이렇게 하면 외부 방화벽에서 가상 네트워크에서 시작 되는 트래픽을 식별할 수 있습니다. 
+
+
 ## <a name="at-a-glance"></a>요약
 
 다음 표에서는 공용 IP를 최상위 리소스와 연결 하는 데 사용할 수 있는 속성과 가능한 할당 메서드를 보여 줍니다.
 
 | 최상위 리소스 | IP 주소 연결 | 동적 | 정적 |
 | --- | --- | --- | --- |
-| 가상 머신 |Linux |예 |예 |
+| 가상 머신 |네트워크 인터페이스 |예 |예 |
 | 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |예 |예 |
-| VPN 게이트웨이 |게이트웨이 IP 구성 |예 |아니요 |
+| VPN 게이트웨이 |게이트웨이 IP 구성 |예 |예 |
 | 프런트 엔드 |프런트 엔드 구성 |예(V1에만 해당) |예(V2에만 해당) |
+| Azure Firewall | 프런트 엔드 구성 | 예 | 예|
 
 ## <a name="limits"></a>제한
 

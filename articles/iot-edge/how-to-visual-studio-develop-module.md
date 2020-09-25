@@ -2,18 +2,18 @@
 title: Visual Studio에서 모듈 개발 및 디버그-Azure IoT Edge
 description: 'Visual Studio와 Azure IoT 도구를 사용 하 여 C 또는 c # IoT Edge 모듈을 개발 하 고 IoT Hub에서 IoT 장치로 푸시합니다. 배포 매니페스트에 구성 됩니다.'
 services: iot-edge
-author: shizn
+author: kgremban
 manager: philmea
-ms.author: xshi
+ms.author: kgremban
 ms.date: 3/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 9722c7dec3a066d8f776424cb599be0d463416d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 823b16dcaf113136b10fdaa054da20840b99f02d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80384860"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297048"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio 2019을 사용 하 여 Azure IoT Edge에 대 한 모듈 개발 및 디버그
 
@@ -28,7 +28,7 @@ Visual Studio 용 Azure IoT Edge 도구는 다음과 같은 이점을 제공합�
 
 이 문서에서는 Visual Studio 2019 용 Azure IoT Edge 도구를 사용 하 여 IoT Edge 모듈을 개발 하는 방법을 보여 줍니다. Azure IoT Edge 디바이스에 프로젝트를 배포하는 방법도 알아봅니다. 현재 Visual Studio 2019은 C 및 c #으로 작성 된 모듈을 지원 합니다. 지원 되는 장치 아키텍처는 Windows X64 및 Linux X64 또는 ARM32입니다. 지원 되는 운영 체제, 언어 및 아키텍처에 대 한 자세한 내용은 [언어 및 아키텍처 지원](module-development.md#language-and-architecture-support)을 참조 하세요.
   
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 Windows를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. Windows 컴퓨터에서는 Windows 또는 Linux 모듈을 개발할 수 있습니다. Windows 모듈을 개발 하려면 1809/build 17763 이상 버전을 실행 하는 Windows 컴퓨터를 사용 합니다. Linux 모듈을 개발 하려면 [Docker Desktop에 대 한 요구 사항을](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)충족 하는 Windows 컴퓨터를 사용 합니다.
 

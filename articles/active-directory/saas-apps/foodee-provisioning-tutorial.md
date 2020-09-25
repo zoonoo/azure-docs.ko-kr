@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 40549fa8880fb4dc4d29046b0037621610f0b130
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1d3ea609cda37c3bb0de28d8eb1a19944809980d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544186"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331165"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Foodee 구성
 
@@ -75,7 +75,7 @@ Azure AD 응용 프로그램 갤러리에서 Foodee를 추가 하려면 다음�
 
     ![Azure Active Directory 명령](common/select-azuread.png)
 
-1. **엔터프라이즈 응용 프로그램**  >  **모든 응용 프로그램**을 선택 합니다.
+1. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 
     ![엔터프라이즈 애플리케이션 창](common/enterprise-applications.png)
 
@@ -106,11 +106,11 @@ Azure AD 응용 프로그램 갤러리에서 Foodee를 추가 하려면 다음�
 
 1. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 1. **프로 비전 모드** 드롭다운 목록에서 **자동**을 선택 합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 1. **관리자 자격 증명**아래에서 다음을 수행 합니다.
 

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661861"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295229"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 이해
 이 문서는 기본 구성 규칙을 설명합니다. 규칙 및 해당 규칙이 구성에 어떤 영향을 주는지를 문서화합니다. 또한 Azure AD Connect sync의 기본 구성을 안내 합니다. 이러한 목표는 독자가 선언적 프로 비전 이라는 구성 모델이 실제 예제에서 작동 하는 방식을 이해 하는 것입니다. 이 문서에서는 설치 마법사를 사용하여 Azure AD Connect 동기화를 설치한 뒤 구성하는 상황을 가정합니다.
@@ -160,7 +160,7 @@ SRE는 리소스 키트 도구 이며 Azure AD Connect 동기화와 함께 설�
 #### <a name="scoping-filter"></a>범위 지정 필터
 범위 지정 필터 섹션은 동기화 규칙을 적용할 시기를 구성하는 데 사용됩니다. 검색하려는 동기화 규칙의 이름을 보면 활성화된 사용자에게만 적용해야 함을 알 수 있으므로 AD 특성 **userAccountControl** 에는 비트 2가 설정되지 않도록 범위가 구성됩니다. 동기화 엔진이 AD에서 사용자를 찾을 때 **userAccountControl** 이 10진수 값 512(활성화된 일반 사용자)로 설정된 경우 이 동기화 규칙을 적용합니다. 사용자가 **userAccountControl**을 514(비활성화된 일반 사용자)로 설정한 경우 규칙이 적용되지 않습니다.
 
-![동기화 규칙 편집기의 범위 지정 탭](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+!["인바운드 동기화 규칙 편집" 창의 "범위 지정 필터" 섹션을 보여 주는 스크린샷](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 범위 지정 필터에는 중첩될 수 있는 그룹 및 절이 있습니다. 동기화 규칙을 적용하려면 그룹 내의 모든 절을 충족해야 합니다. 여러 그룹이 정의된 경우, 하나 이상의 그룹이 적용할 규칙에 충족되어야 합니다. 즉, 논리 OR은 그룹들 간에 평가되며 논리 AND는 하나의 그룹 내에서 평가됩니다. 이 구성의 예는 **AAD로 나가기 - 그룹 조인**아웃바운드 동기화 규칙에서 찾을 수 있습니다. 예를 들어 몇 가지 동기화 필터 그룹, 보안 그룹에 대한 하나의 필터 그룹(`securityEnabled EQUAL True`) 및 배포 그룹에 대한 하나의 필터 그룹(`securityEnabled EQUAL False`)이 있습니다.
 

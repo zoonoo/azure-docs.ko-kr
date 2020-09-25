@@ -5,17 +5,17 @@ description: Azure Maps 웹 SDK에서 Azure AD single sign-on을 지 원하는 �
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 72fe4d897c9c202e0c4cd5861525093760036d26
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: 0ba2e23e8121a76ec281b5e411819ee7d450cbe0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285665"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319693"
 ---
 # <a name="secure-a-single-page-application-with-user-sign-in"></a>사용자 로그인을 사용 하 여 단일 페이지 응용 프로그램 보호
 

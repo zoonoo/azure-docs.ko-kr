@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcc6de1ce50e86f177023a0a66c436633c8d502c
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053289"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317619"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
 이 기능은 빌드 [1.1.105.0(2016년 2월에 발표됨)](reference-connect-version-history.md)에서 도입되었습니다.  이 기능은 [빌드 1.1.561](reference-connect-version-history.md)에서 업데이트되었고 이제 이전에 지원되지 않던 추가 시나리오를 지원합니다.
@@ -63,8 +63,8 @@ UpgradeResult가 아닌 결과 (예: ' AADHealthEndpointNotDefined ' 또는 ' Di
 
 그런 다음 프록시 또는 방화벽에서 필요한 URL을 열었는지 확인합니다. 자동 업데이트는 [개요](#overview)에서 설명된 대로 Azure AD Connect Health를 사용합니다. 프록시를 사용하는 경우 [프록시 서버](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)를 사용하기 위해 상태가 구성되었는지 확인합니다. 또한 Azure AD에 대한 [상태 연결](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) 을 테스트합니다.
 
-Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니다. 이벤트 뷰어를 시작하고 **애플리케이션** 이벤트 로그를 확인합니다. **Azure AD Connect 업그레이드** 원본 및 이벤트 ID 범위 **300-399**에 대한 이벤트 로그 필터를 추가합니다.  
-![자동 업그레이드에 대한 이벤트 로그 필터](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
+Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니다. 이벤트 뷰어를 시작하고 **애플리케이션** 이벤트 로그를 확인합니다. 원본 **Azure AD Connect 업그레이드** 및 이벤트 ID 범위 **300-399**에 대 한 이벤트 로그 필터를 추가 합니다.  
+!["이벤트 원본" 및 "포함/제외" 이벤트 Id 상자가 강조 표시 된 "현재 로그 필터링" 창을 보여 주는 스크린샷](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
 
 이제 자동 업그레이드 상태와 관련된 이벤트 로그를 볼 수 있습니다.  
 ![자동 업그레이드에 대한 이벤트 로그 필터](./media/how-to-connect-install-automatic-upgrade/eventlogresult.png)  

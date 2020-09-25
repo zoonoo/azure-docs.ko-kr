@@ -1,6 +1,6 @@
 ---
 title: Azure AD 애플리케이션 프록시 커넥터 이해 | Microsoft Docs
-description: Azure AD 애플리케이션 프록시 커넥터에 대한 기본 사항을 제공합니다.
+description: Azure AD 응용 프로그램 프록시 커넥터에 대해 알아봅니다.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7f14c757df8bcc38bf226cb6346c400087c2d7a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764675"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319829"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 애플리케이션 프록시 커넥터 이해
 
@@ -99,7 +99,7 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 |8|32|270|1190|
 |16|64|245|1200*|
 
-\*이 컴퓨터에서는 사용자 지정 설정을 사용 하 여 .NET 권장 설정 이상의 기본 연결 제한을 발생 시킵니다. 지원 서비스에 문의하여 테넌트의 이 제한을 변경하기 전에, 기본 설정으로 테스트를 실행하는 것이 좋습니다.
+\* 이 컴퓨터에서는 사용자 지정 설정을 사용 하 여 .NET 권장 설정 이상의 기본 연결 제한을 발생 시킵니다. 지원 서비스에 문의하여 테넌트의 이 제한을 변경하기 전에, 기본 설정으로 테스트를 실행하는 것이 좋습니다.
 
 > [!NOTE]
 > 4, 8, 16개 코어 컴퓨터 간에 최대 TPS는 크게 차이가 없습니다. 주요 차이점은 예상 대기 시간입니다.

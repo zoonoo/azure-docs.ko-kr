@@ -1,26 +1,26 @@
 ---
 title: 보안 개요
-description: Azure Arc 사용 서버 (미리 보기)에 대 한 보안 정보입니다.
+description: Azure Arc 사용 서버에 대 한 보안 정보입니다.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 17641fab9933d9d6a60c2b21912f755acc01a6dd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/23/2020
+ms.openlocfilehash: be79be3030af76425b54fd683784d0e216ac2cf5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89447859"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329043"
 ---
-# <a name="azure-arc-for-servers-preview-security-overview"></a>서버용 Azure Arc (미리 보기) 보안 개요
+# <a name="azure-arc-for-servers-security-overview"></a>서버용 Azure Arc 보안 개요
 
 이 문서에서는 기업에 Azure Arc 사용 서버를 배포 하기 전에 평가 해야 하는 보안 구성과 고려 사항을 설명 합니다.
 
 ## <a name="identity-and-access-control"></a>ID 및 액세스 제어
 
-각 Azure Arc 사용 서버에는 온-프레미스 또는 다른 클라우드 환경에서 실행 되는 서버를 나타내는 Azure 구독 내의 리소스 그룹의 일부로 관리 되는 id가 있습니다. 표준 [Azure 역할 기반 액세스 제어](../../role-based-access-control/overview.md)에서이 리소스에 대 한 액세스를 제어 합니다. Azure Portal의 [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) 페이지에서 Azure Arc 사용 서버에 대 한 액세스 권한이 있는 사용자를 확인할 수 있습니다.
+각 Azure Arc 사용 서버에는 Azure 구독 내 리소스 그룹의 일부로 관리 되는 id가 있습니다 .이 id는 온-프레미스 또는 다른 클라우드 환경에서 실행 되는 서버를 나타냅니다. 표준 [Azure 역할 기반 액세스 제어](../../role-based-access-control/overview.md)에서이 리소스에 대 한 액세스를 제어 합니다. Azure Portal의 [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) 페이지에서 Azure Arc 사용 서버에 대 한 액세스 권한이 있는 사용자를 확인할 수 있습니다.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Azure Arc 사용 서버 액세스 제어" border="false" lightbox="./media/security-overview/access-control-page.png":::
 
-사용자 및 응용 프로그램에서 리소스에 대 한 액세스 [권한이 부여 된](../../role-based-access-control/built-in-roles.md#contributor) 사용자 및 응용 프로그램은 컴퓨터에 [확장](manage-vm-extensions.md) 을 배포 하거나 삭제 하는 등 리소스를 변경할 수 있습니다. 확장에는 권한 있는 컨텍스트에서 실행 되는 임의의 스크립트가 포함 될 수 있으므로 azure 리소스의 모든 참가자가 비 Azure 서버의 간접 관리자가 될 수 있습니다.
+사용자 및 응용 프로그램에서 리소스에 대 한 액세스 [권한이 부여 된](../../role-based-access-control/built-in-roles.md#contributor) 사용자 및 응용 프로그램은 컴퓨터에 [확장](manage-vm-extensions.md) 을 배포 하거나 삭제 하는 등 리소스를 변경할 수 있습니다. 확장에는 권한 있는 컨텍스트에서 실행 되는 임의의 스크립트가 포함 될 수 있으므로 Azure 리소스의 모든 참가자가 서버의 간접 관리자가 될 수 있습니다.
 
 **Azure에 연결 된 컴퓨터 온 보** 딩 역할은 대규모 온 보 딩에 사용할 수 있으며 azure에서 새로운 Arc 사용 서버를 읽거나 만들 수 있습니다. 이미 등록 된 서버를 삭제 하거나 확장을 관리 하는 데 사용할 수 없습니다. 모범 사례로, 대규모 컴퓨터를 등록 하는 데 사용 되는 Azure Active Directory (Azure AD) 서비스 사용자 에게만이 역할을 할당 하는 것이 좋습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "89447859"
 
 ## <a name="agent-security-and-permissions"></a>에이전트 보안 및 사용 권한
 
-Azure 연결 된 컴퓨터 에이전트 (azcmagent)를 관리 하려면 Windows에서 사용자 계정이 로컬 관리자 그룹의 구성원 이어야 하 고 Linux에 루트 액세스 권한이 있어야 합니다.
+Windows에서 Azure 연결 된 컴퓨터 에이전트 (azcmagent)를 관리 하려면 사용자 계정이 로컬 관리자 그룹의 구성원 이어야 합니다. Linux에는 루트 액세스 권한이 있어야 합니다.
 
 Azure 연결 된 컴퓨터 에이전트는 사용자의 컴퓨터에서 실행 되는 세 가지 서비스로 구성 됩니다.
 
@@ -56,4 +56,4 @@ Azure 연결 된 컴퓨터 에이전트는 공개 키 인증을 사용 하 여 A
 
 ## <a name="next-steps"></a>다음 단계
 
-여러 하이브리드 머신에서 Arc 지원 서버(미리 보기)를 평가하거나 활성화하기 전에 [연결된 머신 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보 및 배포 방법을 이해하세요.
+여러 하이브리드 머신에서 Arc 지원 서버를 평가하거나 활성화하기 전에 [연결된 머신 에이전트 개요](agent-overview.md)를 검토하여 요구 사항, 에이전트에 대한 기술 세부 정보 및 배포 방법을 이해하세요.

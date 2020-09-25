@@ -1,20 +1,20 @@
 ---
 title: 기술 자료 설계-QnA Maker
-description: QnA Maker 기술 자료는 QnA (질문과 대답) 쌍 및 각 QnA 쌍과 연결 된 선택적 메타 데이터 집합으로 구성 됩니다.
+description: 기술 자료 QnA Maker를 디자인 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: e75a9313f02a6b5cc4235cdcccb381585d2192ae
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 86e176a378d02d294e0123aba0d2e08d99b044fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993000"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330658"
 ---
 # <a name="question-and-answer-pair-concepts"></a>질문 및 답변 쌍 개념
 
 기술 자료는 QnA (질문과 대답) 쌍으로 구성 됩니다.  각 쌍에는 하나의 대답이 있으며 쌍에는 해당 _대답과_연결 된 모든 정보가 포함 됩니다. 대답은 데이터베이스 행 또는 데이터 구조 인스턴스와 느슨하게 유사할 수 있습니다.
 
-## <a name="question-and-answer-pairs"></a>질문 및 답변 쌍
+## <a name="question-and-answer-pairs"></a>질문 및 대답 쌍
 
 질문 및 답변 (QnA) 쌍에서 **필요한** 설정은 다음과 같습니다.
 

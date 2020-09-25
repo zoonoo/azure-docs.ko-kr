@@ -4,12 +4,12 @@ description: Azure Migrate서비스의 지원 설정 및 제한 사항에 대한
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: aac7b7d39102a1fe115ddea483aee36af79e7fc4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 6137201f8accb901ffe1892d9876b172411cfe6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612115"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329599"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
@@ -92,9 +92,12 @@ Canada | 캐나다 중부 또는 캐나다 동부
 인도 | 인도 중부 또는 인도 남부
 일본 |  일본 동부 또는 일본 서부
 한국 | 한국 중부 또는 한국 남부
+스위스 | 스위스 북부
 United Kingdom | 영국 남부 또는 영국 서부
 미국 | 미국 중부 또는 미국 서부 2
 
+> [!NOTE]
+> 스위스 geography의 경우 스위스 서부은 REST API 사용자 에게만 제공 되며 허용 목록 구독이 필요 합니다.
 
 ## <a name="supported-geographies-azure-government"></a>지원되는 지역(Azure Government)
 

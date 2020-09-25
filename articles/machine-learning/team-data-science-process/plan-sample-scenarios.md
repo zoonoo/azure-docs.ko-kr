@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d462f146f3f094602835d88e48815d5537c58665
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: afbc16f0fb30c1ada22b668771525288602cda44
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078785"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296640"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning의 고급 분석 시나리오
 이 문서에서는 [TDSP(팀 데이터 과학 프로세스)](overview.md)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. TDSP는 지능형 애플리케이션 개발을 위해 팀원들이 공동으로 작업하기 위한 체계적인 방법을 제공합니다. 여기에 제시된 시나리오는 Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 데이터 처리 워크플로에서 사용 가능한 옵션을 보여 줍니다.
@@ -31,7 +31,7 @@ ms.locfileid: "86078785"
 > 
 > * [스토리지 계정을 만드는](../../storage/common/storage-account-create.md)
 >   <br/>
-> * [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)
+> * [Azure Machine Learning 작업 영역 만들기](../classic/create-workspace.md)
 > 
 > 
 
@@ -184,7 +184,7 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 1. Windows 탐색기나 Windows 명령 프롬프트 창에서, 분리된 데이터베이스 파일을 복사하여 파일을 Azure의 SQL Server VM의 대상 위치에 로그합니다.
 1. 복사된 파일을 대상 SQL Server 인스턴스에 첨부합니다. 자세한 내용은 [Attach a Database](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx)을 참조하세요.
 
-[분리 및 연결을 사용하여 데이터베이스 이동(Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
+[분리 및 연결을 사용 하 여 데이터베이스 이동 (Transact-sql)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
 ## <a name="scenario-7-big-data-in-local-files-target-hive-database-in-azure-hdinsight-hadoop-clusters"></a><a name="largedbtohive"></a>시나리오 \#7: 로컬 파일의 빅 데이터, Azure HDInsight Hadoop 클러스터의 Hive 데이터베이스를 대상으로 함
 ![로컬 대상 Hive의 빅 데이터][9]

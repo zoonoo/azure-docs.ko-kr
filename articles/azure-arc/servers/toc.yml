@@ -47,6 +47,8 @@
       items:
         - name: 에이전트 연결 문제
           href: troubleshoot-agent-onboard.md
+        - name: VM 확장 문제
+          href: troubleshoot-vm-extensions.md
 - name: 참조
   items:
     - name: 데이터 상주

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: bfaa9d8908d9401441d8811c3edcd087781b1d89
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: df937ba7f23f2789d929a043c7239ababb24374f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458640"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285063"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Azure Monitor 로그의 감사 쿼리 (미리 보기)
 로그 쿼리 감사 로그는 Azure Monitor에서 실행 되는 로그 쿼리에 대 한 원격 분석을 제공 합니다. 여기에는 쿼리가 실행 된 시간, 실행 한 사람, 사용 된 도구, 쿼리 텍스트, 쿼리 실행을 설명 하는 성능 통계 등의 정보가 포함 됩니다.
@@ -64,6 +64,7 @@ ms.locfileid: "89458640"
 
 ## <a name="considerations"></a>고려 사항
 
+- 쿼리는 사용자 컨텍스트에서 실행 될 때만 로깅됩니다. Azure 내에서 서비스 간 서비스는 기록 되지 않습니다. 이 예외에 포함 된 두 가지 주요 쿼리 집합은 요금 청구 계산과 자동화 된 경고 실행입니다. 경고가 발생 하는 경우에는 예약 된 경고 쿼리 자체만 기록 되지 않습니다. 경고 만들기 화면에서 경고의 초기 실행은 사용자 컨텍스트에서 실행 되며 감사 용도로 사용할 수 있습니다. 
 - Azure 데이터 탐색기 프록시에서 들어오는 쿼리에는 성능 통계를 사용할 수 없습니다. 이러한 쿼리에 대 한 다른 모든 데이터는 계속 채워집니다.
 - [문자열 리터럴을 난독 처리](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) 는 문자열에 대 한 *h* 힌트는 쿼리 감사 로그에 영향을 주지 않습니다. 쿼리는 난독 처리 되는 문자열 없이 전송 된 그대로 캡처됩니다. 이 데이터를 볼 수 있는 규정 준수 권한이 있는 사용자만 Log Analytics 작업 영역에서 사용 가능한 다양 한 RBAC 모드를 사용 하 여이 작업을 수행할 수 있도록 해야 합니다.
 - 여러 작업 영역의 데이터를 포함 하는 쿼리의 경우에는 사용자가 액세스할 수 있는 작업 영역 에서만 쿼리를 캡처할 수 있습니다.

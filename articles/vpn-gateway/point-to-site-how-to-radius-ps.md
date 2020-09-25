@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e45afed3332d26006cf0b4296986edb6f6588962
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 2a93f612f5aeb5c2d3a4b83d580b9548f45e4c05
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421733"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329162"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 
@@ -24,8 +24,9 @@ P2S VPN 연결은 Windows 및 Mac 디바이스에서 시작됩니다. 다음 인
 
 * RADIUS 서버
 * VPN Gateway 기본 인증서 인증
+* 네이티브 Azure Active Directory 인증 (Windows 10에만 해당)
 
-이 문서에서는 RADIUS 서버를 통해 인증하도록 P2S를 구성하는 방법에 대해 설명합니다. 생성된 인증서와 VPN 게이트웨이 기본 인증서 인증을 대신 사용하여 인증하려면 [VPN 게이트웨이 기본 인증서를 사용하여 VNet에 지점 및 사이트 간 연결 구성](vpn-gateway-howto-point-to-site-rm-ps.md)을 참조하세요.
+이 문서에서는 RADIUS 서버를 통해 인증하도록 P2S를 구성하는 방법에 대해 설명합니다. 대신 생성 된 인증서와 VPN gateway 기본 인증서 인증을 사용 하 여 인증 하려는 경우 [vpn gateway 기본 인증서 인증을 사용 하 여 VNet에 지점 및 사이트 간 연결 구성](vpn-gateway-howto-point-to-site-rm-ps.md) 또는 Azure Active Directory 인증을 위해 [P2S openvpn 프로토콜 연결에 대 한 Azure Active Directory 테 넌 트 만들기](openvpn-azure-ad-tenant.md) 를 참조 하세요.
 
 ![연결 다이어그램 - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
@@ -40,7 +41,7 @@ P2S 연결을 작동하는 데는 VPN 디바이스 또는 공용 IP 주소가 �
 P2S 연결에는 다음이 필요합니다.
 
 * RouteBased VPN 게이트웨이입니다. 
-* 사용자 인증을 처리하는 RADIUS 서버 - RADIUS 서버는 온-프레미스 또는 Azure VNet에 배포할 수 있습니다.
+* 사용자 인증을 처리하는 RADIUS 서버 - RADIUS 서버는 온-프레미스 또는 Azure VNet에 배포할 수 있습니다. 또한 고가용성을 위해 두 RADIUS 서버를 구성할 수 있습니다.
 * VNet에 연결할 Windows 디바이스용 VPN 클라이언트 구성 패키지 - VPN 클라이언트 구성 패키지는 VPN 클라이언트에서 P2S를 통해 연결하는 데 필요한 설정을 제공합니다.
 
 ## <a name="about-active-directory-ad-domain-authentication-for-p2s-vpns"></a><a name="aboutad"></a>P2S VPN에 대한 AD(Active Directory) 도메인 인증 정보
@@ -221,6 +222,17 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
     -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+    ```
+
+   **두** RADIUS 서버 **(미리 보기)** 를 지정 하려면 다음 구문을 사용 합니다. 필요에 따라 **-vpnclientprotocol 추가 됨** 값을 수정 합니다.
+
+    ```azurepowershell-interactive
+    $radiusServer1 = New-AzRadiusServer -RadiusServerAddress 10.1.0.15 -RadiusServerSecret $radiuspd -RadiusServerScore 30
+    $radiusServer2 = New-AzRadiusServer -RadiusServerAddress 10.1.0.16 -RadiusServerSecret $radiuspd -RadiusServerScore 1
+
+    $radiusServers = @( $radiusServer1, $radiusServer2 )
+
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $actual -VpnClientAddressPool 201.169.0.0/16 -VpnClientProtocol "IkeV2" -RadiusServerList $radiusServers
     ```
 
 ## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"></a> vpn 클라이언트 구성 패키지를 다운로드 하 고 vpn 클라이언트를 설정 합니다.

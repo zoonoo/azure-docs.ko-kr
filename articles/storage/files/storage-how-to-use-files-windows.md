@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 485a054a91bd3db9b116cf80a4e457d013c20ea1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071077"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329349"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
@@ -34,8 +34,8 @@ Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 �
 | Windows 7<sup>3</sup> | SMB 2.1 | 예 | 예 |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | 예 | 예 |
 
-<sup>1</sup>Windows 10, 버전 1507, 1607, 1709, 1803, 1809, 1903 및 1909  
-<sup>2</sup>Windows Server, 버전 1809, 1903 및 1909  
+<sup>1</sup> Windows 10, 버전 1507, 1607, 1803, 1809, 1903, 1909 및 2004입니다.  
+<sup>2</sup> Windows Server, 버전 1809, 1903, 1909, 2004.  
 <sup>3</sup>Windows 7 및 Windows Server 2008 R2에 대한 정식 Microsoft 지원이 종료되었습니다. [ESU(연장 보안 업데이트) 프로그램](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates)을 통해서만 보안 업데이트에 대한 추가 지원을 구매할 수 있습니다. 이와 같은 운영 체제에서 마이그레이션하는 것이 좋습니다.
 
 > [!Note]  

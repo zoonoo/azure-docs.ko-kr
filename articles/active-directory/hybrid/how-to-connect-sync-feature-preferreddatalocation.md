@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662510"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319897"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Active Directory Connect 동기화: Microsoft 365 리소스에 대 한 기본 데이터 위치 구성
 이 항목의 목적은 Azure Active Directory (Azure AD) Connect 동기화에서 기본 데이터 위치에 대 한 특성을 구성 하는 방법을 안내 하는 것입니다. 사용자가 Microsoft 365에서 다중 지역 기능을 사용 하는 경우이 특성을 사용 하 여 사용자의 Microsoft 365 데이터의 지리적 위치를 지정 합니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -44,7 +44,7 @@ Microsoft 365의 모든 지역에 대 한 목록은 [데이터가 어디에 있�
 | --- | --- |
 | 아시아 태평양 | APC |
 | 오스트레일리아 | AUS |
-| 캐나다 | CAN |
+| Canada | CAN |
 | 유럽 연합 | EUR |
 | 프랑스 | FRA |
 | 인도 | IND |
@@ -62,7 +62,7 @@ Microsoft 365의 모든 지역에 대 한 목록은 [데이터가 어디에 있�
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Azure AD Connect 동기화 지원
 
-Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **preferredDataLocation** 특성의 동기화를 지원합니다. 특히:
+Azure AD Connect는 1.1.524.0 이상 버전의 **User** 개체에 대한 **preferredDataLocation** 특성의 동기화를 지원합니다. 구체적으로는 다음과 같습니다.
 
 * Azure AD Connector의 **User** 개체 형식의 스키마가 **preferredDataLocation** 특성을 포함하도록 확장되었습니다. 특성의 형식은 단일 값 문자열입니다.
 * 메타버스의 **Person** 개체 형식의 스키마가 **preferredDataLocation** 특성을 포함하도록 확장되었습니다. 특성의 형식은 단일 값 문자열입니다.
@@ -118,7 +118,7 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 4. 특성 목록에서 사용하도록 선택한 원본 특성이 선택되어 있는지 확인합니다. 특성이 표시되지 않으면 **모두 표시** 확인란을 선택합니다.
 5. 저장하려면 **확인**을 선택합니다.
 
-![Synchronization Service Manager 및 속성 대화 상자의 스크린샷](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+!["특성" 목록이 강조 표시 된 Synchronization Service Manager 및 속성 대화 상자를 보여 주는 스크린샷](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
 ## <a name="step-4-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>4 단계: Azure AD 커넥터 스키마에 **PreferredDataLocation** 추가
 **이 단계는 Connect 버전 1.3.21 또는 이전 버전을 실행 하는 경우에만 필요 합니다. 1.4.18 이상 버전을 사용할 경우 5 단계로 건너뜁니다.**  

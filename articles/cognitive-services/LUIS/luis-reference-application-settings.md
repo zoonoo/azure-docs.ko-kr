@@ -1,14 +1,16 @@
 ---
 title: 응용 프로그램 설정-LUIS
 description: Azure Cognitive Services 언어 이해 앱에 대 한 응용 프로그램 설정은 앱 및 포털에 저장 됩니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/04/2020
-ms.openlocfilehash: 7b545e0959a43520b7d643ef8c0658a1e1a3b295
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0578e3c3c952a475c6beb01ffcf354e19eda6e26
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590991"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319166"
 ---
 # <a name="app-and-version-settings"></a>앱 및 버전 설정
 
@@ -21,7 +23,7 @@ ms.locfileid: "83590991"
 
 텍스트 참조 및 예제는 다음과 같습니다.
 
-* [종결](#punctuation-normalization)
+* [문장 부호](#punctuation-normalization)
 * [부호가](#diacritics-normalization)
 
 ## <a name="diacritics-normalization"></a>분음 부호 정규화

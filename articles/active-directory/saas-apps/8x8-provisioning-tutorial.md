@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7aaa87691f1ebfa79cd58dae56bf9bd1b979131b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 41ffd7606cb4c01cd8c2da56898b67cf177c358e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88538589"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329179"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 8x8 구성
 
@@ -94,13 +94,13 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다. **시작**을 클릭합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
    ![시작 블레이드](./media/8x8-provisioning-tutorial/get-started.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션에서 Configuration Manager의 **8x8 URL**을 **테넌트 URL**로 복사합니다. Configuration Manager의 **8x8 API 토큰**을 **비밀 토큰**으로 복사합니다. **연결 테스트**를 클릭하여 Azure AD가 8x8에 연결할 수 있는지 확인합니다. 연결이 실패하면 8x8 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
 

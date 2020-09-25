@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e1718ac9a7b7fcaab096595ea7341fcc90c2ddd6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f3906878755b7c7c2e3801da1bfa70a50d73ea16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422337"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318792"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스, 컨테이너 및 항목 작업
 
@@ -47,7 +47,7 @@ Azure 구독에서 [Azure Cosmos DB 계정을](account-overview.md) 만든 후 �
 
 ## <a name="azure-cosmos-containers"></a>Azure Cosmos 컨테이너
 
-Azure Cosmos 컨테이너는 프로 비전 된 처리량 및 저장소에 대 한 확장성의 단위입니다. 컨테이너는 가로로 분할된 다음, 여러 지역에 걸쳐 복제됩니다. 컨테이너에 추가하는 항목과 컨테이너에 프로비저닝하는 처리량은 파티션 키에 따라 논리 파티션 세트에 자동으로 분산됩니다. 분할 및 파티션 키에 대해 자세히 알아보려면 [파티션 데이터](partition-data.md)를 참조 하세요. 
+Azure Cosmos 컨테이너는 프로 비전 된 처리량 및 저장소에 대 한 확장성의 단위입니다. 컨테이너는 가로로 분할된 다음, 여러 지역에 걸쳐 복제됩니다. 컨테이너에 추가 하는 항목은 파티션 키에 따라 실제 파티션에 분산 된 논리적 파티션으로 자동 그룹화 됩니다. 컨테이너의 처리량은 실제 파티션에 균등 하 게 분산 됩니다. 분할 및 파티션 키에 대해 자세히 알아보려면 [파티션 데이터](partition-data.md)를 참조 하세요. 
 
 Azure Cosmos 컨테이너를 만들 때 다음 모드 중 하나로 처리량을 구성 합니다.
 
@@ -83,17 +83,17 @@ Azure Cosmos 컨테이너는 다음 표에 나와 있는 것 처럼 API 관련 �
 
 Azure Cosmos 컨테이너에는 시스템 정의 속성 집합이 있습니다. 사용 하는 API에 따라 일부 속성은 직접 노출 되지 않을 수도 있습니다. 다음 표에서는 시스템 정의 속성의 목록에 대해 설명 합니다.
 
-| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능 | 용도 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
+| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능 | 목적 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_없앨 | 시스템 생성 | 컨테이너의 고유 식별자 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|\_터미널 | 시스템 생성 | 컨테이너의 마지막 업데이트 타임스탬프 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|\_자체 | 시스템 생성 | 컨테이너의 주소 지정 가능 URI | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|id | 사용자 구성 가능 | 컨테이너의 사용자 정의 고유 이름 | yes | yes | yes | yes | yes |
-|indexingPolicy | 사용자 구성 가능 | 인덱스 경로, 인덱스 유형 및 인덱스 모드를 변경 하는 기능을 제공 합니다. | 예 | 아니요 | 아니요 | 예 | 예 |
-|timeToLive | 사용자 구성 가능 | 설정 된 기간 후에 컨테이너에서 항목을 자동으로 삭제 하는 기능을 제공 합니다. 자세한 내용은 ttl ( [Time To Live](time-to-live.md))을 참조 하세요. | 예 | 아니요 | 아니요 | 예 | 예 |
-|changeFeedPolicy | 사용자 구성 가능 | 컨테이너의 항목에 대한 변경 내용을 읽는 데 사용됩니다. 자세한 내용은 [변경 피드](change-feed.md)를 참조 하세요. | 예 | 아니요 | 아니요 | 예 | 예 |
-|uniqueKeyPolicy | 사용자 구성 가능 | 논리 파티션에서 하나 이상의 값에 대 한 고유성을 보장 하는 데 사용 됩니다. 자세한 내용은 [Unique key 제약 조건](unique-keys.md)을 참조 하세요. | 예 | 아니요 | 아니요 | 예 | 예 |
+|\_없앨 | 시스템 생성 | 컨테이너의 고유 식별자 | 예 | 예 | 예 | 예 | 예 |
+|\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 예 | 예 | 예 | 예 |
+|\_터미널 | 시스템 생성 | 컨테이너의 마지막 업데이트 타임스탬프 | 예 | 예 | 예 | 예 | 예 |
+|\_자체 | 시스템 생성 | 컨테이너의 주소 지정 가능 URI | 예 | 예 | 예 | 예 | 예 |
+|id | 사용자 구성 가능 | 컨테이너의 사용자 정의 고유 이름 | 예 | 예 | 예 | 예 | 예 |
+|indexingPolicy | 사용자 구성 가능 | 인덱스 경로, 인덱스 유형 및 인덱스 모드를 변경 하는 기능을 제공 합니다. | 예 | 예 | 예 | 예 | 예 |
+|timeToLive | 사용자 구성 가능 | 설정 된 기간 후에 컨테이너에서 항목을 자동으로 삭제 하는 기능을 제공 합니다. 자세한 내용은 ttl ( [Time To Live](time-to-live.md))을 참조 하세요. | 예 | 예 | 예 | 예 | 예 |
+|changeFeedPolicy | 사용자 구성 가능 | 컨테이너의 항목에 대한 변경 내용을 읽는 데 사용됩니다. 자세한 내용은 [변경 피드](change-feed.md)를 참조 하세요. | 예 | 예 | 예 | 예 | 예 |
+|uniqueKeyPolicy | 사용자 구성 가능 | 논리 파티션에서 하나 이상의 값에 대 한 고유성을 보장 하는 데 사용 됩니다. 자세한 내용은 [Unique key 제약 조건](unique-keys.md)을 참조 하세요. | 예 | 예 | 예 | 예 | 예 |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너에서 작업
 
@@ -101,11 +101,11 @@ Azure Cosmos 컨테이너는 Azure Cosmos Api를 사용 하는 경우 다음 작
 
 | 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
-| 데이터베이스에 컨테이너 열거 | yes | yes | yes | 예 | 해당 없음 | 해당 없음 |
-| 컨테이너 읽기 | yes | yes | yes | 예 | 해당 없음 | 해당 없음 |
-| 새 컨테이너 만들기 | yes | yes | yes | 예 | 해당 없음 | 해당 없음 |
-| 컨테이너 업데이트 | yes | yes | yes | 예 | 해당 없음 | 해당 없음 |
-| 컨테이너 삭제 | yes | yes | yes | 예 | 해당 없음 | 해당 없음 |
+| 데이터베이스에 컨테이너 열거 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
+| 컨테이너 읽기 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
+| 새 컨테이너 만들기 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
+| 컨테이너 업데이트 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
+| 컨테이너 삭제 | 예 | 예 | 예 | 예 | 해당 없음 | 해당 없음 |
 
 ## <a name="azure-cosmos-items"></a>Azure Cosmos 항목
 
@@ -119,14 +119,14 @@ Azure Cosmos 컨테이너는 Azure Cosmos Api를 사용 하는 경우 다음 작
 
 모든 Azure Cosmos 항목에는 다음과 같은 시스템 정의 속성이 있습니다. 사용 하는 API에 따라 일부는 직접 노출 되지 않을 수도 있습니다.
 
-| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능| 용도 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
+| 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능| 목적 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_없앨 | 시스템 생성 | 항목의 고유 식별자 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|\_터미널 | 시스템 생성 | 항목의 마지막 업데이트에 대 한 타임 스탬프 | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|\_자체 | 시스템 생성 | 항목의 주소 지정 가능 URI | 예 | 아니요 | 아니요 | 아니요 | 아니요 |
-|id | 여기서는 | 논리적 파티션의 사용자 정의 고유 이름입니다. | yes | yes | yes | yes | yes |
-|임의의 사용자 정의 속성 | 사용자 정의 | API 기본 표현으로 표현 되는 사용자 정의 속성 (JSON, BSON 및 CQL 포함) | yes | yes | yes | yes | yes |
+|\_없앨 | 시스템 생성 | 항목의 고유 식별자 | 예 | 예 | 예 | 예 | 예 |
+|\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | 예 | 예 | 예 | 예 | 예 |
+|\_터미널 | 시스템 생성 | 항목의 마지막 업데이트에 대 한 타임 스탬프 | 예 | 예 | 예 | 예 | 예 |
+|\_자체 | 시스템 생성 | 항목의 주소 지정 가능 URI | 예 | 예 | 예 | 예 | 예 |
+|id | 여기서는 | 논리적 파티션의 사용자 정의 고유 이름입니다. | 예 | 예 | 예 | 예 | 예 |
+|임의의 사용자 정의 속성 | 사용자 정의 | API 기본 표현으로 표현 되는 사용자 정의 속성 (JSON, BSON 및 CQL 포함) | 예 | 예 | 예 | 예 | 예 |
 
 > [!NOTE]
 > 속성의 고유성 `id` 은 각 논리 파티션 내 에서만 적용 됩니다. 여러 문서에는 `id` 파티션 키 값이 서로 다른 동일한 속성이 있을 수 있습니다.
@@ -137,7 +137,7 @@ Azure Cosmos 항목은 다음 작업을 지원 합니다. Azure Cosmos Api를 �
 
 | 작업(Operation) | Azure CLI | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | 테이블 API |
 | --- | --- | --- | --- | --- | --- | --- |
-| 삽입, 바꾸기, 삭제, Upsert, 읽기 | 아니요 | 예 | yes | yes | yes | 예 |
+| 삽입, 바꾸기, 삭제, Upsert, 읽기 | 예 | 예 | 예 | 예 | 예 | 예 |
 
 ## <a name="next-steps"></a>다음 단계
 

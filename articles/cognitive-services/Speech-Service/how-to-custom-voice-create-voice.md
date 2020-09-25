@@ -1,7 +1,7 @@
 ---
 title: 사용자 지정 음성-음성 서비스 만들기
 titleSuffix: Azure Cognitive Services
-description: 데이터를 업로드할 준비가 되 면 사용자 지정 음성 포털로 이동 합니다. 사용자 지정 음성 프로젝트를 만들거나 선택 합니다. 프로젝트는 음성 학습에 사용할 데이터와 올바른 언어/로캘 및 성별 속성을 공유 해야 합니다.
+description: 데이터를 업로드할 준비가 되 면 사용자 지정 음성 포털로 이동 합니다. 사용자 지정 음성 프로젝트를 만들거나 선택 합니다. 프로젝트는 음성 학습에 사용 하려는 데이터와 올바른 언어/로캘 및 성별 속성을 공유 해야 합니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f087a2880c16218905a4410a2f591511a155ffd
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 3747033fcaf65e0c6da07e9f1bb625771958bb4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629007"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319064"
 ---
 # <a name="create-a-custom-voice"></a>사용자 지정 음성 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "84629007"
 
 ## <a name="upload-your-datasets"></a>데이터 세트 업로드
 
-데이터를 업로드할 준비가 되 면 [사용자 지정 음성 포털로](https://aka.ms/custom-voice-portal)이동 합니다. 사용자 지정 음성 프로젝트를 만들거나 선택 합니다. 프로젝트는 음성 학습에 사용할 데이터와 올바른 언어/로캘 및 성별 속성을 공유 해야 합니다. 예를 들어, `en-GB` 사용자가 있는 오디오 녹음 내용이 영국 악센트를 사용 하 여 영어로 완료 된 경우를 선택 합니다.
+데이터를 업로드할 준비가 되 면 [사용자 지정 음성 포털로](https://aka.ms/custom-voice-portal)이동 합니다. 사용자 지정 음성 프로젝트를 만들거나 선택 합니다. 프로젝트는 음성 학습에 사용 하려는 데이터와 올바른 언어/로캘 및 성별 속성을 공유 해야 합니다. 예를 들어, `en-GB` 사용자가 있는 오디오 녹음 내용이 영국 악센트를 사용 하 여 영어로 완료 된 경우를 선택 합니다.
 
 **데이터** 탭으로 이동 하 고 **데이터 업로드**를 클릭 합니다. 마법사에서 준비한 항목과 일치 하는 올바른 데이터 형식을 선택 합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "84629007"
 
 다음 표에서는 가져온 데이터 세트에 대한 처리 상태를 보여 줍니다.
 
-| 시스템 상태 | 의미 |
+| 상태 | 의미 |
 | ----- | ------- |
 | 처리 중 | 데이터 집합을 수신 하 여 처리 하 고 있습니다. |
 | 성공 | 데이터 집합의 유효성을 검사 하 고 이제 음성 모델을 빌드하는 데 사용할 수 있습니다. |
@@ -86,7 +86,7 @@ SNR(신호 대 잡음 비율)이 더 높을 수록 오디오의 잡음이 더 �
 
 표시 된 상태는 여기에 표시 된 것 처럼 데이터 집합을 음성 모델로 변환 하는 프로세스를 반영 합니다.
 
-| 시스템 상태 | 의미 |
+| 상태 | 의미 |
 | ----- | ------- |
 | 처리 중 | 음성 모델을 만들고 있습니다. |
 | 성공 | 음성 모델을 만들고 배포할 수 있습니다. |

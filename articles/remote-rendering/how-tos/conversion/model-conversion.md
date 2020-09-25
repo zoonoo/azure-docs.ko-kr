@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 49d3fd953d069f4368d28e26265114e574e8100a
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: e899b249261ea3238695a2e2be6001cb6a9bc763
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506664"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318061"
 ---
 # <a name="convert-models"></a>모델 변환
 
@@ -21,9 +21,8 @@ Azure 원격 렌더링을 사용 하면 매우 복잡 한 모델을 렌더링할
 
 변환 서비스는 다음과 같은 형식을 지원 합니다.
 
-- **FBX**  (버전 2011 이상)
-- **글 tf** (버전 2.x)
-- **글**  2 (버전 2.x)
+- **FBX**  (버전 2011 ~ 2020)
+- **글 tf** / **글** 2 (버전 2.x)
 
 [모델 형식의 재질 매핑](../../reference/material-mapping.md)에 나열 된 것 처럼 재질 속성 변환과 관련 된 형식 간에는 약간의 차이가 있습니다.
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Virtual WAN 및 보안 허브를 사용하여 중국과 상호 연결
-description: Virtual WAN의 자동화된 확장성 있는 지점 간 연결, 사용 가능한 지역 및 파트너에 대해 알아봅니다.
+description: Azure 가상 WAN 및 보안 허브를 사용 하 여 중국과 상호 연결 하는 방법을 알아봅니다.
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: d89a3c65eb8d8bffd4cf87160286d1905bd1ba5b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d95330c14e0d088bdee03c0edbc2eb9d1deb12cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329230"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Azure Virtual WAN 및 보안 허브를 사용하여 중국과 상호 연결
 

@@ -2,13 +2,13 @@
 title: 관리 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿의 관리 그룹 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 2325e9f5a03f7451492c9b9b8e929df95ddc3852
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 09/24/2020
+ms.openlocfilehash: 0c5ed8d2427a9e0329db6ebd7f0aa48aa4912a48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605229"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284825"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>관리 그룹 수준에서 리소스 만들기
 
@@ -45,7 +45,7 @@ Azure 정책의 경우 다음을 사용 합니다.
 
 * [태그](/azure/templates/microsoft.resources/tags)
 
-### <a name="schema"></a>스키마
+## <a name="schema"></a>스키마
 
 관리 그룹 배포에 사용 하는 스키마는 리소스 그룹 배포에 대 한 스키마와 다릅니다.
 
@@ -60,6 +60,30 @@ https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeployment
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
+
+## <a name="deployment-scopes"></a>배포 범위
+
+관리 그룹에 배포 하는 경우 배포 명령에 지정 된 관리 그룹을 대상으로 지정 하거나 테 넌 트에서 다른 관리 그룹을 선택할 수 있습니다.
+
+템플릿의 resources 섹션 내에 정의 된 리소스는 배포 명령에서 관리 그룹에 적용 됩니다.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
+
+다른 관리 그룹을 대상으로 지정 하려면 중첩 된 배포를 추가 하 고 속성을 지정 `scope` 합니다. 속성을 `scope` 형식의 값으로 설정 합니다 `Microsoft.Management/managementGroups/<mg-name>` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+
+관리 그룹 내에서 구독 또는 리소스 그룹을 대상으로 지정할 수도 있습니다. 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
+
+관리 그룹 내에서 구독을 대상으로 하려면 중첩 된 배포 및 속성을 사용 `subscriptionId` 합니다.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+
+해당 구독 내의 리소스 그룹을 대상으로 하려면 중첩 된 다른 배포 및 속성을 추가 `resourceGroup` 합니다.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
+
+구독 내에서 리소스 그룹을 만들고 해당 리소스 그룹에 저장소 계정을 배포 하는 데 관리 그룹 배포를 사용 하려면 [구독 및 리소스 그룹에 배포](#deploy-to-subscription-and-resource-group)를 참조 하세요.
 
 ## <a name="deployment-commands"></a>배포 명령
 
@@ -94,97 +118,6 @@ REST API의 경우, [관리 그룹 범위에서 배포-만들기](/rest/api/reso
 배포 이름을 제공하거나 기본 배포 이름을 사용할 수 있습니다. 기본 이름은 템플릿 파일의 이름입니다. 예를 들어 **azuredeploy.json**이라는 템플릿을 배포하면 **azuredeploy**라는 기본 배포 이름을 만듭니다.
 
 각 배포 이름의 경우 위치는 변경할 수 없습니다. 다른 위치의 이름이 동일한 기존 배포가 있는 경우 하나의 위치에서 배포를 만들 수 없습니다. 오류 코드 `InvalidDeploymentLocation`을 수신하게 되면 해당 이름의 이전 배포와 다른 이름이나 동일한 위치를 사용합니다.
-
-## <a name="deployment-scopes"></a>배포 범위
-
-관리 그룹에 배포 하는 경우 배포 명령 또는 테 넌 트의 다른 관리 그룹에 지정 된 관리 그룹을 대상으로 지정할 수 있습니다. 관리 그룹 내에서 구독 또는 리소스 그룹을 대상으로 지정할 수도 있습니다. 템플릿을 배포 하는 사용자에 게는 지정 된 범위에 대 한 액세스 권한이 있어야 합니다.
-
-템플릿의 resources 섹션 내에 정의 된 리소스는 배포 명령에서 관리 그룹에 적용 됩니다.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        management-group-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-다른 관리 그룹을 대상으로 지정 하려면 중첩 된 배포를 추가 하 고 속성을 지정 `scope` 합니다.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2019-10-01",
-            "name": "nestedDeployment",
-            "scope": "[variables('mgId')]",
-            "location": "eastus",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resources-in-different-mg
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-관리 그룹 내에서 구독을 대상으로 하려면 중첩 된 배포 및 속성을 사용 `subscriptionId` 합니다. 해당 구독 내의 리소스 그룹을 대상으로 하려면 중첩 된 다른 배포 및 속성을 추가 `resourceGroup` 합니다.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "nestedSub",
-      "location": "westus2",
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.Resources/deployments",
-              "apiVersion": "2020-06-01",
-              "name": "nestedRG",
-              "resourceGroup": "rg2",
-              "properties": {
-                "mode": "Incremental",
-                "template": {
-                  nested-template-with-resources-in-resource-group
-                }
-              }
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
-구독 내에서 리소스 그룹을 만들고 해당 리소스 그룹에 저장소 계정을 배포 하는 데 관리 그룹 배포를 사용 하려면 [구독 및 리소스 그룹에 배포](#deploy-to-subscription-and-resource-group)를 참조 하세요.
 
 ## <a name="use-template-functions"></a>템플릿 함수 사용
 

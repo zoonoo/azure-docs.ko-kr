@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f4eba1b48b651c8efe9e9d737e226727cb244fb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 779b29c8d31dffa495926a7f2ca5e1f77870078c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662474"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319914"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect 동기화 V2 엔드포인트 API(공개 미리 보기) 
 Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여 Azure Active Directory에 대한 동기화 서비스 작업의 성능을 향상시켰습니다. 새 V2 엔드포인트를 활용하면 Azure AD로 내보내기 및 가져오기에 대한 성능이 크게 향상됩니다. 이 새 엔드포인트는 다음을 지원합니다.
@@ -116,12 +116,12 @@ V2 엔드포인트로 전환하려면 다음 단계를 사용합니다.
 1. Azure AD 동기화 규칙 편집기를 엽니다. 
 2. 편집기에서 방향에 **아웃바운드**를 선택합니다. 
 3. **AAD로 나가기 – 그룹 조인** 동기화 규칙을 클릭합니다. 
-4. **편집** 단추를 클릭합니다. ![동기화 규칙 편집](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
+4. " **Edit** ![ AAD-그룹 조인"이 선택 된 "동기화 규칙 보기 및 관리"를 표시 하는 편집 단추 스크린샷을 클릭 합니다.](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
 
 6. **예** 단추를 클릭하여 기본 규칙을 사용하지 않도록 설정하고 편집 가능한 복사본을 만듭니다.
- ![동기화 규칙 편집](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
+ !["예" 단추를 선택 하 여 "예약 된 규칙 확인 편집" 창을 보여 주는 스크린샷](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
 
-7. **설명** 페이지의 팝업 창에서 우선 순위를 1에서 99 사이의 사용 가능한 값으로 설정합니다. ![동기화 규칙 편집](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
+7. **설명** 페이지의 팝업 창에서 " ![ 우선 순위"가 강조 표시 된 "아웃 바운드 동기화 규칙 편집" 창이 표시 되는 1 ~ 007e; 99 스크린샷 사이의 사용 가능한 값으로 우선 순위를 설정 합니다.](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
 8. **변환** 페이지에서 **멤버** 변환에 대한 **원본** 값을 업데이트하여 '50000'을 50001에서 250000 사이의 값으로 바꿉니다. 이렇게 바꾸면 Azure AD와 동기화되는 그룹의 최대 멤버 자격 크기가 늘어납니다. 큰 그룹 동기화가 동기화 성능에 미치는 영향을 파악하기 위해 먼저 100k로 시작하는 것이 좋습니다. 
  

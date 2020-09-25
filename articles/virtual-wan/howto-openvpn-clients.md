@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: f955b5347bc5a2c0fe1fd8a93e14badab1f354c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68238a084684aeda557690812403995a4dc1e8c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753284"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317670"
 ---
 # <a name="configure-an-openvpn-client-for-azure-virtual-wan"></a>Azure 가상 WAN에 대 한 OpenVPN 클라이언트 구성
 
