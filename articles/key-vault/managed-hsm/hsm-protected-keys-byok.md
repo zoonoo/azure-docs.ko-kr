@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: b90d868042e9fb947afdfae9acf35262912eff94
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ce275674704cd7538f25a2d3f31d0e65aecd7925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320628"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>HSM 보호 된 키를 관리 되는 HSM으로 가져오기 (BYOK)
 
- Azure Key Vault 관리 HSM은 온-프레미스 HSM (하드웨어 보안 모듈)에서 생성 된 키를 가져오는 기능을 지원 합니다. 키가 HSM 보호 경계를 벗어날 수 없습니다. 이 시나리오를 흔히 *BYOK(Bring Your Own Key)* 라고 합니다. 관리 되는 HSM은 nCipher nShield 제품군 (FIPS 140-2 수준 3 유효성 검사)을 사용 하 여 키를 보호 합니다.
+ Azure Key Vault 관리 HSM은 온-프레미스 HSM (하드웨어 보안 모듈)에서 생성 된 키를 가져오는 기능을 지원 합니다. 키가 HSM 보호 경계를 벗어날 수 없습니다. 이 시나리오를 흔히 *BYOK(Bring Your Own Key)* 라고 합니다. 관리 되는 HSM은 Marvell LiquidSecurity HSM 어댑터 (FIPS 140-2 Level 3 유효성 검사)를 사용 하 여 키를 보호 합니다.
 
 이 문서의 정보를 사용 하 여 관리 되는 HSM과 함께 사용할 고유한 HSM 보호 키를 계획, 생성 및 전송할 수 있습니다.
 
@@ -72,7 +72,7 @@ CLI를 통한 로그인 옵션에 대한 자세한 내용은 [Azure CLI로 로�
 
 |키 이름|키 유형|키 크기|원본|Description|
 |---|---|---|---|---|
-|KEK(키 교환 키)|RSA| 2048비트<br />3072비트<br />4096비트|관리 HSM|관리 되는 HSM에서 생성 된 HSM 지원 RSA 키 쌍|
+|KEK(키 교환 키)|RSA| 2048비트<br />3072비트<br />4096비트|관리형 HSM|관리 되는 HSM에서 생성 된 HSM 지원 RSA 키 쌍|
 |대상 키|RSA|2048비트<br />3072비트<br />4096비트|공급업체 HSM|관리 되는 HSM으로 전송할 키입니다.|
 
 ## <a name="generate-and-transfer-your-key-to-the-managed-hsm"></a>키를 생성 하 고 관리 되는 HSM으로 전송

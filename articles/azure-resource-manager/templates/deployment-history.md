@@ -3,25 +3,25 @@ title: 배포 기록
 description: 포털, PowerShell, Azure CLI 및 REST API를 사용하여 Azure Resource Manager 배포 작업을 확인하는 방법을 설명합니다.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 00e0c51244d5c191d4c9f05f689b90ece81ec5a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117841"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284621"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 배포 기록 보기
 
 Azure Resource Manager를 사용 하 여 배포 기록을 볼 수 있습니다. 이전 배포의 특정 작업을 검사하고 어떤 리소스가 배포되었는지 확인할 수 있습니다. 이 기록에는 오류에 대 한 정보가 포함 됩니다.
 
-리소스 그룹에 대 한 배포 기록은 800 배포로 제한 됩니다. 한도에 도달 하면 배포는 기록에서 자동으로 삭제 됩니다. 자세한 내용은 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조 하세요.
+리소스 그룹에 대 한 배포 기록은 800 배포로 제한 됩니다. 한도에 도달 하면 배포는 기록에서 자동으로 삭제 됩니다. 자세한 내용은 [배포 기록에서 자동 삭제](deployment-history-deletions.md)를 참조하세요.
 
 특정 배포 오류에 대한 도움말은 [Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](common-deployment-errors.md)을 참조하세요.
 
 ## <a name="get-deployments-and-correlation-id"></a>배포 및 상관 관계 ID 가져오기
 
-Azure Portal, PowerShell, Azure CLI 또는 REST API를 통해 배포에 대한 세부 정보를 볼 수 있습니다. 각 배포에는 관련 이벤트를 추적하는 데 사용되는 상관 관계 ID가 있습니다. 기술 지원부와 협력하여 배포 문제를 해결할 때 유용할 수 있습니다.
+Azure Portal, PowerShell, Azure CLI 또는 REST API를 통해 배포에 대한 세부 정보를 볼 수 있습니다. 각 배포에는 관련 이벤트를 추적하는 데 사용되는 상관 관계 ID가 있습니다. [Azure 지원 요청을 만드는](../../azure-portal/supportability/how-to-create-azure-support-request.md)경우 지원에서 상관 관계 ID를 요청할 수 있습니다. 지원에서 상관 관계 ID를 사용 하 여 실패 한 배포에 대 한 작업을 식별 합니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -61,13 +61,13 @@ Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName Ex
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-리소스 그룹에 대한 배포를 나열하려면 [az deployment group list](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list)를 사용합니다.
+리소스 그룹에 대한 배포를 나열하려면 [az deployment group list](/cli/azure/group/deployment#az-deployment-group-list)를 사용합니다.
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-특정 배포를 가져오려면 [az deployment group show](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show)를 사용합니다.
+특정 배포를 가져오려면 [az deployment group show](/cli/azure/group/deployment#az-deployment-group-show)를 사용합니다.
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment

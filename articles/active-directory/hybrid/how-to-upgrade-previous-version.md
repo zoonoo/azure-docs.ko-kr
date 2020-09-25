@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69373e039320cd733fb859bb84e03e5493e05403
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b78d3cab17b0cc4085c824cf35d4c6037f0e2af5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277207"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319863"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
 이 항목에서는 Azure Active Directory(Azure AD) Connect 설치를 최신 릴리스로 업그레이드하는 데 사용할 수 있는 여러 가지 방법을 설명합니다. Azure AD Connect 릴리스를 최신 상태로 유지하는 것이 좋습니다. [스윙 마이그레이션](#swing-migration) 섹션에 설명된 단계는 상당한 구성 변경을 수행하는 경우에도 사용할 수 있습니다.
@@ -33,7 +33,7 @@ DirSync에서 업그레이드하려는 경우 대신 [Azure AD 동기화 도구(
 
 Azure AD Connect를 업그레이드하는 데 사용할 수 있는 몇 가지 전략이 있습니다.
 
-| 메서드 | 설명 |
+| 메서드 | Description |
 | --- | --- |
 | [자동 업그레이드](how-to-connect-install-automatic-upgrade.md) |빠른 설치를 사용하는 고객에게 가장 쉬운 방법입니다. |
 | [현재 위치 업그레이드](#in-place-upgrade) |단일 서버가 있는 경우 동일한 서버에 설치된 항목에 대해 전체 업그레이드를 수행할 수 있습니다. |
@@ -44,11 +44,11 @@ Azure AD Connect를 업그레이드하는 데 사용할 수 있는 몇 가지 �
 > [!NOTE]
 > 새 Azure AD Connect 서버를 사용 하도록 설정 하 여 Azure AD에 대 한 변경 내용 동기화를 시작한 후 DirSync 또는 Azure AD Sync를 사용 하 여 롤백하지 않아야 합니다. DirSync 및 Azure AD Sync를 포함 하 여 Azure AD Connect를 레거시 클라이언트로 다운 그레이드 하는 것은 지원 되지 않으며 Azure AD에서 데이터 손실 등의 문제가 발생할 수 있습니다.
 
-## <a name="in-place-upgrade"></a>현재 위치 업그레이드
+## <a name="in-place-upgrade"></a>전체 업그레이드
 전체 업그레이드는 Azure AD Sync 또는 Azure AD Connect에서 이동하는 경우에 작동합니다. FIM(Forefront Identity Manager) + Azure AD 커넥터를 사용하는 솔루션이거나 DirSync에서 이동하는 경우에는 작동하지 않습니다.
 
 이 방법은 단일 서버가 있고 개체 수가 100,000개 미만인 경우에 사용하는 것이 좋습니다. 기본 동기화 규칙이 변경된 경우, 업그레이드 후에 전체 가져오기 및 전체 동기화가 발생합니다. 이 방법을 통해 시스템의 모든 기존 개체에 새 구성이 적용됩니다. 이 실행은 동기화 엔진 범위에 속하는 개체 수에 따라 몇 시간이 걸릴 수 있습니다. 기본적으로 30분마다 동기화되는 일반 델타 동기화 스케줄러는 일시 중단되지만 암호 동기화는 계속됩니다. 따라서 주말 동안 전체 업그레이드를 수행하는 것이 좋습니다. 새 Azure AD Connect 릴리스를 포함한 기본 구성이 변경되지 않은 경우 대신 일반 델타 가져오기/동기화가 시작됩니다.  
-![현재 위치 업그레이드](./media/how-to-upgrade-previous-version/inplaceupgrade.png)
+![전체 업그레이드](./media/how-to-upgrade-previous-version/inplaceupgrade.png)
 
 기본 동기화 규칙을 변경한 경우 업그레이드 시 해당 규칙이 기본 구성으로 다시 설정됩니다. 업그레이드 간에 구성을 유지하려면 [기본 구성 변경에 대한 모범 사례](how-to-connect-sync-best-practices-changing-default-configuration.md)에 설명된 대로 변경해야 합니다.
 
@@ -106,7 +106,7 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
 
 1. 업그레이드 하는 동안 **구성이 완료 되 면 동기화 프로세스 시작**옵션을 **선택 취소** 합니다. 이렇게 하면 동기화 스케줄러가 비활성화되며, 재정의가 제거되기 전에 동기화 주기가 자동으로 수행되지 않습니다.
 
-   ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
+   ![제거 해야 하는 구성 완료 시 동기화 프로세스 시작 옵션이 강조 표시 된 스크린샷](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
 2. 업그레이드가 완료된 후 다음 cmdlet을 실행하여 추가된 재정의를 확인합니다. `Get-ADSyncSchedulerConnectorOverride | fl`
 

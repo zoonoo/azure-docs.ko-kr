@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461037"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306568"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
 
@@ -37,7 +37,7 @@ ms.locfileid: "89461037"
 
 * 리소스에 대 한 사용자 액세스를 제거 하는 등의 검토 결과 자동화
 
-  ![액세스 검토 계획](./media/deploy-access-review/1-planning-review.png)
+  ![액세스 검토 흐름을 보여 주는 다이어그램입니다.](./media/deploy-access-review/1-planning-review.png)
 
 액세스 검토는 [Azure AD Identity Governance](identity-governance-overview.md) 기능입니다. 다른 기능은 [권한 관리](entitlement-management-overview.md), [Privileged Identity Management](../privileged-identity-management/pim-configure.md) 및 [사용 약관](../conditional-access/terms-of-use.md)입니다. 이를 통해 조직은 다음 네 가지 질문을 해결할 수 있습니다.
 
@@ -190,7 +190,7 @@ ms.locfileid: "89461037"
 
 액세스 검토를 만들거나, 관리 하거나, 읽는 데 필요한 관리 역할은 검토 중인 리소스의 유형에 따라 달라 집니다. 다음 표에서는 각 리소스 유형에 필요한 역할을 나타냅니다.
 
-| 리소스 종류| 액세스 검토 만들기 및 관리 (작성자)| 액세스 검토 결과 읽기 |
+| 리소스 유형| 액세스 검토 만들기 및 관리 (작성자)| 액세스 검토 결과 읽기 |
 | - | - | -|
 | 그룹 또는 응용 프로그램| 전역 관리자 <p>사용자 관리자| 작성자 및 보안 관리자 |
 | Azure AD의 권한 있는 역할| 전역 관리자 <p>권한 있는 역할 관리자| 작성자 <p>보안 Reader<p>보안 관리자 |
@@ -300,7 +300,7 @@ ms.locfileid: "89461037"
 
 수명 주기 탭을 열어 아래로 스크롤하여 검토에 액세스 합니다.
 
- ![정책 편집](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ !["수명 주기" 탭의 "정책 편집"을 보여 주는 스크린샷](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## <a name="plan-access-reviews-for-groups"></a>그룹에 대 한 액세스 검토 계획
 
@@ -446,7 +446,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 부실 역할 할당과 관련 된 위험을 줄이려면 권한 있는 Azure AD 역할에 대 한 액세스를 정기적으로 검토 해야 합니다.
 
-![azure ad 역할 검토](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![Azure A D 역할의 "구성원 자격 검토" 목록을 보여 주는 스크린샷](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 아래 링크의 지침을 따르세요.
 
@@ -496,7 +496,7 @@ Azure AD 포털에서 수동으로 만들거나 Microsoft Graph를 통한 스크
 
 액세스 검토 작업은 [AZURE AD의 감사 로그](../reports-monitoring/concept-audit-logs.md)에서 기록 되 고 사용할 수 있습니다. 범주, 활동 유형 및 날짜 범위에서 감사 데이터를 필터링 할 수 있습니다. 예제 쿼리는 다음과 같습니다.
 
-| 범주| 정책 |
+| Category| 정책 |
 | - | - |
 | 활동 유형| 액세스 검토 만들기 |
 | | 액세스 검토 업데이트 |

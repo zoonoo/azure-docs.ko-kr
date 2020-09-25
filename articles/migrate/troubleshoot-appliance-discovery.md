@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b2a01e816c0f0569c207aa65e5027b935210e3b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296518"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331780"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Azure Migrate 어플라이언스 및 검색 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "89296518"
 
 "제공 된 매니페스트 파일이 잘못 되었습니다. 잘못 된 위치 매니페스트 항목입니다." 오류가 표시 되 면 다음을 수행 합니다.
 
-1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되었는지 확인 합니다. [자세한 정보를 알아보세요](./tutorial-prepare-vmware.md). 해시 값이 일치 하지 않으면 OVA 파일을 다시 다운로드 하 고 배포를 다시 시도 합니다.
+1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되었는지 확인 합니다. [자세히 알아보기](./tutorial-prepare-vmware.md). 해시 값이 일치 하지 않으면 OVA 파일을 다시 다운로드 하 고 배포를 다시 시도 합니다.
 2. 그래도 배포가 실패 하 고 VMware vSphere 클라이언트를 사용 하 여 파일을 배포 하는 경우 vSphere 웹 클라이언트를 통해 배포 해 보세요. 그래도 배포가 실패 하면 다른 웹 브라우저를 사용해 보세요.
 3. VSphere 웹 클라이언트를 사용 하 고 vCenter Server 6.5 또는 6.7에 배포 하려는 경우 ESXi 호스트에 직접 OVA를 배포 해 보세요.
    - 웹 클라이언트를 사용 하 여 (vCenter Server 대신) ESXi 호스트에 직접 연결 합니다 (https://<*호스트 IP 주소*>/uis).
@@ -234,6 +234,7 @@ Azure Migrate은 Azure Migrate: 서버 평가를 사용 하 여 응용 프로그
 9033: VM 사용자 이름에 잘못 된 문자가 있기 때문에 검색할 수 없습니다.     |   사용자 이름에서 잘못 된 문자가 검색 되었습니다.   |   VM 자격 증명을 다시 제공 하 여 잘못 된 문자가 있는지 확인 합니다.
 9034: 입력 한 사용자 이름이 UPN 형식이 아닙니다.    |   사용자 이름이 UPN 형식이 아닙니다.  |   사용자 이름이 UPN (사용자 계정 이름) 형식 인지 확인 합니다.
 9035: Powershell 언어 모드가 ' 전체 언어 '로 설정 되어 있지 않으므로 검색할 수 없습니다.  |   게스트 VM의 Powershell에 대 한 언어 모드가 전체 언어로 설정 되어 있지 않습니다.   |   PowerShell 언어 모드가 ' 전체 언어 '로 설정 되었는지 확인 합니다.
+9037: VM 응답 시간이 너무 높아서 데이터 수집이 일시적으로 일시 중지 되었습니다.    |   검색 된 VM이 응답 하는 데 너무 오래 걸리고 있습니다.     |   아무 조치도 취할 필요가 없습니다. 다시 시도는 응용 프로그램 검색을 위해 24 시간 동안 시도 하 고, 종속성 분석 (에이전트 없는)의 경우 3 시간 이내에 시도 됩니다.
 1만: 운영 체제 유형이 지원 되지 않습니다.   |   서버에서 실행 중인 운영 체제는 Windows 또는 Linux가 아닙니다.    |   지원 되는 운영 체제 유형은 Windows 및 Linux에만 해당 합니다.
 10001: 어플라이언스에서 서버 검색에 대 한 스크립트를 찾을 수 없습니다.    |   검색은 예상 대로 작동 하지 않습니다.   |   해결 하려면 Microsoft 지원에 문의 하세요.
 10002: 검색 작업이 시간 내에 완료 되지 않았습니다.     |   검색 에이전트가 예상 대로 작동 하지 않습니다.     |   이 문제는 24 시간 이내에 자동으로 해결 됩니다. 문제가 지속되면 Microsoft 지원에 문의하세요.

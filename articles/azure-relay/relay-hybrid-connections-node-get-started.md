@@ -3,13 +3,13 @@ title: Azure Relay 하이브리드 연결-노드의 Websocket
 description: Azure Relay 하이브리드 연결 Websocket에 대한 Node.js 콘솔 애플리케이션 작성
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: cf660d7a776c0dfa48b6c023fa0fa3516a3a0ea5
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.custom: devx-track-js
+ms.openlocfilehash: b362caa6570d4a8e212ff7adf4310a0c63e8b755
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527414"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263711"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Node.js에서 Relay 하이브리드 연결 WebSockets 시작
 

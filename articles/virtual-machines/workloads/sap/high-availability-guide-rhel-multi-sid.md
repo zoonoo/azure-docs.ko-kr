@@ -1,6 +1,6 @@
 ---
 title: RHEL 다중 SID 가이드의 SAP NW에 대 한 Azure Vm 고가용성 Microsoft Docs
-description: Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
+description: Azure Vm (가상 머신) RHEL 다중 SID에서 SAP NW의 고가용성을 설정 합니다.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: 892c45db835457d5f0127d7377d722fc7f0df518
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 612bd019dc7a4bdf481fde4511084245fabd1620
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760756"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319965"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-red-hat-enterprise-linux-for-sap-applications-multi-sid-guide"></a>SAP 응용 프로그램에 대 한 Red Hat Enterprise Linux Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드
 
@@ -56,7 +56,7 @@ ms.locfileid: "87760756"
 * **N w 2**: ascs 인스턴스 번호 **10** 및 가상 호스트 이름 **msnw2ascs**; ERS 인스턴스 번호 **12** 및 가상 호스트 이름 **msnw2ers**.  
 * **NW3**: ascs 인스턴스 번호 **20** 및 가상 호스트 이름 **msnw3ascs**; ERS 인스턴스 번호 **22** 및 가상 호스트 이름 **msnw3ers**.  
 
-이 문서에서는 데이터베이스 계층과 SAP NFS 공유의 배포에 대해 다루지 않습니다. 이 문서의 예제에서는 볼륨이 이미 배포 된 것으로 가정 하 여 NFS 공유에 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md) 볼륨 **sapMSID** 를 사용 합니다. 또한 Azure NetApp Files 볼륨이 NFSv3 프로토콜을 사용 하 여 배포 되 고 SAP systems N W 1, N W 2 및 NW3의 ASCS 및 ERS 인스턴스에 대 한 클러스터 리소스에 대해 다음 파일 경로가 존재 한다고 가정 합니다.  
+이 문서에서는 데이터베이스 계층과 SAP NFS 공유의 배포에 대해 다루지 않습니다. 이 문서의 예제에서는 볼륨이 이미 배포 된 것으로 가정 하 여 NFS 공유에 [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)  볼륨 **sapMSID** 를 사용 합니다. 또한 Azure NetApp Files 볼륨이 NFSv3 프로토콜을 사용 하 여 배포 되 고 SAP systems N W 1, N W 2 및 NW3의 ASCS 및 ERS 인스턴스에 대 한 클러스터 리소스에 대해 다음 파일 경로가 존재 한다고 가정 합니다.  
 
 * volume sapMSID (nfs://10.42.0.4/sapmnt<b>n w 1</b>)
 * volume sapMSID (nfs://10.42.0.4/usrsap<b>n w 1</b>ascs)
@@ -191,7 +191,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
-### <a name="prerequisites"></a>필수 조건 
+### <a name="prerequisites"></a>사전 요구 사항 
 
 > [!IMPORTANT]
 > 클러스터에 추가 SAP 시스템을 배포 하기 위한 지침을 수행 하기 전에 첫 번째 시스템 배포 중에만 필요한 단계를 설명 하는 지침에 따라 클러스터의 첫 번째 SAP 시스템을 배포 합니다.  

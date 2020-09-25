@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 963c9c06409eca2b2f836388b94f8b80484a671a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: e4d3a594011cb57ce6dfd951215d0ae7471ae7c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90936980"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331678"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>네트워킹 개요-Azure Database for PostgreSQL 유연한 서버
 
@@ -62,7 +62,7 @@ PostgreSQL 유연한 서버에서 가상 네트워크를 사용할 때 알아야
 
    PostgreSQL 유연한 서버는 PostgreSQL 유연한 서버 사용을 위해 **위임** 된 서브넷에 있어야 합니다. 이 위임은 Azure Database for PostgreSQL 유연한 서버 에서만 해당 서브넷을 사용할 수 있음을 의미 합니다. 다른 Azure 리소스 유형은 위임된 서브넷에 있을 수 없습니다. 위임 속성을 DBforPostgreSQL/flexibleServers로 할당 하 여 서브넷을 위임 합니다.
 
-[Azure Portal](how-to-manage-virtual-network-portal.md) 또는 [Azure CLI](how-to-manage-virtual-network-cli.md)에서 개인 액세스 (VNet 통합)를 사용 하 여 유연한 서버를 만드는 방법에 대해 알아봅니다.
+* **NSG (네트워크 보안 그룹)** 네트워크 보안 그룹의 보안 규칙을 사용 하면 가상 네트워크 서브넷 및 네트워크 인터페이스에서 들어오고 나가는 네트워크 트래픽 유형을 필터링 할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../../virtual-network/network-security-groups-overview.md) 를 참조 하세요.
 
 
 ### <a name="unsupported-virtual-network-scenarios"></a>지원 되지 않는 가상 네트워크 시나리오
@@ -71,6 +71,7 @@ PostgreSQL 유연한 서버에서 가상 네트워크를 사용할 때 알아야
 * 서브넷에 리소스가 있으면 서브넷 크기 (주소 공간)를 늘릴 수 없습니다.
 * 지역 간 피어 링 Vnet 지원 되지 않습니다.
 
+[Azure Portal](how-to-manage-virtual-network-portal.md) 또는 [Azure CLI](how-to-manage-virtual-network-cli.md)에서 개인 액세스 (VNet 통합)를 사용 하 여 유연한 서버를 만드는 방법에 대해 알아봅니다.
 
 ## <a name="public-access-allowed-ip-addresses"></a>퍼블릭 액세스(허용된 IP 주소)
 공용 액세스 방법의 특성은 다음과 같습니다.
@@ -107,12 +108,9 @@ PostgreSQL용 Microsoft Azure 데이터베이스 서버 서비스로의 연결�
 ## <a name="hostname"></a>Hostname
 선택한 네트워킹 옵션에 관계 없이 유연한 서버에 연결할 때 항상 FQDN (정규화 된 도메인 이름)을 호스트 이름으로 사용 하는 것이 좋습니다. 서버의 IP 주소는 정적으로 유지 되지 않을 수 있습니다. FQDN을 사용 하면 연결 문자열을 변경 하지 않아도 됩니다. 
 
-IP가 변경 되는 한 가지 시나리오는 영역 중복 HA를 사용 하 고 기본 및 보조 간에 장애 조치 (failover)가 발생 하는 경우입니다. FQDN을 사용 하면 동일한 연결 문자열을 사용 하 여 연결을 원활 하 게 다시 시도할 수 있습니다.
-
 예제
 * 바람직하지 `hostname = servername.postgres.database.azure.com`
-* `hostname = 10.0.0.4`(개인 주소) 또는 `hostname = 40.2.45.67` (공용 주소)를 사용 하지 마십시오.
-
+* 가능 하면 `hostname = 10.0.0.4` (개인 주소) 또는 `hostname = 40.2.45.67` (공용 주소)를 사용 하지 마십시오.
 
 
 ## <a name="tls-and-ssl"></a>TLS 및 SSL

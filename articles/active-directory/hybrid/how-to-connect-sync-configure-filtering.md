@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084841"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319982"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화 구성 필터링
 필터링을 사용하여 온-프레미스 디렉터리에서 Azure Active Directory(Azure AD)에 표시할 개체를 제어할 수 있습니다. 기본 구성은 모든 도메인에 구성된 포리스트의 모든 개체를 사용합니다. 일반적으로 권장되는 구성입니다. Exchange Online 및 비즈니스용 Skype와 같은 Microsoft 365 작업을 사용 하는 사용자는 전자 메일을 보내고 모든 사용자를 호출할 수 있도록 전체 전체 주소 목록을 활용 하는 것이 좋습니다. 기본 구성을 사용하여 Exchange 또는 Lync의 온-프레미스 구현과 같은 환경을 가져올 수 있습니다.
@@ -113,7 +113,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
    ![커넥터 속성](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. **디렉터리 파티션 구성**을 클릭합니다.
 5. **디렉터리 파티션 선택** 목록에서 필요에 따라 도메인을 선택 및 선택 취소합니다. 동기화하려는 파티션만 선택되어 있는지 확인합니다.  
-   ![파티션](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   !["속성" 창에 디렉터리 파티션을 보여 주는 스크린샷](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    온-프레미스 Active Directory 인프라를 변경하고 포리스트에서 도메인을 추가하거나 제거한 경우 **새로 고침** 단추를 클릭하여 업데이트된 목록을 가져옵니다. 새로 고칠 때 자격 증명 요청 메시지가 표시됩니다. Windows Server Active Directory에 대한 읽기 권한으로 모든 자격 증명을 제공합니다. 대화 상자에 미리 채워져 있는 사용자일 필요는 없습니다.  
    ![새로 고침 필요](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. 완료하면 **확인**을 클릭하여 **속성** 대화 상자를 닫습니다. 포리스트에서 도메인을 제거한 경우 도메인이 제거되었다는 메시지가 팝업되고 해당 구성은 정리됩니다.
@@ -144,7 +144,7 @@ Azure AD Connect를 설치하거나 최신 버전으로 업그레이드할 때 �
 3. 각 프로필에 대해 **추가된** 도메인과 **제거된** 도메인을 조정합니다.
     1. 각각의 5개 프로필에 대해 **추가된** 각 도메인에 다음 단계를 수행합니다.
         1. 실행 프로필을 선택하고 **새 단계**를 클릭합니다.
-        2. **구성 단계** 페이지의 **형식** 드롭다운 메뉴에서 구성할 프로필과 같은 이름의 단계 유형을 선택합니다. **다음**을 클릭합니다.  
+        2. **구성 단계** 페이지의 **형식** 드롭다운 메뉴에서 구성할 프로필과 같은 이름의 단계 유형을 선택합니다. 그런 다음 **다음**을 클릭합니다.  
         ![커넥터 실행 프로필 2](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep1.png)  
         3. **커넥터 구성** 페이지의 **파티션** 드롭다운 메뉴에서 도메인 필터에 추가한 파티션의 이름을 선택합니다.  
         ![커넥터 실행 프로필 3](./media/how-to-connect-sync-configure-filtering/runprofilesnewstep2.png)  

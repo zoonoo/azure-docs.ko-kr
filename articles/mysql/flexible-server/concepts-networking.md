@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 550f3367fe2e5283aff788b36203e988361590ad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/23/2020
+ms.openlocfilehash: 4eb9ffceada245f7a7f4b2631a79330fb497a452
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937121"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331729"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)에 대 한 연결 및 네트워킹 개념
 
@@ -62,6 +62,8 @@ MySQL 유연한 서버에서 가상 네트워크를 사용할 때 알아야 할 
 
    Mysql 유연한 서버는 MySQL 유연한 서버 사용을 위해 **위임** 된 서브넷에 있어야 합니다. 이렇게 위임하면 Azure Database for MySQL 유동 서버에서만 해당 서브넷을 사용할 수 있습니다. 다른 Azure 리소스 유형은 위임된 서브넷에 있을 수 없습니다. 위임 속성을 flexibleServers으로 할당 하 여 서브넷을 위임 합니다.
 
+* **NSG (네트워크 보안 그룹)** 네트워크 보안 그룹의 보안 규칙을 사용 하면 가상 네트워크 서브넷 및 네트워크 인터페이스에서 들어오고 나가는 네트워크 트래픽 유형을 필터링 할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹 개요](../../virtual-network/network-security-groups-overview.md) 를 참조 하세요.
+
 
 ### <a name="unsupported-virtual-network-scenarios"></a>지원 되지 않는 가상 네트워크 시나리오
 * 공용 끝점 (또는 공용 IP 또는 DNS)-가상 네트워크에 배포 된 유연한 서버는 공용 끝점을 포함할 수 없습니다.
@@ -108,11 +110,9 @@ MySQL Server 서비스의 Microsoft Azure Database에 대 한 액세스가 예�
 ## <a name="hostname"></a>Hostname
 선택한 네트워킹 옵션에 관계 없이 유연한 서버에 연결할 때 항상 FQDN (정규화 된 도메인 이름)을 호스트 이름으로 사용 하는 것이 좋습니다. 서버의 IP 주소는 정적으로 유지 되지 않을 수 있습니다. FQDN을 사용 하면 연결 문자열을 변경 하지 않아도 됩니다. 
 
-IP가 변경 되는 한 가지 시나리오는 영역 중복 HA를 사용 하 고 기본 및 보조 간에 장애 조치 (failover)가 발생 하는 경우입니다. FQDN을 사용 하면 동일한 연결 문자열을 사용 하 여 연결을 원활 하 게 다시 시도할 수 있습니다.
-
 예제
 * 바람직하지 `hostname = servername.mysql.database.azure.com`
-* `hostname = 10.0.0.4`(개인 주소) 또는 `hostname = 40.2.45.67` (공용 IP)를 사용 하지 마십시오.
+* 가능 하면 `hostname = 10.0.0.4` (개인 주소) 또는 `hostname = 40.2.45.67` (공용 IP)를 사용 하지 마십시오.
 
 
 

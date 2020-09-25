@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0affcb3c1bab6eb5616c69bb15faf423895328b0
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: c2589b47c1619dd528ab843dcf4befd0da227d16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331491"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -467,15 +467,15 @@ Azure 가상 네트워크 에서만 Managed Disks 내보내기 및 가져오기�
 
 **동일한 디스크 액세스 개체에 여러 가상 네트워크를 연결할 수 있나요?**
 
-아닙니다. 현재는 디스크 액세스 개체를 하나의 가상 네트워크에만 연결할 수 있습니다.
+아니요. 현재는 디스크 액세스 개체를 하나의 가상 네트워크에만 연결할 수 있습니다.
 
 **다른 구독의 디스크 액세스 개체에 가상 네트워크를 연결할 수 있나요?**
 
-아닙니다. 현재는 디스크 액세스 개체를 동일한 구독의 가상 네트워크에 연결할 수 있습니다.
+아니요. 현재는 디스크 액세스 개체를 동일한 구독의 가상 네트워크에 연결할 수 있습니다.
 
 **다른 구독의 디스크 액세스 개체에 가상 네트워크를 연결할 수 있나요?**
 
-아닙니다. 현재는 디스크 액세스 개체를 동일한 구독의 가상 네트워크에 연결할 수 있습니다.
+아니요. 현재는 디스크 액세스 개체를 동일한 구독의 가상 네트워크에 연결할 수 있습니다.
 
 **동일한 디스크 액세스 개체를 사용 하 여 여러 개의 내보내기 또는 가져오기 작업을 동시에 수행할 수 있나요?**
 
@@ -487,10 +487,10 @@ Azure 가상 네트워크 에서만 Managed Disks 내보내기 및 가져오기�
 
 **디스크/스냅숏의 SAS URI를 사용 하 여 디스크와 연결 되지 않은 개인 끝점의 서브넷과 동일한 서브넷에 있지 않은 VM의 기본 VHD를 다운로드할 수 있나요?**
 
-아닙니다.
+아니요.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>여기서 내 질문에 대답하지 않으면 어떻게 하나요?
 
-질문하려는 내용이 아래 목록에 나와 있지 않으면 알려 주세요. 대답을 확인하는 방법을 알려 드리겠습니다. 설명에 있는 이 문서의 끝에 질문을 게시할 수 있습니다. Azure Storage 팀 및 다른 커뮤니티 멤버와 이 문서에 대한 의견을 교환하려면 MSDN [Azure Storage에 대한 Microsoft Q&A 질문 페이지](https://docs.microsoft.com/answers/products/azure?product=storage)를 사용하세요.
+질문하려는 내용이 아래 목록에 나와 있지 않으면 알려 주세요. 대답을 확인하는 방법을 알려 드리겠습니다. 설명에 있는 이 문서의 끝에 질문을 게시할 수 있습니다. 이 문서에 대 한 Azure Storage 팀 및 기타 커뮤니티 구성원과 연계 하려면 [Microsoft Q&Azure Storage에 대 한 질문 페이지](https://docs.microsoft.com/answers/products/azure?product=storage)를 사용 하세요.
 
 기능을 요청하려면 요청 내용과 아이디어를 [Azure Storage 피드백 포럼](https://feedback.azure.com/forums/217298-storage)으로 제출해 주세요.

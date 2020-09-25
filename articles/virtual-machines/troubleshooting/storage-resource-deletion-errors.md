@@ -1,6 +1,6 @@
 ---
 title: Azure의 Linux VM에서 스토리지 리소스 삭제 오류 문제 해결 | Microsoft Docs
-description: 연결된 VHD가 포함된 스토리지 리소스를 삭제할 때 발생하는 문제 해결 방법입니다.
+description: 연결 된 Vhd가 포함 된 저장소 리소스를 삭제할 때 Linux Vm에서 발생 하는 문제를 해결 하는 방법을 알아봅니다.
 keywords: ''
 services: virtual-machines
 author: genlin
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8f145dcf8d476009d81056b3f4f970460209a5bc
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8209f5b7fc02f59c33ad0a7b58ec6305d6eecf0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320084"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>스토리지 리소스 삭제 오류 문제 해결
 

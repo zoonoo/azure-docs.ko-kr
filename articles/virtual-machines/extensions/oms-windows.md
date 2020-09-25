@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 501681a17603fb21e073b04e48d23f1b566f8128
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4730f05adc2625ac576f5963f68d8e3ca8ede355
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89067691"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331508"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Windows용 Log Analytics 가상 머신 확장
 
 Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터링 기능을 제공 합니다. Windows용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서에서는 지원되는 플랫폼, 구성 및 Windows용 Log Analytics 가상 머신 확장에 대한 배포 옵션을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -34,9 +34,9 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 ### <a name="agent-and-vm-extension-version"></a>에이전트 및 VM 확장 버전
 다음 표에서는 Windows Log Analytics VM 확장 버전 및 각 릴리스에 대 한 Log Analytics 에이전트 번들의 매핑을 제공 합니다. 
 
-| Windows 에이전트 번들 버전 Log Analytics | Log Analytics Windows VM 확장 버전 | 릴리스 날짜: | 릴리스 정보 |
+| Windows 에이전트 번들 버전 Log Analytics | Log Analytics Windows VM 확장 버전 | 출시 날짜 | 릴리스 정보 |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 10.20.18038 | 1.0.18040.2 | 2020년 8월   | <ul><li>Azure Arc에서 문제를 해결 합니다.</li></ul> |
+| 10.20.18040 | 1.0.18040.2 | 2020년 8월   | <ul><li>Azure Arc에서 문제를 해결 합니다.</li></ul> |
 | 10.20.18038 | 1.0.18038 | 2020년 4월   | <ul><li>Azure Monitor 개인 링크 범위를 사용 하 여 개인 링크를 통해 연결할 수 있습니다.</li><li>작업 영역에 예기치 않게 수집 되는 실수를 방지 하기 위해 수집 제한을 추가 합니다.</li><li>추가 Azure Government 클라우드 및 지역에 대 한 지원을 추가 합니다.</li><li>HealthService.exe 충돌 하는 버그를 해결 합니다.</li></ul> |
 | 10.20.18029 | 1.0.18029 | 2020년 3월   | <ul><li>SHA-2 코드 서명 지원을 추가 합니다.</li><li>VM 확장 설치 및 관리 개선</li><li>서버 통합을 위해 Azure Arc의 버그를 해결 합니다.</li><li>고객 지원에 대 한 기본 제공 문제 해결 도구를 추가 합니다.</li><li>추가 Azure Government 영역에 대 한 지원을 추가 합니다.</li> |
 | 10.20.18018 | 1.0.18018 | 2019년 10월 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li></ul> |

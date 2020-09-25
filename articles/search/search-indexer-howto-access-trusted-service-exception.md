@@ -8,16 +8,19 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1400f3c3d15698a5f1a145e8e0750ad7c4e9cec8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 30fc71e6f59766a759cdb8e4e503123623f48bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971412"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320475"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>신뢰할 수 있는 서비스 예외를 통해 안전 하 게 저장소 계정에서 데이터 액세스
 
 저장소 계정의 데이터에 액세스 하는 인덱서는 신뢰할 수 있는 [서비스 예외](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) 기능을 사용 하 여 데이터에 안전 하 게 액세스할 수 있습니다. 이 메커니즘은 저장소 계정의 데이터에 액세스 하는 데 사용할 수 있는 간단 하 고 안전 하며 무료 대안이 [IP 방화벽 규칙을 통해 인덱서 액세스](search-indexer-howto-access-ip-restricted.md) 를 부여할 수 없는 고객을 제공 합니다.
+
+> [!NOTE]
+> 신뢰할 수 있는 서비스 예외를 통해 저장소 계정의 데이터에 대 한 액세스 지원은 Azure Blob storage 및 Azure Data Lake Gen2 저장소로 제한 됩니다. Azure table storage는 지원 되지 않습니다.
 
 ## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>1 단계: id를 통해 저장소 계정에 대 한 연결 구성
 

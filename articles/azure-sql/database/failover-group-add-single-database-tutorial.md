@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 06/19/2019
-ms.openlocfilehash: 4caad36d21d3facb97dc358fdfee61e89c420213
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 23b78acb226b0d4de637dc653e6edb3bb4177219
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496341"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263592"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>자습서: autofailover 그룹에 Azure SQL Database 추가
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[장애 조치 (failover) 그룹](auto-failover-group-overview.md) 은 여러 지역에서 복제 된 데이터베이스를 그룹화 하는 데 사용할 수 있는 선언적 추상화 계층입니다. Azure SQL Database에 대해 장애 조치 (failover) 그룹을 구성 하 고 Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 장애 조치 (failover)를 테스트 하는 방법을 알아봅니다.  이 자습서에서 학습할 방법은 다음과 같습니다.
+[장애 조치 (failover) 그룹](auto-failover-group-overview.md) 은 여러 지역에서 복제 된 데이터베이스를 그룹화 하는 데 사용할 수 있는 선언적 추상화 계층입니다. Azure SQL Database에 대해 장애 조치 (failover) 그룹을 구성 하 고 Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 장애 조치 (failover)를 테스트 하는 방법을 알아봅니다.  이 자습서에서는 다음과 같은 작업을 수행하는 방법을 알아봅니다.
 
 > [!div class="checklist"]
 >
@@ -29,7 +29,7 @@ ms.locfileid: "87496341"
 > - 두 서버 간에 데이터베이스의 장애 조치 (failover) 그룹을 만듭니다.
 > - 테스트 장애 조치 (failover)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 # <a name="the-portal"></a>[포털](#tab/azure-portal)
 
@@ -80,7 +80,7 @@ ms.locfileid: "87496341"
    - **장애 조치 (Failover) 그룹 이름**: 고유한 장애 조치 (failover) 그룹 이름 (예:)을 입력 `failovergrouptutorial` 합니다.
    - **보조 서버**: *필수 설정을 구성* 하는 옵션을 선택한 다음 **새 서버를 만들도록**선택 합니다. 또는 기존 서버를 보조 서버로 선택할 수도 있습니다. 다음 값을 입력 한 후 **선택**을 선택 합니다.
       - **서버 이름**: 보조 서버에 대 한 고유한 이름 (예:)을 입력 `mysqlsecondary` 합니다.
-      - **서버 관리자 로그인**: 유형`azureuser`
+      - **서버 관리자 로그인**: 유형 `azureuser`
       - **암호**: 암호 요구 사항을 충족 하는 복잡 한 암호를 입력 합니다.
       - **위치**: 드롭다운 (예:)에서 위치를 선택 `East US` 합니다. 이 위치는 주 서버와 동일한 위치가 될 수 없습니다.
 
@@ -336,7 +336,7 @@ Azure CLI를 사용 하 여 테스트 장애 조치 (failover)
 Azure Portal를 사용 하 여 리소스 그룹을 삭제 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동합니다.
-1. 리소스 그룹 자체 뿐만 아니라 그룹의 모든 리소스를 삭제 하려면 **리소스 그룹 삭제** 를 선택 합니다.
+1. 리소스 그룹 자체 뿐만 아니라 그룹의 모든 리소스를 삭제 하려면  **리소스 그룹 삭제** 를 선택 합니다.
 1. 텍스트 상자에 리소스 그룹의 이름을 입력 하 `myResourceGroup` 고 **삭제** 를 선택 하 여 리소스 그룹을 삭제 합니다.  
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)

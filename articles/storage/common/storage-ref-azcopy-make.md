@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 16d7965b8d42a6fdd6ebd68307b01b322cfa7cc6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ad64d56899a9a54f4c8aede78ba6b4f2b77b8249
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285240"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331542"
 ---
 # <a name="azcopy-make"></a>azcopy make
 
@@ -42,14 +42,14 @@ azcopy make "https://[account-name].[blob,file,dfs].core.windows.net/[top-level-
 
 ## <a name="options"></a>옵션
 
-|옵션|설명|
+|옵션|Description|
 |--|--|
 |-h, --help|만들기 명령에 대 한 도움말 콘텐츠를 표시 합니다. |
-|--quota-gb uint32|공유의 최대 크기 (gb) (GiB)를 지정 합니다. 0은 파일 서비스의 기본 할당량을 그대로 사용 함을 의미 합니다.|
+|--quota-gb uint32|공유의 최대 크기 (GB)를 지정 합니다. 0은 파일 서비스의 기본 할당량을 그대로 사용 함을 의미 합니다.|
 
 ## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속 된 옵션
 
-|옵션|설명|
+|옵션|Description|
 |---|---|
 |--0mbps float|전송 률 (메가 비트/초)을 대문자로 처리 합니다. 순간 처리량은 cap와 약간 다를 수 있습니다. 이 옵션을 0으로 설정 하거나 생략 하면 처리량이 생략 되지 않습니다.|
 |--출력 형식 문자열|명령의 출력 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 "text"입니다.|

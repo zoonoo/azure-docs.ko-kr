@@ -3,12 +3,12 @@ title: Azure Monitor에서 Azure Service Bus 메트릭 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor를 사용하여 Service Bus 엔터티(큐, 토픽 및 구독)를 모니터링하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 3081b46bebdba8e83e5584178b37aab2dffee599
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 158662a5d0fc3489b2cac638b28a64aa218b888e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320441"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Monitor에서 Azure Service Bus 메트릭
 
@@ -147,7 +147,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
     2. 경고에 대한 **설명** 을 입력합니다.
     3. 경고의 **심각도**를 선택합니다. 
 
-        ![경고 세부 정보](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![규칙 만들기 페이지의 스크린샷 경고 세부 정보 정의가 확장 되 고 경고 규칙 이름, 설명 및 심각도 필드가 강조 표시 됩니다.](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. **규칙 만들기** 페이지에서 **작업 그룹 정의**를 선택하고, **새 작업 그룹**을 선택하고, **작업 그룹 추가 페이지**에서 다음 작업을 수행합니다. 
     1. 작업 그룹의 이름을 입력합니다.
     2. 작업 그룹의 짧은 이름을 입력합니다. 
@@ -161,7 +161,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
         2. **이메일 주소**를 입력합니다. 
         3. **확인**을 선택합니다.
 
-            ![경고 세부 정보](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![작업 그룹 추가 페이지의 스크린샷 전자 메일/SMS/Push/Voice 작업 유형을 사용 하 여 "전자 메일 보내기" 라는 동작이 그룹에 추가 됩니다.](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. **작업 그룹 추가** 페이지에서 **확인**을 선택합니다. 
 1. **규칙 만들기** 페이지에서 **경고 규칙 만들기**를 선택합니다. 
 

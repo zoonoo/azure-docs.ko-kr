@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5908083be4e6ed389b606754ffef41a4a371c3e3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d22976254cc804ca53060fb284abde8e80a684e6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938724"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319731"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>릴리스 정보-Azure Arc 사용 데이터 서비스 (미리 보기)
 
@@ -29,18 +29,26 @@ Azure Arc 사용 데이터 서비스는 공개 미리 보기에 대해 릴리스
 
 자세한 지침은 [Azure Arc에서 사용할 수 있는 데이터 서비스는 무엇 인가요?](overview.md)
 
+### <a name="known-issues"></a>알려진 문제
+
+이 릴리스에는 다음 문제가 적용 됩니다.
+
+* **PostgreSQL Hyperscale 서버 그룹을 삭제 하**는 중: 서버 그룹 또는 인스턴스의 구성을 변경한 경우 PostgreSQL hyperscale 서버 그룹을 삭제 하기 전에 편집 작업이 완료 될 때까지 기다립니다.
+
+* ** `azdata notebook run` 실패할 수 있음**:이 문제를 해결 하려면 `azdata notebook run` Python 가상 환경에서를 실행 합니다. 이 문제는 Azure Data Studio 배포 마법사를 사용 하 여 SQL 관리 되는 인스턴스 또는 PostgreSQL Hyperscale 서버 그룹을 만드는 데 실패 한 경우에도 발생 합니다. 이 경우 노트북을 열고 노트북 맨 위에 있는 **모두 실행** 단추를 클릭할 수 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 > **작업을 시도해보시겠습니까?**  
-> Azure Kubernetes 서비스 (AKS), AWS 탄력적 Kubernetes 서비스 (EKS), Google Cloud Kubernetes Engine (GKE) 또는 Azure VM에서 [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) 를 빠르게 시작 하세요.
+> AKS(Azure Kubernetes Service), AWS EKS(Elastic Kubernetes Service), GKE(Google Cloud Kubernetes Engine) 또는 Azure VM에서 [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)를 사용하여 빠르게 시작하세요.
 
 [클라이언트 도구 설치](install-client-tools.md)
 
-[Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md) (클라이언트 도구를 먼저 설치 해야 함)
+[Azure Arc 데이터 컨트롤러 만들기](create-data-controller.md)(먼저 클라이언트 도구를 설치해야 함)
 
-Azure [arc에서 AZURE SQL 관리 되는 인스턴스 만들기](create-sql-managed-instance.md) (먼저 azure arc 데이터 컨트롤러를 만들어야 함)
+[Azure Arc에서 Azure SQL 관리형 인스턴스 만들기](create-sql-managed-instance.md)(먼저 Azure Arc 데이터 컨트롤러를 만들어야 함)
 
-[Azure arc에서 Azure Database for PostgreSQL Hyperscale server 그룹 만들기](create-postgresql-hyperscale-server-group.md) (먼저 azure arc 데이터 컨트롤러를 만들어야 함)
+[Azure Arc에서 Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 만들기](create-postgresql-hyperscale-server-group.md)(먼저 Azure Arc 데이터 컨트롤러를 만들어야 함)
 
 ## <a name="known-limitations-and-issues"></a>알려진 제한 사항 및 문제
 

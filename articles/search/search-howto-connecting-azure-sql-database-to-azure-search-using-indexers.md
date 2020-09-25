@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: a1dd88e9007a878ffdf6e5d836391c30c952c35a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 631f5afbac4337cd0852f46ac4a336107f042397
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331644"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Azure Cognitive Search 인덱서를 사용 하 여 Azure SQL 콘텐츠 연결 및 인덱싱
 
@@ -74,7 +74,9 @@ Azure Cognitive Search는 Azure SQL Database 및 SQL Managed Instance 외에도 
     }
    ```
 
-   `ADO.NET connection string` 옵션을 사용하여 [Azure Portal](https://portal.azure.com)에서 연결 문자열을 가져올 수 있습니다.
+   연결 문자열은 다음 형식 중 하나를 따를 수 있습니다.
+    1. `ADO.NET connection string` 옵션을 사용하여 [Azure Portal](https://portal.azure.com)에서 연결 문자열을 가져올 수 있습니다.
+    1. 다음 형식의 계정 키를 포함 하지 않는 관리 되는 id 연결 문자열 `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;` 입니다. 이 연결 문자열을 사용 하려면 [관리 되는 id를 사용 하 여 Azure SQL Database에 대 한 인덱서 연결을 설정](search-howto-managed-identities-sql.md)하는 지침을 따르세요.
 
 2. 아직 없는 경우 대상 Azure Cognitive Search 인덱스를 만듭니다. [포털](https://portal.azure.com) 또는 [인덱스 만들기 API](/rest/api/searchservice/Create-Index)를 사용하여 인덱스를 만들 수 있습니다. 대상 인덱스의 스키마가 원본 테이블의 스키마와 호환 되는지 확인 합니다. [SQL과 Azure 인식 검색 데이터 형식 간의 매핑](#TypeMapping)을 참조 하세요.
 
@@ -314,7 +316,7 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>SQL과 Azure Cognitive Search 데이터 형식 간 매핑
-| SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 | 참고 |
+| SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 | 메모 |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
@@ -325,8 +327,8 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |SRID가 4326(기본값)인 POINT 형식의 지리 인스턴스만 지원됩니다. |
-| rowversion |N/A |행 버전 열은 변경 내용 추적에 사용할 수 있지만 검색 인덱스에 저장할 수는 없습니다. |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/A |지원되지 않음 |
+| rowversion |해당 없음 |행 버전 열은 변경 내용 추적에 사용할 수 있지만 검색 인덱스에 저장할 수는 없습니다. |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |해당 없음 |지원되지 않음 |
 
 ## <a name="configuration-settings"></a>구성 설정
 SQL 인덱서는 여러 구성 설정을 노출합니다.

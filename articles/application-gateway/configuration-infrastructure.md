@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: ce0e03407349505d54aeb22b164fa8593446967d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653032"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319795"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>인프라 구성 Application Gateway
 
@@ -20,10 +20,10 @@ Application gateway 인프라에는 가상 네트워크, 서브넷, 네트워크
 
 ## <a name="virtual-network-and-dedicated-subnet"></a>가상 네트워크 및 전용 서브넷
 
-Application gateway는 가상 네트워크의 전용 배포입니다. 가상 네트워크 내에는 application gateway에 대 한 전용 서브넷이 필요 합니다. 특정 응용 프로그램 게이트웨이 배포의 인스턴스를 서브넷에 여러 개 포함할 수 있습니다. 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수도 있습니다. 그러나 응용 프로그램 게이트웨이 서브넷에 다른 리소스를 배포할 수 없습니다.
+Application gateway는 가상 네트워크의 전용 배포입니다. 가상 네트워크 내에는 application gateway에 대 한 전용 서브넷이 필요 합니다. 특정 응용 프로그램 게이트웨이 배포의 인스턴스를 서브넷에 여러 개 포함할 수 있습니다. 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수도 있습니다. 그러나 응용 프로그램 게이트웨이 서브넷에 다른 리소스를 배포할 수 없습니다. 동일한 서브넷에서 Standard_v2와 표준 Azure 애플리케이션 게이트웨이를 혼합할 수 없습니다.
 
 > [!NOTE]
-> 동일한 서브넷에서 Standard_v2와 표준 Azure 애플리케이션 게이트웨이를 혼합할 수 없습니다.
+> [가상 네트워크 서비스 끝점 정책은](../virtual-network/virtual-network-service-endpoint-policies-overview.md) 현재 Application Gateway 서브넷에서 지원 되지 않습니다.
 
 ### <a name="size-of-the-subnet"></a>서브넷 크기
 

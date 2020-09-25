@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 자동 종료 정책 관리 Microsoft Docs
 description: 사용 하지 않을 때 가상 컴퓨터가 자동으로 종료 되도록 랩에 대 한 자동 종료 정책을 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3532e4859bd63c81cb9b9cda973064e5ef8357ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287551"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320713"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 및 계산 가상 컴퓨터에 대 한 자동 종료 구성
 
@@ -162,7 +162,7 @@ Azure DevTest Labs를 통해 각 랩에 대한 정책(설정)을 관리하여 �
     }
     ```
     
-    ![요청 본문 JSON 스키마](./media/devtest-lab-auto-shutdown/request-json.png)
+    !["요청 본문 JSON 스키마"를 보여 주는 스크린샷](./media/devtest-lab-auto-shutdown/request-json.png)
 7. 디자이너에서 **+ 새 단계** 를 선택 하 고 다음 단계를 수행 합니다.
     1. **Office 365 Outlook**을 검색 합니다. 전자 메일을 보냅니다. 
     2. **작업**에서 **전자 메일 보내기** 를 선택 합니다. 

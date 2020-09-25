@@ -7,17 +7,17 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 88f74bcc93d640ec8d4d9014c6f25a6d0d0df680
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.custom: devx-track-js
+ms.openlocfilehash: dd0d3e462f0b2d8b525e63d65d657a8f056d01a9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614000"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331865"
 ---
 # <a name="write-client-app-authentication-code"></a>클라이언트 앱 인증 코드 작성
 
-[Azure Digital Twins 인스턴스와 인증을 설정한](how-to-set-up-instance-scripted.md)후에는 인스턴스와 상호 작용 하는 데 사용할 클라이언트 응용 프로그램을 만들 수 있습니다. 시작 클라이언트 프로젝트를 설정 하면이 문서에서는 **해당 클라이언트 앱에서 코드를 작성** 하 여 Azure Digital twins 인스턴스에 대해 인증 하는 방법을 보여 줍니다.
+[Azure Digital Twins 인스턴스와 인증을 설정한](how-to-set-up-instance-portal.md)후에는 인스턴스와 상호 작용 하는 데 사용할 클라이언트 응용 프로그램을 만들 수 있습니다. 시작 클라이언트 프로젝트를 설정 하면이 문서에서는 **해당 클라이언트 앱에서 코드를 작성** 하 여 Azure Digital twins 인스턴스에 대해 인증 하는 방법을 보여 줍니다.
 
 이 문서의 샘플 코드에는 두 가지 방법이 있습니다. 선택한 언어에 따라 사용자에 게 적합 한 항목을 사용할 수 있습니다.
 * 샘플 코드의 첫 번째 섹션에서는 Azure Digital Twins .NET (c #) SDK를 사용 합니다. SDK는 .NET 용 Azure SDK의 일부 이며, [*.net 용 Azure IoT 디지털 쌍 클라이언트 라이브러리*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)에 있습니다.
@@ -25,9 +25,9 @@ ms.locfileid: "89614000"
 
 Azure digital Twins의 Api 및 Sdk에 대 한 자세한 내용은 [*방법: Azure 디지털 쌍 api 및 Sdk 사용*](how-to-use-apis-sdks.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-먼저 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-scripted.md)에서 설정 단계를 완료 합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에 게 액세스 권한이 있으며 클라이언트 응용 프로그램에 대 한 사용 권한을 설정 하 게 됩니다. 이 설정이 완료 되 면 클라이언트 앱 코드를 작성할 준비가 된 것입니다.
+먼저 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)에서 설정 단계를 완료 합니다. 이렇게 하면 Azure Digital Twins 인스턴스가 있고 사용자에 게 액세스 권한이 있으며 클라이언트 응용 프로그램에 대 한 사용 권한을 설정 하 게 됩니다. 이 설정이 완료 되 면 클라이언트 앱 코드를 작성할 준비가 된 것입니다.
 
 계속 하려면 코드를 작성 하는 클라이언트 앱 프로젝트가 필요 합니다. 클라이언트 앱 프로젝트를 아직 설정 하지 않은 경우이 자습서에서 사용할 수 있도록 선택한 언어로 기본 프로젝트를 만듭니다.
 
@@ -45,13 +45,13 @@ Azure digital Twins의 Api 및 Sdk에 대 한 자세한 내용은 [*방법: Azur
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
 ```
-.NET SDK를 사용 하 여 인증 하려면 [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) library에서 정의한 자격 증명 가져오기 방법 중 하나를 사용 합니다. 다음은 일반적으로 사용 되는 두 가지 방법입니다 (동일한 응용 프로그램 에서도 함께 사용 됨).
+.NET SDK를 사용 하 여 인증 하려면 [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library에서 정의한 자격 증명 가져오기 방법 중 하나를 사용 합니다. 다음은 일반적으로 사용 되는 두 가지 방법입니다 (동일한 응용 프로그램 에서도 함께 사용 됨).
 
-* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) 는 대화형 응용 프로그램을 위한 것 이며 인증 된 SDK 클라이언트를 만드는 데 사용할 수 있습니다.
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) 는 MSI (관리 id)를 필요로 하는 경우에 유용 하며, Azure Functions을 사용 하는 것이 좋습니다.
+* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) 는 대화형 응용 프로그램을 위한 것 이며 인증 된 SDK 클라이언트를 만드는 데 사용할 수 있습니다.
+* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) 는 MSI (관리 id)를 필요로 하는 경우에 유용 하며, Azure Functions을 사용 하는 것이 좋습니다.
 
 ### <a name="interactivebrowsercredential-method"></a>InteractiveBrowserCredential 메서드
-[InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) 메서드는 대화형 응용 프로그램을 위한 것 이며 인증을 위해 웹 브라우저를 엽니다.
+[InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) 메서드는 대화형 응용 프로그램을 위한 것 이며 인증을 위해 웹 브라우저를 엽니다.
 
 대화형 브라우저 자격 증명을 사용 하 여 인증 된 SDK 클라이언트를 만들려면 다음 코드를 추가 합니다.
 
@@ -81,7 +81,7 @@ try
 > 위와 같이 클라이언트 ID, 테 넌 트 ID 및 인스턴스 URL을 코드에 직접 저장할 수 있지만, 코드에서 구성 파일 또는 환경 변수 로부터 이러한 값을 가져오는 것이 좋습니다.
 
 ### <a name="managedidentitycredential-method"></a>ManagedIdentityCredential 메서드
- [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) 메서드는 [관리 id (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)가 필요한 경우 (예: Azure Functions 사용 하는 경우에 유용 합니다.
+ [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) 메서드는 [관리 id (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)가 필요한 경우 (예: Azure Functions 사용 하는 경우에 유용 합니다.
 Azure 함수에서 다음과 같이 관리 되는 id 자격 증명을 사용할 수 있습니다.
 
 ```csharp
@@ -104,7 +104,7 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 
 이 섹션에서는이 경우 인증 하는 방법을 설명 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 먼저 [*방법: AutoRest를 사용 하 여 Azure Digital Twins 용 사용자 지정 Sdk 만들기*](how-to-create-custom-sdks.md)의 단계에 따라 AutoRest를 사용 하 여 사용자 지정 sdk를 만드는 단계를 완료 해야 합니다.
 

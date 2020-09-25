@@ -5,13 +5,17 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: 041c8851fc5535b9c4494bc5aae618bfbc762086
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9d09f29dc5fbe6ed6a358c37a6064319c28e35f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125299"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320774"
 ---
-사용 권한이 올바르게 구성 되었는지 확인 하려면 [이 링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 를 따라 Azure Portal에서 Azure AD 앱 등록 개요 페이지로 이동 합니다. 이 페이지에는 구독에 생성 된 모든 앱 등록이 표시 됩니다.
+사용 권한이 올바르게 구성 되었는지 확인 하려면 Azure Portal에서 [AZURE AD 앱 등록 개요 페이지로](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 이동 합니다. 포털 검색 창에서 *앱 등록* 을 검색 하 여이 페이지로 직접 이동할 수 있습니다.
 
-개요 목록에서 방금 만든 앱 등록이 표시 됩니다. 이를 선택 하 여 세부 정보를 엽니다.
+*모든 응용 프로그램* 탭으로 전환 하 여 구독에 생성 된 모든 앱 등록을 확인 합니다.
+
+목록에서 방금 만든 앱 등록이 표시 됩니다. 이를 선택 하 여 세부 정보를 엽니다.
+
+:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/app-registrations.png" alt-text="Azure Portal 앱 등록 페이지":::

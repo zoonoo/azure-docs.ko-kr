@@ -6,12 +6,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: d4b9a7be36bd4c0a4044f3e76b96b21a16eb80de
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f91619860b577981d9717904a3d4a3074c2eaf0f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320849"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Azure CLI(명령줄 인터페이스)를 사용하여 Azure Data Lake Analytics 관리
 
@@ -20,7 +20,7 @@ ms.locfileid: "87132520"
 Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법에 대해 알아봅니다. 다른 도구를 사용하여 관리 항목을 보려면 위의 탭 선택을 클릭합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 다음 리소스가 있어야 합니다.
 
@@ -88,7 +88,7 @@ Azure CLI를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, �
 
 Data Lake Analytics는 현재 다음 두 데이터 원본을 지원합니다.
 
-* [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
+* [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
 * [Azure Storage](../storage/common/storage-introduction.md)
 
 분석 계정을 만들 때 Azure 데이터 레이크 Storage 계정이 기본 Storage 계정이 되도록 지정해야 합니다. 기본 Data Lake 스토리지 계정은 작업 메타데이터 및 작업 감사 로그를 저장하는 데 사용됩니다. 분석 계정을 만든 후 데이터 레이크 Storage 계정 및/또는 Azure Storage 계정을 더 추가할 수 있습니다. 
@@ -141,7 +141,7 @@ Blob Storage 계정 나열:
    az dla account blob-storage list --account "<Data Lake Analytics account name>"
    ```
 
-![데이터 레이크 분석은 데이터 원본을 나열합니다.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+!["DataLakeStoreAccounts:" 정보가 강조 표시 된 Azure C L I를 보여 주는 스크린샷](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### <a name="delete-data-sources"></a>데이터 원본 삭제:
 
@@ -185,7 +185,7 @@ Blob Storage 계정 나열:
 >    ```
 
 ### <a name="cancel-jobs"></a>작업 취소
-list 명령을 사용하여 Job ID를 찾은 후 cancel을 사용하여 작업을 취소합니다.
+List 명령을 사용 하 여 작업 ID를 찾은 다음, 취소를 사용 하 여 작업을 취소 합니다.
 
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"

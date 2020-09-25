@@ -1,25 +1,19 @@
 ---
 title: Azure Private Link 서비스와 Azure Relay 통합
 description: Azure Private Link Service와 Azure Relay를 통합하는 방법을 알아봅니다.
-ms.date: 06/23/2020
+ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719430"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263871"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Azure Private Link(미리 보기)와 Azure Relay 통합
 Azure **Private Link Service**를 사용하면 가상 네트워크의 프라이빗 엔드포인트를 통해 Azure 서비스(예: Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다. 자세한 내용은 [Azure Private Link(미리 보기)란?](../private-link/private-link-overview.md)을 참조하세요.
 
 **프라이빗 엔드포인트**는 가상 네트워크에서 실행 중인 워크로드가 **프라이빗 링크 리소스**가 있는 서비스(예: 릴레이 네임스페이스)에 비공개로 안전하게 연결할 수 있도록 하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute, VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. 특정 Azure Relay 네임스페이스에 대한 연결을 허용하여 액세스 제어 수준을 세분화할 수 있습니다. 
-
-
-> [!IMPORTANT]
-> 이 기능은 현재 **미리 보기**로 제공됩니다. 
->
-> 현재 발신자 클라이언트에서 프라이빗 링크 연결을 지원합니다. 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Azure Portal을 사용하여 프라이빗 엔드포인트 추가

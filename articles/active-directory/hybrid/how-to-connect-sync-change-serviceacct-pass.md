@@ -17,12 +17,12 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31c76b78d4ab7a3f305b52526b7e4ce14f3b1ede
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278040"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319931"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>ADSync 서비스 계정 암호 변경
 ADSync 서비스 계정 암호를 변경 하는 경우 암호화 키를 중단 하 고 ADSync 서비스 계정 암호를 다시 초기화할 때까지 동기화 서비스를 제대로 시작할 수 없습니다. 
@@ -52,7 +52,7 @@ Azure AD Connect 동기화 서비스의 일부로 암호화 키를 사용 하 �
  
 ## <a name="abandoning-the-adsync-service-account-encryption-key"></a>ADSync 서비스 계정 암호화 키 중단
 >[!IMPORTANT]
->다음 절차를 Azure AD Connect 빌드 1.1.443.0 이전 빌드에만 적용됩니다. 최신 버전의 Azure AD Connect에는 사용할 수 없습니다.
+>다음 절차를 Azure AD Connect 빌드 1.1.443.0 이전 빌드에만 적용됩니다. 이는 AD sync 서비스 계정 암호를 변경 하는 경우 Azure AD Connect 자체에서 암호화 키를 중단 하기 때문에 새 버전의 Azure AD Connect에 사용할 수 없습니다. 따라서 다음 단계는 최신 버전에서 필요 하지 않습니다.   
 
 다음 절차를 사용하여 암호화 키를 제거하십시오.
 
@@ -88,7 +88,7 @@ Azure AD Connect 동기화 서비스의 일부로 암호화 키를 사용 하 �
 
 4. `./miiskmu.exe /a` 명령을 실행합니다.
 
-![Azure AD Connect 동기화 암호화 키 유틸리티](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
+![명령을 실행 한 후 PowerShell을 보여 주는 스크린샷](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
 #### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>AD DS 커넥터 계정의 암호를 제공 합니다.
 데이터베이스 내에 저장 된 기존 암호를 더 이상 해독할 수 없으므로 동기화 서비스에 AD DS 커넥터 계정의 암호를 제공 해야 합니다. 동기화 서비스는 새 암호화 키를 사용하여 암호를 암호화합니다.
@@ -101,7 +101,7 @@ Azure AD Connect 동기화 서비스의 일부로 암호화 키를 사용 하 �
 5. 팝업 대화 상자에서 **Active Directory 포리스트에 연결**을 선택합니다.
 6. **암호** 텍스트 상자에 AD DS 계정의 암호를 입력합니다. 암호를 모르는 경우 이 단계를 수행하기 전에 알려진 값으로 설정해야 합니다.
 7. **확인**을 클릭하여 새 암호를 저장하고 팝업 대화 상자를 닫습니다.
-![Azure AD Connect 동기화 암호화 키 유틸리티](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
+!["속성" 창에서 "Active Directory 포리스트에 연결" 페이지를 보여 주는 스크린샷](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
 #### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>ADSync 서비스 계정의 암호를 다시 초기화 합니다.
 Azure AD 서비스 계정의 암호를 동기화 서비스에 직접 제공할 수 없습니다. 대신 cmdlet **Add-ADSyncAADServiceAccount**을 사용하여 Azure AD 서비스 계정을 다시 초기화해야 합니다. cmdlet은 계정 암호를 다시 설정하여 동기화 서비스에 사용할 수 있게 합니다.

@@ -5,20 +5,42 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 5e293bb98405affd824d4bbc50b6f24c5a0e3c11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de0f58b54f0cb5ad450949bb1a7b8744f081227d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999618"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320339"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>3 부: SMB를 통한 디렉터리 및 파일 수준 권한 구성 
 
 이 문서를 시작 하기 전에 이전 문서를 완료 하 여 공유 수준 사용 권한이 있는지 확인 하는 [id에 공유 수준 권한 할당](storage-files-identity-ad-ds-assign-permissions.md) 을 완료 했는지 확인 합니다.
 
 RBAC를 사용 하 여 공유 수준 권한을 할당 한 후에는 세분화 된 액세스 제어를 활용 하기 위해 루트, 디렉터리 또는 파일 수준에서 적절 한 Windows Acl을 구성 해야 합니다. RBAC 공유 수준 사용 권한은 사용자가 공유에 액세스할 수 있는지 여부를 결정 하는 상위 수준 게이트 키퍼로 간주 합니다. Windows Acl은 보다 세부적인 수준에서 작동 하 여 사용자가 디렉터리 또는 파일 수준에서 수행할 수 있는 작업을 결정 합니다. 사용자가 파일/디렉터리에 액세스 하려고 할 때 공유 수준 및 파일/디렉터리 수준 권한이 모두 적용 되므로 둘 중 하나에 차이가 있는 경우 가장 제한적인 항목만 적용 됩니다. 예를 들어 사용자가 파일 수준에서 읽기/쓰기 액세스 권한을가지고 있지만 공유 수준 에서만 읽을 수 있는 경우에는 해당 파일만 읽을 수 있습니다. 이는 반대로, 사용자가 공유 수준에서 읽기/쓰기 액세스 권한을가지고 있지만 파일 수준 에서만 읽을 수 있는 경우에도 마찬가지입니다. 단, 파일을 읽을 수만 있습니다.
+
+## <a name="rbac-permissions"></a>RBAC 권한
+
+다음 표에는이 구성과 관련 된 RBAC 권한이 나와 있습니다.
+
+
+| 기본 제공 역할  | NTFS 권한  | 결과 액세스  |
+|---------|---------|---------|
+|스토리지 파일 데이터 SMB 공유 Reader | 모든 권한, 수정, 읽기, 쓰기, 실행 | 읽기 & 실행  |
+|     |   읽기 |     읽기  |
+|스토리지 파일 데이터 SMB 공유 Contributor  |  모든 권한    |  수정, 읽기, 쓰기, 실행 |
+|     |  수정         |  수정    |
+|     |  읽기 & 실행 |  읽기 & 실행 |
+|     |  읽기           |  읽기    |
+|     |  쓰기          |  쓰기   |
+|스토리지 파일 데이터 SMB 공유 관리자 권한 Contributor | 모든 권한  |  수정, 읽기, 쓰기, 편집, 실행 |
+|     |  수정          |  수정 |
+|     |  읽기 & 실행  |  읽기 & 실행 |
+|     |  읽기            |  읽기   |
+|     |  쓰기           |  쓰기  |
+
+
 
 ## <a name="supported-permissions"></a>지원 되는 권한
 

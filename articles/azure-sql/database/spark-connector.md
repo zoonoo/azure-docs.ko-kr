@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: denzilribeiro
 ms.author: denzilr
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 09/02/2020
-ms.openlocfilehash: 46fa489c5a72c3de923f5281cc9be205925dd42d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 36010ff0206ddf9dae08391eb6e4c3dd7762cc10
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988093"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319336"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Spark 커넥터를 사용 하 여 실시간 빅 데이터 분석 가속화
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

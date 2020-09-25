@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d528ff41d8b7098e313e070dfe734960cdc89eaa
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 4dc768b92a9ffbeafc31ef81d065237f47fb645e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331882"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보안
 
@@ -83,7 +83,7 @@ Azure Digital Twins는 데이터 센터에서 기록 되는 미사용 데이터 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [*방법: 인스턴스 및 인증 설정에서 수행 하는*](how-to-set-up-instance-scripted.md)이러한 개념을 참조 하세요.
+* [*방법: 인스턴스 및 인증 설정에서 수행 하는*](how-to-set-up-instance-portal.md)이러한 개념을 참조 하세요.
 
 * [*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)의 클라이언트 응용 프로그램 코드에서 이러한 개념과 상호 작용 하는 방법을 참조 하세요.
 

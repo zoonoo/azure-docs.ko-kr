@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/09/2020
-ms.openlocfilehash: 5c24bd80721f626e38dcb886e89231c0b86056df
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/15/2020
+ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650966"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331661"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대 한 고객 Lockbox
 
@@ -32,22 +32,23 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
 
 - API Management
 - Azure App Service
-- Azure Database for MySQL
-- Azure Databricks
-- Azure Synapse Analytics
 - Cognitive Services
 - Container Registry
+- Azure Database for MySQL
+- Azure Databricks
+- Azure Data Box
+- Azure Data Explorer
 - Azure 데이터 팩터리
 - Azure Database for PostgreSQL
-- Azure Kubernetes Service
-- Azure Data Box
+- Azure Functions
 - HDInsight
-- Functions
+- Azure Kubernetes Service
+- Azure Monitor
 - Azure Storage
 - Azure SQL DB
-- Azure Data Explorer
-- 가상 컴퓨터 (이제 메모리 덤프 및 관리 디스크에 대 한 액세스도 포함)
 - Azure 구독 전송
+- Azure Synapse Analytics
+- 가상 컴퓨터 (이제 메모리 덤프 및 관리 디스크에 대 한 액세스도 포함)
 
 조직에서 이러한 미리 보기 제품에 대 한 고객 Lockbox를 사용 하도록 설정 하려면 [고객 Lockbox Azure 공개 미리 보기](https://aka.ms/customerlockbox/insiderprogram)에 등록 합니다.
 
@@ -108,7 +109,7 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
 
     ![Azure 고객 Lockbox-보류 중인 요청 보기](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 다음은 그 예입니다. 
+10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 예를 들면 다음과 같습니다.
 
     ![Azure 고객 Lockbox-지원 티켓 요청 보기](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 

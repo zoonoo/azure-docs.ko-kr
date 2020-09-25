@@ -14,12 +14,12 @@ ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eb45f4488c0ddc63ab8e7357a122b47777feee
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: aed5dcf98e37b0d075804985355bdabe3b50b712
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662351"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295348"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
 설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](how-to-connect-install-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
@@ -46,7 +46,7 @@ Azure AD Connect 설치를 시작하기 전에 [Azure AD Connect를 다운로드
 ### <a name="user-sign-in"></a>사용자 로그인
 필수 구성 요소를 설치한 후 사용자가 Single Sign-On 방법을 선택하라는 메시지가 표시됩니다. 다음 테이블에서 사용 가능한 옵션에 대한 간략한 설명을 제공합니다. 로그인 메서드에 대한 전체 설명은 [사용자 로그인](plan-connect-user-signin.md)을 참조하세요.
 
-![사용자 로그인](./media/how-to-connect-install-custom/usersignin4.png)
+!["암호 해시 동기화"가 선택 된 "사용자 로그인" 페이지를 보여 주는 스크린샷](./media/how-to-connect-install-custom/usersignin4.png)
 
 | SSO(Single Sign-On) 옵션 | Description |
 | --- | --- |
@@ -75,7 +75,7 @@ Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합
 ### <a name="connect-your-directories"></a>디렉터리에 연결
 Active Directory 도메인 서비스에 연결하려면 Azure AD Connect에 충분한 권한이 있는 계정의 포리스트 이름과 자격 증명이 필요합니다.
 
-![연결 디렉터리](./media/how-to-connect-install-custom/connectdir01.png)
+!["디렉터리 연결" 페이지를 보여 주는 스크린샷](./media/how-to-connect-install-custom/connectdir01.png)
 
 포리스트 이름을 입력하고 **디렉터리 추가**를 클릭하면 팝업 대화 상자가 나타나고 다음 옵션을 묻는 메시지가 표시됩니다.
 
@@ -300,7 +300,7 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 ### <a name="select-the-azure-ad-domain-that-you-wish-to-federate"></a>페더레이션하려는 Azure AD 도메인을 선택합니다.
 이 구성은 AD FS와 Azure AD 간의 페더레이션 관계를 설정하는데 사용됩니다. Azure AD에 보안 토큰을 발급하도록 AD FS를 구성하고 이 특정 AD FS 인스턴스에서 토큰을 신뢰하도록 Azure AD를 구성합니다. 이 페이지에서는 초기 설치에서 단일 도메인만 구성할 수만 있습니다. 나중에 Azure AD Connect를 다시 실행하여 더 많은 도메인을 구성할 수 있습니다.
 
-![Azure AD 도메인](./media/how-to-connect-install-custom/adfs6.png)
+!["Azure AD 도메인" 페이지를 보여 주는 스크린샷](./media/how-to-connect-install-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>페더레이션에 선택한 Azure AD 도메인 확인
 페더레이션할 도메인을 선택하면 Azure AD Connect가 확인되지 않은 도메인을 확인하는 데 필요한 정보를 제공합니다. 이 정보를 사용하는 방법은 [도메인 추가 및 확인](../fundamentals/add-custom-domain.md)을 참조하세요.
@@ -320,7 +320,7 @@ Azure AD Connect에서 PingFederate를 구성하는 것은 간단히 몇 번의 
 ### <a name="verify-the-domain"></a>도메인 확인
 PingFederate을 사용한 페더레이션을 선택한 후에는 페더레이션할 도메인을 확인하라는 메시지가 표시됩니다.  드롭다운 상자에서 도메인을 선택합니다.
 
-![도메인 확인](./media/how-to-connect-install-custom/ping1.png)
+!["Contoso.com" 예제 도메인이 선택 된 "Azure AD 도메인"을 보여 주는 스크린샷](./media/how-to-connect-install-custom/ping1.png)
 
 ### <a name="export-the-pingfederate-settings"></a>PingFederate 설정 내보내기
 
@@ -394,7 +394,7 @@ Azure AD Connect는 이전 단계에서 PingFederate 메타데이터에서 검�
 ### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>"ADSync 데이터베이스에 이미 데이터가 포함되어 있어 덮어쓸 수 없습니다."
 Azure AD Connect를 사용자 지정으로 설치하고 **필요한 구성 요소 설치** 페이지에서 **기존 SQL 서버 사용** 옵션을 선택하면 **ADSync 데이터베이스에 이미 데이터가 포함되어 있어 덮어쓸 수 없습니다. 기존 데이터베이스를 제거하고 다시 시도하십시오** 오류가 발생할 수 있습니다.
 
-![Error](./media/how-to-connect-install-custom/error1.png)
+!["필수 구성 요소 설치" 페이지를 보여 주는 스크린샷](./media/how-to-connect-install-custom/error1.png)
 
 SQL 서버의 SQL 인스턴스에 **ADSync**라고 하는 기존 데이터베이스가 이미 있기 때문이며, 이 데이터베이스는 여러분이 위의 텍스트 상자에서 지정한 것입니다.
 

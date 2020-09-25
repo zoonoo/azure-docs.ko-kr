@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: a0fc1bc3158e04c9b1f677af7ef2375ac3ed2ce7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279944"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320050"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Azure AD Connect에서 수정 된 기본 규칙 수정
 
@@ -73,7 +73,7 @@ Azure AD Connect 버전 1.3.7.0부터 수정 된 기본 규칙을 쉽게 식별�
 #### <a name="add-an-inbound-sync-rule"></a>인바운드 동기화 규칙 추가
 인바운드 동기화 규칙은 특성의 소스가 커넥터 공간 임을 의미 하 고 대상은 메타 버스입니다. 예를 들어 온-프레미스 Active Directory에서 Azure Active Directory로 새 특성 흐름을 설정 하려면 새 인바운드 동기화 규칙을 만듭니다. **동기화 규칙 편집기**를 시작 하 고 방향으로 **인바운드** 를 선택 하 고 **새 규칙 추가**를 선택 합니다. 
 
- ![동기화 규칙 편집기](media/how-to-connect-fix-default-rules/default3a.png)
+ !["인바운드" 및 "새 규칙 추가"가 선택 된 "동기화 규칙 편집기"를 보여 주는 스크린샷](media/how-to-connect-fix-default-rules/default3a.png)
 
 고유한 명명 규칙에 따라 규칙의 이름을 지정 합니다. 여기서는 **AD 사용자의에서 사용자 지정**을 사용 합니다. 즉, 규칙은 사용자 지정 규칙 이며 Active Directory 커넥터 공간에서 메타 버스 까지의 인바운드 규칙입니다.   
 
@@ -176,7 +176,7 @@ Azure AD Connect으로 구성 된 기본 조인 조건을 사용 합니다. 기�
 
 미리 보기 창의 왼쪽 창에서 **미리 보기 생성** 및 **특성 흐름 가져오기** 를 선택 합니다.
 
-![미리 보기](media/how-to-connect-fix-default-rules/default14.png)
+!["특성 흐름 가져오기" 및 "미리 보기 생성"이 선택 된 "미리 보기" 창을 보여 주는 스크린샷](media/how-to-connect-fix-default-rules/default14.png)
  
 여기서는 새로 추가 된 규칙이 개체에 대해 실행 되 고 특성을 true로 설정 했는지 확인 합니다 `cloudFiltered` .
 

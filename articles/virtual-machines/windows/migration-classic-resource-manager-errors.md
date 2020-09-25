@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager 마이그레이션에 대한 클래식 중 일반 오류
-description: 이 문서에는 Azure 서비스 관리에서 Azure Resource Manager 스택으로의 IaaS 리소스 마이그레이션 중에 가장 일반적인 오류 및 해결 방법이 포함됩니다.
+description: Azure 서비스 관리에서 Azure Resource Manager 스택으로 IaaS 리소스를 마이그레이션하는 동안 발생 하는 가장 일반적인 오류 및 완화에 대해 알아봅니다.
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 00ecb64bceafbacafc007754e8bcc0aa94c8b984
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b052951b0d601681239701711a6636156ad4ebf1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88504999"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320033"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Azure Resource Manager 마이그레이션에 대한 클래식 중 일반 오류
 

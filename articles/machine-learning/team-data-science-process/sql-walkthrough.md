@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 047915874dfd81fdf68dc97ac217274b2439d726
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027480"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331899"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>실행 중인 팀 데이터 과학 프로세스: SQL Server 사용
 이 자습서에서는 SQL Server 및 공개적으로 사용할 수 있는 데이터 세트([NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트)를 사용하여 Machine Learning 모델의 배포 및 빌드 처리를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.
@@ -83,7 +83,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 Azure 데이터 과학 환경을 설정하려면
 
 1. [스토리지 계정을 만드는](../../storage/common/storage-account-create.md)
-2. [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)
+2. [Azure Machine Learning 작업 영역 만들기](../classic/create-workspace.md)
 3. [데이터 과학 Virtual Machine 프로비전](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)(SQL Server 및 IPython Notebook 서버 제공)
    
    > [!NOTE]
@@ -175,8 +175,8 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 
 이전에 병렬 대량 가져오기를 사용하여 채운 테이블에서 행 및 열 수를 신속하게 확인하려면 다음을 실행합니다.
 
-- 테이블을 검색 하지 않고 테이블 nyctaxi_trip의 행 수를 보고 합니다.`SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
-- 테이블 nyctaxi_trip의 열 수 보고서:`SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
+- 테이블을 검색 하지 않고 테이블 nyctaxi_trip의 행 수를 보고 합니다. `SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
+- 테이블 nyctaxi_trip의 열 수 보고서: `SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>탐색: medallion별 여정 분포
 이 예제에서는 지정된 기간 내의 여정이 100개가 넘는 medallion(택시 번호)을 식별합니다. 쿼리는 **pickup\_datetime** 파티션 구성표를 조건으로 하므로 분할된 테이블 액세스를 활용합니다. 전체 데이터 세트를 쿼리할 때도 분할된 테이블 및/또는 인덱스 검색을 사용합니다.
@@ -626,9 +626,9 @@ pd.read_sql(query,conn)
 3. 회귀 작업: 여정에 대해 지불된 팁의 금액을 예측합니다.  
 
 ## <a name="building-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Azure 기계 학습에서 모델 빌드
-모델링 연습을 시작하려면 Azure Machine Learning 작업 영역에 로그인합니다. 기계 학습 작업 영역을 아직 만들지 않은 경우 [Azure Machine Learning 작업 영역 만들기](../studio/create-workspace.md)를 참조하세요.
+모델링 연습을 시작하려면 Azure Machine Learning 작업 영역에 로그인합니다. 기계 학습 작업 영역을 아직 만들지 않은 경우 [Azure Machine Learning 작업 영역 만들기](../classic/create-workspace.md)를 참조하세요.
 
-1. Azure Machine Learning을 시작하려면 [Azure Machine Learning Studio란?](../studio/what-is-ml-studio.md)
+1. Azure Machine Learning을 시작하려면 [Azure Machine Learning Studio란?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. [Azure Machine Learning Studio](https://studio.azureml.net)에 로그인합니다.
 3. 스튜디오 홈 페이지에서는 다양한 정보, 비디오, 자습서, 모듈 참조 링크 및 기타 리소스를 제공합니다. Azure Machine Learning에 대한 자세한 내용은 [Azure Machine Learning 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
@@ -668,7 +668,7 @@ SQL Server 데이터베이스에서 직접 데이터를 읽는 이진 분류 실
 > 
 
 ## <a name="deploying-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Azure 기계 학습에서 모델 배포
-모델이 준비된 경우 실험에서 직접 웹 서비스로 쉽게 배포할 수 있습니다. Azure Machine Learning 웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](../studio/deploy-a-machine-learning-web-service.md)를 참조하세요.
+모델이 준비된 경우 실험에서 직접 웹 서비스로 쉽게 배포할 수 있습니다. Azure Machine Learning 웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](../classic/deploy-a-machine-learning-web-service.md)를 참조하세요.
 
 새 웹 서비스를 배포하려면 다음을 수행해야 합니다.
 
@@ -699,7 +699,7 @@ Azure Machine Learning에서는 학습 실험의 구성 요소를 기반으로 �
 ### <a name="references"></a>참조
 • [Andrés Monroy NYC Taxi Trips 다운로드 페이지](https://www.andresmh.com/nyctaxitrips/)  
 • [FOILING NYC의 Taxi 여행 데이터 (Chris whong의](https://chriswhong.com/open-data/foil_nyc_taxi/) )   
-• [NYC Taxi 및 리무진 위원회 연구 및 통계](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+•    [NYC Taxi 및 리무진 위원회 연구 및 통계](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sql-walkthrough/sql-walkthrough_28_1.png

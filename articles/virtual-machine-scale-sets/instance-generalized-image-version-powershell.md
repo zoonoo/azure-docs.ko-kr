@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell를 사용 하 여 일반화 된 이미지에서 확장 집합 만들기
-description: 공유 이미지 갤러리에서 일반화 된 이미지를 사용 하 여 확장 집합을 만듭니다.
+description: PowerShell을 사용 하 여 공유 이미지 갤러리에서 일반화 된 이미지를 사용 하 여 확장 집합을 만듭니다.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3b8c9d46a5bc5dde3e39bfa5673247ca752d2a89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 22bd1ed88f61689eec9312392f7f58d137f703e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077560"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331525"
 ---
-# <a name="create-a-scale-set-from-a-generalized-image"></a>일반화 된 이미지에서 확장 집합 만들기
+# <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>PowerShell을 사용 하 여 일반화 된 이미지에서 확장 집합 만들기 
 
 [공유 이미지 갤러리](shared-image-galleries.md)에 저장 된 일반화 된 이미지 버전에서 VM을 만듭니다. 특수 이미지를 사용 하 여 확장 집합을 만들려면 [특수화 된 이미지에서 확장 집합 인스턴스 만들기](instance-specialized-image-version-powershell.md)를 참조 하세요.
 
@@ -181,4 +181,4 @@ New-AzVmss `
 - [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-공유 이미지 갤러리에 대한 자세한 내용은 [개요](shared-image-galleries.md)를 참조하세요. 문제 발생 시에는 [공유 이미지 갤러리 문제 해결](troubleshooting-shared-images.md)을 참조하세요.
+공유 이미지 갤러리에 대한 자세한 내용은 [개요](shared-image-galleries.md)를 참조하세요. 문제 발생 시에는 [공유 이미지 갤러리 문제 해결](../virtual-machines/troubleshooting-shared-images.md)을 참조하세요.

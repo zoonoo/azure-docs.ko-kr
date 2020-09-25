@@ -6,21 +6,21 @@ services: virtual-wan
 author: erjosito
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
-ms.openlocfilehash: 98142e3a8904bcbb0352fa768fc72966412dae0b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590683"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306636"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>가상 WAN에서 개인 링크 사용
 
 [Azure 개인 링크](../private-link/private-link-overview.md) 는 개인 [끝점](../private-link/private-endpoint-overview.md)을 노출 하 여 개인 IP 주소 연결을 통해 Azure 플랫폼 서비스 제공 서비스를 연결 하는 데 사용할 수 있는 기술입니다. Azure 가상 WAN을 사용 하면 가상 허브에 연결 된 가상 네트워크 중 하나에 개인 끝점을 배포할 수 있습니다. 이는 동일한 가상 WAN에 연결 된 다른 가상 네트워크 또는 분기에 대 한 연결을 제공 합니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서의 단계에서는 하나 이상의 허브 및 가상 WAN에 연결 된 두 개 이상의 가상 네트워크를 사용 하 여 가상 WAN을 이미 배포 했다고 가정 합니다.
 

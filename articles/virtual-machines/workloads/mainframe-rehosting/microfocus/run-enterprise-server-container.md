@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 3c4afc6c0adb8d499e38abf3d709a951774dda4e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: bfd40d39907c4e69ded0fa257305d346ca261836
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974061"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319999"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Azure의 Docker 컨테이너에서 마이크로 포커스 엔터프라이즈 서버 5.0 실행
 
@@ -121,9 +121,9 @@ Docker는 응용 프로그램에 이식성 및 격리를 추가 합니다. 예�
 
 1.  엔터프라이즈 서버 5.0 및 acctdemo 응용 프로그램을 시작 하려면 명령 프롬프트에서 다음을 입력 합니다.
 
-    ~~~
+    ```
     **docker run -p 16002:86/tcp -p 16002:86/udp -p 9040-9050:9040-9050 -p 9000-9010:9000-9010 -ti --network="nat" --rm microfocus/es-acctdemo:win\_5.0\_x64
-    ~~~
+    ```
 
 1.  [X3270](http://x3270.bgp.nu/) 와 같은 3270 터미널 에뮬레이터를 설치 하 고 포트 9040를 통해를 실행 하는 이미지에 연결 하는 데 사용 합니다.
 
@@ -133,15 +133,15 @@ Docker는 응용 프로그램에 이식성 및 격리를 추가 합니다. 예�
 
     2.  Acctdemo 컨테이너의 IP 주소를 가져오려면 다음과 같이 이전 단계의 컨테이너 ID를 사용 합니다.
 
-    ~~~
+    ```
     docker inspect \<containerID\> --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
-    ~~~
+    ```
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
-    ~~~
+    ```
     docker inspect 22a0fe3159d0 --format="{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}"
-    ~~~
+    ```
 
 4. Acctdemo 이미지에 대 한 IP 주소를 적어둡니다. 예를 들어 다음 출력의 주소는 172.19.202.52입니다.
 

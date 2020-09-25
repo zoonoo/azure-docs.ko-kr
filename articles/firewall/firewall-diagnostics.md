@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/17/2020
 ms.author: victorh
-ms.openlocfilehash: 92fc4252dd52236e2cc4e8fdfdd2afa32059a721
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 784459282007edab599d54edff0d2b38eed07b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376947"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320645"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭 모니터링
 
@@ -24,7 +24,7 @@ ms.locfileid: "89376947"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 azure 방화벽에 사용할 수 있는 진단 로그 및 메트릭에 대 한 개요는 [Azure 방화벽 로그 및 메트릭을](logs-and-metrics.md) 읽어 보아야 합니다.
 
@@ -35,14 +35,17 @@ ms.locfileid: "89376947"
 1. Azure Portal에서 방화벽 리소스 그룹을 열고 방화벽을 선택 합니다.
 2. **모니터링** 아래에서 **진단 설정**을 선택합니다.
 
-   Azure Firewall의 경우 두 개의 서비스 관련 로그를 사용할 수 있습니다.
+   Azure 방화벽의 경우 다음과 같은 4 가지 서비스별 로그를 사용할 수 있습니다.
 
    * AzureFirewallApplicationRule
    * AzureFirewallNetworkRule
+   * AzureFirewallThreatIntelLog
+   * AzureFirewallDnsProxy
+
 
 3. **진단 설정 추가**를 선택 합니다. **진단 설정** 페이지에서는 진단 로그에 대한 설정을 제공합니다.
 5. 이 예제에서 Azure Monitor 로그가 로그를 저장하므로 이름에 **방화벽 로그 분석**을 입력합니다.
-6. **로그**에서 **AzureFirewallApplicationRule** and **AzureFirewallNetworkRule** 를 선택 하 여 응용 프로그램 및 네트워크 규칙에 대 한 로그를 수집 합니다.
+6. **로그**에서 **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog**및 **AzureFirewallDnsProxy** 를 선택 하 여 로그를 수집 합니다.
 7. **Log Analytics 보내기를** 선택 하 여 작업 영역을 구성 합니다.
 8. 구독을 선택합니다.
 9. **저장**을 선택합니다.
