@@ -4,17 +4,17 @@ description: Azure Security 벤치 마크 V2 네트워크 보안
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 184416794011d259af3568c81e4648d822a2c4a5
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 9833f63d999ab7c24174853bd37f4e7a76f6dfbf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059349"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329434"
 ---
-# <a name="security-control-network-security"></a>보안 제어: 네트워크 보안
+# <a name="security-control-v2-network-security"></a>보안 제어 V2: 네트워크 보안
 
 네트워크 보안은 Azure 네트워크를 보호 하 고 보호 하는 컨트롤을 포함 합니다. 여기에는 가상 네트워크 보안 설정, 개인 연결 설정, 외부 공격 방지 및 완화, DNS 보호 등이 포함 됩니다.
 
@@ -30,15 +30,19 @@ ms.locfileid: "90059349"
 
 Azure Security Center 적응 네트워크 강화를 사용 하 여 외부 네트워크 트래픽 규칙에 대 한 참조를 기반으로 포트 및 원본 Ip를 제한 하는 네트워크 보안 그룹 구성을 권장 합니다.
 
+Azure 센티널을 사용 하 여 SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, 서명 되지 않은 LDAP 바인딩 및 Kerberos에서 weak 암호화와 같은 레거시 안전 하지 않은 프로토콜의 사용을 검색 합니다.
+
 - [보안 규칙을 사용 하 여 네트워크 보안 그룹을 만드는 방법](../../virtual-network/tutorial-filter-network-traffic.md)
 
 - [Azure 방화벽을 배포 및 구성 하는 방법](../../firewall/tutorial-firewall-deploy-portal.md)
 
 - [Azure Security Center의 적응 네트워크 강화](../../security-center/security-center-adaptive-network-hardening.md)
 
+- [Azure 센티널 안전 하지 않은 프로토콜 통합 문서](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
+
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -54,7 +58,7 @@ Azure Security Center 적응 네트워크 강화를 사용 하 여 외부 네트
 
 Azure Express 경로 또는 Azure VPN (가상 사설망)을 사용 하 여 공동 배치 환경의 온-프레미스 인프라와 Azure 데이터 센터 간에 개인 연결을 만듭니다. Express 경로 연결은 공용 인터넷을 통해 이동 하지 않으며 일반적인 인터넷 연결 보다 안정적이 고 속도가 빠르며 대기 시간이 짧습니다. 지점 및 사이트 간 VPN 및 사이트 간 VPN의 경우 이러한 VPN 옵션과 Azure Express 경로를 조합 하 여 온-프레미스 장치 또는 네트워크를 가상 네트워크에 연결할 수 있습니다.
 
-Azure에서 두 개 이상의 가상 네트워크를 연결 하려면 가상 네트워크 피어 링을 사용 합니다. 피어 링 가상 네트워크 간의 네트워크 트래픽은 비공개 이며 Azure 백본 네트워크에 유지 됩니다. 
+Azure에서 둘 이상의 가상 네트워크를 함께 연결 하려면 가상 네트워크 피어 링 또는 개인 링크를 사용 합니다. 피어 링 가상 네트워크 간의 네트워크 트래픽은 비공개 이며 Azure 백본 네트워크에 유지 됩니다. 
 
 - [Express 경로 연결 모델](../../expressroute/expressroute-connectivity-models.md) 
 
@@ -62,9 +66,11 @@ Azure에서 두 개 이상의 가상 네트워크를 연결 하려면 가상 네
 
 - [가상 네트워크 피어링](../../virtual-network/virtual-network-peering-overview.md)
 
+- [Azure Private Link](../../private-link/private-link-service-overview.md)
+
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -88,7 +94,7 @@ Azure 개인 링크를 사용 하 여 인터넷을 거치지 않고 가상 네�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -108,6 +114,7 @@ DDoS (분산 서비스 거부) 공격, 응용 프로그램별 공격, 원치 않
 -   Azure 애플리케이션 Gateway의 WAF (웹 응용 프로그램 방화벽) 기능, Azure Front 도어 및 CDN (Azure Content Delivery Network)을 사용 하 여 응용 프로그램 계층 공격에 대해 응용 프로그램, 서비스 및 Api를 보호 합니다. 
 
 -   Azure 가상 네트워크에서 DDoS 표준 보호를 사용 하도록 설정 하 여 DDoS 공격 으로부터 자산을 보호 하세요. 
+-   Azure Security Center를 사용 하 여 위와 관련 된 잘못 된 구성 위험을 검색 합니다. 
 
 - [Azure Firewall 설명서](/azure/firewall/)
 
@@ -117,7 +124,7 @@ DDoS (분산 서비스 거부) 공격, 응용 프로그램별 공격, 원치 않
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 없음
 
@@ -139,7 +146,7 @@ Azure 방화벽 위협 인텔리전스 기반 필터링을 사용 하 여 알려
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -165,7 +172,7 @@ Virtual Network 서비스 태그를 사용 하 여 네트워크 보안 그룹 �
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -191,7 +198,7 @@ Azure DNS를 권한 있는 DNS 서비스로 사용 하는 경우 DNS 영역 및 
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [보안 아키텍처](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

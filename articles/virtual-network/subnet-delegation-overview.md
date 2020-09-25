@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2019
 ms.author: kumud
-ms.openlocfilehash: b33ff808b802b6848e2d5debaf515a73bf21a1bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fbb683754aed5b2a2e6e9c022713b7e87ad9ba9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74281338"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329210"
 ---
 # <a name="what-is-subnet-delegation"></a>서브넷 위임 이란?
 
@@ -51,6 +51,7 @@ Azure 서비스에 서브넷을 위임 하는 경우 해당 서비스에서 해�
 - 위임 된 서브넷의 최소 IP 주소 수를 결정 합니다.
 - 개인 IP 주소 공간 (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12)에서 사용할 위임 된 서브넷의 IP 주소 공간을 결정 합니다.
 - 사용자 지정 DNS 구성에 Azure DNS 항목이 있음을 나타냅니다.
+- 서브넷 또는 가상 네트워크를 삭제 하려면 먼저 위임을 제거 해야 합니다.
 
 삽입 된 서비스는 다음과 같이 자체 정책을 추가할 수도 있습니다.
 - **보안 정책**: 지정 된 서비스가 작동 하는 데 필요한 보안 규칙 컬렉션입니다.

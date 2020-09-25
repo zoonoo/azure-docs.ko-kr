@@ -1,16 +1,16 @@
 ---
 title: 개념-저장소
-description: Azure VMware Solution Preview 사설 클라우드의 키 저장소 기능에 대해 알아봅니다.
+description: Azure VMware 솔루션 사설 클라우드의 주요 저장소 기능에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 8afd58c61f2f78eec2a92354be6d88178340912e
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 02378040061080d3c9abbfafb26180c9d22e9073
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024318"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316820"
 ---
-# <a name="azure-vmware-solution-preview-storage-concepts"></a>Azure VMware Solution Preview 저장소 개념
+#  <a name="azure-vmware-solution-storage-concepts"></a>Azure VMware 솔루션 저장소 개념
 
 Azure VMware 솔루션 사설 클라우드는 VMware vSAN을 사용 하 여 클러스터 차원의 기본 저장소를 제공 합니다. 클러스터의 각 호스트에서 모든 로컬 저장소는 vSAN 데이터 저장소에서 사용 되며, 미사용 데이터 암호화를 사용 하 고 기본적으로 사용 하도록 설정 합니다. Azure Storage 리소스를 사용 하 여 사설 클라우드의 저장소 기능을 확장할 수 있습니다.
 
@@ -28,9 +28,9 @@ Azure VMware 솔루션 사설 클라우드는 VMware vSAN을 사용 하 여 클�
 
 ## <a name="data-at-rest-encryption"></a>휴지 상태의 데이터 암호화
 
-vSAN 데이터 저장소는 기본적으로 미사용 데이터 암호화를 사용 합니다. 암호화 솔루션은 KMS 기반 이며 키 관리를 위한 vCenter 작업을 지원 합니다. 키 암호화 키는 Azure Key Vault 저장 되며, 어떤 이유로 든 클러스터에서 호스트를 제거 하면 Ssd의 데이터가 즉시 무효화 됩니다.
+vSAN 데이터 저장소는 기본적으로 미사용 데이터 암호화를 사용 합니다. 암호화 솔루션은 KMS 기반 이며 키 관리를 위한 vCenter 작업을 지원 합니다. 키는 암호화 되어 HSM 기반 Azure Key Vault 마스터 키로 래핑됩니다. 어떤 이유로 든 클러스터에서 호스트를 제거 하면 Ssd의 데이터가 즉시 무효화 됩니다.
 
-## <a name="scaling"></a>확장
+## <a name="scaling"></a>크기 조정
 
 클러스터에 호스트를 추가 하 여 기본 클러스터 저장소 용량 크기를 조정 합니다. 호스트를 사용 하는 클러스터의 경우 원시 클러스터 전체 용량은 각 추가 호스트와 15.4 TB 씩 증가 합니다. GP 호스트를 사용 하 여 빌드된 클러스터는 각 추가 호스트에서 7.7 TB 씩 증가 된 원시 용량을 갖습니다. 두 클러스터 형식 모두에서 호스트는 클러스터에 추가 하는 데 10 분 정도 걸립니다. 클러스터 크기 조정에 대 한 지침은 [사설 클라우드 크기 조정 자습서][tutorial-scale-private-cloud] 를 참조 하세요.
 

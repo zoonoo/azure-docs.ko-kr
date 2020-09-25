@@ -1,7 +1,7 @@
 ---
 title: Azure CLI를 사용하여 공용 IP 주소에 대한 라우팅 기본 설정 구성
 titlesuffix: Azure Virtual Network
-description: 인터넷 트래픽 라우팅 기본 설정을 사용하여 공용 IP를 만드는 방법 알아보기
+description: Azure CLI를 사용 하 여 인터넷 트래픽 라우팅 기본 설정으로 공용 IP를 만드는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 64284b198fc76c219ffe0dfbc57461b587b23130
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 39514f8a34e85525e2a8900a8e6e3cc8656fb84a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504605"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329298"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Azure CLI를 사용하여 공용 IP 주소에 대한 라우팅 기본 설정 구성
 

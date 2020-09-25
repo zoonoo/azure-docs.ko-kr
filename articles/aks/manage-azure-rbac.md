@@ -4,15 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: AKS (Azure Kubernetes Service)에서 Kubernetes 권한 부여를 위해 Azure RBAC를 사용 하는 방법에 대해 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c1222f671c95d4475de93b9c9e085a94f864b2ae
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 15bd917a16c250807d6848f7bc0ffbdba06b4019
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329094"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
 
@@ -27,8 +27,7 @@ Azure에서 Kubernetes 리소스에 대 한 RBAC를 관리 하는 기능을 통�
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-### <a name="prerequisites"></a>필수 구성 요소 
-- 미리 보기에 등록 <https://aka.ms/aad-rbac-sign-up-form> 합니다.
+### <a name="prerequisites"></a>사전 요구 사항 
 - Azure CLI 버전 2.9.0 이상 인지 확인 합니다.
 - `EnableAzureRBACPreview`기능 플래그를 사용 하도록 설정 했는지 확인 합니다.
 - `aks-preview` [CLI 확장][az-extension-add] v 0.4.55 이상을 설치 했는지 확인 합니다.
@@ -44,7 +43,7 @@ Kubernetes 권한 부여를 위해 Azure RBAC를 사용 하는 AKS 클러스터�
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
 ```
 
-플래그가 성공적으로 등록 되려면 위의 미리 보기 양식을 제출한 후 승인을 받아야 합니다. [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
+ [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
@@ -114,7 +113,7 @@ Azure AD 통합 및 Azure RBAC for Kubernetes 권한 부여를 사용 하 여 �
 AKS는 다음과 같은 네 가지 기본 제공 역할을 제공 합니다.
 
 
-| 역할                                | 설명  |
+| 역할                                | Description  |
 |-------------------------------------|--------------|
 | Azure Kubernetes 서비스 RBAC 뷰어  | 읽기 전용 액세스를 허용 하 여 네임 스페이스의 대부분의 개체를 표시 합니다. 역할 또는 역할 바인딩을 볼 수 없습니다. `Secrets`비밀의 콘텐츠를 읽으면 네임 스페이스의 ServiceAccount 자격 증명에 액세스할 수 있으므로이 역할은 보기를 허용 하지 않습니다 .이는 네임 스페이스의 모든 ServiceAccount로 API 액세스를 허용 합니다 (권한 상승 형태).  |
 | Azure Kubernetes 서비스 RBAC 기록기 | 네임 스페이스의 대부분의 개체에 대 한 읽기/쓰기 액세스를 허용 합니다. 이 역할은 역할이 나 역할 바인딩을 보거나 수정할 수 없습니다. 그러나이 역할을 사용 하 여 `Secrets` 네임 스페이스의 ServiceAccount로 pod를 액세스 하 고 실행할 수 있으므로 네임 스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻는 데 사용할 수 있습니다. |
@@ -188,7 +187,7 @@ az role definition create --role-definition @deploy-view.json
 az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
 ```
 
-## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Kubernetes 권한 부여에 Azure RBAC 사용`kubectl`
+## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Kubernetes 권한 부여에 Azure RBAC 사용 `kubectl`
 
 > [!NOTE]
 > 아래 명령을 실행 하 여 최신 kubectl 있는지 확인 합니다.
@@ -222,7 +221,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubelogin"></a>Kubernetes 권한 부여에 Azure RBAC 사용`kubelogin`
+## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubelogin"></a>Kubernetes 권한 부여에 Azure RBAC 사용 `kubelogin`
 
 비 대화형 로그인, 이전 `kubectl` 버전 또는 새 클러스터에 로그인 할 필요 없이 여러 클러스터에서 SSO를 활용 하는 등의 추가 시나리오를 차단 해제 하 여 토큰이 여전히 유효 하다 고 AKS는 이라는 exec 플러그 인을 만들었습니다 [`kubelogin`](https://github.com/Azure/kubelogin) .
 
@@ -285,4 +284,4 @@ az group delete -n MyResourceGroup
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true

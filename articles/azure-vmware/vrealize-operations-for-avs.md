@@ -2,13 +2,13 @@
 title: Azure VMware 솔루션에 대 한 vRealize 작업 설정
 description: Azure VMware 솔루션 사설 클라우드에 대해 vRealize 작업을 설정 하는 방법에 대해 알아봅니다.
 ms.topic: how-to
-ms.date: 08/06/2020
-ms.openlocfilehash: 729ee5c64776d7d04f702af62451175f7c53421b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/22/2020
+ms.openlocfilehash: 06b88eb610c4633018889315ab1cfd340d3f4b57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750392"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293160"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Azure VMware 솔루션에 대 한 vRealize 작업 설정
 
@@ -58,7 +58,23 @@ VRealize 작업의 Azure VMware 솔루션 인스턴스를 배포한 후 vCenter,
 > VRealize Operations Manager를 설치 하는 단계별 가이드는 [VMware 설명서](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) 를 참조 하세요.
 
 
+## <a name="known-limitations"></a>알려진 제한 사항
 
+- **cloudadmin@vsphere.local**Azure VMware 솔루션의 사용자에 게는 [제한 된 권한이](concepts-rbac.md)있습니다. VMware 도구를 사용 하는 게스트 내 메모리 수집은 Azure VMware 솔루션의 Vm (가상 머신)에서 지원 되지 않습니다. 이 경우 활성 및 사용 된 메모리 사용률은 계속 작동 합니다.
+- Azure VMware 솔루션은 DRS 설정을 포함 하 여 클러스터 구성을 관리 하므로 호스트 기반 비즈니스 의도에 대 한 워크 로드 최적화는 작동 하지 않습니다.
+- 클러스터 기반 비즈니스 의도를 사용 하 여 SDDC 내 클러스터 간 배치에 대 한 워크 로드 최적화는 vRealize Operations Manager 8.0 및 그 이후부터 완벽 하 게 지원 됩니다. 그러나 워크 로드 최적화는 리소스 풀을 인식 하지 못하므로 가상 컴퓨터를 클러스터 수준에 배치 합니다. 사용자는 Azure VMware 솔루션 vCenter Server 인터페이스에서 수동으로이 문제를 해결할 수 있습니다.
+- Azure VMware 솔루션 vCenter Server 자격 증명을 사용 하 여 vRealize Operations Manager에 로그인 할 수 없습니다. 
+- Azure VMware 솔루션은 vRealize Operations Manager 플러그 인을 지원 하지 않습니다.
+
+VCenter Server 클라우드 계정을 사용 하 여 Azure VMware Solution vCenter를 vRealize Operations Manager에 연결 하는 경우 다음과 같은 경고가 발생 합니다.
+
+:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="경고 어댑터 인스턴스 만들기 성공":::
+
+이 경고는 **cloudadmin@vsphere.local** Azure VMware 솔루션의 사용자에 게 등록에 필요한 모든 vCenter Server 작업을 수행할 수 있는 충분 한 권한이 없기 때문에 발생 합니다. 그러나 아래와 같이 어댑터 인스턴스에서 데이터 수집을 수행 하는 데에는 권한이 충분 합니다.
+
+:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="데이터 수집을 수행할 어댑터 인스턴스":::
+
+자세한 내용은 [VCenter 어댑터 인스턴스를 구성 하는 데 필요한 권한](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html)을 참조 하세요.
 
 <!-- LINKS - external -->
 

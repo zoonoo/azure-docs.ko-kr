@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Azure Active Directory의 디렉터리 독자 역할
-description: Azure AD 응용 프로그램 (서비스 주체)은 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에서 Azure AD 사용자 만들기를 지원 합니다.
+title: Azure SQL용 Azure Active Directory의 Directory Readers 역할
+description: Azure SQL 용 Azure AD의 디렉터리 판독기 역할에 대해 알아봅니다.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
@@ -9,14 +9,14 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: a517a4b14a64be2b9bf12270eef3d08e14d8f3c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5a6fb2c1c539c5b8e353f5c3720cb9d001dcbbc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556265"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277954"
 ---
-# <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Azure SQL Azure Active Directory의 디렉터리 독자 역할
+# <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Azure SQL용 Azure Active Directory의 Directory Readers 역할
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
@@ -39,9 +39,9 @@ Azure SQL Database, Azure SQL Managed Instance 또는 Azure Synapse Analytics에
 
 [**디렉터리 판독기**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할을 id에 할당 하려면 [전역 관리자](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 권한이 있는 사용자가 필요 합니다. SQL Database, SQL Managed Instance 또는 Azure Synapse를 종종 관리 하거나 배포 하는 사용자는 이러한 높은 권한 있는 역할에 액세스할 수 없습니다. 이로 인해 사용자가 계획 되지 않은 Azure SQL 리소스를 만들거나 종종 큰 조직에서 액세스할 수 없는 높은 권한이 있는 역할 멤버의 도움을 받아야 하는 경우가 종종 있습니다.
 
-SQL Managed Instance의 경우 관리 [되는 인스턴스에 대해 AZURE AD 관리자를 설정](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)하려면 먼저 관리 되는 인스턴스 Id에 **디렉터리 판독기** 역할을 할당 해야 합니다. 
+SQL Managed Instance의 경우 [관리형 인스턴스에 대한 Azure AD 관리자를 설정](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance)하려면 먼저 관리형 인스턴스 ID에 **디렉터리 읽기 권한자** 역할을 할당해야 합니다. 
 
-논리 서버에 대 한 Azure AD 관리자를 설정 하는 경우 SQL Database 또는 Azure Synapse에 대해 **디렉터리 판독기** 역할을 할당 하는 것은 필요 하지 않습니다. 그러나 azure ad 응용 프로그램을 대신 하 여 SQL Database 또는 Azure Synapse에서 Azure AD 개체 만들기를 사용 하도록 설정 하려면 **디렉터리 독자** 역할이 필요 합니다. 역할이 SQL 논리 서버 id에 할당 되지 않은 경우 Azure SQL에서 Azure AD 사용자를 만들 수 없습니다. 자세한 내용은 [Azure SQL을 사용하는 Azure Active Directory 서비스 주체](authentication-aad-service-principal.md)를 참조하세요.
+논리 서버에 대한 Azure AD 관리자를 설정할 때에는 SQL Database 또는 Azure Synapse에서 서버 ID에 **디렉터리 읽기 권한자** 역할을 할당할 필요가 없습니다. 그러나 Azure AD 애플리케이션 대신 SQL Database 또는 Azure Synapse에서 Azure AD 개체 만들기를 사용하려면 **디렉터리 읽기 권한자** 역할이 필요합니다. SQL 논리 서버 ID에 역할이 할당되지 않으면 Azure SQL에서 Azure AD 사용자를 만들 수 없습니다. 자세한 내용은 [Azure SQL을 사용하는 Azure Active Directory 서비스 주체](authentication-aad-service-principal.md)를 참조하세요.
 
 ## <a name="granting-the-directory-readers-role-to-an-azure-ad-group"></a>Azure AD 그룹에 디렉터리 판독기 역할 부여
 
@@ -52,4 +52,4 @@ SQL Managed Instance의 경우 관리 [되는 인스턴스에 대해 AZURE AD �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: Azure AD 그룹에 디렉터리 판독기 역할 할당 및 역할 할당 관리](authentication-aad-directory-readers-role-tutorial.md)
+> [자습서: Azure AD 그룹에 디렉터리 읽기 권한자 역할 할당 및 역할 할당 관리](authentication-aad-directory-readers-role-tutorial.md)

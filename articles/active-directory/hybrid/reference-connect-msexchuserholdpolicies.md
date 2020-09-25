@@ -10,27 +10,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/23/2019
+ms.date: 09/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4950906e016b9e1915d18ecacc1edcfda8b4d09
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 2a5a4659671f8d4ded64a4f04f84abf1f67d8825
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279400"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265258"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect-msExchUserHoldPolicies 및 cloudMsExchUserHoldPolicies
 다음 참조 문서에서는 Exchange에서 사용 되는 이러한 특성과 기본 동기화 규칙을 편집 하는 적절 한 방법을 설명 합니다.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>MsExchUserHoldPolicies 및 cloudMsExchUserHoldPolicies 이란?
-Exchange 서버에 사용할 수 있는 두 가지 유형으로는 소송 보류 및 내부 유지 [가 있습니다.](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) 소송 보류를 사용 하는 경우 모든 사서함 모든 항목이 보류 중으로 배치 됩니다.  내부 보류는 내부 eDiscovery 도구를 사용 하 여 정의한 검색 쿼리 조건을 충족 하는 항목만 보존 하는 데 사용 됩니다.
+Exchange 서버에 사용할 수 있는 두 가지 유형으로는 소송 보류 및 내부 유지 [가 있습니다.](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) 소송 보류를 사용 하는 경우 모든 사서함 모든 항목이 보류 중으로 배치 됩니다.  내부 보류는 내부 eDiscovery 도구를 사용 하 여 정의한 검색 쿼리 조건을 충족 하는 항목만 보존 하는 데 사용 됩니다.
 
 MsExchUserHoldPolcies 및 cloudMsExchUserHoldPolicies 특성을 사용 하면 온-프레미스 AD 및 Azure AD에서 온-프레미스 Exchange를 사용 하는지 아니면 Exchange 온라인에서 사용 되는지에 따라 보유 중인 사용자를 확인할 수 있습니다.
 
 ## <a name="msexchuserholdpolicies-synchronization-flow"></a>msExchUserHoldPolicies 동기화 흐름
-기본적으로 MsExchUserHoldPolcies는 메타 버스의 msExchUserHoldPolicies 특성에 직접 Azure AD Connect 하 여 Azure AD의 msExchUserHoldPolices 특성으로 동기화 됩니다.
+기본적으로 MsExchUserHoldPolcies는 메타 버스의 msExchUserHoldPolicies 특성에 직접 Azure AD Connect 하 여 Azure AD의 msExchUserHoldPolicies 특성으로 동기화 됩니다.
 
 다음 표에서는 흐름에 대해 설명 합니다.
 
@@ -38,7 +38,7 @@ MsExchUserHoldPolcies 및 cloudMsExchUserHoldPolicies 특성을 사용 하면 �
 
 |Active Directory 특성|특성 이름|흐름 형식|메타 버스 특성|동기화 규칙|
 |-----|-----|-----|-----|-----|
-|온-프레미스 Active Directory|msExchUserHoldPolicies|직접|msExchUserHoldPolices|In from AD-User Exchange|
+|온-프레미스 Active Directory|msExchUserHoldPolicies|직접|msExchUserHoldPolicies|In from AD-User Exchange|
 
 Azure AD로 아웃 바운드:
 
@@ -47,7 +47,7 @@ Azure AD로 아웃 바운드:
 |Azure Active Directory|msExchUserHoldPolicies|직접|msExchUserHoldPolicies|Out to AAD – UserExchangeOnline|
 
 ## <a name="cloudmsexchuserholdpolicies-synchronization-flow"></a>cloudMsExchUserHoldPolicies 동기화 흐름
-기본적으로 cloudMsExchUserHoldPolicies는 메타 버스의 cloudMsExchUserHoldPolicies 특성에 직접 Azure AD Connect에 의해 동기화 됩니다. 그런 다음 msExchUserHoldPolices가 메타 버스에서 null이 아닌 경우의 특성이 Active Directory로 이동 합니다.
+기본적으로 cloudMsExchUserHoldPolicies는 메타 버스의 cloudMsExchUserHoldPolicies 특성에 직접 Azure AD Connect 의해 동기화 됩니다. 그런 다음 msExchUserHoldPolicies가 메타 버스에서 null이 아닌 경우의 특성이 Active Directory로 이동 합니다.
 
 다음 표에서는 흐름에 대해 설명 합니다.
 

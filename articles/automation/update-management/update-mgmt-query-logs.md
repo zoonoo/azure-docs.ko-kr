@@ -3,14 +3,14 @@ title: Azure Automation 업데이트 관리 로그 쿼리
 description: 이 문서에서는 Log Analytics 작업 영역에서 업데이트 관리에 대한 로그를 쿼리하는 방법을 설명합니다.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 290fb0165038eea8740361a12a6d4bfe2c1bf138
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 777d794716c7c17caf8d4c73007b91a625f40043
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450417"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264306"
 ---
 # <a name="query-update-management-logs"></a>업데이트 관리 로그 쿼리
 
@@ -110,7 +110,7 @@ ms.locfileid: "87450417"
 | Computer | 보고 컴퓨터의 정규화된 도메인 이름입니다. |
 | ComputerEnvironment | 환경입니다. 값은 Azure 또는 Non-Azure입니다. |
 | CorrelationId | 업데이트에 대해 실행되는 Runbook 작업의 고유 식별자입니다. |
-| EndTime | 동기화 프로세스가 종료된 시간입니다. |
+| EndTime | 동기화 프로세스가 종료된 시간입니다. *이 속성은 현재 사용 되지 않습니다. TimeGenerated를 참조 하세요.* |
 | ErrorResult | 업데이트 설치에 실패하는 경우 생성되는 Windows Update 오류 코드입니다. |
 | InstallationStatus | 클라이언트 컴퓨터의 가능한 업데이트 설치 상태입니다.<br> `NotStarted` - 작업이 아직 트리거되지 않았습니다.<br> `FailedToStart` -컴퓨터에서 작업을 시작할 수 없습니다.<br> `Failed` - 작업이 시작되었지만 예외로 인해 실패했습니다.<br> `InProgress` - 작업이 진행 중입니다.<br> `MaintenanceWindowExceeded` - 실행이 남아 있지만 유지 관리 기간 간격에 도달한 경우입니다.<br> `Succeeded` - 작업이 성공했습니다.<br> `InstallFailed` - 업데이트를 설치하지 못했습니다.<br> `NotIncluded`<br> `Excluded` |
 | KBID | Windows 업데이트에 대한 기술 자료 문서 ID입니다. |
@@ -122,13 +122,13 @@ ms.locfileid: "87450417"
 | ResourceProvider | 리소스 공급자입니다. |
 | ResourceType | 리소스 종류. |
 | SourceComputerId | 원본 컴퓨터를 나타내는 고유 식별자입니다. |
-| SourceSystem | 레코드의 원본 시스템입니다. 이때 값은 `OperationsManager`입니다. |
-| StartTime | 업데이트를 설치하도록 예약된 시간입니다. |
-| SubscriptionId | Azure 구독의 고유 식별자입니다. | 
+| SourceSystem | 레코드의 원본 시스템입니다. 값이 `OperationsManager`입니다. |
+| StartTime | 업데이트를 설치하도록 예약된 시간입니다. *이 속성은 현재 사용 되지 않습니다. TimeGenerated를 참조 하세요.* |
+| SubscriptionId | Azure 구독의 고유 식별자입니다. |
 | SucceededOnRetry | 첫 번째 시도에서 업데이트 실행이 실패하고 현재 작업은 재시도임을 나타내는 값입니다. |
 | TimeGenerated | 레코드 생성 날짜와 시간입니다. |
 | 제목 | 업데이트의 제목입니다. |
-| Type | 업데이트의 유형입니다. 이때 값은 `UpdateRunProgress`입니다. |
+| Type | 업데이트의 유형입니다. 값이 `UpdateRunProgress`입니다. |
 | UpdateId | 소프트웨어 업데이트의 고유 식별자입니다. |
 | VMUUID | 가상 컴퓨터에 대한 고유 식별자입니다. |
 | ResourceId | 레코드와 연결된 리소스의 고유 식별자입니다. |
@@ -156,7 +156,7 @@ ms.locfileid: "87450417"
 | RestartPending | 다시 시작이 보류 중인 경우 True이고, 그렇지 않으면 False입니다. |
 | SecurityUpdatesMissing | 적용 가능한 누락된 보안 업데이트 수입니다.|
 | SourceComputerId | 가상 컴퓨터에 대한 고유 식별자입니다. |
-| SourceSystem | 레코드의 원본 시스템입니다. 이때 값은 `OpsManager`입니다. |
+| SourceSystem | 레코드의 원본 시스템입니다. 값이 `OpsManager`입니다. |
 | SubscriptionId | Azure 구독의 고유 식별자입니다. |
 | TimeGenerated | 레코드 생성 날짜와 시간입니다. |
 | TotalUpdatesMissing | 적용 가능한 누락된 업데이트 총 수입니다. |

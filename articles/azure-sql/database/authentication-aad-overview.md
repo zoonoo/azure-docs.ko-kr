@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8221c77c0e6adeabe869a088089733d289a2f6ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434285"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277946"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Azure Active Directory 인증 사용
 
@@ -168,7 +168,7 @@ Azure AD 서버 보안 주체 (로그인)에 대해 지원 되는 인증 방법�
 - SQL Database의 로그인, 사용자, 데이터베이스 역할 및 권한에 대 한 개요는 [로그인, 사용자, 데이터베이스 역할 및 사용 권한](logins-create-manage.md)을 참조 하세요.
 - 데이터베이스 보안 주체에 대한 자세한 내용은 [보안 주체](https://msdn.microsoft.com/library/ms181127.aspx)를 참조하세요.
 - 데이터베이스 역할에 대한 자세한 내용은 [데이터베이스 역할](https://msdn.microsoft.com/library/ms189121.aspx)을 참조하세요.
-- SQL Managed Instance에 대 한 Azure AD 서버 보안 주체 (로그인)를 만드는 구문은  [로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)를 참조 하세요.
+- SQL Managed Instance에 대 한 Azure AD 서버 보안 주체 (로그인)를 만드는 구문은  [로그인 만들기](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true)를 참조 하세요.
 - SQL Database의 방화벽 규칙에 대한 자세한 내용은 [SQL Database 방화벽 규칙](firewall-configure.md)을 참조하세요.
 
 <!--Image references-->

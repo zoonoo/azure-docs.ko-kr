@@ -8,18 +8,18 @@ manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 10ff324e85082a4a5911e2c949744e7df1d9ad0b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2f36e568603ded5a89f88cf11627a09a5a240fac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965622"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316990"
 ---
 # <a name="configure-vnn-with-azure-load-balancer-sql-server-on-azure-vms"></a>Azure Load Balancer를 사용 하 여 VNN 구성 (Azure Vm에서 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -157,7 +157,7 @@ Get-ClusterResource $IPResourceName | Get-ClusterParameter
 
 # <a name="failover-cluster-instance"></a>[장애 조치(Failover) 클러스터 인스턴스](#tab/fci)
 
-다음과 같은 단계를 수행합니다.
+다음 단계를 수행합니다.
 
 1. RDP를 사용 하 여 SQL Server 클러스터 노드 중 하나에 연결 합니다.
 1. **장애 조치(Failover) 클러스터 관리자**를 엽니다. **역할**을 선택합니다. SQL Server FCI 역할을 소유하는 노드를 살펴봅니다.
@@ -170,7 +170,7 @@ Get-ClusterResource $IPResourceName | Get-ClusterParameter
 
 # <a name="ag-listener"></a>[AG 수신기](#tab/ag)
 
-다음과 같은 단계를 수행합니다.
+다음 단계를 수행합니다.
 
 1. [SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) 를 열고 가용성 그룹 수신기에 연결 합니다. 
 

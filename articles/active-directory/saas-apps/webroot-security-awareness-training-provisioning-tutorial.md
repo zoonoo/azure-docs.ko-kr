@@ -2,21 +2,25 @@
 title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 Webroot 보안 인식 교육 구성 Microsoft Docs'
 description: Azure AD에서 사용자 계정을 자동으로 프로 비전 및 프로 비전 해제 하 여 보안 인식 교육을 Webroot 하는 방법을 알아봅니다.
 services: active-directory
+documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: CelesteDG
+manager: beatrizd
+ms.assetid: 455f4396-930e-4db5-a167-d3ea6a860a17
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9345aaac306c8c009d6fc0a01c57beed3a22b10b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 31c0e9a690bde7a52a32fd9194afda76e1aaba8c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88523493"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329145"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Webroot 보안 인식 교육 구성
 
@@ -94,11 +98,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에 `https://awarenessapi.webrootanywhere.com/api/v2/scim` 있는 **테 넌 트 URL**에 입력 합니다. **비밀 토큰**에 이전에 검색된 비밀 토큰 값을 입력합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Webroot 보안 인식 교육에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Webroot 보안 인식 교육 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 

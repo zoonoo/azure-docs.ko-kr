@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/14/2018
-ms.openlocfilehash: 4d0800d109d17c1233a18966d84a498596e8e834
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b42624506b3fe3a40cd19353c0dc25ecd8a5da02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188205"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328805"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Azure SQL 데이터 동기화에서 스키마 변경 복제 자동화
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -201,7 +201,7 @@ DDL 트리거를 만든 데이터베이스에서 수행된 스키마 변경만 �
 
 스키마 변경 내용 추적 테이블에서 레코드를 정리하려면 TRUNCATE 대신 DELETE를 사용합니다. DBCC CHECKIDENT를 사용하여 스키마 변경 내용 추적 테이블에서 ID 열을 다시 시드하지 않습니다. 새 스키마 변경 내용 추적 테이블을 만들고, 다시 시드해야 하는 경우 DDL 트리거에서 테이블 이름을 업데이트할 수 있습니다.
 
-## <a name="other-considerations"></a><a name="other"></a>기타 고려 사항
+## <a name="other-considerations"></a><a name="other"></a> 기타 고려 사항
 
 -   허브 및 구성원 데이터베이스를 구성하는 데이터베이스 사용자에게는 스키마 변경 명령을 실행할 수 있는 충분한 권한이 있어야 합니다.
 

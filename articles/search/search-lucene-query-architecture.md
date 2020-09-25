@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2d5b4758f80d07516500c663762d7c8607e2a30
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917961"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329485"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Azure Cognitive Search의 전체 텍스트 검색
 
@@ -51,7 +51,7 @@ ms.locfileid: "88917961"
 
 다음 예제는 [REST API](/rest/api/searchservice/search-documents)를 사용 하 여 Azure Cognitive Search에 보낼 수 있는 검색 요청입니다.  
 
-~~~~
+```
 POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
@@ -61,7 +61,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
 }
-~~~~
+```
 
 이 요청의 경우 검색 엔진이 다음 작업을 수행합니다.
 
@@ -76,9 +76,9 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 
 앞서 설명했듯이, 쿼리 문자열은 요청의 첫 번째 줄입니다. 
 
-~~~~
+```
  "search": "Spacious, air-condition* +\"Ocean view\"", 
-~~~~
+```
 
 쿼리 파서는 검색 용어에서 예제의 `*` 및 `+` 같은 연산자를 분리하고, 검색 쿼리를 지원되는 유형의 *하위 쿼리*로 분해합니다. 
 
@@ -104,9 +104,9 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 
 기본값인 `searchMode=any`로 설정된 경우 spacious와 air-condition 사이의 공백 구분 기호는 OR(`||`)이며, 샘플 쿼리 텍스트는 다음과 같습니다. 
 
-~~~~
+```
 Spacious,||air-condition*+"Ocean view" 
-~~~~
+```
 
 `+"Ocean view"`의 `+` 같은 명시적 연산자는 부울 쿼리 구조에서 모호하지 않습니다(용어가 *반드시* 일치해야 함). 나머지 용어 spacious와 air-condition을 해석하는 방법은 덜 명확합니다. 검색 엔진이 ocean view *그리고* spacious *그리고* air-condition과 일치하는 항목을 찾아야 합니까? 아니면 ocean view와 나머지 *두 용어 중 하나*를 찾아야 합니까? 
 
@@ -114,9 +114,9 @@ Spacious,||air-condition*+"Ocean view"
 
 만약 `searchMode=all`로 설정한다면 어떨까요? 이 경우 공간이 "and" 연산으로 해석됩니다. 나머지 두 용어가 모두 문서에 있어야만 일치 항목으로 인정됩니다. 결과 샘플 쿼리는 다음과 같이 해석됩니다. 
 
-~~~~
+```
 +Spacious,+air-condition*+"Ocean view"
-~~~~
+```
 
 이 쿼리의 수정된 쿼리 트리는 다음과 같으며, 세 하위 쿼리가 교차하는 부분이 바로 일치하는 문서입니다. 
 
@@ -152,16 +152,16 @@ Spacious,||air-condition*+"Ocean view"
 
 [분석 API](/rest/api/searchservice/test-analyzer)를 사용하여 분석기의 동작을 테스트할 수 있습니다. 분석할 텍스트를 입력하여 주어진 분석기가 어떤 용어를 생성하는지 살펴봅니다. 예를 들어 표준 분석기가 "air-condition"이라는 텍스트를 어떻게 처리하는지 살펴보려면 다음 요청을 실행하면 됩니다.
 
-~~~~
+```json
 {
     "text": "air-condition",
     "analyzer": "standard"
 }
-~~~~
+```
 
 표준 분석기는 입력 텍스트를 다음과 같은 두 토큰으로 분류하고, 위치(구 일치에 사용)뿐 아니라 시작 및 종료 오프셋(적중 항목 강조 표시에 사용) 같은 특성을 사용하여 주석을 답니다.
 
-~~~~
+```json
 {
   "tokens": [
     {
@@ -178,7 +178,7 @@ Spacious,||air-condition*+"Ocean view"
     }
   ]
 }
-~~~~
+```
 
 <a name="exceptions"></a>
 
@@ -192,7 +192,7 @@ Spacious,||air-condition*+"Ocean view"
 
 문서 검색이란 인덱스에서 일치하는 용어가 포함된 문서를 찾는 것을 말합니다. 이 단계는 예를 통해 설명하는 것이 가장 빠릅니다. 다음과 같은 간단한 스키마를 가진 호텔 인덱스로 시작해 보겠습니다. 
 
-~~~~
+```json
 {
     "name": "hotels",
     "fields": [
@@ -201,11 +201,11 @@ Spacious,||air-condition*+"Ocean view"
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
-~~~~
+```
 
 또한 이 인덱스에 다음과 같은 네 개 문서가 포함되어 있다고 가정하겠습니다. 
 
-~~~~
+```json
 {
     "value": [
         {
@@ -230,7 +230,7 @@ Spacious,||air-condition*+"Ocean view"
         }
     ]
 }
-~~~~
+```
 
 **용어 인덱싱 방식**
 
@@ -279,7 +279,7 @@ Spacious,||air-condition*+"Ocean view"
 | north | 2
 | ocean | 1, 2, 3
 | of | 2
-| on |2
+| On |2
 | quiet | 4
 | rooms  | 1, 3
 | secluded | 4
@@ -321,10 +321,12 @@ Spacious,||air-condition*+"Ocean view"
 ### <a name="scoring-example"></a>점수 매기기 예제
 
 앞에서 예제 쿼리와 일치한 세 문서를 떠올려 보세요.
-~~~~
+
+```
 search=Spacious, air-condition* +"Ocean view"  
-~~~~
-~~~~
+```
+
+```json
 {
   "value": [
     {
@@ -347,7 +349,7 @@ search=Spacious, air-condition* +"Ocean view"
     }
   ]
 }
-~~~~
+```
 
 문서 1이 쿼리와 가장 정확하게 일치했습니다. *spacious*라는 용어와 *ocean view*라는 필수 구가 설명 필드에서 모두 발생했기 때문입니다. 그 다음 두 문서는 *ocean view*라는 구만 일치합니다. 문서 2와 3이 동일한 방식으로 쿼리와 일치하는데 관련성 점수는 서로 다르다는 점에 놀라실 수도 있습니다. 이는 점수 매기기 공식에 TF/IDF 외에도 여러 구성 요소가 더 있기 때문입니다. 이 예에서는 문서 3에 약간 더 높은 점수가 할당되었는데, 설명이 좀 더 짧기 때문입니다. 필드 길이 및 기타 요소가 관련성 점수에 미치는 영향에 대해 자세히 알아보려면 [Lucene의 실제 점수 매기기 공식](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html)을 살펴보세요.
 
@@ -391,7 +393,7 @@ Azure Cognitive Search의 모든 인덱스는 자동으로 여러 분할 분할 
 
 + 특정 필드에 대해 최소한의 처리 또는 특수한 처리를 수행하려면 [사용자 지정 분석기를 구성](/rest/api/searchservice/custom-analyzers-in-azure-search)하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [문서 검색 REST API](/rest/api/searchservice/search-documents) 
 

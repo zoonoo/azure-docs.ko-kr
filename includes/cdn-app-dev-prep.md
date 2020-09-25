@@ -4,12 +4,12 @@ ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
-ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4967991b0edaa854acbf6b308596859d662311fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77608745"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316762"
 ---
 ## <a name="prerequisites"></a>필수 구성 요소
 CDN 관리 코드를 작성하려면 먼저 코드가 Azure Resource Manager와 상호 작용하도록 몇 가지 준비 작업을 수행해야 합니다. 이러한 준비를 위해 다음이 필요합니다.
@@ -26,10 +26,10 @@ CDN 관리 코드를 작성하려면 먼저 코드가 Azure Resource Manager와 
     ![새 리소스 그룹 만들기](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
 3. 리소스 그룹 이름을 *CdnConsoleTutorial*로 지정합니다.  구독을 선택하고 가까운 위치를 선택합니다.  원한다면 **대시보드에 고정** 확인란을 클릭하여 리소스 그룹을 포털 대시보드에 고정할 수 있습니다.  고정하면 나중에 쉽게 찾을 수 있습니다.  항목을 선택한 후에 **만들기**를 클릭합니다.
 
-    ![리소스 그룹에 이름 지정하기](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
+    ![리소스 그룹 대화 상자의 스크린샷](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
 4. 리소스 그룹을 만들고 대시보드에 고정하지 않았다면 **찾아보기**, **리소스 그룹**을 클릭하여 찾을 수 있습니다.  리소스 그룹을 클릭하여 엽니다.  **구독 ID**를 적어둡니다. 나중에 필요합니다.
 
-    ![리소스 그룹에 이름 지정하기](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
+    ![C D N 콘솔 자습서 섹션의 스크린샷](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Azure AD 애플리케이션 만들기 및 사용 권한 적용
 Azure Active Directory로 앱을 인증하는 방법에는 개별 사용자 또는 서비스 주체 인증의 두 가지가 있습니다. 서비스 주체는 Windows의 서비스 계정과 비슷합니다.  특정 사용자에게 CDN 프로필과 상호 작용하는 권한을 부여하는 대신 서비스 주체에게 권한을 부여합니다.  일반적으로, 서비스 주체는 자동화된 비대화형 프로세스에 사용됩니다.  이 자습서에서는 대화형 콘솔 앱을 작성하지만, 서비스 주체 인증 방식에 초점을 맞출 것입니다.

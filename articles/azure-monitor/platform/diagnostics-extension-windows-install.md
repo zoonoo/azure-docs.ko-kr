@@ -1,6 +1,6 @@
 ---
 title: WAD(Windows Azure Diagnostics) 확장 설치 및 구성
-description: 사용 가능한 여러 도구 중 하나를 사용하여 Azure Storage 계정에서 Azure Diagnostics 데이터를 볼 수 있도록 수집하는 방법을 알아봅니다.
+description: Windows 진단 확장을 설치 및 구성 하는 방법에 대해 알아봅니다. 또한 데이터를에 저장 하는 방법에 대 한 설명과 Azure Storage 계정에 대해 알아봅니다.
 services: azure-monitor
 author: bwren
 ms.subservice: diagnostic-extension
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 46234f3b4bfd467db9b5754b5590603ff3d42915
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e6ccba27fb599cb26da86e94d3500f4f806ecb76
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974547"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328873"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>WAD(Windows Azure Diagnostics) 확장 설치 및 구성
 [Azure Diagnostics 확장](diagnostics-extension-overview.md)은 게스트 운영 체제에서 모니터링 데이터를 수집하고 Azure 가상 머신 및 기타 계산 리소스의 워크로드를 수집하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Windows 진단 확장 설치 및 구성에 대한 자세한 내용을 알아보고 데이터가 저장되는 방법과 Azure Storage 계정에 대해 설명합니다.

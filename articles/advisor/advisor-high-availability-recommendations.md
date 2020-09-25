@@ -3,12 +3,12 @@ title: Advisor를 사용 하 여 응용 프로그램의 안정성 향상
 description: Azure Advisor를 사용 하 여 업무상 중요 한 Azure 배포에서 안정성을 보장 하 고 향상 시킵니다.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0d96974e53f24d5a01eeee8b08eee578177a9ad2
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 3e556f8bc672705e6c83daced2c82a884e3ddf46
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258492"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264595"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Azure Advisor를 사용 하 여 응용 프로그램의 안정성 향상
 
@@ -76,7 +76,7 @@ Azure Advisor는 기본 SKU를 사용 하는 VPN gateway를 확인 하 고 대�
 
 ## <a name="repair-invalid-log-alert-rules"></a>잘못 된 로그 경고 규칙 복구
 
-Azure Advisor는 조건 섹션에 잘못 된 쿼리가 지정 된 경고 규칙을 검색 합니다. Azure Monitor에서 로그 경고 규칙을 만들고이 규칙을 사용 하 여 지정 된 간격으로 분석 쿼리를 실행할 수 있습니다. 쿼리의 결과는 경고를 트리거해야 하는지 여부를 결정 합니다. 분석 쿼리는 참조 된 리소스, 테이블 또는 명령의 변경 내용 때문에 시간이 지남에 따라 무효화 될 수 있습니다. Advisor는 자동으로 사용 하지 않도록 설정할 수 없도록 경고 규칙의 쿼리를 수정 하 고 Azure에서 리소스의 모니터링 적용 범위를 확인 하는 것이 좋습니다. [경고 규칙 문제 해결에 대해 자세히 알아보세요.](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor는 해당 조건 섹션에 잘못 된 쿼리가 지정 된 로그 경고 규칙을 검색 합니다. Azure Monitor 로그 경고 규칙은 지정 된 빈도로 쿼리를 실행 하 고 결과에 따라 경고를 발생 시킵니다. 참조 된 리소스, 테이블 또는 명령의 변경으로 인해 시간이 지남에 따라 쿼리가 잘못 될 수 있습니다. Advisor는 규칙을 자동으로 사용 하지 않도록 설정 하 고 모니터링 범위를 확인 하기 위해 경고 쿼리를 수정 하는 것을 권장 합니다. 자세한 내용은 [경고 규칙 문제 해결](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid) 을 참조 하세요.
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Azure Cosmos DB 컬렉션에서 일관 된 인덱싱 모드 구성
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 48ab83db3dcbcf5c99b640ccab205ed1f0ee7ca1
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2cd9f01404a4e33303356dd3f452cd7dbc47a747
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328567"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Data Factory에 대 한 Azure 개인 링크
 
@@ -39,7 +39,7 @@ IPsec (인터넷 프로토콜 보안) VPN (사이트 간) 연결 또는 Azure Ex
 
 | 도메인 | 포트 | Description |
 | ---------- | -------- | --------------- |
-| `pe-adf.azure.com` | 443 | Data Factory 작성 및 모니터링에 필요한 제어 평면입니다. |
+| `adf.azure.com` | 443 | Data Factory 작성 및 모니터링에 필요한 제어 평면입니다. |
 | `*.{region}.datafactory.azure.net` | 443 | 자체 호스팅 통합 런타임에서 Data Factory 서비스에 연결하는 데 필요합니다. |
 | `*.servicebus.windows.net` | 443 | 대화형 작성을 위해 자체 호스팅 통합 런타임에 필요 합니다. |
 | `download.microsoft.com` | 443 | 업데이트를 다운로드하기 위해 자체 호스팅 통합 런타임에서 필요합니다. |

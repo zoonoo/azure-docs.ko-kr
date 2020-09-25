@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 39f277fffbb9a76a4be4bfa8aaedeaf3479a989f
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068886"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328856"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>보안 내보내기를 사용 하 여 Azure를 ITSM 도구에 연결
 
@@ -112,11 +112,13 @@ BMC Helix 환경에서 다음 절차를 사용 합니다.
 다음 필수 구성 요소를 충족 하는지 확인 합니다.
 
 * Azure AD가 등록 됩니다.
-* 지원 되는 버전의 BMC Helix 다중 클라우드 서비스 관리 (버전 20.02 이상)가 있습니다.
+* 지원 되는 버전의 BMC Helix 다중 클라우드 서비스 관리 (버전 19.08 이상)가 있습니다.
 
 ### <a name="configure-the-bmc-helix-connection"></a>BMC Helix 연결 구성
 
-1. [버전 20.02에 대 한 Azure Monitor와 미리 작성 된 통합 사용](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html)의 지침을 따릅니다.
+1. Accoring 지침을 따릅니다.
+   * [버전 20.02에 대해 Azure Monitor와의 미리 작성 된 통합을 사용 하도록 설정](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html)합니다.
+   * [버전 19.11에 대해 Azure Monitor와의 미리 작성 된 통합을 사용 하도록 설정](https://docs.bmc.com/docs/multicloudprevious/enabling-prebuilt-integration-with-azure-monitor-904157623.html)합니다.
 
 1. BMC Helix의 연결 구성의 일부로 통합 BMC 인스턴스로 이동 하 여 다음 지침을 따릅니다.
 
@@ -138,4 +140,4 @@ BMC Helix 환경에서 다음 절차를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 경고에서 ITSM 작업 항목 만들기](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+* [Azure 경고에서 ITSM 작업 항목 만들기](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview)

@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 사용 서버를 사용 하 여 VM 확장 관리
 description: Azure Arc 사용 서버는 Azure가 아닌 Vm을 사용 하 여 배포 후 구성 및 자동화 작업을 제공 하는 가상 머신 확장의 배포를 관리할 수 있습니다.
-ms.date: 09/02/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 988c4d7b2fcbffb95932fe70d8014de74dd33343
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1c3d50f407f4412a14201dfe669334dbb083d323
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887723"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329077"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Azure Arc 사용 서버를 사용 하 여 가상 머신 확장 관리
 
@@ -34,7 +34,7 @@ VM 확장 기능은 지원 되는 [지역](overview.md#supported-regions)목록 
 
 ## <a name="extensions"></a>확장
 
-이 미리 보기에서는 Windows 및 Linux 컴퓨터에서 다음 VM 확장을 지원 합니다.
+이 릴리스에서는 Windows 및 Linux 컴퓨터에서 다음 VM 확장을 지원 합니다.
 
 |확장 |OS |Publisher |추가 정보 |
 |----------|---|----------|-----------------------|
@@ -66,10 +66,7 @@ Linux 용 Log Analytics 에이전트 VM 확장에는 대상 컴퓨터에 Python 
 
 컴퓨터가 Azure 연결 된 컴퓨터 에이전트에 대해 [지원 되는 버전](agent-overview.md#supported-operating-systems) 의 Windows 및 Linux 운영 체제와 일치 하는지 확인 합니다.
 
-이 기능으로 지원 되는 연결 된 컴퓨터 에이전트의 최소 버전은 다음과 같습니다.
-
-* Windows-이상
-* Linux-0.8. x
+Windows 및 Linux에서이 기능으로 지원 되는 연결 된 컴퓨터 에이전트의 최소 버전은 1.0 릴리스입니다.
 
 필요한 에이전트 버전으로 컴퓨터를 업그레이드 하려면 [에이전트 업그레이드](manage-agent.md#upgrading-agent)를 참조 하세요.
 
@@ -77,7 +74,7 @@ Linux 용 Log Analytics 에이전트 VM 확장에는 대상 컴퓨터에 Python 
 
 Azure Portal를 통해 서버 관리 컴퓨터에 대 한 Arc를 VM 확장에 적용할 수 있습니다.
 
-1. 브라우저에서 [Azure Portal](https://aka.ms/arcserver-preview)로 이동합니다.
+1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
 2. 포털에서 **서버-Azure Arc** 로 이동 하 여 목록에서 하이브리드 컴퓨터를 선택 합니다.
 
@@ -719,22 +716,10 @@ Arc 사용 서버에서 하나 이상의 확장을 제거 하는 것은 Azure Po
 
 4. **제거** 를 선택 하 고 확인 메시지가 표시 되 면 **예** 를 선택 하 여 계속 합니다.
 
-## <a name="troubleshooting"></a>문제 해결
-
-확장 배포 상태에 대 한 데이터는 Azure Portal에서 검색할 수 있습니다.
-
-다음 문제 해결 단계는 모든 VM 확장에 적용됩니다.
-
-1. 게스트 에이전트 로그를 확인 하려면 Windows 용으로 확장이 프로 비전 되었을 때의 작업 `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` 및의 Linux에 대 한 작업을 확인 하세요 `/var/lib/GuestConfig/ext_mgr_logs` .
-
-2. Windows에 대 한 자세한 내용은 특정 확장에 대 한 확장 로그를 확인 합니다 `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` . 확장 출력은에서 Linux에 설치 된 각 확장에 대 한 파일에 기록 됩니다 `/var/lib/GuestConfig/extension_logs` .
-
-3. 확장 관련 설명서 문제 해결 섹션에서 오류 코드, 알려진 문제 등을 확인 하세요. 각 확장에 대 한 추가 문제 해결 정보는 확장에 대 한 개요의 **문제 해결 및 지원** 섹션에서 찾을 수 있습니다. 여기에는 로그에 기록 된 오류 코드에 대 한 설명이 포함 됩니다. 확장 문서는이 문서 앞부분에 있는 [확장 테이블](#extensions) 에 연결 되어 있습니다.
-
-4. 시스템 로그를 확인합니다. 단독 패키지 관리자 액세스가 필요한 다른 애플리케이션의 장기 실행 설치 등 확장을 방해할 수 있는 다른 작업을 확인합니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/insights/vminsights-enable-policy.md)로 모니터링 등).
+* 문제 해결 정보는 [VM 확장 문제 해결 가이드](troubleshoot-vm-extensions.md)에서 찾을 수 있습니다.
 
-- [[Log Analytics agent]](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-intro.md)같은 다른 Azure 서비스를 사용 하려는 경우에 필요 합니다.
+* [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/insights/vminsights-enable-policy.md)로 모니터링 등).
+
+* [Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux 용 Log Analytics 에이전트는 운영 체제 및 워크 로드 모니터링 데이터를 수집 하거나, 자동화 runbook 또는 업데이트 관리 같은 기능을 사용 하 여 관리 하거나, [Azure Security Center](../../security-center/security-center-intro.md)같은 다른 Azure 서비스를 사용 하려는 경우에 필요 합니다.

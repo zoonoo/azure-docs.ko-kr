@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 07/27/2020
 tags: azure-synapse
-ms.openlocfilehash: b2d179121b05d7bf3493937a9ff72e302fd31f3d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15289727c3ee4d498fa50058ef98f0ae5b3d1b12
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281143"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277804"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Multi-factor Azure Active Directory 인증 사용
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,7 +29,7 @@ Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics는 *A
 
 이 문서에서 설명하는 모든 기능에 대해 2017년 7월 버전 17.2 이상을 사용합니다. 가장 최근의 연결 대화 상자는 다음 이미지와 유사하게 표시됩니다.
 
-  ![1mfa-universal-connect](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png "사용자 이름 상자를 완료합니다.")  
+  ![서버 유형, 서버 이름 및 인증에 대 한 설정을 보여 주는 SQL Server Management Studio의 서버에 연결 대화 상자 스크린샷](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
 
 ## <a name="authentication-options"></a>인증 옵션
 
@@ -57,11 +57,11 @@ Azure Multi-Factor Authentication에 대 한 설명은 [Multi-Factor Authenticat
 1. SSMS에서 연결을 엽니다. 서버 이름을 입력 하 고 MFA 인증 **을 사용 하 여 Azure Active Directory-유니버설** 을 선택 합니다. 로그인 할 **사용자 이름을** 추가 합니다.
 1. **옵션** 상자를 선택 하 고 **연결 속성** 탭으로 이동 합니다. **데이터베이스에 연결** 대화 상자에서 데이터베이스에 대 한 대화 상자를 완료 합니다. **AD 도메인 이름 또는 테넌트 ID** 상자를 선택한 다음 인증 기관(예: 도메인 이름, **contosotest.onmicrosoft.com**) 또는 테넌트 ID의 GUID를 제공합니다. 
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
+   ![데이터베이스 및 AD 도메인 이름 또는 테 넌 트 ID에 연결에 대 한 설정을 강조 표시 하는 연결 속성 탭의 스크린샷](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
 SSMS 18.x 이상을 실행 하는 경우에는 18.x 이상이 자동으로 인식 하기 때문에 게스트 사용자에 게 AD 도메인 이름 또는 테 넌 트 ID가 더 이상 필요 하지 않습니다.
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
+   ![S M S의 서버에 연결 대화 상자에 있는 연결 속성 탭의 스크린샷. 데이터베이스에 연결 필드에서 "MyDatabase"가 선택 됩니다.](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD 기업 간 지원
 
@@ -78,7 +78,7 @@ SSMS 18.x 이상을 실행 하는 경우에는 18.x 이상이 자동으로 인�
 ## <a name="universal-authentication-limitations"></a>유니버설 인증 제한 사항
 
 - SSMS 및 SqlPackage.exe는 현재 Active Directory 유니버설 인증을 통해 MFA에서 사용할 수 있는 유일한 도구입니다.
-- SSMS 버전 17.2은 MFA를 통한 유니버설 인증을 사용 하는 다중 사용자 동시 액세스를 지원 합니다. SSMS 버전 17.0 및 17.1의 경우이 도구는 유니버설 인증을 사용 하 여 SSMS의 인스턴스에 대 한 로그인을 단일 Azure Active Directory 계정으로 제한 합니다. 다른 Azure AD 계정으로 로그인 하려면 다른 SSMS 인스턴스를 사용 해야 합니다. 이 제한은 Active Directory 유니버설 인증으로 제한 됩니다. `Azure Active Directory - Password`인증, 인증 또는를 사용 하 여 다른 서버에 로그인 할 수 있습니다 `Azure Active Directory - Integrated` `SQL Server Authentication` .
+- SSMS 버전 17.2은 MFA를 통한 유니버설 인증을 사용 하는 다중 사용자 동시 액세스를 지원 합니다. SSMS 버전 17.0 및 17.1의 경우이 도구는 유니버설 인증을 사용 하 여 SSMS의 인스턴스에 대 한 로그인을 단일 Azure Active Directory 계정으로 제한 합니다. 다른 Azure AD 계정으로 로그인 하려면 다른 SSMS 인스턴스를 사용 해야 합니다. 이 제한은 Active Directory 유니버설 인증으로 제한 됩니다. `Azure Active Directory - Password` 인증, 인증 또는를 사용 하 여 다른 서버에 로그인 할 수 있습니다 `Azure Active Directory - Integrated` `SQL Server Authentication` .
 - SSMS는 개체 탐색기, 쿼리 편집기 및 쿼리 저장소 시각화에 대해 Active Directory 유니버설 인증을 지원합니다.
 - SSMS 버전 17.2는 데이터 데이터베이스 내보내기/추출/배포를 위한 DacFx Wizard 마법사 지원을 제공합니다. 특정 사용자가 유니버설 인증을 사용하여 최초 인증 대화 상자를 통해 인증되면 DacFx 마법사가 모든 다른 인증 방법에서와 같은 방식으로 작동합니다.
 - SSMS 테이블 디자이너는 유니버설 인증을 지원하지 않습니다.

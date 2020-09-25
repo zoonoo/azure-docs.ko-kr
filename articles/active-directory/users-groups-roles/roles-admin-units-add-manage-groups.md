@@ -1,5 +1,5 @@
 ---
-title: 관리 단위에서 그룹 추가, 제거 및 나열(미리 보기) - Azure Active Directory | Microsoft Docs
+title: 관리 단위에서 그룹 추가, 제거 및 나열-Azure Active Directory | Microsoft Docs
 description: Azure Active Directory의 관리 단위에서 그룹 및 역할 권한 관리
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 06/23/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76026313eea8c8fbb2f3e55321e2e4ebbe5dcfc7
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 324d0ff0659270c6f2e90c0456ded83344f73936
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850912"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265028"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Azure Active Directory의 관리 단위에서 그룹 추가 및 관리
 
@@ -31,7 +31,7 @@ PowerShell 및 Microsoft Graph를 관리 단위에 사용하기 위해 준비하
 
 ### <a name="azure-portal"></a>Azure portal
 
-미리 보기에서는 관리 단위에 개별적으로 그룹을 할당할 수 있습니다. 그룹을 대량으로 관리 단위에 할당하는 옵션은 없습니다. 포털에서 다음 두 방법 중 하나로 관리 단위에 그룹을 할당할 수 있습니다.
+관리 단위에만 그룹을 개별적으로 할당할 수 있습니다. 관리 단위에 그룹을 대량으로 할당할 수 있는 옵션은 없습니다. 포털에서 다음 두 방법 중 하나로 관리 단위에 그룹을 할당할 수 있습니다.
 
 1. **Azure AD > 그룹** 페이지에서
 

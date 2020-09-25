@@ -3,12 +3,12 @@ title: Azure에 SQL Server 데이터베이스 백업
 description: 이 문서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다. SQL Server 복구에 대해서도 설명합니다.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 3627162ef2f4330a4b6a78625b5e07bdcf56419b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 510d9637031928e31abaa5f82a5bf58c6ef44719
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376539"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316847"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
@@ -33,7 +33,7 @@ ms.locfileid: "89376539"
 * 플러그 인은 데이터를 Recovery Services 자격 증명 모음으로 직접 전송 하므로 준비 위치가 필요 하지 않습니다. 데이터는 Azure Backup 서비스를 통해 암호화되어 스토리지 계정에 저장됩니다.
 * 데이터 전송이 완료되면 코디네이터가 백업 서비스를 사용하여 커밋을 확인합니다.
 
-  ![SQL 백업 아키텍처](./media/backup-azure-sql-database/backup-sql-overview.png)
+  ![SQL 백업 아키텍처](./media/backup-azure-sql-database/azure-backup-sql-overview.png)
 
 ## <a name="before-you-start"></a>시작하기 전에
 

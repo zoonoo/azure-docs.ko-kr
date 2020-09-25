@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c357720c937a5b63944b7fc598eaff428f85bfb6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: d6222c9275dfe022e897bb6324df5bb30e1a8905
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706809"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276818"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB의 고가용성
 
@@ -129,6 +129,8 @@ Azure Cosmos 계정을 만들 때 Azure Portal를 사용 하 여 가용성 영�
 
 ## <a name="building-highly-available-applications"></a>고가용성 애플리케이션 빌드
 
+- 이러한 이벤트 중에 [Azure Cosmos sdk의 예상 동작](troubleshoot-sdk-availability.md) 을 검토 하 고이에 영향을 주는 구성입니다.
+
 - 높은 쓰기 및 읽기 가용성을 보장 하려면 여러 쓰기 지역이 있는 두 개 이상의 지역에 걸쳐 Azure Cosmos 계정을 구성 합니다. 이 구성은 Sla에서 지원 되는 읽기 및 쓰기 둘 다에 대해 최고 가용성, 가장 낮은 대기 시간 및 최고 확장성을 제공 합니다. 자세한 내용은 [여러 쓰기 영역을 사용 하 여 Azure Cosmos 계정을 구성](tutorial-global-distribution-sql-api.md)하는 방법을 참조 하세요.
 
 - 단일 쓰기 지역으로 구성 된 다중 지역 Azure Cosmos 계정의 경우 [Azure CLI 또는 Azure Portal를 사용 하 여 자동 장애 조치 (failover)를 사용 하도록 설정](how-to-manage-database-account.md#automatic-failover)합니다. 자동 장애 조치(failover)를 사용하도록 설정하면, Cosmos DB는 지역 재해가 있을 때마다 자동으로 사용자 계정을 장애 조치(failover)합니다.  
@@ -146,3 +148,4 @@ Azure Cosmos 계정을 만들 때 Azure Portal를 사용 하 여 가용성 영�
 - [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
 - [Azure Cosmos DB의 일관성 수준](consistency-levels.md)
 - [여러 쓰기 영역으로 Cosmos 계정을 구성 하는 방법](how-to-multi-master.md)
+- [다중 지역 환경의 SDK 동작](troubleshoot-sdk-availability.md)

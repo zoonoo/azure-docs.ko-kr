@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/28/2020
+ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e504a3ed2d9193bdc85fc08b3ea91c4f4f2c160c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382579"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329507"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Azure RBAC 문제 해결
 
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>다른 디렉터리로 구독 전송
 
-- 다른 Azure AD 디렉터리로 구독을 전송 하는 방법에 대 한 단계가 필요한 경우 [Azure 구독의 소유권을 다른 계정으로 이전](../cost-management-billing/manage/billing-subscription-transfer.md)을 참조 하세요.
+- 다른 Azure AD 디렉터리로 구독을 전송 하는 방법에 대 한 단계가 필요한 경우 [다른 AZURE ad 디렉터리에 azure 구독 전송 (미리 보기)](transfer-subscription.md)을 참조 하세요.
 - 다른 Azure AD 디렉터리로 구독을 전송 하는 경우 모든 역할 할당은 원본 Azure AD 디렉터리에서 **영구적으로** 삭제 되며 대상 azure ad 디렉터리로 마이그레이션되지 않습니다. 대상 디렉터리에서 역할 할당을 다시 만들어야 합니다. 또한 Azure 리소스에 대 한 관리 되는 id를 수동으로 다시 만들어야 합니다. 자세한 내용은 [관리 id의 faq 및 알려진 문제](../active-directory/managed-identities-azure-resources/known-issues.md)를 참조 하세요.
 - Azure AD 전역 관리자이 고 디렉터리 간에 전송 된 후 구독에 대 한 액세스 권한이 없는 경우 **azure 리소스에 대 한 액세스 관리** 를 사용 하 여 구독에 대 한 액세스 권한을 일시적으로 [상승](elevate-access-global-admin.md) 시킬 수 있습니다.
 
@@ -99,11 +99,17 @@ $ras.Count
 - 리소스를 만들려고 할 때 "이 개체 ID를 가진 클라이언트는 이 범위에서 작업을 수행할 수 있는 권한이 없습니다(코드: AuthorizationFailed)"라는 권한 오류가 발생하면 현재 선택한 범위에서 리소스에 쓰기 권한이 있는 역할이 할당된 사용자로 로그인했는지 확인합니다. 예를 들어 리소스 그룹의 가상 머신을 관리하려면 리소스 그룹(또는 부모 범위)에 대한 [가상 머신 기여자](built-in-roles.md#virtual-machine-contributor) 역할이 필요합니다. 각 기본 제공 역할에 대 한 사용 권한 목록은 [Azure 기본 제공 역할](built-in-roles.md)을 참조 하세요.
 - 지원 티켓을 만들거나 업데이트 하려고 할 때 "지원 요청을 만들 수 있는 권한이 없습니다." 라는 권한 오류가 표시 되 면 `Microsoft.Support/supportTickets/write` [지원 요청 참가자](built-in-roles.md#support-request-contributor)와 같이 사용 권한이 있는 역할이 할당 된 사용자를 사용 하 여 현재 로그인 했는지 확인 합니다.
 
+## <a name="move-resources-with-role-assignments"></a>역할 할당을 사용 하 여 리소스 이동
+
+Azure 역할이 할당 된 리소스 (또는 자식 리소스)에 직접 이동 하는 경우 역할 할당은 이동 되지 않으며 분리 됩니다. 이동 후에는 역할 할당을 다시 만들어야 합니다. 결국 분리 된 역할 할당이 자동으로 제거 되지만 리소스를 이동 하기 전에 역할 할당을 제거 하는 것이 가장 좋습니다.
+
+리소스를 이동 하는 방법에 대 한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조 하세요.
+
 ## <a name="role-assignments-with-identity-not-found"></a>Id를 사용 하는 역할 할당을 찾을 수 없음
 
 Azure Portal에 대 한 역할 할당 목록에서 보안 주체 (사용자, 그룹, 서비스 주체 또는 관리 id)가 **알 수 없는** 유형의 id로 표시 **되지** 않는 것을 알 수 있습니다.
 
-![웹앱 리소스 그룹](./media/troubleshooting/unknown-security-principal.png)
+![Azure 역할 할당에 나열 된 id가 없습니다.](./media/troubleshooting/unknown-security-principal.png)
 
 다음 두 가지 이유로 id를 찾지 못할 수 있습니다.
 

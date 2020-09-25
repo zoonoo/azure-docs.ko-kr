@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 머신의 백업 및 복원에서 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376182"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316735"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -105,7 +105,7 @@ Windows 서비스 **COM+ System** 애플리케이션 문제로 인해 Backup 작
 
 이 오류는 VSS 기록기가 잘못 된 상태에 있기 때문에 발생 합니다. Azure Backup 확장은 VSS 기록기와 상호 작용 하 여 디스크의 스냅숏을 생성 합니다. 이 문제를 해결하려면 다음 단계를 따릅니다.
 
-잘못된 상태의 VSS 기록기를 다시 시작합니다.
+1 단계: 잘못 된 상태의 VSS 기록기를 다시 시작 합니다.
 - 관리자 권한의 명령 프롬프트에서 ```vssadmin list writers```를 실행합니다.
 - 출력에는 모든 VSS 기록기와 해당 상태가 포함됩니다. 상태가 **[1]** 이 아닌 모든 vss 기록기의 경우 해당 vss 기록기의 서비스를 다시 시작 합니다. 
 - 서비스를 다시 시작 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 실행 합니다.
@@ -117,12 +117,20 @@ Windows 서비스 **COM+ System** 애플리케이션 문제로 인해 Backup 작
 > 일부 서비스를 다시 시작 하면 프로덕션 환경에 영향을 줄 수 있습니다. 승인 프로세스가 수행 되 고 예약 된 가동 중지 시간에 서비스가 다시 시작 되는지 확인 합니다.
  
    
-VSS 기록기를 다시 시작 해도 문제가 해결 되지 않고 시간 제한으로 인해 문제가 계속 되 면 다음을 수행 합니다.
-- 관리자 권한 명령 프롬프트에서 다음 명령을 실행 하 여 blob-스냅숏에 대해 스레드가 생성 되지 않도록 합니다.
+2 단계: VSS 기록기를 다시 시작 해도 문제가 해결 되지 않으면 관리자 권한 명령 프롬프트 (관리자 권한)에서 다음 명령을 실행 하 여 blob 스냅숏에 대해 스레드가 생성 되지 않도록 합니다.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+3 단계: 1 단계와 2 단계에서 문제가 해결 되지 않은 경우 제한 된 IOPS로 인해 VSS 기록기의 시간이 초과 되 면 오류가 발생할 수 있습니다.<br>
+
+확인 하려면 시스템으로 이동한 후 ***응용 프로그램 로그를 이벤트 뷰어*** 하 고 다음 오류 메시지가 있는지 확인 합니다.<br>
+*섀도 복사본 공급자가 섀도 복사 되는 볼륨에 대 한 쓰기를 유지 하는 동안 시간이 초과 되었습니다. 이는 응용 프로그램 또는 시스템 서비스에의 한 볼륨의 과도 한 작업으로 인해 발생할 수 있습니다. 볼륨에 대 한 작업이 줄어들면 나중에 다시 시도 하세요.*<br>
+
+해결 방법:
+- VM 디스크에 부하를 분산 시킬 가능성이 있는지 확인 합니다. 이렇게 하면 단일 디스크에 대 한 부하가 줄어듭니다. [저장소 수준에서 진단 메트릭을 사용 하 여 IOPs 제한을 확인할](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm)수 있습니다.
+- VM에 대 한 부하가 가장 낮은 경우 사용량이 적은 시간에 백업을 수행 하도록 백업 정책을 변경 합니다.
+- 더 높은 IOPs를 지원 하도록 Azure 디스크를 업그레이드 합니다. [여기서 자세히 알아보세요.](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState-VSS (볼륨 섀도 복사본) 서비스가 잘못 된 상태 여 서 스냅숏 작업이 실패 했습니다.
 
@@ -306,6 +314,13 @@ VM에 있는 모든 드라이브의 BitLocker를 끄고 VSS 문제가 해결되�
 | 백업에서 작업을 취소하지 못했습니다. <br>작업이 완료될 때까지 기다립니다. |None |
 
 ## <a name="restore"></a>복원
+
+#### <a name="disks-appear-offline-after-file-restore"></a>파일이 복원 된 후 오프 라인으로 표시 되는 디스크
+
+복원 후 디스크가 오프 라인 상태인 것을 확인 한 후 다음을 수행 합니다. 
+* 스크립트가 실행 되는 컴퓨터가 OS 요구 사항을 충족 하는지 확인 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
+* 동일한 원본으로 복원 하 고 있지 않은지 확인 하 고 [자세히 알아보세요](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+
 
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |
