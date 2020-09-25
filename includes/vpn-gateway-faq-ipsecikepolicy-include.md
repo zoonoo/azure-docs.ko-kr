@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f7134d0e8087d17e78a13c958298006e321bd192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 754a47b3692847957de7f3d666f4dc09dc309d25
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84346319"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025265"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>사용자 지정 IPsec/IKE 정책은 모든 Azure VPN Gateway SKU에서 지원되나요?
 사용자 지정 IPsec/IKE 정책은 기본 SKU를 제외한 모든 Azure SKU에서 지원됩니다.
@@ -31,7 +31,7 @@ ms.locfileid: "84346319"
 | ---              | ---                                                                           |
 | IKEv2 암호화 | AES256, AES192, AES128, DES3, DES                                             |
 | IKEv2 무결성  | SHA384, SHA256, SHA1, MD5                                                     |
-| DH 그룹         | DHGroup24, ECP384, ECP256, DHGroup14(DHGroup2048), DHGroup2, DHGroup1, 없음 |
+| DH 그룹         | DHGroup24, ECP384, ECP256, DHGroup14(DHGroup2048), DHGroup2, DHGroup1, 없음  |
 | IPsec 암호화 | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, 없음      |
 | IPsec 무결성  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
 | PFS 그룹        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, 없음                              |
@@ -100,11 +100,14 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 ### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>두 VNet 간 연결 리소스에 동일한 정책을 지정해야 하나요?
 예. Azure에서 VNet 간 터널은 두 개의 연결 리소스(각 방향당 하나씩)로 구성됩니다. 두 연결 리소스에 동일한 정책이 있어야 합니다. 그렇지 않으면 VNet 간 연결이 설정되지 않습니다.
 
+### <a name="what-is-the-default-dpd-timeout-value-can-i-specify-a-different-dpd-timeout"></a>기본 DPD 시간 제한 값이란 무엇인가요? 다른 DPD 시간 제한을 지정할 수 있나요?
+기본 DPD 시간 제한은 45초입니다. 각 IPsec 또는 VNet 간 연결에 9초에서 3600초 사이의 다른 DPD 시간 제한 값을 지정할 수 있습니다.
+
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>ExpressRoute 연결에서 사용자 지정 IPsec/IKE 정책이 작동하나요?
 아니요. IPsec/IKE 정책은 Azure VPN Gateway를 통해 S2S VPN 및 VNet 간 연결에서만 작동합니다.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>IKEv1 또는 IKEv2 프로토콜 유형과의 연결을 어떻게 만드나요?
-IKEv1 연결은 기본 SKU, 표준 SKU 및 기타 [레거시 sku](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku)를 제외 하 고 모든 경로 기반 VPN 유형 sku에서 만들 수 있습니다. 연결을 만드는 동안 연결 프로토콜 유형(IKEv1 또는 IKEv2)을 지정할 수 있습니다. 연결 프로토콜 유형을 지정하지 않으면 해당하는 경우 기본 옵션으로 IKEv2가 사용됩니다. 자세한 내용은 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) 설명서를 참조하세요. SKU 유형 및 IKEv1/IKEv2 지원에 대한 내용은 [게이트웨이를 정책 기반 VPN 디바이스에 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
+IKEv1 연결은 Basic SKU, Standard SKU, 기타 [레거시 SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku)를 제외하고 모든 RouteBased VPN 유형 SKU에서 만들 수 있습니다. 연결을 만드는 동안 연결 프로토콜 유형(IKEv1 또는 IKEv2)을 지정할 수 있습니다. 연결 프로토콜 유형을 지정하지 않으면 해당하는 경우 기본 옵션으로 IKEv2가 사용됩니다. 자세한 내용은 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) 설명서를 참조하세요. SKU 유형 및 IKEv1/IKEv2 지원에 대한 내용은 [게이트웨이를 정책 기반 VPN 디바이스에 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조하세요.
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>IKEv1와 IKEv2 연결 간에 전송이 허용됩니까?
 예. IKEv1와 IKEv2 연결 간의 전송은 지원됩니다.

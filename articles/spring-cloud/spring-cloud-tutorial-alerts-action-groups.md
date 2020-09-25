@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 856bace0c67c5afedd6305158326af46037e7f21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc8dffb12dcd205671e2219dbef45ac14f9f7df7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299230"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892537"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>자습서: 경고 및 작업 그룹을 사용하여 Spring Cloud 리소스를 모니터링하는 방법
+
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 Azure Spring Cloud 경고는 사용 가능한 스토리지, 요청 속도 또는 데이터 사용량과 같은 조건에 따라 모니터링 리소스를 지원합니다. 속도 또는 조건이 정의된 사양과 일치하면 경고에서 알림을 보냅니다.
 
@@ -58,11 +60,11 @@ Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure 
 
 ## <a name="set-up-alert"></a>경고 설정 
 
-이전 단계에서는 이메일을 사용하는 **작업 그룹**을 만들었습니다. 전화 알림, 웹후크, Azure 함수 등을 사용할 수도 있습니다.  
+이전 단계에서는 이메일을 사용하는 **작업 그룹**을 만들었습니다. 전화 알림, 웹후크, Azure 함수 등을 사용할 수도 있습니다. 다음 단계는 **경고**를 구성합니다.
 
-**경고**를 구성하려면 **경고** 페이지로 돌아가서 **경고 규칙 관리**를 클릭합니다.
+1. **경고** 페이지로 돌아가서 **경고 규칙 관리**를 클릭합니다.
 
-  ![포털의 경고 정의에 대한 스크린샷](media/alerts-action-groups/alerts-2.png)
+   ![포털의 경고 정의에 대한 스크린샷](media/alerts-action-groups/alerts-2.png)
 
 1. 경고에 대한 **리소스**를 선택합니다.
 
@@ -84,9 +86,9 @@ Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure 
 
 1. **Done**을 클릭합니다.
 
-모니터링할 수 있는 조건에 대한 자세한 내용은 [사용자 포털 메트릭 옵션](spring-cloud-concept-metrics.md#user-metrics-options)을 참조하세요.
+   모니터링할 수 있는 조건에 대한 자세한 내용은 [사용자 포털 메트릭 옵션](spring-cloud-concept-metrics.md#user-metrics-options)을 참조하세요.
 
- **작업**에서 **작업 그룹 선택**을 클릭합니다. **작업** 창에서 이전에 정의한 **작업 그룹**을 선택합니다.
+1. **작업**에서 **작업 그룹 선택**을 클릭합니다. **작업** 창에서 이전에 정의한 **작업 그룹**을 선택합니다.
 
    ![스크린샷 포털 새 경고 규칙 4](media/alerts-action-groups/alerts-3-3.png) 
 
@@ -98,13 +100,13 @@ Azure Spring 요구 사항 외에도 이 자습서의 절차는 배포된 Azure 
 
    ![스크린샷 포털 새 경고 규칙 5](media/alerts-action-groups/alerts-3-4.png)
 
-새 경고 규칙을 사용하도록 설정되었는지 확인합니다.
+1. 새 경고 규칙을 사용하도록 설정되었는지 확인합니다.
 
    ![스크린샷 포털 새 경고 규칙 6](media/alerts-action-groups/alerts-4.png)
 
 **메트릭** 페이지를 사용하여 규칙을 만들 수도 있습니다.
 
-   ![스크린샷 포털 새 경고 규칙 7](media/alerts-action-groups/alerts-5.png)
+![스크린샷 포털 새 경고 규칙 7](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>다음 단계
 

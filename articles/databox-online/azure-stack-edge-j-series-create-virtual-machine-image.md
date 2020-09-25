@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU 디바이스용 VM 이미지 만들기
-description: Azure Stack Edge GPU 디바이스에서 사용할 Linux 또는 Windows VM 이미지를 만드는 방법을 설명합니다.
+title: Azure Stack Edge Pro GPU 디바이스용 VM 이미지 만들기
+description: Azure Stack Edge Pro GPU 디바이스에서 사용할 Linux 또는 Windows VM 이미지를 만드는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: fd87cbef4c667d9da1f93b448a2a67e6e90307b7
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 745d0df07b6d0d01acf0d564df8c242e16f3f56d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500286"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890996"
 ---
-# <a name="create-custom-vm-images-for-your-azure-stack-edge-device"></a>Azure Stack Edge 디바이스용 사용자 지정 VM 이미지 만들기
+# <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 디바이스용 사용자 지정 VM 이미지 만들기
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Azure Stack Edge 디바이스에 VM을 배포하려면 VM을 만드는 데 사용할 수 있는 사용자 지정 VM 이미지를 만들 수 있어야 합니다. 이 문서에서는 Azure Stack Edge 디바이스에 VM을 배포하는 데 사용할 수 있는 Linux 또는 Windows VM 사용자 지정 이미지를 만드는 데 필요한 단계를 설명합니다.
+Azure Stack Edge Pro 디바이스에 VM을 배포하려면 VM을 만드는 데 사용할 수 있는 사용자 지정 VM 이미지를 만들 수 있어야 합니다. 이 문서에서는 Azure Stack Edge Pro 디바이스에 VM을 배포하는 데 사용할 수 있는 Linux 또는 Windows VM 사용자 지정 이미지를 만드는 데 필요한 단계를 설명합니다.
 
 ## <a name="vm-image-workflow"></a>VM 이미지 워크플로
 
-이 워크플로에서는 Azure에서 가상 머신을 만들고, VM을 사용자 지정하고 일반화한 다음, 이 VM에 해당하는 VHD를 다운로드해야 합니다. Azure Stack Edge에 일반화된 VHD가 업로드되고, 이 VHD에서 관리 디스크가 생성되고, 관리 디스크에서 이미지가 생성되고, 마지막으로 이 이미지에서 VM이 생성됩니다.   
+이 워크플로에서는 Azure에서 가상 머신을 만들고, VM을 사용자 지정하고 일반화한 다음, 이 VM에 해당하는 VHD를 다운로드해야 합니다. Azure Stack Edge Pro에 일반화된 VHD가 업로드되고, 이 VHD에서 관리 디스크가 생성되고, 관리 디스크에서 이미지가 생성되고, 마지막으로 이 이미지에서 VM이 생성됩니다.   
 
-자세한 내용은 [Azure PowerShell을 사용하여 Azure Stack Edge 디바이스에 VM 배포](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md)를 참조하세요.
+자세한 내용은 [Azure PowerShell을 사용하여 Azure Stack Edge Pro 디바이스에 VM 배포](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md)를 참조하세요.
 
 
 ## <a name="create-a-windows-custom-vm-image"></a>Windows 사용자 지정 VM 이미지 만들기
@@ -44,7 +44,7 @@ Azure Stack Edge 디바이스에 VM을 배포하려면 VM을 만드는 데 사�
    
        [Sysprep(시스템 준비) 개요](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조할 수도 있습니다.
 
-이제 이 VHD를 사용하여 Azure Stack Edge 디바이스에서 VM을 만들고 배포합니다.
+이제 이 VHD를 사용하여 Azure Stack Edge Pro 디바이스에서 VM을 만들고 배포합니다.
 
 ## <a name="create-a-linux-custom-vm-image"></a>Linux 사용자 지정 VM 이미지 만들기
 
@@ -69,7 +69,7 @@ Azure Stack Edge 디바이스에 VM을 배포하려면 VM을 만드는 데 사�
 
 1. [기존 OS 디스크를 다운로드합니다](../virtual-machines/linux/download-vhd.md).
 
-이제 이 VHD를 사용하여 Azure Stack Edge 디바이스에서 VM을 만들고 배포합니다. 다음과 같은 두 가지 Azure Marketplace 이미지를 사용하여 Linux 사용자 지정 이미지를 만들 수 있습니다.
+이제 이 VHD를 사용하여 Azure Stack Edge Pro 디바이스에서 VM을 만들고 배포합니다. 다음과 같은 두 가지 Azure Marketplace 이미지를 사용하여 Linux 사용자 지정 이미지를 만들 수 있습니다.
 
 |항목 이름  |설명  |게시자  |
 |---------|---------|---------|
@@ -81,4 +81,4 @@ Azure Stack Edge 디바이스에 VM을 배포하려면 VM을 만드는 데 사�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Stack Edge 디바이스에 VM 배포](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Azure Stack Edge Pro 디바이스에 VM을 배포](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md)합니다.

@@ -7,14 +7,17 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 05107d0246be2273c09e91573bd30a4108ac7795
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cd10421ddcf752625b8040e1afa4e7b15f142ce2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290330"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885678"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Azure Spring Cloud에 기존 사용자 지정 도메인 매핑
+
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
+
 DNS(Domain Name Service)는 네트워크를 통해 네트워크 노드 이름을 저장하는 기술입니다. 이 자습서에서는 CNAME 레코드를 사용하여 www.contoso.com 같은 도메인을 매핑합니다. 이 기술은 인증서를 사용하여 사용자 지정 도메인을 보호하며 SSL(Secure Sockets Layer)이라고도 하는 TLS(전송 계층 보안)를 적용하는 방법을 보여줍니다. 
 
 인증서는 웹 트래픽을 암호화합니다. 이러한 TLS/SSL 인증서는 Azure Key Vault에 저장할 수 있습니다. 

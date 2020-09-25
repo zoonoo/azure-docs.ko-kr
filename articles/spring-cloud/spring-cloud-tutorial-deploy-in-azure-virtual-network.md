@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a7905ae0fdbd797d9b544cb71f44b82af1295246
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688456"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892898"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>자습서: Azure 가상 네트워크에 Azure Spring Cloud 배포(VNet 삽입)
+
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 이 자습서에서는 Azure Spring Cloud 서비스 인스턴스를 가상 네트워크에 배포하는 방법에 대해 설명합니다. 이를 VNet 삽입이라고도 합니다.  
 
@@ -38,7 +40,7 @@ Azure Spring Cloud 서비스 인스턴스를 배포하는 가상 네트워크는
 * **서브넷**: 가상 네트워크는 다음과 같은 Azure Spring Cloud 서비스 인스턴스 전용의 두 서브넷을 포함해야 합니다. 
     * 서비스 런타임용 서브넷
     * Spring Boot 마이크로 서비스 애플리케이션용 서브넷 
-    * 이러한 서브넷과 Azure Spring Cloud 서비스 인스턴스 간에는 일대일 관계가 있습니다. 단일 서브넷에서 여러 서비스 인스턴스를 공유할 수 없습니다. 배포하는 각 서비스 인스턴스에 대해 새 서브넷을 사용해야 합니다.
+    * 이러한 서브넷과 Azure Spring Cloud 서비스 인스턴스 간에는 일대일 관계가 있습니다. 배포하는 각 서비스 인스턴스에 대해 새 서브넷을 사용해야 하며 각 서브넷은 단일 서비스 인스턴스만 포함할 수 있습니다.
 * **주소 공간**: 서비스 런타임 서브넷에 대한 하나의 CIDR 블록은 최대 /28이고, Spring Boot 마이크로 서비스 애플리케이션 서브넷에 대한 또 하나의 CIDR 블록은 최대 /24입니다.
 * **경로 테이블**: 서브넷에는 연결된 기존 경로 테이블이 없어야 합니다.
 

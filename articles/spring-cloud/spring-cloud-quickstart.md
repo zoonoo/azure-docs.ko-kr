@@ -4,18 +4,324 @@ description: 이 빠른 시작에서는 Azure Spring Cloud에 Spring Cloud 애�
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 245516e0a54865d3a6097c4bb566b850cb738ad6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 464879f5962b240ec82fb80957d146cadbf2b1bd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260553"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904325"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포
 
+::: zone pivot="programming-language-csharp"
+이 빠른 시작에서는 Azure에서 실행되는 간단한 Azure Spring Cloud 마이크로서비스 애플리케이션을 배포하는 방법을 설명합니다.
+
+>[!NOTE]
+> Azure Spring Cloud에 대한 Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)을 제출하세요.
+
+이 빠른 시작을 통해 다음을 수행하는 방법을 알아봅니다.
+
+> [!div class="checklist"]
+> * 기본 Steeltoe .NET Core 프로젝트 생성
+> * Azure Spring Cloud 서비스 인스턴스 프로비저닝
+> * 퍼블릭 엔드포인트를 사용하여 앱 빌드 및 배포
+> * 실시간으로 로그 스트리밍
+
+이 빠른 시작에서 사용되는 애플리케이션 코드는 .NET Core 웹 API 프로젝트 템플릿을 사용하여 빌드된 간단한 앱입니다. 이 예제가 완료되면 애플리케이션에서 온라인으로 액세스할 수 있고 Azure Portal 및 Azure CLI를 통해 관리할 수 있습니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). Azure Spring Cloud 서비스는 .NET Core 3.1 이상 버전을 지원합니다.
+* [Azure CLI 버전 2.0.67 이상](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
+* [Git](https://git-scm.com/)
+
+## <a name="install-azure-cli-extension"></a>Azure CLI 확장 설치
+
+Azure CLI 버전이 2.0.67 이상인지 확인합니다.
+
+```azurecli
+az --version
+```
+
+다음 명령을 사용하여 Azure CLI용 Azure Spring Cloud 확장을 설치합니다.
+
+```azurecli
+az extension add --name spring-cloud
+```
+
+## <a name="log-in-to-azure"></a>Azure에 로그인
+
+1. Azure CLI에 로그인합니다.
+
+    ```azurecli
+    az login
+    ```
+
+1. 둘 이상의 구독이 있는 경우 이 빠른 시작에 사용하려는 구독을 선택합니다.
+
+   ```azurecli
+   az account list -o table
+   ```
+
+   ```azurecli
+   az account set --subscription <Name or ID of a subscription from the last step>
+   ```
+
+## <a name="generate-a-steeltoe-net-core-project"></a>Steeltoe .NET Core 프로젝트 생성
+
+Visual Studio에서 API 프로젝트 템플릿을 사용하여 "hello-world"라는 ASP.NET Core 웹 애플리케이션을 만듭니다. 나중에 테스트 엔드포인트가 되는 WeatherForecastController가 자동으로 생성됩니다.
+
+1. 프로젝트 소스 코드에 대한 폴더를 만들고 프로젝트를 생성합니다.
+ 
+   ```console
+   mkdir source-code
+   ```
+
+   ```console
+   cd source-code
+   ```
+
+   ```dotnetcli
+   dotnet new webapi -n hello-world --framework netcoreapp3.1
+   ```
+
+1. 프로젝트 디렉터리로 이동합니다.
+
+   ```console
+   cd hello-world
+   ```
+
+1. *appSettings.json*  파일을 편집하여 다음 설정을 추가합니다.
+
+   ```json
+   "spring": {
+     "application": {
+       "name": "hello-world"
+     }
+   },
+   "eureka": {
+     "client": {
+       "shouldFetchRegistry": true,
+       "shouldRegisterWithEureka": true
+     }
+   }
+   ```
+
+1. *appsettings.json*에서 `Microsoft` 범주의 로그 수준도 `Warning`에서 `Information`으로 변경합니다. 이렇게 변경하면 이후 단계에서 스트리밍 로그를 볼 때 로그가 생성됩니다.
+
+   이제 *appsettings.json* 파일은 다음 예제와 비슷합니다.
+
+   ```json
+   {
+     "Logging": {
+       "LogLevel": {
+         "Default": "Information",
+         "Microsoft": "Information",
+         "Microsoft.Hosting.Lifetime": "Information"
+       }
+     },
+     "AllowedHosts": "*",
+     "spring": {
+       "application": {
+         "name": "hello-world"
+       }
+     },
+     "eureka": {
+       "client": {
+         "shouldFetchRegistry": true,
+         "shouldRegisterWithEureka": true
+       }
+     }
+   }
+   ```
+   
+1. 종속성 및 `Zip` 작업을 *.csproj* 파일에 추가합니다.
+
+   ```xml
+   <ItemGroup>
+     <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
+     <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-alpha.1" />
+   </ItemGroup>
+   <Target Name="Publish-Zip" AfterTargets="Publish">
+     <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/deploy.zip" Overwrite="true" />
+   </Target>
+   ```
+
+   이 패키지는 Steeltoe 서비스 검색 및 Azure Spring Cloud 클라이언트 라이브러리를 위한 것입니다. `Zip` 작업은 Azure로 배포하기 위한 것입니다. `dotnet publish` 명령을 실행하면 이진 파일이 *publish* 폴더에 생성되고, 이 작업은 *publish* 폴더를 Azure에 업로드하는 *.zip* 파일로 압축합니다.
+
+3. *Program.cs* 파일에서 Azure Spring Cloud 클라이언트 라이브러리를 사용하는 `using` 지시문과 코드를 추가합니다.
+
+   ```csharp
+   using Microsoft.Azure.SpringCloud.Client;
+   ```
+
+   ```csharp
+   public static IHostBuilder CreateHostBuilder(string[] args) =>
+               Host.CreateDefaultBuilder(args)
+                   .ConfigureWebHostDefaults(webBuilder =>
+                   {
+                       webBuilder.UseStartup<Startup>();
+                   })
+                   .UseAzureSpringCloudService();
+   ```
+
+4. *Startup.cs* 파일에서 Steeltoe 서비스 검색을 사용하는 `using` 지시문과 코드를 `ConfigureServices` 및 `Configure` 메서드의 끝에 추가합니다.
+
+   ```csharp
+   using Steeltoe.Discovery.Client;
+   ```
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       // Template code not shown.
+
+       services.AddDiscoveryClient(Configuration);
+   }
+   ```
+
+   ```csharp
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+   {
+       // Template code not shown.
+
+       app.UseDiscoveryClient();
+   }
+   ```
+
+1. 프로젝트를 빌드하여 컴파일 오류가 없는지 확인합니다.
+
+   ```dotnetcli
+   dotnet build
+   ```
+ 
+## <a name="provision-a-service-instance"></a>서비스 인스턴스 프로비저닝
+
+다음 절차에서는 Azure Portal을 사용하여 Azure Spring Cloud의 인스턴스를 만듭니다.
+
+1. [Azure Portal](https://ms.portal.azure.com/)을 엽니다. 
+
+1. 상단 검색 상자에서 *Azure Spring Cloud*를 검색합니다.
+
+1. 결과에서 *Azure Spring Cloud*를 선택합니다.
+
+   ![ASC 아이콘 시작](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
+
+1. Azure Spring Cloud 페이지에서 **+ 추가**를 선택합니다.
+
+   ![ASC 아이콘 추가](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+
+1. Azure Spring Cloud **만들기** 페이지에 있는 양식을 채웁니다.  다음 지침을 고려하세요.
+
+   * **구독**: 이 리소스 대한 요금이 청구될 구독을 선택합니다.
+   * **리소스 그룹**: 새 리소스 그룹을 만듭니다. 여기에 입력하는 이름은 이후 단계에서 **\<resource group name\>** 으로 사용됩니다.
+   * **서비스 세부 정보/이름**: **\<service instance name\>** 을 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
+   * **지역**: 서비스 인스턴스에 대한 지역을 선택합니다.
+
+   ![ASC 포털 시작](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
+
+6. **검토 및 만들기**를 선택합니다.
+
+## <a name="build-and-deploy-the-app"></a>앱 빌드 및 배포
+
+다음 절차에서는 이전에 만든 프로젝트를 빌드하고 배포합니다.
+
+1. 명령 프롬프트가 프로젝트 폴더에 아직 있는지 확인합니다.
+
+1. 다음 명령을 실행하여 프로젝트를 빌드하고, 이진 파일을 게시하고, 이진 파일을 프로젝트 폴더의 *.zip* 파일에 저장합니다.
+
+   ```dotnetcorecli
+   dotnet publish -c release -o ./publish
+   ```
+
+1. 할당된 퍼블릭 엔드포인트를 사용하여 Azure Spring Cloud 인스턴스에서 앱을 만듭니다. *appsettings.json*에서 지정한 것과 동일한 "hello-world"라는 애플리케이션 이름을 사용합니다.
+
+   ```console
+   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public
+   ```
+
+1. *.zip* 파일을 앱에 배포합니다.
+
+   ```azurecli
+   az spring-cloud app deploy -n hello-world -s <service instance name> -g <resource group name> --runtime-version NetCore_31 --main-entry hello-world.dll --artifact-path ./deploy.zip
+   ```
+
+   `--main-entry` 옵션은 애플리케이션의 진입점이 포함된 *.dll* 파일을 식별합니다. 서비스에서 *.zip* 파일이 업로드되면 모든 파일과 폴더를 추출하고, `--main-entry`에서 지정한 *.dll* 파일의 진입점을 실행하려고 시도합니다.
+
+   애플리케이션 배포를 완료하는 데 몇 분이 걸립니다. 배포되었는지 확인하려면 Azure Portal의 **앱** 블레이드로 이동합니다.
+
+## <a name="test-the-app"></a>앱 테스트
+
+배포가 완료되면 다음 URL에서 앱에 액세스합니다.
+
+```http
+https://<service instance name>-hello-world.azuremicroservices.io/weatherforecast
+```
+
+앱에서 다음 예제와 비슷한 JSON 데이터를 반환합니다.
+
+```json
+[{"date":"2020-09-08T21:01:50.0198835+00:00","temperatureC":14,"temperatureF":57,"summary":"Bracing"},{"date":"2020-09-09T21:01:50.0200697+00:00","temperatureC":-14,"temperatureF":7,"summary":"Bracing"},{"date":"2020-09-10T21:01:50.0200715+00:00","temperatureC":27,"temperatureF":80,"summary":"Freezing"},{"date":"2020-09-11T21:01:50.0200717+00:00","temperatureC":18,"temperatureF":64,"summary":"Chilly"},{"date":"2020-09-12T21:01:50.0200719+00:00","temperatureC":16,"temperatureF":60,"summary":"Chilly"}]
+```
+
+## <a name="stream-logs-in-real-time"></a>실시간으로 로그 스트리밍
+
+다음 명령을 사용하여 앱에서 실시간 로그를 가져옵니다.
+
+```azurecli
+az spring-cloud app logs -n hello-world -s <service instance name> -g <resource group name> --lines 100 -f
+```
+
+로그가 결과에 표시됩니다.
+
+```output
+[Azure Spring Cloud] The following environment variables are loaded:
+2020-09-08 20:58:42,432 INFO supervisord started with pid 1
+2020-09-08 20:58:43,435 INFO spawned: 'event-gather_00' with pid 9
+2020-09-08 20:58:43,436 INFO spawned: 'dotnet-app_00' with pid 10
+2020-09-08 20:58:43 [Warning] No managed processes are running. Wait for 30 seconds...
+2020-09-08 20:58:44,843 INFO success: event-gather_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-09-08 20:58:44,843 INFO success: dotnet-app_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+←[40m←[32minfo←[39m←[22m←[49m: Steeltoe.Discovery.Eureka.DiscoveryClient[0]
+      Starting HeartBeat
+info: Microsoft.Hosting.Lifetime[0]
+      Now listening on: http://[::]:1025
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /netcorepublish/6e4db42a-b160-4b83-a771-c91adec18c60
+2020-09-08 21:00:13 [Information] [10] Start listening...
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://asc-svc-hello-world.azuremicroservices.io/weatherforecast
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'hello_world.Controllers.WeatherForecastController.Get (hello-world)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[3]
+      Route matched with {action = "Get", controller = "WeatherForecast"}. Executing controller action with signature System.Collections.Generic.IEnumerable`1[hello_world.WeatherForecast] Get() on controller hello_world.Controllers.WeatherForecastController (hello-world).
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing ObjectResult, writing value of type 'hello_world.WeatherForecast[]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed action hello_world.Controllers.WeatherForecastController.Get (hello-world) in 1.8902ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'hello_world.Controllers.WeatherForecastController.Get (hello-world)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished in 4.2591ms 200 application/json; charset=utf-8
+```
+
+> [!TIP]
+> `az spring-cloud app logs -h`를 사용하여 더 많은 매개 변수 및 로그 스트림 기능을 탐색합니다.
+
+고급 로그 분석 기능의 경우 [Azure Portal](https://portal.azure.com/) 메뉴에서 **로그** 탭을 방문하세요. 여기에서 로그의 대기 시간은 몇 분입니다.
+[ ![로그 분석](media/spring-cloud-quickstart-java/logs-analytics.png) ](media/spring-cloud-quickstart-java/logs-analytics.png#lightbox)
+::: zone-end
+
+::: zone pivot="programming-language-java"
 이 빠른 시작에서는 Azure에서 실행되는 간단한 Azure Spring Cloud 마이크로서비스 애플리케이션을 배포하는 방법을 설명합니다. 
 
 이 자습서에서 사용되는 애플리케이션 코드는 Spring Initializr로 빌드된 간단한 앱입니다. 이 예제를 완료하면 애플리케이션에 온라인으로 액세스할 수 있고 Azure Portal을 통해 관리할 수 있습니다.
@@ -32,9 +338,9 @@ ms.locfileid: "89260553"
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
-* [JDK 8 설치](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+* [JDK 8 설치](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
 * [Azure 구독에 가입](https://azure.microsoft.com/free/)
-* (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하고 다음 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다. `az extension add --name spring-cloud`
+* (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)하고 다음 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다. `az extension add --name spring-cloud`
 * (선택 사항) [Azure Toolkit for IntelliJ를 설치](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)하고 [로그인](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)합니다.
 
 ## <a name="generate-a-spring-cloud-project"></a>Spring Cloud 프로젝트 생성
@@ -190,12 +496,17 @@ az spring-cloud app logs -n hellospring -s <service instance name> -g <resource 
 고급 로그 분석 기능은 [Azure Portal](https://portal.azure.com/) 메뉴에서 **로그** 탭을 방문하세요. 여기에서 로그의 대기 시간은 몇 분입니다.
 
 [ ![로그 분석](media/spring-cloud-quickstart-java/logs-analytics.png) ](media/spring-cloud-quickstart-java/logs-analytics.png#lightbox)
+::: zone-end
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이전 단계에서 Azure 리소스를 리소스 그룹에 만들었습니다. 나중에 이러한 리소스가 필요하지 않을 것으로 예상되는 경우 포털에서 리소스 그룹을 삭제하거나 Cloud Shell에서 다음 명령을 실행하여 리소스 그룹을 삭제합니다.
+
+이전 단계에서는 구독에 남아 있는 동안 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 나중에 이러한 리소스가 필요하지 않을 경우 리소스 그룹을 포털에서 삭제하거나 Azure CLI에서 다음 명령을 실행하여 삭제합니다.
+
 ```azurecli
 az group delete --name <your resource group name; for example: hellospring-1558400876966-rg> --yes
 ```
+
+## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 다음과 같은 방법을 배웠습니다.
 
@@ -204,8 +515,10 @@ az group delete --name <your resource group name; for example: hellospring-15584
 > * 서비스 인스턴스 프로비저닝
 > * 퍼블릭 엔드포인트를 사용하여 앱 빌드 및 배포
 > * 실시간으로 로그 스트리밍
-## <a name="next-steps"></a>다음 단계
+
+더 많은 Azure Spring 기능을 사용하는 방법을 알아보려면 샘플 애플리케이션을 Azure Spring Cloud에 배포하는 빠른 시작 시리즈로 계속 진행하세요.
+
 > [!div class="nextstepaction"]
 > [마이크로서비스 빌드 및 실행](spring-cloud-quickstart-sample-app-introduction.md)
 
-GitHub에서 더 많은 샘플을 사용할 수 있습니다. [Azure Spring Cloud 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).
+GitHub에서 더 많은 샘플을 사용할 수 있습니다. [Azure Spring Cloud 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

@@ -7,15 +7,177 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8931c22c3656cf9708756153268ab1d9d87b8343
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 94caa879aa005f8f41e44b8a56400e87f6174247
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050831"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908344"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 
+::: zone pivot="programming-language-csharp"
+이 빠른 시작에서는 Azure CLI를 사용하여 마이크로서비스 애플리케이션을 빌드하고 Azure Spring Cloud에 배포합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+* 이 시리즈의 이전 빠른 시작을 완료합니다.
+
+  * [Azure Spring Cloud 서비스 프로비저닝](spring-cloud-quickstart-provision-service-instance.md)
+  * [Azure Spring Cloud 구성 서버 설정](spring-cloud-quickstart-setup-config-server.md)
+
+## <a name="download-the-sample-app"></a>샘플 앱 다운로드
+
+이 시점까지 Azure Cloud Shell을 사용한 경우 다음 단계를 위해 로컬 명령 프롬프트로 전환합니다.
+
+1. 새 폴더를 만들고 샘플 앱 리포지토리를 복제합니다.
+
+   ```console
+   mkdir source-code
+   ```
+
+   ```console
+   cd source-code
+   ```
+
+   ```console
+   git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples
+   ```
+
+1. 리포지토리 디렉터리로 이동합니다.
+
+   ```console
+   cd Azure-Spring-Cloud-Samples
+   ```
+
+## <a name="deploy-planetweatherprovider"></a>PlanetWeatherProvider 배포
+
+1. Azure Spring Cloud 인스턴스에서 PlanetWeatherProvider 프로젝트에 대한 앱을 만듭니다.
+
+   ```azurecli
+   az spring-cloud app create --name planet-weather-provider --runtime-version NetCore_31
+   ```
+
+   자동 서비스 등록을 사용하도록 설정하려면 프로젝트의 *appsettings.json* 파일에서 `spring.application.name` 값과 동일한 이름을 앱에 지정해야 합니다.
+
+   ```json
+   "spring": {
+     "application": {
+       "name": "planet-weather-provider"
+     }
+   }
+   ```
+
+   이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다.
+
+1. 디렉터리를 `PlanetWeatherProvider` 프로젝트 폴더로 변경합니다.
+
+   ```console
+   cd steeltoe-sample/src/planet-weather-provider
+   ```
+
+1. 배포할 이진 파일 및 *.zip* 파일을 만듭니다.
+
+   ```console
+   dotnet publish -c release -o ./publish
+   ```
+
+   > [!TIP]
+   > 프로젝트 파일에는 이진 파일을 *./publish* 폴더에 쓴 후 *.zip* 파일의 이진 파일을 패키징하는 다음 XML이 포함되어 있습니다.
+   >
+   > ```xml
+   > <Target Name="Publish-Zip" AfterTargets="Publish">
+   >   <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-planet.zip" Overwrite="true" />
+   > </Target>
+   > ```
+
+1. Azure에 배포합니다.
+
+   다음 명령을 실행하기 전에 명령 프롬프트가 프로젝트 폴더에 있는지 확인합니다.
+
+   ```console
+   az spring-cloud app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip
+   ```
+
+   `--main-entry` 옵션은 *.zip* 파일의 루트 폴더에서 애플리케이션의 진입점을 포함하는 *.dll* 파일에 대한 상대 경로를 지정합니다. 서비스에서 *.zip* 파일이 업로드되면 모든 파일과 폴더를 추출하고, 지정한 *.dll* 파일의 진입점을 실행하려고 시도합니다.
+
+   이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다.
+
+## <a name="deploy-solarsystemweather"></a>SolarSystemWeather 배포
+
+1. 이번에는 SolarSystemWeather 프로젝트에 대해 Azure Spring Cloud 인스턴스에서 다른 앱을 만듭니다.
+
+   ```azurecli
+   az spring-cloud app create --name solar-system-weather --runtime-version NetCore_31
+   ```
+
+   `solar-system-weather`는 `SolarSystemWeather` 프로젝트의 *appsettings.json* 파일에 지정된 이름입니다.
+
+   이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다.
+
+1. 디렉터리를 `SolarSystemWeather` 프로젝트로 변경합니다.
+
+   ```console
+   cd ../solar-system-weather
+   ```
+
+1. 배포할 이진 파일 및 *.zip* 파일을 만듭니다.
+
+   ```console
+   dotnet publish -c release -o ./publish
+   ```
+
+1. Azure에 배포합니다.
+
+   ```console
+   az spring-cloud app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip
+   ```
+   
+   이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다.
+
+## <a name="assign-public-endpoint"></a>퍼블릭 엔드포인트 할당
+
+애플리케이션을 테스트하려면 브라우저에서 `solar-system-weather` 애플리케이션으로 HTTP GET 요청을 보냅니다.  이렇게 하려면 요청에 대한 퍼블릭 엔드포인트가 필요합니다.
+
+1. 엔드포인트를 할당하려면 다음 명령을 실행합니다.
+
+   ```azurecli
+   az spring-cloud app update -n solar-system-weather --is-public true
+   ```
+
+1. 엔드포인트의 URL을 가져오려면 다음 명령을 실행합니다.
+
+   Windows:
+
+   ```azurecli
+   az spring-cloud app show -n solar-system-weather -o table
+   ```
+
+   Linux:
+
+   ```azurecli
+   az spring-cloud app show --name solar-system-weather | grep url
+   ```
+
+## <a name="test-the-application"></a>애플리케이션 테스트
+
+`solar-system-weather` 앱에 GET 요청을 보냅니다. 브라우저에서 끝에 추가된 `/weatherforecast`를 사용하여 공용 URL로 이동합니다. 다음은 그 예입니다. 
+
+```
+https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast
+```
+
+출력은 JSON입니다.
+
+```json
+[{"Key":"Mercury","Value":"very warm"},{"Key":"Venus","Value":"quite unpleasant"},{"Key":"Mars","Value":"very cool"},{"Key":"Saturn","Value":"a little bit sandy"}]
+```
+
+이 응답은 두 마이크로서비스 앱이 작동하고 있음을 보여 줍니다. `SolarSystemWeather` 앱은 `PlanetWeatherProvider` 앱에서 검색된 데이터를 반환합니다.
+::: zone-end
+
+::: zone pivot="programming-language-java"
 이 문서에서는 다음을 사용하여 마이크로서비스 애플리케이션을 빌드하고 Azure Spring Cloud에 배포하는 방법을 설명합니다.
 * Azure CLI
 * Maven 플러그 인
@@ -25,9 +187,9 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [JDK 8 설치](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+* [JDK 8 설치](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
 * [Azure 구독에 가입](https://azure.microsoft.com/free/)
-* (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하고 다음 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다. `az extension add --name spring-cloud`
+* (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)하고 `az extension add --name spring-cloud` 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다.
 * (선택 사항) [Azure Toolkit for IntelliJ를 설치](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)하고 [로그인](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)합니다.
 
 ## <a name="deployment-procedures"></a>배포 절차
@@ -111,7 +273,7 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
 
 ### <a name="generate-configurations-and-deploy-to-the-azure-spring-cloud"></a>구성 생성 및 Azure Spring Cloud에 배포
 
-1. 부모 POM을 포함하는 PiggyMetrics의 루트 폴더에서 다음 명령을 실행하여 구성을 생성합니다. Azure CLI를 사용하여 이미 로그인한 경우 이 명령은 자격 증명을 자동으로 선택합니다. 그렇지 않으면 프롬프트 명령을 사용하여 로그인합니다. 자세한 내용은 [Wiki 페이지](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication)를 참조하세요.
+1. 부모 POM을 포함하는 PiggyMetrics의 루트 폴더에서 다음 명령을 실행하여 구성을 생성합니다. Azure CLI를 사용하여 이미 로그인한 경우 이 명령은 자격 증명을 자동으로 선택합니다. 그렇지 않으면 프롬프트 명령을 사용하여 로그인합니다. 자세한 내용은 [wiki 페이지](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication)를 참조하세요.
 
     ```
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
@@ -148,7 +310,7 @@ Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정
 
     ![Azure 1에 배포](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
-1. **이름** 필드에서 *:게이트웨이*를 구성을 참조하는 기존 **이름**에 추가합니다.
+1. **이름** 필드에서 *:게이트웨이*를 기존 **이름**에 추가합니다.
 1. **아티팩트** 텍스트 상자에서 *com.piggymetrics:gateway:1.0-SNAPSHOT*을 선택합니다.
 1. **구독** 텍스트 상자에서 구독을 확인합니다.
 1. **Spring Cloud** 텍스트 상자에서 [Azure Spring Cloud 인스턴스 프로비저닝](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance)에서 만든 Azure Spring Cloud의 인스턴스를 선택합니다.
@@ -189,15 +351,25 @@ Azure Portal로 이동하여 URL을 찾을 수도 있습니다.
 
     ![앱 두 번째 탐색](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
+::: zone-end
+
 ## <a name="clean-up-resources"></a>리소스 정리
-이전 단계에서 Azure 리소스를 리소스 그룹에 만들었습니다. 나중에 이러한 리소스가 필요하지 않을 것으로 예상되는 경우 포털에서 리소스 그룹을 삭제하거나 Cloud Shell에서 다음 명령을 실행하여 리소스 그룹을 삭제합니다.
+
+이 시리즈의 다음 빠른 시작을 계속하려는 경우 이 단계를 건너뜁니다.
+
+이러한 빠른 시작에서는 구독에 남아있는 경우 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 다음 빠른 시작을 계속 진행할 계획이 없고 나중에 이러한 리소스가 필요하지 않을 것으로 예상되는 경우 포털을 사용하거나 Cloud Shell에서 다음 명령을 실행하여 리소스 그룹을 삭제합니다.
+
 ```azurecli
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
 ```
-이전 단계에서는 기본 리소스 그룹 이름도 설정합니다. 해당 기본값을 지우려면 Cloud Shell에서 다음 명령을 실행합니다.
+
+이전 빠른 시작에서는 기본 리소스 그룹 이름도 설정합니다. 다음 빠른 시작을 계속하지 않으려면 다음 CLI 명령을 실행하여 기본값을 지웁니다.
+
 ```azurecli
 az configure --defaults group=
 ```
+
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 > [로그, 메트릭 및 추적](spring-cloud-quickstart-logs-metrics-tracing.md)
+

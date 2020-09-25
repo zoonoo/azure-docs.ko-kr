@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1f2e4ddc2d2cfbbfb7f95e5ae6b1af7a76eece85
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 4ef08ea03cab711901225cab227a0f5f84055d7a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426353"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906821"
 ---
 # <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>자습서: Terraform을 사용하여 Azure Spring Cloud 인스턴스 프로비저닝
+
+**이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 이 자습서에서는 Terraform을 사용하여 Azure Spring Cloud 인스턴스를 만듭니다. 이 절차에서는 다음 리소스를 만드는 과정을 안내합니다.
 

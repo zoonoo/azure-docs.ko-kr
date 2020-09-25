@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: fc803cbe3dd1ec57b6cd286513efe8393a1471e9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 646b95e7e106b8657f8aeec2426b88cd6da20357
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297130"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885658"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>자습서: 관리 ID를 사용하여 Key Vault를 Azure Spring Cloud 앱에 연결
+
+**이 문서는 다음에 적용됩니다.** ✔️ Java
 
 이 문서에서는 Azure Spring Cloud 앱에 대한 관리 ID를 만들고, 이를 사용하여 Azure Key Vault에 액세스하는 방법을 보여 줍니다.
 
@@ -23,18 +25,18 @@ Azure Key Vault는 앱의 토큰, 암호, 인증서, API 키 및 기타 비밀�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * [Azure 구독에 가입](https://azure.microsoft.com/free/)
-* [Azure CLI 버전 2.0.67 이상 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI 버전 2.0.67 이상 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 * [Maven 3.0 이상 설치](https://maven.apache.org/download.cgi)
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
-리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 Key Vault 및 Spring Cloud를 모두 포함하는 리소스 그룹을 만듭니다.
+리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create) 명령을 사용하여 Key Vault 및 Spring Cloud를 모두 포함하는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
 ```
 
 ## <a name="set-up-your-key-vault"></a>Key Vault 설정
-Key Vault를 만들려면 [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) 명령을 사용합니다.
+Key Vault를 만들려면 [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest&preserve-view=true#az-keyvault-create) 명령을 사용합니다.
 
 > [!Important]
 > 각 Key Vault마다 고유한 이름이 있어야 합니다. 다음 예제에서 <your-keyvault-name>을 Key Vault 이름으로 바꿉니다.
@@ -45,7 +47,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 반환된 `vaultUri`를 적어 둡니다. 이는 "https://<your-keyvault-name>.vault.azure.net" 형식이며, 다음 단계에서 사용됩니다.
 
-이제 [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) 명령을 사용하여 비밀을 Key Vault에 배치할 수 있습니다.
+이제 [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest&preserve-view=true#az-keyvault-secret-set) 명령을 사용하여 비밀을 Key Vault에 배치할 수 있습니다.
 
 ```azurecli-interactive
 az keyvault secret set --vault-name "<your-keyvault-name>" \
@@ -165,7 +167,7 @@ az keyvault set-policy --name "<your-keyvault-name>" --object-id ${SERVICE_IDENT
 
 ## <a name="build-sample-spring-boot-app-with-java-sdk"></a>Java SDK를 사용하여 Spring Boot 앱 샘플 빌드
 
-이 샘플은 Azure Key Vault에서 비밀을 설정하고 가져올 수 있습니다. [Java용 Azure Key Vault 비밀 클라이언트 라이브러리](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme?view=azure-java-stablelibrary)는 Azure SDK에서 Azure Active Directory 토큰 인증을 지원합니다. AAD 토큰 인증을 지원하도록 Azure SDK 클라이언트를 구성하는 데 사용할 수 있는 **TokenCredential** 구현 세트를 제공합니다.
+이 샘플은 Azure Key Vault에서 비밀을 설정하고 가져올 수 있습니다. [Java용 Azure Key Vault 비밀 클라이언트 라이브러리](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme?view=azure-java-stablelibrary&preserve-view=true)는 Azure SDK에서 Azure Active Directory 토큰 인증을 지원합니다. AAD 토큰 인증을 지원하도록 Azure SDK 클라이언트를 구성하는 데 사용할 수 있는 **TokenCredential** 구현 세트를 제공합니다.
 
 Azure Key Vault 비밀 클라이언트 라이브러리를 사용하면 토큰, 암호, API 키 및 기타 비밀에 대한 액세스를 안전하게 저장하고 제어할 수 있습니다. 라이브러리는 비밀 및 해당 버전을 생성, 검색, 업데이트, 삭제, 제거, 백업, 복원 및 나열하는 작업을 제공합니다.
 
@@ -189,7 +191,7 @@ Azure Key Vault 비밀 클라이언트 라이브러리를 사용하면 토큰, �
     azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
     ```
 
-3. 코드에서 [ManagedIdentityCredentialBuilder](https://docs.microsoft.com/java/api/com.azure.identity.managedidentitycredentialbuilder?view=azure-java-stable)를 포함하여 Azure Active Directory에서 토큰을 가져오고, [SecretClientBuilder](https://docs.microsoft.com/java/api/com.azure.security.keyvault.secrets.secretclientbuilder?view=azure-java-stable)를 포함하여 Key Vault에서 비밀을 설정하거나 가져옵니다.
+3. 코드에서 [ManagedIdentityCredentialBuilder](https://docs.microsoft.com/java/api/com.azure.identity.managedidentitycredentialbuilder?view=azure-java-stable&preserve-view=true)를 포함하여 Azure Active Directory에서 토큰을 가져오고, [SecretClientBuilder](https://docs.microsoft.com/java/api/com.azure.security.keyvault.secrets.secretclientbuilder?view=azure-java-stable&preserve-view=true)를 포함하여 Key Vault에서 비밀을 설정하거나 가져옵니다.
 
     [MainController.java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/src/main/java/com/microsoft/azure/MainController.java#L28)에서 복제된 프로젝트 샘플의 예제를 가져옵니다.
 
@@ -231,3 +233,4 @@ Azure Key Vault 비밀 클라이언트 라이브러리를 사용하면 토큰, �
 * [시스템이 할당한 관리 ID를 Azure Spring Cloud 애플리케이션에 사용하도록 설정하는 방법](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity)
 * [Azure 리소스의 관리 ID에 대해 자세히 알아보기](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [GitHub Actions에서 Key Vault를 사용하여 Azure Spring Cloud 인증](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-github-actions-key-vault)
+

@@ -7,20 +7,23 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 587b26d821b9701df435b9ee0a1c5f9ba5602fc0
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e5b8dc325fa7eaceaa0274029049f546db5b6995
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050933"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888542"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>IntelliJ를 사용하여 Azure Spring Cloud 애플리케이션 배포
+
+**이 문서는 다음에 적용됩니다.** ✔️ Java
+
 Azure Spring Cloud용 IntelliJ 플러그 인은 IntelliJ IDEA의 애플리케이션 배포를 지원합니다.  
 
 이 예제를 실행하기 전에 [기본 빠른 시작](spring-cloud-quickstart.md)을 시도해 볼 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
-* [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)
+* [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable&preserve-view=true)
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 * [IntelliJ IDEA, Community/Ultimate Edition, 버전 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
 

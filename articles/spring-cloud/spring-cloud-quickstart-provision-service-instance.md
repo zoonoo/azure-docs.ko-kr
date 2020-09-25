@@ -5,23 +5,94 @@ author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 08/03/2020
+ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: c91237e3a14c60e477f58be0bf62f634b462960b
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 16d40c334d51a66df4a4d2d56e2fa2379dda3726
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951675"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905405"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>빠른 시작: Azure Spring Cloud 서비스 프로비저닝
 
+::: zone pivot="programming-language-csharp"
+이 빠른 시작에서는 Azure CLI를 사용하여 Azure Spring Cloud 서비스의 인스턴스를 프로비저닝합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1). Azure Spring Cloud 서비스는 .NET Core 3.1 이상 버전을 지원합니다.
+* [Azure CLI 버전 2.0.67 이상](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Git](https://git-scm.com/)
+
+## <a name="install-azure-cli-extension"></a>Azure CLI 확장 설치
+
+Azure CLI 버전이 2.0.67 이상인지 확인합니다.
+
+```azurecli
+az --version
+```
+
+다음 명령을 사용하여 Azure CLI용 Azure Spring Cloud 확장을 설치합니다.
+
+```azurecli
+az extension add --name spring-cloud
+```
+
+## <a name="log-in-to-azure"></a>Azure에 로그인
+
+1. Azure CLI에 로그인합니다.
+
+    ```azurecli
+    az login
+    ```
+
+1. 구독이 둘 이상 있는 경우 이 빠른 시작에 사용할 구독을 선택합니다.
+
+   ```azurecli
+   az account list -o table
+   ```
+
+   ```azurecli
+   az account set --subscription <Name or ID of a subscription from the last step>
+   ```
+
+## <a name="provision-an-instance-of-azure-spring-cloud"></a>Azure Spring Cloud의 인스턴스 프로비저닝
+
+1. Azure Spring Cloud 서비스를 포함할 [리소스 그룹](../azure-resource-manager/management/overview.md)을 만듭니다. 리소스 그룹 이름에는 영숫자, 밑줄, 괄호, 하이픈, 마침표(맨 끝 제외) 및 유니코드 문자가 포함될 수 있습니다.
+
+   ```azurecli
+   az group create --location eastus --name <resource group name>
+   ```
+
+1. Azure Spring Cloud 서비스의 인스턴스를 프로비저닝합니다. 서비스 인스턴스 이름은 4~32자로 고유해야 하며 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다. 서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
+
+    ```azurecli
+    az spring-cloud create -n <service instance name> -g <resource group name>
+    ```
+
+    이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+
+1. 후속 명령에서 이러한 값을 반복적으로 지정할 필요가 없도록 기본 리소스 그룹 이름과 서비스 인스턴스 이름을 설정합니다.
+
+   ```azurecli
+   az configure --defaults group=<resource group name>
+   ```
+
+   ```azurecli
+   az configure --defaults spring-cloud=<service instance name>
+   ```
+::: zone-end
+
+::: zone pivot="programming-language-java"
 Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스화할 수 있습니다.  두 방법 모두 다음 절차에 설명되어 있습니다.
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [JDK 8 설치](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+* [JDK 8 설치](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
 * [Azure 구독에 가입](https://azure.microsoft.com/free/)
-* (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)하고 `az extension add --name spring-cloud` 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다.
+* (선택 사항) [Azure CLI 버전 2.0.67 이상을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)하고 `az extension add --name spring-cloud` 명령을 사용하여 Azure Spring Cloud 확장을 설치합니다.
 * (선택 사항) [Azure Toolkit for IntelliJ를 설치](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/)하고 [로그인](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)합니다.
 
 ## <a name="provision-an-instance-of-azure-spring-cloud"></a>Azure Spring Cloud의 인스턴스 프로비저닝
@@ -59,7 +130,7 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
 
 다음 절차에서는 Azure CLI 확장을 사용하여 Azure Spring Cloud의 인스턴스를 프로비저닝합니다.
 
-1. Azure CLI에 로그인하고 활성 구독을 선택합니다. Azure Spring Cloud의 허용 목록에 추가된 활성 구독을 선택해야 합니다.
+1. Azure CLI에 로그인하고 활성 구독을 선택합니다.
 
     ```azurecli
     az login
@@ -85,9 +156,25 @@ Azure Portal 또는 Azure CLI를 사용하여 Azure Spring Cloud를 인스턴스
 
     서비스 인스턴스를 배포하는 데 약 5분이 걸립니다.
 ---
+::: zone-end
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 시리즈의 다음 빠른 시작을 계속하려는 경우 이 단계를 건너뜁니다.
+
+이 빠른 시작에서는 구독에 남아있는 경우 요금이 계속 청구되는 Azure 리소스를 만들었습니다. 다음 빠른 시작을 계속 진행할 계획이 없고 나중에 이러한 리소스가 필요하지 않을 것으로 예상되는 경우 포털을 사용하거나 Cloud Shell에서 다음 명령을 실행하여 리소스 그룹을 삭제합니다.
+
+```azurecli
+az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
+```
+
+이 빠른 시작에서는 기본 리소스 그룹 이름도 설정합니다. 다음 빠른 시작을 계속하지 않으려면 다음 CLI 명령을 실행하여 기본값을 지웁니다.
+
+```azurecli
+az configure --defaults group=
+```
 
 ## <a name="next-steps"></a>다음 단계
+
 > [!div class="nextstepaction"]
 > [구성 서버 설정](spring-cloud-quickstart-setup-config-server.md)
-
-
