@@ -2,18 +2,18 @@
 title: Azure Managed Disks의 서버 쪽 암호화 - Azure CLI
 description: Azure Storage는 미사용 데이터를 암호화한 후 저장소 클러스터에 보관하여 데이터를 보호합니다. 고객 관리 키를 사용 하 여 사용자 고유의 키로 암호화를 관리 하거나, Microsoft 관리 키를 사용 하 여 관리 디스크를 암호화할 수 있습니다.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e541fd90f0cb9c8f0e2763f16541824c5a7b3000
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d2c1103ab58379781aa13bd9e90e01c474c3b6e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816901"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279759"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Azure 디스크 저장소의 서버 쪽 암호화
 
@@ -44,6 +44,10 @@ Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중
 - 디스크에 대해 이 기능을 사용하는 경우에는 사용하지 않도록 설정할 수 없습니다.
     이 문제를 해결해야 하는 경우 고객 관리형 키를 사용하지 않는 완전히 다른 관리 디스크로 [모든 데이터를 복사](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk)해야 합니다.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
+
+#### <a name="supported-regions"></a>지원되는 지역
+
+관리 디스크를 사용할 수 있는 모든 지역에서 고객 관리 키를 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 고객 관리형 키는 Azure AD(Azure Active Directory)의 기능 중 하나인 Azure 리소스에 대한 관리 ID를 사용합니다. 고객 관리형 키를 구성하는 경우 관리 ID가 내부적으로 리소스에 자동으로 할당됩니다. 이후에 구독, 리소스 그룹 또는 관리 디스크를 Azure AD 디렉터리 간에 이동 하는 경우 관리 디스크와 연결 된 관리 되는 id가 새 테 넌 트로 전송 되지 않으므로 고객 관리 키가 더 이상 작동 하지 않을 수 있습니다. 자세한 정보는 [Azure AD 디렉터리 간에 구독 전송](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)을 참조하세요.

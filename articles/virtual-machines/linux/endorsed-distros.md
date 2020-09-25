@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 08/02/2020
 ms.author: guybo
-ms.openlocfilehash: 0b3a598213545bbad833e9b8036f65b999df1c76
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f945c58b256c2a024a62b15a1bca1841483e1849
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607009"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279436"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Azure에서 Linux 배포판 보증
 
@@ -37,7 +37,7 @@ Azure Linux 에이전트는 이미 Azure Marketplace 이미지에 미리 설치 
 | Rogue Wave 소프트웨어로 CentOS |CentOS .x, 4.x, 4.x |CentOS 6.3: [LIS 다운로드](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4+: 커널에 있음 |패키지: "WALinuxAgent"의 [리포지토리](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)<p> CoreOS는 이제 2020 년 5 월 26 일에 [수명이 종료](https://coreos.com/os/eol/) 됩니다. |더 이상 사용할 수 없음 | | |
 | Debian by Credativ |8.x, 9.x |커널에 있음 |패키지: "waagent"에서 리포지토리의 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
-|Kinvolk에의 한 Flatcar Container Linux| Stable, Edge| | |
+|Kinvolk에의 한 Flatcar Container Linux| 안정적인 베타| 커널에 있음 | wa-linux-에이전트가 이미/usr/share/oem/bin/waagent에 설치 되어 있습니다. |
 | Oracle에서 Oracle Linux |6.x, 7.x, 8.x |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | [Red Hat에서 Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |커널에 있음 |패키지: "WALinuxAgent"의 리포지토리에 있음 <br/>소스 코드: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise by SUSE |SLES/SLES for SAP 11.x, 4.x, 4.x <br/> [SUSE 공용 클라우드 이미지 수명 주기](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |커널에 있음 |패키지:<p> 11의 경우 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음<br>12의 경우 "python-azure-agent" 아래의 "퍼블릭 클라우드" 모듈에 포함됨<br/>소스 코드: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e9faea3462ae953e474b5053b651808b03f07c23
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c1c882694f6ae3d8a3b217ed5e7e3d6050189135
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855464"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257193"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>웹 Api를 호출 하는 웹 API: 코드 구성
 
@@ -27,9 +27,18 @@ Web API를 등록 한 후에는 응용 프로그램에 대 한 코드를 구성�
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
+## <a name="microsoftidentityweb"></a>Microsoft. Identity. 웹
+
+다운스트림 웹 Api를 호출 하는 ASP.NET Core 보호 API를 개발 하는 경우에는 [microsoft에서 Id 웹](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet 패키지를 사용 하는 것이 좋습니다. [보호 된 웹 API: 코드 구성을 참조 하세요. ](scenario-protected-web-api-app-configuration.md#microsoftidentityweb)WEB API의 컨텍스트에서 해당 라이브러리를 빠르게 표시 하기 위한 Microsoft. Identity.
+
 ## <a name="client-secrets-or-client-certificates"></a>클라이언트 암호 또는 클라이언트 인증서
 
-이제 web API가 다운스트림 웹 API를 호출 하는 경우 파일의 *appsettings.js* 에 클라이언트 암호 또는 클라이언트 인증서를 제공 해야 합니다.
+이제 web API가 다운스트림 웹 API를 호출 하는 경우 파일의 *appsettings.js* 에 클라이언트 암호 또는 클라이언트 인증서를 제공 해야 합니다. 다음을 지정 하는 섹션을 추가할 수도 있습니다.
+
+- 다운스트림 웹 API의 URL
+- API를 호출 하는 데 필요한 범위
+
+다음 예에서는 `GraphBeta` 섹션에서 이러한 설정을 지정 합니다.
 
 ```JSON
 {
@@ -37,12 +46,16 @@ Web API를 등록 한 후에는 응용 프로그램에 대 한 코드를 구성�
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
     "TenantId": "common"
-  
+
    // To call an API
    "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
    "ClientCertificates": [
   ]
- }
+ },
+ "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+    }
 }
 ```
 
@@ -54,7 +67,7 @@ Web API를 등록 한 후에는 응용 프로그램에 대 한 코드를 구성�
     "Instance": "https://login.microsoftonline.com/",
     "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
     "TenantId": "common"
-  
+
    // To call an API
    "ClientCertificates": [
       {
@@ -62,8 +75,12 @@ Web API를 등록 한 후에는 응용 프로그램에 대 한 코드를 구성�
         "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
         "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
       }
-  ]
- }
+   ]
+  },
+  "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+  }
 }
 ```
 
@@ -71,28 +88,88 @@ Microsoft. Identity는 구성 또는 코드를 통해 인증서를 설명 하는
 
 ## <a name="startupcs"></a>Startup.cs
 
-Web API가 다운스트림 웹 Api를 호출 하도록 하려면 Startup.cs를 사용 하 여 뒤에 줄을 추가한 다음, 예를 들어, `.EnableTokenAcquisitionToCallDownstreamApi()` `.AddMicrosoftIdentityWebApi(Configuration)` `.AddInMemoryTokenCaches()` *Startup.cs*에서 토큰 캐시 구현을 선택 합니다.
+Web API는 다운스트림 API에 대 한 토큰을 획득 해야 합니다. 뒤에 줄을 추가 하 여 지정 `.EnableTokenAcquisitionToCallDownstreamApi()` `.AddMicrosoftIdentityWebApi(Configuration)` 합니다. 이 줄은 `ITokenAcquisition` 컨트롤러/페이지 동작에서 사용할 수 있는 서비스를 노출 합니다. 그러나 다음 두 가지 글머리 기호에서 볼 수 있듯이 훨씬 더 간단 하 게 수행할 수 있습니다. `.AddInMemoryTokenCaches()` *Startup.cs*에서와 같이 토큰 캐시 구현도 선택 해야 합니다.
 
 ```csharp
 using Microsoft.Identity.Web;
 
 public class Startup
 {
-  ...
+  // ...
   public void ConfigureServices(IServiceCollection services)
   {
-   // ...
-    services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
-                .EnableTokenAcquisitionToCallDownstreamApi()
-                .AddInMemoryTokenCaches();
   // ...
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+          .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+            .EnableTokenAcquisitionToCallDownstreamApi()
+            .AddInMemoryTokenCaches();
+   // ...
   }
   // ...
 }
 ```
 
-웹 앱과 마찬가지로 다양 한 토큰 캐시 구현을 선택할 수 있습니다. 자세한 내용은 GitHub의 [Microsoft id 웹 wiki-토큰 캐시 serialization](https://aka.ms/ms-id-web/token-cache-serialization) 을 참조 하세요.
+토큰을 직접 획득 하지 않으려는 경우에는 다른 API에서 다운스트림 웹 API를 호출 하는 두 가지 메커니즘 *을 제공 합니다.* 선택 하는 옵션은 Microsoft Graph 또는 다른 API를 호출 하는지 여부에 따라 달라 집니다.
+
+### <a name="option-1-call-microsoft-graph"></a>옵션 1: Microsoft Graph 호출
+
+Microsoft Graph를 호출 하려는 경우에는 `GraphServiceClient` API 작업에서 (MICROSOFT GRAPH SDK에 의해 노출 됨)를 직접 사용할 수 있습니다. Microsoft Graph를 노출 하려면:
+
+1. [Microsoft.azure.webjobs.extensions.microsoftgraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet 패키지를 프로젝트에 추가 합니다.
+1. `.AddMicrosoftGraph()` `.EnableTokenAcquisitionToCallDownstreamApi()` *Startup.cs* 파일에서 뒤에를 추가 합니다. `.AddMicrosoftGraph()` 에는 여러 가지 재정의가 있습니다. 구성 섹션을 매개 변수로 사용 하는 재정의를 사용 하면 코드가 다음과 같이 됩니다.
+
+```csharp
+using Microsoft.Identity.Web;
+
+public class Startup
+{
+  // ...
+  public void ConfigureServices(IServiceCollection services)
+  {
+  // ...
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+          .AddMicrosoftIdentityWebApi(Configuration, Configuration.GetSection("AzureAd"))
+            .EnableTokenAcquisitionToCallDownstreamApi()
+               .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
+            .AddInMemoryTokenCaches();
+   // ...
+  }
+  // ...
+}
+```
+
+### <a name="option-2-call-a-downstream-web-api-other-than-microsoft-graph"></a>옵션 2: Microsoft Graph 이외의 다운스트림 웹 API 호출
+
+Microsoft Graph 이외의 다운스트림 API를 호출 하려면 토큰을 *Microsoft.Identity.Web* `.AddDownstreamWebApi()` 요청 하 고 다운스트림 웹 API를 호출 하는을 제공 합니다.
+
+```csharp
+using Microsoft.Identity.Web;
+
+public class Startup
+{
+  // ...
+  public void ConfigureServices(IServiceCollection services)
+  {
+  // ...
+  services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+          .AddMicrosoftIdentityWebApi(Configuration, "AzureAd")
+            .EnableTokenAcquisitionToCallDownstreamApi()
+               .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+            .AddInMemoryTokenCaches();
+   // ...
+  }
+  // ...
+}
+```
+
+웹 앱과 마찬가지로 다양 한 토큰 캐시 구현을 선택할 수 있습니다. 자세한 내용은 GitHub의 [Microsoft id 웹 토큰 캐시 serialization](https://aka.ms/ms-id-web/token-cache-serialization) 을 참조 하세요.
+
+다음 이미지는 *Startup.cs* 파일에 대 한 다양 한 *Microsoft id* 및 해당 영향을 보여 줍니다.
+
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.png" alt-text="Web api를 만들 때 다운스트림 api 및 토큰 캐시 구현을 호출 하도록 선택할 수 있습니다.":::
+
+> [!NOTE]
+> 여기에서 코드 예제를 완전히 이해하려면 [ASP.NET Core 기본](/aspnet/core/fundamentals), 특히 [종속성 주입](/aspnet/core/fundamentals/dependency-injection) 및 [옵션](/aspnet/core/fundamentals/configuration/options)에 대해 잘 알고 있어야 합니다.
 
 # <a name="java"></a>[Java](#tab/java)
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Table API .NET SDK 및 리소스
-description: 릴리스 날짜, 사용 중지 날짜 및 각 버전의 변경 내용을 포함하여 Azure Cosmos DB Table API에 대해 자세히 알아봅니다.
+description: 릴리스 날짜, 사용 중지 날짜 및 각 버전 간의 변경 내용을 포함 하 여 .NET에 대 한 Azure Cosmos DB Table API에 대해 알아봅니다.
 author: sakash279
 ms.author: akshanka
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 8c594ba01ea6fe9fb1c3cee2ed415496132d1abc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bc984e330085430db10298380dfdc9767f1aa770
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018436"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261943"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: 다운로드 및 릴리스 정보
 

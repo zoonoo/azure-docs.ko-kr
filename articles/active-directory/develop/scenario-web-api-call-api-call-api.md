@@ -11,37 +11,127 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b756d7df03bd3c06b703617dbf84a194d716f1e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b1582af2bbd97579852ead0d4462f80f3a50fe6a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026376"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257149"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>웹 api를 호출 하는 web API: API 호출
 
-토큰이 있으면 보호 된 웹 API를 호출할 수 있습니다. 웹 API의 컨트롤러에서이 작업을 수행 합니다.
+토큰이 있으면 보호 된 웹 API를 호출할 수 있습니다. 일반적으로 웹 API의 컨트롤러나 페이지에서 다운스트림 Api를 호출 합니다.
 
 ## <a name="controller-code"></a>컨트롤러 코드
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-다음 코드는 web Api를 호출 하는 web API에 표시 되는 예제 코드를 계속 합니다 [. 앱에 대 한 토큰을 가져옵니다](scenario-web-api-call-api-acquire-token.md). 코드는 API 컨트롤러의 작업에서 호출 됩니다. *Todolist*이라는 다운스트림 API를 호출 합니다.
+*Microsoft. Identity. Web*을 사용 하면 세 가지 사용 시나리오가 있습니다.
 
-토큰을 가져온 후에는이 토큰을 전달자 토큰으로 사용 하 여 다운스트림 API를 호출 합니다.
+- [Microsoft Graph 호출](#call-microsoft-graph)
+- [Microsoft Graph 이외의 웹 API 호출](#call-web-api-other-than-microsoft-graph)
+- [수동으로 토큰 획득](#acquire-a-token-manually)
+
+#### <a name="call-microsoft-graph"></a>Microsoft Graph 호출
+
+이 시나리오에서는 `.AddMicrosoftGraph()` [코드 구성](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph)에 지정 된 대로 *Startup.cs* 에를 추가 했으며, `GraphServiceClient` 작업에 사용할 컨트롤러 또는 페이지 생성자에를 직접 삽입할 수 있습니다. 다음 예제 Razor 페이지는 로그인 한 사용자의 사진을 표시 합니다.
+
+```CSharp
+ [Authorize]
+ [AuthorizeForScopes(Scopes = new[] { "user.read" })]
+ public class IndexModel : PageModel
+ {
+     private readonly GraphServiceClient _graphServiceClient;
+
+     public IndexModel(GraphServiceClient graphServiceClient)
+     {
+         _graphServiceClient = graphServiceClient;
+     }
+
+     public async Task OnGet()
+     {
+         var user = await _graphServiceClient.Me.Request().GetAsync();
+         try
+         {
+             using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+             {
+                 byte[] photoByte = ((MemoryStream)photoStream).ToArray();
+                 ViewData["photo"] = Convert.ToBase64String(photoByte);
+             }
+             ViewData["name"] = user.DisplayName;
+         }
+         catch (Exception)
+         {
+             ViewData["photo"] = null;
+         }
+     }
+ }
+```
+
+#### <a name="call-web-api-other-than-microsoft-graph"></a>Microsoft Graph 이외의 웹 API 호출
+
+이 시나리오에서는 `.AddDownstreamWebApi()` [코드 구성](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)에 지정 된 대로 *Startup.cs* 에를 추가 했으며, `IDownstreamWebApi` 컨트롤러 또는 페이지 생성자에서 서비스를 직접 삽입 하 고 작업에 사용할 수 있습니다.
+
+```CSharp
+ [Authorize]
+ [AuthorizeForScopes(ScopeKeySection = "TodoList:Scopes")]
+ public class TodoListController : Controller
+ {
+     private IDownstreamWebApi _downstreamWebApi;
+     private const string ServiceName = "TodoList";
+
+     public TodoListController(IDownstreamWebApi downstreamWebApi)
+     {
+         _downstreamWebApi = downstreamWebApi;
+     }
+
+     public async Task<ActionResult> Details(int id)
+     {
+         var value = await _downstreamWebApi.CallWebApiForUserAsync(
+             ServiceName,
+             options =>
+             {
+                 options.RelativePath = $"me";
+             });
+         return View(value);
+     }
+```
+
+`CallWebApiForUserAsync`또한 메서드는 개체를 직접 받을 수 있도록 강력한 형식의 제네릭 재정의를 포함 합니다. 예를 들어, 다음 메서드는 `Todo` 웹 API에서 반환 된 JSON의 강력한 형식의 표현인 인스턴스를 수신 했습니다.
+
+```CSharp
+ // GET: TodoList/Details/5
+ public async Task<ActionResult> Details(int id)
+ {
+     var value = await _downstreamWebApi.CallWebApiForUserAsync<object, Todo>(
+         ServiceName,
+         null,
+         options =>
+         {
+             options.HttpMethod = HttpMethod.Get;
+             options.RelativePath = $"api/todolist/{id}";
+         });
+     return View(value);
+ }
+```
+
+#### <a name="acquire-a-token-manually"></a>수동으로 토큰 획득
+
+서비스를 사용 하 여 토큰을 수동으로 획득 하기로 결정 `ITokenAcquisition` 한 경우 이제 토큰을 사용 해야 합니다. 이 경우 다음 코드는 웹 api를 호출 하는 web API에 표시 된 예제 코드를 계속 합니다 [. 앱에 대 한 토큰을 가져옵니다](scenario-web-api-call-api-acquire-token.md). 코드는 API 컨트롤러의 작업에서 호출 됩니다. *Todolist*이라는 다운스트림 API를 호출 합니다.
+
+ 토큰을 가져온 후에는이 토큰을 전달자 토큰으로 사용 하 여 다운스트림 API를 호출 합니다.
 
 ```csharp
-private async Task CallTodoListService(string accessToken)
-{
+ private async Task CallTodoListService(string accessToken)
+ {
+  // After the token has been returned by Microsoft.Identity.Web, add it to the HTTP authorization header before making the call to access the todolist service.
+ _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
-// After the token has been returned by Microsoft Identity Web, add it to the HTTP authorization header before making the call to access the To Do list service.
-_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-// Call the To Do list service.
-HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + "/api/todolist");
-...
-}
-```
+ // Call the todolist service.
+ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + "/api/todolist");
+ // ...
+ }
+ ```
 
 # <a name="java"></a>[Java](#tab/java)
 

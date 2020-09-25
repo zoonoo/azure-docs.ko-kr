@@ -1,7 +1,7 @@
 ---
 title: 범위 및 앱 역할 확인 보호된 웹 API | Azure
 titleSuffix: Microsoft identity platform
-description: 보호된 웹 API를 빌드하고 애플리케이션의 코드를 구성하는 방법에 대해 알아봅니다.
+description: 올바른 범위를 가진 사용자를 대신 하 여 응용 프로그램에서 API를 호출 하 고 적절 한 응용 프로그램 역할이 있는 디먼 앱을 호출 하는지 확인 합니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c3cf8bfd2810e9c26a6f65c50c1a22baeec892af
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 1e5c8b788f1abbfbd46c4dfe6c7bb9d87adcee86
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257269"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>보호된 웹 API: 범위 및 앱 역할 확인
 
