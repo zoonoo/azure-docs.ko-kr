@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 27e8eaa7b8171d6ccc43f6abc8a4b3d1017d30cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311600"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>V1에서 v2로 Azure 애플리케이션 게이트웨이 및 웹 응용 프로그램 방화벽 마이그레이션
 
@@ -36,6 +36,8 @@ ms.locfileid: "84804390"
 
 * 새 v2 게이트웨이에는 새 공용 및 개인 IP 주소가 있습니다. 기존 v1 게이트웨이와 연결 된 IP 주소를 원활 하 게 v2로 이동할 수 없습니다. 그러나 새 v2 게이트웨이에 기존 (할당 되지 않은) 공용 또는 개인 IP 주소를 할당할 수 있습니다.
 * 가상 네트워크 내에서 v1 게이트웨이가 있는 다른 서브넷에 대 한 IP 주소 공간을 제공 해야 합니다. 이 스크립트는 이미 v1 게이트웨이가 있는 기존 서브넷에서 v2 게이트웨이를 만들 수 없습니다. 그러나 기존 서브넷에 이미 v2 게이트웨이가 있는 경우에도 계속 작동할 수 있으며, 충분 한 IP 주소 공간이 있을 수 있습니다.
+* V2 게이트웨이 서브넷에 연결 된 네트워크 보안 그룹 또는 사용자 정의 경로가 있는 경우 성공적인 마이그레이션을 위해 [Nsg 요구 사항](../application-gateway/configuration-infrastructure.md#network-security-groups) 및 [udr 요구 사항을](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) 준수 하는지 확인 합니다.
+* [가상 네트워크 서비스 끝점 정책은](../virtual-network/virtual-network-service-endpoint-policies-overview.md) 현재 Application Gateway 서브넷에서 지원 되지 않습니다.
 * TLS/SSL 구성을 마이그레이션하려면 v1 게이트웨이에서 사용 되는 모든 TLS/SSL 인증서를 지정 해야 합니다.
 * V1 게이트웨이에 대해 FIPS 모드를 사용 하도록 설정한 경우 새 v2 게이트웨이로 마이그레이션되지 않습니다. V 2에서는 FIPS 모드가 지원 되지 않습니다.
 * v2는 i p v 6을 지원 하지 않으므로 IPv6 사용 v1 게이트웨이는 마이그레이션되지 않습니다. 스크립트를 실행 하는 경우 완료 되지 않을 수 있습니다.

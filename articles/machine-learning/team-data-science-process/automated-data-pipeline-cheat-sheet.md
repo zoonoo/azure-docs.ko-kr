@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: d09f13a65a72c6c856a7fcd3d943ec116f3da43f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f60b62faa36352ab1221b23332fca695f32a3d74
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76721866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250643"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Azure Machine Learning 예측에 대한 자동화된 데이터 파이프라인용 참고 자료
 **Microsoft Azure Machine Learning 자동화 데이터 파이프라인 참고 자료** 를 사용하면 예측 분석 모델별로 점수를 매길 수 있는 Machine Learning 웹 서비스로 데이터를 가져오는 데 사용할 수 있는 기술을 탐색하는 데 도움이 됩니다.
@@ -35,7 +35,6 @@ Download the cheat sheet here: **[Microsoft Azure Machine Learning automated dat
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Machine Learning Studio에 대한 추가 도움말
-* Microsoft Azure Machine Learning에 대 한 개요는 [Microsoft Azure에서 Machine Learning 소개](../studio/what-is-machine-learning.md)를 참조 하세요.
-* 점수 매기기 웹 서비스를 배포하는 방법에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](../studio/deploy-a-machine-learning-web-service.md)를 참조하세요.
-* 점수 매기기 웹 서비스를 사용하는 방법에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스를 사용하는 방법](../studio/consume-web-services.md)을 참조하세요.
-
+* Microsoft Azure Machine Learning에 대 한 개요는 [Microsoft Azure에서 Machine Learning 소개](../classic/index.yml)를 참조 하세요.
+* 점수 매기기 웹 서비스를 배포하는 방법에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](../classic/deploy-a-machine-learning-web-service.md)를 참조하세요.
+* 점수 매기기 웹 서비스를 사용하는 방법에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스를 사용하는 방법](../classic/consume-web-services.md)을 참조하세요.

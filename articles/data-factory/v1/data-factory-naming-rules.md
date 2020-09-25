@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory 엔터티 이름 지정 규칙-버전 1
-description: 데이터 팩터리 엔터티에 대한 이름 지정 규칙을 설명합니다.
+description: Data Factory v1 엔터티에 대 한 명명 규칙을 설명 합니다.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2b6dc5b89b8c5d691b19e9e3368d805eb59b1db1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a329a9c25b9ea85886938a170eb4194ca84643e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282598"
 ---
 # <a name="rules-for-naming-azure-data-factory-entities"></a>Azure Data Factory 엔터티 명명 규칙
 > [!NOTE]

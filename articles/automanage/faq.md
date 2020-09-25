@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: ed97f7861f5dd959fd41ac22b4e497f492dbc3a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fa24c0db398c4c799d218ff5e8ec8e3d3e321742
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940169"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311549"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Vm에 대 한 Azure Automanage 질문과 대답
 
@@ -36,7 +36,9 @@ Azure Automanage를 사용 하도록 설정 하기 위한 필수 구성 요소�
 
 **Automanage를 사용 하도록 설정 하는 데 필요한 RBAC 권한은 무엇입니까?**
 
-사용자에 게 소유자 역할이 있어야 합니다. 또는 사용자가 자동 관리를 적용 하기 위해 사용자 액세스 관리자 역할과 함께 참가자 역할을 수행할 수 있습니다.
+기존 Automanage 계정을 사용 하 여 VM에서 Automanage를 사용 하도록 설정 하는 경우 VM이 있는 리소스 그룹에 대 한 참가자 역할이 필요 합니다. 
+
+를 사용 하도록 설정할 때 새 Automanage 계정을 사용 하는 경우 사용자에 게 소유자 역할이 있거나 구독에 대 한 참가자 + 사용자 액세스 관리자 역할이 있어야 합니다.
 
 
 **지원되는 지역은 어떻게 되나요?**
@@ -82,6 +84,11 @@ Azure Automanage는 공개 미리 보기에서 추가 비용 없이 사용할 �
 **Automanage 계정 이란?**
 
 Automanage 계정은 자동화 된 작업이 수행 되는 보안 컨텍스트 또는 id를 제공 하는 MSI (관리 서비스 ID)입니다.
+
+
+**Automanage를 사용 하도록 설정 하면 선택한 VM 외에도 추가 Vm에 영향을 미칩니까?**
+
+VM이 기존 Log Analytics 작업 영역에 연결 된 경우 해당 작업 영역을 다시 사용 하 여 변경 내용 추적, 인벤토리 및 업데이트 관리 솔루션을 적용 합니다. 해당 작업 영역에 연결 된 모든 Vm은 해당 솔루션을 사용할 수 있습니다. 
 
 
 **내 VM의 구성 프로필을 변경할 수 있나요?**

@@ -9,14 +9,17 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a0c5c601b0d3bc0d862ea4984ee2c6d4b76d13ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ae3e9b4bb69bf0c85054b5d6144633923cac947
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502463"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282071"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>OPC 쌍 모듈 및 종속성을 처음부터 배포
+
+> [!IMPORTANT]
+> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
 
 OPC 쌍 모듈은 IoT Edge에서 실행 되며 OPC 장치 쌍 및 레지스트리 서비스에 대 한 여러 Edge 서비스를 제공 합니다. 
 
@@ -110,7 +113,7 @@ OPC 쌍 모듈은 IoT Edge에서 실행 되며 OPC 장치 쌍 및 레지스트�
 
 Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 방법은 Azure Portal를 통하는 것입니다.  
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 1. OPC 쌍 [종속성](howto-opc-twin-deploy-dependencies.md) 을 배포 하 고 결과 파일을 가져옵니다 `.env` . `hub name` `PCS_IOTHUBREACT_HUB_NAME` 결과 파일에 배포 된 변수를 확인 `.env` 합니다.
 
@@ -177,7 +180,7 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
 
 ## <a name="deploying-using-azure-cli"></a>Azure CLI를 사용 하 여 배포
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 1. [여기](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에서 [Azure 명령줄 인터페이스 (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 의 최신 버전을 설치 합니다.
 

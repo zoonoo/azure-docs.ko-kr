@@ -5,19 +5,19 @@ ms.service: data-lake-analytics
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 32684ea72df63de5b82941b3ef44e9d579d09eb4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 717ad8bfaa9ddfcfa5775654408601ca13d3a636
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131891"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282615"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics용 작업 브라우저 및 작업 보기 사용
 Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 보관합니다. 이 문서에서는 Azure Data Lake Tools for Visual Studio에서 작업 브라우저 및 작업 보기를 사용하여 기존 작업 정보를 찾는 방법에 대해 배웁니다. 
 
 기본적으로 Data Lake Analytics 서비스는 작업을 30일간 보존합니다. 만료 기간은 Azure Portal에서 사용자 지정 만료 정책을 구성하여 구성할 수 있습니다. 만료 후에는 작업 정보에 액세스할 수 없습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 [Data Lake Tools for Visual Studio 필수 구성 요소](data-lake-analytics-data-lake-tools-get-started.md#prerequisites)를 참조하세요.
 
 ## <a name="open-the-job-browser"></a>작업 브라우저 열기
@@ -38,7 +38,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
     
       작업 상태에는 작업 단계가 요약 표시됩니다.
     
-      ![Azure Data Lake Analytics 작업 단계 상태](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
+      ![Azure Data Lake Analytics 작업 단계를 보여 주는 스크린샷](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * 준비 중: 스크립트를 클라우드로 업로드하고 컴파일 서비스를 사용하여 스크립트를 컴파일 및 최적화합니다.
     * 큐에 대기: 작업이 충분한 리소스를 기다리거나 계정당 최대 동시 작업 수 한도를 초과한 경우 큐에 대기합니다. 우선 순위 설정에 따라 큐 작업의 순서가 결정되며 숫자가 낮을수록 우선 순위가 높습니다.
@@ -50,7 +50,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
     
       기본 작업 정보는 Job Summary 창 아래쪽에 표시됩니다.
     
-      ![Azure Data Lake Analytics 작업 단계 상태](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
+      ![텍스트 상자에 설명이 포함 된 작업 요약을 보여 주는 스크린샷](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
     * 작업 결과: 성공 또는 실패입니다. 작업은 모든 단계에서 실패할 수 있습니다.
     * 총 기간: 제출 시간과 종료 시간 간 벽시계 시간(기간)입니다.
@@ -60,10 +60,10 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
     * 계정: 작업을 실행하는 데 사용된 Data Lake Analytics 계정입니다.
     * 작성자: 작업을 제출한 사용자이며, 실제 사람의 계정 또는 시스템 계정일 수 있습니다.
     * 우선 순위: 작업의 우선 순위입니다. 번호가 낮을수록 우선 순위가 높습니다. 큐에 있는 작업의 순서에만 영향을 미칩니다. 높은 우선 순위를 설정할 경우 실행 중인 작업을 선취하는 것은 아닙니다.
-    * 병렬 처리: 요청된 동시 ADLAU(Azure Data Lake Analytics Unit)의 최대 수(즉, 꼭짓점)입니다. 현재 꼭짓점 한 개는 한 개의 VM 및 두 개의 가상 코어와 6GB RAM과 동일하며, 나중에 Data Lake Analytics 업데이트에서 업그레이드할 수 있습니다.
+    * 병렬 처리: 요청 된 최대 Adlau (동시 Azure Data Lake Analytics 단위) 수 (꼭지점이 라고도 함)입니다. 현재 꼭짓점 한 개는 한 개의 VM 및 두 개의 가상 코어와 6GB RAM과 동일하며, 나중에 Data Lake Analytics 업데이트에서 업그레이드할 수 있습니다.
     * 남은 바이트: 작업이 완료될 때까지 처리해야 하는 바이트입니다.
     * 읽은/쓴 바이트: 작업이 실행되기 시작한 이후 읽거나 쓴 바이트 수입니다.
-    * 전체 꼭짓점 수: 작업(Job)은 여러 작업(Work)으로 나누어지며, 각 작업을 꼭짓점이라고 합니다. 이 값은 작업(Job)이 몇 개의 작업(Work)으로 구성되었는가를 나타냅니다. 꼭짓점은 기본 처리 단위, 즉, ADLAU(Azure Data Lake Analytics Unit)와 같으며 꼭짓점은 병렬로 실행할 수 있습니다. 
+    * 전체 꼭짓점 수: 작업(Job)은 여러 작업(Work)으로 나누어지며, 각 작업을 꼭짓점이라고 합니다. 이 값은 작업(Job)이 몇 개의 작업(Work)으로 구성되었는가를 나타냅니다. 꼭 짓 점은 ADLAU (Azure Data Lake Analytics Unit) 라고도 하는 기본 프로세스 단위로 간주할 수 있으며, 꼭 짓 점은 병렬 처리에서 실행할 수 있습니다. 
     * 완료됨/실행 중/실패함: 완료/실행/실패한 꼭짓점의 수. 꼭짓점은 사용자 코드 및 시스템 오류로 실패할 수 있지만 시스템은 실패한 꼭짓점을 자동으로 몇 번 더 재시도합니다. 재시도 후에도 꼭짓점이 계속 실패할 경우 전체 작업이 실패합니다.
 * 작업 그래프
   
@@ -71,7 +71,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
   
     ![Azure Data Lake Analytics 작업 단계 상태](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    작업(Job)은 여러 작업(Work)으로 세분화됩니다. 각 작업(Work)을 꼭짓점이라고 합니다. 꼭짓점은 슈퍼 꼭짓점(즉, 단계)으로 그룹화되며 작업 그래프로 시각화됩니다. 작업 그래프의 녹색 단계 카드는 단계를 나타냅니다.
+    작업(Job)은 여러 작업(Work)으로 세분화됩니다. 각 작업(Work)을 꼭짓점이라고 합니다. 꼭 짓 점은 단계 라고도 하는 슈퍼 꼭 짓 점으로 그룹화 되 고 작업 그래프로 시각화 됩니다. 작업 그래프의 녹색 단계 카드는 단계를 나타냅니다.
   
     한 단계의 모든 꼭짓점은 동일 데이터 중 다른 부분에서 동일한 종류의 작업을 수행합니다. 예를 들어 한 TB 데이터에 파일이 있고 여기에서 읽은 꼭짓점이 수백 개 있을 경우 각 꼭짓점은 청크를 읽습니다. 이러한 꼭짓점은 동일한 단계로 그룹화되며 동일한 입력 파일 중 다른 부분에 대해 동일한 작업을 수행합니다.
   

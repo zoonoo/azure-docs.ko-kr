@@ -1,17 +1,17 @@
 ---
 title: Node.js 앱 구성
 description: Azure App Service에서 네이티브 Windows 인스턴스 또는 미리 빌드된 Linux 컨테이너의 Node.js 앱을 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e6daf176504427c96f8dce0a4e9a6b6d5e999a0a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080116"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311838"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Azure App Service에 대 한 Node.js 앱 구성
 
@@ -98,7 +98,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 1. `POST_BUILD_SCRIPT_PATH`에 지정된 경우 사용자 지정 스크립트를 실행합니다.
 
 > [!NOTE]
-> [Npm docs](https://docs.npmjs.com/misc/scripts)에 설명 된 것 처럼, `prebuild` 및 스크립트는 `postbuild` `build` 각각 지정 된 경우 및 이후에 실행 됩니다. `preinstall`및 `postinstall` 는 각각 전후에 실행 `install` 됩니다.
+> [Npm docs](https://docs.npmjs.com/misc/scripts)에 설명 된 것 처럼, `prebuild` 및 스크립트는 `postbuild` `build` 각각 지정 된 경우 및 이후에 실행 됩니다. `preinstall` 및 `postinstall` 는 각각 전후에 실행 `install` 됩니다.
 
 `PRE_BUILD_COMMAND` 및 `POST_BUILD_COMMAND`는 기본적으로 비어 있는 환경 변수입니다. 빌드 전 명령을 실행하려면 `PRE_BUILD_COMMAND`를 정의합니다. 빌드 후 명령을 실행하려면 `POST_BUILD_COMMAND`를 정의합니다.
 
@@ -131,7 +131,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Npm start 실행
 
-를 사용 하 여 앱을 시작 하려면 `npm start` `start` 스크립트가 파일 *에package.js* 있는지 확인 합니다. 예를 들면 다음과 같습니다.
+를 사용 하 여 앱을 시작 하려면 `npm start` `start` 스크립트가 파일 * 에package.js* 있는지 확인 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -179,7 +179,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 PM2를 사용 하 여 [실행](#run-with-pm2)하도록 구성 하는 경우 * .config.js, * .yml 또는 *.yaml*을 사용 하 여 실행 하는 경우를 제외 하 고는 [Visual Studio Code](https://code.visualstudio.com/) 에서 원격으로 Node.js 앱을 디버그할 수 있습니다.
 
-대부분의 경우에는 앱에 대 한 추가 구성이 필요 하지 않습니다. 앱이 파일 (기본값 또는 사용자 지정) *에서process.js* 를 사용 하 여 실행 되는 경우 `script` JSON 루트에 속성이 있어야 합니다. 예를 들면 다음과 같습니다.
+대부분의 경우에는 앱에 대 한 추가 구성이 필요 하지 않습니다. 앱이 파일 (기본값 또는 사용자 지정) * 에서process.js* 를 사용 하 여 실행 되는 경우 `script` JSON 루트에 속성이 있어야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -209,7 +209,7 @@ process.env.NODE_ENV
 
 기본적으로 빌드 자동화 `npm install --production` 는 빌드 자동화를 사용 하 여 Git 또는 Zip 배포를 통해 배포 된 Node.js 앱을 인식할 때 실행 App Service. 앱이 Grunt, Bower 또는 Gulp와 같은 인기 있는 자동화 도구를 필요로 하는 경우이를 실행 하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) 를 제공 해야 합니다.
 
-이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 *합니다.* 예를 들면 다음과 같습니다.
+이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면package.js의 종속성에 해당 도구를 추가 해야 * 합니다.* 예를 들면 다음과 같습니다.
 
 ```json
 "dependencies": {

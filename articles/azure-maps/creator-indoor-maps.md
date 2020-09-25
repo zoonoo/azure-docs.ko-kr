@@ -1,6 +1,6 @@
 ---
 title: Azure Maps Creator에서 실내 맵 작업
-description: 이 문서에서는 Azure Maps Creator 서비스에 적용되는 개념을 소개합니다.
+description: 이 문서에서는 Azure Maps Creator services에 적용 되는 개념을 소개 합니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 05/18/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d55a0726000a6ed55f049ac4a4146f66421a7085
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ad1b7ae08e74f455190c44a813dde44b0b683014
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242579"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311362"
 ---
 # <a name="creator-for-indoor-maps"></a>실내 맵용 Creator
 

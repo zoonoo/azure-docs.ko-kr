@@ -3,12 +3,12 @@ title: 가상 컴퓨터의 Azure Resource Manager 템플릿 보기 및 사용
 description: 가상 머신에서 Azure Resource Manager 템플릿을 사용하여 다른 VM을 만드는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e58b54d61653f1edba3c3893edb902a94fbf9f2b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7f969abe1ca903a226e73c5c70781dce512c2926
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272694"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282496"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 가상 머신 만들기 
 
@@ -23,7 +23,7 @@ ms.locfileid: "87272694"
 
 - Microsoft.DevTestLab/labs/virtualmachines 리소스 종류(템플릿의 “resource” 속성에 선언됨)를 사용하는 Resource Manager 템플릿은 개별 랩 VM을 프로비전할 수 있습니다. 그러면 각 VM이 DevTest Labs 가상 머신 목록에서 단일 항목으로 표시됩니다.
 
-   ![DevTest Labs 가상 머신 목록에서 단일 항목으로 표시되는 VM 목록](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
+   ![DevTest Labs 가상 머신 목록에서 가상 머신 목록을 단일 항목으로 보여 주는 스크린샷](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
    이 유형의 리소스 관리자 템플릿은 Azure PowerShell 명령 **AzResourceGroupDeployment** 을 통해 프로 비전 하거나 명령 **az group deployment create**를 Azure CLI 통해 프로 비전 할 수 있습니다. 관리자 권한이 필요하므로 DevTest Labs 사용자 역할이 할당된 사용자는 배포를 수행할 수 없습니다. 
 
@@ -40,7 +40,7 @@ ms.locfileid: "87272694"
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>가상 머신의 Resource Manager 템플릿 보기 및 저장
 1. [랩에서 첫 번째 VM 만들기](tutorial-create-custom-lab.md#add-a-vm-to-the-lab)의 단계에 따라 가상 머신 생성을 시작합니다.
 1. 가상 머신에 대한 필요한 정보를 입력하고 이 VM에 사용하려는 아티팩트를 모두 추가합니다.
-1. **고급 설정** 탭으로 스위치. 
+1. **고급 설정** 탭으로 전환 합니다. 
 1. 설정 구성 창의 맨 아래에서 **ARM 템플릿 보기**를 선택합니다.
 1. 나중에 다른 가상 머신을 만드는 데 사용할 Resource Manager 템플릿을 복사하고 저장합니다.
 

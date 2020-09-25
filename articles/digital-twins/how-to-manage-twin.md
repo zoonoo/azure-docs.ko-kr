@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b88d017110f4d7b9859f2d801c5405ecee1589c5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3f9064c25581523167918b84a2d0027747e32bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282377"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
@@ -173,7 +173,7 @@ object result = await client.GetDigitalTwin(id);
 
 와 같이 선택한 JSON 구문 분석 라이브러리를 사용 하 여 쌍에 대해 반환 된 JSON을 구문 분석할 수 있습니다 `System.Text.Json` .
 
-SDK에 포함 된 serialization 도우미 클래스를 사용할 수도 있습니다 .이 클래스 `BasicDigitalTwin` 는 미리 구문 분석 된 형식으로 핵심 쌍 메타 데이터 및 속성을 반환 합니다. 예를 들면 다음과 같습니다.
+SDK에 포함 된 serialization 도우미 클래스를 사용할 수도 있습니다 .이 클래스 `BasicDigitalTwin` 는 미리 구문 분석 된 형식으로 핵심 쌍 메타 데이터 및 속성을 반환 합니다. 다음은 예제입니다.
 
 ```csharp
 Response<string> res = client.GetDigitalTwin(twin_id);
@@ -383,6 +383,17 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 Twins는 Azure Digital Twins CLI를 사용 하 여 관리할 수도 있습니다. 명령은 [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)에서 찾을 수 있습니다.
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
+## <a name="view-all-digital-twins"></a>모든 디지털 쌍 보기
+
+인스턴스의 모든 디지털 쌍을 보려면 [쿼리](how-to-query-graph.md)를 사용 합니다. 쿼리 [api](how-to-use-apis-sdks.md) 또는 [CLI 명령을](how-to-use-cli.md)사용 하 여 쿼리를 실행할 수 있습니다.
+
+인스턴스의 모든 디지털 쌍 목록을 반환 하는 기본 쿼리의 본문은 다음과 같습니다.
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="next-steps"></a>다음 단계
 

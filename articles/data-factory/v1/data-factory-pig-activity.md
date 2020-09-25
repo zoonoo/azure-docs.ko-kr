@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
-description: Azure Data Factory에서 Pig 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Pig 스크립트를 실행하는 방법을 알아봅니다.
+description: Azure data factory v1에서 Pig 활동을 사용 하 여 주문형/사용자 고유의 HDInsight 클러스터에서 Pig 스크립트를 실행 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e20b7a92d054a6664a00064fa7263b1150c3df9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74703201"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282581"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Azure Data Factory에서 Pig 활동을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -82,15 +82,15 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight Pi
 
 ## <a name="syntax-details"></a>구문 세부 정보
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | name |작업의 이름 |예 |
-| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |아니요 |
+| description |작업이 무엇에 사용되는지 설명하는 텍스트입니다. |예 |
 | type |HDinsightPig |예 |
-| 입력 |Pig 활동에서 사용하는 하나 이상의 입력 |아니요 |
+| 입력 |Pig 활동에서 사용하는 하나 이상의 입력 |예 |
 | outputs |Pig 활동에서 생성하는 하나 이상의 출력 |예 |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
-| 스크립트 |Pig 스크립트 인라인 지정 |아니요 |
+| 스크립트 |Pig 스크립트 인라인 지정 |예 |
 | scriptPath |Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |예 |
 | defines |Pig 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |예 |
 

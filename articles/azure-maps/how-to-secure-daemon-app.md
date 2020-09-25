@@ -5,16 +5,16 @@ description: Azure Portal를 사용 하 여 신뢰할 수 있는 디먼 응용 �
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2b09163137bbfb6b8a7b0e2b8ddd6d7cccc52cc5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e445f26458d13d28dd4ef50c6c17d434554d9fd5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006641"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311073"
 ---
 # <a name="secure-a-daemon-application"></a>디먼 응용 프로그램 보안
 
@@ -120,14 +120,14 @@ Azure 리소스에서 실행 하는 경우 Azure 관리 id를 구성 하 여 저
     > ![Azure RBAC를 사용 하 여 액세스 권한 부여](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. **역할** 할당 탭에서 역할 할당을 **추가** 합니다. 
-    
+
     > [!div class="mx-imgBorder"]
     > ![역할 할당 추가](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. **Azure Maps 데이터 판독기** 또는 **Azure Maps 데이터 참가자**와 같은 기본 제공 Azure Maps 역할 정의를 선택 합니다. 다음 **에 대 한 액세스 할당**에서 **Azure AD 사용자, 그룹 또는 서비스 주체** 또는 관리 id **사용자 할당 관리 id**  /  **시스템 할당 관리 id**를 선택 합니다. 보안 주체를 선택 합니다. 그런 다음 **저장**을 선택합니다.
 
     > [!div class="mx-imgBorder"]
-    > ![역할 할당 추가](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
+    > ![역할 할당을 추가 하는 방법](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
 
 4. 역할 할당 탭에서 역할 할당이 적용 되었는지 확인할 수 있습니다.
 
@@ -139,7 +139,7 @@ Azure 리소스에서 실행 하는 경우 Azure 관리 id를 구성 하 여 저
 
 앱을 등록 하 고 Azure Maps에 연결한 후 액세스 토큰을 요청할 수 있습니다.
 
-* Azure AD 리소스 ID`https://atlas.microsoft.com/`
+* Azure AD 리소스 ID `https://atlas.microsoft.com/`
 * Azure AD 앱 ID
 * Azure AD 테넌트 ID
 * Azure AD 앱 등록 클라이언트 암호

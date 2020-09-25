@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: a7afaf0da3bbb021d76c2d109cb385d86fd7c860
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9ba3d25a07e4d6c32bd14c315018f0d008032b73
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319850"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250490"
 ---
 # <a name="test-drive-technical-configuration"></a>시험 사용 기술 구성
 
@@ -74,7 +74,7 @@ Microsoft가 사용자를 대신해서 시험 사용을 배포하도록 하려�
 
 - **AZURE ad 앱 id** (필수) – AZURE ACTIVE DIRECTORY (AD) [응용 프로그램 id](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고, 왼쪽 메뉴에서 Active Directory 탭을 선택 하 고, **앱 등록**를 선택한 다음 나열 된 **응용 프로그램 ID** 번호 (예:)를 찾습니다 `50c464d3-4930-494c-963c-1e951d15360e` .
 
-- **AZURE ad 앱 클라이언트 암호** (필수) – azure ad 응용 프로그램 [클라이언트 암호](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)를 입력 합니다. 이 값을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 왼쪽 메뉴에서 **Azure Active Directory** 탭을 선택하고 **앱 등록**을 선택한 다음 시험 사용 앱을 선택합니다. 그런 다음, **인증서 및 암호**를 선택하고 **새 클라이언트 암호**선택하여 설명을 입력하고 **만료**에서 **안 함**을 선택한 다음, **추가**를 선택합니다. 이 값을 적어 두어야 합니다. 값을 복사 하기 전에 페이지에서 다른 곳으로 이동 하지 마세요.
+- **AZURE ad 앱 클라이언트 암호** (필수) – azure ad 응용 프로그램 [클라이언트 암호](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)를 입력 합니다. 이 값을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 왼쪽 메뉴에서 **Azure Active Directory** 탭을 선택하고 **앱 등록**을 선택한 다음 시험 사용 앱을 선택합니다. 그런 다음, **인증서 및 암호**를 선택하고 **새 클라이언트 암호**선택하여 설명을 입력하고 **만료**에서 **안 함**을 선택한 다음, **추가**를 선택합니다. 이 값을 적어 두어야 합니다. 값을 복사 하기 전에 페이지에서 다른 곳으로 이동 하지 마세요.
 
 ## <a name="test-drive-listings"></a>테스트 드라이브 목록
 

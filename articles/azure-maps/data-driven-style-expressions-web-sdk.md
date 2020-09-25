@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089448"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311379"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>데이터 기반 스타일 식 (웹 SDK)
 
@@ -41,7 +41,7 @@ ms.locfileid: "90089448"
 
 Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자체적으로 사용 하거나 다른 식과 함께 사용할 수 있습니다.
 
-| 식 형식 | 설명 |
+| 식 형식 | Description |
 |---------------------|-------------|
 | [집계 식](#aggregate-expression) | 데이터 집합에 대해 처리 되 고의 옵션과 함께 사용할 수 있는 계산을 정의 하는 식입니다 `clusterProperties` `DataSource` . |
 | [부울 식](#boolean-expressions) | 부울 식은 부울 비교를 평가 하기 위한 부울 연산자 식 집합을 제공 합니다. |
@@ -90,14 +90,16 @@ Azure Maps 웹 SDK는 다양 한 형식의 식을 지원 합니다. 식을 자�
 |------------|-------------|-------------|
 | `['at', number, array]` | object | 배열에서 항목을 검색 합니다. |
 | `['geometry-type']` | 문자열 | 기능의 기 하 도형 유형인 Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon을 가져옵니다. |
-| `['get', string]` | 값 | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
-| `['get', string, object]` | 값 | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `['get', string]` | value | 현재 기능의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
+| `['get', string, object]` | value | 제공 된 개체의 속성에서 속성 값을 가져옵니다. 요청 된 속성이 없는 경우 null을 반환 합니다. |
 | `['has', string]` | boolean | 기능의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
 | `['has', string, object]` | boolean | 개체의 속성에 지정 된 속성이 있는지 여부를 확인 합니다. |
-| `['id']` | 값 | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
+| `['id']` | value | 기능 ID가 있는 경우 해당 ID를 가져옵니다. |
 | `['length', string | array]` | number | 문자열이 나 배열의 길이를 가져옵니다. |
 | `['in', boolean | string | number, array]` | boolean | 항목이 배열에 있는지 여부를 확인 합니다. |
 | `['in', substring, string]` | boolean | 문자열에 부분 문자열이 있는지 여부를 확인 합니다. |
+| `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | number | 배열에서 항목을 찾을 수 있는 첫 번째 위치를 반환 하거나 문자열에서 하위 문자열을 찾을 수 있는 경우를 반환 하 고, 입력을 찾을 수 없는 경우을 반환 합니다 `-1` . 검색을 시작할 위치에서 선택적 인덱스를 허용 합니다. |
+| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | `string`\|배열 | 지정 된 시작 인덱스의 문자열 또는 시작 인덱스와 설정 된 경우 시작 인덱스 사이에서 항목을 반환 합니다. 반환 값은 시작 인덱스의 포함 이지만 끝 인덱스는 포함 되지 않습니다. |
 
 **예**
 
@@ -151,8 +153,11 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 //Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
 ['at', 1, ['at', 0, ['get', 'array2d']]]
 
-//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+//Check to see if a value is in an array "properties.abcArray.indexOf('a') !== -1" = true
 ['in', 'a', ['get', 'abcArray']]
+
+//Gets the index of the value 'b' in an array "properties.abcArray.indexOf('b')" = 1
+['index-of', 'b', ['get', 'abcArray']]
 
 //Get the length of an array "properties.abcArray.length" = 3
 ['length', ['get', 'abcArray']]
@@ -162,6 +167,12 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 //Check that "fillColor" exists as a subproperty of "_style".
 ['has', 'fillColor', ['get', '_style']]
+
+//Slice an array starting at index 2 "properties.abcArray.slice(2)" = ['c']
+['slice', ['get', 'abcArray'], 2]
+
+//Slice a string from index 0 to index 4 "properties.entityType.slice(0, 4)" = 'rest'
+['slice', ['get', 'entityType'], 0, 4]
 ```
 
 ## <a name="math-expressions"></a>수학 식
@@ -225,8 +236,8 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 | 식 | 반환 형식 | Description |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolean | 논리 부정. `true`입력이 이면를 반환 `false` 하 고, `false` 입력이 이면를 반환 합니다 `true` . |
-| `['!= ', value, value]` | boolean | `true`입력 값이 같지 않으면를 반환 하 고, 그렇지 않으면를 반환 `false` 합니다. |
+| `['!', boolean]` | boolean | 논리 부정. `true`입력이 이면를 반환 `false` 하 고, `false` 입력이 이면를 반환 합니다 `true` . |
+| `['!=', value, value]` | boolean | `true`입력 값이 같지 않으면를 반환 하 고, 그렇지 않으면를 반환 `false` 합니다. |
 | `['<', value, value]` | boolean | `true`첫 번째 입력이 두 번째 보다 엄격 하 게 작으면를 반환 하 고, 그렇지 않으면를 반환 `false` 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |
 | `['<=', value, value]` | boolean | `true`첫 번째 입력이 두 번째 값 보다 작거나 같으면를 반환 하 고, `false` 그렇지 않으면를 반환 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |
 | `['==', value, value]` | boolean | `true`입력 값이 같으면를 반환 하 고, `false` 그렇지 않으면를 반환 합니다. 인수는 문자열 이거나 둘 다 숫자 여야 합니다. |

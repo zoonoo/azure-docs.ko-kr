@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282026"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>OPC 자격 증명 모음 인증서 관리 서비스 빌드 및 배포
+
+> [!IMPORTANT]
+> 이 문서를 업데이트 하는 동안 최신 콘텐츠는 [Azure 산업용 IoT](https://azure.github.io/Industrial-IoT/) 를 참조 하세요.
 
 이 문서에서는 Azure에서 OPC 자격 증명 모음 인증서 관리 서비스를 배포 하는 방법을 설명 합니다.
 
@@ -75,9 +78,9 @@ PowerShell 스크립트는 OPC 자격 증명 모음 마이크로 서비스 및 �
    > [!NOTE]
    > 문제가 발생 하는 경우이 문서의 뒷부분에 나오는 "배포 실패 문제 해결" 섹션을 참조 하세요.
 
-8. 즐겨 찾는 브라우저를 열고 응용 프로그램 페이지를 엽니다.`https://myResourceGroup.azurewebsites.net`
+8. 즐겨 찾는 브라우저를 열고 응용 프로그램 페이지를 엽니다. `https://myResourceGroup.azurewebsites.net`
 8. 웹 앱과 OPC 자격 증명 모음 마이크로 서비스을 배포 후 준비 하는 데 몇 분 정도 제공 합니다. 첫 번째 응답을 받을 때까지 처음 사용할 때 웹 홈 페이지가 응답 하지 않을 수 있습니다.
-11. Swagger API를 보려면 다음을 엽니다.`https://myResourceGroup-service.azurewebsites.net`
+11. Swagger API를 보려면 다음을 엽니다. `https://myResourceGroup-service.azurewebsites.net`
 13. Dotnet을 사용 하 여 로컬 GDS 서버를 시작 하려면를 시작 `.\myResourceGroup-gds.cmd` 합니다. Docker를 사용 하 여 시작 `.\myResourceGroup-dockergds.cmd` 합니다.
 
 정확히 동일한 설정을 사용 하 여 빌드를 다시 배포할 수 있습니다. 이러한 작업은 모든 응용 프로그램 암호를 갱신 하 고 Azure Active Directory (Azure AD) 응용 프로그램 등록의 일부 설정을 다시 설정할 수 있습니다.

@@ -1,38 +1,42 @@
 ---
-title: Azure CLI를 사용 하 여 Cognitive Services 리소스 만들기
+title: Azure CLI를 사용하여 Cognitive Services 리소스 만들기
 titleSuffix: Azure Cognitive Services
 description: Azure 명령줄 인터페이스를 사용 하 여 리소스를 만들고 구독 하 여 Azure Cognitive Services를 시작 합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+keywords: 인식 서비스, 인식 인텔리전스, 인식 솔루션, ai 서비스
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 36e21a131181831c2a87c0c6d2c24c9aa6e0acf7
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 41dc99c206fb66aa87ccca6e40d6e9488f801a22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245012"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262436"
 ---
-# <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Azure 명령줄 인터페이스 (CLI)를 사용 하 여 Cognitive Services 리소스 만들기
+# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>빠른 시작: Azure 명령줄 인터페이스 (CLI)를 사용 하 여 Cognitive Services 리소스 만들기
 
-[AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용 하 여 azure Cognitive Services를 시작 하려면이 빠른 시작을 사용 하세요. Cognitive Services은 Azure 구독에서 만든 Azure [리소스로](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) 표시 됩니다. 리소스를 만든 후에는 응용 프로그램을 인증 하기 위해 생성 된 키 및 끝점을 사용 합니다.
+[AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용 하 여 azure Cognitive Services를 시작 하려면이 빠른 시작을 사용 하세요.
 
+Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이며, 개발자가 직접적인 AI(인공 지능) 또는 데이터 과학 기술이나 지식 없이도 인지적 인텔리전스를 애플리케이션에 빌드하도록 지원하는 데 사용할 수 있는 클라이언트 라이브러리 SDK입니다. Azure Cognitive Services를 사용하는 개발자는 보고, 듣고, 말하고, 이해하고, 추론할 수도 있는 인지적 솔루션을 통해 애플리케이션에 인지적 기능을 손쉽게 추가할 수 있습니다.
+
+Cognitive Services은 Azure 구독에서 만든 Azure [리소스로](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) 표시 됩니다. 리소스를 만든 후에는 응용 프로그램을 인증 하기 위해 생성 된 키 및 끝점을 사용 합니다.
 
 이 빠른 시작에서는 azure Cognitive Services에 등록 하 고 [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용 하 여 단일 서비스 또는 다중 서비스 구독이 있는 계정을 만드는 방법에 대해 알아봅니다. 이러한 서비스는 하나 이상의 Azure Cognitive Services API에 연결할 수 있는 Azure [리소스로](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal)표시 됩니다.
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 유효한 Azure 구독-무료로 [하나를 만듭니다](https://azure.microsoft.com/free/cognitive-services) .
 * [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Azure CLI 설치 및 로그인
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치 합니다. CLI의 로컬 설치에 로그인 하려면 [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) 명령을 실행 합니다.
+[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치합니다. CLI의 로컬 설치에 로그인 하려면 [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) 명령을 실행 합니다.
 
 ```azurecli-interactive
 az login
@@ -50,7 +54,7 @@ Cognitive Services 리소스를 만들기 전에 리소스를 포함 하는 Azur
 
 > [!IMPORTANT]
 > * Azure Cognitive Services를 호출할 때 필요 하므로 Azure 위치를 염두에 두어야 합니다.
-> * 일부 Cognitive Services의 가용성은 지역에 따라 다를 수 있습니다. 자세한 내용은 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)을 참조 하세요.  
+> * 일부 Cognitive Services의 가용성은 지역에 따라 다를 수 있습니다. 자세한 내용은 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)을 참조 하세요.
 
 ```azurecli-interactive
 az account list-locations \
@@ -89,8 +93,8 @@ az group create \
 | 서비스                    | 종류                      |
 |----------------------------|---------------------------|
 | Computer Vision            | `ComputerVision`          |
-| Custom Vision-예측 | `CustomVision.Prediction` |
-| Custom Vision 교육   | `CustomVision.Training`   |
+| Custom Vision - 예측 | `CustomVision.Prediction` |
+| Custom Vision - 학습   | `CustomVision.Training`   |
 | Face                       | `Face`                    |
 | Form Recognizer            | `FormRecognizer`          |
 | Ink Recognizer             | `InkRecognizer`           |
@@ -174,9 +178,9 @@ az login
 
 ## <a name="pricing-tiers-and-billing"></a>가격 책정 계층 및 요금 청구
 
-가격 책정 계층 및 청구 되는 금액은 인증 정보를 사용 하 여 전송 하는 트랜잭션 수를 기반으로 합니다. 각 가격 책정 계층은 다음을 지정 합니다.
-* 초당 허용 되는 최대 트랜잭션 수 (TPS)입니다.
-* 가격 책정 계층 내에서 사용 하도록 설정 된 서비스 기능입니다.
+가격 책정 계층(및 청구되는 금액)은 인증 정보를 사용하여 전송하는 트랜잭션 수를 기반으로 합니다. 각 가격 책정 계층은 다음을 지정합니다.
+* 초당 허용되는 최대 트랜잭션 수(TPS)입니다.
+* 가격 책정 계층 내에서 사용하도록 설정된 서비스 기능입니다.
 * 미리 정의 된 트랜잭션 양에 대 한 비용입니다. 이 용량을 초과 하면 서비스에 대 한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) 에 지정 된 대로 추가 요금이 발생 합니다.
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>리소스의 현재 할당량 사용량을 가져옵니다.

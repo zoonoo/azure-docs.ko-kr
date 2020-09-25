@@ -9,12 +9,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 09/02/2020
-ms.openlocfilehash: 393b71e78c59d126b24da2f1fd354ccfadf6825a
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fd33ebebf35e0407f7ce39c609ee372a7d1d4a61
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322941"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250507"
 ---
 # <a name="supported-publisher-countries-and-regions"></a>지원 되는 게시자 국가 및 지역
 
@@ -66,7 +66,6 @@ Microsoft 상업적 marketplace에 제품을 게시 하려면 다음 국가 또�
 - 중앙 아프리카 공화국
 - 차드
 - 칠레
-- 중국
 - 크리스마스섬
 - 코코스 제도
 - 콜롬비아

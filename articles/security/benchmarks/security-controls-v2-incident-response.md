@@ -4,19 +4,19 @@ description: Azure Security 벤치 마크 V2 인시던트 응답
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2dbdb1af139472d5c7f4537399d434e045bb05cb
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 172607a7f8f036bbfb68e8d15e77b2a3e3fb5377
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059289"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326391"
 ---
-# <a name="security-control-incident-response"></a>보안 제어: 인시던트 응답
+# <a name="security-control-v2-incident-response"></a>보안 제어 V2: 인시던트 응답
 
-인시던트 응답은 인시던트 응답 수명 주기 (준비, 검색 및 분석, 포함 및 인시던트 후 작업)의 컨트롤을 포함 합니다. 여기에는 Azure Security Center 및 센티널과 같은 Azure 서비스를 사용 하 여 인시던트 응답 프로세스를 자동화 하는 작업이 포함 됩니다.
+인시던트 응답은 인시던트 응답 수명 주기 (준비, 검색 및 분석, 포함 및 인시던트 후 작업)의 제어를 포함 합니다. 여기에는 Azure Security Center 및 센티널과 같은 Azure 서비스를 사용 하 여 인시던트 응답 프로세스를 자동화 하는 작업이 포함 됩니다.
 
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: 준비 – Azure에 대 한 인시던트 응답 프로세스 업데이트
 
@@ -28,13 +28,13 @@ ms.locfileid: "90059289"
 
 - [엔터프라이즈 환경에서 보안 구현](https://aka.ms/AzSec4)
 
-- [인시던트 대응 참조 가이드](https://aka.ms/IRRG)
+- [인시던트 대응 참조 가이드](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [보안 작업 (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [인시던트 준비](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -52,9 +52,9 @@ Azure Security Center에서 보안 인시던트 연락처 정보를 설정 합�
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [보안 작업 (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [인시던트 준비](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -78,9 +78,9 @@ Azure Security Center는 많은 Azure 자산에서 고품질의 경고를 제공
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [보안 작업 (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [인시던트 준비](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -92,17 +92,19 @@ Azure Security Center는 많은 Azure 자산에서 고품질의 경고를 제공
 |--|--|--|--|
 | IR-4 | 19 | IR-4 |
 
-분석가가 잠재적 인시던트를 조사 하 여 다양 한 데이터 원본을 쿼리하고 사용할 수 있도록 하 여 발생 한 상황에 대 한 전체 뷰를 작성 합니다. 다른 분석가 및 향후 기록 참조에 대 한 정보 및 학습이 캡처되고 있는지 확인 합니다. 
+분석가가 잠재적 인시던트를 조사 하 여 다양 한 데이터 원본을 쿼리하고 사용할 수 있도록 하 여 발생 한 상황에 대 한 전체 뷰를 작성 합니다. 블라인드 지점을 방지 하려면 다양 한 로그를 수집 하 여 kill 체인에서 잠재적 공격자의 활동을 추적 해야 합니다.  또한 다른 분석가 및 향후 기록 참조를 위해 정보 및 학습를 캡처해야 합니다.  
 
 조사를 위한 데이터 원본에는 범위 내 서비스 및 실행 중인 시스템에서 이미 수집 되는 중앙 집중식 로깅 원본이 포함 되지만 다음이 포함 될 수도 있습니다.
 
-네트워크 데이터 – 네트워크 보안 그룹의 흐름 로그, Azure Network Watcher 및 Azure Monitor를 사용 하 여 네트워크 흐름 로그 및 기타 분석 정보를 캡처합니다. 실행 중인 시스템의 스냅숏: 
+- 네트워크 데이터 – 네트워크 보안 그룹의 흐름 로그, Azure Network Watcher 및 Azure Monitor를 사용 하 여 네트워크 흐름 로그 및 기타 분석 정보를 캡처합니다. 
 
--   Azure 가상 머신의 스냅숏 기능을 사용 하 여 실행 중인 시스템의 디스크에 대 한 스냅숏을 만듭니다. 
+- 실행 중인 시스템의 스냅숏: 
 
--   운영 체제의 기본 메모리 덤프 기능을 사용 하 여 실행 중인 시스템의 메모리에 대 한 스냅숏을 만듭니다.
+    - Azure 가상 머신의 스냅숏 기능을 사용 하 여 실행 중인 시스템의 디스크에 대 한 스냅숏을 만듭니다. 
 
--   Azure 서비스 또는 소프트웨어의 고유한 기능에 대 한 스냅숏 기능을 사용 하 여 실행 중인 시스템의 스냅숏을 만듭니다.
+    - 운영 체제의 기본 메모리 덤프 기능을 사용 하 여 실행 중인 시스템의 메모리에 대 한 스냅숏을 만듭니다.
+
+    - Azure 서비스 또는 소프트웨어의 고유한 기능에 대 한 스냅숏 기능을 사용 하 여 실행 중인 시스템의 스냅숏을 만듭니다.
 
 Azure 센티널은 거의 모든 로그 원본 및 사례 관리 포털에서 광범위 한 데이터 분석을 제공 하 여 사고의 전체 수명 주기를 관리 합니다. 조사 중에 인텔리전스 정보는 추적 및 보고를 위해 인시던트에 연결할 수 있습니다. 
 
@@ -116,9 +118,9 @@ Azure 센티널은 거의 모든 로그 원본 및 사례 관리 포털에서 �
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [보안 작업 (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [인시던트 준비](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -134,7 +136,7 @@ Azure 센티널은 거의 모든 로그 원본 및 사례 관리 포털에서 �
 
 Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사 해야 하는 경고의 우선 순위를 지정할 수 있도록 합니다. 심각도는 경고를 실행 하는 데 사용 되는 찾기 또는 분석의 Security Center 얼마나 확실 한지에 따라 달라 지 며, 경고를 발생 시킨 활동의 악의적인 의도를가지고 있는 신뢰도 수준을 기준으로 합니다.
 
-또한 태그를 사용 하 여 구독을 표시 하 고, 특히 중요 한 데이터를 처리 하는 Azure 리소스를 식별 하 고 분류 하는 명명 시스템을 만듭니다.  인시던트가 발생한 Azure 리소스 및 환경의 중요도에 따라 경고의 수정에 대한 우선 순위를 지정해야 합니다.
+또한 태그를 사용 하 여 리소스를 표시 하 고, 특히 중요 한 데이터를 처리 하는 Azure 리소스를 식별 하 고 범주화 하는 명명 시스템을 만듭니다.  인시던트가 발생한 Azure 리소스 및 환경의 중요도에 따라 경고의 수정에 대한 우선 순위를 지정해야 합니다.
 
 - [Azure Security Center의 보안 경고](../../security-center/security-center-alerts-overview.md)
 
@@ -142,9 +144,9 @@ Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [보안 작업 (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [인시던트 준비](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -166,9 +168,9 @@ Azure Security Center는 각 경고에 심각도를 할당 하 여 먼저 조사
 
 **책임**: Customer
 
-**고객 보안 관련자**:
+**고객 보안 관련자** ([자세한 정보](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [보안 작업 (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [보안 운영](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [인시던트 준비](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 

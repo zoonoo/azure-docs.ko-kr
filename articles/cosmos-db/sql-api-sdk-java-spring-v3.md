@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 9e5b92918d93109183740be555bb805877862407
-ms.sourcegitcommit: 0fd1f3fe7817ad44d878d580ec167e1508051795
+ms.openlocfilehash: f0cb3d5f9184bacef42a0258add6dd2461a71dd7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2020
-ms.locfileid: "90817873"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326663"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Core 용 스프링 데이터 Azure Cosmos DB v3 (SQL) API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -96,17 +96,6 @@ cosmos.queryMetricsEnabled=true
 
 ### <a name="document-operations"></a>문서 작업
 
-만들기:
-:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Create":::
-
-삭제:
-:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Delete":::
-
-# <a name="query"></a>[쿼리](#tab/queries)
-
-쿼리:
-:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Query":::
-
 ---
 
 ## <a name="resources"></a>리소스
@@ -115,58 +104,7 @@ cosmos.queryMetricsEnabled=true
 
 * **자습서**: [GitHub의 스프링 데이터 Azure Cosmos DB 자습서](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
 
-## <a name="release-history"></a>릴리스 기록
-
-### <a name="300-beta2-september-17-2020"></a>3.0.0-beta. 2 (2020 년 9 월 17 일)
-
-#### <a name="new-features"></a>새 기능
-
-* 아티팩트 id를로 업데이트 했습니다 `azure-spring-data-cosmos` .
-* Azure cosmos 종속성을로 업데이트 했습니다 `4.5.0` .
-* `Query Annotation` 네이티브 쿼리를 지원 합니다.
-* Java 11 지원.
-* 주석에서 필드를 노출 하 여 중첩 된 파티션 키에 대 한 지원이 추가 되었습니다 `partitionKeyPath` `@Container` .
-* `limit` `top` `first` 리포지토리 api를 정의할 때 및를 사용할 수 있도록 하는 쿼리 형식에 대 한 지원이 추가 되었습니다.
-
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
-
-* 주석과 함께 사용 될 경우 중첩 된 파티션 키 버그를 수정 `@GeneratedValue` 했습니다.
-
-### <a name="300-beta1-august-17-2020"></a>3.0.0-beta. 1 (2020 년 8 월 17 일)
-
-#### <a name="new-features"></a>새 기능
-
-* 그룹 ID를로 업데이트 `com.azure` 합니다.
-* 아티팩트 ID를로 업데이트 `azure-spring-data-2-3-cosmos` 합니다.
-* Azure cosmos SDK 종속성을로 업데이트 `4.3.2-beta.2` 합니다.
-* 에는 `createdBy` ,, `createdDate` `lastModifiedBy` 및 주석이 추가 된 `lastModifiedDate` 필드의 자동 관리를 위한 감사 엔터티에 대 한 지원이 추가 되었습니다.
-* `@GeneratedValue`유형의 id 필드에 대 한 자동 id 생성에 대 한 주석 지원을 추가 `String` 합니다.
-* 여러 데이터베이스가 포함 된 단일 Azure Cosmos DB 계정에 대 한 다중 데이터베이스 구성 지원 및 여러 데이터베이스를 사용 하는 여러 개의 Azure Cosmos DB 계정 추가
-* 문자열 필드에 대 한 주석에 대 한 지원을 추가 `@Version` 합니다.
-* 동기화 API 반환 형식을 `Iterable` 대신 형식으로 업데이트 `List` 합니다.
-* `CosmosClientBuilder`AZURE COSMOS DB SDK에서 스프링 bean로 클래스에 노출 `@Configuration` 합니다.
-* `CosmosConfig`쿼리 메트릭 및 응답 진단 프로세서 구현을 포함 하도록 업데이트 되었습니다.
-* `Optional`단일 결과 쿼리에 대 한 데이터 형식을 반환 하기 위한 지원을 추가 합니다.
-
-#### <a name="renames"></a>바꾸기
-
-* `CosmosDbFactory` to `CosmosFactory` .
-* `CosmosDBConfig` to `CosmosConfig` .
-* `CosmosDBAccessException` to `CosmosAccessException` .
-* `Document` 주석에 대 한 주석 `Container` 입니다.
-* `DocumentIndexingPolicy` 주석에 대 한 주석 `CosmosIndexingPolicy` 입니다.
-* `DocumentQuery` to `CosmosQuery` .
-* application. 속성은 `populateQueryMetrics` 에 플래그를 지정 `queryMetricsEnabled` 합니다.
-
-#### <a name="key-bug-fixes"></a>핵심 버그 수정
-
-* `Parallel`Netty i/o 스레드를 차단 하지 않도록 하기 위해 스레드에 진단 로깅 작업을 예약 하는 중입니다.
-* 삭제 작업에 대 한 낙관적 잠금을 수정 합니다.
-* 절의 이스케이프 쿼리와 관련 된 문제를 해결 `IN` 합니다.
-* 의 데이터 형식을 허용 하 여 문제 `long` 를 해결 `@Id` 합니다.
-* ,, 및를 `boolean` `long` `int` `double` 주석의 데이터 형식으로 허용 하 여 문제를 해결 `@PartitionKey` 합니다.
-* `IgnoreCase` `AllIgnoreCase` 대/소문자 쿼리를 무시 하는에 대 한 수정 및 키워드입니다.
-* 컨테이너를 자동으로 만들 때 4000의 기본 요청 단위 값을 제거 합니다.
+[!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
 
 ## <a name="faq"></a>FAQ
 

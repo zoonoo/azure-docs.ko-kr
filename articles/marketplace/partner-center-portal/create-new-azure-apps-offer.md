@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: e7e7845b458d6d1a37b65fb79e0e7e9c13b0d07d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 512f901c33ebce4fef06629fe78976a071820c87
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646930"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251442"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -153,7 +153,7 @@ Azure 애플리케이션 플랜에는 관리형 애플리케이션 및 솔루션
 
 **속성** 페이지에서는 marketplace에서 제품을 그룹화 하는 데 사용 되는 범주, 앱 버전 및 제품을 지 원하는 법적 계약을 정의 합니다.
 
-### <a name="category"></a>범주
+### <a name="category"></a>Category
 
 범주 및 하위 범주를 선택 하 여 제품을 적절 한 마켓플레이스 검색 영역에 넣습니다. 제품 설명에서 제품이 해당 범주를 지원하는 방법을 설명해야 합니다. 선택:
 
@@ -559,7 +559,7 @@ CSP([클라우드 솔루션 공급자](https://azure.microsoft.com/offers/ms-azr
 * **AZURE ad 테 넌 트 id** (필수) – ad (Azure Active Directory) [테 넌 트 id](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인하고, 왼쪽 메뉴에서 Active Directory 탭을 선택하고, **속성**을 선택한 다음, 나열된 **디렉터리 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다. [https://www.whatismytenantid.com](https://www.whatismytenantid.com)에서 도메인 이름 URL을 사용하여 조직의 테넌트 ID를 조회할 수도 있습니다.
 * **Azure AD 테넌트 이름**(Dynamic 365에 필요) – Azure AD(Active Directory) 이름을 입력합니다. 이 이름을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 그러면 오른쪽 위 계정 이름 아래에 테넌트 이름이 나열됩니다.
 * **AZURE ad 앱 id** (필수) – AZURE ACTIVE DIRECTORY (AD) [응용 프로그램 id](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인하고, 왼쪽 탐색 메뉴에서 Active Directory 탭을 선택하고, **앱 등록**을 선택한 다음, 나열된 **애플리케이션 ID** 번호(예: 50c464d3-4930-494c-963c-1e951d15360e)를 찾습니다.
-* **Azure Active Directory 응용 프로그램 클라이언트 암호** (필수) – Azure AD 응용 프로그램 [클라이언트 암호](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)를 입력 합니다. 이 값을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 왼쪽 탐색 메뉴에서 **Azure Active Directory** 탭을 선택하고, **앱 등록**을 선택한 다음, 시험 사용 앱을 선택합니다. 그런 다음, **인증서 및 비밀**을 선택하고, **새 클라이언트 암호**를 선택하고, 설명을 입력하고, **만료**에서 **안 함**을 선택한 다음, **추가**를 선택합니다. 이 페이지를 나가기 전에 값을 복사해야 합니다.
+* **Azure Active Directory 응용 프로그램 클라이언트 암호** (필수) – Azure AD 응용 프로그램 [클라이언트 암호](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)를 입력 합니다. 이 값을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 왼쪽 탐색 메뉴에서 **Azure Active Directory** 탭을 선택하고, **앱 등록**을 선택한 다음, 시험 사용 앱을 선택합니다. 그런 다음, **인증서 및 비밀**을 선택하고, **새 클라이언트 암호**를 선택하고, 설명을 입력하고, **만료**에서 **안 함**을 선택한 다음, **추가**를 선택합니다. 이 페이지를 나가기 전에 값을 복사해야 합니다.
 
 계속하기 전에 **초안 저장**을 선택합니다.
 

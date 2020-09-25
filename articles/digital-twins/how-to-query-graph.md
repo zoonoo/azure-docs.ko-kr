@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 89013e3b6ec9a0a6112e8b7fdcde4870be331d79
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468711"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282309"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Azure Digital Twins 쌍 그래프 쿼리
 
@@ -25,6 +25,15 @@ ms.locfileid: "89468711"
 ## <a name="query-syntax"></a>쿼리 구문
 
 이 섹션에는 쿼리 언어 구조를 설명 하 고 [디지털](concepts-twins-graph.md)쌍에서 가능한 쿼리 작업을 수행 하는 예제 쿼리가 포함 되어 있습니다.
+
+### <a name="show-all-existing-digital-twins"></a>기존 digital 쌍 모두 표시
+
+다음은 인스턴스의 모든 디지털 쌍 목록을 반환 하는 기본 쿼리입니다.
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+```
 
 ### <a name="select-top-items"></a>상위 항목 선택
 
@@ -193,7 +202,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 지원 되는 형식 검사 및 캐스팅 함수는 다음과 같습니다.
 
-| 기능 | Description |
+| 함수 | Description |
 | -------- | ----------- |
 | IS_DEFINED | 속성이 값을 할당할지를 나타내는 부울 값을 반환합니다. 이는 값이 기본 형식인 경우에만 지원 됩니다. 기본 형식에는 문자열, 부울, 숫자 또는가 포함 됩니다 `null` . DateTime, 개체 형식 및 배열은 지원 되지 않습니다. |
 | IS_OF_MODEL | 지정 된 쌍이 지정 된 모델 형식과 일치 하는지 여부를 나타내는 부울 값을 반환 합니다. |
@@ -206,10 +215,10 @@ AND Room.$dtId IN ['room1', 'room2']
 
 지원 되는 문자열 함수는 다음과 같습니다.
 
-| 기능 | Description |
+| 함수 | Description |
 | -------- | ----------- |
-| STARTS_WITH(x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
-| ENDS_WITH(x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다. |
+| STARTSWITH (x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 시작하는지 여부를 나타내는 부울 값을 반환합니다. |
+| ENDSWITH (x, y) | 첫 번째 문자열 식이 두 번째 문자열 식에서 끝나는지 여부를 나타내는 부울 값을 반환합니다. |
 
 ## <a name="run-queries-with-an-api-call"></a>API 호출을 사용 하 여 쿼리 실행
 

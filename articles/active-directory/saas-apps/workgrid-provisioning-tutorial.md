@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: 28efbb605221b9f613b39c2a72d47c7606afb67e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f5f7ed8a905aad873ecfc878979ac32af1e21730
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526852"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312246"
 ---
 # <a name="tutorial-configure-workgrid--for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 작업 표 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "88526852"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -54,15 +54,15 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 워크 그�
 
 1. 워크 로드 표에 로그인 합니다. **사용자 프로 비전 >** 사용자로 이동 합니다.
 
-    ![Workgrid](media/Workgrid-provisioning-tutorial/user.png)
+    ![사용자 및 사용자 프로 비전 옵션이 호출 된, 사용자를 가진 워크플로 그리드의 스크린샷](media/Workgrid-provisioning-tutorial/user.png)
 
 2. **계정 관리 API**에서 **자격 증명 만들기**를 클릭 합니다.
 
-    ![Workgrid](media/Workgrid-provisioning-tutorial/scim.png)
+    ![자격 증명 만들기 옵션을 호출한 계정 관리 A P I 섹션의 스크린샷](media/Workgrid-provisioning-tutorial/scim.png)
 
 3. **Scim 끝점** 및 **액세스 토큰** 값을 복사 합니다. 이러한 정보는 Azure Portal에서 업무 그리드 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 및 **비밀 토큰** 필드에 입력 됩니다.
 
-    ![Workgrid](media/Workgrid-provisioning-tutorial/token.png)
+    ![S C I M 끝점 및 액세스 토큰이 호출 된 계정 관리 A P I 섹션의 스크린샷](media/Workgrid-provisioning-tutorial/token.png)
 
 
 ## <a name="add-workgrid--from-the-gallery"></a>갤러리에서 워크 표 추가
@@ -106,11 +106,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 워크 그�
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. 관리자 자격 증명 섹션 아래에서 먼저 **테 넌 트 URL** 및 **암호 토큰** 에서 검색 된 **scim 끝점** 및 **액세스 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 근무 그리드에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 업무 그리드 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
@@ -124,7 +124,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 워크 그�
 
 8. **매핑** 섹션에서 **사용자에 게 Azure Active Directory 사용자에 게 동기화 표에 동기화**를 선택 합니다.
 
-    ![워크 표 사용자 매핑](media/Workgrid-provisioning-tutorial/usermapping.png)
+    ![사용자에 게 Azure Active Directory 사용자에 게 동기화 그리드 옵션을 호출 하는 매핑 섹션의 스크린샷](media/Workgrid-provisioning-tutorial/usermapping.png)
 
 9. **특성 매핑** 섹션에서 Azure AD에서 작동 그리드로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 작업 표에서 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
@@ -132,11 +132,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 워크 그�
 
 10. **매핑** 섹션 아래에서 **워크 그룹에 Azure Active Directory 그룹 동기화를** 선택 합니다.
 
-    ![워크 표 사용자 매핑](media/Workgrid-provisioning-tutorial/groupmapping.png)
+    ![처리 중인 Azure Active Directory 그룹을 처리 그리드로 동기화 옵션을 사용 하는 매핑 섹션의 스크린샷](media/Workgrid-provisioning-tutorial/groupmapping.png)
 
 12. **특성 매핑** 섹션에서 Azure AD에서 작동 그리드로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 작업 표에서 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![워크 표 사용자 매핑](media/Workgrid-provisioning-tutorial/groupattribute.png)
+    ![3 개의 매핑이 표시 된 특성 매핑 섹션의 스크린샷](media/Workgrid-provisioning-tutorial/groupattribute.png)
 
 13. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 

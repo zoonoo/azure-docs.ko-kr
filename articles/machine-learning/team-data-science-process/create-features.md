@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: c31cf0e5c655f53e8838c92f5463d3a85c2f6f65
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836824"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250660"
 ---
 # <a name="feature-engineering-in-data-science"></a>데이터 과학의 기능 엔지니어링
 
-이 문서에서는 기계 학습에서 데이터를 향상시키는 기능 엔지니어링 및 해당 역할에 대해 알아봅니다. [Azure Machine Learning Studio(클래식)](../studio/what-is-ml-studio.md) 실험에서 얻은 설명 예제에 대해 알아보세요. 
+이 문서에서는 기계 학습에서 데이터를 향상시키는 기능 엔지니어링 및 해당 역할에 대해 알아봅니다. [Azure Machine Learning Studio(클래식)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) 실험에서 얻은 설명 예제에 대해 알아보세요. 
 
 * **기능 엔지니어링**: 원시 데이터에서 새로운 기능을 만들어 학습 알고리즘의 예측 능력을 높이는 프로세스입니다. 엔지니어링된 기능은 원래 기능 집합에서 쉽게 드러나지 않는 추가 정보를 캡처해야 합니다.
 * **기능 선택**: 이 프로세스에서는 학습 문제의 차원 수를 줄이기 위해 기능의 주요 하위 집합을 선택합니다.

@@ -3,16 +3,16 @@ title: Azure Security Center에 AWS 계정 연결
 description: Azure Security Center에서 AWS 리소스 모니터링
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ee1b8fe6ed97f3b71cda418cce9e432f7c045447
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 33ff6748eba9d0349df244e70f07ad178f258373
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940241"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250287"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Azure Security Center에 AWS 계정 연결
 
@@ -110,7 +110,7 @@ Security Center에서 AWS에 인증 하도록 허용 하는 방법에는 두 가
 1. 요약을 검토 하 고 **사용자 만들기**를 클릭 합니다.
 
 
-### <a name="step-3-configure-the-ssm-agent"></a>3단계: SSM 에이전트 구성
+### <a name="step-3-configure-the-ssm-agent"></a>3단계. SSM 에이전트 구성
 
 AWS Systems Manager는 AWS 리소스에서 작업을 자동화 하는 데 필요 합니다. EC2 인스턴스에 SSM 에이전트가 없는 경우 Amazon에서 관련 된 지침을 따르세요.
 

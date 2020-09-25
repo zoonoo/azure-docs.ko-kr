@@ -3,12 +3,12 @@ title: Storage 탐색기를 사용 하 여 Azure DevTest Labs에 VHD 파일 업�
 description: Microsoft Azure Storage Explorer를 사용하여 랩의 Storage 계정에 VHD 파일 업로드
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6ed6ace63a135628b6d306b946c0356091bf1bd2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d4e421932ebba5d4f389000c12bcf44ac2f37599
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654517"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282530"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer를 사용하여 랩의 Storage 계정에 VHD 파일 업로드
 
@@ -90,13 +90,13 @@ Azure DevTest Labs에서는 VHD 파일을 사용하여 가상 머신을 프로�
 
     1. Storage Explorer 오른쪽 창에 랩의 Storage 계정에 대한 **업로드** Blob 컨테이너에 Blob 목록이 표시됩니다. Blob 편집기 도구 모음에서 **업로드**를 선택합니다. 
         
-        ![업로드 단추][6]
+        !["업로드" 단추가 선택 된 Storage 탐색기 오른쪽 창을 보여 주는 스크린샷][6]
     
     1. **업로드** 드롭다운 메뉴에서 **파일 업로드...** 를 선택합니다.
     
     1. **파일 업로드** 대화 상자에서 줄임표를 선택합니다.
         
-        ![파일 선택][8]  
+        ![줄임표 (...)가 선택 된 "파일 업로드" 대화 상자를 보여 주는 스크린샷][8]  
 
     1. **업로드할 파일 선택** 대화 상자에서 원하는 VHD 파일을 찾아 선택한 후 **열기**를 선택합니다.
     

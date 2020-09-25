@@ -3,12 +3,12 @@ title: Azure Lab Services에서 Classroom(강의실) 랩의 일정 만들기 | M
 description: 랩의 VM이 지정된 시간에 시작 및 종료되도록 Azure Lab Services에서 Classroom(강의실) 랩의 일정을 만드는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d6dcdd8d09c2c71c2d41aebd358639883ccfb33d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445783"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326442"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 Classroom(강의실) 랩의 일정 만들기 및 관리 
 일정을 사용하면 랩의 VM이 지정된 시간에 자동으로 시작 및 종료되도록 Classroom(강의실) 랩을 구성할 수 있습니다. 일회성 일정이나 되풀이 일정을 정의할 수 있습니다. 다음 절차에서는 Classroom(강의실) 랩의 일정을 만들고 관리하는 단계를 제공합니다. 
@@ -27,7 +27,7 @@ ms.locfileid: "85445783"
 
 1. **일정** 페이지로 전환한 다음, 도구 모음에서 **예약된 이벤트 추가**를 선택합니다. 
 
-    ![일정 페이지의 일정 추가 단추](./media/how-to-create-schedules/add-schedule-button.png)
+    ![일정 추가 단추가 선택 된 상태에서 Azure Lab Services "일정" 페이지를 보여 주는 스크린샷](./media/how-to-create-schedules/add-schedule-button.png)
 2. **이벤트 유형**에 대해 **표준**이 선택되었는지 확인합니다. VM의 시작 시간만 지정하려면 **시작만**을 선택합니다. VM의 중지 시간만 지정하려면 **중지만**을 선택합니다. 
 7. **반복** 섹션에서 현재 일정을 선택합니다. 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure에서 StorSimple 디바이스 관리자 서비스 배포 | Microsoft Docs
-description: Azure Portal에서 StorSimple 디바이스 관리자 서비스를 만들고 삭제하는 방법 및 서비스 등록 키를 관리하는 방법에 대해 설명합니다.
+description: 서비스의 생성, 삭제, 마이그레이션 및 서비스 등록 키 관리에 필요한 단계에 대해 알아봅니다.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847104"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249555"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>StorSimple 8000 시리즈 디바이스에 StorSimple 디바이스 관리자 서비스 배포
 
@@ -156,7 +156,7 @@ Azure Resource Manager 기반 스크립트를 사용하여 이 단계를 수행�
 
 #### <a name="to-initiate-the-service-data-encryption-key-change"></a>서비스 데이터 암호화 키 변경을 시작하려면
 1. 옵션 1을 선택하여 모든 권한으로 로그온합니다.
-2. 명령 프롬프트에서 다음을 입력합니다.
+2. 명령 프롬프트에 다음을 입력합니다.
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
 3. cmdlet이 성공적으로 완료되면 새 서비스 데이터 암호화 키를 얻을 수 있습니다. 이 키를 복사하고 저장해 두었다가 이 프로세스의 3단계에서 사용합니다. 이 키는 StorSimple 관리자 서비스에 등록된 나머지 모든 디바이스를 업데이트하는 데 사용됩니다.
@@ -189,25 +189,25 @@ Azure Resource Manager 기반 스크립트를 사용하여 이 단계를 수행�
 ## <a name="supported-operations-on-devices-running-versions-prior-to-update-50"></a>업데이트 5.0 이전 버전을 실행하는 디바이스에서 지원되는 작업
 Azure Portal에서는 업데이트 5.0 이상을 실행하는 StorSimple 디바이스만이 지원됩니다. 이전 버전을 실행하는 디바이스에는 제한된 지원을 제공합니다. Azure Portal로 마이그레이션한 후 다음 테이블을 사용하여 업데이트 5.0 이전 버전을 실행하는 디바이스에서 지원되는 작업을 알아볼 수 있습니다.
 
-| 작업                                                                                                                       | 지원됨      |
+| 작업(Operation)                                                                                                                       | 지원됨      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
-| 디바이스 등록                                                                                                               | Yes            |
-| 일반, 네트워크 및 보안과 같은 디바이스 설정 구성                                                                | Yes            |
-| 업데이트 검사, 다운로드 및 설치                                                                                             | Yes            |
-| 디바이스 비활성화                                                                                                               | Yes            |
-| 디바이스 삭제                                                                                                                   | Yes            |
-| 볼륨 컨테이너 만들기, 수정 및 삭제                                                                                   | No             |
-| 볼륨 만들기, 수정 및 삭제                                                                                             | No             |
-| 백업 정책 만들기, 수정 및 삭제                                                                                      | No             |
-| 수동 백업 수행                                                                                                            | No             |
-| 예약된 백업 수행                                                                                                         | 적용할 수 없음 |
-| backupset에서 복원                                                                                                        | No             |
-| 업데이트 3.0 이상을 실행하는 디바이스에 복제 <br> 원본 디바이스는 업데이트 3.0 이전 버전을 실행하고 있습니다.                                | Yes            |
-| 업데이트 3.0 이전 버전을 실행하는 디바이스에 복제합니다.                                                                          | No             |
-| 원본 디바이스로 장애 조치 <br> (업데이트 3.0 이전 버전을 실행하는 디바이스에서 업데이트 3.0 이후 버전을 실행하는 디바이스로)                                                               | Yes            |
-| 대상 디바이스로 장애 조치(failover) <br> (업데이트 3.0 이전 소프트웨어 버전을 실행하는 디바이스로)                                                                                   | No             |
-| 경고 지우기                                                                                                                  | Yes            |
-| 클래식 포털에서 생성된 백업 정책, 백업 카탈로그, 볼륨, 볼륨 컨테이너, 모니터링 차트, 작업 및 경고 보기 | Yes            |
+| 디바이스 등록                                                                                                               | 예            |
+| 일반, 네트워크 및 보안과 같은 디바이스 설정 구성                                                                | 예            |
+| 업데이트 검사, 다운로드 및 설치                                                                                             | 예            |
+| 디바이스 비활성화                                                                                                               | 예            |
+| 디바이스 삭제                                                                                                                   | 예            |
+| 볼륨 컨테이너 만들기, 수정 및 삭제                                                                                   | 예             |
+| 볼륨 만들기, 수정 및 삭제                                                                                             | 예             |
+| 백업 정책 만들기, 수정 및 삭제                                                                                      | 예             |
+| 수동 백업 수행                                                                                                            | 예             |
+| 예약된 백업 수행                                                                                                         | 해당 없음 |
+| backupset에서 복원                                                                                                        | 예             |
+| 업데이트 3.0 이상을 실행하는 디바이스에 복제 <br> 원본 디바이스는 업데이트 3.0 이전 버전을 실행하고 있습니다.                                | 예            |
+| 업데이트 3.0 이전 버전을 실행하는 디바이스에 복제합니다.                                                                          | 예             |
+| 원본 디바이스로 장애 조치 <br> (업데이트 3.0 이전 버전을 실행하는 디바이스에서 업데이트 3.0 이후 버전을 실행하는 디바이스로)                                                               | 예            |
+| 대상 디바이스로 장애 조치(failover) <br> (업데이트 3.0 이전 소프트웨어 버전을 실행하는 디바이스로)                                                                                   | 예             |
+| 경고 지우기                                                                                                                  | 예            |
+| 클래식 포털에서 생성된 백업 정책, 백업 카탈로그, 볼륨, 볼륨 컨테이너, 모니터링 차트, 작업 및 경고 보기 | 예            |
 | 디바이스 컨트롤러 설정 및 해제                                                                                              | 예            |
 
 

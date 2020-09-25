@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: e8a64b3f42e52363f70d536963594bb6083a0992
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 03fa13e31724110e2b832cf490af325b8b570807
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548075"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312297"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 MediusFlow 구성
 
@@ -135,11 +135,11 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션에서 이전에 **테넌트 URL**에서 검색된 테넌트 URL 값을 입력합니다. **비밀 토큰**에 이전에 검색된 비밀 토큰 값을 입력합니다. **연결 테스트**를 클릭하여 Azure AD가 MediusFlow에 연결할 수 있는지 확인합니다. 연결이 실패하면 MediusFlow 계정에 관리자 권한이 있는지 확인한 후 다시 시도합니다.
 

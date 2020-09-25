@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 982aa4bdb37af53999e75b7e33db990adb057938
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 51d6920d9ab52b907f2cb51e29d85f82dc74d45b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250235"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>예: C에 Azure Cognitive Search에 대 한 동의어 추가 #
 
@@ -33,7 +33,7 @@ Azure Cognitive Search에서 동의어는 동일한 용어를 연결 하는 *매
 > [!NOTE]
 > 동의어는 프로그래밍 방식으로 만들 수 있지만 포털에서는 만들 수 없습니다. 동의어에 대한 Azure Portal 지원이 사용자에게 유용한 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 피드백을 제공해 주세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 자습서 요구 사항은 다음과 같습니다.
 
@@ -97,7 +97,7 @@ results = indexClient.Documents.Search<Hotel>("economy AND hotel", parameters);
 WriteDocuments(results);
 ```
 다음과 같이 첫 번째 `RunQueriesWithNonExistentTermsInIndex`에서 출력을 얻게 되므로 인덱싱된 두 개의 문서는 용어를 포함하지 않습니다.
-~~~
+```
 Search the entire index for the phrase "five star":
 
 no document matched
@@ -109,7 +109,7 @@ no document matched
 Search the entire index for the terms 'economy' AND 'hotel':
 
 no document matched
-~~~
+```
 
 ## <a name="enable-synonyms"></a>동의어 사용
 
@@ -148,7 +148,7 @@ no document matched
 
 동의어 맵이 업로드되고 인덱스가 동의어 맵을 사용하도록 업데이트된 후에 두 번째 `RunQueriesWithNonExistentTermsInIndex` 호출은 다음을 출력합니다.
 
-~~~
+```
 Search the entire index for the phrase "five star":
 
 Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concierge]
@@ -160,7 +160,7 @@ Name: Fancy Stay        Category: Luxury        Tags: [pool, view, wifi, concier
 Search the entire index for the terms 'economy' AND 'hotel':
 
 Name: Roach Motel       Category: Budget        Tags: [motel, budget]
-~~~
+```
 첫 번째 쿼리는 `five star=>luxury` 규칙에서 문서를 찾습니다. 두 번째 쿼리는 `internet,wifi`를 사용하여 검색을 확장하고 세 번째 쿼리는 일치하는 문서를 찾는 데 `hotel, motel` 및 `economy,inexpensive=>budget`을 모두 사용합니다.
 
 동의어를 추가하면 검색 환경이 완전히 변경됩니다. 이 예에서는 인덱스의 문서가 관련 된 경우에도 원래 쿼리에서 의미 있는 결과를 반환 하지 못했습니다. 동의어를 사용하여 인덱스의 기본 데이터를 변경하지 않고 일반적인 용도로 사용되는 용어를 포함하도록 인덱스를 확장할 수 있습니다.
