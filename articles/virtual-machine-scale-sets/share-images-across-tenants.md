@@ -1,6 +1,6 @@
 ---
-title: Azure에서 테 넌 트 간에 갤러리 이미지 공유
-description: 공유 이미지 갤러리를 사용 하 여 Azure 테 넌 트 간에 VM 이미지를 공유 하는 방법을 알아봅니다.
+title: 테 넌 트 간에 갤러리 이미지 공유
+description: 공유 이미지 갤러리를 사용 하 여 Azure 테 넌 트 간에 공유 되는 이미지를 사용 하 여 확장 집합을 만드는 방법에 대해 알아봅니다.
 author: cynthn
 ms.author: cynthn
 ms.topic: how-to
@@ -9,14 +9,14 @@ ms.subservice: imaging
 ms.date: 04/05/2019
 ms.reviewer: akjosh
 ms.custom: akjosh, devx-track-azurecli
-ms.openlocfilehash: 542dfbc28621e02cd2842fb174e986bfeb91e6ec
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ea61b3bd76fc4ada48a8a2fb734a841b8a969272
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501681"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323484"
 ---
-# <a name="share-gallery-vm-images-across-tenants-in-azure"></a>Azure에서 테 넌 트 간에 갤러리 VM 이미지 공유
+# <a name="share-images-across-tenants-with-shared-image-gallery"></a>공유 이미지 갤러리를 사용 하 여 테 넌 트 간에 이미지 공유
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -51,4 +51,4 @@ az vmss create \
 
 ## <a name="next-steps"></a>다음 단계
 
-문제 발생 시에는 [공유 이미지 갤러리 문제 해결](troubleshooting-shared-images.md)을 수행할 수 있습니다.
+문제 발생 시에는 [공유 이미지 갤러리 문제 해결](../virtual-machines/troubleshooting-shared-images.md)을 수행할 수 있습니다.

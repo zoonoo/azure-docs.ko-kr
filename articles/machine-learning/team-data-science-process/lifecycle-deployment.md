@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1138c95274c769186a9a29aa4d35517e378baeae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe5eba72b507ebea6bc1012c567de70bc3deb5ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720489"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261348"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 배포 단계
 
 이 문서에서는 TDSP(팀 데이터 과학 프로세스)의 배포 단계와 관련된 목표, 작업 및 결과물을 설명합니다. 이 프로세스는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다. 수명 주기는 일반적으로 프로젝트에서 반복적으로 자주 실행하는 주요 단계를 설명합니다.
 
    1. **비즈니스 이해**
-   2. **데이터 취득 및 이해**
+   2. **데이터 획득 및 이해**
    3. **모델링**
    4. **배포**
    5. **고객 승인**
@@ -33,7 +33,7 @@ ms.locfileid: "76720489"
 ![TDSP 수명 주기](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-## <a name="goal"></a>Goal
+## <a name="goal"></a>목표
 데이터 파이프라인이 포함된 모델을 최종 사용자 승인을 위해 프로덕션 또는 이와 유사한 환경에 배포합니다. 
 
 ## <a name="how-to-do-it"></a>작업 방법
@@ -50,7 +50,7 @@ ms.locfileid: "76720489"
    * 기간 업무 애플리케이션 
    * 백 엔드 애플리케이션 
 
-Azure Machine Learning 웹 서비스를 사용하는 모델 운영의 예는 [Azure Machine Learning 웹 서비스 배포](../studio/deploy-a-machine-learning-web-service.md)를 참조하세요. 프로덕션 모델 및 배포되는 데이터 파이프라인에 원격 분석 및 모니터링을 구현하는 것이 좋습니다. 이 연습은 후속 시스템 상태 보고 및 문제 해결에 도움이 됩니다.  
+Azure Machine Learning 웹 서비스를 사용하는 모델 운영의 예는 [Azure Machine Learning 웹 서비스 배포](../classic/deploy-a-machine-learning-web-service.md)를 참조하세요. 프로덕션 모델 및 배포되는 데이터 파이프라인에 원격 분석 및 모니터링을 구현하는 것이 좋습니다. 이 연습은 후속 시스템 상태 보고 및 문제 해결에 도움이 됩니다.  
 
 ## <a name="artifacts"></a>Artifacts
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 81480bea735017d3fc59e9c6cf126c2146a0c968
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323728"
 ---
 # <a name="system-requirements"></a>시스템 요구 사항
 
@@ -63,6 +63,17 @@ Azure 원격 렌더링은 현재 **HoloLens 2** 및 Windows 데스크톱을 대�
 [네트워크 요구 사항](../reference/network-requirements.md)에 대 한 전용 장을 참조 하세요.
 
 네트워크 문제 해결에 대 한 자세한 내용은 [문제 해결 가이드](../resources/troubleshoot.md#unstable-holograms)를 참조 하세요.
+
+### <a name="network-ports"></a>네트워크 포트
+
+디바이스의 방화벽, 라우터 내부의 방화벽 등 방화벽이 다음 포트를 차단하지 않는지 확인합니다.
+
+| 포트              | 프로토콜 | 허용    | Description |
+|-------------------|----------|----------|-------------|
+| 50051             | TCP      | 나가는 포트 | 초기 연결 (HTTP 핸드셰이크) |
+| 8266              | UDP      | 나가는 포트 | 데이터 전송 |
+| 5000, 5433, 8443  | TCP      | 나가는 포트 | [Arrinspector 도구](../resources/tools/arr-inspector.md) 에 필요 합니다.|
+
 
 ## <a name="software"></a>소프트웨어
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ac440db4c1dbddd317743e2d681a62251624d9bd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cc7ca9d217e405b0b39779cf256edcf0669afd6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898128"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302437"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Python SDK를 사용 하 여 모델 학습 및 배포를 위한 계산 대상 만들기
 
@@ -81,7 +81,7 @@ Azure Machine Learning에는 다양한 컴퓨팅 대상에 대한 다양한 지�
 
 로컬 컴퓨터를 **학습**에 사용 하는 경우 계산 대상을 만들 필요가 없습니다.  로컬 컴퓨터에서 [학습 실행을 제출](how-to-set-up-training-targets.md) 하면 됩니다.
 
-**유추**를 위해 로컬 컴퓨터를 사용 하는 경우 Docker가 설치 되어 있어야 합니다. 배포를 수행 하려면 [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) 를 사용 하 여 웹 서비스에서 사용할 포트를 정의 합니다. 그런 다음 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)에 설명 된 대로 일반적인 배포 프로세스를 사용 합니다.
+**유추**를 위해 로컬 컴퓨터를 사용 하는 경우 Docker가 설치 되어 있어야 합니다. 배포를 수행 하려면 [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-port-none-) 를 사용 하 여 웹 서비스에서 사용할 포트를 정의 합니다. 그런 다음 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md)에 설명 된 대로 일반적인 배포 프로세스를 사용 합니다.
 
 ## <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Azure Machine Learning 계산 클러스터
 
@@ -105,8 +105,7 @@ Azure Machine Learning 컴퓨팅은 실행 전반에서 다시 사용할 수 있
     
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-   Azure Machine Learning 컴퓨팅을 만들 때 여러 고급 속성을 구성할 수도 있습니다. 속성을 사용하면 고정 크기로 또는 구독의 기존 Azure Virtual Network 내에서 영구적 클러스터를 만들 수 있습니다.  자세한 내용은 [AmlCompute 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
-    )를 참조하세요.
+   Azure Machine Learning 컴퓨팅을 만들 때 여러 고급 속성을 구성할 수도 있습니다. 속성을 사용하면 고정 크기로 또는 구독의 기존 Azure Virtual Network 내에서 영구적 클러스터를 만들 수 있습니다.  자세한 내용은 [AmlCompute 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true)를 참조하세요.
 
     또는 [Azure Machine Learning 스튜디오](how-to-create-attach-compute-studio.md#portal-create)에서 영구적 Azure Machine Learning 컴퓨팅 리소스를 만들고 연결할 수 있습니다.
 
@@ -276,8 +275,25 @@ Azure Machine Learning은 자신만의 컴퓨팅 리소스를 가져와서 작�
 
 1. **구성**: DSVM 컴퓨팅 대상에 대한 실행 구성을 만듭니다. Docker 및 conda는 DSVM에서 학습 환경을 만들고 구성하는 데 사용됩니다.
 
-   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
-
+   ```python
+   from azureml.core import ScriptRunConfig
+   from azureml.core.environment import Environment
+   from azureml.core.conda_dependencies import CondaDependencies
+   
+   # Create environment
+   myenv = Environment(name="myenv")
+   
+   # Specify the conda dependencies
+   myenv.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+   
+   # If no base image is explicitly specified the default CPU image "azureml.core.runconfig.DEFAULT_CPU_IMAGE" will be used
+   # To use GPU in DSVM, you should specify the default GPU base Docker image or another GPU-enabled image:
+   # myenv.docker.enabled = True
+   # myenv.docker.base_image = azureml.core.runconfig.DEFAULT_GPU_IMAGE
+   
+   # Configure the run configuration with the Linux DSVM as the compute target and the environment defined above
+   src = ScriptRunConfig(source_directory=".", script="train.py", compute_target=compute, environment=myenv) 
+   ```
 
 컴퓨팅 대상을 연결하고 실행을 구성했으면 다음 단계로 [학습 실행을 제출](how-to-set-up-training-targets.md)합니다.
 
@@ -494,7 +510,7 @@ except ComputeTargetException:
 
 ## <a name="next-steps"></a>다음 단계
 
-* 계산 리소스를 사용 하 여 [학습 실행을 제출](how-to-set-up-training-targets.md)합니다.
+* 계산 리소스를 사용 하 여 [학습 실행을 구성 하 고 제출](how-to-set-up-training-targets.md)합니다.
 * [자습서: 모델 학습](tutorial-train-models-with-aml.md)은 모델 학습에 관리되는 컴퓨팅 대상을 사용합니다.
 * [하이퍼 매개 변수를 효율적으로 튜닝](how-to-tune-hyperparameters.md)하여 보다 나은 모델을 빌드하는 방법을 알아봅니다.
 * 모델을 학습했으면 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 알아봅니다.

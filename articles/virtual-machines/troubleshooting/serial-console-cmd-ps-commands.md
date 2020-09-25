@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 571df9c07e71682e2be51a73e3837c79cb074c3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ef533b3566ac557b57f1435a2a9b2dbe26896993
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028467"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306891"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows 명령 - CMD 및 PowerShell
 
@@ -34,7 +34,7 @@ SAC는 스크롤 백 기능이 없는 80x24 화면 버퍼로 제한되므로 명
 
 SAC의 제한된 화면 버퍼 때문에 더 긴 명령은 로컬 텍스트 편집기에 입력한 다음, SAC에 붙여넣기가 더 쉬울 수 있습니다.
 
-## <a name="view-and-edit-windows-registry-settings"></a>Windows 레지스트리 설정 보기 및 편집
+## <a name="view-and-edit-windows-registry-settings-using-cmd"></a>CMD를 사용 하 여 Windows 레지스트리 설정 보기 및 편집
 ### <a name="verify-rdp-is-enabled"></a>RDP를 사용하도록 설정했는지 확인
 `reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections`
 
@@ -49,7 +49,7 @@ SAC의 제한된 화면 버퍼 때문에 더 긴 명령은 로컬 텍스트 편�
 
 관련 그룹 정책 설정이 구성된 경우 두 번째 키(under\Policies)만 필요하게 됩니다. 값이 그룹 정책에서 구성된 경우 다음 그룹 정책 새로 고침에서 다시 쓰여집니다.
 
-## <a name="manage-windows-services"></a>Windows 서비스 관리
+## <a name="manage-windows-services-using-cmd"></a>CMD를 사용 하 여 Windows 서비스 관리
 
 ### <a name="view-service-state"></a>서비스 상태 보기
 `sc query termservice`
@@ -79,7 +79,7 @@ SAC의 제한된 화면 버퍼 때문에 더 긴 명령은 로컬 텍스트 편�
 또는
 
 `sc stop termservice`
-## <a name="manage-networking-features"></a>네트워킹 기능 관리
+## <a name="manage-networking-features-using-cmd"></a>CMD를 사용 하 여 네트워킹 기능 관리
 ### <a name="show-nic-properties"></a>NIC 속성 표시
 `netsh interface show interface`
 ### <a name="show-ip-properties"></a>IP 속성 표시
@@ -120,7 +120,7 @@ Azure VM은 IP 주소를 얻는 데 DHCP를 사용하려면 항상 게스트 운
 Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 명령을 사용할 수 있습니다. 다음에 다시 시작할 때 사용 하도록 설정 하거나, 아래 명령을 사용 하 여 사용 하도록 설정 합니다. Windows 방화벽을 제외하기 위한 방법으로 Windows 방화벽 서비스(MPSSVC) 또는 기본 필터링 엔진(BFE) 서비스를 중지하지 마십시오. MPSSVC 또는 BFE 중지하면 모든 연결이 차단되게 됩니다.
 ### <a name="enable-windows-firewall"></a>Windows 방화벽 사용
 `netsh advfirewall set allprofiles state on`
-## <a name="manage-users-and-groups"></a>사용자 및 그룹 관리
+## <a name="manage-users-and-groups-using-cmd"></a>CMD를 사용 하 여 사용자 및 그룹 관리
 ### <a name="create-local-user-account"></a>로컬 사용자 계정 만들기
 `net user /add <username> <password>`
 ### <a name="add-local-user-to-local-group"></a>로컬 그룹에 로컬 사용자 추가
@@ -150,7 +150,7 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 
 ### <a name="view-local-groups"></a>로컬 그룹 보기
 `net localgroup`
-## <a name="manage-the-windows-event-log"></a>Windows 이벤트 로그 관리
+## <a name="manage-the-windows-event-log-using-cmd"></a>CMD를 사용 하 여 Windows 이벤트 로그 관리
 ### <a name="query-event-log-errors"></a>이벤트 로그 오류 쿼리
 `wevtutil qe system /c:10 /f:text /q:"Event[System[Level=2]]" | more`
 
@@ -165,7 +165,7 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 `604800000`을 사용하여 24시간 대신 7일을 되돌아봅니다.
 ### <a name="query-event-log-by-event-id-provider-and-eventdata-in-the-last-7-days"></a>지난 7 일 이내 이벤트 ID, 공급자 및 EventData로 이벤트 로그 쿼리
 `wevtutil qe security /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## <a name="view-or-remove-installed-applications"></a>설치된 애플리케이션 보기 또는 제거
+## <a name="view-or-remove-installed-applications-using-cmd"></a>CMD를 사용 하 여 설치 된 응용 프로그램 보기 또는 제거
 ### <a name="list-installed-applications"></a>설치된 애플리케이션 나열
 `wmic product get Name,InstallDate | sort /r | more`
 
@@ -175,7 +175,7 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 
 제거하려는 애플리케이션에 대해 위의 명령에서 반환된 이름으로 `<name>`을 대체합니다.
 
-## <a name="file-system-management"></a>파일 시스템 관리
+## <a name="file-system-management-using-cmd"></a>CMD를 사용 하 여 파일 시스템 관리
 ### <a name="get-file-version"></a>파일 버전 가져오기
 `wmic datafile where "drive='C:' and path='\\windows\\system32\\drivers\\' and filename like 'netvsc%'" get version /format:list`
 
@@ -206,7 +206,7 @@ Windows 방화벽을 일시적으로 제외하는 문제를 해결하려면 이 
 ## <a name="manage-group-policy"></a>그룹 정책 관리
 ### <a name="force-group-policy-update"></a>그룹 정책 업데이트 강제
 `gpupdate /force /wait:-1`
-## <a name="miscellaneous-tasks"></a>기타 작업
+## <a name="miscellaneous-tasks-using-cmd"></a>CMD를 사용 하는 기타 작업
 ### <a name="show-os-version"></a>OS 버전 표시
 `ver`
 
@@ -259,7 +259,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 
 `remove-module psreadline`
 
-## <a name="view-and-edit-windows-registry-settings"></a>Windows 레지스트리 설정 보기 및 편집
+## <a name="view-and-edit-windows-registry-settings-using-powershell"></a>PowerShell을 사용 하 여 Windows 레지스트리 설정 보기 및 편집
 ### <a name="verify-rdp-is-enabled"></a>RDP를 사용하도록 설정했는지 확인
 `get-itemproperty -path 'hklm:\system\curRentcontrolset\control\terminal server' -name 'fdenytsconNections'`
 
@@ -272,7 +272,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 `set-itemproperty -path 'hklm:\software\policies\microsoft\windows nt\terminal services' -name 'fdenytsconNections' 0 -type dword`
 
 관련 그룹 정책 설정이 구성된 경우 두 번째 키(under\Policies)만 필요하게 됩니다. 값이 그룹 정책에서 구성된 경우 다음 그룹 정책 새로 고침에서 다시 쓰여집니다.
-## <a name="manage-windows-services"></a>Windows 서비스 관리
+## <a name="manage-windows-services-using-powershell"></a>PowerShell을 사용 하 여 Windows 서비스 관리
 ### <a name="view-service-details"></a>서비스 정보 보기
 `get-wmiobject win32_service -filter "name='termservice'" |  format-list Name,DisplayName,State,StartMode,StartName,PathName,ServiceType,Status,ExitCode,ServiceSpecificExitCode,ProcessId`
 
@@ -291,7 +291,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 `start-service termservice`
 ### <a name="stop-service"></a>서비스 중지
 `stop-service termservice`
-## <a name="manage-networking-features"></a>네트워킹 기능 관리
+## <a name="manage-networking-features-using-powershell"></a>PowerShell을 사용 하 여 네트워킹 기능 관리
 ### <a name="show-nic-properties"></a>NIC 속성 표시
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} |  format-list status,name,ifdesc,macadDresS,driverversion,MediaConNectState,MediaDuplexState`
 
@@ -357,7 +357,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 `Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False`
 
 `Set-NetFirewallProfile`은 2012 이상에서 사용할 수 있습니다. 2008R2에 대해서는 위의 CMD 섹션에서 참조한 대로 `netsh advfirewall`을 사용합니다.
-## <a name="manage-users-and-groups"></a>사용자 및 그룹 관리
+## <a name="manage-users-and-groups-using-powershell"></a>PowerShell을 사용 하 여 사용자 및 그룹 관리
 ### <a name="create-local-user-account"></a>로컬 사용자 계정 만들기
 `new-localuser <name>`
 ### <a name="verify-user-account-is-enabled"></a>사용자 계정이 사용하도록 설정되어 있는지 확인
@@ -386,7 +386,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 `(get-localgroup).name | sort` `(get-wmiobject win32_group).Name | sort`
 
 `Get-LocalUser`은 2012 이상에서 사용할 수 있습니다. 2008R2에 대해서는 `Get-WmiObject`을 사용합니다.
-## <a name="manage-the-windows-event-log"></a>Windows 이벤트 로그 관리
+## <a name="manage-the-windows-event-log-using-powershell"></a>PowerShell을 사용 하 여 Windows 이벤트 로그 관리
 ### <a name="query-event-log-errors"></a>이벤트 로그 오류 쿼리
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Level=2]]" | more`
 
@@ -401,12 +401,12 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 `604800000`을 사용하여 24시간 대신 7일을 되돌아봅니다. |
 ### <a name="query-event-log-by-event-id-provider-and-eventdata-in-the-last-7-days"></a>지난 7 일 이내 이벤트 ID, 공급자 및 EventData로 이벤트 로그 쿼리
 `get-winevent -logname system -maxevents 1 -filterxpath "*[System[Provider[@Name='Microsoft-Windows-Security-Auditing'] and EventID=4624 and TimeCreated[timediff(@SystemTime) <= 604800000]] and EventData[Data[@Name='TargetUserName']='<username>']]" | more`
-## <a name="view-or-remove-installed-applications"></a>설치된 애플리케이션 보기 또는 제거
+## <a name="view-or-remove-installed-applications-using-powershell"></a>PowerShell을 사용 하 여 설치 된 응용 프로그램 보기 또는 제거
 ### <a name="list-installed-software"></a>설치된 소프트웨어 나열하기
 `get-wmiobject win32_product | select installdate,name | sort installdate -descending | more`
 ### <a name="uninstall-software"></a>소프트웨어 제거
 `(get-wmiobject win32_product -filter "Name='<name>'").Uninstall()`
-## <a name="file-system-management"></a>파일 시스템 관리
+## <a name="file-system-management-using-powershell"></a>PowerShell을 사용 하 여 파일 시스템 관리
 ### <a name="get-file-version"></a>파일 버전 가져오기
 `(get-childitem $env:windir\system32\drivers\netvsc*.sys).VersionInfo.FileVersion`
 
@@ -415,7 +415,7 @@ SAC에서 PowerShell을 실행하려면 CMD 프롬프트가 표시된 후 다음
 `$path='c:\bin';md $path;cd $path;(new-object net.webclient).downloadfile( ('htTp:/'+'/download.sysinternals.com/files/SysinternalsSuite.zip'),"$path\SysinternalsSuite.zip");(new-object -com shelL.apPlication).namespace($path).CopyHere( (new-object -com shelL.apPlication).namespace("$path\SysinternalsSuite.zip").Items(),16)`
 
 이 예제에서는 `c:\bin` 폴더를 만든 다음, Sysinternals 도구 모음을 `c:\bin`로 다운로드하고 추출합니다.
-## <a name="miscellaneous-tasks"></a>기타 작업
+## <a name="miscellaneous-tasks-using-powershell"></a>PowerShell을 사용 하는 기타 작업
 ### <a name="show-os-version"></a>OS 버전 표시
 `get-wmiobject win32_operatingsystem | format-list caption,version,buildnumber`
 ### <a name="view-os-install-date"></a>OS 설치 날짜 보기

@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: c0aac897d85cd96d537238bc81cbc89d3626a07c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: 21d0587b951d909f0091eccf9a7f86a484bc5051
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324045"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>시뮬레이트된 새 디바이스 만들기 및 테스트
 
@@ -33,7 +33,7 @@ ms.locfileid: "87422762"
 
 | Name                     | 값                      |
 | ------------------------ | --------------------------- |
-| 색                    | 흰색, 빨강, 파랑            |
+| 색상                    | 흰색, 빨강, 파랑            |
 | 밝기               | 0~100                    |
 | 남은 예상 수명 | 10,000시간에서 카운트다운 |
 
@@ -65,7 +65,7 @@ ms.locfileid: "87422762"
 
 | Name                     | 값 |
 | ------------------------ | -------|
-| 초기 색상            | 백인  |
+| 초기 색상            | 흰색  |
 | 초기 밝기       | 75     |
 | 초기 남은 수명   | 10000 |
 | 초기 원격 분석 상태 | "켜짐"   |
@@ -77,7 +77,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 

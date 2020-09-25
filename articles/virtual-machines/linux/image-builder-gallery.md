@@ -1,6 +1,6 @@
 ---
 title: Linux Vm에 대 한 Azure 이미지 빌더 & 공유 이미지 갤러리 사용 (미리 보기)
-description: Azure Image Builder 및 Shared Image Gallery를 사용하여 Linux VM 이미지를 만듭니다.
+description: Azure 이미지 작성기와 Azure CLI를 사용 하 여 공유 이미지 갤러리에서 이미지 버전을 만든 다음 전체적으로 이미지를 배포 하는 방법을 알아봅니다.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2019
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 1eeb8df2605bbe63fe72c5bd451b43111322a7f6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bab5a86cdf8e3fa6b17866fe4088b28ed3ece6f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500915"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307299"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Linux 이미지를 만들어 Shared Image Gallery에 배포 
 

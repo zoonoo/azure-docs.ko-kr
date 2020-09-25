@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 9/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 870863cc0b1a98aa0efe671da4a8f6a5bb7f53aa
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 0ddb9998c1e1b9b70303aeb4608bc0b53bc103ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708107"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325490"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -35,16 +35,18 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  NetApp 계정 당 용량 풀 수   |    25     |   예   |
 |  구독 당 볼륨 수   |    500     |   예   |
 |  용량 풀 당 볼륨 수     |    500   |    예     |
-|  볼륨당 스냅숏 수       |    255     |    아니요        |
-|  Azure Virtual Network Azure NetApp Files (Microsoft NetApp/볼륨)에 위임 된 서브넷 수    |   1   |    아니요    |
-|  Azure NetApp Files 사용 하는 VNet에서 사용 된 Ip 수 (즉시 피어 링 Vnet 포함)   |    1000   |    아니요   |
-|  단일 용량 풀의 최소 크기   |  4TiB     |    아니요  |
-|  단일 용량 풀의 최대 크기    |  500TiB   |   아니요   |
-|  단일 볼륨의 최소 크기    |    100GiB    |    아니요    |
-|  단일 볼륨의 최대 크기     |    100TiB    |    아니요    |
-|  단일 파일의 최대 크기     |    16TiB    |    아니요    |    
-|  단일 디렉터리에서 디렉터리 메타 데이터의 최대 크기      |    320 M B    |    아니요    |    
-|  볼륨당 최대 파일 수 ([maxfiles](#maxfiles))     |    1억    |    예    |   
+|  볼륨당 스냅숏 수       |    255     |    예        |
+|  Azure Virtual Network Azure NetApp Files (Microsoft NetApp/볼륨)에 위임 된 서브넷 수    |   1   |    예    |
+|  Azure NetApp Files 사용 하는 VNet에서 사용 된 Ip 수 (즉시 피어 링 Vnet 포함)   |    1000   |    예   |
+|  단일 용량 풀의 최소 크기   |  4TiB     |    예  |
+|  단일 용량 풀의 최대 크기    |  500TiB   |   예   |
+|  단일 볼륨의 최소 크기    |    100GiB    |    예    |
+|  단일 볼륨의 최대 크기     |    100TiB    |    예    |
+|  단일 파일의 최대 크기     |    16TiB    |    예    |    
+|  단일 디렉터리에서 디렉터리 메타 데이터의 최대 크기      |    320 M B    |    예    |    
+|  볼륨당 최대 파일 수 ([maxfiles](#maxfiles))     |    1억    |    예    |    
+|  수동 QoS 볼륨에 할당 된 최소 처리량     |    1 MiB/s   |    예    |    
+|  수동 QoS 볼륨에 대해 할당 된 최대 처리량     |    4500 MiB/s    |    예    |    
 |  지역 간 복제 데이터 보호 볼륨 (대상 볼륨) 수     |    5    |    예    |     
 
 자세한 내용은 [용량 관리 faq](azure-netapp-files-faqs.md#capacity-management-faqs)를 참조 하세요.

@@ -3,13 +3,13 @@ title: Azure Monitor와 통합 하는 파트너
 description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서에 액세스하는 방법을 살펴봅니다.
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: dbac5f28723b712788df61eda34a0db61b9c5652
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/21/2020
+ms.openlocfilehash: a99d391b34ff1ad783ba4cb7b746760835bd3f43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526479"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278807"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -74,11 +74,19 @@ CloudMonix는 Microsoft Azure 플랫폼을 위한 모니터링, 자동화 및 �
 
 ![DataDog 로고](./media/partners/datadog.png)
 
-Datadog는 클라우드 규모 응용 프로그램을 위한 세계 최고의 모니터링 서비스입니다. 서버, 데이터베이스, 도구 및 서비스의 데이터를 하나로 모아 전체 스택에 대한 통합 보기를 제시합니다. 이러한 기능은 SaaS 기반 데이터 분석 플랫폼에서 제공됩니다. 이 서비스를 통해 개발 및 운영 팀이 협업하여 중단 시간을 방지하고, 성능 문제를 해결하며, 개발 및 개발 주기가 제 때에 끝날 수 있게 할 수 있습니다. Datadog 및 Azure를 통합하면 전체 인프라에서 메트릭을 수집하고 볼 수 있습니다. VM 메트릭과 애플리케이션 수준 메트릭의 상관 관계를 지정합니다. 속성 및 사용자 지정 태그의 조합을 통해 메트릭을 분리 및 분할합니다.
+Azure를 통해 고객은 다양 한 파트너 솔루션과 조정 하 여 클라우드에서 응용 프로그램을 마이그레이션하고 현대화 수 있습니다. 이러한 파트너 중 하나는 하이브리드 및 다중 클라우드 환경에서 응용 프로그램의 상태와 성능을 이해 하는 사용자를 위한 관찰성 및 보안 도구를 제공 하는 Datadog입니다.  그러나 필요한 통합을 구성 하려면 Azure Portal와 Datadog 사이를 이동 해야 하는 경우가 많습니다.  이렇게 하면 복잡성이 증가 하 고 시간이 걸리며 작업 하지 않는 경우 문제를 해결 하기가 어려워집니다.  여러 포털에서 관리 하는 부담을 줄이기 위해 Microsoft는 Datadog와 협력 하 여 Azure 클라우드 플랫폼에서 통합 Datadog 솔루션을 만들었습니다.  Azure Marketplace를 통해 제공 되는이 솔루션은 Azure에서 Datadog의 클라우드 모니터링 솔루션을 사용 하기 위한 원활한 환경을 제공 합니다.  
 
-[설명서로 이동합니다.][datadog-doc]
+이제 새로운 Azure Datadog 통합을 통해 조직에서 기존 및 클라우드 기반 시스템을 완벽 하 게 매핑하고, 클라우드 전환의 모든 단계에서 실시간 데이터를 모니터링 하 고, 마이그레이션된 응용 프로그램이 성능 목표를 충족 하는지 확인할 수 있습니다. 이러한 통합은 Azure의 글로벌 현재 상태, 유연성, 보안 및 규정 준수를 Datadog의 로깅 및 모니터링 기능과 통합 하 여 엔터프라이즈에 대 한 최상의 환경을 만듭니다. 이 통합 환경을 통해 다음을 수행할 수 있습니다. 
 
-Datadog의 새로운 Azure marketplace 통합은 2020 년 10 월에 출시 예정입니다. 릴리스 시 여기에 링크가 추가 됩니다. 
+- 새 Datadog 조직을 프로 비전 하 고 Azure 리소스를 구성 하 여 Datadog에 대 한 인프라 없이 완전히 관리 되는 설치 프로그램을 설정 하 고 작동할 수 있습니다.  
+- 로그 및 메트릭을 Datadog로 원활 하 게 보냅니다. 로그 전달 프로세스가 완전히 자동화 되었습니다. 진단 설정, Event Hubs 및 함수를 사용 하 여 로그 전달 파이프라인을 작성 하는 대신 몇 번의 클릭 만으로 모든 항목을 구성할 수 있습니다.
+-   한 번의 클릭으로 VM 호스트에 Datadog 에이전트를 쉽게 설치 합니다.
+-   Datadog에 대 한 SSO (single sign-on)를 간소화 합니다. Datadog 포털에서 별도의 로그온은 더 이상 필요 하지 않습니다. 
+-   Azure 구독 청구를 통해 Datadog 서비스에 대 한 통합 요금 청구를 받으세요.
+
+Azure와의 새 Datadog 통합에 대 한 [공개 미리 보기](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4z3T2aGXUZPslUNJ3YpcapURFBHSUJIMVJTWDM5VUFPMVkyTVhMVlYzMS4u) 에 등록 합니다.  공개 미리 보기는 2020 년 10 월부터 사용할 Azure Marketplace 수 있습니다.
+
+수동으로 구성 된 이전 통합을 계속 사용 하는 경우 [DataDog 웹 사이트의 설명서][datadog-doc] 를 참조 하세요.
 
 ## <a name="dynatrace"></a>Dynatrace
 

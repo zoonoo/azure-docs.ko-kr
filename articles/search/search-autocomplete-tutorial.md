@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 8be53838f6262eaafc643bc78fd08b6f02d9bac6
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: bf5ebafa1b1ad9e2cfabcfc3d474392ecdbc98e6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660266"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268284"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>클라이언트 앱에 자동 완성 및 제안 추가
 
@@ -67,7 +67,7 @@ REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
 
 제안 사항을 위해 중복을 방지 하기 위해 응답을 구체화 하거나 관련 되지 않은 결과를 표시 하는 것이 좋습니다. 결과를 제어 하려면 요청에 추가 매개 변수를 포함 합니다. 다음 매개 변수는 자동 완성 및 제안에 모두 적용 되지만 특히 확인 기에 여러 필드가 포함 된 경우 제안에 더 필요할 수 있습니다.
 
-| 매개 변수 | 사용량 |
+| 매개 변수 | 사용 |
 |-----------|-------|
 | **$select** | 확인 기에 여러 **sourcefields** 가 있는 경우 **$select** 를 사용 하 여 값을 제공 하는 필드를 선택 `$select=GameTitle` 합니다 (). |
 | **searchFields** | 특정 필드에 대 한 쿼리를 제한 합니다. |

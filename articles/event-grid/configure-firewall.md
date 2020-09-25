@@ -3,12 +3,12 @@ title: Azure Event Grid 토픽 또는 도메인에 대 한 IP 방화벽 구성
 description: 이 문서에서는 Event Grid 토픽 또는 도메인에 대 한 방화벽 설정을 구성 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: df6098df4817ee6c47378704c25d07433d6b9480
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509421"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324164"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Azure Event Grid 토픽 또는 도메인에 대 한 IP 방화벽 구성 
 기본적으로 요청에 유효한 인증 및 권한 부여가 제공 되는 한, 항목 및 도메인은 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다. 다른 IP 주소에서 시작 된 게시자는 거부 되며 403 (사용할 수 없음) 응답을 받게 됩니다. Event Grid에서 지 원하는 네트워크 보안 기능에 대 한 자세한 내용은 [Event Grid 네트워크 보안](network-security.md)을 참조 하세요.
@@ -23,7 +23,7 @@ ms.locfileid: "88509421"
 
     IP 기반 방화벽 규칙을 사용 하 여 트래픽을 제한할 수 있습니다. 클래스 없는 CIDR (도메인 간 라우팅) 표기법에서 단일 IPv4 주소 또는 IP 주소의 범위를 지정 합니다. 
 
-    ![공용 네트워크 페이지](./media/configure-firewall/public-networks-page.png)
+    !["공용 네트워크"가 선택 된 "공용 네트워크 액세스" 페이지를 보여 주는 스크린샷](./media/configure-firewall/public-networks-page.png)
 3. 개인 끝점 연결만이 리소스에 액세스할 수 있도록 하려면 **전용 끝점을 선택 합니다** . 이 페이지의 **개인 끝점 연결** 탭을 사용 하 여 연결을 관리할 수 있습니다. 
 
     ![공용 네트워크 페이지](./media/configure-firewall/private-endpoints-page.png)

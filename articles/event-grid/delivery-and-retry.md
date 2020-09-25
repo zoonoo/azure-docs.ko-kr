@@ -3,12 +3,12 @@ title: Azure Event Grid 배달 및 다시 시도
 description: Azure Event Grid에서 이벤트를 배달하는 방법 및 배달되지 않은 메시지를 처리하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fe7574d7e17b1763afb2292c15007dd87b056ef1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324096"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도
 
@@ -91,9 +91,149 @@ Event Grid가 모든 재시도 시도 횟수를 시도한 경우 이벤트를 �
 
 배달 못한 편지 위치를 설정하기 전에 컨테이너를 포함하는 스토리지 계정이 있어야 합니다. 이벤트 구독을 만들 때 이 컨테이너에 대한 엔드포인트를 제공합니다. 엔드포인트는 다음과 같은 형식입니다. `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-이벤트가 배달 못한 편지 위치로 전송된 경우 알림을 받을 수 있습니다. Event Grid를 사용하여 전송되지 않은 이벤트에 응답하려면 배달 못한 편지 Blob Storage에 대한 [이벤트 구독을 만듭니다](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 배달 못한 편지 Blob Storage가 전송되지 않은 이벤트를 수신할 때마다 Event Grid에서 처리기에 알립니다. 처리기는 전송되지 않은 이벤트를 조정하기 위해 수행할 작업으로 응답합니다.
+이벤트가 배달 못한 편지 위치로 전송된 경우 알림을 받을 수 있습니다. Event Grid를 사용하여 전송되지 않은 이벤트에 응답하려면 배달 못한 편지 Blob Storage에 대한 [이벤트 구독을 만듭니다](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 배달 못한 편지 Blob Storage가 전송되지 않은 이벤트를 수신할 때마다 Event Grid에서 처리기에 알립니다. 처리기는 전송되지 않은 이벤트를 조정하기 위해 수행할 작업으로 응답합니다. 배달 못한 편지 위치를 설정 하 고 정책을 다시 시도 하는 예는 [배달 못한 편지 및 재시도 정책](manage-event-delivery.md)을 참조 하세요.
 
-배달 못한 편지 위치를 설정하는 예제는 [배달 못한 편지 및 재시도 정책](manage-event-delivery.md)을 참조하세요.
+## <a name="delivery-event-formats"></a>배달 이벤트 형식
+이 섹션에서는 다양 한 배달 스키마 형식 (Event Grid 스키마, CloudEvents 1.0 스키마 및 사용자 지정 스키마)의 이벤트 및 배달 못 한 이벤트 예제를 제공 합니다. 이러한 형식에 대 한 자세한 내용은 [Event Grid 스키마](event-schema.md) 및 [클라우드 이벤트 1.0 스키마](cloud-event-schema.md) 문서를 참조 하세요. 
+
+### <a name="event-grid-schema"></a>Event Grid 스키마
+
+#### <a name="event"></a>이벤트 
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/000000000-0000-0000-0000-00000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>배달 못한 편지 이벤트
+
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    },
+
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T17:18:14.0265758Z",
+    "lastDeliveryAttemptTime": "2020-08-13T17:18:14.0465788Z" 
+}
+```
+
+### <a name="cloudevents-10-schema"></a>CloudEvents 1.0 스키마
+
+#### <a name="event"></a>이벤트
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>배달 못한 편지 이벤트
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    },
+
+    "deadletterreason": "MaxDeliveryAttemptsExceeded",
+    "deliveryattempts": 1,
+    "lastdeliveryoutcome": "NotFound",
+    "publishtime": "2020-08-13T21:21:36.4018726Z",
+}
+```
+
+### <a name="custom-schema"></a>사용자 지정 스키마
+
+#### <a name="event"></a>이벤트
+
+```json
+{
+    "prop1": "my property",
+    "prop2": 5,
+    "myEventType": "fooEventType"
+}
+
+```
+
+#### <a name="dead-letter-event"></a>배달 못한 편지 이벤트
+```json
+{
+    "id": "8bc07e6f-0885-4729-90e4-7c3f052bd754",
+    "eventTime": "2020-08-13T18:11:29.4121391Z",
+    "eventType": "myEventType",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/00000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.EventGrid/topics/myCustomSchemaTopic",
+    "subject": "subjectDefault",
+  
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T18:11:29.4121391Z",
+    "lastDeliveryAttemptTime": "2020-08-13T18:11:29.4277644Z",
+  
+    "data": {
+        "prop1": "my property",
+        "prop2": 5,
+        "myEventType": "fooEventType"
+    }
+}
+```
+
 
 ## <a name="message-delivery-status"></a>메시지 배달 상태
 

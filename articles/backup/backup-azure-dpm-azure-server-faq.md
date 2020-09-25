@@ -4,12 +4,12 @@ description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 및 DPM (D
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: 00eb064aaf549ee0d83d0cf7d9c9b47c2dc5ef78
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d0a5c1b5800bbc626453ba8896dc706a0cd5bfd4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827208"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324946"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server 및 DPM-FAQ
 
@@ -39,7 +39,7 @@ ms.locfileid: "88827208"
 
 ### <a name="are-there-recommendations-for-configuring-exclusions-for-antivirus-software"></a>바이러스 백신 소프트웨어에 대 한 제외를 구성 하기 위한 권장 사항이 있나요?
 
-예, 바이러스 백신 제외를 구성 하는 것이 좋습니다. DPM에 대 한 제외는 [dpm 서버에서 바이러스 백신 소프트웨어 실행](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019)을 참조 하세요. MABS에 대 한 제외는 [mabs 서버에 대 한 바이러스 백신 구성](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server)을 참조 하세요.
+예, 바이러스 백신 제외를 구성 하는 것이 좋습니다. DPM에 대 한 제외는 [dpm 서버에서 바이러스 백신 소프트웨어 실행](https://docs.microsoft.com/system-center/dpm/run-antivirus-server)을 참조 하세요. MABS에 대 한 제외는 [mabs 서버에 대 한 바이러스 백신 구성](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server)을 참조 하세요.
 
 ## <a name="vmware-and-hyper-v-backup"></a>VMware 및 Hyper-V 백업
 

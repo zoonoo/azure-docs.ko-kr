@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: d93ff81bacbb537cc5891e0b869f164e0d6824c6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440544"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324334"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>복사 작업 성능 최적화 기능
 
@@ -124,31 +124,35 @@ ms.locfileid: "89440544"
 
 ## <a name="staged-copy"></a>준비된 복사
 
-원본 데이터 스토리지에서 싱크 데이터 스토리지에 데이터를 복사할 경우 중간 준비 스토리지로 Blob Storage를 사용하도록 선택할 수 있습니다. 준비는 다음과 같은 경우에 특히 유용합니다.
+원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 복사 하는 경우 Azure Blob storage 또는 Azure Data Lake Storage Gen2을 임시 준비 저장소로 사용 하도록 선택할 수 있습니다. 준비는 다음과 같은 경우에 특히 유용합니다.
 
-- **PolyBase를 통해 다양 한 데이터 저장소의 데이터를 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 수집 하려고 합니다.** Azure Synapse Analytics는 많은 양의 데이터를 Azure Synapse Analytics로 로드 하기 위해 PolyBase를 처리량이 높은 메커니즘으로 사용 합니다. 원본 데이터는 Blob storage 또는 Azure Data Lake Store에 있어야 하 고 추가 조건을 충족 해야 합니다. Blob Storage 또는 Azure Data Lake Store가 아닌 데이터 저장소에서 데이터를 로드하는 경우 중간 준비 Blob Storage를 통해 데이터 복사를 활성화할 수 있습니다. 이 경우 Azure Data Factory는 필요한 데이터 변환을 수행 하 여 PolyBase의 요구 사항을 충족 하는지 확인 합니다. 그런 다음 PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 효율적으로 로드 합니다. 자세한 내용은 [PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터 로드](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics)를 참조 하세요.
+- **PolyBase를 통해 다양 한 데이터 저장소의 데이터를 Azure Synapse Analytics (이전의 SQL Data Warehouse)로 수집 하거나, 데이터를 눈송이로 복사 하거나, Amazon Redshift/HDFS performantly에서 데이터를 수집 하려고 합니다.** 다음에서 자세한 정보를 알아보세요.
+  - [PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics)합니다.
+  - [눈송이 커넥터](connector-snowflake.md)
+  - [Amazon Redshift 커넥터](connector-amazon-redshift.md)
+  - [HDFS 커넥터](connector-hdfs.md)
+- **회사 IT 정책 때문에 방화벽에서 포트 80 및 포트 443 이외의 포트를 열지 않으려고 합니다.** 예를 들어 온-프레미스 데이터 저장소에서 Azure SQL Database 또는 Azure Synapse Analytics로 데이터를 복사 하는 경우 Windows 방화벽 및 회사 방화벽 둘 다에 대해 포트 1433에서 아웃 바운드 TCP 통신을 활성화 해야 합니다. 이 시나리오에서 준비 된 복사는 자체 호스팅 integration runtime을 활용 하 여 포트 443에서 HTTP 또는 HTTPS를 통해 준비 저장소로 데이터를 복사한 다음 스테이징에서 SQL Database 또는 Azure Synapse Analytics로 데이터를 로드할 수 있습니다. 이 흐름에서는 포트 1433을 사용하도록 설정하지 않아도 됩니다.
 - **저속 네트워크 연결을 통해 하이브리드 데이터 이동 (즉, 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 복사)을 수행 하는 데 시간이 오래 걸리는 경우가 있습니다.** 성능을 향상 시키려면 준비 된 복사본을 사용 하 여 온-프레미스로 데이터를 압축 하 여 클라우드의 준비 데이터 저장소로 데이터를 이동 하는 데 걸리는 시간을 줄일 수 있습니다. 그런 다음 대상 데이터 저장소에 로드 하기 전에 준비 저장소에서 데이터의 압축을 해제할 수 있습니다.
-- **회사 IT 정책 때문에 방화벽에서 포트 80 및 포트 443 이외의 포트를 열지 않으려고 합니다.** 예를 들어 온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure Synapse Analytics 싱크로 데이터를 복사 하는 경우 Windows 방화벽과 회사 방화벽 모두에 대해 포트 1433에서 아웃 바운드 TCP 통신을 활성화 해야 합니다. 이 시나리오에서 준비 된 복사는 자체 호스팅 integration runtime을 활용 하 여 포트 443에서 HTTP 또는 HTTPS를 통해 Blob storage 준비 인스턴스로 데이터를 먼저 복사할 수 있습니다. 그런 다음 Blob storage 스테이징에서 SQL Database 또는 Azure Synapse Analytics로 데이터를 로드할 수 있습니다. 이 흐름에서는 포트 1433을 사용하도록 설정하지 않아도 됩니다.
 
 ### <a name="how-staged-copy-works"></a>준비 복사의 작동 방법
 
-준비 기능을 활성화하면 먼저 데이터가 원본 데이터 저장소에서 준비 Blob Storage(직접 준비)로 복사됩니다. 그 다음, 데이터가 준비 데이터 저장소에서 싱크 데이터 저장소로 복사됩니다. Azure Data Factory은 2 단계 흐름을 자동으로 관리 합니다. 데이터 이동이 완료 된 후에도 준비 저장소에서 임시 데이터를 정리 하는 Azure Data Factory.
+준비 기능을 활성화 하면 먼저 데이터가 원본 데이터 저장소에서 준비 저장소로 복사 됩니다 (사용자 고유의 Azure Blob 또는 Azure Data Lake Storage Gen2로 전환). 그런 다음 데이터가 스테이징에서 싱크 데이터 저장소로 복사 됩니다. Azure Data Factory 복사 작업은 2 단계 흐름을 자동으로 관리 하 고 데이터 이동이 완료 된 후에도 준비 저장소에서 임시 데이터를 정리 합니다.
 
 ![준비된 복사](media/copy-activity-performance/staged-copy.png)
 
-준비 저장소를 사용 하 여 데이터 이동을 활성화 하는 경우 원본 데이터 저장소에서 중간 또는 준비 데이터 저장소로 데이터를 이동 하기 전에 데이터를 압축할지 여부를 지정 하 고 중간 또는 준비 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동 하기 전에 압축을 해제할 수 있습니다.
+준비 저장소를 사용 하 여 데이터 이동을 활성화 하는 경우 원본 데이터 저장소에서 준비 저장소로 데이터를 이동 하기 전에 데이터를 압축할지 여부를 지정한 다음 중간 또는 준비 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동 하기 전에 압축을 해제할 수 있습니다.
 
 현재 다른 자체 호스팅 IRs을 통해 연결 된 두 데이터 저장소 간에 데이터를 복사할 수 없습니다. 이러한 시나리오의 경우 원본에서 준비로 복사 하 고 스테이징에서 싱크로 복사 하기 위해 명시적으로 연결 된 복사 활동 두 개를 구성할 수 있습니다.
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
-복사 작업에서 **Enablestaging** 설정을 구성 하 여 데이터를 대상 데이터 저장소에 로드 하기 전에 Blob 저장소에 준비 해야 하는지 여부를 지정 합니다. **Enablestaging** 을로 설정 하는 경우 `TRUE` 다음 표에 나열 된 추가 속성을 지정 합니다. 또한 준비에 대 한 Azure Storage 또는 저장소 공유 액세스 서명 연결 된 서비스가 없는 경우 만들어야 합니다.
+복사 작업에서 **Enablestaging** 설정을 구성 하 여 데이터를 대상 데이터 저장소에 로드 하기 전에 저장소에 준비 해야 하는지 여부를 지정 합니다. **Enablestaging** 을로 설정 하는 경우 `TRUE` 다음 표에 나열 된 추가 속성을 지정 합니다. 
 
 | 속성 | Description | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
-| linkedServiceName |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) 연결 서비스로 지정합니다. <br/><br/> PolyBase를 통해 Azure Synapse Analytics로 데이터를 로드 하는 데 공유 액세스 서명이 포함 된 저장소를 사용할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
-| path |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공 하지 않으면 서비스에서 임시 데이터를 저장 하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |아니요 |
+| linkedServiceName |임시 스테이징 저장소로 사용 하는 저장소 인스턴스를 참조 하는 [Azure Blob storage](connector-azure-blob-storage.md#linked-service-properties) 또는 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) 연결 된 서비스의 이름을 지정 합니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
+| path |준비 된 데이터를 포함할 경로를 지정 합니다. 경로를 제공 하지 않으면 서비스에서 임시 데이터를 저장 하는 컨테이너를 만듭니다. |해당 없음 |예 |
 | enableCompression |대상에 복사 하기 전에 데이터를 압축 해야 하는지 여부를 지정 합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |예 |
 
 >[!NOTE]
@@ -159,25 +163,24 @@ ms.locfileid: "89440544"
 ```json
 "activities":[
     {
-        "name": "Sample copy activity",
+        "name": "CopyActivityWithStaging",
         "type": "Copy",
         "inputs": [...],
         "outputs": [...],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "OracleSource",
             },
             "sink": {
-                "type": "SqlSink"
+                "type": "SqlDWSink"
             },
             "enableStaging": true,
             "stagingSettings": {
                 "linkedServiceName": {
-                    "referenceName": "MyStagingBlob",
+                    "referenceName": "MyStagingStorage",
                     "type": "LinkedServiceReference"
                 },
-                "path": "stagingcontainer/path",
-                "enableCompression": true
+                "path": "stagingcontainer/path"
             }
         }
     }

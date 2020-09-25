@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: b16ca0c396e2c406677af351cf6b1de2a3499353
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 06fca39b1170d36f22040ccf48eb02f948e47e41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543674"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304697"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Peakon 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "88543674"
 >  이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 >
 > 이 커넥터는 현재 미리 보기로 제공됩니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명 된 시나리오에서는 이미 다음과 같은 필수 구성 요소가 있다고 가정 합니다.
 
@@ -56,11 +56,11 @@ Azure Active Directory는 *할당*이라는 개념을 사용하여 어떤 사용
 
 2.  **통합**을 선택 합니다.
     
-    ![Peakon-직원-프로 비전](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
+    ![통합 옵션이 out로 설정 된 구성 옵션의 스크린샷](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
 
 3.  **직원 프로 비전**을 사용 하도록 설정 합니다.
 
-    ![Peakon-직원-프로 비전](media/Peakon-provisioning-tutorial/peakon05.png)
+    ![사용 옵션이 out 인 Employee 프로 비전 섹션의 스크린샷](media/Peakon-provisioning-tutorial/peakon05.png)
 
 4.  **Scim 2.0 URL** 및 **OAuth 전달자 토큰**에 대 한 값을 복사 합니다. 이러한 값은 Azure Portal에서 Peakon 응용 프로그램의 프로 비전 탭에 있는 **테 넌 트 URL** 및 **비밀 토큰** 필드에 입력 됩니다.
 
@@ -105,11 +105,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 Peakon를 구성 
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에서 먼저 **테 넌 트 Url** 및 **암호 토큰** 에서 검색 된 **scim 2.0 URL** 및 **OAuth 전달자 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Peakon에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Peakon 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 

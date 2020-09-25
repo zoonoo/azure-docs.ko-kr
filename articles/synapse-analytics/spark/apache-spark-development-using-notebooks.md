@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 2feaf33f7bc31396764bfbaa3ae6291b6752e961
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 0f6f193f531be746d3ef4920b86855ffa49efda2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612796"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260447"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Synapse Studio (미리 보기) 노트북 만들기, 개발 및 유지 관리
 
@@ -34,7 +34,7 @@ Azure Synapse Studio Notebook을 사용하면 다음이 가능합니다.
 
 Notebook을 만드는 방법은 두 가지입니다. **개체 탐색기**에서 새 Notebook을 만들거나 Azure Synapse 작업 영역으로 기존 Notebook을 가져올 수 있습니다. Azure Synapse Studio Notebook은 표준 Jupyter Notebook IPYNB 파일을 인식할 수 있습니다.
 
-![synapse-create-import-notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
+![가져오기 노트북 만들기](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
 ## <a name="develop-notebooks"></a>Notebook 개발
 
@@ -80,7 +80,7 @@ Azure Synapse Studio Notebook은 네 가지 Apache Spark 언어를 지원합니�
 
 다음 이미지는 **Spark(Scala)** Notebook에서 **%%pyspark** 매직 명령을 사용하여 PySpark 쿼리를 작성하거나 **%%sql** 매직 명령을 사용하여 SparkSQL 쿼리를 작성하는 방법의 예입니다. Notebook의 주 언어는 pySpark로 설정되어 있습니다.
 
-   ![synapse-spark-magics](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
+   ![Synapse spark 매직 명령](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 ### <a name="use-temp-tables-to-reference-data-across-languages"></a>임시 테이블을 사용하여 언어 간 데이터 참조
 
@@ -125,12 +125,12 @@ IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 지원되�
 
 텍스트 셀 도구 모음의 서식 단추를 사용하여 일반적인 Markdown 작업을 수행할 수 있습니다. 여기에는 텍스트 굵게 표시, 텍스트에 기울임꼴 적용, 코드 조각 삽입, 순서가 지정되지 않은 목록 삽입, 순서가 지정된 목록 삽입, URL의 이미지 삽입이 포함됩니다.
 
-  ![synapse-text-cell-toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
+  ![Synapse 텍스트 셀 도구 모음](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
 ### <a name="undo-cell-operations"></a>셀 작업 실행 취소
-**실행 취소** 단추를 클릭하거나 **Ctrl+Z**를 눌러서 최근 셀 작업을 취소합니다. 이제 기록된 최근 셀 작업을 20개까지 실행 취소할 수 있습니다. 
+**실행 취소** 단추를 선택 하거나 **ctrl + Z** 를 눌러 가장 최근 셀 작업을 취소 합니다. 이제 기록된 최근 셀 작업을 20개까지 실행 취소할 수 있습니다. 
 
-   ![synapse-undo-cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+   ![Synapse 실행 취소 셀](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 
 ### <a name="move-a-cell"></a>셀 이동
 
@@ -149,13 +149,13 @@ IntelliSense 기능은 완성도 수준이 언어마다 다릅니다. 지원되�
    ![delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
 
 ### <a name="collapse-a-cell-input"></a>셀 입력 접기
-현재 셀의 아래쪽에 있는 화살표 단추를 클릭하면 셀이 접힙니다. 셀을 펼치려면 셀이 접힌 상태에서 화살표 단추를 클릭합니다.
+현재 셀의 아래쪽에 있는 화살표 단추를 선택 하 여 축소 합니다. 확장 하려면 셀이 축소 된 상태에서 화살표 단추를 선택 합니다.
 
    ![collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
 
 ### <a name="collapse-a-cell-output"></a>셀 출력 접기
 
-현재 셀 출력의 왼쪽 위에 있는 **collapse output**(출력 접기) 단추를 클릭하면 출력이 접힙니다. 출력을 펼치려면 셀 출력이 접힌 상태에서 **Show cell output**(셀 출력 표시)를 클릭합니다.
+현재 셀 출력의 왼쪽 위에 있는 **출력 축소** 단추를 선택 하 여 축소 합니다. 확장 하려면 셀 출력이 축소 된 상태에서 **셀 출력 표시** 를 선택 합니다.
 
    ![collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
@@ -180,7 +180,7 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
 
 
 ### <a name="run-all-cells"></a>모든 셀 실행
-**모두 실행** 단추를 클릭하면 현재 노트북의 모든 셀이 순서대로 실행됩니다.
+**모두 실행** 단추를 선택 하 여 현재 노트북의 모든 셀을 순서 대로 실행 합니다.
 
    ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
@@ -192,7 +192,7 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
 
 
 ### <a name="cancel-all-running-cells"></a>실행 중인 모든 셀 취소
-실행 중인 셀 또는 큐에서 대기 중인 셀을 취소 하려면 **모두 취소** 단추를 클릭 합니다. 
+실행 중인 셀 또는 큐에서 대기 중인 셀을 취소 하려면 **모두 취소** 단추를 선택 합니다. 
    ![모두 취소-셀](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 ### <a name="cell-status-indicator"></a>셀 상태 표시기
@@ -204,7 +204,7 @@ Notebook의 코드 셀을 개별적으로 또는 한꺼번에 실행할 수 있�
 ### <a name="spark-progress-indicator"></a>Spark 진행률 표시기
 
 Azure Synapse Studio Notebook은 순전히 Spark 기반입니다. 코드 셀은 Spark 풀에서 원격으로 실행됩니다. Spark 작업 진행률 표시기에 실시간 진행률 표시줄이 제공되어 작업 실행 상태를 이해하는 데 유용합니다.
-각 작업 또는 단계 당 태스크 수를 통해 spark 작업의 병렬 수준을 식별할 수 있습니다. 또한 작업 (또는 단계) 이름에 대 한 링크를 클릭 하 여 특정 작업 (또는 단계)의 Spark UI를 자세히 살펴볼 수 있습니다.
+각 작업 또는 단계 당 태스크 수를 통해 spark 작업의 병렬 수준을 식별할 수 있습니다. 작업 (또는 단계) 이름에 대 한 링크를 선택 하 여 특정 작업 (또는 단계)의 Spark UI를 자세히 살펴볼 수도 있습니다.
 
 
 ![spark-progress-indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
@@ -215,7 +215,7 @@ Azure Synapse Studio Notebook은 순전히 Spark 기반입니다. 코드 셀은 
 
 [![세션 관리](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
-Spark 세션 구성 패널에서 spark 세션 추천를 사용할 수 있습니다. 세션 구성 패널에서 직접 spark 풀을 선택 하 고 사용 중인 노드 수와 사용 가능한 남은 실행자 수를 확인할 수 있습니다. 이러한 정보를 통해 세션 크기를 나중에 수정 하는 대신 적절 하 게 설정할 수 있습니다.
+Spark 세션 추천은 이제 Spark 세션 구성 패널에서 사용할 수 있습니다. 세션 구성 패널에서 직접 Spark 풀을 선택 하 고 사용 중인 노드 수와 사용 가능한 남은 실행자 수를 확인할 수 있습니다. 이 정보는이를 수정 하는 대신 적절 한 세션 크기를 설정 하는 데 도움이 될 수 있습니다.
 
 ![세션-권장](./media/apache-spark-development-using-notebooks/synapse-spark-session-recommender.png)
 
@@ -277,23 +277,24 @@ df = spark.read.option("header", "true") \
 
 테이블 형식 결과 뷰에는 가로 막대형 차트, 꺾은선형 차트, 원형 차트, 분산형 차트, 영역 차트를 만드는 옵션이 제공됩니다. 코드를 작성하지 않고도 데이터를 시각화할 수 있습니다. 차트는 **차트 옵션**에서 사용자 지정할 수 있습니다. 
 
-**%%sql** 매직 명령의 출력은 기본적으로 렌더링된 테이블 뷰에 표시됩니다. <code>display(df)</code>Spark 데이터 프레임 또는 RDD (복원 력 있는 분산 데이터 집합) 함수에서를 호출 하 여 렌더링 된 테이블 뷰를 생성할 수 있습니다.
+**%%sql** 매직 명령의 출력은 기본적으로 렌더링된 테이블 뷰에 표시됩니다. <code>display(df)</code>Spark 데이터 프레임, Pandas 데이터 프레임, 목록 또는 RDD (복원 력 있는 분산 데이터 집합) 함수에서를 호출 하 여 렌더링 된 테이블 뷰를 생성할 수 있습니다.
 
    [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
 ### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>대규모 데이터 집합에서 기본 제공 차트 시각화 
 
-기본적으로 <code>display(df)</code> 함수는 차트를 렌더링 하기 위해 데이터의 처음 1000 행만 사용 합니다. **모든 결과에 대 한 집계** 를 확인 하 고 **적용** 단추를 클릭 하면 전체 데이터 집합에서 차트 생성을 적용 합니다. Spark 작업은 차트 설정이 변경 될 때 트리거됩니다. 계산을 완료 하 고 차트를 렌더링 하는 데 시간이 걸립니다. 
+기본적으로 <code>display(df)</code> 함수는 차트를 렌더링 하기 위해 데이터의 처음 1000 행만 사용 합니다. **모든 결과에 대 한 집계** 를 확인 하 고 **적용** 단추를 선택 합니다. 그러면 전체 데이터 집합에서 차트 생성을 적용 합니다. Spark 작업은 차트 설정이 변경 될 때 트리거됩니다. 계산을 완료 하 고 차트를 렌더링 하는 데 시간이 걸립니다. 
     [![기본 제공 차트-집계-모두](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
 
 
+
 ### <a name="visualize-data-statistic-information"></a>데이터 통계 정보 시각화
-를 사용 하 여 열 <code>display(df, summary = true)</code> 이름, 열 유형, 고유 값 및 각 열에 대 한 누락 값을 포함 하는 지정 된 Spark 데이터 프레임의 통계 요약을 확인할 수 있습니다. 특정 열을 선택 하 여 최소 값, 최대값, 평균 값 및 표준 편차를 볼 수도 있습니다.
+를 사용 하 여 열 <code>display(df, summary = True)</code> 이름, 열 유형, 고유 값 및 각 열에 대 한 누락 값을 포함 하는 지정 된 Spark 데이터 프레임의 통계 요약을 확인할 수 있습니다. 특정 열을 선택 하 여 최소 값, 최대값, 평균 값 및 표준 편차를 볼 수도 있습니다.
     [![기본 제공 차트-요약 ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
 
 ### <a name="render-html-or-interactive-libraries"></a>HTML 또는 대화형 라이브러리 렌더링
 
-**displayHTML()** 을 사용하여 **빛망울**과 같은 대화형 라이브러리나 HTML을 렌더링할 수 있습니다.
+**Displayhtml ()** 을 사용 하 여 **빛 망 울**와 같은 Javascript, CSS, D3 또는 대화형 라이브러리를 비롯 한 HTML 코드를 렌더링할 수 있습니다.
 
 다음 이미지는 **빛망울**을 사용하여 지도 위에 문자 모양을 그리는 예입니다.
 
@@ -349,7 +350,7 @@ Notebook 속성에서 저장할 때 셀 출력을 포함할지 여부를 구성�
    ![notebook-properties](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
 ## <a name="magic-commands"></a>매직 명령
-Azure Synapse Studio 노트북에서 익숙한 Jupyter 매직 명령을 사용할 수 있습니다. 현재 사용 가능한 매직 명령은 아래 목록을 참조하세요. 사용자의 요구를 충족 하기 위해 더 많은 매직 명령을 계속 빌드할 수 있도록 [GitHub에서 사용 사례](https://github.com/MicrosoftDocs/azure-docs/issues/new) 를 알려 주세요.
+Azure Synapse Studio 노트북에서 친숙 한 Jupyter 매직 명령을 사용할 수 있습니다. 현재 사용 가능한 매직 명령으로 다음 목록을 검토 합니다. 사용자의 요구를 충족 하기 위해 더 많은 매직 명령을 계속 빌드할 수 있도록 [GitHub에서 사용 사례](https://github.com/MicrosoftDocs/azure-docs/issues/new) 를 알려 주세요.
 
 사용 가능한 줄 매직: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time),% [time it](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
@@ -360,9 +361,9 @@ Azure Synapse Studio 노트북에서 익숙한 Jupyter 매직 명령을 사용�
 
 ### <a name="add-a-notebook-to-a-pipeline"></a>파이프라인에 노트북 추가
 
-오른쪽 위 모서리에서 **파이프라인에 추가** 단추를 클릭 하 여 기존 파이프라인에 노트북을 추가 하거나 새 파이프라인을 만듭니다.
+오른쪽 위 모서리에서 **파이프라인에 추가** 단추를 선택 하 여 기존 파이프라인에 노트북을 추가 하거나 새 파이프라인을 만듭니다.
 
-![파이프라인 추가](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
+![파이프라인에 노트북 추가](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
 
 ### <a name="designate-a-parameters-cell"></a>매개 변수 지정 셀
 
@@ -370,13 +371,13 @@ Azure Synapse Studio 노트북에서 익숙한 Jupyter 매직 명령을 사용�
 
 ![토글 매개 변수](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 
-Azure Data Factory는 매개 변수 셀을 찾고 실행 시 전달 되는 매개 변수의 기본값으로이 셀을 처리 합니다. 실행 엔진은 기본값을 덮어쓰기 위해 입력 매개 변수를 사용 하 여 매개 변수 셀 아래에 새 셀을 추가 합니다. 매개 변수를 지정 하지 않으면 삽입 된 셀이 노트북 맨 위에 삽입 됩니다.
+Azure Data Factory는 매개 변수 셀을 찾고 실행 시 전달 되는 매개 변수의 기본값으로이 셀을 처리 합니다. 실행 엔진이 기본값을 덮어쓰기 위해 입력 매개 변수를 사용 하 여 매개 변수 셀 아래에 새 셀을 추가 합니다. 매개 변수 셀이 지정 되지 않은 경우 삽입 된 셀이 노트북의 맨 위에 삽입 됩니다.
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>파이프라인에서 매개 변수 값 할당
 
 매개 변수가 포함 된 노트북을 만든 후에는 Azure Synapse 노트북 활동을 사용 하 여 파이프라인에서 실행할 수 있습니다. 파이프라인 캔버스에 활동을 추가한 후에는 **설정** 탭의 **기본 매개 변수** 섹션에서 매개 변수 값을 설정할 수 있습니다. 
 
-![assign-매개 변수](./media/apache-spark-development-using-notebooks/assign-parameter.png)
+![매개 변수 할당](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 
 매개 변수 값을 할당 하는 경우 [파이프라인 식 언어](../../data-factory/control-flow-expression-language-functions.md) 또는 [시스템 변수](../../data-factory/control-flow-system-variables.md)를 사용할 수 있습니다.
 
@@ -386,11 +387,11 @@ Azure Data Factory는 매개 변수 셀을 찾고 실행 시 전달 되는 매�
 
 Jupyter 노트북과 마찬가지로 Azure Synapse Studio Notebook에는 모달 사용자 인터페이스가 있습니다. 키보드는 Notebook 셀이 있는 모드에 따라 다른 작업을 수행합니다. Synapse Studio Notebook은 지정된 코드 셀에 대해 두 가지 모드(명령 모드 및 편집 모드)를 지원합니다.
 
-1. 입력하라는 텍스트 커서가 없으면 셀은 명령 모드에 있습니다. 셀이 명령 모드에 있으면 Notebook을 전체적으로 편집할 수 있지만 개별 셀에는 입력할 수 없습니다. `ESC` 키를 누르거나 마우스를 사용하여 셀의 편집기 영역 외부를 클릭하면 명령 모드로 전환됩니다.
+1. 입력하라는 텍스트 커서가 없으면 셀은 명령 모드에 있습니다. 셀이 명령 모드에 있으면 Notebook을 전체적으로 편집할 수 있지만 개별 셀에는 입력할 수 없습니다. `ESC`마우스를 사용 하거나 마우스를 사용 하 여 셀의 편집기 영역 밖에 서 선택 하 여 명령 모드를 시작 합니다.
 
    ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. 편집 모드에서는 편집기 영역에 입력하라는 텍스트 커서가 표시됩니다. 셀이 편집 모드에 있는 경우 셀에 입력할 수 있습니다. `Enter` 키를 누르거나 마우스를 사용하여 셀의 편집기 영역을 클릭하면 편집 모드로 전환됩니다.
+2. 편집 모드에서는 편집기 영역에 입력하라는 텍스트 커서가 표시됩니다. 셀이 편집 모드에 있는 경우 셀에 입력할 수 있습니다. 마우스를 누르거나 마우스를 `Enter` 사용 하 여 셀의 편집기 영역을 선택 하 여 편집 모드를 시작 합니다.
    
    ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 

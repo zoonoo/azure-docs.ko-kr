@@ -1,6 +1,6 @@
 ---
 title: Linux 용 Azure 직렬 콘솔 | Microsoft Docs
-description: Azure Virtual Machines 및 Virtual Machine Scale Sets용 양방향 직렬 콘솔
+description: Linux 예제를 사용 하 여 Azure Virtual Machines 및 Virtual Machine Scale Sets에 대 한 양방향 직렬 콘솔
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: cacb517c783416994fa95bd0f6a6d15a95a52ab4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423459"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306874"
 ---
 # <a name="azure-serial-console-for-linux"></a>Linux용 Azure Serial Console
 
@@ -60,7 +60,7 @@ Windows 용 직렬 콘솔 설명서는 [windows 용 직렬 콘솔](./serial-cons
 > [!NOTE]
 > 직렬 콘솔에 아무 것도 표시되지 않으면 VM에서 부트 진단이 사용하도록 설정되어 있는지 확인합니다. **Enter 키** 를 누르면 직렬 콘솔에 아무것도 표시 되지 않는 문제를 해결 하는 경우가 많습니다.
 
-분포      | 직렬 콘솔 액세스
+배포      | 직렬 콘솔 액세스
 :-----------|:---------------------
 Red Hat Enterprise Linux    | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 CentOS      | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
@@ -71,7 +71,7 @@ SUSE        | Azure에서 사용 가능한 최신 SLES 이미지는 직렬 콘�
 Oracle Linux        | 직렬 콘솔 액세스를 기본적으로 사용하도록 설정합니다.
 
 ### <a name="custom-linux-images"></a>사용자 지정 Linux 이미지
-사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 */etc/inittab* 파일에서 콘솔 액세스를 사용하도록 설정하여 `ttyS0`에서 터미널을 실행합니다. 예를 들면 `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`과 다음과 같습니다. TtyS0에서 getty를 생성 해야 할 수도 있습니다. 을 사용 하 여이 작업을 수행할 수 있습니다 `systemctl start serial-getty@ttyS0.service` .
+사용자 지정 Linux VM 이미지에 대해 직렬 콘솔을 사용하도록 설정하려면 */etc/inittab* 파일에서 콘솔 액세스를 사용하도록 설정하여 `ttyS0`에서 터미널을 실행합니다. 예: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. TtyS0에서 getty를 생성 해야 할 수도 있습니다. 을 사용 하 여이 작업을 수행할 수 있습니다 `systemctl start serial-getty@ttyS0.service` .
 
 또한 직렬 출력의 대상으로 ttys0을 추가 하려고 합니다. 직렬 콘솔을 사용 하도록 사용자 지정 이미지를 구성 하는 방법에 대 한 자세한 내용은 [Azure에서 LINUX VHD 만들기 및 업로드](https://aka.ms/createuploadvhd#general-linux-system-requirements)에서 일반적인 시스템 요구 사항을 참조 하세요.
 
@@ -141,18 +141,18 @@ A. https://aka.ms/serialconsolefeedback에서 GitHub 문제를 만들어 피드�
 
 A. 예. **Ctrl**+**Shift**+**C** 및 **Ctrl**+**Shift**+**V**를 사용하여 복사하고 터미널에 붙여넣습니다.
 
-**Q. SSH 연결 대신 직렬 콘솔을 사용할 수 있나요?**
+**대답. SSH 연결 대신 직렬 콘솔을 사용할 수 있나요?**
 
 A. 이렇게 사용하는 것이 기술적으로는 가능해 보일 수 있지만, 직렬 콘솔은 SSH를 통한 연결이 가능하지 않은 상황에서 문제 해결 도구로 주로 사용하도록 디자인되었습니다. 다음 이유 때문에 직렬 콘솔을 SSH 대신 사용하는 것이 좋습니다.
 
 - 직렬 콘솔에는 SSH와 같은 대역폭이 없습니다. 텍스트 전용 연결이므로 추가로 많은 GUI 작업 상호 작용이 어렵습니다.
 - 직렬 콘솔 액세스는 현재 사용자 이름 및 암호를 사용해서만 가능합니다. SSH 키는 사용자 이름/암호 조합보다 훨씬 더 안전하기 때문에 로그인 보안 관점에서는 직렬 콘솔보다 SSH를 사용하는 것이 좋습니다.
 
-**Q. 내 구독에 대해 직렬 콘솔을 사용 하거나 사용 하지 않도록 설정할 수 있는 사용자는 누구 인가요?**
+**대답. 내 구독에 직렬 콘솔을 사용 하거나 사용 하지 않도록 설정할 수 있는 사용자는 누구 인가요?**
 
 A. 전체 구독 수준에서 직렬 콘솔을 사용하거나 사용하지 않도록 설정하려면 구독에 대한 쓰기 권한이 있어야 합니다. 쓰기 권한이 있는 역할에는 관리자 또는 소유자 역할이 포함됩니다. 사용자 지정 역할에는 쓰기 권한도 있을 수 있습니다.
 
-**Q. 내 v m/가상 머신 확장 집합에 대 한 직렬 콘솔에 액세스할 수 있는 사람은 누구 인가요?**
+**대답. 내 v m/가상 머신 확장 집합에 대 한 직렬 콘솔에 액세스할 수 있는 사용자는 누구 인가요?**
 
 A. VM 또는 가상 머신 확장 집합에 대 한 가상 머신 참가자 역할이 있어야 직렬 콘솔에 액세스할 수 있습니다.
 
@@ -164,7 +164,7 @@ A. 사용자의 이미지가 직렬 콘솔 액세스에 대해 잘못 구성되�
 
 A. 예, 사용할 수 있습니다. [Virtual Machine Scale Sets용 직렬 콘솔](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)을 참조하세요.
 
-**Q. SSH 키 인증만 사용 하 여 VM 또는 가상 머신 확장 집합을 설정 하는 경우 여전히 직렬 콘솔을 사용 하 여 내 v m/가상 머신 확장 집합 인스턴스에 연결할 수 있나요?**
+**대답. SSH 키 인증만 사용 하 여 VM 또는 가상 머신 확장 집합을 설정 하는 경우 여전히 직렬 콘솔을 사용 하 여 내 v m/가상 머신 확장 집합 인스턴스에 연결할 수 있나요?**
 
 A. 예. 직렬 콘솔에 SSH 키가 필요하지 않기 때문에 사용자 이름/암호 조합을 설정하는 수밖에 없습니다. Azure Portal에서 **암호 재설정**을 선택하고 직렬 콘솔에 로그인하는 데 해당 자격 증명을 사용하여 수행할 수 있습니다.
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, mathoma
+ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 407d56c209f64d350906a17c0746b1c43f969d43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c4a538a0dc5447f95152de87f9a19ed57f08359
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708668"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325116"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Azure SQL Managed Instance의 데이터베이스를 이전 시점으로 복원
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,8 +46,8 @@ SQL Managed Instance에 대 한 지정 시간 복원에는 다음과 같은 제�
 
 |           |기존 DB를 SQL Managed Instance 동일한 인스턴스로 복원| 기존 DB를 다른 SQL Managed Instance으로 복원|삭제 된 DB를 동일한 SQL Managed Instance로 복원|삭제 된 DB를 다른 SQL Managed Instance으로 복원|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure Portal**| 예|예 |예|아니요|
-|**Azure CLI**|예 |예 |아니요|아니요|
+|**Azure Portal**| 예|예 |예|예|
+|**Azure CLI**|예 |예 |예|예|
 |**PowerShell**| 예|예 |예|예|
 
 ## <a name="restore-an-existing-database"></a>기존 데이터베이스 복원

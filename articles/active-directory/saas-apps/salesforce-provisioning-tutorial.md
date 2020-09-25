@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Salesforce 구성 | Microsoft Docs'
-description: Azure Active Directory와 Salesforce 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
+description: 사용자 계정을 Azure AD에서 Salesforce로 자동으로 프로 비전 및 프로 비전 해제 하도록 Salesforce 및 Azure AD에서 수행 하는 데 필요한 단계에 대해 알아봅니다.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: db94c868daecdd82bcf7749f17fc6fde86fac963
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: a77fa5702b8ab5728f387eae02cc97f997a406a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979780"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273299"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Salesforce 구성
 

@@ -4,23 +4,23 @@ description: SAP 워크로드용 Oracle Azure Virtual Machines DBMS 배포
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
-keywords: ''
+keywords: SAP, Azure, Oracle, Data Guard
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/14/2018
+ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66837a0e4118695b19776972fdb4fd88a70ee561
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d83c4ffe4e60ef2896e16b97e1ec34d71a022b9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690326"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279011"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP 워크로드용 Azure Virtual Machines DBMS 배포
 
@@ -344,18 +344,20 @@ Oracle Linux에서 Oracle DBMS 및 SAP 애플리케이션 인스턴스를 실행
 
 ### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-windows"></a>Windows의 Azure VM에서 SAP 설치에 대한 Oracle 구성 지침
 
-SAP 설치 설명서에 따라 모든 Oracle 관련 파일을 VM의 OS 디스크(드라이브 C:)에 대한 시스템 드라이버에 설치하거나 배치해서는 안 됩니다. 다양한 크기의 가상 머신이 연결된 디스크를 다양하게 지원할 수 있습니다. 가상 머신 유형이 적으면 지원할 수 있는 연결된 디스크 수도 적습니다. 
+SAP 설치 설명서에 따라 Oracle 관련 파일이 VM의 OS 디스크 (드라이브 c:)에 설치 되어 있지 않아야 합니다. 다양한 크기의 가상 머신이 연결된 디스크를 다양하게 지원할 수 있습니다. 가상 머신 유형이 적으면 지원할 수 있는 연결된 디스크 수도 적습니다. 
 
-작은 VM이 있는 경우 Oracle 홈, 단계, "saptrace", "saparch", "sapbackup", "sapcheck" 또는 "sapreorg"를 OS 디스크에 설치/배치하는 것이 좋습니다. Oracle DBMS 구성 요소의 이러한 부분은 I/O 및 I/O 처리량에 무리는 아닙니다. 따라서 OS 디스크는 I/O 요구 사항을 처리할 수 있습니다. OS 디스크의 기본 크기는 127GB입니다. 
+더 작은 vm이 있고 vm에 연결할 수 있는 디스크 수 제한에 도달 하는 경우에는 Oracle home, stage,,,, `saptrace` `saparch` 또는를 `sapbackup` `sapcheck` `sapreorg` OS 디스크에 설치/찾을 수 있습니다. 이러한 Oracle DBMS 구성 요소 부분은 i/o 및 i/o 처리량에 너무 많이 집중 하지 않습니다. 따라서 OS 디스크는 I/O 요구 사항을 처리할 수 있습니다. OS 디스크의 기본 크기는 127입니다. 
 
-사용 가능한 여유 공간이 충분하지 않은 경우 2,048GB로 디스크 [크기를 조정](../../windows/expand-os-disk.md)할 수 있습니다. Oracle 데이터베이스와 다시 실행 로그 파일을 별도 데이터 디스크에 저장해야 합니다. Oracle 임시 테이블스페이스가 포함된 예외가 있습니다. Tempfiles를 D:/(비영구 드라이브)에서 만들 수 있습니다. 또한 비영구 D:\ 드라이브는 A- 시리즈 VM을 제외하고 더 효율적인 I/O 대기 시간과 처리량을 제공합니다. 
+Oracle 데이터베이스와 다시 실행 로그 파일을 별도 데이터 디스크에 저장해야 합니다. Oracle 임시 테이블스페이스가 포함된 예외가 있습니다. `Tempfiles` D:에 만들 수 있습니다. (비영구 드라이브). 또한 비영구 D:\ 드라이브는 A- 시리즈 VM을 제외하고 더 효율적인 I/O 대기 시간과 처리량을 제공합니다. 
 
-tempfiles를 위한 적절한 양의 공간 크기를 결정하려면 기존 시스템의 tempfiles 크기를 확인할 수 있습니다.
+에 필요한 공간을 확보 하기 위해 `tempfiles` 기존 시스템의 크기를 확인할 수 있습니다 `tempfiles` .
 
 ### <a name="storage-configuration"></a>스토리지 구성
 NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지원됩니다. 모든 데이터베이스 파일은 Managed Disks(권장) 또는 VHD의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 또는 [Azure Managed Disks](../../managed-disks-overview.md)를 기준으로 합니다. 
 
-[Azure Managed Disks](../../managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [프리미엄 SSD](../../disks-types.md)를 사용하는 것이 좋습니다.
+DBMS 워크 로드에 적합 한 특정 Azure 블록 저장소 형식에 대 한 자세한 내용을 보려면 [SAP 워크 로드에 대 한 Azure Storage 형식](./planning-guide-storage.md) 문서를 확인 하세요.
+
+[Azure Managed Disks](../../managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에 [azure premium storage 또는 Azure Ultra disk](../../disks-types.md) 를 사용 하는 것이 좋습니다.
 
 네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 다음을 참조하세요.
 
@@ -374,37 +376,37 @@ Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 �
 
 | 구성 요소 | 디스크 | 캐싱 | 스토리지 풀 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA & mirrlogB | Premium | None | 필요하지 않음 |
-| \oracle\<SID>\origlogaB & mirrlogA | Premium | None | 필요하지 않음 |
-| \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
+| \oracle\<SID>\origlogaA & mirrlogB | 프리미엄 또는 Ultra disk | None | 필요하지 않음 |
+| \oracle\<SID>\origlogaB & mirrlogA | 프리미엄 또는 Ultra disk | None | 필요하지 않음 |
+| \oracle\<SID>\sapdata1...n | 프리미엄 또는 Ultra disk | 읽기 전용 | 프리미엄에 사용할 수 있습니다. |
 | \oracle\<SID>\oraarch | Standard | None | 필요하지 않음 |
-| Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
+| Oracle 홈, `saptrace` , ... | OS 디스크 (프리미엄) | | 필요하지 않음 |
 
 
-온라인 다시 실행 로그를 호스팅하기 위한 디스크 선택은 IOPS 요구 사항에 따라 결정되어야 합니다. 크기, IOPS 및 처리량이 요구 사항을 충족하는 경우 모든 sapdata1...n(테이블스페이스)을 단일 탑재 디스크에 저장할 수 있습니다. 
+온라인 다시 실행 로그 호스팅을 위한 디스크 선택은 IOPS 요구 사항에 따라 결정 되어야 합니다. 크기, IOPS 및 처리량이 요구 사항을 충족하는 경우 모든 sapdata1...n(테이블스페이스)을 단일 탑재 디스크에 저장할 수 있습니다. 
 
 성능 구성은 다음과 같습니다.
 
 | 구성 요소 | 디스크 | 캐싱 | 스토리지 풀 |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA | Premium | None | 사용할 수 있음  |
-| \oracle\<SID>\origlogaB | Premium | None | 사용할 수 있음 |
-| \oracle\<SID>\mirrlogAB | Premium | None | 사용할 수 있음 |
-| \oracle\<SID>\mirrlogBA | Premium | None | 사용할 수 있음 |
-| \oracle\<SID>\sapdata1...n | Premium | 읽기 전용 | 권장  |
-| \oracle\SID\sapdata(n+1)* | Premium | None | 사용할 수 있음 |
-| \oracle\<SID>\oraarch* | Premium | None | 필요하지 않음 |
-| Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
+| \oracle\<SID>\origlogaA | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다.  |
+| \oracle\<SID>\origlogaB | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다. |
+| \oracle\<SID>\mirrlogAB | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다. |
+| \oracle\<SID>\mirrlogBA | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다. |
+| \oracle\<SID>\sapdata1...n | 프리미엄 또는 Ultra disk | 읽기 전용 | 프리미엄에 권장  |
+| \oracle\SID\sapdata(n+1)* | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다. |
+| \oracle\<SID>\oraarch* | 프리미엄 또는 Ultra disk | None | 필요하지 않음 |
+| Oracle 홈, `saptrace` , ... | OS 디스크 (프리미엄) | 필요하지 않음 |
 
 *(n+1): SYSTEM, TEMP 및 UNDO 테이블스페이스를 호스트합니다. I/O 패턴의 시스템 및 Undo 테이블스페이스는 애플리케이션 데이터를 호스팅하는 다른 테이블스페이스와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
 
 \* oraarch: 성능 관점에서 스토리지 풀이 필요하지 않습니다. 더 많은 공간을 확보하는 데 사용할 수 있습니다.
 
-더 많은 IOPS가 필요한 경우 Window 스토리지 풀(Windows Server 2012 이상에서만 사용 가능)을 사용하여 탑재된 여러 디스크를 하나의 큰 논리적 디바이스로 만드는 것이 좋습니다. 이 방법을 사용하면 디스크 공간 관리를 위한 관리 오버헤드를 간소화하고 탑재된 여러 디스크에 수동으로 파일을 배포하는 수고를 덜 수 있습니다.
+Azure premium storage의 경우 더 많은 IOPS가 필요한 경우 Windows 저장소 풀 (Windows Server 2012 이상 에서만 사용 가능)을 사용 하 여 탑재 된 여러 디스크에 하나의 대량 논리적 장치를 만드는 것이 좋습니다. 이 방법을 사용하면 디스크 공간 관리를 위한 관리 오버헤드를 간소화하고 탑재된 여러 디스크에 수동으로 파일을 배포하는 수고를 덜 수 있습니다.
 
 
 #### <a name="write-accelerator"></a>Write Accelerator
-Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Premium Storage와 비교할 때 온라인 다시 실행 로그에 대기 시간 쓰기를 요소별로 줄일 수 있습니다. 온라인 다시 실행 로그 파일에 사용되는 Azure Premium Storage 기반의 디스크(VHD)에 대해 Azure Write Accelerator를 사용하도록 설정합니다. 자세한 내용은 [Write Accelerator](../../how-to-enable-write-accelerator.md)를 참조하세요.
+Azure M 시리즈 Vm의 경우, Azure premium storage와 비교할 때의 요인에 따라 온라인 다시 실행 로그에 기록 하는 대기 시간을 줄일 수 있습니다. 온라인 다시 실행 로그 파일에 사용되는 Azure Premium Storage 기반의 디스크(VHD)에 대해 Azure Write Accelerator를 사용하도록 설정합니다. 자세한 내용은 [Write Accelerator](../../how-to-enable-write-accelerator.md)를 참조하세요. 또는 온라인 다시 실행 로그 볼륨에 Azure Ultra disk를 사용 합니다.
 
 
 ### <a name="backuprestore"></a>백업/복원
@@ -437,7 +439,7 @@ Oracle에서 SAP Business Suite를 실행하는 방법에 대한 일반적인 �
 
 SAP 설치 설명서에 따라 Oracle 관련 파일을 VM의 부팅 디스크용 시스템 드라이버에 설치하거나 배치해서는 안 됩니다. 다양한 크기의 가상 머신이 연결된 디스크를 다양하게 지원할 수 있습니다. 가상 머신 유형이 적으면 지원할 수 있는 연결된 디스크 수도 적습니다. 
 
-이 경우에는 Oracle 홈, 단계, saptrace, saparch, sapbackup, sapcheck 또는 sapreorg를 부팅 디스크에 설치/배치하는 것이 좋습니다. Oracle DBMS 구성 요소의 이러한 부분은 I/O 및 I/O 처리량에 무리는 아닙니다. 따라서 OS 디스크는 I/O 요구 사항을 처리할 수 있습니다. OS 디스크의 기본 크기는 30GB입니다. Azure Portal, PowerShell 또는 CLI를 통해 부팅 디스크를 확장할 수 있습니다. 부팅 디스크를 확장한 후 Oracle 이진 파일에 대한 추가 파티션을 추가할 수 있습니다.
+이 경우 Oracle home, stage,,,, `saptrace` `saparch` `sapbackup` `sapcheck` 또는 `sapreorg` 를 부팅 디스크에 설치/찾는 것이 좋습니다. Oracle DBMS 구성 요소의 이러한 부분은 I/O 및 I/O 처리량에 무리는 아닙니다. 따라서 OS 디스크는 I/O 요구 사항을 처리할 수 있습니다. OS 디스크의 기본 크기는 30GB입니다. Azure Portal, PowerShell 또는 CLI를 통해 부팅 디스크를 확장할 수 있습니다. 부팅 디스크를 확장한 후 Oracle 이진 파일에 대한 추가 파티션을 추가할 수 있습니다.
 
 
 ### <a name="storage-configuration"></a>스토리지 구성
@@ -445,6 +447,8 @@ SAP 설치 설명서에 따라 Oracle 관련 파일을 VM의 부팅 디스크용
 ext4, xfs 또는 Oracle ASM의 파일 시스템은 Azure에서 Oracle Database 파일에 대해 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 [Azure Managed Disks](../../managed-disks-overview.md)를 기준으로 합니다.
 
 Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](../../premium-storage-performance.md#disk-caching)를 지원하려면 최소 UEK 버전 4가 필요합니다.
+
+[SAP 워크 로드에 대 한 문서 Azure Storage 형식](./planning-guide-storage.md) 을 체크 아웃 하 여 DBMS 작업에 적합 한 특정 Azure 블록 저장소 형식에 대 한 자세한 정보를 가져옵니다.
 
 [Azure Managed Disks](../../managed-disks-overview.md)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [Azure 프리미엄 SSD](../../disks-types.md)를 사용하는 것이 좋습니다.
 
@@ -456,7 +460,7 @@ Oracle Linux UEK 커널의 경우 [Azure 프리미엄 SSD](../../premium-storage
 
 Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 디스크를 사용하는 경우 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에 제공된 설명은 Oracle Database를 사용한 배포에도 적용됩니다.
 
- Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 개념은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명하고 있습니다. 정확한 할당량은 사용되는 VM 유형에 따라 다릅니다. VM 유형과 해당 할당량 목록은 [Azure의 Linux Virtual Machines 크기][virtual-machines-sizes-linux]를 참조하세요.
+Azure 디스크에 대한 IOPS 처리량의 할당량이 존재합니다. 이 개념은 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명하고 있습니다. 정확한 할당량은 사용되는 VM 유형에 따라 다릅니다. VM 유형과 해당 할당량 목록은 [Azure의 Linux Virtual Machines 크기][virtual-machines-sizes-linux]를 참조하세요.
 
 지원되는 Azure VM 유형을 식별하려면 SAP Note [1928533]을 참조하세요.
 
@@ -464,11 +468,11 @@ Azure 페이지 Blob 스토리지 또는 Managed Disks를 기준으로 하는 �
 
 | 구성 요소 | 디스크 | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA & mirrlogB | Premium | None | 필요하지 않음 |
-| /oracle/\<SID>/origlogaB & mirrlogA | Premium | None | 필요하지 않음 |
-| /oracle/\<SID>/sapdata1...n | Premium | 읽기 전용 | 사용할 수 있음 |
+| /oracle/\<SID>/origlogaA & mirrlogB | 프리미엄 또는 Ultra disk | None | 필요하지 않음 |
+| /oracle/\<SID>/origlogaB & mirrlogA | 프리미엄 또는 Ultra disk | None | 필요하지 않음 |
+| /oracle/\<SID>/sapdata1...n | 프리미엄 또는 Ultra disk | 읽기 전용 | 프리미엄에 사용할 수 있습니다. |
 | /oracle/\<SID>/oraarch | Standard | None | 필요하지 않음 |
-| Oracle 홈, saptrace, ... | OS 디스크 | | 필요하지 않음 |
+| Oracle 홈, `saptrace` , ... | OS 디스크 (프리미엄) | | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
 
@@ -478,14 +482,14 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 
 | 구성 요소 | 디스크 | 캐싱 | 제거* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | Premium | None | 사용할 수 있음  |
-| /oracle/\<SID>/origlogaB | Premium | None | 사용할 수 있음 |
-| /oracle/\<SID>/mirrlogAB | Premium | None | 사용할 수 있음 |
-| /oracle/\<SID>/mirrlogBA | Premium | None | 사용할 수 있음 |
-| /oracle/\<SID>/sapdata1...n | Premium | 읽기 전용 | 권장  |
-| /oracle/\<SID>/sapdata(n+1)* | Premium | None | 사용할 수 있음 |
-| /oracle/\<SID>/oraarch* | Premium | None | 필요하지 않음 |
-| Oracle 홈, saptrace, ... | OS 디스크 | 필요하지 않음 |
+| /oracle/\<SID>/origlogaA | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다.  |
+| /oracle/\<SID>/origlogaB | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다. |
+| /oracle/\<SID>/mirrlogAB | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다. |
+| /oracle/\<SID>/mirrlogBA | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다. |
+| /oracle/\<SID>/sapdata1...n | 프리미엄 또는 Ultra disk | 읽기 전용 | 프리미엄에 권장  |
+| /oracle/\<SID>/sapdata(n+1)* | 프리미엄 또는 Ultra disk | 없음 | 프리미엄에 사용할 수 있습니다. |
+| /oracle/\<SID>/oraarch* | 프리미엄 또는 Ultra disk | None | 필요하지 않음 |
+| Oracle 홈, `saptrace` , ... | OS 디스크 (프리미엄) | 필요하지 않음 |
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
 
@@ -494,11 +498,11 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 \* oraarch: 성능 관점에서 스토리지 풀이 필요하지 않습니다.
 
 
-더 많은 IOPS가 필요한 경우 LVM(논리 볼륨 관리자) 또는 MDADM을 사용하여 탑재된 여러 디스크에 대해 하나의 큰 논리 볼륨을 만드는 것이 좋습니다. 자세한 내용은 LVM 또는 MDADM을 활용하는 방법에 대한 지침과 조언을 제공하는 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)을 참조하세요. 이 방법을 사용하면 디스크 공간 관리를 위한 관리 오버헤드를 간소화하고 탑재된 여러 디스크에 파일을 수동으로 배포하는 수고를 덜 수 있습니다.
+Azure premium storage를 사용할 때 더 많은 IOPS가 필요한 경우 LVM (논리 볼륨 관리자) 또는 MDADM을 사용 하 여 탑재 된 여러 디스크에 하나의 대규모 논리 볼륨을 만드는 것이 좋습니다. 자세한 내용은 LVM 또는 MDADM을 활용하는 방법에 대한 지침과 조언을 제공하는 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)을 참조하세요. 이 방법을 사용하면 디스크 공간 관리를 위한 관리 오버헤드를 간소화하고 탑재된 여러 디스크에 파일을 수동으로 배포하는 수고를 덜 수 있습니다.
 
 
 #### <a name="write-accelerator"></a>Write Accelerator
-Azure M 시리즈 VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능에 비해 온라인 다시 실행 로그에 대기 시간 쓰기를 요소별로 줄일 수 있습니다. 온라인 다시 실행 로그 파일에 사용되는 Azure Premium Storage 기반의 디스크(VHD)에 대해 Azure Write Accelerator를 사용하도록 설정합니다. 자세한 내용은 [Write Accelerator](../../how-to-enable-write-accelerator.md)를 참조하세요.
+Azure M 시리즈 Vm의 경우 azure 쓰기 가속기를 사용 하는 경우 Azure premium storage를 사용 하는 경우 요인에 따라 온라인 다시 실행 로그에 기록 되는 대기 시간을 줄일 수 있습니다. 온라인 다시 실행 로그 파일에 사용되는 Azure Premium Storage 기반의 디스크(VHD)에 대해 Azure Write Accelerator를 사용하도록 설정합니다. 자세한 내용은 [Write Accelerator](../../how-to-enable-write-accelerator.md)를 참조하세요. 또는 온라인 다시 실행 로그 볼륨에 Azure Ultra disk를 사용 합니다.
 
 
 ### <a name="backuprestore"></a>백업/복원
@@ -523,5 +527,9 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-### <a name="other"></a>기타
-[SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서는 Azure 가용성 집합 및 SAP 모니터링을 비롯하여 Oracle Database를 사용하는 VM 배포와 관련된 기타 중요 개념을 설명합니다.
+## <a name="next-steps"></a>다음 단계
+기사 읽기 
+
+- [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)
+ 
+

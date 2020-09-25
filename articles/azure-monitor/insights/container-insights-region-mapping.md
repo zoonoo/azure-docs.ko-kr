@@ -1,15 +1,15 @@
 ---
 title: 컨테이너 영역 매핑에 대 한 Azure Monitor
-description: 이 문서에서는 컨테이너, Log Analytics 작업 영역 및 사용자 지정 메트릭에 대 한 Azure Monitor 간에 지원 되는 지역 매핑을 설명 합니다.
+description: 컨테이너, Log Analytics 작업 영역 및 사용자 지정 메트릭에 대 한 Azure Monitor 간에 지원 되는 지역 매핑을 설명 합니다.
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3e8ead78c5e0e534e07c1e2ab0e25eb3f5a90c38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e3b8635c70dfdf33b0a062be80c948cd77923cc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272908"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor에서 지 원하는 지역 매핑
 
@@ -17,7 +17,8 @@ ms.locfileid: "84194979"
 
 ## <a name="log-analytics-workspace-supported-mappings"></a>Log Analytics 작업 영역에서 지원 되는 매핑
 
-AKS 클러스터 리소스 또는 Log Analytics 작업 영역은 다른 지역에 상주할 수 있으며 다음 표에서는 매핑을 보여 줍니다.
+지원 되는 AKS 지역은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)에 나열 됩니다. Log Analytics 작업 영역은 다음 표에 나열 된 지역을 제외 하 고 동일한 영역에 있어야 합니다. 업데이트에 대 한 [AKS 릴리스 정보](https://github.com/Azure/AKS/releases) 를 시청 하세요.
+
 
 |**AKS 클러스터 영역** | **Log Analytics 작업 영역 영역** |
 |-----------------------|------------------------------------|
@@ -25,43 +26,24 @@ AKS 클러스터 리소스 또는 Log Analytics 작업 영역은 다른 지역�
 |SouthAfricaNorth |WestEurope |
 |SouthAfricaWest |WestEurope |
 |**오스트레일리아** | |
-|AustraliaEast |AustraliaEast |
-|AustraliaCentral |AustraliaCentral |
 |AustraliaCentral2 |AustraliaCentral |
-|AustraliaEast |AustraliaEast |
-|**아시아 태평양** | |
-|EastAsia |EastAsia |
-|SoutheastAsia |SoutheastAsia |
 |**브라질** | |
 |BrazilSouth | SouthCentralUS |
 |**캐나다** ||
-|CanadaCentral |CanadaCentral |
 |CanadaEast |CanadaCentral |
 |**유럽** | |
-|FranceCentral |FranceCentral |
 |FranceSouth |FranceCentral |
-|NorthEurope |NorthEurope |
-|UKSouth |UKSouth |
 |UKWest |UKSouth |
-|WestEurope |WestEurope |
 |**인도** | |
-|CentralIndia |CentralIndia |
 |SouthIndia |CentralIndia |
 |WestIndia |CentralIndia |
 |**일본** | |
-|JapanEast |JapanEast |
 |JapanWest |JapanEast |
 |**한국** | |
-|KoreaCentral |KoreaCentral |
 |KoreaSouth |KoreaCentral |
 |**US** | |
-|CentralUS |CentralUS|
-|EastUS |EastUS |
-|EastUS2 |EastUS2 |
-|WestUS |WestUS |
-|WestUS2 |WestUS2 |
 |WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
-|US Gov 버지니아 |US Gov 버지니아 |
+
 
 <sup>1</sup> 용량 제한은 인해 새 리소스를 만들 때 지역을 사용할 수 없습니다. 여기에는 Log Analytics 작업 영역이 포함 됩니다. 그러나 지역에서 기존에 연결 된 리소스는 계속 작동 해야 합니다.
 

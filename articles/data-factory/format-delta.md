@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
-ms.openlocfilehash: e9df7b00a384859fb29577be0ad05da233683f46
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044523"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276510"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Azure Data Factory의 델타 형식
 
@@ -33,14 +33,15 @@ ms.locfileid: "87044523"
 
 다음 표에서는 델타 원본에서 지 원하는 속성을 나열 합니다. 이러한 속성은 **원본 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 서식 | 형식은 이어야 합니다.`delta` | 예 | `delta` | format |
+| 서식 | 형식은 이어야 합니다. `delta` | 예 | `delta` | format |
 | 파일 시스템 | 델타 lake의 컨테이너/파일 시스템 | 예 | String | fileSystem |
 | 폴더 경로 | 델타 lake의 직접 | 예 | String | folderPath |
 | 압축 유형 | 델타 테이블의 압축 유형입니다. | 아니요 | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
 | 압축 수준 | 압축이 최대한 빠르게 완료 되는지 또는 결과 파일이 최적으로 압축 되어야 하는지 여부를 선택 합니다. | `compressedType`가 지정 된 경우 필수 사항입니다. | `Optimal` 또는 `Fastest` | compressionLevel |
 | 시간 이동 | 델타 테이블의 이전 스냅숏을 쿼리할 지 여부를 선택 합니다. | 아니요 | Timestamp 별 쿼리: 타임 스탬프 <br> 버전별 쿼리: Integer | timestampAsOf <br> versionAsOf |
+| 파일을 찾을 수 없음 | True 이면 파일이 없는 경우 오류가 throw 되지 않습니다. | 아니요 | `true` 또는 `false` | ignoreNoFilesFound |
 
 #### <a name="import-schema"></a>스키마 가져오기
 
@@ -69,9 +70,9 @@ source(output(movieId as integer,
 
 아래 표에는 델타 싱크에 의해 지원 되는 속성이 나와 있습니다. 이러한 속성은 **설정** 탭에서 편집할 수 있습니다.
 
-| Name | 설명 | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| 서식 | 형식은 이어야 합니다.`delta` | 예 | `delta` | format |
+| 서식 | 형식은 이어야 합니다. `delta` | 예 | `delta` | format |
 | 파일 시스템 | 델타 lake의 컨테이너/파일 시스템 | 예 | String | fileSystem |
 | 폴더 경로 | 델타 lake의 직접 | 예 | String | folderPath |
 | 압축 유형 | 델타 테이블의 압축 유형입니다. | 아니요 | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |

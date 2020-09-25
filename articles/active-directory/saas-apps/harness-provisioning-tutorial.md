@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 56a865de8cb1be079f4935ef2a8f840f10589b26
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550013"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305656"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 도구 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "88550013"
 >
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에 설명 된 시나리오에서는 사용자에 게 이미 다음과 같은 필수 구성 요소가 있다고 가정 합니다.
 
@@ -82,7 +82,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위한 도구를 구성 
 
     !["Azure Active Directory" 단추](common/select-azuread.png)
 
-1. **엔터프라이즈 응용 프로그램**  >  **모든 응용 프로그램**을 선택 합니다.
+1. **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 
     !["모든 애플리케이션" 링크](common/enterprise-applications.png)
 
@@ -126,7 +126,7 @@ Azure AD에서 도구에 대 한 자동 사용자 프로비저닝을 구성 하�
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. **테 넌 트 URL** 상자에을 입력 **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** 합니다.  
+   a. **테 넌 트 URL** 상자에을 입력 **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`** 합니다. 도구에 로그인 할 때 브라우저의 URL에서 사용자의 계정 ID를 가져올 수 있습니다.
    b. **비밀 토큰** 상자에 "프로 비전을 위한 도구 설정" 섹션의 6 단계에서 저장 한 Scim 인증 토큰 값을 입력 합니다.  
    다. **연결 테스트** 를 선택 하 여 Azure AD가 하네스에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 사용자의 하네스 계정에 *관리자* 권한이 있는지 확인 한 후 다시 시도 하십시오.
 

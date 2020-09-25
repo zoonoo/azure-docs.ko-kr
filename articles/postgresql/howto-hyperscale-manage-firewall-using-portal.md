@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/11/2020
-ms.openlocfilehash: d369614357bd62dc13073f650fbe5ce358d6dc6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dadd04497eae0e91bdf5ea3caad38beda35f7fa3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884321"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275424"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL의 방화벽 규칙 관리 - 하이퍼스케일(Citus)
 서버 수준 방화벽 규칙은 지정된 IP 주소 또는 IP 주소 범위에서 하이퍼스케일(Citus) 코디네이터 노드에 대한 액세스를 관리하는 데 사용할 수 있습니다.
@@ -49,7 +49,7 @@ ms.locfileid: "90884321"
 
 ## <a name="connecting-from-azure"></a>Azure에서 연결
 
-Azure에서 호스트되는 애플리케이션(예: Azure Web Apps 애플리케이션 또는 Azure VM에서 실행되는 애플리케이션)에 대한 하이퍼스케일 데이터베이스 액세스 권한을 부여하는 쉬운 방법이 있습니다. 포털의 **네트워킹** 창에서 **Azure 서비스 및 리소스에서 이 서버 그룹에 액세스할 수 있도록 허용** 옵션을 **예**로 설정하고 **저장**을 누르면 됩니다.
+Azure에서 호스트 되는 응용 프로그램 (예: azure Web Apps 응용 프로그램 또는 Azure VM에서 실행 되는 응용 프로그램)에 대 한 Citus (Hyperscale) 데이터베이스 액세스 권한을 부여 하는 쉬운 방법이 있습니다. 포털의 **네트워킹** 창에서 **Azure 서비스 및 리소스에서 이 서버 그룹에 액세스할 수 있도록 허용** 옵션을 **예**로 설정하고 **저장**을 누르면 됩니다.
 
 > [!IMPORTANT]
 > 이 옵션은 다른 고객 구독에서의 연결을 포함하여 Azure에서의 모든 연결을 허용하도록 방화벽을 구성합니다. 이 옵션을 선택할 때 로그인 및 사용자 권한이 부여된 사용자만으로 액세스를 제한하는지 확인합니다.

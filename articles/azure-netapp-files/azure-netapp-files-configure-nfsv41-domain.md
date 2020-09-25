@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: dda911add42568e76160e4233502a1f4f550520d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e749f27875612136c50938712fded6a371f8c7ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483723"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325626"
 ---
 # <a name="configure-nfsv41-default-domain-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFSv 4.1 기본 도메인 구성
 
@@ -54,7 +54,7 @@ NFSv4는 인증 도메인의 개념을 소개 합니다. 현재 Azure NetApp Fil
 
 다음 예에서는 결과 사용자/그룹 변경 내용을 보여 줍니다. 
 
-![NFSv 4.1에 대 한 결과 구성](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
+![결과 사용자/그룹 변경의 예를 보여 주는 스크린샷](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
 
 예제에 나와 있는 것 처럼 사용자/그룹이 이제에서로 변경 `nobody` 되었습니다 `root` .
 
@@ -64,7 +64,7 @@ Azure NetApp Files는 NFSv 4.1 볼륨의 파일 또는 폴더와 연결 된 사�
 
 다음 예제에서에는 `Host1` 세 개의 기존 테스트 사용자 계정 ( `testuser01` , `testuser02` , `testuser03` )이 있습니다. 
 
-![NFSv 4.1에 대 한 결과 구성](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
+![Host1에 세 개의 기존 테스트 사용자 계정이 있음을 보여 주는 스크린샷](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
 
 에서 `Host2` 테스트 사용자 계정은 만들어지지 않았지만 동일한 볼륨이 두 호스트에 모두 탑재 되어 있는지 확인 합니다.
 

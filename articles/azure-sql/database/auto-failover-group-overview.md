@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7b4a85077c8e0147f926f9a86fc8a003591ec8ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076517"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277736"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -217,7 +217,7 @@ OLTP 작업을 수행할 때 `<fog-name>.database.windows.net`을 서버 URL로 
 
 다음 다이어그램은 관리되는 인스턴스와 자동 장애 조치(failover) 그룹을 사용하는 지역 중복 클라우드 애플리케이션의 일반적인 구성을 보여 줍니다.
 
-![자동 장애 조치(failover)](./media/auto-failover-group-overview/auto-failover-group-mi.png)
+![자동 장애 조치 (failover) 다이어그램](./media/auto-failover-group-overview/auto-failover-group-mi.png)
 
 > [!NOTE]
 > 장애 조치 (failover) 그룹을 사용 하도록 SQL Managed Instance를 추가 하는 자세한 단계별 자습서는 [장애 조치 (failover) 그룹에 관리 되는 인스턴스 추가](../managed-instance/failover-group-add-instance-tutorial.md) 를 참조 하세요.
@@ -237,16 +237,16 @@ OLTP 작업을 수행할 때 `<fog-name>.database.windows.net`을 서버 URL로 
 
 각 인스턴스가 자체 VNet에 격리되므로 이러한 VNet 간의 양방향 트래픽을 허용해야 합니다. [Azure VPN 게이트웨이](../../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
 
-### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>다른 구독의 관리 되는 인스턴스 간에 장애 조치 (failover) 그룹 만들기
+### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>다른 구독의 Managed Instance 간에 장애 조치(failover) 그룹 만들기
 
 구독이 동일한 [Azure Active Directory 테 넌 트](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology)에 연결 되어 있는 한 다른 두 구독의 SQL 관리 되는 인스턴스 간에 장애 조치 (failover) 그룹을 만들 수 있습니다. PowerShell API를 사용 하는 경우 `PartnerSubscriptionId` 보조 SQL Managed Instance에 대 한 매개 변수를 지정 하 여이 작업을 수행할 수 있습니다. REST API 사용 하는 경우 매개 변수에 포함 된 각 인스턴스 ID에는 `properties.managedInstancePairs` 자체 subscriptionID가 있을 수 있습니다.
   
 > [!IMPORTANT]
-> Azure Portal은 다른 구독에서 장애 조치 (failover) 그룹 만들기를 지원 하지 않습니다. 또한 다른 구독 및/또는 리소스 그룹에 걸친 기존 장애 조치 (failover) 그룹의 경우 기본 SQL Managed Instance에서 포털을 통해 수동으로 장애 조치 (failover)를 시작할 수 없습니다. 대신 지역 보조 인스턴스에서 시작 합니다.
+> Azure Portal은 다른 구독에서 장애 조치 (failover) 그룹 만들기를 지원 하지 않습니다. 또한 다른 구독 및/또는 리소스 그룹에 걸친 기존 장애 조치 (failover) 그룹의 경우 기본 SQL Managed Instance에서 포털을 통해 수동으로 장애 조치 (failover)를 시작할 수 없습니다. 대신 지역 보조 인스턴스에서 시작합니다.
 
-### <a name="managing-failover-to-secondary-instance"></a>보조 인스턴스로 장애 조치 (failover) 관리
+### <a name="managing-failover-to-secondary-instance"></a>보조 인스턴스로 장애 조치(failover) 관리
 
-장애 조치 (failover) 그룹은 SQL Managed Instance의 모든 데이터베이스에 대 한 장애 조치 (failover)를 관리 합니다. 그룹을 만들 때 인스턴스의 각 데이터베이스가 보조 SQL Managed Instance에 자동으로 지역 복제 됩니다. 장애 조치(failover) 그룹을 사용하여 데이터베이스 하위 집합의 부분 장애 조치(failover)를 시작할 수 없습니다.
+장애 조치(failover) 그룹은 SQL Managed Instance에 있는 모든 데이터베이스의 장애 조치(failover)를 관리합니다. 그룹을 만들면 인스턴스의 각 데이터베이스가 자동으로 보조 SQL Managed Instance에 지역 복제됩니다. 장애 조치(failover) 그룹을 사용하여 데이터베이스 하위 집합의 부분 장애 조치(failover)를 시작할 수 없습니다.
 
 > [!IMPORTANT]
 > 주 SQL Managed Instance에서 데이터베이스를 제거 하는 경우 지역 보조 SQL Managed Instance 에서도 자동으로 삭제 됩니다.
@@ -348,16 +348,16 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 > [!IMPORTANT]
 > 지역 중단에 대한 비즈니스 연속성을 보장하기 위해 프런트 엔드 구성 요소와 데이터베이스 모두에 대한 지리적 복제를 확인해야 합니다.
 
-## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>관리 되는 인스턴스와 해당 Vnet 간의 지역에서 복제 사용
+## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Managed Instance와 해당 VNet 간에 지역 복제 사용
 
 서로 다른 두 지역에서 기본 및 보조 SQL 관리 되는 인스턴스 간에 장애 조치 (failover) 그룹을 설정 하는 경우 각 인스턴스는 독립 된 가상 네트워크를 사용 하 여 격리 됩니다. 이러한 Vnet 간의 복제 트래픽을 허용 하려면 다음 필수 구성 요소가 충족 되는지 확인 합니다.
 
 - SQL Managed Instance의 두 인스턴스는 서로 다른 Azure 지역에 있어야 합니다.
 - SQL Managed Instance의 두 인스턴스는 동일한 서비스 계층 이어야 하며 저장소 크기는 동일 해야 합니다.
 - SQL Managed Instance의 보조 인스턴스는 비어 있어야 합니다 (사용자 데이터베이스 없음).
-- SQL Managed Instance 인스턴스에서 사용 되는 가상 네트워크는 [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [Express 경로](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)를 통해 연결 해야 합니다. 두 가상 네트워크가 온-프레미스 네트워크를 통해 연결 되는 경우 포트 5022 및 11000-11999을 차단 하는 방화벽 규칙이 없어야 합니다. 전역 VNet 피어링은 지원되지 않습니다.
+- SQL Managed Instance 인스턴스에서 사용 되는 가상 네트워크는 [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [Express 경로](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)를 통해 연결 해야 합니다. 두 가상 네트워크가 온-프레미스 네트워크를 통해 연결되는 경우 포트 5022 및 11000-11999를 차단하는 방화벽 규칙이 없어야 합니다. 전역 VNet 피어링은 지원되지 않습니다.
 - 두 SQL Managed Instance Vnet는 겹치는 IP 주소를 가질 수 없습니다.
-- 포트 5022 및 11000 ~ 12000 범위는 다른 관리 되는 인스턴스의 서브넷에서 연결에 대 한 인바운드 및 아웃 바운드 연결에 대 한 오픈 인바운드 및 아웃 바운드를 설정 하는 NSG (네트워크 보안 그룹)를 설정 해야 합니다. 이는 인스턴스 간의 복제 트래픽을 허용 하기 위한 것입니다.
+- 포트 5022, 범위 11000~12000이 다른 Managed Instance 서브넷의 연결에 대해 인바운드 및 아웃바운드로 열려 있도록 NSG(네트워크 보안 그룹)를 설정해야 합니다. 이는 인스턴스 간의 복제 트래픽을 허용하기 위한 것입니다.
 
    > [!IMPORTANT]
    > NSG 보안 규칙을 잘못 구성하면 데이터베이스 복사 작업이 중단됩니다.
@@ -371,7 +371,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 보조 데이터베이스와의 연결을 끊지 않고도 주 데이터베이스를 다른 컴퓨팅 크기(동일한 서비스 계층 내, 범용 및 중요 비즈니스용 사이 아님)로 업그레이드하거나 다운그레이드할 수 있습니다. 업그레이드할 때 모든 보조 데이터베이스를 먼저 업그레이드 한 다음 주 데이터베이스를 업그레이드 하는 것이 좋습니다. 다운 그레이드 하는 경우 순서를 반대로 바꿉니다. 먼저 주 복제본을 다운 그레이드 한 다음 모든 보조 데이터베이스를 다운 그레이드 합니다. 데이터베이스를 다른 서비스 계층으로 업그레이드하거나 다운그레이드할 때 이 권장 사항이 적용됩니다.
 
-이 순서는 더 낮은 SKU의 보조 데이터베이스가 오버 로드 되 고 업그레이드 또는 다운 그레이드 프로세스 중에 다시 시드 되어야 하는 문제를 방지 하기 위해 특별히 권장 됩니다. 주 복제본에 대 한 모든 읽기-쓰기 작업에 영향을 미칠 수 있으므로 주 읽기 전용으로 설정 하 여 문제를 방지할 수도 있습니다.
+이 순서는 더 낮은 SKU의 보조가 오버로드되고 업그레이드 또는 다운그레이드 프로세스 중에 다시 시드되어야 하는 문제를 방지하기 위해 특히 권장됩니다. 주에 대한 모든 읽기/쓰기 워크로드의 영향을 희생하여 주를 읽기 전용으로 설정해 문제를 방지할 수도 있습니다.
 
 > [!NOTE]
 > 장애 조치 (failover) 그룹 구성의 일부로 보조 데이터베이스를 만든 경우 보조 데이터베이스를 다운 그레이드 하는 것은 좋지 않습니다. 이렇게 하면 장애 조치가 활성화된 후 데이터 계층에서 일반 워크로드를 처리할 수 있을 만큼 충분한 용량을 갖출 수 있습니다.
@@ -404,7 +404,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-| cmdlet | 설명 |
+| cmdlet | Description |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |
@@ -415,7 +415,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [az sql 장애 조치 (failover) 그룹 삭제](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |
@@ -442,7 +442,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-| cmdlet | 설명 |
+| cmdlet | Description |
 | --- | --- |
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |이 명령은 장애 조치 (failover) 그룹을 만들고 주 및 보조 인스턴스에 등록 합니다.|
 | [AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |장애 조치 (failover) 그룹의 구성을 수정 합니다.|
@@ -453,7 +453,7 @@ CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az-sql-failover-group-create) |장애 조치 그룹을 만들고 주 및 보조 서버 모두에 등록합니다|
 | [az sql 장애 조치 (failover) 그룹 삭제](/cli/azure/sql/failover-group#az-sql-failover-group-delete) | 서버에서 장애 조치 (failover) 그룹을 제거 합니다. |

@@ -18,12 +18,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aa7be140b47d389bea0e7468d1a5ac7e58c3b1b
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 26fdf202cb9bcacee94c83578432f7a399f90a0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276289"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306279"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 AD FS 모니터링
 다음 문서는 AZure AD Connect Health와 함께 AD FS 인프라 모니터링에 중점을 둡니다. Azure AD Connect Health에서 Azure AD Connect (동기화)를 모니터링 하는 방법에 대 한 자세한 내용은 [동기화에 Azure AD Connect Health 사용](how-to-connect-health-sync.md)을 참조 하세요. 또한 Azure AD Connect Health Active Directory Domain Services 모니터링에 대 한 자세한 내용은 AD DS에서 [Azure AD Connect Health 사용](how-to-connect-health-adds.md)을 참조 하세요.
@@ -33,7 +33,7 @@ Azure AD Connect Health 경고 섹션은 활성 경고 목록을 제공합니다
 
 활성 또는 해결된 경고를 두 번 클릭하면 추가 정보, 경고를 해결하기 위해 취할 수 있는 단계와 적절한 설명서 링크가 포함된 새 블레이드가 표시됩니다. 과거에 해결된 경고에 대한 기록 데이터도 볼 수 있습니다.
 
-![Azure AD Connect Health 포털](./media/how-to-connect-health-adfs/alert2.png)
+![경고를 선택 하 고 "경고 정보" 창이 표시 된 "경고" 페이지 Azure AD Connect Health 보여 주는 스크린샷](./media/how-to-connect-health-adfs/alert2.png)
 
 ## <a name="usage-analytics-for-ad-fs"></a>AD FS의 사용량 분석
 Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 인증 트래픽을 분석합니다. 사용량 현황 분석 상자를 두 번 클릭하면, 몇 가지 메트릭 및 그룹화를 보여주는 사용량 현황 분석 블레이드가 열립니다.
@@ -43,7 +43,7 @@ Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 
 >
 >
 
-![Azure AD Connect Health 포털](./media/how-to-connect-health-adfs/report1.png)
+!["사용 현황 분석" 페이지 Azure AD Connect Health 표시 하는 스크린샷](./media/how-to-connect-health-adfs/report1.png)
 
 추가 메트릭을 선택하거나, 시간 범위를 지정하거나, 그룹화를 변경하려면 사용량 현황 분석 차트를 마우스 오른쪽 단추로 클릭하고 차트 편집을 선택합니다. 그런 다음 시간 범위를 지정하고 다른 메트릭을 선택하고 그룹화를 변경할 수 있습니다. 다음 섹션에 설명된 다양한 “메트릭”을 기반으로 인증 트래픽 분산을 살펴보고 적절한 “그룹화 기준” 매개 변수를 사용하여 각 메트릭을 그룹화할 수 있습니다.
 
@@ -78,7 +78,7 @@ Azure AD Connect Health 사용 현황 분석에서는 페더레이션 서버의 
 ## <a name="performance-monitoring-for-ad-fs"></a>AD FS의 모니터링 성능
 Azure AD Connect Health 성능 모니터링은 메트릭에 대한 모니터링 정보를 제공합니다. 모니터링 상자를 선택하면 메트릭에 대한 자세한 정보가 포함된 새 블레이드가 열립니다.
 
-![Azure AD Connect Health 포털](./media/how-to-connect-health-adfs/perf1.png)
+![Azure AD Connect Health 성능 "모니터링" 페이지를 보여 주는 스크린샷](./media/how-to-connect-health-adfs/perf1.png)
 
 블레이드 맨 위의 옵션을 선택하여 서버별로 필터링하면 개별 서버의 메트릭을 확인할 수 있습니다. 메트릭을 변경하려면 모니터링 블레이드에서 모니터링 차트를 마우스 오른쪽 단추로 클릭하고 차트 편집을 선택합니다(또는 차트 편집 단추를 선택). 그런 다음 열리는 새 블레이드의 드롭다운에서 추가 메트릭을 선택하여 성능 데이터를 볼 시간 범위를 지정할 수 있습니다.
 
@@ -89,7 +89,7 @@ AD FS 서버에서 인증 요청이 실패하는 일반적인 이유 중 하나�
 
 Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되어 로그인 시도가 실패한 상위 사용자 50명에 대한 보고서를 제공합니다. 이 보고서는 팜의 모든 AD FS 서버에서 생성된 감사 이벤트를 처리하여 얻을 수 있습니다.
 
-![Azure AD Connect Health 포털](./media/how-to-connect-health-adfs/report1a.png)
+![지난 30 일 동안의 잘못 된 암호 시도 횟수와 함께 "Reports" 섹션을 보여 주는 스크린샷](./media/how-to-connect-health-adfs/report1a.png)
 
 이 보고서 내에서 다음 정보에 간편하게 액세스할 수 있습니다.
 
@@ -108,7 +108,7 @@ Azure AD Connect Health for ADFS는 사용자 이름 또는 암호가 잘못되�
 
 보고서는 다음과 같은 정보를 제공합니다.
 
-| 보고서 항목 | 설명 |
+| 보고서 항목 | Description |
 | --- | --- |
 | 사용자 ID |사용된 사용자 ID를 표시합니다. 이것은 사용자가 입력한 값이며, 잘못된 사용자 ID가 사용되는 경우도 있습니다. |
 | 실패한 시도 |특정 사용자 ID에 대한 총 실패 횟수를 보여 줍니다. 테이블은 가장 높은 실패 횟수부터 내림차순으로 정렬됩니다. |

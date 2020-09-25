@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 770ded494f050631cd1c373f4b3fa5846c65e01a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971517"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275135"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>관리 id를 사용 하 여 Azure Storage 계정에 대 한 연결 설정
 
@@ -61,7 +61,7 @@ ms.locfileid: "90971517"
 
     Azure 테이블 저장소에 대 한 예제:
 
-    ![읽기 권한자 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 권한자 및 데이터 액세스 역할 할당 추가")
+    ![읽기 권한자 및 데이터 액세스 역할 할당 추가](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "읽기 및 데이터 액세스 역할 할당 추가")
 
 ### <a name="3---create-the-data-source"></a>3 - 데이터 원본 만들기
 
@@ -143,6 +143,10 @@ Blob 인덱서에 대한 인덱서 정의 예:
 인덱서 만들기 API에 대한 자세한 내용은 [인덱서 만들기](/rest/api/searchservice/create-indexer)를 확인하세요.
 
 인덱서 일정을 정의하는 방법에 대한 자세한 내용은 [Azure Cognitive Search에 대한 인덱서 일정 지정 방법](search-howto-schedule-indexers.md)을 참조하세요.
+
+## <a name="accessing-secure-data-in-storage-accounts"></a>저장소 계정에서 보안 데이터 액세스
+
+방화벽 및 가상 네트워크를 사용 하 여 Azure storage 계정을 더욱 안전 하 게 보호할 수 있습니다. Blob storage 계정 또는 방화벽이 나 가상 네트워크를 사용 하 여 보호 되는 Data Lake Gen2 저장소 계정에서 콘텐츠를 인덱싱하는 경우 [신뢰할 수 있는 서비스 예외를 통해 안전 하 게 저장소 계정의 데이터에 액세스](search-indexer-howto-access-trusted-service-exception.md)하는 방법에 대 한 지침을 따르세요.
 
 ## <a name="see-also"></a>참고 항목
 

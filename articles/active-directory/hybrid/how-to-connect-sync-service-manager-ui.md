@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2975bb95511ba0a0d9f61886109c12715105fd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01d3b8a0ffaef1b1f03f6f9f8dab6af04a965ba9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357123"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306024"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Azure AD Connect Synchronization Service Manager UI 소개
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
+![Synchronization Service Manager U I를 보여 주는 스크린샷](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
 
 **Synchronization Service Manager** UI는 동기화 엔진의 고급 측면을 구성하고 서비스의 작동 측면을 확인하는 데 사용됩니다.
 

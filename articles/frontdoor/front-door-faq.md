@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2020
+ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 995b8ab77779f0d3b9e2260ea18aa13aa242db36
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0d669d4232adca3348b51c2a48947e0dabf0a472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399738"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324062"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Azure Front 문에 대 한 질문과 대답
 
@@ -100,6 +100,31 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 
 -    API 버전 이상을 사용 하 여 Front 문에 대해 가져오기 작업을 수행 `2020-01-01` 합니다. API 호출에서 필드를 찾습니다 `frontdoorID` . 프런트 도어로 보낸 들어오는 헤더 '**x-y**'를 필드의 값을 사용 하 여 백 엔드로 필터링 합니다 `frontdoorID` . 또한 `Front Door ID` 전방 도어 포털 페이지의 개요 섹션에서 값을 찾을 수 있습니다. 
 
+- 백 엔드 웹 서버에서 규칙 필터링을 적용 하 여 결과 ' X-y ' 헤더 값을 기준으로 트래픽을 제한 합니다.
+
+  [Microsoft 인터넷 정보 서비스 (IIS)](https://www.iis.net/)에 대 한 예제는 다음과 같습니다.
+
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+        <system.webServer>
+            <rewrite>
+                <rules>
+                    <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+                        <match url="*" />
+                        <conditions>
+                            <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+                        </conditions>
+                        <action type="AbortRequest" />
+                    </rule>
+                </rules>
+            </rewrite>
+        </system.webServer>
+    </configuration>
+    ```
+
+
+
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Front 도어가 지속 되는 동안 애니캐스트 IP가 변경 될 수 있나요?
 
 프런트 도어의 프런트 엔드 애니캐스트 IP는 일반적으로 변경 되지 않으며 전면 도어 수명 동안 정적 상태로 유지 될 수 있습니다. 그러나 동일한를 **보장 하지** 는 않습니다. IP에 대 한 직접적인 종속성을 고려 하지 않습니다.
@@ -123,7 +148,7 @@ Azure 전면 도어는 전역적으로 분산 된 다중 테 넌 트 서비스�
 경로 또는 백 엔드 풀 등의 모든 업데이트는 원활 하 게 작동 하며 가동 중지 시간 (새 구성이 올바른 경우)을 발생 시킵니다. ' AFD 관리 '에서 ' 자신의 인증서 사용 '으로 전환 하거나 그 반대로 전환 하지 않는 한 인증서 업데이트도 원자성 이며 중단 되지 않습니다.
 
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Azure Front 도어는 가상 네트워크 내에서 트래픽 부하를 분산 하거나 라우팅할 수 있나요?
 
@@ -132,6 +157,10 @@ Azure 전면 도어 (AFD)에는 트래픽을 라우팅하는 공용 IP 또는 �
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Azure Front 문에 대 한 다양 한 시간 제한 및 제한은 무엇 인가요?
 
 [Azure Front 도어에 대해 문서화 된 시간 제한 및 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits)에 대해 알아봅니다.
+
+### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>프런트 도어 규칙 엔진에 추가 된 후 규칙이 적용 되려면 얼마나 걸립니까?
+
+규칙 엔진 구성은 업데이트를 완료 하는 데 약 10 ~ 15 분이 걸립니다. 업데이트가 완료 되는 즉시 규칙이 적용 될 것으로 예측할 수 있습니다. 
 
 ## <a name="performance"></a>성능
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: b55ba6ab73758ed562aaabeef91cf08acf659758
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278637"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대한 질문과 대답입니다.
 
@@ -49,7 +49,9 @@ Application Gateway는 HTTP, HTTPS, HTTP/2 및 WebSocket을 지원합니다.
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>Application Gateway를 사용할 수 있는 지역은 어디인가요?
 
-Application Gateway는 Azure 전체의 모든 지역에서 사용할 수 있습니다. [Azure 중국 21Vianet](https://www.azure.cn/) 및 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)에서도 사용할 수 있습니다.
+Application Gateway v1 (표준 및 WAF)은 글로벌 Azure의 모든 지역에서 사용할 수 있습니다. [Azure 중국 21Vianet](https://www.azure.cn/) 및 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)에서도 사용할 수 있습니다.
+
+Application Gateway v2 (Standard_v2 및 WAF_v2) 가용성은 Application Gateway v 2 [의 지원 되는 지역](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions) 을 참조 하세요.
 
 ### <a name="is-this-deployment-dedicated-for-my-subscription-or-is-it-shared-across-customers"></a>이 배포가 내 구독 전용인가요 아니면 고객 사이에서 공유되나요?
 
@@ -182,11 +184,15 @@ IP 연결이 설정되어 있는 한, Application Gateway는 현재 속한 가�
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>애플리케이션 게이트웨이 서브넷에서 네트워크 보안 그룹이 지원되나요?
 
-[Application Gateway 서브넷의 네트워크 보안 그룹](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet)을 참조하세요.
+[Application Gateway 서브넷의 네트워크 보안 그룹](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#network-security-groups)을 참조하세요.
 
 ### <a name="does-the-application-gateway-subnet-support-user-defined-routes"></a>애플리케이션 게이트웨이 서브넷에서 사용자 정의 경로를 지원하나요?
 
 [Application Gateway 서브넷에서 지원되는 사용자 정의 경로](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes)를 참조하세요.
+
+### <a name="are-service-endpoint-policies-supported-in-the-application-gateway-subnet"></a>Application Gateway 서브넷에서 서비스 끝점 정책이 지원 되나요?
+
+아니요. 저장소 계정에 대 한 [서비스 끝점 정책은](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) Application Gateway 서브넷에서 지원 되지 않으며 구성 하면 Azure 인프라 트래픽이 차단 됩니다.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Application Gateway에서 한도는 어떻게 되나요? 이러한 한도를 늘릴 수 있나요?
 
@@ -222,7 +228,7 @@ IP 연결이 설정되어 있는 한, Application Gateway는 현재 속한 가�
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Application Gateway가 일부 원본 IP 주소에만 액세스하도록 허용할 수 있나요?
 
-예. [특정 원본 IP로 액세스 제한](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips)을 참조하세요.
+예. [특정 원본 IP로 액세스 제한](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#allow-access-to-a-few-source-ips)을 참조하세요.
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>퍼블릭 연결 수신기와 프라이빗 연결 수신기에 똑같은 포트를 사용할 수 있나요?
 

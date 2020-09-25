@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 5427d62f93eb6284ecda9a0762e3d8c4e99c06e2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2e1c7c1ca15d7c47ec8973ac8e93f7391916f5e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890100"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302403"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
 
@@ -39,7 +39,7 @@ Azure Machine Learning 모델을 웹 서비스로 배포 하면 REST API 끝점�
 > [!NOTE]
 > Azure Machine Learning SDK를 사용하여 웹 서비스 정보를 가져옵니다. 이는 Python SDK입니다. 모든 언어를 사용하여 서비스용 클라이언트를 만들 수 있습니다.
 
-[azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py&preserve-view=true) 클래스는 클라이언트를 만드는 데 필요한 정보를 제공합니다. 다음 `Webservice` 속성은 클라이언트 애플리케이션을 만드는 데 유용합니다.
+[azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) 클래스는 클라이언트를 만드는 데 필요한 정보를 제공합니다. 다음 `Webservice` 속성은 클라이언트 애플리케이션을 만드는 데 유용합니다.
 
 * `auth_enabled` 키 인증을 사용 하면 `True` 이 고, 그렇지 않으면 `False` 입니다.
 * `token_auth_enabled` 토큰 인증을 사용 하면 `True` 이 고, 그렇지 않으면 `False` 입니다.
@@ -113,7 +113,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> 키를 다시 생성 해야 하는 경우를 사용 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py&preserve-view=true) 합니다.
+> 키를 다시 생성 해야 하는 경우를 사용 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) 합니다.
 
 #### <a name="authentication-with-tokens"></a>토큰을 사용한 인증
 
@@ -501,7 +501,7 @@ print(resp.text)
 
 ## <a name="web-service-schema-openapi-specification"></a>웹 서비스 스키마 (OpenAPI 사양)
 
-배포에서 자동 스키마 생성을 사용 하는 경우 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#&preserve-view=trueswagger-uri)을 사용 하 여 서비스에 대 한 openapi 사양의 주소를 가져올 수 있습니다. (예: `print(service.swagger_uri)` ) GET 요청을 사용 하거나 브라우저에서 URI를 열어 사양을 검색 합니다.
+배포에서 자동 스키마 생성을 사용 하는 경우 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueswagger-uri)을 사용 하 여 서비스에 대 한 openapi 사양의 주소를 가져올 수 있습니다. (예: `print(service.swagger_uri)` ) GET 요청을 사용 하거나 브라우저에서 URI를 열어 사양을 검색 합니다.
 
 다음 JSON 문서는 배포에 대해 생성 된 스키마 (OpenAPI 사양)의 예입니다.
 
@@ -643,7 +643,7 @@ print(resp.text)
 
 
 > [!TIP]
-> 서비스를 배포한 후 스키마 JSON 문서를 검색할 수 있습니다. 배포 된 웹 서비스의 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#&preserve-view=trueswagger-uri) (예:)을 사용 `service.swagger_uri` 하 여 로컬 웹 서비스의 swagger 파일에 대 한 uri를 가져옵니다.
+> 서비스를 배포한 후 스키마 JSON 문서를 검색할 수 있습니다. 배포 된 웹 서비스의 [swagger_uri 속성](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueswagger-uri) (예:)을 사용 `service.swagger_uri` 하 여 로컬 웹 서비스의 swagger 파일에 대 한 uri를 가져옵니다.
 
 ## <a name="consume-the-service-from-power-bi"></a>Power BI에서 서비스 사용
 

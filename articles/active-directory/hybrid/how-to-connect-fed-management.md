@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dadffd6fe3e6b438b21900f957f0d4ef71bb23cb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cc0c8c40e370579100c562e0289c97e3f5ce4236
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661269"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274115"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
 이 문서에서는 Azure AD(Azure Active Directory) Connect를 사용하여 AD FS(Active Directory Federation Services)를 관리 및 사용자 지정하는 방법을 설명합니다. 또한 AD FS 팜의 완벽한 구성을 위해 수행해야 할 수 있는 다른 일반적인 AD FS 작업을 포함합니다.
@@ -52,11 +52,11 @@ Azure AD Connect를 사용하여 AD FS와 Azure AD 트러스트의 현재 상태
    ![AAD 및 ADFS 트러스트 복구](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
 2. **Azure AD에 연결** 페이지에서 Azure AD에 대한 전역 관리자 자격 증명을 제공하고 **다음**을 클릭합니다.
-   ![Azure AD에 연결](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
+   ![예제 자격 증명이 입력 된 "Azure AD에 연결" 페이지를 보여 주는 스크린샷](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
 
 3. **원격 액세스 자격 증명** 페이지에서 도메인 관리자에 대한 자격 증명을 입력합니다.
 
-   ![원격 액세스 자격 증명](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
+   ![예제 자격 증명이 입력 된 "원격 액세스 자격 증명" 페이지를 보여 주는 스크린샷](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
 
     **다음**을 클릭한 후 Azure AD Connect가 인증서 상태를 확인하고 문제를 표시합니다.
 
@@ -64,7 +64,7 @@ Azure AD Connect를 사용하여 AD FS와 Azure AD 트러스트의 현재 상태
 
     **구성 준비** 페이지는 트러스트를 복구하기 위해 수행할 작업 목록을 표시합니다.
 
-    ![구성 준비](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
+    ![작업 목록과 함께 "구성 준비 완료" 페이지를 보여 주는 스크린샷](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
 
 4. **설치** 를 클릭하여 트러스트를 복구합니다.
 
@@ -98,7 +98,7 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 
 2. **Azure AD에 연결** 페이지에서 Azure AD에 대한 전역 관리자 자격 증명을 입력하고 **다음**을 클릭합니다.
 
-   ![Azure에 연결](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
+   ![샘플 자격 증명이 입력 된 "Azure AD에 연결" 페이지를 보여 주는 스크린샷](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
 
 3. 도메인 관리자 자격 증명을 제공합니다.
 
@@ -106,9 +106,9 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 
 4. Azure AD Connect는 Azure AD Connect를 사용하여 새 AD FS 팜을 구성하는 동안 제공한 PFX 파일의 암호를 요청합니다. **암호 입력** 을 클릭하여 PFX 파일에 대한 암호를 제공합니다.
 
-   ![인증서 암호](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
+   !["인증서 암호" 창이 열려 있는 "SSL 인증서 지정" 페이지를 보여 주는 스크린샷](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
-    ![TLS/SSL 인증서 지정](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
+    ![PFX 파일에 대 한 암호를 입력 한 후 "SSL 인증서 지정" 페이지를 보여 주는 스크린샷](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. **AD FS 서버** 페이지에서 AD FS 팜에 추가할 서버 이름 또는 IP 주소를 입력합니다.
 
@@ -116,9 +116,9 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 
 6. **다음**을 클릭하고 마지막 **구성** 페이지로 이동합니다. Azure AD Connect가 AD FS 팜에 서버 추가를 완료한 후 연결을 확인하는 옵션이 제공됩니다.
 
-   ![구성 준비](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
+   !["설치"를 클릭 한 후 완료할 작업 목록과 함께 "구성 준비 완료" 페이지가 표시 된 스크린샷](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
 
-    ![설치 완료](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
+    !["인트라넷 구성이 확인 되었습니다." 라는 메시지가 표시 된 "설치 완료" 페이지가 표시 된 스크린샷 ](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
 ## <a name="add-an-ad-fs-wap-server"></a><a name="addwapserver"></a>AD FS WAP 서버 추가 
 
@@ -131,7 +131,7 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 
 2. Azure 전역 관리자 자격 증명을 제공합니다.
 
-   ![Azure에 연결](./media/how-to-connect-fed-management/wapserver2.PNG)
+   ![입력 한 예제 사용자 이름 및 암호를 사용 하 여 "Azure AD에 연결" 페이지를 보여 주는 스크린샷](./media/how-to-connect-fed-management/wapserver2.PNG)
 
 3. **SSL 인증서 지정** 페이지에서 Azure AD Connect를 사용하여 AD FS 팜을 구성했을 때 제공한 PFX 파일에 대한 암호를 제공합니다.
    ![인증서 암호](./media/how-to-connect-fed-management/WapServer3.PNG)
@@ -148,7 +148,7 @@ AD FS에 대한 대체 로그인 ID 구성은 크게 다음 두 단계로 구성
 
 6. **구성 준비** 페이지에서 마법사는 수행할 작업 목록을 표시합니다.
 
-   ![구성 준비](./media/how-to-connect-fed-management/WapServer7.PNG)
+   ![수행할 작업 목록이 포함 된 "구성 준비 완료" 페이지를 보여 주는 스크린샷](./media/how-to-connect-fed-management/WapServer7.PNG)
 
 7. **설치** 를 클릭하여 구성을 완료합니다. 구성이 완료되면 마법사에서 서버에 대한 연결을 확인하는 옵션을 제공합니다. **확인** 을 클릭하여 연결을 확인합니다.
 

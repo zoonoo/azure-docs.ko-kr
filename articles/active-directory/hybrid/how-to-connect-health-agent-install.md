@@ -12,23 +12,27 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9e6686c69eb6dababb577e9c556a8a13ec42485a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3b2c89086688451b16a8a6e10c25be65ffd4d9dd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296467"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273860"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
 이 문서는 Azure AD Connect Health Agent를 설치하고 구성하는 단계를 안내합니다. [여기](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent)에서 에이전트를 다운로드할 수 있습니다.
 
 ## <a name="requirements"></a>요구 사항
+
+
+> [!IMPORTANT]
+> Windows Server Core에 Azure AD Connect Health 에이전트를 설치 하는 것은 지원 되지 않습니다.
 
 다음 표는 Azure AD Connect Health를 사용하기 위한 요구 사항 목록입니다.
 
@@ -48,7 +52,7 @@ ms.locfileid: "89296467"
 
 > [!NOTE]
 > 매우 잠금 수준이 매우 제한 된 환경이 있는 경우 위의 IE 보안 강화 구성에 나열 된 Url 외에 아래 서비스 끝점 목록에 언급 된 Url을 추가 해야 합니다. 
->
+
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure 서비스 엔드포인트에 대한 아웃바운드 연결
 
@@ -259,7 +263,7 @@ Azure AD Connect를 성공적으로 설치한 후 동기화에 대한 Azure AD C
 ### <a name="quick-agent-installation-in-multiple-servers"></a>여러 서버에 빠른 에이전트 설치
 
 1. Azure AD에서 암호를 사용 하 여 사용자 계정을 만듭니다.
-2. 포털을 통해 Azure AD Connect Health에서이 로컬 AAD 계정의 **소유자** 역할을 할당 합니다. [여기](how-to-connect-health-operations.md#manage-access-with-azure-rbac)의 단계를 따르세요. 모든 서비스 인스턴스에 역할을 할당 합니다. 
+2. 포털을 통해 Azure AD Connect Health에서이 로컬 AAD 계정의 **소유자** 역할을 할당 합니다. [여기](how-to-connect-health-operations.md#manage-access-with-azure-rbac)의 단계를 따릅니다. 모든 서비스 인스턴스에 역할을 할당 합니다. 
 3. 설치를 위해 로컬 도메인 컨트롤러에서 .exe MSI 파일을 다운로드 합니다.
 4. 다음 스크립트를 실행 하 여 등록 합니다. 매개 변수를 만든 새 사용자 계정 및 암호를 바꿉니다. 
 

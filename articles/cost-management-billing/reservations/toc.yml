@@ -54,6 +54,7 @@
     - name: 기업 고객에 대한 사용량 현황 데이터
       href: understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: 방법 가이드
+  expanded: true
   items:
     - name: 구매할 항목 확인
       items:

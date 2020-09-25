@@ -3,12 +3,12 @@ title: 개념-허브 및 스포크 아키텍처에서 Azure VMware 솔루션 배
 description: Azure에서 기존 또는 새 허브 및 스포크 아키텍처에 Azure VMware 솔루션 배포를 통합 하기 위한 권장 사항에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 1862b98b40788b6b71d05eb4be43bdacd39e927f
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a2007e159d23a02ca573fd833590651061c59973
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659207"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271735"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처에서 Azure VMware 솔루션 통합
 
@@ -109,7 +109,7 @@ Azure 애플리케이션 Gateway V1 및 V2는 백 엔드 풀로 Azure VMware 솔
 
 허브 가상 네트워크 내의 공유 서비스 서브넷에 배포 된 Windows 10 또는 Windows Server VM 인 Jumpbox을 사용 하 여 Azure VMware 솔루션 환경에 액세스 합니다.
 
-보안 모범 사례에 따라 허브 가상 네트워크 내에 [Microsoft Azure 방호](../bastion/index.yml) 서비스를 배포 합니다. Azure 방호는 이러한 리소스에 공용 IP 주소를 프로 비전 할 필요 없이 Azure에 배포 된 Vm에 대 한 원활한 RDP 및 SSH 액세스를 제공 합니다. Azure 방호 서비스를 프로 비전 하 고 나면 Azure Portal에서 선택한 VM에 액세스할 수 있습니다. 연결을 설정한 후 새 탭이 열리고 Jumpbox 데스크톱이 표시 되 고 해당 데스크톱에서 Azure VMware 솔루션 사설 클라우드 관리 평면에 액세스할 수 있습니다.
+보안 모범 사례에 따라 허브 가상 네트워크 내에 [Microsoft Azure 방호](../bastion/index.yml) 서비스를 배포 합니다. Azure 방호는 이러한 리소스에 공용 IP 주소를 프로 비전 할 필요 없이 Azure에 배포 된 Vm에 대 한 원활한 RDP 및 SSH 액세스를 제공 합니다. Azure 방호 서비스를 프로 비전 하 고 나면 Azure Portal에서 선택한 VM에 액세스할 수 있습니다. 연결을 설정 하 고 나면 Azure VMware 솔루션 사설 클라우드 관리 평면에 액세스할 수 있는 Jumpbox 데스크톱이 표시 되는 새 탭이 열립니다.
 
 > [!IMPORTANT]
 > 공용 IP 주소를 Jumpbox VM에 제공 하거나 3389/TCP 포트를 공용 인터넷에 노출 하지 마십시오. 
@@ -142,7 +142,7 @@ Azure의 azure 사설 DNS 영역에 대해 Azure의 확인자 Vm에 대 한 조�
 
 ## <a name="identity-considerations"></a>Id 고려 사항
 
-Id를 사용 하는 경우 가장 좋은 방법은 공유 서비스 서브넷을 사용 하 여 허브에 하나 이상의 AD 도메인 컨트롤러를 배포 하는 것입니다 .이 두 가지는 영역 분산 방식 또는 VM 가용성 집합입니다. 온-프레미스 AD 도메인을 Azure로 확장 [Azure 아키텍처 센터](/azure/architecture/reference-architectures/identity/adds-extend-domain) 를 참조 하세요.
+Id를 위해 가장 좋은 방법은 공유 서비스 서브넷을 사용 하 여 허브에 하나 이상의 AD 도메인 컨트롤러를 배포 하는 것입니다. 이 중 두 가지는 영역 분산 방식 또는 VM 가용성 집합에 이상적입니다. 온-프레미스 AD 도메인을 Azure로 확장 [Azure 아키텍처 센터](/azure/architecture/reference-architectures/identity/adds-extend-domain) 를 참조 하세요.
 
 또한 Azure VMware 솔루션 쪽의 다른 도메인 컨트롤러를 배포 하 여 vSphere 환경 내에서 id 및 DNS 원본으로 작동 합니다.
 

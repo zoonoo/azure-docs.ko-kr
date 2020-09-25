@@ -2,22 +2,24 @@
 title: Service Fabric 서비스 끝점 지정
 description: HTTPS 엔드포인트를 설정하는 방법을 포함하여 서비스 매니페스트에서 엔드포인트 리소스를 설명하는 방법
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/16/2020
+ms.openlocfilehash: 8fdd95a7c0390c987b7c59663e0ee12e4a4a968e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610747"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267808"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
 ## <a name="overview"></a>개요
-서비스 매니페스트를 사용 하면 컴파일된 코드를 변경 하지 않고 서비스에서 사용 하는 리소스를 선언 하거나 변경할 수 있습니다. Service Fabric은 서비스에 대 한 끝점 리소스의 구성을 지원 합니다. 서비스 매니페스트에 지정된 리소스에 대한 액세스는 애플리케이션 매니페스트의 SecurityGroup을 통해 제어할 수 있습니다. 리소스를 선언하면 배포 시에 이러한 리소스를 변경할 수 있으며 즉, 서비스에 새로운 구성 메커니즘을 도입하지 않아도 됩니다. ServiceManifest.xml 파일에 대한 스키마 정의는 Service Fabric SDK 및 도구와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치됩니다.
+매니페스트 파일을 사용 하 여 응용 프로그램 및 서비스를 정의 하 고 버전을 Service Fabric 합니다. ServiceManifest.xml 및 ApplicationManifest.xml에 대 한 높은 수준의 개요는 [Service Fabric 응용 프로그램 및 서비스 매니페스트](service-fabric-application-and-service-manifests.md)를 참조 하세요.
+
+서비스 매니페스트를 사용 하면 컴파일된 코드를 변경 하지 않고 서비스에서 사용 하는 리소스를 선언 하거나 변경할 수 있습니다. Service Fabric은 서비스에 대 한 끝점 리소스의 구성을 지원 합니다. 서비스 매니페스트에 지정된 리소스에 대한 액세스는 애플리케이션 매니페스트의 SecurityGroup을 통해 제어할 수 있습니다. 리소스를 선언하면 배포 시에 이러한 리소스를 변경할 수 있으며 즉, 서비스에 새로운 구성 메커니즘을 도입하지 않아도 됩니다. ServiceManifest.xml 파일에 대 한 스키마 정의는 Service Fabric SDK 및 도구와 함께 *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*에 설치 되며 [servicefabricservicemodel.xsd 스키마 설명서](service-fabric-service-model-schema.md)에 설명 되어 있습니다.
 
 ## <a name="endpoints"></a>엔드포인트
 서비스 매니페스트에 엔드포인트 리소스가 정의되면 서비스 패브릭에서는 포트가 명시적으로 지정되지 않을 경우 예약된 애플리케이션 포트 범위에 포함되는 포트를 할당합니다. 예를 들어 이 단락 다음에 제공된 매니페스트 코드 조각에 지정된 엔드포인트 *ServiceEndpoint1* 을 보세요. 또한 서비스에서 리소스의 특정 포트를 요청할 수도 있습니다. 다른 클러스터 노드에서 실행되는 서비스 복제본을 다른 포트 번호에 할당할 수 있으며, 같은 노드에서 실행되는 서비스의 복제본은 포트를 공유합니다. 그러면 서비스 복제본은 복제 및 클라이언트 요청의 수신 대기를 위해 필요한 경우 이러한 포트를 사용할 수 있습니다.
 
-Https 끝점을 지정 하는 서비스를 활성화할 때 포트에 대 한 액세스 제어 항목을 설정 하 고, 지정 된 서버 인증서를 포트에 바인딩하고, 서비스에서 실행 되는 id를 인증서의 개인 키에 대 한 권한으로 부여할 수 Service Fabric 합니다. 활성화 흐름은 Service Fabric 시작 될 때마다 또는 응용 프로그램의 인증서 선언이 업그레이드를 통해 변경 되는 경우에 호출 됩니다. 또한 끝점 인증서가 변경/갱신에 대해 모니터링 되 고, 필요에 따라 사용 권한이 주기적으로 다시 적용 됩니다.
+Https 끝점을 지정 하는 서비스를 활성화할 때 포트에 대 한 액세스 제어 항목을 설정 하 고, 지정 된 서버 인증서를 포트에 바인딩하고, 서비스에서 실행 되는 id를 인증서의 개인 키에 대 한 권한으로 부여할 수 Service Fabric 합니다. 활성화 흐름은 Service Fabric 시작 될 때마다 또는 응용 프로그램의 인증서 선언이 업그레이드를 통해 변경 되는 경우에 호출 됩니다. 또한 끝점 인증서가 변경/갱신에 대해 모니터링 되 고, 필요에 따라 사용 권한이 정기적으로 다시 적용 됩니다.
 
 서비스가 종료 되 면 Service Fabric 끝점 액세스 제어 항목을 정리 하 고 인증서 바인딩을 제거 합니다. 그러나 인증서의 개인 키에 적용 되는 모든 사용 권한은 정리 되지 않습니다.
 
@@ -155,14 +157,16 @@ HTTPS 끝점에 필요한 구성을 보여 주는 예제 ApplicationManifest는 
 
 Linux 클러스터의 경우 **내** 저장소는 기본적으로 **/var/lib/sfcerts** 폴더입니다.
 
+HTTPS 끝점을 사용 하는 전체 응용 프로그램의 예제는 [Kestrel을 사용 하 여 ASP.NET Core WEB API 프런트 엔드 서비스에 https 끝점 추가](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest)를 참조 하세요.
+
 ## <a name="port-acling-for-http-endpoints"></a>HTTP 끝점에 대 한 포트 ACLing
-Service Fabric는 기본적으로 지정 된 HTTP (S) 끝점을 자동으로 ACL에 지정 합니다. 끝점에 [Securityaccesspolicy](service-fabric-assign-policy-to-endpoint.md) 가 연결 되어 있지 않고 Service Fabric 관리자 권한이 있는 계정을 사용 하 여 실행 되도록 구성 된 경우 자동으로 acling를 수행 **하지** 않습니다.
+Service Fabric는 기본적으로 지정 된 HTTP (S) 끝점을 자동으로 ACL에 지정 합니다. 끝점에 [Securityaccesspolicy](service-fabric-assign-policy-to-endpoint.md) 가 연결 되어 있지 않고 Service Fabric 관리자 권한이 있는 계정을 사용 하 여 실행 되도록 구성 된 경우 자동으로 ACLing를 수행 **하지** 않습니다.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>ServiceManifest.xml에서 엔드포인트 재정의
 
-ApplicationManifest에서 ConfigOverrides 섹션의 형제로 지정될 ResourceOverrides 섹션을 추가합니다. 이 섹션에서는 ServiceManiifest에 지정된 resources 섹션의 Endpoints 섹션에 대한 재정의를 지정할 수 있습니다. 엔드포인트 재정의는 런타임 5.7.217/SDK 2.7.217 이상에서만 지원됩니다.
+ApplicationManifest에서 ResourceOverrides 섹션을 추가 합니다 .이 섹션은 ConfigOverrides 섹션에 형제가 됩니다. 이 섹션에서는 ServiceManiifest에 지정된 resources 섹션의 Endpoints 섹션에 대한 재정의를 지정할 수 있습니다. 엔드포인트 재정의는 런타임 5.7.217/SDK 2.7.217 이상에서만 지원됩니다.
 
-ApplicationParameters를 사용하여 ServiceManifest에서 EndPoint를 재정의하려면 ApplicationManifest를 다음과 같이 변경합니다.
+ApplicationParameters를 사용 하 여 Servicemanifest.xml에서 끝점을 재정의 하려면 Applicationparameters를 다음과 같이 변경 합니다.
 
 ServiceManifestImport 섹션에서 새 섹션 "ResourceOverrides"를 추가합니다.
 
@@ -194,15 +198,15 @@ Parameters에서 아래 내용을 추가합니다.
   </Parameters>
 ```
 
-애플리케이션을 배포하는 동안 이러한 값을 ApplicationParameters로 제공할 수 있습니다.  예를 들어:
+응용 프로그램을 배포 하는 동안 이러한 값을 ApplicationParameters로 전달할 수 있습니다.  예를 들면 다음과 같습니다.
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-참고: ApplicationParameters에 제공된 값이 비어 있으면 해당 EndPointName에 대한 ServiceManifest에 제공된 기본값으로 돌아갑니다.
+참고: 지정 된 ApplicationParameter에 제공 된 값이 비어 있으면 해당 EndPointName에 대해 Servicemanifest.xml에 제공 된 기본값으로 돌아갑니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ServiceManifest에서 다음을 지정했습니다.
 
@@ -214,6 +218,18 @@ ServiceManifest에서 다음을 지정했습니다.
   </Resources>
 ```
 
-또한 Applications 매개 변수에 대한 Port1 및 Protocol1 값은 null이거나 비어 있습니다. 포트는 여전히 ServiceFabric에 의해 결정됩니다. 또한 Protocol은 tcp가 됩니다.
+응용 프로그램 매개 변수에 대 한 Port1 및 Protocol1 값이 null 이거나 비어 있다고 가정 합니다. 포트는 ServiceFabric에서 결정 되며 프로토콜은 tcp입니다.
 
-잘못된 값을 지정한다고 가정해 보겠습니다. 포트의 경우와 같이 int 대신 문자열 값 "Foo"를 지정 했습니다.  Get-servicefabricapplication 명령이 오류로 인해 실패 합니다. ' ResourceOverrides ' 섹션에서 이름이 ' ServiceEndpoint1 ' 특성이 ' Port1 ' 인 재정의 매개 변수가 잘못 되었습니다. 지정된 값은 'Foo'이지만 'int'가 필요합니다.
+잘못된 값을 지정한다고 가정해 보겠습니다. 예를 들어 포트에서 int 대신 "Foo" 문자열 값을 지정 했습니다.  Get-servicefabricapplication 명령이 실패 하 고 오류가 발생 합니다. `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+
+## <a name="next-steps"></a>다음 단계
+
+이 문서에서는 Service Fabric의 서비스 매니페스트에서 끝점을 정의 하는 방법을 설명 했습니다. 자세한 예제는 다음을 참조 하세요.
+
+> [!div class="nextstepaction"]
+> [애플리케이션 및 서비스 매니페스트 예제](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
+
+Service Fabric 클러스터에서 기존 응용 프로그램을 패키지 하 고 배포 하는 연습을 보려면 다음을 참조 하세요.
+
+> [!div class="nextstepaction"]
+> [기존 실행 파일을 Service Fabric으로 패키징 및 배포](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-existing-app.md)

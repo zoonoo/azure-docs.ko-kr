@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: c330d8000825b2e0ccbdab8c5c1cdefa4d3d45c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b3fa2996edf5882cc02eeee92bcc3114bcd33348
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543376"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273418"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 SAP Cloud Platform Identity Authentication 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "88543376"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -108,11 +108,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 SAP Cloud Platfor
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에 `https://<tenantID>.accounts.ondemand.com/service/scim ` 있는 **테 넌 트 URL**에 입력 합니다. 이전에 **관리자 사용자 이름** 및 **관리자 암호** 에서 각각 검색 된 **사용자 ID** 및 **암호** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 SAP Cloud Platform Identity Authentication에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 SAP Cloud Platform Identity Authentication 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 

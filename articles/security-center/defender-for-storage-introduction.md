@@ -3,16 +3,16 @@ title: 저장소에 대 한 Azure Defender-혜택 및 기능
 description: 저장소에 대 한 Azure Defender의 이점 및 기능에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 31d1bde1555f98164ccba32d4615ba51837c5ef7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1c47c1cd464c9dc0ac8dc78f5d6f91f33481922a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940696"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307520"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>저장소에 대 한 Azure Defender 소개
 
@@ -28,7 +28,7 @@ ms.locfileid: "90940696"
 |릴리스 상태:|GA(일반 공급)|
 |결정|**저장소에 대 한 Azure Defender** 는 [가격 책정 페이지](security-center-pricing.md) 에 표시 된 대로 청구 됩니다.|
 |보호 된 저장소 유형|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure 파일](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![예](./media/icons/no-icon.png) 중국 .Gov, 기타 .Gov|
 |||
 
 

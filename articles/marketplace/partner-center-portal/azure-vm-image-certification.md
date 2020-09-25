@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 2d19098ec82fe9361154d798b981341a86decf97
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 751fbbb83f1ccb75cb84453f8c03296f6d1a786c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647825"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275782"
 ---
 # <a name="azure-virtual-machine-image-validation"></a>Azure 가상 컴퓨터 이미지 유효성 검사
 
@@ -20,7 +20,7 @@ ms.locfileid: "89647825"
 
 VM 제품을 제출하기 전에 다음 단계를 완료합니다.
 
-- 일반화된 이미지를 사용하여 Azure VM을 배포합니다.
+- 일반화된 이미지를 사용하여 Azure VM을 배포합니다. [일반화 된 이미지](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset#generalize-the-image)에 대 한 자세한 내용은 여기를 참조 하세요.
 - 유효성 검사를 실행합니다.
 
 ## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>일반화된 이미지를 사용하여 Azure VM 배포
@@ -599,7 +599,9 @@ Azure 인증 테스트 도구는 로컬 Windows 머신에서 실행되지만 Azu
 
 마지막 화면에서 Linux VM 이미지에 대 한 SSH 액세스 정보와 같은 추가 정보를 제공 하 고, 예외를 찾고 있는 경우 실패 한 평가에 대 한 설명을 제공할 수 있습니다.
 
-마지막으로, 보고서 생성을 선택하여 실행된 테스트 사례에 대한 테스트 결과 및 로그 파일과 질문서에 대한 답변을 다운로드합니다. VHD와 동일한 컨테이너에 결과를 저장합니다.
+마지막으로, 보고서 생성을 선택하여 실행된 테스트 사례에 대한 테스트 결과 및 로그 파일과 질문서에 대한 답변을 다운로드합니다. 
+> [!Note]
+> VM에 설치 된 방화벽과 같은 소프트웨어가 있는 경우 vm을 잠가야 하는 시나리오가 소수의 게시자에 게 있습니다. 이 경우, 게시자는 여기에서 [인증 된 테스트 도구](https://aka.ms/AzureCertificationTestTool) 를 다운로드 하 고 [Marketplace 게시자 지원](https://aka.ms/marketplacepublishersupport) 에서 보고서를 제공할 수 있습니다.
 
 ## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>PowerShell을 사용 하 여 자체 테스트 API를 사용 하는 방법
 

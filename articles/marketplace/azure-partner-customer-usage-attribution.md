@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 72d8cb0ef80210cca1dbf1d2726590c0cb8540e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320973"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261382"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>상업적 마켓플레이스 파트너 및 고객 사용 특성
 
@@ -268,39 +268,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="get-support"></a>지원 받기
 
-문제에 따라 두 개의 지원 채널을 이용할 수 있습니다.
-
-파트너 센터에서 고객 사용량 특성 보고서 표시 또는 로그인 관련 문제가 발생하는 경우 여기([https://partner.microsoft.com/support](https://partner.microsoft.com/support))에서 파트너 센터 지원 팀과 함께 지원 요청을 만드세요.
-
-![지원 페이지의 스크린샷](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
-
-마켓플레이스 등록 및/또는 고객 사용량 특성에 대한 일반적인 지원이 필요한 경우(예: 고객 사용량 특성을 설정하는 방법) 다음 단계를 수행합니다.
-
-1. [지원 페이지](https://go.microsoft.com/fwlink/?linkid=844975)로 이동합니다.
-
-1. **문제 유형** 아래에서 **Marketplace 온보딩**을 선택합니다.
-
-1. 다음과 같이 문제에 대한 **범주**를 선택합니다.
-
-   - 사용량 관련 문제의 경우 **기타**를 선택합니다.
-   - Azure Marketplace의 액세스 문제에 대해 **액세스 문제**를 선택 합니다.
-
-     ![문제 범주 선택](media/marketplace-publishers-guide/lu-article-incident.png)
-
-1. **요청 시작**을 선택합니다.
-
-1. 다음 페이지에서 필요한 값을 입력합니다. **계속**을 선택합니다.
-
-1. 다음 페이지에서 필요한 값을 입력합니다.
-
-   > [!IMPORTANT]
-   > **인시던트 제목** 상자에서 **ISV 사용량 추적**을 입력합니다. 문제를 자세히 설명하세요.
-
-   ![인시던트 제목에 대한 ISV 사용량 추적 입력](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
-
-1. 양식을 완성한 다음, **제출**을 선택합니다.
-
-또한 기술 예약 판매, 배포 및 앱 개발 시나리오에 대한 Microsoft 파트너 기술 컨설턴트의 기술 지침을 받아 고객 사용량 특성을 이해하고 통합할 수도 있습니다.
+[파트너 센터에서 상업적 marketplace 프로그램 지원](./partner-center-portal/support.md)의 지원 옵션에 대해 알아봅니다.
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>기술 상담 요청을 제출하는 방법
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459106"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325692"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>NetApp Azure Files를 사용하여 스냅샷 관리
 
@@ -65,7 +65,7 @@ Azure NetApp Files는 주문형 스냅숏 만들기 및 스냅숏 정책 사용�
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-Azure CLI 명령을 사용 하 여 [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) 기능을 [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) 등록 하 고 등록 상태를 표시할 수도 있습니다. 
+[Azure CLI 명령을](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) 사용 하 여 `az feature register` 기능을 `az feature show` 등록 하 고 등록 상태를 표시할 수도 있습니다. 
 
 ### <a name="create-a-snapshot-policy"></a>스냅숏 정책 만들기 
 
@@ -151,7 +151,7 @@ Azure CLI 명령을 사용 하 여 [`az feature register`](https://docs.microsof
     ![새 볼륨으로 스냅샷 복원](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 3. 볼륨 만들기 창에서 새 볼륨에 대 한 정보를 제공 합니다.  
-    * **이름**   
+    * **Name**   
         만들고 있는 볼륨의 이름을 지정합니다.  
         
         이름은 각 리소스 그룹 내에서 고유해야 합니다. 3자 이상이어야 합니다.  영숫자 문자를 사용할 수 있습니다.
@@ -179,7 +179,7 @@ Azure CLI 명령을 사용 하 여 [`az feature register`](https://docs.microsof
 
 1. `ls`Linux 명령을 사용 하 여 디렉터리에서 복원 하려는 파일을 나열 합니다 `.snapshot` . 
 
-    다음은 그 예입니다. 
+    예를 들면 다음과 같습니다.
 
     `$ ls my.txt`   
     `ls: my.txt: No such file or directory`   
@@ -194,7 +194,7 @@ Azure CLI 명령을 사용 하 여 [`az feature register`](https://docs.microsof
 
 2. 명령을 사용 `cp` 하 여 부모 디렉터리에 파일을 복사 합니다.  
 
-    다음은 그 예입니다.  
+    예를 들면 다음과 같습니다. 
 
     `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
 
@@ -221,6 +221,6 @@ Azure CLI 명령을 사용 하 여 [`az feature register`](https://docs.microsof
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure NetApp Files의 스토리지 계층 구조 이해](azure-netapp-files-understand-storage-hierarchy.md)
+* [스냅숏 정책 문제 해결](troubleshoot-snapshot-policies.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files 스냅숏 101 비디오](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

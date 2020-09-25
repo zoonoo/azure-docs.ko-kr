@@ -1,34 +1,34 @@
 ---
 title: Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포
-description: 이 문서에서는 PowerShell Runbook에서 Azure Storage에 저장된 Azure Resource Manager 템플릿을 배포하는 방법에 대해 설명합니다.
+description: 이 문서에서는 PowerShell runbook에서 Azure Storage에 저장 된 Azure Resource Manager 템플릿을 배포 하는 방법을 설명 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2018
+ms.date: 09/22/2020
 ms.topic: conceptual
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: 10eadd7b8ee6c2e954f40469a02d42dc77c2bf41
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 18f1d4ced2a80f9adb5da2c209987fc1997a3f22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186557"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304154"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>PowerShell Runbook에 Azure Resource Manager 템플릿 배포
 
-[Azure Resource Management 템플릿](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)을 사용하여 Azure 리소스를 배포하는 [Azure Automation PowerShell Runbook](./learn/automation-tutorial-runbook-textual-powershell.md)을 작성할 수 있습니다. 템플릿을 통해 Azure Automation 및 Azure Storage를 사용하여 Azure 리소스 배포를 자동화할 수 있습니다. Azure Storage와 같은 안전한 중앙 위치에서 Resource Manager 템플릿을 유지 관리할 수 있습니다.
+[Azure Resource Management 템플릿](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)을 사용하여 Azure 리소스를 배포하는 [Azure Automation PowerShell Runbook](./learn/automation-tutorial-runbook-textual-powershell.md)을 작성할 수 있습니다. 템플릿을 사용 하면 Azure Automation를 사용 하 여 Azure 리소스 배포를 자동화할 수 있습니다. Azure Storage와 같은 안전한 중앙 위치에서 Resource Manager 템플릿을 유지 관리할 수 있습니다.
 
 이 문서에서는 [Azure Storage](../storage/common/storage-introduction.md)에 저장된 Resource Manager 템플릿을 사용하여 새 Azure Storage 계정을 배포하는 PowerShell Runbook을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [체험 계정을 등록](https://azure.microsoft.com/free/)할 수 있습니다.
-* [Automation 계정](./manage-runas-account.md) .  이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
-* [Azure Storage 계정](../storage/common/storage-account-create.md) - Resource Manager 템플릿을 저장하는 위치입니다.
-* 로컬 머신에 설치된 Azure PowerShell. Azure PowerShell을 가져오는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조하세요.
+* [Automation 계정](./manage-runas-account.md) . 이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
+* 리소스 관리자 템플릿을 저장할 [Azure Storage 계정](../storage/common/storage-account-create.md) 입니다.
+* 로컬 머신에 설치된 Azure PowerShell. Azure PowerShell을 가져오는 방법에 대한 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 
 ## <a name="create-the-resource-manager-template"></a>리소스 관리자 템플릿 만들기
 
-이 예제에서는 새 Azure Storage 계정을 배포하는 Resource Manager 템플릿을 사용합니다.
+이 예제에서는 새 Azure Storage 계정을 배포 하는 리소스 관리자 템플릿을 사용 합니다.
 
 텍스트 편집기에서 다음 텍스트를 복사합니다.
 
@@ -88,8 +88,7 @@ ms.locfileid: "86186557"
 
 ## <a name="save-the-resource-manager-template-in-azure-storage"></a>Azure Storage에 Resource Manager 템플릿 저장
 
-이제 PowerShell을 사용하여 Azure Storage 파일 공유를 만들고 **TemplateTest.json** 파일을 업로드합니다.
-Azure Portal에서 파일 공유를 만들고 파일을 업로드하는 방법에 대한 지침은 [Windows에서 Azure File Storage 시작](../storage/files/storage-dotnet-how-to-use-files.md)을 참조하세요.
+이제 PowerShell을 사용하여 Azure Storage 파일 공유를 만들고 **TemplateTest.json** 파일을 업로드합니다. Azure Portal에서 파일 공유를 만들고 파일을 업로드하는 방법에 대한 지침은 [Windows에서 Azure File Storage 시작](../storage/files/storage-dotnet-how-to-use-files.md)을 참조하세요.
 
 로컬 컴퓨터에서 PowerShell을 시작하고, 다음 명령을 실행하여 파일 공유를 만들고 Resource Manager 템플릿을 해당 파일 공유에 업로드합니다.
 
@@ -114,7 +113,7 @@ Set-AzStorageFileContent -ShareName $fileShare.Name -Context $context -Source $t
 
 ## <a name="create-the-powershell-runbook-script"></a>PowerShell Runbook 스크립트 만들기
 
-이제 Azure Storage에서 **TemplateTest.json** 파일을 가져오고 템플릿을 배포하여 새 Azure Storage 계정을 만드는 PowerShell 스크립트를 만듭니다.
+이제 Azure Storage에서 파일 ** 의TemplateTest.js** 를 가져오고 템플릿을 배포 하 여 새 Azure Storage 계정을 만드는 PowerShell 스크립트를 만듭니다.
 
 텍스트 편집기에서 다음 텍스트를 붙여넣습니다.
 
@@ -159,7 +158,7 @@ $TemplateFile = Join-Path -Path 'C:\Temp' -ChildPath $StorageFileName
 
 # Deploy the storage account
 New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterObject $Parameters 
-``` 
+```
 
 파일을 로컬에서 **DeployTemplate.ps1**로 저장합니다.
 
@@ -192,7 +191,7 @@ Publish-AzAutomationRunbook @publishParams
 
 ## <a name="start-the-runbook"></a>Runbook을 시작합니다.
 
-이제 [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0) cmdlet을 호출하여 Runbook을 시작합니다. Azure Portal에서 Runbook을 시작하는 방법에 대한 자세한 내용은 [Azure Automation에서 Runbook 시작](./start-runbooks.md)을 참조하세요.
+이제 [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet을 호출하여 Runbook을 시작합니다. Azure Portal에서 Runbook을 시작하는 방법에 대한 자세한 내용은 [Azure Automation에서 Runbook 시작](./start-runbooks.md)을 참조하세요.
 
 PowerShell 콘솔에서 다음 명령을 실행합니다.
 
@@ -202,7 +201,7 @@ $runbookParams = @{
     ResourceGroupName = 'MyResourceGroup'
     StorageAccountName = 'MyStorageAccount'
     StorageAccountKey = $key[0].Value # We got this key earlier
-    StorageFileName = 'TemplateTest.json' 
+    StorageFileName = 'TemplateTest.json'
 }
 
 # Set up parameters for the Start-AzAutomationRunbook cmdlet
@@ -217,10 +216,9 @@ $startParams = @{
 $job = Start-AzAutomationRunbook @startParams
 ```
 
-Runbook이 실행되고 `$job.Status`를 실행하여 상태를 확인할 수 있습니다.
+Runbook이 실행 된 후에는 작업 개체의 속성 값을 검색 하 여 해당 상태를 확인할 수 있습니다 `$job.Status` .
 
-Runbook은 Resource Manager 템플릿을 가져와서 새 Azure Storage 계정을 배포하는 데 사용합니다.
-다음 명령을 실행하여 새 스토리지 계정을 만들었음을 확인할 수 있습니다.
+Runbook은 Resource Manager 템플릿을 가져와서 새 Azure Storage 계정을 배포하는 데 사용합니다. 다음 명령을 실행 하 여 새 저장소 계정이 만들어진 것을 볼 수 있습니다.
 
 ```powershell
 Get-AzStorageAccount
@@ -231,5 +229,4 @@ Get-AzStorageAccount
 * Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md)를 참조하세요.
 * Azure Storage를 시작하려면 [Azure Storage 소개](../storage/common/storage-introduction.md)를 참조하세요.
 * 다른 유용한 Azure Automation Runbook을 찾으려면 [Azure Automation에서 Runbook 및 모듈 사용](automation-runbook-gallery.md)을 참조하세요.
-* 다른 유용한 Resource Manager 템플릿을 찾으려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)을 참조하세요.
-* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation)을 참조하세요.
+* PowerShell cmdlet 참조는 [Az.Automation](/powershell/module/az.automation#automation)을 참조하세요.

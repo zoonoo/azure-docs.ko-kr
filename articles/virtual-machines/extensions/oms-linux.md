@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: d24463834a49cdfbdb4599770caf579ae94582d8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 38bbe52e45c348977cdda02a5399f6c89fb91bcc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999821"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307452"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux용 Log Analytics 가상 머신 확장
 
@@ -43,7 +43,7 @@ Azure Monitor Logs는 클라우드와 온-프레미스 자산에서 모니터링
 
 | Log Analytics Linux VM 확장 버전 | Log Analytics 에이전트 번들 버전 | 
 |--------------------------------|--------------------------|
-| 1.13.13 | [1.13.7-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.7-0) |
+| 1.13.15 | [1.13.9-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.9-0) |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -211,7 +211,9 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 19 | OMI 패키지 설치 오류 | 
 | 20 | SCX 패키지 설치 실패 |
 | 51 | 이 확장이 VM의 운영 체제에서 지원되지 않음 | |
-| 55 | Azure Monitor 서비스에 연결할 수 없거나, 필수 패키지가 없거나, dpkg 패키지 관리자가 잠겨 있음| 시스템에서 인터넷에 액세스할 수 있는지 또는 유효한 HTTP 프록시가 제공되었는지 확인합니다. 또한 작업 영역 ID가 정확한지 확인하고 curl 및 tar 유틸리티가 설치되어 있는지도 확인합니다. |
+| 52 | 종속성이 누락 되어이 확장에 실패 했습니다. | 누락 된 종속성에 대 한 자세한 내용은 출력 및 로그를 확인 하십시오. |
+| 53 | 구성 매개 변수가 누락 되거나 잘못 되어이 확장에 실패 했습니다. | 발생 한 문제에 대 한 자세한 내용은 출력 및 로그를 확인 하세요. 또한 작업 영역 ID가 올바른지 확인 하 고 컴퓨터가 인터넷에 연결 되어 있는지 확인 합니다. |
+| 55 | Azure Monitor 서비스에 연결할 수 없거나, 필수 패키지가 없거나, dpkg 패키지 관리자가 잠겨 있음| 시스템에서 인터넷에 액세스할 수 있는지 또는 유효한 HTTP 프록시가 제공 되었는지 확인 합니다. 또한 작업 영역 ID가 올바른지 확인 하 고, 말아 및 tar 유틸리티가 설치 되어 있는지 확인 합니다. |
 
 추가 문제 해결 정보는 [Linux용 Log Analytics 에이전트 문제 해결 가이드](../../azure-monitor/platform/vmext-troubleshoot.md)에서 확인할 수 있습니다.
 

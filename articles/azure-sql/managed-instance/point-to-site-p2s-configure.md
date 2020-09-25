@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab, bonova, jovanpop
+ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 7b9c9fc6259656af77bf1ba1b95ccf190cbd85da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a629d230d63506a163cac0c530a1a8fbfed9627f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708648"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325082"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>빠른 시작: 온-프레미스에서 Azure SQL Managed Instance에 대 한 지점 및 사이트 간 연결 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "84708648"
 
 이 빠른 시작의 특징은 다음과 같습니다.
 
-- 에서는 [관리 되는 인스턴스 만들기](instance-create-quickstart.md) 에서 만든 리소스를 시작 지점으로 사용 합니다.
+- 에서는  [관리 되는 인스턴스 만들기](instance-create-quickstart.md) 에서 만든 리소스를 시작 지점으로 사용 합니다.
 - 온-프레미스 클라이언트 컴퓨터에서 PowerShell 5.1 및 Azure PowerShell 1.4.0 이상이 필요 합니다. 필요한 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module) 지침을 참조하세요.
 - 온-프레미스 클라이언트 컴퓨터에 최신 버전의 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) 필요 합니다.
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: ''
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: f9ab340e73ce8d58da63a0089073ac4770bf2d52
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973378"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324470"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>다른 데이터 원본의 데이터 피드를 메트릭 Advisor에 추가
 
@@ -37,19 +37,19 @@ ms.locfileid: "90973378"
 
 | 데이터 원본 | 인증 유형 |
 |-------------| ---------------------|
-|[**Azure Application Insights**](#appinsights)|  기본 |
-|[**Azure Blob Storage (JSON)**](#blob) | 기본<br>Microsoft.managedidentity|
-|[**Azure Cosmos DB (SQL)**](#cosmosdb) | 기본 |
-|[**Azure 데이터 탐색기 (Kusto)**](#kusto) | 기본<br>Microsoft.managedidentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | 기본<br>DataLakeGen2SharedKey<br>서비스 주체<br>Key vault의 서비스 사용자<br> |
-|[**Azure SQL Database/SQL Server**](#sql) | 기본<br>Microsoft.managedidentity<br>서비스 주체<br>Key vault의 서비스 사용자<br>AzureSQLConnectionString
-|[**Azure Table Storage**](#table) | 기본 | 
-|[**ElasticSearch**](#es) | 기본 |
-|[**Http 요청**](#http) | 기본 | 
-|[**InfluxDB (InfluxQL)**](#influxdb) | 기본 |
-|[**MongoDB**](#mongodb) | 기본 |
-|[**MySQL**](#mysql) | 기본 |
-|[**PostgreSQL**](#pgsql)| 기본|
+|[**Azure Application Insights**](#appinsights)|  Basic |
+|[**Azure Blob Storage (JSON)**](#blob) | Basic<br>Microsoft.managedidentity|
+|[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
+|[**Azure 데이터 탐색기 (Kusto)**](#kusto) | Basic<br>Microsoft.managedidentity|
+|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>서비스 주체<br>Key vault의 서비스 사용자<br> |
+|[**Azure SQL Database/SQL Server**](#sql) | Basic<br>Microsoft.managedidentity<br>서비스 주체<br>Key vault의 서비스 사용자<br>AzureSQLConnectionString
+|[**Azure Table Storage**](#table) | Basic | 
+|[**ElasticSearch**](#es) | Basic |
+|[**Http 요청**](#http) | Basic | 
+|[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
+|[**MongoDB**](#mongodb) | Basic |
+|[**MySQL**](#mysql) | Basic |
+|[**PostgreSQL**](#pgsql)| Basic|
 
 **자격 증명 엔터티** 를 만들어 데이터 원본에 인증 하는 데 사용 합니다. 다음 섹션에서는 *기본* 인증에에 필요한 매개 변수를 지정 합니다. 
 
@@ -82,7 +82,7 @@ ms.locfileid: "90973378"
 
 * **컨테이너**: 메트릭 관리자는 단일 컨테이너 아래에 blob 파일 (타임 스탬프 당 하나의 blob)로 저장 된 시계열 데이터를 예상 합니다. 컨테이너 이름 필드입니다.
 
-* **Blob 템플릿**: blob 파일 이름의 템플릿입니다. 예: `/%Y/%m/X_%Y-%m-%d-%h-%M.json` 지원 되는 매개 변수는 다음과 같습니다.
+* **Blob 템플릿**: blob 파일 이름의 템플릿입니다. 예: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. 지원 되는 매개 변수는 다음과 같습니다.
   * `%Y` 는로 서식이 지정 된 연도입니다. `yyyy`
   * `%m` 는로 형식이 지정 된 월입니다. `MM`
   * `%d` 날짜 형식이 `dd`
@@ -93,7 +93,7 @@ ms.locfileid: "90973378"
   
   * v1 (기본값)
 
-      메트릭 *이름과* *값* 만 허용 됩니다. 다음은 그 예입니다. 
+      메트릭 *이름과* *값* 만 허용 됩니다. 예를 들면 다음과 같습니다.
     
       ``` JSON
       {"count":11, "revenue":1.23}
@@ -101,7 +101,7 @@ ms.locfileid: "90973378"
 
   * v2
 
-      메트릭 *차원과* *타임 스탬프로* 도 허용 됩니다. 다음은 그 예입니다. 
+      메트릭 *차원과* *타임 스탬프로* 도 허용 됩니다. 예를 들면 다음과 같습니다.
       
       ``` JSON
       [
@@ -119,7 +119,7 @@ JSON 파일당 타임 스탬프는 하나만 허용 됩니다.
 * **컬렉션 id**: 쿼리할 컬렉션 id입니다. 이는 **찾아보기** 페이지의 **컨테이너** 섹션에서 찾을 수 있습니다.
 * **Sql 쿼리**: 다차원 시계열 데이터에 대 한 데이터를 가져오고 작성 하는 sql 쿼리입니다. 쿼리에서 및 변수를 사용할 수 있습니다 `@StartTime` `@EndTime` . 형식을 지정 해야 합니다. `yyyy-MM-dd HH:mm:ss`
 
-    샘플 쿼리:
+    예제 쿼리:
     
     ``` mssql
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = @StartTime
@@ -159,7 +159,7 @@ JSON 파일당 타임 스탬프는 하나만 허용 됩니다.
   * `%h` 는로 서식이 지정 된 시간입니다. `HH`
   * `%M` 는로 서식이 지정 된 분입니다. `mm`
 
-현재 메트릭 관리자는 다음과 같이 JSON 파일의 데이터 스키마를 지원 합니다. 다음은 그 예입니다. 
+현재 메트릭 관리자는 다음과 같이 JSON 파일의 데이터 스키마를 지원 합니다. 예를 들면 다음과 같습니다.
 
 ``` JSON
 [
@@ -198,7 +198,7 @@ The timestamp field must match one of these two formats:
 
   * `@StartTime`: 형식의 datetime `yyyy-MM-dd HH:mm:ss`
 
-    샘플 쿼리:
+    예제 쿼리:
     
     ``` mssql
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = @StartTime
@@ -232,7 +232,7 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">HTTP 요청</span>
 
-* **요청 URL**: JSON을 반환할 수 있는 HTTP URL입니다. 자리 표시자% Y,% m,% d,% h,% M이 (가) 지원 됩니다 .% Y = 연도 형식 yyyy,% m = 월 (MM),% d = 월 형식 예: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`
+* **요청 URL**: JSON을 반환할 수 있는 HTTP URL입니다. 자리 표시자% Y,% m,% d,% h,% M이 (가) 지원 됩니다 .% Y = 연도 형식 yyyy,% m = 월 (MM),% d = 월 형식 예: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
 * **요청 HTTP 메서드**: GET 또는 POST를 사용 합니다.
 * **요청 헤더**: 기본 인증을 추가할 수 있습니다. 
 * **요청 페이로드**: JSON 페이로드만 지원 됩니다. 페이로드에서 자리 표시 자가 @StartTime 지원 됩니다. 응답은 다음과 같은 JSON 형식 이어야 합니다. [{"timestamp": "2018-01-01T00:00:00Z", "market": "en-us", "count": 11, "수익": 1.23}, {"timestamp": "2018-01-01T00:00:00Z", "market": "zh-cn-cn", "count": 22, "수익": 4.56}]. (예: 2020-06-21T00:00:00Z의 데이터가 수집, @StartTime = 2020-06-21T00:00:00.0000000 + 00:00)

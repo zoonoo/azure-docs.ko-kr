@@ -2,18 +2,18 @@
 title: Azure Managed Disks의 서버 쪽 암호화 - PowerShell
 description: Azure Storage는 미사용 데이터를 암호화한 후 저장소 클러스터에 보관하여 데이터를 보호합니다. Microsoft 관리형 키를 사용하여 사용자의 관리 디스크를 암호화하거나, 고객 관리형 키를 사용하여 사용자 고유의 키로 암호화를 관리할 수 있습니다.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 49898f2215139c4460c639dc8caa3d2764082e34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815592"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274778"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>PowerShell에 대 한 Azure 디스크 저장소의 서버 쪽 암호화
 
@@ -47,6 +47,10 @@ Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중
 - 디스크에 대해 이 기능을 사용하는 경우에는 사용하지 않도록 설정할 수 없습니다.
     이 문제를 해결해야 하는 경우 고객 관리형 키를 사용하지 않는 완전히 다른 관리 디스크로 [모든 데이터를 복사](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)해야 합니다.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
+
+#### <a name="supported-regions"></a>지원되는 지역
+
+관리 디스크를 사용할 수 있는 모든 지역에서 고객 관리 키를 사용할 수 있습니다.
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>호스트의 암호화-VM 데이터의 종단 간 암호화
 

@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b52830e7cddb01c129df2344e26ac1684a88872
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 959837ff540fd95d186497858d7b9de1f8b1124d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292727"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274013"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 또는 응용 프로그램에 대 한 액세스를 검토 합니다.
 
@@ -65,13 +65,13 @@ Azure Active Directory (Azure AD)는 기업이 azure ad 액세스 검토 라는 
 
     다른 사용자에 대 한 액세스를 검토 하도록 요청 하는 경우 페이지가 다르게 표시 됩니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토](perform-access-review.md)를 참조 하세요.
 
-    ![그룹에 대 한 액세스가 필요한 지 여부를 묻는 액세스 검토를 엽니다.](./media/review-your-access/perform-access-review.png)
+    ![그룹에 대 한 액세스 권한이 여전히 필요한 지 여부를 묻는 오픈 액세스 검토를 보여 주는 스크린샷](./media/review-your-access/perform-access-review.png)
 
 1. 액세스를 유지 하려면 **예** 를 클릭 하 고, 액세스를 제거 하려면 **아니요** 를 클릭 합니다.
 
 1. **예**를 클릭 하면 **이유** 상자에 근거를 지정 해야 할 수 있습니다.
 
-    ![그룹에 대 한 액세스가 필요한 지 여부를 묻는 액세스 검토 완료](./media/review-your-access/perform-access-review-submit.png)
+    !["예"를 선택 하 여 그룹에 계속 액세스 해야 하는지 여부를 묻는 완료 된 액세스 검토를 보여 주는 스크린샷](./media/review-your-access/perform-access-review-submit.png)
 
 1. **제출**을 클릭합니다.
 

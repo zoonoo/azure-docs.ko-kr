@@ -5,27 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9efb3b451f6fc6c70c5d9ec346132bfc763ca28
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e76c5f51486f7c1673fb5359eabc99ee41130472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705778"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278859"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal을 사용하여 디바이스 ID 관리
 
 Azure AD는 장치 id를 관리 하는 중앙의 장소를 제공 합니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory**  >  **장치로**이동 합니다.
-
-[![Azure Portal의 모든 장치 보기](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
 **모든 장치** 페이지에서 다음을 수행할 수 있습니다.
 
@@ -38,6 +33,13 @@ Azure AD는 장치 id를 관리 하는 중앙의 장소를 제공 합니다.
 - 장치 id 설정을 구성 합니다.
 - Enterprise State Roaming 사용 하거나 사용 하지 않도록 설정 합니다.
 - 장치 관련 감사 로그 검토
+
+[![Azure Portal의 모든 장치 보기](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
+
+다음 단계를 사용 하 여 장치 포털에 액세스할 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **Azure Active Directory**  >  **장치로**이동 합니다.
 
 ## <a name="manage-devices"></a>디바이스 관리
 
@@ -147,6 +149,13 @@ BitLocker 키를 보거나 복사하려면, 디바이스의 소유자 또는 다
 
 Azure AD 포털을 사용 하 여 장치 id를 관리 하려면 해당 장치를 Azure AD에 [등록 하거나 조인](overview.md) 해야 합니다. 관리자는 다음 장치 설정을 구성 하 여 장치를 등록 하 고 조인 하는 프로세스를 제어할 수 있습니다.
 
+Azure Portal에서 장치 설정을 보거나 관리 하려면 다음 역할 중 하나가 할당 되어야 합니다.
+
+- 전역 관리자
+- 클라우드 디바이스 관리자
+- 글로벌 읽기 권한자
+- 디렉터리 판독기
+
 ![Azure AD와 관련 된 장치 설정](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
 - **사용자가 AZURE ad에 장치를 조인할 수 있습니다** .-이 설정을 사용 하면 장치를 azure ad 조인 장치로 등록할 수 있는 사용자를 선택할 수 있습니다. 기본값은 **All**입니다.
@@ -193,11 +202,11 @@ Azure AD 포털을 사용 하 여 장치 id를 관리 하려면 해당 장치를
 
 보고된 데이터를 자신에게 적합한 수준으로 좁히려면 다음 필드를 사용하여 감사 데이터를 필터링할 수 있습니다.
 
-- 범주
+- Category
 - 활동 리소스 종류
 - 활동
 - 날짜 범위
-- Target
+- 대상
 - 초기자(작업자)
 
 필터 이외의 방법으로도 특정 항목을 검색할 수 있습니다.

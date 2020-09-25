@@ -9,18 +9,18 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: e8dece3478e00c6f9279767e57e3bb8aca865f45
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 75aac74ae5ccf5b52234f1b554dc2a5edefcf32d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260413"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장 Apache Spark 기록 서버를 사용 하 여 Apache Spark 응용 프로그램 디버그 및 진단
 
 이 문서에서는 확장 Apache Spark 기록 서버를 사용 하 여 완료 된 Spark 응용 프로그램을 디버깅 및 진단 하는 방법에 대 한 지침을 제공 합니다.
 
-확장에는 데이터 탭, 그래프 탭 및 진단 탭이 포함 되어 있습니다. **데이터** 탭을 사용 하 여 Spark 작업의 입력 및 출력 데이터를 확인 하십시오. **그래프** 탭은 작업 그래프의 데이터 흐름과 재생을 보여 줍니다. **진단** 탭에는 **데이터 기울이기**, **시간 오차**및 **실행자 사용 현황 분석이**표시 됩니다.
+확장에는 데이터 탭, 그래프 탭 및 진단 탭이 포함 되어 있습니다. **데이터** 탭을 사용 하 여 Spark 작업의 입력 및 출력 데이터를 확인 합니다. **그래프** 탭은 작업 그래프의 데이터 흐름과 재생을 보여 줍니다. **진단** 탭에는 **데이터 기울이기**, **시간 오차**및 **실행자 사용 현황 분석이**표시 됩니다.
 
 ## <a name="access-the-apache-spark-history-server"></a>Apache Spark 기록 서버에 액세스
 
@@ -30,11 +30,11 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 1. [Azure Synapse Analytics](https://web.azuresynapse.net/)를 엽니다.
 
-2. **모니터**를 클릭 한 다음 **Apache Spark 응용 프로그램**을 선택 합니다.
+2. **모니터**를 선택한 다음 **Apache Spark 응용 프로그램**을 선택 합니다.
 
-    ![모니터를 클릭 하 고 spark 응용 프로그램을 선택 합니다.](./media/apache-spark-history-server/click-monitor-spark-application.png)
+    ![모니터를 선택 하 고 spark 응용 프로그램을 선택 합니다.](./media/apache-spark-history-server/click-monitor-spark-application.png)
 
-3. 응용 프로그램을 선택한 다음 **로그 쿼리** 를 클릭 하 여 엽니다.
+3. 응용 프로그램을 선택한 다음 **로그 쿼리** 를 선택 하 여 엽니다.
 
     ![로그 쿼리 창을 엽니다.](./media/apache-spark-history-server/open-application-window.png)
 
@@ -46,11 +46,11 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 1. Azure Synapse Studio 노트북에서 작업 실행 출력 셀 또는 노트북 문서의 아래쪽에 있는 상태 패널에서 **Spark 기록 서버** 를 선택 합니다. **세션 세부 정보**를 선택합니다.
 
-   ![Spark 기록 서버 시작](./media/apache-spark-history-server/launch-history-server2.png "Spark 기록 서버 시작")
+   ![Spark 기록 서버 1 시작](./media/apache-spark-history-server/launch-history-server2.png "Spark 기록 서버 시작")
 
 2. 밀기 패널에서 **Spark 기록 서버** 를 선택 합니다.
 
-   ![Spark 기록 서버 시작](./media/apache-spark-history-server/launch-history-server.png "Spark 기록 서버 시작")
+   ![Spark 기록 서버 2 시작](./media/apache-spark-history-server/launch-history-server.png "Spark 기록 서버 시작")
 
 ## <a name="explore-the-data-tab-in-spark-history-server"></a>Spark 기록 서버에서 데이터 탭 탐색
 
@@ -80,7 +80,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
     ![Spark 응용 프로그램 다운로드 행에 대 한 데이터](./media/apache-spark-history-server/sparkui-data-download-row.png)
 
-* 전체 경로 또는 상대 경로를 복사 하려면 드롭다운 메뉴에서 확장 되는 **전체 경로 복사** 또는 **상대 경로 복사** 옵션을 선택 합니다. Azure Data Lake Storage 파일의 경우 **Azure Storage 탐색기** 를 시작 Azure Storage 탐색기 시작 하 고가 로그인 할 때 폴더를 찾습니다.
+* 전체 경로 또는 상대 경로를 복사 하려면 드롭다운 메뉴에서 확장 되는 **전체 경로 복사** 또는 **상대 경로 복사** 옵션을 선택 합니다. Azure Data Lake Storage 파일의 경우 **Azure Storage 탐색기** 를 시작 하 Azure Storage 탐색기 시작 하 고 로그인 할 때 폴더를 찾습니다.
 
     ![Spark 응용 프로그램 복사 경로에 대 한 데이터](./media/apache-spark-history-server/sparkui-data-copy-path.png)
 
@@ -124,8 +124,8 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 |-|-|
 |녹색|성공: 작업이 성공적으로 완료 되었습니다.|
 |Orange|다시 시도 됨: 실패 한 작업의 인스턴스는 작업의 최종 결과에 영향을 주지 않습니다. 해당 작업에는 중복 또는 다시 시도 인스턴스가 있었으며, 나중에 성공할 수 있습니다.|
-|파란색|실행 중: 태스크가 실행 되 고 있습니다.|
-|백인|대기 중이거나 건너뜀: 태스크가 실행 되기를 기다리고 있거나 단계를 건너뛰었습니다.|
+|파랑|실행 중: 태스크가 실행 되 고 있습니다.|
+|흰색|대기 중이거나 건너뜀: 태스크가 실행 되기를 기다리고 있거나 단계를 건너뛰었습니다.|
 |빨간색|실패: 태스크가 실패 했습니다.|
 
 다음 이미지는 녹색, 주황색 및 파란색 상태 색을 보여 줍니다.
@@ -143,7 +143,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 > [!NOTE]  
 > 각 작업을 재생할 수 있습니다. 완료 되지 않은 작업의 경우 재생이 지원 되지 않습니다.
 
-### <a name="zoom"></a>Zoom
+### <a name="zoom"></a>확대/축소
 
 마우스 스크롤을 사용 하 여 작업 그래프를 확대 및 축소 하거나 **크기에 맞게** 를 선택 하 여 화면에 맞게 확대 합니다.
 
@@ -200,7 +200,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 **데이터 기울이기** 탭을 선택 하면 지정 된 매개 변수를 기준으로 해당 하는 기울어진 태스크가 표시 됩니다.
 
-* **매개 변수 지정** - 첫 번째 섹션에는 데이터 기울이기를 검색하는 데 사용되는 매개 변수가 표시됩니다. 기본 규칙은 작업 데이터 읽기는 평균 태스크 데이터 읽기의 3 배 보다 크고 태스크 데이터 읽기는 10mb 보다 큽니다. 기울어진 태스크에 대 한 사용자 고유의 규칙을 정의 하려는 경우에는 매개 변수를 선택할 수 있습니다. 그러면 **기울어짐 단계** 및 **기울이기 문자** 섹션이 그에 따라 새로 고쳐집니다.
+* **매개 변수 지정** - 첫 번째 섹션에는 데이터 기울이기를 검색하는 데 사용되는 매개 변수가 표시됩니다. 기본 규칙은 작업 데이터 읽기는 평균 태스크 데이터 읽기의 3 배 보다 크고 태스크 데이터 읽기는 10mb 보다 큽니다. 기울어진 태스크에 대 한 고유 규칙을 정의 하려는 경우 매개 변수를 선택할 수 있습니다. **기울어진 단계** 및 **기울이기 문자** 섹션이 그에 따라 새로 고쳐집니다.
 
 * **기울어진 단계** - 두 번째 섹션에는 위에 지정된 조건을 충족하는 기울어진 작업이 있는 단계가 표시됩니다. 단계에 기울어진 작업이 두 개 이상 있는 경우 기울어진 단계 테이블에는 가장 많이 기울어진 작업(예: 데이터 기울이기 데이터가 가장 큰 작업)만 표시됩니다.
 
@@ -224,7 +224,7 @@ Apache Spark history 서버는 Spark 응용 프로그램을 완료 하 고 실�
 
 Executor 사용 그래프는 Spark 작업 실행 기의 할당 및 실행 상태를 시각화 합니다.  
 
-1. **Executor 사용 분석**을 선택 합니다. 그러면 **할당 된 실행자**, **실행 실행자**, **유휴 실행자**및 **Max executor 인스턴스**를 포함 하 여 executor 사용에 대 한 네 가지 유형의 곡선이 초안입니다. 할당 된 실행자와 관련 하 여, 각 "Executor 추가" 또는 "Executor가 제거 되었습니다." 이벤트는 할당 된 실행자를 늘리거나 줄입니다. 자세한 비교를 위해 “작업” 탭에서 “이벤트 타임라인”을 확인할 수 있습니다.
+1. **Executor 사용 분석**을 선택 합니다. 그러면 **할당 된 실행자**, **실행 실행자**, **유휴 실행자**및 **Max executor 인스턴스**를 포함 하 여 executor 사용에 대 한 네 가지 유형의 곡선이 초안입니다. 할당 된 실행 기의 경우 각 "Executor 추가" 또는 "Executor 제거" 이벤트는 할당 된 실행자를 늘리거나 줄입니다. 자세한 비교를 위해 “작업” 탭에서 “이벤트 타임라인”을 확인할 수 있습니다.
 
    ![sparkui 진단 실행자 탭](./media/apache-spark-history-server/sparkui-diagnosis-executors.png)
 

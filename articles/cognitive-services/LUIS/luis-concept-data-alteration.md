@@ -1,15 +1,17 @@
 ---
 title: 데이터 변경-LUIS
 description: Language Understanding(LUIS)에서 예측 전에 데이터를 변경하는 방법을 알아봅니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c675ac246f397b5949c870ad91ab936bbd92c7ef
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f3eb30662cae5f117942db6322b27491670abb1b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934670"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324844"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>예측 이전 또는 도중에 발언 데이터 변경
 LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 제공합니다. 여기에는 미리 작성 한 [datetimeV2](luis-reference-prebuilt-datetimev2.md)에 대 한 [맞춤법 수정](luis-tutorial-bing-spellcheck.md), 표준 시간대 문제 해결 등이 포함 됩니다.

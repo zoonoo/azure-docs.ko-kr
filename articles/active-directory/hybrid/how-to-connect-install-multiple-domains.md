@@ -16,12 +16,12 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f913199e0c0ed438d4b95b879d4defc072c615aa
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 53a0da5b5db21c9a543d39d1b252b0b4c64e2a56
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662440"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306364"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Azure AD로 페더레이션에 대한 여러 도메인 지원
 다음 설명서에서는 Microsoft 365 또는 Azure AD 도메인을 페더레이션 할 때 여러 개의 최상위 도메인 및 하위 도메인을 사용 하는 방법에 대 한 지침을 제공 합니다.
@@ -38,7 +38,7 @@ Azure AD로 여러 최상위 도메인을 페더레이션하려면 하나의 최
 
 `Get-MsolDomainFederationSettings -DomainName <your domain>` PowerShell 명령을 사용하여 IssuerUri를 볼 수 있습니다.
 
-![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
+![PowerShell에서 "Get-msoldomainfederationsettings" 명령을 입력 한 후 결과를 표시 하는 스크린샷](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
 두 개 이상의 최상위 도메인을 추가하는 경우에 문제가 발생합니다.  예를 들어 Azure AD와 온-프레미스 환경 간 페더레이션을 설정했다고 가정합니다.  이 문서의 경우 도메인, bmcontoso.com이 사용 중입니다.  두 번째 최상위 도메인 bmfabrikam.com이 추가되었습니다.
 
@@ -46,7 +46,7 @@ Azure AD로 여러 최상위 도메인을 페더레이션하려면 하나의 최
 
 bmfabrikam.com 도메인을 페더레이션되도록 변환할 때 오류가 발생합니다.  Azure AD가 IssuerUri 속성에서 둘 이상의 도메인에 같은 값을 허용하지 않는 제약 조건을 갖는 것이 이유입니다.  
 
-![페더레이션 오류](./media/how-to-connect-install-multiple-domains/error.png)
+![PowerShell에서 페더레이션 오류가 표시 되는 스크린샷](./media/how-to-connect-install-multiple-domains/error.png)
 
 ### <a name="supportmultipledomain-parameter"></a>SupportMultipleDomain 매개 변수
 이 제약 조건을 해결하려면 `-SupportMultipleDomain` 매개 변수를 사용하여 수행할 수 있는 다른 IssuerUri를 추가해야 합니다.  이 매개 변수는 다음 cmdlet과 함께 사용됩니다.
@@ -57,11 +57,11 @@ bmfabrikam.com 도메인을 페더레이션되도록 변환할 때 오류가 발
 
 이 매개 변수를 사용하면 Azure AD가 도메인의 이름에 기반하도록 IssuerUri를 구성합니다.  IssuerUri는 Azure AD의 디렉터리에서 고유합니다.  매개 변수를 사용하여 PowerShell 명령을 성공적으로 완료할 수 있습니다.
 
-![페더레이션 오류](./media/how-to-connect-install-multiple-domains/convert.png)
+![PowerShell 명령이 성공적으로 완료 되었음을 보여 주는 스크린샷](./media/how-to-connect-install-multiple-domains/convert.png)
 
 bmfabrikam.com 도메인의 설정을 보면 다음을 확인할 수 있습니다.
 
-![페더레이션 오류](./media/how-to-connect-install-multiple-domains/settings.png)
+!["Bmfabrikam.com" 도메인에 대 한 설정을 보여 주는 스크린샷](./media/how-to-connect-install-multiple-domains/settings.png)
 
 `-SupportMultipleDomain`은 여전히 adfs.bmcontoso.com의 페더레이션 서비스를 가리키도록 구성된 다른 엔드포인트를 변경하지 않습니다.
 
@@ -88,11 +88,11 @@ AD FS와 Azure AD의 인스턴스 간의 페더레이션된 트러스트를 설�
 
 Azure AD 포털에 새 도메인을 성공적으로 추가한 다음, `Convert-MsolDomaintoFederated -DomainName <your domain>`을 사용하여 변환하려고 하는 경우 다음과 같은 오류가 발생합니다.
 
-![페더레이션 오류](./media/how-to-connect-install-multiple-domains/trust1.png)
+!["Convert-msoldomaintofederated" 명령을 사용 하 여 새 도메인을 변환 하려고 시도한 후 PowerShell에서 페더레이션 오류가 표시 되는 스크린샷](./media/how-to-connect-install-multiple-domains/trust1.png)
 
 `-SupportMultipleDomain` 스위치를 추가하려는 경우 다음 오류를 수신합니다.
 
-![페더레이션 오류](./media/how-to-connect-install-multiple-domains/trust2.png)
+!["-SupportMultipleDomain" 스위치를 추가한 후에 페더레이션 오류가 표시 되는 스크린샷](./media/how-to-connect-install-multiple-domains/trust2.png)
 
 원본 도메인에서 `Update-MsolFederatedDomain -DomainName <your domain> -SupportMultipleDomain` 을(를) 실행하려고 하면 또한 오류가 발생합니다.
 
@@ -121,7 +121,7 @@ PowerShell을 사용하여 새 최상위 도메인을 추가하려면 다음 단
 Azure AD Connect를 사용하여 새 최상위 도메인을 추가하려면 다음 단계를 사용합니다.
 
 1. 바탕 화면 또는 시작 메뉴에서 Azure AD Connect 시작
-2. "추가 Azure AD 도메인 추가" 선택 ![추가 Azure AD 도메인 추가](./media/how-to-connect-install-multiple-domains/add1.png)
+2. "추가 ![ AZURE ad 도메인 추가"가 선택 된 "추가 작업" 페이지를 보여 주는 "추가 AZURE Ad 도메인 추가" 스크린샷을 선택 합니다.](./media/how-to-connect-install-multiple-domains/add1.png)
 3. Azure AD 및 Active Directory 자격 증명 입력
 4. 페더레이션에 대해 구성하려는 두 번째 도메인을 선택합니다.
    ![추가 Azure AD 도메인 추가](./media/how-to-connect-install-multiple-domains/add2.png)
@@ -130,7 +130,7 @@ Azure AD Connect를 사용하여 새 최상위 도메인을 추가하려면 다�
 ### <a name="verify-the-new-top-level-domain"></a>새 최상위 도메인 확인
 PowerShell 명령을 사용하여 `Get-MsolDomainFederationSettings -DomainName <your domain>`업데이트된 IssuerUri를 볼 수 있습니다.  아래 스크린샷은 페더레이션 설정이 원본 도메인 `http://bmcontoso.com/adfs/services/trust`에 업데이트된 것을 보여줍니다.
 
-![Get-MsolDomainFederationSettings](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
+![원본 도메인에서 업데이트 된 페더레이션 설정을 보여 주는 스크린샷](./media/how-to-connect-install-multiple-domains/MsolDomainFederationSettings.png)
 
 새 도메인의 IssuerUri가 `https://bmfabrikam.com/adfs/services/trust`로 설정됨
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 1690a844ff700a2975be8e972fd90ba71eeb937c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: f83baf7a038ad8cf17421c778deccbc7dc389d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707784"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325558"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Azure NetApp Files에 대한 메트릭
 
@@ -42,16 +42,19 @@ Azure NetApp Files 할당 된 저장소, 실제 저장소 사용량, 볼륨 IOPS
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>볼륨에 대한 사용량 메트릭
 
-<!--
-- *Volume Quota Size*    
-    The quota size (GiB) the volume is provisioned with.   
-    This size is the size you selected during capacity pool creation. 
+<!-- ANF-5023: fixed version: 2020.08, 2020.09
+- *Percentage Volume Consumed Size*    
+    The percentage of the volume consumed, including snapshots.  
 -->
+- *볼륨 할당 크기*   
+    프로 비전 된 볼륨 크기
+- *볼륨 할당량 크기*    
+    볼륨이 프로 비전 되는 할당량 크기 (GiB)입니다.   
 - *사용 된 볼륨 크기*   
-    볼륨에 사용 된 총 논리적 공간 (GiB)입니다.  
+    볼륨의 논리적 크기 (사용 된 바이트)입니다.  
     이 크기에는 활성 파일 시스템 및 스냅샷에서 사용하는 논리 공간이 포함됩니다.  
 - *볼륨 스냅숏 크기*   
-   볼륨의 스냅숏에 사용 되는 증분 논리적 공간입니다.  
+   볼륨에 있는 모든 스냅숏의 크기입니다.  
 
 ## <a name="performance-metrics-for-volumes"></a>볼륨에 대 한 성능 메트릭
 
@@ -63,11 +66,28 @@ Azure NetApp Files 할당 된 저장소, 실제 저장소 사용량, 볼륨 IOPS
     볼륨에서 초당 읽기 수입니다.
 - *쓰기 IOPS*   
     초당 볼륨에 대 한 쓰기 수입니다.
+- *MiB/s 읽기*   
+    초당 읽기 처리량 (바이트)입니다.
+- *MiB/s 쓰기*   
+    초당 쓰기 처리량 (바이트)입니다.
+
+<!-- ANF-4128; 2020.07
+- *Pool Provisioned Throughput*   
+    The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
+- *Pool Allocated to Volume Throughput*   
+    The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
+-->
+
+<!-- ANF-6443; future
+- *Pool Consumed Throughput*    
+    The total throughput being consumed by volumes in a given capacity pool.
+-->
+
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>볼륨 복제 메트릭
 
 - *볼륨 복제 상태가 정상 임*   
-    복제 관계의 조건입니다. 
+    복제 관계의 조건입니다. 정상 상태는로 표시 됩니다 `1` . 비정상 상태는로 표시 됩니다 `0` .
 
 - *볼륨 복제 전송*    
     볼륨 복제 상태가 ' 전송 중 ' 인지 여부입니다. 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 963f89c99d71afbebbe122e3c7d8b3227dc4a8be
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98f92a6b0169c573b97788c7ffaf76255796cfa6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278943"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 RFPIO 구성
 
@@ -66,11 +66,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 RFPIO를 구
 
 4.  **자동 사용자 프로 비전이** 사용 하도록 설정 되어 있는지 확인 합니다. **SCIM API 토큰 생성**을 클릭 합니다.
 
-    ![RFPIO 토큰 만들기](media/rfpio-provisioning-tutorial/generate.png)
+    ![C를 생성 하 고 C I M A P I를 호출 합니다.](media/rfpio-provisioning-tutorial/generate.png)
 
 5.  이 토큰이 보안 용도로 다시 표시 되지 않으므로 **Scim API 토큰** 을 저장 합니다. 이 값은 Azure Portal RFPIO 응용 프로그램의 프로 비전 탭에 있는 **비밀 토큰** 필드에 입력 됩니다.
 
-    ![RFPIO 토큰 만들기](media/rfpio-provisioning-tutorial/auth.png)
+    ![제출을 선택 하면 표시 되는 경고 대화 상자가 있는 S C I M 섹션의 스크린샷](media/rfpio-provisioning-tutorial/auth.png)
 
 ## <a name="add-rfpio-from-the-gallery"></a>갤러리에서 RFPIO 추가
 
@@ -113,11 +113,11 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 RFPIO를 구성 �
 
 3. **프로비전** 탭을 선택합니다.
 
-    ![프로비저닝 탭](common/provisioning.png)
+    ![프로 비전 옵션을 호출한 관리 옵션의 스크린샷](common/provisioning.png)
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![프로비저닝 탭](common/provisioning-automatic.png)
+    ![자동 옵션이 out 인 프로 비전 모드 드롭다운 목록의 스크린샷](common/provisioning-automatic.png)
 
 5. **관리자 자격 증명** 섹션 아래에 `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` 있는 **테 넌 트 URL**에 입력 합니다. 예제 값은 `https://Azure-test1.rfpio.com/rfpserver/scim/v2` 입니다. **비밀 토큰**에서 이전에 검색 한 **Scim API 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 RFPIO에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 RFPIO 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 

@@ -4,22 +4,22 @@ description: 이 문서에서는 Microsoft Azure Maps Android SDK를 사용 하 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8b07b520dec4e9149c6748777a119b68e56c65e9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126400"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272959"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 트래픽 데이터 표시
 
 흐름 데이터 및 인시던트 데이터는 맵에 표시 될 수 있는 두 가지 트래픽 데이터 유형입니다. 이 가이드에서는 두 가지 유형의 트래픽 데이터를 표시 하는 방법을 보여 줍니다. 인시던트 데이터는 생성,도로 클로저 및 사고와 같은 사물에 대 한 점 및 선 기반 데이터로 구성 됩니다. 흐름 데이터는 도로의 트래픽 흐름에 대 한 메트릭을 표시 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 맵에 트래픽을 표시 하려면 먼저 [Azure 계정을](quick-demo-map-app.md#create-an-azure-maps-account)만들고 [구독 키를 가져와야](quick-demo-map-app.md#get-the-primary-key-for-your-account)합니다. 그런 다음 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 하 고 맵을 로드 해야 합니다.
 
@@ -53,7 +53,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 다음 코드 조각을 사용 하 여 트래픽 흐름 데이터를 설정 합니다. 이전 섹션의 코드와 마찬가지로 메서드의 반환 값을 메서드에 전달 합니다 `flow` `setTraffic` . 에 전달할 수 있는 4 개의 값이 `flow` 있고 각 값은 `flow` 해당 값을 반환 하도록 트리거합니다. 그런 다음의 반환 값은 `flow` 에 대 한 인수로 전달 됩니다 `setTraffic` . 이러한 4 가지 값에 대해서는 아래 표를 참조 하세요.
 
-|흐름 값 | 설명|
+|흐름 값 | Description|
 | :-- | :-- |
 | TrafficFlow | 지도에 트래픽 데이터를 표시 하지 않습니다. |
 | TrafficFlow | 도로의 자유 흐름 속도에 상대적인 트래픽 데이터를 표시 합니다. |

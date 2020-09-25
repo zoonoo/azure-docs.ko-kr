@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: a37a09d971ee80d05f9e028ece1adc7962c0c1a0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e1b92563acd6983b1680cacc06a8f2d0789dddf1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905704"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302505"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Azure Machine Learning 환경 이란 무엇 인가요?
 
@@ -85,7 +85,7 @@ Azure Machine Learning 서비스는 환경 정의를 Docker 이미지 및 conda 
 
 다른 실행에 동일한 환경 정의를 사용 하는 경우 Azure Machine Learning 서비스는 작업 영역 ACR에서 캐시 된 이미지를 재사용 합니다. 
 
-캐시 된 이미지의 세부 정보를 보려면 [get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=trueget-image-details-workspace-) 메서드를 사용 합니다.
+캐시 된 이미지의 세부 정보를 보려면 [get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-image-details-workspace-) 메서드를 사용 합니다.
 
 캐시 된 이미지를 다시 사용 하거나 새 이미지를 빌드 할지 여부를 결정 하기 위해 서비스는 환경 정의에서 [해시 값을](https://en.wikipedia.org/wiki/Hash_table) 계산 하 고이를 기존 환경의 해시와 비교 합니다. 해시는 다음을 기반으로 합니다.
  
@@ -108,10 +108,10 @@ Azure Machine Learning 서비스는 환경 정의를 Docker 이미지 및 conda 
 패키지를 업데이트 하려면 이미지를 다시 작성 하는 예를 들어 버전 번호를 지정 ```numpy==1.18.1``` 합니다. 중첩 된 항목을 포함 한 새 종속성이 설치 되어 이전에 작업 중인 시나리오가 중단 될 수 있습니다. 
 
 > [!WARNING]
->  재현 가능성 [메서드는](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=truebuild-workspace--image-build-compute-none-) 캐시 된 이미지를 다시 작성 합니다 .이는 고정 되지 않은 패키지를 업데이트 하 고 해당 캐시 된 이미지에 해당 하는 모든 환경 정의에 대해를 중단 시킬 수 있습니다.
+>  재현 가능성 [메서드는](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=truebuild-workspace--image-build-compute-none-) 캐시 된 이미지를 다시 작성 합니다 .이는 고정 되지 않은 패키지를 업데이트 하 고 해당 캐시 된 이미지에 해당 하는 모든 환경 정의에 대해를 중단 시킬 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Machine Learning에서 [환경을 만들고 사용](how-to-use-environments.md) 하는 방법에 대해 알아봅니다.
-* [환경 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true)에 대 한 Python SDK 참조 설명서를 참조 하세요.
+* [환경 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true)에 대 한 Python SDK 참조 설명서를 참조 하세요.
 * [환경](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments)에 대 한 R SDK 참조 설명서를 참조 하세요.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 989399bcc86547b914deb442fa9793f6d79d0606
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0940521873b8d6746381acbd8e6c4c6d3a273c49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325324"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325762"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -137,6 +137,10 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 > [!NOTE]
 >
 > ITSM 작업의 가격 책정에 대한 자세한 내용은 작업 그룹의 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조하세요.
+
+> [!NOTE]
+>
+> ITSM 작업을 사용 하 여 전송 되는 경우 경고 규칙 정의의 간단한 설명 필드가 40 자로 제한 됩니다.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>인시던트 및 변경 요청 데이터 시각화 및 분석

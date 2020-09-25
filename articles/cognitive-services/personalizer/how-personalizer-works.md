@@ -1,14 +1,16 @@
 ---
 title: Personalizer 작동 방식 - Personalizer
 description: Personalizer _루프_ 는 기계 학습을 사용 하 여 콘텐츠에 대 한 상위 작업을 예측 하는 모델을 작성 합니다. 모델은 Rank 및 보상 호출을 통해 전송 된 데이터에 대해서만 학습 됩니다.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 836c207213ac52a60e27da6fc957418187059023
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfbe5cf8c19bfafb38f6149391e09350785ebf9c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77623766"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303610"
 ---
 # <a name="how-personalizer-works"></a>Personalizer의 작동 원리
 

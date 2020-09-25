@@ -3,7 +3,7 @@ title: Azure Linux VM에서 Oracle Golden Gate 구현 | Microsoft Docs
 description: Oracle Golden Gate를 Azure 환경에서 빠르게 시작하고 실행합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: 5ed99fd6a16743846033313fcf13702f69f3e728
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: kegorman
+ms.openlocfilehash: 24dfe52b7f08d93dfba70c7b63812eac53431d5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274795"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Azure Linux VM에서 Oracle Golden Gate 구현 
 
@@ -40,7 +40,7 @@ Unix 편집기 vi를 잘 알고 있고 x11(X Windows)을 기본적으로 이해�
 > |  | **기본 사이트** | **복제 사이트** |
 > | --- | --- | --- |
 > | **Oracle 릴리스** |Oracle 12c 릴리스 2 – (12.1.0.2) |Oracle 12c 릴리스 2 – (12.1.0.2)|
-> | **머신 이름** |myVM1 |myVM2 |
+> | **컴퓨터 이름** |myVM1 |myVM2 |
 > | **운영 체제** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **Oracle SID** |CDB1 |CDB1 |
 > | **복제 스키마** |테스트|테스트 |
@@ -443,7 +443,7 @@ Oracle Golden Gate를 설치하려면 다음 단계를 완료합니다.
 
    ![설치 관리자 설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_01.png)
 
-3. 소프트웨어 위치를 변경합니다. 그다음에 **관리자 시작** 상자를 선택하고 데이터베이스 위치를 입력합니다. 계속하려면 **다음**을 선택합니다.
+3. 소프트웨어 위치를 변경합니다. 그다음에 **관리자 시작** 상자를 선택하고 데이터베이스 위치를 입력합니다. **다음**을 선택하여 계속합니다.
 
    ![설치 선택 페이지의 스크린샷](./media/oracle-golden-gate/golden_gate_install_02.png)
 
@@ -781,7 +781,7 @@ GGSCI> VIEW REPORT INITEXT
 
 ### <a name="view-job-status-and-troubleshooting"></a>작업 상태 보기 및 문제 해결
 
-#### <a name="view-reports"></a>보고서를 봅니다.
+#### <a name="view-reports"></a>보고서 보기
 myVM1에서 보고서를 보려면 다음 명령을 실행합니다.
 
   ```bash

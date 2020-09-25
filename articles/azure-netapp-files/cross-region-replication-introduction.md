@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: e7d424435c29eb3e7a6779a7036816a7bedd2085
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708805"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278297"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨의 지역 간 복제
 
@@ -45,6 +45,7 @@ Azure NetApp Files 복제 기능은 지역 간 볼륨 복제를 통해 데이터
 * 일본 동부 및 일본 서 부
 * 영국 남부 및 독일 중서부
 * 동남 아시아 및 오스트레일리아 동부
+* 인도 중부 및 인도 남부
 
 ## <a name="service-level-objectives"></a>서비스 수준 목표
 
@@ -110,8 +111,8 @@ RTO (복구 시간 목표) 또는 최대 지속할 비즈니스 응용 프로그
 
 ## <a name="next-steps"></a>다음 단계
 * [지역 간 복제 사용을 위한 요구 사항 및 고려 사항](cross-region-replication-requirements-considerations.md)
-* [복제 피어 링 만들기](cross-region-replication-create-peering.md)
-* [복제 관계의 상태를 표시 합니다.](cross-region-replication-display-health-status.md)
+* [복제 피어링 만들기](cross-region-replication-create-peering.md)
+* [복제 관계의 상태 표시](cross-region-replication-display-health-status.md)
 * [재해 복구 관리](cross-region-replication-manage-disaster-recovery.md)
 * [볼륨 복제 메트릭](azure-netapp-files-metrics.md#replication)
 * [지역 간 복제 문제 해결](troubleshoot-cross-region-replication.md)
