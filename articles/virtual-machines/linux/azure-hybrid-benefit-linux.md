@@ -3,34 +3,35 @@ title: Azure 하이브리드 혜택 및 Linux Vm
 description: Azure 하이브리드 혜택를 사용 하면 Azure에서 실행 되는 Linux 가상 컴퓨터에 비용을 절감할 수 있습니다.
 services: virtual-machines
 documentationcenter: ''
-author: asinn826
+author: mathapli
 manager: westonh
-editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: a9ea3b21908d1f461745ffe2689b36f8efcb6f89
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996976"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279776"
 ---
-# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure 하이브리드 혜택 – Linux Virtual Machines에 적용 되는 방법
+# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>미리 보기: Azure 하이브리드 혜택-Linux Virtual Machines에 적용 되는 방법
 
 ## <a name="overview"></a>개요
 
-Azure 하이브리드 혜택를 사용 하면 기존 Red Hat 또는 SUSE software 구독을 사용 하 여 온-프레미스 Red Hat Enterprise Linux (RHEL) 및 SUSE Linux Enterprise (SLES) 서버를 Azure로 보다 쉽게 마이그레이션할 수 있습니다. 이 혜택을 통해 소프트웨어 요금은 RHEL 또는 SLES 구독에 포함 되므로 VM의 인프라 비용에 대해서만 비용을 지불 하면 됩니다. 이 혜택은 모든 RHEL 및 SLES Marketplace 종 량 제 (PAYG) 이미지에 적용 됩니다.
+Azure 하이브리드 혜택를 사용 하면 기존 Red Hat 또는 SUSE software 구독을 직접 사용 하 여 온-프레미스 Red Hat Enterprise Linux (RHEL) SUSE Linux Enterprise Server 및 SLES (가상 머신) Vm (가상 머신)을 Azure로 보다 쉽게 마이그레이션할 수 있습니다. 이 혜택을 통해 소프트웨어 요금은 RHEL 또는 SLES 구독에 포함 되므로 VM의 인프라 비용에 대해서만 비용을 지불 하면 됩니다. 이 혜택은 모든 RHEL 및 SLES Marketplace 종 량 제 (PAYG) 이미지에 적용 됩니다.
+
+> [!IMPORTANT]
+> Linux Vm에 대 한 Azure 하이브리드 혜택는 현재 공개 미리 보기로 제공 됩니다.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="benefit-description"></a>혜택 설명
 
 Azure 하이브리드 혜택를 통해 Azure에서 기존 RHEL 및 SLES PAYG Vm을 변환 하 여 BYOS (사용자 소유의 구독) 요금 청구를 통해 온-프레미스 RHEL 및 SLES 서버를 Azure로 보다 쉽게 마이그레이션할 수 있습니다. 일반적으로 Azure의 PAYG 이미지에서 배포 된 Vm은 소프트웨어 요금 뿐만 아니라 인프라 요금을 부과 합니다. Azure 하이브리드 혜택를 사용 하 여 PAYG Vm을 다시 배포 하지 않고 BYOS 청구 모델로 변환 하 여 가동 중지 위험을 방지할 수 있습니다.
 
-![Linux Vm에서 비용 시각화 Azure 하이브리드 혜택](./media/ahb-linux/azure-hybrid-benefit-cost.png)
+:::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Linux Vm에 대 한 비용 시각화를 Azure 하이브리드 혜택 합니다.":::
 
 RHEL 또는 SLES VM에서 혜택을 사용 하도록 설정 하면 일반적으로 PAYG VM에서 발생 하는 추가 소프트웨어 요금에 대 한 요금이 더 이상 청구 되지 않습니다. 대신 VM은 compute 하드웨어 요금만 포함 하 고 소프트웨어 요금은 포함 하지 않는 BYOS 요금 내보내기가 시작 됩니다.
 
@@ -127,7 +128,7 @@ az vm get-instance-view -g MyResourceGroup -n MyVm
 
 VM 자체 내에서 IMDS 증명 된 메타 데이터를 쿼리하여 VM의 licenseType을 확인할 수 있습니다. LicenseType 값 ' RHEL_BYOS ' 또는 ' SLES_BYOS '는 VM이 사용 하도록 설정 된 것을 의미 합니다. 증명 된 메타 데이터에 대 한 자세한 내용은 여기를 참조 [하세요](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#attested-data) .
 
-## <a name="compliance"></a>준수
+## <a name="compliance"></a>규정 준수
 
 ### <a name="red-hat"></a>Red Hat
 
@@ -149,7 +150,7 @@ A: red hat Cloud Access 구독 등록이 Red Hat에서 Azure로 전파 되는 �
 ## <a name="common-errors"></a>일반 오류
 이 섹션에는 일반적인 오류 및 완화 단계에 대 한 목록이 포함 되어 있습니다.
 
-| 오류 | 완화 방법 |
+| Error | 완화 방법 |
 | ----- | ---------- |
 | "구독이 Azure 하이브리드 혜택의 Linux 미리 보기에 등록 되어 있지 않습니다. 단계별 지침은 다음을 참조 하세요. https://aka.ms/ahb-linux | 에서 양식을 작성 하 여 https://aka.ms/ahb-linux-form Azure 하이브리드 혜택 Linux 미리 보기에 등록 합니다.
 | "Azure 구독에 대 한 Red Hat Cloud Access를 성공적으로 사용 하도록 설정 하지 않았기 때문에 작업을 완료할 수 없습니다." | RHEL Vm에서 혜택을 사용 하려면 먼저 Red Hat Cloud Access를 사용 하 여 Azure 구독을 등록 해야 합니다. Red Hat Cloud Access에 대 한 Azure 구독을 등록 하는 방법에 대 한 자세한 내용을 보려면이 링크를 방문 하세요.

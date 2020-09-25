@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b4a0a411f51eed3a262ee59eb8e93b983755af3
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2499a89907eb63f01adbc80a6d206911c09c1259
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601557"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265955"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>조건부 액세스: 레거시 인증 차단
 
@@ -26,7 +26,7 @@ ms.locfileid: "90601557"
 
 다음 단계는 레거시 인증 요청을 차단하는 조건부 액세스 정책을 만드는 데 도움이 됩니다. 이 정책은 관리자가 기존 사용자에게 미칠 영향을 확인할 수 있도록 시작할 때 [읽기 전용 모드](howto-conditional-access-insights-reporting.md)로 설정됩니다. 관리자는 정책이 의도한 대로 적용되는 것이 편한 경우 **켜짐**으로 전환하거나, 특정 그룹을 추가하고 다른 그룹을 제외하여 배포를 스테이징할 수 있습니다.
 
-1. 전역 관리자 권한으로 **Azure Portal**에 로그인합니다.
+1. **Azure Portal**에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
 1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
 1. 정책에 이름을 지정합니다. 조직에서 정책 이름에 의미 있는 표준을 만드는 것이 좋습니다.

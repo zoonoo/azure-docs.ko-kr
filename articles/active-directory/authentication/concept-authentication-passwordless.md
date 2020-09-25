@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 9b225ccb0e607b073fd28f79d0151da0b77f5cdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527023"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266618"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
@@ -82,7 +82,7 @@ Authenticator 앱을 사용 하는 암호 없는 인증은 비즈니스용 Windo
 
 ## <a name="fido2-security-keys"></a>FIDO2 보안 키
 
-FIDO(Fast IDentity Online) Alliance는 공개 인증 표준의 수준을 올리고 암호 인증 형태의 사용자를 줄이도록 지원합니다. FIDO2는 WebAuthn(웹 인증) 표준을 통합하는 최신 표준입니다.
+FIDO (Fast IDentity Online) 동맹은 오픈 인증 표준의 수준을 올리고 인증의 형태로 암호 사용을 줄이는 데 도움이 됩니다. FIDO2는 WebAuthn(웹 인증) 표준을 통합하는 최신 표준입니다.
 
 FIDO2 보안 키는 모든 폼 팩터에서 제공 될 수 있는 unphishable 표준 기반 암호 없는 인증 방법입니다. Fast Identity Online (FIDO)은 암호 없는 인증을 위한 개방형 표준입니다. FIDO를 사용 하면 사용자와 조직이 외부 보안 키 또는 장치에 기본 제공 되는 플랫폼 키를 사용 하 여 사용자 이름 또는 암호 없이 해당 리소스에 로그인 할 수 있습니다.
 
@@ -172,7 +172,7 @@ Microsoft 암호 없는 기술을 선택할 때 고려할 몇 가지 요소는 �
 
 다음 표를 사용 하 여 요구 사항 및 사용자를 지원할 방법을 선택할 수 있습니다.
 
-|Persona|시나리오|환경|Passwordless 기술|
+|Persona|시나리오|Environment|Passwordless 기술|
 |:-|:-|:-|:-|
 |**관리자**|관리 작업을 위해 장치에 안전 하 게 액세스|할당 된 Windows 10 장치|비즈니스용 Windows Hello 및/또는 FIDO2 보안 키|
 |**관리자**|Windows가 아닌 장치에 대 한 관리 작업| 모바일 또는 비 windows 장치|Microsoft Authenticator 앱을 사용 하 여 passwordless 로그인|

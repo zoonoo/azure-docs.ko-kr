@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/18/2020
 author: palma21
-ms.openlocfilehash: a743a6c30d5ce8bcaf275bf1a658f8343de4d4fb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 44c33aa018971cc2b2f5eb215597a63e8b55c853
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937881"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278569"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>AKS (Azure Kubernetes Service) 클러스터 (미리 보기)를 중지 하 고 시작 합니다.
 
@@ -69,7 +69,7 @@ az provider register --namespace Microsoft.ContainerService
 az aks stop --name myAKSCluster --resource-group myResourceGroup
 ```
 
-[Az aks show] [az-aks-show] 명령을 사용 하 여 클러스터가 중지 된 시기를 확인 하 고 `powerState` 아래 출력에 표시 된 것 처럼 표시 되는지 확인할 수 있습니다 `Stopped` .
+[Az aks show][az-aks-show] 명령을 사용 하 여 클러스터가 중지 된 시기를 확인 하 고 `powerState` `Stopped` 아래 출력에 표시 된 것 처럼 표시 되는지 확인할 수 있습니다.
 
 ```json
 {
@@ -100,7 +100,7 @@ az aks stop --name myAKSCluster --resource-group myResourceGroup
 az aks start --name myAKSCluster --resource-group myResourceGroup
 ```
 
-[Az aks show] [az-aks-show] 명령을 사용 하 여 클러스터가 시작 된 시기를 확인 하 고 `powerState` `Running` 아래 출력에 표시 된 것으로 확인 합니다.
+[Az aks show][az-aks-show] 명령을 사용 하 여 클러스터가 시작 된 시기를 확인 하 고 `powerState` `Running` 아래 출력에 표시 된 것으로 확인 합니다.
 
 ```json
 {
@@ -136,3 +136,4 @@ az aks start --name myAKSCluster --resource-group myResourceGroup
 [az-feature-register]: /cli/azure/feature?view=azure-cli-latest#az-feature-register&preserve-view=true
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list&preserve-view=true
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register&preserve-view=true
+[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az_aks_show

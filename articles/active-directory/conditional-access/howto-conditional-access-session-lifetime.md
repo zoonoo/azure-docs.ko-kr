@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 034d2410b97562946216815e5bdafd35fe1bc40b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601676"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265938"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용하여 인증 세션 관리를 구성합니다.
 
@@ -89,6 +89,8 @@ Azure AD 조인, 하이브리드 Azure AD 조인 또는 Azure AD 등록 장치�
 
 > [!WARNING]
 > 현재 공개 미리 보기로 제공 되는 [구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md) 기능을 사용 하는 경우 동일한 사용자 또는 앱 조합에 대해 두 개의 다른 정책 (이 기능을 사용 하는 경우, 다른 하나는 구성 가능한 토큰 수명 기능 포함)을 만들 수 없습니다. Microsoft는 2020 년 5 월 1 일에 구성 가능한 토큰 수명 기능을 사용 중지 하 고 조건부 액세스 인증 세션 관리 기능으로 바꿀 계획입니다.  
+>
+> 로그인 빈도를 설정 하기 전에 테 넌 트에서 다른 재인증 설정이 사용 되지 않도록 설정 되어 있는지 확인 합니다. "신뢰할 수 있는 장치에서 MFA를 기억할 것입니다."가 설정 되어 있으면 로그인 빈도를 사용 하기 전에 사용 하지 않도록 설정 해야 합니다 .이 두 설정을 함께 사용 하면 사용자에 게 예기치 않은 메시지가 표시 될 수 있습니다. 재인증 프롬프트 및 세션 수명에 대해 자세히 알아보려면 [재인증 프롬프트 최적화 및 Azure Multi-Factor Authentication에 대 한 세션 수명 이해](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md)문서를 참조 하세요.
 
 ### <a name="policy-1-sign-in-frequency-control"></a>정책 1: 로그인 빈도 제어
 

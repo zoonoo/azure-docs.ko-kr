@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b06120437555ec71bc431cb1429120cb5e1987f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: be6040b8b84a4b86746d62bd2f1c07f0ffea0a3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938914"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336295"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-postgresql--flexible-server"></a>Azure Database for PostgreSQL – 유연한 서버에 대 한 예약 된 유지 관리 설정 관리
  
@@ -31,9 +31,9 @@ Azure 구독에서 각 유연한 서버에 대 한 유지 관리 옵션을 지�
  
 ## <a name="notifications-about-scheduled-maintenance-events"></a>예약 된 유지 관리 이벤트에 대 한 알림
  
-Azure Service Health를 사용 하 여 예정 된 서버에서 예정 된 유지 관리 및 예정 된 유지 관리 작업에 대 한 [알림을 볼](/azure/service-health/service-notifications.md) 수 있습니다. Azure Service Health에서 유지 관리 이벤트에 대 한 알림을 받도록 경고를 [설정할](/azure/service-health/resource-health-alert-monitor-guide.md) 수도 있습니다.
+Azure Service Health를 사용 하 여 예정 된 서버에서 예정 된 유지 관리 및 예정 된 유지 관리 작업에 대 한 [알림을 볼](../../service-health/service-notifications.md) 수 있습니다. Azure Service Health에서 유지 관리 이벤트에 대 한 알림을 받도록 경고를 [설정할](../../service-health/resource-health-alert-monitor-guide.md) 수도 있습니다.
  
 ## <a name="next-steps"></a>다음 단계  
  
 * [Azure Database for PostgreSQL-유연한 서버에서 예약 된 유지 관리](concepts-maintenance.md) 에 대해 알아봅니다.
-* [Azure Service Health](/azure/service-health/overview.md) 에 대 한 간결한 정보
+* [Azure Service Health](../../service-health/overview.md) 에 대 한 간결한 정보

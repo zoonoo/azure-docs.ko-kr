@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/26/2020
+ms.date: 09/22/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: edb5836ace6f7a1a0cff703b9921f6e6999de578
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 11901e0b68fed9a6a83287d50896bf2afc51fa37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88944499"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279566"
 ---
 공유 디스크를 사용 하도록 설정 하는 것은 디스크 형식의 하위 집합에만 사용할 수 있습니다. 현재는 ultra disks 및 premium Ssd만 공유 디스크를 사용 하도록 설정할 수 있습니다. 공유 디스크를 사용할 수 있는 관리 되는 각 디스크에는 디스크 유형별로 구성 된 다음과 같은 제한 사항이 적용 됩니다.
 
@@ -59,7 +59,7 @@ Ultra disks에는 공유 디스크와 상관 없이 별도의 제한 사항 목�
 - 캐나다 동부
 - 일본 동부
 - 일본 서부
+- 동남아시아
+- 동아시아
 - US Gov 버지니아
 - US Gov 애리조나
-
-공유 premium Ssd를 시도 하는 경우 [액세스에 등록](https://aka.ms/AzureSharedDiskGASignUp)합니다.

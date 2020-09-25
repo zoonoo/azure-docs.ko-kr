@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4b7c82e4650c7680709e809d9f563d79f068601f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 7227813f607ca18ee50f503a30b290414f333e21
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127930"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310172"
 ---
 # <a name="supported-data-format-details"></a>지원되는 데이터 형식 세부 정보
 
@@ -23,7 +23,7 @@ ms.locfileid: "87127930"
 
 공간 IO 모듈은 다음 네임 스페이스의 XML 태그를 지원 합니다.
 
-| 네임 스페이스 접두사 | 네임스페이스 URI   | 참고                                                                    |
+| 네임 스페이스 접두사 | 네임스페이스 URI   | 메모                                                                    |
 |:------------------|:-----------------|:----------------------------------------|
 | `atom`           | `http://www.w3.org/2005/Atom`   |                                         |
 | `geo`            | `http://www.w3.org/2003/01/geo/wgs84_pos#`  | GeoRSS 파일에서 읽기 전용 지원.           |
@@ -45,7 +45,7 @@ ms.locfileid: "87127930"
 
 공간 IO 모듈은 다음과 같은 KML 요소를 지원 합니다.
 
-| 요소 이름         | 읽기    | 쓰기   | 참고                                                                                                                      |
+| 요소 이름         | 읽기    | 쓰기   | 메모                                                                                                                      |
 |----------------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------|
 | `address`            | 부분 | 예     | 개체가 구문 분석 되었지만 셰이프 위치를 지정 하는 데 사용 되지 않습니다.                                                                    |
 | `AddressDetails`     | 부분 | 아니요      | 개체가 구문 분석 되었지만 셰이프 위치를 지정 하는 데 사용 되지 않습니다.                                                                    |
@@ -68,15 +68,15 @@ ms.locfileid: "87127930"
 | `extrude`            | 부분 | 부분 | 다각형에만 지원 됩니다. 다른 높이의 다각형이 있는 다중 기 하 도형은 개별 기능으로 구분 됩니다. 선 스타일이 지원 되지 않습니다. 가 중에서 0 인 다각형이 플랫 다각형으로 렌더링 됩니다. 읽을 때 외부 링의 첫 번째 좌표에 대 한 고가는 다각형의 height 속성으로 추가 됩니다. 그런 다음 첫 번째 좌표의 고도는 지도에서 다각형을 렌더링 하는 데 사용 됩니다. |
 | `fill`               | 예     | 예     |                                                                                                                            |
 | `Folder`             | 예     | 예     |                                                                                                                            |
-| `GroundOverlay`      | 예     | 예     | `color`지원 되지 않음                                                                                                   |
+| `GroundOverlay`      | 예     | 예     | `color` 지원 되지 않음                                                                                                   |
 | `heading`            | 부분 | 아니요      | 구문 분석 되었지만에서 렌더링 되지 않습니다 `SimpleDataLayer` . 셰이프의 속성에 데이터를 저장 하는 경우에만 씁니다.                 |
 | `hotSpot`            | 예     | 부분 | 셰이프의 속성에 데이터를 저장 하는 경우에만 씁니다. 단위는 "픽셀"로만 출력 됩니다.                         |
 | `href`               | 예     | 예     |                                                                                                                            |
 | `Icon`               | 부분 | 부분 | 구문 분석 되었지만에서 렌더링 되지 않습니다 `SimpleDataLayer` . 는 URI 데이터를 포함 하는 경우에만 셰이프의 icon 속성을 씁니다. `href`만 지원됩니다. |
-| `IconStyle`          | 부분 | 부분 | `icon`, `heading` , `colorMode` 및 `hotspots` 값은 구문 분석 되지만에서 렌더링 되지 않습니다.`SimpleDataLayer`         |
+| `IconStyle`          | 부분 | 부분 | `icon`, `heading` , `colorMode` 및 `hotspots` 값은 구문 분석 되지만에서 렌더링 되지 않습니다. `SimpleDataLayer`         |
 | `innerBoundaryIs`    | 예     | 예     |                                                                                                                            |
 | `kml`                | 예     | 예     |                                                                                                                            |
-| `LabelStyle`         | 아니요      | no      |                                                                                                                            |
+| `LabelStyle`         | 아니요      | 아니요      |                                                                                                                            |
 | `LatLonBox`          | 예     | 예     |                                                                                                                            |
 | `gx:LatLonQuad`      | 예     | 예     |                                                                                                                            |
 | `LinearRing`         | 예     | 예     |                                                                                                                            |
@@ -86,7 +86,7 @@ ms.locfileid: "87127930"
 | `MultiGeometry`      | 부분 | 부분 | 읽을 때 개별 기능으로 구분할 수 있습니다.                                                                     |
 | `name`               | 예     | 예     |                                                                                                                            |
 | `NetworkLink`        | 예     | 아니요      | 링크는 문서와 동일한 도메인에 있어야 합니다.                                                                  |
-| `NetworkLinkControl` | 아니요      | no      |                                                                                                                            |
+| `NetworkLinkControl` | 아니요      | 아니요      |                                                                                                                            |
 | `north`              | 예     | 예     |                                                                                                                            |
 | `open`               | 예     | 예     |                                                                                                                            |
 | `outerBoundaryIs`    | 예     | 예     |                                                                                                                            |
@@ -94,24 +94,24 @@ ms.locfileid: "87127930"
 | `overlayXY`          | 아니요      | 아니요      |                                                                                                                            |
 | `Pair`               | 부분 | 아니요      | `normal`의 스타일만 `StyleMap` 지원 됩니다. `highlight`는 지원되지 않습니다.                                   |
 | `phoneNumber`        | 예     | 예     |                                                                                                                            |
-| `PhotoOverlay`       | 아니요      | no      |                                                                                                                            |
+| `PhotoOverlay`       | 아니요      | 아니요      |                                                                                                                            |
 | `Placemark`          | 예     | 예     |                                                                                                                            |
 | `Point`              | 예     | 예     |                                                                                                                            |
 | `Polygon`            | 예     | 예     |                                                                                                                            |
 | `PolyStyle`          | 예     | 예     |                                                                                                                            |
-| `Region`             | 부분 | 부분 | `LatLongBox`는 문서 수준에서 지원 됩니다.                                                                      |
+| `Region`             | 부분 | 부분 | `LatLongBox` 는 문서 수준에서 지원 됩니다.                                                                      |
 | `rotation`           | 아니요      | 아니요      |                                                                                                                            |
 | `rotationXY`         | 아니요      | 아니요      |                                                                                                                            |
-| `scale`              | 아니요      | no      |                                                                                                                            |
+| `scale`              | 아니요      | 아니요      |                                                                                                                            |
 | `Schema`             | 예     | 예     |                                                                                                                            |
 | `SchemaData`         | 예     | 예     |                                                                                                                            |
 | `schemaUrl`          | 부분 | 예     | 은 KMZ에 포함 되지 않은 외부 문서에서 스타일을 로드 하는 것을 지원 하지 않습니다.                             |
 | `ScreenOverlay`      | 아니요      | 아니요      |                                                                                                                            |
-| `screenXY`           | 아니요      | no      |                                                                                                                            |
+| `screenXY`           | 아니요      | 아니요      |                                                                                                                            |
 | `SimpleData`         | 예     | 예     |                                                                                                                            |
 | `SimpleField`        | 예     | 예     |                                                                                                                            |
 | `size`               | 아니요      | 아니요      |                                                                                                                            |
-| `Snippet`            | 부분 | 부분 | `maxLines`특성이 무시 됩니다.                                                                                  |
+| `Snippet`            | 부분 | 부분 | `maxLines` 특성이 무시 됩니다.                                                                                  |
 | `south`              | 예     | 예     |                                                                                                                            |
 | `Style`              | 예     | 예     |                                                                                                                            |
 | `StyleMap`           | 부분 | 아니요      | 의 일반 스타일만 `StyleMap` 지원 됩니다.                                                                        |
@@ -131,7 +131,7 @@ ms.locfileid: "87127930"
 
 공간 IO 모듈은 다음과 같은 GeoRSS 요소를 지원 합니다.
 
-| 요소 이름             | 읽기    | 쓰기 | 참고                                                                                          |
+| 요소 이름             | 읽기    | 쓰기 | 메모                                                                                          |
 |--------------------------|---------|-------|------------------------------------------------------------------------------------------------|
 | `atom:author`            | 예     | 예   |                                                                                                |
 | `atom:category`          | 예     | 예   |                                                                                                |
@@ -203,7 +203,7 @@ ms.locfileid: "87127930"
 
 공간 IO 모듈은 다음과 같은 GML 요소를 지원 합니다. 
 
-| 요소 이름            | 읽기 | 쓰기 | 참고                                                                                  |
+| 요소 이름            | 읽기 | 쓰기 | 메모                                                                                  |
 |-------------------------|------|-------|----------------------------------------------------------------------------------------|
 | `gml:coordinates`       | 예  | 아니요    | 로 작성 `gml:posList` 됩니다.                                                              |
 | `gml:curveMember`       | 예  | 아니요    |                                                                                        |
@@ -225,12 +225,12 @@ ms.locfileid: "87127930"
 | `gml:LineString`        | 예  | 예   |                                                                                        |
 | `gml:lineStringMember`  | 예  | 예   |                                                                                        |
 | `gml:lineStringMembers` | 예  | 아니요    |                                                                                        |
-| `gml:MultiCurve`        | 예  | 아니요    | 멤버만 읽습니다 `gml:LineString` . 다음으로 작성`gml.MultiLineString`                  |
+| `gml:MultiCurve`        | 예  | 아니요    | 멤버만 읽습니다 `gml:LineString` . 다음으로 작성 `gml.MultiLineString`                  |
 | `gml:MultiGeometry`     | 부분  | 부분   | FeatureCollection 으로만 읽습니다.                                              |
 | `gml:MultiLineString`   | 예  | 예   |                                                                                        |
 | `gml:MultiPoint`        | 예  | 예   |                                                                                        |
 | `gml:MultiPolygon`      | 예  | 예   |                                                                                        |
-| `gml:MultiSurface`      | 예  | 아니요    | 멤버만 읽습니다 `gml:Polygon` . 다음으로 작성`gml.MultiPolygon`                        |
+| `gml:MultiSurface`      | 예  | 아니요    | 멤버만 읽습니다 `gml:Polygon` . 다음으로 작성 `gml.MultiPolygon`                        |
 | `gml:name`              | 예  | 예   |                                                                                        |
 | `gml:outerBoundaryIs`   | 예  | 아니요    | 을 사용 하 여 작성 `gml.exterior` 되었습니다.                                                          |
 | `gml:Point`             | 예  | 예   |                                                                                        |
@@ -246,7 +246,7 @@ ms.locfileid: "87127930"
 #### <a name="additional-notes"></a>추가 참고 사항
 
 - 자식 요소 내에 포함 될 수 있는 기 하 도형에 대해 멤버 요소를 검색 합니다. 이 검색 작업은 GML에서 확장 되는 많은 XML 형식이 멤버 요소의 직계 자식으로 geometry를 삽입 하지 않을 수 있기 때문에 필요 합니다.
-- `srsName`은 WGS84 좌표 및 다음 코드에 대해 부분적으로 지원 됩니다.[Epsg: 4326](https://epsg.io/4326)) 및 웹 Mercator ([epsg: 3857](https://epsg.io/3857) 또는 해당 대체 코드 중 하나) 다른 모든 좌표계는 WGS84으로 있는 그대로 구문 분석 됩니다.
+- `srsName` 은 WGS84 좌표 및 다음 코드에 대해 부분적으로 지원 됩니다.[Epsg: 4326](https://epsg.io/4326)) 및 웹 Mercator ([epsg: 3857](https://epsg.io/3857) 또는 해당 대체 코드 중 하나) 다른 모든 좌표계는 WGS84으로 있는 그대로 구문 분석 됩니다.
 - XML 피드를 읽을 때 지정 하지 않는 한 축 순서는 XML 피드의 힌트에 따라 결정 됩니다. "위도, 경도" 축 순서에 대 한 기본 설정이 제공 됩니다.
 - GML 파일에 쓸 때 속성에 대해 사용자 지정 GML 네임 스페이스를 지정 하지 않으면 추가 속성 정보가 추가 되지 않습니다.
 
@@ -254,7 +254,7 @@ ms.locfileid: "87127930"
 
 공간 IO 모듈은 다음과 같은 .GPX) 요소를 지원 합니다.
 
-| 요소 이름             | 읽기    | 쓰기   | 참고                                                                                       |
+| 요소 이름             | 읽기    | 쓰기   | 메모                                                                                       |
 |--------------------------|---------|---------|---------------------------------------------------------------------------------------------|
 | `gpx:ageofdgpsdata`      | 예     | 예     |                                                                                             |
 | `gpx:author`             | 예     | 예     |                                                                                             |
@@ -431,5 +431,4 @@ ms.locfileid: "87127930"
 
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
-> [!div class="nextstepaction"]
-> [공간 데이터 읽기 및 쓰기](spatial-io-read-write-spatial-data.md)
+[공간 데이터 읽기 및 쓰기](spatial-io-read-write-spatial-data.md)

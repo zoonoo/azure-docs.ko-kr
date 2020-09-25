@@ -1,18 +1,16 @@
 ---
-title: Azure Monitor(미리 보기)로 Python 애플리케이션 모니터링 | Microsoft Docs
+title: Azure Monitor를 사용 하 여 Python 응용 프로그램 모니터링 | Microsoft Docs
 description: OpenCensus Python과 Azure Monitor를 연결하는 지침을 제공합니다.
 ms.topic: conceptual
-author: lzchen
-ms.author: lechen
-ms.date: 10/11/2019
+ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: ac7569a48e4bab25d4db17f2fc6dd92b31afcab5
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1e6376cd8389a4f1f0defebce0a2c7b6d0f9deed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850052"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323268"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Python 애플리케이션용 Azure Monitor 설정
 
@@ -31,8 +29,6 @@ OpenCensus Azure Monitor 내보내기를 설치합니다.
 ```console
 python -m pip install opencensus-ext-azure
 ```
-
-패키지 및 통합의 전체 목록은 [OpenCensus 패키지](./nuget.md#common-packages-for-python-using-opencensus)를 참조하세요.
 
 > [!NOTE]
 > `python -m pip install opencensus-ext-azure` 명령은 Python 설치에 대해 `PATH` 환경 변수를 설정했다고 가정합니다. 이 변수를 구성하지 않은 경우 Python 실행 파일이 위치하는 전체 디렉터리 경로를 제공해야 합니다. 결과로 나온 명령은 다음과 같습니다. `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.

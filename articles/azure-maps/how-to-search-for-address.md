@@ -4,16 +4,16 @@ description: Azure Maps Search 서비스에 대해 알아봅니다. 지 오 코�
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/21/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 48dd0168f878a16e2eabe47151d0b09993d9f5f9
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 2a322de383194f131395629d33456d7561397eb9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037782"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310988"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Azure Maps Search services를 사용 하 여 위치 검색
 
@@ -103,7 +103,7 @@ Azure Maps [유사 항목 검색 API](https://docs.microsoft.com/rest/api/maps/s
 
     **Params** 섹션에서 다음 키/값 쌍을 추가 합니다.
 
-     | Key | 값 |
+     | 키 | 값 |
     |-----|------------|
     | lat | 47.620525 |
     | lon | -122.349274 |
@@ -136,9 +136,9 @@ Azure Maps [Get Search Address 역방향 API]( https://docs.microsoft.com/rest/a
   
 4. 이제 **Params** 섹션에 다음 키/값 쌍을 추가 합니다.
 
-    | Key | 값 | 반환
+    | 키 | 값 | 반환
     |-----|------------|------|
-    | 숫자 | 1 |응답에는 번 지 (왼쪽/오른쪽) 및 숫자에 대 한 오프셋 위치가 포함 될 수 있습니다.|
+    | number | 1 |응답에는 번 지 (왼쪽/오른쪽) 및 숫자에 대 한 오프셋 위치가 포함 될 수 있습니다.|
     | returnSpeedLimit | true | 주소의 속도 제한을 반환 합니다.|
     | returnRoadUse | true | 주소에서도로 사용 유형을 반환 합니다. 모든 가능한 이동 형식에 대해 [이동 유형 사용](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters)을 참조 하세요.|
     | returnMatchType | true| 일치 항목의 유형을 반환 합니다. 가능한 모든 값은 [역방향 주소 검색 결과](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#searchaddressreverseresult) 를 참조 하세요.

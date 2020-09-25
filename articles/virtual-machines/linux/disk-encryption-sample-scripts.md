@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: abf805d24d164ba31daa4d77d6360629632bfcf0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: dcfae72d5f15399dc4c759ab859ad8059134f11d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072709"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279793"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Linux Vm에 대 한 Azure Disk Encryption 샘플 스크립트
 
@@ -43,12 +43,12 @@ Azure Disk Encryption에 대한 필수 구성 요소에 이미 익숙한 경우 
 다음 표는 PowerShell 스크립트에서 사용할 수 있는 매개 변수를 보여줍니다. 
 
 
-|매개 변수|설명|필수?|
+|매개 변수|Description|필수?|
 |------|------|------|
-|$resourceGroupName| KeyVault가 속해 있는 리소스 그룹의 이름입니다.  이 이름을 가진 새 리소스 그룹이 없는 경우 생성됩니다.| True|
-|$keyVaultName|암호화 키가 배치된 KeyVault의 이름입니다. 이 이름을 가진 새 자격 증명 모음이 없는 경우 생성됩니다.| True|
-|$location|KeyVault의 위치입니다. 암호화할 KeyVault 및 VM이 동일한 위치에 있는지 확인합니다. `Get-AzLocation`을 사용하여 위치 목록을 가져옵니다.|True|
-|$subscriptionId|사용할 Azure 구독의 식별자입니다.  구독 ID는 `Get-AzSubscription`을 사용하여 가져올 수 있습니다.|True|
+|$resourceGroupName| KeyVault가 속해 있는 리소스 그룹의 이름입니다.  이 이름을 가진 새 리소스 그룹이 없는 경우 생성됩니다.| 참|
+|$keyVaultName|암호화 키가 배치된 KeyVault의 이름입니다. 이 이름을 가진 새 자격 증명 모음이 없는 경우 생성됩니다.| 참|
+|$location|KeyVault의 위치입니다. 암호화할 KeyVault 및 VM이 동일한 위치에 있는지 확인합니다. `Get-AzLocation`을 사용하여 위치 목록을 가져옵니다.|참|
+|$subscriptionId|사용할 Azure 구독의 식별자입니다.  구독 ID는 `Get-AzSubscription`을 사용하여 가져올 수 있습니다.|참|
 |$aadAppName|KeyVault에 비밀을 쓰는 데 사용할 Azure AD 애플리케이션의 이름입니다. 이 이름을 가진 새 애플리케이션이 없는 경우 생성됩니다. 이 앱이 이미 있는 경우 스크립트에 aadClientSecret 매개 변수를 전달합니다.|거짓|
 |$aadClientSecret|이전에 만든 Azure AD 애플리케이션의 클라이언트 비밀입니다.|거짓|
 |$keyEncryptionKeyName|KeyVault의 선택적 키 암호화 키의 이름입니다. 이 이름을 가진 새 키가 없는 경우 생성됩니다.|거짓|
@@ -136,7 +136,7 @@ OS 암호화 진행 상태를 모니터링하는 방법은 세 가지가 있습�
 
   [Azure Resource Explorer](https://resources.azure.com/)로 이동한 후 왼쪽의 선택 패널에서 이 계층 구조를 확장합니다.
 
-  ~~~~
+  ```
   |-- subscriptions
      |-- [Your subscription]
           |-- resourceGroups
@@ -146,7 +146,7 @@ OS 암호화 진행 상태를 모니터링하는 방법은 세 가지가 있습�
                               |-- virtualMachines
                                    |-- [Your virtual machine]
                                         |-- InstanceView
-  ~~~~                
+  ```                
 
   InstanceView에서 아래로 스크롤하여 드라이브의 암호화 상태를 확인합니다.
 
@@ -371,7 +371,7 @@ Azure로 작업할 암호화를 구성하려면 다음 단계를 수행합니다
    ```bash
     if [ -z "$DRACUT_SYSTEMD" ]; then
    ```
-   다음으로 변경:
+   을
    ```bash
     if [ 1 ]; then
    ```

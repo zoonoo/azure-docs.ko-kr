@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a3cdb851ca00300d995bcf2075252a360242197
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 122cc6a2be17cb35e77b638a60fc5fa4f035c0d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266142"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 cloud app access에 승인 된 클라이언트 앱 요구
 
@@ -47,7 +47,7 @@ ms.locfileid: "90601965"
 1. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
    1. **포함**에서 **모든 사용자** 또는 이 정책을 적용할 특정 **사용자 및 그룹**을 선택합니다. 
    1. **완료** 를 선택합니다.
-1. **클라우드 앱 또는 작업** > **포함**에서 **Office 365(미리 보기)** 를 선택합니다.
+1. **클라우드 앱 또는 작업**  >  **포함**아래에서 **Office 365**을 선택 합니다.
 1. **조건**에서 **디바이스 플랫폼**을 선택합니다.
    1. **구성**을 **예**로 설정합니다.
    1. **Android** 및 **iOS**를 포함합니다.
