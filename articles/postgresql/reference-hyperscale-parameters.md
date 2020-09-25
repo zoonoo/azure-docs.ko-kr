@@ -7,23 +7,23 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 2b4d3d44cb4e78f52ab03f31e58df5e66118ae25
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 07f966c7b0be542f848f1a0a4eaf2b5549735b4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336244"
 ---
 # <a name="server-parameters"></a>서버 매개 변수
 
 Citus (Hyperscale)의 동작에 영향을 주는 다양 한 서버 매개 변수가 있습니다 (표준 PostgreSQL 및 Citus).
 이러한 매개 변수는 Citus (Hyperscale) 서버 그룹에 대 한 Azure Portal에서 설정할 수 있습니다. **설정** 범주 아래에서 **작업자 노드 매개 변수** 또는 **코디네이터 노드 매개 변수**를 선택 합니다. 이러한 페이지를 사용 하 여 모든 작업자 노드에 대 한 매개 변수를 설정 하거나 코디네이터 노드에 대해서만 매개 변수를 설정할 수 있습니다.
 
-## <a name="hyperscale-parameters"></a>Hyperscale 매개 변수
+## <a name="hyperscale-citus-parameters"></a>Citus (hyperscale) 매개 변수
 
 > [!NOTE]
 >
-> Citus 엔진의 이전 버전을 실행 하는 하이퍼 확장 서버 그룹은 아래 나열 된 모든 매개 변수를 제공 하지 않을 수 있습니다.
+> 이전 버전의 Citus 엔진을 실행 중인 Citus (hyperscale) 서버 그룹은 아래 나열 된 모든 매개 변수를 제공 하지 않을 수 있습니다.
 
 ### <a name="general-configuration"></a>일반 구성
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 7addc87f3096a75a55d0ea3b5804fd0006d5cb8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66dfd198b543ec49fabe381b50174b182cf070c7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526489"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336040"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Azure Virtual Machine 복구 명령을 사용하여 Windows VM 복구
 
@@ -77,7 +77,7 @@ VM 문제를 해결하려면 다음 단계를 수행합니다.
 3. `az vm repair create`을 실행합니다. 이 명령은 비기능적 VM에 대한 OS 디스크의 복사본을 만들고, 새 리소스 그룹에 복구 VM을 만들고, OS 디스크 복사본을 연결합니다.  복구 VM은 지정된 비기능적 VM과 동일한 크기와 지역을 갖습니다. 모든 단계에서 사용 되는 리소스 그룹 및 VM 이름은 작동 하지 않는 VM에 대 한 것입니다. VM이 Azure Disk Encryption 사용 하는 경우 복구 VM에 연결 될 때 액세스할 수 있도록 명령이 암호화 된 디스크의 잠금을 해제 하려고 시도 합니다.
 
    ```azurecli-interactive
-   az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
+   az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password 'password!234' --verbose
    ```
 
 4. `az vm repair run`을 실행합니다. 이 명령은 복구 VM을 통해 연결된 디스크에서 지정된 복구 스크립트를 실행합니다. 사용 중인 문제 해결 가이드에서 run-id를 지정하는 경우 여기에서 사용합니다. 그렇지 않으면 `az vm repair list-scripts`를 사용하여 사용 가능한 복구 스크립트를 볼 수 있습니다. 여기에 사용 된 리소스 그룹 및 VM 이름은 3 단계에서 사용 되는 작동 하지 않는 VM에 대 한 것입니다.

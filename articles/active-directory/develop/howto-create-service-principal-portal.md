@@ -12,16 +12,16 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178946"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265904"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
-이 문서에서는 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Azure Active Directory (Azure AD) 응용 프로그램 및 서비스 주체를 만드는 방법을 보여 줍니다. 응용 프로그램, 호스팅된 서비스 또는 리소스에 액세스 하거나 수정 해야 하는 자동화 된 도구가 있는 경우 앱에 대 한 id를 만들 수 있습니다. 이 ID를 서비스 주체라고 합니다. 리소스에 대 한 액세스는 서비스 사용자에 게 할당 된 역할에 의해 제한 되어 액세스할 수 있는 리소스 및 해당 수준에 대 한 제어를 제공 합니다. 보안상의 이유로 사용자 ID를 통해 로그인할 수 있게 하는 대신, 항상 자동화된 도구에서 서비스 주체를 사용하는 것이 좋습니다. 
+이 문서에서는 역할 기반 액세스 제어와 함께 사용할 수 있는 새 Azure Active Directory (Azure AD) 응용 프로그램 및 서비스 주체를 만드는 방법을 보여 줍니다. 응용 프로그램, 호스팅된 서비스 또는 리소스에 액세스 하거나 수정 해야 하는 자동화 된 도구가 있는 경우 앱에 대 한 id를 만들 수 있습니다. 이 ID를 서비스 주체라고 합니다. 리소스에 대 한 액세스는 서비스 사용자에 게 할당 된 역할에 의해 제한 되어 액세스할 수 있는 리소스 및 해당 수준에 대 한 제어를 제공 합니다. 보안상의 이유로 사용자 ID를 통해 로그인할 수 있게 하는 대신, 항상 자동화된 도구에서 서비스 주체를 사용하는 것이 좋습니다.
 
 이 문서에서는 포털을 사용 하 여 Azure Portal에서 서비스 사용자를 만드는 방법을 보여 줍니다. 여기서는 애플리케이션을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 애플리케이션을 중점적으로 다룹니다. 일반적으로 단일 조직 내에서 실행되는 LOB(기간 업무) 애플리케이션에 대해 단일 테넌트 애플리케이션을 사용하게 됩니다.  [Azure PowerShell를 사용 하 여 서비스 주체를 만들](howto-authenticate-service-principal-powershell.md)수도 있습니다.
 
@@ -129,12 +129,13 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
    ![애플리케이션(클라이언트) ID 복사](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## <a name="upload-a-certificate-or-create-a-secret-for-signing-in"></a>인증서 업로드 또는 로그인에 대 한 암호 만들기
-서비스 사용자에 게는 암호 기반 인증 (응용 프로그램 암호) 및 인증서 기반 인증 이라는 두 가지 유형의 인증을 사용할 수 있습니다.  인증서를 사용 하는 것이 좋지만 새 응용 프로그램 암호를 만들 수도 있습니다.
+## <a name="authentication-two-options"></a>인증: 두 옵션
 
-### <a name="upload-a-certificate"></a>인증서 업로드
+서비스 사용자에 게는 암호 기반 인증 (응용 프로그램 암호) 및 인증서 기반 인증 이라는 두 가지 유형의 인증을 사용할 수 있습니다. *인증서를 사용 하는 것이 좋지만*응용 프로그램 암호를 만들 수도 있습니다.
 
-기존 인증서가 있는 경우이 인증서를 사용할 수 있습니다.  필요에 따라 *테스트 목적 으로만*자체 서명 된 인증서를 만들 수 있습니다. 자체 서명 된 인증서를 만들려면 PowerShell을 열고 다음 매개 변수를 사용 하 여 [new-selfsignedcertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 를 실행 하 여 컴퓨터의 사용자 인증서 저장소에 인증서를 만듭니다. 
+### <a name="option-1-upload-a-certificate"></a>옵션 1: 인증서 업로드
+
+기존 인증서가 있는 경우이 인증서를 사용할 수 있습니다.  필요에 따라 *테스트 목적 으로만*자체 서명 된 인증서를 만들 수 있습니다. 자체 서명 된 인증서를 만들려면 PowerShell을 열고 다음 매개 변수를 사용 하 여 [new-selfsignedcertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 를 실행 하 여 컴퓨터의 사용자 인증서 저장소에 인증서를 만듭니다.
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -163,7 +164,7 @@ Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/fr
 
 응용 프로그램 등록 포털에서 응용 프로그램에 인증서를 등록 한 후에는 인증서를 사용 하도록 클라이언트 응용 프로그램 코드를 사용 하도록 설정 해야 합니다.
 
-### <a name="create-a-new-application-secret"></a>새 애플리케이션 비밀 만들기
+### <a name="option-2-create-a-new-application-secret"></a>옵션 2: 새 응용 프로그램 암호 만들기
 
 인증서를 사용 하지 않도록 선택 하는 경우 새 응용 프로그램 암호를 만들 수 있습니다.
 
@@ -178,14 +179,15 @@ Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/fr
    ![나중에 이 키를 검색할 수 없으므로 비밀 값 복사](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>리소스에 대 한 액세스 정책 구성
-응용 프로그램에서 액세스 해야 하는 리소스에 대 한 추가 권한을 구성 해야 할 수도 있습니다. 예를 들어 키, 암호 또는 인증서에 대 한 액세스 권한을 응용 프로그램에 부여 하려면 [키 자격 증명 모음 액세스 정책을 업데이트](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) 해야 합니다.  
+응용 프로그램에서 액세스 해야 하는 리소스에 대 한 추가 권한을 구성 해야 할 수도 있습니다. 예를 들어 키, 암호 또는 인증서에 대 한 액세스 권한을 응용 프로그램에 부여 하려면 [키 자격 증명 모음 액세스 정책을 업데이트](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) 해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 주요 자격 증명 모음으로 이동 하 여 **액세스 정책**을 선택 합니다.  
+1. [Azure Portal](https://portal.azure.com)에서 주요 자격 증명 모음으로 이동 하 여 **액세스 정책**을 선택 합니다.
 1. **액세스 정책 추가**를 선택 하 고 응용 프로그램에 부여 하려는 키, 암호 및 인증서 권한을 선택 합니다.  이전에 만든 서비스 사용자를 선택 합니다.
 1. **추가** 를 선택 하 여 액세스 정책을 추가 하 고 **저장** 을 선택 하 여 변경 내용을 커밋합니다.
     ![액세스 정책 추가](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="next-steps"></a>다음 단계
 * Azure PowerShell를 사용 하 여 [서비스 주체를 만드는](howto-authenticate-service-principal-powershell.md)방법을 알아봅니다.
-* 보안 정책을 지정 하는 방법에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.  
+* 보안 정책을 지정 하는 방법에 대 한 자세한 내용은 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 * 권한이 부여되거나 사용자에 대해 거부될 수 있는 작업 목록은 [Azure Resource Manager 리소스 공급자 작업](../../role-based-access-control/resource-provider-operations.md)을 참조하세요.
+* **Microsoft Graph**를 사용 하 여 앱 등록을 작업 하는 방법에 대 한 자세한 내용은 [응용 프로그램](/graph/api/resources/application) API 참조를 참조 하세요.

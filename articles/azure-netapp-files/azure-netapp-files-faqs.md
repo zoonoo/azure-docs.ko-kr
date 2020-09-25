@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 9822d7bd769ea161ddcf195d695f27024351ca4b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 4b8c879a89da47a081e4b95382d17b3d2baede9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662450"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325575"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -29,7 +29,7 @@ ms.locfileid: "89662450"
 
 ### <a name="does-the-nfs-data-path-go-over-the-internet"></a>NFS 데이터 경로는 인터넷을 통해 이동 하나요?  
 
-아닙니다. NFS 데이터 경로는 인터넷을 통해 이동 하지 않습니다. Azure NetApp Files은 서비스를 사용할 수 있는 Azure Virtual Network (VNet)에 배포 되는 Azure native service입니다. Azure NetApp Files는 위임 된 서브넷을 사용 하 고 VNet에서 직접 네트워크 인터페이스를 프로 비전 합니다. 
+아니요. NFS 데이터 경로는 인터넷을 통해 이동 하지 않습니다. Azure NetApp Files은 서비스를 사용할 수 있는 Azure Virtual Network (VNet)에 배포 되는 Azure native service입니다. Azure NetApp Files는 위임 된 서브넷을 사용 하 고 VNet에서 직접 네트워크 인터페이스를 프로 비전 합니다. 
 
 자세한 내용은 [Azure NetApp Files 네트워크 계획에 대 한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) 을 참조 하세요.  
 
@@ -48,7 +48,7 @@ ms.locfileid: "89662450"
 
 ### <a name="can-i-set-or-select-my-own-ip-address-for-an-azure-netapp-files-volume"></a>Azure NetApp Files 볼륨에 대해 자체 IP 주소를 설정 하거나 선택할 수 있나요?  
 
-아닙니다. Azure NetApp Files 볼륨에 대 한 IP 할당은 동적입니다. 고정 IP 할당은 지원 되지 않습니다. 
+아니요. Azure NetApp Files 볼륨에 대 한 IP 할당은 동적입니다. 고정 IP 할당은 지원 되지 않습니다. 
 
 ### <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>이중 스택 (IPv4 및 IPv6) VNet을 지원 Azure NetApp Files?
 
@@ -132,6 +132,12 @@ Azure NetApp Files은 NFSv3 및 NFSv 4.1을 지원 합니다. NFS 버전 중 하
 
 루트 계정이 볼륨의 내보내기 정책을 사용 하 여 볼륨에 액세스할 수 있는지 여부를 지정할 수 있습니다. 자세한 내용은 [NFS 볼륨에 대 한 내보내기 정책 구성](azure-netapp-files-configure-export-policy.md) 을 참조 하세요.
 
+### <a name="can-i-use-the-same-file-path-volume-creation-token-for-multiple-volumes"></a>여러 볼륨에 동일한 파일 경로 (볼륨 생성 토큰)를 사용할 수 있나요?
+
+예, 할 수 있습니다. 그러나 다른 구독 또는 다른 지역에서 파일 경로를 사용 해야 합니다.   
+
+예를 들어 라는 볼륨을 만듭니다 `vol1` . 그런 다음 다른 `vol1` 용량 풀에 있지만 동일한 구독 및 지역에 있는 다른 볼륨을 만듭니다. 이 경우 동일한 볼륨 이름을 사용 하면 오류가 발생 `vol1` 합니다. 동일한 파일 경로를 사용 하려면 이름이 다른 지역 또는 구독에 있어야 합니다.
+
 ## <a name="smb-faqs"></a>SMB FAQ
 
 ### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Azure NetApp Files에서 지 원하는 SMB 버전은 무엇 인가요?
@@ -163,12 +169,6 @@ Azure NetApp Files는 Windows Server 2008 R2sp1-2019 버전의 Active Directory 
 SMB 클라이언트에서 보고 하는 볼륨 크기는 Azure NetApp Files 볼륨의 크기를 늘릴 수 있는 최대 크기입니다. SMB 클라이언트에 표시 되는 Azure NetApp Files 볼륨의 크기는 볼륨의 할당량 또는 크기를 반영 하지 않습니다. Azure Portal 또는 API를 통해 Azure NetApp Files 볼륨 크기 또는 할당량을 가져올 수 있습니다.
 
 <!--
-### Does Azure NetApp Files support Kerberos encryption?
-
-Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption for traffic between the service and the targeted Active Directory domain controllers. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for requirements. 
--->
-
-<!--
 ### Does Azure NetApp Files support LDAP signing? 
 
 Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
@@ -196,7 +196,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Azure Storage 탐색기를 통해 Azure NetApp Files를 관리할 수 있나요?
 
-아닙니다. Azure Storage 탐색기에서 Azure NetApp Files 지원 되지 않습니다.
+아니요. Azure Storage 탐색기에서 Azure NetApp Files 지원 되지 않습니다.
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>디렉터리가 제한 크기에 근접 하 고 있는지 확인 어떻게 할까요??
 
@@ -253,11 +253,11 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제 하기 위한 요�
 
 ### <a name="is-migration-with-azure-data-box-supported"></a>마이그레이션이 Azure Data Box 지원 되나요?
 
-아닙니다. Azure Data Box은 현재 Azure NetApp Files를 지원 하지 않습니다. 
+아니요. Azure Data Box은 현재 Azure NetApp Files를 지원 하지 않습니다. 
 
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>Azure Import/Export 서비스를 사용 하 여 마이그레이션이 지원 되나요?
 
-아닙니다. Azure Import/Export 서비스는 현재 Azure NetApp Files을 지원 하지 않습니다.
+아니요. Azure Import/Export 서비스는 현재 Azure NetApp Files을 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계  
 

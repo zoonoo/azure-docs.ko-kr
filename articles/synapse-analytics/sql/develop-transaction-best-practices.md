@@ -1,6 +1,6 @@
 ---
 title: SQL 풀의 트랜잭션 최적화
-description: 긴 롤백에 대한 위험을 최소화하면서 SQL 풀(데이터 웨어하우스)의 트랜잭션 코드 성능을 최적화하는 방법을 알아봅니다.
+description: SQL 풀에서 트랜잭션 코드의 성능을 최적화 하는 방법에 대해 알아봅니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 174ae84e66f10db4ad24ed561b228f0031492d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503194"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288650"
 ---
 # <a name="optimize-transactions-in-sql-pool"></a>SQL 풀에서 트랜잭션 최적화
 
@@ -23,9 +23,9 @@ ms.locfileid: "87503194"
 
 ## <a name="transactions-and-logging"></a>트랜잭션 및 로깅
 
-트랜잭션은 관계형 데이터베이스 엔진의 중요한 구성 요소입니다. SQL 풀은 데이터 수정 중에 트랜잭션을 사용합니다. 이러한 트랜잭션은 명시적일 수도 있고 암시적일 수도 있습니다. 단일 INSERT, UPDATE 및 DELETE 문은 모두 암시적 트랜잭션의 예입니다. 명시적 트랜잭션은 BEGIN TRAN, COMMIT TRAN 또는 ROLLBACK TRAN을 사용합니다. 명시적 트랜잭션은 일반적으로 여러 수정 문을 단일 원자 단위에 서로 연결되도록 해야 하는 경우에 사용됩니다.
+트랜잭션은 관계형 데이터베이스 엔진의 중요한 구성 요소입니다. SQL 풀은 데이터 수정 중에 트랜잭션을 사용합니다. 이러한 트랜잭션은 명시적일 수도 있고 암시적일 수도 있습니다. 단일 INSERT, UPDATE 및 DELETE 문은 모두 암시적 트랜잭션의 예입니다. 명시적 트랜잭션은 BEGIN TRAN, COMMIT TRAN 또는 ROLLBACK TRAN을 사용합니다. 명시적 트랜잭션은 일반적으로 여러 개의 수정 문을 단일 원자 단위에 결합 해야 하는 경우에 사용 됩니다.
 
-SQL 풀은 트랜잭션 로그를 사용하여 데이터베이스에 변경 내용을 커밋합니다. 각 분산에는 고유한 트랜잭션 로그가 있습니다. 트랜잭션 로그 쓰기는 자동입니다. 구성이 필요 없습니다. 그러나 이 프로세스는 쓰기를 보장하지만 시스템에 오버헤드가 발생합니다. 트랜잭션 측면에서 효율적인 코드를 작성하면 이 영향을 최소화할 수 있습니다. 트랜잭션 측면에서 효율적인 코드는 크게 두 범주로 나눌 수 있습니다.
+SQL 풀은 트랜잭션 로그를 사용하여 데이터베이스에 변경 내용을 커밋합니다. 각 분산에는 고유한 트랜잭션 로그가 있습니다. 트랜잭션 로그 쓰기는 자동입니다. 구성이 필요 없습니다. 그러나이 프로세스는 쓰기를 보장 하지만 시스템에서 오버 헤드를 발생 합니다. 트랜잭션 측면에서 효율적인 코드를 작성하면 이 영향을 최소화할 수 있습니다. 트랜잭션 측면에서 효율적인 코드는 크게 두 범주로 나눌 수 있습니다.
 
 * 가능하면 항상 최소한의 로깅 구문 사용
 * 한 트랜잭션이 오래 실행되지 않도록 범위가 지정된 배치 사용
@@ -84,7 +84,7 @@ CTAS 및 INSERT...SELECT는 둘 다 대량 로드 작업입니다. 그러나 둘
 
 ## <a name="optimize-deletes"></a>삭제 최적화
 
-DELETE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 대량의 데이터를 삭제해야 하는 경우 보관하려는 데이터에 대해 최소 로깅 작업으로 실행할 수 있는 `SELECT` 를 사용하는 것이 적절한 경우가 많습니다.  데이터를 선택하려면 [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용하여 새 테이블을 만듭니다.  새 테이블을 만든 후에는 [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)을 사용하여 이전 테이블을 새로 만든 테이블로 교체합니다.
+DELETE는 전체 로깅 작업입니다.  테이블 또는 파티션에서 대량의 데이터를 삭제해야 하는 경우 보관하려는 데이터에 대해 최소 로깅 작업으로 실행할 수 있는 `SELECT` 를 사용하는 것이 적절한 경우가 많습니다.  데이터를 선택하려면 [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)를 사용하여 새 테이블을 만듭니다.  새 테이블을 만든 후에는 [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 사용하여 이전 테이블을 새로 만든 테이블로 교체합니다.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.

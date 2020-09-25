@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 2b7457ad5870e31d682f8727901795c9d6d73f06
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fdfa709d50f351d3202a01c5d3df65bb3015e887
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442669"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335119"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure SQL Database 및 Azure Synapse 분석에 대 한 경고 만들기
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -63,7 +63,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
   ![신호 선택](./media/alerts-insights-configure-portal/select-signal.png)
 6. **CPU 백분율**등의 신호를 선택한 후 **신호 논리 구성** 페이지가 나타납니다.
   ![신호 논리 구성](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. 이 페이지에서 해당 임계값 유형, 연산자, 집계 유형, 임계값, 집계 세분성 및 평가 빈도를 구성 합니다. 그런 다음 **완료**를 클릭 합니다.
+7. 이 페이지에서 해당 임계값 유형, 연산자, 집계 유형, 임계값, 집계 세분성 및 평가 빈도를 구성 합니다. **완료**를 클릭합니다.
 8. **만들기 규칙**에서 기존 **작업 그룹** 을 선택 하거나 새 그룹을 만듭니다. 작업 그룹을 사용 하면 경고 조건이 발생할 때 수행할 작업을 정의할 수 있습니다.
   ![작업 그룹 정의](./media/alerts-insights-configure-portal/action-group.png)
 

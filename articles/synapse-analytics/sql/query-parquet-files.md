@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8083edaf647f52a07d55dddf21fe5751340783be
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496239"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288310"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 주문형(미리 보기)을 사용하여 Parquet 파일 쿼리
 
@@ -22,7 +22,7 @@ ms.locfileid: "87496239"
 
 ## <a name="quickstart-example"></a>빠른 시작 예제
 
-`OPENROWSET`함수를 사용 하면 파일에 대 한 URL을 제공 하 여 parquet 파일의 내용을 읽을 수 있습니다.
+`OPENROWSET` 함수를 사용 하면 파일에 대 한 URL을 제공 하 여 parquet 파일의 내용을 읽을 수 있습니다.
 
 ### <a name="read-parquet-file"></a>Parquet 파일 읽기
 
@@ -57,7 +57,7 @@ from openrowset(
 
 ### <a name="explicitly-specify-schema"></a>명시적으로 스키마 지정
 
-`OPENROWSET`에서는 절을 사용 하 여 파일을 읽을 열을 명시적으로 지정할 수 있습니다 `WITH` .
+`OPENROWSET` 에서는 절을 사용 하 여 파일을 읽을 열을 명시적으로 지정할 수 있습니다 `WITH` .
 
 ```sql
 select top 10 *

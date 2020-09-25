@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e5a5b06bc95d022cfad66118db4b55e9369b5bd
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a0ee8661ca985e1882cff54d2fc2cdc5e9ad0a22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661889"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335972"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 통과 인증으로 마이그레이션
 
@@ -283,9 +283,9 @@ Azure AD 스마트 잠금은 무차별 암호 대입 공격으로부터 보호�
 
 4. 인증 에이전트 설치를 실행합니다. 설치 중에 글로벌 관리자 계정의 자격 증명을 입력해야 합니다.
 
-   ![Microsoft Azure AD Connect 인증 에이전트 패키지 페이지의 설치 단추를 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Microsoft Azure AD Connect 인증 에이전트 패키지를 실행 하는 데 사용 하는 설치 단추를 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-   ![로그인 페이지를 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Microsoft 로그인 페이지를 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. 인증 에이전트가 설치되면 통과 인증 에이전트 상태 페이지로 돌아가서 추가 에이전트의 상태를 확인할 수 있습니다.
 
@@ -327,7 +327,7 @@ Azure AD 스마트 잠금은 무차별 암호 대입 공격으로부터 보호�
    * **Seamless Single Sign-On**이 **사용**으로 설정되어 있습니다.
    * **통과 인증**이**사용**으로 설정되어 있습니다.
    
-   ![사용자 로그인 섹션의 설정을 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
+   ![사용자 로그인 섹션에서 확인할 설정을 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
 8. **통과 인증** 을 선택 하 고 상태가 **활성**인지 확인 합니다.<br />
    
    인증 에이전트가 활성 상태가 아닌 경우 다음 단계에서 도메인 변환 프로세스를 계속 진행하기 전에 몇 가지 [문제 해결 단계](./tshoot-connect-pass-through-authentication.md)를 수행합니다. 통과 인증 에이전트가 성공적으로 설치되었는지와 Azure Portal에서 해당 상태가 **활성**인지를 확인하기 전에 도메인을 변환하면 인증이 중단될 위험이 있습니다.
@@ -368,7 +368,7 @@ Azure AD PowerShell 모듈을 사용하여 변환을 수행합니다.
    * **Seamless Single Sign-On**이 **사용**으로 설정되어 있습니다.
    * **통과 인증**이**사용**으로 설정되어 있습니다.<br />
 
-   ![사용자 로그인 섹션의 설정을 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
+   ![Azure AD 포털의 사용자 로그인 섹션에서 설정을 보여 주는 스크린샷](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
 
 ## <a name="testing-and-next-steps"></a>테스트 및 다음 단계
 

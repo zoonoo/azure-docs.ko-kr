@@ -4,17 +4,17 @@ description: Microsoft Azure Maps 피드백 도구를 사용 하 여 데이터 �
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/19/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fb806aa444ba3b8b3247559b87ddd93fecdaa1b0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 807c8908b70065d5d82229e7750b166bfabcf53b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133353"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335367"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Azure Maps에 대 한 데이터 피드백 제공
 
@@ -67,5 +67,4 @@ ms.locfileid: "87133353"
 
 Azure Maps와 관련 된 기술적인 질문을 게시 하려면 다음을 방문 하세요.
 
-* [Azure Maps Stack Overflow](https://stackoverflow.com/questions/tagged/azure-maps)
-* [Azure Maps 피드백 포럼](https://feedback.azure.com/forums/909172-azure-maps)
+* [Microsoft Q & A](https://docs.microsoft.com/answers/topics/azure-maps.html)

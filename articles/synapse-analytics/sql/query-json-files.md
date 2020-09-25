@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04b2d7842222426010b76a1a7ed4c72ee74e3d87
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0757c867d46144ac9fb9b9eca8b2a588aeeb15d6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489727"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288327"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 SQL 주문형(미리 보기)을 사용하여 JSON 파일 쿼리
 
@@ -24,7 +24,7 @@ ms.locfileid: "87489727"
 
 ## <a name="read-json-documents"></a>JSON 문서 읽기
 
-JSON 파일의 콘텐츠를 확인 하는 가장 쉬운 방법은 함수에 파일 URL을 제공 하 고 `OPENROWSET` csv를 지정 하 `FORMAT` 고 `0x0b` 및에 대 한 값을 설정 하 `fieldterminator` 는 것입니다 `fieldquote` . 줄로 구분 된 JSON 파일을 읽어야 하는 경우에는 이것으로 충분 합니다. 클래식 JSON 파일이 있는 경우에는에 대 한 값을 설정 `0x0b` 해야 `rowterminator` 합니다. `OPENROWSET`함수는 JSON을 구문 분석 하 고 모든 문서를 다음 형식으로 반환 합니다.
+JSON 파일의 콘텐츠를 확인 하는 가장 쉬운 방법은 함수에 파일 URL을 제공 하 고 `OPENROWSET` csv를 지정 하 `FORMAT` 고 `0x0b` 및에 대 한 값을 설정 하 `fieldterminator` 는 것입니다 `fieldquote` . 줄로 구분 된 JSON 파일을 읽어야 하는 경우에는 이것으로 충분 합니다. 클래식 JSON 파일이 있는 경우에는에 대 한 값을 설정 `0x0b` 해야 `rowterminator` 합니다. `OPENROWSET` 함수는 JSON을 구문 분석 하 고 모든 문서를 다음 형식으로 반환 합니다.
 
 | doc |
 | --- |
@@ -33,7 +33,7 @@ JSON 파일의 콘텐츠를 확인 하는 가장 쉬운 방법은 함수에 파�
 |{"date_rep": "2020-07-26", "day": 26, "month": 7, "year": 2020, "case": 4, "deaths": 0, "geo_id": "AF"}|
 |{"date_rep": "2020-07-27", "day": 27, "month": 7, "year": 2020, "case": 8, "deaths": 0, "geo_id": "AF"}|
 
-파일을 공개적으로 사용할 수 있거나 Azure AD id가이 파일에 액세스할 수 있는 경우 다음 예제와 같은 쿼리를 사용 하 여 파일의 내용을 볼 수 있어야 합니다.
+파일을 공개적으로 사용할 수 있는 경우 또는 Azure AD id가이 파일에 액세스할 수 있는 경우 다음 예제와 같은 쿼리를 사용 하 여 파일의 내용이 표시 되어야 합니다.
 
 ### <a name="read-json-files"></a>JSON 파일 읽기
 

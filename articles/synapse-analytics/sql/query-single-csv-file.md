@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 63755616bb524226d3c40d32b9695f4b787860d9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288293"
 ---
 # <a name="query-csv-files"></a>CSV 파일 쿼리
 
@@ -29,7 +29,7 @@ ms.locfileid: "87489710"
 
 ## <a name="quickstart-example"></a>빠른 시작 예제
 
-`OPENROWSET`함수를 사용 하면 파일에 대 한 URL을 제공 하 여 CSV 파일의 내용을 읽을 수 있습니다.
+`OPENROWSET` 함수를 사용 하면 파일에 대 한 URL을 제공 하 여 CSV 파일의 내용을 읽을 수 있습니다.
 
 ### <a name="read-a-csv-file"></a>Csv 파일 읽기
 
@@ -72,7 +72,7 @@ from openrowset(
 
 ### <a name="explicitly-specify-schema"></a>명시적으로 스키마 지정
 
-`OPENROWSET`에서는 절을 사용 하 여 파일을 읽을 열을 명시적으로 지정할 수 있습니다 `WITH` .
+`OPENROWSET` 에서는 절을 사용 하 여 파일을 읽을 열을 명시적으로 지정할 수 있습니다 `WITH` .
 
 ```sql
 select top 10 *

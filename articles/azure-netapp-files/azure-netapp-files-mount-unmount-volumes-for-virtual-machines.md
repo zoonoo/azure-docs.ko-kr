@@ -6,20 +6,29 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 08/28/2020
-ms.openlocfilehash: f9dc54959979d00d57536e3a3fa2262d27e28f96
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.date: 09/22/2020
+ms.openlocfilehash: d5db91a8864d6090466b40197187c9386e053d12
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072199"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325541"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
 
 필요에 따라 Windows 또는 Linux 가상 머신에 대한 볼륨을 탑재 또는 탑재 해제할 수 있습니다.  Linux 가상 머신에 대한 탑재 지침은 Azure NetApp Files에서 사용할 수 있습니다.  
 
-> [!IMPORTANT] 
-> NFS 볼륨에 액세스할 수 있으려면 하나 이상의 내보내기 정책이 있어야 합니다.
+## <a name="requirements"></a>요구 사항 
+
+* NFS 볼륨에 액세스할 수 있으려면 하나 이상의 내보내기 정책이 있어야 합니다.
+* NFS 볼륨을 성공적으로 탑재 하려면 다음 NFS 포트가 클라이언트와 NFS 볼륨 사이에서 열려 있는지 확인 합니다.
+    * 111 = `RPCBIND/Portmapper`
+    * 635 = `mountd`
+    * 2049 = `nfs`
+    * 4045 = `nlockmgr` (NFSv3에만 해당)
+    * 4046 = `status` (NFSv3에만 해당)
+
+## <a name="steps"></a>단계
 
 1. **볼륨** 블레이드를 클릭 하 고 탑재 하려는 볼륨을 선택 합니다. 
 2. 선택한 볼륨에서 **명령 탑재** 를 클릭 한 다음 지침에 따라 볼륨을 탑재 합니다. 

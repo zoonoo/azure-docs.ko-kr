@@ -12,18 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c4eebae6909c9ef0969bc85bcb9a985db2a7c02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84142149"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325609"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Azure NetApp Files 비용 모델 
 
-Azure NetApp Files에 대 한 비용 모델을 이해 하면 서비스에서 비용을 관리 하는 데 도움이 됩니다.
+Azure NetApp Files에 대 한 비용 모델을 이해 하면 서비스에서 비용을 관리 하는 데 도움이 됩니다. 
+
+지역 간 복제와 관련 한 비용 모델은 [지역 간 복제에 대 한 비용 모델](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)을 참조 하세요.
 
 ## <a name="calculation-of-capacity-consumption"></a>용량 소비 계산
 
@@ -61,6 +63,7 @@ Azure NetApp Files는 프로 비전 된 저장소 용량에 대해 요금이 청
 * 최초 4-TiB 최소 구매 후 1 TiB 증분
 * 1 시간의 최소 청구 증가값
 * 프로 비전 된 풀 크기를 풀에서 사용 된 총 용량 보다 작게 낮출 수 없습니다.
+* 수동 QoS가 있는 용량 풀의 경우 크기 및 서비스 수준이 모든 볼륨의 실제 할당 된 처리량 보다 더 많은 처리량을 제공 하는 경우에만 풀 크기를 줄일 수 있습니다.
 
 ## <a name="behavior-of-maximum-size-pool-overage"></a>최대 크기 풀 초과분 동작   
 
@@ -94,3 +97,4 @@ Azure NetApp Files에 있는 스냅숏의 용량 소비는 부모 볼륨의 할�
 * [가격 책정 페이지 Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
+* [지역 간 복제에 대 한 비용 모델](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)

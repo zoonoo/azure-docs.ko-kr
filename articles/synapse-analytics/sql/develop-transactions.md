@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288616"
 ---
 # <a name="use-transactions-in-sql-pool"></a>SQL 풀에서 트랜잭션 사용
 
@@ -29,10 +29,10 @@ ms.locfileid: "87500762"
 
 SQL 풀은 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 수준은 기본적으로 READ UNCOMMITTED로 설정되어 있습니다.  master 데이터베이스에 연결된 경우 사용자 데이터베이스의 READ_COMMITTED_SNAPSHOT 데이터베이스 옵션을 ON으로 설정하여 이 기본값을 READ COMMITTED SNAPSHOT ISOLATION으로 변경할 수 있습니다.  
 
-활성화되면 이 데이터베이스의 모든 트랜잭션이 READ COMMITTED SNAPSHOT ISOLATION으로 실행되고 세션 수준의 READ UNCOMMITTED 설정은 적용되지 않습니다. 자세한 내용은 [ALTER DATABASE SET 옵션(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)을 참조하세요.
+활성화되면 이 데이터베이스의 모든 트랜잭션이 READ COMMITTED SNAPSHOT ISOLATION으로 실행되고 세션 수준의 READ UNCOMMITTED 설정은 적용되지 않습니다. 자세한 내용은 [ALTER DATABASE SET 옵션(Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
 
 ## <a name="transaction-size"></a>트랜잭션 크기
-단일 데이터 수정 트랜잭션은 크기가 제한됩니다. 이러한 제한은 배포 기준으로 적용됩니다. 따라서 제한을 배포 수와 곱하여 전체 할당을 계산할 수 있습니다. 
+단일 데이터 수정 트랜잭션은 크기가 제한됩니다. 이러한 제한은 배포 기준으로 적용됩니다. 따라서 한도를 배포 수로 곱하여 총 할당을 계산할 수 있습니다. 
 
 트랜잭션에 포함된 대략적인 최대 행 수를 구하려면 배포 용량을 각 행의 전체 크기로 나눕니다. 가변 길이 열의 경우에는 최대 크기를 사용하는 대신, 평균 열 길이를 사용하는 것을 고려합니다.
 
@@ -81,7 +81,7 @@ SQL 풀은 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 �
 
 트랜잭션 또는 작업 기준으로 트랜잭션 크기 제한이 적용되며 모든 동시 트랜잭션에서 적용되지는 않습니다. 따라서 각 트랜잭션은 이 크기의 데이터를 로그에 쓰도록 허용됩니다.
 
-로그에 기록된 데이터의 양을 최적화하고 최소화하려면 [트랜잭션 모범 사례](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문서를 참조하세요.
+로그에 기록 되는 데이터의 양을 최적화 하 고 최소화 하려면 [트랜잭션 모범 사례](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 문서를 참조 하세요.
 
 > [!WARNING]
 > 최대 트랜잭션 크기는 데이터가 균일하게 분산되는 HASH 또는 ROUND_ROBIN 분산 테이블에 대해서만 도달할 수 있습니다. 트랜잭션이 균일하지 않은 분산 방식으로 데이터를 쓰는 경우 최대 트랜잭션 크기에 도달하기 전에 제한에 도달할 가능성이 높습니다.
@@ -134,11 +134,11 @@ SELECT @xact_state AS TransactionState;
 
 위의 코드는 다음과 같은 오류 메시지를 제공합니다.
 
-Msg 111233, Level 16, State 1, Line 1 111233; 현재 트랜잭션이 중단되었으며 보류 중인 변경 내용은 롤백되었습니다. 원인: 롤백 전용 상태의 트랜잭션이 DDL, DML 또는 SELECT 문 앞에서 명시적으로 롤백되지 않았습니다.
+Msg 111233, Level 16, State 1, Line 1 111233; 현재 트랜잭션이 중단되었으며 보류 중인 변경 내용은 롤백되었습니다. 원인: 롤백 전용 상태의 트랜잭션은 DDL, DML 또는 SELECT 문 이전에 명시적으로 롤백되지 않았습니다.
 
 또한 ERROR_* 함수의 출력도 제공되지 않습니다.
 
-SQL 풀에서는 코드를 약간 변경해야 합니다.
+SQL 풀에서 코드는 약간 변경 해야 합니다.
 
 ```sql
 SET NOCOUNT ON;
@@ -181,21 +181,19 @@ SELECT @xact_state AS TransactionState;
 
 ## <a name="error_line-function"></a>Error_Line() 함수
 
-SQL 풀이 ERROR_LINE() 함수를 구현하거나 지원하지 않는다는 점도 주목할 가치가 있습니다. 코드에 이 항목이 있는 경우 SQL 풀과 호환되도록 제거해야 합니다. 동등한 기능을 구현하는 대신 코드에서 쿼리 레이블을 사용합니다. 자세한 내용은 [레이블](develop-label.md) 문서를 참조하세요.
+SQL 풀이 ERROR_LINE() 함수를 구현하거나 지원하지 않는다는 점도 주목할 가치가 있습니다. 코드에이 함수가 있는 경우 SQL 풀과 호환 되도록 제거 해야 합니다. 동등한 기능을 구현하는 대신 코드에서 쿼리 레이블을 사용합니다. 자세한 내용은 [레이블](develop-label.md) 문서를 참조 하세요.
 
 ## <a name="use-of-throw-and-raiserror"></a>THROW 및 RAISERROR 사용
 
 THROW는 SQL 풀에서 예외를 발생시키기 위한 가장 최신 구현이지만 RAISERROR도 지원됩니다. 그러나 다음 몇 가지 사항에 주의해야 합니다.
 
-* 사용자 정의 오류 메시지 번호는 THROW에 대해 100,000 - 150,000 범위에 있을 수 없습니다.
+* 사용자 정의 오류 메시지 번호는 10만-15만 범위에 있을 수 없습니다.
 * RAISERROR 오류 메시지는 50,000으로 고정됩니다.
 * sys.messages 사용은 지원되지 않습니다.
 
 ## <a name="limitations"></a>제한 사항
 
-SQL 풀에는 트랜잭션과 관련된 몇 가지 기타 제한 사항이 있습니다.
-
-다음과 같습니다.
+SQL 풀에는 트랜잭션과 관련된 몇 가지 기타 제한 사항이 있습니다. 다음과 같습니다.
 
 * 분산된 트랜잭션이 없습니다
 * 중첩된 트랜잭션이 허용되지 않습니다.
