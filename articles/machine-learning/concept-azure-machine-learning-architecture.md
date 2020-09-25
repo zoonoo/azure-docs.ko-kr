@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886322"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276087"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -102,24 +102,17 @@ Azure Machine Learning은 모든 실행을 기록하고 실험에 다음 정보�
 
 [작업 영역](#workspace)  >  [실험](#experiments)  >  [실행](#runs)  >  **실행 구성**
 
-실행 구성은 지정된 컴퓨팅 대상에서 스크립트를 실행해야 하는 방법을 정의하는 지침 세트를 보여줍니다. 구성에는 기존 Python 환경을 사용할지 또는 사양에서 빌드되는 Conda 환경을 사용할지 여부와 같은 광범위한 동작 정의 세트가 포함됩니다.
+실행 구성은 지정 된 계산 대상에서 스크립트를 실행 하는 방법을 정의 합니다. 구성을 사용 하 여 실행할 스크립트, 계산 대상 및 Azure ML 환경, 모든 분산 작업 관련 구성 및 일부 추가 속성을 지정 합니다. 실행에 대 한 구성 가능한 전체 옵션 집합에 대 한 자세한 내용은 [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true)를 참조 하세요.
 
 실행 구성은 학습 스크립트를 포함 하는 디렉터리 내의 파일에 보관 될 수 있습니다.   또는 메모리 내 개체로 생성 되 고 실행을 전송 하는 데 사용 될 수 있습니다.
 
-예제 실행 구성은 [계산 대상을 사용 하 여 모델 학습](how-to-set-up-training-targets.md)을 참조 하세요.
-
-### <a name="estimators"></a>예측 도구
-
-인기 있는 프레임워크를 사용하여 모델 학습을 용이하게 하기 위해 예측 도구 클래스를 사용하여 실행 구성을 쉽게 만들 수 있습니다. 제네릭 [예측 도구](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true)를 만들어서 사용하면 원하는 학습 프레임워크(예: scikit)를 사용하는 학습 스크립트를 제출할 수 있습니다.
-
-추정에 대 한 자세한 내용은 [추정를 사용 하 여 ML 모델 학습](how-to-train-ml-models.md)을 참조 하세요.
+예제 실행 구성은 [학습 실행 구성](how-to-set-up-training-targets.md)을 참조 하세요.
 
 ### <a name="snapshots"></a>스냅샷
 
 [작업 영역](#workspace)  >  [실험](#experiments)  >  [실행](#runs)  >  **스냅숏**
 
 실행을 제출하면 Azure Machine Learning은 스크립트를 포함하는 디렉터리를 zip 파일로 압축하여 컴퓨팅 대상으로 보냅니다. 그런 다음, zip 파일이 추출되고 스크립트가 실행됩니다. 또한 Azure Machine Learning은 zip 파일을 실행 기록의 일부인 스냅샷으로 저장합니다. 작업 영역에 대한 액세스 권한이 있는 사용자는 실행 기록을 찾아보고 스냅샷을 다운로드할 수 있습니다.
-
 
 ### <a name="logging"></a>로깅
 
@@ -133,7 +126,7 @@ Azure Machine Learning 표준 실행 메트릭을 자동으로 기록 합니다.
 
 ### <a name="git-tracking-and-integration"></a>Git 추적 및 통합
 
-원본 디렉터리가 로컬 Git 리포지토리인 학습 실행을 시작하면 리포지토리에 대한 정보가 실행 기록에 저장됩니다. 이 작업은 예측 도구, ML 파이프라인 또는 스크립트 실행을 사용하여 제출된 실행에 대해 진행됩니다. SDK 또는 Machine Learning CLI에서 제출된 실행에 대해서도 진행됩니다.
+원본 디렉터리가 로컬 Git 리포지토리인 학습 실행을 시작하면 리포지토리에 대한 정보가 실행 기록에 저장됩니다. 이는 스크립트 실행 구성 또는 ML 파이프라인을 사용 하 여 제출 된 실행에서 작동 합니다. SDK 또는 Machine Learning CLI에서 제출된 실행에 대해서도 진행됩니다.
 
 자세한 내용은 [Azure Machine Learning에 대한 Git 통합](concept-train-model-git-integration.md)을 참조하세요.
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlr
+ms.reviewer: sstein
 ms.date: 04/16/2019
-ms.openlocfilehash: de8d1b7aba7763799228c831af61bf83a79937bb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 332b5198f046d0096e95e79e27cbc49408e6d136
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167983"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325201"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Azure SQL Managed Instance 콘텐츠 참조
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "88167983"
 
 - [Azure AD 인증 구성](../database/authentication-aad-configure.md)
 - [조건부 액세스 구성](../database/conditional-access-configure.md)
-- [Multi-factor Azure AD 인증](../database/authentication-mfa-ssms-overview.md)
+- [Multi-Factor Azure AD 인증](../database/authentication-mfa-ssms-overview.md)
 - [Multi-Factor Auth 구성](../database/authentication-mfa-ssms-configure.md)
 - [임시 보존 정책 구성](../database/temporal-tables-retention-policy.md)
 - [BYOK를 사용하여 TDE 구성](../database/transparent-data-encryption-byok-configure.md)
@@ -77,7 +77,7 @@ ms.locfileid: "88167983"
 
 ### <a name="alerting"></a>경고
 
-- [관리 되는 인스턴스에 대 한 경고 만들기](alerts-create.md)
+- [관리형 인스턴스에 대한 경고 만들기](alerts-create.md)
 
 ## <a name="operations"></a>작업
 

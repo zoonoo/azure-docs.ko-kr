@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 74c603576016b72edddb4c0fe7aa970bd8626a4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887392"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325218"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Managed Instance FAQ(질문과 대답)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 제품 오류 및 알려진 문제는 [알려진 문제](../database/doc-changes-updates-release-notes.md#known-issues)를 참조 하세요.
 
-## <a name="new-features"></a>새 기능
+## <a name="new-features"></a>새로운 기능
 
 **공개 미리 보기에서 최신 기능과 기능을 어디에서 찾을 수 있나요?**
 
@@ -94,7 +94,7 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 **관리 되는 인스턴스의 크기를 조정 하려면 어떻게 해야 하나요?**
 
-[Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) 또는 [ARM 템플릿에서](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates)관리 되는 인스턴스를 확장할 수 있습니다.
+[Azure Portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) 또는 [ARM 템플릿에서](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates)관리 되는 인스턴스를 확장할 수 있습니다.
 
 **내 Managed Instance을 한 지역에서 다른 지역으로 이동할 수 있나요?**
 
@@ -102,7 +102,7 @@ Azure SQL Managed Instance와 SQL Server 간의 구문 및 동작과 차이점�
 
 **내 Managed Instance을 삭제 하려면 어떻게 해야 하나요?**
 
-Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0) [AZURE CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) 또는 [리소스 관리자 REST Api](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)를 통해 관리 되는 인스턴스를 삭제할 수 있습니다.
+Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true) [AZURE CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) 또는 [리소스 관리자 REST Api](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)를 통해 관리 되는 인스턴스를 삭제할 수 있습니다.
 
 **인스턴스를 만들거나 업데이트 하는 데 소요 되는 시간 또는 데이터베이스를 복원 하는 데 소요 되는 시간은 어느 정도 인가요?**
 
@@ -135,9 +135,9 @@ Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/r
 
 한 가지 옵션은 [데이터베이스를 bacpac로 내보낸](../database/database-export.md) 다음 [bacpac 파일을 가져오는](../database/database-import.md)것입니다. 데이터베이스가 100 GB 보다 작은 경우에 권장 되는 방법입니다.
 
-데이터베이스의 모든 테이블에 *기본* 키가 있고 데이터베이스에 메모리 내 OLTP 개체가 없는 경우 [트랜잭션 복제](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) 를 사용할 수 있습니다.
+데이터베이스의 모든 테이블에 *기본* 키가 있고 데이터베이스에 메모리 내 OLTP 개체가 없는 경우 [트랜잭션 복제](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) 를 사용할 수 있습니다.
 
-관리 되는 인스턴스에서 SQL Server와 비교 하 여 더 높은 버전의 데이터베이스를 사용 하므로 관리 되는 인스턴스에서 가져온 네이티브 COPY_ONLY 백업을 SQL Server로 복원할 수 없습니다. 자세한 내용은 [복사 전용 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15)을 참조 하세요.
+관리 되는 인스턴스에서 SQL Server와 비교 하 여 더 높은 버전의 데이터베이스를 사용 하므로 관리 되는 인스턴스에서 가져온 네이티브 COPY_ONLY 백업을 SQL Server로 복원할 수 없습니다. 자세한 내용은 [복사 전용 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true)을 참조 하세요.
 
 **SQL Server 인스턴스를 SQL Managed Instance로 마이그레이션하려면 어떻게 해야 하나요?**
 
@@ -184,11 +184,11 @@ SQL Managed Instance 사용 및 성능을 모니터링 하 고이에 대 한 경
 
 **성능 추적에 SQL 프로파일러를 사용할 수 있나요?**
 
-예, SQL 프로파일러가 지원 되거나 SQL Managed Instance. 자세한 내용은 [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15)를 참조 하세요.
+예, SQL 프로파일러가 지원 되거나 SQL Managed Instance. 자세한 내용은 [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true)를 참조 하세요.
 
 **Managed Instance 데이터베이스에서 Database Advisor 되 고 Query Performance Insight 지원 되나요?**
 
-아니요, 지원 되지 않습니다. [Dmv](../database/monitoring-with-dmvs.md) 와 [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) 를 [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) 및 [xevent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) 와 함께 사용 하 여 데이터베이스를 모니터링할 수 있습니다.
+아니요, 지원 되지 않습니다. [Dmv](../database/monitoring-with-dmvs.md) 와 [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15&preserve-view=true) 를 [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true) 및 [xevent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15&preserve-view=true) 와 함께 사용 하 여 데이터베이스를 모니터링할 수 있습니다.
 
 **SQL Managed Instance에서 메트릭 경고를 만들 수 있나요?**
 
@@ -228,7 +228,7 @@ Managed Instance에서 자동화 된 백업을 수행 하는 시기를 추적 �
 
 **주문형 백업이 지원 되나요?**
 
-예, Azure Blob Storage에서 복사 전용 전체 백업을 만들 수 있지만 Managed Instance 에서만 복원 가능한 됩니다. 자세한 내용은 [복사 전용 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15)을 참조 하세요. 그러나 암호화에 사용 되는 인증서에 액세스할 수 없으므로 서비스 관리 TDE로 데이터베이스를 암호화 하는 경우에는 복사 전용 백업을 수행할 수 없습니다. 이러한 경우에는 특정 시점 복원 기능을 사용 하 여 데이터베이스를 다른 SQL Managed Instance 이동 하거나 고객 관리 키로 전환 합니다.
+예, Azure Blob Storage에서 복사 전용 전체 백업을 만들 수 있지만 Managed Instance 에서만 복원 가능한 됩니다. 자세한 내용은 [복사 전용 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true)을 참조 하세요. 그러나 암호화에 사용 되는 인증서에 액세스할 수 없으므로 서비스 관리 TDE로 데이터베이스를 암호화 하는 경우에는 복사 전용 백업을 수행할 수 없습니다. 이러한 경우에는 특정 시점 복원 기능을 사용 하 여 데이터베이스를 다른 SQL Managed Instance 이동 하거나 고객 관리 키로 전환 합니다.
 
 **네이티브 복원 (.bak 파일에서)은 Managed Instance 지원 되나요?**
 
@@ -390,7 +390,7 @@ DNS 구성은 결국 새로 고쳐집니다.
 
 **TDE에 대 한 "자신의 키 가져오기" 모델을 활용할 수 있나요?**
 
-예, BYOK 시나리오에 대 한 Azure Key Vault는 Azure SQL Managed Instance에서 사용할 수 있습니다. 자세한 내용은 [고객 관리 키를 사용 하 여 투명한 데이터 암호화](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key)를 참조 하세요.
+예, BYOK 시나리오에 대 한 Azure Key Vault는 Azure SQL Managed Instance에서 사용할 수 있습니다. 자세한 내용은 [고객 관리 키를 사용 하 여 투명한 데이터 암호화](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key&preserve-view=true)를 참조 하세요.
 
 **암호화 된 SQL Server 데이터베이스를 마이그레이션할 수 있나요?**
 
@@ -509,6 +509,10 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 
 ## <a name="service-updates"></a>서비스 업데이트
+
+**SQL Managed Instance & Azure SQL Database에 대 한 루트 CA 변경은 무엇입니까?**
+
+[SQL Managed Instance & Azure SQL Database에 대 한 인증서 회전을](https://docs.microsoft.com/azure/azure-sql/updates/ssl-root-certificate-expiring)참조 하십시오. 
 
 **SQL Managed Instance에 대 한 계획 된 유지 관리 이벤트는 무엇 인가요?**
 

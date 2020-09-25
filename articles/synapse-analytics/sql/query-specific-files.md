@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04a308805dd69c4d9245d287a391f1e7fa7d50f2
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.reviewer: jrasnick
+ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055569"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288106"
 ---
 # <a name="use-file-metadata-in-queries"></a>쿼리에서 파일 메타데이터 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "89055569"
 
 경우에 따라 결과 집합의 특정 행과 상관 관계가 있는 파일 또는 폴더 원본을 알아야 할 수도 있습니다.
 
-`filepath` 및 `filename` 함수를 사용하여 결과 집합의 파일 이름 및/또는 경로를 반환할 수 있습니다. 또는 파일 이름 및/또는 폴더 경로를 기반으로 데이터를 필터링하는 데 사용할 수 있습니다. 이러한 함수는 구문 섹션 [filename 함수](query-data-storage.md#filename-function) 및 [filepath 함수](query-data-storage.md#filepath-function)에 설명되어 있습니다. 아래에서 샘플을 따라 간단한 설명을 찾을 수 있습니다.
+`filepath` 및 `filename` 함수를 사용하여 결과 집합의 파일 이름 및/또는 경로를 반환할 수 있습니다. 또는 파일 이름 및/또는 폴더 경로를 기반으로 데이터를 필터링하는 데 사용할 수 있습니다. 이러한 함수는 구문 섹션 [filename 함수](query-data-storage.md#filename-function) 및 [filepath 함수](query-data-storage.md#filepath-function)에 설명되어 있습니다. 다음 섹션에서는 샘플을 따라 간단한 설명을 찾을 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

@@ -8,15 +8,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova, danil
+ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: d611fc7eff2efa7a632f4b5467b5829a8374b95e
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 63aed3ce47a5499154041f067c292c656adcde6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705387"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323178"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Azure SQL Managed Instance & SQL Server 간의 t-sql 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -278,7 +278,7 @@ SQL Managed Instance 파일에 액세스할 수 없으므로 암호화 공급자
 
 ### <a name="sql-server-agent"></a>SQL Server 에이전트
 
-- SQL Server 에이전트 활성화 및 비활성화는 현재 SQL Managed Instance에서 지원 되지 않습니다. SQL 에이전트는 항상 실행됩니다.
+- SQL Server 에이전트를 사용하거나 사용하지 않도록 설정하는 기능은 현재 SQL Managed Instance에서 지원되지 않습니다. SQL 에이전트는 항상 실행됩니다.
 - SQL Server 에이전트 설정은 읽기 전용입니다. 이 프로시저는 `sp_set_agent_properties` SQL Managed Instance에서 지원 되지 않습니다. 
 - 작업
   - T-SQL 작업 단계가 지원됩니다.

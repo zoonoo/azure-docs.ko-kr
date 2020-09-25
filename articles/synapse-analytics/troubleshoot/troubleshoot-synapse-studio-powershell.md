@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4afaf536a9c65758ad030e5cdeeee5fb97074d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7cf9f18701317482284a3f1fa4b69a2c2927f64a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287715"
 ---
 # <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>PowerShell 스크립트를 사용 하 여 Azure Synapse Studio (미리 보기) 연결 문제 진단
 
@@ -27,13 +27,13 @@ Azure Synapse Studio (미리 보기)는 제대로 작동 하는 웹 API 끝점�
 
 ## <a name="troubleshooting-steps"></a>문제 해결 단계
 
-다음 링크를 마우스 오른쪽 단추로 클릭 하 고 "다른 이름으로 대상 저장"을 클릭 합니다.
+다음 링크를 마우스 오른쪽 단추로 클릭 하 고 "다른 이름으로 대상 저장"을 선택 합니다.
 
 - [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
 
 또는 링크를 직접 열고 열려 있는 스크립트 파일을 저장할 수 있습니다. 나중에 변경 될 수 있으므로 위의 링크 주소를 저장 하지 마세요.
 
-파일 탐색기에서 다운로드 한 스크립트 파일을 마우스 오른쪽 단추로 클릭 하 고 "PowerShell에서 실행"을 클릭 합니다.
+파일 탐색기에서 다운로드 한 스크립트 파일을 마우스 오른쪽 단추로 클릭 하 고 "PowerShell에서 실행"을 선택 합니다.
 
 ![PowerShell을 사용 하 여 다운로드 한 스크립트 파일 실행](media/troubleshooting-synapse-studio-powershell/run-with-powershell.png)
 
@@ -58,4 +58,4 @@ Azure Synapse Studio (미리 보기)는 제대로 작동 하는 웹 API 끝점�
 
 
 ## <a name="next-steps"></a>다음 단계
-이전 단계에서 해결 하는 데 도움이 되지 않는 경우 [지원 티켓을 만듭니다](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+이전 단계에서 문제를 해결 하는 데 도움이 되지 않는 경우 [지원 티켓을 만듭니다](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

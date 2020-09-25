@@ -17,12 +17,12 @@ ms.date: 08/30/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23bcb63b6b499e72cb43089659e513d276bd8306
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8324b82a05d7e78772e0b0b6de3a9bfaa183411
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358976"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265394"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치
 Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. Azure AD Connect로 설치된 기본 SQL Server 2012 Express LocalDB를 사용하거나 사용자 고유의 전체 버전 SQL을 사용할 수 있습니다. 이전에 Azure AD Connect를 설치할 때 ADSync라는 새 데이터베이스가 항상 만들어졌습니다. Azure AD Connect 버전 1.1.613.0(이상)을 사용하면 기존 ADSync 데이터베이스에 연결하여 Azure AD Connect를 설치하는 옵션도 있습니다.
@@ -58,7 +58,7 @@ Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이�
 ## <a name="steps-to-install-azure-ad-connect-with-use-existing-database-mode"></a>“기존 데이터베이스 사용” 모드를 통해 Azure AD Connect를 설치하는 단계
 1.  Windows 서버에 Azure AD Connect 설치 관리자(AzureADConnect.MSI)를 다운로드합니다. Azure AD Connect 설치 관리자를 두 번 클릭하여 Azure AD Connect 설치를 시작합니다.
 2.  MSI 설치가 완료되면 Azure AD Connect 마법사가 기본 모드 설치를 시작합니다. 종료 아이콘을 클릭하여 화면을 닫습니다.
-![시작](./media/how-to-connect-install-existing-database/db1.png)
+![왼쪽 메뉴에 "Express 설정"이 강조 표시 된 "Azure A D Connect 시작" 페이지를 보여 주는 스크린샷](./media/how-to-connect-install-existing-database/db1.png)
 3.  새 명령 프롬프트 또는 PowerShell 세션을 시작합니다. "C:\Program Files\Microsoft Azure Active Directory Connect" 폴더로 이동 합니다. .\AzureADConnect.exe /useexistingdatabase 명령을 실행하여 Azure AD Connect 마법사를 “기존 데이터베이스 사용” 설치 모드로 시작합니다.
 
 > [!NOTE]
@@ -66,9 +66,9 @@ Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이�
 
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 1. Azure AD Connect 시작 화면이 표시됩니다. 사용 조건 및 개인 정보 취급 방침에 동의하면 **계속**을 클릭합니다.
-   ![시작](./media/how-to-connect-install-existing-database/db3.png)
-1. **필수 구성 요소 설치** 화면에서 **기존 SQL Server 사용** 옵션을 사용할 수 있습니다. ADSync 데이터베이스를 호스팅하는 SQL Server의 이름을 지정합니다. ADSync 데이터베이스를 호스팅하는 데 사용되는 SQL 엔진 인스턴스가 SQL Server에 있는 기본 인스턴스가 아닌 경우 SQL 엔진 인스턴스 이름을 지정해야 합니다. 또한 SQL 검색을 사용하지 않는 경우 SQL 엔진 인스턴스 포트 번호를 지정해야 합니다. 예를 들어:         
-   ![시작](./media/how-to-connect-install-existing-database/db4.png)           
+   !["Azure A D 연결 시작" 페이지를 보여 주는 스크린샷](./media/how-to-connect-install-existing-database/db3.png)
+1. **필수 구성 요소 설치** 화면에서 **기존 SQL Server 사용** 옵션을 사용할 수 있습니다. ADSync 데이터베이스를 호스팅하는 SQL Server의 이름을 지정합니다. ADSync 데이터베이스를 호스팅하는 데 사용되는 SQL 엔진 인스턴스가 SQL Server에 있는 기본 인스턴스가 아닌 경우 SQL 엔진 인스턴스 이름을 지정해야 합니다. 또한 SQL 검색을 사용하지 않는 경우 SQL 엔진 인스턴스 포트 번호를 지정해야 합니다. 예를 들면 다음과 같습니다.         
+   !["필수 구성 요소 설치" 페이지를 보여 주는 스크린샷](./media/how-to-connect-install-existing-database/db4.png)           
 
 1. **Azure AD에 연결** 화면에서 Azure AD 디렉터리의 전역 관리자의 자격 증명을 제공해야 합니다. 기본 onmicrosoft.com 도메인의 계정을 사용하는 것이 좋습니다. 이 계정은 Azure AD에서 서비스 계정을 만드는 데에만 사용되며 마법사를 완료한 후에는 사용되지 않습니다.
    ![연결](./media/how-to-connect-install-existing-database/db5.png)
@@ -77,10 +77,10 @@ Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이�
    ![Directories](./media/how-to-connect-install-existing-database/db6.png)
  
 1. 팝업 대화 상자에서 (i) 엔터프라이즈 관리자 자격 증명을 제공하고 Azure AD Connect에서 AD DS 계정을 만들도록 하거나 (ii) 직접 AD DS 계정을 만들고 Azure AD Connect에 해당 자격 증명을 제공할 수 있습니다. 옵션을 선택하고 필요한 자격 증명을 제공한 후 **확인**을 클릭하여 팝업 대화 상자를 닫습니다.
-   ![시작](./media/how-to-connect-install-existing-database/db7.png)
+   !["새 A D 계정 만들기"가 선택 된 팝업 대화 상자 "A D 포리스트 계정"을 보여 주는 스크린샷](./media/how-to-connect-install-existing-database/db7.png)
  
 1. 자격 증명이 제공되면 빨간색 십자가 아이콘이 녹색 체크 표시 아이콘으로 바뀝니다. **다음**을 클릭합니다.
-   ![시작](./media/how-to-connect-install-existing-database/db8.png)
+   !["디렉터리 연결" 페이지를 보여 주는 스크린샷](./media/how-to-connect-install-existing-database/db8.png)
  
 1. **구성 준비 완료** 화면에서 **설치**를 클릭 합니다.
    ![시작](./media/how-to-connect-install-existing-database/db9.png)

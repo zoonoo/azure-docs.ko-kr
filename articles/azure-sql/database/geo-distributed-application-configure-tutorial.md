@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: bdc03d93654fdb0ae90600f8dad279f0fc8efbe9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 8e64e1a63b01e900988c999321423dfe92df00c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070839"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335068"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>자습서: 지리적으로 분산 된 데이터베이스 (Azure SQL Database) 구현
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "89070839"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

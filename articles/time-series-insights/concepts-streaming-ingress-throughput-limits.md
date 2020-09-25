@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: a9ac55802e4bcc435bb4bd6fd4af8977db9fd293
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 3bc68b7f4682ff00d2b93a75e39e0e5eabe4637b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950462"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287443"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>스트리밍 수집 처리량 제한
 
@@ -35,7 +35,7 @@ Azure Time Series Insights Gen2 스트리밍 데이터 수신 제한 사항은 �
 > [!TIP]
 >
 > * 요청에서 최대 8mbps의 수집 속도를 지원할 수 있습니다.
-> * Azure Portal을 통해 지원 티켓을 제출하여 처리량을 늘려야 하는 경우 문의해 주세요.
+> * Azure Portal를 통해 지원 티켓을 제출 하 여 더 높은 처리량이 필요한 경우 문의해 주세요.
  
 * **예제 1:**
 

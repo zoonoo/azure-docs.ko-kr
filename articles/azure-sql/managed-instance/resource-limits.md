@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop, sachinp, sstein
+ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 3c9389e6063279e214e3650f6364dc25ff773db5
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: c563862c777dd9b5bf4c9f31155aa65c430acd1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069597"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323244"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Azure SQL Managed Instance 리소스 제한 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -76,8 +76,8 @@ SQL Managed Instance는 두 가지 서비스 계층 [, 즉 범용 및](../databa
 | 인스턴스당 데이터베이스 파일의 최대 수 | 인스턴스 저장소 크기 또는 [Azure Premium Disk storage 할당 공간](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) 제한에 도달 하지 않는 한 최대 280입니다. | 32767 인스턴스 저장소 크기 제한에 도달 하지 않으면 데이터베이스당 파일 수입니다. |
 | 최대 데이터 파일 크기 | 현재 사용할 수 있는 인스턴스 저장소 크기 (최대 2tb, 648TB) 및 [Azure Premium Disk storage 할당 공간](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files)으로 제한 됩니다. | 현재 사용할 수 있는 인스턴스 저장소 크기 (최대 1tb-4 TB)로 제한 됩니다. |
 | 최대 로그 파일 크기 | 2tb 및 현재 사용할 수 있는 인스턴스 저장소 크기로 제한 됩니다. | 2tb 및 현재 사용할 수 있는 인스턴스 저장소 크기로 제한 됩니다. |
-| 데이터/로그 IOPS(근사치) | 인스턴스당 최대 30-40 K IOPS *, 500-7500/파일<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](#file-io-characteristics-in-general-purpose-tier)| 10 k-200 K (2500 IOPS/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
-| 로그 쓰기 처리량 한도 (인스턴스당) | vCore당 3MB/초<br/>최대 22 m b/초 | vCore 당 4mb/s<br/>최대 48MB/초 |
+| 데이터/로그 IOPS(근사치) | 인스턴스당 최대 30-40 K IOPS *, 500-7500/파일<br/>\*[더 많은 IOPS를 얻기 위해 파일 크기 늘리기](#file-io-characteristics-in-general-purpose-tier)| 10 k-200 K (4000 IOPS/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
+| 로그 쓰기 처리량 한도 (인스턴스당) | vCore당 3MB/초<br/>인스턴스당 최대 120 m b/초<br/>DB 당 22-65 m b/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](#file-io-characteristics-in-general-purpose-tier) | vCore 당 4mb/s<br/>최대 96 m b/초 |
 | 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[더 나은 IO 성능을 얻으려면 파일 크기를 늘립니다.](#file-io-characteristics-in-general-purpose-tier) | 제한 되지 않습니다. |
 | 저장소 IO 대기 시간 (근사치) | 5~10ms | 1~2ms |
 | 메모리 내 OLTP | 지원되지 않음 | 사용 가능, [크기는 vCore의 수에 따라 다릅니다](#in-memory-oltp-available-space) . |

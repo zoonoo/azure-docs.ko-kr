@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: carlrab, jovanpop
+ms.reviewer: sstein, jovanpop
 ms.date: 07/21/2020
-ms.openlocfilehash: ba2dd167cdf49b5f1a4b4f2dcd0edd48ea969fae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5311d6504e98c107b6ceb893babb6db31c9aff51
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073340"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325048"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>TDE로 보호 되는 데이터베이스의 인증서를 Azure SQL Managed Instance로 마이그레이션
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ TDE로 보호 되는 데이터베이스와 해당 인증서를 원활 하 게 �
 > [!IMPORTANT]
 > 마이그레이션된 인증서는 TDE로 보호 되는 데이터베이스에만 복원 하는 데 사용 됩니다. 복원이 완료 된 후에도 마이그레이션된 인증서는 인스턴스에 대해 설정 된 TDE의 유형에 따라 서비스 관리 인증서 또는 키 자격 증명 모음의 비대칭 키와 같은 다른 보호기로 대체 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료하려면 다음 필수 구성 요소가 필요합니다.
 

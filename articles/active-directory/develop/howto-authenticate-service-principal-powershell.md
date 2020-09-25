@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 5d9bf672aae3cf55ae7cf22aa1437f01ced99901
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e034149372ba061ec958e0c1e22187d33009080c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178810"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265836"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>방법: Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
 
@@ -225,3 +225,4 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 * 암호를 사용하여 서비스 주체를 설정하려면 [Azure PowerShell을 사용하여 Azure 서비스 주체 만들기](/powershell/azure/create-azure-service-principal-azureps)를 참조하세요.
 * 애플리케이션 및 서비스 주체에 대한 자세한 내용은 [애플리케이션 개체 및 서비스 주체 개체](app-objects-and-service-principals.md)를 참조하세요.
 * Azure AD 인증에 대한 자세한 내용은 [Azure AD의 인증 시나리오](./authentication-vs-authorization.md)를 참조하세요.
+* **Microsoft Graph**를 사용 하 여 앱 등록을 작업 하는 방법에 대 한 자세한 내용은 [응용 프로그램](/graph/api/resources/application) API 참조를 참조 하세요.

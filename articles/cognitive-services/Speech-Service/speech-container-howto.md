@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: b51319716035cc4f59d50922846b067f4eda31d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6a1f8cc9526d1f8393f8e7aa434587d8e4c0e979
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900480"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334680"
 ---
 # <a name="install-and-run-speech-service-containers"></a>음성 서비스 컨테이너 설치 및 실행 
 
@@ -37,12 +37,12 @@ ms.locfileid: "90900480"
 >
 > 음성 컨테이너를 사용 하려면 온라인 요청을 제출 하 고 승인 해야 합니다. 자세한 내용은 아래의 **컨테이너 실행 섹션에 대 한 승인 요청 섹션을** 참조 하세요.
 
-| 함수 | 기능 | 최신 |
+| 컨테이너 | 기능 | 최신 |
 |--|--|--|
-| 음성 텍스트 변환 | 중간 결과를 사용 하 여 감정 및 speech 연속 실시간 음성 또는 배치 오디오 녹음을 분석 합니다.  | 2.3.1 |
-| Custom Speech 텍스트 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 사용자 지정 모델을 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 중간 결과가 포함 된 텍스트로 speech. | 2.3.1 |
-| 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. | 1.5.0 |
-| 사용자 지정 텍스트 음성 변환 | [사용자 지정 음성 포털](https://aka.ms/custom-voice-portal)에서 사용자 지정 모델을 사용 하 여 텍스트를 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 자연 스러운 음성으로 변환 합니다. | 1.5.0 |
+| 음성 텍스트 변환 | 중간 결과를 사용 하 여 감정 및 speech 연속 실시간 음성 또는 배치 오디오 녹음을 분석 합니다.  | 2.5.0 |
+| Custom Speech 텍스트 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 사용자 지정 모델을 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 중간 결과가 포함 된 텍스트로 speech. | 2.5.0 |
+| 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. | 1.7.0 |
+| 사용자 지정 텍스트 음성 변환 | [사용자 지정 음성 포털](https://aka.ms/custom-voice-portal)에서 사용자 지정 모델을 사용 하 여 텍스트를 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 자연 스러운 음성으로 변환 합니다. | 1.7.0 |
 | 음성 언어 감지 | 오디오 파일에서 언어를 음성으로 검색 합니다. | 1.0 |
 | 신경망 음성 변환 | 심층 신경망 기술을 사용 하 여 텍스트를 자연 스런 음성으로 변환 하 여 보다 자연스럽 게 합성 되는 음성을 사용할 수 있도록 합니다. | 1.1.0 |
 
@@ -96,7 +96,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 ## <a name="request-approval-to-the-run-the-container"></a>컨테이너 실행에 대 한 승인 요청
 
-[요청 양식을](https://aka.ms/cognitivegate) 작성 하 고 전송 하 여 컨테이너에 대 한 액세스를 요청 합니다. 
+[요청 양식을](https://aka.ms/csgate) 작성 하 고 전송 하 여 컨테이너에 대 한 액세스를 요청 합니다. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -311,7 +311,7 @@ ApiKey={API_KEY}
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>음성 텍스트 출력에서 감정 분석 
 
-음성-텍스트 컨테이너의 v 2.2.0에서 시작 하 여 출력에서 [감정 분석 V3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 를 호출할 수 있습니다. 감정 분석을 호출 하려면 텍스트 분석 API 리소스 끝점이 필요 합니다. 다음은 그 예입니다.  
+음성-텍스트 컨테이너의 v 2.2.0에서 시작 하 여 출력에서 [감정 분석 V3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) 를 호출할 수 있습니다. 감정 분석을 호출 하려면 텍스트 분석 API 리소스 끝점이 필요 합니다. 예를 들면 다음과 같습니다. 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -358,7 +358,7 @@ CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
 
 다음 표는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |
@@ -439,7 +439,7 @@ Docker run 명령의 매개 변수에 대 한 인수로 사용할 **모델 ID** 
 
 다음 표는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |
@@ -468,7 +468,7 @@ ApiKey={API_KEY}
 * 사용자 지정 모델이 이전에 다운로드 된 경우는 `ModelId` 무시 됩니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
 
-# <a name="language-detection"></a>[언어 감지](#tab/lid)
+# <a name="speech-language-detection"></a>[음성 언어 감지](#tab/lid)
 
 *Speech 언어 감지* 컨테이너를 실행 하려면 다음 명령을 실행 합니다 `docker run` .
 
@@ -482,7 +482,7 @@ ApiKey={API_KEY}
 
 이 명령은 다음을 수행합니다. 
 
-* 컨테이너 이미지에서 음성 언어 검색 컨테이너를 실행 합니다.
+* 컨테이너 이미지에서 음성 언어 검색 컨테이너를 실행 합니다. 현재이 이미지를 실행 하는 데에는 요금이 부과 되지 않습니다. 
 * 1 개의 CPU 코어 및 1gb의 메모리를 할당 합니다.
 * 는 TCP 포트 5003를 노출 하 고 컨테이너에 대 한 의사 TTY를 할당 합니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다.
@@ -509,7 +509,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 | 컨테이너 | SDK 호스트 URL | 프로토콜 |
 |--|--|--|
 | 표준 음성 텍스트 및 Custom Speech 텍스트 | `ws://localhost:5000` | WS |
-| 텍스트 음성 변환 (표준, 사용자 지정 및 신경망 포함), 언어 검색 | `http://localhost:5000` | HTTP |
+| 텍스트 음성 변환 (표준, 사용자 지정 및 신경망 포함), 음성 언어 검색 | `http://localhost:5000` | HTTP |
 
 WSS 및 HTTPS 프로토콜을 사용 하는 방법에 대 한 자세한 내용은 [컨테이너 보안](../cognitive-services-container-support.md#azure-cognitive-services-container-security)을 참조 하세요.
 

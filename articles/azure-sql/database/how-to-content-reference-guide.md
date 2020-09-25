@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 ms.date: 01/14/2020
-ms.openlocfilehash: e5fd842e47c606c8f41aafe72253c1c4a1e885f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa79af1047862e8694fa6342942ffd0793bafcb6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324399"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335010"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>콘텐츠 참조 구성 및 관리-Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "84324399"
 
 - [Azure Active Directory (Azure AD) 인증 구성](authentication-aad-configure.md)
 - [조건부 액세스 구성](conditional-access-configure.md)
-- [Multi-factor Azure AD 인증](authentication-mfa-ssms-overview.md)
+- [Multi-Factor Azure AD 인증](authentication-mfa-ssms-overview.md)
 - [Multi-Factor Authentication 구성](authentication-mfa-ssms-configure.md)
 - [임시 보존 정책 구성](temporal-tables-retention-policy.md)
 - [BYOK를 사용하여 TDE 구성](transparent-data-encryption-byok-configure.md)
