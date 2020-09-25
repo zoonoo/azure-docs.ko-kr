@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 27b745353521a44733c46170a5f5952c194c2343
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2cde352738c1aa545c77cbcf5d974030cd75b1e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293509"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326527"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Azure Digital Twins (Api 및 CLI)에서 끝점 및 경로 관리
 
@@ -24,10 +24,10 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 [Azure Portal](https://portal.azure.com)를 통해 관리할 수도 있습니다. 포털을 대신 사용 하는이 문서의 버전에 대해서는 [*방법: 끝점 및 경로 관리 (포털)*](how-to-manage-routes-portal.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 계정이** 필요 합니다 ( [여기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)에서 무료로 설정할 수 있음).
-* Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-scripted.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
+* Azure 구독에는 **Azure Digital Twins 인스턴스가** 필요 합니다. 인스턴스가 아직 없는 경우 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)의 단계를 사용 하 여 인스턴스를 만들 수 있습니다. 이 문서의 뒷부분에서 사용할 수 있도록 다음 값을 설정 하는 것이 유용 합니다.
     - 인스턴스 이름
     - 리소스 그룹
     
@@ -44,7 +44,7 @@ Azure Digital Twins에서 [이벤트 알림을](how-to-interpret-event-data.md) 
 
 ### <a name="create-an-event-grid-endpoint"></a>Event Grid 끝점 만들기
 
-다음 예제에서는 Azure CLI를 사용 하 여 event grid 형식 끝점을 만드는 방법을 보여 줍니다. [Azure Cloud Shell](https://shell.azure.com)를 사용 하거나 [CLI를 로컬로 설치할](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)수 있습니다.
+다음 예제에서는 Azure CLI를 사용 하 여 event grid 형식 끝점을 만드는 방법을 보여 줍니다. [Azure Cloud Shell](https://shell.azure.com)를 사용 하거나 [CLI를 로컬로 설치할](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)수 있습니다.
 
 먼저 event grid 토픽을 만듭니다. 다음 명령을 사용 하거나 *사용자 지정 이벤트* Event Grid 빠른 시작의 [ *사용자 지정 항목 만들기* 섹션](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 을 방문 하 여 단계를 더 자세히 볼 수 있습니다.
 

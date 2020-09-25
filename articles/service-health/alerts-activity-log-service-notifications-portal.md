@@ -1,14 +1,14 @@
 ---
 title: Azure Portal를 사용 하 여 Azure 서비스 알림에 대 한 활동 로그 경고 수신
-description: Azure 서비스가 발생할 때 SMS, 전자 메일 또는 웹후크를 통해 알림을 받습니다.
+description: Azure Portal를 사용 하 여 Azure Portal를 사용 하 여 서비스 상태 알림에 대 한 활동 로그 경고를 설정 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: b90940c4532370e7742f736708625ddec283aab1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88fbdeeb8bdcc239f1591e053aaf4fb1c36b9b19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499281"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289789"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Azure Portal를 사용 하 여 서비스 알림에 대 한 활동 로그 경고 만들기
 ## <a name="overview"></a>개요

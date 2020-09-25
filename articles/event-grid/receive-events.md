@@ -3,13 +3,13 @@ title: Azure Event Grid로부터 HTTP 엔드포인트로 이벤트 수신
 description: HTTP 엔드포인트의 유효성을 검사한 다음, Azure Event Grid로부터 이벤트를 수신하고 역직렬화하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 119e72b830c538df0cabf68ecea8cf78bae3029a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 42cf237f0c2fbe091307625fde70613ab9173b0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605263"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326476"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
 
@@ -18,7 +18,7 @@ ms.locfileid: "90605263"
 > [!NOTE]
 > Event Grid로 Azure Function을 트리거할 때는 [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)를 사용하는 것이 **좋습니다**. 여기서 사용된 일반 웹후크 트리거는 데모용입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 HTTP 트리거 함수가 있는 함수 앱이 필요합니다.
 

@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: da0c00f0b4a8f2c49996fbcb9b34ee4a1ab65273
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6648a20e03facad4b791cacba8513f9f1aa7d2f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856647"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291914"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Azure SQL Database에 대 한 온라인 마이그레이션과 관련 하 여 알려진 문제/마이그레이션 제한 사항
 
@@ -40,7 +40,7 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
 
 **해결 방법**
 
-다음 단계를 사용합니다.
+다음 단계를 사용하세요.
 
 1. 아래 쿼리를 사용하여 원본 스키마의 임시 테이블을 찾습니다.
 
@@ -66,7 +66,7 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
 
 **해결 방법**
 
-다음 단계를 사용합니다.
+다음 단계를 사용하세요.
 
 1. 아래 쿼리를 사용하여 hierarchyid 데이터 형식의 열을 포함하는 사용자 테이블을 찾습니다.
 
@@ -82,7 +82,7 @@ SQL Server에서 Azure SQL Database로의 온라인 마이그레이션과 관련
 
 **해결 방법**
 
-다음 단계를 사용합니다.
+다음 단계를 사용하세요.
 
 1. 아래 쿼리를 사용하여 원본 데이터베이스에서 현재 활성화된 트리거를 찾습니다.
 

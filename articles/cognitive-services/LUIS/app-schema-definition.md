@@ -1,14 +1,16 @@
 ---
 title: 앱 스키마 정의
 description: LUIS 앱은 또는에 표시 되며 `.json` `.lu` 모든 의도, 엔터티, 예제 길이 발언, 기능 및 설정을 포함 합니다.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 08/22/2020
-ms.openlocfilehash: 816a6c50129f37a55ab3dba72319358e832a6b8b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: db4fd52dad82542f20e58ebb3b8526c5be7f2f88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756791"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327326"
 ---
 # <a name="app-schema-definition"></a>앱 스키마 정의
 
@@ -63,7 +65,7 @@ LUIS 앱은 또는에 표시 되며 `.json` `.lu` 모든 의도, 엔터티, 예�
 }
 ```
 
-| element                  | 의견                              |
+| element                  | 주석                              |
 |--------------------------|--------------------------------------|
 | "hierarchicals": [],     | 사용 되지 않는 경우 [machine learning 엔터티](luis-concept-entity-types.md)를 사용 합니다.   |
 | "합성": [],        | 사용 되지 않는 경우 [machine learning 엔터티](luis-concept-entity-types.md)를 사용 합니다. [복합 엔터티](reference-entity-composite.md) 참조입니다. |
