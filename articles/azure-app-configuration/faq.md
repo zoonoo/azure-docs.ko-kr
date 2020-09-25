@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: b1483230313b9e1b8e59cafea478b14ba0dfcc70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 10510774409a6b75687086290b32885b30d9131a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587347"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335384"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure 앱 구성 FAQ
 
@@ -42,6 +42,10 @@ Key Vault에 저장 된 암호를 참조 하는 앱 구성 값을 만들 수 있
 ## <a name="does-app-configuration-encrypt-my-data"></a>앱 구성이 내 데이터를 암호화 하나요?
 
 예. 앱 구성은 보유 하 고 있는 모든 키 값을 암호화 하 고 네트워크 통신을 암호화 합니다. 키 이름과 레이블은 구성 데이터 검색을 위한 인덱스로 사용 되며 암호화 되지 않습니다.
+
+## <a name="where-does-data-stored-in-app-configuration-reside"></a>앱 구성에 저장 된 데이터는 어디에 있나요? 
+
+앱 구성에 저장 된 고객 데이터는 고객의 앱 구성 저장소가 생성 된 지역에 상주 합니다. 앱 구성은 데이터 복원 력을 위해 [쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) 에 데이터를 복제할 수 있지만 [Azure에서 데이터 상주](https://azure.microsoft.com/global-infrastructure/data-residency/)정의한 대로 지역 외부로 고객 데이터를 복제 하거나 이동 하지 않습니다. 고객과 최종 사용자는 전 세계 어디에서 든 지 고객 데이터를 이동, 복사 또는 액세스할 수 있습니다.
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>앱 구성이 Azure App Service 설정과 어떻게 다른가?
 
@@ -107,7 +111,7 @@ App Service와 앱 구성 간에 설정을 가져오거나 내보낼 수도 있�
 
 응용 프로그램에서 HTTP 상태 코드 429 응답을 정기적으로 실행 하는 경우이를 다시 디자인 하 여 요청 수를 줄이는 것이 좋습니다. 자세한 내용은 [앱 구성에 대 한 요청 축소](./howto-best-practices.md#reduce-requests-made-to-app-configuration) 를 참조 하세요.
 
-## <a name="my-application-receives-http-status-code-429-responses-why"></a>응용 프로그램에서 HTTP 상태 코드 429 응답을 수신 합니다. 그 이유는 무엇일까요?
+## <a name="my-application-receives-http-status-code-429-responses-why"></a>응용 프로그램에서 HTTP 상태 코드 429 응답을 수신 합니다. 그 이유는
 
 다음과 같은 상황에서 HTTP 상태 코드 429 응답을 받게 됩니다.
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4f943b11830c19ebb69dd501827deb158cecadf0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972257"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336754"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Azure 역할 기반 액세스 제어 (미리 보기)를 사용 하 여 Key Vault 키, 인증서 및 암호에 대 한 액세스 제공
 
@@ -45,6 +45,8 @@ Azure Key Vault 관리 지침에 대 한 자세한 내용은 다음을 참조 �
 - [Azure Key Vault 서비스 제한 사항](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Key Vault 데이터 평면 작업을 위한 Azure 기본 제공 역할 (미리 보기)
+> [!NOTE]
+> `Key Vault Contributor` 역할은 주요 자격 증명 모음을 관리 하는 관리 평면 작업에 대 한 역할입니다. 키, 암호 및 인증서에 대 한 액세스를 허용 하지 않습니다.
 
 | 기본 제공 역할 | Description | ID |
 | --- | --- | --- |

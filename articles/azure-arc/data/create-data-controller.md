@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 81c4558bde3ffdbec72a756562b972c2eed4a1ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ba2d0acec37d0f59240381cdea04f4d53ded0b1c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939929"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273044"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Azure Arc 데이터 컨트롤러 만들기
 
@@ -45,7 +45,7 @@ ms.locfileid: "90939929"
 > [!NOTE]
 > Azure에서 Red Hat OpenShift Container Platform을 사용 하는 경우 사용 가능한 최신 버전을 사용 하는 것이 좋습니다.
 
-선택한 옵션에 따라 특정 도구가 _필요_하지만, Azure Arc 데이터 컨트롤러 만들기를 시작 하기 전에 [모든 클라이언트 도구를 설치](install-client-tools.md) 하는 것이 좋습니다.
+선택한 옵션에 따라 특정 도구가 _필요_하지만, Azure Arc 데이터 컨트롤러 만들기를 시작 하기 전에 [모든 클라이언트 도구를 설치](./install-client-tools.md) 하는 것이 좋습니다.
 
 사용자가 선택 하는 옵션에 관계 없이 만들기 프로세스 중에 다음 정보를 제공 해야 합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "90939929"
 - **데이터 컨트롤러 사용자 이름** -데이터 컨트롤러 관리자 사용자에 대 한 사용자 이름입니다.
 - **Data controller password** -데이터 컨트롤러 관리자 사용자에 대 한 암호입니다.
 - **Kubernetes 네임 스페이스의 이름** -데이터 컨트롤러를 만들려는 Kubernetes 네임 스페이스의 이름입니다.
-- **연결 모드** -클러스터의 [연결 모드](connectivity.md) 입니다. 현재 "간접"만 지원 됩니다.
+- **연결 모드** -클러스터의 [연결 모드](./connectivity.md) 입니다. 현재 "간접"만 지원 됩니다.
 - Azure **구독 ID** -azure의 데이터 컨트롤러 리소스를 만들려는 AZURE 구독 GUID입니다.
 - **Azure 리소스 그룹 이름** -azure의 데이터 컨트롤러 리소스를 만들려는 리소스 그룹의 이름입니다.
 - Azure **location** -데이터 컨트롤러 리소스 메타 데이터가 azure에 저장 되는 azure 위치입니다. 사용 가능한 지역 목록은 [지역별 Azure 글로벌 인프라/제품](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)을 참조 하세요.
@@ -68,5 +68,5 @@ Azure Arc 데이터 컨트롤러를 만드는 방법에는 여러 가지가 있�
 - [Azure Data CLI를 사용 하 여 데이터 컨트롤러 만들기 (azdata)](create-data-controller-using-azdata.md)
 - [Azure Data Studio를 사용 하 여 데이터 컨트롤러 만들기](create-data-controller-azure-data-studio.md)
 - [Azure Data Studio에서 Jupyter 노트북을 통해 Azure Portal에서 데이터 컨트롤러를 만듭니다.](create-data-controller-resource-in-azure-portal.md)
-- [Kubectl 또는 oc와 같은 Kubernetes 도구를 사용 하 여 데이터 컨트롤러 만들기](create-data-controller-using-k8s-native-tools.md)
+- [Kubectl 또는 oc와 같은 Kubernetes 도구를 사용 하 여 데이터 컨트롤러 만들기](create-data-controller-using-kubernetes-native-tools.md)
 - [테스트 배포의 가속화 된 환경을 위한 Azure Arc Jumpstart를 사용 하 여 데이터 컨트롤러 만들기](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)

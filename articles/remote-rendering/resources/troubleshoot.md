@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982965"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322192"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -23,11 +23,7 @@ ms.locfileid: "90982965"
 
 ## <a name="client-cant-connect-to-server"></a>클라이언트가 서버에 연결할 수 없음
 
-디바이스의 방화벽, 라우터 내부의 방화벽 등 방화벽이 다음 포트를 차단하지 않는지 확인합니다.
-
-* **50051(TCP)** - 초기 연결에 필요(HTTP 핸드셰이크)
-* **8266(TCP+UDP)** - 데이터를 전송하는 데 필요
-* **5000(TCP)** , **5433(TCP)** , **8443(TCP)** - [ArrInspector](tools/arr-inspector.md)에 필요
+방화벽 (장치, 라우터 내 등)이 [시스템 요구 사항](../overview/system-requirements.md#network-ports)에 언급 된 포트를 차단 하지 않는지 확인 합니다.
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>오류 ' `Disconnected: VideoFormatNotAvailable` '
 
@@ -152,7 +148,7 @@ Hololens에서 [MRC(Mixed Reality Capture)](https://docs.microsoft.com/windows/m
 
 Azure Remote Rendering은 Unity 렌더링 파이프라인에 후크하여 비디오의 프레임 컴퍼지션과 다시 프로젝션을 수행합니다. 이러한 후크가 존재 하는지 확인 하려면 메뉴를 엽니다 *:::no-loc text="Window > Analysis > Frame debugger":::* . 디버거를 사용하도록 설정하고 파이프라인에 `HolographicRemotingCallbackPass`에 대한 두 개의 항목이 있는지 확인합니다.
 
-![Unity 프레임 디버거](./media/troubleshoot-unity-pipeline.png)
+![Unity 렌더링 파이프라인](./media/troubleshoot-unity-pipeline.png)
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>바둑판 패턴은 모델을 로드 한 후 렌더링 됩니다.
 
@@ -184,6 +180,12 @@ HoloLens 2용 Unity 샘플(빠른 시작, ShowCaseApp 등)을 컴파일하려고
 ### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>AudioPluginMsHRTF.dll 누락 되어 Unity 프로젝트에 대 한 Arm64 빌드가 실패 합니다.
 
 `AudioPluginMsHRTF.dll`Arm64에 대 한가 버전 3.0.1의 *Windows Mixed Reality* 패키지 *(xr)* 에 추가 되었습니다. Unity 패키지 관리자를 통해 버전 3.0.1 이상을 설치 했는지 확인 합니다. Unity 메뉴 모음에서 *창 > 패키지 관리자* 로 이동 하 여 *Windows Mixed Reality* 패키지를 찾습니다.
+
+## <a name="native-c-based-application-does-not-compile"></a>네이티브 c + + 기반 응용 프로그램이 컴파일되지 않습니다.
+
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>UWP 응용 프로그램 또는 Dll에 대 한 ' 라이브러리를 찾을 수 없음 ' 오류
+
+C + + Nuget 패키지 내에는 `microsoft.azure.remoterendering.Cpp.targets` 사용할 이진 버전을 정의 하는 파일 파일이 있습니다. 를 식별 하기 위해 `UWP` 파일에 대 한 검사 조건 `ApplicationType == 'Windows Store'` 입니다. 따라서이 형식이 프로젝트에 설정 되어 있는지 확인 해야 합니다. Visual Studio의 프로젝트 마법사를 통해 UWP 응용 프로그램 또는 Dll을 만드는 경우에 해당 합니다.
 
 ## <a name="unstable-holograms"></a>불안정한 홀로그램
 

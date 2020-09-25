@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: f64f9b612ff47fb5c0b6e6202ad87f7660959100
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9e0da9e24a0bd32047d029879c4f0e110dc0c16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899183"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320798"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Azure Stack Edge Pro 장치에서 워크 로드 관리 Kubernetes
 
@@ -29,7 +29,7 @@ Azure Stack Edge Pro 장치에 배포할 수 있는 두 가지 일반적인 작�
 
     Kubernetes 배포를 만들어 클러스터에 상태 비저장 응용 프로그램을 배포할 수 있습니다. 
 
-- 상태 저장 **응용 프로그램** 은 해당 상태를 저장 해야 합니다. 상태 저장 응용 프로그램은 영구적 볼륨과 같은 영구 저장소를 사용 하 여 서버 또는 다른 사용자가 사용할 데이터를 저장 합니다. 상태 저장 응용 프로그램의 예로는 MongoDB와 같은 데이터베이스가 있습니다.
+- 상태 저장 **응용 프로그램** 은 해당 상태를 저장 해야 합니다. 상태 저장 응용 프로그램은 영구적 볼륨과 같은 영구 저장소를 사용 하 여 서버 또는 다른 사용자가 사용할 데이터를 저장 합니다. 상태 저장 응용 프로그램의 예로는 [AZURE SQL Edge](../azure-sql-edge/overview.md) 및 MongoDB와 같은 데이터베이스가 있습니다.
 
     Kubernetes 배포를 만들어 상태 저장 응용 프로그램을 배포할 수 있습니다. 
 

@@ -1,18 +1,18 @@
 ---
 title: API 프로토콜 구성-Azure Event Grid IoT Edge | Microsoft Docs
-description: IoT Edge에서 Event Grid에 의해 노출 되는 API 프로토콜을 구성 합니다.
+description: Event Grid 모듈의 가능한 프로토콜 구성에 대해 알아봅니다.
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: 801a320fbd66b4b8a46757ba90881da54b2721de
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a9cf6088201ffeaed76d99a9b211e5bcd1ea139a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171723"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322583"
 ---
 # <a name="configure-event-grid-api-protocols"></a>Event Grid API 프로토콜 구성
 

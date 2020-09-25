@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: f2dc93767457bfb96a9457a73adb83c0ed965308
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 084a823571281c91419a56b6212ddf6c44dd80bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069750"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322634"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Azure Digital Twins 문제 해결: 메트릭
 
@@ -22,7 +22,7 @@ ms.locfileid: "90069750"
 
 ## <a name="how-to-view-azure-digital-twins-metrics"></a>Azure Digital Twins 메트릭을 보는 방법
 
-1. Azure Digital Twins 인스턴스를 만듭니다. [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-scripted.md)에서 Azure Digital twins 인스턴스를 설정 하는 방법에 대 한 지침을 찾을 수 있습니다.
+1. Azure Digital Twins 인스턴스를 만듭니다. [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)에서 Azure Digital twins 인스턴스를 설정 하는 방법에 대 한 지침을 찾을 수 있습니다.
 
 2. [Azure Portal](https://portal.azure.com) 에서 Azure Digital twins 인스턴스를 찾습니다. 포털 검색 표시줄에 이름을 입력 하 여 페이지를 열 수 있습니다. 
 
@@ -69,7 +69,7 @@ API 요청으로 수행 해야 하는 메트릭:
 | 메트릭 | 메트릭 표시 이름 | 단위 | 집계 유형| Description | 차원 |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | 청구 API 작업 (미리 보기) | 개수 | 합계 | Azure Digital Twins 서비스에 대해 수행 된 모든 API 요청 수에 대 한 청구 메트릭입니다. | 측정기 Id |
-| BillingMessagesProcessed | 청구 메시지 처리 됨 (미리 보기) | 개수 | 합계 | Azure Digital Twins에서 외부 끝점으로 전송 된 메시지 수에 대 한 청구 메트릭입니다. | 측정기 Id |
+| BillingMessagesProcessed | 청구 메시지 처리 됨 (미리 보기) | 개수 | 합계 | Azure Digital Twins에서 외부 끝점으로 전송 된 메시지 수에 대 한 청구 메트릭입니다.<br><br>요금 청구를 위해 단일 메시지로 간주 되려면 페이로드가 1kb 보다 크지 않아야 합니다. 이 보다 큰 페이로드는 1kb 씩 추가 메시지로 계산 됩니다. 즉, 1에서 2kb 사이의 메시지는 2 개 메시지로 계산 되 고, 2와 3kb 사이의 메시지는 3 개의 메시지로 계산 됩니다.<br>이 제한은 응답에도 적용 되므로 응답 본문에서 1.5 k b를 반환 하는 호출은 2 개의 작업으로 청구 됩니다. | 측정기 Id |
 | BillingQueryUnits | 청구 쿼리 단위 (미리 보기) | 개수 | 합계 | 쿼리 실행에 사용 되는 서비스 리소스 사용의 내부적으로 계산 된 측정값 인 쿼리 단위의 수입니다. 쿼리 단위를 측정 하는 데 사용할 수 있는 도우미 API 인 [QueryChargeHelper 클래스](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) 도 있습니다. | 측정기 Id |
 
 #### <a name="ingress-metrics"></a>수신 메트릭

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1f194424a4030a2b829af6c8f5b97a3c200bd2e6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0880ae64520997fc6b41ba4a7e8508d927235a8a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899277"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320815"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Kubernetes 역할 기반 Access Control
 
@@ -42,7 +42,7 @@ Azure Stack Edge Pro 장치에는 다음과 같은 네임 스페이스가 있습
     - kube-시스템
     - metallb-시스템
     - d 네임 스페이스
-    - default
+    - 기본값
     - kubernetes-대시보드
     - kube-임대
     - kube-public
@@ -91,25 +91,7 @@ Azure Stack Edge Pro 장치에는 여러 시스템 네임 스페이스가 있으
 
 이 다이어그램에서 Alice, Bob 및 척 적은 할당 된 사용자 네임 스페이스에만 액세스할 수 있습니다 .이 경우에는 `ns1` `ns2` 각각, 및 `ns3` 입니다. 이러한 네임 스페이스 내에는 관리자 액세스 권한이 있습니다. 반면에 클러스터 관리자는 시스템 네임 스페이스 및 클러스터 차원 리소스에 대 한 관리자 액세스 권한을 가집니다.
 
-`kubectl`명령을 사용 하 여 네임 스페이스 및 사용자를 만들거나 네임 스페이스에 사용자를 할당 하거나 파일을 다운로드할 수 있습니다 `kubeconfig` . 개략적인 워크플로는 다음과 같습니다.
-
-1. 네임 스페이스 및 사용자를 만듭니다.  
-
-    `New-HcsKubernetesNamespace -Namespace`  
-
-2. 사용자를 만듭니다.  
-
-    `New-HcsKubernetesUser -UserName`  
-
-3. 만든 사용자와 네임 스페이스를 연결 합니다.  
-
-    `Grant-HcsKubernetesNamespaceAccess -Namespace -UserName`  
-
-4. 사용자 구성을에 저장 `C:\Users\<username>\.kube` 합니다.  
-
-5. `kubectl`에 응용 프로그램 배포를 설치 하 고 시작 `kubectl` 합니다. 
-
-자세한 단계별 지침은 [Azure Stack Edge Pro에서 kuebctl를 통해 Kubernetes Cluster 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)로 이동 합니다.
+사용자는 네임 스페이스와 사용자를 만들거나 네임 스페이스에 사용자를 할당 하거나 파일을 다운로드할 수 있습니다 `kubeconfig` . 자세한 단계별 지침은 [Azure Stack Edge Pro에서 kuebctl를 통해 Kubernetes Cluster 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)로 이동 합니다.
 
 
 Azure Stack Edge Pro 장치에서 네임 스페이스와 사용자를 사용 하는 경우 다음 사항이 적용 됩니다.

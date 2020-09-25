@@ -1,23 +1,23 @@
 ---
 title: Azure IoT Hub 직접 메서드 이해 | Microsoft Docs
 description: 개발자 가이드 - 직접 메서드를 사용하여 서비스 앱의 디바이스에서 코드 호출
-author: nberdy
+author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: rezas
+ms.author: philmea
 ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 516b3bac5da2e078217d5c12f1efdf527b7c83a1
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: f68705309d15548dc9728686e2e0ecd6aaad3fba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029072"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334109"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 
@@ -55,7 +55,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지 사�
 
 디바이스의 직접 메서드 호출은 다음 항목으로 구성된 HTTPS 호출입니다.
 
-* 디바이스와 관련된 *요청 URI* 및 [API 버전](https://docs.aws.amazon.com/cli/latest/reference/iot1click-devices/invoke-device-method.html):
+* 디바이스와 관련된 *요청 URI* 및 [API 버전](https://docs.microsoft.com/rest/api/iothub/service/devices/invokemethod):
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30

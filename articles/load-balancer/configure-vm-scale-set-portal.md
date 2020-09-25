@@ -1,17 +1,17 @@
 ---
 title: 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합 구성-Azure Portal
-description: 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 구성 하는 방법을 알아봅니다.
+description: Azure Portal를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합을 구성 하는 방법을 알아봅니다.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 8e55b2a87813da802ec1b00c610b33da4461c008
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e12532107ed554385ccf38531bb95b7b70298934
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809452"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333888"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Azure Portal를 사용 하 여 기존 Azure Load Balancer를 사용 하 여 가상 머신 확장 집합 구성
 
@@ -42,7 +42,7 @@ ms.locfileid: "84809452"
 
 3. **가상 머신 확장 집합 만들기**에서를 입력 하거나 **기본** 설정 탭에서이 정보를 선택 합니다.
 
-    | Setting                        | 값                                                                                                 |
+    | 설정                        | 값                                                                                                 |
     |--------------------------------|-------------------------------------------------------------------------------------------------------|
     | **프로젝트 세부 정보**            |                                                                                                       |
     | Subscription                   | Azure 구독 선택                                                                        |
@@ -50,10 +50,10 @@ ms.locfileid: "84809452"
     | **확장 집합 정보**          |                                                                                                       |
     | 가상 머신 확장 집합 이름 | **Myvmss** 를 입력 합니다.                                                                                      |
     | 지역                         | **미국 동부 2** 를 선택 합니다.                                                                                    |
-    | 가용성 영역              | **없음** 선택                                                                                       |
+    | 가용성 영역              | **없음**을 선택합니다.                                                                                       |
     | **인스턴스 세부 정보**           |                                                                                                       |
     | 이미지                          | **Ubuntu Server 18.04 LTS** 를 선택 합니다.                                                                    |
-    | Azure 스폿 인스턴스            | **아니요**를 선택합니다.                                                                                         |
+    | Azure Spot 인스턴스            | **아니요**를 선택합니다.                                                                                         |
     | 크기                           | 기본값 유지                                                                                      |
     | **관리자 계정**      |                                                                                                       |
     | 인증 유형            | **암호** 선택                                                                                   |
@@ -68,16 +68,16 @@ ms.locfileid: "84809452"
 
 5. **네트워킹** 탭에서 다음 정보를 입력 하거나 선택 합니다.
 
-     Setting                           | 값                                                    |
+     설정                           | 값                                                    |
     |-----------------------------------|----------------------------------------------------------|
     | **Virtual Network 구성** |                                                          |
     | 가상 네트워크                   | **Myvnet** 또는 기존 가상 네트워크를 선택 합니다.      |
-    | **부하 분산**                |                                                          |
-    | 부하 분산 장치 사용               | **Yes**를 선택합니다.                                           |
+    | **부하 분산**.                |                                                          |
+    | 부하 분산 장치 사용               | **예**를 선택합니다.                                           |
     | **부하 분산 설정**       |                                                          |
     | 부하 분산 옵션            | **Azure 부하 분산 장치** 선택                           |
     | 부하 분산 장치 선택            | **Myloadbalancer** 또는 기존 부하 분산 장치를 선택 합니다. |
-    | 백 엔드 풀을 선택 합니다.             | **MyBackendPool** 또는 기존 백 엔드 풀을 선택 합니다.  |
+    | 백 엔드 풀 선택             | **MyBackendPool** 또는 기존 백 엔드 풀을 선택 합니다.  |
 
     :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="가상 머신 확장 집합을 만듭니다." border="true":::
 

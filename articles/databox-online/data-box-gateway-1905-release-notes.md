@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Gateway 1905 릴리스 정보 | Microsoft Docs
-description: 일반 공급 릴리스를 실행 하는 Azure Data Box Gateway에 대 한 중요 한 미해결 문제 및 해결 방법을 설명 합니다.
+description: 일반 공급 릴리스를 실행 하는 Azure Data Box Gateway 1905에 대 한 중요 한 미해결 문제 및 해결 방법을 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: f2843623061e39e8c9c0ebc35b4916bf9bd3b186
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b97165f19ac07e5a783203ece1a28420f731b649
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82561871"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320679"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1905-release-notes"></a>Azure Data Box Edge 및 Azure Data Box Gateway 1905 릴리스 정보
 

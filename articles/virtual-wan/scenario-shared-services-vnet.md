@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c72ff14246f3f96980fe1de2fdef16794bf23e4e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: b8cc59b805cd757edce79a14d124ea244b4652a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399993"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267485"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>시나리오: 공유 서비스로 라우팅 Vnet
 
@@ -28,7 +28,7 @@ ms.locfileid: "89399993"
 
 **연결 매트릭스**
 
-| 시작             | 대상:   |*격리 된 Vnet*|*공유 VNet*|*분기*|
+| 보낸 사람             | 대상:   |*격리 된 Vnet*|*공유 VNet*|*분기*|
 |---|---|---|---|---|
 |**격리 된 Vnet**|&#8594;|                |        X        |       X      |
 |**공유 Vnet**  |&#8594;|       X        |        X        |       X      |

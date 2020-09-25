@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660474"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322515"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -114,7 +114,7 @@ ms.locfileid: "89660474"
 
    [고가용성 시나리오](#high-availability)를 위한 추가 게이트웨이를 설치하는 경우 선택하는 **기존 게이트웨이 클러스터에 추가** 옵션에 유의하세요.
 
-1. 게이트웨이 설치에서 사용되는 게이트웨이 클라우드 서비스 및 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/)에 대한 지역을 확인합니다. 이 지역은 기본적으로 Azure 계정에 대한 Azure AD 테넌트와 동일한 위치입니다.
+1. 게이트웨이 클라우드 서비스에 대 한 지역 및 게이트웨이 설치에 사용 되는 [Azure Service Bus 메시징 인스턴스](../service-bus-messaging/service-bus-messaging-overview.md) 를 확인 합니다. 이 지역은 기본적으로 Azure 계정에 대한 Azure AD 테넌트와 동일한 위치입니다.
 
    ![게이트웨이 서비스 및 Service Bus에 대한 지역 확인](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
@@ -140,7 +140,7 @@ ms.locfileid: "89660474"
 
 ## <a name="check-or-adjust-communication-settings"></a>통신 설정 확인 또는 조정
 
-온-프레미스 데이터 게이트웨이는 클라우드 연결을 위해 [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)를 사용하며, 게이트웨이의 연결된 Azure 지역에 해당하는 아웃바운드 연결을 설정합니다. 작업 환경에서 트래픽이 프록시 또는 방화벽을 통과하여 인터넷에 액세스해야 하는 경우 이 제한으로 인해 온-프레미스 데이터 게이트웨이에서 게이트웨이 클라우드 서비스 및 Azure Service Bus에 연결하지 못할 수 있습니다. 게이트웨이에는 조정할 수 있는 몇 가지 통신 설정이 있습니다. 자세한 내용은 다음 항목을 참조하세요.
+온-프레미스 데이터 게이트웨이는 클라우드 연결에 대 한 [Azure Service Bus 메시징](../service-bus-messaging/service-bus-messaging-overview.md) 에 의존 하며 게이트웨이의 연결 된 Azure 지역에 해당 하는 아웃 바운드 연결을 설정 합니다. 회사 환경에서 인터넷에 액세스 하기 위해 트래픽이 프록시 또는 방화벽을 통과 해야 하는 경우이 제한으로 인해 온-프레미스 데이터 게이트웨이가 게이트웨이 클라우드 서비스 및 Azure Service Bus 메시징에 연결 하지 못할 수 있습니다. 게이트웨이에는 조정할 수 있는 몇 가지 통신 설정이 있습니다. 자세한 내용은 다음 항목을 참조하세요.
 
 * [온-프레미스 데이터 게이트웨이에 대한 통신 설정 조정](/data-integration/gateway/service-gateway-communication)
 * [온-프레미스 데이터 게이트웨이에 대한 프록시 설정 구성](/data-integration/gateway/service-gateway-proxy)
@@ -206,7 +206,7 @@ Azure AD 테넌트의 모든 온-프레미스 데이터 게이트웨이에 대�
 
 게이트웨이를 사용하면 백그라운드에서 더 빠르고 안전하게 통신할 수 있습니다. 이 통신은 클라우드의 사용자, 게이트웨이 클라우드 서비스 및 온-프레미스 데이터 원본 간에 전달됩니다. 게이트웨이 클라우드 서비스는 데이터 원본 자격 증명 및 게이트웨이 세부 정보를 암호화하고 저장합니다. 또한 이 서비스는 쿼리와 결과를 사용자, 게이트웨이 및 온-프레미스 데이터 원본 간에 라우팅합니다.
 
-게이트웨이는 방화벽과 함께 작동하며 아웃바운드 연결만 사용합니다. 모든 트래픽은 게이트웨이 에이전트에서 보호되는 아웃바운드 트래픽으로 시작됩니다. 게이트웨이는 [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)를 통해 암호화된 채널의 온-프레미스 원본에서 데이터를 릴레이합니다. 이 Service Bus는 게이트웨이와 호출 서비스 간에 채널을 만들지만 데이터를 저장하지는 않습니다. 게이트웨이를 통해 전송되는 모든 데이터는 암호화됩니다.
+게이트웨이는 방화벽과 함께 작동하며 아웃바운드 연결만 사용합니다. 모든 트래픽은 게이트웨이 에이전트에서 보호되는 아웃바운드 트래픽으로 시작됩니다. 게이트웨이는 [Azure Service Bus 메시징을](../service-bus-messaging/service-bus-messaging-overview.md)통해 암호화 된 채널의 온-프레미스 원본에서 데이터를 보냅니다. 이 Service Bus는 게이트웨이와 호출 서비스 간에 채널을 만들지만 데이터를 저장하지는 않습니다. 게이트웨이를 통해 전송되는 모든 데이터는 암호화됩니다.
 
 ![온-프레미스 데이터 게이트웨이에 대한 아키텍처](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -217,9 +217,9 @@ Azure AD 테넌트의 모든 온-프레미스 데이터 게이트웨이에 대�
 
 1. 클라우드 서비스는 데이터 원본에 대한 암호화된 자격 증명과 함께 쿼리를 만듭니다. 그런 다음, 서비스에서 처리를 위해 쿼리와 자격 증명을 게이트웨이 큐에 보냅니다.
 
-1. 게이트웨이 클라우드 서비스에서 쿼리를 분석하고 요청을 Azure Service Bus로 푸시합니다.
+1. 게이트웨이 클라우드 서비스에서 쿼리를 분석 하 고 요청을 Azure Service Bus 메시징으로 푸시합니다.
 
-1. Azure Service Bus는 보류 중인 요청을 게이트웨이에 보냅니다.
+1. Azure Service Bus 메시징은 보류 중인 요청을 게이트웨이로 보냅니다.
 
 1. 게이트웨이에서 쿼리를 가져오고, 자격 증명의 암호를 해독하고, 해당 자격 증명을 사용하여 하나 이상의 데이터 원본에 연결합니다.
 

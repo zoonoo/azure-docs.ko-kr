@@ -9,21 +9,21 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: c6f766dcf69b398aea0978f42f5094809a3e2f6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e88c1b976ce1de0ce0be4b6a5f85af6790802323
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84038784"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321631"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Azure SQL Database 복원 또는 보조 데이터베이스에 대 한 장애 조치
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database는 중단에서의 복구를 위해 다음 기능을 제공합니다.
 
-- [활성 지리적 복제](active-geo-replication-overview.md)
+- [활성 지역 복제](active-geo-replication-overview.md)
 - [자동 장애 조치 그룹](auto-failover-group-overview.md)
 - [지역 복원](recovery-using-backups.md#point-in-time-restore)
 - [영역 중복 데이터베이스](high-availability-sla.md)

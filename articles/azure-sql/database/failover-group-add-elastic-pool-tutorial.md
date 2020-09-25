@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 80fa5b7264d675317fba3cc12fa5049bdea76906
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0c4a3c97649f168d339f5209cc10a46f56e97381
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042580"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335180"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 Azure SQL Database 탄력적 풀 추가
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Azure Portal를 사용 하 여 Azure SQL Database 탄력적 풀 및 테스트 �
 > - 두 서버 간에 두 개의 탄력적 풀에 대 한 [장애 조치 (failover) 그룹](auto-failover-group-overview.md) 을 만듭니다.
 > - 테스트 장애 조치 (failover)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
@@ -147,7 +147,7 @@ Azure Portal를 사용 하 여 장애 조치 (failover) 그룹을 만듭니다.
     - **장애 조치 (Failover) 그룹 이름**: 고유한 장애 조치 (failover) 그룹 이름 (예:)을 입력 `failovergrouptutorial` 합니다.
     - **보조 서버**: *필수 설정을 구성* 하는 옵션을 선택한 다음 **새 서버를 만들도록**선택 합니다. 또는 기존 서버를 보조 서버로 선택할 수도 있습니다. 새 보조 서버에 대해 다음 값을 입력 한 후 **선택**을 선택 합니다.
         - **서버 이름**: 보조 서버에 대 한 고유한 이름 (예:)을 입력 `mysqlsecondary` 합니다.
-        - **서버 관리자 로그인**: 유형`azureuser`
+        - **서버 관리자 로그인**: 유형 `azureuser`
         - **암호**: 암호 요구 사항을 충족 하는 복잡 한 암호를 입력 합니다.
         - **위치**: 드롭다운 (예:)에서 위치를 선택 `East US` 합니다. 이 위치는 주 서버와 동일한 위치가 될 수 없습니다.
 
@@ -355,7 +355,7 @@ PowerShell을 사용 하 여 장애 조치 그룹의 장애 조치를 테스트 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동합니다.
-1. 리소스 그룹 자체 뿐만 아니라 그룹의 모든 리소스를 삭제 하려면 **리소스 그룹 삭제** 를 선택 합니다.
+1. 리소스 그룹 자체 뿐만 아니라 그룹의 모든 리소스를 삭제 하려면  **리소스 그룹 삭제** 를 선택 합니다.
 1. 텍스트 상자에 리소스 그룹의 이름을 입력 하 `myResourceGroup` 고 **삭제** 를 선택 하 여 리소스 그룹을 삭제 합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)

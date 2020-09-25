@@ -5,12 +5,12 @@ description: Azure Files를 사용하여 AKS(Azure Kubernetes Service)에서 여
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 0c11748c6faa0b94ff84dfc944e475116a2a1bd4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 515994f07e524685df014a784309cd692a9491b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611401"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299272"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files를 사용하여 영구 볼륨을 동적으로 만들어 사용
 
@@ -33,6 +33,7 @@ Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 �
 * *Standard_ZRS* - 표준 ZRS(영역 중복 스토리지)
 * *Standard_RAGRS* - 표준 RA-GRS(읽기 액세스 지역 중복 스토리지)
 * *Premium_LRS* - 프리미엄 LRS(로컬 중복 스토리지)
+* *Premium_ZRS* -프리미엄 ZRS (영역 중복 저장소)
 
 > [!NOTE]
 > Azure Files는 Kubernetes 1.13 이상을 실행하는 AKS 클러스터의 프리미엄 스토리지를 지원하며, 프리미엄 파일 공유의 최소 크기는 100GB입니다.

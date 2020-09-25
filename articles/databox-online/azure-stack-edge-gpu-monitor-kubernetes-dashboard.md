@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/29/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1a4f22e7ae3cc60d0a16b24a1f0e5f93d3a86d8c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 137cff47d49be1405f60bc47cd16f7f027ab63a9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899206"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320832"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Kubernetes 대시보드를 사용 하 여 Azure Stack Edge Pro GPU 장치 모니터링
 
@@ -114,9 +114,9 @@ Azure Stack Edge Pro 장치에 대 한 Kubernetes 대시보드의 Kubernetes 리
 
 ![Azure Arc 배포의 CPU 및 메모리 사용량 보기](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-azure-arc-1.png)
 
-Kubernetes 메트릭 서버는 [수평 Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)와 유사한 자동 크기 조정 파이프라인을 제공 합니다.
+Kubernetes 메트릭 서버는 [수평 Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)와 같은 자동 크기 조정 파이프라인을 제공 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Kubernetes 문제를 해결 하는 방법 알아보기 <!--insert link-->.
+[장치 문제를 해결](azure-stack-edge-gpu-troubleshoot.md)하는 방법을 알아봅니다.

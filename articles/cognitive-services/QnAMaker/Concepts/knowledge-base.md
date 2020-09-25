@@ -1,14 +1,14 @@
 ---
 title: 데이터 원본에서 가져오기-QnA Maker
-description: QnA Maker 기술 자료는 QnA (질문과 대답) 쌍 및 각 QnA 쌍과 연결 된 선택적 메타 데이터 집합으로 구성 됩니다.
+description: 데이터 원본에서 질문과 대답 쌍을 가져오는 방법에 대해 알아봅니다. QnA Maker.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: eaa19cb2abf84f31cda9d8894e91ec1540980b27
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: c66f81ccabd77e49ba1c492db25ad9e9edd34e93
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993102"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334636"
 ---
 # <a name="importing-from-data-sources"></a>데이터 원본에서 가져오기
 
@@ -28,7 +28,7 @@ Chit chat QnA 콘텐츠 집합은 여러 언어 및 대화형 스타일로 전�
 
 기술 자료를 가져오면 기존 기술 자료의 콘텐츠가 바뀝니다. 가져오기에는 `.tsv` 질문 및 대답이 포함 된 구조적 파일이 필요 합니다. 이 정보는 QnA Maker가 질문-답변 쌍을 그룹화하고 특정 데이터 원본에 귀속하는 데 도움이 됩니다.
 
-| 질문  | 답변  | 원본| 메타 데이터 (1 개 키: 1 값) |
+| 질문  | Answer  | 원본| 메타 데이터 (1 개 키: 1 값) |
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |

@@ -1,5 +1,6 @@
 ---
 title: ONNX를 사용 하 여 배포 및 예측
+titleSuffix: SQL machine learning
 description: 모델을 학습 하 고, ONNX로 변환 하 고, Azure sql Edge 또는 Azure SQL Managed Instance (미리 보기)에 배포 하 고, 업로드 된 ONNX 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법을 알아봅니다.
 keywords: SQL Edge 배포
 ms.prod: sql
@@ -8,12 +9,12 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
-ms.openlocfilehash: 1e70b48e4c28cdc74c5079e492b0266ea60900ad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5a1e0b12179070dc11e838004c4b27cf04b5396b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886828"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298908"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>ONNX 모델을 사용 하 여 배포 및 예측
 

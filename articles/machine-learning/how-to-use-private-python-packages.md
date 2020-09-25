@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 0f6f5d0ca757b10a16b31864124f1bcf1190674a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1afa9173c2ca3704bf4408c271e3cf950ef79077
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896924"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302219"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Azure Machine Learning에서 전용 Python 패키지 사용
 
@@ -36,7 +36,7 @@ ms.locfileid: "90896924"
 
 ## <a name="use-small-number-of-packages-for-development-and-testing"></a>개발 및 테스트에 적은 수의 패키지 사용
 
-단일 작업 영역에 대 한 소수의 개인 패키지의 경우 정적 메서드를 사용 [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) 합니다. 이 접근 방식을 사용 하면 작업 영역에 개인 패키지를 신속 하 게 추가할 수 있으며 개발 및 테스트 목적으로 적합 합니다.
+단일 작업 영역에 대 한 소수의 개인 패키지의 경우 정적 메서드를 사용 [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) 합니다. 이 접근 방식을 사용 하면 작업 영역에 개인 패키지를 신속 하 게 추가할 수 있으며 개발 및 테스트 목적으로 적합 합니다.
 
 로컬 휠 파일의 파일 경로 인수를 가리키고 ```add_private_pip_wheel``` 명령을 실행 합니다. 이 명령은 작업 영역 내에서 패키지의 위치를 추적 하는 데 사용 되는 URL을 반환 합니다. 저장소 URL을 캡처하고 메서드를 전달 `add_pip_package()` 합니다.
 
@@ -52,13 +52,13 @@ myenv.python.conda_dependencies=conda_dep
 
 ## <a name="use-a-repository-of-packages-from-azure-devops-feed"></a>Azure DevOps 피드의 패키지 리포지토리 사용
 
-기계 학습 응용 프로그램에 대 한 Python 패키지를 적극적으로 개발 하는 경우 Azure DevOps 리포지토리에서 아티팩트로 호스팅하고 피드로 게시할 수 있습니다. 이 접근 방식을 사용 하면 Azure Machine Learning 작업 영역를 사용 하 여 패키지를 빌드하기 위한 DevOps 워크플로를 통합할 수 있습니다. Azure DevOps를 사용 하 여 Python 피드를 설정 하는 방법을 알아보려면 [Azure Artifacts에서 Python 패키지 시작](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops) 을 참조 하세요.
+기계 학습 응용 프로그램에 대 한 Python 패키지를 적극적으로 개발 하는 경우 Azure DevOps 리포지토리에서 아티팩트로 호스팅하고 피드로 게시할 수 있습니다. 이 접근 방식을 사용 하면 Azure Machine Learning 작업 영역를 사용 하 여 패키지를 빌드하기 위한 DevOps 워크플로를 통합할 수 있습니다. Azure DevOps를 사용 하 여 Python 피드를 설정 하는 방법을 알아보려면 [Azure Artifacts에서 Python 패키지 시작](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops&preserve-view=true) 을 참조 하세요.
 
 이 방법은 개인용 액세스 토큰을 사용 하 여 리포지토리에 대해 인증 합니다. 동일한 접근 방식은 개인 GitHub 리포지토리와 같이 토큰 기반 인증을 사용 하는 다른 리포지토리에 적용할 수 있습니다. 
 
- 1. Azure DevOps 인스턴스에 대해 [PAT (개인용 액세스 토큰)를 만듭니다](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat) . 토큰의 범위를 __패키징을 > 읽기__로 설정 합니다. 
+ 1. Azure DevOps 인스턴스에 대해 [PAT (개인용 액세스 토큰)를 만듭니다](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&preserve-view=true&tabs=preview-page#create-a-pat) . 토큰의 범위를 __패키징을 > 읽기__로 설정 합니다. 
 
- 2. [작업 영역. set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-) 메서드를 사용 하 여 Azure DEVOPS URL 및 PAT를 작업 영역 속성으로 추가 합니다.
+ 2. [작업 영역. set_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=trueset-connection-name--category--target--authtype--value-) 메서드를 사용 하 여 Azure DEVOPS URL 및 PAT를 작업 영역 속성으로 추가 합니다.
 
      ```python
     from azureml.core import Workspace

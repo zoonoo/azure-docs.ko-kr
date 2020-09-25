@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: cf32938b534272a13af5891d6a31e64b8136a528
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7717c02fb460c41543ae810820ba01efb13a1ca7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281466"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271191"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 REST 엔드포인트 호출
 
@@ -54,17 +54,17 @@ ms.locfileid: "87281466"
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Swagger 엔드포인트에 대한 URL 입력](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   !["H T P + Swagger" 트리거와 "Swagger 엔드포인트 U R L" 속성이 U R L 값으로 설정 된 논리 앱 디자이너를 보여 주는 스크린샷](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. Swagger 파일에서 설명하는 작업이 디자이너에 표시되면 사용할 작업을 선택합니다.
 
-   ![Swagger 파일의 작업](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
+   !["H T P + Swagger" 트리거와 함께 논리 앱 디자이너와 Swagger 작업을 표시 하는 목록을 보여 주는 스크린샷](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
 1. 선택한 작업에 따라 달라지는 트리거 매개 변수에 대해 엔드포인트 호출에 포함하려는 값을 제공합니다. 대상 엔드포인트를 트리거하는 빈도에 대해 되풀이를 설정합니다.
 
    이 예에서는 트리거 이름을 "HTTP + Swagger trigger: Face - Detect"로 변경하여 더 설명적인 이름을 단계에 지정합니다.
 
-   ![작업 세부 정보](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
+   !["얼굴 감지" 작업을 표시 하는 "H T P + Swagger" 트리거를 사용 하 여 논리 앱 디자이너를 보여 주는 스크린샷](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
 1. 다른 사용 가능한 매개 변수를 추가하려면 **새 매개 변수 추가** 목록을 열고 원하는 매개 변수를 선택합니다.
 

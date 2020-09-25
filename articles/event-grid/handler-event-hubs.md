@@ -3,12 +3,12 @@ title: Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 이벤�
 description: Azure Event Grid 이벤트에 대한 이벤트 처리기로 이벤트 허브를 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fa8fdd66eb153f6a972753eb359261100f19cd15
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5e6a84c1737c6b8a575f47576aeb1d3d9efae6eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105832"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322566"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 이벤트 허브
 이벤트 처리기는 이벤트가 전송된 위치입니다. 처리기는 이벤트를 처리하기 위한 작업을 수행합니다. 이벤트를 처리하도록 여러 Azure 서비스가 자동으로 구성되며, **Azure Event Hubs**가 그 중 하나입니다. 
@@ -24,7 +24,7 @@ ms.locfileid: "86105832"
 | [Resource Manager 템플릿: Event Grid 사용자 지정 항목 만들기 및 이벤트 허브로 이벤트 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| 사용자 지정 토픽에 대한 구독을 만드는 Resource Manager 템플릿입니다. Azure Event Hubs에 이벤트를 전송합니다. |
 
 ## <a name="message-properties"></a>메시지 속성
-**이벤트 허브**를 Event Grid의 이벤트에 대한 이벤트 처리기로 사용하는 경우 다음 메시지 헤더를 설정합니다. 
+Event Grid 이벤트에 대 한 이벤트 처리기로 **이벤트 허브** 를 사용 하는 경우 메시지 헤더에서 수신 하는 속성은 다음과 같습니다. 
 
 | 속성 이름 | Description |
 | ------------- | ----------- | 
@@ -81,6 +81,9 @@ ms.locfileid: "86105832"
     }
 }
 ```
+
+> [!NOTE]
+> **다른 테 넌 트** 의 Azure 이벤트 허브에 이벤트를 전달 하는 것은 지원 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 지원되는 이벤트 처리기 목록은 [이벤트 처리기](event-handlers.md) 문서를 참조하세요. 

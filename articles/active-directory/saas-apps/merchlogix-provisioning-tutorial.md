@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: 6fe256660dc73aa411cf06e2b56ce9ef26934e2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9be2205ad0664d58c7a2ef0c07481b1c7aa02402
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548003"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273350"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 MerchLogix 구성
 
@@ -55,7 +55,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 MerchLogix�
 
 5. 결과 패널에서 **MerchLogix**를 선택 하 고 **추가** 단추를 클릭 하 여 SaaS 응용 프로그램 목록에 MerchLogix를 추가 합니다.
 
-    ![MerchLogix 프로 비전][4]
+    ![이름 입력 텍스트 상자를 호출 하 여 교정쇄에서 추가 섹션의 스크린샷][4]
 
 ## <a name="assigning-users-to-merchlogix"></a>MerchLogix에 사용자 할당
 
@@ -88,7 +88,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-    ![MerchLogix 프로 비전](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
+    ![프로 비전 옵션이 out 인 MerchLogix-Prisioning 섹션의 스크린샷, 프로 비전 모드가 자동으로 설정 되 고 연결 테스트 옵션을 out 이라고 합니다.](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
 5. **관리자 자격 증명** 섹션에서 다음을 수행 합니다.
 

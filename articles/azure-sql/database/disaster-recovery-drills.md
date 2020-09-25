@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: e32f2bf6f353e32fe96cd3c8b109d698cd3d40ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f53a08a12c5afda8dbc3f25d9102f52b870ceea4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344580"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321665"
 ---
 # <a name="performing-disaster-recovery-drills"></a>재해 복구 훈련 수행
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "84344580"
 
 [비즈니스 연속성을 위한 애플리케이션 설계](business-continuity-high-availability-disaster-recover-hadr-overview.md)방법에 따라 연습을 실행하는 워크플로가 달라질 수 있습니다. 이 문서에서는 Azure SQL Database와 관련하여 재해 복구 훈련을 수행하기 위한 모범 사례를 설명합니다.
 
-## <a name="geo-restore"></a>지리적 복원
+## <a name="geo-restore"></a>지역 복원
 
 재해 복구 훈련을 수행할 때 잠재적인 데이터 손실을 방지하려면, 프로덕션 환경의 복사본을 만들고 이를 애플리케이션의 장애 조치(failover) 워크플로를 검사하는 데 사용하는 방법으로 훈련을 수행합니다.
 

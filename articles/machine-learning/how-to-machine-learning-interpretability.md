@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: 757646a1630443f297d4b7c538721e9facdc130c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897427"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322362"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Azure Machine Learning 모델 interpretability (미리 보기)
 
@@ -39,20 +39,11 @@ Interpretability는 회사 정책, 산업 표준 및 정부 규정 준수를 보
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Azure Machine Learning Interpretability
 
-Interpretability 클래스는 여러 SDK 패키지를 통해 사용할 수 있습니다 ( [Azure Machine Learning에 대 한 sdk 패키지를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)하는 방법 알아보기).
+Interpretability 클래스는 다음 SDK 패키지를 통해 제공 됩니다. ( [Azure Machine Learning에 대 한 sdk 패키지를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)하는 방법 알아보기)
 
-* `azureml.interpret`Microsoft에서 지 원하는 기능을 포함 하는 기본 패키지입니다.
+* `azureml.interpret`에는 Microsoft에서 지 원하는 기능이 포함 되어 있습니다.
 
-* `azureml.contrib.interpret`, 미리 보기 및 실험적 기능을 사용해 볼 수 있습니다.
-
-`pip install azureml-interpret`일반적으로 `pip install azureml-contrib-interpret` 사용 하는 경우 및를 사용 합니다.
-
-
-> [!IMPORTANT]
-> `contrib`네임 스페이스의 콘텐츠는 완전히 지원 되지 않습니다. 실험적 기능이 완성 되 면 주 네임 스페이스로 점차적으로 이동 됩니다.
-.
-
-
+`pip install azureml-interpret`일반적인 용도에 사용 합니다.
 
 ## <a name="how-to-interpret-your-model"></a>모델을 해석 하는 방법
 
@@ -71,7 +62,7 @@ SDK에서 클래스 및 메서드를 사용 하 여 다음을 수행할 수 있�
 
  `azureml-interpret` 에서는 해석 된 모델을 학습 하 고 블랙 박스 AI 시스템을 설명 하는 데 도움이 되는 오픈 소스 python 패키지인 [해석 커뮤니티](https://github.com/interpretml/interpret-community/)에서 개발한 interpretability 기술을 사용 합니다. [해석-커뮤니티](https://github.com/interpretml/interpret-community/) 는이 SDK의 지원 되는 explainers 호스트 역할을 하며 현재 다음 interpretability 기술을 지원 합니다.
 
-|Interpretability 기술|설명|형식|
+|Interpretability 기술|Description|형식|
 |--|--|--------------------|
 |SHAP 트리 설명| [Shap](https://github.com/slundberg/shap)의 tree 설명는 트리의 트리와 관련 된 다항식 TIME FAST shap 값 예측 알고리즘을 **중심으로 합니다.**|모델 관련|
 |SHAP 심층 설명| SHAP의 설명에 따라 Deep 설명 "는 [SHAP NIPS 용지](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions)에 설명 된 DeepLIFT와의 연결을 기반으로 하는 심층 학습 모델의 shap 값에 대 한 고속 근사값 알고리즘입니다. TensorFlow 백 엔드를 사용 하는 **TensorFlow** 모델 및 **keras** 모델이 지원 됩니다 (PyTorch에 대 한 예비 지원도 있습니다.).|모델 관련|

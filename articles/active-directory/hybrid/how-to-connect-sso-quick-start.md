@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295025"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>원활한 Single Sign-on Azure Active Directory: 빠른 시작
 
@@ -125,7 +125,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 1. 그룹 정책 관리 편집기 도구를 엽니다.
 2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책**은 다음과 같습니다.
 3. **사용자 구성**  >  **정책**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **internet Explorer**  >  **인터넷 제어판**  >  **보안 페이지**로 이동 합니다. 그런 다음 **영역에 사이트 할당 목록**을 선택합니다.
-    ![Single Sign-On](./media/how-to-connect-sso-quick-start/sso6.png)
+    !["사이트 간 할당 목록"이 선택 된 "보안 페이지"를 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso6.png)
 4. 정책을 사용하도록 설정한 다음, 대화 상자에서 다음 값을 입력합니다.
    - **값 이름**: Kerberos 티켓이 전달되는 Azure AD URL입니다.
    - **값**(데이터): **1**은 인트라넷 영역을 나타냅니다.
@@ -142,15 +142,15 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 5. **확인**을 선택한 후 **만들기**를 선택합니다.
 
-    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![영역 할당이 선택 된 "내용 표시" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. **사용자 구성**  >  **정책**  >  **관리 템플릿**  >  **Windows 구성 요소**  >  **internet Explorer**  >  **인터넷 제어판**  >  **보안 페이지**  >  **인트라넷 영역**으로 이동 합니다. 그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**을 선택합니다.
 
-    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso11.png)
+    !["인트라넷 영역" 페이지를 보여 주는 스크린샷 "스크립트를 통해 상태 표시줄에 대 한 업데이트 허용"이 선택 되어 있습니다.](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. 정책 설정을 활성화한 다음, **확인**을 선택합니다.
 
-    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![정책 설정이 사용 하도록 설정 된 "스크립트를 통해 상태 표시줄에 대 한 업데이트 허용" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>"그룹 정책 기본 설정" 옵션 - 자세한 단계
 
@@ -158,7 +158,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책**은 다음과 같습니다.
 3. **사용자 구성**  >  **기본 설정**  >  **Windows 설정**  >  **레지스트리**  >  **새**  >  **레지스트리 항목**으로 이동 합니다.
 
-    ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![선택한 "레지스트리" 및 "레지스트리 항목"을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. 적절한 필드에서 다음 값을 입력하고 **확인**을 클릭합니다.
    - **키 경로**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
@@ -166,7 +166,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
    - **값 형식**: ***REG_DWORD***
    - **값 데이터**: ***00000001***
  
-     ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso16.png)
+     !["새 레지스트리 속성" 창을 보여 주는 스크린샷](./media/how-to-connect-sso-quick-start/sso16.png)
  
      ![SSO(Single sign-on)](./media/how-to-connect-sso-quick-start/sso17.png)
 

@@ -4,14 +4,14 @@ description: Kubernetes 리소스와 상호 작용 하 여 Azure Portal에서 AK
 services: container-service
 author: laurenhughes
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: lahugh
-ms.openlocfilehash: 4a0acf284475f3c9119f3b9d012debad656b1faa
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661353"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335605"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Azure Portal에서 Kubernetes 리소스에 액세스 (미리 보기)
 
@@ -24,7 +24,7 @@ Azure Portal의 Kubernetes 리소스 뷰가 사용 중단에 대해 설정 된 [
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Portal에서 Kubernetes 리소스를 보려면 AKS 클러스터가 필요 합니다. 모든 클러스터가 지원 되지만 Azure Active Directory (Azure AD) 통합을 사용 하는 경우 클러스터에서 [AKS로 관리 되는 AZURE ad 통합][aks-managed-aad]을 사용 해야 합니다. 클러스터에서 레거시 Azure AD를 사용 하는 경우 포털에서 또는 [Azure CLI][cli-aad-upgrade]를 사용 하 여 클러스터를 업그레이드할 수 있습니다.
 
@@ -75,11 +75,25 @@ YAML을 편집한 후에는 **검토 + 저장**을 선택 하 고 변경 내용�
 
 Kubernetes 리소스에 액세스 하려면 AKS 클러스터, Kubernetes API 및 Kubernetes 개체에 대 한 액세스 권한이 있어야 합니다. 클러스터 관리자 또는 AKS 클러스터에 액세스할 수 있는 적절 한 권한이 있는 사용자 인지 확인 합니다. 클러스터 보안에 대 한 자세한 내용은 [AKS의 Access and identity options][concepts-identity]를 참조 하세요.
 
+>[!NOTE]
+> Azure Portal의 kubernetes 리소스 보기는 관리 되는 [aad 사용 클러스터](managed-aad.md) 또는 aad를 사용 하지 않는 클러스터 에서만 지원 됩니다. 관리 되는 AAD를 사용 하는 클러스터를 사용 하는 경우 [사용자 `kubeconfig` ](control-kubeconfig-access.md)를 끌어올 수 있는 권한 외에도 aad 사용자 또는 id에 해당 역할/역할 바인딩을 사용 하 여 kubernetes API에 액세스 해야 합니다.
+
 ### <a name="enable-resource-view"></a>리소스 뷰 사용
 
 기존 클러스터의 경우 Kubernetes 리소스 뷰를 사용 하도록 설정 해야 할 수 있습니다. 리소스 보기를 사용 하도록 설정 하려면 포털에서 클러스터에 대 한 메시지를 따릅니다.
 
 :::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Kubernetes 리소스 뷰를 사용 하도록 설정 하는 메시지를 Azure Portal 합니다." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+
+> [!TIP]
+> Api [**server 권한이 부여 된 IP 범위**](api-server-authorized-ip-ranges.md) 에 대 한 AKS 기능을 추가 하 여 api 서버 액세스를 방화벽의 공용 끝점 으로만 제한할 수 있습니다. 이러한 클러스터에 대 한 또 다른 옵션은 `--api-server-authorized-ip-ranges` 로컬 클라이언트 컴퓨터 또는 IP 주소 범위 (포털을 검색 하는)에 대 한 액세스를 포함 하도록 업데이트 하는 것입니다. 이 액세스를 허용하려면 컴퓨터의 공용 IPv4 주소가 필요합니다. 아래 명령을 사용 하거나 인터넷 브라우저에서 "내 IP 주소는 무엇입니까"를 검색 하 여이 주소를 찾을 수 있습니다.
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+
+```
 
 ## <a name="next-steps"></a>다음 단계
 

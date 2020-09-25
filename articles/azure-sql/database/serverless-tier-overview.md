@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein, carlrab
-ms.date: 9/8/2020
-ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.reviewer: sstein
+ms.date: 9/17/2020
+ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565092"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321410"
 ---
 # <a name="azure-sql-database-serverless"></a>서버를 사용 하지 않는 Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ SQL Database 서버리스는 현재 vCore 구매 모델의 5세대 하드웨어�
 
 서버 리스 서버와 프로 비전 된 계산 데이터베이스 모두에서 사용 가능한 모든 메모리를 사용 하는 경우 캐시 항목이 제거 될 수 있습니다.
 
-CPU 사용률이 낮을 경우 활성 캐시 사용률은 사용 패턴에 따라 높게 유지 되 고 메모리 확보를 방지할 수 있습니다.  또한 이전 사용자 작업에 응답 하는 정기적인 백그라운드 프로세스로 인해 사용자 작업이 중지 된 후에는 추가 지연이 발생할 수 있습니다.  예를 들어 삭제 작업은 삭제 하도록 표시 된 고스트 레코드를 생성 하지만, 데이터 페이지를 캐시로 읽을 수 있는 고스트 정리 프로세스를 실행할 때까지 물리적으로 삭제 되지 않습니다.
+CPU 사용률이 낮을 경우 활성 캐시 사용률은 사용 패턴에 따라 높게 유지 되 고 메모리 확보를 방지할 수 있습니다.  또한 이전 사용자 작업에 응답 하는 정기적인 백그라운드 프로세스로 인해 사용자 작업이 중지 된 후에는 추가 지연이 발생할 수 있습니다.  예를 들어 삭제 작업 및 QDS 정리 태스크는 삭제 되도록 표시 된 고스트 레코드를 생성 하지만, 데이터 페이지를 캐시로 읽을 수 있는 고스트 정리 프로세스를 실행할 때까지 물리적으로 삭제 되지 않습니다.
 
 #### <a name="cache-hydration"></a>캐시 하이드레이션
 

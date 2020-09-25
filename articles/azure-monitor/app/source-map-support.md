@@ -5,13 +5,13 @@ ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: de475cbd7cbb0d8dbcda026109b0387da14bedff
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386795"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335134"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>JavaScript 응용 프로그램에 대 한 소스 맵 지원
 
@@ -78,7 +78,7 @@ Application Insights 리소스에 연결 된 저장소 계정 또는 Blob 컨테
 
 1. 해당 하는 원본 맵이 올바른 blob 컨테이너에 업로드 되었는지 확인 합니다.
 2. 원본 맵 파일에 매핑되는 JavaScript 파일의 이름이로 지정 되어 있는지 확인 `.map` 합니다.
-    - 예를 들어는 `/static/js/main.4e2ca5fa.chunk.js` 이라는 blob을 검색 합니다.`main.4e2ca5fa.chunk.js.map`
+    - 예를 들어는 `/static/js/main.4e2ca5fa.chunk.js` 이라는 blob을 검색 합니다. `main.4e2ca5fa.chunk.js.map`
 3. 브라우저의 콘솔에서 오류를 기록 하 고 있는지 확인 합니다. 지원 티켓에이를 포함 합니다.
 
 ## <a name="next-steps"></a>다음 단계

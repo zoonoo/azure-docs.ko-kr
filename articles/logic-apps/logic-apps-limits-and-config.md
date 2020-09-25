@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/03/2020
-ms.openlocfilehash: d5db970d4ed3c3988c96a2c0c33775bcbfb00d92
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/16/2020
+ms.openlocfilehash: 41a43abc3ebae0dad6892bebd06cf995cce143f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986013"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322413"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -283,7 +283,7 @@ ISE의 통합 계정 제한을 초과하여 추가하는 통합 계정마다 추
 
 | 속성 | 다중 테넌트 제한 | 통합 서비스 환경 제한 | 메모 |
 |------|--------------------|---------------------------------------|-------|
-| AS2 | v2 - 100MB<br>v1 - 50MB | v2 - 200MB <br>v1 - 50MB | 디코딩 및 인코딩에 적용됩니다. |
+| AS2 | v2 - 100MB<br>v1-250MB | v2 - 200MB <br>v1-250MB | 디코딩 및 인코딩에 적용됩니다. |
 | X12 | 50MB | 50MB | 디코딩 및 인코딩에 적용됩니다. |
 | EDIFACT | 50MB | 50MB | 디코딩 및 인코딩에 적용됩니다. |
 ||||

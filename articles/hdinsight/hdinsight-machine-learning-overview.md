@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 6c7f50e4ba3803b5cb929b75f5ad1127f7f063d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3c050b414e322f08fd45a569a22cea2db591b99
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75931675"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302692"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
 
@@ -41,7 +41,7 @@ Azure Machine Learning은 예측 분석을 모델링 하는 도구와 예측 모
 
 ![Microsoft Azure machine learning 개요](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
-[Hive 쿼리](../machine-learning/team-data-science-process/create-features-hive.md)를 사용하여 HDInsight Hadoop 클러스터의 데이터에 대한 기능을 만듭니다. *기능 엔지니어링*은 원시 데이터로부터 학습 프로세스를 용이하게 하는 기능을 만들어 학습 알고리즘의 예측 능력을 향상시키도록 합니다. [데이터 가져오기 모듈](../machine-learning/studio/import-data.md)을 사용 하 여 Azure Machine Learning Studio (클래식)에서 HiveQL 쿼리를 실행 하 고 Hive에서 처리 되 고 blob 저장소에 저장 된 데이터에 액세스할 수 있습니다.
+[Hive 쿼리](../machine-learning/team-data-science-process/create-features-hive.md)를 사용하여 HDInsight Hadoop 클러스터의 데이터에 대한 기능을 만듭니다. *기능 엔지니어링*은 원시 데이터로부터 학습 프로세스를 용이하게 하는 기능을 만들어 학습 알고리즘의 예측 능력을 향상시키도록 합니다. [데이터 가져오기 모듈](../machine-learning/classic/import-data.md)을 사용 하 여 Azure Machine Learning Studio (클래식)에서 HiveQL 쿼리를 실행 하 고 Hive에서 처리 되 고 blob 저장소에 저장 된 데이터에 액세스할 수 있습니다.
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive 도구 키트
 
@@ -49,7 +49,7 @@ Azure Machine Learning은 예측 분석을 모델링 하는 도구와 예측 모
 
 딥 러닝에서 자체의 작업을 진행하도록 지원하기 위해 Microsoft는 추가 비용이 없고 사용하기 쉬운 오픈 소스 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)를 개발했습니다. 이 도구 키트는 광범위한 Microsoft 제품, 규모에 맞게 딥 러닝을 배포해야 하는 요구 사항이 있는 전세계 회사 및 최신의 알고리즘과 기술에 관심이 있는 학생들이 사용하고 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 ### <a name="scenarios"></a>시나리오
 

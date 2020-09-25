@@ -9,14 +9,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc9123735ef65bec89e99a14d25cba881be306fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77648515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297473"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 마이그레이션 작업 모니터링
 이 문서에서는 데이터베이스 수준 및 테이블 수준 모두에서 마이그레이션의 진행률을 모니터링하는 방법을 알아봅니다.
@@ -54,7 +54,7 @@ ms.locfileid: "77648515"
       <td>마이그레이션이 실패했습니다. 전체 오류 메시지에 대한 마이그레이션 세부 정보에서 ‘오류 세부 정보 참조’ 링크를 선택합니다.</td>
     </tr>
     <tr>
-      <td rowspan="4" class="Status"><strong>Status</strong></td>
+      <td rowspan="4" class="Status"><strong>상태</strong></td>
       <td>초기화 중</td>
       <td>DMS가 마이그레이션 파이프라인을 설정하고 있습니다.</td>
     </tr>
@@ -67,7 +67,7 @@ ms.locfileid: "77648515"
       <td>마이그레이션이 완료되었습니다.</td>
     </tr>
     <tr>
-      <td>실패</td>
+      <td>Failed</td>
       <td>마이그레이션이 실패했습니다. 마이그레이션 오류를 확인하려면 마이그레이션 세부 정보를 클릭합니다.</td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@ ms.locfileid: "77648515"
       <td>오류 세부 정보를 표시하려면 링크를 클릭합니다.</td>
     </tr>
     <tr>
-      <td rowspan="1" class="duration"><strong>Duration</strong></td>
+      <td rowspan="1" class="duration"><strong>기간</strong></td>
       <td>해당 없음</td>
       <td>초기화 중인 마이그레이션 작업부터 완료된 마이그레이션 또는 오류가 발생한 마이그레이션까지의 총 시간입니다.</td>
     </tr>
@@ -134,7 +134,7 @@ ms.locfileid: "77648515"
 | **상태 - 동기화 중**      | 지속적인 동기화가 실행 중입니다. |
 | **삽입**      | 대상에 적용된 행의 CDC 삽입 수입니다.      |
 | **Update** | 대상에 적용된 행의 CDC 업데이트 수입니다.      |
-| **삭제**      | 대상에 적용된 행의 CDC 삭제 수입니다. |
+| **Delete**      | 대상에 적용된 행의 CDC 삭제 수입니다. |
 | **적용된 합계**      | 대상에 적용된 행의 전체 CDC 업데이트, 삽입 및 삭제 수입니다. |
 | **데이터 오류** | 이 테이블에서 발생한 데이터 오류의 수입니다. 오류의 예에는 *511: 최대 허용 행 크기 %d보다 큰 %d 크기의 행을 만들 수 없음, 8114: %ls에서 %ls로의 데이터 형식 변환 오류*가 있습니다.  고객은 오류 세부 정보를 보려면 Azure 대상의 dms_apply_exceptions 테이블에서 쿼리해야 합니다.    |
 

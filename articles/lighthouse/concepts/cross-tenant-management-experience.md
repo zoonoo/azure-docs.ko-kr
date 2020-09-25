@@ -1,14 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 70356fd3856e517ca8fb3414a4ae2a8ccf28326e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336635"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -48,7 +48,7 @@ Azure PowerShell [AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSu
 
 [Azure Arc](../../azure-arc/index.yml):
 
-- 규모에 맞게 하이브리드 서버 관리- [Azure Arc 사용 서버 (미리 보기)](../../azure-arc/servers/overview.md):
+- 규모에 맞게 하이브리드 서버 관리- [Azure Arc 사용 서버](../../azure-arc/servers/overview.md):
   - Azure에서 위임 된 구독 및/또는 리소스 그룹에 [연결 된 azure 외부의 Windows Server 또는 Linux 컴퓨터를 관리 합니다](../../azure-arc/servers/onboard-portal.md) .
   - Azure Policy 및 태그 지정과 같은 Azure 구문을 사용하여 연결된 컴퓨터 관리
   - 동일한 정책 집합이 고객의 하이브리드 환경에서 적용 되는지 확인 합니다.

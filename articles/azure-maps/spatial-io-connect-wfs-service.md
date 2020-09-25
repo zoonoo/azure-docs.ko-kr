@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 890bf60ac794740716817094a60f2b4cb4ba5835
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: ab6eb4851b9f2574fc235056f8f512edcb2054bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282792"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321784"
 ---
 # <a name="connect-to-a-wfs-service"></a>WFS 서비스에 연결
 
@@ -22,7 +22,7 @@ ms.locfileid: "87282792"
 
 클래스에서 지원 되는 기능은 다음과 `WfsClient` 같습니다.
 
-- 지원 되는 버전: `1.0.0` , `1.1.0` 및`2.0.0`
+- 지원 되는 버전: `1.0.0` , `1.1.0` 및 `2.0.0`
 - 지원 되는 필터 연산자: 이진 비교, 논리, 수학, 값 및 `bbox` 입니다.
 - 는를 사용 하 여 요청을 수행 `HTTP GET` 합니다.
 - 지원 되는 작업:

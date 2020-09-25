@@ -3,12 +3,12 @@ title: 다중 전환 대화-QnA Maker
 description: 프롬프트와 컨텍스트를 사용 하 여 한 질문에서 다른 질문으로의 봇에 대해 다중 턴 이라고 하는 여러 턴을 관리 합니다. 멀티 턴은 이전 질문의 컨텍스트가 다음 질문 및 답변에 영향을 주는 앞뒤로 대화를 수행할 수 있는 기능입니다.
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: eff2eccac55bc05784636ecd9d2dfb784f86c4ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229349"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322838"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>추가 작업 프롬프트를 사용하여 여러 대화 설정 만들기
 
@@ -52,7 +52,7 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
 다중 턴 구조는 Url, PDF 파일 또는 .DOCX 파일 에서만 유추할 수 있습니다. 구조체의 예제를 보려면 [Microsoft Surface 사용자 수동 PDF 파일](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf)의 이미지를 확인 하세요.
 
-![! [사용자 설명서 구조의 예] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+:::image type="content" source="../media/conversational-context/import-file-with-conversational-structure.png" alt-text="스크린샷 사용자 설명서의 구조 예를 보여 줍니다." lightbox="../media/conversational-context/import-file-with-conversational-structure.png":::
 
 ### <a name="building-your-own-multi-turn-document"></a>사용자 고유의 다중 턴 문서 빌드
 
@@ -92,7 +92,7 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
 다중 턴 컨텍스트는 첫 번째 열에 표시 됩니다.
 
-![! ["Context (PREVIEW)" 열] (.. /media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="강조 표시 된 컨텍스트 섹션을 보여 주는 스크린샷" lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 위의 그림에서 **#1** 는 현재 질문을 의미 하는 열의 굵은 텍스트를 나타냅니다. 부모 질문은 행의 맨 위 항목입니다. 아래 질문은 연결 된 질문 및 답변 쌍입니다. 이러한 항목은 선택할 수 있으므로 다른 컨텍스트 항목으로 바로 이동할 수 있습니다.
 
@@ -167,7 +167,7 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
     부모 질문은 선택 항목 중 하나로 새 질문을 표시 합니다.
 
-    ![! [두 질문에 대 한 컨텍스트 열은 후속 프롬프트 관계를 나타냄] (.. /media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="스크린샷은 두 질문에 대 한 컨텍스트 열을 보여 줍니다 .이는 추가 작업 프롬프트 관계를 나타냅니다." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. 추가 작업 프롬프트를 추가한 후 위쪽 탐색 모음에서 **저장 및 학습** 을 선택 합니다.
 

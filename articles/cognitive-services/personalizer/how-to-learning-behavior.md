@@ -1,14 +1,16 @@
 ---
 title: 학습 동작 구성
 description: 수련 여는 Personalizer 서비스 및 해당 기계 학습 기능을 안정적으로 제공 하 고 온라인 트래픽 위험 없이 서비스에서 확인할 수 있는 정보를 전송 하는 메트릭을 제공 합니다.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: af38500fc439964f9928cdd08aae2380ee0d0a8a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 10e98cd2f0ad4793aa43f9bb3316c522b44f1d2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599590"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303542"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Personalizer 학습 동작 구성
 

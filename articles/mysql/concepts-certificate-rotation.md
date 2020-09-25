@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 4599346cd4538151f6c758253f1f1bf29bafdcbf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d9faa9dcd664f5dc8b7b0b633eedd19431a4b826
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985784"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322209"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Azure Database for MySQL에 대 한 루트 CA 변경의 변경 내용 이해
 
@@ -30,6 +30,7 @@ ms.locfileid: "90985784"
 SSL/TLS를 사용 하 고 루트 인증서를 확인 하는 모든 응용 프로그램은 루트 인증서를 업데이트 해야 합니다. 연결 문자열을 검토 하 여 연결에서 루트 인증서를 확인 하는지 여부를 식별할 수 있습니다.
 -   연결 문자열에 `sslmode=verify-ca` 또는가 포함 `sslmode=verify-full` 된 경우 인증서를 업데이트 해야 합니다.
 -   연결 문자열에,, 또는가 포함 되어 있으면 `sslmode=disable` `sslmode=allow` `sslmode=prefer` `sslmode=require` 인증서를 업데이트할 필요가 없습니다. 
+-  Java 커넥터를 사용 하는 경우 연결 문자열에 useSSL = false 또는 requireSSL = false가 포함 되어 있으면 인증서를 업데이트할 필요가 없습니다.
 -   연결 문자열에서 sslmode를 지정 하지 않는 경우 인증서를 업데이트할 필요가 없습니다.
 
 연결 문자열을 추상화 하는 클라이언트를 사용 하는 경우 클라이언트의 설명서를 검토 하 여 인증서를 확인 하는지 여부를 파악 합니다.
@@ -83,7 +84,7 @@ Azure Database for MySQL sslmode를 이해 하려면 [SSL 모드 설명을](conc
 *   잘못 된 인증서/해지 된 인증서
 *   연결 시간이 초과됨
 
-## <a name="frequently-asked-questions"></a>자주 묻는 질문
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. SSL/TLS를 사용 하지 않는 경우 여전히 루트 CA를 업데이트 해야 하나요?
 SSL/TLS를 사용 하지 않는 경우 아무 작업도 필요 하지 않습니다. 

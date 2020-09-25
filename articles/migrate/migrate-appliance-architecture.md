@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스 아키텍처
 description: 서버 평가 및 마이그레이션에 사용되는 Azure Migrate 어플라이언스에 대해 간략히 설명합니다.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514573"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322260"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Azure Migrate 어플라이언스 아키텍처
 
@@ -72,7 +72,7 @@ Azure Migrate 어플라이언스가 사용되는 시나리오는 다음과 같�
 2. **메타 데이터 및 성능 데이터를 수집**합니다.
     - 어플라이언스는 CIM(Common Information Model) (CIM) 세션을 사용 하 여 5985 포트의 Hyper-v 호스트에서 Hyper-v VM 데이터를 수집 합니다.
     - 어플라이언스는 기본적으로 포트 443와 통신 하 여 vCenter Server에서 VMware VM 데이터를 수집 합니다.
-3. **데이터 보내기**: 어플라이언스는 Azure Migrate 서버 평가를 위해 수집 된 데이터를 보내고 SSL 포트 443을 통해 서버 마이그레이션을 Azure Migrate 합니다. 어플라이언스는 인터넷을 통해 Azure에 연결 하거나 공용/Microsoft 피어 링과 함께 Express 경로를 사용할 수 있습니다.
+3. **데이터 보내기**: 어플라이언스는 Azure Migrate 서버 평가를 위해 수집 된 데이터를 보내고 SSL 포트 443을 통해 서버 마이그레이션을 Azure Migrate 합니다. 어플라이언스는 인터넷을 통해 또는 Express 경로를 통해 Azure에 연결할 수 있습니다 (Microsoft 피어 링 필요).
     - 성능 데이터의 경우 어플라이언스는 실시간 사용률 데이터를 수집 합니다.
         - 성능 데이터는 각 성능 메트릭에 대해 VMware에 대해 20 초 마다 수집 되 고 Hyper-v의 경우 30 초 마다 수집 됩니다.
         - 수집 된 데이터는 10 분 동안 단일 데이터 요소를 만들기 위해 롤업 됩니다.

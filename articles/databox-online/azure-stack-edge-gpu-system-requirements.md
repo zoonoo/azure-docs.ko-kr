@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Edge Pro 시스템 요구 사항 | Microsoft Docs
-description: Azure Stack Edge Pro의 소프트웨어 및 네트워킹 요구 사항에 대해 알아봅니다.
+title: Microsoft Azure Stack Edge 시스템 요구 사항 | Microsoft Docs
+description: Edge 솔루션 및 Azure Stack에 연결 하는 클라이언트에 대 한 시스템 요구 사항에 대해 알아봅니다 Microsoft Azure Stack.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 091d272ff00982a0d0a5ae44885a04cc62d7a4b4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899148"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320730"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>GPU를 사용 하는 Azure Stack Edge Pro에 대 한 시스템 요구 사항 
 

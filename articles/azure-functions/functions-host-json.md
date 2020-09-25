@@ -3,12 +3,12 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 400ff6f9db421552b2b2736ea48265deefe676ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055294"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321852"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대한 host.json 참조 
 
@@ -21,7 +21,7 @@ ms.locfileid: "87055294"
 > [!NOTE]
 > 이 문서는 Azure Functions 2.x 이상 버전에 대 한 것입니다.  Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md)를 참조하세요.
 
-다른 함수 앱 구성 옵션은 [앱 설정](functions-app-settings.md) (배포 된 앱의 경우) 또는 파일 [에local.settings.js](functions-run-local.md#local-settings-file) (로컬 개발용)에서 관리 됩니다.
+다른 함수 앱 구성 옵션은 [앱 설정](functions-app-settings.md) (배포 된 앱의 경우) 또는 파일 [ 에local.settings.js](functions-run-local.md#local-settings-file) (로컬 개발용)에서 관리 됩니다.
 
 바인딩과 관련 된 host.js의 구성은 함수 앱의 각 함수에 동일 하 게 적용 됩니다. 
 
@@ -29,7 +29,7 @@ ms.locfileid: "87055294"
 
 ## <a name="sample-hostjson-file"></a>샘플 host.json 파일
 
-다음 샘플에서는 버전 2.x에 대 한 파일 *에host.js* 모든 가능한 옵션이 지정 되어 있습니다 (내부용 으로만 사용 되는 경우 제외).
+다음 샘플에서는 버전 2.x에 대 한 파일 * 에host.js* 모든 가능한 옵션이 지정 되어 있습니다 (내부용 으로만 사용 되는 경우 제외).
 
 ```json
 {
@@ -151,7 +151,7 @@ ms.locfileid: "87055294"
 | enableLiveMetrics | true | 라이브 메트릭 수집을 사용 하도록 설정 합니다. |
 | enableDependencyTracking | true | 종속성 추적을 사용 합니다. |
 | enablePerformanceCountersCollection | true | Kudu 성능 카운터 수집을 사용 하도록 설정 합니다. |
-| liveMetricsInitializationDelay | 00:00:15 | 내부에서만 사용합니다. |
+| liveMetricsInitializationDelay | 00:00:15 | 내부 전용입니다. |
 | httpAutoCollectionOptions | 해당 없음 | [Applicationinsights](#applicationinsightshttpautocollectionoptions)를 참조 하세요. |
 | snapshotConfiguration | 해당 없음 | [Applicationinsights](#applicationinsightssnapshotconfiguration)를 참조 하세요. |
 
@@ -162,11 +162,11 @@ ms.locfileid: "87055294"
 | isEnabled | true | 샘플링을 사용 여부를 설정합니다. | 
 | maxTelemetryItemsPerSecond | 20 | 각 서버 호스트에서 초당 기록한 원격 분석 항목의 수입니다. 앱이 여러 호스트에서 실행 되는 경우이 값을 줄여서 전체 대상 트래픽 요금 내에 유지 합니다. | 
 | evaluationInterval | 01:00:00 | 현재 원격 분석 속도를 다시 평가 하는 간격입니다. 평가는 이동 평균으로 수행됩니다. 원격 분석이 급격히 증가하는 경우 이 간격을 줄일 수 있습니다. |
-| initialSamplingPercentage| 1.0 | 백분율을 동적으로 변경 하기 위해 샘플링 프로세스가 시작 될 때 적용 되는 초기 샘플링 비율입니다. 디버깅 하는 동안 값을 줄이지 마십시오. |
+| initialSamplingPercentage| 100.0 | 백분율을 동적으로 변경 하기 위해 샘플링 프로세스가 시작 될 때 적용 되는 초기 샘플링 비율입니다. 디버깅 하는 동안 값을 줄이지 마십시오. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | 샘플링 비율 값이 변경 되 면이 속성은 이후 Application Insights에서 더 많은 데이터를 캡처하기 위해 샘플링 비율을 다시 발생 시킬 수 있는 시간을 결정 합니다. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | 샘플링 비율 값이 변경 되 면이 속성은 더 적은 데이터를 캡처하기 위해 샘플링 비율을 다시 낮출 수 있는 Application Insights 시간을 결정 합니다. |
 | minSamplingPercentage | 0.1 | 샘플링 비율이 변경 됨에 따라이 속성은 허용 되는 최소 샘플링 비율을 결정 합니다. |
-| maxSamplingPercentage | 0.1 | 샘플링 비율이 변경 됨에 따라이 속성은 허용 되는 최대 샘플링 비율을 결정 합니다. |
+| maxSamplingPercentage | 100.0 | 샘플링 비율이 변경 됨에 따라이 속성은 허용 되는 최대 샘플링 비율을 결정 합니다. |
 | movingAverageRatio | 1.0 | 이동 평균 계산에서 가중치는 가장 최근의 값에 할당됩니다. 1보다 작거나 같은 값을 사용합니다. 값이 작을수록 알고리즘은 갑작스런 변화에 덜 반응합니다. |
 | excludedTypes | null | 샘플링 하지 않으려는 형식의 세미콜론으로 구분 된 목록입니다. 인식 되는 형식은 `Dependency` , `Event` , `Exception` , `PageView` , `Request` 및 `Trace` 입니다. 지정 된 형식의 모든 인스턴스가 전송 됩니다. 지정 되지 않은 형식이 샘플링 됩니다. |
 | includedTypes | null | 샘플링할 형식의 세미콜론으로 구분 된 목록입니다. 빈 목록은 모든 형식을 의미 합니다. `excludedTypes`여기에 나열 된 재정의 형식에 나열 된 유형입니다. 인식 되는 형식은 `Dependency` , `Event` , `Exception` , `PageView` , `Request` 및 `Trace` 입니다. 지정 된 형식의 인스턴스가 샘플링 됩니다. 지정 되지 않았거나 암시 되지 않은 형식은 샘플링 없이 전송 됩니다. |

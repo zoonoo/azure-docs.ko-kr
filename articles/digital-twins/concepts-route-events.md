@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 96da89fa8d7e4783afa11807534bbaeba52b79fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334262"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -69,15 +69,22 @@ Azure Digital 쌍는 **이벤트 경로** 를 사용 하 여 서비스 외부의
 
 ## <a name="create-an-event-route"></a>이벤트 경로 만들기
  
-다음 [.net (c #) SDK](how-to-use-apis-sdks.md) 호출을 사용 하 여 클라이언트 응용 프로그램에서 이벤트 경로를 만듭니다. 
+이벤트 경로는 클라이언트 응용 프로그램에 생성 됩니다. 이 작업을 수행 하는 한 가지 방법은 `CreateEventRoute` [.Net (c #) SDK](how-to-use-apis-sdks.md) 호출을 사용 하는 것입니다. 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
+EventRoute er = new EventRoute("endpointName");
+er.Filter("true"); //Filter allows all messages
+await client.CreateEventRoute("routeName", er);
 ```
 
-* 는 `endpoint-name` 이벤트 허브, Event Grid 또는 Service Bus 등의 끝점을 식별 합니다. 이러한 끝점은 구독에서 생성 되 고이 등록을 호출 하기 전에 제어 평면 Api를 사용 하 여 Azure Digital Twins에 연결 되어야 합니다.
+1. 먼저 `EventRoute` 개체가 만들어지고 생성자는 끝점의 이름을 사용 합니다. 이 `endpointName` 필드는 이벤트 허브, Event Grid 또는 Service Bus 등의 끝점을 식별 합니다. 이러한 끝점은 구독에서 생성 되 고이 등록을 호출 하기 전에 제어 평면 Api를 사용 하 여 Azure Digital Twins에 연결 되어야 합니다.
 
-또한에 전달 되는 이벤트 경로 개체는 `EventRoutes.Add` [ **필터** 매개 변수](./how-to-manage-routes-apis-cli.md#filter-events)를 사용 하 여이 경로를 따르는 이벤트 유형을 제한 하는 데 사용할 수 있습니다.
+2. 이벤트 경로 개체에는이 경로를 따르는 이벤트 유형을 제한 하는 데 사용할 수 있는 [**필터**](./how-to-manage-routes-apis-cli.md#filter-events) 필드도 있습니다. 필터는 `true` 추가 필터링 없이 경로를 사용 하도록 설정 합니다. 필터는 `false` 경로를 사용 하지 않도록 설정 합니다. 
+
+3. 그런 다음이 이벤트 경로 개체는 `CreateEventRoute` 경로에 대 한 이름과 함께에 전달 됩니다.
+
+> [!TIP]
+> 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
 
 [Azure Digital Twins CLI](how-to-use-cli.md)를 사용 하 여 경로를 만들 수도 있습니다.
 

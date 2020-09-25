@@ -3,12 +3,12 @@ title: 규정 비준수의 원인 확인
 description: 리소스가 규정 비준수인 경우 여러 가지 원인이 있을 수 있습니다. 규정 비준수를 일으킨 원인을 확인하는 방법을 알아보세요.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 102a1a6a9573c73b4c1158a3c412be233e1a12b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648574"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334177"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -106,9 +106,15 @@ Azure 리소스가 정책 규칙을 준수하지 않는 것으로 확인되면 �
 
 ## <a name="compliance-details-for-guest-configuration"></a>게스트 구성에 대한 준수 세부 정보
 
-_게스트 구성_ 범주의 _auditIfNotExists_ 정책의 경우 VM 내에서 여러 설정이 평가될 수 있으며, 설정별 세부 정보를 확인해야 합니다. 예를 들어 암호 정책 목록에 대한 감사를 수행하고 그 중 하나에만 _규정 비준수_ 상태가 있는 경우 준수하지 않는 특정 암호 정책 및 이유를 알아야 합니다.
+_게스트 구성_ 범주의 _auditIfNotExists_ 정책에 대해 가상 컴퓨터 내에서 여러 설정이 평가 될 수 있으며, 설정 별 세부 정보를 확인 해야 합니다. 예를 들어 암호 정책 목록에 대한 감사를 수행하고 그 중 하나에만 _규정 비준수_ 상태가 있는 경우 준수하지 않는 특정 암호 정책 및 이유를 알아야 합니다.
 
-또한 VM에 직접 로그인할 수 있는 액세스 권한이 없을 수도 있지만 VM이 _규정 비준수_인 이유를 보고해야 합니다.
+또한 가상 머신에 직접 로그인 할 수 있는 액세스 권한이 없을 수도 있지만, 가상 머신이 _비규격_인 이유를 보고 해야 합니다.
+
+## <a name="compliance-details-for-resource-provider-modes"></a>리소스 공급자 모드에 대 한 호환성 세부 정보
+
+[리소스 공급자 모드](../concepts/definition-structure.md#resource-manager-modes)를 사용 하는 할당의 경우 _비준수_ 리소스를 선택 하 여 자세히 보기를 엽니다. **구성 요소 호환성** 탭에는 _비규격_ **구성 요소** 및 **구성 요소 ID**를 표시 하는 할당 된 정책에서 리소스 공급자 모드와 관련 된 추가 정보가 있습니다.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="리소스 공급자 모드 할당에 대 한 구성 요소 호환성 탭의 스크린샷 및 호환성 세부 정보입니다." border="false":::
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -214,7 +220,7 @@ _시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩�
 - [Azure Policy 샘플](../samples/index.md)에서 예제를 검토합니다.
 - [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 생성하는](programmatically-create.md) 방법을 이해합니다.
+- [프로그래밍 방식으로 정책을 만드는](programmatically-create.md) 방법을 이해합니다.
 - [규정 준수 데이터를 가져오는](get-compliance-data.md) 방법을 알아봅니다.
 - [규정 비준수 리소스를 수정](remediate-resources.md)하는 방법을 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

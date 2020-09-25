@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359962"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265472"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Azure Active Directory를 사용 하 여 응용 프로그램에 대 한 그룹 클레임 구성
 
@@ -78,11 +78,11 @@ Active Directory 그룹에 대 한 그룹 이름을 내보내도록 Azure Active
 
 **그룹 클레임 추가** 를 클릭 합니다.  
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+!["그룹 클레임 추가"가 선택 된 "사용자 특성 & 클레임" 페이지를 보여 주는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
 라디오 단추를 사용 하 여 토큰에 포함 해야 하는 그룹을 선택 합니다.
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+!["보안 그룹"이 선택 된 "그룹 클레임" 창을 보여 주는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | 선택 영역 | 설명 |
 |----------|-------------|
@@ -93,15 +93,15 @@ Active Directory 그룹에 대 한 그룹 이름을 내보내도록 Azure Active
 
 예를 들어 사용자가 구성원으로 속한 모든 보안 그룹을 내보내려면 보안 그룹을 선택 합니다.
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+!["보안 그룹"을 선택 하 고 "원본 특성" 드롭다운 메뉴를 열고 "그룹 클레임" 창을 보여 주는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
 Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory 특성을 사용 하 여 그룹을 내보내려면 드롭다운에서 필요한 형식을 선택 합니다. Active Directory에서 동기화 된 그룹만 클레임에 포함 됩니다.
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+!["원본 특성" 드롭다운 메뉴를 표시 하는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 응용 프로그램에 할당 된 그룹만 내보내려면 **응용 프로그램에 할당 된 그룹** 을 선택 합니다.
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+!["응용 프로그램에 할당 된 그룹"이 선택 된 "그룹 클레임" 창을 보여 주는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
 응용 프로그램에 할당 된 그룹은 토큰에 포함 됩니다.  사용자가 멤버로 속해 있는 다른 그룹은 생략 됩니다.  이 옵션을 선택 하면 중첩 된 그룹이 포함 되지 않으며 사용자는 응용 프로그램에 할당 된 그룹의 직접 구성원 이어야 합니다.
 
@@ -115,11 +115,11 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
 
 그룹 클레임 이름 사용자 지정: 선택 하는 경우 그룹 클레임에 대해 다른 클레임 유형을 지정할 수 있습니다.   이름 필드에 클레임 유형을 입력 하 고 네임 스페이스 필드에 클레임에 대 한 선택적 네임 스페이스를 입력 합니다.
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+!["그룹 클레임 이름 사용자 지정"을 선택 하 고 "이름" 및 "네임 스페이스" 값을 입력 하 여 "고급 옵션" 섹션을 보여 주는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
 일부 응용 프로그램에는 ' 역할 ' 클레임에 표시 되는 그룹 멤버 자격 정보가 필요 합니다. ' 그룹에 역할 클레임 내보내기 ' 상자를 선택 하 여 필요에 따라 사용자 그룹을 역할로 내보낼 수 있습니다.
 
-![클레임 UI](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+!["그룹 클레임 이름 사용자 지정" 및 "그룹을 역할 클레임으로 내보내기"가 선택 된 "고급 옵션" 섹션을 보여 주는 스크린샷](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
 > 그룹 데이터를 역할로 내보내는 옵션이 사용 되 면 그룹만 역할 클레임에 표시 됩니다.  사용자가 할당 된 모든 응용 프로그램 역할은 역할 클레임에 표시 되지 않습니다.
@@ -191,7 +191,7 @@ Azure AD Objectid 대신 Active Directory에서 동기화 된 Active Directory �
    > [!NOTE]
    > "emit_as_roles"를 사용하는 경우 사용자가 할당되어 있는 모든 구성된 애플리케이션 역할이 역할 클레임에 표시되지 않습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 Dnsdomainnamenameformat 형식의 OAuth 액세스 토큰에서 그룹을 그룹 이름으로 내보냅니다.
 

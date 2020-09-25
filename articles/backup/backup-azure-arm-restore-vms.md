@@ -4,12 +4,12 @@ description: 지역 간 복원 기능을 포함 하 여 Azure Portal를 사용 �
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: d2b5c00df9f9b5b41877fe21181f11ea7fe76084
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 90179ee78569f1c7b0a7bdf4b4da031c26f01783
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986538"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271871"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원 하는 방법
 
@@ -163,9 +163,6 @@ CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습�
 ![복원 지점 선택](./media/backup-azure-arm-restore-vms/sec-rp.png)
 
 ![복원 구성](./media/backup-azure-arm-restore-vms/rest-config.png)
-
->[!NOTE]
->보조 지역의 가상 네트워크는 고유 하 게 할당 해야 하며 해당 리소스 그룹의 다른 Vm에는 사용할 수 없습니다.
 
 ![진행 중인 복원 알림 트리거](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 

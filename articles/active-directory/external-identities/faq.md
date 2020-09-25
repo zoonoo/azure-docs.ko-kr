@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 03/19/2020
+ms.date: 09/23/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909478"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274047"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 협업 FAQ
 
@@ -68,7 +68,7 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질�
 3. **관리**에서 **보안**을 선택 합니다.
 4. **보호**아래에서 **조건부 액세스**를 선택 합니다. **새 정책**을 선택합니다.
 5. **새로 만들기** 페이지의 **이름** 텍스트 상자에 정책의 이름을 입력 합니다 (예: "게스트가 포털에 액세스 하지 못하도록 차단").
-6. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
+6. **할당**에서 **사용자 및 그룹**을 선택합니다.
 7. **포함** 탭에서 **사용자 및 그룹 선택**을 선택 하 고 **모든 게스트 및 외부 사용자 (미리 보기)** 를 선택 합니다.
 9. **완료**를 선택합니다.
 10. **새로 만들기** 페이지의 **할당** 섹션에서 **클라우드 앱 또는 작업**을 선택 합니다.
@@ -116,6 +116,9 @@ UI, PowerShell 스크립트 또는 API를 사용하여 파트너 조직의 다�
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>B2C에서는 이러한 종류의 계정을 사용했는데 Azure AD B2B에서는 gmail.com 및 outlook.com 전자 메일 주소를 허용하지 않나요?
 지원되는 ID라는 측면에서 B2B 및 B2C(business-to-consumer) 협업 간의 차이점을 제거하고 있습니다. 사용되는 ID로 B2B를 사용할지 아니면 B2C를 사용할지 결정하는 것은 좋은 기준이 아닙니다. 협업 옵션을 선택하는 방법에 대한 정보는 [Azure Active Directory에서 B2B 협업과 B2C 비교](compare-with-b2c.md)를 참조하세요.
+
+### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>Azure AD B2C 로컬 계정이 B2B 공동 작업을 위해 Azure AD 테 넌 트에 초대 될 수 있나요?
+아니요. Azure AD B2C 로컬 계정은 Azure AD B2C 테 넌 트에 로그인 하는 데만 사용할 수 있습니다. 계정을 사용 하 여 Azure AD 테 넌 트에 로그인 할 수 없습니다. B2B 공동 작업을 위해 Azure AD 테 넌 트에 Azure AD B2C 로컬 계정을 초대 하는 것은 지원 되지 않습니다.
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>어떤 애플리케이션 및 서비스에서 Azure B2B 게스트 사용자를 지원하나요?
 모든 Azure AD 통합 응용 프로그램은 Azure B2B 게스트 사용자를 지원할 수 있지만, 게스트 사용자를 인증 하려면 테 넌 트로 설정 된 끝점을 사용 해야 합니다. 게스트 사용자가 앱을 인증할 때 발행되는 SAML 토큰에서 [클레임을 사용자 지정](claims-mapping.md)해야 할 수도 있습니다. 

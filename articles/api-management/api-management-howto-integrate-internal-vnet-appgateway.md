@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: eb2ce196687b2ca6a762a879570e4f8ebac788df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 778c65b9ec42c27ea0ae1530c1ba7fa9739fbc3c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025118"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321886"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
@@ -35,7 +35,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -91,7 +91,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 > 
 > Application Gateway WAF 규칙: 포털의 기능을 중단 시킬 수 있음
 > 
-> - `920330``931130` `942100` `942110` `942180` `942200` `942260` `942370` `949110` `980130` 관리 모드의 경우,,,,,,,,
+> - `920300``920330` `931130` `942100` `942110` `942180` `942200` `942260` `942340` `942370` 관리 모드의 경우,,,,,,,,
 > - `942200``942260` `942370` `942430` `942440` 게시 된 포털에 대 한,,,
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager에 대한 리소스 그룹 만들기

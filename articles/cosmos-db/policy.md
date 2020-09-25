@@ -1,23 +1,26 @@
 ---
 title: Azure Policy를 사용하여 Azure Cosmos DB 리소스에 대한 거버넌스 및 제어 구현
 description: Azure Policy를 사용하여 Azure Cosmos DB 리소스에 대한 거버넌스 및 제어를 구현하는 방법을 알아봅니다.
-author: plzm
-ms.author: paelaz
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84431997"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320900"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Azure Policy를 사용하여 Azure Cosmos DB 리소스에 대한 거버넌스 및 제어 구현
 
 [Azure Policy](../governance/policy/overview.md)는 조직의 거버넌스 표준을 적용하고, 리소스 호환성을 평가하고, 자동 수정을 구현하는 데 도움이 됩니다. 일반적인 사용 사례에는 보안, 비용 관리, 구성 일관성이 포함됩니다.
 
 Azure Policy는 기본 제공 정책 정의를 제공합니다. 기본 제공 정책 정의로 해결되지 않는 시나리오에 대해서는 사용자 지정 정책 정의를 만들 수 있습니다. 자세한 내용은 [Azure Policy 설명서](../governance/policy/overview.md)를 참조하세요.
+
+> [!IMPORTANT]
+> Azure Policy는 Azure 서비스에 대 한 리소스 공급자 수준에서 적용 됩니다. Cosmos DB Sdk는 데이터베이스에 대 한 대부분의 관리 작업을 수행 하 고 Cosmos DB 리소스 공급자를 우회 하는 컨테이너 및 처리량 리소스를 사용 하 여 Azure Policy를 사용 하 여 만든 정책을 무시할 수 있습니다. 정책의 적용을 보장 하기 위해 [Azure Cosmos DB sdk를 변경 하지 못하게 합니다](role-based-access-control.md#prevent-sdk-changes) .
 
 ## <a name="assign-a-built-in-policy-definition"></a>기본 제공 정책 정의 할당
 
